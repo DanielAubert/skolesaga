@@ -1,0 +1,202 @@
+[
+  {
+    "question": "Hvilken testobservator brukes for å teste en påstand om variansen $\\sigma^2$?",
+    "options": [
+      "$\\frac{(n-1)S^2}{\\sigma_0^2}$, som er $\\chi^2_{n-1}$ under $H_0$",
+      "$\\frac{\\bar{X}-\\mu_0}{S/\\sqrt{n}}$, som er $t_{n-1}$ under $H_0$",
+      "$\\frac{\\hat{p}-p_0}{\\sqrt{p_0(1-p_0)/n}}$, som er $N(0,1)$",
+      "$\\frac{\\bar{D}}{S_D/\\sqrt{n}}$, som er $t_{n-1}$"
+    ],
+    "explanation": "Variansen testes med kjikvadrat-observatoren $(n-1)S^2/\\sigma_0^2 \\sim \\chi^2_{n-1}$."
+  },
+  {
+    "question": "Hvorfor er forkastningsområdet for varianstesten asymmetrisk?",
+    "options": [
+      "Kjikvadratfordelingen er skjev, så halene krever ulike kvantiler",
+      "Fordi variansen alltid er positiv og derfor ensidig",
+      "Fordi frihetsgraden er $n-1$ og ikke $n$",
+      "Fordi standardavviket estimeres separat fra forventningen"
+    ],
+    "explanation": "$\\chi^2$-fordelingen er ikke symmetrisk, så et tosidig område bruker to ulike kvantiler."
+  },
+  {
+    "question": "Når bør du bruke en eksakt binomisk test i stedet for normaltilnærmingen?",
+    "options": [
+      "Når $np_0 < 5$ eller $n(1-p_0) < 5$ (forutsetningen feiler)",
+      "Når utvalget er stort og andelen nær 0,5",
+      "Når standardavviket er kjent på forhånd",
+      "Når testen er tosidig i stedet for ensidig"
+    ],
+    "explanation": "Feiler gyldighetssjekken for normaltilnærmingen, brukes binomisk-fordelingen direkte."
+  },
+  {
+    "question": "Hva kjennetegner et parret design?",
+    "options": [
+      "Målingene kommer i naturlige par, f.eks. samme enhet før og etter",
+      "To uavhengige grupper med hver sin varians sammenlignes",
+      "Antall suksesser telles blant $n$ uavhengige forsøk",
+      "Variansen testes mot en oppgitt referanseverdi"
+    ],
+    "explanation": "Parret betyr at hver observasjon i den ene serien hører til én bestemt i den andre."
+  },
+  {
+    "question": "Hvordan analyseres parrede data korrekt?",
+    "options": [
+      "Som ETT utvalg av differanser $D_i$ med observator $\\bar{D}/(S_D/\\sqrt{n}) \\sim t_{n-1}$",
+      "Som to uavhengige utvalg med pooled varians og $t_{n_1+n_2-2}$",
+      "Med kjikvadrat-observatoren $(n-1)S^2/\\sigma_0^2$",
+      "Med normaltilnærming for en andel"
+    ],
+    "explanation": "Parret design reduseres til én-utvalgs t-test på differansene."
+  },
+  {
+    "question": "Hvor mange frihetsgrader har den pooled to-utvalgs t-testen?",
+    "options": [
+      "$n_1 + n_2 - 2$",
+      "$n_1 + n_2$",
+      "$n_1 + n_2 - 1$",
+      "$\\min(n_1, n_2) - 1$"
+    ],
+    "explanation": "To gjennomsnitt estimeres, så to trekkes fra: $n_1+n_2-2$."
+  },
+  {
+    "question": "Hvilken antagelse ligger bak pooled varians $S_p^2$?",
+    "options": [
+      "At de to gruppene har lik varians",
+      "At de to gruppene har lik forventning",
+      "At observasjonene er parret",
+      "At variansen er kjent på forhånd"
+    ],
+    "explanation": "Pooling forutsetter felles varians i de to gruppene — en antagelse som skal oppgis."
+  },
+  {
+    "question": "Hva er testobservatoren i fortegnstesten under $H_0$?",
+    "options": [
+      "$U = $ antall positive differanser $\\sim \\text{binomisk}(n, \\tfrac{1}{2})$",
+      "$\\bar{D}/(S_D/\\sqrt{n}) \\sim t_{n-1}$",
+      "$(n-1)S^2/\\sigma_0^2 \\sim \\chi^2_{n-1}$",
+      "$\\sum D_i \\sim N(0, \\sigma^2)$"
+    ],
+    "explanation": "Under $H_0$ er opp/ned like sannsynlig, så antall positive er binomisk$(n, 1/2)$."
+  },
+  {
+    "question": "Hvorfor kan en parret t-test og en fortegnstest på samme data gi ulikt svar?",
+    "options": [
+      "Fortegnstesten ignorerer størrelsen på differansene og har lavere styrke",
+      "Fortegnstesten bruker en annen $\\alpha$ enn t-testen",
+      "t-testen krever at dataene er binomiske",
+      "Fortegnstesten er alltid tosidig, t-testen alltid ensidig"
+    ],
+    "explanation": "Fortegnstesten bruker bare fortegn (mindre informasjon), så den er robust men mindre følsom."
+  },
+  {
+    "question": "Hva gjør du med par som har differanse nøyaktig null i en fortegnstest?",
+    "options": [
+      "Forkaster dem før $n$ telles",
+      "Teller dem som positive",
+      "Teller dem som negative",
+      "Fordeler dem likt på positive og negative"
+    ],
+    "explanation": "Nuller gir ingen retningsinformasjon og tas ut før binomisk-modellen settes opp."
+  },
+  {
+    "question": "For $H_1: p > p_0$ i en eksakt binomisk test med $x_{\\text{obs}} = 5$, hva er p-verdien?",
+    "options": [
+      "$P(X \\ge 5) = 1 - P(X \\le 4)$",
+      "$P(X > 5) = 1 - P(X \\le 5)$",
+      "$P(X \\le 5)$",
+      "$P(X = 5)$"
+    ],
+    "explanation": "Halen inkluderer det observerte utfallet: $P(X \\ge x_{\\text{obs}})$."
+  },
+  {
+    "question": "En kjikvadrat-test for varians er spesielt følsom for:",
+    "options": [
+      "Avvik fra normalfordelingen i dataene",
+      "Om utvalget er parret eller ikke",
+      "Valget mellom p-verdi og forkastningsområde",
+      "Antall desimaler i svaret"
+    ],
+    "explanation": "Variansestimatets fordeling avhenger sterkt av normalitet; testen er lite robust."
+  },
+  {
+    "question": "Aug20 la en felle der før/etter-data ble presentert. Hva er den riktige testen?",
+    "options": [
+      "Parret t-test på differansene",
+      "To-utvalgs pooled t-test",
+      "Kjikvadrat-test for variansen",
+      "Eksakt Poisson-test"
+    ],
+    "explanation": "Samme enheter målt to ganger er parret; å bruke to-utvalgstest er fellen."
+  },
+  {
+    "question": "Hva tester fortegnstesten strengt tatt?",
+    "options": [
+      "Om differansenes median er null",
+      "Om differansenes varians er null",
+      "Om de to variansene er like",
+      "Om andelen defekte er under en grense"
+    ],
+    "explanation": "Fortegnstesten gjelder medianen (om opp/ned er like sannsynlig), ikke forventningen."
+  },
+  {
+    "question": "Hva er riktig kvantilbruk for $H_1: \\sigma^2 > \\sigma_0^2$ på nivå $\\alpha$?",
+    "options": [
+      "Forkast hvis observatoren $> \\chi^2_{n-1,\\alpha}$ (øvre hale)",
+      "Forkast hvis observatoren $< \\chi^2_{n-1,1-\\alpha}$ (nedre hale)",
+      "Forkast hvis $|$observator$| > \\chi^2_{n-1,\\alpha/2}$",
+      "Forkast hvis observatoren $> t_{n-1,\\alpha}$"
+    ],
+    "explanation": "Ensidig oppover legger hele $\\alpha$ i øvre hale: $\\chi^2_{n-1,\\alpha}$."
+  },
+  {
+    "question": "Hvorfor er et parret design ofte mer følsomt enn to uavhengige utvalg?",
+    "options": [
+      "Parringen fjerner variasjonen mellom enhetene, så bare endringen står igjen",
+      "Parringen øker antall frihetsgrader",
+      "Parringen gjør dataene normalfordelte",
+      "Parringen fjerner behovet for en forutsetningssjekk"
+    ],
+    "explanation": "Hver enhet er sin egen kontroll, så mellom-enhet-variasjon elimineres."
+  },
+  {
+    "question": "En eksakt Poisson-test er aktuell når:",
+    "options": [
+      "Raten $\\lambda_0$ er lav, så normaltilnærmingen er upålitelig",
+      "Antall forsøk $n$ er fast og stort",
+      "Variansen skal testes mot en referanse",
+      "To grupper skal sammenlignes"
+    ],
+    "explanation": "Ved lav rate brukes Poisson-fordelingen direkte i stedet for normaltilnærming."
+  },
+  {
+    "question": "I to-utvalgstesten er standardfeilen til $\\bar{X}_1 - \\bar{X}_2$:",
+    "options": [
+      "$S_p\\sqrt{1/n_1 + 1/n_2}$",
+      "$S_p\\sqrt{n_1 + n_2}$",
+      "$S_p/\\sqrt{n_1 + n_2}$",
+      "$S_D/\\sqrt{n}$"
+    ],
+    "explanation": "Med pooled varians blir standardfeilen $S_p\\sqrt{1/n_1+1/n_2}$."
+  },
+  {
+    "question": "Hva er en fordel med fortegnstesten framfor den parrede t-testen?",
+    "options": [
+      "Den krever ikke at differansene er normalfordelte",
+      "Den har alltid høyere styrke",
+      "Den bruker størrelsen på differansene mer effektivt",
+      "Den trenger færre observasjoner for samme styrke"
+    ],
+    "explanation": "Fortegnstesten er robust mot ikke-normalitet fordi den bare bruker fortegn."
+  },
+  {
+    "question": "Hvilken frihetsgrad har parret t-test med $n = 14$ par (ingen nuller)?",
+    "options": [
+      "13",
+      "14",
+      "26",
+      "12"
+    ],
+    "explanation": "Parret t-test på differansene har $n-1 = 13$ frihetsgrader."
+  }
+]

@@ -1,0 +1,252 @@
+[
+  {
+    "question": "Hvordan er eksponensialfordelingen parametrisert i denne boka?",
+    "options": [
+      "Med forventningen $\\beta$, slik at $E(X)=\\beta$",
+      "Med raten $\\lambda$, slik at $E(X)=\\lambda$",
+      "Med variansen $v$, slik at $E(X)=\\sqrt{v}$",
+      "Med medianen $m$, slik at $E(X)=m\\ln 2$"
+    ],
+    "explanation": "Boka bruker forventnings-formen: $f(x)=\\tfrac{1}{\\beta}e^{-x/\\beta}$ med $E(X)=\\beta$ og $\\text{Var}(X)=\\beta^2$."
+  },
+  {
+    "question": "Hva er halesannsynligheten $P(X>x)$ for $\\text{eksp}(\\beta)$?",
+    "options": [
+      "$e^{-x/\\beta}$, altså $1-F(x)$",
+      "$1-e^{-x/\\beta}$, altså $F(x)$",
+      "$\\tfrac{1}{\\beta}e^{-x/\\beta}$, altså $f(x)$",
+      "$e^{-\\beta x}$, med rate i eksponenten"
+    ],
+    "explanation": "Siden $F(x)=1-e^{-x/\\beta}$, er $P(X>x)=1-F(x)=e^{-x/\\beta}$."
+  },
+  {
+    "question": "Hva sier minneløshet for eksponensialfordelingen?",
+    "options": [
+      "$P(X>s+t\\mid X>t)=P(X>s)$",
+      "$P(X>s+t\\mid X>t)=P(X>s+t)$",
+      "$P(X>s+t\\mid X>t)=P(X>t)$",
+      "$P(X>s+t\\mid X>t)=P(X<s)$"
+    ],
+    "explanation": "En brukt komponent er «like god som ny»: fortiden glemmes, så bare den ekstra tiden $s$ teller."
+  },
+  {
+    "question": "Hvilke kontinuerlige fordelinger er minneløse?",
+    "options": [
+      "Bare eksponensialfordelingen",
+      "Eksponensial og Weibull sammen",
+      "Alle vanlige levetidsfordelinger",
+      "Både gamma og eksponensial"
+    ],
+    "explanation": "Minneløshet er unik for eksponensialfordelingen; for alle andre må betingede sannsynligheter regnes eksplisitt."
+  },
+  {
+    "question": "Hva er forventning og varians for $\\text{eksp}(\\beta)$?",
+    "options": [
+      "$E=\\beta$ og $\\text{Var}=\\beta^2$",
+      "$E=\\beta^2$ og $\\text{Var}=\\beta$",
+      "$E=1/\\beta$ og $\\text{Var}=1/\\beta^2$",
+      "$E=\\beta$ og $\\text{Var}=\\beta$"
+    ],
+    "explanation": "For eksponensial er $E=\\beta$ og $\\text{Var}=\\beta^2$, så standardavviket er også $\\beta$."
+  },
+  {
+    "question": "Hva er forventning og varians for uniform fordeling på $(a,b)$?",
+    "options": [
+      "$E=(a+b)/2$ og $\\text{Var}=(b-a)^2/12$",
+      "$E=(b-a)/2$ og $\\text{Var}=(a+b)^2/12$",
+      "$E=(a+b)/2$ og $\\text{Var}=(b-a)/12$",
+      "$E=ab$ og $\\text{Var}=(b-a)^2/2$"
+    ],
+    "explanation": "Uniform på $(a,b)$: midtpunktet er forventningen, og variansen er $(b-a)^2/12$."
+  },
+  {
+    "question": "Hvordan regner du en sannsynlighet for en uniform fordeling?",
+    "options": [
+      "Som et lengdeforhold, $(b-c)/(b-a)$",
+      "Ved å integrere $e^{-x}$ over intervallet",
+      "Som forholdet $(b-c)^2/(b-a)^2$",
+      "Ved oppslag i en standard normaltabell"
+    ],
+    "explanation": "Tettheten er konstant, så sannsynligheten for et delintervall er andelen av lengden det utgjør."
+  },
+  {
+    "question": "Hva er gammafordelingen $\\text{gamma}(n,\\beta)$?",
+    "options": [
+      "Summen av $n$ uavhengige eksponensiale $(\\beta)$",
+      "Produktet av $n$ uavhengige eksponensiale $(\\beta)$",
+      "En eksponensial med $n$ ganger så stor rate",
+      "En uniform fordeling delt opp i $n$ intervaller"
+    ],
+    "explanation": "Gamma er ventetiden til den $n$-te hendelsen: en sum av $n$ eksponensiale, med $E=n\\beta$ og $\\text{Var}=n\\beta^2$."
+  },
+  {
+    "question": "Hvordan er Weibullfordelingen definert?",
+    "options": [
+      "Ved CDF-en $F(x)=1-e^{-(x/\\theta)^k}$",
+      "Ved tettheten $f(x)=\\tfrac{1}{\\theta}e^{-x/\\theta}$",
+      "Ved punktsannsynligheten $\\theta^k e^{-\\theta}/k!$",
+      "Ved forventningen $\\theta$ og formen $k=1$"
+    ],
+    "explanation": "Weibull oppgis via CDF-en $F(x)=1-e^{-(x/\\theta)^k}$; sannsynligheter og kvantiler regnes rett fra den."
+  },
+  {
+    "question": "Er Weibullfordelingen med $k=2$ minneløs?",
+    "options": [
+      "Nei; betingede sannsynligheter må regnes eksplisitt",
+      "Ja; alle levetidsfordelinger er jo minneløse",
+      "Ja; Weibull-fordelingen er alltid minneløs",
+      "Nei; men utelukkende fordi skalaen $\\theta>1$ her"
+    ],
+    "explanation": "Bare $k=1$ (eksponensial) er minneløs. For $k=2$ er feilraten økende, så fortiden påvirker fremtiden."
+  },
+  {
+    "question": "Hva er den viktige kjikvadrat-koblingen for eksponensielle data?",
+    "options": [
+      "$2X/\\beta\\sim\\chi^2_2$",
+      "$X/\\beta\\sim\\chi^2_1$",
+      "$X\\beta\\sim\\chi^2_2$",
+      "$2X\\beta\\sim\\chi^2_n$"
+    ],
+    "explanation": "Er $X\\sim\\text{eksp}(\\beta)$, er $2X/\\beta\\sim\\chi^2_2$; for et utvalg blir frihetsgraden $2n$."
+  },
+  {
+    "question": "Hvordan finner du medianen til en kontinuerlig fordeling?",
+    "options": [
+      "Løse den kumulative likningen $F(m)=0{,}5$",
+      "Løse tetthetslikningen $f(m)=0{,}5$ for $m$",
+      "Sette medianen $m$ lik forventningen $E(X)$",
+      "Løse likningen $F(m)=1$ for grenseverdien"
+    ],
+    "explanation": "Medianen er 0,5-kvantilen: løs $F(m)=0{,}5$. Å sette $f(m)=0{,}5$ er en klassisk feil."
+  },
+  {
+    "question": "Hva er første steg for en egendefinert tetthet med ukjent konstant $c$?",
+    "options": [
+      "Normere: bestem $c$ fra $\\int f\\,dx=1$",
+      "Derivere tettheten for å finne $F(x)$",
+      "Sette $c=1$ og regne videre uten mer",
+      "Finne medianen ved likningen $F(m)=0{,}5$"
+    ],
+    "explanation": "Normeringen bestemmer $c$; uten riktig $c$ blir fordelingsfunksjon, sannsynligheter og momenter alle gale."
+  },
+  {
+    "question": "Hva gjør du når oppgaven gir en ukjent fordeling med oppgitt CDF?",
+    "options": [
+      "Bruker standardteknikken direkte fra $F$",
+      "Antar at den er eksponensiell og minneløs",
+      "Slår fordelingen opp i formelsamlingen",
+      "Tilnærmer den med en normalfordeling"
+    ],
+    "explanation": "Er $F$ oppgitt, trengs ikke navnet: $P(X>x)=1-F(x)$ og kvantiler ved $F(x_p)=p$."
+  },
+  {
+    "question": "Hvordan henger eksponensialfordelingen sammen med en Poisson-prosess?",
+    "options": [
+      "Den er ventetiden mellom hendelser, $\\beta=1/\\lambda$",
+      "Den er antallet hendelser i et gitt tidsintervall",
+      "Den er summen av samtlige hendelsestidspunkter",
+      "Den er kvadratet av prosessens rate $\\lambda$"
+    ],
+    "explanation": "I en Poisson-prosess med rate $\\lambda$ er tiden mellom hendelser eksponensial med forventning $1/\\lambda$."
+  },
+  {
+    "question": "Kan tettheten $f(x)$ til en kontinuerlig fordeling overstige 1?",
+    "options": [
+      "Ja; bare arealer under $f$ må ligge i $[0,1]$",
+      "Nei; en tetthet kan aldri overstige verdien 1",
+      "Nei; det ville bryte med normeringskravet",
+      "Ja; men utelukkende for Weibull-fordelinger"
+    ],
+    "explanation": "$f$ er en tetthet, ikke en sannsynlighet. For uniform på $(0,0{,}5)$ er $f=2$; det er arealet som teller."
+  },
+  {
+    "question": "Hva er medianen til en eksponensialfordeling med forventning $\\beta$?",
+    "options": [
+      "$\\beta\\ln 2\\approx 0{,}693\\,\\beta$, mindre enn $\\beta$",
+      "$\\beta$, altså nøyaktig lik selve forventningen $E(X)$",
+      "$2\\beta$, altså dobbelt så stor som forventningen",
+      "$\\beta/2$, altså nøyaktig halve forventningen"
+    ],
+    "explanation": "$F(m)=0{,}5$ gir $m=\\beta\\ln 2\\approx 0{,}693\\beta$; medianen er mindre enn forventningen fordi fordelingen er høyreskjev."
+  },
+  {
+    "question": "Hva forteller Weibulls formparameter $k$?",
+    "options": [
+      "Hvordan feilraten utvikler seg med alderen",
+      "Den forventede levetiden mer eller mindre direkte",
+      "Antall komponenter som inngår i systemet",
+      "Sannsynligheten for umiddelbar svikt ved start"
+    ],
+    "explanation": "$k=1$ gir konstant rate (eksponensial), $k>1$ økende (slitasje), $k<1$ avtakende rate."
+  },
+  {
+    "question": "Hva er halesannsynligheten $P(X>x)$ for Weibull?",
+    "options": [
+      "$e^{-(x/\\theta)^k}$, altså $1-F(x)$",
+      "$1-e^{-(x/\\theta)^k}$, altså $F(x)$",
+      "$e^{-x/\\theta}$, som for eksponensial",
+      "$(x/\\theta)^k$, uten eksponentialledd"
+    ],
+    "explanation": "Siden $F(x)=1-e^{-(x/\\theta)^k}$, er $P(X>x)=e^{-(x/\\theta)^k}$."
+  },
+  {
+    "question": "Hvordan finner du en betinget levetid $P(X>t+s\\mid X>t)$ generelt?",
+    "options": [
+      "Dele halene: $P(X>t+s)\\,/\\,P(X>t)$",
+      "Trekke fra: $P(X>t+s)-P(X>t)$ direkte",
+      "Gange halene: $P(X>t+s)\\cdot P(X>t)$",
+      "Bruke minneløshet: alltid lik $P(X>s)$"
+    ],
+    "explanation": "Betinget sannsynlighet med $\\{X>t+s\\}\\subseteq\\{X>t\\}$ gir brøken av halene; minneløshet gjelder kun eksponensial."
+  },
+  {
+    "question": "Hva er frihetsgraden i eksponensialens kjikvadrat-pivotal for et utvalg $n$?",
+    "options": [
+      "$2n$",
+      "$n$",
+      "$n-1$",
+      "$n-2$"
+    ],
+    "explanation": "$2\\sum X_i/\\beta\\sim\\chi^2_{2n}$ — alltid $2n$ i eksponensialtilfellet, ikke $n$ eller $n-1$."
+  },
+  {
+    "question": "Hvorfor er eksponensialfordelingen høyreskjev?",
+    "options": [
+      "Medianen er mindre enn forventningen, med lang hale",
+      "Medianen er større enn forventningen, med lang hale",
+      "Fordelingen er symmetrisk om sin egen forventning",
+      "Tettheten er størst for de store verdiene av $x$"
+    ],
+    "explanation": "Median $\\approx 0{,}693\\beta<\\beta$ og en lang hale mot høyre gir høyreskjevhet; typisk og gjennomsnittlig levetid skiller lag."
+  },
+  {
+    "question": "Hva er forventning og varians for gamma$(n,\\beta)$?",
+    "options": [
+      "$E=n\\beta$ og $\\text{Var}=n\\beta^2$",
+      "$E=\\beta/n$ og $\\text{Var}=\\beta^2/n$",
+      "$E=n\\beta$ og $\\text{Var}=n^2\\beta$",
+      "$E=\\beta^n$ og $\\text{Var}=\\beta^{2n}$"
+    ],
+    "explanation": "Som sum av $n$ uavhengige eksponensiale: forventningene og variansene legges sammen, $E=n\\beta$, $\\text{Var}=n\\beta^2$."
+  },
+  {
+    "question": "Hva brukes uniform fordeling på $(0,1)$ til utover ren modellering?",
+    "options": [
+      "Som råstoff for simulering med inversjonsmetoden",
+      "Som den eneste gyldige modellen for levetider",
+      "Til å definere selve kjikvadratfordelingen",
+      "Til å regne betingede normalsannsynligheter"
+    ],
+    "explanation": "Setter du $U\\sim U(0,1)$ inn i $F^{-1}$, får du en trekning fra en vilkårlig fordeling — grunnlaget for simulering."
+  },
+  {
+    "question": "Hva er spesialtilfellet $k=1$ av Weibullfordelingen?",
+    "options": [
+      "Eksponensialfordelingen",
+      "Uniform fordeling",
+      "Kjikvadratfordelingen",
+      "Gamma med $n=2$"
+    ],
+    "explanation": "Med $k=1$ blir $F(x)=1-e^{-x/\\theta}$, altså eksponensial med $\\beta=\\theta$ og konstant feilrate."
+  }
+]

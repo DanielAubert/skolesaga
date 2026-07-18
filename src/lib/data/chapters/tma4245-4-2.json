@@ -1,0 +1,262 @@
+{
+  "id": "tma4245-4-2",
+  "courseId": "tma4245",
+  "chapterNumber": "4.2",
+  "title": "Drill: eksponensialens kjikvadrat-apparat",
+  "description": "Den hyppigste vanskelige gjengangeren i hele arkivet: vis at $2X/\\beta \\sim \\chi^2_2$, løft til $2\\sum X_i/\\beta \\sim \\chi^2_{2n}$ — og gjør det på autopilot.",
+  "estimatedMinutes": 80,
+  "competenceGoals": [
+    "utlede med fordelingsfunksjonsteknikken at $2X/\\beta$ er kjikvadratfordelt med 2 frihetsgrader",
+    "løfte til pivotalen $2\\sum X_i/\\beta \\sim \\chi^2_{2n}$ med riktig frihetsgrad via MGF-produktregelen",
+    "potens- eller log-transformere Weibull-, Gumbel- og Pareto-data til eksponensial før apparatet brukes"
+  ],
+  "content": [
+    {
+      "id": "tma4245-4-2-tip",
+      "type": "tip",
+      "title": "Eksamensvinkel",
+      "content": "**Dette er bokas signaturdrill — den hyppigste *vanskelige* gjengangeren i hele arkivet.**\n\n- Transformasjonen $2X/\\beta \\sim \\chi^2_2$ og pivotalen $2\\sum X_i/\\beta \\sim \\chi^2_{2n}$ går igjen i **minst 9 sett** (Nov18, Mai21, Mai22, Aug22, Des22, Aug23, Aug24, Des25, Mai26). En **pivotal** er en størrelse bygget av data og en ukjent parameter, som har en fordeling *uten* ukjente parametre — akkurat det som skal til for å lage et konfidensintervall.\n- Prioritet: **perfekt** (det høyeste nivået) — dette er A-kandidatens signaturferdighet og broen til de eksakte konfidensintervallene i Del 6 og de eksakte testene i Del 7.\n- Samme oppskrift gjenbrukes på **Weibull-, Gumbel- og Pareto-data**: en potens- eller log-transformasjon gjør dem om til eksponensial(1) først, deretter kjører du apparatet.\n\n**Hvor poengene sitter (fra løsningsforslagene):** i **ulikhetshåndteringen** i CDF-steget, i **MGF-entydigheten** når du identifiserer summen, og fremfor alt i **frihetsgradene: $2n$, ikke $n$**. Des23 tester eksplisitt forskjellen på frihetsgrader når $\\hat{\\beta}$ erstatter $\\beta$.\n\n**Formelsamlingen** (hjelpemiddelkode C) har $\\chi^2$-kvantiltabellen — men *utledningen* av at pivotalen er $\\chi^2_{2n}$ må du gjøre selv. Det er ren teknikk, ikke oppslag."
+    },
+    {
+      "id": "tma4245-4-2-forkunnskaper",
+      "type": "text",
+      "content": "**Forkunnskaper:** Dette drillkapitlet forutsetter de tre teknikkene fra **[kap. 4.1](/bok/tma4245/tma4245-4-1)**: fordelingsfunksjonsteknikken (CDF-metoden), MGF-produktregelen med entydighetsargumentet, og — som råstoff — eksponensial- og kjikvadratfordelingen fra **[kap. 2.3](/bok/tma4245/tma4245-2-3)** (husk at $2X/\\beta \\sim \\chi^2_2$ ble *forhåndsvarslet* der; her utleder vi det).\n\nDu bør kunne at $\\chi^2_2$ er en eksponensialfordeling med forventning 2 (så $F_{\\chi^2_2}(y) = 1 - e^{-y/2}$), og at MGF-en til eksponensial$(\\beta)$ er $(1 - \\beta t)^{-1}$ mens MGF-en til $\\chi^2_\\nu$ er $(1 - 2t)^{-\\nu/2}$. Ingen ny teori — bare tempo og presisjon på den samme utledningen, på mange varianter."
+    },
+    {
+      "id": "tma4245-4-2-oppskrift",
+      "type": "text",
+      "content": "## Løsningsoppskriften (fire trinn)\n\nUansett hvordan oppgaven er kledd, følger kjikvadrat-apparatet **samme fire trinn**:\n\n**1. Vis $2X/\\beta \\sim \\chi^2_2$ med CDF-metoden.** For $X \\sim \\text{eksp}(\\beta)$, sett $Y = 2X/\\beta$. Da er, for $y > 0$,\n$$F_Y(y) = P\\!\\left(\\frac{2X}{\\beta} \\le y\\right) = P\\!\\left(X \\le \\frac{\\beta y}{2}\\right) = 1 - e^{-(\\beta y/2)/\\beta} = 1 - e^{-y/2}.$$\nDette er fordelingsfunksjonen til en eksponensial med forventning 2, altså $\\chi^2_2$. **Pass på ulikhetsretningen** — $g(x) = 2x/\\beta$ er voksende, så ulikheten snur ikke.\n\n**2. Løft til summen med MGF-produktregelen.** Hver $2X_i/\\beta \\sim \\chi^2_2$ har MGF $(1 - 2t)^{-1}$. For uavhengige $X_1, \\ldots, X_n$:\n$$M_{2\\sum X_i/\\beta}(t) = \\prod_{i=1}^{n}(1 - 2t)^{-1} = (1 - 2t)^{-n},$$\nsom er MGF-en til $\\chi^2_{2n}$. Ved entydighet: $2\\sum_{i=1}^{n} X_i/\\beta \\sim \\chi^2_{2n}$. **Frihetsgradene er $2n$, ikke $n$** — det er faktoren 2 fra hver observasjon.\n\n**3. Generaliser via potens-/log-løft.** Er dataene **Weibull** med $F(x) = 1 - e^{-(x/\\theta)^k}$, så er $(X/\\theta)^k \\sim \\text{eksp}(1)$ — potens-transformér *først*, så er du tilbake til eksponensialtilfellet: $2\\sum (X_i/\\theta)^k \\sim \\chi^2_{2n}$. Samme grep for **Gumbel** og **Pareto** med et oppgitt hint om transformasjonen.\n\n**4. Pek fremover.** Dette er nettopp **pivotalen** som gir et *eksakt* konfidensintervall for $\\beta$ i kap. 6.2 og en *eksakt* test i Del 7-kjeden — fordi $\\chi^2_{2n}$ ikke inneholder den ukjente $\\beta$. Utledningen du driller her, er selve broen inn i inferensen."
+    },
+    {
+      "id": "tma4245-4-2-ex-case",
+      "type": "example",
+      "title": "Gjennomregnet eksamenscase (med sensornotater)",
+      "problem": "Levetidene $X_1, \\ldots, X_{12}$ (i tusen timer) til et kretskort er uavhengige og eksponensialfordelte med forventning $\\beta$.\n\n**a)** Vis ved fordelingsfunksjonsteknikken at $2X_1/\\beta$ er kjikvadratfordelt med 2 frihetsgrader.\n\n**b)** Angi med begrunnelse fordelingen til $2\\sum_{i=1}^{12} X_i/\\beta$.\n\n**c)** Forklar med én setning hvorfor denne størrelsen er en pivotal.",
+      "solution": "**a) CDF-metoden (trinn 1).** La $Y = 2X_1/\\beta$. Funksjonen $g(x) = 2x/\\beta$ er voksende, så ulikheten snur ikke. For $y > 0$:\n$$F_Y(y) = P\\!\\left(\\frac{2X_1}{\\beta} \\le y\\right) = P\\!\\left(X_1 \\le \\frac{\\beta y}{2}\\right) = 1 - e^{-(\\beta y/2)/\\beta} = 1 - e^{-y/2}.$$\nDette er fordelingsfunksjonen til en eksponensial med forventning 2, som *er* $\\chi^2_2$. Altså $2X_1/\\beta \\sim \\chi^2_2$.\n\n> *Sensornotat:* poenget sitter i overgangen $P(2X_1/\\beta \\le y) = P(X_1 \\le \\beta y/2)$ — vis at $g$ er voksende, så leseren ser at ulikheten *ikke* snur. Legg merke til at $\\beta$ kanselleres i eksponenten; det er derfor størrelsen blir parameterfri.\n\n**b) MGF-produktregelen (trinn 2).** Hver $2X_i/\\beta \\sim \\chi^2_2$ med MGF $(1 - 2t)^{-1}$, og variablene er uavhengige, så\n$$M_{2\\sum X_i/\\beta}(t) = \\prod_{i=1}^{12}(1 - 2t)^{-1} = (1 - 2t)^{-12}.$$\nDette er MGF-en til $\\chi^2_{24}$. Ved **entydighet** (MGF-en bestemmer fordelingen): $2\\sum_{i=1}^{12} X_i/\\beta \\sim \\chi^2_{24}$.\n\n> *Sensornotat:* frihetsgraden er $2n = 2 \\cdot 12 = 24$, **ikke** $n = 12$. Dette er den vanligste enkeltfeilen. Og entydighetsargumentet må stå eksplisitt — ellers har du bare regnet ut en funksjon.\n\n**c)** Størrelsen $2\\sum X_i/\\beta$ er en **pivotal** fordi den er bygget av data og $\\beta$, men fordelingen $\\chi^2_{24}$ ikke inneholder $\\beta$ (eller andre ukjente) — nettopp det som lar oss snu den til et konfidensintervall for $\\beta$ i kap. 6.2.\n\n— naturlig pausepunkt — nå driller du selv, på nye varianter."
+    },
+    {
+      "id": "tma4245-4-2-l1",
+      "type": "exercise",
+      "exercise": {
+        "id": "tma4245-4-2-l1",
+        "number": "1",
+        "type": "classic",
+        "difficulty": "lett",
+        "task": "(Innstegsoppgave — kjernesteget.) $X$ er eksponensialfordelt med forventning $\\beta$. La $Y = 2X/\\beta$.\n\n**a)** Er $g(x) = 2x/\\beta$ voksende eller avtakende? Hva betyr det for ulikheten?\n\n**b)** Regn ut $F_Y(y) = P(2X/\\beta \\le y)$ og vis at den er $1 - e^{-y/2}$.\n\n**c)** Hvilken fordeling er dette?",
+        "solution": "**a)** $g(x) = 2x/\\beta$ er **voksende** (positiv koeffisient $2/\\beta$), så ulikheten snur **ikke**.\n\n**b)** For $y > 0$: $F_Y(y) = P(2X/\\beta \\le y) = P(X \\le \\beta y/2) = 1 - e^{-(\\beta y/2)/\\beta} = 1 - e^{-y/2}$. Legg merke til at $\\beta$ kanselleres.\n\n**c)** $1 - e^{-y/2}$ er fordelingsfunksjonen til en eksponensial med forventning 2, altså $\\chi^2_2$. Så $2X/\\beta \\sim \\chi^2_2$.",
+        "hints": [
+          "$g$ voksende → ulikheten snur ikke; løs $2X/\\beta \\le y$ for $X$.",
+          "Sett $\\beta y/2$ inn i $F_X(x) = 1 - e^{-x/\\beta}$; $\\beta$ kanselleres.",
+          "$1 - e^{-y/2}$ er $\\chi^2_2$ (eksponensial med forventning 2)."
+        ]
+      }
+    },
+    {
+      "id": "tma4245-4-2-l2",
+      "type": "exercise",
+      "exercise": {
+        "id": "tma4245-4-2-l2",
+        "number": "2",
+        "type": "classic",
+        "difficulty": "lett",
+        "task": "Det er kjent at $2X_i/\\beta \\sim \\chi^2_2$ for hver av $n = 8$ uavhengige eksponensiale.\n\n**a)** Hvilken fordeling har $2\\sum_{i=1}^{8} X_i/\\beta$?\n\n**b)** Hva blir frihetsgraden hvis $n = 20$ i stedet?",
+        "solution": "**a)** Summen av $n = 8$ uavhengige $\\chi^2_2$-variable er $\\chi^2_{2 \\cdot 8} = \\chi^2_{16}$. Så $2\\sum_{i=1}^{8} X_i/\\beta \\sim \\chi^2_{16}$.\n\n**b)** Med $n = 20$: frihetsgrad $2n = 40$, altså $\\chi^2_{40}$. Regelen er alltid $2n$, ikke $n$.",
+        "hints": [
+          "Summen av $n$ uavhengige $\\chi^2_2$ er $\\chi^2_{2n}$.",
+          "$2n = 2 \\cdot 8 = 16$; for $n = 20$ blir det $40$."
+        ]
+      }
+    },
+    {
+      "id": "tma4245-4-2-m1",
+      "type": "exercise",
+      "exercise": {
+        "id": "tma4245-4-2-m1",
+        "number": "3",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "Ventetidene $X_1, \\ldots, X_6$ mellom feil på en fiberkabel er uavhengige og eksponensialfordelte med forventning $\\beta$.\n\n**a)** Vis kort at $2X_1/\\beta \\sim \\chi^2_2$.\n\n**b)** Bruk MGF-produktregelen til å identifisere fordelingen til $2\\sum_{i=1}^{6} X_i/\\beta$, med eksplisitt entydighetsargument.",
+        "solution": "**a)** $F(y) = P(2X_1/\\beta \\le y) = P(X_1 \\le \\beta y/2) = 1 - e^{-y/2}$ for $y > 0$, som er $\\chi^2_2$.\n\n**b)** Hver $2X_i/\\beta \\sim \\chi^2_2$ med MGF $(1 - 2t)^{-1}$. Uavhengige, så\n$$M_{2\\sum X_i/\\beta}(t) = \\prod_{i=1}^{6}(1 - 2t)^{-1} = (1 - 2t)^{-6},$$\nsom er MGF-en til $\\chi^2_{12}$. Ved entydighet (MGF-en bestemmer fordelingen): $2\\sum_{i=1}^{6} X_i/\\beta \\sim \\chi^2_{12}$. Frihetsgrad $2n = 12$.",
+        "hints": [
+          "$2X_1/\\beta$: løs $X_1 \\le \\beta y/2$, $\\beta$ kanselleres.",
+          "Gang seks MGF-er $(1-2t)^{-1}$ til $(1-2t)^{-6}$.",
+          "$(1-2t)^{-6}$ er $\\chi^2_{12}$; si entydighet eksplisitt."
+        ]
+      }
+    },
+    {
+      "id": "tma4245-4-2-m2",
+      "type": "exercise",
+      "exercise": {
+        "id": "tma4245-4-2-m2",
+        "number": "4",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "$X$ er eksponensialfordelt med forventning $\\beta$, og $2X/\\beta \\sim \\chi^2_2$. Bruk at $\\chi^2_2$ har fordelingsfunksjon $F(y) = 1 - e^{-y/2}$.\n\n**a)** Finn $P(2X/\\beta > 3)$.\n\n**b)** Finn $P(2X/\\beta > 5)$.\n\n**c)** (Sanity-sjekk.) Uttrykk hendelsen $\\{2X/\\beta > 3\\}$ som en hendelse om $X$, og bekreft at svaret i a) også kan fås direkte fra $P(X > 3\\beta/2)$.",
+        "solution": "**a)** $P(2X/\\beta > 3) = 1 - F(3) = e^{-3/2} \\approx 0{,}2231$.\n\n**b)** $P(2X/\\beta > 5) = e^{-5/2} \\approx 0{,}0821$.\n\n**c)** $\\{2X/\\beta > 3\\} = \\{X > 3\\beta/2\\}$. Direkte: $P(X > 3\\beta/2) = e^{-(3\\beta/2)/\\beta} = e^{-3/2}$ — samme svar. Det bekrefter at $\\chi^2_2$-halen $e^{-y/2}$ og eksponensialhalen henger sammen.",
+        "hints": [
+          "$P(\\chi^2_2 > c) = 1 - F(c) = e^{-c/2}$.",
+          "Sett $c = 3$ og $c = 5$.",
+          "$2X/\\beta > 3 \\Leftrightarrow X > 3\\beta/2$; regn $e^{-(3\\beta/2)/\\beta}$."
+        ]
+      }
+    },
+    {
+      "id": "tma4245-4-2-m3",
+      "type": "exercise",
+      "exercise": {
+        "id": "tma4245-4-2-m3",
+        "number": "5",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "Vindstyrken $X$ (i m/s) på en offshore-plattform er Weibull-fordelt med $F(x) = 1 - e^{-(x/\\theta)^k}$, med kjent form $k$ og skala $\\theta$. La $W = (X/\\theta)^k$.\n\n**a)** Vis ved CDF-metoden at $W \\sim \\text{eksp}(1)$.\n\n**b)** Hvilken fordeling har da $2W$?",
+        "solution": "**a)** For $w > 0$, med $g(x) = (x/\\theta)^k$ voksende: $F_W(w) = P((X/\\theta)^k \\le w) = P(X \\le \\theta w^{1/k})$. Sett inn Weibull-CDF-en:\n$$F_W(w) = 1 - e^{-((\\theta w^{1/k})/\\theta)^k} = 1 - e^{-(w^{1/k})^k} = 1 - e^{-w}.$$\nDette er fordelingsfunksjonen til $\\text{eksp}(1)$, så $W \\sim \\text{eksp}(1)$.\n\n**b)** Med $\\beta = 1$ i apparatet: $2W/1 = 2W \\sim \\chi^2_2$. Potens-løftet gjorde Weibull-dataene om til eksponensiale, og deretter gjelder samme kjikvadrat-kobling.",
+        "hints": [
+          "Potens-løft: $W = (X/\\theta)^k$, løs $X \\le \\theta w^{1/k}$.",
+          "$((\\theta w^{1/k})/\\theta)^k = w$, så $F_W(w) = 1 - e^{-w}$.",
+          "$W \\sim \\text{eksp}(1)$, så $2W \\sim \\chi^2_2$."
+        ]
+      }
+    },
+    {
+      "id": "tma4245-4-2-m4",
+      "type": "exercise",
+      "exercise": {
+        "id": "tma4245-4-2-m4",
+        "number": "6",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "$n$ vindturbin-lagre har Weibull-fordelte levetider med kjent form $k$ og skala $\\theta$: $F(x) = 1 - e^{-(x/\\theta)^k}$. Du har allerede vist at $(X_i/\\theta)^k \\sim \\text{eksp}(1)$.\n\n**a)** Angi fordelingen til $2\\sum_{i=1}^{n}(X_i/\\theta)^k$, med begrunnelse.\n\n**b)** Med $n = 10$: hva blir frihetsgraden?",
+        "solution": "**a)** Hver $W_i = (X_i/\\theta)^k \\sim \\text{eksp}(1)$, uavhengige. Fra kjernekoblingen med $\\beta = 1$ er $2W_i/1 = 2W_i \\sim \\chi^2_2$ per lager. MGF-produktregelen gir $\\prod_{i=1}^{n}(1-2t)^{-1} = (1-2t)^{-n}$, som er $\\chi^2_{2n}$. Ved entydighet: $2\\sum_{i=1}^{n}(X_i/\\theta)^k \\sim \\chi^2_{2n}$.\n\n**b)** Med $n = 10$: frihetsgrad $2n = 20$, altså $\\chi^2_{20}$.",
+        "hints": [
+          "Potens-løft først: hver $(X_i/\\theta)^k \\sim \\text{eksp}(1)$, så $2(X_i/\\theta)^k \\sim \\chi^2_2$.",
+          "MGF-produkt: $(1-2t)^{-n}$ er $\\chi^2_{2n}$.",
+          "$2n = 2 \\cdot 10 = 20$."
+        ]
+      }
+    },
+    {
+      "id": "tma4245-4-2-v1",
+      "type": "exercise",
+      "exercise": {
+        "id": "tma4245-4-2-v1",
+        "number": "7",
+        "type": "classic",
+        "difficulty": "vanskelig",
+        "task": "Bruddstyrkene $X_1, \\ldots, X_{15}$ (i kN) til offshore-bolter er uavhengige og eksponensialfordelte med forventning $\\beta$.\n\n**a)** Utled fra bunnen av at $2X_1/\\beta \\sim \\chi^2_2$ (vis CDF-steget).\n\n**b)** Angi med fullt MGF-argument fordelingen til $V = 2\\sum_{i=1}^{15} X_i/\\beta$.\n\n**c)** Uttrykk $\\bar{X}$ ved $V$, og bruk det til å argumentere for at $2n\\bar{X}/\\beta \\sim \\chi^2_{2n}$.",
+        "solution": "**a)** $g(x) = 2x/\\beta$ er voksende. For $y > 0$: $F(y) = P(2X_1/\\beta \\le y) = P(X_1 \\le \\beta y/2) = 1 - e^{-(\\beta y/2)/\\beta} = 1 - e^{-y/2}$, som er $\\chi^2_2$.\n\n**b)** Hver $2X_i/\\beta \\sim \\chi^2_2$ med MGF $(1-2t)^{-1}$; uavhengige gir $M_V(t) = (1-2t)^{-15}$, MGF-en til $\\chi^2_{30}$. Ved entydighet: $V = 2\\sum_{i=1}^{15} X_i/\\beta \\sim \\chi^2_{30}$ (frihetsgrad $2n = 30$).\n\n**c)** Siden $\\sum_{i=1}^{n} X_i = n\\bar{X}$, er $V = 2\\sum X_i/\\beta = 2n\\bar{X}/\\beta$. Altså er $2n\\bar{X}/\\beta \\sim \\chi^2_{2n}$ (her $\\chi^2_{30}$) — den formen pivotalen ofte skrives på i konfidensintervallet for $\\beta$.",
+        "hints": [
+          "CDF-steg: $\\beta$ kanselleres, $1 - e^{-y/2}$ er $\\chi^2_2$.",
+          "15 MGF-er $(1-2t)^{-1}$ gir $(1-2t)^{-15} = \\chi^2_{30}$.",
+          "$\\sum X_i = n\\bar{X}$, så $V = 2n\\bar{X}/\\beta$."
+        ]
+      }
+    },
+    {
+      "id": "tma4245-4-2-v2",
+      "type": "exercise",
+      "exercise": {
+        "id": "tma4245-4-2-v2",
+        "number": "8",
+        "type": "classic",
+        "difficulty": "vanskelig",
+        "task": "En oppskriftsfordeling: nedbørstoppene $X$ (over et referansenivå $x_0 = 1$) følger en **Pareto**-fordeling med $F(x) = 1 - x^{-\\alpha}$ for $x > 1$, med kjent $\\alpha > 0$. La $W = \\alpha \\ln X$.\n\n**a)** Vis ved CDF-metoden at $W \\sim \\text{eksp}(1)$.\n\n**b)** Angi fordelingen til $2\\sum_{i=1}^{n}\\alpha \\ln X_i$ for et uavhengig utvalg.",
+        "solution": "**a)** $g(x) = \\alpha \\ln x$ er voksende for $x > 1$, og $W > 0$. For $w > 0$:\n$$F_W(w) = P(\\alpha \\ln X \\le w) = P\\!\\left(X \\le e^{w/\\alpha}\\right) = 1 - \\left(e^{w/\\alpha}\\right)^{-\\alpha} = 1 - e^{-w}.$$\nDette er $\\text{eksp}(1)$, så $W \\sim \\text{eksp}(1)$.\n\n**b)** Hver $W_i = \\alpha \\ln X_i \\sim \\text{eksp}(1)$ uavhengig, så $2W_i \\sim \\chi^2_2$ og MGF-produktregelen gir $2\\sum_{i=1}^{n}\\alpha \\ln X_i \\sim \\chi^2_{2n}$. Log-løftet gjorde Pareto om til eksponensial — samme apparat som før.",
+        "hints": [
+          "Log-løft: $W = \\alpha \\ln X$, løs $X \\le e^{w/\\alpha}$.",
+          "$(e^{w/\\alpha})^{-\\alpha} = e^{-w}$, så $W \\sim \\text{eksp}(1)$.",
+          "Deretter $2\\sum W_i \\sim \\chi^2_{2n}$ som vanlig."
+        ]
+      }
+    },
+    {
+      "id": "tma4245-4-2-v3",
+      "type": "exercise",
+      "exercise": {
+        "id": "tma4245-4-2-v3",
+        "number": "9",
+        "type": "classic",
+        "difficulty": "vanskelig",
+        "task": "En oppskriftsfordeling: ekstreme temperaturer $X$ følger en **Gumbel**-fordeling med $F(x) = e^{-e^{-(x-a)/b}}$ for alle reelle $x$, med kjente $a$ og $b > 0$. La $W = e^{-(X-a)/b}$.\n\n**a)** Er $g(x) = e^{-(x-a)/b}$ voksende eller avtakende? Vis ved CDF-metoden at $W \\sim \\text{eksp}(1)$.\n\n**b)** Angi fordelingen til $2\\sum_{i=1}^{n} e^{-(X_i-a)/b}$.",
+        "solution": "**a)** $g(x) = e^{-(x-a)/b}$ er **avtakende** (negativ eksponent), så ulikheten snur. For $w > 0$:\n$$F_W(w) = P\\!\\left(e^{-(X-a)/b} \\le w\\right) = P\\!\\left(-\\frac{X-a}{b} \\le \\ln w\\right) = P\\!\\left(X \\ge a - b\\ln w\\right) = 1 - F(a - b\\ln w).$$\nSett inn Gumbel-CDF-en: $F(a - b\\ln w) = e^{-e^{-((a - b\\ln w)-a)/b}} = e^{-e^{\\ln w}} = e^{-w}$. Altså $F_W(w) = 1 - e^{-w}$, så $W \\sim \\text{eksp}(1)$.\n\n**b)** Hver $W_i \\sim \\text{eksp}(1)$ uavhengig, så $2\\sum_{i=1}^{n} e^{-(X_i-a)/b} = 2\\sum W_i \\sim \\chi^2_{2n}$. Merk at her *snudde* ulikheten, fordi transformasjonen var avtakende — det er lett å glemme.",
+        "hints": [
+          "$g$ avtakende → ulikheten snur, komplement $1 - F(a - b\\ln w)$.",
+          "Regn $e^{-e^{\\ln w}} = e^{-w}$; da er $W \\sim \\text{eksp}(1)$.",
+          "Deretter $2\\sum W_i \\sim \\chi^2_{2n}$."
+        ]
+      }
+    },
+    {
+      "id": "tma4245-4-2-v4",
+      "type": "exercise",
+      "exercise": {
+        "id": "tma4245-4-2-v4",
+        "number": "10",
+        "type": "classic",
+        "difficulty": "vanskelig",
+        "task": "(Frihetsgrad-fellen, Des23-stil.) For et utvalg $X_1, \\ldots, X_n$ av eksponensiale med forventning $\\beta$ er $\\hat{\\beta} = \\bar{X}$ maximum-likelihood-estimatoren (kap. 5.2).\n\n**a)** Skriv $2n\\bar{X}/\\beta$ ved hjelp av $\\sum X_i$, og angi fordelingen.\n\n**b)** En student skriver at $2n\\bar{X}/\\hat{\\beta} \\sim \\chi^2_{2n}$. Forklar hvorfor det er meningsløst, og hva frihetsgraden i pivotalen faktisk avhenger av.",
+        "solution": "**a)** $2n\\bar{X}/\\beta = 2\\sum_{i=1}^{n} X_i/\\beta$, siden $n\\bar{X} = \\sum X_i$. Fra apparatet er dette $\\chi^2_{2n}$.\n\n**b)** Å sette $\\hat{\\beta} = \\bar{X}$ inn i $2n\\bar{X}/\\hat{\\beta}$ gir $2n\\bar{X}/\\bar{X} = 2n$ — en **konstant**, ikke en stokastisk variabel, så den kan umulig være $\\chi^2$-fordelt. Poenget: pivotalen krever den **ukjente** parameteren $\\beta$ i nevneren (det er nettopp derfor den er en pivotal — kjent fordeling, ukjent parameter). Frihetsgraden er $2n$ fordi hver av de $n$ observasjonene bidrar med $\\chi^2_2$; den avhenger av antall observasjoner, ikke av om vi kjenner $\\beta$.",
+        "hints": [
+          "$n\\bar{X} = \\sum X_i$, så $2n\\bar{X}/\\beta = 2\\sum X_i/\\beta$.",
+          "Sett $\\hat{\\beta} = \\bar{X}$ inn og se hva $2n\\bar{X}/\\bar{X}$ blir.",
+          "Pivotalen må ha den ukjente $\\beta$, ikke estimatet, i nevneren."
+        ]
+      }
+    },
+    {
+      "id": "tma4245-4-2-warn",
+      "type": "warning",
+      "title": "Typiske feil",
+      "content": "- **Frihetsgrad $n$ i stedet for $2n$.** Pivotalen er $2\\sum X_i/\\beta \\sim \\chi^2_{2n}$ — hver observasjon bidrar med $\\chi^2_2$, så summen har $2n$ frihetsgrader. Dette er den vanligste enkeltfeilen i hele apparatet.\n- **Slurve med ulikhetsretningen i CDF-steget.** For $Y = 2X/\\beta$ er $g$ voksende (ulikheten snur ikke); for avtakende løft (som Gumbel-transformasjonen $e^{-(X-a)/b}$) snur den, og du får et komplement.\n- **Hoppe over MGF-entydighetsargumentet.** Å regne ut $(1-2t)^{-n}$ er ikke nok — du må si at MGF-en *bestemmer* fordelingen for å konkludere $\\chi^2_{2n}$.\n- **Glemme potens-/log-løftet for Weibull, Gumbel og Pareto.** Apparatet gjelder eksponensiale data. Transformér *først* til eksponensial ($(X/\\theta)^k$, $\\alpha \\ln X$, $e^{-(X-a)/b}$), så kjør kjikvadrat-koblingen.\n- **Sette estimatet inn i pivotalen.** $2n\\bar{X}/\\hat{\\beta}$ med $\\hat{\\beta} = \\bar{X}$ blir konstanten $2n$ — pivotalen krever den *ukjente* $\\beta$ i nevneren."
+    },
+    {
+      "id": "tma4245-4-2-begrepsbank",
+      "type": "text",
+      "content": "## Oppskrifts- og formelkort\n\nDe fem kortene du bør kunne på autopilot — selve kjikvadrat-apparatet.\n\n*Kortene er flashcard-/repetisjonsstoff — de gjentar oppskriften. Hopp trygt over ved førstegangslesing; tidsanslaget gjelder drillen.*"
+    },
+    {
+      "id": "tma4245-4-2-kort-apparat",
+      "type": "definition",
+      "title": "Oppskriftskort: kjikvadrat-apparatet i fire trinn",
+      "content": "**(1)** Vis $2X/\\beta \\sim \\chi^2_2$ med CDF-metoden ($F(y) = P(X \\le \\beta y/2) = 1 - e^{-y/2}$, $\\beta$ kanselleres). **(2)** Løft til summen med MGF-produktregelen: $2\\sum X_i/\\beta \\sim \\chi^2_{2n}$ (entydighet). **(3)** For Weibull/Gumbel/Pareto: potens-/log-transformér til eksponensial(1) *først*. **(4)** Husk at dette er pivotalen for eksakt KI (kap. 6.2) og eksakt test (Del 7)."
+    },
+    {
+      "id": "tma4245-4-2-kort-2x",
+      "type": "definition",
+      "title": "Formelkort: $2X/\\beta \\sim \\chi^2_2$ per observasjon",
+      "content": "For $X \\sim \\text{eksp}(\\beta)$: $2X/\\beta \\sim \\chi^2_2$. Utledning med CDF-metoden: $P(2X/\\beta \\le y) = P(X \\le \\beta y/2) = 1 - e^{-y/2}$, som er fordelingsfunksjonen til $\\chi^2_2$ (en eksponensial med forventning 2). Nøkkelen er at $\\beta$ **kanselleres** i eksponenten — det er derfor størrelsen blir parameterfri."
+    },
+    {
+      "id": "tma4245-4-2-kort-sum",
+      "type": "definition",
+      "title": "Formelkort: $2\\sum X_i/\\beta \\sim \\chi^2_{2n}$ — frihetsgrad $2n$",
+      "content": "For uavhengige $X_1, \\ldots, X_n \\sim \\text{eksp}(\\beta)$:\n\n$$\\frac{2\\sum_{i=1}^{n} X_i}{\\beta} = \\frac{2n\\bar{X}}{\\beta} \\sim \\chi^2_{2n}.$$\n\nFra MGF-produktregelen: hver $2X_i/\\beta \\sim \\chi^2_2$ med MGF $(1-2t)^{-1}$, og produktet $(1-2t)^{-n}$ er $\\chi^2_{2n}$. **Frihetsgraden er $2n$, aldri $n$ eller $n-1$**, i eksponensialtilfellet."
+    },
+    {
+      "id": "tma4245-4-2-kort-loft",
+      "type": "definition",
+      "title": "Formelkort: potens-/log-løftet",
+      "content": "Apparatet krever eksponensiale data. Transformér først: **Weibull** $F(x) = 1 - e^{-(x/\\theta)^k}$ gir $(X/\\theta)^k \\sim \\text{eksp}(1)$; **Pareto** $F(x) = 1 - x^{-\\alpha}$ gir $\\alpha \\ln X \\sim \\text{eksp}(1)$; **Gumbel** $F(x) = e^{-e^{-(x-a)/b}}$ gir $e^{-(X-a)/b} \\sim \\text{eksp}(1)$. Deretter er $2\\sum(\\text{transformert}) \\sim \\chi^2_{2n}$."
+    },
+    {
+      "id": "tma4245-4-2-kort-pivotal",
+      "type": "definition",
+      "title": "Feilkort: pivotalen krever ukjent $\\beta$",
+      "content": "En **pivotal** er bygget av data og den ukjente parameteren, men har en fordeling uten ukjente ($\\chi^2_{2n}$). Derfor må $\\beta$ (ikke estimatet $\\hat{\\beta}$) stå i nevneren: $2n\\bar{X}/\\beta$. Setter du $\\hat{\\beta} = \\bar{X}$ inn, blir det $2n$ — en konstant, ubrukelig. Frihetsgraden $2n$ avhenger av antall observasjoner, ikke av om $\\beta$ er kjent."
+    },
+    {
+      "id": "tma4245-4-2-symbolliste",
+      "type": "collapsible",
+      "title": "Symbol- og formelliste",
+      "buttonText": "Vis symboler og formler",
+      "content": [
+        {
+          "id": "tma4245-4-2-symbolliste-text",
+          "type": "text",
+          "content": "*Oppslagsverk — alt her forklares underveis i kapitlet.*\n\nAlle symboler og formler brukt i drillkapittel 4.2, samlet.\n\n| Symbol | Betydning |\n|---|---|\n| $X$, $X_i$ | Eksponensialfordelt observasjon (forventning $\\beta$) |\n| $\\beta$ | Forventningen i eksponensialfordelingen (ukjent parameter) |\n| $\\bar{X}$ | Utvalgsgjennomsnittet, $\\frac{1}{n}\\sum X_i$ |\n| $\\chi^2_\\nu$ | Kjikvadratfordeling med $\\nu$ frihetsgrader |\n| $M_X(t)$ | Momentgenererende funksjon |\n| $\\theta, k$ | Skala- og formparameter (Weibull) |\n| $\\alpha$ | Formparameter (Pareto) |\n| $a, b$ | Beliggenhets- og skalaparameter (Gumbel) |\n\n**Formler i dette kapitlet:**\n\n$$\\frac{2X}{\\beta} \\sim \\chi^2_2 \\qquad (X \\sim \\text{eksp}(\\beta))$$\nKjernekoblingen per observasjon; $F(y) = 1 - e^{-y/2}$.\n\n$$\\frac{2\\sum_{i=1}^{n} X_i}{\\beta} = \\frac{2n\\bar{X}}{\\beta} \\sim \\chi^2_{2n}$$\nPivotalen — frihetsgrad $2n$, ikke $n$.\n\n$$M_{2\\sum X_i/\\beta}(t) = \\prod_{i=1}^{n}(1 - 2t)^{-1} = (1 - 2t)^{-n}$$\nMGF-produktregelen som gir $\\chi^2_{2n}$ (entydighet).\n\n$$(X/\\theta)^k \\sim \\text{eksp}(1), \\quad \\alpha \\ln X \\sim \\text{eksp}(1), \\quad e^{-(X-a)/b} \\sim \\text{eksp}(1)$$\nPotens-/log-løftene for Weibull, Pareto og Gumbel.\n\n$$P(\\chi^2_2 > c) = e^{-c/2}$$\nHalen til $\\chi^2_2$ (eksponensial med forventning 2)."
+        }
+      ]
+    }
+  ],
+  "exercises": []
+}

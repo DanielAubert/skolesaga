@@ -1,0 +1,282 @@
+{
+  "id": "tma4245-4-prove",
+  "courseId": "tma4245",
+  "chapterNumber": "4.P",
+  "title": "Prøver til del 4: Transformasjoner og ordningsvariable",
+  "description": "Fire temaprøver som dekker CDF-metoden, MGF-identifikasjon, ordningsvariable og eksponensialens kjikvadrat-apparat — med fullstendige løsningsforslag og selvdiagnose. Kan tas som separate økter.",
+  "estimatedMinutes": 140,
+  "competenceGoals": [
+    "løse eksamensrettede oppgaver fra hele Del 4 om transformasjoner, MGF-identifikasjon og ordningsvariable",
+    "utlede pivotalen $2\\sum X_i/\\beta \\sim \\chi^2_{2n}$ med riktig frihetsgrad på eksamensnivå",
+    "velge riktig teknikk (CDF, MGF, min/maks) og oppgi entydighets- og ulikhetsargumentene sensor krever"
+  ],
+  "content": [
+    {
+      "id": "tma4245-4-prove-tip",
+      "type": "tip",
+      "title": "Om prøvene til Del 4",
+      "content": "**4 prøver à ~30–45 min** — de dekker hele Del 4: fordelingsfunksjonsteknikken, MGF-identifikasjon av summer, ordningsvariable og eksponensialens kjikvadrat-apparat.\n\n| Prøve | Tema | Tid |\n|---|---|---|\n| 4.A | CDF-metoden på monotone transformasjoner (kap. 4.1) | ~30 min |\n| 4.B | MGF-identifikasjon av summer (kap. 4.1) | ~30 min |\n| 4.C | Ordningsvariable, serie og parallell (kap. 4.1) | ~35 min |\n| 4.D | Kjikvadrat-apparatet, full utledning på eksamensnivå (kap. 4.2) | ~45 min |\n\n**Flervalgsoppgaven (sjanger O) bor i prøve 4.B** — den er i Inspera-stil med ett riktig alternativ per punkt.\n\n**Prøvene kan trygt deles over flere kvelder — én prøve per økt.** Milepælen er å fullføre settet, ikke å ta alt på én gang. Løs hver prøve *før* du åpner fasiten, og bruk selvdiagnose-listen etterpå til å se hva du bør repetere."
+    },
+    {
+      "id": "tma4245-4-prove-forkunnskaper",
+      "type": "text",
+      "content": "**Forkunnskaper:** Disse prøvene forutsetter at du har jobbet gjennom hele Del 4 — transformasjonsteknikkene og ordningsvariable ([kap. 4.1](/bok/tma4245/tma4245-4-1)) og kjikvadrat-drillen ([kap. 4.2](/bok/tma4245/tma4245-4-2)) — samt eksponensial- og Weibull-fordelingen fra [kap. 2.3](/bok/tma4245/tma4245-2-3). Klarer du prøvene uten å slå opp, sitter både CDF-metoden, MGF-produktregelen, min/maks-formlene og pivotalen $2\\sum X_i/\\beta \\sim \\chi^2_{2n}$."
+    },
+    {
+      "id": "tma4245-4-prove-intro",
+      "type": "text",
+      "content": "Del 4 er **broen** fra fordelingslæren til inferensen: teknikkene her identifiserer fordelingen til transformerte variable og summer, og de bygger pivotalen som gir eksponensialens konfidensintervall i Del 6. Her øver du på nettopp den blandingen. Husk sensorkravene fra kapitlene: **sjekk om transformasjonen er voksende eller avtakende** før du fjerner $P$-tegnet, **oppgi entydighetsargumentet** ved MGF-identifikasjon, og pass på **frihetsgraden $2n$** i kjikvadrat-apparatet."
+    },
+    {
+      "id": "tma4245-4-prove-p1",
+      "type": "collapsible",
+      "title": "Prøve 4.A — CDF-metoden på monotone transformasjoner (~30 min)",
+      "buttonText": "Vis prøve 4.A",
+      "content": [
+        {
+          "id": "tma4245-4-prove-p1-ex1",
+          "type": "exercise",
+          "exercise": {
+            "id": "tma4245-4-prove-p1-ex1",
+            "number": "1",
+            "type": "classic",
+            "difficulty": "middels",
+            "task": "$X$ er uniformt fordelt på $(0, 1)$, med $F_X(x) = x$. La $Y = X^2$.\n\n**a)** Finn $F_Y(y)$ ved fordelingsfunksjonsteknikken, og angi støtten.\n\n**b)** Finn tettheten $f_Y(y)$.\n\n**c)** Finn $P(Y > 0{,}25)$.",
+            "solution": "**a)** For $0 < y < 1$: $F_Y(y) = P(X^2 \\le y) = P(X \\le \\sqrt{y})$ ($g$ voksende for positiv $X$) $= F_X(\\sqrt{y}) = \\sqrt{y}$.\n\n**b)** $f_Y(y) = \\dfrac{d}{dy}\\sqrt{y} = \\dfrac{1}{2\\sqrt{y}}$ for $0 < y < 1$.\n\n**c)** $P(Y > 0{,}25) = 1 - F_Y(0{,}25) = 1 - \\sqrt{0{,}25} = 1 - 0{,}5 = 0{,}5$.",
+            "hints": [
+              "$X^2 \\le y \\Leftrightarrow X \\le \\sqrt{y}$; sett inn $F_X(x) = x$.",
+              "Deriver $\\sqrt{y}$.",
+              "$P(Y > 0{,}25) = 1 - \\sqrt{0{,}25}$."
+            ]
+          }
+        },
+        {
+          "id": "tma4245-4-prove-p1-ex2",
+          "type": "exercise",
+          "exercise": {
+            "id": "tma4245-4-prove-p1-ex2",
+            "number": "2",
+            "type": "classic",
+            "difficulty": "middels",
+            "task": "Levetiden $X$ (i år) til en sensor er eksponensialfordelt med forventning $\\beta = 9$, altså $F_X(x) = 1 - e^{-x/9}$. La $Y = \\sqrt{X}$.\n\n**a)** Finn $F_Y(y)$ og $f_Y(y)$ ved CDF-metoden.\n\n**b)** Finn $P(Y > 3)$.",
+            "solution": "**a)** For $y > 0$: $F_Y(y) = P(\\sqrt{X} \\le y) = P(X \\le y^2) = 1 - e^{-y^2/9}$. Tetthet (kjerneregel): $f_Y(y) = e^{-y^2/9} \\cdot \\dfrac{2y}{9} = \\dfrac{2y}{9}e^{-y^2/9}$ for $y > 0$ (en Weibull med $k = 2$, $\\theta = 3$).\n\n**b)** $P(Y > 3) = 1 - F_Y(3) = e^{-9/9} = e^{-1} \\approx 0{,}368$. (Kontroll: $P(\\sqrt{X} > 3) = P(X > 9) = e^{-9/9} = e^{-1}$.)",
+            "hints": [
+              "$\\sqrt{X} \\le y \\Leftrightarrow X \\le y^2$.",
+              "Deriver med kjerneregelen: indre derivert $2y/9$.",
+              "$P(Y > 3) = e^{-3^2/9} = e^{-1}$."
+            ]
+          }
+        },
+        {
+          "id": "tma4245-4-prove-p1-ex3",
+          "type": "exercise",
+          "exercise": {
+            "id": "tma4245-4-prove-p1-ex3",
+            "number": "3",
+            "type": "classic",
+            "difficulty": "vanskelig",
+            "task": "$X$ er eksponensialfordelt med forventning $\\beta = 1$, altså $F_X(x) = 1 - e^{-x}$. La $Y = e^{-X}$.\n\n**a)** Er $g(x) = e^{-x}$ voksende eller avtakende? Hva betyr det for ulikheten?\n\n**b)** Finn $F_Y(y)$ ved CDF-metoden, og angi støtten.\n\n**c)** Hvilken fordeling har $Y$?",
+            "solution": "**a)** $g(x) = e^{-x}$ er **avtakende** (negativ eksponent), så ulikheten **snur** når vi løser $g(X) \\le y$. Dessuten er $Y = e^{-X} \\in (0, 1)$ siden $X > 0$.\n\n**b)** For $0 < y < 1$:\n$$F_Y(y) = P(e^{-X} \\le y) = P(-X \\le \\ln y) = P(X \\ge -\\ln y) = 1 - F_X(-\\ln y) = 1 - \\big(1 - e^{-(-\\ln y)}\\big) = e^{\\ln y} = y.$$\n\n**c)** $F_Y(y) = y$ på $(0, 1)$ er fordelingsfunksjonen til en **uniform fordeling på $(0, 1)$**. (Dette er kjernen i inversjonsmetoden: $e^{-X}$ av en eksponensial(1) blir standard uniform.) Hadde vi glemt å snu ulikheten, ville vi fått $F_X(-\\ln y)$, som gir en fordelingsfunksjon som avtar — umulig.",
+            "hints": [
+              "$g$ avtakende → ulikheten snur; $\\{e^{-X} \\le y\\} = \\{X \\ge -\\ln y\\}$.",
+              "Bruk $F_Y(y) = 1 - F_X(-\\ln y)$ og $e^{-(-\\ln y)} = y$.",
+              "$F_Y(y) = y$ på $(0,1)$ er uniform."
+            ]
+          }
+        },
+        {
+          "id": "tma4245-4-prove-p1-selvdiagnose",
+          "type": "text",
+          "content": "### Selvdiagnose 4.A\n\nKryss av det du mestret uten å slå opp:\n\n- ☐ Jeg skrev $F_Y(y) = P(g(X) \\le y)$ og løste ulikheten for $X$.\n- ☐ Jeg satte inn $F_X$ riktig og deriverte med kjerneregelen for tettheten.\n- ☐ Jeg sjekket om $g$ var voksende eller avtakende *før* jeg fjernet $P$-tegnet.\n- ☐ Jeg snudde ulikheten (og fikk $1 - F_X$) for den avtakende transformasjonen.\n- ☐ Jeg anga støtten (hvilke $y$) for hver tetthet.\n\nManglet du noe? Repeter [kap. 4.1](/bok/tma4245/tma4245-4-1), Løkke 1."
+        }
+      ]
+    },
+    {
+      "id": "tma4245-4-prove-p2",
+      "type": "collapsible",
+      "title": "Prøve 4.B — MGF-identifikasjon av summer (~30 min)",
+      "buttonText": "Vis prøve 4.B",
+      "content": [
+        {
+          "id": "tma4245-4-prove-p2-ex1",
+          "type": "exercise",
+          "exercise": {
+            "id": "tma4245-4-prove-p2-ex1",
+            "number": "1",
+            "type": "classic",
+            "difficulty": "middels",
+            "task": "La $X_1, \\ldots, X_n$ være uavhengige eksponensialfordelte med forventning $\\beta$, hver med MGF $M_{X_i}(t) = (1 - \\beta t)^{-1}$. La $S = \\sum_{i=1}^{n} X_i$.\n\n**a)** Bruk MGF-produktregelen til å finne $M_S(t)$.\n\n**b)** Identifiser fordelingen til $S$ med eksplisitt entydighetsargument (gamma$(n,\\beta)$ har MGF $(1-\\beta t)^{-n}$).\n\n**c)** Med $n = 4$ og $\\beta = 6$: finn $E(S)$ og $\\text{Var}(S)$ (gamma$(n,\\beta)$ har $E = n\\beta$, $\\text{Var} = n\\beta^2$).",
+            "solution": "**a)** Uavhengige, så $M_S(t) = \\prod_{i=1}^{n}(1 - \\beta t)^{-1} = (1 - \\beta t)^{-n}$.\n\n**b)** Dette er MGF-en til gamma$(n, \\beta)$. Ved **entydighet** — MGF-en bestemmer fordelingen — er $S \\sim \\text{gamma}(n, \\beta)$.\n\n**c)** Med $n = 4$, $\\beta = 6$: $E(S) = n\\beta = 24$ og $\\text{Var}(S) = n\\beta^2 = 4 \\cdot 36 = 144$.",
+            "hints": [
+              "Produktregelen for uavhengige: gang $n$ MGF-er.",
+              "$(1-\\beta t)^{-n}$ er gamma-MGF-en; si entydighet.",
+              "$E = n\\beta = 24$, $\\text{Var} = n\\beta^2 = 144$."
+            ]
+          }
+        },
+        {
+          "id": "tma4245-4-prove-p2-ex2",
+          "type": "exercise",
+          "exercise": {
+            "id": "tma4245-4-prove-p2-ex2",
+            "number": "2",
+            "type": "classic",
+            "difficulty": "middels",
+            "task": "La $Z_1, \\ldots, Z_n$ være uavhengige standardnormale, $N(0, 1)$. Kvadratene $Z_i^2$ har hver MGF $M_{Z_i^2}(t) = (1 - 2t)^{-1/2}$. La $Q = \\sum_{i=1}^{n} Z_i^2$.\n\n**a)** Finn $M_Q(t)$ ved produktregelen.\n\n**b)** Identifiser fordelingen til $Q$ med entydighetsargument ($\\chi^2_\\nu$ har MGF $(1-2t)^{-\\nu/2}$).",
+            "solution": "**a)** Uavhengige: $M_Q(t) = \\prod_{i=1}^{n}(1 - 2t)^{-1/2} = (1 - 2t)^{-n/2}$.\n\n**b)** Dette er MGF-en til $\\chi^2_n$ (sett $\\nu = n$ i $(1-2t)^{-\\nu/2}$). Ved entydighet: $Q = \\sum_{i=1}^{n} Z_i^2 \\sim \\chi^2_n$. En kvadratsum av $n$ uavhengige standardnormale er altså kjikvadrat med $n$ frihetsgrader.",
+            "hints": [
+              "Gang $n$ MGF-er $(1-2t)^{-1/2}$.",
+              "$(1-2t)^{-n/2}$ er $\\chi^2_n$-MGF-en; si entydighet."
+            ]
+          }
+        },
+        {
+          "id": "tma4245-4-prove-p2-ex3",
+          "type": "exercise",
+          "exercise": {
+            "id": "tma4245-4-prove-p2-ex3",
+            "number": "3",
+            "type": "classic",
+            "difficulty": "middels",
+            "task": "**Flervalg (sjanger O, Inspera-stil).** Velg det ene riktige alternativet for hver.\n\n**a)** Summen av $n$ uavhengige Bernoulli$(p)$-variable har MGF $[(1-p)+pe^t]^n$. Fordelingen er:\n(a) Poisson$(np)$  (b) binomisk$(n,p)$  (c) geometrisk$(p)$  (d) negativ binomisk\n\n**b)** Produktregelen $M_{\\sum X_i}(t) = \\prod M_{X_i}(t)$ krever at variablene er:\n(a) identisk fordelte  (b) normalfordelte  (c) uavhengige  (d) positive\n\n**c)** For å konkludere at en fordeling er identifisert fra sin MGF, påberoper vi:\n(a) sentralgrenseteoremet  (b) store talls lov  (c) invariansprinsippet  (d) at MGF-en bestemmer fordelingen (entydighet)\n\n**d)** Summen av $n$ uavhengige eksponensial$(\\beta)$ har MGF $(1-\\beta t)^{-n}$. Fordelingen er:\n(a) eksponensial$(n\\beta)$  (b) $\\chi^2_n$  (c) gamma$(n,\\beta)$  (d) normal",
+            "solution": "**a) (b) binomisk$(n,p)$.** MGF-en $[(1-p)+pe^t]^n$ står i katalogen som binomisk.\n\n**b) (c) uavhengige.** Produktregelen krever uavhengighet; identisk fordeling er ikke nødvendig (men vanlig).\n\n**c) (d) at MGF-en bestemmer fordelingen (entydighet).** Det er entydigheten som gjør identifikasjonen gyldig.\n\n**d) (c) gamma$(n,\\beta)$.** $(1-\\beta t)^{-n}$ er gamma-MGF-en.\n\n*(Riktige bokstaver: b, c, d, c — stokket, ikke alle like.)*",
+            "hints": [
+              "Tenk gjennom hver MGF-form og hva den svarer til i katalogen.",
+              "Vær obs på forutsetningen for produktregelen i b)."
+            ]
+          }
+        },
+        {
+          "id": "tma4245-4-prove-p2-selvdiagnose",
+          "type": "text",
+          "content": "### Selvdiagnose 4.B\n\nKryss av det du mestret uten å slå opp:\n\n- ☐ Jeg brukte produktregelen $M_{\\sum X_i}(t) = \\prod M_{X_i}(t)$ for uavhengige variable.\n- ☐ Jeg kjente igjen $(1-\\beta t)^{-n}$ som gamma og $(1-2t)^{-n/2}$ som $\\chi^2_n$.\n- ☐ Jeg oppga entydighetsargumentet («MGF-en bestemmer fordelingen») eksplisitt.\n- ☐ Jeg husket at produktregelen krever *uavhengighet*.\n\nManglet du noe? Repeter [kap. 4.1](/bok/tma4245/tma4245-4-1), Løkke 2."
+        }
+      ]
+    },
+    {
+      "id": "tma4245-4-prove-p3",
+      "type": "collapsible",
+      "title": "Prøve 4.C — Ordningsvariable, serie og parallell (~35 min)",
+      "buttonText": "Vis prøve 4.C",
+      "content": [
+        {
+          "id": "tma4245-4-prove-p3-ex1",
+          "type": "exercise",
+          "exercise": {
+            "id": "tma4245-4-prove-p3-ex1",
+            "number": "1",
+            "type": "classic",
+            "difficulty": "middels",
+            "task": "Et **seriesystem** har 5 komponenter med uavhengige, eksponensialfordelte levetider, hver med forventning $\\beta = 8$ år (systemet svikter når første komponent svikter). La $M = \\min(X_1, \\ldots, X_5)$.\n\n**a)** Hvilken fordeling har $M$? Finn $E(M)$.\n\n**b)** Finn $P(M > 1)$.",
+            "solution": "**a)** Serie = minimum. Minimum av $n = 5$ uavhengige eksponensiale med forventning $\\beta = 8$ er eksponensial med forventning $\\beta/n = 8/5 = 1{,}6$ år. Så $M \\sim \\text{eksp}(1{,}6)$ og $E(M) = 1{,}6$ år.\n\n**b)** $P(M > 1) = e^{-1/1{,}6} = e^{-0{,}625} \\approx 0{,}535$.",
+            "hints": [
+              "Serie = min; min av eksponensiale er eksponensial med forventning $\\beta/n$.",
+              "$\\beta/n = 8/5 = 1{,}6$.",
+              "$P(M > 1) = e^{-1/1{,}6}$."
+            ]
+          }
+        },
+        {
+          "id": "tma4245-4-prove-p3-ex2",
+          "type": "exercise",
+          "exercise": {
+            "id": "tma4245-4-prove-p3-ex2",
+            "number": "2",
+            "type": "classic",
+            "difficulty": "middels",
+            "task": "Tre lyspærer står i **parallell**; rommet er opplyst så lenge minst én lyser. Levetidene (i tusen timer) er uavhengige og eksponensialfordelte med forventning $\\beta = 2$, altså $F(x) = 1 - e^{-x/2}$. La $T$ være tiden til det siste rommet blir mørkt.\n\n**a)** Er $T$ et minimum eller maksimum? Skriv opp $F_T(t)$ og tettheten $f_T(t)$.\n\n**b)** Finn $P(T > 4)$.",
+            "solution": "**a)** «Siste pære slukner» = **maksimum** (parallellsystem). $F_T(t) = [F(t)]^3 = \\big(1 - e^{-t/2}\\big)^3$ for $t > 0$. Tetthet: $f_T(t) = 3\\big(1 - e^{-t/2}\\big)^2 \\cdot \\frac{1}{2}e^{-t/2} = \\frac{3}{2}e^{-t/2}\\big(1 - e^{-t/2}\\big)^2$.\n\n**b)** $P(T > 4) = 1 - \\big(1 - e^{-4/2}\\big)^3 = 1 - \\big(1 - e^{-2}\\big)^3$. Med $e^{-2} \\approx 0{,}1353$: $1 - (0{,}8647)^3 = 1 - 0{,}6465 \\approx 0{,}354$.",
+            "hints": [
+              "Parallell = maks → $F_T = [F]^3$.",
+              "Deriver med kjerneregel for $f_T$.",
+              "$P(T > 4) = 1 - (1 - e^{-2})^3$."
+            ]
+          }
+        },
+        {
+          "id": "tma4245-4-prove-p3-ex3",
+          "type": "exercise",
+          "exercise": {
+            "id": "tma4245-4-prove-p3-ex3",
+            "number": "3",
+            "type": "classic",
+            "difficulty": "vanskelig",
+            "task": "Fire vindmålere har uavhengige, eksponensialfordelte levetider, hver med forventning $\\beta = 2$ år. La $M = \\min$ (tid til første måler svikter) og $T = \\max$ (tid til siste svikter).\n\n**a)** Finn fordelingen til $M$ og $P(M > 1)$.\n\n**b)** Skriv opp $F_T(t)$, og finn $P(T > 1)$.\n\n**c)** Forklar med én setning hvorfor $P(T > 1) > P(M > 1)$.",
+            "solution": "**a)** $M \\sim \\text{eksp}(\\beta/4) = \\text{eksp}(0{,}5)$. $P(M > 1) = e^{-1/0{,}5} = e^{-2} \\approx 0{,}135$.\n\n**b)** $F_T(t) = \\big(1 - e^{-t/2}\\big)^4$, så $P(T > 1) = 1 - \\big(1 - e^{-1/2}\\big)^4$. Med $e^{-0{,}5} \\approx 0{,}6065$: $1 - (0{,}3935)^4 = 1 - 0{,}0240 \\approx 0{,}976$.\n\n**c)** $T = \\max$ krever at *alle fire* er sviktet før tiden $t$, mens $M = \\min$ svikter så snart *én* måler gjør det — derfor overlever maksimum mye lettere en gitt tid, og $P(T > 1) \\approx 0{,}98$ er langt større enn $P(M > 1) \\approx 0{,}14$.",
+            "hints": [
+              "Min av 4 eksponensiale er eksponensial med forventning $\\beta/4 = 0{,}5$.",
+              "$F_T = [F]^4$; $P(T > 1) = 1 - (1 - e^{-0{,}5})^4$.",
+              "Maks svikter først når alle fire er borte; min svikter ved første."
+            ]
+          }
+        },
+        {
+          "id": "tma4245-4-prove-p3-selvdiagnose",
+          "type": "text",
+          "content": "### Selvdiagnose 4.C\n\nKryss av det du mestret uten å slå opp:\n\n- ☐ Jeg avgjorde riktig om oppgaven spurte om minimum (serie) eller maksimum (parallell).\n- ☐ Jeg brukte $F_{\\max} = [F]^n$ og $P(\\min > y) = [1 - F]^n$ (produkt, ikke sum).\n- ☐ Jeg husket at min av eksponensiale er eksponensial med forventning $\\beta/n$.\n- ☐ Jeg deriverte $F_T$ riktig med kjerneregelen for tettheten.\n\nManglet du noe? Repeter [kap. 4.1](/bok/tma4245/tma4245-4-1), Løkke 3."
+        }
+      ]
+    },
+    {
+      "id": "tma4245-4-prove-p4",
+      "type": "collapsible",
+      "title": "Prøve 4.D — Kjikvadrat-apparatet, full utledning (~45 min)",
+      "buttonText": "Vis prøve 4.D",
+      "content": [
+        {
+          "id": "tma4245-4-prove-p4-ex1",
+          "type": "exercise",
+          "exercise": {
+            "id": "tma4245-4-prove-p4-ex1",
+            "number": "1",
+            "type": "classic",
+            "difficulty": "vanskelig",
+            "task": "Levetidene $X_1, \\ldots, X_{10}$ (i tusen timer) til offshore-ventiler er uavhengige og eksponensialfordelte med forventning $\\beta$.\n\n**a)** Vis ved fordelingsfunksjonsteknikken at $2X_1/\\beta \\sim \\chi^2_2$. Vær eksplisitt på ulikhetsretningen.\n\n**b)** Angi med fullt MGF-argument fordelingen til $V = 2\\sum_{i=1}^{10} X_i/\\beta$.\n\n**c)** Skriv $V$ ved $\\bar{X}$, og forklar med én setning hvorfor $V$ er en pivotal.",
+            "solution": "**a)** $g(x) = 2x/\\beta$ er **voksende** (positiv koeffisient), så ulikheten snur ikke. For $y > 0$:\n$$F(y) = P\\!\\left(\\frac{2X_1}{\\beta} \\le y\\right) = P\\!\\left(X_1 \\le \\frac{\\beta y}{2}\\right) = 1 - e^{-(\\beta y/2)/\\beta} = 1 - e^{-y/2}.$$\nDette er fordelingsfunksjonen til $\\chi^2_2$ (eksponensial med forventning 2). $\\beta$ kanselleres i eksponenten. Altså $2X_1/\\beta \\sim \\chi^2_2$.\n\n**b)** Hver $2X_i/\\beta \\sim \\chi^2_2$ med MGF $(1 - 2t)^{-1}$; uavhengige gir\n$$M_V(t) = \\prod_{i=1}^{10}(1 - 2t)^{-1} = (1 - 2t)^{-10},$$\nsom er MGF-en til $\\chi^2_{20}$. Ved entydighet: $V \\sim \\chi^2_{20}$ (frihetsgrad $2n = 20$, ikke $n = 10$).\n\n**c)** Siden $\\sum X_i = 10\\bar{X}$, er $V = 2 \\cdot 10\\bar{X}/\\beta = 20\\bar{X}/\\beta$. Den er en **pivotal** fordi den bygger på data og $\\beta$, men fordelingen $\\chi^2_{20}$ inneholder ingen ukjente — det er nettopp dette som gir et eksakt konfidensintervall for $\\beta$ i Del 6.",
+            "hints": [
+              "$g$ voksende → ulikheten snur ikke; $\\beta$ kanselleres.",
+              "10 MGF-er $(1-2t)^{-1}$ gir $(1-2t)^{-10} = \\chi^2_{20}$.",
+              "$\\sum X_i = n\\bar{X}$; pivotal = kjent fordeling, ukjent parameter."
+            ]
+          }
+        },
+        {
+          "id": "tma4245-4-prove-p4-ex2",
+          "type": "exercise",
+          "exercise": {
+            "id": "tma4245-4-prove-p4-ex2",
+            "number": "2",
+            "type": "classic",
+            "difficulty": "vanskelig",
+            "task": "Bruddstyrkene $X_1, \\ldots, X_n$ (i kN) til kompositt-stag er Weibull-fordelte med kjent form $k$ og skala $\\theta$: $F(x) = 1 - e^{-(x/\\theta)^k}$.\n\n**a)** Vis ved CDF-metoden at $W = (X/\\theta)^k \\sim \\text{eksp}(1)$.\n\n**b)** Angi fordelingen til $2\\sum_{i=1}^{n}(X_i/\\theta)^k$, med begrunnelse.\n\n**c)** Med $n = 12$: hva blir frihetsgraden, og hvorfor er potens-løftet nødvendig?",
+            "solution": "**a)** $g(x) = (x/\\theta)^k$ er voksende. For $w > 0$: $F_W(w) = P((X/\\theta)^k \\le w) = P(X \\le \\theta w^{1/k})$. Sett inn Weibull-CDF-en:\n$$F_W(w) = 1 - e^{-((\\theta w^{1/k})/\\theta)^k} = 1 - e^{-(w^{1/k})^k} = 1 - e^{-w},$$\nsom er $\\text{eksp}(1)$. Altså $W \\sim \\text{eksp}(1)$.\n\n**b)** Hver $W_i = (X_i/\\theta)^k \\sim \\text{eksp}(1)$ uavhengig, så $2W_i \\sim \\chi^2_2$ (kjernekoblingen med $\\beta = 1$), og MGF-produktregelen gir $2\\sum_{i=1}^{n}(X_i/\\theta)^k \\sim \\chi^2_{2n}$ (entydighet).\n\n**c)** Med $n = 12$: frihetsgrad $2n = 24$, altså $\\chi^2_{24}$. Potens-løftet er nødvendig fordi kjikvadrat-apparatet gjelder *eksponensiale* data; uten å transformere Weibull til eksponensial(1) først kan man ikke bruke koblingen $2X/\\beta \\sim \\chi^2_2$.",
+            "hints": [
+              "Potens-løft: $W = (X/\\theta)^k$, løs $X \\le \\theta w^{1/k}$; $((\\theta w^{1/k})/\\theta)^k = w$.",
+              "$W_i \\sim \\text{eksp}(1)$, så $2\\sum W_i \\sim \\chi^2_{2n}$.",
+              "$2n = 24$; apparatet krever eksponensiale data."
+            ]
+          }
+        },
+        {
+          "id": "tma4245-4-prove-p4-selvdiagnose",
+          "type": "text",
+          "content": "### Selvdiagnose 4.D\n\nKryss av det du mestret uten å slå opp:\n\n- ☐ Jeg viste CDF-steget $P(2X/\\beta \\le y) = 1 - e^{-y/2}$ og at $\\beta$ kanselleres.\n- ☐ Jeg brukte MGF-produktregelen og fikk frihetsgrad **$2n$**, ikke $n$.\n- ☐ Jeg oppga entydighetsargumentet ved identifikasjonen.\n- ☐ Jeg potens-løftet Weibull-dataene til eksponensial(1) *før* apparatet.\n- ☐ Jeg forklarte hvorfor størrelsen er en pivotal (kjent fordeling, ukjent parameter).\n\nManglet du noe? Repeter [kap. 4.2](/bok/tma4245/tma4245-4-2)."
+        }
+      ]
+    },
+    {
+      "id": "tma4245-4-prove-symbolliste",
+      "type": "collapsible",
+      "title": "Symbol- og formelliste",
+      "buttonText": "Vis symboler og formler",
+      "content": [
+        {
+          "id": "tma4245-4-prove-symbolliste-text",
+          "type": "text",
+          "content": "*Oppslagsverk — alt her forklares underveis i kapitlet.*\n\nPrøvene spenner over hele Del 4. Her er symbolene og formlene du kan trenge, samlet.\n\n| Symbol | Betydning |\n|---|---|\n| $Y = g(X)$ | Transformert variabel |\n| $F_X, F_Y$ | Fordelingsfunksjonene til $X$ og $Y$ |\n| $g^{-1}$ | Invers av transformasjonen |\n| $M_X(t)$ | Momentgenererende funksjon, $E(e^{tX})$ |\n| $\\max, \\min$ | Største/minste av $X_1, \\ldots, X_n$ |\n| $\\beta$ | Forventningen i eksponensialfordelingen |\n| $\\chi^2_\\nu$ | Kjikvadrat med $\\nu$ frihetsgrader |\n| $\\theta, k$ | Skala- og formparameter (Weibull) |\n\n**Formler du kan trenge i Del 4-prøvene:**\n\n$$F_Y(y) = F_X(g^{-1}(y)) \\;\\; (g \\text{ voksende}), \\quad 1 - F_X(g^{-1}(y)) \\;\\; (g \\text{ avtakende})$$\nFordelingsfunksjonsteknikken; $f_Y = F_Y'$.\n\n$$M_{X_1 + \\cdots + X_n}(t) = \\prod_{i=1}^{n} M_{X_i}(t)$$\nMGF-produktregelen for uavhengige (entydighet: MGF-en bestemmer fordelingen).\n\n$$F_{\\max}(y) = [F(y)]^n, \\qquad F_{\\min}(y) = 1 - [1 - F(y)]^n$$\nMaksimum (parallell) og minimum (serie) av $n$ iid variable.\n\n$$\\min(X_1, \\ldots, X_n) \\sim \\text{eksp}(\\beta/n) \\quad (X_i \\text{ iid eksponensial})$$\nMinimum av eksponensiale.\n\n$$\\frac{2X}{\\beta} \\sim \\chi^2_2, \\qquad \\frac{2\\sum_{i=1}^{n} X_i}{\\beta} = \\frac{2n\\bar{X}}{\\beta} \\sim \\chi^2_{2n}$$\nEksponensialens kjikvadrat-apparat — frihetsgrad $2n$.\n\n$$(X/\\theta)^k \\sim \\text{eksp}(1)$$\nWeibull-løftet før apparatet brukes."
+        }
+      ]
+    }
+  ],
+  "exercises": []
+}

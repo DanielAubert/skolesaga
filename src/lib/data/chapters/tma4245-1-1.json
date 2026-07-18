@@ -1,0 +1,375 @@
+{
+  "id": "tma4245-1-1",
+  "courseId": "tma4245",
+  "chapterNumber": "1.1",
+  "title": "Hendelser, sannsynlighet og uavhengighet",
+  "description": "Utfallsrom, hendelsesalgebra, addisjonsregelen og det eksamensfelle-tunge skillet disjunkt vs. uavhengig.",
+  "estimatedMinutes": 45,
+  "competenceGoals": [
+    "sette opp utfallsrom og hendelser og regne med komplement, union og snitt",
+    "bruke addisjonsregelen og komplementregelen aktivt uten oppslag",
+    "skille disjunkte fra uavhengige hendelser og bruke at disjunkte hendelser med positiv sannsynlighet aldri er uavhengige",
+    "avgjøre ut fra $P(A)+P(B)$ om to hendelser kan være disjunkte"
+  ],
+  "content": [
+    {
+      "id": "tma4245-1-1-tip-eksamensvinkel",
+      "type": "tip",
+      "title": "Eksamensvinkel",
+      "content": "**Dette kapitlet legger grunnmuren under de hyppigste kortsvarspoengene i emnet.**\n\n- Hendelsesalgebra og uavhengighet er fundamentet under **sjanger E** — med *sjanger E* mener vi oppgaver om betinget sannsynlighet, total sannsynlighet og Bayes (kap. 1.3). Den familien dukker opp i **≈59 %** av settene.\n- Skillet *disjunkt vs. uavhengig* og Venndiagram-identiteter er en fast **sjanger O**-familie — *sjanger O* er de korte Inspera-oppgavene der du bare fyller inn et tallsvar eller krysser av. Den har vært med i **alle hybridsett 2022–2025**.\n- I Aug25 kom fellen der $P(A) + P(B) > 1$ **utelukker** at hendelsene er disjunkte — en gratis felle om du kan den, et sikkert tap om du ikke gjør.\n\nKapitlet er **kunne**-prioritert (nivet under «perfekt»), men *fellene* skal sitte perfekt: de gir billige, sikre poeng som mange kaster bort.\n\n**Formelsamlingen** (hjelpemiddelkode C på eksamen) hjelper deg lite her: addisjonsregelen og uavhengighetssjekken må sitte i hodet og resonneres aktivt. Ingenting i dette kapitlet er oppslagsstoff."
+    },
+    {
+      "id": "tma4245-1-1-forkunnskaper",
+      "type": "text",
+      "content": "**Forkunnskaper:** Dette kapitlet **kan leses uten forkunnskaper** — det er startpunktet i boka. Du trenger bare vanlig brøk- og prosentregning og å være komfortabel med mengdespråk (union, snitt), som vi uansett bygger opp fra bunnen her.\n\nKapitlet er selv forkunnskap for **[kap. 1.2](/bok/tma4245/tma4245-1-2)** (kombinatorikk) og **[kap. 1.3](/bok/tma4245/tma4245-1-3)** (betinget sannsynlighet og Bayes)."
+    },
+    {
+      "id": "tma4245-1-1-intro",
+      "type": "text",
+      "content": "Tenk deg at du kaster en terning, trekker et kort eller sjekker om en produsert komponent er defekt. Du vet ikke utfallet på forhånd, men du kan si noe presist om *hvor sannsynlige* de ulike utfallene er. Sannsynlighetsregning er språket for nettopp dette — og hele resten av statistikkfaget hviler på de få begrepene i dette kapitlet.\n\nVi bygger opp i tre små løkker. Først språket: **utfallsrom** og **hendelser**, og hvordan vi kombinerer hendelser med komplement, union og snitt (løkke 1). Deretter regnereglene: **addisjonsregelen**, komplementregelen og den uniforme modellen «gunstige over mulige» (løkke 2). Til slutt det eksamen elsker å lure folk med: forskjellen på **disjunkte** og **uavhengige** hendelser (løkke 3). Hver løkke går teori → eksempel → oppgave."
+    },
+    {
+      "id": "tma4245-1-1-lokke1",
+      "type": "text",
+      "content": "## Løkke 1 — Utfallsrom og hendelsesalgebra"
+    },
+    {
+      "id": "tma4245-1-1-def-utfallsrom",
+      "type": "definition",
+      "title": "Utfallsrom",
+      "content": "Samlingen av *alle* mulige utfall av et forsøk — alt som kan skje — kalles utfallsrommet, skrevet $S$ (noen bøker bruker $\\Omega$):\n\n$$S = \\{\\text{alle mulige utfall}\\}.$$\n\nKaster du én terning, er $S = \\{1, 2, 3, 4, 5, 6\\}$. Hvert enkelt element i $S$ er et **elementutfall**. Utfallsrommet er startpunktet for enhver sannsynlighetsmodell: du må vite hva som *kan* skje før du kan regne på hva som *vil* skje."
+    },
+    {
+      "id": "tma4245-1-1-def-hendelse",
+      "type": "definition",
+      "title": "Hendelse",
+      "content": "En hendelse er en **delmengde** av utfallsrommet — en samling utfall vi er interessert i. Vi skriver hendelser med store bokstaver: $A$, $B$, $C$.\n\nFor terningen kan $A = \\{5, 6\\}$ være hendelsen «minst 5 øyne». Hendelsen *inntreffer* dersom utfallet av forsøket ligger i $A$. Sannsynligheten for hendelsen skrives $P(A)$, et tall mellom 0 og 1."
+    },
+    {
+      "id": "tma4245-1-1-def-komplement",
+      "type": "definition",
+      "title": "Komplement",
+      "content": "Komplementet til $A$ er hendelsen «$A$ inntreffer *ikke*» — alle utfall i $S$ som *ikke* ligger i $A$. Vi skriver det $A^c$ (eller $\\bar{A}$):\n\n$$A^c = \\{\\text{utfall i } S \\text{ som ikke er i } A\\}.$$\n\nFor terningen med $A = \\{5, 6\\}$ er $A^c = \\{1, 2, 3, 4\\}$ = «høyst 4 øyne». Komplementet er nøkkelen til komplementregelen i løkke 2."
+    },
+    {
+      "id": "tma4245-1-1-def-union",
+      "type": "definition",
+      "title": "Union («eller»)",
+      "content": "Unionen $A \\cup B$ er hendelsen «$A$ **eller** $B$ (eller begge) inntreffer» — alle utfall som ligger i minst én av dem:\n\n$$A \\cup B = \\{\\text{utfall i } A \\text{ eller i } B\\}.$$\n\nMed $A = \\{5, 6\\}$ og $B = \\{2, 4, 6\\}$ (partall) er $A \\cup B = \\{2, 4, 5, 6\\}$. Merk at 6 telles bare én gang — det er hele poenget med addisjonsregelen senere."
+    },
+    {
+      "id": "tma4245-1-1-def-snitt",
+      "type": "definition",
+      "title": "Snitt («og»)",
+      "content": "Snittet $A \\cap B$ er hendelsen «$A$ **og** $B$ inntreffer samtidig» — utfallene som ligger i *begge*:\n\n$$A \\cap B = \\{\\text{utfall i både } A \\text{ og } B\\}.$$\n\nMed $A = \\{5, 6\\}$ og $B = \\{2, 4, 6\\}$ er $A \\cap B = \\{6\\}$. «Og» betyr snitt, «eller» betyr union — å blande disse to er den vanligste feilen i hele kapitlet."
+    },
+    {
+      "id": "tma4245-1-1-ex-1",
+      "type": "example",
+      "title": "Eksempel 1: Regn i hendelser",
+      "problem": "En komponent testes og gis en karakter fra 1 til 6 (1 = dårligst). Utfallsrommet er $S = \\{1, 2, 3, 4, 5, 6\\}$. La $A = \\{4, 5, 6\\}$ («bestått») og $B = \\{5, 6\\}$ («toppkarakter»). Finn $A^c$, $A \\cup B$ og $A \\cap B$, og beskriv hver i ord.",
+      "solution": "**$A^c$:** alt i $S$ som ikke er i $A$, altså $A^c = \\{1, 2, 3\\}$ — «ikke bestått».\n\n**$A \\cup B$:** utfall i $A$ *eller* $B$. Siden $B = \\{5,6\\}$ allerede ligger inne i $A = \\{4,5,6\\}$, blir $A \\cup B = \\{4, 5, 6\\} = A$ — «bestått eller bedre» er det samme som bestått.\n\n**$A \\cap B$:** utfall i *begge*, $A \\cap B = \\{5, 6\\} = B$ — en toppkarakter er alltid også bestått. Her ser vi at $B$ er en **delhendelse** av $A$ ($B \\subseteq A$), og da forenkler union og snitt seg."
+    },
+    {
+      "id": "tma4245-1-1-oppg-l1",
+      "type": "exercise",
+      "exercise": {
+        "id": "tma4245-1-1-l1",
+        "number": "1",
+        "type": "classic",
+        "difficulty": "lett",
+        "task": "(Innstegsoppgave — ren gjengivelse.) Kast av én terning gir $S = \\{1,2,3,4,5,6\\}$. La $A = \\{2, 4, 6\\}$ (partall) og $B = \\{3, 6\\}$ (delelig med 3).\n\n**a)** Skriv opp $A^c$.\n\n**b)** Skriv opp $A \\cup B$.\n\n**c)** Skriv opp $A \\cap B$.",
+        "solution": "**a)** $A^c = \\{1, 3, 5\\}$ (oddetallene).\n\n**b)** $A \\cup B = \\{2, 3, 4, 6\\}$ (partall eller delelig med 3; 6 telles én gang).\n\n**c)** $A \\cap B = \\{6\\}$ (det eneste tallet som er både partall og delelig med 3).",
+        "hints": [
+          "Komplement = alt i $S$ som ikke er i mengden.",
+          "Union = «eller» (slå sammen), snitt = «og» (det felles)."
+        ]
+      }
+    },
+    {
+      "id": "tma4245-1-1-oppg-m1",
+      "type": "exercise",
+      "exercise": {
+        "id": "tma4245-1-1-m1",
+        "number": "2",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "En sensor har utfallsrommet $S = \\{1, 2, \\ldots, 10\\}$ for antall feil i en programvaremodul. La $A = \\{1,2,3,4\\}$ og $B = \\{3,4,5,6\\}$.\n\n**a)** Beskriv i ord hva hendelsen $A \\cap B^c$ inneholder, og skriv den opp.\n\n**b)** Skriv opp $(A \\cup B)^c$ og forklar hva den betyr.",
+        "solution": "**a)** $B^c = \\{1,2,7,8,9,10\\}$. Snittet $A \\cap B^c$ er utfall som er i $A$ men *ikke* i $B$: $A \\cap B^c = \\{1, 2\\}$. I ord: «høyst 4 feil, men ikke 3 eller 4» — altså 1 eller 2 feil.\n\n**b)** $A \\cup B = \\{1,2,3,4,5,6\\}$, så $(A \\cup B)^c = \\{7,8,9,10\\}$ — «minst 7 feil». Dette illustrerer en av De Morgans lover: «ikke ($A$ eller $B$)» er det samme som «verken $A$ eller $B$».",
+        "hints": [
+          "Regn $B^c$ først, så snittet med $A$.",
+          "$(A\\cup B)^c$ = alt som verken er i $A$ eller $B$."
+        ]
+      }
+    },
+    {
+      "id": "tma4245-1-1-lokke2",
+      "type": "text",
+      "content": "## Løkke 2 — Sannsynlighet, addisjonsregel og den uniforme modellen"
+    },
+    {
+      "id": "tma4245-1-1-def-aksiomer",
+      "type": "definition",
+      "title": "Sannsynlighetens tre grunnregler (aksiomene)",
+      "content": "En sannsynlighet $P$ tildeler hver hendelse et tall, og må følge tre grunnregler (Kolmogorovs aksiomer):\n\n1. $P(A) \\ge 0$ for enhver hendelse (aldri negativ).\n2. $P(S) = 1$ (noe i utfallsrommet inntreffer alltid).\n3. Hvis $A$ og $B$ **ikke kan inntreffe samtidig**, er $P(A \\cup B) = P(A) + P(B)$.\n\nAlt vi regner ut senere — komplementregelen, addisjonsregelen, Bayes — følger av disse tre. Merk at aksiom 3 bare gjelder når hendelsene ikke overlapper; overlapper de, trenger vi den generelle addisjonsregelen nedenfor."
+    },
+    {
+      "id": "tma4245-1-1-def-uniform",
+      "type": "definition",
+      "title": "Uniform sannsynlighetsmodell («gunstige over mulige»)",
+      "content": "Er alle elementutfall like sannsynlige, finner vi sannsynligheten for en hendelse ved å telle:\n\n$$P(A) = \\frac{\\text{antall gunstige utfall}}{\\text{antall mulige utfall}} = \\frac{|A|}{|S|}.$$\n\nDette gjelder *kun* når utfallene er symmetriske (rettferdig terning, godt blandet kortstokk, tilfeldig trekning). Da blir sannsynlighetsregning til **telling** — og telleteknikkene i [kap. 1.2](/bok/tma4245/tma4245-1-2) er nettopp verktøyet for det."
+    },
+    {
+      "id": "tma4245-1-1-def-addisjon",
+      "type": "definition",
+      "title": "Addisjonsregelen",
+      "content": "Sannsynligheten for at *minst én* av to hendelser inntreffer, er summen av sannsynlighetene minus det de deler:\n\n$$P(A \\cup B) = P(A) + P(B) - P(A \\cap B).$$\n\n**Intuisjon:** legger du $P(A)$ og $P(B)$ sammen, teller du overlappet $A \\cap B$ *to ganger* — én gang i hver. Derfor trekker vi det fra én gang. Dette er en aktiv regel du bruker uten oppslag; den står ikke i formelsamlingen i brukbar form."
+    },
+    {
+      "id": "tma4245-1-1-def-komplementregel",
+      "type": "definition",
+      "title": "Komplementregelen",
+      "content": "Sannsynligheten for at en hendelse *ikke* inntreffer:\n\n$$P(A^c) = 1 - P(A).$$\n\nDen følger av at $A$ og $A^c$ til sammen dekker hele $S$ og ikke overlapper. Regelen er uunnværlig for «minst én»-oppgaver: «minst én» er komplementet til «ingen», og «ingen» er ofte mye lettere å regne (se [kap. 1.2](/bok/tma4245/tma4245-1-2))."
+    },
+    {
+      "id": "tma4245-1-1-ex-2",
+      "type": "example",
+      "title": "Eksempel 2: Addisjonsregelen på en terning",
+      "problem": "Kast én rettferdig terning. La $A = \\{5, 6\\}$ («minst 5») og $B = \\{2, 4, 6\\}$ (partall). Finn $P(A \\cup B)$.",
+      "solution": "Med uniform modell og $|S| = 6$:\n\n$$P(A) = \\frac{2}{6} = \\frac{1}{3}, \\qquad P(B) = \\frac{3}{6} = \\frac{1}{2}.$$\n\nOverlappet er $A \\cap B = \\{6\\}$, så $P(A \\cap B) = \\frac{1}{6}$. Addisjonsregelen gir\n\n$$P(A \\cup B) = \\frac{1}{3} + \\frac{1}{2} - \\frac{1}{6} = \\frac{2}{6} + \\frac{3}{6} - \\frac{1}{6} = \\frac{4}{6} = \\frac{2}{3}.$$\n\nKontroll ved telling: $A \\cup B = \\{2, 4, 5, 6\\}$, altså 4 av 6 utfall $= \\frac{2}{3}$. **Faren:** hadde vi glemt fradraget $\\frac{1}{6}$, ville vi fått $\\frac{5}{6}$ — galt, fordi 6 da telles dobbelt."
+    },
+    {
+      "id": "tma4245-1-1-oppg-l2",
+      "type": "exercise",
+      "exercise": {
+        "id": "tma4245-1-1-l2",
+        "number": "3",
+        "type": "classic",
+        "difficulty": "lett",
+        "task": "En maskin er i én av tilstandene $S = \\{\\text{drift}, \\text{tomgang}, \\text{stopp}\\}$ med sannsynligheter $P(\\text{drift}) = 0{,}70$, $P(\\text{tomgang}) = 0{,}18$ og $P(\\text{stopp}) = 0{,}12$.\n\n**a)** Finn sannsynligheten for at maskinen *ikke* er i stopp.\n\n**b)** Finn $P(\\text{drift eller tomgang})$.",
+        "solution": "**a)** Komplementregelen: $P(\\text{ikke stopp}) = 1 - P(\\text{stopp}) = 1 - 0{,}12 = 0{,}88$.\n\n**b)** Drift og tomgang kan ikke inntreffe samtidig (maskinen er i én tilstand), så $P(\\text{drift eller tomgang}) = 0{,}70 + 0{,}18 = 0{,}88$. (Samme svar — fordi «ikke stopp» = «drift eller tomgang».)",
+        "hints": [
+          "Komplementregelen: $P(A^c) = 1 - P(A)$.",
+          "Tilstandene utelukker hverandre, så sannsynlighetene kan legges rett sammen."
+        ]
+      }
+    },
+    {
+      "id": "tma4245-1-1-oppg-m2",
+      "type": "exercise",
+      "exercise": {
+        "id": "tma4245-1-1-m2",
+        "number": "4",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "I en produksjonslinje har 30 % av enhetene en overflatefeil ($O$), 20 % har en målfeil ($M$), og 12 % har begge deler.\n\n**a)** Finn sannsynligheten for at en tilfeldig enhet har *minst én* av feilene.\n\n**b)** Finn sannsynligheten for at enheten er *feilfri*.",
+        "solution": "**a)** Addisjonsregelen med $P(O) = 0{,}30$, $P(M) = 0{,}20$, $P(O \\cap M) = 0{,}12$:\n\n$$P(O \\cup M) = 0{,}30 + 0{,}20 - 0{,}12 = 0{,}38.$$\n\n**b)** Feilfri = komplementet til «minst én feil»: $P((O \\cup M)^c) = 1 - 0{,}38 = 0{,}62$.",
+        "hints": [
+          "Bruk $P(O\\cup M) = P(O)+P(M)-P(O\\cap M)$ — husk fradraget.",
+          "Feilfri er komplementet til unionen."
+        ]
+      }
+    },
+    {
+      "id": "tma4245-1-1-lokke3",
+      "type": "text",
+      "content": "## Løkke 3 — Disjunkt vs. uavhengig (eksamensfellen)"
+    },
+    {
+      "id": "tma4245-1-1-lokke3-intro",
+      "type": "text",
+      "content": "Nå kommer skillet eksamen igjen og igjen bruker til å skille dem som *forstår* fra dem som *pugger*. To hendelser kan være **disjunkte** (utelukke hverandre) eller **uavhengige** (ikke påvirke hverandre). Dette høres likt ut, men er nesten motsetninger. Les de to definisjonene under sammen."
+    },
+    {
+      "id": "tma4245-1-1-def-disjunkt",
+      "type": "definition",
+      "title": "Disjunkte hendelser",
+      "content": "To hendelser er disjunkte (gjensidig utelukkende) hvis de **ikke kan inntreffe samtidig** — snittet er tomt:\n\n$$A \\cap B = \\varnothing, \\qquad P(A \\cap B) = 0.$$\n\nDa forenkler addisjonsregelen seg til $P(A \\cup B) = P(A) + P(B)$. Eksempel: «terningen viser 1» og «terningen viser 6» kan umulig skje i samme kast. Disjunkt handler om *utfallene*: overlapper de i det hele tatt?"
+    },
+    {
+      "id": "tma4245-1-1-def-uavhengig",
+      "type": "definition",
+      "title": "Uavhengige hendelser",
+      "content": "To hendelser er uavhengige hvis den ene ikke endrer sannsynligheten for den andre. Den presise definisjonen er en **produktregel**:\n\n$$P(A \\cap B) = P(A)\\,P(B).$$\n\nEksempel: to atskilte terningkast — at det første viser 6 sier ingenting om det andre. Uavhengighet handler om *informasjon*: forteller det at $A$ skjedde deg noe om $B$? Merk: for å sjekke uavhengighet regner du, du kan ikke «se» det i et Venndiagram slik du ser disjunkthet."
+    },
+    {
+      "id": "tma4245-1-1-lokke3-resultat",
+      "type": "text",
+      "content": "### Resultatet som skal sitte\n\nDisjunkt og uavhengig er ikke det samme — de er nesten motsetninger:\n\n**To disjunkte hendelser med positiv sannsynlighet er ALDRI uavhengige.**\n\n**Intuisjon:** er $A$ og $B$ disjunkte, så betyr det at $B$ inntraff at $A$ *garantert ikke* gjorde det — det er maksimal avhengighet, ikke uavhengighet. Regnestykket bekrefter det: disjunkt gir $P(A \\cap B) = 0$, mens uavhengig krever $P(A \\cap B) = P(A)P(B)$. Er både $P(A) > 0$ og $P(B) > 0$, er $P(A)P(B) > 0 \\ne 0$ — de to kan ikke gjelde samtidig.\n\nEn ferdig felle på kjøpet: **hvis $P(A) + P(B) > 1$, kan $A$ og $B$ ikke være disjunkte.** Var de disjunkte, ville $P(A \\cup B) = P(A) + P(B) > 1$, som er umulig (aksiom 2). De *må* derfor overlappe, med $P(A \\cap B) \\ge P(A) + P(B) - 1$."
+    },
+    {
+      "id": "tma4245-1-1-ex-3",
+      "type": "example",
+      "title": "Eksempel 3: Disjunkt eller uavhengig? (sjanger O-fellen)",
+      "problem": "To hendelser har $P(A) = 0{,}3$ og $P(B) = 0{,}85$. Kan $A$ og $B$ være disjunkte? Kan de være uavhengige? Begrunn begge svar.",
+      "solution": "**Disjunkte?** Var de disjunkte, måtte $P(A \\cup B) = P(A) + P(B) = 0{,}3 + 0{,}85 = 1{,}15 > 1$, som bryter med at ingen sannsynlighet kan overstige 1. **Nei — de kan ikke være disjunkte.** De må overlappe, med $P(A \\cap B) \\ge 1{,}15 - 1 = 0{,}15$.\n\n**Uavhengige?** Test produktregelen: da måtte $P(A \\cap B) = P(A)P(B) = 0{,}3 \\cdot 0{,}85 = 0{,}255$. Sjekk at det er forenlig med aksiomene: $P(A \\cup B) = 0{,}3 + 0{,}85 - 0{,}255 = 0{,}895 \\le 1$ — helt greit. **Ja — de *kan* være uavhengige**, med overlapp $0{,}255$.\n\nLegg merke til at de to spørsmålene har motsatt svar: det som er umulig (disjunkt) og det som er mulig (uavhengig) skiller lag nettopp fordi $P(A) + P(B) > 1$."
+    },
+    {
+      "id": "tma4245-1-1-oppg-l3",
+      "type": "exercise",
+      "exercise": {
+        "id": "tma4245-1-1-l3",
+        "number": "5",
+        "type": "classic",
+        "difficulty": "lett",
+        "task": "Avgjør for hvert utsagn om det er sant eller usant, med én setnings begrunnelse.\n\n**a)** «To disjunkte hendelser er automatisk uavhengige.»\n\n**b)** «Hvis $P(A \\cap B) = P(A)P(B)$, er $A$ og $B$ uavhengige.»",
+        "solution": "**a)** **Usant.** Disjunkte hendelser med positiv sannsynlighet er tvert imot *avhengige* — skjer den ene, kan den andre umulig skje.\n\n**b)** **Sant.** Dette er nettopp definisjonen av uavhengighet.",
+        "hints": [
+          "Disjunkt betyr $P(A\\cap B)=0$; uavhengig betyr $P(A\\cap B)=P(A)P(B)$.",
+          "Kan begge deler gjelde samtidig når $P(A),P(B)>0$?"
+        ]
+      }
+    },
+    {
+      "id": "tma4245-1-1-oppg-m3",
+      "type": "exercise",
+      "exercise": {
+        "id": "tma4245-1-1-m3",
+        "number": "6",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "En elektronisk enhet har to uavhengige komponenter. Komponent 1 svikter i løpet av garantitiden med sannsynlighet $0{,}05$, komponent 2 med sannsynlighet $0{,}08$.\n\n**a)** Finn sannsynligheten for at *begge* svikter.\n\n**b)** Finn sannsynligheten for at *minst én* svikter.",
+        "solution": "La $F_1$ og $F_2$ være «svikt» for hver komponent, uavhengige med $P(F_1) = 0{,}05$, $P(F_2) = 0{,}08$.\n\n**a)** Uavhengighet gir $P(F_1 \\cap F_2) = 0{,}05 \\cdot 0{,}08 = 0{,}004$.\n\n**b)** Enklest via komplement: $P(\\text{minst én}) = 1 - P(\\text{ingen svikter}) = 1 - (1-0{,}05)(1-0{,}08) = 1 - 0{,}95 \\cdot 0{,}92 = 1 - 0{,}874 = 0{,}126$.",
+        "hints": [
+          "Uavhengige: $P(F_1\\cap F_2)=P(F_1)P(F_2)$.",
+          "«Minst én» = 1 minus «ingen svikter»; ingen svikter har sannsynlighet $(1-p_1)(1-p_2)$."
+        ]
+      }
+    },
+    {
+      "id": "tma4245-1-1-oppg-v1",
+      "type": "exercise",
+      "exercise": {
+        "id": "tma4245-1-1-v1",
+        "number": "7",
+        "type": "classic",
+        "difficulty": "vanskelig",
+        "task": "Et system logger tre uavhengige sensoralarmer i løpet av et døgn: $A$, $B$ og $C$, med $P(A) = 0{,}4$, $P(B) = 0{,}3$ og $P(C) = 0{,}25$.\n\n**a)** Finn sannsynligheten for at *ingen* alarm utløses.\n\n**b)** Finn sannsynligheten for at *minst én* utløses.\n\n**c)** En medstudent påstår at siden $P(A) + P(B) + P(C) = 0{,}95$, kan de tre være parvis disjunkte. Kommenter.",
+        "solution": "Alarmene er uavhengige.\n\n**a)** $P(\\text{ingen}) = (1-0{,}4)(1-0{,}3)(1-0{,}25) = 0{,}6 \\cdot 0{,}7 \\cdot 0{,}75 = 0{,}315$.\n\n**b)** $P(\\text{minst én}) = 1 - 0{,}315 = 0{,}685$.\n\n**c)** Summen $0{,}95 \\le 1$ *utelukker ikke* disjunkthet på samme måte som en sum over 1 ville gjort — men den *beviser* det heller ikke. Her er hendelsene oppgitt som **uavhengige**, og uavhengige hendelser med positiv sannsynlighet er nettopp *ikke* disjunkte (for eksempel $P(A \\cap B) = 0{,}4 \\cdot 0{,}3 = 0{,}12 \\ne 0$). Medstudentens slutning er derfor feil: sumtesten kan bare *avkrefte* disjunkthet (når summen $> 1$), aldri bekrefte den.",
+        "hints": [
+          "«Ingen» for uavhengige hendelser: gang sammen $(1-P)$ for hver.",
+          "«Minst én» = 1 minus «ingen».",
+          "Sum $\\le 1$ tillater disjunkthet, men her er hendelsene uavhengige — sjekk $P(A\\cap B)$."
+        ]
+      }
+    },
+    {
+      "id": "tma4245-1-1-warn-typiske-feil",
+      "type": "warning",
+      "title": "Typiske feil",
+      "content": "- **Anta at disjunkte hendelser er uavhengige.** Med positiv sannsynlighet er de tvert imot maksimalt avhengige. Disjunkt: $P(A\\cap B)=0$. Uavhengig: $P(A\\cap B)=P(A)P(B)>0$.\n- **Overse at $P(A) + P(B) > 1$ utelukker disjunkthet.** Var de disjunkte, ville unionen fått sannsynlighet over 1. Bruk dette som en rask sjekk.\n- **Blande union og snitt.** «Eller» = union $\\cup$, «og» = snitt $\\cap$. Les oppgaveteksten nøye.\n- **Regne $P(A \\cup B) = P(A) + P(B)$ uten fradrag.** Det gjelder *bare* når hendelsene er disjunkte. Ellers må du trekke fra $P(A \\cap B)$, ellers dobbelteller du overlappet.\n- **Tro at «sumtesten» bekrefter disjunkthet.** $P(A)+P(B) \\le 1$ *tillater* disjunkthet, men beviser den ikke."
+    },
+    {
+      "id": "tma4245-1-1-begrepsbank",
+      "type": "text",
+      "content": "## Begrepsbank til eksamen\n\nKjernebegrepene fra kapitlet i kortform — repertoaret for hendelsesalgebra og uavhengighetsfellene.\n\n*Begrepsbanken er flashcard-/repetisjonsstoff — den gjentar det du nettopp har lest. Hopp trygt over ved førstegangslesing; tidsanslaget gjelder kjernestoffet.*"
+    },
+    {
+      "id": "tma4245-1-1-bb-utfall",
+      "type": "definition",
+      "title": "Elementutfall",
+      "content": "Et enkelt, udelelig utfall av forsøket — ett element i utfallsrommet $S$. For én terning er hvert av tallene $1, \\ldots, 6$ et elementutfall. En hendelse er en samling (delmengde) av elementutfall."
+    },
+    {
+      "id": "tma4245-1-1-bb-sikker-umulig",
+      "type": "definition",
+      "title": "Sikker og umulig hendelse",
+      "content": "Den **sikre** hendelsen er hele utfallsrommet $S$ med $P(S) = 1$ (noe skjer alltid). Den **umulige** hendelsen er den tomme mengden $\\varnothing$ med $P(\\varnothing) = 0$. To disjunkte hendelser har nettopp $A \\cap B = \\varnothing$."
+    },
+    {
+      "id": "tma4245-1-1-bb-venn",
+      "type": "definition",
+      "title": "Venndiagram",
+      "content": "En tegning der utfallsrommet er et rektangel og hendelsene er områder inni. Union er alt som dekkes av minst én figur, snitt er overlappet, komplement er alt utenfor. Nyttig for å *se* hendelsesalgebra og oppdage overlapp — men uavhengighet kan man ikke lese av et Venndiagram, den må regnes."
+    },
+    {
+      "id": "tma4245-1-1-bb-delhendelse",
+      "type": "definition",
+      "title": "Delhendelse ($A \\subseteq B$)",
+      "content": "$A$ er en delhendelse av $B$ hvis ethvert utfall i $A$ også ligger i $B$ — «inntreffer $A$, så inntreffer $B$». Da er $A \\cap B = A$, $A \\cup B = B$ og $P(A) \\le P(B)$. Eksempel: «toppkarakter» er en delhendelse av «bestått»."
+    },
+    {
+      "id": "tma4245-1-1-rep",
+      "type": "collapsible",
+      "title": "Repetisjonsoppgaver",
+      "buttonText": "Vis repetisjonsoppgaver",
+      "content": [
+        {
+          "id": "tma4245-1-1-oppg-rep-1",
+          "type": "exercise",
+          "exercise": {
+            "id": "tma4245-1-1-rep-1",
+            "number": "R1",
+            "type": "classic",
+            "difficulty": "lett",
+            "task": "Med $S = \\{1,2,3,4,5,6\\}$, $A = \\{1,2,3\\}$ og $B = \\{2,3,4,5\\}$: skriv opp $A^c$, $A \\cup B$ og $A \\cap B$.",
+            "solution": "$A^c = \\{4,5,6\\}$; $A \\cup B = \\{1,2,3,4,5\\}$; $A \\cap B = \\{2,3\\}$.",
+            "hints": [
+              "Komplement, så union («eller»), så snitt («og»)."
+            ]
+          }
+        },
+        {
+          "id": "tma4245-1-1-oppg-rep-2",
+          "type": "exercise",
+          "exercise": {
+            "id": "tma4245-1-1-rep-2",
+            "number": "R2",
+            "type": "classic",
+            "difficulty": "lett",
+            "task": "En hendelse har $P(A) = 0{,}37$. Hva er $P(A^c)$?",
+            "solution": "$P(A^c) = 1 - 0{,}37 = 0{,}63$ (komplementregelen).",
+            "hints": [
+              "$P(A^c) = 1 - P(A)$."
+            ]
+          }
+        },
+        {
+          "id": "tma4245-1-1-oppg-rep-3",
+          "type": "exercise",
+          "exercise": {
+            "id": "tma4245-1-1-rep-3",
+            "number": "R3",
+            "type": "classic",
+            "difficulty": "middels",
+            "task": "$P(A) = 0{,}5$, $P(B) = 0{,}4$, $P(A \\cap B) = 0{,}2$. Finn $P(A \\cup B)$, og avgjør om $A$ og $B$ er uavhengige.",
+            "solution": "$P(A \\cup B) = 0{,}5 + 0{,}4 - 0{,}2 = 0{,}7$. Uavhengighet krever $P(A \\cap B) = P(A)P(B) = 0{,}5 \\cdot 0{,}4 = 0{,}2$. Siden det stemmer ($0{,}2 = 0{,}2$), er $A$ og $B$ **uavhengige**.",
+            "hints": [
+              "Addisjonsregelen for unionen.",
+              "Sammenlign $P(A\\cap B)$ med produktet $P(A)P(B)$."
+            ]
+          }
+        },
+        {
+          "id": "tma4245-1-1-oppg-rep-4",
+          "type": "exercise",
+          "exercise": {
+            "id": "tma4245-1-1-rep-4",
+            "number": "R4",
+            "type": "classic",
+            "difficulty": "middels",
+            "task": "To hendelser har $P(A) = 0{,}6$ og $P(B) = 0{,}7$. Kan de være disjunkte? Begrunn.",
+            "solution": "Nei. Var de disjunkte, ville $P(A \\cup B) = 0{,}6 + 0{,}7 = 1{,}3 > 1$, som er umulig. De må overlappe med $P(A \\cap B) \\ge 1{,}3 - 1 = 0{,}3$.",
+            "hints": [
+              "Sjekk $P(A)+P(B)$ mot 1."
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": "tma4245-1-1-symbolliste",
+      "type": "collapsible",
+      "title": "Symbol- og formelliste",
+      "buttonText": "Vis symboler og formler",
+      "content": [
+        {
+          "id": "tma4245-1-1-symbolliste-text",
+          "type": "text",
+          "content": "*Oppslagsverk — alt her forklares underveis i kapitlet.*\n\nAlle symboler og formler brukt i kapittel 1.1, samlet.\n\n| Symbol | Betydning |\n|---|---|\n| $S$ | Utfallsrommet — alle mulige utfall |\n| $A, B, C$ | Hendelser (delmengder av $S$) |\n| $P(A)$ | Sannsynligheten for hendelsen $A$, et tall i $[0,1]$ |\n| $A^c$ | Komplementet til $A$ («$A$ inntreffer ikke») |\n| $A \\cup B$ | Union — «$A$ eller $B$» |\n| $A \\cap B$ | Snitt — «$A$ og $B$» |\n| $\\varnothing$ | Den tomme (umulige) hendelsen |\n| $A \\subseteq B$ | $A$ er en delhendelse av $B$ |\n| $|A|$ | Antall utfall i $A$ |\n\n**Formler i dette kapitlet:**\n\n$$P(A^c) = 1 - P(A)$$\nKomplementregelen: sannsynligheten for at $A$ ikke inntreffer.\n\n$$P(A \\cup B) = P(A) + P(B) - P(A \\cap B)$$\nAddisjonsregelen: trekk fra overlappet så det ikke telles dobbelt.\n\n$$P(A) = \\frac{|A|}{|S|}$$\nUniform modell («gunstige over mulige») — gjelder når alle utfall er like sannsynlige.\n\n$$A \\cap B = \\varnothing \\quad\\Longleftrightarrow\\quad P(A \\cap B) = 0$$\nDisjunkte (gjensidig utelukkende) hendelser — da er $P(A \\cup B) = P(A) + P(B)$.\n\n$$P(A \\cap B) = P(A)\\,P(B)$$\nUavhengige hendelser (produktregelen). Disjunkte hendelser med positiv sannsynlighet oppfyller *aldri* denne."
+        }
+      ]
+    }
+  ],
+  "exercises": []
+}

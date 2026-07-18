@@ -1,0 +1,152 @@
+[
+  {
+    "question": "Hva er forskjellen på en estimator og et estimat?",
+    "options": [
+      "Estimatoren er en stokastisk oppskrift; estimatet er tallet den gir etter innsetting",
+      "Estimatoren er selve tallet vi leser av, mens estimatet er den stokastiske oppskriften bak",
+      "Estimatoren gjelder bare utvalget, mens estimatet alltid beskriver hele populasjonen presist",
+      "Estimatoren er alltid forventningsrett, mens estimatet per definisjon alltid er forventningsskjevt"
+    ],
+    "explanation": "$\\hat{\\theta}$ (estimatoren) er stokastisk og har en fordeling; setter vi inn data får vi estimatet, ett bestemt tall."
+  },
+  {
+    "question": "Hva betyr at en estimator $\\hat{\\theta}$ er forventningsrett for $\\theta$?",
+    "options": [
+      "At $E(\\hat{\\theta})=\\theta$, altså at den treffer i gjennomsnitt",
+      "At $\\hat{\\theta}=\\theta$ for hvert eneste utvalg man trekker",
+      "At variansen $\\text{Var}(\\hat{\\theta})$ alltid er lik null",
+      "At $\\hat{\\theta}$ alltid ligger nærmere $\\theta$ enn andre anslag"
+    ],
+    "explanation": "Forventningsrett betyr rett i forventning: $E(\\hat{\\theta})=\\theta$. Enkeltutslag kan likevel bomme."
+  },
+  {
+    "question": "Hva er variansen til utvalgsgjennomsnittet $\\bar{X}$ av $n$ uavhengige målinger med varians $\\sigma^2$?",
+    "options": [
+      "$\\sigma^2/n$",
+      "$\\sigma^2$",
+      "$n\\sigma^2$",
+      "$\\sigma^2/\\sqrt{n}$"
+    ],
+    "explanation": "$\\text{Var}(\\bar{X})=\\sigma^2/n$; variansen synker med $n$, så flere målinger gir en skarpere estimator."
+  },
+  {
+    "question": "Hvordan er MSE til en estimator sammensatt?",
+    "options": [
+      "$\\text{MSE}=\\text{Var}(\\hat{\\theta})+[\\text{bias}]^2$",
+      "$\\text{MSE}=\\text{Var}(\\hat{\\theta})-[\\text{bias}]^2$",
+      "$\\text{MSE}=\\text{Var}(\\hat{\\theta})\\cdot[\\text{bias}]^2$",
+      "$\\text{MSE}=[\\text{bias}]^2-\\text{Var}(\\hat{\\theta})$"
+    ],
+    "explanation": "MSE $=E[(\\hat{\\theta}-\\theta)^2]=\\text{Var}+[\\text{bias}]^2$ — spredning pluss skjevhet-kvadrert."
+  },
+  {
+    "question": "Hvorfor deler den forventningsrette utvalgsvariansen $S^2$ på $n-1$?",
+    "options": [
+      "Fordi $E[\\sum(X_i-\\bar{X})^2]=(n-1)\\sigma^2$, så divisor $n-1$ gir $E(S^2)=\\sigma^2$",
+      "Fordi kvadratsummen $\\sum(X_i-\\bar{X})^2$ alltid overstiger $n\\sigma^2$ og må skaleres litt ned",
+      "Fordi man i praksis alltid mister nøyaktig én observasjon under selve datainnsamlingen",
+      "Fordi variansen ellers kunne blitt negativ for de aller minste utvalgene man møter"
+    ],
+    "explanation": "Kvadratsummen har forventning $(n-1)\\sigma^2$; deling på $n-1$ (ikke $n$) korrigerer for at $\\mu$ er erstattet av $\\bar{X}$."
+  },
+  {
+    "question": "Hva er forventningen til ML-varianten $\\hat{\\sigma}^2=\\frac{1}{n}\\sum(X_i-\\bar{X})^2$?",
+    "options": [
+      "$\\frac{n-1}{n}\\sigma^2$, altså en systematisk undervurdering",
+      "$\\sigma^2$, altså helt forventningsrett akkurat som $S^2$",
+      "$\\frac{n}{n-1}\\sigma^2$, altså en systematisk overvurdering",
+      "$n\\sigma^2$, altså en kraftig oppblomstring med $n$"
+    ],
+    "explanation": "$E(\\hat{\\sigma}^2)=\\frac{n-1}{n}\\sigma^2<\\sigma^2$: ML-varianten er skjev og undervurderer, med skjevhet $-\\sigma^2/n$."
+  },
+  {
+    "question": "To estimatorer er begge forventningsrette for $\\mu$. Hvordan velger man mellom dem?",
+    "options": [
+      "Man velger den med minst varians, siden begge treffer i snitt",
+      "Man velger den med størst varians, siden den er mest fleksibel",
+      "Man velger vilkårlig, siden forventningsrette estimatorer er likeverdige",
+      "Man velger den med størst skjevhet for å balansere feilen"
+    ],
+    "explanation": "Når begge er forventningsrette, avgjør variansen: minst varians betyr mest presis estimator."
+  },
+  {
+    "question": "En skjev estimator har varians 5 og skjevhet 2. Hva er MSE?",
+    "options": [
+      "9",
+      "7",
+      "3",
+      "20"
+    ],
+    "explanation": "$\\text{MSE}=\\text{Var}+b^2=5+2^2=5+4=9$."
+  },
+  {
+    "question": "Kan en skjev estimator ha lavere MSE enn en forventningsrett?",
+    "options": [
+      "Ja, hvis den lavere variansen mer enn oppveier skjevheten",
+      "Nei, en forventningsrett estimator har alltid lavest MSE",
+      "Nei, MSE er kun definert for forventningsrette estimatorer",
+      "Ja, men bare når skjevheten tilfeldigvis er nøyaktig null"
+    ],
+    "explanation": "MSE veier varians mot skjevhet-kvadrert; en skjev estimator med liten nok varians (som ML-$\\hat{\\sigma}^2$) kan ha lavere MSE."
+  },
+  {
+    "question": "Hva er standardfeilen $\\text{SE}(\\bar{X})$ når hver måling har varians $\\sigma^2$?",
+    "options": [
+      "$\\sigma/\\sqrt{n}$",
+      "$\\sigma^2/n$",
+      "$\\sigma/n$",
+      "$\\sqrt{n}\\,\\sigma$"
+    ],
+    "explanation": "$\\text{SE}(\\bar{X})=\\sqrt{\\text{Var}(\\bar{X})}=\\sqrt{\\sigma^2/n}=\\sigma/\\sqrt{n}$."
+  },
+  {
+    "question": "Hva er variansen til $\\hat{\\mu}=\\frac{1}{2}(X_1+X_2)$ når $X_1,X_2$ er uavhengige med varians $\\sigma^2$?",
+    "options": [
+      "$\\sigma^2/2$",
+      "$\\sigma^2$",
+      "$2\\sigma^2$",
+      "$\\sigma^2/4$"
+    ],
+    "explanation": "$\\text{Var}=\\left(\\tfrac12\\right)^2\\sigma^2+\\left(\\tfrac12\\right)^2\\sigma^2=\\tfrac14\\sigma^2+\\tfrac14\\sigma^2=\\sigma^2/2$; vektene kvadreres."
+  },
+  {
+    "question": "Hva sier det første trinnet i sammenligningsprotokollen at du skal gjøre?",
+    "options": [
+      "Sjekke forventningsretthet ved å regne $E(\\hat{\\theta})$ for hver kandidat",
+      "Regne MSE for samtlige kandidater aller først, før noe som helst annet vurderes",
+      "Velge estimatoren med det korteste regneuttrykket, rett og slett for enkelhets skyld",
+      "Sette opp et konfidensintervall for hver eneste av de aktuelle kandidatene med en gang"
+    ],
+    "explanation": "Protokollen starter med forventningsretthet: regn $E(\\hat{\\theta})$ og se om den blir $\\theta$; deretter varianser, så MSE ved skjevhet."
+  },
+  {
+    "question": "Hva menes med at $\\bar{X}$ er en konsistent estimator?",
+    "options": [
+      "At den nærmer seg $\\mu$ når $n$ vokser, siden $\\text{Var}(\\bar{X})=\\sigma^2/n\\to 0$",
+      "At den gir nøyaktig samme estimat uansett hvilket tilfeldig utvalg man tilfeldigvis trekker",
+      "At estimatoren utelukkende kan brukes når dataene er strengt normalfordelte fra start",
+      "At skjevheten til estimatoren øker jevnt og systematisk med utvalgsstørrelsen $n$"
+    ],
+    "explanation": "Konsistens: både skjevhet og varians går mot 0 når $n\\to\\infty$. For $\\bar{X}$ er variansen $\\sigma^2/n\\to 0$, så den samler seg om $\\mu$."
+  },
+  {
+    "question": "For uavhengige $X_i$ og konstanter $a_i$, hva er $\\text{Var}(\\sum a_iX_i)$?",
+    "options": [
+      "$\\sum a_i^2\\text{Var}(X_i)$",
+      "$\\sum a_i\\text{Var}(X_i)$",
+      "$(\\sum a_i)^2\\text{Var}(X_i)$",
+      "$\\sum |a_i|\\text{Var}(X_i)$"
+    ],
+    "explanation": "Vektene kvadreres: $\\text{Var}(\\sum a_iX_i)=\\sum a_i^2\\text{Var}(X_i)$ når variablene er uavhengige."
+  },
+  {
+    "question": "En estimator har $E(\\hat{\\theta})=\\theta+3$. Hva er skjevheten?",
+    "options": [
+      "3",
+      "$-3$",
+      "0",
+      "9"
+    ],
+    "explanation": "Skjevhet $b=E(\\hat{\\theta})-\\theta=(\\theta+3)-\\theta=3$; estimatoren overvurderer systematisk med 3."
+  }
+]

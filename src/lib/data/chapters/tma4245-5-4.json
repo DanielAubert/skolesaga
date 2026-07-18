@@ -1,0 +1,277 @@
+{
+  "id": "tma4245-5-4",
+  "courseId": "tma4245",
+  "chapterNumber": "5.4",
+  "title": "Drill: ML-utledning med estimatorvurdering (sjanger G)",
+  "description": "Sjangerdrill på storoppgavens første halvdel: utled ML, vis egenskaper, sammenlign kandidater — i alle arkivets varianter.",
+  "estimatedMinutes": 90,
+  "competenceGoals": [
+    "gjennomføre hele åtte-trinns-oppskriften for ML-utledning med estimatorvurdering på eksamenstempo",
+    "utlede ML for eksponensial, Poisson, binomisk, gamma og oppgitte «oppskriftsfordelinger»",
+    "håndtere kombinert likelihood fra to kilder, ML under bibetingelse og transcendente likelihoodligninger",
+    "sammenligne konkurrerende estimatorer med varians og MSE og velge med begrunnelse"
+  ],
+  "content": [
+    {
+      "id": "tma4245-5-4-tip",
+      "type": "tip",
+      "title": "Eksamensvinkel",
+      "content": "**Dette er sjangerdrillen på storoppgavens første halvdel** — «**sjanger G**» betyr en oppgave der du *utleder* en estimator (som regel med maximum likelihood) og deretter *vurderer* egenskapene (forventningsrett? varians? best?). Det er den vanligste storoppgave-inngangen i hele emnet.\n\n- Sjanger G dekker: standard-ML med vurdering (**over halvparten av settene** siste ti år), estimator-sammenligning (Nov20, Aug21, Mai22, Aug22, Des23, Jun23), to-kilders likelihood (Des22, Aug23, Mai24), bibetingelse (Aug24) og det numeriske tilfellet (Des24). Prioritet: **høyeste** (det øverste nivået).\n\n**Her trener du ikke ny teori** — den står i [kap. 5.1](/bok/tma4245/tma4245-5-1)–[5.3](/bok/tma4245/tma4245-5-3). Her trener du **tempo og fullstendighet** på den samme åtte-trinns-oppskriften, over alle arkivets varianter. Sensor gir poeng trinn for trinn: maksimumskontrollen, estimator/estimat-skillet og MSE-argumentet er der besvarelsene skiller lag.\n\n**Formelsamlingen** (hjelpemiddelkode C) gir tettheter og $E$/Var, men ML-utledningen og vurderingen må gjøres for hånd."
+    },
+    {
+      "id": "tma4245-5-4-forkunnskaper",
+      "type": "text",
+      "content": "**Forkunnskaper:** Dette drillkapitlet forutsetter hele Del 5: estimatorvurdering ([kap. 5.1](/bok/tma4245/tma4245-5-1) — forventningsretthet, varians, MSE, sammenligningsprotokollen), ML-ritualet ([kap. 5.2](/bok/tma4245/tma4245-5-2) — inkludert kombinert likelihood, bibetingelse og tilfellet uten lukket løsning) og eventuelt asymptotisk normalitet/deltametoden ([kap. 5.3](/bok/tma4245/tma4245-5-3)). Tetthetene hentes fra [kap. 2.2](/bok/tma4245/tma4245-2-2)–[2.3](/bok/tma4245/tma4245-2-3).\n\nMatematisk må du kunne **derivere logaritmer** og enkle uttrykk, bruke **logaritmeregler** ($\\ln(ab)=\\ln a+\\ln b$, $\\ln(a^b)=b\\ln a$), og regne **forventning og varians** av veide summer. Ingen ny teknikk introduseres — bare drill på eksamensnivå."
+    },
+    {
+      "id": "tma4245-5-4-oppskrift",
+      "type": "text",
+      "content": "## Løsningsoppskriften (åtte trinn)\n\nEnhver sjanger G-oppgave følger **samme åtte trinn**. De fem første er ML-ritualet fra [kap. 5.2](/bok/tma4245/tma4245-5-2); de tre siste er vurderingen fra [kap. 5.1](/bok/tma4245/tma4245-5-1). Lær rekkefølgen utenat.\n\n**1. Likelihood over ALLE observasjoner.** $L(\\theta)=\\prod f(x_i;\\theta)$ — og ved to kilder produktet over begge utvalg. Ved bibetingelse: substituer bindingen inn *nå*, før derivasjon.\n\n**2. Log.** $l(\\theta)=\\ln L(\\theta)=\\sum\\ln f(x_i;\\theta)$ — produkt blir sum.\n\n**3. Deriver.** $l'(\\theta)$, sett lik 0 (likelihoodligningen).\n\n**4. Løs fullstendig.** Kom helt frem til $\\hat{\\theta}=\\ldots$. Er ligningen transcendental, sett den opp ryddig og si at den løses numerisk.\n\n**5. Maksimumskontroll.** $l''(\\hat{\\theta})<0$ eller monotoni — trinnet de fleste hopper over.\n\n**6. Forventningsrett?** Regn $E(\\hat{\\theta})$ og sjekk om den blir $\\theta$.\n\n**7. Varians.** Regn $\\text{Var}(\\hat{\\theta})$.\n\n**8. Ved flere kandidater: MSE-protokollen.** Sjekk forventningsretthet for alle, regn varianser (eller MSE ved skjevhet), og **velg med begrunnelse**.\n\n*Samlet tid ≈ 90 min. Ta gjerne pause etter den gjennomregnede casen — den viser alle åtte trinnene på ett sted.*"
+    },
+    {
+      "id": "tma4245-5-4-ex-case",
+      "type": "example",
+      "title": "Gjennomregnet eksamenscase (med sensornotater)",
+      "problem": "Levetidene $x_1,\\ldots,x_n$ (i år) til $n$ pumper er uavhengige og eksponensialfordelte med ukjent forventning $\\beta$, $f(x;\\beta)=\\frac{1}{\\beta}e^{-x/\\beta}$.\n\n**a)** Utled ML-estimatoren $\\hat{\\beta}$ og kontroller at det er et maksimum.\n\n**b)** Er $\\hat{\\beta}$ forventningsrett? Finn variansen.\n\n**c)** En kollega foreslår i stedet $\\tilde{\\beta}=X_1$ (bruk kun den første målingen). Sammenlign de to estimatorene og velg med begrunnelse.",
+      "solution": "**a) Trinn 1–4 (ML).**\n$$L(\\beta)=\\beta^{-n}\\exp\\!\\Big(-\\tfrac{1}{\\beta}\\sum x_i\\Big),\\quad l(\\beta)=-n\\ln\\beta-\\tfrac{1}{\\beta}\\sum x_i,\\quad l'(\\beta)=-\\tfrac{n}{\\beta}+\\tfrac{1}{\\beta^2}\\sum x_i=0.$$\nLøsning: $\\hat{\\beta}=\\frac{1}{n}\\sum x_i=\\bar{X}$.\n\n> *Sensornotat (2 p):* likelihooden må stå som produkt over alle $n$ observasjoner, og ligningen løses helt frem til $\\hat{\\beta}=\\bar{X}$.\n\n**Trinn 5 (maksimumskontroll).** $l''(\\beta)=\\frac{n}{\\beta^2}-\\frac{2}{\\beta^3}\\sum x_i$; med $\\sum x_i=n\\hat{\\beta}$ blir $l''(\\hat{\\beta})=-\\frac{n}{\\hat{\\beta}^2}<0$. Maksimum.\n\n> *Sensornotat (1 p):* dette trinnet skiller toppbesvarelsen. Én linje holder.\n\n**b) Trinn 6–7.** $E(\\hat{\\beta})=E(\\bar{X})=\\beta$ (siden $E(X_i)=\\beta$), så **forventningsrett**. Varians: $\\text{Var}(\\hat{\\beta})=\\text{Var}(\\bar{X})=\\frac{\\text{Var}(X)}{n}=\\frac{\\beta^2}{n}$.\n\n> *Sensornotat (1 p):* skriv estimatoren med stor bokstav ($\\hat{\\beta}=\\bar{X}$) — det er estimatoren (stokastisk) som har varians, ikke tallet.\n\n**c) Trinn 8 (MSE-protokollen).** Begge kandidater er forventningsrette: $E(\\tilde{\\beta})=E(X_1)=\\beta$. Da avgjør variansen. $\\text{Var}(\\hat{\\beta})=\\beta^2/n$, mens $\\text{Var}(\\tilde{\\beta})=\\text{Var}(X_1)=\\beta^2$. For $n>1$ er $\\beta^2/n<\\beta^2$, så **$\\hat{\\beta}=\\bar{X}$ velges** — den bruker all informasjonen i utvalget, mens $\\tilde{\\beta}$ kaster $n-1$ målinger.\n\n> *Sensornotat (2 p):* begge forventningsrette → sammenlign varians; begrunn valget. Hadde én vært skjev, måtte du regnet MSE $=\\text{Var}+\\text{bias}^2$ for begge.\n\n— naturlig pausepunkt — nå driller du selv, på alle variantene."
+    },
+    {
+      "id": "tma4245-5-4-l1",
+      "type": "exercise",
+      "exercise": {
+        "id": "tma4245-5-4-l1",
+        "number": "1",
+        "type": "classic",
+        "difficulty": "lett",
+        "task": "(Innstegsoppgave.) Antall $x_1,\\ldots,x_n$ hendelser i uavhengige intervaller er Poisson-fordelt med forventning $\\lambda$.\n\n**a)** Skriv opp log-likelihooden $l(\\lambda)$ (dropp konstantledd).\n\n**b)** Utled $\\hat{\\lambda}$ og gjør maksimumskontrollen.",
+        "solution": "**a)** $l(\\lambda)=-n\\lambda+\\big(\\sum x_i\\big)\\ln\\lambda + \\text{konst}$.\n\n**b)** $l'(\\lambda)=-n+\\frac{1}{\\lambda}\\sum x_i=0 \\Rightarrow \\hat{\\lambda}=\\bar{X}$. Maksimum: $l''(\\lambda)=-\\frac{1}{\\lambda^2}\\sum x_i<0$.",
+        "hints": [
+          "$\\ln(e^{-\\lambda}\\lambda^{x_i})=-\\lambda+x_i\\ln\\lambda$.",
+          "Sett $l'=0$ og løs; $l''<0$ bekrefter maksimum."
+        ]
+      }
+    },
+    {
+      "id": "tma4245-5-4-l2",
+      "type": "exercise",
+      "exercise": {
+        "id": "tma4245-5-4-l2",
+        "number": "2",
+        "type": "classic",
+        "difficulty": "lett",
+        "task": "Bruddstyrken til $n$ prøver er eksponensialfordelt med forventning $\\beta$. Utled ML-estimatoren og oppgi $E(\\hat{\\beta})$ og $\\text{Var}(\\hat{\\beta})$.",
+        "solution": "$l(\\beta)=-n\\ln\\beta-\\frac{1}{\\beta}\\sum x_i$, $l'(\\beta)=-\\frac{n}{\\beta}+\\frac{1}{\\beta^2}\\sum x_i=0 \\Rightarrow \\hat{\\beta}=\\bar{X}$. Egenskaper: $E(\\hat{\\beta})=\\beta$ (forventningsrett), $\\text{Var}(\\hat{\\beta})=\\beta^2/n$.",
+        "hints": [
+          "Eksponensial-ML er $\\hat\\beta=\\bar X$.",
+          "$E(X)=\\beta$, $\\text{Var}(X)=\\beta^2$ gir $E(\\bar X)=\\beta$, $\\text{Var}(\\bar X)=\\beta^2/n$."
+        ]
+      }
+    },
+    {
+      "id": "tma4245-5-4-m1",
+      "type": "exercise",
+      "exercise": {
+        "id": "tma4245-5-4-m1",
+        "number": "3",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "En kvalitetstest på $n$ enheter finner $x$ defekte; andelen defekte er $p$ (binomisk).\n\n**a)** Utled ML-estimatoren $\\hat{p}$.\n\n**b)** Vis at $\\hat{p}$ er forventningsrett og finn $\\text{Var}(\\hat{p})$.",
+        "solution": "**a)** $l(p)=x\\ln p+(n-x)\\ln(1-p)+\\text{konst}$, $l'(p)=\\frac{x}{p}-\\frac{n-x}{1-p}=0 \\Rightarrow x(1-p)=(n-x)p \\Rightarrow \\hat{p}=\\frac{x}{n}$.\n\n**b)** $E(\\hat{p})=\\frac{E(X)}{n}=\\frac{np}{n}=p$ (forventningsrett). $\\text{Var}(\\hat{p})=\\frac{\\text{Var}(X)}{n^2}=\\frac{np(1-p)}{n^2}=\\frac{p(1-p)}{n}$.",
+        "hints": [
+          "Kryssgang $x/p=(n-x)/(1-p)$.",
+          "$X$ binomisk: $E(X)=np$, $\\text{Var}(X)=np(1-p)$."
+        ]
+      }
+    },
+    {
+      "id": "tma4245-5-4-m2",
+      "type": "exercise",
+      "exercise": {
+        "id": "tma4245-5-4-m2",
+        "number": "4",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "Bruddstyrken til $n$ fiberprøver er gammafordelt med **kjent** formparameter $\\alpha=3$ og ukjent skala $\\theta$: $f(x)=\\frac{1}{\\Gamma(3)\\theta^3}x^2 e^{-x/\\theta}$, med $E(X)=3\\theta$.\n\n**a)** Utled ML-estimatoren $\\hat{\\theta}$.\n\n**b)** Er den forventningsrett?",
+        "solution": "**a)** $\\ln f(x_i)=2\\ln x_i-\\frac{x_i}{\\theta}-\\ln\\Gamma(3)-3\\ln\\theta$. Bare $\\theta$-leddene teller: $l(\\theta)=-3n\\ln\\theta-\\frac{1}{\\theta}\\sum x_i+\\text{konst}$. $l'(\\theta)=-\\frac{3n}{\\theta}+\\frac{1}{\\theta^2}\\sum x_i=0 \\Rightarrow \\hat{\\theta}=\\frac{\\sum x_i}{3n}=\\frac{\\bar{X}}{3}$.\n\n**b)** $E(\\hat{\\theta})=\\frac{E(\\bar{X})}{3}=\\frac{3\\theta}{3}=\\theta$. Forventningsrett.",
+        "hints": [
+          "Bare $-3\\ln\\theta$ og $-x_i/\\theta$ avhenger av $\\theta$.",
+          "$\\hat\\theta=\\bar X/\\alpha$ med $\\alpha=3$; $E(X)=3\\theta$."
+        ]
+      }
+    },
+    {
+      "id": "tma4245-5-4-m3",
+      "type": "exercise",
+      "exercise": {
+        "id": "tma4245-5-4-m3",
+        "number": "5",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "En «oppskriftsfordeling» (Pareto-type) har tetthet $f(x;\\theta)=\\theta\\,x^{-(\\theta+1)}$ for $x>1$, $\\theta>0$. Du har uavhengige observasjoner $x_1,\\ldots,x_n$.\n\n**a)** Skriv opp log-likelihooden $l(\\theta)$.\n\n**b)** Utled ML-estimatoren $\\hat{\\theta}$ og gjør maksimumskontrollen.",
+        "solution": "**a)** $\\ln f(x_i;\\theta)=\\ln\\theta-(\\theta+1)\\ln x_i$, så\n$$l(\\theta)=n\\ln\\theta-(\\theta+1)\\sum\\ln x_i.$$\n\n**b)** $l'(\\theta)=\\frac{n}{\\theta}-\\sum\\ln x_i=0 \\Rightarrow \\hat{\\theta}=\\frac{n}{\\sum\\ln x_i}$. Maksimum: $l''(\\theta)=-\\frac{n}{\\theta^2}<0$. (Merk: navnet «Pareto» trengs ikke — når $f$ er oppgitt, gjelder samme ritual. Denne ML-en er forresten litt skjev, men det spørres ikke om her.)",
+        "hints": [
+          "$\\ln(\\theta x^{-(\\theta+1)})=\\ln\\theta-(\\theta+1)\\ln x$.",
+          "$\\frac{d}{d\\theta}[-(\\theta+1)\\sum\\ln x_i]=-\\sum\\ln x_i$.",
+          "Sett $n/\\theta=\\sum\\ln x_i$."
+        ]
+      }
+    },
+    {
+      "id": "tma4245-5-4-v1",
+      "type": "exercise",
+      "exercise": {
+        "id": "tma4245-5-4-v1",
+        "number": "6",
+        "type": "classic",
+        "difficulty": "vanskelig",
+        "task": "Antall mikrosprekker per prøve er Poisson-fordelt med forventning $\\lambda$. Ett laboratorium har talt sprekker i $n$ prøver ($x_1,\\ldots,x_n$), et annet i $m$ prøver med **dobbel prøvestørrelse**, så disse har forventning $2\\lambda$ ($y_1,\\ldots,y_m$). Alt uavhengig.\n\n**a)** Skriv opp den kombinerte log-likelihooden $l(\\lambda)$.\n\n**b)** Utled ML-estimatoren $\\hat{\\lambda}$ basert på begge datasettene.\n\n**c)** Vis at $\\hat{\\lambda}$ er forventningsrett.",
+        "solution": "**a)** Kilde 1: $\\ln p(x_i)=-\\lambda+x_i\\ln\\lambda+\\text{konst}$. Kilde 2: $\\ln p(y_j)=-2\\lambda+y_j\\ln(2\\lambda)+\\text{konst}=-2\\lambda+y_j\\ln\\lambda+\\text{konst}$. Samlet:\n$$l(\\lambda)=-n\\lambda-2m\\lambda+\\Big(\\sum x_i+\\sum y_j\\Big)\\ln\\lambda+\\text{konst}.$$\n\n**b)** $l'(\\lambda)=-(n+2m)+\\frac{1}{\\lambda}\\big(\\sum x_i+\\sum y_j\\big)=0 \\Rightarrow \\hat{\\lambda}=\\dfrac{\\sum x_i+\\sum y_j}{n+2m}$. (Maksimum: $l''=-\\frac{1}{\\lambda^2}(\\sum x_i+\\sum y_j)<0$.)\n\n**c)** $E(\\sum X_i)=n\\lambda$, $E(\\sum Y_j)=m\\cdot 2\\lambda=2m\\lambda$, så $E(\\hat{\\lambda})=\\frac{n\\lambda+2m\\lambda}{n+2m}=\\lambda$. Forventningsrett. Nevneren er $n+2m$, ikke $n+m$ — hver $y$-prøve teller «dobbelt» i forventning.",
+        "hints": [
+          "$\\ln(2\\lambda)=\\ln 2+\\ln\\lambda$; $\\ln 2$ er konstant.",
+          "Samle lineære $\\lambda$-ledd og $\\ln\\lambda$-ledd hver for seg.",
+          "$E(\\sum Y_j)=2m\\lambda$ i forventningen."
+        ]
+      }
+    },
+    {
+      "id": "tma4245-5-4-v2",
+      "type": "exercise",
+      "exercise": {
+        "id": "tma4245-5-4-v2",
+        "number": "7",
+        "type": "classic",
+        "difficulty": "vanskelig",
+        "task": "To måleserier av feilmellomrom er eksponensialfordelte. Serie A har forventning $\\mu_A$, serie B har forventning $\\mu_B$, og det er kjent at $\\mu_A=3\\mu_B$ (A-utstyret er tregere). Vi har $p$ observasjoner $a_1,\\ldots,a_p$ fra A og $q$ observasjoner $b_1,\\ldots,b_q$ fra B.\n\n**a)** Substituer bibetingelsen og skriv opp log-likelihooden i den frie parameteren.\n\n**b)** Utled ML-estimatoren og oppgi $\\hat{\\mu}_A$ og $\\hat{\\mu}_B$.",
+        "solution": "**a)** Sett $\\mu_B=\\beta$ og $\\mu_A=3\\beta$ (én fri parameter, substituert FØR derivasjon). Likelihooden over begge kilder:\n$$L(\\beta)=\\prod_{i=1}^p\\frac{1}{3\\beta}e^{-a_i/(3\\beta)}\\cdot\\prod_{j=1}^q\\frac{1}{\\beta}e^{-b_j/\\beta}.$$\n$$l(\\beta)=-(p+q)\\ln\\beta-p\\ln 3-\\frac{1}{\\beta}\\Big(\\tfrac{1}{3}\\sum a_i+\\sum b_j\\Big).$$\n\n**b)** $l'(\\beta)=-\\frac{p+q}{\\beta}+\\frac{1}{\\beta^2}\\big(\\tfrac{1}{3}\\sum a_i+\\sum b_j\\big)=0 \\Rightarrow \\hat{\\beta}=\\dfrac{\\tfrac{1}{3}\\sum a_i+\\sum b_j}{p+q}$. Deretter $\\hat{\\mu}_B=\\hat{\\beta}$ og $\\hat{\\mu}_A=3\\hat{\\beta}$ (invarians). Hadde du derivert med to frie parametre og tvunget inn bindingen etterpå, ville svaret blitt feil.",
+        "hints": [
+          "Substituer $\\mu_A=3\\beta$, $\\mu_B=\\beta$ inn i likelihooden FØR derivasjon.",
+          "$\\ln(3\\beta)=\\ln 3+\\ln\\beta$; $\\ln 3$ er konstant i derivasjonen.",
+          "Samle: $l'(\\beta)=-(p+q)/\\beta+(\\tfrac13\\sum a_i+\\sum b_j)/\\beta^2$."
+        ]
+      }
+    },
+    {
+      "id": "tma4245-5-4-v3",
+      "type": "exercise",
+      "exercise": {
+        "id": "tma4245-5-4-v3",
+        "number": "8",
+        "type": "classic",
+        "difficulty": "vanskelig",
+        "task": "Antall defekter per produksjonsbatch modelleres med **null-trunkert Poisson** (hver batch har minst én defekt), $p(x)=\\dfrac{e^{-\\lambda}\\lambda^x}{x!(1-e^{-\\lambda})}$ for $x\\ge 1$.\n\n**a)** Skriv opp log-likelihooden $l(\\lambda)$ for $n$ batcher.\n\n**b)** Deriver og reduser likelihoodligningen til en ligning i $\\lambda$ og $\\bar{x}$.\n\n**c)** Kan den løses eksplisitt? Hva gjør du?",
+        "solution": "**a)** $\\ln p(x_i)=-\\lambda+x_i\\ln\\lambda-\\ln(x_i!)-\\ln(1-e^{-\\lambda})$, så\n$$l(\\lambda)=-n\\lambda+\\Big(\\sum x_i\\Big)\\ln\\lambda-n\\ln(1-e^{-\\lambda})+\\text{konst}.$$\n\n**b)** $l'(\\lambda)=-n+\\frac{\\sum x_i}{\\lambda}-n\\frac{e^{-\\lambda}}{1-e^{-\\lambda}}=0$. Del på $n$ og bruk $\\bar{x}$:\n$$\\frac{\\bar{x}}{\\lambda}=1+\\frac{e^{-\\lambda}}{1-e^{-\\lambda}}=\\frac{1}{1-e^{-\\lambda}} \\;\\Rightarrow\\; \\bar{x}=\\frac{\\lambda}{1-e^{-\\lambda}}.$$\n\n**c)** Nei — ligningen er transcendental, ingen lukket formel. Sett den opp ryddig og løs $\\hat{\\lambda}$ **numerisk** (Newtons metode). For eksempel gir $\\bar{x}=2{,}5$ løsningen $\\hat{\\lambda}\\approx 2{,}23$. Poenget er å sette opp ligningen riktig.",
+        "hints": [
+          "Husk trunkeringsleddet $-\\ln(1-e^{-\\lambda})$ i hver $\\ln p$.",
+          "Deriverte av $-\\ln(1-e^{-\\lambda})$ er $-e^{-\\lambda}/(1-e^{-\\lambda})$.",
+          "Transcendental ligning → sett opp ryddig, løs numerisk."
+        ]
+      }
+    },
+    {
+      "id": "tma4245-5-4-v4",
+      "type": "exercise",
+      "exercise": {
+        "id": "tma4245-5-4-v4",
+        "number": "9",
+        "type": "classic",
+        "difficulty": "vanskelig",
+        "task": "To estimatorer for forventningen $\\mu$ til $n=5$ uavhengige, likt fordelte målinger (varians $\\sigma^2$) vurderes:\n$$\\hat{\\mu}_1=\\bar{X},\\qquad \\hat{\\mu}_2=\\tfrac{1}{4}X_1+\\tfrac{1}{4}X_2+\\tfrac{1}{4}X_3+\\tfrac{1}{4}X_4.$$\n\n**a)** Vis at begge er forventningsrette.\n\n**b)** Regn variansene og velg med begrunnelse.",
+        "solution": "**a)** $E(\\hat{\\mu}_1)=\\mu$. For $\\hat{\\mu}_2$ er vektsummen $4\\cdot\\frac14=1$, så $E(\\hat{\\mu}_2)=\\frac14(\\mu+\\mu+\\mu+\\mu)=\\mu$. Begge forventningsrette.\n\n**b)** $\\text{Var}(\\hat{\\mu}_1)=\\frac{\\sigma^2}{5}=0{,}200\\,\\sigma^2$. $\\text{Var}(\\hat{\\mu}_2)=4\\cdot\\big(\\frac14\\big)^2\\sigma^2=4\\cdot\\frac{1}{16}\\sigma^2=\\frac{\\sigma^2}{4}=0{,}250\\,\\sigma^2$. Begge forventningsrette → velg minst varians: **$\\hat{\\mu}_1=\\bar{X}$** ($0{,}200<0{,}250$). $\\hat{\\mu}_2$ ignorerer $X_5$ og blir derfor mindre presis.",
+        "hints": [
+          "Vektsum 1 → forventningsrett.",
+          "$\\text{Var}(\\hat\\mu_2)=\\sum a_i^2\\sigma^2=4\\cdot(1/4)^2\\sigma^2$.",
+          "Sammenlign $\\sigma^2/5$ og $\\sigma^2/4$."
+        ]
+      }
+    },
+    {
+      "id": "tma4245-5-4-v5",
+      "type": "exercise",
+      "exercise": {
+        "id": "tma4245-5-4-v5",
+        "number": "10",
+        "type": "classic",
+        "difficulty": "vanskelig",
+        "task": "(Regresjons-forberedelse.) I en modell uten konstantledd er $Y_i=\\beta x_i+\\varepsilon_i$, der $x_i$ er kjente tall og $\\varepsilon_i$ er uavhengige med forventning 0 og varians $\\sigma^2$. To forventningsrette estimatorer for $\\beta$ vurderes:\n$$\\hat{\\beta}=\\frac{\\sum x_iY_i}{\\sum x_i^2}\\qquad(\\text{minste kvadrater}),\\qquad \\tilde{\\beta}=\\frac{1}{n}\\sum\\frac{Y_i}{x_i}.$$\n\n**a)** Vis at begge er forventningsrette.\n\n**b)** Finn variansen til hver.\n\n**c)** For $x=(1,2,3,4,5)$ og $\\sigma^2=1$: regn ut begge variansene og velg.",
+        "solution": "**a)** $E(Y_i)=\\beta x_i$. For LS: $E(\\hat{\\beta})=\\frac{\\sum x_iE(Y_i)}{\\sum x_i^2}=\\frac{\\beta\\sum x_i^2}{\\sum x_i^2}=\\beta$. For den andre: $E(\\tilde{\\beta})=\\frac{1}{n}\\sum\\frac{E(Y_i)}{x_i}=\\frac{1}{n}\\sum\\beta=\\beta$. Begge forventningsrette.\n\n**b)** $\\text{Var}(\\hat{\\beta})=\\frac{\\sum x_i^2\\text{Var}(Y_i)}{(\\sum x_i^2)^2}=\\frac{\\sigma^2\\sum x_i^2}{(\\sum x_i^2)^2}=\\frac{\\sigma^2}{\\sum x_i^2}$. $\\text{Var}(\\tilde{\\beta})=\\frac{1}{n^2}\\sum\\frac{\\text{Var}(Y_i)}{x_i^2}=\\frac{\\sigma^2}{n^2}\\sum\\frac{1}{x_i^2}$.\n\n**c)** $\\sum x_i^2=1+4+9+16+25=55$, så $\\text{Var}(\\hat{\\beta})=\\frac{1}{55}\\approx 0{,}0182$. $\\sum\\frac{1}{x_i^2}=1+0{,}25+0{,}1111+0{,}0625+0{,}04=1{,}4636$, så $\\text{Var}(\\tilde{\\beta})=\\frac{1{,}4636}{25}\\approx 0{,}0585$. Begge forventningsrette → velg minst varians: **minste kvadrater $\\hat{\\beta}$** ($0{,}0182<0{,}0585$). Dette er nettopp hvorfor regresjon uten konstantledd bruker $\\hat{\\beta}=\\sum x_iY_i/\\sum x_i^2$ (kap. 8.3).",
+        "hints": [
+          "$E(Y_i)=\\beta x_i$; sett inn i hver estimator.",
+          "$\\text{Var}(\\sum a_iY_i)=\\sum a_i^2\\sigma^2$; identifiser vektene $a_i$.",
+          "Regn $\\sum x_i^2=55$ og $\\sum 1/x_i^2$; sammenlign."
+        ]
+      }
+    },
+    {
+      "id": "tma4245-5-4-v6",
+      "type": "exercise",
+      "exercise": {
+        "id": "tma4245-5-4-v6",
+        "number": "11",
+        "type": "classic",
+        "difficulty": "vanskelig",
+        "task": "Levetider $x_1,\\ldots,x_n$ er eksponensialfordelte med forventning $\\beta$. Vi vil estimere **medianlevetiden** $m=\\beta\\ln 2$.\n\n**a)** Bruk invariansprinsippet til å finne ML-estimatoren $\\hat{m}$.\n\n**b)** Bruk deltametoden til å finne en tilnærmet varians for $\\hat{m}$, gitt at $\\text{Var}(\\hat{\\beta})=\\beta^2/n$.",
+        "solution": "**a)** $\\hat{\\beta}=\\bar{X}$, så ved invarians ($\\widehat{g(\\beta)}=g(\\hat{\\beta})$): $\\hat{m}=\\hat{\\beta}\\ln 2=\\bar{X}\\ln 2$.\n\n**b)** $g(\\beta)=\\beta\\ln 2$ er lineær, med $g'(\\beta)=\\ln 2$. Deltametoden:\n$$\\text{Var}(\\hat{m})\\approx[g'(\\beta)]^2\\text{Var}(\\hat{\\beta})=(\\ln 2)^2\\cdot\\frac{\\beta^2}{n}=\\frac{(\\ln 2)^2\\beta^2}{n}.$$\n(For lineære $g$ er deltametoden faktisk eksakt: $\\text{Var}(\\bar{X}\\ln 2)=(\\ln 2)^2\\text{Var}(\\bar{X})$.)",
+        "hints": [
+          "Invarians: $\\hat m=g(\\hat\\beta)$ med $\\hat\\beta=\\bar X$.",
+          "$g(\\beta)=\\beta\\ln2$ gir $g'(\\beta)=\\ln2$.",
+          "$\\text{Var}(\\hat m)\\approx(\\ln2)^2\\cdot\\beta^2/n$."
+        ]
+      }
+    },
+    {
+      "id": "tma4245-5-4-warn",
+      "type": "warning",
+      "title": "Typiske feil",
+      "content": "- **Glemme kilde to i den kombinerte likelihooden.** Produktet må gå over *alle* observasjoner fra *begge* kilder — og husk ulik forventning (nevner $n+2m$, ikke $n+m$, når kilde 2 har forventning $2\\lambda$).\n- **Substituere bibetingelsen etter derivasjon.** Sett bindingen ($\\mu_A=3\\mu_B$) inn i likelihooden *før* du deriverer, så du har én fri parameter.\n- **Hoppe over maksimumskontrollen.** $l'(\\hat{\\theta})=0$ gir bare et kritisk punkt; vis $l''(\\hat{\\theta})<0$. Ett poeng, én linje.\n- **Løse ligningen ufullstendig.** Kom helt frem til $\\hat{\\theta}=\\ldots$. Er den transcendental (null-trunkert Poisson), sett den opp ryddig og si *numerisk løsning*.\n- **Sammenligne på varians alene når en kandidat er skjev.** Da kreves MSE $=\\text{Var}+\\text{bias}^2$ for alle kandidatene — ikke bare variansen.\n- **Forveksle estimator og estimat.** Den ferdige estimatoren har stor bokstav og hatt ($\\hat{\\beta}=\\bar{X}$); tallet etter innsetting er estimatet.\n- **Ikke begrunne valget i trinn 8.** Å skrive «$\\hat{\\beta}$ er best» uten å vise at variansen (eller MSE) er minst gir ikke full uttelling."
+    },
+    {
+      "id": "tma4245-5-4-kortintro",
+      "type": "text",
+      "content": "## Oppskrifts- og formelkort\n\nDe fem kortene du bør kunne på autopilot før eksamen — selve algoritmen for sjanger G.\n\n*Kortene er flashcard-/repetisjonsstoff — de gjentar oppskriften. Hopp trygt over ved førstegangslesing; tidsanslaget gjelder drillen.*"
+    },
+    {
+      "id": "tma4245-5-4-kort-8trinn",
+      "type": "definition",
+      "title": "Oppskriftskort: de åtte trinnene",
+      "content": "Sjanger G, i rekkefølge: **(1)** likelihood over ALLE observasjoner (begge kilder; bibetingelse inn nå); **(2)** log; **(3)** deriver; **(4)** løs fullstendig (transcendental → numerisk); **(5)** maksimumskontroll $l''<0$; **(6)** $E(\\hat{\\theta})$ — forventningsrett?; **(7)** $\\text{Var}(\\hat{\\theta})$; **(8)** ved flere kandidater: MSE-protokollen og VELG med begrunnelse."
+    },
+    {
+      "id": "tma4245-5-4-kort-resultater",
+      "type": "definition",
+      "title": "Formelkort: standard-ML-resultater",
+      "content": "Eksponensial: $\\hat{\\beta}=\\bar{X}$ (forventningsrett, $\\text{Var}=\\beta^2/n$). Poisson: $\\hat{\\lambda}=\\bar{X}$. Andel: $\\hat{p}=X/n$ ($\\text{Var}=p(1-p)/n$). Normal: $\\hat{\\mu}=\\bar{X}$, $\\hat{\\sigma}^2=\\frac1n\\sum(X_i-\\bar X)^2$ (skjev). Gamma kjent form $\\alpha$: $\\hat{\\theta}=\\bar{X}/\\alpha$. Oppskriftsfordeling: bruk ritualet på oppgitt $f$."
+    },
+    {
+      "id": "tma4245-5-4-kort-kombinert",
+      "type": "definition",
+      "title": "Teknikkort: to kilder og bibetingelse",
+      "content": "**To kilder:** $L=\\prod f(x_i)\\cdot\\prod g(y_j)$; deriver den samlede $l$. Ulik forventning → vektet nevner ($n+2m$ når kilde 2 har $2\\lambda$). **Bibetingelse:** substituer bindingen ($\\mu_A=k\\mu_B$) inn FØR derivasjon, så én fri parameter; sett de andre tilbake med invarians."
+    },
+    {
+      "id": "tma4245-5-4-kort-mse",
+      "type": "definition",
+      "title": "Oppskriftskort: MSE-protokollen (trinn 8)",
+      "content": "Ved flere kandidater: **(1)** sjekk forventningsretthet (regn $E(\\hat{\\theta})$); **(2)** regn varianser; **(3)** alle forventningsrette → minst varians; ellers MSE $=\\text{Var}+\\text{bias}^2$ for alle; **(4)** VELG og begrunn. Forventningsrett slår ikke automatisk skjev."
+    },
+    {
+      "id": "tma4245-5-4-kort-numerisk",
+      "type": "definition",
+      "title": "Feilkort: transcendental likelihoodligning",
+      "content": "Gir $l'(\\theta)=0$ en ligning som blander $\\theta$ og $e^{-\\theta}$ (null-trunkert Poisson: $\\bar{x}=\\lambda/(1-e^{-\\lambda})$), finnes ingen lukket løsning. Sett opp ligningen ryddig og oppgi at $\\hat{\\theta}$ løses numerisk. Ikke lat som det finnes en formel."
+    },
+    {
+      "id": "tma4245-5-4-symbolliste",
+      "type": "collapsible",
+      "title": "Symbol- og formelliste",
+      "buttonText": "Vis symboler og formler",
+      "content": [
+        {
+          "id": "tma4245-5-4-symbolliste-text",
+          "type": "text",
+          "content": "*Oppslagsverk — alt her forklares underveis i kapitlet.*\n\nAlle symboler og formler brukt i drillkapittel 5.4, samlet.\n\n| Symbol | Betydning |\n|---|---|\n| $L(\\theta),\\,l(\\theta)$ | Likelihood og log-likelihood |\n| $\\hat{\\theta}$ | ML-estimator (stokastisk, stor bokstav) |\n| $\\tilde{\\theta}$ | Alternativ (konkurrerende) estimator |\n| $E(\\hat{\\theta}),\\,\\text{Var}(\\hat{\\theta})$ | Forventning og varians til estimatoren |\n| $\\text{bias}$ | Skjevhet, $E(\\hat{\\theta})-\\theta$ |\n| $\\text{MSE}$ | $\\text{Var}(\\hat{\\theta})+\\text{bias}^2$ |\n| $\\alpha,\\theta$ | Form- og skalaparameter i gamma |\n\n**Formler i dette kapitlet:**\n\n$$L(\\theta)=\\prod_{i=1}^n f(x_i;\\theta), \\qquad l(\\theta)=\\ln L(\\theta), \\qquad l'(\\hat{\\theta})=0,\\ l''(\\hat{\\theta})<0$$\nML-ritualet (trinn 1–5).\n\n$$\\hat{\\beta}=\\bar{X},\\quad \\hat{\\lambda}=\\bar{X},\\quad \\hat{p}=\\tfrac{X}{n},\\quad \\hat{\\theta}=\\tfrac{\\bar{X}}{\\alpha}\\ (\\text{gamma})$$\nStandardresultatene.\n\n$$\\hat{\\lambda}=\\frac{\\sum x_i+\\sum y_j}{n+2m}\\quad(\\text{to kilder, kilde 2 har forventning } 2\\lambda)$$\nKombinert likelihood med ulik forventning.\n\n$$\\text{MSE}(\\hat{\\theta})=\\text{Var}(\\hat{\\theta})+[\\text{bias}]^2$$\nVurderingskriteriet ved skjeve kandidater.\n\n$$\\hat{\\beta}=\\frac{\\sum x_iY_i}{\\sum x_i^2},\\qquad \\text{Var}(\\hat{\\beta})=\\frac{\\sigma^2}{\\sum x_i^2}$$\nRegresjons-estimatoren uten konstantledd (forberedelse til kap. 8.3).\n\n$$\\bar{x}=\\frac{\\lambda}{1-e^{-\\lambda}}$$\nNull-trunkert Poisson — transcendental, løses numerisk."
+        }
+      ]
+    }
+  ],
+  "exercises": []
+}

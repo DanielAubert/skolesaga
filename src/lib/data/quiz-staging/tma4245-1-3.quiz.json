@@ -1,0 +1,202 @@
+[
+  {
+    "question": "Hva er definisjonen av betinget sannsynlighet $P(A \\mid B)$?",
+    "options": [
+      "$P(A \\cap B) / P(B)$ når $P(B) > 0$",
+      "$P(A \\cap B) / P(A)$ når $P(A) > 0$",
+      "$P(A) \\cdot P(B)$ for de to hendelsene",
+      "$P(A) + P(B) - P(A \\cap B)$ generelt"
+    ],
+    "explanation": "Vi krymper utfallsrommet til $B$ og spør hvor stor andel som også er $A$: $P(A\\cap B)/P(B)$."
+  },
+  {
+    "question": "Hva sier multiplikasjonsregelen for snittet $P(A \\cap B)$?",
+    "options": [
+      "$P(A \\mid B)\\,P(B)$",
+      "$P(A \\mid B) / P(B)$",
+      "$P(A) + P(B) - 1$",
+      "$P(A \\mid B) + P(B)$"
+    ],
+    "explanation": "Ganger vi over kryss i definisjonen av betinget sannsynlighet: $P(A\\cap B)=P(A\\mid B)P(B)$."
+  },
+  {
+    "question": "Hva kjennetegner en partisjon $B_1, \\ldots, B_k$ av utfallsrommet?",
+    "options": [
+      "Bitene er disjunkte og dekker hele utfallsrommet",
+      "Bitene overlapper og dekker hele utfallsrommet",
+      "Bitene har alle nøyaktig samme sannsynlighet",
+      "Bitene er uavhengige av hverandre parvis"
+    ],
+    "explanation": "En partisjon deler $S$ i disjunkte hendelser som til sammen dekker alt — nøyaktig én inntreffer alltid."
+  },
+  {
+    "question": "Hva sier loven om total sannsynlighet?",
+    "options": [
+      "$P(A) = \\sum_i P(A \\mid B_i)P(B_i)$ over en partisjon",
+      "$P(A) = \\sum_i P(A \\mid B_i)$ over en partisjon",
+      "$P(A) = \\prod_i P(A \\mid B_i)P(B_i)$ over en partisjon",
+      "$P(A) = \\max_i P(A \\mid B_i)P(B_i)$ over en partisjon"
+    ],
+    "explanation": "Vi veier hver betinget sannsynlighet med scenariets sannsynlighet og summerer over partisjonen."
+  },
+  {
+    "question": "Hva gjør Bayes' formel?",
+    "options": [
+      "Snur betingingen fra $P(A \\mid B_j)$ til $P(B_j \\mid A)$",
+      "Regner ut snittet av to uavhengige hendelser",
+      "Finner unionen av alle biter i en partisjon",
+      "Gir sannsynligheten for komplementet $P(A^c)$"
+    ],
+    "explanation": "Bayes uttrykker $P(B_j\\mid A)$ ved de kjente $P(A\\mid B_i)$ og $P(B_i)$ — den snur retningen på betingingen."
+  },
+  {
+    "question": "Hva er sensitiviteten til en diagnostisk test?",
+    "options": [
+      "$P(T \\mid S)$ — positiv test gitt at tilstanden er til stede",
+      "$P(S \\mid T)$ — tilstanden til stede gitt positiv test",
+      "$P(T^c \\mid S^c)$ — negativ test gitt frisk",
+      "$P(S)$ — andelen syke i populasjonen"
+    ],
+    "explanation": "Sensitiviteten måler testens evne til å fange opp de syke: $P(T\\mid S)$."
+  },
+  {
+    "question": "Hva er spesifisiteten til en test?",
+    "options": [
+      "$P(T^c \\mid S^c)$ — negativ test gitt at tilstanden ikke foreligger",
+      "$P(T \\mid S)$ — positiv test gitt at tilstanden foreligger her",
+      "$P(S^c \\mid T^c)$ — frisk person gitt at testen er negativ",
+      "$1 - P(S)$ — andelen friske individer i hele populasjonen"
+    ],
+    "explanation": "Spesifisiteten måler evnen til å frikjenne de friske: $P(T^c\\mid S^c)$. Falsk positiv rate er $1$ minus dette."
+  },
+  {
+    "question": "Sensitivitet $0{,}82$, falsk positiv $0{,}04$, prevalens $0{,}02$. Hva er $P(\\text{positiv test})$?",
+    "options": [
+      "$0{,}0556$",
+      "$0{,}0164$",
+      "$0{,}8200$",
+      "$0{,}2950$"
+    ],
+    "explanation": "Total sannsynlighet: $0{,}82\\cdot 0{,}02 + 0{,}04\\cdot 0{,}98 = 0{,}0164+0{,}0392=0{,}0556$."
+  },
+  {
+    "question": "Samme test (sens $0{,}82$, FP $0{,}04$, prev $0{,}02$). Hva er PPV $= P(S \\mid T)$?",
+    "options": [
+      "$\\approx 0{,}295$",
+      "$\\approx 0{,}820$",
+      "$\\approx 0{,}960$",
+      "$\\approx 0{,}056$"
+    ],
+    "explanation": "Bayes: $0{,}0164/0{,}0556\\approx 0{,}295$. Den lave prevalensen gjør PPV mye lavere enn sensitiviteten."
+  },
+  {
+    "question": "Hvorfor kan PPV bli lav selv med høy sensitivitet og spesifisitet?",
+    "options": [
+      "Fordi lav prevalens gir mange falske positive blant de mange friske",
+      "Fordi høy sensitivitet alltid gir mange falske negative",
+      "Fordi spesifisiteten ikke påvirker testresultatet i det hele tatt",
+      "Fordi Bayes' formel undervurderer de ekte positive systematisk"
+    ],
+    "explanation": "Er tilstanden sjelden, gir de mange friske (via en liten falsk-positiv rate) flere falske enn ekte positive."
+  },
+  {
+    "question": "Prosecutor's fallacy er å:",
+    "options": [
+      "forveksle $P(A \\mid B)$ med $P(B \\mid A)$",
+      "glemme å normalisere med total sannsynlighet",
+      "anta at to hendelser er disjunkte",
+      "bruke uniform modell der den ikke gjelder"
+    ],
+    "explanation": "Feilslutningen forveksler «testutslag gitt sykdom» med «sykdom gitt testutslag» — Bayes kobler dem, men de er ulike."
+  },
+  {
+    "question": "Når er $A$ og $B$ uavhengige, uttrykt ved betinging?",
+    "options": [
+      "Når $P(A \\mid B) = P(A)$",
+      "Når $P(A \\mid B) = P(B)$",
+      "Når $P(A \\mid B) = 0$",
+      "Når $P(A \\mid B) = 1 - P(A)$"
+    ],
+    "explanation": "Uavhengighet betyr at betingingen ikke endrer sannsynligheten: $P(A\\mid B)=P(A)$."
+  },
+  {
+    "question": "To kort trekkes uten tilbakelegging (4 ess av 52). Hva er $P(\\text{begge ess})$?",
+    "options": [
+      "$\\frac{4}{52}\\cdot\\frac{3}{51} \\approx 0{,}0045$",
+      "$\\frac{4}{52}\\cdot\\frac{4}{52} \\approx 0{,}0059$",
+      "$\\frac{4}{52}+\\frac{3}{51} \\approx 0{,}136$",
+      "$\\frac{4}{52}\\cdot\\frac{3}{52} \\approx 0{,}0044$"
+    ],
+    "explanation": "Multiplikasjonsregelen: $P(A_1)P(A_2\\mid A_1)=\\frac{4}{52}\\cdot\\frac{3}{51}$; etter ett ess er 3 igjen av 51."
+  },
+  {
+    "question": "Falsk positiv rate er lik hva?",
+    "options": [
+      "$1 - \\text{spesifisitet}$",
+      "$1 - \\text{sensitivitet}$",
+      "$1 - \\text{prevalens}$",
+      "$1 - \\text{PPV}$"
+    ],
+    "explanation": "Falsk positiv rate er $P(T\\mid S^c)=1-P(T^c\\mid S^c)=1-\\text{spesifisitet}$."
+  },
+  {
+    "question": "Hva er a priori-sannsynligheten i en diagnostisk oppgave?",
+    "options": [
+      "Prevalensen $P(S)$ — sannsynligheten før testresultatet er kjent",
+      "PPV $P(S \\mid T)$ — sannsynligheten etter positiv test",
+      "Sensitiviteten $P(T \\mid S)$ til testen",
+      "Nevneren $P(T)$ fra total sannsynlighet"
+    ],
+    "explanation": "A priori (på forhånd) er prevalensen $P(S)$; a posteriori er den oppdaterte $P(S\\mid T)$."
+  },
+  {
+    "question": "60 % av varer fra linje 1 (2 % feil), 40 % fra linje 2 (5 % feil). Hva er $P(\\text{defekt})$?",
+    "options": [
+      "$0{,}032$",
+      "$0{,}070$",
+      "$0{,}035$",
+      "$0{,}020$"
+    ],
+    "explanation": "Total sannsynlighet: $0{,}02\\cdot 0{,}6 + 0{,}05\\cdot 0{,}4 = 0{,}012+0{,}020=0{,}032$."
+  },
+  {
+    "question": "Samme linjer. En vare er defekt. Hva er $P(\\text{fra linje 2} \\mid \\text{defekt})$?",
+    "options": [
+      "$0{,}625$",
+      "$0{,}400$",
+      "$0{,}050$",
+      "$0{,}375$"
+    ],
+    "explanation": "Bayes: $\\frac{0{,}05\\cdot 0{,}4}{0{,}032}=\\frac{0{,}020}{0{,}032}=0{,}625$ — linje 2 dominerer de defekte."
+  },
+  {
+    "question": "Hvorfor understreker sensor at hendelsene skal defineres med symboler før regning?",
+    "options": [
+      "Fordi et svar uten definerte hendelser regnes som ufullstendig",
+      "Fordi symboler gjør at Bayes' formel gir et annet svar",
+      "Fordi definisjonen erstatter behovet for total sannsynlighet",
+      "Fordi det bare er et krav i flervalgsoppgaver på Inspera"
+    ],
+    "explanation": "Fasit begynner alltid med «La $S=\\ldots$, $T=\\ldots$»; uten dette trekkes det for ufullstendig føring."
+  },
+  {
+    "question": "Ved lav prevalens er den negative prediktive verdien (NPV) typisk:",
+    "options": [
+      "svært høy — en negativ test er nesten alltid korrekt",
+      "svært lav — en negativ test er nesten alltid feil",
+      "alltid lik den positive prediktive verdien",
+      "uavhengig av både sensitivitet og prevalens"
+    ],
+    "explanation": "Når nesten alle er friske, er en negativ test nesten alltid riktig, så NPV blir høy — mens PPV kan bli lav."
+  },
+  {
+    "question": "Gjelder $P(A \\mid B) + P(A \\mid B^c) = 1$ generelt?",
+    "options": [
+      "Nei — men $P(A \\mid B) + P(A^c \\mid B) = 1$ gjelder alltid",
+      "Ja — summen er alltid 1 uansett hendelser",
+      "Ja, forutsatt at $A$ og $B$ er uavhengige",
+      "Nei, og heller ikke $P(A \\mid B) + P(A^c \\mid B) = 1$"
+    ],
+    "explanation": "Betinger vi på samme $B$ og varierer første hendelse, summerer det til 1. Å bytte betingelsen ($B$ mot $B^c$) gjør det ikke."
+  }
+]

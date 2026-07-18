@@ -1,0 +1,465 @@
+{
+  "id": "tma4245-6-1",
+  "courseId": "tma4245",
+  "chapterNumber": "6.1",
+  "title": "Standardintervallene: μ, σ² og andel — og hva et KI faktisk betyr",
+  "description": "z- og t-intervall for μ, kjikvadrat-intervall for σ², intervall for andel — med riktige frihetsgrader og riktig tolkning, pluss prediksjonsintervall og ensidige intervaller.",
+  "estimatedMinutes": 60,
+  "competenceGoals": [
+    "velge riktig standardintervall (z eller t for μ, kjikvadrat for σ², z for andel) med riktige frihetsgrader",
+    "konstruere og tolke konfidensintervaller, og skille dem fra prediksjonsintervaller",
+    "formulere den korrekte frekvens-tolkningen og avvise de vanlige feiltolkningene",
+    "sette opp ensidige intervaller og sjekke gyldigheten av andelsintervallet"
+  ],
+  "content": [
+    {
+      "id": "tma4245-6-1-tip",
+      "type": "tip",
+      "title": "Eksamensvinkel",
+      "content": "**Konfidensintervall (KI) er blant de aller mest lønnsomme temaene å beherske.**\n\n- KI er i **≈84 %** av settene. I settenes sjangerkatalog kalles dette **sjanger H — konfidensintervall-konstruksjon** (H er bare en bokstavkode for oppgavetypen). Prioritet: **perfekt** (det høyeste nivået — nivå 1, punkt 2 og 3).\n- **Tolknings-flervalg** der en distraktor påstår «95 % sannsynlighet for at $\\mu$ ligger i intervallet» er testet i Mai20, Aug20 og Aug19. Dette er **sjanger O** (kortsvar/flervalg i Inspera). Å kunne den *riktige* tolkningen ordrett er gratis poeng.\n- **Prediksjonsintervall** for en ny observasjon er testet i Jun23, Nov18 og Des12 — og forveksles ofte med konfidensintervallet.\n\n**Hvor poengene sitter (fra løsningsforslagene):** i **valget** av riktig intervall (kjent vs. ukjent $\\sigma$ → z eller t), i **riktige frihetsgrader** ($n-1$, ikke $n$), i at $\\sigma^2$-intervallet er **asymmetrisk**, og i en **presist formulert tolkning**.\n\n**Formelsamlingen** (hjelpemiddelkode C) har alle standardintervallene og kvantiltabellene ($\\Phi$, $t$, $\\chi^2$) ferdig. Derfor måler eksamen ikke om du husker formlene, men om du **velger riktig formel, slår opp riktig kvantil med riktige frihetsgrader, og tolker svaret riktig**. Én gang viser vi hvor intervallene kommer fra (konstruksjonslogikken) — resten er oppslag og valg."
+    },
+    {
+      "id": "tma4245-6-1-forkunnskaper",
+      "type": "text",
+      "content": "**Forkunnskaper:** Dette kapitlet bygger på utvalgsgjennomsnittet og estimatorer fra **[kap. 5.1](/bok/tma4245/tma4245-5-1)**, gjennomsnittets fordeling fra **[kap. 3.2](/bok/tma4245/tma4245-3-2)**, sentralgrenseteoremet fra **[kap. 3.3](/bok/tma4245/tma4245-3-3)** og standardiseringen med kvantilnotasjon fra **[kap. 3.1](/bok/tma4245/tma4245-3-1)**.\n\n**Sist du var her — de tre resultatene vi bygger på (ferdig oppfrisket):**\n\n1. For uavhengige, identisk fordelte normale observasjoner er gjennomsnittet normalfordelt:\n$$\\bar{X} \\sim N\\!\\left(\\mu, \\frac{\\sigma^2}{n}\\right), \\qquad \\text{så} \\qquad \\frac{\\bar{X}-\\mu}{\\sigma/\\sqrt{n}} \\sim N(0,1).$$\n2. **Kvantilnotasjonen med øvre haleareal:** $z_\\alpha$ er tallet der $P(Z > z_\\alpha) = \\alpha$. For et 95 %-intervall trenger vi $z_{0{,}025} = 1{,}96$ (fordi 2,5 % ligger i hver hale). Tilsvarende $t_{\\nu,\\alpha}$ og $\\chi^2_{\\nu,\\alpha}$.\n3. **Empirisk varians** $S^2 = \\frac{1}{n-1}\\sum (X_i - \\bar{X})^2$ (alltid divisor $n-1$) fra **[kap. 1.4](/bok/tma4245/tma4245-1-4)** og [kap. 5.1](/bok/tma4245/tma4245-5-1).\n\nDu trenger å kunne løse en enkel dobbeltulikhet for en ukjent. Ingen ny matematikk — alt handler om å sette kvantiler rundt en kjent størrelse og snu det til et intervall."
+    },
+    {
+      "id": "tma4245-6-1-intro",
+      "type": "text",
+      "content": "Et **punktestimat** som $\\bar{x} = 34{,}2$ er étt enkelt tall — men hvor sikkert er det? Et **konfidensintervall** svarer på nettopp det: det gir et helt intervall av rimelige verdier for den ukjente parameteren, sammen med en tallfestet grad av tillit (typisk 95 %).\n\nVi går gjennom seks løkker. Først **konstruksjonslogikken** én gang aktivt, så du ser hvor intervallene kommer fra (løkke 1). Deretter de fire standardintervallene som står i formelsamlingen: **$\\mu$ med kjent $\\sigma$** (z), **$\\mu$ med ukjent $\\sigma$** (t), **variansen $\\sigma^2$** (kjikvadrat) og **en andel** $p$ (løkke 2–5). Så den avgjørende **tolkningen** — hva et KI faktisk betyr, og de vanlige feiltolkningene (løkke 6). Til slutt **prediksjonsintervallet** for en ny observasjon og de **ensidige** intervallene (løkke 7–8). Hver løkke går teori → eksempel → oppgave.\n\n*Samlet kjernetid ≈ 60 min. Naturlige pausepunkter er markert mellom løkkene — dette er et tungt kapittel, del det gjerne i to økter.*"
+    },
+    {
+      "id": "tma4245-6-1-lokke1",
+      "type": "text",
+      "content": "## Løkke 1 — Konstruksjonslogikken: pivotal i miniatyr (~8 min)"
+    },
+    {
+      "id": "tma4245-6-1-konstruksjon",
+      "type": "text",
+      "content": "Alle konfidensintervaller lages på samme måte. Vi viser det **én gang** for $\\mu$ når $\\sigma$ er kjent; deretter bruker vi bare de ferdige formlene fra formelsamlingen.\n\nUtgangspunktet er en størrelse med **kjent fordeling som ikke inneholder den ukjente parameteren** — en **pivotal** (vi møter begrepet for fullt i [kap. 6.2](/bok/tma4245/tma4245-6-2)). Her er den standardiseringen fra kap. 3.1:\n$$Z = \\frac{\\bar{X}-\\mu}{\\sigma/\\sqrt{n}} \\sim N(0,1).$$\n\n**Steg 1 — sett kvantiler rundt.** Siden $Z \\sim N(0,1)$ og $P(Z > z_{\\alpha/2}) = \\alpha/2$, ligger $Z$ mellom $-z_{\\alpha/2}$ og $z_{\\alpha/2}$ med sannsynlighet $1-\\alpha$:\n$$P\\!\\left(-z_{\\alpha/2} \\le \\frac{\\bar{X}-\\mu}{\\sigma/\\sqrt{n}} \\le z_{\\alpha/2}\\right) = 1-\\alpha.$$\n\n**Steg 2 — løs dobbeltulikheten for $\\mu$.** Gang med $\\sigma/\\sqrt{n}$, trekk fra $\\bar{X}$ og gang med $-1$ (som snur ulikheten):\n$$P\\!\\left(\\bar{X} - z_{\\alpha/2}\\frac{\\sigma}{\\sqrt{n}} \\le \\mu \\le \\bar{X} + z_{\\alpha/2}\\frac{\\sigma}{\\sqrt{n}}\\right) = 1-\\alpha.$$\n\nDet vi står igjen med, er intervallet $\\bar{X} \\pm z_{\\alpha/2}\\,\\sigma/\\sqrt{n}$. **Intuisjon:** vi startet med noe vi kjente fordelingen til, la et sannsynlighetsvindu rundt det, og «pakket ut» $\\mu$ av vinduet. Nettopp denne oppskriften — finn pivotal, sett kvantiler, løs ut — er hele hemmeligheten, og den gjentas for hver ny parameter."
+    },
+    {
+      "id": "tma4245-6-1-ex-konstr",
+      "type": "example",
+      "title": "Eksempel 1: Konstruksjonen på tall",
+      "problem": "Trykkfastheten til betong er normalfordelt med **kjent** standardavvik $\\sigma = 3{,}0$ MPa. Tolv prøvestykker gir gjennomsnitt $\\bar{x} = 38{,}5$ MPa. Konstruer et 95 % konfidensintervall for forventet trykkfasthet $\\mu$, og skriv én linje om hva tallene betyr.",
+      "solution": "**Velg intervall.** $\\sigma$ er kjent, så vi bruker z-intervallet $\\bar{x} \\pm z_{\\alpha/2}\\,\\sigma/\\sqrt{n}$.\n\n**Kvantil.** 95 % gir $\\alpha = 0{,}05$ og $\\alpha/2 = 0{,}025$, så $z_{0{,}025} = 1{,}96$ (tabelloppslag i $\\Phi$).\n\n**Regn.** Standardfeilen er $\\sigma/\\sqrt{n} = 3{,}0/\\sqrt{12} = 0{,}8660$. Feilmarginen blir $1{,}96 \\cdot 0{,}8660 = 1{,}697$. Intervallet:\n$$38{,}5 \\pm 1{,}697 = [36{,}80,\\; 40{,}20] \\text{ MPa}.$$\n\n**Tolkning i én linje:** metoden som ga dette intervallet, treffer den sanne $\\mu$ i 95 % av alle slike forsøk — vi bruker den her og rapporterer $[36{,}80,\\; 40{,}20]$.\n\n> *Sensornotat:* oppgi tabelloppslaget ($z_{0{,}025}=1{,}96$) og standardfeilen eksplisitt. Ikke avrund $\\sqrt{12}$ for tidlig — hold to–tre desimaler i mellomregningen."
+    },
+    {
+      "id": "tma4245-6-1-l1",
+      "type": "exercise",
+      "exercise": {
+        "id": "tma4245-6-1-l1",
+        "number": "1",
+        "type": "classic",
+        "difficulty": "lett",
+        "task": "(Innstegsoppgave — sett inn i formelen.) En prosess har **kjent** standardavvik $\\sigma = 8$. Et utvalg på $n = 25$ gir $\\bar{x} = 142$.\n\n**a)** Hvilket standardintervall passer, z eller t? Hvorfor?\n\n**b)** Slå opp $z_{0{,}005}$ for et 99 % intervall, og konstruer intervallet for $\\mu$.",
+        "solution": "**a)** $\\sigma$ er **kjent**, så vi bruker **z**-intervallet $\\bar{x} \\pm z_{\\alpha/2}\\,\\sigma/\\sqrt{n}$.\n\n**b)** 99 % gir $\\alpha/2 = 0{,}005$, så $z_{0{,}005} = 2{,}576$. Standardfeil $\\sigma/\\sqrt{n} = 8/\\sqrt{25} = 1{,}6$. Feilmargin $2{,}576 \\cdot 1{,}6 = 4{,}122$. Intervall: $142 \\pm 4{,}122 = [137{,}88,\\; 146{,}12]$.",
+        "hints": [
+          "Kjent $\\sigma$ → z-intervall $\\bar{x} \\pm z_{\\alpha/2}\\,\\sigma/\\sqrt{n}$.",
+          "99 % → $\\alpha/2 = 0{,}005$, slå opp $z_{0{,}005} = 2{,}576$.",
+          "$\\sigma/\\sqrt{n} = 8/5 = 1{,}6$; gang med kvantilen."
+        ]
+      }
+    },
+    {
+      "id": "tma4245-6-1-lokke2",
+      "type": "text",
+      "content": "## Løkke 2 — $\\mu$ når $\\sigma$ er ukjent: t-intervallet (~10 min)"
+    },
+    {
+      "id": "tma4245-6-1-def-t",
+      "type": "definition",
+      "title": "Konfidensintervall for $\\mu$ når $\\sigma$ er ukjent (t-intervallet)",
+      "content": "I praksis kjenner vi nesten aldri den sanne $\\sigma$. Da estimerer vi den med den empiriske standardavviket $s$ — men det koster ekstra usikkerhet, og vi må bytte normalfordelingen ut med **t-fordelingen** med $n-1$ frihetsgrader. Intervallet er:\n\n$$\\bar{x} \\pm t_{n-1,\\,\\alpha/2}\\,\\frac{s}{\\sqrt{n}}.$$\n\nHer er $t_{n-1,\\alpha/2}$ kvantilen i t-fordelingen (øvre hale $\\alpha/2$) med **$n-1$ frihetsgrader**. Merk de to endringene fra z-intervallet: **$t$ i stedet for $z$**, og **$s$ i stedet for $\\sigma$**. t-fordelingen er litt bredere enn normalfordelingen (tyngre haler), så $t_{n-1,\\alpha/2} > z_{\\alpha/2}$ — intervallet blir litt bredere, som seg hør og bør når vi vet mindre. For stor $n$ nærmer $t$ seg $z$."
+    },
+    {
+      "id": "tma4245-6-1-ex-t",
+      "type": "example",
+      "title": "Eksempel 2: t-intervall for saltinnhold",
+      "problem": "Ni målinger av saltinnhold (g/L) i en produksjonstank gir $\\bar{x} = 34{,}2$ og $s = 1{,}8$. Standardavviket er ukjent. Konstruer et 95 % konfidensintervall for forventet saltinnhold $\\mu$.",
+      "solution": "**Velg intervall.** $\\sigma$ er ukjent → **t**-intervallet $\\bar{x} \\pm t_{n-1,\\alpha/2}\\,s/\\sqrt{n}$.\n\n**Kvantil.** $n = 9$ gir $n-1 = 8$ frihetsgrader; 95 % gir $\\alpha/2 = 0{,}025$. Tabelloppslag: $t_{8;\\,0{,}025} = 2{,}306$.\n\n**Regn.** Standardfeil $s/\\sqrt{n} = 1{,}8/\\sqrt{9} = 1{,}8/3 = 0{,}6$. Feilmargin $2{,}306 \\cdot 0{,}6 = 1{,}384$. Intervallet:\n$$34{,}2 \\pm 1{,}384 = [32{,}82,\\; 35{,}58] \\text{ g/L}.$$\n\n> *Sensornotat:* den klassiske fellen er å bruke $z_{0{,}025}=1{,}96$ her. Med ukjent $\\sigma$ **skal** det være $t_{8;\\,0{,}025}=2{,}306$, og frihetsgraden er $n-1 = 8$, ikke $n = 9$. Angi tabelloppslaget."
+    },
+    {
+      "id": "tma4245-6-1-l2",
+      "type": "exercise",
+      "exercise": {
+        "id": "tma4245-6-1-l2",
+        "number": "2",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "Femten oppdrettsfisk veies. Vektene (kg) gir $\\bar{x} = 2{,}40$ og $s = 0{,}32$. Standardavviket er ukjent.\n\n**a)** Begrunn valget av t framfor z.\n\n**b)** Konstruer et 95 % konfidensintervall for forventet fiskevekt $\\mu$. Bruk $t_{14;\\,0{,}025} = 2{,}145$.",
+        "solution": "**a)** Standardavviket er **ukjent** og estimert med $s$, så vi bruker **t**-fordelingen med $n-1$ frihetsgrader (t fanger opp den ekstra usikkerheten fra å estimere $\\sigma$).\n\n**b)** $n = 15$, frihetsgrad $14$. Standardfeil $s/\\sqrt{n} = 0{,}32/\\sqrt{15} = 0{,}0826$. Feilmargin $2{,}145 \\cdot 0{,}0826 = 0{,}177$. Intervall: $2{,}40 \\pm 0{,}177 = [2{,}22,\\; 2{,}58]$ kg.",
+        "hints": [
+          "Ukjent $\\sigma$ → t-intervall, frihetsgrad $n-1 = 14$.",
+          "$s/\\sqrt{n} = 0{,}32/\\sqrt{15} = 0{,}0826$.",
+          "Gang med $t_{14;\\,0{,}025} = 2{,}145$ og legg til/trekk fra $\\bar{x}$."
+        ]
+      }
+    },
+    {
+      "id": "tma4245-6-1-lokke3",
+      "type": "text",
+      "content": "## Løkke 3 — Variansen $\\sigma^2$: det asymmetriske kjikvadrat-intervallet (~9 min)"
+    },
+    {
+      "id": "tma4245-6-1-def-chi",
+      "type": "definition",
+      "title": "Konfidensintervall for variansen $\\sigma^2$",
+      "content": "For å lage et intervall for **variansen** bruker vi at $\\frac{(n-1)S^2}{\\sigma^2} \\sim \\chi^2_{n-1}$ (utledes i [kap. 6.2](/bok/tma4245/tma4245-6-2)). Kjikvadratfordelingen er **skjev** — ikke symmetrisk som normal og t — så vi setter to *forskjellige* kvantiler i endene. Intervallet blir:\n\n$$\\left[\\frac{(n-1)s^2}{\\chi^2_{n-1,\\,\\alpha/2}},\\; \\frac{(n-1)s^2}{\\chi^2_{n-1,\\,1-\\alpha/2}}\\right].$$\n\n**Legg merke til to ting.** For det første er intervallet **asymmetrisk** — det ligger *ikke* som $s^2 \\pm$ noe. For det andre står den **store** kvantilen ($\\chi^2_{n-1,\\alpha/2}$) i **nevneren under den nedre** grensen, og den **lille** kvantilen ($\\chi^2_{n-1,1-\\alpha/2}$) under den **øvre** — fordi vi deler på kvantilen (å dele på et stort tall gir en liten grense). Vil du ha et intervall for **standardavviket** $\\sigma$, tar du kvadratroten av begge endene."
+    },
+    {
+      "id": "tma4245-6-1-ex-chi",
+      "type": "example",
+      "title": "Eksempel 3: Kjikvadrat-intervall for spredning i vannkvalitet",
+      "problem": "Ti målinger av nitratkonsentrasjon (mg/L) i en elv gir empirisk standardavvik $s = 0{,}45$. Målingene antas normalfordelte. Konstruer et 95 % konfidensintervall for variansen $\\sigma^2$, og deretter for standardavviket $\\sigma$.",
+      "solution": "**Oppsett.** $n = 10$, frihetsgrad $n-1 = 9$. $s^2 = 0{,}45^2 = 0{,}2025$, så $(n-1)s^2 = 9 \\cdot 0{,}2025 = 1{,}8225$.\n\n**Kvantiler (95 %, $\\alpha/2 = 0{,}025$).** Tabelloppslag i $\\chi^2_9$: $\\chi^2_{9;\\,0{,}025} = 19{,}023$ (stor) og $\\chi^2_{9;\\,0{,}975} = 2{,}700$ (liten).\n\n**Intervall for $\\sigma^2$:**\n$$\\left[\\frac{1{,}8225}{19{,}023},\\; \\frac{1{,}8225}{2{,}700}\\right] = [0{,}0958,\\; 0{,}6749].$$\n\n**Intervall for $\\sigma$** (kvadratrot av endene): $[\\sqrt{0{,}0958},\\; \\sqrt{0{,}6749}] = [0{,}310,\\; 0{,}822]$ mg/L.\n\n> *Sensornotat:* den store kvantilen $19{,}023$ hører til den *nedre* grensen. Bytter du dem om, får du et intervall der nedre grense er større enn øvre — umulig, og et sikkert tegn på at kvantilene står feil vei. Legg også merke til at intervallet **ikke** er symmetrisk om $s^2 = 0{,}2025$."
+    },
+    {
+      "id": "tma4245-6-1-l3",
+      "type": "exercise",
+      "exercise": {
+        "id": "tma4245-6-1-l3",
+        "number": "3",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "Åtte målinger av en komponents diameter (mm) gir empirisk varians $s^2 = 4{,}5$. Målingene antas normalfordelte. Konstruer et 95 % konfidensintervall for variansen $\\sigma^2$. Bruk $\\chi^2_{7;\\,0{,}025} = 16{,}013$ og $\\chi^2_{7;\\,0{,}975} = 1{,}690$.",
+        "solution": "$n = 8$, frihetsgrad $7$. $(n-1)s^2 = 7 \\cdot 4{,}5 = 31{,}5$. Intervall:\n$$\\left[\\frac{31{,}5}{16{,}013},\\; \\frac{31{,}5}{1{,}690}\\right] = [1{,}97,\\; 18{,}64].$$\nDen store kvantilen ($16{,}013$) står under den nedre grensen. Intervallet er tydelig asymmetrisk om $s^2 = 4{,}5$.",
+        "hints": [
+          "Formel: $[(n-1)s^2/\\chi^2_{n-1,\\alpha/2},\\; (n-1)s^2/\\chi^2_{n-1,1-\\alpha/2}]$.",
+          "$(n-1)s^2 = 7 \\cdot 4{,}5 = 31{,}5$.",
+          "Stor kvantil ($16{,}013$) i nevneren under nedre grense."
+        ]
+      }
+    },
+    {
+      "id": "tma4245-6-1-lokke4",
+      "type": "text",
+      "content": "## Løkke 4 — En andel $p$ (~8 min)"
+    },
+    {
+      "id": "tma4245-6-1-def-andel",
+      "type": "definition",
+      "title": "Konfidensintervall for en andel $p$",
+      "content": "Når vi teller hvor mange av $n$ enheter som har en egenskap (defekte, positive, foretrukne), estimerer vi andelen med $\\hat{p} = x/n$. Fra sentralgrenseteoremet er $\\hat{p}$ tilnærmet normalfordelt, og intervallet blir:\n\n$$\\hat{p} \\pm z_{\\alpha/2}\\sqrt{\\frac{\\hat{p}(1-\\hat{p})}{n}}.$$\n\n**Gyldighetssjekk (obligatorisk):** normaltilnærmingen holder bare når **$n\\hat{p} \\ge 5$ og $n(1-\\hat{p}) \\ge 5$** (noen krever $\\ge 10$) — altså nok observasjoner i *begge* kategorier. Sensor forventer at du skriver denne sjekken eksplisitt før du stoler på intervallet. Er andelen svært liten eller $n$ liten, er tilnærmingen dårlig. Merk at her brukes **$z$**, ikke t — dette er en tilnærming basert på normalfordelingen, uten en $\\sigma$ som estimeres separat."
+    },
+    {
+      "id": "tma4245-6-1-ex-andel",
+      "type": "example",
+      "title": "Eksempel 4: Andel defekte komponenter",
+      "problem": "I en kvalitetskontroll av 250 tilfeldig valgte komponenter er 30 defekte. Konstruer et 95 % konfidensintervall for andelen defekte $p$ i produksjonen, og sjekk at tilnærmingen er gyldig.",
+      "solution": "**Estimat.** $\\hat{p} = 30/250 = 0{,}12$.\n\n**Gyldighetssjekk.** $n\\hat{p} = 30 \\ge 5$ og $n(1-\\hat{p}) = 220 \\ge 5$ — normaltilnærmingen er gyldig.\n\n**Kvantil og standardfeil.** 95 % → $z_{0{,}025} = 1{,}96$. Standardfeil $\\sqrt{\\hat{p}(1-\\hat{p})/n} = \\sqrt{0{,}12 \\cdot 0{,}88/250} = \\sqrt{0{,}0004224} = 0{,}02055$.\n\n**Intervall.** Feilmargin $1{,}96 \\cdot 0{,}02055 = 0{,}0403$:\n$$0{,}12 \\pm 0{,}0403 = [0{,}0797,\\; 0{,}1603].$$\n\nMed 95 % tillit ligger den sanne andelen defekte mellom ca. 8,0 % og 16,0 %.\n\n> *Sensornotat:* skriv gyldighetssjekken $n\\hat{p} \\ge 5$, $n(1-\\hat{p}) \\ge 5$ eksplisitt — den gir poeng og viser at du vet når metoden gjelder."
+    },
+    {
+      "id": "tma4245-6-1-l4",
+      "type": "exercise",
+      "exercise": {
+        "id": "tma4245-6-1-l4",
+        "number": "4",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "En spørreundersøkelse blant 400 tilfeldig valgte brukere finner at 52 rapporterer en bestemt feil.\n\n**a)** Sjekk om normaltilnærmingen er gyldig.\n\n**b)** Konstruer et 95 % konfidensintervall for andelen $p$ som opplever feilen.",
+        "solution": "**a)** $\\hat{p} = 52/400 = 0{,}13$. $n\\hat{p} = 52 \\ge 5$ og $n(1-\\hat{p}) = 348 \\ge 5$ — gyldig.\n\n**b)** Standardfeil $\\sqrt{0{,}13 \\cdot 0{,}87/400} = \\sqrt{0{,}00028275} = 0{,}01682$. Feilmargin $1{,}96 \\cdot 0{,}01682 = 0{,}0330$. Intervall: $0{,}13 \\pm 0{,}0330 = [0{,}097,\\; 0{,}163]$.",
+        "hints": [
+          "$\\hat{p} = 52/400 = 0{,}13$; sjekk $n\\hat{p}$ og $n(1-\\hat{p})$.",
+          "Standardfeil $\\sqrt{\\hat{p}(1-\\hat{p})/n}$ med $z_{0{,}025} = 1{,}96$.",
+          "$\\sqrt{0{,}13 \\cdot 0{,}87/400} = 0{,}0168$."
+        ]
+      }
+    },
+    {
+      "id": "tma4245-6-1-lokke5",
+      "type": "text",
+      "content": "## Løkke 5 — Hva et konfidensintervall *faktisk* betyr (~9 min)"
+    },
+    {
+      "id": "tma4245-6-1-def-tolkning",
+      "type": "definition",
+      "title": "Den riktige tolkningen av et konfidensintervall",
+      "content": "Dette er spørsmålet eksamen elsker å legge feller rundt. Nøkkelen: **intervallet er tilfeldig, parameteren er fast.** Før vi henter data, er endepunktene $\\bar{X} \\pm z_{\\alpha/2}\\sigma/\\sqrt{n}$ stokastiske (de avhenger av $\\bar{X}$). Den sanne $\\mu$ er et fast, ukjent tall — ikke tilfeldig.\n\nDen presise formuleringen er en utsagn om **metoden**, ikke om det ene intervallet:\n\n> *Ved gjentatte forsøk vil metoden som lager 95 %-intervallet, fange den sanne parameteren i 95 % av tilfellene.*\n\nNår vi først har regnet ut $[36{,}80,\\; 40{,}20]$, er *dette* intervallet enten riktig eller galt — $\\mu$ ligger i det, eller ikke. Det gir derfor **ikke** mening å si at «det er 95 % sannsynlighet for at $\\mu$ ligger i $[36{,}80,\\; 40{,}20]$», for her er ingenting lenger tilfeldig. Tenk på 95 % som en egenskap ved *fremgangsmåten*, som en produksjonslinje der 95 % av intervallene den lager treffer."
+    },
+    {
+      "id": "tma4245-6-1-warn-antisvar",
+      "type": "warning",
+      "title": "Antisvar: de tre feiltolkningene sensor stryker",
+      "content": "Distraktorene i tolknings-flervalget (Mai20, Aug20, Aug19) er nesten alltid én av disse:\n\n- **«95 % sannsynlighet for at $\\mu$ ligger i [dette] intervallet.»** Galt: når intervallet er utregnet, er $\\mu$ enten inni eller utenfor — ingen sannsynlighet igjen. Sannsynligheten hører til *metoden*, før data.\n- **«95 % av observasjonene ligger i intervallet.»** Galt: KI handler om parameteren $\\mu$, ikke om enkeltobservasjoner. (Det er *prediksjonsintervallet*, løkke 6, som handler om observasjoner — og det er mye bredere.)\n- **«$\\mu$ er tilfeldig og ligger i intervallet med 95 % sannsynlighet.»** Galt: $\\mu$ er et fast, ukjent tall. Det er *intervallet* som er tilfeldig.\n\nDen riktige: *«metoden fanger den sanne $\\mu$ i 95 % av gjentatte forsøk.»*"
+    },
+    {
+      "id": "tma4245-6-1-l5",
+      "type": "exercise",
+      "exercise": {
+        "id": "tma4245-6-1-l5",
+        "number": "5",
+        "type": "classic",
+        "difficulty": "lett",
+        "task": "En rapport konkluderer: «Vi fant et 95 % konfidensintervall $[36{,}80,\\; 40{,}20]$ for forventet trykkfasthet.» En kollega sier: «Da er det 95 % sannsynlig at den sanne forventningen ligger mellom 36,80 og 40,20.»\n\n**a)** Er kollegaens utsagn korrekt? Forklar kort.\n\n**b)** Gi en presis, korrekt formulering av hva 95 % viser til.",
+        "solution": "**a)** **Nei.** Når intervallet først er regnet ut, er $\\mu$ et fast tall som enten ligger i $[36{,}80,\\;40{,}20]$ eller ikke — det er ingen sannsynlighet igjen å knytte til *dette* intervallet. Feilen er å behandle den faste $\\mu$ som tilfeldig.\n\n**b)** Korrekt: *metoden som produserte intervallet, fanger den sanne $\\mu$ i 95 % av gjentatte, uavhengige forsøk*. 95 % er en egenskap ved fremgangsmåten, ikke en sannsynlighet for det utregnede intervallet.",
+        "hints": [
+          "Er $\\mu$ tilfeldig eller fast etter at intervallet er regnet ut?",
+          "Sannsynligheten hører til metoden før data, ikke til det ferdige intervallet."
+        ]
+      }
+    },
+    {
+      "id": "tma4245-6-1-lokke6",
+      "type": "text",
+      "content": "## Løkke 6 — Prediksjonsintervall: KI for en parameter vs. PI for en observasjon (~9 min)"
+    },
+    {
+      "id": "tma4245-6-1-def-pi",
+      "type": "definition",
+      "title": "Prediksjonsintervall for en ny observasjon",
+      "content": "Et **konfidensintervall** fanger en *parameter* ($\\mu$). Et **prediksjonsintervall (PI)** fanger en *fremtidig enkeltobservasjon* $X_{\\text{ny}}$ — et helt annet spørsmål. En ny observasjon svinger av to grunner: rundt sitt eget senter *og* fordi vi ikke kjenner senteret eksakt. Derfor har PI et ekstra ledd under rottegnet:\n\n$$\\bar{x} \\pm t_{n-1,\\,\\alpha/2}\\,s\\sqrt{1 + \\frac{1}{n}}.$$\n\nSammenlign med t-konfidensintervallet $\\bar{x} \\pm t_{n-1,\\alpha/2}\\,s\\sqrt{1/n} = \\bar{x} \\pm t_{n-1,\\alpha/2}\\,s/\\sqrt{n}$. Det ekstra **1-tallet** under rota er observasjonens egen spredning, og det gjør **PI mye bredere enn KI** — og bredden krymper *ikke* mot null når $n$ vokser, for en enkeltmåling er alltid variabel. **Bruk KI når du spør om gjennomsnittet/forventningen; bruk PI når du spør om neste enkeltmåling.**"
+    },
+    {
+      "id": "tma4245-6-1-ex-pi",
+      "type": "example",
+      "title": "Eksempel 5: KI og PI side om side",
+      "problem": "Bruk saltinnholdsdataene fra eksempel 2 ($n = 9$, $\\bar{x} = 34{,}2$, $s = 1{,}8$). Konstruer et 95 % prediksjonsintervall for saltinnholdet i **neste** tank, og forklar hvorfor det er bredere enn konfidensintervallet.",
+      "solution": "**PI-formel.** $\\bar{x} \\pm t_{8;\\,0{,}025}\\,s\\sqrt{1 + 1/n}$ med $t_{8;\\,0{,}025} = 2{,}306$.\n\n**Regn.** $\\sqrt{1 + 1/9} = \\sqrt{1{,}1111} = 1{,}0541$. Feilmargin $2{,}306 \\cdot 1{,}8 \\cdot 1{,}0541 = 4{,}375$. Intervallet:\n$$34{,}2 \\pm 4{,}375 = [29{,}82,\\; 38{,}58] \\text{ g/L}.$$\n\n**Sammenligning.** Konfidensintervallet var $[32{,}82,\\;35{,}58]$ (bredde 2,77); prediksjonsintervallet er $[29{,}82,\\;38{,}58]$ (bredde 8,75) — over tre ganger så bredt.\n\n**Hvorfor bredere:** KI-et fanger bare usikkerheten i *gjennomsnittet* ($s\\sqrt{1/n}$). PI-et må i tillegg romme at en enkelt ny tank svinger rundt gjennomsnittet ($s \\cdot \\sqrt{1}$) — det ekstra 1-tallet under rota. En enkeltobservasjon er alltid mer uforutsigbar enn snittet.\n\n> *Sensornotat:* dette er den vanligste forvekslingen på KI-oppgaver. Spør oppgaven om «neste måling» / «en ny komponent», er det PI — aldri KI."
+    },
+    {
+      "id": "tma4245-6-1-l6",
+      "type": "exercise",
+      "exercise": {
+        "id": "tma4245-6-1-l6",
+        "number": "6",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "Bruk fiskevektdataene fra oppgave 2 ($n = 15$, $\\bar{x} = 2{,}40$, $s = 0{,}32$, $t_{14;\\,0{,}025} = 2{,}145$).\n\n**a)** Skal du bruke KI eller PI for å si hvor tungt **én ny, tilfeldig valgt fisk** trolig veier? Begrunn.\n\n**b)** Konstruer det passende 95 % intervallet.",
+        "solution": "**a)** Spørsmålet gjelder **én ny enkeltobservasjon**, ikke forventningen, så vi bruker **prediksjonsintervallet** $\\bar{x} \\pm t_{n-1,\\alpha/2}\\,s\\sqrt{1 + 1/n}$.\n\n**b)** $\\sqrt{1 + 1/15} = \\sqrt{1{,}0667} = 1{,}0328$. Feilmargin $2{,}145 \\cdot 0{,}32 \\cdot 1{,}0328 = 0{,}709$. Intervall: $2{,}40 \\pm 0{,}709 = [1{,}69,\\; 3{,}11]$ kg. (Til sammenligning var KI-et $[2{,}22,\\;2{,}58]$ — langt smalere.)",
+        "hints": [
+          "«En ny fisk» → prediksjonsintervall, ikke konfidensintervall.",
+          "PI: $\\bar{x} \\pm t_{n-1,\\alpha/2}\\,s\\sqrt{1 + 1/n}$, med det ekstra 1-tallet.",
+          "$\\sqrt{1 + 1/15} = 1{,}0328$."
+        ]
+      }
+    },
+    {
+      "id": "tma4245-6-1-lokke7",
+      "type": "text",
+      "content": "## Løkke 7 — Ensidige konfidensintervaller (~7 min)"
+    },
+    {
+      "id": "tma4245-6-1-def-ensidig",
+      "type": "definition",
+      "title": "Ensidige konfidensintervaller",
+      "content": "Iblant er bare **én** grense interessant — en nedre garanti for styrke, eller en øvre grense for en feilandel. Da samler vi hele risikoen $\\alpha$ i én hale og bruker kvantilen $z_\\alpha$ (eller $t_{n-1,\\alpha}$), **ikke** $\\alpha/2$:\n\n$$\\text{Nedre grense: } \\mu \\ge \\bar{x} - z_\\alpha\\frac{\\sigma}{\\sqrt{n}}, \\qquad \\text{Øvre grense: } \\mu \\le \\bar{x} + z_\\alpha\\frac{\\sigma}{\\sqrt{n}}.$$\n\nFor et 95 % ensidig intervall bruker vi altså $z_{0{,}05} = 1{,}645$ (ikke $z_{0{,}025} = 1{,}96$). Fordi hele $\\alpha$ ligger i én hale, blir den ene grensen **strammere** (nærmere $\\bar{x}$) enn i det tosidige intervallet. Ved ukjent $\\sigma$ byttes $z_\\alpha$ mot $t_{n-1,\\alpha}$ og $\\sigma$ mot $s$."
+    },
+    {
+      "id": "tma4245-6-1-l7",
+      "type": "exercise",
+      "exercise": {
+        "id": "tma4245-6-1-l7",
+        "number": "7",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "For betongen i eksempel 1 ($\\sigma = 3{,}0$ kjent, $n = 12$, $\\bar{x} = 38{,}5$) ønsker en ingeniør en **nedre** 95 % konfidensgrense for forventet trykkfasthet (bare den nedre garantien betyr noe).\n\n**a)** Hvilken kvantil skal brukes, $z_{0{,}025}$ eller $z_{0{,}05}$? Hvorfor?\n\n**b)** Finn den nedre grensen.",
+        "solution": "**a)** For et **ensidig** intervall ligger hele $\\alpha = 0{,}05$ i én hale, så vi bruker $z_{0{,}05} = 1{,}645$ (ikke $z_{0{,}025} = 1{,}96$).\n\n**b)** Nedre grense $= \\bar{x} - z_{0{,}05}\\,\\sigma/\\sqrt{n} = 38{,}5 - 1{,}645 \\cdot 3{,}0/\\sqrt{12} = 38{,}5 - 1{,}645 \\cdot 0{,}8660 = 38{,}5 - 1{,}424 = 37{,}08$ MPa. Vi kan med 95 % tillit si at forventet trykkfasthet er **minst 37,08 MPa**.",
+        "hints": [
+          "Ensidig → hele $\\alpha$ i én hale, bruk $z_{0{,}05} = 1{,}645$.",
+          "Nedre grense $= \\bar{x} - z_{0{,}05}\\,\\sigma/\\sqrt{n}$.",
+          "$3{,}0/\\sqrt{12} = 0{,}8660$."
+        ]
+      }
+    },
+    {
+      "id": "tma4245-6-1-v1",
+      "type": "exercise",
+      "exercise": {
+        "id": "tma4245-6-1-v1",
+        "number": "8",
+        "type": "classic",
+        "difficulty": "vanskelig",
+        "task": "Tolv målinger av bruddstyrke (kN) gir $\\bar{x} = 58{,}0$ og $s = 4{,}2$; standardavviket er ukjent, og målingene antas normalfordelte. Bruk $t_{11;\\,0{,}025} = 2{,}201$.\n\n**a)** Konstruer et 95 % konfidensintervall for forventet bruddstyrke $\\mu$.\n\n**b)** Konstruer et 95 % konfidensintervall for variansen $\\sigma^2$. Bruk $\\chi^2_{11;\\,0{,}025} = 21{,}920$ og $\\chi^2_{11;\\,0{,}975} = 3{,}816$.\n\n**c)** En kunde spør hvor sterk én ny, tilfeldig stang minst er. Hvilket intervall passer — og hva er kvalitativt forskjellen fra svaret i a)?",
+        "solution": "**a)** Ukjent $\\sigma$ → t-intervall. Standardfeil $s/\\sqrt{n} = 4{,}2/\\sqrt{12} = 1{,}2124$. Feilmargin $2{,}201 \\cdot 1{,}2124 = 2{,}669$. KI: $58{,}0 \\pm 2{,}669 = [55{,}33,\\; 60{,}67]$ kN.\n\n**b)** $(n-1)s^2 = 11 \\cdot 4{,}2^2 = 11 \\cdot 17{,}64 = 194{,}04$. KI for $\\sigma^2$: $[194{,}04/21{,}920,\\; 194{,}04/3{,}816] = [8{,}85,\\; 50{,}85]$.\n\n**c)** «Én ny stang» gjelder en enkeltobservasjon, så det riktige er et (ensidig nedre) **prediksjonsintervall**, ikke konfidensintervallet i a). Forskjellen: KI-et i a) fanger *forventet* bruddstyrke og blir smalt; et prediksjonsintervall må i tillegg romme spredningen mellom enkeltstenger og blir derfor **vesentlig bredere** (og den nedre grensen lavere).",
+        "hints": [
+          "a) Ukjent $\\sigma$ → t; $s/\\sqrt{12} = 1{,}2124$.",
+          "b) $(n-1)s^2 = 11 \\cdot 17{,}64 = 194{,}04$; del på kvantilene.",
+          "c) «En ny stang» = enkeltobservasjon → prediksjonsintervall, bredere enn KI."
+        ]
+      }
+    },
+    {
+      "id": "tma4245-6-1-warn",
+      "type": "warning",
+      "title": "Typiske feil",
+      "content": "- **$z$ der det skal være $t$.** Er $\\sigma$ **ukjent** (estimert med $s$), skal du bruke t-fordelingen med $n-1$ frihetsgrader — ikke $z$. Bare når $\\sigma$ er *oppgitt kjent* bruker du $z$.\n- **Feil frihetsgrader.** t- og kjikvadrat-intervallene bruker **$n-1$**, ikke $n$. Tell riktig: ni observasjoner gir 8 frihetsgrader.\n- **Symmetrisk $\\sigma^2$-intervall.** Kjikvadratfordelingen er skjev; intervallet for $\\sigma^2$ er $[(n-1)s^2/\\chi^2_{n-1,\\alpha/2},\\, (n-1)s^2/\\chi^2_{n-1,1-\\alpha/2}]$ — **aldri** $s^2 \\pm$ noe. Den *store* kvantilen står under den *nedre* grensen.\n- **KI tolket som sannsynlighetsutsagn om $\\mu$.** «95 % sannsynlighet for at $\\mu$ ligger i det utregnede intervallet» er galt — $\\mu$ er fast, intervallet er tilfeldig. 95 % er en egenskap ved metoden.\n- **KI der PI kreves (og omvendt).** Spør oppgaven om en *ny observasjon* («neste måling», «én ny komponent»), skal du bruke prediksjonsintervallet med det ekstra 1-tallet under rota — det er mye bredere enn konfidensintervallet.\n- **$\\alpha$ vs. $\\alpha/2$.** Tosidig intervall bruker $\\alpha/2$ i hver hale ($z_{0{,}025} = 1{,}96$); ensidig samler hele $\\alpha$ i én hale ($z_{0{,}05} = 1{,}645$)."
+    },
+    {
+      "id": "tma4245-6-1-begrepsbank",
+      "type": "text",
+      "content": "## Begrepsbank\n\nDe sentrale begrepene og formlene i kapitlet, samlet som repetisjonskort.\n\n*Flashcard-/repetisjonsstoff — hopp trygt over ved førstegangslesing; tidsanslaget gjelder kjernestoffet.*"
+    },
+    {
+      "id": "tma4245-6-1-fc1",
+      "type": "definition",
+      "title": "Konfidensintervall (KI)",
+      "content": "Et **konfidensintervall** er et intervall av rimelige verdier for en ukjent parameter, utstyrt med et tallfestet **konfidensnivå** (typisk 95 %). Det bygges fra data slik at metoden fanger den sanne parameteren i en kjent andel av gjentatte forsøk. Formelt for $\\mu$ med kjent $\\sigma$: $\\bar{x} \\pm z_{\\alpha/2}\\,\\sigma/\\sqrt{n}$."
+    },
+    {
+      "id": "tma4245-6-1-fc2",
+      "type": "definition",
+      "title": "Konfidensnivå $1-\\alpha$",
+      "content": "**Konfidensnivået** $1-\\alpha$ er andelen av gjentatte forsøk der metoden fanger parameteren; $\\alpha$ er den tillatte bomprosenten. Et 95 %-intervall har $\\alpha = 0{,}05$. Høyere nivå (mindre $\\alpha$) gir **bredere** intervall — mer sikkerhet koster presisjon."
+    },
+    {
+      "id": "tma4245-6-1-fc3",
+      "type": "definition",
+      "title": "Konstruksjonslogikken (pivotal i miniatyr)",
+      "content": "Alle KI lages likt: **(1)** finn en størrelse med kjent fordeling fri for parameteren (en pivotal), f.eks. $\\frac{\\bar{X}-\\mu}{\\sigma/\\sqrt{n}} \\sim N(0,1)$; **(2)** sett kvantiler rundt så den ligger imellom med sannsynlighet $1-\\alpha$; **(3)** løs dobbeltulikheten for parameteren. Resultatet er intervallet."
+    },
+    {
+      "id": "tma4245-6-1-fc4",
+      "type": "definition",
+      "title": "z-intervall for $\\mu$ (kjent $\\sigma$)",
+      "content": "Når standardavviket $\\sigma$ er **kjent**, er konfidensintervallet for forventningen: $$\\bar{x} \\pm z_{\\alpha/2}\\,\\frac{\\sigma}{\\sqrt{n}}.$$ For 95 %: $z_{0{,}025} = 1{,}96$. Brukes sjelden i praksis, men er byggeklossen alle andre intervaller kommer fra."
+    },
+    {
+      "id": "tma4245-6-1-fc5",
+      "type": "definition",
+      "title": "Hvorfor t og ikke z",
+      "content": "Å estimere $\\sigma$ med $s$ tilfører ekstra usikkerhet. **t-fordelingen** har tyngre haler enn normalfordelingen, så $t_{n-1,\\alpha/2} > z_{\\alpha/2}$ og intervallet blir litt bredere — som seg hør og bør når vi vet mindre. For stor $n$ nærmer $t$ seg $z$."
+    },
+    {
+      "id": "tma4245-6-1-fc6",
+      "type": "definition",
+      "title": "Frihetsgrader $n-1$",
+      "content": "t- og kjikvadrat-intervallene bruker **$n-1$ frihetsgrader**, ikke $n$. Tanken: når $\\bar{x}$ først er beregnet, kan bare $n-1$ av avvikene $x_i - \\bar{x}$ velges fritt (de summerer til null). Ni observasjoner → 8 frihetsgrader. Feil frihetsgrad er en klassisk poengtapper."
+    },
+    {
+      "id": "tma4245-6-1-fc7",
+      "type": "definition",
+      "title": "Gyldighetssjekk for andelsintervallet",
+      "content": "Normaltilnærmingen for en andel krever nok observasjoner i **begge** kategorier: **$n\\hat{p} \\ge 5$ og $n(1-\\hat{p}) \\ge 5$** (noen krever $\\ge 10$). Skriv sjekken eksplisitt — sensor forventer den. Er andelen svært liten eller $n$ liten, er intervallet upålitelig."
+    },
+    {
+      "id": "tma4245-6-1-fc8",
+      "type": "definition",
+      "title": "Feiltolkninger (antisvar)",
+      "content": "Tre gale påstander som er faste distraktorer: **(1)** «95 % sannsynlighet for at $\\mu$ ligger i det utregnede intervallet» (nei — $\\mu$ er fast); **(2)** «95 % av observasjonene ligger i intervallet» (nei — det gjelder PI, ikke KI); **(3)** «$\\mu$ er tilfeldig» (nei — intervallet er tilfeldig)."
+    },
+    {
+      "id": "tma4245-6-1-fc9",
+      "type": "definition",
+      "title": "KI vs. PI — når brukes hva",
+      "content": "**KI** svarer på spørsmål om en **parameter** («forventet levetid», «forventet styrke») og blir smalt. **PI** svarer på spørsmål om en **ny enkeltobservasjon** («neste måling», «én ny komponent») og blir bredt. Signalordene «en ny / neste / en tilfeldig valgt» peker på PI."
+    },
+    {
+      "id": "tma4245-6-1-fc10",
+      "type": "definition",
+      "title": "Kvantilnotasjon $z_\\alpha$ (øvre hale)",
+      "content": "I denne boka betyr $z_\\alpha$ tallet med **øvre haleareal** $\\alpha$: $P(Z > z_\\alpha) = \\alpha$. Et tosidig 95 %-intervall bruker $z_{\\alpha/2} = z_{0{,}025} = 1{,}96$ (2,5 % i hver hale). Samme konvensjon for $t_{\\nu,\\alpha}$ og $\\chi^2_{\\nu,\\alpha}$."
+    },
+    {
+      "id": "tma4245-6-1-fc11",
+      "type": "definition",
+      "title": "Standardfeil (standard error)",
+      "content": "**Standardfeilen** er standardavviket til estimatoren. For gjennomsnittet: $\\sigma/\\sqrt{n}$ (kjent $\\sigma$) eller $s/\\sqrt{n}$ (estimert). For en andel: $\\sqrt{\\hat{p}(1-\\hat{p})/n}$. Den er «$\\pm$-leddet» før man ganger med kvantilen, og krymper med $\\sqrt{n}$."
+    },
+    {
+      "id": "tma4245-6-1-fc12",
+      "type": "definition",
+      "title": "Feilmargin",
+      "content": "**Feilmarginen** er halve bredden på et tosidig intervall: kvantil $\\times$ standardfeil, f.eks. $z_{\\alpha/2}\\,\\sigma/\\sqrt{n}$. Intervallet er $\\text{estimat} \\pm \\text{feilmargin}$. Vil du halvere feilmarginen, må du firedoble $n$ (fordi den avtar som $1/\\sqrt{n}$)."
+    },
+    {
+      "id": "tma4245-6-1-fc13",
+      "type": "definition",
+      "title": "Hva bredden avhenger av",
+      "content": "Bredden på et KI øker med **konfidensnivået** (større $1-\\alpha$ → større kvantil) og med **spredningen** ($\\sigma$ eller $s$), og avtar med **utvalgsstørrelsen** ($\\sqrt{n}$ i nevneren). Vil du ha et smalere intervall uten å miste sikkerhet: samle mer data."
+    },
+    {
+      "id": "tma4245-6-1-fc14",
+      "type": "definition",
+      "title": "Beslutningskort: hvilket intervall når",
+      "content": "**Forventning $\\mu$, kjent $\\sigma$** → z-intervall. **Forventning $\\mu$, ukjent $\\sigma$** → t-intervall ($n-1$ fr.grader). **Varians $\\sigma^2$** → asymmetrisk kjikvadrat-intervall. **Andel $p$** → z-intervall med gyldighetssjekk. **Ny observasjon** → prediksjonsintervall (t, ekstra 1-tall). **Én grense interessant** → ensidig ($z_\\alpha$)."
+    },
+    {
+      "id": "tma4245-6-1-rep",
+      "type": "collapsible",
+      "title": "Repetisjonsoppgaver",
+      "buttonText": "Vis repetisjonsoppgaver",
+      "content": [
+        {
+          "id": "tma4245-6-1-rep-x1",
+          "type": "exercise",
+          "exercise": {
+            "id": "tma4245-6-1-rep-x1",
+            "number": "R1",
+            "type": "classic",
+            "difficulty": "lett",
+            "task": "(Fra [kap. 3.1](/bok/tma4245/tma4245-3-1).) Hva er $z_{0{,}025}$, og hvor mange prosent av standardnormalfordelingen ligger over dette tallet?",
+            "solution": "$z_{0{,}025} = 1{,}96$. Per definisjon ($\\alpha = 0{,}025$) ligger **2,5 %** av fordelingen over $1{,}96$. I et tosidig 95 %-intervall ligger 2,5 % i hver hale, til sammen 5 % utenfor.",
+            "hints": [
+              "$z_\\alpha$ har øvre haleareal $\\alpha$.",
+              "$\\alpha = 0{,}025 = 2{,}5\\,\\%$."
+            ]
+          }
+        },
+        {
+          "id": "tma4245-6-1-rep-x2",
+          "type": "exercise",
+          "exercise": {
+            "id": "tma4245-6-1-rep-x2",
+            "number": "R2",
+            "type": "classic",
+            "difficulty": "lett",
+            "task": "(Fra [kap. 3.2](/bok/tma4245/tma4245-3-2).) $X_1, \\ldots, X_{16}$ er uavhengige $N(\\mu, \\sigma^2)$ med $\\sigma = 4$. Hva er fordelingen til $\\bar{X}$?",
+            "solution": "Gjennomsnittet av $n = 16$ uavhengige normale er normalfordelt med samme forventning og redusert varians: $\\bar{X} \\sim N(\\mu, \\sigma^2/n) = N(\\mu, 16/16) = N(\\mu, 1)$. Standardavviket til $\\bar{X}$ er $\\sigma/\\sqrt{n} = 4/4 = 1$.",
+            "hints": [
+              "$\\bar{X} \\sim N(\\mu, \\sigma^2/n)$.",
+              "$\\sigma^2/n = 16/16 = 1$."
+            ]
+          }
+        },
+        {
+          "id": "tma4245-6-1-rep-x3",
+          "type": "exercise",
+          "exercise": {
+            "id": "tma4245-6-1-rep-x3",
+            "number": "R3",
+            "type": "classic",
+            "difficulty": "lett",
+            "task": "(Fra [kap. 1.4](/bok/tma4245/tma4245-1-4) / [5.1](/bok/tma4245/tma4245-5-1).) Fem målinger er 10, 12, 11, 13, 14. Regn ut den empiriske variansen $s^2$ med riktig divisor.",
+            "solution": "Gjennomsnitt $\\bar{x} = (10+12+11+13+14)/5 = 60/5 = 12$. Avvik: $-2, 0, -1, 1, 2$; kvadrater $4, 0, 1, 1, 4$ med sum $10$. Empirisk varians med divisor $n-1 = 4$: $s^2 = 10/4 = 2{,}5$.",
+            "hints": [
+              "$\\bar{x} = 60/5 = 12$.",
+              "$s^2 = \\frac{1}{n-1}\\sum (x_i - \\bar{x})^2$, divisor 4."
+            ]
+          }
+        },
+        {
+          "id": "tma4245-6-1-rep-x4",
+          "type": "exercise",
+          "exercise": {
+            "id": "tma4245-6-1-rep-x4",
+            "number": "R4",
+            "type": "classic",
+            "difficulty": "middels",
+            "task": "(Fra [kap. 3.3](/bok/tma4245/tma4245-3-3).) En andel skal estimeres fra $n = 40$ med $\\hat{p} = 0{,}08$. Er normaltilnærmingen (gyldighetssjekken $n\\hat{p} \\ge 5$, $n(1-\\hat{p}) \\ge 5$) oppfylt?",
+            "solution": "$n\\hat{p} = 40 \\cdot 0{,}08 = 3{,}2 < 5$. Selv om $n(1-\\hat{p}) = 36{,}8 \\ge 5$, er *begge* kravene nødvendige. Siden $n\\hat{p} = 3{,}2 < 5$, er normaltilnærmingen **ikke** gyldig her — for få «suksesser». Man bør bruke en eksakt metode eller samle mer data.",
+            "hints": [
+              "Sjekk begge: $n\\hat{p}$ OG $n(1-\\hat{p})$.",
+              "$n\\hat{p} = 3{,}2$ — under 5."
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": "tma4245-6-1-symbolliste",
+      "type": "collapsible",
+      "title": "Symbol- og formelliste",
+      "buttonText": "Vis symboler og formler",
+      "content": [
+        {
+          "id": "tma4245-6-1-symbolliste-text",
+          "type": "text",
+          "content": "*Oppslagsverk — alt her forklares underveis i kapitlet.*\n\nAlle symboler og formler brukt i kapittel 6.1, samlet.\n\n| Symbol | Betydning |\n|---|---|\n| $\\mu$, $\\sigma$, $\\sigma^2$ | Forventning, standardavvik og varians (ukjente parametre) |\n| $p$ | Ukjent andel |\n| $\\bar{x}$, $s$, $s^2$ | Utvalgsgjennomsnitt, empirisk standardavvik og varians |\n| $\\hat{p}$ | Estimert andel, $x/n$ |\n| $n$ | Utvalgsstørrelse |\n| $1-\\alpha$ | Konfidensnivå (f.eks. 0,95) |\n| $z_\\alpha$ | Standardnormal kvantil, $P(Z > z_\\alpha) = \\alpha$ |\n| $t_{\\nu,\\alpha}$ | t-kvantil med $\\nu$ frihetsgrader, øvre hale $\\alpha$ |\n| $\\chi^2_{\\nu,\\alpha}$ | Kjikvadrat-kvantil, $\\nu$ frihetsgrader, øvre hale $\\alpha$ |\n\n**Formler i dette kapitlet:**\n\n$$\\bar{x} \\pm z_{\\alpha/2}\\,\\frac{\\sigma}{\\sqrt{n}}$$\nKI for $\\mu$ når $\\sigma$ er kjent (z-intervall).\n\n$$\\bar{x} \\pm t_{n-1,\\,\\alpha/2}\\,\\frac{s}{\\sqrt{n}}$$\nKI for $\\mu$ når $\\sigma$ er ukjent (t-intervall, $n-1$ frihetsgrader).\n\n$$\\left[\\frac{(n-1)s^2}{\\chi^2_{n-1,\\,\\alpha/2}},\\; \\frac{(n-1)s^2}{\\chi^2_{n-1,\\,1-\\alpha/2}}\\right]$$\nKI for variansen $\\sigma^2$ (asymmetrisk).\n\n$$\\hat{p} \\pm z_{\\alpha/2}\\sqrt{\\frac{\\hat{p}(1-\\hat{p})}{n}}, \\qquad n\\hat{p} \\ge 5,\\; n(1-\\hat{p}) \\ge 5$$\nKI for en andel med gyldighetssjekk.\n\n$$\\bar{x} \\pm t_{n-1,\\,\\alpha/2}\\,s\\sqrt{1 + \\frac{1}{n}}$$\nPrediksjonsintervall for en ny observasjon (ekstra 1-tall under rota).\n\n$$\\bar{x} - z_\\alpha\\frac{\\sigma}{\\sqrt{n}} \\le \\mu \\quad\\text{eller}\\quad \\mu \\le \\bar{x} + z_\\alpha\\frac{\\sigma}{\\sqrt{n}}$$\nEnsidige konfidensgrenser (hele $\\alpha$ i én hale)."
+        }
+      ]
+    }
+  ],
+  "exercises": []
+}

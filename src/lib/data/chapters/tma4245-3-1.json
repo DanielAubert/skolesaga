@@ -1,0 +1,398 @@
+{
+  "id": "tma4245-3-1",
+  "courseId": "tma4245",
+  "chapterNumber": "3.1",
+  "title": "Normalfordelingen: standardisering og tabellbruk",
+  "description": "Standardisering, Φ-tabellen og betingede normalsannsynligheter — de billige poengene som åpner nesten hvert sett.",
+  "estimatedMinutes": 55,
+  "competenceGoals": [
+    "lese av forventning og standardavvik fra en oppgitt normaltetthet",
+    "standardisere med $Z=(X-\\mu)/\\sigma$ og bruke $\\Phi$-tabellen med symmetri",
+    "regne hale-, intervall- og betingede normalsannsynligheter",
+    "finne kvantiler den motsatte veien fra en gitt sannsynlighet"
+  ],
+  "content": [
+    {
+      "id": "tma4245-3-1-tip-eksamensvinkel",
+      "type": "tip",
+      "title": "Eksamensvinkel",
+      "content": "**Dette er bokas viktigste enkeltkapittel.** Normalfordelingen står i **≈48 av 49 sett (≈98 %)** i arkivet — den åpner nesten hvert eneste eksamenssett, ofte som første oppgave.\n\n- Ferdigheten heter **sjanger A** — med *sjanger A* mener vi den rene normal-regneoppgaven: standardiser, slå opp i tabellen, svar. Den er **høyeste prioritet** (nivået «perfekt») fordi den gir sikre poeng du ikke har råd til å miste.\n- Å lese $\\mu$ og $\\sigma$ *direkte ut av en oppgitt tetthetsformel* ble testet eksplisitt i Des24 og Des25.\n- Betingede sannsynligheter av typen $P(X > a \\mid X > b)$ er et fast innslag.\n- I Inspera-delen (kortsvar med kun tallsvar) kreves 2–3 desimalers presisjon — avrunder du $z$ for grovt, ryker svaret.\n\n**Formelsamlingen** (hjelpemiddelkode C på eksamen) inneholder $\\Phi$-tabellen og kvantiltabellen — *tren oppslaget*: riktig $z$, riktig symmetri-håndtering. Selve standardiseringen $Z = (X-\\mu)/\\sigma$ må derimot sitte i fingrene."
+    },
+    {
+      "id": "tma4245-3-1-forkunnskaper",
+      "type": "text",
+      "content": "**Forkunnskaper:** Du bør kunne regne med forventning og varians for stokastiske variable fra **[kap. 2.1](/bok/tma4245/tma4245-2-1)** — særlig at variansen er kvadratet av standardavviket, og at $P(X = x) = 0$ for en kontinuerlig variabel. Kjennskap til kontinuerlige tettheter og fordelingsfunksjoner fra **[kap. 2.3](/bok/tma4245/tma4245-2-3)** er nyttig, men ikke strengt nødvendig. Fra matematikken trenger du bare å sette inn i en formel og lese av en tabell — ingen integrasjon her.\n\nKapitlet er selv forkunnskap for **[kap. 3.2](/bok/tma4245/tma4245-3-2)** (lineærkombinasjoner) og hele inferens-delen senere i boka."
+    },
+    {
+      "id": "tma4245-3-1-intro",
+      "type": "text",
+      "content": "Normalfordelingen — «klokkekurven» — er den enkeltfordelingen eksamen bruker mest. Målefeil, dimensjoner på produserte deler, materialstyrke, biologiske størrelser og gjennomsnitt av nesten hva som helst (det siste garantert av sentralgrenseteoremet i [kap. 3.3](/bok/tma4245/tma4245-3-3)) er tilnærmet normalfordelte. Derfor er det verdt å kunne den *perfekt*.\n\nVi bygger opp i tre løkker. **Løkke 1** (ca. 15 min): hva en normalfordeling er, og hvordan du leser $\\mu$ og $\\sigma$ rett ut av en tetthetsformel. **Løkke 2** (ca. 20 min): standardisering og $\\Phi$-tabellen — motoren i alt vi gjør. **Løkke 3** (ca. 20 min): intervaller, betingede sannsynligheter og den motsatte veien (kvantiler), som er grunnlaget for konfidensintervall senere. Hver løkke går teori → eksempel → oppgave."
+    },
+    {
+      "id": "tma4245-3-1-lokke1",
+      "type": "text",
+      "content": "## Løkke 1 — Normalfordelingen og avlesning av parametrene"
+    },
+    {
+      "id": "tma4245-3-1-def-normal",
+      "type": "definition",
+      "title": "Normalfordelingen",
+      "content": "En kontinuerlig stokastisk variabel $X$ er normalfordelt hvis fordelingen bestemmes fullstendig av to tall: forventningen $\\mu$ (der klokkekurven har toppen) og variansen $\\sigma^2$ (hvor bred den er). Vi skriver\n\n$$X \\sim N(\\mu, \\sigma^2).$$\n\n**Det aller viktigste å huske:** *annet argument er variansen $\\sigma^2$, ikke standardavviket $\\sigma$.* Står det $X \\sim N(100, 25)$, er $\\sigma^2 = 25$ og altså $\\sigma = 5$. Denne notasjonen følger vi slavisk i hele boka, og det er en klassisk eksamensfelle å lese $25$ som standardavvik."
+    },
+    {
+      "id": "tma4245-3-1-def-tetthet",
+      "type": "definition",
+      "title": "Tetthetsfunksjonen og avlesning av parametrene",
+      "content": "Tettheten til $X \\sim N(\\mu, \\sigma^2)$ er den symmetriske klokkekurven\n\n$$f(x) = \\frac{1}{\\sigma\\sqrt{2\\pi}}\\, e^{-\\frac{(x-\\mu)^2}{2\\sigma^2}}.$$\n\nDu skal kunne **lese av $\\mu$ og $\\sigma$ fra en oppgitt formel** uten å regne: tallet som trekkes fra $x$ i telleren, er $\\mu$; nevneren i eksponenten er $2\\sigma^2$ (så $\\sigma^2$ er halvparten av det); og faktoren foran er $\\frac{1}{\\sigma\\sqrt{2\\pi}}$, som gir en ekstra kontroll på $\\sigma$. Verken $f$ eller kurven trenger integreres i dette kapitlet."
+    },
+    {
+      "id": "tma4245-3-1-def-evar",
+      "type": "definition",
+      "title": "Forventning, varians og standardavvik",
+      "content": "For $X \\sim N(\\mu, \\sigma^2)$ er parametrene akkurat momentene:\n\n$$E(X) = \\mu, \\qquad \\text{Var}(X) = \\sigma^2, \\qquad SD(X) = \\sigma.$$\n\nStandardavviket $\\sigma$ er *skala*-parameteren: det er $\\sigma$ (ikke $\\sigma^2$) vi deler med når vi standardiserer. Fordelingen er symmetrisk om $\\mu$, så $\\mu$ er samtidig median og modus."
+    },
+    {
+      "id": "tma4245-3-1-ex-1",
+      "type": "example",
+      "title": "Eksempel 1: Les av parametrene fra en tetthetsformel",
+      "problem": "En variabel har tetthet $f(x) = \\dfrac{1}{3\\sqrt{2\\pi}}\\, e^{-\\frac{(x-50)^2}{18}}$. Hva er $\\mu$, $\\sigma^2$ og $\\sigma$?",
+      "solution": "Vi sammenligner ledd for ledd med standardformen $\\frac{1}{\\sigma\\sqrt{2\\pi}} e^{-(x-\\mu)^2/(2\\sigma^2)}$.\n\n**Forventningen:** tallet som trekkes fra $x$ i eksponenten er $50$, så $\\mu = 50$.\n\n**Variansen:** nevneren i eksponenten er $2\\sigma^2 = 18$, altså $\\sigma^2 = 9$ og $\\sigma = 3$.\n\n**Kontroll:** faktoren foran skal være $\\frac{1}{\\sigma\\sqrt{2\\pi}} = \\frac{1}{3\\sqrt{2\\pi}}$ — det stemmer med $\\sigma = 3$. Altså $X \\sim N(50, 9)$."
+    },
+    {
+      "id": "tma4245-3-1-oppg-l1",
+      "type": "exercise",
+      "exercise": {
+        "id": "tma4245-3-1-l1",
+        "number": "1",
+        "type": "classic",
+        "difficulty": "lett",
+        "task": "(Innstegsoppgave — ren avlesning.)\n\n**a)** En variabel er $X \\sim N(120, 16)$. Skriv opp $\\mu$, $\\sigma^2$ og $\\sigma$.\n\n**b)** En annen variabel har tetthet $f(x) = \\dfrac{1}{2\\sqrt{2\\pi}}\\, e^{-\\frac{(x-8)^2}{8}}$. Les av $\\mu$ og $\\sigma$.",
+        "solution": "**a)** Annet argument er variansen: $\\mu = 120$, $\\sigma^2 = 16$, $\\sigma = \\sqrt{16} = 4$.\n\n**b)** Tallet som trekkes fra $x$ er $8$, så $\\mu = 8$. Nevneren $2\\sigma^2 = 8$ gir $\\sigma^2 = 4$ og $\\sigma = 2$. (Kontroll: faktoren $\\frac{1}{2\\sqrt{2\\pi}}$ passer med $\\sigma = 2$.)",
+        "hints": [
+          "I $N(\\mu,\\sigma^2)$ er annet tall variansen — ta kvadratrot for $\\sigma$.",
+          "I tettheten er nevneren i eksponenten $2\\sigma^2$."
+        ]
+      }
+    },
+    {
+      "id": "tma4245-3-1-lokke2",
+      "type": "text",
+      "content": "## Løkke 2 — Standardisering og $\\Phi$-tabellen"
+    },
+    {
+      "id": "tma4245-3-1-lokke2-intro",
+      "type": "text",
+      "content": "Vi kan ikke integrere klokkekurven for hånd. I stedet finnes én ferdig tabell — for **standardnormalfordelingen** — og alt annet føres tilbake til den ved *standardisering*. Dette er den mest brukte teknikken i hele emnet."
+    },
+    {
+      "id": "tma4245-3-1-def-standardnormal",
+      "type": "definition",
+      "title": "Standardnormalfordelingen",
+      "content": "Standardnormalfordelingen er normalfordelingen med forventning $0$ og varians $1$:\n\n$$Z \\sim N(0, 1).$$\n\nDette er «målestokken» alle andre normalfordelinger sammenlignes med. Fordelingsfunksjonen dens har fått et eget symbol, $\\Phi$, og er tabulert i formelsamlingen."
+    },
+    {
+      "id": "tma4245-3-1-def-standardisering",
+      "type": "definition",
+      "title": "Standardisering",
+      "content": "Enhver normalfordelt $X \\sim N(\\mu, \\sigma^2)$ gjøres om til standardnormal ved å trekke fra forventningen og dele på **standardavviket**:\n\n$$Z = \\frac{X - \\mu}{\\sigma} \\sim N(0, 1).$$\n\n$z$-verdien forteller *hvor mange standardavvik* observasjonen ligger unna forventningen. Dette er den regelen som må sitte automatisk — og den vanligste feilen er å dele på variansen $\\sigma^2$ i stedet for $\\sigma$."
+    },
+    {
+      "id": "tma4245-3-1-def-phi",
+      "type": "definition",
+      "title": "Fordelingsfunksjonen $\\Phi$",
+      "content": "$\\Phi$ er fordelingsfunksjonen til standardnormalen — arealet under klokkekurven til venstre for $z$:\n\n$$\\Phi(z) = P(Z \\le z).$$\n\nDenne verdien slår du opp i $\\Phi$-tabellen (formelsamlingen). Fordi $X$ er kontinuerlig, spiller det ingen rolle om ulikheten er streng: $P(Z \\le z) = P(Z < z)$. Sannsynligheten for en hale er $P(Z > z) = 1 - \\Phi(z)$."
+    },
+    {
+      "id": "tma4245-3-1-def-symmetri",
+      "type": "definition",
+      "title": "Symmetriegenskapen",
+      "content": "$\\Phi$-tabellen lister som regel bare $z \\ge 0$. For negative $z$ bruker vi at klokkekurven er symmetrisk om null:\n\n$$\\Phi(-z) = 1 - \\Phi(z).$$\n\nEksempel: $\\Phi(-1{,}25) = 1 - \\Phi(1{,}25) = 1 - 0{,}8944 = 0{,}1056$. Å glemme dette (eller bruke feil fortegn) er en topp-tre-feil på standardiseringsoppgaver."
+    },
+    {
+      "id": "tma4245-3-1-ex-2",
+      "type": "example",
+      "title": "Eksempel 2: Halesannsynlighet ved standardisering",
+      "problem": "Kapasiteten til et batteri er $X \\sim N(3200, 150^2)$ mAh. Finn $P(X > 3400)$.",
+      "solution": "**Standardiser** grensen $3400$ med $\\mu = 3200$ og $\\sigma = 150$:\n\n$$z = \\frac{3400 - 3200}{150} = \\frac{200}{150} = 1{,}3333 \\approx 1{,}33.$$\n\n**Slå opp** i $\\Phi$-tabellen: $\\Phi(1{,}33) = 0{,}9082$. Vi vil ha den øvre halen:\n\n$$P(X > 3400) = 1 - \\Phi(1{,}33) = 1 - 0{,}9082 = 0{,}0918.$$\n\nAltså har ca. **9,2 %** av batteriene kapasitet over 3400 mAh. Legg merke til at grensen ble skrevet som $\\sigma^2 = 150^2$ i notasjonen, men vi standardiserer med $\\sigma = 150$."
+    },
+    {
+      "id": "tma4245-3-1-oppg-m1",
+      "type": "exercise",
+      "exercise": {
+        "id": "tma4245-3-1-m1",
+        "number": "2",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "Vindhastigheten på et målepunkt er $X \\sim N(8{,}5,\\ 1{,}2^2)$ m/s.\n\n**a)** Finn $P(X < 7)$.\n\n**b)** Finn $P(X > 10)$.",
+        "solution": "$\\mu = 8{,}5$, $\\sigma = 1{,}2$.\n\n**a)** $z = \\dfrac{7 - 8{,}5}{1{,}2} = -1{,}25$. Med symmetrien: $P(X < 7) = \\Phi(-1{,}25) = 1 - \\Phi(1{,}25) = 1 - 0{,}8944 = 0{,}1056$.\n\n**b)** $z = \\dfrac{10 - 8{,}5}{1{,}2} = 1{,}25$. Øvre hale: $P(X > 10) = 1 - \\Phi(1{,}25) = 1 - 0{,}8944 = 0{,}1056$.\n\n(De to svarene er like fordi $7$ og $10$ ligger like langt fra $\\mu = 8{,}5$ — nøyaktig $1{,}25\\sigma$ på hver side — og fordelingen er symmetrisk.)",
+        "hints": [
+          "Standardiser hver grense: $z=(x-\\mu)/\\sigma$ med $\\sigma=1{,}2$.",
+          "For negativ $z$: $\\Phi(-z)=1-\\Phi(z)$. Tabell: $\\Phi(1{,}25)=0{,}8944$."
+        ]
+      }
+    },
+    {
+      "id": "tma4245-3-1-lokke3",
+      "type": "text",
+      "content": "## Løkke 3 — Intervaller, betingede sannsynligheter og kvantiler"
+    },
+    {
+      "id": "tma4245-3-1-def-intervall",
+      "type": "definition",
+      "title": "Intervallsannsynlighet",
+      "content": "Sannsynligheten for at $X$ havner *mellom* to grenser finner vi som differansen mellom to tabelloppslag. Med $X \\sim N(\\mu, \\sigma^2)$:\n\n$$P(a < X < b) = \\Phi\\!\\left(\\frac{b-\\mu}{\\sigma}\\right) - \\Phi\\!\\left(\\frac{a-\\mu}{\\sigma}\\right).$$\n\nStandardiser *begge* grensene, slå opp begge, og trekk fra. (Siden $X$ er kontinuerlig, er $P(a < X < b) = P(a \\le X \\le b)$.)"
+    },
+    {
+      "id": "tma4245-3-1-ex-3",
+      "type": "example",
+      "title": "Eksempel 3: Intervallsannsynlighet",
+      "problem": "Trykkfastheten til en betongprøve er $X \\sim N(38, 4^2)$ MPa. Finn $P(34 < X < 45)$.",
+      "solution": "Standardiser begge grensene med $\\mu = 38$, $\\sigma = 4$:\n\n$$z_1 = \\frac{34 - 38}{4} = -1{,}00, \\qquad z_2 = \\frac{45 - 38}{4} = 1{,}75.$$\n\nSlå opp: $\\Phi(1{,}75) = 0{,}9599$ og $\\Phi(-1{,}00) = 1 - \\Phi(1{,}00) = 1 - 0{,}8413 = 0{,}1587$. Da\n\n$$P(34 < X < 45) = 0{,}9599 - 0{,}1587 = 0{,}8012.$$\n\nAltså ligger ca. **80 %** av prøvene i intervallet."
+    },
+    {
+      "id": "tma4245-3-1-def-betinget",
+      "type": "definition",
+      "title": "Betinget normalsannsynlighet",
+      "content": "En favoritt på eksamen: sannsynligheten for en hale *gitt* at vi allerede er forbi en lavere grense. Fra definisjonen av betinget sannsynlighet (og $\\{X > a\\} \\subseteq \\{X > b\\}$ når $a > b$):\n\n$$P(X > a \\mid X > b) = \\frac{P(X > a)}{P(X > b)} = \\frac{1 - \\Phi\\!\\left(\\frac{a-\\mu}{\\sigma}\\right)}{1 - \\Phi\\!\\left(\\frac{b-\\mu}{\\sigma}\\right)}, \\qquad a > b.$$\n\nRegn de to halesannsynlighetene hver for seg og del. (Merk: i motsetning til eksponensialfordelingen har normalfordelingen *ikke* minneløshet, så svaret er ikke bare $P(X > a - b)$.)"
+    },
+    {
+      "id": "tma4245-3-1-ex-4",
+      "type": "example",
+      "title": "Eksempel 4: Betinget halesannsynlighet",
+      "problem": "Trekkraften i en wire er $X \\sim N(480, 25^2)$ N. Gitt at en wire tåler mer enn $490$ N, hva er sannsynligheten for at den tåler mer enn $510$ N?",
+      "solution": "Vi skal ha $P(X > 510 \\mid X > 490)$. Regn de to halene hver for seg.\n\n**Teller:** $z = \\dfrac{510 - 480}{25} = 1{,}20$, så $P(X > 510) = 1 - \\Phi(1{,}20) = 1 - 0{,}8849 = 0{,}1151$.\n\n**Nevner:** $z = \\dfrac{490 - 480}{25} = 0{,}40$, så $P(X > 490) = 1 - \\Phi(0{,}40) = 1 - 0{,}6554 = 0{,}3446$.\n\n$$P(X > 510 \\mid X > 490) = \\frac{0{,}1151}{0{,}3446} = 0{,}3340.$$\n\nAltså ca. **33 %**. Vi *deler* halene — vi trekker dem ikke fra hverandre."
+    },
+    {
+      "id": "tma4245-3-1-def-kvantil",
+      "type": "definition",
+      "title": "Kvantil — den motsatte veien",
+      "content": "Iblant er sannsynligheten kjent og vi søker grensen $x$. Da leser vi $\\Phi$-tabellen *baklengs*: finn $z$ slik at $\\Phi(z) = p$, og oversett tilbake:\n\n$$P(X \\le x) = p \\ \\Longrightarrow\\ x = \\mu + z\\,\\sigma, \\quad \\text{der } \\Phi(z) = p.$$\n\nDette er grunnlaget for konfidensintervall senere i boka. Eksempel: den $x$ som $90 \\%$ ligger under, bruker $z$ med $\\Phi(z) = 0{,}90$, altså $z \\approx 1{,}2816$."
+    },
+    {
+      "id": "tma4245-3-1-def-znotasjon",
+      "type": "definition",
+      "title": "Kvantilnotasjonen $z_\\alpha$ (øvre hale)",
+      "content": "Vi skriver $z_\\alpha$ for den $z$-verdien som har **haleareal $\\alpha$ til høyre for seg**:\n\n$$P(Z > z_\\alpha) = \\alpha, \\qquad \\text{dvs.} \\quad \\Phi(z_\\alpha) = 1 - \\alpha.$$\n\nVanlige verdier fra tabellen: $z_{0{,}10} = 1{,}2816$, $z_{0{,}05} = 1{,}6449$, $z_{0{,}025} = 1{,}9600$, $z_{0{,}01} = 2{,}3263$. Merk: indeksen er arealet i *øvre* hale — dette er konvensjonen i hele boka og i formelsamlingen."
+    },
+    {
+      "id": "tma4245-3-1-ex-5",
+      "type": "example",
+      "title": "Eksempel 5: Baklengs — finn grensen",
+      "problem": "For wiren $X \\sim N(480, 25^2)$: bestem grensen $x_0$ slik at bare $1 \\%$ av wirene har trekkraft *over* $x_0$.",
+      "solution": "Vi vil ha $P(X > x_0) = 0{,}01$, altså den øvre $1 \\%$-kvantilen. Det svarer til $z = z_{0{,}01} = 2{,}3263$ (fordi $\\Phi(2{,}3263) = 0{,}99$). Oversett tilbake:\n\n$$x_0 = \\mu + z_{0{,}01}\\,\\sigma = 480 + 2{,}3263 \\cdot 25 = 480 + 58{,}16 = 538{,}16 \\ \\text{N}.$$\n\nAltså overstiger bare $1 \\%$ av wirene ca. **538 N**. (Bruk den nøyaktige kvantilen $2{,}3263$, ikke en grovt avrundet verdi, ellers bommer du på siste desimal.)"
+    },
+    {
+      "id": "tma4245-3-1-oppg-v1",
+      "type": "exercise",
+      "exercise": {
+        "id": "tma4245-3-1-v1",
+        "number": "3",
+        "type": "classic",
+        "difficulty": "vanskelig",
+        "task": "Diameteren på en dreid aksel er $X \\sim N(220,\\ 15^2)$ mikrometer over nominell verdi.\n\n**a)** Finn $P(X > 250)$.\n\n**b)** Gitt at en aksel har $X > 235$, finn sannsynligheten for at $X > 250$.\n\n**c)** Bestem grensen $x_0$ som $5 \\%$ av akslene overstiger.",
+        "solution": "$\\mu = 220$, $\\sigma = 15$.\n\n**a)** $z = \\dfrac{250 - 220}{15} = 2{,}00$. $P(X > 250) = 1 - \\Phi(2{,}00) = 1 - 0{,}9772 = 0{,}0228$.\n\n**b)** $z = \\dfrac{235 - 220}{15} = 1{,}00$, så $P(X > 235) = 1 - \\Phi(1{,}00) = 0{,}1587$. Betinget:\n$$P(X > 250 \\mid X > 235) = \\frac{0{,}0228}{0{,}1587} = 0{,}1437.$$\n\n**c)** $P(X > x_0) = 0{,}05$ gir $z = z_{0{,}05} = 1{,}6449$, så $x_0 = 220 + 1{,}6449 \\cdot 15 = 244{,}67$ mikrometer.",
+        "hints": [
+          "a) Standardiser og ta øvre hale $1-\\Phi(z)$.",
+          "b) Del de to halesannsynlighetene — ikke trekk fra.",
+          "c) $P(X>x_0)=0{,}05 \\Rightarrow z_{0{,}05}=1{,}6449$, deretter $x_0=\\mu+z\\sigma$."
+        ]
+      }
+    },
+    {
+      "id": "tma4245-3-1-warn-typiske-feil",
+      "type": "warning",
+      "title": "Typiske feil",
+      "content": "- **Standardisere med variansen i stedet for standardavviket.** Del alltid på $\\sigma$, ikke $\\sigma^2$. Ser du $N(100, 25)$, er $\\sigma = 5$.\n- **Lese annet argument i $N(\\mu, \\sigma^2)$ som standardavvik.** Det er *variansen*. $N(0, 4)$ betyr $\\sigma = 2$, ikke $\\sigma = 4$.\n- **Slurve med symmetrien for negative $z$.** $\\Phi(-z) = 1 - \\Phi(z)$ — ikke $-\\Phi(z)$, og ikke $\\Phi(z) - 1$.\n- **Trekke fra i stedet for å dele i betingede haler.** $P(X > a \\mid X > b)$ er en *brøk* av to haler; normalfordelingen har ikke minneløshet.\n- **Avrunde $z$ for grovt før tabelloppslag.** I Inspera ryker siste desimal. Behold nok sifre, og bruk nøyaktige kvantiler som $1{,}9600$ og $2{,}3263$.\n- **Lese $2\\sigma^2$ i eksponenten som $\\sigma^2$.** Nevneren i eksponenten er $2\\sigma^2$, så $\\sigma^2$ er halvparten."
+    },
+    {
+      "id": "tma4245-3-1-begrepsbank",
+      "type": "text",
+      "content": "## Begrepsbank til eksamen\n\nKjernebegrepene fra kapitlet i kortform — normalfordelingens vokabular og tabellrutinene.\n\n*Begrepsbanken er flashcard-/repetisjonsstoff — den gjentar det du nettopp har lest. Hopp trygt over ved førstegangslesing; tidsanslaget gjelder kjernestoffet.*"
+    },
+    {
+      "id": "tma4245-3-1-bb-punktsanns",
+      "type": "definition",
+      "title": "Punktsannsynlighet er null",
+      "content": "For en kontinuerlig variabel som den normalfordelte er $P(X = x) = 0$ for hvert enkelt tall $x$. Bare intervaller har positiv sannsynlighet. Derfor spiller det ingen rolle om ulikheten er streng eller ikke: $P(X \\le a) = P(X < a)$. Tettheten $f(x)$ er *ikke* en sannsynlighet og kan godt være større enn 1."
+    },
+    {
+      "id": "tma4245-3-1-bb-zverdi",
+      "type": "definition",
+      "title": "$z$-verdi (standardisert verdi)",
+      "content": "$z$-verdien til en observasjon er $z = (x - \\mu)/\\sigma$ — antallet standardavvik observasjonen ligger fra forventningen. Positiv $z$ betyr over $\\mu$, negativ betyr under. Å standardisere er å regne om alle grenser til $z$-verdier før tabelloppslag."
+    },
+    {
+      "id": "tma4245-3-1-bb-median",
+      "type": "definition",
+      "title": "Median og modus i normalfordelingen",
+      "content": "Fordi klokkekurven er symmetrisk om $\\mu$, faller median, modus og forventning sammen: alle tre er $\\mu$. Derfor er $P(X < \\mu) = P(X > \\mu) = 0{,}5$, som svarer til $\\Phi(0) = 0{,}5$."
+    },
+    {
+      "id": "tma4245-3-1-bb-symmetri-om-mu",
+      "type": "definition",
+      "title": "Symmetri om forventningen",
+      "content": "Tettheten oppfyller $f(\\mu - a) = f(\\mu + a)$ for alle $a$ — kurven er speilsymmetrisk om $\\mu$. En praktisk følge: $P(X < \\mu - a) = P(X > \\mu + a)$. To grenser like langt fra $\\mu$ gir like store haler (som i vind-eksempelet)."
+    },
+    {
+      "id": "tma4245-3-1-bb-empirisk",
+      "type": "definition",
+      "title": "68–95–99,7-regelen",
+      "content": "For en normalfordeling ligger ca. $68 \\%$ av massen innenfor $\\mu \\pm \\sigma$, ca. $95 \\%$ innenfor $\\mu \\pm 2\\sigma$ og ca. $99{,}7 \\%$ innenfor $\\mu \\pm 3\\sigma$. En rask magefølelse-sjekk: får du $P(X > \\mu + 3\\sigma) \\approx 0{,}5$, har du regnet feil."
+    },
+    {
+      "id": "tma4245-3-1-bb-phi0",
+      "type": "definition",
+      "title": "$\\Phi(0) = 0{,}5$",
+      "content": "Standardnormalen har halvparten av massen under null: $\\Phi(0) = 0{,}5$. Dette er ankeret i tabellen. En $z$-verdi større enn 0 gir $\\Phi(z) > 0{,}5$, en negativ gir $\\Phi(z) < 0{,}5$ — nyttig for å fange fortegnsfeil."
+    },
+    {
+      "id": "tma4245-3-1-bb-tosidig",
+      "type": "definition",
+      "title": "Tosidig sentralareal $P(|Z| < z)$",
+      "content": "Arealet mellom $-z$ og $z$ under standardnormalen er\n\n$$P(-z < Z < z) = 2\\Phi(z) - 1.$$\n\nEksempel: $P(-1{,}96 < Z < 1{,}96) = 2 \\cdot 0{,}9750 - 1 = 0{,}95$. Dette gir de sentrale $95 \\%$ og er selve grunnstammen i tosidige konfidensintervall senere."
+    },
+    {
+      "id": "tma4245-3-1-bb-vanlige-kvantiler",
+      "type": "definition",
+      "title": "Vanlige kvantiler",
+      "content": "Kvantilene du bruker oftest (øvre hale): $z_{0{,}10} = 1{,}2816$, $z_{0{,}05} = 1{,}6449$, $z_{0{,}025} = 1{,}9600$, $z_{0{,}01} = 2{,}3263$, $z_{0{,}005} = 2{,}5758$. Paret $1{,}6449$ (ensidig $5 \\%$) og $1{,}9600$ (tosidig $95 \\%$) er de aller vanligste."
+    },
+    {
+      "id": "tma4245-3-1-bb-persentil",
+      "type": "definition",
+      "title": "Persentil (prosentil)",
+      "content": "Den $p$-te persentilen er verdien $x$ som en andel $p$ av fordelingen ligger *under*: $P(X \\le x) = p/100$. Du finner den ved å lese $\\Phi$-tabellen baklengs — finn $z$ med $\\Phi(z) = p/100$ og regn $x = \\mu + z\\sigma$. Medianen er den 50. persentilen."
+    },
+    {
+      "id": "tma4245-3-1-bb-skala",
+      "type": "definition",
+      "title": "Standardavviket som skalaparameter",
+      "content": "$\\sigma$ styrer bredden på klokka: stor $\\sigma$ gir en flat, bred kurve, liten $\\sigma$ en høy, smal. Endrer du $\\sigma$, endrer du hvor mange standardavvik en gitt grense tilsvarer — og dermed sannsynligheten. $\\mu$ flytter bare kurven sidelengs uten å endre formen."
+    },
+    {
+      "id": "tma4245-3-1-bb-referanse",
+      "type": "definition",
+      "title": "Referanseområdet $\\mu \\pm 1{,}96\\sigma$",
+      "content": "Intervallet $\\mu \\pm 1{,}96\\sigma$ fanger nøyaktig de sentrale $95 \\%$ av en normalfordeling (fordi $P(-1{,}96 < Z < 1{,}96) = 0{,}95$). Slike referanseområder brukes i kvalitetskontroll og er samtidig malen for tosidige konfidensintervall i [kap. 6.1](/bok/tma4245/tma4245-2-1)."
+    },
+    {
+      "id": "tma4245-3-1-bb-lintrans",
+      "type": "definition",
+      "title": "Lineær transformasjon av en normal variabel",
+      "content": "Ganger og forskyver du en normalfordelt variabel, er resultatet igjen normalfordelt:\n\n$$aX + b \\sim N\\!\\big(a\\mu + b,\\ a^2\\sigma^2\\big).$$\n\nStandardiseringen $Z = (X - \\mu)/\\sigma$ er nettopp et slikt tilfelle (med $a = 1/\\sigma$, $b = -\\mu/\\sigma$). Dette utvides til summer og differanser av flere normale i [kap. 3.2](/bok/tma4245/tma4245-3-2)."
+    },
+    {
+      "id": "tma4245-3-1-bb-areal",
+      "type": "definition",
+      "title": "Sannsynlighet som areal under tettheten",
+      "content": "For en kontinuerlig variabel er en sannsynlighet lik *arealet* under tetthetskurven over det aktuelle intervallet. $\\Phi(z)$ er nettopp arealet til venstre for $z$ under standardnormalen. Derfor gir en øvre hale $1 - \\Phi(z)$ og et intervall differansen mellom to arealer — det totale arealet under kurven er alltid 1."
+    },
+    {
+      "id": "tma4245-3-1-bb-vendepunkt",
+      "type": "definition",
+      "title": "Klokkeform og vendepunkter",
+      "content": "Normaltettheten har sin topp i $x = \\mu$ og bøyer av (vendepunkter, der krumningen skifter) nøyaktig i $x = \\mu - \\sigma$ og $x = \\mu + \\sigma$. Avstanden fra toppen til et vendepunkt *er* standardavviket — en visuell måte å avlese $\\sigma$ på fra en tegnet klokkekurve."
+    },
+    {
+      "id": "tma4245-3-1-rep",
+      "type": "collapsible",
+      "title": "Repetisjonsoppgaver",
+      "buttonText": "Vis repetisjonsoppgaver",
+      "content": [
+        {
+          "id": "tma4245-3-1-oppg-rep-1",
+          "type": "exercise",
+          "exercise": {
+            "id": "tma4245-3-1-rep-1",
+            "number": "R1",
+            "type": "classic",
+            "difficulty": "lett",
+            "task": "$X \\sim N(64, 9)$. Skriv opp $\\mu$, $\\sigma^2$ og $\\sigma$, og finn $z$-verdien til observasjonen $x = 70$.",
+            "solution": "$\\mu = 64$, $\\sigma^2 = 9$, $\\sigma = 3$. $z = (70 - 64)/3 = 2{,}00$.",
+            "hints": [
+              "Annet argument er variansen; $\\sigma=\\sqrt{9}$.",
+              "$z=(x-\\mu)/\\sigma$."
+            ]
+          }
+        },
+        {
+          "id": "tma4245-3-1-oppg-rep-2",
+          "type": "exercise",
+          "exercise": {
+            "id": "tma4245-3-1-rep-2",
+            "number": "R2",
+            "type": "classic",
+            "difficulty": "lett",
+            "task": "Bruk symmetrien til å finne $\\Phi(-0{,}80)$ når $\\Phi(0{,}80) = 0{,}7881$.",
+            "solution": "$\\Phi(-0{,}80) = 1 - \\Phi(0{,}80) = 1 - 0{,}7881 = 0{,}2119$.",
+            "hints": [
+              "$\\Phi(-z)=1-\\Phi(z)$."
+            ]
+          }
+        },
+        {
+          "id": "tma4245-3-1-oppg-rep-3",
+          "type": "exercise",
+          "exercise": {
+            "id": "tma4245-3-1-rep-3",
+            "number": "R3",
+            "type": "classic",
+            "difficulty": "middels",
+            "task": "$X \\sim N(500, 20^2)$. Finn $P(X < 530)$.",
+            "solution": "$z = (530 - 500)/20 = 1{,}50$. $P(X < 530) = \\Phi(1{,}50) = 0{,}9332$.",
+            "hints": [
+              "Standardiser grensen.",
+              "Tabell: $\\Phi(1{,}50)=0{,}9332$."
+            ]
+          }
+        },
+        {
+          "id": "tma4245-3-1-oppg-rep-4",
+          "type": "exercise",
+          "exercise": {
+            "id": "tma4245-3-1-rep-4",
+            "number": "R4",
+            "type": "classic",
+            "difficulty": "middels",
+            "task": "En variabel har tetthet $f(x) = \\dfrac{1}{\\sqrt{2\\pi}\\cdot 10}\\, e^{-\\frac{(x-200)^2}{200}}$. Les av $\\mu$ og $\\sigma$, og finn $P(X > 215)$.",
+            "solution": "$\\mu = 200$; $2\\sigma^2 = 200 \\Rightarrow \\sigma^2 = 100 \\Rightarrow \\sigma = 10$ (passer med faktoren $1/(10\\sqrt{2\\pi})$). $z = (215 - 200)/10 = 1{,}50$, så $P(X > 215) = 1 - \\Phi(1{,}50) = 1 - 0{,}9332 = 0{,}0668$.",
+            "hints": [
+              "Nevneren i eksponenten er $2\\sigma^2$.",
+              "Øvre hale: $1-\\Phi(z)$."
+            ]
+          }
+        },
+        {
+          "id": "tma4245-3-1-oppg-rep-5",
+          "type": "exercise",
+          "exercise": {
+            "id": "tma4245-3-1-rep-5",
+            "number": "R5",
+            "type": "classic",
+            "difficulty": "middels",
+            "task": "$X \\sim N(0, 1)$ (standardnormal). Finn $P(-1{,}00 < X < 2{,}00)$.",
+            "solution": "$P(-1 < X < 2) = \\Phi(2{,}00) - \\Phi(-1{,}00) = 0{,}9772 - (1 - 0{,}8413) = 0{,}9772 - 0{,}1587 = 0{,}8185$.",
+            "hints": [
+              "Differanse av to $\\Phi$-oppslag.",
+              "$\\Phi(-1)=1-\\Phi(1)$."
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": "tma4245-3-1-symbolliste",
+      "type": "collapsible",
+      "title": "Symbol- og formelliste",
+      "buttonText": "Vis symboler og formler",
+      "content": [
+        {
+          "id": "tma4245-3-1-symbolliste-text",
+          "type": "text",
+          "content": "*Oppslagsverk — alt her forklares underveis i kapitlet.*\n\nAlle symboler og formler brukt i kapittel 3.1, samlet.\n\n| Symbol | Betydning |\n|---|---|\n| $X \\sim N(\\mu, \\sigma^2)$ | $X$ er normalfordelt med forventning $\\mu$ og **varians** $\\sigma^2$ |\n| $\\mu$ | Forventningen $E(X)$ — toppen av klokkekurven |\n| $\\sigma^2$, $\\sigma$ | Varians og standardavvik ($\\sigma = \\sqrt{\\sigma^2}$) |\n| $Z \\sim N(0,1)$ | Standardnormalfordelingen |\n| $\\Phi(z)$ | Fordelingsfunksjonen til $Z$: $P(Z \\le z)$ |\n| $z_\\alpha$ | Kvantil med øvre haleareal $\\alpha$: $P(Z > z_\\alpha) = \\alpha$ |\n| $f(x)$ | Tettheten til normalfordelingen |\n\n**Formler i dette kapitlet:**\n\n$$f(x) = \\frac{1}{\\sigma\\sqrt{2\\pi}}\\, e^{-\\frac{(x-\\mu)^2}{2\\sigma^2}}$$\nTettheten. Les av $\\mu$ (trekkes fra $x$) og $2\\sigma^2$ (nevner i eksponenten).\n\n$$Z = \\frac{X - \\mu}{\\sigma} \\sim N(0,1)$$\nStandardisering — del på standardavviket, ikke variansen.\n\n$$\\Phi(-z) = 1 - \\Phi(z)$$\nSymmetrien for negative $z$.\n\n$$P(X > a) = 1 - \\Phi\\!\\left(\\tfrac{a-\\mu}{\\sigma}\\right), \\qquad P(a < X < b) = \\Phi\\!\\left(\\tfrac{b-\\mu}{\\sigma}\\right) - \\Phi\\!\\left(\\tfrac{a-\\mu}{\\sigma}\\right)$$\nHale- og intervallsannsynligheter.\n\n$$P(X > a \\mid X > b) = \\frac{1 - \\Phi\\!\\left(\\tfrac{a-\\mu}{\\sigma}\\right)}{1 - \\Phi\\!\\left(\\tfrac{b-\\mu}{\\sigma}\\right)}, \\quad a > b$$\nBetinget halesannsynlighet (del halene — ingen minneløshet).\n\n$$x = \\mu + z\\,\\sigma, \\quad \\Phi(z) = p$$\nKvantil / baklengs oppslag: finn grensen fra en gitt sannsynlighet.\n\n$$P(-z < Z < z) = 2\\Phi(z) - 1$$\nTosidig sentralareal."
+        }
+      ]
+    }
+  ],
+  "exercises": []
+}

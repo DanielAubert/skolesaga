@@ -1,0 +1,364 @@
+{
+  "id": "tma4245-1-3",
+  "courseId": "tma4245",
+  "chapterNumber": "1.3",
+  "title": "Betinget sannsynlighet, total sannsynlighet og Bayes",
+  "description": "Fra betinget sannsynlighet til Bayes' formel — med det diagnostiske testoppsettet som eksamen elsker.",
+  "estimatedMinutes": 55,
+  "competenceGoals": [
+    "regne med betinget sannsynlighet og multiplikasjonsregelen, og definere hendelsene med symboler før regning",
+    "bruke loven om total sannsynlighet over en partisjon",
+    "bruke Bayes' formel til å snu en betinging og oppdatere sannsynligheter",
+    "tolke diagnostiske tester (sensitivitet, spesifisitet, prevalens, PPV) og unngå prosecutor's fallacy"
+  ],
+  "content": [
+    {
+      "id": "tma4245-1-3-tip-eksamensvinkel",
+      "type": "tip",
+      "title": "Eksamensvinkel",
+      "content": "**Dette er et av de aller viktigste kapitlene i emnet — det har høyeste prioritet.**\n\n- Betinget sannsynlighet, total sannsynlighet og Bayes utgjør **sjanger E** (Bayes/total sannsynlighet) og er med i **≈59 %** av settene. Ren Bayes-oppgave kommer i omtrent **hvert tredje sett**.\n- Faste kontekster i arkivet: diagnostisk test (smittetest, kvalitetskontroll, genetikk) og oppdatering av tro om en produksjonslinje.\n- **Sensorkrav (innarbeides fra første eksempel):** *definer hendelsene presist med egne symboler FØR du regner* — for eksempel «La $S$ = personen er smittet, $T$ = testen slår ut». Fasit begynner alltid slik, og svar uten definerte hendelser regnes som ufullstendige.\n\n**Formelsamlingen** har Bayes' formel, men den definerer ikke hendelsene og setter ikke opp modellen for deg. Det er nettopp *oppsettet* — riktig partisjon, riktig betinging — som gir poengene. Utledningsstoff, ikke oppslagsstoff.\n\n⏱️ Kapitlet er delt i tre løkker à ~15–25 min. Ta pauser mellom dem."
+    },
+    {
+      "id": "tma4245-1-3-forkunnskaper",
+      "type": "text",
+      "content": "**Forkunnskaper:** Bygger på hendelser, snitt, komplement og uavhengighet fra **[kap. 1.1](/bok/tma4245/tma4245-1-1)** — betinget sannsynlighet er definert ved snittet $A \\cap B$, og total sannsynlighet bruker at en partisjon deler utfallsrommet i disjunkte biter. Har du kap. 1.1 inne, er du klar.\n\nKombinatorikk ([kap. 1.2](/bok/tma4245/tma4245-1-2)) er *ikke* nødvendig her, men dukker av og til opp for å telle sannsynlighetene som mates inn."
+    },
+    {
+      "id": "tma4245-1-3-intro",
+      "type": "text",
+      "content": "Ofte får vi ny informasjon underveis: testen slo ut, komponenten kom fra en bestemt leverandør, det første kortet var et ess. Da vil vi *oppdatere* sannsynlighetene i lys av det vi nå vet. Det er hele poenget med **betinget sannsynlighet** — og maskineriet som snur en betinging «den andre veien», er **Bayes' formel**.\n\nVi bygger opp i tre løkker. Først definisjonen av betinget sannsynlighet og multiplikasjonsregelen (løkke 1). Så **loven om total sannsynlighet**, som setter sammen sannsynligheter over flere scenarioer (løkke 2). Til slutt **Bayes' formel** og det diagnostiske testoppsettet eksamen elsker — der lav prevalens gir overraskende resultater (løkke 3).\n\n⏱️ **Løkke 1 (~15 min):** betinget sannsynlighet. **Løkke 2 (~15 min):** total sannsynlighet. **Løkke 3 (~25 min):** Bayes og diagnostikk."
+    },
+    {
+      "id": "tma4245-1-3-lokke1",
+      "type": "text",
+      "content": "## Løkke 1 — Betinget sannsynlighet (~15 min)"
+    },
+    {
+      "id": "tma4245-1-3-def-betinget",
+      "type": "definition",
+      "title": "Betinget sannsynlighet",
+      "content": "Sannsynligheten for $A$ *gitt at* $B$ har inntruffet, skrives $P(A \\mid B)$ og defineres som\n\n$$P(A \\mid B) = \\frac{P(A \\cap B)}{P(B)}, \\qquad P(B) > 0.$$\n\n**Intuisjon:** vi krymper utfallsrommet til bare det som er forenlig med $B$. Da spør vi hvor stor andel av $B$ som også er $A$. Nevneren $P(B)$ er den nye «helheten», telleren $P(A \\cap B)$ den delen som også er $A$."
+    },
+    {
+      "id": "tma4245-1-3-def-multiplikasjonsregel",
+      "type": "definition",
+      "title": "Multiplikasjonsregelen",
+      "content": "Ganger vi over kryss i definisjonen av betinget sannsynlighet, får vi en formel for snittet:\n\n$$P(A \\cap B) = P(A \\mid B)\\,P(B) = P(B \\mid A)\\,P(A).$$\n\nNyttig når oppgaven gir deg betingede sannsynligheter og du skal finne sannsynligheten for at *begge* hendelsene inntreffer — for eksempel to trekk fra en urne uten tilbakelegging."
+    },
+    {
+      "id": "tma4245-1-3-def-uavh-betinging",
+      "type": "definition",
+      "title": "Uavhengighet via betinging",
+      "content": "$A$ og $B$ er uavhengige nettopp når betingingen ikke endrer noe:\n\n$$P(A \\mid B) = P(A).$$\n\nDette er ekvivalent med produktregelen $P(A \\cap B) = P(A)P(B)$ fra [kap. 1.1](/bok/tma4245/tma4245-1-1). At $B$ skjedde gir da *ingen informasjon* om $A$. Er $P(A \\mid B) \\ne P(A)$, er hendelsene avhengige."
+    },
+    {
+      "id": "tma4245-1-3-def-komplement-betinget",
+      "type": "definition",
+      "title": "Betinget komplementregel",
+      "content": "Betinger vi på en fast hendelse $B$, oppfører sannsynlighetene seg som vanlig — de summerer til 1 over komplementet:\n\n$$P(A \\mid B) + P(A^c \\mid B) = 1.$$\n\n**Advarsel:** dette gjelder når vi varierer den *første* hendelsen. Det gjelder *ikke* å bytte hva vi betinger på: $P(A \\mid B) + P(A \\mid B^c)$ er som regel ikke 1. Å blande disse er en vanlig felle."
+    },
+    {
+      "id": "tma4245-1-3-ex-1",
+      "type": "example",
+      "title": "Eksempel 1: Betinget sannsynlighet med definerte hendelser",
+      "problem": "I en bedrift har 40 % av de ansatte fagbrev ($F$), 30 % har lederansvar ($L$), og 12 % har begge deler. En ansatt med lederansvar trekkes tilfeldig. Hva er sannsynligheten for at vedkommende har fagbrev?",
+      "solution": "**Definer hendelsene** (sensorkrav): La $F$ = «har fagbrev» og $L$ = «har lederansvar». Oppgitt: $P(F) = 0{,}40$, $P(L) = 0{,}30$, $P(F \\cap L) = 0{,}12$.\n\nVi skal finne $P(F \\mid L)$ — betinger på $L$:\n\n$$P(F \\mid L) = \\frac{P(F \\cap L)}{P(L)} = \\frac{0{,}12}{0{,}30} = 0{,}40.$$\n\nLegg merke til at $P(F \\mid L) = 0{,}40 = P(F)$: blant lederne er andelen med fagbrev den samme som i hele bedriften. Her er $F$ og $L$ altså **uavhengige** — lederansvar gir ingen informasjon om fagbrev."
+    },
+    {
+      "id": "tma4245-1-3-oppg-l1",
+      "type": "exercise",
+      "exercise": {
+        "id": "tma4245-1-3-l1",
+        "number": "1",
+        "type": "classic",
+        "difficulty": "lett",
+        "task": "(Innstegsoppgave.) Det er gitt at $P(A \\cap B) = 0{,}15$ og $P(B) = 0{,}5$.\n\n**a)** Finn $P(A \\mid B)$.\n\n**b)** Skriv med ord hva $P(A \\mid B)$ betyr.",
+        "solution": "**a)** $P(A \\mid B) = \\dfrac{P(A \\cap B)}{P(B)} = \\dfrac{0{,}15}{0{,}5} = 0{,}30$.\n\n**b)** Sannsynligheten for at $A$ inntreffer *gitt at vi vet at* $B$ har inntruffet — andelen av $B$ som også er $A$.",
+        "hints": [
+          "$P(A\\mid B)=P(A\\cap B)/P(B)$.",
+          "Betinging krymper utfallsrommet til $B$."
+        ]
+      }
+    },
+    {
+      "id": "tma4245-1-3-oppg-m1",
+      "type": "exercise",
+      "exercise": {
+        "id": "tma4245-1-3-m1",
+        "number": "2",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "To kort trekkes uten tilbakelegging fra en vanlig kortstokk (52 kort, 4 ess).\n\nFinn sannsynligheten for at *begge* er ess. Definer hendelsene og bruk multiplikasjonsregelen.",
+        "solution": "La $A_1$ = «første kort er ess» og $A_2$ = «andre kort er ess». Vi skal finne $P(A_1 \\cap A_2)$.\n\nMultiplikasjonsregelen: $P(A_1 \\cap A_2) = P(A_1)\\,P(A_2 \\mid A_1)$.\n\n$P(A_1) = \\dfrac{4}{52}$. Gitt at det første var ess, er det 3 ess igjen av 51 kort: $P(A_2 \\mid A_1) = \\dfrac{3}{51}$. Altså\n\n$$P(A_1 \\cap A_2) = \\frac{4}{52} \\cdot \\frac{3}{51} = \\frac{12}{2652} \\approx 0{,}0045.$$",
+        "hints": [
+          "Multiplikasjonsregelen: $P(A_1\\cap A_2)=P(A_1)P(A_2\\mid A_1)$.",
+          "Etter ett ess er trukket: 3 ess igjen av 51 kort."
+        ]
+      }
+    },
+    {
+      "id": "tma4245-1-3-lokke2",
+      "type": "text",
+      "content": "## Løkke 2 — Loven om total sannsynlighet (~15 min)"
+    },
+    {
+      "id": "tma4245-1-3-def-partisjon",
+      "type": "definition",
+      "title": "Partisjon",
+      "content": "En partisjon av utfallsrommet er en oppdeling i hendelser $B_1, B_2, \\ldots, B_k$ som er *disjunkte* (utelukker hverandre) og *dekker alt* ($B_1 \\cup \\cdots \\cup B_k = S$). Nøyaktig én av dem inntreffer alltid.\n\nEksempel: «komponenten kom fra leverandør 1», «... fra leverandør 2», «... fra leverandør 3». En partisjon er scenarioene vi summerer over i loven om total sannsynlighet."
+    },
+    {
+      "id": "tma4245-1-3-def-total",
+      "type": "definition",
+      "title": "Loven om total sannsynlighet",
+      "content": "Har vi en partisjon $B_1, \\ldots, B_k$, kan vi finne $P(A)$ ved å veie de betingede sannsynlighetene med hvor sannsynlig hvert scenario er:\n\n$$P(A) = \\sum_{i=1}^{k} P(A \\mid B_i)\\,P(B_i).$$\n\n**Intuisjon:** $A$ kan skje via scenario $B_1$, eller $B_2$, ..., og disse veiene utelukker hverandre. For hver vei ganger vi «sannsynligheten for veien» ($P(B_i)$) med «sannsynligheten for $A$ langs den veien» ($P(A \\mid B_i)$), og summerer. Dette er nevneren i Bayes' formel."
+    },
+    {
+      "id": "tma4245-1-3-def-tre",
+      "type": "definition",
+      "title": "Sannsynlighetstre",
+      "content": "Et tre der første forgrening er partisjonen ($B_i$, med grenene merket $P(B_i)$) og andre forgrening er $A$ / $A^c$ (grenene merket $P(A \\mid B_i)$). Sannsynligheten for en hel gren er *produktet* langs den; total sannsynlighet er *summen* av alle grener som ender i $A$. Et oversiktlig regnehjelpemiddel som hindrer at du glemmer et scenario."
+    },
+    {
+      "id": "tma4245-1-3-def-tabell",
+      "type": "definition",
+      "title": "Tabelloppsett (krysstabell)",
+      "content": "Alternativ til treet: en tabell med partisjonen ($B_i$) langs én akse og $A$ / $A^c$ langs den andre. Fyll cellene med $P(A \\cap B_i) = P(A \\mid B_i)P(B_i)$. Radsum og kolonnesum gir marginalene, og betingede sannsynligheter leses av som celle delt på passende sum. Særlig ryddig for diagnostiske testoppgaver med to scenarioer."
+    },
+    {
+      "id": "tma4245-1-3-ex-2",
+      "type": "example",
+      "title": "Eksempel 2: Total sannsynlighet (tre leverandører)",
+      "problem": "En fabrikk får samme komponent fra tre leverandører: 50 % fra A, 30 % fra B og 20 % fra C. Andelen defekte er 1 % hos A, 2 % hos B og 3 % hos C. En tilfeldig komponent plukkes fra lageret. Hva er sannsynligheten for at den er defekt?",
+      "solution": "**Definer hendelsene:** La $A, B, C$ = «komponenten kom fra leverandør A/B/C» (en partisjon), og $D$ = «komponenten er defekt». Oppgitt:\n\n$$P(A) = 0{,}50,\\ P(B) = 0{,}30,\\ P(C) = 0{,}20; \\quad P(D\\mid A) = 0{,}01,\\ P(D\\mid B) = 0{,}02,\\ P(D\\mid C) = 0{,}03.$$\n\nLoven om total sannsynlighet:\n\n$$P(D) = P(D\\mid A)P(A) + P(D\\mid B)P(B) + P(D\\mid C)P(C)$$\n$$= 0{,}01 \\cdot 0{,}50 + 0{,}02 \\cdot 0{,}30 + 0{,}03 \\cdot 0{,}20 = 0{,}005 + 0{,}006 + 0{,}006 = 0{,}017.$$\n\nAltså er 1,7 % av komponentene defekte. Dette tallet blir nevneren når vi i løkke 3 spør *hvilken* leverandør en defekt komponent mest sannsynlig kom fra."
+    },
+    {
+      "id": "tma4245-1-3-oppg-m2",
+      "type": "exercise",
+      "exercise": {
+        "id": "tma4245-1-3-m2",
+        "number": "3",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "To produksjonslinjer lager samme vare: linje 1 står for 60 % av produksjonen med 2 % feilrate, linje 2 for 40 % med 5 % feilrate.\n\nFinn sannsynligheten for at en tilfeldig vare er defekt. Definer hendelsene.",
+        "solution": "La $L_1, L_2$ = «varen kom fra linje 1/2» og $D$ = «defekt». Oppgitt: $P(L_1) = 0{,}60$, $P(L_2) = 0{,}40$, $P(D \\mid L_1) = 0{,}02$, $P(D \\mid L_2) = 0{,}05$.\n\nTotal sannsynlighet:\n\n$$P(D) = 0{,}02 \\cdot 0{,}60 + 0{,}05 \\cdot 0{,}40 = 0{,}012 + 0{,}020 = 0{,}032.$$\n\n3,2 % av varene er defekte.",
+        "hints": [
+          "Definer partisjonen $L_1, L_2$ og hendelsen $D$.",
+          "$P(D) = P(D\\mid L_1)P(L_1) + P(D\\mid L_2)P(L_2)$."
+        ]
+      }
+    },
+    {
+      "id": "tma4245-1-3-lokke3",
+      "type": "text",
+      "content": "## Løkke 3 — Bayes' formel og diagnostikk (~25 min)"
+    },
+    {
+      "id": "tma4245-1-3-def-bayes",
+      "type": "definition",
+      "title": "Bayes' formel",
+      "content": "Bayes' formel snur en betinging: fra $P(A \\mid B_j)$ til $P(B_j \\mid A)$. Med en partisjon $B_1, \\ldots, B_k$:\n\n$$P(B_j \\mid A) = \\frac{P(A \\mid B_j)\\,P(B_j)}{\\sum_{i=1}^{k} P(A \\mid B_i)\\,P(B_i)}.$$\n\n**Intuisjon:** telleren er «veien gjennom $B_j$ som ender i $A$»; nevneren er *alle* veier som ender i $A$ (loven om total sannsynlighet). Vi spør: av all sannsynlighetsmasse for $A$, hvor stor andel gikk gjennom $B_j$? Dette er verktøyet for å oppdatere tro etter en observasjon."
+    },
+    {
+      "id": "tma4245-1-3-def-sensitivitet",
+      "type": "definition",
+      "title": "Sensitivitet",
+      "content": "Sannsynligheten for at en test slår ut *gitt at* tilstanden faktisk er til stede — testens evne til å fange opp de syke:\n\n$$\\text{sensitivitet} = P(T \\mid S),$$\n\nder $T$ = «positiv test» og $S$ = «tilstanden til stede». En sensitivitet på 0,82 betyr at testen fanger 82 % av de syke; de resterende 18 % er falske negative."
+    },
+    {
+      "id": "tma4245-1-3-def-spesifisitet",
+      "type": "definition",
+      "title": "Spesifisitet",
+      "content": "Sannsynligheten for at testen gir negativt utslag *gitt at* tilstanden *ikke* er til stede — evnen til å frikjenne de friske:\n\n$$\\text{spesifisitet} = P(T^c \\mid S^c).$$\n\nEn spesifisitet på 0,96 betyr at 96 % av de friske får korrekt negativ test; de resterende 4 % er falske positive, altså $P(T \\mid S^c) = 1 - \\text{spesifisitet}$."
+    },
+    {
+      "id": "tma4245-1-3-def-falsk-positiv",
+      "type": "definition",
+      "title": "Falsk positiv",
+      "content": "En positiv test hos noen som *ikke* har tilstanden: hendelsen $T \\cap S^c$. Den falske positive *raten* er $P(T \\mid S^c) = 1 - \\text{spesifisitet}$. Falske positive er hovedgrunnen til at en positiv test kan bety lite når tilstanden er sjelden — de mange friske gir mange falske alarmer."
+    },
+    {
+      "id": "tma4245-1-3-def-falsk-negativ",
+      "type": "definition",
+      "title": "Falsk negativ",
+      "content": "En negativ test hos noen som *faktisk* har tilstanden: hendelsen $T^c \\cap S$. Den falske negative *raten* er $P(T^c \\mid S) = 1 - \\text{sensitivitet}$. Falske negative er farlige i screening fordi syke feilaktig får beskjed om at alt er bra."
+    },
+    {
+      "id": "tma4245-1-3-def-prevalens",
+      "type": "definition",
+      "title": "Prevalens",
+      "content": "Andelen i populasjonen som faktisk har tilstanden *før* testing — sannsynligheten $P(S)$, også kalt basisraten. Prevalensen er den avgjørende, ofte oversette, størrelsen i Bayes-regnestykket: er den lav, blir den positive prediktive verdien lav selv med en god test."
+    },
+    {
+      "id": "tma4245-1-3-def-ppv",
+      "type": "definition",
+      "title": "Positiv prediktiv verdi (PPV)",
+      "content": "Det oppgaven som regel spør om: sannsynligheten for at tilstanden faktisk er til stede *gitt* en positiv test,\n\n$$\\text{PPV} = P(S \\mid T) = \\frac{P(T \\mid S)\\,P(S)}{P(T \\mid S)P(S) + P(T \\mid S^c)P(S^c)}.$$\n\nDette er Bayes' formel anvendt på diagnostikk. Merk at PPV ikke er det samme som sensitiviteten $P(T \\mid S)$ — å forveksle dem er prosecutor's fallacy."
+    },
+    {
+      "id": "tma4245-1-3-def-npv",
+      "type": "definition",
+      "title": "Negativ prediktiv verdi (NPV)",
+      "content": "Sannsynligheten for at tilstanden *ikke* er til stede gitt en negativ test:\n\n$$\\text{NPV} = P(S^c \\mid T^c) = \\frac{P(T^c \\mid S^c)P(S^c)}{P(T^c \\mid S^c)P(S^c) + P(T^c \\mid S)P(S)}.$$\n\nVed lav prevalens er NPV typisk svært høy (en negativ test er nesten alltid korrekt), mens PPV kan være overraskende lav."
+    },
+    {
+      "id": "tma4245-1-3-def-prosecutor",
+      "type": "definition",
+      "title": "Prosecutor's fallacy (aktoratets feilslutning)",
+      "content": "Å forveksle $P(A \\mid B)$ med $P(B \\mid A)$ — å tro at «sannsynligheten for testutslag gitt sykdom» er det samme som «sannsynligheten for sykdom gitt testutslag». De to er koblet av Bayes, men er som regel svært forskjellige. Navnet kommer fra rettssaker: «sannsynligheten for dette DNA-treffet hos en uskyldig er 1 av en million» betyr *ikke* at det er 1 av en million sjanse for at den tiltalte er uskyldig."
+    },
+    {
+      "id": "tma4245-1-3-ex-3",
+      "type": "example",
+      "title": "Eksempel 3: Diagnostisk test — den store Bayes-oppgaven",
+      "problem": "En hurtigtest for en infeksjon fanger opp 82 % av de smittede og gir 4 % falske positive. I populasjonen er 2 % smittet. En tilfeldig person tester positivt. Hva er sannsynligheten for at personen faktisk er smittet? Kommenter tallet.",
+      "solution": "**Definer hendelsene** (sensorkrav): La $S$ = «personen er smittet» og $T$ = «testen slår ut (positiv)». Oppgitt:\n\n$$P(T \\mid S) = 0{,}82 \\ (\\text{sensitivitet}), \\quad P(T \\mid S^c) = 0{,}04 \\ (\\text{falsk positiv}), \\quad P(S) = 0{,}02 \\ (\\text{prevalens}).$$\n\nDa er $P(S^c) = 0{,}98$. Vi skal finne $P(S \\mid T)$ (PPV) med Bayes' formel.\n\n**Nevner (total sannsynlighet for positiv test):**\n$$P(T) = P(T\\mid S)P(S) + P(T\\mid S^c)P(S^c) = 0{,}82 \\cdot 0{,}02 + 0{,}04 \\cdot 0{,}98 = 0{,}0164 + 0{,}0392 = 0{,}0556.$$\n\n**Bayes:**\n$$P(S \\mid T) = \\frac{0{,}82 \\cdot 0{,}02}{0{,}0556} = \\frac{0{,}0164}{0{,}0556} \\approx 0{,}295.$$\n\n**Kommentar:** Selv om testen er ganske god, er sannsynligheten for at en positiv person faktisk er smittet bare ≈ 30 %. Grunnen er den lave **prevalensen**: de mange friske (98 %) gir så mange falske positive ($0{,}0392$) at de nesten drukner de ekte positive ($0{,}0164$). Dette er kjernepoenget i diagnostikk-oppgavene — en positiv test betyr lite når tilstanden er sjelden."
+    },
+    {
+      "id": "tma4245-1-3-oppg-m3",
+      "type": "exercise",
+      "exercise": {
+        "id": "tma4245-1-3-m3",
+        "number": "4",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "På et lager kommer 60 % av varene fra linje 1 (2 % feil) og 40 % fra linje 2 (5 % feil), som i oppgave 3. En vare viser seg å være defekt.\n\nHva er sannsynligheten for at den kom fra linje 2? Bruk Bayes.",
+        "solution": "La $L_1, L_2$ og $D$ være som før. Vi fant $P(D) = 0{,}032$ i oppgave 3. Bayes:\n\n$$P(L_2 \\mid D) = \\frac{P(D \\mid L_2)P(L_2)}{P(D)} = \\frac{0{,}05 \\cdot 0{,}40}{0{,}032} = \\frac{0{,}020}{0{,}032} = 0{,}625.$$\n\nSelv om linje 2 bare lager 40 % av varene, kommer 62,5 % av de defekte derfra — fordi feilraten er mer enn dobbelt så høy.",
+        "hints": [
+          "Bayes: $P(L_2\\mid D)=P(D\\mid L_2)P(L_2)/P(D)$.",
+          "Nevneren $P(D)=0{,}032$ er allerede regnet ut i oppgave 3."
+        ]
+      }
+    },
+    {
+      "id": "tma4245-1-3-oppg-v1",
+      "type": "exercise",
+      "exercise": {
+        "id": "tma4245-1-3-v1",
+        "number": "5",
+        "type": "classic",
+        "difficulty": "vanskelig",
+        "task": "En screeningtest for en sjelden sykdom har sensitivitet 95 % og spesifisitet 90 %. Sykdommen har prevalens 1 %.\n\n**a)** Definer hendelsene og finn sannsynligheten for at en person med positiv test faktisk er syk (PPV).\n\n**b)** Forklar hvorfor PPV blir så lav til tross for at både sensitivitet og spesifisitet er høye.\n\n**c)** En medstudent sier: «Testen tar 95 % av de syke, så en positiv test betyr 95 % sjanse for å være syk.» Hvilken feilslutning er dette?",
+        "solution": "**a)** La $S$ = «syk» og $T$ = «positiv test». Oppgitt: $P(T \\mid S) = 0{,}95$, spesifisitet $P(T^c \\mid S^c) = 0{,}90$ så $P(T \\mid S^c) = 0{,}10$, og $P(S) = 0{,}01$, $P(S^c) = 0{,}99$.\n\n$$P(T) = 0{,}95 \\cdot 0{,}01 + 0{,}10 \\cdot 0{,}99 = 0{,}0095 + 0{,}099 = 0{,}1085.$$\n$$P(S \\mid T) = \\frac{0{,}0095}{0{,}1085} \\approx 0{,}088.$$\n\nBare ≈ 8,8 % av de positive er faktisk syke.\n\n**b)** Prevalensen er svært lav (1 %). De 99 % friske gir, med 10 % falske positive, hele $0{,}099$ i falsk-positiv masse — over ti ganger den ekte-positive massen $0{,}0095$. Da må de fleste positive være falske alarmer.\n\n**c)** Dette er **prosecutor's fallacy**: medstudenten forveksler $P(T \\mid S) = 0{,}95$ (sannsynlighet for positiv test gitt syk) med $P(S \\mid T)$ (sannsynlighet for syk gitt positiv test). De to er koblet av Bayes, men her er den ene 0,95 og den andre 0,088.",
+        "hints": [
+          "Definer $S$ og $T$; regn $P(T\\mid S^c)=1-\\text{spesifisitet}$.",
+          "Nevner ved total sannsynlighet, deretter Bayes.",
+          "Sammenlign hva $P(T\\mid S)$ og $P(S\\mid T)$ faktisk måler."
+        ]
+      }
+    },
+    {
+      "id": "tma4245-1-3-warn-typiske-feil",
+      "type": "warning",
+      "title": "Typiske feil",
+      "content": "- **Forveksle $P(A \\mid B)$ og $P(B \\mid A)$ (prosecutor's fallacy).** Kjernen i diagnostikk-oppgavene: sensitivitet $P(T \\mid S)$ er *ikke* det samme som PPV $P(S \\mid T)$. Bruk Bayes, ikke intuisjon.\n- **Glemme total sannsynlighet i nevneren.** Nevneren i Bayes er $P(A)$ over *hele* partisjonen — ikke bare leddet for scenariet du ser på.\n- **Regne uten å definere hendelsene.** Sensor trekker for løsninger som starter rett på tall. Skriv alltid «La $S = \\ldots$, $T = \\ldots$» først.\n- **Anta uavhengighet uten belegg.** $P(A \\cap B) = P(A)P(B)$ gjelder bare når hendelsene faktisk er uavhengige; ellers må du bruke $P(A \\cap B) = P(A \\mid B)P(B)$.\n- **Overse prevalensen.** En god test kan gi lav PPV når tilstanden er sjelden. Basisraten $P(S)$ hører alltid med i regnestykket."
+    },
+    {
+      "id": "tma4245-1-3-begrepsbank",
+      "type": "text",
+      "content": "## Begrepsbank til eksamen\n\nKjernebegrepene i kortform — repertoaret for sjanger E.\n\n*Begrepsbanken er flashcard-/repetisjonsstoff — den gjentar det du nettopp har lest. Hopp trygt over ved førstegangslesing; tidsanslaget gjelder kjernestoffet.*"
+    },
+    {
+      "id": "tma4245-1-3-bb-apriori-aposteriori",
+      "type": "definition",
+      "title": "A priori- og a posteriori-sannsynlighet",
+      "content": "**A priori** (på forhånd) er sannsynligheten *før* observasjonen — for eksempel prevalensen $P(S)$. **A posteriori** (i etterkant) er den oppdaterte sannsynligheten *etter* observasjonen — for eksempel $P(S \\mid T)$. Bayes' formel er nettopp maskineriet som går fra det ene til det andre når data kommer inn."
+    },
+    {
+      "id": "tma4245-1-3-bb-odds",
+      "type": "definition",
+      "title": "Odds-formen av Bayes",
+      "content": "Bayes kan skrives som en oppdatering av odds: posteriors odds = priors odds ganger *likelihood-forholdet*,\n\n$$\\frac{P(S \\mid T)}{P(S^c \\mid T)} = \\frac{P(S)}{P(S^c)} \\cdot \\frac{P(T \\mid S)}{P(T \\mid S^c)}.$$\n\nPraktisk fordi nevneren (total sannsynlighet) faller bort. Likelihood-forholdet $P(T\\mid S)/P(T\\mid S^c)$ måler hvor mye et positivt utslag «trekker» i retning sykdom."
+    },
+    {
+      "id": "tma4245-1-3-bb-basisrate",
+      "type": "definition",
+      "title": "Basisrate-neglisjering (base rate neglect)",
+      "content": "Den kognitive fellen der man ignorerer prevalensen (basisraten) og bare ser på hvor treffsikker testen er. Det er derfor mange feilaktig tror en positiv test på en sjelden sykdom nesten sikkert betyr sykdom. Botemiddelet er å alltid ta $P(S)$ med i Bayes-regnestykket — basisraten styrer resultatet når tilstanden er sjelden."
+    },
+    {
+      "id": "tma4245-1-3-rep",
+      "type": "collapsible",
+      "title": "Repetisjonsoppgaver",
+      "buttonText": "Vis repetisjonsoppgaver",
+      "content": [
+        {
+          "id": "tma4245-1-3-oppg-rep-1",
+          "type": "exercise",
+          "exercise": {
+            "id": "tma4245-1-3-rep-1",
+            "number": "R1",
+            "type": "classic",
+            "difficulty": "lett",
+            "task": "(Fra kap. 1.1) $P(A) = 0{,}3$, $P(B) = 0{,}5$, og $A$ og $B$ er uavhengige. Finn $P(A \\cap B)$ og deretter $P(A \\mid B)$.",
+            "solution": "Uavhengige: $P(A \\cap B) = P(A)P(B) = 0{,}3 \\cdot 0{,}5 = 0{,}15$. Da er $P(A \\mid B) = 0{,}15/0{,}5 = 0{,}3 = P(A)$ — betingingen endrer ingenting, som forventet for uavhengige hendelser.",
+            "hints": [
+              "Uavhengige: $P(A\\cap B)=P(A)P(B)$.",
+              "$P(A\\mid B)=P(A\\cap B)/P(B)$."
+            ]
+          }
+        },
+        {
+          "id": "tma4245-1-3-oppg-rep-2",
+          "type": "exercise",
+          "exercise": {
+            "id": "tma4245-1-3-rep-2",
+            "number": "R2",
+            "type": "classic",
+            "difficulty": "lett",
+            "task": "En partisjon har $P(B_1) = 0{,}7$ og $P(B_2) = ?$. Hva må $P(B_2)$ være, og hvorfor?",
+            "solution": "$P(B_2) = 0{,}3$. En partisjon dekker hele utfallsrommet med disjunkte biter, så sannsynlighetene må summere til 1: $0{,}7 + P(B_2) = 1$.",
+            "hints": [
+              "Partisjonens sannsynligheter summerer til 1."
+            ]
+          }
+        },
+        {
+          "id": "tma4245-1-3-oppg-rep-3",
+          "type": "exercise",
+          "exercise": {
+            "id": "tma4245-1-3-rep-3",
+            "number": "R3",
+            "type": "classic",
+            "difficulty": "middels",
+            "task": "Et e-postfilter: 40 % av innkommende e-post er spam. Ordet «gratis» finnes i 70 % av spam og 10 % av ekte e-post. En e-post inneholder «gratis». Finn sannsynligheten for at den er spam.",
+            "solution": "La $S$ = «spam», $O$ = «inneholder gratis». $P(S) = 0{,}4$, $P(O \\mid S) = 0{,}7$, $P(O \\mid S^c) = 0{,}1$. Nevner: $P(O) = 0{,}7 \\cdot 0{,}4 + 0{,}1 \\cdot 0{,}6 = 0{,}28 + 0{,}06 = 0{,}34$. Bayes: $P(S \\mid O) = 0{,}28/0{,}34 \\approx 0{,}824$.",
+            "hints": [
+              "Definer $S$ og $O$; skriv opp de tre gitte sannsynlighetene.",
+              "Total sannsynlighet i nevneren, så Bayes."
+            ]
+          }
+        },
+        {
+          "id": "tma4245-1-3-oppg-rep-4",
+          "type": "exercise",
+          "exercise": {
+            "id": "tma4245-1-3-rep-4",
+            "number": "R4",
+            "type": "classic",
+            "difficulty": "middels",
+            "task": "Forklar kort forskjellen på sensitivitet og positiv prediktiv verdi (PPV).",
+            "solution": "Sensitivitet er $P(T \\mid S)$ — andelen syke som testen fanger opp. PPV er $P(S \\mid T)$ — andelen positive som faktisk er syke. Sensitiviteten er en egenskap ved testen; PPV avhenger i tillegg av prevalensen. Å forveksle dem er prosecutor's fallacy.",
+            "hints": [
+              "Den ene betinger på sykdom, den andre på testresultat."
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": "tma4245-1-3-symbolliste",
+      "type": "collapsible",
+      "title": "Symbol- og formelliste",
+      "buttonText": "Vis symboler og formler",
+      "content": [
+        {
+          "id": "tma4245-1-3-symbolliste-text",
+          "type": "text",
+          "content": "*Oppslagsverk — alt her forklares underveis i kapitlet.*\n\nAlle symboler og formler brukt i kapittel 1.3.\n\n| Symbol | Betydning |\n|---|---|\n| $P(A \\mid B)$ | Betinget sannsynlighet: $A$ gitt at $B$ har inntruffet |\n| $B_1, \\ldots, B_k$ | En partisjon (disjunkte scenarioer som dekker $S$) |\n| $S$ | «Tilstanden til stede» (f.eks. smittet/syk) |\n| $T$ | «Positiv test» |\n| $P(T \\mid S)$ | Sensitivitet |\n| $P(T^c \\mid S^c)$ | Spesifisitet |\n| $P(T \\mid S^c)$ | Falsk positiv rate $= 1-\\text{spesifisitet}$ |\n| $P(T^c \\mid S)$ | Falsk negativ rate $= 1-\\text{sensitivitet}$ |\n| $P(S)$ | Prevalens / basisrate (a priori) |\n| $P(S \\mid T)$ | Positiv prediktiv verdi (PPV, a posteriori) |\n\n**Formler i dette kapitlet:**\n\n$$P(A \\mid B) = \\frac{P(A \\cap B)}{P(B)}$$\nDefinisjonen av betinget sannsynlighet.\n\n$$P(A \\cap B) = P(A \\mid B)P(B) = P(B \\mid A)P(A)$$\nMultiplikasjonsregelen.\n\n$$P(A) = \\sum_{i=1}^{k} P(A \\mid B_i)P(B_i)$$\nLoven om total sannsynlighet over en partisjon.\n\n$$P(B_j \\mid A) = \\frac{P(A \\mid B_j)P(B_j)}{\\sum_i P(A \\mid B_i)P(B_i)}$$\nBayes' formel — snur betingingen.\n\n$$P(A \\mid B) = P(A) \\iff A, B \\text{ uavhengige}$$\nUavhengighet uttrykt ved betinging.\n\n$$\\frac{P(S \\mid T)}{P(S^c \\mid T)} = \\frac{P(S)}{P(S^c)} \\cdot \\frac{P(T \\mid S)}{P(T \\mid S^c)}$$\nOdds-formen av Bayes: posteriors odds = priors odds ganger likelihood-forholdet."
+        }
+      ]
+    }
+  ],
+  "exercises": []
+}

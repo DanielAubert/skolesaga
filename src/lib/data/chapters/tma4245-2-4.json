@@ -1,0 +1,293 @@
+{
+  "id": "tma4245-2-4",
+  "courseId": "tma4245",
+  "chapterNumber": "2.4",
+  "title": "Drill: den egendefinerte tettheten (sjanger C)",
+  "description": "Standardtreningen i kontinuerlig sannsynlighet: fra oppgitt tetthet til normering, CDF, kvantiler og momenter — på eksamenstempo.",
+  "estimatedMinutes": 80,
+  "competenceGoals": [
+    "normere en oppgitt tetthet og utlede en komplett stykkevis fordelingsfunksjon",
+    "regne sannsynligheter, betingede sannsynligheter og kvantiler fra fordelingsfunksjonen",
+    "regne forventning og varians ved integrasjon med fullstendig mellomregning",
+    "gjenkjenne når et momentintegral for en hale-tetthet divergerer"
+  ],
+  "content": [
+    {
+      "id": "tma4245-2-4-tip",
+      "type": "tip",
+      "title": "Eksamensvinkel",
+      "content": "**Dette er et rent drillkapittel — den enkeltferdigheten som oftest åpner den store kjedeoppgaven.**\n\n- Å gå fra en **oppgitt tetthet** til normering, fordelingsfunksjon, sannsynligheter, kvantiler og momenter er **sjanger C** — *sjanger C* betyr en oppgave der du får en egendefinert tetthet $f(x)$ og skal regne ut alt fra den. Frekvensen er «svært høy»: den er standardtreningen i kontinuerlig sannsynlighet (Nov18, Mai18, Nov20, Aug21, Jun23, Aug23, Des25 m.fl.).\n- Prioritet: **perfekt** — dette skal gå på autopilot, for det er nesten alltid inngangen til en større oppgave (deretter kommer ofte transformasjon, ML og konfidensintervall).\n\n**Hva du trener her:** *ikke* ny teori (den står i [kap. 2.3](/bok/tma4245/tma4245-2-3)), men **tempo og presisjon** på den samme seksstegs-oppskriften, på mange ulike tetthetsfamilier. Sensor krever fullstendige mellomregninger i momentintegralene og en komplett, stykkevis fordelingsfunksjon.\n\n**Formelsamlingen** hjelper deg ikke her: en egendefinert tetthet står ikke der. Alt hviler på teknikken — integrere, løse likninger, regne moment."
+    },
+    {
+      "id": "tma4245-2-4-forkunnskaper",
+      "type": "text",
+      "content": "**Forkunnskaper:** Dette drillkapitlet forutsetter teorien i **[kap. 2.3](/bok/tma4245/tma4245-2-3)** («oppskriftsfordeling»-beredskapen, normering, $F$, kvantiler, momenter) og de kontinuerlige grunnbegrepene fra **[kap. 2.1](/bok/tma4245/tma4245-2-1)** (tetthet, $F' = f$, $E$, $\\text{Var}$). Betinget sannsynlighet fra **[kap. 1.3](/bok/tma4245/tma4245-1-3)** brukes i betingede-sannsynlighet-stegene.\n\nMatematisk må du kunne **integrere polynomer og potenser** ($\\int x^n\\,dx = \\tfrac{x^{n+1}}{n+1}$, også for negative $n \\ne -1$), sette inn grenser (også uendelig for hale-tettheter), og løse enkle likninger for kvantiler. Ingen ny teori introduseres her — bare drill."
+    },
+    {
+      "id": "tma4245-2-4-oppskrift",
+      "type": "text",
+      "content": "## Løsningsoppskriften (seks trinn)\n\nUansett hvordan tettheten ser ut, følger sjanger C-oppgaven **samme seks trinn**. Lær rekkefølgen utenat, så du aldri stopper opp på eksamen:\n\n**1. Normer.** Er det en ukjent konstant $c$, bestem den fra $\\int_{\\text{støtte}} f(x)\\,dx = 1$. *Alltid først* — uten riktig $c$ blir resten galt.\n\n**2. Utled $F(x)$ — stykkevis.** Integrer opp: $F(x) = \\int_{\\text{start}}^{x} f(s)\\,ds$. Skriv $F$ **komplett**: $0$ til venstre for støtten, uttrykket inne i støtten, og $1$ til høyre. (For hale-tettheter på $(x_0, \\infty)$ starter integralet i $x_0$.)\n\n**3. Regn sannsynligheter og betingede sannsynligheter fra $F$.** $P(a < X < b) = F(b) - F(a)$; $P(X > x) = 1 - F(x)$; betinget $P(X > b \\mid X > a) = \\dfrac{1 - F(b)}{1 - F(a)}$ (for $b > a$).\n\n**4. Finn kvantiler/median.** Løs $F(x_p) = p$ for $x_p$ (median: $p = 0{,}5$). Løs likningen for $x$ — *ikke* sett $f = 0{,}5$.\n\n**5. Regn momentene med mellomregning.** $E(X) = \\int x f(x)\\,dx$, $E(X^2) = \\int x^2 f(x)\\,dx$, deretter $\\text{Var}(X) = E(X^2) - [E(X)]^2$. Vis hvert integral (sensorkrav).\n\n**6. Pek fremover.** Den inverse $F^{-1}$ (fra trinn 4) er råstoffet i **inversjonsmetoden** for simulering (Del 9): trekk $U \\sim U(0,1)$ og sett inn $F^{-1}(U)$. Verdt å vite at kvantilregningen du gjør her, gjenbrukes der."
+    },
+    {
+      "id": "tma4245-2-4-ex-case",
+      "type": "example",
+      "title": "Gjennomregnet eksamenscase (med sensornotater)",
+      "problem": "Slitasjeandelen $X$ på et borehode (mellom 0 og 1) har tetthet $f(x) = c\\,x^3$ for $0 < x < 1$ og 0 ellers.\n\n**a)** Bestem $c$.\n\n**b)** Utled $F(x)$.\n\n**c)** Finn medianen og $P(X > 0{,}8 \\mid X > 0{,}5)$.\n\n**d)** Finn $E(X)$ og $\\text{Var}(X)$.",
+      "solution": "**a) Normering (trinn 1).**\n$$\\int_0^1 c\\,x^3\\,dx = c\\left[\\frac{x^4}{4}\\right]_0^1 = \\frac{c}{4} = 1 \\;\\Rightarrow\\; c = 4.$$\n\n> *Sensornotat:* normeringen må stå først og eksplisitt. Hopper du over den, faller alle senere svar.\n\n**b) Fordelingsfunksjon (trinn 2), stykkevis.**\n$$F(x) = \\int_0^x 4s^3\\,ds = \\left[s^4\\right]_0^x = x^4, \\quad 0 \\le x \\le 1,$$\nmed $F(x) = 0$ for $x < 0$ og $F(x) = 1$ for $x > 1$.\n\n> *Sensornotat:* de tre delene (0, uttrykk, 1) må med for full uttelling.\n\n**c) Median og betinget (trinn 3–4).** Median: $F(m) = m^4 = 0{,}5 \\Rightarrow m = 0{,}5^{1/4} \\approx 0{,}841$.\nBetinget, med $\\{X > 0{,}8\\} \\subseteq \\{X > 0{,}5\\}$:\n$$P(X > 0{,}8 \\mid X > 0{,}5) = \\frac{1 - F(0{,}8)}{1 - F(0{,}5)} = \\frac{1 - 0{,}8^4}{1 - 0{,}5^4} = \\frac{1 - 0{,}4096}{1 - 0{,}0625} = \\frac{0{,}5904}{0{,}9375} \\approx 0{,}630.$$\n\n> *Sensornotat:* løs $F(m) = 0{,}5$, ikke $f(m) = 0{,}5$ — den vanligste medianfeilen.\n\n**d) Momenter (trinn 5), med mellomregning.**\n$$E(X) = \\int_0^1 x \\cdot 4x^3\\,dx = \\int_0^1 4x^4\\,dx = \\left[\\frac{4}{5}x^5\\right]_0^1 = \\frac{4}{5} = 0{,}8.$$\n$$E(X^2) = \\int_0^1 x^2 \\cdot 4x^3\\,dx = \\int_0^1 4x^5\\,dx = \\left[\\frac{4}{6}x^6\\right]_0^1 = \\frac{2}{3}.$$\n$$\\text{Var}(X) = \\frac{2}{3} - \\left(\\frac{4}{5}\\right)^2 = \\frac{2}{3} - \\frac{16}{25} = \\frac{50 - 48}{75} = \\frac{2}{75} \\approx 0{,}0267.$$\n\n> *Sensornotat:* vis begge momentintegralene. Et bart sluttsvar uten mellomledd gir trekk selv om tallet stemmer.\n\n— naturlig pausepunkt — nå driller du selv, på nye tetthetsfamilier."
+    },
+    {
+      "id": "tma4245-2-4-l1",
+      "type": "exercise",
+      "exercise": {
+        "id": "tma4245-2-4-l1",
+        "number": "1",
+        "type": "classic",
+        "difficulty": "lett",
+        "task": "(Innstegsoppgave — bare trinn 1 og 2.) En tetthet er $f(x) = c\\,x$ for $0 < x < 2$ og 0 ellers.\n\n**a)** Bestem $c$.\n\n**b)** Finn $F(x)$ for $0 \\le x \\le 2$.",
+        "solution": "**a)** $\\int_0^2 c\\,x\\,dx = c\\left[\\tfrac{x^2}{2}\\right]_0^2 = 2c = 1 \\Rightarrow c = \\tfrac{1}{2}$.\n\n**b)** $F(x) = \\int_0^x \\tfrac{1}{2}s\\,ds = \\left[\\tfrac{s^2}{4}\\right]_0^x = \\dfrac{x^2}{4}$ for $0 \\le x \\le 2$ (og 0 under, 1 over).",
+        "hints": [
+          "Normering: $\\int_0^2 cx\\,dx = 1$.",
+          "$F(x) = \\int_0^x f(s)\\,ds$."
+        ]
+      }
+    },
+    {
+      "id": "tma4245-2-4-l2",
+      "type": "exercise",
+      "exercise": {
+        "id": "tma4245-2-4-l2",
+        "number": "2",
+        "type": "classic",
+        "difficulty": "lett",
+        "task": "En tetthet er $f(x) = c\\,x^2$ for $0 < x < 3$.\n\n**a)** Bestem $c$.\n\n**b)** Finn $P(X < 1)$.",
+        "solution": "**a)** $\\int_0^3 c x^2\\,dx = c\\left[\\tfrac{x^3}{3}\\right]_0^3 = 9c = 1 \\Rightarrow c = \\tfrac{1}{9}$.\n\n**b)** $F(x) = \\tfrac{x^3}{27}$, så $P(X < 1) = F(1) = \\tfrac{1}{27} \\approx 0{,}037$.",
+        "hints": [
+          "$\\int_0^3 cx^2 = 1$ gir $c$.",
+          "$F(x) = \\int_0^x f$; sett inn $x = 1$."
+        ]
+      }
+    },
+    {
+      "id": "tma4245-2-4-m1",
+      "type": "exercise",
+      "exercise": {
+        "id": "tma4245-2-4-m1",
+        "number": "3",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "En andel har tetthet $f(x) = 3x^2$ for $0 < x < 1$ (allerede normert).\n\n**a)** Finn $F(x)$.\n\n**b)** Finn medianen.\n\n**c)** Finn $P(X > 0{,}5)$.",
+        "solution": "**a)** $F(x) = \\int_0^x 3s^2\\,ds = x^3$ for $0 \\le x \\le 1$.\n\n**b)** $F(m) = m^3 = 0{,}5 \\Rightarrow m = 0{,}5^{1/3} \\approx 0{,}794$.\n\n**c)** $P(X > 0{,}5) = 1 - F(0{,}5) = 1 - 0{,}125 = 0{,}875$.",
+        "hints": [
+          "$F(x) = \\int_0^x 3s^2\\,ds$.",
+          "Median løser $m^3 = 0{,}5$.",
+          "$P(X > 0{,}5) = 1 - F(0{,}5)$."
+        ]
+      }
+    },
+    {
+      "id": "tma4245-2-4-m2",
+      "type": "exercise",
+      "exercise": {
+        "id": "tma4245-2-4-m2",
+        "number": "4",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "En hale-tetthet (Pareto-type) er $f(x) = \\dfrac{c}{x^4}$ for $x > 1$ og 0 ellers.\n\n**a)** Bestem $c$ og finn $F(x)$.\n\n**b)** Finn $P(X > 2)$.\n\n**c)** Finn $E(X)$ og $\\text{Var}(X)$.",
+        "solution": "**a)** $\\int_1^\\infty c x^{-4}\\,dx = c\\left[-\\tfrac{1}{3}x^{-3}\\right]_1^\\infty = \\tfrac{c}{3} = 1 \\Rightarrow c = 3$. Da er $F(x) = \\int_1^x 3s^{-4}\\,ds = \\left[-s^{-3}\\right]_1^x = 1 - x^{-3}$ for $x > 1$.\n\n**b)** $P(X > 2) = 1 - F(2) = 2^{-3} = \\tfrac{1}{8} = 0{,}125$.\n\n**c)** $E(X) = \\int_1^\\infty x \\cdot 3x^{-4}\\,dx = \\int_1^\\infty 3x^{-3}\\,dx = \\left[-\\tfrac{3}{2}x^{-2}\\right]_1^\\infty = \\tfrac{3}{2} = 1{,}5$. $E(X^2) = \\int_1^\\infty 3x^{-2}\\,dx = \\left[-3x^{-1}\\right]_1^\\infty = 3$. $\\text{Var}(X) = 3 - 1{,}5^2 = 3 - 2{,}25 = 0{,}75$.",
+        "hints": [
+          "Integrer fra 1 til $\\infty$; $\\int x^{-4} = -\\tfrac{1}{3}x^{-3}$.",
+          "$P(X>2) = 1 - F(2)$.",
+          "$E(X)$ og $E(X^2)$ ved integrasjon; pass på at integralene konvergerer."
+        ]
+      }
+    },
+    {
+      "id": "tma4245-2-4-m3",
+      "type": "exercise",
+      "exercise": {
+        "id": "tma4245-2-4-m3",
+        "number": "5",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "En symmetrisk «trekant»-tetthet er $f(x) = x$ for $0 < x < 1$ og $f(x) = 2 - x$ for $1 \\le x < 2$.\n\n**a)** Bekreft at $f$ er normert.\n\n**b)** Finn $P(X < 0{,}5)$.\n\n**c)** Bruk symmetrien til å oppgi $E(X)$.",
+        "solution": "**a)** $\\int_0^1 x\\,dx + \\int_1^2 (2-x)\\,dx = \\tfrac{1}{2} + \\left[2x - \\tfrac{x^2}{2}\\right]_1^2 = \\tfrac{1}{2} + (2 - \\tfrac{3}{2}) = \\tfrac{1}{2} + \\tfrac{1}{2} = 1$. Normert.\n\n**b)** For $x < 1$ er $F(x) = \\int_0^x s\\,ds = \\tfrac{x^2}{2}$, så $P(X < 0{,}5) = \\tfrac{0{,}25}{2} = 0{,}125$.\n\n**c)** Tettheten er symmetrisk om $x = 1$, så $E(X) = 1$.",
+        "hints": [
+          "Del integralet i to biter, én per stykke.",
+          "På $(0,1)$ er $F(x) = x^2/2$.",
+          "Symmetri om midtpunktet gir forventningen direkte."
+        ]
+      }
+    },
+    {
+      "id": "tma4245-2-4-m4",
+      "type": "exercise",
+      "exercise": {
+        "id": "tma4245-2-4-m4",
+        "number": "6",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "En stykkevis konstant tetthet er $f(x) = c$ for $0 < x < 1$ og $f(x) = 2c$ for $1 \\le x < 2$.\n\n**a)** Bestem $c$.\n\n**b)** Finn $P(X < 1)$.\n\n**c)** Finn $E(X)$.",
+        "solution": "**a)** $\\int_0^1 c\\,dx + \\int_1^2 2c\\,dx = c + 2c = 3c = 1 \\Rightarrow c = \\tfrac{1}{3}$.\n\n**b)** $P(X < 1) = \\int_0^1 \\tfrac{1}{3}\\,dx = \\tfrac{1}{3} \\approx 0{,}333$.\n\n**c)** $E(X) = \\int_0^1 x \\cdot \\tfrac{1}{3}\\,dx + \\int_1^2 x \\cdot \\tfrac{2}{3}\\,dx = \\tfrac{1}{3}\\cdot\\tfrac{1}{2} + \\tfrac{2}{3}\\left[\\tfrac{x^2}{2}\\right]_1^2 = \\tfrac{1}{6} + \\tfrac{2}{3}\\cdot\\tfrac{3}{2} = \\tfrac{1}{6} + 1 = \\tfrac{7}{6} \\approx 1{,}167.$",
+        "hints": [
+          "Normering: legg sammen arealene av de to rektanglene.",
+          "$P(X<1)$ er arealet av det første stykket.",
+          "Regn $E(X)$ stykke for stykke."
+        ]
+      }
+    },
+    {
+      "id": "tma4245-2-4-v1",
+      "type": "exercise",
+      "exercise": {
+        "id": "tma4245-2-4-v1",
+        "number": "7",
+        "type": "classic",
+        "difficulty": "vanskelig",
+        "task": "En tetthet er $f(x) = c\\,x^3$ for $0 < x < 2$ og 0 ellers.\n\n**a)** Bestem $c$ og finn $F(x)$.\n\n**b)** Finn medianen.\n\n**c)** Finn $P(X > 1{,}5 \\mid X > 1)$.\n\n**d)** Finn $E(X)$ og $\\text{Var}(X)$.",
+        "solution": "**a)** $\\int_0^2 c x^3\\,dx = c\\left[\\tfrac{x^4}{4}\\right]_0^2 = 4c = 1 \\Rightarrow c = \\tfrac{1}{4}$. $F(x) = \\int_0^x \\tfrac{1}{4}s^3\\,ds = \\dfrac{x^4}{16}$ for $0 \\le x \\le 2$.\n\n**b)** $F(m) = \\tfrac{m^4}{16} = 0{,}5 \\Rightarrow m^4 = 8 \\Rightarrow m = 8^{1/4} = 2^{3/4} \\approx 1{,}682$.\n\n**c)** $P(X > 1{,}5 \\mid X > 1) = \\dfrac{1 - F(1{,}5)}{1 - F(1)} = \\dfrac{1 - 5{,}0625/16}{1 - 1/16} = \\dfrac{0{,}6836}{0{,}9375} \\approx 0{,}729$.\n\n**d)** $E(X) = \\int_0^2 x\\cdot\\tfrac{1}{4}x^3\\,dx = \\tfrac{1}{4}\\left[\\tfrac{x^5}{5}\\right]_0^2 = \\tfrac{1}{4}\\cdot\\tfrac{32}{5} = \\tfrac{8}{5} = 1{,}6$. $E(X^2) = \\int_0^2 x^2\\cdot\\tfrac{1}{4}x^3\\,dx = \\tfrac{1}{4}\\left[\\tfrac{x^6}{6}\\right]_0^2 = \\tfrac{1}{4}\\cdot\\tfrac{64}{6} = \\tfrac{8}{3}$. $\\text{Var}(X) = \\tfrac{8}{3} - 1{,}6^2 = 2{,}6667 - 2{,}56 = 0{,}1067$.",
+        "hints": [
+          "Normering på $(0,2)$: $\\int_0^2 cx^3 = 4c = 1$.",
+          "Median: $m^4/16 = 0{,}5$.",
+          "Betinget: del halene $1 - F$.",
+          "Momentintegraler med grenser 0 til 2."
+        ]
+      }
+    },
+    {
+      "id": "tma4245-2-4-v2",
+      "type": "exercise",
+      "exercise": {
+        "id": "tma4245-2-4-v2",
+        "number": "8",
+        "type": "classic",
+        "difficulty": "vanskelig",
+        "task": "(Krevende — hale med uendelig varians.) En tetthet er $f(x) = \\dfrac{c}{x^3}$ for $x > 1$ og 0 ellers.\n\n**a)** Bestem $c$ og finn $F(x)$.\n\n**b)** Finn $P(X > 2)$ og medianen.\n\n**c)** Finn $E(X)$, og undersøk om $\\text{Var}(X)$ eksisterer.",
+        "solution": "**a)** $\\int_1^\\infty c x^{-3}\\,dx = c\\left[-\\tfrac{1}{2}x^{-2}\\right]_1^\\infty = \\tfrac{c}{2} = 1 \\Rightarrow c = 2$. $F(x) = \\int_1^x 2s^{-3}\\,ds = \\left[-s^{-2}\\right]_1^x = 1 - x^{-2}$ for $x > 1$.\n\n**b)** $P(X > 2) = 1 - F(2) = 2^{-2} = \\tfrac{1}{4} = 0{,}25$. Median: $1 - m^{-2} = 0{,}5 \\Rightarrow m^{-2} = 0{,}5 \\Rightarrow m = \\sqrt{2} \\approx 1{,}414$.\n\n**c)** $E(X) = \\int_1^\\infty x \\cdot 2x^{-3}\\,dx = \\int_1^\\infty 2x^{-2}\\,dx = \\left[-2x^{-1}\\right]_1^\\infty = 2$. Men $E(X^2) = \\int_1^\\infty x^2 \\cdot 2x^{-3}\\,dx = \\int_1^\\infty 2x^{-1}\\,dx = \\left[2\\ln x\\right]_1^\\infty = \\infty$. Integralet **divergerer**, så $E(X^2)$ finnes ikke, og dermed **eksisterer ikke variansen** — halen er så tung at det andre momentet blir uendelig. Poenget: sjekk alltid at momentintegralet konvergerer for hale-tettheter.",
+        "hints": [
+          "$\\int_1^\\infty cx^{-3} = c/2 = 1$.",
+          "$P(X>2) = 1 - F(2)$; median løser $1 - m^{-2} = 0{,}5$.",
+          "For $E(X^2)$: integranden blir $2x^{-1}$ — konvergerer den?"
+        ]
+      }
+    },
+    {
+      "id": "tma4245-2-4-v3",
+      "type": "exercise",
+      "exercise": {
+        "id": "tma4245-2-4-v3",
+        "number": "9",
+        "type": "classic",
+        "difficulty": "vanskelig",
+        "task": "En tetthet av beta-type er $f(x) = 12x^2(1 - x)$ for $0 < x < 1$ og 0 ellers.\n\n**a)** Bekreft at $f$ er normert.\n\n**b)** Finn $F(x)$.\n\n**c)** Finn $E(X)$.",
+        "solution": "**a)** $\\int_0^1 12x^2(1-x)\\,dx = 12\\int_0^1 (x^2 - x^3)\\,dx = 12\\left(\\tfrac{1}{3} - \\tfrac{1}{4}\\right) = 12 \\cdot \\tfrac{1}{12} = 1$. Normert.\n\n**b)** $F(x) = \\int_0^x 12(s^2 - s^3)\\,ds = 12\\left(\\tfrac{x^3}{3} - \\tfrac{x^4}{4}\\right) = 4x^3 - 3x^4$ for $0 \\le x \\le 1$.\n\n**c)** $E(X) = \\int_0^1 x \\cdot 12x^2(1-x)\\,dx = 12\\int_0^1 (x^3 - x^4)\\,dx = 12\\left(\\tfrac{1}{4} - \\tfrac{1}{5}\\right) = 12 \\cdot \\tfrac{1}{20} = \\tfrac{3}{5} = 0{,}6.$",
+        "hints": [
+          "Gang ut $12x^2(1-x) = 12(x^2 - x^3)$ før integrasjon.",
+          "$F(x) = 4x^3 - 3x^4$.",
+          "$E(X) = 12\\int_0^1(x^3 - x^4)\\,dx$."
+        ]
+      }
+    },
+    {
+      "id": "tma4245-2-4-v4",
+      "type": "exercise",
+      "exercise": {
+        "id": "tma4245-2-4-v4",
+        "number": "10",
+        "type": "classic",
+        "difficulty": "vanskelig",
+        "task": "En avtakende tetthet er $f(x) = c(2 - x)$ for $0 < x < 2$ og 0 ellers.\n\n**a)** Bestem $c$ og finn $F(x)$.\n\n**b)** Finn $P(X < 1)$.\n\n**c)** Finn $E(X)$.",
+        "solution": "**a)** $\\int_0^2 c(2-x)\\,dx = c\\left[2x - \\tfrac{x^2}{2}\\right]_0^2 = c(4 - 2) = 2c = 1 \\Rightarrow c = \\tfrac{1}{2}$. $F(x) = \\int_0^x \\tfrac{1}{2}(2-s)\\,ds = \\tfrac{1}{2}\\left[2s - \\tfrac{s^2}{2}\\right]_0^x = x - \\tfrac{x^2}{4}$ for $0 \\le x \\le 2$.\n\n**b)** $P(X < 1) = F(1) = 1 - \\tfrac{1}{4} = 0{,}75$.\n\n**c)** $E(X) = \\int_0^2 x \\cdot \\tfrac{1}{2}(2 - x)\\,dx = \\tfrac{1}{2}\\int_0^2 (2x - x^2)\\,dx = \\tfrac{1}{2}\\left[x^2 - \\tfrac{x^3}{3}\\right]_0^2 = \\tfrac{1}{2}\\left(4 - \\tfrac{8}{3}\\right) = \\tfrac{1}{2}\\cdot\\tfrac{4}{3} = \\tfrac{2}{3} \\approx 0{,}667.$",
+        "hints": [
+          "$\\int_0^2 c(2-x) = 2c = 1$.",
+          "$F(x) = x - x^2/4$.",
+          "$E(X) = \\tfrac{1}{2}\\int_0^2(2x - x^2)\\,dx$."
+        ]
+      }
+    },
+    {
+      "id": "tma4245-2-4-warn",
+      "type": "warning",
+      "title": "Typiske feil",
+      "content": "- **Glemme normeringen** før videre regning. Bestem alltid $c$ fra $\\int f = 1$ *først* — ellers blir $F$, sannsynligheter og momenter alle gale.\n- **Slurve med den stykkevise $F$.** Oppgi $F$ komplett: $0$ til venstre for støtten, uttrykket inne, $1$ til høyre. Å bare skrive den midterste biten gir trekk.\n- **Løse $f(m) = 0{,}5$ for medianen.** Medianen løser $F(m) = 0{,}5$, ikke $f(m) = 0{,}5$. Den vanligste enkeltfeilen i sjanger C.\n- **Regnefeil i $E(X^2)$-integralet uten mellomledd.** Vis integralet: $\\int x^2 f(x)\\,dx$. Et bart sluttsvar gir trekk selv når tallet er riktig.\n- **Ikke sjekke konvergens for hale-tettheter.** For $f \\propto x^{-p}$ på $(x_0, \\infty)$ kan $E(X)$ eller $E(X^2)$ være uendelig — kontroller at momentintegralet konvergerer før du oppgir et tall.\n- **Feil grenser i integralet.** Integrer bare over støtten; for en hale-tetthet fra $x_0$, ikke fra 0."
+    },
+    {
+      "id": "tma4245-2-4-begrepsbank",
+      "type": "text",
+      "content": "## Oppskrifts- og formelkort\n\nDe ti kortene du bør kunne på autopilot før eksamen — selve algoritmen for sjanger C.\n\n*Kortene er flashcard-/repetisjonsstoff — de gjentar oppskriften. Hopp trygt over ved førstegangslesing; tidsanslaget gjelder drillen.*"
+    },
+    {
+      "id": "tma4245-2-4-kort-algoritme",
+      "type": "definition",
+      "title": "Oppskriftskort: de seks trinnene",
+      "content": "Sjanger C, i rekkefølge: **(1)** normer ($\\int f = 1$ gir $c$); **(2)** utled $F$ stykkevis; **(3)** regn sannsynligheter og betingede fra $F$; **(4)** finn kvantiler/median ved $F(x_p) = p$; **(5)** regn $E(X)$, $E(X^2)$, $\\text{Var}(X)$ med mellomregning; **(6)** husk at $F^{-1}$ er inversjonsmetodens råstoff (simulering, Del 9). Følg alltid rekkefølgen."
+    },
+    {
+      "id": "tma4245-2-4-kort-normering",
+      "type": "definition",
+      "title": "Formelkort: normering",
+      "content": "En ukjent konstant bestemmes av $\\int_{\\text{støtte}} f(x)\\,dx = 1$. For $f = c\\,x^n$ på $(0, b)$: $c \\cdot \\tfrac{b^{n+1}}{n+1} = 1$. For en hale $f = c\\,x^{-p}$ på $(1, \\infty)$ med $p > 1$: $c \\cdot \\tfrac{1}{p-1} = 1$. Første steg, alltid."
+    },
+    {
+      "id": "tma4245-2-4-kort-F",
+      "type": "definition",
+      "title": "Formelkort: fordelingsfunksjonen stykkevis",
+      "content": "$F(x) = \\int_{\\text{start}}^{x} f(s)\\,ds$, oppgitt **komplett**: $0$ for $x$ under støtten, integralet inne i støtten, $1$ for $x$ over støtten. For en hale-tetthet fra $x_0$ starter integralet i $x_0$, og $F(x_0) = 0$, $F(\\infty) = 1$."
+    },
+    {
+      "id": "tma4245-2-4-kort-sanns",
+      "type": "definition",
+      "title": "Formelkort: sannsynligheter fra $F$",
+      "content": "$P(a < X < b) = F(b) - F(a)$; $P(X > x) = 1 - F(x)$; $P(X < x) = F(x)$. For kontinuerlige variable spiller streng/ikke-streng ulikhet ingen rolle ($P(X = x) = 0$). Bruk $F$ i stedet for å integrere på nytt hver gang."
+    },
+    {
+      "id": "tma4245-2-4-kort-betinget",
+      "type": "definition",
+      "title": "Formelkort: betinget sannsynlighet",
+      "content": "For $b > a$, med $\\{X > b\\} \\subseteq \\{X > a\\}$:\n\n$$P(X > b \\mid X > a) = \\frac{P(X > b)}{P(X > a)} = \\frac{1 - F(b)}{1 - F(a)}.$$\n\nDel de to halesannsynlighetene. (Bare eksponensial forenkler dette via minneløshet; for alt annet regnes brøken direkte.)"
+    },
+    {
+      "id": "tma4245-2-4-kort-median",
+      "type": "definition",
+      "title": "Formelkort: median og kvantil",
+      "content": "Medianen $m$ løser $F(m) = 0{,}5$; $p$-kvantilen løser $F(x_p) = p$. Løs likningen for $x$. For potens $F = x^k$ på $(0,1)$: $m = 0{,}5^{1/k}$. For hale $F = 1 - x^{-q}$: $m = (0{,}5)^{-1/q}$. **Aldri** $f(m) = 0{,}5$."
+    },
+    {
+      "id": "tma4245-2-4-kort-momenter",
+      "type": "definition",
+      "title": "Formelkort: momenter og varians",
+      "content": "$E(X) = \\int x f(x)\\,dx$, $E(X^2) = \\int x^2 f(x)\\,dx$ over støtten, deretter $\\text{Var}(X) = E(X^2) - [E(X)]^2$. Vis begge integralene med mellomledd (sensorkrav). For $f = c\\,x^n$ blir momentintegralene bare nye potenser å integrere."
+    },
+    {
+      "id": "tma4245-2-4-kort-potens",
+      "type": "definition",
+      "title": "Formelkort: potens-tetthet",
+      "content": "For $f(x) = c\\,x^n$ på $(0, b)$: normering $c = \\tfrac{n+1}{b^{n+1}}$; $F(x) = (x/b)^{n+1}$; median $m = b\\,(0{,}5)^{1/(n+1)}$; $E(X) = \\tfrac{n+1}{n+2}\\,b$. Den vanligste enkeltfamilien i sjanger C ($3x^2$, $4x^3$, $cx$)."
+    },
+    {
+      "id": "tma4245-2-4-kort-hale",
+      "type": "definition",
+      "title": "Formelkort: hale-tetthet",
+      "content": "For $f(x) = c\\,x^{-p}$ på $(1, \\infty)$ med $p > 1$: normering $c = p - 1$; $F(x) = 1 - x^{-(p-1)}$; $P(X > x) = x^{-(p-1)}$. **Konvergenssjekk:** $E(X)$ finnes bare for $p > 2$, $E(X^2)$ bare for $p > 3$ — ellers er momentet uendelig."
+    },
+    {
+      "id": "tma4245-2-4-kort-feil-median",
+      "type": "definition",
+      "title": "Feilkort: $F(m)=1/2$, ikke $f(m)=1/2$",
+      "content": "Den hyppigste sjanger C-feilen: å løse $f(m) = 1/2$ for medianen. Medianen deler **arealet** i to, så den løser $F(m) = 1/2$ (kumulativ), aldri tetthetslikningen. Samme feil dukker opp for vilkårlige kvantiler: bruk alltid $F$, ikke $f$."
+    },
+    {
+      "id": "tma4245-2-4-symbolliste",
+      "type": "collapsible",
+      "title": "Symbol- og formelliste",
+      "buttonText": "Vis symboler og formler",
+      "content": [
+        {
+          "id": "tma4245-2-4-symbolliste-text",
+          "type": "text",
+          "content": "*Oppslagsverk — alt her forklares underveis i kapitlet.*\n\nAlle symboler og formler brukt i drillkapittel 2.4, samlet.\n\n| Symbol | Betydning |\n|---|---|\n| $f(x)$ | Oppgitt tetthet (ofte med ukjent konstant $c$) |\n| $c$ | Normeringskonstant, bestemt av $\\int f = 1$ |\n| $F(x)$ | Fordelingsfunksjon $P(X \\le x)$ |\n| $m$ | Median, løser $F(m) = 0{,}5$ |\n| $x_p$ | $p$-kvantil, løser $F(x_p) = p$ |\n| $E(X), E(X^2)$ | Første og andre moment |\n| $\\text{Var}(X)$ | Varians $E(X^2) - [E(X)]^2$ |\n| $F^{-1}$ | Invers fordelingsfunksjon (inversjonsmetoden, Del 9) |\n\n**Formler i dette kapitlet:**\n\n$$\\int_{\\text{støtte}} f(x)\\,dx = 1$$\nNormering — bestemmer den ukjente konstanten.\n\n$$F(x) = \\int_{\\text{start}}^{x} f(s)\\,ds$$\nFordelingsfunksjonen ved integrasjon (oppgis stykkevis).\n\n$$P(a < X < b) = F(b) - F(a), \\qquad P(X > b \\mid X > a) = \\frac{1 - F(b)}{1 - F(a)}$$\nSannsynligheter og betingede sannsynligheter fra $F$.\n\n$$F(m) = 0{,}5$$\nMedianen (og $F(x_p) = p$ for kvantiler) — løs for $x$, ikke $f(m) = 0{,}5$.\n\n$$E(X) = \\int x f(x)\\,dx, \\quad E(X^2) = \\int x^2 f(x)\\,dx, \\quad \\text{Var}(X) = E(X^2) - [E(X)]^2$$\nMomentene med mellomregning.\n\n$$f = c x^n \\text{ på } (0,b): \\; c = \\frac{n+1}{b^{n+1}}, \\; E(X) = \\frac{n+1}{n+2}b; \\qquad f = c x^{-p} \\text{ på } (1,\\infty): \\; c = p-1$$\nDe to vanligste tetthetsfamiliene i sjanger C."
+        }
+      ]
+    }
+  ],
+  "exercises": []
+}

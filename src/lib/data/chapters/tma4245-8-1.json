@@ -1,0 +1,386 @@
+{
+  "id": "tma4245-8-1",
+  "courseId": "tma4245",
+  "chapterNumber": "8.1",
+  "title": "Modellen og minste kvadraters metode",
+  "description": "Regresjonsmodellen med feilantagelsene, LS-estimatene fra oppgitte summer, ML = LS under normalfeil, og variansestimatoren s² = SSE/(n−2).",
+  "estimatedMinutes": 55,
+  "competenceGoals": [
+    "sette opp regresjonsmodellen og oppgi de tre feilantagelsene der de brukes",
+    "utlede LS-estimatene via normalligningene og regne dem ut fra oppgitte summer",
+    "vise at maximum likelihood gir samme estimat som minste kvadraters metode under normalfeil",
+    "finne forventning og varians til helningen og bruke variansestimatet s² = SSE/(n−2)"
+  ],
+  "content": [
+    {
+      "id": "tma4245-8-1-tip",
+      "type": "tip",
+      "title": "Eksamensvinkel",
+      "content": "**Regresjon er den store, tunge oppgaven — og den kommer nesten hver gang.**\n\n- Regresjon er i **≈59 %** av alle settene, men i **11 av de 12 siste settene**, og **alltid som en stor, håndrettet oppgave**. I settenes sjangerkatalog heter dette **sjanger J** (J er bare bokstavkoden for regresjonsoppgaven). Prioritet: **høyeste** (det øverste nivået).\n- **Å utlede LS og vise at ML gir samme svar** er testet direkte (Mai18, Des23). Estimatene regnes nesten alltid **fra oppgitte summer** som $\\sum(x_i-\\bar{x})^2$ og $\\sum(x_i-\\bar{x})(y_i-\\bar{y})$ — det er selve arbeidsformen på eksamen.\n\n**Hvor poengene sitter (fra løsningsforslagene):** i å **oppgi de tre feilantagelsene** der de brukes, i å **regne LS-estimatene riktig fra summene** (ikke snu teller/nevner), i å vise **ML = LS** på et par linjer, og i **variansestimatoren $s^2 = \\text{SSE}/(n-2)$ med riktig nevner $n-2$** (ikke $n-1$).\n\n**Formelsamlingen** (hjelpemiddelkode C) har de ferdige LS-formlene og prediksjonsformlene. Derfor måler eksamen ikke at du *husker* dem, men at du kan **utlede dem** (LS og ML) og **bruke dem med riktig nevner**. Dette kapitlet bygger estimeringsdelen; neste kapittel ([kap. 8.2](/bok/tma4245/tma4245-8-2)) tar testing og prediksjon."
+    },
+    {
+      "id": "tma4245-8-1-forkunnskaper",
+      "type": "text",
+      "content": "**Forkunnskaper:** Dette kapitlet fletter sammen to ferdigheter du allerede har. Fra **[kap. 5.2](/bok/tma4245/tma4245-5-2)** trenger du **ML-ritualet** (likelihood → log → deriver → løs → maksimumskontroll) — vi bruker det til å vise at ML gir samme svar som minste kvadraters metode. Fra **[kap. 3.2](/bok/tma4245/tma4245-3-2)** trenger du **regnereglene for lineærkombinasjoner** — vi bruker dem til å finne forventning og varians til estimatoren. Forventningsretthet er fra **[kap. 5.1](/bok/tma4245/tma4245-5-1)**.\n\n**Sist du var her — de tre verktøyene vi bygger på (ferdig oppfrisket):**\n\n1. **Lineærkombinasjonsreglene (kap. 3.2).** For uavhengige $Y_i$ med $\\text{Var}(Y_i)=\\sigma^2$ og konstanter $c_i$:\n$$E\\Big(\\sum c_i Y_i\\Big)=\\sum c_i E(Y_i), \\qquad \\text{Var}\\Big(\\sum c_i Y_i\\Big)=\\sum c_i^2\\,\\sigma^2.$$\nEstimatoren $\\hat{\\beta}$ blir nettopp en slik veid sum av $Y_i$-ene — derfor kan vi lese av forventning og varians direkte.\n2. **ML-ritualet (kap. 5.2).** Log-likelihooden maksimeres ved å derivere og sette lik 0. Under normalfeil består $l$ av et konstantledd minus en kvadratsum delt på $2\\sigma^2$ — så å maksimere $l$ er det samme som å **minimere kvadratsummen**. Det er hele ML = LS-argumentet.\n3. **Derivasjon.** Du trenger å derivere et kvadratisk uttrykk mhp. to variable ($\\alpha$ og $\\beta$) og løse to lineære likninger.\n\nKapitlet er forkunnskap for inferens og prediksjon ([kap. 8.2](/bok/tma4245/tma4245-8-2)) og for NTNU-varianten uten konstantledd ([kap. 8.3](/bok/tma4245/tma4245-8-3))."
+    },
+    {
+      "id": "tma4245-8-1-intro",
+      "type": "text",
+      "content": "**Regresjon** handler om å beskrive hvordan en respons $Y$ (herdetid, avrenning, strømforbruk) avhenger av en forklaringsvariabel $x$ (temperatur, snødybde, produksjonsvolum). Vi legger en **rett linje** gjennom en sky av datapunkter og spør: hvilken linje passer best, og hvor sikre er vi på stigningstallet?\n\nVi går gjennom fire løkker. Først **modellen med de tre feilantagelsene** (løkke 1). Deretter **minste kvadraters metode** — hvordan vi finner den beste linja ved å minimere kvadratsummen, og hvordan estimatene regnes **fra oppgitte summer** (løkke 2). Så viser vi at **maximum likelihood gir nøyaktig samme svar** under normalantagelsen (løkke 3). Til slutt **egenskapene** til estimatoren og **variansestimatoren $s^2=\\text{SSE}/(n-2)$** (løkke 4). Hver løkke går teori → eksempel → oppgave.\n\n*Samlet kjernetid ≈ 55 min. Naturlige pausepunkter er markert mellom løkkene.*"
+    },
+    {
+      "id": "tma4245-8-1-lokke1",
+      "type": "text",
+      "content": "## Løkke 1 — Modellen og de tre feilantagelsene (~12 min)"
+    },
+    {
+      "id": "tma4245-8-1-def-modell",
+      "type": "definition",
+      "title": "Regresjonsmodellen og de tre feilantagelsene",
+      "content": "Vi antar at responsen $Y_i$ for et gitt nivå $x_i$ av forklaringsvariabelen består av en **rett linje pluss en tilfeldig feil**. Selve linja er ukjent, og feilen $\\varepsilon_i$ er støyen som gjør at punktene ikke ligger eksakt på linja:\n\n$$Y_i = \\alpha + \\beta x_i + \\varepsilon_i, \\qquad i=1,\\ldots,n.$$\n\nHer er $\\alpha$ **konstantleddet** (skjæringspunktet), $\\beta$ **stigningstallet** (helningen), og $x_i$ er **faste, kjente tall** — vi behandler dem ikke som stokastiske. Det er $Y_i$ som er stokastisk, gjennom feilleddet. Modellen hviler på **tre feilantagelser** om $\\varepsilon_i$, og du skal oppgi dem der de brukes:\n\n1. **Uavhengighet:** feilene $\\varepsilon_1,\\ldots,\\varepsilon_n$ er uavhengige (den ene målingens støy sier ingenting om den neste).\n2. **Konstant varians (homoskedastisitet):** $\\text{Var}(\\varepsilon_i)=\\sigma^2$, samme spredning for alle $x_i$.\n3. **Normalitet:** $\\varepsilon_i \\sim N(0,\\sigma^2)$, forventning 0 og normalfordelt.\n\nSamlet: $\\varepsilon_i$ er uavhengige $N(0,\\sigma^2)$. Da er $E(Y_i)=\\alpha+\\beta x_i$ og $\\text{Var}(Y_i)=\\sigma^2$, og $Y_i \\sim N(\\alpha+\\beta x_i,\\ \\sigma^2)$."
+    },
+    {
+      "id": "tma4245-8-1-def-xfast",
+      "type": "definition",
+      "title": "$x$ fast, $Y$ stokastisk",
+      "content": "En vanlig og viktig presisering: i enkel lineær regresjon regnes **$x_i$-verdiene som faste, kjente tall** (temperaturene vi valgte, dosene vi satte), ikke som utfall av en stokastisk variabel. All tilfeldighet ligger i feilleddet $\\varepsilon_i$, og dermed i $Y_i$. Derfor er $\\bar{x}$ og $\\sum(x_i-\\bar{x})^2$ **konstanter** når vi regner forventning og varians — de kan trekkes utenfor $E(\\cdot)$ og $\\text{Var}(\\cdot)$ som tall. Å behandle $x_i$ som stokastisk er en klassisk feil som ødelegger variansutledningen."
+    },
+    {
+      "id": "tma4245-8-1-l1",
+      "type": "exercise",
+      "exercise": {
+        "id": "tma4245-8-1-l1",
+        "number": "1",
+        "type": "classic",
+        "difficulty": "lett",
+        "task": "(Innstegsoppgave — les av modellen.) I et forsøk modelleres herdetiden $Y$ (i minutter) mot temperaturen $x$ (i grader) med $Y_i = \\alpha + \\beta x_i + \\varepsilon_i$, der $\\varepsilon_i$ er uavhengige $N(0,\\sigma^2)$.\n\n**a)** Hvilken av størrelsene $Y_i$ og $x_i$ er stokastisk, og hvilken er fast?\n\n**b)** Skriv opp fordelingen til $Y_i$ (forventning og varians).\n\n**c)** Nevn de tre feilantagelsene modellen bygger på.",
+        "solution": "**a)** $x_i$ (temperaturen) er **fast og kjent**; $Y_i$ (herdetiden) er **stokastisk**, gjennom feilleddet $\\varepsilon_i$.\n\n**b)** Siden $E(\\varepsilon_i)=0$ og $\\text{Var}(\\varepsilon_i)=\\sigma^2$: $E(Y_i)=\\alpha+\\beta x_i$ og $\\text{Var}(Y_i)=\\sigma^2$, altså\n$$Y_i \\sim N(\\alpha+\\beta x_i,\\ \\sigma^2).$$\n\n**c)** (1) **Uavhengighet** av feilene, (2) **konstant varians** $\\text{Var}(\\varepsilon_i)=\\sigma^2$, (3) **normalitet** $\\varepsilon_i\\sim N(0,\\sigma^2)$.",
+        "hints": [
+          "$x_i$ er valgte nivåer; hvor kommer tilfeldigheten inn?",
+          "$Y_i=\\alpha+\\beta x_i+\\varepsilon_i$; legg forventning og varians på feilleddet.",
+          "Uavhengighet, konstant varians, normalitet."
+        ]
+      }
+    },
+    {
+      "id": "tma4245-8-1-pause1",
+      "type": "text",
+      "content": "*— naturlig pausepunkt —*"
+    },
+    {
+      "id": "tma4245-8-1-lokke2",
+      "type": "text",
+      "content": "## Løkke 2 — Minste kvadraters metode: fra summene til estimatene (~16 min)"
+    },
+    {
+      "id": "tma4245-8-1-def-ls",
+      "type": "definition",
+      "title": "Minste kvadraters metode (LS)",
+      "content": "For en gitt kandidatlinje $y=a+bx$ er **residualet** for observasjon $i$ det loddrette avviket mellom det vi målte og det linja forutsier: $y_i-(a+bx_i)$. **Minste kvadraters metode** (least squares, LS) velger den linja som gjør **summen av kvadrerte residualer** minst:\n\n$$Q(a,b)=\\sum_{i=1}^n \\big(y_i - a - b x_i\\big)^2.$$\n\nVi kvadrerer (ikke bare summerer avvikene) slik at positive og negative avvik ikke opphever hverandre, og slik at store avvik straffes ekstra. Estimatene $\\hat{\\alpha},\\hat{\\beta}$ er de verdiene av $a,b$ som **minimerer** $Q$ — de finner vi ved å derivere $Q$ mhp. begge og sette lik 0."
+    },
+    {
+      "id": "tma4245-8-1-def-normal",
+      "type": "definition",
+      "title": "Normalligningene og LS-estimatene",
+      "content": "Vi minimerer $Q(a,b)=\\sum(y_i-a-bx_i)^2$ ved å sette de to partiellderiverte lik null. Det gir **normalligningene**:\n\n$$\\frac{\\partial Q}{\\partial a}=-2\\sum(y_i-a-bx_i)=0, \\qquad \\frac{\\partial Q}{\\partial b}=-2\\sum x_i(y_i-a-bx_i)=0.$$\n\nFra den første får vi $\\sum y_i = na + b\\sum x_i$, altså $\\hat{\\alpha}=\\bar{y}-\\hat{\\beta}\\bar{x}$ (linja går gjennom tyngdepunktet $(\\bar{x},\\bar{y})$). Setter vi det inn i den andre og rydder, kommer stigningstallet ut som forholdet mellom den **sentrerte kryssum** og den **sentrerte kvadratsum** i $x$:\n\n$$\\hat{\\beta}=\\frac{\\sum_{i=1}^n (x_i-\\bar{x})(y_i-\\bar{y})}{\\sum_{i=1}^n (x_i-\\bar{x})^2}=\\frac{S_{xy}}{S_{xx}}, \\qquad \\hat{\\alpha}=\\bar{y}-\\hat{\\beta}\\bar{x}.$$\n\nPå eksamen er $S_{xx}=\\sum(x_i-\\bar{x})^2$ og $S_{xy}=\\sum(x_i-\\bar{x})(y_i-\\bar{y})$ som regel **oppgitt** — da er jobben å sette inn riktig: teller er kryss-summen $S_{xy}$, nevner er $x$-kvadratsummen $S_{xx}$. Aldri omvendt."
+    },
+    {
+      "id": "tma4245-8-1-def-sentrerte",
+      "type": "definition",
+      "title": "Formelkort: de sentrerte summene $S_{xx},S_{xy},S_{yy}$",
+      "content": "De tre bærende summene i regresjonsregningen. «Sentrert» betyr at vi trekker fra gjennomsnittet først:\n\n$$S_{xx}=\\sum(x_i-\\bar{x})^2, \\quad S_{xy}=\\sum(x_i-\\bar{x})(y_i-\\bar{y}), \\quad S_{yy}=\\sum(y_i-\\bar{y})^2.$$\n\nRegnesnarveiene (nyttige når du bare har råsummene): $S_{xx}=\\sum x_i^2-n\\bar{x}^2$, $S_{xy}=\\sum x_iy_i-n\\bar{x}\\bar{y}$, $S_{yy}=\\sum y_i^2-n\\bar{y}^2$. Fra disse får du **alt**: $\\hat{\\beta}=S_{xy}/S_{xx}$, og senere $\\text{SSE}=S_{yy}-\\hat{\\beta}S_{xy}$."
+    },
+    {
+      "id": "tma4245-8-1-ex-ls",
+      "type": "example",
+      "title": "Eksempel 1: LS-estimatene fra oppgitte summer (herdetid)",
+      "problem": "For $n=12$ målinger av herdetid $Y$ (minutter) mot temperatur $x$ (grader) er det oppgitt at $\\bar{x}=50$, $\\bar{y}=80$, $S_{xx}=\\sum(x_i-\\bar{x})^2=500$ og $S_{xy}=\\sum(x_i-\\bar{x})(y_i-\\bar{y})=-350$. Finn LS-estimatene for $\\alpha$ og $\\beta$, og skriv opp den estimerte regresjonslinja.",
+      "solution": "**Stigningstallet** (kryss-sum over $x$-kvadratsum):\n$$\\hat{\\beta}=\\frac{S_{xy}}{S_{xx}}=\\frac{-350}{500}=-0{,}70.$$\nHerdetiden **avtar** med økende temperatur — negativt fortegn, som ventet.\n\n**Konstantleddet** (linja gjennom tyngdepunktet):\n$$\\hat{\\alpha}=\\bar{y}-\\hat{\\beta}\\bar{x}=80-(-0{,}70)\\cdot 50=80+35=115.$$\n\n**Estimert regresjonslinje:** $\\hat{y}=115-0{,}70\\,x$. Ved 50 grader forutsier den $\\hat{y}=115-35=80$ minutter (= $\\bar{y}$, som den skal ved $x=\\bar{x}$).\n\n> *Sensornotat:* pass på fortegnet — $S_{xy}<0$ gir negativ helning. Og hold rede på at $S_{xy}$ står i **telleren**, $S_{xx}$ i **nevneren**. Bytter du dem, får du $-1{,}43$ i stedet for $-0{,}70$."
+    },
+    {
+      "id": "tma4245-8-1-l2",
+      "type": "exercise",
+      "exercise": {
+        "id": "tma4245-8-1-l2",
+        "number": "2",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "For $n=5$ målinger av avrenning $Y$ (mm) mot snødybde $x$ (cm) er dataene:\n\n| $x$ | 10 | 20 | 30 | 40 | 50 |\n|---|---|---|---|---|---|\n| $y$ | 8 | 15 | 19 | 27 | 31 |\n\n**a)** Regn ut $\\bar{x}$, $\\bar{y}$, $S_{xx}$ og $S_{xy}$.\n\n**b)** Finn LS-estimatene $\\hat{\\beta}$ og $\\hat{\\alpha}$, og skriv opp regresjonslinja.",
+        "solution": "**a)** $\\bar{x}=(10+20+30+40+50)/5=30$, $\\bar{y}=(8+15+19+27+31)/5=100/5=20$.\n\nAvvik i $x$: $-20,-10,0,10,20$, så $S_{xx}=400+100+0+100+400=1000$.\n\nAvvik i $y$: $-12,-5,-1,7,11$. Kryssprodukter: $(-20)(-12)+(-10)(-5)+0+(10)(7)+(20)(11)=240+50+0+70+220=580$, så $S_{xy}=580$.\n\n**b)** $\\hat{\\beta}=S_{xy}/S_{xx}=580/1000=0{,}58$. $\\hat{\\alpha}=\\bar{y}-\\hat{\\beta}\\bar{x}=20-0{,}58\\cdot 30=20-17{,}4=2{,}6$. Regresjonslinje: $\\hat{y}=2{,}6+0{,}58\\,x$.",
+        "hints": [
+          "Sentrer først: regn $x_i-\\bar{x}$ og $y_i-\\bar{y}$.",
+          "$S_{xx}=\\sum(x_i-\\bar{x})^2$, $S_{xy}=\\sum(x_i-\\bar{x})(y_i-\\bar{y})$.",
+          "$\\hat{\\beta}=S_{xy}/S_{xx}$, deretter $\\hat{\\alpha}=\\bar{y}-\\hat{\\beta}\\bar{x}$."
+        ]
+      }
+    },
+    {
+      "id": "tma4245-8-1-pause2",
+      "type": "text",
+      "content": "*— naturlig pausepunkt —*"
+    },
+    {
+      "id": "tma4245-8-1-lokke3",
+      "type": "text",
+      "content": "## Løkke 3 — Hvorfor ML gir det samme (~11 min)"
+    },
+    {
+      "id": "tma4245-8-1-def-mllik",
+      "type": "definition",
+      "title": "ML = LS under normalfeil",
+      "content": "Under normalantagelsen er $Y_i\\sim N(\\alpha+\\beta x_i,\\ \\sigma^2)$, uavhengige. **Maximum likelihood** (ML-ritualet fra [kap. 5.2](/bok/tma4245/tma4245-5-2)) gir nøyaktig de samme estimatene som minste kvadraters metode — og det ser du på tre linjer.\n\n**Likelihooden** er produktet av normaltetthetene:\n$$L(\\alpha,\\beta,\\sigma^2)=\\prod_{i=1}^n \\frac{1}{\\sqrt{2\\pi\\sigma^2}}\\exp\\!\\left(-\\frac{(y_i-\\alpha-\\beta x_i)^2}{2\\sigma^2}\\right).$$\n\n**Log-likelihooden:**\n$$l(\\alpha,\\beta,\\sigma^2)=-\\frac{n}{2}\\ln(2\\pi\\sigma^2)-\\frac{1}{2\\sigma^2}\\sum_{i=1}^n (y_i-\\alpha-\\beta x_i)^2.$$\n\n**Poenget:** de eneste leddene som avhenger av $\\alpha$ og $\\beta$, er kvadratsummen $\\sum(y_i-\\alpha-\\beta x_i)^2$, og den står med **minustegn** foran. Å **maksimere** $l$ over $\\alpha,\\beta$ er derfor nøyaktig det samme som å **minimere kvadratsummen** — altså LS. Konklusjonen: $\\hat{\\alpha}_{\\text{ML}}=\\hat{\\alpha}_{\\text{LS}}$ og $\\hat{\\beta}_{\\text{ML}}=\\hat{\\beta}_{\\text{LS}}$. (For $\\sigma^2$ gir ML derimot divisor $n$; den forventningsrette varianten deler på $n-2$ — se løkke 4.)"
+    },
+    {
+      "id": "tma4245-8-1-ex-ml",
+      "type": "example",
+      "title": "Eksempel 2: Vis ML = LS på tre linjer",
+      "problem": "Vis at ML-estimering av $\\alpha$ og $\\beta$ under normalantagelsen $Y_i\\sim N(\\alpha+\\beta x_i,\\sigma^2)$ gir samme normalligninger som minste kvadraters metode.",
+      "solution": "**Linje 1 — log-likelihood.** Med normaltetthetene:\n$$l(\\alpha,\\beta,\\sigma^2)=-\\frac{n}{2}\\ln(2\\pi\\sigma^2)-\\frac{1}{2\\sigma^2}\\sum(y_i-\\alpha-\\beta x_i)^2.$$\n\n**Linje 2 — deriver mhp. $\\alpha$ og $\\beta$.** Første ledd er konstant i $\\alpha,\\beta$; bare kvadratsummen teller. Med $\\frac{1}{2\\sigma^2}>0$ som felles positiv faktor:\n$$\\frac{\\partial l}{\\partial\\alpha}=\\frac{1}{\\sigma^2}\\sum(y_i-\\alpha-\\beta x_i)=0, \\qquad \\frac{\\partial l}{\\partial\\beta}=\\frac{1}{\\sigma^2}\\sum x_i(y_i-\\alpha-\\beta x_i)=0.$$\n\n**Linje 3 — sammenlign.** Ganger vi bort $1/\\sigma^2$, står vi igjen med **nøyaktig normalligningene** fra LS ($\\sum(y_i-\\alpha-\\beta x_i)=0$ og $\\sum x_i(y_i-\\alpha-\\beta x_i)=0$). Altså gir ML samme $\\hat{\\alpha},\\hat{\\beta}$ som LS. □\n\n> *Sensornotat:* nøkkelsetningen er «maksimere $l$ = minimere kvadratsummen, fordi kvadratsummen står med minustegn og alt annet er konstant i $\\alpha,\\beta$». Den setningen gir poenget."
+    },
+    {
+      "id": "tma4245-8-1-l3",
+      "type": "exercise",
+      "exercise": {
+        "id": "tma4245-8-1-l3",
+        "number": "3",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "Under normalantagelsen er log-likelihooden $l(\\alpha,\\beta,\\sigma^2)=-\\frac{n}{2}\\ln(2\\pi\\sigma^2)-\\frac{1}{2\\sigma^2}\\sum(y_i-\\alpha-\\beta x_i)^2$.\n\n**a)** Hvilket ledd i $l$ avhenger av $\\alpha$ og $\\beta$?\n\n**b)** Forklar i én setning hvorfor å maksimere $l$ over $\\alpha,\\beta$ er det samme som minste kvadraters metode.\n\n**c)** Gir ML og LS samme estimat for $\\beta$?",
+        "solution": "**a)** Bare kvadratsumleddet $-\\frac{1}{2\\sigma^2}\\sum(y_i-\\alpha-\\beta x_i)^2$ avhenger av $\\alpha$ og $\\beta$; leddet $-\\frac{n}{2}\\ln(2\\pi\\sigma^2)$ er konstant i disse.\n\n**b)** Siden kvadratsummen står med **minustegn** (og faktoren $\\frac{1}{2\\sigma^2}$ er positiv), blir $l$ størst nøyaktig når kvadratsummen $\\sum(y_i-\\alpha-\\beta x_i)^2$ er **minst** — som er definisjonen av minste kvadraters metode.\n\n**c)** Ja — $\\hat{\\beta}_{\\text{ML}}=\\hat{\\beta}_{\\text{LS}}=S_{xy}/S_{xx}$ (og likedan for $\\alpha$).",
+        "hints": [
+          "Se hvilke ledd som inneholder $\\alpha$ eller $\\beta$.",
+          "Maksimere «minus en kvadratsum» = minimere kvadratsummen.",
+          "ML og LS løser samme normalligninger."
+        ]
+      }
+    },
+    {
+      "id": "tma4245-8-1-pause3",
+      "type": "text",
+      "content": "*— naturlig pausepunkt —*"
+    },
+    {
+      "id": "tma4245-8-1-lokke4",
+      "type": "text",
+      "content": "## Løkke 4 — Egenskapene til $\\hat{\\beta}$ og variansestimatoren $s^2$ (~16 min)"
+    },
+    {
+      "id": "tma4245-8-1-def-egenskaper",
+      "type": "definition",
+      "title": "Egenskaper: $\\hat{\\beta}$ er forventningsrett, med kjent varians",
+      "content": "Estimatoren $\\hat{\\beta}$ er en **lineærkombinasjon av $Y_i$-ene**. Skriv $\\hat{\\beta}=\\frac{\\sum(x_i-\\bar{x})(Y_i-\\bar{Y})}{S_{xx}}=\\sum c_i Y_i$ med vektene $c_i=\\frac{x_i-\\bar{x}}{S_{xx}}$ (leddet med $\\bar{Y}$ faller bort fordi $\\sum(x_i-\\bar{x})=0$). Da gir lineærkombinasjonsreglene fra [kap. 3.2](/bok/tma4245/tma4245-3-2):\n\n**Forventningsrett:** med $E(Y_i)=\\alpha+\\beta x_i$ og litt algebra ($\\sum c_i=0$, $\\sum c_i x_i=1$):\n$$E(\\hat{\\beta})=\\sum c_i E(Y_i)=\\alpha\\sum c_i+\\beta\\sum c_i x_i=\\beta.$$\n\n**Variansen:** fordi $x_i$ er faste er $c_i$ konstanter, og med $\\text{Var}(Y_i)=\\sigma^2$ (konstant varians!) og uavhengighet:\n$$\\text{Var}(\\hat{\\beta})=\\sum c_i^2\\,\\sigma^2=\\frac{\\sum(x_i-\\bar{x})^2}{S_{xx}^2}\\,\\sigma^2=\\frac{\\sigma^2}{S_{xx}}.$$\n\nMerk hvor antagelsene kommer inn: **uavhengighet** og **konstant varians** trengs for variansformelen, og at **$x_i$ er faste** gjør $c_i$ til konstanter. Variansen $\\sigma^2/S_{xx}$ blir liten når $x$-verdiene er godt spredt (stor $S_{xx}$) — spre målepunktene, så blir helningen presis."
+    },
+    {
+      "id": "tma4245-8-1-def-s2",
+      "type": "definition",
+      "title": "Variansestimatoren $s^2=\\text{SSE}/(n-2)$",
+      "content": "Feilvariansen $\\sigma^2$ er ukjent og må estimeres fra residualene. **Residualkvadratsummen** (sum of squared errors) er\n\n$$\\text{SSE}=\\sum_{i=1}^n (y_i-\\hat{y}_i)^2=\\sum(y_i-\\hat{\\alpha}-\\hat{\\beta}x_i)^2,$$\n\nog regnesnarveien fra summene er $\\text{SSE}=S_{yy}-\\hat{\\beta}S_{xy}$. Den forventningsrette estimatoren for $\\sigma^2$ er\n\n$$s^2=\\frac{\\text{SSE}}{n-2}.$$\n\n**Hvorfor $n-2$?** Vi har brukt opp **to** frihetsgrader på å estimere to parametre ($\\hat{\\alpha}$ og $\\hat{\\beta}$) før vi måler residualene. Akkurat som empirisk varians deler på $n-1$ etter å ha estimert én parameter ($\\bar{x}$), deler regresjonen på $n-2$. Med denne divisoren blir $E(s^2)=\\sigma^2$. **$n-1$ her er feil** — en av de vanligste sensortrekkene i regresjonsoppgaven."
+    },
+    {
+      "id": "tma4245-8-1-ex-s2",
+      "type": "example",
+      "title": "Eksempel 3: SSE, $s^2$ og standardfeilen til $\\hat{\\beta}$ (herdetid)",
+      "problem": "Bruk herdetidsdataene fra eksempel 1 ($n=12$, $S_{xx}=500$, $S_{xy}=-350$, $\\hat{\\beta}=-0{,}70$), og nå oppgis også $S_{yy}=\\sum(y_i-\\bar{y})^2=310$. Finn SSE, variansestimatet $s^2$, standardavviket $s$, og standardfeilen til $\\hat{\\beta}$.",
+      "solution": "**SSE** (regnesnarveien):\n$$\\text{SSE}=S_{yy}-\\hat{\\beta}S_{xy}=310-(-0{,}70)\\cdot(-350)=310-245=65.$$\n\n**Variansestimatet** — divisor $n-2=10$:\n$$s^2=\\frac{\\text{SSE}}{n-2}=\\frac{65}{10}=6{,}5, \\qquad s=\\sqrt{6{,}5}=2{,}55.$$\n\n**Standardfeilen til $\\hat{\\beta}$** (estimatet av $\\sqrt{\\text{Var}(\\hat{\\beta})}=\\sigma/\\sqrt{S_{xx}}$, med $s$ inn for $\\sigma$):\n$$\\text{SE}(\\hat{\\beta})=\\frac{s}{\\sqrt{S_{xx}}}=\\frac{2{,}55}{\\sqrt{500}}=\\frac{2{,}55}{22{,}36}=0{,}114.$$\n\nDenne standardfeilen er nettopp det vi trenger for test og konfidensintervall for helningen i [kap. 8.2](/bok/tma4245/tma4245-8-2).\n\n> *Sensornotat:* hadde du delt på $n-1=11$ i stedet for $n-2=10$, ville du fått $s^2=5{,}91$ — feil. Tell parametrene: to ($\\alpha,\\beta$) er estimert, så nevneren er $n-2$."
+    },
+    {
+      "id": "tma4245-8-1-l4",
+      "type": "exercise",
+      "exercise": {
+        "id": "tma4245-8-1-l4",
+        "number": "4",
+        "type": "classic",
+        "difficulty": "vanskelig",
+        "task": "For $n=10$ målinger av strekkfasthet $Y$ (MPa) mot herdetemperatur $x$ (grader) er det oppgitt $\\bar{x}=30$, $\\bar{y}=55$, $S_{xx}=400$, $S_{xy}=280$ og $S_{yy}=210$.\n\n**a)** Finn $\\hat{\\beta}$ og $\\hat{\\alpha}$.\n\n**b)** Finn SSE og $s^2$ med riktig nevner.\n\n**c)** Finn standardfeilen $\\text{SE}(\\hat{\\beta})=s/\\sqrt{S_{xx}}$.\n\n**d)** Hvorfor deler vi på $n-2$ og ikke $n-1$?",
+        "solution": "**a)** $\\hat{\\beta}=S_{xy}/S_{xx}=280/400=0{,}70$. $\\hat{\\alpha}=\\bar{y}-\\hat{\\beta}\\bar{x}=55-0{,}70\\cdot 30=55-21=34$.\n\n**b)** $\\text{SSE}=S_{yy}-\\hat{\\beta}S_{xy}=210-0{,}70\\cdot 280=210-196=14$. Divisor $n-2=8$: $s^2=14/8=1{,}75$, så $s=\\sqrt{1{,}75}=1{,}32$.\n\n**c)** $\\text{SE}(\\hat{\\beta})=s/\\sqrt{S_{xx}}=1{,}32/\\sqrt{400}=1{,}32/20=0{,}066$.\n\n**d)** Vi har estimert **to** parametre ($\\hat{\\alpha}$ og $\\hat{\\beta}$) før residualene måles, så to frihetsgrader er brukt opp. Divisor $n-2$ gjør $s^2$ forventningsrett for $\\sigma^2$.",
+        "hints": [
+          "$\\hat{\\beta}=S_{xy}/S_{xx}$; $\\hat{\\alpha}=\\bar{y}-\\hat{\\beta}\\bar{x}$.",
+          "$\\text{SSE}=S_{yy}-\\hat{\\beta}S_{xy}$; deretter del på $n-2$.",
+          "$\\text{SE}(\\hat{\\beta})=s/\\sqrt{S_{xx}}$ med $s=\\sqrt{s^2}$.",
+          "Antall estimerte parametre = antall tapte frihetsgrader."
+        ]
+      }
+    },
+    {
+      "id": "tma4245-8-1-warn",
+      "type": "warning",
+      "title": "Typiske feil",
+      "content": "- **Divisor $n-1$ i $s^2$.** Regresjonen estimerer **to** parametre før residualene, så variansestimatet er $s^2=\\text{SSE}/(n-2)$ — ikke $n-1$. Dette er den hyppigste feilen i regresjonsoppgaven.\n- **Snu teller og nevner i $\\hat{\\beta}$.** Riktig: $\\hat{\\beta}=S_{xy}/S_{xx}$ — kryss-summen $S_{xy}$ i telleren, $x$-kvadratsummen $S_{xx}$ i nevneren. $S_{xy}/S_{yy}$ eller $S_{xx}/S_{xy}$ er galt.\n- **Behandle $x_i$ som stokastisk.** I enkel lineær regresjon er $x_i$ **faste tall**. Da er $\\bar{x}$ og $S_{xx}$ konstanter, og vektene $c_i$ i variansutledningen kan behandles som konstanter. Behandler du $x_i$ som stokastisk, kollapser variansformelen.\n- **Glemme feilantagelsene der de brukes.** Variansformelen $\\text{Var}(\\hat{\\beta})=\\sigma^2/S_{xx}$ hviler på **uavhengighet** og **konstant varians**; normalfordelingen trengs for ML = LS og for testene i [kap. 8.2](/bok/tma4245/tma4245-8-2). Nevn dem.\n- **Tro at ML og LS gir ulikt svar for $\\alpha,\\beta$.** Under normalfeil er de identiske. (Bare for $\\sigma^2$ skiller de seg: ML deler på $n$, den forventningsrette på $n-2$.)\n- **Feil fortegn på $\\hat{\\beta}$.** Negativt $S_{xy}$ gir negativ helning — responsen avtar med $x$. Sjekk at fortegnet stemmer med konteksten."
+    },
+    {
+      "id": "tma4245-8-1-begrepsbank",
+      "type": "text",
+      "content": "## Begrepsbank\n\nDe sentrale begrepene, formlene og resultatkortene i kapitlet, samlet.\n\n*Flashcard-/repetisjonsstoff — hopp trygt over ved førstegangslesing; tidsanslaget gjelder kjernestoffet.*"
+    },
+    {
+      "id": "tma4245-8-1-fc-summer",
+      "type": "definition",
+      "title": "Formelkort: LS-estimatene fra oppgitte summer",
+      "content": "Gitt de sentrerte summene: **stigningstall** $\\hat{\\beta}=\\dfrac{S_{xy}}{S_{xx}}$ (kryss-sum over $x$-kvadratsum), **konstantledd** $\\hat{\\alpha}=\\bar{y}-\\hat{\\beta}\\bar{x}$ (linja gjennom $(\\bar{x},\\bar{y})$). Arbeidsformen på eksamen: sett de oppgitte $S_{xx},S_{xy},\\bar{x},\\bar{y}$ rett inn. Teller = $S_{xy}$, nevner = $S_{xx}$, aldri omvendt."
+    },
+    {
+      "id": "tma4245-8-1-fc-sse",
+      "type": "definition",
+      "title": "Resultatkort: SSE og variansestimatet",
+      "content": "**Residualkvadratsummen** $\\text{SSE}=\\sum(y_i-\\hat{y}_i)^2=S_{yy}-\\hat{\\beta}S_{xy}$. **Variansestimatet** $s^2=\\text{SSE}/(n-2)$ (forventningsrett for $\\sigma^2$), og $s=\\sqrt{s^2}$. Divisor $n-2$ fordi to parametre ($\\alpha,\\beta$) er estimert."
+    },
+    {
+      "id": "tma4245-8-1-fc-var",
+      "type": "definition",
+      "title": "Formelkort: $E(\\hat{\\beta})$ og $\\text{Var}(\\hat{\\beta})$",
+      "content": "$\\hat{\\beta}$ er **forventningsrett**: $E(\\hat{\\beta})=\\beta$. Variansen er $\\text{Var}(\\hat{\\beta})=\\dfrac{\\sigma^2}{S_{xx}}$, estimert med standardfeilen $\\text{SE}(\\hat{\\beta})=\\dfrac{s}{\\sqrt{S_{xx}}}$. Stor spredning i $x$ (stor $S_{xx}$) gir liten varians — presis helning. Utledes med lineærkombinasjonsreglene fra kap. 3.2."
+    },
+    {
+      "id": "tma4245-8-1-fc-mllik",
+      "type": "definition",
+      "title": "Teknikkort: ML = LS på tre linjer",
+      "content": "Under normalfeil er $l(\\alpha,\\beta,\\sigma^2)=-\\frac{n}{2}\\ln(2\\pi\\sigma^2)-\\frac{1}{2\\sigma^2}\\sum(y_i-\\alpha-\\beta x_i)^2$. Bare kvadratsummen avhenger av $\\alpha,\\beta$, og den står med minustegn — så **maksimere $l$ = minimere kvadratsummen** = LS. Derfor $\\hat{\\alpha}_{\\text{ML}}=\\hat{\\alpha}_{\\text{LS}}$, $\\hat{\\beta}_{\\text{ML}}=\\hat{\\beta}_{\\text{LS}}$. (For $\\sigma^2$ deler ML på $n$.)"
+    },
+    {
+      "id": "tma4245-8-1-fc-kvadratsummer",
+      "type": "definition",
+      "title": "Begrep: kvadratsummene SST, SSR, SSE",
+      "content": "Total variasjon deles i forklart og ikke-forklart: **SST** $=S_{yy}=\\sum(y_i-\\bar{y})^2$ (total), **SSR** $=\\hat{\\beta}S_{xy}$ (forklart av regresjonen), **SSE** $=\\sum(y_i-\\hat{y}_i)^2$ (residual, ikke-forklart), med $\\text{SST}=\\text{SSR}+\\text{SSE}$. Derfor snarveien $\\text{SSE}=S_{yy}-\\hat{\\beta}S_{xy}$."
+    },
+    {
+      "id": "tma4245-8-1-fc-n2",
+      "type": "definition",
+      "title": "Feilkort: $n-2$, ikke $n-1$",
+      "content": "Empirisk varians deler på $n-1$ (én estimert parameter, $\\bar{x}$). Regresjon deler på **$n-2$**, fordi **to** parametre ($\\hat{\\alpha},\\hat{\\beta}$) er estimert før residualene. Samme frihetsgrad $n-2$ går igjen i t-testen og prediksjonen i kap. 8.2. (Unntak: origo-modellen i kap. 8.3 har $n-1$.)"
+    },
+    {
+      "id": "tma4245-8-1-fc-residual",
+      "type": "definition",
+      "title": "Begrep: predikert verdi og residual",
+      "content": "Den **predikerte verdien** er $\\hat{y}_i=\\hat{\\alpha}+\\hat{\\beta}x_i$ (punktet på linja). **Residualet** er avviket $e_i=y_i-\\hat{y}_i$ (loddrett fra punkt til linje). LS minimerer $\\sum e_i^2$. Residualene brukes til å sjekke feilantagelsene grafisk (kap. 8.2) og til å regne SSE."
+    },
+    {
+      "id": "tma4245-8-1-fc-xfast",
+      "type": "definition",
+      "title": "Begrep: $x$ fast, $Y$ stokastisk",
+      "content": "I enkel lineær regresjon er $x_i$ **faste, kjente tall** (valgte nivåer), mens $Y_i$ er **stokastisk** gjennom feilleddet: $Y_i\\sim N(\\alpha+\\beta x_i,\\sigma^2)$. Konsekvens: $\\bar{x}$, $S_{xx}$ og vektene $c_i$ er konstanter i forventnings- og variansregningen."
+    },
+    {
+      "id": "tma4245-8-1-fc-modell",
+      "type": "definition",
+      "title": "Begrep: modellen og feilantagelsene",
+      "content": "$Y_i=\\alpha+\\beta x_i+\\varepsilon_i$ med $\\varepsilon_i$ uavhengige $N(0,\\sigma^2)$. Tre antagelser: **(1) uavhengighet**, **(2) konstant varians** $\\text{Var}(\\varepsilon_i)=\\sigma^2$, **(3) normalitet**. Konstantledd $\\alpha$ (skjæring), stigningstall $\\beta$ (helning). Oppgi antagelsene der de brukes — sensorkrav."
+    },
+    {
+      "id": "tma4245-8-1-fc-normalligninger",
+      "type": "definition",
+      "title": "Formelkort: normalligningene",
+      "content": "Fra $\\partial Q/\\partial a=0$ og $\\partial Q/\\partial b=0$: $\\sum(y_i-a-bx_i)=0$ og $\\sum x_i(y_i-a-bx_i)=0$. Løsningen er $\\hat{\\beta}=S_{xy}/S_{xx}$ og $\\hat{\\alpha}=\\bar{y}-\\hat{\\beta}\\bar{x}$. Den første sier at residualene summerer til null; linja går gjennom tyngdepunktet $(\\bar{x},\\bar{y})$."
+    },
+    {
+      "id": "tma4245-8-1-fc-snarvei",
+      "type": "definition",
+      "title": "Formelkort: råsum-snarveiene",
+      "content": "Har du bare råsummene: $S_{xx}=\\sum x_i^2-n\\bar{x}^2$, $S_{xy}=\\sum x_iy_i-n\\bar{x}\\bar{y}$, $S_{yy}=\\sum y_i^2-n\\bar{y}^2$. Fra disse får du $\\hat{\\beta},\\hat{\\alpha}$ og SSE uten å regne hver residual for seg."
+    },
+    {
+      "id": "tma4245-8-1-fc-tolkning",
+      "type": "definition",
+      "title": "Begrep: tolkning av $\\hat{\\alpha}$ og $\\hat{\\beta}$",
+      "content": "$\\hat{\\beta}$ er **endringen i forventet respons per enhets økning i $x$** (stiger $x$ med 1, endres $\\hat{y}$ med $\\hat{\\beta}$). $\\hat{\\alpha}$ er forventet respons ved $x=0$ — men den har bare mening hvis $x=0$ er innenfor eller nær dataområdet; ellers er den ren ekstrapolering."
+    },
+    {
+      "id": "tma4245-8-1-fc-forventningsrett",
+      "type": "definition",
+      "title": "Begrep: forventningsrett estimator",
+      "content": "En estimator $\\hat{\\theta}$ er **forventningsrett** for $\\theta$ hvis $E(\\hat{\\theta})=\\theta$ — den treffer riktig i gjennomsnitt over gjentatte forsøk, uten systematisk skjevhet. Både $\\hat{\\alpha}$, $\\hat{\\beta}$ og $s^2$ (med divisor $n-2$) er forventningsrette i regresjonsmodellen."
+    },
+    {
+      "id": "tma4245-8-1-fc-linje",
+      "type": "definition",
+      "title": "Formelkort: den estimerte regresjonslinja",
+      "content": "Den tilpassede linja er $\\hat{y}=\\hat{\\alpha}+\\hat{\\beta}x$. Den brukes til å predikere respons ved en gitt $x$ (kap. 8.2) og går alltid gjennom tyngdepunktet $(\\bar{x},\\bar{y})$. Ved $x=\\bar{x}$ er $\\hat{y}=\\bar{y}$ — en rask kontroll av regningen."
+    },
+    {
+      "id": "tma4245-8-1-rep",
+      "type": "collapsible",
+      "title": "Repetisjonsoppgaver",
+      "buttonText": "Vis repetisjonsoppgaver",
+      "content": [
+        {
+          "id": "tma4245-8-1-rep-1",
+          "type": "exercise",
+          "exercise": {
+            "id": "tma4245-8-1-rep-1",
+            "number": "R1",
+            "type": "classic",
+            "difficulty": "lett",
+            "task": "(Fra [kap. 3.2](/bok/tma4245/tma4245-3-2).) $Y_1,Y_2,Y_3$ er uavhengige med $\\text{Var}(Y_i)=\\sigma^2$, og $c_1,c_2,c_3$ er konstanter. Hva er $\\text{Var}(c_1Y_1+c_2Y_2+c_3Y_3)$?",
+            "solution": "For uavhengige variable: $\\text{Var}(\\sum c_iY_i)=\\sum c_i^2\\text{Var}(Y_i)=\\sigma^2\\sum c_i^2=(c_1^2+c_2^2+c_3^2)\\sigma^2$. Ingen kovariansledd, fordi de er uavhengige.",
+            "hints": [
+              "$\\text{Var}(\\sum c_iY_i)=\\sum c_i^2\\text{Var}(Y_i)$ for uavhengige.",
+              "Kvadrer koeffisientene; ingen kryssledd."
+            ]
+          }
+        },
+        {
+          "id": "tma4245-8-1-rep-2",
+          "type": "exercise",
+          "exercise": {
+            "id": "tma4245-8-1-rep-2",
+            "number": "R2",
+            "type": "classic",
+            "difficulty": "lett",
+            "task": "(Fra [kap. 5.1](/bok/tma4245/tma4245-5-1).) Hva betyr det at en estimator $\\hat{\\theta}$ er forventningsrett for $\\theta$?",
+            "solution": "At $E(\\hat{\\theta})=\\theta$ — estimatoren treffer parameteren i gjennomsnitt over gjentatte forsøk, uten systematisk skjevhet.",
+            "hints": [
+              "Se på forventningen $E(\\hat{\\theta})$.",
+              "Forventningsrett = ingen systematisk bom."
+            ]
+          }
+        },
+        {
+          "id": "tma4245-8-1-rep-3",
+          "type": "exercise",
+          "exercise": {
+            "id": "tma4245-8-1-rep-3",
+            "number": "R3",
+            "type": "classic",
+            "difficulty": "middels",
+            "task": "(Derivasjon.) Deriver $Q(b)=\\sum(y_i-bx_i)^2$ mhp. $b$ (her er $\\alpha$ satt til 0, som i origo-modellen).",
+            "solution": "$Q'(b)=\\sum 2(y_i-bx_i)(-x_i)=-2\\sum x_i(y_i-bx_i)$. Satt lik 0: $\\sum x_iy_i=b\\sum x_i^2$, så $b=\\sum x_iy_i/\\sum x_i^2$. (Dette er LS uten konstantledd — kap. 8.3.)",
+            "hints": [
+              "Kjerneregelen: deriver $(y_i-bx_i)^2$ mhp. $b$ gir $2(y_i-bx_i)(-x_i)$.",
+              "Sett summen lik 0 og løs for $b$."
+            ]
+          }
+        },
+        {
+          "id": "tma4245-8-1-rep-4",
+          "type": "exercise",
+          "exercise": {
+            "id": "tma4245-8-1-rep-4",
+            "number": "R4",
+            "type": "classic",
+            "difficulty": "middels",
+            "task": "(Sentrerte summer.) For $x=(1,2,3)$ og $y=(2,2,5)$: regn $\\bar{x}$, $\\bar{y}$, $S_{xx}$ og $S_{xy}$, og finn $\\hat{\\beta}$.",
+            "solution": "$\\bar{x}=2$, $\\bar{y}=3$. Avvik $x$: $-1,0,1$; avvik $y$: $-1,-1,2$. $S_{xx}=1+0+1=2$. $S_{xy}=(-1)(-1)+0\\cdot(-1)+(1)(2)=1+0+2=3$. $\\hat{\\beta}=S_{xy}/S_{xx}=3/2=1{,}5$.",
+            "hints": [
+              "Sentrer først; $\\bar{x}=2,\\bar{y}=3$.",
+              "$\\hat{\\beta}=S_{xy}/S_{xx}$."
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": "tma4245-8-1-symbolliste",
+      "type": "collapsible",
+      "title": "Symbol- og formelliste",
+      "buttonText": "Vis symboler og formler",
+      "content": [
+        {
+          "id": "tma4245-8-1-symbolliste-text",
+          "type": "text",
+          "content": "*Oppslagsverk — alt her forklares underveis i kapitlet.*\n\nAlle symboler og formler brukt i kapittel 8.1, samlet.\n\n| Symbol | Betydning |\n|---|---|\n| $Y_i$, $x_i$ | Respons (stokastisk) og forklaringsvariabel (fast) |\n| $\\alpha,\\beta$ | Konstantledd og stigningstall (ukjente parametre) |\n| $\\varepsilon_i$ | Feilledd, uavhengige $N(0,\\sigma^2)$ |\n| $\\sigma^2$ | Feilvariansen |\n| $\\hat{\\alpha},\\hat{\\beta}$ | LS/ML-estimatorene |\n| $\\hat{y}_i$ | Predikert verdi $\\hat{\\alpha}+\\hat{\\beta}x_i$ |\n| $\\bar{x},\\bar{y}$ | Gjennomsnittene |\n| $S_{xx},S_{xy},S_{yy}$ | Sentrerte kvadrat- og kryssummene |\n| $\\text{SSE}$ | Residualkvadratsummen $\\sum(y_i-\\hat{y}_i)^2$ |\n| $s^2$ | Variansestimatet $\\text{SSE}/(n-2)$ |\n| $\\text{SE}(\\hat{\\beta})$ | Standardfeilen $s/\\sqrt{S_{xx}}$ |\n\n**Formler i dette kapitlet:**\n\n$$Y_i=\\alpha+\\beta x_i+\\varepsilon_i, \\qquad \\varepsilon_i \\sim N(0,\\sigma^2)\\ \\text{uavhengige}$$\nRegresjonsmodellen med de tre feilantagelsene.\n\n$$\\hat{\\beta}=\\frac{S_{xy}}{S_{xx}}=\\frac{\\sum(x_i-\\bar{x})(y_i-\\bar{y})}{\\sum(x_i-\\bar{x})^2}, \\qquad \\hat{\\alpha}=\\bar{y}-\\hat{\\beta}\\bar{x}$$\nLS-estimatene (= ML under normalfeil).\n\n$$E(\\hat{\\beta})=\\beta, \\qquad \\text{Var}(\\hat{\\beta})=\\frac{\\sigma^2}{S_{xx}}$$\nForventningsrett, med varians omvendt proporsjonal med spredningen i $x$.\n\n$$\\text{SSE}=S_{yy}-\\hat{\\beta}S_{xy}, \\qquad s^2=\\frac{\\text{SSE}}{n-2}$$\nResidualkvadratsum og forventningsrett variansestimat (divisor $n-2$).\n\n$$\\text{SE}(\\hat{\\beta})=\\frac{s}{\\sqrt{S_{xx}}}$$\nStandardfeilen til helningen — grunnlaget for test og KI i kap. 8.2.\n\n$$l(\\alpha,\\beta,\\sigma^2)=-\\frac{n}{2}\\ln(2\\pi\\sigma^2)-\\frac{1}{2\\sigma^2}\\sum(y_i-\\alpha-\\beta x_i)^2$$\nLog-likelihooden — maksimeres når kvadratsummen minimeres (ML = LS)."
+        }
+      ]
+    }
+  ],
+  "exercises": []
+}

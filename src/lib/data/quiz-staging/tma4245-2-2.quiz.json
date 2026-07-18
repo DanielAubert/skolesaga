@@ -1,0 +1,252 @@
+[
+  {
+    "question": "Hvilken situasjon passer den binomiske fordelingen?",
+    "options": [
+      "Fast antall uavhengige forsøk med konstant $p$",
+      "Hendelser i tid med en konstant rate $\\lambda$",
+      "Antall forsøk til den første suksessen kommer",
+      "Trekk uten tilbakelegging fra liten populasjon"
+    ],
+    "explanation": "Binomisk krever fast $n$, to utfall, konstant $p$ og uavhengige forsøk — man teller antall suksesser."
+  },
+  {
+    "question": "Hva er forventning og varians for $\\text{bin}(n,p)$?",
+    "options": [
+      "$E=np$ og $\\text{Var}=np(1-p)$",
+      "$E=np(1-p)$ og $\\text{Var}=np$",
+      "$E=np$ og $\\text{Var}=np$",
+      "$E=p$ og $\\text{Var}=p(1-p)$"
+    ],
+    "explanation": "En binomisk variabel er en sum av $n$ Bernoulli-forsøk, så $E=np$ og $\\text{Var}=np(1-p)$."
+  },
+  {
+    "question": "Hvilken fordeling teller antall hendelser i et intervall med konstant rate?",
+    "options": [
+      "Poisson-fordelingen",
+      "Binomisk fordeling",
+      "Geometrisk fordeling",
+      "Hypergeometrisk fordeling"
+    ],
+    "explanation": "Poisson beskriver antall hendelser i tid/rom når hendelsene inntreffer med en konstant rate."
+  },
+  {
+    "question": "Hva er parameteren for antall hendelser i et intervall av lengde $t$?",
+    "options": [
+      "$\\lambda t$, altså raten skalert med tiden",
+      "$\\lambda$ alene, uavhengig av intervallet",
+      "$\\lambda/t$, altså raten delt på lengden",
+      "$t/\\lambda$, altså lengden delt på raten"
+    ],
+    "explanation": "Raten $\\lambda$ gjelder per tidsenhet; for lengde $t$ er forventet antall $\\lambda t$."
+  },
+  {
+    "question": "Hva gjelder om forventning og varians for Poisson$(\\lambda)$?",
+    "options": [
+      "De er like: $E=\\text{Var}=\\lambda$",
+      "Variansen er kvadratet av forventningen",
+      "Forventningen er kvadratet av variansen",
+      "Variansen er alltid mindre enn forventningen"
+    ],
+    "explanation": "Et kjennetegn ved Poisson er at forventning og varians begge er $\\lambda$."
+  },
+  {
+    "question": "Hvilken forutsetning for en Poisson-prosess er korrekt?",
+    "options": [
+      "Antall i disjunkte intervaller er uavhengige",
+      "Antall i disjunkte intervaller er alltid like",
+      "To hendelser inntreffer alltid samtidig",
+      "Raten øker jevnt utover i intervallet"
+    ],
+    "explanation": "Poisson-prosessen forutsetter uavhengige disjunkte intervaller, konstant rate og ingen samtidighet."
+  },
+  {
+    "question": "Hvilken fordeling teller antall forsøk til og med den første suksessen?",
+    "options": [
+      "Geometrisk fordeling",
+      "Binomisk fordeling",
+      "Negativ binomisk med $k=2$",
+      "Poisson-fordelingen"
+    ],
+    "explanation": "Geometrisk fordeling teller antall uavhengige forsøk til første suksess, med $E(X)=1/p$."
+  },
+  {
+    "question": "Hva er forventet antall forsøk til første suksess i geometrisk fordeling?",
+    "options": [
+      "$1/p$",
+      "$p$",
+      "$1-p$",
+      "$p/(1-p)$"
+    ],
+    "explanation": "For geometrisk fordeling er $E(X)=1/p$: er $p=0{,}2$, venter du i snitt 5 forsøk."
+  },
+  {
+    "question": "Hvilken fordeling teller antall forsøk til og med den $k$-te suksessen?",
+    "options": [
+      "Negativ binomisk fordeling",
+      "Binomisk fordeling",
+      "Hypergeometrisk fordeling",
+      "Poisson-fordelingen"
+    ],
+    "explanation": "Negativ binomisk teller til $k$-te suksess, med $E(X)=k/p$; geometrisk er tilfellet $k=1$."
+  },
+  {
+    "question": "Når skal du bruke hypergeometrisk fremfor binomisk fordeling?",
+    "options": [
+      "Ved trekk uten tilbakelegging fra liten populasjon",
+      "Ved trekk med tilbakelegging fra stor populasjon",
+      "Når antallet forsøk ikke er kjent på forhånd",
+      "Når hendelsene skjer med konstant rate i tiden"
+    ],
+    "explanation": "Uten tilbakelegging endres sammensetningen for hvert trekk, så forsøkene er avhengige — da er hypergeometrisk riktig."
+  },
+  {
+    "question": "Hvordan finner du $P(X\\ge a)$ fra en kumulativ tabell?",
+    "options": [
+      "$1-P(X\\le a-1)$",
+      "$1-P(X\\le a)$",
+      "$P(X\\le a)-P(X\\le a-1)$",
+      "$P(X\\le a)$ direkte fra tabellen"
+    ],
+    "explanation": "«Minst $a$» er komplementet til «høyst $a-1$»; pass på å slå opp $a-1$, ikke $a$."
+  },
+  {
+    "question": "Hva gir en kumulativ tabell for en diskret variabel?",
+    "options": [
+      "$P(X\\le a)$, den oppsummerte sannsynligheten",
+      "$P(X=a)$, punktsannsynligheten i punktet $a$",
+      "$P(X\\ge a)$, den øvre halesannsynligheten",
+      "$P(X>a)$, den strenge øvre halen"
+    ],
+    "explanation": "Den kumulative tabellen gir $F(a)=P(X\\le a)$; punktsannsynlighet fås som differansen $F(a)-F(a-1)$."
+  },
+  {
+    "question": "En Poisson-prosess har rate 6 per år. Hva er parameteren for et halvår?",
+    "options": [
+      "$3$, siden $\\lambda t=6\\cdot 0{,}5$",
+      "$6$, siden raten er den samme",
+      "$12$, siden man dobler raten",
+      "$1{,}5$, siden man deler på fire"
+    ],
+    "explanation": "Skaler raten: $\\lambda t=6\\cdot 0{,}5=3$ hendelser forventet i halvåret."
+  },
+  {
+    "question": "Hva er $P(X=0)$ for Poisson$(\\lambda)$?",
+    "options": [
+      "$e^{-\\lambda}$",
+      "$1-e^{-\\lambda}$",
+      "$\\lambda e^{-\\lambda}$",
+      "$\\lambda^0/\\lambda$"
+    ],
+    "explanation": "Sett $x=0$ i formelen: $P(X=0)=\\lambda^0 e^{-\\lambda}/0!=e^{-\\lambda}$."
+  },
+  {
+    "question": "Hvordan regner du «minst to» hendelser for Poisson$(\\lambda)$?",
+    "options": [
+      "$1-e^{-\\lambda}-\\lambda e^{-\\lambda}$",
+      "$e^{-\\lambda}+\\lambda e^{-\\lambda}$",
+      "$1-e^{-\\lambda}$",
+      "$\\lambda^2 e^{-\\lambda}/2$"
+    ],
+    "explanation": "«Minst to» via komplement: $1-P(X=0)-P(X=1)=1-(1+\\lambda)e^{-\\lambda}$."
+  },
+  {
+    "question": "Hva er standardavviket for Poisson$(\\lambda)$?",
+    "options": [
+      "$\\sqrt{\\lambda}$",
+      "$\\lambda$",
+      "$\\lambda^2$",
+      "$1/\\lambda$"
+    ],
+    "explanation": "Siden $\\text{Var}=\\lambda$ er $\\text{SD}=\\sqrt{\\lambda}$: spredningen vokser med kvadratroten av forventningen."
+  },
+  {
+    "question": "Hva er $E(X)$ for en hypergeometrisk fordeling ($a$ av typen, $n$ trukket)?",
+    "options": [
+      "$n\\,a/(a+b)$",
+      "$a/(a+b)$",
+      "$n\\,a$",
+      "$n/(a+b)$"
+    ],
+    "explanation": "Forventningen er antall trekk ganger andelen av typen i populasjonen: $E=n\\,a/(a+b)$."
+  },
+  {
+    "question": "Hva kjennetegner et Bernoulli-forsøk?",
+    "options": [
+      "Ett forsøk med to mulige utfall",
+      "Fast antall forsøk med mange utfall",
+      "En hendelse som skjer med en rate",
+      "Et trekk uten tilbakelegging fra urne"
+    ],
+    "explanation": "Bernoulli er ett enkelt forsøk med suksess (sannsynlighet $p$) eller fiasko; $E=p$, $\\text{Var}=p(1-p)$."
+  },
+  {
+    "question": "Hva er summen av to uavhengige Poisson-variable med rater $\\lambda_1,\\lambda_2$?",
+    "options": [
+      "Poisson$(\\lambda_1+\\lambda_2)$",
+      "Poisson$(\\lambda_1\\lambda_2)$",
+      "Binomisk med de to ratene",
+      "Ikke lenger en Poisson"
+    ],
+    "explanation": "Slår du sammen to uavhengige hendelsesstrømmer, legges ratene sammen: summen er Poisson$(\\lambda_1+\\lambda_2)$."
+  },
+  {
+    "question": "Hvorfor krever sensor «La $X$ = antall … , da er $X\\sim\\ldots$» i starten?",
+    "options": [
+      "For at variabel og fordeling defineres før regning",
+      "For at det endelige svaret skal ha flest mulige desimaler",
+      "Fordi tallsvaret alene alltid gir full score",
+      "For å slippe å måtte oppgi modellens parametre"
+    ],
+    "explanation": "Et tallsvar uten definert variabel og fordeling regnes som ufullstendig — definisjonen er billige poeng."
+  },
+  {
+    "question": "Når kan en binomisk fordeling tilnærmes med en Poisson-fordeling?",
+    "options": [
+      "Når $n$ er stor og $p$ liten, med $\\lambda=np$",
+      "Når antallet $n$ er lite og $p$ er stor samtidig",
+      "Når $p$ er nøyaktig $0{,}5$ i hvert forsøk",
+      "Når variansen er større enn forventningen"
+    ],
+    "explanation": "For sjeldne hendelser i mange forsøk er $\\text{bin}(n,p)\\approx\\text{Poisson}(np)$."
+  },
+  {
+    "question": "Betinget på totalt antall i et døgn, hvordan fordeler de seg på to like halvdøgn?",
+    "options": [
+      "Binomisk med $p=0{,}5$",
+      "Poisson med halvert rate i hver del",
+      "Uniformt over alle mulige antall",
+      "Geometrisk i den første halvdelen"
+    ],
+    "explanation": "Fordi halvdelene har lik rate og er uavhengige, er hver hendelse like sannsynlig i hver halvdel — antallet er $\\text{bin}(n,0{,}5)$."
+  },
+  {
+    "question": "Hva er halesannsynligheten $P(X>k)$ for en geometrisk fordeling?",
+    "options": [
+      "$(1-p)^k$",
+      "$p^k$",
+      "$1-p^k$",
+      "$kp(1-p)$"
+    ],
+    "explanation": "«Ingen suksess i de første $k$ forsøkene» har sannsynlighet $(1-p)^k$."
+  },
+  {
+    "question": "Hvilket spørsmål avgjør binomisk kontra geometrisk/negativ binomisk?",
+    "options": [
+      "Er antall forsøk fast, eller teller vi til noe skjer?",
+      "Er suksessannsynligheten større eller mindre enn $0{,}5$?",
+      "Er variabelen diskret eller er den kontinuerlig?",
+      "Trekker vi fra en stor eller en liten populasjon?"
+    ],
+    "explanation": "Fast antall forsøk gir binomisk; teller vi til første/$k$-te suksess, er det geometrisk/negativ binomisk."
+  },
+  {
+    "question": "Hva er den vanligste feilen i Poisson-oppgaver?",
+    "options": [
+      "Å glemme å skalere raten til intervallet",
+      "Å bruke komplementregelen for «minst én» hendelse",
+      "Å definere og oppgi variabelen før man regner",
+      "Å bruke $e^{-\\lambda}$ for $P(X=0)$"
+    ],
+    "explanation": "Parameteren er $\\lambda t$, ikke $\\lambda$, når intervallet avviker fra én tidsenhet — dette glemmes ofte."
+  }
+]

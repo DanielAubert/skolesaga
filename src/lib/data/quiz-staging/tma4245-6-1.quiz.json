@@ -1,0 +1,202 @@
+[
+  {
+    "question": "Standardavviket i en normalfordelt måleserie er ukjent. Hvilket intervall for forventningen $\\mu$ er riktig?",
+    "options": [
+      "$\\bar{x} \\pm t_{n-1,\\alpha/2}\\,s/\\sqrt{n}$",
+      "$\\bar{x} \\pm z_{\\alpha/2}\\,s/\\sqrt{n}$",
+      "$\\bar{x} \\pm t_{n,\\alpha/2}\\,s/\\sqrt{n}$",
+      "$\\bar{x} \\pm z_{\\alpha/2}\\,\\sigma/\\sqrt{n}$"
+    ],
+    "explanation": "Ukjent $\\sigma$ krever t-fordelingen med $n-1$ frihetsgrader og estimatet $s$. z brukes bare når $\\sigma$ er kjent."
+  },
+  {
+    "question": "Et 95 % konfidensintervall for $\\mu$ ble regnet til $[36{,}8,\\; 40{,}2]$. Hvilken tolkning er korrekt?",
+    "options": [
+      "Metoden fanger den sanne $\\mu$ i 95 % av gjentatte forsøk",
+      "Det er 95 % sannsynlig at $\\mu$ ligger i $[36{,}8,\\; 40{,}2]$",
+      "95 % av observasjonene ligger i $[36{,}8,\\; 40{,}2]$",
+      "$\\mu$ er tilfeldig og treffer intervallet 95 % av tiden"
+    ],
+    "explanation": "KI-tolkningen gjelder metoden før data. Etter utregning er $\\mu$ fast og intervallet enten riktig eller galt."
+  },
+  {
+    "question": "Hvor mange frihetsgrader har t-kvantilen i konfidensintervallet for $\\mu$ når $n = 12$?",
+    "options": [
+      "11",
+      "12",
+      "10",
+      "24"
+    ],
+    "explanation": "t-intervallet bruker $n-1$ frihetsgrader, altså $12-1 = 11$."
+  },
+  {
+    "question": "Konfidensintervallet for variansen $\\sigma^2$ er:",
+    "options": [
+      "$[(n-1)s^2/\\chi^2_{n-1,\\alpha/2},\\; (n-1)s^2/\\chi^2_{n-1,1-\\alpha/2}]$",
+      "$s^2 \\pm z_{\\alpha/2}\\,s^2/\\sqrt{n}$",
+      "$[(n-1)s^2/\\chi^2_{n-1,1-\\alpha/2},\\; (n-1)s^2/\\chi^2_{n-1,\\alpha/2}]$",
+      "$s^2 \\pm \\chi^2_{n-1,\\alpha/2}\\,s^2/\\sqrt{n}$"
+    ],
+    "explanation": "Kjikvadratfordelingen er skjev, så intervallet er asymmetrisk; den store kvantilen ($\\chi^2_{n-1,\\alpha/2}$) står under den nedre grensen."
+  },
+  {
+    "question": "For konfidensintervallet for en andel $p$ må gyldighetssjekken oppfylles. Hvilken er den?",
+    "options": [
+      "$n\\hat{p} \\ge 5$ og $n(1-\\hat{p}) \\ge 5$ samtidig",
+      "$n \\ge 5$ og $\\hat{p}$ mellom $0{,}1$ og $0{,}9$",
+      "$n\\hat{p} \\ge 5$ alene er tilstrekkelig her",
+      "$\\hat{p}(1-\\hat{p}) \\ge 5$ for hele utvalget"
+    ],
+    "explanation": "Normaltilnærmingen krever nok observasjoner i begge kategorier: både $n\\hat{p}$ og $n(1-\\hat{p})$ minst 5."
+  },
+  {
+    "question": "Hva skiller et prediksjonsintervall (PI) fra et konfidensintervall (KI) for $\\mu$?",
+    "options": [
+      "PI har et ekstra 1-tall under rota, for en ny måling",
+      "PI er alltid smalere enn KI ved samme datasett",
+      "PI bruker $z$ der KI bruker $t$, ellers likt",
+      "PI fanger parameteren $\\mu$, mens KI fanger data"
+    ],
+    "explanation": "PI: $\\bar{x} \\pm t_{n-1,\\alpha/2}\\,s\\sqrt{1+1/n}$ — det ekstra leddet er observasjonens egen spredning, så PI er bredere og gjelder en ny enkeltmåling."
+  },
+  {
+    "question": "En oppgave spør: «Hvor mye veier neste, tilfeldig valgte komponent trolig?» Hvilket intervall passer?",
+    "options": [
+      "Prediksjonsintervall for en ny observasjon",
+      "Konfidensintervall for forventningen $\\mu$",
+      "Konfidensintervall for variansen $\\sigma^2$",
+      "Konfidensintervall for andelen $p$ i alt"
+    ],
+    "explanation": "Spørsmålet gjelder én ny enkeltobservasjon, ikke en parameter, så man bruker prediksjonsintervallet."
+  },
+  {
+    "question": "For et **ensidig** 95 % konfidensintervall (bare nedre grense), hvilken kvantil brukes?",
+    "options": [
+      "$z_{0{,}05} = 1{,}645$",
+      "$z_{0{,}025} = 1{,}96$",
+      "$z_{0{,}005} = 2{,}576$",
+      "$z_{0{,}10} = 1{,}282$"
+    ],
+    "explanation": "Ensidig legger hele $\\alpha = 0{,}05$ i én hale, så kvantilen er $z_{0{,}05} = 1{,}645$, ikke $z_{0{,}025}$."
+  },
+  {
+    "question": "$\\sigma = 6$ er kjent, $n = 36$, $\\bar{x} = 50$. Hva er feilmarginen i et 95 % KI for $\\mu$?",
+    "options": [
+      "$1{,}96 \\cdot 1 = 1{,}96$",
+      "$1{,}96 \\cdot 6 = 11{,}76$",
+      "$1{,}645 \\cdot 1 = 1{,}645$",
+      "$2{,}306 \\cdot 1 = 2{,}306$"
+    ],
+    "explanation": "Standardfeil $\\sigma/\\sqrt{n} = 6/6 = 1$; feilmargin $z_{0{,}025} \\cdot 1 = 1{,}96$."
+  },
+  {
+    "question": "Hvorfor er t-kvantilen større enn den tilsvarende z-kvantilen?",
+    "options": [
+      "t-fordelingen har tyngre haler pga. usikkerhet i $s$",
+      "t-fordelingen har mindre varians enn normalen har",
+      "t-kvantilen er alltid nøyaktig dobbelt så stor som z",
+      "z-kvantilen gjelder bare for svært små utvalg"
+    ],
+    "explanation": "Å estimere $\\sigma$ med $s$ gir ekstra usikkerhet; t-fordelingens tyngre haler gir $t_{n-1,\\alpha/2} > z_{\\alpha/2}$, og intervallet blir litt bredere."
+  },
+  {
+    "question": "Hva skjer med bredden på et KI hvis konfidensnivået økes fra 95 % til 99 %?",
+    "options": [
+      "Intervallet blir bredere",
+      "Intervallet blir smalere",
+      "Bredden er uendret",
+      "Intervallet blir symmetrisk"
+    ],
+    "explanation": "Høyere konfidensnivå gir større kvantil ($2{,}576 > 1{,}96$), så feilmarginen og bredden øker."
+  },
+  {
+    "question": "$n = 10$ måling gir $s^2 = 4$. Hva er $(n-1)s^2$ i kjikvadrat-intervallet for $\\sigma^2$?",
+    "options": [
+      "$36$",
+      "$40$",
+      "$9$",
+      "$4$"
+    ],
+    "explanation": "$(n-1)s^2 = 9 \\cdot 4 = 36$. Divisor $n-1 = 9$, ikke $n = 10$."
+  },
+  {
+    "question": "Kvantilnotasjonen $z_\\alpha$ i boka betyr:",
+    "options": [
+      "tallet med øvre haleareal $\\alpha$: $P(Z > z_\\alpha) = \\alpha$",
+      "tallet med nedre haleareal $\\alpha$: $P(Z < z_\\alpha) = \\alpha$",
+      "medianen i intervallet med sannsynlighet $\\alpha$",
+      "standardfeilen ganget med $\\alpha$"
+    ],
+    "explanation": "Boka bruker øvre-hale-konvensjonen: $P(Z > z_\\alpha) = \\alpha$, så et 95 %-intervall bruker $z_{0{,}025} = 1{,}96$."
+  },
+  {
+    "question": "En andel estimeres fra $n = 30$ med $\\hat{p} = 0{,}10$. Er normaltilnærmingen gyldig?",
+    "options": [
+      "Nei, fordi $n\\hat{p} = 3 < 5$",
+      "Ja, fordi $n = 30 \\ge 5$",
+      "Ja, fordi $n(1-\\hat{p}) = 27 \\ge 5$",
+      "Nei, fordi $\\hat{p} < 0{,}5$"
+    ],
+    "explanation": "$n\\hat{p} = 30 \\cdot 0{,}10 = 3 < 5$, så kravet svikter i «suksess»-kategorien selv om $n(1-\\hat{p}) = 27$ er stort nok."
+  },
+  {
+    "question": "I det asymmetriske $\\sigma^2$-intervallet, hvilken kvantil hører til den **nedre** grensen?",
+    "options": [
+      "Den store, $\\chi^2_{n-1,\\alpha/2}$",
+      "Den lille, $\\chi^2_{n-1,1-\\alpha/2}$",
+      "Medianen $\\chi^2_{n-1,0{,}5}$",
+      "Alltid $\\chi^2_{n-1,0{,}05}$"
+    ],
+    "explanation": "Vi deler på kvantilen, så den store kvantilen gir den lille (nedre) grensen: $(n-1)s^2/\\chi^2_{n-1,\\alpha/2}$."
+  },
+  {
+    "question": "En rapport sier «95 % av målingene ligger i konfidensintervallet». Hva er galt?",
+    "options": [
+      "KI handler om parameteren, ikke om enkeltobservasjoner",
+      "KI-et skulle vært regnet på 99 % nivå i stedet",
+      "Ingenting — dette er en helt korrekt tolkning",
+      "Man skulle brukt $z$ i stedet for $t$ i formelen"
+    ],
+    "explanation": "Konfidensintervallet fanger $\\mu$, ikke enkeltmålinger. Spredningen av observasjoner beskrives av prediksjonsintervallet, som er langt bredere."
+  },
+  {
+    "question": "Hvordan endres feilmarginen hvis utvalgsstørrelsen $n$ firedobles (alt annet likt)?",
+    "options": [
+      "Den halveres",
+      "Den firedobles",
+      "Den blir uendret",
+      "Den dobles"
+    ],
+    "explanation": "Feilmarginen avtar som $1/\\sqrt{n}$, så $n \\to 4n$ gir $1/\\sqrt{4} = 1/2$ — feilmarginen halveres."
+  },
+  {
+    "question": "$n = 16$, $\\bar{x} = 100$, $s = 8$ (ukjent $\\sigma$), $t_{15,0{,}025} = 2{,}131$. Hva er feilmarginen i 95 % KI for $\\mu$?",
+    "options": [
+      "$2{,}131 \\cdot 2 = 4{,}262$",
+      "$2{,}131 \\cdot 8 = 17{,}05$",
+      "$1{,}96 \\cdot 2 = 3{,}92$",
+      "$2{,}131 \\cdot 0{,}5 = 1{,}066$"
+    ],
+    "explanation": "Standardfeil $s/\\sqrt{n} = 8/4 = 2$; feilmargin $t_{15,0{,}025} \\cdot 2 = 2{,}131 \\cdot 2 = 4{,}262$."
+  },
+  {
+    "question": "Hvilket intervall er riktig når $\\sigma$ er **oppgitt kjent**?",
+    "options": [
+      "$\\bar{x} \\pm z_{\\alpha/2}\\,\\sigma/\\sqrt{n}$",
+      "$\\bar{x} \\pm t_{n-1,\\alpha/2}\\,\\sigma/\\sqrt{n}$",
+      "$\\bar{x} \\pm t_{n-1,\\alpha/2}\\,s/\\sqrt{n}$",
+      "$\\bar{x} \\pm z_{\\alpha/2}\\,s/\\sqrt{n}$"
+    ],
+    "explanation": "Kjent $\\sigma$ gir z-intervallet med den sanne $\\sigma$ i standardfeilen — ingen estimering, ingen t."
+  },
+  {
+    "question": "Prediksjonsintervallets bredde når $n \\to \\infty$:",
+    "options": [
+      "nærmer seg $\\bar{x} \\pm t\\,s$, krymper ikke mot null",
+      "krymper mot null akkurat som KI-et gjør",
+      "vokser uten grense mot det uendelige",
+      "blir til slutt lik variansintervallet"
+    ],
+    "explanation": "Leddet $\\sqrt{1+1/n} \\to 1$, ikke 0, fordi en ny enkeltobservasjon alltid har egen spredning $s$. Derfor krymper PI ikke mot null."
+  }
+]

@@ -1,0 +1,479 @@
+{
+  "id": "tma4245-2-3",
+  "courseId": "tma4245",
+  "chapterNumber": "2.3",
+  "title": "Kontinuerlige fordelinger: eksponensial, gamma, Weibull — og «oppskriftsfordelingene»",
+  "description": "Fordelingskatalogen for levetider og ventetider — med eksponensialfordelingen, emnets kjæledegge, i sentrum.",
+  "estimatedMinutes": 65,
+  "competenceGoals": [
+    "regne sannsynligheter, kvantiler og momenter for uniform, eksponensial, gamma og Weibull",
+    "utlede og bruke minneløsheten, og forklare at den er unik for eksponensialfordelingen",
+    "regne betingede sannsynligheter for Weibull, som ikke er minneløs",
+    "bruke standardteknikken (normering, $F$, kvantiler, momenter) på en ukjent oppgitt fordeling"
+  ],
+  "content": [
+    {
+      "id": "tma4245-2-3-tip",
+      "type": "tip",
+      "title": "Eksamensvinkel",
+      "content": "**Dette kapitlet dekker levetidene og ventetidene — og emnets aller største kjæledegge.**\n\n- Ikke-normale kontinuerlige fordelinger er i **≈80 %** av settene. Prioritet: **perfekt** (det høyeste nivået).\n- **Eksponensialfordelingen** med følget sitt — minneløshet, sum som blir gamma, kjikvadrat-koblingen — er i **minst 9 sett** (Nov18, Mai21, Mai22, Aug22, Des22, Aug23, Aug24, Des25, Mai26). Den er den hyppigste enkeltfordelingen i hele boka.\n- **Weibull** dukker opp jevnlig (Mai22, Aug22, Des23), og «eksotiske» fordelinger med oppgitt formel — Gumbel, Pareto, trunkert Poisson — kommer med jevne mellomrom. Da gjelder én ferdighet: bruk **standardteknikken** på en ukjent fordeling.\n\n**Sensor måler** at du regner sannsynligheter og kvantiler fra fordelingsfunksjonen $F$, og at du **utleder minneløsheten aktivt** når den trengs (den står ikke som en formel å slå opp).\n\n**Formelsamlingen** (hjelpemiddelkode C) har de *navngitte* standardfordelingene (uniform, eksponensial, gamma, kjikvadrat, Weibull) med $E$/Var. «Oppskriftsfordelingene» står *ikke* der — derfor trener vi **teknikk** (CDF-regning), ikke katalog.\n\n**Notasjon i denne boka:** eksponensialfordelingen parametriseres med **forventningen** $\\beta$, slik at $E(X) = \\beta$. Vi bruker $\\beta$ konsekvent i alle oppgaver."
+    },
+    {
+      "id": "tma4245-2-3-forkunnskaper",
+      "type": "text",
+      "content": "**Forkunnskaper:** Dette kapitlet bygger på tetthet, fordelingsfunksjon ($f = F'$), forventning og varians fra **[kap. 2.1](/bok/tma4245/tma4245-2-1)**, og på Poisson-prosessen fra **[kap. 2.2](/bok/tma4245/tma4245-2-2)** (som eksponensialfordelingen er ventetiden i). Betinget sannsynlighet fra **[kap. 1.3](/bok/tma4245/tma4245-1-3)** brukes i minneløshets-utledningen.\n\nFra matematikken må du kunne **integrere** eksponensialfunksjoner ($\\int e^{-x/\\beta}\\,dx = -\\beta e^{-x/\\beta}$) og enkle potenser, og regne med $e^{-x}$ på kalkulator. Vi bygger opp hver fordeling fra tetthet eller fordelingsfunksjon.\n\nKapitlet er forkunnskap for tetthets-drillen i **[kap. 2.4](/bok/tma4245/tma4245-2-4)**, transformasjonene i **kap. 4.1** (der $2X/\\beta \\sim \\chi^2_2$ utledes) og eksponensialens konfidensintervall i Del 6."
+    },
+    {
+      "id": "tma4245-2-3-intro",
+      "type": "text",
+      "content": "Når vi måler en **levetid** (til en komponent svikter), en **ventetid** (til neste kunde ankommer) eller en **andel** (av en tank som er full), er variabelen kontinuerlig. Dette kapitlet er katalogen over de vanligste kontinuerlige modellene for slike størrelser — med **eksponensialfordelingen** som den store hovedpersonen.\n\nVi går i tre løkker. Først de to enkleste modellene, **uniform** og **eksponensial**, og eksponensialens berømte egenskap **minneløshet** (løkke 1). Så fordelingene som bygger på eksponensialen: **gamma** (sum av eksponensiale) og **kjikvadrat** (et gamma-spesialtilfelle som blir sentralt i inferensen), pluss **Weibull** for levetider som *ikke* er minneløse (løkke 2). Til slutt beredskapen for **«oppskriftsfordelinger»**: hva du gjør når oppgaven serverer en ukjent fordeling med oppgitt formel (løkke 3). Hver løkke går teori → eksempel → oppgave.\n\n*Samlet kjernetid ≈ 65 min. Naturlige pausepunkter er markert mellom løkkene.*"
+    },
+    {
+      "id": "tma4245-2-3-lokke1",
+      "type": "text",
+      "content": "## Løkke 1 — Uniform, eksponensial og minneløshet (~24 min)"
+    },
+    {
+      "id": "tma4245-2-3-def-uniform",
+      "type": "definition",
+      "title": "Uniform fordeling på $(a, b)$",
+      "content": "En variabel er **uniformt fordelt** på $(a, b)$ når tettheten er konstant over intervallet — alle verdier er «like sannsynlige»:\n\n$$f(x) = \\frac{1}{b-a} \\text{ for } a < x < b, \\qquad F(x) = \\frac{x-a}{b-a} \\text{ for } a \\le x \\le b.$$\n\n$$E(X) = \\frac{a+b}{2}, \\qquad \\text{Var}(X) = \\frac{(b-a)^2}{12}.$$\n\nSannsynligheter blir rene lengdeforhold: $P(X > c) = \\dfrac{b - c}{b - a}$. Uniformfordelingen på $(0, 1)$ er dessuten råstoffet for simulering (inversjonsmetoden, kap. 4.1)."
+    },
+    {
+      "id": "tma4245-2-3-def-eksponensial",
+      "type": "definition",
+      "title": "Eksponensialfordelingen $\\text{eksp}(\\beta)$",
+      "content": "**Eksponensialfordelingen** modellerer ventetider og levetider når hendelser inntreffer med konstant rate. I denne boka parametriseres den med **forventningen** $\\beta$:\n\n$$f(x) = \\frac{1}{\\beta} e^{-x/\\beta}, \\qquad F(x) = 1 - e^{-x/\\beta} \\quad (x > 0), \\qquad E(X) = \\beta, \\quad \\text{Var}(X) = \\beta^2.$$\n\nHalesannsynligheten er spesielt enkel: $P(X > x) = e^{-x/\\beta}$. (Enkelte bøker skriver samme fordeling på **rate-form** $\\lambda e^{-\\lambda x}$ med $\\lambda = 1/\\beta$; vi bruker konsekvent forventnings-formen $\\beta$, og reserverer $\\lambda$ for Poisson-rater.) Legg merke til at standardavviket er lik forventningen: $\\text{SD}(X) = \\beta$."
+    },
+    {
+      "id": "tma4245-2-3-def-minneloshet",
+      "type": "definition",
+      "title": "Minneløshet",
+      "content": "Eksponensialfordelingen er **minneløs**: sannsynligheten for å vare *minst $s$ til*, gitt at komponenten allerede har vart i $t$, er den samme som sannsynligheten for å vare $s$ helt fra start:\n\n$$P(X > s + t \\mid X > t) = P(X > s).$$\n\nMed andre ord: en brukt komponent er «like god som ny» — fortiden glemmes. Dette er **unikt for eksponensialfordelingen** blant de kontinuerlige fordelingene. Egenskapen utledes (ikke slås opp) fra definisjonen av betinget sannsynlighet, som vist i eksempelet under."
+    },
+    {
+      "id": "tma4245-2-3-ex-1",
+      "type": "example",
+      "title": "Eksempel 1: Minneløsheten utledet",
+      "problem": "Levetiden $X$ (i år) til en temperatursensor er eksponensialfordelt med forventning $\\beta = 5$ år. Vis at $P(X > 8 \\mid X > 3) = P(X > 5)$, og forklar hvilken egenskap dette uttrykker.",
+      "solution": "Bruk halesannsynligheten $P(X > x) = e^{-x/\\beta}$ og definisjonen av betinget sannsynlighet ([kap. 1.3](/bok/tma4245/tma4245-1-3)). Hendelsen $\\{X > 8\\}$ ligger inne i $\\{X > 3\\}$, så snittet er $\\{X > 8\\}$:\n\n$$P(X > 8 \\mid X > 3) = \\frac{P(X > 8)}{P(X > 3)} = \\frac{e^{-8/5}}{e^{-3/5}} = e^{-(8-3)/5} = e^{-5/5} = e^{-1}.$$\n\nOg direkte: $P(X > 5) = e^{-5/5} = e^{-1} \\approx 0{,}368$. De er like.\n\n**Tolkning:** dette er **minneløshet** — at sensoren har fungert i 3 år endrer ikke sannsynligheten for at den varer 5 år til; den er «like god som ny». Egenskapen er unik for eksponensialfordelingen. Den generelle utledningen bruker samme steg:\n$$P(X > s+t \\mid X > t) = \\frac{e^{-(s+t)/\\beta}}{e^{-t/\\beta}} = e^{-s/\\beta} = P(X > s).$$"
+    },
+    {
+      "id": "tma4245-2-3-l1",
+      "type": "exercise",
+      "exercise": {
+        "id": "tma4245-2-3-l1",
+        "number": "1",
+        "type": "classic",
+        "difficulty": "lett",
+        "task": "(Innstegsoppgave.) En variabel er uniformt fordelt på $(0, 4)$.\n\n**a)** Skriv opp tettheten $f(x)$.\n\n**b)** Finn $P(1 < X < 3)$.\n\n**c)** Finn $E(X)$.",
+        "solution": "**a)** $f(x) = \\dfrac{1}{4-0} = \\dfrac{1}{4}$ for $0 < x < 4$ (og 0 ellers).\n\n**b)** $P(1 < X < 3) = \\dfrac{3 - 1}{4 - 0} = \\dfrac{2}{4} = 0{,}5$ (lengdeforhold).\n\n**c)** $E(X) = \\dfrac{0 + 4}{2} = 2$.",
+        "hints": [
+          "Uniform tetthet er $1/(b-a)$.",
+          "Sannsynlighet = lengdeforhold $(3-1)/(4-0)$.",
+          "$E = (a+b)/2$."
+        ]
+      }
+    },
+    {
+      "id": "tma4245-2-3-m1",
+      "type": "exercise",
+      "exercise": {
+        "id": "tma4245-2-3-m1",
+        "number": "2",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "Levetiden $X$ (i år) til en pumpe er eksponensialfordelt med forventning $\\beta = 5$ år.\n\n**a)** Finn $P(X \\le 2)$.\n\n**b)** Finn $P(X > 8)$.\n\n**c)** Finn $P(X > 8 \\mid X > 3)$ og sammenlign med $P(X > 5)$.",
+        "solution": "**a)** $P(X \\le 2) = F(2) = 1 - e^{-2/5} = 1 - e^{-0{,}4} \\approx 1 - 0{,}6703 = 0{,}3297$.\n\n**b)** $P(X > 8) = e^{-8/5} = e^{-1{,}6} \\approx 0{,}2019$.\n\n**c)** $P(X > 8 \\mid X > 3) = \\dfrac{e^{-8/5}}{e^{-3/5}} = e^{-1} \\approx 0{,}3679$, som er nøyaktig $P(X > 5) = e^{-1}$. Minneløsheten bekreftet: de tre årene «huskes» ikke.",
+        "hints": [
+          "$F(x) = 1 - e^{-x/\\beta}$ og $P(X>x) = e^{-x/\\beta}$.",
+          "Betinget: del halesannsynlighetene.",
+          "Minneløshet gir $P(X>8\\mid X>3) = P(X>5)$."
+        ]
+      }
+    },
+    {
+      "id": "tma4245-2-3-kobling-poisson",
+      "type": "text",
+      "content": "### Broen til Poisson-prosessen\n\nEksponensialfordelingen er ikke tilfeldig valgt for ventetider: i en **Poisson-prosess** med rate $\\lambda$ (fra [kap. 2.2](/bok/tma4245/tma4245-2-2)) er tiden mellom to hendelser nettopp eksponensialfordelt med forventning $\\beta = 1/\\lambda$. Antall hendelser (diskret Poisson) og tid mellom hendelser (kontinuerlig eksponensial) beskriver samme prosess fra to vinkler. Minneløsheten svarer da til at prosessen «starter på nytt» etter hver hendelse."
+    },
+    {
+      "id": "tma4245-2-3-pause1",
+      "type": "text",
+      "content": "*— naturlig pausepunkt —*"
+    },
+    {
+      "id": "tma4245-2-3-lokke2",
+      "type": "text",
+      "content": "## Løkke 2 — Gamma, kjikvadrat og Weibull (~22 min)"
+    },
+    {
+      "id": "tma4245-2-3-def-gamma",
+      "type": "definition",
+      "title": "Gammafordelingen $\\text{gamma}(n, \\beta)$",
+      "content": "Summen av $n$ **uavhengige** eksponensialfordelte variable, hver med forventning $\\beta$, er **gammafordelt**:\n\n$$X = Y_1 + Y_2 + \\cdots + Y_n \\sim \\text{gamma}(n, \\beta), \\qquad E(X) = n\\beta, \\quad \\text{Var}(X) = n\\beta^2.$$\n\nTolkning: ventetiden til den $n$-te hendelsen i en Poisson-prosess er gamma. Forventning og varians følger direkte av regnereglene i [kap. 2.1](/bok/tma4245/tma4245-2-1) (summen av forventninger, summen av varianser for uavhengige). At summen faktisk *er* gamma-fordelt vises med MGF-teknikken i kap. 4.1 — her bruker vi resultatet."
+    },
+    {
+      "id": "tma4245-2-3-def-kjikvadrat",
+      "type": "definition",
+      "title": "Kjikvadratfordelingen $\\chi^2_\\nu$",
+      "content": "**Kjikvadratfordelingen** med $\\nu$ frihetsgrader er et spesialtilfelle av gammafordelingen, og den er selve arbeidshesten i inferensdelen (konfidensintervall og tester for varians og for eksponensiale data). Vi trenger ett nøkkelresultat allerede nå:\n\n$$\\text{er } X \\sim \\text{eksp}(\\beta), \\text{ så er } \\frac{2X}{\\beta} \\sim \\chi^2_2.$$\n\nDette **forhåndsvarselet** — at en enkel omskalering av en eksponensiell variabel gir en kjikvadratvariabel med 2 frihetsgrader — er broen til eksponensialens konfidensintervall. Selve utledningen kommer i kap. 4.1–4.2; her er poenget bare å kjenne igjen koblingen."
+    },
+    {
+      "id": "tma4245-2-3-def-weibull",
+      "type": "definition",
+      "title": "Weibullfordelingen",
+      "content": "**Weibullfordelingen** er en fleksibel levetidsmodell definert gjennom **fordelingsfunksjonen**:\n\n$$F(x) = 1 - e^{-(x/\\theta)^k} \\quad (x > 0), \\qquad P(X > x) = e^{-(x/\\theta)^k}.$$\n\nHer er $\\theta > 0$ en skalaparameter og $k > 0$ en formparameter. Sannsynligheter og kvantiler regnes rett fra $F$ (og $1 - F$). Spesialtilfellet $k = 1$ er eksponensialfordelingen. **Viktig:** for $k \\ne 1$ er Weibull *ikke* minneløs — en brukt komponent er *ikke* like god som ny, og betingede sannsynligheter må regnes eksplisitt (neste eksempel)."
+    },
+    {
+      "id": "tma4245-2-3-ex-2",
+      "type": "example",
+      "title": "Eksempel 2: Weibull er ikke minneløs",
+      "problem": "Levetiden $X$ (i tusen timer) til et lager er Weibull-fordelt med $\\theta = 10$ og $k = 2$, altså $F(x) = 1 - e^{-(x/10)^2}$.\n\n**a)** Finn $P(X > 12)$.\n\n**b)** Finn $P(X > 15 \\mid X > 12)$, og forklar hvorfor svaret *ikke* er $P(X > 3)$.",
+      "solution": "**a)** $P(X > 12) = e^{-(12/10)^2} = e^{-1{,}44} \\approx 0{,}2369$.\n\n**b)** Betinget sannsynlighet med $\\{X > 15\\} \\subseteq \\{X > 12\\}$:\n$$P(X > 15 \\mid X > 12) = \\frac{P(X > 15)}{P(X > 12)} = \\frac{e^{-(15/10)^2}}{e^{-(12/10)^2}} = e^{-(2{,}25 - 1{,}44)} = e^{-0{,}81} \\approx 0{,}4449.$$\n\n**Hvorfor ikke $P(X > 3)$?** For en *minneløs* (eksponensiell) fordeling ville svaret vært $P(X > 3)$. Men Weibull med $k = 2$ er ikke minneløs: her er $P(X > 3) = e^{-(3/10)^2} = e^{-0{,}09} \\approx 0{,}9139$ — helt forskjellig fra $0{,}4449$. Fordi $k = 2 > 1$ har lageret en **økende feilrate** (det slites), så det å ha vart 12 tusen timer gjør det *mer* utsatt fremover. Betingede sannsynligheter må derfor alltid regnes eksplisitt for Weibull."
+    },
+    {
+      "id": "tma4245-2-3-l2",
+      "type": "exercise",
+      "exercise": {
+        "id": "tma4245-2-3-l2",
+        "number": "3",
+        "type": "classic",
+        "difficulty": "lett",
+        "task": "En komponent har eksponensialfordelt levetid med forventning $\\beta = 4$ år. Vi vet at gamma-fordelingen er summen av uavhengige eksponensiale.\n\n**a)** Finn $E(X)$ og $\\text{Var}(X)$ for én komponent.\n\n**b)** Tre slike komponenter brukes etter hverandre (den neste starter når den forrige svikter). La $T$ være samlet levetid. Finn $E(T)$ og $\\text{Var}(T)$.",
+        "solution": "**a)** For eksponensial er $E(X) = \\beta = 4$ og $\\text{Var}(X) = \\beta^2 = 16$.\n\n**b)** $T = X_1 + X_2 + X_3$ er gamma$(3, 4)$. Med regnereglene for uavhengige variable: $E(T) = 3\\beta = 12$ år, og $\\text{Var}(T) = 3\\beta^2 = 48$.",
+        "hints": [
+          "Eksponensial: $E=\\beta$, $\\text{Var}=\\beta^2$.",
+          "Sum av $n$ uavhengige eksponensiale er gamma$(n,\\beta)$ med $E=n\\beta$, $\\text{Var}=n\\beta^2$."
+        ]
+      }
+    },
+    {
+      "id": "tma4245-2-3-m2",
+      "type": "exercise",
+      "exercise": {
+        "id": "tma4245-2-3-m2",
+        "number": "4",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "Vindstyrken $X$ (i m/s) på en målestasjon er Weibull-fordelt med $\\theta = 8$ og $k = 2$: $F(x) = 1 - e^{-(x/8)^2}$.\n\n**a)** Finn $P(X > 10)$.\n\n**b)** Finn medianen ved å løse $F(m) = 0{,}5$.",
+        "solution": "**a)** $P(X > 10) = e^{-(10/8)^2} = e^{-1{,}5625} \\approx 0{,}2096$.\n\n**b)** $F(m) = 0{,}5$ gir $1 - e^{-(m/8)^2} = 0{,}5$, altså $e^{-(m/8)^2} = 0{,}5$, så $(m/8)^2 = \\ln 2$ og\n$$m = 8\\sqrt{\\ln 2} = 8 \\cdot 0{,}8326 \\approx 6{,}66 \\text{ m/s}.$$",
+        "hints": [
+          "$P(X>x) = e^{-(x/\\theta)^k}$.",
+          "Median: sett $F(m) = 0{,}5$ og løs for $m$; husk $\\ln$."
+        ]
+      }
+    },
+    {
+      "id": "tma4245-2-3-pause2",
+      "type": "text",
+      "content": "*— naturlig pausepunkt —*"
+    },
+    {
+      "id": "tma4245-2-3-lokke3",
+      "type": "text",
+      "content": "## Løkke 3 — Oppskriftsfordelinger og egendefinerte tettheter (~19 min)"
+    },
+    {
+      "id": "tma4245-2-3-lokke3-intro",
+      "type": "text",
+      "content": "Eksamen serverer med jevne mellomrom en fordeling du aldri har sett navnet på — Gumbel (hundreårsflom), Pareto (ekstremverdier), beta (andeler), en trunkert variant. **Ikke la det ukjente navnet skremme deg:** når tettheten eller fordelingsfunksjonen er *oppgitt*, er alt du trenger standardteknikkene fra denne delen. Vi kaller dette **«oppskriftsfordelinger»** fordi oppskriften alltid er den samme."
+    },
+    {
+      "id": "tma4245-2-3-def-oppskrift",
+      "type": "definition",
+      "title": "«Oppskriftsfordeling»-beredskapen",
+      "content": "Får du en ukjent kontinuerlig fordeling med **oppgitt** tetthet $f(x)$ eller fordelingsfunksjon $F(x)$, bruker du fire standardgrep — uansett hva fordelingen heter:\n\n1. **Normering:** hvis en konstant er ukjent, bestem den fra $\\int f(x)\\,dx = 1$ over støtten.\n2. **Sannsynligheter:** $P(a < X < b) = F(b) - F(a) = \\int_a^b f(x)\\,dx$; halesannsynlighet $P(X > x) = 1 - F(x)$.\n3. **Kvantiler/median:** løs $F(x_p) = p$ (for median $p = 0{,}5$).\n4. **Momenter:** $E(X) = \\int x f(x)\\,dx$, $E(X^2) = \\int x^2 f(x)\\,dx$, deretter $\\text{Var}(X) = E(X^2) - [E(X)]^2$.\n\nDet er *nøyaktig* de samme grepene vi driller i [kap. 2.4](/bok/tma4245/tma4245-2-4)."
+    },
+    {
+      "id": "tma4245-2-3-def-egendefinert",
+      "type": "definition",
+      "title": "Egendefinert tetthet — normeringskonstant",
+      "content": "En **egendefinert tetthet** er gitt ved en formel med en ukjent konstant $c$, for eksempel $f(x) = c x^3$ på $(0, 1)$ eller $f(x) = c/x^4$ for $x > 1$. Konstanten bestemmes alltid av **normeringskravet**:\n\n$$\\int_{\\text{støtte}} f(x)\\,dx = 1.$$\n\nDette er *første* steg — uten riktig $c$ blir alt etterpå galt. Etter normering følger $F$ ved integrasjon, og sannsynligheter, kvantiler og momenter som over. Selve treningen på dette skjer i [kap. 2.4](/bok/tma4245/tma4245-2-4); her etablerer vi bare teknikken."
+    },
+    {
+      "id": "tma4245-2-3-ex-3",
+      "type": "example",
+      "title": "Eksempel 3: En oppskriftsfordeling (Pareto-type)",
+      "problem": "Størrelsen $X$ på en flomtopp (relativt til et referansenivå, $x > 1$) har tetthet $f(x) = \\dfrac{3}{x^4}$ for $x > 1$ og 0 ellers. Dette er en Pareto-type hale-fordeling — men navnet trenger vi ikke.\n\n**a)** Bekreft at $f$ er normert.\n\n**b)** Finn fordelingsfunksjonen $F(x)$ for $x > 1$.\n\n**c)** Finn $P(X > 2)$ og medianen.",
+      "solution": "**a)** $\\int_1^\\infty 3x^{-4}\\,dx = \\left[ 3 \\cdot \\dfrac{x^{-3}}{-3} \\right]_1^\\infty = \\left[ -x^{-3} \\right]_1^\\infty = 0 - (-1) = 1$. Normert.\n\n**b)** For $x > 1$: $F(x) = \\int_1^x 3s^{-4}\\,ds = \\left[ -s^{-3} \\right]_1^x = 1 - x^{-3} = 1 - \\dfrac{1}{x^3}$.\n\n**c)** $P(X > 2) = 1 - F(2) = \\dfrac{1}{2^3} = \\dfrac{1}{8} = 0{,}125$. Median: $F(m) = 0{,}5$ gir $1 - m^{-3} = 0{,}5$, så $m^{-3} = 0{,}5$, $m^3 = 2$ og $m = 2^{1/3} \\approx 1{,}26$. Ingen av stegene krevde at vi visste at fordelingen heter Pareto — bare standardteknikken."
+    },
+    {
+      "id": "tma4245-2-3-l3",
+      "type": "exercise",
+      "exercise": {
+        "id": "tma4245-2-3-l3",
+        "number": "5",
+        "type": "classic",
+        "difficulty": "lett",
+        "task": "En andel $X$ har tetthet $f(x) = 3x^2$ for $0 < x < 1$ og 0 ellers.\n\n**a)** Bekreft at $f$ er en gyldig tetthet (normert).\n\n**b)** Finn $F(x)$ for $0 < x < 1$.\n\n**c)** Finn $P(X > 0{,}5)$.",
+        "solution": "**a)** $f \\ge 0$, og $\\int_0^1 3x^2\\,dx = [x^3]_0^1 = 1$. Gyldig.\n\n**b)** $F(x) = \\int_0^x 3s^2\\,ds = [s^3]_0^x = x^3$ for $0 < x < 1$.\n\n**c)** $P(X > 0{,}5) = 1 - F(0{,}5) = 1 - 0{,}5^3 = 1 - 0{,}125 = 0{,}875$.",
+        "hints": [
+          "Normering: sjekk $\\int_0^1 f = 1$.",
+          "$F(x) = \\int_0^x f(s)\\,ds$.",
+          "$P(X > 0{,}5) = 1 - F(0{,}5)$."
+        ]
+      }
+    },
+    {
+      "id": "tma4245-2-3-v1",
+      "type": "exercise",
+      "exercise": {
+        "id": "tma4245-2-3-v1",
+        "number": "6",
+        "type": "classic",
+        "difficulty": "vanskelig",
+        "task": "Ventetiden $X$ (i minutter) til neste alarm er eksponensialfordelt med forventning $\\beta = 10$. En ny fordeling $Y$ har oppgitt fordelingsfunksjon $F_Y(y) = 1 - e^{-(y/10)^{1{,}5}}$ for $y > 0$ (en Weibull med $\\theta = 10$, $k = 1{,}5$).\n\n**a)** Finn $P(X > 15 \\mid X > 10)$ for eksponensialvariabelen.\n\n**b)** Finn $P(Y > 15 \\mid Y > 10)$ for Weibull-variabelen.\n\n**c)** Forklar hvorfor de to svarene er forskjellige.",
+        "solution": "**a)** Eksponensial er minneløs: $P(X > 15 \\mid X > 10) = P(X > 5) = e^{-5/10} = e^{-0{,}5} \\approx 0{,}6065$.\n\n**b)** Weibull, regnes eksplisitt med $P(Y > y) = e^{-(y/10)^{1{,}5}}$:\n$$P(Y > 15 \\mid Y > 10) = \\frac{e^{-(1{,}5)^{1{,}5}}}{e^{-(1{,}0)^{1{,}5}}} = e^{-((1{,}5)^{1{,}5} - 1)}.$$\nMed $(1{,}5)^{1{,}5} = 1{,}5\\sqrt{1{,}5} \\approx 1{,}8371$: $P(Y > 15 \\mid Y > 10) = e^{-0{,}8371} \\approx 0{,}4330$.\n\n**c)** Eksponensialen (a) er minneløs, så de 10 forløpte minuttene «glemmes» og bare de ekstra 5 teller. Weibull med $k = 1{,}5 > 1$ har **økende feilrate** og er *ikke* minneløs: at $Y$ allerede har vart 10 minutter gjør den mer utsatt fremover, så den betingede sannsynligheten blir lavere ($0{,}4330 < 0{,}6065$). Man kan aldri bruke minneløshet på en Weibull.",
+        "hints": [
+          "Eksponensial er minneløs: bruk $P(X>15\\mid X>10)=P(X>5)$.",
+          "Weibull: del halesannsynlighetene $e^{-(y/\\theta)^k}$ direkte.",
+          "Sammenlign feilraten: $k>1$ betyr slitasje, ikke minneløshet."
+        ]
+      }
+    },
+    {
+      "id": "tma4245-2-3-v2",
+      "type": "exercise",
+      "exercise": {
+        "id": "tma4245-2-3-v2",
+        "number": "7b",
+        "type": "classic",
+        "difficulty": "vanskelig",
+        "task": "Et reservesystem har to komponenter: komponent 2 starter først når komponent 1 svikter. Hver har eksponensialfordelt levetid med forventning $\\beta=6$ år, uavhengig av hverandre. La $T=X_1+X_2$ være samlet levetid.\n\n**a)** Hvilken fordeling har $T$? Finn $E(T)$ og $\\text{Var}(T)$.\n\n**b)** Oppgi fordelingen til $2X_1/\\beta$.\n\n**c)** Finn $P(X_1>6)$ og $P(X_1>12\\mid X_1>6)$, og forklar hvorfor de er like.",
+        "solution": "**a)** Summen av to uavhengige eksponensiale er gamma: $T\\sim\\text{gamma}(2,\\ 6)$. $E(T)=2\\beta=12$ år, $\\text{Var}(T)=2\\beta^2=72$.\n\n**b)** Fra kjikvadrat-koblingen er $2X_1/\\beta\\sim\\chi^2_2$ (dvs. $2X_1/6\\sim\\chi^2_2$).\n\n**c)** $P(X_1>6)=e^{-6/6}=e^{-1}\\approx 0{,}368$. Ved minneløshet er $P(X_1>12\\mid X_1>6)=P(X_1>6)=e^{-1}$ — de er like fordi eksponensialfordelingen er minneløs, så de forløpte 6 årene «glemmes».",
+        "hints": [
+          "Sum av uavhengige eksponensiale er gamma$(n,\\beta)$.",
+          "Kjikvadrat-koblingen: $2X/\\beta\\sim\\chi^2_2$.",
+          "Minneløshet: $P(X>12\\mid X>6)=P(X>6)$."
+        ]
+      }
+    },
+    {
+      "id": "tma4245-2-3-warn",
+      "type": "warning",
+      "title": "Typiske feil",
+      "content": "- **Misbruke minneløsheten på Weibull** (eller på en hvilken som helst ikke-eksponensiell fordeling). Minneløshet gjelder *bare* eksponensialfordelingen; for Weibull med $k \\ne 1$ må betingede sannsynligheter regnes eksplisitt.\n- **Glemme minneløsheten på eksponensial** og regne unødig langt. Er fordelingen eksponensiell, er $P(X > s+t \\mid X > t) = P(X > s)$ — bruk snarveien.\n- **Blande rate og forventning.** Boka bruker $E(X) = \\beta$ (forventnings-formen). Blander du inn rate $1/\\beta$ i formlene, blir alt galt. Reserver $\\lambda$ for Poisson.\n- **Blande tetthet og sannsynlighet.** $f(x)$ er ikke en sannsynlighet (kan overstige 1); bare arealer/verdier av $F$ er sannsynligheter.\n- **Glemme normeringskonstanten** for en egendefinert tetthet. Bestem $c$ fra $\\int f = 1$ *før* du regner videre.\n- **La et ukjent fordelingsnavn skremme deg.** Er $f$ eller $F$ oppgitt, er oppskriften alltid: normer, integrer til $F$, regn sannsynligheter/kvantiler/momenter."
+    },
+    {
+      "id": "tma4245-2-3-begrepsbank",
+      "type": "text",
+      "content": "## Begrepsbank til eksamen\n\nFordelingskatalogen og teknikk-kortene for kontinuerlige fordelinger, samlet i kortform.\n\n*Begrepsbanken er flashcard-/repetisjonsstoff — den gjentar det du nettopp har lest. Hopp trygt over ved førstegangslesing; tidsanslaget gjelder kjernestoffet.*"
+    },
+    {
+      "id": "tma4245-2-3-bb-kat-uniform",
+      "type": "definition",
+      "title": "Katalogkort: uniform på $(a,b)$",
+      "content": "**Tetthet:** $f(x) = 1/(b-a)$ konstant. **Fordelingsfunksjon:** $F(x) = (x-a)/(b-a)$. **Forventning:** $E = (a+b)/2$. **Varians:** $\\text{Var} = (b-a)^2/12$. Sannsynligheter er lengdeforhold. Uniform på $(0,1)$ er råstoffet for simulering."
+    },
+    {
+      "id": "tma4245-2-3-bb-kat-eksp",
+      "type": "definition",
+      "title": "Katalogkort: eksponensial $\\text{eksp}(\\beta)$",
+      "content": "**Tetthet:** $f(x) = \\tfrac{1}{\\beta}e^{-x/\\beta}$. **Fordelingsfunksjon:** $F(x) = 1 - e^{-x/\\beta}$. **Hale:** $P(X>x) = e^{-x/\\beta}$. **Forventning:** $E = \\beta$. **Varians:** $\\text{Var} = \\beta^2$ (så $\\text{SD} = \\beta$). Boka bruker forventnings-formen $\\beta$, aldri rate i oppgaver."
+    },
+    {
+      "id": "tma4245-2-3-bb-kat-gamma",
+      "type": "definition",
+      "title": "Katalogkort: gamma $(n,\\beta)$",
+      "content": "**Situasjon:** sum av $n$ uavhengige eksponensiale (forventning $\\beta$ hver) — for eksempel ventetid til $n$-te hendelse i en Poisson-prosess. **Forventning:** $E = n\\beta$. **Varians:** $\\text{Var} = n\\beta^2$. At summen faktisk er gamma vises med MGF i kap. 4.1."
+    },
+    {
+      "id": "tma4245-2-3-bb-kat-kjikvadrat",
+      "type": "definition",
+      "title": "Katalogkort: kjikvadrat $\\chi^2_\\nu$",
+      "content": "Spesialtilfelle av gamma, med $\\nu$ frihetsgrader; sentral i inferens (varians-KI og -tester). Nøkkelkobling: er $X \\sim \\text{eksp}(\\beta)$, er $2X/\\beta \\sim \\chi^2_2$. Kvantilnotasjon med øvre haleareal: $\\chi^2_{\\nu,\\alpha}$. Utledes i Del 4; her bare kjenne koblingen."
+    },
+    {
+      "id": "tma4245-2-3-bb-kat-weibull",
+      "type": "definition",
+      "title": "Katalogkort: Weibull $(\\theta,k)$",
+      "content": "Definert ved **fordelingsfunksjonen** $F(x) = 1 - e^{-(x/\\theta)^k}$, med skala $\\theta$ og form $k$. **Hale:** $P(X>x) = e^{-(x/\\theta)^k}$. Regn sannsynligheter og kvantiler rett fra $F$. $k = 1$ gir eksponensial; $k > 1$ gir økende feilrate (slitasje), $k < 1$ avtakende. **Ikke minneløs** for $k \\ne 1$."
+    },
+    {
+      "id": "tma4245-2-3-bb-minnelos-unik",
+      "type": "definition",
+      "title": "Feilkort: minneløshet er unik",
+      "content": "Minneløsheten $P(X > s+t \\mid X > t) = P(X > s)$ gjelder **bare** eksponensialfordelingen blant de kontinuerlige. En brukt eksponensiell komponent er «like god som ny». For alle andre levetidsmodeller (Weibull, gamma med $n>1$, Pareto) må betingede sannsynligheter regnes eksplisitt fra $F$ — å bruke minneløshet der er en klassisk feil."
+    },
+    {
+      "id": "tma4245-2-3-bb-weibull-feilrate",
+      "type": "definition",
+      "title": "Begrepskort: feilrate og form $k$",
+      "content": "Weibulls formparameter $k$ styrer hvordan feilraten utvikler seg: $k = 1$ konstant rate (eksponensial, minneløs), $k > 1$ **økende** rate (komponenten slites — betinget levetid synker med alder), $k < 1$ **avtakende** rate (barnedødelighet — overlevde tidlig svikt). Dette forklarer hvorfor Weibull ikke er minneløs når $k \\ne 1$."
+    },
+    {
+      "id": "tma4245-2-3-bb-normering",
+      "type": "definition",
+      "title": "Teknikkort: normeringskonstant",
+      "content": "For en egendefinert tetthet med ukjent konstant $c$: bestem $c$ fra $\\int_{\\text{støtte}} f(x)\\,dx = 1$. Dette er **alltid** første steg. Glemmer du normeringen, blir fordelingsfunksjon, sannsynligheter og momenter alle gale. Deretter følger $F$ ved integrasjon fra støttens venstre ende."
+    },
+    {
+      "id": "tma4245-2-3-bb-cdf-fra-f",
+      "type": "definition",
+      "title": "Teknikkort: $F$ fra $f$ (stykkevis)",
+      "content": "Fordelingsfunksjonen er integralet av tettheten fra støttens start: $F(x) = \\int_{-\\infty}^x f(s)\\,ds$. Den er **stykkevis**: $0$ til venstre for støtten, det integrerte uttrykket inne i støtten, og $1$ til høyre. Å oppgi $F$ komplett (med verdiene 0 og 1 utenfor) er et sensorkrav i sjanger C."
+    },
+    {
+      "id": "tma4245-2-3-bb-hale",
+      "type": "definition",
+      "title": "Teknikkort: halesannsynlighet",
+      "content": "Halesannsynligheten (overlevelsesfunksjonen) er $P(X > x) = 1 - F(x)$. For eksponensial er den $e^{-x/\\beta}$, for Weibull $e^{-(x/\\theta)^k}$. Halesannsynligheter er nyttige for «minst så lenge»-spørsmål og for betingede levetider (del to haler)."
+    },
+    {
+      "id": "tma4245-2-3-bb-median-kvantil",
+      "type": "definition",
+      "title": "Teknikkort: median og kvantil fra $F$",
+      "content": "Medianen $m$ løser $F(m) = 0{,}5$; $p$-kvantilen $x_p$ løser $F(x_p) = p$. Løs likningen for $x$ — *ikke* sett $f(m) = 0{,}5$ (en klassisk feil). For eksponensial gir $F(m) = 0{,}5$ medianen $m = \\beta \\ln 2 \\approx 0{,}693\\,\\beta$, som er *mindre* enn forventningen $\\beta$ (høyreskjev fordeling)."
+    },
+    {
+      "id": "tma4245-2-3-bb-momenter",
+      "type": "definition",
+      "title": "Teknikkort: momenter ved integrasjon",
+      "content": "For en kontinuerlig variabel: $E(X) = \\int x f(x)\\,dx$ og $E(X^2) = \\int x^2 f(x)\\,dx$ over støtten, deretter $\\text{Var}(X) = E(X^2) - [E(X)]^2$. Vis alltid mellomregningen i $E(X^2)$-integralet (sensorkrav) — det er der regnefeilene skjer."
+    },
+    {
+      "id": "tma4245-2-3-bb-kat-pareto",
+      "type": "definition",
+      "title": "Katalogkort: Pareto-type hale",
+      "content": "En hale-tetthet av typen $f(x) = c/x^{p}$ for $x > x_0$ (Pareto) modellerer ekstremverdier og store utfall. Normeres fra $\\int f = 1$, og $F$, kvantiler og momenter regnes med standardteknikken. Merk: for tunge haler kan $E(X)$ være uendelig hvis $p$ er liten nok — sjekk at momentintegralet konvergerer."
+    },
+    {
+      "id": "tma4245-2-3-bb-kat-gumbel",
+      "type": "definition",
+      "title": "Katalogkort: Gumbel (ekstremverdi)",
+      "content": "Gumbelfordelingen modellerer maksimalverdier (hundreårsflom, ekstrem vind) og oppgis alltid med tetthet/CDF i oppgaven. Ingen egen formel å pugge: bruk den oppgitte $F$ til sannsynligheter ($P(X > x) = 1 - F(x)$) og kvantiler ($F(x_p) = p$). Et rent «oppskriftsfordeling»-eksempel."
+    },
+    {
+      "id": "tma4245-2-3-bb-poisson-eksp",
+      "type": "definition",
+      "title": "Katalogkort: Poisson ↔ eksponensial",
+      "content": "I en Poisson-prosess med rate $\\lambda$ er tiden **mellom** hendelser eksponensialfordelt med forventning $\\beta = 1/\\lambda$, og tiden til den $n$-te hendelsen er gamma$(n, 1/\\lambda)$. Diskret antall (Poisson) og kontinuerlig ventetid (eksponensial/gamma) er samme prosess sett fra to sider."
+    },
+    {
+      "id": "tma4245-2-3-bb-skjevhet-eksp",
+      "type": "definition",
+      "title": "Begrepskort: eksponensial er høyreskjev",
+      "content": "Eksponensialfordelingen er sterkt **høyreskjev**: medianen $\\beta\\ln 2 \\approx 0{,}693\\,\\beta$ er mindre enn forventningen $\\beta$, og en lang høyrehale gir av og til svært store verdier. Derfor er det ofte forskjell på «typisk» (median) og «gjennomsnittlig» (forventning) levetid — en tolkning sensor liker å spørre om."
+    },
+    {
+      "id": "tma4245-2-3-bb-forhaandsvarsel-chi",
+      "type": "definition",
+      "title": "Forhåndskort: $2X/\\beta \\sim \\chi^2_2$",
+      "content": "Nøkkelbroen til inferens for eksponensielle data: er $X \\sim \\text{eksp}(\\beta)$, er $2X/\\beta \\sim \\chi^2_2$, og for et utvalg er $2\\sum X_i/\\beta \\sim \\chi^2_{2n}$. Dette er **pivotalen** som gir eksponensialens konfidensintervall (Del 4 og 6). Merk frihetsgraden: alltid $2n$ (ikke $n$ eller $n-1$) i eksponensialtilfellet."
+    },
+    {
+      "id": "tma4245-2-3-bb-tetthet-ikke-sanns",
+      "type": "definition",
+      "title": "Feilkort: tetthet er ikke sannsynlighet",
+      "content": "$f(x)$ er en tetthet, ikke en sannsynlighet, og **kan godt være større enn 1**. For uniform på $(0, 0{,}5)$ er $f(x) = 2$; for eksponensial med liten $\\beta$ er $f(0) = 1/\\beta$ stor. Bare **arealer** under $f$ (og verdier av $F$) er sannsynligheter mellom 0 og 1. Sannsynligheten for et enkeltpunkt er alltid $P(X=x)=0$."
+    },
+    {
+      "id": "tma4245-2-3-bb-kat-beta",
+      "type": "definition",
+      "title": "Katalogkort: beta-fordeling (andeler)",
+      "content": "Beta-fordelingen modellerer en **andel** eller sannsynlighet mellom 0 og 1 (defektandel, fyllingsgrad). Tettheten $f(x) = c\\,x^{a-1}(1-x)^{b-1}$ på $(0,1)$ oppgis i oppgaven med konstanten $c$ (eller den bestemmes ved normering). Behandles med standardteknikken: normer, integrer til $F$, regn sannsynligheter og momenter."
+    },
+    {
+      "id": "tma4245-2-3-bb-standard-uniform",
+      "type": "definition",
+      "title": "Begrepskort: standard uniform $U(0,1)$",
+      "content": "Uniform på $(0,1)$ har $f(x) = 1$, $F(x) = x$, $E = 0{,}5$ og $\\text{Var} = 1/12$. Den er råstoffet i **inversjonsmetoden** for simulering: setter du $U \\sim U(0,1)$ inn i $F^{-1}$, får du en trekning fra en vilkårlig fordeling. Denne broen fullføres i kap. 4.1 og simuleringsdelen."
+    },
+    {
+      "id": "tma4245-2-3-bb-betinget-levetid",
+      "type": "definition",
+      "title": "Teknikkort: betinget levetid",
+      "content": "For «hvor mye lenger varer den, gitt at den allerede har vart $t$?» deler du to halesannsynligheter:\n\n$$P(X > t + s \\mid X > t) = \\frac{P(X > t+s)}{P(X > t)}.$$\n\nFor eksponensial forenkler dette seg til $P(X > s)$ (minneløshet); for Weibull, gamma og oppskriftsfordelinger må brøken regnes eksplisitt. Gjelder $\\{X > t+s\\} \\subseteq \\{X > t\\}$, så snittet er den øverste hendelsen."
+    },
+    {
+      "id": "tma4245-2-3-bb-frihetsgrad-2n",
+      "type": "definition",
+      "title": "Feilkort: frihetsgrad $2n$ for eksponensial",
+      "content": "I eksponensialtilfellet er pivotalens frihetsgrad **alltid $2n$**: $2\\sum X_i/\\beta \\sim \\chi^2_{2n}$. Det er en vanlig feil å bruke $\\chi^2_n$ eller $\\chi^2_{n-1}$ (som hører til normalfordelingens varians). Husk faktoren 2 fra koblingen $2X/\\beta \\sim \\chi^2_2$ per observasjon."
+    },
+    {
+      "id": "tma4245-2-3-rep",
+      "type": "collapsible",
+      "title": "Repetisjonsoppgaver",
+      "buttonText": "Vis repetisjonsoppgaver",
+      "content": [
+        {
+          "id": "tma4245-2-3-rep-1",
+          "type": "exercise",
+          "exercise": {
+            "id": "tma4245-2-3-rep-1",
+            "number": "R1",
+            "type": "classic",
+            "difficulty": "lett",
+            "task": "(Fra kap. 2.1) En kontinuerlig variabel har tetthet $f(x) = 1/4$ på $(0,4)$. Hva er $P(X = 2)$?",
+            "solution": "$P(X = 2) = 0$ — for en kontinuerlig variabel er sannsynligheten for et enkeltpunkt alltid null.",
+            "hints": [
+              "Kontinuerlig variabel: $P(X=x)=0$."
+            ]
+          }
+        },
+        {
+          "id": "tma4245-2-3-rep-2",
+          "type": "exercise",
+          "exercise": {
+            "id": "tma4245-2-3-rep-2",
+            "number": "R2",
+            "type": "classic",
+            "difficulty": "lett",
+            "task": "En variabel er eksponensialfordelt med $\\beta = 2$. Finn $P(X > 2)$.",
+            "solution": "$P(X > 2) = e^{-2/\\beta} = e^{-2/2} = e^{-1} \\approx 0{,}368$.",
+            "hints": [
+              "$P(X > x) = e^{-x/\\beta}$."
+            ]
+          }
+        },
+        {
+          "id": "tma4245-2-3-rep-3",
+          "type": "exercise",
+          "exercise": {
+            "id": "tma4245-2-3-rep-3",
+            "number": "R3",
+            "type": "classic",
+            "difficulty": "middels",
+            "task": "(Fra kap. 2.2) I en Poisson-prosess med rate $\\lambda = 3$ per time, hva er forventet tid mellom to hendelser?",
+            "solution": "Tiden mellom hendelser er eksponensialfordelt med forventning $\\beta = 1/\\lambda = 1/3$ time $= 20$ minutter.",
+            "hints": [
+              "Ventetid i en Poisson-prosess er eksponensial med $\\beta = 1/\\lambda$."
+            ]
+          }
+        },
+        {
+          "id": "tma4245-2-3-rep-4",
+          "type": "exercise",
+          "exercise": {
+            "id": "tma4245-2-3-rep-4",
+            "number": "R4",
+            "type": "classic",
+            "difficulty": "middels",
+            "task": "En uniform variabel på $(0,10)$. Finn $E(X)$, $\\text{Var}(X)$ og $P(X > 8)$.",
+            "solution": "$E(X) = (0+10)/2 = 5$; $\\text{Var}(X) = 10^2/12 = 100/12 \\approx 8{,}33$; $P(X > 8) = (10-8)/10 = 0{,}2$.",
+            "hints": [
+              "$E = (a+b)/2$, $\\text{Var} = (b-a)^2/12$.",
+              "Sannsynlighet = lengdeforhold."
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": "tma4245-2-3-symbolliste",
+      "type": "collapsible",
+      "title": "Symbol- og formelliste",
+      "buttonText": "Vis symboler og formler",
+      "content": [
+        {
+          "id": "tma4245-2-3-symbolliste-text",
+          "type": "text",
+          "content": "*Oppslagsverk — alt her forklares underveis i kapitlet.*\n\nAlle symboler og formler brukt i kapittel 2.3, samlet.\n\n| Symbol | Betydning |\n|---|---|\n| $f(x)$ | Tetthetsfunksjon |\n| $F(x)$ | Fordelingsfunksjon $P(X \\le x)$ |\n| $a, b$ | Endepunkter for uniform fordeling |\n| $\\beta$ | Forventningen i eksponensialfordelingen, $E(X) = \\beta$ |\n| $\\lambda$ | Rate i en Poisson-prosess ($\\beta = 1/\\lambda$) |\n| $\\theta, k$ | Skala- og formparameter i Weibull |\n| $\\nu$ | Frihetsgrader (kjikvadrat) |\n| $c$ | Normeringskonstant for egendefinert tetthet |\n| $m$ | Median, løser $F(m) = 0{,}5$ |\n\n**Formler i dette kapitlet:**\n\n$$f(x) = \\frac{1}{b-a}, \\quad E = \\frac{a+b}{2}, \\quad \\text{Var} = \\frac{(b-a)^2}{12}$$\nUniform fordeling på $(a,b)$.\n\n$$f(x) = \\frac{1}{\\beta} e^{-x/\\beta}, \\quad F(x) = 1 - e^{-x/\\beta}, \\quad E = \\beta, \\quad \\text{Var} = \\beta^2$$\nEksponensialfordelingen (forventnings-form).\n\n$$P(X > s+t \\mid X > t) = P(X > s)$$\nMinneløshet — unik for eksponensial.\n\n$$E = n\\beta, \\quad \\text{Var} = n\\beta^2$$\nGamma$(n,\\beta)$ som sum av $n$ uavhengige eksponensiale.\n\n$$\\frac{2X}{\\beta} \\sim \\chi^2_2$$\nKjikvadrat-koblingen for eksponensial (utledes i Del 4).\n\n$$F(x) = 1 - e^{-(x/\\theta)^k}, \\quad P(X > x) = e^{-(x/\\theta)^k}$$\nWeibull — ikke minneløs for $k \\ne 1$.\n\n$$\\int_{\\text{støtte}} f(x)\\,dx = 1, \\qquad E(X) = \\int x f(x)\\,dx$$\nNormering og momenter for egendefinerte/oppskriftsfordelinger."
+        }
+      ]
+    }
+  ],
+  "exercises": []
+}

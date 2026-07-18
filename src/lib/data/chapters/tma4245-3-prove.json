@@ -1,0 +1,277 @@
+{
+  "id": "tma4245-3-prove",
+  "courseId": "tma4245",
+  "chapterNumber": "3.P",
+  "title": "Prøver til del 3: Normalfordelingen og grenseteoremer",
+  "description": "Fire temaprøver som dekker standardisering, lineærkombinasjoner med kovarians, sentralgrenseteoremet og et blandet Inspera-sett — med fullstendige løsningsforslag og selvdiagnose. Kan tas som separate økter.",
+  "estimatedMinutes": 145,
+  "competenceGoals": [
+    "løse eksamensrettede oppgaver fra hele Del 3: standardisering, lineærkombinasjoner og grenseteoremer",
+    "bruke kovariansleddet riktig og unngå de vanligste kombinasjonsfellene",
+    "formulere sentralgrenseteoremet og gjøre normaltilnærming med eksplisitt gyldighetssjekk",
+    "svare med riktig presisjon i Inspera-format"
+  ],
+  "content": [
+    {
+      "id": "tma4245-3-prove-tip",
+      "type": "tip",
+      "title": "Om prøvene til Del 3",
+      "content": "**4 prøver à ~30–45 min** — de dekker hele Del 3: standardisering og tabellbruk, lineærkombinasjoner med kovariansfeller, sentralgrenseteoremet med normaltilnærming, og et blandet sjanger A-sett i Inspera-format.\n\n| Prøve | Tema | Tid |\n|---|---|---|\n| 3.A | Standardisering og tabellbruk (kap. 3.1) | ~30 min |\n| 3.B | Lineærkombinasjoner med kovariansfeller (kap. 3.2) | ~35 min |\n| 3.C | CLT-formulering + normaltilnærming med gyldighetssjekk (kap. 3.3) | ~35 min |\n| 3.D | Blandet sjanger A i Inspera-format, presisjonskrav (kap. 3.1–3.3) | ~45 min |\n\n(*Sjanger A* = den rene normal-regneoppgaven — standardiser, slå opp, svar. *Sjanger O* = korte Inspera-oppgaver med kun tallsvar/avkryssing; de bor i prøve 3.D.)\n\n**Flervalgsoppgavene bor i prøve 3.D** — Inspera-stil med ett riktig alternativ.\n\n**Prøvene kan trygt deles over flere kvelder — én prøve per økt.** Milepælen er å fullføre settet, ikke å ta alt på én gang. Løs hver prøve *før* du åpner fasiten, og bruk selvdiagnose-listen etter fasiten til å se hva du bør repetere. Del 3 åpner nesten hvert eksamenssett — dette er stoffet det lønner seg mest å ha automatisert."
+    },
+    {
+      "id": "tma4245-3-prove-forkunnskaper",
+      "type": "text",
+      "content": "**Forkunnskaper:** Disse prøvene forutsetter hele Del 3 — standardisering og $\\Phi$-tabellen ([kap. 3.1](/bok/tma4245/tma4245-3-1)), lineærkombinasjoner med kovariansledd ([kap. 3.2](/bok/tma4245/tma4245-3-2)) og sentralgrenseteoremet med normaltilnærming ([kap. 3.3](/bok/tma4245/tma4245-3-3)). Drillkapitlet [kap. 3.4](/bok/tma4245/tma4245-3-4) er god oppvarming. Fra tidligere trenger du forventning/varians-reglene fra [kap. 2.1](/bok/tma4245/tma4245-2-1). Klarer du prøvene uten å slå opp, sitter den viktigste delen av eksamen."
+    },
+    {
+      "id": "tma4245-3-prove-intro",
+      "type": "text",
+      "content": "Normalfordelingen står i ≈98 % av settene og er ofte åpningsoppgaven. Her øver du på hele registeret: rene halesannsynligheter, betingede haler, kvantiler baklengs, korrelerte kombinasjoner, teoriformuleringen av CLT og normaltilnærming med gyldighetssjekk. Husk sensorkravene: **standardiser med standardavviket** (ikke variansen), **skriv tabelloppslaget eksplisitt**, **sjekk $np$ og $n(1-p)$ før du tilnærmer**, og **avrund først til slutt** i Inspera-oppgavene."
+    },
+    {
+      "id": "tma4245-3-prove-p1",
+      "type": "collapsible",
+      "title": "Prøve 3.A — Standardisering og tabellbruk (~30 min)",
+      "buttonText": "Vis prøve 3.A",
+      "content": [
+        {
+          "id": "tma4245-3-prove-oppg-p1-ex1",
+          "type": "exercise",
+          "exercise": {
+            "id": "tma4245-3-prove-p1-ex1",
+            "number": "1",
+            "type": "classic",
+            "difficulty": "middels",
+            "task": "Strekkfastheten til en fiber er $X \\sim N(60, 8^2)$ (i N).\n\n**a)** Finn $P(X > 70)$.\n\n**b)** Finn $P(X < 50)$.\n\n**c)** Finn $P(52 < X < 68)$.",
+            "solution": "$\\mu = 60$, $\\sigma = 8$.\n\n**a)** $z = (70 - 60)/8 = 1{,}25$. $P(X > 70) = 1 - \\Phi(1{,}25) = 1 - 0{,}8944 = 0{,}1056$.\n\n**b)** $z = (50 - 60)/8 = -1{,}25$. $P(X < 50) = \\Phi(-1{,}25) = 1 - 0{,}8944 = 0{,}1056$ (samme som a) ved symmetri — grensene ligger like langt fra $\\mu$).\n\n**c)** $z_1 = (52 - 60)/8 = -1{,}00$, $z_2 = (68 - 60)/8 = 1{,}00$. $P(52 < X < 68) = \\Phi(1{,}00) - \\Phi(-1{,}00) = 0{,}8413 - 0{,}1587 = 0{,}6827$.",
+            "hints": [
+              "Standardiser hver grense med $\\sigma = 8$.",
+              "Symmetriske grenser gir $2\\Phi(z) - 1$."
+            ]
+          }
+        },
+        {
+          "id": "tma4245-3-prove-oppg-p1-ex2",
+          "type": "exercise",
+          "exercise": {
+            "id": "tma4245-3-prove-p1-ex2",
+            "number": "2",
+            "type": "classic",
+            "difficulty": "vanskelig",
+            "task": "Fortsatt $X \\sim N(60, 8^2)$.\n\n**a)** Gitt at en fiber tåler mer enn 64 N, finn $P(X > 70 \\mid X > 64)$.\n\n**b)** Bestem grensen $x_0$ som bare $2{,}5 \\%$ av fibrene overstiger.",
+            "solution": "**a)** Betinget hale — del. $z_{70} = 1{,}25$, $P(X > 70) = 0{,}1056$. $z_{64} = (64 - 60)/8 = 0{,}50$, $P(X > 64) = 1 - \\Phi(0{,}50) = 1 - 0{,}6915 = 0{,}3085$. Da $P(X > 70 \\mid X > 64) = 0{,}1056/0{,}3085 = 0{,}3423$.\n\n**b)** $P(X > x_0) = 0{,}025$ gir $z = z_{0{,}025} = 1{,}9600$. $x_0 = 60 + 1{,}9600 \\cdot 8 = 75{,}68$ N.",
+            "hints": [
+              "Betinget = brøk av to haler, ikke $P(X > 6)$.",
+              "Øvre $2{,}5 \\%$: $z_{0{,}025} = 1{,}9600$; $x_0 = \\mu + z\\sigma$."
+            ]
+          }
+        },
+        {
+          "id": "tma4245-3-prove-oppg-p1-ex3",
+          "type": "exercise",
+          "exercise": {
+            "id": "tma4245-3-prove-p1-ex3",
+            "number": "3",
+            "type": "classic",
+            "difficulty": "middels",
+            "task": "En variabel har tetthet $f(x) = \\dfrac{1}{2\\sqrt{2\\pi}}\\, e^{-\\frac{(x-15)^2}{8}}$. Les av $\\mu$ og $\\sigma$, og finn $P(X > 18)$.",
+            "solution": "Avlesning: $\\mu = 15$; nevneren $2\\sigma^2 = 8 \\Rightarrow \\sigma^2 = 4 \\Rightarrow \\sigma = 2$ (passer med $1/(2\\sqrt{2\\pi})$). $z = (18 - 15)/2 = 1{,}50$. $P(X > 18) = 1 - \\Phi(1{,}50) = 1 - 0{,}9332 = 0{,}0668$.",
+            "hints": [
+              "Nevneren i eksponenten er $2\\sigma^2 = 8$.",
+              "Øvre hale med $\\sigma = 2$."
+            ]
+          }
+        },
+        {
+          "id": "tma4245-3-prove-p1-selvdiagnose",
+          "type": "text",
+          "content": "### Selvdiagnose 3.A\n\nKryss av det du mestret uten å slå opp:\n\n- ☐ Jeg standardiserte med standardavviket $\\sigma$ (ikke variansen).\n- ☐ Jeg brukte symmetrien $\\Phi(-z) = 1 - \\Phi(z)$ riktig.\n- ☐ Jeg regnet betinget hale som en brøk, ikke via minneløshet.\n- ☐ Jeg brukte $z_{0{,}025} = 1{,}9600$ i baklengs-oppgaven.\n- ☐ Jeg leste $\\mu$ og $\\sigma$ riktig ut av tetthetsformelen ($2\\sigma^2$ i nevneren).\n\nManglet du noe? Repeter [kap. 3.1](/bok/tma4245/tma4245-3-1)."
+        }
+      ]
+    },
+    {
+      "id": "tma4245-3-prove-p2",
+      "type": "collapsible",
+      "title": "Prøve 3.B — Lineærkombinasjoner med kovariansfeller (~35 min)",
+      "buttonText": "Vis prøve 3.B",
+      "content": [
+        {
+          "id": "tma4245-3-prove-oppg-p2-ex1",
+          "type": "exercise",
+          "exercise": {
+            "id": "tma4245-3-prove-p2-ex1",
+            "number": "1",
+            "type": "classic",
+            "difficulty": "vanskelig",
+            "task": "To materialegenskaper $X$ og $Y$ er simultant normale med $\\mu_X = 50$, $\\mu_Y = 45$, $\\sigma_X^2 = 4$, $\\sigma_Y^2 = 9$ og $\\text{Cov}(X, Y) = -1{,}5$.\n\n**a)** Finn forventning og varians til $X + Y$.\n\n**b)** Finn $P(X + Y > 100)$.\n\n**c)** Finn $P(X < Y)$.",
+            "solution": "**a)** $E(X + Y) = 50 + 45 = 95$. $\\text{Var}(X + Y) = 4 + 9 + 2 \\cdot 1 \\cdot 1 \\cdot (-1{,}5) = 13 - 3 = 10$, så $SD = \\sqrt{10} = 3{,}1623$.\n\n**b)** $z = (100 - 95)/3{,}1623 = 1{,}5811 \\approx 1{,}58$. $P(X + Y > 100) = 1 - \\Phi(1{,}58) = 1 - 0{,}9429 = 0{,}0571$.\n\n**c)** $P(X < Y) = P(X - Y < 0)$. La $D = X - Y$: $E(D) = 5$, $\\text{Var}(D) = 4 + 9 - 2(-1{,}5) = 13 + 3 = 16$, $SD(D) = 4$. $z = (0 - 5)/4 = -1{,}25$, så $P(D < 0) = \\Phi(-1{,}25) = 0{,}1056$.",
+            "hints": [
+              "a) kovariansleddet er $2 \\cdot (-1{,}5) = -3$.",
+              "c) for differansen skifter kovariansleddet fortegn: $-2\\,\\text{Cov} = +3$.",
+              "$\\Phi(1{,}58) = 0{,}9429$; $\\Phi(1{,}25) = 0{,}8944$."
+            ]
+          }
+        },
+        {
+          "id": "tma4245-3-prove-oppg-p2-ex2",
+          "type": "exercise",
+          "exercise": {
+            "id": "tma4245-3-prove-p2-ex2",
+            "number": "2",
+            "type": "classic",
+            "difficulty": "middels",
+            "task": "Egenskapen $Y$ over har $\\mu_Y = 45$ og $\\sigma_Y^2 = 9$. Det tas $n = 25$ uavhengige målinger av $Y$, og gjennomsnittet $\\bar{Y}$ regnes.\n\n**a)** Oppgi fordelingen til $\\bar{Y}$.\n\n**b)** Finn $P(\\bar{Y} > 46)$.",
+            "solution": "**a)** $\\bar{Y} \\sim N(\\mu_Y, \\sigma_Y^2/n) = N(45, 9/25) = N(45, 0{,}36)$, med standardfeil $\\sqrt{0{,}36} = 0{,}6$.\n\n**b)** $z = (46 - 45)/0{,}6 = 1{,}6667 \\approx 1{,}67$. $P(\\bar{Y} > 46) = 1 - \\Phi(1{,}67) = 1 - 0{,}9525 = 0{,}0475$.",
+            "hints": [
+              "$\\bar{Y} \\sim N(\\mu, \\sigma^2/n)$; standardfeil $\\sqrt{9/25} = 0{,}6$.",
+              "Standardiser med $0{,}6$, ikke $\\sigma_Y = 3$."
+            ]
+          }
+        },
+        {
+          "id": "tma4245-3-prove-p2-selvdiagnose",
+          "type": "text",
+          "content": "### Selvdiagnose 3.B\n\nKryss av det du mestret uten å slå opp:\n\n- ☐ Jeg tok med kovariansleddet $2ab\\,\\text{Cov}$ med riktig fortegn.\n- ☐ Jeg husket at variansene *legges sammen* også for en differanse.\n- ☐ Jeg oversatte $P(X < Y)$ til $P(X - Y < 0)$.\n- ☐ Jeg brukte $\\sigma^2/n$ for gjennomsnittet (standardfeilen).\n- ☐ Jeg standardiserte med standardavviket til kombinasjonen.\n\nManglet du noe? Repeter [kap. 3.2](/bok/tma4245/tma4245-3-2)."
+        }
+      ]
+    },
+    {
+      "id": "tma4245-3-prove-p3",
+      "type": "collapsible",
+      "title": "Prøve 3.C — CLT og normaltilnærming med gyldighetssjekk (~35 min)",
+      "buttonText": "Vis prøve 3.C",
+      "content": [
+        {
+          "id": "tma4245-3-prove-oppg-p3-ex1",
+          "type": "exercise",
+          "exercise": {
+            "id": "tma4245-3-prove-p3-ex1",
+            "number": "1",
+            "type": "classic",
+            "difficulty": "middels",
+            "task": "**a)** Formuler sentralgrenseteoremet presist: hvilke forutsetninger kreves, og hva blir det standardiserte gjennomsnittet tilnærmet fordelt som?\n\n**b)** Forklar med én setning hvorfor teoremet gjelder selv når de enkelte $X_i$ ikke er normalfordelte.",
+            "solution": "**a)** La $X_1, \\ldots, X_n$ være **uavhengige og identisk fordelte** med forventning $\\mu$ og **endelig varians** $\\sigma^2 < \\infty$. Da er $\\dfrac{\\bar{X} - \\mu}{\\sigma/\\sqrt{n}}$ tilnærmet $N(0, 1)$ for stor $n$ (ekvivalent: $\\bar{X} \\approx N(\\mu, \\sigma^2/n)$). Alle tre forutsetningene — uavhengige, identisk fordelte, endelig varians — må med.\n\n**b)** Fordi summen av mange uavhengige, endelige bidrag jevner ut de enkelte fordelingenes særtrekk, så gjennomsnittet samler seg i en symmetrisk klokke uansett hvordan hvert $X_i$ er fordelt.",
+            "hints": [
+              "Tre forutsetninger: iid + endelig varians.",
+              "Målet er $N(0,1)$ på standardisert form."
+            ]
+          }
+        },
+        {
+          "id": "tma4245-3-prove-oppg-p3-ex2",
+          "type": "exercise",
+          "exercise": {
+            "id": "tma4245-3-prove-p3-ex2",
+            "number": "2",
+            "type": "classic",
+            "difficulty": "vanskelig",
+            "task": "En komponentleveranse har feilandel $p = 0{,}4$. Det trekkes $n = 150$ komponenter, og andelen defekte $\\hat{p}$ registreres.\n\n**a)** Begrunn at normaltilnærmingen kan brukes.\n\n**b)** Oppgi den tilnærmede fordelingen til $\\hat{p}$ og finn $P(\\hat{p} < 0{,}35)$.",
+            "solution": "**a)** Gyldighetssjekk: $np = 150 \\cdot 0{,}4 = 60$ og $n(1-p) = 150 \\cdot 0{,}6 = 90$. Begge $\\gg 5$, så tilnærmingen er god.\n\n**b)** $\\hat{p} \\approx N\\!\\left(0{,}4,\\ \\dfrac{0{,}4 \\cdot 0{,}6}{150}\\right)$, standardfeil $\\sqrt{0{,}24/150} = \\sqrt{0{,}0016} = 0{,}04$. $z = (0{,}35 - 0{,}40)/0{,}04 = -1{,}25$, så $P(\\hat{p} < 0{,}35) = \\Phi(-1{,}25) = 0{,}1056$.",
+            "hints": [
+              "Sjekk $np$ og $n(1-p)$ mot 5 først.",
+              "Standardfeilen er $\\sqrt{p(1-p)/n} = 0{,}04$."
+            ]
+          }
+        },
+        {
+          "id": "tma4245-3-prove-oppg-p3-ex3",
+          "type": "exercise",
+          "exercise": {
+            "id": "tma4245-3-prove-p3-ex3",
+            "number": "3",
+            "type": "classic",
+            "difficulty": "vanskelig",
+            "task": "Antall pakker et sorteringsanlegg registrerer per time er $X \\sim \\text{Poisson}(\\lambda t = 64)$.\n\n**a)** Begrunn normaltilnærmingen og oppgi tilnærmet fordeling.\n\n**b)** Finn tilnærmet $P(X > 75)$ (uten kontinuitetskorreksjon).\n\n**c)** En kollega vil tilnærme antall pakker i ett *minutt* ($\\lambda t \\approx 1$). Er det forsvarlig? Begrunn.",
+            "solution": "**a)** $\\lambda t = 64 \\ge 15$, så $X \\approx N(64, 64)$ med $SD = \\sqrt{64} = 8$.\n\n**b)** $z = (75 - 64)/8 = 1{,}375 \\approx 1{,}38$. $P(X > 75) \\approx 1 - \\Phi(1{,}38) = 1 - 0{,}9162 = 0{,}0838$.\n\n**c)** Nei. Over ett minutt er $\\lambda t \\approx 1$, langt under gyldighetsgrensen $15$. Fordelingen er da svært skjev (mesteparten av massen på små tall), og normaltilnærmingen ville vært misvisende — regn eksakt Poisson i stedet.",
+            "hints": [
+              "Poisson: $E = \\text{Var} = \\lambda t$, så $X \\approx N(64, 64)$.",
+              "$\\Phi(1{,}38) = 0{,}9162$.",
+              "For c): sammenlign $\\lambda t$ med gyldighetsgrensen $15$."
+            ]
+          }
+        },
+        {
+          "id": "tma4245-3-prove-p3-selvdiagnose",
+          "type": "text",
+          "content": "### Selvdiagnose 3.C\n\nKryss av det du mestret uten å slå opp:\n\n- ☐ Jeg fikk med alle tre forutsetningene i CLT-formuleringen.\n- ☐ Jeg skrev gyldighetssjekken $np$, $n(1-p)$ *før* jeg tilnærmet.\n- ☐ Jeg brukte standardfeilen $\\sqrt{p(1-p)/n}$ for andelen.\n- ☐ Jeg tilnærmet Poisson med $N(\\lambda t, \\lambda t)$.\n- ☐ Jeg vurderte når tilnærmingen er upålitelig (liten $\\lambda t$).\n\nManglet du noe? Repeter [kap. 3.3](/bok/tma4245/tma4245-3-3)."
+        }
+      ]
+    },
+    {
+      "id": "tma4245-3-prove-p4",
+      "type": "collapsible",
+      "title": "Prøve 3.D — Blandet sjanger A i Inspera-format (~45 min)",
+      "buttonText": "Vis prøve 3.D",
+      "content": [
+        {
+          "id": "tma4245-3-prove-oppg-p4-ex1",
+          "type": "exercise",
+          "exercise": {
+            "id": "tma4245-3-prove-p4-ex1",
+            "number": "1",
+            "type": "classic",
+            "difficulty": "vanskelig",
+            "task": "**Kortsvar (Inspera, 2 desimaler der ikke annet er sagt).** Vis mellomregning, men svar med tall.\n\n**a)** $X \\sim N(500, 40^2)$. Finn $P(X > 560)$.\n\n**b)** Samme $X$: finn $P(440 < X < 560)$.\n\n**c)** En variabel har tetthet $\\frac{1}{4\\sqrt{2\\pi}} e^{-(x-25)^2/32}$. Les av $\\mu$ og $\\sigma$, og finn $P(X > 30)$.\n\n**d)** $\\bar{X}$ er snittet av $n = 64$ målinger fra $N(25, 16)$. Finn $P(\\bar{X} > 25{,}8)$.",
+            "solution": "**a)** $z = (560 - 500)/40 = 1{,}50$. $P(X > 560) = 1 - \\Phi(1{,}50) = 1 - 0{,}9332 = 0{,}0668$.\n\n**b)** $z_1 = (440 - 500)/40 = -1{,}50$, $z_2 = 1{,}50$. $P(440 < X < 560) = \\Phi(1{,}50) - \\Phi(-1{,}50) = 0{,}9332 - 0{,}0668 = 0{,}8664$.\n\n**c)** $\\mu = 25$; $2\\sigma^2 = 32 \\Rightarrow \\sigma^2 = 16 \\Rightarrow \\sigma = 4$. $z = (30 - 25)/4 = 1{,}25$. $P(X > 30) = 1 - \\Phi(1{,}25) = 1 - 0{,}8944 = 0{,}1056$.\n\n**d)** $\\bar{X} \\sim N(25, 16/64) = N(25, 0{,}25)$, $SD = 0{,}5$. $z = (25{,}8 - 25)/0{,}5 = 1{,}60$. $P(\\bar{X} > 25{,}8) = 1 - \\Phi(1{,}60) = 1 - 0{,}9452 = 0{,}0548$.",
+            "hints": [
+              "a)/b) standardiser med $\\sigma = 40$; b) er symmetrisk.",
+              "c) nevneren i eksponenten er $2\\sigma^2 = 32$.",
+              "d) standardfeil $\\sqrt{16/64} = 0{,}5$."
+            ]
+          }
+        },
+        {
+          "id": "tma4245-3-prove-oppg-p4-ex2",
+          "type": "exercise",
+          "exercise": {
+            "id": "tma4245-3-prove-p4-ex2",
+            "number": "2",
+            "type": "classic",
+            "difficulty": "middels",
+            "task": "**Flervalg (sjanger O, Inspera-stil).** Velg det ene riktige alternativet for hver.\n\n**a)** I $X \\sim N(20, 9)$ er standardavviket:\n(a) $3$  (b) $9$  (c) $20$  (d) $81$\n\n**b)** $\\Phi(-1{,}5)$ er lik:\n(a) $\\Phi(1{,}5)$  (b) $-\\Phi(1{,}5)$  (c) $1 - \\Phi(1{,}5)$  (d) $\\Phi(1{,}5) - 1$\n\n**c)** For en differanse $X - Y$ av korrelerte normale er variansen:\n(a) $\\sigma_X^2 - \\sigma_Y^2$  (b) $\\sigma_X^2 + \\sigma_Y^2 + 2\\,\\text{Cov}$  (c) $\\sigma_X^2 + \\sigma_Y^2$  (d) $\\sigma_X^2 + \\sigma_Y^2 - 2\\,\\text{Cov}$\n\n**d)** Gyldighetssjekken for normaltilnærming av binomisk er:\n(a) $np \\ge 5$ og $n(1-p) \\ge 5$  (b) $n \\ge 30$  (c) $p \\ge 0{,}5$  (d) $\\sigma^2 < \\infty$\n\n**e)** Gjennomsnittet av $n$ iid $N(\\mu, \\sigma^2)$ har varians:\n(a) $\\sigma^2$  (b) $n\\sigma^2$  (c) $\\sigma^2/n$  (d) $\\sigma/\\sqrt{n}$",
+            "solution": "**a) (a) $3$.** Annet argument er variansen $9$, så $\\sigma = \\sqrt{9} = 3$.\n\n**b) (c) $1 - \\Phi(1{,}5)$.** Symmetrien $\\Phi(-z) = 1 - \\Phi(z)$.\n\n**c) (d) $\\sigma_X^2 + \\sigma_Y^2 - 2\\,\\text{Cov}$.** Varianser legges sammen; kovariansleddet blir negativt for en differanse.\n\n**d) (a) $np \\ge 5$ og $n(1-p) \\ge 5$.** Begge halene må være store nok.\n\n**e) (c) $\\sigma^2/n$.** Gjennomsnittet konsentreres om $\\mu$.\n\n*(Riktige bokstaver: a, c, d, a, c — stokket, ikke alle like.)*",
+            "hints": [
+              "Tenk gjennom hver definisjon; ett alternativ er riktig.",
+              "Vær obs på varians vs. standardavvik i a)."
+            ]
+          }
+        },
+        {
+          "id": "tma4245-3-prove-oppg-p4-ex3",
+          "type": "exercise",
+          "exercise": {
+            "id": "tma4245-3-prove-p4-ex3",
+            "number": "3",
+            "type": "classic",
+            "difficulty": "middels",
+            "task": "**Flervalg (sjanger O), fortsatt Inspera-stil.** Velg det ene riktige.\n\n**a)** $P(X = 30)$ for en normalfordelt $X$ er:\n(a) $0$  (b) $f(30)$  (c) $0{,}5$  (d) avhengig av $\\sigma$\n\n**b)** Standardfeilen til en andel $\\hat{p}$ er:\n(a) $\\sqrt{p(1-p)}$  (b) $p(1-p)/n$  (c) $\\sqrt{p(1-p)/n}$  (d) $\\sigma/\\sqrt{n}$\n\n**c)** Å standardisere betyr å dele på:\n(a) variansen $\\sigma^2$  (b) forventningen $\\mu$  (c) standardavviket $\\sigma$  (d) $\\sqrt{n}$\n\n**d)** Kvantilen $z_{0{,}05}$ tilfredsstiller:\n(a) $\\Phi(z_{0{,}05}) = 0{,}05$  (b) $\\Phi(z_{0{,}05}) = 0{,}95$  (c) $z_{0{,}05} = 0{,}05$  (d) $P(Z < z_{0{,}05}) = 0{,}05$\n\n**e)** For stor $\\lambda t$ er $X \\sim \\text{Poisson}(\\lambda t)$ tilnærmet:\n(a) $N(\\lambda t, \\lambda t)$  (b) $N(0, 1)$  (c) $N(\\lambda t, \\sqrt{\\lambda t})$  (d) $N(\\lambda t, 1)$",
+            "solution": "**a) (a) $0$.** For kontinuerlige variable er punktsannsynligheten null.\n\n**b) (c) $\\sqrt{p(1-p)/n}$.** Standardfeilen er kvadratroten av variansen $p(1-p)/n$.\n\n**c) (c) standardavviket $\\sigma$.** Standardisering deler på $\\sigma$, ikke variansen.\n\n**d) (b) $\\Phi(z_{0{,}05}) = 0{,}95$.** Øvre haleareal $0{,}05$ betyr areal $0{,}95$ til venstre.\n\n**e) (a) $N(\\lambda t, \\lambda t)$.** Både forventning og varians er $\\lambda t$.\n\n*(Riktige bokstaver: a, c, c, b, a — stokket, ikke alle like.)*",
+            "hints": [
+              "Ett riktig alternativ per punkt.",
+              "Vær obs på standardfeil vs. varians i b), og øvre-hale-konvensjonen i d)."
+            ]
+          }
+        },
+        {
+          "id": "tma4245-3-prove-p4-selvdiagnose",
+          "type": "text",
+          "content": "### Selvdiagnose 3.D\n\nKryss av det du mestret uten å slå opp:\n\n- ☐ Jeg svarte med riktig antall desimaler og avrundet *til slutt*.\n- ☐ Jeg leste $\\mu$ og $\\sigma$ riktig ut av tetthetsformelen.\n- ☐ Jeg brukte standardfeilen for gjennomsnittsoppgaven.\n- ☐ Jeg unngikk fellen $P(X = x) = f(x)$ i flervalget.\n- ☐ Jeg husket øvre-hale-konvensjonen for $z_\\alpha$.\n\nManglet du noe? Repeter det aktuelle kapitlet i Del 3, eller drill videre i [kap. 3.4](/bok/tma4245/tma4245-3-4)."
+        }
+      ]
+    },
+    {
+      "id": "tma4245-3-prove-symbolliste",
+      "type": "collapsible",
+      "title": "Symbol- og formelliste",
+      "buttonText": "Vis symboler og formler",
+      "content": [
+        {
+          "id": "tma4245-3-prove-symbolliste-text",
+          "type": "text",
+          "content": "*Oppslagsverk — alt her forklares underveis i kapitlet.*\n\nPrøvene spenner over hele Del 3. Her er symbolene og formlene samlet.\n\n| Symbol | Betydning |\n|---|---|\n| $X \\sim N(\\mu, \\sigma^2)$ | Normalfordelt (annet argument = varians) |\n| $Z, \\Phi$ | Standardnormal og dens fordelingsfunksjon |\n| $z_\\alpha$ | Kvantil med øvre haleareal $\\alpha$ |\n| $\\bar{X}$ | Gjennomsnittet, varians $\\sigma^2/n$ |\n| $\\hat{p} = X/n$ | Observert andel |\n| $\\text{Cov}(X, Y)$ | Kovariansen mellom $X$ og $Y$ |\n\n**Formler du kan trenge i Del 3-prøvene:**\n\n$$Z = \\frac{X - \\mu}{\\sigma}, \\qquad \\Phi(-z) = 1 - \\Phi(z)$$\nStandardisering og symmetri.\n\n$$P(a < X < b) = \\Phi\\!\\left(\\tfrac{b-\\mu}{\\sigma}\\right) - \\Phi\\!\\left(\\tfrac{a-\\mu}{\\sigma}\\right), \\qquad P(X > a \\mid X > b) = \\frac{1 - \\Phi\\!\\left(\\frac{a-\\mu}{\\sigma}\\right)}{1 - \\Phi\\!\\left(\\frac{b-\\mu}{\\sigma}\\right)}$$\nIntervall og betinget hale.\n\n$$aX + bY \\sim N\\!\\big(a\\mu_X + b\\mu_Y,\\ a^2\\sigma_X^2 + b^2\\sigma_Y^2 + 2ab\\,\\text{Cov}(X,Y)\\big)$$\nLineærkombinasjon.\n\n$$\\bar{X} \\sim N\\!\\left(\\mu,\\ \\frac{\\sigma^2}{n}\\right), \\qquad \\frac{\\bar{X} - \\mu}{\\sigma/\\sqrt{n}} \\approx N(0,1)$$\nGjennomsnitt og sentralgrenseteoremet.\n\n$$\\hat{p} \\approx N\\!\\left(p,\\ \\frac{p(1-p)}{n}\\right), \\qquad np \\ge 5,\\ n(1-p) \\ge 5$$\nNormaltilnærming av andel med gyldighetssjekk.\n\n$$X \\approx N(\\lambda t,\\ \\lambda t) \\quad (\\text{Poisson, stor } \\lambda t), \\qquad x = \\mu + z\\sigma \\ (\\text{baklengs})$$\nPoisson-tilnærming og kvantil."
+        }
+      ]
+    }
+  ],
+  "exercises": []
+}

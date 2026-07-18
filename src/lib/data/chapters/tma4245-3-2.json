@@ -1,0 +1,308 @@
+{
+  "id": "tma4245-3-2",
+  "courseId": "tma4245",
+  "chapterNumber": "3.2",
+  "title": "Lineærkombinasjoner av normalfordelte variable",
+  "description": "Summer, differanser og veide kombinasjoner av normale variable — med kovariansleddet som eksamen legger feller rundt.",
+  "estimatedMinutes": 55,
+  "competenceGoals": [
+    "bruke at en lineærkombinasjon av simultant normale variable selv er normalfordelt",
+    "regne forventning og varians med riktig kovariansledd for summer og differanser",
+    "bruke fordelingen til gjennomsnittet $\\bar{X}\\sim N(\\mu,\\sigma^2/n)$",
+    "løse betingede sannsynligheter for lineærkombinasjoner"
+  ],
+  "content": [
+    {
+      "id": "tma4245-3-2-tip",
+      "type": "tip",
+      "title": "Eksamensvinkel",
+      "content": "**Lineærkombinasjoner av normale variable er en del av 98 %-gjengangeren** (samme *sjanger A* — den rene normal-regneoppgaven — som i [kap. 3.1](/bok/tma4245/tma4245-3-1)). Dette er **høyeste prioritet**.\n\n- Typisk oppgave: gitt to (ofte korrelerte) normale $X$ og $Y$, finn $P(2X + Y > c)$ eller en betinget hale $P(Y - X \\le a \\mid Y - X > b)$.\n- **Kovariansen oppgis ofte nettopp for å teste** om du husker å bruke den. Glemmer du kovariansleddet, får du feil varians og feil svar.\n- Spesialtilfellet $\\bar{X} \\sim N(\\mu, \\sigma^2/n)$ er *broen* til hele inferens-delen (konfidensintervall og hypotesetester) senere i boka — lær den godt.\n\n**Formelsamlingen** har regnereglene for $E$ og Var i katalogen, men selve *arbeidsflyten* (identifiser kombinasjonen, regn $E$ og Var, standardiser, slå opp) må sitte i fingrene. Utledningen av at en lineærkombinasjon *er* normal (via momentgenererende funksjon) kommer i kap. 4.1; her *bruker* vi resultatet."
+    },
+    {
+      "id": "tma4245-3-2-forkunnskaper",
+      "type": "text",
+      "content": "**Forkunnskaper:** Du må kunne standardisere og bruke $\\Phi$-tabellen fra **[kap. 3.1](/bok/tma4245/tma4245-3-1)**, og regnereglene for forventning og varians — særlig $\\text{Var}(aX + bY) = a^2\\text{Var}(X) + b^2\\text{Var}(Y) + 2ab\\,\\text{Cov}(X,Y)$ og hva kovarians er — fra **[kap. 2.1](/bok/tma4245/tma4245-2-1)**. Dette kapitlet kobler de to: vi bruker momentreglene til å finne $E$ og Var for kombinasjonen, og standardiseringen til å regne ut sannsynligheten.\n\nKapitlet er forkunnskap for sentralgrenseteoremet i **[kap. 3.3](/bok/tma4245/tma4245-3-3)** og for drillkapitlet **[kap. 3.4](/bok/tma4245/tma4245-3-4)**."
+    },
+    {
+      "id": "tma4245-3-2-intro",
+      "type": "text",
+      "content": "På eksamen får du sjelden bare én normalfordelt variabel. Du får to eller flere — vekt og lengde, to komponenters levetid, målinger på to maskiner — og skal regne på en *kombinasjon* av dem: en sum, en differanse, et veid gjennomsnitt. Det fine er at slike kombinasjoner *fortsatt* er normalfordelte. Da trenger vi bare å finne kombinasjonens forventning og varians, og så er vi tilbake i standardiserings-maskineriet fra 3.1.\n\nTre løkker: **Løkke 1** (ca. 20 min) — hovedresultatet og kovariansleddet. **Løkke 2** (ca. 15 min) — differanser og summer av uavhengige. **Løkke 3** (ca. 20 min) — gjennomsnittet $\\bar{X}$ og betingede kombinasjoner. Teori → eksempel → oppgave, som før."
+    },
+    {
+      "id": "tma4245-3-2-lokke1",
+      "type": "text",
+      "content": "## Løkke 1 — Hovedresultatet og kovariansleddet"
+    },
+    {
+      "id": "tma4245-3-2-def-hovedresultat",
+      "type": "definition",
+      "title": "Lineærkombinasjon av normale variable",
+      "content": "Er $X$ og $Y$ *simultant normalfordelte* (de danner en felles normalfordeling — «simultant normal» betyr at enhver kombinasjon $aX + bY$ selv er normal), så er en hvilken som helst lineærkombinasjon igjen normalfordelt:\n\n$$aX + bY \\sim N\\!\\big(\\,a\\mu_X + b\\mu_Y,\\ \\ a^2\\sigma_X^2 + b^2\\sigma_Y^2 + 2ab\\,\\text{Cov}(X, Y)\\,\\big).$$\n\nForventningen er lineær (vekt for vekt), mens variansen får koeffisientene *kvadrert* pluss et **kovariansledd** $2ab\\,\\text{Cov}(X,Y)$. Er variablene uavhengige, faller kovariansleddet bort ($\\text{Cov} = 0$). Resultatet gjelder også for flere variable — legg til ett kvadratledd per variabel og ett kovariansledd per par."
+    },
+    {
+      "id": "tma4245-3-2-def-evar-kombinasjon",
+      "type": "definition",
+      "title": "Forventning og varians til kombinasjonen",
+      "content": "De to byggesteinene, hentet fra [kap. 2.1](/bok/tma4245/tma4245-2-1):\n\n$$E(aX + bY) = a\\mu_X + b\\mu_Y,$$\n\n$$\\text{Var}(aX + bY) = a^2\\sigma_X^2 + b^2\\sigma_Y^2 + 2ab\\,\\text{Cov}(X, Y).$$\n\nMerk to feller: koeffisientene $a$ og $b$ er **kvadrert** i variansen, og fortegnet på kovariansleddet følger produktet $ab$ (for en differanse med $b = -1$ blir leddet *negativt*: $-2a\\,\\text{Cov}$). Standardavviket er alltid $\\sqrt{\\text{Var}}$ — det er dette du standardiserer med."
+    },
+    {
+      "id": "tma4245-3-2-ex-1",
+      "type": "example",
+      "title": "Eksempel 1: Veid sum av korrelerte normale (mønsteroppgaven)",
+      "problem": "$X$ og $Y$ er simultant normale med $\\mu_X = 10$, $\\mu_Y = 12$, $\\sigma_X^2 = 4$, $\\sigma_Y^2 = 9$ og $\\text{Cov}(X, Y) = 2$. Finn $P(2X + Y > 35)$.",
+      "solution": "La $U = 2X + Y$. Den er normalfordelt (lineærkombinasjon av simultant normale).\n\n**Forventning:** $E(U) = 2\\mu_X + \\mu_Y = 2 \\cdot 10 + 12 = 32.$\n\n**Varians** (her $a = 2$, $b = 1$):\n$$\\text{Var}(U) = 2^2 \\cdot 4 + 1^2 \\cdot 9 + 2 \\cdot 2 \\cdot 1 \\cdot \\text{Cov}(X,Y) = 16 + 9 + 4 \\cdot 2 = 33.$$\nSå $SD(U) = \\sqrt{33} = 5{,}7446$.\n\n**Standardiser og slå opp:**\n$$z = \\frac{35 - 32}{5{,}7446} = 0{,}5222 \\approx 0{,}52, \\qquad P(U > 35) = 1 - \\Phi(0{,}52) = 1 - 0{,}6985 = 0{,}3015.$$\n\nAltså ca. **30 %**. Hadde vi glemt kovariansleddet $+8$, ville variansen blitt $25$ og svaret feil — nettopp den fellen oppgaven tester."
+    },
+    {
+      "id": "tma4245-3-2-oppg-m1",
+      "type": "exercise",
+      "exercise": {
+        "id": "tma4245-3-2-m1",
+        "number": "1",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "En legering blandes av to komponenter med normalfordelte massebrøker $X$ og $Y$, simultant normale med $\\mu_X = 20$, $\\mu_Y = 15$, $\\sigma_X^2 = 9$, $\\sigma_Y^2 = 16$ og $\\text{Cov}(X, Y) = -3$.\n\n**a)** Finn forventning og varians for totalmassen $X + Y$.\n\n**b)** Finn $P(X + Y > 40)$.",
+        "solution": "**a)** Her $a = b = 1$. $E(X + Y) = 20 + 15 = 35$. $\\text{Var}(X + Y) = 9 + 16 + 2 \\cdot 1 \\cdot 1 \\cdot (-3) = 25 - 6 = 19$. Så $SD = \\sqrt{19} = 4{,}3589$.\n\n**b)** $z = \\dfrac{40 - 35}{4{,}3589} = 1{,}1471 \\approx 1{,}15$. $P(X + Y > 40) = 1 - \\Phi(1{,}15) = 1 - 0{,}8749 = 0{,}1251$.",
+        "hints": [
+          "Kovariansleddet $2ab\\,\\text{Cov}$ er her $2\\cdot(-3)=-6$ — negativt.",
+          "Standardiser med $\\sqrt{19}$; $\\Phi(1{,}15)=0{,}8749$."
+        ]
+      }
+    },
+    {
+      "id": "tma4245-3-2-lokke2",
+      "type": "text",
+      "content": "## Løkke 2 — Differanser og summer av uavhengige"
+    },
+    {
+      "id": "tma4245-3-2-def-differanse",
+      "type": "definition",
+      "title": "Differansen av to normale",
+      "content": "For differansen $Y - X$ (altså $a = -1$ på $X$, $b = 1$ på $Y$) blir\n\n$$Y - X \\sim N\\!\\big(\\,\\mu_Y - \\mu_X,\\ \\ \\sigma_X^2 + \\sigma_Y^2 - 2\\,\\text{Cov}(X, Y)\\,\\big).$$\n\n**Legg merke til:** variansene *legges sammen* (begge koeffisientene kvadreres til $+1$), mens kovariansleddet blir *negativt*. Det er en klassisk tabbe å skrive $\\text{Var}(Y - X) = \\sigma_Y^2 - \\sigma_X^2$ — varianser trekkes aldri fra hverandre. Er $X$ og $Y$ uavhengige, forsvinner kovariansleddet og $\\text{Var}(Y - X) = \\sigma_X^2 + \\sigma_Y^2$."
+    },
+    {
+      "id": "tma4245-3-2-ex-2",
+      "type": "example",
+      "title": "Eksempel 2: Differanse mellom to uavhengige maskiner",
+      "problem": "To fyllemaskiner fyller flasker uavhengig av hverandre. Maskin A gir volum $X \\sim N(500, 3^2)$ ml, maskin B gir $Y \\sim N(498, 4^2)$ ml. Hva er sannsynligheten for at en tilfeldig A-flaske inneholder mer enn en tilfeldig B-flaske?",
+      "solution": "Vi vil ha $P(X > Y) = P(X - Y > 0)$. La $D = X - Y$; siden $X$ og $Y$ er *uavhengige* normale, er $D$ normal med\n\n$$E(D) = 500 - 498 = 2, \\qquad \\text{Var}(D) = 3^2 + 4^2 = 9 + 16 = 25, \\qquad SD(D) = 5.$$\n\n(Ingen kovariansledd — maskinene er uavhengige.) Standardiser grensen $0$:\n\n$$z = \\frac{0 - 2}{5} = -0{,}40, \\qquad P(D > 0) = 1 - \\Phi(-0{,}40) = \\Phi(0{,}40) = 0{,}6554.$$\n\nAltså ca. **66 %** sannsynlighet for at A-flasken er fyldigst. Merk hvordan $1 - \\Phi(-0{,}40) = \\Phi(0{,}40)$ ved symmetrien."
+    },
+    {
+      "id": "tma4245-3-2-oppg-m2",
+      "type": "exercise",
+      "exercise": {
+        "id": "tma4245-3-2-m2",
+        "number": "2",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "En pall lastes med 4 uavhengige komponenter, hver med vekt $X_i \\sim N(25, 1^2)$ kg.\n\n**a)** Finn fordelingen til totalvekten $T = X_1 + X_2 + X_3 + X_4$.\n\n**b)** Finn $P(T < 97)$.",
+        "solution": "**a)** Sum av uavhengige normale er normal. $E(T) = 4 \\cdot 25 = 100$, $\\text{Var}(T) = 4 \\cdot 1^2 = 4$ (ingen kovariansledd — uavhengige), så $T \\sim N(100, 4)$ med $SD = 2$.\n\n**b)** $z = \\dfrac{97 - 100}{2} = -1{,}50$. $P(T < 97) = \\Phi(-1{,}50) = 1 - \\Phi(1{,}50) = 1 - 0{,}9332 = 0{,}0668$.",
+        "hints": [
+          "Summen av $n$ uavhengige like normale: $E$ ganges med $n$, Var ganges med $n$.",
+          "Standardiser med $SD=\\sqrt{4}=2$."
+        ]
+      }
+    },
+    {
+      "id": "tma4245-3-2-lokke3",
+      "type": "text",
+      "content": "## Løkke 3 — Gjennomsnittet og betingede kombinasjoner"
+    },
+    {
+      "id": "tma4245-3-2-def-xbar",
+      "type": "definition",
+      "title": "Gjennomsnittet av iid normale — broen til inferens",
+      "content": "Trekker du $n$ *uavhengige* observasjoner fra samme $N(\\mu, \\sigma^2)$ (kalt et *iid utvalg* — uavhengige og identisk fordelte), er gjennomsnittet $\\bar{X} = \\frac{1}{n}\\sum X_i$ normalfordelt med samme forventning, men mindre spredning:\n\n$$\\bar{X} \\sim N\\!\\left(\\mu,\\ \\frac{\\sigma^2}{n}\\right).$$\n\nStandardavviket $\\sigma/\\sqrt{n}$ kalles **standardfeilen**. Poenget: gjennomsnittet er langt mer stabilt enn en enkelt måling — variansen krymper med $n$. Dette resultatet er selve *broen* til konfidensintervall og hypotesetester. (Utledning: $\\bar{X}$ er en lineærkombinasjon med alle vekter $1/n$, så $\\text{Var}(\\bar{X}) = n \\cdot (1/n)^2 \\sigma^2 = \\sigma^2/n$.)"
+    },
+    {
+      "id": "tma4245-3-2-ex-3",
+      "type": "example",
+      "title": "Eksempel 3: Gjennomsnitt av flere målinger",
+      "problem": "Lengden på en produsert stang er $X \\sim N(50, 2^2)$ mm. Det tas $n = 16$ uavhengige målinger, og gjennomsnittet $\\bar{X}$ regnes ut. Finn $P(\\bar{X} > 50{,}8)$.",
+      "solution": "Gjennomsnittet er $\\bar{X} \\sim N(\\mu, \\sigma^2/n)$ med\n\n$$\\mu = 50, \\qquad \\frac{\\sigma^2}{n} = \\frac{4}{16} = 0{,}25, \\qquad SD(\\bar{X}) = \\sqrt{0{,}25} = 0{,}5.$$\n\nStandardfeilen er altså bare $0{,}5$ mm — mye mindre enn den enkelte målingens $\\sigma = 2$. Standardiser:\n\n$$z = \\frac{50{,}8 - 50}{0{,}5} = 1{,}60, \\qquad P(\\bar{X} > 50{,}8) = 1 - \\Phi(1{,}60) = 1 - 0{,}9452 = 0{,}0548.$$\n\nAltså ca. **5,5 %**. Til sammenligning ville en *enkelt* måling over $50{,}8$ hatt $z = (50{,}8 - 50)/2 = 0{,}40$, altså sannsynlighet $0{,}3446$ — gjennomsnittet er mye mer konsentrert om $\\mu$."
+    },
+    {
+      "id": "tma4245-3-2-ex-4",
+      "type": "example",
+      "title": "Eksempel 4: Betinget hale på en differanse",
+      "problem": "For de simultant normale $X$ og $Y$ fra Eksempel 1 ($\\mu_X = 10$, $\\mu_Y = 12$, $\\sigma_X^2 = 4$, $\\sigma_Y^2 = 9$, $\\text{Cov} = 2$): finn $P(Y - X \\le 4 \\mid Y - X > -1)$.",
+      "solution": "La $W = Y - X$. Den er normal med\n\n$$E(W) = 12 - 10 = 2, \\qquad \\text{Var}(W) = 4 + 9 - 2 \\cdot 2 = 9, \\qquad SD(W) = 3.$$\n\n(Kovariansleddet er $-2\\,\\text{Cov} = -4$.) Nå er dette en betinget sannsynlighet, så vi bruker teknikken fra 3.1: $P(A \\mid B) = P(A \\cap B)/P(B)$. Her er $\\{W \\le 4\\} \\cap \\{W > -1\\} = \\{-1 < W \\le 4\\}$.\n\n**Standardiser grensene** ($\\mu_W = 2$, $\\sigma_W = 3$): $z_{-1} = (-1 - 2)/3 = -1{,}00$ og $z_4 = (4 - 2)/3 = 0{,}6667 \\approx 0{,}67$.\n\n**Teller:** $P(-1 < W \\le 4) = \\Phi(0{,}67) - \\Phi(-1{,}00) = 0{,}7486 - 0{,}1587 = 0{,}5899$.\n\n**Nevner:** $P(W > -1) = 1 - \\Phi(-1{,}00) = \\Phi(1{,}00) = 0{,}8413$.\n\n$$P(W \\le 4 \\mid W > -1) = \\frac{0{,}5899}{0{,}8413} = 0{,}7012.$$\n\nAltså ca. **70 %**. Merk igjen: den negative kovariansfellen i variansen, og at betinget = brøk av to arealer."
+    },
+    {
+      "id": "tma4245-3-2-oppg-v1",
+      "type": "exercise",
+      "exercise": {
+        "id": "tma4245-3-2-v1",
+        "number": "3",
+        "type": "classic",
+        "difficulty": "vanskelig",
+        "task": "To sensorer måler samme temperatur med simultant normale avvik $X$ og $Y$: $\\mu_X = 0$, $\\mu_Y = 0$, $\\sigma_X^2 = 1{,}5$, $\\sigma_Y^2 = 2{,}5$ og $\\text{Cov}(X, Y) = 1$. Systemet rapporterer gjennomsnittet $M = (X + Y)/2$.\n\n**a)** Finn forventning og varians til $M$.\n\n**b)** Finn $P(M > 1)$.\n\n**c)** Hadde variansen til $M$ vært større eller mindre dersom sensorene var uavhengige ($\\text{Cov} = 0$)? Begrunn med tall.",
+        "solution": "$M = \\frac{1}{2}X + \\frac{1}{2}Y$, altså $a = b = \\frac{1}{2}$.\n\n**a)** $E(M) = \\frac{1}{2}(0) + \\frac{1}{2}(0) = 0$. Varians:\n$$\\text{Var}(M) = \\left(\\tfrac{1}{2}\\right)^2 (1{,}5) + \\left(\\tfrac{1}{2}\\right)^2 (2{,}5) + 2 \\cdot \\tfrac{1}{2} \\cdot \\tfrac{1}{2} \\cdot 1 = 0{,}375 + 0{,}625 + 0{,}5 = 1{,}5.$$\nSå $SD(M) = \\sqrt{1{,}5} = 1{,}2247$.\n\n**b)** $z = \\dfrac{1 - 0}{1{,}2247} = 0{,}8165 \\approx 0{,}82$. $P(M > 1) = 1 - \\Phi(0{,}82) = 1 - 0{,}7939 = 0{,}2061$.\n\n**c)** Uten kovariansleddet: $\\text{Var}(M) = 0{,}375 + 0{,}625 = 1{,}0$ — altså **mindre** ($1{,}0 < 1{,}5$). Positiv kovarians øker variansen til en sum/gjennomsnitt, fordi avvikene har en tendens til å slå ut i samme retning samtidig.",
+        "hints": [
+          "Vektene er $\\tfrac12$ hver; husk å kvadrere dem i variansen.",
+          "Kovariansleddet er $2\\cdot\\tfrac12\\cdot\\tfrac12\\cdot 1 = 0{,}5$.",
+          "For c): sammenlign $\\text{Var}(M)$ med og uten leddet $0{,}5$."
+        ]
+      }
+    },
+    {
+      "id": "tma4245-3-2-warn",
+      "type": "warning",
+      "title": "Typiske feil",
+      "content": "- **Glemme kovariansleddet når variablene er korrelerte** — eller ta det med når de er uavhengige. Sjekk alltid hva oppgaven sier om $\\text{Cov}(X, Y)$.\n- **Glemme å kvadrere koeffisientene** i variansen. $\\text{Var}(2X + Y)$ har $2^2 = 4$ foran $\\sigma_X^2$, ikke $2$.\n- **Trekke varianser fra hverandre for en differanse.** $\\text{Var}(Y - X) = \\sigma_X^2 + \\sigma_Y^2 - 2\\,\\text{Cov}$ — variansene *legges sammen*, det er *kovariansleddet* som skifter fortegn.\n- **Bruke $\\sigma^2/n$-formelen på noe som ikke er et gjennomsnitt.** Den gjelder bare $\\bar{X}$ av $n$ iid variable; en enkeltsum har varians $n\\sigma^2$, ikke $\\sigma^2/n$.\n- **Standardisere med variansen i stedet for standardavviket** til kombinasjonen. Regn ut $\\text{Var}$, ta så $\\sqrt{\\ }$ før du deler."
+    },
+    {
+      "id": "tma4245-3-2-begrepsbank",
+      "type": "text",
+      "content": "## Begrepsbank til eksamen\n\nKjernebegrepene fra kapitlet i kortform — kombinasjonsreglene og kovariansfellene.\n\n*Begrepsbanken er flashcard-/repetisjonsstoff — den gjentar det du nettopp har lest. Hopp trygt over ved førstegangslesing; tidsanslaget gjelder kjernestoffet.*"
+    },
+    {
+      "id": "tma4245-3-2-bb-simultant",
+      "type": "definition",
+      "title": "Simultant normalfordelte",
+      "content": "To (eller flere) variable er simultant normalfordelte hvis *enhver* lineærkombinasjon $aX + bY$ av dem er normalfordelt. Det er denne egenskapen som garanterer at summer, differanser og veide gjennomsnitt igjen er normale. Uavhengige normale er automatisk simultant normale."
+    },
+    {
+      "id": "tma4245-3-2-bb-kovarians",
+      "type": "definition",
+      "title": "Kovariansleddet",
+      "content": "Kovariansen $\\text{Cov}(X, Y) = E(XY) - E(X)E(Y)$ måler hvordan to variable samvarierer. I variansen til en kombinasjon dukker den opp som $2ab\\,\\text{Cov}(X, Y)$. Positiv kovarians (variablene beveger seg i takt) øker variansen til en sum; negativ kovarians demper den."
+    },
+    {
+      "id": "tma4245-3-2-bb-uavh-cov",
+      "type": "definition",
+      "title": "Uavhengighet gir $\\text{Cov} = 0$",
+      "content": "Er $X$ og $Y$ uavhengige, er $\\text{Cov}(X, Y) = 0$, og kovariansleddet forsvinner. Da er $\\text{Var}(aX + bY) = a^2\\sigma_X^2 + b^2\\sigma_Y^2$ — enten det er en sum eller en differanse. (Motsatt vei gjelder ikke generelt, men for *normale* variable er ukorrelert faktisk det samme som uavhengig.)"
+    },
+    {
+      "id": "tma4245-3-2-bb-standardfeil",
+      "type": "definition",
+      "title": "Standardfeilen $\\sigma/\\sqrt{n}$",
+      "content": "Standardavviket til gjennomsnittet $\\bar{X}$ av $n$ iid observasjoner er $\\sigma/\\sqrt{n}$ — kalt standardfeilen. Den krymper med kvadratroten av $n$: firedobler du utvalget, halveres standardfeilen. Dette er grunnen til at store utvalg gir presise estimater i inferens-delen."
+    },
+    {
+      "id": "tma4245-3-2-bb-sum-uavh",
+      "type": "definition",
+      "title": "Sum av uavhengige normale",
+      "content": "For $n$ uavhengige normale variable er summen normal med forventning lik summen av forventningene og varians lik summen av variansene:\n\n$$\\sum X_i \\sim N\\!\\Big(\\textstyle\\sum \\mu_i,\\ \\sum \\sigma_i^2\\Big).$$\n\nEr alle like ($N(\\mu, \\sigma^2)$), blir det $N(n\\mu, n\\sigma^2)$. Ikke forveksle summen ($n\\sigma^2$) med gjennomsnittet ($\\sigma^2/n$)."
+    },
+    {
+      "id": "tma4245-3-2-bb-arbeidsflyt",
+      "type": "definition",
+      "title": "Arbeidsflyten for kombinasjonsoppgaver",
+      "content": "Fast oppskrift: (1) identifiser lineærkombinasjonen og les av koeffisientene $a, b$; (2) regn $E$ (lineært) og $\\text{Var}$ (kvadrerte koeffisienter + kovariansledd); (3) ta $SD = \\sqrt{\\text{Var}}$ og standardiser grensen; (4) slå opp i $\\Phi$-tabellen. Betingede haler: samme, men del to arealer til slutt."
+    },
+    {
+      "id": "tma4245-3-2-bb-vekter",
+      "type": "definition",
+      "title": "Veid kombinasjon og vekter",
+      "content": "En veid kombinasjon $aX + bY$ har vekter $a$ og $b$ som kan være hvilke som helst tall (også negative eller brøker). Gjennomsnittet bruker vektene $1/n$ på hver observasjon; en differanse bruker $+1$ og $-1$. Vektene bestemmer både forventning og — kvadrert — bidraget til variansen."
+    },
+    {
+      "id": "tma4245-3-2-bb-korr-invariant",
+      "type": "definition",
+      "title": "Kovarians under skalering",
+      "content": "Skalerer og forskyver du variablene, endres kovariansen forutsigbart:\n\n$$\\text{Cov}(aX + b,\\ cY + d) = ac\\,\\text{Cov}(X, Y).$$\n\nKonstantleddene $b, d$ påvirker ikke kovariansen. Dette brukes når en oppgave ber om $\\text{Cov}$ eller korrelasjon mellom transformerte variable (full behandling i [kap. 2.1](/bok/tma4245/tma4245-2-1))."
+    },
+    {
+      "id": "tma4245-3-2-bb-flere",
+      "type": "definition",
+      "title": "Kombinasjon av flere variable",
+      "content": "Resultatet utvides til vilkårlig mange: $\\sum a_i X_i$ er normal med forventning $\\sum a_i \\mu_i$ og varians $\\sum a_i^2 \\sigma_i^2 + 2\\sum_{i<j} a_i a_j \\text{Cov}(X_i, X_j)$. Ett kvadratledd per variabel, ett kovariansledd per par. Er alle uavhengige, forsvinner alle kryssledd."
+    },
+    {
+      "id": "tma4245-3-2-bb-konstantledd",
+      "type": "definition",
+      "title": "Konstantledd i en kombinasjon",
+      "content": "Legger du til et fast tall $c$, forskyves forventningen, men variansen er uendret: $\\text{Var}(aX + c) = a^2\\sigma_X^2$. Konstanter har ingen spredning. Derfor er $aX + bY + c \\sim N(a\\mu_X + b\\mu_Y + c,\\ a^2\\sigma_X^2 + b^2\\sigma_Y^2 + 2ab\\,\\text{Cov})$ — konstantleddet flytter bare toppen."
+    },
+    {
+      "id": "tma4245-3-2-bb-sum-vs-snitt",
+      "type": "definition",
+      "title": "Sum kontra gjennomsnitt",
+      "content": "Den vanligste forvekslingen: for $n$ iid $N(\\mu, \\sigma^2)$ har *summen* varians $n\\sigma^2$ (blir mer spredt), mens *gjennomsnittet* har varians $\\sigma^2/n$ (blir mindre spredt). Spør deg alltid om oppgaven gjelder totalen eller snittet før du velger formel."
+    },
+    {
+      "id": "tma4245-3-2-rep",
+      "type": "collapsible",
+      "title": "Repetisjonsoppgaver",
+      "buttonText": "Vis repetisjonsoppgaver",
+      "content": [
+        {
+          "id": "tma4245-3-2-oppg-rep-1",
+          "type": "exercise",
+          "exercise": {
+            "id": "tma4245-3-2-rep-1",
+            "number": "R1",
+            "type": "classic",
+            "difficulty": "lett",
+            "task": "$X$ og $Y$ er uavhengige normale med $\\mu_X = 5$, $\\mu_Y = 3$, $\\sigma_X^2 = 2$, $\\sigma_Y^2 = 4$. Finn forventning og varians til $X + Y$.",
+            "solution": "$E(X+Y) = 5 + 3 = 8$. $\\text{Var}(X+Y) = 2 + 4 = 6$ (uavhengige, ingen kovariansledd).",
+            "hints": [
+              "Uavhengige: legg sammen forventninger og varianser."
+            ]
+          }
+        },
+        {
+          "id": "tma4245-3-2-oppg-rep-2",
+          "type": "exercise",
+          "exercise": {
+            "id": "tma4245-3-2-rep-2",
+            "number": "R2",
+            "type": "classic",
+            "difficulty": "lett",
+            "task": "$X$ og $Y$ er uavhengige normale med $\\sigma_X^2 = 9$, $\\sigma_Y^2 = 16$. Finn $\\text{Var}(X - Y)$.",
+            "solution": "$\\text{Var}(X - Y) = 9 + 16 = 25$ — variansene legges sammen selv for en differanse.",
+            "hints": [
+              "Varianser trekkes aldri fra; kovariansen er null her."
+            ]
+          }
+        },
+        {
+          "id": "tma4245-3-2-oppg-rep-3",
+          "type": "exercise",
+          "exercise": {
+            "id": "tma4245-3-2-rep-3",
+            "number": "R3",
+            "type": "classic",
+            "difficulty": "middels",
+            "task": "$X \\sim N(30, 25)$, og det tas $n = 100$ uavhengige målinger. Finn fordelingen til $\\bar{X}$ og standardfeilen.",
+            "solution": "$\\bar{X} \\sim N(30, 25/100) = N(30, 0{,}25)$. Standardfeilen er $\\sqrt{0{,}25} = 0{,}5$.",
+            "hints": [
+              "$\\bar{X}\\sim N(\\mu, \\sigma^2/n)$.",
+              "$\\sigma^2/n = 25/100$."
+            ]
+          }
+        },
+        {
+          "id": "tma4245-3-2-oppg-rep-4",
+          "type": "exercise",
+          "exercise": {
+            "id": "tma4245-3-2-rep-4",
+            "number": "R4",
+            "type": "classic",
+            "difficulty": "middels",
+            "task": "$X$ og $Y$ er simultant normale med $\\sigma_X^2 = 4$, $\\sigma_Y^2 = 9$, $\\text{Cov}(X, Y) = 3$. Finn $\\text{Var}(2X - Y)$.",
+            "solution": "$a = 2$, $b = -1$: $\\text{Var}(2X - Y) = 4 \\cdot 4 + 1 \\cdot 9 + 2 \\cdot 2 \\cdot (-1) \\cdot 3 = 16 + 9 - 12 = 13$.",
+            "hints": [
+              "Kvadrer koeffisientene; kovariansleddet er $2ab\\,\\text{Cov}$ med $ab = -2$."
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": "tma4245-3-2-symbolliste",
+      "type": "collapsible",
+      "title": "Symbol- og formelliste",
+      "buttonText": "Vis symboler og formler",
+      "content": [
+        {
+          "id": "tma4245-3-2-symbolliste-text",
+          "type": "text",
+          "content": "*Oppslagsverk — alt her forklares underveis i kapitlet.*\n\nAlle symboler og formler brukt i kapittel 3.2, samlet.\n\n| Symbol | Betydning |\n|---|---|\n| $aX + bY$ | Lineærkombinasjon med vekter $a, b$ |\n| $\\mu_X, \\mu_Y$ | Forventningene til $X$ og $Y$ |\n| $\\sigma_X^2, \\sigma_Y^2$ | Variansene til $X$ og $Y$ |\n| $\\text{Cov}(X, Y)$ | Kovariansen mellom $X$ og $Y$ |\n| $\\bar{X}$ | Gjennomsnittet $\\frac{1}{n}\\sum X_i$ |\n| $\\sigma/\\sqrt{n}$ | Standardfeilen til gjennomsnittet |\n\n**Formler i dette kapitlet:**\n\n$$aX + bY \\sim N\\!\\big(a\\mu_X + b\\mu_Y,\\ a^2\\sigma_X^2 + b^2\\sigma_Y^2 + 2ab\\,\\text{Cov}(X,Y)\\big)$$\nHovedresultatet — kombinasjon av simultant normale er normal.\n\n$$Y - X \\sim N\\!\\big(\\mu_Y - \\mu_X,\\ \\sigma_X^2 + \\sigma_Y^2 - 2\\,\\text{Cov}(X,Y)\\big)$$\nDifferansen: varianser legges sammen, kovariansleddet blir negativt.\n\n$$\\bar{X} \\sim N\\!\\left(\\mu,\\ \\frac{\\sigma^2}{n}\\right)$$\nGjennomsnittet av $n$ iid normale — broen til inferens.\n\n$$\\sum_{i=1}^n X_i \\sim N\\!\\big(n\\mu,\\ n\\sigma^2\\big) \\quad (\\text{iid, uavhengige})$$\nSummen — ikke forveksle $n\\sigma^2$ (sum) med $\\sigma^2/n$ (gjennomsnitt).\n\n$$\\text{Cov}(aX + b,\\ cY + d) = ac\\,\\text{Cov}(X, Y)$$\nKovarians under skalering (konstantledd faller bort)."
+        }
+      ]
+    }
+  ],
+  "exercises": []
+}

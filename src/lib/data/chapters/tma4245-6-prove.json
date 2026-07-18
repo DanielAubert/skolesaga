@@ -1,0 +1,317 @@
+{
+  "id": "tma4245-6-prove",
+  "courseId": "tma4245",
+  "chapterNumber": "6.P",
+  "title": "Prøver til del 6: Konfidensintervall",
+  "description": "Fire temaprøver som dekker standardintervallene, kjikvadrat-KI, pivotal-utledning for eksponensialdata og blandet eksamensnivå — med fullstendige løsningsforslag og selvdiagnose. Kan tas som separate økter.",
+  "estimatedMinutes": 160,
+  "competenceGoals": [
+    "løse eksamensrettede konfidensintervall-oppgaver fra hele Del 6 (z, t, kjikvadrat, andel, pivotal)",
+    "velge riktig intervall med riktige frihetsgrader og skille KI fra prediksjonsintervall",
+    "utlede det eksakte eksponensialintervallet og transformere det til avledede størrelser",
+    "formulere den korrekte tolkningen og avvise de vanlige feiltolkningene"
+  ],
+  "content": [
+    {
+      "id": "tma4245-6-prove-tip",
+      "type": "tip",
+      "title": "Om prøvene til Del 6",
+      "content": "**4 prøver à ~35–45 min** — de dekker hele Del 6: standardintervallene, kjikvadrat-KI, pivotal-utledning og blandet eksamensnivå.\n\n| Prøve | Tema | Tid |\n|---|---|---|\n| 6.A | t- og z-intervall, frihetsgrad- og tolkningsfeller (kap. 6.1) | ~35 min |\n| 6.B | Kjikvadrat-KI for varians + intervall for andel (kap. 6.1) | ~35 min |\n| 6.C | Full pivotal-utledning for eksponensialdata (kap. 6.2) | ~45 min |\n| 6.D | KI + prediksjonsintervall + transformasjon, blandet eksamensnivå (kap. 6.1–6.2) | ~45 min |\n\n**Tolknings-flervalget (sjanger O) bor i prøve 6.A** — Inspera-stil med kun ett riktig alternativ.\n\n**Prøvene kan trygt deles over flere kvelder — én prøve per økt.** Milepælen er å fullføre settet, ikke å ta alt på én gang. Løs hver prøve *før* du åpner fasiten, og bruk selvdiagnose-listen etter fasiten til å se hva du bør repetere."
+    },
+    {
+      "id": "tma4245-6-prove-forkunnskaper",
+      "type": "text",
+      "content": "**Forkunnskaper:** Disse prøvene forutsetter hele Del 6 — standardintervallene, tolkningen, prediksjonsintervallet og de ensidige intervallene ([kap. 6.1](/bok/tma4245/tma4245-6-1)) og pivotal-metoden med det eksakte eksponensialintervallet ([kap. 6.2](/bok/tma4245/tma4245-6-2)). Du trenger også kjikvadrat-apparatet fra [kap. 4.2](/bok/tma4245/tma4245-4-2). Klarer du prøvene uten å slå opp, sitter konfidensintervallene."
+    },
+    {
+      "id": "tma4245-6-prove-intro",
+      "type": "text",
+      "content": "Konfidensintervall er i ≈84 % av settene og er ofte den faste avslutningen på den store kjedeoppgaven. Her øver du på hele bredden: å **velge** riktig intervall (z/t/kjikvadrat/andel), bruke **riktige frihetsgrader**, **utlede** det eksakte eksponensialintervallet, skille **KI fra PI**, **transformere** til avledede størrelser — og formulere **tolkningen** presist. Husk sensorkravene: oppgi tabelloppslag eksplisitt, sjekk gyldighet for andelsintervallet, og pass ulikhetsretningen når du inverterer."
+    },
+    {
+      "id": "tma4245-6-prove-pA",
+      "type": "collapsible",
+      "title": "Prøve 6.A — t- og z-intervall, frihetsgrad- og tolkningsfeller (~35 min)",
+      "buttonText": "Vis prøve 6.A",
+      "content": [
+        {
+          "id": "tma4245-6-prove-pA-ex1",
+          "type": "exercise",
+          "exercise": {
+            "id": "tma4245-6-prove-pA-ex1",
+            "number": "1",
+            "type": "classic",
+            "difficulty": "middels",
+            "task": "Seksten prøvestykker av en sementblanding gir gjennomsnittlig trykkfasthet $\\bar{x} = 42{,}0$ MPa med empirisk standardavvik $s = 3{,}2$ MPa. Standardavviket er ukjent, og målingene antas normalfordelte.\n\n**a)** Begrunn valget av t framfor z.\n\n**b)** Konstruer et 95 % konfidensintervall for forventet trykkfasthet $\\mu$. Bruk $t_{15;\\,0{,}025} = 2{,}131$.",
+            "solution": "**a)** Standardavviket er **ukjent** og estimert med $s$, så vi bruker **t**-fordelingen med $n-1 = 15$ frihetsgrader.\n\n**b)** Standardfeil $s/\\sqrt{n} = 3{,}2/\\sqrt{16} = 3{,}2/4 = 0{,}8$. Feilmargin $2{,}131 \\cdot 0{,}8 = 1{,}705$. Intervall:\n$$42{,}0 \\pm 1{,}705 = [40{,}30,\\; 43{,}70] \\text{ MPa}.$$",
+            "hints": [
+              "Ukjent $\\sigma$ → t, frihetsgrad $n-1 = 15$.",
+              "$s/\\sqrt{16} = 0{,}8$.",
+              "Gang med $t_{15;\\,0{,}025} = 2{,}131$."
+            ]
+          }
+        },
+        {
+          "id": "tma4245-6-prove-pA-ex2",
+          "type": "exercise",
+          "exercise": {
+            "id": "tma4245-6-prove-pA-ex2",
+            "number": "2",
+            "type": "classic",
+            "difficulty": "middels",
+            "task": "Temperaturen (°C) i en kjøleprosess har **kjent** standardavvik $\\sigma = 4{,}0$. Tjuefem målinger gir $\\bar{x} = 88{,}0$.\n\n**a)** Hvilket intervall passer, og hvorfor?\n\n**b)** Konstruer et 99 % konfidensintervall for $\\mu$. Bruk $z_{0{,}005} = 2{,}576$.",
+            "solution": "**a)** $\\sigma$ er **kjent**, så vi bruker **z**-intervallet $\\bar{x} \\pm z_{\\alpha/2}\\,\\sigma/\\sqrt{n}$ (ingen estimering av $\\sigma$).\n\n**b)** 99 % gir $\\alpha/2 = 0{,}005$. Standardfeil $\\sigma/\\sqrt{n} = 4{,}0/\\sqrt{25} = 0{,}8$. Feilmargin $2{,}576 \\cdot 0{,}8 = 2{,}061$. Intervall:\n$$88{,}0 \\pm 2{,}061 = [85{,}94,\\; 90{,}06] \\text{ °C}.$$",
+            "hints": [
+              "Kjent $\\sigma$ → z-intervall.",
+              "99 % → $z_{0{,}005} = 2{,}576$.",
+              "$\\sigma/\\sqrt{25} = 0{,}8$."
+            ]
+          }
+        },
+        {
+          "id": "tma4245-6-prove-pA-ex3",
+          "type": "exercise",
+          "exercise": {
+            "id": "tma4245-6-prove-pA-ex3",
+            "number": "3",
+            "type": "classic",
+            "difficulty": "middels",
+            "task": "Effekten (W) til tjue solcellepaneler gir $\\bar{x} = 250$ og $s = 12$ (ukjent $\\sigma$, normalfordelte data). En student vil bruke $t_{20;\\,0{,}025}$ med tjue frihetsgrader.\n\n**a)** Hva er den riktige frihetsgraden, og hvilken kvantil skal brukes?\n\n**b)** Konstruer det korrekte 95 % konfidensintervallet for $\\mu$. Bruk $t_{19;\\,0{,}025} = 2{,}093$.",
+            "solution": "**a)** Frihetsgraden er $n-1 = 19$, ikke $n = 20$. Riktig kvantil er $t_{19;\\,0{,}025} = 2{,}093$ (studenten tok $n$ i stedet for $n-1$).\n\n**b)** Standardfeil $s/\\sqrt{n} = 12/\\sqrt{20} = 2{,}683$. Feilmargin $2{,}093 \\cdot 2{,}683 = 5{,}616$. Intervall:\n$$250 \\pm 5{,}616 = [244{,}38,\\; 255{,}62] \\text{ W}.$$",
+            "hints": [
+              "Frihetsgrad er $n-1 = 19$, ikke $n = 20$.",
+              "$s/\\sqrt{20} = 2{,}683$.",
+              "Gang med $t_{19;\\,0{,}025} = 2{,}093$."
+            ]
+          }
+        },
+        {
+          "id": "tma4245-6-prove-pA-ex4",
+          "type": "exercise",
+          "exercise": {
+            "id": "tma4245-6-prove-pA-ex4",
+            "number": "4",
+            "type": "classic",
+            "difficulty": "middels",
+            "task": "**Flervalg (sjanger O, Inspera-stil).** Velg det ene riktige alternativet for hver.\n\n**a)** Et 95 % KI for $\\mu$ ble regnet til $[240,\\; 256]$. Riktig tolkning er:\n(a) 95 % av panelene har effekt i $[240, 256]$  (b) $\\mu$ er tilfeldig og treffer intervallet 95 % av tiden  (c) metoden fanger den sanne $\\mu$ i 95 % av gjentatte forsøk  (d) det er 95 % sannsynlig at $\\mu \\in [240, 256]$\n\n**b)** Standardavviket er ukjent. Da bruker konfidensintervallet for $\\mu$:\n(a) $z_{\\alpha/2}$ og $\\sigma$  (b) $t_{n-1,\\alpha/2}$ og $s$  (c) $z_{\\alpha/2}$ og $s$  (d) $t_{n,\\alpha/2}$ og $\\sigma$\n\n**c)** Skal du si hvor tungt **én ny** komponent trolig veier, bruker du:\n(a) konfidensintervall for $\\mu$  (b) konfidensintervall for $\\sigma^2$  (c) prediksjonsintervall  (d) ensidig intervall\n\n**d)** For et **ensidig** 95 % intervall brukes kvantilen:\n(a) $z_{0{,}025} = 1{,}96$  (b) $z_{0{,}05} = 1{,}645$  (c) $z_{0{,}005} = 2{,}576$  (d) $z_{0{,}10} = 1{,}282$",
+            "solution": "**a) (c)** metoden fanger den sanne $\\mu$ i 95 % av gjentatte forsøk. Tolkningen gjelder metoden; $\\mu$ er fast, intervallet er tilfeldig.\n\n**b) (b)** $t_{n-1,\\alpha/2}$ og $s$. Ukjent $\\sigma$ krever t-fordelingen med $n-1$ frihetsgrader og estimatet $s$.\n\n**c) (c)** prediksjonsintervall. En ny enkeltobservasjon fanges av PI, ikke KI.\n\n**d) (b)** $z_{0{,}05} = 1{,}645$. Ensidig legger hele $\\alpha$ i én hale.\n\n*(Riktige bokstaver: c, b, c, b — merk at de er stokket, ikke alle like.)*",
+            "hints": [
+              "Tolkningen gjelder metoden, ikke det ferdige intervallet.",
+              "Ukjent $\\sigma$ → t og $s$; «en ny» → PI; ensidig → $z_\\alpha$."
+            ]
+          }
+        },
+        {
+          "id": "tma4245-6-prove-pA-selvdiagnose",
+          "type": "text",
+          "content": "### Selvdiagnose 6.A\n\nKryss av det du mestret uten å slå opp:\n\n- ☐ Jeg valgte t når $\\sigma$ var ukjent og z når $\\sigma$ var kjent.\n- ☐ Jeg brukte $n-1$ frihetsgrader (ikke $n$) i t-intervallet.\n- ☐ Jeg regnet standardfeilen $s/\\sqrt{n}$ (eller $\\sigma/\\sqrt{n}$) riktig.\n- ☐ Jeg valgte den korrekte tolkningen og unngikk «95 % sannsynlighet for at $\\mu$ ligger i intervallet».\n- ☐ Jeg husket $z_{0{,}05}$ (ikke $z_{0{,}025}$) for det ensidige intervallet.\n\nManglet du noe? Repeter [kap. 6.1](/bok/tma4245/tma4245-6-1)."
+        }
+      ]
+    },
+    {
+      "id": "tma4245-6-prove-pB",
+      "type": "collapsible",
+      "title": "Prøve 6.B — Kjikvadrat-KI for varians + intervall for andel (~35 min)",
+      "buttonText": "Vis prøve 6.B",
+      "content": [
+        {
+          "id": "tma4245-6-prove-pB-ex1",
+          "type": "exercise",
+          "exercise": {
+            "id": "tma4245-6-prove-pB-ex1",
+            "number": "1",
+            "type": "classic",
+            "difficulty": "middels",
+            "task": "Tykkelsen (μm) til femten membraner gir empirisk standardavvik $s = 0{,}60$; målingene antas normalfordelte.\n\n**a)** Konstruer et 95 % konfidensintervall for variansen $\\sigma^2$. Bruk $\\chi^2_{14;\\,0{,}025} = 26{,}119$ og $\\chi^2_{14;\\,0{,}975} = 5{,}629$.\n\n**b)** Gi et 95 % konfidensintervall for standardavviket $\\sigma$.",
+            "solution": "**a)** $n = 15$, frihetsgrad $14$. $s^2 = 0{,}60^2 = 0{,}36$, så $(n-1)s^2 = 14 \\cdot 0{,}36 = 5{,}04$. Intervall for $\\sigma^2$:\n$$\\left[\\frac{5{,}04}{26{,}119},\\; \\frac{5{,}04}{5{,}629}\\right] = [0{,}193,\\; 0{,}895].$$\nDen store kvantilen ($26{,}119$) står under den nedre grensen; intervallet er asymmetrisk.\n\n**b)** Kvadratrot av endene: $[\\sqrt{0{,}193},\\; \\sqrt{0{,}895}] = [0{,}439,\\; 0{,}946]$ μm.",
+            "hints": [
+              "$(n-1)s^2 = 14 \\cdot 0{,}36 = 5{,}04$.",
+              "Stor kvantil ($26{,}119$) under nedre grense.",
+              "For $\\sigma$: ta kvadratroten av endene."
+            ]
+          }
+        },
+        {
+          "id": "tma4245-6-prove-pB-ex2",
+          "type": "exercise",
+          "exercise": {
+            "id": "tma4245-6-prove-pB-ex2",
+            "number": "2",
+            "type": "classic",
+            "difficulty": "middels",
+            "task": "I en kvalitetskontroll av 300 solceller er 24 defekte.\n\n**a)** Sjekk om normaltilnærmingen er gyldig.\n\n**b)** Konstruer et 95 % konfidensintervall for andelen defekte $p$.",
+            "solution": "**a)** $\\hat{p} = 24/300 = 0{,}08$. $n\\hat{p} = 24 \\ge 5$ og $n(1-\\hat{p}) = 276 \\ge 5$ — gyldig.\n\n**b)** Standardfeil $\\sqrt{\\hat{p}(1-\\hat{p})/n} = \\sqrt{0{,}08 \\cdot 0{,}92/300} = \\sqrt{0{,}0002453} = 0{,}01566$. Feilmargin $1{,}96 \\cdot 0{,}01566 = 0{,}0307$. Intervall:\n$$0{,}08 \\pm 0{,}0307 = [0{,}049,\\; 0{,}111].$$\nMed 95 % tillit ligger andelen defekte mellom ca. 4,9 % og 11,1 %.",
+            "hints": [
+              "$\\hat{p} = 24/300 = 0{,}08$; sjekk $n\\hat{p}$ og $n(1-\\hat{p})$.",
+              "Standardfeil $\\sqrt{\\hat{p}(1-\\hat{p})/n}$, $z_{0{,}025} = 1{,}96$.",
+              "$\\sqrt{0{,}08 \\cdot 0{,}92/300} = 0{,}0157$."
+            ]
+          }
+        },
+        {
+          "id": "tma4245-6-prove-pB-ex3",
+          "type": "exercise",
+          "exercise": {
+            "id": "tma4245-6-prove-pB-ex3",
+            "number": "3",
+            "type": "classic",
+            "difficulty": "vanskelig",
+            "task": "Ni målinger av en akslings rundhetsavvik gir empirisk varians $s^2 = 2{,}5$ (normalfordelte data).\n\n**a)** Konstruer et 95 % konfidensintervall for $\\sigma^2$. Bruk $\\chi^2_{8;\\,0{,}025} = 17{,}535$ og $\\chi^2_{8;\\,0{,}975} = 2{,}180$.\n\n**b)** Er intervallet symmetrisk om $s^2 = 2{,}5$? Forklar hvorfor/hvorfor ikke.",
+            "solution": "**a)** $n = 9$, frihetsgrad $8$. $(n-1)s^2 = 8 \\cdot 2{,}5 = 20$. Intervall:\n$$\\left[\\frac{20}{17{,}535},\\; \\frac{20}{2{,}180}\\right] = [1{,}14,\\; 9{,}17].$$\n\n**b)** **Nei.** Avstanden fra $s^2 = 2{,}5$ til nedre grense er $2{,}5 - 1{,}14 = 1{,}36$, mens avstanden til øvre er $9{,}17 - 2{,}5 = 6{,}67$ — helt ulikt. Kjikvadratfordelingen er **skjev**, så intervallet for $\\sigma^2$ er asymmetrisk (i motsetning til de symmetriske z- og t-intervallene for $\\mu$).",
+            "hints": [
+              "$(n-1)s^2 = 8 \\cdot 2{,}5 = 20$.",
+              "Del på hver kvantil; stor under nedre grense.",
+              "Sammenlign avstandene fra $s^2$ til hver grense."
+            ]
+          }
+        },
+        {
+          "id": "tma4245-6-prove-pB-selvdiagnose",
+          "type": "text",
+          "content": "### Selvdiagnose 6.B\n\nKryss av det du mestret uten å slå opp:\n\n- ☐ Jeg satte den store kvantilen under den nedre grensen i $\\sigma^2$-intervallet.\n- ☐ Jeg regnet $(n-1)s^2$ med riktig frihetsgrad.\n- ☐ Jeg tok kvadratroten av endene for å få intervall for $\\sigma$.\n- ☐ Jeg sjekket gyldigheten ($n\\hat{p} \\ge 5$, $n(1-\\hat{p}) \\ge 5$) for andelsintervallet.\n- ☐ Jeg forklarte hvorfor $\\sigma^2$-intervallet er asymmetrisk.\n\nManglet du noe? Repeter [kap. 6.1](/bok/tma4245/tma4245-6-1)."
+        }
+      ]
+    },
+    {
+      "id": "tma4245-6-prove-pC",
+      "type": "collapsible",
+      "title": "Prøve 6.C — Full pivotal-utledning for eksponensialdata (~45 min)",
+      "buttonText": "Vis prøve 6.C",
+      "content": [
+        {
+          "id": "tma4245-6-prove-pC-ex1",
+          "type": "exercise",
+          "exercise": {
+            "id": "tma4245-6-prove-pC-ex1",
+            "number": "1",
+            "type": "classic",
+            "difficulty": "vanskelig",
+            "task": "Levetidene $X_1, \\ldots, X_{15}$ (i tusen sykluser) til femten ståltau er uavhengige og eksponensialfordelte med forventning $\\beta$, og $\\sum x_i = 180$.\n\n**a)** Angi med begrunnelse fordelingen til $\\frac{2\\sum X_i}{\\beta}$.\n\n**b)** Utled et eksakt 95 % konfidensintervall for $\\beta$, og regn det ut. Bruk $\\chi^2_{30;\\,0{,}025} = 46{,}979$ og $\\chi^2_{30;\\,0{,}975} = 16{,}791$.",
+            "solution": "**a)** Hver observasjon gir $2X_i/\\beta \\sim \\chi^2_2$, og for $n = 15$ uavhengige blir summen $\\frac{2\\sum X_i}{\\beta} \\sim \\chi^2_{2n} = \\chi^2_{30}$ (frihetsgrad $2n = 30$, ikke 15).\n\n**b)** Med $\\alpha/2 = 0{,}025$:\n$$P\\!\\left(\\chi^2_{30,\\,0{,}975} \\le \\frac{2\\sum X_i}{\\beta} \\le \\chi^2_{30,\\,0{,}025}\\right) = 0{,}95.$$\n$\\beta$ er i nevneren; inverter (ulikheten snur) og gang med $2\\sum x_i$:\n$$\\frac{2\\sum x_i}{\\chi^2_{30,\\,0{,}025}} \\le \\beta \\le \\frac{2\\sum x_i}{\\chi^2_{30,\\,0{,}975}}.$$\nMed $2\\sum x_i = 360$:\n$$\\left[\\frac{360}{46{,}979},\\; \\frac{360}{16{,}791}\\right] = [7{,}66,\\; 21{,}44] \\text{ (tusen sykluser)}.$$",
+            "hints": [
+              "Frihetsgrad $2n = 30$; hver observasjon gir $\\chi^2_2$.",
+              "$2\\sum x_i = 360$; inverter → ulikheten snur.",
+              "Stor kvantil ($46{,}979$) under nedre grense."
+            ]
+          }
+        },
+        {
+          "id": "tma4245-6-prove-pC-ex2",
+          "type": "exercise",
+          "exercise": {
+            "id": "tma4245-6-prove-pC-ex2",
+            "number": "2",
+            "type": "classic",
+            "difficulty": "vanskelig",
+            "task": "Fortsatt ståltauene ($n = 15$, $\\hat{\\beta} = \\bar{x} = 180/15 = 12$). \n\n**a)** Regn ut det normaltilnærmede 95 % intervallet $\\hat{\\beta} \\pm z_{0{,}025}\\,\\hat{\\beta}/\\sqrt{n}$ med $z_{0{,}025} = 1{,}96$.\n\n**b)** Sammenlign med det eksakte $[7{,}66,\\; 21{,}44]$ fra oppgave 1, og begrunn hvilket som bør rapporteres.",
+            "solution": "**a)** $\\hat{\\beta} = 12$, standardfeil $\\hat{\\beta}/\\sqrt{n} = 12/\\sqrt{15} = 3{,}098$. Feilmargin $1{,}96 \\cdot 3{,}098 = 6{,}072$. Normaltilnærmet: $12 \\pm 6{,}072 = [5{,}93,\\; 18{,}07]$.\n\n**b)** Det eksakte $[7{,}66,\\; 21{,}44]$ er **bredere** (bredde 13,78 mot 12,15) og asymmetrisk, forskjøvet oppover — det respekterer eksponensialfordelingens høyrehale. Det normaltilnærmede er smalere og symmetrisk om 12, men bygger på CLT som er upålitelig ved $n = 15$ for en skjev fordeling. **Rapporter det eksakte** — at det tilnærmede er smalere, gjør det ikke riktigere; det undervurderer usikkerheten.",
+            "hints": [
+              "$\\hat{\\beta}/\\sqrt{15} = 3{,}098$.",
+              "Normaltilnærmet er symmetrisk om $\\hat{\\beta} = 12$.",
+              "Eksakt foretrekkes ved liten $n$; smalt betyr ikke riktig dekning."
+            ]
+          }
+        },
+        {
+          "id": "tma4245-6-prove-pC-ex3",
+          "type": "exercise",
+          "exercise": {
+            "id": "tma4245-6-prove-pC-ex3",
+            "number": "3",
+            "type": "classic",
+            "difficulty": "vanskelig",
+            "task": "For ståltauene er medianlevetiden $m = \\beta\\ln 2$. Bruk det eksakte 95 % intervallet $[7{,}66,\\; 21{,}44]$ for $\\beta$.\n\n**a)** Er $g(\\beta) = \\beta\\ln 2$ voksende eller avtakende?\n\n**b)** Konstruer et 95 % konfidensintervall for medianlevetiden.",
+            "solution": "**a)** $g(\\beta) = \\beta\\ln 2$ er strengt **voksende** ($\\ln 2 \\approx 0{,}693 > 0$), så endepunktene beholder rekkefølgen.\n\n**b)** Gang begge endepunkter med $\\ln 2$:\n$$[7{,}66 \\cdot 0{,}6931,\\; 21{,}44 \\cdot 0{,}6931] = [5{,}31,\\; 14{,}86] \\text{ (tusen sykluser)}.$$\nMed 95 % tillit ligger medianlevetiden mellom ca. 5 310 og 14 860 sykluser.",
+            "hints": [
+              "$g(\\beta) = \\beta\\ln 2$ er voksende.",
+              "Behold rekkefølgen: $[L\\ln 2,\\, U\\ln 2]$.",
+              "$\\ln 2 \\approx 0{,}6931$."
+            ]
+          }
+        },
+        {
+          "id": "tma4245-6-prove-pC-selvdiagnose",
+          "type": "text",
+          "content": "### Selvdiagnose 6.C\n\nKryss av det du mestret uten å slå opp:\n\n- ☐ Jeg brukte frihetsgrad $2n$ (ikke $n$) i eksponensialpivotalen.\n- ☐ Jeg snudde ulikheten riktig da jeg inverterte for å løse ut $\\beta$.\n- ☐ Jeg satte den store kvantilen under den nedre grensen.\n- ☐ Jeg begrunnet hvorfor det eksakte intervallet foretrekkes framfor det normaltilnærmede.\n- ☐ Jeg transformerte til medianlevetiden ved å gange endepunktene med $\\ln 2$.\n\nManglet du noe? Repeter [kap. 6.2](/bok/tma4245/tma4245-6-2)."
+        }
+      ]
+    },
+    {
+      "id": "tma4245-6-prove-pD",
+      "type": "collapsible",
+      "title": "Prøve 6.D — KI + prediksjonsintervall + transformasjon, blandet (~45 min)",
+      "buttonText": "Vis prøve 6.D",
+      "content": [
+        {
+          "id": "tma4245-6-prove-pD-ex1",
+          "type": "exercise",
+          "exercise": {
+            "id": "tma4245-6-prove-pD-ex1",
+            "number": "1",
+            "type": "classic",
+            "difficulty": "vanskelig",
+            "task": "Tolv målinger av saltinnhold (g/L) i et prosessvann gir $\\bar{x} = 36{,}0$ og $s = 2{,}4$ (ukjent $\\sigma$, normalfordelte data). Bruk $t_{11;\\,0{,}025} = 2{,}201$.\n\n**a)** Konstruer et 95 % konfidensintervall for forventet saltinnhold $\\mu$.\n\n**b)** Konstruer et 95 % prediksjonsintervall for saltinnholdet i **neste** måling.\n\n**c)** Forklar i én setning hvorfor de to intervallene har ulik bredde.",
+            "solution": "**a)** Standardfeil $s/\\sqrt{n} = 2{,}4/\\sqrt{12} = 0{,}6928$. Feilmargin $2{,}201 \\cdot 0{,}6928 = 1{,}525$. KI: $36{,}0 \\pm 1{,}525 = [34{,}48,\\; 37{,}52]$ g/L.\n\n**b)** PI: $\\bar{x} \\pm t_{11;\\,0{,}025}\\,s\\sqrt{1 + 1/n}$. $\\sqrt{1 + 1/12} = \\sqrt{1{,}0833} = 1{,}0408$. Feilmargin $2{,}201 \\cdot 2{,}4 \\cdot 1{,}0408 = 5{,}498$. PI: $36{,}0 \\pm 5{,}498 = [30{,}50,\\; 41{,}50]$ g/L.\n\n**c)** KI-et fanger bare usikkerheten i *gjennomsnittet* ($s/\\sqrt{n}$), mens PI-et i tillegg må romme at én ny enkeltmåling svinger rundt gjennomsnittet (det ekstra 1-tallet under rota) — derfor er PI mye bredere.",
+            "hints": [
+              "a) t-KI: $s/\\sqrt{12} = 0{,}6928$.",
+              "b) PI har ekstra 1-tall: $\\sqrt{1 + 1/12} = 1{,}0408$.",
+              "c) PI rommer også enkeltobservasjonens egen spredning."
+            ]
+          }
+        },
+        {
+          "id": "tma4245-6-prove-pD-ex2",
+          "type": "exercise",
+          "exercise": {
+            "id": "tma4245-6-prove-pD-ex2",
+            "number": "2",
+            "type": "classic",
+            "difficulty": "vanskelig",
+            "task": "Levetidene (i tusen timer) til åtte batterier er uavhengige og eksponensialfordelte med forventning $\\beta$, og $\\sum x_i = 52$.\n\n**a)** Konstruer et eksakt 95 % konfidensintervall for $\\beta$. Bruk $\\chi^2_{16;\\,0{,}025} = 28{,}845$ og $\\chi^2_{16;\\,0{,}975} = 6{,}908$.\n\n**b)** Sannsynligheten for at ett batteri overlever $t = 3$ (tusen timer) er $R = e^{-3/\\beta}$. Er $g(\\beta) = e^{-3/\\beta}$ voksende i $\\beta$? Konstruer et 95 % konfidensintervall for $R$.",
+            "solution": "**a)** $n = 8$, frihetsgrad $2n = 16$. $2\\sum x_i = 104$. Intervall:\n$$\\left[\\frac{104}{28{,}845},\\; \\frac{104}{6{,}908}\\right] = [3{,}61,\\; 15{,}06] \\text{ (tusen timer)}.$$\n\n**b)** Når $\\beta$ vokser, blir $-3/\\beta$ mindre negativ, så $e^{-3/\\beta}$ **vokser** — $g$ er strengt voksende. Behold rekkefølgen:\n$$[e^{-3/3{,}61},\\; e^{-3/15{,}06}] = [e^{-0{,}8310},\\; e^{-0{,}1992}] = [0{,}435,\\; 0{,}819].$$\nMed 95 % tillit overlever mellom ca. 43,5 % og 81,9 % av batteriene de første 3 000 timene.",
+            "hints": [
+              "a) Frihetsgrad $2n = 16$; $2\\sum x_i = 104$.",
+              "b) $-3/\\beta$ øker mot 0 når $\\beta$ vokser → $g$ voksende.",
+              "$e^{-3/3{,}61} = 0{,}435$; $e^{-3/15{,}06} = 0{,}819$."
+            ]
+          }
+        },
+        {
+          "id": "tma4245-6-prove-pD-ex3",
+          "type": "exercise",
+          "exercise": {
+            "id": "tma4245-6-prove-pD-ex3",
+            "number": "3",
+            "type": "classic",
+            "difficulty": "middels",
+            "task": "En rapport oppgir et 95 % konfidensintervall $[0{,}049,\\; 0{,}111]$ for andelen defekte solceller (fra $n = 300$, $\\hat{p} = 0{,}08$) og skriver: «Det betyr at 95 % av alle solceller har feilrate mellom 4,9 % og 11,1 %.»\n\n**a)** Er utsagnet en korrekt tolkning? Forklar.\n\n**b)** Gi den presise, korrekte tolkningen av intervallet.",
+            "solution": "**a)** **Nei.** Utsagnet blander sammen andelen $p$ (én fast parameter for hele produksjonen) med en fordeling over enkeltceller — «95 % av cellene har feilrate i intervallet» gir ikke mening; en enkeltcelle er enten defekt eller ikke. Intervallet handler om den *ene* ukjente andelen $p$, ikke om en spredning blant celler.\n\n**b)** Korrekt: *metoden som produserte intervallet, fanger den sanne andelen defekte $p$ i 95 % av gjentatte forsøk*. For dette utregnede intervallet er $p$ enten i $[0{,}049,\\; 0{,}111]$ eller ikke; 95 % er en egenskap ved fremgangsmåten.",
+            "hints": [
+              "Intervallet gjelder én parameter $p$, ikke en fordeling over celler.",
+              "Tolkningen knytter 95 % til metoden, ikke til det ferdige intervallet."
+            ]
+          }
+        },
+        {
+          "id": "tma4245-6-prove-pD-selvdiagnose",
+          "type": "text",
+          "content": "### Selvdiagnose 6.D\n\nKryss av det du mestret uten å slå opp:\n\n- ☐ Jeg skilte KI (parameter) fra PI (ny observasjon) og brukte det ekstra 1-tallet i PI.\n- ☐ Jeg konstruerte det eksakte eksponensialintervallet med frihetsgrad $2n$.\n- ☐ Jeg sjekket monotonien før jeg transformerte til overlevelsessannsynligheten.\n- ☐ Jeg formulerte den korrekte tolkningen og unngikk feiltolkningene.\n- ☐ Jeg oppga tabelloppslag og mellomregninger eksplisitt.\n\nManglet du noe? Repeter [kap. 6.1](/bok/tma4245/tma4245-6-1) og [kap. 6.2](/bok/tma4245/tma4245-6-2)."
+        }
+      ]
+    },
+    {
+      "id": "tma4245-6-prove-symbolliste",
+      "type": "collapsible",
+      "title": "Symbol- og formelliste",
+      "buttonText": "Vis symboler og formler",
+      "content": [
+        {
+          "id": "tma4245-6-prove-symbolliste-text",
+          "type": "text",
+          "content": "*Oppslagsverk — alt her forklares underveis i kapitlet.*\n\nPrøvene spenner over hele Del 6. Her er symbolene og formlene du kan trenge, samlet.\n\n| Symbol | Betydning |\n|---|---|\n| $\\mu$, $\\sigma^2$, $p$, $\\beta$ | Forventning, varians, andel, eksponensialforventning (ukjente) |\n| $\\bar{x}$, $s$, $s^2$, $\\hat{p}$, $\\hat{\\beta}$ | Utvalgsstatistikk og estimater |\n| $z_\\alpha$, $t_{\\nu,\\alpha}$, $\\chi^2_{\\nu,\\alpha}$ | Kvantiler med øvre haleareal $\\alpha$ |\n| $1-\\alpha$ | Konfidensnivå |\n| $g(\\theta)$, $m = \\beta\\ln 2$ | Avledet størrelse; medianlevetid |\n\n**Formler du kan trenge i Del 6-prøvene:**\n\n$$\\bar{x} \\pm z_{\\alpha/2}\\,\\frac{\\sigma}{\\sqrt{n}}, \\qquad \\bar{x} \\pm t_{n-1,\\,\\alpha/2}\\,\\frac{s}{\\sqrt{n}}$$\nKI for $\\mu$ med kjent (z) og ukjent (t, $n-1$ fr.grader) $\\sigma$.\n\n$$\\left[\\frac{(n-1)s^2}{\\chi^2_{n-1,\\,\\alpha/2}},\\; \\frac{(n-1)s^2}{\\chi^2_{n-1,\\,1-\\alpha/2}}\\right]$$\nKI for variansen $\\sigma^2$ (asymmetrisk; stor kvantil under nedre grense).\n\n$$\\hat{p} \\pm z_{\\alpha/2}\\sqrt{\\frac{\\hat{p}(1-\\hat{p})}{n}}, \\qquad n\\hat{p} \\ge 5,\\; n(1-\\hat{p}) \\ge 5$$\nKI for en andel med gyldighetssjekk.\n\n$$\\bar{x} \\pm t_{n-1,\\,\\alpha/2}\\,s\\sqrt{1 + \\frac{1}{n}}$$\nPrediksjonsintervall for en ny observasjon.\n\n$$\\frac{2\\sum X_i}{\\beta} \\sim \\chi^2_{2n} \\;\\Rightarrow\\; \\left[\\frac{2\\sum x_i}{\\chi^2_{2n,\\,\\alpha/2}},\\; \\frac{2\\sum x_i}{\\chi^2_{2n,\\,1-\\alpha/2}}\\right]$$\nEksakt KI for eksponensialforventningen $\\beta$ (frihetsgrad $2n$).\n\n$$[L, U] \\text{ for } \\theta \\;\\Rightarrow\\; [g(L), g(U)] \\text{ for } g(\\theta) \\quad (g \\text{ voksende})$$\nKI-transformasjon; avtakende $g$ bytter endepunktene."
+        }
+      ]
+    }
+  ],
+  "exercises": []
+}

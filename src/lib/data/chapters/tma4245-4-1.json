@@ -1,0 +1,382 @@
+{
+  "id": "tma4245-4-1",
+  "courseId": "tma4245",
+  "chapterNumber": "4.1",
+  "title": "Transformasjonsteknikkene og ordningsvariable",
+  "description": "CDF-metoden, MGF-teknikken og min/maks av uavhengige variable — verktøyene som identifiserer fordelinger og bygger pivotaler.",
+  "estimatedMinutes": 60,
+  "competenceGoals": [
+    "finne fordelingen til en transformert variabel $Y = g(X)$ med fordelingsfunksjonsteknikken, også for avtakende $g$",
+    "identifisere fordelingen til en sum av uavhengige variable med den momentgenererende funksjonen og entydighetsargumentet",
+    "utlede fordelingsfunksjonen til minimum og maksimum av uavhengige variable og koble dem til serie- og parallellsystemer"
+  ],
+  "content": [
+    {
+      "id": "tma4245-4-1-tip",
+      "type": "tip",
+      "title": "Eksamensvinkel",
+      "content": "**Dette kapitlet gir deg tre verktøy for å finne fordelingen til en *ny* variabel som er bygget av en gammel — og broen videre til konfidensintervallene i Del 6.**\n\n- **Transformasjon** (sjanger D — en oppgave der du får en variabel $X$ med kjent fordeling og skal finne fordelingen til $Y = g(X)$) er i **≈59 %** av settene, stabilt. Den er «nesten alltid broen til konfidensintervallet». Prioritet: **kunne** (det midterste nivået).\n- **Ordningsvariable** (sjanger K — fordelingen til den minste eller største av flere variable, som første eller siste komponent som svikter) er i **≈22 %** av settene, og høyere 2022–24. Prioritet: **kjenne** (det laveste av de tre nivåene) — men den «gir differensiering på toppkarakterene».\n\n**Hva sensor måler:** at du bruker **fordelingsfunksjonsteknikken** (CDF-metoden) aktivt — løser ulikheten, setter inn $F_X$, deriverer til tetthet — og at du oppgir **entydighetsargumentet** når du identifiserer en fordeling via MGF («MGF-en bestemmer fordelingen»).\n\n**Formelsamlingen** (hjelpemiddelkode C — formelsamlingen «Tabeller og formler i statistikk», som alltid er tillatt) har en **MGF-katalog** du kan slå opp i for å gjenkjenne en sum. Men selve teknikkene — CDF-regningen, produktregelen for MGF-er, min/maks-formlene — **må utledes aktivt**. De står ikke som ferdige svar."
+    },
+    {
+      "id": "tma4245-4-1-forkunnskaper",
+      "type": "text",
+      "content": "**Forkunnskaper:** Dette kapitlet bygger på fordelingsfunksjonen $F(x) = P(X \\le x)$, tetthet ($f = F'$) og de kontinuerlige fordelingene — særlig **eksponensialfordelingen** — fra **[kap. 2.3](/bok/tma4245/tma4245-2-3)**, og på standardnormalfordelingen fra **[kap. 3.1](/bok/tma4245/tma4245-3-1)** (som vi bruker i kvadratsum-identifikasjonen).\n\nFra matematikken trenger du å kunne **derivere** sammensatte funksjoner (kjerneregelen) og **løse enkle ulikheter** for $x$. Vi bygger opp hver teknikk fra bunnen.\n\nEt **momentgenererende funksjon (MGF)** er en funksjon $M_X(t) = E(e^{tX})$ som er knyttet entydig til fordelingen — vi bruker den bare som et *identifikasjonsverktøy* her, og slår opp de ferdige MGF-ene i formelsamlingen. Kapitlet er selv forkunnskap for drillen i **[kap. 4.2](/bok/tma4245/tma4245-4-2)** (der $2X/\\beta \\sim \\chi^2_2$ utledes fullt ut) og for pivotal-konfidensintervallene i Del 6."
+    },
+    {
+      "id": "tma4245-4-1-intro",
+      "type": "text",
+      "content": "Vi har til nå studert fordelinger «slik de kommer». Men eksamen spør stadig om noe annet: gitt at $X$ har en kjent fordeling, hva er fordelingen til en **funksjon** av den — $Y = \\sqrt{X}$, $Y = 2X/\\beta$, eller minimum av flere levetider? Det er nettopp dette som gjør pivotal-metoden for konfidensintervall mulig, så teknikkene her er broen inn i inferensdelen.\n\nVi går i tre løkker, hver med teori → eksempel → oppgave. **Løkke 1** er hovedverktøyet: **CDF-metoden**, som finner fordelingen til $Y = g(X)$ ved å regne på fordelingsfunksjonen. **Løkke 2** er **MGF-teknikken**, som identifiserer fordelingen til en *sum* av uavhengige variable. **Løkke 3** er **ordningsvariable** — fordelingen til den minste (min) og største (maks) av flere variable, som styrer serie- og parallellsystemer.\n\n*Samlet kjernetid ≈ 60 min. Naturlige pausepunkter er markert mellom løkkene.*"
+    },
+    {
+      "id": "tma4245-4-1-lokke1",
+      "type": "text",
+      "content": "## Løkke 1 — CDF-metoden (~20 min)"
+    },
+    {
+      "id": "tma4245-4-1-def-cdf-metoden",
+      "type": "definition",
+      "title": "Fordelingsfunksjonsteknikken (CDF-metoden)",
+      "content": "For å finne fordelingen til $Y = g(X)$ når $X$ har kjent fordelingsfunksjon $F_X$, går vi **veien om fordelingsfunksjonen** til $Y$. Grepet er å skrive hendelsen $\\{Y \\le y\\}$ om til en hendelse om $X$:\n\n$$F_Y(y) = P(Y \\le y) = P(g(X) \\le y).$$\n\nFor en **voksende** (monotont økende) $g$ løser vi ulikheten $g(X) \\le y$ til $X \\le g^{-1}(y)$, slik at\n\n$$F_Y(y) = P(X \\le g^{-1}(y)) = F_X\\!\\big(g^{-1}(y)\\big).$$\n\nTettheten får vi ved å **derivere**: $f_Y(y) = F_Y'(y)$. Tre trinn: (1) skriv $F_Y(y) = P(g(X) \\le y)$, (2) løs ulikheten og sett inn $F_X$, (3) deriver til tetthet. Metoden virker for enhver monoton $g$ — det er standardverktøyet for sjanger D."
+    },
+    {
+      "id": "tma4245-4-1-ex-1",
+      "type": "example",
+      "title": "Eksempel 1: CDF-metoden på $Y = \\sqrt{X}$",
+      "problem": "Levetiden $X$ (i år) til en komponent er eksponensialfordelt med forventning $\\beta$, altså $F_X(x) = 1 - e^{-x/\\beta}$ for $x > 0$. Bruk fordelingsfunksjonsteknikken til å finne fordelingen (fordelingsfunksjon og tetthet) til $Y = \\sqrt{X}$.",
+      "solution": "**Trinn 1 — skriv $F_Y$.** For $y > 0$ (siden $\\sqrt{X} > 0$):\n$$F_Y(y) = P(Y \\le y) = P(\\sqrt{X} \\le y).$$\n\n**Trinn 2 — løs ulikheten og sett inn $F_X$.** Kvadrering er en voksende operasjon for positive tall, så $\\sqrt{X} \\le y \\Leftrightarrow X \\le y^2$:\n$$F_Y(y) = P(X \\le y^2) = F_X(y^2) = 1 - e^{-y^2/\\beta}, \\quad y > 0.$$\n\n**Trinn 3 — deriver til tetthet.** Med kjerneregelen (deriver $-y^2/\\beta$ til $-2y/\\beta$):\n$$f_Y(y) = \\frac{d}{dy}\\Big(1 - e^{-y^2/\\beta}\\Big) = e^{-y^2/\\beta} \\cdot \\frac{2y}{\\beta} = \\frac{2y}{\\beta}\\,e^{-y^2/\\beta}, \\quad y > 0.$$\n\nDette er faktisk en **Weibull-fordeling** med form $k = 2$ og skala $\\theta = \\sqrt{\\beta}$ — men vi trengte ikke kjenne navnet; CDF-metoden ga svaret direkte. Kontroll: med $\\beta = 4$ er $P(Y > 2) = P(\\sqrt{X} > 2) = P(X > 4) = e^{-4/4} = e^{-1} \\approx 0{,}368$, i tråd med $1 - F_Y(2) = e^{-4/4}$."
+    },
+    {
+      "id": "tma4245-4-1-l1",
+      "type": "exercise",
+      "exercise": {
+        "id": "tma4245-4-1-l1",
+        "number": "1",
+        "type": "classic",
+        "difficulty": "lett",
+        "task": "(Innstegsoppgave.) $X$ er uniformt fordelt på $(0, 1)$, med $F_X(x) = x$ for $0 < x < 1$. La $Y = 2X$.\n\n**a)** Skriv opp $F_Y(y) = P(2X \\le y)$ og løs ulikheten for $X$.\n\n**b)** Finn $F_Y(y)$ og tettheten $f_Y(y)$, og angi hvilken fordeling $Y$ har.",
+        "solution": "**a)** $F_Y(y) = P(2X \\le y) = P\\!\\left(X \\le \\dfrac{y}{2}\\right)$.\n\n**b)** Siden $F_X(x) = x$ på $(0,1)$, er $F_Y(y) = \\dfrac{y}{2}$ for $0 < y < 2$. Deriverer vi: $f_Y(y) = \\dfrac{1}{2}$ for $0 < y < 2$. Det er en **uniform fordeling på $(0, 2)$** — som ventet, siden vi bare strakk intervallet.",
+        "hints": [
+          "Del ulikheten $2X \\le y$ på 2.",
+          "Sett $y/2$ inn i $F_X(x)=x$; deriver for tettheten."
+        ]
+      }
+    },
+    {
+      "id": "tma4245-4-1-def-avtakende",
+      "type": "definition",
+      "title": "Avtakende $g$: ulikheten snur",
+      "content": "Er $g$ **avtakende** (monotont synkende), snur ulikheten når vi løser $g(X) \\le y$. Da blir $\\{g(X) \\le y\\} = \\{X \\ge g^{-1}(y)\\}$, og\n\n$$F_Y(y) = P(X \\ge g^{-1}(y)) = 1 - F_X\\!\\big(g^{-1}(y)\\big).$$\n\nMerk komplementet $1 - F_X$: det er den vanligste fellen i CDF-metoden. Eksempler på avtakende $g$: $Y = 1/X$, $Y = e^{-X}$, $Y = -\\ln X$. Sjekk alltid om $g$ er voksende eller avtakende *før* du fjerner $P$-tegnet — det avgjør om du får $F_X$ eller $1 - F_X$."
+    },
+    {
+      "id": "tma4245-4-1-ex-2",
+      "type": "example",
+      "title": "Eksempel 2: En avtakende transformasjon",
+      "problem": "$X$ er uniformt fordelt på $(0, 1)$. La $Y = -\\ln X$. Finn fordelingen til $Y$.",
+      "solution": "Funksjonen $g(x) = -\\ln x$ er **avtakende** på $(0, 1)$ (større $x$ gir mindre $-\\ln x$), og $Y = -\\ln X > 0$. Vær derfor nøye med ulikhetsretningen.\n\n**Trinn 1–2.** For $y > 0$:\n$$F_Y(y) = P(-\\ln X \\le y) = P(\\ln X \\ge -y) = P(X \\ge e^{-y}).$$\nHer snudde ulikheten da vi delte på $-1$ (gikk fra $-\\ln X$ til $\\ln X$). Videre, med $F_X(x) = x$ på $(0,1)$ og $e^{-y} \\in (0,1)$:\n$$F_Y(y) = 1 - P(X < e^{-y}) = 1 - F_X(e^{-y}) = 1 - e^{-y}, \\quad y > 0.$$\n\n**Trinn 3.** $f_Y(y) = e^{-y}$ for $y > 0$.\n\nDette er en **eksponensialfordeling med forventning 1**. (Nettopp denne sammenhengen — at $-\\ln U$ av en uniform $U$ blir eksponensial — er grunnlaget for inversjonsmetoden i simuleringsdelen.) Hadde vi glemt å snu ulikheten, ville vi feilaktig fått $F_X(e^{-y}) = e^{-y}$, som ikke engang er en gyldig fordelingsfunksjon (den avtar) — et nyttig varsku."
+    },
+    {
+      "id": "tma4245-4-1-m1",
+      "type": "exercise",
+      "exercise": {
+        "id": "tma4245-4-1-m1",
+        "number": "2",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "$X$ er uniformt fordelt på $(0, 2)$, med $F_X(x) = x/2$ for $0 < x < 2$. La $Y = X^2$.\n\n**a)** Finn $F_Y(y)$ ved CDF-metoden.\n\n**b)** Finn tettheten $f_Y(y)$ og angi støtten (hvilke $y$ den gjelder for).\n\n**c)** Finn $P(Y > 1)$.",
+        "solution": "**a)** For $0 < y < 4$ (siden $X^2$ ligger mellom 0 og 4): $F_Y(y) = P(X^2 \\le y) = P(X \\le \\sqrt{y})$ (voksende for positive $x$) $= F_X(\\sqrt{y}) = \\dfrac{\\sqrt{y}}{2}$.\n\n**b)** $f_Y(y) = \\dfrac{d}{dy}\\dfrac{\\sqrt{y}}{2} = \\dfrac{1}{4\\sqrt{y}}$ for $0 < y < 4$.\n\n**c)** $P(Y > 1) = 1 - F_Y(1) = 1 - \\dfrac{\\sqrt{1}}{2} = 1 - \\dfrac{1}{2} = 0{,}5$.",
+        "hints": [
+          "$X^2 \\le y \\Leftrightarrow X \\le \\sqrt{y}$ for positiv $X$.",
+          "Sett $\\sqrt{y}$ inn i $F_X(x)=x/2$; deriver med kjerneregelen.",
+          "$P(Y>1) = 1 - F_Y(1)$."
+        ]
+      }
+    },
+    {
+      "id": "tma4245-4-1-pause1",
+      "type": "text",
+      "content": "*— naturlig pausepunkt —*"
+    },
+    {
+      "id": "tma4245-4-1-lokke2",
+      "type": "text",
+      "content": "## Løkke 2 — MGF-teknikken for summer (~20 min)"
+    },
+    {
+      "id": "tma4245-4-1-def-mgf",
+      "type": "definition",
+      "title": "MGF-teknikken for summer av uavhengige variable",
+      "content": "CDF-metoden er tungvint for en **sum** $S = X_1 + \\cdots + X_n$. Da bruker vi den **momentgenererende funksjonen** $M_X(t) = E(e^{tX})$. Den har to egenskaper vi trenger:\n\n1. **Produktregelen:** for **uavhengige** variable er MGF-en til summen produktet av MGF-ene:\n$$M_{X_1 + \\cdots + X_n}(t) = \\prod_{i=1}^{n} M_{X_i}(t).$$\n\n2. **Entydighet:** to fordelinger med samme MGF er den samme fordelingen — **«MGF-en bestemmer fordelingen»**.\n\nArbeidsflyten: regn (eller slå opp) $M_{X_i}(t)$, gang dem sammen, og **kjenn igjen** produktet som MGF-en til en kjent fordeling i formelsamlingens MGF-katalog. Entydigheten er det som lar oss konkludere — den må sies eksplisitt, ellers har du bare regnet ut en funksjon uten å ha identifisert noe."
+    },
+    {
+      "id": "tma4245-4-1-ex-3",
+      "type": "example",
+      "title": "Eksempel 3: Sum av Bernoulli-variable blir binomisk",
+      "problem": "La $X_1, \\ldots, X_n$ være uavhengige Bernoulli-variable, hver med $P(X_i = 1) = p$ og $P(X_i = 0) = 1 - p$. MGF-en til én slik variabel er $M_{X_i}(t) = (1 - p) + p e^{t}$. Bruk MGF-teknikken til å finne fordelingen til $S = X_1 + \\cdots + X_n$.",
+      "solution": "**Produktregelen** (variablene er uavhengige):\n$$M_S(t) = \\prod_{i=1}^{n} M_{X_i}(t) = \\prod_{i=1}^{n}\\big[(1-p) + p e^{t}\\big] = \\big[(1-p) + p e^{t}\\big]^{n}.$$\n\n**Identifikasjon.** I formelsamlingens MGF-katalog står MGF-en til en **binomisk** variabel $\\text{bin}(n, p)$ nettopp som $\\big[(1-p) + p e^{t}\\big]^{n}$. Ved **entydighetsargumentet** — MGF-en bestemmer fordelingen — er derfor\n$$S \\sim \\text{bin}(n, p).$$\n\nDette bekrefter tolkningen vi allerede kjenner: antall suksesser i $n$ uavhengige forsøk er binomisk. Poenget her er *metoden*: vi identifiserte fordelingen uten å summere sannsynligheter, bare ved å kjenne igjen MGF-en og påberope entydigheten."
+    },
+    {
+      "id": "tma4245-4-1-l2",
+      "type": "exercise",
+      "exercise": {
+        "id": "tma4245-4-1-l2",
+        "number": "3",
+        "type": "classic",
+        "difficulty": "lett",
+        "task": "MGF-en til en eksponensialfordelt variabel med forventning $\\beta$ er $M_X(t) = (1 - \\beta t)^{-1}$ (for $t < 1/\\beta$). To komponenter har uavhengige, eksponensialfordelte levetider, hver med forventning $\\beta$. La $S = X_1 + X_2$.\n\n**a)** Skriv opp $M_S(t)$ ved produktregelen.\n\n**b)** MGF-en til en gamma$(n, \\beta)$-variabel er $(1 - \\beta t)^{-n}$. Hvilken fordeling har $S$?",
+        "solution": "**a)** Uavhengige, så $M_S(t) = M_{X_1}(t)\\,M_{X_2}(t) = (1 - \\beta t)^{-1}(1 - \\beta t)^{-1} = (1 - \\beta t)^{-2}$.\n\n**b)** Dette er MGF-en til gamma$(2, \\beta)$. Ved entydighet er $S \\sim \\text{gamma}(2, \\beta)$ — summen av to uavhengige eksponensiale er gamma, slik vi brukte som resultat i [kap. 2.3](/bok/tma4245/tma4245-2-3).",
+        "hints": [
+          "Produktregelen: gang de to MGF-ene.",
+          "$(1-\\beta t)^{-1}\\cdot(1-\\beta t)^{-1} = (1-\\beta t)^{-2}$; sammenlign med gamma-MGF-en."
+        ]
+      }
+    },
+    {
+      "id": "tma4245-4-1-m2",
+      "type": "exercise",
+      "exercise": {
+        "id": "tma4245-4-1-m2",
+        "number": "4",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "La $X_1, \\ldots, X_n$ være uavhengige eksponensialfordelte levetider, hver med forventning $\\beta$, og MGF $M_{X_i}(t) = (1 - \\beta t)^{-1}$. La $S = \\sum_{i=1}^{n} X_i$.\n\n**a)** Bruk MGF-teknikken til å identifisere fordelingen til $S$, med eksplisitt entydighetsargument.\n\n**b)** Finn $E(S)$ og $\\text{Var}(S)$ (bruk at gamma$(n,\\beta)$ har $E = n\\beta$, $\\text{Var} = n\\beta^2$).\n\n**c)** Med $n = 3$ og $\\beta = 5$: hva er $E(S)$ og $\\text{Var}(S)$?",
+        "solution": "**a)** Produktregelen for uavhengige: $M_S(t) = \\prod_{i=1}^{n}(1 - \\beta t)^{-1} = (1 - \\beta t)^{-n}$. Dette er MGF-en til gamma$(n, \\beta)$. **Entydighetsargumentet:** MGF-en bestemmer fordelingen entydig, så $S \\sim \\text{gamma}(n, \\beta)$.\n\n**b)** $E(S) = n\\beta$ og $\\text{Var}(S) = n\\beta^2$.\n\n**c)** Med $n = 3$, $\\beta = 5$: $E(S) = 15$ og $\\text{Var}(S) = 3 \\cdot 25 = 75$.",
+        "hints": [
+          "Produktet av $n$ like MGF-er er $(1-\\beta t)^{-n}$.",
+          "Si eksplisitt at MGF-en bestemmer fordelingen (entydighet).",
+          "$E = n\\beta$, $\\text{Var} = n\\beta^2$ med $n=3$, $\\beta=5$."
+        ]
+      }
+    },
+    {
+      "id": "tma4245-4-1-pause2",
+      "type": "text",
+      "content": "*— naturlig pausepunkt —*"
+    },
+    {
+      "id": "tma4245-4-1-lokke3",
+      "type": "text",
+      "content": "## Løkke 3 — Ordningsvariable: min og maks (~20 min)"
+    },
+    {
+      "id": "tma4245-4-1-def-ordningsvariable",
+      "type": "definition",
+      "title": "Fordelingen til maksimum og minimum",
+      "content": "La $X_1, \\ldots, X_n$ være **uavhengige og identisk fordelte** med felles fordelingsfunksjon $F$. Vi ser på ytterpunktene.\n\n**Maksimum.** At $\\max \\le y$ betyr at *alle* er $\\le y$. Ved produktregelen for uavhengige:\n$$F_{\\max}(y) = P(\\max \\le y) = \\prod_{i=1}^{n} P(X_i \\le y) = [F(y)]^{n}.$$\n\n**Minimum.** Her er det lettest å gå om halen: at $\\min > y$ betyr at *alle* er $> y$:\n$$P(\\min > y) = \\prod_{i=1}^{n} P(X_i > y) = [1 - F(y)]^{n}, \\quad \\text{så} \\quad F_{\\min}(y) = 1 - [1 - F(y)]^{n}.$$\n\nTettheter fås ved derivasjon. **Tolkning:** et **seriesystem** svikter når den *første* komponenten svikter — samlet levetid er $\\min$. Et **parallellsystem** (redundans) lever så lenge *minst én* komponent holder — samlet levetid er $\\max$."
+    },
+    {
+      "id": "tma4245-4-1-ex-4",
+      "type": "example",
+      "title": "Eksempel 4: Parallellkoblede pumper (maksimum)",
+      "problem": "Fire pumper står i **parallell** (systemet virker så lenge minst én pumpe virker). Levetidene $X_1, \\ldots, X_4$ (i år) er uavhengige og eksponensialfordelte med forventning $\\beta = 3$ år, altså $F(x) = 1 - e^{-x/3}$. La $T = \\max(X_1, \\ldots, X_4)$ være tiden til siste pumpe svikter.\n\n**a)** Utled fordelingsfunksjonen $F_T(t)$ og tettheten $f_T(t)$.\n\n**b)** Finn sannsynligheten for at systemet lever lenger enn 6 år.",
+      "solution": "**a)** Parallell = maksimum, så\n$$F_T(t) = [F(t)]^4 = \\big(1 - e^{-t/3}\\big)^{4}, \\quad t > 0.$$\nTettheten ved derivasjon (kjerneregel, med $\\frac{d}{dt}(1 - e^{-t/3}) = \\frac{1}{3}e^{-t/3}$):\n$$f_T(t) = 4\\big(1 - e^{-t/3}\\big)^{3} \\cdot \\frac{1}{3}e^{-t/3} = \\frac{4}{3}\\,e^{-t/3}\\big(1 - e^{-t/3}\\big)^{3}.$$\n\n**b)** $P(T > 6) = 1 - F_T(6) = 1 - \\big(1 - e^{-6/3}\\big)^{4} = 1 - \\big(1 - e^{-2}\\big)^{4}$. Med $e^{-2} \\approx 0{,}1353$: $1 - (0{,}8647)^4 = 1 - 0{,}5590 \\approx 0{,}441$.\n\nMerk fellen: her ganger vi fordelingsfunksjonene ($[F]^4$), vi legger dem **ikke** sammen."
+    },
+    {
+      "id": "tma4245-4-1-l3",
+      "type": "exercise",
+      "exercise": {
+        "id": "tma4245-4-1-l3",
+        "number": "5",
+        "type": "classic",
+        "difficulty": "lett",
+        "task": "$n$ uavhengige komponenter har hver eksponensialfordelt levetid med forventning $\\beta$, altså $P(X_i > x) = e^{-x/\\beta}$. La $M = \\min(X_1, \\ldots, X_n)$ være tiden til første svikt.\n\n**a)** Skriv opp $P(M > y)$ ved å bruke at alle må være $> y$.\n\n**b)** Hvilken fordeling har $M$?",
+        "solution": "**a)** $P(M > y) = \\prod_{i=1}^{n} P(X_i > y) = \\big(e^{-y/\\beta}\\big)^{n} = e^{-ny/\\beta}$ for $y > 0$.\n\n**b)** Dette er halen til en **eksponensialfordeling med forventning $\\beta/n$** (siden $P(M > y) = e^{-y/(\\beta/n)}$). Minimum av $n$ uavhengige eksponensiale er altså eksponensial med forventning $\\beta/n$ — første svikt kommer i snitt $n$ ganger raskere enn én komponent alene.",
+        "hints": [
+          "Alle må overleve: gang halesannsynlighetene.",
+          "$\\big(e^{-y/\\beta}\\big)^n = e^{-y/(\\beta/n)}$ — kjenn igjen eksponensialhalen."
+        ]
+      }
+    },
+    {
+      "id": "tma4245-4-1-m3",
+      "type": "exercise",
+      "exercise": {
+        "id": "tma4245-4-1-m3",
+        "number": "6",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "Tre lyspærer står i **parallell**; rommet er opplyst så lenge minst én lyser. Levetidene (i tusen timer) er uavhengige og eksponensialfordelte med forventning $\\beta = 4$, altså $F(x) = 1 - e^{-x/4}$. La $T$ være tiden til det siste rommet blir mørkt.\n\n**a)** Er $T$ et minimum eller et maksimum? Skriv opp $F_T(t)$.\n\n**b)** Finn $P(T > 6)$.",
+        "solution": "**a)** «Siste pære slukner» = **maksimum** av de tre levetidene (parallellsystem). $F_T(t) = [F(t)]^3 = \\big(1 - e^{-t/4}\\big)^{3}$ for $t > 0$.\n\n**b)** $P(T > 6) = 1 - \\big(1 - e^{-6/4}\\big)^{3} = 1 - \\big(1 - e^{-1{,}5}\\big)^{3}$. Med $e^{-1{,}5} \\approx 0{,}2231$: $1 - (0{,}7769)^3 = 1 - 0{,}4689 \\approx 0{,}531$.",
+        "hints": [
+          "Parallell = maksimum → $F_T = [F]^n$.",
+          "$P(T>6) = 1 - F_T(6)$; regn $(1 - e^{-1{,}5})^3$."
+        ]
+      }
+    },
+    {
+      "id": "tma4245-4-1-v1",
+      "type": "exercise",
+      "exercise": {
+        "id": "tma4245-4-1-v1",
+        "number": "7",
+        "type": "classic",
+        "difficulty": "vanskelig",
+        "task": "Et system har to komponenter med uavhengige, eksponensialfordelte levetider, hver med forventning $\\beta = 10$ år.\n\n**a)** Koblet i **serie** (systemet svikter når første komponent svikter): hvilken fordeling har systemlevetiden $M = \\min(X_1, X_2)$, og hva er $E(M)$?\n\n**b)** Finn $P(M > 4)$ for seriesystemet.\n\n**c)** Koblet i **parallell** i stedet: skriv opp $P(\\text{systemet lever} > 4)$ (du trenger ikke regne ut tallet), og forklar med én setning hvorfor parallellsystemet er sikrere.",
+        "solution": "**a)** Serie = minimum. Minimum av 2 uavhengige eksponensiale med forventning $\\beta = 10$ er eksponensial med forventning $\\beta/2 = 5$ år. Altså $M \\sim \\text{eksp}(5)$ og $E(M) = 5$ år.\n\n**b)** $P(M > 4) = e^{-4/5} = e^{-0{,}8} \\approx 0{,}449$.\n\n**c)** Parallell = maksimum: $P(\\text{lever} > 4) = 1 - \\big(1 - e^{-4/10}\\big)^{2}$. Parallellsystemet er sikrere fordi det bare trenger **én** overlevende komponent (maksimum), mens seriesystemet svikter så snart **én** komponent svikter (minimum) — redundansen kjøper levetid.",
+        "hints": [
+          "Serie = min; min av eksponensiale er eksponensial med forventning $\\beta/n$.",
+          "$P(M>4) = e^{-4/5}$.",
+          "Parallell = maks $= 1 - [F(4)]^2$; parallell trenger bare én overlevende."
+        ]
+      }
+    },
+    {
+      "id": "tma4245-4-1-warn",
+      "type": "warning",
+      "title": "Typiske feil",
+      "content": "- **Addere i stedet for å multiplisere fordelingsfunksjoner for maksimum.** $F_{\\max}(y) = [F(y)]^n$ — et *produkt*, fordi alle må være $\\le y$. Å legge sammen $F$-ene er galt.\n- **Bruke $F$ der $1 - F$ kreves for minimum.** For $\\min$ går du om halen: $P(\\min > y) = [1 - F(y)]^n$, deretter $F_{\\min} = 1 - [1 - F]^n$.\n- **Glemme å snu ulikheten for en avtakende transformasjon.** Er $g$ avtakende, blir $\\{g(X) \\le y\\} = \\{X \\ge g^{-1}(y)\\}$, som gir $1 - F_X$. Sjekk alltid om $g$ vokser eller avtar først.\n- **Derivere feil ledd i kjerneregelen.** Når du deriverer $F_Y(y) = F_X(g^{-1}(y))$, må du gange med $\\frac{d}{dy}g^{-1}(y)$. En glemt indre derivert gir feil tetthet.\n- **Identifisere en MGF uten å oppgi entydighetsargumentet.** Å regne ut $M_S(t) = (1-\\beta t)^{-n}$ er ikke nok; du må si at MGF-en *bestemmer* fordelingen for å konkludere $S \\sim \\text{gamma}(n,\\beta)$."
+    },
+    {
+      "id": "tma4245-4-1-begrepsbank",
+      "type": "text",
+      "content": "## Begrepsbank til eksamen\n\nTeknikk- og formelkortene for transformasjoner og ordningsvariable, samlet i kortform.\n\n*Begrepsbanken er flashcard-/repetisjonsstoff — den gjentar det du nettopp har lest. Hopp trygt over ved førstegangslesing; tidsanslaget gjelder kjernestoffet.*"
+    },
+    {
+      "id": "tma4245-4-1-bb-cdf-tre-steg",
+      "type": "definition",
+      "title": "Teknikkort: CDF-metoden i tre steg",
+      "content": "For $Y = g(X)$: **(1)** skriv $F_Y(y) = P(g(X) \\le y)$; **(2)** løs ulikheten for $X$ og sett inn $F_X$ (voksende $g$: $F_X(g^{-1}(y))$; avtakende $g$: $1 - F_X(g^{-1}(y))$); **(3)** deriver $F_Y$ for å få tettheten $f_Y$. Dette er standardverktøyet for sjanger D — den identifiserer fordelingen til en transformert variabel."
+    },
+    {
+      "id": "tma4245-4-1-bb-snu-ulikhet",
+      "type": "definition",
+      "title": "Feilkort: snu ulikheten for avtakende $g$",
+      "content": "Er $g$ **avtakende**, snur ulikheten: $g(X) \\le y \\Leftrightarrow X \\ge g^{-1}(y)$, som gir $F_Y(y) = 1 - F_X(g^{-1}(y))$. Glemmer du dette, får du et uttrykk som avtar med $y$ — ikke en gyldig fordelingsfunksjon. Test alltid om $g$ vokser eller avtar (f.eks. $Y = 1/X$, $Y = e^{-X}$, $Y = -\\ln X$ er alle avtakende) før du fjerner $P$-tegnet."
+    },
+    {
+      "id": "tma4245-4-1-bb-deriver-tetthet",
+      "type": "definition",
+      "title": "Teknikkort: tetthet ved derivasjon",
+      "content": "Tettheten til den transformerte variabelen er den deriverte av dens fordelingsfunksjon: $f_Y(y) = F_Y'(y)$. Bruk **kjerneregelen** — når $F_Y(y) = F_X(g^{-1}(y))$, blir $f_Y(y) = f_X(g^{-1}(y)) \\cdot \\frac{d}{dy}g^{-1}(y)$. Den glemte indre deriverte er en klassisk regnefeil. Angi til slutt støtten (hvilke $y$ tettheten gjelder for)."
+    },
+    {
+      "id": "tma4245-4-1-bb-mgf-produkt",
+      "type": "definition",
+      "title": "Formelkort: MGF-produktregelen",
+      "content": "For **uavhengige** variable er MGF-en til summen produktet av MGF-ene:\n\n$$M_{X_1 + \\cdots + X_n}(t) = \\prod_{i=1}^{n} M_{X_i}(t).$$\n\nEr variablene identisk fordelte med felles MGF $M(t)$, blir dette $[M(t)]^n$. Dette er hovedverktøyet for å identifisere fordelingen til en sum uten å summere sannsynligheter. MGF-en er definert som $M_X(t) = E(e^{tX})$."
+    },
+    {
+      "id": "tma4245-4-1-bb-mgf-entydig",
+      "type": "definition",
+      "title": "Feilkort: MGF-entydighetsargumentet",
+      "content": "To fordelinger med samme momentgenererende funksjon **er** den samme fordelingen — «MGF-en bestemmer fordelingen». Når du har regnet ut $M_S(t)$ og kjent den igjen i katalogen, må du si dette eksplisitt for å konkludere. Uten entydighetsargumentet har du bare regnet ut en funksjon; det er entydigheten som gjør identifikasjonen gyldig (en fast sensor-markør)."
+    },
+    {
+      "id": "tma4245-4-1-bb-mgf-katalog",
+      "type": "definition",
+      "title": "Katalogkort: MGF-identifikasjoner",
+      "content": "De tre som går igjen på eksamen: **sum av $n$ uavhengige Bernoulli$(p)$** $\\to$ binomisk$(n,p)$; **sum av $n$ uavhengige eksponensial$(\\beta)$** $\\to$ gamma$(n,\\beta)$; **sum av $n$ uavhengige kvadrater av $N(0,1)$** $\\to$ $\\chi^2_n$. MGF-ene står i formelsamlingen (hjelpemiddelkode C) — tren oppslaget: regn produktet, finn det i katalogen, påberop entydigheten."
+    },
+    {
+      "id": "tma4245-4-1-bb-fmax",
+      "type": "definition",
+      "title": "Formelkort: maksimum $F_{\\max} = [F]^n$",
+      "content": "For $n$ uavhengige, identisk fordelte variable med fordelingsfunksjon $F$:\n\n$$F_{\\max}(y) = [F(y)]^n.$$\n\nBegrunnelse: $\\max \\le y$ betyr at *alle* er $\\le y$, og produktregelen for uavhengige gir produktet. Tettheten $f_{\\max}(y) = n[F(y)]^{n-1}f(y)$ ved derivasjon. Maksimum styrer **parallellsystemer** (systemet lever til siste komponent svikter)."
+    },
+    {
+      "id": "tma4245-4-1-bb-fmin",
+      "type": "definition",
+      "title": "Formelkort: minimum $F_{\\min} = 1 - [1 - F]^n$",
+      "content": "For $n$ uavhengige, identisk fordelte variable, gå om halen: $\\min > y$ betyr at *alle* er $> y$, så\n\n$$P(\\min > y) = [1 - F(y)]^n, \\qquad F_{\\min}(y) = 1 - [1 - F(y)]^n.$$\n\nTettheten $f_{\\min}(y) = n[1 - F(y)]^{n-1}f(y)$. Minimum styrer **seriesystemer** (systemet svikter når første komponent svikter)."
+    },
+    {
+      "id": "tma4245-4-1-bb-serie-parallell",
+      "type": "definition",
+      "title": "Begrepskort: serie = min, parallell = maks",
+      "content": "**Seriesystem:** komponentene er koblet slik at *alle* må virke — systemet svikter ved *første* svikt, så systemlevetiden er $\\min(X_1, \\ldots, X_n)$. **Parallellsystem (redundans):** systemet virker så lenge *minst én* komponent virker — systemlevetiden er $\\max(X_1, \\ldots, X_n)$. Å avgjøre hvilket ytterpunkt oppgaven spør om er første steg i enhver sjanger K-oppgave."
+    },
+    {
+      "id": "tma4245-4-1-bb-min-eksp",
+      "type": "definition",
+      "title": "Katalogkort: min av eksponensiale",
+      "content": "Minimum av $n$ uavhengige eksponensiale, hver med forventning $\\beta$, er igjen **eksponensialfordelt, med forventning $\\beta/n$**: $P(\\min > y) = (e^{-y/\\beta})^n = e^{-y/(\\beta/n)}$. Første svikt i et seriesystem kommer altså i snitt $n$ ganger raskere enn for én komponent. (Maksimum av eksponensiale er derimot *ikke* eksponensial — der må du regne med $[F]^n$.)"
+    },
+    {
+      "id": "tma4245-4-1-bb-adder-ikke",
+      "type": "definition",
+      "title": "Feilkort: gang, ikke adder, CDF-er",
+      "content": "For ordningsvariable **multipliseres** fordelingsfunksjoner (eller haler), aldri adderes: $F_{\\max} = [F]^n$ og $P(\\min > y) = [1 - F]^n$. Å skrive $F_{\\max} = n \\cdot F$ eller $F_{\\min} = n \\cdot F$ er feil — det kommer fra produktregelen for uavhengige hendelser, som gir et *produkt*. Sjekk også at $g$ er voksende/avtakende i CDF-metoden før du velger $F$ eller $1 - F$."
+    },
+    {
+      "id": "tma4245-4-1-rep",
+      "type": "collapsible",
+      "title": "Repetisjonsoppgaver",
+      "buttonText": "Vis repetisjonsoppgaver",
+      "content": [
+        {
+          "id": "tma4245-4-1-rep-1",
+          "type": "exercise",
+          "exercise": {
+            "id": "tma4245-4-1-rep-1",
+            "number": "R1",
+            "type": "classic",
+            "difficulty": "lett",
+            "task": "(Fra [kap. 2.3](/bok/tma4245/tma4245-2-3)) En variabel er eksponensialfordelt med forventning $\\beta = 4$. Finn $P(X > 4)$.",
+            "solution": "$P(X > 4) = e^{-4/\\beta} = e^{-4/4} = e^{-1} \\approx 0{,}368$.",
+            "hints": [
+              "$P(X > x) = e^{-x/\\beta}$."
+            ]
+          }
+        },
+        {
+          "id": "tma4245-4-1-rep-2",
+          "type": "exercise",
+          "exercise": {
+            "id": "tma4245-4-1-rep-2",
+            "number": "R2",
+            "type": "classic",
+            "difficulty": "lett",
+            "task": "(Fra [kap. 2.3](/bok/tma4245/tma4245-2-3)) En Weibull-variabel har $F(x) = 1 - e^{-(x/5)^2}$. Finn $P(X > 5)$.",
+            "solution": "$P(X > 5) = e^{-(5/5)^2} = e^{-1} \\approx 0{,}368$.",
+            "hints": [
+              "$P(X > x) = e^{-(x/\\theta)^k}$ med $\\theta = 5$, $k = 2$."
+            ]
+          }
+        },
+        {
+          "id": "tma4245-4-1-rep-3",
+          "type": "exercise",
+          "exercise": {
+            "id": "tma4245-4-1-rep-3",
+            "number": "R3",
+            "type": "classic",
+            "difficulty": "middels",
+            "task": "(Fra [kap. 3.1](/bok/tma4245/tma4245-3-1)) $X \\sim N(\\mu, \\sigma^2)$ med $\\mu = 20$ og $\\sigma^2 = 25$ (så $\\sigma = 5$). Standardiser $X = 30$ til en $Z$-verdi.",
+            "solution": "$Z = \\dfrac{X - \\mu}{\\sigma} = \\dfrac{30 - 20}{5} = 2$. Husk: annet argument i $N(\\mu, \\sigma^2)$ er *variansen*, så $\\sigma = \\sqrt{25} = 5$.",
+            "hints": [
+              "$Z = (X - \\mu)/\\sigma$; $\\sigma = \\sqrt{\\sigma^2}$."
+            ]
+          }
+        },
+        {
+          "id": "tma4245-4-1-rep-4",
+          "type": "exercise",
+          "exercise": {
+            "id": "tma4245-4-1-rep-4",
+            "number": "R4",
+            "type": "classic",
+            "difficulty": "middels",
+            "task": "(Fra [kap. 2.3](/bok/tma4245/tma4245-2-3)) $T$ er summen av 3 uavhengige eksponensiale, hver med forventning $\\beta = 6$, altså gamma$(3, 6)$. Finn $E(T)$ og $\\text{Var}(T)$.",
+            "solution": "$E(T) = n\\beta = 3 \\cdot 6 = 18$ og $\\text{Var}(T) = n\\beta^2 = 3 \\cdot 36 = 108$.",
+            "hints": [
+              "Gamma$(n,\\beta)$: $E = n\\beta$, $\\text{Var} = n\\beta^2$."
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": "tma4245-4-1-symbolliste",
+      "type": "collapsible",
+      "title": "Symbol- og formelliste",
+      "buttonText": "Vis symboler og formler",
+      "content": [
+        {
+          "id": "tma4245-4-1-symbolliste-text",
+          "type": "text",
+          "content": "*Oppslagsverk — alt her forklares underveis i kapitlet.*\n\nAlle symboler og formler brukt i kapittel 4.1, samlet.\n\n| Symbol | Betydning |\n|---|---|\n| $X$ | Opprinnelig stokastisk variabel |\n| $Y = g(X)$ | Transformert variabel |\n| $F_X, F_Y$ | Fordelingsfunksjonene til $X$ og $Y$ |\n| $g^{-1}$ | Invers av transformasjonen $g$ |\n| $M_X(t)$ | Momentgenererende funksjon, $E(e^{tX})$ |\n| $\\beta$ | Forventningen i eksponensialfordelingen |\n| $\\max, \\min$ | Største/minste av $X_1, \\ldots, X_n$ |\n| $F$ | Felles fordelingsfunksjon for iid variable |\n\n**Formler i dette kapitlet:**\n\n$$F_Y(y) = P(g(X) \\le y) = F_X(g^{-1}(y)) \\;\\; (g \\text{ voksende}), \\quad 1 - F_X(g^{-1}(y)) \\;\\; (g \\text{ avtakende})$$\nCDF-metoden — deriver til slutt for tettheten $f_Y = F_Y'$.\n\n$$M_{X_1 + \\cdots + X_n}(t) = \\prod_{i=1}^{n} M_{X_i}(t)$$\nMGF-produktregelen for uavhengige variable (entydighet: MGF-en bestemmer fordelingen).\n\n$$F_{\\max}(y) = [F(y)]^n$$\nMaksimum av $n$ iid variable — parallellsystem.\n\n$$F_{\\min}(y) = 1 - [1 - F(y)]^n$$\nMinimum av $n$ iid variable — seriesystem.\n\n$$\\min(X_1, \\ldots, X_n) \\sim \\text{eksp}(\\beta/n) \\quad (X_i \\text{ iid eksponensial med forventning } \\beta)$$\nMinimum av eksponensiale er eksponensial med forventning $\\beta/n$."
+        }
+      ]
+    }
+  ],
+  "exercises": []
+}

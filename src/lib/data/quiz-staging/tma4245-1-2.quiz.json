@@ -1,0 +1,152 @@
+[
+  {
+    "question": "Hva sier multiplikasjonsprinsippet?",
+    "options": [
+      "Gang antall valg i hvert uavhengig trinn med hverandre",
+      "Legg sammen antall valg i hvert av de ulike trinnene",
+      "Del antall totale utfall på antall trinn i oppgaven",
+      "Trekk fra det minste antallet valg blant alle trinn"
+    ],
+    "explanation": "Kan trinn 1 gjøres på $n_1$ måter og trinn 2 på $n_2$, er totalen $n_1\\cdot n_2$ — for hvert valg i trinn 1 finnes $n_2$ i trinn 2."
+  },
+  {
+    "question": "En firesifret PIN-kode har sifre 0–9 som kan gjentas. Hvor mange koder finnes?",
+    "options": [
+      "$10^4 = 10\\,000$",
+      "$10 \\cdot 9 \\cdot 8 \\cdot 7 = 5040$",
+      "$\\binom{10}{4} = 210$",
+      "$4^{10} = 1\\,048\\,576$"
+    ],
+    "explanation": "Ordnet med tilbakelegging: 10 valg i hvert av 4 trinn gir $10^4$. $5040$ ville vært uten gjentakelse."
+  },
+  {
+    "question": "Når bruker du $\\frac{n!}{(n-k)!}$ i stedet for $\\binom{n}{k}$?",
+    "options": [
+      "Når rekkefølgen på de valgte teller (ordnet utvalg)",
+      "Når rekkefølgen ikke teller (uordnet utvalg)",
+      "Når elementene kan velges flere ganger",
+      "Når alle $n$ elementene skal brukes samtidig"
+    ],
+    "explanation": "$\\frac{n!}{(n-k)!}$ teller ordnede utvalg (permutasjoner); $\\binom{n}{k}$ teller uordnede. Skillet er om en omstokking gir nytt utfall."
+  },
+  {
+    "question": "Hva er $\\binom{10}{3}$?",
+    "options": [
+      "$120$",
+      "$720$",
+      "$30$",
+      "$1000$"
+    ],
+    "explanation": "$\\binom{10}{3}=\\frac{10\\cdot 9\\cdot 8}{3\\cdot 2\\cdot 1}=120$. $720$ er det ordnede tallet $10\\cdot 9\\cdot 8$."
+  },
+  {
+    "question": "Et team på 4 velges fra 5 ingeniører og 4 teknikere, med krav om nøyaktig 2 av hver. Hvor mange team?",
+    "options": [
+      "$\\binom{5}{2}\\binom{4}{2} = 60$",
+      "$\\binom{5}{2}+\\binom{4}{2} = 16$",
+      "$\\binom{9}{4} = 126$",
+      "$\\binom{5}{2}\\binom{4}{2}\\cdot 2 = 120$"
+    ],
+    "explanation": "Begge krav må oppfylles samtidig, så vi ganger: $10\\cdot 6=60$. Å legge sammen er en klassisk feil."
+  },
+  {
+    "question": "Hva teller den multinomiske koeffisienten $\\frac{n!}{n_1!\\,n_2!\\cdots n_r!}$?",
+    "options": [
+      "Antall måter å dele $n$ objekter i grupper av gitte størrelser",
+      "Antall måter å velge én gruppe på $k$ blant $n$",
+      "Antall ordnede utvalg med tilbakelegging blant $n$",
+      "Antall delmengder av en mengde med $n$ elementer"
+    ],
+    "explanation": "Den deler $n$ objekter i $r$ grupper av størrelse $n_1,\\ldots,n_r$; den teller også anagram av et ord."
+  },
+  {
+    "question": "En pokerhånd er 5 kort av 52 (rekkefølgen teller ikke). Hvor mange hender finnes?",
+    "options": [
+      "$\\binom{52}{5} = 2\\,598\\,960$",
+      "$52^5 = 380\\,204\\,032$",
+      "$\\frac{52!}{47!} = 311\\,875\\,200$",
+      "$\\binom{52}{5}\\cdot 5! = 311\\,875\\,200$"
+    ],
+    "explanation": "Uordnet utvalg av 5 av 52 gir $\\binom{52}{5}$. De ordnede tallene teller hver hånd $5!$ ganger for mye."
+  },
+  {
+    "question": "Hvordan finner du sannsynligheten for «minst ett ess» i 5 trukne kort raskest?",
+    "options": [
+      "$1$ minus sannsynligheten for «ingen ess»",
+      "Summen av sannsynlighetene for 1, 2, 3 og 4 ess hver for seg",
+      "Sannsynligheten for «nøyaktig ett ess» alene",
+      "$\\binom{4}{1}$ delt på det totale antallet hender"
+    ],
+    "explanation": "«Minst én» = $1 - $ «ingen», og «ingen ess» er ett enkelt uttrykk $\\binom{48}{5}/\\binom{52}{5}$. Å summere fire tilfeller gir samme svar, men tregere."
+  },
+  {
+    "question": "Hva er den hypergeometriske tellingen egnet for?",
+    "options": [
+      "Trekk av $k$ objekter uten tilbakelegging fra to typer",
+      "Uavhengige forsøk med konstant suksess-sannsynlighet",
+      "Ordnede koder der samme tegn kan gjentas",
+      "Antall permutasjoner av $n$ helt like objekter"
+    ],
+    "explanation": "$\\frac{\\binom{a}{x}\\binom{b}{k-x}}{\\binom{a+b}{k}}$ gjelder trekk uten tilbakelegging — velg $x$ av type 1 og $k-x$ av type 2."
+  },
+  {
+    "question": "Hva er $\\binom{n}{k}$ lik ifølge symmetriregelen?",
+    "options": [
+      "$\\binom{n}{n-k}$",
+      "$\\binom{n-1}{k}$",
+      "$\\binom{n}{k-1}$",
+      "$\\binom{k}{n}$"
+    ],
+    "explanation": "Å velge $k$ ut er like mange måter som å velge $n-k$ bort: $\\binom{n}{k}=\\binom{n}{n-k}$."
+  },
+  {
+    "question": "Hvor mange delmengder har en mengde med 6 elementer?",
+    "options": [
+      "$2^6 = 64$",
+      "$6! = 720$",
+      "$6^2 = 36$",
+      "$\\binom{6}{3} = 20$"
+    ],
+    "explanation": "Hvert element er enten med eller ikke, så $2^6=64$ delmengder totalt (inkludert den tomme og hele mengden)."
+  },
+  {
+    "question": "Gull, sølv og bronse skal deles ut blant 8 løpere. Hvor mange utfall?",
+    "options": [
+      "$8 \\cdot 7 \\cdot 6 = 336$",
+      "$\\binom{8}{3} = 56$",
+      "$8^3 = 512$",
+      "$3^8 = 6561$"
+    ],
+    "explanation": "Medaljene er forskjellige, så rekkefølgen teller: ordnet uten tilbakelegging, $8\\cdot 7\\cdot 6=336$."
+  },
+  {
+    "question": "Hva er $0!$ definert som?",
+    "options": [
+      "$1$",
+      "$0$",
+      "Udefinert",
+      "Uendelig"
+    ],
+    "explanation": "$0!=1$ per konvensjon; det trengs for at $\\binom{n}{k}=\\frac{n!}{k!(n-k)!}$ skal stemme, f.eks. $\\binom{n}{n}=1$."
+  },
+  {
+    "question": "Hvor mange ulike ord kan lages av bokstavene i ordet KATT (K,A,T,T)?",
+    "options": [
+      "$\\frac{4!}{2!} = 12$",
+      "$4! = 24$",
+      "$\\binom{4}{2} = 6$",
+      "$4^2 = 16$"
+    ],
+    "explanation": "Fire bokstaver med T gjentatt to ganger: $\\frac{4!}{2!}=12$. Full $4!$ teller de to T-ene som forskjellige."
+  },
+  {
+    "question": "En urne har 20 komponenter, 5 defekte. Ved trekk av 6 uten tilbakelegging, hva er $P(\\text{nøyaktig 2 defekte})$?",
+    "options": [
+      "$\\frac{\\binom{5}{2}\\binom{15}{4}}{\\binom{20}{6}} \\approx 0{,}35$",
+      "$\\binom{6}{2}(0{,}25)^2(0{,}75)^4 \\approx 0{,}30$",
+      "$\\frac{\\binom{5}{2}}{\\binom{20}{6}} \\approx 0{,}0003$",
+      "$\\frac{\\binom{15}{4}}{\\binom{20}{6}} \\approx 0{,}035$"
+    ],
+    "explanation": "Velg 2 av 5 defekte og 4 av 15 hele, delt på alle måter å velge 6 av 20: $\\frac{10\\cdot 1365}{38760}\\approx 0{,}352$."
+  }
+]

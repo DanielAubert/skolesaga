@@ -1,0 +1,102 @@
+[
+  {
+    "question": "For $X \\sim \\text{eksp}(\\beta)$, hvilken fordeling har $2X/\\beta$?",
+    "options": [
+      "$\\chi^2_2$ — kjikvadrat med 2 frihetsgrader",
+      "$\\chi^2_1$ — kjikvadrat med 1 frihetsgrad",
+      "Eksponensial med forventning $\\beta$, uendret",
+      "$N(0, 1)$ — standardnormal"
+    ],
+    "explanation": "CDF-metoden gir $P(2X/\\beta \\le y) = 1 - e^{-y/2}$, som er $\\chi^2_2$ (en eksponensial med forventning 2)."
+  },
+  {
+    "question": "Hva er frihetsgraden til $2\\sum_{i=1}^{n} X_i/\\beta$ for $n$ uavhengige eksponensiale?",
+    "options": [
+      "$2n$ — hver observasjon bidrar med $\\chi^2_2$",
+      "$n$ — nøyaktig én frihetsgrad per observasjon",
+      "$n - 1$ — som for variansen i normalfordelingen",
+      "$2n - 1$ — én frihetsgrad mistes til gjennomsnittet"
+    ],
+    "explanation": "Hver $2X_i/\\beta \\sim \\chi^2_2$, og summen av $n$ slike er $\\chi^2_{2n}$. Frihetsgraden er $2n$, aldri $n$."
+  },
+  {
+    "question": "Hvorfor blir $2X/\\beta$ parameterfri i utledningen?",
+    "options": [
+      "Fordi $\\beta$ kanselleres i eksponenten når vi setter inn",
+      "Fordi $\\beta$ per definisjon alltid er lik 1 i denne fordelingen",
+      "Fordi vi hele tiden erstatter $\\beta$ med estimatet $\\bar{X}$",
+      "Fordi $2X$ og parameteren $\\beta$ er helt uavhengige størrelser"
+    ],
+    "explanation": "Når $\\beta y/2$ settes inn i eksponensialhalen, kanselleres $\\beta$: $e^{-(\\beta y/2)/\\beta} = e^{-y/2}$. Det er nettopp derfor størrelsen er en pivotal."
+  },
+  {
+    "question": "Hvilket verktøy identifiserer fordelingen til $2\\sum X_i/\\beta$ ut fra leddene?",
+    "options": [
+      "Produktregelen for MGF-er: $\\prod(1-2t)^{-1} = (1-2t)^{-n}$",
+      "Sentralgrenseteoremet, som gir en tilnærmet normalfordeling",
+      "CDF-metoden anvendt direkte på hele summen $\\sum X_i$",
+      "Invariansprinsippet for maximum-likelihood-estimatoren"
+    ],
+    "explanation": "Hver $2X_i/\\beta \\sim \\chi^2_2$ har MGF $(1-2t)^{-1}$; produktet $(1-2t)^{-n}$ er MGF-en til $\\chi^2_{2n}$."
+  },
+  {
+    "question": "For Weibull-data med $F(x) = 1 - e^{-(x/\\theta)^k}$, hva gjør du før du bruker kjikvadrat-apparatet?",
+    "options": [
+      "Potens-transformerer: $(X/\\theta)^k \\sim \\text{eksp}(1)$",
+      "Bruker apparatet direkte på $X$, siden Weibull er nær eksponensial",
+      "Standardiserer $X$ til en $N(0,1)$-variabel",
+      "Kvadrerer $X$ og summerer, som for $\\chi^2$"
+    ],
+    "explanation": "Apparatet gjelder eksponensiale data. Potens-løftet $(X/\\theta)^k \\sim \\text{eksp}(1)$ gjør Weibull om til eksponensial først."
+  },
+  {
+    "question": "Hva må sies eksplisitt når du har regnet ut $M_S(t) = (1-2t)^{-n}$ og vil konkludere $S \\sim \\chi^2_{2n}$?",
+    "options": [
+      "Entydighetsargumentet: MGF-en bestemmer fordelingen",
+      "At $S$ er ikke-negativ, som en $\\chi^2$-variabel må være",
+      "At $n$ er stor nok til at tilnærmingen holder",
+      "At variansen til $S$ er $4n$"
+    ],
+    "explanation": "Identifikasjonen via MGF hviler på entydigheten. Uten det argumentet har du bare regnet ut en funksjon."
+  },
+  {
+    "question": "Bruk at $\\chi^2_2$ har hale $P(\\chi^2_2 > c) = e^{-c/2}$. Hva er $P(2X/\\beta > 3)$?",
+    "options": [
+      "$e^{-3/2} \\approx 0{,}22$",
+      "$e^{-3} \\approx 0{,}05$",
+      "$1 - e^{-3/2} \\approx 0{,}78$",
+      "$e^{-2/3} \\approx 0{,}51$"
+    ],
+    "explanation": "$2X/\\beta \\sim \\chi^2_2$, så $P(2X/\\beta > 3) = e^{-3/2} \\approx 0{,}2231$."
+  },
+  {
+    "question": "En student skriver $2n\\bar{X}/\\hat{\\beta} \\sim \\chi^2_{2n}$ med $\\hat{\\beta} = \\bar{X}$. Hva er galt?",
+    "options": [
+      "$2n\\bar{X}/\\bar{X} = 2n$ er en konstant, ikke stokastisk",
+      "Frihetsgraden skulle da ha vært $n$ og ikke $2n$",
+      "$\\hat{\\beta}$ er ikke maximum-likelihood-estimatoren for $\\beta$",
+      "Man kan aldri bruke gjennomsnittet $\\bar{X}$ i en pivotal"
+    ],
+    "explanation": "Setter du estimatet $\\hat{\\beta} = \\bar{X}$ inn, blir det $2n$ — en konstant. Pivotalen krever den ukjente $\\beta$ i nevneren."
+  },
+  {
+    "question": "For Pareto-data med $F(x) = 1 - x^{-\\alpha}$ ($x > 1$), hvilken transformasjon gir eksponensial(1)?",
+    "options": [
+      "$W = \\alpha \\ln X$",
+      "$W = X^\\alpha$",
+      "$W = 1/X$",
+      "$W = \\alpha X$"
+    ],
+    "explanation": "$P(\\alpha \\ln X \\le w) = P(X \\le e^{w/\\alpha}) = 1 - e^{-w}$, så $\\alpha \\ln X \\sim \\text{eksp}(1)$."
+  },
+  {
+    "question": "Hva er hovedgrunnen til at $2\\sum X_i/\\beta$ kalles en pivotal?",
+    "options": [
+      "Den bruker data og $\\beta$, men $\\chi^2_{2n}$ har ingen ukjente",
+      "Den er alltid lik en fast konstant uansett hvilke data vi har",
+      "Den er tilnærmet normalfordelt for enhver utvalgsstørrelse $n$",
+      "Den kan bare brukes når parameteren $\\beta$ er kjent på forhånd"
+    ],
+    "explanation": "En pivotal er bygget av data og den ukjente parameteren, men har en fordeling ($\\chi^2_{2n}$) uten ukjente — nettopp det som lar oss lage et eksakt konfidensintervall."
+  }
+]
