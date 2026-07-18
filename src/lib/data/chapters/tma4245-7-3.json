@@ -1,0 +1,333 @@
+{
+  "id": "tma4245-7-3",
+  "courseId": "tma4245",
+  "chapterNumber": "7.3",
+  "title": "Styrke, type II-feil og dimensjonering av utvalget",
+  "description": "Regn ut sannsynligheten for å avsløre et avvik — og finn hvor mange observasjoner som trengs for styrke 0,80, 0,90 eller 0,95.",
+  "estimatedMinutes": 55,
+  "competenceGoals": [
+    "skille type I-feil, type II-feil og styrke, og regne styrken til en ensidig z-test ved en gitt sann parameterverdi",
+    "forklare hvordan styrken øker med utvalgsstørrelse, effektstørrelse og signifikansnivå",
+    "utlede dimensjoneringsformelen og finne utvalgsstørrelsen som gir ønsket styrke, med korrekt opprunding",
+    "overføre styrke- og dimensjoneringsregningen til andels- og Poisson-tester"
+  ],
+  "content": [
+    {
+      "id": "tma4245-7-3-tip",
+      "type": "tip",
+      "title": "Eksamensvinkel",
+      "content": "**Styrke og dimensjonering er den delen av hypotesetesten som vokser raskest.** Der resten av testritualet svarer *ja/nei*, svarer dette kapitlet på **hvor god testen er til å oppdage en effekt** — og **hvor mange observasjoner du trenger**.\n\n- Styrke, type I/II-feil og dimensjonering er med i **≈35 %** av settene, og er **kraftig økende — «nesten obligatorisk» i den store testoppgaven 2024–26**. Prioritet: **høyeste** (nivå 1), og et typisk **A-skille**: mange klarer selve testen, færre klarer styrken.\n- **Aug21** ber deg finne $n$ som gir ønsket styrke (fasitsvar av typen $n \\ge 1303$); **Des25** spør hvilken rate som kreves for styrke 0,95; **Mai25** simulerer styrken (kobler mot simulering i kap. 9.2).\n- Oppgavetypen er styrke-halen av **sjanger I** (full hypotesetest — I er bare en bokstavkode): den kommer nesten alltid som en siste deloppgave etter at selve testen er gjennomført.\n\n**Hvor poengene sitter:** i at du **re-standardiserer forkastningsgrensen under den sanne parameterverdien** — ikke under $H_0$ — og at du **runder $n$ opp**. Styrkeformelen står *ikke* ferdig i formelsamlingen (hjelpemiddelkode C har fordelingstabellene, ikke styrken); den **må utledes aktivt** hver gang. Det er nettopp derfor den skiller."
+    },
+    {
+      "id": "tma4245-7-3-forkunnskaper",
+      "type": "text",
+      "content": "**Forkunnskaper:** Dette kapitlet bygger rett på testritualet i **[kap. 7.1](/bok/tma4245/tma4245-7-1)** (hypoteser, forkastningsområde, signifikansnivå $\\alpha$ og de allerede definerte type I- og type II-feilene), på gjennomsnittets fordeling fra **[kap. 3.2](/bok/tma4245/tma4245-3-2)** og standardiseringen med kvantilnotasjon fra **[kap. 3.1](/bok/tma4245/tma4245-3-1)**.\n\n**Sist du var her — de tre resultatene styrken hviler på (ferdig oppfrisket):**\n\n1. **Forkastningsområdet til z-testen:** for $H_0: \\mu = \\mu_0$ mot $H_1: \\mu > \\mu_0$ på nivå $\\alpha$ forkaster vi når $Z = \\frac{\\bar{X}-\\mu_0}{\\sigma/\\sqrt{n}} > z_\\alpha$, der $z_\\alpha$ har øvre haleareal $\\alpha$ ($z_{0{,}05}=1{,}645$, $z_{0{,}10}=1{,}282$).\n2. **Gjennomsnittets fordeling:** for uavhengige normale observasjoner er $\\bar{X} \\sim N\\!\\left(\\mu, \\frac{\\sigma^2}{n}\\right)$ — og dette gjelder for *hvilken som helst* sann $\\mu$, ikke bare $\\mu_0$. Det er hele nøkkelen til styrkeregningen.\n3. **Type I- og type II-feil (fra 7.1):** type I = forkaste en sann $H_0$ (sannsynlighet $\\alpha$); type II = beholde $H_0$ når $H_1$ er sann. Styrken er $1$ minus type II-sannsynligheten.\n\nDu trenger å kunne slå opp $z$-kvantiler og regne normalsannsynligheter med $\\Phi$."
+    },
+    {
+      "id": "tma4245-7-3-intro",
+      "type": "text",
+      "content": "**Hverdagsanker:** en røykvarsler som *aldri* gir falsk alarm høres perfekt ut — helt til den lar være å pipe under en ekte brann. En test med lav type I-feil ($\\alpha$) kan ha elendig **styrke**: den overser reelle effekter. Styrke er testens evne til å faktisk *oppdage* det den leter etter, og den koster observasjoner. Dette kapitlet handler om å tallfeste den balansen.\n\nVi går gjennom fem løkker: **feiltypene og styrkebegrepet** (løkke 1), **selve styrkeregningen for z-testen** (løkke 2), **hva som øker styrken** (løkke 3), **dimensjonering — finn $n$** (løkke 4), og **andels- og Poisson-varianten** (løkke 5). Hver løkke går teori $\\to$ eksempel $\\to$ oppgave.\n\n*Samlet kjernetid ≈ 55 min. Naturlige pausepunkter er markert mellom løkkene.*"
+    },
+    {
+      "id": "tma4245-7-3-lokke1",
+      "type": "text",
+      "content": "## Løkke 1 — De to feiltypene og styrken (~10 min)"
+    },
+    {
+      "id": "tma4245-7-3-def-feiltyper",
+      "type": "definition",
+      "title": "Type I-feil, type II-feil og styrke",
+      "content": "Hver gang vi konkluderer i en test, kan vi bomme på to måter. Sett opp de fire utfallene:\n\n| | $H_0$ er sann | $H_1$ er sann |\n|---|---|---|\n| **Forkaster $H_0$** | type I-feil ($\\alpha$) | riktig (styrke) |\n| **Forkaster ikke $H_0$** | riktig | type II-feil |\n\n- En **type I-feil** er å forkaste en *sann* $H_0$ (falsk alarm). Sannsynligheten er signifikansnivået $\\alpha$, som vi velger på forhånd.\n- En **type II-feil** er å beholde $H_0$ når $H_1$ *faktisk* er sann (en oversett effekt). Sannsynligheten kaller vi **type II-sannsynligheten** — vi unngår med vilje symbolet $\\beta$ som selvstendig navn her, for ikke å forveksle den med eksponensialfordelingens forventning; når vi *må* skrive den som symbol, skriver vi $z_\\beta$ bare i kvantilsammenheng.\n- **Styrken** er sannsynligheten for å forkaste $H_0$ når $H_1$ er sann — altså $1$ minus type II-sannsynligheten. Formelt, for en sann parameterverdi $\\mu_1$:\n\n$$\\text{styrke} = P(\\text{forkast } H_0 \\mid \\mu = \\mu_1).$$\n\nStyrken er ikke ett tall, men en **funksjon av hvilken sann verdi $\\mu_1$ vi tænker oss** — jo lenger $\\mu_1$ ligger fra $\\mu_0$, desto lettere er effekten å oppdage, og desto høyere er styrken."
+    },
+    {
+      "id": "tma4245-7-3-ex-feil",
+      "type": "example",
+      "title": "Eksempel 1: Hvilken feil er hvilken?",
+      "problem": "Et vannverk tester $H_0: \\mu = 2{,}0$ NTU (turbiditet på grensen) mot $H_1: \\mu > 2{,}0$ (vannet er for grumsete). For hver situasjon, avgjør om det er en type I-feil, en type II-feil, eller en riktig beslutning.\n\n**a)** Vannet er egentlig rent ($\\mu = 2{,}0$), men testen forkaster $H_0$ og utløser unødig rensing.\n\n**b)** Vannet er egentlig for grumsete ($\\mu = 2{,}6$), men testen forkaster *ikke* $H_0$, og forurensningen slippes gjennom.\n\n**c)** Hvilken av de to feilene beskytter styrken mot?",
+      "solution": "**a)** $H_0$ er sann, men vi forkaster — det er en **type I-feil** (falsk alarm). Sannsynligheten er $\\alpha$.\n\n**b)** $H_1$ er sann ($\\mu = 2{,}6 > 2{,}0$), men vi beholder $H_0$ — det er en **type II-feil** (oversett effekt). Dette er den farlige her: forurenset vann slipper gjennom.\n\n**c)** **Styrken** er sannsynligheten for å *unngå* type II-feilen når effekten er reell — altså for å oppdage at $\\mu = 2{,}6$. Høy styrke betyr liten sjanse for å slippe forurensning gjennom.\n\n> *Sensornotat:* de to feilene er ikke symmetriske i konsekvens. Hvilken som er verst avhenger av konteksten — her er type II-feilen (sluppet forurensning) mer alvorlig enn en falsk alarm."
+    },
+    {
+      "id": "tma4245-7-3-e1",
+      "type": "exercise",
+      "exercise": {
+        "id": "tma4245-7-3-e1",
+        "number": "1",
+        "type": "classic",
+        "difficulty": "lett",
+        "task": "(Innstegsoppgave — bare begrepsbruk, ingen regning.) En kvalitetstest har $H_0: \\mu = 500$ g (riktig fyllvekt) mot $H_1: \\mu \\ne 500$.\n\n**a)** Posene er egentlig riktig fylt, men testen forkaster $H_0$. Hvilken feiltype?\n\n**b)** Posene er egentlig underfylt ($\\mu = 490$), men testen forkaster ikke $H_0$. Hvilken feiltype?\n\n**c)** Fyll inn: styrken er sannsynligheten for å ______ når $H_1$ er sann.",
+        "solution": "**a)** $H_0$ sann, men forkastet → **type I-feil**.\n\n**b)** $H_1$ sann, men ikke forkastet → **type II-feil**.\n\n**c)** Styrken er sannsynligheten for å **forkaste $H_0$** (oppdage effekten) når $H_1$ er sann.",
+        "hints": [
+          "Type I = forkaste en sann $H_0$; type II = beholde en gal $H_0$.",
+          "Styrke = $1$ minus type II-sannsynligheten = sjansen for å oppdage en reell effekt."
+        ]
+      }
+    },
+    {
+      "id": "tma4245-7-3-lokke2",
+      "type": "text",
+      "content": "## Løkke 2 — Styrkeregningen for z-testen (~13 min)"
+    },
+    {
+      "id": "tma4245-7-3-def-styrkeregning",
+      "type": "definition",
+      "title": "Styrkeberegning for z-testen (oppskrift)",
+      "content": "Betrakt en ensidig z-test $H_0: \\mu = \\mu_0$ mot $H_1: \\mu > \\mu_0$ med **kjent** $\\sigma$ på nivå $\\alpha$. Styrken ved en sann verdi $\\mu_1 > \\mu_0$ regnes i tre trinn:\n\n1. **Uttrykk forkastningsområdet i $\\bar{X}$-skala.** Vi forkaster når $Z = \\frac{\\bar{X}-\\mu_0}{\\sigma/\\sqrt{n}} > z_\\alpha$, altså når\n$$\\bar{X} > \\mu_0 + z_\\alpha\\,\\frac{\\sigma}{\\sqrt{n}} \\;=\\; k \\quad (\\text{den kritiske grensen}).$$\n2. **Re-standardiser under $\\mu_1$.** Når den sanne forventningen er $\\mu_1$, er $\\bar{X} \\sim N\\!\\left(\\mu_1, \\frac{\\sigma^2}{n}\\right)$. Da er styrken\n$$\\text{styrke} = P(\\bar{X} > k \\mid \\mu_1) = P\\!\\left(Z > \\frac{k - \\mu_1}{\\sigma/\\sqrt{n}}\\right).$$\n3. **Sett inn og les av $\\Phi$.** Innsatt $k$ gir det den ferdige formelen\n$$\\text{styrke} = 1 - \\Phi\\!\\left(z_\\alpha - \\frac{\\mu_1 - \\mu_0}{\\sigma/\\sqrt{n}}\\right).$$\n\n**Intuisjon:** vi flytter fordelingen fra $\\mu_0$ til den sanne $\\mu_1$ og spør hvor stor del av den *nå* havner i forkastningsområdet. Kjerne­feilen å unngå: regne sannsynligheten under $\\mu_0$ i stedet for $\\mu_1$ — da får man bare $\\alpha$ tilbake. (For $H_1: \\mu < \\mu_0$ er formelen speilvendt; for tosidig legger man til det lille bidraget fra den motsatte halen, som oftest kan neglisjeres.)"
+    },
+    {
+      "id": "tma4245-7-3-ex-styrke",
+      "type": "example",
+      "title": "Eksempel 2: Styrken i responstidstesten",
+      "problem": "Et overvåkingssystem skal ha gjennomsnittlig responstid $\\mu_0 = 200$ ms. Standardavviket er **kjent**, $\\sigma = 20$ ms. Vi tar $n = 25$ målinger og tester $H_0: \\mu = 200$ mot $H_1: \\mu > 200$ på $\\alpha = 0{,}05$. Finn styrken dersom den sanne responstiden i virkeligheten er $\\mu_1 = 210$ ms.",
+      "solution": "**Trinn 1 — kritisk grense i $\\bar{X}$-skala.** Standardfeil $\\sigma/\\sqrt{n} = 20/\\sqrt{25} = 20/5 = 4$. Vi forkaster når\n$$\\bar{X} > \\mu_0 + z_{0{,}05}\\,\\frac{\\sigma}{\\sqrt{n}} = 200 + 1{,}645 \\cdot 4 = 206{,}58 \\text{ ms}.$$\n\n**Trinn 2 — re-standardiser under $\\mu_1 = 210$.** Nå er $\\bar{X} \\sim N(210,\\ 4^2)$, så\n$$\\text{styrke} = P(\\bar{X} > 206{,}58 \\mid \\mu_1 = 210) = P\\!\\left(Z > \\frac{206{,}58 - 210}{4}\\right) = P(Z > -0{,}855).$$\n\n**Trinn 3 — les av.** $P(Z > -0{,}855) = \\Phi(0{,}855) = 0{,}804$.\n\n**Konklusjon i ord.** Dersom den sanne responstiden er $210$ ms, har testen **styrke ≈ 0,80** — den vil oppdage avviket i omtrent 4 av 5 tilfeller. Motsatt er type II-sannsynligheten $\\approx 0{,}20$: i 1 av 5 tilfeller overser vi et reelt avvik på 10 ms.\n\n> *Sensornotat:* legg merke til at grensen $206{,}58$ regnes én gang (under $H_0$), men sannsynligheten regnes under $\\mu_1 = 210$. Blander du de to — regner $P(\\bar{X} > 206{,}58 \\mid \\mu_0 = 200)$ — får du bare $\\alpha = 0{,}05$ igjen, ikke styrken."
+    },
+    {
+      "id": "tma4245-7-3-e2",
+      "type": "exercise",
+      "exercise": {
+        "id": "tma4245-7-3-e2",
+        "number": "2",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "En batteritype skal ha forventet kapasitet $\\mu_0 = 3{,}50$ Ah, med **kjent** standardavvik $\\sigma = 0{,}20$ Ah. Produsenten tar $n = 30$ celler og tester $H_0: \\mu = 3{,}50$ mot $H_1: \\mu > 3{,}50$ på $\\alpha = 0{,}05$.\n\n**a)** Finn den kritiske grensen i $\\bar{X}$-skala.\n\n**b)** Finn styrken dersom den sanne kapasiteten er $\\mu_1 = 3{,}60$ Ah. (Bruk $\\Phi(1{,}095) = 0{,}863$.)",
+        "solution": "**a)** Standardfeil $\\sigma/\\sqrt{n} = 0{,}20/\\sqrt{30} = 0{,}03651$. Kritisk grense:\n$$k = 3{,}50 + 1{,}645 \\cdot 0{,}03651 = 3{,}560 \\text{ Ah}.$$\n\n**b)** Under $\\mu_1 = 3{,}60$ er $\\bar{X} \\sim N(3{,}60,\\ 0{,}03651^2)$:\n$$\\text{styrke} = P\\!\\left(Z > \\frac{3{,}560 - 3{,}60}{0{,}03651}\\right) = P(Z > -1{,}095) = \\Phi(1{,}095) = 0{,}863.$$\nTesten oppdager en sann kapasitet på $3{,}60$ Ah i ca. **86 %** av tilfellene.",
+        "hints": [
+          "Kritisk grense $k = \\mu_0 + z_\\alpha\\,\\sigma/\\sqrt{n}$; her $\\sigma/\\sqrt{n} = 0{,}20/\\sqrt{30} = 0{,}03651$.",
+          "Styrke $= P(Z > (k - \\mu_1)/(\\sigma/\\sqrt{n}))$ — sannsynligheten regnes under $\\mu_1$, ikke $\\mu_0$.",
+          "$(3{,}560 - 3{,}60)/0{,}03651 = -1{,}095$, og $P(Z > -1{,}095) = \\Phi(1{,}095)$."
+        ]
+      }
+    },
+    {
+      "id": "tma4245-7-3-lokke3",
+      "type": "text",
+      "content": "## Løkke 3 — Styrkefunksjonen: hva øker styrken (~10 min)"
+    },
+    {
+      "id": "tma4245-7-3-def-styrkefunksjon",
+      "type": "definition",
+      "title": "Styrkefunksjonen og de tre spakene",
+      "content": "Ser vi på styrken som en funksjon av den sanne verdien $\\mu_1$, kaller vi den **styrkefunksjonen**. Fra formelen $\\text{styrke} = 1 - \\Phi\\!\\left(z_\\alpha - \\frac{\\mu_1-\\mu_0}{\\sigma/\\sqrt{n}}\\right)$ leser vi av hva som øker den:\n\n1. **Større avstand $|\\mu_1 - \\mu_0|$** → høyere styrke. En stor effekt er lettere å oppdage. Ved $\\mu_1 = \\mu_0$ er styrken akkurat $\\alpha$ (da *er* $H_0$ sann, og å forkaste er per definisjon type I-feilen).\n2. **Større $n$** → høyere styrke. Standardfeilen $\\sigma/\\sqrt{n}$ krymper, så brøken $\\frac{\\mu_1-\\mu_0}{\\sigma/\\sqrt{n}}$ vokser. Dette er spaken vi selv styrer.\n3. **Større $\\alpha$** → høyere styrke ($z_\\alpha$ blir mindre). Men det øker samtidig type I-feilen — en avveining, ikke en gratis gevinst.\n\nMotsatt gir **mindre $\\sigma$** (mindre støy i målingene) også høyere styrke. Styrkefunksjonen starter i $\\alpha$ ved $\\mu_1 = \\mu_0$ og stiger mot $1$ etter hvert som $\\mu_1$ fjerner seg fra $\\mu_0$ i retning av $H_1$."
+    },
+    {
+      "id": "tma4245-7-3-ex-funksjon",
+      "type": "example",
+      "title": "Eksempel 3: Mer data gir høyere styrke",
+      "problem": "Turbinbladtykkelse har kjent $\\sigma = 0{,}15$ mm. Vi tester $H_0: \\mu = 12{,}00$ mot $H_1: \\mu > 12{,}00$ på $\\alpha = 0{,}05$, og ønsker å oppdage en sann verdi $\\mu_1 = 12{,}07$ mm. Regn styrken for $n = 25$ og for $n = 50$, og kommenter.",
+      "solution": "**Felles:** kritisk grense $k = 12{,}00 + 1{,}645 \\cdot 0{,}15/\\sqrt{n}$, og styrke $= P\\!\\left(Z > \\frac{k - 12{,}07}{0{,}15/\\sqrt{n}}\\right) = 1 - \\Phi\\!\\left(1{,}645 - \\frac{0{,}07}{0{,}15/\\sqrt{n}}\\right)$.\n\n**$n = 25$:** standardfeil $0{,}15/5 = 0{,}03$. Argument $1{,}645 - 0{,}07/0{,}03 = 1{,}645 - 2{,}333 = -0{,}688$. Styrke $= 1 - \\Phi(-0{,}688) = \\Phi(0{,}688) = 0{,}754$.\n\n**$n = 50$:** standardfeil $0{,}15/\\sqrt{50} = 0{,}02121$. Argument $1{,}645 - 0{,}07/0{,}02121 = 1{,}645 - 3{,}300 = -1{,}655$. Styrke $= \\Phi(1{,}655) = 0{,}951$.\n\n**Kommentar.** Ved å doble utvalget fra 25 til 50 stiger styrken fra **0,75 til 0,95** — type II-sannsynligheten faller fra 0,25 til 0,05. Effekten ($0{,}07$ mm), $\\sigma$ og $\\alpha$ er urørt; det er bare $n$ som endres.\n\n> *Sensornotat:* dette er kjernen i dimensjoneringen (løkke 4): styrken er en økende funksjon av $n$, så vi kan *løse* for det $n$ som gir ønsket styrke."
+    },
+    {
+      "id": "tma4245-7-3-e3",
+      "type": "exercise",
+      "exercise": {
+        "id": "tma4245-7-3-e3",
+        "number": "3",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "En test av gjennomsnittlig bruddstyrke har for lav styrke: ved den effekten som er praktisk viktig, er styrken bare $0{,}55$. Ingeniøren vil høyne den. For hvert forslag, si om styrken øker, synker eller står stille, og nevn en bivirkning der det finnes.\n\n**a)** Øke utvalgsstørrelsen $n$.\n\n**b)** Øke signifikansnivået fra $\\alpha = 0{,}01$ til $\\alpha = 0{,}05$.\n\n**c)** Redusere målestøyen $\\sigma$ med et bedre måleinstrument.\n\n**d)** Endre $H_1$-retningen fra ensidig til tosidig, alt annet likt.",
+        "solution": "**a)** **Øker** styrken — standardfeilen $\\sigma/\\sqrt{n}$ krymper. Bivirkning: høyere kostnad/tid, ingen statistisk ulempe.\n\n**b)** **Øker** styrken ($z_\\alpha$ blir mindre, så forkastningsgrensen flyttes nærmere $\\mu_0$). Bivirkning: type I-feilen øker fra 1 % til 5 % — flere falske alarmer.\n\n**c)** **Øker** styrken — mindre $\\sigma$ gir mindre standardfeil, akkurat som større $n$. Ingen statistisk ulempe (men bedre utstyr koster).\n\n**d)** **Synker** (litt) — en tosidig test bruker $z_{\\alpha/2} > z_\\alpha$, så forkastningsgrensen ligger lenger ute, og styrken mot en ensidig effekt blir noe lavere.",
+        "hints": [
+          "Se på argumentet $z_\\alpha - \\frac{\\mu_1-\\mu_0}{\\sigma/\\sqrt{n}}$: styrken øker når dette argumentet blir *mindre*.",
+          "Større $n$ og mindre $\\sigma$ krymper standardfeilen; større $\\alpha$ gir mindre $z_\\alpha$.",
+          "Tosidig test bruker $z_{\\alpha/2}$, som er større enn $z_\\alpha$."
+        ]
+      }
+    },
+    {
+      "id": "tma4245-7-3-lokke4",
+      "type": "text",
+      "content": "## Løkke 4 — Dimensjonering: finn $n$ (~12 min)"
+    },
+    {
+      "id": "tma4245-7-3-def-dimensjonering",
+      "type": "definition",
+      "title": "Dimensjonering: $n$ for ønsket styrke",
+      "content": "Snur vi styrkeregningen, kan vi finne **hvor mange observasjoner** som kreves for at testen skal ha en ønsket styrke. Krev at styrken er minst $1 - \\text{(type II-sannsynlighet)}$, der type II-sannsynligheten skal være høyst en valgt verdi (typisk 0,10 eller 0,20, altså styrke 0,90 eller 0,80). For den ensidige z-testen gir kravet\n$$z_\\alpha - \\frac{\\mu_1 - \\mu_0}{\\sigma/\\sqrt{n}} \\le -z_\\beta,$$\nder $z_\\beta$ er kvantilen som svarer til type II-sannsynligheten (f.eks. $z_{0{,}10} = 1{,}282$ for styrke 0,90). Løser vi for $n$:\n$$\\boxed{\\,n \\ge \\left(\\frac{(z_\\alpha + z_\\beta)\\,\\sigma}{\\mu_1 - \\mu_0}\\right)^2\\,}$$\n\n**Rund alltid $n$ opp** til nærmeste hele tall — et desimalt antall observasjoner gir *for lav* styrke, så vi må ta det neste hele. Formelen står ikke i formelsamlingen; du utleder den ved å sette styrkekravet og løse for $n$. Merk hvordan hver størrelse virker: liten effekt $\\mu_1 - \\mu_0$ i nevneren, eller streng styrke (stor $z_\\beta$), driver $n$ raskt opp — derav de store fasitsvarene ($n$ i hundre- eller tusentall) når man vil oppdage små avvik."
+    },
+    {
+      "id": "tma4245-7-3-ex-dim",
+      "type": "example",
+      "title": "Eksempel 4: Hvor mange målinger trengs?",
+      "problem": "Fortsett med overvåkingssystemet: $\\mu_0 = 200$ ms, kjent $\\sigma = 20$ ms, $\\alpha = 0{,}05$, ensidig oppover. Vi vil at testen skal ha **styrke minst 0,90** for å oppdage en sann responstid på $\\mu_1 = 210$ ms. Hvor mange målinger trengs?",
+      "solution": "Effekten er $\\mu_1 - \\mu_0 = 210 - 200 = 10$ ms. Styrke 0,90 betyr type II-sannsynlighet 0,10, så $z_\\beta = z_{0{,}10} = 1{,}282$; og $z_\\alpha = z_{0{,}05} = 1{,}645$. Dimensjoneringsformelen:\n$$n \\ge \\left(\\frac{(z_\\alpha + z_\\beta)\\,\\sigma}{\\mu_1 - \\mu_0}\\right)^2 = \\left(\\frac{(1{,}645 + 1{,}282)\\cdot 20}{10}\\right)^2 = \\left(\\frac{2{,}927 \\cdot 20}{10}\\right)^2 = (5{,}853)^2 = 34{,}26.$$\n\n**Rund opp:** $n = 35$ målinger.\n\n**Kontroll.** Med $n = 35$ er standardfeilen $20/\\sqrt{35} = 3{,}381$, kritisk grense $200 + 1{,}645 \\cdot 3{,}381 = 205{,}56$, og styrken ved $\\mu_1 = 210$ blir $P(Z > (205{,}56 - 210)/3{,}381) = P(Z > -1{,}314) = \\Phi(1{,}314) = 0{,}906 \\ge 0{,}90$. ✓ (Hadde vi rundet *ned* til $n = 34$, ville styrken blitt $0{,}898 < 0{,}90$ — derfor rundes det opp.)\n\n> *Sensornotat:* skriv formelen med $(z_\\alpha + z_\\beta)$ — begge kvantilene med *øvre* haleareal — og rund opp. Å bruke $z_{\\alpha/2}$ her (som om testen var tosidig) er en vanlig feil når oppgaven er ensidig."
+    },
+    {
+      "id": "tma4245-7-3-e4",
+      "type": "exercise",
+      "exercise": {
+        "id": "tma4245-7-3-e4",
+        "number": "4",
+        "type": "classic",
+        "difficulty": "vanskelig",
+        "task": "Et laboratorium vil oppdage et lite, men praktisk viktig avvik i en pH-prosess: en forskyvning på bare $\\mu_1 - \\mu_0 = 3$ enheter (i en skala der målestøyen er stor), med kjent $\\sigma = 25$. Testen er ensidig på $\\alpha = 0{,}05$.\n\n**a)** Hvor mange målinger trengs for styrke minst $0{,}90$? (Bruk $z_{0{,}05} = 1{,}645$, $z_{0{,}10} = 1{,}282$.)\n\n**b)** Hvor mange trengs for den strengere styrken $0{,}95$? (Bruk $z_{0{,}05} = 1{,}645$ for begge ledd.)\n\n**c)** Forklar med én setning hvorfor $n$ blir så stort her.",
+        "solution": "**a)** $n \\ge \\left(\\frac{(1{,}645 + 1{,}282)\\cdot 25}{3}\\right)^2 = \\left(\\frac{2{,}927 \\cdot 25}{3}\\right)^2 = (24{,}39)^2 = 594{,}7$. Rund opp: **$n = 595$**.\n\n**b)** Styrke 0,95 gir type II-sannsynlighet 0,05, så $z_\\beta = z_{0{,}05} = 1{,}645$. Da $n \\ge \\left(\\frac{(1{,}645 + 1{,}645)\\cdot 25}{3}\\right)^2 = (27{,}42)^2 = 751{,}5$. Rund opp: **$n = 752$**.\n\n**c)** Fordi effekten $\\mu_1 - \\mu_0 = 3$ er liten i forhold til støyen $\\sigma = 25$; $n$ vokser med kvadratet av forholdet $\\sigma/(\\mu_1-\\mu_0)$, så en liten effekt i mye støy krever mange observasjoner.",
+        "hints": [
+          "Dimensjoneringsformelen: $n \\ge \\left(\\frac{(z_\\alpha + z_\\beta)\\sigma}{\\mu_1 - \\mu_0}\\right)^2$, rund opp.",
+          "Styrke 0,90 → $z_\\beta = z_{0{,}10} = 1{,}282$; styrke 0,95 → $z_\\beta = z_{0{,}05} = 1{,}645$.",
+          "Sett $\\sigma = 25$, $\\mu_1 - \\mu_0 = 3$, og husk kvadreringen — og rund opp til neste hele."
+        ]
+      }
+    },
+    {
+      "id": "tma4245-7-3-lokke5",
+      "type": "text",
+      "content": "## Løkke 5 — Styrke for andel og Poisson, og en merknad om t (~10 min)"
+    },
+    {
+      "id": "tma4245-7-3-def-andel-dim",
+      "type": "definition",
+      "title": "Styrke og dimensjonering for andels- og Poisson-tester",
+      "content": "Samme logikk gjelder for **andelstesten**. Vi tester $H_0: p = p_0$ mot $H_1: p > p_0$ og vil ha styrke ved en sann andel $p_1 > p_0$. Fordi standardfeilen er ulik under $H_0$ (bruker $p_0$) og under $p_1$ (bruker $p_1$), blir dimensjoneringsformelen litt mer sammensatt:\n$$n \\ge \\left(\\frac{z_\\alpha\\sqrt{p_0(1-p_0)} + z_\\beta\\sqrt{p_1(1-p_1)}}{p_1 - p_0}\\right)^2, \\quad \\text{rund opp.}$$\nStyrken selv regnes på samme tre-trinns måte: finn kritisk andel $k = p_0 + z_\\alpha\\sqrt{p_0(1-p_0)/n}$ (grensen under $H_0$), og re-standardiser under $p_1$ med *dens* standardfeil $\\sqrt{p_1(1-p_1)/n}$.\n\n**Poisson-rate (skissert):** for en rate $\\lambda$ med stor forventet telling brukes normaltilnærmingen $\\hat{\\lambda} \\approx N(\\lambda, \\lambda/n)$ på tilsvarende vis, med $\\sqrt{\\lambda_0/n}$ under $H_0$.\n\n**t-testen (merknad):** når $\\sigma$ er ukjent, ligger den *eksakte* styrken (som involverer en ikke-sentral t-fordeling) utenfor pensum. I praksis gjør man en **z-tilnærming**: bruk styrke-/dimensjoneringsformlene med $s$ i stedet for $\\sigma$ som et anslag, og legg gjerne på noen ekstra observasjoner som sikkerhetsmargin. Kvalitativt gjelder alt det samme: styrken øker med $n$, med effekten og med $\\alpha$."
+    },
+    {
+      "id": "tma4245-7-3-ex-andel",
+      "type": "example",
+      "title": "Eksempel 5: Dimensjonering av en andelstest",
+      "problem": "Et system skal overvåke andelen falske alarmer. Grensen er $p_0 = 0{,}05$, og vi tester $H_0: p = 0{,}05$ mot $H_1: p > 0{,}05$ på $\\alpha = 0{,}05$. Hvor mange testkjøringer trengs for at testen skal ha **styrke minst 0,80** for å oppdage en sann andel $p_1 = 0{,}10$?",
+      "solution": "Styrke 0,80 gir $z_\\beta = z_{0{,}20} = 0{,}842$; $z_\\alpha = z_{0{,}05} = 1{,}645$. Regn brøkens deler:\n$$\\sqrt{p_0(1-p_0)} = \\sqrt{0{,}05 \\cdot 0{,}95} = 0{,}2179, \\qquad \\sqrt{p_1(1-p_1)} = \\sqrt{0{,}10 \\cdot 0{,}90} = 0{,}3000.$$\nTeller: $z_\\alpha \\cdot 0{,}2179 + z_\\beta \\cdot 0{,}3000 = 1{,}645 \\cdot 0{,}2179 + 0{,}842 \\cdot 0{,}3000 = 0{,}3584 + 0{,}2525 = 0{,}6109$. Nevner: $p_1 - p_0 = 0{,}05$. Dermed\n$$n \\ge \\left(\\frac{0{,}6109}{0{,}05}\\right)^2 = (12{,}22)^2 = 149{,}3.$$\n\n**Rund opp:** $n = 150$ testkjøringer.\n\n**Konklusjon i ord.** Med 150 kjøringer vil testen oppdage en dobling av den falske alarm-andelen (fra 5 % til 10 %) minst 80 % av gangene.\n\n> *Sensornotat:* bruk $p_0$ i det første rot-uttrykket og $p_1$ i det andre — de to standardfeilene er ulike. Å bruke bare $p_0$ i begge er en vanlig forenkling som gir feil $n$."
+    },
+    {
+      "id": "tma4245-7-3-e5",
+      "type": "exercise",
+      "exercise": {
+        "id": "tma4245-7-3-e5",
+        "number": "5",
+        "type": "classic",
+        "difficulty": "vanskelig",
+        "task": "En leverandør hevder at kasseringsandelen er $p_0 = 0{,}10$. Vi tester $H_0: p = 0{,}10$ mot $H_1: p > 0{,}10$ på $\\alpha = 0{,}05$ med $n = 200$ enheter.\n\n**a)** Finn den kritiske andelen $k$ i $\\hat{p}$-skala (grensen under $H_0$).\n\n**b)** Finn styrken dersom den sanne andelen er $p_1 = 0{,}15$. (Bruk $\\Phi(0{,}598) = 0{,}725$.)\n\n**c)** Er 200 enheter nok til å oppdage en sann andel på 0,15 pålitelig? Kommenter.",
+        "solution": "**a)** Standardfeil under $H_0$: $\\sqrt{0{,}10 \\cdot 0{,}90/200} = \\sqrt{0{,}00045} = 0{,}02121$. Kritisk andel:\n$$k = p_0 + z_{0{,}05}\\sqrt{p_0(1-p_0)/n} = 0{,}10 + 1{,}645 \\cdot 0{,}02121 = 0{,}1349.$$\n\n**b)** Re-standardiser under $p_1 = 0{,}15$ med *dens* standardfeil $\\sqrt{0{,}15 \\cdot 0{,}85/200} = 0{,}02525$:\n$$\\text{styrke} = P\\!\\left(\\hat{p} > 0{,}1349 \\mid p_1 = 0{,}15\\right) = P\\!\\left(Z > \\frac{0{,}1349 - 0{,}15}{0{,}02525}\\right) = P(Z > -0{,}598) = \\Phi(0{,}598) = 0{,}725.$$\n\n**c)** Styrken er bare **0,725** — i over en fjerdedel av tilfellene ville en reell økning til 0,15 bli oversett (type II-feil). Vil man ha styrke 0,90, trengs flere enn 200 enheter. Så nei, 200 er i knappeste laget.",
+        "hints": [
+          "Kritisk andel under $H_0$: $k = p_0 + z_\\alpha\\sqrt{p_0(1-p_0)/n}$ med $p_0 = 0{,}10$.",
+          "Styrken re-standardiseres under $p_1$, så nevneren er $\\sqrt{p_1(1-p_1)/n} = \\sqrt{0{,}15 \\cdot 0{,}85/200}$.",
+          "$(0{,}1349 - 0{,}15)/0{,}02525 = -0{,}598$; $P(Z > -0{,}598) = \\Phi(0{,}598)$."
+        ]
+      }
+    },
+    {
+      "id": "tma4245-7-3-warn",
+      "type": "warning",
+      "title": "Typiske feil",
+      "content": "- **Blande $\\alpha$ og styrke.** $\\alpha$ er type I-feilen (regnet under $H_0$); styrken er $1$ minus type II-sannsynligheten (regnet under $H_1$). De svarer på helt ulike spørsmål.\n- **Regne styrken under $\\mu_0$ i stedet for $\\mu_1$.** Sannsynligheten skal regnes under den *sanne* verdien $\\mu_1$. Regner du under $\\mu_0$, får du bare $\\alpha$ tilbake — den vanligste feilen.\n- **Glemme å re-standardisere forkastningsgrensen.** Den kritiske grensen $k$ finnes én gang (under $H_0$), men når du regner styrken, må $k$ standardiseres på nytt med $\\mu_1$ i telleren.\n- **Runde $n$ ned.** Dimensjonering rundes *alltid* opp — et desimalt $n$ gir for lav styrke.\n- **Bruke $z_{\\alpha/2}$ i en ensidig dimensjonering** (eller $z_\\alpha$ i en tosidig). Retningen bestemmer hvilken kvantil.\n- **Tolke lav styrke som bevis for $H_0$.** At vi ikke forkaster kan skyldes at testen hadde for lav styrke (for lite data), ikke at $H_0$ er sann."
+    },
+    {
+      "id": "tma4245-7-3-begrepsbank",
+      "type": "text",
+      "content": "## Begrepsbank\n\nStyrke- og dimensjoneringsbegrepene samlet som repetisjonskort.\n\n*Flashcard-/repetisjonsstoff — hopp trygt over ved førstegangslesing; tidsanslaget gjelder kjernestoffet.*"
+    },
+    {
+      "id": "tma4245-7-3-fc-alfa-styrke",
+      "type": "definition",
+      "title": "$\\alpha$ vs. styrke",
+      "content": "$\\alpha$ = $P(\\text{forkaste } H_0 \\mid H_0 \\text{ sann})$, type I-feilen, valgt på forhånd. **Styrke** = $P(\\text{forkaste } H_0 \\mid H_1 \\text{ sann})$, altså $1$ minus type II-sannsynligheten. Den ene regnes under $H_0$, den andre under en sann $\\mu_1$ — ikke bland dem."
+    },
+    {
+      "id": "tma4245-7-3-fc-styrkeformel",
+      "type": "definition",
+      "title": "Styrkeformelen (ensidig z-test)",
+      "content": "For $H_1: \\mu > \\mu_0$ med kjent $\\sigma$: $\\text{styrke} = 1 - \\Phi\\!\\left(z_\\alpha - \\frac{\\mu_1 - \\mu_0}{\\sigma/\\sqrt{n}}\\right)$. Utled den ved å skrive forkastningsområdet i $\\bar{X}$-skala og re-standardisere under $\\mu_1$. Står ikke i formelsamlingen — må utledes."
+    },
+    {
+      "id": "tma4245-7-3-fc-restandardisering",
+      "type": "definition",
+      "title": "Re-standardisering under $\\mu_1$",
+      "content": "Nøkkelgrepet i styrkeregningen: den kritiske grensen $k = \\mu_0 + z_\\alpha\\,\\sigma/\\sqrt{n}$ finnes under $H_0$, men styrken $P(\\bar{X} > k)$ regnes med $\\bar{X} \\sim N(\\mu_1, \\sigma^2/n)$ — altså med $\\mu_1$ (ikke $\\mu_0$) i standardiseringen $\\frac{k - \\mu_1}{\\sigma/\\sqrt{n}}$."
+    },
+    {
+      "id": "tma4245-7-3-fc-dim-formel",
+      "type": "definition",
+      "title": "Dimensjonering: rund opp",
+      "content": "$n \\ge \\left(\\frac{(z_\\alpha + z_\\beta)\\sigma}{\\mu_1 - \\mu_0}\\right)^2$ for ensidig z-test, der $z_\\beta$ svarer til ønsket type II-sannsynlighet (styrke 0,90 → $z_{0{,}10} = 1{,}282$). **Rund alltid opp**: et desimalt $n$ gir for lav styrke. Liten effekt eller stor $\\sigma$ driver $n$ raskt oppover."
+    },
+    {
+      "id": "tma4245-7-3-fc-lav-styrke",
+      "type": "definition",
+      "title": "Lav styrke er ikke bevis for $H_0$",
+      "content": "At en test ikke forkaster $H_0$ kan skyldes at effekten ikke finnes — *eller* at testen hadde for lav styrke (for lite data) til å oppdage en effekt som faktisk er der. Derfor: skriv aldri «vi har vist at $H_0$ er sann»; en ikke-signifikant test med lav styrke er inkonklusiv, ikke en bekreftelse."
+    },
+    {
+      "id": "tma4245-7-3-rep",
+      "type": "collapsible",
+      "title": "Repetisjonsoppgaver",
+      "buttonText": "Vis repetisjonsoppgaver",
+      "content": [
+        {
+          "id": "tma4245-7-3-rep-x1",
+          "type": "exercise",
+          "exercise": {
+            "id": "tma4245-7-3-rep-x1",
+            "number": "R1",
+            "type": "classic",
+            "difficulty": "lett",
+            "task": "(Fra [kap. 3.1](/bok/tma4245/tma4245-3-1).) Hva er $z_{0{,}10}$, og hvor mye areal ligger over det?",
+            "solution": "$z_{0{,}10} = 1{,}282$, med øvre haleareal $0{,}10$. Per definisjon har $z_\\alpha$ øvre haleareal $\\alpha$. Denne kvantilen dukker opp som $z_\\beta$ ved styrke 0,90.",
+            "hints": [
+              "$z_\\alpha$ har øvre haleareal $\\alpha$.",
+              "$z_{0{,}10} = 1{,}282$."
+            ]
+          }
+        },
+        {
+          "id": "tma4245-7-3-rep-x2",
+          "type": "exercise",
+          "exercise": {
+            "id": "tma4245-7-3-rep-x2",
+            "number": "R2",
+            "type": "classic",
+            "difficulty": "lett",
+            "task": "(Fra [kap. 3.2](/bok/tma4245/tma4245-3-2).) $X_1, \\ldots, X_{25}$ er uavhengige $N(\\mu, \\sigma^2)$ med $\\sigma = 20$. Hva er standardfeilen $\\sigma/\\sqrt{n}$, og hva skjer med den om $n$ firdobles til 100?",
+            "solution": "$\\sigma/\\sqrt{n} = 20/\\sqrt{25} = 4$. Med $n = 100$ blir den $20/\\sqrt{100} = 2$ — halvert. Standardfeilen krymper som $1/\\sqrt{n}$, så firedobbelt data halverer den.",
+            "hints": [
+              "$\\sigma/\\sqrt{n}$ med $n = 25$.",
+              "Firedobbelt $n$ → $\\sqrt{n}$ dobles → standardfeilen halveres."
+            ]
+          }
+        },
+        {
+          "id": "tma4245-7-3-rep-x3",
+          "type": "exercise",
+          "exercise": {
+            "id": "tma4245-7-3-rep-x3",
+            "number": "R3",
+            "type": "classic",
+            "difficulty": "lett",
+            "task": "(Fra [kap. 7.1](/bok/tma4245/tma4245-7-1).) Hva er forskjellen på en type I-feil og en type II-feil?",
+            "solution": "**Type I-feil:** forkaste $H_0$ når den er sann (falsk alarm), sannsynlighet $\\alpha$. **Type II-feil:** beholde $H_0$ når $H_1$ er sann (oversett effekt). Styrken er $1$ minus type II-sannsynligheten.",
+            "hints": [
+              "Type I skjer når $H_0$ *er* sann; type II når $H_1$ er sann.",
+              "Styrke = $1 -$ type II-sannsynlighet."
+            ]
+          }
+        },
+        {
+          "id": "tma4245-7-3-rep-x4",
+          "type": "exercise",
+          "exercise": {
+            "id": "tma4245-7-3-rep-x4",
+            "number": "R4",
+            "type": "classic",
+            "difficulty": "middels",
+            "task": "(Fra [kap. 7.1](/bok/tma4245/tma4245-7-1).) En ensidig z-test har $H_0: \\mu = 100$, $\\sigma = 10$ kjent, $n = 16$, $\\alpha = 0{,}05$. Hva er den kritiske grensen for $\\bar{X}$ (over hvilken vi forkaster)?",
+            "solution": "Standardfeil $10/\\sqrt{16} = 2{,}5$. Kritisk grense $k = 100 + z_{0{,}05}\\cdot 2{,}5 = 100 + 1{,}645 \\cdot 2{,}5 = 104{,}11$. Vi forkaster når $\\bar{X} > 104{,}11$.",
+            "hints": [
+              "$k = \\mu_0 + z_\\alpha\\,\\sigma/\\sqrt{n}$.",
+              "$\\sigma/\\sqrt{n} = 2{,}5$, $z_{0{,}05} = 1{,}645$."
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": "tma4245-7-3-symbolliste",
+      "type": "collapsible",
+      "title": "Symbol- og formelliste",
+      "buttonText": "Vis symboler og formler",
+      "content": [
+        {
+          "id": "tma4245-7-3-symbolliste-text",
+          "type": "text",
+          "content": "*Oppslagsverk — alt her forklares underveis i kapitlet.*\n\nAlle symboler og formler brukt i kapittel 7.3, samlet.\n\n| Symbol | Betydning |\n|---|---|\n| $\\alpha$ | Signifikansnivå = $P(\\text{type I-feil})$ |\n| type II-sanns. | $P(\\text{beholde } H_0 \\mid H_1 \\text{ sann})$ |\n| styrke | $1 -$ type II-sannsynlighet $= P(\\text{forkast } H_0 \\mid \\mu_1)$ |\n| $\\mu_0,\\ p_0,\\ \\lambda_0$ | Påstått parameterverdi under $H_0$ |\n| $\\mu_1,\\ p_1$ | Sann parameterverdi (som vi vil oppdage) |\n| $z_\\alpha,\\ z_\\beta$ | Kvantiler med øvre haleareal $\\alpha$ / type II-sanns. |\n| $k$ | Kritisk grense i $\\bar{X}$- eller $\\hat{p}$-skala |\n| $\\Phi$ | Standardnormal fordelingsfunksjon |\n\n**Formler i dette kapitlet:**\n\n$$k = \\mu_0 + z_\\alpha\\,\\frac{\\sigma}{\\sqrt{n}}$$\nKritisk grense i $\\bar{X}$-skala (ensidig oppover, kjent $\\sigma$).\n\n$$\\text{styrke} = 1 - \\Phi\\!\\left(z_\\alpha - \\frac{\\mu_1 - \\mu_0}{\\sigma/\\sqrt{n}}\\right)$$\nStyrken til den ensidige z-testen ved sann verdi $\\mu_1$.\n\n$$n \\ge \\left(\\frac{(z_\\alpha + z_\\beta)\\,\\sigma}{\\mu_1 - \\mu_0}\\right)^2 \\quad (\\text{rund opp})$$\nDimensjonering for ønsket styrke, ensidig z-test.\n\n$$n \\ge \\left(\\frac{z_\\alpha\\sqrt{p_0(1-p_0)} + z_\\beta\\sqrt{p_1(1-p_1)}}{p_1 - p_0}\\right)^2 \\quad (\\text{rund opp})$$\nDimensjonering for andelstesten.\n\n$$k = p_0 + z_\\alpha\\sqrt{\\frac{p_0(1-p_0)}{n}}, \\qquad \\text{styrke} = P\\!\\left(Z > \\frac{k - p_1}{\\sqrt{p_1(1-p_1)/n}}\\right)$$\nKritisk andel og styrke for andelstesten (ulik standardfeil under $H_0$ og $p_1$)."
+        }
+      ]
+    }
+  ],
+  "exercises": []
+}

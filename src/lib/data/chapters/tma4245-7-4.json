@@ -1,0 +1,287 @@
+{
+  "id": "tma4245-7-4",
+  "courseId": "tma4245",
+  "chapterNumber": "7.4",
+  "title": "Drill: den store kjeden — ML til egenskaper, pivotal-KI, test og styrke",
+  "description": "Bokas ryggrad-drill: hele storoppgaven fra modelldefinisjon til styrkeberegning som én sammenhengende fortelling — slik den står i praktisk talt hvert sett siden 2016.",
+  "estimatedMinutes": 95,
+  "competenceGoals": [
+    "gjennomføre hele estimering-til-test-kjeden på nye fordelinger: modelldefinisjon, ML-estimator, forventningsretthet og varians",
+    "konstruere eksakte konfidensintervaller via pivotaler og bruke samme pivotal til en eksakt hypotesetest",
+    "regne styrke og dimensjonering i kjedens siste ledd og holde den røde tråden mellom alle ledd",
+    "gjenkjenne og transformere oppskriftsfordelinger (Weibull, gamma) til kjent maskineri"
+  ],
+  "content": [
+    {
+      "id": "tma4245-7-4-tip",
+      "type": "tip",
+      "title": "Eksamensvinkel",
+      "content": "**Dette er bokas tyngste kapittel — og eksamens tyngste oppgave.** «Den store oppgaven» mot slutten av settet er nesten alltid én sammenhengende **kjede**: definer modell → utled ML-estimator → egenskaper → konfidensintervall (ofte via en pivotal) → hypotesetest (ofte med styrke). Samme historie hele veien.\n\n- Kjeden går igjen i **praktisk talt hvert sett siden 2016**, og teller **30–40 % av poengene**. Prioritet: **høyeste** — behersker du kjeden, sitter en stor del av karakteren.\n- Kontekstene er ingeniør- og naturvitenskapsnære: **levetider, vindmålinger, flomhøyder, batterikapasitet, lakseoppdrett**. Fordelingen varierer (eksponensial er hyppigst), men *ritualet* er alltid det samme.\n- Sjangermessig er dette **G + H + I i kjede** — G er «utled estimatoren», H er «konstruer/utled intervallet», I er «full hypotesetest». Bokstavene er bare kodenavn for oppgavetyper; her kommer alle tre etter hverandre på samme data.\n\n**Hvor poengene sitter:** i at du (1) skriver modelldefinisjonen eksplisitt («$X_i$ iid med tetthet …»), (2) fører hvert ledd som en egen liten test, og (3) **ikke mister tråden** — samme estimat brukes videre nedover kjeden. Under tidspress er det nettopp trådtapet og frihetsgradene ($2n$ for eksponensial!) som velter besvarelser. Vi driller hele kjeden som én fortelling.\n\n*Dette kapitlet er langt (kjernetid ≈ 95 min). Del det gjerne over tre økter — pausepunktene er markert. Ved håndskriving på papir, regn ca. 1,5× tiden.*"
+    },
+    {
+      "id": "tma4245-7-4-forkunnskaper",
+      "type": "text",
+      "content": "**Forkunnskaper:** Kjeden samler trådene fra hele boka. Du trenger:\n\n- **ML-metoden** fra **[kap. 5.2](/bok/tma4245/tma4245-5-2)** (likelihood, log-likelihood, derivér og sett lik null);\n- **forventningsretthet og varians** til estimatorer fra **[kap. 5.1](/bok/tma4245/tma4245-5-1)**;\n- **pivotal og eksakt konfidensintervall** fra **[kap. 6.2](/bok/tma4245/tma4245-6-2)**, særlig eksponensialens $2\\sum X_i/\\beta \\sim \\chi^2_{2n}$;\n- **hele testritualet** fra **[kap. 7.1](/bok/tma4245/tma4245-7-1)** og **[kap. 7.2](/bok/tma4245/tma4245-7-2)**;\n- **styrke og dimensjonering** fra **[kap. 7.3](/bok/tma4245/tma4245-7-3)**;\n- **eksponensial- og Weibull-fordelingen** fra **[kap. 4.2](/bok/tma4245/tma4245-4-2)** og **[kap. 5.4](/bok/tma4245/tma4245-5-4)**.\n\n**Sist du var her — de fire resultatene kjeden hviler på (ferdig oppfrisket):**\n\n1. **Eksponensialfordelingen** (forventningsparametrisert): $f(x) = \\frac{1}{\\beta}e^{-x/\\beta}$ for $x > 0$, med $E(X) = \\beta$ og $\\text{Var}(X) = \\beta^2$.\n2. **ML for eksponensial:** log-likelihooden $\\ell(\\beta) = -n\\ln\\beta - \\frac{1}{\\beta}\\sum x_i$ gir $\\hat{\\beta} = \\bar{X} = \\frac{1}{n}\\sum X_i$.\n3. **Eksponensialens pivotal:** $\\frac{2\\sum X_i}{\\beta} \\sim \\chi^2_{2n}$ — merk frihetsgraden $2n$, ikke $n$ eller $n-1$.\n4. **Forventningsrett:** en estimator $\\hat{\\theta}$ er forventningsrett hvis $E(\\hat{\\theta}) = \\theta$; blant forventningsrette foretrekkes den med minst varians.\n\nDu trenger å kunne derivere og integrere polynomer og eksponensialfunksjoner, og slå opp $\\chi^2$-, $t$- og normalkvantiler."
+    },
+    {
+      "id": "tma4245-7-4-oppskrift-head",
+      "type": "text",
+      "content": "## Løsningsoppskrift for hele kjeden"
+    },
+    {
+      "id": "tma4245-7-4-oppskrift",
+      "type": "text",
+      "content": "Enhver kjedeoppgave følger de samme sju leddene. Skriv dem som en sjekkliste i margen på eksamen, og kryss av underveis — da mister du ikke tråden.\n\n1. **Modelldefinisjon.** «La $X_i$ = [den målte størrelsen], $i = 1, \\ldots, n$, uavhengige og identisk fordelte med [fordeling og tetthet], der [parameteren] er ukjent.» Dette ene er sensorkrav 1 — et eget poeng, og fundamentet for alt videre.\n2. **ML-estimatoren** (fra 5.2): skriv likelihooden $L(\\theta) = \\prod f(x_i;\\theta)$, ta logaritmen $\\ell(\\theta) = \\sum \\ln f(x_i;\\theta)$, derivér, sett $\\ell'(\\theta) = 0$ og løs. Sjekk gjerne at det er et maksimum ($\\ell'' < 0$).\n3. **Egenskaper** (fra 5.1): er $\\hat{\\theta}$ forventningsrett ($E(\\hat{\\theta}) = \\theta$)? Hva er variansen $\\text{Var}(\\hat{\\theta})$? Dette avgjør kvaliteten og trengs for CLT-intervallet.\n4. **Konfidensintervall** (fra 6.2): finn en **pivotal** — en størrelse med kjent fordeling uavhengig av parameteren (for eksponensial: $2\\sum X_i/\\beta \\sim \\chi^2_{2n}$) — og snu ulikheten til et eksakt intervall. Alternativt et CLT-basert intervall $\\hat{\\theta} \\pm z_{\\alpha/2}\\,\\text{SE}$ til sammenligning.\n5. **Hypotesetest** (fra 7.1) i *samme* parameter: sett opp $H_0$/$H_1$, velg observator (gjerne pivotalen selv, som gir en **eksakt test**), tallfest, konkluder i ord.\n6. **Styrke / dimensjonering** (fra 7.3): regn styrken ved en sann verdi, eller finn $n$ for ønsket styrke.\n7. **Konklusjoner i ord hele veien.** Hvert ledd avsluttes med en setning som knytter tallet til konteksten — et rent tall gir sjelden full uttelling.\n\n**Rød tråd:** estimatet fra ledd 2 er *det samme tallet* du bruker i ledd 3–6. Bytter du det ut halvveis (bruker $\\bar{x}$ ett sted og noe annet et annet sted), rakner kjeden. Behold tråden."
+    },
+    {
+      "id": "tma4245-7-4-case-head",
+      "type": "text",
+      "content": "## Gjennomregnet eksamenscase (eksponensial-levetid)"
+    },
+    {
+      "id": "tma4245-7-4-case",
+      "type": "example",
+      "title": "Eksamenscase: Tid mellom alarmutløsninger",
+      "problem": "Tiden mellom alarmutløsninger i et prosessanlegg antas eksponensialfordelt med forventning $\\beta$ (i timer). Man observerer $n = 15$ mellomtider med sum $\\sum x_i = 96$ timer.\n\n**a)** Definer modellen og utled ML-estimatoren $\\hat{\\beta}$. Regn ut estimatet.\n\n**b)** Vis at $\\hat{\\beta}$ er forventningsrett, og oppgi variansen.\n\n**c)** Bruk pivotalen $\\frac{2\\sum X_i}{\\beta} \\sim \\chi^2_{2n}$ til et eksakt 95 %-konfidensintervall for $\\beta$.\n\n**d)** Leverandøren hevder at $\\beta \\ge 8$ timer. Test påstanden på 5 %-nivå.\n\n**e)** Finn styrken dersom den sanne $\\beta = 5$, og kommenter om 15 observasjoner er nok.",
+      "solution": "**a) Modell og ML.** La $X_i$ = tid mellom alarm $i-1$ og $i$, $i = 1, \\ldots, 15$, uavhengige og identisk eksponensialfordelte med tetthet $f(x) = \\frac{1}{\\beta}e^{-x/\\beta}$, $x > 0$, $\\beta$ ukjent.\n\n$$L(\\beta) = \\prod_{i=1}^{n} \\frac{1}{\\beta}e^{-x_i/\\beta} = \\beta^{-n}\\exp\\!\\left(-\\tfrac{1}{\\beta}\\textstyle\\sum x_i\\right), \\qquad \\ell(\\beta) = -n\\ln\\beta - \\tfrac{1}{\\beta}\\textstyle\\sum x_i.$$\nDerivér og sett lik null: $\\ell'(\\beta) = -\\frac{n}{\\beta} + \\frac{\\sum x_i}{\\beta^2} = 0 \\Rightarrow \\hat{\\beta} = \\frac{1}{n}\\sum X_i = \\bar{X}$. Estimatet: $\\hat{\\beta} = 96/15 = 6{,}4$ timer.\n\n> *Sensornotat (ledd 1–2):* modelldefinisjonen og selve derivasjonen er hvert sitt poeng. Skriv tettheten eksplisitt — ikke bare «eksponensialfordelt».\n\n**b) Forventningsretthet og varians.** $E(\\hat{\\beta}) = E(\\bar{X}) = \\frac{1}{n}\\sum E(X_i) = \\frac{1}{n}\\cdot n\\beta = \\beta$ — **forventningsrett**. Variansen: $\\text{Var}(\\hat{\\beta}) = \\text{Var}(\\bar{X}) = \\frac{\\text{Var}(X)}{n} = \\frac{\\beta^2}{n} = \\frac{\\beta^2}{15}$.\n\n> *Sensornotat (ledd 3):* bruk $\\text{Var}(X) = \\beta^2$ for eksponensial (ikke $\\beta$). Variansen faller som $1/n$ — estimatoren er konsistent.\n\n**c) Eksakt KI.** Pivotalen $\\frac{2\\sum X_i}{\\beta} \\sim \\chi^2_{2n} = \\chi^2_{30}$. Da er, med $\\chi^2_{30;\\,0{,}975} = 16{,}791$ (nedre) og $\\chi^2_{30;\\,0{,}025} = 46{,}979$ (øvre),\n$$P\\!\\left(\\chi^2_{30;\\,0{,}975} \\le \\frac{2\\sum X_i}{\\beta} \\le \\chi^2_{30;\\,0{,}025}\\right) = 0{,}95 \\;\\Rightarrow\\; \\beta \\in \\left[\\frac{2\\sum x_i}{\\chi^2_{30;\\,0{,}025}},\\ \\frac{2\\sum x_i}{\\chi^2_{30;\\,0{,}975}}\\right].$$\nMed $2\\sum x_i = 192$: nedre $= 192/46{,}979 = 4{,}09$, øvre $= 192/16{,}791 = 11{,}43$. **95 %-KI: $[4{,}09,\\ 11{,}43]$ timer.**\n\n> *Sensornotat (ledd 4):* frihetsgraden er $2n = 30$, og den *store* kvantilen havner i *nedre* endepunkt (fordi vi deler på den). Å snu det er en klassisk feil.\n\n**d) Test.** Vi vil sjekke om dataene taler mot påstanden $\\beta \\ge 8$; det bekymringsfulle er at levetiden er *kortere*: $H_0: \\beta = 8$ mot $H_1: \\beta < 8$ (ensidig nedover). Bruk pivotalen som testobservator: under $H_0$ er $\\frac{2\\sum X_i}{8} \\sim \\chi^2_{30}$. Tallfest: $\\frac{192}{8} = 24{,}0$. Liten $\\beta$ gir liten observator, så vi forkaster i *nedre* hale: forkast hvis observatoren $< \\chi^2_{30;\\,0{,}95} = 18{,}493$. Siden $24{,}0 > 18{,}493$, **forkaster vi ikke $H_0$**. (p-verdi $= P(\\chi^2_{30} < 24{,}0) = 0{,}23$.)\n\n**Konklusjon i ord:** selv om estimatet $\\hat{\\beta} = 6{,}4$ ligger under 8, er avviket ikke statistisk sikkert med 15 observasjoner — det er **ikke grunnlag for å hevde at $\\beta < 8$**.\n\n> *Sensornotat (ledd 5):* å bruke pivotalen som testobservator gir en *eksakt* test (ingen normaltilnærming). Retningen: $H_1: \\beta < 8 \\Rightarrow$ nedre hale $\\Rightarrow$ kvantil $\\chi^2_{30;\\,0{,}95}$.\n\n**e) Styrke.** Forkastningsregelen er observator $< 18{,}493$, altså $\\frac{2\\sum X_i}{8} < 18{,}493 \\Leftrightarrow 2\\sum X_i < 147{,}9$. Under en sann $\\beta = 5$ er $\\frac{2\\sum X_i}{5} \\sim \\chi^2_{30}$, så\n$$\\text{styrke} = P(2\\textstyle\\sum X_i < 147{,}9 \\mid \\beta = 5) = P\\!\\left(\\chi^2_{30} < \\frac{147{,}9}{5}\\right) = P(\\chi^2_{30} < 29{,}59) = 0{,}51.$$\n\n**Kommentar:** styrken er bare **≈ 0,51** — selv om den sanne levetiden skulle falle helt til 5 timer (en stor forverring fra 8), ville testen bare oppdage det i omtrent halvparten av tilfellene. **15 observasjoner er ikke nok** til en pålitelig test; for høyere styrke trengs vesentlig flere mellomtider.\n\n— naturlig pausepunkt —\n\n> *Sensornotat (ledd 6–7):* styrken regnes eksakt via *samme* pivotal, nå under den sanne $\\beta$. Legg merke til den røde tråden: $2\\sum x_i = 192$ og forkastningsgrensen $18{,}493$ er brukt konsistent i (c), (d) og (e)."
+    },
+    {
+      "id": "tma4245-7-4-kort-head",
+      "type": "text",
+      "content": "## Oppskriftskort\n\nDe fem kortene under komprimerer kjeden til repetisjonsformat.\n\n*Flashcard-/repetisjonsstoff — hopp trygt over ved førstegangslesing; tidsanslaget gjelder kjernestoffet og oppgavene.*"
+    },
+    {
+      "id": "tma4245-7-4-kort-kjede",
+      "type": "definition",
+      "title": "Oppskriftskort: kjedens sju ledd",
+      "content": "**(1)** Modelldefinisjon («$X_i$ iid med tetthet …», parameteren ukjent). **(2)** ML-estimator: $L \\to \\ell = \\ln L \\to \\ell' = 0 \\to \\hat{\\theta}$. **(3)** Egenskaper: forventningsrett? varians? **(4)** KI via pivotal (eksakt) eller CLT. **(5)** Test i samme parameter, gjerne via pivotalen (eksakt). **(6)** Styrke/dimensjonering. **(7)** Konkludér i ord i hvert ledd. Samme estimat brukes hele veien — mist ikke tråden."
+    },
+    {
+      "id": "tma4245-7-4-kort-ml",
+      "type": "definition",
+      "title": "Formelkort: ML-ritualet",
+      "content": "$L(\\theta) = \\prod_{i=1}^n f(x_i;\\theta)$, $\\ell(\\theta) = \\sum \\ln f(x_i;\\theta)$, løs $\\ell'(\\theta) = 0$. For eksponensial ($f = \\frac{1}{\\beta}e^{-x/\\beta}$): $\\ell(\\beta) = -n\\ln\\beta - \\frac{1}{\\beta}\\sum x_i$, som gir $\\hat{\\beta} = \\bar{X}$. For Poisson-rate: $\\hat{\\lambda} = \\bar{X}$. For andel: $\\hat{p} = X/n$. Logaritmen gjør produktet til en sum du kan derivere."
+    },
+    {
+      "id": "tma4245-7-4-kort-pivotal",
+      "type": "definition",
+      "title": "Formelkort: eksponensialens pivotal og KI",
+      "content": "For iid eksponensial med forventning $\\beta$: $\\frac{2\\sum X_i}{\\beta} \\sim \\chi^2_{2n}$ (frihetsgrad $\\mathbf{2n}$). Eksakt $(1-\\alpha)$-KI: $\\left[\\frac{2\\sum x_i}{\\chi^2_{2n;\\,\\alpha/2}},\\ \\frac{2\\sum x_i}{\\chi^2_{2n;\\,1-\\alpha/2}}\\right]$. Den *store* kvantilen ($\\chi^2_{2n;\\,\\alpha/2}$) står i *nedre* endepunkt fordi vi deler på den. Samme pivotal brukes til en eksakt test."
+    },
+    {
+      "id": "tma4245-7-4-kort-test",
+      "type": "definition",
+      "title": "Oppskriftskort: eksakt test via pivotalen",
+      "content": "Test $H_0: \\beta = \\beta_0$ ved å sette $\\beta_0$ inn i pivotalen: under $H_0$ er $\\frac{2\\sum X_i}{\\beta_0} \\sim \\chi^2_{2n}$. Retning: $H_1: \\beta < \\beta_0$ → forkast i *nedre* hale (observator $< \\chi^2_{2n;\\,1-\\alpha}$); $H_1: \\beta > \\beta_0$ → *øvre* hale. Styrken ved sann $\\beta_1$: skriv forkastningsregelen som en ulikhet i $2\\sum X_i$, og regn sannsynligheten under $\\chi^2_{2n}$ med $\\beta_1$."
+    },
+    {
+      "id": "tma4245-7-4-kort-trad",
+      "type": "definition",
+      "title": "Oppskriftskort: hold tråden",
+      "content": "Kjedens ledd henger sammen: estimatet fra ML brukes i egenskapene, i KI-et, i testen og i styrken. Vanligste tap under tidspress: (a) feil frihetsgrad ($2n$ for eksponensial, $n-1$ for normal varians, $n-2$ for regresjon), (b) feil retning på $H_1$, (c) å bytte estimat halvveis, (d) å droppe konklusjonen i ord. Kryss av leddene i margen."
+    },
+    {
+      "id": "tma4245-7-4-drill-head",
+      "type": "text",
+      "content": "## Kjedeoppgaver på eksamensnivå"
+    },
+    {
+      "id": "tma4245-7-4-okt1",
+      "type": "text",
+      "content": "### Økt 1 — eksponensial, andel, normal (~30 min)"
+    },
+    {
+      "id": "tma4245-7-4-e1",
+      "type": "exercise",
+      "exercise": {
+        "id": "tma4245-7-4-e1",
+        "number": "1",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "Levetiden til en pumpekomponent antas eksponensialfordelt med forventning $\\beta$ (i tusen driftstimer). Man observerer $n = 20$ levetider med $\\sum x_i = 140$.\n\n**a)** Skriv modelldefinisjonen og utled ML-estimatoren $\\hat{\\beta}$; regn estimatet.\n\n**b)** Gi et eksakt 95 %-KI for $\\beta$ via pivotalen $\\frac{2\\sum X_i}{\\beta} \\sim \\chi^2_{2n}$. Bruk $\\chi^2_{40;\\,0{,}025} = 59{,}342$ og $\\chi^2_{40;\\,0{,}975} = 24{,}433$.\n\n**c)** Produsenten hevder $\\beta \\ge 10$. Test på 5 %-nivå med en eksakt test. Bruk $\\chi^2_{40;\\,0{,}95} = 26{,}509$.",
+        "solution": "**a)** La $X_i$ = levetid $i$, $i = 1, \\ldots, 20$, iid eksponensiale med $f(x) = \\frac{1}{\\beta}e^{-x/\\beta}$. Log-likelihood $\\ell(\\beta) = -n\\ln\\beta - \\frac{1}{\\beta}\\sum x_i$ gir $\\hat{\\beta} = \\bar{X}$. Estimat: $\\hat{\\beta} = 140/20 = 7{,}0$ (tusen timer).\n\n**b)** $2\\sum x_i = 280$, $2n = 40$. KI $= \\left[\\frac{280}{59{,}342},\\ \\frac{280}{24{,}433}\\right] = [4{,}72,\\ 11{,}46]$.\n\n**c)** $H_0: \\beta = 10$ mot $H_1: \\beta < 10$ (mistenker kortere levetid). Under $H_0$: $\\frac{2\\sum X_i}{10} = 280/10 = 28{,}0 \\sim \\chi^2_{40}$. Nedre hale: forkast hvis $< \\chi^2_{40;\\,0{,}95} = 26{,}509$. Siden $28{,}0 > 26{,}509$, **forkaster vi ikke** (p $= 0{,}077$). Det er ikke grunnlag for å hevde at $\\beta < 10$ — men det er nær, så mer data kunne avklart.",
+        "hints": [
+          "ML for eksponensial gir alltid $\\hat{\\beta} = \\bar{X}$; her $140/20$.",
+          "KI: del $2\\sum x_i = 280$ på kvantilene; stor kvantil i nedre endepunkt.",
+          "Test: sett $\\beta_0 = 10$ i pivotalen, $280/10 = 28$; $H_1: \\beta<10$ → nedre hale."
+        ]
+      }
+    },
+    {
+      "id": "tma4245-7-4-e2",
+      "type": "exercise",
+      "exercise": {
+        "id": "tma4245-7-4-e2",
+        "number": "2",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "En produksjonslinje kasserer en ukjent andel $p$ av enhetene. Blant $n = 180$ enheter kasseres $x = 27$.\n\n**a)** Sett opp modellen ($X$ = antall kasserte) og utled ML-estimatoren for $p$; regn estimatet.\n\n**b)** Gi et tilnærmet 95 %-KI for $p$ (Wald: $\\hat{p} \\pm z_{0{,}025}\\sqrt{\\hat{p}(1-\\hat{p})/n}$).\n\n**c)** Leverandøren hevder kasseringsandelen er *høyst* $0{,}10$. Test på 5 %-nivå om den er høyere.",
+        "solution": "**a)** $X \\sim \\text{binomisk}(n, p)$ med $n = 180$. Log-likelihood $\\ell(p) = x\\ln p + (n-x)\\ln(1-p)$ (pluss konstant); $\\ell'(p) = \\frac{x}{p} - \\frac{n-x}{1-p} = 0$ gir $\\hat{p} = X/n$. Estimat: $\\hat{p} = 27/180 = 0{,}15$.\n\n**b)** $\\sqrt{\\hat{p}(1-\\hat{p})/n} = \\sqrt{0{,}15 \\cdot 0{,}85/180} = 0{,}02661$. KI $= 0{,}15 \\pm 1{,}96 \\cdot 0{,}02661 = [0{,}098,\\ 0{,}202]$.\n\n**c)** $H_0: p = 0{,}10$ mot $H_1: p > 0{,}10$. Forutsetning $np_0 = 18 \\ge 5$, $n(1-p_0) = 162 \\ge 5$ — OK. Standardfeil (med $p_0$!) $\\sqrt{0{,}10 \\cdot 0{,}90/180} = 0{,}02236$. $Z = (0{,}15 - 0{,}10)/0{,}02236 = 2{,}236$. Forkast hvis $Z > z_{0{,}05} = 1{,}645$; siden $2{,}236 > 1{,}645$, **forkast $H_0$** (p $= 0{,}013$): det er grunnlag for å hevde at kasseringsandelen overstiger 10 %.",
+        "hints": [
+          "ML for binomisk andel gir $\\hat{p} = x/n = 27/180$.",
+          "KI bruker $\\hat{p}$ i standardfeilen; testen bruker $p_0 = 0{,}10$ i standardfeilen.",
+          "$Z = (0{,}15 - 0{,}10)/\\sqrt{0{,}10 \\cdot 0{,}90/180}$, sammenlign med $1{,}645$."
+        ]
+      }
+    },
+    {
+      "id": "tma4245-7-4-e3",
+      "type": "exercise",
+      "exercise": {
+        "id": "tma4245-7-4-e3",
+        "number": "3",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "Bruddstyrken til en sveisetype antas $N(\\mu, \\sigma^2)$ med begge parametre ukjente. Et utvalg på $n = 16$ gir $\\bar{x} = 52{,}0$ kN og $s = 3{,}2$ kN.\n\n**a)** Oppgi ML-estimatene for $\\mu$ og $\\sigma^2$ (du trenger ikke utlede dem på nytt), og forklar hvorfor vi likevel bruker $s^2$ med divisor $n-1$ videre.\n\n**b)** Gi et 95 %-KI for $\\mu$. Bruk $t_{15;\\,0{,}025} = 2{,}131$.\n\n**c)** En kunde krever forventet bruddstyrke over $50$ kN. Test på 5 %-nivå. Bruk $t_{15;\\,0{,}05} = 1{,}753$.",
+        "solution": "**a)** ML gir $\\hat{\\mu} = \\bar{X}$ og $\\hat{\\sigma}^2 = \\frac{1}{n}\\sum(X_i-\\bar{X})^2$ (divisor $n$). Denne er *ikke* forventningsrett; derfor bruker vi den forventningsrette $S^2 = \\frac{1}{n-1}\\sum(X_i-\\bar{X})^2$ i intervaller og tester, slik at t-fordelingen med $n-1$ frihetsgrader gjelder eksakt.\n\n**b)** Standardfeil $s/\\sqrt{n} = 3{,}2/\\sqrt{16} = 0{,}80$. KI $= 52{,}0 \\pm 2{,}131 \\cdot 0{,}80 = [50{,}29,\\ 53{,}71]$ kN.\n\n**c)** $H_0: \\mu = 50$ mot $H_1: \\mu > 50$. Ukjent $\\sigma$ → $T = \\frac{\\bar{X}-50}{S/\\sqrt{n}} \\sim t_{15}$. $T = (52{,}0 - 50)/0{,}80 = 2{,}50$. Forkast hvis $T > t_{15;\\,0{,}05} = 1{,}753$; siden $2{,}50 > 1{,}753$, **forkast $H_0$** (p $= 0{,}012$): det er grunnlag for å hevde at forventet bruddstyrke overstiger 50 kN. (Kryssjekk: KI-et $[50{,}29,\\ 53{,}71]$ ligger over 50 — konsistent med testen.)",
+        "hints": [
+          "ML-variansen har divisor $n$; den forventningsrette $S^2$ har divisor $n-1$.",
+          "KI og test bruker $S^2$ og t-fordelingen med $n-1 = 15$ frihetsgrader.",
+          "$T = (52{,}0 - 50)/(3{,}2/\\sqrt{16})$, ensidig oppover mot $t_{15;\\,0{,}05}$."
+        ]
+      }
+    },
+    {
+      "id": "tma4245-7-4-pause1",
+      "type": "text",
+      "content": "— naturlig pausepunkt (slutt økt 1) —"
+    },
+    {
+      "id": "tma4245-7-4-okt2",
+      "type": "text",
+      "content": "### Økt 2 — gamma, Poisson, Weibull-løft (~30 min)"
+    },
+    {
+      "id": "tma4245-7-4-e4",
+      "type": "exercise",
+      "exercise": {
+        "id": "tma4245-7-4-e4",
+        "number": "4",
+        "type": "classic",
+        "difficulty": "vanskelig",
+        "task": "Ventetiden til den tredje partikkelen i en detektor antas gammafordelt med **kjent** form $k = 3$ og ukjent skala $\\theta$, tetthet $f(x) = \\frac{1}{\\Gamma(k)\\theta^k}x^{k-1}e^{-x/\\theta}$, $E(X) = k\\theta$. Man har $n = 10$ målinger med $\\sum x_i = 180$.\n\n**a)** Utled ML-estimatoren for $\\theta$ (form $k$ kjent), og regn estimatet.\n\n**b)** Det kan vises at $\\frac{2\\sum X_i}{\\theta} \\sim \\chi^2_{2nk}$. Gi et eksakt 95 %-KI for $\\theta$. Bruk $\\chi^2_{60;\\,0{,}025} = 83{,}298$ og $\\chi^2_{60;\\,0{,}975} = 40{,}482$.\n\n**c)** Forklar hvorfor frihetsgraden er $2nk$ og ikke $2n$.",
+        "solution": "**a)** $\\ell(\\theta) = \\sum\\left[-\\ln\\Gamma(k) - k\\ln\\theta + (k-1)\\ln x_i - \\frac{x_i}{\\theta}\\right] = -nk\\ln\\theta - \\frac{1}{\\theta}\\sum x_i + \\text{konst}$. $\\ell'(\\theta) = -\\frac{nk}{\\theta} + \\frac{\\sum x_i}{\\theta^2} = 0 \\Rightarrow \\hat{\\theta} = \\frac{\\sum X_i}{nk} = \\frac{\\bar{X}}{k}$. Estimat: $\\hat{\\theta} = 180/(10 \\cdot 3) = 6{,}0$.\n\n**b)** $2\\sum x_i = 360$, $2nk = 60$. KI $= \\left[\\frac{360}{83{,}298},\\ \\frac{360}{40{,}482}\\right] = [4{,}32,\\ 8{,}89]$.\n\n**c)** En gamma$(k, \\theta)$-variabel er summen av $k$ uavhengige eksponensialledd. Summen $\\sum_{i=1}^n X_i$ er da gamma$(nk, \\theta)$, og $2\\sum X_i/\\theta$ blir kjikvadrat med $2 \\cdot nk$ frihetsgrader — hver av de $nk$ «eksponensialbitene» bidrar med 2. For $k = 1$ (ren eksponensial) faller det tilbake til $2n$.",
+        "hints": [
+          "ML: $\\ell(\\theta) = -nk\\ln\\theta - \\frac{1}{\\theta}\\sum x_i + \\text{konst}$, derivér.",
+          "$\\hat{\\theta} = \\sum x_i/(nk) = 180/30$.",
+          "KI: del $2\\sum x_i = 360$ på $\\chi^2_{60}$-kvantilene; frihetsgrad $2nk = 60$."
+        ]
+      }
+    },
+    {
+      "id": "tma4245-7-4-e5",
+      "type": "exercise",
+      "exercise": {
+        "id": "tma4245-7-4-e5",
+        "number": "5",
+        "type": "classic",
+        "difficulty": "vanskelig",
+        "task": "Antall driftsstans per måned i et anlegg antas Poisson-fordelt med ukjent rate $\\lambda$. Over $n = 12$ måneder registreres til sammen $\\sum x_i = 54$ stans.\n\n**a)** Utled ML-estimatoren for $\\lambda$ og regn estimatet.\n\n**b)** Gi et tilnærmet 95 %-KI for $\\lambda$ via CLT ($\\hat{\\lambda} \\pm z_{0{,}025}\\sqrt{\\hat{\\lambda}/n}$), og forklar hvor $\\sqrt{\\hat{\\lambda}/n}$ kommer fra.\n\n**c)** Historisk var raten $\\lambda_0 = 4$. Test på 5 %-nivå om raten har økt, med normaltilnærming. (Kontroller til slutt at en eksakt Poisson-test gir samme retning: $P(S \\ge 54 \\mid \\text{Poisson}(48)) = 0{,}211$.)",
+        "solution": "**a)** $\\ell(\\lambda) = \\sum(x_i\\ln\\lambda - \\lambda - \\ln x_i!) = (\\sum x_i)\\ln\\lambda - n\\lambda + \\text{konst}$. $\\ell'(\\lambda) = \\frac{\\sum x_i}{\\lambda} - n = 0 \\Rightarrow \\hat{\\lambda} = \\bar{X} = \\frac{1}{n}\\sum X_i$. Estimat: $\\hat{\\lambda} = 54/12 = 4{,}5$.\n\n**b)** For Poisson er $\\text{Var}(X) = \\lambda$, så $\\text{Var}(\\bar{X}) = \\lambda/n$, og standardfeilen estimeres med $\\sqrt{\\hat{\\lambda}/n} = \\sqrt{4{,}5/12} = 0{,}6124$. KI $= 4{,}5 \\pm 1{,}96 \\cdot 0{,}6124 = [3{,}30,\\ 5{,}70]$.\n\n**c)** $H_0: \\lambda = 4$ mot $H_1: \\lambda > 4$. Med normaltilnærming (standardfeil under $H_0$: $\\sqrt{\\lambda_0/n} = \\sqrt{4/12} = 0{,}5774$): $Z = (4{,}5 - 4)/0{,}5774 = 0{,}866$. Forkast hvis $Z > 1{,}645$; siden $0{,}866 < 1{,}645$, **forkaster vi ikke** (p $= 0{,}193$). Den eksakte testen bekrefter: $P(S \\ge 54 \\mid \\text{Poisson}(48)) = 0{,}211 > 0{,}05$ — samme konklusjon. Det er ikke grunnlag for å hevde at raten har økt.",
+        "hints": [
+          "ML for Poisson-rate gir $\\hat{\\lambda} = \\bar{X} = 54/12$.",
+          "$\\text{Var}(X) = \\lambda$ for Poisson, så $\\text{Var}(\\bar{X}) = \\lambda/n$.",
+          "Test: standardfeil under $H_0$ bruker $\\lambda_0 = 4$, $Z = (4{,}5-4)/\\sqrt{4/12}$."
+        ]
+      }
+    },
+    {
+      "id": "tma4245-7-4-e6",
+      "type": "exercise",
+      "exercise": {
+        "id": "tma4245-7-4-e6",
+        "number": "6",
+        "type": "classic",
+        "difficulty": "vanskelig",
+        "task": "Vindhastigheten $Y$ (m/s) ved en turbin antas Weibull-fordelt med **kjent** formparameter $k = 2$ og skala $\\beta$: $F(y) = 1 - e^{-(y/\\beta)^2}$, $y > 0$. Man har $n = 12$ målinger med $\\sum y_i^2 = 240$.\n\n**a)** Vis at transformasjonen $W = Y^2$ er eksponensialfordelt, og finn forventningen $\\theta = E(W)$ uttrykt ved $\\beta$.\n\n**b)** Bruk eksponensial-maskineriet på $w_i = y_i^2$ til å finne ML-estimatet for $\\theta$, og deretter for $\\beta$.\n\n**c)** Gi et eksakt 95 %-KI for $\\theta$. Bruk $\\chi^2_{24;\\,0{,}025} = 39{,}364$ og $\\chi^2_{24;\\,0{,}975} = 12{,}401$.",
+        "solution": "**a)** $P(W \\le w) = P(Y^2 \\le w) = P(Y \\le \\sqrt{w}) = 1 - e^{-(\\sqrt{w}/\\beta)^2} = 1 - e^{-w/\\beta^2}$. Det er fordelingsfunksjonen til en eksponensialvariabel med forventning $\\theta = \\beta^2$. Så $W = Y^2 \\sim \\text{eksponensial}$ med $E(W) = \\theta = \\beta^2$.\n\n**b)** For eksponensial er $\\hat{\\theta} = \\bar{W} = \\frac{1}{n}\\sum w_i = 240/12 = 20$. Da $\\hat{\\beta} = \\sqrt{\\hat{\\theta}} = \\sqrt{20} = 4{,}47$ m/s.\n\n**c)** $2\\sum w_i = 480$, $2n = 24$. KI for $\\theta$: $\\left[\\frac{480}{39{,}364},\\ \\frac{480}{12{,}401}\\right] = [12{,}19,\\ 38{,}71]$. (Vil man ha KI for $\\beta$, tar man kvadratrota av endepunktene, siden $\\beta = \\sqrt{\\theta}$ er strengt voksende: $[3{,}49,\\ 6{,}22]$.)\n\n> *Sensornotat:* «oppskriftsfordelinger» som Weibull løses ved å *transformere til eksponensial* — da får du hele pivotal-maskineriet gratis. Nøkkelen er å kjenne igjen at $Y^k$ blir eksponensial når $Y$ er Weibull med form $k$.",
+        "hints": [
+          "Regn $P(Y^2 \\le w)$ ved å sette inn i $F(y)$; kjenn igjen eksponensialformen.",
+          "På $w_i = y_i^2$: $\\hat{\\theta} = \\bar{w} = 240/12$, og $\\hat{\\beta} = \\sqrt{\\hat{\\theta}}$.",
+          "KI for $\\theta$: del $2\\sum w_i = 480$ på $\\chi^2_{24}$-kvantilene."
+        ]
+      }
+    },
+    {
+      "id": "tma4245-7-4-pause2",
+      "type": "text",
+      "content": "— naturlig pausepunkt (slutt økt 2) —"
+    },
+    {
+      "id": "tma4245-7-4-okt3",
+      "type": "text",
+      "content": "### Økt 3 — to datakilder, estimatorvalg, full kjede med styrke (~35 min)"
+    },
+    {
+      "id": "tma4245-7-4-e7",
+      "type": "exercise",
+      "exercise": {
+        "id": "tma4245-7-4-e7",
+        "number": "7",
+        "type": "classic",
+        "difficulty": "vanskelig",
+        "task": "To identiske pumper antas å ha samme eksponensialfordelte levetid med forventning $\\beta$. Pumpe A gir $n_1 = 10$ levetider med $\\sum x_i = 58$; pumpe B gir $n_2 = 8$ levetider med $\\sum y_j = 54$ (samme enhet, tusen timer).\n\n**a)** Utled ML-estimatoren for $\\beta$ når begge datakilder brukes samlet, og regn estimatet.\n\n**b)** Hva blir frihetsgraden i pivotalen $\\frac{2(\\sum X_i + \\sum Y_j)}{\\beta} \\sim \\chi^2_{?}$, og hvorfor?\n\n**c)** Gi et eksakt 95 %-KI for $\\beta$. Bruk $\\chi^2_{36;\\,0{,}025} = 54{,}437$ og $\\chi^2_{36;\\,0{,}975} = 21{,}336$.",
+        "solution": "**a)** Alle $n_1 + n_2 = 18$ observasjoner er iid eksponensiale med samme $\\beta$. Log-likelihooden er $\\ell(\\beta) = -(n_1+n_2)\\ln\\beta - \\frac{1}{\\beta}\\left(\\sum x_i + \\sum y_j\\right)$, som gir\n$$\\hat{\\beta} = \\frac{\\sum x_i + \\sum y_j}{n_1 + n_2} = \\frac{58 + 54}{18} = \\frac{112}{18} = 6{,}22 \\text{ (tusen timer)}.$$\nDette er det totale samlede snittet — ikke gjennomsnittet av de to gruppesnittene (som ville feilvektet den minste gruppen).\n\n**b)** Frihetsgraden er $2(n_1 + n_2) = 36$: hver av de 18 uavhengige eksponensialobservasjonene bidrar med 2 til kjikvadrat-summen.\n\n**c)** $2(\\sum x_i + \\sum y_j) = 224$. KI $= \\left[\\frac{224}{54{,}437},\\ \\frac{224}{21{,}336}\\right] = [4{,}11,\\ 10{,}50]$.",
+        "hints": [
+          "Samme $\\beta$ → slå sammen alle 18 observasjonene i én likelihood.",
+          "$\\hat{\\beta} = \\frac{\\sum x + \\sum y}{n_1 + n_2} = 112/18$, ikke snittet av snittene.",
+          "Frihetsgrad $2(n_1+n_2) = 36$; KI deler $224$ på kvantilene."
+        ]
+      }
+    },
+    {
+      "id": "tma4245-7-4-e8",
+      "type": "exercise",
+      "exercise": {
+        "id": "tma4245-7-4-e8",
+        "number": "8",
+        "type": "classic",
+        "difficulty": "vanskelig",
+        "task": "For iid eksponensiale levetider med forventning $\\beta$ vurderer en ingeniør to forventningsrette estimatorer: gjennomsnittet $\\hat{\\beta}_1 = \\bar{X}$ og skalert minimum $\\hat{\\beta}_2 = n\\cdot X_{(1)}$, der $X_{(1)} = \\min_i X_i$.\n\n**a)** Vis at begge er forventningsrette. (Bruk at $X_{(1)}$ er eksponensialfordelt med forventning $\\beta/n$.)\n\n**b)** Variansene er $\\text{Var}(\\hat{\\beta}_1) = \\beta^2/n$ og $\\text{Var}(\\hat{\\beta}_2) = \\beta^2$. Hvilken estimator er best, og med hvilken faktor?\n\n**c)** Hva sier dette om å bruke bare den første (raskeste) levetiden i stedet for alle?",
+        "solution": "**a)** $E(\\hat{\\beta}_1) = E(\\bar{X}) = \\beta$ (snittet av forventningsrette). For minimum: $E(X_{(1)}) = \\beta/n$, så $E(\\hat{\\beta}_2) = n \\cdot E(X_{(1)}) = n \\cdot \\beta/n = \\beta$. Begge er altså **forventningsrette**.\n\n**b)** $\\hat{\\beta}_1$ er best: $\\text{Var}(\\hat{\\beta}_1) = \\beta^2/n$ mot $\\text{Var}(\\hat{\\beta}_2) = \\beta^2$. Forholdet er $\\frac{\\text{Var}(\\hat{\\beta}_2)}{\\text{Var}(\\hat{\\beta}_1)} = \\frac{\\beta^2}{\\beta^2/n} = n$ — gjennomsnittsestimatoren har $n$ ganger mindre varians. (For $n = 20$: 20 ganger mer presis.)\n\n**c)** $\\hat{\\beta}_2$ bruker i praksis bare *én* observasjon (den minste, skalert opp) og kaster informasjonen i de øvrige $n-1$. Selv om den er forventningsrett, er den svært upresis. ML-estimatoren $\\bar{X}$ utnytter alle observasjonene og er den effektive — derfor foretrekker vi den.",
+        "hints": [
+          "Forventningsrett betyr $E(\\hat{\\beta}) = \\beta$; bruk $E(X_{(1)}) = \\beta/n$ for den andre.",
+          "Sammenlign variansene: mindre varians = bedre (mer effektiv) estimator.",
+          "$\\text{Var}(\\hat{\\beta}_2)/\\text{Var}(\\hat{\\beta}_1) = \\beta^2/(\\beta^2/n) = n$."
+        ]
+      }
+    },
+    {
+      "id": "tma4245-7-4-e9",
+      "type": "exercise",
+      "exercise": {
+        "id": "tma4245-7-4-e9",
+        "number": "9",
+        "type": "classic",
+        "difficulty": "vanskelig",
+        "task": "Tiden mellom flomtopper i et vassdrag antas eksponensialfordelt med forventning $\\beta$ (i år). Man har $n = 20$ mellomtider med $\\sum x_i = 170$.\n\n**a)** Utled $\\hat{\\beta}$ og regn estimatet, og oppgi variansen $\\text{Var}(\\hat{\\beta})$.\n\n**b)** Gi et eksakt 95 %-KI for $\\beta$. Bruk $\\chi^2_{40;\\,0{,}025} = 59{,}342$, $\\chi^2_{40;\\,0{,}975} = 24{,}433$.\n\n**c)** En dimensjoneringsnorm antar $\\beta \\ge 12$ år mellom flommer. Test på 5 %-nivå om mellomtiden er *kortere*. Bruk $\\chi^2_{40;\\,0{,}95} = 26{,}509$.\n\n**d)** Finn styrken dersom den sanne $\\beta = 7$ år, og kommenter beslutningsrisikoen. (Bruk $P(\\chi^2_{40} < 45{,}44) = 0{,}744$.)",
+        "solution": "**a)** La $X_i$ = tid mellom flomtopp $i-1$ og $i$, iid eksponensiale. $\\hat{\\beta} = \\bar{X} = 170/20 = 8{,}5$ år. Varians: $\\text{Var}(\\hat{\\beta}) = \\beta^2/n = \\beta^2/20$.\n\n**b)** $2\\sum x_i = 340$, $2n = 40$. KI $= \\left[\\frac{340}{59{,}342},\\ \\frac{340}{24{,}433}\\right] = [5{,}73,\\ 13{,}92]$ år.\n\n**c)** $H_0: \\beta = 12$ mot $H_1: \\beta < 12$. Under $H_0$: $\\frac{2\\sum X_i}{12} = 340/12 = 28{,}33 \\sim \\chi^2_{40}$. Nedre hale: forkast hvis $< \\chi^2_{40;\\,0{,}95} = 26{,}509$. Siden $28{,}33 > 26{,}509$, **forkaster vi ikke** (p $= 0{,}084$): ikke grunnlag for å hevde at mellomtiden er under 12 år, selv om $\\hat{\\beta} = 8{,}5$ ligger under.\n\n**d)** Forkastningsregelen er $\\frac{2\\sum X_i}{12} < 26{,}509 \\Leftrightarrow 2\\sum X_i < 318{,}1$. Under $\\beta = 7$: $\\frac{2\\sum X_i}{7} \\sim \\chi^2_{40}$, så styrke $= P\\!\\left(\\chi^2_{40} < \\frac{318{,}1}{7}\\right) = P(\\chi^2_{40} < 45{,}44) = 0{,}744$. Selv om den sanne mellomtiden skulle være så lav som 7 år (en betydelig underdimensjonering), oppdager testen det bare i ca. **74 %** av tilfellene — type II-risikoen på ca. 26 % er ikke ubetydelig for en flomsikringsvurdering, og flere observasjoner ville styrket beslutningen.",
+        "hints": [
+          "$\\hat{\\beta} = \\bar{X} = 170/20$; $\\text{Var}(\\hat{\\beta}) = \\beta^2/n$.",
+          "Test: $340/12 = 28{,}33$, $H_1: \\beta < 12$ → nedre hale, kvantil $\\chi^2_{40;\\,0{,}95}$.",
+          "Styrke: skriv forkastning som $2\\sum X_i < 26{,}509 \\cdot 12/2 = 318{,}1$, regn under $\\beta = 7$."
+        ]
+      }
+    },
+    {
+      "id": "tma4245-7-4-warn",
+      "type": "warning",
+      "title": "Typiske feil",
+      "content": "Kjeden faller sammen på de samme punktene under tidspress:\n\n- **Feil frihetsgrad i eksponensial-pivotalen.** Det er $\\mathbf{2n}$, aldri $n$ eller $n-1$. (Til sammenligning: normal varians $n-1$, gamma $2nk$, regresjon $n-2$.)\n- **Feil endepunkt i KI-et.** Den *store* kvantilen $\\chi^2_{2n;\\,\\alpha/2}$ havner i det *nedre* endepunktet (vi deler på den). Snur du det, blir intervallet meningsløst (nedre > øvre).\n- **Feil retning på $H_1$.** Retningen følger av hva som skal påvises. For eksponensial: kort levetid → liten observator → *nedre* hale.\n- **Miste tråden.** Estimatet fra ML skal brukes videre i egenskaper, KI, test og styrke. Ikke bytt det ut halvveis.\n- **Regne styrken under $H_0$.** Styrken regnes under den *sanne* parameterverdien ($\\beta_1$, $\\mu_1$), ikke under $H_0$.\n- **Konklusjon uten ord.** Hvert ledd — estimat, KI, test, styrke — avsluttes med en setning i kontekst. Et rent tall gir sjelden full uttelling.\n- **Bruke ML-variansen ($\\div n$) i en test av forventningen.** Til t-test og KI brukes den forventningsrette $S^2$ ($\\div (n-1)$)."
+    },
+    {
+      "id": "tma4245-7-4-symbolliste",
+      "type": "collapsible",
+      "title": "Symbol- og formelliste",
+      "buttonText": "Vis symboler og formler",
+      "content": [
+        {
+          "id": "tma4245-7-4-symbolliste-text",
+          "type": "text",
+          "content": "*Oppslagsverk — alt her forklares underveis i kapitlet.*\n\nAlle symboler og formler brukt i kapittel 7.4, samlet.\n\n| Symbol | Betydning |\n|---|---|\n| $X_i,\\ Y_j$ | Observasjoner (stokastiske) |\n| $\\hat{\\theta},\\ \\hat{\\beta},\\ \\hat{\\lambda},\\ \\hat{p}$ | ML-estimatorer |\n| $L(\\theta),\\ \\ell(\\theta)$ | Likelihood og log-likelihood |\n| $\\beta$ | Eksponensialens/Weibulls forventnings- hhv. skalaparameter |\n| $\\theta$ | Gammas skala; generell parameter |\n| $\\lambda$ | Poisson-rate |\n| $X_{(1)}$ | Minste observasjon (minimum) |\n| $\\chi^2_{\\nu,\\alpha}$ | Kjikvadrat-kvantil, $\\nu$ fr.grader, øvre hale $\\alpha$ |\n| $t_{\\nu,\\alpha},\\ z_\\alpha$ | t- og z-kvantiler, øvre haleareal $\\alpha$ |\n\n**Formler i dette kapitlet:**\n\n$$\\ell(\\theta) = \\sum_{i=1}^n \\ln f(x_i;\\theta), \\qquad \\ell'(\\hat{\\theta}) = 0$$\nML-ritualet: maksimer log-likelihooden.\n\n$$\\hat{\\beta} = \\bar{X} \\ (\\text{eksponensial}), \\quad \\hat{\\lambda} = \\bar{X} \\ (\\text{Poisson}), \\quad \\hat{p} = X/n \\ (\\text{binomisk}), \\quad \\hat{\\theta} = \\bar{X}/k \\ (\\text{gamma})$$\nVanlige ML-estimatorer.\n\n$$E(\\hat{\\theta}) = \\theta \\ (\\text{forventningsrett}), \\qquad \\text{Var}(\\bar{X}) = \\frac{\\text{Var}(X)}{n}$$\nEgenskaper: forventningsretthet og varians.\n\n$$\\frac{2\\sum X_i}{\\beta} \\sim \\chi^2_{2n} \\ (\\text{eksponensial}), \\qquad \\frac{2\\sum X_i}{\\theta} \\sim \\chi^2_{2nk} \\ (\\text{gamma, form } k)$$\nPivotaler for eksakt KI og test.\n\n$$\\beta \\in \\left[\\frac{2\\sum x_i}{\\chi^2_{2n;\\,\\alpha/2}},\\ \\frac{2\\sum x_i}{\\chi^2_{2n;\\,1-\\alpha/2}}\\right]$$\nEksakt $(1-\\alpha)$-KI for eksponensialens $\\beta$ (stor kvantil i nedre endepunkt).\n\n$$\\text{styrke} = P\\!\\left(\\tfrac{2\\sum X_i}{\\beta_0} < \\chi^2_{2n;\\,1-\\alpha} \\,\\Big|\\, \\beta_1\\right) = P\\!\\left(\\chi^2_{2n} < \\chi^2_{2n;\\,1-\\alpha}\\cdot\\tfrac{\\beta_0}{\\beta_1}\\right)$$\nEksakt styrke for eksponensial-testen ($H_1: \\beta < \\beta_0$) ved sann $\\beta_1$."
+        }
+      ]
+    }
+  ],
+  "exercises": []
+}

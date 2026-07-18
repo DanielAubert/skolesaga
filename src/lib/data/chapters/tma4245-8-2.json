@@ -1,0 +1,414 @@
+{
+  "id": "tma4245-8-2",
+  "courseId": "tma4245",
+  "chapterNumber": "8.2",
+  "title": "Inferens og prediksjon i regresjon — og residualplottet sensor alltid spør om",
+  "description": "KI og test for helningen, prediksjon i $x_0$ med KI vs. PI, residualdiagnostikk og transformerte modeller.",
+  "estimatedMinutes": 60,
+  "competenceGoals": [
+    "teste og lage konfidensintervall for helningen med riktig frihetsgrad $n-2$",
+    "skille konfidensintervall for forventningen fra prediksjonsintervall for en ny observasjon",
+    "tolke residualplott og koble mønster til den antagelsen som svikter",
+    "håndtere ln-lineære og andre modeller som er lineære i parametrene, med tilbaketransformasjon"
+  ],
+  "content": [
+    {
+      "id": "tma4245-8-2-tip",
+      "type": "tip",
+      "title": "Eksamensvinkel",
+      "content": "**Dette er andre halvdel av den store regresjonsoppgaven — halen sensor nesten alltid drar videre.**\n\n- Regresjon er i **11 av de 12 siste settene**, alltid som stor oppgave (sjanger **J** — bokstavkoden for regresjonsoppgaven). Der [kap. 8.1](/bok/tma4245/tma4245-8-1) bygde *estimeringen*, tar dette kapitlet **inferens** (test og KI for helningen) og **prediksjon** — standardhalen på oppgaven.\n- **Å tolke et residualplott er nesten alltid en deloppgave** (sensorkrav 10). Du skal kunne kjenne igjen trakt, bue og skjeve Q-Q-plott og *begrunne* hvilken antagelse som rammes — ikke bare si at «det ser greit ut».\n- **Des24** spurte eksplisitt om hvorfor prediksjon er mest presis i $\\bar{x}$ og hva ekstrapolering gjør. Det er sjanger **M** (M er bokstavkoden for tolknings-/drøftedelen).\n- Transformerte modeller går igjen: **ln-lineær** modell (Des25), **cosinus-ledd** (Des22) og **polynomledd** (Aug25) — alle håndteres som «lineær i parametrene».\n\n**Hvor poengene sitter:** i å bruke riktig frihetsgrad ($t_{n-2}$, ikke $t_{n-1}$), i å **skille KI for forventningen fra PI for en ny observasjon** (den hyppigste fella her), i å flagge ekstrapolering, og i å knytte residualmønsteret til en konkret antagelse. Prioritet: **høyeste**.\n\n**Formelsamlingen** (hjelpemiddelkode C) har de ferdige KI- og PI-formlene — eksamen måler at du *velger riktig av dem* og *setter inn med rett frihetsgrad*, ikke at du husker dem utenat."
+    },
+    {
+      "id": "tma4245-8-2-forkunnskaper",
+      "type": "text",
+      "content": "**Forkunnskaper:** Bygger direkte på estimeringen i **[kap. 8.1](/bok/tma4245/tma4245-8-1)** (LS-estimatene, $\\text{SSE}$, $s^2=\\text{SSE}/(n-2)$ og standardfeilen $\\text{SE}(\\hat{\\beta})$). Selve inferensmaskineriet — testobservator, forkastingsregel og konfidensintervall — er **testritualet fra [kap. 7.1](/bok/tma4245/tma4245-7-1)** og **KI-tankegangen fra [kap. 6.1](/bok/tma4245/tma4245-6-1)**, nå anvendt på $\\hat{\\beta}$ i stedet for $\\bar{X}$. Til ln-modellen trenger du å kunne regne med logaritmer og eksponensialfunksjonen.\n\n**Sist du var her — de tre verktøyene vi bygger på (ferdig oppfrisket):**\n\n1. **Standardfeilen til helningen (kap. 8.1).** $\\text{SE}(\\hat{\\beta})=\\dfrac{s}{\\sqrt{S_{xx}}}$, med $s=\\sqrt{\\text{SSE}/(n-2)}$ og $\\text{SSE}=S_{yy}-\\hat{\\beta}S_{xy}$. Dette er byggeklossen i alle testene og intervallene under.\n2. **Testritualet (kap. 7.1).** Sett opp $H_0$ og $H_1$; regn testobservatoren; sammenlign med kritisk verdi (eller p-verdi); konkluder i klartekst. Vi bytter bare ut $\\bar{X}$-observatoren med $\\hat{\\beta}$-observatoren.\n3. **KI-formen (kap. 6.1).** Et konfidensintervall er $\\text{estimat} \\pm (\\text{kvantil})\\cdot(\\text{standardfeil})$. Her blir kvantilen $t_{n-2,\\alpha/2}$ (samme frihetsgrad $n-2$ som i $s^2$).\n\nKapitlet er forkunnskap for NTNU-varianten uten konstantledd ([kap. 8.3](/bok/tma4245/tma4245-8-3))."
+    },
+    {
+      "id": "tma4245-8-2-intro",
+      "type": "text",
+      "content": "Vi har linja på plass. Nå spør vi: **er helningen $\\beta$ virkelig forskjellig fra null** (har $x$ forklaringskraft?), **hvor sikre er vi på den** (KI), og **hva forutsier modellen ved en ny $x$-verdi** — og med hvilken usikkerhet? Til slutt sjekker vi om modellen i det hele tatt *passer*: det gjør vi grafisk med residualplott.\n\nFire løkker: **test og KI for helningen** (løkke 1), **prediksjon med KI vs. PI** (løkke 2), **residualdiagnostikk** (løkke 3) og **transformerte modeller** (løkke 4). Hver løkke går teori $\\to$ eksempel $\\to$ oppgave. Vi trekker herdetidsdataene fra kap. 8.1 videre som en rød tråd.\n\n*Samlet kjernetid ≈ 60 min. Ta gjerne en pause mellom løkkene — pausepunktene er markert.*"
+    },
+    {
+      "id": "tma4245-8-2-lokke1",
+      "type": "text",
+      "content": "## Løkke 1 — Test og konfidensintervall for helningen (~15 min)"
+    },
+    {
+      "id": "tma4245-8-2-def-test",
+      "type": "definition",
+      "title": "Testobservatoren for helningen",
+      "content": "Vi vil teste en påstand om det sanne stigningstallet, typisk $H_0:\\beta=\\beta_0$ (ofte $\\beta_0=0$). Siden $\\hat{\\beta}$ er forventningsrett med $\\text{Var}(\\hat{\\beta})=\\sigma^2/S_{xx}$ og feilene er normalfordelte, er $\\hat{\\beta}$ normalfordelt. Erstatter vi det ukjente $\\sigma$ med estimatet $s$, får vi en **testobservator som følger en $t$-fordeling** — nøyaktig samme mekanisme som t-testen for et gjennomsnitt i [kap. 7.1](/bok/tma4245/tma4245-7-1), men med $\\hat{\\beta}$:\n\n$$T=\\frac{\\hat{\\beta}-\\beta_0}{S/\\sqrt{S_{xx}}}=\\frac{\\hat{\\beta}-\\beta_0}{\\text{SE}(\\hat{\\beta})}\\ \\sim\\ t_{n-2}\\quad\\text{under }H_0.$$\n\n**Frihetsgraden er $n-2$** — samme antall som i variansestimatet $s^2$, fordi to parametre ($\\hat{\\alpha},\\hat{\\beta}$) er estimert. Bruk $t_{n-1}$ her, og du mister poeng. Forkastingsregelen er den vanlige: ved tosidig test på nivå $\\alpha$ forkaster vi $H_0$ hvis $|T|>t_{n-2,\\alpha/2}$ (øvre haleareal $\\alpha/2$). En **testobservator** er bare tallet vi regner ut for å måle hvor langt estimatet ligger fra $H_0$-verdien, målt i antall standardfeil."
+    },
+    {
+      "id": "tma4245-8-2-def-ki-beta",
+      "type": "definition",
+      "title": "Konfidensintervall for helningen $\\beta$",
+      "content": "Snur vi testobservatoren, får vi et **konfidensintervall** for $\\beta$ på formen estimat $\\pm$ kvantil $\\cdot$ standardfeil (KI-formen fra [kap. 6.1](/bok/tma4245/tma4245-6-1)):\n\n$$\\hat{\\beta}\\ \\pm\\ t_{n-2,\\alpha/2}\\cdot\\frac{s}{\\sqrt{S_{xx}}}.$$\n\nEt $95\\,\\%$-intervall bruker $t_{n-2,0{,}025}$. Ligger $0$ **utenfor** intervallet, forkaster vi $H_0:\\beta=0$ på $5\\,\\%$-nivå — test og intervall gir samme konklusjon. Intervallet blir smalt når standardfeilen er liten, altså når $s$ er liten (lite støy) og $S_{xx}$ stor (godt spredte $x$-verdier)."
+    },
+    {
+      "id": "tma4245-8-2-ex1",
+      "type": "example",
+      "title": "Eksempel 1: Har temperaturen forklaringskraft? (herdetid)",
+      "problem": "Bruk herdetidsdataene fra kap. 8.1: $n=12$, $\\hat{\\beta}=-0{,}70$, $S_{xx}=500$, $s=2{,}55$, altså $\\text{SE}(\\hat{\\beta})=s/\\sqrt{S_{xx}}=0{,}114$. Test på $5\\,\\%$-nivå om herdetiden avhenger av temperaturen ($H_0:\\beta=0$ mot $H_1:\\beta\\neq0$), og gi et $95\\,\\%$ konfidensintervall for $\\beta$.",
+      "solution": "**Hypoteser:** $H_0:\\beta=0$ (temperaturen har ingen effekt) mot $H_1:\\beta\\neq0$ (tosidig).\n\n**Testobservator** (frihetsgrad $n-2=10$):\n$$T=\\frac{\\hat{\\beta}-0}{\\text{SE}(\\hat{\\beta})}=\\frac{-0{,}70}{0{,}114}=-6{,}14.$$\n\n**Kritisk verdi:** $t_{10,0{,}025}=2{,}228$ (formelsamlingens $t$-tabell). Siden $|{-6{,}14}|=6{,}14>2{,}228$, **forkaster vi $H_0$**. Temperaturen har klart forklaringskraft for herdetiden ($p\\ll0{,}05$).\n\n**Konfidensintervall:**\n$$\\hat{\\beta}\\pm t_{10,0{,}025}\\cdot\\text{SE}(\\hat{\\beta})=-0{,}70\\pm2{,}228\\cdot0{,}114=-0{,}70\\pm0{,}254,$$\naltså $(-0{,}954,\\ -0{,}446)$. Null ligger utenfor — samme konklusjon som testen.\n\n> *Sensornotat:* frihetsgrad $n-2=10$, ikke $n-1=11$. Konklusjonen skal stå i klartekst («temperaturen påvirker herdetiden»), ikke bare «forkast $H_0$»."
+    },
+    {
+      "id": "tma4245-8-2-l1",
+      "type": "exercise",
+      "exercise": {
+        "id": "tma4245-8-2-l1",
+        "number": "1",
+        "type": "classic",
+        "difficulty": "lett",
+        "task": "(Innstegsoppgave.) I en regresjon med $n=15$ er $\\hat{\\beta}=2{,}4$ og $\\text{SE}(\\hat{\\beta})=0{,}6$.\n\n**a)** Hvilken frihetsgrad har testobservatoren?\n\n**b)** Regn ut testobservatoren for $H_0:\\beta=0$.\n\n**c)** Med kritisk verdi $t_{13,0{,}025}=2{,}160$: forkastes $H_0$?",
+        "solution": "**a)** Frihetsgrad $n-2=15-2=13$.\n\n**b)** $T=\\dfrac{\\hat{\\beta}-0}{\\text{SE}(\\hat{\\beta})}=\\dfrac{2{,}4}{0{,}6}=4{,}0$.\n\n**c)** $|4{,}0|=4{,}0>2{,}160$, så $H_0$ **forkastes** — $x$ har forklaringskraft.",
+        "hints": [
+          "Frihetsgraden i regresjon er $n-2$.",
+          "$T=(\\hat{\\beta}-\\beta_0)/\\text{SE}(\\hat{\\beta})$.",
+          "Sammenlign $|T|$ med den kritiske verdien."
+        ]
+      }
+    },
+    {
+      "id": "tma4245-8-2-pause1",
+      "type": "text",
+      "content": "*— naturlig pausepunkt —*"
+    },
+    {
+      "id": "tma4245-8-2-lokke2",
+      "type": "text",
+      "content": "## Løkke 2 — Prediksjon: konfidensintervall vs. prediksjonsintervall (~16 min)"
+    },
+    {
+      "id": "tma4245-8-2-def-pred",
+      "type": "definition",
+      "title": "Punktprediksjon og de to intervallene",
+      "content": "Ved en gitt $x$-verdi $x_0$ er **punktprediksjonen** verdien på den estimerte linja:\n\n$$\\hat{y}_0=\\hat{\\alpha}+\\hat{\\beta}x_0.$$\n\nMen vi kan spørre om to forskjellige ting, og de har forskjellige intervaller:\n\n**1. Konfidensintervall (KI) for forventningen $E(Y_0)=\\alpha+\\beta x_0$** — «hvor ligger den *gjennomsnittlige* responsen ved $x_0$?». Usikkerheten kommer bare fra at $\\hat{\\alpha},\\hat{\\beta}$ er estimert:\n$$\\hat{y}_0\\ \\pm\\ t_{n-2,\\alpha/2}\\cdot s\\sqrt{\\frac{1}{n}+\\frac{(x_0-\\bar{x})^2}{S_{xx}}}.$$\n\n**2. Prediksjonsintervall (PI) for en NY observasjon $Y_0$** — «hvor ligger *neste enkeltmåling* ved $x_0$?». Nå kommer det i tillegg et helt nytt feilledd $\\varepsilon_0$ med varians $\\sigma^2$, og det gir et ekstra **$1$-tall** under rottegnet:\n$$\\hat{y}_0\\ \\pm\\ t_{n-2,\\alpha/2}\\cdot s\\sqrt{1+\\frac{1}{n}+\\frac{(x_0-\\bar{x})^2}{S_{xx}}}.$$\n\n**Hele forskjellen er $1$-tallet** (variansen til den nye målingens eget feilledd). PI er derfor **alltid bredere** enn KI ved samme $x_0$. Spør oppgaven om «en ny/framtidig måling», bruk PI; spør den om «forventet/gjennomsnittlig respons», bruk KI. Frihetsgraden er $n-2$ i begge."
+    },
+    {
+      "id": "tma4245-8-2-img-kipi",
+      "type": "image",
+      "src": "/images/textbook/tma4245/tma4245-8-2-ki-vs-pi.svg",
+      "alt": "Regresjonslinje med to bånd: et smalt konfidensbånd for forventningen og et bredere prediksjonsbånd for nye observasjoner. Begge er smalest ved x-gjennomsnittet og vider seg ut mot kantene.",
+      "caption": "Konfidensbånd (mørkt, smalt) for forventningen $E(Y_0)$ og prediksjonsbånd (lyst, bredt) for en ny observasjon. Begge er smalest ved $\\bar{x}$ og vokser mot kantene; PI er bredere fordi den nye målingens eget feilledd legges til."
+    },
+    {
+      "id": "tma4245-8-2-def-xbar",
+      "type": "definition",
+      "title": "Hvorfor presisjonen er størst i $\\bar{x}$ — og faren ved ekstrapolering",
+      "content": "Leddet $\\dfrac{(x_0-\\bar{x})^2}{S_{xx}}$ er **null når $x_0=\\bar{x}$** og vokser jo lengre $x_0$ ligger fra $\\bar{x}$. Derfor er begge intervallene **smalest midt i dataene (ved $\\bar{x}$)** og vider seg ut mot kantene — som et sammentrykt timeglass rundt linja. Intuitivt: en liten feil i helningen $\\hat{\\beta}$ vipper linja rundt tyngdepunktet $(\\bar{x},\\bar{y})$, så jo lengre ut du er, desto mer flytter prediksjonen seg.\n\n**Ekstrapolering** er å predikere for en $x_0$ **utenfor dataområdet**. Da er $(x_0-\\bar{x})^2$ stor (bredt intervall), *og* — verre — vi har ingen data som bekrefter at den rette linja fortsatt gjelder der ute. Ekstrapolering skal **alltid flagges eksplisitt** som usikker; det er et fast poeng i tolkningsdelen (sjanger M)."
+    },
+    {
+      "id": "tma4245-8-2-ex2",
+      "type": "example",
+      "title": "Eksempel 2: KI og PI ved 55 grader (herdetid)",
+      "problem": "Fortsatt herdetidsdataene: $\\hat{y}=115-0{,}70x$, $n=12$, $\\bar{x}=50$, $S_{xx}=500$, $s=2{,}55$, $t_{10,0{,}025}=2{,}228$. Ved $x_0=55$ grader: (a) gi et $95\\,\\%$ KI for den forventede herdetiden, (b) et $95\\,\\%$ PI for herdetiden til én ny måling, og (c) forklar hvorfor PI er bredere enn ved $x_0=50$.",
+      "solution": "**Punktprediksjon:** $\\hat{y}_0=115-0{,}70\\cdot55=115-38{,}5=76{,}5$ minutter.\n\n**a) KI for forventningen** $E(Y_0)$. Regn faktoren under rottegnet:\n$$\\frac{1}{n}+\\frac{(x_0-\\bar{x})^2}{S_{xx}}=\\frac{1}{12}+\\frac{(55-50)^2}{500}=0{,}0833+0{,}0500=0{,}1333,\\quad\\sqrt{0{,}1333}=0{,}3652.$$\nHalvbredde $=2{,}228\\cdot2{,}55\\cdot0{,}3652=2{,}07$, så\n$$\\text{KI}=76{,}5\\pm2{,}07=(74{,}43,\\ 78{,}57).$$\n\n**b) PI for ny observasjon.** Samme, men med $1$-tallet:\n$$\\sqrt{1+0{,}1333}=\\sqrt{1{,}1333}=1{,}0646,\\quad 2{,}228\\cdot2{,}55\\cdot1{,}0646=6{,}05,$$\n$$\\text{PI}=76{,}5\\pm6{,}05=(70{,}45,\\ 82{,}55).$$\nPI er mye bredere enn KI — den nye målingens eget feilledd dominerer.\n\n**c)** Ved $x_0=50=\\bar{x}$ er $(x_0-\\bar{x})^2=0$, så faktoren er $\\sqrt{1+1/12}=1{,}041$; ved $x_0=55$ er den $1{,}065$. Avstanden $|x_0-\\bar{x}|=5$ løfter faktoren, så intervallet blir bredere jo lengre fra $\\bar{x}$ vi predikerer.\n\n> *Sensornotat:* «ny måling» $\\Rightarrow$ PI (med $1$-tallet). Skriver du KI der, får du et intervall som er altfor smalt for en enkeltmåling — den vanligste fella i prediksjonsdelen."
+    },
+    {
+      "id": "tma4245-8-2-l2",
+      "type": "exercise",
+      "exercise": {
+        "id": "tma4245-8-2-l2",
+        "number": "2",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "En bedrift modellerer strømforbruk $Y$ (kWh) mot utetemperatur $x$ (grader) og finner $\\hat{y}=210-3{,}0x$, $n=20$, $\\bar{x}=8$, $S_{xx}=800$, $s=6{,}0$, $t_{18,0{,}025}=2{,}101$.\n\n**a)** Gi punktprediksjonen ved $x_0=2$ grader.\n\n**b)** Gi et $95\\,\\%$ prediksjonsintervall for strømforbruket en enkelt kald dag med $x_0=2$.\n\n**c)** Ville et konfidensintervall for forventningen ved $x_0=2$ vært smalere eller bredere? Begrunn i én setning.",
+        "solution": "**a)** $\\hat{y}_0=210-3{,}0\\cdot2=210-6=204$ kWh.\n\n**b)** Faktor: $1+\\dfrac{1}{20}+\\dfrac{(2-8)^2}{800}=1+0{,}05+\\dfrac{36}{800}=1+0{,}05+0{,}045=1{,}095$; $\\sqrt{1{,}095}=1{,}0464$. Halvbredde $=2{,}101\\cdot6{,}0\\cdot1{,}0464=13{,}19$. $\\text{PI}=204\\pm13{,}2=(190{,}8,\\ 217{,}2)$ kWh.\n\n**c)** **Smalere** — KI for forventningen mangler $1$-tallet under rottegnet (ingen ny egen målestøy), så halvbredden blir mindre.",
+        "hints": [
+          "Punktprediksjon: sett $x_0$ inn i den estimerte linja.",
+          "PI-faktoren er $\\sqrt{1+\\frac{1}{n}+\\frac{(x_0-\\bar{x})^2}{S_{xx}}}$.",
+          "Forskjellen KI/PI er $1$-tallet under rottegnet."
+        ]
+      }
+    },
+    {
+      "id": "tma4245-8-2-pause2",
+      "type": "text",
+      "content": "*— naturlig pausepunkt —*"
+    },
+    {
+      "id": "tma4245-8-2-lokke3",
+      "type": "text",
+      "content": "## Løkke 3 — Residualdiagnostikk: passer modellen? (~16 min)"
+    },
+    {
+      "id": "tma4245-8-2-def-resid",
+      "type": "definition",
+      "title": "Residualplottet og hva mønstrene betyr",
+      "content": "Modellen hviler på tre antagelser (kap. 8.1): **uavhengige feil, konstant varians og normalfordelte feil**. Vi sjekker dem grafisk ved å plotte **residualene $e_i=y_i-\\hat{y}_i$** — og mønsteret forteller hvilken antagelse som eventuelt svikter:\n\n- **Residual mot $x$ (eller mot prediksjon $\\hat{y}_i$):** skal se ut som en **strukturløs sky rundt null**. Da er alt bra.\n- **Traktform** (spredningen vokser eller krymper systematisk): **konstant varians brytes** (heteroskedastisitet). Feilene er større for noen $x$-verdier enn andre.\n- **Bueform** (residualene er systematisk positive i midten og negative i endene, eller omvendt): et **krumningsledd mangler** — sammenhengen er ikke rett, en $x^2$-term eller en transformasjon trengs.\n- **Q-Q-plott av residualene** (residualene mot normalkvantiler): skal ligge på en rett linje. Systematisk krumning eller tunge haler bryter **normalitetsantagelsen**.\n\n**Regelen sensor vil se:** aldri «residualene ser fine ut» uten begrunnelse — pek på *mønsteret* (eller fraværet av mønster) og *koble det til en konkret antagelse*."
+    },
+    {
+      "id": "tma4245-8-2-img-frisk",
+      "type": "image",
+      "src": "/images/textbook/tma4245/tma4245-8-2-residual-frisk.svg",
+      "alt": "Residualplott uten mønster: punktene ligger som en jevn, strukturløs sky rundt null-linja med omtrent konstant spredning.",
+      "caption": "Sunn diagnose: residualene ligger strukturløst rundt null med jevn spredning. Ingen antagelse svikter — modellen passer."
+    },
+    {
+      "id": "tma4245-8-2-img-trakt",
+      "type": "image",
+      "src": "/images/textbook/tma4245/tma4245-8-2-residual-trakt.svg",
+      "alt": "Residualplott med traktform: spredningen i residualene øker systematisk mot høyre i plottet.",
+      "caption": "Traktform: spredningen vokser med predikert verdi. Konstant-varians-antagelsen (homoskedastisitet) er brutt."
+    },
+    {
+      "id": "tma4245-8-2-img-bue",
+      "type": "image",
+      "src": "/images/textbook/tma4245/tma4245-8-2-residual-bue.svg",
+      "alt": "Residualplott med bueform: residualene er systematisk positive i midten og negative i endene, som en bue.",
+      "caption": "Bueform: systematisk krumning betyr at et krumningsledd (f.eks. $x^2$) mangler — den rette linja er feil modellform."
+    },
+    {
+      "id": "tma4245-8-2-ex3",
+      "type": "example",
+      "title": "Eksempel 3: Les residualplottet",
+      "problem": "I en regresjon av bruddstyrke mot herdetemperatur plottes residualene mot predikert verdi. Punktene ligger tett samlet for lave prediksjoner, men sprer seg stadig mer utover for høye prediksjoner (som en trakt som åpner mot høyre). Hvilken antagelse rammes, og hva bør du gjøre?",
+      "solution": "**Diagnose:** spredningen i residualene **vokser systematisk** med predikert verdi — en tydelig traktform. Det bryter antagelsen om **konstant varians (homoskedastisitet)**: $\\text{Var}(\\varepsilon_i)$ er ikke den samme for alle $x_i$, men øker.\n\n**Konsekvens:** LS-estimatene er fortsatt forventningsrette, men standardfeilene (og dermed KI, PI og testene) er upålitelige — de undervurderer usikkerheten der variansen er stor.\n\n**Tiltak:** en **variansstabiliserende transformasjon** av responsen (f.eks. $\\ln Y$ eller $\\sqrt{Y}$), eller vektet regresjon. Etter transformasjon plotter man residualene på nytt for å sjekke at trakten er borte.\n\n> *Sensornotat:* det holder ikke å si «trakt». Du må navngi antagelsen (konstant varians) *og* si hva du gjør (transformere/vekte). Det er der poengene sitter."
+    },
+    {
+      "id": "tma4245-8-2-l3",
+      "type": "exercise",
+      "exercise": {
+        "id": "tma4245-8-2-l3",
+        "number": "3",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "For hver av de tre residualplottene under, si hvilken antagelse (om noen) som rammes, og begrunn kort:\n\n**a)** Residualene ligger som en jevn, strukturløs sky rundt null med samme spredning overalt.\n\n**b)** Residualene er positive i midten av $x$-området og negative i begge ender, i en tydelig bue.\n\n**c)** Et Q-Q-plott av residualene krummer tydelig av fra den rette linja i begge haler.",
+        "solution": "**a)** **Ingen** antagelse rammes — dette er det sunne bildet: strukturløs sky med konstant spredning betyr at linjeform, konstant varians og forventning null holder.\n\n**b)** Bueform betyr at et **krumningsledd mangler**: den sanne sammenhengen er ikke rett. Modellen bør utvides med en $x^2$-term (eller responsen/forklaringsvariabelen transformeres). Selve linjeantagelsen (riktig middelverdistruktur) svikter.\n\n**c)** Krumning i Q-Q-plottets haler bryter **normalitetsantagelsen** — feilene har tyngre (eller lettere) haler enn normalfordelingen. Test og intervaller som hviler på $t$-fordelingen blir da unøyaktige, særlig for små $n$.",
+        "hints": [
+          "Sky uten mønster = alt bra.",
+          "Bue = feil middelverdistruktur (manglende krumningsledd).",
+          "Q-Q sjekker fordelingsformen (normalitet)."
+        ]
+      }
+    },
+    {
+      "id": "tma4245-8-2-pause3",
+      "type": "text",
+      "content": "*— naturlig pausepunkt —*"
+    },
+    {
+      "id": "tma4245-8-2-lokke4",
+      "type": "text",
+      "content": "## Løkke 4 — Transformerte modeller: fortsatt lineær regresjon (~13 min)"
+    },
+    {
+      "id": "tma4245-8-2-def-transform",
+      "type": "definition",
+      "title": "Transformerte modeller — «lineær i parametrene»",
+      "content": "Mange sammenhenger som *ser* ikke-lineære ut, kan skrives som **lineære i parametrene** og løses med det vanlige LS-apparatet. Det avgjørende er ikke at $x$ inngår lineært, men at $\\alpha$ og $\\beta$ gjør det:\n\n- **Ln-lineær modell:** $\\ln Y=\\alpha+\\beta x+\\varepsilon$. Vi kjører regresjon med $z_i=\\ln y_i$ som respons. Da gjelder alt fra dette kapitlet for $z$-skalaen.\n- **Polynomledd:** $Y=\\alpha+\\beta x+\\gamma x^2+\\varepsilon$ — legg til $x^2$ som en ekstra «forklaringsvariabel» (fikser bueform, jf. løkke 3).\n- **Periodiske ledd:** $Y=\\alpha+\\beta\\cos(x)+\\varepsilon$ — bruk $\\cos(x)$ som forklaringsvariabel.\n\n**Tilbaketransformasjon i ln-modellen (viktig!):** regn KI/PI på $z=\\ln y$-skalaen først, og transformer så **endepunktene** tilbake med $\\exp$. Fordi $\\exp$ er **monotont voksende**, bevares rekkefølgen: er $[L,U]$ et $95\\,\\%$-intervall for $\\ln Y_0$, er $[e^{L},\\ e^{U}]$ et $95\\,\\%$-intervall for $Y_0$. **Glem aldri å transformere tilbake** — svaret skal være i den opprinnelige enheten."
+    },
+    {
+      "id": "tma4245-8-2-ex4",
+      "type": "example",
+      "title": "Eksempel 4: Ln-lineær nedbrytning (koffein)",
+      "problem": "Koffeinkonsentrasjonen $C$ i blodet avtar tilnærmet eksponentielt, så vi modellerer $\\ln C=\\alpha+\\beta t+\\varepsilon$ ($t$ i timer). Regresjon på $z=\\ln C$ gir $\\hat{\\alpha}=4{,}6$ og $\\hat{\\beta}=-0{,}20$. Ved $t_0=10$ timer er et $95\\,\\%$ prediksjonsintervall for $\\ln C_0$ funnet til $(1{,}85,\\ 3{,}35)$. Gi punktprediksjonen og prediksjonsintervallet for selve konsentrasjonen $C_0$.",
+      "solution": "**Punktprediksjon på ln-skala:** $\\hat{z}_0=\\hat{\\alpha}+\\hat{\\beta}t_0=4{,}6-0{,}20\\cdot10=2{,}6$.\n\n**Tilbake til konsentrasjon:** $\\hat{C}_0=e^{2{,}6}=13{,}5$ (samme enhet som $C$).\n\n**Prediksjonsintervall.** Transformer endepunktene med $\\exp$ (monotont voksende, så rekkefølgen bevares):\n$$\\text{PI for }C_0=\\big(e^{1{,}85},\\ e^{3{,}35}\\big)=(6{,}4,\\ 28{,}5).$$\n\nLegg merke til at intervallet er **usymmetrisk** rundt $13{,}5$ — det er normalt etter tilbaketransformasjon, og helt riktig.\n\n> *Sensornotat:* det store poenget er å **transformere tilbake med $\\exp$** til slutt. Lar du svaret stå på $\\ln$-skala, er oppgaven ikke besvart."
+    },
+    {
+      "id": "tma4245-8-2-l4",
+      "type": "exercise",
+      "exercise": {
+        "id": "tma4245-8-2-l4",
+        "number": "4",
+        "type": "classic",
+        "difficulty": "vanskelig",
+        "task": "En bakteriekultur vokser slik at antallet $N$ modelleres med $\\ln N=\\alpha+\\beta t+\\varepsilon$ ($t$ i timer). Regresjon på $z=\\ln N$ gir $\\hat{\\alpha}=2{,}0$, $\\hat{\\beta}=0{,}35$.\n\n**a)** Gi punktprediksjonen for antallet $N$ ved $t_0=8$ timer.\n\n**b)** Et $95\\,\\%$ KI for forventningen $E(\\ln N_0)$ ved $t_0=8$ er $(4{,}6,\\ 5{,}0)$. Gi tilsvarende KI for den forventede $N$-skalaen.\n\n**c)** Forklar i én setning hvorfor vi kan transformere endepunktene direkte.",
+        "solution": "**a)** $\\hat{z}_0=2{,}0+0{,}35\\cdot8=2{,}0+2{,}8=4{,}8$, så $\\hat{N}_0=e^{4{,}8}=121{,}5$ (≈ 122 bakterier).\n\n**b)** Transformer endepunktene: $(e^{4{,}6},\\ e^{5{,}0})=(99{,}5,\\ 148{,}4)$. Punktprediksjonen $121{,}5$ ligger inni, som den skal.\n\n**c)** Fordi $\\exp$ er **monotont voksende** bevarer den rekkefølgen: er $L<\\ln N_0<U$, så er $e^{L}<N_0<e^{U}$ — dekningsgraden $95\\,\\%$ overføres uendret.",
+        "hints": [
+          "Regn på ln-skalaen først, deretter $\\exp$.",
+          "$e^{4{,}8}$: bruk kalkulatoren.",
+          "Monotone funksjoner bevarer ulikheter og dermed dekningsgraden."
+        ]
+      }
+    },
+    {
+      "id": "tma4245-8-2-warn",
+      "type": "warning",
+      "title": "Typiske feil",
+      "content": "- **KI der PI kreves (og omvendt).** «Forventet/gjennomsnittlig respons» $\\Rightarrow$ KI (uten $1$-tallet). «En ny/framtidig enkeltmåling» $\\Rightarrow$ PI (med $1$-tallet). Bytter du, blir intervallet enten altfor smalt eller altfor bredt. Dette er den hyppigste fella i prediksjonsdelen.\n- **$t_{n-1}$ i stedet for $t_{n-2}$.** Frihetsgraden i regresjon er $n-2$ — samme som i $s^2$ — i både test, KI og PI.\n- **Ekstrapolere uten forbehold.** Predikerer du utenfor dataområdet, må du flagge at både intervallet er bredt *og* at linjeformen ikke er bekreftet der. Et fast poeng i tolkningsdelen.\n- **«Residualene ser fine ut» uten begrunnelse.** Navngi mønsteret (sky/trakt/bue/skjev Q-Q) *og* antagelsen det rammer (linjeform / konstant varians / normalitet). Bare «greit» gir null poeng.\n- **Glemme å tilbaketransformere i ln-modellen.** Regn KI/PI på $\\ln$-skalaen, men **avslutt med $\\exp$** på endepunktene. Svaret skal være i opprinnelig enhet.\n- **Tro at KI/PI er smalest ved kantene.** Nei — begge er smalest ved $\\bar{x}$ (der $(x_0-\\bar{x})^2=0$) og vokser utover."
+    },
+    {
+      "id": "tma4245-8-2-begrepsbank",
+      "type": "text",
+      "content": "## Begrepsbank\n\nDe sentrale formlene og resultatkortene i kapitlet, samlet.\n\n*Flashcard-/repetisjonsstoff — hopp trygt over ved førstegangslesing; tidsanslaget gjelder kjernestoffet.*"
+    },
+    {
+      "id": "tma4245-8-2-fc-test",
+      "type": "definition",
+      "title": "Formelkort: testobservatoren for $\\beta$",
+      "content": "Testobservator $T=\\dfrac{\\hat{\\beta}-\\beta_0}{s/\\sqrt{S_{xx}}}=\\dfrac{\\hat{\\beta}-\\beta_0}{\\text{SE}(\\hat{\\beta})}\\sim t_{n-2}$ under $H_0:\\beta=\\beta_0$. Frihetsgrad $n-2$ (som i $s^2$). Tosidig forkasting: $|T|>t_{n-2,\\alpha/2}$."
+    },
+    {
+      "id": "tma4245-8-2-fc-ki-beta",
+      "type": "definition",
+      "title": "Formelkort: KI for helningen",
+      "content": "$95\\,\\%$ KI for $\\beta$: $\\hat{\\beta}\\pm t_{n-2,0{,}025}\\cdot\\dfrac{s}{\\sqrt{S_{xx}}}$. Ligger $0$ utenfor intervallet, forkastes $H_0:\\beta=0$ på $5\\,\\%$-nivå — test og KI gir samme svar."
+    },
+    {
+      "id": "tma4245-8-2-fc-betatest",
+      "type": "definition",
+      "title": "Begrep: test for $\\beta=0$",
+      "content": "Å teste $H_0:\\beta=0$ er å spørre «har $x$ forklaringskraft for $Y$?». Forkastes $H_0$, er sammenhengen statistisk sikker. Aksepteres den, er det ingen påvist lineær effekt av $x$."
+    },
+    {
+      "id": "tma4245-8-2-fc-punkt",
+      "type": "definition",
+      "title": "Formelkort: punktprediksjon",
+      "content": "Punktprediksjonen ved $x_0$ er $\\hat{y}_0=\\hat{\\alpha}+\\hat{\\beta}x_0$ — verdien på den estimerte linja. Den er felles startpunkt for både KI og PI."
+    },
+    {
+      "id": "tma4245-8-2-fc-ki-mean",
+      "type": "definition",
+      "title": "Formelkort: KI for forventningen $E(Y_0)$",
+      "content": "$\\hat{y}_0\\pm t_{n-2,\\alpha/2}\\,s\\sqrt{\\dfrac{1}{n}+\\dfrac{(x_0-\\bar{x})^2}{S_{xx}}}$. Gjelder den *gjennomsnittlige* responsen ved $x_0$; usikkerhet bare fra estimerte $\\hat{\\alpha},\\hat{\\beta}$."
+    },
+    {
+      "id": "tma4245-8-2-fc-pi",
+      "type": "definition",
+      "title": "Formelkort: PI for en ny observasjon",
+      "content": "$\\hat{y}_0\\pm t_{n-2,\\alpha/2}\\,s\\sqrt{1+\\dfrac{1}{n}+\\dfrac{(x_0-\\bar{x})^2}{S_{xx}}}$. Gjelder én *ny* måling ved $x_0$; det ekstra $1$-tallet er den nye målingens eget feilledd."
+    },
+    {
+      "id": "tma4245-8-2-fc-kipi",
+      "type": "definition",
+      "title": "Begrep: KI vs. PI — forskjellen",
+      "content": "Eneste forskjell er $1$-tallet under rottegnet: PI har det, KI ikke. PI er derfor alltid bredere. «Forventet respons» $\\to$ KI; «ny/framtidig måling» $\\to$ PI."
+    },
+    {
+      "id": "tma4245-8-2-fc-xbar",
+      "type": "definition",
+      "title": "Begrep: presisjon størst i $\\bar{x}$",
+      "content": "Leddet $(x_0-\\bar{x})^2/S_{xx}$ er null ved $x_0=\\bar{x}$ og vokser utover. Derfor er både KI og PI smalest midt i dataene og vider seg mot kantene — som et timeglass rundt linja."
+    },
+    {
+      "id": "tma4245-8-2-fc-ekstra",
+      "type": "definition",
+      "title": "Begrep: ekstrapolering",
+      "content": "Prediksjon for $x_0$ utenfor dataområdet. Da er intervallet bredt *og* linjeformen ubekreftet der ute. Skal alltid flagges eksplisitt som usikker."
+    },
+    {
+      "id": "tma4245-8-2-fc-resid",
+      "type": "definition",
+      "title": "Begrep: residualplott",
+      "content": "Plott av residualene $e_i=y_i-\\hat{y}_i$ mot $x$ eller mot prediksjon $\\hat{y}_i$. Brukes til å sjekke modellantagelsene grafisk. Sunt bilde: strukturløs sky rundt null."
+    },
+    {
+      "id": "tma4245-8-2-fc-trakt",
+      "type": "definition",
+      "title": "Begrep: traktform = heteroskedastisitet",
+      "content": "Systematisk voksende (eller krympende) spredning i residualene bryter antagelsen om **konstant varians**. Tiltak: variansstabiliserende transformasjon ($\\ln Y$, $\\sqrt{Y}$) eller vektet regresjon."
+    },
+    {
+      "id": "tma4245-8-2-fc-bue",
+      "type": "definition",
+      "title": "Begrep: bueform = manglende krumningsledd",
+      "content": "Residualer systematisk positive i midten og negative i endene (eller omvendt) betyr at en rett linje er feil middelverdistruktur. Legg til $x^2$-ledd eller transformer."
+    },
+    {
+      "id": "tma4245-8-2-fc-qq",
+      "type": "definition",
+      "title": "Begrep: Q-Q-plott av residualer",
+      "content": "Residualer mot normalkvantiler; skal ligge på en rett linje. Krumning eller tunge haler bryter **normalitetsantagelsen**, som test og intervaller hviler på."
+    },
+    {
+      "id": "tma4245-8-2-fc-ln",
+      "type": "definition",
+      "title": "Teknikkort: ln-lineær modell",
+      "content": "$\\ln Y=\\alpha+\\beta x+\\varepsilon$: kjør regresjon med $z=\\ln y$. Regn KI/PI på $z$-skala, transformer endepunktene tilbake med $\\exp$. Fordi $\\exp$ er monotont voksende, bevares dekningsgraden. Resultatet blir usymmetrisk — helt normalt."
+    },
+    {
+      "id": "tma4245-8-2-fc-linparam",
+      "type": "definition",
+      "title": "Begrep: lineær i parametrene",
+      "content": "Modeller som $\\alpha+\\beta x+\\gamma x^2$ eller $\\alpha+\\beta\\cos(x)$ er lineære i parametrene $\\alpha,\\beta,\\gamma$ og løses med vanlig LS ved å bruke $x^2$, $\\cos(x)$ osv. som ekstra forklaringsvariabler."
+    },
+    {
+      "id": "tma4245-8-2-rep",
+      "type": "collapsible",
+      "title": "Repetisjonsoppgaver",
+      "buttonText": "Vis repetisjonsoppgaver",
+      "content": [
+        {
+          "id": "tma4245-8-2-rep-1",
+          "type": "exercise",
+          "exercise": {
+            "id": "tma4245-8-2-rep-1",
+            "number": "R1",
+            "type": "classic",
+            "difficulty": "lett",
+            "task": "(Fra [kap. 7.1](/bok/tma4245/tma4245-7-1).) Ved en tosidig t-test på $5\\,\\%$-nivå med frihetsgrad $10$ og kritisk verdi $t_{10,0{,}025}=2{,}228$: forkastes $H_0$ hvis testobservatoren er $T=-2{,}9$?",
+            "solution": "Ja. $|{-2{,}9}|=2{,}9>2{,}228$, så observatoren ligger i forkastingsområdet, og $H_0$ forkastes.",
+            "hints": [
+              "Tosidig test: sammenlign $|T|$ med kvantilen.",
+              "$2{,}9>2{,}228$."
+            ]
+          }
+        },
+        {
+          "id": "tma4245-8-2-rep-2",
+          "type": "exercise",
+          "exercise": {
+            "id": "tma4245-8-2-rep-2",
+            "number": "R2",
+            "type": "classic",
+            "difficulty": "lett",
+            "task": "(Fra [kap. 6.1](/bok/tma4245/tma4245-6-1).) Et $95\\,\\%$ konfidensintervall har formen estimat $\\pm$ kvantil $\\cdot$ standardfeil. Hva skjer med bredden hvis standardfeilen halveres?",
+            "solution": "Bredden **halveres**. Halvbredden er kvantil $\\cdot$ standardfeil, så den er proporsjonal med standardfeilen.",
+            "hints": [
+              "Halvbredde $=$ kvantil $\\cdot$ SE.",
+              "Proporsjonalitet."
+            ]
+          }
+        },
+        {
+          "id": "tma4245-8-2-rep-3",
+          "type": "exercise",
+          "exercise": {
+            "id": "tma4245-8-2-rep-3",
+            "number": "R3",
+            "type": "classic",
+            "difficulty": "middels",
+            "task": "(Fra [kap. 8.1](/bok/tma4245/tma4245-8-1).) Med $n=16$, $S_{yy}=180$, $\\hat{\\beta}=1{,}5$ og $S_{xy}=100$: finn SSE, $s^2$ og $s$.",
+            "solution": "$\\text{SSE}=S_{yy}-\\hat{\\beta}S_{xy}=180-1{,}5\\cdot100=180-150=30$. Divisor $n-2=14$: $s^2=30/14=2{,}14$, $s=\\sqrt{2{,}14}=1{,}46$.",
+            "hints": [
+              "$\\text{SSE}=S_{yy}-\\hat{\\beta}S_{xy}$.",
+              "Del på $n-2=14$."
+            ]
+          }
+        },
+        {
+          "id": "tma4245-8-2-rep-4",
+          "type": "exercise",
+          "exercise": {
+            "id": "tma4245-8-2-rep-4",
+            "number": "R4",
+            "type": "classic",
+            "difficulty": "middels",
+            "task": "(Fra [kap. 8.1](/bok/tma4245/tma4245-8-1).) I en regresjon er $\\text{SE}(\\hat{\\beta})=s/\\sqrt{S_{xx}}$. To forsøk har samme $s$, men forsøk B har dobbelt så stor $S_{xx}$ som forsøk A. Hvilket gir minst standardfeil for helningen?",
+            "solution": "Forsøk **B**. Større $S_{xx}$ (mer spredte $x$-verdier) gir mindre standardfeil: $\\text{SE}\\propto1/\\sqrt{S_{xx}}$, så dobling av $S_{xx}$ reduserer SE med faktoren $1/\\sqrt{2}\\approx0{,}71$.",
+            "hints": [
+              "$\\text{SE}(\\hat{\\beta})=s/\\sqrt{S_{xx}}$.",
+              "Større $S_{xx}$ i nevneren $\\Rightarrow$ mindre SE."
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": "tma4245-8-2-symbolliste",
+      "type": "collapsible",
+      "title": "Symbol- og formelliste",
+      "buttonText": "Vis symboler og formler",
+      "content": [
+        {
+          "id": "tma4245-8-2-symbolliste-text",
+          "type": "text",
+          "content": "*Oppslagsverk — alt her forklares underveis i kapitlet.*\n\nAlle symboler og formler brukt i kapittel 8.2, samlet.\n\n| Symbol | Betydning |\n|---|---|\n| $\\hat{\\beta},\\hat{\\alpha}$ | LS-estimatorene for helning og konstantledd (kap. 8.1) |\n| $\\text{SE}(\\hat{\\beta})$ | Standardfeilen $s/\\sqrt{S_{xx}}$ |\n| $s,\\ s^2$ | $s^2=\\text{SSE}/(n-2)$; $s=\\sqrt{s^2}$ |\n| $S_{xx}$ | Sentrert $x$-kvadratsum $\\sum(x_i-\\bar{x})^2$ |\n| $T$ | Testobservator for helningen, $\\sim t_{n-2}$ |\n| $t_{n-2,\\alpha/2}$ | Øvre $\\alpha/2$-kvantil i $t$-fordelingen med $n-2$ frihetsgrader |\n| $x_0,\\ \\hat{y}_0$ | Ny $x$-verdi og punktprediksjonen $\\hat{\\alpha}+\\hat{\\beta}x_0$ |\n| $E(Y_0)$ | Forventet respons ved $x_0$ (mål for KI) |\n| $Y_0$ | En ny enkeltobservasjon ved $x_0$ (mål for PI) |\n| $e_i$ | Residual $y_i-\\hat{y}_i$ |\n\n**Formler i dette kapitlet:**\n\n$$T=\\frac{\\hat{\\beta}-\\beta_0}{s/\\sqrt{S_{xx}}}\\sim t_{n-2}\\quad(\\text{under }H_0)$$\nTestobservator for helningen; frihetsgrad $n-2$.\n\n$$\\hat{\\beta}\\pm t_{n-2,\\alpha/2}\\cdot\\frac{s}{\\sqrt{S_{xx}}}$$\nKonfidensintervall for $\\beta$.\n\n$$\\hat{y}_0\\pm t_{n-2,\\alpha/2}\\,s\\sqrt{\\frac{1}{n}+\\frac{(x_0-\\bar{x})^2}{S_{xx}}}$$\nKI for forventningen $E(Y_0)$ ved $x_0$.\n\n$$\\hat{y}_0\\pm t_{n-2,\\alpha/2}\\,s\\sqrt{1+\\frac{1}{n}+\\frac{(x_0-\\bar{x})^2}{S_{xx}}}$$\nPI for en ny observasjon $Y_0$ ved $x_0$ — merk det ekstra $1$-tallet.\n\n$$\\ln Y=\\alpha+\\beta x+\\varepsilon\\ \\Rightarrow\\ \\text{regn på }z=\\ln y,\\ \\text{transformer endepunkt med }\\exp$$\nLn-lineær modell med tilbaketransformasjon via monotoni."
+        }
+      ]
+    }
+  ],
+  "exercises": []
+}

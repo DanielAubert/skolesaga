@@ -262,6 +262,45 @@ const KILDEGRUNNLAG: Record<string, Kildegrunnlag> = {
     ],
     analysedato: 'juli 2026',
   },
+
+  tma4245: {
+    courseId: 'tma4245',
+    institusjon: 'Norges teknisk-naturvitenskapelige universitet (NTNU) — Institutt for matematiske fag',
+    sammendrag:
+      'Boka er kalibrert mot eksamensarkivet for TMA4245 Statistikk og tvillingemnet TMA4240 (samme pensum, felles kontinuasjonseksamen): rundt 49 eksamenssett fra 2009 til mai 2026, der 26 sett fra 2016–2026 er lest grundig sammen med løsningsforslagene. Temafrekvens, oppgavesjangre og den store kjedeoppgaven (modell → ML-estimator → egenskaper → konfidensintervall → test → styrke) speiler arkivet.',
+    eksamenssett: [
+      {
+        tittel: '26 sett lest grundig med løsningsforslag (2016 – mai 2026)',
+        detalj:
+          'Ordinære vårsett (TMA4245), desember-sett (TMA4240 — tvillingemnet med samme pensum) og august-kont (felles for begge emner). Perioden 2020–2026 er komplett; 2016–2019 dekkes av åtte sett der løsningsforslagene er skumlest.',
+      },
+      {
+        tittel: '~19 sett skumlest for temaregistrering (2009–2015)',
+        detalj:
+          'Brukt kun til langsiktig tema- og sjangerfrekvens, ikke til detaljkalibrering. Frekvensene for denne perioden er nedre anslag.',
+      },
+    ],
+    sensorveiledninger: [
+      {
+        tittel: 'Løsningsforslag (ikke offisielle sensorveiledninger)',
+        detalj:
+          'Arkivet inneholder løsningsforslag til de fleste sett 2016–2026 — de definerer notasjonskrav, mellomregnings-standard og hva et fullt svar inneholder. Egne offisielle sensorveiledninger finnes ikke i arkivet, og boka påberoper seg ingen.',
+      },
+    ],
+    andreKilder: [
+      {
+        tittel: 'NTNUs emnebeskrivelse for TMA4245',
+        detalj: 'Omskrevet sammendrag av emnesiden (læringsmål, eksamensform, hjelpemidler). Emnet er verifisert aktivt per juli 2026.',
+      },
+    ],
+    forbehold: [
+      'Arkivet har ikke offisielle sensorveiledninger — sensorlogikken er utledet av løsningsforslagene og oppgaveformuleringene.',
+      'Enkelte arkivfiler 2017–2020 er omstokket i forhold til filnavnene (bl.a. et duplikat av mai 2017-settet); analysen bygger på faktisk innhold, ikke filnavn. Vårsettet 2019 er ikke selvstendig verifisert, og temaregistreringen for sommersettene 2015 har lav konfidens og inngår kun med lav vekt.',
+      'Desember-settene er formelt TMA4240-eksamener; pensum og oppgavetradisjon er felles, og de behandles som fullverdige mønstre for TMA4245.',
+      'Alle oppgaver, tall og kontekster i boka er nyskrevne. Arkivet er brukt som mønster (temavekting, sjangre, notasjonskrav) — aldri ordrett.',
+    ],
+    analysedato: 'juli 2026',
+  },
 };
 
 export function getKildegrunnlag(courseId: string): Kildegrunnlag | null {

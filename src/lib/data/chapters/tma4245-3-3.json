@@ -68,6 +68,11 @@
       }
     },
     {
+      "id": "tma4245-3-3-pause1",
+      "type": "text",
+      "content": "*— naturlig pausepunkt —*"
+    },
+    {
       "id": "tma4245-3-3-lokke2",
       "type": "text",
       "content": "## Løkke 2 — Normaltilnærming av binomiske andeler"
@@ -113,6 +118,11 @@
       }
     },
     {
+      "id": "tma4245-3-3-pause2",
+      "type": "text",
+      "content": "*— naturlig pausepunkt —*"
+    },
+    {
       "id": "tma4245-3-3-lokke3",
       "type": "text",
       "content": "## Løkke 3 — Poisson, ML-estimatorer og når tilnærmingen svikter"
@@ -154,7 +164,7 @@
         "number": "3",
         "type": "classic",
         "difficulty": "vanskelig",
-        "task": "En nettbutikk får kundeordre som en Poisson-prosess med rate $\\lambda = 3$ per time. Vi ser på et døgn ($t = 24$ timer), så antall ordre er $X \\sim \\text{Poisson}(72)$.\n\n**a)** Begrunn at normaltilnærmingen kan brukes, og oppgi tilnærmet fordeling for $X$.\n\n**b)** Finn tilnærmet $P(X < 60)$ (bruk kontinuitetskorreksjon).\n\n**c)** En kollega vil bruke samme tilnærming på antall ordre i ett *minutt* (der $\\lambda t = 3/60 \\cdot 60 = 0{,}05$ per minutt gir svært få). Kommenter om det er forsvarlig.",
+        "task": "En nettbutikk får kundeordre som en Poisson-prosess med rate $\\lambda = 3$ per time. Vi ser på et døgn ($t = 24$ timer), så antall ordre er $X \\sim \\text{Poisson}(72)$.\n\n**a)** Begrunn at normaltilnærmingen kan brukes, og oppgi tilnærmet fordeling for $X$.\n\n**b)** Finn tilnærmet $P(X < 60)$ (bruk kontinuitetskorreksjon).\n\n**c)** En kollega vil bruke samme tilnærming på antall ordre i ett *minutt* (der $\\lambda t = 3/60 \\cdot 1 = 0{,}05$ per minutt gir svært få). Kommenter om det er forsvarlig.",
         "solution": "**a)** $\\lambda t = 3 \\cdot 24 = 72 \\ge 15$, så $X \\approx N(72, 72)$ med $SD = \\sqrt{72} = 8{,}4853$.\n\n**b)** Med kontinuitetskorreksjon: $P(X < 60) = P(X \\le 59) \\approx \\Phi\\!\\left(\\dfrac{59 + 0{,}5 - 72}{8{,}4853}\\right) = \\Phi\\!\\left(\\dfrac{-12{,}5}{8{,}4853}\\right) = \\Phi(-1{,}47)$. Tabell: $\\Phi(-1{,}47) = 1 - \\Phi(1{,}47) = 1 - 0{,}9292 = 0{,}0708$.\n\n**c)** Nei — over ett minutt er forventet antall ordre bare $\\lambda t = 3/60 \\cdot 1 = 0{,}05$, altså langt under 15. Fordelingen er da ekstremt skjev (nesten all masse i 0), og normaltilnærmingen ville vært helt misvisende. Regn eksakt Poisson i stedet.",
         "hints": [
           "Sjekk $\\lambda t \\ge 15$; $X \\approx N(\\lambda t, \\lambda t)$.",

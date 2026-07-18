@@ -1,0 +1,245 @@
+{
+  "id": "tma4245-10-2",
+  "courseId": "tma4245",
+  "chapterNumber": "10.2",
+  "title": "Øvingseksamen 1: Inspera-hybrid med full kjede",
+  "description": "Komplett firetimers sett etter Des25-malen: fire autorettede kortsvar og tre store håndrettede oppgaver som dekker hele eksamenskjeden.",
+  "estimatedMinutes": 240,
+  "competenceGoals": [
+    "gjennomføre et komplett firetimers eksamenssett i Inspera-hybridformat under tidspress",
+    "koble sammen egendefinert tetthet, sannsynlighetsmaksimering og eksakt konfidensintervall i én oppgave",
+    "levere presise tallsvar i de autorettede delene og fullstendige begrunnelser i de håndrettede"
+  ],
+  "content": [
+    {
+      "id": "tma4245-10-2-tip",
+      "type": "tip",
+      "title": "Om Øvingseksamen 1",
+      "content": "Dette er et **komplett firetimers eksamenssett** (240 minutter, 100 poeng) etter **Des25-malen**: Inspera-hybrid med fire autorettede kortsvar og tre store håndrettede oppgaver. Du kan **trygt dele det over flere økter** — for eksempel kortsvarene (Oppgave 1–4) én kveld og de store oppgavene (5–7) fordelt på to. Ha formelsamlingen «Tabeller og formler i statistikk» (hjelpemiddelkode C), $\\Phi$-, $t$- og $\\chi^2$-tabellene og en enkel kalkulator klare. Fasitene er skrevet som **A-besvarelser** med sensormerknader; Oppgave 6 viser i tillegg en autentisk **B-besvarelse** slik at du ser hva som skiller nivåene."
+    },
+    {
+      "id": "tma4245-10-2-forkunnskaper",
+      "type": "text",
+      "content": "**Forkunnskaper:** Settet trekker på hele boka. Kjernekjeden bygger på [kap. 2.3](/bok/tma4245/tma4245-2-3) og [kap. 2.4](/bok/tma4245/tma4245-2-4) (egendefinert tetthet, normering, $F$), [kap. 4.2](/bok/tma4245/tma4245-4-2) (kjikvadrat-pivotalen $2\\sum X_i/\\beta\\sim\\chi^2_{2n}$), [kap. 5.2](/bok/tma4245/tma4245-5-2) og [kap. 5.4](/bok/tma4245/tma4245-5-4) (ML-utledning), [kap. 6.2](/bok/tma4245/tma4245-6-2) (eksakt pivotal-KI), [kap. 7.1](/bok/tma4245/tma4245-7-1) og [kap. 7.3](/bok/tma4245/tma4245-7-3) (testritualet, styrke og dimensjonering) og [kap. 8.1](/bok/tma4245/tma4245-8-1)–[kap. 8.2](/bok/tma4245/tma4245-8-2) (regresjon, KI vs. PI, residualdiagnostikk). Kortsvarene bruker [kap. 3.2](/bok/tma4245/tma4245-3-2) (lineærkombinasjoner med kovarians), [kap. 1.2](/bok/tma4245/tma4245-1-2) og [kap. 1.1](/bok/tma4245/tma4245-1-1) (kombinatorikk, disjunkt/uavhengig), [kap. 2.2](/bok/tma4245/tma4245-2-2) (Poisson-prosess) og [kap. 2.5](/bok/tma4245/tma4245-2-5) (simultantabell). Python-deloppgaven i Oppgave 5 bruker inversjonsmetoden fra simuleringsdelen (Del 9)."
+    },
+    {
+      "id": "tma4245-10-2-intro",
+      "type": "text",
+      "content": "Settet har to deler:\n\n- **Del 1 – Inspera (kortsvar):** Oppgave 1–4, hver **10 poeng**. Her rettes bare **tallsvaret** automatisk. Oppgi det med **to desimaler**, og rund aldri av i mellomregningen — en for grov avrunding underveis kan ødelegge siste desimal. Mellomregning teller ikke her.\n- **Del 2 – håndrettet:** Oppgave 5–7, hver **30 poeng**. Her teller **begrunnelsen**: definer variabler, oppgi antagelser, vis mellomregning og tabelloppslag, og skriv konklusjonene i klartekst.\n\n**Tidsbudsjett (240 min):** ca. 10 min per kortsvar (40 min), ca. 60 min per stor oppgave (180 min) og 20 min buffer. Grav deg ikke ned i ett delpunkt — bytt oppgave hvis du står fast, og kom tilbake."
+    },
+    {
+      "id": "tma4245-10-2-o1",
+      "type": "collapsible",
+      "title": "Oppgave 1 — kortsvar (10 p): lineærkombinasjon med kovarians",
+      "buttonText": "Vis oppgave 1",
+      "content": [
+        {
+          "id": "tma4245-10-2-o1-task",
+          "type": "text",
+          "content": "To komponenter i et lastbærende system har strekkraft $X$ og $Y$ (i kN) som er **simultant normalfordelte** med $E(X)=220$, $E(Y)=180$, $\\text{Var}(X)=25$, $\\text{Var}(Y)=16$ og $\\text{Cov}(X,Y)=12$. Den samlede lasten er $T=X+Y$.\n\nFinn $P(T>410)$. Oppgi svaret med to desimaler."
+        },
+        {
+          "id": "tma4245-10-2-o1-sol",
+          "type": "text",
+          "content": "**Løsningsforslag.**\n\n$E(T)=E(X)+E(Y)=220+180=400$.\n\n$\\text{Var}(T)=\\text{Var}(X)+\\text{Var}(Y)+2\\,\\text{Cov}(X,Y)=25+16+2\\cdot12=65$, så $\\text{SD}(T)=\\sqrt{65}=8{,}0623$.\n\nEn sum av simultant normale variable er selv normalfordelt, altså $T\\sim N(400,\\,65)$. Standardiser:\n$$P(T>410)=P\\!\\left(Z>\\frac{410-400}{8{,}0623}\\right)=P(Z>1{,}2403)=1-\\Phi(1{,}24)=1-0{,}8925=0{,}1075.$$\n\n**Svar: $0{,}11$.**\n\n> *Felle:* kovariansleddet $2\\cdot12=24$ må være med. Glemmer du det, får du $\\text{Var}(T)=41$, $\\text{SD}=6{,}40$ og feil autorettet tallsvar."
+        },
+        {
+          "id": "tma4245-10-2-o1-vekt",
+          "type": "tip",
+          "title": "Vekt og tid",
+          "content": "**10 poeng · ca. 10 min · Inspera-kortsvar (to desimaler).** Sjanger A — normalfordeling med lineærkombinasjon. Regn eksakt til siste desimal før du avrunder."
+        }
+      ]
+    },
+    {
+      "id": "tma4245-10-2-o2",
+      "type": "collapsible",
+      "title": "Oppgave 2 — kortsvar (10 p): kombinatorikk + disjunkt/uavhengig",
+      "buttonText": "Vis oppgave 2",
+      "content": [
+        {
+          "id": "tma4245-10-2-o2-task",
+          "type": "text",
+          "content": "**a)** En forsendelse på 12 sensorer inneholder 5 defekte og 7 feilfrie. Du trekker 4 sensorer tilfeldig uten tilbakelegging. Finn sannsynligheten for **nøyaktig 2 defekte**. Oppgi svaret med to desimaler.\n\n**b)** To hendelser har $P(A)=0{,}35$ og $P(B)=0{,}80$. Kan $A$ og $B$ være disjunkte? Kan de være uavhengige?\n\n**c)** Anta at $A$ og $B$ er uavhengige. Finn $P(A\\cup B)$ med to desimaler."
+        },
+        {
+          "id": "tma4245-10-2-o2-sol",
+          "type": "text",
+          "content": "**Løsningsforslag.**\n\n**a)** Antall gunstige utvalg: velg 2 av 5 defekte og 2 av 7 feilfrie, delt på alle utvalg av 4 fra 12:\n$$\\frac{\\binom{5}{2}\\binom{7}{2}}{\\binom{12}{4}}=\\frac{10\\cdot21}{495}=\\frac{210}{495}=0{,}4242.$$\n**Svar: $0{,}42$.**\n\n**b)** **Disjunkte:** nei. Er $A$ og $B$ disjunkte, er $P(A\\cup B)=P(A)+P(B)=1{,}15>1$, umulig. Regelen $P(A)+P(B)>1\\Rightarrow$ ikke disjunkte. **Uavhengige:** ja, det er fullt mulig — da er $P(A\\cap B)=P(A)P(B)=0{,}28$, som er tillatt.\n\n**c)** $P(A\\cup B)=P(A)+P(B)-P(A)P(B)=0{,}35+0{,}80-0{,}28=0{,}87$. **Svar: $0{,}87$.**\n\n> *Felle:* disjunkt og uavhengig er ikke det samme. To hendelser med positiv sannsynlighet kan aldri være begge deler samtidig."
+        },
+        {
+          "id": "tma4245-10-2-o2-vekt",
+          "type": "tip",
+          "title": "Vekt og tid",
+          "content": "**10 poeng · ca. 10 min · Inspera-kortsvar.** Sjangre F (kombinatorikk) og O (disjunkt/uavhengig-fellen). Hypergeometrisk telling i a); logikk-sjekken $P(A)+P(B)>1$ i b)."
+        }
+      ]
+    },
+    {
+      "id": "tma4245-10-2-o3",
+      "type": "collapsible",
+      "title": "Oppgave 3 — kortsvar (10 p): Poisson-prosess med rateskalering",
+      "buttonText": "Vis oppgave 3",
+      "content": [
+        {
+          "id": "tma4245-10-2-o3-task",
+          "type": "text",
+          "content": "Mikroskopiske sprekker oppstår langs en fiberkabel som en **Poisson-prosess** med rate $0{,}5$ per kilometer. Se på en strekning på $6$ km, og la $X$ være antall sprekker der.\n\n**a)** Angi fordelingen til $X$ med parameter, og oppgi forventning og standardavvik.\n\n**b)** Finn $P(X\\ge 2)$ med to desimaler."
+        },
+        {
+          "id": "tma4245-10-2-o3-sol",
+          "type": "text",
+          "content": "**Løsningsforslag.**\n\n**a)** Raten skaleres til intervallet: $\\lambda t=0{,}5\\cdot6=3$, så $X\\sim\\text{Poisson}(3)$. For Poisson er $E(X)=\\lambda t=3$ og $\\text{Var}(X)=3$, altså $\\text{SD}(X)=\\sqrt{3}=1{,}73$.\n\n**b)** $P(X\\ge2)=1-P(X=0)-P(X=1)=1-e^{-3}-3e^{-3}=1-4e^{-3}=1-4\\cdot0{,}049787=0{,}8009$.\n\n**Svar: $0{,}80$.**\n\n> *Felle:* skaler raten til hele intervallet ($\\lambda t=3$, ikke $\\lambda=0{,}5$). Forutsetningene bak Poisson-prosessen er uavhengige, disjunkte intervaller, konstant rate og at ikke to sprekker oppstår i samme punkt."
+        },
+        {
+          "id": "tma4245-10-2-o3-vekt",
+          "type": "tip",
+          "title": "Vekt og tid",
+          "content": "**10 poeng · ca. 10 min · Inspera-kortsvar.** Sjanger B — modellvalg og Poisson-prosess med rateskalering. Bruk komplementet $1-P(0)-P(1)$ i b)."
+        }
+      ]
+    },
+    {
+      "id": "tma4245-10-2-o4",
+      "type": "collapsible",
+      "title": "Oppgave 4 — kortsvar (10 p): simultantabell-avlesning",
+      "buttonText": "Vis oppgave 4",
+      "content": [
+        {
+          "id": "tma4245-10-2-o4-task",
+          "type": "text",
+          "content": "Antall driftsstans $X$ og antall utløste alarmer $Y$ i et døgn har simultanfordelingen\n\n| $p(x,y)$ | $Y=0$ | $Y=1$ | $Y=2$ |\n|---|---|---|---|\n| $X=0$ | 0,10 | 0,08 | 0,02 |\n| $X=1$ | 0,12 | 0,20 | 0,08 |\n| $X=2$ | 0,08 | 0,16 | 0,16 |\n\n**a)** Finn $E(X)$ og $E(Y)$.\n\n**b)** Finn $\\text{Cov}(X,Y)$ med to desimaler.\n\n**c)** Er $X$ og $Y$ uavhengige?"
+        },
+        {
+          "id": "tma4245-10-2-o4-sol",
+          "type": "text",
+          "content": "**Løsningsforslag.**\n\nMarginalene (rad- og kolonnesummer): $p_X=(0{,}20;\\ 0{,}40;\\ 0{,}40)$ for $X=0,1,2$ og $p_Y=(0{,}30;\\ 0{,}44;\\ 0{,}26)$ for $Y=0,1,2$.\n\n**a)** $E(X)=0\\cdot0{,}20+1\\cdot0{,}40+2\\cdot0{,}40=1{,}20$. $E(Y)=0\\cdot0{,}30+1\\cdot0{,}44+2\\cdot0{,}26=0{,}96$.\n\n**b)** $E(XY)=\\sum_{x,y}xy\\,p(x,y)$. Bare ledd med $x\\ge1$ og $y\\ge1$ bidrar:\n$$E(XY)=1\\cdot1\\cdot0{,}20+1\\cdot2\\cdot0{,}08+2\\cdot1\\cdot0{,}16+2\\cdot2\\cdot0{,}16=0{,}20+0{,}16+0{,}32+0{,}64=1{,}32.$$\n$\\text{Cov}(X,Y)=E(XY)-E(X)E(Y)=1{,}32-1{,}20\\cdot0{,}96=1{,}32-1{,}152=0{,}168$. **Svar: $0{,}17$.**\n\n**c)** **Nei.** Sjekk én celle: $p(0,0)=0{,}10$, men $p_X(0)\\,p_Y(0)=0{,}20\\cdot0{,}30=0{,}06\\neq0{,}10$. Én avvikende celle er nok til å motbevise uavhengighet (og $\\text{Cov}\\neq0$ bekrefter det).\n\n> *Felle:* uavhengighet krever $p(x,y)=p_X(x)p_Y(y)$ i **alle** celler; det holder ikke å sjekke én og konkludere «uavhengig»."
+        },
+        {
+          "id": "tma4245-10-2-o4-vekt",
+          "type": "tip",
+          "title": "Vekt og tid",
+          "content": "**10 poeng · ca. 10 min · Inspera-kortsvar.** Sjanger L — simultantabell. Regn marginalene først; da er $E(X),E(Y)$ og $\\text{Cov}$ raske."
+        }
+      ]
+    },
+    {
+      "id": "tma4245-10-2-o5",
+      "type": "collapsible",
+      "title": "Oppgave 5 — åpen (30 p): tetthet → ML → kjikvadrat-KI → simulering",
+      "buttonText": "Vis oppgave 5",
+      "content": [
+        {
+          "id": "tma4245-10-2-o5-task",
+          "type": "text",
+          "content": "Bølgehøyden $X$ (i meter) ved en offshore-installasjon modelleres med tettheten\n$$f(x)=c\\,x\\,e^{-x^2/\\theta},\\qquad x>0,$$\nder $\\theta>0$ er en ukjent parameter. Du har $n=8$ uavhengige målinger med $\\sum_{i=1}^{8}x_i^2=48{,}0$ (m$^2$).\n\n**a)** Bestem normeringskonstanten $c$ uttrykt ved $\\theta$.\n\n**b)** Utled fordelingsfunksjonen $F(x)$.\n\n**c)** Utled maximum likelihood-estimatoren $\\hat{\\theta}$, og regn ut estimatet fra dataene.\n\n**d)** Vis at $2\\sum X_i^2/\\theta\\sim\\chi^2_{2n}$, og bruk dette til et $90\\,\\%$ konfidensintervall for $\\theta$. Kvantiler: $\\chi^2_{16;\\,0{,}05}=26{,}296$ og $\\chi^2_{16;\\,0{,}95}=7{,}962$.\n\n**e)** Skriv en Python-funksjon som trekker $n$ realisasjoner av $X$ med inversjonsmetoden når $\\theta=6$. Hva estimerer `np.mean(sim > 2)`?"
+        },
+        {
+          "id": "tma4245-10-2-o5-sol-ab",
+          "type": "text",
+          "content": "**Løsningsforslag.**\n\n**a)** Krev $\\int_0^\\infty c\\,x\\,e^{-x^2/\\theta}\\,dx=1$. Substituer $u=x^2/\\theta$, $du=\\tfrac{2x}{\\theta}dx$, altså $x\\,dx=\\tfrac{\\theta}{2}\\,du$:\n$$c\\int_0^\\infty \\frac{\\theta}{2}e^{-u}\\,du=c\\cdot\\frac{\\theta}{2}=1\\ \\Rightarrow\\ c=\\frac{2}{\\theta}.$$\n\n**b)** For $x>0$:\n$$F(x)=\\int_0^x \\frac{2}{\\theta}t\\,e^{-t^2/\\theta}\\,dt=\\Big[-e^{-t^2/\\theta}\\Big]_0^x=1-e^{-x^2/\\theta},$$\nog $F(x)=0$ for $x\\le0$.\n\n— naturlig pausepunkt —"
+        },
+        {
+          "id": "tma4245-10-2-o5-sol-cd",
+          "type": "text",
+          "content": "**c)** Med $c=2/\\theta$ er log-likelihooden\n$$l(\\theta)=\\sum_{i=1}^n\\Big(\\ln\\tfrac{2}{\\theta}+\\ln x_i-\\tfrac{x_i^2}{\\theta}\\Big)=n\\ln 2-n\\ln\\theta+\\sum\\ln x_i-\\frac{1}{\\theta}\\sum x_i^2.$$\nDeriver og sett lik null:\n$$l'(\\theta)=-\\frac{n}{\\theta}+\\frac{1}{\\theta^2}\\sum x_i^2=0\\ \\Rightarrow\\ \\hat{\\theta}=\\frac{1}{n}\\sum_{i=1}^n x_i^2.$$\nAnnenderiverte er negativ i punktet, så det er et maksimum. Estimat: $\\hat{\\theta}=48{,}0/8=6{,}0$.\n\n**d)** La $Y_i=X_i^2$. Da er $F_Y(y)=P(X^2\\le y)=P(X\\le\\sqrt{y})=1-e^{-y/\\theta}$ for $y>0$, altså $Y_i\\sim\\text{eksp}(\\theta)$ (forventning $\\theta$). For en eksponensialvariabel er $2Y_i/\\theta\\sim\\chi^2_2$, og summen av $n$ uavhengige gir\n$$\\frac{2\\sum X_i^2}{\\theta}=\\frac{2\\sum Y_i}{\\theta}\\sim\\chi^2_{2n}=\\chi^2_{16}.$$\nDette er en **pivotal**. Med $2\\sum x_i^2=96$ og $90\\,\\%$-dekning ($\\alpha=0{,}10$):\n$$\\chi^2_{16;\\,0{,}95}\\le\\frac{96}{\\theta}\\le\\chi^2_{16;\\,0{,}05}\\ \\Rightarrow\\ \\frac{96}{26{,}296}\\le\\theta\\le\\frac{96}{7{,}962}.$$\nEndepunktene bytter plass når vi inverterer: $\\theta\\in(3{,}65,\\ 12{,}06)$.\n\n> *Sensormerknad:* frihetsgraden er $2n=16$, ikke $n=8$. Den nedre $\\chi^2$-kvantilen gir den **øvre** grensen for $\\theta$.\n\n— naturlig pausepunkt —"
+        },
+        {
+          "id": "tma4245-10-2-o5-sol-e",
+          "type": "text",
+          "content": "**e)** Inversjonsmetoden: løs $u=F(x)=1-e^{-x^2/\\theta}$ for $x$: $e^{-x^2/\\theta}=1-u$, $x^2=-\\theta\\ln(1-u)$, altså $x=\\sqrt{-\\theta\\ln(1-u)}$.\n\n```python\nimport numpy as np\n\ndef simuler(n, theta=6.0):\n    u = np.random.uniform(size=n)\n    return np.sqrt(-theta * np.log(1 - u))\n\nsim = simuler(10**6)\nprint(np.mean(sim > 2))   # ~0.5134\n```\n\n`np.mean(sim > 2)` estimerer $P(X>2)=1-F(2)=e^{-4/\\theta}=e^{-4/6}=0{,}5134$. En kjøring med $10^6$ trekk gir omtrent $0{,}513$, og estimatet nærmer seg den eksakte verdien når antall trekk øker (Monte Carlo-feilen avtar som $1/\\sqrt{n}$)."
+        },
+        {
+          "id": "tma4245-10-2-o5-vekt",
+          "type": "tip",
+          "title": "Vekt og tid",
+          "content": "**30 poeng · ca. 60 min.** Sjangre C+G+H+N — bokas ryggradkjede i én oppgave. Fordel gjerne ~10 min på a)–b), ~20 min på ML og pivotal-KI, ~15 min på Python. Deloppgavene teller omtrent likt, så fullfør alle før du finpusser."
+        }
+      ]
+    },
+    {
+      "id": "tma4245-10-2-o6",
+      "type": "collapsible",
+      "title": "Oppgave 6 — åpen (30 p): full t-test, styrke og dimensjonering",
+      "buttonText": "Vis oppgave 6",
+      "content": [
+        {
+          "id": "tma4245-10-2-o6-task",
+          "type": "text",
+          "content": "En marinbiolog undersøker om en ny fôrtype øker sluttvekten hos oppdrettslaks. Referanseverdien med gammelt fôr er $\\mu_0=850$ g. Et forsøk med $n=16$ fisk på nytt fôr gir gjennomsnitt $\\bar{x}=878$ g og empirisk standardavvik $s=52$ g. Anta at vektene er tilnærmet normalfordelte.\n\n**a)** Formuler hypotesene med begrunnet retning, og gjennomfør testen på $5\\,\\%$-nivå. Konkluder i klartekst.\n\n**b)** Anta at den sanne forventningen med nytt fôr er $880$ g, og at $\\sigma\\approx52$ g. Finn styrken til testen i a).\n\n**c)** Hvor mange fisk trengs for at testen skal ha styrke $0{,}90$ mot en sann forventning på $880$ g (differanse $30$ g), med $\\sigma\\approx52$ g og $5\\,\\%$-nivå?"
+        },
+        {
+          "id": "tma4245-10-2-o6-sol",
+          "type": "text",
+          "content": "**Løsningsforslag (A-besvarelse).**\n\n**a)** Biologen forventer en **økning**, så vi tester ensidig: $H_0:\\mu=850$ mot $H_1:\\mu>850$. Testobservator (ukjent $\\sigma$, så $t$-fordeling med $n-1=15$ frihetsgrader):\n$$T=\\frac{\\bar{x}-\\mu_0}{s/\\sqrt{n}}=\\frac{878-850}{52/\\sqrt{16}}=\\frac{28}{13}=2{,}15.$$\nKritisk verdi $t_{15;\\,0{,}05}=1{,}753$. Siden $2{,}15>1{,}753$, **forkastes $H_0$** (p-verdi $=P(t_{15}>2{,}15)=0{,}024<0{,}05$). Det er statistisk grunnlag for å si at det nye fôret gir høyere sluttvekt.\n\n**b)** For styrke og dimensjonering bruker vi normaltilnærming med planleggingsverdien $\\sigma\\approx52$. Testen forkaster når $\\bar{X}>\\mu_0+z_{0{,}05}\\,\\sigma/\\sqrt{n}=850+1{,}645\\cdot52/4=871{,}38$. Ved sann $\\mu=880$:\n$$\\text{styrke}=P(\\bar{X}>871{,}38\\mid\\mu=880)=P\\!\\left(Z>\\frac{871{,}38-880}{52/4}\\right)=P(Z>-0{,}663)=\\Phi(0{,}663)=0{,}75.$$\n\n— naturlig pausepunkt —\n\n**c)** Dimensjoneringsformelen for en ensidig test med differanse $\\delta=30$:\n$$n=\\frac{(z_\\alpha+z_\\beta)^2\\,\\sigma^2}{\\delta^2}=\\frac{(1{,}645+1{,}282)^2\\cdot52^2}{30^2}=\\frac{8{,}567\\cdot2704}{900}=25{,}73.$$\nRund **opp**: $n=26$ fisk gir minst $90\\,\\%$ styrke.\n\n> *Sensormerknad:* den begrunnede retningen i a) gir uttelling; testen er $t$-basert (ukjent $\\sigma$), mens styrke/dimensjonering bruker normaltilnærming med planleggings-$\\sigma$ — si det eksplisitt. Rund alltid $n$ opp."
+        },
+        {
+          "id": "tma4245-10-2-o6-Bsol",
+          "type": "text",
+          "content": "**Autentisk B-besvarelse (til sammenligning).**\n\n> **a)** «$T=\\dfrac{878-850}{52/\\sqrt{16}}=2{,}15$. Med tosidig test på $5\\,\\%$ er $t_{15;\\,0{,}025}=2{,}131$, og $2{,}15>2{,}131$, så jeg forkaster $H_0$. Fôret virker.»\n>\n> **b)** «Forkaster når $\\bar{X}>850+1{,}96\\cdot13=875{,}5$. Styrke $=P(\\bar X>875{,}5\\mid\\mu=880)=P(Z>-0{,}35)=0{,}64$.»\n>\n> **c)** «$n=\\dfrac{(1{,}96+1{,}28)^2\\cdot52^2}{30^2}=31{,}5\\approx31$.»\n\n**Margnotat — hva skiller B fra A:**\n\n- **a)** Kandidaten leser ikke «øker» som en retning og velger tosidig test. Svaret er ikke direkte galt (forkaster fortsatt), men mister poengene for **begrunnet retning** — kjernen i oppgaven.\n- **b)** Bruker $z_{0{,}025}=1{,}96$ (tosidig) i den kritiske grensen. Styrken blir da systematisk for lav; korrekt ensidig grense bruker $z_{0{,}05}=1{,}645$.\n- **c)** Samme tosidige $z$-feil forplanter seg, og til slutt **rundes $n$ ned** til 31. Utvalgsstørrelse må alltid rundes **opp**, ellers holder ikke styrkekravet.\n\nEn B-besvarelse regner altså riktig mekanisk, men bommer på retningsvalget og presisjonen i styrkeleddet — det er nettopp disse to som løfter til A."
+        },
+        {
+          "id": "tma4245-10-2-o6-vekt",
+          "type": "tip",
+          "title": "Vekt og tid",
+          "content": "**30 poeng · ca. 60 min.** Sjanger I — hele testpakken. Bruk ~20 min på testen (a), ~20 min på styrke (b) og ~20 min på dimensjonering (c). Skriv $H_1$-retningen eksplisitt først."
+        }
+      ]
+    },
+    {
+      "id": "tma4245-10-2-o7",
+      "type": "collapsible",
+      "title": "Oppgave 7 — åpen (30 p): regresjon, KI, prediksjon og residualtolkning",
+      "buttonText": "Vis oppgave 7",
+      "content": [
+        {
+          "id": "tma4245-10-2-o7-task",
+          "type": "text",
+          "content": "Energiforbruket $Y$ (kWh per døgn) i et bygg måles mot utetemperaturen $x$ (°C) over $n=12$ døgn. Modellen er $Y_i=\\alpha+\\beta x_i+\\varepsilon_i$ med $\\varepsilon_i$ uavhengige $N(0,\\sigma^2)$. Oppgitt: $\\bar{x}=5$, $\\bar{y}=210$, $S_{xx}=\\sum(x_i-\\bar{x})^2=400$, $S_{xy}=\\sum(x_i-\\bar{x})(y_i-\\bar{y})=-1200$ og $S_{yy}=\\sum(y_i-\\bar{y})^2=4200$. Bruk $t_{10;\\,0{,}025}=2{,}228$.\n\n**a)** Finn $\\hat{\\beta}$, $\\hat{\\alpha}$, SSE og $s^2$.\n\n**b)** Gi et $95\\,\\%$ konfidensintervall for $\\beta$, og tolk fortegnet.\n\n**c)** Gi et $95\\,\\%$ prediksjonsintervall for energiforbruket på ett nytt døgn med $x_0=0$ °C.\n\n**d)** Residualene fra tilpasningen er plottet mot predikert verdi under. Hva forteller plottet, og hva bør du gjøre?"
+        },
+        {
+          "id": "tma4245-10-2-o7-sol-abc",
+          "type": "text",
+          "content": "**Løsningsforslag.**\n\n**a)** $\\hat{\\beta}=\\dfrac{S_{xy}}{S_{xx}}=\\dfrac{-1200}{400}=-3{,}0$. $\\hat{\\alpha}=\\bar{y}-\\hat{\\beta}\\bar{x}=210-(-3{,}0)\\cdot5=225$. $\\text{SSE}=S_{yy}-\\hat{\\beta}S_{xy}=4200-(-3{,}0)(-1200)=4200-3600=600$. Divisor $n-2=10$: $s^2=600/10=60$, $s=\\sqrt{60}=7{,}746$.\n\n**b)** $\\text{SE}(\\hat{\\beta})=s/\\sqrt{S_{xx}}=7{,}746/20=0{,}3873$. KI: $\\hat{\\beta}\\pm t_{10;\\,0{,}025}\\,\\text{SE}=-3{,}0\\pm2{,}228\\cdot0{,}3873=-3{,}0\\pm0{,}863=(-3{,}86,\\ -2{,}14)$. Hele intervallet er negativt, så energiforbruket **synker** signifikant med økende utetemperatur — ca. $3$ kWh mindre per grad.\n\n**c)** Punktprediksjon: $\\hat{y}_0=225+(-3{,}0)\\cdot0=225$. PI-faktor:\n$$\\sqrt{1+\\frac{1}{12}+\\frac{(0-5)^2}{400}}=\\sqrt{1+0{,}0833+0{,}0625}=\\sqrt{1{,}1458}=1{,}0704.$$\nHalvbredde $=2{,}228\\cdot7{,}746\\cdot1{,}0704=18{,}47$, så $\\text{PI}=225\\pm18{,}47=(206{,}5,\\ 243{,}5)$ kWh.\n\n— naturlig pausepunkt —"
+        },
+        {
+          "id": "tma4245-10-2-o7-img",
+          "type": "image",
+          "src": "/images/textbook/tma4245/tma4245-8-2-residual-bue.svg",
+          "alt": "Residualplott med tydelig bueform: residualene er negative i midten og positive i endene.",
+          "caption": "Figur til Oppgave 7d): residualene plottet mot predikert energiforbruk."
+        },
+        {
+          "id": "tma4245-10-2-o7-sol-d",
+          "type": "text",
+          "content": "**d)** Residualene viser en tydelig **bueform** (systematisk positive i endene, negative i midten). Det bryter antagelsen om at middelverdistrukturen er **lineær**: sammenhengen mellom energiforbruk og temperatur er krum (forbruket øker både i sterk kulde og i varme pga. kjøling). Tiltak: legg til et **kvadratisk ledd** $x^2$ i modellen (eller transformer), og plott residualene på nytt for å sjekke at buen forsvinner. En rett linje undervurderer forbruket ved ekstreme temperaturer.\n\n> *Sensormerknad:* det holder ikke å si «buet». Navngi antagelsen (linearitet i middelverdien) og foreslå et konkret tiltak (krumningsledd)."
+        },
+        {
+          "id": "tma4245-10-2-o7-vekt",
+          "type": "tip",
+          "title": "Vekt og tid",
+          "content": "**30 poeng · ca. 60 min.** Sjangre J+M. Regn a)–c) (~40 min); bruk «ny observasjon» som signal om **PI** (med $1$-tallet), ikke KI. Residualtolkningen i d) skal begrunnes i mønsteret."
+        }
+      ]
+    },
+    {
+      "id": "tma4245-10-2-selvdiagnose",
+      "type": "text",
+      "content": "### Selvdiagnose — Øvingseksamen 1\n\nKryss av det du klarte uten å slå opp fasit:\n\n- ☐ Jeg tok med kovariansleddet i $\\text{Var}(X+Y)$ (Oppgave 1).\n- ☐ Jeg brukte hypergeometrisk telling og avviste disjunkthet via $P(A)+P(B)>1$ (Oppgave 2).\n- ☐ Jeg skalerte Poisson-raten til intervallet ($\\lambda t=3$) (Oppgave 3).\n- ☐ Jeg regnet marginaler, $\\text{Cov}(X,Y)$ og avviste uavhengighet fra én celle (Oppgave 4).\n- ☐ Jeg normerte tettheten, utledet $F$ og ML, og fikk $\\chi^2_{16}$-pivotalen med riktig frihetsgrad (Oppgave 5).\n- ☐ Jeg skrev en kjørbar inversjonsmetode-funksjon og forklarte hva `np.mean(sim > 2)` estimerer (Oppgave 5e).\n- ☐ Jeg begrunnet retningen i testen, regnet styrke med planleggings-$\\sigma$ og rundet $n$ opp (Oppgave 6).\n- ☐ Jeg valgte PI (ikke KI) for et nytt døgn og koblet bueform til manglende krumningsledd (Oppgave 7)."
+    },
+    {
+      "id": "tma4245-10-2-symbol",
+      "type": "collapsible",
+      "title": "Symbol- og formelliste",
+      "buttonText": "Vis symboler og formler",
+      "content": [
+        {
+          "id": "tma4245-10-2-symbol-txt",
+          "type": "text",
+          "content": "*Oppslagsverk — alt her forklares underveis i oppgavene og i de refererte kapitlene.*\n\n| Symbol | Betydning |\n|---|---|\n| $\\mu,\\sigma^2$ | forventning og varians ($N(\\mu,\\sigma^2)$: annet argument er variansen) |\n| $\\Phi$ | standardnormal fordelingsfunksjon; $z_\\alpha$: øvre $\\alpha$-kvantil |\n| $\\text{Cov}(X,Y)$ | kovariansen; $\\text{Var}(aX+bY)=a^2\\text{Var}X+b^2\\text{Var}Y+2ab\\,\\text{Cov}(X,Y)$ |\n| $\\lambda t$ | forventet antall i en Poisson-prosess over intervallet |\n| $p(x,y),\\,p_X,\\,p_Y$ | simultan- og marginalfordelinger |\n| $\\theta,\\hat{\\theta}$ | ukjent parameter og ML-estimatoren |\n| $F(x)$ | fordelingsfunksjon $P(X\\le x)$ |\n| $\\chi^2_{\\nu,\\alpha}$ | øvre $\\alpha$-kvantil i kjikvadrat med $\\nu$ frihetsgrader |\n| $\\hat{\\alpha},\\hat{\\beta}$ | LS-estimatene i regresjonen; $S_{xx},S_{xy},S_{yy}$ sentrerte summer |\n| $s^2$ | $\\text{SSE}/(n-2)$ i regresjonen; $\\text{SE}(\\hat{\\beta})=s/\\sqrt{S_{xx}}$ |\n| KI / PI | konfidens- og prediksjonsintervall |\n\n**Formler i dette kapitlet:**\n\n$$\\text{Var}(aX+bY)=a^2\\text{Var}(X)+b^2\\text{Var}(Y)+2ab\\,\\text{Cov}(X,Y)$$\nVarians av en lineærkombinasjon — kovariansleddet må med når variablene er korrelerte.\n\n$$P(X=k)=\\frac{(\\lambda t)^k e^{-\\lambda t}}{k!},\\qquad E(X)=\\text{Var}(X)=\\lambda t$$\nPoisson-modellen med skalert rate.\n\n$$\\hat{\\theta}=\\frac{1}{n}\\sum x_i^2,\\qquad \\frac{2\\sum X_i^2}{\\theta}\\sim\\chi^2_{2n},\\qquad \\left(\\frac{2\\sum x_i^2}{\\chi^2_{2n,\\alpha/2}},\\ \\frac{2\\sum x_i^2}{\\chi^2_{2n,1-\\alpha/2}}\\right)$$\nML og eksakt kjikvadrat-KI for tetthetsfamilien i Oppgave 5.\n\n$$T=\\frac{\\bar{x}-\\mu_0}{s/\\sqrt{n}}\\sim t_{n-1},\\qquad n=\\frac{(z_\\alpha+z_\\beta)^2\\sigma^2}{\\delta^2}$$\nEttutvalgs $t$-test og dimensjonering av utvalget.\n\n$$\\hat{\\beta}=\\frac{S_{xy}}{S_{xx}},\\quad \\hat{y}_0\\pm t_{n-2,\\alpha/2}\\,s\\sqrt{1+\\frac{1}{n}+\\frac{(x_0-\\bar{x})^2}{S_{xx}}}$$\nLS-helning og prediksjonsintervall (PI) for en ny observasjon."
+        }
+      ]
+    }
+  ],
+  "exercises": []
+}
