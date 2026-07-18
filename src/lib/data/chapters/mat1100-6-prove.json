@@ -1,0 +1,144 @@
+{
+  "id": "mat1100-6-prove",
+  "courseId": "mat1100",
+  "chapterNumber": "6.P",
+  "title": "Prøver til del 6: Taylor, rekker og differensialligninger",
+  "description": "Fire nyskrevne prøver som dekker hele Del 6: Taylorpolynom med restleddsestimat, rekkekonvergens med tre navngitte tester, separable og lineære differensialligninger, og en tverrgående oppgave om restledd via delvis integrasjon og GS-parallellen — med full fasit etter føringsstandarden.",
+  "estimatedMinutes": 130,
+  "competenceGoals": [
+    "bygge Taylorpolynom og avgrense feilen med Lagrange-restleddet ved å maksimere den (n+1)-te deriverte",
+    "avgjøre rekkekonvergens med divergens-, GS- og forholdstest, alle navngitt, og løse separable og lineære differensialligninger med verifikasjon",
+    "utlede restleddet på integralform via delvis integrasjon og vise GS-parallellen mellom en rekke og et integral"
+  ],
+  "content": [
+    {
+      "id": "mat1100-6-prove-tip",
+      "type": "tip",
+      "title": "Om prøvene til Del 6",
+      "content": "**Fire nyskrevne prøver som til sammen dekker hele Del 6 — Taylor, rekker og differensialligninger:** Taylorpolynom med restledd ([6.1](/bok/mat1100/mat1100-6-1)), rekkekonvergens ([6.2](/bok/mat1100/mat1100-6-2)) og første ordens differensialligninger ([6.3](/bok/mat1100/mat1100-6-3)), med en tverrgående avslutning som kobler 6.1–6.2 til de uegentlige integralene i [4.6](/bok/mat1100/mat1100-4-6).\n\n- **Prøve 6.A** (30 min): Taylorpolynom med restleddsestimat — bygg polynomet, avgrens feilen ved å maksimere den $(n{+}1)$-te deriverte.\n- **Prøve 6.B** (30 min): rekkekonvergens — tre rekker, tre ulike tester, alle **navngitt** i konklusjonen.\n- **Prøve 6.C** (30 min): differensialligninger — én separabel og én lineær med integrerende faktor, **begge med verifikasjon** ved innsetting.\n- **Prøve 6.D** (40 min, blandet): tverrgående — utled restleddet på integralform via delvis integrasjon (2017-sjangeren), og vis GS-parallellen mellom en rekke og et integral.\n\nTil sammen **4 prøver à ~30–40 min**, alle **langsvar med full begrunnelse**. De kan trygt deles over flere kvelder — én prøve per økt. Etter hver prøve følger full fasit etter føringsstandarden (sensorregelen «ubegrunnet svar = 0») og en avkryssbar selvdiagnose.\n\n**Ærlig påminnelse:** Del 6 har svært tynt arkivbelegg (Taylor $1/21$, rekker og differensialligninger $0/21$). Prioritér Del 1–5 først; disse prøvene er for å *sikre* pensumkravet, ikke jage arkivsjangre. **Regn selv før du åpner fasiten.**"
+    },
+    {
+      "id": "mat1100-6-prove-forkunnskaper",
+      "type": "text",
+      "content": "**Forkunnskaper:** Prøvene forutsetter hele Del 6. Repeter ved behov: [Taylorpolynomer med restledd (6.1)](/bok/mat1100/mat1100-6-1), [Uendelige rekker og konvergenstester (6.2)](/bok/mat1100/mat1100-6-2) og [Differensialligninger (6.3)](/bok/mat1100/mat1100-6-3). Prøve 6.D bygger dessuten på [uegentlige integraler (4.6)](/bok/mat1100/mat1100-4-6). Huskeregelen på tvers: **restleddet evalueres i et ukjent $c$ (ikke i $a$), sammenligningsrekken/-integralet navngis alltid, og hver løsning av en differensialligning verifiseres ved innsetting.**"
+    },
+    {
+      "id": "mat1100-6-prove-proveA",
+      "type": "collapsible",
+      "title": "Prøve 6.A — Taylorpolynom med restleddsestimat (langsvar, 30 min)",
+      "buttonText": "Vis prøve 6.A",
+      "content": [
+        {
+          "id": "mat1100-6-prove-A-instruks",
+          "type": "text",
+          "content": "### Prøve 6.A — Taylorpolynom med restleddsestimat\n\n**Tid: 30 min · langsvar med full føring.** Bygg polynomet leddvis (husk **fakultetet $k!$**), og avgrens feilen med Lagrange-restleddet ved å **maksimere $|f^{(n+1)}|$** over hele intervallet — ikke bare evaluere i ett punkt. Marker sluttsvar og skriv en konklusjonssetning. (Kapittel [6.1](/bok/mat1100/mat1100-6-1).)"
+        },
+        {
+          "id": "mat1100-6-prove-A-oppg",
+          "type": "text",
+          "content": "**Oppgave 1 (Taylorpolynom + feilestimat, 6 poeng).** La $f(x)=e^{x}$.\n\n**a)** (2 p) Finn tredjegrads Maclaurinpolynom $T_3(x)$.\n**b)** (4 p) Bruk Lagrange-restleddet til å avgrense feilen $|e^{x}-T_3(x)|$ på intervallet $[0,\\tfrac12]$.\n\n**Oppgave 2 (utvikling av rotfunksjon, 6 poeng).** La $g(x)=\\sqrt{1+x}$.\n\n**a)** (3 p) Finn andregrads Maclaurinpolynom $T_2(x)$.\n**b)** (3 p) Bruk $T_2$ til å tilnærme $\\sqrt{1{,}1}$, og avgrens feilen med Lagrange-restleddet på $[0,\\tfrac1{10}]$.\n\n*Sum: 12 poeng.*"
+        },
+        {
+          "id": "mat1100-6-prove-A-fasit",
+          "type": "text",
+          "content": "### Fasit prøve 6.A\n\n**Oppgave 1a) (2 p).** Alle deriverte av $e^x$ er $e^x$ med verdi $1$ i $0$:\n$$T_3(x)=1+x+\\frac{x^2}{2!}+\\frac{x^3}{3!}=1+x+\\frac{x^2}{2}+\\frac{x^3}{6}.$$\n**Sluttsvar:** $T_3(x)=1+x+\\tfrac{x^2}{2}+\\tfrac{x^3}{6}$.\n\n**Oppgave 1b) (4 p).** Restleddet for $n=3$ er $R_3(x)=\\dfrac{f^{(4)}(c)}{4!}x^{4}$ med $f^{(4)}(x)=e^{x}$ og $c\\in(0,x)$:\n$$R_3(x)=\\frac{e^{c}}{24}x^{4}.$$\n**Maksimér $|f^{(4)}|=e^{c}$ over $[0,\\tfrac12]$:** $e^c$ er voksende, så $M=e^{1/2}$ (høyre endepunkt). Med $|x|\\le\\tfrac12$:\n$$|R_3(x)|\\le\\frac{e^{1/2}}{24}\\Big(\\frac12\\Big)^{4}=\\frac{e^{1/2}}{24\\cdot 16}=\\frac{e^{1/2}}{384}\\approx 0{,}0043.$$\n**Konklusjon:** feilen er $\\le\\dfrac{e^{1/2}}{384}\\approx 0{,}0043$ på $[0,\\tfrac12]$. *(Kontroll i $x=\\tfrac12$: $e^{0{,}5}=1{,}6487$, $T_3(\\tfrac12)=1{,}6458$, faktisk feil $\\approx 0{,}0029\\le 0{,}0043$ ✓.)*\n\n**Oppgave 2a) (3 p).** $g(x)=(1+x)^{1/2}$: $g'=\\tfrac12(1+x)^{-1/2}$, $g''=-\\tfrac14(1+x)^{-3/2}$. I $0$: $g(0)=1$, $g'(0)=\\tfrac12$, $g''(0)=-\\tfrac14$.\n$$T_2(x)=1+\\frac12 x+\\frac{-\\tfrac14}{2!}x^2=1+\\frac{x}{2}-\\frac{x^2}{8}.$$\n**Sluttsvar:** $T_2(x)=1+\\tfrac{x}{2}-\\tfrac{x^2}{8}$.\n\n**Oppgave 2b) (3 p).** Tilnærming i $x=\\tfrac1{10}$:\n$$\\sqrt{1{,}1}\\approx T_2(0{,}1)=1+0{,}05-0{,}00125=1{,}04875.$$\n**Feilavgrensning:** $R_2(x)=\\dfrac{g'''(c)}{3!}x^3$ med $g'''(x)=\\tfrac38(1+x)^{-5/2}$. For $c\\ge 0$ er $(1+c)^{-5/2}\\le 1$, så $|g'''(c)|\\le\\tfrac38$, altså $M=\\tfrac38$. Med $|x|\\le\\tfrac1{10}$:\n$$|R_2(x)|\\le\\frac{3/8}{6}\\Big(\\frac1{10}\\Big)^3=\\frac{1}{16}\\cdot\\frac{1}{1000}=\\frac{1}{16000}\\approx 6{,}3\\cdot 10^{-5}.$$\n**Konklusjon:** $\\sqrt{1{,}1}\\approx 1{,}04875$ med feil $\\le 6{,}3\\cdot 10^{-5}$. *(Fasit: $\\sqrt{1{,}1}=1{,}048809$, faktisk feil $\\approx 5{,}9\\cdot 10^{-5}\\le 6{,}3\\cdot 10^{-5}$ ✓.)*"
+        },
+        {
+          "id": "mat1100-6-prove-A-selvdiagnose",
+          "type": "text",
+          "content": "### Selvdiagnose 6.A\n\n- ☐ Jeg tok med **fakultetet $k!$** i hvert Taylor-ledd (delte $x^3$ på $3!=6$, ikke på $3$).\n- ☐ I restleddet evaluerte jeg $f^{(n+1)}$ i det **ukjente $c$**, ikke i $a$.\n- ☐ Jeg **maksimerte** $|f^{(n+1)}|$ over hele intervallet ($e^c$ voksende → høyre endepunkt; $(1+c)^{-5/2}\\le 1$ → $c=0$).\n- ☐ Hvert svar endte med en konklusjonssetning og markert sluttsvar.\n\n*Bommet du på feilestimatet fordi du satte $c=a$, repeter Lagrange-restleddet i [kap. 6.1](/bok/mat1100/mat1100-6-1).*"
+        }
+      ]
+    },
+    {
+      "id": "mat1100-6-prove-proveB",
+      "type": "collapsible",
+      "title": "Prøve 6.B — Rekkekonvergens: tre rekker, tre tester (langsvar, 30 min)",
+      "buttonText": "Vis prøve 6.B",
+      "content": [
+        {
+          "id": "mat1100-6-prove-B-instruks",
+          "type": "text",
+          "content": "### Prøve 6.B — Rekkekonvergens\n\n**Tid: 30 min · langsvar med full føring.** Hver rekke avgjøres med **én navngitt test**, og konklusjonen skal inneholde testens navn (divergenstesten, GS-testen, forholdstesten) og — der det er relevant — sammenligningsrekken som konvergent/divergent $p$-rekke. (Kapittel [6.2](/bok/mat1100/mat1100-6-2).)"
+        },
+        {
+          "id": "mat1100-6-prove-B-oppg",
+          "type": "text",
+          "content": "**Oppgave 1 (4 poeng).** Avgjør om $\\displaystyle\\sum_{n=1}^{\\infty}\\frac{n^{2}}{2n^{2}+1}$ konvergerer, og navngi testen.\n\n**Oppgave 2 (4 poeng).** Avgjør om $\\displaystyle\\sum_{n=1}^{\\infty}\\frac{n+1}{n^{3}+n}$ konvergerer, og navngi testen og sammenligningsrekken.\n\n**Oppgave 3 (4 poeng).** Avgjør om $\\displaystyle\\sum_{n=1}^{\\infty}\\frac{3^{n}}{n!}$ konvergerer, og navngi testen.\n\n*Sum: 12 poeng. Bruk tre forskjellige tester.*"
+        },
+        {
+          "id": "mat1100-6-prove-B-fasit",
+          "type": "text",
+          "content": "### Fasit prøve 6.B\n\n**Oppgave 1 (divergenstesten, 4 p).** Billigste test først: sjekk leddgrensen.\n$$\\lim_{n\\to\\infty}\\frac{n^{2}}{2n^{2}+1}=\\lim_{n\\to\\infty}\\frac{1}{2+\\tfrac1{n^{2}}}=\\frac12\\ne 0.$$\nSiden leddene går mot $\\tfrac12\\ne 0$ (ikke mot $0$), **divergerer** rekken etter **divergenstesten**.\n**Konklusjon:** $\\displaystyle\\sum_{n=1}^{\\infty}\\frac{n^{2}}{2n^{2}+1}$ divergerer.\n\n**Oppgave 2 (GS-testen, 4 p).** Positiv rekke. Dominant ledd: teller $\\sim n$, nevner $\\sim n^{3}$, så $a_n\\sim\\dfrac{n}{n^{3}}=\\dfrac{1}{n^{2}}$. Velg $b_n=\\dfrac{1}{n^{2}}$.\n$$L=\\lim_{n\\to\\infty}\\frac{a_n}{b_n}=\\lim_{n\\to\\infty}\\frac{n+1}{n^{3}+n}\\cdot n^{2}=\\lim_{n\\to\\infty}\\frac{n^{3}+n^{2}}{n^{3}+n}=1.$$\nSiden $0<L=1<\\infty$, har rekkene samme skjebne. **Navngi:** $\\displaystyle\\sum\\frac{1}{n^{2}}$ er en **konvergent $p$-rekke** ($p=2>1$). Etter **GS-testen konvergerer** derfor rekken.\n**Konklusjon:** $\\displaystyle\\sum_{n=1}^{\\infty}\\frac{n+1}{n^{3}+n}$ konvergerer.\n\n**Oppgave 3 (forholdstesten, 4 p).** Positiv rekke med fakultet → forholdstesten. Med $a_n=\\dfrac{3^{n}}{n!}$:\n$$\\frac{a_{n+1}}{a_n}=\\frac{3^{n+1}}{(n+1)!}\\cdot\\frac{n!}{3^{n}}=\\frac{3}{n+1}.$$\n$$L=\\lim_{n\\to\\infty}\\frac{3}{n+1}=0<1.$$\nSiden $L=0<1$, **konvergerer** rekken etter **forholdstesten**.\n**Konklusjon:** $\\displaystyle\\sum_{n=1}^{\\infty}\\frac{3^{n}}{n!}$ konvergerer. *(Fakultetet slår $3^n$ i det lange løp.)*"
+        },
+        {
+          "id": "mat1100-6-prove-B-selvdiagnose",
+          "type": "text",
+          "content": "### Selvdiagnose 6.B\n\n- ☐ Jeg prøvde **divergenstesten først** (billigst) og så at leddene i oppgave 1 ikke gikk mot $0$.\n- ☐ I GS-testen valgte jeg $b_n$ fra dominant ledd, sjekket $0<L<\\infty$, og **navngav** den konvergente $p$-rekken ($p=2$).\n- ☐ I forholdstesten forenklet jeg $\\tfrac{a_{n+1}}{a_n}$ og tok grensen; $L<1$ ga konvergens.\n- ☐ Jeg brukte **tre forskjellige tester** og navngav hver i konklusjonen.\n\n*Skrev du «$a_n\\to 0$, altså konvergerer» i noen oppgave, se den harmoniske rekken i [kap. 6.2](/bok/mat1100/mat1100-6-2) — $a_n\\to 0$ er ikke nok.*"
+        }
+      ]
+    },
+    {
+      "id": "mat1100-6-prove-proveC",
+      "type": "collapsible",
+      "title": "Prøve 6.C — Differensialligninger: separabel og lineær (langsvar, 30 min)",
+      "buttonText": "Vis prøve 6.C",
+      "content": [
+        {
+          "id": "mat1100-6-prove-C-instruks",
+          "type": "text",
+          "content": "### Prøve 6.C — Differensialligninger\n\n**Tid: 30 min · langsvar med full føring.** Løs én separabel og én lineær ligning, og **verifiser hver løsning ved innsetting** (deriver, sett inn, sjekk). Husk konstantløsninger i separasjonen, og at $C$ plasseres før du deler på $\\mu$. (Kapittel [6.3](/bok/mat1100/mat1100-6-3).)"
+        },
+        {
+          "id": "mat1100-6-prove-C-oppg",
+          "type": "text",
+          "content": "**Oppgave 1 (separabel IVP, 6 poeng).** Løs initialverdiproblemet\n$$y'=3x^{2}y,\\qquad y(0)=2.$$\nSjekk konstantløsninger, og verifiser svaret.\n\n**Oppgave 2 (lineær IVP, 6 poeng).** Løs initialverdiproblemet\n$$y'+\\frac{2}{x}\\,y=x\\ \\ (x>0),\\qquad y(1)=1,$$\nmed integrerende faktor, og verifiser svaret.\n\n*Sum: 12 poeng.*"
+        },
+        {
+          "id": "mat1100-6-prove-C-fasit",
+          "type": "text",
+          "content": "### Fasit prøve 6.C\n\n**Oppgave 1 (separabel, 6 p).** Formen $y'=3x^{2}\\cdot y$ er separabel med $f(x)=3x^{2}$, $g(y)=y$.\n*Konstantløsning:* $g(y)=y=0$ gir $y\\equiv 0$ — en løsning, men den oppfyller ikke $y(0)=2$.\n*Separer (for $y\\ne 0$):* $\\dfrac{dy}{y}=3x^{2}\\,dx$.\n*Integrer:* $\\ln|y|=x^{3}+C$.\n*Løs for $y$:* $y=A\\,e^{x^{3}}$ (med $A=\\pm e^{C}$).\n*Initialbetingelse:* $y(0)=A\\,e^{0}=A=2$, så $A=2$.\n$$\\boxed{y(x)=2e^{x^{3}}.}$$\n**Verifikasjon:** $y'=2\\cdot 3x^{2}e^{x^{3}}=3x^{2}\\big(2e^{x^{3}}\\big)=3x^{2}y$ ✓, og $y(0)=2$ ✓.\n**Konklusjon:** $y(x)=2e^{x^{3}}$.\n\n**Oppgave 2 (lineær, 6 p).** Ligningen står allerede på standardform $y'+p(x)y=q(x)$ med $p(x)=\\dfrac{2}{x}$, $q(x)=x$.\n*Integrerende faktor:* $\\mu=e^{\\int \\frac{2}{x}\\,dx}=e^{2\\ln x}=x^{2}$ (for $x>0$).\n*Gang med $\\mu=x^{2}$:* venstresiden blir en eksakt derivert,\n$$\\big(x^{2}y\\big)'=x^{2}\\cdot x=x^{3}.$$\n*Integrer:* $x^{2}y=\\displaystyle\\int x^{3}\\,dx=\\dfrac{x^{4}}{4}+C$.\n*Løs for $y$* (del på $x^{2}$): $y=\\dfrac{x^{2}}{4}+\\dfrac{C}{x^{2}}$.\n*Initialbetingelse:* $y(1)=\\dfrac14+C=1$, så $C=\\dfrac34$.\n$$\\boxed{y(x)=\\frac{x^{2}}{4}+\\frac{3}{4x^{2}}.}$$\n**Verifikasjon:** $y'=\\dfrac{x}{2}-\\dfrac{3}{2x^{3}}$, og\n$$y'+\\frac{2}{x}y=\\frac{x}{2}-\\frac{3}{2x^{3}}+\\frac{2}{x}\\Big(\\frac{x^{2}}{4}+\\frac{3}{4x^{2}}\\Big)=\\frac{x}{2}-\\frac{3}{2x^{3}}+\\frac{x}{2}+\\frac{3}{2x^{3}}=x\\ ✓,$$\nog $y(1)=\\tfrac14+\\tfrac34=1$ ✓.\n**Konklusjon:** $y(x)=\\dfrac{x^{2}}{4}+\\dfrac{3}{4x^{2}}$."
+        },
+        {
+          "id": "mat1100-6-prove-C-selvdiagnose",
+          "type": "text",
+          "content": "### Selvdiagnose 6.C\n\n- ☐ I den separable ligningen sjekket jeg konstantløsningen $y\\equiv 0$ ($g(y)=0$) separat.\n- ☐ Jeg tok med **integrasjonskonstanten** før jeg løste for $y$, og plasserte $C$ riktig.\n- ☐ I den lineære ligningen brukte jeg $\\mu=e^{\\int p\\,dx}=x^{2}$ og gjorde venstresiden til $(x^{2}y)'$.\n- ☐ Jeg **verifiserte begge** løsningene ved innsetting (deriverte, satte inn, sjekket identitet + initialbetingelse).\n\n*Mistet du konstantløsningen eller plasserte $C$ feil, repeter [kap. 6.3](/bok/mat1100/mat1100-6-3).*"
+        }
+      ]
+    },
+    {
+      "id": "mat1100-6-prove-proveD",
+      "type": "collapsible",
+      "title": "Prøve 6.D — Tverrgående: restledd via delvis integrasjon + GS-parallellen (blandet, 40 min)",
+      "buttonText": "Vis prøve 6.D",
+      "content": [
+        {
+          "id": "mat1100-6-prove-D-instruks",
+          "type": "text",
+          "content": "### Prøve 6.D — Tverrgående oppgave\n\n**Tid: 40 min · langsvar med full begrunnelse.** Dette er en **2017-inspirert teorioppgave** (bygg restleddet på integralform via delvis integrasjon) etterfulgt av **GS-parallellen** mellom en rekke og et integral (broen fra [kap. 6.2](/bok/mat1100/mat1100-6-2) til [4.6](/bok/mat1100/mat1100-4-6)). Dokumentér $u$/$v'$-valget i delvis integrasjon, og navngi sammenligningsobjektene som konvergent $p$-rekke/$p$-integral. (Kapittel [6.1](/bok/mat1100/mat1100-6-1)–[6.2](/bok/mat1100/mat1100-6-2) + [4.6](/bok/mat1100/mat1100-4-6).)"
+        },
+        {
+          "id": "mat1100-6-prove-D-oppg",
+          "type": "text",
+          "content": "**Oppgave 1 (restledd på integralform, 8 poeng).** La $f$ ha kontinuerlig andrederivert $f''$.\n\n**a)** (5 p) Vis, med utgangspunkt i fundamentalteoremet og **delvis integrasjon**, at\n$$f(x)=f(a)+f'(a)(x-a)+\\int_a^{x} f''(t)\\,(x-t)\\,dt.$$\n**b)** (3 p) Anta i tillegg at $|f''(t)|\\le M$ for alle $t\\in[a,x]$. Vis at førsteordens Taylor-feilen oppfyller $|f(x)-T_1(x)|\\le\\dfrac{M}{2}(x-a)^{2}$ for $x\\ge a$.\n\n**Oppgave 2 (GS-parallellen rekke/integral, 6 poeng).** Betrakt $\\displaystyle\\sum_{n=1}^{\\infty}\\frac{1}{n^{2}+1}$ og $\\displaystyle\\int_1^{\\infty}\\frac{dx}{x^{2}+1}$.\n\n**a)** (3 p) Vis med **GS-testen for rekker** at rekken konvergerer, og navngi sammenligningsrekken.\n**b)** (3 p) Vis med **GS-testen for integraler** (som i 4.6) at integralet konvergerer, og navngi sammenligningsintegralet. Kommentér parallellen.\n\n*Sum: 14 poeng.*"
+        },
+        {
+          "id": "mat1100-6-prove-D-fasit1",
+          "type": "text",
+          "content": "### Fasit prøve 6.D\n\n**Oppgave 1a) (5 p).** *Start med fundamentalteoremet* ($f'$ er antiderivert til $f''$):\n$$f(x)=f(a)+\\int_a^{x} f'(t)\\,dt.$$\n*Delvis integrasjon på $\\int_a^x f'(t)\\,dt$.* Velg\n$$u=f'(t),\\ u'=f''(t);\\qquad v'=1,\\ v=-(x-t).$$\n*(Vi velger $v=-(x-t)$ i stedet for $v=t$ fordi den er null i øvre grense $t=x$ — det rydder randleddet.)*\n$$\\int_a^{x} f'(t)\\,dt=\\Big[f'(t)\\big(-(x-t)\\big)\\Big]_a^{x}-\\int_a^{x} f''(t)\\big(-(x-t)\\big)\\,dt.$$\n*Randleddet:* i $t=x$ er $-(x-x)=0$; i $t=a$ er $-f'(a)\\big(-(x-a)\\big)=f'(a)(x-a)$. Randleddet blir $0-\\big(-f'(a)(x-a)\\big)=f'(a)(x-a)$, og restintegralet får $+$-fortegn:\n$$\\int_a^{x} f'(t)\\,dt=f'(a)(x-a)+\\int_a^{x} f''(t)(x-t)\\,dt.$$\n*Sett sammen:*\n$$f(x)=f(a)+f'(a)(x-a)+\\int_a^{x} f''(t)(x-t)\\,dt.$$\n**Konklusjon:** identiteten er vist — førsteordens Taylor med restleddet på integralform (2017-sjangeren).\n\n**Oppgave 1b) (3 p).** Restleddet er $R_1(x)=f(x)-T_1(x)=\\displaystyle\\int_a^{x} f''(t)(x-t)\\,dt$. For $a\\le t\\le x$ er $(x-t)\\ge 0$, og $|f''(t)|\\le M$, så\n$$|R_1(x)|\\le\\int_a^{x}|f''(t)|\\,(x-t)\\,dt\\le M\\int_a^{x}(x-t)\\,dt=M\\Big[-\\frac{(x-t)^{2}}{2}\\Big]_a^{x}=M\\cdot\\frac{(x-a)^{2}}{2}.$$\n**Konklusjon:** $|f(x)-T_1(x)|\\le\\dfrac{M}{2}(x-a)^{2}$ — nøyaktig Lagrange-avgrensningen for $n=1$.\n\n*— naturlig pausepunkt —*"
+        },
+        {
+          "id": "mat1100-6-prove-D-fasit2",
+          "type": "text",
+          "content": "**Oppgave 2a) (GS-testen for rekker, 3 p).** Positiv rekke. Dominant ledd: $a_n=\\dfrac{1}{n^{2}+1}\\sim\\dfrac{1}{n^{2}}$. Velg $b_n=\\dfrac{1}{n^{2}}$:\n$$L=\\lim_{n\\to\\infty}\\frac{a_n}{b_n}=\\lim_{n\\to\\infty}\\frac{n^{2}}{n^{2}+1}=1.$$\nSiden $0<L=1<\\infty$, samme skjebne. **Navngi:** $\\displaystyle\\sum\\frac{1}{n^{2}}$ er en **konvergent $p$-rekke** ($p=2>1$). Etter **GS-testen konvergerer** $\\displaystyle\\sum_{n=1}^{\\infty}\\frac{1}{n^{2}+1}$.\n\n**Oppgave 2b) (GS-testen for integraler, 3 p).** Positiv integrand, eneste uegentlighet er $\\infty$. Dominant ledd: $\\dfrac{1}{x^{2}+1}\\sim\\dfrac{1}{x^{2}}$. Velg $g=\\dfrac{1}{x^{2}}$:\n$$L=\\lim_{x\\to\\infty}\\frac{1/(x^{2}+1)}{1/x^{2}}=\\lim_{x\\to\\infty}\\frac{x^{2}}{x^{2}+1}=1.$$\nSiden $0<L=1<\\infty$, samme skjebne. **Navngi:** $\\displaystyle\\int_1^{\\infty}\\frac{dx}{x^{2}}$ er et **konvergent $p$-integral** ($p=2>1$). Etter **GS-testen konvergerer** $\\displaystyle\\int_1^{\\infty}\\frac{dx}{x^{2}+1}$.\n\n*(Verdien kan regnes eksakt: $\\int_1^{\\infty}\\frac{dx}{x^{2}+1}=\\lim_{R\\to\\infty}[\\arctan x]_1^{R}=\\tfrac{\\pi}{2}-\\tfrac{\\pi}{4}=\\tfrac{\\pi}{4}$ — men *avgjørelsen* med det navngitte $p$-integralet var poenget.)*\n\n**Parallellen:** rekke og integral behandles med **nøyaktig samme GS-logikk** — velg dominant ledd, sjekk $0<L<\\infty$, navngi det konvergente $p$-objektet. Rekkens $p$-rekke ($p=2$) speiler integralets $p$-integral ($p=2$); dette er broen mellom [kap. 6.2](/bok/mat1100/mat1100-6-2) og [4.6](/bok/mat1100/mat1100-4-6)."
+        },
+        {
+          "id": "mat1100-6-prove-D-selvdiagnose",
+          "type": "text",
+          "content": "### Selvdiagnose 6.D\n\n- ☐ I 1a) startet jeg fra fundamentalteoremet og **dokumenterte $u$/$v'$-valget** ($v=-(x-t)$ som rydder randleddet).\n- ☐ I 1b) avgrenset jeg under integraltegnet med $|f''|\\le M$ og regnet $\\int_a^x(x-t)\\,dt=\\tfrac{(x-a)^2}{2}$.\n- ☐ I 2a)–b) valgte jeg dominant ledd, sjekket $0<L<\\infty$, og **navngav** både den konvergente $p$-rekken og det konvergente $p$-integralet.\n- ☐ Jeg så parallellen: samme GS-logikk for rekke og integral, med speilende $p=2$.\n\n*Klarte du ikke 1a), kunne du likevel gjort 1b) og 2 — instruksen tillater å bruke resultater fra ubesvarte punkter. Repeter integralformen i [kap. 6.1](/bok/mat1100/mat1100-6-1) og GS-testene i [kap. 6.2](/bok/mat1100/mat1100-6-2)/[4.6](/bok/mat1100/mat1100-4-6).*"
+        }
+      ]
+    }
+  ],
+  "exercises": []
+}

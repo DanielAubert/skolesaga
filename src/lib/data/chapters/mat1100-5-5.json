@@ -1,0 +1,276 @@
+{
+  "id": "mat1100-5-5",
+  "courseId": "mat1100",
+  "chapterNumber": "5.5",
+  "title": "Drill: gradientpakken som åpningsoppgave",
+  "description": "Slutteksamenens faste åpning (sjanger A, 21/21) drillet til automatikk: alle fire variantene av gradient/retningsderivert med A-besvarelsens føring — normalisert og unormalisert retning, raskest vekst, nullretning og nivåkurve-kjeding.",
+  "estimatedMinutes": 90,
+  "competenceGoals": [
+    "kjøre fem-stegsoppskriften for gradient/retningsderivert raskt og med full føring",
+    "velge riktig mellom å bruke retningsvektoren direkte og å normalisere den, ut fra oppgaveteksten",
+    "skille retning for raskest vekst (vektor) fra maksimal vekstrate (tall), og finne nullretninger",
+    "kjede gradientoppgaven mot en nivåkurve og bruke kjerneregelen langs en kurve"
+  ],
+  "content": [
+    {
+      "id": "mat1100-5-5-tip-eksamensvinkel",
+      "type": "tip",
+      "title": "Eksamensvinkel",
+      "content": "**Dette er den faste åpningen på slutteksamen — sjanger A står i 21 av 21 sett, nesten alltid som oppgave 1.** Analysen kaller det billige poeng med kjent oppskrift, og målet med denne drillen er at gradientpakken skal sitte automatisk under tidspress.\n\n- Variantkatalogen fra arkivet (21 slutteksamener H2003–H2023, 18 med løsningsforslag + 16 midtveiseksamener H2003–H2018; arkivet stopper i 2023): **(1)** evaluert retningsderivert i gitt retning — både med **unormalisert** $\\mathbf r$ og med **enhetsvektor**; **(2)** retningen for **raskest vekst** + den **maksimale vekstraten**; **(3)** en **nullretning** (retningsderivert 0); **(4)** varianten kjedet mot en **nivåkurve** eller kurve.\n- Prioritet: høyeste (nivå «perfekt»). Sensorregelen «ubegrunnet svar = 0» gjelder — de verbale konklusjonssetningene er en del av poengsummen.\n\nDenne drillen gir deg løsningsoppskriften (fem steg), ett gjennomregnet eksamenscase med margnotater om hvor de billige poengene hentes og mistes, og 10 oppgaver på eksamensnivå. En **signalboks** etter hver oppgave sier hvilken variant den testet.\n\n**Slik jobber du (90 min — del gjerne over to økter):**\n1. Les oppskriften og eksamenscaset (~20 min). *— naturlig pausepunkt —*\n2. Ta variantoppgavene 1–8 med full føring (~45 min).\n3. Avslutt med de kjedede oppgavene 9–10 (~25 min)."
+    },
+    {
+      "id": "mat1100-5-5-forkunnskaper",
+      "type": "text",
+      "content": "**Forkunnskaper:** Drillen forutsetter hele teorien fra **[kap. 5.4](/bok/mat1100/mat1100-5-4)** (partiellderiverte, gradienten $\\nabla f$, retningsderivert med kursets konvensjon, de tre verbalfaktaene, nivåkurver). Skalarproduktet fra **[kap. 5.1](/bok/mat1100/mat1100-5-1)** brukes i hvert eneste steg. Her lærer du ingen ny teori — du drilles i å kjøre oppskriften raskt og føre den slik fasit gjør.\n\n**Sist du var her — de tre verbalfaktaene i kortform:**\n\n- $f$ vokser **raskest** i retningen til $\\nabla f(\\mathbf a)$ (en vektor).\n- Den **maksimale vekstraten** er $|\\nabla f(\\mathbf a)|$ (et tall).\n- Retningsderiverten er **0** i retninger $\\mathbf r\\perp\\nabla f(\\mathbf a)$ (langs nivåkurven)."
+    },
+    {
+      "id": "mat1100-5-5-oppskrift",
+      "type": "text",
+      "content": "## Løsningsoppskriften — fem steg (~8 min)\n\nHver variant av sjanger A løses med den samme algoritmen. Kjør stegene i rekkefølge, hver gang.\n\n**Steg 1 — Regn alle partiellderiverte komponentvis.** Deriver mhp. hver variabel for seg; hold de andre konstante. Skriv $f_x$, $f_y$ (og $f_z$).\n\n**Steg 2 — Sett sammen $\\nabla f$ og evaluer i punktet.** Vis innsettingen av punktets koordinater i hver komponent — det er et eget føringspoeng.\n\n**Steg 3 — Les oppgaven: skal $\\mathbf r$ normaliseres?** Står det «enhetsvektor» eller «retningen til»? → normaliser $\\hat{\\mathbf r}=\\mathbf r/|\\mathbf r|$ (men sjekk først om $\\mathbf r$ alt har lengde 1). Ellers: bruk oppgitt $\\mathbf r$ **direkte** (konvensjonen gjelder ubetinget).\n\n**Steg 4 — Ta skalarproduktet med føring.** $f'(\\mathbf a;\\mathbf r)=\\nabla f(\\mathbf a)\\cdot\\mathbf r$ — skriv mellomregningen ledd for ledd.\n\n**Steg 5 — Verbal konklusjonssetning med teoremfaktaene.** «Retningsderiverten er … , så $f$ vokser/avtar», «raskest vekst i retning $\\nabla f$ med rate $|\\nabla f|$», eller «$\\mathbf r\\perp\\nabla f$, altså retningsderivert 0». Marker sluttsvaret.\n\n**Skille som gir og tar poeng:** en **retning** er en vektor; en **rate** er et tall. Å svare med feil type (vektor der det spørres om tall, eller motsatt) er den vanligste tabben — og normaliseringsvalget i steg 3 er det andre."
+    },
+    {
+      "id": "mat1100-5-5-ex-case",
+      "type": "example",
+      "title": "Gjennomregnet eksamenscase — hele gradientpakken med sensor-margnotater",
+      "problem": "En typisk åpningsoppgave. La $f(x,y,z)=x^2z+y^3-xz$ og $\\mathbf a=(1,-1,2)$.\n\n**a)** Finn $\\nabla f(\\mathbf a)$.\n**b)** Finn retningsderiverten i retningen til enhetsvektoren for $\\mathbf r=(2,2,1)$.\n**c)** I hvilken retning vokser $f$ raskest ut fra $\\mathbf a$, og hva er den maksimale vekstraten?\n**d)** Angi en retning ut fra $\\mathbf a$ der retningsderiverten er 0.",
+      "solution": "**a) Steg 1–2 — partiellderiverte og gradient** *(margnotat: her sitter grunnpoengene — vis innsettingen, ikke bare sluttvektoren):*\n$$f_x=2xz-z,\\qquad f_y=3y^2,\\qquad f_z=x^2-x.$$\nInnsetting i $\\mathbf a=(1,-1,2)$:\n$$f_x=2\\cdot 1\\cdot 2-2=2,\\quad f_y=3(-1)^2=3,\\quad f_z=1^2-1=0.$$\n$$\\boxed{\\nabla f(1,-1,2)=(2,3,0)}$$\n\n**b) Steg 3 — normaliser?** Oppgaven ber om **enhetsvektoren** for $\\mathbf r=(2,2,1)$. Lengden $|\\mathbf r|=\\sqrt{2^2+2^2+1^2}=\\sqrt9=3\\ne 1$, så vi normaliserer: $\\hat{\\mathbf r}=\\tfrac13(2,2,1)$ *(margnotat: å hoppe over normaliseringen her er den klassiske poengtapsfellen — oppgaven sa «enhetsvektor»).*\n\n**Steg 4 — skalarprodukt:**\n$$f'(\\mathbf a;\\hat{\\mathbf r})=\\nabla f(\\mathbf a)\\cdot\\hat{\\mathbf r}=\\frac{(2,3,0)\\cdot(2,2,1)}{3}=\\frac{4+6+0}{3}=\\frac{10}{3}.$$\n**Steg 5 — konklusjon:** retningsderiverten er $\\tfrac{10}{3}\\approx 3{,}33>0$, så $f$ **vokser** i denne retningen. $\\boxed{\\tfrac{10}{3}}$\n\n**c)** $f$ vokser raskest i retningen til gradienten: **retningen $(2,3,0)$** *(margnotat: dette er en vektor — ikke svar med et tall her).* Den maksimale vekstraten er lengden:\n$$|\\nabla f(\\mathbf a)|=\\sqrt{2^2+3^2+0^2}=\\sqrt{13}\\approx 3{,}61.$$\n$\\boxed{\\text{retning }(2,3,0),\\ \\text{rate }\\sqrt{13}}$\n\n**d)** En nullretning står normalt på $(2,3,0)$, altså $\\mathbf r$ med $(2,3,0)\\cdot\\mathbf r=0$. Siste komponent i gradienten er 0, så $\\mathbf r=(0,0,1)$ virker: $(2,3,0)\\cdot(0,0,1)=0$. Et annet valg er $(3,-2,0)$: $6-6=0$. *(margnotat: her holder det å oppgi én gyldig retning og verifisere med skalarprodukt = 0.)*\n$$\\boxed{\\mathbf r=(3,-2,0)\\ \\text{(eller }(0,0,1))}$$\n\n*Poengfordelingen i en slik oppgave sitter i de fire margnotatene: vist innsetting i gradienten, riktig normaliseringsvalg, retning-vs-rate-skillet, og en verifisert nullretning. Riktige tall uten den verbale føringen gir sjelden full uttelling.*"
+    },
+    {
+      "id": "mat1100-5-5-drill-tekst",
+      "type": "text",
+      "content": "## Oppgaver på eksamensnivå (~45 min)\n\nKjør fem-stegsoppskriften på hver. Signalboksen etter hver løsning sier hvilken variant oppgaven testet. *— naturlig pausepunkt før du starter —*"
+    },
+    {
+      "id": "mat1100-5-5-ex-1",
+      "type": "exercise",
+      "exercise": {
+        "id": "mat1100-5-5-ex-1-ex",
+        "number": "1",
+        "type": "classic",
+        "difficulty": "lett",
+        "task": "(Eksamenssjanger A — evaluert retningsderivert, unormalisert $\\mathbf r$.) La $f(x,y)=xy^2$ og $\\mathbf a=(2,1)$. Finn retningsderiverten i retningen $\\mathbf r=(2,1)$, og avgjør om $f$ vokser eller avtar.",
+        "solution": "**Steg 1–2:** $f_x=y^2$, $f_y=2xy$, så $\\nabla f(2,1)=(1^2,\\ 2\\cdot 2\\cdot 1)=(1,4)$.\n\n**Steg 3:** $\\mathbf r=(2,1)$ er oppgitt direkte, ingen enhetsvektor nevnt → bruk den som den er.\n\n**Steg 4:** $f'(\\mathbf a;\\mathbf r)=(1,4)\\cdot(2,1)=2+4=6.$\n\n**Steg 5:** Retningsderiverten er $6>0$, så $f$ **vokser** i retningen $(2,1)$. **Svar:** $\\boxed{6\\ (f\\text{ vokser})}$\n\n**Signal:** ren evaluert retningsderivert med **oppgitt** vektor — bruk konvensjonen direkte, ikke normaliser.",
+        "hints": [
+          "$\\nabla f=(y^2,\\ 2xy)$; evaluer i $(2,1)$.",
+          "Oppgaven ber ikke om enhetsvektor → bruk $\\mathbf r=(2,1)$ direkte.",
+          "Fortegnet på svaret avgjør vokser/avtar."
+        ]
+      }
+    },
+    {
+      "id": "mat1100-5-5-ex-2",
+      "type": "exercise",
+      "exercise": {
+        "id": "mat1100-5-5-ex-2-ex",
+        "number": "2",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "(Eksamenssjanger A — retningsderivert med enhetsvektor.) La $g(x,y)=x^2-y^2$ og $\\mathbf a=(3,1)$. Finn retningsderiverten i retningen til vektoren $\\mathbf r=(3,4)$.",
+        "solution": "**Steg 1–2:** $g_x=2x$, $g_y=-2y$, så $\\nabla g(3,1)=(6,-2)$.\n\n**Steg 3:** «retningen til vektoren $(3,4)$» ⇒ normaliser. $|\\mathbf r|=\\sqrt{3^2+4^2}=5\\ne 1$, så $\\hat{\\mathbf r}=\\tfrac15(3,4)$.\n\n**Steg 4:** $g'(\\mathbf a;\\hat{\\mathbf r})=\\dfrac{(6,-2)\\cdot(3,4)}{5}=\\dfrac{18-8}{5}=\\dfrac{10}{5}=2.$\n\n**Steg 5:** Retningsderiverten er $2>0$, så $g$ **vokser** i denne retningen. **Svar:** $\\boxed{2}$\n\n**Signal:** formuleringen «retningen til vektoren» tvinger fram **normalisering** — $|\\mathbf r|=5$ må deles inn.",
+        "hints": [
+          "$\\nabla g=(2x,-2y)$ i $(3,1)$.",
+          "«Retningen til» ⇒ del på $|\\mathbf r|=5$.",
+          "$(6,-2)\\cdot(3,4)=10$, del på 5."
+        ]
+      }
+    },
+    {
+      "id": "mat1100-5-5-ex-3",
+      "type": "exercise",
+      "exercise": {
+        "id": "mat1100-5-5-ex-3-ex",
+        "number": "3",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "(Eksamenssjanger A — gitt vektor er allerede enhetsvektor.) La $h(x,y)=x^2+y^2$ og $\\mathbf a=(1,1)$. Finn retningsderiverten i retningen $\\mathbf r=\\left(\\tfrac35,\\tfrac45\\right)$.",
+        "solution": "**Steg 1–2:** $h_x=2x$, $h_y=2y$, så $\\nabla h(1,1)=(2,2)$.\n\n**Steg 3:** Sjekk lengden: $|\\mathbf r|=\\sqrt{(3/5)^2+(4/5)^2}=\\sqrt{9/25+16/25}=\\sqrt{1}=1$. Vektoren er **allerede en enhetsvektor** — ikke normaliser på nytt.\n\n**Steg 4:** $h'(\\mathbf a;\\mathbf r)=(2,2)\\cdot\\left(\\tfrac35,\\tfrac45\\right)=\\tfrac{6}{5}+\\tfrac{8}{5}=\\tfrac{14}{5}.$\n\n**Steg 5:** Retningsderiverten er $\\tfrac{14}{5}=2{,}8>0$, så $h$ **vokser**. **Svar:** $\\boxed{\\tfrac{14}{5}}$\n\n**Signal:** fellen her er å normalisere en vektor som **alt** har lengde 1 (da ville du delt på 1 «i vane» og bommet hvis du hadde delt på noe annet). Sjekk $|\\mathbf r|$ først.",
+        "hints": [
+          "$\\nabla h=(2x,2y)$ i $(1,1)$.",
+          "Regn $|\\mathbf r|$ først: er den 1, er $\\mathbf r$ alt en enhetsvektor.",
+          "$(2,2)\\cdot(3/5,4/5)=6/5+8/5$."
+        ]
+      }
+    },
+    {
+      "id": "mat1100-5-5-ex-4",
+      "type": "exercise",
+      "exercise": {
+        "id": "mat1100-5-5-ex-4-ex",
+        "number": "4",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "(Eksamenssjanger A — raskest vekst + maksimal rate.) La $f(x,y)=x^3+y$ og $\\mathbf a=(1,2)$. **a)** I hvilken retning vokser $f$ raskest? **b)** Hva er den maksimale vekstraten?",
+        "solution": "**Steg 1–2:** $f_x=3x^2$, $f_y=1$, så $\\nabla f(1,2)=(3,1)$.\n\n**a)** $f$ vokser raskest i retningen til gradienten: **retningen $(3,1)$** (en vektor).\n\n**b)** Maksimal vekstrate $=|\\nabla f(1,2)|=\\sqrt{3^2+1^2}=\\sqrt{10}\\approx 3{,}16$ (et tall).\n\n**Konklusjon:** raskest vekst i retning $(3,1)$, maksimal rate $\\sqrt{10}$. **Svar:** $\\boxed{(3,1);\\ \\sqrt{10}}$\n\n**Signal:** to spørsmål med **to typer** svar — retningen er vektoren $\\nabla f$, raten er tallet $|\\nabla f|$.",
+        "hints": [
+          "$\\nabla f=(3x^2,1)$ i $(1,2)$.",
+          "Raskest vekst = gradientens retning.",
+          "Maksimal rate = $|\\nabla f|$."
+        ]
+      }
+    },
+    {
+      "id": "mat1100-5-5-ex-5",
+      "type": "exercise",
+      "exercise": {
+        "id": "mat1100-5-5-ex-5-ex",
+        "number": "5",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "(Eksamenssjanger A — maksimal vekstrate, retning-vs-tall.) La $f(x,y)=x^2y$ og $\\mathbf a=(2,1)$. Hva er den største verdien retningsderiverten kan ha i $\\mathbf a$?",
+        "solution": "**Steg 1–2:** $f_x=2xy$, $f_y=x^2$, så $\\nabla f(2,1)=(2\\cdot 2\\cdot 1,\\ 2^2)=(4,4)$.\n\n**Nøkkel:** den største retningsderiverten er nettopp den maksimale vekstraten $|\\nabla f|$:\n$$|\\nabla f(2,1)|=\\sqrt{4^2+4^2}=\\sqrt{32}=4\\sqrt2\\approx 5{,}66.$$\n\n**Konklusjon:** den største verdien retningsderiverten kan ha er $4\\sqrt2$ (et **tall**). Den nås i retningen $(4,4)$, men spørsmålet ber bare om verdien. **Svar:** $\\boxed{4\\sqrt2}$\n\n**Signal:** «største verdi retningsderiverten kan ha» = $|\\nabla f|$, et tall — ikke svar med retningsvektoren.",
+        "hints": [
+          "$\\nabla f=(2xy,x^2)$ i $(2,1)$.",
+          "Den største retningsderiverten er $|\\nabla f|$.",
+          "$\\sqrt{4^2+4^2}=\\sqrt{32}=4\\sqrt2$."
+        ]
+      }
+    },
+    {
+      "id": "mat1100-5-5-ex-6",
+      "type": "exercise",
+      "exercise": {
+        "id": "mat1100-5-5-ex-6-ex",
+        "number": "6",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "(Eksamenssjanger A — nullretning.) La $f(x,y)=x^2-2y$ og $\\mathbf a=(1,3)$. Finn en retning ut fra $\\mathbf a$ der retningsderiverten er 0, og verifiser.",
+        "solution": "**Steg 1–2:** $f_x=2x$, $f_y=-2$, så $\\nabla f(1,3)=(2,-2)$.\n\n**Nullretning:** en $\\mathbf r$ med $\\nabla f\\cdot\\mathbf r=0$. Bytt komponentene i $(2,-2)$ og sett minus på den ene: $\\mathbf r=(2,2)$, forenklet $(1,1)$.\n\n**Verifikasjon:** $(2,-2)\\cdot(1,1)=2-2=0$. ✓\n\n**Konklusjon:** i retningen $(1,1)$ (og $(-1,-1)$) er retningsderiverten 0 — dette er tangentretningen til nivåkurven gjennom $(1,3)$. **Svar:** $\\boxed{(1,1)}$\n\n**Signal:** nullretning = normalt på $\\nabla f$; alltid verifiser med skalarprodukt = 0.",
+        "hints": [
+          "$\\nabla f=(2x,-2)$ i $(1,3)$.",
+          "Nullretning: bytt komponentene og sett minus.",
+          "Kontroller: $\\nabla f\\cdot\\mathbf r=0$."
+        ]
+      }
+    },
+    {
+      "id": "mat1100-5-5-ex-7",
+      "type": "exercise",
+      "exercise": {
+        "id": "mat1100-5-5-ex-7-ex",
+        "number": "7",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "(Eksamenssjanger A — tre variable, unormalisert $\\mathbf r$.) La $f(x,y,z)=xyz$ og $\\mathbf a=(1,2,3)$. Finn retningsderiverten i retningen $\\mathbf r=(1,0,-1)$.",
+        "solution": "**Steg 1–2:** $f_x=yz$, $f_y=xz$, $f_z=xy$, så\n$$\\nabla f(1,2,3)=(2\\cdot 3,\\ 1\\cdot 3,\\ 1\\cdot 2)=(6,3,2).$$\n\n**Steg 3:** $\\mathbf r=(1,0,-1)$ oppgitt direkte, ingen enhetsvektor nevnt → bruk den som den er.\n\n**Steg 4:** $f'(\\mathbf a;\\mathbf r)=(6,3,2)\\cdot(1,0,-1)=6+0-2=4.$\n\n**Steg 5:** Retningsderiverten er $4>0$, så $f$ **vokser** i retningen $(1,0,-1)$. **Svar:** $\\boxed{4}$\n\n**Signal:** tre variable, men samme oppskrift — oppgitt $\\mathbf r$ brukes direkte.",
+        "hints": [
+          "$\\nabla f=(yz,xz,xy)$ i $(1,2,3)$.",
+          "Ingen enhetsvektor nevnt → bruk $\\mathbf r$ direkte.",
+          "$(6,3,2)\\cdot(1,0,-1)=6+0-2$."
+        ]
+      }
+    },
+    {
+      "id": "mat1100-5-5-ex-8",
+      "type": "exercise",
+      "exercise": {
+        "id": "mat1100-5-5-ex-8-ex",
+        "number": "8",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "(Eksamenssjanger A — tre variable, raskest vekst + rate.) La $f(x,y,z)=x^2+y^2+z^2$ og $\\mathbf a=(1,2,2)$. **a)** I hvilken retning vokser $f$ raskest? **b)** Hva er den maksimale vekstraten?",
+        "solution": "**Steg 1–2:** $f_x=2x$, $f_y=2y$, $f_z=2z$, så $\\nabla f(1,2,2)=(2,4,4)$.\n\n**a)** Raskest vekst i retningen til gradienten: **retningen $(2,4,4)$** (eller enhetsvektoren $\\tfrac16(2,4,4)=\\left(\\tfrac13,\\tfrac23,\\tfrac23\\right)$).\n\n**b)** Maksimal vekstrate:\n$$|\\nabla f(1,2,2)|=\\sqrt{2^2+4^2+4^2}=\\sqrt{4+16+16}=\\sqrt{36}=6.$$\n\n**Konklusjon:** raskest vekst i retning $(2,4,4)$, maksimal rate $6$. **Svar:** $\\boxed{(2,4,4);\\ 6}$\n\n**Signal:** tre variable; pen $|\\nabla f|=6$. Retning = vektor, rate = tall.",
+        "hints": [
+          "$\\nabla f=(2x,2y,2z)$ i $(1,2,2)$.",
+          "Raskest vekst = gradientens retning.",
+          "$|\\nabla f|=\\sqrt{4+16+16}=\\sqrt{36}$."
+        ]
+      }
+    },
+    {
+      "id": "mat1100-5-5-img-nivaakurve",
+      "type": "image",
+      "src": "/images/textbook/mat1100/mat1100-5-5-nivaakurve.svg",
+      "alt": "Sirkelen x²+y²=5 med punktet (1,2) markert, en rød gradientpil ∇f=(2,4) som peker utover normalt på sirkelen, og en grønn stiplet tangentlinje (nullretningen (2,−1)) langs sirkelen.",
+      "caption": "Til oppgave 9: nivåkurven $x^2+y^2=5$ gjennom $(1,2)$. Gradienten $\\nabla f=(2,4)$ står normalt på kurven; tangenten (nullretningen $(2,-1)$) er der retningsderiverten er 0."
+    },
+    {
+      "id": "mat1100-5-5-ex-9",
+      "type": "exercise",
+      "exercise": {
+        "id": "mat1100-5-5-ex-9-ex",
+        "number": "9",
+        "type": "classic",
+        "difficulty": "vanskelig",
+        "task": "(Eksamenssjanger A — KJEDET mot nivåkurve.) La $f(x,y)=x^2+y^2$ og $\\mathbf a=(1,2)$. **a)** Finn $\\nabla f(\\mathbf a)$ og den maksimale vekstraten. **b)** Skriv opp nivåkurven gjennom $(1,2)$ og finn en vektor som er tangent til den. **c)** Regn ut retningsderiverten i tangentretningen fra (b), og forklar resultatet. Se figuren over.",
+        "solution": "**a)** $\\nabla f=(2x,2y)$, så $\\nabla f(1,2)=(2,4)$. Maksimal vekstrate $=|\\nabla f(1,2)|=\\sqrt{2^2+4^2}=\\sqrt{20}=2\\sqrt5\\approx 4{,}47$.\n\n**b)** Nivåkurven gjennom $(1,2)$ er $f(x,y)=f(1,2)=1^2+2^2=5$, altså sirkelen $x^2+y^2=5$. Tangenten til nivåkurven står normalt på gradienten $(2,4)$: bytt komponenter og sett minus $\\Rightarrow \\mathbf r=(4,-2)$, forenklet $(2,-1)$.\n\n**c)** $f'(\\mathbf a;\\mathbf r)=\\nabla f(1,2)\\cdot(2,-1)=2\\cdot 2+4\\cdot(-1)=4-4=0.$\n\n**Forklaring:** langs nivåkurven er $f$ konstant (lik 5), så endringsraten er 0 — retningsderiverten i tangentretningen **må** bli 0. Gradienten $(2,4)$ står normalt på sirkelen (se figuren), og tangenten $(2,-1)$ er nettopp en nullretning.\n\n**Konklusjon:** $\\nabla f(1,2)=(2,4)$, maksimal rate $2\\sqrt5$; nivåkurven er $x^2+y^2=5$ med tangent $(2,-1)$; retningsderiverten langs tangenten er 0. **Svar:** $\\boxed{(2,4);\\ 2\\sqrt5;\\ \\text{tangent }(2,-1);\\ f'=0}$\n\n**Signal:** kjedet variant — koble nullretning, nivåkurve og gradientens ortogonalitet. Tangent til nivåkurve $\\Leftrightarrow$ retningsderivert 0.",
+        "hints": [
+          "$\\nabla f=(2x,2y)$ i $(1,2)$; nivåkurven er $x^2+y^2=$ (verdien i punktet).",
+          "Tangent til nivåkurven står normalt på $\\nabla f$ — bytt komponenter, sett minus.",
+          "Regn skalarproduktet: det må bli 0, fordi $f$ er konstant langs nivåkurven."
+        ]
+      }
+    },
+    {
+      "id": "mat1100-5-5-ex-10",
+      "type": "exercise",
+      "exercise": {
+        "id": "mat1100-5-5-ex-10-ex",
+        "number": "10",
+        "type": "classic",
+        "difficulty": "vanskelig",
+        "task": "(Eksamenssjanger A — KJEDET mot kurve, kjerneregelen.) La $f(x,y)=x^2-y$, og la en partikkel følge kurven $\\mathbf r(t)=(1+t,\\ 2+t^2)$. Finn $\\dfrac{d}{dt}f(\\mathbf r(t))$ ved $t=0$ på to måter (direkte og med kjerneregelen), og sjekk at de stemmer.",
+        "solution": "**Direkte innsetting:** $f(\\mathbf r(t))=(1+t)^2-(2+t^2)=1+2t+t^2-2-t^2=-1+2t$, så\n$$\\frac{d}{dt}f(\\mathbf r(t))=2\\quad\\text{(for alle }t\\text{, spesielt }t=0).$$\n\n**Med kjerneregelen** $\\frac{d}{dt}f(\\mathbf r(t))=\\nabla f(\\mathbf r(t))\\cdot\\mathbf r'(t)$: ved $t=0$ er punktet $\\mathbf r(0)=(1,2)$. Gradienten $\\nabla f=(2x,-1)$ gir $\\nabla f(1,2)=(2,-1)$. Fartsvektoren $\\mathbf r'(t)=(1,\\ 2t)$ gir $\\mathbf r'(0)=(1,0)$. Da:\n$$\\nabla f(1,2)\\cdot\\mathbf r'(0)=(2,-1)\\cdot(1,0)=2+0=2.$$\n\n**Konklusjon:** begge metodene gir $2$ ved $t=0$. ✓ Kjerneregelen langs en kurve stemmer med direkte derivasjon. **Svar:** $\\boxed{2}$\n\n**Signal:** kjedet variant — retningsderiverten er spesialtilfellet av kjerneregelen $\\frac{d}{dt}f(\\mathbf r(t))=\\nabla f\\cdot\\mathbf r'(t)$ langs en kurve.",
+        "hints": [
+          "Direkte: sett $\\mathbf r(t)$ inn i $f$ og deriver mhp. $t$.",
+          "Kjerneregelen: $\\nabla f$ i punktet $\\mathbf r(0)=(1,2)$, prikk med $\\mathbf r'(0)$.",
+          "$\\mathbf r'(t)=(1,2t)$, så $\\mathbf r'(0)=(1,0)$."
+        ]
+      }
+    },
+    {
+      "id": "mat1100-5-5-warn-typiske-feil",
+      "type": "warning",
+      "title": "Typiske feil på klokka",
+      "content": "- **Normaliseringsfellene i begge retninger.** Under tidspress glemmer man enten å normalisere når det bes om «enhetsvektor»/«retningen til», eller man normaliserer en oppgitt vektor konvensjonen skulle brukt direkte. Les steg 3 hver gang, og sjekk $|\\mathbf r|$.\n- **Retning forvekslet med rate.** «Hvilken retning?» → vektoren $\\nabla f$. «Hvor stor rate?» → tallet $|\\nabla f|$. Å svare med feil type er den hyppigste tabben i sjangeren.\n- **Manglende verbal begrunnelse.** «Ubegrunnet svar = 0»: skriv konklusjonssetningen med fortegns-/retning-tolkningen — ellers ligger poeng igjen på bordet.\n- **Nullretning uten verifikasjon.** Oppgi retningen **og** vis $\\nabla f\\cdot\\mathbf r=0$.\n- **Slurv i partiellderivasjonen under tidspress.** Feil variabel holdt konstant gir feil gradient — og da faller alle delsvarene. Ta deg tid til steg 1."
+    },
+    {
+      "id": "mat1100-5-5-formelkort-tekst",
+      "type": "text",
+      "content": "## Formelkort til drillen\n\n*Repetisjonsstoff — oppskriften i kortform for rask puggeøkt. Hopp trygt over ved førstegangslesing; tidsanslaget gjelder selve drillen.*"
+    },
+    {
+      "id": "mat1100-5-5-bb-algoritme",
+      "type": "definition",
+      "title": "Gradientalgoritmen (fem steg)",
+      "content": "(1) partiellderiver komponentvis; (2) sett sammen $\\nabla f$ og evaluer i punktet; (3) les om $\\mathbf r$ skal normaliseres («enhetsvektor»/«retningen til»); (4) $f'(\\mathbf a;\\mathbf r)=\\nabla f(\\mathbf a)\\cdot\\mathbf r$ med føring; (5) verbal konklusjon med teoremfaktaene og markert svar. Samme algoritme løser alle fire variantene av sjanger A."
+    },
+    {
+      "id": "mat1100-5-5-bb-normalisering",
+      "type": "definition",
+      "title": "Normaliseringssjekken (steg 3)",
+      "content": "Normaliser $\\hat{\\mathbf r}=\\mathbf r/|\\mathbf r|$ **kun** når oppgaven sier «enhetsvektor» eller «retningen til». Er $\\mathbf r$ oppgitt som «i retningen $\\mathbf r$», brukes den direkte (konvensjonen gjelder ubetinget). Sjekk alltid $|\\mathbf r|$ først — er den 1, er $\\mathbf r$ allerede en enhetsvektor."
+    },
+    {
+      "id": "mat1100-5-5-bb-retning-rate",
+      "type": "definition",
+      "title": "Retning vs. rate",
+      "content": "**Retning for raskest vekst** = vektoren $\\nabla f(\\mathbf a)$. **Maksimal vekstrate** = tallet $|\\nabla f(\\mathbf a)|$. Spørres det om «retning», svar med en vektor; spørres det om «rate/hvor bratt/hvor stor», svar med et tall. Å blande dem er den vanligste feilen."
+    },
+    {
+      "id": "mat1100-5-5-bb-fortegn",
+      "type": "definition",
+      "title": "Retningsderivertens fortegn",
+      "content": "Tegnet på $f'(\\mathbf a;\\mathbf r)$ sier om $f$ vokser (+), avtar (−) eller er flat (0) i retningen $\\mathbf r$. Ta med tolkningen i konklusjonen — det er et billig, men obligatorisk, føringspoeng."
+    },
+    {
+      "id": "mat1100-5-5-bb-nullretning",
+      "type": "definition",
+      "title": "Nullretning fra gradienten",
+      "content": "En retning med retningsderivert 0 står normalt på $\\nabla f$. I planet: er $\\nabla f=(p,q)$, er $(q,-p)$ (og $(-q,p)$) nullretninger — tangent til nivåkurven. Verifiser alltid med $\\nabla f\\cdot\\mathbf r=0$."
+    },
+    {
+      "id": "mat1100-5-5-symbolliste",
+      "type": "collapsible",
+      "title": "Symbol- og formelliste",
+      "buttonText": "Vis symboler og formler",
+      "content": [
+        {
+          "id": "mat1100-5-5-symbolliste-text",
+          "type": "text",
+          "content": "## Symbol- og formelliste\n\n*Oppslagsverk — alt her forklares underveis i kapitlet.*\n\n| Symbol | Betydning |\n|---|---|\n| $\\nabla f(\\mathbf a)$ | Gradienten evaluert i punktet $\\mathbf a$ |\n| $f'(\\mathbf a;\\mathbf r)$ | Retningsderivert i $\\mathbf a$ i retning $\\mathbf r$ |\n| $\\hat{\\mathbf r}=\\mathbf r/|\\mathbf r|$ | Enhetsvektor i retningen til $\\mathbf r$ |\n| $|\\nabla f(\\mathbf a)|$ | Maksimal vekstrate (et tall) |\n| $\\mathbf r'(t)$ | Fartsvektor langs en kurve $\\mathbf r(t)$ |\n| $\\mathbf r\\perp\\nabla f$ | Nullretning (retningsderivert 0) |\n\n**Formler i dette kapitlet:**\n\n$$f'(\\mathbf a;\\mathbf r)=\\nabla f(\\mathbf a)\\cdot\\mathbf r$$\nRetningsderiverten (gjelder også unormalisert $\\mathbf r$).\n\n$$\\text{raskest vekst i retning }\\nabla f,\\qquad \\max\\text{ rate}=|\\nabla f|$$\nRetning (vektor) vs. rate (tall).\n\n$$f'(\\mathbf a;\\mathbf r)=0\\iff \\mathbf r\\perp\\nabla f(\\mathbf a)$$\nNullretning = tangent til nivåkurven.\n\n$$\\frac{d}{dt}f(\\mathbf r(t))=\\nabla f(\\mathbf r(t))\\cdot\\mathbf r'(t)$$\nKjerneregelen langs en kurve."
+        }
+      ]
+    }
+  ],
+  "exercises": []
+}

@@ -262,6 +262,45 @@ const KILDEGRUNNLAG: Record<string, Kildegrunnlag> = {
     ],
     analysedato: 'juli 2026',
   },
+  mat1100: {
+    courseId: 'mat1100',
+    institusjon: 'Universitetet i Oslo (UiO) — Matematisk institutt',
+    sammendrag:
+      'Boka er kalibrert mot MAT1100s eksamensarkiv ved UiO: 21 slutteksamener (høst 2003 – høst 2023, én eksamen per år) og 16 midtveiseksamener (høst 2003 – høst 2018), med løsningsforslag/fasiter for 18 av slutteksamenene. Temavekting, oppgavesjangre og føringsstandarden i boka speiler hva arkivet faktisk tester — inkludert de to komplementære eksamensformene (flervalg midtveis, begrunnet langsvar til slutt).',
+    eksamenssett: [
+      {
+        tittel: '21 slutteksamener (H2003–H2023)',
+        detalj:
+          'Settene 2016–2023 er lest grundig, oppgave for oppgave; 2003–2015 er lest for tema- og sjangerregistrering. MAT1100 undervises kun om høsten — alle sett er desembereksamener.',
+      },
+      {
+        tittel: '16 midtveiseksamener (H2003–H2018)',
+        detalj:
+          'H2012–H2018 er lest grundig med opptelling av alle 138 flervalgsspørsmål (temafordeling og distraktormønstre); H2003–H2011 er skumlest.',
+      },
+    ],
+    sensorveiledninger: [
+      {
+        tittel: 'Løsningsforslag/fasiter for 18 slutteksamener (2003–2020) — ikke sensorveiledninger i egentlig forstand',
+        detalj:
+          'Arkivet har løsningsforslag og fasiter, ikke egne sensorveiledninger: 2012–2020 er lest svært grundig (de definerer føringsstandarden boka lærer bort — teoremnavning, føringsbokser og regelen om at ubegrunnede svar gir 0 poeng), 2003–2011 er skumlest.',
+      },
+    ],
+    andreKilder: [
+      {
+        tittel: 'UiOs emnebeskrivelse for MAT1100',
+        detalj:
+          'Omskrevet sammendrag av emnesiden (læringsmål, pensumtemaer, eksamensform). Temaer som kreves i emnebeskrivelsen, men mangler arkivbelegg (rekker, differensialligninger, Taylor), dekkes i boka med ærlig merket eksamensvinkel.',
+      },
+    ],
+    forbehold: [
+      'Det finnes ingen fasit for slutteksamenene 2021–2023; metodekravene der er utledet fra oppgavetekstene og kontinuiteten i fasitpraksis 2012–2020.',
+      'Midtveisarkivet stopper i H2018, og midtveiseksamenene mangler fasit i arkivet.',
+      'Arkivet stopper i 2023 — nyere sett kan ha endret temabildet; frekvensprognosene i boka tar dette forbeholdet eksplisitt.',
+      'Alle oppgaver, tall og kontekster i boka er nyskrevne. Arkivet er brukt som mønster (sjangre, temavekting, føringskrav) — aldri ordrett.',
+    ],
+    analysedato: 'juli 2026',
+  },
 };
 
 export function getKildegrunnlag(courseId: string): Kildegrunnlag | null {

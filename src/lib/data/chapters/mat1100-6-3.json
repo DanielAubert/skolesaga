@@ -1,0 +1,304 @@
+{
+  "id": "mat1100-6-3",
+  "courseId": "mat1100",
+  "chapterNumber": "6.3",
+  "title": "Differensialligninger: separable og lineære første ordens",
+  "description": "Standardmetodene for første ordens differensialligninger — separasjon og integrerende faktor, med verifikasjon, initialverdiproblemer og enkle modeller; pensumkrav uten arkivforekomst.",
+  "estimatedMinutes": 40,
+  "competenceGoals": [
+    "kunne løse separable differensialligninger ved separasjon og integrasjon, inkludert konstantløsninger g(y)=0",
+    "kunne løse lineære første ordens ligninger y'+p(x)y=q(x) med integrerende faktor e^(int p dx)",
+    "kunne løse initialverdiproblemer, verifisere løsninger ved innsetting og sette opp enkle vekst-/avkjølingsmodeller"
+  ],
+  "content": [
+    {
+      "id": "mat1100-6-3-tip",
+      "type": "tip",
+      "title": "Eksamensvinkel",
+      "content": "**Ærlig eksamensvinkel — les dette først.** Differensialligninger har **0 forekomster i hele arkivet** — $0$ av $21$ slutteksamener (H2003–H2023) og $0$ av $16$ midtveiseksamener (H2003–H2018). Temaet er aldri testet. Vi dekker det fordi gjeldende emnebeskrivelse krever det, og behandlingen er **kompakt**: metodene gjenbruker integrasjonsteknikk-repertoaret fra Del 4 (som *er* 95 %-eksamensstoff), så du får det nesten som en bonus av å beherske integrasjon.\n\n- **Prioritér etter Del 1–5.** Ikke bruk mye tid her; lær de to standardmetodene (separabel og lineær) og gå videre.\n- Oppgavene er skrevet i **E-format med diffligning-ramme** (E = integrasjonsteknikk-kjede) — kjernen er alltid et integral du allerede kan.\n\n*Kilde: arkivet med $21$ slutteksamener (H2003–H2023, $18$ med løsningsforslag) og $16$ midtveiseksamener (H2003–H2018). **Arkivet stopper i 2023 — dukker differensialligninger opp i nyere sett, er metodene her standardformatet; sjekk de sist gitte settene.** Prioritet: **kjenne** (høyeste prioritet er Del 1–5).*"
+    },
+    {
+      "id": "mat1100-6-3-forkunnskaper",
+      "type": "text",
+      "content": "**Forkunnskaper:** Alt her hviler på integrasjon: [substitusjon og delvis (4.3)](/bok/mat1100/mat1100-4-3) og [rasjonale integrander (4.4)](/bok/mat1100/mat1100-4-4). VGS-basis: [Separable differensiallikninger](/bok/s2/s2-2-2) og [Lineære differensiallikninger](/bok/s2/s2-2-3).\n\n**Sist du var her — tre grep du gjenbruker rått.** Del 6 ligger sent i boka, så vi frisker opp:\n- **Antideriverte:** $\\displaystyle\\int e^{ax}\\,dx=\\tfrac1a e^{ax}+C$, $\\displaystyle\\int\\tfrac1y\\,dy=\\ln|y|+C$.\n- **Substitusjon i eksponent:** $\\displaystyle\\int p(x)\\,dx$ dukker opp i eksponenten $e^{\\int p\\,dx}$ — regn integralet *uten* konstant der.\n- **Verifikasjon ved innsetting:** en påstått løsning sjekkes ved å derivere den og sette inn i ligningen — samme disiplin som for åpne konstruksjonsoppgaver."
+    },
+    {
+      "id": "mat1100-6-3-anker",
+      "type": "text",
+      "content": "En kopp kaffe på $80\\ ^\\circ\\text{C}$ settes i et rom på $20\\ ^\\circ\\text{C}$. Den avkjøles raskt i starten og saktere etter hvert — avkjølingsfarten er **proporsjonal med temperaturforskjellen** til rommet. Det er en setning om en *rate*: «hvor fort noe endrer seg, avhenger av hvor mye det er». Skrevet med symboler blir det $T'(t)=-k\\,(T-20)$.\n\nEn slik ligning — der den ukjente er en **funksjon**, og ligningen binder funksjonen til sin egen deriverte — kalles en **differensialligning**. Bestand som vokser, kapital som forrentes, stoff som henfaller: alle beskrives slik. Dette kapitlet gir deg de to standardmetodene for å finne funksjonen $y(x)$ eksplisitt, og du skal alltid **verifisere** svaret ved innsetting."
+    },
+    {
+      "id": "mat1100-6-3-l1",
+      "type": "text",
+      "content": "## Løkke 1 — Hva en løsning er, og verifikasjon (~7 min)\n\nFør vi løser noe: hva *betyr* det å løse en differensialligning, og hvordan sjekker vi et svar?"
+    },
+    {
+      "id": "mat1100-6-3-def-diffligning",
+      "type": "definition",
+      "title": "Differensialligning (første ordens)",
+      "content": "En **differensialligning** er en ligning som binder en ukjent funksjon $y=y(x)$ til sine deriverte. Den er av **første orden** når bare $y$ og $y'$ (ikke $y''$ eller høyere) inngår, f.eks. $y'=f(x,y)$. Den ukjente er en *funksjon*, ikke et tall — å «løse» den betyr å finne alle funksjoner $y(x)$ som passer."
+    },
+    {
+      "id": "mat1100-6-3-def-losning",
+      "type": "definition",
+      "title": "Løsning og verifikasjon ved innsetting",
+      "content": "En **løsning** er en funksjon $y(x)$ som gjør ligningen til en identitet. Du **verifiserer** en påstått løsning ved å derivere den og sette $y$ og $y'$ inn i ligningen — begge sider skal bli like for alle $x$. Denne sjekken er obligatorisk føring (som i åpne konstruksjonsoppgaver): en uverifisert løsning er ikke fullført."
+    },
+    {
+      "id": "mat1100-6-3-def-orden",
+      "type": "definition",
+      "title": "Ordenen til en differensialligning",
+      "content": "**Ordenen** er den høyeste deriverte som opptrer. $y'+2y=x$ er første orden; $y''-y=0$ er andre orden. I dette kapitlet holder vi oss til **første orden**, der løsningsmetodene er separasjon og integrerende faktor."
+    },
+    {
+      "id": "mat1100-6-3-ex-verif",
+      "type": "example",
+      "title": "Verifiser en løsning",
+      "problem": "Vis at $y(x)=e^{-x}+2e^{-2x}$ er en løsning av $y'+2y=e^{-x}$.",
+      "solution": "**Deriver den påståtte løsningen:**\n$$y'(x)=-e^{-x}-4e^{-2x}.$$\n\n**Sett inn $y$ og $y'$ i venstre side:**\n$$y'+2y=\\big(-e^{-x}-4e^{-2x}\\big)+2\\big(e^{-x}+2e^{-2x}\\big)=(-1+2)e^{-x}+(-4+4)e^{-2x}=e^{-x}.$$\n\n**Sammenlign med høyre side:** venstre side ble $e^{-x}$, som er nettopp høyre side. Identiteten holder for alle $x$.\n\n**Konklusjon:** $y(x)=e^{-x}+2e^{-2x}$ er en løsning av $y'+2y=e^{-x}$. *(Legg merke til metoden: deriver, sett inn, forenkle, sammenlign — dette er verifikasjonen du gjentar i hver oppgave.)*"
+    },
+    {
+      "id": "mat1100-6-3-exc-1",
+      "type": "exercise",
+      "exercise": {
+        "id": "mat1100-6-3-exc-1",
+        "number": "1",
+        "type": "classic",
+        "difficulty": "lett",
+        "task": "(E-format med diffligning-ramme — lett innstegsoppgave.) *«E-format» betyr en oppgave der kjernen er et integral du kjenner; her pakket inn i en differensialligning.* Vis at $y(x)=Ce^{3x}$ løser $y'=3y$ for enhver konstant $C$.",
+        "solution": "**Deriver:** $y(x)=Ce^{3x}$ gir $y'(x)=3Ce^{3x}$.\n\n**Sett inn i ligningen:** høyre side er $3y=3\\,Ce^{3x}=3Ce^{3x}$, som er nøyaktig $y'$.\n\n**Sammenlign:** $y'=3Ce^{3x}=3y$ for alle $x$ og alle $C$.\n\n**Konklusjon:** $y=Ce^{3x}$ er en løsning for enhver konstant $C$ — dette er *den generelle løsningen* (en hel kurveskare, én kurve per $C$).",
+        "hints": [
+          "Deriver $Ce^{3x}$ og sett resultatet inn som $y'$.",
+          "Sjekk at $y'$ og $3y$ gir samme uttrykk for alle $C$."
+        ]
+      }
+    },
+    {
+      "id": "mat1100-6-3-l2",
+      "type": "text",
+      "content": "## Løkke 2 — Separable ligninger (~9 min)\n\nDen første standardmetoden: samle alt med $y$ på én side og alt med $x$ på den andre, og integrer."
+    },
+    {
+      "id": "mat1100-6-3-def-separabel",
+      "type": "definition",
+      "title": "Separabel ligning",
+      "content": "En ligning er **separabel** når høyresiden faktoriserer i en ren $x$-del og en ren $y$-del:\n$$y'=f(x)\\,g(y).$$\nDa kan variablene skilles — $y$-ene til venstre, $x$-ene til høyre — før integrasjon. Eksempler: $y'=xy$ (her $f(x)=x$, $g(y)=y$), $y'=x\\,e^{-y}$."
+    },
+    {
+      "id": "mat1100-6-3-def-separasjon",
+      "type": "theorem",
+      "title": "Separasjonsmetoden",
+      "content": "Oppskrift for $y'=f(x)g(y)$: **(1)** skriv $\\dfrac{dy}{g(y)}=f(x)\\,dx$; **(2)** integrer begge sider (én $+C$ er nok); **(3)** løs for $y$ hvis mulig; **(4)** sjekk **konstantløsningene** $g(y)=0$ separat. Metoden bytter en differensialligning mot to vanlige integraler — derav «E-format»."
+    },
+    {
+      "id": "mat1100-6-3-def-konstant",
+      "type": "definition",
+      "title": "Konstantløsninger ($g(y)=0$)",
+      "content": "Når du deler på $g(y)$ i separasjonen, mister du de $y$-verdiene der $g(y)=0$. Hver slik verdi $y\\equiv y_0$ (konstant) er en **egen løsning** som må sjekkes for seg. For $y'=xy$ er $y\\equiv 0$ en konstantløsning ($g(y)=y=0$). Å glemme disse er en dokumentert felle."
+    },
+    {
+      "id": "mat1100-6-3-ex-sep",
+      "type": "example",
+      "title": "Separabel ligning med konstantløsning",
+      "problem": "Løs $y'=xy$, og finn alle konstantløsninger.",
+      "solution": "**Sjekk formen:** $y'=x\\cdot y$ er separabel med $f(x)=x$, $g(y)=y$.\n\n**Konstantløsning først:** $g(y)=y=0$ gir $y\\equiv 0$ — sett inn: $y'=0$ og $xy=0$. ✓ Så $y\\equiv 0$ er en løsning.\n\n**Separer (for $y\\ne 0$):**\n$$\\frac{dy}{y}=x\\,dx.$$\n\n**Integrer begge sider:**\n$$\\int\\frac{dy}{y}=\\int x\\,dx\\ \\Longrightarrow\\ \\ln|y|=\\frac{x^2}{2}+C.$$\n\n**Løs for $y$:** eksponentier: $|y|=e^{x^2/2}\\cdot e^{C}$, så $y=A\\,e^{x^2/2}$ der $A=\\pm e^{C}$ er en vilkårlig konstant $\\ne 0$. (Setter vi $A=0$, får vi konstantløsningen tilbake.)\n\n**Konklusjon:** den generelle løsningen er $y=A\\,e^{x^2/2}$ (inkludert $A=0$, altså $y\\equiv 0$). *Verifikasjon:* $y'=A\\,x\\,e^{x^2/2}=x\\cdot\\big(A e^{x^2/2}\\big)=xy$. ✓"
+    },
+    {
+      "id": "mat1100-6-3-exc-2",
+      "type": "exercise",
+      "exercise": {
+        "id": "mat1100-6-3-exc-2",
+        "number": "2",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "(E-format med diffligning-ramme — separabel.) Løs $y'=-2xy^2$, med initialbetingelsen $y(0)=1$. Husk å sjekke konstantløsninger.",
+        "solution": "**Form:** separabel, $f(x)=-2x$, $g(y)=y^2$.\n\n**Konstantløsning:** $g(y)=y^2=0$ gir $y\\equiv 0$ (en løsning, men den oppfyller ikke $y(0)=1$).\n\n**Separer (for $y\\ne 0$):** $\\dfrac{dy}{y^2}=-2x\\,dx$.\n\n**Integrer:**\n$$\\int y^{-2}\\,dy=\\int -2x\\,dx\\ \\Longrightarrow\\ -\\frac1y=-x^2+C.$$\n\n**Løs for $y$:** $\\dfrac1y=x^2-C$, altså $y=\\dfrac{1}{x^2-C}$. Skriv $-C=D$: $y=\\dfrac{1}{x^2+D}$.\n\n**Bruk initialbetingelsen $y(0)=1$:** $1=\\dfrac{1}{0+D}$ gir $D=1$, så $y=\\dfrac{1}{x^2+1}$.\n\n**Konklusjon:** $y(x)=\\dfrac{1}{x^2+1}$. *Verifikasjon:* $y'=-\\dfrac{2x}{(x^2+1)^2}=-2x\\Big(\\dfrac{1}{x^2+1}\\Big)^2=-2xy^2$ ✓, og $y(0)=1$ ✓.",
+        "hints": [
+          "Separer: $\\tfrac{dy}{y^2}=-2x\\,dx$, og sjekk $y\\equiv 0$ separat.",
+          "Etter integrasjon: $-\\tfrac1y=-x^2+C$ → løs for $y$ → bruk $y(0)=1$."
+        ]
+      }
+    },
+    {
+      "id": "mat1100-6-3-l3",
+      "type": "text",
+      "content": "## Løkke 3 — Lineære ligninger og integrerende faktor (~10 min)\n\nDen andre standardmetoden, for ligninger som *ikke* er separable men har formen $y'+p(x)y=q(x)$."
+    },
+    {
+      "id": "mat1100-6-3-def-linear",
+      "type": "definition",
+      "title": "Lineær første ordens ligning",
+      "content": "En ligning på formen\n$$y'+p(x)\\,y=q(x)$$\nkalles **lineær første orden**: $y$ og $y'$ opptrer bare i første potens, uten produkter som $y\\cdot y'$. Her er $p(x)$ og $q(x)$ kjente funksjoner. Slike løses systematisk med en *integrerende faktor* — ikke ved separasjon (med mindre $q\\equiv 0$)."
+    },
+    {
+      "id": "mat1100-6-3-def-intfaktor",
+      "type": "definition",
+      "title": "Integrerende faktor",
+      "content": "Den **integrerende faktoren** for $y'+p(x)y=q(x)$ er\n$$\\mu(x)=e^{\\int p(x)\\,dx}.$$\nGanger vi hele ligningen med $\\mu$, blir venstresiden en eksakt derivert: $\\big(\\mu(x)\\,y\\big)'=\\mu(x)\\,q(x)$. Regn $\\int p\\,dx$ **uten** konstant her (én konstant er nok, og den kommer i sluttintegrasjonen)."
+    },
+    {
+      "id": "mat1100-6-3-def-linlosning",
+      "type": "theorem",
+      "title": "Løsningsformelen (integrerende faktor)",
+      "content": "Etter multiplikasjon med $\\mu=e^{\\int p\\,dx}$ integreres $\\big(\\mu y\\big)'=\\mu q$:\n$$\\mu(x)\\,y=\\int \\mu(x)\\,q(x)\\,dx+C\\ \\Longrightarrow\\ y=\\frac{1}{\\mu(x)}\\Big(\\int \\mu(x)q(x)\\,dx+C\\Big).$$\nKjernen er integralet $\\int\\mu q\\,dx$ — et vanlig integral fra Del 4. Konstanten $C$ plasseres **før** du deler på $\\mu$."
+    },
+    {
+      "id": "mat1100-6-3-ex-lin",
+      "type": "example",
+      "title": "Lineær ligning med integrerende faktor",
+      "problem": "Løs $y'+y=x$.",
+      "solution": "**Identifiser:** lineær med $p(x)=1$, $q(x)=x$.\n\n**Integrerende faktor:** $\\mu=e^{\\int 1\\,dx}=e^{x}$.\n\n**Gang ligningen med $\\mu=e^x$** — venstresiden blir en eksakt derivert:\n$$\\big(e^{x}y\\big)'=e^{x}\\cdot x.$$\n\n**Integrer begge sider** (høyre side med delvis, $u=x$, $v'=e^x$):\n$$e^{x}y=\\int x\\,e^{x}\\,dx=(x-1)e^{x}+C.$$\n\n**Løs for $y$** (del på $e^x$):\n$$y=x-1+C\\,e^{-x}.$$\n\n**Konklusjon:** $y(x)=x-1+Ce^{-x}$. *Verifikasjon:* $y'=1-Ce^{-x}$, så $y'+y=(1-Ce^{-x})+(x-1+Ce^{-x})=x$ ✓."
+    },
+    {
+      "id": "mat1100-6-3-exc-3",
+      "type": "exercise",
+      "exercise": {
+        "id": "mat1100-6-3-exc-3",
+        "number": "3",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "(E-format med diffligning-ramme — lineær.) Løs initialverdiproblemet $y'+2y=e^{-x}$, $y(0)=3$.",
+        "solution": "**Identifiser:** lineær med $p(x)=2$, $q(x)=e^{-x}$.\n\n**Integrerende faktor:** $\\mu=e^{\\int 2\\,dx}=e^{2x}$.\n\n**Gang med $\\mu=e^{2x}$:**\n$$\\big(e^{2x}y\\big)'=e^{2x}\\cdot e^{-x}=e^{x}.$$\n\n**Integrer:**\n$$e^{2x}y=\\int e^{x}\\,dx=e^{x}+C.$$\n\n**Løs for $y$:** $y=e^{-x}+C\\,e^{-2x}$.\n\n**Bruk $y(0)=3$:** $3=e^{0}+Ce^{0}=1+C$, så $C=2$.\n\n**Konklusjon:** $y(x)=e^{-x}+2e^{-2x}$. *Verifikasjon:* $y'=-e^{-x}-4e^{-2x}$, så $y'+2y=e^{-x}$ ✓, og $y(0)=1+2=3$ ✓.",
+        "hints": [
+          "$\\mu=e^{\\int 2\\,dx}=e^{2x}$; gang ligningen slik at venstre blir $(e^{2x}y)'$.",
+          "Integrer $\\int e^x\\,dx=e^x+C$, del på $e^{2x}$, og bruk $y(0)=3$ til å finne $C$."
+        ]
+      }
+    },
+    {
+      "id": "mat1100-6-3-l4",
+      "type": "text",
+      "content": "## Løkke 4 — Initialverdiproblemer (~6 min)\n\nDen generelle løsningen har en fri konstant $C$; en **initialbetingelse** plukker ut den ene kurven som passer."
+    },
+    {
+      "id": "mat1100-6-3-def-generell",
+      "type": "definition",
+      "title": "Generell og partikulær løsning",
+      "content": "**Generell løsning:** hele familien av løsninger, med en fri konstant $C$ (en *kurveskare*, én kurve per $C$). **Partikulær løsning:** én bestemt kurve, valgt ved en tilleggsbetingelse. Første ordens ligninger har nøyaktig **én** fri konstant."
+    },
+    {
+      "id": "mat1100-6-3-def-ivp",
+      "type": "definition",
+      "title": "Initialverdiproblem",
+      "content": "Et **initialverdiproblem** er en differensialligning pluss en **initialbetingelse** $y(x_0)=y_0$. Løsningsoppskriften: finn først den generelle løsningen (med $C$), **sett så inn** $x=x_0$, $y=y_0$ og løs for $C$. Betingelsen brukes helt til slutt — ikke underveis."
+    },
+    {
+      "id": "mat1100-6-3-exc-4",
+      "type": "exercise",
+      "exercise": {
+        "id": "mat1100-6-3-exc-4",
+        "number": "4",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "(E-format med diffligning-ramme — separabel IVP.) Løs $y'=3x^2y$, $y(0)=2$.",
+        "solution": "**Form:** separabel, $f(x)=3x^2$, $g(y)=y$. Konstantløsning $y\\equiv 0$ oppfyller ikke $y(0)=2$.\n\n**Separer (for $y\\ne 0$):** $\\dfrac{dy}{y}=3x^2\\,dx$.\n\n**Integrer:**\n$$\\ln|y|=x^3+C.$$\n\n**Løs for $y$:** $y=A\\,e^{x^3}$ (med $A=\\pm e^{C}$).\n\n**Bruk $y(0)=2$:** $2=A\\,e^{0}=A$, så $A=2$.\n\n**Konklusjon:** $y(x)=2e^{x^3}$. *Verifikasjon:* $y'=2\\cdot 3x^2 e^{x^3}=3x^2\\big(2e^{x^3}\\big)=3x^2y$ ✓, og $y(0)=2$ ✓.",
+        "hints": [
+          "Separer $\\tfrac{dy}{y}=3x^2\\,dx$ og integrer til $\\ln|y|=x^3+C$.",
+          "Skriv $y=Ae^{x^3}$, og bruk $y(0)=2$ helt til slutt for å finne $A$."
+        ]
+      }
+    },
+    {
+      "id": "mat1100-6-3-l5",
+      "type": "text",
+      "content": "## Løkke 5 — Enkle modeller (~5 min)\n\nDe to klassiske anvendelsene: eksponentiell vekst/henfall og Newtons avkjølingslov — begge løses med metodene over."
+    },
+    {
+      "id": "mat1100-6-3-def-eksp",
+      "type": "definition",
+      "title": "Eksponentiell vekst og henfall",
+      "content": "Modellen $y'=k\\,y$ (endringsraten proporsjonal med mengden) er separabel og har løsning\n$$y(t)=y_0\\,e^{kt},$$\nder $y_0=y(0)$. $k>0$ gir **vekst** (bestand, kapital), $k<0$ gir **henfall** (radioaktivitet, medisinnedbrytning). Halveringstid/doblingstid følger av $e^{kt}=\\tfrac12$ eller $2$."
+    },
+    {
+      "id": "mat1100-6-3-def-newton",
+      "type": "definition",
+      "title": "Newtons avkjølingslov",
+      "content": "Avkjøling mot en omgivelsestemperatur $T_s$ modelleres av\n$$T'(t)=-k\\,(T-T_s),$$\nsom er både separabel og lineær. Løsningen er $T(t)=T_s+(T_0-T_s)e^{-kt}$: temperaturen nærmer seg $T_s$ eksponentielt. Dette er kaffekoppen fra kapittelåpningen."
+    },
+    {
+      "id": "mat1100-6-3-ex-modell",
+      "type": "example",
+      "title": "Eksponentiell modell",
+      "problem": "En bakteriekultur vokser slik at veksten er proporsjonal med bestanden: $y'=k y$. Ved $t=0$ er bestanden $500$, og etter $2$ timer er den doblet. Finn $y(t)$.",
+      "solution": "**Løs ligningen:** $y'=ky$ er separabel med løsning $y(t)=y_0 e^{kt}$ (fra modellen over).\n\n**Bruk startverdien:** $y(0)=500$, så $y_0=500$ og $y(t)=500\\,e^{kt}$.\n\n**Bestem $k$ fra doblingen:** $y(2)=1000$ gir\n$$500\\,e^{2k}=1000\\ \\Longrightarrow\\ e^{2k}=2\\ \\Longrightarrow\\ k=\\frac{\\ln 2}{2}\\approx 0{,}347\\ \\text{per time}.$$\n\n**Konklusjon:** $y(t)=500\\,e^{(\\ln 2/2)\\,t}=500\\cdot 2^{t/2}$. *Verifikasjon:* $y(0)=500$ ✓, $y(2)=500\\cdot 2^{1}=1000$ ✓, og $y'=ky$ per konstruksjon."
+    },
+    {
+      "id": "mat1100-6-3-exc-5",
+      "type": "exercise",
+      "exercise": {
+        "id": "mat1100-6-3-exc-5",
+        "number": "5",
+        "type": "classic",
+        "difficulty": "lett",
+        "task": "(E-format med diffligning-ramme — henfall.) Et radioaktivt stoff henfaller med $y'=-0{,}1\\,y$ (tid i år) og har $y(0)=80$ gram. Finn $y(t)$ og mengden etter $10$ år.",
+        "solution": "**Løs ligningen:** $y'=-0{,}1\\,y$ er eksponentielt henfall med løsning $y(t)=y_0 e^{-0{,}1 t}$.\n\n**Startverdi:** $y_0=80$, så $y(t)=80\\,e^{-0{,}1 t}$.\n\n**Etter $10$ år:** $y(10)=80\\,e^{-0{,}1\\cdot 10}=80\\,e^{-1}=\\dfrac{80}{e}\\approx 29{,}4$ gram.\n\n**Konklusjon:** $y(t)=80\\,e^{-0{,}1 t}$, og etter $10$ år er det $\\approx 29{,}4$ gram igjen. *Verifikasjon:* $y'=80\\cdot(-0{,}1)e^{-0{,}1t}=-0{,}1\\,y$ ✓, $y(0)=80$ ✓.",
+        "hints": [
+          "Modellen $y'=ky$ har løsning $y=y_0 e^{kt}$; her $k=-0{,}1$, $y_0=80$.",
+          "Sett $t=10$: $y(10)=80e^{-1}=80/e$."
+        ]
+      }
+    },
+    {
+      "id": "mat1100-6-3-def-retningsfelt",
+      "type": "definition",
+      "title": "Retningsfelt (kjennskap)",
+      "content": "Et **retningsfelt** tegner ligningens høyreside $y'=f(x,y)$ som små tangentstreker i planet: i hvert punkt $(x,y)$ har streken stigning $f(x,y)$. Løsningskurvene følger strekene. Nyttig for å *se* løsningenes form uten å regne — «kjenne»-stoff i MAT1100."
+    },
+    {
+      "id": "mat1100-6-3-def-autonom",
+      "type": "definition",
+      "title": "Autonom ligning (kjennskap)",
+      "content": "En ligning er **autonom** når høyresiden ikke avhenger eksplisitt av $x$: $y'=g(y)$. Da er den automatisk separabel, og konstantløsningene $g(y)=0$ (der raten er null) kalles *likevektsløsninger* — f.eks. $T=T_s$ i avkjølingsloven. «Kjenne»-stoff."
+    },
+    {
+      "id": "mat1100-6-3-warn",
+      "type": "warning",
+      "title": "Typiske feil (differensialligninger)",
+      "content": "- **Mistet konstantløsning.** Når du deler på $g(y)$ i separasjonen, sjekk alltid $g(y)=0$ separat — hver slik $y\\equiv y_0$ er en egen løsning.\n- **Konstanten $C$ plassert feil.** I lineær metode kommer $C$ inn **før** du deler på $\\mu$: $\\mu y=\\int\\mu q\\,dx+C$, så $y=\\tfrac{1}{\\mu}(\\dots+C)$. Legger du $C$ etterpå, blir den skalert feil.\n- **Fortegnsfeil i $\\int p\\,dx$.** Integrerende faktor er $e^{+\\int p\\,dx}$ (pluss), for ligningen skrevet som $y'+p\\,y=q$. Sjekk at ligningen står på standardform først.\n- **Glemt integrasjonskonstant før man løser for $y$.** Ta med $+C$ ved integrasjonen, ikke etter at $y$ er isolert.\n- **Ikke verifisert.** Sett alltid løsningen tilbake i ligningen (og sjekk initialbetingelsen) — det er obligatorisk føring."
+    },
+    {
+      "id": "mat1100-6-3-bb",
+      "type": "text",
+      "content": "## Begrepsbank\n\n*Flashcard- og repetisjonsstoff — hopp trygt over ved førstegangslesing; tidsanslaget gjelder kjernestoffet i løkkene.*"
+    },
+    {
+      "id": "mat1100-6-3-bb-metodevalg",
+      "type": "definition",
+      "title": "Metodevalg for første ordens ligninger",
+      "content": "(1) Kan høyresiden faktoriseres $f(x)g(y)$? → **separabel**, separer og integrer (sjekk $g(y)=0$). (2) Er den på formen $y'+p(x)y=q(x)$? → **lineær**, gang med $\\mu=e^{\\int p\\,dx}$. (3) Er $q\\equiv 0$? Da er den lineære ligningen også separabel — velg det enkleste. Verifiser alltid til slutt."
+    },
+    {
+      "id": "mat1100-6-3-bb-kurveskare",
+      "type": "definition",
+      "title": "Løsningen som kurveskare",
+      "content": "Den generelle løsningen $y(x;C)$ er en **familie av kurver** — én for hver verdi av $C$. En initialbetingelse $y(x_0)=y_0$ svarer til å velge den ene kurven som går gjennom punktet $(x_0,y_0)$. Geometrisk plukker initialverdien ut én kurve fra skaren."
+    },
+    {
+      "id": "mat1100-6-3-symbolliste",
+      "type": "collapsible",
+      "title": "Symbol- og formelliste",
+      "buttonText": "Vis symboler og formler",
+      "content": [
+        {
+          "id": "mat1100-6-3-symbolliste-text",
+          "type": "text",
+          "content": "## Symbol- og formelliste\n\n*Oppslagsverk — alt her forklares underveis i kapitlet.*\n\n| Symbol | Betydning |\n|---|---|\n| $y=y(x)$ | Den ukjente funksjonen |\n| $y'$ | Den deriverte $\\tfrac{dy}{dx}$ |\n| $f(x)g(y)$ | Faktorisert høyreside (separabel) |\n| $p(x),q(x)$ | Koeffisientene i $y'+p\\,y=q$ |\n| $\\mu(x)$ | Integrerende faktor $e^{\\int p\\,dx}$ |\n| $C$ | Fri integrasjonskonstant |\n| $y(x_0)=y_0$ | Initialbetingelse |\n\n**Formler i dette delkapitlet:**\n\n$$y'=f(x)g(y):\\quad \\int\\frac{dy}{g(y)}=\\int f(x)\\,dx\\quad(\\text{sjekk } g(y)=0)$$\nSeparasjonsmetoden.\n\n$$y'+p(x)y=q(x):\\quad \\mu=e^{\\int p\\,dx},\\quad (\\mu y)'=\\mu q,\\quad y=\\frac{1}{\\mu}\\Big(\\int\\mu q\\,dx+C\\Big)$$\nIntegrerende faktor (lineær metode).\n\n$$y'=ky\\ \\Rightarrow\\ y=y_0 e^{kt}$$\nEksponentiell vekst/henfall.\n\n$$T'=-k(T-T_s)\\ \\Rightarrow\\ T=T_s+(T_0-T_s)e^{-kt}$$\nNewtons avkjølingslov."
+        }
+      ]
+    },
+    {
+      "id": "mat1100-6-3-repetisjon",
+      "type": "collapsible",
+      "title": "Repetisjonsoppgaver (fra 4.3 og 4.4)",
+      "buttonText": "Vis repetisjonsoppgaver",
+      "content": [
+        {
+          "id": "mat1100-6-3-rep-text",
+          "type": "text",
+          "content": "## Repetisjonsoppgaver\n\nIntegralene differensialligninger koker ned til.\n\n**a)** ([4.3](/bok/mat1100/mat1100-4-3)) Regn $\\displaystyle\\int \\frac{dy}{y}$.\n**b)** ([4.3](/bok/mat1100/mat1100-4-3)) Regn $\\displaystyle\\int x\\,e^{x}\\,dx$ med delvis integrasjon.\n**c)** ([4.3](/bok/mat1100/mat1100-4-3)) Regn $\\displaystyle\\int e^{2x}\\,dx$.\n**d)** ([4.4](/bok/mat1100/mat1100-4-4)) Regn $\\displaystyle\\int y^{-2}\\,dy$.\n\n**Fasit.**\n**a)** $\\int\\tfrac{dy}{y}=\\ln|y|+C$.\n**b)** $u=x,\\ v'=e^x$: $\\int x e^x\\,dx=(x-1)e^x+C$.\n**c)** $\\int e^{2x}\\,dx=\\tfrac12 e^{2x}+C$.\n**d)** $\\int y^{-2}\\,dy=-y^{-1}+C=-\\tfrac1y+C$.\n\n*(a) er separasjonens $y$-integral; (b) dukker opp i lineære ligninger med $q=x$; (c) er integrerende-faktor-integralet; (d) er separasjonen i oppgave 2.)*"
+        }
+      ]
+    }
+  ],
+  "exercises": []
+}

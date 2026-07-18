@@ -1,0 +1,363 @@
+{
+  "id": "mat1100-7-1",
+  "courseId": "mat1100",
+  "chapterNumber": "7.1",
+  "title": "Føringsstandarden: slik skriver du en A-besvarelse",
+  "description": "Sensorregelen «ubegrunnet svar = 0» operasjonalisert: teoremnavning, føringsboksene, lim-disiplinen og konklusjonssetningen — samlet på ett sted.",
+  "estimatedMinutes": 50,
+  "competenceGoals": [
+    "navngi riktig setning der den bærer argumentet, og sjekke forutsetningene før bruk",
+    "føre substitusjon, delvis integrasjon, lim og fortegnsskjema etter føringsstandarden",
+    "kjede delpunkter og bruke resultater fra ubesvarte punkter, og verifisere alle krav i åpne oppgaver"
+  ],
+  "content": [
+    {
+      "type": "tip",
+      "title": "Eksamensvinkel",
+      "content": "**Dette kapitlet handler ikke om ny matematikk — det handler om hvordan du *fører* matematikken du allerede kan, slik at du får poeng for den.** Det er emnets viktigste enkeltregel, og den har **høyeste prioritet**.\n\nSensorregelen, som sto **ordrett i oppgaveinstruksen 2012–2016 og er videreført siden**, lyder:\n\n> **«Svar som ikke er begrunnet, får 0 poeng selv om de er riktige.»**\n\nPå hjemmeeksamenene ble den til og med skjerpet: *all* programbruk måtte forklares. Føringen bærer altså **2/3 av karakteren** (slutteksamen teller 2/3, og der gjelder regelen hvert eneste delpunkt). Et riktig sluttsvar uten begrunnelse er verdt like mye som blankt.\n\n**Sjangerkoder brukt i boka (forklart i klarspråk her, så du slipper å slå opp):** hvert oppgavemønster har en bokstav. **A** = gradient/retningsderivert, **B** = overgangs-/populasjonsmatriser, **C** = determinant/volum/matriseregning, **D** = omdreiningsvolum/buelengde, **E** = integrasjonsteknikk-kjeder, **F** = uegentlige integraler, **G** = komplekse tall, **H** = kontinuitet/deriverbarhet i ett punkt, **I** = eksistens- og teoribevis, **J** = fundamentalteoremet + kjerneregel, **K** = funksjonsdrøfting, **L** = induksjon (matrisepotens), **M** = relaterte rater/optimering, **N** = Jacobimatrise. **MV** = midtveisrepertoaret (flervalg, ~6 min per oppgave).\n\n*Dette kapitlet tar ~50 minutter å lese. Det er delt i små bølker med pausepunkter — begrepsbanken til slutt er repetisjonsstoff og teller ikke inn i de 50 minuttene.*",
+      "id": "mat1100-7-1-tip-eksamensvinkel"
+    },
+    {
+      "type": "text",
+      "content": "**Forkunnskaper:** Dette er et metodekapittel som ser tilbake på hele Del 1–5. Du trenger ikke kunne alt utenat, men føringseksemplene henter matematikk herfra:\n\n- **[Kap. 1.3](/bok/mat1100/mat1100-1-3)** — komplekse likninger og faktorisering (bevis-føring for sjanger G).\n- **[Kap. 2.2](/bok/mat1100/mat1100-2-2)** — L'Hôpital og $[0/0]$-markeringen.\n- **[Kap. 2.4](/bok/mat1100/mat1100-2-4)** — skjæringssetningen (bevis-kontrastparet under bygger på den).\n- **[Kap. 3.3](/bok/mat1100/mat1100-3-3)** — skvis med uttalt begrensethet og differansekvotienten.\n- **[Kap. 3.4](/bok/mat1100/mat1100-3-4)** — Rolle/MVT med hjelpefunksjon og forutsetningssjekk.\n- **[Kap. 4.3](/bok/mat1100/mat1100-4-3)** og **[4.6](/bok/mat1100/mat1100-4-6)** — substitusjonsboksen, LIATE og lim-føring for uegentlige integraler.\n- **[Kap. 5.4](/bok/mat1100/mat1100-5-4)** — gradient og retningsderivert (sjanger A, de billige poengene som *også* må begrunnes).",
+      "id": "mat1100-7-1-forkunnskaper"
+    },
+    {
+      "type": "text",
+      "content": "Hverdagsankeret: tenk deg at du leverer et regnskap til revisor. Tallene stemmer, men uten bilag — ingen kvitteringer, ingen forklaring på hvor tallene kommer fra. Revisoren kan ikke godkjenne noe hun ikke kan *følge*. En sensor er akkurat slik: hun gir poeng for **resonnementet du viser**, ikke for tallet du lander på. Faktisk er et riktig svar uten resonnement mistenkelig — det kan være gjettet eller hentet fra kalkulatoren.\n\nDette kapitlet gjør sensorregelen praktisk. Vi går gjennom (1) **begrunnelsestrappen** — nøyaktig hva som er nok begrunnelse for hver oppgavetype, (2) **sjekklisten** du kjører før du leverer, (3) to **kontrastpar** der samme matematikk får 0 og full uttelling, (4) strategien for **kjedede delpunkter**, (5) at **alternative løsninger honoreres**, (6) hvordan **åpne oppgaver** verifiseres, og (7) hvorfor **kalkulatorsnarveier** underkjennes der regning etterspørres. Alt er nyskrevet; ingen originaloppgaver er gjengitt.",
+      "id": "mat1100-7-1-intro"
+    },
+    {
+      "type": "text",
+      "content": "## Begrunnelsestrappen — hva som er *nok* per sjanger\n\nHver oppgavetype har sin egen terskel for «tilstrekkelig begrunnet». Tabellen under er fasitspråket destillert: venstre kolonne er sjangeren (kodene fra Eksamensvinkel over), høyre er det minimum som må stå på arket for at et *riktig* svar skal gi poeng.\n\n| Sjanger | Oppgaven ber om | Tilstrekkelig begrunnelse (må stå på arket) |\n|---|---|---|\n| **A** gradient/retningsderivert | $\\nabla f$, raskest vekst, $f'(\\mathbf{a};\\mathbf{r})$ | Regn ut de partielle deriverte; skriv $\\nabla f(\\mathbf{a})$; for retningsderivert bruk $f'(\\mathbf{a};\\mathbf{r})=\\nabla f(\\mathbf{a})\\cdot\\mathbf{r}$ og si om $\\mathbf{r}$ skal normaliseres. |\n| **B** overgangsmatrise | modell, $M^k\\mathbf{x}_0$, inverterbarhet | Bygg $M$ rad for rad (mottaker = rad) med én ordforklaring; regn $M^k$; for inverterbarhet: regn $\\det M$ og bruk «inverterbar $\\Leftrightarrow \\det\\ne 0$». |\n| **C** determinant/volum | volum, invers, $\\det$ | Vis oppstillingen; regn determinanten synlig; volum $=\\tfrac16\\lvert\\det[\\dots]\\rvert$ med tallene inn. |\n| **D** omdreiningsvolum | volum om akse, buelengde | Skriv riktig formel (skive $\\pi\\!\\int r^2$, skall $2\\pi\\!\\int r\\,h$); tegn/beskriv $r$ og $h$; før integralet. |\n| **E** integrasjonsteknikk | bestemt/ubestemt integral | **Substitusjonsboks** ($u,du,dx$, nye grenser) og/eller LIATE-valg dokumentert; hvert steg synlig. |\n| **F** uegentlig integral | konvergens/verdi | $\\lim$-notasjon eksplisitt (aldri «sett inn $\\infty$»); ved sammenligning: navngi konvergent/divergent $p$-integral. |\n| **G** komplekse tall | polarform, røtter, faktorisering | Vis $r$ og kvadrant før $\\theta$; ved røtter: $2k\\pi$-lista; ved faktorisering: **både** kompleks og reell form. |\n| **H** kont./deriverbarhet i punkt | vise egenskaper i ett punkt | Skvis med **uttalt** begrensethet; deriverbarhet via **differansekvotienten** (aldri derivertformelen). |\n| **I** eksistens-/teoribevis | «vis at det finnes …» | Navngi setningen (skjæringssetningen, Rolle, MVT); sjekk **alle** forutsetninger eksplisitt før du bruker den. |\n| **J** FTC + kjerneregel | derivere et integral | Skriv FTC-steget; ved variabel grense: gang med **kjernederiverten**. |\n| **K** funksjonsdrøfting | ekstremal, asymptoter | **Fortegnsskjema** tegnet/beskrevet; asymptoter via grenser; randpunkter sjekket. |\n| **L** induksjon (matrisepotens) | $M^n$-formel | Basissteg + induksjonssteg med «anta for $n$, vis for $n{+}1$» eksplisitt. |\n| **M** relaterte rater/optimering | rate, ekstremum | Figur + variabelnavn; deriver implisitt mhp. $t$; **tolk fortegnet** i konklusjonen; begrunn globalt ekstremum. |\n| **N** Jacobimatrise | $Jf$, deriverbarhet | Sett opp matrisen av partielle deriverte; begrunn deriverbarhet via kontinuerlige partielle. |\n\nLegg merke til det gjennomgående: **navngi setningen, vis boksen, skriv konklusjonen**. Det er de tre tingene sensor krysser av for.",
+      "id": "mat1100-7-1-begrunnelsestrappen"
+    },
+    {
+      "type": "exercise",
+      "exercise": {
+        "id": "mat1100-7-1-oppg-innsteg-ex",
+        "number": "1",
+        "type": "classic",
+        "difficulty": "lett",
+        "task": "(Innsteg — begrunnelsestrappen.) En besvarelse skal vise at likningen $e^x=2-x$ har en løsning i $[0,1]$. Studenten skriver bare: «Venstre side er $1$ i $x=0$ og høyre er $2$; i $x=1$ er venstre $e\\approx 2{,}7$ og høyre $1$. Altså krysser de.» Hvilken **én** setning må navngis, og hvilken **én** forutsetning må nevnes, for at dette skal gi full uttelling?",
+        "solution": "Sett $g(x)=e^x-(2-x)=e^x+x-2$. Da er $g(0)=1+0-2=-1<0$ og $g(1)=e+1-2=e-1\\approx 1{,}72>0$ — motsatt fortegn.\n\n**Setningen som må navngis:** **skjæringssetningen** (mellomverdisetningen).\n\n**Forutsetningen som må nevnes:** at $g$ er **kontinuerlig** på $[0,1]$ (her fordi $e^x$ og polynomet $x-2$ er kontinuerlige, og summen av kontinuerlige er kontinuerlig).\n\n**Full føring:** «$g(x)=e^x+x-2$ er kontinuerlig på $[0,1]$; $g(0)=-1<0$ og $g(1)=e-1>0$. Etter **skjæringssetningen** finnes en $c\\in(0,1)$ med $g(c)=0$, altså en løsning av $e^x=2-x$.» $\\boxed{\\text{Navngi skjæringssetningen; nevn at }g\\text{ er kontinuerlig.}}$",
+        "hints": [
+          "Hvilken setning garanterer at en kontinuerlig funksjon som skifter fortegn må ha et nullpunkt?",
+          "Setningen har én forutsetning som studenten hoppet over — den handler om at grafen ikke har hopp."
+        ]
+      },
+      "id": "mat1100-7-1-oppg-innsteg"
+    },
+    {
+      "type": "text",
+      "content": "*— naturlig pausepunkt (du har nå begrunnelsestrappen) —*",
+      "id": "mat1100-7-1-pause-1"
+    },
+    {
+      "type": "text",
+      "content": "## Sjekklisten før innlevering\n\nKjør denne på hvert delpunkt før du går videre. Fire spørsmål:\n\n1. **Teoremnavn på plass?** Hver gang en setning bærer argumentet (skjæringssetningen, Rolle, MVT, skvis, L'Hôpital, FTC, GS-testen, «inverterbar $\\Leftrightarrow \\det\\ne 0$») — står navnet der?\n2. **Bokser ført?** Substitusjon med $u,du,dx$ og nye grenser? LIATE-valget dokumentert? $[0/0]$ markert før L'Hôpital? Fortegnsskjema tegnet?\n3. **Konklusjonssetning?** Står det en verbal setning som svarer på spørsmålet («Altså er …», «Funksjonen er deriverbar med …»), og er sluttsvaret markert?\n4. **Delpunkt-koblinger utnyttet?** Har du brukt resultatet fra (a) i (b)/(c) der det er naturlig — og sagt at du gjør det?\n\nFår du «ja» på alle fire, er delpunktet ført som en A-besvarelse.",
+      "id": "mat1100-7-1-sjekklisten"
+    },
+    {
+      "type": "text",
+      "content": "## Kontrastpar 1 — samme integral, ulik føring (sjanger E)\n\nHer er *nøyaktig samme* utregning skrevet to ganger. Den første får **0 poeng**, den andre **full uttelling**. Matematikken er identisk — forskjellen er bokføringen.",
+      "id": "mat1100-7-1-kontrast-1-intro"
+    },
+    {
+      "type": "example",
+      "title": "Samme integral, to føringer: $\\int_0^1 x e^{x^2}\\,dx$",
+      "problem": "Beregn $\\displaystyle\\int_0^1 x e^{x^2}\\,dx$.",
+      "solution": "**0-poengs-versjonen (slik den *ikke* skal se ut):**\n\n> $\\int_0^1 x e^{x^2}\\,dx=\\tfrac12(e-1)$.\n\nRiktig svar — og likevel null poeng. Sensor ser et tall uten én eneste mellomregning: ingen substitusjon vist, ingen grenser byttet, ingen konklusjon. Det kunne like gjerne vært hentet fra en kalkulator, og regelen er klar: ubegrunnet svar = 0.\n\n**Full-scorings-versjonen (samme matematikk, ført):**\n\nIntegranden har strukturen «indre funksjon ganget med sin deriverte» ($x$ er halvparten av den deriverte til $x^2$), så vi substituerer.\n\n*Substitusjonsboks:* $u=x^2,\\quad du=2x\\,dx\\ \\Rightarrow\\ x\\,dx=\\tfrac12\\,du.$ Nye grenser: $x=0\\Rightarrow u=0$; $x=1\\Rightarrow u=1$.\n\n$$\\int_0^1 x e^{x^2}\\,dx=\\frac12\\int_0^1 e^{u}\\,du=\\frac12\\big[e^{u}\\big]_0^1=\\frac12(e^1-e^0)=\\frac12(e-1).$$\n\n**Konklusjon:** $\\displaystyle\\int_0^1 x e^{x^2}\\,dx=\\frac{e-1}{2}.$ $\\boxed{\\dfrac{e-1}{2}}$\n\nForskjellen som skiller 0 fra full score: **substitusjonsboksen med nye grenser** og **konklusjonssetningen med markert sluttsvar**. Ingen ny innsikt — bare bilagene.",
+      "id": "mat1100-7-1-ex-kontrast-integral"
+    },
+    {
+      "type": "text",
+      "content": "## Kontrastpar 2 — samme eksistensbevis, ulik føring (sjanger I)",
+      "id": "mat1100-7-1-kontrast-2-intro"
+    },
+    {
+      "type": "example",
+      "title": "Samme bevis, to føringer: $x^5+x=1$ har en løsning i $[0,1]$",
+      "problem": "Vis at likningen $x^5+x=1$ har minst én løsning i intervallet $[0,1]$.",
+      "solution": "**0-poengs-versjonen:**\n\n> $f(0)=-1$ og $f(1)=1$, så grafen krysser null et sted mellom. Altså finnes en løsning.\n\nKonklusjonen er riktig, men to ting mangler, og hver av dem er nok til trekk: (i) **kontinuitet er ikke nevnt** — uten den kan en funksjon hoppe over null uten å treffe det; (ii) **setningen er ikke navngitt**. «Krysser null» er en tegning, ikke et argument.\n\n**Full-scorings-versjonen:**\n\nSett $f(x)=x^5+x-1$. Da er $f$ et **polynom**, altså **kontinuerlig på hele $[0,1]$**.\n\nVi regner endepunktene: $f(0)=0+0-1=-1<0$ og $f(1)=1+1-1=1>0$. Funksjonen har altså **motsatt fortegn** i de to endepunktene.\n\nEtter **skjæringssetningen** (en kontinuerlig funksjon som skifter fortegn på et intervall, antar null et sted inni) finnes det da en $c\\in(0,1)$ med $f(c)=0$, det vil si $c^5+c=1$.\n\n**Konklusjon:** likningen $x^5+x=1$ har minst én løsning i $[0,1]$. $\\boxed{\\text{Finnes }c\\in(0,1):\\ c^5+c=1.}$\n\nDe tre bilagene som gjorde forskjellen: **kontinuitet begrunnet** («polynom»), **setningen navngitt**, **konklusjonssetning**.",
+      "id": "mat1100-7-1-ex-kontrast-bevis"
+    },
+    {
+      "type": "exercise",
+      "exercise": {
+        "id": "mat1100-7-1-oppg-manglene-ex",
+        "number": "2",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "(Meta — føringsdiagnose.) Besvarelsen under gir riktig svar, men ville fått **0 poeng**. Pek på de **tre** føringsmanglene, og skriv den om til full uttelling.\n\n> *Oppgave:* Beregn $\\displaystyle\\lim_{x\\to 0}\\frac{\\sin 3x}{x}$.\n>\n> *Studentens svar:* «Bruker L'Hôpital: $\\dfrac{3\\cos 3x}{1}\\to 3$. Svar: $3$.»",
+        "solution": "**De tre manglene:**\n\n1. **Ubestemt form ikke markert.** Før L'Hôpital brukes, må det stå at uttrykket er på formen $[0/0]$ (teller $\\sin 0=0$, nevner $0$). Uten denne markeringen er L'Hôpital ubegrunnet — og regelen gjelder ikke for ikke-ubestemte former.\n\n2. **Ingen konklusjonssetning / markert sluttsvar.** «Svar: 3» er ikke en verbal konklusjon som binder grensen til verdien.\n\n3. **Metoden er ikke navngitt tydelig nok, og en raskere standardgrense finnes.** «Bruker L'Hôpital» bør stå som en navngitt hjemmel; her er dessuten standardgrensen $\\frac{\\sin u}{u}\\to 1$ enda kjappere. Sensor honorerer begge veier, men den valgte metoden må navngis.\n\n**Omskrevet til full uttelling (standardgrense):**\n\n$$\\lim_{x\\to 0}\\frac{\\sin 3x}{x}=\\lim_{x\\to 0}\\ 3\\cdot\\frac{\\sin 3x}{3x}=3\\cdot\\lim_{u\\to 0}\\frac{\\sin u}{u}=3\\cdot 1=3,$$ der vi satte $u=3x$ og brukte **standardgrensen** $\\frac{\\sin u}{u}\\to 1$. **Konklusjon:** $\\displaystyle\\lim_{x\\to 0}\\frac{\\sin 3x}{x}=3.$\n\n**Omskrevet med L'Hôpital (også full uttelling):** Uttrykket er $[0/0]$ (teller og nevner $\\to 0$). **L'Hôpital** gir $\\lim_{x\\to 0}\\frac{3\\cos 3x}{1}=3\\cos 0=3$. **Konklusjon:** grensen er $3$. $\\boxed{3}$",
+        "hints": [
+          "Hva må alltid stå skrevet før L'Hôpital tas i bruk?",
+          "Se etter to ting som mangler helt: en markering av formen, og en avsluttende setning.",
+          "Finnes det en raskere standardgrense her? Sensor krever uansett at valgt metode navngis."
+        ]
+      },
+      "id": "mat1100-7-1-oppg-manglene"
+    },
+    {
+      "type": "text",
+      "content": "*— naturlig pausepunkt (du har nå sett begge kontrastparene) —*",
+      "id": "mat1100-7-1-pause-2"
+    },
+    {
+      "type": "text",
+      "content": "## Strategien for kjedede delpunkter\n\nSlutteksamen består av 12–13 delpunkter som ofte **bygger på hverandre**: (a) faktoriserer et polynom, (b) bruker faktoriseringen til å integrere, (c) bruker integralet i et volum. To grep som gir poeng:\n\n**1. Les hele oppgaven først.** Da ser du hvor delpunktene peker, og du unngår å regne (a) på en form som ikke passer (b).\n\n**2. Bruk «anta resultatet fra (a)».** Instruksen på slutteksamen gir deg **rett til å bruke resultater fra tidligere delpunkter selv om du ikke klarte dem**. Strøk du på (a)? Skriv likevel: «Anta fra (a) at $p(z)=(z-2)(z^2+1)$», og bruk det i (b). Da får du full uttelling for (b) selv om (a) er blank. Å la (b) stå tom fordi (a) glapp, er å gi bort poeng du hadde rett på.\n\n**Konkret formulering på arket:** *«Jeg fikk ikke vist (a), men antar resultatet derfra, $I=\\tfrac13$, og bruker det videre.»* Sensor leser dette som en lovlig kobling, ikke som juks.",
+      "id": "mat1100-7-1-kjeding"
+    },
+    {
+      "type": "exercise",
+      "exercise": {
+        "id": "mat1100-7-1-oppg-kjeding-ex",
+        "number": "3",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "(Meta — delpunkt-kjeding.) En eksamensoppgave har delpunkt **(a)** «Vis at $2-i$ er en rot i $p(z)=z^3-3z^2+z+5$» og **(b)** «Finn den reelle faktoriseringen av $p$.» Du klarer ikke (a). Hva skriver du i (b) for likevel å få full uttelling der, og hvorfor er det lov?",
+        "solution": "**Det er lov** fordi eksamensinstruksen uttrykkelig tillater å bruke resultater fra tidligere (også ubesvarte) delpunkter. Du taper poengene for (a), men (b) vurderes selvstendig.\n\n**Slik skriver du (b):** «Jeg fikk ikke vist (a), men **antar derfra** at $2-i$ er rot. Siden $p$ har reelle koeffisienter, gir **konjugatrotsetningen** at $2+i$ også er rot. Disse to gir den reelle kvadratiske faktoren\n$$(z-(2-i))(z-(2+i))=z^2-2\\,\\mathrm{Re}(2-i)\\,z+|2-i|^2=z^2-4z+5.$$\nPolynomdivisjon $p(z):(z^2-4z+5)$ gir den siste (reelle, lineære) faktoren $z+1$. Altså er den reelle faktoriseringen\n$$p(z)=(z^2-4z+5)(z+1).»$$\n**Konklusjon:** ved å anta (a) får (b) full uttelling: $p(z)=(z+1)(z^2-4z+5)$. *(Kontroll: $(z+1)(z^2-4z+5)=z^3-4z^2+5z+z^2-4z+5=z^3-3z^2+z+5.$ Stemmer.)* $\\boxed{p(z)=(z+1)(z^2-4z+5)}$",
+        "hints": [
+          "Instruksen sier noe om å bruke resultater fra delpunkter du ikke har løst — hva?",
+          "Start (b) med «Antar fra (a) at $2-i$ er rot», og bruk konjugatrotsetningen.",
+          "Konjugatparet gir en reell kvadratisk faktor; del $p$ på den for siste faktor."
+        ]
+      },
+      "id": "mat1100-7-1-oppg-kjeding"
+    },
+    {
+      "type": "text",
+      "content": "## Alternative løsninger honoreres\n\nSensor er ute etter et **gyldig** argument, ikke en bestemt metode. Der to veier begge er korrekte, gir begge full uttelling — så lenge den du velger er ført fullt ut. Vanlige valgpar i MAT1100:\n\n- **Volum av parallellepiped/pyramide:** trippelprodukt $|\\mathbf{a}\\cdot(\\mathbf{b}\\times\\mathbf{c})|$ **eller** determinant $|\\det[\\mathbf{a}\\ \\mathbf{b}\\ \\mathbf{c}]|$ — samme tall, begge godtatt.\n- **Konvergens av uegentlig integral:** direkte **sammenligningstest** **eller** **grensesammenligningstest (GS-testen)** — velg den som er enklest å føre for integranden din.\n- **Grenser:** **L'Hôpital** (med $[0/0]$ markert) **eller** **standardgrense/omskriving** — begge gyldige.\n- **Integrerbarhet:** «begrenset + endelig mange diskontinuiteter» **eller** «begrenset + stykkevis monoton» — begge teoremene aksepteres.\n\n**Poenget:** ikke kast bort tid på å lete etter «den riktige» metoden. Velg en du kan føre rent, og navngi den. En fullført GS-test slår en halv determinant.",
+      "id": "mat1100-7-1-alternative"
+    },
+    {
+      "type": "text",
+      "content": "## Åpne oppgaver: eksempel **pluss** verifikasjon\n\nNoen oppgaver ber deg *konstruere* noe: «angi en følge som er begrenset, men ikke konvergent», «konstruer et integral som løses med $u=\\ln x$», «gi en funksjon som er kontinuerlig men ikke deriverbar i $0$». Her er fella å nøye seg med å *foreslå* et eksempel. **Et eksempel uten verifikasjon er ikke et fullt svar** — du må vise at det oppfyller **alle** kravene.\n\n**Mal:** (1) oppgi eksemplet konkret; (2) sjekk krav for krav at det holder, med begrunnelse. For «begrenset, men ikke konvergent»: velg $a_n=(-1)^n$; verifiser (i) **begrenset**: $|a_n|=1$ for alle $n$, så følgen ligger i $[-1,1]$; (ii) **ikke konvergent**: partallsleddene er $1$, oddetallsleddene $-1$, så følgen har to opphopningspunkter og nærmer seg ikke ett tall. Begge kravene verifisert → fullt svar.",
+      "id": "mat1100-7-1-apne"
+    },
+    {
+      "type": "text",
+      "content": "## Kalkulatorsnarveier underkjennes der regning etterspørres\n\nPå slutteksamen er kalkulator tillatt, men et spørsmål som ber om **regning** vil ikke gi poeng for et kalkulatorsvar. Ber oppgaven deg «regn ut $\\int_0^1 x e^{x^2}dx$» eller «finn $(f^{-1})'(4)$», må mellomregningen stå der (substitusjonsboks, «finn $a$ først»). Kalkulatoren er et **kontrollverktøy** — bruk den til å sjekke at tallet ditt stemmer, ikke som erstatning for utledningen. På hjemmeeksamenene var dette skjerpet: **all** programbruk måtte forklares i teksten. Regel: vis regningen, så bekreft gjerne med kalkulator — aldri motsatt.",
+      "id": "mat1100-7-1-kalkulator"
+    },
+    {
+      "type": "warning",
+      "title": "Typiske feil (føringsdelen)",
+      "content": "Dette er føringsfeilene som koster poeng selv når matematikken er riktig — hele feilkatalogens føringsdel samlet:\n\n- **Uttalt begrensethet mangler i skvis.** Du må skrive $|\\sin(1/x^m)|\\le 1$ (eller $|\\cos|\\le 1$) — det er *der* klemma kommer fra.\n- **Kontinuitet unevnt før skjæringssetningen.** «Krysser null» er ikke nok; funksjonen må sies å være kontinuerlig.\n- **Forutsetninger usjekket før Rolle/MVT.** Kontinuerlig på lukket **og** deriverbar på åpent intervall må stå eksplisitt.\n- **$[0/0]$ umarkert før L'Hôpital.** Hver anvendelse (også gjentatt) krever ny markering av den ubestemte formen.\n- **«Satt inn $\\infty$» i et uegentlig integral.** Alltid $\\lim$-notasjon — aldri innsetting av $\\infty$ som om det var et tall.\n- **Svar uten konklusjonssetning.** Et tall på slutten uten en verbal setning som svarer på spørsmålet er et halvferdig delpunkt.\n- **Delpunkt står tomt fordi forrige glapp.** Bruk «anta resultatet fra (a)» — du har rett til det.",
+      "id": "mat1100-7-1-warn-typiske-feil"
+    },
+    {
+      "type": "text",
+      "content": "## Begrepsbank: teoremnavn og føringsregler\n\nDette er selve repetisjonsverktøyet — hvert kort er ett teoremnavn du må kunne skrive på arket, eller én føringsregel. Kunne du alle utenat, kan du navngi riktig setning i farten på eksamen.\n\n*Begrepsbanken er flashcard-/repetisjonsstoff — hopp trygt over ved førstegangslesing; tidsanslaget gjelder kjernestoffet.*",
+      "id": "mat1100-7-1-begrepsbank-intro"
+    },
+    {
+      "type": "definition",
+      "title": "Skjæringssetningen (mellomverdisetningen)",
+      "content": "Garantien for at en kontinuerlig funksjon ikke kan hoppe over en verdi. Navngis i alle «vis at det finnes en løsning»-oppgaver (sjanger I). **Setning:** er $f$ kontinuerlig på $[a,b]$ og $y$ ligger mellom $f(a)$ og $f(b)$, finnes $c\\in(a,b)$ med $f(c)=y$. Føringskrav: nevn kontinuitet, vis fortegnsskifte, navngi setningen.",
+      "id": "mat1100-7-1-bb-01"
+    },
+    {
+      "type": "definition",
+      "title": "Rolles teorem",
+      "content": "Spesialtilfellet av MVT der endepunktene har samme verdi: er $f$ kontinuerlig på $[a,b]$, deriverbar på $(a,b)$ og $f(a)=f(b)$, finnes $c\\in(a,b)$ med $f'(c)=0$. Motoren i hjelpefunksjonsbevis. Føringskrav: sjekk begge forutsetningene før du bruker den.",
+      "id": "mat1100-7-1-bb-02"
+    },
+    {
+      "type": "definition",
+      "title": "Middelverdisetningen (MVT)",
+      "content": "Setningen om at en sekant er parallell med en tangent et sted: er $f$ kontinuerlig på $[a,b]$ og deriverbar på $(a,b)$, finnes $c\\in(a,b)$ med $f'(c)=\\dfrac{f(b)-f(a)}{b-a}$. Brukes også som ulikhetsmaskin $|f(b)-f(a)|\\le K|b-a|$.",
+      "id": "mat1100-7-1-bb-03"
+    },
+    {
+      "type": "definition",
+      "title": "Skviseteoremet",
+      "content": "Verktøyet for grenser der en funksjon klemmes mellom to andre. Er $g(x)\\le f(x)\\le h(x)$ nær $a$ og $\\lim g=\\lim h=L$, så er $\\lim f=L$. I sjanger H **uttales begrensetheten** ($|\\sin|\\le 1$/$|\\cos|\\le 1$) før klemma settes opp — sensor krever det eksplisitt.",
+      "id": "mat1100-7-1-bb-04"
+    },
+    {
+      "type": "definition",
+      "title": "Ekstremverdisetningen",
+      "content": "Garantien for at maksimum og minimum faktisk finnes: en funksjon som er kontinuerlig på et **lukket og begrenset** intervall $[a,b]$, antar både største og minste verdi der. Brukes til å begrunne globalt ekstremum i optimering — forutsetningen om lukket intervall må nevnes.",
+      "id": "mat1100-7-1-bb-05"
+    },
+    {
+      "type": "definition",
+      "title": "Analysens fundamentalteorem (FTC)",
+      "content": "Broen mellom derivasjon og integrasjon. **Del 1:** $\\frac{d}{dx}\\int_a^x f(t)\\,dt=f(x)$ for kontinuerlig $f$. **Del 2:** $\\int_a^b f=F(b)-F(a)$ når $F'=f$. Navngis når du deriverer et integral (sjanger J).",
+      "id": "mat1100-7-1-bb-06"
+    },
+    {
+      "type": "definition",
+      "title": "Kjerneregelen (i FTC-sammenheng)",
+      "content": "Når den øvre grensen i et integral selv er en funksjon $g(x)$, må FTC ganges med den indre deriverte: $\\frac{d}{dx}\\int_a^{g(x)} f(t)\\,dt=f(g(x))\\cdot g'(x)$. Å glemme faktoren $g'(x)$ er en dokumentert felle.",
+      "id": "mat1100-7-1-bb-07"
+    },
+    {
+      "type": "definition",
+      "title": "L'Hôpitals regel",
+      "content": "For en grense på ubestemt form $[0/0]$ eller $[\\infty/\\infty]$: $\\lim\\frac{f}{g}=\\lim\\frac{f'}{g'}$ når høyresiden finnes. **Føringskrav:** marker den ubestemte formen $[0/0]$ før **hver** anvendelse; regelen gjelder ikke for ikke-ubestemte uttrykk.",
+      "id": "mat1100-7-1-bb-08"
+    },
+    {
+      "type": "definition",
+      "title": "Sammenligningstesten",
+      "content": "Avgjør konvergens ved å klemme mot et kjent integral/rekke: er $0\\le f\\le g$ og $\\int g$ konvergerer, konvergerer $\\int f$; er $f\\ge g\\ge 0$ og $\\int g$ divergerer, divergerer $\\int f$. Sammenligningsintegralet **navngis** som konvergent/divergent $p$-integral.",
+      "id": "mat1100-7-1-bb-09"
+    },
+    {
+      "type": "definition",
+      "title": "Grensesammenligningstesten (GS-testen)",
+      "content": "Alternativ til direkte sammenligning: hvis $\\lim_{x\\to\\infty}\\frac{f(x)}{g(x)}=L$ med $0<L<\\infty$, har $\\int f$ og $\\int g$ **samme** oppførsel (begge konvergerer eller begge divergerer). Ofte enklere når ulikhetene i direkte sammenligning er vanskelige å sette opp.",
+      "id": "mat1100-7-1-bb-10"
+    },
+    {
+      "type": "definition",
+      "title": "$p$-integral-kriteriet",
+      "content": "Referanseintegralene alt sammenlignes med. $\\int_1^\\infty x^{-p}\\,dx$ konvergerer $\\Leftrightarrow p>1$; $\\int_0^1 x^{-p}\\,dx$ konvergerer $\\Leftrightarrow p<1$. Legg merke til at både grensen ($1$) og retningen på ulikheten byttes mellom de to — en klassisk forvekslingsfelle.",
+      "id": "mat1100-7-1-bb-11"
+    },
+    {
+      "type": "definition",
+      "title": "$p$-rekke-kriteriet",
+      "content": "Rekkeversjonen: $\\sum_{n=1}^\\infty n^{-p}$ konvergerer $\\Leftrightarrow p>1$. Harmonisk rekke ($p=1$) divergerer. Brukes som referanse i sammenligningstester for rekker (Del 6-stoff, tynt arkivbelagt).",
+      "id": "mat1100-7-1-bb-12"
+    },
+    {
+      "type": "definition",
+      "title": "Konjugatrotsetningen",
+      "content": "For et polynom med **reelle** koeffisienter: er $z_0$ en rot, er også $\\bar{z_0}$ en rot. Konjugatparet multipliseres til den reelle kvadratiske faktoren $(z-z_0)(z-\\bar{z_0})=z^2-2\\,\\mathrm{Re}(z_0)z+|z_0|^2$. Gjelder **ikke** for polynomer med komplekse koeffisienter.",
+      "id": "mat1100-7-1-bb-13"
+    },
+    {
+      "type": "definition",
+      "title": "Algebraens fundamentalteorem",
+      "content": "Et polynom av grad $n\\ge 1$ har nøyaktig $n$ komplekse røtter regnet med multiplisitet. Brukes til å vite *hvor mange* røtter du leter etter, og til å vite at faktoriseringen er komplett når gradtallene stemmer.",
+      "id": "mat1100-7-1-bb-14"
+    },
+    {
+      "type": "definition",
+      "title": "de Moivres formel",
+      "content": "Regnereglen for potenser i polarform: $(re^{i\\theta})^n=r^n e^{in\\theta}$, altså $r^n(\\cos n\\theta+i\\sin n\\theta)$. Oppskrift for høye potenser: polarform, gang vinkelen, **reduser mod $2\\pi$**, tilbake til kartesisk. Samme formel gir $n$-te røtter baklengs.",
+      "id": "mat1100-7-1-bb-15"
+    },
+    {
+      "type": "definition",
+      "title": "Kompletthetsaksiomet (monoton + begrenset)",
+      "content": "Arbeidsformen for følgekonvergens: en **monoton og begrenset** følge konvergerer. For en voksende følge som er oppad begrenset finnes grensen (og er $\\le$ enhver øvre skranke). I fikspunktoppgaver: vis monotoni og begrensethet **før** du regner grensen fra $L=g(L)$.",
+      "id": "mat1100-7-1-bb-16"
+    },
+    {
+      "type": "definition",
+      "title": "Inverterbar $\\Leftrightarrow \\det\\ne 0$",
+      "content": "Kriteriet for at en kvadratisk matrise $M$ har en invers: $M$ er inverterbar hvis og bare hvis $\\det M\\ne 0$. Føringskrav i sjanger B/C: regn determinanten synlig og konkluder — $\\det M=0$ betyr singulær (ingen invers).",
+      "id": "mat1100-7-1-bb-17"
+    },
+    {
+      "type": "definition",
+      "title": "Grense-av-derivert-setningen",
+      "content": "Snarvei én vei: er $f$ kontinuerlig i $a$ og $\\lim_{x\\to a}f'(x)=b$ **finnes**, så er $f$ deriverbar i $a$ med $f'(a)=b$. **Aldri baklengs:** at grensen ikke finnes betyr *ikke* at $f$ er ikke-deriverbar — da må differansekvotienten brukes.",
+      "id": "mat1100-7-1-bb-18"
+    },
+    {
+      "type": "definition",
+      "title": "Deriverbar $\\Rightarrow$ kontinuerlig",
+      "content": "Implikasjonen som går én vei: er $f$ deriverbar i $a$, er $f$ kontinuerlig i $a$. Den kan **ikke** snus — $|x|$ er kontinuerlig, men ikke deriverbar i $0$. Nyttig som første steg: er $f$ ikke kontinuerlig, er den heller ikke deriverbar.",
+      "id": "mat1100-7-1-bb-19"
+    },
+    {
+      "type": "definition",
+      "title": "Sensorregelen «ubegrunnet svar = 0»",
+      "content": "Bokas viktigste føringsregel: «svar som ikke er begrunnet, får 0 poeng selv om de er riktige» (ordrett instruks 2012–2016, videreført siden). Poeng gis for resonnementet, ikke for tallet. Et riktig sluttsvar uten mellomregning er verdt like mye som blankt.",
+      "id": "mat1100-7-1-bb-20"
+    },
+    {
+      "type": "definition",
+      "title": "Substitusjonsboksen",
+      "content": "Føringsstandarden for substitusjon i integraler: sett opp $u$, $du/dx$ og $dx$ i en egen boks, og **bytt grensene** ved bestemte integraler ($x$-grenser → $u$-grenser). Uten boksen og de nye grensene er substitusjonen ikke dokumentert.",
+      "id": "mat1100-7-1-bb-21"
+    },
+    {
+      "type": "definition",
+      "title": "LIATE-valget (delvis integrasjon)",
+      "content": "Huskeregelen for hvilken faktor som blir $u$ i $\\int u\\,v'=uv-\\int v\\,u'$: **L**ogaritme, **I**nverse trig, **A**lgebra (polynom), **T**rigonometri, **E**ksponential — velg $u$ tidligst i rekka. Føringskrav: skriv hvilken faktor som er $u$ og hvilken som er $v'$.",
+      "id": "mat1100-7-1-bb-22"
+    },
+    {
+      "type": "definition",
+      "title": "lim-føring for uegentlige integraler",
+      "content": "Et uegentlig integral må skrives som en grense: $\\int_a^\\infty f=\\lim_{b\\to\\infty}\\int_a^b f$ (og tilsvarende ved en singularitet). **Aldri «sett inn $\\infty$»** som om det var et tall — regn det endelige integralet først, så ta grensen.",
+      "id": "mat1100-7-1-bb-23"
+    },
+    {
+      "type": "definition",
+      "title": "Fortegnsskjema (dokumentert)",
+      "content": "Føringen som bærer drøfting (sjanger K): en tegnet/beskrevet fortegnslinje for $f'$ (monotoni) eller $f''$ (konveksitet) som viser hvor uttrykket er positivt/negativt. En konklusjon om voksende/avtakende **uten** fortegnsskjema er et føringstrekk.",
+      "id": "mat1100-7-1-bb-24"
+    },
+    {
+      "type": "definition",
+      "title": "Konklusjonssetningen",
+      "content": "Den verbale setningen som avslutter hvert delpunkt og svarer direkte på spørsmålet («Altså er $f$ deriverbar i $0$ med $f'(0)=0$»), fulgt av markert sluttsvar. Uten den er delpunktet halvferdig, uansett hvor riktig regningen er.",
+      "id": "mat1100-7-1-bb-25"
+    },
+    {
+      "type": "definition",
+      "title": "Delpunkt-kjeding («anta resultatet fra (a)»)",
+      "content": "Retten — gitt i eksamensinstruksen — til å bruke resultater fra tidligere delpunkter selv om de står ubesvart. Skriv «antar fra (a) at …» og bruk det videre; da vurderes senere delpunkter selvstendig og gir full uttelling.",
+      "id": "mat1100-7-1-bb-26"
+    },
+    {
+      "type": "definition",
+      "title": "Uttalt begrensethet i skvis",
+      "content": "Kravet om å skrive ulikheten $|\\sin(\\cdot)|\\le 1$ (eller $|\\cos(\\cdot)|\\le 1$) eksplisitt før du klemmer en oscillerende funksjon. Det er begrensetheten som gir klemmerammen $-|x|^k\\le x^k\\,\\mathrm{trig}\\le|x|^k$ — hoppes den over, mangler selve argumentet.",
+      "id": "mat1100-7-1-bb-27"
+    },
+    {
+      "type": "definition",
+      "title": "$[0/0]$-markering før L'Hôpital",
+      "content": "Føringskravet om å skrive den ubestemte formen $[0/0]$ eller $[\\infty/\\infty]$ eksplisitt **før hver** L'Hôpital-anvendelse (gjentatt bruk = ny markering). Uten markeringen er det ikke vist at regelens forutsetning er oppfylt.",
+      "id": "mat1100-7-1-bb-28"
+    },
+    {
+      "type": "definition",
+      "title": "Grensedefinisjonen av den deriverte",
+      "content": "Verktøyet deriverbarhet i et punkt **må** vises med: $f'(a)=\\lim_{h\\to 0}\\dfrac{f(a+h)-f(a)}{h}$. Å derivere uttrykket og sette inn er **ikke** gyldig bevis der definisjonen etterspørres (skjøtepunkter, oscillasjonsfamilien) — emnets mest dokumenterte felle.",
+      "id": "mat1100-7-1-bb-29"
+    },
+    {
+      "type": "definition",
+      "title": "Verifikasjon i åpne oppgaver",
+      "content": "Kravet om at et konstruert eksempel må følges av en sjekk krav-for-krav. «Angi en følge som er begrenset, men ikke konvergent» er ikke besvart før du har **verifisert begge** egenskapene for ditt eksempel. Eksempel uten verifikasjon = halvt svar.",
+      "id": "mat1100-7-1-bb-30"
+    },
+    {
+      "type": "collapsible",
+      "title": "Symbol- og formelliste",
+      "buttonText": "Vis symboler og formler",
+      "content": [
+        {
+          "type": "text",
+          "content": "## Symbol- og formelliste\n\n*Oppslagsverk — alt her forklares underveis i kapitlet.*\n\n| Symbol | Betydning |\n|---|---|\n| $[0/0]$, $[\\infty/\\infty]$ | Ubestemt form — markeres før L'Hôpital |\n| $u,\\ du,\\ dx$ | Substitusjonsboksens størrelser (med nye grenser) |\n| $u,\\ v'$ | Delvis integrasjon: $\\int u\\,v'=uv-\\int v\\,u'$ (LIATE-valg) |\n| $\\nabla f$ | Gradient (sjanger A) |\n| $f'(\\mathbf{a};\\mathbf{r})$ | Retningsderivert $=\\nabla f(\\mathbf{a})\\cdot\\mathbf{r}$ |\n| $\\det M$ | Determinant — $\\ne 0 \\Leftrightarrow$ inverterbar |\n| $\\bar{z},\\ |z|$ | Konjugat og modulus (sjanger G) |\n| $c$ | Punktet setningene (skjæring/Rolle/MVT) garanterer |\n| $\\boxed{\\ }$ | Markert sluttsvar |\n\n**Sentrale føringsformler i dette kapitlet:**\n\n$$f'(a)=\\lim_{h\\to 0}\\frac{f(a+h)-f(a)}{h}$$\nGrensedefinisjonen — eneste gyldige vei til deriverbarhet i et punkt.\n\n$$-|x|^k\\le x^k\\,\\mathrm{trig}(1/x^m)\\le |x|^k$$\nSkvisrammen — krever **uttalt** begrensethet $|\\mathrm{trig}|\\le 1$.\n\n$$\\int_a^\\infty f(x)\\,dx=\\lim_{b\\to\\infty}\\int_a^b f(x)\\,dx$$\nlim-føring for uegentlige integraler — aldri «sett inn $\\infty$».\n\n$$(z-z_0)(z-\\bar{z_0})=z^2-2\\,\\mathrm{Re}(z_0)\\,z+|z_0|^2$$\nKonjugatrotsetningens reelle kvadratiske faktor.\n\n$$\\int_1^\\infty x^{-p}\\,dx\\ \\text{konv.}\\Leftrightarrow p>1,\\qquad \\int_0^1 x^{-p}\\,dx\\ \\text{konv.}\\Leftrightarrow p<1$$\n$p$-integral-kriteriene — navngis i sammenligning.",
+          "id": "mat1100-7-1-symbolliste-text"
+        }
+      ],
+      "id": "mat1100-7-1-symbolliste"
+    },
+    {
+      "type": "collapsible",
+      "title": "Repetisjonsoppgaver",
+      "buttonText": "Vis repetisjonsoppgaver",
+      "content": [
+        {
+          "type": "text",
+          "content": "## Repetisjonsoppgaver\n\nKorte oppgaver fra forkunnskapskapitlene — fem stykker, alle med føringskravet i tankene. Fasit under hver.\n\n**R1 (kap. 1.2).** Regn ut $(1-i)^8$ og skriv svaret på formen $a+ib$.\n\n*Fasit:* Polarform: $r=\\sqrt2$, $\\theta=-\\pi/4$. de Moivre: $(1-i)^8=(\\sqrt2)^8 e^{-i8\\pi/4}=16\\,e^{-i2\\pi}=16$. Alternativt $(1-i)^2=-2i$, så $(1-i)^8=(-2i)^4=16 i^4=16$. **Svar:** $16$ (rent reelt).\n\n**R2 (kap. 2.2).** Beregn $\\displaystyle\\lim_{x\\to 0}\\frac{\\sin 3x}{x}$.\n\n*Fasit:* $=\\lim_{x\\to 0}3\\cdot\\frac{\\sin 3x}{3x}=3\\cdot 1=3$ ved **standardgrensen** $\\frac{\\sin u}{u}\\to 1$. **Svar:** $3$.\n\n**R3 (kap. 3.2).** Deriver $f(x)=\\arctan(x^2)$.\n\n*Fasit:* Kjerneregel: $f'(x)=\\frac{1}{1+(x^2)^2}\\cdot 2x=\\dfrac{2x}{1+x^4}$. **Svar:** $\\frac{2x}{1+x^4}$.\n\n**R4 (kap. 4.2).** Beregn $\\displaystyle\\int_0^1 x^2\\,dx$ med FTC.\n\n*Fasit:* $\\big[\\tfrac{x^3}{3}\\big]_0^1=\\tfrac13$. **Svar:** $\\frac13$.\n\n**R5 (kap. 2.4).** Med én setning: hvilken setning navngir du for å vise at $x^3+x-1=0$ har en løsning i $[0,1]$, og hvilken forutsetning nevner du?\n\n*Fasit:* **Skjæringssetningen**; forutsetningen er at $f(x)=x^3+x-1$ er **kontinuerlig** på $[0,1]$ (polynom), og $f(0)=-1<0$, $f(1)=1>0$.",
+          "id": "mat1100-7-1-repetisjon-text"
+        }
+      ],
+      "id": "mat1100-7-1-repetisjon"
+    }
+  ],
+  "exercises": []
+}

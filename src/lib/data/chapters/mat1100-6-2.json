@@ -1,0 +1,344 @@
+{
+  "id": "mat1100-6-2",
+  "courseId": "mat1100",
+  "chapterNumber": "6.2",
+  "title": "Uendelige rekker og konvergenstester",
+  "description": "Konvergens av rekker med geometrisk sum, divergens-, integral-, sammenlignings-, GS- og forholdstest — pensumkrav uten arkivforekomst; metodene speiler p-integralene i 4.6.",
+  "estimatedMinutes": 45,
+  "competenceGoals": [
+    "kunne avgjøre om en rekke konvergerer med riktig navngitt test (divergens-, geometrisk, p-rekke, integral-, sammenlignings-, GS- eller forholdstest)",
+    "kunne summere en geometrisk rekke og forklare hvorfor a_n -> 0 ikke er nok for konvergens (harmonisk rekke)",
+    "kunne knytte p-rekkene til p-integralene fra kap. 4.6 og gjenkjenne absolutt kontra betinget konvergens"
+  ],
+  "content": [
+    {
+      "id": "mat1100-6-2-tip",
+      "type": "tip",
+      "title": "Eksamensvinkel",
+      "content": "**Ærlig eksamensvinkel — les dette først.** Uendelige rekker og konvergenstester har **0 forekomster i 21 slutteksamener (H2003–H2023) og 0 i 16 midtveiseksamener (H2003–H2018)** — temaet er aldri testet i arkivet. Vi dekker det likevel, av to grunner: (1) gjeldende emnebeskrivelse nevner eksplisitt konvergensteori for rekker, og (2) metodene er de **samme** som i [kap. 4.6](/bok/mat1100/mat1100-4-6) om uegentlige integraler — der sammenligningslogikken *er* 81 %-eksamensstoff. Lærer du 4.6, kan du dette nesten gratis.\n\n- **Prioritér etter Del 1–5.** Ikke bruk tid på å jakte en sjanger som ikke finnes i arkivet; lær metodene og gå videre.\n- Oppgavene her er skrevet i **4.6-format overført til rekker**: avgjør konvergens, navngi testen.\n\n*Kilde: arkivet med $21$ slutteksamener (H2003–H2023, $18$ med løsningsforslag) og $16$ midtveiseksamener (H2003–H2018). **Arkivet stopper i 2023 — dukker rekker opp i nyere sett, er verktøyene her det naturlige formatet; sjekk de sist gitte settene.** Prioritet: **kjenne** (høyeste prioritet er Del 1–5).*"
+    },
+    {
+      "id": "mat1100-6-2-forkunnskaper",
+      "type": "text",
+      "content": "**Forkunnskaper:** Kapitlet bygger på følgekonvergens fra [kap. 2.3](/bok/mat1100/mat1100-2-3) (en rekke er grensen av en *følge* av delsummer) og — helt sentralt — sammenligningsdisiplinen i [kap. 4.6](/bok/mat1100/mat1100-4-6) (samme logikk, integral → rekke). VGS-basis: [Uendelige rekker og konvergens](/bok/r2/r2-1-5) og [Geometriske følger](/bok/r2/r2-1-3).\n\n**Sist du var her — to grep fra 4.6 du gjenbruker rått.** Del 6 ligger sent i boka, så vi frisker opp:\n- **$p$-integralkriteriene:** $\\displaystyle\\int_1^{\\infty}\\frac{dx}{x^{p}}$ konvergerer $\\iff p>1$; $\\displaystyle\\int_0^{1}\\frac{dx}{x^{p}}$ konvergerer $\\iff p<1$ (speilvendt). Rekkevarianten under speiler den første.\n- **GS-testen:** ta grensen $L=\\lim f/g$ mot dominant ledd; er $0<L<\\infty$, har objektene samme skjebne."
+    },
+    {
+      "id": "mat1100-6-2-anker",
+      "type": "text",
+      "content": "Tenk deg at du tar en medisindose hver morgen. Kroppen bryter ned en fast andel i løpet av et døgn, så det som er igjen etter mange dager er en **sum av uendelig mange bidrag**: dagens dose, pluss restene av gårsdagens, pluss restene av restene … Blir den totale mengden i kroppen et endelig tall, eller vokser den uten grense?\n\nDet er nøyaktig spørsmålet en **uendelig rekke** stiller: legg vi sammen uendelig mange tall, får vi en endelig sum (rekken *konvergerer*) eller ikke (den *divergerer*)? Vi svarer ikke ved å «legge sammen for evig», men ved å studere **delsummene** og sammenligne med rekker vi allerede kjenner — akkurat som vi sammenlignet integraler i kapittel 4.6."
+    },
+    {
+      "id": "mat1100-6-2-l1",
+      "type": "text",
+      "content": "## Løkke 1 — Rekke som grense av delsummer (~7 min)\n\nEn rekke defineres ikke ved «uendelig addisjon», men som grensen av en følge av *endelige* summer."
+    },
+    {
+      "id": "mat1100-6-2-def-delsum",
+      "type": "definition",
+      "title": "Delsum $s_N$",
+      "content": "Den $N$-te **delsummen** til rekken $\\sum_{n=1}^\\infty a_n$ er den endelige summen av de $N$ første leddene:\n$$s_N=a_1+a_2+\\dots+a_N=\\sum_{n=1}^{N}a_n.$$\nDelsummene danner en *følge* $s_1,s_2,s_3,\\dots$ — og hele rekketeorien er egentlig følgeteori (fra [kap. 2.3](/bok/mat1100/mat1100-2-3)) anvendt på denne følgen."
+    },
+    {
+      "id": "mat1100-6-2-def-rekke",
+      "type": "definition",
+      "title": "Uendelig rekke og dens sum",
+      "content": "**I ord:** rekkens sum er tallet delsummene nærmer seg. Formelt:\n$$\\sum_{n=1}^{\\infty}a_n=\\lim_{N\\to\\infty}s_N.$$\nFinnes grensen som et endelig tall, **konvergerer** rekken (mot den summen); ellers **divergerer** den. Legg merke til at rekkesummen er en *følgegrense* — ikke en funksjonsgrense."
+    },
+    {
+      "id": "mat1100-6-2-ex-teleskop",
+      "type": "example",
+      "title": "Sum via delsummer (teleskopisk)",
+      "problem": "Vis at $\\displaystyle\\sum_{n=1}^{\\infty}\\frac{1}{n(n+1)}$ konvergerer, og finn summen.",
+      "solution": "**Skriv leddet med delbrøk:** $\\dfrac{1}{n(n+1)}=\\dfrac1n-\\dfrac{1}{n+1}$.\n\n**Regn delsummen $s_N$ (teleskopering):**\n$$s_N=\\sum_{n=1}^{N}\\Big(\\frac1n-\\frac{1}{n+1}\\Big)=\\Big(1-\\frac12\\Big)+\\Big(\\frac12-\\frac13\\Big)+\\dots+\\Big(\\frac1N-\\frac{1}{N+1}\\Big)=1-\\frac{1}{N+1}.$$\n\n**Ta grensen:** $\\displaystyle\\lim_{N\\to\\infty}s_N=\\lim_{N\\to\\infty}\\Big(1-\\frac{1}{N+1}\\Big)=1.$\n\n**Konklusjon:** rekken **konvergerer** med sum $1$. *(Dette er en av få rekker der vi finner delsummen eksplisitt — for de fleste bruker vi konvergenstester i stedet.)*"
+    },
+    {
+      "id": "mat1100-6-2-exc-1",
+      "type": "exercise",
+      "exercise": {
+        "id": "mat1100-6-2-exc-1",
+        "number": "1",
+        "type": "classic",
+        "difficulty": "lett",
+        "task": "(4.6-format overført til rekker — lett innstegsoppgave.) *«4.6-format» betyr: samme avgjør-konvergens-oppgave som for uegentlige integraler, men nå for en rekke.* Skriv opp delsummen $s_3$ til rekken $\\displaystyle\\sum_{n=1}^{\\infty}\\frac{1}{2^n}$, og gjett grensen.",
+        "solution": "**Delsummen $s_3$:** de tre første leddene er $\\tfrac12,\\tfrac14,\\tfrac18$, så\n$$s_3=\\frac12+\\frac14+\\frac18=\\frac{7}{8}.$$\n\n**Mønster:** $s_N=1-\\dfrac{1}{2^N}$ (hvert nytt ledd halverer avstanden opp til $1$), så $s_N\\to 1$.\n\n**Konklusjon:** $s_3=\\tfrac78$, og delsummene nærmer seg $1$ — rekken konvergerer mot $1$. (Bekreftes av geometrisk sumformel i neste løkke.)",
+        "hints": [
+          "Legg sammen de tre første leddene $\\tfrac12+\\tfrac14+\\tfrac18$.",
+          "Se på hvor langt $s_N$ er fra $1$: avstanden er $\\tfrac{1}{2^N}\\to 0$."
+        ]
+      }
+    },
+    {
+      "id": "mat1100-6-2-l2",
+      "type": "text",
+      "content": "## Løkke 2 — Geometrisk rekke (~8 min)\n\nDen ene rekken du kan summere eksakt — og referansen bak mange sammenligninger."
+    },
+    {
+      "id": "mat1100-6-2-def-geom",
+      "type": "definition",
+      "title": "Geometrisk rekke",
+      "content": "En rekke der hvert ledd er forrige ledd ganget med en fast **kvotient** $k$: $\\sum_{n=0}^{\\infty}a\\,k^{n}=a+ak+ak^2+\\dots$. Den **konvergerer nøyaktig når $|k|<1$**, og da er summen\n$$\\sum_{n=0}^{\\infty}a\\,k^{n}=\\frac{a}{1-k}\\qquad(|k|<1).$$\nFor $|k|\\ge 1$ divergerer den (leddene dør ikke ut). Formelen forutsetter at du vet hvilket ledd summen starter på."
+    },
+    {
+      "id": "mat1100-6-2-ex-geom",
+      "type": "example",
+      "title": "Geometrisk sum",
+      "problem": "Avgjør om $\\displaystyle\\sum_{n=0}^{\\infty}2\\left(\\frac34\\right)^{n}$ konvergerer, og finn summen.",
+      "solution": "**Identifiser:** geometrisk rekke med førsteledd $a=2$ (leddet for $n=0$) og kvotient $k=\\tfrac34$.\n\n**Konvergenskriterium:** $|k|=\\tfrac34<1$, så rekken **konvergerer**.\n\n**Sumformel:**\n$$\\sum_{n=0}^{\\infty}2\\Big(\\frac34\\Big)^{n}=\\frac{a}{1-k}=\\frac{2}{1-\\tfrac34}=\\frac{2}{\\tfrac14}=8.$$\n\n**Konklusjon:** rekken konvergerer med sum $8$."
+    },
+    {
+      "id": "mat1100-6-2-exc-2",
+      "type": "exercise",
+      "exercise": {
+        "id": "mat1100-6-2-exc-2",
+        "number": "2",
+        "type": "classic",
+        "difficulty": "lett",
+        "task": "(4.6-format overført til rekker.) Avgjør om $\\displaystyle\\sum_{n=1}^{\\infty}\\left(\\frac13\\right)^{n}$ konvergerer, og finn eventuelt summen. Pass på startindeksen.",
+        "solution": "**Identifiser:** geometrisk med kvotient $k=\\tfrac13$. Summen **starter på $n=1$**, så førsteleddet er $a=\\big(\\tfrac13\\big)^1=\\tfrac13$ (ikke $1$).\n\n**Kriterium:** $|k|=\\tfrac13<1$ → **konvergerer**.\n\n**Sumformel** (med $a=\\tfrac13$):\n$$\\sum_{n=1}^{\\infty}\\Big(\\frac13\\Big)^{n}=\\frac{a}{1-k}=\\frac{\\tfrac13}{1-\\tfrac13}=\\frac{\\tfrac13}{\\tfrac23}=\\frac12.$$\n\n**Konklusjon:** summen er $\\tfrac12$. *(Hadde vi startet på $n=0$, ville førsteleddet vært $1$ og summen $\\tfrac{1}{1-1/3}=\\tfrac32$ — startindeksen er avgjørende.)*",
+        "hints": [
+          "Kvotient $k=\\tfrac13$; men summen starter på $n=1$, så $a=\\tfrac13$.",
+          "Sett inn i $\\tfrac{a}{1-k}$ med riktig førsteledd."
+        ]
+      }
+    },
+    {
+      "id": "mat1100-6-2-l3",
+      "type": "text",
+      "content": "## Løkke 3 — Divergenstesten og den harmoniske rekken (~8 min)\n\nDen raskeste testen — men den kan bare *avsløre divergens*, aldri bekrefte konvergens."
+    },
+    {
+      "id": "mat1100-6-2-def-divtest",
+      "type": "definition",
+      "title": "Divergenstesten (n-te ledd-testen)",
+      "content": "**Nødvendig betingelse for konvergens:** hvis $\\sum a_n$ konvergerer, må $a_n\\to 0$. Snudd gir det en test:\n$$\\text{Hvis } \\lim_{n\\to\\infty}a_n\\ne 0 \\text{ (eller ikke finnes), så \\textbf{divergerer} } \\sum a_n.$$\nTesten sier **aldri** at en rekke konvergerer — bare at den divergerer når leddene *ikke* dør ut."
+    },
+    {
+      "id": "mat1100-6-2-def-harmonisk",
+      "type": "definition",
+      "title": "Den harmoniske rekken ($a_n\\to 0$ er ikke nok)",
+      "content": "Den harmoniske rekken $\\sum_{n=1}^\\infty \\tfrac1n$ har $a_n=\\tfrac1n\\to 0$, men **divergerer** likevel. Den er det avgjørende moteksemplet: at leddene går mot $0$ er *nødvendig*, men **ikke tilstrekkelig** for konvergens. (Divergensen vises med integraltesten i neste løkke — den er et $p$-integral/$p$-rekke med $p=1$.)"
+    },
+    {
+      "id": "mat1100-6-2-ex-divtest",
+      "type": "example",
+      "title": "Divergenstesten",
+      "problem": "Avgjør om $\\displaystyle\\sum_{n=1}^{\\infty}\\frac{n}{2n+1}$ konvergerer.",
+      "solution": "**Sjekk leddgrensen** (billigste test først):\n$$\\lim_{n\\to\\infty}a_n=\\lim_{n\\to\\infty}\\frac{n}{2n+1}=\\lim_{n\\to\\infty}\\frac{1}{2+\\tfrac1n}=\\frac12\\ne 0.$$\n\n**Konkluder:** siden leddene går mot $\\tfrac12\\ne 0$ (ikke mot $0$), **divergerer** rekken etter **divergenstesten**.\n\n**Konklusjon:** $\\displaystyle\\sum_{n=1}^{\\infty}\\frac{n}{2n+1}$ divergerer. *(Leddene «hoper seg opp» med ca. $\\tfrac12$ per ledd — summen kan umulig stabilisere seg.)*"
+    },
+    {
+      "id": "mat1100-6-2-exc-3",
+      "type": "exercise",
+      "exercise": {
+        "id": "mat1100-6-2-exc-3",
+        "number": "3",
+        "type": "classic",
+        "difficulty": "lett",
+        "task": "(4.6-format overført til rekker.) Avgjør om $\\displaystyle\\sum_{n=1}^{\\infty}\\frac{3n^2-1}{n^2+4}$ konvergerer.",
+        "solution": "**Sjekk leddgrensen:**\n$$\\lim_{n\\to\\infty}\\frac{3n^2-1}{n^2+4}=\\lim_{n\\to\\infty}\\frac{3-\\tfrac{1}{n^2}}{1+\\tfrac{4}{n^2}}=3\\ne 0.$$\n\n**Konkluder:** leddene går mot $3\\ne 0$, så etter **divergenstesten divergerer** rekken.\n\n**Konklusjon:** rekken divergerer. *(Advarsel: hadde leddgrensen vært $0$, ville testen vært inkonklusiv — da måtte vi brukt en sterkere test.)*",
+        "hints": [
+          "Regn $\\lim_{n\\to\\infty}a_n$ ved å dele på $n^2$.",
+          "Er grensen $\\ne 0$, divergerer rekken direkte (divergenstesten)."
+        ]
+      }
+    },
+    {
+      "id": "mat1100-6-2-l4",
+      "type": "text",
+      "content": "## Løkke 4 — $p$-rekker og integraltesten: broen til 4.6 (~9 min)\n\nHer møter rekker og integraler hverandre eksplisitt: $p$-rekken speiler $p$-integralet, og integraltesten er selve broen."
+    },
+    {
+      "id": "mat1100-6-2-def-integraltest",
+      "type": "theorem",
+      "title": "Integraltesten",
+      "content": "La $f$ være positiv, avtakende og kontinuerlig med $f(n)=a_n$. Da har rekken og integralet **samme skjebne**:\n$$\\sum_{n=1}^{\\infty}a_n \\text{ konvergerer}\\iff \\int_1^{\\infty}f(x)\\,dx \\text{ konvergerer.}$$\nIntuisjonen er arealtolkningen: rekken er en trappesum som klemmer integralet ovenfra og nedenfra. Dette er den direkte broen til [kap. 4.6](/bok/mat1100/mat1100-4-6)."
+    },
+    {
+      "id": "mat1100-6-2-def-prekke",
+      "type": "definition",
+      "title": "$p$-rekken (speiler $p$-integralet)",
+      "content": "Anvender vi integraltesten på $f(x)=x^{-p}$, arver rekken $p$-integralets kriterium:\n$$\\sum_{n=1}^{\\infty}\\frac{1}{n^{p}}\\text{ konvergerer}\\iff p>1,\\qquad \\text{divergerer}\\iff p\\le 1.$$\nDette er nøyaktig kriteriet for $\\int_1^\\infty x^{-p}\\,dx$ fra 4.6. Grensetilfellet $p=1$ er den harmoniske rekken (divergerer). $p$-rekken er referansen alle rekkesammenligninger bruker."
+    },
+    {
+      "id": "mat1100-6-2-ex-integraltest",
+      "type": "example",
+      "title": "Integraltesten — harmonisk-lignende rekke",
+      "problem": "Avgjør om $\\displaystyle\\sum_{n=2}^{\\infty}\\frac{1}{n\\ln n}$ konvergerer.",
+      "solution": "**Sett opp funksjonen:** $f(x)=\\dfrac{1}{x\\ln x}$ er positiv, kontinuerlig og avtakende for $x\\ge 2$, og $f(n)=a_n$. Vilkårene for **integraltesten** er oppfylt.\n\n**Regn integralet med lim-føring** (som i 4.6). Substitusjon $u=\\ln x$, $du=\\tfrac1x\\,dx$:\n$$\\int_2^{\\infty}\\frac{dx}{x\\ln x}=\\lim_{R\\to\\infty}\\int_2^{R}\\frac{dx}{x\\ln x}=\\lim_{R\\to\\infty}\\big[\\ln(\\ln x)\\big]_2^{R}=\\lim_{R\\to\\infty}\\big(\\ln(\\ln R)-\\ln(\\ln 2)\\big)=\\infty.$$\n\n**Konkluder:** integralet **divergerer**, så etter **integraltesten divergerer** også rekken.\n\n**Konklusjon:** $\\displaystyle\\sum_{n=2}^{\\infty}\\frac{1}{n\\ln n}$ divergerer. *(Merk: leddene $\\to 0$, men saktere enn nok — divergenstesten var inkonklusiv her, akkurat som for den harmoniske rekken.)*"
+    },
+    {
+      "id": "mat1100-6-2-exc-4",
+      "type": "exercise",
+      "exercise": {
+        "id": "mat1100-6-2-exc-4",
+        "number": "4",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "(4.6-format overført til rekker.) Avgjør om $\\displaystyle\\sum_{n=1}^{\\infty}\\frac{1}{n^{3/2}}$ konvergerer, og navngi kriteriet.",
+        "solution": "**Gjenkjenn $p$-rekken:** $\\dfrac{1}{n^{3/2}}=n^{-p}$ med $p=\\tfrac32$.\n\n**Bruk $p$-rekke-kriteriet:** $p=\\tfrac32>1$, så rekken **konvergerer**.\n\n**Konklusjon:** $\\displaystyle\\sum_{n=1}^{\\infty}\\frac{1}{n^{3/2}}$ konvergerer (konvergent $p$-rekke, $p=\\tfrac32>1$). *(Nøyaktig samme kriterium som $\\int_1^\\infty x^{-3/2}\\,dx$ i 4.6 — broen mellom rekke og integral.)*",
+        "hints": [
+          "Skriv $\\tfrac{1}{n^{3/2}}=n^{-p}$ og les av $p$.",
+          "$p$-rekken konvergerer $\\iff p>1$; her er $p=\\tfrac32$."
+        ]
+      }
+    },
+    {
+      "id": "mat1100-6-2-l5",
+      "type": "text",
+      "content": "## Løkke 5 — Sammenlignings- og grensesammenligningstest (~10 min)\n\nSamme disiplin som i 4.6: klem mot en $p$-rekke, eller ta grensen av forholdet — og **navngi sammenligningsrekken**."
+    },
+    {
+      "id": "mat1100-6-2-def-sammenlign",
+      "type": "definition",
+      "title": "Direkte sammenligningstest (rekker)",
+      "content": "Anta $0\\le a_n\\le b_n$ for alle $n$. Da:\n$$\\sum b_n\\text{ konvergerer}\\Rightarrow\\sum a_n\\text{ konvergerer};\\qquad \\sum a_n\\text{ divergerer}\\Rightarrow\\sum b_n\\text{ divergerer}.$$\nRetningen er alt: for **konvergens** klem $a_n$ *oppover* mot en konvergent rekke; for **divergens** klem *nedover* mot en divergent. Sammenligningsrekken navngis som konvergent/divergent $p$-rekke."
+    },
+    {
+      "id": "mat1100-6-2-def-gs",
+      "type": "definition",
+      "title": "Grensesammenligningstesten (GS-testen, rekker)",
+      "content": "La $a_n,b_n>0$ og sett $L=\\displaystyle\\lim_{n\\to\\infty}\\frac{a_n}{b_n}$. Er $0<L<\\infty$ (endelig og positiv), har $\\sum a_n$ og $\\sum b_n$ **samme skjebne**. Velg $b_n$ fra **dominant ledd** i teller og nevner — nøyaktig som i GS-testen for integraler i [kap. 4.6](/bok/mat1100/mat1100-4-6)."
+    },
+    {
+      "id": "mat1100-6-2-ex-gs",
+      "type": "example",
+      "title": "GS-testen for en rekke",
+      "problem": "Avgjør om $\\displaystyle\\sum_{n=1}^{\\infty}\\frac{n}{n^3+2}$ konvergerer, og navngi testen.",
+      "solution": "**Positiv rekke.** Alle ledd er $>0$ for $n\\ge 1$.\n\n**Velg $b_n$ fra dominant ledd:** teller $\\sim n$, nevner $\\sim n^3$, så $a_n\\sim\\dfrac{n}{n^3}=\\dfrac{1}{n^2}$. Velg $b_n=\\dfrac{1}{n^2}$.\n\n**Regn forholdsgrensen:**\n$$L=\\lim_{n\\to\\infty}\\frac{a_n}{b_n}=\\lim_{n\\to\\infty}\\frac{n}{n^3+2}\\cdot n^2=\\lim_{n\\to\\infty}\\frac{n^3}{n^3+2}=1.$$\nSiden $0<L=1<\\infty$, har rekkene samme skjebne.\n\n**Navngi og konkluder.** $\\displaystyle\\sum\\frac{1}{n^2}$ er en **konvergent $p$-rekke** ($p=2>1$). Etter **GS-testen konvergerer** derfor $\\displaystyle\\sum_{n=1}^{\\infty}\\frac{n}{n^3+2}$.\n\n**Konklusjon:** rekken konvergerer."
+    },
+    {
+      "id": "mat1100-6-2-exc-5",
+      "type": "exercise",
+      "exercise": {
+        "id": "mat1100-6-2-exc-5",
+        "number": "5",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "(4.6-format overført til rekker — GS-test, divergens.) Avgjør om $\\displaystyle\\sum_{n=1}^{\\infty}\\frac{2n+1}{n^2+3}$ konvergerer, og navngi sammenligningsrekken.",
+        "solution": "**Positiv rekke** for $n\\ge 1$.\n\n**Dominant ledd:** teller $\\sim 2n$, nevner $\\sim n^2$, så $a_n\\sim\\dfrac{2n}{n^2}=\\dfrac{2}{n}$. Velg $b_n=\\dfrac{1}{n}$.\n\n**Forholdsgrense:**\n$$L=\\lim_{n\\to\\infty}\\frac{2n+1}{n^2+3}\\cdot n=\\lim_{n\\to\\infty}\\frac{2n^2+n}{n^2+3}=2.$$\n$0<L=2<\\infty$, så samme skjebne som $\\sum b_n$.\n\n**Navngi og konkluder.** $\\displaystyle\\sum\\frac1n$ er den **divergente harmoniske rekken** (divergent $p$-rekke, $p=1$). Etter **GS-testen divergerer** derfor rekken.\n\n**Konklusjon:** $\\displaystyle\\sum_{n=1}^{\\infty}\\frac{2n+1}{n^2+3}$ divergerer.",
+        "hints": [
+          "Dominant ledd: $\\tfrac{2n}{n^2}=\\tfrac{2}{n}$ → velg $b_n=\\tfrac1n$.",
+          "$\\sum\\tfrac1n$ er harmonisk = divergent $p$-rekke ($p=1$); GS gir samme skjebne."
+        ]
+      }
+    },
+    {
+      "id": "mat1100-6-2-l6",
+      "type": "text",
+      "content": "## Løkke 6 — Forholdstesten (kvotienttesten) (~9 min)\n\nNår leddene inneholder fakultet eller potenser som $k^n$, er forholdstesten ofte den raskeste — men $L=1$ avgjør ingenting."
+    },
+    {
+      "id": "mat1100-6-2-def-forhold",
+      "type": "theorem",
+      "title": "Forholdstesten (kvotienttesten)",
+      "content": "For en rekke med $a_n>0$, sett $L=\\displaystyle\\lim_{n\\to\\infty}\\frac{a_{n+1}}{a_n}$. Da:\n$$L<1\\Rightarrow\\text{konvergerer};\\qquad L>1\\Rightarrow\\text{divergerer};\\qquad L=1\\Rightarrow\\text{inkonklusiv}.$$\nTesten er skreddersydd for **fakultet og eksponentialledd** ($n!$, $k^n$), der forholdet forenkler dramatisk."
+    },
+    {
+      "id": "mat1100-6-2-def-L1",
+      "type": "definition",
+      "title": "$L=1$ er inkonklusiv",
+      "content": "Når forholdstesten gir $L=1$, sier den **ingenting** — rekken kan både konvergere og divergere. Eksempel: både $\\sum\\tfrac1n$ (divergerer) og $\\sum\\tfrac{1}{n^2}$ (konvergerer) gir $L=1$. Da må du bytte til en annen test (typisk $p$-rekke eller GS). Å tolke $L=1$ som konvergens er en dokumentert felle."
+    },
+    {
+      "id": "mat1100-6-2-ex-forhold",
+      "type": "example",
+      "title": "Forholdstesten med fakultet",
+      "problem": "Avgjør om $\\displaystyle\\sum_{n=1}^{\\infty}\\frac{2^{n}}{n!}$ konvergerer.",
+      "solution": "**Positiv rekke.** Sett opp forholdet $\\dfrac{a_{n+1}}{a_n}$ med $a_n=\\dfrac{2^n}{n!}$:\n$$\\frac{a_{n+1}}{a_n}=\\frac{2^{n+1}}{(n+1)!}\\cdot\\frac{n!}{2^{n}}=\\frac{2\\cdot 2^{n}}{(n+1)\\,n!}\\cdot\\frac{n!}{2^{n}}=\\frac{2}{n+1}.$$\n\n**Ta grensen:** $\\displaystyle L=\\lim_{n\\to\\infty}\\frac{2}{n+1}=0<1$.\n\n**Konkluder:** siden $L=0<1$, **konvergerer** rekken etter **forholdstesten**.\n\n**Konklusjon:** $\\displaystyle\\sum_{n=1}^{\\infty}\\frac{2^{n}}{n!}$ konvergerer. *(Fakultetet vokser raskere enn $2^n$ — forholdstesten fanger dette umiddelbart.)*"
+    },
+    {
+      "id": "mat1100-6-2-exc-6",
+      "type": "exercise",
+      "exercise": {
+        "id": "mat1100-6-2-exc-6",
+        "number": "6",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "(4.6-format overført til rekker — forholdstest.) Avgjør om $\\displaystyle\\sum_{n=1}^{\\infty}\\frac{n}{2^{n}}$ konvergerer.",
+        "solution": "**Positiv rekke.** Forholdet med $a_n=\\dfrac{n}{2^n}$:\n$$\\frac{a_{n+1}}{a_n}=\\frac{n+1}{2^{n+1}}\\cdot\\frac{2^{n}}{n}=\\frac{n+1}{2n}.$$\n\n**Ta grensen:** $\\displaystyle L=\\lim_{n\\to\\infty}\\frac{n+1}{2n}=\\frac12<1$.\n\n**Konkluder:** $L=\\tfrac12<1$, så etter **forholdstesten konvergerer** rekken.\n\n**Konklusjon:** $\\displaystyle\\sum_{n=1}^{\\infty}\\frac{n}{2^{n}}$ konvergerer.",
+        "hints": [
+          "Sett opp $\\tfrac{a_{n+1}}{a_n}=\\tfrac{n+1}{2^{n+1}}\\cdot\\tfrac{2^n}{n}$.",
+          "Forenkle til $\\tfrac{n+1}{2n}$ og ta grensen; $L<1$ gir konvergens."
+        ]
+      }
+    },
+    {
+      "id": "mat1100-6-2-l7",
+      "type": "text",
+      "content": "## Løkke 7 — Alternerende rekker og absolutt konvergens (kjennskap) (~5 min)\n\nDette er «kjenne»-stoff: godt å gjenkjenne, sjelden krevd i full bredde."
+    },
+    {
+      "id": "mat1100-6-2-def-leibniz",
+      "type": "definition",
+      "title": "Alternerende rekke og Leibniz-kriteriet",
+      "content": "En **alternerende rekke** har ledd som veksler fortegn: $\\sum(-1)^{n}b_n$ med $b_n>0$. **Leibniz-kriteriet:** hvis $b_n$ er avtakende og $b_n\\to 0$, konvergerer rekken. Eksempel: $\\sum\\tfrac{(-1)^{n+1}}{n}=1-\\tfrac12+\\tfrac13-\\dots$ konvergerer (mot $\\ln 2$), selv om den harmoniske rekken av tallverdiene divergerer."
+    },
+    {
+      "id": "mat1100-6-2-def-absolutt",
+      "type": "definition",
+      "title": "Absolutt konvergens",
+      "content": "$\\sum a_n$ er **absolutt konvergent** hvis $\\sum|a_n|$ konvergerer. Absolutt konvergens medfører (vanlig) konvergens — og lar deg bruke sammenlignings-/forholdstestene (som krever positive ledd) på $|a_n|$ selv når $a_n$ skifter fortegn."
+    },
+    {
+      "id": "mat1100-6-2-def-betinget",
+      "type": "definition",
+      "title": "Betinget konvergens",
+      "content": "$\\sum a_n$ er **betinget konvergent** hvis $\\sum a_n$ konvergerer, men $\\sum|a_n|$ divergerer. Standardeksemplet er den alternerende harmoniske rekken $\\sum\\tfrac{(-1)^{n+1}}{n}$: den konvergerer (Leibniz), men tallverdiene $\\sum\\tfrac1n$ divergerer. «Konvergerer, men bare fordi fortegnene hjelper.»"
+    },
+    {
+      "id": "mat1100-6-2-def-taylorkobling",
+      "type": "definition",
+      "title": "Kobling til Taylor-rekker",
+      "content": "En Taylor-rekke (fra [kap. 6.1](/bok/mat1100/mat1100-6-1)) *er* en uendelig rekke, og den representerer funksjonen nøyaktig der restleddet $R_n\\to 0$. Konvergenstestene her avgjør for hvilke $x$ en potensrekke $\\sum c_n x^n$ konvergerer — typisk med forholdstesten, som gir et **konvergensintervall**."
+    },
+    {
+      "id": "mat1100-6-2-warn",
+      "type": "warning",
+      "title": "Typiske feil (rekker)",
+      "content": "- **«$a_n\\to 0$, altså konvergerer rekken.»** Feil retning — den harmoniske rekken $\\sum\\tfrac1n$ har $a_n\\to 0$, men divergerer. $a_n\\to 0$ er nødvendig, ikke tilstrekkelig. Divergenstesten kan bare vise *divergens*.\n- **$L=1$ i forholdstesten tolket som konvergens.** $L=1$ er inkonklusiv — bytt test.\n- **Feil ulikhetsretning i sammenligning.** Konvergens: klem *oppover* mot konvergent. Divergens: klem *nedover* mot divergent.\n- **Sammenligningsrekken ikke navngitt.** Som i 4.6: nevn eksplisitt om referansen er en konvergent/divergent $p$-rekke.\n- **Rekkesum forvekslet med følgegrense.** $\\lim a_n$ (leddenes grense) er ikke det samme som rekkesummen $\\lim s_N$ (delsummenes grense)."
+    },
+    {
+      "id": "mat1100-6-2-bb",
+      "type": "text",
+      "content": "## Begrepsbank\n\n*Flashcard- og repetisjonsstoff — hopp trygt over ved førstegangslesing; tidsanslaget gjelder kjernestoffet i løkkene.*"
+    },
+    {
+      "id": "mat1100-6-2-bb-strategivalg",
+      "type": "definition",
+      "title": "Strategivalg for rekker",
+      "content": "(1) Går leddene mot $0$? Nei → **divergenstesten**, ferdig. (2) Geometrisk eller $p$-rekke? → les av kriteriet direkte. (3) Fakultet/$k^n$? → **forholdstesten**. (4) Rasjonalt i $n$? → **GS-test** mot dominant $p$-rekke. (5) Positiv og avtakende med kjent integral? → **integraltesten**. (6) Vekslende fortegn? → **Leibniz**."
+    },
+    {
+      "id": "mat1100-6-2-bb-nodvendig",
+      "type": "definition",
+      "title": "Nødvendig kontra tilstrekkelig",
+      "content": "$a_n\\to 0$ er en **nødvendig** betingelse for konvergens (uten den divergerer rekken), men **ikke tilstrekkelig** (harmonisk rekke). En konvergenstest må gi en *tilstrekkelig* grunn — derav sammenligning, forhold eller integral."
+    },
+    {
+      "id": "mat1100-6-2-symbolliste",
+      "type": "collapsible",
+      "title": "Symbol- og formelliste",
+      "buttonText": "Vis symboler og formler",
+      "content": [
+        {
+          "id": "mat1100-6-2-symbolliste-text",
+          "type": "text",
+          "content": "## Symbol- og formelliste\n\n*Oppslagsverk — alt her forklares underveis i kapitlet.*\n\n| Symbol | Betydning |\n|---|---|\n| $a_n$ | Det $n$-te leddet i rekken |\n| $s_N=\\sum_{n=1}^N a_n$ | Den $N$-te delsummen |\n| $\\sum_{n=1}^\\infty a_n$ | Rekkesummen $=\\lim_N s_N$ |\n| $k$ | Kvotient i geometrisk rekke |\n| $p$ | Eksponent i $p$-rekken $\\sum n^{-p}$ |\n| $L=\\lim a_{n+1}/a_n$ | Grensen i forholdstesten |\n| $L=\\lim a_n/b_n$ | Forholdsgrensen i GS-testen |\n\n**Formler i dette delkapitlet:**\n\n$$\\sum_{n=1}^{\\infty}a_n=\\lim_{N\\to\\infty}s_N,\\qquad s_N=\\sum_{n=1}^{N}a_n$$\nRekke som grense av delsummer.\n\n$$\\sum_{n=0}^{\\infty}a\\,k^{n}=\\frac{a}{1-k}\\quad(|k|<1)$$\nGeometrisk rekke (konvergerer $\\iff |k|<1$).\n\n$$\\sum_{n=1}^{\\infty}\\frac{1}{n^{p}}\\ \\text{konv.}\\iff p>1$$\n$p$-rekken (speiler $p$-integralet i 4.6).\n\n$$L=\\lim_{n\\to\\infty}\\frac{a_{n+1}}{a_n}:\\quad L<1\\ \\text{konv.},\\ L>1\\ \\text{div.},\\ L=1\\ \\text{inkonklusiv}$$\nForholdstesten.\n\n$$0<L=\\lim\\frac{a_n}{b_n}<\\infty\\ \\Rightarrow\\ \\sum a_n,\\sum b_n\\ \\text{samme skjebne}$$\nGS-testen (velg $b_n$ fra dominant ledd)."
+        }
+      ]
+    },
+    {
+      "id": "mat1100-6-2-repetisjon",
+      "type": "collapsible",
+      "title": "Repetisjonsoppgaver (fra 2.3 og 4.6)",
+      "buttonText": "Vis repetisjonsoppgaver",
+      "content": [
+        {
+          "id": "mat1100-6-2-rep-text",
+          "type": "text",
+          "content": "## Repetisjonsoppgaver\n\nGrunnlaget rekketester hviler på.\n\n**a)** ([2.3](/bok/mat1100/mat1100-2-3)) Regn $\\displaystyle\\lim_{n\\to\\infty}\\frac{n}{n^3+2}\\cdot n^2$.\n**b)** ([2.3](/bok/mat1100/mat1100-2-3)) Regn $\\displaystyle\\lim_{n\\to\\infty}\\frac{3n^2-1}{n^2+4}$.\n**c)** ([4.6](/bok/mat1100/mat1100-4-6)) For hvilke $p$ konvergerer $\\displaystyle\\int_1^{\\infty}\\frac{dx}{x^{p}}$?\n**d)** ([4.6](/bok/mat1100/mat1100-4-6)) Regn $\\displaystyle\\int_2^{\\infty}\\frac{dx}{x\\ln x}$ med lim-føring.\n\n**Fasit.**\n**a)** $\\dfrac{n^3}{n^3+2}\\to 1$.\n**b)** Del på $n^2$: $\\dfrac{3-1/n^2}{1+4/n^2}\\to 3$.\n**c)** Konvergerer $\\iff p>1$ (divergerer for $p\\le 1$).\n**d)** $u=\\ln x$: $\\lim_{R\\to\\infty}[\\ln\\ln x]_2^R=\\infty$, divergerer.\n\n*(a)–(b) er GS-/divergenstestens grenser; (c) er $p$-rekkens kriterium; (d) er integraltesten for $\\sum\\tfrac{1}{n\\ln n}$.)*"
+        }
+      ]
+    }
+  ],
+  "exercises": []
+}

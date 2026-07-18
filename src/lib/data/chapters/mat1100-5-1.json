@@ -1,0 +1,409 @@
+{
+  "id": "mat1100-5-1",
+  "courseId": "mat1100",
+  "chapterNumber": "5.1",
+  "title": "Vektorer, determinant og volum",
+  "description": "Determinant ved kofaktorutvikling, kryss- og trippelprodukt, og volumformlene — med pyramidefaktoren 1/6 som fasit vet at glemmes.",
+  "estimatedMinutes": 50,
+  "competenceGoals": [
+    "regne skalarprodukt og kryssprodukt og bruke dem til å avgjøre ortogonalitet og finne areal",
+    "regne determinanter 2×2 og 3×3 ved kofaktorutvikling langs valgfri rad eller søyle",
+    "finne volum av parallellepiped på to måter (determinant og trippelprodukt) og areal som $|\\det|$",
+    "finne volum av en pyramide fra fire punkter med kantvektorer og faktoren 1/6"
+  ],
+  "content": [
+    {
+      "id": "mat1100-5-1-tip-eksamensvinkel",
+      "type": "tip",
+      "title": "Eksamensvinkel",
+      "content": "**Del 5 åpner slutteksamenen. Vektorregning, determinant og volum er billige, mekaniske poeng — men bare hvis føringen sitter.**\n\n- **Sjanger C** — determinant, volum og matriseregning — er med i **17 av 21 slutteksamener**. I flervalgsepoken kom det 2–3 slike spm per sett; i nyere sett er det egne begrunnede delpunkter. Kildegrunnlaget: 21 slutteksamener H2003–H2023 (18 med løsningsforslag) + 16 midtveiseksamener H2003–H2018; arkivet stopper i 2023.\n- **Gjengangeren:** volum av et parallellepiped eller en pyramide ut fra fire punkter. Pyramiden krever faktoren $\\tfrac16$ — den er dokumentert glemsel.\n\nSjangerkoden brukt i dette kapitlet: **(Eksamenssjanger C)** = determinant/volum/matriseregning på begrunnet langsvar. **(Midtveis, flervalg)** = samme stoff som flervalg med fem alternativer.\n\n**Prioritet:** høyeste (nivå «kunne», grensende til «perfekt» i skjelettet). Determinanten kommer dessuten tilbake i [kap. 5.2](/bok/mat1100/mat1100-5-2) (inverterbar $\\Leftrightarrow \\det\\ne 0$) og [kap. 5.3](/bok/mat1100/mat1100-5-3) (vei tilbake i en overgangsmodell), så den må sitte."
+    },
+    {
+      "id": "mat1100-5-1-forkunnskaper",
+      "type": "text",
+      "content": "**Forkunnskaper:** Alt du trenger er vektorregning fra videregående. Fra R2 er broene [Vektorer i tre dimensjoner](/bok/r2/r2-5-1), [Skalarproduktet](/bok/r2/r2-5-3), [Kryssproduktet](/bok/r2/r2-5-4) og [Areal og volum med vektorer](/bok/r2/r2-5-5). Determinanten bygger vi opp fra grunnen her, så du trenger ikke ha sett kofaktorutvikling før.\n\n*Dette kapitlet er på 50 minutter, delt i seks korte løkker med ett naturlig pausepunkt. Ta gjerne vektorer og determinant (løkke 1–3) én økt og volum (løkke 4–6) en annen.*"
+    },
+    {
+      "id": "mat1100-5-1-intro",
+      "type": "text",
+      "content": "Hele kapitlet dreier seg om ett tall: **determinanten**. Fra to vektorer i planet gir den arealet av parallellogrammet de spenner ut; fra tre vektorer i rommet gir den volumet av parallellepipedet. Og fra fire punkter i rommet gir den — med en faktor $\\tfrac16$ — volumet av pyramiden.\n\nVi bygger opp verktøyene i seks **læringsløkker**: (1) vektorer og skalarprodukt, (2) kryssprodukt, (3) determinant ved kofaktorutvikling, (4) areal $=|\\det|$, (5) volum av parallellepiped (to metoder), (6) pyramidevolum fra fire punkter. Hver løkke går teori → eksempel → oppgave."
+    },
+    {
+      "id": "mat1100-5-1-lokke1",
+      "type": "text",
+      "content": "## Løkke 1 — Vektorer og skalarprodukt (~7 min)"
+    },
+    {
+      "id": "mat1100-5-1-def-vektor",
+      "type": "definition",
+      "title": "Vektor i $\\mathbb{R}^2$ og $\\mathbb{R}^3$",
+      "content": "En **vektor** er en liste tall som beskriver en forflytning — en retning med en lengde. I planet skriver vi $\\mathbf{a}=(a_1,a_2)$, i rommet $\\mathbf{a}=(a_1,a_2,a_3)$. Lengden (normen) er\n\n$$|\\mathbf{a}|=\\sqrt{a_1^2+a_2^2+a_3^2}.$$\n\nEn **kantvektor** mellom to punkter $P$ og $Q$ er $\\overrightarrow{PQ}=Q-P$ (koordinatvis). Denne differansen — ikke posisjonsvektorene selv — er det du regner med når en oppgave gir deg hjørnepunkter."
+    },
+    {
+      "id": "mat1100-5-1-def-skalarprodukt",
+      "type": "definition",
+      "title": "Skalarproduktet (prikkproduktet)",
+      "content": "Skalarproduktet av to vektorer er tallet\n\n$$\\mathbf{a}\\cdot\\mathbf{b}=a_1b_1+a_2b_2+a_3b_3.$$\n\nDet er en **skalar** (et tall), ikke en vektor. Det måler hvor mye to vektorer peker samme vei, gjennom sammenhengen $\\mathbf{a}\\cdot\\mathbf{b}=|\\mathbf{a}||\\mathbf{b}|\\cos\\theta$, der $\\theta$ er vinkelen mellom dem. Skalarproduktet brukes aktivt igjen i retningsderiverten i [kap. 5.4](/bok/mat1100/mat1100-5-4)."
+    },
+    {
+      "id": "mat1100-5-1-def-ortogonalitet",
+      "type": "definition",
+      "title": "Vinkel og ortogonalitet",
+      "content": "Vinkelen mellom to vektorer finner du fra skalarproduktet:\n\n$$\\cos\\theta=\\frac{\\mathbf{a}\\cdot\\mathbf{b}}{|\\mathbf{a}||\\mathbf{b}|}.$$\n\nTo vektorer står **vinkelrett (ortogonalt)** på hverandre nettopp når $\\mathbf{a}\\cdot\\mathbf{b}=0$ (da er $\\cos\\theta=0$, altså $\\theta=90^\\circ$). Dette null-kriteriet er den raskeste ortogonalitetstesten — du slipper å regne ut lengder og vinkler."
+    },
+    {
+      "id": "mat1100-5-1-ex-skalar",
+      "type": "example",
+      "title": "Eksempel 1: Skalarprodukt og ortogonalitet",
+      "problem": "La $\\mathbf{a}=(1,2,2)$ og $\\mathbf{b}=(2,0,-1)$. Regn ut $\\mathbf{a}\\cdot\\mathbf{b}$, og avgjør om vektorene står vinkelrett på hverandre.",
+      "solution": "Skalarproduktet ledd for ledd:\n$$\\mathbf{a}\\cdot\\mathbf{b}=1\\cdot 2+2\\cdot 0+2\\cdot(-1)=2+0-2=0.$$\n\n**Ortogonalitetstesten:** siden $\\mathbf{a}\\cdot\\mathbf{b}=0$, står vektorene vinkelrett på hverandre.\n\n**Kontroll av lengdene** (til senere bruk): $|\\mathbf{a}|=\\sqrt{1+4+4}=3$ og $|\\mathbf{b}|=\\sqrt{4+0+1}=\\sqrt5$. Vinkelen er $\\cos\\theta=0/(3\\sqrt5)=0$, altså $\\theta=90^\\circ$.\n\n**Konklusjon:** $\\mathbf{a}\\cdot\\mathbf{b}=0$, så $\\mathbf{a}$ og $\\mathbf{b}$ er ortogonale. **Svar:** $\\boxed{0\\text{ — ja, ortogonale}}$"
+    },
+    {
+      "id": "mat1100-5-1-oppg-innsteg",
+      "type": "exercise",
+      "exercise": {
+        "id": "mat1100-5-1-oppg-innsteg-ex",
+        "number": "1",
+        "type": "classic",
+        "difficulty": "lett",
+        "task": "(Midtveis, flervalg — letteste innstegsform.) La $\\mathbf{a}=(3,-1,2)$ og $\\mathbf{b}=(2,4,-1)$. Regn ut $\\mathbf{a}\\cdot\\mathbf{b}$, og avgjør om vektorene er ortogonale.",
+        "solution": "Ledd for ledd:\n$$\\mathbf{a}\\cdot\\mathbf{b}=3\\cdot 2+(-1)\\cdot 4+2\\cdot(-1)=6-4-2=0.$$\n\n**Ortogonalitetstesten:** $\\mathbf{a}\\cdot\\mathbf{b}=0$, så vektorene står vinkelrett på hverandre. **Svar:** $\\boxed{0\\text{ — ja, ortogonale}}$",
+        "hints": [
+          "Skalarproduktet er $a_1b_1+a_2b_2+a_3b_3$ — gang komponentvis og summer.",
+          "Pass fortegnene: $(-1)\\cdot 4=-4$ og $2\\cdot(-1)=-2$.",
+          "Er summen $0$? Da er vektorene ortogonale."
+        ]
+      }
+    },
+    {
+      "id": "mat1100-5-1-lokke2",
+      "type": "text",
+      "content": "## Løkke 2 — Kryssproduktet (~7 min)"
+    },
+    {
+      "id": "mat1100-5-1-def-kryssprodukt",
+      "type": "definition",
+      "title": "Kryssproduktet (vektorproduktet)",
+      "content": "Kryssproduktet av to vektorer i $\\mathbb{R}^3$ er en **ny vektor** $\\mathbf{a}\\times\\mathbf{b}$ som står vinkelrett på begge. Den regnes som en «determinant» med enhetsvektorene i øverste rad:\n\n$$\\mathbf{a}\\times\\mathbf{b}=\\begin{vmatrix}\\mathbf{i}&\\mathbf{j}&\\mathbf{k}\\\\ a_1&a_2&a_3\\\\ b_1&b_2&b_3\\end{vmatrix}=\\big(a_2b_3-a_3b_2,\\;a_3b_1-a_1b_3,\\;a_1b_2-a_2b_1\\big).$$\n\nTo egenskaper du bruker: $\\mathbf{a}\\times\\mathbf{b}$ står ortogonalt på både $\\mathbf{a}$ og $\\mathbf{b}$, og lengden $|\\mathbf{a}\\times\\mathbf{b}|$ er arealet av parallellogrammet som $\\mathbf{a}$ og $\\mathbf{b}$ spenner ut. Merk at $\\mathbf{b}\\times\\mathbf{a}=-\\,\\mathbf{a}\\times\\mathbf{b}$ — rekkefølgen snur fortegnet."
+    },
+    {
+      "id": "mat1100-5-1-ex-kryss",
+      "type": "example",
+      "title": "Eksempel 2: Kryssprodukt og areal",
+      "problem": "La $\\mathbf{a}=(1,2,2)$ og $\\mathbf{b}=(2,0,-1)$. Finn $\\mathbf{a}\\times\\mathbf{b}$, og bruk den til å finne arealet av parallellogrammet vektorene spenner ut.",
+      "solution": "Vi bruker komponentformelen $\\mathbf{a}\\times\\mathbf{b}=(a_2b_3-a_3b_2,\\;a_3b_1-a_1b_3,\\;a_1b_2-a_2b_1)$:\n\n$$\\mathbf{a}\\times\\mathbf{b}=\\big(2\\cdot(-1)-2\\cdot 0,\\;\\;2\\cdot 2-1\\cdot(-1),\\;\\;1\\cdot 0-2\\cdot 2\\big)=(-2,\\;5,\\;-4).$$\n\n**Areal** $=|\\mathbf{a}\\times\\mathbf{b}|=\\sqrt{(-2)^2+5^2+(-4)^2}=\\sqrt{4+25+16}=\\sqrt{45}=3\\sqrt5$.\n\n**Kontroll:** $\\mathbf{a}$ og $\\mathbf{b}$ er ortogonale (Eksempel 1), så arealet skal være $|\\mathbf{a}||\\mathbf{b}|=3\\cdot\\sqrt5=3\\sqrt5$. Stemmer.\n\n**Konklusjon:** $\\mathbf{a}\\times\\mathbf{b}=(-2,5,-4)$ og arealet er $3\\sqrt5\\approx 6{,}7$. **Svar:** $\\boxed{(-2,5,-4),\\ \\text{areal }3\\sqrt5}$"
+    },
+    {
+      "id": "mat1100-5-1-oppg-kryss",
+      "type": "exercise",
+      "exercise": {
+        "id": "mat1100-5-1-oppg-kryss-ex",
+        "number": "2",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "(Eksamenssjanger C — kryssprodukt og areal.) La $\\mathbf{u}=(1,0,3)$ og $\\mathbf{v}=(2,1,0)$. Finn $\\mathbf{u}\\times\\mathbf{v}$ og arealet av trekanten med $\\mathbf{u}$ og $\\mathbf{v}$ som to sider.",
+        "solution": "Komponentformelen:\n$$\\mathbf{u}\\times\\mathbf{v}=\\big(0\\cdot 0-3\\cdot 1,\\;\\;3\\cdot 2-1\\cdot 0,\\;\\;1\\cdot 1-0\\cdot 2\\big)=(-3,\\;6,\\;1).$$\n\n**Parallellogramareal** $=|\\mathbf{u}\\times\\mathbf{v}|=\\sqrt{9+36+1}=\\sqrt{46}$.\n\n**Trekantarealet** er halvparten (trekanten er halve parallellogrammet):\n$$A=\\tfrac12\\sqrt{46}\\approx 3{,}39.$$\n\n**Konklusjon:** $\\mathbf{u}\\times\\mathbf{v}=(-3,6,1)$, trekantareal $\\tfrac12\\sqrt{46}$. **Svar:** $\\boxed{\\tfrac12\\sqrt{46}}$",
+        "hints": [
+          "Kryssprodukt: $(u_2v_3-u_3v_2,\\;u_3v_1-u_1v_3,\\;u_1v_2-u_2v_1)$.",
+          "Lengden $|\\mathbf{u}\\times\\mathbf{v}|$ er parallellogramarealet.",
+          "Trekanten er halve parallellogrammet — gang med $\\tfrac12$."
+        ]
+      }
+    },
+    {
+      "id": "mat1100-5-1-lokke3",
+      "type": "text",
+      "content": "## Løkke 3 — Determinant ved kofaktorutvikling (~9 min)"
+    },
+    {
+      "id": "mat1100-5-1-def-det2",
+      "type": "definition",
+      "title": "Determinant av en $2\\times 2$-matrise",
+      "content": "For en $2\\times 2$-matrise er determinanten produktet av hoveddiagonalen minus produktet av bidiagonalen:\n\n$$\\det\\begin{pmatrix}a&b\\\\ c&d\\end{pmatrix}=ad-bc.$$\n\nGeometrisk er $|ad-bc|$ arealet av parallellogrammet som radene (eller søylene) spenner ut. Er determinanten $0$, ligger de to vektorene på samme linje (parallelle)."
+    },
+    {
+      "id": "mat1100-5-1-def-kofaktor",
+      "type": "definition",
+      "title": "Kofaktorutvikling (determinant av $3\\times 3$)",
+      "content": "En $3\\times 3$-determinant regnes ved **kofaktorutvikling langs en valgfri rad eller søyle**: gang hvert element med determinanten til den $2\\times 2$-matrisen du får ved å stryke elementets rad og søyle (dette kalles en **minor**), og legg på fortegn etter sjakkbrettmønsteret. Langs første rad:\n\n$$\\det\\begin{pmatrix}a_{11}&a_{12}&a_{13}\\\\ a_{21}&a_{22}&a_{23}\\\\ a_{31}&a_{32}&a_{33}\\end{pmatrix}=a_{11}M_{11}-a_{12}M_{12}+a_{13}M_{13},$$\n\nder $M_{1j}$ er minoren til $a_{1j}$. **Lurt triks:** velg raden eller søylen med flest nuller — da faller ledd bort og du sparer regning."
+    },
+    {
+      "id": "mat1100-5-1-def-sjakkbrett",
+      "type": "definition",
+      "title": "Sjakkbrettmønsteret (fortegnene)",
+      "content": "Fortegnene i kofaktorutviklingen følger et fast pluss/minus-mønster etter posisjon:\n\n$$\\begin{pmatrix}+&-&+\\\\ -&+&-\\\\ +&-&+\\end{pmatrix}.$$\n\nElementet i posisjon $(i,j)$ får fortegnet $(-1)^{i+j}$. Utvikler du langs første rad, blir det $+,-,+$; langs andre rad $-,+,-$. Fortegnsslurv her — å glemme minuset på midterste ledd — er den dokumenterte determinantfeilen."
+    },
+    {
+      "id": "mat1100-5-1-ex-det3",
+      "type": "example",
+      "title": "Eksempel 3: Determinant av $3\\times 3$ ved kofaktorutvikling",
+      "problem": "Regn ut determinanten av $A=\\begin{pmatrix}2&1&3\\\\ 0&4&1\\\\ 5&2&1\\end{pmatrix}$.",
+      "solution": "Vi utvikler langs **første søyle**, fordi den har en null (elementet $0$ gir et ledd som forsvinner). Fortegnene i første søyle er $+,-,+$.\n\n$$\\det A=2\\cdot\\begin{vmatrix}4&1\\\\ 2&1\\end{vmatrix}-0\\cdot(\\dots)+5\\cdot\\begin{vmatrix}1&3\\\\ 4&1\\end{vmatrix}.$$\n\nDe to $2\\times2$-minorene:\n$$\\begin{vmatrix}4&1\\\\ 2&1\\end{vmatrix}=4\\cdot 1-1\\cdot 2=2,\\qquad \\begin{vmatrix}1&3\\\\ 4&1\\end{vmatrix}=1\\cdot 1-3\\cdot 4=-11.$$\n\nSett inn:\n$$\\det A=2\\cdot 2-0+5\\cdot(-11)=4-55=-51.$$\n\n**Kontroll** (utvikling langs første rad, fortegn $+,-,+$): $2(4\\cdot1-1\\cdot2)-1(0\\cdot1-1\\cdot5)+3(0\\cdot2-4\\cdot5)=2\\cdot2-1\\cdot(-5)+3\\cdot(-20)=4+5-60=-51$. Samme svar — raden/søylen du velger spiller ingen rolle.\n\n**Konklusjon:** $\\det A=-51$. **Svar:** $\\boxed{-51}$"
+    },
+    {
+      "id": "mat1100-5-1-oppg-det3",
+      "type": "exercise",
+      "exercise": {
+        "id": "mat1100-5-1-oppg-det3-ex",
+        "number": "3",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "(Eksamenssjanger C — determinant, velg smart rad/søyle.) Regn ut determinanten av $B=\\begin{pmatrix}1&2&0\\\\ 3&-1&4\\\\ 2&0&1\\end{pmatrix}$.",
+        "solution": "Vi utvikler langs **tredje rad** (den har en null), med fortegn $+,-,+$:\n$$\\det B=2\\cdot\\begin{vmatrix}2&0\\\\ -1&4\\end{vmatrix}-0\\cdot(\\dots)+1\\cdot\\begin{vmatrix}1&2\\\\ 3&-1\\end{vmatrix}.$$\n\nMinorene:\n$$\\begin{vmatrix}2&0\\\\ -1&4\\end{vmatrix}=2\\cdot4-0\\cdot(-1)=8,\\qquad \\begin{vmatrix}1&2\\\\ 3&-1\\end{vmatrix}=1\\cdot(-1)-2\\cdot3=-7.$$\n\n$$\\det B=2\\cdot 8-0+1\\cdot(-7)=16-7=9.$$\n\n**Konklusjon:** $\\det B=9$. **Svar:** $\\boxed{9}$",
+        "hints": [
+          "Velg raden eller søylen med flest nuller — her tredje rad.",
+          "Fortegnene i tredje rad er $+,-,+$ etter sjakkbrettmønsteret.",
+          "Hver minor er en $2\\times2$-determinant $ad-bc$; pass fortegnene."
+        ]
+      }
+    },
+    {
+      "id": "mat1100-5-1-pause1",
+      "type": "text",
+      "content": "*— naturlig pausepunkt — Du har nå de tre byggeklossene: skalarprodukt, kryssprodukt og determinant ved kofaktorutvikling. De tre siste løkkene bruker determinanten til areal og volum. Ta gjerne en pause her.*"
+    },
+    {
+      "id": "mat1100-5-1-lokke4",
+      "type": "text",
+      "content": "## Løkke 4 — Areal $=|\\det|$ (~6 min)"
+    },
+    {
+      "id": "mat1100-5-1-def-areal",
+      "type": "definition",
+      "title": "Areal $=|\\det|$ (parallellogram og trekant)",
+      "content": "To vektorer $\\mathbf{a}=(a_1,a_2)$ og $\\mathbf{b}=(b_1,b_2)$ i planet spenner ut et parallellogram. Arealet er tallverdien av determinanten med vektorene som rader:\n\n$$\\text{Areal}=\\left|\\det\\begin{pmatrix}a_1&a_2\\\\ b_1&b_2\\end{pmatrix}\\right|=|a_1b_2-a_2b_1|.$$\n\n**Absoluttverdien er nødvendig:** determinanten kan bli negativ (den koder også orientering), men et areal er aldri negativt. Trekanten med $\\mathbf{a}$ og $\\mathbf{b}$ som to sider har halve arealet, $\\tfrac12|a_1b_2-a_2b_1|$. I rommet bruker du i stedet $|\\mathbf{a}\\times\\mathbf{b}|$."
+    },
+    {
+      "id": "mat1100-5-1-ex-areal",
+      "type": "example",
+      "title": "Eksempel 4: Areal av trekant i planet",
+      "problem": "En trekant har hjørner $P=(1,1)$, $Q=(4,2)$ og $R=(2,5)$. Finn arealet.",
+      "solution": "Først **kantvektorer fra samme hjørne** $P$ (ikke posisjonsvektorene til punktene):\n$$\\mathbf{a}=\\overrightarrow{PQ}=Q-P=(3,1),\\qquad \\mathbf{b}=\\overrightarrow{PR}=R-P=(1,4).$$\n\nDeterminanten med disse som rader:\n$$\\det\\begin{pmatrix}3&1\\\\ 1&4\\end{pmatrix}=3\\cdot4-1\\cdot1=11.$$\n\nParallellogramarealet er $|11|=11$, og trekanten er halvparten:\n$$A=\\tfrac12\\cdot 11=\\tfrac{11}{2}=5{,}5.$$\n\n**Konklusjon:** trekanten $PQR$ har areal $\\tfrac{11}{2}$. **Svar:** $\\boxed{\\tfrac{11}{2}}$"
+    },
+    {
+      "id": "mat1100-5-1-oppg-areal",
+      "type": "exercise",
+      "exercise": {
+        "id": "mat1100-5-1-oppg-areal-ex",
+        "number": "4",
+        "type": "classic",
+        "difficulty": "lett",
+        "task": "(Eksamenssjanger C — areal fra to kantvektorer.) Et parallellogram spennes ut av $\\mathbf{a}=(5,2)$ og $\\mathbf{b}=(1,3)$. Finn arealet.",
+        "solution": "Determinanten med vektorene som rader:\n$$\\det\\begin{pmatrix}5&2\\\\ 1&3\\end{pmatrix}=5\\cdot3-2\\cdot1=13.$$\n\nArealet er tallverdien: $|13|=13$.\n\n**Konklusjon:** parallellogrammet har areal $13$. **Svar:** $\\boxed{13}$",
+        "hints": [
+          "Areal $=|a_1b_2-a_2b_1|$.",
+          "Sett inn: $5\\cdot3-2\\cdot1$.",
+          "Husk absoluttverdien — areal er aldri negativt."
+        ]
+      }
+    },
+    {
+      "id": "mat1100-5-1-lokke5",
+      "type": "text",
+      "content": "## Løkke 5 — Volum av parallellepiped: to metoder (~10 min)"
+    },
+    {
+      "id": "mat1100-5-1-def-trippelprodukt",
+      "type": "definition",
+      "title": "Skalar trippelprodukt",
+      "content": "Det **skalare trippelproduktet** av tre vektorer er tallet $(\\mathbf{a}\\times\\mathbf{b})\\cdot\\mathbf{c}$. Det er lik determinanten med de tre vektorene som rader:\n\n$$(\\mathbf{a}\\times\\mathbf{b})\\cdot\\mathbf{c}=\\det\\begin{pmatrix}a_1&a_2&a_3\\\\ b_1&b_2&b_3\\\\ c_1&c_2&c_3\\end{pmatrix}.$$\n\nDette er broen mellom kryssprodukt og determinant: du kan regne volum på begge måter og får samme tall. Er trippelproduktet $0$, ligger de tre vektorene i samme plan (de er **komplanære**)."
+    },
+    {
+      "id": "mat1100-5-1-def-volum-pp",
+      "type": "definition",
+      "title": "Volum av parallellepiped",
+      "content": "Tre vektorer $\\mathbf{a},\\mathbf{b},\\mathbf{c}$ i rommet spenner ut et parallellepiped (en «skjev boks»). Volumet er tallverdien av trippelproduktet — likeverdig uttrykt som en determinant:\n\n$$V=\\big|(\\mathbf{a}\\times\\mathbf{b})\\cdot\\mathbf{c}\\big|=\\left|\\det[\\mathbf{a}\\;\\mathbf{b}\\;\\mathbf{c}]\\right|.$$\n\n**Begge metodene godtas i fasit — vis gjerne begge.** Intuisjonen: $\\mathbf{a}\\times\\mathbf{b}$ har lengde lik grunnflatens areal og står normalt på grunnflaten, og prikket med $\\mathbf{c}$ plukker ut høyden. Absoluttverdien er nødvendig, akkurat som for areal."
+    },
+    {
+      "id": "mat1100-5-1-def-kantvektorer",
+      "type": "definition",
+      "title": "Kantvektorer fra felles hjørne",
+      "content": "Når en oppgave gir deg **punkter** (hjørner) og ber om volum, er første steg alltid det samme: velg ett hjørne som utgangspunkt og lag **kantvektorer** derfra ved å trekke fra det punktet. Fra hjørnene $P,Q,R,S$ med $P$ som utgangspunkt:\n\n$$\\mathbf{u}=Q-P,\\qquad \\mathbf{v}=R-P,\\qquad \\mathbf{w}=S-P.$$\n\nÅ bruke posisjonsvektorene $Q,R,S$ direkte (i stedet for differansene) er en dokumentert gjenganger­feil — den gir feil volum."
+    },
+    {
+      "id": "mat1100-5-1-ex-volum-pp",
+      "type": "example",
+      "title": "Eksempel 5: Volum av parallellepiped — begge metoder",
+      "problem": "Tre vektorer er $\\mathbf{a}=(1,1,0)$, $\\mathbf{b}=(2,1,1)$ og $\\mathbf{c}=(1,3,2)$. Finn volumet av parallellepipedet de spenner ut, med begge metodene.",
+      "solution": "**Metode 1 — determinant.** Utvikling langs første rad ($+,-,+$):\n$$\\det[\\mathbf{a}\\;\\mathbf{b}\\;\\mathbf{c}]=\\begin{vmatrix}1&1&0\\\\ 2&1&1\\\\ 1&3&2\\end{vmatrix}=1\\begin{vmatrix}1&1\\\\ 3&2\\end{vmatrix}-1\\begin{vmatrix}2&1\\\\ 1&2\\end{vmatrix}+0.$$\n$$=1(1\\cdot2-1\\cdot3)-1(2\\cdot2-1\\cdot1)+0=1(-1)-1(3)=-4.$$\nVolumet er $|-4|=4$.\n\n**Metode 2 — trippelprodukt.** Først $\\mathbf{a}\\times\\mathbf{b}$:\n$$\\mathbf{a}\\times\\mathbf{b}=(1\\cdot1-0\\cdot1,\\;0\\cdot2-1\\cdot1,\\;1\\cdot1-1\\cdot2)=(1,-1,-1).$$\nSå prikk med $\\mathbf{c}$:\n$$(\\mathbf{a}\\times\\mathbf{b})\\cdot\\mathbf{c}=(1,-1,-1)\\cdot(1,3,2)=1-3-2=-4.$$\nVolumet er $|-4|=4$ — samme svar.\n\n**Konklusjon:** begge metodene gir $V=|{-4}|=4$. **Svar:** $\\boxed{V=4}$"
+    },
+    {
+      "id": "mat1100-5-1-oppg-volum-pp",
+      "type": "exercise",
+      "exercise": {
+        "id": "mat1100-5-1-oppg-volum-pp-ex",
+        "number": "5",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "(Eksamenssjanger C — volum, vis gjerne begge metoder.) Finn volumet av parallellepipedet som spennes ut av $\\mathbf{a}=(2,0,1)$, $\\mathbf{b}=(1,3,0)$ og $\\mathbf{c}=(0,1,2)$.",
+        "solution": "**Determinantmetoden.** Utvikling langs første rad ($+,-,+$):\n$$\\begin{vmatrix}2&0&1\\\\ 1&3&0\\\\ 0&1&2\\end{vmatrix}=2\\begin{vmatrix}3&0\\\\ 1&2\\end{vmatrix}-0+1\\begin{vmatrix}1&3\\\\ 0&1\\end{vmatrix}=2(6-0)+1(1-0)=12+1=13.$$\n\n**Kontroll med trippelprodukt:** $\\mathbf{a}\\times\\mathbf{b}=(0\\cdot0-1\\cdot3,\\;1\\cdot1-2\\cdot0,\\;2\\cdot3-0\\cdot1)=(-3,1,6)$, og $(-3,1,6)\\cdot(0,1,2)=0+1+12=13$. Samme.\n\nVolumet er $|13|=13$.\n\n**Konklusjon:** $V=13$. **Svar:** $\\boxed{13}$",
+        "hints": [
+          "Volum $=|\\det[\\mathbf{a}\\;\\mathbf{b}\\;\\mathbf{c}]|$ — vektorene som rader.",
+          "Utvikle langs raden/søylen med en null.",
+          "Kontroller gjerne med $|(\\mathbf{a}\\times\\mathbf{b})\\cdot\\mathbf{c}|$ — samme tall."
+        ]
+      }
+    },
+    {
+      "id": "mat1100-5-1-lokke6",
+      "type": "text",
+      "content": "## Løkke 6 — Pyramidevolum fra fire punkter (~11 min)"
+    },
+    {
+      "id": "mat1100-5-1-def-pyramide",
+      "type": "definition",
+      "title": "Volum av pyramide/tetraeder — faktoren $\\tfrac16$",
+      "content": "En pyramide (tetraeder) utspent av tre kantvektorer $\\mathbf{u},\\mathbf{v},\\mathbf{w}$ fra samme hjørne har volum lik **en sjettedel** av det tilhørende parallellepipedet:\n\n$$V_{\\text{pyramide}}=\\frac16\\big|(\\mathbf{u}\\times\\mathbf{v})\\cdot\\mathbf{w}\\big|=\\frac16\\left|\\det[\\mathbf{u}\\;\\mathbf{v}\\;\\mathbf{w}]\\right|.$$\n\nHvorfor $\\tfrac16$: en pyramide er $\\tfrac13\\cdot(\\text{grunnflate})\\cdot(\\text{høyde})$, og grunnflaten (en trekant) er halve parallellogrammet — $\\tfrac13\\cdot\\tfrac12=\\tfrac16$. **Denne faktoren er den dokumenterte glemselen** i sjanger C: samme regning som for parallellepiped, men delt på $6$."
+    },
+    {
+      "id": "mat1100-5-1-ex-pyramide",
+      "type": "example",
+      "title": "Eksempel 6: Volum av pyramide fra fire punkter",
+      "problem": "Finn volumet av pyramiden med hjørner $P=(1,1,0)$, $Q=(3,2,1)$, $R=(2,4,1)$ og $S=(2,2,4)$.",
+      "solution": "**Steg 1 — kantvektorer fra felles hjørne $P$** (ikke posisjonsvektorene):\n$$\\mathbf{u}=Q-P=(2,1,1),\\quad \\mathbf{v}=R-P=(1,3,1),\\quad \\mathbf{w}=S-P=(1,1,4).$$\n\n**Steg 2 — determinant** (utvikling langs første rad, $+,-,+$):\n$$\\det[\\mathbf{u}\\;\\mathbf{v}\\;\\mathbf{w}]=\\begin{vmatrix}2&1&1\\\\ 1&3&1\\\\ 1&1&4\\end{vmatrix}=2\\begin{vmatrix}3&1\\\\ 1&4\\end{vmatrix}-1\\begin{vmatrix}1&1\\\\ 1&4\\end{vmatrix}+1\\begin{vmatrix}1&3\\\\ 1&1\\end{vmatrix}.$$\n$$=2(12-1)-1(4-1)+1(1-3)=2\\cdot11-3+(-2)=22-3-2=17.$$\n\n**Kontroll med trippelprodukt:** $\\mathbf{u}\\times\\mathbf{v}=(1\\cdot1-1\\cdot3,\\;1\\cdot1-2\\cdot1,\\;2\\cdot3-1\\cdot1)=(-2,-1,5)$, og $(-2,-1,5)\\cdot(1,1,4)=-2-1+20=17$. Samme.\n\n**Steg 3 — pyramidefaktoren $\\tfrac16$:**\n$$V_{\\text{pyramide}}=\\frac16\\,|17|=\\frac{17}{6}\\approx 2{,}83.$$\n\n**Konklusjon:** pyramiden $PQRS$ har volum $\\tfrac{17}{6}$. Uten $\\tfrac16$-faktoren ville du fått parallellepipedvolumet $17$ — seks ganger for mye. **Svar:** $\\boxed{\\tfrac{17}{6}}$"
+    },
+    {
+      "id": "mat1100-5-1-oppg-pyramide",
+      "type": "exercise",
+      "exercise": {
+        "id": "mat1100-5-1-oppg-pyramide-ex",
+        "number": "6",
+        "type": "classic",
+        "difficulty": "vanskelig",
+        "task": "(Eksamenssjanger C — pyramidevolum fra fire punkter; ikke glem $\\tfrac16$.) Finn volumet av pyramiden med hjørner $A=(0,0,0)$, $B=(2,1,0)$, $C=(1,3,1)$ og $D=(0,1,3)$.",
+        "solution": "**Steg 1 — kantvektorer fra $A$.** Siden $A$ er origo, blir kantvektorene lik punktene selv:\n$$\\mathbf{u}=B-A=(2,1,0),\\quad \\mathbf{v}=C-A=(1,3,1),\\quad \\mathbf{w}=D-A=(0,1,3).$$\n\n**Steg 2 — determinant** (langs første rad, $+,-,+$):\n$$\\begin{vmatrix}2&1&0\\\\ 1&3&1\\\\ 0&1&3\\end{vmatrix}=2\\begin{vmatrix}3&1\\\\ 1&3\\end{vmatrix}-1\\begin{vmatrix}1&1\\\\ 0&3\\end{vmatrix}+0=2(9-1)-1(3-0)=16-3=13.$$\n\n**Steg 3 — pyramidefaktoren:**\n$$V=\\frac16\\,|13|=\\frac{13}{6}\\approx 2{,}17.$$\n\n**Konklusjon:** $V=\\tfrac{13}{6}$. **Svar:** $\\boxed{\\tfrac{13}{6}}$",
+        "hints": [
+          "Lag kantvektorer fra ett hjørne — her er $A$ origo, så vektorene blir punktene selv.",
+          "Regn $\\det[\\mathbf{u}\\;\\mathbf{v}\\;\\mathbf{w}]$ ved kofaktorutvikling langs en rad med null.",
+          "Pyramiden er $\\tfrac16$ av parallellepipedet — del determinantens tallverdi på $6$."
+        ]
+      }
+    },
+    {
+      "id": "mat1100-5-1-warn-typiske-feil",
+      "type": "warning",
+      "title": "Typiske feil",
+      "content": "- **Glemme $\\tfrac16$-faktoren i pyramidevolum.** Den mest dokumenterte gjengangerfeilen: du regner determinanten riktig, men glemmer at pyramiden er $\\tfrac16$ av parallellepipedet. Svaret blir seks ganger for stort.\n- **Bruke posisjonsvektorene i stedet for kantvektorer.** Gir en oppgave deg punkter, må du først lage kantvektorer $Q-P$, $R-P$, $S-P$ fra ett felles hjørne. Å sette punktene rett inn i determinanten gir feil volum.\n- **Fortegnsslurv i kofaktorutviklingen.** Sjakkbrettmønsteret er $+,-,+$ langs første rad. Å glemme minuset på midterste ledd er klassisk — skriv opp fortegnene før du regner.\n- **Glemme absoluttverdien.** Determinanten kan bli negativ (den koder orientering), men areal og volum er aldri negative. Ta alltid tallverdien til slutt.\n- **Forveksle kryssprodukt og skalarprodukt.** Skalarproduktet gir et tall (ortogonalitetstest); kryssproduktet gir en vektor (areal via lengden). Sjekk hva oppgaven ber om."
+    },
+    {
+      "id": "mat1100-5-1-begrepsbank-tekst",
+      "type": "text",
+      "content": "## Begrepsbank til eksamen\n\nHer er noen tilleggsbegreper fra kapitlet samlet i eksamensrettet kortform.\n\n*Begrepsbanken er flashcard-/repetisjonsstoff — den gjentar og utdyper det du nettopp har lest. Hopp trygt over ved førstegangslesing; tidsanslaget for kapitlet gjelder kjernestoffet.*"
+    },
+    {
+      "id": "mat1100-5-1-bb-radoperasjoner",
+      "type": "definition",
+      "title": "Radoperasjoners effekt på determinanten",
+      "content": "Tre regler det er greit å kjenne (de forklarer hvorfor kofaktorutvikling langs «smarte» rader er lovlig): å **bytte om** to rader endrer fortegnet på determinanten; å **gange en rad** med et tall $k$ ganger determinanten med $k$; og å **legge et multiplum av én rad til en annen** endrer ikke determinanten i det hele tatt. Den siste kan brukes til å lage nuller før utvikling. Har to rader (eller søyler) samme verdier, er determinanten $0$."
+    },
+    {
+      "id": "mat1100-5-1-bb-orientering",
+      "type": "definition",
+      "title": "Determinantens fortegn (orientering)",
+      "content": "Determinanten er et **fortegnstall**, ikke bare en størrelse. Positivt fortegn betyr at vektorene $(\\mathbf{a},\\mathbf{b},\\mathbf{c})$ danner et høyrehåndssystem (samme orientering som aksene); negativt fortegn betyr venstrehåndssystem. Til areal og volum bryr vi oss bare om tallverdien, men fortegnet er grunnen til at vi må ta absoluttverdi til slutt."
+    },
+    {
+      "id": "mat1100-5-1-bb-komplanar",
+      "type": "definition",
+      "title": "Komplanære vektorer (volum $=0$)",
+      "content": "Tre vektorer er **komplanære** når de ligger i samme plan. Da har parallellepipedet de spenner ut, volum $0$ — og determinanten (trippelproduktet) er nettopp $0$. Determinant lik null er altså testen for at tre vektorer ligger i étt plan, akkurat som determinant lik null for to vektorer i planet betyr at de er parallelle. Dette null-kriteriet dukker opp igjen som inverterbarhetskriteriet i [kap. 5.2](/bok/mat1100/mat1100-5-2)."
+    },
+    {
+      "id": "mat1100-5-1-symbolliste",
+      "type": "collapsible",
+      "title": "Symbol- og formelliste",
+      "buttonText": "Vis symboler og formler",
+      "content": [
+        {
+          "id": "mat1100-5-1-symbolliste-text",
+          "type": "text",
+          "content": "## Symbol- og formelliste\n\n*Oppslagsverk — alt her forklares underveis i kapitlet.*\n\n| Symbol | Betydning |\n|---|---|\n| $\\mathbf{a}=(a_1,a_2,a_3)$ | Vektor i rommet |\n| $|\\mathbf{a}|$ | Lengde (norm) av vektoren |\n| $\\overrightarrow{PQ}=Q-P$ | Kantvektor mellom to punkter |\n| $\\mathbf{a}\\cdot\\mathbf{b}$ | Skalarprodukt (et tall) |\n| $\\mathbf{a}\\times\\mathbf{b}$ | Kryssprodukt (en vektor) |\n| $\\det$, $|\\;\\;|$ (om matrise) | Determinant |\n| $M_{ij}$ | Minor til element $(i,j)$ |\n| $(-1)^{i+j}$ | Fortegn i sjakkbrettmønsteret |\n| $(\\mathbf{a}\\times\\mathbf{b})\\cdot\\mathbf{c}$ | Skalar trippelprodukt |\n\n**Formler i dette delkapitlet:**\n\n$$\\mathbf{a}\\cdot\\mathbf{b}=a_1b_1+a_2b_2+a_3b_3,\\qquad \\mathbf{a}\\cdot\\mathbf{b}=0\\ \\Leftrightarrow\\ \\mathbf{a}\\perp\\mathbf{b}$$\nSkalarprodukt og ortogonalitetstest.\n\n$$\\mathbf{a}\\times\\mathbf{b}=(a_2b_3-a_3b_2,\\;a_3b_1-a_1b_3,\\;a_1b_2-a_2b_1)$$\nKryssprodukt; $|\\mathbf{a}\\times\\mathbf{b}|$ er parallellogramarealet.\n\n$$\\det\\begin{pmatrix}a&b\\\\ c&d\\end{pmatrix}=ad-bc$$\nDeterminant $2\\times2$.\n\n$$\\det(3\\times3)=a_{11}M_{11}-a_{12}M_{12}+a_{13}M_{13}$$\nKofaktorutvikling langs første rad ($+,-,+$).\n\n$$\\text{Areal}=|\\det[\\mathbf{a}\\;\\mathbf{b}]|,\\qquad V_{\\text{pp}}=|\\det[\\mathbf{a}\\;\\mathbf{b}\\;\\mathbf{c}]|=|(\\mathbf{a}\\times\\mathbf{b})\\cdot\\mathbf{c}|$$\nAreal og parallellepipedvolum (to metoder).\n\n$$V_{\\text{pyramide}}=\\tfrac16\\,|\\det[\\mathbf{u}\\;\\mathbf{v}\\;\\mathbf{w}]|$$\nPyramide/tetraeder — husk faktoren $\\tfrac16$."
+        }
+      ]
+    },
+    {
+      "id": "mat1100-5-1-rep",
+      "type": "collapsible",
+      "title": "Repetisjonsoppgaver",
+      "buttonText": "Vis repetisjonsoppgaver",
+      "content": [
+        {
+          "id": "mat1100-5-1-rep-1",
+          "type": "exercise",
+          "exercise": {
+            "id": "mat1100-5-1-rep-1-ex",
+            "number": "R1",
+            "type": "classic",
+            "difficulty": "lett",
+            "task": "(Fra [Skalarproduktet](/bok/r2/r2-5-3)) La $\\mathbf{a}=(2,-1,3)$ og $\\mathbf{b}=(1,4,0)$. Regn ut $\\mathbf{a}\\cdot\\mathbf{b}$.",
+            "solution": "$\\mathbf{a}\\cdot\\mathbf{b}=2\\cdot1+(-1)\\cdot4+3\\cdot0=2-4+0=-2$. **Svar:** $-2$. (Grunnferdigheten bak ortogonalitetstesten i dette kapitlet.)",
+            "hints": [
+              "Gang komponentvis og summer."
+            ]
+          }
+        },
+        {
+          "id": "mat1100-5-1-rep-2",
+          "type": "exercise",
+          "exercise": {
+            "id": "mat1100-5-1-rep-2-ex",
+            "number": "R2",
+            "type": "classic",
+            "difficulty": "lett",
+            "task": "(Fra [Vektorer i tre dimensjoner](/bok/r2/r2-5-1)) Finn lengden av $\\mathbf{a}=(2,3,6)$.",
+            "solution": "$|\\mathbf{a}|=\\sqrt{2^2+3^2+6^2}=\\sqrt{4+9+36}=\\sqrt{49}=7$. **Svar:** $7$.",
+            "hints": [
+              "Lengden er $\\sqrt{a_1^2+a_2^2+a_3^2}$."
+            ]
+          }
+        },
+        {
+          "id": "mat1100-5-1-rep-3",
+          "type": "exercise",
+          "exercise": {
+            "id": "mat1100-5-1-rep-3-ex",
+            "number": "R3",
+            "type": "classic",
+            "difficulty": "lett",
+            "task": "(Fra [Kryssproduktet](/bok/r2/r2-5-4)) Finn $\\mathbf{a}\\times\\mathbf{b}$ for $\\mathbf{a}=(1,0,0)$, $\\mathbf{b}=(0,1,0)$.",
+            "solution": "$\\mathbf{a}\\times\\mathbf{b}=(0\\cdot0-0\\cdot1,\\;0\\cdot0-1\\cdot0,\\;1\\cdot1-0\\cdot0)=(0,0,1)$. **Svar:** $(0,0,1)$ — kryssproduktet av to akseenhetsvektorer gir den tredje.",
+            "hints": [
+              "Bruk komponentformelen, eller husk $\\mathbf{i}\\times\\mathbf{j}=\\mathbf{k}$."
+            ]
+          }
+        },
+        {
+          "id": "mat1100-5-1-rep-4",
+          "type": "exercise",
+          "exercise": {
+            "id": "mat1100-5-1-rep-4-ex",
+            "number": "R4",
+            "type": "classic",
+            "difficulty": "middels",
+            "task": "(Fra [Areal og volum med vektorer](/bok/r2/r2-5-5)) To vektorer $\\mathbf{a}=(4,0)$ og $\\mathbf{b}=(1,3)$ spenner ut et parallellogram. Finn arealet.",
+            "solution": "$\\text{Areal}=|\\det\\begin{pmatrix}4&0\\\\ 1&3\\end{pmatrix}|=|4\\cdot3-0\\cdot1|=12$. **Svar:** $12$. Dette er nettopp $2\\times2$-determinanten kapitlet bygger volum på.",
+            "hints": [
+              "Areal $=|a_1b_2-a_2b_1|$."
+            ]
+          }
+        },
+        {
+          "id": "mat1100-5-1-rep-5",
+          "type": "exercise",
+          "exercise": {
+            "id": "mat1100-5-1-rep-5-ex",
+            "number": "R5",
+            "type": "classic",
+            "difficulty": "middels",
+            "task": "(Fra [Skalarproduktet](/bok/r2/r2-5-3)) For hvilken verdi av $t$ er $\\mathbf{a}=(t,2,-1)$ og $\\mathbf{b}=(3,t,1)$ ortogonale?",
+            "solution": "Ortogonalitet krever $\\mathbf{a}\\cdot\\mathbf{b}=0$: $3t+2t-1=0\\Rightarrow 5t=1\\Rightarrow t=\\tfrac15$. **Svar:** $t=\\tfrac15$. (Ortogonalitet = skalarprodukt lik null, testen fra løkke 1.)",
+            "hints": [
+              "Sett $\\mathbf{a}\\cdot\\mathbf{b}=0$ og løs for $t$."
+            ]
+          }
+        }
+      ]
+    }
+  ],
+  "exercises": []
+}

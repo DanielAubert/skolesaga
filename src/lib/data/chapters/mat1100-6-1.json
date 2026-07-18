@@ -1,0 +1,305 @@
+{
+  "id": "mat1100-6-1",
+  "courseId": "mat1100",
+  "chapterNumber": "6.1",
+  "title": "Taylorpolynomer med restledd",
+  "description": "Taylorpolynom rundt et punkt med Lagrange-restledd og feilestimat — pensumkrav som arkivet bare har testet som teorioppgave (2017, restledd via delvis integrasjon).",
+  "estimatedMinutes": 45,
+  "competenceGoals": [
+    "kunne skrive opp Taylor- og Maclaurinpolynomet til e^x, sin x, cos x og ln(1+x), rundt 0 og et generelt punkt",
+    "kunne avgrense feilen i en Taylor-tilnærming med Lagrange-restleddet ved å maksimere den (n+1)-te deriverte",
+    "kunne bygge førsteordens restledd på integralform via delvis integrasjon og bruke Taylor til grenser"
+  ],
+  "content": [
+    {
+      "id": "mat1100-6-1-tip",
+      "type": "tip",
+      "title": "Eksamensvinkel",
+      "content": "**Ærlig eksamensvinkel — les dette først.** Taylorpolynomer er testet **1 gang av 21 slutteksamener** (H2003–H2023) og **aldri på midtveis**. Den ene gangen — i 2017 — kom det som en **teorioppgave** der førsteordens restledd ble bygget fra bunnen med **delvis integrasjon** og deretter brukt i et motsigelsesbevis med følger. I 2023 dukket Taylor opp som et implisitt verktøy. Temaet står i gjeldende emnebeskrivelse, så du skal kunne det — men prioritér det **etter** Del 1–5 (komplekse tall, grenser, derivasjon, integrasjon, lineær algebra), som bærer nesten hele karakteren.\n\n- Sjangeren her er en **teoribevis-variant (I-variant)**: bygg polynomet, formulér restleddet, gi et feilestimat med begrunnelse.\n- To ferdigheter er verdt tiden: (1) skrive opp Taylorpolynomet til $e^x$, $\\sin x$, $\\cos x$, $\\ln(1+x)$ rundt $0$, og (2) avgrense feilen med **Lagrange-restleddet**.\n\n*Kilde: arkivet med $21$ slutteksamener (H2003–H2023, $18$ med løsningsforslag) og $16$ midtveiseksamener (H2003–H2018). **Arkivet stopper i 2023 — nyere sett kan ha gitt Taylor større plass; sjekk de sist gitte settene før eksamen.** Prioritet: **kjenne** (høyeste prioritet er Del 1–5).*"
+    },
+    {
+      "id": "mat1100-6-1-forkunnskaper",
+      "type": "text",
+      "content": "**Forkunnskaper:** Kapitlet bygger på derivasjonsteknikk fra [kap. 3.2](/bok/mat1100/mat1100-3-2) (du deriverer standardfunksjoner gjentatte ganger), middelverdisetningen fra [kap. 3.4](/bok/mat1100/mat1100-3-4) (Taylor for $n=0$ **er** middelverdisetningen), integrasjonsteknikk fra [kap. 4.3](/bok/mat1100/mat1100-4-3) (delvis integrasjon i integralformen av restleddet), og S2-intuisjonen i [Potensrekker og Taylor-rekker](/bok/s2/s2-7-4).\n\n**Sist du var her — tre grep du får bruk for.** Del 6 ligger sent i boka, så vi frisker opp:\n- **Delvis integrasjon:** $\\displaystyle\\int u\\,v'\\,dx = uv - \\int u'\\,v\\,dx$ — valget av $u$/$v'$ dokumenteres (LIATE).\n- **Gjentatt derivasjon (i $0$):** $e^x$ har alle deriverte lik $e^x$ (verdi $1$ i $0$); $\\sin$/$\\cos$ sykler $\\sin\\to\\cos\\to-\\sin\\to-\\cos$; $\\ln(1+x)$ har $f^{(k)}(0)=(-1)^{k-1}(k-1)!$.\n- **Fakultet:** $k! = 1\\cdot 2\\cdots k$, og $0!=1$ — nevneren i hvert Taylor-ledd."
+    },
+    {
+      "id": "mat1100-6-1-anker",
+      "type": "text",
+      "content": "Tenk deg at kalkulatoren din skal regne ut $e^{0{,}2}$. Den kan ikke «gjøre uendelig mange multiplikasjoner» — i stedet bytter den funksjonen ut med et **polynom** som ligner nær $x=0$, og regner på det i stedet. Jo høyere grad, jo bedre passer polynomet, men bare i nærheten av utviklingspunktet.\n\nDet er hele ideen bak **Taylorpolynomet**: erstatt en komplisert funksjon med et polynom som har *samme verdi og samme deriverte* i ett punkt. Det ekstra vi krever på universitetet — og det som gir eksamenspoeng — er **restleddet**: en formel som forteller nøyaktig hvor stor feilen er når vi bytter funksjonen mot polynomet."
+    },
+    {
+      "id": "mat1100-6-1-l1",
+      "type": "text",
+      "content": "## Løkke 1 — Taylorpolynomet rundt et punkt (~9 min)\n\nVi bygger et polynom som matcher funksjonen og dens deriverte i utviklingspunktet $a$."
+    },
+    {
+      "id": "mat1100-6-1-def-taylor",
+      "type": "definition",
+      "title": "Taylorpolynomet av grad $n$",
+      "content": "**I ord:** det polynomet av grad $n$ som har nøyaktig samme funksjonsverdi og samme første $n$ deriverte som $f$ i punktet $a$. Formelen samler dette leddvis:\n$$T_n(x)=\\sum_{k=0}^{n}\\frac{f^{(k)}(a)}{k!}(x-a)^k=f(a)+f'(a)(x-a)+\\frac{f''(a)}{2!}(x-a)^2+\\dots+\\frac{f^{(n)}(a)}{n!}(x-a)^n.$$\nHvert ledd har en **fakultet $k!$ i nevneren** og potensen $(x-a)^k$. Nær $a$ er $T_n(x)\\approx f(x)$; lenger unna kan avviket bli stort."
+    },
+    {
+      "id": "mat1100-6-1-def-maclaurin",
+      "type": "definition",
+      "title": "Maclaurinpolynomet (utvikling rundt $0$)",
+      "content": "Spesialtilfellet $a=0$ kalles **Maclaurinpolynomet**:\n$$T_n(x)=\\sum_{k=0}^{n}\\frac{f^{(k)}(0)}{k!}x^k.$$\nDe fire standardfunksjonene $e^x$, $\\sin x$, $\\cos x$, $\\ln(1+x)$ utvikles nesten alltid rundt $0$ — det er disse du bør kunne på sparket."
+    },
+    {
+      "id": "mat1100-6-1-ex-e",
+      "type": "example",
+      "title": "Maclaurinpolynom for $e^x$",
+      "problem": "Finn andregrads Maclaurinpolynom $T_2$ til $f(x)=e^x$.",
+      "solution": "**Deriverte i $0$:** $f(x)=e^x$ gir $f'(x)=f''(x)=e^x$, så $f(0)=f'(0)=f''(0)=1$.\n\n**Sett inn i formelen** ($a=0$):\n$$T_2(x)=\\frac{f(0)}{0!}+\\frac{f'(0)}{1!}x+\\frac{f''(0)}{2!}x^2=1+x+\\frac{x^2}{2}.$$\n\n**Konklusjon:** $\\displaystyle T_2(x)=1+x+\\frac{x^2}{2}$. (Fortsetter mønsteret: $\\displaystyle T_n(x)=\\sum_{k=0}^{n}\\frac{x^k}{k!}$ — legg merke til fakultetet i hver nevner.)"
+    },
+    {
+      "id": "mat1100-6-1-exc-1",
+      "type": "exercise",
+      "exercise": {
+        "id": "mat1100-6-1-exc-1",
+        "number": "1",
+        "type": "classic",
+        "difficulty": "lett",
+        "task": "(Eksamenssjanger I-variant — teoribevis; lett innstegsoppgave.) *«I-variant» betyr en teori-/bevispreget oppgave der du bygger et objekt fra definisjonen — her Taylorpolynomet.* Finn tredjegrads Maclaurinpolynom $T_3$ til $f(x)=\\cos x$.",
+        "solution": "**Deriverte i $0$:** $f=\\cos x$, $f'=-\\sin x$, $f''=-\\cos x$, $f'''=\\sin x$. I $0$: $f(0)=1$, $f'(0)=0$, $f''(0)=-1$, $f'''(0)=0$.\n\n**Sett inn** ($a=0$):\n$$T_3(x)=1+0\\cdot x+\\frac{-1}{2!}x^2+\\frac{0}{3!}x^3=1-\\frac{x^2}{2}.$$\n\n**Konklusjon:** $\\displaystyle T_3(x)=1-\\frac{x^2}{2}$. (De odde leddene forsvinner fordi $\\cos$ er en jamn funksjon.)",
+        "hints": [
+          "Regn $f(0),f'(0),f''(0),f'''(0)$ for $\\cos x$ først.",
+          "Husk fakultetet: $x^2$-leddet deles på $2!=2$, $x^3$-leddet på $3!=6$."
+        ]
+      }
+    },
+    {
+      "id": "mat1100-6-1-l2",
+      "type": "text",
+      "content": "## Løkke 2 — Standardutviklingene rundt $0$ (~9 min)\n\nFire Maclaurin-utviklinger går igjen. Lær dem som mønster, ikke pugg tall."
+    },
+    {
+      "id": "mat1100-6-1-def-eexp",
+      "type": "definition",
+      "title": "Maclaurin-utviklingen av $e^x$",
+      "content": "Fordi alle deriverte av $e^x$ er $e^x$ med verdi $1$ i $0$:\n$$e^x=1+x+\\frac{x^2}{2!}+\\frac{x^3}{3!}+\\dots+\\frac{x^n}{n!}+R_n(x).$$\nAlle koeffisienter er positive; ingen ledd faller bort."
+    },
+    {
+      "id": "mat1100-6-1-def-sin",
+      "type": "definition",
+      "title": "Maclaurin-utviklingen av $\\sin x$",
+      "content": "Deriverte sykler $\\sin\\to\\cos\\to-\\sin\\to-\\cos$, så bare **odde** potenser overlever, med vekslende fortegn:\n$$\\sin x=x-\\frac{x^3}{3!}+\\frac{x^5}{5!}-\\dots$$\n$\\sin$ er en odde funksjon — derfor bare odde potenser."
+    },
+    {
+      "id": "mat1100-6-1-def-cos",
+      "type": "definition",
+      "title": "Maclaurin-utviklingen av $\\cos x$",
+      "content": "Tilsvarende overlever bare **jamne** potenser med vekslende fortegn:\n$$\\cos x=1-\\frac{x^2}{2!}+\\frac{x^4}{4!}-\\dots$$\n$\\cos$ er en jamn funksjon — derfor bare jamne potenser."
+    },
+    {
+      "id": "mat1100-6-1-def-ln",
+      "type": "definition",
+      "title": "Maclaurin-utviklingen av $\\ln(1+x)$",
+      "content": "Her er $f^{(k)}(0)=(-1)^{k-1}(k-1)!$, og fakultetet forkortes mot $k!$ til $1/k$:\n$$\\ln(1+x)=x-\\frac{x^2}{2}+\\frac{x^3}{3}-\\frac{x^4}{4}+\\dots\\qquad(-1<x\\le 1).$$\nMerk: her deler du på $k$, **ikke** på $k!$ — fakultetet har allerede forkortet seg bort."
+    },
+    {
+      "id": "mat1100-6-1-ex-a",
+      "type": "example",
+      "title": "Taylorpolynom rundt et generelt punkt $a$",
+      "problem": "Finn andregrads Taylorpolynom til $f(x)=\\ln x$ rundt $a=1$.",
+      "solution": "**Deriverte:** $f(x)=\\ln x$, $f'(x)=\\dfrac1x$, $f''(x)=-\\dfrac{1}{x^2}$. I $a=1$: $f(1)=0$, $f'(1)=1$, $f''(1)=-1$.\n\n**Sett inn** med $(x-a)=(x-1)$:\n$$T_2(x)=0+1\\cdot(x-1)+\\frac{-1}{2!}(x-1)^2=(x-1)-\\frac{(x-1)^2}{2}.$$\n\n**Konklusjon:** $\\displaystyle T_2(x)=(x-1)-\\frac{(x-1)^2}{2}$. (Substitusjonen $u=x-1$ gir nettopp $\\ln(1+u)=u-\\tfrac{u^2}{2}+\\dots$ fra forrige definisjon — samme utvikling, forskjøvet utviklingspunkt.)"
+    },
+    {
+      "id": "mat1100-6-1-exc-2",
+      "type": "exercise",
+      "exercise": {
+        "id": "mat1100-6-1-exc-2",
+        "number": "2",
+        "type": "classic",
+        "difficulty": "lett",
+        "task": "(Eksamenssjanger I-variant — teoribevis.) Finn femtegrads Maclaurinpolynom $T_5$ til $f(x)=\\sin x$.",
+        "solution": "**Deriverte i $0$** sykler $\\sin\\to\\cos\\to-\\sin\\to-\\cos$: $f(0)=0$, $f'(0)=1$, $f''(0)=0$, $f'''(0)=-1$, $f^{(4)}(0)=0$, $f^{(5)}(0)=1$.\n\n**Sett inn** (bare odde potenser overlever):\n$$T_5(x)=x-\\frac{x^3}{3!}+\\frac{x^5}{5!}=x-\\frac{x^3}{6}+\\frac{x^5}{120}.$$\n\n**Konklusjon:** $\\displaystyle T_5(x)=x-\\frac{x^3}{6}+\\frac{x^5}{120}$.",
+        "hints": [
+          "$\\sin$ er odde → bare $x$, $x^3$, $x^5$ er med.",
+          "Nevnere er $3!=6$ og $5!=120$; fortegnene veksler."
+        ]
+      }
+    },
+    {
+      "id": "mat1100-6-1-l3",
+      "type": "text",
+      "content": "## Løkke 3 — Lagrange-restleddet og feilestimat (~10 min)\n\nPolynomet er en tilnærming — restleddet forteller **hvor stor feilen er**, og det er der eksamenspoengene sitter."
+    },
+    {
+      "id": "mat1100-6-1-def-taylorformel",
+      "type": "definition",
+      "title": "Taylors formel med restledd",
+      "content": "Funksjonen er lik polynomet **pluss** et restledd som fanger hele feilen:\n$$f(x)=T_n(x)+R_n(x).$$\nÅ avgrense $|R_n(x)|$ er å avgrense feilen $|f(x)-T_n(x)|$. Uten et tall på restleddet er en tilnærming verdiløs på eksamen."
+    },
+    {
+      "id": "mat1100-6-1-def-lagrange",
+      "type": "definition",
+      "title": "Lagrange-restleddet",
+      "content": "Er $f$ tilstrekkelig deriverbar, finnes et punkt $c$ **mellom** $a$ og $x$ slik at\n$$R_n(x)=\\frac{f^{(n+1)}(c)}{(n+1)!}(x-a)^{n+1}.$$\nDet ser ut som «neste Taylor-ledd», men den $(n+1)$-te deriverte evalueres i det **ukjente mellompunktet $c$**, ikke i $a$. For $n=0$ er dette nettopp middelverdisetningen (se løkke 5)."
+    },
+    {
+      "id": "mat1100-6-1-def-feilestimat",
+      "type": "definition",
+      "title": "Feilestimat: maksimér den $(n+1)$-te deriverte",
+      "content": "Siden $c$ er ukjent, avgrenser vi $|f^{(n+1)}(c)|$ med sin **største verdi $M$ over hele intervallet** mellom $a$ og $x$:\n$$|R_n(x)|\\le \\frac{M}{(n+1)!}\\,|x-a|^{n+1},\\qquad M=\\max_{t\\text{ mellom }a,x}\\,|f^{(n+1)}(t)|.$$\nÅ hoppe over maksimeringen (bare sette inn $c=a$) er en dokumentert felle — da er «estimatet» ikke en garanti."
+    },
+    {
+      "id": "mat1100-6-1-ex-lagrange",
+      "type": "example",
+      "title": "Feilavgrensning for $\\ln(1+x)$",
+      "problem": "Finn andregrads Maclaurinpolynom $T_2$ til $f(x)=\\ln(1+x)$, og bruk Lagrange-restleddet til å avgrense feilen $|f(x)-T_2(x)|$ på $[0,\\tfrac12]$.",
+      "solution": "**Polynomet:** fra standardutviklingen er $T_2(x)=x-\\dfrac{x^2}{2}$.\n\n**Restleddet ($n=2$):** vi trenger $f^{(3)}$. Med $f'=\\dfrac{1}{1+x}$, $f''=-\\dfrac{1}{(1+x)^2}$, $f'''=\\dfrac{2}{(1+x)^3}$:\n$$R_2(x)=\\frac{f'''(c)}{3!}x^3=\\frac{2}{6(1+c)^3}x^3=\\frac{x^3}{3(1+c)^3},\\qquad c\\in(0,x).$$\n\n**Maksimér $|f'''|$ over $[0,\\tfrac12]$.** For $c\\ge 0$ er $(1+c)^3\\ge 1$, så $|f'''(c)|=\\dfrac{2}{(1+c)^3}\\le 2$, altså $M=2$ (størst i $c=0$). Med $|x|\\le\\tfrac12$:\n$$|R_2(x)|\\le\\frac{M}{3!}\\Big(\\frac12\\Big)^3=\\frac{2}{6}\\cdot\\frac{1}{8}=\\frac{1}{24}\\approx 0{,}0417.$$\n\n**Konklusjon:** på $[0,\\tfrac12]$ er feilen $|f(x)-T_2(x)|\\le\\dfrac{1}{24}$. *(Kontroll i $x=\\tfrac12$: $\\ln 1{,}5=0{,}4055$, $T_2(\\tfrac12)=0{,}375$, faktisk feil $0{,}0305\\le\\tfrac1{24}$ — garantien holder.)*"
+    },
+    {
+      "id": "mat1100-6-1-exc-3",
+      "type": "exercise",
+      "exercise": {
+        "id": "mat1100-6-1-exc-3",
+        "number": "3",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "(Eksamenssjanger I-variant — teoribevis.) La $f(x)=e^x$. Finn $T_2(x)$, og bruk Lagrange-restleddet til å avgrense feilen $|e^x-T_2(x)|$ på $[0,\\tfrac12]$.",
+        "solution": "**Polynomet:** $T_2(x)=1+x+\\dfrac{x^2}{2}$.\n\n**Restleddet ($n=2$):** $f^{(3)}(x)=e^x$, så\n$$R_2(x)=\\frac{e^{c}}{3!}x^3,\\qquad c\\in(0,x).$$\n\n**Maksimér $|f'''|=e^c$ over $[0,\\tfrac12]$.** $e^c$ er voksende, så $M=e^{1/2}$ (størst i høyre endepunkt). Med $|x|\\le\\tfrac12$:\n$$|R_2(x)|\\le\\frac{e^{1/2}}{6}\\Big(\\frac12\\Big)^3=\\frac{e^{1/2}}{48}\\approx 0{,}0343.$$\n\n**Konklusjon:** feilen er $\\le \\dfrac{e^{1/2}}{48}\\approx 0{,}034$ på $[0,\\tfrac12]$. *(Kontroll i $x=\\tfrac12$: faktisk feil $\\approx 0{,}0237\\le 0{,}0343$.)*",
+        "hints": [
+          "$T_2(x)=1+x+\\tfrac{x^2}{2}$; restleddet bruker $f'''(x)=e^x$.",
+          "$e^c$ er voksende → maksimum i høyre endepunkt: $M=e^{1/2}$. Ikke sett $c=0$."
+        ]
+      }
+    },
+    {
+      "id": "mat1100-6-1-l4",
+      "type": "text",
+      "content": "## Løkke 4 — Integralformen av restleddet via delvis integrasjon (~9 min)\n\nDette er nøyaktig 2017-sjangeren: bygg førsteordens restledd fra bunnen med analysens fundamentalteorem og **delvis integrasjon**."
+    },
+    {
+      "id": "mat1100-6-1-thm-integralform",
+      "type": "theorem",
+      "title": "Integralformen av restleddet ($n=1$)",
+      "content": "For $f$ med kontinuerlig $f''$ gjelder\n$$f(x)=f(a)+f'(a)(x-a)+\\int_a^x f''(t)\\,(x-t)\\,dt.$$\nRestleddet $R_1(x)=\\displaystyle\\int_a^x f''(t)(x-t)\\,dt$ er her et **eksakt integral**, ikke bare en $c$-formel — nyttig når du vil avgrense feilen ved å avgrense $f''$ under integraltegnet."
+    },
+    {
+      "id": "mat1100-6-1-ex-integralform",
+      "type": "example",
+      "title": "Utled integralformen (2017-sjangeren)",
+      "problem": "Vis at $\\displaystyle f(x)=f(a)+f'(a)(x-a)+\\int_a^x f''(t)(x-t)\\,dt$ når $f''$ er kontinuerlig.",
+      "solution": "**Start med fundamentalteoremet.** Siden $f'$ er en antiderivert til $f''$:\n$$f(x)=f(a)+\\int_a^x f'(t)\\,dt.$$\n\n**Delvis integrasjon på $\\int_a^x f'(t)\\,dt$.** Velg\n$$u=f'(t),\\ u'=f''(t);\\qquad v'=1,\\ v=-(x-t).$$\n*(Vi velger antideriverten $v=-(x-t)$ i stedet for $v=t$ — den er null i øvre grense $t=x$, som rydder randleddet.)* Da:\n$$\\int_a^x f'(t)\\,dt=\\Big[f'(t)\\cdot\\big(-(x-t)\\big)\\Big]_a^x-\\int_a^x f''(t)\\big(-(x-t)\\big)\\,dt.$$\n\n**Regn ut randleddet.** I $t=x$: $-(x-x)=0$. I $t=a$: $-f'(a)\\cdot(-(x-a))=f'(a)(x-a)$. Randleddet blir altså $0-\\big(-f'(a)(x-a)\\big)=f'(a)(x-a)$. Restintegralet får $+$-fortegn:\n$$\\int_a^x f'(t)\\,dt=f'(a)(x-a)+\\int_a^x f''(t)(x-t)\\,dt.$$\n\n**Sett sammen.**\n$$f(x)=f(a)+f'(a)(x-a)+\\int_a^x f''(t)(x-t)\\,dt.$$\n\n**Konklusjon:** identiteten er vist — dette er førsteordens Taylor med restleddet på integralform, akkurat slik det ble bygget i 2017."
+    },
+    {
+      "id": "mat1100-6-1-exc-4",
+      "type": "exercise",
+      "exercise": {
+        "id": "mat1100-6-1-exc-4",
+        "number": "4",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "(Eksamenssjanger I-variant — teoribevis; bygger på 2017-oppgaven.) Anta $|f''(t)|\\le M$ for alle $t$ mellom $a$ og $x$. Bruk **integralformen** $R_1(x)=\\displaystyle\\int_a^x f''(t)(x-t)\\,dt$ til å vise at $|f(x)-T_1(x)|\\le \\dfrac{M}{2}(x-a)^2$ for $x\\ge a$.",
+        "solution": "**Utgangspunkt:** $f(x)-T_1(x)=R_1(x)=\\displaystyle\\int_a^x f''(t)(x-t)\\,dt$.\n\n**Avgrens under integraltegnet.** For $a\\le t\\le x$ er $(x-t)\\ge 0$, og $|f''(t)|\\le M$, så trekantulikheten for integraler gir\n$$|R_1(x)|=\\Big|\\int_a^x f''(t)(x-t)\\,dt\\Big|\\le\\int_a^x |f''(t)|\\,(x-t)\\,dt\\le M\\int_a^x (x-t)\\,dt.$$\n\n**Regn referanseintegralet.** $\\displaystyle\\int_a^x (x-t)\\,dt=\\Big[-\\frac{(x-t)^2}{2}\\Big]_a^x=0-\\Big(-\\frac{(x-a)^2}{2}\\Big)=\\frac{(x-a)^2}{2}.$\n\n**Sett sammen:**\n$$|f(x)-T_1(x)|\\le M\\cdot\\frac{(x-a)^2}{2}=\\frac{M}{2}(x-a)^2.$$\n\n**Konklusjon:** ulikheten er vist. *(Legg merke til at dette er nøyaktig Lagrange-avgrensningen for $n=1$: $\\tfrac{M}{2!}|x-a|^2$ — de to restleddsformene gir samme feilgaranti.)*",
+        "hints": [
+          "Start fra $f(x)-T_1(x)=\\int_a^x f''(t)(x-t)\\,dt$ og bruk $|f''(t)|\\le M$.",
+          "Nøkkelintegralet: $\\int_a^x (x-t)\\,dt=\\tfrac{(x-a)^2}{2}$."
+        ]
+      }
+    },
+    {
+      "id": "mat1100-6-1-l5",
+      "type": "text",
+      "content": "## Løkke 5 — Grenser via Taylor, og MVT som $n=0$ (~8 min)\n\nTo løse tråder knyttes: Taylor gir et raskt alternativ til L'Hôpital på grenser, og middelverdisetningen er bare Taylor for $n=0$."
+    },
+    {
+      "id": "mat1100-6-1-def-grenser",
+      "type": "definition",
+      "title": "Grenser via Taylor",
+      "content": "Ved en $\\left[\\tfrac00\\right]$-grense der teller og nevner begge går mot $0$, bytt de innfløkte funksjonene mot Maclaurin-utviklingene sine og les av det **laveste gjenlevende leddet**. Ofte raskere enn gjentatt L'Hôpital. Eksempel: $e^x-1-x=\\tfrac{x^2}{2}+\\dots$, så $\\dfrac{e^x-1-x}{x^2}\\to\\tfrac12$."
+    },
+    {
+      "id": "mat1100-6-1-def-mvt-taylor",
+      "type": "definition",
+      "title": "Middelverdisetningen som Taylor for $n=0$",
+      "content": "Taylors formel med $n=0$ og Lagrange-restleddet er\n$$f(x)=\\underbrace{f(a)}_{T_0}+\\underbrace{f'(c)(x-a)}_{R_0},\\qquad c\\text{ mellom }a,x,$$\nsom er nøyaktig **middelverdisetningen** ($f(x)-f(a)=f'(c)(x-a)$). Taylor generaliserer altså MVT til høyere orden — en rød tråd fra [kap. 3.4](/bok/mat1100/mat1100-3-4)."
+    },
+    {
+      "id": "mat1100-6-1-ex-grense",
+      "type": "example",
+      "title": "Grense via Taylor",
+      "problem": "Beregn $\\displaystyle\\lim_{x\\to 0}\\frac{\\sin x-x}{x^3}$ med Taylor.",
+      "solution": "**Formen er $\\left[\\tfrac00\\right]$** (teller og nevner $\\to 0$).\n\n**Bytt inn Maclaurin for $\\sin x$:** $\\sin x=x-\\dfrac{x^3}{6}+\\dots$, så telleren\n$$\\sin x-x=-\\frac{x^3}{6}+(\\text{ledd av grad}\\ge 5).$$\n\n**Del og ta grensen:**\n$$\\frac{\\sin x-x}{x^3}=\\frac{-\\tfrac{x^3}{6}+\\dots}{x^3}=-\\frac16+(\\text{ledd}\\to 0)\\ \\xrightarrow[x\\to0]{}\\ -\\frac16.$$\n\n**Konklusjon:** $\\displaystyle\\lim_{x\\to 0}\\frac{\\sin x-x}{x^3}=-\\frac16$. *(Til sammenligning krever L'Hôpital tre runder her — Taylor gir svaret på én linje.)*"
+    },
+    {
+      "id": "mat1100-6-1-exc-5",
+      "type": "exercise",
+      "exercise": {
+        "id": "mat1100-6-1-exc-5",
+        "number": "5",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "(Eksamenssjanger I-variant — grense via Taylor.) Beregn $\\displaystyle\\lim_{x\\to 0}\\frac{\\cos x-1+\\tfrac{x^2}{2}}{x^4}$.",
+        "solution": "**Form:** $\\left[\\tfrac00\\right]$.\n\n**Maclaurin for $\\cos x$:** $\\cos x=1-\\dfrac{x^2}{2}+\\dfrac{x^4}{24}-\\dots$, så\n$$\\cos x-1+\\frac{x^2}{2}=\\frac{x^4}{24}+(\\text{ledd av grad}\\ge 6).$$\n\n**Del og ta grensen:**\n$$\\frac{\\cos x-1+\\tfrac{x^2}{2}}{x^4}=\\frac{1}{24}+(\\text{ledd}\\to 0)\\ \\xrightarrow[x\\to0]{}\\ \\frac{1}{24}.$$\n\n**Konklusjon:** grensen er $\\dfrac{1}{24}$.",
+        "hints": [
+          "Sett inn $\\cos x=1-\\tfrac{x^2}{2}+\\tfrac{x^4}{24}-\\dots$ i telleren.",
+          "De to første leddene kanselleres; laveste gjenlevende ledd er $\\tfrac{x^4}{24}$."
+        ]
+      }
+    },
+    {
+      "id": "mat1100-6-1-warn",
+      "type": "warning",
+      "title": "Typiske feil (Taylor)",
+      "content": "- **Glemt fakultetet $k!$.** Hvert ledd deles på $k!$: $\\dfrac{f^{(k)}(a)}{k!}(x-a)^k$. (Unntak: i $\\ln(1+x)$ har fakultetet allerede forkortet seg til $1/k$ — ikke del to ganger.)\n- **Restleddets deriverte evaluert i $a$.** I $R_n$ evalueres $f^{(n+1)}$ i det **ukjente mellompunktet $c$**, ikke i $a$. Setter du $c=a$, mister du feilgarantien.\n- **Feilestimat uten maksimering.** $|R_n|\\le\\dfrac{M}{(n+1)!}|x-a|^{n+1}$ krever $M=\\max|f^{(n+1)}|$ over **hele** intervallet — ikke bare i ett punkt.\n- **Utviklingspunkt forvekslet.** Rundt $a\\ne 0$ er potensene $(x-a)^k$, ikke $x^k$; deriverte evalueres i $a$."
+    },
+    {
+      "id": "mat1100-6-1-bb",
+      "type": "text",
+      "content": "## Begrepsbank\n\n*Flashcard- og repetisjonsstoff — hopp trygt over ved førstegangslesing; tidsanslaget gjelder kjernestoffet i løkkene.*"
+    },
+    {
+      "id": "mat1100-6-1-bb-taylorrekke",
+      "type": "definition",
+      "title": "Taylor-rekke (når $R_n\\to 0$)",
+      "content": "Lar man graden $n\\to\\infty$ og restleddet $R_n(x)\\to 0$, blir Taylorpolynomet en **Taylor-rekke** som er *lik* funksjonen: $f(x)=\\sum_{k=0}^\\infty \\frac{f^{(k)}(a)}{k!}(x-a)^k$. For $e^x$, $\\sin x$, $\\cos x$ gjelder dette for alle $x$; for $\\ln(1+x)$ kun på $(-1,1]$. Koblingen til konvergens av rekker tas i [kap. 6.2](/bok/mat1100/mat1100-6-2)."
+    },
+    {
+      "id": "mat1100-6-1-bb-fakultet",
+      "type": "definition",
+      "title": "Fakultet $k!$",
+      "content": "$k!=1\\cdot 2\\cdot 3\\cdots k$, med konvensjonen $0!=1$ og $1!=1$. Det er nevneren i hvert Taylor-ledd og vokser svært raskt ($5!=120$, $10!=3\\,628\\,800$) — derfor dør høye ledd fort nær utviklingspunktet."
+    },
+    {
+      "id": "mat1100-6-1-bb-c-punkt",
+      "type": "definition",
+      "title": "Restleddets mellompunkt $c$",
+      "content": "I Lagrange-restleddet $R_n=\\dfrac{f^{(n+1)}(c)}{(n+1)!}(x-a)^{n+1}$ er $c$ et **ukjent** punkt strengt mellom $a$ og $x$. Vi kjenner aldri $c$ eksakt — derfor avgrenser vi $|f^{(n+1)}(c)|$ med et maksimum $M$. Å tro at $c=a$ eller $c=x$ er kjernefellen."
+    },
+    {
+      "id": "mat1100-6-1-bb-linearisering",
+      "type": "definition",
+      "title": "Linearisering (førsteordens Taylor $T_1$)",
+      "content": "Førstegrads Taylorpolynom $T_1(x)=f(a)+f'(a)(x-a)$ er nettopp **tangentlinja** i $(a,f(a))$ — også kalt *lineariseringen* av $f$ rundt $a$. Den er den beste lineære tilnærmingen nær $a$, og feilen $|f(x)-T_1(x)|$ avgrenses av $\\tfrac{M}{2}(x-a)^2$ (jf. integralformen i løkke 4). Dette er broen mellom «tangent» fra videregående og Taylor."
+    },
+    {
+      "id": "mat1100-6-1-symbolliste",
+      "type": "collapsible",
+      "title": "Symbol- og formelliste",
+      "buttonText": "Vis symboler og formler",
+      "content": [
+        {
+          "id": "mat1100-6-1-symbolliste-text",
+          "type": "text",
+          "content": "## Symbol- og formelliste\n\n*Oppslagsverk — alt her forklares underveis i kapitlet.*\n\n| Symbol | Betydning |\n|---|---|\n| $T_n(x)$ | Taylorpolynomet av grad $n$ |\n| $a$ | Utviklingspunktet |\n| $f^{(k)}$ | Den $k$-te deriverte |\n| $k!$ | Fakultet, $1\\cdot 2\\cdots k$ (og $0!=1$) |\n| $R_n(x)$ | Restleddet, $f(x)-T_n(x)$ |\n| $c$ | Ukjent mellompunkt i Lagrange-restleddet |\n| $M$ | $\\max\\lvert f^{(n+1)}\\rvert$ over intervallet |\n\n**Formler i dette delkapitlet:**\n\n$$T_n(x)=\\sum_{k=0}^{n}\\frac{f^{(k)}(a)}{k!}(x-a)^k$$\nTaylorpolynomet (Maclaurin når $a=0$).\n\n$$f(x)=T_n(x)+R_n(x),\\qquad R_n(x)=\\frac{f^{(n+1)}(c)}{(n+1)!}(x-a)^{n+1}$$\nTaylors formel med Lagrange-restledd.\n\n$$|R_n(x)|\\le\\frac{M}{(n+1)!}\\,|x-a|^{n+1},\\qquad M=\\max\\lvert f^{(n+1)}\\rvert$$\nFeilestimatet (maksimér den $(n{+}1)$-te deriverte).\n\n$$f(x)=f(a)+f'(a)(x-a)+\\int_a^x f''(t)(x-t)\\,dt$$\nIntegralformen av restleddet ($n=1$, 2017-sjangeren).\n\n$$e^x=\\sum\\frac{x^k}{k!},\\quad \\sin x=x-\\tfrac{x^3}{3!}+\\dots,\\quad \\cos x=1-\\tfrac{x^2}{2!}+\\dots,\\quad \\ln(1+x)=x-\\tfrac{x^2}{2}+\\dots$$\nDe fire standardutviklingene rundt $0$."
+        }
+      ]
+    },
+    {
+      "id": "mat1100-6-1-repetisjon",
+      "type": "collapsible",
+      "title": "Repetisjonsoppgaver (fra 3.2, 3.4 og 4.3)",
+      "buttonText": "Vis repetisjonsoppgaver",
+      "content": [
+        {
+          "id": "mat1100-6-1-rep-text",
+          "type": "text",
+          "content": "## Repetisjonsoppgaver\n\nFerdighetene Taylor hviler på.\n\n**a)** ([3.2](/bok/mat1100/mat1100-3-2)) Deriver $f(x)=\\ln(1+x)$ tre ganger og finn $f'(0),f''(0),f'''(0)$.\n**b)** ([3.2](/bok/mat1100/mat1100-3-2)) Finn de tre første deriverte av $g(x)=e^{2x}$ i $x=0$.\n**c)** ([3.4](/bok/mat1100/mat1100-3-4)) Formulér middelverdisetningen presist.\n**d)** ([4.3](/bok/mat1100/mat1100-4-3)) Regn $\\displaystyle\\int t\\,e^{t}\\,dt$ med delvis integrasjon.\n\n**Fasit.**\n**a)** $f'=\\tfrac{1}{1+x}$, $f''=-\\tfrac{1}{(1+x)^2}$, $f'''=\\tfrac{2}{(1+x)^3}$; i $0$: $1$, $-1$, $2$.\n**b)** $g'=2e^{2x}$, $g''=4e^{2x}$, $g'''=8e^{2x}$; i $0$: $2$, $4$, $8$.\n**c)** Er $f$ kontinuerlig på $[a,b]$ og deriverbar på $(a,b)$, finnes $c\\in(a,b)$ med $f'(c)=\\dfrac{f(b)-f(a)}{b-a}$.\n**d)** $u=t,\\ v'=e^t$: $\\int t e^t\\,dt=t e^t-\\int e^t\\,dt=(t-1)e^t+C$.\n\n*(a)–(b) er «deriverte i $0$» du trenger for Maclaurin; (c) er Taylor for $n=0$; (d) er delvis-integrasjonen bak integralformen.)*"
+        }
+      ]
+    }
+  ],
+  "exercises": []
+}

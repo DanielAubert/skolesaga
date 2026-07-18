@@ -1,0 +1,394 @@
+{
+  "id": "mat1100-5-2",
+  "courseId": "mat1100",
+  "chapterNumber": "5.2",
+  "title": "Matriser: regning, invers og determinantregler",
+  "description": "Matriseproduktet, invers 2×2, «inverterbar ⇔ det ≠ 0» og strukturtriksene for matrisepotenser.",
+  "estimatedMinutes": 45,
+  "competenceGoals": [
+    "gange matriser og matrise med vektor, og forklare hvorfor $AB\\ne BA$ i sin alminnelighet",
+    "finne inversen av en 2×2-matrise ved regning og kontrollere svaret med $AB=I$",
+    "bruke kriteriet inverterbar $\\Leftrightarrow \\det\\ne 0$ til å avgjøre om en matrise har invers",
+    "regne med determinantreglene $\\det(AB)=\\det A\\det B$ og $\\det(A^n)=(\\det A)^n$ og utnytte strukturtriks for potenser"
+  ],
+  "content": [
+    {
+      "id": "mat1100-5-2-tip-eksamensvinkel",
+      "type": "tip",
+      "title": "Eksamensvinkel",
+      "content": "**Matriseregning er den andre halvdelen av sjanger C — og forutsetningen for overgangsmatrisene i [kap. 5.3](/bok/mat1100/mat1100-5-3).**\n\n- **Sjanger C** (determinant, volum og matriseregning) er med i **17 av 21 slutteksamener**. Matrisedelen tester: invers av en $2\\times2$-matrise «ved regning» (kalkulatorsnarvei ble underkjent i 2014), kriteriet inverterbar $\\Leftrightarrow \\det\\ne 0$, og determinantregelen $\\det(A^n)=(\\det A)^n$ (deloppgave 2022).\n- **Verifikasjonsregelen fra fasit 2014:** for å bekrefte at $B=A^{-1}$ holder det å sjekke at $AB=I$ — da følger $BA=I$ automatisk.\n\nSjangerkoden: **(Eksamenssjanger C)** = determinant/matriseregning på begrunnet langsvar; **(Midtveis, flervalg)** = samme stoff som flervalg. Kildegrunnlaget: 21 slutteksamener H2003–H2023 (18 med løsningsforslag) + 16 midtveiseksamener; arkivet stopper i 2023.\n\n**Prioritet:** høyeste (nivå «kunne» i skjelettet). «Ved regning» betyr at du må vise formelen og mellomregningen — et kalkulatorsvar uten utregning gir ikke poeng."
+    },
+    {
+      "id": "mat1100-5-2-forkunnskaper",
+      "type": "text",
+      "content": "**Forkunnskaper:** Dette kapitlet bygger på determinanten fra **[kap. 5.1](/bok/mat1100/mat1100-5-1)** — du bruker $\\det\\begin{pmatrix}a&b\\\\ c&d\\end{pmatrix}=ad-bc$ i både inversformelen og inverterbarhetskriteriet. Matriseregning som sådan dekkes ikke i VGS-bøkene, så vi bygger produkt, invers og potenser fra grunnen her.\n\n*Kapitlet er på 45 minutter, delt i seks korte løkker. Det henger tett sammen med det neste — matrise-vektor-produktet i løkke 2 er akkurat det [kap. 5.3](/bok/mat1100/mat1100-5-3) bruker til overgangsmodeller.*"
+    },
+    {
+      "id": "mat1100-5-2-intro",
+      "type": "text",
+      "content": "En **matrise** er et rektangulært tallskjema. Den kan legges sammen, ganges, og — hvis den er kvadratisk og «god nok» — inverteres. Vi trenger fire ferdigheter til eksamen: gange matriser (og huske at rekkefølgen betyr noe), finne inversen av en $2\\times2$-matrise, avgjøre om en matrise i det hele tatt har en invers, og regne med determinanter av produkter og potenser.\n\nSeks **læringsløkker**: (1) matriseprodukt og ikke-kommutativitet, (2) identitetsmatrise og matrise-vektor-produkt, (3) invers $2\\times2$ og verifikasjon, (4) kriteriet inverterbar $\\Leftrightarrow \\det\\ne 0$, (5) determinantreglene $\\det(AB)$ og $\\det(A^n)$, (6) matrisepotenser med strukturinnsikt. Hver løkke går teori → eksempel → oppgave."
+    },
+    {
+      "id": "mat1100-5-2-lokke1",
+      "type": "text",
+      "content": "## Løkke 1 — Matriseprodukt og ikke-kommutativitet (~8 min)"
+    },
+    {
+      "id": "mat1100-5-2-def-matrise",
+      "type": "definition",
+      "title": "Matrise",
+      "content": "En **matrise** er et rektangulært skjema av tall ordnet i rader og søyler. En $m\\times n$-matrise har $m$ rader og $n$ søyler. Vi skriver f.eks.\n\n$$A=\\begin{pmatrix}a_{11}&a_{12}\\\\ a_{21}&a_{22}\\end{pmatrix},$$\n\nder $a_{ij}$ står i rad $i$, søyle $j$. En **kvadratisk** matrise har like mange rader som søyler ($n\\times n$) — det er disse vi kan invertere og opphøye i potenser."
+    },
+    {
+      "id": "mat1100-5-2-def-produkt",
+      "type": "definition",
+      "title": "Matriseprodukt",
+      "content": "Produktet $AB$ regnes **rad ganger søyle**: elementet i rad $i$, søyle $j$ av $AB$ er skalarproduktet av rad $i$ i $A$ med søyle $j$ i $B$. For $2\\times2$:\n\n$$\\begin{pmatrix}a&b\\\\ c&d\\end{pmatrix}\\begin{pmatrix}e&f\\\\ g&h\\end{pmatrix}=\\begin{pmatrix}ae+bg&af+bh\\\\ ce+dg&cf+dh\\end{pmatrix}.$$\n\nFor at $AB$ skal være definert må antall søyler i $A$ være lik antall rader i $B$. Tenk «bortover i $A$, nedover i $B$»."
+    },
+    {
+      "id": "mat1100-5-2-def-ikkekommutativ",
+      "type": "definition",
+      "title": "Ikke-kommutativitet",
+      "content": "For tall er $xy=yx$. For matriser er dette **ikke** sant i sin alminnelighet: $AB\\ne BA$ som regel. Rekkefølgen du ganger i, betyr noe. Derfor må du være nøye med om en oppgave ber om $AB$ eller $BA$, og du kan ikke uten videre «flytte» matriser forbi hverandre i en likning. (Identitetsmatrisen $I$ er et unntak: $AI=IA=A$ for alle $A$.)"
+    },
+    {
+      "id": "mat1100-5-2-ex-produkt",
+      "type": "example",
+      "title": "Eksempel 1: $AB\\ne BA$",
+      "problem": "La $A=\\begin{pmatrix}1&2\\\\ 0&1\\end{pmatrix}$ og $B=\\begin{pmatrix}1&0\\\\ 1&1\\end{pmatrix}$. Regn ut $AB$ og $BA$.",
+      "solution": "**$AB$** (rad i $A$ ganger søyle i $B$):\n$$AB=\\begin{pmatrix}1\\cdot1+2\\cdot1 & 1\\cdot0+2\\cdot1\\\\ 0\\cdot1+1\\cdot1 & 0\\cdot0+1\\cdot1\\end{pmatrix}=\\begin{pmatrix}3&2\\\\ 1&1\\end{pmatrix}.$$\n\n**$BA$:**\n$$BA=\\begin{pmatrix}1\\cdot1+0\\cdot0 & 1\\cdot2+0\\cdot1\\\\ 1\\cdot1+1\\cdot0 & 1\\cdot2+1\\cdot1\\end{pmatrix}=\\begin{pmatrix}1&2\\\\ 1&3\\end{pmatrix}.$$\n\n**Konklusjon:** $AB=\\begin{pmatrix}3&2\\\\ 1&1\\end{pmatrix}\\ne\\begin{pmatrix}1&2\\\\ 1&3\\end{pmatrix}=BA$. Rekkefølgen betyr noe. **Svar:** $\\boxed{AB\\ne BA}$"
+    },
+    {
+      "id": "mat1100-5-2-oppg1",
+      "type": "exercise",
+      "exercise": {
+        "id": "mat1100-5-2-oppg1-ex",
+        "number": "1",
+        "type": "classic",
+        "difficulty": "lett",
+        "task": "(Midtveis, flervalg — letteste innstegsform.) Regn ut produktet $AB$ når $A=\\begin{pmatrix}2&1\\\\ 0&3\\end{pmatrix}$ og $B=\\begin{pmatrix}1&4\\\\ 2&1\\end{pmatrix}$.",
+        "solution": "Rad ganger søyle:\n$$AB=\\begin{pmatrix}2\\cdot1+1\\cdot2 & 2\\cdot4+1\\cdot1\\\\ 0\\cdot1+3\\cdot2 & 0\\cdot4+3\\cdot1\\end{pmatrix}=\\begin{pmatrix}4&9\\\\ 6&3\\end{pmatrix}.$$\n\n**Svar:** $\\boxed{\\begin{pmatrix}4&9\\\\ 6&3\\end{pmatrix}}$",
+        "hints": [
+          "Elementet i rad $i$, søyle $j$ er rad $i$ av $A$ prikket med søyle $j$ av $B$.",
+          "Øvre venstre: $2\\cdot1+1\\cdot2$.",
+          "Nedre rad bruker rad $(0,3)$ i $A$."
+        ]
+      }
+    },
+    {
+      "id": "mat1100-5-2-lokke2",
+      "type": "text",
+      "content": "## Løkke 2 — Identitetsmatrise og matrise-vektor-produkt (~6 min)"
+    },
+    {
+      "id": "mat1100-5-2-def-identitet",
+      "type": "definition",
+      "title": "Identitetsmatrisen $I$",
+      "content": "**Identitetsmatrisen** $I$ har ettall på hoveddiagonalen og null ellers:\n\n$$I=\\begin{pmatrix}1&0\\\\ 0&1\\end{pmatrix}.$$\n\nDen virker som tallet $1$ for matriser: $AI=IA=A$ for enhver kvadratisk $A$ av samme størrelse. Identitetsmatrisen er målet når du inverterer: $B$ er inversen til $A$ nettopp når $AB=I$."
+    },
+    {
+      "id": "mat1100-5-2-def-matvek",
+      "type": "definition",
+      "title": "Matrise-vektor-produkt",
+      "content": "En $2\\times2$-matrise ganget med en søylevektor gir en ny vektor — rad ganger vektor:\n\n$$\\begin{pmatrix}a&b\\\\ c&d\\end{pmatrix}\\begin{pmatrix}x\\\\ y\\end{pmatrix}=\\begin{pmatrix}ax+by\\\\ cx+dy\\end{pmatrix}.$$\n\nDette er selve motoren i en overgangsmodell: hvis $\\mathbf{x}_n$ er en tilstand og $M$ beskriver overgangen, er $\\mathbf{x}_{n+1}=M\\mathbf{x}_n$ neste tilstand. Vi bygger denne modellen ut i [kap. 5.3](/bok/mat1100/mat1100-5-3)."
+    },
+    {
+      "id": "mat1100-5-2-ex-matvek",
+      "type": "example",
+      "title": "Eksempel 2: Matrise ganger vektor",
+      "problem": "La $M=\\begin{pmatrix}2&1\\\\ 1&3\\end{pmatrix}$ og $\\mathbf{x}=\\begin{pmatrix}5\\\\ 2\\end{pmatrix}$. Finn $M\\mathbf{x}$.",
+      "solution": "Rad ganger vektor:\n$$M\\mathbf{x}=\\begin{pmatrix}2\\cdot5+1\\cdot2\\\\ 1\\cdot5+3\\cdot2\\end{pmatrix}=\\begin{pmatrix}12\\\\ 11\\end{pmatrix}.$$\n\n**Konklusjon:** $M\\mathbf{x}=(12,11)$. Første komponent leser første rad, andre komponent leser andre rad. **Svar:** $\\boxed{(12,11)}$"
+    },
+    {
+      "id": "mat1100-5-2-oppg2",
+      "type": "exercise",
+      "exercise": {
+        "id": "mat1100-5-2-oppg2-ex",
+        "number": "2",
+        "type": "classic",
+        "difficulty": "lett",
+        "task": "(Eksamenssjanger C — matrise-vektor-produkt.) La $M=\\begin{pmatrix}1&2\\\\ 3&0\\end{pmatrix}$ og $\\mathbf{x}=\\begin{pmatrix}2\\\\ -1\\end{pmatrix}$. Finn $M\\mathbf{x}$.",
+        "solution": "$$M\\mathbf{x}=\\begin{pmatrix}1\\cdot2+2\\cdot(-1)\\\\ 3\\cdot2+0\\cdot(-1)\\end{pmatrix}=\\begin{pmatrix}0\\\\ 6\\end{pmatrix}.$$\n\n**Svar:** $\\boxed{(0,6)}$",
+        "hints": [
+          "Første komponent: rad $(1,2)$ prikket med $(2,-1)$.",
+          "$1\\cdot2+2\\cdot(-1)=0$.",
+          "Andre komponent bruker rad $(3,0)$."
+        ]
+      }
+    },
+    {
+      "id": "mat1100-5-2-lokke3",
+      "type": "text",
+      "content": "## Løkke 3 — Invers $2\\times2$ og verifikasjon (~9 min)"
+    },
+    {
+      "id": "mat1100-5-2-def-invers",
+      "type": "definition",
+      "title": "Invers matrise",
+      "content": "**Inversen** $A^{-1}$ til en kvadratisk matrise $A$ er matrisen som «nuller ut» $A$ ved multiplikasjon:\n\n$$A A^{-1}=A^{-1}A=I.$$\n\nDen spiller rollen som $1/a$ gjør for tall: å gange med $A^{-1}$ er matriseversjonen av å dele på $A$. Ikke alle matriser har en invers — de som har det kalles **inverterbare** (eller regulære)."
+    },
+    {
+      "id": "mat1100-5-2-def-inversformel",
+      "type": "definition",
+      "title": "$2\\times2$-inversformelen",
+      "content": "For en $2\\times2$-matrise med $\\det=ad-bc\\ne 0$ er inversen\n\n$$\\begin{pmatrix}a&b\\\\ c&d\\end{pmatrix}^{-1}=\\frac{1}{ad-bc}\\begin{pmatrix}d&-b\\\\ -c&a\\end{pmatrix}.$$\n\nOppskriften i ord: **bytt om $a$ og $d$**, **skift fortegn på $b$ og $c$**, og **del alt på determinanten**. To dokumenterte feller: å bytte feil element (bytt hoveddiagonalen $a\\leftrightarrow d$, ikke bidiagonalen), og å glemme faktoren $1/\\det$."
+    },
+    {
+      "id": "mat1100-5-2-def-verifikasjon",
+      "type": "definition",
+      "title": "Verifikasjonsregelen ($AB=I$ holder)",
+      "content": "Når du skal **kontrollere** at en matrise $B$ virkelig er inversen til $A$, holder det å regne ett produkt: hvis $AB=I$, så følger $BA=I$ automatisk (for kvadratiske matriser). Dette sa fasit eksplisitt i 2014 — du trenger altså ikke regne begge veier. Ta med kontrollen i besvarelsen: den fanger regnefeil og gir føringspoeng."
+    },
+    {
+      "id": "mat1100-5-2-ex-invers",
+      "type": "example",
+      "title": "Eksempel 3: Invers $2\\times2$ ved regning, med kontroll",
+      "problem": "La $A=\\begin{pmatrix}3&1\\\\ 5&2\\end{pmatrix}$. Finn $A^{-1}$ ved regning, og kontroller svaret.",
+      "solution": "**Steg 1 — determinanten:** $\\det A=3\\cdot2-1\\cdot5=6-5=1$. Siden $\\det A=1\\ne0$, er $A$ inverterbar.\n\n**Steg 2 — inversformelen** (bytt $a\\leftrightarrow d$, skift fortegn på $b,c$, del på $\\det=1$):\n$$A^{-1}=\\frac{1}{1}\\begin{pmatrix}2&-1\\\\ -5&3\\end{pmatrix}=\\begin{pmatrix}2&-1\\\\ -5&3\\end{pmatrix}.$$\n\n**Steg 3 — kontroll** (det holder å sjekke $AA^{-1}=I$):\n$$AA^{-1}=\\begin{pmatrix}3&1\\\\ 5&2\\end{pmatrix}\\begin{pmatrix}2&-1\\\\ -5&3\\end{pmatrix}=\\begin{pmatrix}6-5 & -3+3\\\\ 10-10 & -5+6\\end{pmatrix}=\\begin{pmatrix}1&0\\\\ 0&1\\end{pmatrix}=I.\\ \\checkmark$$\n\n**Konklusjon:** $A^{-1}=\\begin{pmatrix}2&-1\\\\ -5&3\\end{pmatrix}$. **Svar:** $\\boxed{\\begin{pmatrix}2&-1\\\\ -5&3\\end{pmatrix}}$"
+    },
+    {
+      "id": "mat1100-5-2-oppg3",
+      "type": "exercise",
+      "exercise": {
+        "id": "mat1100-5-2-oppg3-ex",
+        "number": "3",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "(Eksamenssjanger C — invers ved regning, husk kontrollen.) La $A=\\begin{pmatrix}4&3\\\\ 5&4\\end{pmatrix}$. Finn $A^{-1}$ og kontroller.",
+        "solution": "**Determinant:** $\\det A=4\\cdot4-3\\cdot5=16-15=1\\ne0$, så $A$ er inverterbar.\n\n**Inversformelen** (del på $\\det=1$):\n$$A^{-1}=\\begin{pmatrix}4&-3\\\\ -5&4\\end{pmatrix}.$$\n\n**Kontroll** ($AA^{-1}=I$):\n$$\\begin{pmatrix}4&3\\\\ 5&4\\end{pmatrix}\\begin{pmatrix}4&-3\\\\ -5&4\\end{pmatrix}=\\begin{pmatrix}16-15 & -12+12\\\\ 20-20 & -15+16\\end{pmatrix}=\\begin{pmatrix}1&0\\\\ 0&1\\end{pmatrix}.\\ \\checkmark$$\n\n**Svar:** $\\boxed{\\begin{pmatrix}4&-3\\\\ -5&4\\end{pmatrix}}$",
+        "hints": [
+          "Regn $\\det=ad-bc$ først; her blir den $1$.",
+          "Bytt $a\\leftrightarrow d$, skift fortegn på $b$ og $c$, del på determinanten.",
+          "Kontroller ved å regne ett produkt $AA^{-1}$ — skal bli $I$."
+        ]
+      }
+    },
+    {
+      "id": "mat1100-5-2-pause1",
+      "type": "text",
+      "content": "*— naturlig pausepunkt — Du kan nå gange matriser, gange matrise med vektor, og invertere en $2\\times2$ med kontroll. De tre siste løkkene handler om determinanten som styringsverktøy: når finnes inversen, og hvordan determinanten oppfører seg for produkter og potenser. Ta gjerne en pause her.*"
+    },
+    {
+      "id": "mat1100-5-2-lokke4",
+      "type": "text",
+      "content": "## Løkke 4 — Kriteriet inverterbar $\\Leftrightarrow \\det\\ne 0$ (~6 min)"
+    },
+    {
+      "id": "mat1100-5-2-def-kriterium",
+      "type": "definition",
+      "title": "Determinantkriteriet: inverterbar $\\Leftrightarrow \\det\\ne 0$",
+      "content": "En kvadratisk matrise $A$ er **inverterbar hvis og bare hvis $\\det A\\ne 0$**. Dette er et navngitt kriterium du skal referere til i besvarelsen. Sammenhengen ser du i inversformelen: der deler vi på $\\det A$, og deling på null er umulig — så $\\det A=0$ betyr «ingen invers». Å konkludere med at en matrise er inverterbar **uten** å ha regnet determinanten er en dokumentert feil: regn den, og skriv kriteriet."
+    },
+    {
+      "id": "mat1100-5-2-def-singular",
+      "type": "definition",
+      "title": "Singulær matrise",
+      "content": "En matrise med $\\det A=0$ kalles **singulær** — den har ingen invers. Geometrisk «kollapser» den rommet (radene er lineært avhengige, jf. komplanære vektorer i [kap. 5.1](/bok/mat1100/mat1100-5-1)). I en overgangsmodell betyr en singulær matrise at man **ikke** entydig kan regne seg ett steg bakover — et poeng som brukes direkte i [kap. 5.3](/bok/mat1100/mat1100-5-3)."
+    },
+    {
+      "id": "mat1100-5-2-ex-kriterium",
+      "type": "example",
+      "title": "Eksempel 4: Er matrisen inverterbar?",
+      "problem": "Avgjør om hver av matrisene er inverterbar: $P=\\begin{pmatrix}2&4\\\\ 1&2\\end{pmatrix}$ og $Q=\\begin{pmatrix}2&4\\\\ 1&3\\end{pmatrix}$.",
+      "solution": "Vi bruker kriteriet inverterbar $\\Leftrightarrow \\det\\ne0$ og regner determinanten for hver.\n\n**$P$:** $\\det P=2\\cdot2-4\\cdot1=4-4=0$. Siden $\\det P=0$, er $P$ **singulær — ikke inverterbar**.\n\n**$Q$:** $\\det Q=2\\cdot3-4\\cdot1=6-4=2\\ne0$. Siden $\\det Q\\ne0$, er $Q$ **inverterbar**.\n\n**Konklusjon:** $P$ har ingen invers ($\\det=0$); $Q$ har det ($\\det=2$). Legg merke til at de to matrisene er nesten like — det er determinanten, ikke utseendet, som avgjør. **Svar:** $\\boxed{P\\text{ ikke inverterbar},\\ Q\\text{ inverterbar}}$"
+    },
+    {
+      "id": "mat1100-5-2-oppg4",
+      "type": "exercise",
+      "exercise": {
+        "id": "mat1100-5-2-oppg4-ex",
+        "number": "4",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "(Eksamenssjanger C — inverterbarhet via determinanten.) For hvilke verdier av $t$ er $A=\\begin{pmatrix}t&2\\\\ 3&t\\end{pmatrix}$ IKKE inverterbar?",
+        "solution": "Matrisen er ikke inverterbar nøyaktig når $\\det A=0$. Regn determinanten:\n$$\\det A=t\\cdot t-2\\cdot3=t^2-6.$$\n\nSett lik null: $t^2-6=0\\Rightarrow t=\\pm\\sqrt6$.\n\n**Konklusjon:** $A$ er singulær (ikke inverterbar) for $t=\\sqrt6$ og $t=-\\sqrt6$; for alle andre $t$ er den inverterbar. **Svar:** $\\boxed{t=\\pm\\sqrt6}$",
+        "hints": [
+          "Ikke inverterbar $\\Leftrightarrow \\det=0$.",
+          "$\\det A=t^2-6$.",
+          "Løs $t^2-6=0$ — to løsninger."
+        ]
+      }
+    },
+    {
+      "id": "mat1100-5-2-lokke5",
+      "type": "text",
+      "content": "## Løkke 5 — Determinantreglene $\\det(AB)$ og $\\det(A^n)$ (~5 min)"
+    },
+    {
+      "id": "mat1100-5-2-def-detprodukt",
+      "type": "definition",
+      "title": "Produktregelen $\\det(AB)=\\det A\\cdot\\det B$",
+      "content": "Determinanten av et produkt er produktet av determinantene:\n\n$$\\det(AB)=\\det A\\cdot\\det B.$$\n\nDette gjelder selv om $AB\\ne BA$ (begge produkter har samme determinant). Regelen er et arbeidsverktøy: du slipper å regne ut hele produktmatrisen for å finne dens determinant."
+    },
+    {
+      "id": "mat1100-5-2-def-detpotens",
+      "type": "definition",
+      "title": "Potenskorollaret $\\det(A^n)=(\\det A)^n$",
+      "content": "Bruker du produktregelen gjentatte ganger på $A^n=A\\cdot A\\cdots A$, får du\n\n$$\\det(A^n)=(\\det A)^n.$$\n\nDette var en deloppgave i 2022: i stedet for å regne ut $A^n$ (tungt), regner du $\\det A$ én gang og opphøyer i $n$. En nyttig konsekvens: hvis $\\det A\\ne0$, er også $\\det(A^n)\\ne0$, så alle potenser av en inverterbar matrise er inverterbare."
+    },
+    {
+      "id": "mat1100-5-2-ex-detregler",
+      "type": "example",
+      "title": "Eksempel 5: Determinant av produkt og potens",
+      "problem": "La $\\det A=2$ og $\\det B=5$. Finn **a)** $\\det(AB)$ og **b)** $\\det(A^3)$.",
+      "solution": "**a)** Produktregelen: $\\det(AB)=\\det A\\cdot\\det B=2\\cdot5=10$.\n\n**b)** Potenskorollaret: $\\det(A^3)=(\\det A)^3=2^3=8$.\n\nLegg merke til at vi aldri trengte å kjenne selve matrisene — bare determinantene deres.\n\n**Konklusjon:** $\\det(AB)=10$ og $\\det(A^3)=8$. **Svar:** $\\boxed{10\\ \\text{og}\\ 8}$"
+    },
+    {
+      "id": "mat1100-5-2-oppg5",
+      "type": "exercise",
+      "exercise": {
+        "id": "mat1100-5-2-oppg5-ex",
+        "number": "5",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "(Eksamenssjanger C — determinantregler, 2022-varianten.) La $A=\\begin{pmatrix}2&1\\\\ 1&2\\end{pmatrix}$. Finn $\\det(A^4)$ uten å regne ut $A^4$.",
+        "solution": "Regn først $\\det A$:\n$$\\det A=2\\cdot2-1\\cdot1=4-1=3.$$\n\nPotenskorollaret gir da:\n$$\\det(A^4)=(\\det A)^4=3^4=81.$$\n\n**Konklusjon:** $\\det(A^4)=81$ — uten å opphøye matrisen. **Svar:** $\\boxed{81}$",
+        "hints": [
+          "Bruk $\\det(A^n)=(\\det A)^n$ — ikke regn ut $A^4$.",
+          "$\\det A=2\\cdot2-1\\cdot1=3$.",
+          "$3^4=81$."
+        ]
+      }
+    },
+    {
+      "id": "mat1100-5-2-lokke6",
+      "type": "text",
+      "content": "## Løkke 6 — Matrisepotenser med strukturinnsikt (~5 min)"
+    },
+    {
+      "id": "mat1100-5-2-def-potens",
+      "type": "definition",
+      "title": "Matrisepotens $M^k$",
+      "content": "For en kvadratisk matrise er **potensen** $M^k=M\\cdot M\\cdots M$ ($k$ faktorer), med $M^0=I$. Å regne $M^k$ direkte for stor $k$ er tungt — men mange matriser i eksamensoppgaver har en **struktur** som gir et lukket uttrykk. Å oppdage mønsteret (og eventuelt bevise det ved induksjon, [kap. 5.3](/bok/mat1100/mat1100-5-3)) sparer mye regning."
+    },
+    {
+      "id": "mat1100-5-2-def-struktur",
+      "type": "definition",
+      "title": "Strukturtrikset $M(a)M(b)=M(a+b)$",
+      "content": "Noen matriser danner en **parametrisert familie** der multiplikasjon svarer til addisjon av parameteren. Et rent eksempel er $M(a)=\\begin{pmatrix}1&a\\\\ 0&1\\end{pmatrix}$, som oppfyller\n\n$$M(a)M(b)=M(a+b).$$\n\nTo konsekvenser du kan lese rett av: $M(a)^k=M(ka)$, og inversen er $M(a)^{-1}=M(-a)$ (fordi $M(a)M(-a)=M(0)=I$). Rotasjonsmatrisene $R(\\theta)$ har samme struktur: $R(\\theta)R(\\varphi)=R(\\theta+\\varphi)$. Ser du en slik familie, slipper du å invertere eller opphøye med formlene — strukturen gir svaret."
+    },
+    {
+      "id": "mat1100-5-2-ex-struktur",
+      "type": "example",
+      "title": "Eksempel 6: Potens og invers via struktur",
+      "problem": "La $M(a)=\\begin{pmatrix}1&a\\\\ 0&1\\end{pmatrix}$. **a)** Vis at $M(2)M(3)=M(5)$. **b)** Bruk strukturen til å skrive opp $M(3)^{-1}$.",
+      "solution": "**a)** Regn produktet:\n$$M(2)M(3)=\\begin{pmatrix}1&2\\\\ 0&1\\end{pmatrix}\\begin{pmatrix}1&3\\\\ 0&1\\end{pmatrix}=\\begin{pmatrix}1\\cdot1+2\\cdot0 & 1\\cdot3+2\\cdot1\\\\ 0+0 & 0+1\\end{pmatrix}=\\begin{pmatrix}1&5\\\\ 0&1\\end{pmatrix}=M(5).$$\nDette er nettopp $M(2)M(3)=M(2+3)$.\n\n**b)** Strukturen gir $M(a)^{-1}=M(-a)$, siden $M(a)M(-a)=M(0)=I$. Altså\n$$M(3)^{-1}=M(-3)=\\begin{pmatrix}1&-3\\\\ 0&1\\end{pmatrix}.$$\n**Kontroll:** $\\det M(3)=1\\cdot1-3\\cdot0=1\\ne0$ (inverterbar), og inversformelen gir samme svar: $\\frac{1}{1}\\begin{pmatrix}1&-3\\\\ 0&1\\end{pmatrix}$. $\\checkmark$\n\n**Konklusjon:** $M(2)M(3)=M(5)$ og $M(3)^{-1}=\\begin{pmatrix}1&-3\\\\ 0&1\\end{pmatrix}$. **Svar:** $\\boxed{M(5),\\ M(-3)}$"
+    },
+    {
+      "id": "mat1100-5-2-oppg6",
+      "type": "exercise",
+      "exercise": {
+        "id": "mat1100-5-2-oppg6-ex",
+        "number": "6",
+        "type": "classic",
+        "difficulty": "vanskelig",
+        "task": "(Eksamenssjanger C — strukturinnsikt.) La $M(a)=\\begin{pmatrix}1&a\\\\ 0&1\\end{pmatrix}$. Bruk strukturen $M(a)M(b)=M(a+b)$ til å skrive opp $M(a)^4$, og bekreft med $M(1)^4$.",
+        "solution": "Gjentatt bruk av strukturregelen:\n$$M(a)^2=M(a)M(a)=M(2a),\\quad M(a)^3=M(2a)M(a)=M(3a),\\quad M(a)^4=M(3a)M(a)=M(4a).$$\nAltså $M(a)^4=\\begin{pmatrix}1&4a\\\\ 0&1\\end{pmatrix}$.\n\n**Bekreftelse med $a=1$:** $M(1)^4=M(4)=\\begin{pmatrix}1&4\\\\ 0&1\\end{pmatrix}$. Direkte regning: $\\begin{pmatrix}1&1\\\\ 0&1\\end{pmatrix}^2=\\begin{pmatrix}1&2\\\\ 0&1\\end{pmatrix}$, og kvadrert igjen: $\\begin{pmatrix}1&4\\\\ 0&1\\end{pmatrix}$. $\\checkmark$\n\n**Konklusjon:** $M(a)^4=M(4a)=\\begin{pmatrix}1&4a\\\\ 0&1\\end{pmatrix}$. **Svar:** $\\boxed{\\begin{pmatrix}1&4a\\\\ 0&1\\end{pmatrix}}$",
+        "hints": [
+          "$M(a)M(b)=M(a+b)$ — hver multiplikasjon legger $a$ til parameteren.",
+          "$M(a)^k=M(ka)$.",
+          "Sett $k=4$: parameteren blir $4a$."
+        ]
+      }
+    },
+    {
+      "id": "mat1100-5-2-warn-typiske-feil",
+      "type": "warning",
+      "title": "Typiske feil",
+      "content": "- **Bytte $b$/$c$-fortegnene feil i $2\\times2$-inversformelen.** Formelen bytter om hoveddiagonalen ($a\\leftrightarrow d$) og skifter fortegn på bidiagonalen ($b\\to-b$, $c\\to-c$). Å bytte diagonalene omvendt er en dokumentert felle.\n- **Glemme faktoren $1/\\det$.** Inversen er $\\frac{1}{ad-bc}\\begin{pmatrix}d&-b\\\\ -c&a\\end{pmatrix}$ — hele matrisen deles på determinanten. Uten den blir svaret galt (unntatt når $\\det=1$).\n- **Anta kommutativitet.** $AB\\ne BA$ i sin alminnelighet. Ikke «flytt» matriser forbi hverandre, og sjekk om oppgaven vil ha $AB$ eller $BA$.\n- **Konkludere inverterbarhet uten å regne determinanten.** Skriv kriteriet inverterbar $\\Leftrightarrow \\det\\ne0$, regn $\\det$, og konkluder — ikke gjett.\n- **Regne ut $A^n$ for å finne $\\det(A^n)$.** Bruk $\\det(A^n)=(\\det A)^n$ — regn determinanten én gang og opphøy."
+    },
+    {
+      "id": "mat1100-5-2-begrepsbank-tekst",
+      "type": "text",
+      "content": "## Begrepsbank til eksamen\n\nHer er et tilleggsbegrep fra kapitlet i eksamensrettet kortform.\n\n*Begrepsbanken er flashcard-/repetisjonsstoff — den gjentar og utdyper det du nettopp har lest. Hopp trygt over ved førstegangslesing; tidsanslaget for kapitlet gjelder kjernestoffet.*"
+    },
+    {
+      "id": "mat1100-5-2-bb-entydighet",
+      "type": "definition",
+      "title": "Entydighet av inversen",
+      "content": "En inverterbar matrise har **nøyaktig én** invers. Hvis både $B$ og $C$ oppfyller $AB=I$ og $CA=I$, så er $B=C$ (kort: $C=CI=C(AB)=(CA)B=IB=B$). Derfor snakker vi om *inversen* $A^{-1}$, ikke *en* invers. Entydigheten er også grunnen til at verifikasjonsregelen holder: finner du én $B$ med $AB=I$, er den *den* inversen, og $BA=I$ følger."
+    },
+    {
+      "id": "mat1100-5-2-symbolliste",
+      "type": "collapsible",
+      "title": "Symbol- og formelliste",
+      "buttonText": "Vis symboler og formler",
+      "content": [
+        {
+          "id": "mat1100-5-2-symbolliste-text",
+          "type": "text",
+          "content": "## Symbol- og formelliste\n\n*Oppslagsverk — alt her forklares underveis i kapitlet.*\n\n| Symbol | Betydning |\n|---|---|\n| $A=(a_{ij})$ | Matrise; $a_{ij}$ i rad $i$, søyle $j$ |\n| $AB$ | Matriseprodukt (rad ganger søyle) |\n| $I$ | Identitetsmatrisen ($AI=IA=A$) |\n| $M\\mathbf{x}$ | Matrise-vektor-produkt |\n| $A^{-1}$ | Invers matrise ($AA^{-1}=I$) |\n| $\\det A$ | Determinant |\n| singulær | Matrise med $\\det=0$ (ingen invers) |\n| $A^n$, $M^k$ | Matrisepotens |\n| $M(a)$ | Parametrisert matrisefamilie |\n\n**Formler i dette delkapitlet:**\n\n$$\\begin{pmatrix}a&b\\\\ c&d\\end{pmatrix}\\begin{pmatrix}e&f\\\\ g&h\\end{pmatrix}=\\begin{pmatrix}ae+bg&af+bh\\\\ ce+dg&cf+dh\\end{pmatrix}$$\nMatriseprodukt (rad ganger søyle).\n\n$$\\begin{pmatrix}a&b\\\\ c&d\\end{pmatrix}^{-1}=\\frac{1}{ad-bc}\\begin{pmatrix}d&-b\\\\ -c&a\\end{pmatrix}$$\n$2\\times2$-inversformelen (krever $\\det\\ne0$).\n\n$$A\\text{ inverterbar}\\ \\Leftrightarrow\\ \\det A\\ne 0$$\nDeterminantkriteriet.\n\n$$\\det(AB)=\\det A\\cdot\\det B,\\qquad \\det(A^n)=(\\det A)^n$$\nProduktregelen og potenskorollaret.\n\n$$M(a)M(b)=M(a+b),\\qquad M(a)^{-1}=M(-a)$$\nStrukturtrikset for parametriserte familier."
+        }
+      ]
+    },
+    {
+      "id": "mat1100-5-2-rep",
+      "type": "collapsible",
+      "title": "Repetisjonsoppgaver",
+      "buttonText": "Vis repetisjonsoppgaver",
+      "content": [
+        {
+          "id": "mat1100-5-2-rep-1",
+          "type": "exercise",
+          "exercise": {
+            "id": "mat1100-5-2-rep-1-ex",
+            "number": "R1",
+            "type": "classic",
+            "difficulty": "lett",
+            "task": "(Fra [kap. 5.1](/bok/mat1100/mat1100-5-1)) Regn ut $\\det\\begin{pmatrix}4&2\\\\ 3&5\\end{pmatrix}$.",
+            "solution": "$\\det=4\\cdot5-2\\cdot3=20-6=14$. **Svar:** $14$. (Determinanten du trenger i både inversformel og inverterbarhetskriterium.)",
+            "hints": [
+              "$\\det=ad-bc$."
+            ]
+          }
+        },
+        {
+          "id": "mat1100-5-2-rep-2",
+          "type": "exercise",
+          "exercise": {
+            "id": "mat1100-5-2-rep-2-ex",
+            "number": "R2",
+            "type": "classic",
+            "difficulty": "lett",
+            "task": "(Fra [kap. 5.1](/bok/mat1100/mat1100-5-1)) Hva betyr det geometrisk at en $2\\times2$-determinant er $0$?",
+            "solution": "De to radvektorene er parallelle (ligger på samme linje), så parallellogrammet de spenner ut har areal $0$. I dette kapitlet betyr det samme at matrisen er singulær — ingen invers.",
+            "hints": [
+              "Determinant $=$ areal av parallellogrammet radene spenner ut."
+            ]
+          }
+        },
+        {
+          "id": "mat1100-5-2-rep-3",
+          "type": "exercise",
+          "exercise": {
+            "id": "mat1100-5-2-rep-3-ex",
+            "number": "R3",
+            "type": "classic",
+            "difficulty": "middels",
+            "task": "(Fra [kap. 5.1](/bok/mat1100/mat1100-5-1)) Regn ut $\\det\\begin{pmatrix}1&0&2\\\\ 3&1&0\\\\ 0&4&1\\end{pmatrix}$ ved kofaktorutvikling.",
+            "solution": "Langs første rad ($+,-,+$): $1(1\\cdot1-0\\cdot4)-0+2(3\\cdot4-1\\cdot0)=1\\cdot1+2\\cdot12=1+24=25$. **Svar:** $25$.",
+            "hints": [
+              "Utvikle langs raden med en null; fortegn $+,-,+$."
+            ]
+          }
+        },
+        {
+          "id": "mat1100-5-2-rep-4",
+          "type": "exercise",
+          "exercise": {
+            "id": "mat1100-5-2-rep-4-ex",
+            "number": "R4",
+            "type": "classic",
+            "difficulty": "lett",
+            "task": "(Fra [kap. 5.1](/bok/mat1100/mat1100-5-1)) Regn skalarproduktet av rad $(2,1)$ og søyle $(3,4)$.",
+            "solution": "$2\\cdot3+1\\cdot4=6+4=10$. **Svar:** $10$. Dette er nettopp regnestykket bak ett element i et matriseprodukt (rad ganger søyle).",
+            "hints": [
+              "Gang komponentvis og summer."
+            ]
+          }
+        }
+      ]
+    }
+  ],
+  "exercises": []
+}

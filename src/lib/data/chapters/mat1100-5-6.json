@@ -1,0 +1,287 @@
+{
+  "id": "mat1100-5-6",
+  "courseId": "mat1100",
+  "chapterNumber": "5.6",
+  "title": "Jacobimatrisen og deriverbarhet i flere variable",
+  "description": "Jacobimatrisen av partiellderiverte (rad = komponentfunksjon) og de to måtene å begrunne deriverbarhet på: teoremveien «kontinuerlige partiellderiverte ⇒ deriverbar» og definisjonsveien med restleddsgrensen (2022-nivå).",
+  "estimatedMinutes": 40,
+  "competenceGoals": [
+    "sette opp Jacobimatrisen til en vektorfunksjon med rad = komponentfunksjon, og evaluere den i et punkt",
+    "begrunne deriverbarhet via teoremveien: kontinuerlige partiellderiverte gir deriverbarhet",
+    "kjenne definisjonsveien: partiellderiverte fra grensedefinisjonen og restleddsgrensen normert med avstanden"
+  ],
+  "content": [
+    {
+      "id": "mat1100-5-6-tip-eksamensvinkel",
+      "type": "tip",
+      "title": "Eksamensvinkel",
+      "content": "**Jacobimatrisen (sjanger N) er et smalt, men fast innslag — den står i 4 av 21 slutteksamener (2016, 2018 og 2022, samt som flervalg).** Oppgaven er alltid den samme todelte: sett opp Jacobimatrisen til en vektorfunksjon, og **begrunn** at funksjonen er deriverbar i et punkt.\n\n- **Hovedverktøyet** (teoremveien) er lett poeng: «kontinuerlige partiellderiverte ⇒ deriverbar». Kan du regne partiellderiverte og se at de er kontinuerlige, er begrunnelsen i boks.\n- Den **skjerpede varianten** dukket opp i 2022: da måtte deriverbarheten vises **direkte fra definisjonen** (partiellderiverte via grensedefinisjonen + at restleddet går mot 0). Dette er «kjenne»-stoff — merket som tyngre nedenfor.\n\nSjangerkoden: **(Eksamenssjanger N)** = Jacobimatrise + deriverbarhetsbegrunnelse på begrunnet langsvar.\n\n**Ærlig prioritering:** dette er nyttige, men ikke hyppige poeng (arkivet stopper i 2023 — nyere sett kan ha endret bildet). Behersk teoremveien godt; definisjonsvarianten er verdt å ha sett, men prioriter sjanger A og integrasjon høyere. Sensorregelen «ubegrunnet svar = 0» gjelder: selve **begrunnelsen** for deriverbarhet er der poengene sitter, ikke bare matrisen."
+    },
+    {
+      "id": "mat1100-5-6-forkunnskaper",
+      "type": "text",
+      "content": "**Forkunnskaper:** Dette kapitlet kobler sammen tre tidligere tråder. Du trenger grensedefinisjonen av den deriverte fra **[kap. 3.1](/bok/mat1100/mat1100-3-1)** (definisjonsvarianten bygger direkte på den), matrisenotasjon fra **[kap. 5.2](/bok/mat1100/mat1100-5-2)** (Jacobimatrisen er en matrise av partiellderiverte), og partiellderiverte + gradient fra **[kap. 5.4](/bok/mat1100/mat1100-5-4)** (radene i Jacobimatrisen er gradientene til komponentfunksjonene).\n\n**Sist du var her (oppfriskning):**\n\n- **Partiellderivert:** $\\dfrac{\\partial f}{\\partial x}$ regnes ved å derivere $f$ mhp. $x$ og holde de andre variablene konstante ([kap. 5.4](/bok/mat1100/mat1100-5-4)).\n- **Grensedefinisjonen** av den deriverte i én variabel: $f'(a)=\\lim_{h\\to 0}\\dfrac{f(a+h)-f(a)}{h}$ ([kap. 3.1](/bok/mat1100/mat1100-3-1)).\n\n*Kapitlet er kompakt (40 min) og bygges i tre løkker: (1) Jacobimatrisen, (2) teoremveien til deriverbarhet, (3) definisjonsveien (kjenne-stoff).*"
+    },
+    {
+      "id": "mat1100-5-6-intro",
+      "type": "text",
+      "content": "I [kap. 5.4](/bok/mat1100/mat1100-5-4) hadde funksjonen én utgang (en høyde). Nå lar vi funksjonen gi ut **flere** tall samtidig — en **vektorfunksjon** $F:\\mathbb{R}^n\\to\\mathbb{R}^m$. Et eksempel er en avbildning som tar et punkt $(x,y)$ i planet og sender det til et nytt punkt $(u,v)$; både $u$ og $v$ avhenger av $x$ og $y$.\n\nDen deriverte av en slik funksjon er ikke ett tall og ikke én vektor, men en **matrise** — Jacobimatrisen — som samler alle partiellderiverte. Og som i én variabel finnes det en presis definisjon av hva «deriverbar» betyr, med et restledd som må gå mot 0. Vi bygger opp i tre løkker."
+    },
+    {
+      "id": "mat1100-5-6-lokke1",
+      "type": "text",
+      "content": "## Løkke 1 — Vektorfunksjoner og Jacobimatrisen (~14 min)"
+    },
+    {
+      "id": "mat1100-5-6-def-vektorfunksjon",
+      "type": "definition",
+      "title": "Vektorfunksjon F: ℝⁿ → ℝᵐ",
+      "content": "En funksjon som tar inn $n$ tall og gir ut $m$ tall. Vi skriver\n\n$$F(\\mathbf x)=\\big(F_1(\\mathbf x),\\ F_2(\\mathbf x),\\ \\dots,\\ F_m(\\mathbf x)\\big),$$\n\nder hver $F_i:\\mathbb{R}^n\\to\\mathbb{R}$ er en vanlig skalarfunksjon. For eksempel er $F(x,y)=(x^2-y,\\ 3xy,\\ x+y^2)$ en vektorfunksjon fra $\\mathbb{R}^2$ til $\\mathbb{R}^3$ ($n=2$ inn, $m=3$ ut)."
+    },
+    {
+      "id": "mat1100-5-6-def-komponentfunksjon",
+      "type": "definition",
+      "title": "Komponentfunksjon",
+      "content": "Én av utgangene til en vektorfunksjon, $F_i$. Hver komponentfunksjon er en skalarfunksjon av alle inngangsvariablene, og har sin egen gradient. Jacobimatrisen bygges rad for rad av disse gradientene — derfor er komponentfunksjonene den naturlige måten å bryte opp $F$ på."
+    },
+    {
+      "id": "mat1100-5-6-def-jacobi",
+      "type": "definition",
+      "title": "Jacobimatrisen",
+      "content": "Matrisen av alle førsteordens partiellderiverte til $F:\\mathbb{R}^n\\to\\mathbb{R}^m$. Element $(i,j)$ er $\\dfrac{\\partial F_i}{\\partial x_j}$:\n\n$$JF=\\begin{pmatrix} \\dfrac{\\partial F_1}{\\partial x_1} & \\cdots & \\dfrac{\\partial F_1}{\\partial x_n} \\\\[2mm] \\vdots & & \\vdots \\\\[1mm] \\dfrac{\\partial F_m}{\\partial x_1} & \\cdots & \\dfrac{\\partial F_m}{\\partial x_n} \\end{pmatrix}.$$\n\nMatrisen har $m$ rader (én per komponentfunksjon) og $n$ kolonner (én per inngangsvariabel). Den evalueres i et punkt ved å sette punktets koordinater inn i hvert element."
+    },
+    {
+      "id": "mat1100-5-6-def-rad-komponent",
+      "type": "definition",
+      "title": "Rad = komponentfunksjon (huskeregelen)",
+      "content": "**Rad $i$** i Jacobimatrisen er gradienten til komponentfunksjonen $F_i$: $\\big(\\tfrac{\\partial F_i}{\\partial x_1},\\dots,\\tfrac{\\partial F_i}{\\partial x_n}\\big)$. **Kolonne $j$** samler alle partiellderivertene mhp. den samme variabelen $x_j$. Den vanligste feilen i sjangeren er å **transponere** matrisen (bytte rader og kolonner) — hold fast på at hver rad hører til én utgang $F_i$."
+    },
+    {
+      "id": "mat1100-5-6-ex-jacobi",
+      "type": "example",
+      "title": "Eksempel 1: Jacobimatrisen til en vektorfunksjon",
+      "problem": "La $F(x,y)=(x^2-y,\\ 3xy,\\ x+y^2)$. Finn Jacobimatrisen $JF$ generelt, og evaluer i punktet $(1,2)$.",
+      "solution": "Komponentfunksjonene er $F_1=x^2-y$, $F_2=3xy$, $F_3=x+y^2$. Her er $n=2$ (variablene $x,y$) og $m=3$ (tre utganger), så $JF$ blir en $3\\times 2$-matrise.\n\n**Partiellderiver hver komponent (rad for rad):**\n\n| Rad | $\\partial/\\partial x$ | $\\partial/\\partial y$ |\n|---|---|---|\n| $F_1=x^2-y$ | $2x$ | $-1$ |\n| $F_2=3xy$ | $3y$ | $3x$ |\n| $F_3=x+y^2$ | $1$ | $2y$ |\n\nAltså\n$$JF=\\begin{pmatrix} 2x & -1 \\\\ 3y & 3x \\\\ 1 & 2y \\end{pmatrix}.$$\n\n**Innsetting i $(1,2)$:**\n$$JF(1,2)=\\begin{pmatrix} 2 & -1 \\\\ 6 & 3 \\\\ 1 & 4 \\end{pmatrix}.$$\n\n**Konklusjon:** hver rad er gradienten til én komponentfunksjon; matrisen har 3 rader og 2 kolonner. **Svar:** $\\boxed{JF(1,2)=\\begin{pmatrix} 2 & -1 \\\\ 6 & 3 \\\\ 1 & 4 \\end{pmatrix}}$"
+    },
+    {
+      "id": "mat1100-5-6-oppg-jacobi",
+      "type": "exercise",
+      "exercise": {
+        "id": "mat1100-5-6-oppg-jacobi-ex",
+        "number": "1",
+        "type": "classic",
+        "difficulty": "lett",
+        "task": "(Eksamenssjanger N — sett opp Jacobimatrisen.) La $G(x,y)=(xy,\\ x^2+y^2)$. Finn $JG$ generelt, og evaluer i $(2,1)$.",
+        "solution": "Komponentene er $G_1=xy$, $G_2=x^2+y^2$; $n=2$, $m=2$, så $JG$ er $2\\times 2$.\n\n**Rad for rad:**\n\n| Rad | $\\partial/\\partial x$ | $\\partial/\\partial y$ |\n|---|---|---|\n| $G_1=xy$ | $y$ | $x$ |\n| $G_2=x^2+y^2$ | $2x$ | $2y$ |\n\n$$JG=\\begin{pmatrix} y & x \\\\ 2x & 2y \\end{pmatrix},\\qquad JG(2,1)=\\begin{pmatrix} 1 & 2 \\\\ 4 & 2 \\end{pmatrix}.$$\n\n**Konklusjon:** $JG(2,1)=\\begin{pmatrix} 1 & 2 \\\\ 4 & 2 \\end{pmatrix}$. **Svar:** $\\boxed{\\begin{pmatrix} 1 & 2 \\\\ 4 & 2 \\end{pmatrix}}$",
+        "hints": [
+          "Skriv komponentene $G_1=xy$, $G_2=x^2+y^2$; hver blir en rad.",
+          "Rad 1: $(\\partial_x G_1,\\ \\partial_y G_1)=(y,\\ x)$.",
+          "Sett inn $(2,1)$ i hvert element til slutt."
+        ]
+      }
+    },
+    {
+      "id": "mat1100-5-6-lokke2",
+      "type": "text",
+      "content": "## Løkke 2 — Teoremveien: kontinuerlige partiellderiverte ⇒ deriverbar (~13 min)"
+    },
+    {
+      "id": "mat1100-5-6-def-deriverbar",
+      "type": "definition",
+      "title": "Deriverbarhet i flere variable",
+      "content": "$F$ er **deriverbar** i punktet $\\mathbf a$ dersom det finnes en matrise $M$ (som da er Jacobimatrisen $JF(\\mathbf a)$) slik at lineariseringen $\\mathbf x\\mapsto F(\\mathbf a)+M(\\mathbf x-\\mathbf a)$ tilnærmer $F$ så godt at **restleddet** går mot 0 raskere enn avstanden:\n\n$$\\lim_{\\mathbf x\\to\\mathbf a}\\frac{\\big|F(\\mathbf x)-F(\\mathbf a)-M(\\mathbf x-\\mathbf a)\\big|}{|\\mathbf x-\\mathbf a|}=0.$$\n\nDet avgjørende er at brøken er **normert med $|\\mathbf x-\\mathbf a|$** i nevneren — deriverbarhet er mer enn at partiellderivertene finnes. Teoremet under gir en enklere vei til å slå det fast."
+    },
+    {
+      "id": "mat1100-5-6-thm-teoremveien",
+      "type": "theorem",
+      "title": "Teoremveien til deriverbarhet",
+      "content": "**Er alle partiellderivertene til $F$ kontinuerlige i en omegn om $\\mathbf a$, så er $F$ deriverbar i $\\mathbf a$**, og den deriverte er Jacobimatrisen $JF(\\mathbf a)$.\n\nDette er hovedverktøyet på eksamen: du slipper å regne restleddsgrensen. Oppskriften i tre trinn:\n\n1. Regn partiellderivertene (elementene i $JF$).\n2. Konstatér at de er **kontinuerlige** (polynomer, $e^x$, $\\sin$, $\\cos$ og sammensetninger/produkter av slike er kontinuerlige overalt der de er definert).\n3. **Navngi teoremet** («kontinuerlige partiellderiverte ⇒ deriverbar») og konkludér at $F$ er deriverbar, med derivert $JF(\\mathbf a)$.\n\nEn funksjon med kontinuerlige partiellderiverte kalles **kontinuerlig deriverbar** ($C^1$)."
+    },
+    {
+      "id": "mat1100-5-6-ex-teoremveien",
+      "type": "example",
+      "title": "Eksempel 2: Deriverbar via teoremveien",
+      "problem": "La $F(x,y)=(e^x\\cos y,\\ e^x\\sin y)$. Finn Jacobimatrisen i origo $(0,0)$, og begrunn at $F$ er deriverbar der.",
+      "solution": "**Partiellderiver hver komponent:**\n\n| Rad | $\\partial/\\partial x$ | $\\partial/\\partial y$ |\n|---|---|---|\n| $F_1=e^x\\cos y$ | $e^x\\cos y$ | $-e^x\\sin y$ |\n| $F_2=e^x\\sin y$ | $e^x\\sin y$ | $e^x\\cos y$ |\n\n$$JF=\\begin{pmatrix} e^x\\cos y & -e^x\\sin y \\\\ e^x\\sin y & e^x\\cos y \\end{pmatrix}.$$\n\n**Innsetting i $(0,0)$** (med $e^0=1$, $\\cos 0=1$, $\\sin 0=0$):\n$$JF(0,0)=\\begin{pmatrix} 1 & 0 \\\\ 0 & 1 \\end{pmatrix}.$$\n\n**Deriverbarhet (teoremveien):** alle fire elementene er produkter av $e^x$ og $\\cos y$/$\\sin y$, som er kontinuerlige overalt; dermed er alle partiellderivertene kontinuerlige i en omegn om $(0,0)$. Etter teoremet «kontinuerlige partiellderiverte ⇒ deriverbar» er $F$ deriverbar i $(0,0)$, med derivert $JF(0,0)$.\n\n**Konklusjon:** $JF(0,0)=\\begin{pmatrix} 1 & 0 \\\\ 0 & 1 \\end{pmatrix}$, og $F$ er deriverbar i origo fordi partiellderivertene er kontinuerlige. **Svar:** $\\boxed{JF(0,0)=I_2,\\ F\\text{ deriverbar (teoremveien)}}$"
+    },
+    {
+      "id": "mat1100-5-6-oppg-teoremveien",
+      "type": "exercise",
+      "exercise": {
+        "id": "mat1100-5-6-oppg-teoremveien-ex",
+        "number": "2",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "(Eksamenssjanger N — Jacobi + deriverbarhet via teoremveien.) La $F(x,y)=(x^2+y^2,\\ xy)$. **a)** Finn $JF(1,1)$. **b)** Begrunn at $F$ er deriverbar i $(1,1)$.",
+        "solution": "**a)** Komponentene $F_1=x^2+y^2$, $F_2=xy$:\n\n| Rad | $\\partial/\\partial x$ | $\\partial/\\partial y$ |\n|---|---|---|\n| $F_1$ | $2x$ | $2y$ |\n| $F_2$ | $y$ | $x$ |\n\n$$JF=\\begin{pmatrix} 2x & 2y \\\\ y & x \\end{pmatrix},\\qquad JF(1,1)=\\begin{pmatrix} 2 & 2 \\\\ 1 & 1 \\end{pmatrix}.$$\n\n**b)** Alle fire partiellderivertene ($2x,2y,y,x$) er polynomer, altså kontinuerlige overalt. Etter teoremet «kontinuerlige partiellderiverte ⇒ deriverbar» er $F$ deriverbar i $(1,1)$, med derivert $JF(1,1)$.\n\n**Konklusjon:** $JF(1,1)=\\begin{pmatrix} 2 & 2 \\\\ 1 & 1 \\end{pmatrix}$, og $F$ er deriverbar fordi partiellderivertene er kontinuerlige. **Svar:** $\\boxed{\\begin{pmatrix} 2 & 2 \\\\ 1 & 1 \\end{pmatrix};\\ \\text{deriverbar (teoremveien)}}$",
+        "hints": [
+          "$F_1=x^2+y^2$ og $F_2=xy$ blir hver sin rad.",
+          "Rad 1: $(2x,\\ 2y)$; rad 2: $(y,\\ x)$.",
+          "For deriverbarhet: partiellderivertene er polynomer ⇒ kontinuerlige ⇒ teoremveien."
+        ]
+      }
+    },
+    {
+      "id": "mat1100-5-6-pause1",
+      "type": "text",
+      "content": "*— naturlig pausepunkt — Du har nå Jacobimatrisen og teoremveien, som dekker hovedvarianten av sjanger N. Siste løkke er definisjonsvarianten («kjenne»-stoff, 2022-nivå) — ta den når du er uthvilt.*"
+    },
+    {
+      "id": "mat1100-5-6-lokke3",
+      "type": "text",
+      "content": "## Løkke 3 — Definisjonsveien: restleddsgrensen direkte (kjenne) (~13 min)"
+    },
+    {
+      "id": "mat1100-5-6-l3-intro",
+      "type": "text",
+      "content": "*Dette er «kjenne»-stoff — den skjerpede varianten fra 2022. Teoremveien over dekker de fleste oppgavene; her lærer du å vise deriverbarhet **direkte fra definisjonen** når oppgaven ber om det (eller når partiellderivertene ikke er åpenbart kontinuerlige). Prinsippet: finn kandidaten $M$ (via partiellderiverte fra grensedefinisjonen), og vis at restleddsgrensen er 0.*"
+    },
+    {
+      "id": "mat1100-5-6-def-partiell-grense",
+      "type": "definition",
+      "title": "Partiellderivert via grensedefinisjonen",
+      "content": "Når du ikke kan bruke derivasjonsreglene direkte (eller oppgaven krever definisjonen), regnes en partiellderivert i et punkt som en ekte grense. For $f(x,y)$ i punktet $(a,b)$:\n\n$$f_x(a,b)=\\lim_{h\\to 0}\\frac{f(a+h,\\,b)-f(a,b)}{h},\\qquad f_y(a,b)=\\lim_{h\\to 0}\\frac{f(a,\\,b+h)-f(a,b)}{h}.$$\n\nDette speiler grensedefinisjonen i én variabel fra [kap. 3.1](/bok/mat1100/mat1100-3-1) — du holder den andre variabelen fast på $b$ (henholdsvis $a$)."
+    },
+    {
+      "id": "mat1100-5-6-def-restledd",
+      "type": "definition",
+      "title": "Restleddsgrensen (normert)",
+      "content": "Selve deriverbarhetskravet: med $M=JF(\\mathbf a)$ (kandidaten fra partiellderivertene) er $F$ deriverbar i $\\mathbf a$ nøyaktig når\n\n$$\\lim_{\\mathbf x\\to\\mathbf a}\\frac{\\big|F(\\mathbf x)-F(\\mathbf a)-M(\\mathbf x-\\mathbf a)\\big|}{|\\mathbf x-\\mathbf a|}=0.$$\n\n**Normeringen med $|\\mathbf x-\\mathbf a|$ i nevneren er poenget:** teller alene går alltid mot 0 for kontinuerlige $F$, men deriverbarhet krever at den går mot 0 **raskere** enn avstanden. Å sløyfe nevneren er en dokumentert feil."
+    },
+    {
+      "id": "mat1100-5-6-ex-definisjonsveien",
+      "type": "example",
+      "title": "Eksempel 3: Deriverbarhet direkte fra definisjonen",
+      "problem": "La $f(x,y)=x^2+y^2$. Vis at $f$ er deriverbar i origo $(0,0)$ ved å (a) finne partiellderivertene fra grensedefinisjonen og (b) verifisere restleddsgrensen.",
+      "solution": "**(a) Partiellderiverte via grensedefinisjonen** i $(0,0)$, med $f(0,0)=0$:\n$$f_x(0,0)=\\lim_{h\\to 0}\\frac{f(h,0)-f(0,0)}{h}=\\lim_{h\\to 0}\\frac{h^2-0}{h}=\\lim_{h\\to 0}h=0.$$\n$$f_y(0,0)=\\lim_{h\\to 0}\\frac{f(0,h)-f(0,0)}{h}=\\lim_{h\\to 0}\\frac{h^2}{h}=0.$$\nKandidaten er derfor $M=\\big(f_x,f_y\\big)=(0,0)$ (her er $m=1$, så «Jacobimatrisen» er raden $\\nabla f(0,0)=(0,0)$).\n\n**(b) Restleddsgrensen.** Med $\\mathbf x=(x,y)$, $\\mathbf a=(0,0)$ og $M(\\mathbf x-\\mathbf a)=(0,0)\\cdot(x,y)=0$:\n$$\\frac{\\big|f(x,y)-f(0,0)-0\\big|}{|(x,y)|}=\\frac{|x^2+y^2|}{\\sqrt{x^2+y^2}}=\\frac{x^2+y^2}{\\sqrt{x^2+y^2}}=\\sqrt{x^2+y^2}.$$\nNår $(x,y)\\to(0,0)$ går $\\sqrt{x^2+y^2}\\to 0$. Altså er restleddsgrensen 0.\n\n**Konklusjon:** partiellderivertene i origo er begge 0, og restleddsgrensen (normert med $|\\mathbf x-\\mathbf a|$) går mot 0, så $f$ er **deriverbar** i $(0,0)$ med $\\nabla f(0,0)=(0,0)$. Legg merke til at normeringen var det som gjorde argumentet ekte — telleren $x^2+y^2$ alene gikk mot 0 uansett. **Svar:** $\\boxed{f\\text{ deriverbar i }(0,0),\\ \\nabla f(0,0)=(0,0)}$"
+    },
+    {
+      "id": "mat1100-5-6-oppg-definisjonsveien",
+      "type": "exercise",
+      "exercise": {
+        "id": "mat1100-5-6-oppg-definisjonsveien-ex",
+        "number": "3",
+        "type": "classic",
+        "difficulty": "vanskelig",
+        "task": "(Eksamenssjanger N — definisjonsvarianten, «kjenne».) La $g(x,y)=xy$. **a)** Finn $g_x(0,0)$ og $g_y(0,0)$ fra grensedefinisjonen. **b)** Vis at restleddsgrensen i $(0,0)$ er 0, slik at $g$ er deriverbar der. (Hint: $|xy|\\le \\tfrac12(x^2+y^2)$.)",
+        "solution": "**(a)** Med $g(0,0)=0$:\n$$g_x(0,0)=\\lim_{h\\to 0}\\frac{g(h,0)-0}{h}=\\lim_{h\\to 0}\\frac{h\\cdot 0}{h}=0,\\qquad g_y(0,0)=\\lim_{h\\to 0}\\frac{g(0,h)}{h}=\\lim_{h\\to 0}\\frac{0\\cdot h}{h}=0.$$\nKandidaten er $M=(g_x,g_y)=(0,0)$.\n\n**(b)** Restleddsgrensen med $M(\\mathbf x-\\mathbf a)=(0,0)\\cdot(x,y)=0$:\n$$\\frac{|g(x,y)-g(0,0)-0|}{|(x,y)|}=\\frac{|xy|}{\\sqrt{x^2+y^2}}.$$\nBruk ulikheten $|xy|\\le\\tfrac12(x^2+y^2)$ (følger av $(|x|-|y|)^2\\ge 0$):\n$$\\frac{|xy|}{\\sqrt{x^2+y^2}}\\le\\frac{\\tfrac12(x^2+y^2)}{\\sqrt{x^2+y^2}}=\\frac12\\sqrt{x^2+y^2}\\ \\xrightarrow{(x,y)\\to(0,0)}\\ 0.$$\nVed skviseteoremet (uttrykket er $\\ge 0$ og begrenset oppe av noe som går mot 0) er grensen 0.\n\n**Konklusjon:** $g_x(0,0)=g_y(0,0)=0$, og restleddsgrensen (normert med $|\\mathbf x-\\mathbf a|$) går mot 0, så $g$ er **deriverbar** i $(0,0)$ med $\\nabla g(0,0)=(0,0)$. **Svar:** $\\boxed{g\\text{ deriverbar i }(0,0)}$",
+        "hints": [
+          "Regn $g_x(0,0)$ ved å sette $y=0$ og ta grensen $\\lim_{h\\to0}\\tfrac{g(h,0)}{h}$.",
+          "Restleddet er $\\dfrac{|xy|}{\\sqrt{x^2+y^2}}$ siden $M=(0,0)$.",
+          "Bruk $|xy|\\le\\tfrac12(x^2+y^2)$ og skviseteoremet — husk normeringen med $|\\mathbf x-\\mathbf a|$."
+        ]
+      }
+    },
+    {
+      "id": "mat1100-5-6-warn-typiske-feil",
+      "type": "warning",
+      "title": "Typiske feil",
+      "content": "- **Transponert Jacobimatrise.** Å bytte rader og kolonner er den vanligste feilen i sjangeren. Hold fast: **rad $i$ = gradienten til komponentfunksjon $F_i$**, kolonne $j$ = alt derivert mhp. $x_j$. En $F:\\mathbb{R}^n\\to\\mathbb{R}^m$ gir en $m\\times n$-matrise.\n- **«Deriverbar fordi partiellderivertene finnes».** Det holder ikke — teoremveien krever at de er **kontinuerlige**. (At partiellderiverte finnes uten at funksjonen er deriverbar, er et kjent moteksempel.) Skriv alltid «kontinuerlige partiellderiverte».\n- **Restledd uten normering.** Deriverbarhetsgrensen har $|\\mathbf x-\\mathbf a|$ i nevneren. Sløyfer du nevneren, tester du bare kontinuitet, ikke deriverbarhet.\n- **Glemme å navngi teoremet.** «Ubegrunnet svar = 0»: skriv setningen «kontinuerlige partiellderiverte ⇒ deriverbar» eksplisitt — det er der deriverbarhetspoenget ligger."
+    },
+    {
+      "id": "mat1100-5-6-begrepsbank-tekst",
+      "type": "text",
+      "content": "## Begrepsbank til eksamen\n\nKjernebegrepene fra kapitlet i eksamensrettet kortform.\n\n*Begrepsbanken er flashcard-/repetisjonsstoff — den gjentar det du nettopp har lest. Hopp trygt over ved førstegangslesing; tidsanslaget for kapitlet gjelder kjernestoffet.*"
+    },
+    {
+      "id": "mat1100-5-6-bb-c1",
+      "type": "definition",
+      "title": "Kontinuerlig deriverbar (C¹)",
+      "content": "En funksjon hvis partiellderiverte alle finnes og er **kontinuerlige** kalles kontinuerlig deriverbar, eller $C^1$. Teoremveien sier at $C^1\\Rightarrow$ deriverbar. Polynomer, $e^x$, $\\sin$, $\\cos$ og produkter/sammensetninger av dem er $C^1$ overalt der de er definert — derfor er de fleste eksamensfunksjonene automatisk deriverbare."
+    },
+    {
+      "id": "mat1100-5-6-bb-linearisering",
+      "type": "definition",
+      "title": "Lineariseringen (beste lineære tilnærming)",
+      "content": "Nær $\\mathbf a$ tilnærmes $F$ best av den lineære avbildningen $\\mathbf x\\mapsto F(\\mathbf a)+JF(\\mathbf a)(\\mathbf x-\\mathbf a)$. Jacobimatrisen er nettopp den lineære delen. At restleddet (avviket fra lineariseringen) går mot 0 raskere enn $|\\mathbf x-\\mathbf a|$ er selve definisjonen av deriverbarhet — den flervariable versjonen av «tangentlinjen tilnærmer grafen»."
+    },
+    {
+      "id": "mat1100-5-6-bb-tangentplan",
+      "type": "definition",
+      "title": "Tangentplanet (m = 1-tilfellet)",
+      "content": "Når $F$ har bare én utgang ($m=1$), er Jacobimatrisen én rad — nemlig gradienten $\\nabla f$ — og lineariseringen $z=f(\\mathbf a)+\\nabla f(\\mathbf a)\\cdot(\\mathbf x-\\mathbf a)$ er tangentplanet til flaten $z=f(x,y)$. Slik knytter Jacobi-begrepet seg tilbake til gradienten fra [kap. 5.4](/bok/mat1100/mat1100-5-4)."
+    },
+    {
+      "id": "mat1100-5-6-symbolliste",
+      "type": "collapsible",
+      "title": "Symbol- og formelliste",
+      "buttonText": "Vis symboler og formler",
+      "content": [
+        {
+          "id": "mat1100-5-6-symbolliste-text",
+          "type": "text",
+          "content": "## Symbol- og formelliste\n\n*Oppslagsverk — alt her forklares underveis i kapitlet.*\n\n| Symbol | Betydning |\n|---|---|\n| $F:\\mathbb{R}^n\\to\\mathbb{R}^m$ | Vektorfunksjon: $n$ inn, $m$ ut |\n| $F_i$ | Komponentfunksjon nummer $i$ (én utgang) |\n| $JF$ | Jacobimatrisen ($m$ rader, $n$ kolonner) |\n| $\\dfrac{\\partial F_i}{\\partial x_j}$ | Element $(i,j)$ i Jacobimatrisen |\n| $JF(\\mathbf a)$ | Jacobimatrisen evaluert i punktet $\\mathbf a$ |\n| $C^1$ | Kontinuerlig deriverbar (kontinuerlige partiellderiverte) |\n| $|\\mathbf x-\\mathbf a|$ | Avstanden i restleddsgrensens nevner (normeringen) |\n\n**Formler i dette delkapitlet:**\n\n$$JF=\\left(\\frac{\\partial F_i}{\\partial x_j}\\right)_{i,j}$$\nJacobimatrisen — rad $i$ = gradienten til $F_i$.\n\n$$\\text{kontinuerlige partiellderiverte}\\ \\Rightarrow\\ F\\text{ deriverbar}$$\nTeoremveien (hovedverktøyet).\n\n$$\\lim_{\\mathbf x\\to\\mathbf a}\\frac{\\big|F(\\mathbf x)-F(\\mathbf a)-JF(\\mathbf a)(\\mathbf x-\\mathbf a)\\big|}{|\\mathbf x-\\mathbf a|}=0$$\nDeriverbarhet fra definisjonen (restleddsgrensen, normert).\n\n$$f_x(a,b)=\\lim_{h\\to 0}\\frac{f(a+h,b)-f(a,b)}{h}$$\nPartiellderivert via grensedefinisjonen."
+        }
+      ]
+    },
+    {
+      "id": "mat1100-5-6-rep",
+      "type": "collapsible",
+      "title": "Repetisjonsoppgaver",
+      "buttonText": "Vis repetisjonsoppgaver",
+      "content": [
+        {
+          "id": "mat1100-5-6-rep-1",
+          "type": "exercise",
+          "exercise": {
+            "id": "mat1100-5-6-rep-1-ex",
+            "number": "R1",
+            "type": "classic",
+            "difficulty": "lett",
+            "task": "(Fra [kap. 5.4](/bok/mat1100/mat1100-5-4)) Finn gradienten $\\nabla f$ til $f(x,y)=x^2-y$, og evaluer i $(1,2)$.",
+            "solution": "$\\nabla f=(2x,\\ -1)$, så $\\nabla f(1,2)=(2,-1)$. Denne raden er nettopp én rad i en Jacobimatrise for en vektorfunksjon med $f$ som komponent.",
+            "hints": [
+              "$\\nabla f=(f_x,f_y)$; $f_x=2x$, $f_y=-1$."
+            ]
+          }
+        },
+        {
+          "id": "mat1100-5-6-rep-2",
+          "type": "exercise",
+          "exercise": {
+            "id": "mat1100-5-6-rep-2-ex",
+            "number": "R2",
+            "type": "classic",
+            "difficulty": "lett",
+            "task": "(Fra [kap. 3.1](/bok/mat1100/mat1100-3-1)) Bruk grensedefinisjonen til å finne $f'(0)$ for $f(x)=x^2$.",
+            "solution": "$f'(0)=\\lim_{h\\to0}\\dfrac{f(h)-f(0)}{h}=\\lim_{h\\to0}\\dfrac{h^2}{h}=\\lim_{h\\to0}h=0$. Samme grep gir partiellderivertene i definisjonsveien.",
+            "hints": [
+              "Sett inn i $\\lim_{h\\to0}\\tfrac{f(h)-f(0)}{h}$ og forenkle."
+            ]
+          }
+        },
+        {
+          "id": "mat1100-5-6-rep-3",
+          "type": "exercise",
+          "exercise": {
+            "id": "mat1100-5-6-rep-3-ex",
+            "number": "R3",
+            "type": "classic",
+            "difficulty": "middels",
+            "task": "(Fra [kap. 5.2](/bok/mat1100/mat1100-5-2)) Regn ut matrise-vektor-produktet $\\begin{pmatrix} 2 & -1 \\\\ 0 & 3 \\end{pmatrix}\\begin{pmatrix} 1 \\\\ 2 \\end{pmatrix}$.",
+            "solution": "$\\begin{pmatrix} 2\\cdot1+(-1)\\cdot2 \\\\ 0\\cdot1+3\\cdot2 \\end{pmatrix}=\\begin{pmatrix} 0 \\\\ 6 \\end{pmatrix}$. Slik virker Jacobimatrisen på $(\\mathbf x-\\mathbf a)$ i lineariseringen.",
+            "hints": [
+              "Rad ganger kolonne: øverste rad $(2,-1)$ prikk $(1,2)$."
+            ]
+          }
+        },
+        {
+          "id": "mat1100-5-6-rep-4",
+          "type": "exercise",
+          "exercise": {
+            "id": "mat1100-5-6-rep-4-ex",
+            "number": "R4",
+            "type": "classic",
+            "difficulty": "lett",
+            "task": "(Fra [kap. 5.4](/bok/mat1100/mat1100-5-4)) Er polynomet $f(x,y)=3xy-x^2$ kontinuerlig deriverbar? Kort begrunnelse.",
+            "solution": "Ja. Partiellderivertene $f_x=3y-2x$ og $f_y=3x$ er polynomer, altså kontinuerlige overalt — så $f$ er $C^1$, og dermed deriverbar (teoremveien).",
+            "hints": [
+              "Sjekk om partiellderivertene er kontinuerlige (polynomer er det)."
+            ]
+          }
+        }
+      ]
+    }
+  ],
+  "exercises": []
+}
