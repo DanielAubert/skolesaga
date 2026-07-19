@@ -1,0 +1,146 @@
+{
+  "id": "tma4245-10-3",
+  "courseId": "tma4245",
+  "chapterNumber": "10.3",
+  "title": "Øvingseksamen 2: klassisk papireksamen med fortellingsoppgaver",
+  "description": "Komplett firetimers sett etter Mai25/Mai26-malen: fire store fortellingsoppgaver på papir der alle delpunkter teller likt.",
+  "estimatedMinutes": 240,
+  "competenceGoals": [
+    "løse store sammenhengende fortellingsoppgaver der hvert delpunkt teller likt",
+    "kombinere sannsynlighetsregning, levetidsmodeller og parrede tester slik en papireksamen krever",
+    "skrive og tolke Python-kode som estimerer styrken til en test ved simulering"
+  ],
+  "content": [
+    {
+      "id": "tma4245-10-3-tip",
+      "type": "tip",
+      "title": "Om Øvingseksamen 2",
+      "content": "Dette er et **komplett firetimers sett** (240 minutter) etter **Mai25/Mai26-malen**: en **ren papireksamen** med fire store, sammenhengende fortellingsoppgaver. Til sammen har de 11 delpunkter, og **alle delpunkter teller likt** — grav deg derfor ikke ned i ett tungt punkt. Du kan **trygt dele settet over flere kvelder** — én oppgave per økt. Ha formelsamlingen (hjelpemiddelkode C), $\\Phi$-, $t$- og $\\chi^2$-tabellene og en enkel kalkulator klare. Fasitene er A-besvarelser med sensormerknader per delpunkt."
+    },
+    {
+      "id": "tma4245-10-3-forkunnskaper",
+      "type": "text",
+      "content": "**Forkunnskaper:** Oppgave 1 bygger på [kap. 1.3](/bok/tma4245/tma4245-1-3) (betinget/total sannsynlighet, Bayes) og [kap. 2.2](/bok/tma4245/tma4245-2-2) (binomisk modellvalg). Oppgave 2 bruker [kap. 2.3](/bok/tma4245/tma4245-2-3) (eksponensialfordelingen, minneløshet), [kap. 4.1](/bok/tma4245/tma4245-4-1) (ordningsvariable, transformasjon), [kap. 4.2](/bok/tma4245/tma4245-4-2) (kjikvadrat-pivotalen) og [kap. 6.2](/bok/tma4245/tma4245-6-2) (eksakt KI). Oppgave 3 hviler på [kap. 7.1](/bok/tma4245/tma4245-7-1) (testritualet) og [kap. 7.2](/bok/tma4245/tma4245-7-2) (parret $t$-test og fortegnstest). Oppgave 4 (Monte Carlo) bruker simulert styrke fra simuleringsdelen ([kap. 9.2](/bok/tma4245/tma4245-9-2)) og styrkebegrepet i [kap. 7.3](/bok/tma4245/tma4245-7-3)."
+    },
+    {
+      "id": "tma4245-10-3-intro",
+      "type": "text",
+      "content": "På et papirsett rettes **ingenting automatisk** — hele uttellingen ligger i begrunnelsen. For hvert delpunkt: definer variablene med egne symboler, oppgi antagelsene, vis mellomregningen og tabelloppslagene, og skriv konklusjonen i klartekst. Siden alle delpunkter teller likt, lønner det seg å sikre de tidlige punktene i hver oppgave før du bryner deg på det siste.\n\n**Tidsbudsjett (240 min):** ca. 55 min per oppgave og 20 min buffer. Har du kjørt fast, gå videre og kom tilbake."
+    },
+    {
+      "id": "tma4245-10-3-o1",
+      "type": "collapsible",
+      "title": "Oppgave 1 — diagnostisk test og modellvalg (3 delpunkter)",
+      "buttonText": "Vis oppgave 1",
+      "content": [
+        {
+          "id": "tma4245-10-3-o1-task",
+          "type": "text",
+          "content": "En sjelden soppinfeksjon rammer $3\\,\\%$ av plantene i et veksthus. En hurtigtest gir **positivt utslag hos $95\\,\\%$** av de infiserte plantene, og gir **falskt positivt utslag hos $6\\,\\%$** av de friske.\n\n**a)** Definer hendelsene med symboler, og finn sannsynligheten for at en tilfeldig testet plante får positivt utslag.\n\n**b)** En plante tester positivt. Hva er sannsynligheten for at den faktisk er infisert? Kommenter tallet.\n\n**c)** Gartneren tester $20$ tilfeldig valgte planter uavhengig. La $X$ være antall positive utslag. Begrunn modellvalget, og finn $P(X\\ge1)$."
+        },
+        {
+          "id": "tma4245-10-3-o1-sol",
+          "type": "text",
+          "content": "**Løsningsforslag.**\n\n**a)** La $S$ = «planten er infisert» og $T$ = «testen gir positivt utslag». Oppgitt: $P(S)=0{,}03$, $P(T\\mid S)=0{,}95$ (sensitivitet), $P(T\\mid S^c)=0{,}06$ (falsk positiv). Loven om total sannsynlighet:\n$$P(T)=P(T\\mid S)P(S)+P(T\\mid S^c)P(S^c)=0{,}95\\cdot0{,}03+0{,}06\\cdot0{,}97=0{,}0285+0{,}0582=0{,}0867.$$\n\n**b)** Bayes' formel:\n$$P(S\\mid T)=\\frac{P(T\\mid S)P(S)}{P(T)}=\\frac{0{,}0285}{0{,}0867}=0{,}329.$$\nSelv med en ganske treffsikker test er bare ca. $33\\,\\%$ av de positive faktisk infisert. Grunnen er den **lave prevalensen**: de mange friske plantene gir så mange falske positive at de dominerer over de få ekte.\n\n— naturlig pausepunkt —\n\n**c)** Vi har $20$ **uavhengige** planter, hver med samme sannsynlighet $p=P(T)=0{,}0867$ for positivt utslag, og vi teller antall positive. Det er fast antall forsøk med konstant suksesssannsynlighet, altså $X\\sim\\text{binomisk}(20,\\ 0{,}0867)$. Da er\n$$P(X\\ge1)=1-P(X=0)=1-(1-0{,}0867)^{20}=1-0{,}9133^{20}=1-0{,}163=0{,}837.$$\n\n> *Sensormerknad:* definer $S$ og $T$ før du regner (sensorkrav 1). I b) er det $P(S\\mid T)$, ikke $P(T\\mid S)$ — forvekslingen er den klassiske «prosecutor's fallacy». Begrunn binomisk-valget i c)."
+        },
+        {
+          "id": "tma4245-10-3-o1-vekt",
+          "type": "tip",
+          "title": "Vekt og tid",
+          "content": "**3 delpunkter, teller likt · ca. 55 min.** Sjangre E (Bayes) + B (modellvalg). Start alltid med hendelsesdefinisjonene — svar uten dem regnes som ufullstendige."
+        }
+      ]
+    },
+    {
+      "id": "tma4245-10-3-o2",
+      "type": "collapsible",
+      "title": "Oppgave 2 — levetider i et parallellsystem (3 delpunkter)",
+      "buttonText": "Vis oppgave 2",
+      "content": [
+        {
+          "id": "tma4245-10-3-o2-task",
+          "type": "text",
+          "content": "To pumper står i **parallell** i et kjølesystem: systemet fungerer så lenge **minst én** pumpe virker. Levetidene $X_1,X_2$ (i år) er uavhengige og eksponensialfordelte med forventning $\\beta=4$ år, altså $f(x)=\\tfrac{1}{\\beta}e^{-x/\\beta}$.\n\n**a)** En pumpe har allerede virket i $3$ år. Finn sannsynligheten for at den virker i minst $2$ år til, og forklar hvilken egenskap ved eksponensialfordelingen du bruker.\n\n**b)** La $M=\\max(X_1,X_2)$ være systemets levetid. Finn $P(M>5)$ og $E(M)$.\n\n**c)** For $n=10$ pumper av samme type er det oppgitt $\\sum x_i=38$ år. Bruk pivotalen $2\\sum X_i/\\beta\\sim\\chi^2_{2n}$ til et $90\\,\\%$ konfidensintervall for $\\beta$. Kvantiler: $\\chi^2_{20;\\,0{,}05}=31{,}410$, $\\chi^2_{20;\\,0{,}95}=10{,}851$."
+        },
+        {
+          "id": "tma4245-10-3-o2-sol",
+          "type": "text",
+          "content": "**Løsningsforslag.**\n\n**a)** Eksponensialfordelingen er **minneløs**: $P(X>s+t\\mid X>t)=P(X>s)$. Fortiden teller ikke, så\n$$P(X>3+2\\mid X>3)=P(X>2)=e^{-2/4}=e^{-0{,}5}=0{,}607.$$\n\n**b)** Systemet er en parallellkobling, så $M=\\max(X_1,X_2)$. Fordelingsfunksjonen til maksimum av to uavhengige er produktet:\n$$F_M(t)=P(X_1\\le t)P(X_2\\le t)=\\big(1-e^{-t/4}\\big)^2.$$\n$$P(M>5)=1-F_M(5)=1-\\big(1-e^{-1{,}25}\\big)^2=1-(1-0{,}2865)^2=1-0{,}5091=0{,}491.$$\nForventet levetid for maksimum av to uavhengige eksponensiale er $E(M)=\\beta\\big(1+\\tfrac12\\big)=4\\cdot1{,}5=6$ år.\n\n— naturlig pausepunkt —\n\n**c)** Med $2\\sum x_i=76$ og $2n=20$ frihetsgrader:\n$$\\chi^2_{20;\\,0{,}95}\\le\\frac{76}{\\beta}\\le\\chi^2_{20;\\,0{,}05}\\ \\Rightarrow\\ \\frac{76}{31{,}410}\\le\\beta\\le\\frac{76}{10{,}851},$$\naltså $\\beta\\in(2{,}42,\\ 7{,}00)$ år. Endepunktene bytter plass under inverteringen: den store $\\chi^2$-kvantilen gir den nedre grensen for $\\beta$.\n\n> *Sensormerknad:* i b) er det $\\max$ (parallell, minst én virker), ikke $\\min$. Frihetsgraden i c) er $2n=20$, ikke $n=10$."
+        },
+        {
+          "id": "tma4245-10-3-o2-vekt",
+          "type": "tip",
+          "title": "Vekt og tid",
+          "content": "**3 delpunkter, teller likt · ca. 55 min.** Sjangre C+D+K. Minneløshet i a), ordningsvariabelen $\\max$ i b), transformasjonen til $\\chi^2$ i c). Pass på $\\max$ vs. $\\min$ for parallell vs. serie."
+        }
+      ]
+    },
+    {
+      "id": "tma4245-10-3-o3",
+      "type": "collapsible",
+      "title": "Oppgave 3 — parret design og fortegnstest (3 delpunkter)",
+      "buttonText": "Vis oppgave 3",
+      "content": [
+        {
+          "id": "tma4245-10-3-o3-task",
+          "type": "text",
+          "content": "Ti mosjonister får målt hvilepulsen (slag/min) før og etter et $8$-ukers treningsprogram. Reduksjonen $d_i=\\text{før}_i-\\text{etter}_i$ er:\n\n| Person | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10 |\n|---|---|---|---|---|---|---|---|---|---|---|\n| $d_i$ | 8 | 3 | 12 | −2 | 6 | 9 | 4 | 7 | −1 | 10 |\n\nDet er oppgitt $\\sum d_i=56$ og $\\sum d_i^2=504$.\n\n**a)** Forklar hvorfor et **parret** design er riktig her, og test på $5\\,\\%$-nivå om treningen reduserer hvilepulsen ($H_0:\\mu_d=0$ mot $H_1:\\mu_d>0$). Bruk $t_{9;\\,0{,}05}=1{,}833$.\n\n**b)** Gjennomfør en **fortegnstest** for samme spørsmål, og oppgi p-verdien.\n\n**c)** Testene spriker i styrke. Diskuter hvorfor, og hvilken du stoler mest på."
+        },
+        {
+          "id": "tma4245-10-3-o3-sol",
+          "type": "text",
+          "content": "**Løsningsforslag.**\n\n**a)** Samme person måles to ganger, så før- og etter-verdiene er **avhengige** (parret). Ved å se på differansen $d_i$ fjerner vi variasjonen mellom personer og analyserer ett utvalg av differanser. $\\bar{d}=56/10=5{,}6$. Utvalgsvariansen:\n$$s_d^2=\\frac{\\sum d_i^2-n\\bar{d}^2}{n-1}=\\frac{504-10\\cdot5{,}6^2}{9}=\\frac{504-313{,}6}{9}=21{,}16,\\quad s_d=4{,}60.$$\nTestobservator ($t$ med $n-1=9$ frihetsgrader):\n$$T=\\frac{\\bar{d}}{s_d/\\sqrt{n}}=\\frac{5{,}6}{4{,}60/\\sqrt{10}}=\\frac{5{,}6}{1{,}454}=3{,}85.$$\nSiden $3{,}85>t_{9;\\,0{,}05}=1{,}833$, **forkastes $H_0$** klart (p-verdi $\\approx0{,}002$). Treningen gir en reell reduksjon i hvilepuls.\n\n— naturlig pausepunkt —\n\n**b)** Fortegnstesten teller bare antall **positive** differanser. Her er $8$ av $10$ positive (to negative). Under $H_0$ er antall positive $\\sim\\text{binomisk}(10,\\ 0{,}5)$. Ensidig p-verdi:\n$$P(X\\ge8)=\\frac{\\binom{10}{8}+\\binom{10}{9}+\\binom{10}{10}}{2^{10}}=\\frac{45+10+1}{1024}=\\frac{56}{1024}=0{,}055.$$\n\n**c)** Den parrede $t$-testen gir $p\\approx0{,}002$, mens fortegnstesten gir $p\\approx0{,}055$ (så vidt over $5\\,\\%$). Spriket skyldes at $t$-testen bruker **størrelsen** på hver differanse (og forutsetter tilnærmet normalfordelte differanser), mens fortegnstesten bare bruker **fortegnet** og kaster bort informasjon — den har derfor lavere styrke. Ser differansene rimelig symmetriske og normale ut (ingen ekstreme uteliggere), stoler vi mest på $t$-testen. Fortegnstesten er tryggest hvis normalantagelsen er tvilsom, siden den er robust mot uteliggere og skjevhet.\n\n> *Sensormerknad:* begrunn pardesignet (a); i c) er poenget at fortegnstesten ofrer styrke for robusthet."
+        },
+        {
+          "id": "tma4245-10-3-o3-vekt",
+          "type": "tip",
+          "title": "Vekt og tid",
+          "content": "**3 delpunkter, teller likt · ca. 55 min.** Sjanger I (parret + fortegnstest). Regn $s_d$ fra $\\sum d_i$ og $\\sum d_i^2$; fortegnstesten er ren binomisk-telling."
+        }
+      ]
+    },
+    {
+      "id": "tma4245-10-3-o4",
+      "type": "collapsible",
+      "title": "Oppgave 4 — Monte Carlo: simulert styrke (2 delpunkter)",
+      "buttonText": "Vis oppgave 4",
+      "content": [
+        {
+          "id": "tma4245-10-3-o4-task",
+          "type": "text",
+          "content": "Vi vil undersøke styrken til den ensidige parrede $t$-testen fra Oppgave 3 ($n=10$, $5\\,\\%$-nivå) når den **sanne** forventede reduksjonen er $\\mu_d=5$ og standardavviket er $\\sigma_d=4{,}6$. Fasiten fra styrketeorien er $\\approx0{,}94$, men vi vil bekrefte den ved simulering.\n\n**a)** Fyll ut de to manglende linjene (merket `# ???`) i funksjonen under slik at `simuler_styrke(M)` estimerer styrken ved å trekke $M$ datasett under alternativet, kjøre testen i hvert og telle andelen forkastninger. Forklar logikken.\n\n```python\nimport numpy as np\nfrom scipy import stats\n\nn, mu_d, sigma_d, alpha = 10, 5.0, 4.6, 0.05\ntcrit = stats.t.ppf(1 - alpha, n - 1)\n\ndef simuler_styrke(M):\n    X = np.random.normal(mu_d, sigma_d, size=(M, n))\n    xbar = X.mean(axis=1)\n    s = X.std(axis=1, ddof=1)\n    T = # ???\n    return # ???\n```\n\n**b)** Hva skjer med estimatet når du øker $M$ fra $10^3$ til $10^6$? Forklar."
+        },
+        {
+          "id": "tma4245-10-3-o4-sol",
+          "type": "text",
+          "content": "**Løsningsforslag.**\n\n**a)** Testobservatoren i hvert simulerte datasett er $T=\\bar{d}/(s_d/\\sqrt{n})$, og vi forkaster når $T>t_{\\text{crit}}$. Styrken estimeres som andelen datasett der vi forkaster:\n\n```python\nimport numpy as np\nfrom scipy import stats\n\nn, mu_d, sigma_d, alpha = 10, 5.0, 4.6, 0.05\ntcrit = stats.t.ppf(1 - alpha, n - 1)   # = 1.8331\n\ndef simuler_styrke(M):\n    X = np.random.normal(mu_d, sigma_d, size=(M, n))\n    xbar = X.mean(axis=1)\n    s = X.std(axis=1, ddof=1)\n    T = xbar / (s / np.sqrt(n))\n    return np.mean(T > tcrit)\n\nnp.random.seed(42)\nprint(simuler_styrke(10**6))   # ~0.936\n```\n\nLogikken: siden vi trekker under **alternativet** ($\\mu_d=5$, ikke $0$), er andelen forkastninger nettopp styrken (sannsynligheten for å forkaste når $H_0$ er falsk). Vi bruker `ddof=1` fordi testen bruker utvalgsstandardavviket. Kjøringen gir omtrent $0{,}936$, i god overensstemmelse med styrketeorien.\n\n— naturlig pausepunkt —\n\n**b)** Estimatet er en andel av $M$ uavhengige forsøk, altså forventningsrett med standardfeil $\\sqrt{p(1-p)/M}$. Når $M$ øker fra $10^3$ til $10^6$, avtar Monte Carlo-feilen som $1/\\sqrt{M}$: med $M=10^3$ svinger estimatet typisk et par prosentpoeng rundt $0{,}94$, mens $M=10^6$ ligger stabilt på ca. $0{,}936$. **Flere simuleringer** gir altså mer presist estimat — men det endrer ikke den sanne styrken (den avhenger av $n$, $\\mu_d$, $\\sigma_d$ og nivået, ikke av $M$).\n\n> *Sensormerknad:* et vanlig feilgrep er å blande $M$ (antall simuleringer, styrer presisjonen) med $n$ (utvalgsstørrelsen i testen, styrer selve styrken). Simuler under alternativet for styrke, under $H_0$ for p-verdi (oppskriftene i [kap. 9.2](/bok/tma4245/tma4245-9-2))."
+        },
+        {
+          "id": "tma4245-10-3-o4-vekt",
+          "type": "tip",
+          "title": "Vekt og tid",
+          "content": "**2 delpunkter, teller likt · ca. 40 min.** Sjanger N — simulert styrke. Nøkkelen: trekk under alternativet, tell andel $T>t_{\\text{crit}}$, og bruk `ddof=1`."
+        }
+      ]
+    },
+    {
+      "id": "tma4245-10-3-selvdiagnose",
+      "type": "text",
+      "content": "### Selvdiagnose — Øvingseksamen 2\n\nKryss av det du klarte uten å slå opp fasit:\n\n- ☐ Jeg definerte $S$ og $T$ og brukte total sannsynlighet + Bayes riktig vei (Oppgave 1).\n- ☐ Jeg begrunnet binomisk modell og regnet $P(X\\ge1)$ (Oppgave 1c).\n- ☐ Jeg brukte minneløsheten og regnet $P(M>5)$ for $\\max$ av to levetider (Oppgave 2).\n- ☐ Jeg fikk $\\chi^2_{20}$-KI med riktig frihetsgrad og inverterte ulikheten korrekt (Oppgave 2c).\n- ☐ Jeg begrunnet pardesignet og regnet den parrede $t$-testen (Oppgave 3a).\n- ☐ Jeg gjennomførte fortegnstesten og diskuterte spriket i styrke (Oppgave 3b–c).\n- ☐ Jeg fylte ut MC-koden (trekk under alternativet, `ddof=1`, andel $T>t_{\\text{crit}}$) og forklarte effekten av større $M$ (Oppgave 4)."
+    },
+    {
+      "id": "tma4245-10-3-symbol",
+      "type": "collapsible",
+      "title": "Symbol- og formelliste",
+      "buttonText": "Vis symboler og formler",
+      "content": [
+        {
+          "id": "tma4245-10-3-symbol-txt",
+          "type": "text",
+          "content": "*Oppslagsverk — alt her forklares underveis i oppgavene og i de refererte kapitlene.*\n\n| Symbol | Betydning |\n|---|---|\n| $S,T$ | hendelser (infisert / positiv test); $P(T\\mid S)$ betinget sannsynlighet |\n| $P(S\\mid T)$ | posterior via Bayes; ikke det samme som $P(T\\mid S)$ |\n| $\\beta$ | forventet levetid i eksponensialfordelingen; $f(x)=\\tfrac{1}{\\beta}e^{-x/\\beta}$ |\n| $M=\\max(X_1,X_2)$ | ordningsvariabel (systemets levetid ved parallellkobling) |\n| $\\chi^2_{\\nu,\\alpha}$ | øvre $\\alpha$-kvantil i kjikvadrat med $\\nu$ frihetsgrader |\n| $d_i,\\bar{d},s_d$ | parvise differanser, gjennomsnitt og standardavvik |\n| $t_{\\nu,\\alpha}$ | øvre $\\alpha$-kvantil i $t$-fordelingen |\n| $M$ (i Python) | antall Monte Carlo-simuleringer (ikke utvalgsstørrelsen $n$) |\n\n**Formler i dette kapitlet:**\n\n$$P(A)=\\sum_i P(A\\mid B_i)P(B_i),\\qquad P(B_j\\mid A)=\\frac{P(A\\mid B_j)P(B_j)}{\\sum_i P(A\\mid B_i)P(B_i)}$$\nLoven om total sannsynlighet og Bayes' formel.\n\n$$P(X>s+t\\mid X>t)=P(X>s),\\qquad F_{\\max}(t)=\\prod_i F_{X_i}(t)$$\nMinneløshet og fordelingsfunksjonen til et maksimum av uavhengige variable.\n\n$$\\frac{2\\sum X_i}{\\beta}\\sim\\chi^2_{2n},\\qquad \\left(\\frac{2\\sum x_i}{\\chi^2_{2n,\\alpha/2}},\\ \\frac{2\\sum x_i}{\\chi^2_{2n,1-\\alpha/2}}\\right)$$\nEksponensialens pivotal og eksakt KI for $\\beta$.\n\n$$T=\\frac{\\bar{d}}{s_d/\\sqrt{n}}\\sim t_{n-1},\\qquad \\text{antall positive}\\sim\\text{binomisk}(n,\\tfrac12)\\ (H_0)$$\nParret $t$-test og fortegnstest.\n\n$$\\widehat{\\text{styrke}}=\\frac{1}{M}\\sum_{j=1}^{M}\\mathbf{1}(T_j>t_{\\text{crit}}),\\qquad \\text{SE}=\\sqrt{\\frac{p(1-p)}{M}}$$\nMonte Carlo-estimat av styrke og dets presisjon."
+        }
+      ]
+    }
+  ],
+  "exercises": []
+}

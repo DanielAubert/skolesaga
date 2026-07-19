@@ -1,0 +1,316 @@
+{
+  "id": "tma4245-5-prove",
+  "courseId": "tma4245",
+  "chapterNumber": "5.P",
+  "title": "Prøver til del 5: Punktestimering",
+  "description": "Fire temaprøver som dekker forventningsretthet/varians/MSE, standard ML-utledning, ML-varianter (to kilder og bibetingelse) og deltametoden — med fullstendige løsningsforslag og selvdiagnose. Kan tas som separate økter.",
+  "estimatedMinutes": 160,
+  "competenceGoals": [
+    "løse eksamensrettede oppgaver fra hele Del 5 om estimatorvurdering og maximum likelihood",
+    "utlede ML-estimatorer med maksimumskontroll og vurdere forventningsretthet og varians",
+    "håndtere kombinert likelihood, bibetingelse, asymptotisk KI og deltametoden"
+  ],
+  "content": [
+    {
+      "id": "tma4245-5-prove-tip",
+      "type": "tip",
+      "title": "Om prøvene til Del 5",
+      "content": "**4 prøver à ~35–45 min** — de dekker hele Del 5: punktestimering. Kjeden starter her (modell → **estimering** → egenskaper → KI → test → styrke), så dette er noe av det viktigste å ha sittende.\n\n| Prøve | Tema | Tid |\n|---|---|---|\n| 5.A | Forventningsretthet, varians og MSE-sammenligning (kap. 5.1) | ~35 min |\n| 5.B | Standard ML-utledning med maksimumskontroll (kap. 5.2) | ~40 min |\n| 5.C | ML-varianter: to kilder + bibetingelse (kap. 5.2/5.4) | ~45 min |\n| 5.D | Deltametoden og asymptotisk KI (kap. 5.3) | ~40 min |\n\n**Flervalgsoppgavene (sjanger O) bor i prøve 5.A** — Inspera-stil med ett riktig alternativ.\n\n**Prøvene kan trygt deles over flere kvelder — én prøve per økt.** Milepælen er å fullføre settet, ikke å ta alt på én gang. Løs hver prøve *før* du åpner fasiten, og bruk selvdiagnose-listen etter fasiten til å se hva du bør repetere."
+    },
+    {
+      "id": "tma4245-5-prove-forkunnskaper",
+      "type": "text",
+      "content": "**Forkunnskaper:** Disse prøvene forutsetter hele Del 5 — estimatorvurdering ([kap. 5.1](/bok/tma4245/tma4245-5-1)), ML-ritualet ([kap. 5.2](/bok/tma4245/tma4245-5-2)), asymptotisk normalitet og deltametoden ([kap. 5.3](/bok/tma4245/tma4245-5-3)) og drillen ([kap. 5.4](/bok/tma4245/tma4245-5-4)). Du bør også ha regnereglene for forventning og varians fra [kap. 2.1](/bok/tma4245/tma4245-2-1) og tetthetene fra [kap. 2.2](/bok/tma4245/tma4245-2-2)–[2.3](/bok/tma4245/tma4245-2-3). Klarer du prøvene uten å slå opp, sitter kjedens første ledd."
+    },
+    {
+      "id": "tma4245-5-prove-intro",
+      "type": "text",
+      "content": "Punktestimering er «emnets viktigste utledningsferdighet» og er i ≈ 82 % av settene. Her øver du på nettopp den blandingen sensor tester: vurdere estimatorer (5.A), utlede ML fra bunnen med maksimumskontroll (5.B), håndtere de vanskeligere ML-variantene med to kilder og bibetingelse (5.C), og regne videre på estimatoren med asymptotisk normalitet og deltametoden (5.D). Husk sensorkravene: **regn $E(\\hat{\\theta})$ aktivt**, **gjør maksimumskontrollen**, og **skill estimator fra estimat**."
+    },
+    {
+      "id": "tma4245-5-prove-p1",
+      "type": "collapsible",
+      "title": "Prøve 5.A — Forventningsretthet, varians og MSE (~35 min)",
+      "buttonText": "Vis prøve 5.A",
+      "content": [
+        {
+          "id": "tma4245-5-prove-p1-ex1",
+          "type": "exercise",
+          "exercise": {
+            "id": "tma4245-5-prove-p1-ex1",
+            "number": "1",
+            "type": "classic",
+            "difficulty": "middels",
+            "task": "Tre uavhengige målinger $X_1,X_2,X_3$ av samme temperatur har alle forventning $\\mu$ og varians $\\sigma^2$. To estimatorer foreslås:\n\n$$\\hat{\\mu}_1=\\bar{X},\\qquad \\hat{\\mu}_2=\\tfrac{1}{4}(2X_1+X_2+X_3).$$\n\n**a)** Vis at begge er forventningsrette.\n\n**b)** Regn variansene og velg med begrunnelse.",
+            "solution": "**a)** $E(\\hat{\\mu}_1)=\\mu$. Vektene i $\\hat{\\mu}_2$ er $\\tfrac24,\\tfrac14,\\tfrac14$ med sum 1, så $E(\\hat{\\mu}_2)=\\tfrac14(2\\mu+\\mu+\\mu)=\\mu$. Begge forventningsrette.\n\n**b)** $\\text{Var}(\\hat{\\mu}_1)=\\tfrac{\\sigma^2}{3}\\approx 0{,}333\\,\\sigma^2$. $\\text{Var}(\\hat{\\mu}_2)=\\tfrac{1}{16}(2^2+1^2+1^2)\\sigma^2=\\tfrac{6}{16}\\sigma^2=0{,}375\\,\\sigma^2$. Begge forventningsrette → velg minst varians: **$\\hat{\\mu}_1=\\bar{X}$** ($0{,}333<0{,}375$). Like vekter er mest presise når målingene er likeverdige.",
+            "hints": [
+              "Sjekk at vektene summerer til 1.",
+              "$\\text{Var}(\\sum a_iX_i)=\\sum a_i^2\\sigma^2$; kvadrer vektene.",
+              "Sammenlign $1/3$ og $6/16$."
+            ]
+          }
+        },
+        {
+          "id": "tma4245-5-prove-p1-ex2",
+          "type": "exercise",
+          "exercise": {
+            "id": "tma4245-5-prove-p1-ex2",
+            "number": "2",
+            "type": "classic",
+            "difficulty": "middels",
+            "task": "En estimator $\\hat{\\theta}_A$ for en strekkfasthet er forventningsrett med $\\text{Var}(\\hat{\\theta}_A)=10$. En konkurrent $\\hat{\\theta}_B$ er litt skjev: $E(\\hat{\\theta}_B)=\\theta+1$ og $\\text{Var}(\\hat{\\theta}_B)=8$.\n\n**a)** Finn skjevheten til hver.\n\n**b)** Regn MSE for begge og avgjør hvilken som har lavest samlet feil.",
+            "solution": "**a)** $b(\\hat{\\theta}_A)=0$ (forventningsrett); $b(\\hat{\\theta}_B)=(\\theta+1)-\\theta=1$.\n\n**b)** $\\text{MSE}(\\hat{\\theta}_A)=10+0^2=10$. $\\text{MSE}(\\hat{\\theta}_B)=8+1^2=9$. $\\hat{\\theta}_B$ har lavest MSE ($9<10$) — den skjeve estimatoren er samlet sett best, fordi den lavere variansen oppveier skjevheten. Forventningsrett slår ikke automatisk skjev.",
+            "hints": [
+              "Skjevhet $=E(\\hat{\\theta})-\\theta$.",
+              "$\\text{MSE}=\\text{Var}+\\text{bias}^2$.",
+              "Sammenlign 10 og 9."
+            ]
+          }
+        },
+        {
+          "id": "tma4245-5-prove-p1-ex3",
+          "type": "exercise",
+          "exercise": {
+            "id": "tma4245-5-prove-p1-ex3",
+            "number": "3",
+            "type": "classic",
+            "difficulty": "vanskelig",
+            "task": "Antall partikler per luftprøve har ukjent varians $\\sigma^2$. Med $n=8$ prøver bruker en student ML-varianten $\\hat{\\sigma}^2=\\frac{1}{8}\\sum(X_i-\\bar{X})^2$.\n\n**a)** Bruk at $E[\\sum(X_i-\\bar{X})^2]=(n-1)\\sigma^2$ til å finne $E(\\hat{\\sigma}^2)$.\n\n**b)** Hva er skjevheten, og hvordan korrigerer man til en forventningsrett estimator?",
+            "solution": "**a)** $E(\\hat{\\sigma}^2)=\\frac{1}{8}\\cdot(8-1)\\sigma^2=\\frac{7}{8}\\sigma^2=0{,}875\\,\\sigma^2$.\n\n**b)** Skjevheten er $b=\\frac{7}{8}\\sigma^2-\\sigma^2=-\\frac{1}{8}\\sigma^2=-\\sigma^2/8$ — estimatoren undervurderer variansen. Korrigering: del på $n-1=7$ i stedet for $n=8$, altså $S^2=\\frac{1}{7}\\sum(X_i-\\bar{X})^2$, som har $E(S^2)=\\sigma^2$.",
+            "hints": [
+              "Sett $n=8$ inn i $E[\\sum(X_i-\\bar X)^2]=(n-1)\\sigma^2$.",
+              "Skjevhet $=E(\\hat\\sigma^2)-\\sigma^2$; korrigering = divisor $n-1$."
+            ]
+          }
+        },
+        {
+          "id": "tma4245-5-prove-p1-ex4",
+          "type": "exercise",
+          "exercise": {
+            "id": "tma4245-5-prove-p1-ex4",
+            "number": "4",
+            "type": "classic",
+            "difficulty": "middels",
+            "task": "**Flervalg (sjanger O, Inspera-stil).** Velg det ene riktige alternativet for hver.\n\n**a)** En estimator $\\hat{\\theta}$ har $E(\\hat{\\theta})=\\theta$. Da er den:\n(1) alltid av minst varians  (2) alltid konsistent  (3) forventningsrett  (4) et fast tall\n\n**b)** Utvalgsvariansen som er forventningsrett for $\\sigma^2$ deler på:\n(1) $n-1$  (2) $n$  (3) $n+1$  (4) $\\sqrt{n}$\n\n**c)** MSE til en forventningsrett estimator er lik:\n(1) skjevheten  (2) variansen  (3) null  (4) skjevheten kvadrert\n\n**d)** For uavhengige $X_i$ er $\\text{Var}\\big(\\frac{1}{n}\\sum X_i\\big)$ lik:\n(1) $n\\sigma^2$  (2) $\\sigma^2$  (3) $\\sigma^2/n^2$  (4) $\\sigma^2/n$\n\n**e)** At en skjev estimator kan ha lavere MSE enn en forventningsrett, skyldes at:\n(1) lavere varians kan oppveie skjevheten  (2) skjevhet alltid er bra  (3) MSE ignorerer varians  (4) forventningsrette estimatorer ikke har varians",
+            "solution": "**a) (3) forventningsrett.** $E(\\hat{\\theta})=\\theta$ er nettopp definisjonen; forventningsrett medfører verken konsistens eller minst varians automatisk.\n\n**b) (1) $n-1$.** Frihetsgradene — $S^2$ med divisor $n-1$ er forventningsrett for $\\sigma^2$, mens divisor $n$ gir den skjeve ML-varianten.\n\n**c) (2) variansen.** Med skjevhet $b=0$ er $\\text{MSE}=\\text{Var}+0=\\text{Var}$.\n\n**d) (4) $\\sigma^2/n$.** $\\text{Var}(\\bar{X})=\\sigma^2/n$.\n\n**e) (1) lavere varians kan oppveie skjevheten.** MSE veier $\\text{Var}$ mot $\\text{bias}^2$, så en skjev, men mer presis, estimator kan vinne.\n\n*(Riktige alternativer: a=3, b=1, c=2, d=4, e=1 — merk at de er stokket, ikke alle like.)*",
+            "hints": [
+              "Tenk gjennom hver definisjon; ett alternativ er riktig.",
+              "Vær obs på $n-1$ vs $n$ i b)."
+            ]
+          }
+        },
+        {
+          "id": "tma4245-5-prove-p1-selvdiagnose",
+          "type": "text",
+          "content": "### Selvdiagnose 5.A\n\nKryss av det du mestret uten å slå opp:\n\n- ☐ Jeg sjekket forventningsretthet ved å regne $E(\\hat{\\theta})$.\n- ☐ Jeg regnet variansen av en veid sum med kvadrerte vekter.\n- ☐ Jeg brukte MSE $=\\text{Var}+\\text{bias}^2$ til å sammenligne en skjev og en forventningsrett kandidat.\n- ☐ Jeg husket at ML-varianten (divisor $n$) er skjev og korrigeres til $n-1$.\n- ☐ Jeg valgte estimator med begrunnelse, ikke på magefølelse.\n\nManglet du noe? Repeter [kap. 5.1](/bok/tma4245/tma4245-5-1)."
+        }
+      ]
+    },
+    {
+      "id": "tma4245-5-prove-p2",
+      "type": "collapsible",
+      "title": "Prøve 5.B — Standard ML-utledning med maksimumskontroll (~40 min)",
+      "buttonText": "Vis prøve 5.B",
+      "content": [
+        {
+          "id": "tma4245-5-prove-p2-ex1",
+          "type": "exercise",
+          "exercise": {
+            "id": "tma4245-5-prove-p2-ex1",
+            "number": "1",
+            "type": "classic",
+            "difficulty": "middels",
+            "task": "Levetidene $x_1,\\ldots,x_n$ til $n$ lakseoppdretts-pumper er uavhengige og eksponensialfordelte med forventning $\\beta$, $f(x;\\beta)=\\frac{1}{\\beta}e^{-x/\\beta}$.\n\n**a)** Utled ML-estimatoren $\\hat{\\beta}$ (trinn 1–4).\n\n**b)** Gjør maksimumskontrollen (trinn 5).\n\n**c)** Er $\\hat{\\beta}$ forventningsrett? Finn variansen.",
+            "solution": "**a)** $L(\\beta)=\\beta^{-n}e^{-\\sum x_i/\\beta}$, $l(\\beta)=-n\\ln\\beta-\\frac{1}{\\beta}\\sum x_i$, $l'(\\beta)=-\\frac{n}{\\beta}+\\frac{1}{\\beta^2}\\sum x_i=0 \\Rightarrow \\hat{\\beta}=\\bar{X}$.\n\n**b)** $l''(\\beta)=\\frac{n}{\\beta^2}-\\frac{2}{\\beta^3}\\sum x_i$; med $\\sum x_i=n\\hat{\\beta}$: $l''(\\hat{\\beta})=-\\frac{n}{\\hat{\\beta}^2}<0$. Maksimum.\n\n**c)** $E(\\hat{\\beta})=E(\\bar{X})=\\beta$ (forventningsrett). $\\text{Var}(\\hat{\\beta})=\\text{Var}(\\bar{X})=\\beta^2/n$.",
+            "hints": [
+              "Log av $\\beta^{-n}e^{-\\sum x_i/\\beta}$; deriver.",
+              "Sett $\\sum x_i=n\\hat\\beta$ i $l''$.",
+              "$E(X)=\\beta$, $\\text{Var}(X)=\\beta^2$."
+            ]
+          }
+        },
+        {
+          "id": "tma4245-5-prove-p2-ex2",
+          "type": "exercise",
+          "exercise": {
+            "id": "tma4245-5-prove-p2-ex2",
+            "number": "2",
+            "type": "classic",
+            "difficulty": "middels",
+            "task": "Antall varsler per døgn fra et overvåkingssystem er Poisson-fordelt med forventning $\\lambda$. Fem døgn gir tallene $4,\\;2,\\;3,\\;5,\\;6$.\n\n**a)** Utled ML-estimatoren $\\hat{\\lambda}$ generelt og gjør maksimumskontrollen.\n\n**b)** Regn ut estimatet.\n\n**c)** Oppgi den tilnærmede fordelingen til $\\hat{\\lambda}$ for stor $n$.",
+            "solution": "**a)** $l(\\lambda)=-n\\lambda+(\\sum x_i)\\ln\\lambda+\\text{konst}$, $l'(\\lambda)=-n+\\frac{\\sum x_i}{\\lambda}=0 \\Rightarrow \\hat{\\lambda}=\\bar{X}$. Maksimum: $l''(\\lambda)=-\\frac{\\sum x_i}{\\lambda^2}<0$.\n\n**b)** $\\hat{\\lambda}=\\frac{4+2+3+5+6}{5}=\\frac{20}{5}=4$ varsler per døgn.\n\n**c)** $\\hat{\\lambda}=\\bar{X}$ er tilnærmet $N(\\lambda,\\lambda/n)$ for stor $n$ (siden $\\text{Var}(X)=\\lambda$ for Poisson, så $\\text{Var}(\\bar{X})=\\lambda/n$).",
+            "hints": [
+              "Poisson-ML er $\\hat\\lambda=\\bar X$.",
+              "Summer de fem tallene og del på 5.",
+              "$\\text{Var}(X)=\\lambda$ gir $\\text{Var}(\\bar X)=\\lambda/n$."
+            ]
+          }
+        },
+        {
+          "id": "tma4245-5-prove-p2-ex3",
+          "type": "exercise",
+          "exercise": {
+            "id": "tma4245-5-prove-p2-ex3",
+            "number": "3",
+            "type": "classic",
+            "difficulty": "vanskelig",
+            "task": "En kvalitetstest på $n=40$ loddeskjøter finner $x=12$ defekte; andelen defekte er $p$ (binomisk).\n\n**a)** Utled ML-estimatoren $\\hat{p}$ og regn ut estimatet.\n\n**b)** Vis at $\\hat{p}$ er forventningsrett og finn $\\text{Var}(\\hat{p})$.\n\n**c)** Bruk invariansprinsippet: hva er ML-estimatoren for oddsen $p/(1-p)$?",
+            "solution": "**a)** $l(p)=x\\ln p+(n-x)\\ln(1-p)+\\text{konst}$, $l'(p)=\\frac{x}{p}-\\frac{n-x}{1-p}=0 \\Rightarrow \\hat{p}=\\frac{x}{n}$. Estimatet: $\\hat{p}=\\frac{12}{40}=0{,}30$.\n\n**b)** $E(\\hat{p})=\\frac{E(X)}{n}=\\frac{np}{n}=p$ (forventningsrett). $\\text{Var}(\\hat{p})=\\frac{np(1-p)}{n^2}=\\frac{p(1-p)}{n}$.\n\n**c)** Ved invarians: $\\widehat{\\frac{p}{1-p}}=\\frac{\\hat{p}}{1-\\hat{p}}=\\frac{0{,}30}{0{,}70}\\approx 0{,}429$.",
+            "hints": [
+              "Kryssgang $x/p=(n-x)/(1-p)$.",
+              "$X$ binomisk: $E(X)=np$, $\\text{Var}(X)=np(1-p)$.",
+              "Invarians: sett $\\hat p$ inn i $p/(1-p)$."
+            ]
+          }
+        },
+        {
+          "id": "tma4245-5-prove-p2-selvdiagnose",
+          "type": "text",
+          "content": "### Selvdiagnose 5.B\n\nKryss av det du mestret uten å slå opp:\n\n- ☐ Jeg skrev likelihooden som produkt over alle observasjoner.\n- ☐ Jeg tok logaritmen før jeg deriverte.\n- ☐ Jeg gjorde maksimumskontrollen ($l''(\\hat{\\theta})<0$).\n- ☐ Jeg sjekket forventningsretthet ved å regne $E(\\hat{\\theta})$.\n- ☐ Jeg brukte invariansprinsippet til å estimere en funksjon av parameteren.\n\nManglet du noe? Repeter [kap. 5.2](/bok/tma4245/tma4245-5-2)."
+        }
+      ]
+    },
+    {
+      "id": "tma4245-5-prove-p3",
+      "type": "collapsible",
+      "title": "Prøve 5.C — ML-varianter: to kilder + bibetingelse (~45 min)",
+      "buttonText": "Vis prøve 5.C",
+      "content": [
+        {
+          "id": "tma4245-5-prove-p3-ex1",
+          "type": "exercise",
+          "exercise": {
+            "id": "tma4245-5-prove-p3-ex1",
+            "number": "1",
+            "type": "classic",
+            "difficulty": "vanskelig",
+            "task": "Bruddstyrken måles ved to laboratorier, begge eksponensialfordelt med **samme** forventning $\\beta$. Lab 1 har $n$ målinger $x_1,\\ldots,x_n$, lab 2 har $m$ målinger $y_1,\\ldots,y_m$, alt uavhengig.\n\n**a)** Skriv opp den kombinerte likelihooden og log-likelihooden.\n\n**b)** Utled ML-estimatoren $\\hat{\\beta}$ og gjør maksimumskontrollen.\n\n**c)** Vis at $\\hat{\\beta}$ er forventningsrett.",
+            "solution": "**a)** $L(\\beta)=\\prod_{i=1}^n\\frac{1}{\\beta}e^{-x_i/\\beta}\\cdot\\prod_{j=1}^m\\frac{1}{\\beta}e^{-y_j/\\beta}=\\beta^{-(n+m)}e^{-(\\sum x_i+\\sum y_j)/\\beta}$. Log: $l(\\beta)=-(n+m)\\ln\\beta-\\frac{\\sum x_i+\\sum y_j}{\\beta}$.\n\n**b)** $l'(\\beta)=-\\frac{n+m}{\\beta}+\\frac{\\sum x_i+\\sum y_j}{\\beta^2}=0 \\Rightarrow \\hat{\\beta}=\\dfrac{\\sum x_i+\\sum y_j}{n+m}$ (samlet gjennomsnitt). Maksimum: $l''(\\hat{\\beta})=-\\frac{n+m}{\\hat{\\beta}^2}<0$.\n\n**c)** $E(\\sum X_i)=n\\beta$, $E(\\sum Y_j)=m\\beta$, så $E(\\hat{\\beta})=\\frac{n\\beta+m\\beta}{n+m}=\\beta$. Forventningsrett.",
+            "hints": [
+              "Likelihooden er produktet over BEGGE utvalg.",
+              "Samle: $l(\\beta)=-(n+m)\\ln\\beta-(\\sum x_i+\\sum y_j)/\\beta$.",
+              "$E(\\sum X_i)=n\\beta$, $E(\\sum Y_j)=m\\beta$."
+            ]
+          }
+        },
+        {
+          "id": "tma4245-5-prove-p3-ex2",
+          "type": "exercise",
+          "exercise": {
+            "id": "tma4245-5-prove-p3-ex2",
+            "number": "2",
+            "type": "classic",
+            "difficulty": "vanskelig",
+            "task": "Antall $x_1,\\ldots,x_n$ hendelser i standardprøver er Poisson med forventning $\\lambda$, og et uavhengig datasett $y_1,\\ldots,y_m$ er Poisson med forventning $2\\lambda$ (dobbelt volum).\n\n**a)** Skriv opp den kombinerte log-likelihooden.\n\n**b)** Utled $\\hat{\\lambda}$ og vis at den er forventningsrett.\n\n**c)** Hva blir nevneren i estimatoren, og hvorfor er den ikke $n+m$?",
+            "solution": "**a)** $l(\\lambda)=-n\\lambda-2m\\lambda+(\\sum x_i+\\sum y_j)\\ln\\lambda+\\text{konst}$ (siden $\\ln(2\\lambda)=\\ln 2+\\ln\\lambda$).\n\n**b)** $l'(\\lambda)=-(n+2m)+\\frac{\\sum x_i+\\sum y_j}{\\lambda}=0 \\Rightarrow \\hat{\\lambda}=\\dfrac{\\sum x_i+\\sum y_j}{n+2m}$. Forventning: $E(\\sum X_i)=n\\lambda$, $E(\\sum Y_j)=2m\\lambda$, så $E(\\hat{\\lambda})=\\frac{n\\lambda+2m\\lambda}{n+2m}=\\lambda$. Forventningsrett.\n\n**c)** Nevneren er $n+2m$. Hver $y$-observasjon har forventning $2\\lambda$, så den bidrar «dobbelt» i forventning — det må gjenspeiles i nevneren for at estimatoren skal være forventningsrett.",
+            "hints": [
+              "$\\ln(2\\lambda)=\\ln 2+\\ln\\lambda$; $\\ln 2$ er konstant.",
+              "Samle lineære $\\lambda$-ledd: $-n\\lambda-2m\\lambda$.",
+              "$E(\\sum Y_j)=2m\\lambda$."
+            ]
+          }
+        },
+        {
+          "id": "tma4245-5-prove-p3-ex3",
+          "type": "exercise",
+          "exercise": {
+            "id": "tma4245-5-prove-p3-ex3",
+            "number": "3",
+            "type": "classic",
+            "difficulty": "vanskelig",
+            "task": "To produksjonslinjer har eksponensialfordelte feilmellomrom. Linje A har forventning $\\mu_A$, linje B har $\\mu_B$, og det er kjent at $\\mu_A=2\\mu_B$. Vi har $p$ observasjoner $a_1,\\ldots,a_p$ fra A og $q$ observasjoner $b_1,\\ldots,b_q$ fra B.\n\n**a)** Substituer bibetingelsen og skriv opp log-likelihooden i én fri parameter.\n\n**b)** Utled ML-estimatoren og oppgi $\\hat{\\mu}_A$ og $\\hat{\\mu}_B$.",
+            "solution": "**a)** Sett $\\mu_B=\\beta$ og $\\mu_A=2\\beta$ (substituert FØR derivasjon). $L(\\beta)=\\prod\\frac{1}{2\\beta}e^{-a_i/(2\\beta)}\\cdot\\prod\\frac{1}{\\beta}e^{-b_j/\\beta}$, så\n$$l(\\beta)=-(p+q)\\ln\\beta-p\\ln 2-\\frac{1}{\\beta}\\Big(\\tfrac{1}{2}\\sum a_i+\\sum b_j\\Big).$$\n\n**b)** $l'(\\beta)=-\\frac{p+q}{\\beta}+\\frac{1}{\\beta^2}\\big(\\tfrac{1}{2}\\sum a_i+\\sum b_j\\big)=0 \\Rightarrow \\hat{\\beta}=\\dfrac{\\tfrac{1}{2}\\sum a_i+\\sum b_j}{p+q}$. Da er $\\hat{\\mu}_B=\\hat{\\beta}$ og $\\hat{\\mu}_A=2\\hat{\\beta}$. Bindingen MÅ inn før derivasjon — ellers feil.",
+            "hints": [
+              "Substituer $\\mu_A=2\\beta$, $\\mu_B=\\beta$ FØR du deriverer.",
+              "$\\ln(2\\beta)=\\ln 2+\\ln\\beta$.",
+              "$l'(\\beta)=-(p+q)/\\beta+(\\tfrac12\\sum a_i+\\sum b_j)/\\beta^2$."
+            ]
+          }
+        },
+        {
+          "id": "tma4245-5-prove-p3-selvdiagnose",
+          "type": "text",
+          "content": "### Selvdiagnose 5.C\n\nKryss av det du mestret uten å slå opp:\n\n- ☐ Jeg tok med begge datakilder i den kombinerte likelihooden.\n- ☐ Jeg håndterte ulik forventning ($2\\lambda$) og fikk riktig vektet nevner.\n- ☐ Jeg substituerte bibetingelsen FØR derivasjon.\n- ☐ Jeg gjorde maksimumskontrollen.\n- ☐ Jeg satte de bundne parametrene tilbake med invarians ($\\hat{\\mu}_A=2\\hat{\\beta}$).\n\nManglet du noe? Repeter [kap. 5.2](/bok/tma4245/tma4245-5-2) og [kap. 5.4](/bok/tma4245/tma4245-5-4)."
+        }
+      ]
+    },
+    {
+      "id": "tma4245-5-prove-p4",
+      "type": "collapsible",
+      "title": "Prøve 5.D — Deltametoden og asymptotisk KI (~40 min)",
+      "buttonText": "Vis prøve 5.D",
+      "content": [
+        {
+          "id": "tma4245-5-prove-p4-ex1",
+          "type": "exercise",
+          "exercise": {
+            "id": "tma4245-5-prove-p4-ex1",
+            "number": "1",
+            "type": "classic",
+            "difficulty": "middels",
+            "task": "Levetiden til $n=16$ batterier er eksponensialfordelt med forventning $\\beta$, og gjennomsnittet er $\\bar{x}=10$ timer. ML-estimatoren $\\hat{\\beta}=\\bar{X}$ er tilnærmet $N(\\beta,\\beta^2/n)$.\n\n**a)** Finn standardfeilen $\\text{SE}(\\hat{\\beta})$ (sett inn estimatet for $\\beta$).\n\n**b)** Lag et tilnærmet 95 % konfidensintervall for $\\beta$ (bruk $z_{0{,}025}=1{,}96$).\n\n**c)** Er dette intervallet eksakt eller tilnærmet? Hva ville vært mer presist ved liten $n$?",
+            "solution": "**a)** $\\text{SE}(\\hat{\\beta})=\\hat{\\beta}/\\sqrt{n}=10/\\sqrt{16}=10/4=2{,}5$.\n\n**b)** $10\\pm 1{,}96\\cdot 2{,}5=10\\pm 4{,}9$, altså tilnærmet $[5{,}1,\\ 14{,}9]$ timer.\n\n**c)** Det er **tilnærmet** (bygger på normaltilnærmingen fra CLT). Ved liten $n$ er det eksakte $\\chi^2_{2n}$-intervallet (kap. 6.2) mer presist; her er $2n=32$ frihetsgrader.",
+            "hints": [
+              "$\\text{SE}=\\hat\\beta/\\sqrt n=10/4$.",
+              "Intervall: $\\hat\\beta\\pm z_{0{,}025}\\text{SE}$.",
+              "Normaltilnærming = tilnærmet; eksakt via $\\chi^2_{2n}$."
+            ]
+          }
+        },
+        {
+          "id": "tma4245-5-prove-p4-ex2",
+          "type": "exercise",
+          "exercise": {
+            "id": "tma4245-5-prove-p4-ex2",
+            "number": "2",
+            "type": "classic",
+            "difficulty": "middels",
+            "task": "En reaksjonsrate $\\theta$ estimeres med $\\hat{\\theta}$, som har forventning $\\mu=4$ og varians $\\text{Var}(\\hat{\\theta})=0{,}09$. Vi er interessert i den karakteristiske tiden $g(\\theta)=1/\\theta$.\n\n**a)** Finn $g'(\\theta)$.\n\n**b)** Bruk deltametoden til å finne den tilnærmede variansen til $\\widehat{1/\\theta}=1/\\hat{\\theta}$.\n\n**c)** Oppgi standardfeilen.",
+            "solution": "**a)** $g(\\theta)=\\theta^{-1}$, så $g'(\\theta)=-\\theta^{-2}=-1/\\theta^2$.\n\n**b)** Evaluert i $\\mu=4$: $g'(\\mu)=-1/16=-0{,}0625$, så\n$$\\text{Var}\\big(1/\\hat{\\theta}\\big)\\approx[g'(\\mu)]^2\\text{Var}(\\hat{\\theta})=(0{,}0625)^2\\cdot 0{,}09=0{,}00390625\\cdot 0{,}09\\approx 0{,}000352.$$\n\n**c)** $\\text{SE}=\\sqrt{0{,}000352}\\approx 0{,}0188$. (Fortegnet på $g'$ forsvinner i kvadreringen.)",
+            "hints": [
+              "$g'(\\theta)=-1/\\theta^2$; den deriverte kvadreres.",
+              "Evaluer $g'$ i forventningen $\\mu=4$.",
+              "$(0{,}0625)^2\\cdot 0{,}09$."
+            ]
+          }
+        },
+        {
+          "id": "tma4245-5-prove-p4-ex3",
+          "type": "exercise",
+          "exercise": {
+            "id": "tma4245-5-prove-p4-ex3",
+            "number": "3",
+            "type": "classic",
+            "difficulty": "vanskelig",
+            "task": "En avsetningsrate estimeres som forholdet $R=M/T$ mellom målt masse $M$ og målt tid $T$, uavhengige, med $\\mu_M=60$, $\\text{Var}(M)=9$, $\\mu_T=12$, $\\text{Var}(T)=0{,}25$.\n\n**a)** Finn de partiellderiverte av $g(m,t)=m/t$.\n\n**b)** Bruk flervariabel-deltametoden til å finne $\\text{Var}(\\hat{R})$.\n\n**c)** Oppgi $\\hat{R}$ og standardfeilen.",
+            "solution": "**a)** $g_m=\\partial(m/t)/\\partial m=1/t$; $g_t=\\partial(m/t)/\\partial t=-m/t^2$.\n\n**b)** Evaluert i $(\\mu_M,\\mu_T)=(60,12)$: $g_m=1/12\\approx 0{,}08333$, $g_t=-60/12^2=-60/144\\approx -0{,}41667$. Da\n$$\\text{Var}(\\hat{R})\\approx g_m^2\\text{Var}(M)+g_t^2\\text{Var}(T)=(0{,}08333)^2\\cdot 9+(0{,}41667)^2\\cdot 0{,}25.$$\n$(0{,}08333)^2\\cdot 9=0{,}006944\\cdot 9=0{,}0625$; $(0{,}41667)^2\\cdot 0{,}25=0{,}17361\\cdot 0{,}25=0{,}04340$. Sum $\\approx 0{,}1059$.\n\n**c)** $\\hat{R}=\\mu_M/\\mu_T=60/12=5$, standardfeil $\\sqrt{0{,}1059}\\approx 0{,}325$. Altså $\\hat{R}\\approx 5{,}0$ med standardfeil $\\approx 0{,}33$.",
+            "hints": [
+              "$\\partial(m/t)/\\partial m=1/t$, $\\partial(m/t)/\\partial t=-m/t^2$.",
+              "Kvadrer hver partiellderivert, gang med tilhørende varians, legg sammen.",
+              "$\\hat R=\\mu_M/\\mu_T$; SE er kvadratroten av $\\text{Var}(\\hat R)$."
+            ]
+          }
+        },
+        {
+          "id": "tma4245-5-prove-p4-selvdiagnose",
+          "type": "text",
+          "content": "### Selvdiagnose 5.D\n\nKryss av det du mestret uten å slå opp:\n\n- ☐ Jeg brukte at ML-estimatoren er tilnærmet normal og satte opp $\\hat{\\theta}\\pm z\\,\\text{SE}$.\n- ☐ Jeg husket at normaltilnærmet KI er tilnærmet, ikke eksakt.\n- ☐ Jeg kvadrerte den deriverte i deltametoden.\n- ☐ Jeg evaluerte $g'$ i forventningen, ikke i en observasjon.\n- ☐ Jeg la sammen leddene i flervariabel-deltametoden.\n\nManglet du noe? Repeter [kap. 5.3](/bok/tma4245/tma4245-5-3)."
+        }
+      ]
+    },
+    {
+      "id": "tma4245-5-prove-symbolliste",
+      "type": "collapsible",
+      "title": "Symbol- og formelliste",
+      "buttonText": "Vis symboler og formler",
+      "content": [
+        {
+          "id": "tma4245-5-prove-symbolliste-text",
+          "type": "text",
+          "content": "*Oppslagsverk — alt her forklares underveis i kapitlet.*\n\nPrøvene spenner over hele Del 5. Her er symbolene og formlene du kan trenge, samlet.\n\n| Symbol | Betydning |\n|---|---|\n| $\\hat{\\theta}$ | Estimator/ML-estimator (stokastisk) |\n| $E(\\hat{\\theta}),\\,\\text{Var}(\\hat{\\theta})$ | Forventning og varians til estimatoren |\n| $\\text{bias},\\,\\text{MSE}$ | Skjevhet og forventet kvadratavvik |\n| $L(\\theta),\\,l(\\theta)$ | Likelihood og log-likelihood |\n| $\\text{SE}(\\hat{\\theta})$ | Standardfeil $\\sqrt{\\text{Var}(\\hat{\\theta})}$ |\n| $z_{\\alpha/2}$ | Standardnormalens øvre $\\alpha/2$-kvantil |\n| $g(\\theta),\\,g'(\\mu)$ | Funksjon av parameteren og dens deriverte |\n\n**Formler du kan trenge i Del 5-prøvene:**\n\n$$E(\\hat{\\theta})=\\theta, \\qquad \\text{MSE}(\\hat{\\theta})=\\text{Var}(\\hat{\\theta})+[\\text{bias}]^2$$\nForventningsretthet og MSE.\n\n$$E(\\bar{X})=\\mu,\\quad \\text{Var}(\\bar{X})=\\frac{\\sigma^2}{n}, \\qquad E(S^2)=\\sigma^2,\\quad E(\\hat{\\sigma}^2)=\\frac{n-1}{n}\\sigma^2$$\nStandardresultatene for $\\bar{X}$ og de to variansestimatorene.\n\n$$L(\\theta)=\\prod f(x_i;\\theta),\\quad l'(\\hat{\\theta})=0,\\quad l''(\\hat{\\theta})<0$$\nML-ritualet.\n\n$$\\hat{\\beta}=\\bar{X},\\quad \\hat{\\lambda}=\\bar{X},\\quad \\hat{p}=\\tfrac{X}{n}$$\nStandard ML-estimatorer.\n\n$$\\hat{\\theta}\\pm z_{\\alpha/2}\\,\\text{SE}(\\hat{\\theta})$$\nNormaltilnærmet konfidensintervall ($z_{0{,}025}=1{,}96$).\n\n$$\\text{Var}\\big(g(\\hat{\\theta})\\big)\\approx[g'(\\mu)]^2\\text{Var}(\\hat{\\theta}), \\qquad \\text{Var}\\big(g(X,Y)\\big)\\approx g_x^2\\text{Var}(X)+g_y^2\\text{Var}(Y)$$\nDeltametoden for én og flere variable."
+        }
+      ]
+    }
+  ],
+  "exercises": []
+}

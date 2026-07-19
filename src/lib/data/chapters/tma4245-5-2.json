@@ -1,0 +1,407 @@
+{
+  "id": "tma4245-5-2",
+  "courseId": "tma4245",
+  "chapterNumber": "5.2",
+  "title": "Maximum likelihood: utledningen som alltid kommer",
+  "description": "Likelihood → log-likelihood → derivasjon → løsning → maksimumskontroll: emnets viktigste utledningsferdighet, trinn for trinn.",
+  "estimatedMinutes": 70,
+  "competenceGoals": [
+    "sette opp likelihood og log-likelihood som produkt/sum over alle observasjoner",
+    "utlede ML-estimatoren for eksponensial, Poisson, andel, normal og gamma med kjent form",
+    "gjennomføre maksimumskontrollen og avgjøre om ML-estimatoren er forventningsrett",
+    "håndtere kombinert likelihood fra to kilder, ML under bibetingelse og tilfeller uten lukket løsning"
+  ],
+  "content": [
+    {
+      "id": "tma4245-5-2-tip",
+      "type": "tip",
+      "title": "Eksamensvinkel",
+      "content": "**Dette er emnets viktigste utledning — den som «alltid kommer».**\n\n- Eksplisitt **ML-utledning er i godt over halvparten av settene** siste ti år (sjanger G). Prioritet: **høyeste** (det øverste nivået) — det er kjedens første ledd (modell → **ML** → egenskaper → KI → test → styrke).\n- Variantene sensor roterer mellom: **kombinert likelihood** fra to datakilder som deler parameter (Des22, Aug23, Mai24), **ML under bibetingelse** (Aug24), og ML **uten lukket løsning** (null-trunkert Poisson, Des24).\n\n**Sensorkrav 5 — hele ritualet med alle trinn:** (1) sett opp likelihooden som produkt, (2) ta logaritmen, (3) deriver og sett lik 0, (4) løs, (5) **kontroller at det er et maksimum**. Trinn 5 er toppbesvarelses-markøren — de fleste hopper over den.\n\n**Formelsamlingen** (hjelpemiddelkode C) gir deg tetthetene og $E$/Var, men **selve utledningen står ikke der** — ML må gjøres aktivt. Det er ren mekanikk når du kan ritualet: samme fem trinn hver gang, uansett fordeling."
+    },
+    {
+      "id": "tma4245-5-2-forkunnskaper",
+      "type": "text",
+      "content": "**Forkunnskaper:** Du må kunne **estimatorvurdering** fra **[kap. 5.1](/bok/tma4245/tma4245-5-1)** (forventningsretthet — vi sjekker om ML-estimatoren er forventningsrett) og **tetthetene** fra **[kap. 2.3](/bok/tma4245/tma4245-2-3)** (eksponensial $\\frac{1}{\\beta}e^{-x/\\beta}$, gamma) og de diskrete punktsannsynlighetene fra **[kap. 2.2](/bok/tma4245/tma4245-2-2)** (Poisson, binomisk). Uavhengighet gjør at simultantettheten blir et **produkt** — grunnlaget for likelihooden.\n\nFra matematikken trenger du å **derivere** logaritmer og enkle uttrykk ($\\frac{d}{d\\theta}\\ln\\theta=\\frac{1}{\\theta}$, $\\frac{d}{d\\theta}(c/\\theta)=-c/\\theta^2$) og å løse likninger. Alt av logaritmeregler ($\\ln(ab)=\\ln a+\\ln b$, $\\ln(a^b)=b\\ln a$) brukes tungt. Kapitlet er forkunnskap for asymptotisk normalitet ([kap. 5.3](/bok/tma4245/tma4245-5-3)), ML-drillen ([kap. 5.4](/bok/tma4245/tma4245-5-4)) og hele inferenskjeden."
+    },
+    {
+      "id": "tma4245-5-2-intro",
+      "type": "text",
+      "content": "**Grunnideen** bak maximum likelihood er enkel og intuitiv: blant alle mulige parameterverdier velger vi den som gjør de dataene vi *faktisk* observerte, mest sannsynlige. Hverdagsanker: har du telt 12 mikrosprekker i en prøve, er en modell med forventning $\\lambda=2$ langt mer plausibel enn en med $\\lambda=50$ — ML finner nettopp den $\\lambda$ som «passer best» til tallene.\n\nMekanikken er et fast **rituale på fem trinn** som er identisk uansett fordeling. Vi lærer ritualet på eksponensial og Poisson (løkke 1), gjentar det på andel og normalfordeling (løkke 2), og møter så variantene eksamen elsker: gamma med kjent form, kombinert likelihood fra to kilder, ML under bibetingelse, og tilfellet uten lukket løsning (løkke 3). Hver løkke går teori → eksempel → oppgave.\n\n*Samlet kjernetid ≈ 70 min. Naturlige pausepunkter er markert mellom løkkene.*"
+    },
+    {
+      "id": "tma4245-5-2-lokke1",
+      "type": "text",
+      "content": "## Løkke 1 — Ritualet, eksponensial og Poisson (~24 min)"
+    },
+    {
+      "id": "tma4245-5-2-def-likelihood",
+      "type": "definition",
+      "title": "Likelihood-funksjonen",
+      "content": "Har vi uavhengige observasjoner $x_1,\\ldots,x_n$ fra en modell med tetthet (eller punktsannsynlighet) $f(x;\\theta)$, er **likelihood-funksjonen** produktet av tetthetene, sett som funksjon av parameteren $\\theta$:\n\n$$L(\\theta) = \\prod_{i=1}^n f(x_i;\\theta).$$\n\nDen måler hvor «sannsynlige» de observerte dataene er for hver verdi av $\\theta$. Merk vendingen: dataene er faste (vi har målt dem), og vi lar $\\theta$ variere. **Produktet går over ALLE observasjoner** — hopper du over noen (for eksempel dataene fra en andre kilde), blir hele utledningen feil. ML-estimatet er den $\\theta$ som **maksimerer** $L(\\theta)$."
+    },
+    {
+      "id": "tma4245-5-2-def-loglik",
+      "type": "definition",
+      "title": "Log-likelihood — og hvorfor logaritmen",
+      "content": "I stedet for å maksimere produktet $L(\\theta)$ maksimerer vi **log-likelihooden**\n\n$$l(\\theta) = \\ln L(\\theta) = \\sum_{i=1}^n \\ln f(x_i;\\theta).$$\n\nTo grunner: (1) logaritmen gjør **produkt om til sum**, som er langt lettere å derivere; (2) $\\ln$ er **strengt voksende**, så den bevarer hvor maksimumet ligger — den $\\theta$ som maksimerer $l$ er nøyaktig den som maksimerer $L$. Vi mister altså ingenting, men får et mye enklere uttrykk å regne med. Nesten all ML-regning skjer på $l$, aldri på $L$ direkte."
+    },
+    {
+      "id": "tma4245-5-2-def-ritual",
+      "type": "definition",
+      "title": "ML-ritualet (fem trinn)",
+      "content": "Uansett fordeling følger ML-estimatet **samme fem trinn** — lær rekkefølgen utenat:\n\n**1.** Skriv **likelihooden** $L(\\theta)=\\prod_{i=1}^n f(x_i;\\theta)$ (produkt over alle observasjoner).\n\n**2.** Ta **logaritmen**: $l(\\theta)=\\ln L(\\theta)=\\sum \\ln f(x_i;\\theta)$.\n\n**3.** **Deriver** og sett lik null: $l'(\\theta)=0$ (likelihoodligningen).\n\n**4.** **Løs** for $\\theta$ — dette gir kandidaten $\\hat{\\theta}$.\n\n**5.** **Kontroller** at kandidaten er et maksimum (annenderivert $l''(\\hat{\\theta})<0$, eller et monotoniargument).\n\nDen ferdige estimatoren skrives med **stor bokstav og hatt** ($\\hat{\\theta}=\\hat{\\theta}(X_1,\\ldots,X_n)$) — den er stokastisk, ikke et tall."
+    },
+    {
+      "id": "tma4245-5-2-def-maks",
+      "type": "definition",
+      "title": "Maksimumskontrollen (trinn 5)",
+      "content": "Likelihoodligningen $l'(\\hat{\\theta})=0$ finner bare et **kritisk punkt** — det kan i prinsippet være et minimum eller et sadelpunkt. Toppbesvarelsen **kontrollerer** at det er et maksimum, på én av to måter:\n\n- **Annenderivert:** vis at $l''(\\hat{\\theta})<0$ (kurven bøyer nedover — et toppunkt).\n- **Monotoniargument:** vis at $l'(\\theta)>0$ for $\\theta<\\hat{\\theta}$ og $l'(\\theta)<0$ for $\\theta>\\hat{\\theta}$ (l stiger så synker).\n\nDette trinnet er det de fleste hopper over — og nettopp derfor er det markøren som skiller toppbesvarelsen. Det tar ofte bare én linje."
+    },
+    {
+      "id": "tma4245-5-2-ex1",
+      "type": "example",
+      "title": "Eksempel 1: ML for eksponensialfordelingen (hele ritualet)",
+      "problem": "Levetidene $x_1,\\ldots,x_n$ til $n$ batterier er uavhengige og eksponensialfordelte med ukjent forventning $\\beta$, altså $f(x;\\beta)=\\frac{1}{\\beta}e^{-x/\\beta}$ for $x>0$. Utled ML-estimatoren for $\\beta$, kontroller at det er et maksimum, og avgjør om den er forventningsrett.",
+      "solution": "**Trinn 1 — likelihood.**\n$$L(\\beta)=\\prod_{i=1}^n \\frac{1}{\\beta}e^{-x_i/\\beta} = \\beta^{-n}\\exp\\!\\left(-\\frac{1}{\\beta}\\sum_{i=1}^n x_i\\right).$$\n\n**Trinn 2 — log-likelihood.**\n$$l(\\beta)=\\ln L(\\beta) = -n\\ln\\beta - \\frac{1}{\\beta}\\sum_{i=1}^n x_i.$$\n\n**Trinn 3 — deriver og sett lik 0.**\n$$l'(\\beta) = -\\frac{n}{\\beta} + \\frac{1}{\\beta^2}\\sum x_i = 0.$$\n\n**Trinn 4 — løs.** Gang med $\\beta^2$: $-n\\beta + \\sum x_i = 0$, altså\n$$\\hat{\\beta} = \\frac{1}{n}\\sum x_i = \\bar{x}.$$\nEstimatoren er $\\hat{\\beta}=\\bar{X}$.\n\n**Trinn 5 — maksimumskontroll.** $l''(\\beta)=\\frac{n}{\\beta^2}-\\frac{2}{\\beta^3}\\sum x_i$. Sett inn $\\sum x_i = n\\bar{x}=n\\hat{\\beta}$:\n$$l''(\\hat{\\beta}) = \\frac{n}{\\hat{\\beta}^2} - \\frac{2n\\hat{\\beta}}{\\hat{\\beta}^3} = \\frac{n}{\\hat{\\beta}^2}-\\frac{2n}{\\hat{\\beta}^2} = -\\frac{n}{\\hat{\\beta}^2} < 0.$$\nDet er et maksimum.\n\n**Forventningsrett?** $E(\\hat{\\beta})=E(\\bar{X})=\\beta$ (siden $E(X_i)=\\beta$ for eksponensial). ML-estimatoren er **forventningsrett** for $\\beta$ her. (Det er ikke garantert generelt — normalfordelingens $\\hat{\\sigma}^2$ er skjev, se eksempel 2.)"
+    },
+    {
+      "id": "tma4245-5-2-l1",
+      "type": "exercise",
+      "exercise": {
+        "id": "tma4245-5-2-l1",
+        "number": "1",
+        "type": "classic",
+        "difficulty": "lett",
+        "task": "(Innstegsoppgave — sett inn i den ferdige oppskriften.) For Poisson-fordelingen er ML-estimatoren for $\\lambda$ gjennomsnittet, $\\hat{\\lambda}=\\bar{X}$. Antall mikrosprekker i $n=6$ prøver er $3,\\;1,\\;2,\\;2,\\;4,\\;0$.\n\n**a)** Regn ut estimatet $\\hat{\\lambda}$.\n\n**b)** Er $\\bar{X}$ estimatoren eller estimatet her?",
+        "solution": "**a)** $\\hat{\\lambda}=\\bar{x}=\\dfrac{3+1+2+2+4+0}{6}=\\dfrac{12}{6}=2$ mikrosprekker per prøve.\n\n**b)** $\\bar{X}$ er **estimatoren** (den stokastiske oppskriften); tallet $2$ er estimatet.",
+        "hints": [
+          "Summer tallene og del på $n=6$.",
+          "Estimatoren er oppskriften; estimatet er tallet du fikk."
+        ]
+      }
+    },
+    {
+      "id": "tma4245-5-2-ex-poisson",
+      "type": "example",
+      "title": "Eksempel 2: ML for Poisson (utled $\\hat{\\lambda}=\\bar{X}$)",
+      "problem": "Antall $x_1,\\ldots,x_n$ hendelser i $n$ uavhengige intervaller er Poisson-fordelt med ukjent forventning $\\lambda$: $p(x;\\lambda)=\\frac{e^{-\\lambda}\\lambda^x}{x!}$. Utled ML-estimatoren.",
+      "solution": "**Trinn 1–2.** $L(\\lambda)=\\prod \\frac{e^{-\\lambda}\\lambda^{x_i}}{x_i!}=e^{-n\\lambda}\\lambda^{\\sum x_i}\\big/\\prod x_i!$, så\n$$l(\\lambda) = -n\\lambda + \\Big(\\sum x_i\\Big)\\ln\\lambda - \\sum\\ln(x_i!).$$\nDet siste leddet er konstant i $\\lambda$ og forsvinner i derivasjonen.\n\n**Trinn 3–4.** $l'(\\lambda)=-n+\\frac{1}{\\lambda}\\sum x_i = 0 \\Rightarrow \\hat{\\lambda}=\\frac{1}{n}\\sum x_i = \\bar{x}$.\n\n**Trinn 5.** $l''(\\lambda)=-\\frac{1}{\\lambda^2}\\sum x_i < 0$ (siden $\\sum x_i\\ge 0$), så det er et maksimum. Estimatoren er $\\hat{\\lambda}=\\bar{X}$, og $E(\\hat{\\lambda})=\\lambda$ (forventningsrett, siden $E(X_i)=\\lambda$)."
+    },
+    {
+      "id": "tma4245-5-2-m1",
+      "type": "exercise",
+      "exercise": {
+        "id": "tma4245-5-2-m1",
+        "number": "2",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "Ventetidene $x_1,\\ldots,x_n$ (i timer) mellom feil på en sensor er uavhengige og eksponensialfordelte med forventning $\\beta$. En student skriver opp $L(\\beta)=\\beta^{-n}e^{-\\sum x_i/\\beta}$.\n\n**a)** Skriv opp log-likelihooden $l(\\beta)$.\n\n**b)** Deriver, sett lik 0 og finn $\\hat{\\beta}$.\n\n**c)** Vis med annenderivert at det er et maksimum.",
+        "solution": "**a)** $l(\\beta)=\\ln L(\\beta) = -n\\ln\\beta - \\dfrac{1}{\\beta}\\sum x_i$.\n\n**b)** $l'(\\beta)=-\\dfrac{n}{\\beta}+\\dfrac{1}{\\beta^2}\\sum x_i = 0$. Gang med $\\beta^2$: $-n\\beta+\\sum x_i=0$, så $\\hat{\\beta}=\\dfrac{1}{n}\\sum x_i=\\bar{x}$.\n\n**c)** $l''(\\beta)=\\dfrac{n}{\\beta^2}-\\dfrac{2}{\\beta^3}\\sum x_i$. Med $\\sum x_i=n\\hat{\\beta}$: $l''(\\hat{\\beta})=\\dfrac{n}{\\hat{\\beta}^2}-\\dfrac{2n}{\\hat{\\beta}^2}=-\\dfrac{n}{\\hat{\\beta}^2}<0$. Maksimum.",
+        "hints": [
+          "$\\ln(\\beta^{-n}e^{-\\sum x_i/\\beta})=-n\\ln\\beta-\\sum x_i/\\beta$.",
+          "Sett $l'=0$ og gang bort nevnerne.",
+          "Sett $\\sum x_i=n\\hat\\beta$ inn i $l''$."
+        ]
+      }
+    },
+    {
+      "id": "tma4245-5-2-pause1",
+      "type": "text",
+      "content": "*— naturlig pausepunkt —*"
+    },
+    {
+      "id": "tma4245-5-2-lokke2",
+      "type": "text",
+      "content": "## Løkke 2 — Andel og normalfordeling (~23 min)"
+    },
+    {
+      "id": "tma4245-5-2-def-andel",
+      "type": "definition",
+      "title": "ML for en andel (binomisk)",
+      "content": "Observerer vi $x$ suksesser i $n$ uavhengige forsøk med suksess-sannsynlighet $p$ (binomisk), er likelihooden $L(p)=\\binom{n}{x}p^x(1-p)^{n-x}$. Log-likelihooden (binomialkoeffisienten er konstant i $p$):\n\n$$l(p)=\\text{konst} + x\\ln p + (n-x)\\ln(1-p).$$\n\n$l'(p)=\\frac{x}{p}-\\frac{n-x}{1-p}=0$ gir $x(1-p)=(n-x)p$, altså $x=np$ og\n\n$$\\hat{p}=\\frac{x}{n} = \\frac{\\text{antall suksesser}}{\\text{antall forsøk}}.$$\n\nDette er den observerte andelen — ML bekrefter den intuitive estimatoren. Den er forventningsrett: $E(\\hat{p})=E(X)/n=np/n=p$. Maksimumskontroll: $l''(p)=-\\frac{x}{p^2}-\\frac{n-x}{(1-p)^2}<0$."
+    },
+    {
+      "id": "tma4245-5-2-ex2",
+      "type": "example",
+      "title": "Eksempel 3: ML for normalfordelingen ($\\hat{\\mu}$ og $\\hat{\\sigma}^2$)",
+      "problem": "Målinger $x_1,\\ldots,x_n$ er uavhengige og normalfordelte, $N(\\mu,\\sigma^2)$, med begge parametre ukjente. Utled ML-estimatorene for $\\mu$ og $\\sigma^2$.",
+      "solution": "Tettheten er $f(x)=\\frac{1}{\\sqrt{2\\pi\\sigma^2}}\\exp\\!\\big(-\\frac{(x-\\mu)^2}{2\\sigma^2}\\big)$, så\n$$l(\\mu,\\sigma^2) = -\\frac{n}{2}\\ln(2\\pi\\sigma^2) - \\frac{1}{2\\sigma^2}\\sum(x_i-\\mu)^2.$$\n\n**Estimatoren for $\\mu$.** Deriver mhp. $\\mu$:\n$$\\frac{\\partial l}{\\partial\\mu}=\\frac{1}{\\sigma^2}\\sum(x_i-\\mu)=0 \\;\\Rightarrow\\; \\sum(x_i-\\mu)=0 \\;\\Rightarrow\\; \\hat{\\mu}=\\bar{x}.$$\nGjennomsnittet, uansett $\\sigma^2$.\n\n**Estimatoren for $\\sigma^2$.** Skriv $\\theta=\\sigma^2$ og deriver mhp. $\\theta$:\n$$\\frac{\\partial l}{\\partial\\theta}=-\\frac{n}{2\\theta}+\\frac{1}{2\\theta^2}\\sum(x_i-\\hat{\\mu})^2=0 \\;\\Rightarrow\\; \\hat{\\sigma}^2=\\frac{1}{n}\\sum(x_i-\\bar{x})^2.$$\n\n**Kobling til [kap. 5.1](/bok/tma4245/tma4245-5-1):** legg merke til at ML gir divisor **$n$**, ikke $n-1$. Derfor er $\\hat{\\sigma}^2$ **forventningsskjev**: $E(\\hat{\\sigma}^2)=\\frac{n-1}{n}\\sigma^2$, og man korrigerer til $S^2$ (divisor $n-1$) hvis man vil ha en forventningsrett estimator. $\\hat{\\mu}=\\bar{X}$ er derimot forventningsrett. Dette skillet er en klassisk sensorfelle."
+    },
+    {
+      "id": "tma4245-5-2-m2",
+      "type": "exercise",
+      "exercise": {
+        "id": "tma4245-5-2-m2",
+        "number": "3",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "En kvalitetstest på $n=50$ loddede skjøter finner $x=17$ defekte. Andelen defekte $p$ modelleres binomisk.\n\n**a)** Skriv opp log-likelihooden $l(p)$ (uten konstantleddet).\n\n**b)** Utled ML-estimatoren $\\hat{p}$ generelt, og regn ut estimatet.\n\n**c)** Er $\\hat{p}$ forventningsrett?",
+        "solution": "**a)** $l(p)=x\\ln p + (n-x)\\ln(1-p)$ (pluss en konstant fra binomialkoeffisienten).\n\n**b)** $l'(p)=\\dfrac{x}{p}-\\dfrac{n-x}{1-p}=0 \\Rightarrow x(1-p)=(n-x)p \\Rightarrow x=np \\Rightarrow \\hat{p}=\\dfrac{x}{n}$. Estimatet: $\\hat{p}=\\dfrac{17}{50}=0{,}34$.\n\n**c)** Ja: $E(\\hat{p})=\\dfrac{E(X)}{n}=\\dfrac{np}{n}=p$, så $\\hat{p}$ er forventningsrett.",
+        "hints": [
+          "Log av $p^x(1-p)^{n-x}$ blir $x\\ln p+(n-x)\\ln(1-p)$.",
+          "Sett $l'=0$: $x/p=(n-x)/(1-p)$; kryssgang.",
+          "$E(\\hat p)=E(X)/n$; $X$ er binomisk med $E(X)=np$."
+        ]
+      }
+    },
+    {
+      "id": "tma4245-5-2-pause2",
+      "type": "text",
+      "content": "*— naturlig pausepunkt —*"
+    },
+    {
+      "id": "tma4245-5-2-lokke3",
+      "type": "text",
+      "content": "## Løkke 3 — Variantene eksamen elsker (~23 min)"
+    },
+    {
+      "id": "tma4245-5-2-def-gamma",
+      "type": "definition",
+      "title": "ML for gamma med kjent formparameter",
+      "content": "Er dataene $x_1,\\ldots,x_n$ gammafordelte med **kjent** formparameter $\\alpha$ og ukjent skalaparameter $\\theta$ — tetthet $f(x)=\\frac{1}{\\Gamma(\\alpha)\\theta^\\alpha}x^{\\alpha-1}e^{-x/\\theta}$ — blir log-likelihooden\n\n$$l(\\theta)=\\sum\\big[(\\alpha-1)\\ln x_i - \\tfrac{x_i}{\\theta} - \\ln\\Gamma(\\alpha) - \\alpha\\ln\\theta\\big].$$\n\nBare leddene med $\\theta$ betyr noe i derivasjonen: $l'(\\theta)=\\frac{1}{\\theta^2}\\sum x_i - \\frac{n\\alpha}{\\theta}=0$, som gir\n\n$$\\hat{\\theta}=\\frac{1}{n\\alpha}\\sum x_i = \\frac{\\bar{X}}{\\alpha}.$$\n\nSiden $E(X)=\\alpha\\theta$ for denne gammaen, er $E(\\hat{\\theta})=\\frac{E(\\bar{X})}{\\alpha}=\\frac{\\alpha\\theta}{\\alpha}=\\theta$ — forventningsrett. (Eksponensial er spesialtilfellet $\\alpha=1$.)"
+    },
+    {
+      "id": "tma4245-5-2-def-kombinert",
+      "type": "definition",
+      "title": "Kombinert likelihood fra to datakilder",
+      "content": "Deler to uavhengige datasett samme parameter $\\theta$, ganges likelihoodene sammen — likelihooden er produktet over **alle** observasjoner fra **begge** kilder:\n\n$$L(\\theta) = \\underbrace{\\prod_{i=1}^n f(x_i;\\theta)}_{\\text{kilde 1}} \\cdot \\underbrace{\\prod_{j=1}^m g(y_j;\\theta)}_{\\text{kilde 2}}.$$\n\nLog-likelihooden blir en **sum** av bidragene fra begge kilder, $l(\\theta)=\\sum\\ln f(x_i;\\theta)+\\sum\\ln g(y_j;\\theta)$, og du deriverer den samlede summen. Den klassiske feilen er å glemme kilde to. Fordelingene $f$ og $g$ kan være ulike (eller ha ulik parametrisering, som når kilde 2 har forventning $2\\theta$) — så lenge de deler den ukjente $\\theta$."
+    },
+    {
+      "id": "tma4245-5-2-def-bibetingelse",
+      "type": "definition",
+      "title": "ML under bibetingelse — substituer FØR derivasjon",
+      "content": "Noen ganger knytter en **bibetingelse** to parametre sammen, for eksempel $\\mu_A=2\\mu_B$ (populasjon A har dobbelt så høy forventning som B). Da er det egentlig bare **én** fri parameter. Regelen er: **substituer bindingen inn i likelihooden FØR du deriverer**, så du sitter igjen med én ukjent.\n\nEksempel-oppsett: skriv $\\mu_A=2\\beta$ og $\\mu_B=\\beta$, sett begge inn i den kombinerte likelihooden, og deriver mhp. den ene parameteren $\\beta$. Deriverer du først og prøver å tvinge inn bindingen etterpå, får du feil svar — dette er en fast felle (Aug24)."
+    },
+    {
+      "id": "tma4245-5-2-def-numerisk",
+      "type": "definition",
+      "title": "ML uten lukket løsning",
+      "content": "Noen ganger gir likelihoodligningen $l'(\\theta)=0$ en likning som **ikke kan løses algebraisk** for $\\theta$. Da er jobben på eksamen å **sette opp likningen ryddig** og kommentere at den løses numerisk (for eksempel med Newtons metode eller en solver). Det klassiske tilfellet er **null-trunkert Poisson** — Poisson betinget på at $X\\ge 1$, med punktsannsynlighet $p(x)=\\frac{e^{-\\lambda}\\lambda^x}{x!(1-e^{-\\lambda})}$ for $x\\ge 1$. Likelihoodligningen reduseres til\n\n$$\\bar{x}=\\frac{\\lambda}{1-e^{-\\lambda}},$$\n\nsom er transcendental — det finnes ingen formel $\\hat{\\lambda}=\\ldots$. Du oppgir likningen og sier at $\\lambda$ finnes numerisk. Å sette opp likningen riktig er hele poenget."
+    },
+    {
+      "id": "tma4245-5-2-def-invarians",
+      "type": "definition",
+      "title": "Invariansprinsippet",
+      "content": "**ML-estimatoren er invariant under funksjoner:** er $\\hat{\\theta}$ ML-estimatoren for $\\theta$, så er ML-estimatoren for enhver funksjon $g(\\theta)$ rett og slett\n\n$$\\widehat{g(\\theta)} = g(\\hat{\\theta}).$$\n\nDu setter bare $\\hat{\\theta}$ inn i $g$ — ingen ny utledning. For eksponensial med $\\hat{\\beta}=\\bar{X}$ er ML-estimatoren for medianen $\\beta\\ln 2$ derfor $\\bar{X}\\ln 2$, og for halesannsynligheten $P(X>t)=e^{-t/\\beta}$ er den $e^{-t/\\bar{X}}$. Dette er broen til KI-transformasjon (kap. 6.2) og deltametoden ([kap. 5.3](/bok/tma4245/tma4245-5-3))."
+    },
+    {
+      "id": "tma4245-5-2-ex3",
+      "type": "example",
+      "title": "Eksempel 4: kombinert likelihood fra to laboratorier",
+      "problem": "To laboratorier måler bruddstyrke uavhengig, begge eksponensialfordelt med samme forventning $\\beta$. Lab 1 har $n$ målinger $x_1,\\ldots,x_n$, lab 2 har $m$ målinger $y_1,\\ldots,y_m$. Utled ML-estimatoren for $\\beta$ basert på alle dataene samlet.",
+      "solution": "**Trinn 1 — likelihood over begge kilder.**\n$$L(\\beta)=\\prod_{i=1}^n \\frac{1}{\\beta}e^{-x_i/\\beta}\\cdot\\prod_{j=1}^m \\frac{1}{\\beta}e^{-y_j/\\beta} = \\beta^{-(n+m)}\\exp\\!\\left(-\\frac{\\sum x_i+\\sum y_j}{\\beta}\\right).$$\n\n**Trinn 2 — log.** $l(\\beta)=-(n+m)\\ln\\beta - \\dfrac{\\sum x_i+\\sum y_j}{\\beta}$.\n\n**Trinn 3–4.** $l'(\\beta)=-\\dfrac{n+m}{\\beta}+\\dfrac{\\sum x_i+\\sum y_j}{\\beta^2}=0 \\Rightarrow$\n$$\\hat{\\beta}=\\frac{\\sum x_i+\\sum y_j}{n+m}.$$\nDet samlede gjennomsnittet av alle $n+m$ observasjonene.\n\n**Trinn 5.** Samme form som eksempel 1: $l''(\\hat{\\beta})=-\\dfrac{n+m}{\\hat{\\beta}^2}<0$, et maksimum. **Sensorpoeng:** feilen er å glemme lab 2 og bare bruke $\\bar{x}$ fra lab 1 — likelihooden må inneholde produktet over *alle* observasjoner."
+    },
+    {
+      "id": "tma4245-5-2-ex4",
+      "type": "example",
+      "title": "Eksempel 5: ML under bibetingelse $\\mu_A=2\\mu_B$",
+      "problem": "To produksjonslinjer har eksponensialfordelte feilmellomrom. Linje A har forventning $\\mu_A$ og linje B har forventning $\\mu_B$, og det er kjent at $\\mu_A=2\\mu_B$. Vi har $p$ observasjoner $a_1,\\ldots,a_p$ fra A og $q$ observasjoner $b_1,\\ldots,b_q$ fra B. Utled ML-estimatoren for den frie parameteren.",
+      "solution": "**Substituer bindingen FØRST:** skriv $\\mu_B=\\beta$ og $\\mu_A=2\\beta$, så det er én fri parameter $\\beta$.\n\n**Likelihood (begge kilder):**\n$$L(\\beta)=\\prod_{i=1}^p \\frac{1}{2\\beta}e^{-a_i/(2\\beta)}\\cdot\\prod_{j=1}^q \\frac{1}{\\beta}e^{-b_j/\\beta}.$$\n\n**Log:** $l(\\beta) = -p\\ln(2\\beta) - \\dfrac{\\sum a_i}{2\\beta} - q\\ln\\beta - \\dfrac{\\sum b_j}{\\beta} = -(p+q)\\ln\\beta - p\\ln 2 - \\dfrac{1}{\\beta}\\Big(\\tfrac{1}{2}\\sum a_i + \\sum b_j\\Big).$\n\n**Deriver:** $l'(\\beta)=-\\dfrac{p+q}{\\beta}+\\dfrac{1}{\\beta^2}\\Big(\\tfrac{1}{2}\\sum a_i+\\sum b_j\\Big)=0$, som gir\n$$\\hat{\\beta}=\\frac{\\tfrac{1}{2}\\sum a_i + \\sum b_j}{p+q}.$$\n\nDeretter er $\\hat{\\mu}_A=2\\hat{\\beta}$ og $\\hat{\\mu}_B=\\hat{\\beta}$ (invarians). **Sensorpoeng:** hadde du derivert med to frie parametre og prøvd å tvinge inn $\\mu_A=2\\mu_B$ etterpå, ville du fått feil. Bindingen inn *før* derivasjon."
+    },
+    {
+      "id": "tma4245-5-2-v1",
+      "type": "exercise",
+      "exercise": {
+        "id": "tma4245-5-2-v1",
+        "number": "4",
+        "type": "classic",
+        "difficulty": "vanskelig",
+        "task": "Antall $x_1,\\ldots,x_n$ partikler i luftprøver er Poisson-fordelt med forventning $\\lambda$ (kilde 1), og et uavhengig datasett $y_1,\\ldots,y_m$ er Poisson-fordelt med forventning $3\\lambda$ (kilde 2 måler et tre ganger så stort volum).\n\n**a)** Skriv opp den kombinerte log-likelihooden $l(\\lambda)$ (dropp konstantledd).\n\n**b)** Utled ML-estimatoren $\\hat{\\lambda}$.\n\n**c)** Vis at $\\hat{\\lambda}$ er forventningsrett.",
+        "solution": "**a)** Kilde 1: $\\ln p(x_i)=-\\lambda+x_i\\ln\\lambda+\\text{konst}$. Kilde 2: $\\ln p(y_j)=-3\\lambda+y_j\\ln(3\\lambda)+\\text{konst}=-3\\lambda+y_j\\ln 3+y_j\\ln\\lambda+\\text{konst}$. Samlet (konstanter droppet):\n$$l(\\lambda)=-n\\lambda-3m\\lambda+\\Big(\\sum x_i+\\sum y_j\\Big)\\ln\\lambda.$$\n\n**b)** $l'(\\lambda)=-(n+3m)+\\dfrac{\\sum x_i+\\sum y_j}{\\lambda}=0 \\Rightarrow \\hat{\\lambda}=\\dfrac{\\sum x_i+\\sum y_j}{n+3m}$. (Maksimum: $l''=-(\\sum x_i+\\sum y_j)/\\lambda^2<0$.)\n\n**c)** $E\\big(\\sum X_i\\big)=n\\lambda$ og $E\\big(\\sum Y_j\\big)=m\\cdot 3\\lambda=3m\\lambda$, så\n$$E(\\hat{\\lambda})=\\frac{n\\lambda+3m\\lambda}{n+3m}=\\frac{(n+3m)\\lambda}{n+3m}=\\lambda.$$\nForventningsrett. Legg merke til at nevneren er $n+3m$, ikke $n+m$ — hver $y$-observasjon «teller» $3\\lambda$ i forventning.",
+        "hints": [
+          "Skriv $\\ln(3\\lambda)=\\ln 3+\\ln\\lambda$; $\\ln 3$ er konstant.",
+          "Samle $\\ln\\lambda$-leddene og de lineære $\\lambda$-leddene hver for seg.",
+          "Bruk $E(\\sum Y_j)=3m\\lambda$ i forventningen."
+        ]
+      }
+    },
+    {
+      "id": "tma4245-5-2-v2",
+      "type": "exercise",
+      "exercise": {
+        "id": "tma4245-5-2-v2",
+        "number": "5",
+        "type": "classic",
+        "difficulty": "vanskelig",
+        "task": "Bruddstyrken til $n$ fiberprøver er gammafordelt med **kjent** formparameter $\\alpha=4$ og ukjent skalaparameter $\\theta$: $f(x)=\\frac{1}{\\Gamma(4)\\theta^4}x^{3}e^{-x/\\theta}$, $x>0$. Det er kjent at $E(X)=4\\theta$.\n\n**a)** Skriv opp log-likelihooden og dropp ledd som er konstante i $\\theta$.\n\n**b)** Utled ML-estimatoren $\\hat{\\theta}$.\n\n**c)** Vis at $\\hat{\\theta}$ er forventningsrett.",
+        "solution": "**a)** $\\ln f(x_i)=3\\ln x_i - \\dfrac{x_i}{\\theta} - \\ln\\Gamma(4) - 4\\ln\\theta$. Bare de to $\\theta$-leddene teller:\n$$l(\\theta)=-4n\\ln\\theta - \\dfrac{1}{\\theta}\\sum x_i + \\text{konst}.$$\n\n**b)** $l'(\\theta)=-\\dfrac{4n}{\\theta}+\\dfrac{1}{\\theta^2}\\sum x_i=0 \\Rightarrow \\dfrac{4n}{\\theta}=\\dfrac{\\sum x_i}{\\theta^2}\\Rightarrow \\hat{\\theta}=\\dfrac{\\sum x_i}{4n}=\\dfrac{\\bar{X}}{4}$. (Maksimum: $l''(\\hat\\theta)=\\frac{4n}{\\hat\\theta^2}-\\frac{2\\sum x_i}{\\hat\\theta^3}=-\\frac{4n}{\\hat\\theta^2}<0$.)\n\n**c)** $E(\\hat{\\theta})=\\dfrac{E(\\bar{X})}{4}=\\dfrac{4\\theta}{4}=\\theta$. Forventningsrett.",
+        "hints": [
+          "Bare $-4\\ln\\theta$ og $-x_i/\\theta$ avhenger av $\\theta$.",
+          "$l'(\\theta)=-4n/\\theta+\\sum x_i/\\theta^2$.",
+          "$E(\\bar X)=E(X)=4\\theta$ for denne gammaen."
+        ]
+      }
+    },
+    {
+      "id": "tma4245-5-2-v3",
+      "type": "exercise",
+      "exercise": {
+        "id": "tma4245-5-2-v3",
+        "number": "6",
+        "type": "classic",
+        "difficulty": "vanskelig",
+        "task": "Antall biler i bruk per husholdning modelleres med **null-trunkert Poisson** (alle husholdninger har minst én bil), med punktsannsynlighet $p(x)=\\dfrac{e^{-\\lambda}\\lambda^x}{x!(1-e^{-\\lambda})}$ for $x=1,2,3,\\ldots$\n\n**a)** Skriv opp log-likelihooden $l(\\lambda)$ for $n$ observasjoner.\n\n**b)** Deriver og vis at likelihoodligningen kan skrives $\\bar{x}=\\dfrac{\\lambda}{1-e^{-\\lambda}}$.\n\n**c)** Har likningen en lukket løsning? Hva gjør du på eksamen?",
+        "solution": "**a)** $\\ln p(x_i)=-\\lambda + x_i\\ln\\lambda - \\ln(x_i!) - \\ln(1-e^{-\\lambda})$, så\n$$l(\\lambda)=-n\\lambda + \\Big(\\sum x_i\\Big)\\ln\\lambda - n\\ln(1-e^{-\\lambda}) - \\sum\\ln(x_i!).$$\n\n**b)** Deriver: $l'(\\lambda)=-n+\\dfrac{\\sum x_i}{\\lambda}-n\\cdot\\dfrac{e^{-\\lambda}}{1-e^{-\\lambda}}=0$. Del på $n$ og bruk $\\bar{x}=\\frac{1}{n}\\sum x_i$:\n$$\\frac{\\bar{x}}{\\lambda}=1+\\frac{e^{-\\lambda}}{1-e^{-\\lambda}}=\\frac{1-e^{-\\lambda}+e^{-\\lambda}}{1-e^{-\\lambda}}=\\frac{1}{1-e^{-\\lambda}}.$$\nAltså $\\bar{x}=\\dfrac{\\lambda}{1-e^{-\\lambda}}$.\n\n**c)** Nei — likningen er transcendental (blander $\\lambda$ og $e^{-\\lambda}$), så det finnes **ingen lukket formel** $\\hat{\\lambda}=\\ldots$. På eksamen setter du opp likningen ryddig og sier at $\\hat{\\lambda}$ løses **numerisk** (for eksempel Newtons metode). For $\\bar{x}=2{,}5$ gir en solver $\\hat{\\lambda}\\approx 2{,}23$. Poenget er å sette opp likningen riktig — ikke å finne et symbolsk svar.",
+        "hints": [
+          "$\\ln p$ har et ledd $-\\ln(1-e^{-\\lambda})$; deriver det med kjerneregelen.",
+          "Deriverte av $-\\ln(1-e^{-\\lambda})$ er $-e^{-\\lambda}/(1-e^{-\\lambda})$.",
+          "Transcendental likning → numerisk løsning; sett den opp ryddig."
+        ]
+      }
+    },
+    {
+      "id": "tma4245-5-2-warn",
+      "type": "warning",
+      "title": "Typiske feil",
+      "content": "- **Derivere uten å ta logaritmen først.** Å derivere produktet $L(\\theta)$ direkte er nesten alltid et mareritt. Ta $\\ln$ først — produkt blir sum, og maksimumet flyttes ikke.\n- **Hoppe over maksimumskontrollen (trinn 5).** $l'(\\hat{\\theta})=0$ gir bare et kritisk punkt. Vis $l''(\\hat{\\theta})<0$ (eller monotoni). Dette er toppbesvarelses-markøren — ofte bare én linje.\n- **Glemme at likelihooden er et produkt over ALLE observasjoner.** I kombinerte oppsett må produktet inneholde begge kilder; å slippe kilde to er den vanligste feilen der.\n- **Substituere bibetingelsen etter derivasjon.** Sett bindingen ($\\mu_A=2\\mu_B$) inn i likelihooden *før* du deriverer, så du sitter med én fri parameter.\n- **Forveksle estimator og estimat i svaret.** Skriv den ferdige estimatoren med stor bokstav og hatt ($\\hat{\\beta}=\\bar{X}$); et konkret tall er estimatet.\n- **Løse ligningen ufullstendig.** Kom helt frem til $\\hat{\\theta}=\\ldots$ — et halvferdig $l'=0$ uten løsning gir ikke full uttelling. Er den transcendental, si eksplisitt at den løses numerisk.\n- **Bruke divisor $n-1$ i ML for normalvariansen.** ML gir divisor $n$ ($\\hat{\\sigma}^2$, skjev); $n-1$ er den forventningsrette korreksjonen $S^2$, ikke ML-estimatoren."
+    },
+    {
+      "id": "tma4245-5-2-begrepsbank",
+      "type": "text",
+      "content": "## Begrepsbank til eksamen\n\nRitualet, resultatkortene for standardfordelingene, og teknikk-kortene for variantene.\n\n*Begrepsbanken er flashcard-/repetisjonsstoff — den gjentar det du nettopp har lest. Hopp trygt over ved førstegangslesing; tidsanslaget gjelder kjernestoffet.*"
+    },
+    {
+      "id": "tma4245-5-2-bb-ritual",
+      "type": "definition",
+      "title": "Oppskriftskort: ML-ritualet",
+      "content": "Fem trinn, alltid: **(1)** likelihood $L(\\theta)=\\prod f(x_i;\\theta)$ (over alle observasjoner); **(2)** log $l=\\ln L=\\sum\\ln f$; **(3)** deriver og sett $l'(\\theta)=0$; **(4)** løs for $\\hat{\\theta}$; **(5)** maksimumskontroll ($l''(\\hat{\\theta})<0$ eller monotoni). Skriv estimatoren med hatt og stor bokstav."
+    },
+    {
+      "id": "tma4245-5-2-bb-eksp",
+      "type": "definition",
+      "title": "Resultatkort: eksponensial $\\hat{\\beta}=\\bar{X}$",
+      "content": "For eksponensial$(\\beta)$: $l(\\beta)=-n\\ln\\beta-\\frac{1}{\\beta}\\sum x_i$, $\\hat{\\beta}=\\bar{X}$. Maksimum: $l''(\\hat{\\beta})=-n/\\hat{\\beta}^2<0$. Forventningsrett, siden $E(X)=\\beta$. Den mest gjennomregnede ML-en i emnet."
+    },
+    {
+      "id": "tma4245-5-2-bb-poisson",
+      "type": "definition",
+      "title": "Resultatkort: Poisson $\\hat{\\lambda}=\\bar{X}$",
+      "content": "For Poisson$(\\lambda)$: $l(\\lambda)=-n\\lambda+(\\sum x_i)\\ln\\lambda+\\text{konst}$, $\\hat{\\lambda}=\\bar{X}$. Maksimum: $l''=-\\sum x_i/\\lambda^2<0$. Forventningsrett, siden $E(X)=\\lambda$."
+    },
+    {
+      "id": "tma4245-5-2-bb-andel",
+      "type": "definition",
+      "title": "Resultatkort: andel $\\hat{p}=X/n$",
+      "content": "For binomisk med $x$ suksesser i $n$ forsøk: $l(p)=x\\ln p+(n-x)\\ln(1-p)+\\text{konst}$, $\\hat{p}=x/n$ (den observerte andelen). Forventningsrett: $E(\\hat{p})=np/n=p$."
+    },
+    {
+      "id": "tma4245-5-2-bb-normal",
+      "type": "definition",
+      "title": "Resultatkort: normal $\\hat{\\mu}=\\bar{X}$, $\\hat{\\sigma}^2$",
+      "content": "For $N(\\mu,\\sigma^2)$: $\\hat{\\mu}=\\bar{X}$ (forventningsrett), $\\hat{\\sigma}^2=\\frac{1}{n}\\sum(X_i-\\bar{X})^2$ med divisor **$n$** — **skjev** ($E(\\hat{\\sigma}^2)=\\frac{n-1}{n}\\sigma^2$). Korrigeres til $S^2$ (divisor $n-1$) for forventningsretthet ([kap. 5.1](/bok/tma4245/tma4245-5-1))."
+    },
+    {
+      "id": "tma4245-5-2-bb-gamma",
+      "type": "definition",
+      "title": "Resultatkort: gamma kjent form $\\hat{\\theta}=\\bar{X}/\\alpha$",
+      "content": "For gamma med kjent form $\\alpha$ og ukjent skala $\\theta$: $l(\\theta)=-\\alpha n\\ln\\theta-\\frac{1}{\\theta}\\sum x_i+\\text{konst}$, $\\hat{\\theta}=\\bar{X}/\\alpha$. Forventningsrett, siden $E(X)=\\alpha\\theta$. Eksponensial er $\\alpha=1$."
+    },
+    {
+      "id": "tma4245-5-2-bb-kombinert",
+      "type": "definition",
+      "title": "Teknikkort: kombinert likelihood",
+      "content": "Deler to uavhengige datasett parameteren $\\theta$: $L(\\theta)=\\prod f(x_i;\\theta)\\cdot\\prod g(y_j;\\theta)$, og $l$ er summen av bidragene fra begge. Deriver den samlede summen. Glem aldri kilde to — den vanligste feilen. Merk ulik forventning: hvis kilde 2 har $E=3\\lambda$, blir nevneren i estimatet vektet ($n+3m$, ikke $n+m$)."
+    },
+    {
+      "id": "tma4245-5-2-bb-numerisk",
+      "type": "definition",
+      "title": "Teknikkort: uten lukket løsning",
+      "content": "Gir $l'(\\theta)=0$ en transcendental likning (som null-trunkert Poisson: $\\bar{x}=\\lambda/(1-e^{-\\lambda})$), finnes ingen formel. Sett opp likningen ryddig og si at $\\hat{\\theta}$ løses **numerisk**. Å sette opp likningen riktig er poenget."
+    },
+    {
+      "id": "tma4245-5-2-bb-invarians",
+      "type": "definition",
+      "title": "Formelkort: invariansprinsippet",
+      "content": "$\\widehat{g(\\theta)}=g(\\hat{\\theta})$ — ML-estimatoren for en funksjon fås ved å sette inn $\\hat{\\theta}$. For eksponensial: median $\\widehat{\\beta\\ln 2}=\\bar{X}\\ln 2$; hale $\\widehat{P(X>t)}=e^{-t/\\bar{X}}$. Ingen ny utledning. Bro til deltametoden og KI-transformasjon."
+    },
+    {
+      "id": "tma4245-5-2-bb-maks",
+      "type": "definition",
+      "title": "Feilkort: maksimumskontroll",
+      "content": "$l'(\\hat{\\theta})=0$ finner bare et kritisk punkt. Toppbesvarelsen viser $l''(\\hat{\\theta})<0$ (nedadbøyd = maksimum) eller at $l'$ skifter fra positiv til negativ. Trinnet som oftest glemmes — og som skiller besvarelsene."
+    },
+    {
+      "id": "tma4245-5-2-rep",
+      "type": "collapsible",
+      "title": "Repetisjonsoppgaver",
+      "buttonText": "Vis repetisjonsoppgaver",
+      "content": [
+        {
+          "id": "tma4245-5-2-rep-1",
+          "type": "exercise",
+          "exercise": {
+            "id": "tma4245-5-2-rep-1",
+            "number": "R1",
+            "type": "classic",
+            "difficulty": "lett",
+            "task": "(Fra kap. 2.3) Skriv opp tettheten til en eksponensialfordeling med forventning $\\beta$.",
+            "solution": "$f(x)=\\dfrac{1}{\\beta}e^{-x/\\beta}$ for $x>0$ (og 0 ellers), med $E(X)=\\beta$ og $\\text{Var}(X)=\\beta^2$.",
+            "hints": [
+              "Boka bruker forventnings-formen med $\\beta$, ikke rate."
+            ]
+          }
+        },
+        {
+          "id": "tma4245-5-2-rep-2",
+          "type": "exercise",
+          "exercise": {
+            "id": "tma4245-5-2-rep-2",
+            "number": "R2",
+            "type": "classic",
+            "difficulty": "lett",
+            "task": "(Logaritmeregler) Skriv $\\ln(\\beta^{-n}e^{-S/\\beta})$ som en sum av to ledd.",
+            "solution": "$\\ln(\\beta^{-n}e^{-S/\\beta})=\\ln(\\beta^{-n})+\\ln(e^{-S/\\beta})=-n\\ln\\beta-\\dfrac{S}{\\beta}$.",
+            "hints": [
+              "$\\ln(ab)=\\ln a+\\ln b$ og $\\ln(a^b)=b\\ln a$; $\\ln(e^c)=c$."
+            ]
+          }
+        },
+        {
+          "id": "tma4245-5-2-rep-3",
+          "type": "exercise",
+          "exercise": {
+            "id": "tma4245-5-2-rep-3",
+            "number": "R3",
+            "type": "classic",
+            "difficulty": "middels",
+            "task": "(Fra kap. 5.1) ML gir $\\hat{\\sigma}^2=\\frac{1}{n}\\sum(X_i-\\bar{X})^2$. Er den forventningsrett for $\\sigma^2$? Hva er forventningen?",
+            "solution": "Nei — divisor $n$ gjør den skjev: $E(\\hat{\\sigma}^2)=\\frac{n-1}{n}\\sigma^2<\\sigma^2$. Den forventningsrette varianten deler på $n-1$ ($S^2$).",
+            "hints": [
+              "Bruk $E[\\sum(X_i-\\bar X)^2]=(n-1)\\sigma^2$."
+            ]
+          }
+        },
+        {
+          "id": "tma4245-5-2-rep-4",
+          "type": "exercise",
+          "exercise": {
+            "id": "tma4245-5-2-rep-4",
+            "number": "R4",
+            "type": "classic",
+            "difficulty": "middels",
+            "task": "(Derivasjon) Deriver $l(\\lambda)=-n\\lambda+S\\ln\\lambda$ mhp. $\\lambda$ og finn hvor den er 0 (her er $S=\\sum x_i$ konstant).",
+            "solution": "$l'(\\lambda)=-n+\\dfrac{S}{\\lambda}$. Satt lik 0: $\\lambda=\\dfrac{S}{n}=\\bar{x}$. (Dette er Poisson-ML-en.)",
+            "hints": [
+              "$\\frac{d}{d\\lambda}(S\\ln\\lambda)=S/\\lambda$.",
+              "Sett $-n+S/\\lambda=0$."
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": "tma4245-5-2-symbolliste",
+      "type": "collapsible",
+      "title": "Symbol- og formelliste",
+      "buttonText": "Vis symboler og formler",
+      "content": [
+        {
+          "id": "tma4245-5-2-symbolliste-text",
+          "type": "text",
+          "content": "*Oppslagsverk — alt her forklares underveis i kapitlet.*\n\nAlle symboler og formler brukt i kapittel 5.2, samlet.\n\n| Symbol | Betydning |\n|---|---|\n| $\\theta$ | Generell ukjent parameter |\n| $L(\\theta)$ | Likelihood-funksjonen (produkt av tettheter) |\n| $l(\\theta)$ | Log-likelihood, $\\ln L(\\theta)$ |\n| $l'(\\theta),\\,l''(\\theta)$ | Første- og annenderivert av $l$ |\n| $\\hat{\\theta}$ | ML-estimatoren |\n| $\\hat{\\beta}=\\bar{X}$ | ML for eksponensialens forventning |\n| $\\hat{\\lambda}=\\bar{X}$ | ML for Poisson-forventningen |\n| $\\hat{p}=X/n$ | ML for en andel |\n| $\\alpha,\\theta$ | Form- og skalaparameter i gamma |\n\n**Formler i dette kapitlet:**\n\n$$L(\\theta)=\\prod_{i=1}^n f(x_i;\\theta), \\qquad l(\\theta)=\\ln L(\\theta)=\\sum_{i=1}^n \\ln f(x_i;\\theta)$$\nLikelihood og log-likelihood (produkt over alle observasjoner).\n\n$$l'(\\hat{\\theta})=0, \\qquad l''(\\hat{\\theta})<0$$\nLikelihoodligningen og maksimumskontrollen.\n\n$$\\hat{\\beta}=\\bar{X}\\;(\\text{eksp}), \\quad \\hat{\\lambda}=\\bar{X}\\;(\\text{Poisson}), \\quad \\hat{p}=\\tfrac{X}{n}\\;(\\text{andel})$$\nStandardresultatene.\n\n$$\\hat{\\mu}=\\bar{X}, \\qquad \\hat{\\sigma}^2=\\frac{1}{n}\\sum(X_i-\\bar{X})^2 \\;(\\text{divisor } n,\\ \\text{skjev})$$\nNormalfordelingens ML-estimatorer.\n\n$$\\hat{\\theta}=\\frac{\\bar{X}}{\\alpha}\\;(\\text{gamma, kjent }\\alpha)$$\nML for gammaens skalaparameter.\n\n$$L(\\theta)=\\prod f(x_i;\\theta)\\cdot\\prod g(y_j;\\theta)$$\nKombinert likelihood fra to datakilder.\n\n$$\\widehat{g(\\theta)}=g(\\hat{\\theta})$$\nInvariansprinsippet.\n\n$$\\bar{x}=\\frac{\\lambda}{1-e^{-\\lambda}}$$\nNull-trunkert Poisson — transcendental, løses numerisk."
+        }
+      ]
+    }
+  ],
+  "exercises": []
+}

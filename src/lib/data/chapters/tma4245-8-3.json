@@ -1,0 +1,355 @@
+{
+  "id": "tma4245-8-3",
+  "courseId": "tma4245",
+  "chapterNumber": "8.3",
+  "title": "NTNU-varianten: regresjon uten konstantledd og tre estimatorer for β",
+  "description": "Modellen $Y=\\beta x+\\varepsilon$ der tre foreslåtte estimatorer sammenlignes på forventningsretthet og varians, med inferens på $n-1$ frihetsgrader.",
+  "estimatedMinutes": 55,
+  "competenceGoals": [
+    "utlede LS-estimatoren i regresjon uten konstantledd fra råsummene",
+    "vise at de tre foreslåtte estimatorene er forventningsrette og finne variansene deres",
+    "begrunne hvorfor LS-estimatoren har minst varians og bør velges",
+    "gjennomføre test og konfidensintervall i origo-modellen med riktig frihetsgrad $n-1$"
+  ],
+  "content": [
+    {
+      "id": "tma4245-8-3-tip",
+      "type": "tip",
+      "title": "Eksamensvinkel",
+      "content": "**Dette er arkivets favoritt-vri på regresjonsoppgaven — og en ekte A-differensiator.**\n\n- **Regresjon uten konstantledd med estimator-sammenligning** dukket opp i **Mai22, Aug22 og Des23** — en tydelig NTNU-favoritt. Modellen tvinges gjennom origo: $Y_i=\\beta x_i+\\varepsilon_i$, og tre foreslåtte estimatorer skal veies mot hverandre.\n- Oppgaven kombinerer **sammenligningsprotokollen fra [kap. 5.1](/bok/tma4245/tma4245-5-1)** (er estimatoren forventningsrett? hvem har minst varians?) med **LS-maskineriet fra [kap. 8.1](/bok/tma4245/tma4245-8-1)**. Det er sjanger **J** (regresjon) krysset med sjanger **G** (estimatorsammenligning — G er bokstavkoden for «vurder og velg estimator»).\n- De tre kandidatene som går igjen er $\\hat{\\beta}_1=\\dfrac{\\sum x_iY_i}{\\sum x_i^2}$ (LS), $\\hat{\\beta}_2=\\dfrac{1}{n}\\sum\\dfrac{Y_i}{x_i}$ og $\\hat{\\beta}_3=\\dfrac{\\bar{Y}}{\\bar{x}}$.\n\n**Hvor poengene sitter:** i å **utlede LS-estimatoren uten konstantledd** riktig, i å vise at **alle tre er forventningsrette** (ved linearitet), i å regne **variansene korrekt** (kvadrer $x_i$-ene!) og konkludere at **LS vinner**, og i å huske at inferensen her har **$n-1$ frihetsgrader — ikke $n-2$** (bare én parameter er estimert). Prioritet: **kunne** — dette skiller A fra B."
+    },
+    {
+      "id": "tma4245-8-3-forkunnskaper",
+      "type": "text",
+      "content": "**Forkunnskaper:** Dette er en sammensmelting av to ferdigheter. Fra **[kap. 8.1](/bok/tma4245/tma4245-8-1)** og **[kap. 8.2](/bok/tma4245/tma4245-8-2)** tar vi LS-metoden og inferensen for regresjon. Fra **[kap. 5.1](/bok/tma4245/tma4245-5-1)** tar vi **sammenligningsprotokollen for estimatorer**: sjekk forventningsretthet, regn variansen, og velg den forventningsrette med minst varians.\n\n**Sist du var her — de tre verktøyene vi bygger på (ferdig oppfrisket):**\n\n1. **Sammenligningsprotokollen (kap. 5.1).** En estimator er **forventningsrett** hvis $E(\\hat{\\theta})=\\theta$. Blant flere forventningsrette velger vi den med **minst varians** (mest presis). Er en skjev, sammenligner vi heller MSE — men her er alle tre forventningsrette.\n2. **Lineærkombinasjonsreglene (kap. 3.2, brukt i 8.1).** For faste $c_i$ og uavhengige $Y_i$ med $\\text{Var}(Y_i)=\\sigma^2$: $E(\\sum c_iY_i)=\\sum c_iE(Y_i)$ og $\\text{Var}(\\sum c_iY_i)=\\sigma^2\\sum c_i^2$. Alle tre kandidatene er slike veide summer.\n3. **LS-ideen (kap. 8.1).** Minimer kvadratsummen av residualene ved å derivere og sette lik null — nå med bare én parameter $\\beta$.\n\nDette er sistekapitlet i regresjonsdelen; det trekker trådene fra hele Del 8 sammen."
+    },
+    {
+      "id": "tma4245-8-3-intro",
+      "type": "text",
+      "content": "Noen ganger *vet* vi at responsen skal være null når $x$ er null: strømforbruk ved null produksjon, strekk ved null last, avstand ved null tid. Da er det faglig riktig å **tvinge regresjonslinja gjennom origo** og droppe konstantleddet: $Y_i=\\beta x_i+\\varepsilon_i$. Men da åpner det seg flere «naturlige» måter å estimere $\\beta$ på — og eksamen elsker å be deg **sammenligne dem**.\n\nFire løkker: **modellen og LS-estimatoren uten konstantledd** (løkke 1), **de tre kandidatene og forventningsretthet** (løkke 2), **variansene — hvem vinner?** (løkke 3), og **inferens med $n-1$ frihetsgrader** (løkke 4). Hver løkke går teori $\\to$ eksempel $\\to$ oppgave.\n\n*Samlet kjernetid ≈ 55 min. Pausepunkter er markert mellom løkkene.*"
+    },
+    {
+      "id": "tma4245-8-3-lokke1",
+      "type": "text",
+      "content": "## Løkke 1 — Modellen uten konstantledd og LS-estimatoren (~13 min)"
+    },
+    {
+      "id": "tma4245-8-3-def-origo",
+      "type": "definition",
+      "title": "Regresjon gjennom origo",
+      "content": "Når teorien tilsier at responsen er **null ved $x=0$**, dropper vi konstantleddet og bruker **origo-modellen**:\n\n$$Y_i=\\beta x_i+\\varepsilon_i,\\qquad \\varepsilon_i\\ \\text{uavhengige}\\ N(0,\\sigma^2),\\quad x_i\\ \\text{faste}.$$\n\nDe **samme tre feilantagelsene** som før gjelder (uavhengighet, konstant varians, normalitet), og $x_i$ er fortsatt faste. Forskjellen er bare at linja er tvunget gjennom $(0,0)$. **Når er det riktig?** Bare når du har en faglig grunn til at $E(Y)=0$ ved $x=0$ — f.eks. proporsjonalitet (strømforbruk $\\propto$ produksjonsvolum). Uten en slik grunn skal du beholde konstantleddet, ellers presser du modellen inn i en form dataene ikke støtter."
+    },
+    {
+      "id": "tma4245-8-3-def-ls-origo",
+      "type": "definition",
+      "title": "LS-estimatoren uten konstantledd",
+      "content": "Vi finner $\\hat{\\beta}$ ved minste kvadraters metode: minimer kvadratsummen av residualene, nå med bare **én** parameter:\n\n$$Q(\\beta)=\\sum_{i=1}^n\\big(Y_i-\\beta x_i\\big)^2.$$\n\nDeriver mhp. $\\beta$ og sett lik null:\n$$Q'(\\beta)=\\sum 2(Y_i-\\beta x_i)(-x_i)=-2\\sum x_i(Y_i-\\beta x_i)=0.$$\n\nLøs for $\\beta$: $\\sum x_iY_i=\\beta\\sum x_i^2$, altså\n$$\\hat{\\beta}=\\frac{\\sum x_iY_i}{\\sum x_i^2}.$$\n\nMerk formen: **råsummer** $\\sum x_iY_i$ og $\\sum x_i^2$ (ikke sentrerte summer $S_{xy},S_{xx}$ — vi trekker ikke fra $\\bar{x},\\bar{y}$, fordi vi ikke estimerer noe konstantledd). Dette er kandidat $\\hat{\\beta}_1$ i sammenligningen som følger."
+    },
+    {
+      "id": "tma4245-8-3-ex1",
+      "type": "example",
+      "title": "Eksempel 1: LS-estimatet i origo-modellen (strømforbruk)",
+      "problem": "Strømforbruket $Y$ (MWh) antas proporsjonalt med produksjonsvolumet $x$ (tusen enheter): $Y_i=\\beta x_i+\\varepsilon_i$. Fem målinger gir\n\n| $x$ | 2 | 4 | 6 | 8 | 10 |\n|---|---|---|---|---|---|\n| $y$ | 5 | 11 | 16 | 23 | 28 |\n\nFinn LS-estimatet $\\hat{\\beta}_1$.",
+      "solution": "Vi trenger to råsummer:\n$$\\sum x_i^2=2^2+4^2+6^2+8^2+10^2=4+16+36+64+100=220,$$\n$$\\sum x_iY_i=2\\cdot5+4\\cdot11+6\\cdot16+8\\cdot23+10\\cdot28=10+44+96+184+280=614.$$\n\nSå\n$$\\hat{\\beta}_1=\\frac{\\sum x_iY_i}{\\sum x_i^2}=\\frac{614}{220}=2{,}791.$$\n\nModellen forutsier altså ca. $2{,}79$ MWh strøm per tusen produserte enheter.\n\n> *Sensornotat:* i origo-modellen er det **råsummene** $\\sum x_iY_i$ og $\\sum x_i^2$ som brukes — ikke de sentrerte $S_{xy},S_{xx}$. Å sentrere her er feil, for det svarer til å innføre et konstantledd vi nettopp har fjernet."
+    },
+    {
+      "id": "tma4245-8-3-l1",
+      "type": "exercise",
+      "exercise": {
+        "id": "tma4245-8-3-l1",
+        "number": "1",
+        "type": "classic",
+        "difficulty": "lett",
+        "task": "(Innstegsoppgave.) I en origo-modell $Y_i=\\beta x_i+\\varepsilon_i$ er det oppgitt $\\sum x_i^2=50$ og $\\sum x_iY_i=140$.\n\n**a)** Skriv opp LS-estimatoren $\\hat{\\beta}_1$.\n\n**b)** Regn ut estimatet.",
+        "solution": "**a)** $\\hat{\\beta}_1=\\dfrac{\\sum x_iY_i}{\\sum x_i^2}$.\n\n**b)** $\\hat{\\beta}_1=\\dfrac{140}{50}=2{,}8$.",
+        "hints": [
+          "I origo-modellen er teller $\\sum x_iY_i$, nevner $\\sum x_i^2$.",
+          "Sett de oppgitte råsummene rett inn."
+        ]
+      }
+    },
+    {
+      "id": "tma4245-8-3-pause1",
+      "type": "text",
+      "content": "*— naturlig pausepunkt —*"
+    },
+    {
+      "id": "tma4245-8-3-lokke2",
+      "type": "text",
+      "content": "## Løkke 2 — Tre kandidater, alle forventningsrette (~15 min)"
+    },
+    {
+      "id": "tma4245-8-3-def-tre",
+      "type": "definition",
+      "title": "De tre foreslåtte estimatorene",
+      "content": "I origo-modellen finnes flere «naturlige» estimatorer for $\\beta$, og oppgaven ber deg sammenligne disse tre:\n\n$$\\hat{\\beta}_1=\\frac{\\sum x_iY_i}{\\sum x_i^2}\\ (\\text{LS}),\\qquad \\hat{\\beta}_2=\\frac{1}{n}\\sum_{i=1}^n\\frac{Y_i}{x_i},\\qquad \\hat{\\beta}_3=\\frac{\\bar{Y}}{\\bar{x}}.$$\n\nTanken bak hver: $\\hat{\\beta}_1$ er minste kvadraters løsning. $\\hat{\\beta}_2$ regner en helning $Y_i/x_i$ for hvert punkt og tar **gjennomsnittet av helningene**. $\\hat{\\beta}_3$ tar **forholdet mellom snittene** (helningen fra origo til tyngdepunktet). Alle tre er **lineærkombinasjoner** $\\sum c_iY_i$ av observasjonene — nettopp derfor kan vi bruke regnereglene fra [kap. 3.2](/bok/tma4245/tma4245-3-2) til å finne forventning og varians for hver."
+    },
+    {
+      "id": "tma4245-8-3-def-forventning",
+      "type": "definition",
+      "title": "Alle tre er forventningsrette",
+      "content": "For hver kandidat sjekker vi forventningen, med $E(Y_i)=\\beta x_i$ (origo-modellen) og linearitet:\n\n$$E(\\hat{\\beta}_1)=\\frac{\\sum x_iE(Y_i)}{\\sum x_i^2}=\\frac{\\sum x_i(\\beta x_i)}{\\sum x_i^2}=\\frac{\\beta\\sum x_i^2}{\\sum x_i^2}=\\beta.$$\n\n$$E(\\hat{\\beta}_2)=\\frac{1}{n}\\sum\\frac{E(Y_i)}{x_i}=\\frac{1}{n}\\sum\\frac{\\beta x_i}{x_i}=\\frac{1}{n}\\sum\\beta=\\beta.$$\n\n$$E(\\hat{\\beta}_3)=\\frac{E(\\bar{Y})}{\\bar{x}}=\\frac{\\frac{1}{n}\\sum\\beta x_i}{\\bar{x}}=\\frac{\\beta\\bar{x}}{\\bar{x}}=\\beta.$$\n\nAlle tre treffer $\\beta$ i gjennomsnitt — de er **forventningsrette**. Forventningsretthet alene skiller dem altså ikke; det er **variansen** som avgjør hvem vi bør bruke (løkke 3)."
+    },
+    {
+      "id": "tma4245-8-3-ex2",
+      "type": "example",
+      "title": "Eksempel 2: Regn alle tre estimatene (strømforbruk)",
+      "problem": "Bruk dataene fra eksempel 1 ($x=2,4,6,8,10$; $y=5,11,16,23,28$; $n=5$). Regn ut $\\hat{\\beta}_2$ og $\\hat{\\beta}_3$, og sammenlign med $\\hat{\\beta}_1=2{,}791$.",
+      "solution": "**$\\hat{\\beta}_2$** (snitt av punkthelningene $y_i/x_i$):\n$$\\frac{y_i}{x_i}:\\ \\frac{5}{2}=2{,}50,\\ \\frac{11}{4}=2{,}75,\\ \\frac{16}{6}=2{,}667,\\ \\frac{23}{8}=2{,}875,\\ \\frac{28}{10}=2{,}80.$$\n$$\\hat{\\beta}_2=\\frac{1}{5}(2{,}50+2{,}75+2{,}667+2{,}875+2{,}80)=\\frac{13{,}592}{5}=2{,}718.$$\n\n**$\\hat{\\beta}_3$** (forhold mellom snittene): $\\bar{x}=30/5=6$, $\\bar{y}=83/5=16{,}6$, så\n$$\\hat{\\beta}_3=\\frac{\\bar{y}}{\\bar{x}}=\\frac{16{,}6}{6}=2{,}767.$$\n\n**Sammenligning:** $\\hat{\\beta}_1=2{,}791$, $\\hat{\\beta}_2=2{,}718$, $\\hat{\\beta}_3=2{,}767$ — tre nære, men ulike tall fra samme data. De er alle forventningsrette; forskjellen i *presisjon* ligger i variansen.\n\n> *Sensornotat:* at tallene er nære betyr ikke at estimatorene er like gode — poenget kommer når vi regner variansene."
+    },
+    {
+      "id": "tma4245-8-3-l2",
+      "type": "exercise",
+      "exercise": {
+        "id": "tma4245-8-3-l2",
+        "number": "2",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "I origo-modellen $Y_i=\\beta x_i+\\varepsilon_i$ med $E(Y_i)=\\beta x_i$:\n\n**a)** Vis at $\\hat{\\beta}_2=\\dfrac{1}{n}\\sum\\dfrac{Y_i}{x_i}$ er forventningsrett.\n\n**b)** Er $\\hat{\\beta}_3=\\bar{Y}/\\bar{x}$ forventningsrett? Vis regningen.",
+        "solution": "**a)** $E(\\hat{\\beta}_2)=\\dfrac{1}{n}\\sum\\dfrac{E(Y_i)}{x_i}=\\dfrac{1}{n}\\sum\\dfrac{\\beta x_i}{x_i}=\\dfrac{1}{n}\\sum\\beta=\\dfrac{1}{n}\\cdot n\\beta=\\beta$. Forventningsrett.\n\n**b)** $E(\\hat{\\beta}_3)=\\dfrac{E(\\bar{Y})}{\\bar{x}}$. Nå er $E(\\bar{Y})=\\dfrac{1}{n}\\sum E(Y_i)=\\dfrac{1}{n}\\sum\\beta x_i=\\beta\\bar{x}$, så $E(\\hat{\\beta}_3)=\\dfrac{\\beta\\bar{x}}{\\bar{x}}=\\beta$. Ja, forventningsrett.",
+        "hints": [
+          "Sett inn $E(Y_i)=\\beta x_i$ og bruk at $E$ er lineær.",
+          "$\\bar{x}$ er en konstant og kan trekkes utenfor $E$.",
+          "$\\sum\\beta=n\\beta$."
+        ]
+      }
+    },
+    {
+      "id": "tma4245-8-3-pause2",
+      "type": "text",
+      "content": "*— naturlig pausepunkt —*"
+    },
+    {
+      "id": "tma4245-8-3-lokke3",
+      "type": "text",
+      "content": "## Løkke 3 — Variansene: hvem vinner? (~15 min)"
+    },
+    {
+      "id": "tma4245-8-3-def-varians",
+      "type": "definition",
+      "title": "Variansene til de tre — og hvorfor LS vinner",
+      "content": "Hver kandidat er en lineærkombinasjon $\\sum c_iY_i$, så $\\text{Var}=\\sigma^2\\sum c_i^2$ (uavhengighet + konstant varians). **Pass på å kvadrere $x_i$-ene** når de står i nevneren:\n\n$$\\text{Var}(\\hat{\\beta}_1)=\\frac{\\sigma^2}{\\sum x_i^2},\\qquad \\text{Var}(\\hat{\\beta}_2)=\\frac{\\sigma^2}{n^2}\\sum\\frac{1}{x_i^2},\\qquad \\text{Var}(\\hat{\\beta}_3)=\\frac{\\sigma^2}{n\\bar{x}^2}.$$\n\n*Utledning av $\\hat{\\beta}_1$:* vektene er $c_i=x_i/\\sum x_j^2$, så $\\sum c_i^2=\\sum x_i^2/(\\sum x_j^2)^2=1/\\sum x_i^2$. *For $\\hat{\\beta}_2$:* $c_i=\\frac{1}{nx_i}$, så $\\sum c_i^2=\\frac{1}{n^2}\\sum\\frac{1}{x_i^2}$. *For $\\hat{\\beta}_3$:* $\\bar{Y}=\\frac{1}{n}\\sum Y_i$ delt på konstanten $\\bar{x}$ gir $c_i=\\frac{1}{n\\bar{x}}$, så $\\sum c_i^2=n\\cdot\\frac{1}{n^2\\bar{x}^2}=\\frac{1}{n\\bar{x}^2}$.\n\n**LS vinner:** $\\text{Var}(\\hat{\\beta}_1)$ er **minst** blant de tre for alle datasett (med minst to ulike $x_i$). Det følger av **Cauchy–Schwarz-ulikheten** (som gir $n^2\\le\\sum x_i^2\\sum\\frac{1}{x_i^2}$, altså $\\text{Var}(\\hat{\\beta}_1)\\le\\text{Var}(\\hat{\\beta}_2)$) — og mer generelt av at LS er den beste forventningsrette lineære estimatoren (minst varians). Konklusjon: **velg $\\hat{\\beta}_1$**."
+    },
+    {
+      "id": "tma4245-8-3-ex3",
+      "type": "example",
+      "title": "Eksempel 3: Sammenlign variansene (strømforbruk)",
+      "problem": "Bruk igjen dataene $x=2,4,6,8,10$ ($n=5$, $\\bar{x}=6$). Regn ut variansene til de tre estimatorene (som multiplum av $\\sigma^2$), og avgjør hvilken du ville brukt.",
+      "solution": "Vi trenger tre summer: $\\sum x_i^2=220$, $\\sum\\frac{1}{x_i^2}=\\frac{1}{4}+\\frac{1}{16}+\\frac{1}{36}+\\frac{1}{64}+\\frac{1}{100}=0{,}3659$, og $\\bar{x}^2=36$.\n\n$$\\text{Var}(\\hat{\\beta}_1)=\\frac{\\sigma^2}{220}=0{,}00455\\,\\sigma^2,$$\n$$\\text{Var}(\\hat{\\beta}_2)=\\frac{\\sigma^2}{5^2}\\cdot0{,}3659=\\frac{0{,}3659}{25}\\sigma^2=0{,}01464\\,\\sigma^2,$$\n$$\\text{Var}(\\hat{\\beta}_3)=\\frac{\\sigma^2}{5\\cdot36}=\\frac{\\sigma^2}{180}=0{,}00556\\,\\sigma^2.$$\n\n**Rangering:** $\\text{Var}(\\hat{\\beta}_1)<\\text{Var}(\\hat{\\beta}_3)<\\text{Var}(\\hat{\\beta}_2)$. Alle tre er forventningsrette, så vi velger den med minst varians: **$\\hat{\\beta}_1$ (LS)**. Den har ca. $3{,}2$ ganger mindre varians enn $\\hat{\\beta}_2$.\n\n> *Sensornotat:* den vanligste regnefeilen er å glemme kvadratet på $x_i$ i nevneren (skrive $\\sum x_i$ i stedet for $\\sum x_i^2$). Da kollapser hele sammenligningen."
+    },
+    {
+      "id": "tma4245-8-3-l3",
+      "type": "exercise",
+      "exercise": {
+        "id": "tma4245-8-3-l3",
+        "number": "3",
+        "type": "classic",
+        "difficulty": "vanskelig",
+        "task": "For en origo-modell med $n=3$ og $x=(1,2,3)$:\n\n**a)** Regn $\\text{Var}(\\hat{\\beta}_1)$ og $\\text{Var}(\\hat{\\beta}_3)$ som multiplum av $\\sigma^2$.\n\n**b)** Hvilken av de to er mest presis?\n\n**c)** Hvorfor er det ingen motsetning at $\\hat{\\beta}_3$ har større varians selv om den også er forventningsrett?",
+        "solution": "**a)** $\\sum x_i^2=1+4+9=14$, så $\\text{Var}(\\hat{\\beta}_1)=\\sigma^2/14=0{,}0714\\,\\sigma^2$. $\\bar{x}=2$, $n\\bar{x}^2=3\\cdot4=12$, så $\\text{Var}(\\hat{\\beta}_3)=\\sigma^2/12=0{,}0833\\,\\sigma^2$.\n\n**b)** $\\hat{\\beta}_1$ — den har minst varians ($0{,}0714<0{,}0833$).\n\n**c)** Forventningsretthet sier bare at estimatoren treffer $\\beta$ **i gjennomsnitt**; den sier ingenting om **spredningen** rundt $\\beta$. To forventningsrette estimatorer kan ha ulik presisjon, og da velger vi den med minst varians.",
+        "hints": [
+          "$\\text{Var}(\\hat{\\beta}_1)=\\sigma^2/\\sum x_i^2$, $\\text{Var}(\\hat{\\beta}_3)=\\sigma^2/(n\\bar{x}^2)$.",
+          "Regn de to nevnerne og sammenlign.",
+          "Forventningsrett = riktig i snitt; varians = presisjon rundt snittet."
+        ]
+      }
+    },
+    {
+      "id": "tma4245-8-3-pause3",
+      "type": "text",
+      "content": "*— naturlig pausepunkt —*"
+    },
+    {
+      "id": "tma4245-8-3-lokke4",
+      "type": "text",
+      "content": "## Løkke 4 — Inferens med $n-1$ frihetsgrader (~12 min)"
+    },
+    {
+      "id": "tma4245-8-3-def-inferens",
+      "type": "definition",
+      "title": "Test og KI i origo-modellen — $n-1$ frihetsgrader",
+      "content": "Inferensen for $\\hat{\\beta}_1$ følger samme t-logikk som i [kap. 8.2](/bok/tma4245/tma4245-8-2), med **én avgjørende forskjell i frihetsgraden**. Vi har bare estimert **én** parameter ($\\beta$ — intet konstantledd), så residualene mister bare **én** frihetsgrad:\n\n$$s^2=\\frac{\\text{SSE}}{n-1},\\qquad \\text{SSE}=\\sum(Y_i-\\hat{\\beta}_1x_i)^2,$$\n\nog\n$$T=\\frac{\\hat{\\beta}_1-\\beta_0}{s/\\sqrt{\\sum x_i^2}}\\sim t_{n-1}\\quad\\text{under }H_0:\\beta=\\beta_0.$$\n\nKonfidensintervall: $\\hat{\\beta}_1\\pm t_{n-1,\\alpha/2}\\cdot\\dfrac{s}{\\sqrt{\\sum x_i^2}}$. **Merk kontrasten til den vanlige modellen:** med konstantledd deles det på $n-2$ (to parametre); i origo-modellen på $n-1$ (én parameter). Standardfeilen bruker **$\\sqrt{\\sum x_i^2}$** (råsummen), ikke $\\sqrt{S_{xx}}$."
+    },
+    {
+      "id": "tma4245-8-3-ex4",
+      "type": "example",
+      "title": "Eksempel 4: Test og KI i origo-modellen (strømforbruk)",
+      "problem": "Fortsatt dataene $x=2,4,6,8,10$; $y=5,11,16,23,28$; $n=5$, $\\hat{\\beta}_1=2{,}791$, $\\sum x_i^2=220$. Det er regnet ut at $\\text{SSE}=\\sum(y_i-\\hat{\\beta}_1x_i)^2=1{,}382$. Test på $5\\,\\%$-nivå om proporsjonalitetskonstanten er $3$ ($H_0:\\beta=3$), og gi et $95\\,\\%$ KI for $\\beta$.",
+      "solution": "**Variansestimat** — divisor $n-1=4$ (bare $\\beta$ estimert):\n$$s^2=\\frac{\\text{SSE}}{n-1}=\\frac{1{,}382}{4}=0{,}3455,\\qquad s=\\sqrt{0{,}3455}=0{,}588.$$\n\n**Standardfeil:** $\\text{SE}(\\hat{\\beta}_1)=\\dfrac{s}{\\sqrt{\\sum x_i^2}}=\\dfrac{0{,}588}{\\sqrt{220}}=\\dfrac{0{,}588}{14{,}83}=0{,}0396$.\n\n**Test** $H_0:\\beta=3$ (tosidig), frihetsgrad $n-1=4$:\n$$T=\\frac{\\hat{\\beta}_1-3}{\\text{SE}}=\\frac{2{,}791-3}{0{,}0396}=-5{,}28.$$\nKritisk verdi $t_{4,0{,}025}=2{,}776$. Siden $|{-5{,}28}|>2{,}776$, **forkastes $H_0$** — konstanten er signifikant forskjellig fra $3$.\n\n**Konfidensintervall:**\n$$2{,}791\\pm2{,}776\\cdot0{,}0396=2{,}791\\pm0{,}110=(2{,}681,\\ 2{,}901).$$\nVerdien $3$ ligger utenfor — samme konklusjon som testen.\n\n> *Sensornotat:* frihetsgrad $n-1=4$, **ikke** $n-2=3$. Bruker du $n-2$, får du feil $s^2$, feil SE og feil kritisk verdi. Dette er det ene tallet sensor sjekker først i denne oppgavetypen."
+    },
+    {
+      "id": "tma4245-8-3-l4",
+      "type": "exercise",
+      "exercise": {
+        "id": "tma4245-8-3-l4",
+        "number": "4",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "I en origo-modell med $n=8$ er $\\hat{\\beta}_1=1{,}90$, $\\sum x_i^2=250$ og $\\text{SSE}=21$.\n\n**a)** Finn $s^2$ og $s$ med riktig frihetsgrad.\n\n**b)** Finn standardfeilen $\\text{SE}(\\hat{\\beta}_1)=s/\\sqrt{\\sum x_i^2}$.\n\n**c)** Hvilken frihetsgrad har testobservatoren, og hvorfor er den ikke $n-2$?",
+        "solution": "**a)** Divisor $n-1=7$: $s^2=21/7=3{,}0$, $s=\\sqrt{3{,}0}=1{,}73$.\n\n**b)** $\\text{SE}(\\hat{\\beta}_1)=\\dfrac{1{,}73}{\\sqrt{250}}=\\dfrac{1{,}73}{15{,}81}=0{,}109$.\n\n**c)** Frihetsgrad $n-1=7$. I origo-modellen er det bare **én** parameter ($\\beta$) som estimeres — intet konstantledd — så bare én frihetsgrad tapes. Med konstantledd (to parametre) ville det vært $n-2$.",
+        "hints": [
+          "Origo-modellen: del SSE på $n-1$.",
+          "$\\text{SE}=s/\\sqrt{\\sum x_i^2}$ med råsummen.",
+          "Antall estimerte parametre = antall tapte frihetsgrader; her bare $\\beta$."
+        ]
+      }
+    },
+    {
+      "id": "tma4245-8-3-warn",
+      "type": "warning",
+      "title": "Typiske feil",
+      "content": "- **$n-2$ frihetsgrader i origo-modellen.** Her estimeres bare **én** parameter ($\\beta$), så $s^2=\\text{SSE}/(n-1)$ og $T\\sim t_{n-1}$. Divisor $n-2$ hører til modellen **med** konstantledd. Dette er den hyppigste feilen i denne oppgavetypen.\n- **Regne variansen uten kvadrat på $x_i$.** Variansene har $\\sum x_i^2$ og $\\sum 1/x_i^2$ i seg. Skriver du $\\sum x_i$ eller $\\sum 1/x_i$, blir alle tre variansene gale, og sammenligningen kollapser.\n- **Anta at kandidatene er skjeve.** Alle tre ($\\hat{\\beta}_1,\\hat{\\beta}_2,\\hat{\\beta}_3$) er forventningsrette — vis det, og hopp så rett til varians (ikke til MSE, som bare trengs ved skjevhet).\n- **Velge estimator uten begrunnelse i begge kriterier.** Svaret «velg $\\hat{\\beta}_1$» må hvile på *både* at alle er forventningsrette *og* at $\\hat{\\beta}_1$ har minst varians. Bare det ene holder ikke.\n- **Bruke sentrerte summer $S_{xy},S_{xx}$.** I origo-modellen brukes **råsummene** $\\sum x_iY_i$ og $\\sum x_i^2$ — sentrering svarer til å gjeninnføre konstantleddet.\n- **Tvinge modellen gjennom origo uten faglig grunn.** Origo-modellen krever at $E(Y)=0$ ved $x=0$ er faglig riktig. Uten en slik grunn behold konstantleddet."
+    },
+    {
+      "id": "tma4245-8-3-begrepsbank",
+      "type": "text",
+      "content": "## Begrepsbank\n\nDe sentrale formlene og resultatkortene i kapitlet, samlet.\n\n*Flashcard-/repetisjonsstoff — hopp trygt over ved førstegangslesing; tidsanslaget gjelder kjernestoffet.*"
+    },
+    {
+      "id": "tma4245-8-3-fc-origo",
+      "type": "definition",
+      "title": "Formelkort: origo-modellen",
+      "content": "$Y_i=\\beta x_i+\\varepsilon_i$ med $\\varepsilon_i$ uavhengige $N(0,\\sigma^2)$, $x_i$ faste. Linja tvinges gjennom $(0,0)$ — brukes bare når $E(Y)=0$ ved $x=0$ er faglig riktig (f.eks. proporsjonalitet)."
+    },
+    {
+      "id": "tma4245-8-3-fc-ls",
+      "type": "definition",
+      "title": "Formelkort: LS uten konstantledd",
+      "content": "Minimering av $\\sum(Y_i-\\beta x_i)^2$ gir $\\hat{\\beta}_1=\\dfrac{\\sum x_iY_i}{\\sum x_i^2}$. Merk: **råsummer**, ikke sentrerte $S_{xy},S_{xx}$."
+    },
+    {
+      "id": "tma4245-8-3-fc-nar",
+      "type": "definition",
+      "title": "Begrep: når er origo-modell riktig?",
+      "content": "Bare når teorien gir $E(Y)=0$ ved $x=0$ (proporsjonalitet). Uten faglig grunn: behold konstantleddet, ellers presses modellen inn i en form dataene ikke støtter."
+    },
+    {
+      "id": "tma4245-8-3-fc-tre",
+      "type": "definition",
+      "title": "Formelkort: de tre kandidatene",
+      "content": "$\\hat{\\beta}_1=\\dfrac{\\sum x_iY_i}{\\sum x_i^2}$ (LS), $\\hat{\\beta}_2=\\dfrac{1}{n}\\sum\\dfrac{Y_i}{x_i}$ (snitt av punkthelninger), $\\hat{\\beta}_3=\\dfrac{\\bar{Y}}{\\bar{x}}$ (forhold mellom snittene). Alle er lineærkombinasjoner $\\sum c_iY_i$."
+    },
+    {
+      "id": "tma4245-8-3-fc-forv",
+      "type": "definition",
+      "title": "Begrep: alle tre er forventningsrette",
+      "content": "Med $E(Y_i)=\\beta x_i$ og linearitet gir hver kandidat $E(\\hat{\\beta}_k)=\\beta$. Forventningsretthet skiller dem ikke — variansen avgjør."
+    },
+    {
+      "id": "tma4245-8-3-fc-var",
+      "type": "definition",
+      "title": "Formelkort: variansene",
+      "content": "$\\text{Var}(\\hat{\\beta}_1)=\\dfrac{\\sigma^2}{\\sum x_i^2}$, $\\text{Var}(\\hat{\\beta}_2)=\\dfrac{\\sigma^2}{n^2}\\sum\\dfrac{1}{x_i^2}$, $\\text{Var}(\\hat{\\beta}_3)=\\dfrac{\\sigma^2}{n\\bar{x}^2}$. Kvadrer $x_i$-ene i nevneren."
+    },
+    {
+      "id": "tma4245-8-3-fc-lsvinner",
+      "type": "definition",
+      "title": "Begrep: LS har minst varians",
+      "content": "$\\hat{\\beta}_1$ har minst varians av de tre (Cauchy–Schwarz: $n^2\\le\\sum x_i^2\\sum\\frac{1}{x_i^2}$, og generelt er LS beste forventningsrette lineære estimator). Derfor velges LS."
+    },
+    {
+      "id": "tma4245-8-3-fc-protokoll",
+      "type": "definition",
+      "title": "Begrep: sammenligningsprotokollen",
+      "content": "Fra kap. 5.1: (1) sjekk forventningsretthet for alle; (2) blant de forventningsrette, velg minst varians. Her er alle forventningsrette, så steg 2 (varians) avgjør: $\\hat{\\beta}_1$."
+    },
+    {
+      "id": "tma4245-8-3-fc-inferens",
+      "type": "definition",
+      "title": "Formelkort: inferens med $n-1$",
+      "content": "$s^2=\\text{SSE}/(n-1)$ (én parameter estimert); $T=\\dfrac{\\hat{\\beta}_1-\\beta_0}{s/\\sqrt{\\sum x_i^2}}\\sim t_{n-1}$; KI: $\\hat{\\beta}_1\\pm t_{n-1,\\alpha/2}\\,s/\\sqrt{\\sum x_i^2}$."
+    },
+    {
+      "id": "tma4245-8-3-fc-n1",
+      "type": "definition",
+      "title": "Feilkort: $n-1$, ikke $n-2$",
+      "content": "Origo-modellen estimerer bare $\\beta$ (intet konstantledd), så bare én frihetsgrad tapes: $s^2=\\text{SSE}/(n-1)$ og $t_{n-1}$. Modellen med konstantledd har $n-2$. Den vanligste fella her."
+    },
+    {
+      "id": "tma4245-8-3-rep",
+      "type": "collapsible",
+      "title": "Repetisjonsoppgaver",
+      "buttonText": "Vis repetisjonsoppgaver",
+      "content": [
+        {
+          "id": "tma4245-8-3-rep-1",
+          "type": "exercise",
+          "exercise": {
+            "id": "tma4245-8-3-rep-1",
+            "number": "R1",
+            "type": "classic",
+            "difficulty": "lett",
+            "task": "(Fra [kap. 5.1](/bok/tma4245/tma4245-5-1).) To forventningsrette estimatorer for samme parameter har varians henholdsvis $0{,}04\\sigma^2$ og $0{,}09\\sigma^2$. Hvilken foretrekkes, og hvorfor?",
+            "solution": "Den med varians $0{,}04\\sigma^2$. Blant forventningsrette estimatorer velger vi den med **minst varians** (mest presis, minst spredning rundt parameteren).",
+            "hints": [
+              "Begge treffer riktig i snitt (forventningsrette).",
+              "Minst varians = mest presis."
+            ]
+          }
+        },
+        {
+          "id": "tma4245-8-3-rep-2",
+          "type": "exercise",
+          "exercise": {
+            "id": "tma4245-8-3-rep-2",
+            "number": "R2",
+            "type": "classic",
+            "difficulty": "lett",
+            "task": "(Fra [kap. 3.2](/bok/tma4245/tma4245-3-2).) $Y_1,\\dots,Y_n$ er uavhengige med $\\text{Var}(Y_i)=\\sigma^2$. Hva er $\\text{Var}\\!\\left(\\frac{1}{n}\\sum Y_i\\right)$?",
+            "solution": "$\\text{Var}(\\bar{Y})=\\frac{1}{n^2}\\sum\\text{Var}(Y_i)=\\frac{1}{n^2}\\cdot n\\sigma^2=\\frac{\\sigma^2}{n}$.",
+            "hints": [
+              "Trekk konstanten $1/n$ ut som $1/n^2$.",
+              "$\\sum\\sigma^2=n\\sigma^2$."
+            ]
+          }
+        },
+        {
+          "id": "tma4245-8-3-rep-3",
+          "type": "exercise",
+          "exercise": {
+            "id": "tma4245-8-3-rep-3",
+            "number": "R3",
+            "type": "classic",
+            "difficulty": "middels",
+            "task": "(Fra [kap. 8.1](/bok/tma4245/tma4245-8-1).) Deriver $Q(\\beta)=\\sum(Y_i-\\beta x_i)^2$ mhp. $\\beta$ og finn LS-estimatoren.",
+            "solution": "$Q'(\\beta)=\\sum 2(Y_i-\\beta x_i)(-x_i)=-2\\sum x_i(Y_i-\\beta x_i)$. Sett lik 0: $\\sum x_iY_i=\\beta\\sum x_i^2$, så $\\hat{\\beta}=\\sum x_iY_i/\\sum x_i^2$.",
+            "hints": [
+              "Kjerneregel på $(Y_i-\\beta x_i)^2$.",
+              "Sett summen lik null og løs for $\\beta$."
+            ]
+          }
+        },
+        {
+          "id": "tma4245-8-3-rep-4",
+          "type": "exercise",
+          "exercise": {
+            "id": "tma4245-8-3-rep-4",
+            "number": "R4",
+            "type": "classic",
+            "difficulty": "middels",
+            "task": "(Fra [kap. 8.2](/bok/tma4245/tma4245-8-2).) I den vanlige regresjonsmodellen med konstantledd, hvilken frihetsgrad har t-testen for helningen, og hvorfor?",
+            "solution": "Frihetsgrad $n-2$, fordi **to** parametre ($\\hat{\\alpha}$ og $\\hat{\\beta}$) er estimert før residualene måles. (I origo-modellen uten konstantledd blir det $n-1$.)",
+            "hints": [
+              "Tell antall estimerte parametre.",
+              "Med konstantledd: to parametre."
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": "tma4245-8-3-symbolliste",
+      "type": "collapsible",
+      "title": "Symbol- og formelliste",
+      "buttonText": "Vis symboler og formler",
+      "content": [
+        {
+          "id": "tma4245-8-3-symbolliste-text",
+          "type": "text",
+          "content": "*Oppslagsverk — alt her forklares underveis i kapitlet.*\n\nAlle symboler og formler brukt i kapittel 8.3, samlet.\n\n| Symbol | Betydning |\n|---|---|\n| $\\beta$ | Helningen (proporsjonalitetskonstanten) i origo-modellen |\n| $\\hat{\\beta}_1$ | LS-estimatoren $\\sum x_iY_i/\\sum x_i^2$ |\n| $\\hat{\\beta}_2$ | Snitt av punkthelninger $\\frac{1}{n}\\sum Y_i/x_i$ |\n| $\\hat{\\beta}_3$ | Forhold mellom snittene $\\bar{Y}/\\bar{x}$ |\n| $\\sum x_i^2,\\ \\sum x_iY_i$ | Råsummene (ikke sentrerte) |\n| $\\text{SSE}$ | $\\sum(Y_i-\\hat{\\beta}_1x_i)^2$ |\n| $s^2$ | Variansestimatet $\\text{SSE}/(n-1)$ |\n| $T$ | Testobservator $\\sim t_{n-1}$ |\n| $\\sigma^2$ | Feilvariansen |\n\n**Formler i dette kapitlet:**\n\n$$Y_i=\\beta x_i+\\varepsilon_i,\\qquad \\varepsilon_i\\sim N(0,\\sigma^2)\\ \\text{uavhengige}$$\nOrigo-modellen (regresjon uten konstantledd).\n\n$$\\hat{\\beta}_1=\\frac{\\sum x_iY_i}{\\sum x_i^2}$$\nLS-estimatoren — den forventningsrette med minst varians.\n\n$$\\text{Var}(\\hat{\\beta}_1)=\\frac{\\sigma^2}{\\sum x_i^2},\\quad \\text{Var}(\\hat{\\beta}_2)=\\frac{\\sigma^2}{n^2}\\sum\\frac{1}{x_i^2},\\quad \\text{Var}(\\hat{\\beta}_3)=\\frac{\\sigma^2}{n\\bar{x}^2}$$\nVariansene til de tre kandidatene; $\\hat{\\beta}_1$ er minst.\n\n$$s^2=\\frac{\\text{SSE}}{n-1},\\qquad T=\\frac{\\hat{\\beta}_1-\\beta_0}{s/\\sqrt{\\sum x_i^2}}\\sim t_{n-1}$$\nVariansestimat og testobservator — merk $n-1$ frihetsgrader."
+        }
+      ]
+    }
+  ],
+  "exercises": []
+}

@@ -48,6 +48,16 @@ export const INSTITUSJONER: Institusjon[] = [
       { courseId: 'bi-okonomi', name: 'Matematikk for økonomer', icon: '📊', color: 'from-amber-500 to-orange-600' },
     ],
   },
+  {
+    slug: 'ntnu',
+    name: 'NTNU',
+    fullName: 'Norges teknisk-naturvitenskapelige universitet',
+    icon: '🔬',
+    color: 'from-blue-700 to-cyan-700',
+    subjects: [
+      { courseId: 'tma4245', name: 'TMA4245 Statistikk', icon: '📊', color: 'from-slate-500 to-slate-700' },
+    ],
+  },
 ];
 
 export function getInstitusjon(slug: string): Institusjon | undefined {

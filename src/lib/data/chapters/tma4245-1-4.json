@@ -1,0 +1,325 @@
+{
+  "id": "tma4245-1-4",
+  "courseId": "tma4245",
+  "chapterNumber": "1.4",
+  "title": "Deskriptiv statistikk og grafisk tolkning",
+  "description": "Gjennomsnitt, median, empirisk varians og kunsten å lese boksplott, histogram, spredningsplott og Q-Q-plott slik sensor krever.",
+  "estimatedMinutes": 40,
+  "competenceGoals": [
+    "regne ut gjennomsnitt, median, kvartiler og empirisk varians med riktig divisor $n-1$",
+    "lese beliggenhet, spredning og skjevhet ut av boksplott og histogram",
+    "vurdere normalitet fra et Q-Q-plott ved å peke på konkrete mønstre",
+    "skille robuste mål (median, IQR) fra mål som påvirkes av uteliggere (gjennomsnitt, standardavvik)"
+  ],
+  "content": [
+    {
+      "id": "tma4245-1-4-tip-eksamensvinkel",
+      "type": "tip",
+      "title": "Eksamensvinkel",
+      "content": "**Deskriptiv statistikk gir raske kortsvarspoeng — og forbereder deg på regresjonsdelen senere.**\n\n- Beskrivende mål og grafisk tolkning er **sjanger M** (deskriptiv/grafisk tolkning), med i **≈35 %** av settene, oftest som kortsvar eller flervalg i Inspera-delen.\n- Q-Q-plott for normalitetsvurdering og boksplott-sammenligning på tvers av grupper er faste innslag; sprednings- og residualplott gjenbrukes tungt i regresjonsdelen (kap. 8.2 senere i boka).\n- Prioritet: **kunne**.\n- **Sensorkrav (grafisk tolkning):** begrunn alltid i *konkrete mønstre* — «spredningen øker med nivået», «øvre hale er tyngre» — aldri «ser bra ut».\n\n**Formelsamlingen** har definisjonene av $\\bar{x}$ og $s^2$, men tolkningen av en figur kan du ikke slå opp. Det er *lesningen* som gir poeng her.\n\n⏱️ To løkker à ~15–20 min: sentralmål og spredning, deretter grafisk tolkning."
+    },
+    {
+      "id": "tma4245-1-4-forkunnskaper",
+      "type": "text",
+      "content": "**Forkunnskaper:** Dette kapitlet **kan leses uten forkunnskaper** — det bruker bare summetegn og vanlig regning. Én formel peker fremover: den empiriske variansen deler på $n-1$, og *hvorfor* det (forventningsretthet) forklares fullt ut i kap. 5.1 senere i boka. Her tar vi det som en regneregel og en advarsel mot å dele på $n$.\n\nBoksplott, histogram og Q-Q-plott herfra dukker opp igjen når vi tolker residualer i regresjonsdelen."
+    },
+    {
+      "id": "tma4245-1-4-intro",
+      "type": "text",
+      "content": "Før vi modellerer et datasett, må vi *se* det. Deskriptiv statistikk er de få tallene og figurene som oppsummerer en tallmengde: hvor ligger tyngdepunktet, hvor spredt er dataene, og hvilken form har fordelingen? Dette er ferdigheten bak «kommenter datasettet»-oppgavene — og grunnlaget for å vurdere om en normalfordelingsantakelse er rimelig.\n\nLøkke 1 handler om tall: **gjennomsnitt**, **median**, **kvartiler** og **empirisk varians**. Løkke 2 handler om figurer: **boksplott**, **histogram** og **Q-Q-plott** — og kunsten å lese dem slik sensor krever, forankret i konkrete mønstre.\n\n⏱️ **Løkke 1 (~15 min):** sentralmål og spredning. **Løkke 2 (~20 min):** grafisk tolkning."
+    },
+    {
+      "id": "tma4245-1-4-lokke1",
+      "type": "text",
+      "content": "## Løkke 1 — Sentralmål og spredning (~15 min)"
+    },
+    {
+      "id": "tma4245-1-4-def-gjennomsnitt",
+      "type": "definition",
+      "title": "Gjennomsnitt (aritmetisk middel)",
+      "content": "Tyngdepunktet i dataene — summen av alle observasjoner delt på antallet:\n\n$$\\bar{x} = \\frac{1}{n}\\sum_{i=1}^{n} x_i.$$\n\nGjennomsnittet bruker alle verdiene og trekkes derfor mot ekstreme observasjoner (uteliggere). I en høyreskjev fordeling ligger gjennomsnittet *til høyre for* medianen."
+    },
+    {
+      "id": "tma4245-1-4-def-median",
+      "type": "definition",
+      "title": "Median",
+      "content": "Den midterste verdien når dataene er sortert — verdien som deler datasettet i to like store halvdeler. Med $n$ sorterte observasjoner:\n\n$$\\text{median} = \\begin{cases} x_{((n+1)/2)} & n \\text{ oddetall}\\\\ \\tfrac{1}{2}\\big(x_{(n/2)} + x_{(n/2+1)}\\big) & n \\text{ partall}\\end{cases}$$\n\nMedianen er **robust**: den påvirkes ikke av hvor ekstreme ytterverdiene er, bare av hvor mange de er. Derfor foretrekkes den for skjeve fordelinger (inntekt, levetider)."
+    },
+    {
+      "id": "tma4245-1-4-def-kvartiler",
+      "type": "definition",
+      "title": "Kvartiler",
+      "content": "Kvartilene deler de sorterte dataene i fire like store deler. Nedre kvartil $Q_1$ har 25 % av dataene under seg, medianen $Q_2$ har 50 %, og øvre kvartil $Q_3$ har 75 %. $Q_1$ og $Q_3$ finnes som medianen av henholdsvis nedre og øvre halvdel av datasettet. Kvartilene er byggeklossene i boksplottet."
+    },
+    {
+      "id": "tma4245-1-4-def-iqr",
+      "type": "definition",
+      "title": "Interkvartilbredde (IQR)",
+      "content": "Et robust spredningsmål: avstanden mellom øvre og nedre kvartil,\n\n$$\\text{IQR} = Q_3 - Q_1.$$\n\nIQR dekker den midterste halvparten av dataene og påvirkes ikke av uteliggere. Den brukes til å definere uteliggere (verdier lenger enn $1{,}5 \\cdot \\text{IQR}$ utenfor kvartilene) og er «boksens lengde» i et boksplott."
+    },
+    {
+      "id": "tma4245-1-4-def-empirisk-varians",
+      "type": "definition",
+      "title": "Empirisk varians (divisor $n-1$)",
+      "content": "Det vanligste spredningsmålet — gjennomsnittlig kvadratisk avvik fra $\\bar{x}$, men med divisor $n-1$, ikke $n$:\n\n$$s^2 = \\frac{1}{n-1}\\sum_{i=1}^{n}(x_i - \\bar{x})^2.$$\n\n**Hvorfor $n-1$?** Fordi vi allerede har «brukt opp» én informasjonsbit på å estimere $\\bar{x}$ fra de samme dataene; å dele på $n-1$ (antall *frihetsgrader*) gjør estimatoren forventningsrett — den treffer riktig i snitt. Den fulle begrunnelsen kommer i kap. 5.1. Å dele på $n$ er den vanligste feilen i hele kapitlet."
+    },
+    {
+      "id": "tma4245-1-4-def-standardavvik",
+      "type": "definition",
+      "title": "Empirisk standardavvik",
+      "content": "Kvadratroten av den empiriske variansen:\n\n$$s = \\sqrt{s^2} = \\sqrt{\\frac{1}{n-1}\\sum_{i=1}^{n}(x_i - \\bar{x})^2}.$$\n\nFordelen framfor variansen er at $s$ har *samme enhet* som dataene (timer, mm, kroner), så den kan tolkes som en typisk avstand fra gjennomsnittet. En observasjon som ligger flere $s$ fra $\\bar{x}$, er uvanlig."
+    },
+    {
+      "id": "tma4245-1-4-ex-1",
+      "type": "example",
+      "title": "Eksempel 1: Sentralmål og spredning for hånd",
+      "problem": "Åtte målinger av bruddstyrke (i N) er sortert: 42, 47, 51, 53, 58, 61, 64, 70. Finn gjennomsnitt, median, kvartiler og empirisk standardavvik.",
+      "solution": "$n = 8$.\n\n**Gjennomsnitt:** $\\bar{x} = \\dfrac{42+47+51+53+58+61+64+70}{8} = \\dfrac{446}{8} = 55{,}75$.\n\n**Median** ($n$ partall, snitt av 4. og 5. verdi): $\\dfrac{53+58}{2} = 55{,}5$.\n\n**Kvartiler:** Nedre halvdel $\\{42,47,51,53\\}$ har median $Q_1 = \\dfrac{47+51}{2} = 49$. Øvre halvdel $\\{58,61,64,70\\}$ har median $Q_3 = \\dfrac{61+64}{2} = 62{,}5$. Da er IQR $= 62{,}5 - 49 = 13{,}5$.\n\n**Empirisk varians:** kvadratsummen $\\sum (x_i - \\bar{x})^2 = 599{,}5$ (regn hvert avvik fra $55{,}75$, kvadrer, summer). Da\n\n$$s^2 = \\frac{599{,}5}{8-1} = \\frac{599{,}5}{7} \\approx 85{,}64, \\qquad s = \\sqrt{85{,}64} \\approx 9{,}25 \\text{ N}.$$\n\nMerk divisor 7, ikke 8. Hadde vi delt på 8, ville vi fått $s^2 \\approx 74{,}9$ — for lavt."
+    },
+    {
+      "id": "tma4245-1-4-oppg-l1",
+      "type": "exercise",
+      "exercise": {
+        "id": "tma4245-1-4-l1",
+        "number": "1",
+        "type": "classic",
+        "difficulty": "lett",
+        "task": "(Innstegsoppgave.) Fem responstider (i ms) er målt: 12, 15, 15, 18, 20.\n\n**a)** Finn gjennomsnittet.\n\n**b)** Finn medianen.",
+        "solution": "**a)** $\\bar{x} = \\dfrac{12+15+15+18+20}{5} = \\dfrac{80}{5} = 16$ ms.\n\n**b)** Med $n = 5$ (oddetall) er medianen den midterste (3.) verdien i sortert rekke: $15$ ms.",
+        "hints": [
+          "Gjennomsnitt = sum delt på antall.",
+          "Median = midterste verdi når $n$ er oddetall."
+        ]
+      }
+    },
+    {
+      "id": "tma4245-1-4-oppg-m1",
+      "type": "exercise",
+      "exercise": {
+        "id": "tma4245-1-4-m1",
+        "number": "2",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "Seks levetider (i tusen timer) er: 8, 10, 10, 12, 15, 21.\n\n**a)** Finn gjennomsnitt og median, og forklar hvorfor de er ulike.\n\n**b)** Regn ut den empiriske variansen $s^2$ og standardavviket $s$.",
+        "solution": "**a)** $\\bar{x} = \\dfrac{8+10+10+12+15+21}{6} = \\dfrac{76}{6} \\approx 12{,}67$. Median ($n=6$): $\\dfrac{10+12}{2} = 11$. Gjennomsnittet ($12{,}67$) er større enn medianen ($11$) fordi den store verdien 21 trekker gjennomsnittet oppover — et tegn på **høyreskjevhet**.\n\n**b)** Avvikene fra $\\bar{x} \\approx 12{,}667$: $-4{,}667, -2{,}667, -2{,}667, -0{,}667, 2{,}333, 8{,}333$. Kvadratsum $\\approx 21{,}78 + 7{,}11 + 7{,}11 + 0{,}44 + 5{,}44 + 69{,}44 = 111{,}33$. Da $s^2 = \\dfrac{111{,}33}{6-1} \\approx 22{,}27$ og $s \\approx 4{,}72$ (tusen timer).",
+        "hints": [
+          "Median = snitt av de to midterste for $n$ partall.",
+          "Del kvadratsummen på $n-1 = 5$, ikke på 6."
+        ]
+      }
+    },
+    {
+      "id": "tma4245-1-4-lokke2",
+      "type": "text",
+      "content": "## Løkke 2 — Grafisk tolkning (~20 min)"
+    },
+    {
+      "id": "tma4245-1-4-def-boksplott",
+      "type": "definition",
+      "title": "Boksplott (boks-med-værhår)",
+      "content": "En figur som viser fem-tallssammendraget: boksen går fra $Q_1$ til $Q_3$ (lengde = IQR) med en strek ved medianen; værhårene («whiskers») strekker seg til de mest ekstreme observasjonene innenfor $1{,}5 \\cdot \\text{IQR}$ fra boksen, og punkter utenfor markeres som uteliggere. Boksplottet viser **beliggenhet** (medianens plassering), **spredning** (boksens og værhårenes lengde) og **skjevhet** (asymmetri mellom over- og underdel) på én gang — ideelt for å sammenligne grupper."
+    },
+    {
+      "id": "tma4245-1-4-fig-boksplott",
+      "type": "image",
+      "src": "/images/textbook/tma4245/tma4245-1-4-boksplott.svg",
+      "alt": "Tre boksplott side om side som viser batterikapasitet (mAh) for produsent A, B og C.",
+      "caption": "Boksplott for tre batteriprodusenter. Produsent B har lengst boks og et langt øvre værhår — stor spredning og høyreskjevhet. Produsent C har smal boks — liten spredning."
+    },
+    {
+      "id": "tma4245-1-4-ex-2",
+      "type": "example",
+      "title": "Eksempel 2: Sammenlign grupper med boksplott",
+      "problem": "Boksplottene over viser målt kapasitet (mAh) for tre batteriprodusenter A, B og C. Ranger produsentene etter median og etter spredning, og pek på hva som tyder på høyreskjevhet hos én av dem.",
+      "solution": "**Median (beliggenhet):** Produsent C har høyest median (strek ved ≈ 2720), deretter A (≈ 2450), så B (≈ 2400). Ranger etter typisk kapasitet: C > A > B.\n\n**Spredning:** Produsent B har klart lengst boks (IQR ≈ 650) og lengst samlet utstrekning — størst spredning. C har smalest boks (IQR ≈ 170) — mest ensartet. Ranger etter spredning: B > A > C.\n\n**Høyreskjevhet:** Hos B er avstanden fra medianen opp til $Q_3$ (og det øvre værhåret) mye lengre enn ned til $Q_1$. Denne asymmetrien — lang hale oppover — tyder på **høyreskjev** fordeling: noen få batterier har uvanlig høy kapasitet. (Merk formuleringen: vi peker på det *konkrete mønsteret*, ikke bare «B ser rar ut».)"
+    },
+    {
+      "id": "tma4245-1-4-def-uteligger",
+      "type": "definition",
+      "title": "Uteligger",
+      "content": "En observasjon som ligger uvanlig langt fra resten. En vanlig regel: verdier lenger enn $1{,}5 \\cdot \\text{IQR}$ utenfor $Q_1$ eller $Q_3$ markeres som uteliggere i boksplottet (egne punkter utenfor værhårene). Uteliggere kan være reelle ekstremverdier eller målefeil — de skal *undersøkes*, ikke automatisk fjernes, og de påvirker gjennomsnitt og standardavvik mye mer enn median og IQR."
+    },
+    {
+      "id": "tma4245-1-4-def-histogram",
+      "type": "definition",
+      "title": "Histogram",
+      "content": "En figur der dataene deles i intervaller (klasser), og søylehøyden viser hvor mange observasjoner som faller i hvert intervall. Histogrammet avslører fordelingens **beliggenhet** (hvor tyngdepunktet er), **spredning** (hvor bredt søylene strekker seg), **skjevhet** (hvilken hale som er lengst) og **modalitet** (antall topper). Det er den mest direkte visningen av fordelingens form."
+    },
+    {
+      "id": "tma4245-1-4-fig-histogram",
+      "type": "image",
+      "src": "/images/textbook/tma4245/tma4245-1-4-histogram.svg",
+      "alt": "Histogram over levetider i timer, med høye søyler til venstre og en avtakende hale mot høyre.",
+      "caption": "Histogram over levetider. De høye søylene ligger til venstre og halen strekker seg mot høyre — en tydelig høyreskjev fordeling, typisk for levetidsdata."
+    },
+    {
+      "id": "tma4245-1-4-def-skjevhet",
+      "type": "definition",
+      "title": "Skjevhet (høyre-/venstreskjev)",
+      "content": "En fordeling er **høyreskjev** (positivt skjev) hvis den har en lang hale mot høyre — noen få store verdier. Da er $\\bar{x} > \\text{median}$. Den er **venstreskjev** hvis halen peker mot venstre og $\\bar{x} < \\text{median}$. **Huskeregel:** halen peker i «skjevhetens retning», og gjennomsnittet trekkes mot halen. Levetider og inntekter er typisk høyreskjeve."
+    },
+    {
+      "id": "tma4245-1-4-oppg-m2",
+      "type": "exercise",
+      "exercise": {
+        "id": "tma4245-1-4-m2",
+        "number": "3",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "Histogrammet over viser levetider (i timer) for 100 enheter.\n\n**a)** Er fordelingen symmetrisk, høyreskjev eller venstreskjev? Begrunn med et konkret mønster.\n\n**b)** Vil gjennomsnittet ligge over eller under medianen?",
+        "solution": "**a)** **Høyreskjev.** Begrunnelse i mønsteret: de høyeste søylene ligger i de laveste intervallene (0–20 timer), og søylehøyden avtar jevnt mot høyre med en lang, tynn hale ut mot 50–60 timer. Massen er samlet til venstre, halen er til høyre.\n\n**b)** Ved høyreskjevhet trekker de få store verdiene i halen gjennomsnittet oppover, så $\\bar{x} > \\text{median}$ — gjennomsnittet ligger *over* medianen.",
+        "hints": [
+          "Se hvilken vei den lange, tynne halen peker.",
+          "Gjennomsnittet trekkes mot halen; medianen står imot."
+        ]
+      }
+    },
+    {
+      "id": "tma4245-1-4-def-qq",
+      "type": "definition",
+      "title": "Q-Q-plott (mot normalfordeling)",
+      "content": "Et Q-Q-plott («kvantil-kvantil») setter datasettets sorterte verdier (observerte kvantiler) opp mot de tilsvarende teoretiske kvantilene fra en normalfordeling. Ligger punktene *tilnærmet på en rett linje*, er dataene forenlige med en normalfordeling. **Systematisk krumming eller avvik i halene** tyder på ikke-normalitet: en oppadbøyd øvre hale betyr tyngre høyrehale enn normalt (høyreskjevhet)."
+    },
+    {
+      "id": "tma4245-1-4-fig-qq",
+      "type": "image",
+      "src": "/images/textbook/tma4245/tma4245-1-4-qq.svg",
+      "alt": "Q-Q-plott der punktene følger den stiplede referanselinjen i midten, men det øverste punktet bøyer klart oppover.",
+      "caption": "Q-Q-plott mot normalfordeling. Punktene ligger nær referanselinjen i midten, men det øvre punktet bøyer oppover — et tegn på en tyngre høyrehale (høyreskjevhet), ikke ren normalitet."
+    },
+    {
+      "id": "tma4245-1-4-oppg-v1",
+      "type": "exercise",
+      "exercise": {
+        "id": "tma4245-1-4-v1",
+        "number": "4",
+        "type": "classic",
+        "difficulty": "vanskelig",
+        "task": "Q-Q-plottet over viser målte verdier mot teoretiske normalkvantiler.\n\n**a)** Hva ville et perfekt normalfordelt datasett gitt i et Q-Q-plott?\n\n**b)** Hvilket konkret mønster ser du her, og hva forteller det om fordelingen?\n\n**c)** En medstudent konkluderer «dataene er normalfordelte fordi de fleste punktene ligger på linja». Kommenter.",
+        "solution": "**a)** Punktene ville ligget (tilnærmet) på en rett linje — de observerte kvantilene ville stått i fast forhold til normalkvantilene.\n\n**b)** De midtre punktene følger referanselinja godt, men det øverste punktet bøyer tydelig *oppover* fra linja. Mønsteret er en **tyngre øvre hale** enn normalfordelingen tilsier — altså høyreskjevhet: de største observasjonene er større enn en normalmodell skulle tilsi.\n\n**c)** Konklusjonen er for rask. Ved normalitetsvurdering fra Q-Q-plott må man se på *hele* forløpet, særlig halene, ikke bare midten. Her avviker den øvre halen systematisk, så dataene er *ikke* godt beskrevet av en normalfordeling. Sensor krever at avvik i halene kommenteres — «de fleste ligger på linja» er ikke nok.",
+        "hints": [
+          "Rett linje = forenlig med normal.",
+          "Se spesielt på halene (endepunktene), ikke bare midten.",
+          "Et systematisk avvik i én hale er nok til å forkaste ren normalitet."
+        ]
+      }
+    },
+    {
+      "id": "tma4245-1-4-warn-typiske-feil",
+      "type": "warning",
+      "title": "Typiske feil",
+      "content": "- **Dele på $n$ i stedet for $n-1$ i empirisk varians.** Divisoren er $n-1$ (frihetsgrader). Å dele på $n$ gir for lav varians.\n- **Lese gjennomsnitt der boksplottet viser median.** Streken i boksen er *medianen*, ikke gjennomsnittet.\n- **Konkludere om normalitet fra Q-Q-plott uten å peke på mønsteret.** «Ser normalt ut» gir ikke poeng; pek på om halene følger linja eller bøyer av.\n- **Forveksle skjevhetsretning.** Halen peker i skjevhetens retning: lang hale mot *høyre* = høyreskjev, med $\\bar{x} > \\text{median}$.\n- **Fjerne uteliggere automatisk.** Uteliggere skal undersøkes, ikke slettes uten grunn — de kan være ekte ekstremverdier."
+    },
+    {
+      "id": "tma4245-1-4-begrepsbank",
+      "type": "text",
+      "content": "## Begrepsbank til eksamen\n\nKjernebegrepene i kortform.\n\n*Begrepsbanken er flashcard-/repetisjonsstoff — den gjentar det du nettopp har lest. Hopp trygt over ved førstegangslesing; tidsanslaget gjelder kjernestoffet.*"
+    },
+    {
+      "id": "tma4245-1-4-bb-modalitet",
+      "type": "definition",
+      "title": "Modalitet (unimodal / bimodal)",
+      "content": "Antall tydelige topper i fordelingen. Én topp = **unimodal** (det vanlige). To topper = **bimodal**, som ofte tyder på at dataene består av *to blandede grupper* (for eksempel to maskiner med ulik innstilling). Modalitet ses lettest i histogrammet, og en bimodal form er et signal om at man kanskje bør analysere gruppene hver for seg."
+    },
+    {
+      "id": "tma4245-1-4-bb-spredningsplott",
+      "type": "definition",
+      "title": "Spredningsplott",
+      "content": "En figur som plotter par $(x_i, y_i)$ som punkter — brukes til å se sammenhengen mellom to variabler. Man vurderer på øyemål om det er en trend (stigende/synkende), hvor sterk og hvor lineær den er, og om spredningen er jevn. Spredningsplottet er inngangen til korrelasjon og regresjon (kap. 8 senere i boka)."
+    },
+    {
+      "id": "tma4245-1-4-bb-korrelasjon-oye",
+      "type": "definition",
+      "title": "Empirisk korrelasjon (vurdert på øyemål)",
+      "content": "Et mål (mellom $-1$ og $1$) på hvor sterkt og i hvilken retning to variabler henger *lineært* sammen. Positiv korrelasjon: punktene stiger; negativ: de synker; nær 0: ingen lineær trend. **Advarsel:** korrelasjon fanger bare *lineær* sammenheng — en tydelig krum sammenheng kan ha korrelasjon nær 0. Vurder alltid mot spredningsplottet, ikke bare tallet."
+    },
+    {
+      "id": "tma4245-1-4-bb-persentil",
+      "type": "definition",
+      "title": "Persentil / empirisk kvantil",
+      "content": "Den $p$-te persentilen er verdien som har $p$ prosent av dataene under seg. Kvartilene er 25-, 50- og 75-persentilene. Persentiler brukes til å beskrive posisjon («måleverdien ligger på 90-persentilen») og er robuste posisjonsmål på linje med medianen."
+    },
+    {
+      "id": "tma4245-1-4-rep",
+      "type": "collapsible",
+      "title": "Repetisjonsoppgaver",
+      "buttonText": "Vis repetisjonsoppgaver",
+      "content": [
+        {
+          "id": "tma4245-1-4-oppg-rep-1",
+          "type": "exercise",
+          "exercise": {
+            "id": "tma4245-1-4-rep-1",
+            "number": "R1",
+            "type": "classic",
+            "difficulty": "lett",
+            "task": "Datasettet 3, 7, 7, 9, 14. Finn gjennomsnitt og median.",
+            "solution": "$\\bar{x} = (3+7+7+9+14)/5 = 40/5 = 8$. Median = midterste (3.) verdi = 7.",
+            "hints": [
+              "Sum delt på antall; median = midterste for $n$ oddetall."
+            ]
+          }
+        },
+        {
+          "id": "tma4245-1-4-oppg-rep-2",
+          "type": "exercise",
+          "exercise": {
+            "id": "tma4245-1-4-rep-2",
+            "number": "R2",
+            "type": "classic",
+            "difficulty": "lett",
+            "task": "Hvorfor deler vi på $n-1$ og ikke $n$ i den empiriske variansen?",
+            "solution": "Fordi vi har estimert $\\bar{x}$ fra de samme dataene og dermed «brukt opp» én frihetsgrad. Å dele på $n-1$ gjør estimatoren forventningsrett (den treffer riktig varians i snitt). Full begrunnelse i kap. 5.1.",
+            "hints": [
+              "Tenk «frihetsgrader» — én er brukt på $\\bar{x}$."
+            ]
+          }
+        },
+        {
+          "id": "tma4245-1-4-oppg-rep-3",
+          "type": "exercise",
+          "exercise": {
+            "id": "tma4245-1-4-rep-3",
+            "number": "R3",
+            "type": "classic",
+            "difficulty": "middels",
+            "task": "I et boksplott er medianstreken nær $Q_1$ (bunnen av boksen), og det øvre værhåret er langt. Hva slags skjevhet tyder dette på?",
+            "solution": "Høyreskjevhet: medianen ligger lavt i boksen, og den lange delen (fra median til $Q_3$ og videre opp i værhåret) peker oppover. Massen er samlet lavt, halen strekker seg mot høyere verdier.",
+            "hints": [
+              "Se hvilken side av medianen som er lengst."
+            ]
+          }
+        },
+        {
+          "id": "tma4245-1-4-oppg-rep-4",
+          "type": "exercise",
+          "exercise": {
+            "id": "tma4245-1-4-rep-4",
+            "number": "R4",
+            "type": "classic",
+            "difficulty": "middels",
+            "task": "Et datasett har $\\bar{x} = 50$ og median $= 42$. Hva sier dette om formen?",
+            "solution": "Gjennomsnittet ligger over medianen ($50 > 42$), så noen store verdier trekker snittet opp — fordelingen er høyreskjev.",
+            "hints": [
+              "$\\bar{x} > \\text{median}$ peker på én bestemt skjevhetsretning."
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": "tma4245-1-4-symbolliste",
+      "type": "collapsible",
+      "title": "Symbol- og formelliste",
+      "buttonText": "Vis symboler og formler",
+      "content": [
+        {
+          "id": "tma4245-1-4-symbolliste-text",
+          "type": "text",
+          "content": "*Oppslagsverk — alt her forklares underveis i kapitlet.*\n\nAlle symboler og formler brukt i kapittel 1.4.\n\n| Symbol | Betydning |\n|---|---|\n| $x_i$ | Den $i$-te observasjonen |\n| $n$ | Antall observasjoner |\n| $\\bar{x}$ | Empirisk gjennomsnitt |\n| $Q_1, Q_2, Q_3$ | Nedre kvartil, median, øvre kvartil |\n| IQR | Interkvartilbredde $Q_3 - Q_1$ |\n| $s^2$ | Empirisk varians (divisor $n-1$) |\n| $s$ | Empirisk standardavvik $\\sqrt{s^2}$ |\n\n**Formler i dette kapitlet:**\n\n$$\\bar{x} = \\frac{1}{n}\\sum_{i=1}^{n} x_i$$\nEmpirisk gjennomsnitt (tyngdepunktet).\n\n$$\\text{IQR} = Q_3 - Q_1$$\nInterkvartilbredden — robust spredningsmål og boksens lengde i boksplottet.\n\n$$s^2 = \\frac{1}{n-1}\\sum_{i=1}^{n}(x_i - \\bar{x})^2$$\nEmpirisk varians — **divisor $n-1$**, ikke $n$.\n\n$$s = \\sqrt{s^2}$$\nEmpirisk standardavvik — samme enhet som dataene.\n\n**Grafiske verktøy (tolkning, ikke formler):** boksplott (fem-tallssammendrag), histogram (form/skjevhet/modalitet), spredningsplott (sammenheng mellom to variabler), Q-Q-plott (normalitetsvurdering — rett linje = forenlig med normal)."
+        }
+      ]
+    }
+  ],
+  "exercises": []
+}

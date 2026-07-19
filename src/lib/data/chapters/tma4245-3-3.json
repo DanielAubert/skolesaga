@@ -1,0 +1,337 @@
+{
+  "id": "tma4245-3-3",
+  "courseId": "tma4245",
+  "chapterNumber": "3.3",
+  "title": "Sentralgrenseteoremet og normaltilnærming",
+  "description": "CLT presist formulert — og normaltilnærmingen av binomisk, Poisson og estimatorer med gyldighetssjekken sensor alltid gjør.",
+  "estimatedMinutes": 50,
+  "competenceGoals": [
+    "formulere sentralgrenseteoremet presist med alle tre forutsetninger",
+    "bruke normaltilnærming av binomiske andeler med eksplisitt gyldighetssjekk",
+    "normaltilnærme Poisson-fordelingen for store rater, ev. med kontinuitetskorreksjon",
+    "vurdere når normaltilnærmingen er upålitelig"
+  ],
+  "content": [
+    {
+      "id": "tma4245-3-3-tip",
+      "type": "tip",
+      "title": "Eksamensvinkel",
+      "content": "Sentralgrenseteoremet (CLT) forklarer *hvorfor* normalfordelingen er overalt — og det testes på to måter:\n\n- **Som eksplisitt teorispørsmål** («formuler forutsetningene og resultatet») i **≈20 % av settene**. I Des23 (oppgave 3b) ble kandidaten bedt om å formulere teoremet *og* anvende det på en ML-estimator. Å kunne formuleringen **ordrett presist** er gratis poeng — derfor er selve formuleringen **høyeste prioritet**, mens anvendelsen er på nivået «kunne».\n- **Som normaltilnærming** av binomisk eller Poisson, der sensor **eksplisitt krever gyldighetssjekken** (at $np$ og $n(1-p)$ er store nok) — dette sto i fasit i både Aug21 og Mai20. Hopper du over sjekken, mister du poeng selv med riktig tall.\n\n**Formelsamlingen** har fordelingene, men CLT-*formuleringen* med alle tre forutsetninger må sitte i hodet. Den viktigste vanen: skriv alltid gyldighetssjekken *før* du tilnærmer."
+    },
+    {
+      "id": "tma4245-3-3-forkunnskaper",
+      "type": "text",
+      "content": "**Forkunnskaper:** Du må kunne fordelingen til gjennomsnittet $\\bar{X} \\sim N(\\mu, \\sigma^2/n)$ fra **[kap. 3.2](/bok/tma4245/tma4245-3-2)** og standardisering fra **[kap. 3.1](/bok/tma4245/tma4245-3-1)**. Du bør også kjenne binomisk- og Poisson-fordelingen med deres $E$ og Var fra **[kap. 2.2](/bok/tma4245/tma4245-2-2)** (binomisk: $E = np$, $\\text{Var} = np(1-p)$; Poisson: $E = \\text{Var} = \\lambda t$).\n\nKapitlet er forkunnskap for konfidensintervall og hypotesetester senere, og for drillkapitlet **[kap. 3.4](/bok/tma4245/tma4245-3-4)**."
+    },
+    {
+      "id": "tma4245-3-3-intro",
+      "type": "text",
+      "content": "Hvorfor er så mange størrelser tilnærmet normalfordelte — selv når de enkelte bidragene ikke er det? Svaret er sentralgrenseteoremet: *summer og gjennomsnitt av mange uavhengige bidrag blir tilnærmet normale, nesten uansett hva de enkelte bidragene er fordelt som*. Det er dette som gjør normalfordelingen til statistikkens arbeidshest.\n\nTre løkker: **Løkke 1** (ca. 15 min) — teoremet formulert presist, med alle tre forutsetninger. **Løkke 2** (ca. 20 min) — den viktigste anvendelsen: normaltilnærming av binomiske andeler, med gyldighetssjekken. **Løkke 3** (ca. 15 min) — Poisson, ML-estimatorer og når tilnærmingen svikter. Teori → eksempel → oppgave."
+    },
+    {
+      "id": "tma4245-3-3-lokke1",
+      "type": "text",
+      "content": "## Løkke 1 — Sentralgrenseteoremet, presist formulert"
+    },
+    {
+      "id": "tma4245-3-3-thm-clt",
+      "type": "theorem",
+      "title": "Sentralgrenseteoremet (CLT)",
+      "content": "La $X_1, X_2, \\ldots, X_n$ være **uavhengige og identisk fordelte** (iid) stokastiske variable med **forventning $E(X_i) = \\mu$** og **endelig varians $\\text{Var}(X_i) = \\sigma^2 < \\infty$**. Da er det standardiserte gjennomsnittet tilnærmet standardnormalt for stor $n$:\n\n$$\\frac{\\bar{X} - \\mu}{\\sigma/\\sqrt{n}} \\ \\xrightarrow{\\ n \\to \\infty\\ }\\ N(0, 1).$$\n\nEkvivalent: $\\bar{X}$ er tilnærmet $N(\\mu, \\sigma^2/n)$, og summen $\\sum X_i$ er tilnærmet $N(n\\mu, n\\sigma^2)$ — for stor $n$.\n\n**Alle tre forutsetningene må med når du formulerer teoremet:** (1) uavhengige, (2) *identisk* fordelte, (3) *endelig* varians. Det bemerkelsesverdige er at fordelingen til de enkelte $X_i$ kan være hva som helst (skjev, diskret, tung) — bare de tre kravene holder, blir gjennomsnittet normalt."
+    },
+    {
+      "id": "tma4245-3-3-clt-intuisjon",
+      "type": "text",
+      "content": "**Intuisjon:** hver $X_i$ bidrar med sin egen tilfeldige «dytt» opp eller ned. Når du legger sammen mange uavhengige dytt, jevner de ekstreme utfallene hverandre ut, og summen samler seg i en symmetrisk klokke rundt $n\\mu$. Jo større $n$, jo bedre tilnærming — tommelfingerregelen $n \\ge 30$ holder ofte, men skjeve fordelinger krever større $n$."
+    },
+    {
+      "id": "tma4245-3-3-ex-1",
+      "type": "example",
+      "title": "Eksempel 1: CLT på ikke-normale data",
+      "problem": "Levetiden til en LED-pære er eksponensialfordelt med forventning $\\beta = 40$ tusen timer (og dermed standardavvik $\\sigma = \\beta = 40$, sterkt høyreskjev). Et parti på $n = 64$ pærer testes, og gjennomsnittlig levetid $\\bar{X}$ regnes ut. Bruk CLT til å finne tilnærmet $P(\\bar{X} < 35)$.",
+      "solution": "De $64$ levetidene er iid med $\\mu = 40$ og $\\sigma = 40$, altså $\\sigma^2 = 1600 < \\infty$ — forutsetningene for CLT holder. Med $n = 64$ er gjennomsnittet tilnærmet\n\n$$\\bar{X} \\ \\approx\\ N\\!\\left(40,\\ \\frac{1600}{64}\\right) = N(40,\\ 25), \\qquad SD(\\bar{X}) = 5.$$\n\nStandardiser:\n\n$$z = \\frac{35 - 40}{5} = -1{,}00, \\qquad P(\\bar{X} < 35) \\approx \\Phi(-1{,}00) = 1 - 0{,}8413 = 0{,}1587.$$\n\nAltså ca. **16 %**. Legg merke til at selve pærelevetiden er langt fra normal, men *gjennomsnittet* av 64 er godt tilnærmet normalt — det er hele poenget med teoremet."
+    },
+    {
+      "id": "tma4245-3-3-oppg-l1",
+      "type": "exercise",
+      "exercise": {
+        "id": "tma4245-3-3-l1",
+        "number": "1",
+        "type": "classic",
+        "difficulty": "lett",
+        "task": "(Innstegsoppgave — gjengivelse.) Fyll ut sentralgrenseteoremet:\n\n**a)** Hvilke tre forutsetninger må $X_1, \\ldots, X_n$ oppfylle?\n\n**b)** Hva blir det standardiserte gjennomsnittet $\\dfrac{\\bar{X} - \\mu}{\\sigma/\\sqrt{n}}$ tilnærmet fordelt som for stor $n$?",
+        "solution": "**a)** (1) uavhengige, (2) identisk fordelte, og (3) endelig varians ($\\sigma^2 < \\infty$). (Forventningen $\\mu$ og variansen $\\sigma^2$ er felles for alle $X_i$.)\n\n**b)** Tilnærmet standardnormalfordelt, $N(0, 1)$, når $n$ er stor.",
+        "hints": [
+          "Tenk «iid + endelig varians».",
+          "Standardiseringen sikter mot $N(0,1)$."
+        ]
+      }
+    },
+    {
+      "id": "tma4245-3-3-pause1",
+      "type": "text",
+      "content": "*— naturlig pausepunkt —*"
+    },
+    {
+      "id": "tma4245-3-3-lokke2",
+      "type": "text",
+      "content": "## Løkke 2 — Normaltilnærming av binomiske andeler"
+    },
+    {
+      "id": "tma4245-3-3-lokke2-intro",
+      "type": "text",
+      "content": "Den viktigste anvendelsen: en binomisk andel er en sum av mange uavhengige ja/nei-bidrag, så CLT gjør den tilnærmet normal. Dette er ryggraden i meningsmålinger og kvalitetskontroll."
+    },
+    {
+      "id": "tma4245-3-3-def-approx-binom",
+      "type": "definition",
+      "title": "Normaltilnærming av en andel",
+      "content": "La $X \\sim \\text{binomisk}(n, p)$ og $\\hat{p} = X/n$ være den observerte andelen suksesser. Siden $X$ er en sum av $n$ uavhengige Bernoulli-bidrag, gir CLT for stor $n$:\n\n$$\\hat{p} \\ \\approx\\ N\\!\\left(p,\\ \\frac{p(1-p)}{n}\\right), \\qquad X \\ \\approx\\ N\\big(np,\\ np(1-p)\\big).$$\n\nAndelen har altså standardfeil $\\sqrt{p(1-p)/n}$. Dette lar oss regne halesannsynligheter for $\\hat{p}$ med $\\Phi$-tabellen i stedet for tunge binomiske summer."
+    },
+    {
+      "id": "tma4245-3-3-def-gyldighet",
+      "type": "definition",
+      "title": "Gyldighetssjekken $np$ og $n(1-p)$",
+      "content": "Tilnærmingen er bare god når fordelingen ikke ligger for tett opp mot 0 eller 1. **Tommelfingerregelen (som sensor krever eksplisitt):**\n\n$$np \\ge 5 \\quad \\text{og} \\quad n(1-p) \\ge 5$$\n\n(noen bøker bruker $\\ge 10$). Skriv alltid ut denne sjekken *før* du tilnærmer — det er en fast del av fasiten. Er begge store nok, er normaltilnærmingen god; er én av dem liten, er fordelingen for skjev, og du bør regne eksakt binomisk i stedet."
+    },
+    {
+      "id": "tma4245-3-3-ex-2",
+      "type": "example",
+      "title": "Eksempel 2: Meningsmåling (andel)",
+      "problem": "En meningsmåling med $n = 900$ spurte gir en oppslutning $\\hat{p} = 0{,}54$. Anta at den sanne andelen er $p = 0{,}52$. Begrunn at normaltilnærmingen kan brukes, og finn tilnærmet $P(\\hat{p} > 0{,}56)$.",
+      "solution": "**Gyldighetssjekk først:** $np = 900 \\cdot 0{,}52 = 468$ og $n(1-p) = 900 \\cdot 0{,}48 = 432$. Begge er langt over 5, så normaltilnærmingen er god.\n\n**Fordeling:** $\\hat{p} \\approx N\\!\\left(0{,}52,\\ \\dfrac{0{,}52 \\cdot 0{,}48}{900}\\right)$. Standardfeilen er\n\n$$SD(\\hat{p}) = \\sqrt{\\frac{0{,}2496}{900}} = \\sqrt{0{,}0002773} = 0{,}016653.$$\n\n**Standardiser og slå opp:**\n\n$$z = \\frac{0{,}56 - 0{,}52}{0{,}016653} = 2{,}4019 \\approx 2{,}40, \\qquad P(\\hat{p} > 0{,}56) \\approx 1 - \\Phi(2{,}40) = 1 - 0{,}9918 = 0{,}0082.$$\n\nAltså bare ca. **0,8 %** — en oppslutning over $0{,}56$ ville vært overraskende høy hvis sannheten er $0{,}52$. (Den observerte $0{,}54$ i oppgaveteksten er selve målingen; her regnet vi sannsynligheten under antagelsen $p = 0{,}52$.)"
+    },
+    {
+      "id": "tma4245-3-3-oppg-m1",
+      "type": "exercise",
+      "exercise": {
+        "id": "tma4245-3-3-m1",
+        "number": "2",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "En produksjonslinje har feilandel $p = 0{,}05$. Det trekkes $n = 400$ enheter, og andelen defekte $\\hat{p}$ registreres.\n\n**a)** Kan normaltilnærmingen brukes? Sjekk gyldigheten.\n\n**b)** Finn tilnærmet $P(\\hat{p} > 0{,}07)$.",
+        "solution": "**a)** $np = 400 \\cdot 0{,}05 = 20$ og $n(1-p) = 400 \\cdot 0{,}95 = 380$. Begge $\\ge 5$, så tilnærmingen kan brukes.\n\n**b)** $\\hat{p} \\approx N\\!\\left(0{,}05,\\ \\dfrac{0{,}05 \\cdot 0{,}95}{400}\\right)$, med standardfeil $\\sqrt{0{,}0475/400} = \\sqrt{0{,}00011875} = 0{,}010897$.\n\n$z = \\dfrac{0{,}07 - 0{,}05}{0{,}010897} = 1{,}8353 \\approx 1{,}84$, så $P(\\hat{p} > 0{,}07) \\approx 1 - \\Phi(1{,}84) = 1 - 0{,}9671 = 0{,}0329$.",
+        "hints": [
+          "Sjekk $np$ og $n(1-p)$ mot 5 først.",
+          "Standardfeilen er $\\sqrt{p(1-p)/n}$; $\\Phi(1{,}84)=0{,}9671$."
+        ]
+      }
+    },
+    {
+      "id": "tma4245-3-3-pause2",
+      "type": "text",
+      "content": "*— naturlig pausepunkt —*"
+    },
+    {
+      "id": "tma4245-3-3-lokke3",
+      "type": "text",
+      "content": "## Løkke 3 — Poisson, ML-estimatorer og når tilnærmingen svikter"
+    },
+    {
+      "id": "tma4245-3-3-def-approx-poisson",
+      "type": "definition",
+      "title": "Normaltilnærming av Poisson",
+      "content": "For en Poisson-variabel $X \\sim \\text{Poisson}(\\lambda t)$ er både forventning og varians lik $\\lambda t$. For **stor $\\lambda t$** (tommelfingerregel $\\lambda t \\ge 15$) er $X$ tilnærmet normal:\n\n$$X \\ \\approx\\ N(\\lambda t,\\ \\lambda t).$$\n\nDette følger av CLT fordi en Poisson over et langt intervall kan ses som en sum av mange uavhengige Poisson-bidrag over småintervaller."
+    },
+    {
+      "id": "tma4245-3-3-def-kontkorreksjon",
+      "type": "definition",
+      "title": "Kontinuitetskorreksjon",
+      "content": "Når vi tilnærmer en *heltallig* variabel ($X$ binomisk eller Poisson) med en kontinuerlig normal, forbedrer vi tilnærmingen ved å utvide grensen med en halv enhet — kontinuitetskorreksjon:\n\n$$P(X \\le k) \\approx \\Phi\\!\\left(\\frac{k + 0{,}5 - \\mu}{\\sigma}\\right), \\qquad P(X \\ge k) \\approx 1 - \\Phi\\!\\left(\\frac{k - 0{,}5 - \\mu}{\\sigma}\\right).$$\n\nDen betyr mest når $n$ (eller $\\lambda t$) er moderat. For en *andel* $\\hat{p}$ dropper vi den vanligvis. Sjekk hva oppgaven ber om — mange eksamensoppgaver godtar svar både med og uten korreksjonen."
+    },
+    {
+      "id": "tma4245-3-3-ex-3",
+      "type": "example",
+      "title": "Eksempel 3: Poisson-tilnærming (antall, med kontinuitetskorreksjon)",
+      "problem": "Antall støtdempende hendelser en bro registrerer på et døgn er $X \\sim \\text{Poisson}(\\lambda t = 100)$. Finn tilnærmet $P(X > 115)$.",
+      "solution": "$\\lambda t = 100 \\ge 15$, så $X \\approx N(100, 100)$ med $SD = \\sqrt{100} = 10$.\n\n**Med kontinuitetskorreksjon:** $P(X > 115) = P(X \\ge 116) \\approx 1 - \\Phi\\!\\left(\\dfrac{116 - 0{,}5 - 100}{10}\\right) = 1 - \\Phi(1{,}55) = 1 - 0{,}9394 = 0{,}0606.$\n\n**Uten korreksjon** (også godtatt i mange sett): $z = (115 - 100)/10 = 1{,}50$, $P(X > 115) \\approx 1 - \\Phi(1{,}50) = 0{,}0668$.\n\nBegge ligger rundt **6 %**; forskjellen viser hvor mye korreksjonen flytter svaret ved moderat $\\lambda t$."
+    },
+    {
+      "id": "tma4245-3-3-ml-asymptotisk",
+      "type": "text",
+      "content": "### Asymptotisk normalitet for ML-estimatorer\n\nEt tredje ansikt av CLT, som du får bruk for i senere i boka (punktestimeringsdelen): estimatorer funnet ved sannsynlighetsmaksimering (ML — *maximum likelihood*, «størst mulig rimelighet») er også *tilnærmet normalfordelte* for store utvalg. Det er dette som gjør at vi kan bygge konfidensintervall og tester rundt ML-estimater ved hjelp av $\\Phi$-tabellen. Vi *varsler* resultatet her; utledningen og bruken kommer i punktestimeringsdelen."
+    },
+    {
+      "id": "tma4245-3-3-naar-daarlig",
+      "type": "text",
+      "content": "### Når tilnærmingen er dårlig\n\nCLT er en *grense*-egenskap — for endelig $n$ er den bare tilnærmet. Den svikter når (i) $n$ er liten, (ii) den underliggende fordelingen er svært skjev, eller (iii) $p$ er nær 0 eller 1 (så $np$ eller $n(1-p)$ er liten). I slike tilfeller kan svaret bli merkbart feil. For variansestimater med små utvalg trenger vi derfor et *eksakt* apparat — kjikvadrat-konfidensintervallet i kjikvadrat-KI-et senere i boka — i stedet for normaltilnærming."
+    },
+    {
+      "id": "tma4245-3-3-oppg-v1",
+      "type": "exercise",
+      "exercise": {
+        "id": "tma4245-3-3-v1",
+        "number": "3",
+        "type": "classic",
+        "difficulty": "vanskelig",
+        "task": "En nettbutikk får kundeordre som en Poisson-prosess med rate $\\lambda = 3$ per time. Vi ser på et døgn ($t = 24$ timer), så antall ordre er $X \\sim \\text{Poisson}(72)$.\n\n**a)** Begrunn at normaltilnærmingen kan brukes, og oppgi tilnærmet fordeling for $X$.\n\n**b)** Finn tilnærmet $P(X < 60)$ (bruk kontinuitetskorreksjon).\n\n**c)** En kollega vil bruke samme tilnærming på antall ordre i ett *minutt* (der $\\lambda t = 3/60 \\cdot 1 = 0{,}05$ per minutt gir svært få). Kommenter om det er forsvarlig.",
+        "solution": "**a)** $\\lambda t = 3 \\cdot 24 = 72 \\ge 15$, så $X \\approx N(72, 72)$ med $SD = \\sqrt{72} = 8{,}4853$.\n\n**b)** Med kontinuitetskorreksjon: $P(X < 60) = P(X \\le 59) \\approx \\Phi\\!\\left(\\dfrac{59 + 0{,}5 - 72}{8{,}4853}\\right) = \\Phi\\!\\left(\\dfrac{-12{,}5}{8{,}4853}\\right) = \\Phi(-1{,}47)$. Tabell: $\\Phi(-1{,}47) = 1 - \\Phi(1{,}47) = 1 - 0{,}9292 = 0{,}0708$.\n\n**c)** Nei — over ett minutt er forventet antall ordre bare $\\lambda t = 3/60 \\cdot 1 = 0{,}05$, altså langt under 15. Fordelingen er da ekstremt skjev (nesten all masse i 0), og normaltilnærmingen ville vært helt misvisende. Regn eksakt Poisson i stedet.",
+        "hints": [
+          "Sjekk $\\lambda t \\ge 15$; $X \\approx N(\\lambda t, \\lambda t)$.",
+          "Kontinuitetskorreksjon: $P(X \\le 59) \\approx \\Phi((59{,}5 - \\mu)/\\sigma)$.",
+          "For c): regn ut $\\lambda t$ for ett minutt og sammenlign med gyldighetsgrensen."
+        ]
+      }
+    },
+    {
+      "id": "tma4245-3-3-warn",
+      "type": "warning",
+      "title": "Typiske feil",
+      "content": "- **Glemme å sjekke $np$ og $n(1-p)$.** Gyldighetssjekken er en obligatorisk del av fasiten — skriv den ut *før* tilnærmingen.\n- **Utelate «identisk fordelte» eller «endelig varians»** i formuleringen av teoremet. Alle tre forutsetningene teller.\n- **Bruke CLT på åpenbart avhengige data.** Uavhengighet er et krav; korrelerte målinger jevner ikke ut på samme måte.\n- **Blande $\\sigma^2$ og $\\sigma^2/n$.** Det er *gjennomsnittet* som har varians $\\sigma^2/n$; en enkeltobservasjon har $\\sigma^2$.\n- **Standardisere andelen med feil standardfeil.** For $\\hat{p}$ er standardfeilen $\\sqrt{p(1-p)/n}$, ikke $\\sqrt{p(1-p)}$ eller $\\sigma/\\sqrt{n}$.\n- **Bruke normaltilnærming når $p$ er nær 0 eller 1** med liten $n$ — da er $np$ liten og fordelingen for skjev; regn eksakt."
+    },
+    {
+      "id": "tma4245-3-3-begrepsbank",
+      "type": "text",
+      "content": "## Begrepsbank til eksamen\n\nKjernebegrepene fra kapitlet i kortform — grenseteoremet og tilnærmingene.\n\n*Begrepsbanken er flashcard-/repetisjonsstoff — den gjentar det du nettopp har lest. Hopp trygt over ved førstegangslesing; tidsanslaget gjelder kjernestoffet.*"
+    },
+    {
+      "id": "tma4245-3-3-bb-clt",
+      "type": "definition",
+      "title": "Sentralgrenseteoremet (kortform)",
+      "content": "For iid $X_1, \\ldots, X_n$ med forventning $\\mu$ og endelig varians $\\sigma^2$ er gjennomsnittet tilnærmet normalt for stor $n$: $\\bar{X} \\approx N(\\mu, \\sigma^2/n)$, ekvivalent $\\frac{\\bar{X} - \\mu}{\\sigma/\\sqrt{n}} \\approx N(0,1)$. Fordelingen til de enkelte $X_i$ spiller ingen rolle — bare de tre forutsetningene."
+    },
+    {
+      "id": "tma4245-3-3-bb-iid",
+      "type": "definition",
+      "title": "iid (uavhengige og identisk fordelte)",
+      "content": "«iid» betyr at variablene er *uavhengige* av hverandre og har *samme* fordeling (samme $\\mu$ og $\\sigma^2$). Dette er standardmodellen for et tilfeldig utvalg fra en populasjon, og det er nettopp iid-antagelsen CLT hviler på."
+    },
+    {
+      "id": "tma4245-3-3-bb-forutsetninger",
+      "type": "definition",
+      "title": "De tre forutsetningene",
+      "content": "CLT krever: (1) uavhengige bidrag, (2) identisk fordeling, (3) endelig varians $\\sigma^2 < \\infty$. Utelater du én av dem i en formulering, er svaret ufullstendig hos sensor. Punkt (3) utelukker fordelinger med «uendelig» varians (visse tunge haler)."
+    },
+    {
+      "id": "tma4245-3-3-bb-standardisert",
+      "type": "definition",
+      "title": "Standardisert gjennomsnitt",
+      "content": "CLT uttrykkes oftest på standardisert form: $Z = \\dfrac{\\bar{X} - \\mu}{\\sigma/\\sqrt{n}}$ er tilnærmet $N(0,1)$. Nevneren $\\sigma/\\sqrt{n}$ er standardfeilen. Denne formen er direkte klar for tabelloppslag og er grunnmuren i konfidensintervall for $\\mu$."
+    },
+    {
+      "id": "tma4245-3-3-bb-andel",
+      "type": "definition",
+      "title": "Normaltilnærming av en andel",
+      "content": "En binomisk andel $\\hat{p} = X/n$ er tilnærmet $N(p, p(1-p)/n)$ for stor $n$. Standardfeilen er $\\sqrt{p(1-p)/n}$. Dette er grunnlaget for meningsmålinger og andelstester senere i boka."
+    },
+    {
+      "id": "tma4245-3-3-bb-antall-andel",
+      "type": "definition",
+      "title": "Antall kontra andel i binomisk tilnærming",
+      "content": "Samme fenomen, to skalaer: *antallet* $X \\approx N(np, np(1-p))$, mens *andelen* $\\hat{p} = X/n \\approx N(p, p(1-p)/n)$. Velg den skalaen oppgaven bruker, og pass på at standardfeilen matcher (dividert på $n$ for andelen, ikke for antallet)."
+    },
+    {
+      "id": "tma4245-3-3-bb-gyldighet",
+      "type": "definition",
+      "title": "Gyldighetssjekken",
+      "content": "Før du tilnærmer en binomisk med normal: sjekk $np \\ge 5$ og $n(1-p) \\ge 5$ (noen krever $\\ge 10$). For Poisson: $\\lambda t \\ge 15$. Er kravet brutt, er fordelingen for skjev, og tilnærmingen upålitelig — regn eksakt i stedet."
+    },
+    {
+      "id": "tma4245-3-3-bb-poisson-approx",
+      "type": "definition",
+      "title": "Poisson-tilnærming",
+      "content": "For stor $\\lambda t$ er $X \\sim \\text{Poisson}(\\lambda t)$ tilnærmet $N(\\lambda t, \\lambda t)$ — forventning og varians er begge $\\lambda t$. Nyttig når direkte oppslag i Poisson-tabellen blir upraktisk for store rater."
+    },
+    {
+      "id": "tma4245-3-3-bb-kontkorr",
+      "type": "definition",
+      "title": "Kontinuitetskorreksjon (kort)",
+      "content": "Når en heltallig variabel tilnærmes med en kontinuerlig normal, justeres grensen med $\\pm 0{,}5$: $P(X \\le k) \\approx \\Phi((k + 0{,}5 - \\mu)/\\sigma)$. Korreksjonen forbedrer tilnærmingen mest ved moderat $n$ eller $\\lambda t$; for andeler droppes den vanligvis."
+    },
+    {
+      "id": "tma4245-3-3-bb-ml-asymptotisk",
+      "type": "definition",
+      "title": "Asymptotisk normalitet for ML",
+      "content": "For store utvalg er sannsynlighetsmaksimeringsestimatorer (ML-estimatorer) tilnærmet normalfordelte rundt den sanne parameterverdien. Dette er en generalisering av CLT-ideen og gjør det mulig å lage konfidensintervall og tester for nesten hvilken som helst parameter (brukes i senere i boka (punktestimeringsdelen))."
+    },
+    {
+      "id": "tma4245-3-3-bb-naar-daarlig",
+      "type": "definition",
+      "title": "Når tilnærmingen svikter",
+      "content": "CLT gjelder i grensen $n \\to \\infty$; for endelig $n$ er den upålitelig ved (i) liten $n$, (ii) sterkt skjev underliggende fordeling, eller (iii) $p$ nær 0/1. Da trengs eksakte metoder — for eksempel kjikvadrat-KI for varians (kjikvadrat-KI-et senere i boka) i stedet for normaltilnærming."
+    },
+    {
+      "id": "tma4245-3-3-rep",
+      "type": "collapsible",
+      "title": "Repetisjonsoppgaver",
+      "buttonText": "Vis repetisjonsoppgaver",
+      "content": [
+        {
+          "id": "tma4245-3-3-oppg-rep-1",
+          "type": "exercise",
+          "exercise": {
+            "id": "tma4245-3-3-rep-1",
+            "number": "R1",
+            "type": "classic",
+            "difficulty": "lett",
+            "task": "Skriv opp de tre forutsetningene for sentralgrenseteoremet.",
+            "solution": "(1) Uavhengige, (2) identisk fordelte (iid), og (3) endelig varians $\\sigma^2 < \\infty$.",
+            "hints": [
+              "«iid + endelig varians.»"
+            ]
+          }
+        },
+        {
+          "id": "tma4245-3-3-oppg-rep-2",
+          "type": "exercise",
+          "exercise": {
+            "id": "tma4245-3-3-rep-2",
+            "number": "R2",
+            "type": "classic",
+            "difficulty": "lett",
+            "task": "$X \\sim \\text{binomisk}(n = 300, p = 0{,}2)$. Sjekk om normaltilnærmingen kan brukes.",
+            "solution": "$np = 300 \\cdot 0{,}2 = 60 \\ge 5$ og $n(1-p) = 300 \\cdot 0{,}8 = 240 \\ge 5$. Ja, tilnærmingen er god.",
+            "hints": [
+              "Regn $np$ og $n(1-p)$."
+            ]
+          }
+        },
+        {
+          "id": "tma4245-3-3-oppg-rep-3",
+          "type": "exercise",
+          "exercise": {
+            "id": "tma4245-3-3-rep-3",
+            "number": "R3",
+            "type": "classic",
+            "difficulty": "middels",
+            "task": "$X \\sim \\text{binomisk}(n = 500, p = 0{,}4)$. Oppgi den tilnærmede normalfordelingen for andelen $\\hat{p} = X/500$.",
+            "solution": "$\\hat{p} \\approx N\\!\\left(0{,}4,\\ \\dfrac{0{,}4 \\cdot 0{,}6}{500}\\right) = N(0{,}4,\\ 0{,}00048)$, med standardfeil $\\sqrt{0{,}00048} = 0{,}0219$.",
+            "hints": [
+              "$\\hat{p} \\approx N(p, p(1-p)/n)$."
+            ]
+          }
+        },
+        {
+          "id": "tma4245-3-3-oppg-rep-4",
+          "type": "exercise",
+          "exercise": {
+            "id": "tma4245-3-3-rep-4",
+            "number": "R4",
+            "type": "classic",
+            "difficulty": "middels",
+            "task": "Et gjennomsnitt av $n = 49$ iid observasjoner med $\\mu = 100$ og $\\sigma = 14$. Finn tilnærmet $P(\\bar{X} > 104)$.",
+            "solution": "$\\bar{X} \\approx N(100, 14^2/49) = N(100, 4)$, $SD = 2$. $z = (104 - 100)/2 = 2{,}00$, så $P(\\bar{X} > 104) \\approx 1 - \\Phi(2{,}00) = 1 - 0{,}9772 = 0{,}0228$.",
+            "hints": [
+              "Standardfeil $\\sigma/\\sqrt{n} = 14/7 = 2$.",
+              "Standardiser og ta øvre hale."
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": "tma4245-3-3-symbolliste",
+      "type": "collapsible",
+      "title": "Symbol- og formelliste",
+      "buttonText": "Vis symboler og formler",
+      "content": [
+        {
+          "id": "tma4245-3-3-symbolliste-text",
+          "type": "text",
+          "content": "*Oppslagsverk — alt her forklares underveis i kapitlet.*\n\nAlle symboler og formler brukt i kapittel 3.3, samlet.\n\n| Symbol | Betydning |\n|---|---|\n| $X_1, \\ldots, X_n$ | iid stokastiske variable |\n| $\\bar{X}$ | Gjennomsnittet $\\frac{1}{n}\\sum X_i$ |\n| $\\mu, \\sigma^2$ | Felles forventning og varians |\n| $\\hat{p} = X/n$ | Observert andel (binomisk) |\n| $\\lambda t$ | Poisson-parameter (forventet antall) |\n| $\\Phi$ | Standardnormalens fordelingsfunksjon |\n\n**Formler i dette kapitlet:**\n\n$$\\frac{\\bar{X} - \\mu}{\\sigma/\\sqrt{n}} \\ \\approx\\ N(0, 1) \\qquad (\\text{stor } n)$$\nSentralgrenseteoremet, standardisert form.\n\n$$\\bar{X} \\approx N\\!\\left(\\mu,\\ \\frac{\\sigma^2}{n}\\right), \\qquad \\sum X_i \\approx N(n\\mu,\\ n\\sigma^2)$$\nGjennomsnitts- og sumform.\n\n$$\\hat{p} \\approx N\\!\\left(p,\\ \\frac{p(1-p)}{n}\\right), \\qquad X \\approx N\\big(np,\\ np(1-p)\\big)$$\nNormaltilnærming av binomisk andel og antall.\n\n$$np \\ge 5 \\quad \\text{og} \\quad n(1-p) \\ge 5$$\nGyldighetssjekken (Poisson: $\\lambda t \\ge 15$).\n\n$$X \\approx N(\\lambda t,\\ \\lambda t) \\qquad (\\text{Poisson, stor } \\lambda t)$$\nNormaltilnærming av Poisson.\n\n$$P(X \\le k) \\approx \\Phi\\!\\left(\\frac{k + 0{,}5 - \\mu}{\\sigma}\\right)$$\nKontinuitetskorreksjon for heltallige variable."
+        }
+      ]
+    }
+  ],
+  "exercises": []
+}

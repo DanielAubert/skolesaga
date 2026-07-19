@@ -1,0 +1,429 @@
+{
+  "id": "tma4245-2-1",
+  "courseId": "tma4245",
+  "chapterNumber": "2.1",
+  "title": "Stokastiske variable, forventning og varians",
+  "description": "Punktsannsynlighet, tetthet og fordelingsfunksjon — og momentregnereglene som står i ≈96 % av settene.",
+  "estimatedMinutes": 55,
+  "competenceGoals": [
+    "skille diskrete fra kontinuerlige variable og bruke punktsannsynlighet, tetthet og fordelingsfunksjon riktig",
+    "forklare at en kontinuerlig variabel har $P(X=x)=0$ og at tettheten ikke er en sannsynlighet",
+    "regne ut forventning og varians med regneformelen $E(X^2)-[E(X)]^2$",
+    "bruke regnereglene for $E(aX+bY)$ og $\\text{Var}(aX+bY)$ med riktig behandling av kovariansleddet"
+  ],
+  "content": [
+    {
+      "id": "tma4245-2-1-tip-eksamensvinkel",
+      "type": "tip",
+      "title": "Eksamensvinkel",
+      "content": "**Dette kapitlet gir noen av de sikreste poengene i hele emnet — og en klassisk felle.**\n\n- Regnereglene for **forventning, varians og kovarians** står i praksis i *hvert eneste sett*: de er del av oppgaver i **≈47 av 49 sett (≈96 %)** — nest hyppigste tema i arkivet. Prioritet: **perfekt** (det høyeste nivået — dette skal sitte automatisk).\n- At $P(X = x) = 0$ for en **kontinuerlig** variabel — og at tettheten $f(x)$ *ikke* er en sannsynlighet — er en fast Inspera-kortsvarfelle (dukket opp i Mai21, Jun23 og Des24). *Inspera* er den digitale eksamensplattformen der noen deloppgaver bare krever et tallsvar.\n\n**Hva sensor faktisk måler her:** at du bruker regnereglene riktig — særlig at du **husker kovariansleddet** i $\\text{Var}(aX + bY)$ når variablene henger sammen, og *ikke* tar det med når de er uavhengige.\n\n**Formelsamlingen** (hjelpemiddelkode C — den trykte formelsamlingen du har lov til å bruke på eksamen) gir deg forventning og varians for hver *navngitt* fordeling. Men **regnereglene** for kombinasjoner av variable må sitte i hodet: de står ikke i brukbar form der. Dette kapitlet trener nettopp dem."
+    },
+    {
+      "id": "tma4245-2-1-forkunnskaper",
+      "type": "text",
+      "content": "**Forkunnskaper:** Dette kapitlet bygger videre på sannsynlighetsspråket fra **[kap. 1.1](/bok/tma4245/tma4245-1-1)** (utfallsrom, hendelser, sannsynlighet) og betinget sannsynlighet fra **[kap. 1.3](/bok/tma4245/tma4245-1-3)**. Har du de på plass, er du klar.\n\nFra matematikken trenger du å kunne **summere** en endelig rekke og — for kontinuerlige variable — å **integrere** enkle polynomer og eksponensialfunksjoner (regne ut $\\int x\\,dx$, $\\int x^2\\,dx$ og lignende, og sette inn grenser). Vi bygger opp selve sannsynlighetsregningen fra bunnen; integralene holder seg på videregåendenivå.\n\nDette kapitlet er selv forkunnskap for hele resten av boka: fordelingskatalogen i **[kap. 2.2](/bok/tma4245/tma4245-2-2)** og **[kap. 2.3](/bok/tma4245/tma4245-2-3)**, kovariansregningen i **[kap. 2.5](/bok/tma4245/tma4245-2-5)** og normalfordelingen i **kap. 3.1**."
+    },
+    {
+      "id": "tma4245-2-1-intro",
+      "type": "text",
+      "content": "En **stokastisk variabel** (ofte kalt en tilfeldig variabel) er et tall som avhenger av et forsøk med tilfeldig utfall: antall defekte enheter i en produksjonsserie, levetiden til en sensor, trekkraften i en wire. Vi vet ikke verdien på forhånd, men vi kan beskrive presist hvor sannsynlige de ulike verdiene er — og regne ut hva vi kan *forvente* i snitt, og hvor mye verdien *svinger*.\n\nKapitlet går i tre løkker. Først språket for å beskrive en variabel: **punktsannsynlighet**, **tetthet** og **fordelingsfunksjon**, og det viktige skillet mellom diskrete og kontinuerlige variable (løkke 1). Så de to tallene som oppsummerer en fordeling: **forventning** og **varians** (løkke 2). Til slutt **regnereglene** for kombinasjoner av variable — det eksamen tester i nesten hvert sett (løkke 3). Hver løkke går teori → eksempel → oppgave.\n\n*Samlet kjernetid ≈ 55 min. Naturlige pausepunkter er markert mellom løkkene.*"
+    },
+    {
+      "id": "tma4245-2-1-lokke1",
+      "type": "text",
+      "content": "## Løkke 1 — Variabel, punktsannsynlighet, tetthet og fordelingsfunksjon (~18 min)"
+    },
+    {
+      "id": "tma4245-2-1-def-sv",
+      "type": "definition",
+      "title": "Stokastisk variabel",
+      "content": "En **stokastisk variabel** er en regel som tilordner et tall til hvert utfall av et forsøk med tilfeldig resultat. Vi skriver den med **stor bokstav**, $X$, og en observert verdi (et konkret tallresultat) med **liten bokstav**, $x$.\n\nEksempel: kaster du to terninger og lar $X$ være summen av øynene, er $X$ en stokastisk variabel som kan ta verdiene $2, 3, \\ldots, 12$. Før kastet er $X$ ukjent; etter kastet har den en bestemt verdi $x$. Skillet stor/liten bokstav følger vi slavisk gjennom hele boka."
+    },
+    {
+      "id": "tma4245-2-1-def-diskret",
+      "type": "definition",
+      "title": "Diskret variabel og punktsannsynlighet $p(x)$",
+      "content": "En variabel er **diskret** når den bare kan ta tellbare, adskilte verdier (typisk $0, 1, 2, \\ldots$ — et *antall*). Da beskrives den av **punktsannsynligheten**\n\n$$p(x) = P(X = x),$$\n\nsannsynligheten for at variabelen tar akkurat verdien $x$. Punktsannsynlighetene er ekte sannsynligheter: hver $p(x) \\ge 0$, og de summerer til 1, $\\sum_x p(x) = 1$. Antall defekte enheter, antall kundeankomster, antall øyne på en terning — alt dette er diskrete variable."
+    },
+    {
+      "id": "tma4245-2-1-def-kontinuerlig",
+      "type": "definition",
+      "title": "Kontinuerlig variabel og tetthet $f(x)$",
+      "content": "En variabel er **kontinuerlig** når den kan ta *alle* verdier i et intervall (typisk en *måling*: tid, lengde, vekt). Da finnes ingen punktsannsynlighet å legge sammen — i stedet beskrives variabelen av en **tetthetsfunksjon** $f(x)$, der sannsynligheter er **arealer under kurven**:\n\n$$P(a < X < b) = \\int_a^b f(x)\\,dx, \\qquad \\int_{-\\infty}^{\\infty} f(x)\\,dx = 1.$$\n\n**Viktig:** $f(x)$ er *ikke* en sannsynlighet. Den er en tetthet (sannsynlighet per lengdeenhet), og **kan godt være større enn 1** — det er arealet, ikke høyden, som må ligge mellom 0 og 1. Vi kommer tilbake til denne fellen."
+    },
+    {
+      "id": "tma4245-2-1-def-fordelingsfunksjon",
+      "type": "definition",
+      "title": "Fordelingsfunksjonen $F(x)$",
+      "content": "**Fordelingsfunksjonen** (også kalt den kumulative fordelingsfunksjonen) samler opp all sannsynlighet til og med $x$:\n\n$$F(x) = P(X \\le x).$$\n\nDen finnes for både diskrete og kontinuerlige variable, vokser fra 0 til 1, og er aldri avtakende. To sammenhenger brukes hele tiden:\n\n$$P(a < X \\le b) = F(b) - F(a), \\qquad f(x) = F'(x) \\text{ (kontinuerlig tilfelle)}.$$\n\nDen siste sier at **tettheten er den deriverte av fordelingsfunksjonen** — og motsatt: $F$ er integralet av $f$. Denne broen ($F' = f$) er selve arbeidshesten i kapittel 2.3 og 2.4."
+    },
+    {
+      "id": "tma4245-2-1-def-px-null",
+      "type": "definition",
+      "title": "$P(X = x) = 0$ for kontinuerlig $X$",
+      "content": "For en **kontinuerlig** variabel er sannsynligheten for å treffe *nøyaktig* én verdi lik null:\n\n$$P(X = x) = 0 \\quad \\text{for alle } x.$$\n\nGrunnen er at et enkeltpunkt har bredde null, så arealet under $f$ over det punktet er null. En praktisk følge: for kontinuerlige variable spiller det ingen rolle om ulikheten er streng eller ikke — $P(X \\le a) = P(X < a)$. (For *diskrete* variable er dette **feil**: der er $P(X = x) = p(x)$ ofte positiv, og $\\le$ mot $<$ gjør forskjell.)"
+    },
+    {
+      "id": "tma4245-2-1-ex-1",
+      "type": "example",
+      "title": "Eksempel 1: Les av en diskret fordeling",
+      "problem": "Antall driftsstans $X$ på et pumpeanlegg i løpet av et døgn har punktsannsynligheter $p(0) = 0{,}2$, $p(1) = 0{,}5$, $p(2) = 0{,}3$. Finn $F(1)$ og $P(X \\ge 1)$.",
+      "solution": "**$F(1) = P(X \\le 1)$:** summer punktsannsynlighetene til og med 1:\n$$F(1) = p(0) + p(1) = 0{,}2 + 0{,}5 = 0{,}7.$$\n\n**$P(X \\ge 1)$:** enklest via komplement (jf. [kap. 1.1](/bok/tma4245/tma4245-1-1)):\n$$P(X \\ge 1) = 1 - P(X = 0) = 1 - 0{,}2 = 0{,}8.$$\n\nKontroll: $p(1) + p(2) = 0{,}5 + 0{,}3 = 0{,}8$. Her *er* $P(X = 0) = 0{,}2$ positiv — for en diskret variabel teller enkeltpunktene."
+    },
+    {
+      "id": "tma4245-2-1-l1",
+      "type": "exercise",
+      "exercise": {
+        "id": "tma4245-2-1-l1",
+        "number": "1",
+        "type": "classic",
+        "difficulty": "lett",
+        "task": "(Innstegsoppgave — ren avlesning.) Antall alarmer $X$ fra et brannvarslingssystem i løpet av en uke har punktsannsynligheter $p(0) = 0{,}55$, $p(1) = 0{,}30$, $p(2) = 0{,}15$.\n\n**a)** Finn $P(X \\le 1)$.\n\n**b)** Finn $P(X \\ge 1)$.",
+        "solution": "**a)** $P(X \\le 1) = p(0) + p(1) = 0{,}55 + 0{,}30 = 0{,}85$.\n\n**b)** $P(X \\ge 1) = 1 - p(0) = 1 - 0{,}55 = 0{,}45$ (komplementregelen).",
+        "hints": [
+          "$F(1) = p(0) + p(1)$.",
+          "«Minst én» = 1 minus «ingen» ($p(0)$)."
+        ]
+      }
+    },
+    {
+      "id": "tma4245-2-1-m1",
+      "type": "exercise",
+      "exercise": {
+        "id": "tma4245-2-1-m1",
+        "number": "2",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "En kontinuerlig variabel $X$ (andelen av en tank som er fylt) har tetthet $f(x) = 2x$ for $0 < x < 1$ og $f(x) = 0$ ellers.\n\n**a)** Bekreft at $f$ er en gyldig tetthet.\n\n**b)** Finn $P(X > 0{,}5)$ ved integrasjon.\n\n**c)** En medstudent påstår at $f(0{,}9) = 1{,}8 > 1$ er umulig for en sannsynlighet. Kommenter.",
+        "solution": "**a)** $f(x) = 2x \\ge 0$ på $(0,1)$, og $\\int_0^1 2x\\,dx = [x^2]_0^1 = 1$. Gyldig tetthet.\n\n**b)** $P(X > 0{,}5) = \\int_{0{,}5}^{1} 2x\\,dx = [x^2]_{0{,}5}^{1} = 1 - 0{,}25 = 0{,}75$.\n\n**c)** Påstanden bygger på en misforståelse: $f(x)$ er en **tetthet**, ikke en sannsynlighet. Bare *arealer* under $f$ er sannsynligheter, og de ligger mellom 0 og 1. At $f(0{,}9) = 1{,}8$ er helt greit — sannsynligheten for et enkeltpunkt er uansett $P(X = 0{,}9) = 0$.",
+        "hints": [
+          "Sjekk $f \\ge 0$ og at totalarealet $\\int_0^1 f = 1$.",
+          "$P(X > 0{,}5) = \\int_{0.5}^1 f(x)\\,dx$; integralet av $2x$ er $x^2$.",
+          "Skill tetthet (høyde) fra sannsynlighet (areal)."
+        ]
+      }
+    },
+    {
+      "id": "tma4245-2-1-pause1",
+      "type": "text",
+      "content": "*— naturlig pausepunkt —*"
+    },
+    {
+      "id": "tma4245-2-1-lokke2",
+      "type": "text",
+      "content": "## Løkke 2 — Forventning og varians (~20 min)"
+    },
+    {
+      "id": "tma4245-2-1-def-forventning",
+      "type": "definition",
+      "title": "Forventning $E(X)$",
+      "content": "**Forventningen** er tyngdepunktet i fordelingen — snittverdien du får i det lange løp. For en diskret variabel vekter du hver verdi med punktsannsynligheten; for en kontinuerlig integrerer du:\n\n$$E(X) = \\sum_x x\\,p(x) \\qquad \\text{(diskret)}, \\qquad E(X) = \\int_{-\\infty}^{\\infty} x\\,f(x)\\,dx \\qquad \\text{(kontinuerlig)}.$$\n\nForventningen kalles også **middelverdien** og skrives ofte $\\mu = E(X)$. Den trenger ikke være en verdi variabelen faktisk kan ta: forventet antall øyne på en terning er $3{,}5$."
+    },
+    {
+      "id": "tma4245-2-1-def-egx",
+      "type": "definition",
+      "title": "Forventning til en funksjon, $E[g(X)]$",
+      "content": "Skal du finne forventningen til en *funksjon* av $X$ — for eksempel $X^2$ eller $3X - 2$ — vekter du **funksjonsverdiene** med samme sannsynligheter:\n\n$$E[g(X)] = \\sum_x g(x)\\,p(x) \\qquad \\text{eller} \\qquad E[g(X)] = \\int g(x)\\,f(x)\\,dx.$$\n\nDu trenger altså *ikke* fordelingen til $g(X)$ — du bruker fordelingen til $X$ direkte. Spesialtilfellet $g(x) = x^2$ gir $E(X^2)$, som vi trenger til variansen. **Merk:** i sin alminnelighet er $E[g(X)] \\ne g(E(X))$ — for eksempel er $E(X^2) \\ne [E(X)]^2$ med mindre variabelen er konstant."
+    },
+    {
+      "id": "tma4245-2-1-def-varians",
+      "type": "definition",
+      "title": "Varians og regneformelen",
+      "content": "**Variansen** måler hvor mye variabelen svinger rundt forventningen. Den er per definisjon forventet kvadratavvik, men regnes nesten alltid med **regneformelen**:\n\n$$\\text{Var}(X) = E\\big[(X - \\mu)^2\\big] = E(X^2) - [E(X)]^2.$$\n\nRegneformelen er den praktiske: finn $E(X)$ og $E(X^2)$, og trekk fra kvadratet av forventningen. Variansen er alltid $\\ge 0$ (den er et forventet kvadrat), og den er null bare når variabelen er konstant. Enheten er kvadratet av $X$-enheten."
+    },
+    {
+      "id": "tma4245-2-1-def-std",
+      "type": "definition",
+      "title": "Standardavvik $\\text{SD}(X)$",
+      "content": "**Standardavviket** er kvadratroten av variansen:\n\n$$\\text{SD}(X) = \\sqrt{\\text{Var}(X)}, \\qquad \\text{ofte skrevet } \\sigma = \\sqrt{\\sigma^2}.$$\n\nFordelen med standardavviket er at det har **samme enhet** som $X$ selv (kroner, sekunder, meter), så det er lettere å tolke enn variansen. Et lite standardavvik betyr at verdiene klumper seg tett rundt forventningen; et stort betyr stor spredning."
+    },
+    {
+      "id": "tma4245-2-1-ex-2",
+      "type": "example",
+      "title": "Eksempel 2: Forventning og varians for en diskret variabel",
+      "problem": "Antall driftsstans $X$ per døgn har $p(0) = 0{,}2$, $p(1) = 0{,}5$, $p(2) = 0{,}3$ (som i eksempel 1). Finn $E(X)$, $\\text{Var}(X)$ og $\\text{SD}(X)$.",
+      "solution": "**Forventning:**\n$$E(X) = 0 \\cdot 0{,}2 + 1 \\cdot 0{,}5 + 2 \\cdot 0{,}3 = 0{,}5 + 0{,}6 = 1{,}1.$$\n\n**Andre moment** ($E(X^2)$ — vekt kvadratene $0^2, 1^2, 2^2$ med samme sannsynligheter):\n$$E(X^2) = 0 \\cdot 0{,}2 + 1 \\cdot 0{,}5 + 4 \\cdot 0{,}3 = 0{,}5 + 1{,}2 = 1{,}7.$$\n\n**Varians** (regneformelen):\n$$\\text{Var}(X) = E(X^2) - [E(X)]^2 = 1{,}7 - 1{,}1^2 = 1{,}7 - 1{,}21 = 0{,}49.$$\n\n**Standardavvik:** $\\text{SD}(X) = \\sqrt{0{,}49} = 0{,}7$ driftsstans. Legg merke til at vi *ikke* kvadrerte $E(X)$ før subtraksjonen ble gjort — en vanlig slurvefeil er å regne $E(X^2)$ som $[E(X)]^2$."
+    },
+    {
+      "id": "tma4245-2-1-l2",
+      "type": "exercise",
+      "exercise": {
+        "id": "tma4245-2-1-l2",
+        "number": "3",
+        "type": "classic",
+        "difficulty": "lett",
+        "task": "En kvalitetsinspektør trekker én enhet, og $X$ er antall synlige feil, med $p(0) = 0{,}7$, $p(1) = 0{,}2$, $p(2) = 0{,}1$.\n\n**a)** Finn $E(X)$.\n\n**b)** Finn $E(X^2)$ og deretter $\\text{Var}(X)$.",
+        "solution": "**a)** $E(X) = 0 \\cdot 0{,}7 + 1 \\cdot 0{,}2 + 2 \\cdot 0{,}1 = 0{,}4$.\n\n**b)** $E(X^2) = 0 \\cdot 0{,}7 + 1 \\cdot 0{,}2 + 4 \\cdot 0{,}1 = 0{,}6$. Da er $\\text{Var}(X) = 0{,}6 - 0{,}4^2 = 0{,}6 - 0{,}16 = 0{,}44$.",
+        "hints": [
+          "$E(X) = \\sum x\\,p(x)$; $E(X^2) = \\sum x^2 p(x)$.",
+          "Regneformelen: $\\text{Var}(X) = E(X^2) - [E(X)]^2$."
+        ]
+      }
+    },
+    {
+      "id": "tma4245-2-1-m2",
+      "type": "exercise",
+      "exercise": {
+        "id": "tma4245-2-1-m2",
+        "number": "4",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "Levetiden $X$ (i år) til en komponent har tetthet $f(x) = 2x$ for $0 < x < 1$.\n\n**a)** Finn $E(X)$ ved integrasjon.\n\n**b)** Finn $E(X^2)$ og deretter $\\text{Var}(X)$.",
+        "solution": "**a)** $E(X) = \\int_0^1 x \\cdot 2x\\,dx = \\int_0^1 2x^2\\,dx = \\left[\\tfrac{2}{3}x^3\\right]_0^1 = \\tfrac{2}{3} \\approx 0{,}667$.\n\n**b)** $E(X^2) = \\int_0^1 x^2 \\cdot 2x\\,dx = \\int_0^1 2x^3\\,dx = \\left[\\tfrac{1}{2}x^4\\right]_0^1 = \\tfrac{1}{2}$. Regneformelen:\n$$\\text{Var}(X) = \\tfrac{1}{2} - \\left(\\tfrac{2}{3}\\right)^2 = \\tfrac{1}{2} - \\tfrac{4}{9} = \\tfrac{9 - 8}{18} = \\tfrac{1}{18} \\approx 0{,}056.$$",
+        "hints": [
+          "$E(X) = \\int_0^1 x f(x)\\,dx$ med $f(x) = 2x$.",
+          "$E(X^2) = \\int_0^1 x^2 f(x)\\,dx$; deretter regneformelen."
+        ]
+      }
+    },
+    {
+      "id": "tma4245-2-1-pause2",
+      "type": "text",
+      "content": "*— naturlig pausepunkt —*"
+    },
+    {
+      "id": "tma4245-2-1-lokke3",
+      "type": "text",
+      "content": "## Løkke 3 — Regnereglene for kombinasjoner (~17 min)"
+    },
+    {
+      "id": "tma4245-2-1-lokke3-intro",
+      "type": "text",
+      "content": "Nå kommer det eksamen tester i nesten hvert sett: hva skjer med forventning og varians når vi **kombinerer** variable — skalerer dem, legger dem sammen, tar differanser. Forventning er *lineær* og enkel. Varians er verre, fordi variable kan **henge sammen** — og da må vi ta med et **kovariansledd**. Kovariansen $\\text{Cov}(X,Y)$ måler hvordan to variable svinger sammen; den fulle behandlingen kommer i [kap. 2.5](/bok/tma4245/tma4245-2-5), men leddet dukker opp allerede her."
+    },
+    {
+      "id": "tma4245-2-1-def-lin-forv",
+      "type": "definition",
+      "title": "Forventning er lineær",
+      "content": "Forventningen til en vektet sum er den vektede summen av forventningene — **uansett** om variablene henger sammen eller ikke:\n\n$$E(aX + bY) = a\\,E(X) + b\\,E(Y), \\qquad E(aX + b) = a\\,E(X) + b.$$\n\nDette gjelder alltid, uten forbehold om uavhengighet. Forventningen til en konstant er konstanten selv ($E(b) = b$), og en konstant faktor kan settes utenfor ($E(aX) = a\\,E(X)$). Lineariteten er grunnen til at forventningsregning nesten aldri byr på problemer."
+    },
+    {
+      "id": "tma4245-2-1-def-var-skift",
+      "type": "definition",
+      "title": "Varians under skalering og forskyvning",
+      "content": "Å legge til en **konstant** flytter fordelingen, men endrer ikke spredningen; å **skalere** med $a$ blåser opp spredningen med $a^2$:\n\n$$\\text{Var}(aX + b) = a^2\\,\\text{Var}(X).$$\n\nTo ting å merke seg: konstanten $b$ faller helt bort (å forskyve alle verdier like mye endrer ikke svingningene), og faktoren kommer inn som $a^2$ — **kvadrert**. Fortegnet på $a$ spiller derfor ingen rolle: $\\text{Var}(-X) = \\text{Var}(X)$."
+    },
+    {
+      "id": "tma4245-2-1-def-var-sum",
+      "type": "definition",
+      "title": "Varians til en sum — med kovariansleddet",
+      "content": "For en vektet sum av *to* variable er variansen:\n\n$$\\text{Var}(aX + bY) = a^2\\,\\text{Var}(X) + b^2\\,\\text{Var}(Y) + 2ab\\,\\text{Cov}(X, Y).$$\n\n**Kovariansleddet $2ab\\,\\text{Cov}(X,Y)$ er hovedpoenget** og den vanligste feilkilden. Det forsvinner *bare* når $X$ og $Y$ er uavhengige (da er $\\text{Cov} = 0$). To spesialtilfeller for uavhengige variable:\n\n$$\\text{Var}(X + Y) = \\text{Var}(X) + \\text{Var}(Y), \\qquad \\text{Var}(X - Y) = \\text{Var}(X) + \\text{Var}(Y).$$\n\nMerk at variansen til en **differanse** også er en *sum* av varianser (leddet $2ab\\,\\text{Cov}$ med $a = 1, b = -1$ gir $-2\\,\\text{Cov}$, men varianstermene legges alltid til). Det er aldri riktig å trekke varianser fra hverandre."
+    },
+    {
+      "id": "tma4245-2-1-def-kovarians-intro",
+      "type": "definition",
+      "title": "Kovarians $\\text{Cov}(X, Y)$ (kort)",
+      "content": "**Kovariansen** måler om to variable svinger i takt: positiv når de stiger og faller sammen, negativ når den ene stiger mens den andre synker, null når det ikke er noen lineær samvariasjon. Den regnes med\n\n$$\\text{Cov}(X, Y) = E(XY) - E(X)\\,E(Y),$$\n\nog $\\text{Cov}(X, X) = \\text{Var}(X)$. Er $X$ og $Y$ **uavhengige**, er $\\text{Cov}(X, Y) = 0$ (men det motsatte gjelder ikke alltid — se [kap. 2.5](/bok/tma4245/tma4245-2-5)). Her trenger vi bare at kovariansen er *tallet som fyller kovariansleddet* i variansformelen."
+    },
+    {
+      "id": "tma4245-2-1-ex-3",
+      "type": "example",
+      "title": "Eksempel 3: Regnereglene på en lineærkombinasjon",
+      "problem": "To variable har $E(X) = 4$, $E(Y) = -1$, $\\text{Var}(X) = 2$, $\\text{Var}(Y) = 3$ og $\\text{Cov}(X, Y) = -0{,}5$. Finn $E(3X - 2Y)$ og $\\text{Var}(3X - 2Y)$.",
+      "solution": "**Forventning** (lineær — ingen forbehold):\n$$E(3X - 2Y) = 3\\,E(X) - 2\\,E(Y) = 3 \\cdot 4 - 2 \\cdot (-1) = 12 + 2 = 14.$$\n\n**Varians** med $a = 3$, $b = -2$:\n$$\\text{Var}(3X - 2Y) = a^2\\,\\text{Var}(X) + b^2\\,\\text{Var}(Y) + 2ab\\,\\text{Cov}(X, Y).$$\nSett inn:\n$$= 3^2 \\cdot 2 + (-2)^2 \\cdot 3 + 2 \\cdot 3 \\cdot (-2) \\cdot (-0{,}5) = 18 + 12 + 6 = 36.$$\n\nSå $\\text{SD}(3X - 2Y) = \\sqrt{36} = 6$. **Merk:** kovariansleddet ble $2 \\cdot 3 \\cdot (-2) \\cdot (-0{,}5) = +6$ — to negative fortegn (fra $b$ og fra $\\text{Cov}$) ga et *positivt* bidrag. Å slurve med fortegnene her er den klassiske feilen."
+    },
+    {
+      "id": "tma4245-2-1-l3",
+      "type": "exercise",
+      "exercise": {
+        "id": "tma4245-2-1-l3",
+        "number": "5",
+        "type": "classic",
+        "difficulty": "lett",
+        "task": "En variabel har $E(X) = 20$ og $\\text{Var}(X) = 9$. La $Y = 2X + 5$.\n\n**a)** Finn $E(Y)$.\n\n**b)** Finn $\\text{Var}(Y)$ og $\\text{SD}(Y)$.",
+        "solution": "**a)** $E(Y) = 2\\,E(X) + 5 = 2 \\cdot 20 + 5 = 45$.\n\n**b)** $\\text{Var}(Y) = 2^2 \\cdot \\text{Var}(X) = 4 \\cdot 9 = 36$, så $\\text{SD}(Y) = \\sqrt{36} = 6$. (Konstanten $+5$ påvirker ikke variansen.)",
+        "hints": [
+          "$E(aX + b) = aE(X) + b$.",
+          "$\\text{Var}(aX + b) = a^2\\text{Var}(X)$ — konstanten faller bort, faktoren kvadreres."
+        ]
+      }
+    },
+    {
+      "id": "tma4245-2-1-m3",
+      "type": "exercise",
+      "exercise": {
+        "id": "tma4245-2-1-m3",
+        "number": "6",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "$X$ og $Y$ er **uavhengige** med $E(X) = 10$, $E(Y) = 8$, $\\text{Var}(X) = 9$ og $\\text{Var}(Y) = 16$.\n\n**a)** Finn $\\text{Var}(X + Y)$.\n\n**b)** Finn $\\text{Var}(X - Y)$, og forklar hvorfor den ikke er $9 - 16$.",
+        "solution": "Siden $X$ og $Y$ er uavhengige, er $\\text{Cov}(X, Y) = 0$, og kovariansleddet faller bort.\n\n**a)** $\\text{Var}(X + Y) = \\text{Var}(X) + \\text{Var}(Y) = 9 + 16 = 25$.\n\n**b)** $\\text{Var}(X - Y) = \\text{Var}(X) + \\text{Var}(Y) = 9 + 16 = 25$ — *samme* svar. Med $a = 1, b = -1$ blir variansleddene $1^2 \\cdot 9 + (-1)^2 \\cdot 16 = 25$; kvadratene gjør at fortegnet på $Y$ ikke hjelper. Varianser **legges alltid til**; å regne $9 - 16 = -7$ ville dessuten gitt en negativ varians, som er umulig.",
+        "hints": [
+          "Uavhengige $\\Rightarrow \\text{Cov} = 0$, så kovariansleddet forsvinner.",
+          "$\\text{Var}(X - Y) = 1^2\\text{Var}(X) + (-1)^2\\text{Var}(Y)$ — kvadratene fjerner minustegnet."
+        ]
+      }
+    },
+    {
+      "id": "tma4245-2-1-v1",
+      "type": "exercise",
+      "exercise": {
+        "id": "tma4245-2-1-v1",
+        "number": "7",
+        "type": "classic",
+        "difficulty": "vanskelig",
+        "task": "$X$ og $Y$ har $E(X) = 10$, $E(Y) = 8$, $\\text{Var}(X) = 9$, $\\text{Var}(Y) = 16$ og $\\text{Cov}(X, Y) = -6$.\n\n**a)** Finn $E(X - Y)$ og $\\text{Var}(X - Y)$.\n\n**b)** La $\\bar{Z} = \\tfrac{1}{2}(X + Y)$. Finn $\\text{Var}(\\bar{Z})$.\n\n**c)** Sammenlign $\\text{Var}(X - Y)$ i (a) med hva den ville vært om $X$ og $Y$ var uavhengige, og forklar fortegnet på forskjellen.",
+        "solution": "**a)** $E(X - Y) = 10 - 8 = 2$. Med $a = 1, b = -1$:\n$$\\text{Var}(X - Y) = 1^2 \\cdot 9 + (-1)^2 \\cdot 16 + 2 \\cdot 1 \\cdot (-1) \\cdot (-6) = 9 + 16 + 12 = 37.$$\n\n**b)** Med $a = b = \\tfrac{1}{2}$:\n$$\\text{Var}(\\bar{Z}) = \\tfrac{1}{4} \\cdot 9 + \\tfrac{1}{4} \\cdot 16 + 2 \\cdot \\tfrac{1}{2} \\cdot \\tfrac{1}{2} \\cdot (-6) = 2{,}25 + 4 - 3 = 3{,}25.$$\n\n**c)** Uten kovarians ville $\\text{Var}(X - Y) = 9 + 16 = 25$. Med $\\text{Cov} = -6$ ble den **større** ($37 > 25$). Forklaring: for en *differanse* bidrar kovariansleddet med $-2\\,\\text{Cov} = -2 \\cdot (-6) = +12$. Når $X$ og $Y$ er **negativt** korrelert, drar de i hver sin retning, så differansen $X - Y$ svinger *mer* enn om de var uavhengige.",
+        "hints": [
+          "$\\text{Var}(X-Y) = \\text{Var}(X) + \\text{Var}(Y) - 2\\text{Cov}(X,Y)$ — pass på fortegnet foran kovariansen.",
+          "For $\\bar Z$: $a = b = 1/2$, så begge variansledd får faktor $1/4$.",
+          "Sammenlign med $9 + 16$; forskjellen er $-2\\text{Cov}$."
+        ]
+      }
+    },
+    {
+      "id": "tma4245-2-1-v2",
+      "type": "exercise",
+      "exercise": {
+        "id": "tma4245-2-1-v2",
+        "number": "8",
+        "type": "classic",
+        "difficulty": "vanskelig",
+        "task": "$X$ og $Y$ har $E(X)=3$, $E(Y)=5$, $\\text{Var}(X)=4$, $\\text{Var}(Y)=9$ og $\\text{Cov}(X,Y)=2$.\n\n**a)** Finn $\\text{Var}(X+Y)$ og $\\text{Var}(2X-Y)$.\n\n**b)** La $W=\\tfrac{1}{2}(X+Y)$. Finn $\\text{Var}(W)$.\n\n**c)** Finn $E(3X+2Y)$ og $\\text{Var}(3X+2Y)$.",
+        "solution": "**a)** $\\text{Var}(X+Y)=4+9+2\\cdot 2=17$. Med $a=2,b=-1$: $\\text{Var}(2X-Y)=2^2\\cdot 4+(-1)^2\\cdot 9+2\\cdot 2\\cdot(-1)\\cdot 2=16+9-8=17$.\n\n**b)** Med $a=b=\\tfrac{1}{2}$: $\\text{Var}(W)=\\tfrac{1}{4}\\cdot 4+\\tfrac{1}{4}\\cdot 9+2\\cdot\\tfrac{1}{2}\\cdot\\tfrac{1}{2}\\cdot 2=1+2{,}25+1=4{,}25$.\n\n**c)** $E(3X+2Y)=3\\cdot 3+2\\cdot 5=19$. Med $a=3,b=2$: $\\text{Var}(3X+2Y)=3^2\\cdot 4+2^2\\cdot 9+2\\cdot 3\\cdot 2\\cdot 2=36+36+24=96$.",
+        "hints": [
+          "Bruk $\\text{Var}(aX+bY)=a^2\\text{Var}(X)+b^2\\text{Var}(Y)+2ab\\text{Cov}(X,Y)$.",
+          "For $W$: $a=b=1/2$, så begge variansledd får faktor $1/4$.",
+          "For c): $E$ er lineær; sett $a=3,b=2$ i variansformelen."
+        ]
+      }
+    },
+    {
+      "id": "tma4245-2-1-warn",
+      "type": "warning",
+      "title": "Typiske feil",
+      "content": "- **Tro at $P(X = x) = f(x)$ for kontinuerlig $X$.** For en kontinuerlig variabel er $P(X = x) = 0$; $f(x)$ er en tetthet (kan overstige 1), og bare *arealer* er sannsynligheter.\n- **Glemme kovariansleddet i $\\text{Var}(aX + bY)$** når variablene henger sammen — eller ta det med når de er **uavhengige** (da er $\\text{Cov} = 0$). Sjekk alltid hva oppgaven sier om avhengighet.\n- **Glemme kvadratene** på koeffisientene: det er $a^2\\text{Var}(X)$, ikke $a\\,\\text{Var}(X)$.\n- **Tro at $\\text{Var}(X - Y) = \\text{Var}(X) - \\text{Var}(Y)$.** Varianser legges *alltid* til; for en differanse er $\\text{Var}(X - Y) = \\text{Var}(X) + \\text{Var}(Y) - 2\\,\\text{Cov}(X,Y)$.\n- **Regne $E(X^2)$ som $[E(X)]^2$.** De er forskjellige — differansen er nettopp variansen.\n- **Bruke $\\le$ og $<$ om hverandre for diskrete variable.** For diskrete variable er $P(X \\le a) \\ne P(X < a)$ når $p(a) > 0$; for kontinuerlige er de like."
+    },
+    {
+      "id": "tma4245-2-1-begrepsbank",
+      "type": "text",
+      "content": "## Begrepsbank til eksamen\n\nKjernebegrepene fra kapitlet i kortform — repertoaret for regnereglene og fordelingsspråket.\n\n*Begrepsbanken er flashcard-/repetisjonsstoff — den gjentar det du nettopp har lest. Hopp trygt over ved førstegangslesing; tidsanslaget gjelder kjernestoffet.*"
+    },
+    {
+      "id": "tma4245-2-1-bb-moment",
+      "type": "definition",
+      "title": "Moment $E(X^k)$",
+      "content": "Det **$k$-te momentet** til $X$ er $E(X^k)$ — forventningen til $k$-te potens. Første moment ($k = 1$) er forventningen $E(X)$; andre moment ($k = 2$) er $E(X^2)$, som sammen med forventningen gir variansen via $\\text{Var}(X) = E(X^2) - [E(X)]^2$. Momenter regnes med $E(X^k) = \\sum x^k p(x)$ eller $\\int x^k f(x)\\,dx$."
+    },
+    {
+      "id": "tma4245-2-1-bb-stotte",
+      "type": "definition",
+      "title": "Støtten til en fordeling",
+      "content": "**Støtten** er mengden av verdier der sannsynligheten er positiv: for en diskret variabel de $x$ med $p(x) > 0$, for en kontinuerlig det intervallet der $f(x) > 0$. Utenfor støtten er $f(x) = 0$ (eller $p(x) = 0$). Å holde styr på støtten er avgjørende når du integrerer en tetthet — grensene i integralet er nettopp støttens endepunkter."
+    },
+    {
+      "id": "tma4245-2-1-bb-egx-vs-gex",
+      "type": "definition",
+      "title": "$E[g(X)] \\ne g(E(X))$",
+      "content": "Forventningen til en funksjon er i sin alminnelighet *ikke* funksjonen av forventningen. For eksempel er $E(X^2) \\ge [E(X)]^2$ alltid (differansen er variansen $\\ge 0$), med likhet bare når $X$ er konstant. Lineære funksjoner er unntaket: der gjelder $E(aX + b) = a\\,E(X) + b$ med likhet. Å sette forventningen inn i en ikke-lineær funksjon er en vanlig feil."
+    },
+    {
+      "id": "tma4245-2-1-bb-konstant",
+      "type": "definition",
+      "title": "Forventning og varians av en konstant",
+      "content": "En **konstant** $c$ (en variabel uten tilfeldighet) har $E(c) = c$ og $\\text{Var}(c) = 0$ — den svinger ikke. Dette er grunnen til at et konstantledd faller bort i variansen: $\\text{Var}(aX + b) = a^2\\text{Var}(X)$, fordi $b$ er konstant. Motsatt: er $\\text{Var}(X) = 0$, må $X$ være konstant lik sin forventning."
+    },
+    {
+      "id": "tma4245-2-1-bb-indikator",
+      "type": "definition",
+      "title": "Indikatorvariabel",
+      "content": "En **indikatorvariabel** $I_A$ er 1 hvis hendelsen $A$ inntreffer og 0 ellers. Da er $E(I_A) = P(A)$ og $\\text{Var}(I_A) = P(A)\\,[1 - P(A)]$. Indikatorer er broen mellom hendelser (kap. 1) og stokastiske variable, og gjør at «antall ganger $A$ skjer» kan skrives som en sum av indikatorer — grunnlaget for den binomiske fordelingen i [kap. 2.2](/bok/tma4245/tma4245-2-2)."
+    },
+    {
+      "id": "tma4245-2-1-bb-standardisering",
+      "type": "definition",
+      "title": "Standardisering",
+      "content": "Å **standardisere** en variabel er å trekke fra forventningen og dele på standardavviket:\n\n$$Z = \\frac{X - \\mu}{\\sigma}.$$\n\nMed regnereglene får $Z$ alltid $E(Z) = 0$ og $\\text{Var}(Z) = 1$, uansett fordeling. Standardisering er teknikken som gjør normalfordelingstabellen brukbar (kap. 3.1); her ser vi bare at forventning og varians til $Z$ følger direkte av regnereglene $\\text{Var}(aX + b) = a^2\\text{Var}(X)$."
+    },
+    {
+      "id": "tma4245-2-1-bb-var-nonneg",
+      "type": "definition",
+      "title": "Variansen er aldri negativ",
+      "content": "Fordi $\\text{Var}(X) = E[(X - \\mu)^2]$ er forventningen til et **kvadrat**, er den alltid $\\ge 0$. Får du et negativt tall for en varians, har du regnefeil — typisk at du trakk varianser fra hverandre for en differanse i stedet for å legge dem sammen, eller mistet et fortegn i kovariansleddet. Bruk dette som en rask kontroll på svaret ditt."
+    },
+    {
+      "id": "tma4245-2-1-rep",
+      "type": "collapsible",
+      "title": "Repetisjonsoppgaver",
+      "buttonText": "Vis repetisjonsoppgaver",
+      "content": [
+        {
+          "id": "tma4245-2-1-rep-1",
+          "type": "exercise",
+          "exercise": {
+            "id": "tma4245-2-1-rep-1",
+            "number": "R1",
+            "type": "classic",
+            "difficulty": "lett",
+            "task": "(Fra kap. 1.1) To uavhengige komponenter svikter med sannsynlighet $0{,}1$ hver. La $X$ være antall som svikter. Finn $P(X = 0)$.",
+            "solution": "Uavhengige, så $P(X = 0) = (1 - 0{,}1)(1 - 0{,}1) = 0{,}9 \\cdot 0{,}9 = 0{,}81$.",
+            "hints": [
+              "«Ingen svikter» = produktet av $(1 - p)$ for hver komponent."
+            ]
+          }
+        },
+        {
+          "id": "tma4245-2-1-rep-2",
+          "type": "exercise",
+          "exercise": {
+            "id": "tma4245-2-1-rep-2",
+            "number": "R2",
+            "type": "classic",
+            "difficulty": "lett",
+            "task": "En diskret variabel har $p(1) = 0{,}5$, $p(2) = 0{,}3$, $p(3) = 0{,}2$. Finn $E(X)$.",
+            "solution": "$E(X) = 1 \\cdot 0{,}5 + 2 \\cdot 0{,}3 + 3 \\cdot 0{,}2 = 0{,}5 + 0{,}6 + 0{,}6 = 1{,}7$.",
+            "hints": [
+              "$E(X) = \\sum x\\,p(x)$."
+            ]
+          }
+        },
+        {
+          "id": "tma4245-2-1-rep-3",
+          "type": "exercise",
+          "exercise": {
+            "id": "tma4245-2-1-rep-3",
+            "number": "R3",
+            "type": "classic",
+            "difficulty": "middels",
+            "task": "En variabel har $E(X) = 2$ og $E(X^2) = 6$. Finn $\\text{Var}(X)$ og $\\text{SD}(X)$.",
+            "solution": "$\\text{Var}(X) = E(X^2) - [E(X)]^2 = 6 - 2^2 = 2$, og $\\text{SD}(X) = \\sqrt{2} \\approx 1{,}41$.",
+            "hints": [
+              "Regneformelen for varians.",
+              "Standardavvik = kvadratroten av variansen."
+            ]
+          }
+        },
+        {
+          "id": "tma4245-2-1-rep-4",
+          "type": "exercise",
+          "exercise": {
+            "id": "tma4245-2-1-rep-4",
+            "number": "R4",
+            "type": "classic",
+            "difficulty": "middels",
+            "task": "$X$ og $Y$ er uavhengige med $\\text{Var}(X) = 5$ og $\\text{Var}(Y) = 4$. Finn $\\text{Var}(2X - 3Y)$.",
+            "solution": "Uavhengige, så $\\text{Cov} = 0$: $\\text{Var}(2X - 3Y) = 2^2 \\cdot 5 + (-3)^2 \\cdot 4 = 20 + 36 = 56$.",
+            "hints": [
+              "Kovariansleddet forsvinner for uavhengige.",
+              "Kvadrer koeffisientene: $2^2$ og $(-3)^2$."
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": "tma4245-2-1-symbolliste",
+      "type": "collapsible",
+      "title": "Symbol- og formelliste",
+      "buttonText": "Vis symboler og formler",
+      "content": [
+        {
+          "id": "tma4245-2-1-symbolliste-text",
+          "type": "text",
+          "content": "*Oppslagsverk — alt her forklares underveis i kapitlet.*\n\nAlle symboler og formler brukt i kapittel 2.1, samlet.\n\n| Symbol | Betydning |\n|---|---|\n| $X, Y$ | Stokastiske variable (store bokstaver) |\n| $x$ | En observert verdi av $X$ (liten bokstav) |\n| $p(x)$ | Punktsannsynlighet $P(X = x)$ (diskret) |\n| $f(x)$ | Tetthetsfunksjon (kontinuerlig) — *ikke* en sannsynlighet |\n| $F(x)$ | Fordelingsfunksjon $P(X \\le x)$ |\n| $E(X),\\ \\mu$ | Forventning (middelverdi) |\n| $E[g(X)]$ | Forventning til en funksjon av $X$ |\n| $E(X^2)$ | Andre moment |\n| $\\text{Var}(X),\\ \\sigma^2$ | Varians |\n| $\\text{SD}(X),\\ \\sigma$ | Standardavvik |\n| $\\text{Cov}(X, Y)$ | Kovarians (full behandling i kap. 2.5) |\n| $I_A$ | Indikatorvariabel for hendelsen $A$ |\n\n**Formler i dette kapitlet:**\n\n$$E(X) = \\sum_x x\\,p(x) = \\int x f(x)\\,dx$$\nForventning: vektet snitt (diskret) / tyngdepunkt-integral (kontinuerlig).\n\n$$E[g(X)] = \\sum_x g(x)\\,p(x) = \\int g(x) f(x)\\,dx$$\nForventning til en funksjon — vekt funksjonsverdiene med fordelingen til $X$.\n\n$$\\text{Var}(X) = E(X^2) - [E(X)]^2$$\nRegneformelen for varians (brukes aktivt).\n\n$$E(aX + bY) = a\\,E(X) + b\\,E(Y)$$\nForventning er lineær — uansett avhengighet.\n\n$$\\text{Var}(aX + b) = a^2\\,\\text{Var}(X)$$\nSkalering kvadreres, konstantledd faller bort.\n\n$$\\text{Var}(aX + bY) = a^2\\text{Var}(X) + b^2\\text{Var}(Y) + 2ab\\,\\text{Cov}(X, Y)$$\nVarians til en sum — kovariansleddet forsvinner bare ved uavhengighet.\n\n$$\\text{Cov}(X, Y) = E(XY) - E(X)E(Y)$$\nKovarians; $\\text{Cov}(X,X) = \\text{Var}(X)$, og uavhengige gir $\\text{Cov} = 0$.\n\n$$P(a < X \\le b) = F(b) - F(a), \\qquad f(x) = F'(x)$$\nSammenhengene mellom fordelingsfunksjon og tetthet."
+        }
+      ]
+    }
+  ],
+  "exercises": []
+}

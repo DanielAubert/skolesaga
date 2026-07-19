@@ -1,0 +1,310 @@
+{
+  "id": "tma4245-6-2",
+  "courseId": "tma4245",
+  "chapterNumber": "6.2",
+  "title": "Pivotal-metoden: eksakte intervaller når normalapparatet ikke strekker til",
+  "description": "Finn en pivotal, sett kvantiler rundt, løs for parameteren — med eksponensialens $\\chi^2_{2n}$-intervall som kronjuvel, sammenlignet mot det normaltilnærmede og transformert til avledede størrelser.",
+  "estimatedMinutes": 65,
+  "competenceGoals": [
+    "utlede konfidensintervaller med pivotal-metoden i tre steg, med korrekt ulikhetshåndtering ved invertering",
+    "konstruere det eksakte kjikvadrat-intervallet for eksponensialforventningen $\\beta$ med frihetsgrad $2n$",
+    "sammenligne det eksakte intervallet med det normaltilnærmede og begrunne hvorfor det eksakte foretrekkes",
+    "transformere et konfidensintervall til en avledet størrelse via en monoton funksjon"
+  ],
+  "content": [
+    {
+      "id": "tma4245-6-2-tip",
+      "type": "tip",
+      "title": "Eksamensvinkel",
+      "content": "**Pivotal-metoden er A-kandidatens signatur — den faste avslutningen på den store kjedeoppgaven.**\n\n- Eksakte konfidensintervall via en **pivotal** (en datastørrelse hvis fordeling ikke inneholder den ukjente parameteren) er **sjanger H på det høyeste nivået** (i settenes katalog kalt «nivå iii» — den vanskeligste KI-varianten, der intervallet må *utledes*, ikke bare slås opp). Prioritet: **perfekt**.\n- Det **eksakte kjikvadrat-intervallet for $\\beta$** (fra $2\\sum X_i/\\beta \\sim \\chi^2_{2n}$) er i **minst 9 sett** — samme apparat du drillet i [kap. 4.2](/bok/tma4245/tma4245-4-2), nå snudd til et intervall.\n- **Aug25** ber eksplisitt om å **sammenligne** det eksakte intervallet med det normaltilnærmede (CLT-baserte): det eksakte er å foretrekke og typisk bredere ved liten $n$.\n- **Des25** **transformerer** intervallet til en avledet størrelse (en hundreårs-hendelse) via en monoton funksjon.\n\n**Hvor poengene sitter (fra løsningsforslagene):** i å **finne** riktig pivotal, i **kvantilplasseringen** (riktig kvantil i riktig ende), og fremfor alt i **ulikhetshåndteringen** når man løser ut parameteren — særlig at endepunktene *bytter plass* når man inverterer.\n\n**Formelsamlingen** (hjelpemiddelkode C) har $\\chi^2$-, $t$- og $F$-kvantiltabellene, men **selve utledningen** av intervallet står ikke der. Dette er ren teknikk — det du utleder her, er broen til de eksakte testene i Del 7."
+    },
+    {
+      "id": "tma4245-6-2-forkunnskaper",
+      "type": "text",
+      "content": "**Forkunnskaper:** Dette kapitlet bygger direkte på standardintervallene og konstruksjonslogikken i **[kap. 6.1](/bok/tma4245/tma4245-6-1)**, på kjikvadrat-apparatet for eksponensialdata i **[kap. 4.2](/bok/tma4245/tma4245-4-2)**, og på det normaltilnærmede intervallet fra sentralgrenseteoremet i **[kap. 3.3](/bok/tma4245/tma4245-3-3)** (som vi sammenligner mot).\n\n**Sist du var her — de tre pivotalene vi bruker (ferdig oppfrisket):**\n\n1. **Eksponensialpivotalen** (kap. 4.2), kronjuvelen i dette kapitlet: for uavhengige $X_1, \\ldots, X_n \\sim \\text{eksp}(\\beta)$ er\n$$\\frac{2\\sum_{i=1}^{n} X_i}{\\beta} = \\frac{2n\\bar{X}}{\\beta} \\sim \\chi^2_{2n} \\qquad (\\text{frihetsgrad } 2n, \\text{ ikke } n).$$\n2. **Normal-pivotalene:** $\\frac{\\bar{X}-\\mu}{S/\\sqrt{n}} \\sim t_{n-1}$ og $\\frac{(n-1)S^2}{\\sigma^2} \\sim \\chi^2_{n-1}$ (grunnlaget for t- og $\\sigma^2$-intervallene i kap. 6.1).\n3. **Kvantilnotasjonen med øvre haleareal:** $\\chi^2_{\\nu,\\alpha}$ er tallet der $P(\\chi^2_\\nu > \\chi^2_{\\nu,\\alpha}) = \\alpha$.\n\nDu må kunne løse en dobbeltulikhet og passe på hva som skjer med ulikhetsretningen når du **deler på** eller **inverterer** ledd. Ingen ny fordelingsteori — bare pivotalene fra før, snudd til intervaller."
+    },
+    {
+      "id": "tma4245-6-2-intro",
+      "type": "text",
+      "content": "I [kap. 6.1](/bok/tma4245/tma4245-6-1) brukte vi ferdige formler fra formelsamlingen. Men hva gjør vi når parameteren er $\\beta$ i en eksponensialfordeling, og formelsamlingen *ikke* har et ferdig intervall? Da lager vi det selv med **pivotal-metoden** — den generelle oppskriften bak *alle* konfidensintervaller.\n\nVi går i fire løkker. Først **pivotal-metoden** som en generell trestegs-oppskrift (løkke 1). Så **hovedeksemplet**: det eksakte kjikvadrat-intervallet for $\\beta$, utledet fra bunnen (løkke 2). Deretter **sammenligningen** med det normaltilnærmede intervallet fra CLT — når og hvorfor de avviker (løkke 3). Til slutt **KI-transformasjon**: hvordan et intervall for $\\beta$ gjøres om til et intervall for en avledet størrelse som medianlevetiden $\\beta\\ln 2$ (løkke 4). Hver løkke går teori → eksempel → oppgave.\n\n*Samlet kjernetid ≈ 65 min. Naturlige pausepunkter er markert mellom løkkene — dette er et tungt kapittel, del det gjerne i to økter.*"
+    },
+    {
+      "id": "tma4245-6-2-lokke1",
+      "type": "text",
+      "content": "## Løkke 1 — Pivotal-metoden i tre steg (~14 min)"
+    },
+    {
+      "id": "tma4245-6-2-def-pivotal",
+      "type": "definition",
+      "title": "Pivotal (pivotal størrelse)",
+      "content": "En **pivotal** er en størrelse bygget av dataene *og* den ukjente parameteren $\\theta$, som har en **fordeling som ikke inneholder $\\theta$** (eller andre ukjente). Nettopp fordi fordelingen er fri for $\\theta$, kan vi sette faste kvantiler rundt størrelsen og «pakke ut» $\\theta$ til et intervall.\n\nEksempel: $\\frac{\\bar{X}-\\mu}{\\sigma/\\sqrt{n}} \\sim N(0,1)$ er en pivotal for $\\mu$ (fordelingen $N(0,1)$ er fri for $\\mu$). Motsatt er $\\bar{X}$ *ikke* en pivotal, for fordelingen til $\\bar{X}$ avhenger av $\\mu$. Å finne en pivotal er det kreative steget; resten er mekanikk."
+    },
+    {
+      "id": "tma4245-6-2-def-metoden",
+      "type": "definition",
+      "title": "Pivotal-metoden (tre steg)",
+      "content": "For å konstruere et $(1-\\alpha)$-konfidensintervall for en parameter $\\theta$:\n\n**Steg 1 — finn en pivotal.** Finn $W = W(X_1, \\ldots, X_n; \\theta)$ med kjent fordeling fri for $\\theta$. Standardtilfellene: $\\frac{\\bar{X}-\\mu}{S/\\sqrt{n}} \\sim t_{n-1}$; $\\frac{(n-1)S^2}{\\sigma^2} \\sim \\chi^2_{n-1}$; $\\frac{2\\sum X_i}{\\beta} \\sim \\chi^2_{2n}$.\n\n**Steg 2 — sett kvantiler rundt.** Velg $w_1, w_2$ (kvantilene i pivotalens fordeling) slik at\n$$P(w_1 \\le W \\le w_2) = 1-\\alpha,$$\ntypisk med $\\alpha/2$ i hver hale: $w_1 = $ nedre kvantil, $w_2 = $ øvre kvantil.\n\n**Steg 3 — løs dobbeltulikheten for $\\theta$.** Algebraisk isoler $\\theta$ i midten. **Pass på retningen:** deler du på et negativt tall eller **inverterer** (tar den resiproke), snur ulikheten — og da **bytter de to endepunktene plass**. Resultatet er intervallet."
+    },
+    {
+      "id": "tma4245-6-2-ex1",
+      "type": "example",
+      "title": "Eksempel 1: Metoden på et kjent tilfelle (gjenkjenn oppskriften)",
+      "problem": "Bruk pivotal-metoden på $\\frac{(n-1)S^2}{\\sigma^2} \\sim \\chi^2_{n-1}$ til å utlede konfidensintervallet for variansen $\\sigma^2$ (det du brukte som ferdig formel i kap. 6.1). Pass spesielt på ulikhetsretningen.",
+      "solution": "**Steg 1 — pivotal.** $W = \\frac{(n-1)S^2}{\\sigma^2} \\sim \\chi^2_{n-1}$ — fordelingen $\\chi^2_{n-1}$ er fri for $\\sigma^2$, så $W$ er en pivotal.\n\n**Steg 2 — kvantiler.** Med $\\alpha/2$ i hver hale:\n$$P\\!\\left(\\chi^2_{n-1,\\,1-\\alpha/2} \\le \\frac{(n-1)S^2}{\\sigma^2} \\le \\chi^2_{n-1,\\,\\alpha/2}\\right) = 1-\\alpha.$$\n(Den lille kvantilen $\\chi^2_{n-1,1-\\alpha/2}$ til venstre, den store $\\chi^2_{n-1,\\alpha/2}$ til høyre.)\n\n**Steg 3 — løs for $\\sigma^2$.** Her sitter $\\sigma^2$ i nevneren. Vi **inverterer** hele ulikheten (tar den resiproke av alle tre ledd), og da **snur** ulikhetstegnene:\n$$\\frac{1}{\\chi^2_{n-1,\\,1-\\alpha/2}} \\ge \\frac{\\sigma^2}{(n-1)S^2} \\ge \\frac{1}{\\chi^2_{n-1,\\,\\alpha/2}}.$$\nGang med $(n-1)S^2$ og snu leseretningen:\n$$\\frac{(n-1)S^2}{\\chi^2_{n-1,\\,\\alpha/2}} \\le \\sigma^2 \\le \\frac{(n-1)S^2}{\\chi^2_{n-1,\\,1-\\alpha/2}}.$$\n\n> *Sensornotat:* legg merke til hva inverteringen gjorde: den **store** kvantilen, som stod til *høyre* i steg 2, endte i **nevneren under den nedre** grensen. Det er nettopp den ombyttingen som gir det asymmetriske intervallet fra kap. 6.1 — og som er lett å rote til hvis man glemmer at ulikheten snur ved invertering."
+    },
+    {
+      "id": "tma4245-6-2-l1",
+      "type": "exercise",
+      "exercise": {
+        "id": "tma4245-6-2-l1",
+        "number": "1",
+        "type": "classic",
+        "difficulty": "lett",
+        "task": "(Innstegsoppgave — begrepet pivotal.) Avgjør for hver størrelse om den er en pivotal for den angitte parameteren, og begrunn med ett ord om fordelingen.\n\n**a)** $\\frac{\\bar{X}-\\mu}{\\sigma/\\sqrt{n}}$ for $\\mu$ (kjent $\\sigma$).\n\n**b)** $\\bar{X}$ for $\\mu$.\n\n**c)** $\\frac{2\\sum X_i}{\\beta}$ for $\\beta$ (eksponensialdata).",
+        "solution": "**a) Ja.** Fordelingen er $N(0,1)$, som ikke inneholder $\\mu$ — altså en pivotal.\n\n**b) Nei.** $\\bar{X} \\sim N(\\mu, \\sigma^2/n)$; fordelingen *inneholder* $\\mu$, så den kan ikke brukes til å pakke ut $\\mu$.\n\n**c) Ja.** Fordelingen er $\\chi^2_{2n}$, fri for $\\beta$ — dette er nettopp eksponensialpivotalen fra kap. 4.2.",
+        "hints": [
+          "En pivotal har en fordeling FRI for den ukjente parameteren.",
+          "Sjekk: står parameteren igjen i fordelingen, er det ikke en pivotal.",
+          "$\\bar{X} \\sim N(\\mu, \\sigma^2/n)$ inneholder $\\mu$."
+        ]
+      }
+    },
+    {
+      "id": "tma4245-6-2-lokke2",
+      "type": "text",
+      "content": "## Løkke 2 — Hovedeksempel: eksakt konfidensintervall for $\\beta$ (~18 min)"
+    },
+    {
+      "id": "tma4245-6-2-def-eksakt",
+      "type": "definition",
+      "title": "Eksakt konfidensintervall for $\\beta$ (eksponensialdata)",
+      "content": "For uavhengige eksponensialfordelte levetider $X_1, \\ldots, X_n$ med forventning $\\beta$ gir eksponensialpivotalen $\\frac{2\\sum X_i}{\\beta} \\sim \\chi^2_{2n}$ det **eksakte** $(1-\\alpha)$-konfidensintervallet:\n\n$$\\left[\\frac{2\\sum x_i}{\\chi^2_{2n,\\,\\alpha/2}},\\; \\frac{2\\sum x_i}{\\chi^2_{2n,\\,1-\\alpha/2}}\\right].$$\n\n«Eksakt» betyr at dekningen er *nøyaktig* $1-\\alpha$ for **alle** utvalgsstørrelser — i motsetning til det normaltilnærmede intervallet (løkke 3), som bare er tilnærmet riktig for stor $n$. Som i variansintervallet står den **store** kvantilen ($\\chi^2_{2n,\\alpha/2}$) under den **nedre** grensen, fordi $\\beta$ inverteres når vi løser den ut. Frihetsgraden er **$2n$** — aldri $n$ eller $n-1$."
+    },
+    {
+      "id": "tma4245-6-2-ex2",
+      "type": "example",
+      "title": "Eksempel 2: Full utledning og utregning",
+      "problem": "Levetidene $X_1, \\ldots, X_{12}$ (i tusen timer) til tolv likelydende pumper er uavhengige og eksponensialfordelte med forventning $\\beta$. Målt sum er $\\sum x_i = 96$.\n\n**a)** Utled et eksakt 95 % konfidensintervall for $\\beta$ fra pivotalen $\\frac{2\\sum X_i}{\\beta} \\sim \\chi^2_{2n}$.\n\n**b)** Regn ut intervallet.",
+      "solution": "**a) Utledning.** $n = 12$, så pivotalen er $\\frac{2\\sum X_i}{\\beta} \\sim \\chi^2_{24}$. Med $\\alpha/2 = 0{,}025$ i hver hale:\n$$P\\!\\left(\\chi^2_{24,\\,0{,}975} \\le \\frac{2\\sum X_i}{\\beta} \\le \\chi^2_{24,\\,0{,}025}\\right) = 0{,}95.$$\nHer sitter $\\beta$ i nevneren. Inverter alle tre ledd (ulikheten snur), og gang med $2\\sum X_i$:\n$$\\frac{2\\sum x_i}{\\chi^2_{24,\\,0{,}025}} \\le \\beta \\le \\frac{2\\sum x_i}{\\chi^2_{24,\\,0{,}975}}.$$\nDen store kvantilen havnet under den nedre grensen — akkurat som i eksempel 1.\n\n**b) Utregning.** Tabelloppslag i $\\chi^2_{24}$: $\\chi^2_{24;\\,0{,}025} = 39{,}364$ og $\\chi^2_{24;\\,0{,}975} = 12{,}401$. Med $2\\sum x_i = 2 \\cdot 96 = 192$:\n$$\\left[\\frac{192}{39{,}364},\\; \\frac{192}{12{,}401}\\right] = [4{,}88,\\; 15{,}48] \\text{ (tusen timer)}.$$\n\nMed 95 % tillit ligger forventet levetid mellom ca. 4 880 og 15 480 timer. (Punktestimatet er $\\hat{\\beta} = \\bar{x} = 96/12 = 8$ tusen timer — merk at intervallet ikke ligger symmetrisk om 8.)\n\n> *Sensornotat:* skriv $2\\sum x_i = 192$ og begge tabelloppslagene eksplisitt. Den store kvantilen ($39{,}364$) hører til den nedre grensen; bytter du dem, får du nedre > øvre — umulig. Frihetsgrad $2n = 24$, ikke 12.\n\n— naturlig pausepunkt —"
+    },
+    {
+      "id": "tma4245-6-2-l2",
+      "type": "exercise",
+      "exercise": {
+        "id": "tma4245-6-2-l2",
+        "number": "2",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "Ti kondensatorer har uavhengige, eksponensialfordelte levetider (i tusen timer) med forventning $\\beta$, og $\\sum x_i = 84$.\n\n**a)** Angi fordelingen til $\\frac{2\\sum X_i}{\\beta}$.\n\n**b)** Utled og regn ut et eksakt 90 % konfidensintervall for $\\beta$. Bruk $\\chi^2_{20;\\,0{,}05} = 31{,}410$ og $\\chi^2_{20;\\,0{,}95} = 10{,}851$.",
+        "solution": "**a)** $n = 10$, så $\\frac{2\\sum X_i}{\\beta} \\sim \\chi^2_{20}$ (frihetsgrad $2n = 20$).\n\n**b)** 90 % gir $\\alpha/2 = 0{,}05$. Intervallet er $\\left[\\frac{2\\sum x_i}{\\chi^2_{20,\\,0{,}05}},\\; \\frac{2\\sum x_i}{\\chi^2_{20,\\,0{,}95}}\\right]$ med $2\\sum x_i = 168$:\n$$\\left[\\frac{168}{31{,}410},\\; \\frac{168}{10{,}851}\\right] = [5{,}35,\\; 15{,}48] \\text{ (tusen timer)}.$$\nDen store kvantilen ($31{,}410$) står under den nedre grensen.",
+        "hints": [
+          "Frihetsgrad $2n = 20$; $\\alpha/2 = 0{,}05$ for 90 %.",
+          "$2\\sum x_i = 2 \\cdot 84 = 168$.",
+          "Stor kvantil under nedre grense: $168/31{,}410$."
+        ]
+      }
+    },
+    {
+      "id": "tma4245-6-2-lokke3",
+      "type": "text",
+      "content": "## Løkke 3 — Eksakt vs. normaltilnærmet intervall (~16 min)"
+    },
+    {
+      "id": "tma4245-6-2-sammenlign",
+      "type": "text",
+      "content": "Det finnes et **alternativt** intervall for $\\beta$ som bygger på sentralgrenseteoremet ([kap. 3.3](/bok/tma4245/tma4245-3-3)) i stedet for den eksakte pivotalen. Siden $\\hat{\\beta} = \\bar{X}$ og $\\text{Var}(\\bar{X}) = \\beta^2/n$ (fordi $\\text{Var}(X_i) = \\beta^2$), er $\\bar{X}$ for stor $n$ tilnærmet normalfordelt, og et **normaltilnærmet** intervall blir\n$$\\hat{\\beta} \\pm z_{\\alpha/2}\\,\\frac{\\hat{\\beta}}{\\sqrt{n}}$$\n(der vi har satt $\\hat{\\beta}$ inn for $\\beta$ i standardfeilen). Dette er symmetrisk om $\\hat{\\beta}$ og lett å regne — men det er bare **tilnærmet** riktig, og tilnærmingen er dårlig når $n$ er liten eller fordelingen skjev (og eksponensialfordelingen *er* skjev).\n\n**Hovedbudskapet:** det **eksakte** kjikvadrat-intervallet er å foretrekke. Ved liten $n$ er det typisk **bredere** og forskjøvet oppover (asymmetrisk), fordi det respekterer skjevheten i fordelingen. Det er en **feil** å tro at det smalere, normaltilnærmede intervallet er «riktigere» fordi det er smalere — smalt er ikke det samme som korrekt dekning. Det tilnærmede kan til og med gi en negativ nedre grense, som er meningsløst for en levetid."
+    },
+    {
+      "id": "tma4245-6-2-ex3",
+      "type": "example",
+      "title": "Eksempel 3: De to intervallene side om side",
+      "problem": "Bruk pumpedataene fra eksempel 2 ($n = 12$, $\\sum x_i = 96$, $\\hat{\\beta} = 8$). Regn ut det normaltilnærmede 95 % intervallet for $\\beta$ og sammenlign med det eksakte $[4{,}88,\\; 15{,}48]$.",
+      "solution": "**Normaltilnærmet intervall.** $\\hat{\\beta} = 8$, standardfeil $\\hat{\\beta}/\\sqrt{n} = 8/\\sqrt{12} = 2{,}309$. Med $z_{0{,}025} = 1{,}96$:\n$$8 \\pm 1{,}96 \\cdot 2{,}309 = 8 \\pm 4{,}526 = [3{,}47,\\; 12{,}53].$$\n\n**Sammenligning.**\n\n| | Nedre | Øvre | Bredde | Form |\n|---|---|---|---|---|\n| Eksakt ($\\chi^2_{24}$) | 4,88 | 15,48 | 10,60 | asymmetrisk om 8 |\n| Normaltilnærmet | 3,47 | 12,53 | 9,05 | symmetrisk om 8 |\n\nDet eksakte intervallet er **bredere** (10,60 mot 9,05) og forskjøvet oppover — det fanger at eksponensialfordelingen har en lang høyrehale. Det normaltilnærmede er smalere og symmetrisk, men med bare $n = 12$ er normaltilnærmingen tvilsom, så den nøyaktige dekningen svikter.\n\n**Konklusjon:** bruk det **eksakte** intervallet. At det tilnærmede er smalere, gjør det ikke bedre — tvert imot undervurderer det usikkerheten.\n\n> *Sensornotat:* poenget sensor er ute etter er at *smalere ikke betyr riktigere*. Skriv eksplisitt at det eksakte foretrekkes, særlig ved liten $n$."
+    },
+    {
+      "id": "tma4245-6-2-l3",
+      "type": "exercise",
+      "exercise": {
+        "id": "tma4245-6-2-l3",
+        "number": "3",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "For kondensatordataene i oppgave 2 ($n = 10$, $\\hat{\\beta} = \\bar{x} = 8{,}4$) skal du sammenligne med det eksakte 90 % intervallet $[5{,}35,\\; 15{,}48]$.\n\n**a)** Regn ut det normaltilnærmede 90 % intervallet $\\hat{\\beta} \\pm z_{0{,}05}\\,\\hat{\\beta}/\\sqrt{n}$ med $z_{0{,}05} = 1{,}645$.\n\n**b)** Hvilket intervall bør rapporteres, og hvorfor er det galt å velge det smaleste utelukkende fordi det er smalt?",
+        "solution": "**a)** Standardfeil $\\hat{\\beta}/\\sqrt{n} = 8{,}4/\\sqrt{10} = 2{,}656$. Feilmargin $1{,}645 \\cdot 2{,}656 = 4{,}369$. Normaltilnærmet: $8{,}4 \\pm 4{,}369 = [4{,}03,\\; 12{,}77]$.\n\n**b)** Rapporter det **eksakte** intervallet $[5{,}35,\\; 15{,}48]$. Med bare $n = 10$ og en skjev eksponensialfordeling er normaltilnærmingen upålitelig; det smalere tilnærmede intervallet har *ikke* garantert 95/90 %-dekning, så det undervurderer usikkerheten. Smalt betyr korrekt dekning bare når tilnærmingen faktisk holder — her gjør den ikke det.",
+        "hints": [
+          "$\\hat{\\beta}/\\sqrt{n} = 8{,}4/\\sqrt{10} = 2{,}656$.",
+          "Normaltilnærmet er symmetrisk om $\\hat{\\beta} = 8{,}4$.",
+          "Eksakt foretrekkes ved liten $n$; smalt betyr ikke riktig dekning."
+        ]
+      }
+    },
+    {
+      "id": "tma4245-6-2-lokke4",
+      "type": "text",
+      "content": "## Løkke 4 — KI-transformasjon via monoton funksjon (~14 min)"
+    },
+    {
+      "id": "tma4245-6-2-def-transform",
+      "type": "definition",
+      "title": "KI-transformasjon via en monoton funksjon",
+      "content": "Ofte er ikke $\\beta$ i seg selv det interessante, men en **avledet størrelse** $g(\\beta)$ — medianlevetiden $\\beta\\ln 2$, en overlevelsessannsynlighet, eller en sjelden hendelse. Nøkkelregelen:\n\n> Er $[L, U]$ et $(1-\\alpha)$-konfidensintervall for $\\theta$, og $g$ er en **strengt voksende** funksjon, så er $[g(L),\\, g(U)]$ et $(1-\\alpha)$-konfidensintervall for $g(\\theta)$.\n\nGrunnen er enkel: for voksende $g$ er utsagnet $L \\le \\theta \\le U$ *ekvivalent* med $g(L) \\le g(\\theta) \\le g(U)$, så sannsynligheten $1-\\alpha$ bevares. **Er $g$ strengt avtakende, snur ulikheten, og endepunktene bytter plass:** intervallet blir $[g(U),\\, g(L)]$. Sjekk alltid om $g$ vokser eller avtar før du setter inn — det avgjør rekkefølgen på endepunktene."
+    },
+    {
+      "id": "tma4245-6-2-ex4",
+      "type": "example",
+      "title": "Eksempel 4: Intervall for medianlevetiden",
+      "problem": "For en eksponensialfordeling med forventning $\\beta$ er medianlevetiden $m = \\beta\\ln 2$ (tiden der halvparten har sviktet). Bruk det eksakte intervallet $[4{,}88,\\; 15{,}48]$ for $\\beta$ (fra eksempel 2, i tusen timer) til å konstruere et 95 % konfidensintervall for medianlevetiden.",
+      "solution": "**Sjekk monotoni.** $g(\\beta) = \\beta\\ln 2$ er strengt **voksende** i $\\beta$ ($\\ln 2 \\approx 0{,}693 > 0$), så endepunktene beholder rekkefølgen.\n\n**Sett inn.** $g$ på begge ender:\n$$[\\,4{,}88 \\cdot \\ln 2,\\; 15{,}48 \\cdot \\ln 2\\,] = [4{,}88 \\cdot 0{,}6931,\\; 15{,}48 \\cdot 0{,}6931] = [3{,}38,\\; 10{,}73] \\text{ (tusen timer)}.$$\n\nMed 95 % tillit ligger medianlevetiden mellom ca. 3 380 og 10 730 timer.\n\n> *Sensornotat:* det eneste ekstra steget er å gange begge endepunktene med $\\ln 2$. Fordi $g$ er voksende, forblir 4,88 den nedre og 15,48 den øvre grensen. Hadde $g$ vært avtakende (f.eks. en overlevelsessannsynlighet som funksjon av rate), måtte endepunktene byttet plass."
+    },
+    {
+      "id": "tma4245-6-2-l4",
+      "type": "exercise",
+      "exercise": {
+        "id": "tma4245-6-2-l4",
+        "number": "4",
+        "type": "classic",
+        "difficulty": "vanskelig",
+        "task": "For pumpene i eksempel 2 er sannsynligheten for at én pumpe overlever $t = 2$ (tusen timer) lik $R = e^{-t/\\beta} = e^{-2/\\beta}$. Bruk det eksakte 95 % intervallet $[4{,}88,\\; 15{,}48]$ for $\\beta$.\n\n**a)** Er $g(\\beta) = e^{-2/\\beta}$ voksende eller avtakende i $\\beta$? Begrunn kort.\n\n**b)** Konstruer et 95 % konfidensintervall for overlevelsessannsynligheten $R$.",
+        "solution": "**a)** $g(\\beta) = e^{-2/\\beta}$. Når $\\beta$ vokser, blir $-2/\\beta$ mindre negativ (nærmere 0), så $e^{-2/\\beta}$ **vokser**. Altså er $g$ strengt **voksende** i $\\beta$ (lengre forventet levetid gir høyere overlevelsessannsynlighet — logisk).\n\n**b)** Siden $g$ er voksende, beholdes rekkefølgen: $[g(4{,}88),\\; g(15{,}48)]$.\n$$g(4{,}88) = e^{-2/4{,}88} = e^{-0{,}4098} = 0{,}664, \\qquad g(15{,}48) = e^{-2/15{,}48} = e^{-0{,}1292} = 0{,}879.$$\nIntervall: $[0{,}664,\\; 0{,}879]$. Med 95 % tillit overlever mellom ca. 66 % og 88 % av pumpene de første 2 000 timene.",
+        "hints": [
+          "Voksende/avtakende: se hva $-2/\\beta$ gjør når $\\beta$ øker.",
+          "$g$ voksende → behold rekkefølgen: $[g(L),\\, g(U)]$.",
+          "$e^{-2/4{,}88} = 0{,}664$; $e^{-2/15{,}48} = 0{,}879$."
+        ]
+      }
+    },
+    {
+      "id": "tma4245-6-2-warn",
+      "type": "warning",
+      "title": "Typiske feil",
+      "content": "- **Glemme å snu ulikheten ved invertering.** Når $\\beta$ (eller $\\sigma^2$) sitter i nevneren og du inverterer, snur alle ulikhetstegn, og **endepunktene bytter plass**. Den store kvantilen havner under den *nedre* grensen.\n- **Feil kvantil i feil ende.** I intervallet $[2\\sum x_i/\\chi^2_{2n,\\alpha/2},\\; 2\\sum x_i/\\chi^2_{2n,1-\\alpha/2}]$ står den **store** kvantilen ($\\chi^2_{2n,\\alpha/2}$) under den **nedre** grensen. Får du nedre > øvre, har du byttet dem om.\n- **Feil frihetsgrader i eksponensialtilfellet.** Pivotalen er $\\chi^2_{2n}$ — aldri $\\chi^2_n$ eller $\\chi^2_{n-1}$. Hver observasjon bidrar med $\\chi^2_2$.\n- **Hevde at det smale, normaltilnærmede intervallet er «riktigere».** Smalt betyr ikke korrekt dekning. Ved liten $n$ og skjev fordeling er det **eksakte** intervallet å foretrekke, selv om det er bredere.\n- **Glemme å sjekke monotonien før transformasjon.** For voksende $g$: $[g(L), g(U)]$. For **avtakende** $g$: endepunktene **bytter plass**, $[g(U), g(L)]$."
+    },
+    {
+      "id": "tma4245-6-2-begrepsbank",
+      "type": "text",
+      "content": "## Begrepsbank\n\nDe sentrale begrepene og formlene i kapitlet, samlet som repetisjonskort.\n\n*Flashcard-/repetisjonsstoff — hopp trygt over ved førstegangslesing; tidsanslaget gjelder kjernestoffet.*"
+    },
+    {
+      "id": "tma4245-6-2-fc1",
+      "type": "definition",
+      "title": "Standardpivotalene (tre å kunne)",
+      "content": "De tre pivotalene som dekker nesten alle eksamensoppgaver: **(1)** $\\frac{\\bar{X}-\\mu}{S/\\sqrt{n}} \\sim t_{n-1}$ (for $\\mu$, ukjent $\\sigma$); **(2)** $\\frac{(n-1)S^2}{\\sigma^2} \\sim \\chi^2_{n-1}$ (for $\\sigma^2$); **(3)** $\\frac{2\\sum X_i}{\\beta} \\sim \\chi^2_{2n}$ (for $\\beta$, eksponensialdata). Alle har fordelinger fri for parameteren."
+    },
+    {
+      "id": "tma4245-6-2-fc2",
+      "type": "definition",
+      "title": "Invertering: ulikheten snur",
+      "content": "Når parameteren sitter i **nevneren** og du inverterer (tar den resiproke av) en dobbeltulikhet, **snur alle ulikhetstegn**, og de to endepunktene **bytter plass**. Derfor havner den store kvantilen under den nedre grensen i $\\sigma^2$- og $\\beta$-intervallene. Sjekk alltid: nedre grense må være mindre enn øvre."
+    },
+    {
+      "id": "tma4245-6-2-fc3",
+      "type": "definition",
+      "title": "Eksakt vs. normaltilnærmet KI",
+      "content": "Det **eksakte** kjikvadrat-intervallet for $\\beta$ har nøyaktig dekning $1-\\alpha$ for alle $n$. Det **normaltilnærmede** $\\hat{\\beta} \\pm z_{\\alpha/2}\\hat{\\beta}/\\sqrt{n}$ bygger på CLT og er bare tilnærmet riktig for stor $n$. Ved liten $n$ er det eksakte bredere og å foretrekke; smalt betyr ikke riktigere dekning."
+    },
+    {
+      "id": "tma4245-6-2-fc4",
+      "type": "definition",
+      "title": "Avtakende transformasjon: bytt plass",
+      "content": "Ved KI-transformasjon $g(\\theta)$: er $g$ strengt **avtakende**, snur ulikheten og endepunktene **bytter plass** — intervallet blir $[g(U), g(L)]$, ikke $[g(L), g(U)]$. Eksempel: en størrelse som *avtar* med $\\beta$. Sjekk fortegnet på $g'$ (eller resonner) før innsetting."
+    },
+    {
+      "id": "tma4245-6-2-fc5",
+      "type": "definition",
+      "title": "Avledet størrelse: medianlevetid",
+      "content": "For eksponensial er **medianlevetiden** $m = \\beta\\ln 2$ (tiden der $F(m) = 1/2$). Siden $g(\\beta) = \\beta\\ln 2$ er voksende, får man KI for medianen ved å gange begge endepunktene i $\\beta$-intervallet med $\\ln 2 \\approx 0{,}693$. Samme grep gir intervaller for kvantiler og hundreårs-hendelser."
+    },
+    {
+      "id": "tma4245-6-2-fc6",
+      "type": "definition",
+      "title": "Frihetsgrad $2n$ (eksponensialpivotalen)",
+      "content": "I eksponensialtilfellet er frihetsgraden **$2n$** — ikke $n$ og ikke $n-1$ — fordi hver av de $n$ observasjonene bidrar med et $\\chi^2_2$-ledd ($2X_i/\\beta \\sim \\chi^2_2$). Dette er den vanligste enkeltfeilen. Kontrast: t-intervallet bruker $n-1$, $\\sigma^2$-intervallet bruker $n-1$."
+    },
+    {
+      "id": "tma4245-6-2-rep",
+      "type": "collapsible",
+      "title": "Repetisjonsoppgaver",
+      "buttonText": "Vis repetisjonsoppgaver",
+      "content": [
+        {
+          "id": "tma4245-6-2-rep-x1",
+          "type": "exercise",
+          "exercise": {
+            "id": "tma4245-6-2-rep-x1",
+            "number": "R1",
+            "type": "classic",
+            "difficulty": "lett",
+            "task": "(Fra [kap. 4.2](/bok/tma4245/tma4245-4-2).) $X_1, \\ldots, X_8$ er uavhengige eksponensiale med forventning $\\beta$. Hvilken fordeling har $\\frac{2\\sum X_i}{\\beta}$?",
+            "solution": "Frihetsgraden er $2n = 2 \\cdot 8 = 16$, så $\\frac{2\\sum X_i}{\\beta} \\sim \\chi^2_{16}$. Hver observasjon bidrar med $\\chi^2_2$; åtte gir $\\chi^2_{16}$.",
+            "hints": [
+              "Frihetsgrad $2n$.",
+              "$2 \\cdot 8 = 16$."
+            ]
+          }
+        },
+        {
+          "id": "tma4245-6-2-rep-x2",
+          "type": "exercise",
+          "exercise": {
+            "id": "tma4245-6-2-rep-x2",
+            "number": "R2",
+            "type": "classic",
+            "difficulty": "lett",
+            "task": "(Fra [kap. 6.1](/bok/tma4245/tma4245-6-1).) I intervallet for variansen, hvilken kvantil ($\\chi^2_{n-1,\\alpha/2}$ eller $\\chi^2_{n-1,1-\\alpha/2}$) står under den nedre grensen?",
+            "solution": "Den **store** kvantilen $\\chi^2_{n-1,\\alpha/2}$ står under den **nedre** grensen (vi deler på den, og å dele på et stort tall gir en liten grense). Det følger av at $\\sigma^2$ inverteres når man løser den ut.",
+            "hints": [
+              "Vi deler på kvantilen.",
+              "Stor kvantil → liten (nedre) grense."
+            ]
+          }
+        },
+        {
+          "id": "tma4245-6-2-rep-x3",
+          "type": "exercise",
+          "exercise": {
+            "id": "tma4245-6-2-rep-x3",
+            "number": "R3",
+            "type": "classic",
+            "difficulty": "middels",
+            "task": "(Fra [kap. 3.3](/bok/tma4245/tma4245-3-3).) For eksponensialdata er $\\text{Var}(X_i) = \\beta^2$. Hva er $\\text{Var}(\\bar{X})$ for et utvalg på $n$?",
+            "solution": "$\\text{Var}(\\bar{X}) = \\text{Var}(X_i)/n = \\beta^2/n$. Standardfeilen til $\\bar{X}$ er dermed $\\beta/\\sqrt{n}$ — det er denne som brukes i det normaltilnærmede intervallet (med $\\hat{\\beta}$ satt inn for $\\beta$).",
+            "hints": [
+              "$\\text{Var}(\\bar{X}) = \\text{Var}(X_i)/n$.",
+              "$\\text{Var}(X_i) = \\beta^2$."
+            ]
+          }
+        },
+        {
+          "id": "tma4245-6-2-rep-x4",
+          "type": "exercise",
+          "exercise": {
+            "id": "tma4245-6-2-rep-x4",
+            "number": "R4",
+            "type": "classic",
+            "difficulty": "middels",
+            "task": "$[6,\\; 10]$ er et 95 % konfidensintervall for $\\beta$. Konstruer intervallet for $2\\beta$ (dobbel forventning) via transformasjon.",
+            "solution": "$g(\\beta) = 2\\beta$ er strengt voksende, så endepunktene beholder rekkefølgen: $[2 \\cdot 6,\\; 2 \\cdot 10] = [12,\\; 20]$. Et 95 % konfidensintervall for $2\\beta$.",
+            "hints": [
+              "$g(\\beta) = 2\\beta$ er voksende.",
+              "Gang begge endepunkter med 2."
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": "tma4245-6-2-symbolliste",
+      "type": "collapsible",
+      "title": "Symbol- og formelliste",
+      "buttonText": "Vis symboler og formler",
+      "content": [
+        {
+          "id": "tma4245-6-2-symbolliste-text",
+          "type": "text",
+          "content": "*Oppslagsverk — alt her forklares underveis i kapitlet.*\n\nAlle symboler og formler brukt i kapittel 6.2, samlet.\n\n| Symbol | Betydning |\n|---|---|\n| $\\theta$ | Generell ukjent parameter |\n| $\\beta$ | Forventningen i eksponensialfordelingen |\n| $W$ | Pivotal (datastørrelse med fordeling fri for parameteren) |\n| $\\bar{X}$, $S^2$ | Utvalgsgjennomsnitt og empirisk varians |\n| $\\hat{\\beta}$ | ML-estimatet $\\bar{x}$ for $\\beta$ |\n| $\\chi^2_{\\nu,\\alpha}$ | Kjikvadrat-kvantil, $\\nu$ frihetsgrader, øvre hale $\\alpha$ |\n| $g(\\theta)$ | Avledet størrelse (monoton transformasjon) |\n| $m = \\beta\\ln 2$ | Medianlevetid for eksponensial |\n\n**Formler i dette kapitlet:**\n\n$$\\frac{2\\sum X_i}{\\beta} \\sim \\chi^2_{2n}$$\nEksponensialpivotalen (frihetsgrad $2n$).\n\n$$\\left[\\frac{2\\sum x_i}{\\chi^2_{2n,\\,\\alpha/2}},\\; \\frac{2\\sum x_i}{\\chi^2_{2n,\\,1-\\alpha/2}}\\right]$$\nEksakt $(1-\\alpha)$-KI for $\\beta$ (stor kvantil under nedre grense).\n\n$$\\left[\\frac{(n-1)s^2}{\\chi^2_{n-1,\\,\\alpha/2}},\\; \\frac{(n-1)s^2}{\\chi^2_{n-1,\\,1-\\alpha/2}}\\right]$$\nKI for $\\sigma^2$ — utledet fra $\\frac{(n-1)S^2}{\\sigma^2} \\sim \\chi^2_{n-1}$.\n\n$$\\hat{\\beta} \\pm z_{\\alpha/2}\\,\\frac{\\hat{\\beta}}{\\sqrt{n}}$$\nNormaltilnærmet (CLT-basert) KI for $\\beta$ — kun tilnærmet, dårlig ved liten $n$.\n\n$$[L, U] \\text{ for } \\theta \\;\\Rightarrow\\; [g(L), g(U)] \\text{ for } g(\\theta) \\quad (g \\text{ voksende})$$\nKI-transformasjon; for avtakende $g$ bytter endepunktene plass."
+        }
+      ]
+    }
+  ],
+  "exercises": []
+}

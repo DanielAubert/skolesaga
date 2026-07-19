@@ -1,0 +1,259 @@
+{
+  "id": "tma4245-1-prove",
+  "courseId": "tma4245",
+  "chapterNumber": "1.P",
+  "title": "Prøver til del 1: Sannsynlighetsregningens grunnlag",
+  "description": "Fire temaprøver som dekker hendelser og uavhengighet, kombinatorikk, Bayes og deskriptiv statistikk — med fullstendige løsningsforslag og selvdiagnose. Kan tas som separate økter.",
+  "estimatedMinutes": 130,
+  "competenceGoals": [
+    "løse eksamensrettede kortsvarsoppgaver fra hele Del 1 om hendelser, uavhengighet, kombinatorikk og Bayes",
+    "definere hendelsene med symboler før regning i Bayes-oppgaver",
+    "svare med riktig presisjon i Inspera-format (2 desimaler)"
+  ],
+  "content": [
+    {
+      "id": "tma4245-1-prove-tip-1",
+      "type": "tip",
+      "title": "Om prøvene til Del 1",
+      "content": "**4 prøver à ~25–40 min** — de dekker hele Del 1: hendelser og uavhengighet, kombinatorikk, Bayes, og et blandet kortsvarssett i Inspera-format.\n\n| Prøve | Tema | Tid |\n|---|---|---|\n| 1.A | Hendelser og uavhengighets-feller (kap. 1.1) | ~25 min |\n| 1.B | Kombinatorikk (kap. 1.2) | ~30 min |\n| 1.C | Bayes med hendelsesdefinisjoner (kap. 1.3) | ~35 min |\n| 1.D | Blandet kortsvarssett, Inspera-format, 2 desimaler (kap. 1.1–1.4) | ~40 min |\n\n**Flervalgsoppgavene (sjanger O) bor i prøve 1.D** — de er i Inspera-stil med kun ett riktig alternativ.\n\n**Prøvene kan trygt deles over flere kvelder — én prøve per økt.** Milepælen er å fullføre settet, ikke å ta alt på én gang. Løs hver prøve *før* du åpner fasiten, og bruk selvdiagnose-listen etter fasiten til å se hva du bør repetere."
+    },
+    {
+      "id": "tma4245-1-prove-forkunnskaper",
+      "type": "text",
+      "content": "**Forkunnskaper:** Disse prøvene forutsetter at du har jobbet deg gjennom hele Del 1 — hendelser og uavhengighet ([kap. 1.1](/bok/tma4245/tma4245-1-1)), kombinatorikk ([kap. 1.2](/bok/tma4245/tma4245-1-2)), betinget sannsynlighet og Bayes ([kap. 1.3](/bok/tma4245/tma4245-1-3)) og deskriptiv statistikk ([kap. 1.4](/bok/tma4245/tma4245-1-4)). Klarer du prøvene uten å slå opp, sitter fundamentet."
+    },
+    {
+      "id": "tma4245-1-prove-intro",
+      "type": "text",
+      "content": "Del 1 gir de billige, sikre poengene som åpner eksamenssettet: kortsvar om hendelser, telling og Bayes, pluss grafisk tolkning. Her øver du på nettopp den blandingen. Husk sensorkravene fra kapitlene: **definer hendelsene med symboler før du regner** (særlig i Bayes-oppgavene), og **begrunn grafiske tolkninger i konkrete mønstre**."
+    },
+    {
+      "id": "tma4245-1-prove-p1",
+      "type": "collapsible",
+      "title": "Prøve 1.A — Hendelser og uavhengighet (~25 min)",
+      "buttonText": "Vis prøve 1.A",
+      "content": [
+        {
+          "id": "tma4245-1-prove-oppg-p1-ex1",
+          "type": "exercise",
+          "exercise": {
+            "id": "tma4245-1-prove-p1-ex1",
+            "number": "1",
+            "type": "classic",
+            "difficulty": "middels",
+            "task": "Et overvåkingssystem logger to typer hendelser i et døgn: temperaturvarsel ($A$) og trykkvarsel ($B$). Det er kjent at $P(A) = 0{,}45$, $P(B) = 0{,}30$ og $P(A \\cap B) = 0{,}12$.\n\n**a)** Finn sannsynligheten for at minst ett av varslene utløses.\n\n**b)** Finn sannsynligheten for at ingen av varslene utløses.\n\n**c)** Avgjør med begrunnelse om $A$ og $B$ er uavhengige.",
+            "solution": "**a)** Addisjonsregelen: $P(A \\cup B) = P(A) + P(B) - P(A \\cap B) = 0{,}45 + 0{,}30 - 0{,}12 = 0{,}63$.\n\n**b)** Komplementet til «minst ett»: $P((A \\cup B)^c) = 1 - 0{,}63 = 0{,}37$.\n\n**c)** Uavhengighet krever $P(A \\cap B) = P(A)P(B) = 0{,}45 \\cdot 0{,}30 = 0{,}135$. Men oppgitt $P(A \\cap B) = 0{,}12 \\ne 0{,}135$, så $A$ og $B$ er **ikke uavhengige** (de er svakt negativt avhengige, siden $0{,}12 < 0{,}135$).",
+            "hints": [
+              "Addisjonsregelen for a), komplement for b).",
+              "Sammenlign $P(A\\cap B)$ med produktet $P(A)P(B)$."
+            ]
+          }
+        },
+        {
+          "id": "tma4245-1-prove-oppg-p1-ex2",
+          "type": "exercise",
+          "exercise": {
+            "id": "tma4245-1-prove-p1-ex2",
+            "number": "2",
+            "type": "classic",
+            "difficulty": "middels",
+            "task": "To hendelser har $P(A) = 0{,}60$ og $P(B) = 0{,}55$.\n\n**a)** Kan $A$ og $B$ være disjunkte? Begrunn.\n\n**b)** Kan de være uavhengige? Hvis ja, hva blir da $P(A \\cap B)$ og $P(A \\cup B)$?",
+            "solution": "**a)** Nei. Var de disjunkte, ville $P(A \\cup B) = 0{,}60 + 0{,}55 = 1{,}15 > 1$, som er umulig. De må overlappe, med $P(A \\cap B) \\ge 1{,}15 - 1 = 0{,}15$.\n\n**b)** Ja, de kan være uavhengige. Da er $P(A \\cap B) = P(A)P(B) = 0{,}60 \\cdot 0{,}55 = 0{,}33$, og $P(A \\cup B) = 0{,}60 + 0{,}55 - 0{,}33 = 0{,}82 \\le 1$ — helt forenlig med aksiomene.",
+            "hints": [
+              "Sjekk $P(A)+P(B)$ mot 1 for disjunkthet.",
+              "Uavhengig: $P(A\\cap B)=P(A)P(B)$."
+            ]
+          }
+        },
+        {
+          "id": "tma4245-1-prove-oppg-p1-ex3",
+          "type": "exercise",
+          "exercise": {
+            "id": "tma4245-1-prove-p1-ex3",
+            "number": "3",
+            "type": "classic",
+            "difficulty": "vanskelig",
+            "task": "Et instrument har tre uavhengige komponenter som svikter i garantitiden med sannsynlighet $0{,}10$, $0{,}15$ og $0{,}20$.\n\n**a)** Finn sannsynligheten for at ingen komponent svikter.\n\n**b)** Finn sannsynligheten for at minst én svikter.\n\n**c)** Instrumentet virker bare hvis alle tre komponentene virker. Hva er sannsynligheten for at instrumentet virker gjennom hele garantitiden?",
+            "solution": "La $F_1, F_2, F_3$ være svikt for hver komponent, uavhengige.\n\n**a)** $P(\\text{ingen svikt}) = (1-0{,}10)(1-0{,}15)(1-0{,}20) = 0{,}90 \\cdot 0{,}85 \\cdot 0{,}80 = 0{,}612$.\n\n**b)** $P(\\text{minst én svikt}) = 1 - 0{,}612 = 0{,}388$.\n\n**c)** «Alle virker» er nøyaktig det samme som «ingen svikter», så $P(\\text{instrumentet virker}) = 0{,}612$.",
+            "hints": [
+              "«Ingen svikt» for uavhengige: gang $(1-p_i)$ for hver komponent.",
+              "«Minst én» = 1 minus «ingen».",
+              "Alle virker = ingen svikter."
+            ]
+          }
+        },
+        {
+          "id": "tma4245-1-prove-p1-selvdiagnose",
+          "type": "text",
+          "content": "### Selvdiagnose 1.A\n\nKryss av det du mestret uten å slå opp:\n\n- ☐ Jeg brukte addisjonsregelen med riktig fradrag for overlappet.\n- ☐ Jeg regnet «minst én» via komplementet.\n- ☐ Jeg sjekket uavhengighet ved å sammenligne $P(A\\cap B)$ med $P(A)P(B)$.\n- ☐ Jeg brukte sumtesten ($P(A)+P(B)>1$) til å utelukke disjunkthet.\n- ☐ Jeg regnet «alle virker» for uavhengige komponenter riktig.\n\nManglet du noe? Repeter [kap. 1.1](/bok/tma4245/tma4245-1-1)."
+        }
+      ]
+    },
+    {
+      "id": "tma4245-1-prove-p2",
+      "type": "collapsible",
+      "title": "Prøve 1.B — Kombinatorikk (~30 min)",
+      "buttonText": "Vis prøve 1.B",
+      "content": [
+        {
+          "id": "tma4245-1-prove-oppg-p2-ex1",
+          "type": "exercise",
+          "exercise": {
+            "id": "tma4245-1-prove-p2-ex1",
+            "number": "1",
+            "type": "classic",
+            "difficulty": "middels",
+            "task": "En prosjektgruppe skal settes sammen av 4 personer valgt fra 5 kvinnelige og 7 mannlige søkere.\n\n**a)** Hvor mange grupper på 4 kan settes sammen totalt?\n\n**b)** Hvor mange grupper har nøyaktig 2 kvinner og 2 menn?\n\n**c)** Er dette et ordnet eller uordnet utvalg? Begrunn med én setning.",
+            "solution": "**a)** Uordnet utvalg av 4 av $5+7 = 12$: $\\binom{12}{4} = 495$ grupper.\n\n**b)** Velg 2 av 5 kvinner *og* 2 av 7 menn, og gang: $\\binom{5}{2}\\binom{7}{2} = 10 \\cdot 21 = 210$ grupper.\n\n**c)** *Uordnet* — en gruppe er en samling personer; rekkefølgen de velges i, gir ikke en ny gruppe.",
+            "hints": [
+              "Uordnet utvalg → binomialkoeffisient.",
+              "«2 kvinner og 2 menn» → gang $\\binom{5}{2}$ og $\\binom{7}{2}$."
+            ]
+          }
+        },
+        {
+          "id": "tma4245-1-prove-oppg-p2-ex2",
+          "type": "exercise",
+          "exercise": {
+            "id": "tma4245-1-prove-p2-ex2",
+            "number": "2",
+            "type": "classic",
+            "difficulty": "middels",
+            "task": "En kvalitetsinspektør har en kasse med 15 komponenter, hvorav 4 er defekte. Hun trekker 5 komponenter tilfeldig uten tilbakelegging.\n\n**a)** På hvor mange måter kan de 5 komponentene velges?\n\n**b)** Hva er sannsynligheten for nøyaktig 1 defekt blant de 5?",
+            "solution": "**a)** Uordnet utvalg av 5 av 15: $\\binom{15}{5} = 3003$ måter.\n\n**b)** Velg 1 av 4 defekte og 4 av 11 hele: $\\binom{4}{1}\\binom{11}{4} = 4 \\cdot 330 = 1320$ gunstige. Da\n\n$$P(\\text{nøyaktig 1 defekt}) = \\frac{1320}{3003} \\approx 0{,}440.$$",
+            "hints": [
+              "$\\binom{15}{5}$ i nevneren.",
+              "Hypergeometrisk telling: $\\binom{4}{1}\\binom{11}{4}$ i telleren."
+            ]
+          }
+        },
+        {
+          "id": "tma4245-1-prove-oppg-p2-ex3",
+          "type": "exercise",
+          "exercise": {
+            "id": "tma4245-1-prove-p2-ex3",
+            "number": "3",
+            "type": "classic",
+            "difficulty": "vanskelig",
+            "task": "**a)** Hvor mange ulike «ord» (bokstavrekker) kan lages ved å stokke om alle bokstavene i ordet TALLET (T, A, L, L, E, T)?\n\n**b)** Fra 8 ulike bøker skal 5 stilles på en hylle i rekkefølge. På hvor mange måter kan det gjøres?",
+            "solution": "**a)** Seks bokstaver der T forekommer 2 ganger og L forekommer 2 ganger (A og E én gang hver). Anagramtelling:\n\n$$\\frac{6!}{2!\\,2!} = \\frac{720}{4} = 180 \\text{ ord.}$$\n\n**b)** Rekkefølgen på hylla teller, ingen bok gjentas — ordnet uten tilbakelegging:\n\n$$\\frac{8!}{3!} = 8 \\cdot 7 \\cdot 6 \\cdot 5 \\cdot 4 = 6720 \\text{ måter.}$$",
+            "hints": [
+              "Anagram: del $n!$ på fakultetet av antall like bokstaver.",
+              "Hylle i rekkefølge → ordnet, $8\\cdot 7\\cdot 6\\cdot 5\\cdot 4$."
+            ]
+          }
+        },
+        {
+          "id": "tma4245-1-prove-p2-selvdiagnose",
+          "type": "text",
+          "content": "### Selvdiagnose 1.B\n\nKryss av det du mestret uten å slå opp:\n\n- ☐ Jeg valgte riktig mellom ordnet og uordnet utvalg.\n- ☐ Jeg ganget delvalgene når to krav skulle oppfylles samtidig.\n- ☐ Jeg satte opp hypergeometrisk telling med riktig teller og nevner.\n- ☐ Jeg brukte anagramformelen med divisjon for like bokstaver.\n\nManglet du noe? Repeter [kap. 1.2](/bok/tma4245/tma4245-1-2)."
+        }
+      ]
+    },
+    {
+      "id": "tma4245-1-prove-p3",
+      "type": "collapsible",
+      "title": "Prøve 1.C — Bayes med hendelsesdefinisjoner (~35 min)",
+      "buttonText": "Vis prøve 1.C",
+      "content": [
+        {
+          "id": "tma4245-1-prove-oppg-p3-ex1",
+          "type": "exercise",
+          "exercise": {
+            "id": "tma4245-1-prove-p3-ex1",
+            "number": "1",
+            "type": "classic",
+            "difficulty": "vanskelig",
+            "task": "En hurtigtest for en tilstand har sensitivitet 90 % og spesifisitet 95 %. I populasjonen har 3 % av personene tilstanden. En tilfeldig person tester positivt.\n\n**a)** Definer hendelsene med symboler, og skriv opp de tre oppgitte sannsynlighetene.\n\n**b)** Finn sannsynligheten for en positiv test i populasjonen.\n\n**c)** Finn sannsynligheten for at personen faktisk har tilstanden (PPV), og kommenter tallet.",
+            "solution": "**a)** La $S$ = «personen har tilstanden» og $T$ = «testen er positiv». Oppgitt: sensitivitet $P(T \\mid S) = 0{,}90$; spesifisitet $P(T^c \\mid S^c) = 0{,}95$, altså falsk positiv $P(T \\mid S^c) = 0{,}05$; prevalens $P(S) = 0{,}03$, så $P(S^c) = 0{,}97$.\n\n**b)** Total sannsynlighet: $P(T) = P(T\\mid S)P(S) + P(T\\mid S^c)P(S^c) = 0{,}90 \\cdot 0{,}03 + 0{,}05 \\cdot 0{,}97 = 0{,}027 + 0{,}0485 = 0{,}0755$.\n\n**c)** Bayes: $P(S \\mid T) = \\dfrac{0{,}027}{0{,}0755} \\approx 0{,}358$. **Kommentar:** selv med en god test er bare ≈ 36 % av de positive faktisk syke — fordi tilstanden er sjelden (3 %), gir de mange friske nesten like mye falsk-positiv masse ($0{,}0485$) som de ekte positive ($0{,}027$).",
+            "hints": [
+              "Definer $S$ og $T$; regn $P(T\\mid S^c)=1-\\text{spesifisitet}$.",
+              "Total sannsynlighet i nevneren, deretter Bayes.",
+              "Sammenlign de ekte og falske positive massene."
+            ]
+          }
+        },
+        {
+          "id": "tma4245-1-prove-oppg-p3-ex2",
+          "type": "exercise",
+          "exercise": {
+            "id": "tma4245-1-prove-p3-ex2",
+            "number": "2",
+            "type": "classic",
+            "difficulty": "vanskelig",
+            "task": "En bedrift kjøper samme komponent fra to leverandører: 70 % fra leverandør X (3 % defekte) og 30 % fra leverandør Y (8 % defekte). En komponent fra lageret viser seg å være defekt.\n\n**a)** Definer hendelsene og finn sannsynligheten for at en tilfeldig komponent er defekt.\n\n**b)** Finn sannsynligheten for at den defekte komponenten kom fra leverandør Y.",
+            "solution": "**a)** La $X, Y$ = «komponenten kom fra leverandør X/Y» (partisjon) og $D$ = «defekt». Oppgitt: $P(X) = 0{,}70$, $P(Y) = 0{,}30$, $P(D\\mid X) = 0{,}03$, $P(D\\mid Y) = 0{,}08$. Total sannsynlighet:\n\n$$P(D) = 0{,}03 \\cdot 0{,}70 + 0{,}08 \\cdot 0{,}30 = 0{,}021 + 0{,}024 = 0{,}045.$$\n\n**b)** Bayes: $P(Y \\mid D) = \\dfrac{P(D\\mid Y)P(Y)}{P(D)} = \\dfrac{0{,}024}{0{,}045} \\approx 0{,}533$. Selv om Y bare leverer 30 % av komponentene, kommer over halvparten av de defekte derfra, fordi Y har mer enn dobbelt så høy feilrate.",
+            "hints": [
+              "Definer partisjonen $X, Y$ og hendelsen $D$.",
+              "Total sannsynlighet, så Bayes $P(Y\\mid D)=P(D\\mid Y)P(Y)/P(D)$."
+            ]
+          }
+        },
+        {
+          "id": "tma4245-1-prove-p3-selvdiagnose",
+          "type": "text",
+          "content": "### Selvdiagnose 1.C\n\nKryss av det du mestret uten å slå opp:\n\n- ☐ Jeg definerte hendelsene med symboler *før* jeg regnet (sensorkrav).\n- ☐ Jeg regnet falsk positiv rate som $1 - \\text{spesifisitet}$.\n- ☐ Jeg brukte total sannsynlighet i nevneren.\n- ☐ Jeg brukte Bayes til å snu betingingen riktig.\n- ☐ Jeg kommenterte hvorfor lav prevalens gir lav PPV.\n\nManglet du noe? Repeter [kap. 1.3](/bok/tma4245/tma4245-1-3)."
+        }
+      ]
+    },
+    {
+      "id": "tma4245-1-prove-p4",
+      "type": "collapsible",
+      "title": "Prøve 1.D — Blandet kortsvarssett i Inspera-format (~40 min)",
+      "buttonText": "Vis prøve 1.D",
+      "content": [
+        {
+          "id": "tma4245-1-prove-oppg-p4-ex1",
+          "type": "exercise",
+          "exercise": {
+            "id": "tma4245-1-prove-p4-ex1",
+            "number": "1",
+            "type": "classic",
+            "difficulty": "vanskelig",
+            "task": "**Kortsvar på tvers av Del 1.** Svar med tall (2 desimaler der det er relevant). Vis mellomregning der det trengs.\n\n**a)** $P(A) = 0{,}50$, $P(B) = 0{,}35$, $P(A \\cap B) = 0{,}15$. Finn $P(A \\cup B)$.\n\n**b)** Tre uavhengige sensorer utløses hver med sannsynlighet $0{,}20$. Finn $P(\\text{minst én utløses})$.\n\n**c)** På hvor mange måter kan 3 av 10 prosjekter velges ut (uordnet)?\n\n**d)** $P(A \\cap B) = 0{,}18$ og $P(B) = 0{,}40$. Finn $P(A \\mid B)$.\n\n**e)** Datasettet 4, 6, 6, 8, 11: finn gjennomsnitt og empirisk standardavvik $s$.",
+            "solution": "**a)** $P(A \\cup B) = 0{,}50 + 0{,}35 - 0{,}15 = 0{,}70$.\n\n**b)** $P(\\text{minst én}) = 1 - (1-0{,}20)^3 = 1 - 0{,}80^3 = 1 - 0{,}512 = 0{,}49$.\n\n**c)** $\\binom{10}{3} = \\dfrac{10 \\cdot 9 \\cdot 8}{3 \\cdot 2 \\cdot 1} = 120$.\n\n**d)** $P(A \\mid B) = \\dfrac{P(A \\cap B)}{P(B)} = \\dfrac{0{,}18}{0{,}40} = 0{,}45$.\n\n**e)** $\\bar{x} = (4+6+6+8+11)/5 = 35/5 = 7$. Avvik: $-3, -1, -1, 1, 4$; kvadratsum $= 9+1+1+1+16 = 28$. $s^2 = 28/(5-1) = 7$, så $s = \\sqrt{7} \\approx 2{,}65$.",
+            "hints": [
+              "a) addisjonsregel; b) 1 minus «ingen»; c) $\\binom{10}{3}$.",
+              "d) betinget = snitt delt på $P(B)$; e) husk divisor $n-1=4$."
+            ]
+          }
+        },
+        {
+          "id": "tma4245-1-prove-oppg-p4-ex2",
+          "type": "exercise",
+          "exercise": {
+            "id": "tma4245-1-prove-p4-ex2",
+            "number": "2",
+            "type": "classic",
+            "difficulty": "middels",
+            "task": "**Flervalg (sjanger O, Inspera-stil).** Velg det ene riktige alternativet for hver.\n\n**a)** To disjunkte hendelser $A$ og $B$ har begge positiv sannsynlighet. Da er de:\n(a) uavhengige  (b) avhengige  (c) like sannsynlige  (d) komplementære\n\n**b)** For en test er sensitiviteten $P(T \\mid S)$. Positiv prediktiv verdi er:\n(a) $P(T \\mid S)$  (b) $P(T^c \\mid S^c)$  (c) $P(S \\mid T)$  (d) $P(S)$\n\n**c)** I den empiriske variansen deler vi på:\n(a) $n-1$  (b) $n$  (c) $n+1$  (d) $n-2$\n\n**d)** «Minst ett ess i 5 kort» regnes lettest som:\n(a) summen av 1, 2, 3, 4 ess  (b) $1 - P(\\text{ingen ess})$  (c) $4/52$  (d) $\\binom{4}{1}/\\binom{52}{5}$\n\n**e)** I et Q-Q-plott der punktene ligger på en rett linje, er dataene:\n(a) høyreskjeve  (b) bimodale  (c) forenlige med normalfordeling  (d) fulle av uteliggere",
+            "solution": "**a) (b) avhengige.** Disjunkte hendelser med positiv sannsynlighet er maksimalt avhengige — skjer den ene, kan den andre ikke skje.\n\n**b) (c) $P(S \\mid T)$.** PPV er sannsynligheten for tilstand gitt positiv test; å velge (a) er prosecutor's fallacy.\n\n**c) (a) $n-1$.** Divisoren er antall frihetsgrader.\n\n**d) (b) $1 - P(\\text{ingen ess})$.** Komplementteknikken er raskest.\n\n**e) (c) forenlige med normalfordeling.** Rett linje i Q-Q-plottet betyr normalitet.\n\n*(Riktige bokstaver: b, c, a, b, c — merk at de er stokket, ikke alle like.)*",
+            "hints": [
+              "Tenk gjennom hver definisjon; ett alternativ er riktig.",
+              "Vær obs på prosecutor's fallacy i b)."
+            ]
+          }
+        },
+        {
+          "id": "tma4245-1-prove-p4-selvdiagnose",
+          "type": "text",
+          "content": "### Selvdiagnose 1.D\n\nKryss av det du mestret uten å slå opp:\n\n- ☐ Jeg svarte med riktig antall desimaler (Inspera krever presisjon).\n- ☐ Jeg blandet teknikker fra kap. 1.1–1.4 uten å gå surr.\n- ☐ Jeg unngikk prosecutor's fallacy i flervalget.\n- ☐ Jeg brukte divisor $n-1$ i standardavviket.\n- ☐ Jeg avrundet *til slutt*, ikke i mellomregninger.\n\nManglet du noe? Repeter det aktuelle kapitlet i Del 1."
+        }
+      ]
+    },
+    {
+      "id": "tma4245-1-prove-symbolliste",
+      "type": "collapsible",
+      "title": "Symbol- og formelliste",
+      "buttonText": "Vis symboler og formler",
+      "content": [
+        {
+          "id": "tma4245-1-prove-symbolliste-text",
+          "type": "text",
+          "content": "*Oppslagsverk — alt her forklares underveis i kapitlet.*\n\nPrøvene spenner over hele Del 1. Her er symbolene og formlene du kan trenge, samlet.\n\n| Symbol | Betydning |\n|---|---|\n| $P(A)$ | Sannsynligheten for hendelsen $A$ |\n| $A^c$, $A \\cup B$, $A \\cap B$ | Komplement, union, snitt |\n| $P(A \\mid B)$ | Betinget sannsynlighet |\n| $\\binom{n}{k}$ | Binomialkoeffisient (uordnet utvalg) |\n| $S, T$ | «Tilstand til stede» og «positiv test» |\n| $\\bar{x}$, $s^2$, $s$ | Gjennomsnitt, empirisk varians, standardavvik |\n\n**Formler du kan trenge i Del 1-prøvene:**\n\n$$P(A \\cup B) = P(A) + P(B) - P(A \\cap B)$$\nAddisjonsregelen.\n\n$$P(A^c) = 1 - P(A)$$\nKomplementregelen («minst én» = 1 minus «ingen»).\n\n$$P(A \\cap B) = P(A)P(B) \\quad (\\text{uavhengige})$$\nProduktregelen for uavhengige hendelser.\n\n$$\\binom{n}{k} = \\frac{n!}{k!\\,(n-k)!}, \\qquad P(X=x) = \\frac{\\binom{a}{x}\\binom{b}{k-x}}{\\binom{a+b}{k}}$$\nUordnet utvalg og hypergeometrisk telling.\n\n$$P(A \\mid B) = \\frac{P(A \\cap B)}{P(B)}, \\qquad P(A) = \\sum_i P(A\\mid B_i)P(B_i)$$\nBetinget sannsynlighet og loven om total sannsynlighet.\n\n$$P(B_j \\mid A) = \\frac{P(A \\mid B_j)P(B_j)}{\\sum_i P(A \\mid B_i)P(B_i)}$$\nBayes' formel.\n\n$$\\bar{x} = \\frac{1}{n}\\sum x_i, \\qquad s^2 = \\frac{1}{n-1}\\sum (x_i - \\bar{x})^2$$\nEmpirisk gjennomsnitt og varians (divisor $n-1$)."
+        }
+      ]
+    }
+  ],
+  "exercises": []
+}

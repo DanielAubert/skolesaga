@@ -1,0 +1,301 @@
+{
+  "id": "tma4245-3-4",
+  "courseId": "tma4245",
+  "chapterNumber": "3.4",
+  "title": "Drill: normal-regneoppgaven (sjanger A)",
+  "description": "Åpningsoppgaven på eksamenstempo: standardisering, lineærkombinasjoner, betingede sannsynligheter og kvantiler — feilfritt og fort.",
+  "estimatedMinutes": 85,
+  "competenceGoals": [
+    "løse den rene normal-regneoppgaven raskt og presist etter en fast seks-trinns oppskrift",
+    "rotere mellom standardisering, kovarianskombinasjon, betinget hale, tetthetsavlesning og baklengs kvantil",
+    "svare med riktig presisjon i Inspera-format uten avrunding i mellomregningen"
+  ],
+  "content": [
+    {
+      "id": "tma4245-3-4-tip",
+      "type": "tip",
+      "title": "Eksamensvinkel",
+      "content": "**Dette er drillkapitlet for åpningsoppgaven.** *Sjanger A* — den rene normal-regneoppgaven — står i **nesten hvert sett, ofte som første oppgave**. Det er «billige poeng som må sitte automatisk»: kan du dem raskt og feilfritt, får du en trygg start; roter du her, taper du tid og selvtillit på resten av settet.\n\n- I Inspera-form kreves **2–3 desimalers presisjon**, og *kun tallsvaret* teller — ingen delpoeng for metode. Da må mellomregningen være avrundingsfri.\n- Variantene som roterer i arkivet: **ren standardisering, kombinasjon med kovarians, betinget hale, tetthetsformel-avlesning** (Des24, Des25) og **baklengs-kvantil**.\n\nMålet med kapitlet er *tempo og presisjon*, ikke ny teori — alt bygger på [kap. 3.1](/bok/tma4245/tma4245-3-1)–[3.3](/bok/tma4245/tma4245-3-3). Prioritet: **høyeste prioritet**. Regn oppgavene på tid, og sammenlign svaret ditt siffer for siffer med fasiten.\n\n*Dette kapitlet er langt (ca. 85 min). Del det gjerne over to økter — det er satt inn pausepunkter underveis.*"
+    },
+    {
+      "id": "tma4245-3-4-forkunnskaper",
+      "type": "text",
+      "content": "**Forkunnskaper:** Alt fra normalfordelingsdelen: standardisering og $\\Phi$-tabellen ([kap. 3.1](/bok/tma4245/tma4245-3-1)), lineærkombinasjoner med kovariansledd ([kap. 3.2](/bok/tma4245/tma4245-3-2)) og — for et par oppgaver — gjennomsnittsfordelingen $\\bar{X} \\sim N(\\mu, \\sigma^2/n)$. Ingen ny teknikk introduseres her; kapitlet *drillliner* det du allerede kan.\n\n**Sist du var her — de fire formlene du trenger klare:**\n\n$$Z = \\frac{X - \\mu}{\\sigma}, \\qquad \\Phi(-z) = 1 - \\Phi(z),$$\n\n$$\\text{Var}(aX + bY) = a^2\\sigma_X^2 + b^2\\sigma_Y^2 + 2ab\\,\\text{Cov}(X,Y), \\qquad x = \\mu + z_\\alpha \\sigma \\ \\text{(baklengs)}.$$"
+    },
+    {
+      "id": "tma4245-3-4-oppskrift",
+      "type": "text",
+      "content": "## Løsningsoppskrift — normal-regneoppgaven i seks trinn\n\nDen samme ryggraden løser alle variantene. Kjør den mekanisk:\n\n1. **Definer variabelen og fordelingen.** Skriv «La $X$ = … , da er $X \\sim N(\\mu, \\sigma^2)$» med tallverdiene. Er tettheten oppgitt som formel, *les av* $\\mu$ (trekkes fra $x$) og $\\sigma$ (fra nevneren $2\\sigma^2$ i eksponenten).\n2. **Bygg lineærkombinasjonen (om nødvendig) og regn $E$ og Var.** For en sum/differanse/veid kombinasjon: forventning lineært, varians med kvadrerte koeffisienter og kovariansledd $2ab\\,\\text{Cov}$. *Sjekk om oppgaven oppgir en kovarians* — den er ofte en felle.\n3. **Standardiser med STANDARDAVVIKET.** $z = (\\text{grense} - E)/SD$, der $SD = \\sqrt{\\text{Var}}$. Del aldri på variansen.\n4. **Slå opp med symmetri-håndtering.** $\\Phi(z)$ direkte for venstre hale; $1 - \\Phi(z)$ for høyre; $\\Phi(-z) = 1 - \\Phi(z)$ for negativ $z$; differanse av to oppslag for et intervall; brøk av to haler for en betinget sannsynlighet.\n5. **Angi tabelloppslaget eksplisitt.** Skriv «$\\Phi(1{,}25) = 0{,}8944$» i utregningen — sensor krever å se oppslaget (sensorkrav 4).\n6. **Svar med riktig presisjon.** Inspera: 2–3 desimaler, og **aldri avrund i mellomregningen** — behold $z$ med fire desimaler til siste steg. Konkluder i ord når oppgaven ber om det.\n\n*Baklengs-varianten* (finn grensen fra en gitt sannsynlighet) kjører trinn 1–2 som vanlig, men bytter trinn 3–4 mot: finn kvantilen $z$ fra tabellen ($\\Phi(z) = p$, eller $z_\\alpha$ for øvre hale $\\alpha$), og regn $x = \\mu + z\\sigma$."
+    },
+    {
+      "id": "tma4245-3-4-case",
+      "type": "example",
+      "title": "Gjennomregnet eksamenscase (med sensormerknader)",
+      "problem": "Bruddstyrken til en sveisefuge har tetthet $f(x) = \\dfrac{1}{5\\sqrt{2\\pi}}\\, e^{-\\frac{(x-35)^2}{50}}$ (i kN).\n\n**a)** Les av $\\mu$ og $\\sigma$.\n\n**b)** Finn $P(X > 42)$.\n\n**c)** Finn $P(30 < X < 42)$.\n\n**d)** Gitt at en fuge tåler mer enn 38 kN, finn $P(X > 42 \\mid X > 38)$.\n\n**e)** Bestem grensen $x_0$ som bare 5 % av fugene overstiger.",
+      "solution": "**a)** Sammenlign med standardformen. Tallet som trekkes fra $x$ er $35$, så $\\mu = 35$. Nevneren i eksponenten er $2\\sigma^2 = 50$, altså $\\sigma^2 = 25$ og $\\sigma = 5$ (passer med faktoren $\\frac{1}{5\\sqrt{2\\pi}}$). Altså $X \\sim N(35, 25)$.\n\n> *Sensormerknad:* les av — ikke integrer. Poenget er å gjenkjenne $\\mu$ og $2\\sigma^2$ direkte. Full uttelling krever at $\\sigma = 5$ (ikke $\\sigma^2 = 50$).\n\n**b)** $z = \\dfrac{42 - 35}{5} = 1{,}40$. $P(X > 42) = 1 - \\Phi(1{,}40) = 1 - 0{,}9192 = 0{,}0808$.\n\n> *Sensormerknad:* oppslaget $\\Phi(1{,}40) = 0{,}9192$ skal stå eksplisitt.\n\n**c)** $z_1 = \\dfrac{30 - 35}{5} = -1{,}00$, $z_2 = 1{,}40$. $P(30 < X < 42) = \\Phi(1{,}40) - \\Phi(-1{,}00) = 0{,}9192 - (1 - 0{,}8413) = 0{,}9192 - 0{,}1587 = 0{,}7605$.\n\n**d)** Betinget hale — *del* de to halene: $z_{38} = \\dfrac{38 - 35}{5} = 0{,}60$, $P(X > 38) = 1 - \\Phi(0{,}60) = 1 - 0{,}7257 = 0{,}2743$. Da\n$$P(X > 42 \\mid X > 38) = \\frac{P(X > 42)}{P(X > 38)} = \\frac{0{,}0808}{0{,}2743} = 0{,}2946.$$\n\n> *Sensormerknad:* her faller mange for å regne $P(X > 4)$ som om normalfordelingen var minneløs. Den er ikke det — betinget = brøk.\n\n**e)** $P(X > x_0) = 0{,}05$ gir $z = z_{0{,}05} = 1{,}6449$, så $x_0 = \\mu + z_{0{,}05}\\,\\sigma = 35 + 1{,}6449 \\cdot 5 = 43{,}22$ kN.\n\n> *Sensormerknad:* bruk den nøyaktige kvantilen $1{,}6449$. Rundet du til $1{,}64$, ville du fått $43{,}20$ — feil siste desimal i Inspera.\n\n**Fasitsvar:** (a) $\\mu = 35$, $\\sigma = 5$; (b) $0{,}0808$; (c) $0{,}7605$; (d) $0{,}2946$; (e) $43{,}22$ kN."
+    },
+    {
+      "id": "tma4245-3-4-case-pause",
+      "type": "text",
+      "content": "*— naturlig pausepunkt —* Har du fulgt hele casen, har du sett alle fem variantene i sammenheng. Nå er det din tur: oppgavene under roterer de samme grepene. Regn dem på tid.\n\n### Bolk 1 — grunnvariantene (ca. 25 min)"
+    },
+    {
+      "id": "tma4245-3-4-oppg-d1",
+      "type": "exercise",
+      "exercise": {
+        "id": "tma4245-3-4-d1",
+        "number": "1",
+        "type": "classic",
+        "difficulty": "lett",
+        "task": "(Innstegsoppgave — ren standardisering.) Diameteren på en boret hull er $X \\sim N(100, 15^2)$ mikrometer over nominell. Finn $P(X > 120)$.",
+        "solution": "$z = \\dfrac{120 - 100}{15} = 1{,}3333 \\approx 1{,}33$. $P(X > 120) = 1 - \\Phi(1{,}33) = 1 - 0{,}9082 = 0{,}0918$.",
+        "hints": [
+          "Standardiser: $z = (x-\\mu)/\\sigma$ med $\\sigma = 15$.",
+          "Øvre hale: $1 - \\Phi(1{,}33)$; $\\Phi(1{,}33) = 0{,}9082$."
+        ]
+      }
+    },
+    {
+      "id": "tma4245-3-4-oppg-d2",
+      "type": "exercise",
+      "exercise": {
+        "id": "tma4245-3-4-d2",
+        "number": "2",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "En variabel har tetthet $f(x) = \\dfrac{1}{5\\sqrt{2\\pi}}\\, e^{-\\frac{(x-40)^2}{50}}$. Les av $\\mu$ og $\\sigma$, og finn $P(32 < X < 48)$.",
+        "solution": "Avlesning: $\\mu = 40$; nevneren $2\\sigma^2 = 50 \\Rightarrow \\sigma^2 = 25 \\Rightarrow \\sigma = 5$. Grensene: $z_1 = (32 - 40)/5 = -1{,}60$, $z_2 = (48 - 40)/5 = 1{,}60$. Ved symmetri: $P(32 < X < 48) = \\Phi(1{,}60) - \\Phi(-1{,}60) = 0{,}9452 - (1 - 0{,}9452) = 0{,}9452 - 0{,}0548 = 0{,}8904$.",
+        "hints": [
+          "Nevneren i eksponenten er $2\\sigma^2$.",
+          "Symmetriske grenser: $\\Phi(1{,}60) - \\Phi(-1{,}60) = 2\\Phi(1{,}60) - 1$."
+        ]
+      }
+    },
+    {
+      "id": "tma4245-3-4-oppg-d3",
+      "type": "exercise",
+      "exercise": {
+        "id": "tma4245-3-4-d3",
+        "number": "3",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "Levetiden til et relé er $X \\sim N(1000, 50^2)$ timer. Gitt at et relé har vart mer enn 1050 timer, finn $P(X > 1100 \\mid X > 1050)$.",
+        "solution": "Betinget hale — del de to halene. $z_{1100} = (1100 - 1000)/50 = 2{,}00$, så $P(X > 1100) = 1 - \\Phi(2{,}00) = 0{,}0228$. $z_{1050} = (1050 - 1000)/50 = 1{,}00$, så $P(X > 1050) = 1 - \\Phi(1{,}00) = 0{,}1587$. Da $P(X > 1100 \\mid X > 1050) = 0{,}0228/0{,}1587 = 0{,}1437$.",
+        "hints": [
+          "Regn de to halesannsynlighetene hver for seg.",
+          "Betinget = teller-hale delt på nevner-hale — ikke $P(X > 50)$."
+        ]
+      }
+    },
+    {
+      "id": "tma4245-3-4-oppg-d4",
+      "type": "exercise",
+      "exercise": {
+        "id": "tma4245-3-4-d4",
+        "number": "4",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "Baklengs. Fyllmengden i en pose er $X \\sim N(500, 20^2)$ gram. Bestem grensen $c$ slik at $10 \\%$ av posene har mengde *over* $c$.",
+        "solution": "$P(X > c) = 0{,}10$ gir $z = z_{0{,}10} = 1{,}2816$ (siden $\\Phi(1{,}2816) = 0{,}90$). Da $c = \\mu + z_{0{,}10}\\,\\sigma = 500 + 1{,}2816 \\cdot 20 = 525{,}63$ gram.",
+        "hints": [
+          "Øvre $10 \\%$ svarer til $z_{0{,}10} = 1{,}2816$.",
+          "$c = \\mu + z\\sigma$."
+        ]
+      }
+    },
+    {
+      "id": "tma4245-3-4-bolk2",
+      "type": "text",
+      "content": "*— naturlig pausepunkt —*\n\n### Bolk 2 — kovarians, gjennomsnitt og intervall (ca. 25 min)"
+    },
+    {
+      "id": "tma4245-3-4-oppg-d5",
+      "type": "exercise",
+      "exercise": {
+        "id": "tma4245-3-4-d5",
+        "number": "5",
+        "type": "classic",
+        "difficulty": "vanskelig",
+        "task": "To materialegenskaper $X$ (styrke) og $Y$ (vekt) er simultant normale med $\\mu_X = 30$, $\\mu_Y = 25$, $\\sigma_X^2 = 16$, $\\sigma_Y^2 = 9$ og $\\text{Cov}(X, Y) = 4$. Finn $P(X - Y > 10)$.",
+        "solution": "La $D = X - Y$ ($a = 1$, $b = -1$). $E(D) = 30 - 25 = 5$. $\\text{Var}(D) = 16 + 9 + 2 \\cdot 1 \\cdot (-1) \\cdot 4 = 25 - 8 = 17$, så $SD = \\sqrt{17} = 4{,}1231$. $z = (10 - 5)/4{,}1231 = 1{,}2127 \\approx 1{,}21$. $P(D > 10) = 1 - \\Phi(1{,}21) = 1 - 0{,}8869 = 0{,}1131$.",
+        "hints": [
+          "Differanse: varianser legges sammen, kovariansleddet blir $2ab\\,\\text{Cov} = -8$.",
+          "Standardiser med $\\sqrt{17}$; $\\Phi(1{,}21) = 0{,}8869$."
+        ]
+      }
+    },
+    {
+      "id": "tma4245-3-4-oppg-d6",
+      "type": "exercise",
+      "exercise": {
+        "id": "tma4245-3-4-d6",
+        "number": "6",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "Trykket i et system er $X \\sim N(75, 10^2)$ kPa. Finn $P(60 < X < 90)$.",
+        "solution": "$z_1 = (60 - 75)/10 = -1{,}50$, $z_2 = (90 - 75)/10 = 1{,}50$. $P(60 < X < 90) = \\Phi(1{,}50) - \\Phi(-1{,}50) = 0{,}9332 - 0{,}0668 = 0{,}8664$.",
+        "hints": [
+          "Symmetriske grenser om $\\mu = 75$.",
+          "$2\\Phi(1{,}50) - 1 = 0{,}8664$."
+        ]
+      }
+    },
+    {
+      "id": "tma4245-3-4-oppg-d7",
+      "type": "exercise",
+      "exercise": {
+        "id": "tma4245-3-4-d7",
+        "number": "7",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "Vekten på en komponent er $X \\sim N(250, 12^2)$ g. Det tas $n = 9$ uavhengige veiinger, og gjennomsnittet $\\bar{X}$ regnes. Finn $P(\\bar{X} < 245)$.",
+        "solution": "$\\bar{X} \\sim N(\\mu, \\sigma^2/n) = N(250, 144/9) = N(250, 16)$, så $SD(\\bar{X}) = 4$. $z = (245 - 250)/4 = -1{,}25$. $P(\\bar{X} < 245) = \\Phi(-1{,}25) = 1 - \\Phi(1{,}25) = 1 - 0{,}8944 = 0{,}1056$.",
+        "hints": [
+          "Gjennomsnittet: $\\sigma^2/n = 144/9 = 16$, så $SD = 4$.",
+          "Standardiser med standardfeilen $4$, ikke $\\sigma = 12$."
+        ]
+      }
+    },
+    {
+      "id": "tma4245-3-4-oppg-d8",
+      "type": "exercise",
+      "exercise": {
+        "id": "tma4245-3-4-d8",
+        "number": "8",
+        "type": "classic",
+        "difficulty": "vanskelig",
+        "task": "$X$ og $Y$ er simultant normale med $\\mu_X = 40$, $\\mu_Y = 35$, $\\sigma_X^2 = 25$, $\\sigma_Y^2 = 16$ og $\\text{Cov}(X, Y) = -6$. La $U = 2X + Y$.\n\n**a)** Finn $E(U)$ og $\\text{Var}(U)$.\n\n**b)** Finn $P(U < 110)$.\n\n**c)** Finn $P(U > 130)$.",
+        "solution": "**a)** $E(U) = 2 \\cdot 40 + 35 = 115$. $\\text{Var}(U) = 2^2 \\cdot 25 + 1^2 \\cdot 16 + 2 \\cdot 2 \\cdot 1 \\cdot (-6) = 100 + 16 - 24 = 92$, så $SD(U) = \\sqrt{92} = 9{,}5917$.\n\n**b)** $z = (110 - 115)/9{,}5917 = -0{,}5213 \\approx -0{,}52$. $P(U < 110) = \\Phi(-0{,}52) = 1 - \\Phi(0{,}52) = 1 - 0{,}6985 = 0{,}3015$.\n\n**c)** $z = (130 - 115)/9{,}5917 = 1{,}5639 \\approx 1{,}56$. $P(U > 130) = 1 - \\Phi(1{,}56) = 1 - 0{,}9406 = 0{,}0594$.",
+        "hints": [
+          "Kvadrer koeffisienten på $X$: $2^2 = 4$. Kovariansleddet er $2 \\cdot 2 \\cdot (-6) = -24$.",
+          "Standardiser med $\\sqrt{92}$.",
+          "b) negativ $z$ → bruk symmetrien; c) øvre hale."
+        ]
+      }
+    },
+    {
+      "id": "tma4245-3-4-bolk3",
+      "type": "text",
+      "content": "*— naturlig pausepunkt —*\n\n### Bolk 3 — Inspera-kortsvar med presisjonskrav (ca. 25 min)\n\nDisse tre er i Inspera-format: **svar med nøyaktig 2 desimaler**, og pass på at du ikke avrunder underveis. Kun tallsvaret teller."
+    },
+    {
+      "id": "tma4245-3-4-oppg-d9",
+      "type": "exercise",
+      "exercise": {
+        "id": "tma4245-3-4-d9",
+        "number": "9",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "**(Inspera, 2 desimaler.)** $X \\sim N(20, 3^2)$. Finn $P(X < 25{,}5)$.",
+        "solution": "$z = (25{,}5 - 20)/3 = 1{,}8333 \\approx 1{,}83$. $P(X < 25{,}5) = \\Phi(1{,}83) = 0{,}9664$. **Svar: $0{,}97$** (avrundet til 2 desimaler).",
+        "hints": [
+          "Standardiser: $z = 5{,}5/3 = 1{,}8333$.",
+          "$\\Phi(1{,}83) = 0{,}9664$; rund til slutt."
+        ]
+      }
+    },
+    {
+      "id": "tma4245-3-4-oppg-d10",
+      "type": "exercise",
+      "exercise": {
+        "id": "tma4245-3-4-d10",
+        "number": "10",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "**(Inspera, 2 desimaler.)** To uavhengige leveringstider er $X \\sim N(50, 6^2)$ og $Y \\sim N(48, 8^2)$ minutter. Finn $P(X > Y)$.",
+        "solution": "La $D = X - Y$: $E(D) = 50 - 48 = 2$, $\\text{Var}(D) = 36 + 64 = 100$ (uavhengige), $SD(D) = 10$. $P(X > Y) = P(D > 0)$: $z = (0 - 2)/10 = -0{,}20$, så $P(D > 0) = 1 - \\Phi(-0{,}20) = \\Phi(0{,}20) = 0{,}5793$. **Svar: $0{,}58$.**",
+        "hints": [
+          "$P(X > Y) = P(X - Y > 0)$; regn $E$ og Var for differansen.",
+          "Uavhengige: $\\text{Var}(D) = 36 + 64 = 100$. $\\Phi(0{,}20) = 0{,}5793$."
+        ]
+      }
+    },
+    {
+      "id": "tma4245-3-4-oppg-d11",
+      "type": "exercise",
+      "exercise": {
+        "id": "tma4245-3-4-d11",
+        "number": "11",
+        "type": "classic",
+        "difficulty": "vanskelig",
+        "task": "**(Inspera, 2 desimaler — baklengs.)** Levetiden til et batteri er $X \\sim N(1200, 80^2)$ ladesykluser. Bestem den $x$ som $95 \\%$ av batteriene *ligger under* (den 95. persentilen).",
+        "solution": "$P(X \\le x) = 0{,}95$ gir $z$ med $\\Phi(z) = 0{,}95$, altså $z = 1{,}6449$. Da $x = \\mu + z\\sigma = 1200 + 1{,}6449 \\cdot 80 = 1331{,}59$. **Svar: $1331{,}59$ ladesykluser** (bruk $z = 1{,}6449$, ikke $1{,}64$).",
+        "hints": [
+          "$\\Phi(z) = 0{,}95 \\Rightarrow z = 1{,}6449$.",
+          "$x = \\mu + z\\sigma$; behold fire desimaler i $z$."
+        ]
+      }
+    },
+    {
+      "id": "tma4245-3-4-oppg-d12",
+      "type": "exercise",
+      "exercise": {
+        "id": "tma4245-3-4-d12",
+        "number": "12",
+        "type": "classic",
+        "difficulty": "vanskelig",
+        "task": "En sensor har målefeil $X \\sim N(0, 2^2)$ (mV). To *uavhengige* målinger tas, og gjennomsnittet $\\bar{X} = (X_1 + X_2)/2$ rapporteres.\n\n**a)** Finn fordelingen til $\\bar{X}$.\n\n**b)** Finn $P(|\\bar{X}| > 2)$ (at snittfeilen er større enn 2 mV i tallverdi).",
+        "solution": "**a)** $\\bar{X} \\sim N(0, \\sigma^2/n) = N(0, 4/2) = N(0, 2)$, så $SD(\\bar{X}) = \\sqrt{2} = 1{,}4142$.\n\n**b)** $P(|\\bar{X}| > 2) = 2\\,P(\\bar{X} > 2)$ ved symmetri om 0. $z = (2 - 0)/1{,}4142 = 1{,}4142 \\approx 1{,}41$. $P(\\bar{X} > 2) = 1 - \\Phi(1{,}41) = 1 - 0{,}9207 = 0{,}0793$, så $P(|\\bar{X}| > 2) = 2 \\cdot 0{,}0793 = 0{,}1586$.",
+        "hints": [
+          "Gjennomsnitt av 2 uavhengige: $\\sigma^2/n = 4/2 = 2$, $SD = \\sqrt{2}$.",
+          "$P(|\\bar{X}| > 2) = 2(1 - \\Phi(z))$ ved symmetri; $\\Phi(1{,}41) = 0{,}9207$."
+        ]
+      }
+    },
+    {
+      "id": "tma4245-3-4-warn",
+      "type": "warning",
+      "title": "Typiske feil (på tempo)",
+      "content": "- **Avrunding i mellomregninger** som gir feil Inspera-tallsvar. Behold $z$ med fire desimaler helt til slutt.\n- **Kovariansfellene fra 3.2:** glemt kovariansledd, uglemte kvadrater på koeffisientene, eller varianser trukket fra hverandre i en differanse.\n- **Lese $\\sigma^2$ der formelen gir $2\\sigma^2$.** Nevneren i tetthetseksponenten er $2\\sigma^2$ — halver den for variansen.\n- **Betinget hale regnet som minneløshet.** $P(X > a \\mid X > b) \\ne P(X > a - b)$ for normalfordelingen — det er en brøk av to haler.\n- **Standardisere gjennomsnittet med $\\sigma$ i stedet for standardfeilen $\\sigma/\\sqrt{n}$.**\n- **Bruke rundet kvantil** ($1{,}64$ i stedet for $1{,}6449$) i baklengs-oppgaver."
+    },
+    {
+      "id": "tma4245-3-4-kortbank",
+      "type": "text",
+      "content": "## Formel- og oppskriftskort\n\nDe fem grepene i kortform — pugg rutinen, ikke tallene.\n\n*Flashcard-/repetisjonsstoff — hopp trygt over ved førstegangslesing; tidsanslaget gjelder kjernestoffet.*"
+    },
+    {
+      "id": "tma4245-3-4-kort-standardisering",
+      "type": "definition",
+      "title": "Formelkort: standardisering og oppslag",
+      "content": "$z = \\dfrac{x - \\mu}{\\sigma}$ (del på standardavviket). Så: venstre hale $\\Phi(z)$; høyre hale $1 - \\Phi(z)$; negativ $z$ via $\\Phi(-z) = 1 - \\Phi(z)$; intervall $\\Phi(z_2) - \\Phi(z_1)$. Skriv alltid tabellverdien eksplisitt."
+    },
+    {
+      "id": "tma4245-3-4-kort-lintrans",
+      "type": "definition",
+      "title": "Formelkort: lineærkombinasjon",
+      "content": "For $U = aX + bY$: $E(U) = a\\mu_X + b\\mu_Y$ og $\\text{Var}(U) = a^2\\sigma_X^2 + b^2\\sigma_Y^2 + 2ab\\,\\text{Cov}(X, Y)$. Kvadrer koeffisientene; kovariansleddets fortegn følger $ab$ (negativt for en differanse). Standardiser med $\\sqrt{\\text{Var}(U)}$."
+    },
+    {
+      "id": "tma4245-3-4-kort-betinget",
+      "type": "definition",
+      "title": "Formelkort: betinget hale",
+      "content": "$P(X > a \\mid X > b) = \\dfrac{1 - \\Phi\\!\\left(\\frac{a-\\mu}{\\sigma}\\right)}{1 - \\Phi\\!\\left(\\frac{b-\\mu}{\\sigma}\\right)}$ for $a > b$. Regn de to halene hver for seg og *del*. Normalfordelingen er ikke minneløs — svaret er ikke $P(X > a - b)$."
+    },
+    {
+      "id": "tma4245-3-4-kort-baklengs",
+      "type": "definition",
+      "title": "Oppskriftskort: baklengs (kvantil)",
+      "content": "Gitt sannsynlighet, søk grense: (1) oversett kravet til $\\Phi(z) = p$ (eller $z_\\alpha$ for øvre haleareal $\\alpha$); (2) slå opp kvantilen — $z_{0{,}10} = 1{,}2816$, $z_{0{,}05} = 1{,}6449$, $z_{0{,}025} = 1{,}9600$, $z_{0{,}01} = 2{,}3263$; (3) regn $x = \\mu + z\\sigma$."
+    },
+    {
+      "id": "tma4245-3-4-kort-presisjon",
+      "type": "definition",
+      "title": "Oppskriftskort: Inspera-presisjon",
+      "content": "Kun tallsvaret teller, med 2–3 desimaler. Regel: behold $z$ med minst fire desimaler i mellomregningen, bruk nøyaktige kvantiler (ikke $1{,}64$, men $1{,}6449$), og avrund *bare* på siste linje. Grov avrunding underveis er den vanligste kilden til «riktig metode, feil svar»."
+    },
+    {
+      "id": "tma4245-3-4-symbolliste",
+      "type": "collapsible",
+      "title": "Symbol- og formelliste",
+      "buttonText": "Vis symboler og formler",
+      "content": [
+        {
+          "id": "tma4245-3-4-symbolliste-text",
+          "type": "text",
+          "content": "*Oppslagsverk — alt her forklares underveis i kapitlet.*\n\nAlle symboler og formler brukt i kapittel 3.4, samlet.\n\n| Symbol | Betydning |\n|---|---|\n| $X \\sim N(\\mu, \\sigma^2)$ | Normalfordelt variabel (annet argument = varians) |\n| $Z, \\Phi$ | Standardnormal og dens fordelingsfunksjon |\n| $z_\\alpha$ | Kvantil med øvre haleareal $\\alpha$ |\n| $\\bar{X}$ | Gjennomsnittet, med $\\sigma^2/n$ som varians |\n| $\\text{Cov}(X, Y)$ | Kovariansen mellom $X$ og $Y$ |\n| $SD$ | Standardavvik $= \\sqrt{\\text{Var}}$ |\n\n**Formler i dette kapitlet:**\n\n$$Z = \\frac{X - \\mu}{\\sigma}, \\qquad \\Phi(-z) = 1 - \\Phi(z)$$\nStandardisering og symmetri.\n\n$$P(a < X < b) = \\Phi\\!\\left(\\tfrac{b-\\mu}{\\sigma}\\right) - \\Phi\\!\\left(\\tfrac{a-\\mu}{\\sigma}\\right)$$\nIntervallsannsynlighet.\n\n$$P(X > a \\mid X > b) = \\frac{1 - \\Phi\\!\\left(\\frac{a-\\mu}{\\sigma}\\right)}{1 - \\Phi\\!\\left(\\frac{b-\\mu}{\\sigma}\\right)}, \\quad a > b$$\nBetinget hale (del, ikke trekk fra).\n\n$$E(aX + bY) = a\\mu_X + b\\mu_Y, \\quad \\text{Var}(aX + bY) = a^2\\sigma_X^2 + b^2\\sigma_Y^2 + 2ab\\,\\text{Cov}(X,Y)$$\nLineærkombinasjon.\n\n$$\\bar{X} \\sim N\\!\\left(\\mu,\\ \\frac{\\sigma^2}{n}\\right)$$\nGjennomsnittet.\n\n$$x = \\mu + z\\,\\sigma, \\quad \\Phi(z) = p \\quad (\\text{baklengs})$$\nKvantil fra gitt sannsynlighet.\n\n$$f(x) = \\frac{1}{\\sigma\\sqrt{2\\pi}}\\, e^{-\\frac{(x-\\mu)^2}{2\\sigma^2}}$$\nTettheten — les av $\\mu$ og $2\\sigma^2$."
+        }
+      ]
+    }
+  ],
+  "exercises": []
+}

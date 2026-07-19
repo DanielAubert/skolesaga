@@ -1,0 +1,365 @@
+{
+  "id": "tma4245-1-2",
+  "courseId": "tma4245",
+  "chapterNumber": "1.2",
+  "title": "Kombinatorikk: telle riktig",
+  "description": "Multiplikasjonsprinsippet, ordnede og uordnede utvalg, multinomiske koeffisienter — telleteknikkene bak kortstokk- og lagoppgavene.",
+  "estimatedMinutes": 50,
+  "competenceGoals": [
+    "bruke multiplikasjonsprinsippet til å telle sammensatte valg",
+    "velge riktig telleoppsett ut fra om utvalget er ordnet eller uordnet og med eller uten tilbakelegging",
+    "regne med binomiske og multinomiske koeffisienter og hypergeometrisk telling",
+    "løse «minst k»-oppgaver med summering eller komplementteknikk"
+  ],
+  "content": [
+    {
+      "id": "tma4245-1-2-tip-eksamensvinkel",
+      "type": "tip",
+      "title": "Eksamensvinkel",
+      "content": "**Kombinatorikk er en sjanger som kommer og går — men når den kommer, er den ren telling og gir sikre poeng.**\n\n- Telleoppgaver hører til **sjanger F** — med *sjanger F* mener vi rene kombinatorikkoppgaver: «på hvor mange måter kan …». Den er med i **≈39 %** av settene, og er **sterkt tilbake etter 2024 (4 av de 8 siste settene)**.\n- Kontekstene i arkivet: pokerhender (hus, straight flush), lag-uttak, gruppering av objekter, kuler fra en urne.\n- Prioritet: **kunne**. Poenget er ikke å pugge formler, men å velge riktig telleoppsett: *ordnet eller uordnet? med eller uten tilbakelegging?*\n\n**Formelsamlingen** inneholder $\\binom{n}{k}$-verdier og fakulteter, men den velger ikke oppsettet for deg. Selve ferdigheten — å gjenkjenne hvilken telleform situasjonen krever — må sitte i hodet.\n\n⏱️ Kapitlet er delt i tre løkker à ~15–20 min. Ta gjerne en pause mellom hver."
+    },
+    {
+      "id": "tma4245-1-2-forkunnskaper",
+      "type": "text",
+      "content": "**Forkunnskaper:** Bygger på hendelser og den uniforme modellen «gunstige over mulige» fra **[kap. 1.1](/bok/tma4245/tma4245-1-1)** — for det er nettopp *telling av gunstige og mulige utfall* kombinatorikken leverer. Du trenger ellers bare vanlig regning; fakultet og binomialkoeffisient bygger vi opp fra bunnen.\n\nHypergeometrisk telling her er dessuten broen til den hypergeometriske fordelingen i kap. 2.2 (senere i boka)."
+    },
+    {
+      "id": "tma4245-1-2-intro",
+      "type": "text",
+      "content": "Mange sannsynlighetsoppgaver koker ned til ett spørsmål: *på hvor mange måter kan dette skje?* Har du en uniform modell, er $P(A) = |A|/|S|$ — og både teller og nevner er da telleproblemer. Kombinatorikk er verktøykassa for å telle uten å skrive opp alle mulighetene.\n\nAlt hviler på ett prinsipp (multiplikasjonsprinsippet) og to spørsmål du alltid stiller: **Spiller rekkefølgen en rolle?** (ordnet vs. uordnet) og **Kan samme element velges flere ganger?** (med vs. uten tilbakelegging). Svarene peker på riktig formel.\n\n⏱️ **Løkke 1 (~15 min):** multiplikasjonsprinsippet og ordnede utvalg. **Løkke 2 (~15 min):** uordnede utvalg og multinomiske koeffisienter. **Løkke 3 (~20 min):** hypergeometrisk telling og strategien bak kortstokk- og urneoppgaver."
+    },
+    {
+      "id": "tma4245-1-2-lokke1",
+      "type": "text",
+      "content": "## Løkke 1 — Multiplikasjonsprinsippet og ordnede utvalg (~15 min)"
+    },
+    {
+      "id": "tma4245-1-2-def-multiplikasjon",
+      "type": "definition",
+      "title": "Multiplikasjonsprinsippet",
+      "content": "Skal en oppgave gjøres i flere trinn, og trinn 1 kan gjøres på $n_1$ måter, trinn 2 på $n_2$ måter, og så videre, er det totale antall måter *produktet*:\n\n$$n_1 \\cdot n_2 \\cdots n_k.$$\n\n**Intuisjon:** for hvert av de $n_1$ valgene i trinn 1 finnes $n_2$ valg i trinn 2, altså $n_1 n_2$ kombinasjoner for de to første trinnene, og så videre. Dette prinsippet ligger under *alle* de andre formlene i kapitlet."
+    },
+    {
+      "id": "tma4245-1-2-def-med-tilbake",
+      "type": "definition",
+      "title": "Ordnet utvalg med tilbakelegging ($n^k$)",
+      "content": "Skal du gjøre $k$ valg etter hverandre, hver gang blant de samme $n$ mulighetene (rekkefølgen teller, samme element kan gjentas), er antallet:\n\n$$n^k.$$\n\nDet følger av multiplikasjonsprinsippet: $n$ muligheter i hvert av de $k$ trinnene. Eksempel: en firesifret PIN-kode har $10^4 = 10\\,000$ muligheter."
+    },
+    {
+      "id": "tma4245-1-2-def-fakultet",
+      "type": "definition",
+      "title": "Fakultet ($n!$)",
+      "content": "$n!$ («$n$ fakultet») er produktet av alle heltall fra 1 til $n$:\n\n$$n! = n \\cdot (n-1) \\cdots 2 \\cdot 1, \\qquad 0! = 1.$$\n\n$n!$ teller antall måter å ordne $n$ ulike objekter i rekkefølge (en **permutasjon**). Fem bøker kan settes i hylla på $5! = 120$ måter. Konvensjonen $0! = 1$ trengs for at formlene under skal stemme."
+    },
+    {
+      "id": "tma4245-1-2-def-uten-tilbake",
+      "type": "definition",
+      "title": "Ordnet utvalg uten tilbakelegging ($n!/(n-k)!$)",
+      "content": "Skal du plukke $k$ av $n$ ulike objekter *i rekkefølge*, uten å kunne bruke samme objekt to ganger, er antallet:\n\n$$\\frac{n!}{(n-k)!} = n \\cdot (n-1) \\cdots (n-k+1).$$\n\n**Intuisjon:** $n$ valg til første plass, $n-1$ til andre (ett er brukt opp), og så videre — $k$ synkende faktorer. Eksempel: gull, sølv og bronse blant 8 løpere kan fordeles på $8 \\cdot 7 \\cdot 6 = 336$ måter."
+    },
+    {
+      "id": "tma4245-1-2-ex-1",
+      "type": "example",
+      "title": "Eksempel 1: Ordnet, med og uten tilbakelegging",
+      "problem": "Et laboratorium merker prøver med en kode på 3 tegn, der hvert tegn er en av bokstavene A–F (6 bokstaver).\n\n(a) Hvor mange koder finnes hvis tegn kan gjentas?\n(b) Hvor mange hvis alle tre tegnene må være forskjellige?",
+      "solution": "**(a)** Rekkefølgen teller (koden ABC $\\ne$ CBA), og tegn kan gjentas — ordnet *med* tilbakelegging:\n\n$$6^3 = 216 \\text{ koder}.$$\n\n**(b)** Nå kan ikke et tegn brukes to ganger — ordnet *uten* tilbakelegging:\n\n$$\\frac{6!}{(6-3)!} = 6 \\cdot 5 \\cdot 4 = 120 \\text{ koder}.$$\n\nForskjellen ($216$ mot $120$) er nettopp kodene med minst én gjentakelse."
+    },
+    {
+      "id": "tma4245-1-2-oppg-l1",
+      "type": "exercise",
+      "exercise": {
+        "id": "tma4245-1-2-l1",
+        "number": "1",
+        "type": "classic",
+        "difficulty": "lett",
+        "task": "(Innstegsoppgave.) En adgangskode består av 4 sifre, hvert fra 0 til 9, og sifre kan gjentas.\n\n**a)** Hvor mange koder finnes?\n\n**b)** Er dette et *ordnet* eller *uordnet* utvalg? Begrunn med én setning.",
+        "solution": "**a)** Fire uavhengige valg blant 10 sifre, med gjentakelse: $10^4 = 10\\,000$ koder.\n\n**b)** *Ordnet* — rekkefølgen betyr noe: koden 1234 er en annen kode enn 4321.",
+        "hints": [
+          "Ordnet med tilbakelegging: $n^k$.",
+          "Spør deg: gir en omstokking av tegnene en ny kode?"
+        ]
+      }
+    },
+    {
+      "id": "tma4245-1-2-oppg-m1",
+      "type": "exercise",
+      "exercise": {
+        "id": "tma4245-1-2-m1",
+        "number": "2",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "Fra en gruppe på 12 studenter skal det velges en leder, en nestleder og en kasserer (tre forskjellige personer, tre forskjellige verv).\n\nHvor mange slike sammensetninger finnes?",
+        "solution": "Vervene er forskjellige, så rekkefølgen teller (Anna som leder er ikke det samme som Anna som kasserer), og ingen kan ha to verv — ordnet uten tilbakelegging med $n = 12$, $k = 3$:\n\n$$\\frac{12!}{9!} = 12 \\cdot 11 \\cdot 10 = 1320.$$",
+        "hints": [
+          "Tre forskjellige verv → rekkefølgen teller → ordnet.",
+          "$n(n-1)(n-2)$ med $n=12$."
+        ]
+      }
+    },
+    {
+      "id": "tma4245-1-2-lokke2",
+      "type": "text",
+      "content": "## Løkke 2 — Uordnede utvalg og multinomiske koeffisienter (~15 min)"
+    },
+    {
+      "id": "tma4245-1-2-def-uordnet",
+      "type": "definition",
+      "title": "Uordnet utvalg — binomialkoeffisienten $\\binom{n}{k}$",
+      "content": "Skal du plukke ut $k$ av $n$ ulike objekter *uten* at rekkefølgen teller (bare *hvilke* du fikk), er antallet binomialkoeffisienten «$n$ over $k$»:\n\n$$\\binom{n}{k} = \\frac{n!}{k!\\,(n-k)!}.$$\n\n**Intuisjon:** start med de $n!/(n-k)!$ *ordnede* utvalgene. Hvert uordnet utvalg av $k$ objekter er telt $k!$ ganger (én gang for hver rekkefølge), så vi deler på $k!$. Eksempel: å velge 3 av 10 ansatte til et utvalg — $\\binom{10}{3} = 120$."
+    },
+    {
+      "id": "tma4245-1-2-def-multinom",
+      "type": "definition",
+      "title": "Multinomiske koeffisienter",
+      "content": "Skal $n$ objekter deles i grupper av størrelser $n_1, n_2, \\ldots, n_r$ (med $n_1 + \\cdots + n_r = n$), er antallet måter:\n\n$$\\binom{n}{n_1, n_2, \\ldots, n_r} = \\frac{n!}{n_1!\\,n_2! \\cdots n_r!}.$$\n\nBinomialkoeffisienten er spesialtilfellet med to grupper ($k$ valgte og $n-k$ ikke-valgte). Multinomialkoeffisienten teller også antall ulike **anagram** av et ord: del bokstavene i grupper etter hvilken bokstav de er."
+    },
+    {
+      "id": "tma4245-1-2-ex-2",
+      "type": "example",
+      "title": "Eksempel 2: Uordnet utvalg og en kombinasjonsfelle",
+      "problem": "En kvalitetsavdeling har 5 ingeniører og 4 teknikere. Det skal settes sammen et team på 4 personer.\n\n(a) Hvor mange team finnes totalt?\n(b) Hvor mange team har nøyaktig 2 ingeniører og 2 teknikere?",
+      "solution": "Rekkefølgen i et team teller ikke — uordnet utvalg.\n\n**(a)** Velg 4 av de 9: $\\binom{9}{4} = \\dfrac{9!}{4!\\,5!} = 126$ team.\n\n**(b)** Del i to uavhengige valg og bruk multiplikasjonsprinsippet: velg 2 av 5 ingeniører *og* 2 av 4 teknikere:\n\n$$\\binom{5}{2}\\binom{4}{2} = 10 \\cdot 6 = 60 \\text{ team}.$$\n\n**Felle:** her *ganger* vi de to binomialkoeffisientene fordi begge kravene skal oppfylles samtidig — vi legger dem ikke sammen."
+    },
+    {
+      "id": "tma4245-1-2-oppg-l2",
+      "type": "exercise",
+      "exercise": {
+        "id": "tma4245-1-2-l2",
+        "number": "3",
+        "type": "classic",
+        "difficulty": "lett",
+        "task": "En pizzeria har 8 ulike fyll. En kunde velger 3 forskjellige fyll (rekkefølgen er likegyldig).\n\nHvor mange kombinasjoner av fyll finnes?",
+        "solution": "Uordnet utvalg uten tilbakelegging, $n = 8$, $k = 3$:\n\n$$\\binom{8}{3} = \\frac{8!}{3!\\,5!} = 56.$$",
+        "hints": [
+          "Rekkefølgen teller ikke → binomialkoeffisient $\\binom{n}{k}$.",
+          "$\\binom{8}{3} = \\frac{8\\cdot 7\\cdot 6}{3\\cdot 2\\cdot 1}$."
+        ]
+      }
+    },
+    {
+      "id": "tma4245-1-2-oppg-m2",
+      "type": "exercise",
+      "exercise": {
+        "id": "tma4245-1-2-m2",
+        "number": "4",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "En prosjektgruppe på 12 personer skal deles i tre arbeidslag med henholdsvis 5, 4 og 3 medlemmer.\n\nHvor mange slike inndelinger finnes? (Lagene har ulike oppgaver, så de regnes som forskjellige.)",
+        "solution": "Multinomisk koeffisient med $n = 12$ og gruppestørrelser $5, 4, 3$:\n\n$$\\binom{12}{5,4,3} = \\frac{12!}{5!\\,4!\\,3!} = \\frac{479\\,001\\,600}{120 \\cdot 24 \\cdot 6} = 27\\,720.$$",
+        "hints": [
+          "Bruk $\\frac{n!}{n_1!\\,n_2!\\,n_3!}$ med $n_1,n_2,n_3=5,4,3$.",
+          "Lagene har ulike oppgaver, så vi deler *ikke* på ekstra faktor for like grupper."
+        ]
+      }
+    },
+    {
+      "id": "tma4245-1-2-lokke3",
+      "type": "text",
+      "content": "## Løkke 3 — Hypergeometrisk telling og strategi (~20 min)"
+    },
+    {
+      "id": "tma4245-1-2-def-hypergeom",
+      "type": "definition",
+      "title": "Hypergeometrisk telling (trekk uten tilbakelegging)",
+      "content": "En beholdning har $a$ objekter av én type og $b$ av en annen. Trekkes $k$ objekter *uten tilbakelegging* (rekkefølgen teller ikke), er sannsynligheten for nøyaktig $x$ av den første typen:\n\n$$P(X = x) = \\frac{\\binom{a}{x}\\binom{b}{k-x}}{\\binom{a+b}{k}}.$$\n\n**Intuisjon:** teller = velg $x$ av de $a$ *og* $k-x$ av de $b$; nevner = alle måter å velge $k$ av $a+b$. Dette er telleoppsettet bak urne- og kvalitetskontrolloppgaver, og broen til den hypergeometriske fordelingen i kap. 2.2."
+    },
+    {
+      "id": "tma4245-1-2-ex-3",
+      "type": "example",
+      "title": "Eksempel 3: Kvalitetskontroll (hypergeometrisk telling)",
+      "problem": "En kasse har 20 komponenter, hvorav 5 er defekte. En inspektør trekker 6 tilfeldige komponenter uten tilbakelegging.\n\n(a) På hvor mange måter kan de 6 velges?\n(b) Hva er sannsynligheten for nøyaktig 2 defekte?",
+      "solution": "**(a)** Uordnet utvalg av 6 av 20: $\\binom{20}{6} = 38\\,760$ måter.\n\n**(b)** Velg 2 av de 5 defekte *og* 4 av de 15 hele:\n\n$$\\binom{5}{2}\\binom{15}{4} = 10 \\cdot 1365 = 13\\,650 \\text{ gunstige.}$$\n\nSannsynligheten blir\n\n$$P(X = 2) = \\frac{13\\,650}{38\\,760} \\approx 0{,}352.$$\n\nHer *velger* vi altså fra to grupper og ganger — nettopp den hypergeometriske tellingen."
+    },
+    {
+      "id": "tma4245-1-2-oppg-m3",
+      "type": "exercise",
+      "exercise": {
+        "id": "tma4245-1-2-m3",
+        "number": "5",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "En pokerhånd er 5 kort trukket fra en vanlig kortstokk på 52 (rekkefølgen teller ikke).\n\n**a)** Hvor mange forskjellige hender finnes?\n\n**b)** Hvor mange hender er et «hus» (3 kort av én valør og 2 av en annen)?",
+        "solution": "**a)** Uordnet utvalg av 5 av 52: $\\binom{52}{5} = 2\\,598\\,960$ hender.\n\n**b)** Bygg huset i trinn og gang (multiplikasjonsprinsippet): velg valøren for tresettet ($\\binom{13}{1} = 13$), velg 3 av dens 4 farger ($\\binom{4}{3} = 4$), velg en *annen* valør for paret ($\\binom{12}{1} = 12$), velg 2 av dens 4 farger ($\\binom{4}{2} = 6$):\n\n$$13 \\cdot 4 \\cdot 12 \\cdot 6 = 3744 \\text{ hus.}$$",
+        "hints": [
+          "Del opp: valør for tresettet, farger, valør for paret, farger.",
+          "Velg valørene i riktig rekkefølge (tre først, så par) — de er ikke ombyttbare."
+        ]
+      }
+    },
+    {
+      "id": "tma4245-1-2-oppg-v1",
+      "type": "exercise",
+      "exercise": {
+        "id": "tma4245-1-2-v1",
+        "number": "6",
+        "type": "classic",
+        "difficulty": "vanskelig",
+        "task": "En håndballtropp har 3 målvakter, 6 bakspillere og 8 øvrige spillere. Det skal tas ut et lag på 7 spillere.\n\n**a)** Hvor mange lag kan settes opp med nøyaktig 1 målvakt og minst 2 bakspillere?\n\n**b)** Forklar kort hvorfor «minst 2» her løses lettest ved å summere flere tilfeller — og ikke ved komplement.",
+        "solution": "**a)** Fast: nøyaktig 1 målvakt ($\\binom{3}{1} = 3$). Med 1 målvakt gjenstår 6 plasser, fylt av bakspillere og øvrige med *minst 2 bakspillere*. La $b$ = antall bakspillere, $b \\in \\{2,3,4,5,6\\}$, og resten $6-b$ fra de 8 øvrige:\n\n$$\\binom{3}{1}\\sum_{b=2}^{6}\\binom{6}{b}\\binom{8}{6-b}.$$\n\nRegn leddene: $b=2$: $15\\cdot 70=1050$; $b=3$: $20\\cdot 56=1120$; $b=4$: $15\\cdot 28=420$; $b=5$: $6\\cdot 8=48$; $b=6$: $1\\cdot 1=1$. Sum $=2639$. Ganget med de 3 målvaktvalgene:\n\n$$3 \\cdot 2639 = 7917 \\text{ lag.}$$\n\n**b)** «Minst 2» av 6 plasser går fra 2 til 6 — bare 5 tilfeller. Komplementet («0 eller 1 bakspiller») er også få tilfeller, så her er begge veier korte; men fordi antallet øvrige er begrenset til 8 og selve plasstallet endrer seg, er direkte summering mest oversiktlig og minst feilutsatt.",
+        "hints": [
+          "Fest først målvakten ($\\binom{3}{1}$), fordel så de 6 resterende plassene.",
+          "La antall bakspillere $b$ løpe fra 2 til 6, resten fra de øvrige.",
+          "$\\sum_b \\binom{6}{b}\\binom{8}{6-b}$, deretter gang med målvaktvalget."
+        ]
+      }
+    },
+    {
+      "id": "tma4245-1-2-oppg-v2",
+      "type": "exercise",
+      "exercise": {
+        "id": "tma4245-1-2-v2",
+        "number": "7",
+        "type": "classic",
+        "difficulty": "vanskelig",
+        "task": "Fem kort trekkes fra en vanlig kortstokk (52 kort).\n\n**a)** Hva er sannsynligheten for *minst ett* ess?\n\n**b)** Forklar hvorfor komplementteknikken er raskere enn å telle «nøyaktig 1, 2, 3, 4 ess» hver for seg.",
+        "solution": "**a)** Komplementet til «minst ett ess» er «ingen ess». Antall hender uten ess er $\\binom{48}{5}$ (velg 5 av de 48 ikke-essene):\n\n$$P(\\text{minst ett ess}) = 1 - \\frac{\\binom{48}{5}}{\\binom{52}{5}} = 1 - \\frac{1\\,712\\,304}{2\\,598\\,960} \\approx 0{,}341.$$\n\n**b)** «Minst ett» dekker fire tilfeller (1, 2, 3 eller 4 ess), som hver krever sin egen hypergeometriske telling. «Ingen ess» er *ett enkelt* uttrykk. Ett fradrag fra 1 sparer altså tre ekstra utregninger — dette er komplementteknikkens hele poeng.",
+        "hints": [
+          "«Minst én» = 1 minus «ingen».",
+          "«Ingen ess» = velg alle 5 blant de 48 kortene som ikke er ess."
+        ]
+      }
+    },
+    {
+      "id": "tma4245-1-2-warn-typiske-feil",
+      "type": "warning",
+      "title": "Typiske feil",
+      "content": "- **Telle ordnet der oppgaven er uordnet (dobbelttelling).** Spør alltid: gir en omstokking et *nytt* utfall? Team, hender og delmengder er uordnet ($\\binom{n}{k}$); koder, plasseringer og verv er ordnet.\n- **Glemme multiplikasjonsprinsippet på tvers av grupper.** Skal to krav oppfylles samtidig (2 ingeniører *og* 2 teknikere), *ganger* du delvalgene — du legger dem ikke sammen.\n- **Blande «nøyaktig $k$» og «minst $k$».** «Minst» krever enten summering over flere tilfeller eller komplementteknikk («1 minus ingen»). Velg den korteste veien.\n- **Bruke med tilbakelegging der objektene ikke legges tilbake.** Trekk fra en urne uten tilbakelegging er hypergeometrisk, ikke $n^k$.\n- **Dele på $k!$ når rekkefølgen faktisk teller.** Verv/plasseringer er ordnede — der skal du *ikke* dele bort rekkefølgen."
+    },
+    {
+      "id": "tma4245-1-2-begrepsbank",
+      "type": "text",
+      "content": "## Begrepsbank til eksamen\n\nTelleteknikkene i kortform — bruk dem til å velge riktig oppsett raskt.\n\n*Begrepsbanken er flashcard-/repetisjonsstoff — den gjentar det du nettopp har lest. Hopp trygt over ved førstegangslesing; tidsanslaget gjelder kjernestoffet.*"
+    },
+    {
+      "id": "tma4245-1-2-bb-permutasjon",
+      "type": "definition",
+      "title": "Permutasjon",
+      "content": "En ordning av objekter i rekkefølge. Antall permutasjoner av $n$ ulike objekter er $n!$. Skal bare $k$ av $n$ ordnes, er det $n!/(n-k)!$. Nøkkelordet er *rekkefølge*: hvis en omstokking gir et nytt utfall, teller du permutasjoner."
+    },
+    {
+      "id": "tma4245-1-2-bb-med-uten",
+      "type": "definition",
+      "title": "Med vs. uten tilbakelegging",
+      "content": "*Med tilbakelegging:* samme element kan velges flere ganger (PIN-koder, terningkast) — gir $n^k$ ordnet. *Uten tilbakelegging:* hvert element brukes høyst én gang (trekk fra en urne, uttak av personer) — gir $n!/(n-k)!$ ordnet eller $\\binom{n}{k}$ uordnet."
+    },
+    {
+      "id": "tma4245-1-2-bb-kombinasjon-permutasjon",
+      "type": "definition",
+      "title": "Kombinasjon vs. permutasjon",
+      "content": "En **kombinasjon** er et uordnet utvalg — bare *hvilke* elementer, ikke rekkefølgen ($\\binom{n}{k}$). En **permutasjon** er et ordnet utvalg — rekkefølgen teller ($n!/(n-k)!$). Sammenhengen: $\\frac{n!}{(n-k)!} = \\binom{n}{k}\\cdot k!$, siden hvert uordnet utvalg svarer til $k!$ ordnede."
+    },
+    {
+      "id": "tma4245-1-2-bb-symmetri",
+      "type": "definition",
+      "title": "Binomialkoeffisientens symmetri",
+      "content": "Det er like mange måter å velge $k$ objekter *ut* som å velge $n-k$ objekter *bort*:\n\n$$\\binom{n}{k} = \\binom{n}{n-k}.$$\n\nNyttig regnetriks: $\\binom{20}{18} = \\binom{20}{2} = 190$ er mye lettere å regne enn venstresiden direkte."
+    },
+    {
+      "id": "tma4245-1-2-bb-delmengder",
+      "type": "definition",
+      "title": "Antall delmengder ($2^n$)",
+      "content": "En mengde med $n$ elementer har $2^n$ delmengder (hvert element er enten med eller ikke). Sammenhengen med binomialkoeffisientene: $\\sum_{k=0}^{n}\\binom{n}{k} = 2^n$ — summerer du antall delmengder av hver størrelse, får du alle delmengdene."
+    },
+    {
+      "id": "tma4245-1-2-bb-komplementteknikk",
+      "type": "definition",
+      "title": "Komplementteknikk («minst»)",
+      "content": "Å telle «minst 1» direkte krever ofte flere tilfeller. Komplementet «ingen» er som regel ett enkelt uttrykk:\n\n$$P(\\text{minst 1}) = 1 - P(\\text{ingen}).$$\n\nStandardgrepet i «minst én defekt / minst ett ess»-oppgaver."
+    },
+    {
+      "id": "tma4245-1-2-bb-anagram",
+      "type": "definition",
+      "title": "Anagramtelling (ord med like bokstaver)",
+      "content": "Antall ulike omstokkinger av et ord med $n$ bokstaver, der en bokstav forekommer $n_1$ ganger, en annen $n_2$ ganger osv., er den multinomiske koeffisienten:\n\n$$\\frac{n!}{n_1!\\,n_2! \\cdots n_r!}.$$\n\n**Intuisjon:** hadde alle $n$ bokstavene vært ulike, ville det vært $n!$ omstokkinger; men bytter du om to like bokstaver, får du samme ord, så vi deler bort $n_i!$ for hver bokstavtype. Eksempel: STATISTIKK gir $10!/(2!\\,3!\\,2!\\,2!) = 75\\,600$ ord."
+    },
+    {
+      "id": "tma4245-1-2-bb-kortstokk",
+      "type": "definition",
+      "title": "Kortstokk-systematikk",
+      "content": "Bygg hånden i trinn og gang (multiplikasjonsprinsippet): velg *valørene* først, deretter *fargene* innen hver valør. En vanlig kortstokk har 13 valører (2–A) og 4 farger. Hold styr på om valørene er ombyttbare: i et «hus» er tresettets valør og parets valør *ikke* ombyttbare, så de velges hver for seg."
+    },
+    {
+      "id": "tma4245-1-2-rep",
+      "type": "collapsible",
+      "title": "Repetisjonsoppgaver",
+      "buttonText": "Vis repetisjonsoppgaver",
+      "content": [
+        {
+          "id": "tma4245-1-2-oppg-rep-1",
+          "type": "exercise",
+          "exercise": {
+            "id": "tma4245-1-2-rep-1",
+            "number": "R1",
+            "type": "classic",
+            "difficulty": "lett",
+            "task": "(Fra kap. 1.1) I en uniform modell med $|S| = 20$ likestilte utfall har en hendelse $A$ 6 gunstige utfall. Finn $P(A)$.",
+            "solution": "$P(A) = |A|/|S| = 6/20 = 0{,}30$.",
+            "hints": [
+              "Gunstige over mulige."
+            ]
+          }
+        },
+        {
+          "id": "tma4245-1-2-oppg-rep-2",
+          "type": "exercise",
+          "exercise": {
+            "id": "tma4245-1-2-rep-2",
+            "number": "R2",
+            "type": "classic",
+            "difficulty": "lett",
+            "task": "Regn ut $\\binom{7}{2}$ og $\\binom{7}{5}$. Hva legger du merke til?",
+            "solution": "$\\binom{7}{2} = \\frac{7\\cdot 6}{2} = 21$ og $\\binom{7}{5} = \\frac{7!}{5!\\,2!} = 21$. De er like — symmetrien $\\binom{n}{k} = \\binom{n}{n-k}$.",
+            "hints": [
+              "Bruk symmetrien $\\binom{n}{k}=\\binom{n}{n-k}$."
+            ]
+          }
+        },
+        {
+          "id": "tma4245-1-2-oppg-rep-3",
+          "type": "exercise",
+          "exercise": {
+            "id": "tma4245-1-2-rep-3",
+            "number": "R3",
+            "type": "classic",
+            "difficulty": "middels",
+            "task": "Hvor mange ulike «ord» (bokstavrekker) kan lages ved å stokke om alle bokstavene i STATISTIKK? (S:2, T:3, A:1, I:2, K:2, totalt 10.)",
+            "solution": "Multinomisk anagramtelling: $\\dfrac{10!}{2!\\,3!\\,1!\\,2!\\,2!} = \\dfrac{3\\,628\\,800}{2\\cdot 6\\cdot 1\\cdot 2\\cdot 2} = 75\\,600$.",
+            "hints": [
+              "Del $n!$ på fakultetet av antall like bokstaver av hver type.",
+              "$10!/(2!\\,3!\\,2!\\,2!)$."
+            ]
+          }
+        },
+        {
+          "id": "tma4245-1-2-oppg-rep-4",
+          "type": "exercise",
+          "exercise": {
+            "id": "tma4245-1-2-rep-4",
+            "number": "R4",
+            "type": "classic",
+            "difficulty": "middels",
+            "task": "På hvor mange måter kan 5 forskjellige bøker settes i en hylle?",
+            "solution": "Alle 5 ordnes i rekkefølge: $5! = 120$ måter.",
+            "hints": [
+              "Antall ordninger av $n$ ulike objekter er $n!$."
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": "tma4245-1-2-symbolliste",
+      "type": "collapsible",
+      "title": "Symbol- og formelliste",
+      "buttonText": "Vis symboler og formler",
+      "content": [
+        {
+          "id": "tma4245-1-2-symbolliste-text",
+          "type": "text",
+          "content": "*Oppslagsverk — alt her forklares underveis i kapitlet.*\n\nAlle symboler og formler brukt i kapittel 1.2.\n\n| Symbol | Betydning |\n|---|---|\n| $n!$ | $n$ fakultet: $n(n-1)\\cdots 2\\cdot 1$, med $0!=1$ |\n| $n^k$ | Ordnet utvalg med tilbakelegging: $k$ valg blant $n$ |\n| $\\frac{n!}{(n-k)!}$ | Ordnet utvalg uten tilbakelegging (permutasjon) |\n| $\\binom{n}{k}$ | Uordnet utvalg (kombinasjon), «$n$ over $k$» |\n| $\\binom{n}{n_1,\\ldots,n_r}$ | Multinomisk koeffisient — deling i grupper |\n| $a, b$ | Antall objekter av hver type i en urne |\n| $2^n$ | Antall delmengder av en mengde med $n$ elementer |\n\n**Formler i dette kapitlet:**\n\n$$n_1 \\cdot n_2 \\cdots n_k$$\nMultiplikasjonsprinsippet: gang antall valg i hvert uavhengig trinn.\n\n$$n^k$$\nOrdnet utvalg *med* tilbakelegging ($k$ valg, hver blant $n$).\n\n$$\\frac{n!}{(n-k)!} = n(n-1)\\cdots(n-k+1)$$\nOrdnet utvalg *uten* tilbakelegging.\n\n$$\\binom{n}{k} = \\frac{n!}{k!\\,(n-k)!}$$\nUordnet utvalg (rekkefølgen teller ikke).\n\n$$\\binom{n}{n_1, n_2, \\ldots, n_r} = \\frac{n!}{n_1!\\,n_2! \\cdots n_r!}$$\nMultinomisk koeffisient — deling i $r$ grupper (og anagramtelling).\n\n$$P(X = x) = \\frac{\\binom{a}{x}\\binom{b}{k-x}}{\\binom{a+b}{k}}$$\nHypergeometrisk telling: nøyaktig $x$ av type 1 ved trekk av $k$ uten tilbakelegging.\n\n$$\\binom{n}{k} = \\binom{n}{n-k}$$\nSymmetrien — velg $k$ ut er like mange som å velge $n-k$ bort."
+        }
+      ]
+    }
+  ],
+  "exercises": []
+}

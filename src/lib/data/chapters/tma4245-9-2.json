@@ -1,0 +1,337 @@
+{
+  "id": "tma4245-9-2",
+  "courseId": "tma4245",
+  "chapterNumber": "9.2",
+  "title": "Monte Carlo som inferensverktøy: simulert sannsynlighet, p-verdi og styrke",
+  "description": "Estimér det du ikke kan regne: sannsynligheter, forventninger, p-verdier, styrke og feilforplantning ved gjentatte trekk.",
+  "estimatedMinutes": 65,
+  "competenceGoals": [
+    "bruke at en sannsynlighet er en forventet indikator til å estimere sannsynligheter og forventninger med Monte Carlo",
+    "simulere en p-verdi ved å generere data under $H_0$ og telle andelen minst så ekstreme observatorer",
+    "simulere styrken til en test ved å generere data under alternativet og telle forkastninger",
+    "kontrollere en feilforplantning (deltametoden) ved simulering med riktig bruk av ddof=1"
+  ],
+  "content": [
+    {
+      "id": "tma4245-9-2-tip",
+      "type": "tip",
+      "title": "Eksamensvinkel",
+      "content": "**Her blir simulering et fullverdig inferensverktøy** — ikke bare «tegn tilfeldige tall», men estimér sannsynligheter, p-verdier, styrke og feilforplantning når formelen enten er tung eller ikke finnes.\n\n- **Python/MC totalt i 8 av 9 sett siden des. 2023.** Denne delen (sjanger N undertype 3) er testet konkret: **simulert p-verdi** (Des23), **simulert styrke** (Mai25), «hvilken lyspære varer lengst»-simulering (Des24), **feilforplantning ved simulering** mot deltametoden (Mai24), og at MC-estimatet er **forventningsrett** (Mai26 spør eksplisitt om variansen $p(1-p)/n$).\n- *Sjanger N* betyr en oppgave der du leser, skriver eller fullfører programkode. Prioritet: **kunne** — dette er sammen med [kap. 9.1](/bok/tma4245/tma4245-9-1) det som skiller en A.\n\n**Hvor poengene sitter:** i å trekke **under riktig fordeling** — under $H_0$ for en p-verdi, under *alternativet* for styrke — og i å skrive kode som kjører. Ingen av oppskriftene står i formelsamlingen; de **må kunnes aktivt**. Alle fire kodeskjelettene under er komplette og faktisk kjørt."
+    },
+    {
+      "id": "tma4245-9-2-forkunnskaper",
+      "type": "text",
+      "content": "**Forkunnskaper:** Dette kapitlet bygger på **[kap. 9.1](/bok/tma4245/tma4245-9-1)** (inversjonsmetoden, `np.random.uniform/normal`, `np.mean` som estimat, `np.var(..., ddof=1)`), på styrke- og testritualet i **[kap. 7.3](/bok/tma4245/tma4245-7-3)** (kritisk grense, styrke, re-standardisering under $\\mu_1$) og på deltametoden i **[kap. 5.3](/bok/tma4245/tma4245-5-3)** (feilforplantning gjennom en funksjon). Maks/min av flere levetider er fra [kap. 4.1](/bok/tma4245/tma4245-4-1).\n\n**Sist du var her — de tre resultatene MC-inferensen hviler på (ferdig oppfrisket):**\n\n1. **`np.mean(betingelse)`** estimerer $P(\\text{betingelse})$ — andelen `True` (fra [kap. 9.1](/bok/tma4245/tma4245-9-1)).\n2. **Styrke (7.3):** for den ensidige z-testen $H_0:\\mu=\\mu_0$ mot $H_1:\\mu>\\mu_0$ forkaster vi når $Z=\\frac{\\bar{X}-\\mu_0}{\\sigma/\\sqrt{n}}>z_\\alpha$; styrken regnes med data trukket under den *sanne* $\\mu_1$.\n3. **Deltametoden (5.3):** $\\text{Var}(g(\\hat{\\theta}))\\approx[g'(\\mu)]^2\\text{Var}(\\hat{\\theta})$ — en tilnærming som kan **kontrolleres** ved simulering.\n\nDu trenger ikke ny teori — bare å kombinere disse med numpy."
+    },
+    {
+      "id": "tma4245-9-2-intro",
+      "type": "text",
+      "content": "**Hverdagsanker:** vil du vite hvor ofte to terninger gir sum over 9, kan du enten telle utfall — eller kaste tusen ganger og telle andelen. Den andre veien er **Monte Carlo**: når regnestykket er tungt eller umulig, *simulerer* vi mange ganger og leser av andelen. Det virker fordi en **sannsynlighet er en forventet indikator**, og en forventning kan alltid estimeres med et gjennomsnitt.\n\nKapitlet lærer deg fire oppskrifter som SKAL sitte: **(i)** simulert sannsynlighet/forventning for en sammensatt størrelse, **(ii)** simulert **p-verdi**, **(iii)** simulert **styrke**, og **(iv)** **feilforplantning** ved simulering — med deltametoden som fasit å kontrollere mot. Vi starter med grunnprinsippet (løkke 1) og tar så én oppskrift per løkke.\n\n*Samlet kjernetid ≈ 65 min. Naturlige pausepunkter er markert mellom løkkene. All kode er komplett og kjørt; Monte Carlo-svar varierer litt med seed, så bruk stor $B$ (antall simuleringer) og se på om tallet stemmer med den analytiske fasiten.*"
+    },
+    {
+      "id": "tma4245-9-2-lokke1",
+      "type": "text",
+      "content": "## Løkke 1 — Grunnprinsippet: sannsynlighet som forventet indikator (~12 min)"
+    },
+    {
+      "id": "tma4245-9-2-def-grunn",
+      "type": "definition",
+      "title": "Grunnprinsippet: sannsynlighet = forventet indikator",
+      "content": "La $\\mathbf{1}(A)$ være **indikatoren** til en hendelse $A$: den er 1 hvis $A$ inntreffer, ellers 0. Da er forventningen til indikatoren nettopp sannsynligheten:\n\n$$E[\\mathbf{1}(A)]=1\\cdot P(A)+0\\cdot P(A^c)=P(A).$$\n\nEn sannsynlighet *er* altså en forventning. Og en forventning estimerer vi med et gjennomsnitt. Simulerer vi hendelsen $B$ ganger, er Monte Carlo-estimatet\n\n$$\\hat{p}=\\frac{1}{B}\\sum_{i=1}^{B}\\mathbf{1}(A \\text{ i trekk } i),$$\n\nsom i numpy er nøyaktig `np.mean(betingelse)` — andelen trekk der betingelsen er sann. Samme idé gir en forventning $E[g(X)]$ som `np.mean(g(x))`."
+    },
+    {
+      "id": "tma4245-9-2-def-egenskaper",
+      "type": "definition",
+      "title": "MC-estimatet: forventningsrett, varians $p(1-p)/B$",
+      "content": "Antallet «treff» blant $B$ uavhengige trekk er binomisk, så $\\hat{p}$ arver egenskapene fra [kap. 5.1](/bok/tma4245/tma4245-5-1):\n\n$$E(\\hat{p})=p\\quad(\\textbf{forventningsrett}),\\qquad \\text{Var}(\\hat{p})=\\frac{p(1-p)}{B}.$$\n\nStandardfeilen er $\\sqrt{p(1-p)/B}$, som avtar som $1/\\sqrt{B}$: **firedobler du antall simuleringer, halveres usikkerheten.** Det er derfor vi bruker stor $B$ (ofte $10^5$–$10^6$). Merk skillet: $B$ er *antall simuleringer* (styrer presisjonen i estimatet), mens en eventuell utvalgsstørrelse $n$ inne i hver simulering er en *helt annen* størrelse (den hører til problemet vi simulerer)."
+    },
+    {
+      "id": "tma4245-9-2-ex-grunn",
+      "type": "example",
+      "title": "Eksempel 1: Simulert sannsynlighet med kontroll",
+      "problem": "En måling er $X\\sim N(100,\\,225)$ (varians 225, altså $\\sigma=15$). Estimer $P(X>120)$ med Monte Carlo, og sammenlign med fasit.",
+      "solution": "```python\nimport numpy as np\n\ndef simuler_sanns(B):\n    x = np.random.normal(loc=100, scale=15, size=B)   # scale = SD = sqrt(225) = 15\n    return np.mean(x > 120)                            # andel over 120 = estimat paa P(X>120)\n\nnp.random.seed(0)\nprint(simuler_sanns(10**6))   # ~ 0.0912\n```\n\nKjørt gir dette $\\approx 0{,}0912$. **Fasit:** $P(X>120)=P\\!\\left(Z>\\frac{120-100}{15}\\right)=P(Z>1{,}333)=1-\\Phi(1{,}333)\\approx 0{,}0912$. ✓\n\n**Usikkerheten:** med $B=10^6$ og $p\\approx 0{,}091$ er standardfeilen $\\sqrt{0{,}091\\cdot 0{,}909/10^6}\\approx 0{,}00029$ — tre desimaler er trygge. Hadde vi brukt $B=1000$, ville SE vært $\\approx 0{,}009$, altfor grovt.\n\n> *Sensornotat:* `np.mean(x > 120)` — andel = sannsynlighet. Og `scale=15`, ikke 225."
+    },
+    {
+      "id": "tma4245-9-2-e1",
+      "type": "exercise",
+      "exercise": {
+        "id": "tma4245-9-2-e1",
+        "number": "1",
+        "type": "classic",
+        "difficulty": "lett",
+        "task": "(Innstegsoppgave.) La $A$ være hendelsen «$X>50$».\n\n**a)** Hva er forventningen til indikatoren $\\mathbf{1}(A)$?\n\n**b)** Hvilket numpy-uttrykk estimerer $P(A)$ fra en vektor `x` av trekk?\n\n**c)** Hvordan endres standardfeilen i estimatet om du firedobler antall simuleringer $B$?",
+        "solution": "**a)** $E[\\mathbf{1}(A)]=P(A)=P(X>50)$.\n\n**b)** `np.mean(x > 50)` — andelen trekk over 50.\n\n**c)** Standardfeilen $\\sqrt{p(1-p)/B}$ avtar som $1/\\sqrt{B}$, så firedobling av $B$ **halverer** standardfeilen.",
+        "hints": [
+          "Indikatoren er 1 ved treff, 0 ellers; forventningen blir sannsynligheten.",
+          "`np.mean` av en betingelse er andelen `True`.",
+          "$1/\\sqrt{B}$: firedobbelt $B$ → $\\sqrt{B}$ dobles."
+        ]
+      }
+    },
+    {
+      "id": "tma4245-9-2-pause1",
+      "type": "text",
+      "content": "*— naturlig pausepunkt —*"
+    },
+    {
+      "id": "tma4245-9-2-lokke2",
+      "type": "text",
+      "content": "## Løkke 2 — Oppskrift (i): sannsynlighet/forventning for en sammensatt størrelse (~12 min)"
+    },
+    {
+      "id": "tma4245-9-2-def-oppi",
+      "type": "definition",
+      "title": "Oppskrift (i): simulert sannsynlighet/forventning",
+      "content": "Når størrelsen du spør om er en **transformasjon eller kombinasjon** av flere variable — maks av levetider, sum, forhold — er det ofte enklere å simulere enn å utlede fordelingen. Oppskriften:\n\n1. **Trekk inngangsvariablene** vektorisert (én vektor per variabel, lengde $B$).\n2. **Regn den sammensatte størrelsen** elementvis (`np.maximum`, `+`, `/`, …).\n3. **Estimer**: `np.mean(størrelse > c)` for en sannsynlighet, `np.mean(størrelse)` for en forventning.\n\nFor et **parallellsystem** er levetiden $M=\\max(X_1,X_2,\\dots)$ (systemet lever til den siste komponenten dør — kobling til [kap. 4.1](/bok/tma4245/tma4245-4-1)); for et **seriesystem** er den $\\min(\\dots)$. Slik unngår du å regne ut $F_{\\max}=[F]^n$ for hånd når du bare trenger et tall."
+    },
+    {
+      "id": "tma4245-9-2-ex-maks",
+      "type": "example",
+      "title": "Eksempel 2: Hvilken komponent varer lengst (parallellsystem)",
+      "problem": "To uavhengige komponenter har eksponensialfordelte levetider med forventning $\\beta_1=4$ og $\\beta_2=6$ år. De er parallellkoblet, så systemet lever til den siste dør: $M=\\max(T_1,T_2)$. Estimer $P(M>8)$ og $E(M)$, og kontroller mot fasit.",
+      "solution": "```python\nimport numpy as np\n\ndef simuler_maks(B):\n    t1 = np.random.exponential(scale=4, size=B)   # eksponensial, forventning beta=4\n    t2 = np.random.exponential(scale=6, size=B)   # forventning beta=6\n    m = np.maximum(t1, t2)                         # parallell = maks\n    return m\n\nnp.random.seed(0)\nm = simuler_maks(10**6)\nprint(np.mean(m > 8))   # ~ 0.363\nprint(np.mean(m))       # ~ 7.60\n```\n\n(Merk: `np.random.exponential(scale=beta)` trekker eksponensial med forventning `beta` — samme fordeling som inversjonsmetoden `-beta*np.log(1-u)` fra [kap. 9.1](/bok/tma4245/tma4245-9-1).)\n\n**Kontroll av $P(M>8)$:** $M\\le 8$ betyr at *begge* er $\\le 8$, så $P(M>8)=1-F_1(8)F_2(8)=1-(1-e^{-8/4})(1-e^{-8/6})=1-0{,}8647\\cdot 0{,}7364\\approx 0{,}3633$. Kjørt gir $\\approx 0{,}363$. ✓\n\n**Kontroll av $E(M)$:** for maks av to uavhengige eksponensiale er $E(M)=\\beta_1+\\beta_2-\\frac{\\beta_1\\beta_2}{\\beta_1+\\beta_2}=4+6-\\frac{24}{10}=7{,}6$. Kjørt gir $\\approx 7{,}60$. ✓\n\n> *Sensornotat:* parallell $\\to\\max$, serie $\\to\\min$. Å simulere det tunge $E(M)$-integralet på tre kodelinjer er hele poenget."
+    },
+    {
+      "id": "tma4245-9-2-e2",
+      "type": "exercise",
+      "exercise": {
+        "id": "tma4245-9-2-e2",
+        "number": "2",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "To uavhengige komponenter har eksponensielle levetider med forventning $\\beta_1=3$ og $\\beta_2=5$. De er **seriekoblet**, så systemet dør når den *første* dør: $M=\\min(T_1,T_2)$.\n\n**a)** Skriv en komplett funksjon `simuler_min(B)`.\n\n**b)** Hvilket kall estimerer $E(M)$, og hvilket estimerer $P(M>4)$?\n\n**c)** Det er kjent at $\\min$ av to uavhengige eksponensiale igjen er eksponensiell med rate lik summen av ratene. Regn $E(M)$ og $P(M>4)$ analytisk. (Rate $=1/\\beta$.)",
+        "solution": "**a)**\n```python\nimport numpy as np\n\ndef simuler_min(B):\n    t1 = np.random.exponential(scale=3, size=B)\n    t2 = np.random.exponential(scale=5, size=B)\n    return np.minimum(t1, t2)          # serie = min\n```\n\n**b)** `np.mean(simuler_min(B))` estimerer $E(M)$; `np.mean(simuler_min(B) > 4)` estimerer $P(M>4)$.\n\n**c)** Ratene er $1/3$ og $1/5$; summen er $1/3+1/5=8/15$. Så $M$ er eksponensiell med forventning $\\beta_M=15/8=1{,}875$, og $E(M)=1{,}875$. $P(M>4)=e^{-4\\cdot 8/15}=e^{-2{,}133}\\approx 0{,}1184$.",
+        "hints": [
+          "Serie = min → `np.minimum`.",
+          "`np.mean(x)` er forventning, `np.mean(x>4)` er en sannsynlighet.",
+          "Min av eksponensiale er eksponensiell med rate $1/3+1/5$; forventning $=1/\\text{rate}$."
+        ]
+      }
+    },
+    {
+      "id": "tma4245-9-2-pause2",
+      "type": "text",
+      "content": "*— naturlig pausepunkt —*"
+    },
+    {
+      "id": "tma4245-9-2-lokke3",
+      "type": "text",
+      "content": "## Løkke 3 — Oppskrift (ii): simulert p-verdi (~13 min)"
+    },
+    {
+      "id": "tma4245-9-2-def-oppii",
+      "type": "definition",
+      "title": "Oppskrift (ii): simulert p-verdi",
+      "content": "P-verdien er sannsynligheten, **beregnet under $H_0$**, for å få en testobservator minst så ekstrem som den observerte. Når nullfordelingen er tung å regne ut, simulerer vi den:\n\n1. **Regn den observerte testobservatoren** $t_{\\text{obs}}$ fra dataene.\n2. **Generer mange datasett under $H_0$** (parametrene satt til nullverdiene) og regn testobservatoren i hvert.\n3. **P-verdien** er andelen simulerte observatorer minst så ekstreme som $t_{\\text{obs}}$:\n$$\\hat{p}=\\texttt{np.mean(t\\_sim >= t\\_obs)}\\quad(\\text{ensidig oppover}).$$\n\n**Retningen på «mer ekstrem» må stemme med $H_1$:** ensidig oppover bruker `>=`, ensidig nedover `<=`, og tosidig bruker `np.mean(np.abs(t_sim) >= abs(t_obs))`. **Nøkkelkravet:** generer under $H_0$ — bruker du feil fordeling, får du feil p-verdi."
+    },
+    {
+      "id": "tma4245-9-2-ex-pverdi",
+      "type": "example",
+      "title": "Eksempel 3: Simulert p-verdi for en z-test",
+      "problem": "Vi tester $H_0:\\mu=100$ mot $H_1:\\mu>100$ med kjent $\\sigma=15$ og $n=20$ observasjoner. Vi observerte $\\bar{x}=106$, altså $z_{\\text{obs}}=\\frac{106-100}{15/\\sqrt{20}}=1{,}789$. Estimer p-verdien ved simulering og sammenlign med fasit.",
+      "solution": "```python\nimport numpy as np\n\ndef simuler_pverdi(B):\n    n, mu0, sigma, z_obs = 20, 100, 15, 1.789\n    x = np.random.normal(loc=mu0, scale=sigma, size=(B, n))  # generer UNDER H0\n    xbar = x.mean(axis=1)\n    z = (xbar - mu0) / (sigma / np.sqrt(n))                  # testobservator i hvert datasett\n    return np.mean(z >= z_obs)                               # andel minst saa ekstrem\n\nnp.random.seed(0)\nprint(simuler_pverdi(200000))   # ~ 0.037\n```\n\nKjørt gir $\\approx 0{,}037$. **Fasit:** siden $z$ er standardnormal under $H_0$, er $p=P(Z\\ge 1{,}789)=1-\\Phi(1{,}789)\\approx 0{,}0368$. ✓\n\nHer *kunne* vi lest p-verdien rett av tabellen, og det er nettopp derfor eksemplet er lærerikt: simuleringen treffer fasiten. I en ekte eksamensoppgave er testobservatoren så sammensatt at tabellen ikke rekker til — da er dette den eneste veien.\n\n> *Sensornotat:* matrisen `size=(B, n)` gir $B$ datasett à $n$ observasjoner; `x.mean(axis=1)` gir de $B$ gjennomsnittene. Alt under $\\mu_0$, fordi p-verdien måles under $H_0$."
+    },
+    {
+      "id": "tma4245-9-2-e3",
+      "type": "exercise",
+      "exercise": {
+        "id": "tma4245-9-2-e3",
+        "number": "3",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "Vi tester **tosidig** $H_0:\\mu=100$ mot $H_1:\\mu\\ne 100$, kjent $\\sigma=15$, $n=20$, og observerer $z_{\\text{obs}}=2{,}10$.\n\n**a)** Hvilken fordeling skal datasettene genereres under?\n\n**b)** Endre siste linje i funksjonen fra Eksempel 3 slik at den gir den **tosidige** p-verdien.\n\n**c)** Regn den tosidige fasiten analytisk. (Bruk $\\Phi(2{,}10)=0{,}9821$.)",
+        "solution": "**a)** Under $H_0$: $x=$ `np.random.normal(loc=100, scale=15, size=(B, n))` (forventning $\\mu_0=100$).\n\n**b)** `return np.mean(np.abs(z) >= abs(z_obs))` — for tosidig teller vi begge haler ved å bruke absoluttverdi.\n\n**c)** $p=2\\big(1-\\Phi(2{,}10)\\big)=2(1-0{,}9821)=2\\cdot 0{,}0179=0{,}0358$.",
+        "hints": [
+          "P-verdien måles alltid under $H_0$, altså med $\\mu=\\mu_0=100$.",
+          "Tosidig: bruk `np.abs` på både simulert og observert observator.",
+          "Tosidig p = $2(1-\\Phi(|z_{\\text{obs}}|))$."
+        ]
+      }
+    },
+    {
+      "id": "tma4245-9-2-pause3",
+      "type": "text",
+      "content": "*— naturlig pausepunkt —*"
+    },
+    {
+      "id": "tma4245-9-2-lokke4",
+      "type": "text",
+      "content": "## Løkke 4 — Oppskrift (iii): simulert styrke (~14 min)"
+    },
+    {
+      "id": "tma4245-9-2-def-oppiii",
+      "type": "definition",
+      "title": "Oppskrift (iii): simulert styrke",
+      "content": "Styrken er sannsynligheten for å **forkaste $H_0$ når alternativet er sant** ([kap. 7.3](/bok/tma4245/tma4245-7-3)). Simuleringen speiler definisjonen:\n\n1. **Generer mange datasett under alternativet** — sett den sanne parameteren til $\\mu_1$ (ikke $\\mu_0$!).\n2. **Utfør testen** i hvert datasett: regn testobservatoren og avgjør om den havner i forkastningsområdet (f.eks. $z>z_\\alpha$).\n3. **Styrken** er andelen datasett der vi forkaster: `np.mean(forkast)`.\n\n**Den kritiske forskjellen fra p-verdien:** p-verdien genererer under $H_0$; styrken genererer under **alternativet** $\\mu_1$. Bytter du om de to, får du enten $\\alpha$ (om du feilaktig trekker under $H_0$) i stedet for styrken, eller motsatt. Når antall simuleringer $B$ vokser, konvergerer den simulerte styrken mot den analytiske fasiten fra [kap. 7.3](/bok/tma4245/tma4245-7-3)."
+    },
+    {
+      "id": "tma4245-9-2-ex-styrke",
+      "type": "example",
+      "title": "Eksempel 4: Simulert styrke (samme case som kap. 7.3)",
+      "problem": "En z-test har $\\mu_0=200$, kjent $\\sigma=20$, $n=25$, $\\alpha=0{,}05$ ensidig oppover, så vi forkaster når $z>z_{0{,}05}=1{,}645$. Estimer styrken ved den sanne verdien $\\mu_1=210$, og sammenlign med den analytiske fasiten.",
+      "solution": "```python\nimport numpy as np\n\ndef simuler_styrke(B):\n    n, mu0, mu1, sigma, z_alpha = 25, 200, 210, 20, 1.645\n    x = np.random.normal(loc=mu1, scale=sigma, size=(B, n))   # generer UNDER alternativet mu1\n    z = (x.mean(axis=1) - mu0) / (sigma / np.sqrt(n))         # testobservator (mot mu0)\n    return np.mean(z > z_alpha)                               # andel forkastninger = styrke\n\nnp.random.seed(0)\nprint(simuler_styrke(200000))   # ~ 0.804\n```\n\nKjørt gir $\\approx 0{,}804$. **Fasit fra [kap. 7.3](/bok/tma4245/tma4245-7-3):** kritisk grense $k=200+1{,}645\\cdot 20/\\sqrt{25}=206{,}58$, og styrke $=1-\\Phi\\!\\left(1{,}645-\\frac{210-200}{20/\\sqrt{25}}\\right)=1-\\Phi(-0{,}855)=\\Phi(0{,}855)\\approx 0{,}804$. ✓\n\nLegg merke til de to ulike rollene til $\\mu$: dataene trekkes med `loc=mu1` (sannheten), men testobservatoren standardiseres mot `mu0` (påstanden vi tester). Det er *nettopp* re-standardiseringen fra kap. 7.3, nå gjort automatisk av simuleringen.\n\n> *Sensornotat:* trekk under $\\mu_1$, test mot $\\mu_0$. Trekker du under $\\mu_0$, får du bare $\\alpha=0{,}05$ tilbake."
+    },
+    {
+      "id": "tma4245-9-2-e4",
+      "type": "exercise",
+      "exercise": {
+        "id": "tma4245-9-2-e4",
+        "number": "4",
+        "type": "classic",
+        "difficulty": "vanskelig",
+        "task": "Fyll ut de **to manglende linjene** i funksjonen under, som skal estimere styrken til en ensidig z-test på $\\alpha=0{,}05$ ($z_{0{,}05}=1{,}645$) når $\\mu_0=500$, kjent $\\sigma=40$, $n=16$, og den sanne forventningen er $\\mu_1=520$.\n\n```python\ndef simuler_styrke(B):\n    n, mu0, mu1, sigma, z_alpha = 16, 500, 520, 40, 1.645\n    x = ______                                    # (1) generer datasettene\n    z = (x.mean(axis=1) - mu0) / (sigma/np.sqrt(n))\n    return ______                                 # (2) andel forkastninger\n```\n\n**a)** Fyll ut linje (1) og (2).\n\n**b)** Forklar med én setning hvorfor svaret nærmer seg den analytiske fasiten når $B$ øker.\n\n**c)** Hva ville gått galt om linje (1) hadde `loc=mu0`?",
+        "solution": "**a)** (1) `x = np.random.normal(loc=mu1, scale=sigma, size=(B, n))` — trekk under alternativet, med `scale=sigma` (standardavviket). (2) `return np.mean(z > z_alpha)`.\n\n**b)** Den simulerte styrken er et Monte Carlo-estimat med standardfeil $\\sqrt{p(1-p)/B}\\to 0$ når $B\\to\\infty$, så andelen forkastninger konvergerer mot den sanne styrken (fasiten fra [kap. 7.3](/bok/tma4245/tma4245-7-3)).\n\n**c)** Med `loc=mu0` ville vi trukket under $H_0$ i stedet for under alternativet; andelen forkastninger ville da blitt $\\approx\\alpha=0{,}05$ — signifikansnivået, ikke styrken.",
+        "hints": [
+          "Styrke = trekk under alternativet $\\mu_1$; bruk `loc=mu1`, `scale=sigma`.",
+          "Forkast når $z>z_\\alpha$; styrken er `np.mean` av den betingelsen.",
+          "MC-estimatets standardfeil avtar som $1/\\sqrt{B}$."
+        ]
+      }
+    },
+    {
+      "id": "tma4245-9-2-pause4",
+      "type": "text",
+      "content": "*— naturlig pausepunkt —*"
+    },
+    {
+      "id": "tma4245-9-2-lokke5",
+      "type": "text",
+      "content": "## Løkke 5 — Oppskrift (iv): feilforplantning ved simulering (~14 min)"
+    },
+    {
+      "id": "tma4245-9-2-def-oppiv",
+      "type": "definition",
+      "title": "Oppskrift (iv): feilforplantning ved simulering",
+      "content": "Deltametoden ([kap. 5.3](/bok/tma4245/tma4245-5-3)) gir en *tilnærmet* varians for en avledet størrelse $g(\\cdot)$ via deriverte. Simulering gir det samme — og fungerer som **kontroll**:\n\n1. **Trekk inngangsvariablene** fra fordelingene sine (bruk `scale=`$\\sqrt{\\text{varians}}$ for normale innganger).\n2. **Regn $g(\\cdot)$ per trekk**, elementvis.\n3. **Estimer variansen** med `np.var(g_verdier, ddof=1)` og standardfeilen som kvadratroten.\n\nStemmer den simulerte variansen med delta-formelen $[g'(\\mu)]^2\\text{Var}(\\hat\\theta)$ (eller summen $\\sum g_i'^2\\text{Var}$ for flere innganger), har du kontrollert begge. Avviker de mye, er enten delta-tilnærmingen dårlig (sterkt krum $g$ eller stor usikkerhet) eller så er det en regnefeil. **`ddof=1`** er obligatorisk her — det er en empirisk varians."
+    },
+    {
+      "id": "tma4245-9-2-ex-feil",
+      "type": "example",
+      "title": "Eksempel 5: Areal fra to målinger — simulering mot delta",
+      "problem": "Et panel har uavhengige, målte sider $X$ (forventning $8$, varians $0{,}25$) og $Y$ (forventning $5$, varians $0{,}16$), begge normalfordelte. Arealet er $A=XY$. Deltametoden ga $\\text{Var}(A)\\approx 16{,}49$ ([kap. 5.3](/bok/tma4245/tma4245-5-3)). Kontroller med simulering.",
+      "solution": "```python\nimport numpy as np\n\ndef simuler_areal(B):\n    x = np.random.normal(8, np.sqrt(0.25), size=B)   # scale = SD = sqrt(0.25) = 0.5\n    y = np.random.normal(5, np.sqrt(0.16), size=B)   # scale = sqrt(0.16) = 0.4\n    a = x * y                                         # g(x,y) = xy per trekk\n    return np.mean(a), np.var(a, ddof=1)              # forventning og empirisk varians\n\nnp.random.seed(0)\nmiddel, varians = simuler_areal(10**6)\nprint(middel)    # ~ 40.0\nprint(varians)   # ~ 16.5\n```\n\nKjørt gir $\\bar{a}\\approx 40{,}0$ og empirisk varians $\\approx 16{,}5$. **Delta-fasit:** $\\text{Var}(A)\\approx \\mu_Y^2\\text{Var}(X)+\\mu_X^2\\text{Var}(Y)=5^2\\cdot 0{,}25+8^2\\cdot 0{,}16=6{,}25+10{,}24=16{,}49$. Simuleringen ($\\approx 16{,}5$) bekrefter delta-svaret. ✓\n\n> *Sensornotat:* pass på `scale=np.sqrt(varians)` (her 0,5 og 0,4), og `ddof=1` i variansen. Uten `ddof=1` blir avviket ubetydelig ved stor $B$, men vanen skal sitte — det *er* en empirisk varians."
+    },
+    {
+      "id": "tma4245-9-2-e5",
+      "type": "exercise",
+      "exercise": {
+        "id": "tma4245-9-2-e5",
+        "number": "5",
+        "type": "classic",
+        "difficulty": "vanskelig",
+        "task": "En strømningsrate er forholdet $R=\\dfrac{V}{T}$ mellom uavhengige, normalfordelte målinger: volum $V$ (forventning $100$, varians $4$) og tid $T$ (forventning $20$, varians $1$). Deltametoden ga $\\text{Var}(R)\\approx 0{,}0725$ ([kap. 5.3](/bok/tma4245/tma4245-5-3)).\n\n**a)** Skriv en funksjon `simuler_R(B)` som returnerer forventning og empirisk varians til $\\hat{R}$.\n\n**b)** Hvilke `scale`-verdier skal inn i de to `np.random.normal`-kallene?\n\n**c)** Omtrent hvilket tall forventer du at `np.var(..., ddof=1)` gir, og hva bekrefter det?",
+        "solution": "**a)**\n```python\nimport numpy as np\n\ndef simuler_R(B):\n    v = np.random.normal(100, np.sqrt(4), size=B)   # scale = 2\n    t = np.random.normal(20, np.sqrt(1), size=B)    # scale = 1\n    r = v / t\n    return np.mean(r), np.var(r, ddof=1)\n```\n\n**b)** $\\sqrt{4}=2$ for $V$ og $\\sqrt{1}=1$ for $T$ (standardavvik, ikke varians).\n\n**c)** Rundt $0{,}0725$ — det bekrefter deltametodens svar $\\text{Var}(\\hat R)\\approx 0{,}0725$ (og $\\hat R\\approx 100/20=5$). At de to metodene gir samme tall, er selve kontrollen.",
+        "hints": [
+          "`scale` er standardavviket: $\\sqrt{4}$ og $\\sqrt{1}$.",
+          "Regn $r = v/t$ elementvis, deretter `np.var(r, ddof=1)`.",
+          "Delta ga 0,0725 — simuleringen skal treffe det."
+        ]
+      }
+    },
+    {
+      "id": "tma4245-9-2-warn",
+      "type": "warning",
+      "title": "Typiske feil",
+      "content": "- **Simulere under feil fordeling.** P-verdien genereres under $H_0$; styrken under **alternativet** $\\mu_1$. Bytter du om, får du $\\alpha$ der du skulle hatt styrken (eller motsatt). Dette er den alvorligste feilen i delen.\n- **Feil retning på «mer ekstrem».** Ensidig oppover bruker `>=`, nedover `<=`, tosidig `np.abs(...) >= abs(t_obs)`. La retningen følge $H_1$.\n- **Glemme `ddof=1`** i feilforplantningen. En empirisk varians deler på $n-1$; bruk `np.var(..., ddof=1)`.\n- **Forveksle antall simuleringer $B$ med utvalgsstørrelsen $n$.** $B$ styrer presisjonen i MC-estimatet (standardfeil $1/\\sqrt{B}$); $n$ er størrelsen på datasettet inne i hver simulering (hører til testen). De er to ulike tall.\n- **Sende variansen som `scale`.** `np.random.normal(loc, scale, ...)` vil ha standardavviket — send $\\sqrt{\\text{varians}}$ (kap. 9.1-fella, går igjen her).\n- **Rapportere for få desimaler fra for liten $B$.** Med lite $B$ er MC-estimatet støyete; bruk stort $B$ og husk at svaret varierer med seed."
+    },
+    {
+      "id": "tma4245-9-2-bb-intro",
+      "type": "text",
+      "content": "## Begrepsbank\n\nKjernekortene for Monte Carlo-inferens, samlet.\n\n*Flashcard-stoff — hopp trygt over ved førstegangslesing; tidsanslaget gjelder kjernestoffet.*"
+    },
+    {
+      "id": "tma4245-9-2-bb-mean",
+      "type": "definition",
+      "title": "Kort: np.mean(betingelse) som $\\hat{p}$",
+      "content": "En sannsynlighet er en forventet indikator: $E[\\mathbf{1}(A)]=P(A)$. Derfor er $\\hat{p}=\\frac{1}{B}\\sum\\mathbf{1}(A)=$ `np.mean(betingelse)` et estimat på $P(A)$. En forventning $E[g(X)]$ estimeres tilsvarende med `np.mean(g(x))`."
+    },
+    {
+      "id": "tma4245-9-2-bb-presisjon",
+      "type": "definition",
+      "title": "Kort: presisjon $1/\\sqrt{B}$ og valg av $B$",
+      "content": "$\\hat{p}$ er forventningsrett med $\\text{Var}(\\hat{p})=p(1-p)/B$, så standardfeilen $\\sqrt{p(1-p)/B}$ avtar som $1/\\sqrt{B}$. Firedobling av $B$ halverer usikkerheten. Velg $B$ stort ($10^5$–$10^6$) når du trenger flere sikre desimaler; MC-svar varierer med seed."
+    },
+    {
+      "id": "tma4245-9-2-bb-feil-h0",
+      "type": "definition",
+      "title": "Feilkort: $H_0$ (p-verdi) vs. alternativ (styrke)",
+      "content": "**P-verdi:** generer under $H_0$, andel minst så ekstrem som observert. **Styrke:** generer under **alternativet** $\\mu_1$, andel forkastninger. Å bytte de to er den vanligste feilen: trekker du styrken under $H_0$, får du bare $\\alpha$ igjen."
+    },
+    {
+      "id": "tma4245-9-2-bb-feil-Bn",
+      "type": "definition",
+      "title": "Feilkort: $B$ (simuleringer) vs. $n$ (utvalg)",
+      "content": "$B$ = antall Monte Carlo-simuleringer, styrer presisjonen i estimatet ($1/\\sqrt{B}$). $n$ = utvalgsstørrelsen inne i hver simulering, hører til problemet (f.eks. testens $n$). Å øke $B$ gjør estimatet skarpere; å endre $n$ endrer *hva* du estimerer (f.eks. styrken selv)."
+    },
+    {
+      "id": "tma4245-9-2-rep",
+      "type": "collapsible",
+      "title": "Repetisjonsoppgaver",
+      "buttonText": "Vis repetisjonsoppgaver",
+      "content": [
+        {
+          "id": "tma4245-9-2-rep-1",
+          "type": "exercise",
+          "exercise": {
+            "id": "tma4245-9-2-rep-1",
+            "number": "R1",
+            "type": "classic",
+            "difficulty": "lett",
+            "task": "(Fra [kap. 9.1](/bok/tma4245/tma4245-9-1).) Hva estimerer `np.mean(x > 3)` og hva estimerer `np.mean(x)` for en vektor `x` av trekk?",
+            "solution": "`np.mean(x > 3)` estimerer $P(X>3)$ (andelen over 3); `np.mean(x)` estimerer forventningen $E(X)$.",
+            "hints": [
+              "Gjennomsnitt av en betingelse = andel = sannsynlighet."
+            ]
+          }
+        },
+        {
+          "id": "tma4245-9-2-rep-2",
+          "type": "exercise",
+          "exercise": {
+            "id": "tma4245-9-2-rep-2",
+            "number": "R2",
+            "type": "classic",
+            "difficulty": "middels",
+            "task": "(Fra [kap. 7.3](/bok/tma4245/tma4245-7-3).) En ensidig z-test forkaster når $z>z_{0{,}05}=1{,}645$. Under hvilken forventning trekkes dataene når du skal estimere **styrken** ved $\\mu_1=210$ — $\\mu_0$ eller $\\mu_1$?",
+            "solution": "Under $\\mu_1=210$ (alternativet). Styrken er sannsynligheten for å forkaste når $H_1$ er sann, så dataene må genereres med den sanne verdien $\\mu_1$, ikke $\\mu_0$.",
+            "hints": [
+              "Styrke = $P(\\text{forkast}\\mid H_1\\text{ sann})$.",
+              "Trekk under $\\mu_1$, test mot $\\mu_0$."
+            ]
+          }
+        },
+        {
+          "id": "tma4245-9-2-rep-3",
+          "type": "exercise",
+          "exercise": {
+            "id": "tma4245-9-2-rep-3",
+            "number": "R3",
+            "type": "classic",
+            "difficulty": "middels",
+            "task": "(Fra [kap. 5.3](/bok/tma4245/tma4245-5-3).) Deltametoden gir $\\text{Var}(g(\\hat\\theta))\\approx[g'(\\mu)]^2\\text{Var}(\\hat\\theta)$. Hvordan kan en simulering kontrollere dette svaret?",
+            "solution": "Trekk mange $\\hat\\theta$-verdier fra fordelingen, regn $g(\\hat\\theta)$ for hver, og estimer variansen med `np.var(..., ddof=1)`. Stemmer den med delta-formelen, er begge kontrollert.",
+            "hints": [
+              "Simuler inngangen, regn $g$ per trekk, ta empirisk varians.",
+              "Sammenlign med $[g'(\\mu)]^2\\text{Var}(\\hat\\theta)$."
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": "tma4245-9-2-symbolliste",
+      "type": "collapsible",
+      "title": "Symbol- og formelliste",
+      "buttonText": "Vis symboler og formler",
+      "content": [
+        {
+          "id": "tma4245-9-2-symbolliste-text",
+          "type": "text",
+          "content": "*Oppslagsverk — alt her forklares underveis i kapitlet.*\n\nAlle symboler og formler brukt i kapittel 9.2, samlet.\n\n| Symbol | Betydning |\n|---|---|\n| $\\mathbf{1}(A)$ | Indikator: 1 hvis $A$ inntreffer, ellers 0 |\n| $\\hat{p}$ | Monte Carlo-estimat på en sannsynlighet |\n| $B$ | Antall simuleringer (styrer presisjonen) |\n| $n$ | Utvalgsstørrelse inne i hver simulering |\n| $t_{\\text{obs}}$ | Observert testobservator |\n| $\\mu_0,\\ \\mu_1$ | Null- og alternativverdi for forventningen |\n| $z_\\alpha$ | Kvantil med øvre haleareal $\\alpha$ ($z_{0{,}05}=1{,}645$) |\n| $\\Phi$ | Standardnormal fordelingsfunksjon |\n| $M$ | Sammensatt størrelse, f.eks. $\\max$/$\\min$ av levetider |\n| $g(\\cdot)$ | Avledet størrelse i feilforplantningen |\n\n**numpy-idiomer i dette kapitlet:**\n\n| Kode | Gjør |\n|---|---|\n| `np.mean(betingelse)` | estimat på $P(\\text{betingelse})$ |\n| `np.random.exponential(scale=beta, size=B)` | eksponensial, forventning `beta` |\n| `np.maximum(a, b)` / `np.minimum(a, b)` | parallell (maks) / serie (min) |\n| `np.random.normal(loc, scale, size=(B, n))` | $B$ datasett à $n$ obs. |\n| `x.mean(axis=1)` | gjennomsnittet i hvert av de $B$ datasettene |\n| `np.var(g, ddof=1)` | empirisk varians (feilforplantning) |\n\n**Formler i dette kapitlet:**\n\n$$E[\\mathbf{1}(A)]=P(A),\\qquad \\hat{p}=\\frac{1}{B}\\sum_{i=1}^{B}\\mathbf{1}(A\\text{ i trekk }i)$$\nGrunnprinsippet: sannsynlighet som forventet indikator.\n\n$$E(\\hat{p})=p,\\qquad \\text{Var}(\\hat{p})=\\frac{p(1-p)}{B}$$\nMC-estimatet er forventningsrett; standardfeil $\\propto 1/\\sqrt{B}$.\n\n$$\\hat{p}_{\\text{verdi}}=\\texttt{np.mean(t\\_sim >= t\\_obs)}\\quad(\\text{under }H_0)$$\nSimulert p-verdi (ensidig oppover).\n\n$$\\widehat{\\text{styrke}}=\\texttt{np.mean(forkast)}\\quad(\\text{data under }\\mu_1)$$\nSimulert styrke: trekk under alternativet, tell forkastninger.\n\n$$\\widehat{\\text{Var}}\\big(g\\big)=\\texttt{np.var(g\\_verdier, ddof=1)}\\ \\approx\\ [g'(\\mu)]^2\\,\\text{Var}(\\hat\\theta)$$\nFeilforplantning ved simulering, kontrollert mot deltametoden (kap. 5.3)."
+        }
+      ]
+    }
+  ],
+  "exercises": []
+}

@@ -1,0 +1,327 @@
+{
+  "id": "tma4245-8-prove",
+  "courseId": "tma4245",
+  "chapterNumber": "8.P",
+  "title": "Prøver til del 8: Enkel lineær regresjon",
+  "description": "Fire prøver på eksamensnivå som dekker LS-estimering, inferens, prediksjon (KI vs. PI), residualdiagnostikk og regresjon uten konstantledd.",
+  "estimatedMinutes": 175,
+  "competenceGoals": [
+    "løse fullstendige regresjonsoppgaver på eksamensnivå fra oppgitte summer",
+    "skille konfidens- og prediksjonsintervall og tolke residualplott",
+    "sammenligne estimatorer i modellen uten konstantledd med riktig frihetsgrad"
+  ],
+  "content": [
+    {
+      "id": "tma4245-8-prove-tip",
+      "type": "tip",
+      "title": "Om prøvene til Del 8",
+      "content": "**Fire prøver** som dekker hele regresjonsdelen, på eksamensnivå:\n\n- **Prøve 8.A** — LS-estimering fra oppgitte summer + ML = LS (~40 min)\n- **Prøve 8.B** — inferens for helningen + KI/PI-skillet (~45 min)\n- **Prøve 8.C** — residualdiagnostikk + transformert (ln-lineær) modell (~35 min)\n- **Prøve 8.D** — full regresjonsoppgave på eksamensnivå, inkl. sammenligning uten konstantledd (~55 min)\n\nDu kan **trygt dele dette over flere kvelder** — ta én prøve per økt. Anslagene er løsetid; regn $\\times1{,}5$ når du skriver for hånd. Hver prøve avsluttes med full A-fasit og en avkryssbar selvdiagnose. Flervalgsoppgavene ligger til slutt i hver prøve (sjanger O, Inspera-stil)."
+    },
+    {
+      "id": "tma4245-8-prove-forkunnskaper",
+      "type": "text",
+      "content": "**Forkunnskaper:** Hele Del 8 — [kap. 8.1](/bok/tma4245/tma4245-8-1) (LS-estimering, $s^2=\\text{SSE}/(n-2)$, ML = LS), [kap. 8.2](/bok/tma4245/tma4245-8-2) (test og KI for helningen, KI vs. PI, residualdiagnostikk, ln-modell) og [kap. 8.3](/bok/tma4245/tma4245-8-3) (origo-modellen og estimatorsammenligning). Du trenger også t-tabellen i formelsamlingen (hjelpemiddelkode C) og testritualet fra [kap. 7.1](/bok/tma4245/tma4245-7-1)."
+    },
+    {
+      "id": "tma4245-8-prove-intro",
+      "type": "text",
+      "content": "Regn hver prøve som en ekte deleksamen: sett opp modell og antagelser eksplisitt, vis mellomregning, og skriv konklusjonene i klartekst (ikke bare «forkast $H_0$»). Alle kritiske $t$-kvantiler er oppgitt i oppgavene. Fasitene er skrevet som A-besvarelser med sensormerknader."
+    },
+    {
+      "id": "tma4245-8-prove-pA",
+      "type": "collapsible",
+      "title": "Prøve 8.A — LS-estimering fra summer + ML = LS (~40 min)",
+      "buttonText": "Vis prøve 8.A",
+      "content": [
+        {
+          "id": "tma4245-8-prove-pA-ex1",
+          "type": "exercise",
+          "exercise": {
+            "id": "tma4245-8-prove-pA-ex1",
+            "number": "1",
+            "type": "classic",
+            "difficulty": "middels",
+            "task": "For $n=15$ målinger av bruddstyrke $Y$ (kN) mot herdetid $x$ (døgn) er det oppgitt $\\bar{x}=20$, $\\bar{y}=48$, $S_{xx}=\\sum(x_i-\\bar{x})^2=700$, $S_{xy}=\\sum(x_i-\\bar{x})(y_i-\\bar{y})=560$ og $S_{yy}=\\sum(y_i-\\bar{y})^2=520$. Målingene modelleres med $Y_i=\\alpha+\\beta x_i+\\varepsilon_i$.\n\n**a)** Oppgi de tre feilantagelsene modellen bygger på.\n\n**b)** Finn LS-estimatene $\\hat{\\beta}$ og $\\hat{\\alpha}$, og skriv opp regresjonslinja.\n\n**c)** Finn SSE og variansestimatet $s^2$ med riktig nevner.",
+            "solution": "**a)** Feilene $\\varepsilon_i$ er (1) **uavhengige**, (2) har **konstant varians** $\\text{Var}(\\varepsilon_i)=\\sigma^2$, og (3) er **normalfordelte** $\\varepsilon_i\\sim N(0,\\sigma^2)$. I tillegg er $x_i$ faste, kjente tall.\n\n**b)** $\\hat{\\beta}=\\dfrac{S_{xy}}{S_{xx}}=\\dfrac{560}{700}=0{,}80$. $\\hat{\\alpha}=\\bar{y}-\\hat{\\beta}\\bar{x}=48-0{,}80\\cdot20=48-16=32$. Regresjonslinje: $\\hat{y}=32+0{,}80\\,x$.\n\n**c)** $\\text{SSE}=S_{yy}-\\hat{\\beta}S_{xy}=520-0{,}80\\cdot560=520-448=72$. Divisor $n-2=13$: $s^2=\\dfrac{72}{13}=5{,}54$ (og $s=\\sqrt{5{,}54}=2{,}35$).\n\n> *Sensormerknad:* teller $S_{xy}$, nevner $S_{xx}$ i $\\hat{\\beta}$; divisor $n-2=13$ i $s^2$ (ikke $n-1$).",
+            "hints": [
+              "$\\hat{\\beta}=S_{xy}/S_{xx}$, deretter $\\hat{\\alpha}=\\bar{y}-\\hat{\\beta}\\bar{x}$.",
+              "$\\text{SSE}=S_{yy}-\\hat{\\beta}S_{xy}$.",
+              "Del SSE på $n-2$, ikke $n-1$."
+            ]
+          }
+        },
+        {
+          "id": "tma4245-8-prove-pA-ex2",
+          "type": "exercise",
+          "exercise": {
+            "id": "tma4245-8-prove-pA-ex2",
+            "number": "2",
+            "type": "classic",
+            "difficulty": "vanskelig",
+            "task": "Under normalantagelsen er log-likelihooden $l(\\alpha,\\beta,\\sigma^2)=-\\frac{n}{2}\\ln(2\\pi\\sigma^2)-\\frac{1}{2\\sigma^2}\\sum(y_i-\\alpha-\\beta x_i)^2$.\n\n**a)** Vis at maximum likelihood-estimering av $\\alpha$ og $\\beta$ gir samme normalligninger som minste kvadraters metode.\n\n**b)** Forklar i én setning hvorfor konklusjonen er at $\\hat{\\alpha}_{\\text{ML}}=\\hat{\\alpha}_{\\text{LS}}$ og $\\hat{\\beta}_{\\text{ML}}=\\hat{\\beta}_{\\text{LS}}$.\n\n**c)** Gir ML samme estimat for $\\sigma^2$ som den forventningsrette estimatoren?",
+            "solution": "**a)** Bare kvadratsumleddet avhenger av $\\alpha,\\beta$. Deriverer vi $l$ mhp. hver og setter lik null (faktoren $\\frac{1}{\\sigma^2}>0$ ganges bort):\n$$\\frac{\\partial l}{\\partial\\alpha}=\\frac{1}{\\sigma^2}\\sum(y_i-\\alpha-\\beta x_i)=0,\\qquad \\frac{\\partial l}{\\partial\\beta}=\\frac{1}{\\sigma^2}\\sum x_i(y_i-\\alpha-\\beta x_i)=0.$$\nDette er **nøyaktig normalligningene** $\\sum(y_i-\\alpha-\\beta x_i)=0$ og $\\sum x_i(y_i-\\alpha-\\beta x_i)=0$ fra LS.\n\n**b)** Kvadratsummen står med minustegn i $l$, så å **maksimere $l$ er det samme som å minimere kvadratsummen** — som er definisjonen av LS; derfor gir de identiske $\\hat{\\alpha},\\hat{\\beta}$.\n\n**c)** **Nei.** ML deler kvadratsummen på $n$, mens den forventningsrette estimatoren deler på $n-2$. Bare for helning/konstantledd er ML og LS identiske.\n\n> *Sensormerknad:* nøkkelsetningen «maksimere $l$ = minimere kvadratsummen» gir poenget i b).",
+            "hints": [
+              "Bare kvadratsumleddet inneholder $\\alpha,\\beta$.",
+              "Gang bort $1/\\sigma^2$ og sammenlign med LS-normalligningene.",
+              "ML deler på $n$, den forventningsrette på $n-2$."
+            ]
+          }
+        },
+        {
+          "id": "tma4245-8-prove-pA-ex3",
+          "type": "exercise",
+          "exercise": {
+            "id": "tma4245-8-prove-pA-ex3",
+            "number": "3",
+            "type": "classic",
+            "difficulty": "middels",
+            "task": "**Flervalg (sjanger O).** Velg det ene riktige alternativet for hver deloppgave.\n\n**a)** I regresjonsmodellen med konstantledd deler den forventningsrette variansestimatoren på:\n(a) $n$\n(b) $n-1$\n(c) $n-2$\n(d) $n-3$\n\n**b)** For $\\hat{\\beta}$ gjelder at:\n(a) $S_{xy}$ står i nevneren og $S_{xx}$ i telleren\n(b) $S_{xy}$ står i telleren og $S_{xx}$ i nevneren\n(c) $S_{yy}$ står i telleren og $S_{xx}$ i nevneren\n(d) $S_{xx}$ står i både teller og nevner",
+            "solution": "**a)** Riktig: **(c) $n-2$** — to parametre ($\\alpha,\\beta$) er estimert, så to frihetsgrader tapes.\n\n**b)** Riktig: **(b)** — $\\hat{\\beta}=S_{xy}/S_{xx}$, kryss-summen i teller, $x$-kvadratsummen i nevner.",
+            "hints": [
+              "a) Tell antall estimerte parametre.",
+              "b) Kryss-sum over $x$-kvadratsum."
+            ]
+          }
+        },
+        {
+          "id": "tma4245-8-prove-pA-selvdiagnose",
+          "type": "text",
+          "content": "### Selvdiagnose 8.A\n\nKryss av det du mestret uten å slå opp:\n\n- ☐ Jeg oppga de tre feilantagelsene (uavhengighet, konstant varians, normalitet).\n- ☐ Jeg regnet $\\hat{\\beta}=S_{xy}/S_{xx}$ med teller og nevner riktig vei.\n- ☐ Jeg brukte $\\text{SSE}=S_{yy}-\\hat{\\beta}S_{xy}$ og delte på $n-2$ (ikke $n-1$).\n- ☐ Jeg viste at ML gir samme normalligninger som LS.\n- ☐ Jeg husket at ML deler $\\sigma^2$-estimatet på $n$, den forventningsrette på $n-2$."
+        }
+      ]
+    },
+    {
+      "id": "tma4245-8-prove-pB",
+      "type": "collapsible",
+      "title": "Prøve 8.B — Inferens for helningen + KI/PI-skillet (~45 min)",
+      "buttonText": "Vis prøve 8.B",
+      "content": [
+        {
+          "id": "tma4245-8-prove-pB-ex1",
+          "type": "exercise",
+          "exercise": {
+            "id": "tma4245-8-prove-pB-ex1",
+            "number": "1",
+            "type": "classic",
+            "difficulty": "middels",
+            "task": "Bruk bruddstyrkedataene fra prøve 8.A: $n=15$, $\\hat{\\beta}=0{,}80$, $\\hat{\\alpha}=32$, $\\bar{x}=20$, $S_{xx}=700$, $s=2{,}35$, altså $\\text{SE}(\\hat{\\beta})=s/\\sqrt{S_{xx}}=0{,}0890$. Bruk $t_{13;\\,0{,}025}=2{,}160$.\n\n**a)** Test på $5\\,\\%$-nivå om bruddstyrken avhenger av herdetiden ($H_0:\\beta=0$ mot $H_1:\\beta\\neq0$). Skriv konklusjonen i klartekst.\n\n**b)** Gi et $95\\,\\%$ konfidensintervall for $\\beta$.",
+            "solution": "**a)** Testobservator (frihetsgrad $n-2=13$):\n$$T=\\frac{\\hat{\\beta}-0}{\\text{SE}(\\hat{\\beta})}=\\frac{0{,}80}{0{,}0890}=8{,}99.$$\nSiden $|8{,}99|>t_{13;\\,0{,}025}=2{,}160$, **forkastes $H_0$**. Herdetiden har klar forklaringskraft for bruddstyrken — den øker med ca. $0{,}80$ kN per døgn.\n\n**b)** $\\hat{\\beta}\\pm t_{13;\\,0{,}025}\\cdot\\text{SE}(\\hat{\\beta})=0{,}80\\pm2{,}160\\cdot0{,}0890=0{,}80\\pm0{,}192=(0{,}608,\\ 0{,}992)$. Null ligger utenfor — samme konklusjon som testen.\n\n> *Sensormerknad:* frihetsgrad $n-2=13$; klartekst-konklusjon kreves.",
+            "hints": [
+              "$T=\\hat{\\beta}/\\text{SE}(\\hat{\\beta})$, frihetsgrad $n-2$.",
+              "Sammenlign $|T|$ med $2{,}160$.",
+              "KI $=\\hat{\\beta}\\pm t\\cdot\\text{SE}$."
+            ]
+          }
+        },
+        {
+          "id": "tma4245-8-prove-pB-ex2",
+          "type": "exercise",
+          "exercise": {
+            "id": "tma4245-8-prove-pB-ex2",
+            "number": "2",
+            "type": "classic",
+            "difficulty": "vanskelig",
+            "task": "Fortsatt bruddstyrke: $\\hat{y}=32+0{,}80x$, $n=15$, $\\bar{x}=20$, $S_{xx}=700$, $s=2{,}35$, $t_{13;\\,0{,}025}=2{,}160$. Ved $x_0=25$ døgn:\n\n**a)** Gi punktprediksjonen $\\hat{y}_0$.\n\n**b)** Gi et $95\\,\\%$ konfidensintervall for den **forventede** bruddstyrken $E(Y_0)$.\n\n**c)** Gi et $95\\,\\%$ prediksjonsintervall for bruddstyrken til **én ny** prøvestav ved $x_0=25$.\n\n**d)** Forklar hvorfor intervallet i c) er bredere enn i b), og hvorfor begge ville vært smalere ved $x_0=20$.",
+            "solution": "**a)** $\\hat{y}_0=32+0{,}80\\cdot25=32+20=52$ kN.\n\n**b)** KI for $E(Y_0)$. Faktor: $\\dfrac{1}{15}+\\dfrac{(25-20)^2}{700}=0{,}0667+0{,}0357=0{,}1024$, $\\sqrt{0{,}1024}=0{,}3200$. Halvbredde $=2{,}160\\cdot2{,}35\\cdot0{,}3200=1{,}63$, så $\\text{KI}=52\\pm1{,}63=(50{,}37,\\ 53{,}63)$.\n\n**c)** PI for ny observasjon (ekstra $1$-tall): $\\sqrt{1+0{,}1024}=\\sqrt{1{,}1024}=1{,}0500$. Halvbredde $=2{,}160\\cdot2{,}35\\cdot1{,}0500=5{,}33$, så $\\text{PI}=52\\pm5{,}33=(46{,}66,\\ 57{,}34)$.\n\n**d)** PI er bredere fordi den inkluderer **den nye prøvestavens eget feilledd $\\varepsilon_0$** (variansbidraget $1\\cdot\\sigma^2$), som gir $1$-tallet under rottegnet. Begge intervallene inneholder leddet $(x_0-\\bar{x})^2/S_{xx}$, som er **null ved $x_0=\\bar{x}=20$** og vokser utover — derfor er begge smalest i $\\bar{x}$.\n\n> *Sensormerknad:* «ny prøvestav» $\\Rightarrow$ PI (med $1$-tallet). KI for forventningen mangler det.",
+            "hints": [
+              "Punktprediksjon: sett $x_0$ inn i linja.",
+              "KI-faktor $\\sqrt{\\frac{1}{n}+\\frac{(x_0-\\bar{x})^2}{S_{xx}}}$; PI legger til $1$.",
+              "Forskjellen er den nye målingens $\\varepsilon_0$."
+            ]
+          }
+        },
+        {
+          "id": "tma4245-8-prove-pB-ex3",
+          "type": "exercise",
+          "exercise": {
+            "id": "tma4245-8-prove-pB-ex3",
+            "number": "3",
+            "type": "classic",
+            "difficulty": "middels",
+            "task": "**Flervalg (sjanger O).** Velg det ene riktige alternativet.\n\n**a)** Du skal anslå den gjennomsnittlige responsen ved en gitt $x_0$ innenfor dataområdet. Da bruker du:\n(a) prediksjonsintervall for en ny observasjon\n(b) konfidensintervall for forventningen $E(Y_0)$\n(c) konfidensintervall for helningen $\\beta$\n(d) et intervall uten frihetsgrad\n\n**b)** Et $95\\,\\%$ prediksjonsintervall predikeres langt utenfor dataområdet. Riktig kommentar er:\n(a) intervallet er trygt fordi dekningsgraden fortsatt er $95\\,\\%$\n(b) ekstrapolering: intervallet er bredt og linjeformen er ubekreftet der ute\n(c) man må bytte til $t_{n-1}$ utenfor dataområdet\n(d) punktprediksjonen blir automatisk ugyldig",
+            "solution": "**a)** Riktig: **(b)** — forventet/gjennomsnittlig respons anslås med KI for $E(Y_0)$ (uten $1$-tallet).\n\n**b)** Riktig: **(b)** — ekstrapolering gir bredt intervall *og* ubekreftet modellform; det skal alltid flagges.",
+            "hints": [
+              "a) «Gjennomsnittlig respons» peker på KI, ikke PI.",
+              "b) Utenfor dataområdet er linja ikke bekreftet."
+            ]
+          }
+        },
+        {
+          "id": "tma4245-8-prove-pB-selvdiagnose",
+          "type": "text",
+          "content": "### Selvdiagnose 8.B\n\nKryss av det du mestret uten å slå opp:\n\n- ☐ Jeg brukte $T=\\hat{\\beta}/\\text{SE}(\\hat{\\beta})$ med frihetsgrad $n-2$ og konkluderte i klartekst.\n- ☐ Jeg regnet KI for $\\beta$ som $\\hat{\\beta}\\pm t\\cdot\\text{SE}$.\n- ☐ Jeg valgte **KI** for forventet respons og **PI** (med $1$-tallet) for en ny måling.\n- ☐ Jeg forklarte hvorfor PI er bredere enn KI (den nye målingens $\\varepsilon_0$).\n- ☐ Jeg husket at begge intervallene er smalest ved $\\bar{x}$ og flagget ekstrapolering."
+        }
+      ]
+    },
+    {
+      "id": "tma4245-8-prove-pC",
+      "type": "collapsible",
+      "title": "Prøve 8.C — Residualdiagnostikk + transformert modell (~35 min)",
+      "buttonText": "Vis prøve 8.C",
+      "content": [
+        {
+          "id": "tma4245-8-prove-pC-img1",
+          "type": "image",
+          "src": "/images/textbook/tma4245/tma4245-8-2-residual-trakt.svg",
+          "alt": "Residualplott der spredningen i residualene øker systematisk mot høyre (traktform).",
+          "caption": "Figur til oppgave 1: residualene plottet mot predikert verdi."
+        },
+        {
+          "id": "tma4245-8-prove-pC-ex1",
+          "type": "exercise",
+          "exercise": {
+            "id": "tma4245-8-prove-pC-ex1",
+            "number": "1",
+            "type": "classic",
+            "difficulty": "middels",
+            "task": "Figuren over viser residualene fra en regresjon av bruddstyrke mot herdetemperatur, plottet mot predikert verdi.\n\n**a)** Beskriv mønsteret i plottet.\n\n**b)** Hvilken av modellantagelsene rammes?\n\n**c)** Foreslå ett konkret tiltak.",
+            "solution": "**a)** Spredningen i residualene **vokser systematisk** med predikert verdi — en tydelig **traktform** (viften åpner mot høyre).\n\n**b)** Antagelsen om **konstant varians (homoskedastisitet)** brytes: $\\text{Var}(\\varepsilon_i)$ er ikke den samme for alle $x_i$, men øker.\n\n**c)** En **variansstabiliserende transformasjon** av responsen ($\\ln Y$ eller $\\sqrt{Y}$), eventuelt vektet regresjon. Etterpå plottes residualene på nytt for å sjekke at trakten er borte.\n\n> *Sensormerknad:* det holder ikke å si «trakt» — navngi antagelsen (konstant varians) og et tiltak.",
+            "hints": [
+              "Ser spredningen jevn eller voksende ut?",
+              "Voksende spredning peker på én bestemt antagelse.",
+              "Transformasjon eller vekting stabiliserer variansen."
+            ]
+          }
+        },
+        {
+          "id": "tma4245-8-prove-pC-ex2",
+          "type": "exercise",
+          "exercise": {
+            "id": "tma4245-8-prove-pC-ex2",
+            "number": "2",
+            "type": "classic",
+            "difficulty": "vanskelig",
+            "task": "Koffeinkonsentrasjonen $C$ (mg/L) i blodet avtar tilnærmet eksponentielt, så vi modellerer $\\ln C=\\alpha+\\beta t+\\varepsilon$ ($t$ i timer). Regresjon på $z=\\ln C$ for $n=8$ målinger gir $\\hat{\\alpha}=4{,}60$, $\\hat{\\beta}=-0{,}20$, og $s=0{,}283$ på $z$-skalaen. Videre er $\\bar{t}=7$, $\\sum(t_i-\\bar{t})^2=168$. Bruk $t_{6;\\,0{,}025}=2{,}447$.\n\n**a)** Gi punktprediksjonen for konsentrasjonen $C$ ved $t_0=10$ timer.\n\n**b)** Et $95\\,\\%$ prediksjonsintervall for $\\ln C_0$ ved $t_0=10$ er regnet til $(1{,}85,\\ 3{,}35)$. Gi tilsvarende prediksjonsintervall for selve konsentrasjonen $C_0$.\n\n**c)** Hvorfor er intervallet for $C_0$ usymmetrisk om punktprediksjonen?",
+            "solution": "**a)** På $z$-skala: $\\hat{z}_0=\\hat{\\alpha}+\\hat{\\beta}t_0=4{,}60-0{,}20\\cdot10=2{,}60$. Tilbake til konsentrasjon: $\\hat{C}_0=e^{2{,}60}=13{,}5$ mg/L.\n\n**b)** Transformer endepunktene med $\\exp$ (monotont voksende, rekkefølgen bevares):\n$$\\text{PI for }C_0=\\big(e^{1{,}85},\\ e^{3{,}35}\\big)=(6{,}4,\\ 28{,}5)\\ \\text{mg/L}.$$\n\n**c)** Fordi tilbaketransformasjonen $\\exp$ er **ikke-lineær** (konveks): like store steg på $\\ln$-skalaen blir ulike steg på $C$-skalaen — større oppover enn nedover. Et symmetrisk intervall på $\\ln$-skala blir derfor usymmetrisk om $\\hat{C}_0=13{,}5$ etter tilbaketransformering. Det er normalt og riktig.\n\n> *Sensormerknad:* det avgjørende poenget er å **transformere endepunktene tilbake med $\\exp$**. Svar som blir stående på $\\ln$-skala, er ikke fullført.",
+            "hints": [
+              "Regn på $z=\\ln C$-skala først.",
+              "Transformer PI-endepunktene med $\\exp$.",
+              "$\\exp$ er konveks — like ln-steg gir ulike $C$-steg."
+            ]
+          }
+        },
+        {
+          "id": "tma4245-8-prove-pC-ex3",
+          "type": "exercise",
+          "exercise": {
+            "id": "tma4245-8-prove-pC-ex3",
+            "number": "3",
+            "type": "classic",
+            "difficulty": "lett",
+            "task": "**a)** Skisser hvordan et residualplott (residual mot predikert verdi) ser ut når alle modellantagelsene holder.\n\n**b)** Hva slags plott bruker du i tillegg for å sjekke normalitetsantagelsen?",
+            "solution": "**a)** Residualene skal ligge som en **jevn, strukturløs sky rundt null-linja**, med omtrent **konstant spredning** over hele $x$-området og ingen systematisk trend eller bue. Se figuren under.\n\n**b)** Et **Q-Q-plott** av residualene mot normalkvantiler: ligger punktene tilnærmet på en rett linje, er normalitetsantagelsen rimelig; systematisk krumning eller tunge haler taler mot den.\n\n> *Sensormerknad:* «sky rundt null med konstant spredning» er kjernen i a); Q-Q for normalitet i b).",
+            "hints": [
+              "Tenk fravær av mønster.",
+              "Q-Q sammenligner med normalfordelingen."
+            ]
+          }
+        },
+        {
+          "id": "tma4245-8-prove-pC-img2",
+          "type": "image",
+          "src": "/images/textbook/tma4245/tma4245-8-2-residual-frisk.svg",
+          "alt": "Residualplott uten mønster: en jevn, strukturløs sky av punkter rundt null-linja med konstant spredning.",
+          "caption": "Fasit til oppgave 3a): et sunt residualplott — strukturløs sky rundt null med konstant spredning."
+        },
+        {
+          "id": "tma4245-8-prove-pC-ex4",
+          "type": "exercise",
+          "exercise": {
+            "id": "tma4245-8-prove-pC-ex4",
+            "number": "4",
+            "type": "classic",
+            "difficulty": "middels",
+            "task": "**Flervalg (sjanger O).** Velg det ene riktige alternativet.\n\n**a)** En tydelig bueform i residualene mot $x$ tyder på:\n(a) at variansen ikke er konstant\n(b) at feilene ikke er uavhengige\n(c) at utvalget er for lite\n(d) at et krumningsledd mangler i modellen\n\n**b)** I en ln-lineær modell glemmer en kandidat å transformere tilbake. Konsekvensen er:\n(a) svaret blir stående på $\\ln$-skala og er i feil enhet\n(b) prediksjonsintervallet blir for smalt\n(c) frihetsgraden blir feil\n(d) helningen $\\hat{\\beta}$ får feil fortegn",
+            "solution": "**a)** Riktig: **(d)** — bueform betyr at middelverdistrukturen ikke er rett; et $x^2$-ledd (eller transformasjon) trengs.\n\n**b)** Riktig: **(a)** — uten tilbaketransformering står svaret på $\\ln$-skala og er i feil enhet; oppgaven er ikke fullført.",
+            "hints": [
+              "a) Bue = feil form på middelverdien.",
+              "b) Husk å avslutte med $\\exp$."
+            ]
+          }
+        },
+        {
+          "id": "tma4245-8-prove-pC-selvdiagnose",
+          "type": "text",
+          "content": "### Selvdiagnose 8.C\n\nKryss av det du mestret uten å slå opp:\n\n- ☐ Jeg koblet traktform til brutt konstant varians og foreslo transformasjon/vekting.\n- ☐ Jeg beskrev det sunne residualplottet (strukturløs sky, konstant spredning).\n- ☐ Jeg brukte Q-Q-plott til å sjekke normalitet.\n- ☐ Jeg regnet på $\\ln$-skalaen og transformerte PI-endepunktene tilbake med $\\exp$.\n- ☐ Jeg forsto hvorfor det tilbaketransformerte intervallet er usymmetrisk.\n- ☐ Jeg koblet bueform til et manglende krumningsledd."
+        }
+      ]
+    },
+    {
+      "id": "tma4245-8-prove-pD",
+      "type": "collapsible",
+      "title": "Prøve 8.D — Full regresjonsoppgave inkl. uten-konstantledd (~55 min)",
+      "buttonText": "Vis prøve 8.D",
+      "content": [
+        {
+          "id": "tma4245-8-prove-pD-ex1",
+          "type": "exercise",
+          "exercise": {
+            "id": "tma4245-8-prove-pD-ex1",
+            "number": "1",
+            "type": "classic",
+            "difficulty": "middels",
+            "task": "**Del 1 — standardmodell.** En prosess måles $n=10$ ganger: utbytte $Y$ (%) mot reaksjonstemperatur $x$ (°C), modellert med $Y_i=\\alpha+\\beta x_i+\\varepsilon_i$, $\\varepsilon_i$ uavhengige $N(0,\\sigma^2)$. Oppgitt: $\\bar{x}=15$, $\\bar{y}=40$, $S_{xx}=250$, $S_{xy}=200$, $S_{yy}=190$. Bruk $t_{8;\\,0{,}025}=2{,}306$.\n\n**a)** Finn $\\hat{\\beta}$, $\\hat{\\alpha}$, SSE og $s^2$.\n\n**b)** Test $H_0:\\beta=0$ mot $H_1:\\beta\\neq0$ på $5\\,\\%$-nivå.\n\n**c)** Gi et $95\\,\\%$ prediksjonsintervall for utbyttet til én ny kjøring ved $x_0=20$ °C.",
+            "solution": "**a)** $\\hat{\\beta}=S_{xy}/S_{xx}=200/250=0{,}80$; $\\hat{\\alpha}=\\bar{y}-\\hat{\\beta}\\bar{x}=40-0{,}80\\cdot15=40-12=28$. $\\text{SSE}=S_{yy}-\\hat{\\beta}S_{xy}=190-0{,}80\\cdot200=190-160=30$; $s^2=30/(10-2)=3{,}75$, $s=1{,}94$.\n\n**b)** $\\text{SE}(\\hat{\\beta})=s/\\sqrt{S_{xx}}=1{,}94/\\sqrt{250}=0{,}1225$. $T=0{,}80/0{,}1225=6{,}53$. Siden $|6{,}53|>t_{8;\\,0{,}025}=2{,}306$, **forkastes $H_0$** — temperaturen påvirker utbyttet.\n\n**c)** $\\hat{y}_0=28+0{,}80\\cdot20=44$. PI-faktor: $\\sqrt{1+\\frac{1}{10}+\\frac{(20-15)^2}{250}}=\\sqrt{1+0{,}10+0{,}10}=\\sqrt{1{,}20}=1{,}0954$. Halvbredde $=2{,}306\\cdot1{,}94\\cdot1{,}0954=4{,}90$, så $\\text{PI}=44\\pm4{,}90=(39{,}1,\\ 48{,}9)$ %.\n\n> *Sensormerknad:* $n-2=8$ i både $s^2$ og testen; «ny kjøring» $\\Rightarrow$ PI.",
+            "hints": [
+              "$\\hat{\\beta}=S_{xy}/S_{xx}$; $\\text{SSE}=S_{yy}-\\hat{\\beta}S_{xy}$; del på $n-2$.",
+              "$T=\\hat{\\beta}/\\text{SE}(\\hat{\\beta})$.",
+              "PI-faktor $\\sqrt{1+\\frac{1}{n}+\\frac{(x_0-\\bar{x})^2}{S_{xx}}}$."
+            ]
+          }
+        },
+        {
+          "id": "tma4245-8-prove-pD-ex2",
+          "type": "exercise",
+          "exercise": {
+            "id": "tma4245-8-prove-pD-ex2",
+            "number": "2",
+            "type": "classic",
+            "difficulty": "vanskelig",
+            "task": "**Del 2 — modell uten konstantledd.** For samme type prosess antar en ingeniør at strømtrekket $Y$ (A) er **proporsjonalt** med turtallet $x$ (i hundre o/min): $Y_i=\\beta x_i+\\varepsilon_i$. Fem målinger gir\n\n| $x$ | 10 | 20 | 30 | 40 | 50 |\n|---|---|---|---|---|---|\n| $y$ | 24 | 52 | 74 | 101 | 128 |\n\nTre estimatorer foreslås: $\\hat{\\beta}_1=\\dfrac{\\sum x_iY_i}{\\sum x_i^2}$, $\\hat{\\beta}_2=\\dfrac{1}{n}\\sum\\dfrac{Y_i}{x_i}$, $\\hat{\\beta}_3=\\dfrac{\\bar{Y}}{\\bar{x}}$.\n\n**a)** Begrunn kort at origo-modellen er rimelig her, og regn ut $\\hat{\\beta}_1$.\n\n**b)** Vis at alle tre estimatorene er forventningsrette.\n\n**c)** Skriv opp variansene og avgjør hvilken estimator du ville brukt.\n\n**d)** Hvilken frihetsgrad har en t-test for $\\beta$ i denne modellen, og hvorfor er den ikke $n-2$?",
+            "solution": "**a)** Ved turtall null trekker motoren ikke strøm, så $E(Y)=0$ ved $x=0$ er faglig riktig — origo-modellen passer. Råsummer: $\\sum x_i^2=100+400+900+1600+2500=5500$; $\\sum x_iY_i=10\\cdot24+20\\cdot52+30\\cdot74+40\\cdot101+50\\cdot128=240+1040+2220+4040+6400=13940$. Så $\\hat{\\beta}_1=\\dfrac{13940}{5500}=2{,}535$.\n\n**b)** Med $E(Y_i)=\\beta x_i$ og linearitet: $E(\\hat{\\beta}_1)=\\dfrac{\\sum x_i\\beta x_i}{\\sum x_i^2}=\\beta$; $E(\\hat{\\beta}_2)=\\dfrac{1}{n}\\sum\\dfrac{\\beta x_i}{x_i}=\\beta$; $E(\\hat{\\beta}_3)=\\dfrac{\\beta\\bar{x}}{\\bar{x}}=\\beta$. Alle tre er forventningsrette.\n\n**c)** $\\text{Var}(\\hat{\\beta}_1)=\\dfrac{\\sigma^2}{\\sum x_i^2}=\\dfrac{\\sigma^2}{5500}=0{,}000182\\,\\sigma^2$. $\\text{Var}(\\hat{\\beta}_2)=\\dfrac{\\sigma^2}{n^2}\\sum\\dfrac{1}{x_i^2}=\\dfrac{\\sigma^2}{25}\\cdot0{,}01464=0{,}000585\\,\\sigma^2$. $\\text{Var}(\\hat{\\beta}_3)=\\dfrac{\\sigma^2}{n\\bar{x}^2}=\\dfrac{\\sigma^2}{5\\cdot30^2}=\\dfrac{\\sigma^2}{4500}=0{,}000222\\,\\sigma^2$ (med $\\bar{x}=30$). Rangering: $\\text{Var}(\\hat{\\beta}_1)<\\text{Var}(\\hat{\\beta}_3)<\\text{Var}(\\hat{\\beta}_2)$. Alle er forventningsrette, så vi velger den med minst varians: **$\\hat{\\beta}_1$ (LS)**.\n\n**d)** Frihetsgrad **$n-1=4$**. I origo-modellen estimeres bare **én** parameter ($\\beta$, intet konstantledd), så bare én frihetsgrad tapes. Med konstantledd (to parametre) ville det vært $n-2$.\n\n> *Sensormerknad:* kvadrer $x_i$-ene i variansene; frihetsgrad $n-1$ i origo-modellen.",
+            "hints": [
+              "Er $E(Y)=0$ ved $x=0$ faglig riktig? Regn $\\hat{\\beta}_1$ fra råsummene.",
+              "Sett $E(Y_i)=\\beta x_i$ inn i hver estimator.",
+              "Variansene har $\\sum x_i^2$ og $\\sum 1/x_i^2$; kvadrer $x_i$. Frihetsgrad $n-1$."
+            ]
+          }
+        },
+        {
+          "id": "tma4245-8-prove-pD-ex3",
+          "type": "exercise",
+          "exercise": {
+            "id": "tma4245-8-prove-pD-ex3",
+            "number": "3",
+            "type": "classic",
+            "difficulty": "middels",
+            "task": "**Flervalg (sjanger O).** Velg det ene riktige alternativet.\n\n**a)** I regresjon uten konstantledd deler variansestimatoren $s^2=\\text{SSE}/?$ på:\n(a) $n-1$\n(b) $n-2$\n(c) $n$\n(d) $n-3$\n\n**b)** Blant flere forventningsrette estimatorer for samme parameter velger man:\n(a) den med minst varians\n(b) den med størst varians\n(c) den med størst forventning\n(d) den som er enklest å regne ut",
+            "solution": "**a)** Riktig: **(a) $n-1$** — bare parameteren $\\beta$ er estimert i origo-modellen.\n\n**b)** Riktig: **(a)** — blant forventningsrette velger man den mest presise, altså minst varians.",
+            "hints": [
+              "a) Én estimert parameter i origo-modellen.",
+              "b) Presisjon = minst varians."
+            ]
+          }
+        },
+        {
+          "id": "tma4245-8-prove-pD-selvdiagnose",
+          "type": "text",
+          "content": "### Selvdiagnose 8.D\n\nKryss av det du mestret uten å slå opp:\n\n- ☐ Jeg regnet $\\hat{\\beta},\\hat{\\alpha}$, SSE og $s^2$ (divisor $n-2$) i standardmodellen.\n- ☐ Jeg testet $H_0:\\beta=0$ og valgte PI (med $1$-tallet) for en ny kjøring.\n- ☐ Jeg begrunnet origo-modellen og regnet $\\hat{\\beta}_1$ fra råsummene.\n- ☐ Jeg viste at alle tre estimatorene er forventningsrette.\n- ☐ Jeg regnet variansene med $x_i$ kvadrert og valgte $\\hat{\\beta}_1$ på riktig grunnlag.\n- ☐ Jeg brukte frihetsgrad $n-1$ i origo-modellen (ikke $n-2$)."
+        }
+      ]
+    },
+    {
+      "id": "tma4245-8-prove-symbolliste",
+      "type": "collapsible",
+      "title": "Symbol- og formelliste",
+      "buttonText": "Vis symboler og formler",
+      "content": [
+        {
+          "id": "tma4245-8-prove-symbolliste-text",
+          "type": "text",
+          "content": "*Oppslagsverk — alt her forklares i kapitlene 8.1–8.3.*\n\n| Symbol | Betydning |\n|---|---|\n| $\\hat{\\alpha},\\hat{\\beta}$ | LS-estimatene for konstantledd og helning |\n| $S_{xx},S_{xy},S_{yy}$ | Sentrerte kvadrat- og kryssummene |\n| $\\text{SSE}$ | Residualkvadratsum $=S_{yy}-\\hat{\\beta}S_{xy}$ |\n| $s^2$ | $\\text{SSE}/(n-2)$ (med konstantledd), $\\text{SSE}/(n-1)$ (origo) |\n| $\\text{SE}(\\hat{\\beta})$ | $s/\\sqrt{S_{xx}}$ (eller $s/\\sqrt{\\sum x_i^2}$ i origo-modellen) |\n| $T$ | Testobservator, $t_{n-2}$ (konstantledd) eller $t_{n-1}$ (origo) |\n| $x_0,\\hat{y}_0$ | Ny $x$-verdi og punktprediksjon $\\hat{\\alpha}+\\hat{\\beta}x_0$ |\n| $\\hat{\\beta}_1,\\hat{\\beta}_2,\\hat{\\beta}_3$ | De tre kandidatene i origo-modellen |\n\n**Formler:**\n\n$$\\hat{\\beta}=\\frac{S_{xy}}{S_{xx}},\\qquad \\hat{\\alpha}=\\bar{y}-\\hat{\\beta}\\bar{x},\\qquad s^2=\\frac{\\text{SSE}}{n-2}$$\nLS-estimering med konstantledd.\n\n$$T=\\frac{\\hat{\\beta}-\\beta_0}{s/\\sqrt{S_{xx}}}\\sim t_{n-2},\\qquad \\hat{\\beta}\\pm t_{n-2,\\alpha/2}\\frac{s}{\\sqrt{S_{xx}}}$$\nTest og KI for helningen.\n\n$$\\hat{y}_0\\pm t_{n-2,\\alpha/2}\\,s\\sqrt{\\frac{1}{n}+\\frac{(x_0-\\bar{x})^2}{S_{xx}}}\\ \\ (\\text{KI}),\\qquad \\hat{y}_0\\pm t_{n-2,\\alpha/2}\\,s\\sqrt{1+\\frac{1}{n}+\\frac{(x_0-\\bar{x})^2}{S_{xx}}}\\ \\ (\\text{PI})$$\nKI for forventningen vs. PI for ny observasjon — forskjellen er $1$-tallet.\n\n$$\\hat{\\beta}_1=\\frac{\\sum x_iY_i}{\\sum x_i^2},\\quad \\text{Var}(\\hat{\\beta}_1)=\\frac{\\sigma^2}{\\sum x_i^2},\\quad s^2=\\frac{\\text{SSE}}{n-1},\\quad T\\sim t_{n-1}$$\nOrigo-modellen: LS-estimator, minste varians, og inferens med $n-1$ frihetsgrader."
+        }
+      ]
+    }
+  ],
+  "exercises": []
+}

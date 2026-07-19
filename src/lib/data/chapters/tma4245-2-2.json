@@ -1,0 +1,504 @@
+{
+  "id": "tma4245-2-2",
+  "courseId": "tma4245",
+  "chapterNumber": "2.2",
+  "title": "Diskrete fordelinger og Poisson-prosessen",
+  "description": "Fra situasjonsbeskrivelse til riktig diskret modell — binomisk, Poisson-prosess, geometrisk, negativ binomisk, hypergeometrisk.",
+  "estimatedMinutes": 65,
+  "competenceGoals": [
+    "velge riktig diskret fordeling ut fra en situasjonsbeskrivelse og begrunne valget",
+    "oppgi forutsetningene for en Poisson-prosess og skalere raten til intervallet med $\\lambda t$",
+    "regne med binomisk, Poisson, geometrisk, negativ binomisk og hypergeometrisk fordeling",
+    "bruke kumulative tabeller riktig med komplement- og intervallregler"
+  ],
+  "content": [
+    {
+      "id": "tma4245-2-2-tip",
+      "type": "tip",
+      "title": "Eksamensvinkel",
+      "content": "**Dette kapitlet handler om ett grep: fra en fortelling til riktig diskret modell.**\n\n- Å velge riktig diskret fordeling ut fra en situasjonsbeskrivelse er **sjanger B** — *sjanger B* betyr en oppgave der du får en fortelling («hendelser skjer med rate …», «vi trekker uten tilbakelegging …») og skal identifisere fordelingen og regne på den. Den er med i **≈69 %** av settene.\n- **Poisson-prosessen alene** er i rundt **20 sett** i arkivet (viltpåkjørsler, app-varsler, kundeankomster, nettsidebesøk). Den er den mest gjennomgående enkeltmodellen i denne delen.\n- Prioritet: **kunne** — men *selve modellvalget* skal sitte perfekt. Sensor trekker for regning uten begrunnet valg.\n\n**Sensorens krav (fra løsningsforslagene):** start alltid med en setning som **definerer variabelen og fordelingen** — «La $X$ = antall … , da er $X \\sim \\ldots$» med parametrene oppgitt — og nevn **forutsetningene** der modellen brukes. Et tallsvar uten dette regnes som ufullstendig.\n\n**Formelsamlingen** (hjelpemiddelkode C) gir deg punktsannsynligheten og $E$/Var for hver navngitt fordeling, pluss kumulative tabeller for binomisk og Poisson. Du skal altså *ikke* pugge formlene — du skal **velge riktig fordeling**, slå opp riktig, og lese de kumulative tabellene riktig. Det er ferdigheten kapitlet trener."
+    },
+    {
+      "id": "tma4245-2-2-forkunnskaper",
+      "type": "text",
+      "content": "**Forkunnskaper:** Dette kapitlet bygger på stokastiske variable, punktsannsynlighet, forventning og varians fra **[kap. 2.1](/bok/tma4245/tma4245-2-1)**, og på telleteknikkene (kombinasjoner $\\binom{n}{k}$, med/uten tilbakelegging) fra **[kap. 1.2](/bok/tma4245/tma4245-1-2)**. Har du de på plass, er du klar.\n\nFra matematikken trenger du potenser, fakultet ($n!$) og å regne med eksponensialfunksjonen $e^{-\\lambda}$ på kalkulator. Vi bygger opp hver fordeling fra situasjonen den beskriver.\n\nKapitlet er forkunnskap for de kontinuerlige fordelingene i **[kap. 2.3](/bok/tma4245/tma4245-2-3)** (der Poisson-prosessen kobles til eksponensialfordelingen) og for normaltilnærmingen i **kap. 3.3**."
+    },
+    {
+      "id": "tma4245-2-2-intro",
+      "type": "text",
+      "content": "De fleste eksamensoppgaver i denne delen begynner med en fortelling: «En maskin produserer enheter der 5 % er defekte …», «Kundene ankommer et servicepunkt med rate 12 per time …», «Vi trekker 5 enheter fra en batch på 15 …». Ferdigheten du trener her er å **oversette fortellingen til riktig diskret fordeling** — for når fordelingen er riktig identifisert, står formlene i formelsamlingen.\n\nVi går i tre løkker. Først den vanligste modellen, **binomisk fordeling**, og hvordan du leser **kumulative tabeller** (løkke 1). Så emnets mest gjennomgående modell, **Poisson-prosessen**, med forutsetningene og rateskaleringen (løkke 2). Til slutt **ventetids- og trekkemodellene**: geometrisk, negativ binomisk og hypergeometrisk (løkke 3). Hver løkke går teori → eksempel → oppgave.\n\n*Samlet kjernetid ≈ 65 min. Naturlige pausepunkter er markert mellom løkkene.*"
+    },
+    {
+      "id": "tma4245-2-2-modelltabell",
+      "type": "text",
+      "content": "### Modellvalgs-tabellen\n\nHjertet i kapitlet er å koble **situasjon** til **fordeling**. Her er oversikten vi bygger opp løkke for løkke — bruk den som sjekkliste når en oppgave starter:\n\n| Situasjon | Fordeling | Parametre |\n|---|---|---|\n| Fast antall $n$ uavhengige forsøk, konstant suksessannsynlighet $p$; teller *antall suksesser* | **Binomisk** | $n, p$ |\n| Hendelser i tid/rom med konstant rate; teller *antall hendelser* i et intervall | **Poisson** | $\\lambda t$ |\n| Uavhengige forsøk til *første* suksess; teller *antall forsøk* | **Geometrisk** | $p$ |\n| Uavhengige forsøk til *$k$-te* suksess; teller *antall forsøk* | **Negativ binomisk** | $k, p$ |\n| Trekk *uten tilbakelegging* fra endelig populasjon; teller *antall av en type* | **Hypergeometrisk** | populasjon, antall av typen, trekk |\n\nDe tre nøkkelspørsmålene som styrer valget: (1) Er antall forsøk **fast**, eller teller vi til noe skjer? (2) Trekker vi **med eller uten** tilbakelegging? (3) Er det snakk om **hendelser i tid/rom** med en rate?"
+    },
+    {
+      "id": "tma4245-2-2-lokke1",
+      "type": "text",
+      "content": "## Løkke 1 — Binomisk fordeling og kumulative tabeller (~18 min)"
+    },
+    {
+      "id": "tma4245-2-2-def-bernoulli",
+      "type": "definition",
+      "title": "Bernoulli-forsøk",
+      "content": "Et **Bernoulli-forsøk** er et forsøk med bare to utfall, «suksess» (med sannsynlighet $p$) og «fiasko» (med sannsynlighet $1 - p$). «Suksess» er bare et navn på utfallet vi teller — det kan godt være «enheten er defekt». En indikatorvariabel ([kap. 2.1](/bok/tma4245/tma4245-2-1)) er nettopp et Bernoulli-forsøk: $X = 1$ ved suksess, $X = 0$ ellers, med $E(X) = p$ og $\\text{Var}(X) = p(1-p)$."
+    },
+    {
+      "id": "tma4245-2-2-def-binomisk",
+      "type": "definition",
+      "title": "Binomisk fordeling",
+      "content": "Teller du **antall suksesser** i et **fast** antall $n$ **uavhengige** Bernoulli-forsøk med samme suksessannsynlighet $p$, er $X$ **binomisk fordelt**, $X \\sim \\text{bin}(n, p)$:\n\n$$P(X = x) = \\binom{n}{x} p^x (1-p)^{n-x}, \\quad x = 0, 1, \\ldots, n, \\qquad E(X) = np, \\quad \\text{Var}(X) = np(1-p).$$\n\nDe fire kravene som *alle* må være oppfylt: (1) fast antall forsøk $n$, (2) to utfall per forsøk, (3) konstant $p$, (4) uavhengige forsøk. Faller ett av dem, er ikke modellen binomisk — svikter «fast antall», er det ofte geometrisk/negativ binomisk; svikter «uavhengig/konstant $p$» pga. trekk uten tilbakelegging, er det hypergeometrisk."
+    },
+    {
+      "id": "tma4245-2-2-def-kumulativ",
+      "type": "definition",
+      "title": "Kumulativ tabell og komplement",
+      "content": "Formelsamlingen har **kumulative tabeller** som gir $F(a) = P(X \\le a)$ for binomisk og Poisson. To oppslag dekker nesten alt:\n\n$$P(X \\ge a) = 1 - P(X \\le a - 1), \\qquad P(a \\le X \\le b) = P(X \\le b) - P(X \\le a - 1).$$\n\n**Pass på grensene:** for «minst $a$» slår du opp $a - 1$ (ikke $a$), fordi tabellen er $\\le$. Den vanligste tabellfeilen er å lese en kumulativ verdi $P(X \\le a)$ som om den var punktsannsynligheten $P(X = a)$."
+    },
+    {
+      "id": "tma4245-2-2-ex-1",
+      "type": "example",
+      "title": "Eksempel 1: Binomisk kvalitetskontroll",
+      "problem": "En maskin produserer enheter der hver uavhengig er defekt med sannsynlighet $p = 0{,}05$. Vi trekker $n = 20$ enheter. La $X$ = antall defekte. Finn modellen, $E(X)$, $\\text{Var}(X)$, $P(X = 0)$ og $P(X \\ge 1)$.",
+      "solution": "**Modell:** Fast antall $n = 20$ uavhengige forsøk, to utfall (defekt/ikke), konstant $p = 0{,}05$. Altså $X \\sim \\text{bin}(20,\\ 0{,}05)$.\n\n**Forventning og varians:** $E(X) = np = 20 \\cdot 0{,}05 = 1{,}0$ defekt, $\\text{Var}(X) = np(1-p) = 20 \\cdot 0{,}05 \\cdot 0{,}95 = 0{,}95$, så $\\text{SD}(X) = \\sqrt{0{,}95} \\approx 0{,}97$.\n\n**$P(X = 0)$:** $\\binom{20}{0} 0{,}05^0 \\cdot 0{,}95^{20} = 0{,}95^{20} \\approx 0{,}3585$.\n\n**$P(X \\ge 1)$:** komplement — $1 - P(X = 0) = 1 - 0{,}3585 = 0{,}6415$. Sannsynligheten for minst én defekt i partiet er altså om lag 64 %."
+    },
+    {
+      "id": "tma4245-2-2-l1",
+      "type": "exercise",
+      "exercise": {
+        "id": "tma4245-2-2-l1",
+        "number": "1",
+        "type": "classic",
+        "difficulty": "lett",
+        "task": "(Innstegsoppgave.) En komponent består en test uavhengig med sannsynlighet $p = 0{,}9$. Vi tester $n = 6$ komponenter. La $X$ = antall som består.\n\n**a)** Hvilken fordeling har $X$? Oppgi parametrene.\n\n**b)** Finn $E(X)$ og $\\text{Var}(X)$.",
+        "solution": "**a)** Fast antall uavhengige forsøk med to utfall og konstant $p$: $X \\sim \\text{bin}(6,\\ 0{,}9)$.\n\n**b)** $E(X) = np = 6 \\cdot 0{,}9 = 5{,}4$, og $\\text{Var}(X) = np(1-p) = 6 \\cdot 0{,}9 \\cdot 0{,}1 = 0{,}54$.",
+        "hints": [
+          "Fast antall forsøk + to utfall + konstant $p$ = binomisk.",
+          "$E = np$, $\\text{Var} = np(1-p)$."
+        ]
+      }
+    },
+    {
+      "id": "tma4245-2-2-m1",
+      "type": "exercise",
+      "exercise": {
+        "id": "tma4245-2-2-m1",
+        "number": "2",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "I et parti er hver enhet uavhengig defekt med $p = 0{,}1$. Vi trekker $n = 20$. La $X$ = antall defekte, $X \\sim \\text{bin}(20,\\ 0{,}1)$. Bruk at den kumulative tabellen gir $P(X \\le 0) = 0{,}122$, $P(X \\le 1) = 0{,}392$ og $P(X \\le 2) = 0{,}677$.\n\n**a)** Finn $P(X \\ge 1)$.\n\n**b)** Finn $P(X \\ge 3)$.\n\n**c)** Finn $P(1 \\le X \\le 2)$.",
+        "solution": "**a)** $P(X \\ge 1) = 1 - P(X \\le 0) = 1 - 0{,}122 = 0{,}878$.\n\n**b)** «Minst 3» slår opp $a - 1 = 2$: $P(X \\ge 3) = 1 - P(X \\le 2) = 1 - 0{,}677 = 0{,}323$.\n\n**c)** $P(1 \\le X \\le 2) = P(X \\le 2) - P(X \\le 0) = 0{,}677 - 0{,}122 = 0{,}555$.",
+        "hints": [
+          "For «minst $a$»: bruk $1 - P(X \\le a-1)$.",
+          "For et intervall: $P(X \\le b) - P(X \\le a-1)$.",
+          "Tabellen er kumulativ ($\\le$), ikke punktsannsynlighet."
+        ]
+      }
+    },
+    {
+      "id": "tma4245-2-2-pause1",
+      "type": "text",
+      "content": "*— naturlig pausepunkt —*"
+    },
+    {
+      "id": "tma4245-2-2-lokke2",
+      "type": "text",
+      "content": "## Løkke 2 — Poisson-prosessen (~22 min)"
+    },
+    {
+      "id": "tma4245-2-2-lokke2-intro",
+      "type": "text",
+      "content": "Mange fenomener er ikke «$n$ forsøk», men **hendelser som inntreffer spredt utover tid eller rom** med en jevn rate: kundeankomster, maskinstopp, feil per meter kabel, viltpåkjørsler per år. Modellen for antallet slike hendelser i et gitt intervall er **Poisson-fordelingen**, og den underliggende mekanismen kalles en **Poisson-prosess**."
+    },
+    {
+      "id": "tma4245-2-2-def-poisson",
+      "type": "definition",
+      "title": "Poisson-fordeling",
+      "content": "Antall hendelser $X$ i et intervall, når hendelsene inntreffer tilfeldig med et forventet antall $\\lambda$ i intervallet, er **Poisson-fordelt**, $X \\sim \\text{Poisson}(\\lambda)$:\n\n$$P(X = x) = \\frac{\\lambda^x e^{-\\lambda}}{x!}, \\quad x = 0, 1, 2, \\ldots, \\qquad E(X) = \\lambda, \\quad \\text{Var}(X) = \\lambda.$$\n\nEt særtrekk verdt å merke seg: **forventning og varians er like** ($E(X) = \\text{Var}(X) = \\lambda$). Her er $\\lambda$ det forventede *antallet* i akkurat det intervallet vi ser på — så parametervalget avhenger av intervallengden, som neste kort viser."
+    },
+    {
+      "id": "tma4245-2-2-def-prosess",
+      "type": "definition",
+      "title": "Poisson-prosessens forutsetninger",
+      "content": "En strøm av hendelser er en **Poisson-prosess** med rate $\\lambda$ (hendelser per tidsenhet) når tre forutsetninger holder — og disse **skal kunne oppgis** på eksamen:\n\n1. **Uavhengige, disjunkte intervaller:** antall hendelser i intervaller som ikke overlapper, er uavhengige av hverandre.\n2. **Konstant rate:** forventet antall hendelser er proporsjonalt med intervallengden, med samme rate $\\lambda$ hele tiden.\n3. **Ingen samtidighet:** to hendelser inntreffer ikke i nøyaktig samme øyeblikk (sjansen for to i et forsvinnende kort intervall er neglisjerbar).\n\nHolder disse, er antall hendelser i et intervall av lengde $t$ Poisson-fordelt med parameter $\\lambda t$."
+    },
+    {
+      "id": "tma4245-2-2-def-rateskalering",
+      "type": "definition",
+      "title": "Rateskalering $\\lambda t$",
+      "content": "Raten $\\lambda$ gjelder per **tidsenhet**. Ser du på et intervall av lengde $t$, er det forventede antallet — og dermed Poisson-parameteren — **skalert**:\n\n$$X_t \\sim \\text{Poisson}(\\lambda t), \\qquad E(X_t) = \\lambda t.$$\n\nDette er den vanligste feilkilden i Poisson-oppgaver: å bruke $\\lambda$ når intervallet ikke er én tidsenhet. Har du rate 6 per år og ser på et halvår, er parameteren $\\lambda t = 6 \\cdot 0{,}5 = 3$, ikke 6. Enhetene på $\\lambda$ og $t$ må passe sammen så $\\lambda t$ blir et rent antall."
+    },
+    {
+      "id": "tma4245-2-2-ex-2",
+      "type": "example",
+      "title": "Eksempel 2: Sjøfuglkollisjoner (Poisson-prosess)",
+      "problem": "Kollisjoner mellom sjøfugl og en vindturbin skjer som en Poisson-prosess med rate $\\lambda = 6$ per år. La $X$ = antall kollisjoner i løpet av et **halvår**.\n\n**a)** Angi modellens forutsetninger og fordelingen til $X$.\n\n**b)** Finn forventning og standardavvik for $X$.\n\n**c)** Finn sannsynligheten for **minst to** kollisjoner i halvåret.",
+      "solution": "**a)** Forutsetninger: kollisjoner i ikke-overlappende tidsrom er uavhengige, raten er konstant over året, og to kollisjoner skjer ikke i samme øyeblikk. Med rate $6$ per år og intervall $t = 0{,}5$ år er parameteren $\\lambda t = 6 \\cdot 0{,}5 = 3$, så $X \\sim \\text{Poisson}(3)$.\n\n**b)** $E(X) = 3$ kollisjoner, og siden $\\text{Var}(X) = 3$ er $\\text{SD}(X) = \\sqrt{3} \\approx 1{,}73$.\n\n**c)** «Minst to» via komplement:\n$$P(X \\ge 2) = 1 - P(X = 0) - P(X = 1) = 1 - e^{-3} - 3e^{-3} = 1 - 4e^{-3}.$$\nTallverdi: $e^{-3} \\approx 0{,}0498$, så $P(X \\ge 2) \\approx 1 - 4 \\cdot 0{,}0498 = 1 - 0{,}1991 = 0{,}8009$. Om lag 80 % sannsynlighet for minst to kollisjoner i et halvår."
+    },
+    {
+      "id": "tma4245-2-2-l2",
+      "type": "exercise",
+      "exercise": {
+        "id": "tma4245-2-2-l2",
+        "number": "3",
+        "type": "classic",
+        "difficulty": "lett",
+        "task": "Kundene ankommer et servicepunkt som en Poisson-prosess med rate $\\lambda = 12$ per time. La $X$ = antall kunder i løpet av **15 minutter**.\n\n**a)** Hvilken fordeling har $X$? Regn ut parameteren.\n\n**b)** Finn $P(X = 0)$.",
+        "solution": "**a)** 15 minutter er $t = \\tfrac{1}{4}$ time, så $\\lambda t = 12 \\cdot \\tfrac{1}{4} = 3$. Dermed $X \\sim \\text{Poisson}(3)$.\n\n**b)** $P(X = 0) = \\dfrac{3^0 e^{-3}}{0!} = e^{-3} \\approx 0{,}0498$.",
+        "hints": [
+          "Skaler raten til intervallet: $\\lambda t$ med $t$ i timer.",
+          "$P(X=0) = e^{-\\lambda t}$."
+        ]
+      }
+    },
+    {
+      "id": "tma4245-2-2-betinget-poisson",
+      "type": "text",
+      "content": "### Betinget sannsynlighet i en Poisson-prosess\n\nEn favoritt-vri: gitt at et visst antall hendelser skjedde i en periode, hvordan fordeler de seg på to like lange delperioder? Fordi antallene i disjunkte intervaller er uavhengige og har lik rate, blir svaret binomisk — hver hendelse er like sannsynlig i hver halvdel."
+    },
+    {
+      "id": "tma4245-2-2-m2",
+      "type": "exercise",
+      "exercise": {
+        "id": "tma4245-2-2-m2",
+        "number": "4",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "Maskinstopp på en produksjonslinje følger en Poisson-prosess med rate $\\lambda = 4$ per døgn. Betrakt ett døgn delt i to like halvdeler.\n\n**a)** La $X$ = antall stopp i hele døgnet. Finn $P(X = 4)$.\n\n**b)** Gitt at det ble nøyaktig 4 stopp i døgnet, finn sannsynligheten for at nøyaktig 2 av dem kom i **første** halvdøgn.",
+        "solution": "**a)** $X \\sim \\text{Poisson}(4)$, så $P(X = 4) = \\dfrac{4^4 e^{-4}}{4!} = \\dfrac{256}{24} e^{-4} \\approx 10{,}667 \\cdot 0{,}0183 \\approx 0{,}195$.\n\n**b)** De to halvdøgnene har lik rate og er uavhengige, så hver av de 4 stoppene er like sannsynlig i hver halvdel — som et binomisk forsøk med $p = 0{,}5$. Antall i første halvdøgn er $\\text{bin}(4,\\ 0{,}5)$:\n$$P(\\text{2 i første} \\mid 4 \\text{ totalt}) = \\binom{4}{2} 0{,}5^2 0{,}5^2 = 6 \\cdot 0{,}0625 = 0{,}375.$$",
+        "hints": [
+          "$X \\sim \\text{Poisson}(4)$ for hele døgnet.",
+          "Betinget på totalen fordeler hendelsene seg $\\text{bin}(n, 0{,}5)$ på to like halvdeler."
+        ]
+      }
+    },
+    {
+      "id": "tma4245-2-2-pause2",
+      "type": "text",
+      "content": "*— naturlig pausepunkt —*"
+    },
+    {
+      "id": "tma4245-2-2-lokke3",
+      "type": "text",
+      "content": "## Løkke 3 — Ventetids- og trekkemodeller (~18 min)"
+    },
+    {
+      "id": "tma4245-2-2-def-geometrisk",
+      "type": "definition",
+      "title": "Geometrisk fordeling",
+      "content": "Teller du antall **uavhengige forsøk til og med den første suksessen** (hvert med sannsynlighet $p$), er $X$ **geometrisk fordelt**:\n\n$$P(X = x) = (1-p)^{x-1} p, \\quad x = 1, 2, 3, \\ldots, \\qquad E(X) = \\frac{1}{p}, \\quad \\text{Var}(X) = \\frac{1-p}{p^2}.$$\n\nTolkningen av $E(X) = 1/p$: skjer suksess i gjennomsnitt hvert femte forsøk hvis $p = 0{,}2$. En nyttig halesannsynlighet: $P(X > k) = (1-p)^k$ — «ingen suksess i de første $k$ forsøkene». (Advarsel: noen bøker teller *antall fiaskoer før* første suksess og starter på 0; vi teller antall forsøk og starter på 1.)"
+    },
+    {
+      "id": "tma4245-2-2-def-negbinom",
+      "type": "definition",
+      "title": "Negativ binomisk fordeling",
+      "content": "Teller du antall forsøk til og med den **$k$-te** suksessen, er $X$ **negativt binomisk fordelt**:\n\n$$P(X = x) = \\binom{x-1}{k-1} p^k (1-p)^{x-k}, \\quad x = k, k+1, \\ldots, \\qquad E(X) = \\frac{k}{p}.$$\n\nLogikken bak formelen: de første $x - 1$ forsøkene må inneholde nøyaktig $k - 1$ suksesser (derav $\\binom{x-1}{k-1}$), og det $x$-te forsøket er den siste, $k$-te suksessen. Geometrisk fordeling er spesialtilfellet $k = 1$."
+    },
+    {
+      "id": "tma4245-2-2-def-hypergeom",
+      "type": "definition",
+      "title": "Hypergeometrisk fordeling",
+      "content": "Trekker du $n$ enheter **uten tilbakelegging** fra en endelig populasjon med $a$ av «riktig type» og $b$ av resten, er antallet $X$ av riktig type **hypergeometrisk fordelt**:\n\n$$P(X = x) = \\frac{\\binom{a}{x}\\binom{b}{n-x}}{\\binom{a+b}{n}}, \\qquad E(X) = n\\,\\frac{a}{a+b}.$$\n\nForskjellen fra binomisk er nettopp **uten tilbakelegging**: hvert trekk endrer sammensetningen, så forsøkene er *ikke* uavhengige og $p$ er ikke konstant. Er populasjonen stor i forhold til $n$, er hypergeometrisk og binomisk nesten like — men i små partier må du bruke hypergeometrisk."
+    },
+    {
+      "id": "tma4245-2-2-kobling-eksp",
+      "type": "text",
+      "content": "**Bro til neste kapittel:** i en Poisson-prosess med rate $\\lambda$ er *ventetiden* mellom to hendelser ikke et antall, men en **kontinuerlig** tid. Den viser seg å være **eksponensialfordelt** med forventning $1/\\lambda$. Slik henger den diskrete Poisson-modellen (antall hendelser) sammen med den kontinuerlige eksponensialmodellen (tid mellom hendelser) — vi fullfører koblingen i [kap. 2.3](/bok/tma4245/tma4245-2-3)."
+    },
+    {
+      "id": "tma4245-2-2-ex-3",
+      "type": "example",
+      "title": "Eksempel 3: Geometrisk ventetid",
+      "problem": "En automatisk inspeksjon stopper en enhet med sannsynlighet $p = 0{,}2$ hver gang, uavhengig. La $X$ = antall inspeksjoner til og med den første som stopper en enhet.\n\n**a)** Finn fordelingen og $E(X)$.\n\n**b)** Finn $P(X = 4)$.\n\n**c)** Finn $P(X > 3)$ og tolk.",
+      "solution": "**a)** Uavhengige forsøk, teller til første suksess: $X$ er geometrisk med $p = 0{,}2$, og $E(X) = 1/p = 5$ inspeksjoner.\n\n**b)** $P(X = 4) = (1 - 0{,}2)^3 \\cdot 0{,}2 = 0{,}8^3 \\cdot 0{,}2 = 0{,}512 \\cdot 0{,}2 = 0{,}1024$.\n\n**c)** $P(X > 3) = (1 - 0{,}2)^3 = 0{,}8^3 = 0{,}512$ — sannsynligheten for at ingen av de tre første inspeksjonene stopper en enhet er om lag 51 %."
+    },
+    {
+      "id": "tma4245-2-2-l3",
+      "type": "exercise",
+      "exercise": {
+        "id": "tma4245-2-2-l3",
+        "number": "5",
+        "type": "classic",
+        "difficulty": "lett",
+        "task": "En eske inneholder 15 sikringer, hvorav 4 er defekte. Vi trekker 5 uten tilbakelegging. La $X$ = antall defekte blant de trukne.\n\n**a)** Hvilken fordeling har $X$, og hvorfor ikke binomisk?\n\n**b)** Sett opp uttrykket for $P(X = 1)$ (du trenger ikke regne ut tallet).",
+        "solution": "**a)** Vi trekker **uten tilbakelegging** fra en liten, endelig populasjon, så trekkene er ikke uavhengige og $p$ er ikke konstant. Da er $X$ **hypergeometrisk** (ikke binomisk) med populasjon 15, hvorav 4 defekte, og 5 trukket.\n\n**b)** $P(X = 1) = \\dfrac{\\binom{4}{1}\\binom{11}{4}}{\\binom{15}{5}}$.",
+        "hints": [
+          "Uten tilbakelegging fra endelig populasjon = hypergeometrisk.",
+          "Teller: $\\binom{a}{x}\\binom{b}{n-x}$; nevner: $\\binom{a+b}{n}$."
+        ]
+      }
+    },
+    {
+      "id": "tma4245-2-2-m3",
+      "type": "exercise",
+      "exercise": {
+        "id": "tma4245-2-2-m3",
+        "number": "6",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "Fortsett med esken fra oppgave 5: 15 sikringer, 4 defekte, trekk 5 uten tilbakelegging, $X$ = antall defekte. Det er oppgitt at $\\binom{15}{5} = 3003$, $\\binom{11}{5} = 462$ og $\\binom{4}{1}\\binom{11}{4} = 4 \\cdot 330 = 1320$.\n\n**a)** Finn $P(X = 0)$.\n\n**b)** Finn $P(X \\ge 1)$.\n\n**c)** Finn $E(X)$.",
+        "solution": "**a)** $P(X = 0) = \\dfrac{\\binom{4}{0}\\binom{11}{5}}{\\binom{15}{5}} = \\dfrac{462}{3003} \\approx 0{,}1538$.\n\n**b)** $P(X \\ge 1) = 1 - P(X = 0) = 1 - 0{,}1538 = 0{,}8462$.\n\n**c)** $E(X) = n\\,\\dfrac{a}{a+b} = 5 \\cdot \\dfrac{4}{15} = \\dfrac{20}{15} \\approx 1{,}33$ defekte.",
+        "hints": [
+          "$P(X=0)$ bruker $\\binom{4}{0}\\binom{11}{5}$ i telleren.",
+          "«Minst én» via komplement.",
+          "$E(X) = n \\cdot a/(a+b)$."
+        ]
+      }
+    },
+    {
+      "id": "tma4245-2-2-v1",
+      "type": "exercise",
+      "exercise": {
+        "id": "tma4245-2-2-v1",
+        "number": "7",
+        "type": "classic",
+        "difficulty": "vanskelig",
+        "task": "En sveiseprosess gir en godkjent sveis uavhengig med sannsynlighet $p = 0{,}4$ per forsøk. La $X$ = antall sveiseforsøk til og med den **tredje** godkjente sveisen.\n\n**a)** Hvilken fordeling har $X$? Oppgi $E(X)$.\n\n**b)** Finn $P(X = 5)$.\n\n**c)** En kollega vil i stedet la $Y$ = antall forsøk til **første** godkjente sveis, og påstår at $Y$ og $X$ har samme type fordeling. Har kollegaen rett? Forklar.",
+        "solution": "**a)** Teller til $k = 3$-te suksess med uavhengige forsøk: $X$ er negativt binomisk med $k = 3$, $p = 0{,}4$, og $E(X) = k/p = 3/0{,}4 = 7{,}5$ forsøk.\n\n**b)** $P(X = 5) = \\binom{5-1}{3-1} p^3 (1-p)^{5-3} = \\binom{4}{2} 0{,}4^3 \\cdot 0{,}6^2 = 6 \\cdot 0{,}064 \\cdot 0{,}36 = 0{,}13824$.\n\n**c)** Delvis: $Y$ er **geometrisk**, som er spesialtilfellet $k = 1$ av den negative binomiske. De er altså i samme familie, men med ulik $k$ ($Y$ har $k = 1$, $X$ har $k = 3$), så de har forskjellig forventning ($E(Y) = 1/0{,}4 = 2{,}5$ mot $E(X) = 7{,}5$). Kollegaen har rett i at de er beslektet, men ikke i at de er identiske.",
+        "hints": [
+          "Til $k$-te suksess = negativ binomisk; $E = k/p$.",
+          "$P(X=5) = \\binom{4}{2}p^3(1-p)^2$.",
+          "Geometrisk er negativ binomisk med $k=1$."
+        ]
+      }
+    },
+    {
+      "id": "tma4245-2-2-v2",
+      "type": "exercise",
+      "exercise": {
+        "id": "tma4245-2-2-v2",
+        "number": "8",
+        "type": "classic",
+        "difficulty": "vanskelig",
+        "task": "På et anlegg kommer *mindre* alarmer som en Poisson-prosess med rate 1,5 per time og *store* alarmer uavhengig med rate 0,5 per time. Betrakt et vindu på **2 timer**.\n\n**a)** La $X$ = totalt antall alarmer i vinduet. Hvilken fordeling har $X$, og hva er $E(X)$?\n\n**b)** Finn sannsynligheten for **ingen** store alarmer i vinduet.\n\n**c)** Finn $P(X\\ge 2)$.",
+        "solution": "**a)** Summen av to uavhengige Poisson-strømmer er Poisson med lagt-sammen rate: total rate $1{,}5+0{,}5=2$ per time, over $t=2$ timer gir $\\lambda t=4$. Altså $X\\sim\\text{Poisson}(4)$ med $E(X)=4$.\n\n**b)** Store alarmer i 2 timer: $\\lambda t=0{,}5\\cdot 2=1$, så $P(\\text{0 store})=e^{-1}\\approx 0{,}368$.\n\n**c)** $P(X\\ge 2)=1-P(X=0)-P(X=1)=1-e^{-4}-4e^{-4}=1-5e^{-4}\\approx 1-0{,}0916=0{,}9084$.",
+        "hints": [
+          "Uavhengige Poisson-strømmer: legg sammen ratene.",
+          "Store alarmer alene: $\\lambda t=0{,}5\\cdot 2$.",
+          "«Minst 2» via komplement: $1-(1+\\lambda t)e^{-\\lambda t}$."
+        ]
+      }
+    },
+    {
+      "id": "tma4245-2-2-warn",
+      "type": "warning",
+      "title": "Typiske feil",
+      "content": "- **Velge binomisk der antall forsøk ikke er fast.** Teller du *til* noe skjer, er det geometrisk (første) eller negativ binomisk ($k$-te), ikke binomisk.\n- **Glemme å skalere Poisson-raten.** Parameteren er $\\lambda t$, ikke $\\lambda$, når intervallet ikke er én tidsenhet. Rate 6 per år over et halvår gir $\\lambda t = 3$.\n- **Bruke binomisk der hypergeometrisk kreves.** Trekk *uten tilbakelegging* fra en liten populasjon gjør forsøkene avhengige — bruk hypergeometrisk.\n- **Lese en kumulativ tabell som punktsannsynlighet.** Tabellen gir $P(X \\le a)$, ikke $P(X = a)$. For «minst $a$» slå opp $a - 1$: $P(X \\ge a) = 1 - P(X \\le a-1)$.\n- **Ikke begrunne modellvalget.** Sensor krever «La $X$ = … , da er $X \\sim \\ldots$» med parametre og forutsetninger — et rent tallsvar gir trekk."
+    },
+    {
+      "id": "tma4245-2-2-begrepsbank",
+      "type": "text",
+      "content": "## Begrepsbank til eksamen\n\nHer er fordelingskatalogen og feilkortene samlet i eksamensrettet kortform — repertoaret for modellvalget.\n\n*Begrepsbanken er flashcard-/repetisjonsstoff — den gjentar det du nettopp har lest. Hopp trygt over ved førstegangslesing; tidsanslaget gjelder kjernestoffet.*"
+    },
+    {
+      "id": "tma4245-2-2-bb-katalog-binom",
+      "type": "definition",
+      "title": "Katalogkort: binomisk $\\text{bin}(n, p)$",
+      "content": "**Situasjon:** antall suksesser i $n$ faste, uavhengige forsøk med konstant $p$. **Punktsannsynlighet:** $P(X = x) = \\binom{n}{x} p^x (1-p)^{n-x}$. **Forventning:** $E(X) = np$. **Varians:** $\\text{Var}(X) = np(1-p)$. Står i formelsamlingen — tren oppslaget og modellgjenkjenningen."
+    },
+    {
+      "id": "tma4245-2-2-bb-katalog-poisson",
+      "type": "definition",
+      "title": "Katalogkort: Poisson$(\\lambda)$",
+      "content": "**Situasjon:** antall hendelser i et intervall med forventet antall $\\lambda$. **Punktsannsynlighet:** $P(X = x) = \\dfrac{\\lambda^x e^{-\\lambda}}{x!}$. **Forventning og varians:** $E(X) = \\text{Var}(X) = \\lambda$ (like — et kjennetegn). For intervall av lengde $t$ er parameteren $\\lambda t$."
+    },
+    {
+      "id": "tma4245-2-2-bb-katalog-geom",
+      "type": "definition",
+      "title": "Katalogkort: geometrisk$(p)$",
+      "content": "**Situasjon:** antall forsøk til og med første suksess. **Punktsannsynlighet:** $P(X = x) = (1-p)^{x-1} p$, $x = 1, 2, \\ldots$. **Forventning:** $E(X) = 1/p$. **Varians:** $\\text{Var}(X) = (1-p)/p^2$. **Hale:** $P(X > k) = (1-p)^k$."
+    },
+    {
+      "id": "tma4245-2-2-bb-katalog-negbinom",
+      "type": "definition",
+      "title": "Katalogkort: negativ binomisk$(k, p)$",
+      "content": "**Situasjon:** antall forsøk til og med den $k$-te suksessen. **Punktsannsynlighet:** $P(X = x) = \\binom{x-1}{k-1} p^k (1-p)^{x-k}$, $x \\ge k$. **Forventning:** $E(X) = k/p$. Geometrisk fordeling er spesialtilfellet $k = 1$."
+    },
+    {
+      "id": "tma4245-2-2-bb-katalog-hyperg",
+      "type": "definition",
+      "title": "Katalogkort: hypergeometrisk",
+      "content": "**Situasjon:** antall av «riktig type» ved trekk av $n$ **uten tilbakelegging** fra populasjon med $a$ riktige og $b$ andre. **Punktsannsynlighet:** $P(X = x) = \\dfrac{\\binom{a}{x}\\binom{b}{n-x}}{\\binom{a+b}{n}}$. **Forventning:** $E(X) = n\\,\\dfrac{a}{a+b}$."
+    },
+    {
+      "id": "tma4245-2-2-bb-bernoulli",
+      "type": "definition",
+      "title": "Katalogkort: Bernoulli$(p)$",
+      "content": "Ett enkelt forsøk med to utfall: $X = 1$ (suksess, sannsynlighet $p$) eller $X = 0$. **Forventning:** $E(X) = p$. **Varians:** $\\text{Var}(X) = p(1-p)$. En binomisk variabel er summen av $n$ uavhengige Bernoulli-variable — derav $E = np$ og $\\text{Var} = np(1-p)$."
+    },
+    {
+      "id": "tma4245-2-2-bb-sensorkrav",
+      "type": "definition",
+      "title": "Sensorkort: «La $X$ = antall …»",
+      "content": "Enhver sjanger B-oppgave skal åpne med en setning som **definerer variabelen og fordelingen**: «La $X$ = antall … , da er $X \\sim \\ldots$» med parametrene oppgitt. Nevn **forutsetningene** der modellen brukes (særlig Poisson-prosessens tre). Et tallsvar uten definert variabel/fordeling regnes som ufullstendig — dette er billige poeng mange kaster bort."
+    },
+    {
+      "id": "tma4245-2-2-bb-feil-fastantall",
+      "type": "definition",
+      "title": "Feilkort: fast antall eller telle til?",
+      "content": "Nøkkelspørsmålet for diskret modellvalg: er antall forsøk **fast** ($n$ gitt på forhånd) eller teller vi **til** noe skjer? Fast antall → binomisk. Telle til første suksess → geometrisk. Telle til $k$-te suksess → negativ binomisk. Å tvinge binomisk på en «telle til»-situasjon er en klassisk modellfeil."
+    },
+    {
+      "id": "tma4245-2-2-bb-feil-tilbakelegging",
+      "type": "definition",
+      "title": "Feilkort: med eller uten tilbakelegging?",
+      "content": "Trekker vi **med** tilbakelegging (eller fra en så stor populasjon at det ikke merkes), er forsøkene uavhengige med konstant $p$ → binomisk. Trekker vi **uten** tilbakelegging fra en liten, endelig populasjon, endres sammensetningen for hvert trekk → hypergeometrisk. Sjekk populasjonsstørrelsen mot antall trekk."
+    },
+    {
+      "id": "tma4245-2-2-bb-feil-rateskala",
+      "type": "definition",
+      "title": "Feilkort: skaler raten",
+      "content": "I en Poisson-prosess gjelder raten $\\lambda$ **per tidsenhet**. For et intervall av lengde $t$ er parameteren $\\lambda t$ — ikke $\\lambda$. Sjekk alltid at enhetene på $\\lambda$ og $t$ passer sammen, så $\\lambda t$ blir et rent forventet antall. Å glemme skaleringen er den hyppigste Poisson-feilen."
+    },
+    {
+      "id": "tma4245-2-2-bb-feil-kumulativ",
+      "type": "definition",
+      "title": "Feilkort: kumulativ vs. punkt",
+      "content": "En kumulativ tabell gir $F(a) = P(X \\le a)$, ikke $P(X = a)$. For «minst $a$»: $P(X \\ge a) = 1 - P(X \\le a-1)$ (slå opp $a-1$!). For et intervall: $P(a \\le X \\le b) = P(X \\le b) - P(X \\le a-1)$. Punktsannsynlighet fås som $P(X = a) = P(X \\le a) - P(X \\le a-1)$."
+    },
+    {
+      "id": "tma4245-2-2-bb-minsttto",
+      "type": "definition",
+      "title": "Regnekort: «minst to»",
+      "content": "«Minst to» regnes nesten alltid via komplement:\n\n$$P(X \\ge 2) = 1 - P(X = 0) - P(X = 1).$$\n\nFor Poisson$(\\lambda)$ blir det $1 - e^{-\\lambda} - \\lambda e^{-\\lambda} = 1 - (1 + \\lambda)e^{-\\lambda}$. Å summere $P(X = 2) + P(X = 3) + \\cdots$ direkte er både tregere og mer feilutsatt."
+    },
+    {
+      "id": "tma4245-2-2-bb-poisson-tilnaerming",
+      "type": "definition",
+      "title": "Katalogkort: Poisson-tilnærming til binomisk",
+      "content": "Når $n$ er stor og $p$ liten, kan en binomisk fordeling tilnærmes med en Poisson-fordeling med samme forventning, $\\lambda = np$. Dette er nyttig for sjeldne hendelser i mange forsøk (få defekte i en stor serie). Den fulle normaltilnærmingen (stor $\\lambda$) kommer i kap. 3.3."
+    },
+    {
+      "id": "tma4245-2-2-bb-sum-poisson",
+      "type": "definition",
+      "title": "Katalogkort: sum av uavhengige Poisson",
+      "content": "Summen av uavhengige Poisson-variable er igjen Poisson, med parametrene lagt sammen: $X \\sim \\text{Poisson}(\\lambda_1)$ og $Y \\sim \\text{Poisson}(\\lambda_2)$ uavhengige gir $X + Y \\sim \\text{Poisson}(\\lambda_1 + \\lambda_2)$. Slår du sammen to uavhengige hendelsesstrømmer, legger du bare ratene sammen."
+    },
+    {
+      "id": "tma4245-2-2-bb-kobling-eksp",
+      "type": "definition",
+      "title": "Katalogkort: Poisson ↔ eksponensiell ventetid",
+      "content": "I en Poisson-prosess med rate $\\lambda$ er tiden **mellom** to hendelser eksponensialfordelt med forventning $1/\\lambda$. Antall hendelser (diskret, Poisson) og tid mellom hendelser (kontinuerlig, eksponensiell) er to sider av samme prosess. Full behandling i [kap. 2.3](/bok/tma4245/tma4245-2-3)."
+    },
+    {
+      "id": "tma4245-2-2-bb-forventet-ventetid",
+      "type": "definition",
+      "title": "Regnekort: forventet ventetid",
+      "content": "For geometrisk fordeling er forventet antall forsøk til første suksess $E(X) = 1/p$: er suksessannsynligheten $0{,}25$, venter du i snitt 4 forsøk. For negativ binomisk er forventet antall til $k$-te suksess $k/p$ — bare $k$ ganger så lenge. Enkel tolkning, ofte spurt om i kortsvar."
+    },
+    {
+      "id": "tma4245-2-2-bb-variasjonskoeff",
+      "type": "definition",
+      "title": "Regnekort: Poisson-spredning",
+      "content": "For Poisson$(\\lambda)$ er $\\text{SD}(X) = \\sqrt{\\lambda}$ (siden $\\text{Var} = \\lambda$). Spredningen vokser altså med kvadratroten av forventningen: doblet rate gir ikke doblet standardavvik, bare $\\sqrt{2}$ ganger så stort. En rask sanity-sjekk på Poisson-svar."
+    },
+    {
+      "id": "tma4245-2-2-bb-uniform-diskret",
+      "type": "definition",
+      "title": "Katalogkort: diskret uniform",
+      "content": "Er alle $m$ utfall $\\{1, \\ldots, m\\}$ like sannsynlige, er $X$ **diskret uniform** med $p(x) = 1/m$ og $E(X) = (m+1)/2$. En rettferdig terning er diskret uniform på $\\{1, \\ldots, 6\\}$ med $E(X) = 3{,}5$. Grunnmodellen bak «gunstige over mulige» fra [kap. 1.1](/bok/tma4245/tma4245-1-1)."
+    },
+    {
+      "id": "tma4245-2-2-bb-parameter-poisson",
+      "type": "definition",
+      "title": "Begrepskort: hva er $\\lambda$?",
+      "content": "I Poisson-modellen er $\\lambda$ det **forventede antallet** hendelser i akkurat det intervallet du ser på — ikke en sannsynlighet. Den er alltid positiv og kan være større enn 1. Dette skiller Poisson fra binomisk, der parameteren $p$ er en sannsynlighet mellom 0 og 1."
+    },
+    {
+      "id": "tma4245-2-2-bb-uavh-forutsetning",
+      "type": "definition",
+      "title": "Begrepskort: uavhengighetsforutsetningen",
+      "content": "Både binomisk og Poisson forutsetter **uavhengighet** mellom forsøk/hendelser. Bryter uavhengigheten (én defekt enhet gjør neste mer sannsynlig, hendelser klumper seg), holder ikke modellen, og forventning/varians-formlene blir feil. Vurder alltid om uavhengighet er rimelig før du bruker modellen — det er en del av begrunnelsen sensor vil se."
+    },
+    {
+      "id": "tma4245-2-2-bb-feil-konstant-p",
+      "type": "definition",
+      "title": "Feilkort: er $p$ konstant?",
+      "content": "Binomisk krever at suksessannsynligheten $p$ er **den samme** i hvert forsøk. Endrer $p$ seg underveis — for eksempel fordi maskinen slites, eller fordi vi trekker uten tilbakelegging — er ikke modellen binomisk. Ved trekk uten tilbakelegging synker (eller stiger) andelen av typen for hvert trekk, og da er hypergeometrisk riktig modell."
+    },
+    {
+      "id": "tma4245-2-2-rep",
+      "type": "collapsible",
+      "title": "Repetisjonsoppgaver",
+      "buttonText": "Vis repetisjonsoppgaver",
+      "content": [
+        {
+          "id": "tma4245-2-2-rep-1",
+          "type": "exercise",
+          "exercise": {
+            "id": "tma4245-2-2-rep-1",
+            "number": "R1",
+            "type": "classic",
+            "difficulty": "lett",
+            "task": "(Fra kap. 2.1) En binomisk variabel har $n = 10$ og $p = 0{,}3$. Finn $E(X)$ og $\\text{Var}(X)$.",
+            "solution": "$E(X) = np = 10 \\cdot 0{,}3 = 3$, og $\\text{Var}(X) = np(1-p) = 10 \\cdot 0{,}3 \\cdot 0{,}7 = 2{,}1$.",
+            "hints": [
+              "$E = np$, $\\text{Var} = np(1-p)$."
+            ]
+          }
+        },
+        {
+          "id": "tma4245-2-2-rep-2",
+          "type": "exercise",
+          "exercise": {
+            "id": "tma4245-2-2-rep-2",
+            "number": "R2",
+            "type": "classic",
+            "difficulty": "lett",
+            "task": "En Poisson-variabel har $\\lambda = 2$. Finn $P(X = 0)$.",
+            "solution": "$P(X = 0) = \\dfrac{2^0 e^{-2}}{0!} = e^{-2} \\approx 0{,}135$.",
+            "hints": [
+              "$P(X=0) = e^{-\\lambda}$."
+            ]
+          }
+        },
+        {
+          "id": "tma4245-2-2-rep-3",
+          "type": "exercise",
+          "exercise": {
+            "id": "tma4245-2-2-rep-3",
+            "number": "R3",
+            "type": "classic",
+            "difficulty": "middels",
+            "task": "(Fra kap. 1.2) På hvor mange måter kan du velge 2 defekte blant 4, uttrykt med en binomialkoeffisient, og hva er tallet?",
+            "solution": "$\\binom{4}{2} = \\dfrac{4!}{2!\\,2!} = 6$ måter.",
+            "hints": [
+              "$\\binom{n}{k} = \\dfrac{n!}{k!(n-k)!}$."
+            ]
+          }
+        },
+        {
+          "id": "tma4245-2-2-rep-4",
+          "type": "exercise",
+          "exercise": {
+            "id": "tma4245-2-2-rep-4",
+            "number": "R4",
+            "type": "classic",
+            "difficulty": "middels",
+            "task": "En geometrisk variabel har $p = 0{,}25$. Finn forventet antall forsøk til første suksess, og $P(X > 2)$.",
+            "solution": "$E(X) = 1/p = 1/0{,}25 = 4$ forsøk. $P(X > 2) = (1-p)^2 = 0{,}75^2 = 0{,}5625$.",
+            "hints": [
+              "$E(X) = 1/p$.",
+              "$P(X > k) = (1-p)^k$."
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": "tma4245-2-2-symbolliste",
+      "type": "collapsible",
+      "title": "Symbol- og formelliste",
+      "buttonText": "Vis symboler og formler",
+      "content": [
+        {
+          "id": "tma4245-2-2-symbolliste-text",
+          "type": "text",
+          "content": "*Oppslagsverk — alt her forklares underveis i kapitlet.*\n\nAlle symboler og formler brukt i kapittel 2.2, samlet.\n\n| Symbol | Betydning |\n|---|---|\n| $X$ | Antallsvariabel (diskret) |\n| $n$ | Antall forsøk / antall trekk |\n| $p$ | Suksessannsynlighet per forsøk |\n| $\\lambda$ | Rate i en Poisson-prosess (hendelser per tidsenhet) |\n| $t$ | Intervallengde; Poisson-parameter er $\\lambda t$ |\n| $k$ | Antall suksesser man venter på (negativ binomisk) |\n| $a, b$ | Antall av riktig type / resten i hypergeometrisk populasjon |\n| $\\binom{n}{x}$ | Binomialkoeffisient (antall uordnede utvalg) |\n| $F(a)$ | Kumulativ sannsynlighet $P(X \\le a)$ |\n\n**Formler i dette kapitlet:**\n\n$$P(X = x) = \\binom{n}{x} p^x (1-p)^{n-x}, \\quad E = np, \\quad \\text{Var} = np(1-p)$$\nBinomisk: antall suksesser i $n$ faste uavhengige forsøk.\n\n$$P(X = x) = \\frac{\\lambda^x e^{-\\lambda}}{x!}, \\quad E = \\text{Var} = \\lambda$$\nPoisson: antall hendelser i et intervall; parameter $\\lambda t$ for lengde $t$.\n\n$$P(X = x) = (1-p)^{x-1} p, \\quad E = \\frac{1}{p}, \\quad P(X > k) = (1-p)^k$$\nGeometrisk: antall forsøk til første suksess.\n\n$$P(X = x) = \\binom{x-1}{k-1} p^k (1-p)^{x-k}, \\quad E = \\frac{k}{p}$$\nNegativ binomisk: antall forsøk til $k$-te suksess.\n\n$$P(X = x) = \\frac{\\binom{a}{x}\\binom{b}{n-x}}{\\binom{a+b}{n}}, \\quad E = n\\,\\frac{a}{a+b}$$\nHypergeometrisk: trekk uten tilbakelegging.\n\n$$P(X \\ge a) = 1 - P(X \\le a-1), \\qquad P(a \\le X \\le b) = P(X \\le b) - P(X \\le a-1)$$\nKumulativ tabellbruk — pass på grensen $a-1$."
+        }
+      ]
+    }
+  ],
+  "exercises": []
+}

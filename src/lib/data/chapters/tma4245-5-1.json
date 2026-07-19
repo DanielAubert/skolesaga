@@ -1,0 +1,354 @@
+{
+  "id": "tma4245-5-1",
+  "courseId": "tma4245",
+  "chapterNumber": "5.1",
+  "title": "Estimatorer og deres egenskaper: forventningsretthet, varians og MSE",
+  "description": "Hva som gjør en estimator god — forventningsretthet, varians og MSE, og sammenligningen eksamen ber om igjen og igjen.",
+  "estimatedMinutes": 55,
+  "competenceGoals": [
+    "skille estimator (stokastisk) fra estimat (tall) og regne $E(\\hat{\\theta})$ for å avgjøre forventningsretthet",
+    "regne varians og MSE for en estimator og bruke $\\text{MSE}=\\text{Var}+[\\text{bias}]^2$",
+    "sammenligne estimatorer etter forventningsretthet, varians og MSE og velge med begrunnelse",
+    "forklare hvorfor $S^2$ deler på $n-1$ og at ML-varianten med $n$ er skjev"
+  ],
+  "content": [
+    {
+      "id": "tma4245-5-1-tip",
+      "type": "tip",
+      "title": "Eksamensvinkel",
+      "content": "**Her starter kjeden som bærer hele eksamen:** definer modell → estimer parameter → vurder estimatoren → lag konfidensintervall → test → styrke. Dette kapitlet er *vurderingsleddet*.\n\n- **Punktestimering er i ≈ 82 % av settene** — «emnets viktigste utledningsferdighet». Prioritet: **høyeste** (det øverste nivået).\n- **Estimator-sammenligning** (to–tre kandidater vurderes på forventningsretthet og varians/MSE) er en fast del av storoppgaven (Nov20, Aug21, Mai22, Aug22, Des23, Jun23). Des23-fasiten viser eksplisitt at ML-variansestimatoren er forventningsskjev og at $S^2$ med $n-1$ korrigerer.\n\n**Hva sensor måler her:** at du **regner $E(\\hat{\\theta})$ aktivt** (ikke bare påstår forventningsretthet), at du kan **variansen** til kandidaten, og at du bruker **MSE** når en kandidat er skjev — og til slutt *velger* med begrunnelse.\n\n**Formelsamlingen** (hjelpemiddelkode C — en tillatt tabellsamling) gir deg $E$ og Var for standardfordelingene, men **selve vurderingen** ($E(\\hat{\\theta}) = \\theta$?, hvilken varians er minst?, MSE) må du gjøre for hånd. Det finnes ikke pugge-stoff her — bare regneregler brukt riktig."
+    },
+    {
+      "id": "tma4245-5-1-forkunnskaper",
+      "type": "text",
+      "content": "**Forkunnskaper:** Dette kapitlet hviler tungt på **regnereglene for forventning og varians** fra **[kap. 2.1](/bok/tma4245/tma4245-2-1)** ($E(aX+bY)=aE(X)+bE(Y)$ og $\\text{Var}(aX+bY)=a^2\\text{Var}(X)+b^2\\text{Var}(Y)$ for uavhengige) og på resultatet **$\\bar{X}\\sim N(\\mu,\\sigma^2/n)$** fra **[kap. 3.2](/bok/tma4245/tma4245-3-2)** — spesielt at $\\text{Var}(\\bar{X})=\\sigma^2/n$. Den empiriske variansen $s^2$ med divisor $n-1$ møtte du allerede i **[kap. 1.4](/bok/tma4245/tma4245-1-4)**; her får du *hvorfor* det skal være $n-1$.\n\nDu trenger ikke maximum likelihood ennå — det kommer i **[kap. 5.2](/bok/tma4245/tma4245-5-2)**, som bygger rett på dette kapitlet. Kapitlet er forkunnskap for hele resten av inferensdelen (konfidensintervall i Del 6, tester i Del 7)."
+    },
+    {
+      "id": "tma4245-5-1-intro",
+      "type": "text",
+      "content": "Når vi har en modell med en ukjent parameter — forventet levetid $\\beta$, en andel $p$, en varians $\\sigma^2$ — lager vi en **estimator**: en regneoppskrift som gjør data om til et tallanslag. Men flere oppskrifter kan sikte på samme parameter. Hvilken er best? Dette kapitlet gir de tre målestokkene eksamen bruker: **forventningsretthet** (treffer estimatoren i snitt?), **varians** (hvor mye spriker den?) og **MSE** (den samlede feilen når vi må veie skjevhet mot spredning).\n\nHverdagsanker: tenk deg tre skyttere som skyter mot samme blink. Den ene sikter riktig men skjelver mye (forventningsrett, stor varians); den andre skyter tett men systematisk litt til venstre (skjev, liten varians). Hvem treffer nærmest i snitt? Det er nøyaktig spørsmålet MSE svarer på.\n\nVi går i tre løkker: forventningsretthet (løkke 1), varians og MSE med sammenligningsprotokollen (løkke 2), og standardresultatene $\\bar{X}$ og $S^2$ — inkludert hvorfor $n$-varianten av variansen er skjev (løkke 3). Hver løkke går teori → eksempel → oppgave.\n\n*Samlet kjernetid ≈ 55 min. Naturlige pausepunkter er markert mellom løkkene.*"
+    },
+    {
+      "id": "tma4245-5-1-lokke1",
+      "type": "text",
+      "content": "## Løkke 1 — Estimator, estimat og forventningsretthet (~18 min)"
+    },
+    {
+      "id": "tma4245-5-1-def-estimator",
+      "type": "definition",
+      "title": "Estimator og estimat",
+      "content": "En **estimator** er en oppskrift som regner et parameteranslag ut av data — før vi har sett tallene er den en **stokastisk variabel**, og vi skriver den med **stor bokstav og hatt**: $\\hat{\\theta}$, $\\hat{\\mu}=\\bar{X}$, $\\hat{\\beta}$. Setter vi inn de faktiske målingene, får vi et **estimat** — ett bestemt **tall**.\n\nEksempel: $\\hat{\\mu}=\\bar{X}=\\frac{1}{n}\\sum X_i$ er estimatoren (stokastisk); har vi målt $\\bar{x}=7{,}2$, er $7{,}2$ estimatet (tallet). Skillet er ikke pedanteri: en estimator har en *fordeling* (med forventning og varians), et estimat har det ikke — det er bare et punkt. Hele dette kapitlet handler om fordelingen til estimatoren."
+    },
+    {
+      "id": "tma4245-5-1-def-forventningsrett",
+      "type": "definition",
+      "title": "Forventningsretthet",
+      "content": "En estimator $\\hat{\\theta}$ er **forventningsrett** for $\\theta$ når den i gjennomsnitt treffer den sanne verdien — altså når forventningen er lik parameteren:\n\n$$E(\\hat{\\theta}) = \\theta.$$\n\n(Ordet «forventningsrett» betyr rett *i forventning*, ikke rett hver gang.) Er $E(\\hat{\\theta}) \\ne \\theta$, kaller vi differansen **skjevheten** (bias), $b(\\hat{\\theta}) = E(\\hat{\\theta}) - \\theta$. En forventningsrett estimator har $b=0$.\n\nPå eksamen **regner** du $E(\\hat{\\theta})$ ut med regnereglene fra [kap. 2.1](/bok/tma4245/tma4245-2-1) og sjekker om svaret blir $\\theta$ — du påstår det ikke. Det er nettopp regningen sensor gir poeng for."
+    },
+    {
+      "id": "tma4245-5-1-ex1",
+      "type": "example",
+      "title": "Eksempel 1: $\\bar{X}$ er forventningsrett for $\\mu$",
+      "problem": "La $X_1,\\ldots,X_n$ være uavhengige målinger av bruddstyrken til en fiberprøve, alle med forventning $\\mu$ og varians $\\sigma^2$. Vis at gjennomsnittet $\\bar{X}=\\frac{1}{n}\\sum X_i$ er en forventningsrett estimator for $\\mu$.",
+      "solution": "Bruk lineariteten til forventning (fra [kap. 2.1](/bok/tma4245/tma4245-2-1)) — forventningen av en sum er summen av forventningene, og konstanter kan flyttes ut:\n\n$$E(\\bar{X}) = E\\!\\left(\\frac{1}{n}\\sum_{i=1}^n X_i\\right) = \\frac{1}{n}\\sum_{i=1}^n E(X_i) = \\frac{1}{n}\\cdot n\\mu = \\mu.$$\n\nSiden $E(\\bar{X})=\\mu$, er $\\bar{X}$ **forventningsrett** for $\\mu$. Skjevheten er $b=\\mu-\\mu=0$. Legg merke til at dette gjelder for *enhver* fordeling med forventning $\\mu$ — vi brukte ingenting om normalitet, bare at hver $E(X_i)=\\mu$."
+    },
+    {
+      "id": "tma4245-5-1-l1",
+      "type": "exercise",
+      "exercise": {
+        "id": "tma4245-5-1-l1",
+        "number": "1",
+        "type": "classic",
+        "difficulty": "lett",
+        "task": "(Innstegsoppgave.) Forventet levetid til et batteri estimeres med $\\hat{\\mu}=\\bar{X}$.\n\n**a)** Er $\\bar{X}$ (før måling) en stokastisk variabel eller et tall?\n\n**b)** Etter måling er $\\bar{x}=7{,}2$ timer. Er dette estimatoren eller estimatet?\n\n**c)** Hver måling har varians $\\sigma^2=9$, og vi har $n=16$ uavhengige målinger. Finn $\\text{Var}(\\bar{X})$.",
+        "solution": "**a)** Før måling er $\\bar{X}$ en **stokastisk variabel** (estimatoren) — den har en fordeling.\n\n**b)** $7{,}2$ er et **estimat** (et tall), verdien estimatoren tok denne gangen.\n\n**c)** $\\text{Var}(\\bar{X}) = \\dfrac{\\sigma^2}{n} = \\dfrac{9}{16} = 0{,}5625$ (og standardfeilen er $\\sqrt{0{,}5625}=0{,}75$).",
+        "hints": [
+          "Estimator = oppskrift/stokastisk; estimat = tallet etter innsetting.",
+          "$\\text{Var}(\\bar{X})=\\sigma^2/n$ fra kap. 3.2.",
+          "Sett inn $\\sigma^2=9$ og $n=16$."
+        ]
+      }
+    },
+    {
+      "id": "tma4245-5-1-m1",
+      "type": "exercise",
+      "exercise": {
+        "id": "tma4245-5-1-m1",
+        "number": "2",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "Tre uavhengige målinger $X_1,X_2,X_3$ av samme størrelse har alle forventning $\\mu$ og varians $\\sigma^2$. To estimatorer foreslås:\n\n$$\\hat{\\mu}_1=\\bar{X}=\\tfrac{1}{3}(X_1+X_2+X_3), \\qquad \\hat{\\mu}_2=\\tfrac{1}{6}(X_1+2X_2+3X_3).$$\n\n**a)** Vis at begge er forventningsrette for $\\mu$.\n\n**b)** Finn variansen til hver, og avgjør hvilken som bør brukes.",
+        "solution": "**a)** $E(\\hat{\\mu}_1)=\\tfrac{1}{3}(\\mu+\\mu+\\mu)=\\mu$. For den andre er vektene $\\tfrac{1}{6},\\tfrac{2}{6},\\tfrac{3}{6}$ med sum 1, så $E(\\hat{\\mu}_2)=\\tfrac{1}{6}(\\mu+2\\mu+3\\mu)=\\tfrac{6\\mu}{6}=\\mu$. Begge forventningsrette.\n\n**b)** For uavhengige variable er variansen av en veid sum $\\sum a_i^2\\text{Var}$:\n$$\\text{Var}(\\hat{\\mu}_1)=\\tfrac{1}{9}(\\sigma^2+\\sigma^2+\\sigma^2)=\\tfrac{3\\sigma^2}{9}=\\tfrac{\\sigma^2}{3}\\approx 0{,}333\\,\\sigma^2.$$\n$$\\text{Var}(\\hat{\\mu}_2)=\\tfrac{1}{36}(1^2+2^2+3^2)\\sigma^2=\\tfrac{14}{36}\\sigma^2=\\tfrac{7}{18}\\sigma^2\\approx 0{,}389\\,\\sigma^2.$$\nBegge er forventningsrette, men $\\hat{\\mu}_1=\\bar{X}$ har minst varians ($0{,}333<0{,}389$), så **$\\bar{X}$ bør brukes**. (Det er ingen tilfeldighet: like vekter minimerer variansen når målingene er like presise.)",
+        "hints": [
+          "Sjekk at vektene summerer til 1 for forventningsretthet.",
+          "Var av veid sum uavhengige: $\\sum a_i^2\\sigma^2$.",
+          "Sammenlign $\\tfrac{1}{3}$ og $\\tfrac{14}{36}$."
+        ]
+      }
+    },
+    {
+      "id": "tma4245-5-1-pause1",
+      "type": "text",
+      "content": "*— naturlig pausepunkt —*"
+    },
+    {
+      "id": "tma4245-5-1-lokke2",
+      "type": "text",
+      "content": "## Løkke 2 — Varians, skjevhet og MSE (~19 min)"
+    },
+    {
+      "id": "tma4245-5-1-def-varians",
+      "type": "definition",
+      "title": "Varians og standardfeil til en estimator",
+      "content": "To forventningsrette estimatorer treffer begge i snitt, men den ene kan spre seg mye mer enn den andre. Spredningen måles med **variansen** $\\text{Var}(\\hat{\\theta})$, og kvadratroten kalles **standardfeilen** $\\text{SE}(\\hat{\\theta})=\\sqrt{\\text{Var}(\\hat{\\theta})}$ — estimatorens typiske avstand fra sitt eget snitt.\n\nBlant forventningsrette estimatorer foretrekker vi den med **minst varians** (mest presis). For gjennomsnittet er $\\text{Var}(\\bar{X})=\\sigma^2/n$: variansen synker med $n$, så flere målinger gir en skarpere estimator. Dette er grunnen til at «samle mer data» hjelper."
+    },
+    {
+      "id": "tma4245-5-1-def-bias",
+      "type": "definition",
+      "title": "Skjevhet (bias)",
+      "content": "**Skjevheten** til en estimator er hvor mye forventningen bommer på parameteren:\n\n$$b(\\hat{\\theta}) = E(\\hat{\\theta}) - \\theta.$$\n\nEr $b=0$, er estimatoren forventningsrett. Er $b>0$, overvurderer den systematisk; $b<0$, undervurderer. En skjev estimator er ikke nødvendigvis dårlig — hvis den til gjengjeld har mye mindre varians, kan den samlet sett bomme mindre. Det er nettopp det MSE veier."
+    },
+    {
+      "id": "tma4245-5-1-def-mse",
+      "type": "definition",
+      "title": "Mean squared error (MSE)",
+      "content": "**MSE** (forventet kvadratavvik) måler den samlede feilen — den forventede kvadrerte avstanden mellom estimator og parameter:\n\n$$\\text{MSE}(\\hat{\\theta}) = E\\big[(\\hat{\\theta}-\\theta)^2\\big] = \\text{Var}(\\hat{\\theta}) + [b(\\hat{\\theta})]^2.$$\n\nMSE splitter altså i **spredning pluss skjevhet-kvadrert**. For en forventningsrett estimator ($b=0$) er $\\text{MSE}=\\text{Var}$. MSE er tungvekteren når du skal sammenligne en forventningsrett kandidat med en skjev: den forventningsrette vinner *ikke automatisk* — en skjev estimator med liten nok varians kan ha lavere MSE."
+    },
+    {
+      "id": "tma4245-5-1-def-protokoll",
+      "type": "definition",
+      "title": "Sammenligningsprotokollen (fire trinn)",
+      "content": "Når eksamen ber deg *velge* mellom to–tre estimatorer, følg alltid disse fire trinnene — i denne rekkefølgen:\n\n**1.** Sjekk **forventningsretthet** for hver kandidat: regn $E(\\hat{\\theta})$ og se om den blir $\\theta$.\n\n**2.** Regn **variansen** til hver kandidat.\n\n**3.** Er alle forventningsrette, velg den med **minst varians**. Er en eller flere skjeve, regn **MSE** for alle og sammenlign den.\n\n**4.** **Velg og begrunn** med begge kriterier — et svar uten begrunnelse gir ikke full uttelling.\n\nDenne protokollen er selve sjanger G-ferdigheten («**sjanger G**» betyr en oppgave der du utleder en estimator og vurderer egenskapene — den vanligste typen i storoppgaven)."
+    },
+    {
+      "id": "tma4245-5-1-ex2",
+      "type": "example",
+      "title": "Eksempel 2: to forventningsrette kandidater — variansen avgjør",
+      "problem": "Trykket i en tank måles $n=4$ ganger uavhengig, hver måling med forventning $\\mu$ og varians $\\sigma^2$. To estimatorer for $\\mu$ vurderes:\n\n$$\\hat{\\mu}_1=\\bar{X}, \\qquad \\hat{\\mu}_2=\\tfrac{1}{2}(X_1+X_4)$$\n\n(gjennomsnittet av alle fire, mot gjennomsnittet av bare første og siste). Vis at begge er forventningsrette, og avgjør hvilken som bør brukes.",
+      "solution": "**Trinn 1 — forventningsretthet.** $E(\\bar{X})=\\mu$ (eksempel 1). For den andre: $E(\\hat{\\mu}_2)=\\tfrac{1}{2}(E(X_1)+E(X_4))=\\tfrac{1}{2}(\\mu+\\mu)=\\mu$. Begge forventningsrette, så skjevheten skiller dem ikke.\n\n**Trinn 2 — varians.**\n$$\\text{Var}(\\bar{X})=\\frac{\\sigma^2}{4}=0{,}25\\,\\sigma^2, \\qquad \\text{Var}(\\hat{\\mu}_2)=\\tfrac{1}{4}(\\sigma^2+\\sigma^2)=\\frac{\\sigma^2}{2}=0{,}5\\,\\sigma^2.$$\n\n**Trinn 3–4 — velg.** Begge forventningsrette, så vi velger den med minst varians: $\\bar{X}$, som halverer variansen ($0{,}25\\,\\sigma^2 < 0{,}5\\,\\sigma^2$). **Begrunnelse:** $\\hat{\\mu}_2$ kaster bort informasjonen i $X_2$ og $X_3$; $\\bar{X}$ bruker alle målingene og blir derfor mer presis."
+    },
+    {
+      "id": "tma4245-5-1-m2",
+      "type": "exercise",
+      "exercise": {
+        "id": "tma4245-5-1-m2",
+        "number": "3",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "En estimator $\\hat{\\theta}_A$ for en nedbøytningsrate har $E(\\hat{\\theta}_A)=\\theta$ og $\\text{Var}(\\hat{\\theta}_A)=11$. En konkurrerende estimator $\\hat{\\theta}_B$ er litt skjev: $E(\\hat{\\theta}_B)=\\theta+2$ og $\\text{Var}(\\hat{\\theta}_B)=5$.\n\n**a)** Finn skjevheten til hver estimator.\n\n**b)** Regn ut MSE for begge.\n\n**c)** Hvilken estimator har lavest samlet feil?",
+        "solution": "**a)** $b(\\hat{\\theta}_A)=\\theta-\\theta=0$ (forventningsrett). $b(\\hat{\\theta}_B)=(\\theta+2)-\\theta=2$.\n\n**b)** $\\text{MSE}(\\hat{\\theta}_A)=\\text{Var}+b^2=11+0^2=11$. $\\text{MSE}(\\hat{\\theta}_B)=5+2^2=5+4=9$.\n\n**c)** $\\hat{\\theta}_B$ har lavest MSE ($9<11$) — den **skjeve** estimatoren er samlet sett best her, fordi den lavere variansen mer enn oppveier skjevheten. Dette er hovedpoenget med MSE: forventningsrett slår ikke alltid skjev.",
+        "hints": [
+          "Skjevhet $=E(\\hat{\\theta})-\\theta$.",
+          "$\\text{MSE}=\\text{Var}+b^2$.",
+          "Sammenlign 11 og 9 — hvem bommer minst i snitt?"
+        ]
+      }
+    },
+    {
+      "id": "tma4245-5-1-pause2",
+      "type": "text",
+      "content": "*— naturlig pausepunkt —*"
+    },
+    {
+      "id": "tma4245-5-1-lokke3",
+      "type": "text",
+      "content": "## Løkke 3 — Standardresultatene: $\\bar{X}$ og $S^2$ (~18 min)"
+    },
+    {
+      "id": "tma4245-5-1-def-s2",
+      "type": "definition",
+      "title": "$S^2$ er forventningsrett for $\\sigma^2$ (divisor $n-1$)",
+      "content": "Utvalgsvariansen med divisor $n-1$,\n\n$$S^2 = \\frac{1}{n-1}\\sum_{i=1}^n (X_i-\\bar{X})^2,$$\n\ner **forventningsrett** for $\\sigma^2$: $E(S^2)=\\sigma^2$. Grunnen til at det må være $n-1$ og ikke $n$ ligger i nøkkelresultatet\n\n$$E\\!\\left[\\sum_{i=1}^n (X_i-\\bar{X})^2\\right] = (n-1)\\sigma^2.$$\n\n**Utledningsskisse:** skriv avvikene fra $\\bar{X}$ om til avvik fra $\\mu$ ved å legge til og trekke fra $\\mu$:\n$$\\sum (X_i-\\bar{X})^2 = \\sum (X_i-\\mu)^2 - n(\\bar{X}-\\mu)^2.$$\nTar vi forventning, og bruker $E[(X_i-\\mu)^2]=\\sigma^2$ og $E[(\\bar{X}-\\mu)^2]=\\text{Var}(\\bar{X})=\\sigma^2/n$:\n$$E\\!\\left[\\sum (X_i-\\bar{X})^2\\right] = n\\sigma^2 - n\\cdot\\frac{\\sigma^2}{n} = (n-1)\\sigma^2.$$\nDeler vi på $n-1$ (ikke $n$), får vi akkurat $\\sigma^2$. Én frihetsgrad «brukes opp» når vi erstatter det ukjente $\\mu$ med $\\bar{X}$."
+    },
+    {
+      "id": "tma4245-5-1-def-sigmahat-skjev",
+      "type": "definition",
+      "title": "ML-varianten $\\hat{\\sigma}^2$ er skjev",
+      "content": "Deler vi i stedet på $n$ (som maximum likelihood gjør, [kap. 5.2](/bok/tma4245/tma4245-5-2)):\n\n$$\\hat{\\sigma}^2 = \\frac{1}{n}\\sum_{i=1}^n (X_i-\\bar{X})^2,$$\n\nblir estimatoren **forventningsskjev**. Fra $E[\\sum(X_i-\\bar{X})^2]=(n-1)\\sigma^2$ følger\n\n$$E(\\hat{\\sigma}^2)=\\frac{n-1}{n}\\sigma^2 = \\sigma^2 - \\frac{\\sigma^2}{n},$$\n\nså skjevheten er $b=-\\sigma^2/n$ — den **undervurderer** variansen systematisk. For små $n$ er dette merkbart (for $n=5$ er forventningen bare $0{,}8\\,\\sigma^2$). Sammenhengen er $\\hat{\\sigma}^2=\\frac{n-1}{n}S^2$: ML-varianten er $S^2$ krympet med faktoren $(n-1)/n$."
+    },
+    {
+      "id": "tma4245-5-1-def-konsistens",
+      "type": "text",
+      "content": "### Konsistens (bør kjenne til)\n\nEn estimator er **konsistent** når den nærmer seg parameteren etter hvert som utvalget vokser — grovt sagt: både skjevheten og variansen går mot 0 når $n\\to\\infty$. For $\\bar{X}$ ser vi dette direkte: den er forventningsrett, og $\\text{Var}(\\bar{X})=\\sigma^2/n\\to 0$. Da må estimatoren «samle seg» rundt $\\mu$.\n\nDette er et **bør-kjenne-til**-poeng (nivå 3): du trenger sjelden å bevise konsistens på eksamen, men intuisjonen — «mer data gir en estimator som til slutt treffer» — er verdt å kunne uttrykke i ord. Både $S^2$ og den skjeve $\\hat{\\sigma}^2$ er konsistente, siden skjevheten $-\\sigma^2/n$ også forsvinner."
+    },
+    {
+      "id": "tma4245-5-1-ex3",
+      "type": "example",
+      "title": "Eksempel 3: skjevheten til $\\hat{\\sigma}^2$ tallfestet",
+      "problem": "Antall mikrosprekker per fiberprøve har ukjent varians $\\sigma^2$. Med $n=5$ prøver bruker en student ML-estimatoren $\\hat{\\sigma}^2=\\frac{1}{5}\\sum(X_i-\\bar{X})^2$. Hva er $E(\\hat{\\sigma}^2)$ uttrykt ved $\\sigma^2$, og hvor stor er skjevheten?",
+      "solution": "Bruk $E[\\sum(X_i-\\bar{X})^2]=(n-1)\\sigma^2=4\\sigma^2$ for $n=5$. Da er\n$$E(\\hat{\\sigma}^2)=\\frac{1}{5}\\cdot 4\\sigma^2 = \\frac{4}{5}\\sigma^2 = 0{,}8\\,\\sigma^2.$$\nSkjevheten er $b=E(\\hat{\\sigma}^2)-\\sigma^2 = 0{,}8\\sigma^2-\\sigma^2 = -0{,}2\\,\\sigma^2 = -\\sigma^2/5$. Estimatoren undervurderer variansen med 20 % i forventning. Den forventningsrette varianten deler på $n-1=4$ i stedet: $S^2=\\frac{1}{4}\\sum(X_i-\\bar{X})^2$, med $E(S^2)=\\sigma^2$. **Sensorpoeng:** at man ser at ML-varianten er skjev og korrigerer til $n-1$ er nettopp det Des23-fasiten belønner."
+    },
+    {
+      "id": "tma4245-5-1-v1",
+      "type": "exercise",
+      "exercise": {
+        "id": "tma4245-5-1-v1",
+        "number": "4",
+        "type": "classic",
+        "difficulty": "vanskelig",
+        "task": "For normalfordelte data er det kjent (oppgitt her) at $\\text{Var}(S^2)=\\dfrac{2\\sigma^4}{n-1}$, der $S^2$ er den forventningsrette utvalgsvariansen. Betrakt også ML-varianten $\\hat{\\sigma}^2=\\frac{n-1}{n}S^2$. La $n=5$.\n\n**a)** Finn $\\text{MSE}(S^2)$ uttrykt ved $\\sigma^4$.\n\n**b)** Finn skjevheten og variansen til $\\hat{\\sigma}^2$, og deretter $\\text{MSE}(\\hat{\\sigma}^2)$.\n\n**c)** Hvilken estimator har lavest MSE?",
+        "solution": "**a)** $S^2$ er forventningsrett, så $\\text{MSE}(S^2)=\\text{Var}(S^2)=\\dfrac{2\\sigma^4}{n-1}=\\dfrac{2\\sigma^4}{4}=0{,}5\\,\\sigma^4$.\n\n**b)** Skjevhet: $E(\\hat{\\sigma}^2)=\\frac{n-1}{n}\\sigma^2=\\frac{4}{5}\\sigma^2$, så $b=-\\frac{\\sigma^2}{5}$ og $b^2=\\frac{\\sigma^4}{25}=0{,}04\\,\\sigma^4$. Varians: $\\text{Var}(\\hat{\\sigma}^2)=\\left(\\frac{n-1}{n}\\right)^2\\text{Var}(S^2)=\\left(\\frac{4}{5}\\right)^2\\cdot\\frac{2\\sigma^4}{4}=\\frac{16}{25}\\cdot 0{,}5\\,\\sigma^4=0{,}32\\,\\sigma^4$. Da\n$$\\text{MSE}(\\hat{\\sigma}^2)=0{,}32\\,\\sigma^4+0{,}04\\,\\sigma^4=0{,}36\\,\\sigma^4.$$\n\n**c)** Den **skjeve** ML-varianten har lavest MSE ($0{,}36\\,\\sigma^4 < 0{,}5\\,\\sigma^4$). Enda et eksempel på at forventningsrett ikke automatisk vinner på MSE — men merk at $S^2$ likevel foretrekkes i praksis fordi forventningsrettheten gir enkle, tolkbare konfidensintervall (Del 6).",
+        "hints": [
+          "$S^2$ forventningsrett, så MSE = Var.",
+          "$\\hat{\\sigma}^2=\\frac{n-1}{n}S^2$ gir $\\text{Var}(\\hat{\\sigma}^2)=(\\frac{n-1}{n})^2\\text{Var}(S^2)$.",
+          "Legg sammen $\\text{Var}+b^2$ og sammenlign med 0,5."
+        ]
+      }
+    },
+    {
+      "id": "tma4245-5-1-v2",
+      "type": "exercise",
+      "exercise": {
+        "id": "tma4245-5-1-v2",
+        "number": "5",
+        "type": "classic",
+        "difficulty": "vanskelig",
+        "task": "En sensor måler samme lengde $\\mu$ med to instrumenter. Instrument 1 gir $m$ uavhengige målinger, hver med varians $\\sigma^2$; instrument 2 gir én enkelt måling $Y$ med varians $\\sigma^2$, uavhengig av de andre. La $\\bar{X}$ være gjennomsnittet fra instrument 1. Vurder to estimatorer for $\\mu$:\n\n$$\\hat{\\mu}_1=\\bar{X}, \\qquad \\hat{\\mu}_2 = \\tfrac{1}{2}\\bar{X} + \\tfrac{1}{2}Y.$$\n\n**a)** Vis at begge er forventningsrette.\n\n**b)** Finn variansen til hver (uttrykt ved $\\sigma^2$ og $m$).\n\n**c)** For hvilke $m$ er $\\hat{\\mu}_1$ best?",
+        "solution": "**a)** $E(\\bar{X})=\\mu$ og $E(Y)=\\mu$, så $E(\\hat{\\mu}_2)=\\tfrac{1}{2}\\mu+\\tfrac{1}{2}\\mu=\\mu$. Begge forventningsrette.\n\n**b)** $\\text{Var}(\\bar{X})=\\dfrac{\\sigma^2}{m}$. For $\\hat{\\mu}_2$, med $\\bar{X}$ og $Y$ uavhengige:\n$$\\text{Var}(\\hat{\\mu}_2)=\\tfrac{1}{4}\\text{Var}(\\bar{X})+\\tfrac{1}{4}\\text{Var}(Y)=\\tfrac{1}{4}\\cdot\\frac{\\sigma^2}{m}+\\tfrac{1}{4}\\sigma^2 = \\frac{\\sigma^2}{4}\\left(\\frac{1}{m}+1\\right).$$\n\n**c)** $\\hat{\\mu}_1$ er best når $\\dfrac{\\sigma^2}{m} < \\dfrac{\\sigma^2}{4}\\left(\\frac{1}{m}+1\\right)$, altså $\\dfrac{1}{m}<\\dfrac{1}{4}\\left(\\frac{1}{m}+1\\right)$, som gir $\\dfrac{4}{m}<\\frac{1}{m}+1$, altså $\\dfrac{3}{m}<1$, dvs. $m>3$. For $m\\ge 4$ er $\\bar{X}$ alene best; for $m\\le 2$ lønner det seg å blande inn $Y$; for $m=3$ er de like. (Poeng: den ene målingen $Y$ er verdifull bare når $\\bar{X}$ selv er upresis, dvs. når $m$ er liten.)",
+        "hints": [
+          "Vektene i $\\hat{\\mu}_2$ summerer til 1 → forventningsrett.",
+          "$\\bar{X}$ og $Y$ uavhengige: $\\text{Var}(\\hat{\\mu}_2)=\\tfrac14\\text{Var}(\\bar X)+\\tfrac14\\text{Var}(Y)$.",
+          "Løs ulikheten $\\sigma^2/m < \\tfrac{\\sigma^2}{4}(1/m+1)$ for $m$."
+        ]
+      }
+    },
+    {
+      "id": "tma4245-5-1-warn",
+      "type": "warning",
+      "title": "Typiske feil",
+      "content": "- **Forveksle estimator og estimat.** Estimatoren $\\hat{\\theta}$ er stokastisk (stor bokstav, har en fordeling); estimatet er tallet du får etter innsetting. En «varians av estimatet» gir ikke mening — det er estimatoren som har varians.\n- **Påstå forventningsretthet uten å regne.** Sensor vil se $E(\\hat{\\theta})$ regnet ut med regnereglene og at svaret blir $\\theta$. «$\\bar{X}$ er jo forventningsrett» uten utregning gir ikke poeng.\n- **Sammenligne på varians alene når en kandidat er skjev.** Er en av kandidatene skjev, må du bruke **MSE** ($\\text{Var}+b^2$), ikke bare variansen.\n- **Tro at forventningsrett alltid slår skjev.** MSE kan si det motsatte: en skjev estimator med liten nok varians (som ML-$\\hat{\\sigma}^2$) kan ha lavere MSE.\n- **Dele på $n$ i utvalgsvariansen.** Forventningsrett estimator for $\\sigma^2$ deler på $n-1$. Divisor $n$ gir den skjeve ML-varianten — riktig for ML, men skjev for $\\sigma^2$.\n- **Glemme kvadratene på vektene i variansen.** $\\text{Var}(\\sum a_iX_i)=\\sum a_i^2\\text{Var}(X_i)$ for uavhengige — vektene kvadreres."
+    },
+    {
+      "id": "tma4245-5-1-begrepsbank",
+      "type": "text",
+      "content": "## Begrepsbank til eksamen\n\nDefinisjonene og standardresultatene for estimatorvurdering, samlet i kortform.\n\n*Begrepsbanken er flashcard-/repetisjonsstoff — den gjentar det du nettopp har lest. Hopp trygt over ved førstegangslesing; tidsanslaget gjelder kjernestoffet.*"
+    },
+    {
+      "id": "tma4245-5-1-bb-xbar",
+      "type": "definition",
+      "title": "Kort: $\\bar{X}$ og $\\text{Var}(\\bar{X})=\\sigma^2/n$",
+      "content": "Gjennomsnittet $\\bar{X}=\\frac{1}{n}\\sum X_i$ er **forventningsrett** for $\\mu$ ($E(\\bar{X})=\\mu$) for enhver fordeling med forventning $\\mu$, og har varians $\\text{Var}(\\bar{X})=\\sigma^2/n$. Variansen synker med $n$, så flere målinger gir en skarpere estimator. Standardfeilen er $\\text{SE}(\\bar{X})=\\sigma/\\sqrt{n}$."
+    },
+    {
+      "id": "tma4245-5-1-bb-s2",
+      "type": "definition",
+      "title": "Kort: $S^2$ med divisor $n-1$",
+      "content": "$S^2=\\frac{1}{n-1}\\sum(X_i-\\bar{X})^2$ er **forventningsrett** for $\\sigma^2$: $E(S^2)=\\sigma^2$. Nøkkelen er $E[\\sum(X_i-\\bar{X})^2]=(n-1)\\sigma^2$ — én frihetsgrad forsvinner når $\\mu$ erstattes av $\\bar{X}$. Derfor divisor $n-1$, ikke $n$."
+    },
+    {
+      "id": "tma4245-5-1-bb-sigmahat",
+      "type": "definition",
+      "title": "Feilkort: ML-varianten er skjev",
+      "content": "ML-estimatoren $\\hat{\\sigma}^2=\\frac{1}{n}\\sum(X_i-\\bar{X})^2$ (divisor $n$) har $E(\\hat{\\sigma}^2)=\\frac{n-1}{n}\\sigma^2$, altså skjevhet $-\\sigma^2/n$ — den **undervurderer** variansen. Sammenhengen er $\\hat{\\sigma}^2=\\frac{n-1}{n}S^2$. Merkbart for små $n$; forsvinner når $n\\to\\infty$."
+    },
+    {
+      "id": "tma4245-5-1-bb-mse",
+      "type": "definition",
+      "title": "Formelkort: MSE",
+      "content": "$\\text{MSE}(\\hat{\\theta})=E[(\\hat{\\theta}-\\theta)^2]=\\text{Var}(\\hat{\\theta})+[b(\\hat{\\theta})]^2$, der $b=E(\\hat{\\theta})-\\theta$ er skjevheten. For forventningsrett estimator er $\\text{MSE}=\\text{Var}$. Bruk MSE når du sammenligner en forventningsrett mot en skjev kandidat — den skjeve kan vinne."
+    },
+    {
+      "id": "tma4245-5-1-bb-protokoll",
+      "type": "definition",
+      "title": "Oppskriftskort: sammenligningsprotokollen",
+      "content": "Å velge mellom estimatorer: **(1)** sjekk forventningsretthet (regn $E(\\hat{\\theta})$); **(2)** regn varianser; **(3)** alle forventningsrette → velg minst varians, ellers regn MSE for alle; **(4)** velg og begrunn med begge kriterier. Dette er sjanger G-vurderingen."
+    },
+    {
+      "id": "tma4245-5-1-bb-estimator-estimat",
+      "type": "definition",
+      "title": "Feilkort: estimator vs. estimat",
+      "content": "**Estimator** = stokastisk oppskrift, stor bokstav med hatt ($\\hat{\\theta}$, $\\bar{X}$), har fordeling med forventning og varians. **Estimat** = tallet etter innsetting av data ($\\bar{x}=7{,}2$). Bare estimatoren har varians og skjevhet — estimatet er et punkt."
+    },
+    {
+      "id": "tma4245-5-1-bb-var-veid",
+      "type": "definition",
+      "title": "Formelkort: varians av veid sum",
+      "content": "For uavhengige $X_1,\\ldots,X_n$ og konstanter $a_i$: $E(\\sum a_iX_i)=\\sum a_iE(X_i)$ og $\\text{Var}(\\sum a_iX_i)=\\sum a_i^2\\text{Var}(X_i)$. Vektene **kvadreres** i variansen. Summerer vektene til 1 og alle $E(X_i)=\\mu$, er den veide summen forventningsrett for $\\mu$; like vekter ($a_i=1/n$) gir minst varians."
+    },
+    {
+      "id": "tma4245-5-1-rep",
+      "type": "collapsible",
+      "title": "Repetisjonsoppgaver",
+      "buttonText": "Vis repetisjonsoppgaver",
+      "content": [
+        {
+          "id": "tma4245-5-1-rep-1",
+          "type": "exercise",
+          "exercise": {
+            "id": "tma4245-5-1-rep-1",
+            "number": "R1",
+            "type": "classic",
+            "difficulty": "lett",
+            "task": "(Fra kap. 2.1) $X$ og $Y$ er uavhengige med $\\text{Var}(X)=2$ og $\\text{Var}(Y)=3$. Finn $\\text{Var}(2X-Y)$.",
+            "solution": "$\\text{Var}(2X-Y)=2^2\\text{Var}(X)+(-1)^2\\text{Var}(Y)=4\\cdot 2+3=11$. (Kvadrer koeffisientene; ingen kovarians siden uavhengige.)",
+            "hints": [
+              "$\\text{Var}(aX+bY)=a^2\\text{Var}(X)+b^2\\text{Var}(Y)$ for uavhengige.",
+              "Husk $(-1)^2=1$."
+            ]
+          }
+        },
+        {
+          "id": "tma4245-5-1-rep-2",
+          "type": "exercise",
+          "exercise": {
+            "id": "tma4245-5-1-rep-2",
+            "number": "R2",
+            "type": "classic",
+            "difficulty": "lett",
+            "task": "(Fra kap. 3.2) $X_1,\\ldots,X_9$ er uavhengige med forventning $\\mu$ og varians $\\sigma^2=36$. Finn $\\text{Var}(\\bar{X})$ og standardfeilen.",
+            "solution": "$\\text{Var}(\\bar{X})=\\sigma^2/n=36/9=4$, og standardfeilen er $\\sqrt{4}=2$.",
+            "hints": [
+              "$\\text{Var}(\\bar{X})=\\sigma^2/n$.",
+              "SE er kvadratroten av variansen."
+            ]
+          }
+        },
+        {
+          "id": "tma4245-5-1-rep-3",
+          "type": "exercise",
+          "exercise": {
+            "id": "tma4245-5-1-rep-3",
+            "number": "R3",
+            "type": "classic",
+            "difficulty": "middels",
+            "task": "(Fra kap. 2.1) En variabel har $E(X)=3$ og $E(X^2)=13$. Finn $\\text{Var}(X)$.",
+            "solution": "$\\text{Var}(X)=E(X^2)-[E(X)]^2=13-3^2=13-9=4$.",
+            "hints": [
+              "Bruk regneformelen $\\text{Var}=E(X^2)-[E(X)]^2$."
+            ]
+          }
+        },
+        {
+          "id": "tma4245-5-1-rep-4",
+          "type": "exercise",
+          "exercise": {
+            "id": "tma4245-5-1-rep-4",
+            "number": "R4",
+            "type": "classic",
+            "difficulty": "middels",
+            "task": "(Fra kap. 1.4) Datasettet 3, 5, 5, 7 har gjennomsnitt 5. Finn den empiriske variansen $s^2$ (divisor $n-1$).",
+            "solution": "Avvik: $-2,0,0,2$; kvadratsum $=4+0+0+4=8$. $s^2=\\frac{8}{n-1}=\\frac{8}{3}\\approx 2{,}67$.",
+            "hints": [
+              "Kvadrer avvikene fra gjennomsnittet og summer.",
+              "Del på $n-1=3$, ikke $n$."
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": "tma4245-5-1-symbolliste",
+      "type": "collapsible",
+      "title": "Symbol- og formelliste",
+      "buttonText": "Vis symboler og formler",
+      "content": [
+        {
+          "id": "tma4245-5-1-symbolliste-text",
+          "type": "text",
+          "content": "*Oppslagsverk — alt her forklares underveis i kapitlet.*\n\nAlle symboler og formler brukt i kapittel 5.1, samlet.\n\n| Symbol | Betydning |\n|---|---|\n| $\\theta$ | En generell ukjent parameter |\n| $\\hat{\\theta}$ | Estimator for $\\theta$ (stokastisk, stor bokstav med hatt) |\n| $\\bar{X}$ | Utvalgsgjennomsnittet, estimator for $\\mu$ |\n| $S^2$ | Utvalgsvariansen med divisor $n-1$ |\n| $\\hat{\\sigma}^2$ | ML-varianten med divisor $n$ (skjev) |\n| $b(\\hat{\\theta})$ | Skjevhet (bias), $E(\\hat{\\theta})-\\theta$ |\n| $\\text{SE}(\\hat{\\theta})$ | Standardfeil, $\\sqrt{\\text{Var}(\\hat{\\theta})}$ |\n| $\\text{MSE}$ | Forventet kvadratavvik |\n\n**Formler i dette kapitlet:**\n\n$$E(\\hat{\\theta}) = \\theta$$\nForventningsretthet (skjevhet $b=E(\\hat{\\theta})-\\theta=0$).\n\n$$\\text{MSE}(\\hat{\\theta}) = E[(\\hat{\\theta}-\\theta)^2] = \\text{Var}(\\hat{\\theta}) + [b(\\hat{\\theta})]^2$$\nMSE = varians pluss skjevhet-kvadrert.\n\n$$E(\\bar{X})=\\mu, \\qquad \\text{Var}(\\bar{X})=\\frac{\\sigma^2}{n}$$\nGjennomsnittet er forventningsrett med varians $\\sigma^2/n$.\n\n$$E\\!\\left[\\sum (X_i-\\bar{X})^2\\right]=(n-1)\\sigma^2 \\;\\Rightarrow\\; E(S^2)=\\sigma^2$$\n$S^2$ med divisor $n-1$ er forventningsrett for $\\sigma^2$.\n\n$$E(\\hat{\\sigma}^2)=\\frac{n-1}{n}\\sigma^2, \\qquad \\hat{\\sigma}^2=\\frac{n-1}{n}S^2$$\nML-varianten (divisor $n$) er skjev, med skjevhet $-\\sigma^2/n$.\n\n$$\\text{Var}\\Big(\\sum a_iX_i\\Big)=\\sum a_i^2\\,\\text{Var}(X_i) \\quad (\\text{uavhengige})$$\nVarians av veid sum — vektene kvadreres."
+        }
+      ]
+    }
+  ],
+  "exercises": []
+}

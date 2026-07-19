@@ -1,0 +1,320 @@
+{
+  "id": "tma4245-5-3",
+  "courseId": "tma4245",
+  "chapterNumber": "5.3",
+  "title": "Asymptotisk normalitet og deltametoden",
+  "description": "ML-estimatorens tilnærmede normalfordeling og feilforplantning gjennom deriverte — de nye 2024-sjangrene.",
+  "estimatedMinutes": 45,
+  "competenceGoals": [
+    "bruke at ML-estimatorer er tilnærmet normalfordelte for stor $n$ og lage et normaltilnærmet konfidensintervall",
+    "bruke deltametoden til å finne tilnærmet varians for en funksjon $g(\\hat{\\theta})$ av en estimator",
+    "bruke deltametoden for flere uavhengige variable (feilforplantning)",
+    "evaluere den deriverte i forventningen og huske at den kvadreres"
+  ],
+  "content": [
+    {
+      "id": "tma4245-5-3-tip",
+      "type": "tip",
+      "title": "Eksamensvinkel",
+      "content": "**De nye 2024-sjangrene i punktestimering — det som skiller en A-besvarelse.**\n\n- **Asymptotisk normalitet for ML** ble spurt eksplisitt i Des23 (oppgave 3b): formuler at ML-estimatoren er tilnærmet normal og bruk det.\n- **Deltametoden** (feilforplantning gjennom en funksjon) er en **ny sjanger fra 2024** — Mai24 (Darcy-Weisbach-ligningen) og Des25 (halveringstid fra en regresjonshelning). Mai24 kombinerte deltametoden med en simuleringskontroll (kobling til kap. 9.2).\n- Prioritet: **kjenne** (nivå 3) — men det er nettopp slike punkter som **differensierer toppkarakterene**. Sannsynlig gjenbruk.\n\nDette er den avledede delen av **sjanger G** («sjanger G» = oppgaven der du utleder en estimator og vurderer den; her regner vi videre på en *funksjon* av estimatoren). Utledningen av at ML er asymptotisk normal kreves ikke — du skal kunne **bruke** resultatet. Deltametoden derimot brukes **aktivt**: identifiser funksjonen, deriver, sett inn."
+    },
+    {
+      "id": "tma4245-5-3-forkunnskaper",
+      "type": "text",
+      "content": "**Forkunnskaper:** Du må ha ML-estimatorene fra **[kap. 5.2](/bok/tma4245/tma4245-5-2)** (spesielt $\\hat{\\beta}=\\bar{X}$ og invariansprinsippet $\\widehat{g(\\theta)}=g(\\hat{\\theta})$) og **sentralgrenseteoremet** fra **[kap. 3.3](/bok/tma4245/tma4245-3-3)** — det er CLT som gjør at $\\bar{X}$ (og dermed mange ML-estimatorer) er tilnærmet normale for stor $n$. Fra [kap. 5.1](/bok/tma4245/tma4245-5-1) trenger du $\\text{Var}(\\bar{X})=\\sigma^2/n$.\n\nSist du var her (oppfrisket):\n$$\\frac{\\bar{X}-\\mu}{\\sigma/\\sqrt{n}}\\ \\text{tilnærmet}\\ N(0,1)\\quad(\\text{CLT}), \\qquad \\hat{\\beta}=\\bar{X}\\ \\text{med}\\ E(\\bar{X})=\\beta,\\ \\text{Var}(\\bar{X})=\\frac{\\beta^2}{n}.$$\n\nFra matematikken trenger du å **derivere** en funksjon $g$ i ett punkt. Et førsteordens Taylor-ledd ($g(\\hat{\\theta})\\approx g(\\mu)+g'(\\mu)(\\hat{\\theta}-\\mu)$) er hele det teoretiske verktøyet. Kapitlet er forkunnskap for normaltilnærmet KI i Del 6 og for simuleringskontroll i Del 9."
+    },
+    {
+      "id": "tma4245-5-3-intro",
+      "type": "text",
+      "content": "To ting kan gjøres med en ferdig ML-estimator. For det første: **hvordan er den fordelt?** For stor $n$ er svaret nesten alltid «tilnærmet normal» — det gir oss et raskt, normaltilnærmet konfidensintervall (løkke 1). For det andre: **hva om vi egentlig er interessert i en funksjon av parameteren** — halveringstiden $\\ln 2/k$ i stedet for raten $k$, eller strømningen som avhenger av flere målte størrelser? Da forplanter usikkerheten seg gjennom funksjonen, og **deltametoden** gir en tilnærmet varians for den avledede størrelsen (løkke 2 for én variabel, løkke 3 for flere).\n\nHverdagsanker: måler du en rate med litt usikkerhet og regner ut halveringstiden fra den, arver halveringstiden usikkerhet — men hvor mye? Deltametoden svarer ved å gange variansen med kvadratet av stigningstallet til funksjonen i punktet.\n\n*Samlet kjernetid ≈ 45 min. Naturlige pausepunkter er markert mellom løkkene.*"
+    },
+    {
+      "id": "tma4245-5-3-lokke1",
+      "type": "text",
+      "content": "## Løkke 1 — Asymptotisk normalitet og normaltilnærmet KI (~16 min)"
+    },
+    {
+      "id": "tma4245-5-3-def-asympt",
+      "type": "definition",
+      "title": "ML-estimatoren er asymptotisk normal",
+      "content": "Under vanlige regularitetsbetingelser er en ML-estimator **tilnærmet normalfordelt** for stor $n$:\n\n$$\\hat{\\theta}\\ \\text{tilnærmet}\\ N\\big(\\theta,\\ \\text{Var}(\\hat{\\theta})\\big) \\quad\\text{for stor } n.$$\n\nDu trenger **ikke utlede** dette — det er en konsekvens av sentralgrenseteoremet ([kap. 3.3](/bok/tma4245/tma4245-3-3)), fordi de fleste ML-estimatorer er (funksjoner av) gjennomsnitt. Konkret for eksponensial: $\\hat{\\beta}=\\bar{X}$ er et rent gjennomsnitt, så CLT gir direkte\n\n$$\\hat{\\beta}=\\bar{X}\\ \\text{tilnærmet}\\ N\\!\\left(\\beta,\\ \\frac{\\beta^2}{n}\\right),$$\n\nsiden $E(\\bar{X})=\\beta$ og $\\text{Var}(\\bar{X})=\\text{Var}(X)/n=\\beta^2/n$. Tilnærmingen blir bedre jo større $n$ er."
+    },
+    {
+      "id": "tma4245-5-3-def-approx-ki",
+      "type": "definition",
+      "title": "Normaltilnærmet konfidensintervall",
+      "content": "Er $\\hat{\\theta}$ tilnærmet $N(\\theta,\\text{Var}(\\hat{\\theta}))$, gir standard normal-logikk (Del 6) et **tilnærmet** $(1-\\alpha)$-konfidensintervall:\n\n$$\\hat{\\theta}\\ \\pm\\ z_{\\alpha/2}\\cdot\\text{SE}(\\hat{\\theta}),$$\n\nder $z_{\\alpha/2}$ er standardnormalens kvantil ($z_{0{,}025}=1{,}96$ for 95 %) og $\\text{SE}=\\sqrt{\\text{Var}(\\hat{\\theta})}$. For eksponensial er $\\text{SE}(\\hat{\\beta})=\\hat{\\beta}/\\sqrt{n}=\\bar{X}/\\sqrt{n}$ (vi setter inn estimatet for det ukjente $\\beta$ i standardfeilen). Dette er et **raskt tilnærmet** intervall — det eksakte $\\chi^2_{2n}$-intervallet fra kap. 6.2 er mer presist ved liten $n$."
+    },
+    {
+      "id": "tma4245-5-3-ex1",
+      "type": "example",
+      "title": "Eksempel 1: normaltilnærmet KI for $\\beta$",
+      "problem": "Levetiden til $n=20$ pumper er eksponensialfordelt med ukjent forventning $\\beta$, og gjennomsnittet er $\\bar{x}=8$ år. Bruk at $\\hat{\\beta}=\\bar{X}$ er tilnærmet $N(\\beta,\\beta^2/n)$ til å lage et tilnærmet 95 % konfidensintervall for $\\beta$.",
+      "solution": "ML-estimatet er $\\hat{\\beta}=\\bar{x}=8$. Standardfeilen (med $\\hat{\\beta}$ satt inn for $\\beta$):\n$$\\text{SE}(\\hat{\\beta})=\\frac{\\hat{\\beta}}{\\sqrt{n}}=\\frac{8}{\\sqrt{20}}=\\frac{8}{4{,}472}=1{,}789.$$\n\n95 %-intervallet bruker $z_{0{,}025}=1{,}96$:\n$$8\\ \\pm\\ 1{,}96\\cdot 1{,}789 = 8\\ \\pm\\ 3{,}506,$$\naltså tilnærmet $[4{,}49,\\ 11{,}51]$ år.\n\n**Kommentar:** intervallet er bredt fordi $n=20$ er relativt lite; da er det eksakte $\\chi^2_{40}$-intervallet (kap. 6.2) å foretrekke. Med større $n$ blir normaltilnærmingen god og de to intervallene nærmer seg hverandre."
+    },
+    {
+      "id": "tma4245-5-3-l1",
+      "type": "exercise",
+      "exercise": {
+        "id": "tma4245-5-3-l1",
+        "number": "1",
+        "type": "classic",
+        "difficulty": "lett",
+        "task": "(Innstegsoppgave.) En ML-estimator $\\hat{\\theta}$ har $\\hat{\\theta}=50$ og standardfeil $\\text{SE}(\\hat{\\theta})=4$, og er tilnærmet normalfordelt.\n\n**a)** Hvilken $z$-kvantil bruker du til et 95 % konfidensintervall?\n\n**b)** Sett opp det tilnærmede 95 %-intervallet.",
+        "solution": "**a)** $z_{0{,}025}=1{,}96$ (2,5 % i hver hale).\n\n**b)** $\\hat{\\theta}\\pm z_{0{,}025}\\cdot\\text{SE}=50\\pm 1{,}96\\cdot 4=50\\pm 7{,}84$, altså $[42{,}16,\\ 57{,}84]$.",
+        "hints": [
+          "95 % tosidig gir 2,5 % i hver hale, så $z_{0{,}025}=1{,}96$.",
+          "Intervall: $\\hat{\\theta}\\pm z\\cdot\\text{SE}$."
+        ]
+      }
+    },
+    {
+      "id": "tma4245-5-3-m1",
+      "type": "exercise",
+      "exercise": {
+        "id": "tma4245-5-3-m1",
+        "number": "2",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "Ventetider mellom feil på et kretskort er eksponensialfordelte med forventning $\\beta$. Med $n=25$ målinger er $\\bar{x}=12$ timer.\n\n**a)** Oppgi den tilnærmede fordelingen til $\\hat{\\beta}=\\bar{X}$.\n\n**b)** Lag et tilnærmet 90 % konfidensintervall for $\\beta$ (bruk $z_{0{,}05}=1{,}645$).",
+        "solution": "**a)** $\\hat{\\beta}=\\bar{X}$ er tilnærmet $N\\!\\big(\\beta,\\ \\beta^2/n\\big)=N\\!\\big(\\beta,\\ \\beta^2/25\\big)$ (CLT, siden $\\bar{X}$ er et gjennomsnitt av eksponensiale med $E=\\beta$, $\\text{Var}=\\beta^2$).\n\n**b)** $\\hat{\\beta}=12$, $\\text{SE}=\\hat{\\beta}/\\sqrt{n}=12/5=2{,}4$. 90 %-intervall:\n$$12\\pm 1{,}645\\cdot 2{,}4 = 12\\pm 3{,}948,$$\naltså tilnærmet $[8{,}05,\\ 15{,}95]$ timer.",
+        "hints": [
+          "$\\text{Var}(\\bar X)=\\beta^2/n$; sett inn $n=25$.",
+          "$\\text{SE}=\\hat{\\beta}/\\sqrt{n}=12/5$.",
+          "90 % gir 5 % i hver hale: $z_{0{,}05}=1{,}645$."
+        ]
+      }
+    },
+    {
+      "id": "tma4245-5-3-pause1",
+      "type": "text",
+      "content": "*— naturlig pausepunkt —*"
+    },
+    {
+      "id": "tma4245-5-3-lokke2",
+      "type": "text",
+      "content": "## Løkke 2 — Deltametoden for én variabel (~17 min)"
+    },
+    {
+      "id": "tma4245-5-3-def-delta",
+      "type": "definition",
+      "title": "Deltametoden (én variabel)",
+      "content": "Ofte er vi interessert i en **funksjon** $g(\\theta)$ av parameteren — men vi har bare estimatoren $\\hat{\\theta}$ med en kjent varians. **Deltametoden** gir en tilnærmet varians for $g(\\hat{\\theta})$:\n\n$$\\text{Var}\\big(g(\\hat{\\theta})\\big)\\ \\approx\\ \\big[g'(\\mu)\\big]^2\\,\\text{Var}(\\hat{\\theta}),$$\n\nder $g'$ evalueres i **forventningen** $\\mu=E(\\hat{\\theta})$ (parameterverdien, ikke i en enkelt observasjon).\n\n**Taylor-argumentet (én linje):** siden $\\hat{\\theta}$ ligger nær $\\mu$, gir en førsteordens Taylor-utvikling $g(\\hat{\\theta})\\approx g(\\mu)+g'(\\mu)(\\hat{\\theta}-\\mu)$. Dette er en lineær funksjon av $\\hat{\\theta}$, og variansen av $a+b\\hat{\\theta}$ er $b^2\\text{Var}(\\hat{\\theta})$ — med $b=g'(\\mu)$ får vi formelen. Den deriverte **kvadreres** — det er den vanligste feilen å glemme."
+    },
+    {
+      "id": "tma4245-5-3-arbeidsflyt",
+      "type": "text",
+      "content": "### Arbeidsflyten (fire steg)\n\n**1. Identifiser $g$** — hvilken funksjon av parameteren spør oppgaven om? (halveringstid, hale-sannsynlighet, areal, …)\n\n**2. Deriver** $g'(\\theta)$.\n\n**3. Sett inn** i formelen: $[g'(\\mu)]^2\\,\\text{Var}(\\hat{\\theta})$, evaluert i forventningen (bruk estimatet hvis den sanne verdien er ukjent).\n\n**4. Tolk** usikkerheten — oppgi standardfeilen $\\sqrt{\\text{Var}(g(\\hat{\\theta}))}$ og eventuelt et tilnærmet intervall.\n\n*Kobling:* en Monte Carlo-simulering (kap. 9.2) kan **kontrollere** delta-svaret — trekk mange $\\hat{\\theta}$-verdier, regn $g(\\hat{\\theta})$ og sammenlign den empiriske variansen med delta-formelen."
+    },
+    {
+      "id": "tma4245-5-3-ex2",
+      "type": "example",
+      "title": "Eksempel 2: halveringstid fra en estimert rate",
+      "problem": "En nedbrytningsrate $k$ (per døgn) estimeres med $\\hat{k}$, som har forventning $E(\\hat{k})=k=0{,}03$ og varians $\\text{Var}(\\hat{k})=v=0{,}0001$. Halveringstiden er $T=\\dfrac{\\ln 2}{k}$. Bruk deltametoden til å finne en tilnærmet varians (og standardfeil) for $\\hat{T}=\\dfrac{\\ln 2}{\\hat{k}}$.",
+      "solution": "**Steg 1 — identifiser $g$.** $g(k)=\\dfrac{\\ln 2}{k}=\\ln 2\\cdot k^{-1}$.\n\n**Steg 2 — deriver.** $g'(k)=-\\ln 2\\cdot k^{-2}=-\\dfrac{\\ln 2}{k^2}$.\n\n**Steg 3 — sett inn** (evaluert i $k=0{,}03$):\n$$\\text{Var}(\\hat{T})\\approx [g'(k)]^2\\,v = \\left(\\frac{\\ln 2}{k^2}\\right)^2 v = \\frac{(\\ln 2)^2}{k^4}\\,v.$$\nTallverdier: $(\\ln 2)^2=0{,}4805$, $k^4=(0{,}03)^4=8{,}1\\cdot 10^{-7}$, så\n$$\\text{Var}(\\hat{T})\\approx \\frac{0{,}4805\\cdot 0{,}0001}{8{,}1\\cdot 10^{-7}} \\approx 59{,}3.$$\n\n**Steg 4 — tolk.** Standardfeilen er $\\sqrt{59{,}3}\\approx 7{,}70$ døgn. Til sammenligning er selve halveringstiden $T=\\ln 2/0{,}03\\approx 23{,}1$ døgn, så usikkerheten er betydelig (≈ 33 % av verdien). Fortegnet på $g'$ spiller ingen rolle — det kvadreres bort."
+    },
+    {
+      "id": "tma4245-5-3-m2",
+      "type": "exercise",
+      "exercise": {
+        "id": "tma4245-5-3-m2",
+        "number": "3",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "En rate $\\theta$ estimeres med $\\hat{\\theta}$, som har forventning $\\mu=5$ og varians $\\text{Var}(\\hat{\\theta})=0{,}04$. Vi er interessert i $g(\\theta)=\\theta^2$.\n\n**a)** Finn $g'(\\theta)$.\n\n**b)** Bruk deltametoden til å finne den tilnærmede variansen til $\\hat{\\theta}^2$.\n\n**c)** Oppgi standardfeilen.",
+        "solution": "**a)** $g(\\theta)=\\theta^2$, så $g'(\\theta)=2\\theta$.\n\n**b)** Evaluert i $\\mu=5$: $g'(\\mu)=2\\cdot 5=10$, så\n$$\\text{Var}(\\hat{\\theta}^2)\\approx [g'(\\mu)]^2\\,\\text{Var}(\\hat{\\theta}) = 10^2\\cdot 0{,}04 = 100\\cdot 0{,}04 = 4.$$\n\n**c)** $\\text{SE}=\\sqrt{4}=2$.",
+        "hints": [
+          "$g'(\\theta)=2\\theta$; kvadratet av den deriverte inngår.",
+          "Evaluer $g'$ i forventningen $\\mu=5$, ikke i en observasjon.",
+          "$[g'(\\mu)]^2\\text{Var}(\\hat{\\theta})=100\\cdot 0{,}04$."
+        ]
+      }
+    },
+    {
+      "id": "tma4245-5-3-v1",
+      "type": "exercise",
+      "exercise": {
+        "id": "tma4245-5-3-v1",
+        "number": "4",
+        "type": "classic",
+        "difficulty": "vanskelig",
+        "task": "Levetiden til en komponent er eksponensialfordelt med forventning $\\beta$, og $\\hat{\\beta}=\\bar{X}$ har $\\text{Var}(\\hat{\\beta})=\\beta^2/n$. Vi vil estimere **pålitelighetstallet** $R=P(X>t)=e^{-t/\\beta}$ for en fast tid $t$.\n\n**a)** Skriv $R$ som en funksjon $g(\\beta)$ og finn $g'(\\beta)$.\n\n**b)** Bruk deltametoden til å finne $\\text{Var}(\\hat{R})$ uttrykt ved $\\beta$, $t$ og $n$.\n\n**c)** Regn ut $\\hat{R}$ og standardfeilen når $t=10$, $\\hat{\\beta}=8$ og $n=20$.",
+        "solution": "**a)** $g(\\beta)=e^{-t/\\beta}$. Med kjerneregelen ($\\frac{d}{d\\beta}(-t/\\beta)=t/\\beta^2$): $g'(\\beta)=e^{-t/\\beta}\\cdot\\dfrac{t}{\\beta^2}$.\n\n**b)** $\\text{Var}(\\hat{R})\\approx [g'(\\beta)]^2\\,\\text{Var}(\\hat{\\beta}) = \\left(\\dfrac{t}{\\beta^2}\\right)^2 e^{-2t/\\beta}\\cdot\\dfrac{\\beta^2}{n} = \\dfrac{t^2}{n\\,\\beta^2}\\,e^{-2t/\\beta}.$\n\n**c)** $\\hat{R}=e^{-10/8}=e^{-1{,}25}\\approx 0{,}2865$. Innsatt: $\\text{Var}(\\hat{R})\\approx \\dfrac{10^2}{20\\cdot 8^2}e^{-2\\cdot 10/8}=\\dfrac{100}{1280}e^{-2{,}5}=0{,}078125\\cdot 0{,}0821\\approx 0{,}006413$. Standardfeil $\\sqrt{0{,}006413}\\approx 0{,}080$. Altså $\\hat{R}\\approx 0{,}29$ med standardfeil $\\approx 0{,}08$.",
+        "hints": [
+          "Skriv $R=e^{-t/\\beta}$; deriver med kjerneregelen, $\\frac{d}{d\\beta}(-t/\\beta)=t/\\beta^2$.",
+          "Sett $[g'(\\beta)]^2$ ganger $\\beta^2/n$; noe $\\beta$-potens forkortes.",
+          "Regn $e^{-10/8}$ og $e^{-2\\cdot10/8}$ separat."
+        ]
+      }
+    },
+    {
+      "id": "tma4245-5-3-pause2",
+      "type": "text",
+      "content": "*— naturlig pausepunkt —*"
+    },
+    {
+      "id": "tma4245-5-3-lokke3",
+      "type": "text",
+      "content": "## Løkke 3 — Deltametoden for flere variable (~12 min)"
+    },
+    {
+      "id": "tma4245-5-3-def-delta-fler",
+      "type": "definition",
+      "title": "Deltametoden for flere uavhengige variable",
+      "content": "Avhenger en avledet størrelse av **flere** målte, **uavhengige** størrelser — $g(X,Y)$ — forplantes usikkerheten fra hver:\n\n$$\\text{Var}\\big(g(X,Y)\\big)\\ \\approx\\ \\Big(\\frac{\\partial g}{\\partial x}\\Big)^2\\text{Var}(X) + \\Big(\\frac{\\partial g}{\\partial y}\\Big)^2\\text{Var}(Y),$$\n\nder de **partiellderiverte** evalueres i forventningene $(\\mu_X,\\mu_Y)$. Hvert ledd er en «egen» deltametode; leddene legges sammen fordi variablene er uavhengige (ingen kovarians). Dette er standard **feilforplantning** i ingeniørfag — usikkerheten i et sluttresultat bygges opp av usikkerheten i hver innmåling, vektet med kvadratet av følsomheten $\\partial g/\\partial x$."
+    },
+    {
+      "id": "tma4245-5-3-ex3",
+      "type": "example",
+      "title": "Eksempel 3: areal fra to uavhengige målinger",
+      "problem": "Et rektangulært panel har målt bredde $X$ og høyde $Y$, uavhengige, med $\\mu_X=8$, $\\text{Var}(X)=0{,}25$, $\\mu_Y=5$, $\\text{Var}(Y)=0{,}16$ (alt i cm og cm$^2$). Arealet er $A=XY$. Finn en tilnærmet varians og standardfeil for $\\hat{A}=XY$.",
+      "solution": "**Identifiser $g$ og deriver.** $g(x,y)=xy$, så $\\dfrac{\\partial g}{\\partial x}=y$ og $\\dfrac{\\partial g}{\\partial y}=x$.\n\n**Sett inn** i forventningene $(\\mu_X,\\mu_Y)=(8,5)$: $g_x=\\mu_Y=5$ og $g_y=\\mu_X=8$. Da\n$$\\text{Var}(\\hat{A})\\approx \\mu_Y^2\\,\\text{Var}(X)+\\mu_X^2\\,\\text{Var}(Y)=5^2\\cdot 0{,}25 + 8^2\\cdot 0{,}16 = 6{,}25 + 10{,}24 = 16{,}49.$$\n\n**Tolk.** Standardfeilen er $\\sqrt{16{,}49}\\approx 4{,}06$ cm$^2$, mens selve arealet er $A=8\\cdot 5=40$ cm$^2$ — en relativ usikkerhet på ≈ 10 %. Merk hvordan begge målingene bidrar: høydens usikkerhet ($10{,}24$) veier tyngst her fordi bredden $\\mu_X=8$ forsterker den."
+    },
+    {
+      "id": "tma4245-5-3-v2",
+      "type": "exercise",
+      "exercise": {
+        "id": "tma4245-5-3-v2",
+        "number": "5",
+        "type": "classic",
+        "difficulty": "vanskelig",
+        "task": "En strømningsrate estimeres som forholdet $R=\\dfrac{V}{T}$ mellom målt volum $V$ og målt tid $T$, uavhengige, med $\\mu_V=100$, $\\text{Var}(V)=4$, $\\mu_T=20$, $\\text{Var}(T)=1$.\n\n**a)** Finn de partiellderiverte av $g(v,t)=v/t$.\n\n**b)** Bruk deltametoden til å finne $\\text{Var}(\\hat{R})$.\n\n**c)** Oppgi $\\hat{R}$ og standardfeilen.",
+        "solution": "**a)** $g(v,t)=v/t=v\\,t^{-1}$: $\\dfrac{\\partial g}{\\partial v}=\\dfrac{1}{t}$ og $\\dfrac{\\partial g}{\\partial t}=-\\dfrac{v}{t^2}$.\n\n**b)** Evaluert i $(\\mu_V,\\mu_T)=(100,20)$: $g_v=1/20=0{,}05$, $g_t=-100/20^2=-0{,}25$. Da\n$$\\text{Var}(\\hat{R})\\approx g_v^2\\text{Var}(V)+g_t^2\\text{Var}(T)=(0{,}05)^2\\cdot 4 + (-0{,}25)^2\\cdot 1 = 0{,}01 + 0{,}0625 = 0{,}0725.$$\n\n**c)** $\\hat{R}=\\mu_V/\\mu_T=100/20=5$, standardfeil $\\sqrt{0{,}0725}\\approx 0{,}269$. Altså $\\hat{R}\\approx 5{,}0$ med standardfeil $\\approx 0{,}27$. (Fortegnet på $g_t$ forsvinner i kvadreringen.)",
+        "hints": [
+          "$\\partial(v/t)/\\partial v=1/t$, $\\partial(v/t)/\\partial t=-v/t^2$.",
+          "Kvadrer hver partiellderivert og gang med tilhørende varians; legg sammen.",
+          "$\\hat R=\\mu_V/\\mu_T$; SE er kvadratroten av $\\text{Var}(\\hat R)$."
+        ]
+      }
+    },
+    {
+      "id": "tma4245-5-3-warn",
+      "type": "warning",
+      "title": "Typiske feil",
+      "content": "- **Glemme kvadratet på den deriverte.** Deltametoden er $\\text{Var}(g(\\hat{\\theta}))\\approx[g'(\\mu)]^2\\text{Var}(\\hat{\\theta})$ — den deriverte **kvadreres**. Uten kvadrat får du feil enhet og feil tall.\n- **Evaluere $g'$ i en observasjon i stedet for i forventningen.** $g'$ settes inn i parameterverdien $\\mu=E(\\hat{\\theta})$ (eller estimatet hvis den er ukjent), ikke i en enkelt $x_i$.\n- **Derivere med hensyn på feil variabel.** Sjekk hva funksjonen faktisk avhenger av — deriver mhp. parameteren, ikke mhp. tiden $t$ eller en annen konstant.\n- **Bruke deltametoden når en eksakt fordeling finnes og etterspørres.** Deltametoden er en *tilnærming*. Ber oppgaven om et eksakt intervall (f.eks. via $\\chi^2_{2n}$), bruk det — ikke delta.\n- **Glemme å legge sammen leddene i flervariabel-formen.** For uavhengige $X,Y$ summeres $g_x^2\\text{Var}(X)$ og $g_y^2\\text{Var}(Y)$; hopp ikke over det ene bidraget.\n- **Tro at et bredt normaltilnærmet KI er «feil».** Ved liten $n$ er det bare mindre presist enn det eksakte $\\chi^2$-intervallet; det er en tilnærming, ikke en feil."
+    },
+    {
+      "id": "tma4245-5-3-begrepsbank",
+      "type": "text",
+      "content": "## Begrepsbank til eksamen\n\nAsymptotisk normalitet og deltametodens formler, i kortform.\n\n*Begrepsbanken er flashcard-/repetisjonsstoff — den gjentar det du nettopp har lest. Hopp trygt over ved førstegangslesing; tidsanslaget gjelder kjernestoffet.*"
+    },
+    {
+      "id": "tma4245-5-3-bb-asympt",
+      "type": "definition",
+      "title": "Resultatkort: ML asymptotisk normal",
+      "content": "For stor $n$ er en ML-estimator tilnærmet $N(\\theta,\\text{Var}(\\hat{\\theta}))$ (konsekvens av CLT — utledes ikke). For eksponensial: $\\hat{\\beta}=\\bar{X}$ tilnærmet $N(\\beta,\\beta^2/n)$. Gir et raskt normaltilnærmet KI $\\hat{\\theta}\\pm z_{\\alpha/2}\\text{SE}$."
+    },
+    {
+      "id": "tma4245-5-3-bb-ki",
+      "type": "definition",
+      "title": "Formelkort: normaltilnærmet KI",
+      "content": "$\\hat{\\theta}\\pm z_{\\alpha/2}\\,\\text{SE}(\\hat{\\theta})$, med $z_{0{,}025}=1{,}96$ (95 %) eller $z_{0{,}05}=1{,}645$ (90 %). For eksponensial: $\\text{SE}(\\hat{\\beta})=\\bar{X}/\\sqrt{n}$. Ved liten $n$ er det eksakte $\\chi^2_{2n}$-intervallet (kap. 6.2) mer presist."
+    },
+    {
+      "id": "tma4245-5-3-bb-delta1",
+      "type": "definition",
+      "title": "Formelkort: deltametoden (én variabel)",
+      "content": "$\\text{Var}(g(\\hat{\\theta}))\\approx[g'(\\mu)]^2\\text{Var}(\\hat{\\theta})$, med $g'$ evaluert i forventningen $\\mu$. Fra Taylor $g(\\hat{\\theta})\\approx g(\\mu)+g'(\\mu)(\\hat{\\theta}-\\mu)$. Arbeidsflyt: identifiser $g$, deriver, sett inn, tolk. Den deriverte **kvadreres**."
+    },
+    {
+      "id": "tma4245-5-3-bb-delta-fler",
+      "type": "definition",
+      "title": "Formelkort: deltametoden (flere variable)",
+      "content": "For uavhengige $X,Y$: $\\text{Var}(g(X,Y))\\approx g_x^2\\text{Var}(X)+g_y^2\\text{Var}(Y)$, partiellderiverte evaluert i $(\\mu_X,\\mu_Y)$. Standard feilforplantning: hver innmålings usikkerhet vektes med kvadratet av følsomheten og legges sammen."
+    },
+    {
+      "id": "tma4245-5-3-bb-arbeidsflyt",
+      "type": "definition",
+      "title": "Oppskriftskort: deltametodens arbeidsflyt",
+      "content": "Fire steg: **(1)** identifiser funksjonen $g$ oppgaven spør om; **(2)** deriver $g'(\\theta)$ (eller partiellderiverte); **(3)** sett inn $[g'(\\mu)]^2\\text{Var}(\\hat{\\theta})$, evaluert i forventningen; **(4)** tolk usikkerheten via standardfeilen $\\sqrt{\\text{Var}(g(\\hat{\\theta}))}$. En Monte Carlo-simulering (kap. 9.2) kan kontrollere svaret."
+    },
+    {
+      "id": "tma4245-5-3-bb-feil",
+      "type": "definition",
+      "title": "Feilkort: de to delta-fellene",
+      "content": "(1) **Glem ikke kvadratet** på $g'$ — det er $[g'(\\mu)]^2$, ikke $g'(\\mu)$. (2) **Evaluer $g'$ i forventningen** $\\mu=E(\\hat{\\theta})$ (eller estimatet), aldri i en enkelt observasjon. En Monte Carlo-simulering (kap. 9.2) kan kontrollere svaret."
+    },
+    {
+      "id": "tma4245-5-3-rep",
+      "type": "collapsible",
+      "title": "Repetisjonsoppgaver",
+      "buttonText": "Vis repetisjonsoppgaver",
+      "content": [
+        {
+          "id": "tma4245-5-3-rep-1",
+          "type": "exercise",
+          "exercise": {
+            "id": "tma4245-5-3-rep-1",
+            "number": "R1",
+            "type": "classic",
+            "difficulty": "lett",
+            "task": "(Fra kap. 3.3) Formuler kort hva sentralgrenseteoremet sier om gjennomsnittet $\\bar{X}$.",
+            "solution": "For uavhengige, identisk fordelte $X_i$ med forventning $\\mu$ og endelig varians $\\sigma^2$ er $\\frac{\\bar{X}-\\mu}{\\sigma/\\sqrt{n}}$ tilnærmet $N(0,1)$ for stor $n$; altså er $\\bar{X}$ tilnærmet $N(\\mu,\\sigma^2/n)$.",
+            "hints": [
+              "Tre forutsetninger: uavhengige, identisk fordelte, endelig varians."
+            ]
+          }
+        },
+        {
+          "id": "tma4245-5-3-rep-2",
+          "type": "exercise",
+          "exercise": {
+            "id": "tma4245-5-3-rep-2",
+            "number": "R2",
+            "type": "classic",
+            "difficulty": "lett",
+            "task": "(Fra kap. 5.2) Hva er ML-estimatoren for eksponensialens forventning $\\beta$, og hva er $\\text{Var}(\\hat{\\beta})$?",
+            "solution": "$\\hat{\\beta}=\\bar{X}$, og $\\text{Var}(\\hat{\\beta})=\\text{Var}(\\bar{X})=\\text{Var}(X)/n=\\beta^2/n$.",
+            "hints": [
+              "$\\text{Var}(X)=\\beta^2$ for eksponensial; $\\text{Var}(\\bar X)=\\text{Var}(X)/n$."
+            ]
+          }
+        },
+        {
+          "id": "tma4245-5-3-rep-3",
+          "type": "exercise",
+          "exercise": {
+            "id": "tma4245-5-3-rep-3",
+            "number": "R3",
+            "type": "classic",
+            "difficulty": "middels",
+            "task": "(Derivasjon) Deriver $g(\\theta)=\\ln 2/\\theta$ mhp. $\\theta$.",
+            "solution": "$g(\\theta)=\\ln 2\\cdot\\theta^{-1}$, så $g'(\\theta)=-\\ln 2\\cdot\\theta^{-2}=-\\dfrac{\\ln 2}{\\theta^2}$.",
+            "hints": [
+              "$\\frac{d}{d\\theta}(\\theta^{-1})=-\\theta^{-2}$; $\\ln 2$ er en konstant."
+            ]
+          }
+        },
+        {
+          "id": "tma4245-5-3-rep-4",
+          "type": "exercise",
+          "exercise": {
+            "id": "tma4245-5-3-rep-4",
+            "number": "R4",
+            "type": "classic",
+            "difficulty": "middels",
+            "task": "(Fra kap. 5.2) Bruk invariansprinsippet: hva er ML-estimatoren for $P(X>5)=e^{-5/\\beta}$ i eksponensialmodellen?",
+            "solution": "$\\widehat{P(X>5)}=e^{-5/\\hat{\\beta}}=e^{-5/\\bar{X}}$ — sett $\\hat{\\beta}=\\bar{X}$ inn i funksjonen.",
+            "hints": [
+              "Invarians: $\\widehat{g(\\beta)}=g(\\hat\\beta)$ med $\\hat\\beta=\\bar X$."
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": "tma4245-5-3-symbolliste",
+      "type": "collapsible",
+      "title": "Symbol- og formelliste",
+      "buttonText": "Vis symboler og formler",
+      "content": [
+        {
+          "id": "tma4245-5-3-symbolliste-text",
+          "type": "text",
+          "content": "*Oppslagsverk — alt her forklares underveis i kapitlet.*\n\nAlle symboler og formler brukt i kapittel 5.3, samlet.\n\n| Symbol | Betydning |\n|---|---|\n| $\\hat{\\theta}$ | ML-estimator, tilnærmet normal for stor $n$ |\n| $\\text{Var}(\\hat{\\theta})$ | Variansen til estimatoren |\n| $\\text{SE}(\\hat{\\theta})$ | Standardfeil, $\\sqrt{\\text{Var}(\\hat{\\theta})}$ |\n| $z_{\\alpha/2}$ | Standardnormalens øvre $\\alpha/2$-kvantil |\n| $g(\\theta)$ | Funksjon av parameteren vi vil estimere |\n| $g'(\\mu)$ | Derivert av $g$, evaluert i forventningen |\n| $g_x, g_y$ | Partiellderiverte i flervariabel-formen |\n\n**Formler i dette kapitlet:**\n\n$$\\hat{\\theta}\\ \\text{tilnærmet}\\ N\\big(\\theta,\\ \\text{Var}(\\hat{\\theta})\\big), \\qquad \\hat{\\beta}=\\bar{X}\\ \\text{tilnærmet}\\ N\\!\\left(\\beta,\\ \\frac{\\beta^2}{n}\\right)$$\nAsymptotisk normalitet for ML (fra CLT).\n\n$$\\hat{\\theta}\\ \\pm\\ z_{\\alpha/2}\\,\\text{SE}(\\hat{\\theta})$$\nNormaltilnærmet konfidensintervall ($z_{0{,}025}=1{,}96$, $z_{0{,}05}=1{,}645$).\n\n$$\\text{Var}\\big(g(\\hat{\\theta})\\big)\\approx \\big[g'(\\mu)\\big]^2\\,\\text{Var}(\\hat{\\theta})$$\nDeltametoden for én variabel (den deriverte kvadreres).\n\n$$g(\\hat{\\theta})\\approx g(\\mu)+g'(\\mu)(\\hat{\\theta}-\\mu)$$\nTaylor-argumentet bak deltametoden.\n\n$$\\text{Var}\\big(g(X,Y)\\big)\\approx g_x^2\\,\\text{Var}(X)+g_y^2\\,\\text{Var}(Y)$$\nDeltametoden for flere uavhengige variable (feilforplantning)."
+        }
+      ]
+    }
+  ],
+  "exercises": []
+}

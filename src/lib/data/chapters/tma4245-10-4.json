@@ -1,0 +1,187 @@
+{
+  "id": "tma4245-10-4",
+  "courseId": "tma4245",
+  "chapterNumber": "10.4",
+  "title": "Øvingseksamen 3: Inspera-hybrid med oppskriftsfordeling og deltametode",
+  "description": "Komplett firetimers sett etter Aug24-malen (60 p) som treffer A-differensiatorene: ukjent fordeling, to-kilders likelihood, deltametoden og origo-regresjon.",
+  "estimatedMinutes": 240,
+  "competenceGoals": [
+    "håndtere en ukjent oppskriftsfordeling med oppgitt CDF ved standardteknikkene",
+    "bruke deltametoden og bekrefte resultatet med simulering",
+    "sammenligne flere estimatorer i regresjon uten konstantledd"
+  ],
+  "content": [
+    {
+      "id": "tma4245-10-4-tip",
+      "type": "tip",
+      "title": "Om Øvingseksamen 3",
+      "content": "Dette er et **komplett firetimers sett** (240 minutter, 60 poeng ujevnt fordelt) etter **Aug24-malen** — Inspera-hybrid som treffer **A-differensiatorene**: en ukjent oppskriftsfordeling, kombinert likelihood fra to datakilder, deltametoden og regresjon uten konstantledd. Du kan **trygt dele settet over flere økter**. Ha formelsamlingen (hjelpemiddelkode C), $\\Phi$-, $t$- og $\\chi^2$-tabellene og en enkel kalkulator klare. Småoppgavene har **Inspera-presisjonskrav** (autorettet tallsvar); de store rettes for begrunnelse. Fasitene er A-besvarelser med vektings-tips."
+    },
+    {
+      "id": "tma4245-10-4-forkunnskaper",
+      "type": "text",
+      "content": "**Forkunnskaper:** Oppgave 1 bruker [kap. 1.4](/bok/tma4245/tma4245-1-4) (boksplott), [kap. 2.1](/bok/tma4245/tma4245-2-1) ($P(Y=y)=0$ for kontinuerlig $Y$), [kap. 3.1](/bok/tma4245/tma4245-3-1) (normal-kvantil) og [kap. 6.1](/bok/tma4245/tma4245-6-1) (KI-tolkning). Oppgave 2 hviler på [kap. 2.3](/bok/tma4245/tma4245-2-3) (oppskriftsfordelinger med oppgitt CDF), [kap. 5.2](/bok/tma4245/tma4245-5-2) (ML) og [kap. 6.2](/bok/tma4245/tma4245-6-2) (pivotal-KI og transformasjon). Oppgave 3 kombinerer likelihood fra [kap. 5.2](/bok/tma4245/tma4245-5-2) med den eksakte testen i [kap. 7.2](/bok/tma4245/tma4245-7-2). Oppgave 4 bruker deltametoden fra [kap. 5.3](/bok/tma4245/tma4245-5-3) og simuleringskontroll ([kap. 9.2](/bok/tma4245/tma4245-9-2)). Oppgave 5 er origo-regresjon fra [kap. 8.3](/bok/tma4245/tma4245-8-3)."
+    },
+    {
+      "id": "tma4245-10-4-intro",
+      "type": "text",
+      "content": "Settet blander **småoppgaver** (Oppgave 1, autorettede kortsvar med to desimaler) og **fire store oppgaver** (2–5, håndrettet). Poengfordeling: **10 / 14 / 12 / 12 / 12** = 60. På småoppgavene teller bare tallsvaret — regn eksakt og oppgi to desimaler; på de store teller begrunnelsen fullt ut.\n\n**Tidsbudsjett (240 min):** ~30 min på Oppgave 1, ~50 min på hver av de store, og buffer til slutt. Dette settet er tyngre enn gjennomsnittet — sikre delpunktene du kan, og la deg ikke stoppe av det siste."
+    },
+    {
+      "id": "tma4245-10-4-o1",
+      "type": "collapsible",
+      "title": "Oppgave 1 — småoppgaver (10 p): tolkning og kortsvar-feller",
+      "buttonText": "Vis oppgave 1",
+      "content": [
+        {
+          "id": "tma4245-10-4-o1-taska",
+          "type": "text",
+          "content": "**a)** Boksplottene under viser nedbrytningstiden (dager) for tre plasttyper. Ranger plasttypene etter median og etter spredning (IQR), og pek på hva som tyder på høyreskjevhet hos én av dem."
+        },
+        {
+          "id": "tma4245-10-4-o1-img",
+          "type": "image",
+          "src": "/images/textbook/tma4245/tma4245-10-4-boksplott.svg",
+          "alt": "Tre boksplott side ved side: type A med bred boks og lang øvre whisker, type B med høyest median og moderat spredning, type C med lav median og smal boks.",
+          "caption": "Figur til Oppgave 1a): nedbrytningstid for tre plasttyper."
+        },
+        {
+          "id": "tma4245-10-4-o1-taskbcd",
+          "type": "text",
+          "content": "**b)** Nedbrytningstiden $Y$ til plasttype B modelleres som en kontinuerlig stokastisk variabel. Hva er $P(Y=35)$?\n\n**c)** Et $95\\,\\%$ konfidensintervall for gjennomsnittlig nedbrytningstid ble $(33,\\ 39)$ dager. Hvilket utsagn er korrekt?\n(a) $95\\,\\%$ av observasjonene ligger mellom $33$ og $39$ dager.\n(b) Sannsynligheten er $95\\,\\%$ for at den sanne forventningen ligger mellom $33$ og $39$.\n(c) Gjentar vi hele prosedyren mange ganger, vil ca. $95\\,\\%$ av de konstruerte intervallene dekke den sanne forventningen.\n(d) $95\\,\\%$ av framtidige målinger vil falle i intervallet.\n\n**d)** Nedbrytningstiden til plasttype C er tilnærmet $N(500,\\ 40^2)$ timer. Finn grensen $x_0$ slik at bare $5\\,\\%$ av prøvene har lengre nedbrytningstid enn $x_0$. Oppgi svaret med to desimaler."
+        },
+        {
+          "id": "tma4245-10-4-o1-sol",
+          "type": "text",
+          "content": "**Løsningsforslag.**\n\n**a)** **Median:** type B (ca. $35$) $>$ type A (ca. $24$) $>$ type C (ca. $18$) dager. **Spredning (IQR):** type A (boks fra $20$ til $34$, IQR $\\approx14$) $>$ type B (IQR $\\approx10$) $>$ type C (IQR $\\approx7$). **Høyreskjevhet:** type A — medianen ligger nær nedre kvartil, og den **øvre whiskeren er klart lengre** enn den nedre, så halen strekker seg mot høye verdier.\n\n**b)** For en kontinuerlig variabel er $P(Y=35)=0$. Sannsynlighet knyttes til intervaller, ikke enkeltpunkter; tettheten er ikke en sannsynlighet.\n\n**c)** Riktig: **(c)**. Konfidensnivået er en egenskap ved **metoden** over gjentatte utvalg — ikke en sannsynlighet for den faste (men ukjente) parameteren, og ikke en andel av observasjoner eller framtidige målinger.\n\n**d)** Vi vil ha $P(X>x_0)=0{,}05$, altså $x_0=\\mu+z_{0{,}05}\\,\\sigma=500+1{,}6449\\cdot40=500+65{,}79=565{,}79$. **Svar: $565{,}79$.**\n\n> *Felle:* i c) er den frekventistiske dekningstolkningen den eneste korrekte; de tre andre er de klassiske feiltolkningene. I d) brukes standardavviket $\\sigma=40$, ikke variansen $1600$."
+        },
+        {
+          "id": "tma4245-10-4-o1-vekt",
+          "type": "tip",
+          "title": "Vekt og tid",
+          "content": "**10 poeng · ca. 30 min.** Sjangre M (boksplott) + O (kortsvar-feller). Begrunn den grafiske tolkningen i mønstre; b), c) og d) er klassiske Inspera-feller."
+        }
+      ]
+    },
+    {
+      "id": "tma4245-10-4-o2",
+      "type": "collapsible",
+      "title": "Oppgave 2 — oppskriftsfordeling: ekstremverdi med oppgitt CDF (14 p)",
+      "buttonText": "Vis oppgave 2",
+      "content": [
+        {
+          "id": "tma4245-10-4-o2-task",
+          "type": "text",
+          "content": "Den årlige maksimale flomvannstanden $X$ (i meter over normalnivå) ved en elv modelleres med en ekstremverdifordeling med fordelingsfunksjon\n$$F(x)=\\exp\\!\\left(-\\left(\\frac{\\theta}{x}\\right)^2\\right),\\qquad x>0,$$\nder $\\theta>0$ er ukjent. Du har $n=12$ årlige maksima med $\\sum_{i=1}^{12}x_i^{-2}=0{,}75$ (m$^{-2}$).\n\n**a)** Skriv opp halesannsynligheten $P(X>x)$, og regn den ut for $x=8$ m når $\\theta=4$.\n\n**b)** Vis at $p$-kvantilen er $x_p=\\theta/\\sqrt{-\\ln p}$, og finn «hundreårsflommen» $x_{0{,}99}$ (nivået som overskrides i gjennomsnitt hvert hundrede år) uttrykt ved $\\theta$.\n\n**c)** Utled maximum likelihood-estimatoren $\\hat{\\theta}$, og regn ut estimatet.\n\n**d)** Vis at $2\\theta^2\\sum X_i^{-2}\\sim\\chi^2_{2n}$, lag et $90\\,\\%$ KI for $\\theta$, og transformer det til et KI for hundreårsflommen. Kvantiler: $\\chi^2_{24;\\,0{,}05}=36{,}415$, $\\chi^2_{24;\\,0{,}95}=13{,}848$."
+        },
+        {
+          "id": "tma4245-10-4-o2-sol-ab",
+          "type": "text",
+          "content": "**Løsningsforslag.**\n\n**a)** $P(X>x)=1-F(x)=1-\\exp\\!\\big(-(\\theta/x)^2\\big)$. Med $\\theta=4$, $x=8$: $P(X>8)=1-\\exp(-(4/8)^2)=1-e^{-0{,}25}=0{,}2212$.\n\n**b)** Kvantilen løser $F(x_p)=p$: $\\exp(-(\\theta/x_p)^2)=p\\Rightarrow (\\theta/x_p)^2=-\\ln p\\Rightarrow x_p=\\dfrac{\\theta}{\\sqrt{-\\ln p}}$. Hundreårsflommen har overskridelsessannsynlighet $1/100$, altså $p=0{,}99$: $x_{0{,}99}=\\dfrac{\\theta}{\\sqrt{-\\ln 0{,}99}}=\\dfrac{\\theta}{\\sqrt{0{,}010050}}=9{,}975\\,\\theta$.\n\n— naturlig pausepunkt —"
+        },
+        {
+          "id": "tma4245-10-4-o2-sol-cd",
+          "type": "text",
+          "content": "**c)** Tettheten: $f(x)=F'(x)=\\exp(-\\theta^2x^{-2})\\cdot 2\\theta^2x^{-3}$. Log-likelihood:\n$$l(\\theta)=\\sum_{i=1}^n\\Big(-\\frac{\\theta^2}{x_i^2}+\\ln 2+2\\ln\\theta-3\\ln x_i\\Big)=-\\theta^2\\sum x_i^{-2}+2n\\ln\\theta+\\text{konst}.$$\n$$l'(\\theta)=-2\\theta\\sum x_i^{-2}+\\frac{2n}{\\theta}=0\\ \\Rightarrow\\ \\theta^2=\\frac{n}{\\sum x_i^{-2}}\\ \\Rightarrow\\ \\hat{\\theta}=\\sqrt{\\frac{n}{\\sum x_i^{-2}}}.$$\nEstimat: $\\hat{\\theta}=\\sqrt{12/0{,}75}=\\sqrt{16}=4{,}0$ m.\n\n**d)** La $V=\\theta^2/X^2$. Da er $P(V\\le v)=P(X\\ge\\theta/\\sqrt{v})=1-F(\\theta/\\sqrt{v})=1-\\exp(-v)$, så $V\\sim\\text{eksp}(1)$. Dermed $2V_i\\sim\\chi^2_2$ og\n$$2\\theta^2\\sum X_i^{-2}=2\\sum V_i\\sim\\chi^2_{2n}=\\chi^2_{24}.$$\nMed $2\\sum x_i^{-2}=1{,}5$ og $90\\,\\%$-dekning:\n$$\\chi^2_{24;\\,0{,}95}\\le 1{,}5\\,\\theta^2\\le\\chi^2_{24;\\,0{,}05}\\ \\Rightarrow\\ \\frac{13{,}848}{1{,}5}\\le\\theta^2\\le\\frac{36{,}415}{1{,}5},$$\naltså $\\theta^2\\in(9{,}232,\\ 24{,}277)$ og $\\theta\\in(3{,}04,\\ 4{,}93)$ m. Siden hundreårsflommen $x_{0{,}99}=9{,}975\\,\\theta$ er en **monoton (voksende)** funksjon av $\\theta$, transformerer vi endepunktene direkte:\n$$x_{0{,}99}\\in(9{,}975\\cdot3{,}04,\\ 9{,}975\\cdot4{,}93)=(30{,}31,\\ 49{,}15)\\ \\text{m}.$$\n\n> *Sensormerknad:* frihetsgraden er $2n=24$. Transformasjonen til $x_{0{,}99}$ er lovlig fordi funksjonen er monoton — da bevares intervallendepunktene. Legg merke til at $\\hat{\\theta}=4{,}0$ ikke ligger midt i KI-et; kjikvadrat-intervallet er ikke symmetrisk."
+        },
+        {
+          "id": "tma4245-10-4-o2-vekt",
+          "type": "tip",
+          "title": "Vekt og tid",
+          "content": "**14 poeng · ca. 50 min.** Sjangre C+G+H. En ukjent fordelingsform skal ikke skremme: bruk standardteknikkene (CDF-regning, kvantil ved $F(x_p)=p$, ML, pivotal). Transformasjonen i d) krever bare at funksjonen er monoton."
+        }
+      ]
+    },
+    {
+      "id": "tma4245-10-4-o3",
+      "type": "collapsible",
+      "title": "Oppgave 3 — to datakilder deler parameter (12 p)",
+      "buttonText": "Vis oppgave 3",
+      "content": [
+        {
+          "id": "tma4245-10-4-o3-task",
+          "type": "text",
+          "content": "Levetiden til en komponenttype antas eksponensialfordelt med felles forventning $\\beta$ (år): $f(x)=\\tfrac{1}{\\beta}e^{-x/\\beta}$. To uavhengige laboratorier tester samme komponent. Lab 1 måler $n_1=8$ komponenter med $\\sum x_i=32$ år; lab 2 måler $n_2=12$ komponenter med $\\sum y_j=52$ år.\n\n**a)** Skriv opp den kombinerte likelihooden og utled ML-estimatoren $\\hat{\\beta}$ for begge datasett samlet. Regn ut estimatet.\n\n**b)** Begrunn at $2(\\sum X_i+\\sum Y_j)/\\beta\\sim\\chi^2_{2(n_1+n_2)}$.\n\n**c)** Produsenten hevder at $\\beta=6$ år. Test $H_0:\\beta=6$ mot $H_1:\\beta<6$ på $5\\,\\%$-nivå med en eksakt test. Kvantil: $\\chi^2_{40;\\,0{,}95}=26{,}509$."
+        },
+        {
+          "id": "tma4245-10-4-o3-sol",
+          "type": "text",
+          "content": "**Løsningsforslag.**\n\n**a)** Med uavhengige data multipliseres likelihoodene:\n$$L(\\beta)=\\prod_{i=1}^{n_1}\\frac{1}{\\beta}e^{-x_i/\\beta}\\cdot\\prod_{j=1}^{n_2}\\frac{1}{\\beta}e^{-y_j/\\beta}=\\beta^{-(n_1+n_2)}\\exp\\!\\Big(-\\tfrac{1}{\\beta}\\big(\\textstyle\\sum x_i+\\sum y_j\\big)\\Big).$$\n$$l(\\beta)=-(n_1+n_2)\\ln\\beta-\\frac{\\sum x_i+\\sum y_j}{\\beta},\\qquad l'(\\beta)=-\\frac{n_1+n_2}{\\beta}+\\frac{\\sum x_i+\\sum y_j}{\\beta^2}=0.$$\nDet gir $\\hat{\\beta}=\\dfrac{\\sum x_i+\\sum y_j}{n_1+n_2}=\\dfrac{32+52}{8+12}=\\dfrac{84}{20}=4{,}2$ år.\n\n**b)** For eksponensiale data er $2\\sum X_i/\\beta\\sim\\chi^2_{2n_1}$ og $2\\sum Y_j/\\beta\\sim\\chi^2_{2n_2}$, uavhengige. En sum av uavhengige kjikvadrater har frihetsgrader som legges sammen, så\n$$\\frac{2\\big(\\sum X_i+\\sum Y_j\\big)}{\\beta}\\sim\\chi^2_{2n_1+2n_2}=\\chi^2_{40}.$$\n\n— naturlig pausepunkt —\n\n**c)** Under $H_0:\\beta=6$ er teststørrelsen $W=\\dfrac{2\\cdot84}{6}=28{,}0$ med $40$ frihetsgrader. $H_1:\\beta<6$ betyr kortere levetider, altså **liten** $\\sum$ og dermed **liten** $W$; vi forkaster når $W<\\chi^2_{40;\\,0{,}95}=26{,}509$. Siden $28{,}0>26{,}509$, **forkastes ikke $H_0$** på $5\\,\\%$-nivå (p-verdi $=P(\\chi^2_{40}\\le28{,}0)=0{,}077$). Vi har ikke sterkt nok belegg for at levetiden er under $6$ år, men resultatet er på grensen.\n\n> *Sensormerknad:* nøkkelen i a) er at de to summene slås sammen i én estimator; frihetsgraden i b) er $2(n_1+n_2)=40$. Retningen $H_1:\\beta<6$ gir venstre hale av $\\chi^2$."
+        },
+        {
+          "id": "tma4245-10-4-o3-vekt",
+          "type": "tip",
+          "title": "Vekt og tid",
+          "content": "**12 poeng · ca. 50 min.** Sjangre G+I. Kombinert likelihood = produkt (uavhengige kilder); den eksakte testen bruker $\\chi^2$-pivotalen, ikke en normaltilnærming."
+        }
+      ]
+    },
+    {
+      "id": "tma4245-10-4-o4",
+      "type": "collapsible",
+      "title": "Oppgave 4 — deltametoden med simuleringskontroll (12 p)",
+      "buttonText": "Vis oppgave 4",
+      "content": [
+        {
+          "id": "tma4245-10-4-o4-task",
+          "type": "text",
+          "content": "Levetiden til et relé er eksponensialfordelt med forventning $\\beta$ (i tusen timer), estimert ved $\\hat{\\beta}=\\bar{X}$ fra $n=25$ enheter. Vi vil anslå **pålitelighet ved $10\\,000$ timer**, $R=P(X>10)=e^{-10/\\beta}$. Anta $\\hat{\\beta}=8$.\n\n**a)** Bruk deltametoden til å finne et uttrykk for $\\text{Var}(\\hat{R})$ der $\\hat{R}=e^{-10/\\hat{\\beta}}$, gitt at $\\text{Var}(\\hat{\\beta})\\approx\\beta^2/n$.\n\n**b)** Regn ut $\\hat{R}$, den tilnærmede standardfeilen, og et $95\\,\\%$ konfidensintervall for $R$.\n\n**c)** Skriv Python-kode som kontrollerer deltametoden ved simulering, og kommenter hva du forventer å se når antall simuleringer øker."
+        },
+        {
+          "id": "tma4245-10-4-o4-sol",
+          "type": "text",
+          "content": "**Løsningsforslag.**\n\n**a)** Med $g(\\beta)=e^{-10/\\beta}$ er $g'(\\beta)=e^{-10/\\beta}\\cdot\\dfrac{10}{\\beta^2}$. Deltametoden gir\n$$\\text{Var}(\\hat{R})\\approx\\big[g'(\\beta)\\big]^2\\text{Var}(\\hat{\\beta})=e^{-20/\\beta}\\cdot\\frac{100}{\\beta^4}\\cdot\\frac{\\beta^2}{n}=\\frac{100\\,e^{-20/\\beta}}{\\beta^2 n}.$$\n\n**b)** $\\hat{R}=e^{-10/8}=e^{-1{,}25}=0{,}2865$. Sett inn $\\beta\\approx\\hat{\\beta}=8$, $n=25$:\n$$\\text{Var}(\\hat{R})\\approx\\frac{100\\,e^{-2{,}5}}{64\\cdot25}=\\frac{100\\cdot0{,}082085}{1600}=0{,}005130,\\qquad \\text{SE}(\\hat{R})=0{,}0716.$$\n$95\\,\\%$ KI: $0{,}2865\\pm1{,}96\\cdot0{,}0716=0{,}2865\\pm0{,}1403=(0{,}146,\\ 0{,}427)$. Intervallet er bredt — påliteligheten er usikkert bestemt med $n=25$.\n\n— naturlig pausepunkt —\n\n**c)** Vi trekker mange datasett med sann $\\beta=8$, regner $\\hat{R}$ i hvert, og sammenligner den empiriske variansen med deltaformelen (feilforplantning ved simulering, [kap. 9.2](/bok/tma4245/tma4245-9-2)):\n\n```python\nimport numpy as np\n\nbeta, n, t = 8.0, 25, 10.0\nrng = np.random.default_rng(7)\n\ndef sim_var(M):\n    X = rng.exponential(beta, size=(M, n))   # scale = forventning = beta\n    Rhat = np.exp(-t / X.mean(axis=1))\n    return Rhat.mean(), Rhat.var(ddof=1)\n\nfor M in [10**4, 10**5, 10**6]:\n    m, v = sim_var(M)\n    print(M, round(m, 4), round(v, 6))\n```\n\nEn kjøring gir (omtrent):\n\n| $M$ | gj.snitt $\\hat{R}$ | empirisk $\\text{Var}(\\hat{R})$ |\n|---|---|---|\n| $10^4$ | 0,281 | 0,00480 |\n| $10^5$ | 0,281 | 0,00488 |\n| $10^6$ | 0,281 | 0,00489 |\n\nDen simulerte variansen ($\\approx0{,}0049$) ligger nær deltaverdien ($0{,}00513$); deltametoden er en **førsteordens** tilnærming og bommer litt fordi $g$ er ikke-lineær (samme grunn til at gjennomsnittet $0{,}281$ er så vidt under $R=0{,}2865$ — en liten forventningsskjevhet). Når $M$ øker, **stabiliserer** simuleringsestimatene seg (Monte Carlo-støyen avtar som $1/\\sqrt{M}$), men de konvergerer mot de sanne simuleringsverdiene, ikke mot deltaformelen — de to metodene er enige om størrelsesorden, ikke eksakt.\n\n> *Sensormerknad:* `scale`-argumentet i `np.random.exponential` er forventningen $\\beta$ (ikke raten). `ddof=1` for empirisk varians. Poenget i c) er at simulering *bekrefter* deltametoden og synliggjør dens tilnærmingsfeil."
+        },
+        {
+          "id": "tma4245-10-4-o4-vekt",
+          "type": "tip",
+          "title": "Vekt og tid",
+          "content": "**12 poeng · ca. 50 min.** Sjanger N + deltametoden (kap. 5.3). Deriver $g$ nøye i a); i c) er koden kort, men `scale=beta` og `ddof=1` må sitte."
+        }
+      ]
+    },
+    {
+      "id": "tma4245-10-4-o5",
+      "type": "collapsible",
+      "title": "Oppgave 5 — regresjon uten konstantledd (12 p)",
+      "buttonText": "Vis oppgave 5",
+      "content": [
+        {
+          "id": "tma4245-10-4-o5-task",
+          "type": "text",
+          "content": "En fjær testes: påført kraft $Y$ (N) mot forlengelse $x$ (mm). Hookes lov tilsier $Y_i=\\beta x_i+\\varepsilon_i$ (ingen kraft ved null forlengelse), $\\varepsilon_i$ uavhengige $N(0,\\sigma^2)$. Målingene er\n\n| $x$ | 2 | 4 | 6 | 8 | 10 | 12 |\n|---|---|---|---|---|---|---|\n| $y$ | 5 | 9 | 15 | 18 | 26 | 29 |\n\nTre estimatorer foreslås: $\\hat{\\beta}_1=\\dfrac{\\sum x_iY_i}{\\sum x_i^2}$, $\\hat{\\beta}_2=\\dfrac{1}{n}\\sum\\dfrac{Y_i}{x_i}$, $\\hat{\\beta}_3=\\dfrac{\\bar{Y}}{\\bar{x}}$.\n\n**a)** Begrunn origo-modellen, og regn ut $\\hat{\\beta}_1$.\n\n**b)** Vis at alle tre er forventningsrette, skriv opp variansene, og avgjør hvilken du ville brukt.\n\n**c)** Finn $s^2$ med riktig frihetsgrad, og gi et $95\\,\\%$ KI for $\\beta$. Bruk $t_{5;\\,0{,}025}=2{,}571$."
+        },
+        {
+          "id": "tma4245-10-4-o5-sol",
+          "type": "text",
+          "content": "**Løsningsforslag.**\n\n**a)** Ved null forlengelse virker ingen kraft, så $E(Y)=0$ når $x=0$ — origo-modellen (uten konstantledd) er fysisk riktig. Råsummer: $\\sum x_i^2=4+16+36+64+100+144=364$; $\\sum x_iY_i=10+36+90+144+260+348=888$. Dermed $\\hat{\\beta}_1=888/364=2{,}440$ N/mm.\n\n**b)** Med $E(Y_i)=\\beta x_i$ og linearitet:\n$$E(\\hat{\\beta}_1)=\\frac{\\sum x_i\\beta x_i}{\\sum x_i^2}=\\beta,\\quad E(\\hat{\\beta}_2)=\\frac{1}{n}\\sum\\frac{\\beta x_i}{x_i}=\\beta,\\quad E(\\hat{\\beta}_3)=\\frac{\\beta\\bar{x}}{\\bar{x}}=\\beta,$$\nså alle tre er forventningsrette. Variansene (med $\\text{Var}(Y_i)=\\sigma^2$):\n$$\\text{Var}(\\hat{\\beta}_1)=\\frac{\\sigma^2}{\\sum x_i^2}=\\frac{\\sigma^2}{364}=0{,}00275\\,\\sigma^2,$$\n$$\\text{Var}(\\hat{\\beta}_2)=\\frac{\\sigma^2}{n^2}\\sum\\frac{1}{x_i^2}=\\frac{\\sigma^2}{36}\\cdot0{,}3728=0{,}01036\\,\\sigma^2,\\qquad \\text{Var}(\\hat{\\beta}_3)=\\frac{\\sigma^2}{n\\bar{x}^2}=\\frac{\\sigma^2}{6\\cdot49}=0{,}00340\\,\\sigma^2.$$\nRangering: $\\text{Var}(\\hat{\\beta}_1)<\\text{Var}(\\hat{\\beta}_3)<\\text{Var}(\\hat{\\beta}_2)$. Alle er forventningsrette, så vi velger den med minst varians: **$\\hat{\\beta}_1$** (minste kvadraters estimator).\n\n— naturlig pausepunkt —\n\n**c)** $\\text{SSE}=\\sum(y_i-\\hat{\\beta}_1x_i)^2=5{,}670$. I origo-modellen estimeres bare **én** parameter, så frihetsgraden er $n-1=5$: $s^2=5{,}670/5=1{,}134$, $s=1{,}065$. $\\text{SE}(\\hat{\\beta}_1)=s/\\sqrt{\\sum x_i^2}=1{,}065/\\sqrt{364}=0{,}0558$. KI:\n$$\\hat{\\beta}_1\\pm t_{5;\\,0{,}025}\\,\\text{SE}=2{,}440\\pm2{,}571\\cdot0{,}0558=2{,}440\\pm0{,}143=(2{,}30,\\ 2{,}58)\\ \\text{N/mm}.$$\n\n> *Sensormerknad:* frihetsgraden er $n-1=5$ i origo-modellen (bare $\\beta$ estimert), ikke $n-2$. Kvadrer $x_i$-ene i variansene."
+        },
+        {
+          "id": "tma4245-10-4-o5-vekt",
+          "type": "tip",
+          "title": "Vekt og tid",
+          "content": "**12 poeng · ca. 50 min.** Sjangre J+G. Origo-modellen har $n-1$ frihetsgrader (ikke $n-2$). Blant forventningsrette estimatorer velges den med minst varians."
+        }
+      ]
+    },
+    {
+      "id": "tma4245-10-4-selvdiagnose",
+      "type": "text",
+      "content": "### Selvdiagnose — Øvingseksamen 3\n\nKryss av det du klarte uten å slå opp fasit:\n\n- ☐ Jeg rangerte boksplottene etter median og IQR og begrunnet høyreskjevheten (Oppgave 1a).\n- ☐ Jeg svarte $P(Y=35)=0$ og valgte den frekventistiske KI-tolkningen (Oppgave 1b–c).\n- ☐ Jeg brukte $\\sigma$ (ikke variansen) i normal-kvantilen og fikk $565{,}79$ (Oppgave 1d).\n- ☐ Jeg regnet hale, kvantil, ML og $\\chi^2_{24}$-KI for oppskriftsfordelingen og transformerte til hundreårsflommen (Oppgave 2).\n- ☐ Jeg slo sammen de to datakildene i én likelihood og fikk frihetsgrad $2(n_1+n_2)=40$ (Oppgave 3).\n- ☐ Jeg deriverte $g$ i deltametoden, regnet KI for $R$ og bekreftet med simulering (`scale=beta`, `ddof=1`) (Oppgave 4).\n- ☐ Jeg viste at de tre origo-estimatorene er forventningsrette, valgte minst varians, og brukte frihetsgrad $n-1$ (Oppgave 5)."
+    },
+    {
+      "id": "tma4245-10-4-symbol",
+      "type": "collapsible",
+      "title": "Symbol- og formelliste",
+      "buttonText": "Vis symboler og formler",
+      "content": [
+        {
+          "id": "tma4245-10-4-symbol-txt",
+          "type": "text",
+          "content": "*Oppslagsverk — alt her forklares underveis i oppgavene og i de refererte kapitlene.*\n\n| Symbol | Betydning |\n|---|---|\n| IQR | interkvartilbredde $Q_3-Q_1$ (spredning i boksplott) |\n| $F(x)$ | fordelingsfunksjon; oppgitt CDF for oppskriftsfordelingen |\n| $x_p$ | $p$-kvantilen, løser $F(x_p)=p$ |\n| $\\theta,\\hat{\\theta}$ | parameter i ekstremverdifordelingen og ML-estimatoren |\n| $\\chi^2_{\\nu,\\alpha}$ | øvre $\\alpha$-kvantil i kjikvadrat med $\\nu$ frihetsgrader |\n| $\\beta,\\hat{\\beta}$ | forventet levetid og ML-estimator (kombinert over to datakilder) |\n| $g(\\beta),g'(\\beta)$ | avledet størrelse og dens deriverte (deltametoden) |\n| $R=e^{-t/\\beta}$ | pålitelighet ved tid $t$ |\n| $\\hat{\\beta}_1,\\hat{\\beta}_2,\\hat{\\beta}_3$ | tre estimatorer i origo-regresjonen |\n\n**Formler i dette kapitlet:**\n\n$$x_0=\\mu+z_\\alpha\\sigma\\ \\ (P(X>x_0)=\\alpha),\\qquad P(Y=y)=0\\ \\text{for kontinuerlig }Y$$\nNormal-kvantil baklengs og punktsannsynlighet null i det kontinuerlige tilfellet.\n\n$$x_p=\\frac{\\theta}{\\sqrt{-\\ln p}},\\qquad \\hat{\\theta}=\\sqrt{\\frac{n}{\\sum x_i^{-2}}},\\qquad 2\\theta^2\\sum X_i^{-2}\\sim\\chi^2_{2n}$$\nKvantil, ML og pivotal for oppskriftsfordelingen i Oppgave 2.\n\n$$\\hat{\\beta}=\\frac{\\sum x_i+\\sum y_j}{n_1+n_2},\\qquad \\frac{2(\\sum X_i+\\sum Y_j)}{\\beta}\\sim\\chi^2_{2(n_1+n_2)}$$\nKombinert ML og eksakt test fra to datakilder.\n\n$$\\text{Var}(g(\\hat{\\beta}))\\approx[g'(\\beta)]^2\\,\\text{Var}(\\hat{\\beta})$$\nDeltametoden (førsteordens feilforplantning).\n\n$$\\hat{\\beta}_1=\\frac{\\sum x_iY_i}{\\sum x_i^2},\\quad \\text{Var}(\\hat{\\beta}_1)=\\frac{\\sigma^2}{\\sum x_i^2},\\quad s^2=\\frac{\\text{SSE}}{n-1},\\quad T\\sim t_{n-1}$$\nOrigo-regresjonen: LS-estimator med minst varians og inferens med $n-1$ frihetsgrader."
+        }
+      ]
+    }
+  ],
+  "exercises": []
+}

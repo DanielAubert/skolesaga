@@ -1,0 +1,427 @@
+{
+  "id": "tma4245-9-1",
+  "courseId": "tma4245",
+  "chapterNumber": "9.1",
+  "title": "Inversjonsmetoden og numpy-verktøykassen",
+  "description": "Fra $F^{-1}$ på papir til kjørbar numpy-funksjon: simulering fra en vilkårlig fordeling med inversjonsmetoden.",
+  "estimatedMinutes": 60,
+  "competenceGoals": [
+    "utlede den inverse fordelingsfunksjonen $F^{-1}$ og bruke inversjonsmetoden til å simulere fra en oppgitt fordeling",
+    "skrive komplett, vektorisert numpy-kode med riktige idiomer for trekk, forventning og varians",
+    "lese ferdig simuleringskode og avgjøre hvilken fordeling den genererer og hva den estimerer",
+    "unngå de vanligste numpy-fellene (scale mot varians, ddof, F mot f)"
+  ],
+  "content": [
+    {
+      "id": "tma4245-9-1-tip",
+      "type": "tip",
+      "title": "Eksamensvinkel",
+      "content": "**Det største strukturelle skiftet i emnet på ti år: koden har flyttet inn i eksamen.** Der resten av boka lar deg *regne* svaret, lar denne delen deg *simulere* det — og sensor forventer at du kan skrive numpy som faktisk kjører.\n\n- **Python/MC totalt i 8 av 9 sett siden des. 2023.** Selve inversjonsmetoden — utlede $F^{-1}$ analytisk og skrive/fullføre en numpy-funksjon — er testet i **Des23, Aug24, Aug25 og Des25** (Des25 var en Gumbel-fordeling). I Des23 ble du dessuten bedt om å *tolke gitt kode*: hvilken fordeling genererer snutten, og hva estimerer den?\n- Dette er **sjanger N** — *sjanger N* betyr rett og slett en oppgave der du skal *lese, skrive eller fullføre programkode* (oftest simulering). Prioritet: **kunne** (nivå 2), men reelt obligatorisk lesning, for koden dukker nå opp i nesten hvert sett.\n\n**Hvor poengene sitter:** i at koden er **komplett og kjørbar**. Delvis kode gir bare delvis uttelling. Inversjonsmetoden står *ikke* i formelsamlingen (hjelpemiddelkode C har fordelingstabellene, ikke simuleringsteknikken) — den **må kunnes aktivt**: utled $F$, løs $F(x)=u$, implementer."
+    },
+    {
+      "id": "tma4245-9-1-forkunnskaper",
+      "type": "text",
+      "content": "**Forkunnskaper:** Dette kapitlet bygger rett på **[kap. 2.4](/bok/tma4245/tma4245-2-4)** — der du drillet å gå fra en oppgitt tetthet $f(x)$ til fordelingsfunksjonen $F(x)$ og til kvantiler ved å løse $F(x_p)=p$. Nettopp den ferdigheten er motoren i inversjonsmetoden. Fra **[kap. 4.1](/bok/tma4245/tma4245-4-1)** tar vi med at fordelingen til en transformert variabel styres av fordelingsfunksjonen, og fra **[kap. 5.1](/bok/tma4245/tma4245-5-1)** hvorfor empirisk varians deles på $n-1$ (det blir `ddof=1` i numpy).\n\n**Sist du var her — de tre resultatene metoden hviler på (ferdig oppfrisket):**\n\n1. **Fordelingsfunksjonen fra tettheten:** $F(x)=\\int_{\\text{start}}^{x} f(s)\\,ds$, oppgitt komplett (0 under støtten, uttrykket inne, 1 over).\n2. **Kvantilen løser $F(x_p)=p$** — løs likningen for $x$, aldri $f(x)=p$. Den inverse funksjonen $F^{-1}$ er nettopp «løs $F(x)=u$ for $x$».\n3. **Halesannsynlighet:** $P(X>x)=1-F(x)$.\n\nMatematisk trenger du å kunne integrere polynomer og potenser, løse en enkel likning for $x$, og lese grunnleggende numpy. Ingen ny sannsynlighetsteori innføres her — bare et nytt verktøy for den du alt kan."
+    },
+    {
+      "id": "tma4245-9-1-intro",
+      "type": "text",
+      "content": "**Hverdagsanker:** en terning gir deg tilfeldige heltall 1–6. Men hva om du trenger tilfeldige *bølgehøyder*, *levetider* eller *ventetider* med en helt bestemt fordeling? Datamaskinen kan bare gi deg ett råstoff: uniformt fordelte tall mellom 0 og 1 (`np.random.uniform`). **Inversjonsmetoden** er oppskriften som gjør om det råstoffet til trekk fra hvilken som helst fordeling du kan skrive $F$ for — du «mater» de uniforme tallene inn i $F^{-1}$.\n\nKapitlet går i fire løkker: **inversjonsmetoden og beviset** (løkke 1), **et hale-eksempel fra bunnen** (løkke 2), **numpy-verktøykassa** med de idiomene sensor ser etter (løkke 3), og **kodelesing som egen ferdighet** (løkke 4). Hver løkke går teori $\\to$ eksempel $\\to$ oppgave.\n\n*Samlet kjernetid ≈ 60 min. Naturlige pausepunkter er markert mellom løkkene. All kode i kapitlet er komplett og faktisk kjørt — du kan lime den rett inn og få tallene som står.*"
+    },
+    {
+      "id": "tma4245-9-1-lokke1",
+      "type": "text",
+      "content": "## Løkke 1 — Inversjonsmetoden og beviset (~16 min)"
+    },
+    {
+      "id": "tma4245-9-1-thm-inv",
+      "type": "theorem",
+      "title": "Inversjonsmetoden",
+      "content": "La $F$ være en (kontinuerlig, strengt voksende) fordelingsfunksjon med invers $F^{-1}$. Er $U\\sim \\text{uniform}(0,1)$, så har\n\n$$X=F^{-1}(U)$$\n\nnøyaktig fordelingsfunksjon $F$.\n\n**Beviset i tre linjer.** Vi regner ut fordelingsfunksjonen til $X=F^{-1}(U)$ direkte. Fordi $F$ er voksende, er $F^{-1}(U)\\le x$ det samme som $U\\le F(x)$:\n\n$$P\\big(F^{-1}(U)\\le x\\big)=P\\big(U\\le F(x)\\big)=F(x).$$\n\nDet siste likhetstegnet er selve nøkkelen: for $U\\sim\\text{uniform}(0,1)$ er $P(U\\le u)=u$ for $u\\in[0,1]$, og her er $u=F(x)$. Dermed har $X$ fordelingsfunksjon $F$ — akkurat det vi ønsket. $\\blacksquare$\n\n**Intuisjon:** $F(x)$ er «hvor stor andel av massen som ligger til venstre for $x$». Trekker vi en uniform andel $U$ og spør *hvilken $x$-verdi som har akkurat den andelen til venstre for seg* (det er $F^{-1}(U)$), lander vi tett der massen er — altså med riktig fordeling."
+    },
+    {
+      "id": "tma4245-9-1-arbeidsflyt",
+      "type": "text",
+      "content": "### Arbeidsflyten (tre steg)\n\nUansett fordeling følger inversjonsmetoden **samme tre steg**:\n\n**1. Utled $F$.** Fra tettheten $f$: $F(x)=\\int f$ (teknikken fra [kap. 2.4](/bok/tma4245/tma4245-2-4)). Er $F$ oppgitt, hopp rett videre.\n\n**2. Løs $F(x)=u$ for $x$.** Det gir den inverse $x=F^{-1}(u)$. Dette er samme likning som kvantilregningen — bare med en generell $u$ i stedet for et tall.\n\n**3. Implementer.** Trekk $u$ med `np.random.uniform(size=n)` og sett vektoren inn i uttrykket for $F^{-1}(u)$. Ferdig funksjon.\n\nMerk at steg 2 er *hele* det matematiske arbeidet — resten er én linje numpy."
+    },
+    {
+      "id": "tma4245-9-1-ex-eksp",
+      "type": "example",
+      "title": "Eksempel 1: Eksponensialfordelingen fra $F$ til kode",
+      "problem": "Levetiden $X$ (i år) til en pumpe er eksponensialfordelt med forventning $\\beta=4$, altså $f(x)=\\frac{1}{\\beta}e^{-x/\\beta}$ for $x>0$. Utled $F^{-1}$ og skriv en Python-funksjon som trekker $n$ levetider med inversjonsmetoden.",
+      "solution": "**Steg 1 — utled $F$.** For eksponensialfordelingen er\n$$F(x)=\\int_0^x \\tfrac{1}{\\beta}e^{-s/\\beta}\\,ds=1-e^{-x/\\beta},\\qquad x>0.$$\n\n**Steg 2 — løs $F(x)=u$.**\n$$1-e^{-x/\\beta}=u\\;\\Rightarrow\\; e^{-x/\\beta}=1-u\\;\\Rightarrow\\; -\\tfrac{x}{\\beta}=\\ln(1-u)\\;\\Rightarrow\\; x=-\\beta\\ln(1-u).$$\nSå $F^{-1}(u)=-\\beta\\ln(1-u)$.\n\n**Steg 3 — implementer.**\n\n```python\nimport numpy as np\n\ndef simuler_eksp(n, beta):\n    u = np.random.uniform(size=n)      # råstoffet: uniform(0,1)\n    return -beta * np.log(1 - u)       # F^{-1}(u), vektorisert\n\nnp.random.seed(0)\nx = simuler_eksp(10**6, 4.0)\nprint(np.mean(x))          # ~ 4.0  = beta      (E(X) = beta)\nprint(np.var(x, ddof=1))   # ~ 16.0 = beta**2   (Var(X) = beta^2)\n```\n\nKjørt gir dette $\\bar{x}\\approx 4{,}005$ og empirisk varians $\\approx 16{,}03$ — nettopp $E(X)=\\beta=4$ og $\\text{Var}(X)=\\beta^2=16$, som bekrefter at koden trekker riktig fordeling.\n\n> *Sensornotat:* $\\ln(1-u)$, ikke $\\ln(u)$ — det følger direkte av steg 2. (Siden $U$ og $1-U$ har samme fordeling, gir $-\\beta\\ln(u)$ også riktig fordeling, men skriv $1-u$ så utledningen henger sammen.)"
+    },
+    {
+      "id": "tma4245-9-1-e1",
+      "type": "exercise",
+      "exercise": {
+        "id": "tma4245-9-1-e1",
+        "number": "1",
+        "type": "classic",
+        "difficulty": "lett",
+        "task": "(Innstegsoppgave — bare gjengivelse.) Hva er råstoffet inversjonsmetoden starter fra, og hvilken numpy-funksjon lager det?\n\n**a)** Hvilken fordeling har trekkene du starter med?\n\n**b)** Hvilken kodelinje trekker $n$ slike tall?",
+        "solution": "**a)** Uniform fordeling på $(0,1)$ — altså $U\\sim\\text{uniform}(0,1)$.\n\n**b)** `u = np.random.uniform(size=n)`. Deretter setter du hele vektoren `u` inn i uttrykket for $F^{-1}(u)$.",
+        "hints": [
+          "Datamaskinens grunnleggende tilfeldighet er jevnt fordelt mellom 0 og 1.",
+          "Se på første linje i funksjonsmønsteret `def simuler(n): ...`."
+        ]
+      }
+    },
+    {
+      "id": "tma4245-9-1-e2",
+      "type": "exercise",
+      "exercise": {
+        "id": "tma4245-9-1-e2",
+        "number": "2",
+        "type": "classic",
+        "difficulty": "lett",
+        "task": "En ventetid er eksponensialfordelt med forventning $\\beta=5$.\n\n**a)** Skriv opp $F(x)$.\n\n**b)** Utled $F^{-1}(u)$.\n\n**c)** Fullfør returlinjen i `def simuler(n): u = np.random.uniform(size=n); return ___`.",
+        "solution": "**a)** $F(x)=1-e^{-x/5}$ for $x>0$.\n\n**b)** $1-e^{-x/5}=u\\Rightarrow x=-5\\ln(1-u)$, så $F^{-1}(u)=-5\\ln(1-u)$.\n\n**c)** `return -5 * np.log(1 - u)`.",
+        "hints": [
+          "Eksponensial: $F(x)=1-e^{-x/\\beta}$ med $\\beta=5$.",
+          "Løs $F(x)=u$ for $x$ — ta $\\ln$ på begge sider.",
+          "$F^{-1}(u)=-\\beta\\ln(1-u)$ blir returuttrykket."
+        ]
+      }
+    },
+    {
+      "id": "tma4245-9-1-pause1",
+      "type": "text",
+      "content": "*— naturlig pausepunkt —*"
+    },
+    {
+      "id": "tma4245-9-1-lokke2",
+      "type": "text",
+      "content": "## Løkke 2 — Et hale-eksempel fra bunnen (~14 min)"
+    },
+    {
+      "id": "tma4245-9-1-ex-hale",
+      "type": "example",
+      "title": "Eksempel 2: Bølgehøyde med hale-tetthet",
+      "problem": "Den (skalerte) signifikante bølgehøyden $X$ i et havområde har tetthet $f(x)=\\dfrac{5}{x^6}$ for $x>1$ og 0 ellers. Utled $F$ og $F^{-1}$, skriv en simuleringsfunksjon, og forklar hva `np.mean(simuler(10**6) > 2)` estimerer.",
+      "solution": "**Steg 1 — utled $F$.** Tettheten er allerede normert ($\\int_1^\\infty 5x^{-6}\\,dx=5\\cdot\\tfrac{1}{5}=1$). Integrerer vi fra 1:\n$$F(x)=\\int_1^x 5s^{-6}\\,ds=\\left[-s^{-5}\\right]_1^x=1-x^{-5},\\qquad x>1.$$\n\n**Steg 2 — løs $F(x)=u$.**\n$$1-x^{-5}=u\\;\\Rightarrow\\; x^{-5}=1-u\\;\\Rightarrow\\; x=(1-u)^{-1/5}.$$\nSå $F^{-1}(u)=(1-u)^{-1/5}$.\n\n**Steg 3 — implementer.**\n\n```python\nimport numpy as np\n\ndef simuler_bolge(n):\n    u = np.random.uniform(size=n)\n    return (1 - u)**(-1/5)         # F^{-1}(u)\n\nnp.random.seed(0)\nx = simuler_bolge(10**6)\nprint(np.mean(x > 2))    # ~ 0.0313\nprint(np.mean(x))        # ~ 1.25\n```\n\n**Hva estimerer `np.mean(simuler(10**6) > 2)`?** Uttrykket `x > 2` er en vektor av `True`/`False`; `np.mean` av den er *andelen* trekk over 2 — altså et estimat på $P(X>2)$. Fasit analytisk: $P(X>2)=1-F(2)=2^{-5}=\\tfrac{1}{32}\\approx 0{,}03125$. Kjørt gir koden $\\approx 0{,}0314$. ✓\n\n(Til sammenligning er $E(X)=\\int_1^\\infty x\\cdot 5x^{-6}\\,dx=5\\int_1^\\infty x^{-5}\\,dx=\\tfrac{5}{4}=1{,}25$, som `np.mean(x)` bekrefter.)\n\n> *Sensornotat:* `np.mean` av en betingelse = andel = sannsynlighetsestimat. Dette er broen til hele kap. 9.2."
+    },
+    {
+      "id": "tma4245-9-1-e3",
+      "type": "exercise",
+      "exercise": {
+        "id": "tma4245-9-1-e3",
+        "number": "3",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "En hale-tetthet er $f(x)=\\dfrac{3}{x^4}$ for $x>1$ og 0 ellers.\n\n**a)** Utled $F(x)$.\n\n**b)** Utled $F^{-1}(u)$.\n\n**c)** Skriv en komplett funksjon `simuler(n)` som trekker fra denne fordelingen.\n\n**d)** Hva estimerer `np.mean(simuler(10**6) > 2)`? Regn også fasit analytisk.",
+        "solution": "**a)** $F(x)=\\int_1^x 3s^{-4}\\,ds=\\left[-s^{-3}\\right]_1^x=1-x^{-3}$ for $x>1$.\n\n**b)** $1-x^{-3}=u\\Rightarrow x=(1-u)^{-1/3}$, så $F^{-1}(u)=(1-u)^{-1/3}$.\n\n**c)**\n```python\nimport numpy as np\n\ndef simuler(n):\n    u = np.random.uniform(size=n)\n    return (1 - u)**(-1/3)\n```\n\n**d)** Den estimerer $P(X>2)$. Analytisk: $P(X>2)=1-F(2)=2^{-3}=\\tfrac{1}{8}=0{,}125$.",
+        "hints": [
+          "$F(x)=\\int_1^x 3s^{-4}\\,ds$; husk grensen starter i 1.",
+          "Løs $1-x^{-3}=u$ for $x$: opphøy i $-1/3$.",
+          "`np.mean(...>2)` er andelen over 2 — et estimat på $P(X>2)=1-F(2)$."
+        ]
+      }
+    },
+    {
+      "id": "tma4245-9-1-pause2",
+      "type": "text",
+      "content": "*— naturlig pausepunkt —*"
+    },
+    {
+      "id": "tma4245-9-1-lokke3",
+      "type": "text",
+      "content": "## Løkke 3 — numpy-verktøykassa (~16 min)"
+    },
+    {
+      "id": "tma4245-9-1-def-uniform",
+      "type": "definition",
+      "title": "np.random.uniform — det uniforme råstoffet",
+      "content": "`np.random.uniform(size=n)` returnerer en **vektor** med $n$ uavhengige trekk fra uniform$(0,1)$. Dette er startpunktet for inversjonsmetoden. Vil du ha uniform på et annet intervall, er det `np.random.uniform(low, high, size=n)`, men i inversjonsmetoden er det alltid standardvarianten $(0,1)$, siden det er den $F^{-1}$ forventer.\n\nÉn trekning gir hele vektoren på én gang — det er *vektorisering*: du slipper en løkke. All videre regning (som `-beta*np.log(1-u)`) skjer elementvis på hele vektoren samtidig."
+    },
+    {
+      "id": "tma4245-9-1-def-normal",
+      "type": "definition",
+      "title": "np.random.normal — pass på at scale er standardavviket",
+      "content": "`np.random.normal(loc, scale, size=n)` trekker fra normalfordelingen, der `loc` er forventningen $\\mu$ og **`scale` er standardavviket $\\sigma$ — ikke variansen**. Dette er den vanligste numpy-fella i emnet: vi skriver $X\\sim N(\\mu,\\sigma^2)$ med *variansen* som andre argument, men numpy vil ha *standardavviket*.\n\nSkal du simulere $X\\sim N(100,\\,25)$ (altså varians $\\sigma^2=25$, standardavvik $\\sigma=5$), skriver du `np.random.normal(loc=100, scale=5, size=n)` — send $\\sqrt{25}=5$, ikke 25. Sender du `scale=25`, simulerer du i praksis $N(100,\\,625)$: en fordeling med feil, altfor stor spredning."
+    },
+    {
+      "id": "tma4245-9-1-def-ddof",
+      "type": "definition",
+      "title": "np.var med ddof=1 — empirisk varians",
+      "content": "`np.var(x)` deler som standard summen av kvadratavvik på $n$ (`ddof=0`). Men den **forventningsrette** empiriske variansen — utvalgsvariansen $S^2$ fra [kap. 5.1](/bok/tma4245/tma4245-5-1) — deler på $n-1$. I numpy får du den med **`np.var(x, ddof=1)`** (`ddof` = «delta degrees of freedom», trekker 1 fra $n$).\n\n**Hvorfor $n-1$?** Fordi vi bruker det estimerte gjennomsnittet $\\bar{x}$ i stedet for den (ukjente) sanne forventningen. Å dele på $n$ undervurderer da variansen systematisk; korreksjonen til $n-1$ gjør $E(S^2)=\\sigma^2$ (forventningsrett — vist i kap. 5.1). Når du estimerer en varians fra simulerte data, bruk derfor `ddof=1`. (For gigantiske $n$ er forskjellen forsvinnende, men vanen skal sitte.)"
+    },
+    {
+      "id": "tma4245-9-1-ex-numpy",
+      "type": "example",
+      "title": "Eksempel 3: funksjonsmønsteret og numpy-idiomene",
+      "problem": "Skriv en funksjon som simulerer $n$ trekk fra $X\\sim N(50,\\,9)$ (varians 9), og bruk den til å estimere $P(X>56)$, forventningen og variansen. Pek på hvor scale-fella og ddof kommer inn.",
+      "solution": "$X\\sim N(50,9)$ betyr $\\mu=50$ og $\\sigma^2=9$, altså $\\sigma=\\sqrt{9}=3$.\n\n```python\nimport numpy as np\n\ndef simuler_normal(n):\n    return np.random.normal(loc=50, scale=3, size=n)  # scale = SD = sqrt(9) = 3\n\nnp.random.seed(0)\nx = simuler_normal(10**6)\nprint(np.mean(x > 56))     # ~ 0.0228  = P(X>56)\nprint(np.mean(x))          # ~ 50.0\nprint(np.var(x, ddof=1))   # ~ 9.0     (empirisk varians, delt paa n-1)\n```\n\n- **scale-fella:** `scale=3` (standardavviket), *ikke* `scale=9` (variansen). Sender du 9, får du en fordeling med $\\sigma=9$ og alt blir galt.\n- **ddof:** `np.var(x, ddof=1)` gir den forventningsrette variansen ($\\approx 9$).\n- **Fasit:** $P(X>56)=P\\!\\left(Z>\\frac{56-50}{3}\\right)=P(Z>2)=1-\\Phi(2)\\approx 0{,}0228$. Koden kjørt gir $\\approx 0{,}0228$. ✓\n\n**Funksjonsmønsteret** går igjen overalt: `def simuler(n): u = ...; return <uttrykk>` — trekk råstoffet på én linje, transformer vektorisert på neste."
+    },
+    {
+      "id": "tma4245-9-1-e4",
+      "type": "exercise",
+      "exercise": {
+        "id": "tma4245-9-1-e4",
+        "number": "4",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "En dimensjon $X$ er $N(20,\\,0{,}04)$ (altså varians $0{,}04$).\n\n**a)** Hva skal `scale` være i `np.random.normal`?\n\n**b)** Skriv linjen som trekker $n=10^5$ slike verdier.\n\n**c)** En medstudent skriver `np.random.normal(loc=20, scale=0.04, size=n)`. Hvilken fordeling simulerer hen egentlig, og er spredningen for stor eller for liten?",
+        "solution": "**a)** $\\sigma=\\sqrt{0{,}04}=0{,}2$, så `scale=0.2`.\n\n**b)** `x = np.random.normal(loc=20, scale=0.2, size=10**5)`.\n\n**c)** Med `scale=0.04` simulerer hen $N(20,\\,0{,}04^2)=N(20,\\,0{,}0016)$ — standardavvik $0{,}04$ i stedet for $0{,}2$. Spredningen blir altfor **liten** (en femtedel av den riktige), fordi variansen ble sendt inn som om den var standardavviket.",
+        "hints": [
+          "`scale` er standardavviket $\\sigma=\\sqrt{\\text{varians}}$.",
+          "$\\sqrt{0{,}04}=0{,}2$.",
+          "Sender du variansen (0,04) som scale, blir $\\sigma$ for liten — sammenlign 0,04 mot 0,2."
+        ]
+      }
+    },
+    {
+      "id": "tma4245-9-1-e5",
+      "type": "exercise",
+      "exercise": {
+        "id": "tma4245-9-1-e5",
+        "number": "5",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "Du har simulert en stor vektor `x` av observasjoner og vil estimere fordelingens **forventning** og **varians**.\n\n**a)** Hvilken numpy-funksjon gir forventningsestimatet?\n\n**b)** Hvordan skriver du variansestimatet slik at det er forventningsrett (som $S^2$)?\n\n**c)** Med én setning: hvorfor `ddof=1` og ikke standard `ddof=0`?",
+        "solution": "**a)** `np.mean(x)`.\n\n**b)** `np.var(x, ddof=1)` — deler på $n-1$.\n\n**c)** Fordi vi bruker det estimerte gjennomsnittet $\\bar{x}$ i utregningen; å dele på $n$ ville undervurdert variansen systematisk, mens $n-1$ gjør estimatoren forventningsrett ($E(S^2)=\\sigma^2$, [kap. 5.1](/bok/tma4245/tma4245-5-1)).",
+        "hints": [
+          "Gjennomsnittet er `np.mean`.",
+          "Empirisk (forventningsrett) varians deler på $n-1$; det er `ddof=1`.",
+          "Tenk på hvorfor $S^2$ i kap. 5.1 har $n-1$ i nevneren."
+        ]
+      }
+    },
+    {
+      "id": "tma4245-9-1-pause3",
+      "type": "text",
+      "content": "*— naturlig pausepunkt —*"
+    },
+    {
+      "id": "tma4245-9-1-lokke4",
+      "type": "text",
+      "content": "## Løkke 4 — Kodelesing som egen ferdighet (~14 min)"
+    },
+    {
+      "id": "tma4245-9-1-def-kodelesing",
+      "type": "definition",
+      "title": "Kodelesing: identifiser fordeling og estimat",
+      "content": "En egen sjanger N-ferdighet er å **lese ferdig kode** og svare på to spørsmål:\n\n1. **Hvilken fordeling genererer snutten?** Se på transformasjonen av `u`. Mønsteret `-beta*np.log(1-u)` er inversjonsmetoden for eksponensial med forventning `beta`; `(1-u)**(-1/k)` er en hale-tetthet med $F=1-x^{-k}$; `np.random.normal(loc, scale, ...)` er normal med forventning `loc` og standardavvik `scale`.\n2. **Hva estimeres?** En `np.mean(betingelse)` estimerer en **sannsynlighet** $P(\\text{betingelse})$; `np.mean(x)` estimerer en **forventning** $E(X)$; `np.var(x, ddof=1)` en **varians**.\n\nGrepet er å lese baklengs: transformasjonen forteller fordelingen, og det ytterste kallet (`mean` av en betingelse vs. `mean` av vektoren) forteller hva tallet er et estimat på."
+    },
+    {
+      "id": "tma4245-9-1-ex-lesing",
+      "type": "example",
+      "title": "Eksempel 4: Les koden",
+      "problem": "Forklar hva denne snutten gjør — hvilken fordeling genererer `f`, og hva estimerer siste linje?\n\n```python\nimport numpy as np\n\ndef f(n):\n    u = np.random.uniform(size=n)\n    return -3 * np.log(1 - u)\n\nnp.random.seed(0)\nprint(np.mean(f(10**6) > 5))\n```",
+      "solution": "**Fordelingen:** transformasjonen `-3 * np.log(1 - u)` er nøyaktig inversjonsmetoden $F^{-1}(u)=-\\beta\\ln(1-u)$ med $\\beta=3$. Så `f(n)` trekker $n$ verdier fra en **eksponensialfordeling med forventning $\\beta=3$**.\n\n**Hva estimeres:** `f(10**6) > 5` er en boolsk vektor (er trekket over 5?), og `np.mean` av den er andelen over 5 — altså et estimat på $P(X>5)$.\n\n**Fasit:** for eksponensial er $P(X>5)=1-F(5)=e^{-5/\\beta}=e^{-5/3}\\approx 0{,}1889$. Kjørt gir koden $\\approx 0{,}1889$. ✓\n\n> *Sensornotat:* les baklengs — transformasjonen gir fordelingen ($\\beta=3$), og det ytterste `np.mean(...>5)` gir estimatet ($P(X>5)$)."
+    },
+    {
+      "id": "tma4245-9-1-e6",
+      "type": "exercise",
+      "exercise": {
+        "id": "tma4245-9-1-e6",
+        "number": "6",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "Les koden:\n\n```python\ndef g(n):\n    u = np.random.uniform(size=n)\n    return (1 - u)**(-1/4)\n\nprint(np.mean(g(10**6)))\nprint(np.mean(g(10**6) > 3))\n```\n\n**a)** Hvilken fordeling (fordelingsfunksjon $F$) genererer `g`?\n\n**b)** Hva estimerer hver av de to `print`-linjene?\n\n**c)** Regn den andre fasiten analytisk.",
+        "solution": "**a)** `(1 - u)**(-1/4)` er $F^{-1}(u)=(1-u)^{-1/4}$, som svarer til $F(x)=1-x^{-4}$ for $x>1$ (en hale-tetthet $f(x)=4x^{-5}$).\n\n**b)** Første linje estimerer forventningen $E(X)$; andre linje estimerer $P(X>3)$.\n\n**c)** $P(X>3)=1-F(3)=3^{-4}=\\tfrac{1}{81}\\approx 0{,}0123$.",
+        "hints": [
+          "`(1-u)**(-1/k)` svarer til $F=1-x^{-k}$; her er $k=4$.",
+          "`np.mean(x)` er forventning; `np.mean(x>3)` er en sannsynlighet.",
+          "$P(X>3)=1-F(3)=3^{-4}$."
+        ]
+      }
+    },
+    {
+      "id": "tma4245-9-1-e7",
+      "type": "exercise",
+      "exercise": {
+        "id": "tma4245-9-1-e7",
+        "number": "7",
+        "type": "classic",
+        "difficulty": "vanskelig",
+        "task": "En materialstyrke $X$ (i passende enhet) har tetthet $f(x)=\\dfrac{c}{x^3}$ for $x>1$ og 0 ellers.\n\n**a)** Bestem $c$.\n\n**b)** Utled $F(x)$ og $F^{-1}(u)$.\n\n**c)** Skriv en komplett funksjon `simuler(n)` som trekker fra fordelingen med inversjonsmetoden.\n\n**d)** Skriv én kodelinje som estimerer $P(X>4)$, og regn fasiten analytisk.",
+        "solution": "**a)** $\\int_1^\\infty c x^{-3}\\,dx=c\\left[-\\tfrac{1}{2}x^{-2}\\right]_1^\\infty=\\tfrac{c}{2}=1\\Rightarrow c=2$.\n\n**b)** $F(x)=\\int_1^x 2s^{-3}\\,ds=\\left[-s^{-2}\\right]_1^x=1-x^{-2}$ for $x>1$. Løs $1-x^{-2}=u\\Rightarrow x^{-2}=1-u\\Rightarrow x=(1-u)^{-1/2}$. Så $F^{-1}(u)=(1-u)^{-1/2}$.\n\n**c)**\n```python\nimport numpy as np\n\ndef simuler(n):\n    u = np.random.uniform(size=n)\n    return (1 - u)**(-1/2)\n```\n\n**d)** `np.mean(simuler(10**6) > 4)`. Fasit: $P(X>4)=1-F(4)=4^{-2}=\\tfrac{1}{16}=0{,}0625$.",
+        "hints": [
+          "Normering: $\\int_1^\\infty c x^{-3}=c/2=1$.",
+          "$F(x)=1-x^{-2}$; løs for $x$ ved å opphøye i $-1/2$.",
+          "$P(X>4)=1-F(4)=4^{-2}$."
+        ]
+      }
+    },
+    {
+      "id": "tma4245-9-1-e8",
+      "type": "exercise",
+      "exercise": {
+        "id": "tma4245-9-1-e8",
+        "number": "8",
+        "type": "classic",
+        "difficulty": "vanskelig",
+        "task": "En kollega vil simulere $X\\sim N(10,\\,4)$ (varians 4) og estimere $P(8<X<13)$, men koden gir rare tall:\n\n```python\ndef simuler(n):\n    return np.random.normal(loc=10, scale=4, size=n)\n\nprint(np.mean(8 < simuler(10**6) < 13))\n```\n\n**a)** Pek på to feil i koden.\n\n**b)** Skriv en korrekt versjon.\n\n**c)** Hva blir fasiten for $P(8<X<13)$ analytisk? (Bruk $\\Phi(1{,}5)=0{,}9332$, $\\Phi(1)=0{,}8413$.)",
+        "solution": "**a)** (1) `scale=4` er variansen, ikke standardavviket — det skal være $\\sigma=\\sqrt{4}=2$. (2) `8 < simuler(...) < 13` er en ulovlig kjedet sammenligning på en numpy-vektor; man må bruke elementvis `&` med parenteser: `(x > 8) & (x < 13)`.\n\n**b)**\n```python\ndef simuler(n):\n    return np.random.normal(loc=10, scale=2, size=n)  # scale = SD = 2\n\nx = simuler(10**6)\nprint(np.mean((x > 8) & (x < 13)))\n```\n\n**c)** $P(8<X<13)=\\Phi\\!\\left(\\tfrac{13-10}{2}\\right)-\\Phi\\!\\left(\\tfrac{8-10}{2}\\right)=\\Phi(1{,}5)-\\Phi(-1)=0{,}9332-(1-0{,}8413)=0{,}9332-0{,}1587=0{,}7745$.",
+        "hints": [
+          "$X\\sim N(10,4)$: variansen er 4, så $\\sigma=\\sqrt{4}=2$ — det er `scale`.",
+          "numpy tillater ikke `a < vektor < b`; bruk `(x>8) & (x<13)`.",
+          "$P(8<X<13)=\\Phi(1{,}5)-\\Phi(-1)$, og $\\Phi(-1)=1-\\Phi(1)$."
+        ]
+      }
+    },
+    {
+      "id": "tma4245-9-1-warn",
+      "type": "warning",
+      "title": "Typiske feil",
+      "content": "- **Løse $f(x)=u$ i stedet for $F(x)=u$.** Inversjonsmetoden bruker *fordelingsfunksjonen* $F$, ikke tettheten $f$. Utled $F$ først (integrer $f$), og løs så $F(x)=u$.\n- **Bytte om `loc` og `scale`, eller sende variansen som `scale`.** `np.random.normal(loc, scale, ...)` vil ha forventningen som `loc` og **standardavviket** som `scale`. For $N(\\mu,\\sigma^2)$: send $\\mu$ og $\\sqrt{\\sigma^2}=\\sigma$, aldri variansen.\n- **Skrive en løkke der vektorisering er naturlig.** Trekk hele `u = np.random.uniform(size=n)` på én gang og transformer vektorisert. En `for`-løkke over $n$ trekk er tregt og unødvendig.\n- **`np.var` uten `ddof=1` for empirisk varians.** Standard `np.var` deler på $n$; den forventningsrette utvalgsvariansen deler på $n-1$ (`ddof=1`).\n- **Kode som ikke kjører.** Delvis eller syntaktisk feil kode gir bare delvis uttelling. Sjekk at parenteser, `np.log`, og elementvise betingelser (`&`, ikke kjedet `<`) er riktige.\n- **$\\ln(u)$ mot $\\ln(1-u)$-slurv.** Skriv $-\\beta\\ln(1-u)$ i tråd med utledningen (selv om $-\\beta\\ln(u)$ tilfeldigvis også gir riktig fordeling)."
+    },
+    {
+      "id": "tma4245-9-1-bb-intro",
+      "type": "text",
+      "content": "## Begrepsbank\n\nKjernekortene for inversjonsmetoden og numpy-verktøykassa, samlet.\n\n*Flashcard-stoff — hopp trygt over ved førstegangslesing; tidsanslaget gjelder kjernestoffet.*"
+    },
+    {
+      "id": "tma4245-9-1-bb-inv",
+      "type": "definition",
+      "title": "Kort: inversjonsmetoden",
+      "content": "Er $U\\sim\\text{uniform}(0,1)$, har $X=F^{-1}(U)$ fordelingsfunksjon $F$. Metoden gjør uniforme tall om til trekk fra hvilken som helst fordeling du kan skrive $F$ for. Kjerneregelen: gå via $F$ (ikke $f$)."
+    },
+    {
+      "id": "tma4245-9-1-bb-bevis",
+      "type": "definition",
+      "title": "Kort: beviset i tre linjer",
+      "content": "$P(F^{-1}(U)\\le x)=P(U\\le F(x))=F(x)$. Første likhet fordi $F$ er voksende; siste fordi $P(U\\le u)=u$ for uniform$(0,1)$ med $u=F(x)$. Dermed har $X=F^{-1}(U)$ fordelingsfunksjon $F$."
+    },
+    {
+      "id": "tma4245-9-1-bb-arbeidsflyt",
+      "type": "definition",
+      "title": "Oppskriftskort: de tre stegene",
+      "content": "**(1)** Utled $F$ (integrer $f$, teknikk fra [kap. 2.4](/bok/tma4245/tma4245-2-4)). **(2)** Løs $F(x)=u$ for $x$ — det gir $F^{-1}(u)$. **(3)** Implementer: `u = np.random.uniform(size=n)`, sett vektoren inn i $F^{-1}(u)$. Steg 2 er hele det matematiske arbeidet."
+    },
+    {
+      "id": "tma4245-9-1-bb-eksp",
+      "type": "definition",
+      "title": "Formelkort: eksponensial-inversjon",
+      "content": "For eksponensial med forventning $\\beta$: $F(x)=1-e^{-x/\\beta}$, og $F^{-1}(u)=-\\beta\\ln(1-u)$. Kode: `-beta * np.log(1 - u)`. Skriv $1-u$ (fra utledningen); $-\\beta\\ln(u)$ gir samme fordeling, men $1-u$ er det riktige uttrykket."
+    },
+    {
+      "id": "tma4245-9-1-bb-hale",
+      "type": "definition",
+      "title": "Formelkort: hale-inversjon",
+      "content": "For en hale-tetthet $f(x)=k\\,x^{-(k+1)}$ på $(1,\\infty)$ er $F(x)=1-x^{-k}$, og $F^{-1}(u)=(1-u)^{-1/k}$. Kode: `(1 - u)**(-1/k)`. Halesannsynligheten er $P(X>x)=x^{-k}$."
+    },
+    {
+      "id": "tma4245-9-1-bb-normal",
+      "type": "definition",
+      "title": "Feilkort: np.random.normal, scale = standardavvik",
+      "content": "`np.random.normal(loc, scale, size=n)`: `loc` $=\\mu$, `scale` $=\\sigma$ (standardavviket). For $X\\sim N(\\mu,\\sigma^2)$ må du sende $\\sqrt{\\sigma^2}$ som `scale`, aldri variansen. Feil her ($N(100,25)\\to$ `scale=25`) gir en fordeling med altfor stor spredning."
+    },
+    {
+      "id": "tma4245-9-1-bb-mean",
+      "type": "definition",
+      "title": "Kort: np.mean som estimat",
+      "content": "`np.mean(x)` estimerer forventningen $E(X)$; `np.mean(betingelse)` estimerer sannsynligheten $P(\\text{betingelse})$ (andelen `True`). Dette siste — sannsynlighet som gjennomsnittlig indikator — er grunnprinsippet for Monte Carlo (kap. 9.2)."
+    },
+    {
+      "id": "tma4245-9-1-bb-ddof",
+      "type": "definition",
+      "title": "Kort: np.var(x, ddof=1)",
+      "content": "Empirisk (forventningsrett) varians deler på $n-1$: `np.var(x, ddof=1)`. Standard `np.var(x)` deler på $n$. $n-1$ brukes fordi vi setter inn det estimerte $\\bar{x}$; korreksjonen gir $E(S^2)=\\sigma^2$ ([kap. 5.1](/bok/tma4245/tma4245-5-1))."
+    },
+    {
+      "id": "tma4245-9-1-bb-monster",
+      "type": "definition",
+      "title": "Oppskriftskort: funksjonsmønsteret",
+      "content": "`def simuler(n): u = np.random.uniform(size=n); return <F-invers av u>`. To linjer: trekk råstoffet, transformer vektorisert. Alt av simulering i boka følger dette skjelettet — bytt bare ut transformasjonen."
+    },
+    {
+      "id": "tma4245-9-1-bb-feil-f",
+      "type": "definition",
+      "title": "Feilkort: $F(x)=u$, ikke $f(x)=u$",
+      "content": "Den hyppigste inversjonsfeilen: å løse tetthetslikningen $f(x)=u$ i stedet for $F(x)=u$. Inversjonsmetoden bruker *fordelingsfunksjonen*. Integrer $f$ til $F$ først, løs så $F(x)=u$ for $x$. (Samme logikk som median-fella $F(m)=1/2$ i [kap. 2.4](/bok/tma4245/tma4245-2-4).)"
+    },
+    {
+      "id": "tma4245-9-1-bb-kodelesing",
+      "type": "definition",
+      "title": "Kort: kodelesing baklengs",
+      "content": "For å tolke ferdig kode: transformasjonen av `u` gir *fordelingen* (`-b*np.log(1-u)`$\\to$ eksponensial $\\beta=b$; `(1-u)**(-1/k)`$\\to$ hale med $F=1-x^{-k}$), og det ytterste kallet gir *estimatet* (`np.mean(x)`$\\to E(X)$; `np.mean(x>c)`$\\to P(X>c)$)."
+    },
+    {
+      "id": "tma4245-9-1-rep",
+      "type": "collapsible",
+      "title": "Repetisjonsoppgaver",
+      "buttonText": "Vis repetisjonsoppgaver",
+      "content": [
+        {
+          "id": "tma4245-9-1-rep-1",
+          "type": "exercise",
+          "exercise": {
+            "id": "tma4245-9-1-rep-1",
+            "number": "R1",
+            "type": "classic",
+            "difficulty": "lett",
+            "task": "(Fra [kap. 2.4](/bok/tma4245/tma4245-2-4).) En tetthet er $f(x)=4x^3$ for $0<x<1$. Finn $F(x)$.",
+            "solution": "$F(x)=\\int_0^x 4s^3\\,ds=x^4$ for $0\\le x\\le 1$ (0 under, 1 over).",
+            "hints": [
+              "$F(x)=\\int_0^x f(s)\\,ds$."
+            ]
+          }
+        },
+        {
+          "id": "tma4245-9-1-rep-2",
+          "type": "exercise",
+          "exercise": {
+            "id": "tma4245-9-1-rep-2",
+            "number": "R2",
+            "type": "classic",
+            "difficulty": "lett",
+            "task": "(Fra [kap. 2.4](/bok/tma4245/tma4245-2-4).) Med $F(x)=x^4$ på $(0,1)$: finn medianen ved å løse $F(m)=0{,}5$.",
+            "solution": "$m^4=0{,}5\\Rightarrow m=0{,}5^{1/4}\\approx 0{,}841$. (Samme likning du løser generelt i inversjonsmetoden, bare med $u=0{,}5$.)",
+            "hints": [
+              "Løs $m^4=0{,}5$; ta fjerderoten.",
+              "Dette er $F^{-1}(0{,}5)$."
+            ]
+          }
+        },
+        {
+          "id": "tma4245-9-1-rep-3",
+          "type": "exercise",
+          "exercise": {
+            "id": "tma4245-9-1-rep-3",
+            "number": "R3",
+            "type": "classic",
+            "difficulty": "middels",
+            "task": "(Fra [kap. 2.4](/bok/tma4245/tma4245-2-4).) For hale-tettheten $f(x)=3x^{-4}$ på $(1,\\infty)$ er $F(x)=1-x^{-3}$. Finn $P(X>2)$.",
+            "solution": "$P(X>2)=1-F(2)=2^{-3}=\\tfrac{1}{8}=0{,}125$.",
+            "hints": [
+              "$P(X>x)=1-F(x)$.",
+              "$F(2)=1-2^{-3}$."
+            ]
+          }
+        },
+        {
+          "id": "tma4245-9-1-rep-4",
+          "type": "exercise",
+          "exercise": {
+            "id": "tma4245-9-1-rep-4",
+            "number": "R4",
+            "type": "classic",
+            "difficulty": "middels",
+            "task": "(Fra [kap. 4.1](/bok/tma4245/tma4245-4-1).) To uavhengige komponenter er parallellkoblet; systemet lever så lenge minst én lever. Uttrykk fordelingsfunksjonen til systemets levetid $M=\\max(X_1,X_2)$ ved $F$.",
+            "solution": "$F_M(x)=P(\\max\\le x)=P(X_1\\le x)P(X_2\\le x)=[F(x)]^2$ (uavhengige, identisk fordelte). Generelt $F_{\\max}=[F]^n$. Parallell = maksimum.",
+            "hints": [
+              "Maks $\\le x$ betyr at *begge* er $\\le x$.",
+              "Uavhengighet gir produkt av $F$-ene."
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": "tma4245-9-1-symbolliste",
+      "type": "collapsible",
+      "title": "Symbol- og formelliste",
+      "buttonText": "Vis symboler og formler",
+      "content": [
+        {
+          "id": "tma4245-9-1-symbolliste-text",
+          "type": "text",
+          "content": "*Oppslagsverk — alt her forklares underveis i kapitlet.*\n\nAlle symboler og formler brukt i kapittel 9.1, samlet.\n\n| Symbol | Betydning |\n|---|---|\n| $U$ | Stokastisk variabel, $U\\sim\\text{uniform}(0,1)$ |\n| $u$ | Observert/trukket uniform verdi ($0<u<1$) |\n| $F(x)$ | Fordelingsfunksjon $P(X\\le x)$ |\n| $F^{-1}(u)$ | Invers fordelingsfunksjon (løsningen av $F(x)=u$) |\n| $f(x)$ | Tetthet, $F'(x)=f(x)$ |\n| $\\beta$ | Forventningen i eksponensialfordelingen |\n| $\\mu,\\ \\sigma$ | Forventning og standardavvik (normal) |\n| $\\sigma^2$ | Varians |\n| $\\Phi$ | Standardnormal fordelingsfunksjon |\n| $n$ | Antall trekk / simuleringer |\n| `ddof` | «delta degrees of freedom» i `np.var` |\n\n**numpy-idiomer i dette kapitlet:**\n\n| Kode | Gjør |\n|---|---|\n| `np.random.uniform(size=n)` | $n$ trekk fra uniform$(0,1)$ |\n| `np.random.normal(loc, scale, size=n)` | normal, `loc`$=\\mu$, `scale`$=\\sigma$ |\n| `np.mean(x)` | estimat på $E(X)$ |\n| `np.mean(betingelse)` | estimat på $P(\\text{betingelse})$ |\n| `np.var(x, ddof=1)` | forventningsrett varians (deler på $n-1$) |\n\n**Formler i dette kapitlet:**\n\n$$X=F^{-1}(U)\\ \\text{har fordelingsfunksjon}\\ F,\\quad U\\sim\\text{uniform}(0,1)$$\nInversjonsmetoden.\n\n$$P\\big(F^{-1}(U)\\le x\\big)=P\\big(U\\le F(x)\\big)=F(x)$$\nBeviset i tre linjer.\n\n$$F(x)=1-e^{-x/\\beta},\\qquad F^{-1}(u)=-\\beta\\ln(1-u)$$\nEksponensialfordelingen (forventning $\\beta$) og dens inverse.\n\n$$F(x)=1-x^{-k}\\ (x>1),\\qquad F^{-1}(u)=(1-u)^{-1/k}$$\nHale-tetthet $f(x)=k\\,x^{-(k+1)}$ og dens inverse.\n\n$$S^2=\\frac{1}{n-1}\\sum_{i=1}^n (x_i-\\bar{x})^2 \\;\\leftrightarrow\\; \\texttt{np.var(x, ddof=1)}$$\nEmpirisk (forventningsrett) varians — deler på $n-1$ (kap. 5.1)."
+        }
+      ]
+    }
+  ],
+  "exercises": []
+}

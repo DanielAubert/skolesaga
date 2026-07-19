@@ -1,0 +1,411 @@
+{
+  "id": "tma4245-7-2",
+  "courseId": "tma4245",
+  "chapterNumber": "7.2",
+  "title": "Testkatalogen: varians, eksakte tester, to utvalg, parret design og fortegnstest",
+  "description": "Testritualet gjenbrukt på hele familien — kjikvadrat-test for varians, eksakt binomisk/Poisson-test, parret t-test, to-utvalgs pooled t og den nye fortegnstesten.",
+  "estimatedMinutes": 65,
+  "competenceGoals": [
+    "velge riktig testobservator og frihetsgrader for varians-, to-utvalgs- og parrede tester",
+    "gjennomføre eksakt binomisk og Poisson-test når normaltilnærmingen ikke holder",
+    "skille parret design fra to uavhengige utvalg og analysere differansene korrekt",
+    "gjennomføre og tolke fortegnstesten som robust supplement til den parrede t-testen"
+  ],
+  "content": [
+    {
+      "id": "tma4245-7-2-tip",
+      "type": "tip",
+      "title": "Eksamensvinkel",
+      "content": "**Samme rituale — nye testobservatorer.** Når du kan seksstegs-ritualet fra [kap. 7.1](/bok/tma4245/tma4245-7-1), er resten av testfamilien bare et spørsmål om å *velge* riktig observator og riktige frihetsgrader.\n\n- **Kjikvadrat-test for varians** (Jun23, Aug25, Aug13) — testobservator $\\frac{(n-1)S^2}{\\sigma_0^2} \\sim \\chi^2_{n-1}$, asymmetrisk forkastningsområde.\n- **Eksakt binomisk/Poisson-test** for små utvalg (Des25, Mai18) — når normaltilnærmingen ikke holder.\n- **Parret t-test** (Aug20, Mai12, Mai14) — Aug20 bruker en hel deloppgave på skillet parret vs. to utvalg. To uavhengige utvalg samlet i ≈24 % av settene.\n- **Fortegnstesten** (Des24, Mai24) er en **ny sjanger fra 2024** — en binomisk test på antall positive differanser, brukt som supplement til t-testen.\n\nPrioritet: **kunne** — men **skillet parret/to-utvalg og fortegnstesten er perfekt-nære gjengangere**. Alle testene er varianter av **sjanger I** (full hypotesetest). Formlene står i formelsamlingen (hjelpemiddelkode C); det du trener her er **valget** av test, **frihetsgradene** og **forutsetningene**."
+    },
+    {
+      "id": "tma4245-7-2-forkunnskaper",
+      "type": "text",
+      "content": "**Forkunnskaper:** Dette kapitlet forutsetter hele testritualet fra **[kap. 7.1](/bok/tma4245/tma4245-7-1)** (hypoteser, testobservator med fordeling under $H_0$, forkastningsområde/p-verdi, konklusjon i ord). Kjikvadrat-fordelingen og t-fordelingen med frihetsgrader kommer fra **[kap. 6.1](/bok/tma4245/tma4245-6-1)**; den empiriske variansen $S^2$ (divisor $n-1$) fra [kap. 5.1](/bok/tma4245/tma4245-5-1); binomisk og Poisson med kumulative tabeller fra **[kap. 2.2](/bok/tma4245/tma4245-2-2)**.\n\n**Sist du var her — det ritualet vi gjenbruker (ferdig oppfrisket):** for hver test skal du (1) sette $H_0$/$H_1$ i parametre med begrunnet retning, (2) skrive testobservatoren *og fordelingen under $H_0$*, (3) sjekke forutsetningene, (4) finne forkastningsområde eller p-verdi, (5) tallfeste og (6) konkludere i ord. I dette kapitlet bytter vi bare ut selve observatoren og fordelingen — resten er identisk.\n\nDu trenger å kunne slå opp kvantiler i $\\chi^2$- og $t$-tabellene og kumulative sannsynligheter i binomisk/Poisson-tabellen."
+    },
+    {
+      "id": "tma4245-7-2-intro",
+      "type": "text",
+      "content": "Vi går gjennom fem løkker, én per testtype: **variansen** (kjikvadrat, løkke 1), **eksakte tester** for små utvalg (løkke 2), **parret design** (løkke 3), **to uavhengige utvalg** (løkke 4) og den nye **fortegnstesten** (løkke 5). Hver løkke går teori → eksempel → oppgave, og alle følger samme seksstegs-rituale.\n\n*Samlet kjernetid ≈ 65 min. Naturlige pausepunkter er markert mellom løkkene.*"
+    },
+    {
+      "id": "tma4245-7-2-lokke1",
+      "type": "text",
+      "content": "## Løkke 1 — Testen for variansen (kjikvadrat) (~12 min)"
+    },
+    {
+      "id": "tma4245-7-2-def-var",
+      "type": "definition",
+      "title": "Kjikvadrat-testen for variansen",
+      "content": "For å teste en påstand om spredningen ($H_0: \\sigma^2 = \\sigma_0^2$) bruker vi at, når observasjonene er normalfordelte,\n\n$$\\frac{(n-1)S^2}{\\sigma_0^2} \\sim \\chi^2_{n-1} \\quad \\text{under } H_0.$$\n\nKjikvadratfordelingen er **skjev**, så forkastningsområdet er **asymmetrisk** — man kan ikke bruke ett symmetrisk $\\pm$-tall. Retningene:\n\n- $H_1: \\sigma^2 > \\sigma_0^2$: forkast hvis observatoren $> \\chi^2_{n-1,\\,\\alpha}$ (øvre hale);\n- $H_1: \\sigma^2 < \\sigma_0^2$: forkast hvis observatoren $< \\chi^2_{n-1,\\,1-\\alpha}$ (nedre hale);\n- $H_1: \\sigma^2 \\ne \\sigma_0^2$: forkast hvis observatoren $> \\chi^2_{n-1,\\,\\alpha/2}$ eller $< \\chi^2_{n-1,\\,1-\\alpha/2}$.\n\nLegg merke til at normalitetsforutsetningen er *viktigere* her enn for t-testen for forventningen: kjikvadrat-testen er følsom for avvik fra normalfordelingen."
+    },
+    {
+      "id": "tma4245-7-2-ex-var",
+      "type": "example",
+      "title": "Eksempel 1: Er spredningen i tykkelsen for stor?",
+      "problem": "En produksjonsprosess for turbinblad skal ha varians $\\sigma_0^2 = 0{,}04$ mm$^2$ i tykkelsen (altså $\\sigma_0 = 0{,}20$ mm). Femten tilfeldige blad gir empirisk varians $s^2 = 0{,}075$ mm$^2$. Tykkelsene antas normalfordelte. Test på 5 %-nivå om variansen er *større* enn tillatt.",
+      "solution": "**Steg 1 — hypoteser.** Vi vil påvise for stor spredning: $H_0: \\sigma^2 = 0{,}04$ mot $H_1: \\sigma^2 > 0{,}04$ (ensidig oppover).\n\n**Steg 2 — testobservator.** $\\frac{(n-1)S^2}{\\sigma_0^2} \\sim \\chi^2_{n-1} = \\chi^2_{14}$ under $H_0$.\n\n**Steg 3 — forutsetninger.** Normalfordelte, uavhengige tykkelser — oppgitt. OK (og kjikvadrat-testen krever normalitet).\n\n**Steg 4–5 — forkastningsområde og tallfesting.**\n$$\\frac{(n-1)s^2}{\\sigma_0^2} = \\frac{14 \\cdot 0{,}075}{0{,}04} = \\frac{1{,}05}{0{,}04} = 26{,}25.$$\nEnsidig oppover, 5 %-nivå: forkast hvis observatoren $> \\chi^2_{14;\\,0{,}05} = 23{,}685$. Siden $26{,}25 > 23{,}685$, forkaster vi $H_0$.\n\n**p-verdi.** $p = P(\\chi^2_{14} > 26{,}25) = 0{,}024 < 0{,}05$ — samme konklusjon.\n\n**Steg 6 — konklusjon i ord.** På 5 %-nivå er det **grunnlag for å hevde at variansen i tykkelsen er større enn tillatt** ($s^2 = 0{,}075$ mot kravet $0{,}04$).\n\n> *Sensornotat:* frihetsgraden er $n-1 = 14$, og for en ensidig oppover-test bruker du den øvre kvantilen $\\chi^2_{14;\\,0{,}05}$. Ved en *tosidig* test måtte du brukt begge, $\\chi^2_{14;\\,0{,}025}$ og $\\chi^2_{14;\\,0{,}975}$."
+    },
+    {
+      "id": "tma4245-7-2-e1",
+      "type": "exercise",
+      "exercise": {
+        "id": "tma4245-7-2-e1",
+        "number": "1",
+        "type": "classic",
+        "difficulty": "lett",
+        "task": "(Innstegsoppgave.) En prosess skal ha varians $\\sigma_0^2 = 0{,}25$. Tjue normalfordelte målinger gir $s^2 = 0{,}40$. Test på 5 %-nivå om variansen er *for stor* (ensidig). Bruk $\\chi^2_{19;\\,0{,}05} = 30{,}144$.\n\n**a)** Sett opp hypotesene og testobservatoren med fordeling under $H_0$.\n\n**b)** Regn ut observatoren og konkluder.",
+        "solution": "**a)** $H_0: \\sigma^2 = 0{,}25$ mot $H_1: \\sigma^2 > 0{,}25$. Observator $\\frac{(n-1)S^2}{\\sigma_0^2} \\sim \\chi^2_{19}$.\n\n**b)** $\\frac{19 \\cdot 0{,}40}{0{,}25} = \\frac{7{,}60}{0{,}25} = 30{,}40$. Forkast hvis $> \\chi^2_{19;\\,0{,}05} = 30{,}144$. Siden $30{,}40 > 30{,}144$ (så vidt), forkaster vi $H_0$: det er (knapt) grunnlag for å hevde at variansen er for stor. (p-verdi $= 0{,}047$.)",
+        "hints": [
+          "Observator $\\frac{(n-1)s^2}{\\sigma_0^2}$, frihetsgrad $n-1 = 19$.",
+          "$\\frac{19 \\cdot 0{,}40}{0{,}25} = 30{,}40$.",
+          "Ensidig oppover: forkast hvis $> 30{,}144$."
+        ]
+      }
+    },
+    {
+      "id": "tma4245-7-2-lokke2",
+      "type": "text",
+      "content": "## Løkke 2 — Eksakte tester for små utvalg (~13 min)"
+    },
+    {
+      "id": "tma4245-7-2-def-exact",
+      "type": "definition",
+      "title": "Når kreves en eksakt test?",
+      "content": "Normaltilnærmingen i andelstesten (kap. 7.1) og i Poisson-tilfeller krever store nok tall — $np_0 \\ge 5$ og $n(1-p_0) \\ge 5$ for andeler, stor $\\lambda_0$ for Poisson. **Når forutsetningssjekken feiler** (lite utvalg, lav rate), bruker vi i stedet fordelingen *direkte*:\n\n- **Eksakt binomisk test:** under $H_0: p = p_0$ er antall suksesser $X \\sim \\text{binomisk}(n, p_0)$. p-verdien er den eksakte halesannsynligheten fra den kumulative binomisk-tabellen, f.eks. $P(X \\ge x_{\\text{obs}}) = 1 - P(X \\le x_{\\text{obs}} - 1)$ for $H_1: p > p_0$.\n- **Eksakt Poisson-test:** under $H_0: \\lambda = \\lambda_0$ er antallet $X \\sim \\text{Poisson}(\\lambda_0)$; p-verdien leses fra den kumulative Poisson-tabellen.\n\nIngen $Z$-observator, ingen kvantiltabell — bare den kumulative fordelingen. Regelen er den samme: forkast hvis p-verdien $< \\alpha$."
+    },
+    {
+      "id": "tma4245-7-2-ex-exact",
+      "type": "example",
+      "title": "Eksempel 2: Eksakt binomisk test av en defektandel",
+      "problem": "En leverandør hevder at defektandelen er *høyst* $p_0 = 0{,}10$. I et lite utvalg på $n = 20$ komponenter finnes $x = 5$ defekte. Fordi utvalget er lite, brukes en eksakt binomisk test. Test på 5 %-nivå om defektandelen overstiger 0,10.",
+      "solution": "**Steg 1 — hypoteser.** $H_0: p = 0{,}10$ mot $H_1: p > 0{,}10$ (vil påvise for høy andel).\n\n**Steg 2 — modell.** Under $H_0$ er $X \\sim \\text{binomisk}(20,\\ 0{,}10)$ (antall defekte).\n\n**Steg 3 — hvorfor eksakt?** Forventet antall under $H_0$ er $np_0 = 2$, altså $< 5$ — normaltilnærmingen holder ikke, så vi bruker binomisk-fordelingen direkte.\n\n**Steg 4–5 — p-verdi.** «Minst like ekstremt» oppover betyr $X \\ge 5$:\n$$p = P(X \\ge 5) = 1 - P(X \\le 4) = 1 - 0{,}9568 = 0{,}0432.$$\n(Slått opp i den kumulative binomisk-tabellen for $n = 20$, $p = 0{,}10$.)\n\n**Steg 6 — konklusjon.** $p = 0{,}0432 < 0{,}05$, så vi **forkaster $H_0$**: på 5 %-nivå er det grunnlag for å hevde at defektandelen overstiger 10 %.\n\n> *Sensornotat:* p-verdien er $P(X \\ge x_{\\text{obs}})$, altså *inkludert* det observerte antallet — ikke $P(X > 5)$. Å bruke normaltilnærming her (der $np_0 = 2 < 5$) er nettopp fellen oppgaven tester."
+    },
+    {
+      "id": "tma4245-7-2-e2",
+      "type": "exercise",
+      "exercise": {
+        "id": "tma4245-7-2-e2",
+        "number": "2",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "En ny sveiserobot skal ha en feilrate på *høyst* $p_0 = 0{,}08$ per skjøt. Blant $n = 15$ tilfeldige skjøter finnes $x = 4$ feil. Utvalget er lite, så bruk en eksakt binomisk test. Test på 5 %-nivå om feilraten overstiger 0,08. (Oppgitt: $P(X \\le 3) = 0{,}9727$ for $X \\sim \\text{binomisk}(15,\\ 0{,}08)$.)",
+        "solution": "$H_0: p = 0{,}08$ mot $H_1: p > 0{,}08$. Under $H_0$ er $X \\sim \\text{binomisk}(15,\\ 0{,}08)$; $np_0 = 1{,}2 < 5$ rettferdiggjør eksakt test. p-verdien:\n$$p = P(X \\ge 4) = 1 - P(X \\le 3) = 1 - 0{,}9727 = 0{,}0273.$$\nSiden $0{,}0273 < 0{,}05$, **forkast $H_0$**: det er grunnlag for å hevde at feilraten overstiger 8 %.",
+        "hints": [
+          "Under $H_0$: $X \\sim \\text{binomisk}(15,\\ 0{,}08)$.",
+          "$H_1: p > p_0$ gir p-verdi $P(X \\ge 4) = 1 - P(X \\le 3)$.",
+          "$1 - 0{,}9727 = 0{,}0273 < 0{,}05$."
+        ]
+      }
+    },
+    {
+      "id": "tma4245-7-2-e3",
+      "type": "exercise",
+      "exercise": {
+        "id": "tma4245-7-2-e3",
+        "number": "3",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "Antall driftsstans i et anlegg antas Poisson-fordelt. Historisk er raten $\\lambda_0 = 2$ per måned, men en måned registreres $x = 6$. Test på 5 %-nivå om raten har *økt*, med en eksakt Poisson-test. (Oppgitt: $P(X \\le 5) = 0{,}9834$ for $X \\sim \\text{Poisson}(2)$.)",
+        "solution": "$H_0: \\lambda = 2$ mot $H_1: \\lambda > 2$. Under $H_0$ er $X \\sim \\text{Poisson}(2)$. p-verdien:\n$$p = P(X \\ge 6) = 1 - P(X \\le 5) = 1 - 0{,}9834 = 0{,}0166.$$\nSiden $0{,}0166 < 0{,}05$, **forkast $H_0$**: det er grunnlag for å hevde at driftsstansraten har økt. (Med så lav rate er en eksakt Poisson-test riktig — normaltilnærming ville vært upålitelig.)",
+        "hints": [
+          "Under $H_0$: $X \\sim \\text{Poisson}(2)$.",
+          "$H_1: \\lambda > \\lambda_0$ gir $p = P(X \\ge 6) = 1 - P(X \\le 5)$.",
+          "$1 - 0{,}9834 = 0{,}0166 < 0{,}05$."
+        ]
+      }
+    },
+    {
+      "id": "tma4245-7-2-lokke3",
+      "type": "text",
+      "content": "## Løkke 3 — Parret design: differansene som ETT utvalg (~13 min)"
+    },
+    {
+      "id": "tma4245-7-2-def-parret",
+      "type": "definition",
+      "title": "Parret t-test",
+      "content": "To måleserier er **parret** når hver observasjon i den ene naturlig hører sammen med én bestemt i den andre — samme enhet målt *før og etter*, eller to metoder brukt på *samme* prøve. Da er ikke seriene uavhengige, og trikset er å **redusere til ett utvalg** ved å se på differansene:\n\n$$D_i = Y_i - X_i, \\qquad T = \\frac{\\bar{D}}{S_D/\\sqrt{n}} \\sim t_{n-1} \\quad \\text{under } H_0: \\mu_D = 0.$$\n\nHer er $\\bar{D}$ gjennomsnittet av differansene og $S_D$ deres empiriske standardavvik. Testen er *nøyaktig* den vanlige t-testen fra kap. 7.1, brukt på differansene. **Kjennetegn på parret design:** målingene kommer i naturlige par (før/etter, samme enhet, matchede objekter). Fordelen er at parringen fjerner variasjonen *mellom* enhetene og gjør testen mer følsom."
+    },
+    {
+      "id": "tma4245-7-2-ex-parret",
+      "type": "example",
+      "title": "Eksempel 3: Senket omleggingen pH-en? (parret t-test)",
+      "problem": "pH-verdien i gjæringen måles i $n = 14$ tanker *før* og *etter* en omlegging av prosessen. For hver tank regnes differansen $D_i = \\text{pH}_{\\text{etter}} - \\text{pH}_{\\text{før}}$. Differansene gir $\\bar{d} = -0{,}08$ og $s_D = 0{,}12$. Test på 5 %-nivå om omleggingen har *senket* pH.",
+      "solution": "**Steg 0 — hvorfor parret?** Hver tank måles før og etter, så de to seriene hører sammen tank for tank — designet er **parret**, og vi analyserer differansene som ett utvalg.\n\n**Steg 1 — hypoteser.** «Senket» betyr negativ differanse: $H_0: \\mu_D = 0$ mot $H_1: \\mu_D < 0$ (ensidig nedover).\n\n**Steg 2 — testobservator.** $T = \\frac{\\bar{D}}{S_D/\\sqrt{n}} \\sim t_{n-1} = t_{13}$ under $H_0$.\n\n**Steg 3 — forutsetninger.** Differansene antas normalfordelte og uavhengige (én per tank). OK.\n\n**Steg 4–5 — tallfesting.** Standardfeil $s_D/\\sqrt{n} = 0{,}12/\\sqrt{14} = 0{,}03207$. Observator:\n$$T = \\frac{-0{,}08}{0{,}03207} = -2{,}494.$$\nEnsidig nedover, $13$ frihetsgrader: forkast hvis $T < -t_{13;\\,0{,}05} = -1{,}771$. Siden $-2{,}494 < -1{,}771$, forkaster vi $H_0$. p-verdi $= P(T_{13} < -2{,}494) = 0{,}013 < 0{,}05$.\n\n**Steg 6 — konklusjon.** På 5 %-nivå er det **grunnlag for å hevde at omleggingen senket pH** (i snitt med $0{,}08$).\n\n> *Sensornotat:* den store fellen (Aug20/Mai24) er å behandle før- og etter-tallene som *to uavhengige utvalg*. Det er feil — de er parret, og differanse-analysen med $t_{13}$ er riktig. Vi supplerer med en fortegnstest i løkke 5."
+    },
+    {
+      "id": "tma4245-7-2-e4",
+      "type": "exercise",
+      "exercise": {
+        "id": "tma4245-7-2-e4",
+        "number": "4",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "Ti turbinblad testes for slitasje *før* og *etter* en ny belegningsmetode. For hvert blad er differansen $D_i = \\text{slitasje}_{\\text{før}} - \\text{slitasje}_{\\text{etter}}$ (positiv = mindre slitasje etter). Differansene gir $\\bar{d} = 1{,}5$ og $s_D = 2{,}1$ (i mikrometer). Test på 5 %-nivå om belegget *reduserer* slitasjen. Bruk $t_{9;\\,0{,}05} = 1{,}833$.\n\n**a)** Begrunn at designet er parret, og sett opp hypotesene.\n\n**b)** Regn ut observatoren og konkluder.",
+        "solution": "**a)** Hvert blad måles før og etter — målingene hører sammen blad for blad, altså **parret**. En positiv differanse betyr redusert slitasje, så: $H_0: \\mu_D = 0$ mot $H_1: \\mu_D > 0$.\n\n**b)** Standardfeil $s_D/\\sqrt{n} = 2{,}1/\\sqrt{10} = 0{,}6641$. $T = 1{,}5/0{,}6641 = 2{,}259$. Forkast hvis $T > t_{9;\\,0{,}05} = 1{,}833$. Siden $2{,}259 > 1{,}833$, **forkast $H_0$** (p-verdi $= 0{,}025$): det er grunnlag for å hevde at belegget reduserer slitasjen.",
+        "hints": [
+          "Samme blad før/etter → parret; analyser differansene.",
+          "$s_D/\\sqrt{n} = 2{,}1/\\sqrt{10} = 0{,}6641$; $T = 1{,}5/0{,}6641$.",
+          "Ensidig oppover: forkast hvis $T > 1{,}833$."
+        ]
+      }
+    },
+    {
+      "id": "tma4245-7-2-lokke4",
+      "type": "text",
+      "content": "## Løkke 4 — To uavhengige utvalg (pooled t) (~13 min)"
+    },
+    {
+      "id": "tma4245-7-2-def-2samp",
+      "type": "definition",
+      "title": "To-utvalgs t-test med pooled varians",
+      "content": "Når to *uavhengige* grupper sammenlignes (to produksjonslinjer, to leverandører — ikke samme enhet to ganger), tester vi $H_0: \\mu_1 = \\mu_2$. Under antagelsen om **lik varians** i de to gruppene slår vi sammen (pooler) variansestimatene:\n\n$$S_p^2 = \\frac{(n_1-1)S_1^2 + (n_2-1)S_2^2}{n_1 + n_2 - 2}, \\qquad T = \\frac{\\bar{X}_1 - \\bar{X}_2}{S_p\\sqrt{\\frac{1}{n_1} + \\frac{1}{n_2}}} \\sim t_{n_1+n_2-2}.$$\n\nFrihetsgraden er $n_1 + n_2 - 2$ (vi har estimert *to* gjennomsnitt). Antagelsen om lik varians skal **oppgis**. Merk kontrasten til parret design: her er gruppene uavhengige, og vi kan ikke danne differanser par for par — vi sammenligner gjennomsnittene direkte."
+    },
+    {
+      "id": "tma4245-7-2-ex-2samp",
+      "type": "example",
+      "title": "Eksempel 4: Skiller to produksjonslinjer seg?",
+      "problem": "To uavhengige produksjonslinjer måles på bruddstyrke (kN). Linje 1: $n_1 = 10$, $\\bar{x}_1 = 52{,}0$, $s_1 = 3{,}1$. Linje 2: $n_2 = 12$, $\\bar{x}_2 = 49{,}5$, $s_2 = 2{,}7$. Anta lik varians og normalfordelte data. Test på 5 %-nivå om linjene har ulik forventet bruddstyrke.",
+      "solution": "**Steg 1 — hypoteser.** Uavhengige grupper, avvik begge veier: $H_0: \\mu_1 = \\mu_2$ mot $H_1: \\mu_1 \\ne \\mu_2$ (tosidig).\n\n**Steg 2 — testobservator.** Pooled t: $T = \\frac{\\bar{X}_1-\\bar{X}_2}{S_p\\sqrt{1/n_1+1/n_2}} \\sim t_{n_1+n_2-2} = t_{20}$.\n\n**Steg 3 — forutsetninger.** Uavhengige, normalfordelte, antatt lik varians (oppgitt).\n\n**Steg 4–5 — tallfesting.** Pooled varians:\n$$S_p^2 = \\frac{9 \\cdot 3{,}1^2 + 11 \\cdot 2{,}7^2}{20} = \\frac{9 \\cdot 9{,}61 + 11 \\cdot 7{,}29}{20} = \\frac{86{,}49 + 80{,}19}{20} = 8{,}334,$$\nså $S_p = 2{,}887$. Standardfeil $S_p\\sqrt{1/10 + 1/12} = 2{,}887 \\cdot 0{,}4282 = 1{,}236$. Observator:\n$$T = \\frac{52{,}0 - 49{,}5}{1{,}236} = \\frac{2{,}5}{1{,}236} = 2{,}022.$$\nTosidig, $20$ frihetsgrader: forkast hvis $|T| > t_{20;\\,0{,}025} = 2{,}086$. Siden $2{,}022 < 2{,}086$, **forkaster vi ikke** $H_0$. p-verdi $= 2\\,P(T_{20} > 2{,}022) = 0{,}057 > 0{,}05$.\n\n**Steg 6 — konklusjon.** På 5 %-nivå er det **ikke grunnlag for å hevde at linjene har ulik forventet bruddstyrke** — forskjellen ($2{,}5$ kN) er ikke statistisk sikker med disse utvalgsstørrelsene.\n\n> *Sensornotat:* frihetsgraden er $n_1 + n_2 - 2 = 20$, ikke $n_1 + n_2 = 22$. Og fordi dette er *uavhengige* utvalg (ikke samme enhet), kan vi ikke bruke parret t-test her."
+    },
+    {
+      "id": "tma4245-7-2-e5",
+      "type": "exercise",
+      "exercise": {
+        "id": "tma4245-7-2-e5",
+        "number": "5",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "To leverandører av samme sensor sammenlignes på responstid (ms). Leverandør A: $n_1 = 8$, $\\bar{x}_1 = 45$, $s_1 = 4$. Leverandør B: $n_2 = 10$, $\\bar{x}_2 = 41$, $s_2 = 3{,}5$. Anta lik varians og normalfordelte data. Test på 5 %-nivå om leverandørene har ulik forventet responstid. Bruk $t_{16;\\,0{,}025} = 2{,}120$.\n\n**a)** Er dette parret eller to uavhengige utvalg? Begrunn.\n\n**b)** Regn ut pooled varians og observatoren, og konkluder.",
+        "solution": "**a)** **To uavhengige utvalg** — det er to *forskjellige* leverandører (ulike enheter), ikke samme sensor målt to ganger. Derfor pooled t, ikke parret.\n\n**b)** $S_p^2 = \\frac{7 \\cdot 16 + 9 \\cdot 12{,}25}{16} = \\frac{112 + 110{,}25}{16} = 13{,}891$, så $S_p = 3{,}727$. Standardfeil $3{,}727\\sqrt{1/8 + 1/10} = 3{,}727 \\cdot 0{,}4743 = 1{,}768$. $T = (45-41)/1{,}768 = 2{,}263$. Tosidig: $|T| = 2{,}263 > t_{16;\\,0{,}025} = 2{,}120$ → **forkast $H_0$** (p-verdi $= 0{,}038$): det er grunnlag for å hevde at leverandørene har ulik forventet responstid.",
+        "hints": [
+          "Ulike enheter → to uavhengige utvalg, pooled t.",
+          "$S_p^2 = \\frac{7 \\cdot 16 + 9 \\cdot 12{,}25}{16} = 13{,}891$; frihetsgrad $16$.",
+          "$T = (45-41)/(S_p\\sqrt{1/8+1/10})$; sammenlign med $2{,}120$."
+        ]
+      }
+    },
+    {
+      "id": "tma4245-7-2-lokke5",
+      "type": "text",
+      "content": "## Løkke 5 — Fortegnstesten (~13 min)"
+    },
+    {
+      "id": "tma4245-7-2-def-sign",
+      "type": "definition",
+      "title": "Fortegnstesten",
+      "content": "**Fortegnstesten** er en robust test som bare bruker *fortegnet* på differansene, ikke størrelsen. Den er et supplement til den parrede t-testen når normalitetsantagelsen er usikker. Idéen: hvis omleggingen ikke har noen effekt ($H_0$), er en differanse like sannsynlig positiv som negativ. La\n\n$$U = \\text{antall positive differanser} \\sim \\text{binomisk}\\!\\left(n, \\tfrac{1}{2}\\right) \\quad \\text{under } H_0,$$\n\nder $n$ er antall par med differanse forskjellig fra null (nuller forkastes). p-verdien er en eksakt binomisk halesannsynlighet. **Hvorfor supplere t-testen?** Fortegnstesten krever *ikke* at differansene er normalfordelte, så den er trygg ved skjeve data eller uteliggere. **Hvorfor kan svarene sprike?** Fortegnstesten kaster bort informasjon (bruker bare fortegn, ikke størrelse) og har derfor **lavere styrke** — den kan la være å forkaste der t-testen forkaster, særlig når effekten er tydelig i størrelse men fordelt på moderate differanser."
+    },
+    {
+      "id": "tma4245-7-2-ex-sign",
+      "type": "example",
+      "title": "Eksempel 5: Fortegnstest på pH-dataene",
+      "problem": "Bruk pH-dataene fra eksempel 3 ($n = 14$ tanker, målt før og etter omlegging). Det viser seg at $11$ tanker fikk *lavere* pH (negativ differanse) og $3$ fikk *høyere* (positiv), ingen uendret. Suppler den parrede t-testen med en fortegnstest på 5 %-nivå, og forklar hvorfor de to testene kan gi ulikt svar.",
+      "solution": "**Steg 1 — hypoteser.** «Senket pH» betyr en overvekt av negative differanser, altså *få* positive: $H_0: \\text{median}(D) = 0$ (like sannsynlig opp/ned) mot $H_1: \\text{median}(D) < 0$.\n\n**Steg 2 — modell.** Under $H_0$ er $U = \\text{antall positive} \\sim \\text{binomisk}(14, \\tfrac{1}{2})$. Vi observerte $U = 3$.\n\n**Steg 4–5 — p-verdi.** «Minst like ekstremt» i retning av $H_1$ (senkning) betyr *få* positive, altså $U \\le 3$:\n$$p = P(U \\le 3) = \\frac{\\binom{14}{0} + \\binom{14}{1} + \\binom{14}{2} + \\binom{14}{3}}{2^{14}} = \\frac{1 + 14 + 91 + 364}{16384} = \\frac{470}{16384} = 0{,}0287.$$\n\n**Steg 6 — konklusjon.** $p = 0{,}0287 < 0{,}05$, så **forkast $H_0$**: også fortegnstesten støtter at pH ble senket.\n\n**Hvorfor kan de sprike?** Her er begge enige. Men fortegnstesten bruker bare *antall* nedganger (11 av 14), ikke *hvor mye* pH sank. Den parrede t-testen (p = 0,013) utnytter størrelsen på differansene og har derfor lavere p-verdi — den er mer følsom *når differansene faktisk er normalfordelte*. Er de derimot skjeve eller har uteliggere, er fortegnstesten mer å stole på. Ved svakere data kan man derfor oppleve at t-testen forkaster mens fortegnstesten ikke gjør det (eller omvendt hvis en uteligger blåser opp $s_D$).\n\n> *Sensornotat:* nuller (uendrede par) *forkastes* før $n$ telles. Og en tosidig fortegnstest ville brukt den doble halen — pass på å ikke regne en ensidig p-verdi der oppgaven er tosidig."
+    },
+    {
+      "id": "tma4245-7-2-e6",
+      "type": "exercise",
+      "exercise": {
+        "id": "tma4245-7-2-e6",
+        "number": "6",
+        "type": "classic",
+        "difficulty": "vanskelig",
+        "task": "Tolv operatører prøver to tastaturoppsett og rangerer hvilket som gir færrest feil. Med oppsett B fikk $10$ operatører *færre* feil enn med A, $2$ fikk flere, ingen likt. Bruk en fortegnstest på 5 %-nivå til å avgjøre om B er bedre. La $U = $ antall som gjorde *flere* feil med B.\n\n**a)** Sett opp modellen for $U$ under $H_0$ og formuler hypotesene.\n\n**b)** Regn p-verdien (bruk at $\\binom{12}{0}=1$, $\\binom{12}{1}=12$, $\\binom{12}{2}=66$, $2^{12}=4096$) og konkluder.\n\n**c)** Hvorfor kunne man valgt en parret t-test i stedet, og hva ville kreves for det?",
+        "solution": "**a)** Under $H_0$ (ingen forskjell) er hver operatør like sannsynlig til å gjøre flere/færre feil med B, så $U \\sim \\text{binomisk}(12, \\tfrac{1}{2})$. «B er bedre» betyr *få* som gjorde flere feil med B: $H_0: \\text{median} = 0$ mot $H_1: \\text{færre feil med B}$ (få positive $U$). Vi observerte $U = 2$.\n\n**b)** $p = P(U \\le 2) = \\frac{1 + 12 + 66}{4096} = \\frac{79}{4096} = 0{,}0193$. Siden $0{,}0193 < 0{,}05$, **forkast $H_0$**: det er grunnlag for å hevde at oppsett B gir færre feil.\n\n**c)** Hadde vi hatt *antall feil* (tallverdier) for hver operatør med hvert oppsett, kunne vi dannet differanser og brukt en parret t-test, som utnytter størrelsen på forskjellene og har høyere styrke. Det ville kreve at differansene er (tilnærmet) normalfordelte. Her har vi bare rangeringen (hvilket som var best), så fortegnstesten er det riktige valget.",
+        "hints": [
+          "Under $H_0$: $U \\sim \\text{binomisk}(12, 1/2)$; få positive støtter $H_1$.",
+          "$p = P(U \\le 2) = (1 + 12 + 66)/4096$.",
+          "Parret t krever tallverdier (differanser), ikke bare rangering."
+        ]
+      }
+    },
+    {
+      "id": "tma4245-7-2-warn",
+      "type": "warning",
+      "title": "Typiske feil",
+      "content": "- **Behandle parrede data som to uavhengige utvalg** (Aug20/Mai24 er konstruert for å avsløre nettopp dette). Måles *samme* enhet før/etter, er designet parret → analyser differansene med $t_{n-1}$.\n- **Bruke normaltilnærming der eksakt test kreves** (lite $n$, $np_0 < 5$, lav Poisson-rate) — og omvendt bruke eksakt der normaltilnærming er greit.\n- **Feil frihetsgrader i pooled-testen:** det er $n_1 + n_2 - 2$, ikke $n_1 + n_2$.\n- **Symmetrisk forkastningsområde for variansen.** Kjikvadratfordelingen er skjev; ensidig bruker én kvantil, tosidig to *ulike* ($\\chi^2_{n-1,\\alpha/2}$ og $\\chi^2_{n-1,1-\\alpha/2}$).\n- **Regne tosidig fortegnstest ensidig** (eller motsatt), og glemme å forkaste nuller før $n$ telles.\n- **Glemme at eksakt p-verdi inkluderer det observerte utfallet:** $P(X \\ge x_{\\text{obs}})$, ikke $P(X > x_{\\text{obs}})$."
+    },
+    {
+      "id": "tma4245-7-2-begrepsbank",
+      "type": "text",
+      "content": "## Begrepsbank\n\nTestfamilien samlet som repetisjonskort.\n\n*Flashcard-/repetisjonsstoff — hopp trygt over ved førstegangslesing; tidsanslaget gjelder kjernestoffet.*"
+    },
+    {
+      "id": "tma4245-7-2-fc-var-obs",
+      "type": "definition",
+      "title": "Testobservator for varians",
+      "content": "For $H_0: \\sigma^2 = \\sigma_0^2$ (normalfordelte data): $\\frac{(n-1)S^2}{\\sigma_0^2} \\sim \\chi^2_{n-1}$ under $H_0$. Forkastningsområdet er *asymmetrisk*: ensidig oppover bruker $\\chi^2_{n-1,\\alpha}$, nedover $\\chi^2_{n-1,1-\\alpha}$, tosidig begge halene."
+    },
+    {
+      "id": "tma4245-7-2-fc-var-normalitet",
+      "type": "definition",
+      "title": "Normalitetskravet i varianstesten",
+      "content": "Kjikvadrat-testen for varians er *følsom* for avvik fra normalfordelingen — mer enn t-testen for forventningen. Er dataene tydelig ikke-normale, er testen upålitelig, og en mer robust metode bør vurderes. Oppgi normalitetsforutsetningen eksplisitt."
+    },
+    {
+      "id": "tma4245-7-2-fc-valg-exact",
+      "type": "definition",
+      "title": "Beslutningskort: eksakt vs. normaltilnærmet",
+      "content": "**Andel/Poisson med stor $n$** ($np_0 \\ge 5$, $n(1-p_0) \\ge 5$, stor $\\lambda_0$) → normaltilnærmet z-test. **Lite $n$ / lav rate** (forutsetningen feiler) → eksakt binomisk/Poisson-test via kumulativ tabell. Regelen forkast-hvis-$p<\\alpha$ er den samme."
+    },
+    {
+      "id": "tma4245-7-2-fc-exact-pverdi",
+      "type": "definition",
+      "title": "Eksakt p-verdi (haleretning)",
+      "content": "For $H_1: p > p_0$: $p\\text{-verdi} = P(X \\ge x_{\\text{obs}}) = 1 - P(X \\le x_{\\text{obs}}-1)$. For $H_1: p < p_0$: $P(X \\le x_{\\text{obs}})$. Den observerte verdien *inkluderes* i halen. Leses fra den kumulative binomisk-/Poisson-tabellen."
+    },
+    {
+      "id": "tma4245-7-2-fc-parret-kjennetegn",
+      "type": "definition",
+      "title": "Kjennetegn på parret design",
+      "content": "Målingene kommer i naturlige par: *samme* enhet før/etter, *samme* prøve med to metoder, matchede objekter. Da er seriene avhengige, og vi analyserer differansene $D_i$. Signalord: «før og etter», «samme», «paret», «hver enhet målt to ganger»."
+    },
+    {
+      "id": "tma4245-7-2-fc-parret-fordel",
+      "type": "definition",
+      "title": "Hvorfor parre?",
+      "content": "Parring fjerner variasjonen *mellom* enhetene (hver enhet er sin egen kontroll), så bare selve endringen står igjen. Det gir en mer følsom test (høyere styrke) enn å sammenligne to uavhengige grupper — forutsatt at et parret design faktisk er mulig."
+    },
+    {
+      "id": "tma4245-7-2-fc-2samp-frihet",
+      "type": "definition",
+      "title": "Frihetsgrader i to-utvalgstesten",
+      "content": "Pooled to-utvalgs-t har $n_1 + n_2 - 2$ frihetsgrader — to trekkes fra fordi *to* gjennomsnitt er estimert. Ikke $n_1 + n_2$, og ikke $n_1 + n_2 - 1$. Feil frihetsgrad er en klassisk poengtapper her."
+    },
+    {
+      "id": "tma4245-7-2-fc-2samp-pooled",
+      "type": "definition",
+      "title": "Pooled varians",
+      "content": "$S_p^2 = \\frac{(n_1-1)S_1^2 + (n_2-1)S_2^2}{n_1+n_2-2}$ er et vektet snitt av de to variansestimatene, med frihetsgradene som vekter. Den forutsetter *lik* varians i gruppene — en antagelse som skal oppgis. $S_p = \\sqrt{S_p^2}$ brukes i standardfeilen $S_p\\sqrt{1/n_1+1/n_2}$."
+    },
+    {
+      "id": "tma4245-7-2-fc-parret-vs-2samp",
+      "type": "definition",
+      "title": "Parret eller to utvalg?",
+      "content": "**Parret:** samme enhet/prøve gir naturlige par → differanser, $t_{n-1}$. **To uavhengige utvalg:** to forskjellige grupper (ulike enheter) → pooled t, $t_{n_1+n_2-2}$. Å bruke feil av de to er den vanligste fellen i denne delen (Aug20)."
+    },
+    {
+      "id": "tma4245-7-2-fc-sign-modell",
+      "type": "definition",
+      "title": "Fortegnstestens modell",
+      "content": "Under $H_0$ (ingen effekt) er en differanse like sannsynlig positiv som negativ, så $U = \\text{antall positive} \\sim \\text{binomisk}(n, \\tfrac{1}{2})$, der $n$ er antall par med differanse ulik null. p-verdien er en eksakt binomisk halesannsynlighet."
+    },
+    {
+      "id": "tma4245-7-2-fc-sign-hvorfor",
+      "type": "definition",
+      "title": "Fortegnstest: styrke vs. robusthet",
+      "content": "Fortegnstesten bruker bare fortegnet, ikke størrelsen — derfor er den **robust** mot ikke-normalitet og uteliggere, men har **lavere styrke** enn t-testen. Bruk den som supplement når normalitet er tvilsom; stol på t-testen når differansene er normalfordelte."
+    },
+    {
+      "id": "tma4245-7-2-fc-sign-nuller",
+      "type": "definition",
+      "title": "Nuller i fortegnstesten",
+      "content": "Par med differanse *nøyaktig* null gir ingen informasjon om retning og **forkastes** før $n$ telles. Et datasett med 14 par der 2 er uendret, gir altså $n = 12$ i binomisk-modellen. Å telle nullene med er en typisk feil."
+    },
+    {
+      "id": "tma4245-7-2-fc-naar-sprike",
+      "type": "definition",
+      "title": "Når kan t-test og fortegnstest sprike?",
+      "content": "Fordi fortegnstesten ignorerer størrelsen på differansene, kan den la være å forkaste der den parrede t-testen forkaster (lavere styrke). Motsatt kan en enkelt stor uteligger blåse opp $s_D$ og hindre t-testen i å forkaste, mens fortegnstesten (upåvirket av størrelse) fortsatt gjør det."
+    },
+    {
+      "id": "tma4245-7-2-fc-median-parret",
+      "type": "definition",
+      "title": "Hva fortegnstesten egentlig tester",
+      "content": "Der parret t-test tester om differansenes *forventning* er null, tester fortegnstesten om differansenes *median* er null (om opp og ned er like sannsynlig). Ved symmetriske fordelinger faller de to spørsmålene sammen; ved skjeve gjør de ikke det."
+    },
+    {
+      "id": "tma4245-7-2-fc-ensidig-var",
+      "type": "definition",
+      "title": "Retning i varianstesten",
+      "content": "«Er variansen for *stor*?» → $H_1: \\sigma^2 > \\sigma_0^2$, øvre kvantil $\\chi^2_{n-1,\\alpha}$. «For *liten* / for jevn?» → $H_1: \\sigma^2 < \\sigma_0^2$, nedre kvantil $\\chi^2_{n-1,1-\\alpha}$. «Avviker?» → tosidig, begge kvantiler med $\\alpha/2$."
+    },
+    {
+      "id": "tma4245-7-2-rep",
+      "type": "collapsible",
+      "title": "Repetisjonsoppgaver",
+      "buttonText": "Vis repetisjonsoppgaver",
+      "content": [
+        {
+          "id": "tma4245-7-2-rep-x1",
+          "type": "exercise",
+          "exercise": {
+            "id": "tma4245-7-2-rep-x1",
+            "number": "R1",
+            "type": "classic",
+            "difficulty": "lett",
+            "task": "(Fra [kap. 7.1](/bok/tma4245/tma4245-7-1).) Skriv opp de seks stegene i testritualet i riktig rekkefølge.",
+            "solution": "1) $H_0$ og $H_1$ i parametre med begrunnet retning; 2) testobservator med fordeling under $H_0$; 3) forutsetningssjekk; 4) forkastningsområde ved $\\alpha$ eller p-verdi; 5) tallfest; 6) konkluder i ord i kontekst.",
+            "hints": [
+              "Ritualet er identisk uansett testtype.",
+              "Fordelingen under $H_0$ er steg 2; konklusjon i ord er steg 6."
+            ]
+          }
+        },
+        {
+          "id": "tma4245-7-2-rep-x2",
+          "type": "exercise",
+          "exercise": {
+            "id": "tma4245-7-2-rep-x2",
+            "number": "R2",
+            "type": "classic",
+            "difficulty": "lett",
+            "task": "(Fra [kap. 6.1](/bok/tma4245/tma4245-6-1).) Hvor mange frihetsgrader har kjikvadrat-fordelingen i en test av variansen basert på $n = 12$ normalfordelte observasjoner?",
+            "solution": "$n-1 = 11$ frihetsgrader. Observatoren $\\frac{(n-1)S^2}{\\sigma_0^2} \\sim \\chi^2_{11}$ under $H_0$.",
+            "hints": [
+              "Variansestimatet $S^2$ har $n-1$ frihetsgrader.",
+              "$12-1 = 11$."
+            ]
+          }
+        },
+        {
+          "id": "tma4245-7-2-rep-x3",
+          "type": "exercise",
+          "exercise": {
+            "id": "tma4245-7-2-rep-x3",
+            "number": "R3",
+            "type": "classic",
+            "difficulty": "lett",
+            "task": "(Fra [kap. 2.2](/bok/tma4245/tma4245-2-2).) $X \\sim \\text{binomisk}(10,\\ 0{,}5)$. Bruk symmetrien til å finne $P(X \\le 3)$ gitt at $P(X \\le 3) = 0{,}1719$. Hva er $P(X \\ge 7)$?",
+            "solution": "Ved symmetrien om 5 er $P(X \\ge 7) = P(X \\le 3) = 0{,}1719$. (Binomisk$(10, 0{,}5)$ er symmetrisk om forventningen $np = 5$.)",
+            "hints": [
+              "Binomisk$(n, 0{,}5)$ er symmetrisk om $n/2$.",
+              "$P(X \\ge 7) = P(X \\le 3)$."
+            ]
+          }
+        },
+        {
+          "id": "tma4245-7-2-rep-x4",
+          "type": "exercise",
+          "exercise": {
+            "id": "tma4245-7-2-rep-x4",
+            "number": "R4",
+            "type": "classic",
+            "difficulty": "middels",
+            "task": "(Fra [kap. 7.1](/bok/tma4245/tma4245-7-1).) En t-test gir observator $T = -2{,}30$ med $13$ frihetsgrader, og testen er ensidig nedover. Er $T$ i forkastningsområdet på 5 %-nivå? Bruk $t_{13;\\,0{,}05} = 1{,}771$.",
+            "solution": "Ensidig nedover: forkast hvis $T < -t_{13;\\,0{,}05} = -1{,}771$. Siden $-2{,}30 < -1{,}771$, er $T$ i forkastningsområdet → forkast $H_0$.",
+            "hints": [
+              "Ensidig nedover bruker $-t_{13;\\,0{,}05}$.",
+              "$-2{,}30 < -1{,}771$."
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": "tma4245-7-2-symbolliste",
+      "type": "collapsible",
+      "title": "Symbol- og formelliste",
+      "buttonText": "Vis symboler og formler",
+      "content": [
+        {
+          "id": "tma4245-7-2-symbolliste-text",
+          "type": "text",
+          "content": "*Oppslagsverk — alt her forklares underveis i kapitlet.*\n\nAlle symboler og formler brukt i kapittel 7.2, samlet.\n\n| Symbol | Betydning |\n|---|---|\n| $\\sigma_0^2$ | Påstått varians under $H_0$ |\n| $S^2,\\ S_p^2$ | Empirisk varians og pooled varians |\n| $D_i,\\ \\bar{D},\\ S_D$ | Differanser i parret design, deres snitt og standardavvik |\n| $U$ | Antall positive differanser (fortegnstest) |\n| $\\chi^2_{\\nu,\\alpha}$ | Kjikvadrat-kvantil, $\\nu$ fr.grader, øvre hale $\\alpha$ |\n| $t_{\\nu,\\alpha}$ | t-kvantil, $\\nu$ fr.grader, øvre hale $\\alpha$ |\n| $p_0,\\ \\lambda_0$ | Påstått andel/rate under $H_0$ |\n\n**Formler i dette kapitlet:**\n\n$$\\frac{(n-1)S^2}{\\sigma_0^2} \\sim \\chi^2_{n-1}$$\nTestobservator for variansen (asymmetrisk forkastningsområde).\n\n$$X \\sim \\text{binomisk}(n, p_0), \\qquad X \\sim \\text{Poisson}(\\lambda_0)$$\nEksakte tester: bruk fordelingen direkte via kumulativ tabell.\n\n$$T = \\frac{\\bar{D}}{S_D/\\sqrt{n}} \\sim t_{n-1} \\quad (\\text{parret, } D_i = Y_i - X_i)$$\nParret t-test — differansene som ett utvalg.\n\n$$S_p^2 = \\frac{(n_1-1)S_1^2 + (n_2-1)S_2^2}{n_1+n_2-2}, \\qquad T = \\frac{\\bar{X}_1-\\bar{X}_2}{S_p\\sqrt{1/n_1+1/n_2}} \\sim t_{n_1+n_2-2}$$\nTo-utvalgs t-test med pooled varians (antatt lik varians).\n\n$$U = \\text{antall positive differanser} \\sim \\text{binomisk}\\!\\left(n, \\tfrac{1}{2}\\right)$$\nFortegnstesten (nuller forkastes før $n$ telles)."
+        }
+      ]
+    }
+  ],
+  "exercises": []
+}

@@ -1,0 +1,359 @@
+{
+  "id": "tma4245-2-5",
+  "courseId": "tma4245",
+  "chapterNumber": "2.5",
+  "title": "Simultanfordelinger, kovarians og korrelasjon",
+  "description": "Simultantabeller og -tettheter: marginaler, betingede fordelinger, uavhengighetssjekk og kovariansregning.",
+  "estimatedMinutes": 55,
+  "competenceGoals": [
+    "finne marginal- og betingede fordelinger fra en simultantabell",
+    "avgjøre uavhengighet ved å sjekke faktorisering i alle celler",
+    "regne kovarians og korrelasjon, og skalere dem for lineærkombinasjoner",
+    "forklare at uavhengige variable er ukorrelerte, men ikke omvendt"
+  ],
+  "content": [
+    {
+      "id": "tma4245-2-5-tip",
+      "type": "tip",
+      "title": "Eksamensvinkel",
+      "content": "**Dette kapitlet handler om to variable samtidig — tabellen, uavhengighetssjekken og kovariansregningen.**\n\n- Simultanfordelinger er **sjanger L** — *sjanger L* betyr en oppgave med en simultantabell $p(x,y)$ der du finner marginaler, betingede fordelinger, kovarians og avgjør uavhengighet. Den er med i **≈49 %** av settene.\n- En favoritt-vri er **korrelasjon av lineærkombinasjoner** som $\\text{corr}(5X - 2,\\ 10Y + 3)$ (Jun23), og **uavhengighetssjekk i tabell** er en fast gjenganger.\n- Prioritet: **kunne**.\n\n**Hva sensor måler:** at du sjekker uavhengighet i **alle** celler (ikke bare én), regner kovariansen riktig med $\\text{Cov}(X,Y) = E(XY) - E(X)E(Y)$, og vet at **uavhengig gir ukorrelert, men ikke omvendt**.\n\n**Formelsamlingen** har definisjonene av kovarians og korrelasjon, men selve tabellarbeidet — marginaler, betingede, $E(XY)$ — må gjøres for hånd. Det er ferdigheten kapitlet trener."
+    },
+    {
+      "id": "tma4245-2-5-forkunnskaper",
+      "type": "text",
+      "content": "**Forkunnskaper:** Dette kapitlet bygger på forventning, varians og regnereglene fra **[kap. 2.1](/bok/tma4245/tma4245-2-1)** — særlig kovariansleddet i $\\text{Var}(aX + bY)$ og definisjonen $\\text{Cov}(X,Y) = E(XY) - E(X)E(Y)$ — og på uavhengighet fra **[kap. 1.1](/bok/tma4245/tma4245-1-1)** og betinget sannsynlighet fra **[kap. 1.3](/bok/tma4245/tma4245-1-3)**.\n\nFra matematikken trenger du å summere over en tabell, og — i det kontinuerlige tilfellet — å **integrere** en funksjon av to variable (ett integral om gangen). Vi bygger opp simultanfordelingene fra tabellen.\n\nKapitlet er forkunnskap for lineærkombinasjoner av normale variable i **kap. 3.2**, der kovariansleddet dukker opp igjen."
+    },
+    {
+      "id": "tma4245-2-5-intro",
+      "type": "text",
+      "content": "Hittil har vi sett på én variabel om gangen. Men ofte henger to størrelser sammen: antall driftsstans og antall alarmer på et anlegg, temperatur og trykk i en prosess, høyde og vekt. En **simultanfordeling** beskriver de to samtidig, og lar oss svare på om de er **uavhengige**, og hvor sterkt de **samvarierer**.\n\nVi går i tre løkker. Først tabellspråket: **simultanfordeling**, **marginaler** og **betingede fordelinger** (løkke 1). Så **uavhengighetssjekken** og **kovarians/korrelasjon** — kjernen i sjanger L (løkke 2). Til slutt **skalering** av kovarians og det kontinuerlige tilfellet (løkke 3). Hver løkke går teori → eksempel → oppgave.\n\n*Samlet kjernetid ≈ 55 min. Naturlige pausepunkter er markert mellom løkkene.*"
+    },
+    {
+      "id": "tma4245-2-5-lokke1",
+      "type": "text",
+      "content": "## Løkke 1 — Simultantabell, marginaler og betingede fordelinger (~18 min)"
+    },
+    {
+      "id": "tma4245-2-5-def-simultan",
+      "type": "definition",
+      "title": "Simultanfordeling $p(x, y)$",
+      "content": "En **simultanfordeling** for to diskrete variable gir sannsynligheten for hver *kombinasjon* av verdier:\n\n$$p(x, y) = P(X = x,\\ Y = y).$$\n\nDen settes gjerne opp i en **tabell** med $X$-verdiene som rader og $Y$-verdiene som kolonner. Alle cellene er $\\ge 0$ og summerer til 1 over hele tabellen: $\\sum_x \\sum_y p(x, y) = 1$. Tabellen inneholder *all* informasjon om de to variablene sett sammen."
+    },
+    {
+      "id": "tma4245-2-5-def-marginal",
+      "type": "definition",
+      "title": "Marginalfordeling",
+      "content": "**Marginalfordelingen** til $X$ fås ved å summere ut $Y$ — altså summere hver **rad**:\n\n$$p_X(x) = \\sum_y p(x, y).$$\n\nTilsvarende er $p_Y(y) = \\sum_x p(x, y)$ (summer hver **kolonne**). Marginalfordelingene står i «margen» av tabellen — derav navnet — og er de vanlige én-variabel-fordelingene til $X$ og $Y$ hver for seg. Fra dem regner du $E(X)$, $\\text{Var}(X)$ osv. som før."
+    },
+    {
+      "id": "tma4245-2-5-def-betinget",
+      "type": "definition",
+      "title": "Betinget fordeling",
+      "content": "Den **betingede fordelingen** til $Y$ gitt $X = x$ forteller hvordan $Y$ fordeler seg når vi vet at $X = x$:\n\n$$p(y \\mid x) = \\frac{p(x, y)}{p_X(x)}.$$\n\nDette er betinget sannsynlighet ([kap. 1.3](/bok/tma4245/tma4245-1-3)) anvendt på tabellen: ta cellen, del på radsummen. For fast $x$ summerer de betingede sannsynlighetene $p(y \\mid x)$ til 1 over $y$ — det er en ekte fordeling."
+    },
+    {
+      "id": "tma4245-2-5-ex-1",
+      "type": "example",
+      "title": "Eksempel 1: Marginaler og betinget fordeling",
+      "problem": "Simultanfordelingen til antall driftsstans $X$ og antall alarmer $Y$ i et døgn er:\n\n| $p(x,y)$ | $Y=0$ | $Y=1$ |\n|---|---|---|\n| $X=0$ | 0,30 | 0,05 |\n| $X=1$ | 0,15 | 0,20 |\n| $X=2$ | 0,05 | 0,25 |\n\nFinn marginalfordelingen til $X$, marginalfordelingen til $Y$, og den betingede fordelingen til $Y$ gitt $X = 2$.",
+      "solution": "**Marginal til $X$** (radsummer):\n$$p_X(0) = 0{,}30 + 0{,}05 = 0{,}35, \\quad p_X(1) = 0{,}15 + 0{,}20 = 0{,}35, \\quad p_X(2) = 0{,}05 + 0{,}25 = 0{,}30.$$\n(Sum $= 1$, kontroll OK.)\n\n**Marginal til $Y$** (kolonnesummer):\n$$p_Y(0) = 0{,}30 + 0{,}15 + 0{,}05 = 0{,}50, \\quad p_Y(1) = 0{,}05 + 0{,}20 + 0{,}25 = 0{,}50.$$\n\n**Betinget $Y \\mid X = 2$** (del rad $X=2$ på $p_X(2) = 0{,}30$):\n$$p(Y=0 \\mid X=2) = \\frac{0{,}05}{0{,}30} = 0{,}167, \\qquad p(Y=1 \\mid X=2) = \\frac{0{,}25}{0{,}30} = 0{,}833.$$\nDe summerer til 1. Vi ser at når det er mange driftsstans ($X = 2$), er en alarm ($Y = 1$) mye mer sannsynlig — et tegn på at $X$ og $Y$ *ikke* er uavhengige, som vi sjekker i løkke 2."
+    },
+    {
+      "id": "tma4245-2-5-l1",
+      "type": "exercise",
+      "exercise": {
+        "id": "tma4245-2-5-l1",
+        "number": "1",
+        "type": "classic",
+        "difficulty": "lett",
+        "task": "(Innstegsoppgave.) En simultanfordeling er gitt ved:\n\n| $p(x,y)$ | $Y=0$ | $Y=1$ |\n|---|---|---|\n| $X=0$ | 0,2 | 0,3 |\n| $X=1$ | 0,1 | 0,4 |\n\n**a)** Finn marginalfordelingen til $X$.\n\n**b)** Finn $P(Y = 1)$.",
+        "solution": "**a)** Radsummer: $p_X(0) = 0{,}2 + 0{,}3 = 0{,}5$ og $p_X(1) = 0{,}1 + 0{,}4 = 0{,}5$.\n\n**b)** Kolonnesum for $Y = 1$: $p_Y(1) = 0{,}3 + 0{,}4 = 0{,}7$.",
+        "hints": [
+          "Marginal til $X$ = radsummer.",
+          "$P(Y=1)$ = kolonnesummen for $Y=1$."
+        ]
+      }
+    },
+    {
+      "id": "tma4245-2-5-m1",
+      "type": "exercise",
+      "exercise": {
+        "id": "tma4245-2-5-m1",
+        "number": "2",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "For tabellen i eksempel 1 (driftsstans $X$, alarmer $Y$):\n\n| $p(x,y)$ | $Y=0$ | $Y=1$ |\n|---|---|---|\n| $X=0$ | 0,30 | 0,05 |\n| $X=1$ | 0,15 | 0,20 |\n| $X=2$ | 0,05 | 0,25 |\n\n**a)** Finn $E(X)$ og $\\text{Var}(X)$ fra marginalfordelingen.\n\n**b)** Finn $E(Y)$ og $\\text{Var}(Y)$.",
+        "solution": "**a)** Marginal $p_X = (0{,}35,\\ 0{,}35,\\ 0{,}30)$ for $x = 0,1,2$. $E(X) = 0 \\cdot 0{,}35 + 1 \\cdot 0{,}35 + 2 \\cdot 0{,}30 = 0{,}95$. $E(X^2) = 0 + 1 \\cdot 0{,}35 + 4 \\cdot 0{,}30 = 1{,}55$. $\\text{Var}(X) = 1{,}55 - 0{,}95^2 = 1{,}55 - 0{,}9025 = 0{,}6475$.\n\n**b)** Marginal $p_Y = (0{,}5,\\ 0{,}5)$. $E(Y) = 0{,}5$, $E(Y^2) = 0{,}5$, $\\text{Var}(Y) = 0{,}5 - 0{,}25 = 0{,}25$.",
+        "hints": [
+          "Finn marginalfordelingene først (rad- og kolonnesummer).",
+          "$E(X)=\\sum x\\,p_X(x)$, deretter regneformelen for varians."
+        ]
+      }
+    },
+    {
+      "id": "tma4245-2-5-pause1",
+      "type": "text",
+      "content": "*— naturlig pausepunkt —*"
+    },
+    {
+      "id": "tma4245-2-5-lokke2",
+      "type": "text",
+      "content": "## Løkke 2 — Uavhengighet, kovarians og korrelasjon (~22 min)"
+    },
+    {
+      "id": "tma4245-2-5-def-uavhengig",
+      "type": "definition",
+      "title": "Uavhengighetssjekken",
+      "content": "To variable er **uavhengige** hvis simultansannsynligheten faktoriserer i marginalene for **alle** celler:\n\n$$p(x, y) = p_X(x)\\,p_Y(y) \\quad \\text{for alle } (x, y).$$\n\n**Avgjørende:** det må holde i *hver eneste* celle. **Én** avvikende celle motbeviser uavhengighet — du trenger altså bare finne én celle der det ikke stemmer for å konkludere «avhengige». En rask snarvei: er det en celle med $p(x, y) = 0$ mens begge marginalene er positive, er variablene straks avhengige (produktet ville vært positivt)."
+    },
+    {
+      "id": "tma4245-2-5-def-exy",
+      "type": "definition",
+      "title": "Forventning av et produkt, $E(XY)$",
+      "content": "Forventningen til en funksjon $g(X, Y)$ regnes ved å vekte funksjonsverdiene med simultanfordelingen:\n\n$$E[g(X, Y)] = \\sum_x \\sum_y g(x, y)\\,p(x, y).$$\n\nSpesialtilfellet vi trenger til kovariansen er $g(x, y) = xy$:\n\n$$E(XY) = \\sum_x \\sum_y x\\,y\\,p(x, y).$$\n\nSummer over *hele* tabellen. Ledd der $x = 0$ eller $y = 0$ bidrar med null, så i praksis summerer du bare cellene der begge er positive."
+    },
+    {
+      "id": "tma4245-2-5-def-kovarians",
+      "type": "definition",
+      "title": "Kovarians $\\text{Cov}(X, Y)$",
+      "content": "**Kovariansen** måler lineær samvariasjon mellom $X$ og $Y$:\n\n$$\\text{Cov}(X, Y) = E(XY) - E(X)\\,E(Y).$$\n\nPositiv kovarians betyr at de to har en tendens til å være store (eller små) sammen; negativ at den ene er stor når den andre er liten; null at det ikke er noen *lineær* samvariasjon. Kovariansen kan være negativ (i motsetning til variansen), og enheten er produktet av de to variablenes enheter — derfor er den vanskelig å tolke i absolutt størrelse, og vi normaliserer den til korrelasjon."
+    },
+    {
+      "id": "tma4245-2-5-def-korrelasjon",
+      "type": "definition",
+      "title": "Korrelasjon $\\rho$",
+      "content": "**Korrelasjonen** er kovariansen normalisert med standardavvikene, så den blir enhetsløs og ligger mellom $-1$ og $1$:\n\n$$\\rho = \\frac{\\text{Cov}(X, Y)}{\\sqrt{\\text{Var}(X)\\,\\text{Var}(Y)}}, \\qquad -1 \\le \\rho \\le 1.$$\n\n$\\rho$ nær $\\pm 1$ betyr sterk lineær sammenheng (positiv/negativ), $\\rho = 0$ ingen lineær sammenheng. Fordi den er skalert, kan korrelasjoner sammenlignes på tvers av variabelpar — noe kovariansen alene ikke tillater."
+    },
+    {
+      "id": "tma4245-2-5-ex-2",
+      "type": "example",
+      "title": "Eksempel 2: Uavhengighet, kovarians og korrelasjon",
+      "problem": "Bruk tabellen fra eksempel 1 (og $E(X) = 0{,}95$, $\\text{Var}(X) = 0{,}6475$, $E(Y) = 0{,}5$, $\\text{Var}(Y) = 0{,}25$ fra oppgave 2).\n\n**a)** Avgjør om $X$ og $Y$ er uavhengige.\n\n**b)** Finn $\\text{Cov}(X, Y)$.\n\n**c)** Finn korrelasjonen $\\rho$.",
+      "solution": "**a) Uavhengighet:** sjekk én celle. $p(0, 0) = 0{,}30$, men $p_X(0)\\,p_Y(0) = 0{,}35 \\cdot 0{,}50 = 0{,}175$. Siden $0{,}30 \\ne 0{,}175$, faktoriserer *ikke* fordelingen — $X$ og $Y$ er **avhengige**. (Én avvikende celle er nok.)\n\n**b) Kovarians:** først $E(XY)$, summert over cellene der både $x$ og $y$ er positive:\n$$E(XY) = (1)(1)(0{,}20) + (2)(1)(0{,}25) = 0{,}20 + 0{,}50 = 0{,}70.$$\nDa er $\\text{Cov}(X, Y) = E(XY) - E(X)E(Y) = 0{,}70 - 0{,}95 \\cdot 0{,}50 = 0{,}70 - 0{,}475 = 0{,}225$. Positiv — flere driftsstans følges av flere alarmer.\n\n**c) Korrelasjon:**\n$$\\rho = \\frac{0{,}225}{\\sqrt{0{,}6475 \\cdot 0{,}25}} = \\frac{0{,}225}{\\sqrt{0{,}161875}} = \\frac{0{,}225}{0{,}4023} \\approx 0{,}559.$$\nEn moderat til sterk positiv lineær sammenheng."
+    },
+    {
+      "id": "tma4245-2-5-l2",
+      "type": "exercise",
+      "exercise": {
+        "id": "tma4245-2-5-l2",
+        "number": "3",
+        "type": "classic",
+        "difficulty": "lett",
+        "task": "En simultanfordeling er:\n\n| $p(x,y)$ | $Y=0$ | $Y=1$ |\n|---|---|---|\n| $X=0$ | 0,10 | 0,20 |\n| $X=1$ | 0,15 | 0,30 |\n| $X=2$ | 0,05 | 0,20 |\n\nEn av cellene er $p(0,0) = 0{,}10$. Marginalene er $p_X(0) = 0{,}30$ og $p_Y(0) = 0{,}30$.\n\n**a)** Sjekk om $p(0,0) = p_X(0)\\,p_Y(0)$.\n\n**b)** Hva sier dette om uavhengighet?",
+        "solution": "**a)** $p_X(0)\\,p_Y(0) = 0{,}30 \\cdot 0{,}30 = 0{,}09$, mens $p(0,0) = 0{,}10$. De er ikke like ($0{,}10 \\ne 0{,}09$).\n\n**b)** Siden faktoriseringen svikter i (minst) denne cellen, er $X$ og $Y$ **avhengige**. Én avvikende celle er nok til å motbevise uavhengighet.",
+        "hints": [
+          "Regn produktet $p_X(0)\\,p_Y(0)$ og sammenlign med cellen.",
+          "Én avvikende celle motbeviser uavhengighet."
+        ]
+      }
+    },
+    {
+      "id": "tma4245-2-5-m2",
+      "type": "exercise",
+      "exercise": {
+        "id": "tma4245-2-5-m2",
+        "number": "4",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "Avgjør om $X$ og $Y$ er uavhengige i tabellen:\n\n| $p(x,y)$ | $Y=0$ | $Y=1$ | $Y=2$ |\n|---|---|---|---|\n| $X=0$ | 0,10 | 0,20 | 0,10 |\n| $X=1$ | 0,15 | 0,30 | 0,15 |\n\nMarginalene er $p_X = (0{,}4,\\ 0{,}6)$ og $p_Y = (0{,}25,\\ 0{,}50,\\ 0{,}25)$.",
+        "solution": "Sjekk om $p(x,y) = p_X(x)\\,p_Y(y)$ i alle celler:\n- $p(0,0) = 0{,}10$ mot $0{,}4 \\cdot 0{,}25 = 0{,}10$ ✓\n- $p(0,1) = 0{,}20$ mot $0{,}4 \\cdot 0{,}50 = 0{,}20$ ✓\n- $p(0,2) = 0{,}10$ mot $0{,}4 \\cdot 0{,}25 = 0{,}10$ ✓\n- $p(1,0) = 0{,}15$ mot $0{,}6 \\cdot 0{,}25 = 0{,}15$ ✓\n- $p(1,1) = 0{,}30$ mot $0{,}6 \\cdot 0{,}50 = 0{,}30$ ✓\n- $p(1,2) = 0{,}15$ mot $0{,}6 \\cdot 0{,}25 = 0{,}15$ ✓\n\nAlle seks cellene faktoriserer, så $X$ og $Y$ er **uavhengige**. (Her ble alle celler sjekket — for uavhengighet må *alle* stemme; det holder ikke å sjekke bare én.)",
+        "hints": [
+          "Uavhengighet krever at *alle* celler faktoriserer.",
+          "Regn $p_X(x)\\,p_Y(y)$ for hver celle og sammenlign."
+        ]
+      }
+    },
+    {
+      "id": "tma4245-2-5-pause2",
+      "type": "text",
+      "content": "*— naturlig pausepunkt —*"
+    },
+    {
+      "id": "tma4245-2-5-lokke3",
+      "type": "text",
+      "content": "## Løkke 3 — Skalering og det kontinuerlige tilfellet (~15 min)"
+    },
+    {
+      "id": "tma4245-2-5-def-skalering",
+      "type": "definition",
+      "title": "Skalering av kovarians og korrelasjon",
+      "content": "Kovariansen er **bilineær**, og konstante ledd faller bort:\n\n$$\\text{Cov}(aX + b,\\ cY + d) = ac\\,\\text{Cov}(X, Y).$$\n\nSkaleringsfaktorene $a$ og $c$ ganges inn; forskyvningene $b$ og $d$ forsvinner. For korrelasjonen skalerer *også* standardavvikene med $|a|$ og $|c|$, så faktorene kanselleres:\n\n$$\\text{corr}(aX + b,\\ cY + d) = \\text{sign}(ac)\\,\\text{corr}(X, Y).$$\n\nKorrelasjonen er altså **invariant** under positiv lineær skalering (og skifter bare fortegn hvis $ac < 0$). Det er dette Jun23-oppgaven $\\text{corr}(5X - 2,\\ 10Y + 3)$ tester."
+    },
+    {
+      "id": "tma4245-2-5-def-uavh-ukorr",
+      "type": "definition",
+      "title": "Uavhengig gir ukorrelert — men ikke omvendt",
+      "content": "Er $X$ og $Y$ **uavhengige**, er $E(XY) = E(X)E(Y)$, så $\\text{Cov}(X, Y) = 0$ og $\\rho = 0$: uavhengige variable er alltid **ukorrelerte**.\n\nMen **det motsatte gjelder ikke**: $\\rho = 0$ betyr bare at det ikke er noen *lineær* sammenheng. To variable kan være ukorrelerte og likevel sterkt avhengige (for eksempel når $Y = X^2$ og $X$ er symmetrisk om 0). Å slutte fra «ukorrelert» til «uavhengig» er derfor feil — en klassisk sensortrekk-felle."
+    },
+    {
+      "id": "tma4245-2-5-def-kontinuerlig",
+      "type": "definition",
+      "title": "Kontinuerlig simultanfordeling (kort)",
+      "content": "For to kontinuerlige variable erstattes tabellen av en **simultantetthet** $f(x, y)$, og summer blir integraler. **Marginaltettheten** fås ved å integrere ut den andre variabelen:\n\n$$f_X(x) = \\int f(x, y)\\,dy,$$\n\nog den betingede tettheten er $f(y \\mid x) = f(x, y)/f_X(x)$. Uavhengighet betyr $f(x, y) = f_X(x)\\,f_Y(y)$ for alle $(x, y)$, og forventninger regnes med dobbeltintegral: $E[g(X,Y)] = \\iint g(x,y)\\,f(x,y)\\,dx\\,dy$. Teknikken er den samme som for tabeller — bare med integrasjon i stedet for summering."
+    },
+    {
+      "id": "tma4245-2-5-ex-3",
+      "type": "example",
+      "title": "Eksempel 3: Kontinuerlig simultanfordeling",
+      "problem": "To variable har simultantetthet $f(x, y) = x + y$ for $0 < x < 1$, $0 < y < 1$ og 0 ellers.\n\n**a)** Finn marginaltettheten $f_X(x)$.\n\n**b)** Er $X$ og $Y$ uavhengige?\n\n**c)** Finn $E(X)$.",
+      "solution": "**a)** Integrer ut $y$ over $(0, 1)$:\n$$f_X(x) = \\int_0^1 (x + y)\\,dy = \\left[xy + \\frac{y^2}{2}\\right]_0^1 = x + \\frac{1}{2}, \\quad 0 < x < 1.$$\nMed samme regning er $f_Y(y) = y + \\tfrac{1}{2}$.\n\n**b)** Uavhengighet krever $f(x, y) = f_X(x)\\,f_Y(y)$. Men $f_X(x)\\,f_Y(y) = (x + \\tfrac{1}{2})(y + \\tfrac{1}{2}) = xy + \\tfrac{1}{2}x + \\tfrac{1}{2}y + \\tfrac{1}{4}$, som *ikke* er lik $x + y$. Altså er $X$ og $Y$ **avhengige**.\n\n**c)** $E(X) = \\int_0^1 x\\,f_X(x)\\,dx = \\int_0^1 x\\left(x + \\tfrac{1}{2}\\right)\\,dx = \\int_0^1 \\left(x^2 + \\tfrac{1}{2}x\\right)\\,dx = \\tfrac{1}{3} + \\tfrac{1}{4} = \\tfrac{7}{12} \\approx 0{,}583.$"
+    },
+    {
+      "id": "tma4245-2-5-v1",
+      "type": "exercise",
+      "exercise": {
+        "id": "tma4245-2-5-v1",
+        "number": "5",
+        "type": "classic",
+        "difficulty": "vanskelig",
+        "task": "Bruk tabellen fra eksempel 1 igjen, med $\\text{Cov}(X, Y) = 0{,}225$, $\\text{Var}(X) = 0{,}6475$, $\\text{Var}(Y) = 0{,}25$ og $\\rho \\approx 0{,}559$.\n\n**a)** Finn $\\text{Cov}(5X - 2,\\ 10Y + 3)$.\n\n**b)** Finn $\\text{corr}(5X - 2,\\ 10Y + 3)$.\n\n**c)** En kollega konkluderer med at fordi $\\rho > 0$, kan ikke $X$ og $Y$ være uavhengige. Er resonnementet gyldig?",
+        "solution": "**a)** $\\text{Cov}(5X - 2,\\ 10Y + 3) = 5 \\cdot 10 \\cdot \\text{Cov}(X, Y) = 50 \\cdot 0{,}225 = 11{,}25$. (Konstantleddene $-2$ og $+3$ faller bort.)\n\n**b)** Korrelasjonen er invariant under positiv skalering ($5 > 0$, $10 > 0$), så $\\text{corr}(5X - 2,\\ 10Y + 3) = \\text{corr}(X, Y) = \\rho \\approx 0{,}559$. Standardavvikene skalerer med samme faktorer som kovariansen, så $5 \\cdot 10$ kanselleres.\n\n**c)** **Gyldig retning.** $\\rho \\ne 0$ betyr $\\text{Cov} \\ne 0$, og siden uavhengige variable *alltid* er ukorrelerte, kan variable med $\\rho \\ne 0$ ikke være uavhengige. (Advarsel: den *motsatte* slutningen — fra $\\rho = 0$ til uavhengig — ville derimot vært ugyldig.)",
+        "hints": [
+          "$\\text{Cov}(aX+b,cY+d) = ac\\,\\text{Cov}(X,Y)$.",
+          "Korrelasjonen er invariant under positiv skalering.",
+          "$\\rho \\ne 0 \\Rightarrow$ avhengige er gyldig; $\\rho = 0 \\Rightarrow$ uavhengig er det ikke."
+        ]
+      }
+    },
+    {
+      "id": "tma4245-2-5-v2",
+      "type": "exercise",
+      "exercise": {
+        "id": "tma4245-2-5-v2",
+        "number": "6",
+        "type": "classic",
+        "difficulty": "vanskelig",
+        "task": "En variabel $X$ tar verdiene $-1$, $0$, $1$ med lik sannsynlighet $\\tfrac{1}{3}$, og $Y=X^2$. Simultanfordelingen blir da:\n\n| $p(x,y)$ | $Y=0$ | $Y=1$ |\n|---|---|---|\n| $X=-1$ | 0 | 1/3 |\n| $X=0$ | 1/3 | 0 |\n| $X=1$ | 0 | 1/3 |\n\n**a)** Finn $E(X)$, $E(Y)$ og $E(XY)$.\n\n**b)** Finn $\\text{Cov}(X,Y)$ og korrelasjonen.\n\n**c)** Er $X$ og $Y$ uavhengige? Sammenhold svaret med b).",
+        "solution": "**a)** $E(X)=(-1)\\tfrac{1}{3}+0+1\\cdot\\tfrac{1}{3}=0$. $Y=1$ når $X=\\pm 1$ (sannsynlighet $\\tfrac{2}{3}$) og $Y=0$ når $X=0$, så $E(Y)=\\tfrac{2}{3}$. $E(XY)=(-1)(1)\\tfrac{1}{3}+(0)(0)\\tfrac{1}{3}+(1)(1)\\tfrac{1}{3}=-\\tfrac{1}{3}+\\tfrac{1}{3}=0$.\n\n**b)** $\\text{Cov}(X,Y)=E(XY)-E(X)E(Y)=0-0\\cdot\\tfrac{2}{3}=0$, så korrelasjonen er $\\rho=0$. $X$ og $Y$ er **ukorrelerte**.\n\n**c)** Likevel er de **avhengige**: cellen $p(X=0,Y=1)=0$, mens $p_X(0)\\,p_Y(1)=\\tfrac{1}{3}\\cdot\\tfrac{2}{3}=\\tfrac{2}{9}\\ne 0$. Å kjenne $X$ bestemmer $Y$ fullstendig ($Y=X^2$). Dette viser at ukorrelert **ikke** medfører uavhengig — korrelasjonen fanger bare *lineær* sammenheng, og her er sammenhengen rent kvadratisk.",
+        "hints": [
+          "$E(XY)=\\sum xy\\,p(x,y)$ over cellene.",
+          "$\\text{Cov}=E(XY)-E(X)E(Y)$; her er $E(X)=0$.",
+          "Sjekk faktorisering i nullcellen — sammenhold med at $Y=X^2$."
+        ]
+      }
+    },
+    {
+      "id": "tma4245-2-5-warn",
+      "type": "warning",
+      "title": "Typiske feil",
+      "content": "- **Sjekke uavhengighet i bare én celle og konkludere «uavhengig».** For å bekrefte uavhengighet må *alle* celler faktorisere. Én celle kan bare *motbevise* det.\n- **Slutte fra ukorrelert til uavhengig.** $\\rho = 0$ betyr bare ingen *lineær* sammenheng; variablene kan fortsatt være sterkt avhengige. Uavhengig $\\Rightarrow$ ukorrelert, men ikke omvendt.\n- **Glemme at kovariansen kan være negativ.** I motsetning til variansen kan $\\text{Cov}(X, Y) < 0$; et negativt svar er ikke nødvendigvis feil.\n- **Blande $E(XY)$ og $E(X)E(Y)$.** $E(XY)$ regnes fra simultanfordelingen ($\\sum\\sum xy\\,p$); $E(X)E(Y)$ er produktet av marginalforventningene. De er like *bare* når variablene er ukorrelerte.\n- **Ta med konstantleddene i kovariansskalering.** $\\text{Cov}(aX + b, cY + d) = ac\\,\\text{Cov}(X,Y)$ — $b$ og $d$ faller bort."
+    },
+    {
+      "id": "tma4245-2-5-begrepsbank",
+      "type": "text",
+      "content": "## Begrepsbank til eksamen\n\nKjernebegrepene for simultanfordelinger, samlet i kortform.\n\n*Begrepsbanken er flashcard-/repetisjonsstoff — den gjentar det du nettopp har lest. Hopp trygt over ved førstegangslesing; tidsanslaget gjelder kjernestoffet.*"
+    },
+    {
+      "id": "tma4245-2-5-bb-radkol",
+      "type": "definition",
+      "title": "Begrepskort: rad- og kolonnesummer",
+      "content": "Marginalfordelingen til $X$ er **radsummene** i simultantabellen ($p_X(x) = \\sum_y p(x,y)$); marginalen til $Y$ er **kolonnesummene**. Sjekk alltid at marginalene selv summerer til 1 — en rask kontroll på at tabellen er riktig avlest før du regner videre."
+    },
+    {
+      "id": "tma4245-2-5-bb-cov-tolkning",
+      "type": "definition",
+      "title": "Begrepskort: tolkning av kovariansfortegn",
+      "content": "$\\text{Cov}(X, Y) > 0$: variablene har tendens til å være store (eller små) sammen. $\\text{Cov}(X, Y) < 0$: den ene stor når den andre er liten. $\\text{Cov}(X, Y) = 0$: ingen lineær samvariasjon. Størrelsen er vanskelig å tolke direkte fordi den avhenger av enhetene — bruk korrelasjonen for det."
+    },
+    {
+      "id": "tma4245-2-5-bb-korr-egenskap",
+      "type": "definition",
+      "title": "Begrepskort: korrelasjonens egenskaper",
+      "content": "Korrelasjonen $\\rho$ ligger alltid mellom $-1$ og $1$, er enhetsløs, og måler **lineær** sammenheng. $\\rho = \\pm 1$ betyr en perfekt lineær sammenheng ($Y = aX + b$); $\\rho = 0$ ingen lineær sammenheng. Fordi den er normalisert, kan korrelasjoner sammenlignes på tvers av ulike variabelpar."
+    },
+    {
+      "id": "tma4245-2-5-bb-nullcelle",
+      "type": "definition",
+      "title": "Feilkort: nullcelle avgjør avhengighet",
+      "content": "Er det en celle med $p(x, y) = 0$ mens begge marginalene $p_X(x)$ og $p_Y(y)$ er positive, er $X$ og $Y$ straks **avhengige** — for uavhengighet ville krevd $p(x,y) = p_X(x)p_Y(y) > 0$. En rask snarvei for å motbevise uavhengighet uten å sjekke alle cellene."
+    },
+    {
+      "id": "tma4245-2-5-bb-betinget-fordeling",
+      "type": "definition",
+      "title": "Begrepskort: betinget fordeling summerer til 1",
+      "content": "Den betingede fordelingen $p(y \\mid x) = p(x,y)/p_X(x)$ er en ekte fordeling: for fast $x$ summerer $p(y \\mid x)$ til 1 over alle $y$. Det gir en nyttig kontroll — regner du de betingede sannsynlighetene og de ikke summerer til 1, har du regnet feil."
+    },
+    {
+      "id": "tma4245-2-5-rep",
+      "type": "collapsible",
+      "title": "Repetisjonsoppgaver",
+      "buttonText": "Vis repetisjonsoppgaver",
+      "content": [
+        {
+          "id": "tma4245-2-5-rep-1",
+          "type": "exercise",
+          "exercise": {
+            "id": "tma4245-2-5-rep-1",
+            "number": "R1",
+            "type": "classic",
+            "difficulty": "lett",
+            "task": "(Fra kap. 2.1) $X$ og $Y$ har $\\text{Var}(X) = 4$, $\\text{Var}(Y) = 9$ og $\\text{Cov}(X, Y) = 3$. Finn $\\text{Var}(X + Y)$.",
+            "solution": "$\\text{Var}(X+Y) = \\text{Var}(X) + \\text{Var}(Y) + 2\\text{Cov}(X,Y) = 4 + 9 + 2 \\cdot 3 = 19$.",
+            "hints": [
+              "$\\text{Var}(X+Y) = \\text{Var}(X)+\\text{Var}(Y)+2\\text{Cov}(X,Y)$."
+            ]
+          }
+        },
+        {
+          "id": "tma4245-2-5-rep-2",
+          "type": "exercise",
+          "exercise": {
+            "id": "tma4245-2-5-rep-2",
+            "number": "R2",
+            "type": "classic",
+            "difficulty": "lett",
+            "task": "$\\text{Cov}(X, Y) = 6$, $\\text{Var}(X) = 16$, $\\text{Var}(Y) = 9$. Finn korrelasjonen $\\rho$.",
+            "solution": "$\\rho = \\dfrac{6}{\\sqrt{16 \\cdot 9}} = \\dfrac{6}{12} = 0{,}5$.",
+            "hints": [
+              "$\\rho = \\text{Cov}/\\sqrt{\\text{Var}(X)\\text{Var}(Y)}$."
+            ]
+          }
+        },
+        {
+          "id": "tma4245-2-5-rep-3",
+          "type": "exercise",
+          "exercise": {
+            "id": "tma4245-2-5-rep-3",
+            "number": "R3",
+            "type": "classic",
+            "difficulty": "middels",
+            "task": "(Fra kap. 1.3) I en tabell er $p(x=1, y=1) = 0{,}2$ og $p_X(1) = 0{,}5$. Finn $p(y = 1 \\mid x = 1)$.",
+            "solution": "$p(y=1 \\mid x=1) = \\dfrac{p(1,1)}{p_X(1)} = \\dfrac{0{,}2}{0{,}5} = 0{,}4$.",
+            "hints": [
+              "Betinget = celle delt på radsum."
+            ]
+          }
+        },
+        {
+          "id": "tma4245-2-5-rep-4",
+          "type": "exercise",
+          "exercise": {
+            "id": "tma4245-2-5-rep-4",
+            "number": "R4",
+            "type": "classic",
+            "difficulty": "middels",
+            "task": "$X$ og $Y$ er uavhengige. Hva er $\\text{Cov}(X, Y)$ og $\\rho$?",
+            "solution": "For uavhengige variable er $E(XY) = E(X)E(Y)$, så $\\text{Cov}(X,Y) = 0$ og dermed $\\rho = 0$. (Merk at det motsatte ikke gjelder: $\\rho = 0$ medfører ikke uavhengighet.)",
+            "hints": [
+              "Uavhengige gir $E(XY) = E(X)E(Y)$."
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": "tma4245-2-5-symbolliste",
+      "type": "collapsible",
+      "title": "Symbol- og formelliste",
+      "buttonText": "Vis symboler og formler",
+      "content": [
+        {
+          "id": "tma4245-2-5-symbolliste-text",
+          "type": "text",
+          "content": "*Oppslagsverk — alt her forklares underveis i kapitlet.*\n\nAlle symboler og formler brukt i kapittel 2.5, samlet.\n\n| Symbol | Betydning |\n|---|---|\n| $p(x, y)$ | Simultanfordeling (diskret) |\n| $f(x, y)$ | Simultantetthet (kontinuerlig) |\n| $p_X(x), p_Y(y)$ | Marginalfordelinger |\n| $f_X(x)$ | Marginaltetthet |\n| $p(y \\mid x)$ | Betinget fordeling til $Y$ gitt $X = x$ |\n| $E(XY)$ | Forventning av produktet |\n| $\\text{Cov}(X, Y)$ | Kovarians |\n| $\\rho$ | Korrelasjon |\n\n**Formler i dette kapitlet:**\n\n$$p_X(x) = \\sum_y p(x, y), \\qquad f_X(x) = \\int f(x, y)\\,dy$$\nMarginalfordeling/-tetthet (summer/integrer ut den andre variabelen).\n\n$$p(y \\mid x) = \\frac{p(x, y)}{p_X(x)}$$\nBetinget fordeling (celle delt på radsum).\n\n$$p(x, y) = p_X(x)\\,p_Y(y) \\text{ for ALLE celler}$$\nUavhengighet — én avvikende celle motbeviser.\n\n$$E(XY) = \\sum_x \\sum_y x y\\,p(x, y)$$\nForventning av produktet.\n\n$$\\text{Cov}(X, Y) = E(XY) - E(X)E(Y)$$\nKovariansen.\n\n$$\\rho = \\frac{\\text{Cov}(X, Y)}{\\sqrt{\\text{Var}(X)\\,\\text{Var}(Y)}}, \\qquad -1 \\le \\rho \\le 1$$\nKorrelasjonen (normalisert kovarians).\n\n$$\\text{Cov}(aX + b, cY + d) = ac\\,\\text{Cov}(X, Y)$$\nSkalering — konstantledd faller bort, korrelasjonen er invariant under positiv skalering."
+        }
+      ]
+    }
+  ],
+  "exercises": []
+}

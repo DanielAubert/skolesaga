@@ -1,0 +1,557 @@
+{
+  "id": "tma4245-10-1",
+  "courseId": "tma4245",
+  "chapterNumber": "10.1",
+  "title": "Kortsvar- og Inspera-drill: fellene, presisjonen og tolkningene",
+  "description": "Sjanger O på tvers av hele pensum: eksakte tallsvar, klassiske feller og tolknings-flervalgene — poengene ingen har råd til å miste.",
+  "estimatedMinutes": 75,
+  "competenceGoals": [
+    "kunne svare i eksakt kortsvarformat med riktig antall desimaler, desimalkomma og benevning — uten avrundingsfeil i mellomregningen",
+    "kunne gjenkjenne og unngå de klassiske fellene: disjunkt vs. uavhengig, punktsannsynlighet for kontinuerlige variable, glemt kovariansledd, minneløshet og $n-1$-divisoren",
+    "kunne velge riktig tolkning av konfidensintervall og p-verdi i flervalgsoppgaver, og skille konfidens- fra prediksjonsintervall",
+    "kunne skille parret fra to-utvalgsdesign og lese av median, kvartilbredde og skjevhet fra boksplott og Q-Q-plott"
+  ],
+  "content": [
+    {
+      "id": "tma4245-10-1-eksamensvinkel",
+      "type": "tip",
+      "title": "Eksamensvinkel",
+      "content": "**Dette er de sikreste poengene på hele eksamen — og de mest tapte.**\n\n- **Sjanger O** (korte tallsvar og flervalg i Inspera-delen) er med i **alle Inspera-hybridsett 2022–2025**. Autorettede felt: du skriver ett tall, og det er **enten riktig eller galt** — avrunding for tidlig straffes uten delvis uttelling.\n- Gjengangerne er de samme fra sett til sett: Venndiagram-identiteter, disjunkt/uavhengig-feller ($P(A)=0{,}2$, $P(B)=0{,}9$ kan ikke være disjunkte), tolkning av p-verdi og konfidensintervall (med de klassiske feiltolkningene som distraktorer), $P(Y=y)=0$ for kontinuerlig $Y$, og avlesing av histogram/boksplott.\n- Prioritet: **kunne**. Dette er ikke det vanskeligste stoffet — men det er poengene ingen har råd til å miste, fordi de er raske og autorettede. Én slurvet avrunding koster like mye som en bommet integral.\n\nDette kapitlet er en **drill**: presisjonsregimet først, så en gjennomregnet eksamenscase, deretter en oppgavebank som dekker HELE fellekatalogen i boka, og til slutt 40 repetisjonskort. Sett av ca. **75 minutter** — del det gjerne i to økter (oppgavene, så kortene). Pausepunkt er markert underveis."
+    },
+    {
+      "id": "tma4245-10-1-forkunnskaper",
+      "type": "text",
+      "content": "## Forkunnskaper\n\nDenne drillen spenner over **hele boka** — hver oppgave peker tilbake til kapitlet der teknikken er forklart. Du trenger ikke ha alt friskt i minnet; bruk lenkene som oppslag når en felle overrasker deg.\n\n- Disjunkt vs. uavhengig, Venn-identiteter, addisjonsregelen — [kap. 1.1](/bok/tma4245/tma4245-1-1)\n- Empirisk varians ($n-1$), boksplott og Q-Q-plott — [kap. 1.4](/bok/tma4245/tma4245-1-4)\n- Kontinuerlige fordelinger: $P(X=x)=0$, tetthet kan være $>1$ — [kap. 2.1](/bok/tma4245/tma4245-2-1)\n- Minneløshet (eksponensial), tetthet vs. sannsynlighet — [kap. 2.3](/bok/tma4245/tma4245-2-3)\n- Kovariansleddet i $\\text{Var}(aX+bY)$ — [kap. 2.5](/bok/tma4245/tma4245-2-5) og [kap. 3.2](/bok/tma4245/tma4245-3-2)\n- Standardisering av normalfordelte variable ($N(\\mu,\\sigma^2)$, annet argument = varians) — [kap. 3.2](/bok/tma4245/tma4245-3-2)\n- Tolkning av konfidensintervall — [kap. 6.1](/bok/tma4245/tma4245-6-1)\n- Tolkning av p-verdi, type I-/II-feil — [kap. 7.1](/bok/tma4245/tma4245-7-1)\n- Parret vs. to-utvalg — [kap. 7.2](/bok/tma4245/tma4245-7-2)\n- Konfidensintervall vs. prediksjonsintervall i regresjon — [kap. 8.2](/bok/tma4245/tma4245-8-2)\n\n**Sist du var her — tre ting du bør ha i fingrene:**\n\n1. $N(\\mu,\\sigma^2)$: **annet argument er variansen**. Skal du standardisere, deler du på $\\sigma=\\sqrt{\\sigma^2}$, ikke på variansen.\n2. Empirisk varians deler på $n-1$: $s^2=\\frac{1}{n-1}\\sum (x_i-\\bar{x})^2$.\n3. Var med kovarians: $\\text{Var}(aX+bY)=a^2\\text{Var}(X)+b^2\\text{Var}(Y)+2ab\\,\\text{Cov}(X,Y)$."
+    },
+    {
+      "id": "tma4245-10-1-losningsoppskrift",
+      "type": "text",
+      "content": "## Løsningsoppskrift: presisjonsregimet\n\nAutorettede kortsvar krever en fast disiplin. Følg denne algoritmen hver gang — den koster få sekunder og redder poeng:\n\n1. **Les nøyaktig hva det spørres om.** Er det en sannsynlighet (svar i $[0,1]$), en forventning, et intervall eller en enhet (mAh, MPa, timer)? Understrek nøkkelordet: *forventet* (KI) vs. *ny enkeltmåling* (PI), *disjunkt* vs. *uavhengig*, *median* vs. *gjennomsnitt*.\n2. **Sett opp uttrykket symbolsk først.** Skriv $P(X>a)=1-\\Phi\\!\\left(\\frac{a-\\mu}{\\sigma}\\right)$ før du taster tall. Da ser du med én gang om du deler på $\\sigma$ eller $\\sigma^2$.\n3. **Regn med full presisjon.** Bruk tabellverdier med nok siffer ($z_{0{,}025}=1{,}959964\\ldots$, ofte oppgitt som $1{,}96$), og **avrund aldri i mellomregningen**. La kalkulatoren holde alle desimaler til siste steg.\n4. **Avrund KUN til slutt** — til 2–3 desimaler, med **desimalkomma** (norsk Inspera-format: $0{,}0668$, ikke $0.0668$). Skriv aldri et rundet mellomsvar tilbake inn i neste utregning.\n5. **Sjekk benevning og rimelighet.** En sannsynlighet må ligge i $[0,1]$; en varians kan ikke være negativ; et prediksjonsintervall er alltid bredere enn konfidensintervallet. Passer enheten svaret skal ha?\n\n> **Tommelfingerregel:** to desimaler på sannsynligheter der oppgaven ikke sier noe annet, tre der de første to er null ($0{,}0228$). Ved tvil: én desimal mer skader sjelden, én for lite kan koste poenget.\n\n*— Under er først en gjennomregnet eksamenscase, så drilloppgavene. Naturlig pausepunkt etter oppgave 6. —*"
+    },
+    {
+      "id": "tma4245-10-1-case",
+      "type": "example",
+      "title": "Gjennomregnet eksamenscase: et Inspera-åpningssett",
+      "problem": "Et Inspera-sett åpner med fem korte spørsmål. Autorettede felt tar imot tall med **2–3 desimaler** (desimalkomma).\n\n**a)** To hendelser har $P(A)=0{,}3$ og $P(B)=0{,}8$. Kan $A$ og $B$ være disjunkte? Anta i stedet at de er **uavhengige** og finn $P(A\\cup B)$.\n\n**b)** $X$ er en kontinuerlig stokastisk variabel med tetthet $f$. Hva er $P(X=2)$?\n\n**c)** Bruddstyrken $X$ (MPa) til et emne er $X\\sim N(50,\\,16)$. Finn $P(X>56)$.\n\n**d)** Et 95 % konfidensintervall for forventet bruddstyrke ble $[48{,}2,\\ 52{,}6]$. Hvilket utsagn er **riktig**? (i) 95 % av emnene har bruddstyrke i intervallet. (ii) $\\mu$ ligger i intervallet med sannsynlighet 0,95. (iii) Metoden fanger den sanne $\\mu$ i 95 % av gjentatte forsøk.\n\n**e)** Fem målinger ga $12,\\ 15,\\ 18,\\ 21,\\ 24$. Finn den empiriske variansen $s^2$.",
+      "solution": "**a)** $P(A)+P(B)=0{,}3+0{,}8=1{,}1>1$, så hendelsene **kan ikke være disjunkte** (disjunkte hendelser har $P(A\\cup B)=P(A)+P(B)\\le 1$). Uavhengige: $P(A\\cap B)=0{,}3\\cdot 0{,}8=0{,}24$, og\n$$P(A\\cup B)=P(A)+P(B)-P(A\\cap B)=0{,}3+0{,}8-0{,}24=0{,}86.$$\n**Svar: $0{,}86$.**\n\n> **Sensor:** her ryker mange på å addere til $1{,}1$ (glemmer fradraget), eller på å anta disjunkthet og svare $1{,}1$ — som ikke engang er en gyldig sannsynlighet. Fradraget $-P(A\\cap B)$ er hele poenget.\n\n**b)** For en **kontinuerlig** variabel er $P(X=x)=0$ for enhver enkeltverdi. **Svar: $0$.**\n\n> **Sensor:** felle er å svare $f(2)$. Tettheten $f(2)$ er ikke en sannsynlighet — sannsynligheter for kontinuerlige variable er alltid arealer over intervaller, og et punkt har bredde null.\n\n**c)** $\\sigma^2=16\\Rightarrow\\sigma=4$. Standardiser:\n$$P(X>56)=P\\!\\left(Z>\\frac{56-50}{4}\\right)=P(Z>1{,}5)=1-\\Phi(1{,}5)=1-0{,}9332=0{,}0668.$$\n**Svar: $0{,}0668$.**\n\n> **Sensor:** den vanligste feilen er å dele på $16$ (variansen) i stedet for $4$ (standardavviket). $N(50,16)$ betyr varians 16 — ta rota først. Tre desimaler her fordi de to første er null.\n\n**d)** Riktig er **(iii)**. 95 %-tallet er en egenskap ved **metoden** over gjentatte forsøk — ikke en sannsynlighet for det ferdig utregnede intervallet (der ligger $\\mu$ enten inni eller utenfor), og ikke en andel av observasjonene (det ville vært et prediksjonsintervall). **Svar: (iii).**\n\n> **Sensor:** (i) forveksler KI med prediksjonsintervall; (ii) behandler $\\mu$ som tilfeldig. Begge er klassiske distraktorer — se [kap. 6.1](/bok/tma4245/tma4245-6-1).\n\n**e)** Gjennomsnitt $\\bar{x}=\\frac{12+15+18+21+24}{5}=18$. Avvik: $-6,-3,0,3,6$, kvadrert $36,9,0,9,36$, sum $90$. Del på $n-1=4$:\n$$s^2=\\frac{90}{4}=22{,}5.$$\n**Svar: $22{,}5$** (standardavvik $s=\\sqrt{22{,}5}=4{,}74$).\n\n> **Sensor:** deler du på $n=5$ får du $18$ — galt. Empirisk varians deler alltid på $n-1$."
+    },
+    {
+      "id": "tma4245-10-1-ex-1",
+      "type": "exercise",
+      "exercise": {
+        "id": "tma4245-10-1-o1",
+        "number": "1",
+        "type": "classic",
+        "difficulty": "lett",
+        "task": "(Sannsynlighetsregning — disjunkt vs. uavhengig.) For to hendelser er $P(A)=0{,}25$ og $P(B)=0{,}85$.\n\n**a)** Kan $A$ og $B$ være disjunkte? Begrunn med ett tall.\n\n**b)** Anta at $A$ og $B$ er uavhengige. Finn $P(A\\cap B)$.\n\n**c)** Finn $P(A\\cup B)$ under samme antakelse.",
+        "solution": "**a)** Nei. $P(A)+P(B)=0{,}25+0{,}85=1{,}10>1$, og disjunkte hendelser må ha $P(A\\cup B)=P(A)+P(B)\\le 1$. To hendelser som til sammen har mer enn all sannsynlighet, må overlappe.\n\n**b)** Uavhengighet gir $P(A\\cap B)=P(A)\\,P(B)=0{,}25\\cdot 0{,}85=\\mathbf{0{,}2125}$.\n\n**c)** $P(A\\cup B)=P(A)+P(B)-P(A\\cap B)=0{,}25+0{,}85-0{,}2125=\\mathbf{0{,}8875}$.\n\nSe [kap. 1.1](/bok/tma4245/tma4245-1-1).",
+        "hints": [
+          "Disjunkt betyr $P(A\\cap B)=0$; sjekk om det er forenlig med at $P(A)+P(B)>1$.",
+          "Uavhengighet betyr $P(A\\cap B)=P(A)\\cdot P(B)$ — helt forskjellig fra disjunkt.",
+          "Bruk addisjonsregelen $P(A\\cup B)=P(A)+P(B)-P(A\\cap B)$."
+        ]
+      }
+    },
+    {
+      "id": "tma4245-10-1-ex-2",
+      "type": "exercise",
+      "exercise": {
+        "id": "tma4245-10-1-o2",
+        "number": "2",
+        "type": "classic",
+        "difficulty": "lett",
+        "task": "(Venndiagram-identiteter.) Det er gitt $P(A)=0{,}5$, $P(B)=0{,}4$ og $P(A\\cup B)=0{,}7$.\n\n**a)** Finn $P(A\\cap B)$.\n\n**b)** Finn $P(A\\mid B)$.\n\n**c)** Finn sannsynligheten for at $A$ inntreffer, men ikke $B$.\n\n**d)** Finn $P(A^c\\cap B^c)$.",
+        "solution": "**a)** Addisjonsregelen baklæns: $P(A\\cap B)=P(A)+P(B)-P(A\\cup B)=0{,}5+0{,}4-0{,}7=\\mathbf{0{,}2}$.\n\n**b)** $P(A\\mid B)=\\dfrac{P(A\\cap B)}{P(B)}=\\dfrac{0{,}2}{0{,}4}=\\mathbf{0{,}5}$.\n\n**c)** $P(A\\cap B^c)=P(A)-P(A\\cap B)=0{,}5-0{,}2=\\mathbf{0{,}3}$.\n\n**d)** De Morgan: $P(A^c\\cap B^c)=P((A\\cup B)^c)=1-P(A\\cup B)=1-0{,}7=\\mathbf{0{,}3}$.\n\nSe [kap. 1.1](/bok/tma4245/tma4245-1-1).",
+        "hints": [
+          "Snu addisjonsregelen for å finne snittet.",
+          "«Ikke $B$» betyr $A$ minus overlappet: $P(A)-P(A\\cap B)$.",
+          "For d): komplementet av unionen — De Morgans lov."
+        ]
+      }
+    },
+    {
+      "id": "tma4245-10-1-ex-3",
+      "type": "exercise",
+      "exercise": {
+        "id": "tma4245-10-1-o3",
+        "number": "3",
+        "type": "classic",
+        "difficulty": "lett",
+        "task": "(Kontinuerlige fordelinger — tetthet vs. sannsynlighet.) En kontinuerlig variabel $X$ har tetthet $f(x)=2$ for $0<x<0{,}5$ og $f(x)=0$ ellers.\n\n**a)** Er dette en gyldig tetthet, selv om $f(x)=2>1$? Begrunn.\n\n**b)** Hva er $P(X=0{,}3)$?\n\n**c)** Finn $P(X<0{,}25)$.",
+        "solution": "**a)** Ja. En tetthet trenger bare være $\\ge 0$ og integrere til 1 — den har **ingen øvre grense**. Her: $\\int_0^{0{,}5}2\\,dx=2\\cdot 0{,}5=1$. Tetthet er ikke sannsynlighet, så $f>1$ er helt lovlig (den måler sannsynlighet per lengdeenhet).\n\n**b)** For en kontinuerlig variabel er $P(X=x)=0$ for enhver enkeltverdi. **$P(X=0{,}3)=0$.**\n\n**c)** $P(X<0{,}25)=\\int_0^{0{,}25}2\\,dx=2\\cdot 0{,}25=\\mathbf{0{,}5}$.\n\nSe [kap. 2.1](/bok/tma4245/tma4245-2-1).",
+        "hints": [
+          "En gyldig tetthet krever $f\\ge 0$ og at totalarealet er 1 — ikke at $f\\le 1$.",
+          "Punktsannsynlighet for kontinuerlige variable: tenk på arealet over et punkt (bredde null).",
+          "Areal av et rektangel: høyde $\\times$ bredde."
+        ]
+      }
+    },
+    {
+      "id": "tma4245-10-1-ex-4",
+      "type": "exercise",
+      "exercise": {
+        "id": "tma4245-10-1-o4",
+        "number": "4",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "(Empirisk varians — $n-1$-divisoren.) Fire målinger av responstid (ms) ga $4,\\ 8,\\ 10,\\ 14$.\n\n**a)** Finn gjennomsnittet.\n\n**b)** Finn den empiriske variansen $s^2$ og standardavviket $s$ (3 desimaler).\n\n**c)** Hvilket tall får du feilaktig for $s^2$ hvis du deler på $n$ i stedet for $n-1$?",
+        "solution": "**a)** $\\bar{x}=\\frac{4+8+10+14}{4}=\\frac{36}{4}=9$.\n\n**b)** Avvik: $-5,-1,1,5$, kvadrert $25,1,1,25$, sum $52$. Del på $n-1=3$:\n$$s^2=\\frac{52}{3}=17{,}333,\\qquad s=\\sqrt{17{,}333}=\\mathbf{4{,}163}.$$\n($s^2=\\mathbf{17{,}333}$.)\n\n**c)** Deler du på $n=4$: $52/4=13$ — for lavt. $n-1$ korrigerer for at $\\bar{x}$ selv er estimert fra dataene.\n\nSe [kap. 1.4](/bok/tma4245/tma4245-1-4).",
+        "hints": [
+          "Regn først gjennomsnittet, så summen av kvadrerte avvik fra det.",
+          "Empirisk varians: $s^2=\\frac{1}{n-1}\\sum(x_i-\\bar{x})^2$.",
+          "Standardavviket er kvadratrota av variansen — hold alle desimaler til slutt."
+        ]
+      }
+    },
+    {
+      "id": "tma4245-10-1-ex-5",
+      "type": "exercise",
+      "exercise": {
+        "id": "tma4245-10-1-o5",
+        "number": "5",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "(Kovariansleddet i varians.) La $\\text{Var}(X)=4$, $\\text{Var}(Y)=9$ og $\\text{Cov}(X,Y)=-2$.\n\n**a)** Finn $\\text{Var}(2X-3Y)$ og standardavviket til $2X-3Y$.\n\n**b)** Anta i stedet at $X$ og $Y$ er **uavhengige**. Finn $\\text{Var}(2X-3Y)$ da.\n\n**c)** Under uavhengighet: er $\\text{Var}(X-Y)=\\text{Var}(X)-\\text{Var}(Y)$? Finn riktig verdi.",
+        "solution": "**a)** $\\text{Var}(aX+bY)=a^2\\text{Var}(X)+b^2\\text{Var}(Y)+2ab\\,\\text{Cov}(X,Y)$ med $a=2,\\ b=-3$:\n$$\\text{Var}(2X-3Y)=4\\cdot 4+9\\cdot 9+2\\cdot 2\\cdot(-3)\\cdot(-2)=16+81+24=\\mathbf{121}.$$\nStandardavvik: $\\sqrt{121}=\\mathbf{11}$.\n\n**b)** Uavhengighet gir $\\text{Cov}=0$, så kovariansleddet faller bort: $16+81=\\mathbf{97}$.\n\n**c)** Nei — aldri minus. $\\text{Var}(X-Y)=\\text{Var}(X)+\\text{Var}(Y)=4+9=\\mathbf{13}$ (variansene **adderes** også for en differanse, siden $(-1)^2=1$). $\\text{Var}(X)-\\text{Var}(Y)=-5$ er ikke engang en gyldig varians.\n\nSe [kap. 2.5](/bok/tma4245/tma4245-2-5) og [kap. 3.2](/bok/tma4245/tma4245-3-2).",
+        "hints": [
+          "Bruk $\\text{Var}(aX+bY)=a^2\\text{Var}(X)+b^2\\text{Var}(Y)+2ab\\,\\text{Cov}(X,Y)$; pass fortegn på $b=-3$.",
+          "$2ab=2\\cdot 2\\cdot(-3)=-12$, ganget med $\\text{Cov}=-2$ gir et positivt bidrag.",
+          "For differanser: $(-1)^2=1$, så variansene adderes — en varians kan aldri bli negativ."
+        ]
+      }
+    },
+    {
+      "id": "tma4245-10-1-ex-6",
+      "type": "exercise",
+      "exercise": {
+        "id": "tma4245-10-1-o6",
+        "number": "6",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "(Minneløshet.) Levetiden $X$ (timer) til en komponent er eksponensialfordelt med forventning $\\beta=500$.\n\n**a)** Finn $P(X>300)$ (4 desimaler).\n\n**b)** Finn $P(X>800\\mid X>500)$.\n\n**c)** En annen komponent har Weibull-fordelt levetid. Gjelder samme snarvei som i b) for den?",
+        "solution": "**a)** $P(X>x)=e^{-x/\\beta}$, så $P(X>300)=e^{-300/500}=e^{-0{,}6}=\\mathbf{0{,}5488}$.\n\n**b)** Eksponensialfordelingen er **minneløs**: $P(X>s+t\\mid X>s)=P(X>t)$. Med $s=500,\\ t=300$:\n$$P(X>800\\mid X>500)=P(X>300)=e^{-0{,}6}=\\mathbf{0{,}5488}.$$\nKomponenten «husker» ikke at den allerede har levd 500 timer.\n\n**c)** Nei. Minneløsheten er **unik for eksponensialfordelingen**. En Weibull-komponent (med formparameter $\\ne 1$) aldres — den betingede overlevelsen avhenger av hvor lenge den allerede har levd. Å bruke snarveien der ville være en klassisk felle.\n\nSe [kap. 2.3](/bok/tma4245/tma4245-2-3).",
+        "hints": [
+          "Halesannsynligheten for eksponensial: $P(X>x)=e^{-x/\\beta}$ med $\\beta$ = forventningen.",
+          "Minneløshet: $P(X>s+t\\mid X>s)=P(X>t)$ — den betingede halen ser bare på tilleggstiden.",
+          "Spør deg: er egenskapen «ingen aldring» rimelig for alle levetidsfordelinger?"
+        ]
+      }
+    },
+    {
+      "id": "tma4245-10-1-ex-7",
+      "type": "exercise",
+      "exercise": {
+        "id": "tma4245-10-1-o7",
+        "number": "7",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "(Standardisering — varians vs. standardavvik.) Diameteren $X$ (mm) på en aksel er $X\\sim N(100,\\,25)$.\n\n**a)** Finn $P(X<108)$.\n\n**b)** Finn $P(X>110)$ (4 desimaler).\n\n**c)** Finn $P(92<X<110)$.\n\nBruk $\\Phi(1{,}6)=0{,}9452$, $\\Phi(2)=0{,}9772$.",
+        "solution": "Først: $\\sigma^2=25\\Rightarrow\\sigma=\\sqrt{25}=5$ (ikke 25!).\n\n**a)** $P(X<108)=\\Phi\\!\\left(\\frac{108-100}{5}\\right)=\\Phi(1{,}6)=\\mathbf{0{,}9452}$.\n\n**b)** $P(X>110)=1-\\Phi\\!\\left(\\frac{110-100}{5}\\right)=1-\\Phi(2)=1-0{,}9772=\\mathbf{0{,}0228}$.\n\n**c)** $P(92<X<110)=\\Phi(2)-\\Phi\\!\\left(\\frac{92-100}{5}\\right)=\\Phi(2)-\\Phi(-1{,}6)=0{,}9772-(1-0{,}9452)=0{,}9772-0{,}0548=\\mathbf{0{,}9224}$.\n\nSe [kap. 3.2](/bok/tma4245/tma4245-3-2).",
+        "hints": [
+          "$N(100,25)$: annet argument er variansen. Finn $\\sigma=\\sqrt{25}$ før du standardiserer.",
+          "Standardiser: $Z=\\frac{X-\\mu}{\\sigma}$, deretter slå opp $\\Phi$.",
+          "For c): $\\Phi(-1{,}6)=1-\\Phi(1{,}6)$ ved symmetri."
+        ]
+      }
+    },
+    {
+      "id": "tma4245-10-1-ex-8",
+      "type": "exercise",
+      "exercise": {
+        "id": "tma4245-10-1-o8",
+        "number": "8",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "(Tolknings-flervalg — konfidensintervall.) En ingeniør regner ut et 95 % konfidensintervall for forventet strekkfasthet $\\mu$ og får $[315,\\ 329]$ MPa. Hvilke av utsagnene er **riktige**? (Kryss av alle som stemmer.)\n\n(i) Sannsynligheten er 0,95 for at $\\mu$ ligger mellom 315 og 329.\n\n(ii) Hvis forsøket gjentas mange ganger og intervallet regnes ut på nytt hver gang, vil ca. 95 % av intervallene inneholde den sanne $\\mu$.\n\n(iii) 95 % av de målte emnene har strekkfasthet mellom 315 og 329 MPa.\n\n(iv) $\\mu$ er et fast, ukjent tall; det er intervallet som er tilfeldig før data samles inn.",
+        "solution": "Riktige: **(ii) og (iv)**.\n\n- **(ii) riktig:** 95 %-tallet er en egenskap ved *metoden* over gjentatte forsøk — det er selve definisjonen av dekningsgrad.\n- **(iv) riktig:** $\\mu$ er fast; før data er det den tilfeldige stikkprøven (og dermed intervallendepunktene) som varierer.\n- **(i) galt:** når intervallet først er utregnet til $[315,329]$, er $\\mu$ enten inni eller utenfor — ingen sannsynlighet igjen. Sannsynligheten hører til metoden før data.\n- **(iii) galt:** KI handler om parameteren $\\mu$, ikke om enkeltobservasjoner. Andelen observasjoner ville vært et *prediksjonsintervall*, som er mye bredere.\n\nSe [kap. 6.1](/bok/tma4245/tma4245-6-1).",
+        "hints": [
+          "Skill mellom sannsynlighet før data (metoden) og etter data (intervallet er fast).",
+          "Ett av utsagnene forveksler KI med prediksjonsintervall (andel observasjoner).",
+          "$\\mu$ er en fast, ukjent konstant — ikke en tilfeldig størrelse."
+        ]
+      }
+    },
+    {
+      "id": "tma4245-10-1-ex-9",
+      "type": "exercise",
+      "exercise": {
+        "id": "tma4245-10-1-o9",
+        "number": "9",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "(Tolknings-flervalg — p-verdi.) En tosidig test av $H_0:\\mu=100$ gir p-verdi $0{,}03$ ved signifikansnivå $\\alpha=0{,}05$. Hvilket **étt** utsagn er riktig?\n\n(a) Vi forkaster $H_0$; p-verdien er sannsynligheten, under $H_0$, for et minst like ekstremt utfall som det observerte.\n\n(b) Sannsynligheten for at $H_0$ er sann, er 0,03.\n\n(c) Vi beholder $H_0$, siden $0{,}03<0{,}05$.\n\n(d) p-verdien 0,03 er sannsynligheten for at vi tar feil når vi forkaster.",
+        "solution": "Riktig: **(a)**.\n\n- **(a) riktig:** siden $p=0{,}03<\\alpha=0{,}05$ forkaster vi $H_0$, og definisjonen av p-verdien er nettopp sannsynligheten — *beregnet under $H_0$* — for et utfall minst like ekstremt som det observerte.\n- **(b) galt:** $H_0$ er sann eller usann; den har ingen sannsynlighet i denne rammen. p-verdien er en sannsynlighet for *dataene* gitt $H_0$.\n- **(c) galt:** beslutningsregelen er «forkast hvis $p<\\alpha$» — $0{,}03<0{,}05$ betyr forkast, ikke behold.\n- **(d) galt:** sannsynligheten for å forkaste en sann $H_0$ er $\\alpha$ (type I-feil), fastsatt på forhånd — ikke p-verdien.\n\nSe [kap. 7.1](/bok/tma4245/tma4245-7-1).",
+        "hints": [
+          "Beslutningsregel: forkast $H_0$ når $p<\\alpha$.",
+          "p-verdien er en sannsynlighet for *dataene* gitt at $H_0$ er sann — ikke for $H_0$ selv.",
+          "Sannsynligheten for å forkaste en sann $H_0$ har et eget navn: $\\alpha$."
+        ]
+      }
+    },
+    {
+      "id": "tma4245-10-1-ex-10",
+      "type": "exercise",
+      "exercise": {
+        "id": "tma4245-10-1-o10",
+        "number": "10",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "(Parret vs. to-utvalg.) Klassifiser hvert design som **parret** eller **to uavhengige utvalg**, og oppgi frihetsgraden til testobservatoren.\n\n**a)** Ti bildekk måles for mønsterdybde før og etter 10 000 km — samme dekk begge ganger.\n\n**b)** Bruddstyrke sammenlignes mellom 8 emner fra leverandør A og 12 emner fra leverandør B (antatt lik varians).\n\n**c)** Hvilket signalord i a) avslører designet?",
+        "solution": "**a)** **Parret** — samme dekk måles to ganger, så målingene kommer i naturlige par. Vi analyserer differansene $D_i$, og testobservatoren er $t_{n-1}=t_9$ (étt utvalg av 10 differanser).\n\n**b)** **To uavhengige utvalg** — to forskjellige grupper emner. Pooled to-utvalgs-t har $t_{n_1+n_2-2}=t_{8+12-2}=t_{18}$.\n\n**c)** Signalordene **«før og etter»** på **«samme»** enhet. Da er seriene avhengige, og å behandle dem som to uavhengige utvalg (og bruke $t_{18}$) er den klassiske fella.\n\nSe [kap. 7.2](/bok/tma4245/tma4245-7-2).",
+        "hints": [
+          "Parret = samme enhet/prøve gir naturlige par; to utvalg = forskjellige enheter i to grupper.",
+          "Parret reduseres til étt utvalg av differanser: $t_{n-1}$.",
+          "Pooled to-utvalgs-t: $n_1+n_2-2$ frihetsgrader (to gjennomsnitt estimert)."
+        ]
+      }
+    },
+    {
+      "id": "tma4245-10-1-ex-11",
+      "type": "exercise",
+      "exercise": {
+        "id": "tma4245-10-1-o11",
+        "number": "11",
+        "type": "classic",
+        "difficulty": "vanskelig",
+        "task": "(Konfidensintervall vs. prediksjonsintervall.) I en enkel lineær regresjon med $n=12$ er $s=2{,}0$. Ved en gitt $x_0$ er $\\frac{1}{n}+\\frac{(x_0-\\bar{x})^2}{S_{xx}}=0{,}15$, og $t_{10;\\,0{,}025}=2{,}228$.\n\n**a)** Finn halvbredden til 95 % konfidensintervallet for **forventet** respons ved $x_0$ (3 desimaler).\n\n**b)** Finn halvbredden til 95 % prediksjonsintervallet for en **ny enkeltmåling** ved $x_0$ (3 desimaler).\n\n**c)** Oppgaven spør: «hvor ligger neste enkeltmåling ved $x_0$?» Hvilket intervall skal brukes, og hvorfor er det bredere?",
+        "solution": "**a)** KI-halvbredde $=t_{n-2;\\,\\alpha/2}\\,s\\sqrt{\\frac{1}{n}+\\frac{(x_0-\\bar{x})^2}{S_{xx}}}=2{,}228\\cdot 2{,}0\\cdot\\sqrt{0{,}15}=2{,}228\\cdot 2{,}0\\cdot 0{,}38730=\\mathbf{1{,}726}$.\n\n**b)** PI-halvbredde $=t_{n-2;\\,\\alpha/2}\\,s\\sqrt{1+\\frac{1}{n}+\\frac{(x_0-\\bar{x})^2}{S_{xx}}}=2{,}228\\cdot 2{,}0\\cdot\\sqrt{1{,}15}=2{,}228\\cdot 2{,}0\\cdot 1{,}07238=\\mathbf{4{,}779}$.\n\n**c)** **Prediksjonsintervallet** (b). «Neste enkeltmåling» betyr én ny observasjon $Y_0$, som i tillegg til usikkerheten i den estimerte linja har sitt **eget feilledd** $\\varepsilon_0$ med varians $\\sigma^2$ — det er $1$-tallet under rota. Derfor er PI alltid bredere enn KI.\n\nSe [kap. 8.2](/bok/tma4245/tma4245-8-2).",
+        "hints": [
+          "KI bruker $\\sqrt{\\frac{1}{n}+\\frac{(x_0-\\bar{x})^2}{S_{xx}}}$; PI legger til et $1$-tall under rota.",
+          "Hold $\\sqrt{0{,}15}$ og $\\sqrt{1{,}15}$ med fulle desimaler før du ganger.",
+          "«Ny enkeltmåling» $\\Rightarrow$ prediksjonsintervall (det ekstra feilleddet gjør det bredere)."
+        ]
+      }
+    },
+    {
+      "id": "tma4245-10-1-ex-12",
+      "type": "exercise",
+      "exercise": {
+        "id": "tma4245-10-1-o12",
+        "number": "12",
+        "type": "classic",
+        "difficulty": "vanskelig",
+        "task": "(Avlesing av boksplott.) Figuren under viser et boksplott av bruddstyrken (MPa) for 30 emner. Les av og svar:\n\n**a)** Hva er medianen?\n\n**b)** Hva er kvartilbredden (IQR)?\n\n**c)** Er fordelingen høyre- eller venstreskjev? Begrunn ut fra boksen.\n\n**d)** En student sier «streken i boksen er gjennomsnittet». Er det riktig?",
+        "solution": "**a)** Medianstreken ligger på **165 MPa**.\n\n**b)** $Q_1=150$, $Q_3=210$, så $\\text{IQR}=Q_3-Q_1=210-150=\\mathbf{60}$ MPa.\n\n**c)** **Høyreskjev.** Avstanden fra median til $Q_3$ ($210-165=45$) er større enn fra $Q_1$ til median ($165-150=15$), og den øvre viskerå er lengre — massen har en lang hale mot høyre.\n\n**d)** Nei. Streken i boksen er **medianen**, ikke gjennomsnittet. I en høyreskjev fordeling ligger gjennomsnittet typisk **høyere** enn medianen.\n\nSe [kap. 1.4](/bok/tma4245/tma4245-1-4).",
+        "hints": [
+          "Median = streken inne i boksen; $Q_1$ og $Q_3$ = boksens nedre og øvre kant.",
+          "IQR $=Q_3-Q_1$ (boksens høyde i verdier).",
+          "Skjevhet: sammenlign avstandene median–$Q_1$ og $Q_3$–median, og se på viskerlengdene."
+        ]
+      }
+    },
+    {
+      "id": "tma4245-10-1-fig-boksplott",
+      "type": "image",
+      "src": "/images/textbook/tma4245/tma4245-10-1-boksplott.svg",
+      "alt": "Boksplott av bruddstyrke i MPa: Q1 ligger på 150, median på 165 og Q3 på 210; nedre visker når 120 og øvre 260. Boksen og øvre visker er lengre oppover, et tegn på høyreskjevhet.",
+      "caption": "Boksplott til oppgave 12. Median 165 MPa, $Q_1=150$, $Q_3=210$ (IQR = 60). Den lengre avstanden fra median til $Q_3$ og den lengre øvre viskeren viser høyreskjevhet."
+    },
+    {
+      "id": "tma4245-10-1-ex-13",
+      "type": "exercise",
+      "exercise": {
+        "id": "tma4245-10-1-o13",
+        "number": "13",
+        "type": "classic",
+        "difficulty": "vanskelig",
+        "task": "(Avlesing av Q-Q-plott.) Figuren under viser et Q-Q-plott av et datasett mot normalfordelingen.\n\n**a)** Hva sjekker et Q-Q-plott, og hva betyr det når punktene ligger på en rett linje?\n\n**b)** Punktene følger linja i midten, men det øverste punktet bøyer oppover. Hva forteller det om fordelingen?\n\n**c)** En student skriver bare «ser normalt ut» som konklusjon. Hvorfor gir ikke det full uttelling?",
+        "solution": "**a)** Q-Q-plottet setter datasettets sorterte verdier (observerte kvantiler) opp mot de tilsvarende teoretiske normalkvantilene. Ligger punktene **tilnærmet på en rett linje**, er dataene forenlige med en normalfordeling.\n\n**b)** En **oppadbøyd øvre hale** betyr at de største observasjonene er større enn en normalfordeling skulle tilsi — altså en **tyngre høyrehale (høyreskjevhet)**, ikke ren normalitet.\n\n**c)** Fordi poenget gis for å **peke på mønsteret**: følger halene linja, eller bøyer de av? «Ser normalt ut» uten å vise til hvordan halene oppfører seg, dokumenterer ingen vurdering.\n\nSe [kap. 1.4](/bok/tma4245/tma4245-1-4).",
+        "hints": [
+          "Q-Q-plott: sorterte data mot teoretiske normalkvantiler; rett linje = normalt.",
+          "En hale som bøyer oppover betyr større ekstremverdier enn normalt — tenk skjevhetsretning.",
+          "Poeng krever at du navngir mønsteret (hale følger/bøyer), ikke bare en helhetsdom."
+        ]
+      }
+    },
+    {
+      "id": "tma4245-10-1-fig-qq",
+      "type": "image",
+      "src": "/images/textbook/tma4245/tma4245-1-4-qq.svg",
+      "alt": "Q-Q-plott mot normalfordeling. Punktene ligger nær referanselinja i midten, men det øvre punktet bøyer oppover.",
+      "caption": "Q-Q-plott til oppgave 13. Punktene følger linja i midten, men den øvre halen bøyer oppover — et tegn på tyngre høyrehale (høyreskjevhet), ikke ren normalitet."
+    },
+    {
+      "id": "tma4245-10-1-kald-bank-intro",
+      "type": "text",
+      "content": "## Kald bank — uten hint\n\nNeste oppgave er en **kald bank**: ingen hint, blandede feller om hverandre, akkurat som når Inspera-settet åpner uten oppvarming. Fasiten er en **momentliste** — sjekk hvert punkt mot ditt eget svar. Klarer du alle seks uten å bla tilbake, sitter fellekatalogen."
+    },
+    {
+      "id": "tma4245-10-1-ex-14",
+      "type": "exercise",
+      "exercise": {
+        "id": "tma4245-10-1-o14",
+        "number": "14",
+        "type": "classic",
+        "difficulty": "vanskelig",
+        "task": "(Kald bank — uten hint.) Svar kort og eksakt på hvert punkt.\n\n**a)** $P(A)=0{,}6$, $P(B)=0{,}7$. Kan $A$ og $B$ være disjunkte?\n\n**b)** $X\\sim N(20,\\,9)$. Finn $P(X>26)$. (Bruk $\\Phi(2)=0{,}9772$.)\n\n**c)** $\\text{Var}(X)=5$, $\\text{Var}(Y)=8$, uavhengige. Finn $\\text{Var}(X+Y)$ og $\\text{Var}(X-Y)$.\n\n**d)** Eksponensiallevetid med $\\beta=200$. Finn $P(X>200\\mid X>100)$. (Bruk $e^{-0{,}5}=0{,}6065$.)\n\n**e)** Sant/usant: «Et 90 % KI inneholder 90 % av observasjonene.»\n\n**f)** Tre målinger $10,\\ 14,\\ 18$. Finn den empiriske variansen.",
+        "solution": "**Momentliste (sjekk hvert punkt):**\n\n- **a)** Nei — $P(A)+P(B)=1{,}3>1$, så de må overlappe. (Disjunkte krever $P(A)+P(B)\\le 1$.)\n- **b)** $\\sigma=\\sqrt{9}=3$; $P(X>26)=1-\\Phi\\!\\left(\\frac{26-20}{3}\\right)=1-\\Phi(2)=1-0{,}9772=0{,}0228$.\n- **c)** Begge er $5+8=13$. Variansene **adderes** også for differansen (uavhengighet, $(-1)^2=1$) — ikke $5-8$.\n- **d)** Minneløshet: $P(X>200\\mid X>100)=P(X>100)=e^{-100/200}=e^{-0{,}5}=0{,}6065$.\n- **e)** Usant — et KI handler om parameteren $\\mu$, ikke om andelen observasjoner (det ville vært et prediksjonsintervall).\n- **f)** $\\bar{x}=14$; avvik $-4,0,4$, kvadrert $16,0,16$, sum $32$; $s^2=\\frac{32}{n-1}=\\frac{32}{2}=16$.",
+        "hints": []
+      }
+    },
+    {
+      "id": "tma4245-10-1-typiske-feil",
+      "type": "warning",
+      "title": "Typiske feil — hele fellekatalogen samlet",
+      "content": "**Avrundingsfeller (autorettede felt):**\n\n- **Avrunde i mellomregningen.** Et rundet mellomsvar tatt inn i neste steg forplanter feilen — hold alle desimaler til siste linje, avrund én gang.\n- **For få desimaler.** Er de første to null ($0{,}0228$), trengs tre desimaler. Én for lite kan gjøre det autorettede feltet galt.\n- **Punktum i stedet for komma.** Norsk Inspera venter desimal**komma**: $0{,}0668$.\n\n**Tolknings- og begrepsfeller:**\n\n- **Disjunkt = uavhengig.** To vidt forskjellige begreper. $P(A)+P(B)>1$ utelukker disjunkthet; disjunkte hendelser med positiv sannsynlighet er **aldri** uavhengige.\n- **$P(X=x)=f(x)$ for kontinuerlig $X$.** Nei — $P(X=x)=0$, og tettheten $f(x)$ kan godt være $>1$.\n- **Glemme kovariansleddet** i $\\text{Var}(aX+bY)$ — eller ta det med når variablene er uavhengige. Og: $\\text{Var}(X-Y)$ er en **sum**, aldri $\\text{Var}(X)-\\text{Var}(Y)$.\n- **Standardisere med variansen.** $N(\\mu,\\sigma^2)$ har varians som annet argument — del på $\\sigma=\\sqrt{\\sigma^2}$.\n- **$n$ i stedet for $n-1$** i empirisk varians.\n- **Misbruke minneløsheten** på andre fordelinger enn eksponensial (Weibull aldres).\n- **KI som sannsynlighetsutsagn om $\\mu$.** 95 % er en egenskap ved metoden; $\\mu$ er fast, intervallet er tilfeldig.\n- **KI der PI kreves** (og omvendt): «forventet respons» $\\to$ KI, «ny enkeltmåling» $\\to$ PI (bredere).\n- **Mistolke p-verdien** som sannsynligheten for at $H_0$ er sann, eller som sannsynligheten for å ta feil (det er $\\alpha$).\n- **Behandle parrede data som to uavhengige utvalg** — se etter «før/etter» på samme enhet.\n- **Lese gjennomsnitt der boksplottet viser median**, eller konkludere om normalitet fra Q-Q uten å peke på mønsteret."
+    },
+    {
+      "id": "tma4245-10-1-begrepsbank-intro",
+      "type": "text",
+      "content": "## Begrepsbank — fellekatalogen og presisjonsreglene som kort\n\n*Flashcard-/repetisjonsstoff — hopp trygt over ved førstegangslesing; tidsanslaget gjelder kjernestoffet.* De 40 kortene under samler hver felle og presisjonsregel i kapitlet til étt oppslag hver, egnet for repetisjon rett før eksamen."
+    },
+    {
+      "id": "tma4245-10-1-kort-1",
+      "type": "definition",
+      "title": "Presisjonsregel: avrund kun til slutt",
+      "content": "Behold alle desimaler gjennom hele mellomregningen og avrund **én gang**, helt til slutt. Et rundet mellomsvar tatt videre forplanter feil.\n\n*Eksempel:* i $1-\\Phi(1{,}5)$ bruker du $\\Phi(1{,}5)=0{,}93319$, ikke et grovt avrundet tall, før du trekker fra."
+    },
+    {
+      "id": "tma4245-10-1-kort-2",
+      "type": "definition",
+      "title": "Presisjonsregel: antall desimaler",
+      "content": "Svar med 2–3 desimaler. Er de to første desimalene null, ta med en tredje.\n\n*Eksempel:* $P=0{,}0228$ (tre desimaler), men $P=0{,}86$ (to holder)."
+    },
+    {
+      "id": "tma4245-10-1-kort-3",
+      "type": "definition",
+      "title": "Presisjonsregel: desimalkomma",
+      "content": "Norsk Inspera venter desimal**komma**, ikke punktum, i autorettede felt.\n\n*Eksempel:* skriv $0{,}0668$ — ikke $0.0668$."
+    },
+    {
+      "id": "tma4245-10-1-kort-4",
+      "type": "definition",
+      "title": "Presisjonsregel: sjekk benevning og rimelighet",
+      "content": "En sannsynlighet må ligge i $[0,1]$; en varians kan ikke være negativ; enheten på svaret må stemme (mAh, MPa, timer).\n\n*Eksempel:* får du $P=1{,}1$, har du glemt et fradrag — ingen sannsynlighet er over 1."
+    },
+    {
+      "id": "tma4245-10-1-kort-5",
+      "type": "definition",
+      "title": "Presisjonsregel: sett opp symbolsk først",
+      "content": "Skriv uttrykket med symboler før du taster tall — da ser du om du deler på $\\sigma$ eller $\\sigma^2$.\n\n*Eksempel:* $P(X>a)=1-\\Phi\\!\\left(\\frac{a-\\mu}{\\sigma}\\right)$ avslører at nevneren er standardavviket."
+    },
+    {
+      "id": "tma4245-10-1-kort-6",
+      "type": "definition",
+      "title": "$N(\\mu,\\sigma^2)$: annet argument er variansen",
+      "content": "I denne boka (og i settene) er annet argument i $N(\\mu,\\sigma^2)$ **variansen**. Skal du standardisere, del på $\\sigma=\\sqrt{\\sigma^2}$.\n\n*Eksempel:* $N(100,25)$ har $\\sigma=5$, ikke 25."
+    },
+    {
+      "id": "tma4245-10-1-kort-7",
+      "type": "definition",
+      "title": "Standardiser med standardavvik, ikke varians",
+      "content": "Standardiseringen er $Z=\\frac{X-\\mu}{\\sigma}$ — nevneren er standardavviket.\n\n*Eksempel:* $P(X>56)$ for $N(50,16)$: del $56-50$ på $4$, ikke på $16$."
+    },
+    {
+      "id": "tma4245-10-1-kort-8",
+      "type": "definition",
+      "title": "Kvantilnotasjon: øvre haleareal",
+      "content": "$z_\\alpha$, $t_{\\nu,\\alpha}$ og $\\chi^2_{\\nu,\\alpha}$ har $\\alpha$ som **øvre** haleareal: $P(Z>z_\\alpha)=\\alpha$.\n\n*Eksempel:* tosidig 95 % KI bruker $z_{0{,}025}=1{,}96$ i hver hale."
+    },
+    {
+      "id": "tma4245-10-1-kort-9",
+      "type": "definition",
+      "title": "Disjunkt er ikke uavhengig",
+      "content": "**Disjunkt:** $P(A\\cap B)=0$ (kan ikke skje sammen). **Uavhengig:** $P(A\\cap B)=P(A)P(B)$. Vidt forskjellige begreper.\n\n*Eksempel:* to disjunkte hendelser med positiv sannsynlighet er *avhengige* — vet du at den ene skjedde, vet du at den andre ikke gjorde det."
+    },
+    {
+      "id": "tma4245-10-1-kort-10",
+      "type": "definition",
+      "title": "$P(A)+P(B)>1$ utelukker disjunkthet",
+      "content": "Disjunkte hendelser har $P(A\\cup B)=P(A)+P(B)\\le 1$. Er summen over 1, må de overlappe.\n\n*Eksempel:* $P(A)=0{,}2,\\ P(B)=0{,}9$ gir sum $1{,}1$ — kan ikke være disjunkte."
+    },
+    {
+      "id": "tma4245-10-1-kort-11",
+      "type": "definition",
+      "title": "Disjunkte hendelser er aldri uavhengige (positiv sanns.)",
+      "content": "Har $A$ og $B$ begge positiv sannsynlighet og er disjunkte, er de **avhengige**: $P(A\\cap B)=0\\ne P(A)P(B)>0$.\n\n*Eksempel:* «terningen viser 1» og «terningen viser 6» er disjunkte og avhengige."
+    },
+    {
+      "id": "tma4245-10-1-kort-12",
+      "type": "definition",
+      "title": "Addisjonsregelen (union med fradrag)",
+      "content": "$P(A\\cup B)=P(A)+P(B)-P(A\\cap B)$. Fradraget hindrer at overlappet telles to ganger.\n\n*Eksempel:* $P(A)=0{,}5,\\ P(B)=0{,}4,\\ P(A\\cap B)=0{,}2$ gir $P(A\\cup B)=0{,}7$."
+    },
+    {
+      "id": "tma4245-10-1-kort-13",
+      "type": "definition",
+      "title": "$P(X=x)=0$ for kontinuerlig $X$",
+      "content": "En kontinuerlig variabel har sannsynlighet null for enhver enkeltverdi — sannsynlighet er areal, og et punkt har bredde null.\n\n*Eksempel:* $P(X=2)=0$ selv om tettheten $f(2)>0$."
+    },
+    {
+      "id": "tma4245-10-1-kort-14",
+      "type": "definition",
+      "title": "Tetthet kan være større enn 1",
+      "content": "En tetthet krever bare $f\\ge 0$ og totalareal 1 — ingen øvre grense. Den måler sannsynlighet per lengdeenhet.\n\n*Eksempel:* $f(x)=2$ på $(0,\\,0{,}5)$ er gyldig: arealet er $2\\cdot 0{,}5=1$."
+    },
+    {
+      "id": "tma4245-10-1-kort-15",
+      "type": "definition",
+      "title": "Tetthet er ikke sannsynlighet",
+      "content": "$f(x)$ er ikke $P(X=x)$. Sannsynligheter for kontinuerlige variable er integraler over intervaller.\n\n*Eksempel:* $P(a<X<b)=\\int_a^b f(x)\\,dx$; én enkeltverdi gir 0."
+    },
+    {
+      "id": "tma4245-10-1-kort-16",
+      "type": "definition",
+      "title": "$\\text{Var}(aX+b)=a^2\\text{Var}(X)$",
+      "content": "En konstant $b$ påvirker ikke variansen; en faktor $a$ kommer inn i **andre potens**.\n\n*Eksempel:* $\\text{Var}(3X+7)=9\\,\\text{Var}(X)$."
+    },
+    {
+      "id": "tma4245-10-1-kort-17",
+      "type": "definition",
+      "title": "Kovariansleddet i $\\text{Var}(aX+bY)$",
+      "content": "$\\text{Var}(aX+bY)=a^2\\text{Var}(X)+b^2\\text{Var}(Y)+2ab\\,\\text{Cov}(X,Y)$. Glem aldri kovariansleddet når variablene er korrelerte.\n\n*Eksempel:* $a=2,b=-3,\\text{Cov}=-2$: leddet er $2\\cdot 2\\cdot(-3)\\cdot(-2)=24$."
+    },
+    {
+      "id": "tma4245-10-1-kort-18",
+      "type": "definition",
+      "title": "$\\text{Var}(X-Y)$ er en sum, ikke en differanse",
+      "content": "For uavhengige (eller ukorrelerte) variable: $\\text{Var}(X-Y)=\\text{Var}(X)+\\text{Var}(Y)$ — fordi $(-1)^2=1$.\n\n*Eksempel:* $\\text{Var}(X)=4,\\text{Var}(Y)=9$ gir $\\text{Var}(X-Y)=13$, ikke $-5$."
+    },
+    {
+      "id": "tma4245-10-1-kort-19",
+      "type": "definition",
+      "title": "Uavhengighet gir $\\text{Cov}=0$ (ikke omvendt)",
+      "content": "Uavhengige variable har kovarians 0. Men $\\text{Cov}=0$ garanterer ikke uavhengighet — bare fravær av lineær samvariasjon.\n\n*Eksempel:* er $X,Y$ uavhengige, faller kovariansleddet i variansformelen bort."
+    },
+    {
+      "id": "tma4245-10-1-kort-20",
+      "type": "definition",
+      "title": "$n-1$-divisoren i empirisk varians",
+      "content": "$s^2=\\frac{1}{n-1}\\sum(x_i-\\bar{x})^2$. Divisoren er $n-1$ (frihetsgrader) fordi $\\bar{x}$ selv er estimert.\n\n*Eksempel:* data $12,15,18,21,24$: sum av kvadrerte avvik $90$, $s^2=90/4=22{,}5$."
+    },
+    {
+      "id": "tma4245-10-1-kort-21",
+      "type": "definition",
+      "title": "Boksplott: streken er medianen",
+      "content": "Streken inne i boksen er **medianen**, ikke gjennomsnittet. Boksens kanter er $Q_1$ og $Q_3$.\n\n*Eksempel:* i en høyreskjev fordeling ligger gjennomsnittet høyere enn medianstreken."
+    },
+    {
+      "id": "tma4245-10-1-kort-22",
+      "type": "definition",
+      "title": "IQR = $Q_3-Q_1$",
+      "content": "Kvartilbredden (interkvartilbredden) er boksens høyde i verdier: $\\text{IQR}=Q_3-Q_1$. Den måler spredningen i den midtre halvparten.\n\n*Eksempel:* $Q_1=150,\\ Q_3=210$ gir IQR $=60$."
+    },
+    {
+      "id": "tma4245-10-1-kort-23",
+      "type": "definition",
+      "title": "Q-Q-plott: krumming betyr ikke-normal",
+      "content": "Ligger punktene på en rett linje, er dataene forenlige med normalfordeling. Systematisk krumming eller haleavvik tyder på ikke-normalitet.\n\n*Eksempel:* en oppadbøyd øvre hale = tyngre høyrehale (høyreskjevhet)."
+    },
+    {
+      "id": "tma4245-10-1-kort-24",
+      "type": "definition",
+      "title": "Skjevhetsretning",
+      "content": "Halen peker i skjevhetens retning: lang hale mot høyre = høyreskjev (gjennomsnitt $>$ median).\n\n*Eksempel:* boks der $Q_3-$median $>$ median$-Q_1$ og lang øvre visker = høyreskjev."
+    },
+    {
+      "id": "tma4245-10-1-kort-25",
+      "type": "definition",
+      "title": "Minneløshet (eksponensial)",
+      "content": "Eksponensialfordelingen er minneløs: $P(X>s+t\\mid X>s)=P(X>t)$. Komponenten «husker» ikke alderen sin.\n\n*Eksempel:* $\\beta=500$: $P(X>800\\mid X>500)=P(X>300)=e^{-0{,}6}=0{,}5488$."
+    },
+    {
+      "id": "tma4245-10-1-kort-26",
+      "type": "definition",
+      "title": "Weibull er ikke minneløs",
+      "content": "Minneløsheten er unik for eksponensialfordelingen. Weibull (formparameter $\\ne 1$) aldres — bruk aldri snarveien der.\n\n*Eksempel:* for en Weibull-komponent må den betingede halen regnes fra definisjonen."
+    },
+    {
+      "id": "tma4245-10-1-kort-27",
+      "type": "definition",
+      "title": "Eksponensial: $\\beta$ er forventningen",
+      "content": "Boka parametriserer eksponensial med forventningen $\\beta$: $f(x)=\\frac{1}{\\beta}e^{-x/\\beta}$, $E(X)=\\beta$, halesannsynlighet $P(X>x)=e^{-x/\\beta}$.\n\n*Eksempel:* $\\beta=200$ timer betyr forventet levetid 200 timer."
+    },
+    {
+      "id": "tma4245-10-1-kort-28",
+      "type": "definition",
+      "title": "KI: 95 % er en egenskap ved metoden",
+      "content": "Dekningsgraden gjelder metoden over gjentatte forsøk — ikke det ferdig utregnede intervallet.\n\n*Eksempel:* riktig tolkning: «metoden fanger sanne $\\mu$ i 95 % av gjentatte forsøk.»"
+    },
+    {
+      "id": "tma4245-10-1-kort-29",
+      "type": "definition",
+      "title": "KI handler om parameteren, ikke observasjonene",
+      "content": "Et konfidensintervall gjelder $\\mu$, ikke andelen enkeltobservasjoner. Andel observasjoner ville vært et prediksjonsintervall (bredere).\n\n*Eksempel:* «95 % av emnene ligger i intervallet» er en klassisk feiltolkning."
+    },
+    {
+      "id": "tma4245-10-1-kort-30",
+      "type": "definition",
+      "title": "$\\mu$ er fast, intervallet er tilfeldig",
+      "content": "Parameteren $\\mu$ er et fast, ukjent tall. Det er den tilfeldige stikkprøven — og dermed intervallendepunktene — som varierer.\n\n*Eksempel:* etter utregning ligger $\\mu$ enten inni eller utenfor; ingen sannsynlighet igjen."
+    },
+    {
+      "id": "tma4245-10-1-kort-31",
+      "type": "definition",
+      "title": "KI vs. PI: $1$-tallet under rota",
+      "content": "Prediksjonsintervallet har et ekstra $1$-tall under rottegnet (den nye målingens eget feilledd) og er derfor alltid bredere enn konfidensintervallet.\n\n*Eksempel:* KI-faktor $\\sqrt{\\frac{1}{n}+\\ldots}$; PI-faktor $\\sqrt{1+\\frac{1}{n}+\\ldots}$."
+    },
+    {
+      "id": "tma4245-10-1-kort-32",
+      "type": "definition",
+      "title": "KI for forventet, PI for ny måling",
+      "content": "«Forventet/gjennomsnittlig respons» $\\to$ konfidensintervall. «Ny/framtidig enkeltmåling» $\\to$ prediksjonsintervall.\n\n*Eksempel:* «hvor ligger neste måling ved $x_0$?» krever PI."
+    },
+    {
+      "id": "tma4245-10-1-kort-33",
+      "type": "definition",
+      "title": "$z$ vs. $t$: ukjent $\\sigma$ gir $t$",
+      "content": "Er $\\sigma$ ukjent (estimert med $s$), bruk $t$-fordelingen med $n-1$ frihetsgrader. Bare ved oppgitt kjent $\\sigma$ bruker du $z$.\n\n*Eksempel:* ni observasjoner, ukjent $\\sigma$: $t_8$."
+    },
+    {
+      "id": "tma4245-10-1-kort-34",
+      "type": "definition",
+      "title": "p-verdi: sanns. for data gitt $H_0$",
+      "content": "p-verdien er sannsynligheten, **beregnet under $H_0$**, for et minst like ekstremt utfall som det observerte — ikke sannsynligheten for at $H_0$ er sann.\n\n*Eksempel:* $p=0{,}03$ betyr at så ekstreme data er lite sannsynlige *hvis* $H_0$ stemmer."
+    },
+    {
+      "id": "tma4245-10-1-kort-35",
+      "type": "definition",
+      "title": "p-verdi er ikke sannsynligheten for å ta feil",
+      "content": "Sannsynligheten for å forkaste en sann $H_0$ (type I-feil) er $\\alpha$, fastsatt på forhånd — ikke p-verdien.\n\n*Eksempel:* $\\alpha=0{,}05$ er valgt før data; p-verdien beregnes etter."
+    },
+    {
+      "id": "tma4245-10-1-kort-36",
+      "type": "definition",
+      "title": "Stor p beviser ikke $H_0$",
+      "content": "En stor p-verdi betyr at dataene er *forenlige* med $H_0$ — vi «forkaster ikke», men «aksepterer» den ikke som bevist. Skriv «ikke grunnlag for å forkaste».\n\n*Eksempel:* $p=0{,}4$: ingen konklusjon om at $H_0$ er sann."
+    },
+    {
+      "id": "tma4245-10-1-kort-37",
+      "type": "definition",
+      "title": "Tosidig p-verdi: dobling",
+      "content": "For en tosidig test teller begge haler: $p=2\\,P(\\text{observator}\\ge|\\text{observert}|\\mid H_0)$. Glemt faktor 2 halverer p-verdien.\n\n*Eksempel:* ensidig hale $0{,}015$ gir tosidig $p=0{,}03$."
+    },
+    {
+      "id": "tma4245-10-1-kort-38",
+      "type": "definition",
+      "title": "Parret design: kjennetegn",
+      "content": "Målingene kommer i naturlige par — samme enhet før/etter, samme prøve med to metoder, matchede objekter. Da analyseres differansene $D_i$, med $t_{n-1}$.\n\n*Eksempel:* signalord «før og etter», «samme», «paret»."
+    },
+    {
+      "id": "tma4245-10-1-kort-39",
+      "type": "definition",
+      "title": "To-utvalg: $n_1+n_2-2$ frihetsgrader",
+      "content": "Pooled to-utvalgs-t sammenligner to *uavhengige* grupper og har $n_1+n_2-2$ frihetsgrader (to gjennomsnitt estimert).\n\n*Eksempel:* $n_1=8,\\ n_2=12$ gir $t_{18}$."
+    },
+    {
+      "id": "tma4245-10-1-kort-40",
+      "type": "definition",
+      "title": "Parret vs. to-utvalg: velg riktig",
+      "content": "Å behandle parrede data som to uavhengige utvalg er den vanligste fellen i denne delen. Se etter om samme enhet måles to ganger.\n\n*Eksempel:* samme dekk før/etter = parret ($t_{n-1}$), ikke to utvalg ($t_{n_1+n_2-2}$)."
+    },
+    {
+      "id": "tma4245-10-1-symbolliste",
+      "type": "collapsible",
+      "title": "Symbol- og formelliste",
+      "buttonText": "Vis symboler og formler",
+      "content": [
+        {
+          "id": "tma4245-10-1-symtab-note",
+          "type": "text",
+          "content": "Oppslagsverk — alt her forklares underveis i kapitlet.\n\n| Symbol | Betydning |\n|---|---|\n| $P(A\\cap B)$ | Sannsynlighet for at både $A$ og $B$ inntreffer (snitt) |\n| $P(A\\cup B)$ | Sannsynlighet for at $A$ eller $B$ inntreffer (union) |\n| $P(A\\mid B)$ | Betinget sannsynlighet for $A$ gitt $B$ |\n| $A^c$ | Komplementet til $A$ («ikke $A$») |\n| $f(x)$ | Tetthet (sannsynlighetstetthet) for kontinuerlig variabel |\n| $\\Phi(z)$ | Standardnormal fordelingsfunksjon, $P(Z\\le z)$ |\n| $z_\\alpha$ | Normalkvantil med øvre haleareal $\\alpha$: $P(Z>z_\\alpha)=\\alpha$ |\n| $t_{\\nu,\\alpha}$ | $t$-kvantil, $\\nu$ frihetsgrader, øvre haleareal $\\alpha$ |\n| $\\mu,\\ \\sigma^2$ | Forventning og varians (parametere) |\n| $\\bar{x},\\ s^2$ | Empirisk gjennomsnitt og empirisk varians |\n| $\\text{Cov}(X,Y)$ | Kovarians mellom $X$ og $Y$ |\n| $\\beta$ | Forventningen i eksponensialfordelingen |\n| $Q_1,\\ Q_3$ | Nedre og øvre kvartil (boksplott) |\n| IQR | Kvartilbredde, $Q_3-Q_1$ |\n| $H_0,\\ H_1$ | Null- og alternativhypotese |\n| $\\alpha$ | Signifikansnivå (type I-feilsannsynlighet) |\n| $S_{xx}$ | $\\sum(x_i-\\bar{x})^2$ (regresjon) |\n\n**Formler i dette kapitlet:**\n\n$$P(A\\cup B)=P(A)+P(B)-P(A\\cap B)$$\nAddisjonsregelen — fradraget hindrer dobbelttelling av overlappet.\n\n$$P(A\\mid B)=\\frac{P(A\\cap B)}{P(B)}$$\nBetinget sannsynlighet.\n\n$$s^2=\\frac{1}{n-1}\\sum_{i=1}^{n}(x_i-\\bar{x})^2$$\nEmpirisk varians — divisor $n-1$.\n\n$$\\text{Var}(aX+bY)=a^2\\text{Var}(X)+b^2\\text{Var}(Y)+2ab\\,\\text{Cov}(X,Y)$$\nVarians av lineærkombinasjon — husk kovariansleddet.\n\n$$Z=\\frac{X-\\mu}{\\sigma}$$\nStandardisering — del på standardavviket $\\sigma=\\sqrt{\\sigma^2}$.\n\n$$P(X>x)=e^{-x/\\beta},\\qquad P(X>s+t\\mid X>s)=P(X>t)$$\nEksponensialens halesannsynlighet og minneløshet.\n\n$$\\hat{y}_0\\pm t_{n-2,\\alpha/2}\\,s\\sqrt{\\tfrac{1}{n}+\\tfrac{(x_0-\\bar{x})^2}{S_{xx}}}\\quad(\\text{KI}),\\qquad \\hat{y}_0\\pm t_{n-2,\\alpha/2}\\,s\\sqrt{1+\\tfrac{1}{n}+\\tfrac{(x_0-\\bar{x})^2}{S_{xx}}}\\quad(\\text{PI})$$\nKonfidens- og prediksjonsintervall i regresjon — hele forskjellen er $1$-tallet under rota."
+        }
+      ]
+    }
+  ],
+  "exercises": []
+}

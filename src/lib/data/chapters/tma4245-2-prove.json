@@ -1,0 +1,280 @@
+{
+  "id": "tma4245-2-prove",
+  "courseId": "tma4245",
+  "chapterNumber": "2.P",
+  "title": "Prøver til del 2: Stokastiske variable og fordelinger",
+  "description": "Fire prøver som dekker momentregneregler, diskret modellvalg og Poisson-prosessen, den egendefinerte tettheten og simultanfordelinger — med fullstendige løsningsforslag.",
+  "estimatedMinutes": 150,
+  "competenceGoals": [
+    "løse eksamensrettede oppgaver fra hele Del 2: momentregning, diskret modellvalg, egendefinert tetthet (sjanger C betyr en oppgave med oppgitt tetthet) og simultanfordelinger"
+  ],
+  "content": [
+    {
+      "id": "tma4245-2-prove-tip",
+      "type": "tip",
+      "title": "Om prøvene til Del 2",
+      "content": "**Fire prøver som dekker hele Del 2 — stokastiske variable og fordelinger.** Ta én prøve per økt; de **kan trygt deles over flere kvelder**. Milepælen er å fullføre settet, ikke å ta alt på én gang.\n\n| Prøve | Tema | Tid |\n|---|---|---|\n| 2.A | Momentregneregler med kovariansfeller (kap. 2.1) | ~30 min |\n| 2.B | Diskret modellvalg + Poisson-prosess (kap. 2.2) | ~40 min |\n| 2.C | Egendefinert tetthet, full kjede på eksamensnivå (kap. 2.3–2.4) | ~45 min |\n| 2.D | Simultantabell + blandet kortsvar (kap. 2.5 + hele delen) | ~35 min |\n\n**Arbeidsmåte:** løs hele prøven med formelsamlingen tilgjengelig (hjelpemiddelkode C) *før* du åpner fasiten. Skriv fullstendige mellomregninger — sensor krever det. Kryss av selvdiagnosen etter hver fasit for å se hva du bør repetere.\n\n**Flervalgsoppgavene** har fasitbokstaven oppgitt i løsningen; ikke let etter et mønster i bokstavene."
+    },
+    {
+      "id": "tma4245-2-prove-forkunnskaper",
+      "type": "text",
+      "content": "**Forkunnskaper:** Disse prøvene forutsetter at du har jobbet deg gjennom hele Del 2 — stokastiske variable og momentregneregler ([kap. 2.1](/bok/tma4245/tma4245-2-1)), diskrete fordelinger og Poisson-prosessen ([kap. 2.2](/bok/tma4245/tma4245-2-2)), kontinuerlige fordelinger ([kap. 2.3](/bok/tma4245/tma4245-2-3)), tetthets-drillen ([kap. 2.4](/bok/tma4245/tma4245-2-4)) og simultanfordelinger ([kap. 2.5](/bok/tma4245/tma4245-2-5)). Grunnlaget hviler dessuten på sannsynlighetsregningen i [kap. 1.1](/bok/tma4245/tma4245-1-1)–[1.3](/bok/tma4245/tma4245-1-3).\n\nBruk prøvene som en test etter at du har lest kapitlene: klarer du dem uten å slå opp annet enn formelsamlingen, sitter Del 2."
+    },
+    {
+      "id": "tma4245-2-prove-intro",
+      "type": "text",
+      "content": "De fire prøvene speiler de fire oppgavetypene Del 2 gir på eksamen: momentregning med kovariansfeller, diskret modellvalg, den egendefinerte tettheten (sjanger C — den vanligste inngangen til den store oppgaven), og simultantabellen. Alle oppgavene er nyskrevne med ingeniør- og naturkontekster. Løs først, sjekk mot fasit etterpå."
+    },
+    {
+      "id": "tma4245-2-prove-p-a",
+      "type": "collapsible",
+      "title": "Prøve 2.A — Momentregneregler med kovariansfeller (~30 min)",
+      "buttonText": "Vis prøve 2.A",
+      "content": [
+        {
+          "id": "tma4245-2-prove-a-1",
+          "type": "exercise",
+          "exercise": {
+            "id": "tma4245-2-prove-a-1",
+            "number": "1",
+            "type": "classic",
+            "difficulty": "middels",
+            "task": "**Momentregneregler (kap. 2.1).** To måleavvik $X$ og $Y$ har $E(X) = 6$, $E(Y) = 2$, $\\text{Var}(X) = 4$, $\\text{Var}(Y) = 9$ og $\\text{Cov}(X, Y) = -2$.\n\n**a)** Finn $E(2X + 3Y)$.\n\n**b)** Finn $\\text{Var}(2X + 3Y)$.\n\n**c)** Finn $\\text{Var}(2X - 3Y)$, og forklar hvorfor den ikke er lik svaret i b).",
+            "solution": "**a)** Lineært: $E(2X + 3Y) = 2 \\cdot 6 + 3 \\cdot 2 = 12 + 6 = 18$.\n\n**b)** Med $a = 2, b = 3$:\n$$\\text{Var}(2X + 3Y) = 2^2 \\cdot 4 + 3^2 \\cdot 9 + 2 \\cdot 2 \\cdot 3 \\cdot (-2) = 16 + 81 - 24 = 73.$$\n\n**c)** Med $a = 2, b = -3$:\n$$\\text{Var}(2X - 3Y) = 2^2 \\cdot 4 + (-3)^2 \\cdot 9 + 2 \\cdot 2 \\cdot (-3) \\cdot (-2) = 16 + 81 + 24 = 121.$$\nForskjellen fra b) er kovariansleddet: i b) er det $2ab\\,\\text{Cov} = -24$, i c) er det $+24$ (fortegnet på $b$ snur). Fordi $\\text{Cov} < 0$ gir differansen *større* varians enn summen.",
+            "hints": [
+              "$E$ er lineær; $\\text{Var}(aX+bY)=a^2\\text{Var}(X)+b^2\\text{Var}(Y)+2ab\\text{Cov}(X,Y)$.",
+              "Pass på fortegnet i kovariansleddet når $b$ er negativ."
+            ]
+          }
+        },
+        {
+          "id": "tma4245-2-prove-a-2",
+          "type": "exercise",
+          "exercise": {
+            "id": "tma4245-2-prove-a-2",
+            "number": "2",
+            "type": "classic",
+            "difficulty": "middels",
+            "task": "**Flervalg — varians (kap. 2.1).** En diskret variabel har $p(0) = 0{,}5$, $p(1) = 0{,}3$, $p(2) = 0{,}2$. Hva er $\\text{Var}(X)$?\n\n**A)** 0,70\n**B)** 0,61\n**C)** 1,10\n**D)** 0,49",
+            "solution": "**Riktig: B) 0,61.**\n\n$E(X) = 0 \\cdot 0{,}5 + 1 \\cdot 0{,}3 + 2 \\cdot 0{,}2 = 0{,}7$. $E(X^2) = 0 + 1 \\cdot 0{,}3 + 4 \\cdot 0{,}2 = 1{,}1$. $\\text{Var}(X) = 1{,}1 - 0{,}7^2 = 1{,}1 - 0{,}49 = 0{,}61$. (Distraktorene: A er $E(X)$, C er $E(X^2)$, D er $[E(X)]^2$.)",
+            "hints": [
+              "Regn $E(X)$ og $E(X^2)$ først.",
+              "$\\text{Var}(X) = E(X^2) - [E(X)]^2$."
+            ]
+          }
+        },
+        {
+          "id": "tma4245-2-prove-a-3",
+          "type": "exercise",
+          "exercise": {
+            "id": "tma4245-2-prove-a-3",
+            "number": "3",
+            "type": "classic",
+            "difficulty": "middels",
+            "task": "**Kovariansfelle (kap. 2.1).** $X$ og $Y$ er **uavhengige** med $\\text{Var}(X) = 5$ og $\\text{Var}(Y) = 3$.\n\n**a)** Finn $\\text{Var}(X - Y)$.\n\n**b)** En medstudent skriver $\\text{Var}(X - Y) = 5 - 3 = 2$. Hva er feilen?",
+            "solution": "**a)** Uavhengige, så $\\text{Cov}(X, Y) = 0$: $\\text{Var}(X - Y) = \\text{Var}(X) + \\text{Var}(Y) = 5 + 3 = 8$.\n\n**b)** Feilen er å *trekke fra* variansen til $Y$. Varianser legges alltid til: med $a = 1, b = -1$ er $\\text{Var}(X - Y) = 1^2 \\cdot 5 + (-1)^2 \\cdot 3 = 8$. Kvadratet på $-1$ fjerner minustegnet. Å regne $5 - 3 = 2$ ville dessuten kunne gi negativ varians i andre tilfeller, som er umulig.",
+            "hints": [
+              "Uavhengige gir $\\text{Cov}=0$.",
+              "$\\text{Var}(X-Y) = \\text{Var}(X)+\\text{Var}(Y)$ — legg sammen."
+            ]
+          }
+        },
+        {
+          "id": "tma4245-2-prove-a-selvdiagnose",
+          "type": "text",
+          "content": "### Selvdiagnose 2.A\n\nKryss av det du mestrer:\n\n- ☐ Jeg bruker at forventning er lineær uten forbehold.\n- ☐ Jeg husker kovariansleddet $2ab\\,\\text{Cov}(X,Y)$ i $\\text{Var}(aX+bY)$.\n- ☐ Jeg får riktig fortegn på kovariansleddet når en koeffisient er negativ.\n- ☐ Jeg vet at varianser *legges sammen* også for en differanse.\n- ☐ Jeg regner varians med $E(X^2) - [E(X)]^2$ uten å forveksle med $[E(X)]^2$."
+        }
+      ]
+    },
+    {
+      "id": "tma4245-2-prove-p-b",
+      "type": "collapsible",
+      "title": "Prøve 2.B — Diskret modellvalg + Poisson-prosess (~40 min)",
+      "buttonText": "Vis prøve 2.B",
+      "content": [
+        {
+          "id": "tma4245-2-prove-b-1",
+          "type": "exercise",
+          "exercise": {
+            "id": "tma4245-2-prove-b-1",
+            "number": "1",
+            "type": "classic",
+            "difficulty": "middels",
+            "task": "**Modellvalg (kap. 2.2).** Angi for hver situasjon hvilken diskret fordeling som passer, med parametre — og begrunn kort.\n\n**a)** Antall defekte blant 12 uavhengige enheter, hver defekt med sannsynlighet 0,1.\n\n**b)** Antall inspeksjoner til og med den første som avdekker en feil, når hver inspeksjon avdekker feil med sannsynlighet 0,3.\n\n**c)** Antall defekte når 4 enheter trekkes uten tilbakelegging fra et parti på 20 der 5 er defekte.",
+            "solution": "**a)** Fast antall uavhengige forsøk, konstant $p$: **binomisk** $\\text{bin}(12,\\ 0{,}1)$.\n\n**b)** Teller til første suksess: **geometrisk** med $p = 0{,}3$.\n\n**c)** Trekk uten tilbakelegging fra endelig populasjon: **hypergeometrisk** med populasjon 20, 5 defekte, 4 trukket. (Ikke binomisk — trekkene er avhengige.)",
+            "hints": [
+              "Fast antall → binomisk; til første suksess → geometrisk.",
+              "Uten tilbakelegging → hypergeometrisk."
+            ]
+          }
+        },
+        {
+          "id": "tma4245-2-prove-b-2",
+          "type": "exercise",
+          "exercise": {
+            "id": "tma4245-2-prove-b-2",
+            "number": "2",
+            "type": "classic",
+            "difficulty": "middels",
+            "task": "**Poisson-prosess (kap. 2.2).** Feilmeldinger til en driftssentral kommer som en Poisson-prosess med rate 3 per time. La $X$ = antall meldinger i løpet av **2 timer**.\n\n**a)** Angi forutsetningene og fordelingen til $X$.\n\n**b)** Finn $E(X)$, $\\text{SD}(X)$ og $P(X = 0)$.\n\n**c)** Gitt at det kom 6 meldinger på de 2 timene, finn sannsynligheten for at nøyaktig 4 kom i den **første** timen.",
+            "solution": "**a)** Forutsetninger: meldinger i disjunkte tidsrom er uavhengige, konstant rate, ingen to samtidig. Parameter $\\lambda t = 3 \\cdot 2 = 6$, så $X \\sim \\text{Poisson}(6)$.\n\n**b)** $E(X) = 6$, $\\text{SD}(X) = \\sqrt{6} \\approx 2{,}449$, og $P(X = 0) = e^{-6} \\approx 0{,}0025$.\n\n**c)** De to timene har lik rate og er uavhengige, så hver av de 6 meldingene er like sannsynlig i hver time — binomisk med $p = 0{,}5$:\n$$P(4 \\text{ i første} \\mid 6 \\text{ totalt}) = \\binom{6}{4} 0{,}5^6 = 15 \\cdot \\frac{1}{64} = \\frac{15}{64} \\approx 0{,}234.$$",
+            "hints": [
+              "Skaler raten: $\\lambda t = 3 \\cdot 2$.",
+              "$\\text{SD} = \\sqrt{\\lambda t}$, $P(X=0) = e^{-\\lambda t}$.",
+              "Betinget på totalen: $\\text{bin}(6, 0{,}5)$."
+            ]
+          }
+        },
+        {
+          "id": "tma4245-2-prove-b-3",
+          "type": "exercise",
+          "exercise": {
+            "id": "tma4245-2-prove-b-3",
+            "number": "3",
+            "type": "classic",
+            "difficulty": "middels",
+            "task": "**Flervalg — binomisk (kap. 2.2).** Antall defekte $X$ i en serie er $\\text{bin}(15,\\ 0{,}2)$. Hva er $\\text{Var}(X)$?\n\n**A)** 3,0\n**B)** 2,4\n**C)** 12,0\n**D)** 1,55",
+            "solution": "**Riktig: B) 2,4.**\n\n$\\text{Var}(X) = np(1-p) = 15 \\cdot 0{,}2 \\cdot 0{,}8 = 2{,}4$. (Distraktor A er $E(X) = np = 3{,}0$; C er $n(1-p)$; D er urelatert.)",
+            "hints": [
+              "$\\text{Var} = np(1-p)$ for binomisk.",
+              "$E = np$ er en annen størrelse."
+            ]
+          }
+        },
+        {
+          "id": "tma4245-2-prove-b-4",
+          "type": "exercise",
+          "exercise": {
+            "id": "tma4245-2-prove-b-4",
+            "number": "4",
+            "type": "classic",
+            "difficulty": "vanskelig",
+            "task": "**Hypergeometrisk (kap. 2.2).** Fra partiet i oppgave 1c (20 enheter, 5 defekte) trekkes 4 uten tilbakelegging. La $X$ = antall defekte. Det er oppgitt at $\\binom{20}{4} = 4845$ og $\\binom{15}{4} = 1365$.\n\n**a)** Finn $P(X = 0)$.\n\n**b)** Finn $P(X \\ge 1)$.\n\n**c)** Finn $E(X)$.",
+            "solution": "**a)** $P(X = 0) = \\dfrac{\\binom{5}{0}\\binom{15}{4}}{\\binom{20}{4}} = \\dfrac{1365}{4845} \\approx 0{,}2817$.\n\n**b)** $P(X \\ge 1) = 1 - P(X = 0) = 1 - 0{,}2817 = 0{,}7183$.\n\n**c)** $E(X) = n\\,\\dfrac{a}{a+b} = 4 \\cdot \\dfrac{5}{20} = 1{,}0$ defekt.",
+            "hints": [
+              "$P(X=0)$ bruker $\\binom{5}{0}\\binom{15}{4}$ i telleren.",
+              "«Minst én» via komplement.",
+              "$E = n\\,a/(a+b)$."
+            ]
+          }
+        },
+        {
+          "id": "tma4245-2-prove-b-selvdiagnose",
+          "type": "text",
+          "content": "### Selvdiagnose 2.B\n\n- ☐ Jeg velger riktig diskret fordeling ut fra situasjonen og begrunner valget.\n- ☐ Jeg skalerer Poisson-raten til intervallet ($\\lambda t$) og oppgir forutsetningene.\n- ☐ Jeg kjenner igjen at et betinget Poisson-antall fordeler seg binomisk på like delintervaller.\n- ☐ Jeg skiller binomisk (med tilbakelegging) fra hypergeometrisk (uten).\n- ☐ Jeg regner $E$ og Var for hver fordeling med riktig formel."
+        }
+      ]
+    },
+    {
+      "id": "tma4245-2-prove-p-c",
+      "type": "collapsible",
+      "title": "Prøve 2.C — Egendefinert tetthet, full kjede (~45 min)",
+      "buttonText": "Vis prøve 2.C",
+      "content": [
+        {
+          "id": "tma4245-2-prove-c-1",
+          "type": "exercise",
+          "exercise": {
+            "id": "tma4245-2-prove-c-1",
+            "number": "1",
+            "type": "classic",
+            "difficulty": "vanskelig",
+            "task": "**Egendefinert tetthet — full kjede (kap. 2.3–2.4).** Belastningsandelen $X$ på en bjelke (mellom 0 og 2) har tetthet $f(x) = c\\,x(2 - x)$ for $0 < x < 2$ og 0 ellers.\n\n**a)** Bestem $c$.\n\n**b)** Utled fordelingsfunksjonen $F(x)$.\n\n**c)** Finn $P(X > 1{,}5)$ og $P(X > 1{,}5 \\mid X > 1)$.\n\n**d)** Finn medianen.\n\n**e)** Finn $E(X)$ og $\\text{Var}(X)$.",
+            "solution": "**a)** Normering: $\\int_0^2 c\\,x(2 - x)\\,dx = c\\int_0^2 (2x - x^2)\\,dx = c\\left[x^2 - \\tfrac{x^3}{3}\\right]_0^2 = c\\left(4 - \\tfrac{8}{3}\\right) = c \\cdot \\tfrac{4}{3} = 1 \\Rightarrow c = \\tfrac{3}{4}$.\n\n**b)** $F(x) = \\int_0^x \\tfrac{3}{4}(2s - s^2)\\,ds = \\tfrac{3}{4}\\left[s^2 - \\tfrac{s^3}{3}\\right]_0^x = \\tfrac{3}{4}x^2 - \\tfrac{1}{4}x^3$ for $0 \\le x \\le 2$ (og 0 under, 1 over).\n\n**c)** $F(1{,}5) = \\tfrac{3}{4}(2{,}25) - \\tfrac{1}{4}(3{,}375) = 1{,}6875 - 0{,}84375 = 0{,}84375$, så $P(X > 1{,}5) = 1 - 0{,}84375 = 0{,}15625$. Og $F(1) = \\tfrac{3}{4} - \\tfrac{1}{4} = 0{,}5$, så\n$$P(X > 1{,}5 \\mid X > 1) = \\frac{1 - F(1{,}5)}{1 - F(1)} = \\frac{0{,}15625}{0{,}5} = 0{,}3125.$$\n\n**d)** Median: $F(m) = 0{,}5$. Siden $F(1) = 0{,}5$ (og tettheten er symmetrisk om $x = 1$), er medianen $m = 1$.\n\n**e)** Ved symmetri om $x = 1$ er $E(X) = 1$. $E(X^2) = \\int_0^2 x^2 \\cdot \\tfrac{3}{4}x(2 - x)\\,dx = \\tfrac{3}{4}\\int_0^2 (2x^3 - x^4)\\,dx = \\tfrac{3}{4}\\left[\\tfrac{x^4}{2} - \\tfrac{x^5}{5}\\right]_0^2 = \\tfrac{3}{4}\\left(8 - \\tfrac{32}{5}\\right) = \\tfrac{3}{4} \\cdot \\tfrac{8}{5} = \\tfrac{6}{5} = 1{,}2$. $\\text{Var}(X) = 1{,}2 - 1^2 = 0{,}2$.",
+            "hints": [
+              "Normering: $\\int_0^2 c(2x - x^2)\\,dx = 1$.",
+              "$F(x) = \\tfrac{3}{4}x^2 - \\tfrac{1}{4}x^3$.",
+              "Betinget: del halene $1 - F$.",
+              "Symmetri om $x=1$ gir median og forventning.",
+              "$E(X^2) = \\tfrac{3}{4}\\int_0^2(2x^3 - x^4)\\,dx$."
+            ]
+          }
+        },
+        {
+          "id": "tma4245-2-prove-c-2",
+          "type": "exercise",
+          "exercise": {
+            "id": "tma4245-2-prove-c-2",
+            "number": "2",
+            "type": "classic",
+            "difficulty": "middels",
+            "task": "**Flervalg — median (kap. 2.4).** En tetthet er $f(x) = 3x^2$ på $(0, 1)$. Hva er medianen?\n\n**A)** 0,5\n**B)** $0{,}5^{1/2} \\approx 0{,}707$\n**C)** $0{,}5^{1/3} \\approx 0{,}794$\n**D)** $0{,}5^{1/4} \\approx 0{,}841$",
+            "solution": "**Riktig: C) $0{,}5^{1/3} \\approx 0{,}794$.**\n\n$F(x) = x^3$, så medianen løser $m^3 = 0{,}5$, altså $m = 0{,}5^{1/3} \\approx 0{,}794$. (Distraktor A antar symmetri; B og D bruker feil eksponent.)",
+            "hints": [
+              "$F(x) = \\int_0^x 3s^2\\,ds = x^3$.",
+              "Løs $F(m) = 0{,}5$, ikke $f(m) = 0{,}5$."
+            ]
+          }
+        },
+        {
+          "id": "tma4245-2-prove-c-selvdiagnose",
+          "type": "text",
+          "content": "### Selvdiagnose 2.C\n\n- ☐ Jeg normerer tettheten før jeg regner videre.\n- ☐ Jeg oppgir fordelingsfunksjonen komplett (0, uttrykk, 1).\n- ☐ Jeg regner betingede sannsynligheter ved å dele halene $1 - F$.\n- ☐ Jeg finner medianen ved $F(m) = 0{,}5$, ikke $f(m) = 0{,}5$.\n- ☐ Jeg regner $E(X)$ og $E(X^2)$ ved integrasjon med fullstendig mellomregning."
+        }
+      ]
+    },
+    {
+      "id": "tma4245-2-prove-p-d",
+      "type": "collapsible",
+      "title": "Prøve 2.D — Simultantabell + blandet kortsvar (~35 min)",
+      "buttonText": "Vis prøve 2.D",
+      "content": [
+        {
+          "id": "tma4245-2-prove-d-1",
+          "type": "exercise",
+          "exercise": {
+            "id": "tma4245-2-prove-d-1",
+            "number": "1",
+            "type": "classic",
+            "difficulty": "vanskelig",
+            "task": "**Simultantabell (kap. 2.5).** Antall driftsavvik $X$ og antall vedlikeholdsvarsler $Y$ i et skift har simultanfordeling:\n\n| $p(x,y)$ | $Y=0$ | $Y=1$ | $Y=2$ |\n|---|---|---|---|\n| $X=0$ | 0,10 | 0,15 | 0,05 |\n| $X=1$ | 0,20 | 0,25 | 0,25 |\n\n**a)** Finn marginalfordelingene til $X$ og $Y$.\n\n**b)** Finn $E(X)$, $\\text{Var}(X)$, $E(Y)$ og $\\text{Var}(Y)$.\n\n**c)** Finn $\\text{Cov}(X, Y)$ og korrelasjonen $\\rho$.\n\n**d)** Avgjør med begrunnelse om $X$ og $Y$ er uavhengige.",
+            "solution": "**a)** Radsummer: $p_X(0) = 0{,}30$, $p_X(1) = 0{,}70$. Kolonnesummer: $p_Y(0) = 0{,}30$, $p_Y(1) = 0{,}40$, $p_Y(2) = 0{,}30$.\n\n**b)** $E(X) = 0 \\cdot 0{,}3 + 1 \\cdot 0{,}7 = 0{,}7$; $E(X^2) = 0{,}7$; $\\text{Var}(X) = 0{,}7 - 0{,}49 = 0{,}21$. $E(Y) = 0 \\cdot 0{,}3 + 1 \\cdot 0{,}4 + 2 \\cdot 0{,}3 = 1{,}0$; $E(Y^2) = 0{,}4 + 4 \\cdot 0{,}3 = 1{,}6$; $\\text{Var}(Y) = 1{,}6 - 1 = 0{,}6$.\n\n**c)** $E(XY) = \\sum xy\\,p$; kun $x = 1$ bidrar: $(1)(1)(0{,}25) + (1)(2)(0{,}25) = 0{,}25 + 0{,}50 = 0{,}75$. $\\text{Cov}(X, Y) = 0{,}75 - 0{,}7 \\cdot 1{,}0 = 0{,}05$. $\\rho = \\dfrac{0{,}05}{\\sqrt{0{,}21 \\cdot 0{,}6}} = \\dfrac{0{,}05}{\\sqrt{0{,}126}} = \\dfrac{0{,}05}{0{,}3550} \\approx 0{,}141$.\n\n**d)** Sjekk én celle: $p(0, 0) = 0{,}10$, men $p_X(0)\\,p_Y(0) = 0{,}30 \\cdot 0{,}30 = 0{,}09$. Siden $0{,}10 \\ne 0{,}09$, er $X$ og $Y$ **avhengige**. (Én avvikende celle er nok.)",
+            "hints": [
+              "Marginaler = rad-/kolonnesummer.",
+              "$E(XY)$ summeres over cellene der både $x$ og $y$ er positive.",
+              "$\\rho = \\text{Cov}/\\sqrt{\\text{Var}(X)\\text{Var}(Y)}$.",
+              "Uavhengighet: sjekk faktorisering — én avvikende celle motbeviser."
+            ]
+          }
+        },
+        {
+          "id": "tma4245-2-prove-d-2",
+          "type": "exercise",
+          "exercise": {
+            "id": "tma4245-2-prove-d-2",
+            "number": "2",
+            "type": "classic",
+            "difficulty": "middels",
+            "task": "**Blandet kortsvar-flervalg (hele Del 2).** Velg riktig alternativ i hvert punkt (fasitbokstav i løsningen).\n\n**a)** For en kontinuerlig variabel er $P(X = 3)$ lik:\nA) $f(3)$  ·  B) $F(3)$  ·  C) 0  ·  D) $1 - F(3)$\n\n**b)** Eksponensialfordelingen med forventning $\\beta$ har varians:\nA) $\\beta^2$  ·  B) $\\beta$  ·  C) $\\sqrt{\\beta}$  ·  D) $1/\\beta$\n\n**c)** Uavhengige variable er alltid:\nA) like fordelt  ·  B) ukorrelerte  ·  C) disjunkte  ·  D) normalfordelte\n\n**d)** For Poisson$(\\lambda)$ gjelder:\nA) $E > \\text{Var}$  ·  B) $E < \\text{Var}$  ·  C) $E = \\text{Var} = \\lambda$  ·  D) $\\text{Var} = \\lambda^2$",
+            "solution": "**a) Riktig: C.** For en kontinuerlig variabel er $P(X = x) = 0$; $f(3)$ er en tetthet, ikke en sannsynlighet.\n\n**b) Riktig: A.** $\\text{Var}(X) = \\beta^2$ for eksponensial (og $\\text{SD} = \\beta$).\n\n**c) Riktig: B.** Uavhengige variable har $\\text{Cov} = 0$, altså ukorrelerte (men ikke omvendt).\n\n**d) Riktig: C.** Poisson har $E = \\text{Var} = \\lambda$.\n\n(Merk at fasitbokstavene er C, A, B, C — ikke noe fast mønster.)",
+            "hints": [
+              "Kontinuerlig: $P(X=x)=0$.",
+              "Eksponensial: $\\text{Var}=\\beta^2$.",
+              "Uavhengig $\\Rightarrow$ ukorrelert.",
+              "Poisson: forventning = varians."
+            ]
+          }
+        },
+        {
+          "id": "tma4245-2-prove-d-selvdiagnose",
+          "type": "text",
+          "content": "### Selvdiagnose 2.D\n\n- ☐ Jeg finner marginaler som rad- og kolonnesummer.\n- ☐ Jeg regner $E(XY)$ fra simultanfordelingen, ikke som $E(X)E(Y)$.\n- ☐ Jeg regner kovarians og korrelasjon riktig.\n- ☐ Jeg avgjør uavhengighet ved å sjekke faktorisering (én avvikende celle motbeviser).\n- ☐ Jeg husker at $P(X=x)=0$ for kontinuerlige, og at $E=\\text{Var}=\\lambda$ for Poisson."
+        }
+      ]
+    },
+    {
+      "id": "tma4245-2-prove-symbolliste",
+      "type": "collapsible",
+      "title": "Symbol- og formelliste",
+      "buttonText": "Vis symboler og formler",
+      "content": [
+        {
+          "id": "tma4245-2-prove-symbolliste-text",
+          "type": "text",
+          "content": "*Oppslagsverk — alt her forklares underveis i kapitlet.*\n\nPrøvene spenner over hele Del 2, så her er formlene du kan trenge, samlet.\n\n| Symbol | Betydning |\n|---|---|\n| $E(X), \\text{Var}(X)$ | Forventning og varians |\n| $\\text{Cov}(X, Y), \\rho$ | Kovarians og korrelasjon |\n| $p(x), f(x), F(x)$ | Punktsannsynlighet, tetthet, fordelingsfunksjon |\n| $n, p$ | Binomiske parametre |\n| $\\lambda, \\lambda t$ | Poisson-rate og -parameter |\n| $\\beta$ | Forventningen i eksponensialfordelingen |\n| $p(x,y), p_X(x)$ | Simultan- og marginalfordeling |\n\n**Formler:**\n\n$$E(aX+bY) = aE(X)+bE(Y), \\qquad \\text{Var}(aX+bY) = a^2\\text{Var}(X)+b^2\\text{Var}(Y)+2ab\\,\\text{Cov}(X,Y)$$\nMomentregnereglene (kap. 2.1).\n\n$$\\text{bin}(n,p):\\ E=np,\\ \\text{Var}=np(1-p); \\qquad \\text{Poisson}(\\lambda):\\ E=\\text{Var}=\\lambda$$\nDiskrete fordelinger (kap. 2.2).\n\n$$\\text{eksp}(\\beta):\\ f(x)=\\tfrac{1}{\\beta}e^{-x/\\beta},\\ F(x)=1-e^{-x/\\beta},\\ E=\\beta,\\ \\text{Var}=\\beta^2$$\nEksponensialfordelingen (kap. 2.3).\n\n$$\\int f = 1,\\quad F(x)=\\int f,\\quad F(m)=0{,}5,\\quad \\text{Var}(X)=E(X^2)-[E(X)]^2$$\nEgendefinert tetthet (kap. 2.3–2.4).\n\n$$\\text{Cov}(X,Y)=E(XY)-E(X)E(Y), \\qquad \\rho=\\frac{\\text{Cov}(X,Y)}{\\sqrt{\\text{Var}(X)\\text{Var}(Y)}}$$\nSimultanfordelinger (kap. 2.5)."
+        }
+      ]
+    }
+  ],
+  "exercises": []
+}

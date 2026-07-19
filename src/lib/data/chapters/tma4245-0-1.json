@@ -1,0 +1,265 @@
+{
+  "id": "tma4245-0-1",
+  "courseId": "tma4245",
+  "chapterNumber": "0.1",
+  "title": "Eksamenskartet: slik testes TMA4245",
+  "description": "Eksamensformen, temafrekvensene, sjangerkatalogen og lesestrategien som styrer hele boka.",
+  "estimatedMinutes": 30,
+  "competenceGoals": [
+    "kunne beskrive TMA4245-eksamenens form, hjelpemidler og poengoppsett",
+    "kunne prioritere lesingen etter hvor hyppig hvert tema faktisk testes",
+    "kunne gjenkjenne de tilbakevendende oppgavetypene og vite hvor i settet de dukker opp",
+    "kunne sette opp et fornuftig tidsbudsjett for en firetimers eksamen"
+  ],
+  "content": [
+    {
+      "id": "tma4245-0-1-tip-eksamensvinkel",
+      "type": "tip",
+      "title": "Eksamensvinkel",
+      "content": "**Dette kapitlet er kartet over hele eksamen — les det først, og kom tilbake til det underveis.**\n\nTMA4245 (og tvillingemnet TMA4240 — samme pensum, felles kontinuasjon i august) tester overraskende forutsigbart. Fra rundt 49 eksamenssett siden 2009 skiller noen få temaer seg ut som nesten sikre:\n\n- **Normalfordelingsregning** står i omtrent 98 % av settene og åpner ofte oppgave 1.\n- **Forventning, varians og kovarians (regnereglene)** er med i omtrent 96 % av settene.\n- **Konfidensintervall** (~84 %), **hypotesetesting** (~82 %) og **punktestimering/ML** (~82 %) utgjør ryggraden i de store oppgavene.\n- **Python / Monte Carlo** er nytt, men eksploderende: 8 av de 9 siste settene siden desember 2023 har hatt et kodeinnslag.\n\nHensikten med dette kapitlet er ikke å regne, men å gi deg **prioriteringene, oppgavetypene, sensorkravene og tidsstrategien** før du bruker de neste 45 timene på selve stoffet. Leser du kartet riktig, bruker du tiden der poengene faktisk ligger."
+    },
+    {
+      "id": "tma4245-0-1-forkunnskaper",
+      "type": "text",
+      "content": "**Forkunnskaper:** Ingen. Dette kapitlet kan leses uten forkunnskaper — dette er kartet du starter med. Du trenger verken sannsynlighetsregning eller statistikk for å ha nytte av det; alt fagstoffet det peker mot, bygges opp fra grunnen i de senere kapitlene.\n\nEtt løfte med en gang: du vil møte noen tunge symboler her (for eksempel $\\chi^2_{2n}$, $\\bar{X}$ og $\\Phi$). **Du trenger ikke forstå dem ennå — de forklares grundig der de brukes.** Her er de bare navn på kartet, akkurat som du kan lese et bykart uten å ha vært i hver gate."
+    },
+    {
+      "id": "tma4245-0-1-orienteringsboks",
+      "type": "tip",
+      "title": "Slik leser du denne boka",
+      "content": "**Karakterskalaen (A–F).** Eksamen gir bokstavkarakter fra A (best) til F (stryk). Det er lett å tro at alt under A er en fiasko. Det er feil: **C er en god og vanlig karakter** — den du får ved å beherske standardregningen (standardisering, tabelloppslag, vanlige konfidensintervall og tester) trygt og uten pivotal-utledninger. A krever i tillegg de vanskeligere utledningene (pivotaler, styrke, transformasjonsbevis, simulering). Sikt mot solid C/B først; A-poengene tar du på toppen.\n\n**Sjangerkodene A–O.** Gjennom boka merker vi hver oppgavetype med en bokstav, en enkel huskelapp for «hva slags oppgave er dette». Kortversjonen (hver forklares i klarspråk lenger nede):\n\n> **A** normalregning · **B** velg diskret fordeling · **C** egendefinert tetthet · **D** transformasjon · **E** Bayes / total sannsynlighet · **F** kombinatorikk · **G** ML-utledning · **H** konfidensintervall · **I** hypotesetest · **J** regresjon · **K** ordningsvariable · **L** simultanfordeling · **M** deskriptiv/grafisk · **N** Monte Carlo / Python · **O** kortsvar (Inspera).\n\n**Feilkatalogen.** Studenter går i de samme fellene år etter år. Boka samler dem i ett register — vi kaller det **Feilkatalogen** — og hvert temakapittel har en «Typiske feil»-boks som forebygger nettopp de fellene som hører til der. Les dem: å unngå en kjent felle er de billigste poengene som finnes."
+    },
+    {
+      "id": "tma4245-0-1-eksamensformen",
+      "type": "text",
+      "content": "## Slik ser eksamen ut\n\n**Form:** 4 timers skoleeksamen med bokstavkarakter A–F. **Hjelpemiddelkode C** betyr at du har med deg:\n\n- formelsamlingen **«Tabeller og formler i statistikk»** (alle standardfordelinger med forventning/varians, kumulative tabeller for binomisk og Poisson, og kvantiltabeller for $\\Phi$, $t$, $\\chi^2$ og $F$),\n- ett gult A5-ark med egne håndskrevne notater,\n- en enkel kalkulator.\n\nFordi formelsamlingen ligger på pulten, tester eksamen **ikke** om du har pugget formlene. Den tester om du kan *velge* riktig formel, slå opp med *riktige frihetsgrader og kvantiler*, og *utlede* det som ikke står i samlingen. Mer om dette under «Formelsamling-prinsippet».\n\n**To formater veksler.** Siden 2022 har settene skiftet mellom:\n\n- **rent papir** (for eksempel mai 2025 og mai 2026): alle oppgaver besvares med full begrunnelse på ark, og alle delpunkter teller likt;\n- **Inspera-hybrid**: en digital kortsvarsdel der du bare fyller inn *tallsvaret* (typisk med 2 desimaler, kun tallet teller), pluss åpne oppgaver på papir med full utregning.\n\n**Tvillingemnet TMA4240** går om høsten med identisk pensum og samme oppgavetradisjon; de to emnene deler kontinuasjonseksamen i august. Derfor er alle ~49 settene fra begge emner relevante å øve på.\n\n**Prognose for et typisk sett:** 4–6 kortsvar (sjanger O og enkle A/E/F/M) pluss 2–4 store oppgaver — en egendefinert eller eksotisk tetthet som ledes gjennom ML og pivotal-konfidensintervall; en full hypotesetest med styrke; en regresjonsoppgave med residualtolkning; og minst ett Python/Monte Carlo-innslag."
+    },
+    {
+      "id": "tma4245-0-1-temafrekvens",
+      "type": "text",
+      "content": "## Prioriteringskartet: hva testes hvor ofte\n\nTabellen er destillert fra eksamensarkivet (se kildenoten nederst). Prosentene er andelen av settene der temaet dukker opp; les dem som «hvor sannsynlig er det at dette kommer på ditt sett».\n\n| Tema | Frekvens | Kommentar |\n|---|---|---|\n| Normalfordeling m/ lineærkombinasjoner | ~98 % | Åpner nesten hvert sett |\n| Forventning / varians / kovarians | ~96 % | Regnereglene må sitte i hodet |\n| Konfidensintervall | ~84 % | Standardintervallene i formelsamlingen; pivotal må utledes |\n| Hypotesetesting | ~82 % | Alltid tungt vektet |\n| Punktestimering / ML | ~82 % | Emnets viktigste utledningsferdighet |\n| Ikke-normale kontinuerlige fordelinger | ~80 % | Eksponensial, gamma, Weibull, egendefinerte |\n| Diskrete fordelinger | ~69 % | Poisson-prosessen alene i ~20 sett |\n| Betinget / total sannsynlighet / Bayes | ~59 % | Diagnostisk test er favoritten |\n| Regresjon | ~59 % | Men **11 av de 12 siste settene** |\n| Transformasjoner | ~59 % | Broen til pivotal-konfidensintervall |\n| Simultanfordelinger | ~49 % | Ofte som tabell |\n| Kombinatorikk | ~39 % | Sterkt tilbake (4 av 8 siste sett) |\n| Deskriptiv / grafisk tolkning | ~35 % | Mest som kortsvar |\n| Styrke / dimensjonering | ~35 % | Kraftig økende |\n| Python / Monte Carlo | 8 av 9 siste | Største skiftet siden 2023 |\n\n**Fortegnstest** og **deltametoden** er nye sjangre fra 2024 — verdt å kjenne, men ikke prioritert høyest.\n\nGjør tabellen om til tre lesenivåer:\n\n- **Må sitte perfekt (høyeste prioritet):** normalfordeling, forventning/varians/kovarians, ML, konfidensintervall, hypotesetest med styrke, eksponensialens kjikvadrat-apparat, regresjon, Bayes.\n- **Bør kunne:** transformasjoner, Python/Monte Carlo, valg av diskret fordeling, sammenligning av estimatorer, simultanfordelinger, kombinatorikk, deskriptiv statistikk, to-utvalg/parret test.\n- **Bør kjenne (toppkarakter-differensiering):** ordningsvariable, fortegnstest, deltametoden, sentralgrenseteoremet som teorispørsmål, oppskriftsfordelinger, prediksjonsintervall utenfor regresjon."
+    },
+    {
+      "id": "tma4245-0-1-kjeden",
+      "type": "text",
+      "content": "## Den store oppgavens anatomi\n\nÉn fortelling går igjen i praktisk talt hvert sett siden 2016 og utgjør 30–40 % av poengene. Den er en **kjede** der hvert ledd bygger på det forrige:\n\n$$\\text{modell} \\;\\to\\; \\text{ML-estimator} \\;\\to\\; \\text{egenskaper} \\;\\to\\; \\text{konfidensintervall (pivotal)} \\;\\to\\; \\text{hypotesetest} \\;\\to\\; \\text{styrke / dimensjonering}$$\n\nI klartekst:\n\n1. **Modell:** oppgaven gir deg data fra en fordeling (ofte en eksponensial- eller egendefinert tetthet) og ber deg sette opp den.\n2. **ML-estimator:** du utleder sannsynlighetsmaksimeringsestimatoren (maximum likelihood) for den ukjente parameteren.\n3. **Egenskaper:** du undersøker om estimatoren treffer riktig i snitt (forventningsrett) og hvor presis den er.\n4. **Konfidensintervall:** du bygger et intervall for parameteren, ofte via en *pivotal* — en smart omskriving med kjent fordeling (for eksponensial er det $\\chi^2_{2n}$).\n5. **Hypotesetest:** du tester en påstand om parameteren med full testprosedyre.\n6. **Styrke:** du regner ut sannsynligheten for å avsløre en gitt avvikelse, eller hvor stort utvalg som trengs.\n\nHele denne boka er bygget rundt kjeden. Klarer du å gå gjennom den uten å stoppe, har du de dyreste poengene i sekken."
+    },
+    {
+      "id": "tma4245-0-1-sjangerkatalog",
+      "type": "text",
+      "content": "## Sjangerkatalogen A–O — din sjekkliste\n\nHer er de 15 oppgavetypene, hver forklart i klarspråk, med hvor ofte de kommer og hvor i settet du møter dem (kortsvar = kort digitalt tallsvar; stor oppgave = håndrettet med full begrunnelse).\n\n- **A — Normalregning** (~98 %, oftest kortsvar *og* som åpning på en stor oppgave). Standardiser en normalfordelt variabel, slå opp i $\\Phi$-tabellen, finn haler, intervaller, betingede sannsynligheter og kvantiler. Billige poeng som må gå automatisk.\n- **B — Velg diskret fordeling** (~69 %, kortsvar eller midtre oppgave). Les situasjonen og velg binomisk, Poisson, geometrisk, negativ binomisk eller hypergeometrisk — og begrunn valget. Poisson-prosessen alene er i ~20 sett.\n- **C — Egendefinert tetthet** (~80 %, ofte inngangen til en stor kjedeoppgave). Du får en tetthet $f(x)$; normer den, utled fordelingsfunksjonen, finn kvantiler og momenter. Ren teknikk — navnet på fordelingen kan være ukjent.\n- **D — Transformasjon** (~59 %, del av stor oppgave). Finn fordelingen til en funksjon av en variabel, oftest som bro til et konfidensintervall.\n- **E — Bayes / total sannsynlighet** (~59 %, kortsvar eller egen oppgave). Det klassiske diagnostisk-test-oppsettet: oppdater en sannsynlighet i lys av ny informasjon.\n- **F — Kombinatorikk** (~39 %, kortsvar). Tell riktig: ordnet vs. uordnet, med vs. uten tilbakelegging. Sterkt tilbake etter 2024.\n- **G — ML-utledning** (~82 %, stor oppgave, ledd 2 i kjeden). Utled sannsynlighetsmaksimeringsestimatoren og vurder egenskapene dens.\n- **H — Konfidensintervall** (~84 %, stor oppgave, ledd 4 i kjeden). Konstruer et intervall for en parameter, med standardformel eller via pivotal.\n- **I — Hypotesetest** (~82 %, stor oppgave, ledd 5). Hele testprosedyren: hypoteser, testobservator, forkastningsregel, konklusjon i ord — ofte med styrke.\n- **J — Regresjon** (~59 %, men 11 av 12 siste sett; egen stor oppgave). Enkel lineær regresjon: estimer, test stigningstall, tolk residualplott.\n- **K — Ordningsvariable** (~22 %, del av stor oppgave). Fordelingen til minimum eller maksimum av flere variable — for eksempel tid til første eller siste komponentsvikt. Skiller toppkarakterene.\n- **L — Simultanfordeling** (~49 %, egen oppgave eller kortsvar). En tabell over to variable samtidig: finn marginaler, sjekk uavhengighet, regn kovarians og korrelasjon.\n- **M — Deskriptiv / grafisk** (~35 %, kortsvar/flervalg). Les boksplott, histogram, spredningsplott og Q-Q-plott, og begrunn tolkningen i konkrete mønstre.\n- **N — Monte Carlo / Python** (8 av 9 siste sett, egen oppgave eller integrert). Skriv eller les numpy-kode som simulerer sannsynligheter, p-verdier eller styrke. Nytt, men nesten fast.\n- **O — Kortsvar (Inspera)** (hele den digitale delen i hybridsett). Korte spørsmål med bare tallsvar; presisjonskravet (2–3 desimaler) er strengt."
+    },
+    {
+      "id": "tma4245-0-1-sensorkrav",
+      "type": "text",
+      "content": "## Sensorens ti krav\n\nFra løsningsforslagene i arkivet går de samme forventningene igjen. Følg dem, så mister du ikke poeng på formalia:\n\n1. **Definer variablene før du regner** — «La $X$ = antall …, da er $X \\sim \\ldots$». Regning uten definerte størrelser regnes som ufullstendig.\n2. **Oppgi antagelsene** der du bruker dem (uavhengighet, konstant rate, normalitet).\n3. **Fullfør testritualet:** hypoteser, testobservator, forkastningsregel og konklusjon — ingen ledd utelatt.\n4. **Vis mellomregninger og tabelloppslag** — skriv hvilken tabell og kvantil du brukte.\n5. **ML med alle trinn:** sannsynlighetsfunksjon, logaritme, deriver, sett lik null, løs.\n6. **Riktig fordeling og frihetsgrader** — den vanligste enkeltfellen (velg mellom $z$, $t$, $\\chi^2$).\n7. **Konklusjon i ord** — svar på spørsmålet som ble stilt, ikke bare et tall.\n8. **Inspera-presisjon:** oppgitt antall desimaler, kun tallet teller — ingen delpoeng for utregning i kortsvarsdelen.\n9. **Kjørbar numpy-kode** — koden skal faktisk kunne kjøres, ikke pseudokode.\n10. **Grafisk tolkning begrunnet i mønstre** — «spredningen øker med nivået», aldri «ser bra ut»."
+    },
+    {
+      "id": "tma4245-0-1-karakterskiller",
+      "type": "text",
+      "content": "## Hva skiller karakterene\n\n- **Bestått (E/D):** du løser åpningsoppgavene — standardisering, tabelloppslag, velge riktig fordeling.\n- **C / B:** du gjennomfører standard konfidensintervall og hypotesetester med riktige frihetsgrader og tolker svaret i ord. Dette er kjernekompetansen — og igjen: **C er en god og vanlig karakter.**\n- **A:** du klarer i tillegg pivotal-utledningene, styrke- og dimensjoneringsregning, sammenligning av estimatorer (MSE), transformasjonsbevis og simulering.\n\nPraktisk konsekvens: bygg først et solid gulv (perfekt-løypa i prioriteringskartet), så strekker du deg mot A-ferdighetene. Det gir langt flere poeng enn å jage det vanskeligste stoffet før gulvet er på plass."
+    },
+    {
+      "id": "tma4245-0-1-lite-tid",
+      "type": "tip",
+      "title": "Lite tid?",
+      "content": "Kjernestoffet (Del 0–9 pluss kortsvar-drillen) er anslått til **~1960 minutter ≈ 33 timers lesing**; med de tre øvingseksamenene i tillegg lander du på **~2680 min ≈ 45 timer**. **Anslagene er LESEtid** — regner du oppgavene for hånd slik du må på eksamen, gang med rundt **1,5**.\n\n**3-dagers nødrute (kun perfekt-løypa):**\n\n- **Dag 1:** Del 3 (normalfordelingen, ~245 min) + Del 1.3 (Bayes, ~55 min).\n- **Dag 2:** Del 5 (ML/punktestimering, ~260 min) + Del 6 (konfidensintervall, ~125 min).\n- **Dag 3:** Del 7 (hypotesetest med styrke, ~280 min) + Del 8.1–8.2 (regresjon).\n\n**5-dagers rute (legg til bredde):**\n\n- **Dag 1:** Del 1 (~190 min) + Del 2.1–2.3.\n- **Dag 2:** Del 2.4 egendefinert tetthet + Del 3 (normal).\n- **Dag 3:** Del 4 (transformasjon/pivotal) + Del 5 (ML).\n- **Dag 4:** Del 6 + Del 7 (konfidensintervall + test/styrke).\n- **Dag 5:** Del 8 (regresjon) + Del 9 (Python) + én øvingseksamen på tid.\n\nHopper du over noe, hopp over det som er merket «bør kjenne» (ordningsvariable, deltametoden, fortegnstest) — aldri normalfordeling, inferens-kjeden eller Python."
+    },
+    {
+      "id": "tma4245-0-1-deltidsrute",
+      "type": "text",
+      "content": "## Studieløp over lengre tid\n\n**12-ukers plan (ved siden av forelesningene):**\n\n| Uke | Innhold |\n|---|---|\n| 1 | Del 0 (dette kartet) + Del 1.1–1.2 (sannsynlighet, kombinatorikk) |\n| 2 | Del 1.3–1.4 (Bayes, deskriptiv) + prøve Del 1 |\n| 3 | Del 2.1–2.2 (stokastiske variable, diskrete fordelinger) |\n| 4 | Del 2.3–2.5 (kontinuerlige, egendefinert tetthet, simultan) + prøve Del 2 |\n| 5 | Del 3.1–3.3 (normalfordelingen, CLT) |\n| 6 | Del 3.4 (normal-drill) + prøve Del 3 |\n| 7 | Del 4 (transformasjon, ordningsvariable, kjikvadrat-apparatet) |\n| 8 | Del 5 (punktestimering, ML) + prøve Del 5 |\n| 9 | Del 6 (konfidensintervall) + Del 7.1–7.2 (hypotesetest) |\n| 10 | Del 7.3–7.4 (styrke + kjede-drill) + prøve Del 7 |\n| 11 | Del 8 (regresjon) + Del 9 (Python/Monte Carlo) |\n| 12 | Del 10: kortsvar-drill + øvingseksamener på tid |\n\n**3-ukers intensiv (rett før eksamen):**\n\n- **Uke 1 — søyle 1 (sannsynlighet):** Del 1–3, med tyngdepunkt på normalfordelingen. Ta prøvene i Del 1–3.\n- **Uke 2 — søyle 2 (inferens):** Del 4–7 i rekkefølge, slik at kjeden ML → konfidensintervall → test → styrke bygges og drilles. Ta prøvene i Del 5 og 7.\n- **Uke 3 — sammenstilling:** Del 8 (regresjon) + Del 9 (Python), deretter de tre øvingseksamenene under realistiske forhold (240 min, kalkulator og formelsamling fremme, Inspera-delen med presisjonskrav)."
+    },
+    {
+      "id": "tma4245-0-1-lese-mye-skrive-lite",
+      "type": "tip",
+      "title": "Lese mye, skrive lite?",
+      "content": "Statistikk læres ikke ved å lese løsninger — det læres ved å regne. Hvis du har lest mye teori uten å føle at det sitter, er kuren å **skrive lite og gjøre mye**:\n\n- For hvert delkapittel: løs 2–3 oppgaver med blyant *før* du ser fasiten. Å stå fast i fem minutter lærer deg mer enn å lese svaret på fem sekunder.\n- Bygg det gule A5-arket underveis: hver gang du bommer på en oppskrift eller en frihetsgrad, skriv den ned. Arket blir din personlige feilkatalog.\n- Ta minst én øvingseksamen *på tid, for hånd* — lesing forbereder deg ikke på tidspresset og håndregningen som faktisk avgjør karakteren.\n\nTommelfingerregel: bruk minst like mye tid på å regne som på å lese."
+    },
+    {
+      "id": "tma4245-0-1-tidsbudsjett",
+      "type": "text",
+      "content": "## Tidsbudsjett for en firetimers eksamen\n\nDu har **240 minutter**. To prinsipper avgjør hvor mange poeng du får ut av dem:\n\n1. **Fordel tiden etter poeng, ikke etter interesse.** Hvis oppgavene har poengvekt, regn ut tid per poeng: $$\\text{minutter per poeng} = \\frac{240}{\\text{sum poeng}}.$$ Har settet 130 poeng, har du ca. 1,8 minutter per poeng. En oppgave verdt 10 poeng skal da få ~18 minutter, en verdt 30 poeng ~54 minutter.\n2. **Ikke grav deg ned i ett delpunkt.** På rene papirsett teller ofte alle delpunkter likt. Da er det dyrt å bruke 30 minutter på et vanskelig punkt du kanskje ikke får til, mens tre lette punkter lenger bak står ubesvart. Sett av en fast maksgrense per delpunkt, hopp videre når den er nådd, og kom tilbake hvis du har tid.\n\nPraktisk oppsett: bruk de første ~5 minuttene på å lese hele settet og markere de sikre poengene, hold av ~10–15 minutter på slutten til gjennomlesing og sluttkontroll, og del resten etter poengvekt. På Inspera-kortsvar: skriv svaret med det antallet desimaler oppgaven ber om, og ikke avrund underveis i utregningen — det er den vanligste måten å tape et ellers riktig kortsvar på."
+    },
+    {
+      "id": "tma4245-0-1-oppg-1",
+      "type": "exercise",
+      "exercise": {
+        "id": "tma4245-0-1-refl-1",
+        "number": "1",
+        "type": "classic",
+        "difficulty": "lett",
+        "task": "Et rent papirsett har **3 store oppgaver** som teller like mye, og du har **240 minutter**. Sett opp et enkelt tidsbudsjett, og begrunn hvorfor du bør holde av litt tid til slutt.",
+        "solution": "Hold av ~15 minutter til gjennomlesing og sluttkontroll. Da står 225 minutter igjen til tre likeverdige oppgaver:\n\n$$\\frac{225}{3} = 75 \\text{ minutter per oppgave.}$$\n\nPraktisk: sikt mot ~75 min per oppgave, men sett en myk grense ved ~80 min — går du over, hopp til neste og kom tilbake. Sluttmarginen på 15 min brukes til å lese gjennom, fange regnefeil og skrive konklusjoner du eventuelt glemte. Uten den marginen risikerer du å levere en oppgave med en dum regnefeil som koster mer enn de siste minuttene på oppgave 3 ga.",
+        "hints": [
+          "Trekk først fra en fast sluttmargin (10–15 min), del så resten på antall oppgaver.",
+          "Alle oppgaver teller likt ⇒ lik tid til hver, ikke mest til den du liker best."
+        ]
+      }
+    },
+    {
+      "id": "tma4245-0-1-oppg-2",
+      "type": "exercise",
+      "exercise": {
+        "id": "tma4245-0-1-refl-2",
+        "number": "2",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "Et Inspera-hybridsett har **4 kortsvar à 10 poeng** og **3 åpne oppgaver à 30 poeng** på **240 minutter**. Sett opp et tidsbudsjett per oppgave basert på poengvekt.",
+        "solution": "Sum poeng: $4 \\cdot 10 + 3 \\cdot 30 = 40 + 90 = 130$ poeng. Tid per poeng:\n\n$$\\frac{240}{130} \\approx 1{,}8 \\text{ minutter per poeng.}$$\n\nDa blir budsjettet:\n\n**a)** Kortsvar (10 p): $\\approx 18$ min hver, altså $4 \\cdot 18 = 72$ min totalt.\n**b)** Åpen oppgave (30 p): $\\approx 54$ min hver, altså $3 \\cdot 54 = 162$ min totalt.\n\nSum: $72 + 162 = 234$ min, som gir ~6 minutters buffer. I praksis: gå gjennom kortsvarene først for å sikre de 40 poengene, men *ikke* bruk mer enn ~18 min på ett kortsvar selv om du står fast — 10 poeng er 10 poeng. De åpne oppgavene har delpoeng, så der lønner det seg å skrive ryddig og vise alle trinn.",
+        "hints": [
+          "Regn først sum poeng, deretter minutter per poeng = 240 / sum.",
+          "Gang tid-per-poeng med poengverdien til hver oppgavetype."
+        ]
+      }
+    },
+    {
+      "id": "tma4245-0-1-oppg-3",
+      "type": "exercise",
+      "exercise": {
+        "id": "tma4245-0-1-refl-3",
+        "number": "3",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "Du har bare **5 dager** igjen og har ikke åpnet boka før. Bruk prioriteringskartet og lag en kort plan: hvilke temaer prioriterer du, og hva dropper du hvis du må?",
+        "solution": "Prioritér perfekt-løypa, fordi den dekker de temaene som er i nesten hvert sett og utgjør flest poeng:\n\n**Prioritér (i denne rekkefølgen):** normalfordelingen (Del 3, ~98 %), forventning/varians/kovarians (Del 2.1), egendefinert tetthet (Del 2.4), ML og punktestimering (Del 5), konfidensintervall (Del 6), hypotesetest med styrke (Del 7), regresjon (Del 8), Bayes (Del 1.3), og ett Python-innslag (Del 9).\n\n**Dropp om nødvendig:** det som er merket «bør kjenne» — ordningsvariable, deltametoden, fortegnstest, sentralgrenseteoremet som teoribevis, og de eksotiske oppskriftsfordelingene. Disse gir mest på toppkarakter, men koster mye tid i forhold til poengsannsynligheten.\n\nAvslutt uansett med minst én øvingseksamen på tid — den avdekker hvor du faktisk taper poeng.",
+        "hints": [
+          "Se på de tre lesenivåene i prioriteringskartet: perfekt / bør kunne / bør kjenne.",
+          "Behold alt i «perfekt»-nivået; kutt fra «bør kjenne» først."
+        ]
+      }
+    },
+    {
+      "id": "tma4245-0-1-oppg-4",
+      "type": "exercise",
+      "exercise": {
+        "id": "tma4245-0-1-refl-4",
+        "number": "4",
+        "type": "classic",
+        "difficulty": "lett",
+        "task": "På samme hybridsett som i oppgave 2 bruker en medstudent **35 minutter** på ett kortsvar verdt 10 poeng fordi hun \"vil ha det helt riktig\". Forklar med tid-per-poeng-tankegangen hvorfor det er dårlig poengøkonomi.",
+        "solution": "Budsjettet var ~18 min for et 10-poengs kortsvar. 35 min er nesten det dobbelte — 17 minutter over. De 17 minuttene er «lånt» fra de åpne oppgavene, der hvert minutt er verdt like mye (~1,8 poeng). 17 ekstra minutter på et kortsvar som uansett maks gir 10 poeng, kan altså koste henne muligheten til å sikre rundt $17 \\cdot 1{,}8 \\approx 30$ poeng med delpoeng lenger bak i settet. I tillegg har kortsvar *ingen* delpoeng — enten er tallet riktig eller ikke, så ekstra polering gir sjelden ekstra uttelling. Riktig grep: sett en hard grense (~18–20 min), skriv ned det beste svaret du har, og gå videre.",
+        "hints": [
+          "Sammenlign den brukte tiden med budsjettet fra oppgave 2.",
+          "Hva er alternativkostnaden av minuttene — hva kunne de gitt av poeng et annet sted?"
+        ]
+      }
+    },
+    {
+      "id": "tma4245-0-1-formel-minimum",
+      "type": "collapsible",
+      "title": "Formel-minimum: de du ikke slipper unna",
+      "buttonText": "Vis formel-minimum",
+      "content": [
+        {
+          "id": "tma4245-0-1-formel-minimum-intro",
+          "type": "text",
+          "content": "Disse få formlene dukker opp igjen og igjen, uansett tema. Lær hva de *gjør* (én linje hver) — resten kan du slå opp i formelsamlingen (hjelpemiddelkode C). Du trenger ikke forstå dem nå; de bygges opp der de brukes.\n\n**1. Standardisering** — gjør enhver normalfordeling om til et tabelloppslag:\n\n$$Z = \\frac{X - \\mu}{\\sigma} \\sim N(0, 1)$$\n\n**2. Regneregler for forventning og varians** — kombinerer flere variable (husk kovariansleddet):\n\n$$E(aX + bY) = aE(X) + bE(Y), \\qquad \\text{Var}(aX + bY) = a^2\\text{Var}(X) + b^2\\text{Var}(Y) + 2ab\\,\\text{Cov}(X, Y)$$\n\n**3. Betinget sannsynlighet / Bayes** — oppdaterer en sannsynlighet i lys av ny informasjon:\n\n$$P(A \\mid B) = \\frac{P(A \\cap B)}{P(B)}$$\n\n**4. Gjennomsnittets fordeling** — broen fra sannsynlighet til inferens:\n\n$$\\bar{X} \\sim N\\!\\left(\\mu, \\frac{\\sigma^2}{n}\\right) \\quad \\text{for uavhengige normale } X_i$$\n\n**5. Konfidensintervall for forventningen** — standardintervallet (ukjent $\\sigma$ gir $t$-kvantil):\n\n$$\\bar{x} \\pm t_{n-1,\\,\\alpha/2}\\,\\frac{s}{\\sqrt{n}}$$\n\n**6. Testobservator for forventningen** — hjertet i hypotesetesten:\n\n$$T = \\frac{\\bar{X} - \\mu_0}{S/\\sqrt{n}}$$\n\n**7. Eksponensialens pivotal** — den hyppigste «vanskelige» gjengangeren, må utledes:\n\n$$\\frac{2\\sum_{i=1}^{n} X_i}{\\beta} \\sim \\chi^2_{2n}$$\n\n**8. ML-oppskriften** — utled estimatoren for en ukjent parameter $\\theta$:\n\n$$\\ell(\\theta) = \\ln L(\\theta), \\qquad \\ell'(\\theta) = 0 \\;\\Rightarrow\\; \\hat{\\theta}$$"
+        }
+      ]
+    },
+    {
+      "id": "tma4245-0-1-sjangerkort",
+      "type": "collapsible",
+      "title": "Sjangerkort: oppskriften på én side",
+      "buttonText": "Vis sjangerkortet",
+      "content": [
+        {
+          "id": "tma4245-0-1-sjangerkort-innhold",
+          "type": "text",
+          "content": "Ett kort å repetere kvelden før — hvilket førstegrep hver sjanger krever:\n\n| Sjanger | Førstegrep |\n|---|---|\n| A normalregning | Standardiser: $Z = (X-\\mu)/\\sigma$, slå opp i $\\Phi$ |\n| B diskret valg | Les situasjonen → velg fordeling → oppgi parametre og forutsetninger |\n| C egendefinert tetthet | Normer ($\\int f = 1$) → utled $F$ → kvantiler/momenter |\n| D transformasjon | CDF-metoden: $F_Y(y) = P(g(X) \\le y)$, deriver |\n| E Bayes | Definer hendelsene → total sannsynlighet i nevneren |\n| F kombinatorikk | Ordnet/uordnet? Med/uten tilbakelegging? |\n| G ML | $L \\to \\ln L \\to$ deriver $\\to$ sett lik 0 $\\to \\hat{\\theta}$ |\n| H konfidensintervall | Velg pivotal/standardformel → riktig kvantil og frihetsgrader |\n| I hypotesetest | Hypoteser → testobservator → forkastningsregel → konklusjon i ord |\n| J regresjon | Estimer linja → test stigningstall → residualplott |\n| K ordningsvariable | Min/maks via $P(\\min > x)$ eller $P(\\max \\le x)$ |\n| L simultanfordeling | Marginaler → sjekk $p(x,y)=p_X p_Y$ → kovarians |\n| M deskriptiv/grafisk | Beskriv beliggenhet, spredning, form — begrunn i mønster |\n| N Monte Carlo | Simuler mange ganger → tell andel → tilnærm sannsynlighet |\n| O kortsvar | Regn presist, oppgitt antall desimaler, ikke avrund underveis |\n\nKjenner du igjen sjangeren, kjenner du førstegrepet — og førstegrepet er ofte halve oppgaven."
+        }
+      ]
+    },
+    {
+      "id": "tma4245-0-1-kildegrunnlag",
+      "type": "text",
+      "content": "## Kildegrunnlag\n\nFrekvensene og sjangerinndelingen i dette kapitlet bygger på **TMA4245/TMA4240-arkivet: rundt 49 eksamenssett fra 2009 til 2026**, der 26 av settene er lest grundig sammen med sine **løsningsforslag**. Analysen er destillert i det interne arbeidsdokumentet `EKSAMENSANALYSE.md`. Kildene er altså **oppgavesettene og løsningsforslagene** — arkivet inneholder ikke offisielle sensorveiledninger, og «sensorens ti krav» over er lest ut av mønstrene i løsningsforslagene, ikke fra et offisielt vurderingsdokument. Prosentene er avrundede anslag ment som prioriteringshjelp, ikke garantier for hva som kommer på nettopp ditt sett."
+    },
+    {
+      "id": "tma4245-0-1-warning-metafeil",
+      "type": "warning",
+      "title": "Typiske feil: metafeilene som koster mest",
+      "content": "Dette er ikke regnefeil, men **strategifeil** — måter å bruke lesetiden feil på:\n\n- **Å pugge formler som allerede står i formelsamlingen.** Standardintervallene, fordelingskatalogen og kvantiltabellene ligger på pulten (kode C). Tiden du bruker på å pugge dem, er tapt — eksamen belønner å *velge* riktig formel og *bruke* riktig frihetsgrad, ikke å gjengi den.\n- **Å øve bare på sannsynlighetsdelen.** Del 1–3 føles trygg og gøy, men inferens-kjeden (ML, konfidensintervall, test, styrke) er 50–60 % av poengene. Stopper du ved sannsynlighet, møter du veggen på den halvparten av settet som avgjør karakteren.\n- **Å hoppe over Python/Monte Carlo fordi det er «nytt».** Kodeinnslag har vært i 8 av de 9 siste settene. Å droppe dem er å gi bort sikre poeng frivillig.\n\nAlle tre er lette å unngå så snart du er klar over dem — derfor står de her, øverst på kartet."
+    },
+    {
+      "id": "tma4245-0-1-begrepsbank-intro",
+      "type": "text",
+      "content": "## Begrepsbank\n\n*Flashcard- og repetisjonsstoff — hopp trygt over ved førstegangslesing; tidsanslaget gjelder kjernestoffet over. Kortene samler de meta-begrepene resten av boka bygger på.*"
+    },
+    {
+      "id": "tma4245-0-1-def-1",
+      "type": "definition",
+      "title": "Hjelpemiddelkode C",
+      "content": "Betyr at du har med deg alle standardverktøyene på eksamen: formelsamlingen «Tabeller og formler i statistikk», ett gult A5-ark med egne notater og en enkel kalkulator. Konsekvensen er avgjørende for hvordan du leser: siden alle standardformler og tabeller ligger på pulten, tester eksamen ikke pugging, men **valg og bruk** — riktig formel, riktig tabell, riktig frihetsgrad — pluss det du må utlede selv."
+    },
+    {
+      "id": "tma4245-0-1-def-2",
+      "type": "definition",
+      "title": "Formelsamling-prinsippet",
+      "content": "Regelen som styrer hele boka: fordi formelsamlingen er tillatt, deles alt fagstoff i to. Det som **står i formelsamlingen** (fordelingskatalog med forventning/varians, kumulative tabeller, kvantiltabeller, standard konfidensintervall- og testformler) skal du trene *oppslaget* på — finne riktig rad, riktig kvantil, riktig frihetsgrad. Det som **må utledes aktivt** (ML, pivotaler, transformasjoner, styrke, minste kvadraters metode) står ikke der og må sitte i hendene. Rent pugge-stoff finnes ikke i dette emnet."
+    },
+    {
+      "id": "tma4245-0-1-def-3",
+      "type": "definition",
+      "title": "Den store oppgavens kjede",
+      "content": "Fortellingen som går igjen i praktisk talt hvert sett siden 2016 og utgjør 30–40 % av poengene: modell → ML-estimator → egenskaper → konfidensintervall (ofte via pivotal) → hypotesetest → styrke/dimensjonering. Hvert ledd bygger på det forrige, og hele boka er strukturert for å gjøre deg trygg på å gå gjennom kjeden uten å stoppe."
+    },
+    {
+      "id": "tma4245-0-1-def-4",
+      "type": "definition",
+      "title": "Sjanger A — normalfordelingsregning",
+      "content": "Den hyppigste oppgavetypen (~98 % av settene), som oftest åpner settet. Førstegrepet er alltid **standardisering**: gjør en normalfordelt variabel om til standardnormal med $Z = (X-\\mu)/\\sigma$ og slå opp i $\\Phi$-tabellen. Dekker haler, intervaller, betingede sannsynligheter og kvantiler. Regnes som «billige poeng» som må gå automatisk og feilfritt."
+    },
+    {
+      "id": "tma4245-0-1-def-5",
+      "type": "definition",
+      "title": "Sjanger C — egendefinert tetthet",
+      "content": "En svært vanlig oppgavetype (~80 % av settene med ikke-normale kontinuerlige fordelinger), ofte inngangen til en stor kjedeoppgave. Du får en tetthet $f(x)$ og skal: normere den (kravet $\\int f = 1$ gir konstanten), utlede fordelingsfunksjonen $F$ ved integrasjon, finne kvantiler ved å løse $F(m) = p$, og regne momenter ved integrasjon. Navnet på fordelingen kan være ukjent — teknikken er den samme."
+    },
+    {
+      "id": "tma4245-0-1-def-6",
+      "type": "definition",
+      "title": "Sjanger N — Monte Carlo / Python",
+      "content": "Det største strukturelle skiftet i emnet: kodeinnslag har vært i 8 av de 9 siste settene siden desember 2023. Oppgavene ber deg skrive eller lese numpy-idiomatisk kode som simulerer en sannsynlighet, en p-verdi eller en styrke ved å trekke mange tilfeldige verdier og telle andeler. Koden skal være kjørbar, ikke pseudokode. Å hoppe over sjangeren er å gi bort sikre poeng."
+    },
+    {
+      "id": "tma4245-0-1-def-7",
+      "type": "definition",
+      "title": "Sensorkravet: definer variablene først",
+      "content": "Det gjennomgående formalkravet fra løsningsforslagene: før du regner på en sannsynlighets- eller inferensoppgave, skal du definere størrelsene med egne symboler — «La $X$ = antall …, da er $X \\sim \\ldots$». Regning uten definerte variable regnes som ufullstendig, selv om tallsvaret er riktig. Å oppgi antagelsene (uavhengighet, konstant rate, normalitet) der de brukes, hører til samme krav."
+    },
+    {
+      "id": "tma4245-0-1-def-8",
+      "type": "definition",
+      "title": "Karakterskillene på TMA4245",
+      "content": "Hva som skiller nivåene: **bestått (E/D)** = du løser åpningsoppgavene (standardisering, tabelloppslag, valg av fordeling); **C/B** = du gjennomfører standard konfidensintervall og hypotesetester med riktige frihetsgrader og konkluderer i ord; **A** = du klarer i tillegg pivotal-utledninger, styrke og dimensjonering, sammenligning av estimatorer og transformasjonsbevis. C er en god og vanlig karakter; bygg gulvet først, strekk deg mot A etterpå."
+    },
+    {
+      "id": "tma4245-0-1-def-9",
+      "type": "definition",
+      "title": "Inspera-hybridformatet",
+      "content": "Det digitale eksamensformatet som siden 2022 veksler med rene papirsett. Det består av en **kortsvarsdel** i Inspera der du fyller inn bare *tallsvaret* (typisk 2–3 desimaler, kun tallet teller — ingen delpoeng for utregning), pluss **åpne oppgaver på papir** med full begrunnelse. Presisjonskravet er strengt: avrunder du underveis i utregningen, kan et ellers riktig kortsvar bli feil."
+    },
+    {
+      "id": "tma4245-0-1-def-10",
+      "type": "definition",
+      "title": "Eksponensialens kjikvadrat-apparat",
+      "content": "Den hyppigste «vanskelige» gjengangeren (minst 9 sett): for eksponensialfordelte data med forventning $\\beta$ er $\\frac{2\\sum X_i}{\\beta} \\sim \\chi^2_{2n}$ en **pivotal** — en størrelse med kjent fordeling som lar deg bygge et eksakt konfidensintervall for $\\beta$. Den står ikke i formelsamlingen og må utledes aktivt; frihetsgraden er alltid $2n$ (ikke $n$ eller $n-1$). Å beherske den skiller ofte topp­karakterene."
+    },
+    {
+      "id": "tma4245-0-1-symbol-formelliste",
+      "type": "collapsible",
+      "title": "Symbol- og formelliste",
+      "buttonText": "Vis symboler og formler",
+      "content": [
+        {
+          "id": "tma4245-0-1-symbol-formelliste-innhold",
+          "type": "text",
+          "content": "Oppslagsverk — alt her forklares underveis i kapitlet.\n\n| Symbol | Betydning |\n|---|---|\n| $X, Y$ | Stokastiske (tilfeldige) variable — store bokstaver |\n| $x$ | En observert verdi — liten bokstav |\n| $\\bar{X}$ | Utvalgsgjennomsnittet |\n| $S^2$ | Utvalgsvariansen (alltid med divisor $n-1$) |\n| $\\mu$ | Forventningen (populasjonsgjennomsnittet) |\n| $\\sigma,\\ \\sigma^2$ | Standardavviket og variansen |\n| $\\beta$ | Forventet levetid i eksponensialfordelingen |\n| $\\hat{\\theta}$ | En estimator/estimat for parameteren $\\theta$ (hatt = anslag) |\n| $Z$ | En standardnormal variabel, $Z \\sim N(0,1)$ |\n| $\\Phi$ | Fordelingsfunksjonen til standardnormalen |\n| $z_\\alpha,\\ t_{\\nu,\\alpha},\\ \\chi^2_{\\nu,\\alpha}$ | Kvantiler med øvre haleareal $\\alpha$ |\n| $\\chi^2_{2n}$ | Kjikvadratfordeling med $2n$ frihetsgrader |\n| $n$ | Antall observasjoner i utvalget |\n| $\\text{Cov}(X,Y)$ | Kovariansen mellom $X$ og $Y$ |\n| $P(A \\mid B)$ | Sannsynligheten for $A$ gitt $B$ |\n\n**Formler i dette kapitlet:**\n\n$$Z = \\frac{X - \\mu}{\\sigma} \\sim N(0,1) \\quad \\text{(standardisering)}$$\n\n$$\\text{Var}(aX + bY) = a^2\\text{Var}(X) + b^2\\text{Var}(Y) + 2ab\\,\\text{Cov}(X,Y) \\quad \\text{(varians av lineærkombinasjon)}$$\n\n$$P(A \\mid B) = \\frac{P(A \\cap B)}{P(B)} \\quad \\text{(betinget sannsynlighet)}$$\n\n$$\\bar{X} \\sim N\\!\\left(\\mu, \\frac{\\sigma^2}{n}\\right) \\quad \\text{(gjennomsnittets fordeling)}$$\n\n$$\\bar{x} \\pm t_{n-1,\\,\\alpha/2}\\,\\frac{s}{\\sqrt{n}} \\quad \\text{(konfidensintervall for forventningen)}$$\n\n$$T = \\frac{\\bar{X} - \\mu_0}{S/\\sqrt{n}} \\quad \\text{(testobservator for forventningen)}$$\n\n$$\\frac{2\\sum_{i=1}^{n} X_i}{\\beta} \\sim \\chi^2_{2n} \\quad \\text{(eksponensialens pivotal)}$$\n\n$$\\ell(\\theta) = \\ln L(\\theta), \\quad \\ell'(\\theta) = 0 \\Rightarrow \\hat{\\theta} \\quad \\text{(ML-oppskriften)}$$"
+        }
+      ]
+    }
+  ],
+  "exercises": []
+}

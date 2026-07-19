@@ -1,0 +1,451 @@
+{
+  "id": "tma4245-7-1",
+  "courseId": "tma4245",
+  "chapterNumber": "7.1",
+  "title": "Testritualet: hypoteser, testobservator, p-verdi og konklusjon i ord",
+  "description": "Den obligatoriske seksstegs-liturgien for z- og t-tester og andelstesten — med presis p-verdi-definisjon, feiltyper og dualiteten mot konfidensintervallet.",
+  "estimatedMinutes": 65,
+  "competenceGoals": [
+    "gjennomføre hele seksstegs-testritualet for z-test, t-test og andelstest med riktig retning og riktige frihetsgrader",
+    "oppgi testobservatorens fordeling under nullhypotesen og velge mellom forkastningsområde og p-verdi",
+    "definere og tolke p-verdien presist og avvise de vanlige feiltolkningene",
+    "definere type I- og type II-feil, signifikansnivået og dualiteten mellom test og konfidensintervall"
+  ],
+  "content": [
+    {
+      "id": "tma4245-7-1-tip",
+      "type": "tip",
+      "title": "Eksamensvinkel",
+      "content": "**Hypotesetesting er den store håndrettede oppgaven** — og den du taper mest på å ikke beherske.\n\n- Hypotesetesting er i **≈82 %** av settene, og er **alltid tungt vektet**. I settenes sjangerkatalog heter oppgavetypen **sjanger I — full hypotesetest** (I er bare en bokstavkode). Prioritet: **høyeste** (nivå 1).\n- **t-test for ett utvalg** er den hyppigste testtypen; **z-test for en andel** er en fast gjenganger.\n- **Tolknings-flervalg om p-verdien** (sjanger O, kortsvar i Inspera) er en fast distraktor-familie (Mai20, Aug20, Aug19) — å kunne den *presise* definisjonen er gratis poeng.\n\n**Hvor poengene sitter (fra løsningsforslagene):** i at du gjennomfører **hele ritualet** — hypoteser i parametre med begrunnet retning, testobservator *med fordeling under $H_0$*, forutsetningssjekk, tallfesting, og en **konklusjon i ord**. Et tall uten tolkning gir ikke full uttelling.\n\n**Formelsamlingen** (hjelpemiddelkode C) har alle testformlene og kvantiltabellene ($\\Phi$, $t$, $\\chi^2$). Derfor måler eksamen ikke om du husker formlene, men om du **velger riktig test, slår opp riktig kvantil med riktige frihetsgrader, og formulerer konklusjonen presist**. Selve *ritualet* må sitte i fingrene — det er det vi driller her."
+    },
+    {
+      "id": "tma4245-7-1-forkunnskaper",
+      "type": "text",
+      "content": "**Forkunnskaper:** Dette kapitlet bygger direkte på konfidensintervallene i **[kap. 6.1](/bok/tma4245/tma4245-6-1)** (samme kvantiler og samme fordelinger, snudd til en beslutning), standardiseringen og kvantilnotasjonen fra **[kap. 3.1](/bok/tma4245/tma4245-3-1)**, gjennomsnittets fordeling fra **[kap. 3.2](/bok/tma4245/tma4245-3-2)** og sentralgrenseteoremet med gyldighetssjekken fra **[kap. 3.3](/bok/tma4245/tma4245-3-3)**.\n\n**Sist du var her — de tre resultatene vi bygger testene på (ferdig oppfrisket):**\n\n1. **Standardisering:** for $X \\sim N(\\mu, \\sigma^2)$ er $Z = \\frac{X-\\mu}{\\sigma} \\sim N(0,1)$, og $z_\\alpha$ er tallet med øvre haleareal $\\alpha$: $P(Z > z_\\alpha) = \\alpha$ (så $z_{0{,}05}=1{,}645$, $z_{0{,}025}=1{,}96$).\n2. **Gjennomsnittets fordeling:** for uavhengige, identisk fordelte normale observasjoner er\n$$\\bar{X} \\sim N\\!\\left(\\mu, \\frac{\\sigma^2}{n}\\right), \\qquad \\text{så} \\qquad \\frac{\\bar{X}-\\mu}{\\sigma/\\sqrt{n}} \\sim N(0,1).$$\n3. **t-formen ved ukjent $\\sigma$:** når vi bytter $\\sigma$ mot den empiriske $s$, er $\\frac{\\bar{X}-\\mu}{S/\\sqrt{n}} \\sim t_{n-1}$ ($n-1$ frihetsgrader) — nøyaktig samme byttet som ga t-intervallet i kap. 6.1.\n\nDu trenger ikke ny matematikk. En hypotesetest er egentlig bare et konfidensintervall snudd til et ja/nei-spørsmål: *er den påståtte parameterverdien forenlig med dataene, eller ikke?*"
+    },
+    {
+      "id": "tma4245-7-1-intro",
+      "type": "text",
+      "content": "Vi går gjennom fem løkker. Først **ritualet** — de seks stegene som hver eneste test følger, med hypoteser, testobservator og de sentrale begrepene (løkke 1). Så de tre testene du møter oftest: **z-test** når $\\sigma$ er kjent (løkke 2), **t-test** når $\\sigma$ er ukjent (løkke 3), og en grundig gjennomgang av **p-verdien** med de faste feiltolkningene (løkke 4). Til slutt **testen for en andel**, sammen med type I/II-feil, signifikansnivået og dualiteten mot konfidensintervallet (løkke 5). Hver løkke går teori $\\to$ eksempel $\\to$ oppgave.\n\n*Samlet kjernetid ≈ 65 min. Naturlige pausepunkter er markert mellom løkkene — dette er kjernekapitlet i hele boka; ta det gjerne i to økter.*"
+    },
+    {
+      "id": "tma4245-7-1-lokke1",
+      "type": "text",
+      "content": "## Løkke 1 — Testritualet: de seks stegene (~14 min)"
+    },
+    {
+      "id": "tma4245-7-1-ritual-tekst",
+      "type": "text",
+      "content": "En hypotesetest er en fast **prosedyre** — nesten en liturgi. Løsningsforslagene skriver den alltid i de samme seks stegene, og sensor gir poeng steg for steg. Lær rekkefølgen utenat, så du aldri mister et delpunkt under tidspress.\n\nEn kort begrepsavklaring før stegene: en **hypotese** er en påstand om en ukjent parameter (for eksempel «forventningen er 200»). En **testobservator** (også kalt testStatistikk) er et tall vi regner ut fra dataene, og som har en *kjent fordeling dersom nullhypotesen er sann* — det er den kjente fordelingen som lar oss måle hvor overraskende dataene er.\n\n**De seks stegene:**\n\n1. **Formuler $H_0$ og $H_1$ i parametre.** Nullhypotesen $H_0$ er «ingen endring / påstanden stemmer»; alternativhypotesen $H_1$ er det du vil *påvise*. Retningen på $H_1$ ($<$, $>$ eller $\\ne$) følger av situasjonen — hva ønsker vi å vise?\n2. **Velg testobservator og oppgi fordelingen under $H_0$.** For eksempel $Z = \\frac{\\bar{X}-\\mu_0}{\\sigma/\\sqrt{n}} \\sim N(0,1)$ eller $T = \\frac{\\bar{X}-\\mu_0}{S/\\sqrt{n}} \\sim t_{n-1}$. Å skrive fordelingen eksplisitt er et eget poeng.\n3. **Sjekk forutsetningene.** Normalitet, uavhengige observasjoner, og for andeler $np_0 \\ge 5$ og $n(1-p_0) \\ge 5$.\n4. **Finn forkastningsområdet ved gitt $\\alpha$ ELLER regn p-verdien.** De to veiene gir alltid samme konklusjon — vi viser begge, og fører den ene komplett.\n5. **Tallfest.** Sett inn tallene og regn ut observatoren.\n6. **Konkluder i ord, i kontekst.** «Det er (ikke) grunnlag for å hevde at ...» — knyttet til den opprinnelige situasjonen.\n\n**Intuisjon:** vi later som om $H_0$ er sann, regner ut hvor langt ute i halen dataene havner, og forkaster $H_0$ bare dersom de er så ekstreme at det ville vært usannsynlig ren tilfeldighet."
+    },
+    {
+      "id": "tma4245-7-1-def-hyp",
+      "type": "definition",
+      "title": "Nullhypotese $H_0$ og alternativhypotese $H_1$",
+      "content": "En **nullhypotese** $H_0$ er en presis påstand om en parameter — utgangspunktet vi tester mot, som regel «status quo» eller «leverandøren har rett» (f.eks. $H_0: \\mu = 200$). **Alternativhypotesen** $H_1$ er det vi ønsker å påvise, og den bestemmer testens *retning*:\n\n- $H_1: \\mu > \\mu_0$ (ensidig oppover) — vi vil vise at parameteren er *større*;\n- $H_1: \\mu < \\mu_0$ (ensidig nedover) — at den er *mindre*;\n- $H_1: \\mu \\ne \\mu_0$ (tosidig) — at den bare er *forskjellig*.\n\nTommelfingerregel: det du blir bedt om å *påvise* (eller det som ville vært *bekymringsfullt*), settes som $H_1$. Bevisbyrden ligger på $H_1$ — vi forkaster $H_0$ bare hvis dataene taler klart imot den."
+    },
+    {
+      "id": "tma4245-7-1-def-ritual",
+      "type": "definition",
+      "title": "Oppskriftskort: testritualet i seks steg",
+      "content": "Enhver test: **(1)** $H_0$ og $H_1$ i parametre, retning på $H_1$ begrunnet; **(2)** testobservator *med fordeling under $H_0$*; **(3)** forutsetningssjekk (normalitet, uavhengighet, evt. $np_0, n(1-p_0) \\ge 5$); **(4)** forkastningsområde ved $\\alpha$ eller p-verdi; **(5)** tallfest; **(6)** konkluder i ord i kontekst. De seks stegene gir poeng hver for seg — hopp aldri over steg 2 eller 6."
+    },
+    {
+      "id": "tma4245-7-1-ex-hyp",
+      "type": "example",
+      "title": "Eksempel 1: Sett opp hypotesene med riktig retning",
+      "problem": "For hver situasjon, sett opp $H_0$ og $H_1$ i parametre, og begrunn retningen.\n\n**a)** En turbinbladprodusent skal ha gjennomsnittlig tykkelse nøyaktig $\\mu_0 = 12{,}00$ mm. Kvalitetskontrollen vil oppdage *ethvert* avvik.\n\n**b)** En leverandør hevder at gjennomsnittlig responstid er *høyst* 200 ms. En kunde mistenker at den i virkeligheten er *lengre*.",
+      "solution": "**a)** Kvalitetskontrollen bryr seg om avvik i *begge* retninger (for tykk eller for tynn er begge dårlig), så testen er **tosidig**:\n$$H_0: \\mu = 12{,}00 \\qquad \\text{mot} \\qquad H_1: \\mu \\ne 12{,}00.$$\n\n**b)** Kunden vil *påvise at responstiden er lengre* enn påstått, så det bekymringsfulle utfallet settes som $H_1$ (ensidig oppover):\n$$H_0: \\mu = 200 \\qquad \\text{mot} \\qquad H_1: \\mu > 200.$$\n(Vi skriver $H_0$ med likhet $\\mu = 200$; det er «verste tillatte tilfelle» av påstanden $\\mu \\le 200$, og testen utføres ved grensen.)\n\n> *Sensornotat:* retningen på $H_1$ er ikke en smakssak — den følger av hva som skal påvises, og den styrer både kritisk verdi og p-verdi. Feil retning gir feil svar."
+    },
+    {
+      "id": "tma4245-7-1-e1",
+      "type": "exercise",
+      "exercise": {
+        "id": "tma4245-7-1-e1",
+        "number": "1",
+        "type": "classic",
+        "difficulty": "lett",
+        "task": "(Innstegsoppgave — bare oppsett, ingen regning.) Sett opp $H_0$ og $H_1$ i parametre for hver situasjon, og oppgi om testen er ensidig eller tosidig.\n\n**a)** Et vannrenseanlegg skal holde gjennomsnittlig turbiditet under grenseverdien $2{,}0$ NTU. Vi vil påvise at nivået overstiger grensen.\n\n**b)** En maskin skal fylle poser med forventet vekt $500$ g; avvik i begge retninger er uønsket.",
+        "solution": "**a)** Vi vil påvise et *for høyt* nivå, så det settes som $H_1$ (ensidig oppover): $H_0: \\mu = 2{,}0$ mot $H_1: \\mu > 2{,}0$. **Ensidig**.\n\n**b)** Avvik begge veier er uønsket, så testen er **tosidig**: $H_0: \\mu = 500$ mot $H_1: \\mu \\ne 500$.",
+        "hints": [
+          "Det du vil *påvise* (eller det bekymringsfulle) blir $H_1$.",
+          "«Overstiger / for høyt» → ensidig oppover; «avvik begge veier» → tosidig."
+        ]
+      }
+    },
+    {
+      "id": "tma4245-7-1-lokke2",
+      "type": "text",
+      "content": "## Løkke 2 — z-testen når $\\sigma$ er kjent (~12 min)"
+    },
+    {
+      "id": "tma4245-7-1-def-z",
+      "type": "definition",
+      "title": "Testobservator og fordeling under $H_0$: z-testen",
+      "content": "Når standardavviket $\\sigma$ er **kjent** (oppgitt fra lang produksjonshistorikk e.l.), bruker vi **z-testen** for forventningen. Testobservatoren er den standardiserte avstanden mellom observert gjennomsnitt og den påståtte verdien $\\mu_0$:\n\n$$Z = \\frac{\\bar{X} - \\mu_0}{\\sigma/\\sqrt{n}}, \\qquad \\text{under } H_0:\\ Z \\sim N(0,1).$$\n\nSetningen «under $H_0$ er $Z \\sim N(0,1)$» er hele poenget: *hvis* $\\mu$ virkelig er $\\mu_0$, er $Z$ standardnormal, og da vet vi nøyaktig hvor overraskende en gitt verdi er. Beslutningen tas på én av to likeverdige måter:\n\n- **Forkastningsområde:** forkast $H_0$ ved nivå $\\alpha$ hvis $|Z| > z_{\\alpha/2}$ (tosidig), $Z > z_\\alpha$ (ensidig oppover) eller $Z < -z_\\alpha$ (ensidig nedover).\n- **p-verdi:** regn sannsynligheten for et minst like ekstremt utfall (løkke 4) og forkast hvis $p < \\alpha$."
+    },
+    {
+      "id": "tma4245-7-1-ex-z",
+      "type": "example",
+      "title": "Eksempel 2: z-test for turbinbladtykkelse (tosidig)",
+      "problem": "Tykkelsen på turbinblad er normalfordelt med **kjent** standardavvik $\\sigma = 0{,}15$ mm fra lang produksjonshistorikk. Måltykkelsen er $\\mu_0 = 12{,}00$ mm. Et utvalg på $n = 25$ blad gir $\\bar{x} = 12{,}07$ mm. Test på 5 %-nivå om tykkelsen avviker fra målet. Vis både forkastningsområde og p-verdi.",
+      "solution": "**Steg 1 — hypoteser.** Avvik begge veier er uønsket, så testen er tosidig: $H_0: \\mu = 12{,}00$ mot $H_1: \\mu \\ne 12{,}00$.\n\n**Steg 2 — testobservator.** $\\sigma$ er kjent, så $Z = \\frac{\\bar{X}-\\mu_0}{\\sigma/\\sqrt{n}} \\sim N(0,1)$ under $H_0$.\n\n**Steg 3 — forutsetninger.** Tykkelsene antas normalfordelte og uavhengige (tilfeldig uttrekk fra produksjonen). OK.\n\n**Steg 4–5 — forkastningsområde og tallfesting.** Standardfeil $\\sigma/\\sqrt{n} = 0{,}15/\\sqrt{25} = 0{,}15/5 = 0{,}03$. Observatoren:\n$$Z = \\frac{12{,}07 - 12{,}00}{0{,}03} = \\frac{0{,}07}{0{,}03} = 2{,}333.$$\nTosidig 5 %-nivå: forkast hvis $|Z| > z_{0{,}025} = 1{,}96$. Siden $2{,}333 > 1{,}96$, forkaster vi $H_0$.\n\n**p-verdi (samme konklusjon).** Tosidig: $p = 2\\,P(Z > 2{,}333) = 2 \\cdot 0{,}0098 = 0{,}0196$. Siden $p = 0{,}0196 < 0{,}05$, forkaster vi — akkurat som over.\n\n**Steg 6 — konklusjon i ord.** På 5 %-nivå er det **grunnlag for å hevde at gjennomsnittlig tykkelse avviker fra måltykkelsen 12,00 mm** (den ligger for høyt, $\\bar{x} = 12{,}07$).\n\n> *Sensornotat:* oppgi tabelloppslaget ($z_{0{,}025}=1{,}96$), standardfeilen ($0{,}03$) og fordelingen under $H_0$. Ved tosidig test **dobles** halesannsynligheten i p-verdien."
+    },
+    {
+      "id": "tma4245-7-1-e2",
+      "type": "exercise",
+      "exercise": {
+        "id": "tma4245-7-1-e2",
+        "number": "2",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "En batteritype skal ha forventet kapasitet $\\mu_0 = 3{,}5$ Ah, med **kjent** standardavvik $\\sigma = 0{,}20$ Ah. Et utvalg på $n = 30$ celler gir $\\bar{x} = 3{,}58$ Ah. Test på 5 %-nivå om kapasiteten avviker fra $3{,}5$ (tosidig).\n\n**a)** Sett opp hypotesene og testobservatoren med fordeling under $H_0$.\n\n**b)** Regn ut observatoren og konkluder både via forkastningsområde og p-verdi.",
+        "solution": "**a)** $H_0: \\mu = 3{,}5$ mot $H_1: \\mu \\ne 3{,}5$. Kjent $\\sigma$ → $Z = \\frac{\\bar{X}-\\mu_0}{\\sigma/\\sqrt{n}} \\sim N(0,1)$.\n\n**b)** Standardfeil $0{,}20/\\sqrt{30} = 0{,}0365$. $Z = (3{,}58 - 3{,}5)/0{,}0365 = 2{,}191$. Tosidig: $|Z| = 2{,}191 > z_{0{,}025} = 1{,}96$ → forkast. p-verdi $= 2\\,P(Z > 2{,}191) = 2 \\cdot 0{,}0142 = 0{,}0285 < 0{,}05$ → samme konklusjon. **Det er grunnlag for å hevde at kapasiteten avviker fra 3,5 Ah** (den ligger over).",
+        "hints": [
+          "Kjent $\\sigma$ → z-test; standardfeil $\\sigma/\\sqrt{n} = 0{,}20/\\sqrt{30} = 0{,}0365$.",
+          "$Z = (3{,}58-3{,}5)/0{,}0365$.",
+          "Tosidig: sammenlign $|Z|$ med $1{,}96$, og doble halen i p-verdien."
+        ]
+      }
+    },
+    {
+      "id": "tma4245-7-1-lokke3",
+      "type": "text",
+      "content": "## Løkke 3 — t-testen når $\\sigma$ er ukjent (~13 min)"
+    },
+    {
+      "id": "tma4245-7-1-def-t",
+      "type": "definition",
+      "title": "t-testen for ett utvalg",
+      "content": "I praksis kjenner vi nesten aldri den sanne $\\sigma$. Da estimerer vi den med det empiriske standardavviket $s$, og — akkurat som for konfidensintervallet i kap. 6.1 — koster det ekstra usikkerhet: vi bytter normalfordelingen ut med **t-fordelingen** med $n-1$ frihetsgrader. Testobservatoren er:\n\n$$T = \\frac{\\bar{X} - \\mu_0}{S/\\sqrt{n}}, \\qquad \\text{under } H_0:\\ T \\sim t_{n-1}.$$\n\nAlt annet i ritualet er som for z-testen, men kritisk verdi hentes fra t-tabellen: forkast hvis $|T| > t_{n-1,\\,\\alpha/2}$ (tosidig) eller $T > t_{n-1,\\,\\alpha}$ / $T < -t_{n-1,\\,\\alpha}$ (ensidig). Fordi t-fordelingen har tyngre haler enn normalfordelingen, er $t_{n-1,\\alpha} > z_\\alpha$ — det skal litt mer til for å forkaste når vi også må estimere spredningen. **Dette er den hyppigste testtypen på eksamen.**"
+    },
+    {
+      "id": "tma4245-7-1-ex-t",
+      "type": "example",
+      "title": "Eksempel 3: t-test for responstid (ensidig)",
+      "problem": "En leverandør hevder at gjennomsnittlig responstid i et alarmsystem er *høyst* 200 ms. Tolv uavhengige målinger gir $\\bar{x} = 214$ ms og $s = 21$ ms; standardavviket er ukjent, og responstidene antas normalfordelte. Test påstanden på 5 %-nivå.",
+      "solution": "**Steg 1 — hypoteser.** Vi vil påvise at responstiden er *lengre* enn påstått, så: $H_0: \\mu = 200$ mot $H_1: \\mu > 200$ (ensidig oppover).\n\n**Steg 2 — testobservator.** $\\sigma$ ukjent → $T = \\frac{\\bar{X}-\\mu_0}{S/\\sqrt{n}} \\sim t_{n-1} = t_{11}$ under $H_0$.\n\n**Steg 3 — forutsetninger.** Normalfordelte, uavhengige målinger — oppgitt. OK.\n\n**Steg 4–5 — forkastningsområde og tallfesting.** Standardfeil $s/\\sqrt{n} = 21/\\sqrt{12} = 6{,}062$. Observatoren:\n$$T = \\frac{214 - 200}{6{,}062} = \\frac{14}{6{,}062} = 2{,}309.$$\nEnsidig 5 %-nivå, $n-1 = 11$ frihetsgrader: forkast hvis $T > t_{11;\\,0{,}05} = 1{,}796$. Siden $2{,}309 > 1{,}796$, forkaster vi $H_0$.\n\n**p-verdi.** $p = P(T_{11} > 2{,}309) = 0{,}021$. Siden $0{,}021 < 0{,}05$, forkast — samme konklusjon.\n\n**Steg 6 — konklusjon i ord.** På 5 %-nivå er det **grunnlag for å hevde at gjennomsnittlig responstid overstiger 200 ms** — leverandørens påstand svekkes av dataene.\n\n> *Sensornotat:* den klassiske fellen er $z$ i stedet for $t$ her. Med ukjent $\\sigma$ **skal** det være $t_{11}$, og frihetsgraden er $n-1 = 11$, ikke $12$. Merk at ensidig test bruker $t_{11;\\,0{,}05}$ (hele 5 % i én hale), ikke $t_{11;\\,0{,}025}$."
+    },
+    {
+      "id": "tma4245-7-1-e3",
+      "type": "exercise",
+      "exercise": {
+        "id": "tma4245-7-1-e3",
+        "number": "3",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "pH-verdien i en gjæringstank skal holdes på $\\mu_0 = 7{,}00$. Ni målinger gir $\\bar{x} = 7{,}13$ og $s = 0{,}15$; standardavviket er ukjent, og målingene antas normalfordelte. Test på 5 %-nivå om pH avviker fra $7{,}00$ (tosidig). Bruk $t_{8;\\,0{,}025} = 2{,}306$.\n\n**a)** Begrunn valget av t framfor z.\n\n**b)** Regn ut testobservatoren og konkluder i ord.",
+        "solution": "**a)** Standardavviket er **ukjent** og estimert med $s$, så vi bruker **t**-fordelingen med $n-1 = 8$ frihetsgrader.\n\n**b)** Standardfeil $s/\\sqrt{n} = 0{,}15/\\sqrt{9} = 0{,}15/3 = 0{,}05$. $T = (7{,}13 - 7{,}00)/0{,}05 = 2{,}60$. Tosidig: $|T| = 2{,}60 > t_{8;\\,0{,}025} = 2{,}306$ → forkast. (p-verdi $= 2\\,P(T_8 > 2{,}60) = 0{,}032 < 0{,}05$.) **Det er grunnlag for å hevde at pH avviker fra 7,00** (den ligger over).",
+        "hints": [
+          "Ukjent $\\sigma$ → t-test, $n-1 = 8$ frihetsgrader.",
+          "$s/\\sqrt{n} = 0{,}15/3 = 0{,}05$.",
+          "Tosidig: sammenlign $|T|$ med $t_{8;\\,0{,}025} = 2{,}306$."
+        ]
+      }
+    },
+    {
+      "id": "tma4245-7-1-lokke4",
+      "type": "text",
+      "content": "## Løkke 4 — p-verdien, presist (~13 min)"
+    },
+    {
+      "id": "tma4245-7-1-def-p",
+      "type": "definition",
+      "title": "p-verdien",
+      "content": "**p-verdien** er sannsynligheten, *beregnet under forutsetning av at $H_0$ er sann*, for å få et utfall minst like ekstremt som det observerte — der «ekstremt» betyr «i retning av $H_1$».\n\n- Ensidig oppover ($H_1: \\mu > \\mu_0$): $p = P(\\text{observator} \\ge \\text{observert verdi} \\mid H_0)$, altså den øvre halen.\n- Ensidig nedover: den nedre halen.\n- Tosidig ($H_1: \\mu \\ne \\mu_0$): begge haler, altså **det dobbelte** av den ene halen: $p = 2\\,P(\\text{observator} \\ge |\\text{observert}| \\mid H_0)$.\n\n**Beslutningsregel:** forkast $H_0$ hvis $p < \\alpha$; behold ellers. p-verdien er «hvor overraskende dataene er dersom $H_0$ stemmer» — en liten p-verdi betyr at dataene passer dårlig med $H_0$. Den er *ikke* sannsynligheten for at $H_0$ er sann (se antisvar under)."
+    },
+    {
+      "id": "tma4245-7-1-warn-p",
+      "type": "warning",
+      "title": "Antisvar: hva p-verdien IKKE er",
+      "content": "Tolknings-flervalget (Mai20, Aug20, Aug19) tester nesten alltid én av disse feiltolkningene:\n\n- **«p-verdien er sannsynligheten for at $H_0$ er sann.»** Galt. $H_0$ er enten sann eller usann — den har ingen sannsynlighet i denne rammen. p-verdien er en sannsynlighet for *dataene*, beregnet *gitt* at $H_0$ er sann.\n- **«$1 - p$ er sannsynligheten for at $H_1$ er sann.»** Galt av samme grunn.\n- **«En stor p-verdi beviser at $H_0$ er sann.»** Galt. Stor p-verdi betyr bare at dataene er *forenlige* med $H_0$ — vi «forkaster ikke», men vi «aksepterer» ikke $H_0$ som bevist.\n- **«p-verdien er sannsynligheten for at vi tar feil.»** Galt — den forveksles med $\\alpha$ (som er type I-feilsannsynligheten, fastsatt på forhånd).\n\nDen riktige: *p-verdien er sannsynligheten, under $H_0$, for et minst like ekstremt utfall som det observerte.*"
+    },
+    {
+      "id": "tma4245-7-1-ex-p",
+      "type": "example",
+      "title": "Eksempel 4: Regn og tolk p-verdien",
+      "problem": "En ingeniør tester om gjennomsnittlig sykluslevetid til et relé overstiger $\\mu_0 = 50\\,000$ sykluser. En t-test med $n = 16$ gir observatoren $T = 1{,}98$ ($t_{15}$ under $H_0$), og testen er ensidig oppover.\n\n**a)** Regn p-verdien (bruk $P(T_{15} > 1{,}98) = 0{,}033$).\n\n**b)** Konkluder på 5 %- og på 1 %-nivå.\n\n**c)** En kollega sier: «p-verdien 0,033 betyr at det er 3,3 % sannsynlighet for at $H_0$ er sann.» Er det riktig?",
+      "solution": "**a)** Ensidig oppover, så p-verdien er den øvre halen: $p = P(T_{15} > 1{,}98) = 0{,}033$.\n\n**b)** På 5 %-nivå: $p = 0{,}033 < 0{,}05$ → **forkast $H_0$**; det er grunnlag for å hevde at levetiden overstiger 50 000. På 1 %-nivå: $p = 0{,}033 > 0{,}01$ → **forkast ikke**; på det strengere nivået er ikke beviset sterkt nok. Samme data kan altså gi ulik konklusjon avhengig av $\\alpha$ — derfor skal alltid nivået oppgis.\n\n**c)** **Nei.** p-verdien er sannsynligheten for *et minst like ekstremt datautfall gitt at $H_0$ er sann* — ikke sannsynligheten for at $H_0$ er sann. $H_0$ er ikke tilfeldig; det er dataene (og dermed $T$) som er det.\n\n> *Sensornotat:* å knytte p-verdien til «sannsynligheten for at $H_0$ stemmer» er den vanligste feilen sensor ser — og en fast distraktor i flervalget."
+    },
+    {
+      "id": "tma4245-7-1-e4",
+      "type": "exercise",
+      "exercise": {
+        "id": "tma4245-7-1-e4",
+        "number": "4",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "En tosidig z-test gir observator $Z = 1{,}75$.\n\n**a)** Regn den tosidige p-verdien (bruk $P(Z > 1{,}75) = 0{,}0401$).\n\n**b)** Konkluder på 5 %-nivå.\n\n**c)** Forklar med én setning hvorfor p-verdien for en tosidig test dobles i forhold til den ensidige.",
+        "solution": "**a)** Tosidig: $p = 2\\,P(Z > 1{,}75) = 2 \\cdot 0{,}0401 = 0{,}0802$.\n\n**b)** $p = 0{,}0802 > 0{,}05$ → **forkast ikke $H_0$**; det er ikke grunnlag for å hevde et avvik på 5 %-nivå.\n\n**c)** Ved en tosidig test teller et like ekstremt utfall i *begge* haler som «minst like ekstremt», så vi legger sammen to like store haler — derav faktoren 2.",
+        "hints": [
+          "Tosidig p-verdi = 2 ganger den ene halen.",
+          "$p = 2 \\cdot 0{,}0401$.",
+          "Sammenlign med $\\alpha = 0{,}05$; her er $p > \\alpha$."
+        ]
+      }
+    },
+    {
+      "id": "tma4245-7-1-lokke5",
+      "type": "text",
+      "content": "## Løkke 5 — Andelstest, feiltyper og dualiteten mot KI (~13 min)"
+    },
+    {
+      "id": "tma4245-7-1-def-andel",
+      "type": "definition",
+      "title": "Testen for en andel",
+      "content": "Når vi teller hvor mange av $n$ enheter som har en egenskap, tester vi den ukjente andelen $p$. Under $H_0: p = p_0$ er $\\hat{p} = X/n$ tilnærmet normalfordelt (sentralgrenseteoremet), og testobservatoren er:\n\n$$Z = \\frac{\\hat{p} - p_0}{\\sqrt{p_0(1-p_0)/n}}, \\qquad \\text{under } H_0:\\ Z \\approx N(0,1).$$\n\n**Merk:** standardfeilen i nevneren bruker $p_0$ (den påståtte verdien under $H_0$), **ikke** $\\hat{p}$ — det er forskjellen fra konfidensintervallet, som bruker $\\hat{p}$. **Forutsetningssjekk (obligatorisk):** normaltilnærmingen krever $np_0 \\ge 5$ og $n(1-p_0) \\ge 5$. Beslutning som ellers: forkast hvis $Z$ faller i halen(e) bestemt av $H_1$ og $\\alpha$."
+    },
+    {
+      "id": "tma4245-7-1-ex-andel",
+      "type": "example",
+      "title": "Eksempel 5: z-test for en andel (falske alarmer)",
+      "problem": "En produsent hevder at andelen falske alarmer i et system er *høyst* $p_0 = 0{,}05$. I $n = 200$ uavhengige testkjøringer registreres $16$ falske alarmer. Test påstanden på 5 %-nivå.",
+      "solution": "**Steg 1 — hypoteser.** Vi vil påvise at andelen er *høyere* enn påstått: $H_0: p = 0{,}05$ mot $H_1: p > 0{,}05$ (ensidig oppover).\n\n**Steg 2 — testobservator.** $Z = \\frac{\\hat{p}-p_0}{\\sqrt{p_0(1-p_0)/n}} \\approx N(0,1)$ under $H_0$.\n\n**Steg 3 — forutsetninger.** $np_0 = 200 \\cdot 0{,}05 = 10 \\ge 5$ og $n(1-p_0) = 190 \\ge 5$ — normaltilnærmingen er gyldig.\n\n**Steg 4–5 — tallfesting.** $\\hat{p} = 16/200 = 0{,}08$. Standardfeil $\\sqrt{0{,}05 \\cdot 0{,}95/200} = \\sqrt{0{,}0002375} = 0{,}01541$. Observator:\n$$Z = \\frac{0{,}08 - 0{,}05}{0{,}01541} = 1{,}947.$$\nEnsidig 5 %-nivå: forkast hvis $Z > z_{0{,}05} = 1{,}645$. Siden $1{,}947 > 1{,}645$, forkaster vi. p-verdi $= P(Z > 1{,}947) = 0{,}026 < 0{,}05$ — samme konklusjon.\n\n**Steg 6 — konklusjon i ord.** På 5 %-nivå er det **grunnlag for å hevde at andelen falske alarmer overstiger 5 %** — påstanden svekkes.\n\n> *Sensornotat:* bruk $p_0 = 0{,}05$ i standardfeilen, ikke $\\hat{p} = 0{,}08$. Og skriv forutsetningssjekken $np_0, n(1-p_0) \\ge 5$ eksplisitt."
+    },
+    {
+      "id": "tma4245-7-1-e5",
+      "type": "exercise",
+      "exercise": {
+        "id": "tma4245-7-1-e5",
+        "number": "5",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "En innkjøpssjef har fått lovnad om at *minst* 80 % av leverte ventiler tåler trykktesten (altså feilandel $p \\le 0{,}20$). I et utvalg på $n = 150$ ventiler feiler $24$. Test på 5 %-nivå om feilandelen er **lavere** enn $0{,}20$ (altså at leverandøren er bedre enn lovet).\n\n**a)** Sett opp hypotesene og sjekk forutsetningene.\n\n**b)** Regn ut observatoren og konkluder.",
+        "solution": "**a)** Vi vil påvise en *lavere* feilandel: $H_0: p = 0{,}20$ mot $H_1: p < 0{,}20$ (ensidig nedover). Forutsetning: $np_0 = 150 \\cdot 0{,}20 = 30 \\ge 5$ og $n(1-p_0) = 120 \\ge 5$ — OK.\n\n**b)** $\\hat{p} = 24/150 = 0{,}16$. Standardfeil $\\sqrt{0{,}20 \\cdot 0{,}80/150} = 0{,}03266$. $Z = (0{,}16 - 0{,}20)/0{,}03266 = -1{,}225$. Ensidig nedover: forkast hvis $Z < -z_{0{,}05} = -1{,}645$. Siden $-1{,}225 > -1{,}645$, **forkaster vi ikke**. p-verdi $= P(Z < -1{,}225) = 0{,}110 > 0{,}05$. **Det er ikke grunnlag for å hevde at feilandelen er lavere enn 20 %** — selv om $\\hat{p} = 0{,}16$ ligger under, er avviket for lite til å være statistisk sikkert med $n = 150$.",
+        "hints": [
+          "Ensidig nedover; standardfeil med $p_0 = 0{,}20$: $\\sqrt{0{,}20 \\cdot 0{,}80/150} = 0{,}03266$.",
+          "$Z = (0{,}16-0{,}20)/0{,}03266$.",
+          "Forkast bare hvis $Z < -1{,}645$; her er $Z = -1{,}225$."
+        ]
+      }
+    },
+    {
+      "id": "tma4245-7-1-def-feiltyper",
+      "type": "definition",
+      "title": "Signifikansnivå $\\alpha$ og type I-feil",
+      "content": "En test kan bomme på to måter. En **type I-feil** er å forkaste $H_0$ når den faktisk er sann (falsk alarm). **Signifikansnivået** $\\alpha$ er nettopp den sannsynligheten vi tillater for dette:\n\n$$\\alpha = P(\\text{forkaste } H_0 \\mid H_0 \\text{ sann}).$$\n\nDerfor velger vi $\\alpha$ *på forhånd* (typisk 0,05 eller 0,01) — det er prisen vi er villige til å betale i falske alarmer. En **type II-feil** er den motsatte: å beholde $H_0$ når $H_1$ faktisk er sann (en oversett effekt). Sannsynligheten for det kalles type II-sannsynligheten, og $1$ minus den er testens **styrke** — hele kapittel 7.3 handler om den."
+    },
+    {
+      "id": "tma4245-7-1-def-typeII",
+      "type": "definition",
+      "title": "Type II-feil og styrke (forvarsel til kap. 7.3)",
+      "content": "En **type II-feil** er å *beholde* $H_0$ selv om $H_1$ er sann — å overse en reell effekt. Sannsynligheten kalles **type II-sannsynligheten** (vi unngår med vilje symbolet $\\beta$ her, for å ikke forveksle den med eksponensialfordelingens forventning). Testens **styrke** er $1$ minus type II-sannsynligheten — sjansen for å *oppdage* en effekt som virkelig er der. En viktig konsekvens: at vi «ikke forkaster $H_0$» betyr *ikke* at $H_0$ er sann — det kan like gjerne bety at testen hadde for lav styrke (for lite data). Utregning og dimensjonering kommer i [kap. 7.3](/bok/tma4245/tma4245-7-3)."
+    },
+    {
+      "id": "tma4245-7-1-def-dualitet",
+      "type": "definition",
+      "title": "Dualiteten mellom test og konfidensintervall",
+      "content": "En tosidig test på nivå $\\alpha$ og et $(1-\\alpha)$-konfidensintervall er to sider av samme sak: **$H_0: \\mu = \\mu_0$ forkastes på nivå $\\alpha$ hvis og bare hvis $\\mu_0$ ligger utenfor $(1-\\alpha)$-konfidensintervallet.** Ligger den påståtte verdien innenfor intervallet av rimelige verdier, er den forenlig med dataene (forkast ikke); ligger den utenfor, forkaster vi. Det gir en nyttig kryssjekk: regner du både KI og test på samme data, må de være enige. (For ensidige tester svarer det til ensidige intervaller.)"
+    },
+    {
+      "id": "tma4245-7-1-e6",
+      "type": "exercise",
+      "exercise": {
+        "id": "tma4245-7-1-e6",
+        "number": "6",
+        "type": "classic",
+        "difficulty": "vanskelig",
+        "task": "En turbinleverandør oppgir at slitasjen etter 1000 driftstimer i snitt er $\\mu_0 = 0{,}30$ mm. En kunde har $n = 16$ uavhengige, normalfordelte målinger med $\\bar{x} = 0{,}345$ mm og $s = 0{,}060$ mm, og vil påvise at slitasjen er *høyere* enn oppgitt.\n\n**a)** Gjennomfør hele testritualet på 5 %-nivå (bruk $t_{15;\\,0{,}05} = 1{,}753$).\n\n**b)** Regn p-verdien (bruk $P(T_{15} > 2{,}333) = 0{,}017$) og konkluder i ord.\n\n**c)** Ville et 90 % *tosidig* konfidensintervall for $\\mu$ inneholde verdien 0,30? Forklar via dualiteten, uten å regne intervallet.",
+        "solution": "**a)** $H_0: \\mu = 0{,}30$ mot $H_1: \\mu > 0{,}30$ (ensidig oppover; vil påvise høyere slitasje). Ukjent $\\sigma$ → $T = \\frac{\\bar{X}-\\mu_0}{S/\\sqrt{n}} \\sim t_{15}$. Standardfeil $0{,}060/\\sqrt{16} = 0{,}015$. $T = (0{,}345 - 0{,}30)/0{,}015 = 3{,}00$. Forutsetninger (normal, uavhengig) OK.\n\nForkast hvis $T > t_{15;\\,0{,}05} = 1{,}753$; siden $3{,}00 > 1{,}753$, forkast $H_0$.\n\n**b)** p-verdi $= P(T_{15} > 3{,}00)$. Denne er enda mindre enn $P(T_{15} > 2{,}333) = 0{,}017$, altså klart under 0,05 (faktisk $\\approx 0{,}004$). **Det er sterkt grunnlag for å hevde at slitasjen overstiger 0,30 mm.**\n\n**c)** Testen forkaster $H_0: \\mu = 0{,}30$ på nivå $\\alpha = 0{,}05$ (ensidig). Ved dualiteten betyr det at verdien 0,30 ligger *utenfor* det ensidige 95 %-intervallet — og siden avviket er så tydelig, ville også et tosidig 90 %-KI (som svarer til en tosidig 10 %-test) ligge helt over 0,30, altså **ikke inneholde 0,30**.",
+        "hints": [
+          "Ukjent $\\sigma$ → t-test; standardfeil $0{,}060/4 = 0{,}015$.",
+          "$T = (0{,}345-0{,}30)/0{,}015 = 3{,}00$; forkast hvis $T > 1{,}753$.",
+          "Dualitet: forkastet $\\mu_0$ ligger utenfor det tilhørende konfidensintervallet."
+        ]
+      }
+    },
+    {
+      "id": "tma4245-7-1-warn",
+      "type": "warning",
+      "title": "Typiske feil",
+      "content": "- **$z$ der det skal være $t$.** Er $\\sigma$ **ukjent** (estimert med $s$), bruk t-fordelingen med $n-1$ frihetsgrader. Bare når $\\sigma$ er *oppgitt kjent* bruker du $z$.\n- **Feil retning på $H_1$.** Retningen følger av hva som skal påvises, og styrer både kritisk verdi og p-verdi. En tosidig test forkaster ved $|Z| > z_{\\alpha/2}$; en ensidig ved $Z > z_\\alpha$ (én hale).\n- **Glemme fordelingen under $H_0$.** Steg 2 krever at du skriver $\\sim N(0,1)$ eller $\\sim t_{n-1}$ eksplisitt — det er et eget poeng.\n- **Mistolke p-verdien.** Den er *ikke* sannsynligheten for at $H_0$ er sann; den er sannsynligheten for et minst like ekstremt utfall *gitt* $H_0$.\n- **Glemme å doble halen** i en tosidig p-verdi.\n- **Andelstesten med feil standardfeil.** Bruk $p_0$ (ikke $\\hat{p}$) i nevneren $\\sqrt{p_0(1-p_0)/n}$, og skriv forutsetningssjekken $np_0, n(1-p_0) \\ge 5$.\n- **Konklusjon uten ord.** Et tall uten tolkning i kontekst gir ikke full uttelling. Skriv «det er (ikke) grunnlag for å hevde at ...».\n- **«Akseptere $H_0$».** Skriv «det er ikke grunnlag for å forkaste $H_0$» — vi beviser aldri $H_0$, vi finner bare (mangel på) belegg mot den."
+    },
+    {
+      "id": "tma4245-7-1-begrepsbank",
+      "type": "text",
+      "content": "## Begrepsbank\n\nDe sentrale begrepene i testritualet, samlet som repetisjonskort.\n\n*Flashcard-/repetisjonsstoff — hopp trygt over ved førstegangslesing; tidsanslaget gjelder kjernestoffet.*"
+    },
+    {
+      "id": "tma4245-7-1-fc-testobservator",
+      "type": "definition",
+      "title": "Testobservator (testStatistikk)",
+      "content": "En **testobservator** er et tall regnet ut fra dataene som har en *kjent fordeling dersom $H_0$ er sann*. Standardformen er «(estimat $-$ påstått verdi) delt på standardfeil», f.eks. $Z = (\\bar{X}-\\mu_0)/(\\sigma/\\sqrt{n})$. Den måler hvor mange standardfeil observasjonen ligger fra $H_0$-verdien."
+    },
+    {
+      "id": "tma4245-7-1-fc-forkastningsomraade",
+      "type": "definition",
+      "title": "Forkastningsområde",
+      "content": "**Forkastningsområdet** er de verdiene av testobservatoren som får oss til å forkaste $H_0$ på nivå $\\alpha$. Tosidig: $|Z| > z_{\\alpha/2}$. Ensidig oppover: $Z > z_\\alpha$. Ensidig nedover: $Z < -z_\\alpha$. Grenseverdien kalles den **kritiske verdien**."
+    },
+    {
+      "id": "tma4245-7-1-fc-kritisk-verdi",
+      "type": "definition",
+      "title": "Kritisk verdi",
+      "content": "Den **kritiske verdien** er grensen for forkastningsområdet — kvantilen som skiller «forkast» fra «forkast ikke». For en tosidig 5 %-z-test er den $z_{0{,}025} = 1{,}96$; for en ensidig $z_{0{,}05} = 1{,}645$. Hentes fra $\\Phi$-, $t$- eller $\\chi^2$-tabellen med riktige frihetsgrader."
+    },
+    {
+      "id": "tma4245-7-1-fc-beslutningsregel",
+      "type": "definition",
+      "title": "Beslutningsregel: p-verdi vs. $\\alpha$",
+      "content": "To likeverdige veier til samme konklusjon: **(1)** sammenlign observatoren med kritisk verdi (forkast hvis i forkastningsområdet); **(2)** sammenlign p-verdien med $\\alpha$ (forkast hvis $p < \\alpha$). De gir alltid samme svar — velg den oppgaven ber om, eller vis begge."
+    },
+    {
+      "id": "tma4245-7-1-fc-z-eller-t",
+      "type": "definition",
+      "title": "Beslutningskort: z eller t?",
+      "content": "**Kjent $\\sigma$** (oppgitt) → z-test, $Z \\sim N(0,1)$. **Ukjent $\\sigma$** (estimert med $s$) → t-test, $T \\sim t_{n-1}$. **Andel** → z-test med $\\sqrt{p_0(1-p_0)/n}$. Er $n$ liten og fordelingen ikke-normal, kreves en eksakt test (kap. 7.2)."
+    },
+    {
+      "id": "tma4245-7-1-fc-ensidig-tosidig",
+      "type": "definition",
+      "title": "Ensidig vs. tosidig test",
+      "content": "**Ensidig** ($H_1: \\mu > \\mu_0$ eller $\\mu < \\mu_0$): hele $\\alpha$ i én hale, kritisk verdi $z_\\alpha$, p-verdi = én hale. **Tosidig** ($H_1: \\mu \\ne \\mu_0$): $\\alpha/2$ i hver hale, kritisk verdi $z_{\\alpha/2}$, p-verdi = *dobbel* hale. Retningen bestemmes av hva som skal påvises, ikke av dataene."
+    },
+    {
+      "id": "tma4245-7-1-fc-forutsetning",
+      "type": "definition",
+      "title": "Forutsetningssjekk",
+      "content": "Før du stoler på en test: **normalitet** (av observasjonene, eller stor nok $n$ til CLT), **uavhengige** observasjoner, og for andelstesten **$np_0 \\ge 5$, $n(1-p_0) \\ge 5$**. Sensor forventer at forutsetningene nevnes der de brukes (sensorkrav 2)."
+    },
+    {
+      "id": "tma4245-7-1-fc-konklusjon",
+      "type": "definition",
+      "title": "Konklusjon i ord",
+      "content": "Steg 6: oversett tallresultatet til situasjonen. Forkast: «det er grunnlag for å hevde at ...». Forkast ikke: «det er ikke grunnlag for å hevde at ...». Et rent tall (eller «$H_0$ forkastes») uten kobling til konteksten gir ikke full uttelling."
+    },
+    {
+      "id": "tma4245-7-1-fc-ikke-akseptere",
+      "type": "definition",
+      "title": "«Ikke forkaste» $\\ne$ «akseptere»",
+      "content": "Å *ikke* forkaste $H_0$ betyr at dataene er forenlige med $H_0$ — ikke at $H_0$ er bevist sann. Mangel på belegg mot en påstand er ikke belegg for den. Skriv derfor «ikke grunnlag for å forkaste», aldri «$H_0$ er sann» eller «vi aksepterer $H_0$»."
+    },
+    {
+      "id": "tma4245-7-1-fc-signifikans-praktisk",
+      "type": "definition",
+      "title": "Statistisk vs. praktisk betydning",
+      "content": "En liten p-verdi betyr at effekten er *statistisk sikker*, ikke at den er *stor*. Med svært stor $n$ kan et ubetydelig avvik bli «signifikant». Skille alltid mellom «vi kan slå fast at det er en forskjell» og «forskjellen er praktisk viktig» — de er ikke det samme."
+    },
+    {
+      "id": "tma4245-7-1-fc-alfa-tolkning",
+      "type": "definition",
+      "title": "Signifikansnivået $\\alpha$",
+      "content": "$\\alpha$ er sannsynligheten for type I-feil — å forkaste en sann $H_0$ — og velges *før* dataene ses (typisk 0,05 eller 0,01). Lavere $\\alpha$ gir færre falske alarmer, men gjør det vanskeligere å oppdage en reell effekt (lavere styrke). Det er en avveining."
+    },
+    {
+      "id": "tma4245-7-1-fc-standardfeil-test",
+      "type": "definition",
+      "title": "Standardfeil i testobservatoren",
+      "content": "Nevneren i observatoren er estimatorens **standardfeil**: $\\sigma/\\sqrt{n}$ (kjent $\\sigma$), $s/\\sqrt{n}$ (ukjent $\\sigma$) eller $\\sqrt{p_0(1-p_0)/n}$ (andel, med $p_0$ fra $H_0$). Den krymper som $1/\\sqrt{n}$ — mer data gir en mer følsom test."
+    },
+    {
+      "id": "tma4245-7-1-fc-p-liten-stor",
+      "type": "definition",
+      "title": "Hva en liten/stor p-verdi betyr",
+      "content": "**Liten p** (under $\\alpha$): dataene passer dårlig med $H_0$ → forkast. **Stor p** (over $\\alpha$): dataene er forenlige med $H_0$ → forkast ikke. p-verdien rangerer hvor overraskende dataene er *hvis $H_0$ stemmer* — den sier ingenting om sannsynligheten for at $H_0$ er sann."
+    },
+    {
+      "id": "tma4245-7-1-fc-tosidig-p",
+      "type": "definition",
+      "title": "Tosidig p-verdi (doblingen)",
+      "content": "For en tosidig test teller utfall like ekstreme i *begge* haler. Da er $p = 2\\,P(\\text{observator} \\ge |\\text{observert}| \\mid H_0)$ — det dobbelte av den ene halen. Å glemme faktoren 2 er en klassisk feil som halverer p-verdien og kan snu konklusjonen."
+    },
+    {
+      "id": "tma4245-7-1-fc-nullfordeling",
+      "type": "definition",
+      "title": "Fordelingen under $H_0$ (nullfordelingen)",
+      "content": "Hele testen hviler på at testobservatoren har en *kjent* fordeling *når $H_0$ er sann* — $N(0,1)$, $t_{n-1}$, $\\chi^2_{n-1}$ osv. Det er denne «nullfordelingen» vi måler ekstremitet mot. Å oppgi den (steg 2) er ikke pynt; det er selve grunnlaget for både kritisk verdi og p-verdi."
+    },
+    {
+      "id": "tma4245-7-1-fc-mu0-verdi",
+      "type": "definition",
+      "title": "Den påståtte verdien $\\mu_0$ (og $p_0$)",
+      "content": "$\\mu_0$ (eller $p_0$) er tallet fra nullhypotesen — den påståtte parameterverdien vi tester mot, ikke et estimat fra dataene. Den settes inn i observatorens teller *og*, for andelstesten, i standardfeilen $\\sqrt{p_0(1-p_0)/n}$. Ikke bland den med estimatet $\\bar{x}$ eller $\\hat{p}$."
+    },
+    {
+      "id": "tma4245-7-1-rep",
+      "type": "collapsible",
+      "title": "Repetisjonsoppgaver",
+      "buttonText": "Vis repetisjonsoppgaver",
+      "content": [
+        {
+          "id": "tma4245-7-1-rep-x1",
+          "type": "exercise",
+          "exercise": {
+            "id": "tma4245-7-1-rep-x1",
+            "number": "R1",
+            "type": "classic",
+            "difficulty": "lett",
+            "task": "(Fra [kap. 3.1](/bok/tma4245/tma4245-3-1).) Hva er $z_{0{,}05}$ og $z_{0{,}025}$, og hvor mye areal ligger over hver av dem?",
+            "solution": "$z_{0{,}05} = 1{,}645$ (5 % over) og $z_{0{,}025} = 1{,}96$ (2,5 % over). Per definisjon har $z_\\alpha$ øvre haleareal $\\alpha$. Den første brukes i ensidige 5 %-tester, den andre i tosidige.",
+            "hints": [
+              "$z_\\alpha$ har øvre haleareal $\\alpha$.",
+              "$z_{0{,}05} = 1{,}645$, $z_{0{,}025} = 1{,}96$."
+            ]
+          }
+        },
+        {
+          "id": "tma4245-7-1-rep-x2",
+          "type": "exercise",
+          "exercise": {
+            "id": "tma4245-7-1-rep-x2",
+            "number": "R2",
+            "type": "classic",
+            "difficulty": "lett",
+            "task": "(Fra [kap. 3.2](/bok/tma4245/tma4245-3-2).) $X_1, \\ldots, X_{16}$ er uavhengige $N(\\mu, \\sigma^2)$ med $\\sigma = 8$. Hva er fordelingen til $\\bar{X}$, og hva er standardfeilen $\\sigma/\\sqrt{n}$?",
+            "solution": "$\\bar{X} \\sim N(\\mu, \\sigma^2/n) = N(\\mu, 64/16) = N(\\mu, 4)$. Standardfeilen er $\\sigma/\\sqrt{n} = 8/\\sqrt{16} = 8/4 = 2$.",
+            "hints": [
+              "$\\bar{X} \\sim N(\\mu, \\sigma^2/n)$.",
+              "$\\sigma/\\sqrt{n} = 8/4 = 2$."
+            ]
+          }
+        },
+        {
+          "id": "tma4245-7-1-rep-x3",
+          "type": "exercise",
+          "exercise": {
+            "id": "tma4245-7-1-rep-x3",
+            "number": "R3",
+            "type": "classic",
+            "difficulty": "lett",
+            "task": "(Fra [kap. 6.1](/bok/tma4245/tma4245-6-1).) Når bruker vi t-fordelingen i stedet for normalfordelingen, og hvor mange frihetsgrader har den for et utvalg på $n = 10$?",
+            "solution": "Vi bruker t når standardavviket $\\sigma$ er **ukjent** og estimeres med $s$. Frihetsgraden er $n-1 = 9$. t-fordelingen har tyngre haler enn normalfordelingen, så kritisk verdi blir litt større.",
+            "hints": [
+              "Ukjent $\\sigma$ → t.",
+              "Frihetsgrad $n-1 = 9$."
+            ]
+          }
+        },
+        {
+          "id": "tma4245-7-1-rep-x4",
+          "type": "exercise",
+          "exercise": {
+            "id": "tma4245-7-1-rep-x4",
+            "number": "R4",
+            "type": "classic",
+            "difficulty": "middels",
+            "task": "(Fra [kap. 3.3](/bok/tma4245/tma4245-3-3).) En andelstest skal bruke $p_0 = 0{,}04$ og $n = 80$. Er forutsetningen $np_0 \\ge 5$, $n(1-p_0) \\ge 5$ oppfylt?",
+            "solution": "$np_0 = 80 \\cdot 0{,}04 = 3{,}2 < 5$. Selv om $n(1-p_0) = 76{,}8 \\ge 5$, kreves *begge*. Siden $np_0 = 3{,}2 < 5$, er normaltilnærmingen **ikke** gyldig — man bør bruke en eksakt test (kap. 7.2) eller mer data.",
+            "hints": [
+              "Sjekk begge: $np_0$ OG $n(1-p_0)$.",
+              "$np_0 = 3{,}2$ — under 5."
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": "tma4245-7-1-symbolliste",
+      "type": "collapsible",
+      "title": "Symbol- og formelliste",
+      "buttonText": "Vis symboler og formler",
+      "content": [
+        {
+          "id": "tma4245-7-1-symbolliste-text",
+          "type": "text",
+          "content": "*Oppslagsverk — alt her forklares underveis i kapitlet.*\n\nAlle symboler og formler brukt i kapittel 7.1, samlet.\n\n| Symbol | Betydning |\n|---|---|\n| $H_0,\\ H_1$ | Null- og alternativhypotese |\n| $\\mu_0,\\ p_0$ | Påstått parameterverdi under $H_0$ |\n| $\\alpha$ | Signifikansnivå = $P(\\text{type I-feil})$ |\n| $Z,\\ T$ | Testobservatorer (z- og t-test) |\n| $z_\\alpha,\\ t_{\\nu,\\alpha}$ | Kvantiler med øvre haleareal $\\alpha$ |\n| $\\bar{x},\\ s$ | Utvalgsgjennomsnitt og empirisk standardavvik |\n| $\\hat{p} = x/n$ | Estimert andel |\n| $p\\text{-verdi}$ | Sannsynlighet under $H_0$ for minst like ekstremt utfall |\n\n**Formler i dette kapitlet:**\n\n$$Z = \\frac{\\bar{X}-\\mu_0}{\\sigma/\\sqrt{n}} \\sim N(0,1) \\quad (\\sigma \\text{ kjent})$$\nz-testobservator for forventningen.\n\n$$T = \\frac{\\bar{X}-\\mu_0}{S/\\sqrt{n}} \\sim t_{n-1} \\quad (\\sigma \\text{ ukjent})$$\nt-testobservator, $n-1$ frihetsgrader.\n\n$$Z = \\frac{\\hat{p}-p_0}{\\sqrt{p_0(1-p_0)/n}} \\approx N(0,1), \\qquad np_0 \\ge 5,\\ n(1-p_0) \\ge 5$$\nTestobservator for en andel, med forutsetningssjekk.\n\n$$\\text{Forkast } H_0:\\quad |Z| > z_{\\alpha/2}\\ (\\text{tosidig}), \\quad Z > z_\\alpha\\ (\\text{ensidig})$$\nForkastningsområde ved nivå $\\alpha$.\n\n$$p = P(\\text{observator} \\ge |\\text{observert}| \\mid H_0)\\ \\text{(ensidig)}, \\qquad p_{\\text{tosidig}} = 2 \\cdot p_{\\text{ensidig}}$$\np-verdien og doblingen ved tosidig test.\n\n$$\\alpha = P(\\text{forkaste } H_0 \\mid H_0 \\text{ sann})$$\nSignifikansnivået som type I-feilsannsynlighet."
+        }
+      ]
+    }
+  ],
+  "exercises": []
+}
