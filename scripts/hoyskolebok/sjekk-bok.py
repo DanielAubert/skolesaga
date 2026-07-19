@@ -44,23 +44,36 @@ for f in files:
     # blokk-id-unikhet
     ids = [b.get("id") for b in c if b.get("id")]
     if len(ids) != len(set(ids)): issues.append(f"{cid}: duplikate blokk-id-er")
-    # forkunnskaper
-    if "orkunnskaper" not in txt: issues.append(f"{cid}: mangler Forkunnskaper-blokk")
-    # symbolliste (kreves hvis kapitlet har LaTeX-symboler utenfor symbollisten)
+    # Vurderings-/simuleringskapitler (prøver, øvings-/slutteksamener,
+    # midtveis-/slutteksamen-simuleringer): assessment-kapitler, ikke teori.
+    # De har egen struktur i kontrakten (komplett sett + fasit i collapsibles)
+    # og skal IKKE ha teorikapitlets pliktblokker (symbolliste, Typiske feil).
+    tittel = d.get("title", "")
+    er_vurdering = cid.endswith("-prove") or bool(
+        re.search(r"øvingseksamen|simulering|prøve|typetilfelle|praktikum", tittel, re.I))
+    # forkunnskaper — kreves i alle kapitler UNNTATT Del 0 (orienterings-/
+    # innføringskapitlet: bokas startpunkt, har per definisjon ingen forkunnskaper).
+    er_del0 = cid.startswith(f"{emne}-0-")
+    if not er_del0 and "orkunnskaper" not in txt:
+        issues.append(f"{cid}: mangler Forkunnskaper-blokk")
+    # symbolliste (kreves i teorikapitler med LaTeX-symboler; ikke i vurderings-
+    # /simuleringskapitler — de er ren oppgave+fasit, jf. kontraktens prøve-spec).
     har_liste = "Symbol- og formelliste" in txt
     har_latex = bool(re.search(r"\$[^$]*[A-Za-z\\][^$]*\$", txt))
-    if har_latex and not har_liste:
+    if har_latex and not har_liste and not er_vurdering:
         issues.append(f"{cid}: bruker LaTeX-symboler men mangler «Symbol- og formelliste»")
     # typiske feil: warning-blokk kreves i teori-/regel-/drillkapitler.
-    # Unntak (per DNA-ene): prøver, øvingseksamener/simuleringer, typetilfelle-
-    # og praktikumkapitler (de har må/pluss/feller-fasit eller Sensorblikket).
-    tittel = d.get("title", "")
-    unntak = bool(re.search(r"øvingseksamen|eksamenssimulering|prøve|typetilfelle|praktikum", tittel, re.I)) \
-        or "Feller" in txt or "typiske feil" in txt.lower()
-    if not cid.endswith("-prove") and not unntak and not any(b.get("type") == "warning" for b in c):
+    # Unntak (per DNA-ene): vurderings-/simuleringskapitler (prøver, øvings-/
+    # slutteksamener, simuleringer, typetilfelle-/praktikumkapitler) — de har
+    # må/pluss/feller-fasit eller Sensorblikket.
+    unntak = er_vurdering or "Feller" in txt or "typiske feil" in txt.lower()
+    if not unntak and not any(b.get("type") == "warning" for b in c):
         issues.append(f"{cid}: mangler warning-blokk (Typiske feil)")
-    # (verifiser)-rester
-    if re.search(r"verifiser", txt, re.I): issues.append(f"{cid}: uavklarte (verifiser)-markeringer")
+    # (verifiser)-rester — KUN den literale markøren «(verifiser)» (jf.
+    # BYGGEKONTRAKT «Usikre referanser merkes (verifiser)»). Bar ordform
+    # («Verifiser svaret ved innsetting») er påkrevd føringsspråk i regnefag
+    # og skal ikke flagges.
+    if re.search(r"\(verifiser\)", txt, re.I): issues.append(f"{cid}: uavklarte (verifiser)-markeringer")
     # forbudte felt
     if re.search(r"solutionVideo|allowsUpload|allowsCanvasDrawing", txt):
         issues.append(f"{cid}: forbudte exercise-felt")
