@@ -1,0 +1,480 @@
+{
+  "id": "mat1110-4-1",
+  "courseId": "mat1110",
+  "chapterNumber": "4.1",
+  "title": "Dobbeltintegral over kurveavgrenset område",
+  "description": "Finn skjæringspunktene, beskriv området med eksplisitte ulikheter, integrer innerst først — 95 %-sjangeren med fasitens føringsstandard.",
+  "estimatedMinutes": 55,
+  "competenceGoals": [
+    "sette opp og regne dobbeltintegral som iterert integral over type I- og type II-områder",
+    "finne skjæringspunkter og beskrive kurveavgrensede områder med eksplisitte ulikheter før oppsett",
+    "bytte integrasjonsrekkefølge (Fubini) når den ene veien ikke lar seg integrere, og regne volum mellom flater"
+  ],
+  "content": [
+    {
+      "id": "mat1110-4-1-tip",
+      "type": "tip",
+      "title": "Eksamensvinkel",
+      "content": "**Dobbeltintegral over et kurveavgrenset område er pensumets aller stabileste tema — praktisk talt garantert på hvert eneste sett.**\n\n- **Sjanger G** — analysens kode for «dobbeltintegral over kurveavgrenset område» — forekommer i **19 av 20 arkiverte sett (95 %)**. Ingen annen oppgavetype er så trygg å regne med. Offisiell fasit finnes (V2025 ordinær O5a lander på $\\tfrac{32}{3}$).\n- Tre grep avgjør uttellingen, og alle er føringspoeng sensor teller: **(1)** løs **skjæringspunktene** ved å sette kurvene lik hverandre (aldri gjett grensene), **(2)** skriv **områdebeskrivelsen som eksplisitte ulikheter** *før* du setter opp integralet, og **(3)** regn det **indre integralet** ferdig og forenkle før det ytre.\n- «Begrunn alle svar»: et bart tallsvar uten synlig områdebeskrivelse og mellomregning gir ikke full uttelling. Svaret oppgis **eksakt** ($\\tfrac{32}{3}$), aldri som desimaltilnærming.\n\n**Prioritet: høyeste.** Målet er at du trygt finner grensene, fører området som ulikheter og regner det itererte integralet uten å nøle."
+    },
+    {
+      "id": "mat1110-4-1-fork",
+      "type": "text",
+      "content": "**Forkunnskaper.** Dette kapitlet bygger på det å regne med to variable fra [kap. 2.1](/bok/mat1110/mat1110-2-1). Selve regnemaskineriet er det vanlige **bestemte integralet** fra [Bestemt integral](/bok/r2/r2-2-4): et dobbeltintegral regnes ett vanlig integral av gangen. Ideen om **areal mellom to kurver** fra [Areal mellom kurver](/bok/r2/r2-2-7) er den direkte forløperen — et dobbeltintegral av integranden $1$ er nettopp et areal, og teknikken for å finne skjæringspunkter er den samme.\n\nDu trenger ingen ny integrasjonsteknikk her: alle indre og ytre integraler løses med substitusjon og standard antideriverte du kan fra før."
+    },
+    {
+      "id": "mat1110-4-1-motiv",
+      "type": "text",
+      "content": "Et **enkeltintegral** $\\int_a^b f(x)\\,dx$ summerer en funksjon langs en linje og gir arealet under en kurve. Et **dobbeltintegral** $\\iint_A f(x,y)\\,dA$ summerer en funksjon over et helt flatestykke $A$ i planet og gir — når $f \\ge 0$ — volumet under flaten $z = f(x,y)$. Den store nyheten er ikke integrasjonen (den gjør vi som før, én variabel av gangen), men **å beskrive området $A$ riktig**: hvilke $x$- og $y$-verdier hører med, og hvordan grensene avhenger av hverandre.\n\nVi bygger teknikken i fire løkker: **(1)** dobbeltintegralet som iterert integral over et enkelt område, **(2)** å finne skjæringspunktene og føre kurveavgrensede områder som ulikheter, **(3)** å bytte integrasjonsrekkefølge (Fubini) når den ene veien er lettere, og **(4)** volum mellom flater. Hver løkke går **teori → gjennomregnet eksempel → øvingsoppgaver**."
+    },
+    {
+      "id": "mat1110-4-1-l1",
+      "type": "text",
+      "content": "## Løkke 1 — Dobbeltintegralet som iterert integral (~14 min)"
+    },
+    {
+      "id": "mat1110-4-1-def-dblint",
+      "type": "definition",
+      "title": "Dobbeltintegral",
+      "content": "Grensen av en sum av $f(x,y)$ ganget med små flatebiter over et område $A$ — tenk på det som å legge sammen «søylevolumer» $f(x,y)\\,dA$ over hele $A$. Vi skriver\n\n$$\\iint_A f(x,y)\\,dA.$$\n\nNår $f \\ge 0$ er dette **volumet** under flaten $z = f(x,y)$ og over $A$ i $xy$-planet. Arealelementet $dA$ blir $dx\\,dy$ eller $dy\\,dx$ når vi regner i kartesiske koordinater."
+    },
+    {
+      "id": "mat1110-4-1-def-iterert",
+      "type": "definition",
+      "title": "Iterert integral",
+      "content": "Måten et dobbeltintegral faktisk regnes ut på: som to vanlige enkeltintegraler etter hverandre, **innerst først**. Regner vi $y$ innerst, holder vi $x$ konstant mens vi integrerer over $y$, og til slutt integrerer vi resultatet over $x$:\n\n$$\\int_a^b\\!\\left(\\int_{u(x)}^{v(x)} f(x,y)\\,dy\\right)dx.$$\n\nDet indre integralet gir et uttrykk i $x$ alene; det ytre avslutter regnestykket. Alt du kan om enkeltintegraler brukes her — bare to ganger."
+    },
+    {
+      "id": "mat1110-4-1-def-typeI",
+      "type": "definition",
+      "title": "Type I-område (loddrette snitt)",
+      "content": "Et område beskrevet ved at $x$ løper mellom to tall, og $y$ for hver $x$ ligger mellom to **kurver**:\n\n$$A = \\{(x,y) : a \\le x \\le b,\\ u(x) \\le y \\le v(x)\\}.$$\n\nHer er $y = u(x)$ nedre og $y = v(x)$ øvre grensekurve. For et type I-område integrerer vi $y$ innerst (grensene er funksjoner av $x$) og $x$ ytterst (grensene er tall). De **indre grensene får avhenge av den ytre variabelen — aldri omvendt**."
+    },
+    {
+      "id": "mat1110-4-1-def-omraadebeskr",
+      "type": "definition",
+      "title": "Områdebeskrivelse med ulikheter",
+      "content": "Å skrive integrasjonsområdet som et sett med **eksplisitte ulikheter** for $x$ og $y$ *før* du setter opp integralet — for eksempel $\\{0 \\le x \\le 2,\\ 0 \\le y \\le x\\}$. Dette er et uttrykt sensorkrav: ulikhetene fastlegger grensene i det itererte integralet og skiller en gjettet grense fra en begrunnet. Skriv dem ned først; sett opp integralet etterpå."
+    },
+    {
+      "id": "mat1110-4-1-ex1",
+      "type": "example",
+      "title": "Eksempel 1: Iterert integral over et trekantområde",
+      "problem": "Regn ut $\\iint_A (2x+1)\\,dA$, der $A$ er trekanten $\\{0 \\le x \\le 2,\\ 0 \\le y \\le x\\}$.",
+      "solution": "**Områdebeskrivelse (ulikheter først):** $A = \\{0 \\le x \\le 2,\\ 0 \\le y \\le x\\}$ — type I, så vi integrerer $y$ innerst.\n\n$$\\iint_A (2x+1)\\,dA = \\int_0^2\\!\\int_0^x (2x+1)\\,dy\\,dx.$$\n\n**Indre integral** (hold $x$ fast; integranden er konstant i $y$):\n$$\\int_0^x (2x+1)\\,dy = (2x+1)\\,[y]_0^x = (2x+1)x = 2x^2 + x.$$\n\n**Ytre integral:**\n$$\\int_0^2 (2x^2 + x)\\,dx = \\left[\\tfrac{2x^3}{3} + \\tfrac{x^2}{2}\\right]_0^2 = \\tfrac{16}{3} + 2 = \\tfrac{22}{3}.$$\n\n**Konklusjon:** $\\iint_A (2x+1)\\,dA = \\dfrac{22}{3}$ (eksakt)."
+    },
+    {
+      "id": "mat1110-4-1-l1a-w",
+      "type": "exercise",
+      "exercise": {
+        "id": "mat1110-4-1-l1a",
+        "number": "1",
+        "type": "classic",
+        "difficulty": "lett",
+        "task": "Regn ut $\\displaystyle\\iint_A (x+y)\\,dA$ over rektangelet $A = \\{0 \\le x \\le 1,\\ 0 \\le y \\le 2\\}$.",
+        "solution": "**Område:** $A = \\{0 \\le x \\le 1,\\ 0 \\le y \\le 2\\}$ (grensene er tall).\n\n$$\\int_0^1\\!\\int_0^2 (x+y)\\,dy\\,dx = \\int_0^1 \\Big[xy + \\tfrac{y^2}{2}\\Big]_0^2 dx = \\int_0^1 (2x + 2)\\,dx = \\big[x^2 + 2x\\big]_0^1 = 3.$$\n\n**Svar:** $3$.",
+        "hints": [
+          "Over et rektangel er begge grensepar tall — integrer $y$ innerst.",
+          "Indre integral: $\\int_0^2 (x+y)\\,dy = 2x + 2$."
+        ]
+      }
+    },
+    {
+      "id": "mat1110-4-1-l1b-w",
+      "type": "exercise",
+      "exercise": {
+        "id": "mat1110-4-1-l1b",
+        "number": "2",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "Regn ut $\\displaystyle\\iint_A 6xy\\,dA$, der $A$ er trekanten $\\{0 \\le x \\le 2,\\ 0 \\le y \\le x\\}$.",
+        "solution": "**Område:** $A = \\{0 \\le x \\le 2,\\ 0 \\le y \\le x\\}$ (type I).\n\n$$\\int_0^2\\!\\int_0^x 6xy\\,dy\\,dx = \\int_0^2 6x\\Big[\\tfrac{y^2}{2}\\Big]_0^x dx = \\int_0^2 3x^3\\,dx = \\Big[\\tfrac{3x^4}{4}\\Big]_0^2 = 12.$$\n\n**Svar:** $12$.",
+        "hints": [
+          "Hold $x$ fast i det indre integralet; $6x$ er konstant der.",
+          "$\\int_0^x 6xy\\,dy = 3x\\cdot x^2 = 3x^3$."
+        ]
+      }
+    },
+    {
+      "id": "mat1110-4-1-l2",
+      "type": "text",
+      "content": "## Løkke 2 — Finn skjæringspunktene, før området som ulikheter (~16 min)"
+    },
+    {
+      "id": "mat1110-4-1-def-skjaering",
+      "type": "definition",
+      "title": "Skjæringspunkt mellom to kurver",
+      "content": "Punktet der to grensekurver møtes — det du finner ved å **sette kurvene lik hverandre** og løse likningen. Er området avgrenset av $y = u(x)$ og $y = v(x)$, gir $u(x) = v(x)$ nettopp de $x$-verdiene som blir integrasjonsgrensene. Å løse skjæringen er sensors alternativ til å gjette: grensene skal **regnes fram**, ikke leses av en skisse på slump."
+    },
+    {
+      "id": "mat1110-4-1-def-kurveavgr",
+      "type": "definition",
+      "title": "Kurveavgrenset område",
+      "content": "Et flatestykke hvis kant består av kurver (ikke bare rette linjer parallelt med aksene). Typisk ligger $y$ mellom en nedre og en øvre kurve, $u(x) \\le y \\le v(x)$, mens $x$ løper mellom skjæringspunktene. For å sette opp integralet trenger du tre ting: **hvilken kurve er øverst**, **hvilken er nederst**, og **hvor de møtes**."
+    },
+    {
+      "id": "mat1110-4-1-def-indre-ytre",
+      "type": "definition",
+      "title": "Indre og ytre integral",
+      "content": "De to leddene i et iterert integral. Det **indre** integralet integrerer over variabelen innerst, med den andre variabelen holdt fast, og har ofte grenser som er funksjoner. Det **ytre** integralet integrerer resultatet over den siste variabelen, alltid med tallgrenser. Regel: variabelen hvis grenser er *funksjoner* skal stå **innerst**; den med *tallgrenser* ytterst."
+    },
+    {
+      "id": "mat1110-4-1-ex2",
+      "type": "example",
+      "title": "Eksempel 2: Løs skjæringen først",
+      "problem": "La $A$ være området avgrenset av parabelen $y = x^2$ og linjen $y = x + 2$. Regn ut $\\iint_A y\\,dA$.",
+      "solution": "**Skjæringspunkter (løs kurvene mot hverandre):**\n$$x^2 = x + 2 \\;\\Longrightarrow\\; x^2 - x - 2 = 0 \\;\\Longrightarrow\\; (x-2)(x+1) = 0 \\;\\Longrightarrow\\; x = -1,\\ x = 2.$$\n\nMellom disse er linjen øverst (test $x=0$: $x+2 = 2 > 0 = x^2$), så **områdebeskrivelsen** er\n$$A = \\{-1 \\le x \\le 2,\\ x^2 \\le y \\le x+2\\}.$$\n\n**Indre integral** over $y$:\n$$\\int_{x^2}^{x+2} y\\,dy = \\Big[\\tfrac{y^2}{2}\\Big]_{x^2}^{x+2} = \\tfrac12\\big((x+2)^2 - x^4\\big).$$\n\n**Ytre integral:**\n$$\\tfrac12\\int_{-1}^{2}\\big((x+2)^2 - x^4\\big)\\,dx = \\tfrac12\\left[\\tfrac{(x+2)^3}{3} - \\tfrac{x^5}{5}\\right]_{-1}^{2}.$$\nI $x=2$: $\\tfrac{64}{3} - \\tfrac{32}{5}$. I $x=-1$: $\\tfrac{1}{3} - (-\\tfrac{1}{5}) = \\tfrac13 + \\tfrac15$. Differansen: $\\tfrac{63}{3} - \\tfrac{33}{5} = 21 - \\tfrac{33}{5} = \\tfrac{72}{5}$. Ganget med $\\tfrac12$:\n$$\\iint_A y\\,dA = \\tfrac12\\cdot\\tfrac{72}{5} = \\tfrac{36}{5}.$$\n\n**Konklusjon:** $\\iint_A y\\,dA = \\dfrac{36}{5}$ (eksakt)."
+    },
+    {
+      "id": "mat1110-4-1-l2a-w",
+      "type": "exercise",
+      "exercise": {
+        "id": "mat1110-4-1-l2a",
+        "number": "3",
+        "type": "classic",
+        "difficulty": "lett",
+        "task": "Finn arealet av området $A$ avgrenset av $y = x^2$ og $y = x + 2$ ved å regne $\\iint_A 1\\,dA$.",
+        "solution": "**Skjæring:** $x^2 = x+2 \\Rightarrow (x-2)(x+1)=0 \\Rightarrow x = -1, 2$. Linjen er øverst, så $A = \\{-1 \\le x \\le 2,\\ x^2 \\le y \\le x+2\\}$.\n\n$$\\iint_A 1\\,dA = \\int_{-1}^2 (x+2-x^2)\\,dx = \\Big[\\tfrac{x^2}{2} + 2x - \\tfrac{x^3}{3}\\Big]_{-1}^2.$$\n\nI $x=2$: $2 + 4 - \\tfrac83 = \\tfrac{10}{3}$. I $x=-1$: $\\tfrac12 - 2 + \\tfrac13 = -\\tfrac76$. Differanse: $\\tfrac{10}{3} + \\tfrac76 = \\tfrac{27}{6} = \\tfrac92$.\n\n**Areal $= \\dfrac{9}{2}$.** (Integranden $1$ gir alltid areal.)",
+        "hints": [
+          "Skjæringen er den samme som i Eksempel 2: $x=-1$ og $x=2$.",
+          "$\\iint_A 1\\,dA$ er arealet; indre integral gir $x+2-x^2$."
+        ]
+      }
+    },
+    {
+      "id": "mat1110-4-1-l2b-w",
+      "type": "exercise",
+      "exercise": {
+        "id": "mat1110-4-1-l2b",
+        "number": "4",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "La $A$ være området i første kvadrant avgrenset av $y = x$ (øverst) og $y = x^2$ (nederst). Regn ut $\\iint_A x\\,dA$.",
+        "solution": "**Skjæring:** $x = x^2 \\Rightarrow x(1-x) = 0 \\Rightarrow x = 0,\\ x = 1$. På $(0,1)$ er $x \\ge x^2$, så $A = \\{0 \\le x \\le 1,\\ x^2 \\le y \\le x\\}$.\n\n$$\\int_0^1\\!\\int_{x^2}^{x} x\\,dy\\,dx = \\int_0^1 x\\,(x - x^2)\\,dx = \\int_0^1 (x^2 - x^3)\\,dx = \\Big[\\tfrac{x^3}{3} - \\tfrac{x^4}{4}\\Big]_0^1 = \\tfrac13 - \\tfrac14 = \\tfrac{1}{12}.$$\n\n**Svar:** $\\dfrac{1}{12}$.",
+        "hints": [
+          "Sett $x = x^2$ for grensene $0$ og $1$.",
+          "Indre integral: $\\int_{x^2}^x x\\,dy = x(x - x^2)$."
+        ]
+      }
+    },
+    {
+      "id": "mat1110-4-1-l3",
+      "type": "text",
+      "content": "## Løkke 3 — Bytte integrasjonsrekkefølge (Fubini) (~13 min)"
+    },
+    {
+      "id": "mat1110-4-1-def-typeII",
+      "type": "definition",
+      "title": "Type II-område (vannrette snitt)",
+      "content": "Speilbildet av type I: nå løper $y$ mellom to tall, og $x$ for hver $y$ ligger mellom to kurver:\n\n$$A = \\{c \\le y \\le d,\\ p(y) \\le x \\le q(y)\\}.$$\n\nDa integrerer vi $x$ innerst (grenser som funksjoner av $y$) og $y$ ytterst (tallgrenser). Mange områder kan beskrives *begge* veier — og valget kan avgjøre om integralet blir lett eller vanskelig."
+    },
+    {
+      "id": "mat1110-4-1-thm-fubini",
+      "type": "theorem",
+      "title": "Fubinis setning (bytte rekkefølge)",
+      "content": "For en kontinuerlig integrand kan de to itererte integralene regnes i **hvilken som helst rekkefølge** med samme resultat:\n\n$$\\iint_A f\\,dA = \\int_a^b\\!\\int_{u(x)}^{v(x)} f\\,dy\\,dx = \\int_c^d\\!\\int_{p(y)}^{q(y)} f\\,dx\\,dy.$$\n\nDette er verktøyet når den ene rekkefølgen gir et integral du **ikke** kan løse i lukket form (typisk $e^{y^2}$, $\\sin(y^2)$), mens den andre går fint. Merk: når du snur rekkefølgen, må du **beskrive området på nytt** og lese av de nye grensene — de gamle tallene kan ikke bare flyttes."
+    },
+    {
+      "id": "mat1110-4-1-ex3",
+      "type": "example",
+      "title": "Eksempel 3: Snu rekkefølgen for å kunne integrere",
+      "problem": "Regn ut $\\displaystyle\\int_0^1\\!\\int_x^1 e^{y^2}\\,dy\\,dx$.",
+      "solution": "Integranden $e^{y^2}$ har **ingen elementær antiderivert i $y$**, så den oppgitte rekkefølgen stopper med én gang. Vi snur.\n\n**Les av området:** grensene sier $0 \\le x \\le 1$ og $x \\le y \\le 1$, altså trekanten under $y = 1$ og over $y = x$. **Beskrevet som type II** (for hver $y$ løper $x$ fra $0$ til $y$):\n$$A = \\{0 \\le y \\le 1,\\ 0 \\le x \\le y\\}.$$\n\n**Snudd integral** (nå er $e^{y^2}$ konstant i $x$):\n$$\\int_0^1\\!\\int_0^y e^{y^2}\\,dx\\,dy = \\int_0^1 e^{y^2}\\,[x]_0^y\\,dy = \\int_0^1 y\\,e^{y^2}\\,dy.$$\n\n**Substitusjon** $u = y^2$, $du = 2y\\,dy$ (nye grenser $u: 0 \\to 1$):\n$$\\int_0^1 y\\,e^{y^2}\\,dy = \\tfrac12\\int_0^1 e^{u}\\,du = \\tfrac12(e - 1).$$\n\n**Konklusjon:** $\\displaystyle\\int_0^1\\!\\int_x^1 e^{y^2}\\,dy\\,dx = \\dfrac{e-1}{2}$."
+    },
+    {
+      "id": "mat1110-4-1-l3a-w",
+      "type": "exercise",
+      "exercise": {
+        "id": "mat1110-4-1-l3a",
+        "number": "5",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "Regn ut $\\displaystyle\\int_0^1\\!\\int_{3y}^{3} e^{x^2}\\,dx\\,dy$ ved å bytte integrasjonsrekkefølge.",
+        "solution": "$e^{x^2}$ har ingen elementær antiderivert i $x$, så vi snur. **Området fra grensene:** $0 \\le y \\le 1$, $3y \\le x \\le 3$. Dette er trekanten under $x = 3$ og over linjen $x = 3y$ (dvs. $y = x/3$).\n\n**Beskrevet som type I:** for hver $x \\in [0,3]$ løper $y$ fra $0$ til $x/3$:\n$$A = \\{0 \\le x \\le 3,\\ 0 \\le y \\le \\tfrac{x}{3}\\}.$$\n\n$$\\int_0^3\\!\\int_0^{x/3} e^{x^2}\\,dy\\,dx = \\int_0^3 e^{x^2}\\cdot\\tfrac{x}{3}\\,dx.$$\n\n**Substitusjon** $u = x^2$, $du = 2x\\,dx$ (grenser $u: 0 \\to 9$):\n$$\\tfrac13\\int_0^3 x\\,e^{x^2}\\,dx = \\tfrac13\\cdot\\tfrac12\\int_0^9 e^u\\,du = \\tfrac16\\big(e^9 - 1\\big).$$\n\n**Svar:** $\\dfrac{e^9 - 1}{6}$ (eksakt).",
+        "hints": [
+          "Tegn trekanten $\\{0\\le y\\le 1,\\ 3y\\le x\\le 3\\}$ og les den som $\\{0\\le x\\le 3,\\ 0\\le y\\le x/3\\}$.",
+          "Etter snuing: $\\int_0^{x/3} e^{x^2}\\,dy = \\tfrac{x}{3}e^{x^2}$; bruk $u=x^2$."
+        ]
+      }
+    },
+    {
+      "id": "mat1110-4-1-l4",
+      "type": "text",
+      "content": "## Løkke 4 — Volum mellom flater (~12 min)"
+    },
+    {
+      "id": "mat1110-4-1-def-volum",
+      "type": "definition",
+      "title": "Volum som dobbeltintegral",
+      "content": "Volumet av en kropp mellom to flater $z = g(x,y)$ (bunn) og $z = h(x,y)$ (topp) over et område $A$ er dobbeltintegralet av **høydeforskjellen**:\n\n$$V = \\iint_A \\big(h(x,y) - g(x,y)\\big)\\,dA.$$\n\nEr bunnen $z = 0$, er volumet bare $\\iint_A h\\,dA$. Poenget er alltid det samme som ellers: beskriv $A$ med ulikheter, og integrer integranden (her høyden) over $A$."
+    },
+    {
+      "id": "mat1110-4-1-ex4",
+      "type": "example",
+      "title": "Eksempel 4: Volum under en flate over et kurveavgrenset område",
+      "problem": "Finn volumet av kroppen som ligger under flaten $z = x$, over $xy$-planet, og innenfor området i første kvadrant avgrenset av parabelen $y = 4 - x^2$ og de to aksene.",
+      "solution": "**Området $A$:** i første kvadrant ($x \\ge 0,\\ y \\ge 0$) under parabelen. Parabelen treffer $x$-aksen der $4 - x^2 = 0 \\Rightarrow x = 2$. Altså\n$$A = \\{0 \\le x \\le 2,\\ 0 \\le y \\le 4 - x^2\\}.$$\n\n**Volum** (bunn $z=0$, topp $z=x$):\n$$V = \\iint_A x\\,dA = \\int_0^2\\!\\int_0^{4-x^2} x\\,dy\\,dx = \\int_0^2 x\\,(4 - x^2)\\,dx.$$\n\n$$= \\int_0^2 (4x - x^3)\\,dx = \\Big[2x^2 - \\tfrac{x^4}{4}\\Big]_0^2 = 8 - 4 = 4.$$\n\n**Konklusjon:** volumet er $4$ (eksakt)."
+    },
+    {
+      "id": "mat1110-4-1-l4a-w",
+      "type": "exercise",
+      "exercise": {
+        "id": "mat1110-4-1-l4a",
+        "number": "6",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "Finn volumet av kroppen under planet $z = x + 2y$ over rektangelet $A = \\{0 \\le x \\le 2,\\ 0 \\le y \\le 1\\}$.",
+        "solution": "**Område:** $A = \\{0 \\le x \\le 2,\\ 0 \\le y \\le 1\\}$, bunn $z=0$, topp $z = x+2y$.\n\n$$V = \\int_0^2\\!\\int_0^1 (x + 2y)\\,dy\\,dx = \\int_0^2 \\big[xy + y^2\\big]_0^1 dx = \\int_0^2 (x + 1)\\,dx = \\Big[\\tfrac{x^2}{2} + x\\Big]_0^2 = 2 + 2 = 4.$$\n\n**Svar:** $4$.",
+        "hints": [
+          "Volum = $\\iint_A (\\text{topp}-\\text{bunn})\\,dA$; her er bunnen $z=0$.",
+          "Indre integral: $\\int_0^1 (x+2y)\\,dy = x + 1$."
+        ]
+      }
+    },
+    {
+      "id": "mat1110-4-1-warn",
+      "type": "warning",
+      "title": "Typiske feil",
+      "content": "- **Gjette grensene i stedet for å løse skjæringen.** Sett alltid kurvene lik hverandre ($x^2 = x+2$) og regn ut skjæringspunktene — de er integrasjonsgrensene. En gjettet grense er en byggefeil hos sensor.\n- **Ikke skrive områdebeskrivelsen som ulikheter før oppsett.** $A = \\{-1\\le x\\le 2,\\ x^2\\le y\\le x+2\\}$ skal stå *før* integralet. «Begrunn alle svar.»\n- **Feil rekkefølge som tvinger fram oppdeling.** Variabelen med kurvegrenser skal innerst; velg den rekkefølgen som slipper å dele området i biter.\n- **Glemme å forenkle det indre integralet** før det ytre — rot i mellomregningen forplanter seg.\n- **Blande $dx\\,dy$-rekkefølgen med grensene.** Skriver du $dy\\,dx$, hører $y$-grensene (kurvene) til det indre og $x$-grensene (tallene) til det ytre.\n- **Desimaltilnærming.** Behold $\\tfrac{36}{5}$, ikke $7{,}2$."
+    },
+    {
+      "id": "mat1110-4-1-pulje",
+      "type": "text",
+      "content": "## Eksamensrettet oppgavepulje\n\nStigende vanskegrad. Løs alltid skjæringen først, skriv området som ulikheter, og oppgi eksakt svar — slik sensor krever på sjanger G."
+    },
+    {
+      "id": "mat1110-4-1-p1-w",
+      "type": "exercise",
+      "exercise": {
+        "id": "mat1110-4-1-p1",
+        "number": "7",
+        "type": "classic",
+        "difficulty": "lett",
+        "task": "Regn ut $\\displaystyle\\iint_A (2x + 3y)\\,dA$ over rektangelet $A = \\{0 \\le x \\le 1,\\ 1 \\le y \\le 3\\}$.",
+        "solution": "$$\\int_0^1\\!\\int_1^3 (2x+3y)\\,dy\\,dx = \\int_0^1 \\Big[2xy + \\tfrac{3y^2}{2}\\Big]_1^3 dx = \\int_0^1 \\big(4x + 12\\big)\\,dx = \\big[2x^2 + 12x\\big]_0^1 = 14.$$\n\n**Svar:** $14$.",
+        "hints": [
+          "Integrer $y$ fra $1$ til $3$ først.",
+          "$\\int_1^3 (2x+3y)\\,dy = 2x(2) + \\tfrac32(9-1) = 4x + 12$."
+        ]
+      }
+    },
+    {
+      "id": "mat1110-4-1-p2-w",
+      "type": "exercise",
+      "exercise": {
+        "id": "mat1110-4-1-p2",
+        "number": "8",
+        "type": "classic",
+        "difficulty": "lett",
+        "task": "La $A$ være trekanten med hjørner $(0,0)$, $(1,0)$ og $(1,2)$, beskrevet ved $\\{0 \\le x \\le 1,\\ 0 \\le y \\le 2x\\}$. Regn ut $\\iint_A y\\,dA$.",
+        "solution": "$$\\int_0^1\\!\\int_0^{2x} y\\,dy\\,dx = \\int_0^1 \\Big[\\tfrac{y^2}{2}\\Big]_0^{2x} dx = \\int_0^1 \\tfrac{(2x)^2}{2}\\,dx = \\int_0^1 2x^2\\,dx = \\Big[\\tfrac{2x^3}{3}\\Big]_0^1 = \\tfrac23.$$\n\n**Svar:** $\\dfrac{2}{3}$.",
+        "hints": [
+          "Den øvre grensen er linjen gjennom $(0,0)$ og $(1,2)$, altså $y = 2x$.",
+          "$\\int_0^{2x} y\\,dy = \\tfrac{(2x)^2}{2} = 2x^2$."
+        ]
+      }
+    },
+    {
+      "id": "mat1110-4-1-p3-w",
+      "type": "exercise",
+      "exercise": {
+        "id": "mat1110-4-1-p3",
+        "number": "9",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "La $A$ være området avgrenset av $y = x^2$ og $y = 2x$. Regn ut $\\iint_A (x + 1)\\,dA$.",
+        "solution": "**Skjæring:** $x^2 = 2x \\Rightarrow x(x-2)=0 \\Rightarrow x = 0,\\ 2$. På $(0,2)$ er $2x \\ge x^2$, så $A = \\{0 \\le x \\le 2,\\ x^2 \\le y \\le 2x\\}$.\n\n**Indre:** $\\int_{x^2}^{2x} (x+1)\\,dy = (x+1)(2x - x^2)$.\n\n**Ytre:** $\\int_0^2 (x+1)(2x - x^2)\\,dx = \\int_0^2 (2x^2 - x^3 + 2x - x^2)\\,dx = \\int_0^2 (x^2 - x^3 + 2x)\\,dx.$\n$$= \\Big[\\tfrac{x^3}{3} - \\tfrac{x^4}{4} + x^2\\Big]_0^2 = \\tfrac83 - 4 + 4 = \\tfrac83.$$\n\n**Svar:** $\\dfrac{8}{3}$.",
+        "hints": [
+          "Skjæring: $x^2 = 2x$ gir $x = 0$ og $x = 2$; linjen $2x$ er øverst.",
+          "Indre integral: $(x+1)(2x - x^2)$; gang ut før du integrerer i $x$."
+        ]
+      }
+    },
+    {
+      "id": "mat1110-4-1-p4-w",
+      "type": "exercise",
+      "exercise": {
+        "id": "mat1110-4-1-p4",
+        "number": "10",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "La $A$ være området avgrenset av $x = y^2$ og $x = 2 - y^2$. Finn arealet $\\iint_A 1\\,dA$ ved å beskrive $A$ som et type II-område.",
+        "solution": "**Skjæring:** $y^2 = 2 - y^2 \\Rightarrow 2y^2 = 2 \\Rightarrow y = \\pm 1$. For $y \\in [-1,1]$ er $y^2 \\le 2 - y^2$, så (type II)\n$$A = \\{-1 \\le y \\le 1,\\ y^2 \\le x \\le 2 - y^2\\}.$$\n\n$$\\iint_A 1\\,dA = \\int_{-1}^1 (2 - y^2 - y^2)\\,dy = \\int_{-1}^1 (2 - 2y^2)\\,dy = \\Big[2y - \\tfrac{2y^3}{3}\\Big]_{-1}^1 = \\big(2 - \\tfrac23\\big) - \\big(-2 + \\tfrac23\\big) = \\tfrac83.$$\n\n**Areal $= \\dfrac{8}{3}$.**",
+        "hints": [
+          "Parablene åpner mot høyre/venstre, så $x$ ligger mellom kurvene — bruk type II ($y$ ytterst).",
+          "Skjæring: $y^2 = 2 - y^2$ gir $y = \\pm 1$."
+        ]
+      }
+    },
+    {
+      "id": "mat1110-4-1-p5-w",
+      "type": "exercise",
+      "exercise": {
+        "id": "mat1110-4-1-p5",
+        "number": "11",
+        "type": "classic",
+        "difficulty": "vanskelig",
+        "task": "(Eksamensnivå, sjanger G.) La $A$ være området i første kvadrant avgrenset av hyperbelen $xy = 2$ og linjen $x + y = 3$. Regn ut $\\iint_A y\\,dA$.",
+        "solution": "**Skjæring:** på $xy = 2$ er $y = 2/x$; sett inn i $x + y = 3$: $x + \\tfrac{2}{x} = 3 \\Rightarrow x^2 - 3x + 2 = 0 \\Rightarrow (x-1)(x-2)=0 \\Rightarrow x = 1,\\ x = 2$.\n\nMellom $x=1$ og $x=2$ ligger linjen $y = 3 - x$ over hyperbelen $y = 2/x$ (test $x = 1{,}5$: $3 - 1{,}5 = 1{,}5$ mot $2/1{,}5 \\approx 1{,}33$). Så\n$$A = \\{1 \\le x \\le 2,\\ \\tfrac{2}{x} \\le y \\le 3 - x\\}.$$\n\n**Indre:** $\\int_{2/x}^{3-x} y\\,dy = \\tfrac12\\big((3-x)^2 - \\tfrac{4}{x^2}\\big)$.\n\n**Ytre:** $\\tfrac12\\int_1^2\\big((3-x)^2 - 4x^{-2}\\big)\\,dx = \\tfrac12\\left[-\\tfrac{(3-x)^3}{3} + \\tfrac{4}{x}\\right]_1^2.$\nI $x=2$: $-\\tfrac{1}{3} + 2$. I $x=1$: $-\\tfrac{8}{3} + 4$. Differanse: $\\big(2 - \\tfrac13\\big) - \\big(4 - \\tfrac83\\big) = \\tfrac53 - \\tfrac43 = \\tfrac13$. Ganget med $\\tfrac12$:\n$$\\iint_A y\\,dA = \\tfrac12\\cdot\\tfrac13 = \\tfrac16.$$\n\n**Svar:** $\\dfrac{1}{6}$ (eksakt).",
+        "hints": [
+          "Løs $x + 2/x = 3$ for skjæringen: $x = 1$ og $x = 2$.",
+          "Indre integral gir $\\tfrac12((3-x)^2 - 4/x^2)$; husk $\\int 4x^{-2}dx = -4/x$."
+        ]
+      }
+    },
+    {
+      "id": "mat1110-4-1-p6-w",
+      "type": "exercise",
+      "exercise": {
+        "id": "mat1110-4-1-p6",
+        "number": "12",
+        "type": "classic",
+        "difficulty": "vanskelig",
+        "task": "(Eksamensnivå.) Regn ut $\\displaystyle\\int_0^2\\!\\int_{y/2}^{1} \\cos(x^2)\\,dx\\,dy$ ved å bytte integrasjonsrekkefølge, og gi svaret eksakt.",
+        "solution": "$\\cos(x^2)$ har ingen elementær antiderivert i $x$, så vi snur. **Området:** $0 \\le y \\le 2$, $\\tfrac{y}{2} \\le x \\le 1$, dvs. under $x = 1$ og over $x = y/2$ (linjen $y = 2x$).\n\n**Type I:** for hver $x \\in [0,1]$ løper $y$ fra $0$ til $2x$:\n$$A = \\{0 \\le x \\le 1,\\ 0 \\le y \\le 2x\\}.$$\n\n$$\\int_0^1\\!\\int_0^{2x}\\cos(x^2)\\,dy\\,dx = \\int_0^1 \\cos(x^2)\\cdot 2x\\,dx.$$\n\n**Substitusjon** $u = x^2$, $du = 2x\\,dx$ (grenser $u: 0 \\to 1$):\n$$\\int_0^1 2x\\cos(x^2)\\,dx = \\int_0^1 \\cos u\\,du = \\big[\\sin u\\big]_0^1 = \\sin 1.$$\n\n**Svar:** $\\sin 1$ (eksakt; radianer).",
+        "hints": [
+          "Snu til $\\{0\\le x\\le 1,\\ 0\\le y\\le 2x\\}$ så $\\cos(x^2)$ blir konstant i $y$.",
+          "Etter snuing: $\\int_0^{2x}\\cos(x^2)\\,dy = 2x\\cos(x^2)$; bruk $u = x^2$."
+        ]
+      }
+    },
+    {
+      "id": "mat1110-4-1-bb",
+      "type": "text",
+      "content": "## Begrepsbank\n\nKjernebegrepene fra kapitlet samlet som oppslag og flashcards.\n\n*Begrepsbanken er flashcard-/repetisjonsstoff — den gjentar det du nettopp har lest. Hopp trygt over ved førstegangslesing; tidsanslaget for kapitlet gjelder kjernestoffet.*"
+    },
+    {
+      "id": "mat1110-4-1-bb-dA",
+      "type": "definition",
+      "title": "Arealelement $dA$",
+      "content": "Den lille flatebiten som dobbeltintegralet summerer over. I kartesiske koordinater er $dA = dx\\,dy = dy\\,dx$ (et lite rektangel med sider $dx$ og $dy$). Senere, ved variabelskifte til polarkoordinater, blir $dA = r\\,dr\\,d\\theta$ (kap. 4.2) — men i dette kapitlet holder vi oss til det rektangulære $dA$."
+    },
+    {
+      "id": "mat1110-4-1-bb-areal",
+      "type": "definition",
+      "title": "Areal som dobbeltintegral",
+      "content": "Arealet av et område $A$ er dobbeltintegralet av integranden $1$:\n\n$$\\text{Areal}(A) = \\iint_A 1\\,dA.$$\n\nDet er den direkte broen til «areal mellom kurver» fra R2: $\\int_a^b (v(x) - u(x))\\,dx$ er nettopp det indre integralet av $\\iint_A 1\\,dA$ regnet ut."
+    },
+    {
+      "id": "mat1110-4-1-bb-normal",
+      "type": "definition",
+      "title": "Normalområde",
+      "content": "Fellesnavnet på type I- og type II-områder: områder der den ene variabelen løper mellom to tall og den andre mellom to kurver. Alle de kurveavgrensede områdene i dette kapitlet er normalområder — og de fleste eksamensområder kan deles opp i endelig mange slike."
+    },
+    {
+      "id": "mat1110-4-1-bb-integrasjonsomraade",
+      "type": "definition",
+      "title": "Integrasjonsområde",
+      "content": "Selve flatestykket $A$ det integreres over — «grunnflaten» i planet. Å bestemme integrasjonsområdet riktig (grensekurver, skjæringspunkter, hvilken kurve som er øverst) er mesteparten av arbeidet i et dobbeltintegral; selve integrasjonen er rutine."
+    },
+    {
+      "id": "mat1110-4-1-bb-projeksjon",
+      "type": "definition",
+      "title": "Projeksjon på en akse",
+      "content": "Skyggen av området ned på $x$-aksen (eller $y$-aksen). For et type I-område er projeksjonen på $x$-aksen intervallet $[a,b]$ — nettopp de ytre grensene. Å finne projeksjonen er en rask måte å fastsette tallgrensene i det ytre integralet på."
+    },
+    {
+      "id": "mat1110-4-1-bb-fortegn",
+      "type": "definition",
+      "title": "Fortegn på dobbeltintegralet",
+      "content": "Dobbeltintegralet arver fortegnet til integranden: der $f < 0$ bidrar området **negativt** til $\\iint_A f\\,dA$. Bare når $f \\ge 0$ over hele $A$ tolkes integralet som et (positivt) volum. Et areal, $\\iint_A 1\\,dA$, er alltid positivt fordi integranden $1 > 0$."
+    },
+    {
+      "id": "mat1110-4-1-bb-additiv",
+      "type": "definition",
+      "title": "Additivitet over område",
+      "content": "Regelen som lar deg dele et komplisert område i biter: er $A = A_1 \\cup A_2$ uten overlapp, er\n\n$$\\iint_A f\\,dA = \\iint_{A_1} f\\,dA + \\iint_{A_2} f\\,dA.$$\n\nDette brukes når ingen enkel rekkefølge dekker hele området — men prøv alltid å velge en rekkefølge (type I eller II) som slipper oppdeling først."
+    },
+    {
+      "id": "mat1110-4-1-bb-konstant",
+      "type": "definition",
+      "title": "Konstant integrand",
+      "content": "Når $f(x,y) = c$ er konstant, faktoriseres den ut: $\\iint_A c\\,dA = c\\cdot\\text{Areal}(A)$. Spesielt gir $c = 1$ arealet. Å kjenne igjen en konstant integrand sparer regning — du trenger bare arealet."
+    },
+    {
+      "id": "mat1110-4-1-bb-grenser",
+      "type": "definition",
+      "title": "Grenser: tall vs. funksjoner",
+      "content": "Den bærende føringsregelen: i et iterert integral har det **indre** integralet grenser som kan være **funksjoner** av den ytre variabelen, mens det **ytre** integralet alltid har **tall** som grenser. Ser du en funksjon i de ytre grensene, har du satt rekkefølgen feil."
+    },
+    {
+      "id": "mat1110-4-1-bb-middelverdi",
+      "type": "definition",
+      "title": "Middelverdi over et område",
+      "content": "Gjennomsnittsverdien av $f$ over $A$ er integralet delt på arealet:\n\n$$\\bar f = \\frac{1}{\\text{Areal}(A)}\\iint_A f\\,dA.$$\n\nDet generaliserer gjennomsnittet av en funksjon på et intervall til to variable (kjennskap — dukker sjelden opp, men tolkningen er grei å ha)."
+    },
+    {
+      "id": "mat1110-4-1-bb-symmetri",
+      "type": "definition",
+      "title": "Symmetri som snarvei",
+      "content": "Er området symmetrisk om en akse og integranden **odde** i den variabelen, er integralet $0$ (bidragene kanselleres). For eksempel: $\\iint_A x\\,dA = 0$ når $A$ er symmetrisk om $y$-aksen. Å se en slik symmetri kan spare hele regnestykket — men sjekk at *både* området og integranden har symmetrien."
+    },
+    {
+      "id": "mat1110-4-1-rep",
+      "type": "collapsible",
+      "title": "Repetisjon",
+      "buttonText": "Vis repetisjonsoppgaver",
+      "content": [
+        {
+          "id": "mat1110-4-1-rep1-w",
+          "type": "exercise",
+          "exercise": {
+            "id": "mat1110-4-1-rep1",
+            "number": "R1",
+            "type": "classic",
+            "difficulty": "lett",
+            "task": "(Fra [Bestemt integral](/bok/r2/r2-2-4)) Regn ut enkeltintegralet $\\displaystyle\\int_0^2 (3x^2 - 2x)\\,dx$.",
+            "solution": "$$\\int_0^2 (3x^2 - 2x)\\,dx = \\big[x^3 - x^2\\big]_0^2 = 8 - 4 = 4.$$",
+            "hints": [
+              "Antiderivert av $3x^2$ er $x^3$, av $-2x$ er $-x^2$."
+            ]
+          }
+        },
+        {
+          "id": "mat1110-4-1-rep2-w",
+          "type": "exercise",
+          "exercise": {
+            "id": "mat1110-4-1-rep2",
+            "number": "R2",
+            "type": "classic",
+            "difficulty": "lett",
+            "task": "(Fra [Areal mellom kurver](/bok/r2/r2-2-7)) Finn arealet mellom $y = x$ og $y = x^2$ fra $x = 0$ til $x = 1$.",
+            "solution": "På $[0,1]$ er $x \\ge x^2$, så arealet er $\\int_0^1 (x - x^2)\\,dx = \\big[\\tfrac{x^2}{2} - \\tfrac{x^3}{3}\\big]_0^1 = \\tfrac12 - \\tfrac13 = \\tfrac16$. (Dette er nettopp det ytre integralet av $\\iint_A 1\\,dA$.)",
+            "hints": [
+              "Arealet er $\\int (\\text{øvre} - \\text{nedre})\\,dx$ mellom skjæringspunktene $0$ og $1$."
+            ]
+          }
+        },
+        {
+          "id": "mat1110-4-1-rep3-w",
+          "type": "exercise",
+          "exercise": {
+            "id": "mat1110-4-1-rep3",
+            "number": "R3",
+            "type": "classic",
+            "difficulty": "middels",
+            "task": "(Fra [kap. 2.1](/bok/mat1110/mat1110-2-1)) La $f(x,y) = x^2 y$. Regn den partiellderiverte $f_x$ og evaluer den i $(2,3)$.",
+            "solution": "$f_x = 2xy$ (deriver mhp. $x$, hold $y$ fast). I $(2,3)$: $f_x(2,3) = 2\\cdot 2\\cdot 3 = 12$.",
+            "hints": [
+              "Hold $y$ fast og deriver $x^2 y$ som $y\\cdot x^2$."
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": "mat1110-4-1-symbol",
+      "type": "collapsible",
+      "title": "Symbol- og formelliste",
+      "buttonText": "Vis symboler og formler",
+      "content": [
+        {
+          "id": "mat1110-4-1-symbol-text",
+          "type": "text",
+          "content": "## Symbol- og formelliste\n\n*Oppslagsverk — alt her forklares underveis i kapitlet.*\n\n| Symbol | Betydning |\n|---|---|\n| $\\iint_A f\\,dA$ | Dobbeltintegral av $f$ over området $A$ |\n| $dA$ | Arealelement, $dA = dx\\,dy = dy\\,dx$ |\n| $A$ | Integrasjonsområdet (flatestykke i planet) |\n| $u(x), v(x)$ | Nedre og øvre grensekurve (type I) |\n| $p(y), q(y)$ | Venstre og høyre grensekurve (type II) |\n| $[a,b]$ | Projeksjonen av $A$ på $x$-aksen (ytre grenser, type I) |\n| $V$ | Volum under en flate |\n\n**Iterert integral (type I):**\n$$\\iint_A f\\,dA = \\int_a^b\\!\\int_{u(x)}^{v(x)} f(x,y)\\,dy\\,dx.$$\nIntegrer $y$ innerst (kurvegrenser), $x$ ytterst (tallgrenser).\n\n**Iterert integral (type II):**\n$$\\iint_A f\\,dA = \\int_c^d\\!\\int_{p(y)}^{q(y)} f(x,y)\\,dx\\,dy.$$\n\n**Fubinis setning (bytte rekkefølge):**\n$$\\int_a^b\\!\\int_{u(x)}^{v(x)} f\\,dy\\,dx = \\int_c^d\\!\\int_{p(y)}^{q(y)} f\\,dx\\,dy.$$\n\n**Areal og volum:**\n$$\\text{Areal}(A) = \\iint_A 1\\,dA, \\qquad V = \\iint_A \\big(h(x,y) - g(x,y)\\big)\\,dA \\ \\ (\\text{topp} - \\text{bunn}).$$\n\n**Middelverdi:**\n$$\\bar f = \\frac{1}{\\text{Areal}(A)}\\iint_A f\\,dA.$$"
+        }
+      ]
+    }
+  ],
+  "exercises": []
+}

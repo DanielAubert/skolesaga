@@ -1,0 +1,285 @@
+{
+  "id": "mat1110-4-5",
+  "courseId": "mat1110",
+  "chapterNumber": "4.5",
+  "title": "Drill: multiple integraler — område, koordinatvalg og faktorisering",
+  "description": "95 %-sjangeren drillet: velg riktig koordinatsystem, beskriv området med ulikheter, løs skjæringen først og faktoriser — med fasitens føring hele veien.",
+  "estimatedMinutes": 90,
+  "competenceGoals": [
+    "velge koordinatsystem etter symmetri og løse skjæringen mellom kurver/flater før oppsett",
+    "føre dobbelt- og trippelintegral med riktig volumelement og faktorisering under tidspress",
+    "avgjøre konvergens av uegentlige multiple integraler med voksende kompakter og lim-føring"
+  ],
+  "content": [
+    {
+      "id": "mat1110-4-5-tip",
+      "type": "tip",
+      "title": "Eksamensvinkel",
+      "content": "**Dette er treningsleiren for multiple integraler — de dyreste, mest garanterte poengene på hvert eneste sett, drillet til automatikk.**\n\n- Kapitlet dekker **sjanger G** (dobbeltintegral, **95 %**), **sjanger I** (trippelintegral sylinder/kule, **50 %**) og **sjanger H** (uegentlig, konvergens) samlet. Ingen ny teori — bare mengdetrening på [kap. 4.1–4.4](/bok/mat1110/mat1110-4-1).\n- **Variantkatalogen** du skal kjenne igjen på reflekst: (1) dobbeltintegral over kurveavgrenset område, (2) polar/variabelskifte, (3) trippel i sylinder, (4) trippel i kule, (5) uegentlig med konvergens/divergens.\n- Føringspoengene sensor teller: **skjæringen løst** før grensene, **området som ulikheter**, **riktig volumelement** ($r$, $\\rho^2\\sin\\varphi$, Jacobi), **faktorisering** når mulig, **lim-føring** ved uegentlige, og **eksakt svar**.\n\n**Prioritet: høyeste.** Målet er at du på sekunder velger koordinatsystem, løser skjæringen og fører integralet feilfritt."
+    },
+    {
+      "id": "mat1110-4-5-fork",
+      "type": "text",
+      "content": "**Forkunnskaper.** Hele Del 4: dobbeltintegral og skjæring ([kap. 4.1](/bok/mat1110/mat1110-4-1)), polar og variabelskifte med Jacobi ([kap. 4.2](/bok/mat1110/mat1110-4-2)), trippelintegral i sylinder/kule ([kap. 4.3](/bok/mat1110/mat1110-4-3)) og uegentlige integraler via voksende kompakter ([kap. 4.4](/bok/mat1110/mat1110-4-4)). Alt forutsettes lært — her trener vi bruken under tidspress, med fasitens føring hele veien."
+    },
+    {
+      "id": "mat1110-4-5-oppskrift",
+      "type": "text",
+      "content": "## Løsningsoppskrift — beslutningstreet for multiple integraler\n\nFør du regner, still deg spørsmålene i rekkefølge:\n\n**1. Dimensjon** — dobbelt (flate) eller trippel (kropp)?\n\n**2. Symmetri → koordinatsystem:**\n- Rektangel / polynom-område → **kartesisk**.\n- Sirkel, ring, sektor, $x^2+y^2$ i integranden → **polar** ($dA = r\\,dr\\,d\\theta$).\n- Ellipse → **ellipsekoordinater** (Jacobi $ab\\,r$).\n- Rotasjon om $z$-aksen (sylinder/kjegle/paraboloide) → **sylinder** ($dV = r\\,dz\\,dr\\,d\\theta$).\n- Kule / kuleskall / kjegle-i-rommet → **kule** ($dV = \\rho^2\\sin\\varphi\\,d\\rho\\,d\\varphi\\,d\\theta$).\n\n**3. Løs skjæringen** der kurver/flater møtes — sett dem lik hverandre, regn grensene (aldri gjett).\n\n**4. Beskriv området med eksplisitte ulikheter** — innerste variabel mellom kurver/flater, ytterste mellom tall.\n\n**5. Riktig volumelement** — husk faktoren $r$ (polar/sylinder), $\\rho^2\\sin\\varphi$ (kule), $\\left|\\tfrac{\\partial(x,y)}{\\partial(u,v)}\\right|$ (generelt skifte).\n\n**6. Integrer innerst først, og faktoriser** når integrand og grenser separerer (særlig $\\theta$-delen $= 2\\pi$).\n\n**7. Uegentlig?** Bytt til voksende kompakter $K_n$/$K_R$ og ta grensen — aldri «sett inn $\\infty$».\n\n**8. Svar eksakt** — behold brøker, $\\pi$ og røtter."
+    },
+    {
+      "id": "mat1110-4-5-def-beslutning",
+      "type": "definition",
+      "title": "Beslutningstreet (algoritme)",
+      "content": "Den faste rekkefølgen for enhver oppgave om multiple integraler: dimensjon → koordinatsystem etter symmetri → løs skjæringen → beskriv området med ulikheter → riktig volumelement → integrer innerst først og faktoriser → uegentlig? bruk voksende kompakter + lim → eksakt svar. Å følge treet punkt for punkt er det som gjør at føringen sitter under tidspress."
+    },
+    {
+      "id": "mat1110-4-5-def-koordvalg",
+      "type": "definition",
+      "title": "Koordinatvalg etter symmetri",
+      "content": "Det enkeltvalget som avgjør om oppgaven blir lett eller uløselig. Sirkelsymmetri i planet ⇒ polar; ellipse ⇒ ellipsekoordinater; rotasjon om $z$-aksen ⇒ sylinder; kuleform ⇒ kule; rektangel/polynom ⇒ kartesisk. La geometrien til **både området og integranden** bestemme — et godt valg forenkler begge samtidig."
+    },
+    {
+      "id": "mat1110-4-5-def-skjaering",
+      "type": "definition",
+      "title": "Skjæringen løst før oppsett",
+      "content": "Føringsgrepet der grenseflatene eller -kurvene settes lik hverandre og skjæringen regnes fram *før* integralet settes opp — for eksempel $r^2 = 8 - r^2 \\Rightarrow r = 2$. Sensor honorerer den utregnede skjæringen som et selvstendig poeng; en gjettet grense er en byggefeil. Skjæringen gir de ytre grensene og ofte den ene indre."
+    },
+    {
+      "id": "mat1110-4-5-def-volumfaktor",
+      "type": "definition",
+      "title": "Volumelementets faktor",
+      "content": "Den ekstra faktoren som følger koordinatskiftet og **aldri må glemmes**: $r$ i polar og sylinder, $\\rho^2\\sin\\varphi$ i kule, og $\\left|\\tfrac{\\partial(x,y)}{\\partial(u,v)}\\right|$ ved generelt variabelskifte. Den er Jacobideterminanten til skiftet og måler hvor mye arealet/volumet strekkes. Å glemme den er den dyreste enkeltfeilen i hele Del 4."
+    },
+    {
+      "id": "mat1110-4-5-def-faktlim",
+      "type": "definition",
+      "title": "Faktorisering og lim-føring",
+      "content": "To sluttgrep. **Faktorisering:** når integrand og grenser separerer, skriv integralet som et produkt av enkeltintegraler ($\\theta$-delen gir ofte bare $2\\pi$). **Lim-føring:** ved uegentlige integraler regnes integralet over en voksende kompakt først, og grensen tas eksplisitt — aldri ved å «sette inn $\\infty$». Begge er føringspoeng."
+    },
+    {
+      "id": "mat1110-4-5-case",
+      "type": "example",
+      "title": "Gjennomregnet eksamenscase — trippelintegral der to flater møtes (sylinder, faktorisert)",
+      "problem": "Regn ut $\\displaystyle\\iiint_V z\\,dV$, der $V$ er kroppen avgrenset nedenfra av paraboloiden $z = x^2 + y^2$ og ovenfra av paraboloiden $z = 8 - x^2 - y^2$.",
+      "solution": "**Steg 1–2 (dimensjon, koordinater):** trippelintegral over en kropp med rotasjonssymmetri om $z$-aksen ⇒ **sylinderkoordinater**, med nedre flate $z = r^2$ og øvre $z = 8 - r^2$.\n*Sensor: riktig koordinatvalg begrunnet med symmetrien er første føringspoeng.*\n\n**Steg 3 (løs skjæringen):**\n$$r^2 = 8 - r^2 \\;\\Longrightarrow\\; 2r^2 = 8 \\;\\Longrightarrow\\; r = 2 \\quad(z = 4).$$\n*Sensor: skjæringen $r = 2$ skal regnes, ikke gjettes — eget poeng.*\n\n**Steg 4 (området som ulikheter):**\n$$V = \\{0 \\le \\theta \\le 2\\pi,\\ 0 \\le r \\le 2,\\ r^2 \\le z \\le 8 - r^2\\}.$$\n*Sensor: eksplisitte ulikheter før oppsett.*\n\n**Steg 5–6 (volumelement $r$, integrer innerst, faktoriser):**\n$$\\iiint_V z\\,dV = \\int_0^{2\\pi}\\!\\int_0^2\\!\\int_{r^2}^{8-r^2} z\\,r\\,dz\\,dr\\,d\\theta.$$\n**Innerst** ($z$): $\\displaystyle\\int_{r^2}^{8-r^2} z\\,dz = \\tfrac12\\big((8-r^2)^2 - (r^2)^2\\big) = \\tfrac12\\big(64 - 16r^2\\big) = 32 - 8r^2$.\n\nSå $\\iiint_V z\\,dV = \\int_0^{2\\pi}\\!\\int_0^2 (32 - 8r^2)\\,r\\,dr\\,d\\theta$. **Faktoriser** $\\theta$-delen:\n$$= 2\\pi\\int_0^2 (32r - 8r^3)\\,dr = 2\\pi\\Big[16r^2 - 2r^4\\Big]_0^2 = 2\\pi(64 - 32) = 64\\pi.$$\n*Sensor: faktoriseringen av $\\theta$-delen ($2\\pi$) og det riktige volumelementet $r$ er føringspoeng.*\n\n**Steg 8 (svar eksakt):** $\\displaystyle\\iiint_V z\\,dV = 64\\pi$.\n*Sensor: eksakt verdi ($64\\pi$, ikke $201{,}06$), verbal konklusjon — full uttelling.*"
+    },
+    {
+      "id": "mat1110-4-5-drill",
+      "type": "text",
+      "content": "## Drilloppgaver — hele variantkatalogen\n\nHver oppgave er merket med hvilken variant den trener. Følg beslutningstreet: velg system, løs skjæringen, skriv ulikheter, riktig volumelement, eksakt svar."
+    },
+    {
+      "id": "mat1110-4-5-d1-w",
+      "type": "exercise",
+      "exercise": {
+        "id": "mat1110-4-5-d1",
+        "number": "1",
+        "type": "classic",
+        "difficulty": "lett",
+        "task": "(Variant: dobbelt kurveavgrenset.) La $A$ være området avgrenset av $y = x^2$ og $y = x$. Regn ut $\\iint_A 2x\\,dA$.",
+        "solution": "**Skjæring:** $x^2 = x \\Rightarrow x(x-1) = 0 \\Rightarrow x = 0,\\ 1$. På $(0,1)$ er $x \\ge x^2$, så $A = \\{0\\le x\\le 1,\\ x^2\\le y\\le x\\}$.\n$$\\int_0^1\\!\\int_{x^2}^{x} 2x\\,dy\\,dx = \\int_0^1 2x(x - x^2)\\,dx = \\int_0^1 (2x^2 - 2x^3)\\,dx = \\Big[\\tfrac{2x^3}{3} - \\tfrac{x^4}{2}\\Big]_0^1 = \\tfrac23 - \\tfrac12 = \\tfrac16.$$\n\n**Svar:** $\\dfrac16$.",
+        "hints": [
+          "Skjæring $x^2 = x$ gir $0$ og $1$; linjen er øverst.",
+          "Indre: $\\int_{x^2}^x 2x\\,dy = 2x(x - x^2)$."
+        ]
+      }
+    },
+    {
+      "id": "mat1110-4-5-d2-w",
+      "type": "exercise",
+      "exercise": {
+        "id": "mat1110-4-5-d2",
+        "number": "2",
+        "type": "classic",
+        "difficulty": "lett",
+        "task": "(Variant: polar.) Regn ut $\\iint_A (x^2 + y^2)\\,dA$ over skiven $A: x^2 + y^2 \\le 9$.",
+        "solution": "Sirkelsymmetri ⇒ polar. Integrand $r^2$, $A = \\{0\\le r\\le 3,\\ 0\\le\\theta\\le 2\\pi\\}$, faktor $r$:\n$$\\int_0^{2\\pi}\\!\\int_0^3 r^2\\cdot r\\,dr\\,d\\theta = 2\\pi\\Big[\\tfrac{r^4}{4}\\Big]_0^3 = 2\\pi\\cdot\\tfrac{81}{4} = \\tfrac{81\\pi}{2}.$$\n\n**Svar:** $\\dfrac{81\\pi}{2}$.",
+        "hints": [
+          "$x^2+y^2 = r^2$; ganget faktoren $r$ gir $r^3$.",
+          "$\\int_0^3 r^3\\,dr = \\tfrac{81}{4}$."
+        ]
+      }
+    },
+    {
+      "id": "mat1110-4-5-d3-w",
+      "type": "exercise",
+      "exercise": {
+        "id": "mat1110-4-5-d3",
+        "number": "3",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "(Variant: sylinder.) Finn volumet av kjeglen avgrenset av $z = \\sqrt{x^2+y^2}$ og planet $z = 4$.",
+        "solution": "Sylinder: kjegle $z = r$. **Skjæring:** $r = 4$. $V = \\{0\\le\\theta\\le 2\\pi,\\ 0\\le r\\le 4,\\ r\\le z\\le 4\\}$:\n$$\\int_0^{2\\pi}\\!\\int_0^4 r(4 - r)\\,dr\\,d\\theta = 2\\pi\\int_0^4 (4r - r^2)\\,dr = 2\\pi\\Big[2r^2 - \\tfrac{r^3}{3}\\Big]_0^4 = 2\\pi\\big(32 - \\tfrac{64}{3}\\big) = 2\\pi\\cdot\\tfrac{32}{3} = \\tfrac{64\\pi}{3}.$$\n\n**Svar:** $\\dfrac{64\\pi}{3}$.",
+        "hints": [
+          "Kjegle $z = r$ møter lokket $z = 4$ ved $r = 4$.",
+          "Indre ($z$): $\\int_r^4 r\\,dz = r(4 - r)$."
+        ]
+      }
+    },
+    {
+      "id": "mat1110-4-5-d4-w",
+      "type": "exercise",
+      "exercise": {
+        "id": "mat1110-4-5-d4",
+        "number": "4",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "(Variant: kule.) Finn volumet av kula $x^2 + y^2 + z^2 \\le 1$ i kulekoordinater.",
+        "solution": "Kuleform ⇒ kule. $V = \\{0\\le\\rho\\le 1,\\ 0\\le\\varphi\\le\\pi,\\ 0\\le\\theta\\le 2\\pi\\}$, volumelement $\\rho^2\\sin\\varphi$:\n$$\\int_0^{2\\pi}\\!\\int_0^{\\pi}\\!\\int_0^1 \\rho^2\\sin\\varphi\\,d\\rho\\,d\\varphi\\,d\\theta = 2\\pi\\cdot 2\\cdot\\tfrac13 = \\tfrac{4\\pi}{3}.$$\n\n**Svar:** $\\dfrac{4\\pi}{3}$ (stemmer med $\\tfrac43\\pi a^3$ for $a=1$).",
+        "hints": [
+          "Faktoriser: $\\theta$-del $2\\pi$, $\\varphi$-del $\\int_0^\\pi\\sin\\varphi = 2$, $\\rho$-del $\\int_0^1\\rho^2 = \\tfrac13$.",
+          "Husk $\\int_0^\\pi\\sin\\varphi\\,d\\varphi = 2$."
+        ]
+      }
+    },
+    {
+      "id": "mat1110-4-5-d5-w",
+      "type": "exercise",
+      "exercise": {
+        "id": "mat1110-4-5-d5",
+        "number": "5",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "(Variant: uegentlig med konvergens.) Avgjør om $\\iint_{\\mathbb{R}^2} e^{-2(x^2+y^2)}\\,dA$ konvergerer, og finn verdien.",
+        "solution": "Radiell ⇒ skiver $K_R$, polar. $\\int_0^{2\\pi}\\!\\int_0^R e^{-2r^2} r\\,dr\\,d\\theta = 2\\pi\\big[-\\tfrac14 e^{-2r^2}\\big]_0^R = \\tfrac{\\pi}{2}(1 - e^{-2R^2})$.\n**Lim-føring:** $\\lim_{R\\to\\infty}\\tfrac{\\pi}{2}(1 - e^{-2R^2}) = \\tfrac{\\pi}{2}$.\n\n**Konvergerer**, verdi $\\dfrac{\\pi}{2}$.",
+        "hints": [
+          "$\\int r e^{-2r^2}dr = -\\tfrac14 e^{-2r^2}$; ta $\\lim_{R\\to\\infty}$.",
+          "$e^{-2R^2}\\to 0$."
+        ]
+      }
+    },
+    {
+      "id": "mat1110-4-5-d6-w",
+      "type": "exercise",
+      "exercise": {
+        "id": "mat1110-4-5-d6",
+        "number": "6",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "(Variant: dobbelt, bytte rekkefølge.) Regn ut $\\displaystyle\\int_0^1\\!\\int_{2y}^{2} e^{x^2}\\,dx\\,dy$ ved å snu integrasjonsrekkefølgen.",
+        "solution": "$e^{x^2}$ har ingen elementær antiderivert i $x$ ⇒ snu. Området $\\{0\\le y\\le 1,\\ 2y\\le x\\le 2\\}$ = $\\{0\\le x\\le 2,\\ 0\\le y\\le x/2\\}$:\n$$\\int_0^2\\!\\int_0^{x/2} e^{x^2}\\,dy\\,dx = \\int_0^2 \\tfrac{x}{2}e^{x^2}\\,dx = \\tfrac14\\int_0^2 2x e^{x^2}\\,dx = \\tfrac14\\big[e^{x^2}\\big]_0^2 = \\tfrac14(e^4 - 1).$$\n\n**Svar:** $\\dfrac{e^4 - 1}{4}$.",
+        "hints": [
+          "Snu til $\\{0\\le x\\le 2,\\ 0\\le y\\le x/2\\}$; da blir $\\int_0^{x/2}e^{x^2}dy = \\tfrac{x}{2}e^{x^2}$.",
+          "Bruk $\\int 2x e^{x^2}dx = e^{x^2}$."
+        ]
+      }
+    },
+    {
+      "id": "mat1110-4-5-d7-w",
+      "type": "exercise",
+      "exercise": {
+        "id": "mat1110-4-5-d7",
+        "number": "7",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "(Variant: variabelskifte/ellipse.) Finn arealet av ellipseskiven $D: \\dfrac{x^2}{25} + \\dfrac{y^2}{9} \\le 1$.",
+        "solution": "$a = 5,\\ b = 3$. Skifte $x = 5r\\cos\\theta,\\ y = 3r\\sin\\theta$, Jacobi $ab\\,r = 15r$, område $\\{0\\le r\\le 1,\\ 0\\le\\theta\\le 2\\pi\\}$:\n$$\\iint_D 1\\,dx\\,dy = \\int_0^{2\\pi}\\!\\int_0^1 15r\\,dr\\,d\\theta = 2\\pi\\cdot 15\\cdot\\tfrac12 = 15\\pi.$$\n\n**Svar:** $15\\pi$ (stemmer med $\\pi a b = \\pi\\cdot 5\\cdot 3$).",
+        "hints": [
+          "$a=5,\\ b=3$; Jacobi $= ab\\,r = 15r$.",
+          "Areal $= \\pi a b$."
+        ]
+      }
+    },
+    {
+      "id": "mat1110-4-5-d8-w",
+      "type": "exercise",
+      "exercise": {
+        "id": "mat1110-4-5-d8",
+        "number": "8",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "(Variant: sylinder, faktorisering.) Regn ut $\\iiint_V (x^2+y^2)\\,dV$ over sylinderen $V: x^2+y^2 \\le 4,\\ 0 \\le z \\le 5$.",
+        "solution": "Sylinder, integrand $r^2$, alle grenser konstante ⇒ faktoriser:\n$$\\int_0^{2\\pi}\\!\\int_0^2\\!\\int_0^5 r^2\\cdot r\\,dz\\,dr\\,d\\theta = 2\\pi\\cdot\\Big(\\int_0^2 r^3\\,dr\\Big)\\cdot 5 = 2\\pi\\cdot 4\\cdot 5 = 40\\pi.$$\n\n**Svar:** $40\\pi$.",
+        "hints": [
+          "Integrand $r^2\\cdot$ faktor $r$ $= r^3$; grensene er konstante.",
+          "$\\int_0^2 r^3\\,dr = 4$."
+        ]
+      }
+    },
+    {
+      "id": "mat1110-4-5-d9-w",
+      "type": "exercise",
+      "exercise": {
+        "id": "mat1110-4-5-d9",
+        "number": "9",
+        "type": "classic",
+        "difficulty": "vanskelig",
+        "task": "(Variant: kule, ikke-triviell integrand.) Regn ut $\\iiint_V z^2\\,dV$ over kula $V: \\rho \\le 2$.",
+        "solution": "Integrand $z^2 = (\\rho\\cos\\varphi)^2 = \\rho^2\\cos^2\\varphi$; hele kula. Med volumelement $\\rho^2\\sin\\varphi$:\n$$\\int_0^{2\\pi}\\!\\int_0^{\\pi}\\!\\int_0^2 \\rho^2\\cos^2\\varphi\\cdot\\rho^2\\sin\\varphi\\,d\\rho\\,d\\varphi\\,d\\theta = 2\\pi\\Big(\\int_0^\\pi \\cos^2\\varphi\\sin\\varphi\\,d\\varphi\\Big)\\Big(\\int_0^2 \\rho^4\\,d\\rho\\Big).$$\n$\\int_0^\\pi\\cos^2\\varphi\\sin\\varphi\\,d\\varphi = \\big[-\\tfrac13\\cos^3\\varphi\\big]_0^\\pi = -\\tfrac13(-1) + \\tfrac13(1) = \\tfrac23$, og $\\int_0^2\\rho^4 d\\rho = \\tfrac{32}{5}$. Altså\n$$\\iiint_V z^2\\,dV = 2\\pi\\cdot\\tfrac23\\cdot\\tfrac{32}{5} = \\tfrac{128\\pi}{15}.$$\n\n**Svar:** $\\dfrac{128\\pi}{15}$.",
+        "hints": [
+          "$z = \\rho\\cos\\varphi$, så $z^2 = \\rho^2\\cos^2\\varphi$; ganget $\\rho^2\\sin\\varphi$ gir $\\rho^4\\cos^2\\varphi\\sin\\varphi$.",
+          "$\\int_0^\\pi\\cos^2\\varphi\\sin\\varphi\\,d\\varphi = \\tfrac23$ (sett $u=\\cos\\varphi$)."
+        ]
+      }
+    },
+    {
+      "id": "mat1110-4-5-d10-w",
+      "type": "exercise",
+      "exercise": {
+        "id": "mat1110-4-5-d10",
+        "number": "10",
+        "type": "classic",
+        "difficulty": "vanskelig",
+        "task": "(Variant: trippel, to flater møtes.) Finn volumet av kroppen avgrenset nedenfra av kjeglen $z = \\sqrt{x^2+y^2}$ og ovenfra av $z = 6 - x^2 - y^2$.",
+        "solution": "Sylinder: kjegle $z = r$, øvre $z = 6 - r^2$. **Skjæring:** $r = 6 - r^2 \\Rightarrow r^2 + r - 6 = 0 \\Rightarrow (r+3)(r-2)=0 \\Rightarrow r = 2$.\n$V = \\{0\\le\\theta\\le 2\\pi,\\ 0\\le r\\le 2,\\ r\\le z\\le 6-r^2\\}$:\n$$\\int_0^{2\\pi}\\!\\int_0^2 r(6 - r^2 - r)\\,dr\\,d\\theta = 2\\pi\\int_0^2 (6r - r^3 - r^2)\\,dr = 2\\pi\\Big[3r^2 - \\tfrac{r^4}{4} - \\tfrac{r^3}{3}\\Big]_0^2.$$\n$$= 2\\pi\\big(12 - 4 - \\tfrac83\\big) = 2\\pi\\cdot\\tfrac{16}{3} = \\tfrac{32\\pi}{3}.$$\n\n**Svar:** $\\dfrac{32\\pi}{3}$.",
+        "hints": [
+          "Skjæring: $r = 6 - r^2$ gir $r = 2$.",
+          "Indre ($z$): $\\int_r^{6-r^2} r\\,dz = r(6 - r^2 - r)$."
+        ]
+      }
+    },
+    {
+      "id": "mat1110-4-5-d11-w",
+      "type": "exercise",
+      "exercise": {
+        "id": "mat1110-4-5-d11",
+        "number": "11",
+        "type": "classic",
+        "difficulty": "vanskelig",
+        "task": "(Variant: uegentlig, divergens.) Avgjør om $\\iint_A \\dfrac{1}{(x^2+y^2)^{1/2}}\\,dA$ over $A: x^2+y^2 \\ge 1$ konvergerer.",
+        "solution": "Radiell ⇒ skiver, polar. Integrand $\\tfrac{1}{r}$, med faktor $r$ ⇒ $1$: $A\\cap K_R = \\{1\\le r\\le R\\}$:\n$$\\int_0^{2\\pi}\\!\\int_1^R \\frac{1}{r}\\cdot r\\,dr\\,d\\theta = 2\\pi\\int_1^R 1\\,dr = 2\\pi(R - 1).$$\n**Lim-føring:** $\\lim_{R\\to\\infty} 2\\pi(R - 1) = \\infty$.\n\n**Divergerer.** (Integranden avtar for sakte: $\\tfrac1r$ ganget faktoren $r$ gir en konstant, hvis integral vokser lineært.)",
+        "hints": [
+          "$(x^2+y^2)^{1/2} = r$; med faktoren $r$ blir integranden $1$.",
+          "$\\int_1^R 1\\,dr = R - 1 \\to \\infty$."
+        ]
+      }
+    },
+    {
+      "id": "mat1110-4-5-d12-w",
+      "type": "exercise",
+      "exercise": {
+        "id": "mat1110-4-5-d12",
+        "number": "12",
+        "type": "classic",
+        "difficulty": "vanskelig",
+        "task": "(Variant: dobbelt kurveavgrenset, eksamensnivå.) La $A$ være området i første kvadrant avgrenset av $y = 4 - x^2$ og de to aksene. Regn ut $\\iint_A x\\,dA$.",
+        "solution": "Parabelen treffer $x$-aksen ved $x = 2$, så $A = \\{0\\le x\\le 2,\\ 0\\le y\\le 4 - x^2\\}$:\n$$\\int_0^2\\!\\int_0^{4-x^2} x\\,dy\\,dx = \\int_0^2 x(4 - x^2)\\,dx = \\int_0^2 (4x - x^3)\\,dx = \\Big[2x^2 - \\tfrac{x^4}{4}\\Big]_0^2 = 8 - 4 = 4.$$\n\n**Svar:** $4$.",
+        "hints": [
+          "Parabelen $y = 4 - x^2$ møter $x$-aksen ved $x = 2$.",
+          "Indre ($y$): $\\int_0^{4-x^2} x\\,dy = x(4 - x^2)$."
+        ]
+      }
+    },
+    {
+      "id": "mat1110-4-5-warn",
+      "type": "warning",
+      "title": "Typiske feil (hele Del 4 under tidspress)",
+      "content": "Fellene fra [kap. 4.1–4.4](/bok/mat1110/mat1110-4-1) slår hardest når klokka går:\n\n- **Glemt volumelement-faktor** — $r$ (polar/sylinder), $\\rho^2\\sin\\varphi$ (kule), Jacobi (generelt skifte). Den dyreste enkeltfeilen; skriv den inn med én gang du bytter koordinater.\n- **Gjettede grenser** i stedet for løst skjæring. Sett flatene/kurvene lik hverandre og regn ($r^2 = 8 - r^2 \\Rightarrow r = 2$).\n- **Feil koordinatvalg** for symmetrien — kartesisk der polar var lett, eller omvendt.\n- **Ikke faktorisert** når integrand og grenser separerer — unødig dobbeltarbeid ($\\theta$-delen er ofte bare $2\\pi$).\n- **«Sett inn $\\infty$»** ved uegentlige integraler i stedet for $\\lim_{R\\to\\infty}$ med voksende kompakter.\n- **Feil $\\varphi$-grenser i kule**, og $\\int_0^\\pi\\sin\\varphi\\,d\\varphi$ regnet som $0$ (det er $2$).\n- **Desimaltilnærming** der eksakt svar kreves — behold $64\\pi$, $\\tfrac{128\\pi}{15}$, $\\tfrac{\\pi}{2}$."
+    },
+    {
+      "id": "mat1110-4-5-symbol",
+      "type": "collapsible",
+      "title": "Symbol- og formelliste",
+      "buttonText": "Vis symboler og formler",
+      "content": [
+        {
+          "id": "mat1110-4-5-symbol-text",
+          "type": "text",
+          "content": "## Symbol- og formelliste\n\n*Oppslagsverk — alt her forklares underveis i [kap. 4.1–4.4](/bok/mat1110/mat1110-4-1).*\n\n| Symbol | Betydning |\n|---|---|\n| $\\iint_A f\\,dA$ | Dobbeltintegral over flateområdet $A$ |\n| $\\iiint_V f\\,dV$ | Trippelintegral over kroppen $V$ |\n| $dA = r\\,dr\\,d\\theta$ | Arealelement i polar |\n| $dV = r\\,dz\\,dr\\,d\\theta$ | Volumelement i sylinder |\n| $dV = \\rho^2\\sin\\varphi\\,d\\rho\\,d\\varphi\\,d\\theta$ | Volumelement i kule |\n| $\\left|\\tfrac{\\partial(x,y)}{\\partial(u,v)}\\right|$ | Jacobideterminant (generelt skifte) |\n| $K_R,\\ K_n$ | Voksende kompakter (uegentlig) |\n\n**Beslutningstreet:** dimensjon → koordinatsystem (symmetri) → løs skjæring → ulikheter → volumelement → integrer innerst, faktoriser → uegentlig: $\\lim$ over $K_n$ → eksakt svar.\n\n**Volumelementene (aldri glem faktoren):**\n$$dA = r\\,dr\\,d\\theta, \\quad dV = r\\,dz\\,dr\\,d\\theta, \\quad dV = \\rho^2\\sin\\varphi\\,d\\rho\\,d\\varphi\\,d\\theta.$$\n\n**Ellipseskifte:** $x = ar\\cos\\theta,\\ y = br\\sin\\theta$, Jacobi $ab\\,r$, areal $\\pi a b$.\n\n**Uegentlig:** $\\displaystyle\\iint_A f = \\lim_{n\\to\\infty}\\iint_{A\\cap K_n} f$.\n\n**Nyttige verdier:** $\\int_0^\\pi\\sin\\varphi\\,d\\varphi = 2$, $\\iint_{\\mathbb{R}^2} e^{-(x^2+y^2)}dA = \\pi$, kulevolum $\\tfrac43\\pi a^3$."
+        }
+      ]
+    }
+  ],
+  "exercises": []
+}

@@ -1,0 +1,274 @@
+{
+  "id": "mat1110-1-5",
+  "courseId": "mat1110",
+  "chapterNumber": "1.5",
+  "title": "Drill: radreduksjonspakken — basis · invers · parameter",
+  "description": "Hele radreduksjons-repertoaret på eksamensnivå: basisavgjørelse, invers via [A|I], nullrom/rang og parameterløsbarhet — den faste O1-åpningen i det nye regimet, drillet til automatikk med merket føring.",
+  "estimatedMinutes": 90,
+  "competenceGoals": [
+    "kjenne igjen hvilken av sjanger A-variantene (sjanger A = radreduksjons-, basis- og inversoppgaven, eksamens faste åpningsoppgave) en oppgave er, og stille opp riktig matrise",
+    "løse basis-, invers-, nullrom/rang- og parameterløsbarhetsoppgaver raskt med merket føring",
+    "kjede delpunkter ved å gjenbruke en utregnet invers og konkludere med navngitte kriterier"
+  ],
+  "content": [
+    {
+      "id": "mat1110-1-5-tip",
+      "type": "tip",
+      "title": "Eksamensvinkel",
+      "content": "**Dette er treningsleiren for O1 i det nye regimet — hele sjanger A samlet, drillet til automatikk.**\n\n- Sjanger A (radreduksjonspakken) er i **14 av 20 sett (70 %)** og er **nesten alltid åpningsoppgaven (O1)** i V2025-regimet. Klarer du disse fem variantene raskt og med merket føring, sikrer du de billigste poengene før du bruker tid på de dyre O6-oppgavene.\n- **Variantkatalogen** du må kjenne igjen på sekunder: (1) basisavgjørelse, (2) invers via $[A\\,|\\,I]$, (3) basis for nullrom/søylerom + rang, (4) parameteravhengig løsbarhet, (5) kjedet delpunkt der inversen gjenbrukes.\n- Føringspoengene sensor teller: **merkede radoperasjoner**, riktig **konklusjonssetning** med navngitt kriterium, og **gjenbruk av inversen** i neste delpunkt.\n\n**Prioritet: høyeste.** Ingen ny teori her — bare mengdetrening på [kap. 1.1–1.4](/bok/mat1110/mat1110-1-1)."
+    },
+    {
+      "id": "mat1110-1-5-fork",
+      "type": "text",
+      "content": "**Forkunnskaper.** Hele Del 1: radreduksjon og trappeform ([kap. 1.1](/bok/mat1110/mat1110-1-1)), basis/nullrom/søylerom/rang ([kap. 1.2](/bok/mat1110/mat1110-1-2)), invers og inverterbarhetskriteriene ([kap. 1.3](/bok/mat1110/mat1110-1-3)), lineæravbildninger og parameterløsbarhet ([kap. 1.4](/bok/mat1110/mat1110-1-4)). Alt her forutsettes lært — dette kapitlet trener bruken under tidspress."
+    },
+    {
+      "id": "mat1110-1-5-oppskrift",
+      "type": "text",
+      "content": "## Løsningsoppskrift — radreduksjonspakken\n\nEnhver sjanger A-oppgave løses i fire steg. Det som avgjør, er å **stille opp riktig matrise** i steg 1:\n\n**1. Still opp riktig matrise** — dette bestemmes av spørsmålet:\n- «Er vektorene en basis / uavhengige?» → skriv vektorene som **søyler**.\n- «Finn inversen» → sett opp $[A\\,|\\,I_n]$.\n- «Løs $Ax=b$» / «for hvilke parametre er systemet løsbart?» → sett opp $[A\\,|\\,b]$.\n- «Basis for nullrom/søylerom, rang?» → radreduser $A$ alene.\n\n**2. Radreduser med merkede operasjoner** ($II-2I$, $III+I$, …) over hvert $\\sim$-tegn — dette er føringspoeng.\n\n**3. Les av det spørsmålet krever:**\n- pivoter → rang og basis (søylerom = **original**søylene ved pivotene);\n- frie variabler → basis for nullrommet (én vektor per fri variabel);\n- $[I_n\\,|\\,A^{-1}]$ → inversen i høyre halvdel;\n- konsistens (motsigelsesrad?) → løsbarhet.\n\n**4. Konkluder med det navngitte kriteriet** — «radekvivalent med $I_n$, altså danner søylene en basis», «$\\det\\ne0$, altså inverterbar», «nullrad uten motsigelse, altså uendelig mange løsninger». Og **gjenbruk** en invers du alt har regnet."
+    },
+    {
+      "id": "mat1110-1-5-ex-o1",
+      "type": "example",
+      "title": "Gjennomregnet O1-case (basis + invers kjedet) — med sensornotater",
+      "problem": "La $A=\\begin{pmatrix}1&2&0\\\\2&5&1\\\\0&1&2\\end{pmatrix}$.\n\n**a)** Vis at $A$ er inverterbar og finn $A^{-1}$.\n**b)** Bruk (a) til å løse $Ax=(1,1,1)^T$.\n**c)** Danner søylene i $A$ en basis for $\\mathbb{R}^3$?",
+      "solution": "**a)** Radreduser $[A\\,|\\,I_3]$:\n$$\\left[\\begin{array}{ccc|ccc}1&2&0&1&0&0\\\\2&5&1&0&1&0\\\\0&1&2&0&0&1\\end{array}\\right]\\overset{\\;II-2I\\;}{\\sim}\\left[\\begin{array}{ccc|ccc}1&2&0&1&0&0\\\\0&1&1&-2&1&0\\\\0&1&2&0&0&1\\end{array}\\right]\\overset{\\;III-II\\;}{\\sim}\\left[\\begin{array}{ccc|ccc}1&2&0&1&0&0\\\\0&1&1&-2&1&0\\\\0&0&1&2&-1&1\\end{array}\\right]$$\n$$\\overset{\\;II-III,\\ I-2II\\;}{\\sim}\\left[\\begin{array}{ccc|ccc}1&0&0&9&-4&2\\\\0&1&0&-4&2&-1\\\\0&0&1&2&-1&1\\end{array}\\right]$$\n*Sensor: hver radoperasjon er merket over $\\sim$ — det er her føringspoengene ligger.* Venstre halvdel ble $I_3$, altså er $A$ **inverterbar** (radekvivalent med $I_3$), og\n$$A^{-1}=\\begin{pmatrix}9&-4&2\\\\-4&2&-1\\\\2&-1&1\\end{pmatrix}.$$\n*Sensor: konklusjonssetningen «radekvivalent med $I_3$ ⇒ inverterbar» gir uttelling, ikke bare tallene.*\n\n**b)** Gjenbruk inversen: $x=A^{-1}(1,1,1)^T=\\begin{pmatrix}9-4+2\\\\-4+2-1\\\\2-1+1\\end{pmatrix}=\\begin{pmatrix}7\\\\-3\\\\2\\end{pmatrix}$. *Sensor: her premieres at du bruker inversen fra (a) i stedet for å radredusere på nytt — vis koblingen eksplisitt.* Kontroll: $1\\cdot7+2\\cdot(-3)+0\\cdot2=1$ ✓.\n\n**c)** Siden $A$ er inverterbar (fra a), er søylene radekvivalente med $I_3$, altså **danner de en basis for $\\mathbb{R}^3$** (inverterbarhetsteoremet, punkt 4). *Sensor: ikke regn på nytt — (a) har allerede avgjort dette; bare siter kriteriet.*"
+    },
+    {
+      "id": "mat1110-1-5-typiske-feil",
+      "type": "warning",
+      "title": "Typiske feil",
+      "content": "De samme tabbene går igjen på hver sjanger A-oppgave. Samlet, så du kjenner dem igjen under tidspress:\n\n- **Umerkede radoperasjoner.** Hvert $\\sim$ skal ha operasjonen skrevet over seg ($II-2I$, $III+I$). Uten merking mister du føringspoengene sensor teller — også når svaret er riktig.\n- **Søylerom-fellen.** Basis for søylerommet er **originalsøylene** i $A$ ved pivotposisjonene, aldri søylene fra trappeformen. Radoperasjoner bevarer radrommet, men endrer søylerommet. Finn *hvilke* søyler ved reduksjon, men hent selve vektorene fra $A$.\n- **Feil oppsett.** Oppsettet bestemmes av spørsmålet: basis/uavhengighet → vektorene som søyler; invers → $[A\\,|\\,I_n]$; løse/løsbarhet → $[A\\,|\\,b]$; rang/nullrom → $A$ alene. Feil matrise gir feil svar uansett hvor pent du regner.\n- **«Ingen løsning» uten å sjekke høyresiden.** Når pivotet blir null i en parameteroppgave, avgjør høyresiden i den kritiske raden utfallet: er den $0$, blir det uendelig mange løsninger, ikke ingen. Les alltid av høyresiden før du konkluderer.\n- **Glemt delpunkt-gjenbruk.** En invers regnet i (a) er ment brukt i (b) og (c). Regn tunge ting én gang, gjenbruk resultatet og vis koblingen — å radredusere på nytt koster tid og signaliserer at du ikke så strukturen.\n- **Manglende konklusjonssetning.** Tallene alene gir ikke full uttelling. Skriv det navngitte kriteriet: «radekvivalent med $I_n$, altså inverterbar», «nullrad uten motsigelse, altså uendelig mange løsninger».\n- **Fortegnsfeil i reduksjonen.** Én fortegnsbom forplanter seg gjennom hele radreduksjonen. Kontroller et delsvar ved å sette det inn i $Ax=b$."
+    },
+    {
+      "id": "mat1110-1-5-drill",
+      "type": "text",
+      "content": "## Drilloppgaver — hele variantkatalogen\n\nHver oppgave er merket med hvilken variant den trener. Før alle med merkede radoperasjoner."
+    },
+    {
+      "id": "mat1110-1-5-d1-w",
+      "type": "exercise",
+      "exercise": {
+        "id": "mat1110-1-5-d1",
+        "number": "1",
+        "type": "classic",
+        "difficulty": "lett",
+        "task": "(Variant 1 — basis.) Danner $v_1=(1,2,1),\\,v_2=(0,1,1),\\,v_3=(1,0,1)$ en basis for $\\mathbb{R}^3$?",
+        "solution": "Skriv som søyler og radreduser:\n$$\\left[\\begin{array}{ccc}1&0&1\\\\2&1&0\\\\1&1&1\\end{array}\\right]\\overset{\\;II-2I,\\ III-I\\;}{\\sim}\\left[\\begin{array}{ccc}1&0&1\\\\0&1&-2\\\\0&1&0\\end{array}\\right]\\overset{\\;III-II\\;}{\\sim}\\left[\\begin{array}{ccc}1&0&1\\\\0&1&-2\\\\0&0&2\\end{array}\\right]$$\nTre pivoter ⇒ radekvivalent med $I_3$ ⇒ **søylene danner en basis for $\\mathbb{R}^3$** ($\\det=2\\ne0$).",
+        "hints": [
+          "Vektorene som søyler; tell pivotene.",
+          "Tre pivoter ⇒ radekvivalent med $I_3$ ⇒ basis."
+        ]
+      }
+    },
+    {
+      "id": "mat1110-1-5-d2-w",
+      "type": "exercise",
+      "exercise": {
+        "id": "mat1110-1-5-d2",
+        "number": "2",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "(Variant 2 — invers via $[A\\,|\\,I]$.) Finn inversen til $A=\\begin{pmatrix}3&1&2\\\\1&1&1\\\\2&1&2\\end{pmatrix}$.",
+        "solution": "$$\\left[\\begin{array}{ccc|ccc}3&1&2&1&0&0\\\\1&1&1&0&1&0\\\\2&1&2&0&0&1\\end{array}\\right]\\overset{\\;I\\leftrightarrow II\\;}{\\sim}\\left[\\begin{array}{ccc|ccc}1&1&1&0&1&0\\\\3&1&2&1&0&0\\\\2&1&2&0&0&1\\end{array}\\right]\\overset{\\;II-3I,\\ III-2I\\;}{\\sim}\\left[\\begin{array}{ccc|ccc}1&1&1&0&1&0\\\\0&-2&-1&1&-3&0\\\\0&-1&0&0&-2&1\\end{array}\\right]$$\n$$\\overset{\\;II\\leftrightarrow III,\\ -II\\;}{\\sim}\\left[\\begin{array}{ccc|ccc}1&1&1&0&1&0\\\\0&1&0&0&2&-1\\\\0&-2&-1&1&-3&0\\end{array}\\right]\\overset{\\;III+2II,\\ -III\\;}{\\sim}\\left[\\begin{array}{ccc|ccc}1&1&1&0&1&0\\\\0&1&0&0&2&-1\\\\0&0&1&-1&-1&2\\end{array}\\right]$$\n$$\\overset{\\;I-II-III\\;}{\\sim}\\left[\\begin{array}{ccc|ccc}1&0&0&1&0&-1\\\\0&1&0&0&2&-1\\\\0&0&1&-1&-1&2\\end{array}\\right]$$\n$$A^{-1}=\\begin{pmatrix}1&0&-1\\\\0&2&-1\\\\-1&-1&2\\end{pmatrix}.$$ (Kontroll: $A\\cdot(1,0,-1)^T=(3-2,1-1,2-2)^T=(1,0,0)^T$ ✓.)",
+        "hints": [
+          "Bytt rader så øverste venstre element blir $1$.",
+          "Reduser venstre halvdel til $I_3$ med merkede operasjoner."
+        ]
+      }
+    },
+    {
+      "id": "mat1110-1-5-d3-w",
+      "type": "exercise",
+      "exercise": {
+        "id": "mat1110-1-5-d3",
+        "number": "3",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "(Variant 3 — nullrom + rang.) Finn rangen og en basis for nullrommet til $A=\\begin{pmatrix}1&3&2&5\\\\2&6&1&7\\\\1&3&1&4\\end{pmatrix}$.",
+        "solution": "$$\\overset{\\;II-2I,\\ III-I\\;}{\\sim}\\left[\\begin{array}{cccc}1&3&2&5\\\\0&0&-3&-3\\\\0&0&-1&-1\\end{array}\\right]\\overset{\\;-\\tfrac13 II\\;}{\\sim}\\left[\\begin{array}{cccc}1&3&2&5\\\\0&0&1&1\\\\0&0&-1&-1\\end{array}\\right]\\overset{\\;III+II,\\ I-2II\\;}{\\sim}\\left[\\begin{array}{cccc}1&3&0&3\\\\0&0&1&1\\\\0&0&0&0\\end{array}\\right]$$\nPivoter i søyle 1 og 3 ⇒ **rang 2**. Frie: $x_2,x_4$. $x_1=-3x_2-3x_4,\\ x_3=-x_4$. Sett $x_2=s,x_4=t$:\n$$\\text{basis for }N(A):\\ \\{(-3,1,0,0),\\,(-3,0,-1,1)\\}.$$ Kontroll rang–nullitet: $2+2=4$ ✓.",
+        "hints": [
+          "Radreduser $A$ alene; pivotene gir rangen, de frie variablene gir nullrommet.",
+          "Én basisvektor per fri variabel."
+        ]
+      }
+    },
+    {
+      "id": "mat1110-1-5-d4-w",
+      "type": "exercise",
+      "exercise": {
+        "id": "mat1110-1-5-d4",
+        "number": "4",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "(Variant 4 — parameterløsbarhet.) For hvilke $a$ har systemet $x+y+z=1,\\ x+2y+3z=2,\\ 2x+3y+az=3$ entydig / ingen / uendelig mange løsninger?",
+        "solution": "$$\\left[\\begin{array}{ccc|c}1&1&1&1\\\\1&2&3&2\\\\2&3&a&3\\end{array}\\right]\\overset{\\;II-I,\\ III-2I\\;}{\\sim}\\left[\\begin{array}{ccc|c}1&1&1&1\\\\0&1&2&1\\\\0&1&a-2&1\\end{array}\\right]\\overset{\\;III-II\\;}{\\sim}\\left[\\begin{array}{ccc|c}1&1&1&1\\\\0&1&2&1\\\\0&0&a-4&0\\end{array}\\right]$$\nNederste rad: $(a-4)z=0$.\n\n**a)** $a\\ne4$: **entydig løsning**.\n**b)** $a=4$: raden blir $[\\,0\\ 0\\ 0\\ |\\ 0\\,]$ (høyresiden er $0$) ⇒ nullrad, $z$ fri ⇒ **uendelig mange løsninger**. (Her blir det aldri «ingen løsning», fordi høyresiden i motsigelsesraden er $0$.)",
+        "hints": [
+          "Radreduser med $a$ som bokstav; skiftet skjer der pivotet $a-4$ blir null.",
+          "Sjekk høyresiden i den kritiske raden — er den $0$, blir det uendelig mange, ikke ingen."
+        ]
+      }
+    },
+    {
+      "id": "mat1110-1-5-d5-w",
+      "type": "exercise",
+      "exercise": {
+        "id": "mat1110-1-5-d5",
+        "number": "5",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "(Variant 5 — utvid til basis.) Vektorene $a_1=(1,2,1)$ og $a_2=(2,1,3)$ er uavhengige. Utvid $\\{a_1,a_2\\}$ til en basis for $\\mathbb{R}^3$.",
+        "solution": "Sett $a_1,a_2$ som søyler, føy på $e_1,e_2,e_3$ og radreduser til tre pivoter:\n$$\\left[\\begin{array}{ccccc}1&2&1&0&0\\\\2&1&0&1&0\\\\1&3&0&0&1\\end{array}\\right]\\overset{\\;II-2I,\\ III-I\\;}{\\sim}\\left[\\begin{array}{ccccc}1&2&1&0&0\\\\0&-3&-2&1&0\\\\0&1&-1&0&1\\end{array}\\right]\\overset{\\;III+\\tfrac13 II\\;}{\\sim}\\left[\\begin{array}{ccccc}1&2&1&0&0\\\\0&-3&-2&1&0\\\\0&0&-\\tfrac53&\\tfrac13&1\\end{array}\\right]$$\nPivoter i søyle 1 ($a_1$), 2 ($a_2$) og 3 ($e_1$). Tre pivoter ⇒ stopp. **Basis:** $\\{(1,2,1),(2,1,3),(1,0,0)\\}$.",
+        "hints": [
+          "Sett de gitte vektorene først, føy på $e_1,e_2,e_3$.",
+          "Behold vektorene som gir nye pivoter, til du har tre."
+        ]
+      }
+    },
+    {
+      "id": "mat1110-1-5-d6-w",
+      "type": "exercise",
+      "exercise": {
+        "id": "mat1110-1-5-d6",
+        "number": "6",
+        "type": "classic",
+        "difficulty": "vanskelig",
+        "task": "(Kjedet — invers gjenbrukt.) La $A=\\begin{pmatrix}1&1&1\\\\0&1&2\\\\1&2&4\\end{pmatrix}$. **a)** Finn $A^{-1}$. **b)** Løs $Ax=(2,3,7)^T$. **c)** Løs $Ay=(1,1,2)^T$ ved å gjenbruke $A^{-1}$.",
+        "solution": "**a)** $[A\\,|\\,I]$: $\\overset{\\;III-I\\;}{\\sim}\\left[\\begin{array}{ccc|ccc}1&1&1&1&0&0\\\\0&1&2&0&1&0\\\\0&1&3&-1&0&1\\end{array}\\right]\\overset{\\;III-II\\;}{\\sim}\\left[\\begin{array}{ccc|ccc}1&1&1&1&0&0\\\\0&1&2&0&1&0\\\\0&0&1&-1&-1&1\\end{array}\\right]$\n$\\overset{\\;II-2III,\\ I-III\\;}{\\sim}\\left[\\begin{array}{ccc|ccc}1&1&0&2&1&-1\\\\0&1&0&2&3&-2\\\\0&0&1&-1&-1&1\\end{array}\\right]\\overset{\\;I-II\\;}{\\sim}\\left[\\begin{array}{ccc|ccc}1&0&0&0&-2&1\\\\0&1&0&2&3&-2\\\\0&0&1&-1&-1&1\\end{array}\\right]$.\n$$A^{-1}=\\begin{pmatrix}0&-2&1\\\\2&3&-2\\\\-1&-1&1\\end{pmatrix}.$$\n**b)** $x=A^{-1}(2,3,7)^T=(0-6+7,\\ 4+9-14,\\ -2-3+7)^T=(1,-1,2)$.\n**c)** $y=A^{-1}(1,1,2)^T=(0-2+2,\\ 2+3-4,\\ -1-1+2)^T=(0,1,0)$. Vi gjenbrukte samme $A^{-1}$ i begge delpunkter — ingen ny radreduksjon.",
+        "hints": [
+          "Regn $A^{-1}$ én gang via $[A\\,|\\,I]$.",
+          "Både (b) og (c) er bare $A^{-1}b$ med ulik $b$."
+        ]
+      }
+    },
+    {
+      "id": "mat1110-1-5-d7-w",
+      "type": "exercise",
+      "exercise": {
+        "id": "mat1110-1-5-d7",
+        "number": "7",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "(Variant 3 — søylerom.) Finn en basis for søylerommet og rangen til $A=\\begin{pmatrix}1&2&3&1\\\\2&4&7&3\\\\1&2&4&2\\end{pmatrix}$.",
+        "solution": "$$\\overset{\\;II-2I,\\ III-I\\;}{\\sim}\\left[\\begin{array}{cccc}1&2&3&1\\\\0&0&1&1\\\\0&0&1&1\\end{array}\\right]\\overset{\\;III-II\\;}{\\sim}\\left[\\begin{array}{cccc}1&2&3&1\\\\0&0&1&1\\\\0&0&0&0\\end{array}\\right]$$\nPivoter i søyle 1 og 3 ⇒ **rang 2**. Basis for søylerommet = **originalsøyle** 1 og 3: $\\{(1,2,1),\\,(3,7,4)\\}$ (ikke søylene fra trappeformen).",
+        "hints": [
+          "Radreduser og noter pivotsøylene.",
+          "Ta basisvektorene fra ORIGINAL-$A$, ikke fra trappeformen."
+        ]
+      }
+    },
+    {
+      "id": "mat1110-1-5-d8-w",
+      "type": "exercise",
+      "exercise": {
+        "id": "mat1110-1-5-d8",
+        "number": "8",
+        "type": "classic",
+        "difficulty": "lett",
+        "task": "(Variant 1 — avhengighet.) Er $(1,2,3),(2,4,6),(0,1,0)$ lineært uavhengige?",
+        "solution": "Søyle 2 er $2\\times$ søyle 1, så vektorene er **lineært avhengige** — ingen radreduksjon nødvendig for å se det. (Radreduksjon bekrefter: matrisen med disse som søyler har høyst to pivoter.)",
+        "hints": [
+          "Ser du at én vektor er et multiplum av en annen?",
+          "To proporsjonale vektorer ⇒ avhengige."
+        ]
+      }
+    },
+    {
+      "id": "mat1110-1-5-d9-w",
+      "type": "exercise",
+      "exercise": {
+        "id": "mat1110-1-5-d9",
+        "number": "9",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "(Variant 4 — inverterbarhet med parameter.) For hvilke $a$ danner søylene i $A=\\begin{pmatrix}1&1&1\\\\1&2&3\\\\2&3&a\\end{pmatrix}$ en basis for $\\mathbb{R}^3$?",
+        "solution": "Søylene er en basis $\\iff A$ inverterbar $\\iff\\det\\ne0$. Radreduser: $\\overset{\\;II-I,\\ III-2I\\;}{\\sim}\\left[\\begin{array}{ccc}1&1&1\\\\0&1&2\\\\0&1&a-2\\end{array}\\right]\\overset{\\;III-II\\;}{\\sim}\\left[\\begin{array}{ccc}1&1&1\\\\0&1&2\\\\0&0&a-4\\end{array}\\right]$. Nederste pivot $a-4\\ne0\\iff a\\ne4$.\n\n**Konklusjon:** søylene danner en basis for **alle $a\\ne4$**; for $a=4$ er de avhengige.",
+        "hints": [
+          "Basis ⇔ inverterbar ⇔ $\\det\\ne0$ ⇔ tre pivoter.",
+          "Se når nederste pivot $a-4$ blir null."
+        ]
+      }
+    },
+    {
+      "id": "mat1110-1-5-d10-w",
+      "type": "exercise",
+      "exercise": {
+        "id": "mat1110-1-5-d10",
+        "number": "10",
+        "type": "classic",
+        "difficulty": "vanskelig",
+        "task": "(Kjedet, eksamensnivå.) La $A=\\begin{pmatrix}1&2&0\\\\2&5&1\\\\0&1&2\\end{pmatrix}$ med $A^{-1}=\\begin{pmatrix}9&-4&2\\\\-4&2&-1\\\\2&-1&1\\end{pmatrix}$ (fra O1-caset). **a)** Løs $Ax=(3,1,1)^T$. **b)** Er $(3,1,1)$ i søylerommet til $A$? **c)** Hva er rangen til $A$?",
+        "solution": "**a)** $x=A^{-1}(3,1,1)^T=(27-4+2,\\ -12+2-1,\\ 6-1+1)^T=(25,-11,6)$. (Kontroll: $1\\cdot25+2\\cdot(-11)+0=3$ ✓.)\n\n**b)** Ja — siden $A$ er inverterbar, er søylerommet **hele** $\\mathbb{R}^3$, så enhver vektor (også $(3,1,1)$) ligger i det. At $Ax=(3,1,1)$ har en løsning (fra a) bekrefter det direkte.\n\n**c)** $A$ er inverterbar ⇒ tre pivoter ⇒ **rang 3**. (Alle tre delpunkter følger av at $A^{-1}$ finnes — ett faktum gjenbrukt tre ganger.)",
+        "hints": [
+          "Bruk den oppgitte inversen: $x=A^{-1}b$.",
+          "Inverterbar ⇒ søylerom $=\\mathbb{R}^3$ og rang $=3$; gjenbruk det ene faktumet."
+        ]
+      }
+    },
+    {
+      "id": "mat1110-1-5-d11-w",
+      "type": "exercise",
+      "exercise": {
+        "id": "mat1110-1-5-d11",
+        "number": "11",
+        "type": "classic",
+        "difficulty": "vanskelig",
+        "task": "(Blandet O1-simulering.) La $A=\\begin{pmatrix}1&0&1\\\\2&1&0\\\\1&1&1\\end{pmatrix}$. **a)** Avgjør om $A$ er inverterbar. **b)** Finn en basis for nullrommet til $A$ hvis den ikke er trivielt, ellers begrunn at nullrommet er $\\{0\\}$. **c)** Er søylene en basis for $\\mathbb{R}^3$?",
+        "solution": "**a)** Radreduser: $\\overset{\\;II-2I,\\ III-I\\;}{\\sim}\\left[\\begin{array}{ccc}1&0&1\\\\0&1&-2\\\\0&1&0\\end{array}\\right]\\overset{\\;III-II\\;}{\\sim}\\left[\\begin{array}{ccc}1&0&1\\\\0&1&-2\\\\0&0&2\\end{array}\\right]$. Tre pivoter ⇒ $\\det=2\\ne0$ ⇒ **inverterbar**.\n\n**b)** Inverterbar ⇒ $N(A)=\\{0\\}$ (bare trivialløsningen) ifølge inverterbarhetsteoremet — nullrommet er **trivielt**.\n\n**c)** Ja: tre pivoter ⇒ radekvivalent med $I_3$ ⇒ søylene **danner en basis for $\\mathbb{R}^3$**. Alle tre svar følger av samme radreduksjon.",
+        "hints": [
+          "Én radreduksjon gir alt: pivotene avgjør inverterbarhet, nullrom og basis.",
+          "Inverterbar ⇒ trivielt nullrom og søyle-basis."
+        ]
+      }
+    },
+    {
+      "id": "mat1110-1-5-bb",
+      "type": "text",
+      "content": "## Hurtigreferanse (flashcards)\n\n*De fem avgjørelsene som styrer enhver sjanger A-oppgave, i kortform.*"
+    },
+    {
+      "id": "mat1110-1-5-bb-oppsett",
+      "type": "definition",
+      "title": "Riktig oppsett per spørsmål",
+      "content": "Nøkkelen til hele sjanger A: **hvilken matrise** du stiller opp. Basis/uavhengighet → vektorene som **søyler**. Invers → $[A\\,|\\,I_n]$. Løse/parameterløsbarhet → $[A\\,|\\,b]$. Rang/nullrom/søylerom → radreduser $A$ alene. Feil oppsett gir feil svar uansett hvor pent du regner."
+    },
+    {
+      "id": "mat1110-1-5-bb-avlesning",
+      "type": "definition",
+      "title": "Avlesning fra trappeformen",
+      "content": "Etter radreduksjon leser du: **pivoter** → rang og basis; **frie variabler** → nullrom (én vektor hver); **$[I_n\\,|\\,A^{-1}]$** → invers; **motsigelsesrad eller ikke** → løsbarhet. Én reduksjon svarer ofte på flere delpunkter samtidig — gjenbruk den."
+    },
+    {
+      "id": "mat1110-1-5-bb-konklusjon",
+      "type": "definition",
+      "title": "Navngitt konklusjonssetning",
+      "content": "Sensor vil se kriteriet skrevet ut, ikke bare tallene: «radekvivalent med $I_n$, altså danner søylene en basis», «$\\det\\ne0$, altså inverterbar», «nullrad uten motsigelse, altså uendelig mange løsninger». Konklusjonssetningen er føringspoeng."
+    },
+    {
+      "id": "mat1110-1-5-bb-soylefelle",
+      "type": "definition",
+      "title": "Søylerom-fellen",
+      "content": "Basis for søylerommet er **originalsøylene** i $A$ ved pivotposisjonene — aldri søylene fra trappeformen. Radoperasjoner bevarer radrommet, men **endrer** søylerommet. Finn *hvilke* søyler ved reduksjon, men hent selve vektorene fra $A$."
+    },
+    {
+      "id": "mat1110-1-5-bb-gjenbruk",
+      "type": "definition",
+      "title": "Delpunkt-gjenbruk",
+      "content": "Eksamensoppgavene er kjedet: en invers regnet i (a) er ment brukt i (b) og (c). Regn tunge ting **én** gang, gjenbruk resultatet, og vis koblingen. Å regne samme invers to ganger koster tid og signaliserer at du ikke så strukturen."
+    },
+    {
+      "id": "mat1110-1-5-symbol",
+      "type": "collapsible",
+      "title": "Symbol- og formelliste",
+      "buttonText": "Vis symboler og formler",
+      "content": [
+        {
+          "id": "mat1110-1-5-symbol-text",
+          "type": "text",
+          "content": "## Symbol- og formelliste\n\n*Oppslagsverk — alt her forklares underveis i kapitlet og i [kap. 1.1–1.4](/bok/mat1110/mat1110-1-1).*\n\n| Symbol | Betydning |\n|---|---|\n| $[A\\,|\\,I_n]$ | Oppsett for invers ($\\to[I_n\\,|\\,A^{-1}]$) |\n| $[A\\,|\\,b]$ | Oppsett for løsning/løsbarhet |\n| $A$ (alene) | Oppsett for rang/nullrom/søylerom |\n| pivot | Ledende element → rang og basis |\n| fri variabel | Søyle uten pivot → nullrombasis |\n| $N(A)$ | Nullrom |\n| $\\operatorname{Col}(A)$ | Søylerom (basis = originalsøyler ved pivoter) |\n| $A^{-1}$ | Invers (gjenbrukes i senere delpunkt) |\n\n**Fire-stegs oppskrift:** (1) riktig matrise etter spørsmålet; (2) radreduser med **merkede** operasjoner; (3) les av pivoter/frie variabler/invers/konsistens; (4) konkluder med navngitt kriterium.\n\n**Nøkkelkriterier:** inverterbar $\\iff$ radekv. med $I_n$ $\\iff\\det\\ne0$ $\\iff$ søyler er basis $\\iff N(A)=\\{0\\}$. Rang $+$ nullitet $=$ antall søyler."
+        }
+      ]
+    }
+  ],
+  "exercises": []
+}

@@ -30,6 +30,7 @@ export const INSTITUSJONER: Institusjon[] = [
     color: 'from-red-600 to-rose-700',
     subjects: [
       { courseId: 'mat1100', name: 'MAT1100 Kalkulus', icon: '∫', color: 'from-slate-500 to-slate-700' },
+      { courseId: 'mat1110', name: 'MAT1110 Kalkulus og lineær algebra', icon: '📐', color: 'from-slate-500 to-slate-700' },
       { courseId: 'econ1210', name: 'ECON1210 Mikroøkonomi 1', icon: '📈', color: 'from-slate-500 to-slate-700' },
       { courseId: 'psy1010', name: 'PSY1010 Innføring i metode', icon: '🧠', color: 'from-slate-500 to-slate-700' },
       { courseId: 'exphil03', name: 'EXPHIL03 Examen philosophicum', icon: '🦉', color: 'from-slate-500 to-slate-700' },

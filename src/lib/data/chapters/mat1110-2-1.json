@@ -1,0 +1,445 @@
+{
+  "id": "mat1110-2-1",
+  "courseId": "mat1110",
+  "chapterNumber": "2.1",
+  "title": "Partiellderiverte, gradient og tangentplan",
+  "description": "Broen fra MAT1100: partiellderiverte og gradienten friskes opp, tangentplan og linearisering settes opp — verktøyet som bærer optimering, funksjonsteoremer og fluks senere.",
+  "estimatedMinutes": 50,
+  "competenceGoals": [
+    "regne partiellderiverte og sette sammen gradienten til en funksjon av flere variable",
+    "bruke gradienten til retningsderivert og bratteste stigning",
+    "sette opp tangentplan og linearisering og bruke dem til å anslå funksjonsverdier",
+    "avgjøre om en grense i planet finnes ved å teste ulike baner"
+  ],
+  "content": [
+    {
+      "id": "mat1110-2-1-tip",
+      "type": "tip",
+      "title": "Eksamensvinkel",
+      "content": "**Broen fra MAT1100 — verktøyet nesten alt annet hviler på.**\n\n- Partiellderiverte og gradienten $\\nabla f$ er *forutsatt kjent* fra MAT1100 (der gradient/retningsderivert er 100 %-åpningssjangeren) og friskes bare kompakt opp her. Tyngden i dette kapitlet ligger på **tangentplan og linearisering** — byggesteinene som bærer optimering ([kap. 3.1](/bok/mat1110/mat1110-3-1)), funksjonsteoremene ([kap. 2.3](/bok/mat1110/mat1110-2-3)) og fluks senere.\n- **Nivåkurver og grenser i $\\mathbb{R}^2$** (kontinuitet i origo testet langs $y=ax$) er en *eldre* sjanger R: den forekom 2010–2014 og forsvant etter 2014. Ta den med, men prioriter tangentplan/linearisering.\n- Ingen egen tung eksamensvekt alene, men uten dette apparatet stopper du på Jacobi, Lagrange og funksjonsteoremene. **Prioritet: kunne** (bro).\n\nSjangermerkingen (A–R) er bokas felles sjekkliste fra [kap. 0.1](/bok/mat1110/mat1110-0-1); **R** er sekkeposten for eldre enkeltsjangre (her: nivåkurver/grenser)."
+    },
+    {
+      "id": "mat1110-2-1-fork",
+      "type": "text",
+      "content": "**Forkunnskaper.** Gradient og retningsderivert *(MAT1100 kap. 5.4 — forgjengerbok, ikke bygget ennå; aktiver lenke når den finnes)* **forutsettes kjent** og repeteres bare kompakt. Retningsderiverte skrives som et prikkprodukt $\\nabla f(a)\\cdot u$, så du bør ha [Skalarproduktet](/bok/r2/r2-5-3) friskt. Selve partiellderivasjonen er vanlig derivasjon i én variabel om gangen, så trygg derivasjonsteknikk fra R1/R2 holder. Kapitlet trenger ingen tidligere kapitler i denne boka."
+    },
+    {
+      "id": "mat1110-2-1-motiv",
+      "type": "text",
+      "content": "En funksjon av flere variable, som $f(x,y)$, beskriver en **flate** over $xy$-planet. To spørsmål går igjen på eksamen: *hvor bratt* stiger flaten hvis vi beveger oss i en gitt retning, og *hvilket plan* legger seg tettest inntil flaten i et punkt. Det første svarer **partiellderiverte** og **gradienten** på; det andre er **tangentplanet**, og den lineære funksjonen som hører til det, kaller vi **lineariseringen** — modellens beste rette tilnærming nær punktet.\n\nDette er verktøyene resten av flervariabelkalkulusen bygger på: gradienten blir betingelsen i optimering, tangentavbildningen blir Jacobi-matrisen i [kap. 2.2](/bok/mat1110/mat1110-2-2), og linearisering er selve ideen bak funksjonsteoremene i [kap. 2.3](/bok/mat1110/mat1110-2-3). Vi bygger stoffet i fem korte løkker: (1) partiellderiverte og gradient, (2) retningsderivert, (3) tangentplan og linearisering, (4) høyere partiellderiverte og Clairaut, (5) nivåkurver og grenser i $\\mathbb{R}^2$ (den eldre sjangeren)."
+    },
+    {
+      "id": "mat1110-2-1-l1",
+      "type": "text",
+      "content": "## Løkke 1 — Partiellderiverte og gradient (~10 min)"
+    },
+    {
+      "id": "mat1110-2-1-def-partiell",
+      "type": "definition",
+      "title": "Partiellderivert",
+      "content": "Endringsraten til $f$ når **én** variabel varierer og de andre holdes fast. Den partiellderiverte av $f(x,y)$ med hensyn på $x$ er grensen\n\n$$\\frac{\\partial f}{\\partial x}(a,b)=\\lim_{h\\to0}\\frac{f(a+h,b)-f(a,b)}{h},$$\n\nog tilsvarende for $y$. I praksis regner du den som en helt vanlig derivert: **deriver med hensyn på $x$ og behandle $y$ som en konstant.** Vi skriver også $f_x$ for $\\partial f/\\partial x$."
+    },
+    {
+      "id": "mat1110-2-1-def-gradient",
+      "type": "definition",
+      "title": "Gradienten $\\nabla f$",
+      "content": "Vektoren som samler alle de partiellderiverte i ett punkt. For $f(x,y)$ er\n\n$$\\nabla f(a,b)=\\left(\\frac{\\partial f}{\\partial x}(a,b),\\ \\frac{\\partial f}{\\partial y}(a,b)\\right),$$\n\nog generelt $\\nabla f=(f_{x_1},\\dots,f_{x_n})$. Gradienten peker i retningen der $f$ vokser raskest, og lengden $|\\nabla f|$ er den bratteste stigningen. Symbolet $\\nabla$ («nabla») introduseres her — det betyr bare «samle de partiellderiverte i en vektor»."
+    },
+    {
+      "id": "mat1110-2-1-ex1",
+      "type": "example",
+      "title": "Eksempel 1: Partiellderiverte og gradient",
+      "problem": "La $f(x,y)=x^2y^3$. Finn $f_x$, $f_y$ og gradienten $\\nabla f(2,1)$.",
+      "solution": "Vi deriverer én variabel om gangen.\n\n**Med hensyn på $x$** (hold $y$ konstant): $f_x=2x\\,y^3$.\n\n**Med hensyn på $y$** (hold $x$ konstant): $f_y=3x^2y^2$.\n\nEvaluér i $(2,1)$:\n$$f_x(2,1)=2\\cdot2\\cdot1^3=4,\\qquad f_y(2,1)=3\\cdot2^2\\cdot1^2=12.$$\n\n**Konklusjon:** $\\nabla f(2,1)=(4,12)$."
+    },
+    {
+      "id": "mat1110-2-1-l1x1-w",
+      "type": "exercise",
+      "exercise": {
+        "id": "mat1110-2-1-l1x1",
+        "number": "1",
+        "type": "classic",
+        "difficulty": "lett",
+        "task": "La $g(x,y)=x^4-3x^2y+y^3$. Finn de partiellderiverte og gradienten $\\nabla g(1,2)$.",
+        "solution": "$g_x=4x^3-6xy$ og $g_y=-3x^2+3y^2$.\n\nI $(1,2)$: $g_x(1,2)=4-6\\cdot1\\cdot2=4-12=-8$ og $g_y(1,2)=-3+3\\cdot4=9$.\n\n**Konklusjon:** $\\nabla g(1,2)=(-8,9)$.",
+        "hints": [
+          "Deriver med hensyn på $x$ og behandle $y$ som en konstant — og omvendt.",
+          "$\\nabla g=(g_x,g_y)$; sett inn $(1,2)$ til slutt."
+        ]
+      }
+    },
+    {
+      "id": "mat1110-2-1-l2",
+      "type": "text",
+      "content": "## Løkke 2 — Retningsderivert (~8 min)"
+    },
+    {
+      "id": "mat1110-2-1-def-enhet",
+      "type": "definition",
+      "title": "Enhetsvektor (retning)",
+      "content": "En vektor med lengde $1$ som angir en **retning**. Har du en vilkårlig retningsvektor $v\\ne0$, får du enhetsvektoren ved å dele på lengden: $u=\\dfrac{v}{|v|}$. En retningsderivert måles alltid langs en *enhets*vektor, ellers blander du inn lengden på $v$."
+    },
+    {
+      "id": "mat1110-2-1-def-retning",
+      "type": "definition",
+      "title": "Retningsderivert",
+      "content": "Stigningsraten til $f$ i en gitt retning $u$ (enhetsvektor). Den regnes som prikkproduktet av gradienten og retningen:\n\n$$D_uf(a)=\\nabla f(a)\\cdot u.$$\n\nDette er MAT1100-formelen, tatt med her fordi den brukes videre. Den er størst når $u$ peker samme vei som $\\nabla f$ (bratteste stigning) og $0$ når $u$ står vinkelrett på gradienten (langs en nivåkurve)."
+    },
+    {
+      "id": "mat1110-2-1-ex2",
+      "type": "example",
+      "title": "Eksempel 2: Retningsderivert",
+      "problem": "La $f(x,y)=x^2+3xy+y^2$. Finn den retningsderiverte i punktet $(1,1)$ i retning av vektoren $v=(3,4)$.",
+      "solution": "**Gradienten:** $\\nabla f=(2x+3y,\\ 3x+2y)$, så $\\nabla f(1,1)=(5,5)$.\n\n**Enhetsvektor:** $|v|=\\sqrt{3^2+4^2}=5$, så $u=\\left(\\tfrac35,\\tfrac45\\right)$.\n\n**Prikkprodukt:**\n$$D_uf(1,1)=\\nabla f(1,1)\\cdot u=(5,5)\\cdot\\left(\\tfrac35,\\tfrac45\\right)=5\\cdot\\tfrac35+5\\cdot\\tfrac45=\\tfrac{15+20}{5}=7.$$\n\n**Konklusjon:** $D_uf(1,1)=7$. (Merk at vi normaliserte $v$ først — uten det hadde svaret blitt for stort.)"
+    },
+    {
+      "id": "mat1110-2-1-l2x1-w",
+      "type": "exercise",
+      "exercise": {
+        "id": "mat1110-2-1-l2x1",
+        "number": "2",
+        "type": "classic",
+        "difficulty": "lett",
+        "task": "La $h(x,y)=x^2y$. Finn den retningsderiverte i $(2,1)$ i retning av $v=(1,1)$.",
+        "solution": "$\\nabla h=(2xy,\\ x^2)$, så $\\nabla h(2,1)=(4,4)$. Enhetsvektor: $|v|=\\sqrt2$, $u=\\left(\\tfrac{1}{\\sqrt2},\\tfrac{1}{\\sqrt2}\\right)$.\n\n$$D_uh(2,1)=(4,4)\\cdot\\left(\\tfrac{1}{\\sqrt2},\\tfrac{1}{\\sqrt2}\\right)=\\frac{4+4}{\\sqrt2}=\\frac{8}{\\sqrt2}=4\\sqrt2.$$\n\n**Konklusjon:** $D_uh(2,1)=4\\sqrt2$ (eksakt — ikke $5{,}66$).",
+        "hints": [
+          "Regn $\\nabla h(2,1)$ først.",
+          "Del $v$ på $|v|=\\sqrt2$ før du prikker. Svar eksakt: $4\\sqrt2$."
+        ]
+      }
+    },
+    {
+      "id": "mat1110-2-1-l3",
+      "type": "text",
+      "content": "## Løkke 3 — Tangentplan og linearisering (~14 min)"
+    },
+    {
+      "id": "mat1110-2-1-def-lin",
+      "type": "definition",
+      "title": "Linearisering",
+      "content": "Den beste rette (affine) tilnærmingen til $f$ nær et punkt $a$. Vi bytter ut flaten med planet som tangerer den, og får\n\n$$T_af(x)=f(a)+\\nabla f(a)\\cdot(x-a).$$\n\nFormelsamlingen skriver dette $T_aF(x)=F'(a)(x-a)+F(a)$ — samme sak, med $F'(a)$ i stedet for gradienten (Jacobi-formen kommer i [kap. 2.2](/bok/mat1110/mat1110-2-2)). Nær $a$ er $f(x)\\approx T_af(x)$; jo lenger unna, desto dårligere anslag."
+    },
+    {
+      "id": "mat1110-2-1-def-tangentplan",
+      "type": "definition",
+      "title": "Tangentplan til en graf $z=g(x,y)$",
+      "content": "Planet som ligger tettest inntil grafflaten i et punkt. For flaten $z=g(x,y)$ i punktet $(a,b)$ har tangentplanet likningen\n\n$$z=g(a,b)+g_x(a,b)\\,(x-a)+g_y(a,b)\\,(y-b).$$\n\nDette er nøyaktig grafen til lineariseringen $T_{(a,b)}g$. Tangentplanet er verktøyet vi bruker til å *anslå* funksjonsverdier og til å definere hva «deriverbar» betyr for flere variable."
+    },
+    {
+      "id": "mat1110-2-1-def-normal",
+      "type": "definition",
+      "title": "Normalvektor til grafflaten",
+      "content": "Vektoren som står vinkelrett på tangentplanet. Skriver vi flaten $z=g(x,y)$ som nullflaten $F(x,y,z)=g(x,y)-z=0$, er en normalvektor\n\n$$n=(g_x,\\ g_y,\\ -1).$$\n\n**Pass på:** dette er *ikke* det samme som gradienten $\\nabla g=(g_x,g_y)$ til $f$ i planet — normalvektoren til grafflaten har et ekstra $-1$ i $z$-retningen."
+    },
+    {
+      "id": "mat1110-2-1-ex3",
+      "type": "example",
+      "title": "Eksempel 3: Tangentplan og lineær anslag",
+      "problem": "La $g(x,y)=x^2-xy+y^2$. Finn tangentplanet til grafen $z=g(x,y)$ i punktet over $(2,1)$, og bruk lineariseringen til å anslå $g(2{,}1;\\ 0{,}9)$.",
+      "solution": "**Funksjonsverdi:** $g(2,1)=4-2+1=3$.\n\n**Partiellderiverte:** $g_x=2x-y$ og $g_y=-x+2y$, så $g_x(2,1)=3$ og $g_y(2,1)=0$.\n\n**Tangentplan:**\n$$z=3+3(x-2)+0\\cdot(y-1)=3x-3.$$\n\n**Anslag** i $(2{,}1;\\ 0{,}9)$ (som er $(x-a,y-b)=(0{,}1;\\ -0{,}1)$):\n$$T g=3+3\\cdot0{,}1+0\\cdot(-0{,}1)=3{,}3=\\tfrac{33}{10}.$$\n\nTil sammenligning er den eksakte verdien $g(2{,}1;\\ 0{,}9)=\\tfrac{333}{100}=3{,}33$, så lineariseringen treffer godt fordi vi er nær utviklingspunktet.\n\n**Konklusjon:** Tangentplan $z=3x-3$; anslag $g(2{,}1;\\ 0{,}9)\\approx\\tfrac{33}{10}$."
+    },
+    {
+      "id": "mat1110-2-1-l3x1-w",
+      "type": "exercise",
+      "exercise": {
+        "id": "mat1110-2-1-l3x1",
+        "number": "3",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "La $f(x,y)=x^2+2y^2$. Finn tangentplanet til $z=f(x,y)$ i punktet over $(1,1)$, og anslå $f(1{,}1;\\ 0{,}95)$ med lineariseringen.",
+        "solution": "$f(1,1)=1+2=3$. Partiellderiverte: $f_x=2x$, $f_y=4y$, så $f_x(1,1)=2$, $f_y(1,1)=4$.\n\n**Tangentplan:** $z=3+2(x-1)+4(y-1)=2x+4y-3$.\n\n**Anslag** med $(x-a,y-b)=(0{,}1;\\ -0{,}05)$:\n$$Tf=3+2\\cdot0{,}1+4\\cdot(-0{,}05)=3+0{,}2-0{,}2=3.$$\n\n**Konklusjon:** Tangentplan $z=2x+4y-3$; anslag $f(1{,}1;\\ 0{,}95)\\approx3$ (eksakt $\\tfrac{603}{200}=3{,}015$).",
+        "hints": [
+          "Regn $f(1,1)$, $f_x(1,1)$ og $f_y(1,1)$.",
+          "Sett inn i $T=f(a)+f_x\\cdot(x-a)+f_y\\cdot(y-b)$; her kansellerer de to leddene nesten."
+        ]
+      }
+    },
+    {
+      "id": "mat1110-2-1-l4",
+      "type": "text",
+      "content": "## Løkke 4 — Høyere partiellderiverte og Clairaut (~9 min)"
+    },
+    {
+      "id": "mat1110-2-1-def-hoyere",
+      "type": "definition",
+      "title": "Høyere partiellderiverte",
+      "content": "Partiellderiverte av de partiellderiverte. Fra $f(x,y)$ får vi fire andreordens:\n\n$$f_{xx}=\\partial_x(f_x),\\quad f_{yy}=\\partial_y(f_y),\\quad f_{xy}=\\partial_y(f_x),\\quad f_{yx}=\\partial_x(f_y).$$\n\nDe **blandede** er $f_{xy}$ og $f_{yx}$ — først derivert på den ene, så på den andre. Notasjonen $f_{xy}$ leses «først $x$, så $y$»."
+    },
+    {
+      "id": "mat1110-2-1-def-clairaut",
+      "type": "definition",
+      "title": "Clairauts teorem (blandede partiellderiverte)",
+      "content": "Rekkefølgen på blandet derivasjon spiller ingen rolle når funksjonen er glatt nok. Er $f$ to ganger kontinuerlig deriverbar nær et punkt, så er\n\n$$f_{xy}=f_{yx}$$\n\ni punktet. Dette er grunnen til at Hesse-matrisen (under) er **symmetrisk**, og en gratis kontrollregning: får du $f_{xy}\\ne f_{yx}$, har du regnet feil et sted."
+    },
+    {
+      "id": "mat1110-2-1-def-hesse",
+      "type": "definition",
+      "title": "Hesse-matrisen",
+      "content": "Matrisen av alle andreordens partiellderiverte:\n\n$$H=\\begin{pmatrix}f_{xx}&f_{xy}\\\\ f_{xy}&f_{yy}\\end{pmatrix}.$$\n\nDen er symmetrisk (Clairaut) og styrer hvordan flaten krummer. Vi bruker den til å klassifisere stasjonære punkter i [kap. 3.1](/bok/mat1110/mat1110-3-1) via annenderiverttesten $D=f_{xx}f_{yy}-f_{xy}^2$; her introduseres den bare som samlingen av andrederiverte."
+    },
+    {
+      "id": "mat1110-2-1-ex4",
+      "type": "example",
+      "title": "Eksempel 4: Blandede partiellderiverte er like",
+      "problem": "La $f(x,y)=x^3y^2+x\\sin y$. Vis at $f_{xy}=f_{yx}$.",
+      "solution": "**Vei 1 ($f_{xy}$):** Først $f_x=3x^2y^2+\\sin y$. Så deriver på $y$: $f_{xy}=6x^2y+\\cos y$.\n\n**Vei 2 ($f_{yx}$):** Først $f_y=2x^3y+x\\cos y$. Så deriver på $x$: $f_{yx}=6x^2y+\\cos y$.\n\nBegge veier gir $6x^2y+\\cos y$, så $f_{xy}=f_{yx}$ — akkurat som Clairauts teorem garanterer, siden $f$ er glatt.\n\n**Konklusjon:** $f_{xy}=f_{yx}=6x^2y+\\cos y$."
+    },
+    {
+      "id": "mat1110-2-1-l4x1-w",
+      "type": "exercise",
+      "exercise": {
+        "id": "mat1110-2-1-l4x1",
+        "number": "4",
+        "type": "classic",
+        "difficulty": "lett",
+        "task": "La $f(x,y)=x^3y-xy^2$. Regn $f_{xy}$ og $f_{yx}$ og bekreft at de er like.",
+        "solution": "$f_x=3x^2y-y^2$, så $f_{xy}=3x^2-2y$. Og $f_y=x^3-2xy$, så $f_{yx}=3x^2-2y$.\n\nDe er like: $f_{xy}=f_{yx}=3x^2-2y$, i tråd med Clairauts teorem.",
+        "hints": [
+          "$f_{xy}$: deriver først på $x$, så på $y$.",
+          "$f_{yx}$: motsatt rekkefølge — svaret skal bli det samme."
+        ]
+      }
+    },
+    {
+      "id": "mat1110-2-1-l5",
+      "type": "text",
+      "content": "## Løkke 5 — Nivåkurver og grenser i $\\mathbb{R}^2$ (eldre sjanger R, ~9 min)"
+    },
+    {
+      "id": "mat1110-2-1-l5-intro",
+      "type": "text",
+      "content": "*Denne løkka dekker en eldre eksamenssjanger (R): nivåkurver og kontinuitet i origo, sett 2010–2014, borte etter 2014. Ta den med for fullstendighet, men prioriter løkke 1–3 hvis tiden er knapp.*"
+    },
+    {
+      "id": "mat1110-2-1-def-nivakurve",
+      "type": "definition",
+      "title": "Nivåkurve",
+      "content": "Kurven der $f$ har en fast verdi: mengden $\\{(x,y):f(x,y)=k\\}$ for en konstant $k$. Nivåkurvene er «høydekotene» til flaten. En viktig egenskap: gradienten $\\nabla f$ står alltid **vinkelrett** på nivåkurven gjennom et punkt, fordi $f$ ikke endrer seg langs kurven."
+    },
+    {
+      "id": "mat1110-2-1-def-grense",
+      "type": "definition",
+      "title": "Grenseverdi i $\\mathbb{R}^2$",
+      "content": "$f(x,y)\\to L$ når $(x,y)\\to(a,b)$ betyr at $f$ nærmer seg $L$ **uansett hvilken vei** vi nærmer oss punktet langs. Dette er strengere enn i én variabel: i planet finnes uendelig mange baner inn mot et punkt. Finner du to baner som gir *ulike* grenseverdier, finnes ikke grensen."
+    },
+    {
+      "id": "mat1110-2-1-def-kontinuitet",
+      "type": "definition",
+      "title": "Kontinuitet i $\\mathbb{R}^2$",
+      "content": "$f$ er kontinuerlig i $(a,b)$ dersom $\\lim_{(x,y)\\to(a,b)}f(x,y)=f(a,b)$. Standardtesten for kontinuitet i origo: sett inn en rett linje $y=ax$ (eller andre baner) og se om grensen avhenger av $a$. Gjør den det, er $f$ **ikke** kontinuerlig i origo, uansett hvordan man definerer $f(0,0)$."
+    },
+    {
+      "id": "mat1110-2-1-ex5",
+      "type": "example",
+      "title": "Eksempel 5: En grense som ikke finnes",
+      "problem": "Undersøk om $\\displaystyle\\lim_{(x,y)\\to(0,0)}\\frac{xy}{x^2+y^2}$ eksisterer.",
+      "solution": "Vi tester grensen langs rette linjer $y=ax$ inn mot origo:\n$$\\frac{xy}{x^2+y^2}=\\frac{x\\cdot ax}{x^2+a^2x^2}=\\frac{a x^2}{(1+a^2)x^2}=\\frac{a}{1+a^2}.$$\n\nDette avhenger av $a$: langs $y=0$ ($a=0$) er verdien $0$, mens langs $y=x$ ($a=1$) er den $\\tfrac{1}{2}$. To baner gir ulike verdier.\n\n**Konklusjon:** Siden grensen avhenger av retningen vi nærmer oss langs, **eksisterer ikke** grenseverdien, og $f$ kan ikke gjøres kontinuerlig i origo."
+    },
+    {
+      "id": "mat1110-2-1-l5x1-w",
+      "type": "exercise",
+      "exercise": {
+        "id": "mat1110-2-1-l5x1",
+        "number": "5",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "Undersøk om $\\displaystyle\\lim_{(x,y)\\to(0,0)}\\frac{x^2y}{x^4+y^2}$ eksisterer.",
+        "solution": "Langs aksene og rette linjer $y=ax$ gir uttrykket $\\dfrac{x^2\\cdot ax}{x^4+a^2x^2}=\\dfrac{ax}{x^2+a^2}\\to0$ når $x\\to0$ — så alle *rette* linjer gir $0$. Men prøv den krumme banen $y=x^2$:\n$$\\frac{x^2\\cdot x^2}{x^4+(x^2)^2}=\\frac{x^4}{2x^4}=\\frac12.$$\n\nLangs $y=x^2$ er grensen $\\tfrac12$, langs aksene $0$. To baner, to verdier.\n\n**Konklusjon:** Grensen **eksisterer ikke**. (Lærdom: at alle *rette* linjer gir samme verdi er ikke nok — man må også teste krumme baner.)",
+        "hints": [
+          "Test først rette linjer $y=ax$.",
+          "De gir alle $0$ — prøv den krumme banen $y=x^2$, tilpasset nevnerens $x^4$."
+        ]
+      }
+    },
+    {
+      "id": "mat1110-2-1-warn",
+      "type": "warning",
+      "title": "Typiske feil",
+      "content": "- **Behandle feil variabel som konstant.** Ved $f_x$ er $y$ konstant; ved $f_y$ er $x$ konstant. En blanding gir feil gradient.\n- **Glemme kjernefaktoren.** I sammensetninger som $\\sin(xy)$ er $\\partial_x=y\\cos(xy)$ — den indre deriverte $y$ må med.\n- **Ikke normalisere retningen.** $D_uf=\\nabla f\\cdot u$ krever at $u$ er en *enhets*vektor. Bruker du $v$ direkte uten å dele på $|v|$, blir svaret skalert feil.\n- **Forveksle gradient og normalvektor.** For grafflaten $z=g(x,y)$ er normalvektoren $(g_x,g_y,-1)$ — ikke $\\nabla g=(g_x,g_y)$. Det ekstra $-1$-leddet mangler ofte.\n- **Bruke linearisering langt fra punktet.** Anslaget $f\\approx T_af$ er bare godt *nær* $a$; langt unna må du ta forbehold.\n- **Konkludere kontinuitet fra rette linjer alene.** At alle linjer $y=ax$ gir samme grense beviser *ikke* at grensen finnes — krumme baner kan gi noe annet (se oppgave 5)."
+    },
+    {
+      "id": "mat1110-2-1-pulje",
+      "type": "text",
+      "content": "## Eksamensrettet oppgavepulje"
+    },
+    {
+      "id": "mat1110-2-1-p1-w",
+      "type": "exercise",
+      "exercise": {
+        "id": "mat1110-2-1-p1",
+        "number": "6",
+        "type": "classic",
+        "difficulty": "lett",
+        "task": "La $f(x,y)=\\ln(x^2+y^2)$. Finn $\\nabla f$ og evaluér i $(1,2)$.",
+        "solution": "$f_x=\\dfrac{2x}{x^2+y^2}$ og $f_y=\\dfrac{2y}{x^2+y^2}$ (kjerneregel på $\\ln$).\n\nI $(1,2)$ er $x^2+y^2=5$, så $\\nabla f(1,2)=\\left(\\tfrac{2}{5},\\tfrac{4}{5}\\right)$.",
+        "hints": [
+          "$\\dfrac{d}{dx}\\ln(u)=\\dfrac{u_x}{u}$ med $u=x^2+y^2$.",
+          "Nevneren $x^2+y^2$ er felles for begge komponentene."
+        ]
+      }
+    },
+    {
+      "id": "mat1110-2-1-p2-w",
+      "type": "exercise",
+      "exercise": {
+        "id": "mat1110-2-1-p2",
+        "number": "7",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "Flaten $z=g(x,y)=xy+y^2$ er gitt. **a)** Finn tangentplanet i punktet over $(1,2)$. **b)** Skriv opp en normalvektor til flaten i samme punkt.",
+        "solution": "**a)** $g(1,2)=1\\cdot2+4=6$. Partiellderiverte: $g_x=y$, $g_y=x+2y$, så $g_x(1,2)=2$ og $g_y(1,2)=1+4=5$.\n\nTangentplan: $z=6+2(x-1)+5(y-2)=2x+5y-6$.\n\n**b)** Med flaten skrevet $F=g(x,y)-z=0$ er en normalvektor $n=(g_x,g_y,-1)=(2,5,-1)$.",
+        "hints": [
+          "$g_x=y$ og $g_y=x+2y$ — sett inn $(1,2)$.",
+          "Normalvektor til $z=g$: $(g_x,g_y,-1)$, ikke bare $(g_x,g_y)$."
+        ]
+      }
+    },
+    {
+      "id": "mat1110-2-1-p3-w",
+      "type": "exercise",
+      "exercise": {
+        "id": "mat1110-2-1-p3",
+        "number": "8",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "La $f(x,y)=x^2-y^2$. **a)** I hvilken retning vokser $f$ raskest i punktet $(3,1)$? **b)** Hva er den bratteste stigningen der?",
+        "solution": "**a)** $f$ vokser raskest i gradientens retning. $\\nabla f=(2x,-2y)$, så $\\nabla f(3,1)=(6,-2)$. Retningen er enhetsvektoren $u=\\dfrac{(6,-2)}{\\sqrt{40}}=\\dfrac{(3,-1)}{\\sqrt{10}}$.\n\n**b)** Den bratteste stigningen er lengden av gradienten: $|\\nabla f(3,1)|=\\sqrt{6^2+(-2)^2}=\\sqrt{40}=2\\sqrt{10}$.",
+        "hints": [
+          "Raskest vekst = gradientens retning; normaliser den.",
+          "Bratteste stigning = $|\\nabla f|$; svar eksakt ($2\\sqrt{10}$)."
+        ]
+      }
+    },
+    {
+      "id": "mat1110-2-1-p4-w",
+      "type": "exercise",
+      "exercise": {
+        "id": "mat1110-2-1-p4",
+        "number": "9",
+        "type": "classic",
+        "difficulty": "vanskelig",
+        "task": "La $f(x,y)=e^{x}\\cos y$. **a)** Regn $f_x$, $f_y$, $f_{xx}$, $f_{yy}$ og bekreft $f_{xy}=f_{yx}$. **b)** Finn lineariseringen i $(0,0)$ og bruk den til å anslå $f(0{,}1;\\ 0{,}2)$.",
+        "solution": "**a)** $f_x=e^x\\cos y$, $f_y=-e^x\\sin y$. Videre $f_{xx}=e^x\\cos y$, $f_{yy}=-e^x\\cos y$. De blandede: $f_{xy}=\\partial_y(e^x\\cos y)=-e^x\\sin y$ og $f_{yx}=\\partial_x(-e^x\\sin y)=-e^x\\sin y$ — like, som Clairaut krever.\n\n**b)** $f(0,0)=1$, $\\nabla f(0,0)=(e^0\\cos0,\\ -e^0\\sin0)=(1,0)$. Linearisering:\n$$T_{(0,0)}f(x,y)=1+1\\cdot(x-0)+0\\cdot(y-0)=1+x.$$\nAnslag: $f(0{,}1;\\ 0{,}2)\\approx1+0{,}1=1{,}1$. (Eksakt $e^{0{,}1}\\cos0{,}2\\approx1{,}083$, så anslaget er rimelig nær.)",
+        "hints": [
+          "Husk $\\partial_y\\cos y=-\\sin y$ og at $e^x$ er upåvirket av $y$-derivasjon.",
+          "Linearisering: $T=f(0,0)+\\nabla f(0,0)\\cdot(x,y)$; her forsvinner $y$-leddet."
+        ]
+      }
+    },
+    {
+      "id": "mat1110-2-1-bb",
+      "type": "text",
+      "content": "## Begrepsbank\n\n*Flashcard-/repetisjonsstoff — hopp trygt over ved førstegangslesing; tidsanslaget gjelder kjernestoffet.*"
+    },
+    {
+      "id": "mat1110-2-1-bb-skalarfelt",
+      "type": "definition",
+      "title": "Funksjon av flere variable (skalarfelt)",
+      "content": "En regel $f:\\mathbb{R}^n\\to\\mathbb{R}$ som gir ett tall for hvert punkt. For $n=2$ kan grafen $z=f(x,y)$ ses som en flate over planet; for $n=3$ er $f(x,y,z)$ et skalarfelt (temperatur, tetthet). Flervariabelkalkulusen handler om å derivere og integrere slike funksjoner."
+    },
+    {
+      "id": "mat1110-2-1-bb-diff",
+      "type": "definition",
+      "title": "Deriverbarhet (flere variable)",
+      "content": "$f$ er deriverbar i $a$ dersom tangentplanet faktisk tilnærmer $f$ godt: $f(x)=f(a)+\\nabla f(a)\\cdot(x-a)+r(x)$ der feilen $r(x)$ går mot $0$ raskere enn $|x-a|$. **Viktig:** at de partiellderiverte *finnes* er ikke nok; men er de **kontinuerlige**, er $f$ deriverbar (teoremet vi bruker i [kap. 2.2](/bok/mat1110/mat1110-2-2))."
+    },
+    {
+      "id": "mat1110-2-1-bb-bratteste",
+      "type": "definition",
+      "title": "Bratteste stigning",
+      "content": "Retningen der $f$ vokser raskest er $\\nabla f/|\\nabla f|$, og den maksimale stigningsraten er $|\\nabla f|$. Motsatt vei, $-\\nabla f$, er bratteste fall. Dette følger av $D_uf=\\nabla f\\cdot u=|\\nabla f|\\cos\\theta$, som er størst når $\\theta=0$."
+    },
+    {
+      "id": "mat1110-2-1-bb-ortogonal",
+      "type": "definition",
+      "title": "Gradienten står vinkelrett på nivåkurven",
+      "content": "I ethvert punkt er $\\nabla f$ ortogonal til nivåkurven $f=k$ gjennom punktet. Grunnen: langs nivåkurven endrer $f$ seg ikke, så den retningsderiverte langs kurven er $0$, altså $\\nabla f\\cdot(\\text{tangent})=0$. Dette gir en rask måte å finne normalen til en nivåkurve."
+    },
+    {
+      "id": "mat1110-2-1-bb-nivaflate",
+      "type": "definition",
+      "title": "Nivåflate",
+      "content": "Tredimensjonal analog til nivåkurven: mengden $\\{(x,y,z):F(x,y,z)=k\\}$ der $F$ er konstant. Gradienten $\\nabla F$ står vinkelrett på nivåflaten, og gir dermed normalvektoren — dette er verktøyet bak tangentplan til implisitt gitte flater (og fluks-normalen senere)."
+    },
+    {
+      "id": "mat1110-2-1-bb-stasjonaer",
+      "type": "definition",
+      "title": "Stasjonært (kritisk) punkt",
+      "content": "Et punkt der $\\nabla f=0$, altså der alle partiellderiverte er null samtidig. Flaten er «flat» der. Slike punkter er kandidatene til lokale maks/min og sadelpunkter, og klassifiseres med Hesse-matrisen i [kap. 3.1](/bok/mat1110/mat1110-3-1). Her nevnes de bare som begrep."
+    },
+    {
+      "id": "mat1110-2-1-bb-tangentlinje",
+      "type": "definition",
+      "title": "Tangentlinje til en nivåkurve",
+      "content": "Nivåkurven $f(x,y)=k$ har i punktet $(a,b)$ tangentlinjen $\\nabla f(a,b)\\cdot(x-a,y-b)=0$, siden gradienten er normal til kurven. Dette er $\\mathbb{R}^2$-versjonen av tangentplanet, og et nyttig sjekkpunkt for at gradient og normal henger sammen."
+    },
+    {
+      "id": "mat1110-2-1-rep",
+      "type": "collapsible",
+      "title": "Repetisjon",
+      "buttonText": "Vis repetisjonsoppgaver",
+      "content": [
+        {
+          "id": "mat1110-2-1-r1-w",
+          "type": "exercise",
+          "exercise": {
+            "id": "mat1110-2-1-r1",
+            "number": "R1",
+            "type": "classic",
+            "difficulty": "lett",
+            "task": "(Forkunnskap: [Skalarproduktet](/bok/r2/r2-5-3)) Regn prikkproduktet $(3,-2)\\cdot(4,5)$ og lengden $|(3,-2)|$.",
+            "solution": "$(3,-2)\\cdot(4,5)=3\\cdot4+(-2)\\cdot5=12-10=2$. Lengden: $|(3,-2)|=\\sqrt{3^2+(-2)^2}=\\sqrt{13}$.",
+            "hints": [
+              "Prikkprodukt = sum av produktene komponentvis.",
+              "Lengde $=\\sqrt{\\text{sum av kvadrater}}$."
+            ]
+          }
+        },
+        {
+          "id": "mat1110-2-1-r2-w",
+          "type": "exercise",
+          "exercise": {
+            "id": "mat1110-2-1-r2",
+            "number": "R2",
+            "type": "classic",
+            "difficulty": "lett",
+            "task": "(Forkunnskap: derivasjon i én variabel) Deriver $\\varphi(t)=t^3-4t+\\sin t$.",
+            "solution": "$\\varphi'(t)=3t^2-4+\\cos t$. (Partiellderivasjon er akkurat slik derivasjon, bare med de andre variablene holdt konstante.)",
+            "hints": [
+              "Deriver ledd for ledd; $\\dfrac{d}{dt}\\sin t=\\cos t$."
+            ]
+          }
+        },
+        {
+          "id": "mat1110-2-1-r3-w",
+          "type": "exercise",
+          "exercise": {
+            "id": "mat1110-2-1-r3",
+            "number": "R3",
+            "type": "classic",
+            "difficulty": "middels",
+            "task": "(Forkunnskap: [Skalarproduktet](/bok/r2/r2-5-3)) To vektorer $u=(1,1)$ og $w=(1,-1)$. Er de ortogonale? Hva er vinkelen mellom dem?",
+            "solution": "$u\\cdot w=1\\cdot1+1\\cdot(-1)=0$, så vektorene er **ortogonale**. Når prikkproduktet er null, er vinkelen $90^\\circ$. (Dette er akkurat situasjonen der en retningsderivert langs $w$ blir null hvis $\\nabla f=u$.)",
+            "hints": [
+              "Ortogonale $\\iff$ prikkprodukt $=0$."
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": "mat1110-2-1-symbol",
+      "type": "collapsible",
+      "title": "Symbol- og formelliste",
+      "buttonText": "Vis symboler og formler",
+      "content": [
+        {
+          "id": "mat1110-2-1-symbol-text",
+          "type": "text",
+          "content": "## Symbol- og formelliste\n\n*Oppslagsverk — alt her forklares underveis i kapitlet.*\n\n| Symbol | Betydning |\n|---|---|\n| $\\dfrac{\\partial f}{\\partial x},\\ f_x$ | Partiellderivert av $f$ mhp. $x$ ($y$ holdt konstant) |\n| $\\nabla f$ | Gradienten $(f_x,f_y,\\dots)$ — peker mot bratteste stigning |\n| $u$ | Enhetsvektor (retning), $|u|=1$ |\n| $D_uf(a)$ | Retningsderivert i retning $u$: $\\nabla f(a)\\cdot u$ |\n| $T_af$ | Linearisering (tangentplantilnærming) av $f$ i $a$ |\n| $f_{xy},f_{yx}$ | Blandede andreordens partiellderiverte |\n| $H$ | Hesse-matrisen $\\left(\\begin{smallmatrix}f_{xx}&f_{xy}\\\\ f_{xy}&f_{yy}\\end{smallmatrix}\\right)$ |\n| $n$ | Normalvektor til flaten |\n| $f=k$ | Nivåkurve/nivåflate (konstant funksjonsverdi) |\n\n**Formler i dette delkapitlet:**\n\n$$\\nabla f(a,b)=\\big(f_x(a,b),\\ f_y(a,b)\\big)$$\nGradienten — de partiellderiverte samlet i en vektor.\n\n$$D_uf(a)=\\nabla f(a)\\cdot u$$\nRetningsderivert; $u$ må være enhetsvektor. Størst når $u\\parallel\\nabla f$.\n\n$$T_af(x)=f(a)+\\nabla f(a)\\cdot(x-a)$$\nLinearisering / beste rette tilnærming nær $a$.\n\n$$z=g(a,b)+g_x(a,b)(x-a)+g_y(a,b)(y-b)$$\nTangentplanet til grafen $z=g(x,y)$.\n\n$$n=(g_x,\\ g_y,\\ -1)$$\nNormalvektor til grafflaten $z=g(x,y)$.\n\n$$f_{xy}=f_{yx}\\quad(\\text{Clairaut, glatt }f)$$\nRekkefølgen på blandet derivasjon er likegyldig.\n\n$$H=\\begin{pmatrix}f_{xx}&f_{xy}\\\\ f_{xy}&f_{yy}\\end{pmatrix}$$\nHesse-matrisen (symmetrisk) — brukes til klassifisering i kap. 3.1."
+        }
+      ]
+    }
+  ],
+  "exercises": []
+}

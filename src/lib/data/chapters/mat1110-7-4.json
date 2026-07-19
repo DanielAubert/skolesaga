@@ -1,0 +1,218 @@
+{
+  "id": "mat1110-7-4",
+  "courseId": "mat1110",
+  "chapterNumber": "7.4",
+  "title": "Avsluttende simulering 2: gammelt regime (egenverdier + potensrekker)",
+  "description": "Komplett sett nummer to i beredskapsregimet: egenverdier + lim Aⁿv-åpning, potensrekke med sum, Green i planet, Stokes, kontraksjon og flateareal — så de to settene sammen dekker A–R.",
+  "estimatedMinutes": 240,
+  "competenceGoals": [
+    "gjennomføre et komplett avsluttende sett i beredskapsregimet (egenverdier, potensrekker, Green, Stokes)",
+    "føre egenvektordekomponering, endepunktsjekk, Jacobideterminant og kontraksjonsargument etter sensorstandarden",
+    "gjenkjenne når historiske ryggradstemaer må holdes varme som beredskap tross regimeskiftet"
+  ],
+  "content": [
+    {
+      "id": "mat1110-7-4-tip",
+      "type": "tip",
+      "title": "Om avsluttende simulering 2 (beredskapsregimet)",
+      "content": "Det andre komplette **4-timers settet**: samme mal (10 deloppgaver som teller likt, kalkulator + formelsamling), men i **beredskapsscenariet** — egenverdier + $\\lim A^n v$, potensrekker, Green og Stokes.\n\n- **Ærlig regimemerke:** egenverdier/Markov (70 % historisk) og potensrekker (85 % historisk) var ryggraden 2004–2024, men falt helt bort i alle tre V2025-sett. De holdes her som **fullt beredskap** — regimeskiftet hviler bare på ett årskull, så du bør trene begge scenarier. **Sjekk mot det faktiske V2026-settet så snart det foreligger.**\n- **Dekning:** sammen med [kap. 7.3](/bok/mat1110/mat1110-7-3) dekker dette settet alle sjangrene $A$–$R$. Her ligger restsjangrene: $B$ (egenverdier), $C$ (diagonalisering) + $R$ (teoribevis), $N/O$ (rekker), $Q$ (variabelskifte), $J$ (Green), $M$ (Stokes), $P$ (kontraksjon), $K$ (flateareal).\n- **Tid/føring:** ~**24 min per deloppgave**; føring etter [kap. 7.1](/bok/mat1110/mat1110-7-1). Eksakte svar.\n\nLøsningsforslagene er nyskrevne modellbesvarelser i utvidbare bokser under settet."
+    },
+    {
+      "id": "mat1110-7-4-fork",
+      "type": "text",
+      "content": "**Forkunnskaper.** Beredskapsdelen og resten av pensum: [kap. 6.1–6.2](/bok/mat1110/mat1110-6-1) (egenverdier, diagonalisering, $\\lim A^n v$), [kap. 6.3–6.4](/bok/mat1110/mat1110-6-3) (potensrekker, sum ved leddvis derivasjon), [kap. 6.5](/bok/mat1110/mat1110-6-5) (kontraksjon/fikspunkt), [kap. 4.2](/bok/mat1110/mat1110-4-2) (variabelskifte/Jacobideterminant), [kap. 5.2](/bok/mat1110/mat1110-5-2) (Green), [kap. 5.3](/bok/mat1110/mat1110-5-3) (skalar flateintegral) og [kap. 5.5](/bok/mat1110/mat1110-5-5) (Stokes)."
+    },
+    {
+      "id": "mat1110-7-4-sett",
+      "type": "text",
+      "content": "## Oppgavesettet — avsluttende eksamen (4 timer, kalkulator + formelsamling)\n\n*Alle 10 deloppgaver teller likt. Begrunn alle svar; vis nok mellomregning. Eksakte svar.*\n\nLa $M=\\begin{pmatrix}0{,}7&0{,}4\\\\0{,}3&0{,}6\\end{pmatrix}$ (en Markov-matrise; søylesummene er $1$).\n\n**O1 a)** Finn egenverdiene til $M$ og en egenvektor for hver.\n\n**O1 b)** Skriv startvektoren $x_0=(1,0)^T$ som en lineærkombinasjon av egenvektorene, og bestem $\\displaystyle\\lim_{n\\to\\infty}M^n x_0$.\n\n**O2** La $A=\\begin{pmatrix}3&1\\\\1&3\\end{pmatrix}$. Diagonaliser $A$ og bruk diagonaliseringen til å finne en matrise $B$ med $B^2=A$. Begrunn også kort at egenvektorer som hører til to forskjellige egenverdier, er lineært uavhengige.\n\n**O3 a)** Bestem konvergensområdet til potensrekken $\\displaystyle\\sum_{n=1}^\\infty \\frac{x^n}{n}$ (husk endepunktene, og navngi testene du bruker).\n\n**O3 b)** Finn et lukket uttrykk for summen $f(x)=\\displaystyle\\sum_{n=1}^\\infty \\frac{x^n}{n}$ på konvergensområdet, og bruk det til å regne ut $\\displaystyle\\sum_{n=1}^\\infty \\frac{1}{n\\,2^n}$.\n\n**O4** Regn ut $\\displaystyle\\iint_D\\left(\\frac{x^2}{9}+\\frac{y^2}{4}\\right)dA$ der $D$ er ellipseskiven $\\dfrac{x^2}{9}+\\dfrac{y^2}{4}\\le1$, ved et passende variabelskifte.\n\n**O5** La $C$ være randkurven til området $D=\\{(x,y):0\\le x\\le1,\\ x^2\\le y\\le x\\}$, orientert mot klokka. Regn ut $\\displaystyle\\oint_C xy\\,dx+x^2\\,dy$ med Greens teorem.\n\n**O6** La $F=(z,x,y)$ og la $C$ være enhetssirkelen $x^2+y^2=1$ i planet $z=0$, orientert mot klokka sett ovenfra. Bruk Stokes' teorem til å regne $\\displaystyle\\oint_C F\\cdot dr$.\n\n**O7** La $F(x)=Ax+b$ med $A=\\begin{pmatrix}0{,}5&0{,}2\\\\0{,}1&0{,}3\\end{pmatrix}$ og $b=(0{,}8;\\ 0{,}5)^T$. Vis at $F$ er en kontraksjon, og finn fikspunktet.\n\n**O8** Finn arealet av den delen av kjeglen $z=\\sqrt{x^2+y^2}$ som ligger over skiven $x^2+y^2\\le4$."
+    },
+    {
+      "id": "mat1110-7-4-typiske-feil",
+      "type": "warning",
+      "title": "Typiske feil",
+      "content": "Beredskapsregimet har sine egne klassiske feller — egenverdier, rekker, Green og Stokes:\n\n- **Glemt endepunktsjekk i potensrekke.** Forholdstesten gir et åpent intervall; konvergens i endepunktene $x = \\pm\\rho$ må sjekkes hver for seg før du oppgir konvergensområdet.\n- **Feil $P$/$P^{-1}$-rekkefølge.** Diagonalisering er $A = PDP^{-1}$ med egenvektorene som søyler i $P$ — ikke $P^{-1}DP$. Da blir $A^n = PD^nP^{-1}$.\n- **Manglende konvergensvis før innsetting.** Vis at rekken konvergerer i området før du bruker sumformelen eller setter inn en verdi.\n- **Green- og Stokes-orientering.** Green krever positivt orientert (mot klokka) rand; Stokes krever at randorientering og flatenormal følger høyrehåndsregelen. Feil orientering snur fortegnet.\n- **Markov-grensen.** $\\lim A^n v$ styres av egenvektoren for $\\lambda = 1$; ikke bland sammen egenverdiene når du projiserer.\n- **Avrunding.** Behold eksakte svar hele veien."
+    },
+    {
+      "id": "mat1110-7-4-sol-o1",
+      "type": "collapsible",
+      "title": "Løsningsforslag O1 (egenverdier + lim Aⁿv, Markov)",
+      "buttonText": "Vis løsningsforslag O1",
+      "content": [
+        {
+          "id": "mat1110-7-4-o1-tip",
+          "type": "tip",
+          "title": "Vekting og tid",
+          "content": "To deloppgaver, ~48 min. Føringspoengene: karakteristisk likning $\\det(\\lambda I-M)=0$ og egenvektor fra $(M-\\lambda I)v=0$; i b) **egenvektordekomponering** — ikke regn $M^n$ direkte. Ledd med $|\\lambda|<1$ dør ut, $\\lambda=1$-komponenten overlever."
+        },
+        {
+          "id": "mat1110-7-4-o1a",
+          "type": "text",
+          "content": "**O1 a)** Karakteristisk likning:\n$$\\det(\\lambda I-M)=(\\lambda-0{,}7)(\\lambda-0{,}6)-(-0{,}4)(-0{,}3)=\\lambda^2-1{,}3\\lambda+0{,}30=0.$$\n$\\lambda=\\dfrac{1{,}3\\pm\\sqrt{1{,}69-1{,}20}}{2}=\\dfrac{1{,}3\\pm0{,}7}{2}$, altså $\\lambda_1=1$ og $\\lambda_2=0{,}3$. (Markov: søylesum $1$ garanterer egenverdi $1$.)\n\n**Egenvektor $\\lambda_1=1$:** $(M-I)v=0$, dvs. $\\begin{pmatrix}-0{,}3&0{,}4\\\\0{,}3&-0{,}4\\end{pmatrix}v=0\\Rightarrow 3v_1=4v_2$. Velg $v_1=(4,3)$.\n\n**Egenvektor $\\lambda_2=0{,}3$:** $(M-0{,}3I)v=0$, dvs. $\\begin{pmatrix}0{,}4&0{,}4\\\\0{,}3&0{,}3\\end{pmatrix}v=0\\Rightarrow v_1+v_2=0$. Velg $v_2=(1,-1)$.\n\n**Konklusjon a):** $\\lambda=1$ (egenvektor $(4,3)$) og $\\lambda=0{,}3$ (egenvektor $(1,-1)$)."
+        },
+        {
+          "id": "mat1110-7-4-o1b",
+          "type": "text",
+          "content": "**O1 b)** Skriv $x_0=(1,0)^T=c_1(4,3)+c_2(1,-1)$. Dette gir\n$$4c_1+c_2=1,\\qquad 3c_1-c_2=0.$$\nAddér: $7c_1=1\\Rightarrow c_1=\\tfrac17$, og $c_2=3c_1=\\tfrac37$. Da er\n$$M^n x_0=c_1\\lambda_1^n v_1+c_2\\lambda_2^n v_2=\\tfrac17\\cdot1^n\\,(4,3)+\\tfrac37\\cdot(0{,}3)^n\\,(1,-1).$$\nNår $n\\to\\infty$ dør leddet med $(0{,}3)^n\\to0$ ut, mens $\\lambda=1$-komponenten består:\n$$\\lim_{n\\to\\infty}M^n x_0=\\tfrac17(4,3)=\\left(\\tfrac47,\\ \\tfrac37\\right).$$\n**Konklusjon:** $\\displaystyle\\lim_{n\\to\\infty}M^n x_0=(\\tfrac47,\\tfrac37)^T$ — den stasjonære fordelingen. (Kontroll: komponentene summerer til $1$, som seg hør og bør for en sannsynlighetsfordeling.)"
+        }
+      ]
+    },
+    {
+      "id": "mat1110-7-4-sol-o2",
+      "type": "collapsible",
+      "title": "Løsningsforslag O2 (diagonalisering + matrise-kvadratrot + teoribevis)",
+      "buttonText": "Vis løsningsforslag O2",
+      "content": [
+        {
+          "id": "mat1110-7-4-o2-tip",
+          "type": "tip",
+          "title": "Vekting og tid",
+          "content": "~24 min. Føringspoengene: $A=PDP^{-1}$ med egenvektorene som søyler i $P$, riktig rekkefølge i $B=P\\sqrt{D}\\,P^{-1}$, og et **kort, gyldig teoribevis** (sjanger R) for lineær uavhengighet."
+        },
+        {
+          "id": "mat1110-7-4-o2",
+          "type": "text",
+          "content": "**O2** Egenverdiene til $A=\\begin{pmatrix}3&1\\\\1&3\\end{pmatrix}$: $\\det(\\lambda I-A)=(\\lambda-3)^2-1=0\\Rightarrow \\lambda=2,\\,4$.\n\n- $\\lambda=2$: $(A-2I)v=0\\Rightarrow v_1+v_2=0$, egenvektor $(1,-1)$.\n- $\\lambda=4$: $(A-4I)v=0\\Rightarrow -v_1+v_2=0$, egenvektor $(1,1)$.\n\nSett $P=\\begin{pmatrix}1&1\\\\-1&1\\end{pmatrix}$ (egenvektorene som søyler) og $D=\\begin{pmatrix}2&0\\\\0&4\\end{pmatrix}$; da er $P^{-1}=\\tfrac12\\begin{pmatrix}1&-1\\\\1&1\\end{pmatrix}$ og $A=PDP^{-1}$.\n\n**Matrise-kvadratrot:** velg $\\sqrt{D}=\\begin{pmatrix}\\sqrt2&0\\\\0&2\\end{pmatrix}$ og sett $B=P\\sqrt{D}\\,P^{-1}$. Da er $B^2=P\\sqrt{D}\\,P^{-1}P\\sqrt{D}\\,P^{-1}=P D P^{-1}=A$. Regn ut:\n$$B=\\begin{pmatrix}1&1\\\\-1&1\\end{pmatrix}\\begin{pmatrix}\\sqrt2&0\\\\0&2\\end{pmatrix}\\tfrac12\\begin{pmatrix}1&-1\\\\1&1\\end{pmatrix}=\\frac12\\begin{pmatrix}\\sqrt2&2\\\\-\\sqrt2&2\\end{pmatrix}\\begin{pmatrix}1&-1\\\\1&1\\end{pmatrix}=\\begin{pmatrix}1+\\tfrac{\\sqrt2}{2}&1-\\tfrac{\\sqrt2}{2}\\\\1-\\tfrac{\\sqrt2}{2}&1+\\tfrac{\\sqrt2}{2}\\end{pmatrix}.$$\n(Kontroll: $B^2=\\begin{pmatrix}3&1\\\\1&3\\end{pmatrix}=A$ ✓.)\n\n**Teoribevis (lineær uavhengighet):** anta $c_1v_1+c_2v_2=0$ for egenvektorer $v_1,v_2$ med $Av_i=\\lambda_i v_i$ og $\\lambda_1\\ne\\lambda_2$. Multipliser med $A$: $c_1\\lambda_1v_1+c_2\\lambda_2v_2=0$. Trekk fra $\\lambda_2$ ganger den første: $c_1(\\lambda_1-\\lambda_2)v_1=0$. Siden $\\lambda_1\\ne\\lambda_2$ og $v_1\\ne0$, må $c_1=0$; da gir den første $c_2v_2=0$, så $c_2=0$. Altså er $v_1,v_2$ **lineært uavhengige**, og $A$ er diagonaliserbar.\n\n**Konklusjon:** $A=PDP^{-1}$, $B=\\begin{pmatrix}1+\\tfrac{\\sqrt2}{2}&1-\\tfrac{\\sqrt2}{2}\\\\1-\\tfrac{\\sqrt2}{2}&1+\\tfrac{\\sqrt2}{2}\\end{pmatrix}$ oppfyller $B^2=A$, og egenvektorene er lineært uavhengige."
+        }
+      ]
+    },
+    {
+      "id": "mat1110-7-4-sol-o3",
+      "type": "collapsible",
+      "title": "Løsningsforslag O3 (potensrekke: konvergensområde + sum)",
+      "buttonText": "Vis løsningsforslag O3",
+      "content": [
+        {
+          "id": "mat1110-7-4-o3-tip",
+          "type": "tip",
+          "title": "Vekting og tid",
+          "content": "To deloppgaver, ~48 min. Føringspoengene: **endepunktsjekken** i a) (navngi testene), og i b) **leddvis derivasjon** med begrunnelse for at det er lov innenfor $R$, og kontroll av at innsettingspunktet ligger i konvergensområdet."
+        },
+        {
+          "id": "mat1110-7-4-o3a",
+          "type": "text",
+          "content": "**O3 a)** Konvergensradius ved forholdstesten: med $a_n=\\tfrac1n$ er\n$$\\frac{1}{R}=\\lim_{n\\to\\infty}\\left|\\frac{a_{n+1}}{a_n}\\right|=\\lim_{n\\to\\infty}\\frac{n}{n+1}=1,\\qquad R=1.$$\nRekken konvergerer altså for $|x|<1$. **Endepunktsjekk:**\n\n- $x=1$: $\\sum\\tfrac1n$ er den **harmoniske rekken** ($p$-rekke med $p=1$), som **divergerer**.\n- $x=-1$: $\\sum\\tfrac{(-1)^n}{n}$ er alternerende med $a_n=\\tfrac1n$ avtagende mot $0$; **ifølge Leibniz' kriterium** konvergerer den.\n\n**Konklusjon a):** konvergensområdet er $[-1,\\,1)$."
+        },
+        {
+          "id": "mat1110-7-4-o3b",
+          "type": "text",
+          "content": "**O3 b)** La $f(x)=\\displaystyle\\sum_{n=1}^\\infty\\frac{x^n}{n}$ for $x\\in[-1,1)$. Innenfor konvergensradien ($|x|<1$) er leddvis derivasjon lov, og\n$$f'(x)=\\sum_{n=1}^\\infty x^{n-1}=\\sum_{k=0}^\\infty x^{k}=\\frac{1}{1-x}\\qquad(|x|<1),$$\nen geometrisk rekke. Med $f(0)=0$ integrerer vi tilbake:\n$$f(x)=\\int_0^x\\frac{dt}{1-t}=-\\ln(1-x).$$\nInnsettingspunktet $x=\\tfrac12$ ligger i $(-1,1)$, så\n$$\\sum_{n=1}^\\infty\\frac{1}{n\\,2^n}=\\sum_{n=1}^\\infty\\frac{(1/2)^n}{n}=f\\!\\left(\\tfrac12\\right)=-\\ln\\!\\left(1-\\tfrac12\\right)=-\\ln\\tfrac12=\\ln2.$$\n**Konklusjon:** $f(x)=-\\ln(1-x)$ på $[-1,1)$, og $\\displaystyle\\sum_{n=1}^\\infty\\frac{1}{n\\,2^n}=\\ln2$."
+        }
+      ]
+    },
+    {
+      "id": "mat1110-7-4-sol-o4",
+      "type": "collapsible",
+      "title": "Løsningsforslag O4 (variabelskifte, Jacobideterminant)",
+      "buttonText": "Vis løsningsforslag O4",
+      "content": [
+        {
+          "id": "mat1110-7-4-o4-tip",
+          "type": "tip",
+          "title": "Vekting og tid",
+          "content": "~24 min. Føringspoengene: velg ellipsekoordinater, regn **Jacobideterminanten** eksplisitt (med **absoluttverdi**), og bokfør de nye grensene."
+        },
+        {
+          "id": "mat1110-7-4-o4",
+          "type": "text",
+          "content": "**O4** Ellipsegeometrien tilsier skiftet $x=3r\\cos\\theta,\\ y=2r\\sin\\theta$, som avbilder enhetsskiven $0\\le r\\le1,\\ 0\\le\\theta\\le2\\pi$ på $D$. **Jacobideterminanten:**\n$$\\frac{\\partial(x,y)}{\\partial(r,\\theta)}=\\det\\begin{pmatrix}3\\cos\\theta&-3r\\sin\\theta\\\\2\\sin\\theta&2r\\cos\\theta\\end{pmatrix}=6r\\cos^2\\theta+6r\\sin^2\\theta=6r,$$\nså $dA=\\big|6r\\big|\\,dr\\,d\\theta=6r\\,dr\\,d\\theta$ (absoluttverdi; $r\\ge0$). Integranden blir\n$$\\frac{x^2}{9}+\\frac{y^2}{4}=\\frac{9r^2\\cos^2\\theta}{9}+\\frac{4r^2\\sin^2\\theta}{4}=r^2.$$\nAltså\n$$\\iint_D\\left(\\frac{x^2}{9}+\\frac{y^2}{4}\\right)dA=\\int_0^{2\\pi}\\!\\!\\int_0^1 r^2\\cdot6r\\,dr\\,d\\theta=6\\int_0^{2\\pi}d\\theta\\int_0^1 r^3\\,dr=6\\cdot2\\pi\\cdot\\tfrac14=3\\pi.$$\n**Konklusjon:** integralet er $3\\pi$."
+        }
+      ]
+    },
+    {
+      "id": "mat1110-7-4-sol-o5",
+      "type": "collapsible",
+      "title": "Løsningsforslag O5 (linjeintegral med Greens teorem)",
+      "buttonText": "Vis løsningsforslag O5",
+      "content": [
+        {
+          "id": "mat1110-7-4-o5-tip",
+          "type": "tip",
+          "title": "Vekting og tid",
+          "content": "~24 min. Føringspoengene: sjekk orienteringen (mot klokka $\\Rightarrow$ positivt fortegn i Green), regn $\\tfrac{\\partial Q}{\\partial x}-\\tfrac{\\partial P}{\\partial y}$, og beskriv $D$ med ulikheter før dobbeltintegralet.\n\n— naturlig pausepunkt før andre halvdel (O5–O8) —"
+        },
+        {
+          "id": "mat1110-7-4-o5",
+          "type": "text",
+          "content": "**O5** Med $P=xy$ og $Q=x^2$ er kurven $C$ lukket og positivt orientert (mot klokka), så **Greens teorem** gir\n$$\\oint_C P\\,dx+Q\\,dy=\\iint_D\\left(\\frac{\\partial Q}{\\partial x}-\\frac{\\partial P}{\\partial y}\\right)dA=\\iint_D(2x-x)\\,dA=\\iint_D x\\,dA.$$\nOmrådet: $0\\le x\\le1,\\ x^2\\le y\\le x$ (på $(0,1)$ ligger $y=x$ over $y=x^2$). Da\n$$\\iint_D x\\,dA=\\int_0^1\\!\\!\\int_{x^2}^{x} x\\,dy\\,dx=\\int_0^1 x\\,(x-x^2)\\,dx=\\int_0^1 (x^2-x^3)\\,dx=\\left[\\frac{x^3}{3}-\\frac{x^4}{4}\\right]_0^1=\\frac13-\\frac14=\\frac{1}{12}.$$\n**Konklusjon:** $\\displaystyle\\oint_C xy\\,dx+x^2\\,dy=\\frac{1}{12}$."
+        }
+      ]
+    },
+    {
+      "id": "mat1110-7-4-sol-o6",
+      "type": "collapsible",
+      "title": "Løsningsforslag O6 (Stokes' teorem)",
+      "buttonText": "Vis løsningsforslag O6",
+      "content": [
+        {
+          "id": "mat1110-7-4-o6-tip",
+          "type": "tip",
+          "title": "Vekting og tid",
+          "content": "~24 min. Føringspoengene: regn $\\operatorname{curl}F$, velg en enkel flate $S$ med rand $C$, og koble $n$ og $C$ med **høyrehåndsregelen**."
+        },
+        {
+          "id": "mat1110-7-4-o6",
+          "type": "text",
+          "content": "**O6** Curl:\n$$\\operatorname{curl}F=\\nabla\\times(z,x,y)=\\left(\\frac{\\partial y}{\\partial y}-\\frac{\\partial x}{\\partial z},\\ \\frac{\\partial z}{\\partial z}-\\frac{\\partial y}{\\partial x},\\ \\frac{\\partial x}{\\partial x}-\\frac{\\partial z}{\\partial y}\\right)=(1,1,1).$$\n**Stokes' teorem** lar oss velge en hvilken som helst flate $S$ med rand $C$; enklest er den plane skiven $S=\\{x^2+y^2\\le1,\\ z=0\\}$. Orienteringen: $C$ løper mot klokka sett ovenfra, så **høyrehåndsregelen** gir oppadrettet normal $n=k=(0,0,1)$. Da\n$$\\oint_C F\\cdot dr=\\iint_S \\operatorname{curl}F\\cdot n\\,dS=\\iint_{x^2+y^2\\le1}(1,1,1)\\cdot(0,0,1)\\,dA=\\iint_{x^2+y^2\\le1}1\\,dA=\\pi.$$\n**Konklusjon:** $\\displaystyle\\oint_C F\\cdot dr=\\pi$. (Direkte kontroll: $r(t)=(\\cos t,\\sin t,0)$ gir $F\\cdot r'=\\cos^2 t$, og $\\int_0^{2\\pi}\\cos^2 t\\,dt=\\pi$ ✓.)"
+        }
+      ]
+    },
+    {
+      "id": "mat1110-7-4-sol-o7",
+      "type": "collapsible",
+      "title": "Løsningsforslag O7 (kontraksjon + fikspunkt)",
+      "buttonText": "Vis løsningsforslag O7",
+      "content": [
+        {
+          "id": "mat1110-7-4-o7-tip",
+          "type": "tip",
+          "title": "Vekting og tid",
+          "content": "~24 min. Føringspoengene: knytt kontraksjonen til en **matrisenorm $<1$** (ikke bare påstå den), og finn fikspunktet fra $(I-A)x=b$."
+        },
+        {
+          "id": "mat1110-7-4-o7",
+          "type": "text",
+          "content": "**O7** For $F(x)=Ax+b$ er $|F(x)-F(y)|=|A(x-y)|\\le\\lVert A\\rVert\\,|x-y|$. Bruk **maksimumsnormen** (største absolutte radsum):\n$$\\lVert A\\rVert_\\infty=\\max\\big(|0{,}5|+|0{,}2|,\\ |0{,}1|+|0{,}3|\\big)=\\max(0{,}7,\\ 0{,}4)=0{,}7<1.$$\nAltså er $F$ en **kontraksjon** med $K=0{,}7$ i maksimumsnormen. **Ifølge kontraksjonsprinsippet** har $F$ da et entydig fikspunkt.\n\n**Fikspunkt:** $x=Ax+b\\Rightarrow(I-A)x=b$ med $I-A=\\begin{pmatrix}0{,}5&-0{,}2\\\\-0{,}1&0{,}7\\end{pmatrix}$ og $b=(0{,}8;\\,0{,}5)^T$. Løs systemet (radreduksjon eller innsetting): prøv $x=(2,1)$:\n$$(I-A)(2,1)^T=(0{,}5\\cdot2-0{,}2\\cdot1,\\ -0{,}1\\cdot2+0{,}7\\cdot1)^T=(0{,}8,\\ 0{,}5)^T=b.\\ ✓$$\nFikspunktet er entydig (kontraksjon), så dette er det eneste.\n\n**Konklusjon:** $F$ er en kontraksjon ($K=0{,}7<1$), og fikspunktet er $x=(2,1)^T$."
+        }
+      ]
+    },
+    {
+      "id": "mat1110-7-4-sol-o8",
+      "type": "collapsible",
+      "title": "Løsningsforslag O8 (flateareal, skalar flateintegral)",
+      "buttonText": "Vis løsningsforslag O8",
+      "content": [
+        {
+          "id": "mat1110-7-4-o8-tip",
+          "type": "tip",
+          "title": "Vekting og tid",
+          "content": "~24 min. Føringspoenget: bruk graf-formelen $dS=\\sqrt{1+z_x^2+z_y^2}\\,dA$ (**ingen** fortegn/absoluttverdi-felle her — dette er et skalar-integral), og gjenkjenn at faktoren blir konstant."
+        },
+        {
+          "id": "mat1110-7-4-o8",
+          "type": "text",
+          "content": "**O8** Arealet av en graf $z=g(x,y)$ over et område $D$ er $\\displaystyle\\int_S 1\\,dS=\\iint_D\\sqrt{1+g_x^2+g_y^2}\\,dA$. Her er $g=\\sqrt{x^2+y^2}$, så\n$$g_x=\\frac{x}{\\sqrt{x^2+y^2}},\\quad g_y=\\frac{y}{\\sqrt{x^2+y^2}},\\quad g_x^2+g_y^2=\\frac{x^2+y^2}{x^2+y^2}=1.$$\nAltså er $\\sqrt{1+g_x^2+g_y^2}=\\sqrt2$ (konstant), og med $D=\\{x^2+y^2\\le4\\}$ (areal $\\pi\\cdot2^2=4\\pi$):\n$$\\int_S 1\\,dS=\\iint_D\\sqrt2\\,dA=\\sqrt2\\cdot4\\pi=4\\sqrt2\\,\\pi.$$\n**Konklusjon:** flatearealet er $4\\sqrt2\\,\\pi$."
+        }
+      ]
+    },
+    {
+      "id": "mat1110-7-4-selvdiagnose",
+      "type": "text",
+      "content": "**Selvdiagnose — kryss av det du fikk til uten å slå opp:**\n\n- ☐ Fant egenvektorene fra $(M-\\lambda I)v=0$ og brukte EGENVEKTORDEKOMPONERING (ikke $M^n$ direkte) i O1b\n- ☐ Fikk riktig rekkefølge $B=P\\sqrt{D}\\,P^{-1}$ og skrev et gyldig teoribevis for lineær uavhengighet i O2\n- ☐ Gjorde ENDEPUNKTSJEKKEN med navngitte tester (harmonisk/Leibniz) i O3a\n- ☐ Deriverte leddvis og kontrollerte at $x=\\tfrac12$ ligger i konvergensområdet i O3b\n- ☐ Regnet Jacobideterminanten med ABSOLUTTVERDI i O4\n- ☐ Sjekket orienteringen (mot klokka $\\Rightarrow$ positivt Green) i O5\n- ☐ Koblet $n$ og $C$ med høyrehåndsregelen i O6\n- ☐ Knyttet kontraksjonen til en matrisenorm $<1$ i O7 (ikke bare påstod den)\n- ☐ Ga eksakte svar hele veien ($\\tfrac47,\\tfrac37$; $\\ln2$; $3\\pi$; $\\tfrac{1}{12}$; $\\pi$; $(2,1)$; $4\\sqrt2\\,\\pi$)"
+    },
+    {
+      "id": "mat1110-7-4-symbolliste",
+      "type": "collapsible",
+      "title": "Symbol- og formelliste",
+      "buttonText": "Vis symboler og formler",
+      "content": [
+        {
+          "id": "mat1110-7-4-symbolliste-text",
+          "type": "text",
+          "content": "## Symbol- og formelliste\n\n*Oppslagsverk — alt her forklares i teorikapitlene settet dekker.*\n\n| Symbol | Betydning |\n|---|---|\n| $\\det(\\lambda I - A) = 0$ | Egenverdibetingelsen |\n| $Av = \\lambda v$ | Egenverdi og egenvektor |\n| $A = PDP^{-1}$ | Diagonalisering ($A^n = PD^nP^{-1}$) |\n| $\\lim\\limits_{n\\to\\infty} A^n v$ | Markov-grensetilstand |\n| $\\sum\\limits_{n=0}^{\\infty} a_n x^n$ | Potensrekke |\n| $\\oint_C P\\,dx + Q\\,dy$ | Linjeintegral (Green) |\n| $\\oint_C F\\cdot dr$ | Sirkulasjon (Stokes) |\n| $\\operatorname{curl} F$ | Curl (virvling) |\n| $\\det F'$ | Jacobideterminant (variabelskifte) |\n| $\\lVert\\,\\cdot\\,\\rVert$ | Norm (kontraksjon/fikspunkt) |\n\n**Greens teorem:** $\\oint_C P\\,dx + Q\\,dy = \\iint_A\\left(\\dfrac{\\partial Q}{\\partial x} - \\dfrac{\\partial P}{\\partial y}\\right)dA$. **Konvergensradius:** endepunktene $x=\\pm\\rho$ sjekkes separat.\n\nFull formelliste finnes i teorikapitlene settet dekker: [kap. 6.1](/bok/mat1110/mat1110-6-1)–[kap. 6.6](/bok/mat1110/mat1110-6-6), samt [kap. 4.2](/bok/mat1110/mat1110-4-2), [kap. 5.2](/bok/mat1110/mat1110-5-2), [kap. 5.3](/bok/mat1110/mat1110-5-3) og [kap. 5.5](/bok/mat1110/mat1110-5-5)."
+        }
+      ]
+    }
+  ],
+  "exercises": []
+}

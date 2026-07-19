@@ -1,0 +1,445 @@
+{
+  "id": "mat1110-5-2",
+  "courseId": "mat1110",
+  "chapterNumber": "5.2",
+  "title": "Linjeintegral og Greens teorem",
+  "description": "Linjeintegral av skalar- og vektorfelt, konservative felt, og Greens teorem for lukkede kurver i planet — fast delpunkt i alle regimer, ofte koblet til et alt utregnet dobbeltintegral.",
+  "estimatedMinutes": 55,
+  "competenceGoals": [
+    "regne linjeintegral av skalar- og vektorfelt ved parametrisering",
+    "gjenkjenne konservative felt, finne potensial og bruke fundamentalteoremet for linjeintegral",
+    "bruke Greens teorem med riktig orientering og redusere til et dobbeltintegral",
+    "finne areal av et område via et linjeintegral (areal via Green)"
+  ],
+  "content": [
+    {
+      "id": "mat1110-5-2-tip",
+      "type": "tip",
+      "title": "Eksamensvinkel",
+      "content": "Linjeintegral med **Greens teorem** er sjanger **J** — den forekom i **12 av 20** ordinære sett (**60 %**) og er **fast i alle regimer**, også etter regimeskiftet 2025. Den offisielle V2025-fasiten (ordinær O5b) regner nettopp $\\iint(-3y)\\,dA=-32$ ved å **gjenbruke** dobbeltintegralet fra deloppgaven foran (O5a) — dette er delpunkt-kjeding satt i system.\n\n- **Fast grep:** identifiser $P$ og $Q$, regn integranden $\\dfrac{\\partial Q}{\\partial x}-\\dfrac{\\partial P}{\\partial y}$, og **reduser til et alt kjent dobbeltintegral** når det er mulig.\n- **Orientering er sensorkrav:** Green krever positivt orientert (mot klokka) randkurve; feil retning gir feil fortegn.\n- **Areal via Green** ($A=\\oint_C x\\,dy=-\\oint_C y\\,dx$) er en gjenganger (2004/2015/2017).\n\nDette kapitlet er den ene halvdelen av Del 5 som *ikke* er ny etter 2025 — desto tryggere poeng."
+    },
+    {
+      "id": "mat1110-5-2-forkunnskaper",
+      "type": "text",
+      "content": "**Forkunnskaper.** Bygger på **[kap. 5.1](/bok/mat1110/mat1110-5-1)** (parametrisering av kurver, $\\mathbf r'(t)$) og **[kap. 4.1](/bok/mat1110/mat1110-4-1)** (dobbeltintegral over kurveavgrenset område — Green *er* et dobbeltintegral). Partiellderivasjon fra **[kap. 2.1](/bok/mat1110/mat1110-2-1)** brukes til $\\partial Q/\\partial x$ og $\\partial P/\\partial y$.\n\n**Sist du var her (dobbeltintegral).** Et område beskrives med eksplisitte ulikheter *før* oppsett, f.eks. $A=\\{0\\le x\\le1,\\ x^2\\le y\\le x\\}$, og indre integral regnes først. Formelsamlingen gir linjeintegral av skalar- og vektorfelt, integralet av en gradient, betingelsen for konservativt felt og Greens teorem."
+    },
+    {
+      "id": "mat1110-5-2-motiv",
+      "type": "text",
+      "content": "Et **linjeintegral** summerer en størrelse langs en kurve — massen av en bøyd tråd (skalarfelt) eller arbeidet et kraftfelt gjør på en partikkel som følger kurven (vektorfelt). Ofte er kurven lukket, og da knytter **Greens teorem** linjeintegralet rundt randen til et dobbeltintegral over området innenfor. Det er ofte mye lettere å regne dobbeltintegralet — og enda bedre: det er gjerne alt regnet ut i en tidligere deloppgave.\n\nVi går i tre løkker: (1) linjeintegral av skalar- og vektorfelt, (2) konservative felt der integralet bare avhenger av endepunktene, (3) Greens teorem og areal via Green."
+    },
+    {
+      "id": "mat1110-5-2-l1",
+      "type": "text",
+      "content": "## Løkke 1 — Linjeintegral av skalar- og vektorfelt (~18 min)"
+    },
+    {
+      "id": "mat1110-5-2-def-ds",
+      "type": "definition",
+      "title": "Linjeelement $ds$ og $d\\mathbf r$",
+      "content": "Langs en parametrisert kurve $\\mathbf r(t)$, $a\\le t\\le b$, er **buelengdeelementet** $ds=|\\mathbf r'(t)|\\,dt$ (en positiv lengde), mens **det vektorielle linjeelementet** er $d\\mathbf r=\\mathbf r'(t)\\,dt$ (har retning). Det første brukes i skalarintegral, det andre i vektorintegral."
+    },
+    {
+      "id": "mat1110-5-2-def-skalar",
+      "type": "definition",
+      "title": "Linjeintegral av et skalarfelt",
+      "content": "Integralet av en funksjon $f$ langs kurven $C$ — «massen» av en tråd med tetthet $f$:\n$$\\int_C f\\,ds=\\int_a^b f(\\mathbf r(t))\\,|\\mathbf r'(t)|\\,dt.$$\nSett inn parametriseringen i $f$, gang med farten, og integrer over $t$. Verdien er uavhengig av retningen kurven gjennomløpes."
+    },
+    {
+      "id": "mat1110-5-2-ex-skalar",
+      "type": "example",
+      "title": "Eksempel 1: Linjeintegral av et skalarfelt",
+      "problem": "Regn $\\displaystyle\\int_C xy\\,ds$ der $C$ er kvartsirkelen $\\mathbf r(t)=(3\\cos t,\\,3\\sin t)$, $0\\le t\\le\\tfrac{\\pi}{2}$.",
+      "solution": "**Fart:** $\\mathbf r'(t)=(-3\\sin t,\\,3\\cos t)$, $|\\mathbf r'(t)|=\\sqrt{9\\sin^2t+9\\cos^2t}=3$.\n\n**Integrand langs kurven:** $xy=(3\\cos t)(3\\sin t)=9\\cos t\\sin t$.\n\n**Sett opp og regn:**\n$$\\int_C xy\\,ds=\\int_0^{\\pi/2}9\\cos t\\sin t\\cdot 3\\,dt=27\\int_0^{\\pi/2}\\cos t\\sin t\\,dt=27\\cdot\\Big[\\tfrac12\\sin^2t\\Big]_0^{\\pi/2}=27\\cdot\\tfrac12=\\tfrac{27}{2}.$$\n**Svar:** $\\dfrac{27}{2}$."
+    },
+    {
+      "id": "mat1110-5-2-o1",
+      "type": "exercise",
+      "exercise": {
+        "id": "mat1110-5-2-o1",
+        "number": "1",
+        "type": "classic",
+        "difficulty": "lett",
+        "task": "(Innsteg — skalar linjeintegral over rett linje.) Regn $\\displaystyle\\int_C (x+y)\\,ds$ der $C$ er linjestykket $\\mathbf r(t)=(t,\\,2t)$, $0\\le t\\le1$.",
+        "solution": "$\\mathbf r'(t)=(1,2)$, $|\\mathbf r'(t)|=\\sqrt{1+4}=\\sqrt5$. Integranden: $x+y=t+2t=3t$. Da\n$$\\int_C(x+y)\\,ds=\\int_0^1 3t\\cdot\\sqrt5\\,dt=3\\sqrt5\\cdot\\tfrac12=\\tfrac{3\\sqrt5}{2}.$$",
+        "hints": [
+          "$ds=|\\mathbf r'(t)|\\,dt$; regn farten først.",
+          "Sett inn $x=t,\\ y=2t$ i integranden."
+        ]
+      }
+    },
+    {
+      "id": "mat1110-5-2-def-vektor",
+      "type": "definition",
+      "title": "Linjeintegral av et vektorfelt (arbeid)",
+      "content": "Integralet av et vektorfelt $\\mathbf F$ langs $C$ — arbeidet feltet gjør langs kurven:\n$$\\int_C \\mathbf F\\cdot d\\mathbf r=\\int_a^b \\mathbf F(\\mathbf r(t))\\cdot\\mathbf r'(t)\\,dt.$$\nHer teller **retningen**: snur du gjennomløpsretningen, skifter integralet fortegn. I planet skrives det ofte $\\displaystyle\\int_C P\\,dx+Q\\,dy$ med $\\mathbf F=(P,Q)$."
+    },
+    {
+      "id": "mat1110-5-2-def-pdxqdy",
+      "type": "definition",
+      "title": "Notasjonen $P\\,dx+Q\\,dy$",
+      "content": "For et plant felt $\\mathbf F=(P,Q)$ er $\\mathbf F\\cdot d\\mathbf r=P\\,dx+Q\\,dy$, fordi $d\\mathbf r=(dx,dy)$. Skrivemåten $\\displaystyle\\int_C P\\,dx+Q\\,dy$ betyr altså nøyaktig linjeintegralet av vektorfeltet $(P,Q)$ langs $C$. Dette er formen Greens teorem uttrykkes i."
+    },
+    {
+      "id": "mat1110-5-2-ex-vektor",
+      "type": "example",
+      "title": "Eksempel 2: Arbeid langs en parabelbue",
+      "problem": "Regn $\\displaystyle\\int_C \\mathbf F\\cdot d\\mathbf r$ der $\\mathbf F=(y,\\,0)$ og $C$ er parabelbuen $\\mathbf r(t)=(t,\\,t^2)$, $0\\le t\\le1$.",
+      "solution": "$\\mathbf r'(t)=(1,\\,2t)$ og $\\mathbf F(\\mathbf r(t))=(y,0)=(t^2,\\,0)$.\n\n**Prikkprodukt:** $\\mathbf F\\cdot\\mathbf r'=(t^2)(1)+(0)(2t)=t^2$.\n\n**Integrer:**\n$$\\int_C\\mathbf F\\cdot d\\mathbf r=\\int_0^1 t^2\\,dt=\\tfrac13.$$\n**Svar:** $\\tfrac13$. (Feltet er ikke konservativt — sjekk: $\\partial P/\\partial y=1\\ne0=\\partial Q/\\partial x$ — så her må vi parametrisere direkte.)"
+    },
+    {
+      "id": "mat1110-5-2-o2",
+      "type": "exercise",
+      "exercise": {
+        "id": "mat1110-5-2-o2",
+        "number": "2",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "(Vektorlinjeintegral, direkte.) Regn $\\displaystyle\\int_C \\mathbf F\\cdot d\\mathbf r$ der $\\mathbf F=(x,\\,xy)$ og $C$ er linjestykket fra $(0,0)$ til $(2,1)$, parametrisert ved $\\mathbf r(t)=(2t,\\,t)$, $0\\le t\\le1$.",
+        "solution": "$\\mathbf r'(t)=(2,1)$, $\\mathbf F(\\mathbf r(t))=(x,xy)=(2t,\\,2t\\cdot t)=(2t,\\,2t^2)$.\n$$\\mathbf F\\cdot\\mathbf r'=(2t)(2)+(2t^2)(1)=4t+2t^2.$$\n$$\\int_C\\mathbf F\\cdot d\\mathbf r=\\int_0^1(4t+2t^2)\\,dt=\\big[2t^2+\\tfrac23t^3\\big]_0^1=2+\\tfrac23=\\tfrac83.$$",
+        "hints": [
+          "Sett inn parametriseringen i $\\mathbf F$ og regn $\\mathbf F\\cdot\\mathbf r'$.",
+          "Integrer $4t+2t^2$ fra $0$ til $1$."
+        ]
+      }
+    },
+    {
+      "id": "mat1110-5-2-l2",
+      "type": "text",
+      "content": "## Løkke 2 — Konservative felt og potensial (~15 min)"
+    },
+    {
+      "id": "mat1110-5-2-def-konservativt",
+      "type": "definition",
+      "title": "Konservativt felt",
+      "content": "Et vektorfelt $\\mathbf F$ er **konservativt** dersom det er gradienten til en skalarfunksjon: $\\mathbf F=\\nabla\\varphi$ for en **potensialfunksjon** $\\varphi$. For slike felt avhenger linjeintegralet bare av endepunktene, ikke av veien mellom dem."
+    },
+    {
+      "id": "mat1110-5-2-th-fundamental",
+      "type": "theorem",
+      "title": "Fundamentalteoremet for linjeintegral",
+      "content": "Er $\\mathbf F=\\nabla\\varphi$, så gjelder\n$$\\int_C \\mathbf F\\cdot d\\mathbf r=\\varphi(\\text{sluttpunkt})-\\varphi(\\text{startpunkt}).$$\nSpesielt: langs en **lukket** kurve er $\\oint_C\\mathbf F\\cdot d\\mathbf r=0$. Dette er linjeintegralets versjon av analysens fundamentalteorem — potensialet spiller rollen som «antiderivert»."
+    },
+    {
+      "id": "mat1110-5-2-def-betingelse",
+      "type": "definition",
+      "title": "Nødvendig betingelse: $\\partial P/\\partial y=\\partial Q/\\partial x$",
+      "content": "For et $C^1$-felt $\\mathbf F=(P,Q)$ i planet er en **nødvendig** betingelse for at feltet er konservativt at de kryssede partiellderiverte er like:\n$$\\frac{\\partial P}{\\partial y}=\\frac{\\partial Q}{\\partial x}\\quad(\\text{formelsamlingen}).$$\nPå et enkeltsammenhengende område (uten hull) er betingelsen også **tilstrekkelig**. Sjekk den *før* du påstår at et lukket linjeintegral er null."
+    },
+    {
+      "id": "mat1110-5-2-ex-kons",
+      "type": "example",
+      "title": "Eksempel 3: Konservativt felt via potensial",
+      "problem": "Vis at $\\mathbf F=(2xy+y,\\ x^2+x)$ er konservativt, finn en potensialfunksjon, og regn $\\displaystyle\\int_C\\mathbf F\\cdot d\\mathbf r$ fra $(0,0)$ til $(1,2)$ langs en vilkårlig vei.",
+      "solution": "**Sjekk betingelsen:** $P=2xy+y\\Rightarrow \\partial P/\\partial y=2x+1$; $Q=x^2+x\\Rightarrow\\partial Q/\\partial x=2x+1$. Like, og planet er enkeltsammenhengende, så feltet er **konservativt**.\n\n**Finn potensial $\\varphi$:** Vi trenger $\\varphi_x=2xy+y$. Integrer i $x$: $\\varphi=x^2y+xy+h(y)$. Deriver i $y$: $\\varphi_y=x^2+x+h'(y)$, som skal være $Q=x^2+x$, altså $h'(y)=0$, $h=$ konstant. Ta $\\varphi=x^2y+xy$.\n\n**Bruk fundamentalteoremet:**\n$$\\int_C\\mathbf F\\cdot d\\mathbf r=\\varphi(1,2)-\\varphi(0,0)=(1\\cdot2+1\\cdot2)-0=4.$$\n**Svar:** $4$ — uavhengig av veien fordi feltet er konservativt."
+    },
+    {
+      "id": "mat1110-5-2-o3",
+      "type": "exercise",
+      "exercise": {
+        "id": "mat1110-5-2-o3",
+        "number": "3",
+        "type": "classic",
+        "difficulty": "lett",
+        "task": "(Ren gjengivelse.) Avgjør om feltet $\\mathbf F=(3x^2y,\\ x^3)$ er konservativt ved å sjekke betingelsen $\\partial P/\\partial y=\\partial Q/\\partial x$.",
+        "solution": "$P=3x^2y\\Rightarrow \\partial P/\\partial y=3x^2$. $Q=x^3\\Rightarrow \\partial Q/\\partial x=3x^2$. Like, og planet er enkeltsammenhengende, så feltet er **konservativt** (potensial $\\varphi=x^3y$).",
+        "hints": [
+          "Regn $\\partial P/\\partial y$ og $\\partial Q/\\partial x$ hver for seg.",
+          "Er de like på hele planet, er feltet konservativt."
+        ]
+      }
+    },
+    {
+      "id": "mat1110-5-2-o4",
+      "type": "exercise",
+      "exercise": {
+        "id": "mat1110-5-2-o4",
+        "number": "4",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "(Konservativt felt langs lukket kurve.) La $\\mathbf F=(2x+y,\\ x-2y)$. **a)** Vis at feltet er konservativt. **b)** Hva er $\\oint_C\\mathbf F\\cdot d\\mathbf r$ rundt en vilkårlig lukket kurve $C$?",
+        "solution": "**a)** $P=2x+y\\Rightarrow\\partial P/\\partial y=1$; $Q=x-2y\\Rightarrow\\partial Q/\\partial x=1$. Like → konservativt (potensial $\\varphi=x^2+xy-y^2$).\n\n**b)** For et konservativt felt er integralet rundt enhver lukket kurve $0$, siden start- og sluttpunkt sammenfaller: $\\oint_C\\mathbf F\\cdot d\\mathbf r=\\varphi(\\text{slutt})-\\varphi(\\text{start})=0$.",
+        "hints": [
+          "Sjekk $\\partial P/\\partial y=\\partial Q/\\partial x$ først.",
+          "Lukket kurve + konservativt felt gir alltid null."
+        ]
+      }
+    },
+    {
+      "id": "mat1110-5-2-l3",
+      "type": "text",
+      "content": "## Løkke 3 — Greens teorem og areal (~20 min)"
+    },
+    {
+      "id": "mat1110-5-2-def-orientering",
+      "type": "definition",
+      "title": "Positiv orientering av randkurven",
+      "content": "En lukket kurve som avgrenser et område er **positivt orientert** når den gjennomløpes **mot klokka** — slik at området ligger på venstre hånd. Greens teorem forutsetter denne orienteringen; gjennomløper du randen med klokka, får linjeintegralet motsatt fortegn."
+    },
+    {
+      "id": "mat1110-5-2-th-green",
+      "type": "theorem",
+      "title": "Greens teorem",
+      "content": "For et område $A$ i planet med positivt orientert (mot klokka), stykkevis glatt randkurve $C$, og et $C^1$-felt $(P,Q)$:\n$$\\oint_C P\\,dx+Q\\,dy=\\iint_A\\left(\\frac{\\partial Q}{\\partial x}-\\frac{\\partial P}{\\partial y}\\right)dA.$$\nRekkefølgen er $\\partial Q/\\partial x$ **minus** $\\partial P/\\partial y$ — bytt dem ikke om. Teoremet gjør et linjeintegral rundt randen om til et dobbeltintegral over det innelukkede området (og omvendt)."
+    },
+    {
+      "id": "mat1110-5-2-ex-green",
+      "type": "example",
+      "title": "Eksempel 4: Greens teorem",
+      "problem": "La $C$ være randkurven til området $A$ mellom $y=x^2$ og $y=x$ (for $0\\le x\\le1$), orientert mot klokka. Regn $\\displaystyle\\oint_C xy\\,dx+x^2\\,dy$ med Greens teorem.",
+      "solution": "**Identifiser:** $P=xy$, $Q=x^2$.\n\n**Integrand:** $\\dfrac{\\partial Q}{\\partial x}-\\dfrac{\\partial P}{\\partial y}=2x-x=x.$\n\n**Områdebeskrivelse (ulikheter først):** For $0\\le x\\le1$ er $x^2\\le x$, så $A=\\{0\\le x\\le1,\\ x^2\\le y\\le x\\}$.\n\n**Dobbeltintegral:**\n$$\\oint_C xy\\,dx+x^2\\,dy=\\iint_A x\\,dA=\\int_0^1\\!\\!\\int_{x^2}^{x} x\\,dy\\,dx=\\int_0^1 x(x-x^2)\\,dx=\\int_0^1(x^2-x^3)\\,dx=\\tfrac13-\\tfrac14=\\tfrac{1}{12}.$$\n**Svar:** $\\dfrac{1}{12}$."
+    },
+    {
+      "id": "mat1110-5-2-o5",
+      "type": "exercise",
+      "exercise": {
+        "id": "mat1110-5-2-o5",
+        "number": "5",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "(Green over rektangel.) Regn $\\displaystyle\\oint_C y^2\\,dx+xy\\,dy$ der $C$ er randen (mot klokka) av rektangelet $0\\le x\\le1$, $0\\le y\\le2$.",
+        "solution": "$P=y^2$, $Q=xy$. Integrand: $\\dfrac{\\partial Q}{\\partial x}-\\dfrac{\\partial P}{\\partial y}=y-2y=-y.$\n$$\\oint_C=\\iint_A(-y)\\,dA=\\int_0^1\\!\\!\\int_0^2(-y)\\,dy\\,dx=\\int_0^1\\Big[-\\tfrac{y^2}{2}\\Big]_0^2dx=\\int_0^1(-2)\\,dx=-2.$$",
+        "hints": [
+          "$\\partial Q/\\partial x-\\partial P/\\partial y=y-2y$.",
+          "Integrer $-y$ over rektangelet."
+        ]
+      }
+    },
+    {
+      "id": "mat1110-5-2-def-areal",
+      "type": "definition",
+      "title": "Areal via Green",
+      "content": "Velger vi felt slik at $\\partial Q/\\partial x-\\partial P/\\partial y=1$, gir Greens teorem **arealet** av området som et linjeintegral:\n$$A=\\iint_A 1\\,dA=\\oint_C x\\,dy=-\\oint_C y\\,dx=\\tfrac12\\oint_C(x\\,dy-y\\,dx).$$\nNyttig når randen er lett å parametrisere (f.eks. en ellipse) mens området er tungvint å integrere direkte."
+    },
+    {
+      "id": "mat1110-5-2-ex-areal",
+      "type": "example",
+      "title": "Eksempel 5: Arealet av en ellipse via Green",
+      "problem": "Bruk areal-formelen $A=\\tfrac12\\oint_C(x\\,dy-y\\,dx)$ til å finne arealet innenfor ellipsen $\\tfrac{x^2}{4}+\\tfrac{y^2}{9}=1$.",
+      "solution": "Parametriser randen mot klokka: $\\mathbf r(t)=(2\\cos t,\\,3\\sin t)$, $0\\le t\\le2\\pi$, så $dx=-2\\sin t\\,dt$, $dy=3\\cos t\\,dt$.\n\n$$x\\,dy-y\\,dx=(2\\cos t)(3\\cos t)\\,dt-(3\\sin t)(-2\\sin t)\\,dt=(6\\cos^2t+6\\sin^2t)\\,dt=6\\,dt.$$\n$$A=\\tfrac12\\int_0^{2\\pi}6\\,dt=\\tfrac12\\cdot12\\pi=6\\pi.$$\n**Svar:** $6\\pi$ — som stemmer med $\\pi ab=\\pi\\cdot2\\cdot3=6\\pi$ for en ellipse med halvakser $2$ og $3$."
+    },
+    {
+      "id": "mat1110-5-2-o6",
+      "type": "exercise",
+      "exercise": {
+        "id": "mat1110-5-2-o6",
+        "number": "6",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "(Areal via Green.) Bruk $A=\\oint_C x\\,dy$ (mot klokka) til å finne arealet innenfor sirkelen $x^2+y^2=a^2$.",
+        "solution": "Parametriser mot klokka: $\\mathbf r(t)=(a\\cos t,\\,a\\sin t)$, $dy=a\\cos t\\,dt$. Da\n$$A=\\oint_C x\\,dy=\\int_0^{2\\pi}(a\\cos t)(a\\cos t)\\,dt=a^2\\int_0^{2\\pi}\\cos^2t\\,dt=a^2\\cdot\\pi=\\pi a^2.$$\nDette er det kjente sirkelarealet.",
+        "hints": [
+          "Bruk sirkelparametriseringen og $dy=a\\cos t\\,dt$.",
+          "$\\int_0^{2\\pi}\\cos^2t\\,dt=\\pi$."
+        ]
+      }
+    },
+    {
+      "id": "mat1110-5-2-warn",
+      "type": "warning",
+      "title": "Typiske feil",
+      "content": "- **Feil orientering.** Green krever mot-klokka-rand (området til venstre). Gjennomløper du med klokka, må du snu fortegnet.\n- **Bytte om $\\partial Q/\\partial x-\\partial P/\\partial y$.** Rekkefølgen er $Q$-leddet minus $P$-leddet. Bytter du, får du feil fortegn på hele svaret.\n- **Bruke Green på en ikke-lukket kurve.** Teoremet gjelder bare lukkede randkurver. Er kurven åpen, parametriser direkte.\n- **Påstå $\\oint=0$ uten å sjekke konservativitet.** Kun konservative felt (der $\\partial P/\\partial y=\\partial Q/\\partial x$ på et område uten hull) gir null rundt enhver lukket kurve.\n- **Ikke gjenbruke et alt utregnet dobbeltintegral.** Green reduserer ofte til et integral du har regnet i forrige delpunkt — bruk det."
+    },
+    {
+      "id": "mat1110-5-2-pulje",
+      "type": "text",
+      "content": "## Blandede eksamensoppgaver"
+    },
+    {
+      "id": "mat1110-5-2-o7",
+      "type": "exercise",
+      "exercise": {
+        "id": "mat1110-5-2-o7",
+        "number": "7",
+        "type": "classic",
+        "difficulty": "lett",
+        "task": "(Gjengivelse.) Skriv opp Greens teorem, og forklar med én setning hva orienteringen «mot klokka» sikrer.",
+        "solution": "Greens teorem: $\\displaystyle\\oint_C P\\,dx+Q\\,dy=\\iint_A\\Big(\\dfrac{\\partial Q}{\\partial x}-\\dfrac{\\partial P}{\\partial y}\\Big)\\,dA$ for positivt orientert rand $C$ av området $A$. Orienteringen mot klokka sikrer at området ligger på venstre hånd, slik at fortegnet i formelen stemmer; med-klokka-gjennomløp gir motsatt fortegn.",
+        "hints": [
+          "Formelen står i formelsamlingen.",
+          "Positiv orientering = området til venstre."
+        ]
+      }
+    },
+    {
+      "id": "mat1110-5-2-o8",
+      "type": "exercise",
+      "exercise": {
+        "id": "mat1110-5-2-o8",
+        "number": "8",
+        "type": "classic",
+        "difficulty": "vanskelig",
+        "task": "(Green — eksamensklone.) La $C$ være randkurven (mot klokka) til området $A$ mellom $y=x^2$ og $y=x$ for $0\\le x\\le1$. Regn $\\displaystyle\\oint_C (x^3+y^2)\\,dx-xy\\,dy$.",
+        "solution": "$P=x^3+y^2$, $Q=-xy$. Integrand:\n$$\\frac{\\partial Q}{\\partial x}-\\frac{\\partial P}{\\partial y}=(-y)-(2y)=-3y.$$\nOmrådet: $A=\\{0\\le x\\le1,\\ x^2\\le y\\le x\\}$. Da\n$$\\oint_C=\\iint_A(-3y)\\,dA=\\int_0^1\\!\\!\\int_{x^2}^{x}(-3y)\\,dy\\,dx=\\int_0^1\\Big[-\\tfrac{3}{2}y^2\\Big]_{x^2}^{x}dx=\\int_0^1-\\tfrac32(x^2-x^4)\\,dx.$$\n$$=-\\tfrac32\\Big(\\tfrac13-\\tfrac15\\Big)=-\\tfrac32\\cdot\\tfrac{2}{15}=-\\tfrac{1}{5}.$$\n**Svar:** $-\\dfrac{1}{5}$.",
+        "hints": [
+          "Regn $\\partial Q/\\partial x-\\partial P/\\partial y=-3y$.",
+          "Områdebeskrivelse $x^2\\le y\\le x$; integrer innerst i $y$ først.",
+          "Hold svaret eksakt: $-\\tfrac15$."
+        ]
+      }
+    },
+    {
+      "id": "mat1110-5-2-o9",
+      "type": "exercise",
+      "exercise": {
+        "id": "mat1110-5-2-o9",
+        "number": "9",
+        "type": "classic",
+        "difficulty": "vanskelig",
+        "task": "(Green under en parabel — delpunkt-kjeding.) La $A$ være området $\\{0\\le x\\le1,\\ 0\\le y\\le1-x^2\\}$ med rand $C$ mot klokka. **a)** Regn $\\displaystyle\\iint_A(1-x)\\,dA$. **b)** Bruk (a) til å finne $\\displaystyle\\oint_C xy\\,dx+(x-y)\\,dy$.",
+        "solution": "**a)** $\\displaystyle\\iint_A(1-x)\\,dA=\\int_0^1\\!\\!\\int_0^{1-x^2}(1-x)\\,dy\\,dx=\\int_0^1(1-x)(1-x^2)\\,dx.$ Nå $(1-x)(1-x^2)=(1-x)(1-x)(1+x)=(1-x)^2(1+x)=1-x-x^2+x^3$. Integrer: $\\big[x-\\tfrac{x^2}{2}-\\tfrac{x^3}{3}+\\tfrac{x^4}{4}\\big]_0^1=1-\\tfrac12-\\tfrac13+\\tfrac14=\\tfrac{12-6-4+3}{12}=\\tfrac{5}{12}.$\n\n**b)** $P=xy$, $Q=x-y$: $\\dfrac{\\partial Q}{\\partial x}-\\dfrac{\\partial P}{\\partial y}=1-x$. Ved Green er $\\displaystyle\\oint_C xy\\,dx+(x-y)\\,dy=\\iint_A(1-x)\\,dA=\\tfrac{5}{12}$ — nøyaktig integralet fra (a).\n\n**Svar:** $\\dfrac{5}{12}$.",
+        "hints": [
+          "I (a): integrer innerst i $y$; integranden $1-x$ er uavhengig av $y$.",
+          "I (b): regn $\\partial Q/\\partial x-\\partial P/\\partial y$ og gjenkjenn integralet fra (a)."
+        ]
+      }
+    },
+    {
+      "id": "mat1110-5-2-bb",
+      "type": "text",
+      "content": "## Begrepsbank til eksamen\n\n*Begrepsbanken er flashcard-/repetisjonsstoff — det gjentar det du nettopp har lest. Hopp trygt over ved førstegangslesing; tidsanslaget for kapitlet gjelder kjernestoffet.*"
+    },
+    {
+      "id": "mat1110-5-2-bb-vektorfelt",
+      "type": "definition",
+      "title": "Vektorfelt i planet",
+      "content": "Et **vektorfelt** $\\mathbf F=(P(x,y),\\,Q(x,y))$ knytter en vektor til hvert punkt — f.eks. et kraft- eller strømningsfelt. Linjeintegralet $\\int_C\\mathbf F\\cdot d\\mathbf r$ måler komponenten av $\\mathbf F$ langs kurven, summert opp."
+    },
+    {
+      "id": "mat1110-5-2-bb-sirkulasjon",
+      "type": "definition",
+      "title": "Sirkulasjon",
+      "content": "**Sirkulasjonen** til $\\mathbf F$ langs en lukket kurve er $\\oint_C\\mathbf F\\cdot d\\mathbf r$ — netto «medstrøm» rundt kurven. Ved Green er den lik $\\iint_A(\\partial Q/\\partial x-\\partial P/\\partial y)\\,dA$. For konservative felt er sirkulasjonen null."
+    },
+    {
+      "id": "mat1110-5-2-bb-potensial",
+      "type": "definition",
+      "title": "Potensialfunksjon",
+      "content": "En skalarfunksjon $\\varphi$ med $\\nabla\\varphi=\\mathbf F$. Finnes den, er feltet konservativt og $\\int_C\\mathbf F\\cdot d\\mathbf r=\\varphi(\\text{slutt})-\\varphi(\\text{start})$. Den finnes ved å integrere $\\varphi_x=P$ i $x$ og bestemme den ukjente $y$-funksjonen via $\\varphi_y=Q$."
+    },
+    {
+      "id": "mat1110-5-2-bb-lukket",
+      "type": "definition",
+      "title": "Lukket og stykkevis glatt kurve",
+      "content": "En **lukket** kurve har sammenfallende start- og sluttpunkt. En **stykkevis glatt** kurve er satt sammen av endelig mange glatte biter (f.eks. sidene i et rektangel). Greens teorem gjelder for lukkede, stykkevis glatte randkurver."
+    },
+    {
+      "id": "mat1110-5-2-bb-enkelt",
+      "type": "definition",
+      "title": "Enkeltsammenhengende område",
+      "content": "Et område er **enkeltsammenhengende** hvis det ikke har hull — enhver lukket kurve i det kan trekkes sammen til et punkt. På slike områder er $\\partial P/\\partial y=\\partial Q/\\partial x$ *tilstrekkelig* for at feltet er konservativt; med hull kan betingelsen holde uten at feltet er konservativt."
+    },
+    {
+      "id": "mat1110-5-2-bb-normalform",
+      "type": "definition",
+      "title": "Greens teorem på normalform (kjennskap)",
+      "content": "Ved siden av sirkulasjonsformen finnes en **fluksform**: $\\oint_C\\mathbf F\\cdot\\mathbf n\\,ds=\\iint_A\\big(\\partial P/\\partial x+\\partial Q/\\partial y\\big)\\,dA$, der $\\mathbf n$ er den utadrettede normalen til randkurven. Dette er 2D-varianten av divergensteoremet (kap. 5.4)."
+    },
+    {
+      "id": "mat1110-5-2-bb-skalarfelt",
+      "type": "definition",
+      "title": "Skalarfelt",
+      "content": "Et **skalarfelt** $f(x,y)$ (eller $f(x,y,z)$) knytter et tall til hvert punkt — f.eks. tetthet eller temperatur. Linjeintegralet $\\int_C f\\,ds$ summerer $f$ vektet med buelengde langs kurven, og er uavhengig av gjennomløpsretningen."
+    },
+    {
+      "id": "mat1110-5-2-bb-arbeid",
+      "type": "definition",
+      "title": "Arbeid",
+      "content": "Fysisk tolkning av vektorlinjeintegralet: $\\int_C\\mathbf F\\cdot d\\mathbf r$ er **arbeidet** kraftfeltet $\\mathbf F$ gjør på en partikkel som beveger seg langs $C$. Bare komponenten av $\\mathbf F$ *langs* kurven bidrar; en kraft vinkelrett på bevegelsen gjør ikke arbeid."
+    },
+    {
+      "id": "mat1110-5-2-bb-veiuavhengig",
+      "type": "definition",
+      "title": "Veiuavhengighet",
+      "content": "For et konservativt felt er $\\int_C\\mathbf F\\cdot d\\mathbf r$ **veiuavhengig** — den avhenger bare av start- og sluttpunkt, ikke av hvilken kurve mellom dem. Dette er ekvivalent med at feltet har et potensial og at sirkulasjonen rundt enhver lukket kurve er null."
+    },
+    {
+      "id": "mat1110-5-2-bb-hull",
+      "type": "definition",
+      "title": "Felt med hull (advarsel)",
+      "content": "Virvelfeltet $\\mathbf F=\\big(\\tfrac{-y}{x^2+y^2},\\tfrac{x}{x^2+y^2}\\big)$ oppfyller $\\partial P/\\partial y=\\partial Q/\\partial x$ overalt unntatt origo, men er *ikke* konservativt: $\\oint$ rundt en sirkel om origo er $2\\pi$, ikke $0$. Betingelsen er bare tilstrekkelig når området er enkeltsammenhengende (uten hull)."
+    },
+    {
+      "id": "mat1110-5-2-bb-reduksjon",
+      "type": "definition",
+      "title": "Reduksjon til dobbeltintegral (delpunkt-kjeding)",
+      "content": "Greens hovednytte på eksamen: et lukket linjeintegral gjøres om til et dobbeltintegral $\\iint_A(\\partial Q/\\partial x-\\partial P/\\partial y)\\,dA$ — som ofte er *nettopp* integralet fra en tidligere deloppgave. Gjenkjenn koblingen og gjenbruk svaret i stedet for å regne på nytt."
+    },
+    {
+      "id": "mat1110-5-2-bb-orientert-rand",
+      "type": "definition",
+      "title": "Orientering av en flerdelt rand",
+      "content": "Har området hull, orienteres den ytre randen mot klokka og de indre randkurvene (rundt hullene) med klokka — alltid slik at området ligger på venstre hånd. Da gjelder Green med området mellom kurvene."
+    },
+    {
+      "id": "mat1110-5-2-rep",
+      "type": "collapsible",
+      "title": "Repetisjonsoppgaver",
+      "buttonText": "Vis repetisjonsoppgaver",
+      "content": [
+        {
+          "id": "mat1110-5-2-rep-o1",
+          "type": "exercise",
+          "exercise": {
+            "id": "mat1110-5-2-rep1",
+            "number": "R1",
+            "type": "classic",
+            "difficulty": "lett",
+            "task": "(Fra kap. 4.1) Beskriv området mellom $y=x^2$ og $y=2x$ med eksplisitte ulikheter, og finn skjæringspunktene.",
+            "solution": "Skjæring: $x^2=2x\\Rightarrow x(x-2)=0\\Rightarrow x=0,\\ 2$. På $0\\le x\\le2$ er $x^2\\le2x$, så $A=\\{0\\le x\\le2,\\ x^2\\le y\\le 2x\\}$.",
+            "hints": [
+              "Sett kurvene like for å finne skjæringen.",
+              "Sjekk hvilken kurve som ligger øverst mellom skjæringspunktene."
+            ]
+          }
+        },
+        {
+          "id": "mat1110-5-2-rep-o2",
+          "type": "exercise",
+          "exercise": {
+            "id": "mat1110-5-2-rep2",
+            "number": "R2",
+            "type": "classic",
+            "difficulty": "lett",
+            "task": "(Fra kap. 5.1) Finn $\\mathbf r'(t)$ og farten for $\\mathbf r(t)=(2\\cos t,\\,2\\sin t)$, og forklar hvorfor $ds=2\\,dt$.",
+            "solution": "$\\mathbf r'(t)=(-2\\sin t,\\,2\\cos t)$, fart $|\\mathbf r'(t)|=\\sqrt{4\\sin^2t+4\\cos^2t}=2$. Da er $ds=|\\mathbf r'(t)|\\,dt=2\\,dt$.",
+            "hints": [
+              "Deriver komponentvis.",
+              "$ds$ = fart $\\times\\,dt$."
+            ]
+          }
+        },
+        {
+          "id": "mat1110-5-2-rep-o3",
+          "type": "exercise",
+          "exercise": {
+            "id": "mat1110-5-2-rep3",
+            "number": "R3",
+            "type": "classic",
+            "difficulty": "middels",
+            "task": "(Fra kap. 2.1) La $\\varphi=x^2y+xy$. Regn $\\nabla\\varphi$ og bekreft at det er feltet $\\mathbf F=(2xy+y,\\,x^2+x)$ fra Eksempel 3.",
+            "solution": "$\\nabla\\varphi=(\\varphi_x,\\varphi_y)=(2xy+y,\\ x^2+x)=\\mathbf F$. Feltet er altså gradienten til $\\varphi$, som bekrefter at $\\mathbf F$ er konservativt med potensial $\\varphi$.",
+            "hints": [
+              "Deriver $\\varphi$ partielt i $x$ og i $y$.",
+              "Sammenlign med $\\mathbf F$."
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": "mat1110-5-2-sym",
+      "type": "collapsible",
+      "title": "Symbol- og formelliste",
+      "buttonText": "Vis symboler og formler",
+      "content": [
+        {
+          "id": "mat1110-5-2-sym-text",
+          "type": "text",
+          "content": "## Symbol- og formelliste\n\n*Oppslagsverk — alt her forklares underveis i kapitlet.*\n\n| Symbol | Betydning |\n|---|---|\n| $\\int_C f\\,ds$ | Linjeintegral av skalarfelt (buelengdeelement $ds$) |\n| $\\int_C \\mathbf F\\cdot d\\mathbf r$ | Linjeintegral av vektorfelt (arbeid) |\n| $ds$ | Buelengdeelement, $=|\\mathbf r'(t)|\\,dt$ |\n| $d\\mathbf r$ | Vektorielt linjeelement, $=\\mathbf r'(t)\\,dt$ |\n| $\\mathbf F=(P,Q)$ | Plant vektorfelt |\n| $P\\,dx+Q\\,dy$ | Skrivemåte for $\\mathbf F\\cdot d\\mathbf r$ i planet |\n| $\\varphi$ | Potensialfunksjon ($\\nabla\\varphi=\\mathbf F$) |\n| $\\oint_C$ | Integral rundt en lukket kurve |\n| $A$ | Området innenfor en lukket randkurve |\n| $\\mathbf n$ | Utadrettet normal til randkurven (normalform) |\n\n**Formler i dette delkapitlet:**\n\n$$\\int_C f\\,ds=\\int_a^b f(\\mathbf r(t))\\,|\\mathbf r'(t)|\\,dt$$\nLinjeintegral av skalarfelt.\n\n$$\\int_C \\mathbf F\\cdot d\\mathbf r=\\int_a^b \\mathbf F(\\mathbf r(t))\\cdot\\mathbf r'(t)\\,dt$$\nLinjeintegral av vektorfelt (arbeid).\n\n$$\\int_C \\nabla\\varphi\\cdot d\\mathbf r=\\varphi(\\text{slutt})-\\varphi(\\text{start}),\\qquad \\oint_C\\nabla\\varphi\\cdot d\\mathbf r=0$$\nFundamentalteoremet for linjeintegral.\n\n$$\\frac{\\partial P}{\\partial y}=\\frac{\\partial Q}{\\partial x}$$\nNødvendig betingelse for konservativt felt (tilstrekkelig på enkeltsammenhengende område).\n\n$$\\oint_C P\\,dx+Q\\,dy=\\iint_A\\left(\\frac{\\partial Q}{\\partial x}-\\frac{\\partial P}{\\partial y}\\right)dA$$\nGreens teorem (positivt orientert rand).\n\n$$A=\\oint_C x\\,dy=-\\oint_C y\\,dx=\\tfrac12\\oint_C(x\\,dy-y\\,dx)$$\nAreal via Green."
+        }
+      ]
+    }
+  ],
+  "exercises": []
+}

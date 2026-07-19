@@ -1,0 +1,314 @@
+{
+  "id": "mat1110-3-3",
+  "courseId": "mat1110",
+  "chapterNumber": "3.3",
+  "title": "Taylor i flere variable",
+  "description": "Andreordens Taylor-utvikling i flere variable med gradient og Hesse — pensumkrav uten arkivforekomster; lær formen, ikke jag en sjanger som ikke finnes.",
+  "estimatedMinutes": 45,
+  "competenceGoals": [
+    "sette opp andreordens Taylor-polynom i to variable med gradient- og Hesse-ledd",
+    "regne ut Taylor-polynomet for konkrete funksjoner rundt et utviklingspunkt",
+    "forklare hvordan Hesse-leddet i et stasjonært punkt bestemmer klassifiseringen (kobling til kap. 3.1)"
+  ],
+  "content": [
+    {
+      "id": "mat1110-3-3-tip",
+      "type": "tip",
+      "title": "Eksamensvinkel",
+      "content": "**Ærlig talt: Taylor i flere variable har $0$ forekomster i de $22$ arkiverte settene.** Dette temaet er **ikke arkivbelagt** — det står i emnebeskrivelsen, men ingen avsluttende eller ekstra eksamen 2004–2025 har testet det direkte. Prioriter det deretter: **kjenn til formen**, ikke jag en sjanger som ikke finnes.\n\n- Formelsamlingen gir Taylors formel med restledd i **én** variabel; flervariabelversjonen står i pensum, og vi dekker den med standardmetode.\n- Den virkelige verdien ligger i **koblingen til kap. 3.1**: andreordensleddet i Taylor-utviklingen ER Hesse-matrisen. Å forstå det gir dypere innsikt i hvorfor annenderiverttesten virker — og det er den koblingen som eventuelt kan dukke opp indirekte.\n- **Sjekk nyere sett:** hvis et V2026-sett skulle innføre temaet, er det formen $f(a+h) \\approx f(a) + \\nabla f(a)\\cdot h + \\tfrac12 h^T H(a) h$ du trenger.\n\n**Prioritet: lavere (kjenne).** Bruk kort tid her; hovedvekten ligger på 3.1, 3.2 og 3.4."
+    },
+    {
+      "id": "mat1110-3-3-fork",
+      "type": "text",
+      "content": "**Forkunnskaper.** Dette kapitlet bygger på gradient og andreordens partiellderiverte fra [kap. 2.1](/bok/mat1110/mat1110-2-1), og på Hesse-matrisen fra [kap. 3.1](/bok/mat1110/mat1110-3-1) — andreordensleddet i Taylor-utviklingen er nettopp Hesse-matrisen. Intuisjonen om Taylor-tilnærming i én variabel — å erstatte en funksjon med et polynom nær et punkt — kommer fra [Potensrekker og Taylor-rekker](/bok/s2/s2-7-4).\n\n**Sist du var her (fra [kap. 3.1](/bok/mat1110/mat1110-3-1)):** Hesse-matrisen er $H = \\begin{pmatrix} f_{xx} & f_{xy} \\\\ f_{xy} & f_{yy}\\end{pmatrix}$. Den dukker opp igjen her som andreordensleddet."
+    },
+    {
+      "id": "mat1110-3-3-motiv",
+      "type": "text",
+      "content": "I én variabel tilnærmer vi $f$ nær $x = a$ med et Taylor-polynom: førsteorden $f(a) + f'(a)(x-a)$ (tangentlinjen), andreorden pluss $\\tfrac12 f''(a)(x-a)^2$ (den beste parabelen). I flere variable er ideen den samme, men $f'$ blir gradienten $\\nabla f$ og $f''$ blir Hesse-matrisen $H$.\n\nVi lærer det i to korte løkker: (1) selve andreordensformelen og hvordan man regner den ut, og (2) hva den forteller i et stasjonært punkt — koblingen tilbake til klassifiseringen i kap. 3.1. Siden temaet er kjennskapsstoff, holder vi behandlingen kompakt."
+    },
+    {
+      "id": "mat1110-3-3-l1",
+      "type": "text",
+      "content": "## Løkke 1 — Andreordens Taylor-polynom (~14 min)"
+    },
+    {
+      "id": "mat1110-3-3-def-utvpunkt",
+      "type": "definition",
+      "title": "Utviklingspunkt og avviksvektor",
+      "content": "**Utviklingspunktet** $a = (a_1, a_2)$ er punktet vi utvikler funksjonen rundt — der tilnærmingen er best. **Avviksvektoren** $h = (x - a_1,\\ y - a_2)$ måler hvor langt vi har flyttet oss fra utviklingspunktet. Taylor-polynomet uttrykkes i $h$, og tilnærmingen er god når $h$ er liten (nær utviklingspunktet)."
+    },
+    {
+      "id": "mat1110-3-3-def-lin",
+      "type": "definition",
+      "title": "Førsteordensleddet (lineariseringen)",
+      "content": "Den lineære delen av Taylor-utviklingen: $f(a) + \\nabla f(a)\\cdot h$, altså funksjonsverdien pluss gradienten prikket med avviksvektoren. Dette er nettopp lineariseringen / tangentplanet fra kap. 2.1 — den beste *lineære* tilnærmingen til $f$ nær $a$. Andreordens Taylor legger et krumningsledd til denne."
+    },
+    {
+      "id": "mat1110-3-3-def-hesseledd",
+      "type": "definition",
+      "title": "Andreordensleddet (Hesse-leddet)",
+      "content": "Krumningsdelen av Taylor-utviklingen: $\\tfrac12\\, h^T H(a)\\, h$, der $H(a)$ er Hesse-matrisen evaluert i utviklingspunktet. Skrevet ut i to variable med $h = (h_1, h_2)$ blir dette\n\n$$\\tfrac12\\left(f_{xx}h_1^2 + 2 f_{xy} h_1 h_2 + f_{yy} h_2^2\\right).$$\n\nLegg merke til faktoren $\\tfrac12$ og at det blandede leddet får en faktor $2$ (fordi $H$ er symmetrisk). Dette leddet er andrederivert-informasjonen — samme matrise som i klassifiseringen."
+    },
+    {
+      "id": "mat1110-3-3-thm-taylor2",
+      "type": "theorem",
+      "title": "Andreordens Taylor-polynom i to variable",
+      "content": "For en funksjon $f$ med kontinuerlige andreordens partiellderiverte er andreordens Taylor-polynom rundt $a$\n\n$$P_2(a+h) = f(a) + \\nabla f(a)\\cdot h + \\tfrac12\\, h^T H(a)\\, h,$$\n\nder $h = (x-a_1,\\ y-a_2)$. Utskrevet:\n$$P_2 = f(a) + f_x(a)h_1 + f_y(a)h_2 + \\tfrac12\\big(f_{xx}(a)h_1^2 + 2 f_{xy}(a)h_1 h_2 + f_{yy}(a)h_2^2\\big).$$\nTilnærmingen $f(a+h) \\approx P_2(a+h)$ har en feil som går mot null raskere enn $|h|^2$ når $h \\to 0$."
+    },
+    {
+      "id": "mat1110-3-3-ex1",
+      "type": "example",
+      "title": "Eksempel 1: Andreordens Taylor rundt origo",
+      "problem": "Finn andreordens Taylor-polynom til $f(x,y) = e^{x}\\cos y$ rundt $(0,0)$.",
+      "solution": "Utviklingspunkt $a = (0,0)$, så $h = (x, y)$. Vi regner verdiene i origo:\n\n$$f(0,0) = e^0\\cos 0 = 1.$$\n$$f_x = e^x\\cos y \\Rightarrow f_x(0,0) = 1, \\qquad f_y = -e^x\\sin y \\Rightarrow f_y(0,0) = 0.$$\n$$f_{xx} = e^x\\cos y \\Rightarrow 1, \\quad f_{xy} = -e^x\\sin y \\Rightarrow 0, \\quad f_{yy} = -e^x\\cos y \\Rightarrow -1.$$\n\nSett inn i formelen:\n$$P_2 = 1 + (1\\cdot x + 0\\cdot y) + \\tfrac12\\big(1\\cdot x^2 + 2\\cdot 0\\cdot xy + (-1)y^2\\big) = 1 + x + \\tfrac12 x^2 - \\tfrac12 y^2.$$\n\n**Kontroll** (produkt av kjente en-variabel-rekker): $e^x = 1 + x + \\tfrac12 x^2 + \\cdots$ og $\\cos y = 1 - \\tfrac12 y^2 + \\cdots$, så $e^x\\cos y = (1 + x + \\tfrac12 x^2)(1 - \\tfrac12 y^2) + \\cdots = 1 + x + \\tfrac12 x^2 - \\tfrac12 y^2 + \\cdots$ ✓.\n\n**Svar:** $P_2(x,y) = 1 + x + \\tfrac12 x^2 - \\tfrac12 y^2$."
+    },
+    {
+      "id": "mat1110-3-3-l1a-w",
+      "type": "exercise",
+      "exercise": {
+        "id": "mat1110-3-3-l1a",
+        "number": "1",
+        "type": "classic",
+        "difficulty": "lett",
+        "task": "Finn andreordens Taylor-polynom til $f(x,y) = \\ln(1 + x + 2y)$ rundt $(0,0)$.",
+        "solution": "$f(0,0) = \\ln 1 = 0$. Med $u = x + 2y$: $f_x = \\tfrac{1}{1+x+2y} \\Rightarrow 1$; $f_y = \\tfrac{2}{1+x+2y} \\Rightarrow 2$. Andreorden: $f_{xx} = -\\tfrac{1}{(1+x+2y)^2} \\Rightarrow -1$; $f_{xy} = -\\tfrac{2}{(\\cdots)^2} \\Rightarrow -2$; $f_{yy} = -\\tfrac{4}{(\\cdots)^2} \\Rightarrow -4$.\n\n$$P_2 = 0 + (x + 2y) + \\tfrac12\\big(-x^2 + 2(-2)xy + (-4)y^2\\big) = x + 2y - \\tfrac12 x^2 - 2xy - 2y^2.$$\n\n(Kontroll: $\\ln(1+u) = u - \\tfrac12 u^2 + \\cdots$ med $u = x+2y$ gir $x+2y - \\tfrac12(x+2y)^2 = x+2y - \\tfrac12 x^2 - 2xy - 2y^2$ ✓.)",
+        "hints": [
+          "Regn $\\nabla f$ og de tre andreordens partiellderiverte i origo.",
+          "Sett inn i $P_2 = f + \\nabla f\\cdot h + \\tfrac12 h^T H h$; husk faktor $2$ på det blandede leddet."
+        ]
+      }
+    },
+    {
+      "id": "mat1110-3-3-l1b-w",
+      "type": "exercise",
+      "exercise": {
+        "id": "mat1110-3-3-l1b",
+        "number": "2",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "Finn andreordens Taylor-polynom til $f(x,y) = e^{x^2 + y}$ rundt $(0,0)$.",
+        "solution": "$f(0,0) = e^0 = 1$. $f_x = 2x\\,e^{x^2+y} \\Rightarrow 0$; $f_y = e^{x^2+y} \\Rightarrow 1$. Andreorden: $f_{xx} = (2 + 4x^2)e^{x^2+y} \\Rightarrow 2$; $f_{xy} = 2x\\,e^{x^2+y} \\Rightarrow 0$; $f_{yy} = e^{x^2+y} \\Rightarrow 1$.\n\n$$P_2 = 1 + (0\\cdot x + 1\\cdot y) + \\tfrac12\\big(2 x^2 + 0 + 1\\cdot y^2\\big) = 1 + y + x^2 + \\tfrac12 y^2.$$\n\n(Kontroll: $e^{x^2+y} = 1 + (x^2 + y) + \\tfrac12(x^2+y)^2 + \\cdots = 1 + x^2 + y + \\tfrac12 y^2 + \\cdots$ til andre orden ✓.)",
+        "hints": [
+          "Pass på $f_{xx} = (2+4x^2)e^{x^2+y}$ — bruk produktregelen.",
+          "I origo: $f_{xx}=2,\\ f_{yy}=1,\\ f_{xy}=0$."
+        ]
+      }
+    },
+    {
+      "id": "mat1110-3-3-l2",
+      "type": "text",
+      "content": "## Løkke 2 — Taylor i et stasjonært punkt (koblingen til 3.1) (~12 min)"
+    },
+    {
+      "id": "mat1110-3-3-def-stasjtaylor",
+      "type": "definition",
+      "title": "Taylor i et stasjonært punkt",
+      "content": "I et stasjonært punkt er $\\nabla f(a) = 0$, så **førsteordensleddet forsvinner** og Taylor-utviklingen reduseres til\n\n$$f(a+h) \\approx f(a) + \\tfrac12\\, h^T H(a)\\, h.$$\n\nDa er det Hesse-leddet alene som bestemmer om $f$ ligger over eller under $f(a)$ i nærheten — altså om punktet er et minimum, maksimum eller sadel. Dette er den dypere grunnen til at annenderiverttesten (kap. 3.1) virker: den leser av fortegnet til nettopp denne kvadratiske formen."
+    },
+    {
+      "id": "mat1110-3-3-def-kvadform",
+      "type": "definition",
+      "title": "Kvadratisk form $h^T H h$",
+      "content": "Uttrykket $h^T H h = f_{xx}h_1^2 + 2 f_{xy}h_1 h_2 + f_{yy}h_2^2$ — en «kvadratisk funksjon» av retningen $h$. Er den positiv for alle $h \\ne 0$ (positiv definit Hesse), ligger grafen som en skål over $a$ (minimum). Er den negativ for alle $h$, som en kuppel (maksimum). Skifter den fortegn, er $a$ et sadelpunkt. Fortegnsanalysen av denne formen ER annenderiverttesten."
+    },
+    {
+      "id": "mat1110-3-3-ex2",
+      "type": "example",
+      "title": "Eksempel 2: Taylor forklarer klassifiseringen",
+      "problem": "Funksjonen $f(x,y) = x^2 - xy + y^2$ har et stasjonært punkt i origo. Skriv opp andreordens Taylor der, og bruk den til å avgjøre punkttypen.",
+      "solution": "$f(0,0) = 0$, og $\\nabla f = (2x - y,\\ -x + 2y)$ er $(0,0)$ i origo — bekrefter at origo er stasjonært. Hesse: $f_{xx} = 2,\\ f_{yy} = 2,\\ f_{xy} = -1$, så\n\n$$P_2 = 0 + 0 + \\tfrac12\\big(2 h_1^2 + 2(-1)h_1 h_2 + 2 h_2^2\\big) = h_1^2 - h_1 h_2 + h_2^2.$$\n\n(Siden $f$ selv er et andregradspolynom, er $P_2 = f$ eksakt her.) Er den kvadratiske formen $h_1^2 - h_1 h_2 + h_2^2$ alltid positiv? Fullfør kvadratet: $h_1^2 - h_1 h_2 + h_2^2 = (h_1 - \\tfrac12 h_2)^2 + \\tfrac34 h_2^2 \\ge 0$, med likhet bare i $(0,0)$. Formen er **positiv definit**.\n\n**Konklusjon:** origo er et **lokalt minimum**. Kontroll med annenderiverttesten: $D = 2\\cdot 2 - (-1)^2 = 3 > 0$ og $f_{xx} = 2 > 0$ ⇒ minimum ✓. Taylor og $D$-testen gir samme svar — de er to sider av samme sak."
+    },
+    {
+      "id": "mat1110-3-3-l2a-w",
+      "type": "exercise",
+      "exercise": {
+        "id": "mat1110-3-3-l2a",
+        "number": "3",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "Funksjonen $f(x,y) = x^2 + 4xy + y^2$ har et stasjonært punkt i origo. Skriv opp Hesse-leddet og avgjør typen ved å se om den kvadratiske formen skifter fortegn.",
+        "solution": "$\\nabla f = (2x + 4y,\\ 4x + 2y) = (0,0)$ i origo ⇒ stasjonært. $f_{xx} = 2,\\ f_{yy} = 2,\\ f_{xy} = 4$. Hesse-leddet:\n$$\\tfrac12(2 h_1^2 + 2\\cdot 4\\, h_1 h_2 + 2 h_2^2) = h_1^2 + 4 h_1 h_2 + h_2^2.$$\nLangs $h_2 = 0$: $h_1^2 > 0$. Langs $h_1 = -h_2$: $h_1^2 - 4h_1^2 + h_1^2 = -2h_1^2 < 0$. Formen **skifter fortegn** ⇒ **sadelpunkt**.\n\nKontroll: $D = 2\\cdot 2 - 4^2 = 4 - 16 = -12 < 0$ ⇒ sadel ✓.",
+        "hints": [
+          "I et stasjonært punkt er Taylor $= f(a) + \\tfrac12 h^T H h$; regn Hesse-leddet.",
+          "Test formen langs $h_2=0$ og langs $h_1=-h_2$ — skifter den fortegn, er det sadel."
+        ]
+      }
+    },
+    {
+      "id": "mat1110-3-3-warn",
+      "type": "warning",
+      "title": "Typiske feil",
+      "content": "- **Glemme faktoren $\\tfrac12$** på andreordensleddet. Formelen er $f(a) + \\nabla f(a)\\cdot h + \\tfrac12 h^T H h$ — halvparten, akkurat som $\\tfrac12 f''(a)(x-a)^2$ i én variabel.\n- **Glemme faktoren $2$ på det blandede leddet.** Utskrevet er andreordensleddet $\\tfrac12(f_{xx}h_1^2 + 2 f_{xy}h_1 h_2 + f_{yy}h_2^2)$ — det blandede leddet teller dobbelt fordi $H$ er symmetrisk.\n- **Evaluere gradient/Hesse i feil punkt.** Alle deriverte skal regnes i **utviklingspunktet** $a$, ikke i $(x,y)$.\n- **Blande én- og flervariabel-restleddet.** Restleddet i flere variable er ikke bare en enkel $f'''$-formel — hold deg til at feilen går mot null raskere enn $|h|^2$.\n- **Feil transponering i $h^T H h$.** Rekkefølgen er rad-vektor $\\times$ matrise $\\times$ søyle-vektor; utskrevet blir det den symmetriske kvadratiske formen over."
+    },
+    {
+      "id": "mat1110-3-3-pulje",
+      "type": "text",
+      "content": "## Oppgaver\n\nSiden temaet er kjennskapsstoff, holder vi puljen kort — nok til at formen sitter."
+    },
+    {
+      "id": "mat1110-3-3-p1-w",
+      "type": "exercise",
+      "exercise": {
+        "id": "mat1110-3-3-p1",
+        "number": "4",
+        "type": "classic",
+        "difficulty": "lett",
+        "task": "Finn andreordens Taylor-polynom til $f(x,y) = x\\,e^{y}$ rundt $(0,0)$.",
+        "solution": "$f(0,0) = 0$. $f_x = e^y \\Rightarrow 1$; $f_y = x e^y \\Rightarrow 0$. $f_{xx} = 0$; $f_{xy} = e^y \\Rightarrow 1$; $f_{yy} = x e^y \\Rightarrow 0$.\n$$P_2 = 0 + (1\\cdot x + 0\\cdot y) + \\tfrac12(0 + 2\\cdot 1\\cdot xy + 0) = x + xy.$$\n(Kontroll: $x e^y = x(1 + y + \\cdots) = x + xy + \\cdots$ ✓.)",
+        "hints": [
+          "Regn deriverte i origo; her er $f_{xy}=1$ det eneste ikke-null andreordensleddet.",
+          "Blandet ledd: $\\tfrac12\\cdot 2 f_{xy}\\,xy = xy$."
+        ]
+      }
+    },
+    {
+      "id": "mat1110-3-3-p2-w",
+      "type": "exercise",
+      "exercise": {
+        "id": "mat1110-3-3-p2",
+        "number": "5",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "Finn andreordens Taylor-polynom til $f(x,y) = \\cos x\\,\\cdot\\, e^{y}$ rundt $(0,0)$, og skriv ned hva førsteordens (lineære) tilnærming er.",
+        "solution": "$f(0,0) = 1$. $f_x = -\\sin x\\, e^y \\Rightarrow 0$; $f_y = \\cos x\\, e^y \\Rightarrow 1$. $f_{xx} = -\\cos x\\, e^y \\Rightarrow -1$; $f_{xy} = -\\sin x\\, e^y \\Rightarrow 0$; $f_{yy} = \\cos x\\, e^y \\Rightarrow 1$.\n$$P_2 = 1 + (0\\cdot x + 1\\cdot y) + \\tfrac12(-x^2 + 0 + y^2) = 1 + y - \\tfrac12 x^2 + \\tfrac12 y^2.$$\n**Førsteordens (lineær) tilnærming:** $P_1 = 1 + y$ (funksjonsverdi pluss gradientleddet). Andreordensleddet $-\\tfrac12 x^2 + \\tfrac12 y^2$ legger krumningen til.",
+        "hints": [
+          "$P_1$ er $f(a) + \\nabla f(a)\\cdot h$; $P_2$ legger $\\tfrac12 h^T H h$ til.",
+          "I origo: $f_{xx}=-1,\\ f_{yy}=1,\\ f_{xy}=0$."
+        ]
+      }
+    },
+    {
+      "id": "mat1110-3-3-bb",
+      "type": "text",
+      "content": "## Begrepsbank\n\nKjernebegrepene fra kapitlet samlet som oppslag og flashcards.\n\n*Begrepsbanken er flashcard-/repetisjonsstoff — den gjentar det du nettopp har lest. Hopp trygt over ved førstegangslesing; tidsanslaget for kapitlet gjelder kjernestoffet.*"
+    },
+    {
+      "id": "mat1110-3-3-bb-taylor1v",
+      "type": "definition",
+      "title": "Taylor-polynom i én variabel",
+      "content": "Utgangspunktet flervariabelformen generaliserer: $P_2(x) = f(a) + f'(a)(x-a) + \\tfrac12 f''(a)(x-a)^2$ — funksjonsverdi, tangentledd og krumningsledd. I flere variable blir $f'(a)$ til $\\nabla f(a)$ (et prikkprodukt) og $f''(a)$ til Hesse-matrisen $H(a)$ (en kvadratisk form). Selve strukturen «konstant + lineært + kvadratisk» er den samme."
+    },
+    {
+      "id": "mat1110-3-3-bb-restledd",
+      "type": "definition",
+      "title": "Restledd (feilledd)",
+      "content": "Differansen mellom den virkelige funksjonen og Taylor-polynomet: $R = f(a+h) - P_2(a+h)$. For andreordens Taylor går restleddet mot null **raskere enn $|h|^2$** når $h \\to 0$ — det er derfor $P_2$ er en god tilnærming nær utviklingspunktet. Restleddet vokser når du fjerner deg fra $a$, så tilnærmingen gjelder lokalt."
+    },
+    {
+      "id": "mat1110-3-3-bb-paraboloide",
+      "type": "definition",
+      "title": "Andreordenstilnærmingen som paraboloide",
+      "content": "Geometrisk er $z = P_2(x,y)$ en **paraboloide** (eller sadelflate) som klemmer seg inntil grafen $z = f(x,y)$ ved utviklingspunktet — den deler funksjonsverdi, tangentplan og krumning med $f$ der. Førsteordenstilnærmingen er bare tangentplanet (flatt); andreorden bøyer med, og fanger dermed om flaten krummer opp, ned eller som en sal."
+    },
+    {
+      "id": "mat1110-3-3-bb-lokalitet",
+      "type": "definition",
+      "title": "Lokalitet av tilnærmingen",
+      "content": "Taylor-polynomet er bare en god tilnærming **nær** utviklingspunktet — jo lengre unna, jo større feil. Et andreordens polynom fanger krumningen, men ikke tredje- og høyereordens variasjon, så for store $h$ kan $P_2$ avvike kraftig fra $f$. Bruk alltid tilnærmingen med et forbehold om avstand til utviklingspunktet."
+    },
+    {
+      "id": "mat1110-3-3-bb-hoyereorden",
+      "type": "definition",
+      "title": "Høyere ordens ledd (kjennskap)",
+      "content": "Taylor-utviklingen kan fortsette forbi andre orden med tredje-, fjerde- osv. ordens ledd, bygget av tredje og høyere partiellderiverte. I flere variable blir bokføringen fort tung (mange blandede deriverte), og til vårt formål — klassifisering av stasjonære punkter og lokal tilnærming — holder det med andre orden. Høyere orden er kjennskapsstoff."
+    },
+    {
+      "id": "mat1110-3-3-bb-halvfaktor",
+      "type": "definition",
+      "title": "Faktoren $\\tfrac12$",
+      "content": "Tallet foran andreordensleddet, arvet direkte fra én-variabel-formen $\\tfrac12 f''(a)(x-a)^2$. Grunnen er at når du deriverer et kvadratisk ledd $\\tfrac12 c\\, h^2$ to ganger, får du tilbake $c$ — så $\\tfrac12$ er nettopp det som gjør at $P_2$ og $f$ deler andrederivert i utviklingspunktet. Å glemme denne faktoren er den vanligste regnefeilen i Taylor."
+    },
+    {
+      "id": "mat1110-3-3-bb-blandet2",
+      "type": "definition",
+      "title": "Faktoren $2$ på det blandede leddet",
+      "content": "Når den kvadratiske formen $h^T H h$ skrives ut, får det blandede leddet en faktor $2$: $f_{xx}h_1^2 + 2 f_{xy}h_1 h_2 + f_{yy}h_2^2$. Det kommer av at Hesse-matrisen er symmetrisk — elementet $f_{xy}$ opptrer både i posisjon $(1,2)$ og $(2,1)$, så det bidrar to ganger. Sammen med $\\tfrac12$ foran gir dette at det blandede leddet i $P_2$ blir $f_{xy}h_1 h_2$."
+    },
+    {
+      "id": "mat1110-3-3-bb-polynom",
+      "type": "definition",
+      "title": "Taylor av et polynom",
+      "content": "Er $f$ selv et polynom av grad $\\le 2$, er andreordens Taylor-polynom **eksakt lik** $f$ (ingen tilnærming, ingen restledd) — det finnes rett og slett ingen høyereordens ledd å miste. Det er derfor kvadratiske funksjoner som $x^2 - xy + y^2$ er så gjennomsiktige: deres Hesse-form beskriver dem overalt, ikke bare lokalt."
+    },
+    {
+      "id": "mat1110-3-3-bb-gradledd",
+      "type": "definition",
+      "title": "Gradientleddet $\\nabla f(a)\\cdot h$",
+      "content": "Førsteordensbidraget, skrevet som prikkproduktet av gradienten og avviksvektoren: $\\nabla f(a)\\cdot h = f_x(a)h_1 + f_y(a)h_2$. Det er flervariabel-analogen til $f'(a)(x-a)$ og gir tangentplanets helning. I et stasjonært punkt er dette leddet null (siden $\\nabla f(a) = 0$), og bare Hesse-leddet blir igjen."
+    },
+    {
+      "id": "mat1110-3-3-bb-approks",
+      "type": "definition",
+      "title": "Tilnærmingstegnet $\\approx$",
+      "content": "Symbolet som skiller Taylor-**polynomet** (som er eksakt lik seg selv) fra Taylor-**tilnærmingen** $f(a+h) \\approx P_2(a+h)$. Polynomet $P_2$ er en presis størrelse; tilnærmingen sier at $f$ og $P_2$ er nesten like nær $a$, med en feil (restleddet) som krymper raskere enn $|h|^2$. Bruk $\\approx$ når du erstatter $f$ med polynomet, og $=$ når du bare skriver opp $P_2$."
+    },
+    {
+      "id": "mat1110-3-3-rep",
+      "type": "collapsible",
+      "title": "Repetisjon",
+      "buttonText": "Vis repetisjonsoppgaver",
+      "content": [
+        {
+          "id": "mat1110-3-3-rep1-w",
+          "type": "exercise",
+          "exercise": {
+            "id": "mat1110-3-3-rep1",
+            "number": "R1",
+            "type": "classic",
+            "difficulty": "lett",
+            "task": "(Fra [Potensrekker og Taylor-rekker](/bok/s2/s2-7-4)) Finn andregrads Taylor-polynom til $g(x) = e^x$ rundt $x = 0$.",
+            "solution": "$g(0) = 1,\\ g'(0) = 1,\\ g''(0) = 1$, så $P_2(x) = 1 + x + \\tfrac12 x^2$. Dette er én-variabel-mønsteret flervariabelformen bygger videre på.",
+            "hints": [
+              "Bruk $P_2 = g(0) + g'(0)x + \\tfrac12 g''(0)x^2$."
+            ]
+          }
+        },
+        {
+          "id": "mat1110-3-3-rep2-w",
+          "type": "exercise",
+          "exercise": {
+            "id": "mat1110-3-3-rep2",
+            "number": "R2",
+            "type": "classic",
+            "difficulty": "lett",
+            "task": "(Fra [kap. 2.1](/bok/mat1110/mat1110-2-1)) Skriv opp lineariseringen (tangentplanet) til $f(x,y) = x^2 + y^2$ i punktet $(1,1)$.",
+            "solution": "$f(1,1) = 2$, $\\nabla f = (2x, 2y) \\Rightarrow (2,2)$. Linearisering: $L(x,y) = 2 + 2(x-1) + 2(y-1) = 2x + 2y - 2$. Dette er førsteordensleddet i Taylor rundt $(1,1)$.",
+            "hints": [
+              "$L = f(a) + \\nabla f(a)\\cdot(x-a)$."
+            ]
+          }
+        },
+        {
+          "id": "mat1110-3-3-rep3-w",
+          "type": "exercise",
+          "exercise": {
+            "id": "mat1110-3-3-rep3",
+            "number": "R3",
+            "type": "classic",
+            "difficulty": "middels",
+            "task": "(Fra [kap. 3.1](/bok/mat1110/mat1110-3-1)) Regn Hesse-matrisen til $f(x,y) = x^3 + y^2$ i punktet $(1,0)$.",
+            "solution": "$f_{xx} = 6x \\Rightarrow 6$; $f_{yy} = 2$; $f_{xy} = 0$. Hesse: $H(1,0) = \\begin{pmatrix} 6 & 0 \\\\ 0 & 2\\end{pmatrix}$. Det er denne matrisen som utgjør andreordensleddet i Taylor rundt $(1,0)$.",
+            "hints": [
+              "Regn $f_{xx}, f_{yy}, f_{xy}$ og evaluer i $(1,0)$."
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": "mat1110-3-3-symbol",
+      "type": "collapsible",
+      "title": "Symbol- og formelliste",
+      "buttonText": "Vis symboler og formler",
+      "content": [
+        {
+          "id": "mat1110-3-3-symbol-text",
+          "type": "text",
+          "content": "## Symbol- og formelliste\n\n*Oppslagsverk — alt her forklares underveis i kapitlet.*\n\n| Symbol | Betydning |\n|---|---|\n| $a$ | Utviklingspunktet |\n| $h = (x-a_1, y-a_2)$ | Avviksvektoren fra utviklingspunktet |\n| $\\nabla f(a)$ | Gradienten i utviklingspunktet (førsteordensleddet) |\n| $H(a)$ | Hesse-matrisen i utviklingspunktet (andreordensleddet) |\n| $P_2$ | Andreordens Taylor-polynom |\n| $h^T H h$ | Den kvadratiske formen $f_{xx}h_1^2 + 2f_{xy}h_1 h_2 + f_{yy}h_2^2$ |\n\n**Andreordens Taylor-polynom i to variable:**\n$$P_2(a+h) = f(a) + \\nabla f(a)\\cdot h + \\tfrac12\\, h^T H(a)\\, h.$$\n\nUtskrevet:\n$$P_2 = f(a) + f_x h_1 + f_y h_2 + \\tfrac12\\big(f_{xx}h_1^2 + 2 f_{xy} h_1 h_2 + f_{yy} h_2^2\\big).$$\n\n**I et stasjonært punkt** ($\\nabla f(a) = 0$): $f(a+h) \\approx f(a) + \\tfrac12 h^T H(a) h$ — Hesse-leddet alene bestemmer punkttypen (kobling til kap. 3.1)."
+        }
+      ]
+    }
+  ],
+  "exercises": []
+}

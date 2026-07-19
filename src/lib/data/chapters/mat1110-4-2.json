@@ -1,0 +1,346 @@
+{
+  "id": "mat1110-4-2",
+  "courseId": "mat1110",
+  "chapterNumber": "4.2",
+  "title": "Polarkoordinater og variabelskifte med Jacobideterminant",
+  "description": "Polar for sirkelsymmetri og det generelle variabelskiftet med Jacobideterminant — inkludert ellipsekoordinatene fra det eldre regimet.",
+  "estimatedMinutes": 50,
+  "competenceGoals": [
+    "bytte til polarkoordinater ved sirkelsymmetri og huske arealelementet dA = r dr dθ",
+    "sette opp det generelle variabelskiftet med Jacobideterminant og absoluttverdi",
+    "bruke ellipsekoordinater til å regne areal og integraler over ellipseområder"
+  ],
+  "content": [
+    {
+      "id": "mat1110-4-2-tip",
+      "type": "tip",
+      "title": "Eksamensvinkel",
+      "content": "**Polarkoordinater er standardverktøyet så snart et dobbeltintegral har sirkelsymmetri — og det generelle variabelskiftet er den eldre regimets ellipse-klassiker.**\n\n- **Polar** brukes hver gang området eller integranden er sirkelsymmetrisk (2024 O3a integrerte $\\tfrac{1}{1+x^2+y^2}$ over en halvskive). Dette er **perfekt-prioritet**: en sirkelsymmetrisk oppgave uten polar er nesten alltid uløselig i kartesiske koordinater.\n- **Det generelle variabelskiftet med Jacobideterminant (sjanger Q)** er sjeldnere — **3 av 20 sett**, alle fra det eldre regimet (ellipse-/ellipsoidekoordinater 2005/2010/2013). Prioritet her: **kjenne til** metoden og kunne kjøre ellipsetilfellet.\n- To føringspoeng sensor teller: **husk faktoren $r$** (den glemmes oftest av alt i multiple integraler) og **sett absoluttverdi på Jacobideterminanten**.\n\n**Prioritet: polar perfekt, generelt skifte kjenne.** Målet er at du gjenkjenner sirkelsymmetri, bytter til polar med $dA = r\\,dr\\,d\\theta$, og kan sette opp et ellipseskifte med riktig Jacobi."
+    },
+    {
+      "id": "mat1110-4-2-fork",
+      "type": "text",
+      "content": "**Forkunnskaper.** Dette bygger direkte på dobbeltintegralet og områdebeskrivelsen fra [kap. 4.1](/bok/mat1110/mat1110-4-1). Jacobideterminanten er determinanten til **Jacobi-matrisen** $F'$ fra [kap. 2.2](/bok/mat1110/mat1110-2-2) — friskt opp at $F'$ har komponentfunksjonenes gradienter som rader, og at determinanten av en $2\\times 2$-matrise er $ad - bc$. Substitusjon i én variabel (fra bestemt integral) er mønsteret variabelskiftet generaliserer.\n\n*Sist du var her (kap. 2.2):* for et skifte $x = x(u,v),\\ y = y(u,v)$ er Jacobi-matrisen $\\dfrac{\\partial(x,y)}{\\partial(u,v)} = \\begin{pmatrix} x_u & x_v \\\\ y_u & y_v\\end{pmatrix}$, og Jacobideterminanten er determinanten av denne."
+    },
+    {
+      "id": "mat1110-4-2-motiv",
+      "type": "text",
+      "content": "Noen områder er en plage i kartesiske koordinater — en sirkelskive $x^2 + y^2 \\le 4$ tvinger fram stygge kvadratrøtter i grensene. Men beskriver vi punktene ved **avstanden fra origo** $r$ og **vinkelen** $\\theta$, blir skiven bare $\\{0 \\le r \\le 2,\\ 0 \\le \\theta \\le 2\\pi\\}$ — et rektangel i $(r,\\theta)$. Prisen er en ekstra faktor $r$ i arealelementet, og den må aldri glemmes.\n\nVi går gjennom to løkker: **(1)** polarkoordinater for sirkelsymmetriske integraler, og **(2)** det generelle variabelskiftet med Jacobideterminant, med ellipsekoordinatene som hovedanvendelse. Hver løkke: **teori → eksempel → oppgaver**."
+    },
+    {
+      "id": "mat1110-4-2-l1",
+      "type": "text",
+      "content": "## Løkke 1 — Polarkoordinater (~22 min)"
+    },
+    {
+      "id": "mat1110-4-2-def-polar",
+      "type": "definition",
+      "title": "Polarkoordinater",
+      "content": "En måte å angi et punkt på ved **avstand og vinkel** i stedet for $x$ og $y$. Avstanden fra origo er $r \\ge 0$ og vinkelen mot den positive $x$-aksen er $\\theta$, og sammenhengen er\n\n$$x = r\\cos\\theta, \\qquad y = r\\sin\\theta, \\qquad x^2 + y^2 = r^2.$$\n\nSirkler om origo blir $r = \\text{konstant}$, og stråler ut fra origo blir $\\theta = \\text{konstant}$ — derfor blir sirkelsymmetriske områder enkle."
+    },
+    {
+      "id": "mat1110-4-2-def-dApolar",
+      "type": "definition",
+      "title": "Arealelementet i polar",
+      "content": "Den lille flatebiten i polarkoordinater er **ikke** $dr\\,d\\theta$, men har en ekstra faktor $r$:\n\n$$dA = r\\,dr\\,d\\theta.$$\n\nGeometrisk: en liten «rute» mellom radiene $r$ og $r+dr$ og vinklene $\\theta$ og $\\theta+d\\theta$ har sidene $dr$ og $r\\,d\\theta$ (buelengde), så arealet er $r\\,dr\\,d\\theta$. **Faktoren $r$ er det som oftest glemmes** i hele emnet — den er selve Jacobideterminanten for polarskiftet."
+    },
+    {
+      "id": "mat1110-4-2-def-omrpolar",
+      "type": "definition",
+      "title": "Områdebeskrivelse i $(r,\\theta)$",
+      "content": "Å oversette området til grenser for $r$ og $\\theta$. En hel skive med radius $a$ er $\\{0 \\le r \\le a,\\ 0 \\le \\theta \\le 2\\pi\\}$; en øvre halvskive er $\\{0 \\le r \\le a,\\ 0 \\le \\theta \\le \\pi\\}$; en ring (annulus) $b \\le r \\le a$ er $\\{b \\le r \\le a,\\ 0 \\le \\theta \\le 2\\pi\\}$. Som ellers: skriv grensene som eksplisitte ulikheter før oppsett."
+    },
+    {
+      "id": "mat1110-4-2-ex1",
+      "type": "example",
+      "title": "Eksempel 1: Sirkelsymmetrisk integrand over en ring",
+      "problem": "Regn ut $\\displaystyle\\iint_A e^{-(x^2+y^2)}\\,dA$, der $A$ er ringen $1 \\le x^2 + y^2 \\le 4$.",
+      "solution": "Integranden $e^{-(x^2+y^2)}$ og området er begge **sirkelsymmetriske** — polar er riktig valg. Med $x^2+y^2 = r^2$ blir integranden $e^{-r^2}$, og **området** er ringen\n$$A = \\{1 \\le r \\le 2,\\ 0 \\le \\theta \\le 2\\pi\\}.$$\n\nHusk **faktoren $r$** i $dA = r\\,dr\\,d\\theta$:\n$$\\iint_A e^{-(x^2+y^2)}\\,dA = \\int_0^{2\\pi}\\!\\int_1^2 e^{-r^2}\\,r\\,dr\\,d\\theta.$$\n\nIntegralet **faktoriserer** ($\\theta$-delen er separat):\n$$= \\Big(\\int_0^{2\\pi} d\\theta\\Big)\\Big(\\int_1^2 r\\,e^{-r^2}\\,dr\\Big) = 2\\pi\\cdot\\Big[-\\tfrac12 e^{-r^2}\\Big]_1^2 = 2\\pi\\cdot\\tfrac12\\big(e^{-1} - e^{-4}\\big).$$\n\n**Substitusjon** brukt: $u = r^2$, $du = 2r\\,dr$. **Konklusjon:**\n$$\\iint_A e^{-(x^2+y^2)}\\,dA = \\pi\\big(e^{-1} - e^{-4}\\big).$$"
+    },
+    {
+      "id": "mat1110-4-2-l1a-w",
+      "type": "exercise",
+      "exercise": {
+        "id": "mat1110-4-2-l1a",
+        "number": "1",
+        "type": "classic",
+        "difficulty": "lett",
+        "task": "Regn ut $\\displaystyle\\iint_A (x^2 + y^2)\\,dA$ over hele skiven $A: x^2 + y^2 \\le 4$.",
+        "solution": "Sirkelsymmetri ⇒ polar. Integrand $x^2+y^2 = r^2$, område $A = \\{0 \\le r \\le 2,\\ 0 \\le \\theta \\le 2\\pi\\}$, $dA = r\\,dr\\,d\\theta$:\n$$\\int_0^{2\\pi}\\!\\int_0^2 r^2\\cdot r\\,dr\\,d\\theta = 2\\pi\\int_0^2 r^3\\,dr = 2\\pi\\Big[\\tfrac{r^4}{4}\\Big]_0^2 = 2\\pi\\cdot 4 = 8\\pi.$$\n\n**Svar:** $8\\pi$.",
+        "hints": [
+          "$x^2+y^2 = r^2$, og husk faktoren $r$: integranden blir $r^2\\cdot r = r^3$.",
+          "$\\theta$ løper $0$ til $2\\pi$ for hele skiven."
+        ]
+      }
+    },
+    {
+      "id": "mat1110-4-2-l1b-w",
+      "type": "exercise",
+      "exercise": {
+        "id": "mat1110-4-2-l1b",
+        "number": "2",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "Regn ut $\\displaystyle\\iint_A \\frac{1}{1+x^2+y^2}\\,dA$ over den øvre halvskiven $A: x^2+y^2\\le 4,\\ y \\ge 0$.",
+        "solution": "Sirkelsymmetrisk integrand, halvskive ⇒ polar. Integrand $\\tfrac{1}{1+r^2}$; øvre halvskive er $A = \\{0 \\le r \\le 2,\\ 0 \\le \\theta \\le \\pi\\}$.\n$$\\int_0^{\\pi}\\!\\int_0^2 \\frac{1}{1+r^2}\\,r\\,dr\\,d\\theta = \\pi\\int_0^2 \\frac{r}{1+r^2}\\,dr = \\pi\\Big[\\tfrac12\\ln(1+r^2)\\Big]_0^2 = \\tfrac{\\pi}{2}\\ln 5.$$\n\n(Substitusjon $u = 1+r^2$.) **Svar:** $\\dfrac{\\pi}{2}\\ln 5$.",
+        "hints": [
+          "Øvre halvskive: $\\theta$ fra $0$ til $\\pi$ (ikke $2\\pi$).",
+          "$\\int \\tfrac{r}{1+r^2}dr = \\tfrac12\\ln(1+r^2)$ (sett $u = 1+r^2$)."
+        ]
+      }
+    },
+    {
+      "id": "mat1110-4-2-l2",
+      "type": "text",
+      "content": "## Løkke 2 — Generelt variabelskifte og Jacobideterminant (~18 min)"
+    },
+    {
+      "id": "mat1110-4-2-thm-skifte",
+      "type": "theorem",
+      "title": "Variabelskifteformelen",
+      "content": "La skiftet $x = x(u,v),\\ y = y(u,v)$ avbilde et område $S$ i $(u,v)$-planet bijektivt på $D$ i $(x,y)$-planet. Da er\n\n$$\\iint_D f(x,y)\\,dx\\,dy = \\iint_S f\\big(x(u,v), y(u,v)\\big)\\,\\left|\\frac{\\partial(x,y)}{\\partial(u,v)}\\right|\\,du\\,dv,$$\n\nder $\\dfrac{\\partial(x,y)}{\\partial(u,v)}$ er **Jacobideterminanten** til skiftet. Faktoren $\\left|\\tfrac{\\partial(x,y)}{\\partial(u,v)}\\right|$ måler hvor mye skiftet strekker areal — den er den generelle versjonen av faktoren $r$ i polar. Merk **absoluttverdien**."
+    },
+    {
+      "id": "mat1110-4-2-def-jacdet",
+      "type": "definition",
+      "title": "Jacobideterminanten",
+      "content": "Determinanten til Jacobi-matrisen til skiftet — tallet som forteller hvor mye et lite areal strekkes:\n\n$$\\frac{\\partial(x,y)}{\\partial(u,v)} = \\det\\begin{pmatrix} x_u & x_v \\\\ y_u & y_v\\end{pmatrix} = x_u y_v - x_v y_u.$$\n\nFor polarskiftet $x = r\\cos\\theta,\\ y = r\\sin\\theta$ blir den nettopp $r$ — som forklarer $dA = r\\,dr\\,d\\theta$. I integralet brukes alltid **tallverdien** $\\left|\\tfrac{\\partial(x,y)}{\\partial(u,v)}\\right|$."
+    },
+    {
+      "id": "mat1110-4-2-def-absjac",
+      "type": "definition",
+      "title": "Absoluttverdi på Jacobideterminanten",
+      "content": "Regelen som sikrer at arealfaktoren aldri blir negativ. Et areal er positivt, så variabelskifteformelen bruker $\\left|\\tfrac{\\partial(x,y)}{\\partial(u,v)}\\right|$, ikke determinanten med fortegn. Glemmer du absoluttverdien kan du få et negativt (altså galt) svar på et areal eller volum — en dokumentert fortegnsfelle."
+    },
+    {
+      "id": "mat1110-4-2-def-ellipse",
+      "type": "definition",
+      "title": "Ellipsekoordinater",
+      "content": "Skiftet som gjør en ellipse om til en enhetssirkel. For ellipsen $\\tfrac{x^2}{a^2} + \\tfrac{y^2}{b^2} \\le 1$ setter vi\n\n$$x = a r\\cos\\theta, \\qquad y = b r\\sin\\theta, \\qquad 0 \\le r \\le 1,\\ 0 \\le \\theta \\le 2\\pi.$$\n\nDa blir $\\tfrac{x^2}{a^2}+\\tfrac{y^2}{b^2} = r^2 \\le 1$, og Jacobideterminanten blir $\\left|\\tfrac{\\partial(x,y)}{\\partial(r,\\theta)}\\right| = a b\\,r$. Arealet av ellipsen faller da rett ut som $\\pi a b$."
+    },
+    {
+      "id": "mat1110-4-2-ex2",
+      "type": "example",
+      "title": "Eksempel 2: Areal av en ellipse ved variabelskifte",
+      "problem": "Finn arealet av ellipseområdet $D: \\dfrac{x^2}{4} + \\dfrac{y^2}{9} \\le 1$ ved et passende variabelskifte.",
+      "solution": "Her er $a = 2$ (siden $a^2 = 4$) og $b = 3$ ($b^2 = 9$). **Ellipseskiftet:**\n$$x = 2r\\cos\\theta, \\qquad y = 3r\\sin\\theta.$$\nDa blir bibetingelsen $\\tfrac{x^2}{4} + \\tfrac{y^2}{9} = r^2 \\le 1$, altså $S = \\{0 \\le r \\le 1,\\ 0 \\le \\theta \\le 2\\pi\\}$.\n\n**Jacobideterminant** (bokfør skiftet):\n$$\\frac{\\partial(x,y)}{\\partial(r,\\theta)} = \\det\\begin{pmatrix} 2\\cos\\theta & -2r\\sin\\theta \\\\ 3\\sin\\theta & 3r\\cos\\theta\\end{pmatrix} = 6r\\cos^2\\theta + 6r\\sin^2\\theta = 6r.$$\nAbsoluttverdi: $|6r| = 6r$ (siden $r \\ge 0$).\n\n**Arealet** ($f = 1$):\n$$\\iint_D 1\\,dx\\,dy = \\int_0^{2\\pi}\\!\\int_0^1 6r\\,dr\\,d\\theta = 2\\pi\\cdot 6\\cdot\\tfrac12 = 6\\pi.$$\n\n**Konklusjon:** arealet er $6\\pi$ (stemmer med formelen $\\pi a b = \\pi\\cdot 2\\cdot 3$)."
+    },
+    {
+      "id": "mat1110-4-2-l2a-w",
+      "type": "exercise",
+      "exercise": {
+        "id": "mat1110-4-2-l2a",
+        "number": "3",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "Bruk ellipseskiftet til å regne $\\displaystyle\\iint_D \\Big(\\tfrac{x^2}{9} + \\tfrac{y^2}{4}\\Big)\\,dx\\,dy$ over ellipsen $D: \\tfrac{x^2}{9} + \\tfrac{y^2}{4} \\le 1$.",
+        "solution": "Her $a = 3,\\ b = 2$. Skifte $x = 3r\\cos\\theta,\\ y = 2r\\sin\\theta$ gir $\\tfrac{x^2}{9}+\\tfrac{y^2}{4} = r^2$ og Jacobideterminant $ab\\,r = 6r$ (absoluttverdi $6r$). Område $S = \\{0\\le r\\le 1,\\ 0\\le\\theta\\le 2\\pi\\}$:\n$$\\int_0^{2\\pi}\\!\\int_0^1 r^2\\cdot 6r\\,dr\\,d\\theta = 2\\pi\\cdot 6\\int_0^1 r^3\\,dr = 12\\pi\\cdot\\tfrac14 = 3\\pi.$$\n\n**Svar:** $3\\pi$.",
+        "hints": [
+          "Integranden $\\tfrac{x^2}{9}+\\tfrac{y^2}{4}$ blir $r^2$ etter skiftet.",
+          "Jacobi $= ab\\,r = 6r$; integranden $\\times$ Jacobi $= 6r^3$."
+        ]
+      }
+    },
+    {
+      "id": "mat1110-4-2-warn",
+      "type": "warning",
+      "title": "Typiske feil",
+      "content": "- **Glemme faktoren $r$** i $dA = r\\,dr\\,d\\theta$ — den enkeltfeilen som koster mest i hele emnet. Skriver du bare $dr\\,d\\theta$, blir svaret galt.\n- **Glemme absoluttverdi på Jacobideterminanten.** Arealfaktoren er $\\left|\\tfrac{\\partial(x,y)}{\\partial(u,v)}\\right|$, ikke determinanten med fortegn.\n- **Feil $\\theta$-grenser for halv- og kvartskiver.** Hel skive $0$ til $2\\pi$; øvre halvskive $0$ til $\\pi$; første kvadrant $0$ til $\\tfrac{\\pi}{2}$.\n- **Bruke polar der kartesisk er enklere (eller omvendt).** Polar lønner seg ved sirkelsymmetri; over et rektangel er kartesisk best.\n- **Ikke bokføre skiftet.** Skriv ned $x = \\ldots,\\ y = \\ldots$, det nye området $S$ og Jacobideterminanten før du integrerer — «begrunn alle svar».\n- **Desimaltilnærming.** Behold $\\pi(e^{-1} - e^{-4})$ og $6\\pi$ eksakt."
+    },
+    {
+      "id": "mat1110-4-2-pulje",
+      "type": "text",
+      "content": "## Eksamensrettet oppgavepulje\n\nGjenkjenn sirkelsymmetrien, bytt til polar med faktoren $r$, eller sett opp et variabelskifte med Jacobideterminant og absoluttverdi. Eksakte svar."
+    },
+    {
+      "id": "mat1110-4-2-p1-w",
+      "type": "exercise",
+      "exercise": {
+        "id": "mat1110-4-2-p1",
+        "number": "4",
+        "type": "classic",
+        "difficulty": "lett",
+        "task": "Finn arealet av en full sirkelskive med radius $3$ ved å regne $\\iint_A 1\\,dA$ i polarkoordinater.",
+        "solution": "Skiven er $A = \\{0 \\le r \\le 3,\\ 0 \\le \\theta \\le 2\\pi\\}$, $dA = r\\,dr\\,d\\theta$:\n$$\\int_0^{2\\pi}\\!\\int_0^3 1\\cdot r\\,dr\\,d\\theta = 2\\pi\\Big[\\tfrac{r^2}{2}\\Big]_0^3 = 2\\pi\\cdot\\tfrac92 = 9\\pi.$$\n\n**Areal $= 9\\pi$** (stemmer med $\\pi r^2 = 9\\pi$).",
+        "hints": [
+          "Selv med integrand $1$ må faktoren $r$ være med.",
+          "$\\int_0^3 r\\,dr = \\tfrac92$."
+        ]
+      }
+    },
+    {
+      "id": "mat1110-4-2-p2-w",
+      "type": "exercise",
+      "exercise": {
+        "id": "mat1110-4-2-p2",
+        "number": "5",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "Regn ut $\\displaystyle\\iint_A \\frac{1}{\\sqrt{x^2+y^2}}\\,dA$ over ringen $A: 1 \\le x^2 + y^2 \\le 9$.",
+        "solution": "$\\sqrt{x^2+y^2} = r$, så integranden er $\\tfrac{1}{r}$; ringen er $A = \\{1 \\le r \\le 3,\\ 0 \\le \\theta \\le 2\\pi\\}$. Med faktoren $r$:\n$$\\int_0^{2\\pi}\\!\\int_1^3 \\frac{1}{r}\\cdot r\\,dr\\,d\\theta = 2\\pi\\int_1^3 1\\,dr = 2\\pi\\cdot 2 = 4\\pi.$$\n\n**Svar:** $4\\pi$. (Merk hvordan faktoren $r$ kanselerer $\\tfrac1r$ — men den må skrives eksplisitt.)",
+        "hints": [
+          "$1/\\sqrt{x^2+y^2} = 1/r$; ganget med faktoren $r$ blir det $1$.",
+          "Ringen har $r$ fra $1$ til $3$."
+        ]
+      }
+    },
+    {
+      "id": "mat1110-4-2-p3-w",
+      "type": "exercise",
+      "exercise": {
+        "id": "mat1110-4-2-p3",
+        "number": "6",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "Regn ut $\\displaystyle\\iint_A xy\\,dA$ over kvartskiven $A: x^2+y^2 \\le 1$ i første kvadrant.",
+        "solution": "Kvartskive ⇒ $\\theta$ fra $0$ til $\\tfrac{\\pi}{2}$, $r$ fra $0$ til $1$. Integrand $xy = (r\\cos\\theta)(r\\sin\\theta) = r^2\\cos\\theta\\sin\\theta$; med faktoren $r$:\n$$\\int_0^{\\pi/2}\\!\\int_0^1 r^2\\cos\\theta\\sin\\theta\\cdot r\\,dr\\,d\\theta = \\Big(\\int_0^{\\pi/2}\\cos\\theta\\sin\\theta\\,d\\theta\\Big)\\Big(\\int_0^1 r^3\\,dr\\Big).$$\n$\\int_0^{\\pi/2}\\cos\\theta\\sin\\theta\\,d\\theta = \\big[\\tfrac12\\sin^2\\theta\\big]_0^{\\pi/2} = \\tfrac12$, og $\\int_0^1 r^3\\,dr = \\tfrac14$. Produkt: $\\tfrac12\\cdot\\tfrac14 = \\tfrac18$.\n\n**Svar:** $\\dfrac{1}{8}$.",
+        "hints": [
+          "Første kvadrant: $\\theta$ fra $0$ til $\\pi/2$.",
+          "$xy = r^2\\cos\\theta\\sin\\theta$; integralet faktoriserer i en $\\theta$-del og en $r$-del."
+        ]
+      }
+    },
+    {
+      "id": "mat1110-4-2-p4-w",
+      "type": "exercise",
+      "exercise": {
+        "id": "mat1110-4-2-p4",
+        "number": "7",
+        "type": "classic",
+        "difficulty": "vanskelig",
+        "task": "(Eksamensnivå, sjanger Q.) Bruk et variabelskifte til å regne $\\displaystyle\\iint_D 1\\,dx\\,dy$ over ellipseskiven $D: \\dfrac{x^2}{16} + \\dfrac{y^2}{4} \\le 1$, og bekreft mot formelen $\\pi a b$.",
+        "solution": "$a^2 = 16 \\Rightarrow a = 4$; $b^2 = 4 \\Rightarrow b = 2$. **Skifte:** $x = 4r\\cos\\theta,\\ y = 2r\\sin\\theta$, som gir $\\tfrac{x^2}{16}+\\tfrac{y^2}{4} = r^2 \\le 1$, altså $S = \\{0\\le r\\le 1,\\ 0\\le\\theta\\le 2\\pi\\}$.\n\n**Jacobideterminant:** $\\det\\begin{pmatrix} 4\\cos\\theta & -4r\\sin\\theta \\\\ 2\\sin\\theta & 2r\\cos\\theta\\end{pmatrix} = 8r\\cos^2\\theta + 8r\\sin^2\\theta = 8r$, absoluttverdi $8r$.\n\n$$\\iint_D 1\\,dx\\,dy = \\int_0^{2\\pi}\\!\\int_0^1 8r\\,dr\\,d\\theta = 2\\pi\\cdot 8\\cdot\\tfrac12 = 8\\pi.$$\n\n**Bekreftelse:** $\\pi a b = \\pi\\cdot 4\\cdot 2 = 8\\pi$. ✓",
+        "hints": [
+          "$a = 4,\\ b = 2$; skiftet $x = 4r\\cos\\theta,\\ y = 2r\\sin\\theta$.",
+          "Jacobi $= ab\\,r = 8r$; arealet blir $\\pi a b$."
+        ]
+      }
+    },
+    {
+      "id": "mat1110-4-2-bb",
+      "type": "text",
+      "content": "## Begrepsbank\n\n*Begrepsbanken er flashcard-/repetisjonsstoff — den gjentar det du nettopp har lest. Hopp trygt over ved førstegangslesing; tidsanslaget for kapitlet gjelder kjernestoffet.*"
+    },
+    {
+      "id": "mat1110-4-2-bb-subst1v",
+      "type": "definition",
+      "title": "Substitusjon som endimensjonalt variabelskifte",
+      "content": "Den kjente substitusjonen $\\int f(g(t))g'(t)\\,dt = \\int f(u)\\,du$ er variabelskiftet i én variabel: $g'(t)$ er «Jacobien» som strekker lengden $dt$ til $du$. Dobbeltintegralets variabelskifte er den todimensjonale versjonen, der Jacobideterminanten spiller rollen til $g'(t)$ — men nå må vi ta absoluttverdi fordi areal, ulikt fortegnsbestemte lengder, alltid er positivt."
+    },
+    {
+      "id": "mat1110-4-2-bb-sirkelsym",
+      "type": "definition",
+      "title": "Sirkelsymmetri",
+      "content": "Egenskapen som gjør at polar lønner seg: integranden avhenger bare av avstanden $x^2+y^2$ fra origo, og/eller området er en skive, ring eller sektor. Da forenkler polarskiftet både integrand ($x^2+y^2 = r^2$) og grenser (rette $r$- og $\\theta$-intervaller). Ser du $x^2+y^2$ i integranden eller en sirkelrand, tenk polar."
+    },
+    {
+      "id": "mat1110-4-2-bb-faktorr",
+      "type": "definition",
+      "title": "Faktoren $r$",
+      "content": "Den ekstra faktoren i $dA = r\\,dr\\,d\\theta$ — Jacobideterminanten for polarskiftet. Den er der fordi buelengden av en vinkelbit vokser med radien: ytre ringer er «bredere» enn indre. Å glemme $r$ er den mest dokumenterte enkeltfeilen i multiple integraler; skriv den alltid inn med én gang du bytter til polar."
+    },
+    {
+      "id": "mat1110-4-2-bb-annulus",
+      "type": "definition",
+      "title": "Ring (annulus)",
+      "content": "Området mellom to konsentriske sirkler, $b \\le x^2+y^2 \\le a^2$, som i polar blir $\\{b \\le r \\le a,\\ 0 \\le \\theta \\le 2\\pi\\}$ (med $b$ som ytre radius-grense skrevet riktig). Ringen er det reneste polar-området: begge grensepar er tall, og integralet faktoriserer i en $r$-del og en $\\theta$-del."
+    },
+    {
+      "id": "mat1110-4-2-bb-halvskive",
+      "type": "definition",
+      "title": "Halv- og kvartskive",
+      "content": "Deler av en skive avgrenset av vinkelen. En øvre halvskive ($y \\ge 0$) har $\\theta \\in [0,\\pi]$; en nedre $\\theta \\in [\\pi, 2\\pi]$; første kvadrant $\\theta \\in [0, \\tfrac{\\pi}{2}]$. Feil $\\theta$-grenser er en klassisk tabbe — tegn sektoren og les av start- og sluttvinkelen."
+    },
+    {
+      "id": "mat1110-4-2-bb-jacmatrise",
+      "type": "definition",
+      "title": "Jacobi-matrisen til et skifte",
+      "content": "Matrisen av de partiellderiverte til skiftet $x = x(u,v),\\ y = y(u,v)$:\n\n$$\\frac{\\partial(x,y)}{\\partial(u,v)} = \\begin{pmatrix} x_u & x_v \\\\ y_u & y_v\\end{pmatrix}.$$\n\nDette er $F'$ fra [kap. 2.2](/bok/mat1110/mat1110-2-2) for avbildningen $F(u,v) = (x,y)$. Jacobideterminanten er determinanten av denne matrisen."
+    },
+    {
+      "id": "mat1110-4-2-bb-gauss",
+      "type": "definition",
+      "title": "Gauss-integranden $e^{-(x^2+y^2)}$",
+      "content": "Den klassiske sirkelsymmetriske integranden. I polar blir den $e^{-r^2}$, og $\\int r\\,e^{-r^2}\\,dr$ løses med $u = r^2$. Over hele planet konvergerer $\\iint_{\\mathbb{R}^2} e^{-(x^2+y^2)}\\,dA = \\pi$ (regnes i kap. 4.4) — et resultat som ligger bak normalfordelingen i statistikk."
+    },
+    {
+      "id": "mat1110-4-2-bb-arealstrekk",
+      "type": "definition",
+      "title": "Arealstrekk (geometrisk Jacobi)",
+      "content": "Den geometriske tolkningen av $\\left|\\tfrac{\\partial(x,y)}{\\partial(u,v)}\\right|$: hvor mange ganger større et lite areal blir når skiftet fører $(u,v)$-planet over på $(x,y)$-planet. Er faktoren $2$, dobles arealene; ved polar er den $r$, så biter langt fra origo teller mer. Det er derfor faktoren må inn i integralet."
+    },
+    {
+      "id": "mat1110-4-2-bb-valgskifte",
+      "type": "definition",
+      "title": "Valg av skifte",
+      "content": "Prinsippet for å velge riktig koordinater: la **området eller integrandens geometri** bestemme. Sirkel/ring/sektor eller $x^2+y^2$ i integranden ⇒ polar; ellipse ⇒ ellipsekoordinater; et rektangel eller polynom-integrand ⇒ bli i kartesiske koordinater. Et godt skifte gjør både grenser og integrand enklere samtidig."
+    },
+    {
+      "id": "mat1110-4-2-rep",
+      "type": "collapsible",
+      "title": "Repetisjon",
+      "buttonText": "Vis repetisjonsoppgaver",
+      "content": [
+        {
+          "id": "mat1110-4-2-rep1-w",
+          "type": "exercise",
+          "exercise": {
+            "id": "mat1110-4-2-rep1",
+            "number": "R1",
+            "type": "classic",
+            "difficulty": "lett",
+            "task": "(Fra [kap. 4.1](/bok/mat1110/mat1110-4-1)) Regn ut $\\displaystyle\\iint_A x\\,dA$ over rektangelet $A = \\{0\\le x\\le 2,\\ 0\\le y\\le 3\\}$.",
+            "solution": "$\\int_0^2\\!\\int_0^3 x\\,dy\\,dx = \\int_0^2 3x\\,dx = \\big[\\tfrac{3x^2}{2}\\big]_0^2 = 6$.",
+            "hints": [
+              "Over et rektangel er begge grensepar tall."
+            ]
+          }
+        },
+        {
+          "id": "mat1110-4-2-rep2-w",
+          "type": "exercise",
+          "exercise": {
+            "id": "mat1110-4-2-rep2",
+            "number": "R2",
+            "type": "classic",
+            "difficulty": "lett",
+            "task": "(Fra [kap. 2.2](/bok/mat1110/mat1110-2-2)) Regn Jacobi-matrisen $F'$ og $\\det F'$ for $F(u,v) = (u^2 - v^2,\\ 2uv)$.",
+            "solution": "$F' = \\begin{pmatrix} 2u & -2v \\\\ 2v & 2u\\end{pmatrix}$, og $\\det F' = 4u^2 + 4v^2$.",
+            "hints": [
+              "Rad $i$ i $F'$ er gradienten til komponent $i$; $\\det$ av $2\\times 2$ er $ad-bc$."
+            ]
+          }
+        },
+        {
+          "id": "mat1110-4-2-rep3-w",
+          "type": "exercise",
+          "exercise": {
+            "id": "mat1110-4-2-rep3",
+            "number": "R3",
+            "type": "classic",
+            "difficulty": "middels",
+            "task": "(Fra bestemt integral) Regn $\\displaystyle\\int_0^2 r\\,e^{-r^2}\\,dr$ med substitusjonen $u = r^2$.",
+            "solution": "$u = r^2,\\ du = 2r\\,dr$, grenser $u: 0 \\to 4$: $\\int_0^2 r e^{-r^2}dr = \\tfrac12\\int_0^4 e^{-u}du = \\tfrac12(1 - e^{-4})$.",
+            "hints": [
+              "$u = r^2$ gir $du = 2r\\,dr$, altså $r\\,dr = \\tfrac12 du$."
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": "mat1110-4-2-symbol",
+      "type": "collapsible",
+      "title": "Symbol- og formelliste",
+      "buttonText": "Vis symboler og formler",
+      "content": [
+        {
+          "id": "mat1110-4-2-symbol-text",
+          "type": "text",
+          "content": "## Symbol- og formelliste\n\n*Oppslagsverk — alt her forklares underveis i kapitlet.*\n\n| Symbol | Betydning |\n|---|---|\n| $r,\\ \\theta$ | Polarkoordinater: avstand fra origo og vinkel |\n| $x = r\\cos\\theta,\\ y = r\\sin\\theta$ | Sammenhengen mellom polar og kartesisk |\n| $dA = r\\,dr\\,d\\theta$ | Arealelementet i polar (faktoren $r$!) |\n| $\\frac{\\partial(x,y)}{\\partial(u,v)}$ | Jacobideterminanten til skiftet |\n| $\\left|\\frac{\\partial(x,y)}{\\partial(u,v)}\\right|$ | Arealfaktoren (alltid absoluttverdi) |\n| $a, b$ | Halvakser i en ellipse $\\tfrac{x^2}{a^2}+\\tfrac{y^2}{b^2}\\le 1$ |\n\n**Polart arealelement:**\n$$dA = r\\,dr\\,d\\theta, \\qquad x^2 + y^2 = r^2.$$\n\n**Variabelskifteformelen:**\n$$\\iint_D f(x,y)\\,dx\\,dy = \\iint_S f\\big(x(u,v),y(u,v)\\big)\\left|\\frac{\\partial(x,y)}{\\partial(u,v)}\\right|du\\,dv.$$\n\n**Jacobideterminant:**\n$$\\frac{\\partial(x,y)}{\\partial(u,v)} = \\det\\begin{pmatrix} x_u & x_v \\\\ y_u & y_v\\end{pmatrix} = x_u y_v - x_v y_u.$$\n\n**Ellipsekoordinater:**\n$$x = a r\\cos\\theta,\\ y = b r\\sin\\theta, \\quad \\left|\\frac{\\partial(x,y)}{\\partial(r,\\theta)}\\right| = a b\\,r, \\quad \\text{areal} = \\pi a b.$$"
+        }
+      ]
+    }
+  ],
+  "exercises": []
+}

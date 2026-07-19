@@ -1,0 +1,408 @@
+{
+  "id": "mat1110-1-4",
+  "courseId": "mat1110",
+  "chapterNumber": "1.4",
+  "title": "Lineæravbildninger og løsbarhet av Ax = b",
+  "description": "Matrisen til en lineæravbildning, bilde og kjerne, og parameteravhengig løsbarhet — bindeleddet mellom radreduksjon og Jacobi-matrisen i Del 2.",
+  "estimatedMinutes": 45,
+  "competenceGoals": [
+    "avgjøre om en avbildning er lineær og finne standardmatrisen fra bildene av standardbasisvektorene",
+    "knytte bilde til søylerom og kjerne til nullrom, og avgjøre om en lineæravbildning er injektiv, surjektiv og inverterbar",
+    "drøfte parameteravhengig løsbarhet av Ax = b"
+  ],
+  "content": [
+    {
+      "id": "mat1110-1-4-tip",
+      "type": "tip",
+      "title": "Eksamensvinkel",
+      "content": "**Bindeleddet mellom radreduksjon og Jacobi-matrisen — konseptuelt nødvendig, litt lavere selvstendig frekvens.**\n\n- Formelsamlingen definerer **lineæravbildning**, **affinavbildning** og **matrisen til en lineæravbildning** — så begrepene forventes kjent.\n- Parameteravhengig løsbarhet av $Ax=b$ er en **sjanger A-variant** (2005/2006/2011/2013). Selve lineæravbildnings-oppgaven har lavere selvstendig frekvens enn [kap. 1.1–1.3](/bok/mat1110/mat1110-1-1), men er broen til at Jacobi-matrisen $F'$ i [kap. 2.2](/bok/mat1110/mat1110-2-2) er «den beste lineære avbildningen».\n- Sensors grep: standardmatrisen bygges fra **bildene av standardbasisvektorene, som søyler**.\n\n**Prioritet: kunne.** Dette kapitlet kommer etter det viktigste i Del 1 — men gjør Del 2 mye lettere."
+    },
+    {
+      "id": "mat1110-1-4-fork",
+      "type": "text",
+      "content": "**Forkunnskaper.** Bruker matriser, søylerom/nullrom og inverterbarhet fra [kap. 1.1–1.3](/bok/mat1110/mat1110-1-1). Selve avbildnings-/funksjonsbegrepet (definisjonsmengde, verdimengde, injektiv/surjektiv) hentes fra [Funksjonsbegrepet](/bok/1t/1t-3-1) — her utvider vi det fra tall til vektorer."
+    },
+    {
+      "id": "mat1110-1-4-motiv",
+      "type": "text",
+      "content": "En **funksjon** tar et tall inn og gir et tall ut. En **lineæravbildning** tar en vektor inn og gir en vektor ut — og gjør det på den «snilleste» tenkelige måten: den respekterer addisjon og skalering. Det viser seg at *enhver* slik avbildning kan skrives som $T(x)=Ax$ for en matrise $A$. Matriser og lineæravbildninger er altså to sider av samme sak.\n\nDette perspektivet er hele poenget med Del 2: den deriverte til en flervariabel funksjon er den lineæravbildningen (matrisen $F'$) som best tilnærmer funksjonen lokalt. Vi bygger broen i fem løkker: (1) hva en lineæravbildning er, (2) standardmatrisen, (3) bilde og kjerne, (4) sammensetning og invers, (5) parameteravhengig løsbarhet."
+    },
+    {
+      "id": "mat1110-1-4-l1",
+      "type": "text",
+      "content": "## Løkke 1 — Hva en lineæravbildning er (~10 min)"
+    },
+    {
+      "id": "mat1110-1-4-def-lin",
+      "type": "definition",
+      "title": "Lineæravbildning",
+      "content": "En avbildning $T:\\mathbb{R}^n\\to\\mathbb{R}^m$ som respekterer de to grunnoperasjonene — i symboler, for alle vektorer $u,v$ og alle tall $c$:\n\n$$T(u+v)=T(u)+T(v)\\qquad\\text{og}\\qquad T(cu)=c\\,T(u).$$\n\n«Å regne først og avbilde etterpå gir samme svar som å avbilde først og regne etterpå.» En konsekvens: $T(0)=0$ alltid — en lineæravbildning fikserer origo."
+    },
+    {
+      "id": "mat1110-1-4-def-affin",
+      "type": "definition",
+      "title": "Affinavbildning",
+      "content": "En lineæravbildning pluss et fast konstantledd: $x\\mapsto Ax+b$ med $b\\ne0$. Den flytter origo (siden $T(0)=b\\ne0$), så den er strengt tatt **ikke** lineær — men «rett» i geometrisk forstand. Forveksling av lineær og affin er en klassisk feil: sjekk alltid $T(0)$."
+    },
+    {
+      "id": "mat1110-1-4-def-identavb",
+      "type": "definition",
+      "title": "Identitetsavbildningen",
+      "content": "Avbildningen $T(x)=x$ som lar alt være urørt. Dens standardmatrise er identitetsmatrisen $I_n$. Den er det nøytrale elementet under sammensetning: $T\\circ\\text{id}=\\text{id}\\circ T=T$."
+    },
+    {
+      "id": "mat1110-1-4-ex1",
+      "type": "example",
+      "title": "Eksempel 1: Er avbildningen lineær?",
+      "problem": "Avgjør om (a) $T(x,y)=(2x-y,\\,x+3y)$ og (b) $S(x,y)=(x+1,\\,y)$ er lineære.",
+      "solution": "**a)** Vi sjekker de to egenskapene, eller enklere: kan $T$ skrives som $Ax$? Ja: $T(x,y)=\\begin{pmatrix}2&-1\\\\1&3\\end{pmatrix}\\begin{pmatrix}x\\\\y\\end{pmatrix}$. En avbildning som er et rent matriseprodukt, er automatisk lineær. Sjekk også $T(0,0)=(0,0)$ ✓. Altså **lineær**.\n\n**b)** $S(0,0)=(1,0)\\ne(0,0)$. En lineæravbildning må sende $0$ til $0$, så $S$ er **ikke lineær** — den er *affin* ($S(x,y)=Ix+(1,0)$), med konstantleddet $(1,0)$."
+    },
+    {
+      "id": "mat1110-1-4-w1-w",
+      "type": "exercise",
+      "exercise": {
+        "id": "mat1110-1-4-w1",
+        "number": "1",
+        "type": "classic",
+        "difficulty": "lett",
+        "task": "Avgjør om $T(x,y)=(3x+y,\\,x-2y)$ er lineær, og finn i så fall matrisen.",
+        "solution": "$T(x,y)=\\begin{pmatrix}3&1\\\\1&-2\\end{pmatrix}\\begin{pmatrix}x\\\\y\\end{pmatrix}$ — et rent matriseprodukt, og $T(0,0)=(0,0)$. Altså **lineær** med matrise $A=\\begin{pmatrix}3&1\\\\1&-2\\end{pmatrix}$.",
+        "hints": [
+          "Prøv å skrive $T$ som $Ax$; klarer du det, er den lineær.",
+          "Sjekk at $T(0)=0$ — ellers er den affin, ikke lineær."
+        ]
+      }
+    },
+    {
+      "id": "mat1110-1-4-l2",
+      "type": "text",
+      "content": "## Løkke 2 — Standardmatrisen (~11 min)"
+    },
+    {
+      "id": "mat1110-1-4-def-std",
+      "type": "definition",
+      "title": "Standardmatrisen til en lineæravbildning",
+      "content": "Matrisen $A$ slik at $T(x)=Ax$. Den bygges av **bildene av standardbasisvektorene, satt inn som søyler**:\n\n$$A=\\big[\\,T(e_1)\\ \\ T(e_2)\\ \\cdots\\ T(e_n)\\,\\big].$$\n\nGrunnen: siden $x=x_1e_1+\\cdots+x_ne_n$ og $T$ er lineær, er $T(x)=x_1T(e_1)+\\cdots+x_nT(e_n)=Ax$. **Felle:** bildene skal stå som *søyler*, ikke rader."
+    },
+    {
+      "id": "mat1110-1-4-def-rotasjon",
+      "type": "definition",
+      "title": "Rotasjonsmatrise",
+      "content": "Standardmatrisen til en rotasjon om origo med vinkel $\\theta$:\n\n$$R_\\theta=\\begin{pmatrix}\\cos\\theta&-\\sin\\theta\\\\\\sin\\theta&\\cos\\theta\\end{pmatrix}.$$\n\nDen er alltid inverterbar ($\\det=\\cos^2\\theta+\\sin^2\\theta=1$); inversen er rotasjon andre veien, $R_{-\\theta}=R_\\theta^{T}$."
+    },
+    {
+      "id": "mat1110-1-4-def-speiling",
+      "type": "definition",
+      "title": "Speilingsmatrise",
+      "content": "Standardmatrisen til en speiling om en linje gjennom origo. Speiling om $y=x$ bytter koordinatene: $\\begin{pmatrix}0&1\\\\1&0\\end{pmatrix}$. Speiling om $x$-aksen: $\\begin{pmatrix}1&0\\\\0&-1\\end{pmatrix}$. Speilinger har $\\det=-1$ og er sin egen invers ($S^2=I$)."
+    },
+    {
+      "id": "mat1110-1-4-ex2",
+      "type": "example",
+      "title": "Eksempel 2: Standardmatrise fra bildene",
+      "problem": "$T:\\mathbb{R}^2\\to\\mathbb{R}^2$ speiler hver vektor om linjen $y=x$. Finn standardmatrisen, og avgjør om $T$ er inverterbar.",
+      "solution": "Speiling om $y=x$ bytter $x$- og $y$-koordinaten. Bildene av standardbasisen:\n$$T(e_1)=T(1,0)=(0,1),\\qquad T(e_2)=T(0,1)=(1,0).$$\nSett inn som søyler:\n$$A=\\big[\\,T(e_1)\\ \\ T(e_2)\\,\\big]=\\begin{pmatrix}0&1\\\\1&0\\end{pmatrix}.$$\n$\\det A=0\\cdot0-1\\cdot1=-1\\ne0$, så $T$ er **inverterbar**. Faktisk er $A^{-1}=A$ (å speile to ganger bringer alt tilbake), i tråd med at en speiling er sin egen invers."
+    },
+    {
+      "id": "mat1110-1-4-w2-w",
+      "type": "exercise",
+      "exercise": {
+        "id": "mat1110-1-4-w2",
+        "number": "2",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "$T:\\mathbb{R}^2\\to\\mathbb{R}^2$ er rotasjon $90^\\circ$ mot klokka.\n\n**a)** Finn standardmatrisen.\n\n**b)** Regn ut $T(2,1)$.",
+        "solution": "**a)** Med $\\theta=90^\\circ$: $\\cos90^\\circ=0,\\ \\sin90^\\circ=1$, så\n$$A=R_{90^\\circ}=\\begin{pmatrix}0&-1\\\\1&0\\end{pmatrix}.$$ (Kontroll: $T(e_1)=(0,1)$, $T(e_2)=(-1,0)$ — $e_1$ dreies opp, $e_2$ dreies mot venstre.)\n\n**b)** $T(2,1)=\\begin{pmatrix}0&-1\\\\1&0\\end{pmatrix}\\begin{pmatrix}2\\\\1\\end{pmatrix}=\\begin{pmatrix}-1\\\\2\\end{pmatrix}$.",
+        "hints": [
+          "Rotasjon: $R_\\theta=\\begin{pmatrix}\\cos\\theta&-\\sin\\theta\\\\\\sin\\theta&\\cos\\theta\\end{pmatrix}$.",
+          "Sett $\\theta=90^\\circ$ og gang matrisen med vektoren."
+        ]
+      }
+    },
+    {
+      "id": "mat1110-1-4-l3",
+      "type": "text",
+      "content": "## Løkke 3 — Bilde og kjerne (~10 min)"
+    },
+    {
+      "id": "mat1110-1-4-def-bilde",
+      "type": "definition",
+      "title": "Bilde (verdimengde) $= $ søylerom",
+      "content": "Alle vektorer $T$ faktisk treffer: $\\{T(x):x\\in\\mathbb{R}^n\\}$. Siden $T(x)=Ax$ er en lineær kombinasjon av søylene i $A$, er bildet nøyaktig **søylerommet** $\\operatorname{Col}(A)$ fra [kap. 1.2](/bok/mat1110/mat1110-1-2). Dimensjonen er rangen."
+    },
+    {
+      "id": "mat1110-1-4-def-kjerne",
+      "type": "definition",
+      "title": "Kjerne $=$ nullrom",
+      "content": "Alt som avbildes til null: $\\ker T=\\{x:T(x)=0\\}$. Dette er nøyaktig **nullrommet** $N(A)$. En lineæravbildning er **injektiv** (en-til-en) nøyaktig når kjernen bare er $\\{0\\}$ — da kolliderer ingen to input i samme output."
+    },
+    {
+      "id": "mat1110-1-4-def-injsurj",
+      "type": "definition",
+      "title": "Injektiv og surjektiv",
+      "content": "**Injektiv** (en-til-en): ulike input gir ulike output — ekvivalent med $\\ker T=\\{0\\}$. **Surjektiv** (på): bildet er hele $\\mathbb{R}^m$ — ekvivalent med at rangen er $m$. En kvadratisk lineæravbildning er injektiv $\\iff$ surjektiv $\\iff$ inverterbar."
+    },
+    {
+      "id": "mat1110-1-4-ex3",
+      "type": "example",
+      "title": "Eksempel 3: Bilde og kjerne til en projeksjon",
+      "problem": "$T(x,y)=(x,0)$ projiserer ned på $x$-aksen. Finn standardmatrisen, bildet og kjernen, og avgjør om $T$ er inverterbar.",
+      "solution": "Bildene: $T(e_1)=(1,0)$, $T(e_2)=(0,0)$, så\n$$A=\\begin{pmatrix}1&0\\\\0&0\\end{pmatrix}.$$\n**Bilde** $=\\operatorname{Col}(A)=\\operatorname{sp}\\{(1,0)\\}$ — hele $x$-aksen (dimensjon 1, altså rang 1).\n**Kjerne** $=N(A)$: $Ax=0$ gir $x=0$, $y$ fri, så $\\ker T=\\operatorname{sp}\\{(0,1)\\}$ — hele $y$-aksen.\n$\\det A=0$, så $T$ er **ikke inverterbar** (den er verken injektiv — kjernen er større enn $\\{0\\}$ — eller surjektiv). Geometrisk: projeksjonen «mister» $y$-informasjonen, som ikke kan gjenskapes."
+    },
+    {
+      "id": "mat1110-1-4-w3-w",
+      "type": "exercise",
+      "exercise": {
+        "id": "mat1110-1-4-w3",
+        "number": "3",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "For $T(x,y,z)=(x+2y+3z,\\,2x+4y+6z)$: finn standardmatrisen, og bestem bilde (rang) og kjerne (nullrom).",
+        "solution": "Bildene av $e_1,e_2,e_3$ som søyler gir $A=\\begin{pmatrix}1&2&3\\\\2&4&6\\end{pmatrix}$. Radreduser: $\\overset{\\;II-2I\\;}{\\sim}\\begin{pmatrix}1&2&3\\\\0&0&0\\end{pmatrix}$. Ett pivot ⇒ **rang 1**, så bildet er $\\operatorname{sp}\\{(1,2)\\}$ (en linje i $\\mathbb{R}^2$). Kjerne: $x+2y+3z=0$, $y,z$ frie ⇒ $\\ker T=\\operatorname{sp}\\{(-2,1,0),(-3,0,1)\\}$ (et plan i $\\mathbb{R}^3$). Kontroll rang–nullitet: $1+2=3$ ✓.",
+        "hints": [
+          "Standardmatrise = bildene av $e_1,e_2,e_3$ som søyler.",
+          "Bildet er søylerommet (rang), kjernen er nullrommet (frie variabler)."
+        ]
+      }
+    },
+    {
+      "id": "mat1110-1-4-l4",
+      "type": "text",
+      "content": "## Løkke 4 — Sammensetning og invers avbildning (~7 min)"
+    },
+    {
+      "id": "mat1110-1-4-def-sammensetning",
+      "type": "definition",
+      "title": "Sammensetning $=$ matriseprodukt",
+      "content": "Å utføre $S$ etter $T$ — sammensetningen $S\\circ T$ («først $T$, så $S$») — har standardmatrise lik **produktet** av matrisene i samme rekkefølge: $A_{S\\circ T}=A_S A_T$. At matriseprodukt ikke er kommutativt, speiler at rekkefølgen av avbildninger betyr noe (rotasjon så speiling $\\ne$ speiling så rotasjon)."
+    },
+    {
+      "id": "mat1110-1-4-def-invavb",
+      "type": "definition",
+      "title": "Invers avbildning $=$ invers matrise",
+      "content": "En lineæravbildning $T(x)=Ax$ har en invers avbildning $T^{-1}$ nøyaktig når $A$ er inverterbar, og da er $T^{-1}(y)=A^{-1}y$. Den «angrer» $T$: $T^{-1}(T(x))=x$. Dette knytter kap. 1.3 til geometri — inverterbarhet betyr at avbildningen kan reverseres."
+    },
+    {
+      "id": "mat1110-1-4-ex4",
+      "type": "example",
+      "title": "Eksempel 4: Sammensetning av to avbildninger",
+      "problem": "$T$ er rotasjon $90^\\circ$ ($A_T=\\begin{pmatrix}0&-1\\\\1&0\\end{pmatrix}$) og $S$ er speiling om $x$-aksen ($A_S=\\begin{pmatrix}1&0\\\\0&-1\\end{pmatrix}$). Finn matrisen til «først $T$, så $S$».",
+      "solution": "Sammensetningen $S\\circ T$ har matrise $A_SA_T$ (samme rekkefølge, $S$ til venstre):\n$$A_{S\\circ T}=\\begin{pmatrix}1&0\\\\0&-1\\end{pmatrix}\\begin{pmatrix}0&-1\\\\1&0\\end{pmatrix}=\\begin{pmatrix}0&-1\\\\-1&0\\end{pmatrix}.$$\nDette er speiling om linja $y=-x$. Bytter vi rekkefølge ($T\\circ S$), får vi $A_TA_S=\\begin{pmatrix}0&1\\\\1&0\\end{pmatrix}$ (speiling om $y=x$) — et **annet** resultat, som bekrefter at rekkefølgen betyr noe."
+    },
+    {
+      "id": "mat1110-1-4-w4-w",
+      "type": "exercise",
+      "exercise": {
+        "id": "mat1110-1-4-w4",
+        "number": "4",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "$T(x,y)=(x+2y,\\,3x-y)$ har matrise $A=\\begin{pmatrix}1&2\\\\3&-1\\end{pmatrix}$.\n\n**a)** Er $T$ inverterbar?\n\n**b)** Finn i så fall matrisen til $T^{-1}$.",
+        "solution": "**a)** $\\det A=1\\cdot(-1)-2\\cdot3=-7\\ne0$, så $A$ er inverterbar ⇒ $T$ **inverterbar**.\n\n**b)** $2\\times2$-formelen: $A^{-1}=\\dfrac{1}{-7}\\begin{pmatrix}-1&-2\\\\-3&1\\end{pmatrix}=\\dfrac17\\begin{pmatrix}1&2\\\\3&-1\\end{pmatrix}$. Altså $T^{-1}(u,v)=\\dfrac17(u+2v,\\,3u-v)$.",
+        "hints": [
+          "$T$ inverterbar $\\iff A$ inverterbar $\\iff\\det\\ne0$.",
+          "Bruk $2\\times2$-formelen på $A$; $T^{-1}(y)=A^{-1}y$."
+        ]
+      }
+    },
+    {
+      "id": "mat1110-1-4-l5",
+      "type": "text",
+      "content": "## Løkke 5 — Parameteravhengig løsbarhet (~7 min)"
+    },
+    {
+      "id": "mat1110-1-4-def-parlos",
+      "type": "definition",
+      "title": "Parameteravhengig løsbarhet",
+      "content": "Spørsmålet «for hvilke parameterverdier har $Ax=b$ løsning?» besvares ved konsistensdrøfting fra trappeformen (som i [kap. 1.1](/bok/mat1110/mat1110-1-1)). Er $A$ inverterbar for parameterverdien, finnes entydig løsning for enhver $b$; der $A$ blir singulær, avgjør høyresiden om det er ingen eller uendelig mange løsninger. Dette er en sjanger A-variant."
+    },
+    {
+      "id": "mat1110-1-4-ex5",
+      "type": "example",
+      "title": "Eksempel 5: Når er systemet løsbart?",
+      "problem": "For hvilke $a$ har $T(x,y)=(x+2y,\\,2x+ay)$ en invers, og hva betyr det for løsbarheten av $T(x,y)=b$?",
+      "solution": "Standardmatrisen er $A=\\begin{pmatrix}1&2\\\\2&a\\end{pmatrix}$ med $\\det A=a-4$. \n\n**$a\\ne4$:** $\\det\\ne0$, $T$ inverterbar ⇒ $T(x,y)=b$ har **entydig løsning for enhver $b$**.\n\n**$a=4$:** $A=\\begin{pmatrix}1&2\\\\2&4\\end{pmatrix}$, rad 2 er $2\\times$ rad 1 ⇒ singulær. Da avhenger løsbarheten av $b$: bildet er linja $\\operatorname{sp}\\{(1,2)\\}$, så $T(x,y)=b$ har (uendelig mange) løsninger hvis $b$ ligger på denne linja, ellers ingen.\n\n**Konklusjon:** entydig løsbar for alle $b$ nøyaktig når $a\\ne4$."
+    },
+    {
+      "id": "mat1110-1-4-w5-w",
+      "type": "exercise",
+      "exercise": {
+        "id": "mat1110-1-4-w5",
+        "number": "5",
+        "type": "classic",
+        "difficulty": "vanskelig",
+        "task": "(Eksamensnivå.) For hvilke $a$ har systemet $x+ay=1,\\ ax+y=1$ (i) entydig, (ii) ingen, (iii) uendelig mange løsninger?",
+        "solution": "Matrisen er $A=\\begin{pmatrix}1&a\\\\a&1\\end{pmatrix}$, $\\det A=1-a^2=(1-a)(1+a)$.\n\n**(i)** $a\\ne\\pm1$: $\\det\\ne0$ ⇒ **entydig løsning**.\n\n**(ii)/(iii)** Radreduser $[A\\,|\\,b]$ med $b=(1,1)^T$: $\\overset{\\;II-aI\\;}{\\sim}\\left[\\begin{array}{cc|c}1&a&1\\\\0&1-a^2&1-a\\end{array}\\right]$. \n- $a=1$: nederste rad $[\\,0\\ 0\\ |\\ 0\\,]$ ⇒ **uendelig mange** (systemet er egentlig bare $x+y=1$).\n- $a=-1$: nederste rad $[\\,0\\ 0\\ |\\ 2\\,]$ ⇒ **ingen løsning**.\n\n**Konklusjon:** entydig for $a\\ne\\pm1$; uendelig mange for $a=1$; ingen for $a=-1$.",
+        "hints": [
+          "Regn $\\det A=1-a^2$; skiftet skjer ved $a=\\pm1$.",
+          "Radreduser $[A\\,|\\,b]$ og se på nederste rad for hver av $a=1$ og $a=-1$."
+        ]
+      }
+    },
+    {
+      "id": "mat1110-1-4-warn",
+      "type": "warning",
+      "title": "Typiske feil",
+      "content": "- **Standardmatrise fra bildene som rader.** Bildene $T(e_1),T(e_2),\\dots$ settes inn som **søyler**, ikke rader — ellers får du den transponerte.\n- **Lineær forvekslet med affin.** $x\\mapsto Ax+b$ med $b\\ne0$ er *ikke* lineær. Sjekk alltid $T(0)$: en lineæravbildning sender $0$ til $0$.\n- **Bilde og kjerne byttet om.** Bilde $=$ søylerom (det avbildningen treffer); kjerne $=$ nullrom (det som sendes til $0$).\n- **Feil rekkefølge i sammensetning.** «Først $T$, så $S$» er $S\\circ T$ med matrise $A_SA_T$ — $S$ til venstre. Produktet er ikke kommutativt.\n- **Anta linearitet uten å sjekke.** Kontroller de to egenskapene (eller at $T$ kan skrives $Ax$) før du bygger en matrise."
+    },
+    {
+      "id": "mat1110-1-4-pulje",
+      "type": "text",
+      "content": "## Eksamensrettet oppgavepulje"
+    },
+    {
+      "id": "mat1110-1-4-p1-w",
+      "type": "exercise",
+      "exercise": {
+        "id": "mat1110-1-4-p1",
+        "number": "6",
+        "type": "classic",
+        "difficulty": "lett",
+        "task": "Finn standardmatrisen til $T(x,y)=(2x,\\,3y)$ (skalering), og avgjør om $T$ er inverterbar.",
+        "solution": "$T(e_1)=(2,0)$, $T(e_2)=(0,3)$, så $A=\\begin{pmatrix}2&0\\\\0&3\\end{pmatrix}$. $\\det A=6\\ne0$ ⇒ **inverterbar**, med $T^{-1}(x,y)=(\\tfrac12 x,\\tfrac13 y)$.",
+        "hints": [
+          "Standardmatrise = bildene av $e_1,e_2$ som søyler.",
+          "Diagonalmatrise: $\\det$ er produktet av diagonalen."
+        ]
+      }
+    },
+    {
+      "id": "mat1110-1-4-p2-w",
+      "type": "exercise",
+      "exercise": {
+        "id": "mat1110-1-4-p2",
+        "number": "7",
+        "type": "classic",
+        "difficulty": "lett",
+        "task": "Er $T(x,y)=(x-y,\\,2)$ en lineæravbildning? Begrunn.",
+        "solution": "Nei. $T(0,0)=(0,2)\\ne(0,0)$, og en lineæravbildning må sende $0$ til $0$. $T$ er ikke lineær (og heller ikke affin på standardform siden andre komponent er konstant $2$ uavhengig av input — den er affin med konstantledd $(0,2)$).",
+        "hints": [
+          "Sjekk $T(0)$.",
+          "$T(0)\\ne0$ utelukker linearitet."
+        ]
+      }
+    },
+    {
+      "id": "mat1110-1-4-p3-w",
+      "type": "exercise",
+      "exercise": {
+        "id": "mat1110-1-4-p3",
+        "number": "8",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "$T:\\mathbb{R}^3\\to\\mathbb{R}^3$ har standardmatrise $A=\\begin{pmatrix}1&2&1\\\\0&1&1\\\\1&1&0\\end{pmatrix}$. Er $T$ injektiv? Surjektiv? Inverterbar?",
+        "solution": "Radreduser $A$: $\\overset{\\;III-I\\;}{\\sim}\\begin{pmatrix}1&2&1\\\\0&1&1\\\\0&-1&-1\\end{pmatrix}\\overset{\\;III+II\\;}{\\sim}\\begin{pmatrix}1&2&1\\\\0&1&1\\\\0&0&0\\end{pmatrix}$. Bare **to** pivoter ⇒ rang 2, nullitet 1. Kjernen er større enn $\\{0\\}$ ⇒ **ikke injektiv**; bildet har dimensjon 2 $<3$ ⇒ **ikke surjektiv**; $\\det A=0$ ⇒ **ikke inverterbar**. (For kvadratiske avbildninger følger alle tre av hverandre.)",
+        "hints": [
+          "Radreduser og tell pivotene.",
+          "Rang $<n$ ⇒ verken injektiv, surjektiv eller inverterbar."
+        ]
+      }
+    },
+    {
+      "id": "mat1110-1-4-p4-w",
+      "type": "exercise",
+      "exercise": {
+        "id": "mat1110-1-4-p4",
+        "number": "9",
+        "type": "classic",
+        "difficulty": "vanskelig",
+        "task": "(Eksamensnivå, sjanger R.) Vis at hvis $T:\\mathbb{R}^n\\to\\mathbb{R}^n$ er en injektiv lineæravbildning, så er $T$ også surjektiv.",
+        "solution": "$T$ injektiv betyr $\\ker T=\\{0\\}$, altså $N(A)=\\{0\\}$, som ved inverterbarhetsteoremet ([kap. 1.3](/bok/mat1110/mat1110-1-3)) betyr at $A$ er inverterbar. Da har $A$ full rang $n$, så bildet $\\operatorname{Col}(A)$ har dimensjon $n$ og er hele $\\mathbb{R}^n$ ⇒ $T$ er **surjektiv**. \n\nAlternativt via rang–nullitet: $\\operatorname{rang}+\\dim\\ker=n$; med $\\dim\\ker=0$ er rangen $n$, altså surjektiv. For kvadratiske lineæravbildninger er injektiv, surjektiv og inverterbar ekvivalente egenskaper.",
+        "hints": [
+          "Injektiv ⇔ trivielt nullrom ⇔ (inverterbarhetsteoremet) inverterbar.",
+          "Bruk rang–nullitet: $\\dim\\ker=0$ tvinger rangen til $n$."
+        ]
+      }
+    },
+    {
+      "id": "mat1110-1-4-bb",
+      "type": "text",
+      "content": "## Begrepsbank\n\n*Flashcard-/repetisjonsstoff — hopp trygt over ved førstegangslesing; tidsanslaget gjelder kjernestoffet.*"
+    },
+    {
+      "id": "mat1110-1-4-bb-projeksjon",
+      "type": "definition",
+      "title": "Projeksjonsmatrise",
+      "content": "Standardmatrisen til en projeksjon ned på en linje eller et plan gjennom origo. Projeksjon på $x$-aksen er $\\begin{pmatrix}1&0\\\\0&0\\end{pmatrix}$. Projeksjoner er **ikke** inverterbare ($\\det=0$): de «mister» en retning som ikke kan gjenskapes, så kjernen er større enn $\\{0\\}$."
+    },
+    {
+      "id": "mat1110-1-4-bb-skalering",
+      "type": "definition",
+      "title": "Skalering (homoteti)",
+      "content": "En lineæravbildning $T(x)=cx$ som strekker ($|c|>1$) eller krymper ($|c|<1$) alt med faktoren $c$. Standardmatrisen er $cI_n$. Den er inverterbar for $c\\ne0$, med invers $\\tfrac1c I_n$."
+    },
+    {
+      "id": "mat1110-1-4-bb-shear",
+      "type": "definition",
+      "title": "Skjæravbildning (shear)",
+      "content": "En lineæravbildning som «forskyver» langs én retning proporsjonalt med den andre koordinaten, f.eks. $T(x,y)=(x+ky,\\,y)$ med matrise $\\begin{pmatrix}1&k\\\\0&1\\end{pmatrix}$. Den har $\\det=1$, er alltid inverterbar, og bevarer arealer — en «skjevstilling» som ikke krymper figurer."
+    },
+    {
+      "id": "mat1110-1-4-rep",
+      "type": "collapsible",
+      "title": "Repetisjon",
+      "buttonText": "Vis repetisjonsoppgaver",
+      "content": [
+        {
+          "id": "mat1110-1-4-r1-w",
+          "type": "exercise",
+          "exercise": {
+            "id": "mat1110-1-4-r1",
+            "number": "R1",
+            "type": "classic",
+            "difficulty": "lett",
+            "task": "(Fra [kap. 1.3](/bok/mat1110/mat1110-1-3)) Regn inversen til $A=\\begin{pmatrix}0&1\\\\1&0\\end{pmatrix}$ (speiling om $y=x$).",
+            "solution": "$\\det A=-1$. $A^{-1}=\\dfrac{1}{-1}\\begin{pmatrix}0&-1\\\\-1&0\\end{pmatrix}=\\begin{pmatrix}0&1\\\\1&0\\end{pmatrix}=A$. Speilingen er sin egen invers.",
+            "hints": [
+              "Bruk $2\\times2$-formelen; her blir $A^{-1}=A$."
+            ]
+          }
+        },
+        {
+          "id": "mat1110-1-4-r2-w",
+          "type": "exercise",
+          "exercise": {
+            "id": "mat1110-1-4-r2",
+            "number": "R2",
+            "type": "classic",
+            "difficulty": "lett",
+            "task": "(Fra [kap. 1.2](/bok/mat1110/mat1110-1-2)) Hva er søylerommet til $A=\\begin{pmatrix}1&2\\\\2&4\\end{pmatrix}$?",
+            "solution": "Søyle 2 er $2\\times$ søyle 1, så søylerommet er $\\operatorname{sp}\\{(1,2)\\}$ — en linje (dimensjon 1, rang 1).",
+            "hints": [
+              "Er søylene avhengige? Da spenner de bare en linje."
+            ]
+          }
+        },
+        {
+          "id": "mat1110-1-4-r3-w",
+          "type": "exercise",
+          "exercise": {
+            "id": "mat1110-1-4-r3",
+            "number": "R3",
+            "type": "classic",
+            "difficulty": "middels",
+            "task": "(Fra [kap. 1.1](/bok/mat1110/mat1110-1-1)) Løs $\\begin{pmatrix}1&2\\\\2&4\\end{pmatrix}x=\\begin{pmatrix}3\\\\6\\end{pmatrix}$.",
+            "solution": "$\\overset{\\;II-2I\\;}{\\sim}\\left[\\begin{array}{cc|c}1&2&3\\\\0&0&0\\end{array}\\right]$. Nullrad ⇒ $y=t$ fri, $x=3-2t$. **Løsning:** $(x,y)=(3,0)+t(-2,1)$ — uendelig mange (høyresiden ligger på søylerommet).",
+            "hints": [
+              "Nullrad betyr en fri variabel, ikke ingen løsning."
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": "mat1110-1-4-symbol",
+      "type": "collapsible",
+      "title": "Symbol- og formelliste",
+      "buttonText": "Vis symboler og formler",
+      "content": [
+        {
+          "id": "mat1110-1-4-symbol-text",
+          "type": "text",
+          "content": "## Symbol- og formelliste\n\n*Oppslagsverk — alt her forklares underveis i kapitlet.*\n\n| Symbol | Betydning |\n|---|---|\n| $T:\\mathbb{R}^n\\to\\mathbb{R}^m$ | Avbildning fra $\\mathbb{R}^n$ til $\\mathbb{R}^m$ |\n| $T(x)=Ax$ | Lineæravbildning med standardmatrise $A$ |\n| $T(e_j)$ | Bildet av $j$-te standardbasisvektor ($=$ søyle $j$ i $A$) |\n| $\\ker T$ | Kjerne $=$ nullrom $N(A)$ |\n| bilde | Verdimengde $=$ søylerom $\\operatorname{Col}(A)$ |\n| $S\\circ T$ | Sammensetning «først $T$, så $S$» ($=A_SA_T$) |\n| $R_\\theta$ | Rotasjonsmatrise med vinkel $\\theta$ |\n| $T^{-1}$ | Invers avbildning ($=A^{-1}y$) |\n\n**Linearitetsbetingelsene:**\n$$T(u+v)=T(u)+T(v),\\qquad T(cu)=cT(u)\\quad(\\Rightarrow T(0)=0).$$\n\n**Standardmatrisen:** $A=[\\,T(e_1)\\ \\cdots\\ T(e_n)\\,]$ (bildene som søyler).\n\n**Rotasjon / speiling om $y=x$:**\n$$R_\\theta=\\begin{pmatrix}\\cos\\theta&-\\sin\\theta\\\\\\sin\\theta&\\cos\\theta\\end{pmatrix},\\qquad S_{y=x}=\\begin{pmatrix}0&1\\\\1&0\\end{pmatrix}.$$\n\n**Nøkkelkobling:** bilde $=$ søylerom, kjerne $=$ nullrom; sammensetning $=$ produkt; invers avbildning $=$ invers matrise. Kvadratisk: injektiv $\\iff$ surjektiv $\\iff$ inverterbar."
+        }
+      ]
+    }
+  ],
+  "exercises": []
+}

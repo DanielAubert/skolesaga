@@ -1,0 +1,404 @@
+{
+  "id": "mat1110-6-3",
+  "courseId": "mat1110",
+  "chapterNumber": "6.3",
+  "title": "Tallrekker og potensrekkers konvergensområde",
+  "description": "Konvergenstestene for tallrekker og konvergensradius/-område for potensrekker med den obligatoriske endepunktsjekken — klassisk poengtap om endepunktene glemmes.",
+  "estimatedMinutes": 55,
+  "competenceGoals": [
+    "avgjøre om en tallrekke konvergerer med divergenstesten, geometrisk kriterium, p-rekker og de navngitte konvergenstestene",
+    "finne konvergensradiusen til en potensrekke med forholds- eller rottesten",
+    "bestemme det fulle konvergensområdet ved å undersøke begge endepunkter separat"
+  ],
+  "content": [
+    {
+      "id": "mat1110-6-3-tip",
+      "type": "tip",
+      "title": "Eksamensvinkel",
+      "content": "**Nest mest testede tema i det gamle regimet — og den tyngste karakterskilleren blant beredskapstemaene.**\n\n- **Potensrekker (sjanger N)** — konvergensradius og konvergensområde, med endepunktsjekk — dukker opp i **17 av 20 arkiverte sett (85 %)**, praktisk talt garantert fram til 2024. Tallrekker med navngitte konvergenstester (sjanger O) i 5 sett.\n- **Men: 0 av 3 sett i V2025.** Sammen med egenverdier er dette regimeskiftets tydeligste markør. Vi behandler potensrekker som **beredskap**, men grundig: temaet er så tungt forankret i formelsamlingen (som gir standardrekkene) at det lett kan komme tilbake, og det skiller de gode besvarelsene fra de middels.\n- Den dokumenterte klassikeren er å **glemme endepunktsjekken**: konvergensradiusen er bare halve svaret — $x=\\pm R$ må undersøkes hver for seg med tallrekketestene.\n- Ingen offisiell fasit i arkivet (⚠️) — metoden er faglig standard.\n\n**Prioritet: beredskap (tung karakterskiller).** Målet er at du finner konvergensradius trygt og aldri glemmer å avgjøre endepunktene."
+    },
+    {
+      "id": "mat1110-6-3-fork",
+      "type": "text",
+      "content": "**Forkunnskaper.** Rekkebegrepet er kjent fra VGS: [Uendelige rekker og konvergens](/bok/r2/r2-1-5) og [Geometriske følger](/bok/r2/r2-1-3) — der møtte du geometriske rekker og summeringsformelen. Her generaliserer vi til vilkårlige rekker, systematiserer konvergenstestene, og innfører potensrekker (rekker med en variabel $x$).\n\nDette kapitlet krever ingen forkunnskaper fra resten av MAT1110 — det kan leses uavhengig. Formelsamlingen gir geometrisk rekke, binomisk rekke og standard Taylor-rekker (som vi summerer med i [kap. 6.4](/bok/mat1110/mat1110-6-4))."
+    },
+    {
+      "id": "mat1110-6-3-motiv",
+      "type": "text",
+      "content": "En **uendelig rekke** er summen av uendelig mange ledd, $\\sum a_n = a_1 + a_2 + a_3 + \\cdots$. At noe slikt kan ha en endelig verdi, er selve grunnideen bak potensrekker — måten funksjoner som $e^x$, $\\sin x$ og $\\ln(1+x)$ representeres på. Men ikke alle rekker konvergerer, og for en potensrekke $\\sum a_n x^n$ avhenger det av hvor stor $x$ er.\n\nSpørsmålet «for hvilke $x$ konvergerer rekka?» besvares i to trinn: (1) finn **konvergensradiusen** $R$ — innenfor $|x|<R$ konvergerer den, utenfor divergerer den; (2) undersøk **endepunktene** $x=\\pm R$ separat, for der avgjør ingen enkel regel svaret. Vi bygger dette i tre løkker: (1) hva en rekke er og de grunnleggende testene; (2) konvergenstestene (forhold, rot, sammenligning, integral); (3) potensrekker med konvergensradius og den obligatoriske endepunktsjekken."
+    },
+    {
+      "id": "mat1110-6-3-l1",
+      "type": "text",
+      "content": "## Løkke 1 — Rekker, delsummer og de grunnleggende testene (~16 min)"
+    },
+    {
+      "id": "mat1110-6-3-def-rekke",
+      "type": "definition",
+      "title": "Rekke og delsum",
+      "content": "En **rekke** $\\sum_{n=1}^\\infty a_n$ er summen av uendelig mange ledd. Vi gir den mening som grensen av **delsummene** $S_N = a_1 + a_2 + \\cdots + a_N$: hvis $S_N$ nærmer seg et endelig tall $S$ når $N\\to\\infty$, sier vi at rekka **konvergerer** og har sum $S$. Delsummen er altså den endelige summen av de $N$ første leddene."
+    },
+    {
+      "id": "mat1110-6-3-def-konvdiv",
+      "type": "definition",
+      "title": "Konvergent og divergent rekke",
+      "content": "En rekke **konvergerer** hvis følgen av delsummer $S_N$ har en endelig grense; den **divergerer** ellers (grensen er $\\pm\\infty$ eller finnes ikke). Merk skillet: en **følge** $a_n$ er de enkelte leddene, en **rekke** er summen deres. En rekke kan divergere selv om leddene $a_n\\to 0$."
+    },
+    {
+      "id": "mat1110-6-3-def-divtest",
+      "type": "definition",
+      "title": "Divergenstesten (leddtesten)",
+      "content": "Hvis leddene **ikke** går mot null, $a_n \\not\\to 0$, divergerer rekka $\\sum a_n$. Dette er den første testen å prøve: går ikke leddene mot null, er du ferdig — rekka divergerer. **Advarsel:** det motsatte gjelder ikke. At $a_n\\to 0$ er *nødvendig*, men ikke *tilstrekkelig* for konvergens (den harmoniske rekka er moteksempelet)."
+    },
+    {
+      "id": "mat1110-6-3-def-geom",
+      "type": "definition",
+      "title": "Geometrisk rekke",
+      "content": "En **geometrisk rekke** $\\sum_{n=0}^\\infty a\\,k^n$ har konstant forhold $k$ mellom nabo­ledd. Den konvergerer nøyaktig når $|k|<1$, og da er summen\n\n$$\\sum_{n=0}^\\infty a\\,k^n = \\frac{a}{1-k}\\qquad(|k|<1).$$\n\nFor $|k|\\ge 1$ divergerer den. Dette er den ene rekka vi kan summere eksakt uten videre, og referansen for de fleste andre teknikker."
+    },
+    {
+      "id": "mat1110-6-3-def-harmonisk",
+      "type": "definition",
+      "title": "Harmonisk rekke",
+      "content": "Den **harmoniske rekka** $\\sum_{n=1}^\\infty \\tfrac1n = 1 + \\tfrac12 + \\tfrac13 + \\cdots$ **divergerer**, selv om leddene $\\tfrac1n \\to 0$. Den er det klassiske moteksempelet på at $a_n\\to 0$ ikke er nok for konvergens, og dukker opp hver gang et endepunkt gir $\\sum \\tfrac1n$."
+    },
+    {
+      "id": "mat1110-6-3-def-prekke",
+      "type": "definition",
+      "title": "$p$-rekke",
+      "content": "En **$p$-rekke** er $\\sum_{n=1}^\\infty \\dfrac{1}{n^p}$. Den **konvergerer hvis og bare hvis $p>1$**, og divergerer for $p\\le 1$. Spesialtilfeller: $p=1$ er den harmoniske rekka (divergerer), $p=2$ gir $\\sum \\tfrac{1}{n^2}$ (konvergerer). $p$-rekkene er standard sammenligningsrekker."
+    },
+    {
+      "id": "mat1110-6-3-ex1",
+      "type": "example",
+      "title": "Eksempel 1: Geometrisk rekke og divergenstest",
+      "problem": "Avgjør om rekkene konvergerer, og finn summen der det går: (a) $\\sum_{n=0}^\\infty \\left(\\tfrac23\\right)^n$, (b) $\\sum_{n=1}^\\infty \\dfrac{n}{2n+1}$.",
+      "solution": "**a)** Geometrisk med $a=1$ og $k=\\tfrac23$. Siden $|k|=\\tfrac23<1$, konvergerer den, og\n$$\\sum_{n=0}^\\infty \\left(\\tfrac23\\right)^n = \\frac{1}{1-\\tfrac23} = \\frac{1}{\\tfrac13} = 3.$$\n\n**b)** Sjekk leddene først: $\\dfrac{n}{2n+1} \\to \\dfrac12 \\ne 0$ når $n\\to\\infty$. Ved **divergenstesten** divergerer rekka — leddene går ikke mot null, så delsummene vokser ubegrenset.\n\n**Konklusjon:** (a) konvergerer med sum $3$; (b) divergerer."
+    },
+    {
+      "id": "mat1110-6-3-l1e-w",
+      "type": "exercise",
+      "exercise": {
+        "id": "mat1110-6-3-l1e",
+        "number": "1",
+        "type": "classic",
+        "difficulty": "lett",
+        "task": "Avgjør om rekkene konvergerer, og finn summen der det er mulig:\n\n**a)** $\\sum_{n=0}^\\infty \\left(-\\tfrac12\\right)^n$\n\n**b)** $\\sum_{n=1}^\\infty \\dfrac{3n^2}{n^2+5}$.",
+        "solution": "**a)** Geometrisk med $k=-\\tfrac12$, $|k|=\\tfrac12<1$ ⇒ konvergerer: $\\sum = \\dfrac{1}{1-(-\\tfrac12)} = \\dfrac{1}{\\tfrac32} = \\tfrac23$.\n\n**b)** $\\dfrac{3n^2}{n^2+5} \\to 3 \\ne 0$, så ved **divergenstesten** divergerer rekka.\n\n**Konklusjon:**\n\n**a)** konvergerer, sum $\\tfrac23$\n\n**b)** divergerer.",
+        "hints": [
+          "(a) Geometrisk rekke: konvergerer hvis $|k|<1$, sum $\\tfrac{a}{1-k}$.",
+          "(b) Sjekk om leddene går mot null. Gjør de ikke det, divergerer rekka."
+        ]
+      }
+    },
+    {
+      "id": "mat1110-6-3-l2",
+      "type": "text",
+      "content": "## Løkke 2 — Konvergenstestene (~20 min)"
+    },
+    {
+      "id": "mat1110-6-3-def-forhold",
+      "type": "definition",
+      "title": "Forholdstesten (kvotienttesten)",
+      "content": "Se på grensen av forholdet mellom nabo­ledd: $L = \\lim_{n\\to\\infty}\\left|\\dfrac{a_{n+1}}{a_n}\\right|$. Da:\n\n- $L < 1$: rekka **konvergerer** (absolutt),\n- $L > 1$: rekka **divergerer**,\n- $L = 1$: testen er **inkonklusiv** — prøv en annen.\n\nForholdstesten er førstevalget når leddene inneholder fakultet ($n!$) eller potenser ($k^n$), fordi de forenkles kraftig i forholdet."
+    },
+    {
+      "id": "mat1110-6-3-def-rot",
+      "type": "definition",
+      "title": "Rottesten",
+      "content": "Se på $L = \\lim_{n\\to\\infty}\\sqrt[n]{|a_n|}$. Samme konklusjon som forholdstesten: $L<1$ konvergens, $L>1$ divergens, $L=1$ inkonklusiv. Rottesten er nyttig når hele leddet er opphøyd i $n$-te potens, f.eks. $a_n = \\left(\\tfrac{n}{2n+1}\\right)^n$."
+    },
+    {
+      "id": "mat1110-6-3-def-saml",
+      "type": "definition",
+      "title": "Sammenligningstesten",
+      "content": "For rekker med **ikke-negative** ledd: hvis $0\\le a_n \\le b_n$ og $\\sum b_n$ konvergerer, så konvergerer $\\sum a_n$; hvis $a_n \\ge b_n \\ge 0$ og $\\sum b_n$ divergerer, så divergerer $\\sum a_n$. **Navngi alltid sammenligningsrekka** $b_n$ (typisk en $p$-rekke eller geometrisk rekke) og pass på riktig ulikhetsretning."
+    },
+    {
+      "id": "mat1110-6-3-def-grensesaml",
+      "type": "definition",
+      "title": "Grensesammenligningstesten",
+      "content": "For positive ledd: hvis $\\lim_{n\\to\\infty}\\dfrac{a_n}{b_n} = c$ med $0<c<\\infty$, oppfører $\\sum a_n$ og $\\sum b_n$ seg **likt** — begge konvergerer eller begge divergerer. Dette er ofte lettere enn ren sammenligning: velg $b_n$ som den dominerende oppførselen til $a_n$ (f.eks. $b_n=\\tfrac{1}{n^2}$ når $a_n = \\tfrac{n}{n^3+2}$)."
+    },
+    {
+      "id": "mat1110-6-3-def-integral",
+      "type": "definition",
+      "title": "Integraltesten",
+      "content": "Hvis $a_n = f(n)$ der $f$ er positiv, avtakende og kontinuerlig for $x\\ge 1$, så konvergerer $\\sum_{n=1}^\\infty a_n$ **hvis og bare hvis** det uegentlige integralet $\\int_1^\\infty f(x)\\,dx$ konvergerer. Testen forklarer $p$-rekkene: $\\int_1^\\infty x^{-p}\\,dx$ konvergerer nøyaktig for $p>1$."
+    },
+    {
+      "id": "mat1110-6-3-ex2",
+      "type": "example",
+      "title": "Eksempel 2: Velg riktig test",
+      "problem": "Avgjør konvergens og navngi testen: (a) $\\sum_{n=1}^\\infty \\dfrac{n}{2^n}$, (b) $\\sum_{n=1}^\\infty \\dfrac{n}{n^3+2}$.",
+      "solution": "**a)** Leddene har en potens $2^n$, så vi bruker **forholdstesten**:\n$$\\left|\\frac{a_{n+1}}{a_n}\\right| = \\frac{(n+1)/2^{n+1}}{n/2^n} = \\frac{n+1}{2n} \\to \\frac12 < 1.$$\nAltså **konvergerer** rekka (forholdstesten). (Til info: summen er $2$, men konvergens var det som ble spurt om.)\n\n**b)** For store $n$ oppfører $\\dfrac{n}{n^3+2}$ seg som $\\dfrac{n}{n^3} = \\dfrac{1}{n^2}$. Bruk **grensesammenligning** med $b_n = \\tfrac{1}{n^2}$:\n$$\\frac{a_n}{b_n} = \\frac{n/(n^3+2)}{1/n^2} = \\frac{n^3}{n^3+2} \\to 1 \\quad(0<1<\\infty).$$\nSiden $\\sum \\tfrac{1}{n^2}$ er en konvergent $p$-rekke ($p=2>1$), **konvergerer** $\\sum a_n$ (grensesammenligning).\n\n**Konklusjon:** begge konvergerer."
+    },
+    {
+      "id": "mat1110-6-3-l2e-w",
+      "type": "exercise",
+      "exercise": {
+        "id": "mat1110-6-3-l2e",
+        "number": "2",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "Avgjør konvergens og navngi testen:\n\n**a)** $\\sum_{n=1}^\\infty \\dfrac{2^n}{n!}$\n\n**b)** $\\sum_{n=1}^\\infty \\dfrac{1}{\\sqrt{n}}$.",
+        "solution": "**a)** Fakultet ⇒ **forholdstesten**: $\\dfrac{a_{n+1}}{a_n} = \\dfrac{2^{n+1}/(n+1)!}{2^n/n!} = \\dfrac{2}{n+1} \\to 0 < 1$. Rekka **konvergerer** (forholdstesten).\n\n**b)** $\\dfrac{1}{\\sqrt{n}} = \\dfrac{1}{n^{1/2}}$ er en **$p$-rekke** med $p=\\tfrac12 \\le 1$, altså **divergerer** den. (Alternativt: integraltesten, $\\int_1^\\infty x^{-1/2}dx = \\infty$.)\n\n**Konklusjon:**\n\n**a)** konvergerer\n\n**b)** divergerer.",
+        "hints": [
+          "(a) $n!$ i nevner: bruk forholdstesten; fakultetene forenkles.",
+          "(b) Gjenkjenn en $p$-rekke og bruk $p$-kriteriet ($p>1$ for konvergens)."
+        ]
+      }
+    },
+    {
+      "id": "mat1110-6-3-def-altern",
+      "type": "definition",
+      "title": "Alternerende rekke og Leibniz' kriterium",
+      "content": "En **alternerende rekke** $\\sum (-1)^{n} b_n$ (med $b_n>0$) skifter fortegn hvert ledd. **Leibniz' kriterium:** hvis $b_n$ er avtakende og $b_n\\to 0$, konvergerer rekka. Klassisk eksempel: den alternerende harmoniske rekka $\\sum \\tfrac{(-1)^{n+1}}{n}$ konvergerer (til $\\ln 2$), selv om $\\sum \\tfrac1n$ divergerer."
+    },
+    {
+      "id": "mat1110-6-3-def-absolutt",
+      "type": "definition",
+      "title": "Absolutt og betinget konvergens",
+      "content": "En rekke konvergerer **absolutt** hvis $\\sum |a_n|$ konvergerer — da konvergerer også $\\sum a_n$. Konvergerer $\\sum a_n$ mens $\\sum|a_n|$ divergerer, er konvergensen **betinget**. Eksempel: $\\sum \\tfrac{(-1)^{n+1}}{n}$ konvergerer betinget (selve rekka konvergerer, men absoluttverdirekka er den divergente harmoniske). Absolutt konvergens er «sterkere» og bevares under omordning."
+    },
+    {
+      "id": "mat1110-6-3-l3",
+      "type": "text",
+      "content": "## Løkke 3 — Potensrekker: konvergensradius og endepunktsjekk (~18 min)"
+    },
+    {
+      "id": "mat1110-6-3-def-potensrekke",
+      "type": "definition",
+      "title": "Potensrekke",
+      "content": "En **potensrekke** er $\\sum_{n=0}^\\infty a_n x^n = a_0 + a_1 x + a_2 x^2 + \\cdots$ (evt. sentrert i $x_0$: $\\sum a_n (x-x_0)^n$). Den er en «uendelig polynom» som representerer en funksjon der den konvergerer. Spørsmålet er alltid: for hvilke $x$ konvergerer den?"
+    },
+    {
+      "id": "mat1110-6-3-def-radius",
+      "type": "definition",
+      "title": "Konvergensradius $R$",
+      "content": "Til hver potensrekke hører en **konvergensradius** $R$ slik at rekka konvergerer (absolutt) for $|x|<R$ og divergerer for $|x|>R$. Den finnes typisk med forholds- eller rottesten:\n\n$$\\frac{1}{R} = \\lim_{n\\to\\infty}\\left|\\frac{a_{n+1}}{a_n}\\right| \\quad(\\text{eller } \\tfrac1R = \\lim \\sqrt[n]{|a_n|}).$$\n\n$R$ kan være $0$ (bare $x=0$), et positivt tall, eller $\\infty$ (hele $\\mathbb{R}$)."
+    },
+    {
+      "id": "mat1110-6-3-def-intervall",
+      "type": "definition",
+      "title": "Konvergensintervall og endepunktsjekk",
+      "content": "**Konvergensintervallet** er alle $x$ der rekka konvergerer. Forholds-/rottesten gir det **åpne** intervallet $(-R,R)$, men i endepunktene $x=\\pm R$ blir $L=1$ og testen tier. Derfor må **endepunktene undersøkes hver for seg** ved å sette inn $x=R$ og $x=-R$ og bruke tallrekketestene. Å hoppe over dette er det klassiske poengtapet."
+    },
+    {
+      "id": "mat1110-6-3-thm-omraade",
+      "type": "theorem",
+      "title": "Konvergensområdets tre utfall",
+      "content": "Etter endepunktsjekken er konvergensområdet ett av: $(-R,R)$ (begge endepunkt divergerer), $[-R,R)$ eller $(-R,R]$ (ett konvergerer), eller $[-R,R]$ (begge konvergerer). I tillegg fins randtilfellene $R=0$ (kun $x=0$) og $R=\\infty$ (hele $\\mathbb{R}$, ingen endepunkt). Svaret skrives alltid som et intervall med riktige klammer."
+    },
+    {
+      "id": "mat1110-6-3-ex3",
+      "type": "example",
+      "title": "Eksempel 3: Konvergensområde med endepunktsjekk",
+      "problem": "Finn konvergensområdet til $\\sum_{n=1}^\\infty \\dfrac{x^n}{n}$.",
+      "solution": "**Konvergensradius.** Med $a_n = \\tfrac1n$: $\\left|\\dfrac{a_{n+1}}{a_n}\\right| = \\dfrac{1/(n+1)}{1/n} = \\dfrac{n}{n+1} \\to 1$, så $\\tfrac1R = 1$, altså $R=1$. Rekka konvergerer for $|x|<1$ og divergerer for $|x|>1$.\n\n**Endepunktene** (dette er poenget):\n\n**$x=1$:** rekka blir $\\sum \\tfrac{1}{n}$ — den **harmoniske rekka**, som **divergerer**.\n\n**$x=-1$:** rekka blir $\\sum \\tfrac{(-1)^n}{n}$ — **alternerende**, med $b_n=\\tfrac1n$ avtakende mot $0$, så den **konvergerer** ved Leibniz.\n\n**Konklusjon:** konvergensområdet er $[-1,\\ 1)$ — venstre endepunkt med, høyre uten."
+    },
+    {
+      "id": "mat1110-6-3-l3e-w",
+      "type": "exercise",
+      "exercise": {
+        "id": "mat1110-6-3-l3e",
+        "number": "3",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "Finn konvergensområdet til $\\sum_{n=1}^\\infty \\dfrac{x^n}{n+1}$ (husk endepunktene).",
+        "solution": "**Radius.** $a_n=\\tfrac{1}{n+1}$: $\\left|\\dfrac{a_{n+1}}{a_n}\\right| = \\dfrac{n+1}{n+2} \\to 1$, så $R=1$.\n\n**$x=1$:** $\\sum \\tfrac{1}{n+1} = \\tfrac12+\\tfrac13+\\cdots$ — samme haleoppførsel som den harmoniske rekka, altså **divergerer** (grensesammenligning med $\\tfrac1n$: $\\tfrac{1/(n+1)}{1/n}\\to 1$).\n\n**$x=-1$:** $\\sum \\tfrac{(-1)^n}{n+1}$ — **alternerende** med $b_n=\\tfrac{1}{n+1}$ avtakende mot $0$, så **konvergerer** (Leibniz).\n\n**Konklusjon:** konvergensområdet er $[-1,\\ 1)$.",
+        "hints": [
+          "Finn $R$ med forholdstesten ($R=1$ her).",
+          "Sett inn $x=1$ (harmonisk-type, divergerer) og $x=-1$ (alternerende, Leibniz)."
+        ]
+      }
+    },
+    {
+      "id": "mat1110-6-3-warn",
+      "type": "warning",
+      "title": "Typiske feil",
+      "content": "- **Glemme endepunktsjekken.** Den dokumenterte klassikeren. Konvergensradiusen gir bare det åpne intervallet $(-R,R)$; $x=\\pm R$ må avgjøres separat med tallrekketestene.\n- **«$a_n\\to 0$, altså konvergerer.»** Feil. At leddene går mot null er nødvendig, ikke tilstrekkelig — den harmoniske rekka er moteksempelet.\n- **Forholdstest med $L=1$ tolket som konvergens.** $L=1$ er **inkonklusiv** — testen sier ingenting, prøv en annen.\n- **Feil ulikhetsretning i sammenligning.** For å vise konvergens trenger du $a_n \\le b_n$ med $\\sum b_n$ konvergent; for divergens $a_n\\ge b_n$ med $\\sum b_n$ divergent. Navngi alltid $b_n$.\n- **Blande følgegrense og rekkesum.** $\\lim a_n$ (grensen av leddene) og $\\sum a_n$ (summen) er to helt forskjellige ting."
+    },
+    {
+      "id": "mat1110-6-3-pulje",
+      "type": "text",
+      "content": "## Eksamensrettet oppgavepulje\n\nStigende vanskegrad. Navngi alltid testen, og for potensrekker: finn $R$ og avgjør begge endepunkter."
+    },
+    {
+      "id": "mat1110-6-3-p1-w",
+      "type": "exercise",
+      "exercise": {
+        "id": "mat1110-6-3-p1",
+        "number": "4",
+        "type": "classic",
+        "difficulty": "lett",
+        "task": "Avgjør om $\\sum_{n=1}^\\infty \\left(\\tfrac34\\right)^n$ konvergerer, og finn summen.",
+        "solution": "Geometrisk rekke med $a=\\tfrac34$ (første ledd, $n=1$) og forhold $k=\\tfrac34$. Siden $|k|<1$ konvergerer den. Med start på $n=1$: $\\sum_{n=1}^\\infty (\\tfrac34)^n = \\dfrac{\\tfrac34}{1-\\tfrac34} = \\dfrac{\\tfrac34}{\\tfrac14} = 3$.\n\n**Konklusjon:** konvergerer, sum $3$.",
+        "hints": [
+          "Geometrisk rekke med $|k|=\\tfrac34<1$.",
+          "Sum fra $n=1$: $\\tfrac{\\text{første ledd}}{1-k}$."
+        ]
+      }
+    },
+    {
+      "id": "mat1110-6-3-p2-w",
+      "type": "exercise",
+      "exercise": {
+        "id": "mat1110-6-3-p2",
+        "number": "5",
+        "type": "classic",
+        "difficulty": "lett",
+        "task": "Avgjør konvergens og navngi testen: $\\sum_{n=1}^\\infty \\dfrac{n+3}{2n+1}$.",
+        "solution": "Sjekk leddene: $\\dfrac{n+3}{2n+1} \\to \\dfrac12 \\ne 0$ når $n\\to\\infty$. Ved **divergenstesten** divergerer rekka — leddene går ikke mot null.\n\n**Konklusjon:** divergerer (divergenstesten).",
+        "hints": [
+          "Regn grensen av leddene $\\dfrac{n+3}{2n+1}$.",
+          "Går ikke leddene mot null, divergerer rekka."
+        ]
+      }
+    },
+    {
+      "id": "mat1110-6-3-p3-w",
+      "type": "exercise",
+      "exercise": {
+        "id": "mat1110-6-3-p3",
+        "number": "6",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "Avgjør konvergens og navngi testen:\n\n**a)** $\\sum_{n=1}^\\infty \\dfrac{n^2}{3^n}$\n\n**b)** $\\sum_{n=1}^\\infty \\dfrac{1}{n^2+n}$.",
+        "solution": "**a)** Potens $3^n$ ⇒ **forholdstesten**: $\\dfrac{a_{n+1}}{a_n} = \\dfrac{(n+1)^2/3^{n+1}}{n^2/3^n} = \\dfrac{1}{3}\\left(\\dfrac{n+1}{n}\\right)^2 \\to \\dfrac13 < 1$. **Konvergerer.**\n\n**b)** $\\dfrac{1}{n^2+n} = \\dfrac{1}{n(n+1)} \\le \\dfrac{1}{n^2}$. Ved **sammenligningstesten** med den konvergente $p$-rekka $\\sum \\tfrac{1}{n^2}$ ($p=2>1$), **konvergerer** rekka. (Faktisk teleskoperer den til sum $1$, men konvergens holder å vise.)\n\n**Konklusjon:** begge konvergerer.",
+        "hints": [
+          "(a) Bruk forholdstesten; grensen blir $\\tfrac13$.",
+          "(b) Sammenlign med $\\tfrac{1}{n^2}$: $\\dfrac{1}{n^2+n}\\le\\dfrac{1}{n^2}$."
+        ]
+      }
+    },
+    {
+      "id": "mat1110-6-3-p4-w",
+      "type": "exercise",
+      "exercise": {
+        "id": "mat1110-6-3-p4",
+        "number": "7",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "Finn konvergensområdet til $\\sum_{n=1}^\\infty \\dfrac{x^n}{n^2}$ (husk endepunktene).",
+        "solution": "**Radius.** $a_n=\\tfrac{1}{n^2}$: $\\left|\\dfrac{a_{n+1}}{a_n}\\right| = \\dfrac{n^2}{(n+1)^2} \\to 1$, så $R=1$.\n\n**$x=1$:** $\\sum \\tfrac{1}{n^2}$ — $p$-rekke med $p=2>1$, **konvergerer**.\n\n**$x=-1$:** $\\sum \\tfrac{(-1)^n}{n^2}$ — konvergerer **absolutt** (absoluttverdirekka er $\\sum\\tfrac1{n^2}$), altså **konvergerer**.\n\n**Konklusjon:** begge endepunkt konvergerer, så konvergensområdet er det lukkede intervallet $[-1,\\ 1]$.",
+        "hints": [
+          "Finn $R=1$ med forholdstesten.",
+          "Begge endepunkt gir en $p$-rekke med $p=2$ (den ene alternerende, men absolutt konvergent)."
+        ]
+      }
+    },
+    {
+      "id": "mat1110-6-3-p5-w",
+      "type": "exercise",
+      "exercise": {
+        "id": "mat1110-6-3-p5",
+        "number": "8",
+        "type": "classic",
+        "difficulty": "vanskelig",
+        "task": "Finn konvergensområdet til $\\sum_{n=1}^\\infty \\dfrac{(x-2)^n}{n\\,3^n}$.",
+        "solution": "Dette er en potensrekke sentrert i $x_0=2$. **Radius.** $a_n = \\tfrac{1}{n\\,3^n}$: $\\left|\\dfrac{a_{n+1}}{a_n}\\right| = \\dfrac{n\\,3^n}{(n+1)3^{n+1}} = \\dfrac{n}{3(n+1)} \\to \\dfrac13$, så $\\tfrac1R=\\tfrac13$, altså $R=3$. Rekka konvergerer for $|x-2|<3$, dvs. $-1<x<5$.\n\n**Endepunktene.**\n\n**$x=5$:** $(x-2)^n = 3^n$, så leddet blir $\\dfrac{3^n}{n\\,3^n} = \\dfrac1n$ — **harmonisk rekke**, **divergerer**.\n\n**$x=-1$:** $(x-2)^n = (-3)^n$, så leddet blir $\\dfrac{(-3)^n}{n\\,3^n} = \\dfrac{(-1)^n}{n}$ — **alternerende harmonisk**, **konvergerer** (Leibniz).\n\n**Konklusjon:** konvergensområdet er $[-1,\\ 5)$.",
+        "hints": [
+          "Sentrert rekke: finn $R$ fra $\\left|\\tfrac{a_{n+1}}{a_n}\\right|$; konvergens for $|x-2|<R$.",
+          "Sett $x-2 = \\pm 3$ i endepunktene og forenkle til $\\tfrac1n$ eller $\\tfrac{(-1)^n}{n}$."
+        ]
+      }
+    },
+    {
+      "id": "mat1110-6-3-bb",
+      "type": "text",
+      "content": "## Begrepsbank\n\nKjernebegrepene fra kapitlet samlet som oppslag og flashcards.\n\n*Begrepsbanken er flashcard-/repetisjonsstoff — den gjentar det du nettopp har lest. Hopp trygt over ved førstegangslesing; tidsanslaget for kapitlet gjelder kjernestoffet.*"
+    },
+    {
+      "id": "mat1110-6-3-bb-delsum",
+      "type": "definition",
+      "title": "Delsumfølge $S_N$",
+      "content": "Følgen $S_N = \\sum_{n=1}^N a_n$ av endelige summer. Hele rekkebegrepet hviler på denne: rekka **er** grensen $\\lim_{N\\to\\infty} S_N$. En rekke konvergerer nettopp når delsumfølgen konvergerer — nyttig direkte for teleskoperende rekker der $S_N$ har et lukket uttrykk."
+    },
+    {
+      "id": "mat1110-6-3-bb-teleskop",
+      "type": "definition",
+      "title": "Teleskoperende rekke",
+      "content": "En rekke der leddene skrives som en differanse $a_n = b_n - b_{n+1}$, slik at nesten alt kanselleres i delsummen: $S_N = b_1 - b_{N+1}$. Eksempel: $\\sum \\tfrac{1}{n(n+1)} = \\sum\\left(\\tfrac1n - \\tfrac1{n+1}\\right)$ gir $S_N = 1 - \\tfrac{1}{N+1} \\to 1$. Da finnes den eksakte summen direkte."
+    },
+    {
+      "id": "mat1110-6-3-bb-nodvendig",
+      "type": "definition",
+      "title": "Nødvendig vs. tilstrekkelig betingelse",
+      "content": "$a_n\\to 0$ er en **nødvendig** betingelse for at $\\sum a_n$ konvergerer (uten den divergerer rekka), men ikke **tilstrekkelig** (harmonisk rekke). En test som forholdstesten med $L<1$ gir en tilstrekkelig betingelse for konvergens. Å blande disse er en vanlig tankefeil."
+    },
+    {
+      "id": "mat1110-6-3-bb-standardrekker",
+      "type": "definition",
+      "title": "Standard Taylor-rekker (referansefamilie)",
+      "content": "Formelsamlingens potensrekker som brukes til summering (kap. 6.4): $\\dfrac{1}{1-x}=\\sum x^n$ ($|x|<1$), $e^x=\\sum\\tfrac{x^n}{n!}$, $\\sin x$, $\\cos x$, $\\ln(1+x)=\\sum \\tfrac{(-1)^{n+1}x^n}{n}$ ($-1<x\\le 1$), $\\arctan x$. Å gjenkjenne en rekke mot disse er ofte raskeste vei til en lukket sum."
+    },
+    {
+      "id": "mat1110-6-3-rep",
+      "type": "collapsible",
+      "title": "Repetisjon",
+      "buttonText": "Vis repetisjonsoppgaver",
+      "content": [
+        {
+          "id": "mat1110-6-3-rep1-w",
+          "type": "exercise",
+          "exercise": {
+            "id": "mat1110-6-3-rep1",
+            "number": "R1",
+            "type": "classic",
+            "difficulty": "lett",
+            "task": "(Fra [r2-1-3](/bok/r2/r2-1-3)) Finn summen av den geometriske rekka $\\sum_{n=0}^\\infty 5\\cdot(0{,}2)^n$.",
+            "solution": "Geometrisk med $a=5$, $k=0{,}2$, $|k|<1$: $\\sum = \\dfrac{5}{1-0{,}2} = \\dfrac{5}{0{,}8} = \\dfrac{25}{4}$. Dette er nøyaktig summeringsformelen fra VGS, generalisert i dette kapitlet.",
+            "hints": [
+              "$\\sum_{n=0}^\\infty a k^n = \\tfrac{a}{1-k}$ for $|k|<1$."
+            ]
+          }
+        },
+        {
+          "id": "mat1110-6-3-rep2-w",
+          "type": "exercise",
+          "exercise": {
+            "id": "mat1110-6-3-rep2",
+            "number": "R2",
+            "type": "classic",
+            "difficulty": "lett",
+            "task": "(Fra [r2-1-5](/bok/r2/r2-1-5)) For hvilke $k$ konvergerer en geometrisk rekke $\\sum a k^n$?",
+            "solution": "En geometrisk rekke konvergerer nøyaktig når $|k|<1$ (tallverdien til forholdet er mindre enn $1$). For $|k|\\ge 1$ divergerer den — leddene går ikke mot null. Dette kriteriet er ryggraden i konvergensradius-teorien.",
+            "hints": [
+              "Tenk på hva $k^n$ gjør når $|k|\\ge 1$ mot når $|k|<1$."
+            ]
+          }
+        },
+        {
+          "id": "mat1110-6-3-rep3-w",
+          "type": "exercise",
+          "exercise": {
+            "id": "mat1110-6-3-rep3",
+            "number": "R3",
+            "type": "classic",
+            "difficulty": "middels",
+            "task": "Regn delsummen $S_N$ av $\\sum_{n=1}^\\infty \\left(\\tfrac1n - \\tfrac{1}{n+1}\\right)$ og finn summen.",
+            "solution": "Rekka teleskoperer: $S_N = \\left(1-\\tfrac12\\right)+\\left(\\tfrac12-\\tfrac13\\right)+\\cdots+\\left(\\tfrac1N-\\tfrac1{N+1}\\right) = 1 - \\tfrac{1}{N+1}$. Når $N\\to\\infty$: $S_N \\to 1$. **Summen er $1$.** Dette illustrerer at rekka er grensen av delsummene.",
+            "hints": [
+              "Skriv ut de første leddene og se hva som kanselleres."
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": "mat1110-6-3-symbol",
+      "type": "collapsible",
+      "title": "Symbol- og formelliste",
+      "buttonText": "Vis symboler og formler",
+      "content": [
+        {
+          "id": "mat1110-6-3-symbol-text",
+          "type": "text",
+          "content": "## Symbol- og formelliste\n\n*Oppslagsverk — alt her forklares underveis i kapitlet.*\n\n| Symbol | Betydning |\n|---|---|\n| $\\sum_{n=1}^\\infty a_n$ | Uendelig rekke |\n| $S_N$ | Delsum av de $N$ første leddene |\n| $a_n$ | Ledd nr. $n$ (en følge) |\n| $\\sum a k^n$ | Geometrisk rekke |\n| $\\sum \\tfrac{1}{n^p}$ | $p$-rekke |\n| $L=\\lim|a_{n+1}/a_n|$ | Forholdstestens grense |\n| $\\sum(-1)^n b_n$ | Alternerende rekke |\n| $\\sum a_n x^n$ | Potensrekke |\n| $R$ | Konvergensradius |\n| $(-R,R)$ | Åpent konvergensintervall (før endepunktsjekk) |\n\n**Geometrisk rekke:** $\\displaystyle\\sum_{n=0}^\\infty a k^n = \\frac{a}{1-k}$ for $|k|<1$ (ellers divergens).\n\n**$p$-rekke:** $\\sum \\tfrac{1}{n^p}$ konvergerer $\\Leftrightarrow p>1$.\n\n**Divergenstest:** $a_n\\not\\to 0 \\Rightarrow$ divergens (men $a_n\\to 0$ er ikke nok).\n\n**Forholds-/rottest:** $L<1$ konvergens, $L>1$ divergens, $L=1$ inkonklusiv.\n\n**Konvergensradius:** $\\dfrac1R = \\lim\\left|\\dfrac{a_{n+1}}{a_n}\\right|$; konvergens for $|x|<R$, endepunkt $x=\\pm R$ sjekkes separat.\n\n**Leibniz:** alternerende, $b_n$ avtakende mot $0 \\Rightarrow$ konvergens."
+        }
+      ]
+    }
+  ],
+  "exercises": []
+}

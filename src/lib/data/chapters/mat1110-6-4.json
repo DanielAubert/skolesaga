@@ -1,0 +1,404 @@
+{
+  "id": "mat1110-6-4",
+  "courseId": "mat1110",
+  "chapterNumber": "6.4",
+  "title": "Summering av potensrekker",
+  "description": "Finn lukket sum ved å manipulere mot en geometrisk eller kjent Taylor-rekke og derivere/integrere leddvis — toppsjiktets karakterskiller i det gamle regimet.",
+  "estimatedMinutes": 55,
+  "competenceGoals": [
+    "finne en lukket sum for en potensrekke ved å manipulere den mot en standardrekke fra formelsamlingen",
+    "bruke leddvis derivasjon og integrasjon innenfor konvergensradiusen, med korrekt bestemt integrasjonskonstant",
+    "lese av en tallrekkesum ved å sette inn en tallverdi i konvergensområdet"
+  ],
+  "content": [
+    {
+      "id": "mat1110-6-4-tip",
+      "type": "tip",
+      "title": "Eksamensvinkel",
+      "content": "**Toppsjiktets karakterskiller i det gamle regimet — der de gode besvarelsene skiller seg fra de middels.**\n\n- **Summering av potensrekker (sjanger N, summeringsdelen)** — å finne et lukket uttrykk for $\\sum a_n x^n$ og bruke det til å regne en tallrekkesum — er del av potensrekkenes **85 % historiske belegg** (17 av 20 sett). Fasitens to veier: (a) gjenkjenn rekka direkte mot en formelsamlingsrekke, (b) sett opp en hjelpefunksjon og deriver/integrer leddvis (2010, 2016, 2019, 2022).\n- **Men: 0 av 3 sett i V2025** — dette er **beredskap**, men den tyngste karakterskilleren i gammelt regime. Et typisk grep (2022 O3c): finn summen av $\\sum \\tfrac{x^n}{n+1}$ og bruk den til å vise en tallrekkesum.\n- Ingen offisiell fasit i arkivet (⚠️) — metoden er faglig standard.\n\n**Prioritet: beredskap (tyngste karakterskiller).** Målet er at du kan manipulere en rekke mot en kjent standardrekke og derivere/integrere leddvis med korrekt begrunnelse."
+    },
+    {
+      "id": "mat1110-6-4-fork",
+      "type": "text",
+      "content": "**Forkunnskaper.** Dette kapitlet fortsetter [kap. 6.3](/bok/mat1110/mat1110-6-3): du må kunne finne konvergensradius og -område, siden all leddvis regning bare er gyldig **innenfor** konvergensradiusen. Du bør også kjenne [Potensrekker og Taylor-rekker](/bok/s2/s2-7-4) fra S2 (Taylor-utvikling i én variabel).\n\n**Sist du var her (kap. 6.3):** geometrisk rekke $\\tfrac{1}{1-x}=\\sum x^n$ ($|x|<1$), konvergensradius $R$, og at endepunktene sjekkes separat. Formelsamlingen gir standard Taylor-rekker ($e^x,\\ \\sin x,\\ \\cos x,\\ \\ln(1+x),\\ \\arctan x$) og geometrisk rekke — disse er referansefamilien vi summerer mot."
+    },
+    {
+      "id": "mat1110-6-4-motiv",
+      "type": "text",
+      "content": "Å **summere** en potensrekke er å finne et lukket uttrykk (uten sum-tegn) for hva den konvergerer til. Nøkkelen er at vi allerede kjenner summen av noen få rekker — først og fremst den geometriske $\\tfrac{1}{1-x} = \\sum x^n$ — og at nesten enhver annen potensrekke kan manipuleres tilbake til en av disse.\n\nTo verktøy gjør dette mulig: (1) **algebraisk manipulasjon** (indeksskift, faktorisering, multiplikasjon med $x$) som gjenkjenner en rekke som en kjent standardrekke; (2) **leddvis derivasjon og integrasjon**, som er lovlig innenfor konvergensradiusen og forvandler én kjent rekke til en annen. Til slutt kan vi sette inn en tallverdi for $x$ og lese av en **tallrekkesum**. Tre løkker: (1) manipulasjon mot standardrekkene; (2) leddvis derivasjon/integrasjon og hjelpefunksjonsmetoden; (3) fra potensrekkesum til tallrekkesum."
+    },
+    {
+      "id": "mat1110-6-4-l1",
+      "type": "text",
+      "content": "## Løkke 1 — Standardrekkene og manipulasjon mot geometrisk rekke (~16 min)"
+    },
+    {
+      "id": "mat1110-6-4-def-lukket",
+      "type": "definition",
+      "title": "Lukket sum av en potensrekke",
+      "content": "En **lukket sum** er et uttrykk for $\\sum_{n} a_n x^n$ som en vanlig funksjon av $x$ (uten sum-tegn), gyldig på konvergensområdet. For eksempel er $\\sum_{n=0}^\\infty x^n$ ikke bare et symbol — den **er** funksjonen $\\tfrac{1}{1-x}$ for $|x|<1$. Å summere en rekke er å finne denne funksjonen."
+    },
+    {
+      "id": "mat1110-6-4-def-referanse",
+      "type": "definition",
+      "title": "Referansefamilien (standardrekkene)",
+      "content": "Rekkene vi summerer *mot* — de kjente Maclaurin-rekkene fra formelsamlingen:\n\n$$\\frac{1}{1-x}=\\sum_{n=0}^\\infty x^n\\ (|x|<1),\\quad e^x=\\sum_{n=0}^\\infty \\frac{x^n}{n!},\\quad \\ln(1+x)=\\sum_{n=1}^\\infty \\frac{(-1)^{n+1}x^n}{n}\\ (-1<x\\le 1),$$\n$$\\sin x=\\sum_{n=0}^\\infty \\frac{(-1)^n x^{2n+1}}{(2n+1)!},\\quad \\cos x=\\sum_{n=0}^\\infty \\frac{(-1)^n x^{2n}}{(2n)!},\\quad \\arctan x=\\sum_{n=0}^\\infty \\frac{(-1)^n x^{2n+1}}{2n+1}.$$\n\nMålet ved summering er alltid å gjenkjenne rekka som en av disse (etter manipulasjon)."
+    },
+    {
+      "id": "mat1110-6-4-def-indeksskift",
+      "type": "definition",
+      "title": "Indeksskift",
+      "content": "Å endre summasjonsvariabelen for å matche en standardrekke, uten å endre selve summen. Skifter du fra $n$ til $m=n-1$, må start­indeksen og eksponentene følge med. Vanlig grep: skriv $\\sum_{n=1}^\\infty x^{n} = x\\sum_{n=1}^\\infty x^{n-1} = x\\sum_{m=0}^\\infty x^m = \\tfrac{x}{1-x}$. En vanlig feil er å miste eller legge til ett ledd."
+    },
+    {
+      "id": "mat1110-6-4-def-multx",
+      "type": "definition",
+      "title": "Multiplikasjon med $x$ (faktorisering)",
+      "content": "Å trekke en potens av $x$ ut av eller inn i summen for å treffe en standardrekke. For eksempel: $\\sum_{n=0}^\\infty x^{n+2} = x^2\\sum_{n=0}^\\infty x^n = \\dfrac{x^2}{1-x}$, og omvendt kan man gange inn en $x$ for å heve eksponenten. Dette endrer ikke konvergensradiusen."
+    },
+    {
+      "id": "mat1110-6-4-ex1",
+      "type": "example",
+      "title": "Eksempel 1: Manipulasjon mot geometrisk rekke",
+      "problem": "Finn en lukket sum for (a) $\\sum_{n=0}^\\infty \\dfrac{x^n}{3^n}$ og (b) $\\sum_{n=0}^\\infty (-1)^n x^{2n}$, med konvergensområde.",
+      "solution": "**a)** Skriv $\\dfrac{x^n}{3^n} = \\left(\\dfrac{x}{3}\\right)^n$. Dette er en geometrisk rekke med forhold $k=\\tfrac{x}{3}$:\n$$\\sum_{n=0}^\\infty \\left(\\frac{x}{3}\\right)^n = \\frac{1}{1-\\tfrac{x}{3}} = \\frac{3}{3-x},\\qquad \\left|\\tfrac{x}{3}\\right|<1 \\Leftrightarrow |x|<3.$$\n\n**b)** Skriv $(-1)^n x^{2n} = (-x^2)^n$ — geometrisk med forhold $k=-x^2$:\n$$\\sum_{n=0}^\\infty (-x^2)^n = \\frac{1}{1-(-x^2)} = \\frac{1}{1+x^2},\\qquad |{-x^2}|<1 \\Leftrightarrow |x|<1.$$\n\n**Konklusjon:** (a) $\\dfrac{3}{3-x}$ for $|x|<3$; (b) $\\dfrac{1}{1+x^2}$ for $|x|<1$."
+    },
+    {
+      "id": "mat1110-6-4-l1e-w",
+      "type": "exercise",
+      "exercise": {
+        "id": "mat1110-6-4-l1e",
+        "number": "1",
+        "type": "classic",
+        "difficulty": "lett",
+        "task": "Finn en lukket sum og konvergensområde for\n\n**a)** $\\sum_{n=0}^\\infty \\left(\\tfrac{x}{2}\\right)^n$ og\n\n**b)** $\\sum_{n=0}^\\infty x^{2n}$.",
+        "solution": "**a)** Geometrisk med $k=\\tfrac{x}{2}$: $\\sum = \\dfrac{1}{1-\\tfrac{x}{2}} = \\dfrac{2}{2-x}$, konvergent for $|x|<2$.\n\n**b)** $x^{2n} = (x^2)^n$, geometrisk med $k=x^2$: $\\sum = \\dfrac{1}{1-x^2}$, konvergent for $|x^2|<1 \\Leftrightarrow |x|<1$.\n\n**Konklusjon:**\n\n**a)** $\\dfrac{2}{2-x}$, $|x|<2$\n\n**b)** $\\dfrac{1}{1-x^2}$, $|x|<1$.",
+        "hints": [
+          "Gjenkjenn geometrisk rekke: skriv leddet som $k^n$.",
+          "Konvergensområdet er $|k|<1$; løs for $x$."
+        ]
+      }
+    },
+    {
+      "id": "mat1110-6-4-l2",
+      "type": "text",
+      "content": "## Løkke 2 — Leddvis derivasjon, integrasjon og hjelpefunksjon (~20 min)"
+    },
+    {
+      "id": "mat1110-6-4-thm-leddvis",
+      "type": "theorem",
+      "title": "Leddvis derivasjon og integrasjon",
+      "content": "Innenfor konvergensradiusen $|x|<R$ kan en potensrekke deriveres og integreres **ledd for ledd**, og den nye rekka har **samme** konvergensradius $R$:\n\n$$\\frac{d}{dx}\\sum_{n=0}^\\infty a_n x^n = \\sum_{n=1}^\\infty n\\,a_n x^{n-1},\\qquad \\int \\sum_{n=0}^\\infty a_n x^n\\,dx = C + \\sum_{n=0}^\\infty \\frac{a_n}{n+1}x^{n+1}.$$\n\nDette er lovlig **kun innenfor $R$** — nevn det. Endepunktene kan endre status og må sjekkes på nytt."
+    },
+    {
+      "id": "mat1110-6-4-def-leddvisd",
+      "type": "definition",
+      "title": "Leddvis derivasjon",
+      "content": "Å derivere en potensrekke ved å derivere hvert ledd for seg: $\\tfrac{d}{dx}(a_n x^n) = n\\,a_n x^{n-1}$. Nyttig når den deriverte rekka er lettere å gjenkjenne — for eksempel gir derivasjon av $\\sum \\tfrac{x^n}{n}$ den geometriske rekka $\\sum x^{n-1} = \\tfrac{1}{1-x}$."
+    },
+    {
+      "id": "mat1110-6-4-def-leddvisi",
+      "type": "definition",
+      "title": "Leddvis integrasjon og integrasjonskonstanten",
+      "content": "Å integrere en potensrekke ledd for ledd: $\\int a_n x^n\\,dx = \\tfrac{a_n}{n+1}x^{n+1} + C$. **Integrasjonskonstanten $C$ må bestemmes** — sett inn ett kjent punkt (ofte $x=0$, der de fleste rekker gir $0$). Å glemme å fastsette $C$ er en klassisk feil."
+    },
+    {
+      "id": "mat1110-6-4-def-hjelp",
+      "type": "definition",
+      "title": "Hjelpefunksjonsmetoden",
+      "content": "Standardgrepet ved summering: definér $f(x) = \\sum a_n x^n$, deriver **eller** integrer leddvis for å gjøre rekka gjenkjennbar (typisk geometrisk), finn den lukkede formen der, og deriver/integrer **tilbake** for å få $f$. Sett til slutt inn en tallverdi hvis du skal ha en tallrekkesum."
+    },
+    {
+      "id": "mat1110-6-4-ex2",
+      "type": "example",
+      "title": "Eksempel 2: Summering ved leddvis derivasjon",
+      "problem": "Finn en lukket sum for $f(x)=\\sum_{n=1}^\\infty \\dfrac{x^n}{n}$ på konvergensområdet.",
+      "solution": "Rekka har $R=1$ (kap. 6.3). Vi bruker hjelpefunksjonsmetoden. **Deriver leddvis** (lovlig for $|x|<1$):\n\n$$f'(x) = \\sum_{n=1}^\\infty \\frac{n\\,x^{n-1}}{n} = \\sum_{n=1}^\\infty x^{n-1} = \\sum_{m=0}^\\infty x^m = \\frac{1}{1-x}\\qquad(|x|<1).$$\n\nNå **integrerer vi tilbake**: $f(x) = \\int \\dfrac{1}{1-x}\\,dx = -\\ln(1-x) + C$. **Bestem $C$** fra $x=0$: $f(0)=\\sum \\tfrac{0^n}{n}=0$ og $-\\ln(1)+C = C$, så $C=0$.\n\n**Konklusjon:** $\\displaystyle\\sum_{n=1}^\\infty \\frac{x^n}{n} = -\\ln(1-x)$ for $-1\\le x<1$. (Gyldig i $x=-1$ ved Leibniz/Abel; $x=1$ divergerer.)"
+    },
+    {
+      "id": "mat1110-6-4-l2e-w",
+      "type": "exercise",
+      "exercise": {
+        "id": "mat1110-6-4-l2e",
+        "number": "2",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "Finn en lukket sum for $f(x)=\\sum_{n=1}^\\infty n\\,x^{n}$ på konvergensområdet.",
+        "solution": "$R=1$ (forholdstesten). Vi starter fra den kjente geometriske rekka $\\sum_{n=0}^\\infty x^n = \\tfrac{1}{1-x}$ og **deriverer leddvis** (lovlig for $|x|<1$):\n\n$$\\frac{d}{dx}\\sum_{n=0}^\\infty x^n = \\sum_{n=1}^\\infty n\\,x^{n-1} = \\frac{d}{dx}\\left(\\frac{1}{1-x}\\right) = \\frac{1}{(1-x)^2}.$$\n\nDette er nesten det vi vil ha; **gang med $x$** for å heve eksponenten fra $n-1$ til $n$:\n\n$$f(x) = \\sum_{n=1}^\\infty n\\,x^n = x\\sum_{n=1}^\\infty n\\,x^{n-1} = \\frac{x}{(1-x)^2},\\qquad |x|<1.$$\n\n**Konklusjon:** $\\displaystyle\\sum_{n=1}^\\infty n\\,x^n = \\frac{x}{(1-x)^2}$ for $|x|<1$.",
+        "hints": [
+          "Deriver den geometriske rekka $\\sum x^n=\\tfrac{1}{1-x}$ leddvis for å få $\\sum n x^{n-1}$.",
+          "Gang resultatet med $x$ for å treffe eksponenten $n$ i stedet for $n-1$."
+        ]
+      }
+    },
+    {
+      "id": "mat1110-6-4-l3",
+      "type": "text",
+      "content": "## Løkke 3 — Fra potensrekkesum til tallrekkesum (~18 min)"
+    },
+    {
+      "id": "mat1110-6-4-def-tallsum",
+      "type": "definition",
+      "title": "Fra potensrekkesum til tallrekkesum",
+      "content": "Har du en lukket sum $f(x)=\\sum a_n x^n$, får du en **tallrekkesum** ved å sette inn en bestemt $x$-verdi $x_0$ **innenfor konvergensområdet**: $\\sum a_n x_0^n = f(x_0)$. Sjekk alltid at $x_0$ ligger i konvergensområdet (vis konvergens i punktet) før du leser av verdien. Dette er standard sluttgrep i eksamensoppgavene."
+    },
+    {
+      "id": "mat1110-6-4-def-abel",
+      "type": "definition",
+      "title": "Abels teorem (endepunkt, kjennskap)",
+      "content": "Hvis potensrekka $\\sum a_n x^n$ konvergerer i et endepunkt $x=R$, er den lukkede summen **kontinuerlig** helt inn til dette endepunktet: $\\lim_{x\\to R^-} f(x) = \\sum a_n R^n$. Dette rettferdiggjør å sette inn selve endepunktet i den lukkede formen (f.eks. $x=-1$ i $-\\ln(1-x)$ for å få $-\\ln 2$). Kjennskap holder."
+    },
+    {
+      "id": "mat1110-6-4-ex3",
+      "type": "example",
+      "title": "Eksempel 3: Tallrekkesum ved innsetting",
+      "problem": "Bruk summen $\\sum_{n=1}^\\infty \\dfrac{x^n}{n} = -\\ln(1-x)$ fra Eksempel 2 til å regne $\\sum_{n=1}^\\infty \\dfrac{1}{n\\,2^n}$.",
+      "solution": "Rekka $\\sum \\dfrac{1}{n\\,2^n}$ har ledd $\\dfrac{1}{n\\,2^n} = \\dfrac{(1/2)^n}{n}$ — nettopp den lukkede summen med $x=\\tfrac12$.\n\n**Sjekk konvergens i punktet:** $x=\\tfrac12$ ligger i konvergensområdet $[-1,1)$, så innsetting er lovlig.\n\n**Sett inn** $x=\\tfrac12$:\n$$\\sum_{n=1}^\\infty \\frac{1}{n\\,2^n} = -\\ln\\!\\left(1-\\tfrac12\\right) = -\\ln\\tfrac12 = \\ln 2.$$\n\n**Konklusjon:** $\\displaystyle\\sum_{n=1}^\\infty \\frac{1}{n\\,2^n} = \\ln 2$ (eksakt). (Numerisk $\\approx 0{,}693$, som stemmer.)"
+    },
+    {
+      "id": "mat1110-6-4-l3e-w",
+      "type": "exercise",
+      "exercise": {
+        "id": "mat1110-6-4-l3e",
+        "number": "3",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "Vis at $\\sum_{n=0}^\\infty \\dfrac{x^n}{n+1} = \\dfrac{-\\ln(1-x)}{x}$ for $0<|x|<1$, og bruk det til å regne $\\sum_{n=0}^\\infty \\dfrac{1}{(n+1)3^n}$.",
+        "solution": "**Lukket sum.** Gang med $x$ og indeksskift $m=n+1$:\n$$x\\sum_{n=0}^\\infty \\frac{x^n}{n+1} = \\sum_{n=0}^\\infty \\frac{x^{n+1}}{n+1} = \\sum_{m=1}^\\infty \\frac{x^m}{m} = -\\ln(1-x).$$\nDel på $x$ (for $x\\ne 0$): $\\displaystyle\\sum_{n=0}^\\infty \\frac{x^n}{n+1} = \\frac{-\\ln(1-x)}{x}$, gyldig for $0<|x|<1$.\n\n**Tallrekkesum.** Leddet $\\dfrac{1}{(n+1)3^n} = \\dfrac{(1/3)^n}{n+1}$, så sett inn $x=\\tfrac13$ (i konvergensområdet):\n$$\\sum_{n=0}^\\infty \\frac{1}{(n+1)3^n} = \\frac{-\\ln(1-\\tfrac13)}{\\tfrac13} = 3\\cdot\\bigl(-\\ln\\tfrac23\\bigr) = 3\\ln\\tfrac32.$$\n\n**Konklusjon:** $\\displaystyle\\sum_{n=0}^\\infty \\frac{1}{(n+1)3^n} = 3\\ln\\tfrac32$ (eksakt, $\\approx 1{,}216$).",
+        "hints": [
+          "Gang med $x$ og gjør et indeksskift $m=n+1$ for å treffe $\\sum \\tfrac{x^m}{m}=-\\ln(1-x)$.",
+          "Del på $x$, og sett så inn $x=\\tfrac13$ siden leddet er $\\tfrac{(1/3)^n}{n+1}$."
+        ]
+      }
+    },
+    {
+      "id": "mat1110-6-4-warn",
+      "type": "warning",
+      "title": "Typiske feil",
+      "content": "- **Leddvis derivasjon/integrasjon uten forbehold.** Det er bare lovlig **innenfor** konvergensradiusen $R$ — nevn dette eksplisitt. Endepunktene kan endre status.\n- **Feil indeksskift.** Ved skift av summasjonsvariabel er det lett å miste eller legge til ett ledd. Tell start­indeksen nøye, og skriv gjerne ut de første leddene som kontroll.\n- **Glemme integrasjonskonstanten.** Ved leddvis integrasjon må $C$ bestemmes fra et kjent punkt (oftest $x=0$). Uten det er svaret feil med en konstant.\n- **Sette inn $x$ utenfor konvergensområdet.** En tallrekkesum leses bare av for $x_0$ **i** konvergensområdet — sjekk (og nevn) at $x_0$ ligger der.\n- **Ikke vise konvergens i punktet** før tallrekkesummen leses av, spesielt i et endepunkt (bruk Abel)."
+    },
+    {
+      "id": "mat1110-6-4-pulje",
+      "type": "text",
+      "content": "## Eksamensrettet oppgavepulje\n\nStigende vanskegrad. Manipuler mot en standardrekke, deriver/integrer leddvis (nevn at det gjelder for $|x|<R$), og sett inn en tallverdi der en tallrekkesum kreves."
+    },
+    {
+      "id": "mat1110-6-4-p1-w",
+      "type": "exercise",
+      "exercise": {
+        "id": "mat1110-6-4-p1",
+        "number": "4",
+        "type": "classic",
+        "difficulty": "lett",
+        "task": "Finn en lukket sum og konvergensområde for $\\sum_{n=0}^\\infty (2x)^n$.",
+        "solution": "Geometrisk rekke med forhold $k=2x$: $\\sum_{n=0}^\\infty (2x)^n = \\dfrac{1}{1-2x}$, konvergent for $|2x|<1 \\Leftrightarrow |x|<\\tfrac12$.\n\n**Konklusjon:** $\\dfrac{1}{1-2x}$ for $|x|<\\tfrac12$.",
+        "hints": [
+          "Gjenkjenn geometrisk rekke med $k=2x$.",
+          "Konvergens for $|2x|<1$."
+        ]
+      }
+    },
+    {
+      "id": "mat1110-6-4-p2-w",
+      "type": "exercise",
+      "exercise": {
+        "id": "mat1110-6-4-p2",
+        "number": "5",
+        "type": "classic",
+        "difficulty": "lett",
+        "task": "Finn en lukket sum for $\\sum_{n=0}^\\infty \\dfrac{x^n}{n!}$ og bruk den til å regne $\\sum_{n=0}^\\infty \\dfrac{1}{n!}$.",
+        "solution": "Dette er nettopp standardrekka for eksponentialfunksjonen: $\\sum_{n=0}^\\infty \\dfrac{x^n}{n!} = e^x$ for alle $x$ ($R=\\infty$).\n\nSett inn $x=1$: $\\sum_{n=0}^\\infty \\dfrac{1}{n!} = e^1 = e$.\n\n**Konklusjon:** summen er $e^x$; tallrekkesummen er $e \\approx 2{,}718$.",
+        "hints": [
+          "Gjenkjenn Maclaurin-rekka for $e^x$ direkte fra referansefamilien.",
+          "Sett inn $x=1$."
+        ]
+      }
+    },
+    {
+      "id": "mat1110-6-4-p3-w",
+      "type": "exercise",
+      "exercise": {
+        "id": "mat1110-6-4-p3",
+        "number": "6",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "Finn en lukket sum for $\\sum_{n=1}^\\infty n\\,x^{n-1}$ og bruk den til å regne $\\sum_{n=1}^\\infty \\dfrac{n}{2^{n-1}}$.",
+        "solution": "**Lukket sum.** Deriver den geometriske rekka leddvis (for $|x|<1$): $\\dfrac{d}{dx}\\sum_{n=0}^\\infty x^n = \\sum_{n=1}^\\infty n\\,x^{n-1} = \\dfrac{d}{dx}\\dfrac{1}{1-x} = \\dfrac{1}{(1-x)^2}$.\n\n**Tallrekkesum.** Leddet $\\dfrac{n}{2^{n-1}} = n\\cdot\\left(\\tfrac12\\right)^{n-1}$, så sett inn $x=\\tfrac12$:\n$$\\sum_{n=1}^\\infty \\frac{n}{2^{n-1}} = \\frac{1}{(1-\\tfrac12)^2} = \\frac{1}{(\\tfrac12)^2} = 4.$$\n\n**Konklusjon:** summen er $\\dfrac{1}{(1-x)^2}$; tallrekkesummen er $4$. (Kontroll: $\\sum n(\\tfrac12)^n = \\tfrac{1/2}{(1/2)^2}=2$, og $\\sum \\tfrac{n}{2^{n-1}} = 2\\sum n(\\tfrac12)^n = 4$ ✓.)",
+        "hints": [
+          "Deriver $\\sum x^n = \\tfrac{1}{1-x}$ leddvis for å få $\\sum n x^{n-1}$.",
+          "Leddet er $n(\\tfrac12)^{n-1}$, så sett inn $x=\\tfrac12$."
+        ]
+      }
+    },
+    {
+      "id": "mat1110-6-4-p4-w",
+      "type": "exercise",
+      "exercise": {
+        "id": "mat1110-6-4-p4",
+        "number": "7",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "Finn en lukket sum for $\\sum_{n=0}^\\infty (-1)^n x^{2n}$ og bruk leddvis integrasjon til å finne en rekke for $\\arctan x$.",
+        "solution": "**Geometrisk.** $\\sum_{n=0}^\\infty (-1)^n x^{2n} = \\sum_{n=0}^\\infty (-x^2)^n = \\dfrac{1}{1+x^2}$ for $|x|<1$.\n\n**Integrer leddvis** (lovlig for $|x|<1$): $\\displaystyle\\int_0^x \\frac{1}{1+t^2}\\,dt = \\arctan x$, og\n$$\\int_0^x \\sum_{n=0}^\\infty (-1)^n t^{2n}\\,dt = \\sum_{n=0}^\\infty (-1)^n \\frac{x^{2n+1}}{2n+1}.$$\nIntegrasjonskonstanten er $0$ siden begge sider er $0$ i $x=0$.\n\n**Konklusjon:** $\\displaystyle\\arctan x = \\sum_{n=0}^\\infty \\frac{(-1)^n x^{2n+1}}{2n+1}$ for $|x|<1$ (og i $x=1$ ved Abel, som gir Leibniz' formel $\\tfrac{\\pi}{4}=1-\\tfrac13+\\tfrac15-\\cdots$).",
+        "hints": [
+          "Summer den geometriske rekka $\\sum(-x^2)^n = \\tfrac{1}{1+x^2}$.",
+          "Integrer begge sider fra $0$ til $x$; venstresiden gir $\\arctan x$."
+        ]
+      }
+    },
+    {
+      "id": "mat1110-6-4-p5-w",
+      "type": "exercise",
+      "exercise": {
+        "id": "mat1110-6-4-p5",
+        "number": "8",
+        "type": "classic",
+        "difficulty": "vanskelig",
+        "task": "La $f(x)=\\sum_{n=1}^\\infty \\dfrac{x^{n}}{n(n+1)}$.\n\n**a)** Finn konvergensradius.\n\n**b)** Finn en lukket sum ved delbrøk og de kjente summene.\n\n**c)** Regn $\\sum_{n=1}^\\infty \\dfrac{1}{n(n+1)2^n}$.",
+        "solution": "**a)** $a_n=\\tfrac{1}{n(n+1)}$: $\\left|\\tfrac{a_{n+1}}{a_n}\\right| = \\tfrac{n(n+1)}{(n+1)(n+2)} = \\tfrac{n}{n+2}\\to 1$, så $R=1$.\n\n**b)** Delbrøk: $\\dfrac{1}{n(n+1)} = \\dfrac1n - \\dfrac{1}{n+1}$. Da er, for $0<|x|<1$,\n$$f(x)=\\sum_{n=1}^\\infty \\frac{x^n}{n} - \\sum_{n=1}^\\infty \\frac{x^n}{n+1} = -\\ln(1-x) - \\frac{-\\ln(1-x)-x}{x}.$$\nHer brukte vi $\\sum_{n=1}^\\infty \\tfrac{x^n}{n+1} = \\tfrac1x\\sum_{n=1}^\\infty \\tfrac{x^{n+1}}{n+1} = \\tfrac1x\\bigl(-\\ln(1-x)-x\\bigr)$ (hele $-\\ln(1-x)$-rekka minus $n=0$-leddet $x$). Forenkle ved å samle logaritmeleddene ($-1+\\tfrac1x=\\tfrac{1-x}{x}$):\n$$f(x) = -\\ln(1-x) + \\frac{\\ln(1-x)+x}{x} = \\frac{(1-x)\\ln(1-x)}{x} + 1,\\qquad 0<|x|<1.$$\n\n**c)** Sett inn $x=\\tfrac12$: $\\dfrac{(1-\\tfrac12)\\ln(\\tfrac12)}{\\tfrac12} + 1 = \\dfrac{\\tfrac12\\cdot(-\\ln 2)}{\\tfrac12} + 1 = -\\ln 2 + 1$.\n\n**Konklusjon:** $\\displaystyle\\sum_{n=1}^\\infty \\frac{1}{n(n+1)2^n} = 1 - \\ln 2$ (eksakt, $\\approx 0{,}307$).",
+        "hints": [
+          "(b) Delbrøk $\\tfrac{1}{n(n+1)}=\\tfrac1n-\\tfrac1{n+1}$; bruk $\\sum\\tfrac{x^n}{n}=-\\ln(1-x)$ på hver del.",
+          "(c) Sett $x=\\tfrac12$; $\\ln\\tfrac12 = -\\ln 2$."
+        ]
+      }
+    },
+    {
+      "id": "mat1110-6-4-bb",
+      "type": "text",
+      "content": "## Begrepsbank\n\nKjernebegrepene fra kapitlet samlet som oppslag og flashcards.\n\n*Begrepsbanken er flashcard-/repetisjonsstoff — den gjentar det du nettopp har lest. Hopp trygt over ved førstegangslesing; tidsanslaget for kapitlet gjelder kjernestoffet.*"
+    },
+    {
+      "id": "mat1110-6-4-bb-geomref",
+      "type": "definition",
+      "title": "Geometrisk rekke som referanse",
+      "content": "$\\dfrac{1}{1-x} = \\sum_{n=0}^\\infty x^n$ for $|x|<1$ er startpunktet for nesten all summering. Fra den får du ved derivasjon $\\sum n x^{n-1} = \\tfrac{1}{(1-x)^2}$, ved integrasjon $\\sum \\tfrac{x^{n+1}}{n+1} = -\\ln(1-x)$, og ved bytte $x\\to -x^2$ rekka for $\\arctan$."
+    },
+    {
+      "id": "mat1110-6-4-bb-exp",
+      "type": "definition",
+      "title": "Rekka for $e^x$",
+      "content": "$e^x = \\sum_{n=0}^\\infty \\dfrac{x^n}{n!}$, konvergent for **alle** $x$ ($R=\\infty$). Fordi $n!$ vokser fortere enn enhver potens, er konvergensradiusen uendelig. Innsetting $x=1$ gir $e = \\sum \\tfrac{1}{n!}$."
+    },
+    {
+      "id": "mat1110-6-4-bb-ln",
+      "type": "definition",
+      "title": "Rekka for $\\ln(1+x)$",
+      "content": "$\\ln(1+x) = \\sum_{n=1}^\\infty \\dfrac{(-1)^{n+1}x^n}{n}$ for $-1<x\\le 1$. Fås ved leddvis integrasjon av $\\tfrac{1}{1+x}=\\sum(-x)^n$. Ekvivalent: $-\\ln(1-x) = \\sum_{n=1}^\\infty \\tfrac{x^n}{n}$, som er den formen vi oftest bruker."
+    },
+    {
+      "id": "mat1110-6-4-bb-sincos",
+      "type": "definition",
+      "title": "Rekkene for $\\sin x$ og $\\cos x$",
+      "content": "$\\sin x = \\sum_{n=0}^\\infty \\dfrac{(-1)^n x^{2n+1}}{(2n+1)!}$ og $\\cos x = \\sum_{n=0}^\\infty \\dfrac{(-1)^n x^{2n}}{(2n)!}$, begge konvergente for alle $x$. Merk at $\\sin$ har bare odde potenser (odde funksjon) og $\\cos$ bare like (like funksjon); $\\tfrac{d}{dx}$ av den ene gir den andre."
+    },
+    {
+      "id": "mat1110-6-4-bb-arctan",
+      "type": "definition",
+      "title": "Rekka for $\\arctan x$",
+      "content": "$\\arctan x = \\sum_{n=0}^\\infty \\dfrac{(-1)^n x^{2n+1}}{2n+1}$ for $|x|\\le 1$. Fås ved å integrere $\\tfrac{1}{1+x^2}=\\sum(-x^2)^n$ leddvis. Innsetting $x=1$ (Abel) gir Leibniz' formel $\\tfrac{\\pi}{4} = 1 - \\tfrac13 + \\tfrac15 - \\cdots$."
+    },
+    {
+      "id": "mat1110-6-4-bb-binom",
+      "type": "definition",
+      "title": "Binomisk rekke",
+      "content": "$(1+x)^\\alpha = \\sum_{n=0}^\\infty \\binom{\\alpha}{n} x^n$ for $|x|<1$, der $\\binom{\\alpha}{n} = \\dfrac{\\alpha(\\alpha-1)\\cdots(\\alpha-n+1)}{n!}$. For heltalls positiv $\\alpha$ er det den vanlige binomialformelen (endelig sum); for andre $\\alpha$ en uendelig rekke. Står i formelsamlingen."
+    },
+    {
+      "id": "mat1110-6-4-bb-taylor",
+      "type": "definition",
+      "title": "Taylor- og Maclaurin-rekke",
+      "content": "**Taylor-rekka** til $f$ om $x_0$ er $\\sum_{n=0}^\\infty \\dfrac{f^{(n)}(x_0)}{n!}(x-x_0)^n$; om $x_0=0$ kalles den **Maclaurin-rekka**. Standardrekkene er nettopp Maclaurin-rekker. Koeffisienten foran $x^n$ er $\\tfrac{f^{(n)}(0)}{n!}$ — dette knytter summering til derivasjon."
+    },
+    {
+      "id": "mat1110-6-4-bb-analytisk",
+      "type": "definition",
+      "title": "Rekkerepresentasjon (analytisk funksjon)",
+      "content": "En funksjon som er lik sin egen potensrekke på et intervall, kalles **analytisk** der. Da er potensrekka og funksjonen to sider av samme sak: å summere rekka er å finne funksjonen, og å Taylor-utvikle funksjonen er å finne rekka. Alle standardrekkene er analytiske på sitt konvergensområde."
+    },
+    {
+      "id": "mat1110-6-4-bb-radiusbevart",
+      "type": "definition",
+      "title": "Konvergensradius bevares",
+      "content": "Både leddvis derivasjon og leddvis integrasjon gir en ny potensrekke med **samme** konvergensradius $R$ som den opprinnelige. Bare oppførselen i endepunktene $x=\\pm R$ kan endres (derivasjon kan ødelegge endepunktkonvergens, integrasjon kan skape den) — derfor sjekkes endepunktene på nytt."
+    },
+    {
+      "id": "mat1110-6-4-bb-delbrok",
+      "type": "definition",
+      "title": "Delbrøkoppspalting (summeringshjelp)",
+      "content": "Å skrive en rasjonal koeffisient som en sum av enklere brøker, f.eks. $\\dfrac{1}{n(n+1)} = \\dfrac1n - \\dfrac{1}{n+1}$, slik at rekka splittes i to kjente rekker. Vanlig grep når nevneren er et produkt — hver del summeres mot $-\\ln(1-x)$ eller en beslektet standardrekke."
+    },
+    {
+      "id": "mat1110-6-4-bb-konvpunkt",
+      "type": "definition",
+      "title": "Vise konvergens i innsettingspunktet",
+      "content": "Før en tallrekkesum leses av som $f(x_0)$, må $x_0$ ligge i konvergensområdet — ellers er likheten ugyldig. For indre punkter ($|x_0|<R$) er det automatisk; for et endepunkt må konvergensen vises (Leibniz) og Abels teorem påberopes. En liten, men poenggivende, detalj."
+    },
+    {
+      "id": "mat1110-6-4-rep",
+      "type": "collapsible",
+      "title": "Repetisjon",
+      "buttonText": "Vis repetisjonsoppgaver",
+      "content": [
+        {
+          "id": "mat1110-6-4-rep1-w",
+          "type": "exercise",
+          "exercise": {
+            "id": "mat1110-6-4-rep1",
+            "number": "R1",
+            "type": "classic",
+            "difficulty": "lett",
+            "task": "(Fra [kap. 6.3](/bok/mat1110/mat1110-6-3)) Finn konvergensradiusen til $\\sum_{n=1}^\\infty \\dfrac{x^n}{n}$.",
+            "solution": "$a_n=\\tfrac1n$: $\\left|\\tfrac{a_{n+1}}{a_n}\\right| = \\tfrac{n}{n+1}\\to 1$, så $R=1$. All leddvis regning på denne rekka er gyldig for $|x|<1$ — grunnlaget for summeringen i dette kapitlet.",
+            "hints": [
+              "Bruk forholdstesten på koeffisientene."
+            ]
+          }
+        },
+        {
+          "id": "mat1110-6-4-rep2-w",
+          "type": "exercise",
+          "exercise": {
+            "id": "mat1110-6-4-rep2",
+            "number": "R2",
+            "type": "classic",
+            "difficulty": "lett",
+            "task": "(Fra [r2-1-3](/bok/r2/r2-1-3)) Finn summen av $\\sum_{n=0}^\\infty \\left(\\tfrac13\\right)^n$.",
+            "solution": "Geometrisk med $k=\\tfrac13$: $\\sum = \\dfrac{1}{1-\\tfrac13} = \\dfrac{3}{2}$. Dette er standardrekka $\\tfrac{1}{1-x}$ evaluert i $x=\\tfrac13$ — akkurat innsettingstrikset vi bruker på tallrekkesummer.",
+            "hints": [
+              "$\\sum_{n=0}^\\infty k^n = \\tfrac{1}{1-k}$ for $|k|<1$."
+            ]
+          }
+        },
+        {
+          "id": "mat1110-6-4-rep3-w",
+          "type": "exercise",
+          "exercise": {
+            "id": "mat1110-6-4-rep3",
+            "number": "R3",
+            "type": "classic",
+            "difficulty": "middels",
+            "task": "(Fra [s2-7-4](/bok/s2/s2-7-4)) Skriv de tre første leddene i Maclaurin-rekka til $e^x$ og bruk dem til å anslå $e^{0{,}1}$.",
+            "solution": "$e^x = 1 + x + \\tfrac{x^2}{2} + \\cdots$. Med $x=0{,}1$: $1 + 0{,}1 + 0{,}005 = 1{,}105$. (Eksakt $e^{0{,}1}\\approx 1{,}10517$, så tre ledd gir god nøyaktighet.) De uendelige standardrekkene generaliserer nettopp slike Taylor-polynomer.",
+            "hints": [
+              "$e^x = \\sum \\tfrac{x^n}{n!}$; ta med $n=0,1,2$."
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": "mat1110-6-4-symbol",
+      "type": "collapsible",
+      "title": "Symbol- og formelliste",
+      "buttonText": "Vis symboler og formler",
+      "content": [
+        {
+          "id": "mat1110-6-4-symbol-text",
+          "type": "text",
+          "content": "## Symbol- og formelliste\n\n*Oppslagsverk — alt her forklares underveis i kapitlet.*\n\n| Symbol | Betydning |\n|---|---|\n| $f(x)=\\sum a_n x^n$ | Potensrekke som funksjon (hjelpefunksjon) |\n| $\\tfrac{1}{1-x}$ | Sum av geometrisk rekke ($|x|<1$) |\n| $f'(x)$ | Leddvis derivert |\n| $\\int f\\,dx + C$ | Leddvis integrert (bestem $C$) |\n| $R$ | Konvergensradius (bevares ved deriv./integr.) |\n| $m=n\\pm 1$ | Indeksskift |\n| $x_0$ | Innsettingspunkt for tallrekkesum |\n| $\\binom{\\alpha}{n}$ | Binomialkoeffisient (binomisk rekke) |\n\n**Standardrekker (formelsamlingen):**\n\n$$\\frac{1}{1-x}=\\sum_{n=0}^\\infty x^n,\\quad e^x=\\sum_{n=0}^\\infty \\frac{x^n}{n!},\\quad -\\ln(1-x)=\\sum_{n=1}^\\infty \\frac{x^n}{n},\\quad \\arctan x=\\sum_{n=0}^\\infty \\frac{(-1)^n x^{2n+1}}{2n+1}.$$\n\n**Leddvis (for $|x|<R$):** $\\dfrac{d}{dx}\\sum a_n x^n = \\sum n a_n x^{n-1}$; $\\displaystyle\\int \\sum a_n x^n\\,dx = C + \\sum \\tfrac{a_n}{n+1}x^{n+1}$.\n\n**Nyttige avledede summer:** $\\sum_{n=1}^\\infty n x^{n-1} = \\tfrac{1}{(1-x)^2}$, $\\sum_{n=1}^\\infty n x^n = \\tfrac{x}{(1-x)^2}$.\n\n**Tallrekkesum:** sett inn $x_0$ i konvergensområdet: $\\sum a_n x_0^n = f(x_0)$."
+        }
+      ]
+    }
+  ],
+  "exercises": []
+}

@@ -1,0 +1,384 @@
+{
+  "id": "mat1110-2-3",
+  "courseId": "mat1110",
+  "chapterNumber": "2.3",
+  "title": "Omvendt og implisitt funksjonsteorem via Jacobi",
+  "description": "Regimets faste åpningsteoremer: vis eksistens av omvendt/implisitt funksjon ved Jacobi-inverterbarhet, koble til forrige delpunkts invers, og deriver med de utdelte formlene.",
+  "estimatedMinutes": 60,
+  "competenceGoals": [
+    "bruke omvendt funksjonsteorem til å vise lokal inverterbarhet og finne Jacobi til den omvendte",
+    "kontrollere forutsetningene for implisitt funksjonsteorem i riktig rekkefølge og finne den deriverte",
+    "bruke den flervariable og systemversjonen av implisitt funksjonsteorem",
+    "koble et delpunkt til en invers regnet i et tidligere delpunkt"
+  ],
+  "content": [
+    {
+      "id": "mat1110-2-3-tip",
+      "type": "tip",
+      "title": "Eksamensvinkel",
+      "content": "**Regimets faste åpningsteorem — det du åpner tre av tre nyeste sett med.**\n\n- **Sjanger D** (omvendt/implisitt funksjonsteorem) er **3/3 i V2025**: alle tre settene (ordinær, konte og prøve) åpner med et funksjonsteorem. Historisk lå sjangeren på ~30 %, men den er **stigende** og nå en fast del av O1. Offisielle løsningsforslag finnes for alle V2025-settene.\n- Sensors faste grep: regn Jacobi-matrisen $F'$, **evaluér**, og **koble inverterbarheten til foregående delpunkt** — i konten bruker O1b inversen fra O1a ([kap. 1.3](/bok/mat1110/mat1110-1-3)). Regner du en invers i ett delpunkt, er den ment å brukes videre.\n- **Forutsetningssjekken er halve poenget.** For implisitt: sjekk *først* $f(a,b)=0$, *deretter* $\\partial f/\\partial y\\ne0$ — så deriverer du. Hopper du over sjekken, mister du poeng selv om $g'$ blir riktig.\n- **Navngi teoremet.** Skriv «ifølge omvendt funksjonsteorem …» / «ifølge implisitt funksjonsteorem …» der eksistensargumentet bæres.\n\n**Prioritet: høyeste** (nivå 1, punkt 2 i V2026-prognosen)."
+    },
+    {
+      "id": "mat1110-2-3-fork",
+      "type": "text",
+      "content": "**Forkunnskaper.** Dette er toppen av Del 2: du trenger Jacobi-matrisen $F'$ og $\\det F'$ fra [kap. 2.2](/bok/mat1110/mat1110-2-2) (regulært punkt = $\\det F'\\ne0$), og inverterbarhet + $2\\times2$-invers fra [kap. 1.3](/bok/mat1110/mat1110-1-3) (funksjonsteoremet gir eksistens; inversen regner du med metoden derfra). Begge derivasjonsformlene står i den utdelte formelsamlingen — du skal *bruke* dem, ikke pugge dem.\n\n**Sist du var her (oppfrisket):** Jacobi-matrisen har rad $i$ = $\\nabla F_i$; $F'(a)$ er inverterbar $\\iff\\det F'(a)\\ne0$; og $2\\times2$-inversen er $\\begin{pmatrix}a&b\\\\ c&d\\end{pmatrix}^{-1}=\\dfrac{1}{ad-bc}\\begin{pmatrix}d&-b\\\\ -c&a\\end{pmatrix}$."
+    },
+    {
+      "id": "mat1110-2-3-motiv",
+      "type": "text",
+      "content": "To spørsmål som ser umulige ut, blir enkle med Jacobi-matrisen. **Omvendt:** en avbildning $F$ er kanskje for floket til å løse $y=F(x)$ eksplisitt — men *finnes* det en invers nær et punkt, og hva er dens deriverte? **Implisitt:** en likning som $x^2+xy+y^3=3$ definerer kanskje $y$ som en funksjon av $x$ uten at vi kan løse den ut — men *finnes* funksjonen, og hva er $g'$?\n\nSvaret på begge er det samme: se på den lineære tilnærmingen. Er Jacobi-matrisen inverterbar i punktet, arver den *virkelige* avbildningen egenskapen lokalt. Det er innholdet i **omvendt** og **implisitt funksjonsteorem** — regimets faste åpning. Vi bygger stoffet i fire løkker: (1) omvendt funksjonsteorem, (2) implisitt funksjonsteorem for én likning, (3) implisitt for flere variable, (4) den generelle systemversjonen."
+    },
+    {
+      "id": "mat1110-2-3-l1",
+      "type": "text",
+      "content": "## Løkke 1 — Omvendt funksjonsteorem (~15 min)"
+    },
+    {
+      "id": "mat1110-2-3-def-regulaer",
+      "type": "definition",
+      "title": "Regulært punkt",
+      "content": "Et punkt $a$ der Jacobi-matrisen er inverterbar, altså $\\det F'(a)\\ne0$. I et regulært punkt «kollapser» ikke avbildningen rommet lokalt — den strekker og vrir, men beholder dimensjonen. Regulære punkter er nettopp de hvor omvendt funksjonsteorem kan brukes."
+    },
+    {
+      "id": "mat1110-2-3-def-omvendt",
+      "type": "definition",
+      "title": "Omvendt funksjonsteorem",
+      "content": "Grunnresultatet for lokal invers. La $F$ være $C^1$ nær $a$. **Hvis $F'(a)$ er inverterbar** ($\\det F'(a)\\ne0$), så finnes det en omegn om $a$ der $F$ har en glatt lokal invers $G=F^{-1}$, og\n\n$$G'\\big(F(a)\\big)=F'(a)^{-1}.$$\n\nAltså: den deriverte til den omvendte er den *inverse matrisen* av $F'(a)$. Teoremet gir **eksistens** — det sier ikke hvordan inversen ser ut i lukket form, bare at den finnes og hva dens Jacobi er i punktet."
+    },
+    {
+      "id": "mat1110-2-3-def-jacobi-omvendt",
+      "type": "definition",
+      "title": "Jacobi til den omvendte",
+      "content": "Den praktiske formelen fra omvendt funksjonsteorem: har du regnet $F'(a)$ og funnet den inverterbar, er Jacobi-matrisen til den lokale inversen bare\n\n$$G'\\big(F(a)\\big)=F'(a)^{-1}.$$\n\nDu regner altså **én** invers matrise (med metoden fra [kap. 1.3](/bok/mat1110/mat1110-1-3)) og er ferdig. Merk evalueringspunktet: $G'$ tas i bildepunktet $F(a)$, ikke i $a$."
+    },
+    {
+      "id": "mat1110-2-3-def-lokalinvers",
+      "type": "definition",
+      "title": "Lokal invers $G$",
+      "content": "En funksjon $G$ definert på en liten omegn om $F(a)$ som «angrer» $F$ der: $G(F(x))=x$ for $x$ nær $a$. Den er **lokal** fordi den bare virker i nærheten — $F$ kan godt treffe samme verdi to steder globalt (jf. polaravbildningen i [kap. 2.2](/bok/mat1110/mat1110-2-2)). Omvendt funksjonsteorem garanterer at $G$ finnes og er like glatt som $F$."
+    },
+    {
+      "id": "mat1110-2-3-ex1",
+      "type": "example",
+      "title": "Eksempel 1: Omvendt funksjonsteorem koblet til invers matrise",
+      "problem": "La $F(x,y)=(x+y,\\ x^2+y^2)$. **a)** Vis at $F$ er lokalt inverterbar nær $(1,2)$. **b)** Finn Jacobi-matrisen til den lokale inversen $G$ i punktet $F(1,2)$.",
+      "solution": "**a)** $F$ er $C^1$ (polynomkomponenter). Jacobi-matrisen er\n$$F'(x,y)=\\begin{pmatrix}1&1\\\\ 2x&2y\\end{pmatrix},\\qquad F'(1,2)=\\begin{pmatrix}1&1\\\\ 2&4\\end{pmatrix}.$$\nDeterminanten: $\\det F'(1,2)=1\\cdot4-1\\cdot2=2\\ne0$. **Ifølge omvendt funksjonsteorem** er $F$ dermed lokalt inverterbar nær $(1,2)$, med en glatt lokal invers $G$.\n\n**b)** Bildepunktet er $F(1,2)=(1+2,\\ 1+4)=(3,5)$. Omvendt funksjonsteorem gir $G'(3,5)=F'(1,2)^{-1}$. Vi regner $2\\times2$-inversen (metode fra [kap. 1.3](/bok/mat1110/mat1110-1-3)):\n$$F'(1,2)^{-1}=\\frac{1}{2}\\begin{pmatrix}4&-1\\\\ -2&1\\end{pmatrix}=\\begin{pmatrix}2&-\\tfrac12\\\\ -1&\\tfrac12\\end{pmatrix}.$$\n\n**Konklusjon:** $F$ er lokalt inverterbar nær $(1,2)$, og $G'(3,5)=\\begin{pmatrix}2&-\\tfrac12\\\\ -1&\\tfrac12\\end{pmatrix}$. (Legg merke til delpunkt-koblingen: **b** gjenbruker matrisen fra **a** og inverterer den — akkurat slik konten O1a$\\to$O1b er bygd.)"
+    },
+    {
+      "id": "mat1110-2-3-l1x1-w",
+      "type": "exercise",
+      "exercise": {
+        "id": "mat1110-2-3-l1x1",
+        "number": "1",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "La $F(x,y)=(x+y^2,\\ y+x^2)$. **a)** Vis at $F$ er lokalt inverterbar nær $(1,1)$. **b)** Finn Jacobi-matrisen til den omvendte i $F(1,1)$.",
+        "solution": "**a)** $F$ er $C^1$. $F'(x,y)=\\begin{pmatrix}1&2y\\\\ 2x&1\\end{pmatrix}$, så $F'(1,1)=\\begin{pmatrix}1&2\\\\ 2&1\\end{pmatrix}$, med $\\det F'(1,1)=1-4=-3\\ne0$. Ifølge omvendt funksjonsteorem er $F$ lokalt inverterbar nær $(1,1)$.\n\n**b)** $F(1,1)=(1+1,\\ 1+1)=(2,2)$. Da er $G'(2,2)=F'(1,1)^{-1}=\\dfrac{1}{-3}\\begin{pmatrix}1&-2\\\\ -2&1\\end{pmatrix}=\\begin{pmatrix}-\\tfrac13&\\tfrac23\\\\ \\tfrac23&-\\tfrac13\\end{pmatrix}$.\n\n**Konklusjon:** Lokalt inverterbar; $G'(2,2)=\\begin{pmatrix}-\\tfrac13&\\tfrac23\\\\ \\tfrac23&-\\tfrac13\\end{pmatrix}$.",
+        "hints": [
+          "Regn $F'(1,1)$ og sjekk $\\det\\ne0$; navngi teoremet.",
+          "$G'$ tas i $F(1,1)$ og er lik $F'(1,1)^{-1}$ — bruk $2\\times2$-inversformelen."
+        ]
+      }
+    },
+    {
+      "id": "mat1110-2-3-l2",
+      "type": "text",
+      "content": "## Løkke 2 — Implisitt funksjonsteorem, én likning (~15 min)"
+    },
+    {
+      "id": "mat1110-2-3-def-nivamengde",
+      "type": "definition",
+      "title": "Løsningskurve (nivåmengde) $f=c$",
+      "content": "Mengden av punkter som løser én likning: $\\{(x,y):f(x,y)=c\\}$. Nær et punkt der betingelsene under holder, er denne kurven grafen til en funksjon $y=g(x)$ — likningen «definerer $y$ implisitt som funksjon av $x$», selv om vi ikke kan løse den ut algebraisk."
+    },
+    {
+      "id": "mat1110-2-3-def-implisitt",
+      "type": "definition",
+      "title": "Implisitt funksjonsteorem (én likning)",
+      "content": "Når en likning i det stille definerer én variabel som funksjon av en annen. Anta $f$ er $C^1$ nær $(a,b)$ og at\n\n$$f(a,b)=0\\qquad\\text{og}\\qquad \\frac{\\partial f}{\\partial y}(a,b)\\ne0.$$\n\nDa finnes nær $x=a$ en entydig glatt funksjon $y=g(x)$ med $g(a)=b$ og $f(x,g(x))=0$. Teoremet gir **eksistensen** av $g$; derivasjonsformelen (under) gir $g'$. **Rekkefølgen på sjekken er obligatorisk:** $f(a,b)=0$ først, så $\\partial f/\\partial y\\ne0$."
+    },
+    {
+      "id": "mat1110-2-3-def-forutsetning",
+      "type": "definition",
+      "title": "Forutsetningssjekken",
+      "content": "De to betingelsene som *må* kontrolleres før du deriverer, i denne rekkefølgen: **(1)** at punktet faktisk ligger på kurven, $f(a,b)=0$; **(2)** at derivasjonsvariabelen har ikke-null partiellderivert, $\\partial f/\\partial y(a,b)\\ne0$ (ellers er tangenten loddrett og $y$ er ikke en funksjon av $x$ der). Sensor gir egne poeng for denne sjekken — den er «halve oppgaven», ikke en formalitet."
+    },
+    {
+      "id": "mat1110-2-3-def-implderivert",
+      "type": "definition",
+      "title": "Implisitt derivasjonsformel",
+      "content": "Når betingelsene holder, er den deriverte til den implisitte funksjonen\n\n$$g'(a)=-\\frac{\\partial f/\\partial x\\,(a,b)}{\\partial f/\\partial y\\,(a,b)}.$$\n\n**Minustegnet er en fast fellekilde** — det kommer fra kjerneregelen (utledningen under). Legg merke til at nevneren er nettopp den partiellderiverte du sjekket var ulik null."
+    },
+    {
+      "id": "mat1110-2-3-l2-utl",
+      "type": "text",
+      "content": "**Utledning av formelen (kjerneregelen).** Vi vet $f(x,g(x))=0$ for alle $x$ nær $a$. Deriver begge sider mhp. $x$ med kjerneregelen ([kap. 2.2](/bok/mat1110/mat1110-2-2)):\n\n$$\\frac{d}{dx}f(x,g(x))=\\frac{\\partial f}{\\partial x}+\\frac{\\partial f}{\\partial y}\\,g'(x)=0.$$\n\n*Intuisjon (steg 1):* venstresida er konstant lik $0$, så den totale endringen når $x$ endres må være null — de to bidragene (direkte via $x$, indirekte via $y=g(x)$) må oppheve hverandre.\n\nLøs for $g'(x)$: $\\dfrac{\\partial f}{\\partial y}\\,g'(x)=-\\dfrac{\\partial f}{\\partial x}$, altså $g'(x)=-\\dfrac{\\partial f/\\partial x}{\\partial f/\\partial y}$.\n\n*Intuisjon (steg 2):* vi kan dele på $\\partial f/\\partial y$ **nettopp fordi** forutsetningssjekken garanterte at den er ulik null — der teoremet svikter ($\\partial f/\\partial y=0$), svikter også formelen."
+    },
+    {
+      "id": "mat1110-2-3-ex2",
+      "type": "example",
+      "title": "Eksempel 2: Implisitt funksjonsteorem med forutsetningssjekk",
+      "problem": "Vis at likningen $x^2y+y^2=2$ definerer $y$ som en funksjon $g(x)$ nær $(1,1)$, og finn $g'(1)$.",
+      "solution": "Skriv likningen som $f(x,y)=x^2y+y^2-2=0$.\n\n**Forutsetningssjekk (i rekkefølge):**\n1. Ligger punktet på kurven? $f(1,1)=1\\cdot1+1-2=0$ ✓.\n2. Er $\\partial f/\\partial y\\ne0$ der? $\\dfrac{\\partial f}{\\partial y}=x^2+2y$, så $\\dfrac{\\partial f}{\\partial y}(1,1)=1+2=3\\ne0$ ✓.\n\n**Ifølge implisitt funksjonsteorem** finnes derfor en entydig glatt $y=g(x)$ nær $x=1$ med $g(1)=1$.\n\n**Derivasjon:** $\\dfrac{\\partial f}{\\partial x}=2xy$, så $\\dfrac{\\partial f}{\\partial x}(1,1)=2$. Formelen gir\n$$g'(1)=-\\frac{\\partial f/\\partial x}{\\partial f/\\partial y}=-\\frac{2}{3}.$$\n\n**Konklusjon:** Likningen definerer $y=g(x)$ nær $(1,1)$, og $g'(1)=-\\tfrac23$ (husk minustegnet)."
+    },
+    {
+      "id": "mat1110-2-3-l2x1-w",
+      "type": "exercise",
+      "exercise": {
+        "id": "mat1110-2-3-l2x1",
+        "number": "2",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "Folium-kurven $x^3+y^3=9xy$ går gjennom $(2,4)$. Vis at den definerer $y=g(x)$ nær dette punktet, og finn $g'(2)$.",
+        "solution": "Sett $f(x,y)=x^3+y^3-9xy=0$.\n\n**Forutsetningssjekk:**\n1. $f(2,4)=8+64-9\\cdot8=72-72=0$ ✓.\n2. $\\dfrac{\\partial f}{\\partial y}=3y^2-9x$, så $\\dfrac{\\partial f}{\\partial y}(2,4)=48-18=30\\ne0$ ✓.\n\nIfølge implisitt funksjonsteorem finnes $y=g(x)$ nær $(2,4)$.\n\n**Derivasjon:** $\\dfrac{\\partial f}{\\partial x}=3x^2-9y$, så $\\dfrac{\\partial f}{\\partial x}(2,4)=12-36=-24$. Da er\n$$g'(2)=-\\frac{-24}{30}=\\frac{24}{30}=\\frac45.$$\n\n**Konklusjon:** $g'(2)=\\tfrac45$. (Minustegnet i formelen og det negative $\\partial f/\\partial x$ gir til sammen positivt svar.)",
+        "hints": [
+          "Sjekk $f(2,4)=0$ og $\\partial f/\\partial y(2,4)\\ne0$ FØR du deriverer.",
+          "$g'=-\\dfrac{\\partial f/\\partial x}{\\partial f/\\partial y}$ — pass på begge fortegn."
+        ]
+      }
+    },
+    {
+      "id": "mat1110-2-3-l3",
+      "type": "text",
+      "content": "## Løkke 3 — Implisitt for flere variable (~13 min)"
+    },
+    {
+      "id": "mat1110-2-3-def-impl-multi",
+      "type": "definition",
+      "title": "Implisitt funksjonsteorem (flervariabel)",
+      "content": "Én likning i tre variable kan definere den ene som funksjon av de to andre. Anta $F$ er $C^1$, $F(a,b,c)=0$ og $\\dfrac{\\partial F}{\\partial z}(a,b,c)\\ne0$. Da finnes nær $(a,b)$ en glatt $z=g(x,y)$ med $F(x,y,g(x,y))=0$, og de partiellderiverte er\n\n$$\\frac{\\partial g}{\\partial x}=-\\frac{\\partial F/\\partial x}{\\partial F/\\partial z},\\qquad \\frac{\\partial g}{\\partial y}=-\\frac{\\partial F/\\partial y}{\\partial F/\\partial z}.$$\n\nSamme mønster som i én variabel — deriver mhp. hver «fri» variabel, del på $\\partial F/\\partial z$, sett minus foran. Dette er 2024-eksamenens O5-variant."
+    },
+    {
+      "id": "mat1110-2-3-ex3",
+      "type": "example",
+      "title": "Eksempel 3: Flate gitt implisitt",
+      "problem": "Likningen $x^2+y^2+z^2=3$ definerer en flate gjennom $(1,1,1)$. Vis at den nær dette punktet er grafen til en funksjon $z=g(x,y)$, og finn $g_x(1,1)$ og $g_y(1,1)$.",
+      "solution": "Sett $F(x,y,z)=x^2+y^2+z^2-3=0$.\n\n**Forutsetningssjekk:**\n1. $F(1,1,1)=1+1+1-3=0$ ✓.\n2. $\\dfrac{\\partial F}{\\partial z}=2z$, så $\\dfrac{\\partial F}{\\partial z}(1,1,1)=2\\ne0$ ✓.\n\nIfølge implisitt funksjonsteorem er flaten nær $(1,1,1)$ grafen til en glatt $z=g(x,y)$.\n\n**Partiellderiverte:** $\\dfrac{\\partial F}{\\partial x}=2x$ og $\\dfrac{\\partial F}{\\partial y}=2y$, begge lik $2$ i punktet. Formlene gir\n$$g_x(1,1)=-\\frac{2}{2}=-1,\\qquad g_y(1,1)=-\\frac{2}{2}=-1.$$\n\n**Konklusjon:** $g_x(1,1)=g_y(1,1)=-1$. (Geometrisk: tangentplanet til kulen i $(1,1,1)$ heller likt i begge retninger, som ventet ved symmetri.)"
+    },
+    {
+      "id": "mat1110-2-3-l3x1-w",
+      "type": "exercise",
+      "exercise": {
+        "id": "mat1110-2-3-l3x1",
+        "number": "3",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "Likningen $x^2+y^3+z^3=3$ definerer en flate gjennom $(1,1,1)$. Vis at $z=g(x,y)$ nær punktet, og finn $g_x(1,1)$ og $g_y(1,1)$.",
+        "solution": "Sett $F(x,y,z)=x^2+y^3+z^3-3=0$.\n\n**Forutsetningssjekk:** $F(1,1,1)=1+1+1-3=0$ ✓; $\\dfrac{\\partial F}{\\partial z}=3z^2$, så $\\dfrac{\\partial F}{\\partial z}(1,1,1)=3\\ne0$ ✓. Ifølge implisitt funksjonsteorem er flaten grafen til $z=g(x,y)$ nær punktet.\n\n**Partiellderiverte:** $F_x=2x\\Rightarrow F_x(1,1,1)=2$; $F_y=3y^2\\Rightarrow F_y(1,1,1)=3$. Da\n$$g_x(1,1)=-\\frac{2}{3},\\qquad g_y(1,1)=-\\frac{3}{3}=-1.$$\n\n**Konklusjon:** $g_x(1,1)=-\\tfrac23$, $g_y(1,1)=-1$.",
+        "hints": [
+          "Sjekk $F(1,1,1)=0$ og $F_z(1,1,1)\\ne0$ først.",
+          "$g_x=-F_x/F_z$ og $g_y=-F_y/F_z$ — samme nevner $F_z$."
+        ]
+      }
+    },
+    {
+      "id": "mat1110-2-3-l4",
+      "type": "text",
+      "content": "## Løkke 4 — Den generelle systemversjonen (~12 min)"
+    },
+    {
+      "id": "mat1110-2-3-def-jacblokk",
+      "type": "definition",
+      "title": "Partiell Jacobi-blokk $\\partial F/\\partial y$",
+      "content": "Når variablene deles i «parametere» $x$ og «ukjente» $y$, er $\\partial F/\\partial y$ den delen av Jacobi-matrisen som bare deriverer mhp. de ukjente. For et system $F(x,y)=0$ med $y\\in\\mathbb{R}^m$ er dette en $m\\times m$-blokk — den som må være inverterbar for at systemet skal kunne løses for $y$."
+    },
+    {
+      "id": "mat1110-2-3-def-system",
+      "type": "definition",
+      "title": "Implisitt funksjonsteorem (systemversjon)",
+      "content": "Generaliseringen til flere likninger. For et system $F(x,y)=0$ ($F:\\mathbb{R}^{n+m}\\to\\mathbb{R}^m$, $y\\in\\mathbb{R}^m$ ukjent) som er $C^1$ med $F(a,b)=0$: hvis den partielle Jacobi-blokken $\\dfrac{\\partial F}{\\partial y}(a,b)$ er **inverterbar** ($\\det\\ne0$), finnes en glatt $y=g(x)$ med $g(a)=b$ og $F(x,g(x))=0$ nær $a$. Betingelsen «$\\partial f/\\partial y\\ne0$» fra én likning blir her «Jacobi-blokken inverterbar»."
+    },
+    {
+      "id": "mat1110-2-3-def-detbetingelse",
+      "type": "definition",
+      "title": "Determinantbetingelsen $\\det(\\partial F/\\partial y)\\ne0$",
+      "content": "Fellesnevneren i alle versjonene av teoremet: du kan løse for de ukjente nettopp når determinanten til den tilhørende Jacobi-blokken er ulik null. Én likning: $\\partial f/\\partial y\\ne0$. Én likning, flate: $\\partial F/\\partial z\\ne0$. System: $\\det(\\partial F/\\partial y)\\ne0$. Omvendt: $\\det F'\\ne0$. Alt er samme idé — den lineære tilnærmingen må være inverterbar."
+    },
+    {
+      "id": "mat1110-2-3-ex4",
+      "type": "example",
+      "title": "Eksempel 4: Et system løst implisitt",
+      "problem": "To størrelser $u,v$ er knyttet til $x,y$ ved systemet $u+v=x$ og $uv=y$. Vis at nær $u=2,\\ v=1$ (der $x=3,\\ y=2$) bestemmer systemet $u$ og $v$ som glatte funksjoner av $x,y$.",
+      "solution": "Skriv systemet som $F(x,y;u,v)=\\big(u+v-x,\\ uv-y\\big)=0$, med $u,v$ som de ukjente.\n\n**Sjekk punktet:** i $u=2,v=1,x=3,y=2$ er $u+v-x=3-3=0$ og $uv-y=2-2=0$ ✓.\n\n**Den partielle Jacobi-blokken** mhp. de ukjente $(u,v)$:\n$$\\frac{\\partial F}{\\partial(u,v)}=\\begin{pmatrix}\\partial_u(u+v-x)&\\partial_v(u+v-x)\\\\ \\partial_u(uv-y)&\\partial_v(uv-y)\\end{pmatrix}=\\begin{pmatrix}1&1\\\\ v&u\\end{pmatrix}.$$\nDeterminanten i punktet: $\\det\\begin{pmatrix}1&1\\\\ 1&2\\end{pmatrix}=2-1=1\\ne0$.\n\n**Ifølge implisitt funksjonsteorem (systemversjon)** kan systemet derfor løses for $(u,v)=g(x,y)$ nær punktet, med glatte komponenter.\n\n**Konklusjon:** Siden $\\det(\\partial F/\\partial(u,v))=u-v=1\\ne0$ i punktet, bestemmer systemet $u$ og $v$ entydig og glatt som funksjoner av $x,y$ lokalt. (Betingelsen $u\\ne v$ er nettopp der de to røttene i annengradslikningen $t^2-xt+y=0$ er forskjellige.)"
+    },
+    {
+      "id": "mat1110-2-3-warn",
+      "type": "warning",
+      "title": "Typiske feil",
+      "content": "- **Implisitt derivasjon uten forutsetningssjekk.** Å hoppe over $f(a,b)=0$ eller $\\partial f/\\partial y\\ne0$ koster egne poeng — sjekken er halve oppgaven. Gjør den *i rekkefølge* og skriv den ned.\n- **Glemt minustegn i $g'=-\\dfrac{\\partial_x f}{\\partial_y f}$.** Den vanligste enkeltfeilen. Minustegnet kommer fra kjerneregelen (utledningen).\n- **Regne inversen på nytt.** I omvendt-oppgaver med kjedede delpunkt: har du alt $F'(a)$ (eller en invers fra forrige delpunkt), gjenbruk den — ikke start forfra.\n- **Ikke navngi teoremet.** Eksistensargumentet skal bæres av «ifølge omvendt/implisitt funksjonsteorem». Bare å regne $g'$ uten å begrunne at $g$ *finnes*, gir ikke full uttelling.\n- **Evaluere $G'$ i feil punkt.** Jacobi til den omvendte tas i **bildepunktet** $F(a)$, ikke i $a$.\n- **Dele på noe som er null.** Er $\\partial f/\\partial y(a,b)=0$, gjelder ikke teoremet for $y=g(x)$ — prøv i stedet $x=h(y)$ (sjekk $\\partial f/\\partial x\\ne0$)."
+    },
+    {
+      "id": "mat1110-2-3-pulje",
+      "type": "text",
+      "content": "## Eksamensrettet oppgavepulje"
+    },
+    {
+      "id": "mat1110-2-3-p1-w",
+      "type": "exercise",
+      "exercise": {
+        "id": "mat1110-2-3-p1",
+        "number": "4",
+        "type": "classic",
+        "difficulty": "lett",
+        "task": "Likningen $xy+\\ln y=1$ går gjennom $(1,1)$. Sjekk forutsetningene for at $y=g(x)$ nær punktet, og finn $g'(1)$.",
+        "solution": "Sett $f(x,y)=xy+\\ln y-1=0$.\n\n**Forutsetningssjekk:** $f(1,1)=1+\\ln1-1=0$ ✓; $\\dfrac{\\partial f}{\\partial y}=x+\\dfrac1y$, så $\\dfrac{\\partial f}{\\partial y}(1,1)=1+1=2\\ne0$ ✓. Ifølge implisitt funksjonsteorem finnes $y=g(x)$ nær $(1,1)$.\n\n**Derivasjon:** $\\dfrac{\\partial f}{\\partial x}=y$, så $\\dfrac{\\partial f}{\\partial x}(1,1)=1$. Da $g'(1)=-\\dfrac{1}{2}$.\n\n**Konklusjon:** $g'(1)=-\\tfrac12$.",
+        "hints": [
+          "$f(1,1)=0$? $\\partial f/\\partial y(1,1)\\ne0$? — sjekk begge.",
+          "$\\partial_y(\\ln y)=1/y$; så $g'=-\\dfrac{\\partial_x f}{\\partial_y f}$."
+        ]
+      }
+    },
+    {
+      "id": "mat1110-2-3-p2-w",
+      "type": "exercise",
+      "exercise": {
+        "id": "mat1110-2-3-p2",
+        "number": "5",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "La $F(x,y)=(e^x+y,\\ x+e^y)$. **a)** Vis at $F$ er lokalt inverterbar nær $(0,0)$. **b)** Finn $G'(F(0,0))$ for den lokale inversen $G$.",
+        "solution": "**a)** $F$ er $C^1$. $F'(x,y)=\\begin{pmatrix}e^x&1\\\\ 1&e^y\\end{pmatrix}$, så $F'(0,0)=\\begin{pmatrix}1&1\\\\ 1&1\\end{pmatrix}$ … $\\det=1-1=0$. **Determinanten er null**, så omvendt funksjonsteorem gir *ingen* garanti i $(0,0)$ — punktet er singulært.\n\n**b)** Siden $\\det F'(0,0)=0$, finnes ingen lokal invers garantert her, og $G'(F(0,0))$ er ikke definert via teoremet. **Konklusjon:** $F$ er *ikke* nødvendigvis lokalt inverterbar nær $(0,0)$; forutsetningen $\\det F'\\ne0$ svikter. (Lærdom: sjekk determinanten *før* du forsøker å invertere — her stopper oppgaven på forutsetningen, akkurat som sensor vil teste.)",
+        "hints": [
+          "Regn $F'(0,0)$ og determinanten før du gjør noe annet.",
+          "Blir $\\det F'=0$, svikter forutsetningen — konkludér på det, ikke regn videre."
+        ]
+      }
+    },
+    {
+      "id": "mat1110-2-3-p3-w",
+      "type": "exercise",
+      "exercise": {
+        "id": "mat1110-2-3-p3",
+        "number": "6",
+        "type": "classic",
+        "difficulty": "vanskelig",
+        "task": "(Kjedet, eksamensnivå.) La $F(x,y)=(2x+y,\\ x^2+xy)$. **a)** Vis at $F$ er lokalt inverterbar nær $(1,1)$ og regn $F'(1,1)$. **b)** Finn $A^{-1}$ der $A=F'(1,1)$. **c)** Bruk (b) til å skrive opp Jacobi-matrisen til den omvendte $G$ i $F(1,1)$.",
+        "solution": "**a)** $F$ er $C^1$. $F'(x,y)=\\begin{pmatrix}2&1\\\\ 2x+y&x\\end{pmatrix}$, så $A=F'(1,1)=\\begin{pmatrix}2&1\\\\ 3&1\\end{pmatrix}$. $\\det A=2\\cdot1-1\\cdot3=-1\\ne0$, så **ifølge omvendt funksjonsteorem** er $F$ lokalt inverterbar nær $(1,1)$.\n\n**b)** $A^{-1}=\\dfrac{1}{-1}\\begin{pmatrix}1&-1\\\\ -3&2\\end{pmatrix}=\\begin{pmatrix}-1&1\\\\ 3&-2\\end{pmatrix}$.\n\n**c)** Bildepunktet er $F(1,1)=(2\\cdot1+1,\\ 1+1)=(3,2)$. Omvendt funksjonsteorem gir\n$$G'(3,2)=A^{-1}=\\begin{pmatrix}-1&1\\\\ 3&-2\\end{pmatrix}.$$\n\n**Konklusjon:** $G'(3,2)=\\begin{pmatrix}-1&1\\\\ 3&-2\\end{pmatrix}$ — delpunkt (c) gjenbruker inversen fra (b), som igjen bruker matrisen fra (a). Dette er nøyaktig kjedingen konten O1a$\\to$O1b belønner.",
+        "hints": [
+          "(a) $\\det F'(1,1)\\ne0$; navngi teoremet. (b) $2\\times2$-inversformel.",
+          "(c) $G'$ tas i $F(1,1)=(3,2)$ og er lik $A^{-1}$ — ikke regn på nytt."
+        ]
+      }
+    },
+    {
+      "id": "mat1110-2-3-bb",
+      "type": "text",
+      "content": "## Begrepsbank\n\n*Flashcard-/repetisjonsstoff — hopp trygt over ved førstegangslesing; tidsanslaget gjelder kjernestoffet.*"
+    },
+    {
+      "id": "mat1110-2-3-bb-eksistens",
+      "type": "definition",
+      "title": "Eksistens vs. eksplisitt formel",
+      "content": "Funksjonsteoremene er **eksistensteoremer**: de garanterer at en invers eller implisitt funksjon *finnes* og er glatt, og gir dens *deriverte* i punktet — men de gir sjelden funksjonen i lukket form. På eksamen er nettopp dette poenget: du kan svare på «finnes $g$?» og «hva er $g'$?» selv når du ikke kan løse likningen ut."
+    },
+    {
+      "id": "mat1110-2-3-bb-lokglobal",
+      "type": "definition",
+      "title": "Lokal vs. global invers",
+      "content": "$\\det F'(a)\\ne0$ gir bare en invers i en *omegn* om $a$. Globalt kan $F$ treffe samme verdi flere steder (polaravbildningen, [kap. 2.2](/bok/mat1110/mat1110-2-2)). Skriv derfor alltid «lokalt inverterbar» — ikke «inverterbar» — når du bruker omvendt funksjonsteorem."
+    },
+    {
+      "id": "mat1110-2-3-bb-koblinginvers",
+      "type": "definition",
+      "title": "Koblingen til invers matrise (kap. 1.3)",
+      "content": "Omvendt funksjonsteorem reduserer et flervariabel-problem til én matriseinvertering: $G'(F(a))=F'(a)^{-1}$. Hele regnejobben er å invertere $2\\times2$- (eller $3\\times3$-)matrisen $F'(a)$ med metoden fra [kap. 1.3](/bok/mat1110/mat1110-1-3). Derfor er delpunktene kjedet: inversen fra ett punkt er svaret i det neste."
+    },
+    {
+      "id": "mat1110-2-3-bb-fortegn",
+      "type": "definition",
+      "title": "Fortegnsregelen (minustegnet)",
+      "content": "I $g'=-\\dfrac{\\partial_x f}{\\partial_y f}$ er minustegnet ikke valgfritt. Det følger av at $f(x,g(x))=0$ deriveres til $\\partial_x f+\\partial_y f\\cdot g'=0$, så $g'$ må ha motsatt fortegn av forholdet $\\partial_x f/\\partial_y f$. Glemt minus er den hyppigste enkeltfeilen i sjanger D."
+    },
+    {
+      "id": "mat1110-2-3-bb-kritisk",
+      "type": "definition",
+      "title": "Kritisk punkt for en avbildning",
+      "content": "Et punkt der $\\det F'(a)=0$ — det motsatte av regulært. Der svikter omvendt funksjonsteorem: avbildningen kan folde eller kollapse rommet, og en lokal invers er ikke garantert. Å identifisere de kritiske punktene (løse $\\det F'=0$) er ofte første steg når man spør *hvor* $F$ er lokalt inverterbar."
+    },
+    {
+      "id": "mat1110-2-3-bb-glatthet",
+      "type": "definition",
+      "title": "Glatthet arves ($C^1$-invers)",
+      "content": "Er $F$ av klasse $C^1$ (eller $C^k$), er den lokale inversen $G$ det også — teoremet leverer ikke bare en invers, men en like glatt invers. Det er derfor vi trygt kan derivere $G$ og snakke om $G'$: glattheten er en del av konklusjonen, ikke en antakelse vi må sjekke i etterkant."
+    },
+    {
+      "id": "mat1110-2-3-bb-tangentimpl",
+      "type": "definition",
+      "title": "Tangent til en implisitt kurve",
+      "content": "Nær et punkt der implisitt funksjonsteorem gjelder, har løsningskurven $f=c$ tangentlinjen $\\nabla f(a,b)\\cdot(x-a,y-b)=0$ (gradienten er normal til nivåkurven, [kap. 2.1](/bok/mat1110/mat1110-2-1)). Stigningstallet til denne tangenten er nettopp $g'(a)=-\\dfrac{\\partial_x f}{\\partial_y f}$ — de to bildene stemmer overens."
+    },
+    {
+      "id": "mat1110-2-3-bb-diffeo",
+      "type": "definition",
+      "title": "Diffeomorfi (kjennskap)",
+      "content": "En glatt avbildning med glatt invers kalles en **diffeomorfi**. Omvendt funksjonsteorem sier presist at en $C^1$-avbildning med $\\det F'(a)\\ne0$ er en *lokal* diffeomorfi nær $a$. Begrepet dukker opp igjen ved variabelskifte i integraler ([kap. 4.2](/bok/mat1110/mat1110-4-2)), der Jacobideterminanten er skaleringsfaktoren. Nevnes for kjennskap."
+    },
+    {
+      "id": "mat1110-2-3-rep",
+      "type": "collapsible",
+      "title": "Repetisjon",
+      "buttonText": "Vis repetisjonsoppgaver",
+      "content": [
+        {
+          "id": "mat1110-2-3-r1-w",
+          "type": "exercise",
+          "exercise": {
+            "id": "mat1110-2-3-r1",
+            "number": "R1",
+            "type": "classic",
+            "difficulty": "lett",
+            "task": "(Fra [kap. 1.3](/bok/mat1110/mat1110-1-3)) Finn inversen til $A=\\begin{pmatrix}3&1\\\\ 5&2\\end{pmatrix}$.",
+            "solution": "$\\det A=3\\cdot2-1\\cdot5=1$. $A^{-1}=\\dfrac{1}{1}\\begin{pmatrix}2&-1\\\\ -5&3\\end{pmatrix}=\\begin{pmatrix}2&-1\\\\ -5&3\\end{pmatrix}$. (Denne inverteringen er hele regnejobben i et omvendt-funksjonsteorem-delpunkt.)",
+            "hints": [
+              "$2\\times2$: bytt diagonalen, skift fortegn på hjørnene, del på $\\det$."
+            ]
+          }
+        },
+        {
+          "id": "mat1110-2-3-r2-w",
+          "type": "exercise",
+          "exercise": {
+            "id": "mat1110-2-3-r2",
+            "number": "R2",
+            "type": "classic",
+            "difficulty": "lett",
+            "task": "(Fra [kap. 2.2](/bok/mat1110/mat1110-2-2)) Finn Jacobi-matrisen $F'(x,y)$ og $\\det F'$ for $F(x,y)=(x^2-y,\\ 2xy)$.",
+            "solution": "$F'=\\begin{pmatrix}2x&-1\\\\ 2y&2x\\end{pmatrix}$, $\\det F'=4x^2+2y$. (Om dette er ulik null i et punkt, er $F$ lokalt inverterbar der — omvendt funksjonsteorem.)",
+            "hints": [
+              "Rad = gradient til komponenten; $\\det=$ produkt av diagonaler minus antidiagonaler."
+            ]
+          }
+        },
+        {
+          "id": "mat1110-2-3-r3-w",
+          "type": "exercise",
+          "exercise": {
+            "id": "mat1110-2-3-r3",
+            "number": "R3",
+            "type": "classic",
+            "difficulty": "middels",
+            "task": "(Fra [kap. 2.2](/bok/mat1110/mat1110-2-2)) Hva betyr det at et punkt er «regulært» for en avbildning $F$, og hvorfor er det relevant her?",
+            "solution": "At $\\det F'(a)\\ne0$ — Jacobi-matrisen er inverterbar. Det er relevant fordi omvendt funksjonsteorem krever nettopp et regulært punkt for å garantere en lokal invers; i kritiske punkter ($\\det F'=0$) gjelder teoremet ikke.",
+            "hints": [
+              "Regulært $\\iff\\det F'\\ne0$; det er forutsetningen i omvendt funksjonsteorem."
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": "mat1110-2-3-symbol",
+      "type": "collapsible",
+      "title": "Symbol- og formelliste",
+      "buttonText": "Vis symboler og formler",
+      "content": [
+        {
+          "id": "mat1110-2-3-symbol-text",
+          "type": "text",
+          "content": "## Symbol- og formelliste\n\n*Oppslagsverk — alt her forklares underveis i kapitlet.*\n\n| Symbol | Betydning |\n|---|---|\n| $F'(a)$ | Jacobi-matrisen i $a$ (rad $i$ = $\\nabla F_i$) |\n| $\\det F'(a)$ | Jacobideterminanten; $\\ne0$ = regulært punkt |\n| $G=F^{-1}$ | Lokal invers av $F$ |\n| $G'(F(a))$ | Jacobi til den omvendte, $=F'(a)^{-1}$ |\n| $g(x)$ | Implisitt definert funksjon fra $f(x,g(x))=0$ |\n| $\\partial f/\\partial y$ | Partiellderivert som må være $\\ne0$ (én likning) |\n| $\\partial F/\\partial y$ | Partiell Jacobi-blokk (systemversjon) |\n\n**Formler i dette delkapitlet:**\n\n$$\\det F'(a)\\ne0\\ \\Rightarrow\\ F\\text{ lokalt inverterbar, }G'(F(a))=F'(a)^{-1}$$\nOmvendt funksjonsteorem: eksistens av glatt lokal invers + dens Jacobi.\n\n$$f(a,b)=0\\ \\text{og}\\ \\tfrac{\\partial f}{\\partial y}(a,b)\\ne0\\ \\Rightarrow\\ y=g(x)\\text{ finnes}$$\nImplisitt funksjonsteorem (én likning) — forutsetningssjekken, i rekkefølge.\n\n$$g'(a)=-\\frac{\\partial f/\\partial x}{\\partial f/\\partial y}$$\nImplisitt derivasjon (én likning) — merk minustegnet.\n\n$$g_x=-\\frac{\\partial F/\\partial x}{\\partial F/\\partial z},\\qquad g_y=-\\frac{\\partial F/\\partial y}{\\partial F/\\partial z}$$\nImplisitt for flate $z=g(x,y)$ (flervariabelvarianten).\n\n$$\\det\\!\\left(\\frac{\\partial F}{\\partial y}(a,b)\\right)\\ne0\\ \\Rightarrow\\ y=g(x)\\text{ løser }F(x,y)=0$$\nSystemversjonen — Jacobi-blokken mhp. de ukjente må være inverterbar.\n\n$$\\begin{pmatrix}a&b\\\\ c&d\\end{pmatrix}^{-1}=\\frac{1}{ad-bc}\\begin{pmatrix}d&-b\\\\ -c&a\\end{pmatrix}$$\n$2\\times2$-inversen (fra kap. 1.3) — regnejobben i omvendt-oppgaver."
+        }
+      ]
+    }
+  ],
+  "exercises": []
+}

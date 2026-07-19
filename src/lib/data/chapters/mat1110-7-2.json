@@ -1,0 +1,156 @@
+{
+  "id": "mat1110-7-2",
+  "courseId": "mat1110",
+  "chapterNumber": "7.2",
+  "title": "Midtveissimulering: lineær algebra og flervariabel (uten hjelpemidler)",
+  "description": "Komplett midtsemestersett over pensumvinduet — lineær algebra + start flervariabel — uten hjelpemidler, med føring etter kap. 7.1.",
+  "estimatedMinutes": 120,
+  "competenceGoals": [
+    "gjennomføre et komplett midtsemestersett uten hjelpemidler i radreduksjon, egenverdier, tangentplan, implisitt funksjonsteorem og Hesse-klassifisering",
+    "føre hver løsning etter sensorstandarden med merkede radoperasjoner, navngitte teoremer og eksakte svar",
+    "kjede delpunkter ved å gjenbruke en utregnet invers"
+  ],
+  "content": [
+    {
+      "id": "mat1110-7-2-tip",
+      "type": "tip",
+      "title": "Om midtveissimuleringen",
+      "content": "Dette er et komplett **midtsemestersett uten hjelpemidler** (utover formelsamling) over pensumvinduet: lineær algebra + start flervariabel. Tallene er valgt så alt er **regnbart for hånd**.\n\n- **Forbehold (viktig):** arkivet inneholder *ingen* midtsemestereksamener. Formen her er kalibrert på **pensumvinduet** og på at prøven er uten hjelpemidler — ikke på en dokumentert oppgavefordeling. Juster forventningene mot det faktiske midtsemestersettet ditt kull får når det foreligger.\n- **Tidsbudsjett:** regn ~**20 min per deloppgave**, ~2 timer totalt. Løs hele settet før du åpner løsningsforslagene.\n- **Føring:** følg [kap. 7.1](/bok/mat1110/mat1110-7-1). Merk radoperasjoner over $\\sim$, navngi funksjonsteoremet, sett opp Hesse eksplisitt, og gi **eksakte** svar.\n\nLøsningsforslagene er skrevet som A-besvarelser (nyskrevne modellbesvarelser) og ligger som utvidbare bokser under settet."
+    },
+    {
+      "id": "mat1110-7-2-fork",
+      "type": "text",
+      "content": "**Forkunnskaper.** Pensumvinduet for midtsemester: [kap. 1.1–1.4](/bok/mat1110/mat1110-1-3) (radreduksjon, basis, invers, lineæravbildning), [kap. 6.1](/bok/mat1110/mat1110-6-1) (egenverdier — LA-tyngden i vinduet, uavhengig av regimeskiftet på avsluttende), [kap. 2.1–2.3](/bok/mat1110/mat1110-2-3) (partiell/gradient/tangentplan og funksjonsteoremene) og [kap. 3.1](/bok/mat1110/mat1110-3-1) (stasjonære punkter + Hesse). Har du gjort drillen i [kap. 1.5](/bok/mat1110/mat1110-1-5), er den tyngste sjangeren (A) på plass."
+    },
+    {
+      "id": "mat1110-7-2-sett",
+      "type": "text",
+      "content": "## Oppgavesettet — midtsemester (uten hjelpemidler)\n\n*Alle svar skal begrunnes. Vis nok mellomregning til at man lett kan følge argumentene. Eksakte svar.*\n\nLa $A=\\begin{pmatrix}1&1&2\\\\0&1&1\\\\1&0&2\\end{pmatrix}$.\n\n**O1 a)** Avgjør om søylene i $A$ danner en basis for $\\mathbb{R}^3$, og finn $A^{-1}$ ved å radredusere $[A\\,|\\,I_3]$ med merkede radoperasjoner.\n\n**O1 b)** Bruk $A^{-1}$ fra a) til å løse $Ax=(4,2,3)^T$.\n\n**O2** La $B=\\begin{pmatrix}4&1\\\\2&3\\end{pmatrix}$. Finn egenverdiene og en egenvektor for hver.\n\n**O3** La $f(x,y)=x^3-xy+y^2$. Finn tangentplanet til grafen $z=f(x,y)$ i punktet over $(1,2)$, og bruk lineariseringen til å anslå $f(1{,}1;\\,1{,}9)$.\n\n**O4** Vis at likningen $x^2y+y^2=2$ definerer $y$ som en funksjon $y=\\varphi(x)$ nær punktet $(1,1)$, og finn $\\varphi'(1)$.\n\n**O5** Finn de stasjonære punktene til $f(x,y)=x^3-3xy+y^3$ og klassifiser dem med Hesse-matrisen."
+    },
+    {
+      "id": "mat1110-7-2-typiske-feil",
+      "type": "warning",
+      "title": "Typiske feil",
+      "content": "Feilene som koster mest under midtsemesterprøven — uten hjelpemidler og med knapp tid:\n\n- **Tidsbruk.** Med ~20 min per deloppgave tømmer en for lang O1 tiden for resten. Ta de sikre poengene raskt, flagg og gå videre når en deloppgave stjeler mer enn sin andel.\n- **Hoderegningsfeil uten kalkulator.** Tallene er valgt regnbare for hånd, men determinant- og egenverdiregning inviterer aritmetikkbommer. Kontroller med innsetting: $Av=\\lambda v$ for egenvektorer, $Ax=b$ for løsninger.\n- **Umerkede radoperasjoner.** Føringspoeng tapes hvis operasjonen ikke står over $\\sim$-tegnet.\n- **Glemt begrunnelse.** Navngi funksjonsteoremet, sett opp Hesse-determinanten eksplisitt og skriv konklusjonssetningen. Ren fasit uten synlig vei gir få poeng.\n- **Fortegnsfeil i Hesse-determinanten.** En bom på $f_{xy}^2$ eller på fortegnet til $f_{xx}$ snur klassifiseringen av det stasjonære punktet. Regn $D$ nøye.\n- **Avrunding.** Behold eksakte svar (brøk, rot) — desimaltilnærming gir ikke full uttelling."
+    },
+    {
+      "id": "mat1110-7-2-sol-o1",
+      "type": "collapsible",
+      "title": "Løsningsforslag O1 (basis + invers, kjedet)",
+      "buttonText": "Vis løsningsforslag O1",
+      "content": [
+        {
+          "id": "mat1110-7-2-o1-tip",
+          "type": "tip",
+          "title": "Vekting og tid",
+          "content": "To delpunkter, ~20 min til sammen. Føringspoengene: **merkede radoperasjoner** i $[A\\,|\\,I]$, konklusjonssetningen «radekvivalent med $I_3$ $\\Rightarrow$ basis», og at inversen fra a) **gjenbrukes** i b) i stedet for ny radreduksjon."
+        },
+        {
+          "id": "mat1110-7-2-o1a",
+          "type": "text",
+          "content": "**O1 a)** Vi radreduserer den utvidede matrisen $[A\\,|\\,I_3]$ til $[I_3\\,|\\,A^{-1}]$.\n$$\\left[\\begin{array}{ccc|ccc}1&1&2&1&0&0\\\\0&1&1&0&1&0\\\\1&0&2&0&0&1\\end{array}\\right]\\overset{\\;III-I\\;}{\\sim}\\left[\\begin{array}{ccc|ccc}1&1&2&1&0&0\\\\0&1&1&0&1&0\\\\0&-1&0&-1&0&1\\end{array}\\right]\\overset{\\;III+II\\;}{\\sim}\\left[\\begin{array}{ccc|ccc}1&1&2&1&0&0\\\\0&1&1&0&1&0\\\\0&0&1&-1&1&1\\end{array}\\right]$$\nVenstre side er nå på trappeform med tre pivoter, så $A$ er **radekvivalent med $I_3$** — søylene danner en basis for $\\mathbb{R}^3$ (og $A$ er inverterbar). Vi rydder oppover:\n$$\\overset{\\;II-III,\\ I-2III\\;}{\\sim}\\left[\\begin{array}{ccc|ccc}1&1&0&3&-2&-2\\\\0&1&0&1&0&-1\\\\0&0&1&-1&1&1\\end{array}\\right]\\overset{\\;I-II\\;}{\\sim}\\left[\\begin{array}{ccc|ccc}1&0&0&2&-2&-1\\\\0&1&0&1&0&-1\\\\0&0&1&-1&1&1\\end{array}\\right]$$\n**Konklusjon:** søylene i $A$ danner en basis for $\\mathbb{R}^3$, og\n$$A^{-1}=\\begin{pmatrix}2&-2&-1\\\\1&0&-1\\\\-1&1&1\\end{pmatrix}.$$\n(Kontroll av én søyle: $A^{-1}$ ganget med første søyle i $A$, $(1,0,1)^T$, gir $(2-1,\\,1-1,\\,-1+1)^T=(1,0,0)^T$ ✓.)"
+        },
+        {
+          "id": "mat1110-7-2-o1b",
+          "type": "text",
+          "content": "**O1 b)** Siden $A$ er inverterbar, er $x=A^{-1}b$ med $b=(4,2,3)^T$. Vi **gjenbruker** $A^{-1}$ fra a):\n$$x=\\begin{pmatrix}2&-2&-1\\\\1&0&-1\\\\-1&1&1\\end{pmatrix}\\begin{pmatrix}4\\\\2\\\\3\\end{pmatrix}=\\begin{pmatrix}8-4-3\\\\4-3\\\\-4+2+3\\end{pmatrix}=\\begin{pmatrix}1\\\\1\\\\1\\end{pmatrix}.$$\n**Konklusjon:** $x=(1,1,1)^T$. (Kontroll: $A(1,1,1)^T=(1+1+2,\\,0+1+1,\\,1+0+2)^T=(4,2,3)^T$ ✓.)"
+        }
+      ]
+    },
+    {
+      "id": "mat1110-7-2-sol-o2",
+      "type": "collapsible",
+      "title": "Løsningsforslag O2 (egenverdier)",
+      "buttonText": "Vis løsningsforslag O2",
+      "content": [
+        {
+          "id": "mat1110-7-2-o2-tip",
+          "type": "tip",
+          "title": "Vekting og tid",
+          "content": "~20 min. Føringspoenget: sett opp den karakteristiske likningen $\\det(\\lambda I-B)=0$, og finn hver egenvektor fra $(B-\\lambda I)v=0$ — ikke gjett. Kontrollér med spor og determinant."
+        },
+        {
+          "id": "mat1110-7-2-o2",
+          "type": "text",
+          "content": "**O2** Egenverdiene løser $\\det(\\lambda I-B)=0$:\n$$\\det\\begin{pmatrix}\\lambda-4&-1\\\\-2&\\lambda-3\\end{pmatrix}=(\\lambda-4)(\\lambda-3)-2=\\lambda^2-7\\lambda+10=(\\lambda-2)(\\lambda-5)=0.$$\nAltså $\\lambda_1=2$ og $\\lambda_2=5$. (Kontroll: sum $=2+5=7=\\operatorname{spor}B$, produkt $=10=\\det B=12-2$ ✓.)\n\n**Egenvektor for $\\lambda_1=2$:** løs $(B-2I)v=0$, dvs. $\\begin{pmatrix}2&1\\\\2&1\\end{pmatrix}v=0\\Rightarrow 2v_1+v_2=0$. En egenvektor er $v_1=(1,-2)$.\n\n**Egenvektor for $\\lambda_2=5$:** løs $(B-5I)v=0$, dvs. $\\begin{pmatrix}-1&1\\\\2&-2\\end{pmatrix}v=0\\Rightarrow -v_1+v_2=0$. En egenvektor er $v_2=(1,1)$.\n\n**Konklusjon:** egenverdiene er $\\lambda=2$ (egenvektor $(1,-2)$) og $\\lambda=5$ (egenvektor $(1,1)$)."
+        }
+      ]
+    },
+    {
+      "id": "mat1110-7-2-sol-o3",
+      "type": "collapsible",
+      "title": "Løsningsforslag O3 (tangentplan + linearisering)",
+      "buttonText": "Vis løsningsforslag O3",
+      "content": [
+        {
+          "id": "mat1110-7-2-o3-tip",
+          "type": "tip",
+          "title": "Vekting og tid",
+          "content": "~20 min. Føringspoenget: gradienten evalueres i utviklingspunktet *før* tangentplanet settes opp, og lineariseringen brukes bare nær punktet. Svar eksakt ($\\tfrac{14}{5}$), ikke $2{,}8$ som avrundet desimal alene."
+        },
+        {
+          "id": "mat1110-7-2-o3",
+          "type": "text",
+          "content": "**O3** Partiellderiverte: $f_x=3x^2-y$ og $f_y=-x+2y$. I punktet $(1,2)$:\n$$f(1,2)=1-2+4=3,\\qquad f_x(1,2)=3-2=1,\\qquad f_y(1,2)=-1+4=3.$$\nTangentplanet (lineariseringen) er\n$$z=f(1,2)+f_x(1,2)(x-1)+f_y(1,2)(y-2)=3+1\\cdot(x-1)+3\\cdot(y-2)=x+3y-4.$$\nAnslag for $f(1{,}1;\\,1{,}9)$ ved innsetting $(x,y)=(1{,}1;\\,1{,}9)$, dvs. $x-1=\\tfrac{1}{10}$, $y-2=-\\tfrac{1}{10}$:\n$$f(1{,}1;\\,1{,}9)\\approx 3+1\\cdot\\tfrac{1}{10}+3\\cdot\\left(-\\tfrac{1}{10}\\right)=3-\\tfrac{2}{10}=\\frac{14}{5}.$$\n**Konklusjon:** tangentplanet er $z=x+3y-4$, og lineariseringen gir $f(1{,}1;\\,1{,}9)\\approx\\tfrac{14}{5}$."
+        }
+      ]
+    },
+    {
+      "id": "mat1110-7-2-sol-o4",
+      "type": "collapsible",
+      "title": "Løsningsforslag O4 (implisitt funksjonsteorem)",
+      "buttonText": "Vis løsningsforslag O4",
+      "content": [
+        {
+          "id": "mat1110-7-2-o4-tip",
+          "type": "tip",
+          "title": "Vekting og tid",
+          "content": "~20 min. Føringspoenget er **forutsetningssjekken** — den er halve uttellingen: vis *først* at punktet ligger på kurven ($g(1,1)=0$), *så* at $\\partial g/\\partial y\\ne0$, og **navngi implisitt funksjonsteorem**. Pass på minustegnet i $\\varphi'$."
+        },
+        {
+          "id": "mat1110-7-2-o4",
+          "type": "text",
+          "content": "**O4** Sett $g(x,y)=x^2y+y^2-2$, slik at likningen er $g(x,y)=0$.\n\n**Forutsetningssjekk:** $g(1,1)=1\\cdot1+1-2=0$, så $(1,1)$ ligger på kurven. Videre er\n$$\\frac{\\partial g}{\\partial y}=x^2+2y,\\qquad \\frac{\\partial g}{\\partial y}(1,1)=1+2=3\\ne0.$$\n**Ifølge implisitt funksjonsteorem** finnes det da en glatt funksjon $y=\\varphi(x)$ nær $x=1$ med $\\varphi(1)=1$ og $g(x,\\varphi(x))=0$.\n\n**Derivasjon:** med $\\dfrac{\\partial g}{\\partial x}=2xy$, altså $\\dfrac{\\partial g}{\\partial x}(1,1)=2$, gir formelen\n$$\\varphi'(1)=-\\frac{\\partial g/\\partial x}{\\partial g/\\partial y}\\Big|_{(1,1)}=-\\frac{2}{3}.$$\n**Konklusjon:** likningen definerer $y=\\varphi(x)$ nær $(1,1)$, og $\\varphi'(1)=-\\tfrac{2}{3}$."
+        }
+      ]
+    },
+    {
+      "id": "mat1110-7-2-sol-o5",
+      "type": "collapsible",
+      "title": "Løsningsforslag O5 (stasjonære + Hesse)",
+      "buttonText": "Vis løsningsforslag O5",
+      "content": [
+        {
+          "id": "mat1110-7-2-o5-tip",
+          "type": "tip",
+          "title": "Vekting og tid",
+          "content": "~20 min. Føringspoengene: reduser $\\nabla f=0$ til **én variabel** uten å miste løsninger, og sett opp **Hesse-matrisen eksplisitt** i hvert punkt før du klassifiserer."
+        },
+        {
+          "id": "mat1110-7-2-o5",
+          "type": "text",
+          "content": "**O5** Gradienten: $\\nabla f=(3x^2-3y,\\ 3y^2-3x)$. Stasjonære punkter løser\n$$3x^2-3y=0\\ \\Rightarrow\\ y=x^2,\\qquad 3y^2-3x=0\\ \\Rightarrow\\ x=y^2.$$\nSett $y=x^2$ inn i $x=y^2$: $x=(x^2)^2=x^4$, altså $x^4-x=0\\Rightarrow x(x^3-1)=0$. Reelle løsninger $x=0$ og $x=1$, med tilhørende $y=x^2$: punktene er $(0,0)$ og $(1,1)$.\n\n**Hesse-matrisen:** $f_{xx}=6x,\\ f_{yy}=6y,\\ f_{xy}=-3$, så\n$$H=\\begin{pmatrix}6x&-3\\\\-3&6y\\end{pmatrix},\\qquad D=f_{xx}f_{yy}-f_{xy}^2=36xy-9.$$\n\n- I $(0,0)$: $D=36\\cdot0-9=-9<0$ $\\Rightarrow$ **sadelpunkt**.\n- I $(1,1)$: $D=36-9=27>0$ og $f_{xx}=6>0$ $\\Rightarrow$ **lokalt minimum**, med verdi $f(1,1)=1-3+1=-1$.\n\n**Konklusjon:** $(0,0)$ er et sadelpunkt, og $(1,1)$ er et lokalt minimum med $f(1,1)=-1$."
+        }
+      ]
+    },
+    {
+      "id": "mat1110-7-2-selvdiagnose",
+      "type": "text",
+      "content": "**Selvdiagnose — kryss av det du fikk til uten å slå opp:**\n\n- ☐ Merket alle radoperasjoner i $[A\\,|\\,I]$ og skrev «radekvivalent med $I_3$ $\\Rightarrow$ basis»\n- ☐ GJENBRUKTE $A^{-1}$ i O1b i stedet for å radredusere på nytt\n- ☐ Fant begge egenvektorene fra $(B-\\lambda I)v=0$ (ikke gjettet) og kontrollerte med spor/determinant\n- ☐ Evaluerte gradienten i utviklingspunktet før tangentplanet i O3\n- ☐ Gjorde forutsetningssjekken ($g(1,1)=0$ og $\\partial g/\\partial y\\ne0$) og navnga implisitt funksjonsteorem i O4\n- ☐ Reduserte $\\nabla f=0$ til én variabel uten å miste punkter, og satte opp Hesse eksplisitt i O5\n- ☐ Ga eksakte svar hele veien ($\\tfrac{14}{5}$, $-\\tfrac{2}{3}$, $-1$)"
+    },
+    {
+      "id": "mat1110-7-2-symbolliste",
+      "type": "collapsible",
+      "title": "Symbol- og formelliste",
+      "buttonText": "Vis symboler og formler",
+      "content": [
+        {
+          "id": "mat1110-7-2-symbolliste-text",
+          "type": "text",
+          "content": "## Symbol- og formelliste\n\n*Oppslagsverk — alt her forklares i teorikapitlene settet dekker.*\n\n| Symbol | Betydning |\n|---|---|\n| $[A\\,|\\,I_n]$ | Oppsett for invers ved radreduksjon |\n| $\\overset{\\,II-2I\\,}{\\sim}$ | Radekvivalens med merket radoperasjon |\n| $\\det(\\lambda I - A) = 0$ | Egenverdibetingelsen |\n| $\\lambda$ | Egenverdi |\n| $\\nabla f$ | Gradienten |\n| $\\dfrac{\\partial f}{\\partial x}$ | Partiellderivert |\n| $F'$ | Jacobi-matrisen (linearisering, funksjonsteorem) |\n| $D = f_{xx}f_{yy} - f_{xy}^2$ | Hesse-determinanten |\n| $\\mathbb{R}^n$ | Rommet av reelle $n$-vektorer |\n\n**Linearisering:** $f(x)\\approx f(a) + \\nabla f(a)\\cdot(x-a)$. **Annenderiverttesten:** $D<0 \\Rightarrow$ sadel; $D>0,\\ f_{xx}>0 \\Rightarrow$ min; $D>0,\\ f_{xx}<0 \\Rightarrow$ maks.\n\nFull formelliste finnes i teorikapitlene settet dekker: [kap. 1.1](/bok/mat1110/mat1110-1-1)–[kap. 1.4](/bok/mat1110/mat1110-1-4), [kap. 2.1](/bok/mat1110/mat1110-2-1)–[kap. 2.3](/bok/mat1110/mat1110-2-3), [kap. 3.1](/bok/mat1110/mat1110-3-1) og [kap. 6.1](/bok/mat1110/mat1110-6-1)."
+        }
+      ]
+    }
+  ],
+  "exercises": []
+}

@@ -1,0 +1,380 @@
+{
+  "id": "mat1110-6-6",
+  "courseId": "mat1110",
+  "chapterNumber": "6.6",
+  "title": "Differensiallikninger: separable og lineære første ordens",
+  "description": "Standardmetodene for første ordens differensiallikninger — pensumkrav uten arkivforekomster, dekket kompakt med integrasjonsteknikk.",
+  "estimatedMinutes": 45,
+  "competenceGoals": [
+    "løse separable første ordens differensiallikninger ved å skille variablene og integrere, og finne konstantløsningene",
+    "løse lineære første ordens likninger med integrerende faktor",
+    "løse initialverdiproblemer og kontrollere løsningen ved innsetting"
+  ],
+  "content": [
+    {
+      "id": "mat1110-6-6-tip",
+      "type": "tip",
+      "title": "Eksamensvinkel",
+      "content": "**Pensumkrav uten arkivforekomster — dekket kompakt, merket ærlig.**\n\n- **Første ordens differensiallikninger** — separable og lineære — har **0 forekomster i 22 arkiverte sett**. Temaet står i emnebeskrivelsen, så vi dekker det med standardmetode, men merker det ærlig: **«ikke arkivbelagt — sjekk nyere sett».** Jag ikke en sjanger som ikke har vist seg; lær formen og metoden.\n- Systemversjonen $x'=Ax$ kobler til egenverdier ([kap. 6.1](/bok/mat1110/mat1110-6-1)) dersom den skulle dukke opp — der brukes egenvektorene direkte.\n- Metoden er kjent fra S2 ([Separable differensiallikninger](/bok/s2/s2-2-2), [Lineære differensiallikninger](/bok/s2/s2-2-3)) — dette kapitlet systematiserer og repeterer den kompakt.\n\n**Prioritet: kjenne (pensumdekning, ikke arkivbelagt).** Målet er at du behersker de to standardmetodene — separasjon og integrerende faktor — og kan kontrollere en løsning ved innsetting."
+    },
+    {
+      "id": "mat1110-6-6-fork",
+      "type": "text",
+      "content": "**Forkunnskaper.** Dette kapitlet bygger på S2: [Separable differensiallikninger](/bok/s2/s2-2-2) og [Lineære differensiallikninger](/bok/s2/s2-2-3) — samme to metoder, systematisert på universitetsnivå. Enkeltvariabel integrasjonsteknikk *(MAT1100 Del 4 — forgjengerbok, ikke bygget ennå; aktiver lenke når den finnes)* forutsettes.\n\nKapitlet kan leses uavhengig av resten av MAT1110, men systemversjonen $x'=Ax$ nederst gjenbruker egenverdier og egenvektorer fra [kap. 6.1](/bok/mat1110/mat1110-6-1)–[6.2](/bok/mat1110/mat1110-6-2)."
+    },
+    {
+      "id": "mat1110-6-6-motiv",
+      "type": "text",
+      "content": "En **differensiallikning** knytter en ukjent funksjon $y(x)$ til sine egne deriverte. Slike likninger beskriver alt som endrer seg etter en regel: befolkningsvekst, radioaktiv nedbrytning, avkjøling, strømkretser. Å «løse» likningen er å finne funksjonen $y(x)$ som passer.\n\nTo typer første ordens likninger har hver sin standardmetode. En **separabel** likning kan skrives slik at alt med $y$ havner på én side og alt med $x$ på den andre — så integrerer vi begge sider. En **lineær** likning $y' + p(x)y = q(x)$ løses med en **integrerende faktor** som gjør venstresiden til en ferdig derivert. Vi bygger dette i tre løkker: (1) hva en løsning er, og separable likninger; (2) lineære likninger og integrerende faktor; (3) initialverdiproblemer, konstantløsninger og modeller."
+    },
+    {
+      "id": "mat1110-6-6-l1",
+      "type": "text",
+      "content": "## Løkke 1 — Differensiallikninger og separasjon (~16 min)"
+    },
+    {
+      "id": "mat1110-6-6-def-de",
+      "type": "definition",
+      "title": "Første ordens differensiallikning",
+      "content": "En **første ordens differensiallikning** knytter en ukjent funksjon $y(x)$ til sin førstederiverte, på formen $y' = f(x,y)$ (eller omskrevet dit). «Første orden» betyr at bare $y'$ inngår, ikke høyere deriverte. En **løsning** er en funksjon som gjør likningen sann for alle $x$ i et intervall."
+    },
+    {
+      "id": "mat1110-6-6-def-losning",
+      "type": "definition",
+      "title": "Løsning og verifikasjon ved innsetting",
+      "content": "En funksjon $y(x)$ er en **løsning** hvis den oppfyller likningen når den settes inn. Du **kontrollerer** en foreslått løsning ved å regne ut $y'$ og sette inn: går venstre og høyre side opp, er den en løsning. Innsettingskontroll er alltid en gyldig sluttsjekk — og noen ganger hele oppgaven («vis at $y=\\ldots$ er en løsning»)."
+    },
+    {
+      "id": "mat1110-6-6-def-generellpartikulaer",
+      "type": "definition",
+      "title": "Generell og partikulær løsning",
+      "content": "Den **generelle løsningen** til en første ordens likning inneholder én fri konstant $C$ og beskriver **alle** løsninger (en kurveskare). En **partikulær løsning** er én bestemt kurve, valgt ved å feste $C$ — typisk fra en initialbetingelse. Første ordens ⇒ én konstant."
+    },
+    {
+      "id": "mat1110-6-6-def-separabel",
+      "type": "definition",
+      "title": "Separabel likning",
+      "content": "En likning er **separabel** hvis høyresiden faktoriserer som $y' = f(x)\\,g(y)$ — én faktor bare i $x$, én bare i $y$. Da kan variablene skilles: $\\dfrac{dy}{g(y)} = f(x)\\,dx$, og begge sider integreres hver for seg. Dette er den ene av kapitlets to standardmetoder."
+    },
+    {
+      "id": "mat1110-6-6-thm-sepmetode",
+      "type": "theorem",
+      "title": "Løsningsmetode for separable likninger",
+      "content": "For $y' = f(x)g(y)$:\n\n1. **Sjekk konstantløsninger:** hver $y_0$ med $g(y_0)=0$ gir en konstant løsning $y\\equiv y_0$.\n2. **Separer:** $\\dfrac{dy}{g(y)} = f(x)\\,dx$ (gyldig der $g(y)\\ne 0$).\n3. **Integrer** begge sider (én konstant $C$ holder).\n4. **Løs for $y$** om mulig, og bestem $C$ fra en eventuell initialbetingelse.\n\nSteg 1 glemmes ofte — konstantløsningene mistes i divisjonen med $g(y)$."
+    },
+    {
+      "id": "mat1110-6-6-ex1",
+      "type": "example",
+      "title": "Eksempel 1: Separabel likning",
+      "problem": "Løs initialverdiproblemet $y' = xy,\\ y(0) = 1$.",
+      "solution": "Likningen er separabel med $f(x)=x$ og $g(y)=y$.\n\n**Konstantløsning:** $g(y)=y=0$ gir $y\\equiv 0$, men den passer ikke $y(0)=1$, så vi ser bort fra den her.\n\n**Separer og integrer** (for $y\\ne 0$):\n$$\\frac{dy}{y} = x\\,dx \\quad\\Rightarrow\\quad \\int \\frac{dy}{y} = \\int x\\,dx \\quad\\Rightarrow\\quad \\ln|y| = \\frac{x^2}{2} + C.$$\n\n**Løs for $y$:** $y = e^{x^2/2 + C} = A\\,e^{x^2/2}$ (med $A = e^C > 0$). **Bestem $A$** fra $y(0)=1$: $1 = A\\,e^0 = A$, så $A=1$.\n\n**Konklusjon:** $y(x) = e^{x^2/2}$. (Verifikasjon: $y' = x\\,e^{x^2/2} = x\\,y$ ✓, og $y(0)=1$ ✓.)"
+    },
+    {
+      "id": "mat1110-6-6-l1e-w",
+      "type": "exercise",
+      "exercise": {
+        "id": "mat1110-6-6-l1e",
+        "number": "1",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "Løs initialverdiproblemet $y' = 3y,\\ y(0) = 5$, og kontroller løsningen.",
+        "solution": "Separabel med $f(x)=3$, $g(y)=y$. **Konstantløsning** $y\\equiv 0$ passer ikke $y(0)=5$.\n\n**Separer og integrer:** $\\dfrac{dy}{y} = 3\\,dx \\Rightarrow \\ln|y| = 3x + C \\Rightarrow y = A\\,e^{3x}$.\n\n**Bestem $A$:** $y(0)=A=5$, så $y = 5e^{3x}$.\n\n**Verifikasjon:** $y' = 15 e^{3x} = 3\\cdot 5e^{3x} = 3y$ ✓, og $y(0)=5$ ✓.\n\n**Konklusjon:** $y(x) = 5e^{3x}$ (ren eksponentiell vekst).",
+        "hints": [
+          "Separer: $\\tfrac{dy}{y} = 3\\,dx$, integrer begge sider.",
+          "Løs for $y$ og bruk $y(0)=5$ til å finne konstanten."
+        ]
+      }
+    },
+    {
+      "id": "mat1110-6-6-l2",
+      "type": "text",
+      "content": "## Løkke 2 — Lineære likninger og integrerende faktor (~16 min)"
+    },
+    {
+      "id": "mat1110-6-6-def-linear",
+      "type": "definition",
+      "title": "Lineær første ordens likning",
+      "content": "En **lineær første ordens** likning har formen\n\n$$y' + p(x)\\,y = q(x),$$\n\nder $y$ og $y'$ bare opptrer i første potens (ingen $y^2$, $\\sqrt{y}$ osv.). Er $q(x)=0$, kalles den **homogen**; ellers **inhomogen**. Standardmetoden er integrerende faktor."
+    },
+    {
+      "id": "mat1110-6-6-def-intfaktor",
+      "type": "definition",
+      "title": "Integrerende faktor",
+      "content": "En **integrerende faktor** er funksjonen $\\mu(x) = e^{\\int p(x)\\,dx}$. Ganger man likningen $y' + p(x)y = q(x)$ med $\\mu$, blir venstresiden nøyaktig den deriverte av et produkt:\n\n$$\\mu(x)\\,y' + \\mu(x)p(x)\\,y = \\bigl(\\mu(x)\\,y\\bigr)'.$$\n\nDa kan begge sider integreres direkte. Faktoren er konstruert slik at dette produktmønsteret oppstår — det er hele trikset."
+    },
+    {
+      "id": "mat1110-6-6-thm-linmetode",
+      "type": "theorem",
+      "title": "Løsningsmetode for lineære likninger",
+      "content": "For $y' + p(x)y = q(x)$:\n\n1. **Regn integrerende faktor** $\\mu = e^{\\int p\\,dx}$ (dropp konstanten i eksponenten).\n2. **Gang gjennom:** venstresiden blir $(\\mu y)'$, så likningen er $(\\mu y)' = \\mu\\,q$.\n3. **Integrer:** $\\mu\\,y = \\int \\mu\\,q\\,dx + C$.\n4. **Del på $\\mu$** for å få $y$, og bestem $C$ fra en initialbetingelse.\n\nFortegnsfeil i $\\int p$ er den vanligste feilen — dobbeltsjekk eksponenten."
+    },
+    {
+      "id": "mat1110-6-6-ex2",
+      "type": "example",
+      "title": "Eksempel 2: Lineær likning med integrerende faktor",
+      "problem": "Løs initialverdiproblemet $y' + 2y = e^{-x},\\ y(0) = 3$.",
+      "solution": "Likningen er lineær med $p(x) = 2$ og $q(x) = e^{-x}$.\n\n**Integrerende faktor:** $\\mu = e^{\\int 2\\,dx} = e^{2x}$.\n\n**Gang gjennom** med $e^{2x}$: venstresiden blir $(e^{2x}y)'$, og høyresiden $e^{2x}\\cdot e^{-x} = e^{x}$:\n$$\\bigl(e^{2x}y\\bigr)' = e^{x}.$$\n\n**Integrer:** $e^{2x}y = \\int e^{x}\\,dx = e^{x} + C$. **Del på $e^{2x}$:**\n$$y = e^{-x} + C\\,e^{-2x}.$$\n\n**Bestem $C$** fra $y(0)=3$: $3 = e^0 + C\\,e^0 = 1 + C \\Rightarrow C = 2$.\n\n**Konklusjon:** $y(x) = e^{-x} + 2e^{-2x}$. (Verifikasjon: $y' = -e^{-x} - 4e^{-2x}$, og $y' + 2y = -e^{-x} - 4e^{-2x} + 2e^{-x} + 4e^{-2x} = e^{-x}$ ✓; $y(0)=1+2=3$ ✓.)"
+    },
+    {
+      "id": "mat1110-6-6-l2e-w",
+      "type": "exercise",
+      "exercise": {
+        "id": "mat1110-6-6-l2e",
+        "number": "2",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "Løs initialverdiproblemet $y' + y = x,\\ y(0) = 1$ med integrerende faktor.",
+        "solution": "Lineær med $p(x)=1$, $q(x)=x$. **Integrerende faktor:** $\\mu = e^{\\int 1\\,dx} = e^{x}$.\n\n**Gang gjennom:** $(e^{x}y)' = x e^{x}$. **Integrer** (delvis integrasjon på høyre side): $\\int x e^x\\,dx = x e^x - e^x + C = (x-1)e^x + C$. Altså\n$$e^{x}y = (x-1)e^{x} + C \\quad\\Rightarrow\\quad y = x - 1 + C e^{-x}.$$\n\n**Bestem $C$** fra $y(0)=1$: $1 = 0 - 1 + C \\Rightarrow C = 2$.\n\n**Konklusjon:** $y(x) = x - 1 + 2e^{-x}$. (Verifikasjon: $y' = 1 - 2e^{-x}$, $y'+y = 1 - 2e^{-x} + x - 1 + 2e^{-x} = x$ ✓; $y(0)=-1+2=1$ ✓.)",
+        "hints": [
+          "Integrerende faktor $\\mu = e^{\\int 1\\,dx} = e^x$; venstresiden blir $(e^x y)'$.",
+          "Integrer $\\int x e^x\\,dx$ ved delvis integrasjon, del på $e^x$, og bruk $y(0)=1$."
+        ]
+      }
+    },
+    {
+      "id": "mat1110-6-6-l3",
+      "type": "text",
+      "content": "## Løkke 3 — Initialverdier, konstantløsninger og modeller (~13 min)"
+    },
+    {
+      "id": "mat1110-6-6-def-ivp",
+      "type": "definition",
+      "title": "Initialverdiproblem",
+      "content": "Et **initialverdiproblem** (IVP) er en differensiallikning sammen med en initialbetingelse $y(x_0) = y_0$. Betingelsen fester den frie konstanten $C$ og plukker ut én bestemt (partikulær) løsning fra den generelle løsningsskaren. For en «snill» første ordens likning er løsningen entydig."
+    },
+    {
+      "id": "mat1110-6-6-def-konstant",
+      "type": "definition",
+      "title": "Konstantløsning (likevektsløsning)",
+      "content": "En **konstantløsning** er en løsning $y \\equiv y_0$ som ikke endrer seg ($y'=0$). For en separabel likning $y' = f(x)g(y)$ er dette nettopp nullpunktene til $g$: hver $y_0$ med $g(y_0)=0$ gir en konstant løsning. De mistes lett fordi man deler på $g(y)$ i separasjonen — sjekk alltid dem separat."
+    },
+    {
+      "id": "mat1110-6-6-def-modell",
+      "type": "definition",
+      "title": "Eksponentiell vekst og avkjøling",
+      "content": "Standardmodellen $y' = ky$ (rate proporsjonal med mengden) har løsning $y = y_0 e^{kx}$: **vekst** for $k>0$, **nedbrytning** for $k<0$. Newtons avkjølingslov $y' = -k(y - y_\\infty)$ (temperaturen nærmer seg omgivelsen $y_\\infty$) er en lineær likning med samme eksponentielle karakter. Disse er de vanligste anvendelsene."
+    },
+    {
+      "id": "mat1110-6-6-def-system",
+      "type": "definition",
+      "title": "Lineært system $x' = Ax$ (kobling til egenverdier)",
+      "content": "Et **system** av lineære første ordens likninger skrives $x'(t) = A\\,x(t)$. Har $A$ egenverdier $\\lambda_i$ med egenvektorer $v_i$, er $x(t) = \\sum c_i e^{\\lambda_i t} v_i$ løsningen — hver egenretning utvikler seg eksponentielt med sin egenverdi. Dette knytter differensiallikninger direkte til egenverditeorien i kap. 6.1–6.2 (kjennskap)."
+    },
+    {
+      "id": "mat1110-6-6-ex3",
+      "type": "example",
+      "title": "Eksempel 3: Separabel likning med konstantløsning",
+      "problem": "Finn alle løsninger av $y' = -2xy^2$, og løs deretter initialverdiproblemet med $y(0) = 1$.",
+      "solution": "Separabel med $f(x) = -2x$, $g(y) = y^2$.\n\n**Konstantløsning:** $g(y) = y^2 = 0$ gir $y \\equiv 0$ — en gyldig løsning ($y'=0 = -2x\\cdot 0$).\n\n**Ikke-konstante løsninger** (for $y\\ne 0$): separer og integrer\n$$\\frac{dy}{y^2} = -2x\\,dx \\quad\\Rightarrow\\quad -\\frac{1}{y} = -x^2 + C \\quad\\Rightarrow\\quad \\frac{1}{y} = x^2 - C.$$\nSkriv $-C = D$: $y = \\dfrac{1}{x^2 + D}$.\n\n**Initialverdi** $y(0)=1$: $1 = \\dfrac{1}{0 + D} \\Rightarrow D = 1$. Altså $y = \\dfrac{1}{x^2 + 1}$.\n\n**Konklusjon:** den generelle løsningen er $y = \\dfrac{1}{x^2 + D}$ pluss konstantløsningen $y\\equiv 0$; IVP-løsningen er $y(x) = \\dfrac{1}{x^2 + 1}$. (Verifikasjon: $y' = -\\dfrac{2x}{(x^2+1)^2} = -2x\\,y^2$ ✓; $y(0)=1$ ✓.)"
+    },
+    {
+      "id": "mat1110-6-6-l3e-w",
+      "type": "exercise",
+      "exercise": {
+        "id": "mat1110-6-6-l3e",
+        "number": "3",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "Løs initialverdiproblemet $y' - y = 2e^{x},\\ y(0) = 0$, og kontroller ved innsetting.",
+        "solution": "Lineær med $p(x) = -1$, $q(x) = 2e^{x}$. **Integrerende faktor:** $\\mu = e^{\\int (-1)\\,dx} = e^{-x}$.\n\n**Gang gjennom:** $(e^{-x}y)' = e^{-x}\\cdot 2e^{x} = 2$. **Integrer:** $e^{-x}y = 2x + C$, så $y = (2x + C)e^{x}$.\n\n**Bestem $C$** fra $y(0)=0$: $0 = (0 + C)\\cdot 1 = C \\Rightarrow C = 0$. Altså $y = 2x\\,e^{x}$.\n\n**Verifikasjon:** $y' = 2e^x + 2x e^x$, og $y' - y = 2e^x + 2xe^x - 2xe^x = 2e^x$ ✓; $y(0)=0$ ✓.\n\n**Konklusjon:** $y(x) = 2x\\,e^{x}$.",
+        "hints": [
+          "Merk fortegnet: $p(x)=-1$, så $\\mu = e^{-x}$.",
+          "Etter multiplikasjon blir høyresiden konstant $2$; integrer og bruk $y(0)=0$."
+        ]
+      }
+    },
+    {
+      "id": "mat1110-6-6-warn",
+      "type": "warning",
+      "title": "Typiske feil",
+      "content": "- **Miste konstantløsningene.** Ved separasjon deler man på $g(y)$; hver $y_0$ med $g(y_0)=0$ er en egen løsning som forsvinner i divisjonen. Sjekk dem separat.\n- **Plassere integrasjonskonstanten feil.** Skriv $+C$ **når** du integrerer, ikke etterpå — og bestem den fra initialbetingelsen **etter** at du har løst for $y$.\n- **Fortegnsfeil i $\\int p$.** Den integrerende faktoren $e^{\\int p\\,dx}$ er følsom for fortegnet på $p$; en glemt minus gir feil faktor og feil svar.\n- **Ikke kontrollere løsningen.** Sett den inn i likningen til slutt — det fanger algebrafeil og er ofte selve oppgaven («vis at $y=\\ldots$ løser»).\n- **Behandle en ikke-separabel/ikke-lineær likning med feil metode.** Sjekk formen først: faktoriserer høyresiden ($f(x)g(y)$)? Er den lineær ($y'+p y = q$)? Velg metode deretter."
+    },
+    {
+      "id": "mat1110-6-6-pulje",
+      "type": "text",
+      "content": "## Eksamensrettet oppgavepulje\n\nStigende vanskegrad. Velg riktig metode (separasjon eller integrerende faktor), husk konstantløsninger, og kontroller sluttsvaret ved innsetting."
+    },
+    {
+      "id": "mat1110-6-6-p1-w",
+      "type": "exercise",
+      "exercise": {
+        "id": "mat1110-6-6-p1",
+        "number": "4",
+        "type": "classic",
+        "difficulty": "lett",
+        "task": "Avgjør om likningene er separable, lineære eller begge:\n\n**a)** $y' = x^2 y$\n\n**b)** $y' + 3y = \\sin x$.",
+        "solution": "**a)** $y' = x^2 y = f(x)g(y)$ med $f(x)=x^2$, $g(y)=y$ — **separabel**. Den er også lineær (kan skrives $y' - x^2 y = 0$, homogen), så **begge**.\n\n**b)** $y' + 3y = \\sin x$ er på formen $y' + p(x)y = q(x)$ med $p=3$, $q=\\sin x$ — **lineær** (inhomogen). Den er ikke separabel, fordi høyresiden $\\sin x - 3y$ ikke faktoriserer i en ren $x$-del ganger en ren $y$-del.\n\n**Konklusjon:**\n\n**a)** separabel og lineær\n\n**b)** lineær (ikke separabel).",
+        "hints": [
+          "Separabel: høyresiden faktoriserer som $f(x)g(y)$.",
+          "Lineær: formen $y' + p(x)y = q(x)$, med $y$ i første potens."
+        ]
+      }
+    },
+    {
+      "id": "mat1110-6-6-p2-w",
+      "type": "exercise",
+      "exercise": {
+        "id": "mat1110-6-6-p2",
+        "number": "5",
+        "type": "classic",
+        "difficulty": "lett",
+        "task": "Løs $y' = -4y,\\ y(0) = 2$ (eksponentiell nedbrytning).",
+        "solution": "Separabel/lineær med rate $k=-4$. Standardmodellen $y'=ky$ har løsning $y = y_0 e^{kx}$:\n$$y = 2e^{-4x}.$$\n**Verifikasjon:** $y' = -8e^{-4x} = -4\\cdot 2e^{-4x} = -4y$ ✓; $y(0)=2$ ✓.\n\n**Konklusjon:** $y(x) = 2e^{-4x}$ — avtar mot $0$ siden $k<0$.",
+        "hints": [
+          "$y'=ky$ har løsning $y_0 e^{kx}$.",
+          "Her er $k=-4$ og $y_0=2$."
+        ]
+      }
+    },
+    {
+      "id": "mat1110-6-6-p3-w",
+      "type": "exercise",
+      "exercise": {
+        "id": "mat1110-6-6-p3",
+        "number": "6",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "Løs det separable initialverdiproblemet $y' = \\dfrac{x}{y},\\ y(0) = 2$.",
+        "solution": "Separabel: $y\\,dy = x\\,dx$. Integrer: $\\dfrac{y^2}{2} = \\dfrac{x^2}{2} + C$, altså $y^2 = x^2 + C_1$ (med $C_1 = 2C$).\n\n**Initialverdi** $y(0)=2$: $4 = 0 + C_1 \\Rightarrow C_1 = 4$. Altså $y^2 = x^2 + 4$, og siden $y(0)=2>0$ tar vi den positive roten:\n$$y = \\sqrt{x^2 + 4}.$$\n**Verifikasjon:** $y' = \\dfrac{x}{\\sqrt{x^2+4}} = \\dfrac{x}{y}$ ✓; $y(0)=2$ ✓.\n\n**Konklusjon:** $y(x) = \\sqrt{x^2 + 4}$.",
+        "hints": [
+          "Separer til $y\\,dy = x\\,dx$ og integrer begge sider.",
+          "Velg fortegn på kvadratroten slik at $y(0)=2>0$ stemmer."
+        ]
+      }
+    },
+    {
+      "id": "mat1110-6-6-p4-w",
+      "type": "exercise",
+      "exercise": {
+        "id": "mat1110-6-6-p4",
+        "number": "7",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "Løs den lineære likningen $y' + \\dfrac{1}{x}y = x,\\ y(1) = 2$ for $x>0$.",
+        "solution": "Lineær med $p(x) = \\dfrac1x$, $q(x)=x$. **Integrerende faktor:** $\\mu = e^{\\int \\frac1x\\,dx} = e^{\\ln x} = x$ (for $x>0$).\n\n**Gang gjennom:** $(x y)' = x\\cdot x = x^2$. **Integrer:** $xy = \\dfrac{x^3}{3} + C$, så $y = \\dfrac{x^2}{3} + \\dfrac{C}{x}$.\n\n**Bestem $C$** fra $y(1)=2$: $2 = \\dfrac13 + C \\Rightarrow C = \\dfrac53$. Altså $y = \\dfrac{x^2}{3} + \\dfrac{5}{3x}$.\n\n**Verifikasjon** (i $x=1$): $y(1) = \\tfrac13 + \\tfrac53 = 2$ ✓.\n\n**Konklusjon:** $y(x) = \\dfrac{x^2}{3} + \\dfrac{5}{3x}$ for $x>0$.",
+        "hints": [
+          "$\\int \\tfrac1x\\,dx = \\ln x$, så $\\mu = x$.",
+          "Venstresiden blir $(xy)'$; integrer $\\int x^2\\,dx$ og bruk $y(1)=2$."
+        ]
+      }
+    },
+    {
+      "id": "mat1110-6-6-p5-w",
+      "type": "exercise",
+      "exercise": {
+        "id": "mat1110-6-6-p5",
+        "number": "8",
+        "type": "classic",
+        "difficulty": "vanskelig",
+        "task": "En bestand modelleres av $y' = 0{,}5\\,y\\,(1 - y)$ (logistisk vekst, $y$ i millioner).\n\n**a)** Finn konstantløsningene.\n\n**b)** Løs initialverdiproblemet med $y(0) = \\tfrac12$ ved separasjon og delbrøk.",
+        "solution": "**a)** Separabel med $g(y) = 0{,}5\\,y(1-y)$. Nullpunkter: $y = 0$ og $y = 1$. **Konstantløsninger:** $y\\equiv 0$ og $y\\equiv 1$ (likevektene — utdødd og full kapasitet).\n\n**b)** For $0<y<1$, separer: $\\dfrac{dy}{y(1-y)} = 0{,}5\\,dx$. Delbrøk: $\\dfrac{1}{y(1-y)} = \\dfrac1y + \\dfrac{1}{1-y}$, så\n$$\\int\\left(\\frac1y + \\frac{1}{1-y}\\right)dy = \\ln y - \\ln(1-y) = \\ln\\frac{y}{1-y}.$$\nHøyre side: $\\int 0{,}5\\,dx = 0{,}5x + C$. Altså $\\ln\\dfrac{y}{1-y} = 0{,}5x + C$, som gir $\\dfrac{y}{1-y} = A e^{0{,}5x}$.\n\n**Initialverdi** $y(0)=\\tfrac12$: $\\dfrac{1/2}{1/2} = 1 = A$, så $A=1$ og $\\dfrac{y}{1-y} = e^{0{,}5x}$. Løs for $y$:\n$$y = \\frac{e^{0{,}5x}}{1 + e^{0{,}5x}} = \\frac{1}{1 + e^{-0{,}5x}}.$$\n\n**Konklusjon:** konstantløsninger $y\\equiv 0,\\ y\\equiv 1$; IVP-løsning $y(x) = \\dfrac{1}{1 + e^{-0{,}5x}}$, som vokser fra $\\tfrac12$ mot likevekten $1$ når $x\\to\\infty$.",
+        "hints": [
+          "(a) Konstantløsninger er nullpunktene til $g(y)=0{,}5\\,y(1-y)$.",
+          "(b) Delbrøk $\\tfrac{1}{y(1-y)} = \\tfrac1y + \\tfrac{1}{1-y}$; integrer, løs for $y$, og bruk $y(0)=\\tfrac12$."
+        ]
+      }
+    },
+    {
+      "id": "mat1110-6-6-bb",
+      "type": "text",
+      "content": "## Begrepsbank\n\nKjernebegrepene fra kapitlet samlet som oppslag og flashcards.\n\n*Begrepsbanken er flashcard-/repetisjonsstoff — den gjentar det du nettopp har lest. Hopp trygt over ved førstegangslesing; tidsanslaget for kapitlet gjelder kjernestoffet.*"
+    },
+    {
+      "id": "mat1110-6-6-bb-orden",
+      "type": "definition",
+      "title": "Orden til en differensiallikning",
+      "content": "**Ordenen** er den høyeste deriverte som inngår. Dette kapitlet behandler bare **første ordens** ($y'$ høyest), som har én fri konstant i den generelle løsningen. Andreordens likninger ($y''$) har to konstanter og krever to initialbetingelser — utenfor dette kapitlet."
+    },
+    {
+      "id": "mat1110-6-6-bb-homogen",
+      "type": "definition",
+      "title": "Homogen og inhomogen lineær likning",
+      "content": "En lineær likning $y' + p(x)y = q(x)$ er **homogen** når $q(x)=0$ og **inhomogen** ellers. Den homogene delen $y' + p(x)y = 0$ er alltid separabel, med løsning $y = A\\,e^{-\\int p\\,dx}$. Den generelle løsningen av den inhomogene er «homogen løsning + én partikulær løsning»."
+    },
+    {
+      "id": "mat1110-6-6-bb-retningsfelt",
+      "type": "definition",
+      "title": "Retningsfelt",
+      "content": "Et **retningsfelt** tegner den lokale stigningen $y' = f(x,y)$ som små strek i $(x,y)$-planet. Løsningskurvene følger disse strekene. Retningsfeltet gir et kvalitativt bilde av løsningene uten å løse likningen — nyttig for å se likevekter og oppførsel (kjennskap)."
+    },
+    {
+      "id": "mat1110-6-6-bb-integralkurve",
+      "type": "definition",
+      "title": "Integralkurve",
+      "content": "En **integralkurve** er grafen til én bestemt løsning $y(x)$. Den generelle løsningen (med fri $C$) svarer til en hel **skare** av integralkurver som fyller planet uten å krysse hverandre; en initialbetingelse plukker ut den ene kurven som går gjennom $(x_0,y_0)$."
+    },
+    {
+      "id": "mat1110-6-6-bb-autonom",
+      "type": "definition",
+      "title": "Autonom likning",
+      "content": "En likning er **autonom** når høyresiden ikke avhenger eksplisitt av $x$: $y' = g(y)$. Da er den automatisk separabel, og konstantløsningene (nullpunktene til $g$) er **likevekter**. Eksponentiell vekst $y'=ky$ og logistisk vekst $y'=ky(1-y)$ er autonome."
+    },
+    {
+      "id": "mat1110-6-6-rep",
+      "type": "collapsible",
+      "title": "Repetisjon",
+      "buttonText": "Vis repetisjonsoppgaver",
+      "content": [
+        {
+          "id": "mat1110-6-6-rep1-w",
+          "type": "exercise",
+          "exercise": {
+            "id": "mat1110-6-6-rep1",
+            "number": "R1",
+            "type": "classic",
+            "difficulty": "lett",
+            "task": "(Fra [s2-2-2](/bok/s2/s2-2-2)) Løs den separable likningen $y' = 2xy$ (generell løsning).",
+            "solution": "Separer: $\\tfrac{dy}{y} = 2x\\,dx \\Rightarrow \\ln|y| = x^2 + C \\Rightarrow y = A e^{x^2}$. Konstantløsningen $y\\equiv 0$ er inkludert som $A=0$. Dette er samme separasjonsteknikk som i kapitlet, fra S2.",
+            "hints": [
+              "Separer $\\tfrac{dy}{y}=2x\\,dx$ og integrer."
+            ]
+          }
+        },
+        {
+          "id": "mat1110-6-6-rep2-w",
+          "type": "exercise",
+          "exercise": {
+            "id": "mat1110-6-6-rep2",
+            "number": "R2",
+            "type": "classic",
+            "difficulty": "lett",
+            "task": "(Fra [s2-2-3](/bok/s2/s2-2-3)) Hva er den integrerende faktoren til $y' + 3y = q(x)$?",
+            "solution": "$\\mu = e^{\\int 3\\,dx} = e^{3x}$. Ganger man likningen med $e^{3x}$, blir venstresiden $(e^{3x}y)'$. Dette er standardgrepet for lineære likninger, repetert fra S2.",
+            "hints": [
+              "$\\mu = e^{\\int p\\,dx}$ med $p=3$."
+            ]
+          }
+        },
+        {
+          "id": "mat1110-6-6-rep3-w",
+          "type": "exercise",
+          "exercise": {
+            "id": "mat1110-6-6-rep3",
+            "number": "R3",
+            "type": "classic",
+            "difficulty": "middels",
+            "task": "(Fra [kap. 6.1](/bok/mat1110/mat1110-6-1)) For systemet $x' = Ax$ med $A$ diagonaliserbar, hvordan ser løsningen ut?",
+            "solution": "Med egenverdier $\\lambda_i$ og egenvektorer $v_i$ er løsningen $x(t) = \\sum_i c_i e^{\\lambda_i t} v_i$ — hver egenretning vokser/avtar eksponentielt med sin egenverdi. Konstantene $c_i$ bestemmes fra initialtilstanden ved egenvektordekomponering (kap. 6.2).",
+            "hints": [
+              "Hver egenvektor $v_i$ gir et ledd $c_i e^{\\lambda_i t} v_i$."
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": "mat1110-6-6-symbol",
+      "type": "collapsible",
+      "title": "Symbol- og formelliste",
+      "buttonText": "Vis symboler og formler",
+      "content": [
+        {
+          "id": "mat1110-6-6-symbol-text",
+          "type": "text",
+          "content": "## Symbol- og formelliste\n\n*Oppslagsverk — alt her forklares underveis i kapitlet.*\n\n| Symbol | Betydning |\n|---|---|\n| $y' = f(x,y)$ | Første ordens differensiallikning |\n| $y' = f(x)g(y)$ | Separabel form |\n| $y' + p(x)y = q(x)$ | Lineær form |\n| $\\mu = e^{\\int p\\,dx}$ | Integrerende faktor |\n| $y(x_0)=y_0$ | Initialbetingelse |\n| $C$ | Fri konstant (én for første orden) |\n| $y\\equiv y_0$ | Konstant-/likevektsløsning |\n| $x'=Ax$ | Lineært system |\n\n**Separabel:** sjekk konstantløsninger ($g(y)=0$), så $\\displaystyle\\int\\frac{dy}{g(y)} = \\int f(x)\\,dx$.\n\n**Lineær (integrerende faktor):** $\\mu = e^{\\int p\\,dx}$; $(\\mu y)' = \\mu q$; $\\displaystyle \\mu y = \\int \\mu q\\,dx + C$.\n\n**Eksponentiell modell:** $y' = ky \\Rightarrow y = y_0 e^{kx}$.\n\n**System:** $x' = Ax \\Rightarrow x(t) = \\sum_i c_i e^{\\lambda_i t} v_i$ (egenverdier/egenvektorer).\n\n**Alltid:** kontroller sluttsvaret ved innsetting."
+        }
+      ]
+    }
+  ],
+  "exercises": []
+}

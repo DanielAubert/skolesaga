@@ -1,0 +1,462 @@
+{
+  "id": "mat1110-4-3",
+  "courseId": "mat1110",
+  "chapterNumber": "4.3",
+  "title": "Trippelintegral i sylinder- og kulekoordinater",
+  "description": "Velg koordinatsystem etter symmetri, løs skjæringen først, beskriv området med ulikheter og faktoriser integralet — volumsjangeren med fasitens disiplin.",
+  "estimatedMinutes": 60,
+  "competenceGoals": [
+    "sette opp trippelintegral i sylinder- og kulekoordinater med riktig volumelement (r henholdsvis ρ²sinφ)",
+    "velge koordinatsystem etter symmetri og løse skjæringen mellom to flater før oppsett",
+    "beskrive romområdet med eksplisitte ulikheter og faktorisere integralet når integranden separerer"
+  ],
+  "content": [
+    {
+      "id": "mat1110-4-3-tip",
+      "type": "tip",
+      "title": "Eksamensvinkel",
+      "content": "**Trippelintegral i sylinder- og kulekoordinater er volumsjangeren — halvparten av alle sett, og det garanterte følgesvennet til dobbeltintegralet.**\n\n- **Sjanger I** — trippelintegral i sylinder-/kulekoordinater — forekommer i **10 av 20 arkiverte sett (50 %)**. Offisiell fasit finnes (V2025 ×2; konte O5 løste skjæringen $\\sqrt{r^2+1}=\\sqrt{9-r^2} \\Rightarrow r = 2$).\n- Fire føringsgrep sensor teller: **(1)** velg koordinatsystem etter **symmetrien**, **(2)** **løs skjæringen** der to flater møtes (aldri gjett $z$-grensene), **(3)** skriv området med **eksplisitte ulikheter** for $r,\\theta,z$ (eller $\\rho,\\varphi,\\theta$), og **(4)** **faktoriser** integralet i et produkt av enkeltintegraler når integranden tillater det.\n- Det aller viktigste tallgrepet: **husk volumelementets faktor** — $r$ i sylinder, $\\rho^2\\sin\\varphi$ i kule. Glemmes den, er hele svaret galt.\n\n**Prioritet: høyeste.** Målet er at du velger riktig system, løser skjæringen, fører området som ulikheter og faktoriserer med riktig volumelement."
+    },
+    {
+      "id": "mat1110-4-3-fork",
+      "type": "text",
+      "content": "**Forkunnskaper.** Dette bygger på dobbeltintegralet og skjæringsteknikken fra [kap. 4.1](/bok/mat1110/mat1110-4-1) og polar-/skifteideen fra [kap. 4.2](/bok/mat1110/mat1110-4-2) — sylinder- og kulekoordinater er nettopp variabelskifter i tre dimensjoner, med hver sin Jacobideterminant. Volumtolkningen kjenner du fra [Volum av omdreiningslegemer](/bok/r2/r2-3-6).\n\n*Sist du var her (kap. 4.2):* sylinder- og kulekoordinatenes volumelementer $dV = r\\,dz\\,dr\\,d\\theta$ og $dV = \\rho^2\\sin\\varphi\\,d\\rho\\,d\\varphi\\,d\\theta$ er Jacobideterminantene til de to skiftene — den ekstra faktoren er samme fenomen som faktoren $r$ i polar."
+    },
+    {
+      "id": "mat1110-4-3-motiv",
+      "type": "text",
+      "content": "Et **trippelintegral** $\\iiint_V f\\,dV$ summerer en funksjon over en tredimensjonal kropp $V$. Med integranden $1$ gir det **volumet** av $V$. Akkurat som i planet velger vi koordinater etter symmetrien: er kroppen sylinder-, kjegle- eller paraboloideformet, bruker vi **sylinderkoordinater** ($r,\\theta,z$); er den kule- eller kjegleskallformet, bruker vi **kulekoordinater** ($\\rho,\\varphi,\\theta$). Riktig valg gjør grensene rette og integralet regnbart.\n\nVi går gjennom tre løkker: **(1)** sylinderkoordinater, **(2)** kulekoordinater, og **(3)** å løse skjæringen mellom to flater og faktorisere integralet. Hver løkke: **teori → eksempel → oppgaver**."
+    },
+    {
+      "id": "mat1110-4-3-l1",
+      "type": "text",
+      "content": "## Løkke 1 — Sylinderkoordinater (~18 min)"
+    },
+    {
+      "id": "mat1110-4-3-def-trippel",
+      "type": "definition",
+      "title": "Trippelintegral",
+      "content": "Summen av $f(x,y,z)$ ganget med små rombiter over en tredimensjonal kropp $V$:\n\n$$\\iiint_V f(x,y,z)\\,dV.$$\n\nMed integranden $1$ er $\\iiint_V 1\\,dV$ **volumet** av $V$. Det regnes som tre enkeltintegraler etter hverandre, innerst først — nøyaktig samme idé som dobbeltintegralet, bare med en variabel til."
+    },
+    {
+      "id": "mat1110-4-3-def-sylinder",
+      "type": "definition",
+      "title": "Sylinderkoordinater",
+      "content": "Polarkoordinater i $xy$-planet, med høyden $z$ uendret. Et punkt beskrives ved avstanden $r$ fra $z$-aksen, vinkelen $\\theta$ og høyden $z$:\n\n$$x = r\\cos\\theta,\\quad y = r\\sin\\theta,\\quad z = z,\\qquad dV = r\\,dz\\,dr\\,d\\theta.$$\n\nBrukes for kropper med **rotasjonssymmetri om $z$-aksen**: sylindre, kjegler ($z = r$) og paraboloider ($z = r^2$). Faktoren $r$ i $dV$ er den samme som i polar — og glemmes like ofte."
+    },
+    {
+      "id": "mat1110-4-3-def-volumelement",
+      "type": "definition",
+      "title": "Volumelement $dV$",
+      "content": "Den lille rombiten trippelintegralet summerer over. I kartesiske koordinater er $dV = dx\\,dy\\,dz$; i sylinder $dV = r\\,dz\\,dr\\,d\\theta$; i kule $dV = \\rho^2\\sin\\varphi\\,d\\rho\\,d\\varphi\\,d\\theta$. Den ekstra faktoren ($r$ eller $\\rho^2\\sin\\varphi$) er Jacobideterminanten til skiftet og **må alltid være med**."
+    },
+    {
+      "id": "mat1110-4-3-ex1",
+      "type": "example",
+      "title": "Eksempel 1: Volum av et paraboloide-lokk i sylinderkoordinater",
+      "problem": "Finn volumet av kroppen avgrenset nedenfra av paraboloiden $z = x^2 + y^2$ og ovenfra av planet $z = 4$.",
+      "solution": "**Symmetri:** rotasjonssymmetrisk om $z$-aksen ⇒ sylinderkoordinater, der paraboloiden blir $z = r^2$.\n\n**Skjæring** (hvor flatene møtes): $r^2 = 4 \\Rightarrow r = 2$. Så $r$ løper fra $0$ til $2$, $\\theta$ hele runden, og for hver $(r,\\theta)$ løper $z$ fra paraboloiden opp til planet. **Områdebeskrivelse:**\n$$V = \\{0 \\le \\theta \\le 2\\pi,\\ 0 \\le r \\le 2,\\ r^2 \\le z \\le 4\\}.$$\n\n**Volum** (integrand $1$, volumelement $r$):\n$$\\iiint_V 1\\,dV = \\int_0^{2\\pi}\\!\\int_0^2\\!\\int_{r^2}^{4} r\\,dz\\,dr\\,d\\theta.$$\n\n**Innerst** ($z$): $\\int_{r^2}^4 r\\,dz = r(4 - r^2)$. **Deretter** $r$:\n$$\\int_0^2 (4r - r^3)\\,dr = \\Big[2r^2 - \\tfrac{r^4}{4}\\Big]_0^2 = 8 - 4 = 4.$$\n**Til slutt** $\\theta$: gang med $\\int_0^{2\\pi} d\\theta = 2\\pi$.\n\n**Konklusjon:** $V = 2\\pi\\cdot 4 = 8\\pi$ (eksakt)."
+    },
+    {
+      "id": "mat1110-4-3-l1a-w",
+      "type": "exercise",
+      "exercise": {
+        "id": "mat1110-4-3-l1a",
+        "number": "1",
+        "type": "classic",
+        "difficulty": "lett",
+        "task": "Finn volumet av sylinderen $x^2 + y^2 \\le 4$, $0 \\le z \\le 5$, ved et trippelintegral i sylinderkoordinater.",
+        "solution": "Området er $V = \\{0 \\le \\theta \\le 2\\pi,\\ 0 \\le r \\le 2,\\ 0 \\le z \\le 5\\}$, $dV = r\\,dz\\,dr\\,d\\theta$:\n$$\\int_0^{2\\pi}\\!\\int_0^2\\!\\int_0^5 r\\,dz\\,dr\\,d\\theta = 2\\pi\\cdot\\Big(\\int_0^2 r\\,dr\\Big)\\cdot 5 = 2\\pi\\cdot 2\\cdot 5 = 20\\pi.$$\n\n**Svar:** $20\\pi$ (stemmer med $\\pi R^2 h = \\pi\\cdot 4\\cdot 5$).",
+        "hints": [
+          "Radius $2$, høyde $5$; integralet faktoriserer helt.",
+          "Husk faktoren $r$: $\\int_0^2 r\\,dr = 2$."
+        ]
+      }
+    },
+    {
+      "id": "mat1110-4-3-l1b-w",
+      "type": "exercise",
+      "exercise": {
+        "id": "mat1110-4-3-l1b",
+        "number": "2",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "Finn volumet av kjeglen avgrenset av $z = \\sqrt{x^2+y^2}$ (nedenfra) og planet $z = 2$ (ovenfra).",
+        "solution": "Sylinder: kjeglen blir $z = r$. **Skjæring** med lokket: $r = 2$. Området $V = \\{0\\le\\theta\\le 2\\pi,\\ 0\\le r\\le 2,\\ r\\le z\\le 2\\}$:\n$$\\int_0^{2\\pi}\\!\\int_0^2\\!\\int_r^2 r\\,dz\\,dr\\,d\\theta = 2\\pi\\int_0^2 r(2 - r)\\,dr = 2\\pi\\Big[r^2 - \\tfrac{r^3}{3}\\Big]_0^2 = 2\\pi\\big(4 - \\tfrac83\\big) = 2\\pi\\cdot\\tfrac43 = \\tfrac{8\\pi}{3}.$$\n\n**Svar:** $\\dfrac{8\\pi}{3}$.",
+        "hints": [
+          "Kjeglen $z=\\sqrt{x^2+y^2}$ er $z = r$; møter lokket $z=2$ ved $r=2$.",
+          "Indre ($z$): $\\int_r^2 r\\,dz = r(2-r)$."
+        ]
+      }
+    },
+    {
+      "id": "mat1110-4-3-l2",
+      "type": "text",
+      "content": "## Løkke 2 — Kulekoordinater (~20 min)"
+    },
+    {
+      "id": "mat1110-4-3-def-kule",
+      "type": "definition",
+      "title": "Kulekoordinater",
+      "content": "Beskriver et punkt ved avstanden $\\rho$ fra origo, **polvinkelen** $\\varphi$ (målt fra positiv $z$-akse, $0 \\le \\varphi \\le \\pi$) og **asimutvinkelen** $\\theta$ ($0 \\le \\theta \\le 2\\pi$):\n\n$$x = \\rho\\sin\\varphi\\cos\\theta,\\quad y = \\rho\\sin\\varphi\\sin\\theta,\\quad z = \\rho\\cos\\varphi,\\qquad dV = \\rho^2\\sin\\varphi\\,d\\rho\\,d\\varphi\\,d\\theta.$$\n\nBrukes for **kuleformede** kropper: kuler ($\\rho = a$), kuleskall og kjegler ($\\varphi = \\text{konstant}$). Volumelementets faktor $\\rho^2\\sin\\varphi$ må alltid være med."
+    },
+    {
+      "id": "mat1110-4-3-def-rho",
+      "type": "definition",
+      "title": "Radialavstanden $\\rho$",
+      "content": "Den rette avstanden fra origo til punktet, $\\rho = \\sqrt{x^2+y^2+z^2} \\ge 0$. En kule med radius $a$ om origo er rett og slett $\\rho \\le a$, og et kuleskall er $b \\le \\rho \\le a$. Ikke forveksle $\\rho$ (avstand fra origo, i rommet) med $r$ (avstand fra $z$-aksen, i sylinder): $r = \\rho\\sin\\varphi$."
+    },
+    {
+      "id": "mat1110-4-3-def-phi",
+      "type": "definition",
+      "title": "Polvinkelen $\\varphi$",
+      "content": "Vinkelen mellom den positive $z$-aksen og linjen ut til punktet, $0 \\le \\varphi \\le \\pi$. Toppen ($z$-aksen oppover) er $\\varphi = 0$, $xy$-planet er $\\varphi = \\tfrac{\\pi}{2}$, og bunnen er $\\varphi = \\pi$. En kjegle om $z$-aksen er $\\varphi = \\text{konstant}$: for eksempel er $z = \\sqrt{x^2+y^2}$ kjeglen $\\varphi = \\tfrac{\\pi}{4}$. Det er $\\varphi$-grensene folk oftest bommer på i kule."
+    },
+    {
+      "id": "mat1110-4-3-ex2",
+      "type": "example",
+      "title": "Eksempel 2: Volum av en kule i kulekoordinater",
+      "problem": "Finn volumet av kula $x^2 + y^2 + z^2 \\le 9$ ved et trippelintegral i kulekoordinater, og bekreft mot $\\tfrac43\\pi a^3$.",
+      "solution": "**Symmetri:** kuleformet ⇒ kulekoordinater. Kula med radius $3$ er $\\rho \\le 3$. **Områdebeskrivelse** (hele kula):\n$$V = \\{0 \\le \\rho \\le 3,\\ 0 \\le \\varphi \\le \\pi,\\ 0 \\le \\theta \\le 2\\pi\\}.$$\n\n**Volum** (volumelement $\\rho^2\\sin\\varphi$):\n$$\\iiint_V 1\\,dV = \\int_0^{2\\pi}\\!\\int_0^{\\pi}\\!\\int_0^{3}\\rho^2\\sin\\varphi\\,d\\rho\\,d\\varphi\\,d\\theta.$$\n\nIntegralet **faktoriserer** i tre uavhengige deler:\n$$= \\Big(\\int_0^{2\\pi} d\\theta\\Big)\\Big(\\int_0^{\\pi}\\sin\\varphi\\,d\\varphi\\Big)\\Big(\\int_0^3 \\rho^2\\,d\\rho\\Big) = 2\\pi\\cdot\\big[-\\cos\\varphi\\big]_0^{\\pi}\\cdot\\Big[\\tfrac{\\rho^3}{3}\\Big]_0^3.$$\n$$= 2\\pi\\cdot 2\\cdot 9 = 36\\pi.$$\n\n**Bekreftelse:** $\\tfrac43\\pi a^3 = \\tfrac43\\pi\\cdot 27 = 36\\pi$. ✓ (Merk: $\\int_0^\\pi \\sin\\varphi\\,d\\varphi = 2$, ikke $0$.)"
+    },
+    {
+      "id": "mat1110-4-3-l2a-w",
+      "type": "exercise",
+      "exercise": {
+        "id": "mat1110-4-3-l2a",
+        "number": "3",
+        "type": "classic",
+        "difficulty": "lett",
+        "task": "Finn volumet av kuleskallet $1 \\le x^2+y^2+z^2 \\le 4$ i kulekoordinater.",
+        "solution": "Skallet er $V = \\{1 \\le \\rho \\le 2,\\ 0\\le\\varphi\\le\\pi,\\ 0\\le\\theta\\le 2\\pi\\}$:\n$$\\int_0^{2\\pi}\\!\\int_0^{\\pi}\\!\\int_1^2 \\rho^2\\sin\\varphi\\,d\\rho\\,d\\varphi\\,d\\theta = 2\\pi\\cdot 2\\cdot\\Big[\\tfrac{\\rho^3}{3}\\Big]_1^2 = 4\\pi\\cdot\\tfrac{8-1}{3} = \\tfrac{28\\pi}{3}.$$\n\n**Svar:** $\\dfrac{28\\pi}{3}$.",
+        "hints": [
+          "Skall: $\\rho$ fra $1$ (indre radius) til $2$ (ytre).",
+          "$\\int_0^\\pi \\sin\\varphi\\,d\\varphi = 2$, $\\int_1^2 \\rho^2 d\\rho = \\tfrac73$."
+        ]
+      }
+    },
+    {
+      "id": "mat1110-4-3-l2b-w",
+      "type": "exercise",
+      "exercise": {
+        "id": "mat1110-4-3-l2b",
+        "number": "4",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "Regn ut $\\displaystyle\\iiint_V (x^2+y^2+z^2)\\,dV$ over kula $V: \\rho \\le 2$.",
+        "solution": "Integrand $x^2+y^2+z^2 = \\rho^2$; hele kula $V = \\{0\\le\\rho\\le 2,\\ 0\\le\\varphi\\le\\pi,\\ 0\\le\\theta\\le 2\\pi\\}$:\n$$\\int_0^{2\\pi}\\!\\int_0^{\\pi}\\!\\int_0^2 \\rho^2\\cdot\\rho^2\\sin\\varphi\\,d\\rho\\,d\\varphi\\,d\\theta = 2\\pi\\cdot 2\\cdot\\int_0^2 \\rho^4\\,d\\rho = 4\\pi\\Big[\\tfrac{\\rho^5}{5}\\Big]_0^2 = 4\\pi\\cdot\\tfrac{32}{5} = \\tfrac{128\\pi}{5}.$$\n\n**Svar:** $\\dfrac{128\\pi}{5}$.",
+        "hints": [
+          "$x^2+y^2+z^2 = \\rho^2$; ganget med $\\rho^2\\sin\\varphi$ gir $\\rho^4\\sin\\varphi$.",
+          "Faktoriser: $\\theta$-del $2\\pi$, $\\varphi$-del $2$, $\\rho$-del $\\int_0^2\\rho^4 d\\rho$."
+        ]
+      }
+    },
+    {
+      "id": "mat1110-4-3-l3",
+      "type": "text",
+      "content": "## Løkke 3 — Løs skjæringen først, og faktoriser (~20 min)"
+    },
+    {
+      "id": "mat1110-4-3-def-skjaering",
+      "type": "definition",
+      "title": "Skjæringen mellom to flater",
+      "content": "Kurven (eller sirkelen) der to grenseflater møtes — det du finner ved å **sette flatene lik hverandre**. Møter paraboloiden $z = r^2$ planet $z = 4$, gir $r^2 = 4 \\Rightarrow r = 2$ den ytre $r$-grensen. Møter to buede flater hverandre, løs likningen deres for å finne $r$ (eller $\\rho$). Grensene skal **regnes**, aldri gjettes — det er et uttrykt sensorkrav."
+    },
+    {
+      "id": "mat1110-4-3-def-faktorisering",
+      "type": "definition",
+      "title": "Faktorisering av trippelintegralet",
+      "content": "Når integranden og grensene **separerer** i uavhengige deler, kan integralet skrives som et produkt av enkeltintegraler:\n\n$$\\iiint g(r)h(\\theta)k(z)\\,dV = \\Big(\\int g(r)r\\,dr\\Big)\\Big(\\int h(\\theta)\\,d\\theta\\Big)\\Big(\\int k(z)\\,dz\\Big).$$\n\nDette sparer mye arbeid (særlig $\\theta$-delen, som ofte bare gir $2\\pi$). Betingelsen er at grensene er **konstante** i den variabelen som skilles ut — sjekk det før du faktoriserer."
+    },
+    {
+      "id": "mat1110-4-3-def-omrbeskr3",
+      "type": "definition",
+      "title": "Områdebeskrivelse med ulikheter (3D)",
+      "content": "Å skrive kroppen som eksplisitte ulikheter for de tre koordinatene før oppsett — for eksempel $\\{0\\le\\theta\\le 2\\pi,\\ 0\\le r\\le 2,\\ r^2\\le z\\le 4\\}$. Innerste variabel har grenser som kan avhenge av de ytre (her $z$ mellom flater), mens den ytterste har tallgrenser. Skriv dem ned først; sett opp integralet etterpå."
+    },
+    {
+      "id": "mat1110-4-3-ex3",
+      "type": "example",
+      "title": "Eksempel 3: To flater møtes — løs skjæringen, faktoriser",
+      "problem": "Finn volumet av kroppen avgrenset nedenfra av paraboloiden $z = x^2 + y^2$ og ovenfra av paraboloiden $z = 8 - x^2 - y^2$.",
+      "solution": "**Symmetri:** rotasjon om $z$-aksen ⇒ sylinder, med $z = r^2$ (nede) og $z = 8 - r^2$ (oppe).\n\n**Løs skjæringen** (hvor flatene møtes):\n$$r^2 = 8 - r^2 \\;\\Longrightarrow\\; 2r^2 = 8 \\;\\Longrightarrow\\; r = 2 \\quad(\\text{og der er } z = 4).$$\n\n**Områdebeskrivelse:** for hver $(r,\\theta)$ løper $z$ fra nedre til øvre flate:\n$$V = \\{0 \\le \\theta \\le 2\\pi,\\ 0 \\le r \\le 2,\\ r^2 \\le z \\le 8 - r^2\\}.$$\n\n**Volum:**\n$$\\iiint_V 1\\,dV = \\int_0^{2\\pi}\\!\\int_0^2\\!\\int_{r^2}^{8-r^2} r\\,dz\\,dr\\,d\\theta.$$\n\n**Innerst** ($z$): $\\int_{r^2}^{8-r^2} r\\,dz = r\\big((8-r^2) - r^2\\big) = r(8 - 2r^2) = 8r - 2r^3$.\n\n**$r$-del:** $\\int_0^2 (8r - 2r^3)\\,dr = \\Big[4r^2 - \\tfrac{r^4}{2}\\Big]_0^2 = 16 - 8 = 8$. **$\\theta$-del** (faktorisert ut): $2\\pi$.\n\n**Konklusjon:** $V = 2\\pi\\cdot 8 = 16\\pi$ (eksakt)."
+    },
+    {
+      "id": "mat1110-4-3-l3a-w",
+      "type": "exercise",
+      "exercise": {
+        "id": "mat1110-4-3-l3a",
+        "number": "5",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "Regn ut $\\displaystyle\\iiint_V (x^2+y^2)\\,dV$ over sylinderen $V: x^2+y^2\\le 4,\\ 0\\le z\\le 5$, ved å faktorisere.",
+        "solution": "Sylinder: integrand $x^2+y^2 = r^2$; området $V = \\{0\\le\\theta\\le 2\\pi,\\ 0\\le r\\le 2,\\ 0\\le z\\le 5\\}$. Alle grenser er konstante, så integralet **faktoriserer**:\n$$\\int_0^{2\\pi}\\!\\int_0^2\\!\\int_0^5 r^2\\cdot r\\,dz\\,dr\\,d\\theta = \\Big(\\int_0^{2\\pi} d\\theta\\Big)\\Big(\\int_0^2 r^3\\,dr\\Big)\\Big(\\int_0^5 dz\\Big) = 2\\pi\\cdot 4\\cdot 5 = 40\\pi.$$\n\n**Svar:** $40\\pi$.",
+        "hints": [
+          "Integrand $r^2$ ganget volumelement $r$ gir $r^3$.",
+          "Konstante grenser ⇒ produktet $2\\pi\\cdot\\int_0^2 r^3 dr\\cdot 5$."
+        ]
+      }
+    },
+    {
+      "id": "mat1110-4-3-l3b-w",
+      "type": "exercise",
+      "exercise": {
+        "id": "mat1110-4-3-l3b",
+        "number": "6",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "Finn volumet av kroppen avgrenset nedenfra av kjeglen $z = \\sqrt{x^2+y^2}$ og ovenfra av flaten $z = 6 - x^2 - y^2$.",
+        "solution": "Sylinder: kjegle $z = r$, øvre flate $z = 6 - r^2$. **Skjæring:** $r = 6 - r^2 \\Rightarrow r^2 + r - 6 = 0 \\Rightarrow (r+3)(r-2) = 0 \\Rightarrow r = 2$ (positiv rot).\n\nOmrådet $V = \\{0\\le\\theta\\le 2\\pi,\\ 0\\le r\\le 2,\\ r\\le z\\le 6 - r^2\\}$:\n$$\\int_0^{2\\pi}\\!\\int_0^2 r\\big((6-r^2) - r\\big)\\,dr\\,d\\theta = 2\\pi\\int_0^2 (6r - r^3 - r^2)\\,dr = 2\\pi\\Big[3r^2 - \\tfrac{r^4}{4} - \\tfrac{r^3}{3}\\Big]_0^2.$$\n$$= 2\\pi\\big(12 - 4 - \\tfrac83\\big) = 2\\pi\\cdot\\tfrac{16}{3} = \\tfrac{32\\pi}{3}.$$\n\n**Svar:** $\\dfrac{32\\pi}{3}$.",
+        "hints": [
+          "Skjæring: $r = 6 - r^2$ gir $r^2+r-6=0$, altså $r = 2$.",
+          "Indre ($z$): $\\int_r^{6-r^2} r\\,dz = r(6 - r^2 - r)$."
+        ]
+      }
+    },
+    {
+      "id": "mat1110-4-3-warn",
+      "type": "warning",
+      "title": "Typiske feil",
+      "content": "- **Glemme volumelementets faktor** — $r$ i sylinder, $\\rho^2\\sin\\varphi$ i kule. Dette er den dyreste enkeltfeilen: hele svaret blir galt.\n- **Feil koordinatvalg for symmetrien.** Rotasjon om $z$-aksen ⇒ sylinder; kuleform ⇒ kule. Feil valg gir stygge, ofte uløselige grenser.\n- **Gjette grensene der flater møtes.** Sett alltid flatene lik hverandre og løs skjæringen ($r^2 = 8 - r^2 \\Rightarrow r = 2$).\n- **Feil $\\varphi$-grenser i kule.** $\\varphi$ måles fra $z$-aksen: hel kule $0$ til $\\pi$, øvre halvkule $0$ til $\\tfrac{\\pi}{2}$, kjegle $z = \\sqrt{x^2+y^2}$ er $\\varphi = \\tfrac{\\pi}{4}$. Og $\\int_0^\\pi\\sin\\varphi\\,d\\varphi = 2$, ikke $0$.\n- **Ikke faktorisere når integranden tillater det** — unødig dobbeltarbeid, særlig $\\theta$-delen som ofte bare gir $2\\pi$.\n- **Forveksle $r$ og $\\rho$.** $r$ er avstand fra $z$-aksen (sylinder), $\\rho$ er avstand fra origo (kule); $r = \\rho\\sin\\varphi$.\n- **Desimaltilnærming.** Behold $\\tfrac{8\\pi}{3}$, $36\\pi$, $\\tfrac{128\\pi}{5}$."
+    },
+    {
+      "id": "mat1110-4-3-pulje",
+      "type": "text",
+      "content": "## Eksamensrettet oppgavepulje\n\nVelg system etter symmetri, løs skjæringen, skriv området med ulikheter, og faktoriser når du kan. Eksakte svar."
+    },
+    {
+      "id": "mat1110-4-3-p1-w",
+      "type": "exercise",
+      "exercise": {
+        "id": "mat1110-4-3-p1",
+        "number": "7",
+        "type": "classic",
+        "difficulty": "lett",
+        "task": "Finn volumet av den øvre halvkula $x^2+y^2+z^2\\le 1,\\ z\\ge 0$ i kulekoordinater.",
+        "solution": "Øvre halvkule: $\\varphi$ fra $0$ til $\\tfrac{\\pi}{2}$. $V = \\{0\\le\\rho\\le 1,\\ 0\\le\\varphi\\le\\tfrac{\\pi}{2},\\ 0\\le\\theta\\le 2\\pi\\}$:\n$$\\int_0^{2\\pi}\\!\\int_0^{\\pi/2}\\!\\int_0^1 \\rho^2\\sin\\varphi\\,d\\rho\\,d\\varphi\\,d\\theta = 2\\pi\\cdot\\big[-\\cos\\varphi\\big]_0^{\\pi/2}\\cdot\\tfrac13 = 2\\pi\\cdot 1\\cdot\\tfrac13 = \\tfrac{2\\pi}{3}.$$\n\n**Svar:** $\\dfrac{2\\pi}{3}$ (halvparten av kulevolumet $\\tfrac43\\pi$).",
+        "hints": [
+          "$z\\ge 0$ svarer til $\\varphi$ fra $0$ til $\\pi/2$.",
+          "$\\int_0^{\\pi/2}\\sin\\varphi\\,d\\varphi = 1$."
+        ]
+      }
+    },
+    {
+      "id": "mat1110-4-3-p2-w",
+      "type": "exercise",
+      "exercise": {
+        "id": "mat1110-4-3-p2",
+        "number": "8",
+        "type": "classic",
+        "difficulty": "lett",
+        "task": "Regn ut $\\displaystyle\\iiint_V z\\,dV$ over sylinderen $V: x^2+y^2\\le 1,\\ 0\\le z\\le 3$.",
+        "solution": "Integrand $z$, sylinder, faktoriserer:\n$$\\int_0^{2\\pi}\\!\\int_0^1\\!\\int_0^3 z\\cdot r\\,dz\\,dr\\,d\\theta = \\Big(\\int_0^{2\\pi}d\\theta\\Big)\\Big(\\int_0^1 r\\,dr\\Big)\\Big(\\int_0^3 z\\,dz\\Big) = 2\\pi\\cdot\\tfrac12\\cdot\\tfrac92 = \\tfrac{9\\pi}{2}.$$\n\n**Svar:** $\\dfrac{9\\pi}{2}$.",
+        "hints": [
+          "Integrand $z$ er uavhengig av $r$ og $\\theta$ ⇒ faktoriser.",
+          "$\\int_0^3 z\\,dz = \\tfrac92$, $\\int_0^1 r\\,dr = \\tfrac12$."
+        ]
+      }
+    },
+    {
+      "id": "mat1110-4-3-p3-w",
+      "type": "exercise",
+      "exercise": {
+        "id": "mat1110-4-3-p3",
+        "number": "9",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "Finn volumet av «iskrem-kroppen» avgrenset av kjeglen $\\varphi = \\tfrac{\\pi}{4}$ og kula $\\rho = 2$ (kulekoordinater).",
+        "solution": "Kroppen ligger inne i kula og over kjeglen: $V = \\{0\\le\\rho\\le 2,\\ 0\\le\\varphi\\le\\tfrac{\\pi}{4},\\ 0\\le\\theta\\le 2\\pi\\}$:\n$$\\int_0^{2\\pi}\\!\\int_0^{\\pi/4}\\!\\int_0^2 \\rho^2\\sin\\varphi\\,d\\rho\\,d\\varphi\\,d\\theta = 2\\pi\\cdot\\big[-\\cos\\varphi\\big]_0^{\\pi/4}\\cdot\\Big[\\tfrac{\\rho^3}{3}\\Big]_0^2.$$\n$\\big[-\\cos\\varphi\\big]_0^{\\pi/4} = 1 - \\tfrac{\\sqrt2}{2}$, og $\\tfrac{\\rho^3}{3}\\big|_0^2 = \\tfrac83$. Altså\n$$V = 2\\pi\\big(1 - \\tfrac{\\sqrt2}{2}\\big)\\tfrac83 = \\tfrac{8\\pi(2 - \\sqrt2)}{3}.$$\n\n**Svar:** $\\dfrac{8\\pi(2-\\sqrt2)}{3}$ (eksakt).",
+        "hints": [
+          "Kjeglen $\\varphi=\\pi/4$ er den øvre $\\varphi$-grensen; $\\rho$ opp til $2$.",
+          "$\\int_0^{\\pi/4}\\sin\\varphi\\,d\\varphi = 1 - \\cos\\tfrac{\\pi}{4} = 1 - \\tfrac{\\sqrt2}{2}$."
+        ]
+      }
+    },
+    {
+      "id": "mat1110-4-3-p4-w",
+      "type": "exercise",
+      "exercise": {
+        "id": "mat1110-4-3-p4",
+        "number": "10",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "Regn ut $\\displaystyle\\iiint_V z\\,dV$ over den øvre halvkula $V: \\rho \\le 2,\\ z \\ge 0$.",
+        "solution": "Integrand $z = \\rho\\cos\\varphi$; øvre halvkule $\\varphi\\in[0,\\tfrac{\\pi}{2}]$:\n$$\\int_0^{2\\pi}\\!\\int_0^{\\pi/2}\\!\\int_0^2 (\\rho\\cos\\varphi)\\,\\rho^2\\sin\\varphi\\,d\\rho\\,d\\varphi\\,d\\theta = 2\\pi\\Big(\\int_0^{\\pi/2}\\cos\\varphi\\sin\\varphi\\,d\\varphi\\Big)\\Big(\\int_0^2 \\rho^3\\,d\\rho\\Big).$$\n$\\int_0^{\\pi/2}\\cos\\varphi\\sin\\varphi\\,d\\varphi = \\tfrac12$, $\\int_0^2\\rho^3 d\\rho = 4$. Altså $V\\text{-integralet} = 2\\pi\\cdot\\tfrac12\\cdot 4 = 4\\pi$.\n\n**Svar:** $4\\pi$.",
+        "hints": [
+          "$z = \\rho\\cos\\varphi$; ganget $\\rho^2\\sin\\varphi$ gir $\\rho^3\\cos\\varphi\\sin\\varphi$.",
+          "$\\int_0^{\\pi/2}\\cos\\varphi\\sin\\varphi\\,d\\varphi = \\tfrac12$."
+        ]
+      }
+    },
+    {
+      "id": "mat1110-4-3-p5-w",
+      "type": "exercise",
+      "exercise": {
+        "id": "mat1110-4-3-p5",
+        "number": "11",
+        "type": "classic",
+        "difficulty": "vanskelig",
+        "task": "(Eksamensnivå, sjanger I.) Finn volumet av kroppen avgrenset nedenfra av paraboloiden $z = x^2+y^2$ og ovenfra av kula $x^2+y^2+z^2 = 6$.",
+        "solution": "Sylinder: paraboloide $z = r^2$, kule $r^2 + z^2 = 6$, altså øvre flate $z = \\sqrt{6 - r^2}$.\n\n**Løs skjæringen:** sett paraboloiden inn i kula, $r^2 + z^2 = 6$ med $z = r^2$: $z + z^2 = 6 \\Rightarrow z^2 + z - 6 = 0 \\Rightarrow (z+3)(z-2) = 0 \\Rightarrow z = 2$, som gir $r^2 = 2$, dvs. $r = \\sqrt2$.\n\n**Område:** $V = \\{0\\le\\theta\\le 2\\pi,\\ 0\\le r\\le\\sqrt2,\\ r^2\\le z\\le\\sqrt{6-r^2}\\}$:\n$$\\int_0^{2\\pi}\\!\\int_0^{\\sqrt2} r\\big(\\sqrt{6-r^2} - r^2\\big)\\,dr\\,d\\theta = 2\\pi\\int_0^{\\sqrt2}\\big(r\\sqrt{6-r^2} - r^3\\big)\\,dr.$$\n$\\int_0^{\\sqrt2} r\\sqrt{6-r^2}\\,dr$: sett $u = 6 - r^2,\\ du = -2r\\,dr$, grenser $u: 6\\to 4$: $= -\\tfrac12\\int_6^4 \\sqrt u\\,du = \\tfrac12\\int_4^6 u^{1/2}du = \\tfrac12\\cdot\\tfrac23\\big[u^{3/2}\\big]_4^6 = \\tfrac13(6\\sqrt6 - 8)$.\n$\\int_0^{\\sqrt2} r^3\\,dr = \\big[\\tfrac{r^4}{4}\\big]_0^{\\sqrt2} = \\tfrac44 = 1$.\nAltså $V = 2\\pi\\big(\\tfrac13(6\\sqrt6 - 8) - 1\\big) = 2\\pi\\cdot\\tfrac{6\\sqrt6 - 11}{3} = \\dfrac{2\\pi(6\\sqrt6 - 11)}{3}$.\n\n**Svar:** $\\dfrac{2\\pi(6\\sqrt6 - 11)}{3}$ (eksakt).",
+        "hints": [
+          "Skjæring: sett $z = r^2$ inn i $r^2 + z^2 = 6$; med $z = r^2$ blir $z + z^2 = 6$, gir $z = 2,\\ r = \\sqrt2$.",
+          "$\\int r\\sqrt{6-r^2}\\,dr$: substituer $u = 6 - r^2$."
+        ]
+      }
+    },
+    {
+      "id": "mat1110-4-3-p6-w",
+      "type": "exercise",
+      "exercise": {
+        "id": "mat1110-4-3-p6",
+        "number": "12",
+        "type": "classic",
+        "difficulty": "vanskelig",
+        "task": "(Eksamensnivå.) Regn ut $\\displaystyle\\iiint_V \\frac{1}{\\sqrt{x^2+y^2+z^2}}\\,dV$ over kuleskallet $V: 1 \\le \\rho \\le 2$.",
+        "solution": "Integrand $\\tfrac{1}{\\rho}$; skallet $V = \\{1\\le\\rho\\le 2,\\ 0\\le\\varphi\\le\\pi,\\ 0\\le\\theta\\le 2\\pi\\}$. Med volumelement $\\rho^2\\sin\\varphi$:\n$$\\int_0^{2\\pi}\\!\\int_0^{\\pi}\\!\\int_1^2 \\frac{1}{\\rho}\\cdot\\rho^2\\sin\\varphi\\,d\\rho\\,d\\varphi\\,d\\theta = \\Big(\\int_0^{2\\pi}d\\theta\\Big)\\Big(\\int_0^{\\pi}\\sin\\varphi\\,d\\varphi\\Big)\\Big(\\int_1^2 \\rho\\,d\\rho\\Big).$$\n$$= 2\\pi\\cdot 2\\cdot\\Big[\\tfrac{\\rho^2}{2}\\Big]_1^2 = 4\\pi\\cdot\\tfrac{4-1}{2} = 4\\pi\\cdot\\tfrac32 = 6\\pi.$$\n\n**Svar:** $6\\pi$. (Faktoren $\\rho^2$ i volumelementet kansellerer $\\tfrac1\\rho$ til $\\rho$ — men skriv den eksplisitt.)",
+        "hints": [
+          "$1/\\sqrt{x^2+y^2+z^2} = 1/\\rho$; ganget $\\rho^2\\sin\\varphi$ gir $\\rho\\sin\\varphi$.",
+          "Faktoriser: $2\\pi\\cdot 2\\cdot\\int_1^2 \\rho\\,d\\rho$."
+        ]
+      }
+    },
+    {
+      "id": "mat1110-4-3-bb",
+      "type": "text",
+      "content": "## Begrepsbank\n\n*Begrepsbanken er flashcard-/repetisjonsstoff — den gjentar det du nettopp har lest. Hopp trygt over ved førstegangslesing; tidsanslaget for kapitlet gjelder kjernestoffet.*"
+    },
+    {
+      "id": "mat1110-4-3-bb-rotsym",
+      "type": "definition",
+      "title": "Rotasjonssymmetri om $z$-aksen",
+      "content": "Egenskapen at kroppen er uendret når den dreies om $z$-aksen — den avhenger bare av avstanden $r$ fra aksen og høyden $z$, ikke av vinkelen $\\theta$. Sylindre, kjegler og paraboloider har den. Da er $\\theta$-grensene alltid $0$ til $2\\pi$, integranden ofte uavhengig av $\\theta$, og $\\theta$-delen faktoriseres rett ut som $2\\pi$ — et sikkert tegn på at sylinderkoordinater er riktig valg."
+    },
+    {
+      "id": "mat1110-4-3-bb-kartesisk",
+      "type": "definition",
+      "title": "Kartesisk trippelintegral",
+      "content": "Trippelintegralet i vanlige koordinater, $\\iiint_V f\\,dx\\,dy\\,dz$, brukt når kroppen er en **boks eller et prisme** med plane, aksekvadrat-parallelle sider. Da er alle grenser enkle tall eller lineære uttrykk, og ingen ekstra volumfaktor trengs ($dV = dx\\,dy\\,dz$). For buede kropper lønner sylinder eller kule seg."
+    },
+    {
+      "id": "mat1110-4-3-bb-volum3",
+      "type": "definition",
+      "title": "Volum som trippelintegral",
+      "content": "Volumet av en kropp $V$ er trippelintegralet av integranden $1$:\n\n$$\\text{Volum}(V) = \\iiint_V 1\\,dV.$$\n\nDet er den direkte generaliseringen av «areal $= \\iint_A 1\\,dA$» til tre dimensjoner. All jobben ligger i å beskrive $V$ riktig (koordinatvalg, skjæring, grenser); integrasjonen av $1$ er ren rutine når volumelementet er på plass."
+    },
+    {
+      "id": "mat1110-4-3-bb-r-sylinder",
+      "type": "definition",
+      "title": "Radien $r$ i sylinderkoordinater",
+      "content": "Avstanden fra $z$-aksen til punktet, $r = \\sqrt{x^2+y^2} \\ge 0$ — den samme $r$ som i polarkoordinater. En sylinder om $z$-aksen med radius $a$ er $r \\le a$. Ikke forveksle med kulekoordinatenes $\\rho$ (avstand fra origo): de henger sammen ved $r = \\rho\\sin\\varphi$."
+    },
+    {
+      "id": "mat1110-4-3-bb-theta",
+      "type": "definition",
+      "title": "Asimutvinkelen $\\theta$",
+      "content": "Vinkelen rundt $z$-aksen, målt i $xy$-planet fra den positive $x$-aksen, $0 \\le \\theta \\le 2\\pi$ — felles for både sylinder- og kulekoordinater. En hel omdreining er $\\theta$ fra $0$ til $2\\pi$; en halv fra $0$ til $\\pi$. I rotasjonssymmetriske integraler faktoriseres $\\theta$-delen ofte rett ut som $2\\pi$."
+    },
+    {
+      "id": "mat1110-4-3-bb-paraboloide",
+      "type": "definition",
+      "title": "Paraboloide",
+      "content": "Flaten $z = x^2 + y^2$ (som i sylinder blir $z = r^2$) — en «skål» med rotasjonssymmetri om $z$-aksen. Den er en gjenganger som øvre eller nedre grenseflate i volumoppgaver. Skjæringen med et vannrett plan $z = c$ er sirkelen $r = \\sqrt{c}$."
+    },
+    {
+      "id": "mat1110-4-3-bb-kjegle",
+      "type": "definition",
+      "title": "Kjegle",
+      "content": "Flaten $z = \\sqrt{x^2+y^2}$ (i sylinder $z = r$, i kule $\\varphi = \\tfrac{\\pi}{4}$) — en spiss «trakt» om $z$-aksen. I sylinderkoordinater er den enklest som $z = r$; i kulekoordinater er den en konstant polvinkel, som gjør den ideell som $\\varphi$-grense for iskrem-formede kropper."
+    },
+    {
+      "id": "mat1110-4-3-bb-kuleskall",
+      "type": "definition",
+      "title": "Kule og kuleskall",
+      "content": "En **kule** med radius $a$ om origo er $\\rho \\le a$; et **kuleskall** mellom to radier er $b \\le \\rho \\le a$. Begge er reneste kulekoordinat-områder: $\\varphi$ løper $0$ til $\\pi$, $\\theta$ løper $0$ til $2\\pi$, og bare $\\rho$-grensene skiller kule fra skall. Volumet av kula er $\\tfrac43\\pi a^3$."
+    },
+    {
+      "id": "mat1110-4-3-bb-sinphi",
+      "type": "definition",
+      "title": "Faktoren $\\sin\\varphi$ i kule",
+      "content": "Den delen av kulevolumelementet $\\rho^2\\sin\\varphi$ som knytter seg til polvinkelen. Den er der fordi «breddesirklene» blir mindre nær polene ($\\varphi = 0$ og $\\pi$) og størst ved ekvator ($\\varphi = \\tfrac{\\pi}{2}$). En vanlig tabbe er å regne $\\int_0^\\pi\\sin\\varphi\\,d\\varphi$ som $0$ — det riktige er $2$."
+    },
+    {
+      "id": "mat1110-4-3-bb-iterert3",
+      "type": "definition",
+      "title": "Iterert integrasjon i riktig rekkefølge",
+      "content": "Å regne trippelintegralet som tre enkeltintegraler innerst-først, med den variabelen hvis grenser avhenger av de andre plassert **innerst**. I sylinder er det typisk $z$ (mellom flater) innerst, så $r$, så $\\theta$. Velg rekkefølgen som gjør de innerste grensene enklest — ofte er $z$ mellom to flater og $r,\\theta$ konstante."
+    },
+    {
+      "id": "mat1110-4-3-bb-massesenter",
+      "type": "definition",
+      "title": "Tetthet og massesenter (kjennskap)",
+      "content": "Er $f(x,y,z)$ en **tetthet**, gir $\\iiint_V f\\,dV$ den totale **massen** av kroppen, og $\\tfrac{1}{\\text{masse}}\\iiint_V (x,y,z)f\\,dV$ gir **massesenteret**. Dette er den fysiske tolkningen av trippelintegralet (kjennskap — dukker sjelden opp i dette emnet, men forklarer hvorfor integranden ikke alltid er $1$)."
+    },
+    {
+      "id": "mat1110-4-3-rep",
+      "type": "collapsible",
+      "title": "Repetisjon",
+      "buttonText": "Vis repetisjonsoppgaver",
+      "content": [
+        {
+          "id": "mat1110-4-3-rep1-w",
+          "type": "exercise",
+          "exercise": {
+            "id": "mat1110-4-3-rep1",
+            "number": "R1",
+            "type": "classic",
+            "difficulty": "lett",
+            "task": "(Fra [kap. 4.1](/bok/mat1110/mat1110-4-1)) Regn ut $\\displaystyle\\iint_A 1\\,dA$ over skiven $A: x^2+y^2\\le 1$ i polar (arealet).",
+            "solution": "$\\int_0^{2\\pi}\\!\\int_0^1 r\\,dr\\,d\\theta = 2\\pi\\cdot\\tfrac12 = \\pi$. (Stemmer med $\\pi r^2 = \\pi$.)",
+            "hints": [
+              "Faktoren $r$ må med selv med integrand $1$."
+            ]
+          }
+        },
+        {
+          "id": "mat1110-4-3-rep2-w",
+          "type": "exercise",
+          "exercise": {
+            "id": "mat1110-4-3-rep2",
+            "number": "R2",
+            "type": "classic",
+            "difficulty": "lett",
+            "task": "(Fra [kap. 4.2](/bok/mat1110/mat1110-4-2)) Hva er Jacobideterminanten (volumelementets faktor) for henholdsvis sylinder- og kulekoordinater?",
+            "solution": "Sylinder: $r$ (så $dV = r\\,dz\\,dr\\,d\\theta$). Kule: $\\rho^2\\sin\\varphi$ (så $dV = \\rho^2\\sin\\varphi\\,d\\rho\\,d\\varphi\\,d\\theta$).",
+            "hints": [
+              "Sylinder arver polarfaktoren $r$; kule har $\\rho^2\\sin\\varphi$."
+            ]
+          }
+        },
+        {
+          "id": "mat1110-4-3-rep3-w",
+          "type": "exercise",
+          "exercise": {
+            "id": "mat1110-4-3-rep3",
+            "number": "R3",
+            "type": "classic",
+            "difficulty": "middels",
+            "task": "(Fra [Volum av omdreiningslegemer](/bok/r2/r2-3-6)) Finn volumet av kula med radius $a$ ved omdreiningsformelen, og sammenlign med trippelintegralet.",
+            "solution": "Halvsirkelen $y = \\sqrt{a^2 - x^2}$ dreid om $x$-aksen: $V = \\pi\\int_{-a}^a (a^2 - x^2)\\,dx = \\pi\\big[a^2 x - \\tfrac{x^3}{3}\\big]_{-a}^a = \\pi\\cdot\\tfrac{4a^3}{3} = \\tfrac43\\pi a^3$. Samme svar som kulekoordinat-integralet $\\iiint_{\\rho\\le a} 1\\,dV$.",
+            "hints": [
+              "Omdreining: $V = \\pi\\int (\\text{radius})^2\\,dx$ med radius $\\sqrt{a^2-x^2}$."
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": "mat1110-4-3-symbol",
+      "type": "collapsible",
+      "title": "Symbol- og formelliste",
+      "buttonText": "Vis symboler og formler",
+      "content": [
+        {
+          "id": "mat1110-4-3-symbol-text",
+          "type": "text",
+          "content": "## Symbol- og formelliste\n\n*Oppslagsverk — alt her forklares underveis i kapitlet.*\n\n| Symbol | Betydning |\n|---|---|\n| $\\iiint_V f\\,dV$ | Trippelintegral av $f$ over kroppen $V$ |\n| $r,\\theta,z$ | Sylinderkoordinater (avstand fra $z$-akse, vinkel, høyde) |\n| $\\rho,\\varphi,\\theta$ | Kulekoordinater (avstand fra origo, polvinkel, asimut) |\n| $dV$ | Volumelement |\n| $r = \\rho\\sin\\varphi$ | Sammenhengen mellom sylinder-$r$ og kule |\n\n**Sylinderkoordinater:**\n$$x = r\\cos\\theta,\\ y = r\\sin\\theta,\\ z = z, \\qquad dV = r\\,dz\\,dr\\,d\\theta.$$\n\n**Kulekoordinater:**\n$$x = \\rho\\sin\\varphi\\cos\\theta,\\ y = \\rho\\sin\\varphi\\sin\\theta,\\ z = \\rho\\cos\\varphi, \\qquad dV = \\rho^2\\sin\\varphi\\,d\\rho\\,d\\varphi\\,d\\theta.$$\n\n**Volum:**\n$$\\text{Volum}(V) = \\iiint_V 1\\,dV.$$\n\n**Faktorisering (konstante grenser):**\n$$\\iiint g(r)h(\\theta)k(z)\\,dV = \\Big(\\int g(r)r\\,dr\\Big)\\Big(\\int h(\\theta)\\,d\\theta\\Big)\\Big(\\int k(z)\\,dz\\Big).$$\n\n**Nyttige standardintegraler:** $\\displaystyle\\int_0^\\pi \\sin\\varphi\\,d\\varphi = 2$, $\\displaystyle\\int_0^{\\pi/2}\\sin\\varphi\\,d\\varphi = 1$, kulevolum $\\tfrac43\\pi a^3$."
+        }
+      ]
+    }
+  ],
+  "exercises": []
+}

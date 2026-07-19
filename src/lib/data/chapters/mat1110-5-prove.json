@@ -1,0 +1,230 @@
+{
+  "id": "mat1110-5-prove",
+  "courseId": "mat1110",
+  "chapterNumber": "5.P",
+  "title": "Prøver til del 5: Vektoranalyse: Green, Gauss og Stokes",
+  "description": "Fire prøver til vektoranalyse-delen: parametrisering og Green (5.A), flateintegral og fluks (5.B), divergensteoremet (5.C) og den fulle O6-kjeden med Stokes (5.D) — med A-besvarelser og selvdiagnose.",
+  "estimatedMinutes": 180,
+  "competenceGoals": [
+    "løse eksamensnære oppgaver i linjeintegral, Green, flateintegral og fluks under tidspress",
+    "bruke divergensteoremet til fluks gjennom en krum delflate med normalkontroll",
+    "gjennomføre den fulle O6-kjeden med delpunkt-kjeding og navngitte teoremer",
+    "håndtere Stokes-varianten med curl og høyrehåndsregelen"
+  ],
+  "content": [
+    {
+      "id": "mat1110-5-prove-tip",
+      "type": "tip",
+      "title": "Om prøvene til Del 5",
+      "content": "Fire prøver som dekker vektoranalyse-delen — parametrisering, linjeintegral/Green, flateintegral/fluks, divergensteoremet og Stokes. Til sammen speiler de den kjedede O6-oppgaven som er **det nye tyngdepunktet** (3/3 i V2025).\n\n**4 prøver à ~35–55 min — kan trygt deles over flere kvelder, én prøve per økt:**\n- **Prøve 1 (5.A, ~35 min):** parametrisering + linjeintegral/Green (kap. 5.1–5.2, sjanger J).\n- **Prøve 2 (5.B, ~40 min):** flateintegral og fluks med fortegnskontroll og snarvei (kap. 5.3, sjanger K).\n- **Prøve 3 (5.C, ~50 min):** divergensteoremet — fluks gjennom krum delflate (kap. 5.4, sjanger L).\n- **Prøve 4 (5.D, ~55 min):** full O6-kjede + Stokes-variant (kap. 5.1–5.6, sjanger K + L + M).\n\nAlle løsninger er skrevet som A-besvarelser etter føringsstandarden: fortegns-/orienteringskontroll synlig, teoremer navngitt, delsvar gjenbrukt, **eksakte** svar. Tidsanslagene er lesetid for oppgaven pluss regning; gang med ~1,5 for håndskriving. Etter hver fasit står en avkryssbar selvdiagnose."
+    },
+    {
+      "id": "mat1110-5-prove-forkunn",
+      "type": "text",
+      "content": "**Forkunnskaper.** Prøvene forutsetter hele Del 5: **[kap. 5.1](/bok/mat1110/mat1110-5-1)** (parametrisering, $\\boldsymbol{\\phi}_u\\times\\boldsymbol{\\phi}_v$), **[kap. 5.2](/bok/mat1110/mat1110-5-2)** (linjeintegral, Green), **[kap. 5.3](/bok/mat1110/mat1110-5-3)** (fluks, snarvei), **[kap. 5.4](/bok/mat1110/mat1110-5-4)** (divergensteoremet), **[kap. 5.5](/bok/mat1110/mat1110-5-5)** (Stokes) og drillen i **[kap. 5.6](/bok/mat1110/mat1110-5-6)**. Trippelintegral fra **[kap. 4.3](/bok/mat1110/mat1110-4-3)**. Ta gjerne hver prøve på tid, uten fasit foran deg."
+    },
+    {
+      "id": "mat1110-5-prove-prove1",
+      "type": "collapsible",
+      "title": "Prøve 1 — Parametrisering + linjeintegral/Green (5.A, ~35 min)",
+      "buttonText": "Vis prøve 1",
+      "content": [
+        {
+          "id": "mat1110-5-prove-p1-intro",
+          "type": "text",
+          "content": "**Prøve 1 (5.A) — parametrisering, buelengde og Greens teorem.** To oppgaver som teller likt. Vis orienteringen i Green-oppgaven, og reduser til et utregnet dobbeltintegral. Eksakte svar."
+        },
+        {
+          "id": "mat1110-5-prove-p1-o1",
+          "type": "exercise",
+          "exercise": {
+            "id": "mat1110-5-prove-p1o1",
+            "number": "1",
+            "type": "classic",
+            "difficulty": "middels",
+            "task": "(Buelengde.) En romkurve er gitt ved $\\mathbf r(t)=(2\\cos t,\\,2\\sin t,\\,3t)$, $0\\le t\\le2\\pi$.\n\n**a)** Finn hastighetsvektoren $\\mathbf r'(t)$ og farten $|\\mathbf r'(t)|$.\n\n**b)** Finn lengden av kurven.",
+            "solution": "**a)** $\\mathbf r'(t)=(-2\\sin t,\\,2\\cos t,\\,3)$. Farten:\n$$|\\mathbf r'(t)|=\\sqrt{4\\sin^2t+4\\cos^2t+9}=\\sqrt{4+9}=\\sqrt{13}\\quad(\\text{konstant}).$$\n\n**b)** Buelengde:\n$$L=\\int_0^{2\\pi}\\sqrt{13}\\,dt=2\\pi\\sqrt{13}.$$\n**Svar:** $L=2\\pi\\sqrt{13}$.",
+            "hints": [
+              "$ds=|\\mathbf r'(t)|\\,dt$; regn farten først.",
+              "Farten er konstant, så $L=$ fart $\\times\\,2\\pi$."
+            ]
+          }
+        },
+        {
+          "id": "mat1110-5-prove-p1-o2",
+          "type": "exercise",
+          "exercise": {
+            "id": "mat1110-5-prove-p1o2",
+            "number": "2",
+            "type": "classic",
+            "difficulty": "vanskelig",
+            "task": "(Greens teorem.) La $C$ være randkurven (mot klokka) til området $A$ mellom kurvene $y=x^2$ og $y=x$ for $0\\le x\\le1$.\n\n**a)** Beskriv $A$ med eksplisitte ulikheter, og forklar hvorfor orienteringen «mot klokka» er den positive.\n\n**b)** Regn $\\displaystyle\\oint_C (x^2-y)\\,dx + x\\,dy$ med Greens teorem.",
+            "solution": "**a)** For $0\\le x\\le1$ er $x^2\\le x$, så $A=\\{0\\le x\\le1,\\ x^2\\le y\\le x\\}$. Positiv orientering (mot klokka) betyr at området ligger på venstre hånd når man følger $C$ — det er forutsetningen i Greens teorem, og gir riktig fortegn.\n\n**b)** Med $P=x^2-y$ og $Q=x$:\n$$\\frac{\\partial Q}{\\partial x}-\\frac{\\partial P}{\\partial y}=1-(-1)=2.$$\nGreens teorem gir\n$$\\oint_C(x^2-y)\\,dx+x\\,dy=\\iint_A 2\\,dA=2\\cdot\\text{Areal}(A).$$\nArealet: $\\text{Areal}(A)=\\displaystyle\\int_0^1(x-x^2)\\,dx=\\Big[\\tfrac{x^2}{2}-\\tfrac{x^3}{3}\\Big]_0^1=\\tfrac12-\\tfrac13=\\tfrac16.$ Dermed\n$$\\oint_C(x^2-y)\\,dx+x\\,dy=2\\cdot\\tfrac16=\\tfrac13.$$\n**Svar:** $\\dfrac13$.",
+            "hints": [
+              "Løs skjæringen $x^2=x$ for grensene; sjekk hvilken kurve som ligger øverst.",
+              "$\\partial Q/\\partial x-\\partial P/\\partial y=1-(-1)=2$.",
+              "Integranden er konstant $2$, så svaret er $2\\cdot$ arealet av $A$."
+            ]
+          }
+        },
+        {
+          "id": "mat1110-5-prove-p1-diag",
+          "type": "text",
+          "content": "**Selvdiagnose — Prøve 1** (kryss av det du fikk til):\n\n- ☐ Jeg regnet farten $|\\mathbf r'(t)|$ riktig og fikk konstant $\\sqrt{13}$.\n- ☐ Jeg satte opp buelengdeintegralet og fikk $2\\pi\\sqrt{13}$.\n- ☐ Jeg beskrev $A$ med eksplisitte ulikheter *før* oppsett.\n- ☐ Jeg brukte riktig rekkefølge $\\partial Q/\\partial x-\\partial P/\\partial y$ og nevnte orienteringen.\n- ☐ Jeg fikk det eksakte svaret $\\tfrac13$ (ikke desimal)."
+        }
+      ]
+    },
+    {
+      "id": "mat1110-5-prove-prove2",
+      "type": "collapsible",
+      "title": "Prøve 2 — Flateintegral og fluks (5.B, ~40 min)",
+      "buttonText": "Vis prøve 2",
+      "content": [
+        {
+          "id": "mat1110-5-prove-p2-intro",
+          "type": "text",
+          "content": "**Prøve 2 (5.B) — skalart flateareal og fluks.** Gjør fortegnskontrollen synlig i fluksoppgaven, og bruk den geometriske snarveien der flaten er plan. Eksakte svar."
+        },
+        {
+          "id": "mat1110-5-prove-p2-o1",
+          "type": "exercise",
+          "exercise": {
+            "id": "mat1110-5-prove-p2o1",
+            "number": "1",
+            "type": "classic",
+            "difficulty": "middels",
+            "task": "(Flateareal.) Finn arealet av flaten $z=x^2+y^2$ over disken $x^2+y^2\\le4$. Forenkle så langt som mulig eksakt.",
+            "solution": "Med $g=x^2+y^2$ er $g_x=2x$, $g_y=2y$, så flateelementet er $dS=\\sqrt{1+4x^2+4y^2}\\,dx\\,dy$. Gå til polar ($0\\le r\\le2$, $0\\le\\theta\\le2\\pi$):\n$$\\text{Areal}=\\int_0^{2\\pi}\\!\\!\\int_0^2\\sqrt{1+4r^2}\\,r\\,dr\\,d\\theta.$$\nSubstitusjon $u=1+4r^2$, $r\\,dr=\\tfrac18\\,du$, grenser $u:1\\to17$:\n$$=2\\pi\\cdot\\tfrac18\\int_1^{17}\\sqrt u\\,du=2\\pi\\cdot\\tfrac18\\cdot\\tfrac23\\big[u^{3/2}\\big]_1^{17}=\\frac{\\pi}{6}\\big(17^{3/2}-1\\big)=\\frac{\\pi}{6}\\,(17\\sqrt{17}-1).$$\n**Svar (eksakt):** $\\dfrac{\\pi}{6}(17\\sqrt{17}-1)$.",
+            "hints": [
+              "$dS=\\sqrt{1+g_x^2+g_y^2}\\,dx\\,dy$; gå til polar.",
+              "Substituer $u=1+4r^2$ og hold svaret eksakt."
+            ]
+          }
+        },
+        {
+          "id": "mat1110-5-prove-p2-o2",
+          "type": "exercise",
+          "exercise": {
+            "id": "mat1110-5-prove-p2o2",
+            "number": "2",
+            "type": "classic",
+            "difficulty": "vanskelig",
+            "task": "(Fluks — to metoder.) La $\\mathbf F=(x,\\,y,\\,2z)$. Regn fluksen ut gjennom disken $z=3$, $x^2+y^2\\le4$, med **oppadrettet** normal.\n\n**a)** Bruk den geometriske snarveien.\n\n**b)** Bekreft med full parametrisering, og gjør fortegnskontrollen synlig.",
+            "solution": "**a)** Disken er plan med konstant oppadrettet normal $\\mathbf n=\\mathbf k$. På disken er $\\mathbf F\\cdot\\mathbf n=F_3=2z=2\\cdot3=6$ (konstant). Arealet er $\\pi\\cdot2^2=4\\pi$, så\n$$\\int_S\\mathbf F\\cdot\\mathbf n\\,dS=6\\cdot4\\pi=24\\pi.$$\n\n**b)** Parametriser $\\boldsymbol{\\phi}(r,\\theta)=(r\\cos\\theta,\\,r\\sin\\theta,\\,3)$, $0\\le r\\le2$, $0\\le\\theta\\le2\\pi$. Da $\\boldsymbol{\\phi}_r\\times\\boldsymbol{\\phi}_\\theta=(0,0,r)$ — **fortegnskontroll:** $z$-komponent $r\\ge0$, peker oppover, som oppgitt. Ingen fortegnsbytte. På flaten er $\\mathbf F=(r\\cos\\theta,\\,r\\sin\\theta,\\,6)$:\n$$\\mathbf F\\cdot(\\boldsymbol{\\phi}_r\\times\\boldsymbol{\\phi}_\\theta)=(r\\cos\\theta,\\,r\\sin\\theta,\\,6)\\cdot(0,0,r)=6r.$$\n$$\\int_S\\mathbf F\\cdot\\mathbf n\\,dS=\\int_0^{2\\pi}\\!\\!\\int_0^2 6r\\,dr\\,d\\theta=2\\pi\\cdot\\big[3r^2\\big]_0^2=2\\pi\\cdot12=24\\pi.$$\nBegge metoder gir **$24\\pi$**.",
+            "hints": [
+              "Snarvei: $\\mathbf F\\cdot\\mathbf n=F_3=2z=6$ konstant; fluks $=6\\cdot$ areal.",
+              "Full parametrisering: $\\boldsymbol{\\phi}_r\\times\\boldsymbol{\\phi}_\\theta=(0,0,r)$ peker opp — ingen fortegnsbytte."
+            ]
+          }
+        },
+        {
+          "id": "mat1110-5-prove-p2-diag",
+          "type": "text",
+          "content": "**Selvdiagnose — Prøve 2:**\n\n- ☐ Jeg satte opp riktig flateelement $\\sqrt{1+g_x^2+g_y^2}$ og gikk til polar.\n- ☐ Jeg fikk det eksakte arealet $\\tfrac{\\pi}{6}(17\\sqrt{17}-1)$.\n- ☐ Jeg brukte den geometriske snarveien og fikk $24\\pi$.\n- ☐ Jeg gjorde fortegnskontrollen ($\\boldsymbol{\\phi}_r\\times\\boldsymbol{\\phi}_\\theta$ vs. $\\mathbf n$) synlig.\n- ☐ Begge metodene ga samme svar."
+        }
+      ]
+    },
+    {
+      "id": "mat1110-5-prove-prove3",
+      "type": "collapsible",
+      "title": "Prøve 3 — Divergensteoremet (5.C, ~50 min)",
+      "buttonText": "Vis prøve 3",
+      "content": [
+        {
+          "id": "mat1110-5-prove-p3-intro",
+          "type": "text",
+          "content": "**Prøve 3 (5.C) — fluks gjennom krum delflate via divergensteoremet.** Navngi teoremet, kontroller at alle normaler peker ut av $V$, og gjenbruk delsvar. Eksakte svar."
+        },
+        {
+          "id": "mat1110-5-prove-p3-o1",
+          "type": "exercise",
+          "exercise": {
+            "id": "mat1110-5-prove-p3o1",
+            "number": "1",
+            "type": "classic",
+            "difficulty": "vanskelig",
+            "task": "(Divergensteoremet — halvkule.) La $\\mathbf F=(x,\\,y,\\,z)$ og $V$ være det solide halvkuleområdet $x^2+y^2+z^2\\le4$, $z\\ge0$.\n\n**a)** Regn $\\operatorname{div}\\mathbf F$ og $\\iiint_V\\operatorname{div}\\mathbf F\\,dV$.\n\n**b)** Regn fluksen ut gjennom den flate bunnen $z=0$, $x^2+y^2\\le4$ (utadrettet normal).\n\n**c)** Bruk divergensteoremet til å finne fluksen ut gjennom den krumme halvkuleflaten.",
+            "solution": "**a)** $\\operatorname{div}\\mathbf F=\\partial_x x+\\partial_y y+\\partial_z z=1+1+1=3$ (konstant). Volumet av halvkula med radius $2$ er $\\tfrac12\\cdot\\tfrac43\\pi\\cdot2^3=\\tfrac12\\cdot\\tfrac{32\\pi}{3}=\\tfrac{16\\pi}{3}$. Da\n$$\\iiint_V\\operatorname{div}\\mathbf F\\,dV=3\\cdot\\tfrac{16\\pi}{3}=16\\pi.$$\n\n**b)** Bunnen $z=0$: utadrettet normal peker **nedover**, $\\mathbf n=-\\mathbf k$. På bunnen er $\\mathbf F=(x,y,0)$, så $\\mathbf F\\cdot\\mathbf n=(x,y,0)\\cdot(0,0,-1)=0$. Fluksen gjennom bunnen er $0$.\n\n**c)** Randen er $\\partial V=T_1\\cup T_2$: krum halvkuleflate $T_1$ + bunn $T_2$, begge utadrettet. **Ifølge divergensteoremet** er $\\iiint_V\\operatorname{div}\\mathbf F\\,dV=\\int_{T_1}\\mathbf F\\cdot\\mathbf n\\,dS+\\int_{T_2}\\mathbf F\\cdot\\mathbf n\\,dS$, så\n$$\\int_{T_1}\\mathbf F\\cdot\\mathbf n\\,dS=\\iiint_V\\operatorname{div}\\mathbf F\\,dV-\\int_{T_2}\\mathbf F\\cdot\\mathbf n\\,dS=16\\pi-0=16\\pi.$$\n**Svar:** (a) $\\operatorname{div}\\mathbf F=3$, $\\iiint_V\\operatorname{div}\\mathbf F\\,dV=16\\pi$; (b) $0$; (c) $16\\pi$. Normalkontroll: bunnens normal peker *ned* (ut av $V$), halvkuleflatens *radielt ut*.",
+            "hints": [
+              "Halvkulevolum $=\\tfrac12\\cdot\\tfrac43\\pi a^3$ med $a=2$.",
+              "På bunnen er $z=0$, så $\\mathbf F\\cdot(-\\mathbf k)=-z=0$.",
+              "(c) $=$ (a) $-$ (b); navngi teoremet."
+            ]
+          }
+        },
+        {
+          "id": "mat1110-5-prove-p3-diag",
+          "type": "text",
+          "content": "**Selvdiagnose — Prøve 3:**\n\n- ☐ Jeg regnet $\\operatorname{div}\\mathbf F$ og brukte konstant divergens $\\times$ volum.\n- ☐ Jeg fikk halvkulevolumet $\\tfrac{16\\pi}{3}$ og $\\iiint_V\\operatorname{div}\\mathbf F\\,dV=16\\pi$.\n- ☐ Jeg satte utadrettet normal på bunnen til $-\\mathbf k$ og fikk bunnfluks $0$.\n- ☐ Jeg navnga divergensteoremet og gjenbrukte delsvarene i (c).\n- ☐ Jeg fikk $16\\pi$ gjennom den krumme flaten."
+        }
+      ]
+    },
+    {
+      "id": "mat1110-5-prove-prove4",
+      "type": "collapsible",
+      "title": "Prøve 4 — Full O6-kjede + Stokes (5.D, ~55 min)",
+      "buttonText": "Vis prøve 4",
+      "content": [
+        {
+          "id": "mat1110-5-prove-p4-intro",
+          "type": "text",
+          "content": "**Prøve 4 (5.D) — den kjedede O6-oppgaven med et Stokes-innslag.** Dette er eksamensregimets tyngste oppgave. Hold fortegns- og orienteringskontroll hele veien, navngi teoremene, og gjenbruk delsvar. Eksakte svar."
+        },
+        {
+          "id": "mat1110-5-prove-p4-o1",
+          "type": "exercise",
+          "exercise": {
+            "id": "mat1110-5-prove-p4o1",
+            "number": "1",
+            "type": "classic",
+            "difficulty": "vanskelig",
+            "task": "(Full O6-kjede.) La $\\mathbf F=(xz,\\,yz,\\,z^2)$ og $V$ være det solide området inne i sylinderen $x^2+y^2\\le1$ mellom $z=0$ og $z=3$.\n\n**a)** Fluks ut gjennom topplokket $z=3$.\n\n**b)** Fluks ut gjennom bunnen $z=0$.\n\n**c)** Regn $\\iiint_V\\operatorname{div}\\mathbf F\\,dV$.\n\n**d)** Bruk divergensteoremet til å finne fluksen ut gjennom den krumme sideflaten.",
+            "solution": "**a)** Topplokk $z=3$, $x^2+y^2\\le1$, utadrettet $\\mathbf n=\\mathbf k$. På lokket er $\\mathbf F\\cdot\\mathbf n=F_3=z^2=3^2=9$ (konstant) — geometrisk snarvei, areal $=\\pi\\cdot1^2=\\pi$:\n$$\\int_{\\text{topp}}\\mathbf F\\cdot\\mathbf n\\,dS=9\\cdot\\pi=9\\pi.$$\n\n**b)** Bunn $z=0$, utadrettet $\\mathbf n=-\\mathbf k$: $\\mathbf F\\cdot\\mathbf n=-F_3=-z^2=0$ (på $z=0$). Fluks gjennom bunnen $=0$.\n\n**c)** $\\operatorname{div}\\mathbf F=\\partial_x(xz)+\\partial_y(yz)+\\partial_z(z^2)=z+z+2z=4z$. Sylinderkoordinater, $dV=r\\,dz\\,dr\\,d\\theta$, faktorisér:\n$$\\iiint_V 4z\\,dV=\\int_0^{2\\pi}\\!\\!\\int_0^1\\!\\!\\int_0^3 4z\\,r\\,dz\\,dr\\,d\\theta=\\Big(\\int_0^{2\\pi}d\\theta\\Big)\\Big(\\int_0^1 r\\,dr\\Big)\\Big(\\int_0^3 4z\\,dz\\Big)=2\\pi\\cdot\\tfrac12\\cdot18=18\\pi.$$\n($\\int_0^3 4z\\,dz=[2z^2]_0^3=18$.)\n\n**d)** Randen er sideflate $T_1$ + topp + bunn. **Ifølge divergensteoremet:**\n$$\\int_{T_1}\\mathbf F\\cdot\\mathbf n\\,dS=\\iiint_V\\operatorname{div}\\mathbf F\\,dV-\\int_{\\text{topp}}-\\int_{\\text{bunn}}=18\\pi-9\\pi-0=9\\pi.$$\n**Svar:** (a) $9\\pi$, (b) $0$, (c) $18\\pi$, (d) $9\\pi$. Alle normaler kontrollert ut av $V$ (topp opp, bunn ned, side ut); (d) gjenbruker (a), (b), (c).",
+            "hints": [
+              "Topp: $F_3=z^2=9$ på $z=3$; snarvei.",
+              "Bunn: $-z^2=0$ på $z=0$.",
+              "$\\operatorname{div}\\mathbf F=4z$; faktorisér de tre integralene, $\\int_0^3 4z\\,dz=18$.",
+              "(d) $=$ (c) $-$ topp $-$ bunn."
+            ]
+          }
+        },
+        {
+          "id": "mat1110-5-prove-p4-o2",
+          "type": "exercise",
+          "exercise": {
+            "id": "mat1110-5-prove-p4o2",
+            "number": "2",
+            "type": "classic",
+            "difficulty": "vanskelig",
+            "task": "(Stokes-variant.) La $\\mathbf F=(-y,\\,x,\\,z^2)$ og $C$ være sirkelen $x^2+y^2=1$ i planet $z=0$, orientert mot klokka sett ovenfra.\n\n**a)** Regn $\\operatorname{curl}\\mathbf F$.\n\n**b)** Bruk Stokes' teorem til å finne $\\oint_C\\mathbf F\\cdot d\\mathbf r$, og forklar orienteringen.",
+            "solution": "**a)** $\\operatorname{curl}\\mathbf F=\\big(\\partial_y(z^2)-\\partial_z(x),\\;\\partial_z(-y)-\\partial_x(z^2),\\;\\partial_x(x)-\\partial_y(-y)\\big)=(0-0,\\;0-0,\\;1+1)=(0,0,2).$\n\n**b)** Velg flaten $S$ = disken $x^2+y^2\\le1$ i $z=0$, med oppadrettet normal $\\mathbf n=\\mathbf k$. **Orientering (høyrehåndsregel):** krøller vi høyre hånds fingre mot klokka (kurvens retning sett ovenfra), peker tommelen oppover — altså $\\mathbf n=\\mathbf k$, som stemmer. **Ifølge Stokes' teorem:**\n$$\\oint_C\\mathbf F\\cdot d\\mathbf r=\\iint_S\\operatorname{curl}\\mathbf F\\cdot\\mathbf n\\,dS=\\iint_S(0,0,2)\\cdot(0,0,1)\\,dS=\\iint_S 2\\,dS=2\\cdot\\text{Areal}=2\\cdot\\pi\\cdot1^2=2\\pi.$$\n**Svar:** (a) $(0,0,2)$; (b) $2\\pi$. (Bare $z$-komponenten av curl teller for den vannrette disken.)",
+            "hints": [
+              "Regn curl som determinant; $z$-komponent $\\partial_x x-\\partial_y(-y)=2$.",
+              "Høyrehåndsregel: mot klokka $\\leftrightarrow$ $\\mathbf n=\\mathbf k$.",
+              "Fluks $=(\\operatorname{curl}\\mathbf F)_z\\cdot$ areal $=2\\cdot\\pi$."
+            ]
+          }
+        },
+        {
+          "id": "mat1110-5-prove-p4-diag",
+          "type": "text",
+          "content": "**Selvdiagnose — Prøve 4:**\n\n- ☐ Jeg brukte snarveien på topplokket ($F_3=z^2=9$) og fikk $9\\pi$.\n- ☐ Jeg satte bunnens normal til $-\\mathbf k$ og fikk bunnfluks $0$.\n- ☐ Jeg regnet $\\operatorname{div}\\mathbf F=4z$ og faktoriserte trippelintegralet til $18\\pi$.\n- ☐ Jeg navnga divergensteoremet og fikk sideflate-fluks $9\\pi$ ved å gjenbruke delsvar.\n- ☐ Jeg regnet $\\operatorname{curl}\\mathbf F$ riktig og brukte høyrehåndsregelen i Stokes-oppgaven.\n- ☐ Jeg fikk $2\\pi$ i Stokes-oppgaven med eksakt svar."
+        }
+      ]
+    },
+    {
+      "id": "mat1110-5-prove-symbolliste",
+      "type": "collapsible",
+      "title": "Symbol- og formelliste",
+      "buttonText": "Vis symboler og formler",
+      "content": [
+        {
+          "id": "mat1110-5-prove-symbolliste-text",
+          "type": "text",
+          "content": "## Symbol- og formelliste\n\n*Oppslagsverk — alt her forklares underveis i delens teorikapitler.*\n\n| Symbol | Betydning |\n|---|---|\n| $\\mathbf{F}$ | Vektorfelt |\n| $\\oint_C \\mathbf{F}\\cdot d\\mathbf{r}$ | Linjeintegral rundt en lukket kurve $C$ |\n| $\\iint_S \\mathbf{F}\\cdot \\mathbf{n}\\,dS$ | Fluks (flateintegral) gjennom flaten $S$ |\n| $\\boldsymbol{\\phi}_u \\times \\boldsymbol{\\phi}_v$ | Fundamentalt vektorprodukt (gir normalretningen) |\n| $\\mathbf{n}$ | Enhetsnormal — orienteringen av flaten |\n| $\\operatorname{div}\\mathbf{F}$ | Divergensen |\n| $\\iiint_V \\operatorname{div}\\mathbf{F}\\,dV$ | Volumintegral av divergensen (Gauss) |\n\n**Greens teorem:** $\\oint_C P\\,dx + Q\\,dy = \\iint_A\\left(\\dfrac{\\partial Q}{\\partial x} - \\dfrac{\\partial P}{\\partial y}\\right)dA$. **Gauss' divergensteorem:** $\\iiint_V \\operatorname{div}\\mathbf{F}\\,dV = \\iint_{\\partial V} \\mathbf{F}\\cdot \\mathbf{n}\\,dS$. **Kontroller alltid** at $\\boldsymbol{\\phi}_u\\times\\boldsymbol{\\phi}_v$ peker samme vei som oppgitt $\\mathbf{n}$, og at $\\mathbf{n}$ er ut av $V$.\n\nFull formelliste finnes i delens teorikapitler [kap. 5.1](/bok/mat1110/mat1110-5-1)–[kap. 5.6](/bok/mat1110/mat1110-5-6)."
+        }
+      ]
+    }
+  ],
+  "exercises": []
+}

@@ -1,0 +1,453 @@
+{
+  "id": "mat1110-1-1",
+  "courseId": "mat1110",
+  "chapterNumber": "1.1",
+  "title": "Gauss-eliminasjon: trappeform og merkede radoperasjoner",
+  "description": "Radreduksjon til (redusert) trappeform med radoperasjoner merket over ∼-tegnet — føringsdisiplinen sensor krever, og motoren under hele Del 1.",
+  "estimatedMinutes": 50,
+  "competenceGoals": [
+    "føre et lineært likningssystem som utvidet matrise og radredusere det til trappeform og redusert trappeform med korrekt merkede radoperasjoner",
+    "avgjøre om et system har entydig, ingen eller uendelig mange løsninger og parametrisere løsningsmengden når den er uendelig",
+    "drøfte hvordan løsbarheten avhenger av en parameter i koeffisientene"
+  ],
+  "content": [
+    {
+      "id": "mat1110-1-1-tip-eksamensvinkel",
+      "type": "tip",
+      "title": "Eksamensvinkel",
+      "content": "**Dette er den billigste sikre poengsjangeren på hele emnet — og i det nye regimet nesten alltid det aller første du gjør.**\n\n- **Radreduksjon (sjanger A)** — «sjanger A» er analysens kode for basis-, invers- og løsbarhetsoppgaver løst med radreduksjon — dukker opp i **14 av 20 arkiverte sett (70 %)**, og er **fast åpningsoppgave (O1)** i alle tre V2025-settene. Radreduksjon til trappeform er selve motoren under hele Del 1.\n- Sensor krever én ting spesielt her: **hver radoperasjon skal merkes over $\\sim$-tegnet** (f.eks. $II-2I$, $III+I$). Ren fasit uten synlige, merkede mellomtrinn gir **ikke** full uttelling — sensorregelen i alle sett er «Du må begrunne alle svar, og vise nok mellomregninger til at man lett kan følge argumentene.»\n- Løsbarhetsvarianten (for hvilke parameterverdier systemet har entydig / ingen / uendelig mange løsninger) er en gjenganger (2005/2006/2011/2013).\n\n**Prioritet: høyeste.** Målet med kapitlet er at radreduksjon med merket føring sitter i fingrene, slik at du åpner enhver O1 riktig og trygt."
+    },
+    {
+      "id": "mat1110-1-1-forkunnskaper",
+      "type": "text",
+      "content": "**Forkunnskaper.** Dette kapitlet bygger på likningsløsing fra VGS: [Lineære likningssystemer](/bok/1t/1t-4-1) og [Løsning av likningssett](/bok/r1/r1-6-1) — innsettings- og eliminasjonsmetoden er akkurat det radreduksjon systematiserer. Selve **matriseføringen** av et likningssystem er ny og bygges her fra grunnen, så du trenger ingen matrisebakgrunn på forhånd.\n\nDeterminant og invers av $2\\times2$-matriser *(MAT1100 kap. 5.1–5.2 — forgjengerbok, ikke bygget ennå; aktiver lenke når den finnes)* forutsettes kjent, men repeteres ikke: vi bygger inversen på nytt via radreduksjon i [kap. 1.3](/bok/mat1110/mat1110-1-3)."
+    },
+    {
+      "id": "mat1110-1-1-motiv",
+      "type": "text",
+      "content": "Nesten alt i lineær algebra — avgjøre om vektorer er en basis, finne en invers matrise, løse et likningssystem, bestemme rangen til en matrise — koker ned til **én** teknikk: radreduser en matrise til trappeform og les av svaret. Derfor er dette kapitlet verktøykassen for hele Del 1, og indirekte for funksjonsteoremene i Del 2.\n\nEn menneskelig håndregning følger nøyaktig samme oppskrift som Gauss ga på 1800-tallet: bruk **elementære radoperasjoner** til å lage nuller under diagonalen, helt til systemet er så enkelt at løsningen kan leses av. Vi lærer teknikken i fire små løkker: (1) oppsettet og de tre tillatte operasjonene, (2) trappeform og pivoter, (3) de tre mulige utfallene med parametrisering, og (4) parameteravhengig løsbarhet. Hver løkke går **teori → gjennomregnet eksempel → øvingsoppgaver**."
+    },
+    {
+      "id": "mat1110-1-1-l1",
+      "type": "text",
+      "content": "## Løkke 1 — Oppsettet og de tre radoperasjonene (~12 min)"
+    },
+    {
+      "id": "mat1110-1-1-def-utvidet",
+      "type": "definition",
+      "title": "Utvidet matrise $[A\\,|\\,b]$",
+      "content": "En kompakt bokføring av et lineært likningssystem: koeffisientene stables i en tabell, og høyresidene skrives i en egen siste søyle skilt med en strek. For systemet $Ax=b$ skriver vi\n\n$$[A\\,|\\,b]=\\left[\\begin{array}{ccc|c}a_{11}&a_{12}&a_{13}&b_1\\\\a_{21}&a_{22}&a_{23}&b_2\\\\a_{31}&a_{32}&a_{33}&b_3\\end{array}\\right].$$\n\nHver **rad** er én likning, hver av de tre første **søylene** hører til én ukjent, og siste søyle er høyresiden. Å regne på systemet blir nå å regne på tallrutenettet — vi slipper å skrive $x,y,z$ om og om igjen."
+    },
+    {
+      "id": "mat1110-1-1-def-radbytte",
+      "type": "definition",
+      "title": "Elementær radoperasjon 1: radbytte",
+      "content": "Å bytte om to hele rader (likninger). Notasjon: $I\\leftrightarrow II$ betyr «bytt rad 1 og rad 2». Operasjonen endrer ikke løsningsmengden — rekkefølgen på likningene er likegyldig — men brukes for å få et brukbart (helst $1$) pivotelement øverst i en søyle."
+    },
+    {
+      "id": "mat1110-1-1-def-skalering",
+      "type": "definition",
+      "title": "Elementær radoperasjon 2: skalering",
+      "content": "Å gange en hel rad med et tall **forskjellig fra null**. Notasjon: $\\tfrac12\\,II$ betyr «multipliser rad 2 med $\\tfrac12$». Å gange en likning med et tall $\\ne 0$ endrer ikke løsningen. Skalering med $0$ er forbudt — da mister man informasjon."
+    },
+    {
+      "id": "mat1110-1-1-def-addisjon",
+      "type": "definition",
+      "title": "Elementær radoperasjon 3: addere et multiplum av en annen rad",
+      "content": "Å legge et tall ganger én rad til en annen rad. Notasjon: $II-2I$ betyr «erstatt rad 2 med (rad 2) $-\\,2\\cdot$(rad 1)». Dette er arbeidshesten: den lager nuller under et pivotelement. Den erstattede raden er den som endres; raden vi trekker fra, står urørt."
+    },
+    {
+      "id": "mat1110-1-1-def-radekvivalens",
+      "type": "definition",
+      "title": "Radekvivalens $\\sim$",
+      "content": "To matriser er **radekvivalente**, skrevet $A\\sim B$, når den ene kan gjøres om til den andre ved en følge av elementære radoperasjoner. Radekvivalente utvidede matriser representerer likningssystemer med **nøyaktig samme løsningsmengde** — det er derfor vi har lov til å regne oss fra en tungvint matrise til en enkel."
+    },
+    {
+      "id": "mat1110-1-1-def-merking",
+      "type": "definition",
+      "title": "Merket radoperasjon (føringsstandarden)",
+      "content": "Sensorkravet i alle sett: **skriv operasjonen du gjorde over hvert $\\sim$-tegn**. Går du fra én matrise til den neste, noterer du f.eks.\n\n$$\\;\\overset{\\;II-2I,\\ III-I\\;}{\\sim}\\;$$\n\nDette er ikke pynt — det er dokumentasjonen som lar sensor følge argumentet, og den skiller full uttelling fra halv. Umerkede radoperasjoner er den vanligste føringsfeilen i sjanger A."
+    },
+    {
+      "id": "mat1110-1-1-ex1",
+      "type": "example",
+      "title": "Eksempel 1: Radreduksjon med merket føring",
+      "problem": "Løs systemet ved radreduksjon, og merk hver operasjon:\n$$x+y+z=6,\\qquad 2x-y+z=3,\\qquad x+2y-z=2.$$",
+      "solution": "Vi fører systemet som utvidet matrise og reduserer til trappeform.\n\n$$\\left[\\begin{array}{ccc|c}1&1&1&6\\\\2&-1&1&3\\\\1&2&-1&2\\end{array}\\right]\\overset{\\;II-2I,\\ III-I\\;}{\\sim}\\left[\\begin{array}{ccc|c}1&1&1&6\\\\0&-3&-1&-9\\\\0&1&-2&-4\\end{array}\\right]$$\n\nVi vil ha et $1$-pivot i andre søyle, så vi bytter rad 2 og 3:\n\n$$\\overset{\\;II\\leftrightarrow III\\;}{\\sim}\\left[\\begin{array}{ccc|c}1&1&1&6\\\\0&1&-2&-4\\\\0&-3&-1&-9\\end{array}\\right]\\overset{\\;III+3\\,II\\;}{\\sim}\\left[\\begin{array}{ccc|c}1&1&1&6\\\\0&1&-2&-4\\\\0&0&-7&-21\\end{array}\\right]$$\n\nDette er **trappeform**. Nederste rad gir $-7z=-21$, altså $z=3$. Tilbakesubstitusjon i rad 2: $y-2\\cdot3=-4\\Rightarrow y=2$. Rad 1: $x+2+3=6\\Rightarrow x=1$.\n\n**Konklusjon:** systemet har den entydige løsningen $(x,y,z)=(1,2,3)$. (Kontroll: $2\\cdot1-2+3=3$ ✓.)"
+    },
+    {
+      "id": "mat1110-1-1-l-a-w",
+      "type": "exercise",
+      "exercise": {
+        "id": "mat1110-1-1-l-a",
+        "number": "1",
+        "type": "classic",
+        "difficulty": "lett",
+        "task": "Løs systemet ved radreduksjon og **merk hver radoperasjon** over $\\sim$-tegnet:\n$$x+y+z=6,\\qquad 2x+y-z=2,\\qquad x-y+2z=7.$$",
+        "solution": "$$\\left[\\begin{array}{ccc|c}1&1&1&6\\\\2&1&-1&2\\\\1&-1&2&7\\end{array}\\right]\\overset{\\;II-2I,\\ III-I\\;}{\\sim}\\left[\\begin{array}{ccc|c}1&1&1&6\\\\0&-1&-3&-10\\\\0&-2&1&1\\end{array}\\right]\\overset{\\;III-2\\,II\\;}{\\sim}\\left[\\begin{array}{ccc|c}1&1&1&6\\\\0&-1&-3&-10\\\\0&0&7&21\\end{array}\\right]$$\n\nNederste rad: $7z=21\\Rightarrow z=3$. Rad 2: $-y-9=-10\\Rightarrow y=1$. Rad 1: $x+1+3=6\\Rightarrow x=2$.\n\n**Løsning:** $(x,y,z)=(2,1,3)$.",
+        "hints": [
+          "Sett opp $[A\\,|\\,b]$ og bruk $II-2I$ og $III-I$ til å nulle ut første søyle.",
+          "Etter to nuller i første søyle: eliminer andre søyle med $III-2\\,II$, så tilbakesubstituer."
+        ]
+      }
+    },
+    {
+      "id": "mat1110-1-1-l2",
+      "type": "text",
+      "content": "## Løkke 2 — Trappeform, pivoter og redusert trappeform (~14 min)"
+    },
+    {
+      "id": "mat1110-1-1-def-trappeform",
+      "type": "definition",
+      "title": "Trappeform (echelon-form)",
+      "content": "En matrise er på **trappeform** når nullene danner en trapp nedover mot venstre: (i) eventuelle helnullrader ligger nederst, og (ii) det første tallet fra venstre som ikke er null i en rad — det **ledende elementet** — står strengt lenger til høyre enn det ledende elementet i raden over. Da er alle tall rett under et ledende element null. Fra trappeform kan systemet løses ved tilbakesubstitusjon."
+    },
+    {
+      "id": "mat1110-1-1-def-pivot",
+      "type": "definition",
+      "title": "Ledende element (pivot) og pivotsøyle",
+      "content": "Det **ledende elementet** (pivotet) i en rad er det første tallet fra venstre som ikke er null. Søylen det står i, kalles en **pivotsøyle**. Pivotene forteller hvor «trappetrinnene» ligger, og antallet deres er nøkkeltallet i kapitlene som følger — det blir rangen (kap. 1.2)."
+    },
+    {
+      "id": "mat1110-1-1-def-bundet-fri",
+      "type": "definition",
+      "title": "Bundne og frie variabler",
+      "content": "En ukjent hvis søyle er en **pivotsøyle**, kalles en **bunden (ledende) variabel** — den bestemmes av de andre. En ukjent hvis søyle **ikke** har noe pivot, er en **fri variabel**: den kan velges fritt, og vi gir den en parameter ($t,s,\\dots$). Antall frie variabler forteller hvor mange «frihetsgrader» løsningen har."
+    },
+    {
+      "id": "mat1110-1-1-def-redusert",
+      "type": "definition",
+      "title": "Redusert trappeform (RREF)",
+      "content": "En **redusert** trappeform er en trappeform der man i tillegg har (i) skalert hvert pivot til $1$, og (ii) laget nuller også **over** hvert pivot. Da står løsningen ferdig avlest: hver pivotsøyle inneholder bare ett ettall. Redusert trappeform er entydig for en gitt matrise — i motsetning til vanlig trappeform, som avhenger av regneveien."
+    },
+    {
+      "id": "mat1110-1-1-thm-gauss",
+      "type": "theorem",
+      "title": "Gauss-eliminasjon og Gauss–Jordan-eliminasjon",
+      "content": "**Gauss-eliminasjon:** reduser til trappeform og løs ved tilbakesubstitusjon nedenfra. **Gauss–Jordan-eliminasjon:** fortsett hele veien til *redusert* trappeform, der løsningen leses direkte uten tilbakesubstitusjon. Begge gir samme svar; Gauss er som regel raskest for hånd, Gauss–Jordan er nødvendig når vi skal lese av en invers matrise (kap. 1.3)."
+    },
+    {
+      "id": "mat1110-1-1-ex2",
+      "type": "example",
+      "title": "Eksempel 2: Fra trappeform til redusert trappeform",
+      "problem": "Ta trappeformen fra Eksempel 1 og gjør ferdig Gauss–Jordan til redusert trappeform.",
+      "solution": "Vi fortsetter fra $\\left[\\begin{array}{ccc|c}1&1&1&6\\\\0&1&-2&-4\\\\0&0&-7&-21\\end{array}\\right]$. Skaler pivotet i rad 3 til $1$:\n\n$$\\overset{\\;-\\tfrac17\\,III\\;}{\\sim}\\left[\\begin{array}{ccc|c}1&1&1&6\\\\0&1&-2&-4\\\\0&0&1&3\\end{array}\\right]\\overset{\\;II+2\\,III,\\ I-III\\;}{\\sim}\\left[\\begin{array}{ccc|c}1&1&0&3\\\\0&1&0&2\\\\0&0&1&3\\end{array}\\right]\\overset{\\;I-II\\;}{\\sim}\\left[\\begin{array}{ccc|c}1&0&0&1\\\\0&1&0&2\\\\0&0&1&3\\end{array}\\right]$$\n\nNå står svaret ferdig i siste søyle: $x=1,\\ y=2,\\ z=3$ — samme løsning som før. Alle tre søylene til venstre er pivotsøyler, så alle variablene er bundne, og løsningen er entydig."
+    },
+    {
+      "id": "mat1110-1-1-l-b-w",
+      "type": "exercise",
+      "exercise": {
+        "id": "mat1110-1-1-l-b",
+        "number": "2",
+        "type": "classic",
+        "difficulty": "lett",
+        "task": "Bring matrisen til **redusert** trappeform og angi pivotsøylene:\n$$\\left[\\begin{array}{ccc|c}1&2&1&4\\\\2&5&3&9\\\\0&1&2&3\\end{array}\\right].$$",
+        "solution": "$$\\overset{\\;II-2I\\;}{\\sim}\\left[\\begin{array}{ccc|c}1&2&1&4\\\\0&1&1&1\\\\0&1&2&3\\end{array}\\right]\\overset{\\;III-II\\;}{\\sim}\\left[\\begin{array}{ccc|c}1&2&1&4\\\\0&1&1&1\\\\0&0&1&2\\end{array}\\right]$$\n\nNå oppover: $\\overset{\\;II-III,\\ I-III\\;}{\\sim}\\left[\\begin{array}{ccc|c}1&2&0&2\\\\0&1&0&-1\\\\0&0&1&2\\end{array}\\right]\\overset{\\;I-2\\,II\\;}{\\sim}\\left[\\begin{array}{ccc|c}1&0&0&4\\\\0&1&0&-1\\\\0&0&1&2\\end{array}\\right].$\n\n**Pivotsøyler:** søyle 1, 2 og 3 (alle tre). Løsningen er $(x,y,z)=(4,-1,2)$, entydig.",
+        "hints": [
+          "Lag først nuller under diagonalen (trappeform), så nuller over pivotene.",
+          "Skaler hvert pivot til $1$ før du rydder over det."
+        ]
+      }
+    },
+    {
+      "id": "mat1110-1-1-l3",
+      "type": "text",
+      "content": "## Løkke 3 — De tre utfallene og parametrisering (~14 min)"
+    },
+    {
+      "id": "mat1110-1-1-def-losningsmengde",
+      "type": "definition",
+      "title": "Løsningsmengdens tre utfall",
+      "content": "Et lineært system har alltid nøyaktig ett av tre utfall, og trappeformen avslører hvilket: **(1) entydig løsning** — hver variabel er bunden (like mange pivoter som ukjente); **(2) ingen løsning** — det oppstår en umulig rad $[\\,0\\ 0\\ 0\\ |\\ k\\,]$ med $k\\ne0$; **(3) uendelig mange løsninger** — systemet er konsistent, men minst én variabel er fri."
+    },
+    {
+      "id": "mat1110-1-1-def-konsistent",
+      "type": "definition",
+      "title": "Konsistent og inkonsistent system",
+      "content": "Et system er **konsistent (løsbart)** når det har minst én løsning, og **inkonsistent** når det ikke har noen. Inkonsistens vises ved en rad $[\\,0\\ \\cdots\\ 0\\ |\\ k\\,]$ med $k\\ne0$ i trappeformen — den sier «$0=k$», som er umulig. Ser du en slik rad, kan du stoppe: systemet har ingen løsning."
+    },
+    {
+      "id": "mat1110-1-1-def-parametrisering",
+      "type": "definition",
+      "title": "Parametrisering av løsningsmengden",
+      "content": "Når det finnes frie variabler, beskriver vi **alle** løsninger ved å gi hver fri variabel en parameter ($z=t$ osv.) og uttrykke de bundne variablene ved parametrene. Løsningen skrives da som en **partikulær løsning pluss parameter ganger retningsvektor(er)**, f.eks. $(x,y,z)=(-3,2,0)+t(7,-3,1)$. Å glemme å parametrisere — og bare oppgi ett løsningspunkt — er en klassisk feil."
+    },
+    {
+      "id": "mat1110-1-1-def-homogent",
+      "type": "definition",
+      "title": "Homogent system og trivialløsning",
+      "content": "Et system $Ax=0$ (bare nuller på høyresiden) kalles **homogent**. Det er alltid konsistent, for $x=0$ — **trivialløsningen** — passer alltid. Spørsmålet er om det finnes *andre* løsninger: det gjør det nøyaktig når systemet har minst én fri variabel. Disse ikke-trivielle løsningene blir nullrommet i kap. 1.2."
+    },
+    {
+      "id": "mat1110-1-1-ex3",
+      "type": "example",
+      "title": "Eksempel 3: Uendelig mange løsninger — parametrisering",
+      "problem": "Finn løsningsmengden til\n$$x+y+2z=3,\\qquad 2x+3y+z=4,\\qquad 3x+4y+3z=7.$$",
+      "solution": "$$\\left[\\begin{array}{ccc|c}1&1&2&3\\\\2&3&1&4\\\\3&4&3&7\\end{array}\\right]\\overset{\\;II-2I,\\ III-3I\\;}{\\sim}\\left[\\begin{array}{ccc|c}1&1&2&3\\\\0&1&-3&-2\\\\0&1&-3&-2\\end{array}\\right]\\overset{\\;III-II\\;}{\\sim}\\left[\\begin{array}{ccc|c}1&1&2&3\\\\0&1&-3&-2\\\\0&0&0&0\\end{array}\\right]$$\n\nNederste rad ble helt null — ingen motsigelse, så systemet er **konsistent**, men det er bare to pivoter (søyle 1 og 2) og tre ukjente. Søyle 3 har intet pivot, så $z$ er **fri**. Rydd over pivotet: $\\overset{\\;I-II\\;}{\\sim}\\left[\\begin{array}{ccc|c}1&0&5&5\\\\0&1&-3&-2\\\\0&0&0&0\\end{array}\\right].$\n\nSett $z=t$. Da er $x=5-5t$ og $y=-2+3t$. **Løsningsmengden** er\n$$(x,y,z)=(5,-2,0)+t(-5,3,1),\\quad t\\in\\mathbb{R}$$\n— uendelig mange løsninger, én for hver $t$. (Kontroll ved $t=1$: $(0,1,1)$ gir $0+1+2=3$ ✓.)"
+    },
+    {
+      "id": "mat1110-1-1-l-c-w",
+      "type": "exercise",
+      "exercise": {
+        "id": "mat1110-1-1-l-c",
+        "number": "3",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "Vis at systemet har uendelig mange løsninger, og parametriser løsningsmengden:\n$$x+2y-z=1,\\qquad 2x+5y+z=4,\\qquad 3x+7y+0z=5.$$",
+        "solution": "$$\\left[\\begin{array}{ccc|c}1&2&-1&1\\\\2&5&1&4\\\\3&7&0&5\\end{array}\\right]\\overset{\\;II-2I,\\ III-3I\\;}{\\sim}\\left[\\begin{array}{ccc|c}1&2&-1&1\\\\0&1&3&2\\\\0&1&3&2\\end{array}\\right]\\overset{\\;III-II\\;}{\\sim}\\left[\\begin{array}{ccc|c}1&2&-1&1\\\\0&1&3&2\\\\0&0&0&0\\end{array}\\right]$$\n\nNullraden gir ingen motsigelse → konsistent; $z$ er fri (ingen pivot i søyle 3). Rydd over: $\\overset{\\;I-2\\,II\\;}{\\sim}\\left[\\begin{array}{ccc|c}1&0&-7&-3\\\\0&1&3&2\\\\0&0&0&0\\end{array}\\right].$ Sett $z=t$: $x=-3+7t,\\ y=2-3t$.\n\n**Løsningsmengde:** $(x,y,z)=(-3,2,0)+t(7,-3,1),\\ t\\in\\mathbb{R}$.",
+        "hints": [
+          "Reduser til trappeform. En helnullrad betyr en fri variabel, ikke en motsigelse.",
+          "Sett den frie variabelen $z=t$ og uttrykk $x$ og $y$ ved $t$."
+        ]
+      }
+    },
+    {
+      "id": "mat1110-1-1-l4",
+      "type": "text",
+      "content": "## Løkke 4 — Parameteravhengig løsbarhet (~10 min)"
+    },
+    {
+      "id": "mat1110-1-1-l4-tekst",
+      "type": "text",
+      "content": "En eksamensklassiker (2005/2006/2011/2013) er å drøfte hvordan løsbarheten **avhenger av en parameter** i koeffisientene. Teknikken er den samme: radreduser som vanlig, men behandle parameteren som en bokstav, og se hvor et pivot kan **forsvinne** (bli null). Der skjer skiftet mellom de tre utfallene."
+    },
+    {
+      "id": "mat1110-1-1-ex4",
+      "type": "example",
+      "title": "Eksempel 4: For hvilke $a$ og $b$ er systemet løsbart?",
+      "problem": "Drøft løsbarheten av\n$$x+2y+z=1,\\qquad 2x+5y+3z=2,\\qquad 3x+7y+a z=b$$\nfor alle verdier av parametrene $a$ og $b$.",
+      "solution": "$$\\left[\\begin{array}{ccc|c}1&2&1&1\\\\2&5&3&2\\\\3&7&a&b\\end{array}\\right]\\overset{\\;II-2I,\\ III-3I\\;}{\\sim}\\left[\\begin{array}{ccc|c}1&2&1&1\\\\0&1&1&0\\\\0&1&a-3&b-3\\end{array}\\right]\\overset{\\;III-II\\;}{\\sim}\\left[\\begin{array}{ccc|c}1&2&1&1\\\\0&1&1&0\\\\0&0&a-4&b-3\\end{array}\\right]$$\n\nAlt avgjøres av nederste rad $(a-4)z=b-3$:\n\n**a)** $a\\ne4$: pivotet $a-4\\ne0$, tre pivoter, tre ukjente ⇒ **entydig løsning** (uansett $b$).\n\n**b)** $a=4$ og $b\\ne3$: raden blir $[\\,0\\ 0\\ 0\\ |\\ b-3\\,]$ med $b-3\\ne0$ ⇒ motsigelse ⇒ **ingen løsning**.\n\n**c)** $a=4$ og $b=3$: raden blir helt null ⇒ $z$ fri ⇒ **uendelig mange løsninger**.\n\n**Konklusjon:** entydig for $a\\ne4$; for $a=4$ avhenger det av $b$ (ingen hvis $b\\ne3$, uendelig mange hvis $b=3$)."
+    },
+    {
+      "id": "mat1110-1-1-l-d-w",
+      "type": "exercise",
+      "exercise": {
+        "id": "mat1110-1-1-l-d",
+        "number": "4",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "For hvilke verdier av $a$ og $b$ har systemet entydig løsning, ingen løsning, eller uendelig mange?\n$$x+y+z=1,\\qquad 2x+3y+a z=3,\\qquad x+2y+3z=b.$$",
+        "solution": "$$\\left[\\begin{array}{ccc|c}1&1&1&1\\\\2&3&a&3\\\\1&2&3&b\\end{array}\\right]\\overset{\\;II-2I,\\ III-I\\;}{\\sim}\\left[\\begin{array}{ccc|c}1&1&1&1\\\\0&1&a-2&1\\\\0&1&2&b-1\\end{array}\\right]\\overset{\\;III-II\\;}{\\sim}\\left[\\begin{array}{ccc|c}1&1&1&1\\\\0&1&a-2&1\\\\0&0&4-a&b-2\\end{array}\\right]$$\n\nNederste rad: $(4-a)z=b-2$.\n\n**a)** $a\\ne4$: **entydig løsning** (uansett $b$).\n\n**b)** $a=4,\\ b\\ne2$: rad $[\\,0\\ 0\\ 0\\ |\\ b-2\\,]$, motsigelse ⇒ **ingen løsning**.\n\n**c)** $a=4,\\ b=2$: nullrad ⇒ $z$ fri ⇒ **uendelig mange løsninger**.",
+        "hints": [
+          "Radreduser med $a$ og $b$ som bokstaver til trappeform.",
+          "Skiftet skjer der pivotet $4-a$ blir null. Da bestemmer høyresiden om det er ingen eller uendelig mange."
+        ]
+      }
+    },
+    {
+      "id": "mat1110-1-1-warn",
+      "type": "warning",
+      "title": "Typiske feil",
+      "content": "- **Umerkede radoperasjoner.** Skriv alltid operasjonen over $\\sim$ ($II-2I$, $III+I$). Dette er sensors uttrykte krav — uten merking mister du føringspoeng selv med riktig svar.\n- **Ubokførte radbytter.** Et $I\\leftrightarrow II$ som ikke noteres, gir forvirring og skjulte fortegnsfeil.\n- **Forplantede regnefeil.** Kontroller pivotraden før du bruker den til å nulle ut nedover; én feil i mellomtrinnet ødelegger resten.\n- **Trappeform forvekslet med redusert trappeform.** «Angi den reduserte trappeformen» krever nuller *over* pivotene og pivoter lik $1$ — ikke bare under.\n- **Glemt parametrisering.** Ved en fri variabel skal hele løsningsmengden $p+t\\,v$ skrives, ikke bare ett punkt.\n- **Feiltolket nullrad.** En helnullrad betyr en fri variabel (uendelig mange løsninger), *ikke* ingen løsning. Ingen løsning krever $[\\,0\\ \\cdots\\ 0\\ |\\ k\\,]$ med $k\\ne0$."
+    },
+    {
+      "id": "mat1110-1-1-pulje",
+      "type": "text",
+      "content": "## Eksamensrettet oppgavepulje\n\nStigende vanskegrad. Før alle med **merkede** radoperasjoner, akkurat som sensor forventer på O1."
+    },
+    {
+      "id": "mat1110-1-1-p1-w",
+      "type": "exercise",
+      "exercise": {
+        "id": "mat1110-1-1-p1",
+        "number": "5",
+        "type": "classic",
+        "difficulty": "lett",
+        "task": "Løs $2\\times2$-systemet ved radreduksjon med merket føring: $\\ x+2y=7,\\ \\ 3x+y=6.$",
+        "solution": "$$\\left[\\begin{array}{cc|c}1&2&7\\\\3&1&6\\end{array}\\right]\\overset{\\;II-3I\\;}{\\sim}\\left[\\begin{array}{cc|c}1&2&7\\\\0&-5&-15\\end{array}\\right]\\overset{\\;-\\tfrac15 II\\;}{\\sim}\\left[\\begin{array}{cc|c}1&2&7\\\\0&1&3\\end{array}\\right]\\overset{\\;I-2II\\;}{\\sim}\\left[\\begin{array}{cc|c}1&0&1\\\\0&1&3\\end{array}\\right]$$\n\n**Løsning:** $(x,y)=(1,3)$.",
+        "hints": [
+          "Bruk $II-3I$ for å fjerne $x$ fra likning 2.",
+          "Skaler rad 2 til pivot $1$, deretter $I-2II$."
+        ]
+      }
+    },
+    {
+      "id": "mat1110-1-1-p2-w",
+      "type": "exercise",
+      "exercise": {
+        "id": "mat1110-1-1-p2",
+        "number": "6",
+        "type": "classic",
+        "difficulty": "lett",
+        "task": "Avgjør uten å regne ferdig: hva slags løsningsmengde har et system hvis trappeform er $\\left[\\begin{array}{ccc|c}1&2&0&3\\\\0&0&1&5\\\\0&0&0&0\\end{array}\\right]$? Begrunn og parametriser.",
+        "solution": "Ingen motsigelsesrad (nullraden er $0=0$), så systemet er **konsistent**. Pivoter i søyle 1 og 3 ⇒ $x_1,x_3$ bundne; søyle 2 har intet pivot ⇒ $x_2$ **fri**. Altså **uendelig mange løsninger**. Sett $x_2=t$: $x_1=3-2t,\\ x_3=5$.\n\n**Løsningsmengde:** $(x_1,x_2,x_3)=(3,0,5)+t(-2,1,0)$.",
+        "hints": [
+          "Se etter en motsigelsesrad $[0\\,0\\,0\\,|\\,k\\ne0]$ — her er det ingen.",
+          "Fri variabel = søyle uten pivot."
+        ]
+      }
+    },
+    {
+      "id": "mat1110-1-1-p3-w",
+      "type": "exercise",
+      "exercise": {
+        "id": "mat1110-1-1-p3",
+        "number": "7",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "Vis at systemet er inkonsistent (ingen løsning): $\\ x+2y-z=1,\\ \\ 2x+4y-2z=5,\\ \\ x-y+z=0.$",
+        "solution": "$$\\left[\\begin{array}{ccc|c}1&2&-1&1\\\\2&4&-2&5\\\\1&-1&1&0\\end{array}\\right]\\overset{\\;II-2I,\\ III-I\\;}{\\sim}\\left[\\begin{array}{ccc|c}1&2&-1&1\\\\0&0&0&3\\\\0&-3&2&-1\\end{array}\\right]$$\n\nRad 2 er $[\\,0\\ 0\\ 0\\ |\\ 3\\,]$, altså «$0=3$» — en umulighet. Systemet er derfor **inkonsistent og har ingen løsning**. (Den geometriske grunnen: likning 2 er $2\\times$ likning 1 på venstresiden, men høyresiden passer ikke — to parallelle, ikke sammenfallende plan.)",
+        "hints": [
+          "Nuller ut første søyle med $II-2I$ og $III-I$.",
+          "En rad $[0\\,0\\,0\\,|\\,k]$ med $k\\ne0$ betyr ingen løsning — du trenger ikke regne videre."
+        ]
+      }
+    },
+    {
+      "id": "mat1110-1-1-p4-w",
+      "type": "exercise",
+      "exercise": {
+        "id": "mat1110-1-1-p4",
+        "number": "8",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "Et homogent system har koeffisientmatrise $A=\\left[\\begin{array}{ccc}1&2&3\\\\2&4&6\\\\1&1&1\\end{array}\\right]$. Finn alle løsninger av $Ax=0$.",
+        "solution": "For et homogent system holder det å radredusere $A$ (høyresiden forblir null):\n$$\\left[\\begin{array}{ccc}1&2&3\\\\2&4&6\\\\1&1&1\\end{array}\\right]\\overset{\\;II-2I,\\ III-I\\;}{\\sim}\\left[\\begin{array}{ccc}1&2&3\\\\0&0&0\\\\0&-1&-2\\end{array}\\right]\\overset{\\;II\\leftrightarrow III,\\ -II\\;}{\\sim}\\left[\\begin{array}{ccc}1&2&3\\\\0&1&2\\\\0&0&0\\end{array}\\right]\\overset{\\;I-2II\\;}{\\sim}\\left[\\begin{array}{ccc}1&0&-1\\\\0&1&2\\\\0&0&0\\end{array}\\right]$$\n\nPivoter i søyle 1,2; $z$ fri. Sett $z=t$: $x=t,\\ y=-2t$. **Løsning:** $(x,y,z)=t(1,-2,1),\\ t\\in\\mathbb{R}$ — i tillegg til trivialløsningen $(0,0,0)$ (som er $t=0$). Systemet har altså ikke-trivielle løsninger.",
+        "hints": [
+          "Homogent system: høyresiden er alltid $0$, så radreduser bare $A$.",
+          "Én fri variabel ⇒ uendelig mange løsninger langs en linje gjennom origo."
+        ]
+      }
+    },
+    {
+      "id": "mat1110-1-1-p5-w",
+      "type": "exercise",
+      "exercise": {
+        "id": "mat1110-1-1-p5",
+        "number": "9",
+        "type": "classic",
+        "difficulty": "vanskelig",
+        "task": "(Eksamensnivå, sjanger A-variant.) Drøft løsbarheten av systemet med utvidet matrise $\\left[\\begin{array}{ccc|c}1&1&1&2\\\\1&2&3&c\\\\1&4&a&c^2\\end{array}\\right]$ som funksjon av $a$ og $c$.",
+        "solution": "$$\\overset{\\;II-I,\\ III-I\\;}{\\sim}\\left[\\begin{array}{ccc|c}1&1&1&2\\\\0&1&2&c-2\\\\0&3&a-1&c^2-2\\end{array}\\right]\\overset{\\;III-3II\\;}{\\sim}\\left[\\begin{array}{ccc|c}1&1&1&2\\\\0&1&2&c-2\\\\0&0&a-7&c^2-3c+4\\end{array}\\right]$$\n\nNederste rad: $(a-7)z=c^2-3c+4$.\n\n**a)** $a\\ne7$: pivot $a-7\\ne0$ ⇒ **entydig løsning** for enhver $c$.\n\n**b)** $a=7$: raden blir $[\\,0\\ 0\\ 0\\ |\\ c^2-3c+4\\,]$. Diskriminanten til $c^2-3c+4$ er $9-16=-7<0$, så $c^2-3c+4>0$ for **alle** $c$. Høyresiden er dermed aldri null ⇒ **ingen løsning** for noen $c$.\n\n**Konklusjon:** entydig løsning nøyaktig når $a\\ne7$; for $a=7$ er systemet inkonsistent uansett $c$. (Merk: her finnes det *ingen* $c$ som gir uendelig mange løsninger, fordi $c^2-3c+4$ aldri blir null.)",
+        "hints": [
+          "Behandle $a$ og $c$ som bokstaver og reduser til trappeform.",
+          "Undersøk om høyresiden i motsigelsesraden $c^2-3c+4$ kan bli null — sjekk diskriminanten."
+        ]
+      }
+    },
+    {
+      "id": "mat1110-1-1-p6-w",
+      "type": "exercise",
+      "exercise": {
+        "id": "mat1110-1-1-p6",
+        "number": "10",
+        "type": "classic",
+        "difficulty": "vanskelig",
+        "task": "(Eksamensnivå.) Et system i fire ukjente $x_1,x_2,x_3,x_4$ har utvidet matrise $\\left[\\begin{array}{cccc|c}1&2&0&1&3\\\\2&4&1&3&8\\\\1&2&1&2&5\\end{array}\\right]$. Finn løsningsmengden på formen $p+s\\,u+t\\,v$.",
+        "solution": "$$\\overset{\\;II-2I,\\ III-I\\;}{\\sim}\\left[\\begin{array}{cccc|c}1&2&0&1&3\\\\0&0&1&1&2\\\\0&0&1&1&2\\end{array}\\right]\\overset{\\;III-II\\;}{\\sim}\\left[\\begin{array}{cccc|c}1&2&0&1&3\\\\0&0&1&1&2\\\\0&0&0&0&0\\end{array}\\right]$$\n\nPivoter i søyle 1 og 3 ⇒ $x_1,x_3$ bundne; $x_2,x_4$ **frie**. Matrisen er allerede redusert (nuller over pivotene). Sett $x_2=s,\\ x_4=t$: fra rad 2 $x_3=2-t$; fra rad 1 $x_1=3-2s-t$.\n\n**Løsningsmengde:**\n$$(x_1,x_2,x_3,x_4)=(3,0,2,0)+s\\,(-2,1,0,0)+t\\,(-1,0,-1,1),\\quad s,t\\in\\mathbb{R}.$$\nTo frie variabler gir et to-parameters løsningsplan. (Kontroll i rad 3: $0=0$ ✓.)",
+        "hints": [
+          "To søyler uten pivot ⇒ to frie variabler ⇒ to parametre.",
+          "Skriv de bundne $x_1,x_3$ ved $s=x_2$ og $t=x_4$; samle konstantledd og $s$- og $t$-ledd hver for seg."
+        ]
+      }
+    },
+    {
+      "id": "mat1110-1-1-bb-tekst",
+      "type": "text",
+      "content": "## Begrepsbank\n\nKjernebegrepene fra kapitlet samlet som oppslag og flashcards.\n\n*Begrepsbanken er flashcard-/repetisjonsstoff — den gjentar det du nettopp har lest. Hopp trygt over ved førstegangslesing; tidsanslaget for kapitlet gjelder kjernestoffet.*"
+    },
+    {
+      "id": "mat1110-1-1-bb-lls",
+      "type": "definition",
+      "title": "Lineært likningssystem",
+      "content": "En samling likninger der hver ukjent bare opptrer i første potens og aldri ganges med en annen ukjent — i symboler $Ax=b$. «Lineært» betyr rett og slett at grafene er rette linjer / plan, uten kvadrater, produkter eller andre krumninger. Alt i dette kapitlet handler om å løse slike systemer effektivt."
+    },
+    {
+      "id": "mat1110-1-1-bb-koeff",
+      "type": "definition",
+      "title": "Koeffisientmatrise",
+      "content": "Tallrutenettet $A$ av koeffisientene alene — altså den utvidede matrisen $[A\\,|\\,b]$ **uten** høyresidesøylen. For homogene systemer ($b=0$) holder det å radredusere koeffisientmatrisen, siden høyresiden forblir null uansett."
+    },
+    {
+      "id": "mat1110-1-1-bb-tilbake",
+      "type": "definition",
+      "title": "Tilbakesubstitusjon",
+      "content": "Metoden for å lese ut løsningen fra en trappeform: start i **nederste** ikke-nullrad, løs den for sin ledende variabel, og sett resultatet oppover i radene én etter én. Dette er Gauss-metodens siste steg, og alternativet til å rydde helt til redusert trappeform."
+    },
+    {
+      "id": "mat1110-1-1-bb-gauss",
+      "type": "definition",
+      "title": "Gauss-eliminasjon (algoritmen)",
+      "content": "Den systematiske oppskriften: bruk elementære radoperasjoner til å skape nuller under hvert pivot, søyle for søyle fra venstre, til matrisen er på trappeform — og løs så ved tilbakesubstitusjon. Navnet skyldes Carl Friedrich Gauss, men teknikken var kjent i Kina for over 2000 år siden."
+    },
+    {
+      "id": "mat1110-1-1-bb-motsigelse",
+      "type": "definition",
+      "title": "Motsigelsesrad",
+      "content": "En rad på formen $[\\,0\\ 0\\ \\cdots\\ 0\\ |\\ k\\,]$ med $k\\ne0$, som sier «$0=k$». Dukker en slik rad opp under radreduksjonen, er systemet inkonsistent og har **ingen** løsning — og du kan stoppe med én gang."
+    },
+    {
+      "id": "mat1110-1-1-bb-dimfrihet",
+      "type": "definition",
+      "title": "Antall frie variabler (frihetsgrader)",
+      "content": "Antall søyler uten pivot i trappeformen. Tallet forteller dimensjonen til løsningsmengden: $0$ frie variabler gir et punkt (entydig), $1$ gir en linje, $2$ gir et plan, og så videre. Det er samtidig antall parametre du trenger i parametriseringen."
+    },
+    {
+      "id": "mat1110-1-1-rep",
+      "type": "collapsible",
+      "title": "Repetisjon",
+      "buttonText": "Vis repetisjonsoppgaver",
+      "content": [
+        {
+          "id": "mat1110-1-1-rep1-w",
+          "type": "exercise",
+          "exercise": {
+            "id": "mat1110-1-1-rep1",
+            "number": "R1",
+            "type": "classic",
+            "difficulty": "lett",
+            "task": "(Fra VGS-likningssett, [1t-4-1](/bok/1t/1t-4-1)) Løs med innsetting eller eliminasjon: $\\ x+y=10,\\ \\ 2x-y=2.$ Skriv deretter systemet som utvidet matrise.",
+            "solution": "Legg likningene sammen: $3x=12\\Rightarrow x=4$, så $y=6$. Utvidet matrise: $\\left[\\begin{array}{cc|c}1&1&10\\\\2&-1&2\\end{array}\\right]$. **Løsning:** $(x,y)=(4,6)$.",
+            "hints": [
+              "Adder likningene for å fjerne $y$."
+            ]
+          }
+        },
+        {
+          "id": "mat1110-1-1-rep2-w",
+          "type": "exercise",
+          "exercise": {
+            "id": "mat1110-1-1-rep2",
+            "number": "R2",
+            "type": "classic",
+            "difficulty": "lett",
+            "task": "(Fra [r1-6-1](/bok/r1/r1-6-1)) Løs $3\\times3$-systemet: $\\ x+y+z=6,\\ \\ x-y=0,\\ \\ z=2.$",
+            "solution": "Fra likning 3: $z=2$. Fra likning 2: $x=y$. Sett inn i likning 1: $x+x+2=6\\Rightarrow x=2$, så $y=2$. **Løsning:** $(x,y,z)=(2,2,2)$.",
+            "hints": [
+              "Start med den enkleste likningen ($z=2$) og substituer oppover."
+            ]
+          }
+        },
+        {
+          "id": "mat1110-1-1-rep3-w",
+          "type": "exercise",
+          "exercise": {
+            "id": "mat1110-1-1-rep3",
+            "number": "R3",
+            "type": "classic",
+            "difficulty": "middels",
+            "task": "Forklar hvorfor et radbytte ($I\\leftrightarrow II$) ikke endrer løsningsmengden til et likningssystem.",
+            "solution": "Løsningsmengden er mengden av alle $(x,y,z)$ som oppfyller **samtlige** likninger samtidig. Rekkefølgen likningene skrives i, spiller ingen rolle for om et punkt oppfyller alle — «likning 1 og likning 2» er den samme betingelsen som «likning 2 og likning 1». Derfor har det ombyttede systemet nøyaktig de samme løsningene.",
+            "hints": [
+              "Tenk på hva løsningsmengden faktisk er: punktene som passer i alle likninger."
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": "mat1110-1-1-symbol",
+      "type": "collapsible",
+      "title": "Symbol- og formelliste",
+      "buttonText": "Vis symboler og formler",
+      "content": [
+        {
+          "id": "mat1110-1-1-symbol-text",
+          "type": "text",
+          "content": "## Symbol- og formelliste\n\n*Oppslagsverk — alt her forklares underveis i kapitlet.*\n\n| Symbol | Betydning |\n|---|---|\n| $[A\\,|\\,b]$ | Utvidet matrise: koeffisienter $A$ og høyreside $b$ i én tabell |\n| $A$ | Koeffisientmatrise til systemet $Ax=b$ |\n| $x$ | Søylevektor av de ukjente |\n| $\\sim$ | Radekvivalens: samme løsningsmengde, ulik skrivemåte |\n| $I,II,III$ | Rad (likning) nr. 1, 2, 3 |\n| $II-2I$ | «Erstatt rad 2 med rad 2 $-2\\cdot$ rad 1» (merket radoperasjon) |\n| $I\\leftrightarrow II$ | Bytt rad 1 og rad 2 |\n| pivot | Ledende (første ikke-null) element i en rad |\n| $t,s$ | Parametre for frie variabler |\n| $\\mathbb{R}$ | De reelle tallene |\n| $Ax=0$ | Homogent system |\n\n**De tre elementære radoperasjonene:**\n\n$$I\\leftrightarrow II\\quad(\\text{radbytte}),\\qquad c\\cdot I\\ (c\\ne0)\\quad(\\text{skalering}),\\qquad II+cI\\quad(\\text{addere multiplum}).$$\nAlle tre bevarer løsningsmengden.\n\n**Trappeform → tilbakesubstitusjon:** nuller under hvert pivot, løs nedenfra og opp.\n\n**Redusert trappeform (RREF):** pivoter $=1$, nuller også over dem; løsningen leses direkte.\n\n**De tre utfallene:** entydig (alle variabler bundne) · ingen ($[\\,0\\cdots0\\,|\\,k\\ne0\\,]$) · uendelig mange (minst én fri variabel, parametriser $p+t\\,v$)."
+        }
+      ]
+    }
+  ],
+  "exercises": []
+}

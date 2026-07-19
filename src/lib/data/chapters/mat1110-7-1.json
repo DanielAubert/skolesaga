@@ -1,0 +1,369 @@
+{
+  "id": "mat1110-7-1",
+  "courseId": "mat1110",
+  "chapterNumber": "7.1",
+  "title": "Føringsstandarden: slik skriver du en A-besvarelse",
+  "description": "Sensorreglene operasjonalisert: teoremnavning, merkede radoperasjoner, eksakte svar, fortegns-/orienteringskontroll, eksistensbegrunnelse og delpunkt-gjenbruk — samlet på ett sted.",
+  "estimatedMinutes": 50,
+  "competenceGoals": [
+    "føre en løsning slik sensor krever: navngi teoremene som bærer argumentet, merke radoperasjoner, skrive grenser som ulikheter og gi eksakte svar",
+    "gjøre de sjangerspesifikke kontrollene ($\\nabla g=0$-sjekk, eksistens på kompakt mengde, fortegns-/orienteringskontroll, endepunktsjekk) på rett sted",
+    "utnytte kjedingen mellom delpunkter ved å gjenbruke tidligere delsvar"
+  ],
+  "content": [
+    {
+      "id": "mat1110-7-1-tip-eksamensvinkel",
+      "type": "tip",
+      "title": "Eksamensvinkel",
+      "content": "**Dette kapitlet handler ikke om ny matematikk — det handler om hvordan du *fører* matematikken du allerede kan, slik at den gir full uttelling.** Sensorregelen står ordrett i alle 20 arkiverte sett: «Du må begrunne alle svar, og vise nok mellomregninger til at man lett kan følge argumentene.» Et riktig sluttsvar uten begrunnelse gir **ikke** full score.\n\n- De tre offisielle V2025-løsningsforslagene viser en fast føringspraksis: **teoremer navngis** («ifølge omvendt funksjonsteorem …»), **radoperasjoner merkes** over $\\sim$-tegnet, **integrasjonsgrenser skrives som ulikheter** før oppsett, **fortegn/orientering kontrolleres** i all vektoranalyse, og **svar oppgis eksakt** ($\\tfrac{32}{3}$, $\\tfrac{8\\pi}{5}$) — aldri desimal.\n- På et 10-deloppgavers avsluttende sett er forskjellen mellom C og A ofte ikke *hvilke* oppgaver du løser, men *hvordan* du fører dem: eksistensbegrunnelsen, $\\nabla g=0$-sjekken, normalretningen, endepunktsjekken.\n- Delpunktene er **kjedet**: fasiten gjenbruker eksplisitt et tidligere delsvar (inversen fra forrige punkt, trippelintegralet inn i divergensteoremet). Å se koblingen premieres.\n\n**Prioritet: høyeste.** Les dette kapitlet før du gjør simuleringene i [kap. 7.2](/bok/mat1110/mat1110-7-2)–[7.4](/bok/mat1110/mat1110-7-4) — det er tolkningsnøkkelen til alle løsningsforslagene der."
+    },
+    {
+      "id": "mat1110-7-1-forkunnskaper",
+      "type": "text",
+      "content": "**Forkunnskaper.** Dette er et metodekapittel som forutsetter at du har vært gjennom regnestoffet i Del 1–5: [kap. 1.1–1.5](/bok/mat1110/mat1110-1-1) (radreduksjon, basis, invers), [kap. 2.1–2.3](/bok/mat1110/mat1110-2-3) (Jacobi og funksjonsteoremene), [kap. 3.1–3.4](/bok/mat1110/mat1110-3-2) (optimering, Lagrange), [kap. 4.1–4.5](/bok/mat1110/mat1110-4-1) (multiple integraler) og [kap. 5.1–5.6](/bok/mat1110/mat1110-5-6) (vektoranalyse). Du trenger ikke kunne alt utenat — men du bør kjenne igjen sjangrene, for her handler det om *føringen* av dem, ikke om å lære dem på nytt. Beredskapsstoffet i [Del 6](/bok/mat1110/mat1110-6-1) (egenverdier, potensrekker) følger samme føringsprinsipper.\n\nIngen MAT1100-forkunnskap kreves spesifikt her; regelen «begrunn alt» gjelder likt for enkeltvariabelstoffet *(MAT1100 — forgjengerbok, ikke bygget ennå; aktiver lenke når den finnes)*."
+    },
+    {
+      "id": "mat1110-7-1-motiv",
+      "type": "text",
+      "content": "Tenk deg to studenter som leverer nøyaktig samme sluttsvar på en fluks-oppgave: $\\tfrac{4\\pi}{5}$. Den ene får full score, den andre mister en tredjedel av poengene. Forskjellen ligger utelukkende i føringen: den første skrev hvorfor $\\boldsymbol{\\phi}_u\\times\\boldsymbol{\\phi}_v$ peker samme vei som den oppgitte normalen, navnga divergensteoremet, og skrev grensene som ulikheter; den andre skrev bare tall.\n\nSensor kan ikke gi poeng for tanker du ikke har skrevet ned. Dette kapitlet destillerer fasitpraksisen til én **begrunnelsestrapp** (hva som er *nok* begrunnelse per sjanger), én **sjekkliste** du kjører før innlevering, og to **kontrastpar** som viser den samme utregningen ført på en dyr og en billig måte. Målet er at føringen sitter automatisk, så du bruker tenketiden på matematikken og ikke på å huske hva sensor vil se."
+    },
+    {
+      "id": "mat1110-7-1-trapp-intro",
+      "type": "text",
+      "content": "## Begrunnelsestrappen: hva er *nok* begrunnelse per sjanger?\n\nFor hver oppgavesjanger (kodene **A–R** fra eksamenskartet, se [kap. 0.1](/bok/mat1110/mat1110-0-1)) finnes det ett eller to grep som *må* stå i besvarelsen for full uttelling. Tabellen under er fasit-praksisen samlet på ett sted. Lær kolonnen «Må stå i besvarelsen» — det er der poengene sitter."
+    },
+    {
+      "id": "mat1110-7-1-trapp-tabell",
+      "type": "text",
+      "content": "| Sjanger | Tema | Må stå i besvarelsen (føringspoenget) |\n|---|---|---|\n| **A** | Radreduksjon, basis, invers | Merkede radoperasjoner over $\\sim$; konklusjon med navngitt kriterium («radekvivalent med $I_n$ $\\Rightarrow$ basis») |\n| **B** | Egenverdier, $\\lim A^n v$ | Karakteristisk likning $\\det(\\lambda I-A)=0$; egenvektor fra $(A-\\lambda I)v=0$; for grensen: dekomponér $v$ i egenvektorbasis |\n| **C** | Diagonalisering, anvendelse | $A=PDP^{-1}$ med $P$ = egenvektorer; $A^n=PD^nP^{-1}$ (riktig rekkefølge) |\n| **D** | Omvendt/implisitt funksjonsteorem | **Forutsetningssjekken** ($F'$ inverterbar / $f(a,b)=0$ og $\\partial f/\\partial y\\ne0$); **navngi teoremet** |\n| **E** | Stasjonære punkter + Hesse | $\\nabla f=0$ redusert til én variabel (mist ingen løsning); **Hesse-matrisen satt opp eksplisitt** før konklusjon |\n| **F** | Lagrange | $\\nabla g=0$-sjekken; tilfelledeling; **evaluér $f$ i alle kandidater**; eksistens via ekstremalverdisetningen når kompakt |\n| **G** | Dobbeltintegral | Skjæringen løst; **området beskrevet med ulikheter** før oppsett; indre integral forenklet |\n| **H** | Uegentlig integral | Voksende kompakter $K_n$; **lim-føring** (aldri «sett inn $\\infty$»); konvergens/divergens fra grensen |\n| **I** | Trippelintegral (sylinder/kule) | Riktig volumelement ($r$, $\\rho^2\\sin\\varphi$); skjæringen løst; ulikheter; faktorisér når mulig |\n| **J** | Linjeintegral/Green | Orientering (mot klokka); $\\iint(Q_x-P_y)\\,dA$; gjenbruk et alt utregnet dobbeltintegral |\n| **K** | Flateintegral, fluks | **Fortegnskontroll**: $\\boldsymbol{\\phi}_u\\times\\boldsymbol{\\phi}_v$ vs. oppgitt $n$; geometrisk snarvei for plan flate |\n| **L** | Divergensteoremet | **Alle $n$ ut av $V$**; navngi teoremet; $T_1=\\iiint\\operatorname{div}F-T_2$ (gjenbruk delsvar) |\n| **M** | Stokes | Høyrehåndsregel ($n\\leftrightarrow C$); gjenkjenn $\\operatorname{curl}F$ som kjent felt; randbidrag som forsvinner |\n| **N** | Potensrekker | Konvergensradius **og** endepunktsjekk; leddvis derivasjon/integrasjon innenfor $R$ (nevn at det er lov) |\n| **O** | Tallrekker | Navngi testen (forhold/rot/sammenligning/integral); $a_n\\to0$ er *ikke* nok |\n| **P** | Kontraksjon/fikspunkt | Kontraksjon vist via norm/egenverdi $<1$; entydig fikspunkt fra kontraksjonsprinsippet |\n| **Q** | Variabelskifte | Jacobideterminanten regnet; **absoluttverdi**; nye grenser bokført |\n| **R** | Øvrige (buelengde, teoribevis, nivåkurver …) | Definisjonen/setningen brukt eksplisitt; ingen usagt mellomsteg |\n\nEn tommelfingerregel: **hver gang et resultat hviler på en setning, skal setningen nevnes ved navn**, og hver gang du gjør et valg (orientering, koordinatsystem, tilfelle), skal valget begrunnes med én setning."
+    },
+    {
+      "id": "mat1110-7-1-sjekkliste",
+      "type": "text",
+      "content": "## Sjekklisten før innlevering\n\nGå gjennom denne før du leverer hvert delpunkt — den fanger de vanligste poengtapene:\n\n- ☐ **Teoremnavn på plass?** Bruker du omvendt/implisitt funksjonsteorem, ekstremalverdisetningen, Green, divergensteoremet eller Stokes — står navnet der argumentet bæres?\n- ☐ **Radoperasjoner merket** over hvert $\\sim$ ($II-2I$, $III+I$)?\n- ☐ **Integrasjonsgrenser som ulikheter** skrevet *før* du satte opp integralet?\n- ☐ **Fortegns-/orienteringskontroll** gjort i all fluks/divergens/Stokes ($\\boldsymbol{\\phi}_u\\times\\boldsymbol{\\phi}_v$ vs. $n$; $n$ ut av $V$; høyrehåndsregel)?\n- ☐ **$\\nabla g=0$-sjekken** gjort i Lagrange, og eksistens begrunnet på en kompakt mengde der det kreves?\n- ☐ **Endepunktene** undersøkt i potensrekker?\n- ☐ **Svar eksakt** (brøk, $\\pi$, $\\ln 2$) — ingen desimaltilnærming?\n- ☐ **Verbal konklusjonssetning** («Altså er $(1,2,3)$ et lokalt minimum») og sluttsvar markert?\n- ☐ **Delpunkt-koblinger** utnyttet (gjenbrukt inversen, trippelintegralet, plan-fluksen)?"
+    },
+    {
+      "id": "mat1110-7-1-kontrast1",
+      "type": "example",
+      "title": "Kontrastpar 1 — samme Lagrange, ulik føring",
+      "problem": "Oppgave: Finn største og minste verdi av $f(x,y,z)=x+2y+3z$ under bibetingelsen $g(x,y,z)=x^2+y^2+z^2=14$. Under vises to besvarelser med *samme* sluttsvar. Hvorfor taper den ene uttelling?",
+      "solution": "**Billig føring (mister poeng):**\n\n«$\\nabla f=\\lambda\\nabla g$ gir $x=\\tfrac{1}{2\\lambda},\\,y=\\tfrac{1}{\\lambda},\\,z=\\tfrac{3}{2\\lambda}$. Innsatt i bibetingelsen: $\\lambda=\\pm\\tfrac12$. Svar: maks $14$, min $-14$.»\n\nSluttsvaret er riktig, men tre ting mangler.\n\n**Full føring (full score):**\n\nFørst **$\\nabla g=0$-sjekken**: $\\nabla g=(2x,2y,2z)=0$ bare i origo, og origo ligger *ikke* på flaten $g=14$. Altså gir ikke $\\nabla g=0$ noen ekstra kandidat, og Lagranges betingelse er gyldig på hele flaten.\n\nLagrange: $\\nabla f=\\lambda\\nabla g \\Rightarrow (1,2,3)=\\lambda(2x,2y,2z)$, så $x=\\tfrac{1}{2\\lambda},\\ y=\\tfrac{1}{\\lambda},\\ z=\\tfrac{3}{2\\lambda}$ (her er $\\lambda\\ne0$ siden $\\nabla f\\ne0$). Innsatt i $x^2+y^2+z^2=14$:\n$$\\frac{1}{4\\lambda^2}+\\frac{1}{\\lambda^2}+\\frac{9}{4\\lambda^2}=\\frac{14}{4\\lambda^2}=14\\ \\Rightarrow\\ \\lambda^2=\\tfrac14\\ \\Rightarrow\\ \\lambda=\\pm\\tfrac12.$$\n$\\lambda=\\tfrac12$ gir kandidaten $(1,2,3)$ med $f=1+4+9=14$; $\\lambda=-\\tfrac12$ gir $(-1,-2,-3)$ med $f=-14$.\n\n**Eksistensbegrunnelse:** flaten $K=\\{x^2+y^2+z^2=14\\}$ er lukket og begrenset, altså kompakt, og $f$ er kontinuerlig. **Ifølge ekstremalverdisetningen** antar $f$ da både en største og en minste verdi på $K$. Siden vi har funnet alle kandidatene, må disse være globale.\n\n**Konklusjon:** største verdi er $\\boxed{14}$ (i $(1,2,3)$), minste er $\\boxed{-14}$ (i $(-1,-2,-3)$).\n\nDe tre grepene som skilte besvarelsene: (1) $\\nabla g=0$-sjekken, (2) navngivningen av ekstremalverdisetningen med kompaktheten, (3) den verbale konklusjonen om at kandidatene *er* globale ekstrema. Uten dem er argumentet ufullstendig selv om tallet stemmer."
+    },
+    {
+      "id": "mat1110-7-1-kontrast2",
+      "type": "example",
+      "title": "Kontrastpar 2 — samme fluks, ulik fortegnskontroll",
+      "problem": "Oppgave: Regn fluksen av $F=(x,y,z)$ ut gjennom topplokket $T$: $z=1$, $x^2+y^2\\le1$, med utadrettet (oppadrettet) normal. To besvarelser gir tallet $\\pi$ — men bare den ene fører fortegnet forsvarlig.",
+      "solution": "**Billig føring (mister poeng):**\n\n«$T$ er en disk med areal $\\pi$, og $F\\cdot n=z=1$, så fluksen er $\\pi$.»\n\nTallet er riktig, men *hvorfor* $n$ peker riktig vei er ikke vist — og på en krum flate ville samme slurv gitt feil fortegn.\n\n**Full føring (full score):**\n\nParametriser $T$ ved $\\boldsymbol{\\phi}(x,y)=(x,y,1)$ over disken $D=\\{x^2+y^2\\le1\\}$. Da er\n$$\\boldsymbol{\\phi}_x\\times\\boldsymbol{\\phi}_y=(1,0,0)\\times(0,1,0)=(0,0,1).$$\n**Fortegnskontroll:** $(0,0,1)$ peker oppover, altså samme vei som den oppgitte utadrettede normalen $n=k$. Derfor beholder vi fortegnet (ellers hadde vi byttet). På flaten er $F=(x,y,1)$, så\n$$F\\cdot(\\boldsymbol{\\phi}_x\\times\\boldsymbol{\\phi}_y)=(x,y,1)\\cdot(0,0,1)=1.$$\nFluksen blir\n$$\\iint_D 1\\,dA=\\text{areal}(D)=\\pi.$$\n(Den geometriske snarveien — «$n$ konstant, $F\\cdot n=1$, integral $=$ areal» — er lov *fordi* fortegnskontrollen over er gjort.)\n\n**Konklusjon:** fluksen ut gjennom lokket er $\\boxed{\\pi}$.\n\nPoenget: fortegnskontrollen $\\boldsymbol{\\phi}_u\\times\\boldsymbol{\\phi}_v$ vs. $n$ er *det* føringspoenget i sjanger K/L. På et plant lokk «går det bra» uansett, men fasiten gjør kontrollen hver gang — for på den krumme delflaten (O6c) forplanter et fortegnsfeil seg til hele svaret."
+    },
+    {
+      "id": "mat1110-7-1-kjeding",
+      "type": "text",
+      "content": "## Strategi for kjedede delpunkter\n\nDe avsluttende settene er bygget som *én* lang oppgave delt i 10, der senere delpunkter bruker tidligere svar. Tre regler:\n\n1. **Les hele oppgaven før du begynner.** Da ser du at inversen i O1a skal gjenbrukes i O1b, og at trippelintegralet i O6b og plan-fluksen i O6a er byggeklossene i O6c.\n2. **Gjenbruk eksplisitt — ikke regn på nytt.** Skriv «fra O1a har vi $A^{-1}=\\ldots$» i stedet for å radredusere en gang til. Det sparer tid *og* viser sensor at du så koblingen (som premieres).\n3. **Rakk du ikke et tidligere delpunkt?** Instruksen tillater ofte at du *bruker* et resultat du ikke fikk utledet. Skriv «anta fra O6b at $\\iiint_V\\operatorname{div}F\\,dV=\\tfrac{3\\pi}{2}$» og fullfør O6c på det — du kan få full score på O6c selv med hull i O6b. Å hoppe over O6c fordi O6b glapp er den dyreste tidsfellen på hele settet."
+    },
+    {
+      "id": "mat1110-7-1-bank-notis",
+      "type": "text",
+      "content": "## Teoremnavn-bank og føringsregler\n\n*Flashcard- og repetisjonsstoff — hopp trygt over ved førstegangslesing; tidsanslaget gjelder metodedelen over. Under ligger 20 teoremer du skal kunne navngi, og 15 føringsregler du skal ha i fingrene. Hver åpner med hva den sier i ord.*"
+    },
+    {
+      "id": "mat1110-7-1-thm-01",
+      "type": "definition",
+      "title": "Omvendt funksjonsteorem",
+      "content": "Sier at en avbildning er lokalt inverterbar der den deriverte (Jacobi-matrisen) er inverterbar, og gir samtidig den deriverte til inversen. Presist: hvis $F:\\mathbb{R}^n\\to\\mathbb{R}^n$ har kontinuerlige partiellderiverte og $F'(a)$ er inverterbar, finnes lokalt en glatt invers $G$ nær $F(a)$ med\n$$G'(F(a))=\\big(F'(a)\\big)^{-1}.$$\nFøringskrav: vis at $F'(a)$ er inverterbar (ofte $\\det F'(a)\\ne0$), **navngi teoremet**, og gjenbruk en alt utregnet invers når den finnes."
+    },
+    {
+      "id": "mat1110-7-1-thm-02",
+      "type": "definition",
+      "title": "Implisitt funksjonsteorem",
+      "content": "Sier at en likning $f(x,y)=0$ definerer $y$ som en glatt funksjon $y=g(x)$ lokalt, forutsatt at et punkt ligger på kurven og at den deriverte mot $y$ ikke er null. Presist: hvis $f(a,b)=0$ og $\\partial f/\\partial y(a,b)\\ne0$, finnes $g$ nær $a$ med $g(a)=b$ og\n$$g'(a)=-\\frac{\\partial f/\\partial x}{\\partial f/\\partial y}\\Big|_{(a,b)}.$$\nFøringskrav: sjekk **først** $f(a,b)=0$, **så** $\\partial f/\\partial y\\ne0$ (halve poenget), og pass på minustegnet i $g'$."
+    },
+    {
+      "id": "mat1110-7-1-thm-03",
+      "type": "definition",
+      "title": "Ekstremalverdisetningen",
+      "content": "Sier at en kontinuerlig funksjon på en kompakt mengde faktisk *antar* en største og en minste verdi — grunnlaget for enhver eksistensbegrunnelse i optimering. En mengde $K\\subset\\mathbb{R}^n$ er **kompakt** når den er både **lukket og begrenset**. Da antar en kontinuerlig $f:K\\to\\mathbb{R}$ sitt maksimum og minimum på $K$.\n\nFøringskrav i Lagrange: konstruér $K$, vis at den er ikke-tom, lukket og begrenset, og skriv «ifølge ekstremalverdisetningen antar $f$ min og maks»."
+    },
+    {
+      "id": "mat1110-7-1-thm-04",
+      "type": "definition",
+      "title": "Annenderiverttesten (Hesse)",
+      "content": "Klassifiserer et stasjonært punkt i to variable ved fortegnet til Hesse-determinanten. Med $H=\\begin{pmatrix}f_{xx}&f_{xy}\\\\f_{xy}&f_{yy}\\end{pmatrix}$ og $D=f_{xx}f_{yy}-f_{xy}^2$ (formelsamlingens $D=AC-B^2$):\n$$D<0\\Rightarrow\\text{sadel},\\quad D>0,\\,f_{xx}>0\\Rightarrow\\text{min},\\quad D>0,\\,f_{xx}<0\\Rightarrow\\text{maks},\\quad D=0\\Rightarrow\\text{inkonklusiv}.$$\nFøringskrav: sett opp Hesse-matrisen **eksplisitt** før konklusjonen."
+    },
+    {
+      "id": "mat1110-7-1-thm-05",
+      "type": "definition",
+      "title": "Greens teorem",
+      "content": "Knytter et linjeintegral rundt en lukket plan kurve til et dobbeltintegral over området innenfor. For positivt orientert (mot klokka) rand $C=\\partial A$:\n$$\\oint_C P\\,dx+Q\\,dy=\\iint_A\\Big(\\frac{\\partial Q}{\\partial x}-\\frac{\\partial P}{\\partial y}\\Big)\\,dA.$$\nSpesialtilfelle: areal $=\\oint_C x\\,dy=-\\oint_C y\\,dx$. Føringskrav: sjekk orienteringen (fortegn ved med-klokka), og gjenbruk gjerne et alt utregnet dobbeltintegral."
+    },
+    {
+      "id": "mat1110-7-1-thm-06",
+      "type": "definition",
+      "title": "Gauss' divergensteorem",
+      "content": "Knytter fluksen ut gjennom en lukket flate til volumintegralet av divergensen — regimeskiftets signaturverktøy. For et område $V$ med utadrettet randnormal $n$:\n$$\\iiint_V\\operatorname{div}F\\,dV=\\oiint_{\\partial V}F\\cdot n\\,dS,\\qquad \\operatorname{div}F=\\partial_xF_1+\\partial_yF_2+\\partial_zF_3.$$\nHovedbruk: fluks gjennom en krum delflate $T_1=\\iiint_V\\operatorname{div}F\\,dV-T_2$. Føringskrav: **alle $n$ ut av $V$**, og navngi teoremet. (V2022-formelsamlingen mangler det — kan utenat.)"
+    },
+    {
+      "id": "mat1110-7-1-thm-07",
+      "type": "definition",
+      "title": "Stokes' teorem",
+      "content": "Generaliserer Green til flater i rommet: sirkulasjonen langs randkurven er lik fluksen av curl gjennom flaten. For en flate $S$ med rand $C$ og normal $n$:\n$$\\oint_C F\\cdot dr=\\iint_S \\operatorname{curl}F\\cdot n\\,dS,\\qquad \\operatorname{curl}F=\\nabla\\times F.$$\nFøringskrav: koble $n$ og $C$ med **høyrehåndsregelen**, og gjenkjenn $\\operatorname{curl}F$ som et alt utregnet felt. (Mangler også i V2022-formelsamlingen.)"
+    },
+    {
+      "id": "mat1110-7-1-thm-08",
+      "type": "definition",
+      "title": "Inverterbarhetsteoremet",
+      "content": "Samler de ekvivalente måtene å si at en kvadratisk matrise er inverterbar på — verktøyet for å velge det *billigste* argumentet. For $n\\times n$-matrisen $A$ er følgende ekvivalent:\n$$A\\text{ inverterbar}\\iff A\\sim I_n\\iff \\det A\\ne0\\iff \\text{søylene er basis}\\iff N(A)=\\{0\\}\\iff Ax=b\\text{ entydig løsbar for alle }b.$$\nFøringskrav: spørres bare *om* $A$ er inverterbar, hold deg til $\\det A\\ne0$ — ikke regn hele inversen."
+    },
+    {
+      "id": "mat1110-7-1-thm-09",
+      "type": "definition",
+      "title": "Rang–nullitet-setningen",
+      "content": "Sier at antall pivoter og antall frie variabler alltid summerer til antall søyler. For en $m\\times n$-matrise $A$:\n$$\\operatorname{rang}(A)+\\dim N(A)=n.$$\nRangen $=$ antall pivotsøyler, $\\dim N(A)=$ antall frie variabler. Føringskrav: bruk den som kontroll — teller du én nullromvektor per fri variabel, skal summen bli $n$."
+    },
+    {
+      "id": "mat1110-7-1-thm-10",
+      "type": "definition",
+      "title": "Kjerneregelen på matriseform",
+      "content": "Sier at Jacobi-matrisen til en sammensetning er *produktet* av Jacobi-matrisene, i riktig rekkefølge. For $G\\circ F$:\n$$(G\\circ F)'(a)=G'\\big(F(a)\\big)\\,F'(a).$$\nRekkefølgen er hele poenget — matriseproduktet er ikke kommutativt. Føringskrav: evaluér $F'$ i $a$ og $G'$ i $F(a)$ *før* du multipliserer."
+    },
+    {
+      "id": "mat1110-7-1-thm-11",
+      "type": "definition",
+      "title": "Spektralteoremet",
+      "content": "Sier at symmetriske matriser oppfører seg maksimalt pent: de har bare reelle egenverdier og en ortogonal egenvektorbasis. Presist: er $A=A^T$, finnes en ortogonal $P$ ($P^{-1}=P^T$) og en diagonal $D$ med $A=PDP^T$, der $D$ har $A$s (reelle) egenverdier. Føringskrav: nevnes som begrunnelse for at en symmetrisk matrise *er* diagonaliserbar med reelle egenverdier."
+    },
+    {
+      "id": "mat1110-7-1-thm-12",
+      "type": "definition",
+      "title": "Kontraksjonsprinsippet",
+      "content": "Garanterer at en «sammentrekkende» avbildning har nøyaktig ett fikspunkt, og at iterasjon finner det. Er $F$ en **kontraksjon** — $|F(x)-F(y)|\\le K|x-y|$ med $K<1$ — på et fullstendig rom, har $F$ et **entydig fikspunkt** $x^\\*$, og følgen $z_{n+1}=F(z_n)$ konvergerer mot $x^\\*$ fra ethvert startpunkt. Føringskrav: vis $K<1$ via en matrisenorm eller største egenverdi i tallverdi $<1$."
+    },
+    {
+      "id": "mat1110-7-1-thm-13",
+      "type": "definition",
+      "title": "Fubinis teorem",
+      "content": "Lar deg regne et dobbelt-/trippelintegral som itererte enkeltintegraler, og bytte rekkefølgen på dem. Når $f$ er (absolutt) integrerbar over et rektangel/pent område:\n$$\\iint f\\,dA=\\int\\!\\!\\int f\\,dy\\,dx=\\int\\!\\!\\int f\\,dx\\,dy.$$\nFøringskrav: velg rekkefølgen som unngår oppdeling, og skriv om grensene korrekt når du bytter."
+    },
+    {
+      "id": "mat1110-7-1-thm-14",
+      "type": "definition",
+      "title": "Variabelskifteformelen",
+      "content": "Sier hvordan et integral transformeres under et koordinatbytte — arealet/volumet skaleres med Jacobideterminantens tallverdi. For skiftet $(x,y)=\\Phi(u,v)$:\n$$\\iint_D f\\,dx\\,dy=\\iint_S f(\\Phi(u,v))\\,\\Big|\\frac{\\partial(x,y)}{\\partial(u,v)}\\Big|\\,du\\,dv.$$\nFøringskrav: **absoluttverdi** på Jacobideterminanten, og nye grenser bokført. Spesialtilfeller: polar $r$, sylinder $r$, kule $\\rho^2\\sin\\varphi$."
+    },
+    {
+      "id": "mat1110-7-1-thm-15",
+      "type": "definition",
+      "title": "Taylors formel i flere variable",
+      "content": "Gir andreordens tilnærming til en funksjon nær et punkt, med gradienten som førsteordensledd og Hesse som andreordensledd:\n$$f(a+h)\\approx f(a)+\\nabla f(a)\\cdot h+\\tfrac12\\,h^{T}H(a)\\,h.$$\nI et stasjonært punkt ($\\nabla f=0$) er det Hesse-leddet som avgjør formen — koblingen til annenderiverttesten. Føringskrav: ikke glem faktoren $\\tfrac12$ på andreordensleddet."
+    },
+    {
+      "id": "mat1110-7-1-thm-16",
+      "type": "definition",
+      "title": "Clairauts teorem",
+      "content": "Sier at rekkefølgen på blandet partiellderivasjon er likegyldig når de blandede deriverte er kontinuerlige:\n$$f_{xy}=f_{yx}.$$\nDette er grunnen til at Hesse-matrisen er **symmetrisk**. Føringskrav: brukes implisitt hver gang du skriver $H$ symmetrisk; nevn den hvis en oppgave spør hvorfor $f_{xy}=f_{yx}$."
+    },
+    {
+      "id": "mat1110-7-1-thm-17",
+      "type": "definition",
+      "title": "Lagranges multiplikatormetode",
+      "content": "Metoden for optimering under en bibetingelse: i et ekstremalpunkt på flaten $g=c$ er gradientene parallelle. Betingelsen er\n$$\\nabla f=\\lambda\\nabla g,\\qquad g=c.$$\nFøringskrav: gjør $\\nabla g=0$-sjekken (egen kandidat eller utelukket), del i tilfeller for å finne *alle* kandidater, og **evaluér $f$ i hver** før du konkluderer."
+    },
+    {
+      "id": "mat1110-7-1-thm-18",
+      "type": "definition",
+      "title": "Kriteriet for konservativt felt",
+      "content": "Et konservativt felt har en potensialfunksjon, og da avhenger linjeintegralet bare av endepunktene — langs en lukket kurve blir det null. Er $F=\\nabla\\varphi$, så\n$$\\int_C F\\cdot dr=\\varphi(\\text{slutt})-\\varphi(\\text{start}),\\qquad \\oint_C F\\cdot dr=0.$$\nNødvendig betingelse i planet: $\\partial P/\\partial y=\\partial Q/\\partial x$. Føringskrav: sjekk betingelsen *før* du påstår at $\\oint=0$."
+    },
+    {
+      "id": "mat1110-7-1-thm-19",
+      "type": "definition",
+      "title": "Leibniz' kriterium",
+      "content": "Konvergenstest for alternerende rekker: en rekke med vekslende fortegn konvergerer når leddene i tallverdi avtar monotont mot null. For $\\sum(-1)^n a_n$ med $a_n\\ge0$: hvis $a_n$ er avtagende og $a_n\\to0$, konvergerer rekken. Brukes typisk i **endepunktsjekken** for potensrekker (f.eks. $x=-1$). Føringskrav: bekreft både *avtagende* og $a_n\\to0$."
+    },
+    {
+      "id": "mat1110-7-1-thm-20",
+      "type": "definition",
+      "title": "Forholdstesten (kvotienttest)",
+      "content": "Den vanligste konvergenstesten og motoren bak konvergensradius. Med $L=\\lim_{n\\to\\infty}\\left|\\dfrac{a_{n+1}}{a_n}\\right|$:\n$$L<1\\Rightarrow\\text{konvergens},\\quad L>1\\Rightarrow\\text{divergens},\\quad L=1\\Rightarrow\\text{inkonklusiv}.$$\nFor en potensrekke $\\sum a_nx^n$ gir den konvergensradius $R=1/\\lim|a_{n+1}/a_n|$. Føringskrav: ved $L=1$ må du bytte test — det er nettopp da endepunktene må sjekkes for hånd."
+    },
+    {
+      "id": "mat1110-7-1-for-01",
+      "type": "definition",
+      "title": "Føringsregel: merk radoperasjonene over $\\sim$",
+      "content": "Hver elementær radoperasjon skrives over $\\sim$-tegnet, slik at sensor kan følge regningen steg for steg. Skriv $II-2I$ («rad 2 blir rad 2 minus 2 ganger rad 1»), $I\\leftrightarrow III$ (radbytte), $\\tfrac12\\,II$ (skalering). Umerkede radoperasjoner er den vanligste føringsfeilen i sjanger A, og koster poeng selv når trappeformen er riktig."
+    },
+    {
+      "id": "mat1110-7-1-for-02",
+      "type": "definition",
+      "title": "Føringsregel: integrasjonsgrenser som ulikheter før oppsett",
+      "content": "Beskriv integrasjonsområdet med eksplisitte ulikheter *før* du skriver integraltegnet, f.eks. «området er $0\\le x\\le2,\\ x^2\\le y\\le 2x$». Da blir grensene i det itererte integralet en direkte avlesning, og du unngår den klassiske feilen å gjette grensene. Løs alltid skjæringen mellom kurvene/flatene først."
+    },
+    {
+      "id": "mat1110-7-1-for-03",
+      "type": "definition",
+      "title": "Føringsregel: bokfør substitusjonen",
+      "content": "Ved variabelskifte skriver du eksplisitt hva du setter, og hva de nye grensene blir: «la $u=r^2$, da $du=2r\\,dr$; $r:0\\to2$ gir $u:0\\to4$». Uten bokføring henger de nye grensene i løse luften, og Jacobideterminanten (med **absoluttverdi**) blir lett glemt."
+    },
+    {
+      "id": "mat1110-7-1-for-04",
+      "type": "definition",
+      "title": "Føringsregel: gjør $\\nabla g=0$-sjekken i Lagrange",
+      "content": "Før du stoler på $\\nabla f=\\lambda\\nabla g$, sjekk om $\\nabla g=0$ er mulig på bibetingelsen. Enten gir $\\nabla g=0$-punktet en ekstra kandidat (som må evalueres), eller det utelukkes fordi punktet ikke ligger på flaten. Hopper du over sjekken, kan du miste et kandidatpunkt — et dokumentert poengtap."
+    },
+    {
+      "id": "mat1110-7-1-for-05",
+      "type": "definition",
+      "title": "Føringsregel: begrunn eksistens på en kompakt mengde",
+      "content": "Skal du hevde at en største/minste verdi *finnes*, konstruér en mengde $K$ og vis at den er ikke-tom, lukket og begrenset (kompakt); da gir ekstremalverdisetningen eksistens. Å påstå min/maks uten kompakthet er ugyldig. Merk: fasiten sier når begrunnelse *ikke* kreves — les oppgaveteksten så du ikke bruker tid unødig."
+    },
+    {
+      "id": "mat1110-7-1-for-06",
+      "type": "definition",
+      "title": "Føringsregel: fortegnskontroll i fluks",
+      "content": "I ethvert fluksintegral sjekker du at $\\boldsymbol{\\phi}_u\\times\\boldsymbol{\\phi}_v$ peker samme vei som den oppgitte normalen $n$ — og bytter fortegn på integralet hvis den peker motsatt. Skriv kontrollen ut. På plane flater kan du bruke den geometriske snarveien, men bare *etter* at retningen er fastslått."
+    },
+    {
+      "id": "mat1110-7-1-for-07",
+      "type": "definition",
+      "title": "Føringsregel: alle normaler ut av $V$ i divergensteoremet",
+      "content": "Divergensteoremet krever at randnormalen peker **ut av** volumet på *hele* $\\partial V$. Deler du randen i $T_1\\cup T_2$, må begge delers normaler peke utover før du bruker $T_1=\\iiint_V\\operatorname{div}F\\,dV-T_2$. Et fortegnsfeil på den enkle delen $T_2$ forplanter seg til hele $T_1$-svaret."
+    },
+    {
+      "id": "mat1110-7-1-for-08",
+      "type": "definition",
+      "title": "Føringsregel: høyrehåndsregel i Stokes",
+      "content": "Orienteringen av randkurven $C$ og normalen $n$ i Stokes' teorem henger sammen ved høyrehåndsregelen: krøller høyre hånds fingre i $C$s retning, peker tommelen langs $n$. Feil kobling snur fortegnet på hele sirkulasjonen. Skriv hvilken vei $n$ peker og hvilken vei $C$ løper."
+    },
+    {
+      "id": "mat1110-7-1-for-09",
+      "type": "definition",
+      "title": "Føringsregel: sjekk endepunktene i potensrekker",
+      "content": "Konvergensradien $R$ gir det åpne intervallet $(x_0-R,\\,x_0+R)$; men konvergensområdet kan i tillegg inkludere ett eller begge endepunkter. Sett inn $x=x_0\\pm R$ og undersøk hver resulterende tallrekke separat (Leibniz, $p$-rekke, divergenstest). Glemte endepunkt er en dokumentert klassiker for poengtap."
+    },
+    {
+      "id": "mat1110-7-1-for-10",
+      "type": "definition",
+      "title": "Føringsregel: svar eksakt, aldri desimal",
+      "content": "Sluttsvar oppgis som eksakt verdi — brøk, $\\pi$, $\\sqrt2$, $\\ln2$ — aldri som desimaltilnærming. $\\tfrac{4\\pi}{5}$, ikke $2{,}51$. Kalkulatoren er et mellomregningsverktøy, ikke en svarmaskin; en avrundet sluttverdi teller som ufullstendig på et emne der eksakt algebra er hele poenget."
+    },
+    {
+      "id": "mat1110-7-1-for-11",
+      "type": "definition",
+      "title": "Føringsregel: skriv en verbal konklusjonssetning",
+      "content": "Avslutt hvert delpunkt med én setning som tolker resultatet: «Altså er $(1,1)$ et lokalt minimum med verdi $-1$», «Rekken konvergerer på $[-1,1)$». Tall alene svarer ikke på spørsmålet; konklusjonssetningen viser sensor at du forstår hva tallet betyr, og gjør sluttsvaret utvetydig."
+    },
+    {
+      "id": "mat1110-7-1-for-12",
+      "type": "definition",
+      "title": "Føringsregel: gjenbruk tidligere delsvar (kjeding)",
+      "content": "Når et delpunkt bygger på et tidligere, skriv det eksplisitt: «fra O1a har vi $A^{-1}=\\ldots$» eller «trippelintegralet fra O6b er $\\tfrac{3\\pi}{2}$». Å regne det samme på nytt sløser tid og skjuler koblingen som premieres. Rakk du ikke det tidligere delpunktet, kan du likevel *bruke* resultatet og få full score på det avhengige."
+    },
+    {
+      "id": "mat1110-7-1-for-13",
+      "type": "definition",
+      "title": "Føringsregel: navngi teoremet som bærer argumentet",
+      "content": "Hviler et steg på en setning, skal setningen nevnes ved navn: «ifølge omvendt funksjonsteorem …», «ifølge ekstremalverdisetningen …», «ved divergensteoremet …». Navngivningen er ikke pynt — den viser at eksistensen/gyldigheten er begrunnet og ikke bare antatt. Uteglemt teoremnavn er et typisk toppsjikts-poengtap."
+    },
+    {
+      "id": "mat1110-7-1-for-14",
+      "type": "definition",
+      "title": "Føringsregel: faktorisér trippelintegralet når integranden separerer",
+      "content": "Separerer integranden i produkt av en $r$-del og en $\\theta$-del (eller lignende), skriv integralet som produkt av enkeltintegraler: $\\int_0^{2\\pi}d\\theta\\cdot\\int_0^a g(r)\\,dr$. Det halverer regnearbeidet og senker feilrisikoen. Ikke faktorisere når det er mulig er unødig arbeid, ikke en feil — men på tid er det dyrt."
+    },
+    {
+      "id": "mat1110-7-1-for-15",
+      "type": "definition",
+      "title": "Føringsregel: bruk den geometriske snarveien for plan-fluks",
+      "content": "Er flaten plan med konstant normal $n$ og $F\\cdot n$ konstant på flaten, er fluksen rett og slett $(F\\cdot n)\\times\\text{areal}$ — ingen parametrisering nødvendig. Fasiten honorerer både snarveien og full parametrisering, men snarveien sparer tid. Forutsetningen er at fortegnskontrollen ($n$-retningen) allerede er gjort."
+    },
+    {
+      "id": "mat1110-7-1-warning",
+      "type": "warning",
+      "title": "Typiske feil (føringsdelen)",
+      "content": "Dette er føringsfeilene som koster poeng på tvers av alle sjangre — de er sjelden regnefeil, men *utelatte begrunnelser*:\n\n- **Umerkede radoperasjoner** — trappeformen er riktig, men $\\sim$-tegnene står nakne.\n- **Uteglemt teoremnavn** — eksistensen/inverterbarheten brukes uten å nevne setningen som gir den.\n- **Manglende $\\nabla g=0$-sjekk** i Lagrange — et kandidatpunkt kan gå tapt.\n- **Fluks uten fortegnskontroll** — riktig tallverdi, men $\\boldsymbol{\\phi}_u\\times\\boldsymbol{\\phi}_v$ vs. $n$ ikke vist; dødelig på krum delflate.\n- **Eksistens hevdet uten kompakthet** — «funksjonen har et maksimum» uten lukket + begrenset mengde.\n- **Uteglemt endepunktsjekk** i potensrekker.\n- **Desimaltilnærming** i sluttsvaret.\n- **Delpunkt-koblinger ikke utnyttet** — inversen regnes to ganger, eller O6c hoppes over fordi O6b glapp.\n- **Grenser gjettet** i stedet for at skjæringen løses og området beskrives med ulikheter."
+    },
+    {
+      "id": "mat1110-7-1-opg-intro",
+      "type": "text",
+      "content": "## Meta-oppgaver: finn føringsmanglene\n\nHver oppgave viser en besvarelse med riktig *tallsvar* men mangelfull føring. Din jobb er å peke på manglene og skrive delen om til full uttelling."
+    },
+    {
+      "id": "mat1110-7-1-opg1-w",
+      "type": "exercise",
+      "exercise": {
+        "id": "mat1110-7-1-opg1",
+        "number": "1",
+        "type": "classic",
+        "difficulty": "lett",
+        "task": "**Sjanger A.** En student skriver: «$\\left[\\begin{array}{ccc|c}1&2&1&2\\\\2&5&3&5\\\\1&1&2&5\\end{array}\\right]\\sim\\left[\\begin{array}{ccc|c}1&0&0&2\\\\0&1&0&-1\\\\0&0&1&2\\end{array}\\right]$, så $(x,y,z)=(2,-1,2)$.» Sluttsvaret er riktig. Pek på **føringsmangelen** og skriv om til full uttelling.",
+        "solution": "**Mangelen:** ingen radoperasjoner er merket over $\\sim$-tegnene, og hele reduksjonen er slått sammen til ett sprang — sensor kan ikke følge regningen, og «vis nok mellomregninger»-kravet er brutt. Sluttsvaret er riktig, men uttellingen er ufullstendig.\n\n**Full uttelling** (merket føring):\n$$\\left[\\begin{array}{ccc|c}1&2&1&2\\\\2&5&3&5\\\\1&1&2&5\\end{array}\\right]\\overset{\\;II-2I,\\ III-I\\;}{\\sim}\\left[\\begin{array}{ccc|c}1&2&1&2\\\\0&1&1&1\\\\0&-1&1&3\\end{array}\\right]\\overset{\\;III+II\\;}{\\sim}\\left[\\begin{array}{ccc|c}1&2&1&2\\\\0&1&1&1\\\\0&0&2&4\\end{array}\\right]$$\nNederste rad: $2z=4\\Rightarrow z=2$. Rad 2: $y+2=1\\Rightarrow y=-1$. Rad 1: $x-2+2=2\\Rightarrow x=2$.\n\n**Konklusjon:** $(x,y,z)=(2,-1,2)$ — samme svar, men nå med føring sensor kan følge. (Kontroll: $2\\cdot2+5\\cdot(-1)+3\\cdot2=4-5+6=5$ ✓.) Lærdommen: riktig tall uten merkede mellomtrinn gir ikke full score i sjanger A.",
+        "hints": [
+          "Hva krever sensorregelen «vis nok mellomregninger» konkret i sjanger A?",
+          "Skriv hver radoperasjon ($II-2I$ osv.) over sitt eget $\\sim$, og kontroller til slutt ved å sette løsningen inn i det opprinnelige systemet."
+        ]
+      }
+    },
+    {
+      "id": "mat1110-7-1-opg2-w",
+      "type": "exercise",
+      "exercise": {
+        "id": "mat1110-7-1-opg2",
+        "number": "2",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "**Sjanger F (Lagrange).** En student skriver: «$\\nabla f=\\lambda\\nabla g$ på $x^2+y^2=1$ gir kandidatene $(\\pm\\tfrac{1}{\\sqrt2},\\pm\\tfrac{1}{\\sqrt2})$; største verdi av $f(x,y)=xy$ er $\\tfrac12$.» Pek på de **to føringsmanglene** og skriv konklusjonen om til full uttelling.",
+        "solution": "**Mangel 1 — $\\nabla g=0$-sjekk:** $\\nabla g=(2x,2y)=0$ bare i origo, som *ikke* ligger på sirkelen $x^2+y^2=1$. Sjekken må stå (her utelukkes $\\nabla g=0$), ellers er argumentet ufullstendig.\n\n**Mangel 2 — eksistensbegrunnelse og full evaluering:** sirkelen $K=\\{x^2+y^2=1\\}$ er lukket og begrenset, altså kompakt, og $f$ er kontinuerlig; **ifølge ekstremalverdisetningen** antar $f$ da min og maks. Alle fire kandidatene må evalueres: $f(\\tfrac{1}{\\sqrt2},\\tfrac{1}{\\sqrt2})=\\tfrac12$, $f(-\\tfrac{1}{\\sqrt2},-\\tfrac{1}{\\sqrt2})=\\tfrac12$, $f(\\tfrac{1}{\\sqrt2},-\\tfrac{1}{\\sqrt2})=-\\tfrac12$, $f(-\\tfrac{1}{\\sqrt2},\\tfrac{1}{\\sqrt2})=-\\tfrac12$.\n\n**Konklusjon:** største verdi er $\\tfrac12$ (i $\\pm(\\tfrac{1}{\\sqrt2},\\tfrac{1}{\\sqrt2})$), minste er $-\\tfrac12$. Studenten oppga bare maks uten å begrunne eksistens eller nevne minimum.",
+        "hints": [
+          "To ting mangler: en sjekk *før* Lagrange og en begrunnelse *for* at ekstrema finnes.",
+          "Gjør $\\nabla g=0$-sjekken, navngi ekstremalverdisetningen med kompaktheten til sirkelen, og evaluér $f$ i alle fire kandidatene."
+        ]
+      }
+    },
+    {
+      "id": "mat1110-7-1-opg3-w",
+      "type": "exercise",
+      "exercise": {
+        "id": "mat1110-7-1-opg3",
+        "number": "3",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "**Sjanger K/L (fluks).** En student skriver: «Fluksen av $F=(x,y,z)$ gjennom den krumme paraboloiden $z=x^2+y^2$ under $z=1$ er $\\tfrac{3\\pi}{2}$, siden $\\iiint_V\\operatorname{div}F\\,dV=\\tfrac{3\\pi}{2}$.» Tallet $\\tfrac{3\\pi}{2}$ er volumintegralet, men svaret på fluksen er feil. Pek på de **tre manglene** og før om.",
+        "solution": "**Mangel 1 — teoremet ikke navngitt:** koblingen mellom volumintegralet og fluksen er *divergensteoremet*; det må nevnes.\n\n**Mangel 2 — randen ikke delt / normalretning ikke kontrollert:** $\\partial V$ består av paraboloiden $T_1$ **og** topplokket $T_2$ ($z=1$), begge med normal ut av $V$. Divergensteoremet gir *summen* av de to fluksene, ikke fluksen gjennom $T_1$ alene.\n\n**Mangel 3 — delsvaret for $T_2$ ikke trukket fra:** fluksen ut gjennom lokket er $\\iint_{x^2+y^2\\le1}F\\cdot k\\,dA=\\iint 1\\,dA=\\pi$ (geometrisk snarvei, $n=k$ ut av $V$).\n\n**Full uttelling:** **ifølge divergensteoremet** er $\\iiint_V\\operatorname{div}F\\,dV=T_1+T_2$ med utadrettede normaler. Da\n$$T_1=\\iiint_V\\operatorname{div}F\\,dV-T_2=\\frac{3\\pi}{2}-\\pi=\\boxed{\\dfrac{\\pi}{2}}.$$\n**Konklusjon:** fluksen ut gjennom paraboloiden er $\\tfrac{\\pi}{2}$, ikke $\\tfrac{3\\pi}{2}$.",
+        "hints": [
+          "Divergensteoremet gir fluksen gjennom *hele* randen — hva mer enn paraboloiden hører til randen?",
+          "Navngi teoremet, del randen i $T_1$ (paraboloide) og $T_2$ (lokk), regn $T_2=\\pi$ med snarveien, og trekk fra: $T_1=\\tfrac{3\\pi}{2}-\\pi$."
+        ]
+      }
+    },
+    {
+      "id": "mat1110-7-1-opg4-w",
+      "type": "exercise",
+      "exercise": {
+        "id": "mat1110-7-1-opg4",
+        "number": "4",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "**Sjanger N (potensrekke).** En student skriver: «Konvergensradien til $\\sum_{n=1}^\\infty\\dfrac{x^n}{n}$ er $R=1$, så rekken konvergerer på $(-1,1)$.» Pek på **føringsmangelen** og gi det fullstendige konvergensområdet med begrunnelse.",
+        "solution": "**Mangelen:** endepunktene $x=\\pm1$ er ikke undersøkt — de faller ikke automatisk utenfor.\n\n**Endepunktsjekk:**\n- $x=1$: $\\sum\\tfrac1n$ er den harmoniske rekken ($p$-rekke med $p=1$), som **divergerer**. Altså er $x=1$ *ikke* med.\n- $x=-1$: $\\sum\\tfrac{(-1)^n}{n}$ er alternerende med $a_n=\\tfrac1n$ avtagende mot $0$; **ifølge Leibniz' kriterium** konvergerer den. Altså er $x=-1$ med.\n\n**Konklusjon:** konvergensområdet er $[-1,\\,1)$ — lukket i venstre ende, åpent i høyre. Studenten mistet det lukkede endepunktet.",
+        "hints": [
+          "Konvergensradien gir bare det *åpne* intervallet — hva må sjekkes i tillegg?",
+          "Sett inn $x=1$ (harmonisk, divergerer) og $x=-1$ (alternerende, Leibniz gir konvergens) hver for seg."
+        ]
+      }
+    },
+    {
+      "id": "mat1110-7-1-symbol",
+      "type": "collapsible",
+      "title": "Symbol- og formelliste",
+      "buttonText": "Vis symboler og formler",
+      "content": [
+        {
+          "id": "mat1110-7-1-symbol-text",
+          "type": "text",
+          "content": "## Symbol- og formelliste\n\n*Oppslagsverk — alt her forklares underveis i kapitlet.*\n\n| Symbol | Betydning |\n|---|---|\n| $\\sim$ | Radekvivalens (merkes med radoperasjon over) |\n| $\\nabla f$ | Gradient |\n| $F'(a)$ | Jacobi-matrise i punktet $a$ |\n| $H,\\ D$ | Hesse-matrise; $D=f_{xx}f_{yy}-f_{xy}^2$ |\n| $\\lambda$ | Lagrange-multiplikator / egenverdi |\n| $g=c$ | Bibetingelse i Lagrange |\n| $K$ | Kompakt mengde (lukket + begrenset) |\n| $\\boldsymbol{\\phi}_u\\times\\boldsymbol{\\phi}_v$ | Fundamentalt vektorprodukt (flatenormal) |\n| $n$ | Enhetsnormal (orientering) |\n| $\\operatorname{div}F,\\ \\operatorname{curl}F$ | Divergens; curl (rotasjon) |\n| $R$ | Konvergensradius |\n| $A^{-1},\\ N(A)$ | Invers matrise; nullrom |\n\n**Sensorregelen (alle sett):** «Du må begrunne alle svar, og vise nok mellomregninger til at man lett kan følge argumentene.»\n\n**Teoremer som skal navngis:** omvendt/implisitt funksjonsteorem · ekstremalverdisetningen · annenderiverttesten · Greens teorem · Gauss' divergensteorem · Stokes' teorem.\n\n**Kjernekontroller:** merket radoperasjon · grenser som ulikheter · $\\nabla g=0$-sjekk · eksistens på kompakt mengde · $\\boldsymbol{\\phi}_u\\times\\boldsymbol{\\phi}_v$ vs. $n$ · $n$ ut av $V$ · høyrehåndsregel · endepunktsjekk · eksakt svar · verbal konklusjon · delpunkt-gjenbruk."
+        }
+      ]
+    }
+  ],
+  "exercises": []
+}
