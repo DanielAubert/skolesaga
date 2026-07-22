@@ -1,0 +1,252 @@
+[
+  {
+    "question": "Hva er det obligatoriske siste trinnet i ML-kjeden som oftest glemmes?",
+    "options": [
+      "Bekrefte at $\\ell''(\\hat\\theta)<0$, altså at punktet er et maksimum",
+      "Ta logaritmen av likelihooden",
+      "Sette scoren $s(\\theta)$ lik null",
+      "Skrive likelihooden som et produkt av tetthetene før man tar den deriverte scoren"
+    ],
+    "explanation": "Løsning av $s(\\hat\\theta)=0$ gir bare et stasjonærpunkt; maksimumsbekreftelsen $\\ell''(\\hat\\theta)<0$ er det siste, obligatoriske trinnet."
+  },
+  {
+    "question": "En estimator skrives $\\hat\\Theta$ (stor bokstav) og et estimat $\\hat\\theta$ (tall). Hva er riktig?",
+    "options": [
+      "$\\hat\\Theta$ er en stokastisk variabel med varians; $\\hat\\theta$ er ett fast tall",
+      "Begge er tilfeldige variabler med samme varians",
+      "$\\hat\\theta$ (liten bokstav) har en varians, mens $\\hat\\Theta$ (stor bokstav) bare er ett observert tall",
+      "De betyr det samme og kan brukes om hverandre"
+    ],
+    "explanation": "Estimatoren er en funksjon av de tilfeldige dataene (stokastisk, har varians); estimatet er tallet den gir på ett datasett."
+  },
+  {
+    "question": "ML-estimatorens tilnærmede fordeling for stor $n$ er $\\hat\\theta\\approx N(\\theta,1/(nI(\\theta)))$. Hva er det andre argumentet?",
+    "options": [
+      "Variansen til ML-estimatoren",
+      "Standardavviket til ML-estimatoren",
+      "Fisher-informasjonen $I(\\theta)$",
+      "Konfidensnivået $1-\\alpha$"
+    ],
+    "explanation": "I notasjonen $N(\\mu,\\sigma^2)$ er andre argument alltid variansen; her $1/(nI(\\theta))$."
+  },
+  {
+    "question": "Fisher-informasjonen i én observasjon defineres som:",
+    "options": [
+      "$I(\\theta)=-E[\\partial^2\\log f(X;\\theta)/\\partial\\theta^2]$",
+      "$I(\\theta)=\\partial^2\\log f(x;\\theta)/\\partial\\theta^2$ i estimatet",
+      "$I(\\theta)=E[\\partial^2\\log f(X;\\theta)/\\partial\\theta^2]$",
+      "$I(\\theta)=nI_1(\\theta)$ for én observasjon"
+    ],
+    "explanation": "Fisher-info er den forventede negative andrederiverte. Uten minustegn får du feil fortegn; uten forventning får du observert informasjon."
+  },
+  {
+    "question": "Hva er forholdet mellom $I(\\theta)$ (én observasjon) og informasjonen i hele utvalget?",
+    "options": [
+      "$I_n(\\theta)=nI(\\theta)$",
+      "$I_n(\\theta)=I(\\theta)/n$",
+      "$I_n(\\theta)=I(\\theta)$ uansett $n$",
+      "$I_n(\\theta)=n^2 I(\\theta)$"
+    ],
+    "explanation": "Informasjonen er additiv for uavhengige observasjoner, så $n$ observasjoner gir $n$ ganger informasjonen i én."
+  },
+  {
+    "question": "I et Wald-konfidensintervall $\\hat\\theta\\pm z_{\\alpha/2}\\,se$, hvorfor brukes $z$ og ikke $t$?",
+    "options": [
+      "Fordi normalformen kommer fra ML-asymptotikken (sentralgrenseteoremet)",
+      "Fordi standardavviket $\\sigma$ er estimert med utvalgsstandardavviket $S$ fra de samme observasjonene",
+      "Fordi utvalget alltid er lite",
+      "Fordi $t$ bare gjelder for andeler"
+    ],
+    "explanation": "Wald hviler på at ML-estimatoren er tilnærmet normal via CLT; $t_{n-1}$ hører derimot til et normalgjennomsnitt med estimert $\\sigma$."
+  },
+  {
+    "question": "For Poisson$(\\lambda)$ er Fisher-informasjonen i én observasjon:",
+    "options": [
+      "$I(\\lambda)=1/\\lambda$",
+      "$I(\\lambda)=1/\\lambda^2$",
+      "$I(\\lambda)=\\lambda$",
+      "$I(\\lambda)=1/(\\lambda(1-\\lambda))$"
+    ],
+    "explanation": "$\\log f=-\\lambda+x\\log\\lambda-\\log x!$ gir andrederivert $-x/\\lambda^2$; forventning med $E(X)=\\lambda$ gir $I(\\lambda)=1/\\lambda$."
+  },
+  {
+    "question": "Standardfeilen til en ML-estimator er $se(\\hat\\theta)=\\sqrt{1/(nI(\\hat\\theta))}$. Hvorfor står $\\hat\\theta$ og ikke $\\theta$ i uttrykket?",
+    "options": [
+      "Den sanne $\\theta$ er ukjent, så vi plugger inn estimatet",
+      "Fordi standardfeilen $se$ egentlig måler skjevheten til estimatoren, ikke spredningen rundt forventningen",
+      "Fordi $I$ alltid evalueres i null",
+      "For å gjøre intervallet symmetrisk"
+    ],
+    "explanation": "Variansen er $1/(nI(\\theta))$ med sann $\\theta$; siden den er ukjent, setter standardfeilen inn estimatet $\\hat\\theta$."
+  },
+  {
+    "question": "Cramér–Raos nedre grense sier at for enhver forventningsrett estimator $T$ for $\\theta$:",
+    "options": [
+      "$\\text{Var}(T)\\ge 1/(nI(\\theta))$",
+      "$\\text{Var}(T)\\le 1/(nI(\\theta))$",
+      "$\\text{Var}(T)=nI(\\theta)$",
+      "$E(T)\\ge\\theta$"
+    ],
+    "explanation": "Ingen forventningsrett estimator har mindre varians enn $1/(nI(\\theta))$; ML oppnår grensen asymptotisk."
+  },
+  {
+    "question": "En oppgave gir en fordeling der standardfeilen selv er proporsjonal med parameteren ($se\\propto\\theta$, eksponential-typen). Hvilket intervall er da mest presist?",
+    "options": [
+      "Den asymmetriske pivot-formen $[\\hat\\theta/(1+z/\\sqrt n),\\ \\hat\\theta/(1-z/\\sqrt n)]$",
+      "Det symmetriske $\\hat\\theta\\pm z\\,se$",
+      "Et $t$-intervall med $n-1$ frihetsgrader",
+      "Et andels-intervall $\\hat p\\pm z\\sqrt{\\hat p(1-\\hat p)/n}$, som er konstruert nettopp for parameteravhengig spredning"
+    ],
+    "explanation": "Når $se$ avhenger av parameteren, gir pivoten med sann $\\theta$ i nevneren et mer presist, asymmetrisk intervall som også unngår negative grenser."
+  },
+  {
+    "question": "Invariansprinsippet sier at ML-estimatoren for $\\psi=g(\\theta)$ er:",
+    "options": [
+      "$\\hat\\psi=g(\\hat\\theta)$ — sett ML-estimatoren rett inn",
+      "$\\hat\\psi=g^{-1}(\\hat\\theta)$",
+      "Funnet ved en helt ny ML-kjede for $\\psi$",
+      "$\\hat\\psi=g(\\theta)$ med sann $\\theta$"
+    ],
+    "explanation": "ML er invariant under omparametrisering: du setter bare $\\hat\\theta$ inn i $g$, uten ny derivasjon."
+  },
+  {
+    "question": "For Rayleigh$(\\theta)$ med $E(X^2)=2\\theta^2$ er Fisher-informasjonen:",
+    "options": [
+      "$I(\\theta)=4/\\theta^2$",
+      "$I(\\theta)=1/\\theta^2$",
+      "$I(\\theta)=2/\\theta^2$",
+      "$I(\\theta)=\\theta^2/4$"
+    ],
+    "explanation": "$\\partial^2\\log f/\\partial\\theta^2=2/\\theta^2-3x^2/\\theta^4$; med $E(X^2)=2\\theta^2$ blir $I(\\theta)=-2/\\theta^2+6/\\theta^2=4/\\theta^2$."
+  },
+  {
+    "question": "Momentmetoden for én ukjent parameter går ut på å:",
+    "options": [
+      "Sette teoretisk moment $E(X)$ lik empirisk $\\bar X$ og løse",
+      "Maksimere likelihooden $L(\\theta)$",
+      "Minimere kvadratavvikene $\\sum(x_i-\\bar x)^2$",
+      "Sette scoren lik null"
+    ],
+    "explanation": "Momentmetoden matcher første teoretiske moment $E(X)$ med utvalgsgjennomsnittet og løser for parameteren."
+  },
+  {
+    "question": "For uniform på $[0,\\theta]$ svikter score-metoden. Hva er ML-estimatoren?",
+    "options": [
+      "$\\hat\\theta=\\max_i X_i=X_{(n)}$",
+      "$\\hat\\theta=2\\bar X$",
+      "$\\hat\\theta=\\bar X$",
+      "$\\hat\\theta=n/\\sum X_i$"
+    ],
+    "explanation": "Støtten avhenger av $\\theta$, så $L(\\theta)=\\theta^{-n}$ er avtakende og maksimeres ved den minste tillatte verdien — den største observasjonen."
+  },
+  {
+    "question": "Når skal du sammenligne to estimatorer på MSE i stedet for varians?",
+    "options": [
+      "Så snart minst én av dem er skjev",
+      "Alltid, uansett skjevhet",
+      "Bare når begge er forventningsrette",
+      "Bare når variansene er like"
+    ],
+    "explanation": "MSE $=\\text{Var}+b^2$ veier bom mot spredning; ved forskjellig skjevhet er varians alene misvisende."
+  },
+  {
+    "question": "En ML-estimator gir $\\hat\\sigma^2=\\frac1n\\sum(X_i-\\bar X)^2$ i normalmodellen. Er den forventningsrett for $\\sigma^2$?",
+    "options": [
+      "Nei, den er skjev med $b=-\\sigma^2/n$; $S^2$ (divisor $n-1$) er forventningsrett",
+      "Ja, alle ML-estimatorer er forventningsrette fordi de per konstruksjon maksimerer sannsynligheten for de observerte dataene",
+      "Ja, fordi den maksimerer likelihooden",
+      "Nei, den er skjev med $b=+\\sigma^2/n$"
+    ],
+    "explanation": "ML deler på $n$ og undervurderer variansen; forventningen er $\\frac{n-1}{n}\\sigma^2$, så skjevheten er $-\\sigma^2/n$. ML garanterer ikke forventningsretthet."
+  },
+  {
+    "question": "I Poisson–gamma-konjugering med gamma$(\\alpha,\\beta)$-apriori (skala) og datasum $s=\\sum x_i$, hva er aposteriorifordelingen?",
+    "options": [
+      "gamma$(\\alpha+s,\\ \\beta/(1+n\\beta))$",
+      "gamma$(\\alpha+n,\\ \\beta/(1+s\\beta))$",
+      "gamma$(\\alpha s,\\ \\beta n)$",
+      "Poisson$(\\alpha+s)$"
+    ],
+    "explanation": "Poisson-likelihooden $\\lambda^s e^{-n\\lambda}$ samlet med gamma-kjernen gir form $\\alpha+s$ og skala $\\beta/(1+n\\beta)$."
+  },
+  {
+    "question": "Bayes-estimatoren (under kvadratisk tap) er:",
+    "options": [
+      "Aposteriori forventning $E(\\theta\\mid x)$",
+      "Aposteriori-toppen (modus)",
+      "ML-estimatet $\\hat\\theta_{ML}$",
+      "Apriori-forventningen $\\alpha\\beta$"
+    ],
+    "explanation": "Under kvadratisk tap er den optimale Bayes-estimatoren aposteriori forventning; for gamma$(\\alpha',\\beta')$ er den $\\alpha'\\beta'$."
+  },
+  {
+    "question": "Hva skjer med Bayes-estimatoren i Poisson–gamma når $n$ blir stor?",
+    "options": [
+      "Den nærmer seg ML-estimatet $\\bar x$ fordi dataene overdøver apriorien",
+      "Den nærmer seg apriori-forventningen $\\alpha\\beta$ fordi apriorien får stadig mer å si etter hvert som utvalget vokser",
+      "Den blir eksakt lik apriori-modus",
+      "Den divergerer"
+    ],
+    "explanation": "Bayes er et vektet snitt av $\\bar x$ og $\\alpha\\beta$ med datavekt $w=n\\beta/(1+n\\beta)\\to1$, så Bayes $\\to$ ML."
+  },
+  {
+    "question": "For eksponential med forventning $\\theta$ er $I(\\theta)=1/\\theta^2$. Hva blir standardfeilen $se(\\hat\\theta)$?",
+    "options": [
+      "$\\hat\\theta/\\sqrt n$",
+      "$1/(\\hat\\theta\\sqrt n)$",
+      "$\\hat\\theta^2/n$",
+      "$\\sqrt{\\hat\\theta/n}$"
+    ],
+    "explanation": "$se=\\sqrt{1/(nI(\\hat\\theta))}=\\sqrt{\\hat\\theta^2/n}=\\hat\\theta/\\sqrt n$."
+  },
+  {
+    "question": "En estimator er konsistent hvis:",
+    "options": [
+      "$\\hat\\Theta_n\\xrightarrow{P}\\theta$ når $n\\to\\infty$ (typisk: forventningsrett og varians mot 0)",
+      "$E(\\hat\\Theta)=\\theta$ for enhver utvalgsstørrelse $n$, altså at estimatoren treffer eksakt i gjennomsnitt uansett datamengde",
+      "Variansen er minst mulig for fast $n$",
+      "Den maksimerer likelihooden"
+    ],
+    "explanation": "Konsistens er konvergens i sannsynlighet mot $\\theta$; en praktisk sjekk er (asymptotisk) forventningsrett + varians mot 0, via Tsjebysjeff."
+  },
+  {
+    "question": "En besvarelse bruker normaltilnærming for ML-estimatoren, men nevner ikke hvorfor $\\hat\\theta$ er normal. Hva mangler ifølge sensorkravet?",
+    "options": [
+      "En eksplisitt henvisning til ML-asymptotikken/sentralgrenseteoremet",
+      "En figur av tettheten",
+      "Et $t$-kvantil i stedet for $z$",
+      "Beregning av apriorifordelingen"
+    ],
+    "explanation": "Sensor krever at du sier hvorfor normalformen gjelder — det er ML-estimatorens asymptotiske fordeling (CLT), ikke en selvfølge."
+  },
+  {
+    "question": "Momentestimatoren $\\hat\\theta_{\\text{mom}}=\\bar X\\sqrt{2/\\pi}$ for Rayleigh er eksakt forventningsrett, mens ML-estimatoren $\\sqrt{\\sum X_i^2/(2n)}$ er:",
+    "options": [
+      "Bare asymptotisk forventningsrett (svak nedadskjevhet for lite $n$), men mer effisient",
+      "Eksakt forventningsrett for enhver utvalgsstørrelse $n$ og samtidig mindre effisient enn momentestimatoren i denne modellen",
+      "Alltid skjev og aldri brukbar",
+      "Identisk med momentestimatoren"
+    ],
+    "explanation": "Kvadratrota gir ML en liten nedadskjevhet for endelig $n$ (den forsvinner asymptotisk), men ML har mindre varians og er dermed mer effisient."
+  },
+  {
+    "question": "Et 95 % konfidensintervall for $\\theta$ betyr korrekt at:",
+    "options": [
+      "Prosedyren fanger $\\theta$ i 95 % av gjentatte utvalg",
+      "Det er 95 % sannsynlig at $\\theta$ ligger i akkurat dette intervallet",
+      "$\\theta$ er stokastisk med 95 % sannsynlighet innenfor",
+      "95 % av dataene ligger i intervallet"
+    ],
+    "explanation": "$\\theta$ er en fast (ukjent) størrelse; det er *prosedyren* som har 95 % dekningsgrad over gjentatte utvalg."
+  },
+  {
+    "question": "Ved invarians-transform av et konfidensintervall $[L,U]$ for $\\theta$ til raten $\\lambda=1/\\theta$, hva skjer?",
+    "options": [
+      "Endepunktene bytter plass fordi $g(\\theta)=1/\\theta$ er avtakende: $[1/U,\\ 1/L]$",
+      "Intervallet blir $[1/L,\\ 1/U]$ i samme rekkefølge",
+      "Man må regne ut en helt ny Fisher-informasjon for $\\lambda$ og bygge konfidensintervallet fra bunnen av på nytt",
+      "Intervallet blir symmetrisk om $1/\\hat\\theta$"
+    ],
+    "explanation": "For en monoton avtakende funksjon bevares dekningen, men øvre og nedre endepunkt bytter plass; ingen ny ML- eller Fisher-regning trengs."
+  }
+]

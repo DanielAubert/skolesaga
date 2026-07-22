@@ -1,0 +1,324 @@
+{
+  "id": "stk1110-1-5",
+  "courseId": "stk1110",
+  "chapterNumber": "1.5",
+  "title": "Drill: estimeringskjeden fra fordeling til Wald-KI (sjanger A–C)",
+  "description": "Standardtreningen i estimeringsoppgaven: fra en (ofte «eksotisk») fordeling til momentestimator/ML, forventningsretthet, varians, Fisher-info og Wald-KI — den faste Oppgave 1, ledd for ledd.",
+  "estimatedMinutes": 80,
+  "competenceGoals": [
+    "kjøre hele estimeringskjeden i sju trinn fra modell til Wald-KI på en ukjent fordeling",
+    "velge moment eller ML og alltid bekrefte maksimum med andrederiverttesten",
+    "regne Fisher-informasjon og angi ML-estimatorens tilnærmede fordeling med riktig varians",
+    "velge symmetrisk Wald, asymmetrisk pivot eller riktig z/t-kvantil, og avslutte med Bayes/Cramér–Rao/invarians"
+  ],
+  "content": [
+    {
+      "id": "stk1110-1-5-tip",
+      "type": "tip",
+      "title": "Eksamensvinkel",
+      "content": "**Dette er selve Oppgave 1 — den kommer i praktisk talt hvert eneste sett.** Estimeringskjeden fra en fordeling til Wald-konfidensintervall (sjanger A + B + C samlet) har en kombinert frekvens på **~95 %**. Kjeden `moment/ML → bekreft maksimum → forventningsretthet → varians → Fisher-info → Wald-KI` er ryggraden i emnet.\n\n**Variantene du må kjenne igjen:**\n- **«Eksotisk» fordeling.** Oppgaven bytter fordeling fra år til år — Rayleigh, Weibull (kjent form), Pareto, eksponential-varianter, uniform, geometrisk, en gamma med kjent form. *Kjeden er den samme uansett.*\n- **Moment mot ML.** Noen år skal begge finnes og sammenlignes; andre år sammenfaller de (Poisson, eksponential).\n- **Rullerende sluttpunkt:** enten et Fisher → Wald-KI-ledd (sjanger C/D), et Bayes-/konjugeringspunkt (kap. 1.4) eller en estimator-sammenligning (kap. 1.1).\n\n**Sensorens hyppigste trekk her:** glemme maksimumsbekreftelsen ($\\ell''(\\hat\\theta)<0$); hoppe over et ledd i kjeden (fasiten belønner alle); bruke $z$ der det skal være $t$ (Wald bruker $z$, men et KI for et normalgjennomsnitt med estimert $\\sigma$ bruker $t_{n-1}$); og blande estimator (stor bokstav) med estimat (tall). Prioritet: **må sitte perfekt — den viktigste enkeltkjeden i boka.**"
+    },
+    {
+      "id": "stk1110-1-5-forkunnskaper",
+      "type": "text",
+      "content": "**Forkunnskaper:** Dette drillkapitlet fletter sammen hele Del 1. Du trenger estimator-egenskapene fra **[kap. 1.1](/bok/stk1110/stk1110-1-1)** (forventningsretthet, varians, MSE, konsistens), moment- og ML-metoden fra **[kap. 1.2](/bok/stk1110/stk1110-1-2)** (kjeden $L\\to\\ell\\to s\\to$ løs $\\to$ bekreft $\\ell''<0$, invariansprinsippet), Fisher-informasjon, ML-asymptotikk og Wald-KI fra **[kap. 1.3](/bok/stk1110/stk1110-1-3)**, og Bayes-/konjugeringspunktet fra **[kap. 1.4](/bok/stk1110/stk1110-1-4)**.\n\nAlt regnehåndverket — derivere log-likelihood, løse en ligning, ta forventning — er dekket i disse fire kapitlene. Her trenér du å sette det sammen til én flytende besvarelse under tidspress. Trenger du å friske opp derivasjon, se [R1 4.1 Derivasjonsregler](/bok/r1/r1-4-1)."
+    },
+    {
+      "id": "stk1110-1-5-oppskrift",
+      "type": "text",
+      "content": "## Løsningsoppskrift — estimeringskjeden i sju trinn\n\nNår Oppgave 1 gir deg en fordeling med én ukjent parameter, følger du **samme sju trinn** hver gang. Fasiten belønner *hvert* ledd, så skriv dem ut selv om et delpunkt stopper — senere trinn kan løses med et *oppgitt* mellomresultat.\n\n**1. Definer modellen.** Skriv «La $X_1,\\dots,X_n$ være uavhengige med tetthet $f(x;\\theta)$», og noter støtten (hvilke $x$-verdier). Støtte som avhenger av $\\theta$ (som uniform på $[0,\\theta]$) er et varsel om at score-metoden svikter (trinn 2).\n\n**2. Moment- og/eller ML-estimator — med bekreftet maksimum.**\n- *Moment:* sett $E(X)=\\bar X$ (eller $E(X^2)=\\tfrac1n\\sum X_i^2$ når $E(X)$ ikke inneholder $\\theta$) og løs.\n- *ML:* kjør hele kjeden $L(\\theta)=\\prod f(x_i;\\theta)\\to \\ell(\\theta)=\\sum\\log f\\to s(\\theta)=\\ell'(\\theta)\\to$ løs $s(\\hat\\theta)=0\\to$ **bekreft** $\\ell''(\\hat\\theta)<0$. *Det siste trinnet glemmes oftest og straffes hardt.*\n\n**3. Forventningsretthet.** Regn $E(\\hat\\theta)$. Er $E(\\hat\\theta)=\\theta$, er den forventningsrett; ellers kvantifiser skjevheten $b(\\hat\\theta)=E(\\hat\\theta)-\\theta$ og **korriger** (gang med en konstant) hvis oppgaven ber om en forventningsrett estimator.\n\n**4. Varians.** Regn $\\text{Var}(\\hat\\theta)$ fullstendig (vis alle ledd). Er to estimatorer aktuelle, sammenlign på varians (begge forventningsrette) eller på $\\text{MSE}=\\text{Var}+b^2$ (minst én skjev).\n\n**5. Fisher-informasjon $\\to$ asymptotisk fordeling.** Regn $I(\\theta)=-E[\\partial^2\\log f/\\partial\\theta^2]$ i én observasjon, så $I_n=nI$. Angi ML-estimatorens tilnærmede fordeling $\\hat\\theta\\overset{\\text{ca.}}{\\sim}N\\!\\big(\\theta,\\tfrac{1}{nI(\\theta)}\\big)$ — **si eksplisitt at det er ML-asymptotikken/sentralgrenseteoremet** som gir normalformen.\n\n**6. Wald-konfidensintervall.** $se(\\hat\\theta)=\\sqrt{1/(nI(\\hat\\theta))}$, og et $(1-\\alpha)$-intervall er $\\hat\\theta\\pm z_{\\alpha/2}\\,se(\\hat\\theta)$. Avhenger $se$ av parameteren ($se\\propto\\theta$), bruk den **asymmetriske pivot-formen** $[\\hat\\theta/(1+z/\\sqrt n),\\ \\hat\\theta/(1-z/\\sqrt n)]$ (eksponential-typen) eller en eksakt pivot (kap. 2.5). Wald bruker $z$; et KI for et normalgjennomsnitt med estimert $\\sigma$ bruker $t_{n-1}$.\n\n**7. Rullerende sluttpunkt.** Enten et **Bayes-punkt** (konjugert apriori $\\to$ aposteriori $\\to$ Bayes-estimator, kap. 1.4), en **estimator-sammenligning** (kap. 1.1), en **Cramér–Rao**-kommentar (ingen forventningsrett estimator har mindre varians enn $1/(nI)$), eller en **invarians-transform** ($\\hat\\psi=g(\\hat\\theta)$, intervallet transformeres med $g$).\n\n> **Huskeregel:** *modell → estimator (bekreft maks) → forventning → varians → informasjon → intervall → sluttpunkt.* Sju ledd, full uttelling."
+    },
+    {
+      "id": "stk1110-1-5-case",
+      "type": "example",
+      "title": "Eksamenscase: Rayleigh fra ende til annen (sjanger A+B+C, med sensornotater)",
+      "problem": "Vindstyrker (m/s) $x_1,\\dots,x_n$ er Rayleigh-fordelte med tetthet $f(x;\\theta)=\\dfrac{x}{\\theta^2}e^{-x^2/(2\\theta^2)}$, $x>0$, $\\theta>0$. Kjent fra formelsamlingen: $E(X)=\\theta\\sqrt{\\pi/2}$ og $E(X^2)=2\\theta^2$. Du har $n=30$ målinger med $\\bar x=5{,}0$ og $\\sum x_i^2=940$.\n\n(a) Finn momentestimatoren. (b) Utled ML-estimatoren og bekreft maksimum. (c) Drøft forventningsretthet. (d) Finn Fisher-informasjonen og ML-estimatorens tilnærmede fordeling. (e) Gi et 95 % Wald-intervall for $\\theta$. (f) Kommenter effisiens (Cramér–Rao).",
+      "solution": "**(a) Momentestimator (trinn 1–2).** Modell: $X_i\\sim$ Rayleigh$(\\theta)$ uavhengige. Momentligningen $E(X)=\\bar X$ gir $\\theta\\sqrt{\\pi/2}=\\bar X$, altså\n$$\\hat\\theta_{\\text{mom}}=\\bar X\\sqrt{2/\\pi}\\approx 0{,}7979\\,\\bar X.$$\nTallverdi: $\\hat\\theta_{\\text{mom}}=0{,}7979\\cdot5{,}0\\approx 3{,}99$.\n\n> **Sensorpoeng (a):** riktig oppsett av momentligningen med $E(X)=\\theta\\sqrt{\\pi/2}$ (ikke $\\theta$) gir uttelling selv om tallsvaret glipper.\n\n**(b) ML-estimator (trinn 2, alle fem ledd).**\n1. $L(\\theta)=\\prod\\dfrac{x_i}{\\theta^2}e^{-x_i^2/(2\\theta^2)}$.\n2. $\\ell(\\theta)=\\sum\\log x_i-2n\\log\\theta-\\dfrac{1}{2\\theta^2}\\sum x_i^2$.\n3. $s(\\theta)=-\\dfrac{2n}{\\theta}+\\dfrac{1}{\\theta^3}\\sum x_i^2$.\n4. $s(\\hat\\theta)=0\\Rightarrow \\hat\\theta^2=\\dfrac{\\sum x_i^2}{2n}\\Rightarrow \\hat\\theta_{ML}=\\sqrt{\\dfrac{\\sum x_i^2}{2n}}$.\n5. $\\ell''(\\theta)=\\dfrac{2n}{\\theta^2}-\\dfrac{3\\sum x_i^2}{\\theta^4}$; i $\\hat\\theta$ (der $\\sum x_i^2=2n\\hat\\theta^2$) blir $\\ell''(\\hat\\theta)=\\dfrac{2n}{\\hat\\theta^2}-\\dfrac{6n}{\\hat\\theta^2}=-\\dfrac{4n}{\\hat\\theta^2}<0$ ✔ (maksimum).\n\nTallverdi: $\\hat\\theta_{ML}=\\sqrt{940/60}=\\sqrt{15{,}67}\\approx 3{,}96$.\n\n> **Sensorpoeng (b):** trinn 5 er obligatorisk. En besvarelse som stopper ved $\\hat\\theta=\\sqrt{\\sum x_i^2/(2n)}$ uten $\\ell''<0$ mister det tyngste delpoenget her (§5.3).\n\n**(c) Forventningsretthet (trinn 3).** Momentestimatoren er **eksakt forventningsrett**: $E(\\hat\\theta_{\\text{mom}})=\\sqrt{2/\\pi}\\,E(\\bar X)=\\sqrt{2/\\pi}\\cdot\\theta\\sqrt{\\pi/2}=\\theta$. For ML gjelder $E(\\hat\\theta_{ML}^2)=\\dfrac{1}{2n}E\\!\\big(\\sum X_i^2\\big)=\\dfrac{1}{2n}\\cdot 2n\\theta^2=\\theta^2$, så $\\hat\\theta_{ML}^2$ er forventningsrett for $\\theta^2$; selve $\\hat\\theta_{ML}$ er **asymptotisk forventningsrett** (kvadratrota gir en liten nedadskjevhet for lite $n$, som forsvinner når $n$ vokser).\n\n> **Sensorpoeng (c):** å skille «forventningsrett for $\\theta^2$» fra «forventningsrett for $\\theta$» er et A-nyansepoeng — ikke påstå mer enn du har vist.\n\n**(d) Fisher-info og asymptotisk fordeling (trinn 5).** $\\log f=\\log x-2\\log\\theta-\\dfrac{x^2}{2\\theta^2}$, så $\\dfrac{\\partial^2}{\\partial\\theta^2}\\log f=\\dfrac{2}{\\theta^2}-\\dfrac{3x^2}{\\theta^4}$. Ta forventning med $E(X^2)=2\\theta^2$:\n$$I(\\theta)=-\\!\\left(\\frac{2}{\\theta^2}-\\frac{3\\cdot 2\\theta^2}{\\theta^4}\\right)=-\\frac{2}{\\theta^2}+\\frac{6}{\\theta^2}=\\frac{4}{\\theta^2}.$$\nML-asymptotikken (sentralgrenseteoremet) gir da $\\hat\\theta_{ML}\\overset{\\text{ca.}}{\\sim}N\\!\\left(\\theta,\\dfrac{1}{nI(\\theta)}\\right)=N\\!\\left(\\theta,\\dfrac{\\theta^2}{4n}\\right)$.\n\n> **Sensorpoeng (d):** nevn eksplisitt at normalformen er ML-asymptotikk (§4.4), og koble variansen til $1/(nI(\\theta))$ — ikke bare skriv «$\\hat\\theta$ er normal».\n\n**(e) Wald-intervall (trinn 6).** $se(\\hat\\theta)=\\sqrt{1/(nI(\\hat\\theta))}=\\sqrt{\\hat\\theta^2/(4n)}=\\dfrac{\\hat\\theta}{2\\sqrt n}=\\dfrac{3{,}96}{2\\sqrt{30}}\\approx 0{,}361$. Med $z_{0{,}025}=1{,}96$:\n$$3{,}96\\pm 1{,}96\\cdot 0{,}361=3{,}96\\pm 0{,}708=[3{,}25,\\ 4{,}67].$$\n\n> **Sensorpoeng (e):** $z$ er riktig her (Wald på en ML-estimator). Et $t$-kvantil ville vært feil — $t$ hører til normalgjennomsnitt med estimert $\\sigma$ (kap. 2.1).\n\n**(f) Effisiens (trinn 7 — Cramér–Rao).** Cramér–Rao-grensen er $\\dfrac{1}{nI(\\theta)}=\\dfrac{\\theta^2}{4n}$. ML-estimatoren oppnår denne asymptotisk, mens momentestimatoren har $\\text{Var}(\\hat\\theta_{\\text{mom}})=(4/\\pi-1)\\dfrac{\\theta^2}{n}\\approx 0{,}273\\dfrac{\\theta^2}{n}>\\dfrac{\\theta^2}{4n}=0{,}25\\dfrac{\\theta^2}{n}$. **ML er altså mer effisient enn moment** — den henter ut mer av informasjonen i dataene.\n\n> **Sensorpoeng (f):** å tallfeste at $0{,}273>0{,}25$ og konkludere «ML foretrekkes» løfter besvarelsen fra B til A."
+    },
+    {
+      "id": "stk1110-1-5-drill",
+      "type": "text",
+      "content": "## Drilloppgaver — én kjede per fordeling (stigende)"
+    },
+    {
+      "id": "stk1110-1-5-o1",
+      "type": "exercise",
+      "exercise": {
+        "id": "stk1110-1-5-o1-e",
+        "number": "1",
+        "type": "classic",
+        "difficulty": "lett",
+        "task": "**Eksponential med forventning $\\theta$.** Levetider $x_1,\\dots,x_n$ er eksponentialfordelte med forventning $\\theta$: $f(x;\\theta)=\\dfrac1\\theta e^{-x/\\theta}$, $x>0$. Du har $n=20$ med $\\bar x=6{,}5$.\n\n**a)** Finn momentestimatoren for $\\theta$.\n\n**b)** Utled ML-estimatoren og bekreft maksimum.\n\n**c)** Er ML-estimatoren forventningsrett? Finn variansen.\n\n**d)** Finn Fisher-informasjonen $I(\\theta)$.\n\n**e)** Gi et 95 % Wald-intervall for $\\theta$.",
+        "solution": "**a)** $E(X)=\\theta=\\bar X\\Rightarrow \\hat\\theta_{\\text{mom}}=\\bar X$.\n\n**b)** $\\ell(\\theta)=-n\\log\\theta-\\dfrac1\\theta\\sum x_i$; $s(\\theta)=-\\dfrac n\\theta+\\dfrac{\\sum x_i}{\\theta^2}$; $s(\\hat\\theta)=0\\Rightarrow \\hat\\theta=\\dfrac{\\sum x_i}{n}=\\bar X$. Maksimum: $\\ell''(\\theta)=\\dfrac{n}{\\theta^2}-\\dfrac{2\\sum x_i}{\\theta^3}$; i $\\hat\\theta$ ($\\sum x_i=n\\hat\\theta$) blir $\\ell''=\\dfrac{n}{\\hat\\theta^2}-\\dfrac{2n}{\\hat\\theta^2}=-\\dfrac{n}{\\hat\\theta^2}<0$ ✔. Moment og ML sammenfaller.\n\n**c)** $E(\\bar X)=\\theta$ — forventningsrett. $\\text{Var}(\\bar X)=\\text{Var}(X)/n=\\theta^2/n$ (eksponential har $\\text{Var}(X)=\\theta^2$).\n\n**d)** $\\log f=-\\log\\theta-x/\\theta$; $\\dfrac{\\partial^2}{\\partial\\theta^2}\\log f=\\dfrac{1}{\\theta^2}-\\dfrac{2x}{\\theta^3}$; $E(X)=\\theta$ gir $I(\\theta)=-\\big(\\tfrac{1}{\\theta^2}-\\tfrac{2\\theta}{\\theta^3}\\big)=\\dfrac{1}{\\theta^2}$.\n\n**e)** $se=\\sqrt{1/(nI(\\hat\\theta))}=\\hat\\theta/\\sqrt n=6{,}5/\\sqrt{20}=1{,}453$. Wald: $6{,}5\\pm1{,}96\\cdot1{,}453=6{,}5\\pm2{,}85=[3{,}65,\\ 9{,}35]$.",
+        "hints": [
+          "Momentligningen er $E(X)=\\bar X$; her er $E(X)=\\theta$.",
+          "For Fisher: deriver $\\log f=-\\log\\theta-x/\\theta$ to ganger, sett $E(X)=\\theta$ inn.",
+          "$se=\\hat\\theta/\\sqrt n$ siden $I(\\theta)=1/\\theta^2$."
+        ]
+      }
+    },
+    {
+      "id": "stk1110-1-5-o2",
+      "type": "exercise",
+      "exercise": {
+        "id": "stk1110-1-5-o2-e",
+        "number": "2",
+        "type": "classic",
+        "difficulty": "lett",
+        "task": "**Geometrisk fordeling.** Antall forsøk til første suksess er geometrisk: $f(x;p)=(1-p)^{x-1}p$, $x=1,2,\\dots$, med $E(X)=1/p$. I $n=50$ forsøksrekker er $\\bar x=4$.\n\n**a)** Finn moment- og ML-estimatoren for $p$ (begge er $1/\\bar X$ — du kan bruke ML-resultatet fra [kap. 1.2](/bok/stk1110/stk1110-1-2)).\n\n**b)** Vis at Fisher-informasjonen er $I(p)=\\dfrac{1}{p^2(1-p)}$.\n\n**c)** Angi ML-estimatorens tilnærmede fordeling og gi et 95 % Wald-intervall for $p$.",
+        "solution": "**a)** $E(X)=1/p=\\bar X\\Rightarrow \\hat p=1/\\bar X$. ML gir det samme (kap. 1.2). Estimat: $\\hat p=1/4=0{,}25$.\n\n**b)** $\\log f=(x-1)\\log(1-p)+\\log p$. Førstederivert: $-\\dfrac{x-1}{1-p}+\\dfrac1p$. Andrederivert: $-\\dfrac{x-1}{(1-p)^2}-\\dfrac{1}{p^2}$. Ta forventning med $E(X-1)=\\dfrac1p-1=\\dfrac{1-p}{p}$:\n$$I(p)=\\frac{E(X-1)}{(1-p)^2}+\\frac{1}{p^2}=\\frac{1}{p(1-p)}+\\frac{1}{p^2}=\\frac{1}{p^2(1-p)}.$$\n\n**c)** $\\hat p\\overset{\\text{ca.}}{\\sim}N\\!\\big(p,\\tfrac{1}{nI(p)}\\big)=N\\!\\big(p,\\tfrac{p^2(1-p)}{n}\\big)$ (ML-asymptotikk). $se=\\sqrt{\\hat p^2(1-\\hat p)/n}=\\sqrt{0{,}0625\\cdot0{,}75/50}=0{,}0306$. Wald: $0{,}25\\pm1{,}96\\cdot0{,}0306=0{,}25\\pm0{,}060=[0{,}190,\\ 0{,}310]$.",
+        "hints": [
+          "Bruk $E(X-1)=E(X)-1=(1-p)/p$ når du tar forventningen av andrederiverte.",
+          "$1/(p(1-p))+1/p^2$ samles til én brøk med nevner $p^2(1-p)$.",
+          "$se=\\sqrt{1/(nI(\\hat p))}=\\sqrt{\\hat p^2(1-\\hat p)/n}$."
+        ]
+      }
+    },
+    {
+      "id": "stk1110-1-5-o3",
+      "type": "exercise",
+      "exercise": {
+        "id": "stk1110-1-5-o3-e",
+        "number": "3",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "**Pareto-fordeling** (minsteverdi $x_m=1$ kjent). Inntekter over en terskel er Pareto-fordelte: $f(x;\\theta)=\\theta x^{-(\\theta+1)}$, $x\\ge 1$, $\\theta>0$, med $E(X)=\\dfrac{\\theta}{\\theta-1}$ (for $\\theta>1$). Du har $n=40$ observasjoner med $\\sum\\log x_i=25$.\n\n**a)** Finn momentestimatoren (anta $\\theta>1$).\n\n**b)** Utled ML-estimatoren og bekreft maksimum.\n\n**c)** Finn $I(\\theta)$ og gi et 95 % Wald-intervall for $\\theta$.",
+        "solution": "**a)** $E(X)=\\dfrac{\\theta}{\\theta-1}=\\bar X\\Rightarrow \\theta=\\bar X(\\theta-1)\\Rightarrow \\hat\\theta_{\\text{mom}}=\\dfrac{\\bar X}{\\bar X-1}$.\n\n**b)** $\\ell(\\theta)=n\\log\\theta-(\\theta+1)\\sum\\log x_i$; $s(\\theta)=\\dfrac n\\theta-\\sum\\log x_i$; $s(\\hat\\theta)=0\\Rightarrow \\hat\\theta_{ML}=\\dfrac{n}{\\sum\\log x_i}$. Maksimum: $\\ell''(\\theta)=-\\dfrac{n}{\\theta^2}<0$ ✔. Estimat: $\\hat\\theta=40/25=1{,}60$.\n\n**c)** $\\log f=\\log\\theta-(\\theta+1)\\log x$; $\\dfrac{\\partial^2}{\\partial\\theta^2}\\log f=-\\dfrac{1}{\\theta^2}$ (uavhengig av $x$), så $I(\\theta)=\\dfrac{1}{\\theta^2}$. $se=\\hat\\theta/\\sqrt n=1{,}60/\\sqrt{40}=0{,}253$. Wald: $1{,}60\\pm1{,}96\\cdot0{,}253=1{,}60\\pm0{,}496=[1{,}10,\\ 2{,}10]$.",
+        "hints": [
+          "Moment: løs $\\theta/(\\theta-1)=\\bar X$ for $\\theta$.",
+          "ML: log-likelihood er $n\\log\\theta-(\\theta+1)\\sum\\log x_i$; score gir $\\hat\\theta=n/\\sum\\log x_i$.",
+          "Andrederiverte er konstant i $x$, så $I(\\theta)=1/\\theta^2$ og $se=\\hat\\theta/\\sqrt n$."
+        ]
+      }
+    },
+    {
+      "id": "stk1110-1-5-o4",
+      "type": "exercise",
+      "exercise": {
+        "id": "stk1110-1-5-o4-e",
+        "number": "4",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "**Weibull med kjent formparameter $k=3$.** Bruddstyrker er Weibull-fordelte: $f(x;\\theta)=\\dfrac{k\\,x^{k-1}}{\\theta}e^{-x^k/\\theta}$, $x>0$, $\\theta>0$, $k=3$ kjent, med $E(X^k)=\\theta$. Du har $n=36$ med $\\sum x_i^3=180$.\n\n**a)** Finn estimatoren via det $k$-te momentet.\n\n**b)** Utled ML-estimatoren og bekreft maksimum, og vis at den er forventningsrett.\n\n**c)** Finn variansen, Fisher-informasjonen og et 95 % Wald-intervall for $\\theta$.",
+        "solution": "**a)** Momentligning på $k$-te moment: $E(X^k)=\\dfrac1n\\sum x_i^k\\Rightarrow \\hat\\theta_{\\text{mom}}=\\dfrac1n\\sum x_i^k$.\n\n**b)** $\\ell(\\theta)=\\sum\\log(k x_i^{k-1})-n\\log\\theta-\\dfrac1\\theta\\sum x_i^k$; $s(\\theta)=-\\dfrac n\\theta+\\dfrac{\\sum x_i^k}{\\theta^2}$; $s(\\hat\\theta)=0\\Rightarrow \\hat\\theta_{ML}=\\dfrac1n\\sum x_i^k$ (samme som moment). Maksimum: $\\ell''=\\dfrac{n}{\\theta^2}-\\dfrac{2\\sum x_i^k}{\\theta^3}$; i $\\hat\\theta$ ($\\sum x_i^k=n\\hat\\theta$) blir $\\ell''=-\\dfrac{n}{\\hat\\theta^2}<0$ ✔. Forventningsrett: $E(\\hat\\theta)=E(X^k)=\\theta$ ✔.\n\n**c)** $Y=X^k$ er eksponentialfordelt med forventning $\\theta$ (sjekk: $P(X^k\\le y)=1-e^{-y/\\theta}$), så $\\text{Var}(X^k)=\\theta^2$ og $\\text{Var}(\\hat\\theta)=\\theta^2/n$. Fisher: $\\dfrac{\\partial^2}{\\partial\\theta^2}\\log f=\\dfrac{1}{\\theta^2}-\\dfrac{2x^k}{\\theta^3}$, $E(X^k)=\\theta$ gir $I(\\theta)=1/\\theta^2$; da er $1/(nI)=\\theta^2/n=\\text{Var}(\\hat\\theta)$ — estimatoren er effisient. Estimat: $\\hat\\theta=180/36=5{,}0$, $se=\\hat\\theta/\\sqrt n=5/6=0{,}833$, Wald: $5{,}0\\pm1{,}96\\cdot0{,}833=5{,}0\\pm1{,}63=[3{,}37,\\ 6{,}63]$.",
+        "hints": [
+          "Substituer $Y=X^k$: da er $Y$ eksponentialfordelt med forventning $\\theta$, så hele kjeden blir en eksponential-kjede i $Y$.",
+          "ML og moment sammenfaller her; begge er $\\tfrac1n\\sum x_i^k$.",
+          "$\\text{Var}(X^k)=\\theta^2$ gir $\\text{Var}(\\hat\\theta)=\\theta^2/n$, som treffer Cramér–Rao-grensen."
+        ]
+      }
+    },
+    {
+      "id": "stk1110-1-5-o5",
+      "type": "exercise",
+      "exercise": {
+        "id": "stk1110-1-5-o5-e",
+        "number": "5",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "**Normal med kjent forventning 0 — estimer variansen.** Målefeil $x_1,\\dots,x_n$ er $N(0,\\theta)$ (her er $\\theta=\\sigma^2$ variansen, forventningen er kjent lik 0). Du har $n=50$ med $\\sum x_i^2=200$.\n\n**a)** Utled ML-estimatoren for $\\theta$ og bekreft maksimum.\n\n**b)** Vis at den er forventningsrett og finn variansen.\n\n**c)** Finn $I(\\theta)$, bekreft at $\\hat\\theta$ er effisient (Cramér–Rao), og gi et 95 % Wald-intervall for $\\theta$.",
+        "solution": "**a)** Skriv $\\theta=\\sigma^2$: $\\ell(\\theta)=-\\dfrac n2\\log(2\\pi\\theta)-\\dfrac{1}{2\\theta}\\sum x_i^2$; $s(\\theta)=-\\dfrac{n}{2\\theta}+\\dfrac{\\sum x_i^2}{2\\theta^2}$; $s(\\hat\\theta)=0\\Rightarrow \\hat\\theta=\\dfrac1n\\sum x_i^2$. Maksimum: $\\ell''=\\dfrac{n}{2\\theta^2}-\\dfrac{\\sum x_i^2}{\\theta^3}$; i $\\hat\\theta$ ($\\sum x_i^2=n\\hat\\theta$) blir $\\ell''=\\dfrac{n}{2\\hat\\theta^2}-\\dfrac{n}{\\hat\\theta^2}=-\\dfrac{n}{2\\hat\\theta^2}<0$ ✔.\n\n**b)** $E(\\hat\\theta)=E(X^2)=\\text{Var}(X)=\\theta$ (siden $E(X)=0$) — forventningsrett. $\\text{Var}(\\hat\\theta)=\\text{Var}(X^2)/n=2\\theta^2/n$ (for $N(0,\\theta)$ er $E(X^4)=3\\theta^2$, så $\\text{Var}(X^2)=3\\theta^2-\\theta^2=2\\theta^2$).\n\n**c)** $\\dfrac{\\partial^2}{\\partial\\theta^2}\\log f=\\dfrac{1}{2\\theta^2}-\\dfrac{x^2}{\\theta^3}$; $E(X^2)=\\theta$ gir $I(\\theta)=-\\big(\\tfrac{1}{2\\theta^2}-\\tfrac{1}{\\theta^2}\\big)=\\dfrac{1}{2\\theta^2}$. Cramér–Rao: $1/(nI)=2\\theta^2/n=\\text{Var}(\\hat\\theta)$ — effisient. Estimat: $\\hat\\theta=200/50=4{,}0$, $se=\\sqrt{2\\hat\\theta^2/n}=\\sqrt{2\\cdot16/50}=0{,}80$, Wald: $4{,}0\\pm1{,}96\\cdot0{,}80=4{,}0\\pm1{,}57=[2{,}43,\\ 5{,}57]$.\n\n*(Merk: dette er et Wald-intervall for $\\sigma^2$. Det eksakte, asymmetriske $\\chi^2$-intervallet basert på $\\sum X_i^2/\\theta\\sim\\chi^2_n$ kommer i kap. 2.5.)*",
+        "hints": [
+          "Parametriser med $\\theta=\\sigma^2$ og deriver log-likelihood med hensyn på $\\theta$, ikke $\\sigma$.",
+          "For $N(0,\\theta)$ er $E(X^2)=\\theta$ og $E(X^4)=3\\theta^2$.",
+          "$se=\\sqrt{2\\hat\\theta^2/n}$ siden $I(\\theta)=1/(2\\theta^2)$."
+        ]
+      }
+    },
+    {
+      "id": "stk1110-1-5-o6",
+      "type": "exercise",
+      "exercise": {
+        "id": "stk1110-1-5-o6-e",
+        "number": "6",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "**Poisson — hele kjeden med Cramér–Rao.** Antall registrerte hendelser per enhet er Poisson$(\\lambda)$. Du har $n=60$ enheter med $\\bar x=2{,}5$.\n\n**a)** Angi moment- og ML-estimatoren (begge $\\bar X$, kap. 1.2) og at estimatoren er forventningsrett.\n\n**b)** Finn $I(\\lambda)$ og ML-estimatorens tilnærmede fordeling.\n\n**c)** Gi et 95 % Wald-intervall for $\\lambda$, og vis at $\\bar X$ oppnår Cramér–Rao-grensen.",
+        "solution": "**a)** $\\hat\\lambda_{\\text{mom}}=\\hat\\lambda_{ML}=\\bar X$; $E(\\bar X)=\\lambda$ — forventningsrett (kap. 1.2).\n\n**b)** $I(\\lambda)=1/\\lambda$ (kap. 1.3), så $\\hat\\lambda\\overset{\\text{ca.}}{\\sim}N\\!\\big(\\lambda,\\tfrac{1}{nI(\\lambda)}\\big)=N\\!\\big(\\lambda,\\tfrac{\\lambda}{n}\\big)$ (ML-asymptotikk/sentralgrenseteorem).\n\n**c)** $se=\\sqrt{\\hat\\lambda/n}=\\sqrt{2{,}5/60}=0{,}204$. Wald: $2{,}5\\pm1{,}96\\cdot0{,}204=2{,}5\\pm0{,}400=[2{,}10,\\ 2{,}90]$. Cramér–Rao: $1/(nI(\\lambda))=\\lambda/n$, som er nøyaktig $\\text{Var}(\\bar X)=\\lambda/n$ — $\\bar X$ oppnår grensen og er effisient (ikke bare asymptotisk).",
+        "hints": [
+          "ML for Poisson er $\\bar X$ og $I(\\lambda)=1/\\lambda$ (kap. 1.3).",
+          "$se=\\sqrt{\\hat\\lambda/n}$.",
+          "Sammenlign $1/(nI)=\\lambda/n$ med $\\text{Var}(\\bar X)=\\lambda/n$."
+        ]
+      }
+    },
+    {
+      "id": "stk1110-1-5-o7",
+      "type": "exercise",
+      "exercise": {
+        "id": "stk1110-1-5-o7-e",
+        "number": "7",
+        "type": "classic",
+        "difficulty": "vanskelig",
+        "task": "**Poisson med et Bayes-sluttpunkt (sjanger A + L).** Antall skader per polise er Poisson$(\\lambda)$. Du har $n=15$ poliser med sum $s=\\sum x_i=42$, og en gamma$(\\alpha,\\beta)=$ gamma$(2,1)$-apriori (skala) for $\\lambda$.\n\n**a)** Finn ML-estimatet og et 95 % Wald-intervall for $\\lambda$.\n\n**b)** Vis at gamma er konjugert og angi aposteriorifordelingen.\n\n**c)** Finn Bayes-estimatoren og forklar retningen den avviker fra ML.",
+        "solution": "**a)** $\\hat\\lambda_{ML}=\\bar x=42/15=2{,}8$. $se=\\sqrt{\\hat\\lambda/n}=\\sqrt{2{,}8/15}=0{,}432$. Wald: $2{,}8\\pm1{,}96\\cdot0{,}432=2{,}8\\pm0{,}847=[1{,}95,\\ 3{,}65]$.\n\n**b)** Likelihood $L(\\lambda)\\propto\\lambda^{s}e^{-n\\lambda}=\\lambda^{42}e^{-15\\lambda}$; apriori $\\pi(\\lambda)\\propto\\lambda^{\\alpha-1}e^{-\\lambda/\\beta}=\\lambda^{1}e^{-\\lambda}$. Samlet: $\\pi(\\lambda\\mid x)\\propto\\lambda^{43}e^{-16\\lambda}$ — en gamma-kjerne. Aposteriori: gamma$(\\alpha+s,\\ \\beta/(1+n\\beta))=$ gamma$(2+42,\\ 1/(1+15))=$ gamma$(44,\\ 1/16)$.\n\n**c)** $\\hat\\lambda_{\\text{Bayes}}=\\alpha'\\beta'=44\\cdot\\tfrac{1}{16}=2{,}75$. Bayes ($2{,}75$) ligger litt under ML ($2{,}8$), trukket mot apriori-forventningen $\\alpha\\beta=2$. Med $n=15$ dominerer likevel dataene, så Bayes ligger nær ML — og $\\to$ ML når $n$ vokser.",
+        "hints": [
+          "Wald først: $\\hat\\lambda=s/n$, $se=\\sqrt{\\hat\\lambda/n}$.",
+          "Poisson-likelihood samler til $\\lambda^{s}e^{-n\\lambda}$; gang med gamma-kjernen $\\lambda^{\\alpha-1}e^{-\\lambda/\\beta}$.",
+          "Bayes-estimatoren er aposteriori forventning $\\alpha'\\beta'$ (kap. 1.4)."
+        ]
+      }
+    },
+    {
+      "id": "stk1110-1-5-o8",
+      "type": "exercise",
+      "exercise": {
+        "id": "stk1110-1-5-o8-e",
+        "number": "8",
+        "type": "classic",
+        "difficulty": "vanskelig",
+        "task": "**(Krevende.) Eksponential — symmetrisk mot asymmetrisk Wald og invarians.** Ventetider (minutter) er eksponentialfordelte med forventning $\\theta$, $I(\\theta)=1/\\theta^2$ (så standardavviket til $\\hat\\theta$ er $\\theta/\\sqrt n$). Du har $n=9$ med $\\bar x=12$.\n\n**a)** Gi det symmetriske 95 % Wald-intervallet for $\\theta$.\n\n**b)** Gi det asymmetriske pivot-intervallet, og forklar hvorfor det er å foretrekke.\n\n**c)** Bruk invarians til å finne ML-estimatet og et 95 %-intervall for raten $\\lambda=1/\\theta$ (fra det symmetriske intervallet).",
+        "solution": "**a)** $\\hat\\theta=\\bar x=12$, $se=\\hat\\theta/\\sqrt n=12/3=4$. Symmetrisk: $12\\pm1{,}96\\cdot4=12\\pm7{,}84=[4{,}16,\\ 19{,}84]$.\n\n**b)** Med $z/\\sqrt n=1{,}96/3=0{,}653$: $\\left[\\dfrac{\\hat\\theta}{1+z/\\sqrt n},\\ \\dfrac{\\hat\\theta}{1-z/\\sqrt n}\\right]=\\left[\\dfrac{12}{1{,}653},\\ \\dfrac{12}{0{,}347}\\right]=[7{,}26,\\ 34{,}62]$. Det asymmetriske foretrekkes fordi standardavviket ($\\theta/\\sqrt n$) selv avhenger av parameteren: pivoten med sann $\\theta$ i nevneren er mer presis, strekker seg riktig lenger oppover, og unngår negative grenser. (Liten $n=9$ gjør forskjellen stor.)\n\n**c)** $\\hat\\lambda=1/\\hat\\theta=1/12=0{,}0833$. $g(\\theta)=1/\\theta$ er avtakende, så endepunktene i det symmetriske intervallet bytter plass: $\\left[\\dfrac{1}{19{,}84},\\ \\dfrac{1}{4{,}16}\\right]=[0{,}050,\\ 0{,}240]$.",
+        "hints": [
+          "$se=\\hat\\theta/\\sqrt n$ siden $I(\\theta)=1/\\theta^2$.",
+          "Asymmetrisk: del $\\hat\\theta$ på $1+z/\\sqrt n$ og på $1-z/\\sqrt n$ (kap. 1.3).",
+          "Invarians: $1/\\theta$ er avtakende, så bytt øvre og nedre endepunkt."
+        ]
+      }
+    },
+    {
+      "id": "stk1110-1-5-o9",
+      "type": "exercise",
+      "exercise": {
+        "id": "stk1110-1-5-o9-e",
+        "number": "9",
+        "type": "classic",
+        "difficulty": "vanskelig",
+        "task": "**(Krevende.) Uniform på $[0,\\theta]$ — ML på randen.** Data er uniformt fordelt på $[0,\\theta]$: $f(x;\\theta)=1/\\theta$ for $0\\le x\\le\\theta$, med $E(X)=\\theta/2$.\n\n**a)** Forklar hvorfor score-metoden svikter, og finn ML-estimatoren.\n\n**b)** Er ML-estimatoren forventningsrett? Gi en forventningsrett variant.\n\n**c)** Finn momentestimatoren, og avgjør med MSE hvilken av den forventningsrette ML-varianten og momentestimatoren du foretrekker for stor $n$. (Bruk $\\text{Var}(X_{(n)})=\\dfrac{n\\theta^2}{(n+1)^2(n+2)}$ og $\\text{Var}(X)=\\theta^2/12$.)",
+        "solution": "**a)** $L(\\theta)=\\theta^{-n}$, men **bare gyldig når $\\theta\\ge\\max_i x_i$** (ellers er en observasjon utenfor støtten og $f=0$). $\\ell(\\theta)=-n\\log\\theta$ er strengt avtakende, så $s(\\theta)=-n/\\theta$ er aldri null — intet indre stasjonærpunkt. Likelihooden maksimeres ved den *minste tillatte* $\\theta$: $\\hat\\theta_{ML}=\\max_i X_i=X_{(n)}$. Støtten avhenger av $\\theta$, derfor svikter score-metoden.\n\n**b)** $E(X_{(n)})=\\dfrac{n}{n+1}\\theta<\\theta$ — **skjev** (bommer for lavt), $b=-\\theta/(n+1)$. Forventningsrett variant: $\\tilde\\theta=\\dfrac{n+1}{n}X_{(n)}$, siden $E(\\tilde\\theta)=\\theta$.\n\n**c)** Moment: $E(X)=\\theta/2=\\bar X\\Rightarrow \\hat\\theta_{\\text{mom}}=2\\bar X$, forventningsrett med $\\text{Var}(2\\bar X)=4\\cdot\\dfrac{\\theta^2/12}{n}=\\dfrac{\\theta^2}{3n}$. For $\\tilde\\theta$: $\\text{Var}(\\tilde\\theta)=\\big(\\tfrac{n+1}{n}\\big)^2\\dfrac{n\\theta^2}{(n+1)^2(n+2)}=\\dfrac{\\theta^2}{n(n+2)}$. Begge er forventningsrette, så vi sammenligner varians (= MSE): $\\dfrac{\\theta^2}{n(n+2)}\\ll\\dfrac{\\theta^2}{3n}$ for $n>1$. **Foretrekk den ML-baserte $\\tilde\\theta$** — dens varians krymper som $1/n^2$, mot $1/n$ for moment. (Randestimatoren utnytter den mest informative observasjonen, den største.)",
+        "hints": [
+          "Støtten $0\\le x\\le\\theta$ flytter seg med $\\theta$; se på $L(\\theta)=\\theta^{-n}$ direkte i stedet for å sette score lik null.",
+          "$E(X_{(n)})=\\tfrac{n}{n+1}\\theta$; gang med $\\tfrac{n+1}{n}$ for å fjerne skjevheten.",
+          "Begge kandidatene er forventningsrette — sammenlign på varians; den ML-baserte går som $1/n^2$."
+        ]
+      }
+    },
+    {
+      "id": "stk1110-1-5-o10",
+      "type": "exercise",
+      "exercise": {
+        "id": "stk1110-1-5-o10-e",
+        "number": "10",
+        "type": "classic",
+        "difficulty": "vanskelig",
+        "task": "**(Kald oppgave — momentliste som fasit.)** Reparasjonstider $x_1,\\dots,x_n$ har tetthet $f(x;\\theta)=\\theta^2 x\\,e^{-\\theta x}$, $x>0$, $\\theta>0$ (en gamma med formparameter 2 og rate $\\theta$), med $E(X)=2/\\theta$ og $E(X^2)=6/\\theta^2$. Du har $n=25$ med $\\bar x=0{,}8$. Kjør hele estimeringskjeden: momentestimator, ML-estimator (med bekreftet maksimum), forventningsretthet, Fisher-informasjon, ML-estimatorens fordeling, og et 95 % Wald-intervall for $\\theta$.",
+        "solution": "Momentliste for full uttelling:\n- **Modell:** $X_i\\sim$ gamma(form $2$, rate $\\theta$) uavhengige.\n- **Moment:** $E(X)=2/\\theta=\\bar X\\Rightarrow \\hat\\theta_{\\text{mom}}=2/\\bar X$. Estimat: $2/0{,}8=2{,}5$.\n- **ML:** $\\ell(\\theta)=2n\\log\\theta+\\sum\\log x_i-\\theta\\sum x_i$; $s(\\theta)=\\dfrac{2n}{\\theta}-\\sum x_i$; $s(\\hat\\theta)=0\\Rightarrow \\hat\\theta_{ML}=\\dfrac{2n}{\\sum x_i}=\\dfrac{2}{\\bar X}=2{,}5$ (samme som moment). Maksimum: $\\ell''(\\theta)=-\\dfrac{2n}{\\theta^2}<0$ ✔.\n- **Forventningsretthet:** $\\hat\\theta=2/\\bar X$ er ikke eksakt forventningsrett ($1/\\bar X$ er en konveks funksjon; $E(\\hat\\theta)=\\theta\\cdot\\tfrac{2n}{2n-1}$, svak oppadskjevhet), men **asymptotisk forventningsrett** og konsistent.\n- **Fisher:** $\\log f=2\\log\\theta+\\log x-\\theta x$; $\\dfrac{\\partial^2}{\\partial\\theta^2}\\log f=-\\dfrac{2}{\\theta^2}$, så $I(\\theta)=\\dfrac{2}{\\theta^2}$ (konstant i $x$).\n- **Fordeling:** $\\hat\\theta\\overset{\\text{ca.}}{\\sim}N\\!\\big(\\theta,\\tfrac{1}{nI(\\theta)}\\big)=N\\!\\big(\\theta,\\tfrac{\\theta^2}{2n}\\big)$ (ML-asymptotikk).\n- **Wald:** $se=\\sqrt{1/(nI(\\hat\\theta))}=\\hat\\theta/\\sqrt{2n}=2{,}5/\\sqrt{50}=0{,}354$; $2{,}5\\pm1{,}96\\cdot0{,}354=2{,}5\\pm0{,}693=[1{,}81,\\ 3{,}19]$.",
+        "hints": []
+      }
+    },
+    {
+      "id": "stk1110-1-5-bank",
+      "type": "text",
+      "content": "## Begrepsbank"
+    },
+    {
+      "id": "stk1110-1-5-bank-note",
+      "type": "text",
+      "content": "*Flashcard-/repetisjonsstoff — hopp trygt over ved førstegangslesing; tidsanslaget gjelder kjernestoffet.* Kompakte drilloppslag for estimeringskjeden — formlene du må ha på refleks når Oppgave 1 kommer."
+    },
+    {
+      "id": "stk1110-1-5-bank-kjede",
+      "type": "definition",
+      "title": "Estimeringskjeden (de sju trinnene)",
+      "content": "Ryggraden i Oppgave 1: **1)** definer modellen, **2)** moment/ML med bekreftet maksimum, **3)** forventningsretthet, **4)** varians, **5)** Fisher-info $\\to$ asymptotisk fordeling, **6)** Wald-KI, **7)** rullerende sluttpunkt (Bayes / sammenligning / Cramér–Rao / invarians). Fasiten belønner hvert ledd."
+    },
+    {
+      "id": "stk1110-1-5-bank-modell",
+      "type": "definition",
+      "title": "Trinn 1: Definer modellen",
+      "content": "Første setning i enhver estimeringsoppgave: «La $X_1,\\dots,X_n$ være uavhengige med tetthet $f(x;\\theta)$», med støtten notert. Støtte som avhenger av $\\theta$ (uniform $[0,\\theta]$) signaliserer at ML ligger på randen, ikke via score."
+    },
+    {
+      "id": "stk1110-1-5-bank-moment",
+      "type": "definition",
+      "title": "Momentestimatoren (drilloppslag)",
+      "content": "Sett $E(X)=\\bar X$ og løs for parameteren; er $E(X)$ $\\theta$-fri, bruk $E(X^2)=\\tfrac1n\\sum X_i^2$. Ved $E(X)=g(\\theta)$ inverteres $g$: $\\hat\\theta=g^{-1}(\\bar X)$ (Rayleigh: $\\bar X\\sqrt{2/\\pi}$; Pareto: $\\bar X/(\\bar X-1)$)."
+    },
+    {
+      "id": "stk1110-1-5-bank-ml",
+      "type": "definition",
+      "title": "ML-estimatoren og maksimumsbekreftelsen",
+      "content": "$L\\to\\ell=\\sum\\log f\\to s=\\ell'\\to$ løs $s(\\hat\\theta)=0\\to$ **bekreft** $\\ell''(\\hat\\theta)<0$. Det siste trinnet er obligatorisk og glemmes oftest — uten det er utledningen ufullstendig og sensor trekker."
+    },
+    {
+      "id": "stk1110-1-5-bank-forv",
+      "type": "definition",
+      "title": "Forventningsretthet i drillen",
+      "content": "Regn $E(\\hat\\theta)$: er den $=\\theta$, er estimatoren forventningsrett. Mange ML-estimatorer er skjeve for lite $n$ (normalvariansen, uniform-randen) men asymptotisk forventningsrette. Skill «forventningsrett for $\\theta$» fra «for $\\theta^2$» — påstå kun det du har vist."
+    },
+    {
+      "id": "stk1110-1-5-bank-korr",
+      "type": "definition",
+      "title": "Skjevhetskorreksjon",
+      "content": "Har $\\hat\\theta$ forventning $k\\theta$, er $\\tfrac1k\\hat\\theta$ forventningsrett. Eksempler: $S^2=\\tfrac{n}{n-1}\\hat\\sigma^2_{ML}$; uniform $\\tilde\\theta=\\tfrac{n+1}{n}X_{(n)}$. Kreves når oppgaven ber om en *forventningsrett* estimator."
+    },
+    {
+      "id": "stk1110-1-5-bank-var",
+      "type": "definition",
+      "title": "Varians til estimatoren",
+      "content": "Vis alle ledd: for uavhengige er $\\text{Var}(\\tfrac1n\\sum X_i)=\\text{Var}(X)/n$. Ved to estimatorer sammenlign på varians (begge forventningsrette) eller på $\\text{MSE}=\\text{Var}+b^2$ (minst én skjev)."
+    },
+    {
+      "id": "stk1110-1-5-bank-fisher",
+      "type": "definition",
+      "title": "Fisher-informasjonen (oppslagstabell)",
+      "content": "$I(\\theta)=-E[\\partial^2\\log f/\\partial\\theta^2]$ i én obs.; $I_n=nI$. Vanlige: Poisson $1/\\lambda$; eksponential (rate) $1/\\lambda^2$ og (forventning $\\theta$) $1/\\theta^2$; Bernoulli $1/[p(1-p)]$; geometrisk $1/[p^2(1-p)]$; Rayleigh $4/\\theta^2$; normal (kjent varians) $1/\\sigma^2$; normal (kjent snitt, om $\\sigma^2$) $1/(2\\sigma^4)$."
+    },
+    {
+      "id": "stk1110-1-5-bank-asymp",
+      "type": "definition",
+      "title": "ML-asymptotikken",
+      "content": "$\\hat\\theta\\overset{\\text{ca.}}{\\sim}N\\!\\big(\\theta,\\tfrac{1}{nI(\\theta)}\\big)$ for stor $n$ (andre argument er variansen). Når du normaltilnærmer, **si eksplisitt** at det er ML-asymptotikken/sentralgrenseteoremet — et fast sensorkrav (§4.4)."
+    },
+    {
+      "id": "stk1110-1-5-bank-se",
+      "type": "definition",
+      "title": "Standardfeilen $se$",
+      "content": "$se(\\hat\\theta)=\\sqrt{1/(nI(\\hat\\theta))}$ — kvadratrota av variansen med *estimatet* satt inn for den ukjente $\\theta$. Byggesteinen i Wald-intervallet."
+    },
+    {
+      "id": "stk1110-1-5-bank-wald",
+      "type": "definition",
+      "title": "Wald-konfidensintervallet",
+      "content": "$\\hat\\theta\\pm z_{\\alpha/2}\\,se(\\hat\\theta)$, med $z_{0{,}025}=1{,}96$ for 95 %. Symmetrisk om $\\hat\\theta$; bygger på ML-asymptotikken. Bruker $z$ (ikke $t$), fordi normalformen kommer fra sentralgrenseteoremet, ikke fra en estimert normalvarians."
+    },
+    {
+      "id": "stk1110-1-5-bank-asym",
+      "type": "definition",
+      "title": "Asymmetrisk pivot",
+      "content": "Når $se\\propto\\theta$ (eksponential-typen) er $[\\hat\\theta/(1+z/\\sqrt n),\\ \\hat\\theta/(1-z/\\sqrt n)]$ mer presist enn det symmetriske Wald. Asymmetrien er et *trekk, ikke en feil* — den unngår negative grenser. Eksakt $\\chi^2$-pivot kommer i kap. 2.5."
+    },
+    {
+      "id": "stk1110-1-5-bank-cr",
+      "type": "definition",
+      "title": "Cramér–Rao-grensen",
+      "content": "Ingen forventningsrett estimator har mindre varians enn $1/(nI(\\theta))$. ML oppnår grensen asymptotisk (asymptotisk effisient); for Poisson/eksponential/Weibull-form treffer $\\bar X$-typen den eksakt. Sluttpunkt-kommentar som skiller A."
+    },
+    {
+      "id": "stk1110-1-5-bank-inv",
+      "type": "definition",
+      "title": "Invarians (punkt og intervall)",
+      "content": "ML for $\\psi=g(\\theta)$ er $\\hat\\psi=g(\\hat\\theta)$ — ingen ny kjede. Intervallet transformeres med $g$: $[g(L),g(U)]$ når $g$ er voksende, bytt endepunkter når $g$ er avtakende ($1/\\theta$)."
+    },
+    {
+      "id": "stk1110-1-5-bank-zt",
+      "type": "definition",
+      "title": "z eller t — velg riktig",
+      "content": "Wald på en ML-estimator bruker **$z$** (normaltilnærming). Et KI for et normalgjennomsnitt med **estimert $\\sigma$** bruker **$t_{n-1}$** (kap. 2.1). Feil valg er en klassisk trekkbelastning — spør alltid: kommer normalformen fra CLT (→ $z$) eller fra estimert normalvarians (→ $t$)?"
+    },
+    {
+      "id": "stk1110-1-5-symbol",
+      "type": "collapsible",
+      "title": "Symbol- og formelliste",
+      "buttonText": "Vis symboler og formler",
+      "content": [
+        {
+          "id": "stk1110-1-5-symbol-t",
+          "type": "text",
+          "content": "## Symbol- og formelliste\n\n*Oppslagsverk — alt her forklares underveis i kapitlet.*\n\n| Symbol | Betydning |\n|---|---|\n| $\\theta,\\ \\lambda,\\ p$ | Ukjent parameter (generell / rate / sannsynlighet) |\n| $\\hat\\theta$ | Estimator (stor, stokastisk) / estimat (tall) |\n| $\\hat\\theta_{\\text{mom}},\\ \\hat\\theta_{ML}$ | Moment- og ML-estimator |\n| $\\bar X$ | Utvalgsgjennomsnitt, første empiriske moment |\n| $\\ell(\\theta),\\ s(\\theta),\\ \\ell''(\\theta)$ | Log-likelihood, score, andrederiverte |\n| $b(\\hat\\theta)$ | Skjevhet, $E(\\hat\\theta)-\\theta$ |\n| $\\text{MSE}(\\hat\\theta)$ | $\\text{Var}(\\hat\\theta)+b(\\hat\\theta)^2$ |\n| $I(\\theta),\\ I_n(\\theta)$ | Fisher-info i én obs. / i hele utvalget ($=nI$) |\n| $se(\\hat\\theta)$ | Standardfeil, $\\sqrt{1/(nI(\\hat\\theta))}$ |\n| $z_{\\alpha/2}$ | Øvre $\\alpha/2$-kvantil i $N(0,1)$ ($1{,}96$ for 95 %) |\n| $t_{n-1}$ | $t$-kvantil, brukes ved estimert normalvarians (kap. 2.1) |\n| $X_{(n)}=\\max_i X_i$ | Største observasjon (uniform-ML) |\n| $\\psi=g(\\theta)$ | Omregnet parameter (invarians) |\n| $\\alpha',\\beta'$ | Aposteriori gamma-parametre (Bayes-sluttpunkt) |\n\n**Formler i dette delkapitlet:**\n\n$$E(X)=\\bar X\\quad(\\text{moment}),\\qquad s(\\hat\\theta)=0,\\ \\ell''(\\hat\\theta)<0\\quad(\\text{ML})$$\nDe to estimeringsmetodene; ML krever maksimumsbekreftelse.\n\n$$b(\\hat\\theta)=E(\\hat\\theta)-\\theta,\\qquad \\text{MSE}=\\text{Var}+b^2$$\nForventningsretthet og sammenligningsmål.\n\n$$I(\\theta)=-E\\!\\left[\\frac{\\partial^2}{\\partial\\theta^2}\\log f(X;\\theta)\\right],\\qquad I_n(\\theta)=nI(\\theta)$$\nFisher-informasjonen.\n\n$$\\hat\\theta\\ \\overset{\\text{ca.}}{\\sim}\\ N\\!\\left(\\theta,\\ \\frac{1}{nI(\\theta)}\\right),\\qquad se(\\hat\\theta)=\\sqrt{\\frac{1}{nI(\\hat\\theta)}}$$\nML-asymptotikk og standardfeil.\n\n$$\\hat\\theta\\pm z_{\\alpha/2}\\,se(\\hat\\theta)\\qquad(\\text{Wald, symmetrisk})$$\n$$\\left[\\frac{\\hat\\theta}{1+z_{\\alpha/2}/\\sqrt n},\\ \\frac{\\hat\\theta}{1-z_{\\alpha/2}/\\sqrt n}\\right]\\qquad(\\text{asymmetrisk pivot})$$\nKonfidensintervallene.\n\n$$\\text{Var}(T)\\ge\\frac{1}{nI(\\theta)}\\qquad(\\text{Cramér–Rao})$$\nNedre variansgrense — ML oppnår den asymptotisk.\n\n$$\\hat\\psi=g(\\hat\\theta),\\qquad \\lambda\\mid x\\sim\\text{gamma}(\\alpha+s,\\ \\beta/(1+n\\beta))$$\nInvarians og Poisson–gamma-sluttpunktet."
+        }
+      ]
+    }
+  ],
+  "exercises": []
+}
