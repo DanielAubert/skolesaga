@@ -1,0 +1,436 @@
+{
+  "id": "mat1120-1-2",
+  "courseId": "mat1120",
+  "chapterNumber": "1.2",
+  "title": "Col A, Nul A, rang og dimensjonsteoremet",
+  "description": "Fra RREF til de fundamentale underrommene: basis for Col A (de opprinnelige pivotkolonnene i A), basis for Nul A (spesielle løsninger), rang og dimensjonsteoremet — den mest gjentatte deloppgaven i faget.",
+  "estimatedMinutes": 60,
+  "competenceGoals": [
+    "finne en basis for Col A som de opprinnelige pivotkolonnene i A (ikke de reduserte i RREF)",
+    "finne en basis for Nul A som spesielle løsninger, én per fri variabel",
+    "bestemme rang A og kontrollere med dimensjonsteoremet rang A + dim Nul A = antall søyler",
+    "avgjøre om b ligger i Col A ut fra vedlegget"
+  ],
+  "content": [
+    {
+      "id": "mat1120-1-2-tip",
+      "type": "tip",
+      "title": "Eksamensvinkel",
+      "content": "**Den mest gjentatte deloppgaven i hele faget.** Å finne basis for $\\operatorname{Col}A$ og $\\operatorname{Nul}A$, oppgi $\\operatorname{rang}A$ og kontrollere med dimensjonsteoremet er sjanger A — den er med i **praktisk talt hvert sett** (~100 %) og er nesten alltid oppgave 1. Prioritet: **høyeste**.\n\n- **Den klassiske MAT1120-fellen** bor her: basis for $\\operatorname{Col}A$ skal være de **opprinnelige pivotkolonnene i $A$** — *ikke* de reduserte kolonnene i RREF. Det gir sensor-trekk hvert år.\n- Fasitens grep: les alt av vedlegget, og bruk **dimensjonsteoremet** $\\operatorname{rang}A+\\dim\\operatorname{Nul}A=$ antall søyler som en rask kontroll.\n\nAlt i dette kapitlet leses av den samme RREF-en fra vedlegget. Du regner ikke ut RREF-en — du henter $\\operatorname{Col}$-basis, $\\operatorname{Nul}$-basis, rang og løsbarhet ($\\mathbf{b}\\in\\operatorname{Col}A$) ut av den."
+    },
+    {
+      "id": "mat1120-1-2-forkunnskaper",
+      "type": "text",
+      "content": "**Forkunnskaper:** [Kap. 1.1](/bok/mat1120/mat1120-1-1) (RREF-lesing, pivoter, frie variabler, avhengighetsrelasjoner). Nullroms- og kolonneromsbegrepet forutsettes kjent fra *(MAT1110 — forkunnskapsemne, ikke bygget ennå; aktiver `/bok/mat1110/<id>`-lenke når den finnes)*; her setter vi det i system for eksamensbruk. Underrom, span og lineær uavhengighet er repetert i [kap. 1.1](/bok/mat1120/mat1120-1-1)."
+    },
+    {
+      "id": "mat1120-1-2-intro",
+      "type": "text",
+      "content": "To underrom hører til hver matrise: **kolonnerommet** $\\operatorname{Col}A$ (alt du kan lage av kolonnene) og **nullrommet** $\\operatorname{Nul}A$ (alle løsningene av $A\\mathbf{x}=\\mathbf{0}$). Fra vedleggets RREF leser du en basis for hver, tallet $\\operatorname{rang}A$, og du sjekker deg selv med dimensjonsteoremet.\n\nKapitlet går i fire løkker (teori → eksempel → oppgave): (1) $\\operatorname{Col}A$ og den riktige basisen, (2) $\\operatorname{Nul}A$ og de spesielle løsningene, (3) rang og dimensjonsteoremet, (4) om en gitt $\\mathbf{b}$ ligger i $\\operatorname{Col}A$. Vi bruker den samme matrisen $A$ gjennom flere løkker — akkurat som eksamen gjenbruker én matrise gjennom en hel oppgave."
+    },
+    {
+      "id": "mat1120-1-2-felles-matrise",
+      "type": "text",
+      "content": "### Gjennomgangsmatrisen\n\nGjennom kapitlet bruker vi\n$$A=\\begin{bmatrix}1&3&-1&2&4\\\\2&6&-1&5&9\\\\-1&-3&2&1&1\\\\0&0&1&3&5\\end{bmatrix},\\qquad \\operatorname{rref}(A)=\\begin{bmatrix}1&3&0&0&-1\\\\0&0&1&0&-1\\\\0&0&0&1&2\\\\0&0&0&0&0\\end{bmatrix}\\ \\text{(fra vedlegget).}$$\nPivotkolonnene er **1, 3 og 4**; de frie variablene er $x_2$ og $x_5$."
+    },
+    {
+      "id": "mat1120-1-2-l1",
+      "type": "text",
+      "content": "## Løkke 1 — Kolonnerommet Col A og den riktige basisen (~15 min)"
+    },
+    {
+      "id": "mat1120-1-2-l1-teori",
+      "type": "text",
+      "content": "$\\operatorname{Col}A$ er spennet av kolonnene i $A$ — mengden av alle vektorer på formen $A\\mathbf{x}$. Det er et underrom av $\\mathbb{R}^m$ (der $m$ er antall rader).\n\nFor en **basis** trenger vi kolonner som er lineært uavhengige og utspenner $\\operatorname{Col}A$. Svaret leses av vedlegget: pivotkolonnene er uavhengige, og hver ikke-pivotkolonne er en kombinasjon av dem. **Men — og dette er fellen — basisen består av de opprinnelige kolonnene i $A$ som er pivotkolonner, ikke de reduserte kolonnene i RREF.** RREF forteller oss *hvilke* kolonner (kolonne 1, 3, 4), men vektorene hentes fra $A$. Grunnen: radreduksjon endrer kolonnerommet, så RREF-kolonnene lever i et annet rom."
+    },
+    {
+      "id": "mat1120-1-2-def-colA",
+      "type": "definition",
+      "title": "Kolonnerom $\\operatorname{Col}A$",
+      "content": "Mengden av alle lineærkombinasjoner av kolonnene i $A$: $\\operatorname{Col}A=\\operatorname{Span}\\{\\mathbf{a}_1,\\dots,\\mathbf{a}_n\\}=\\{A\\mathbf{x}:\\mathbf{x}\\in\\mathbb{R}^n\\}$. Det er et underrom av $\\mathbb{R}^m$. Likningen $A\\mathbf{x}=\\mathbf{b}$ er løsbar nøyaktig når $\\mathbf{b}\\in\\operatorname{Col}A$."
+    },
+    {
+      "id": "mat1120-1-2-def-basis",
+      "type": "definition",
+      "title": "Basis",
+      "content": "En basis for et underrom $W$ er en mengde vektorer som (1) er lineært uavhengige og (2) utspenner $W$. Alle baser for $W$ har like mange vektorer — det tallet er **dimensjonen** til $W$."
+    },
+    {
+      "id": "mat1120-1-2-def-colA-basis",
+      "type": "definition",
+      "title": "Basis for $\\operatorname{Col}A$ (regelen)",
+      "content": "Basis for $\\operatorname{Col}A=$ de **opprinnelige pivotkolonnene i $A$** (kolonnene i $A$ som svarer til pivotposisjonene i RREF). **Ikke** de reduserte kolonnene fra RREF — de lever i et annet kolonnerom fordi radreduksjon endrer $\\operatorname{Col}A$. Antall basisvektorer $=\\operatorname{rang}A$."
+    },
+    {
+      "id": "mat1120-1-2-ex-colA",
+      "type": "example",
+      "title": "Eksempel 1: Basis for Col A (unngå fellen)",
+      "problem": "Finn en basis for $\\operatorname{Col}A$ for gjennomgangsmatrisen, og oppgi $\\dim\\operatorname{Col}A$.",
+      "solution": "Fra vedlegget ($\\operatorname{rref}$) ser vi at pivotkolonnene er **1, 3 og 4**. Basisen er de **opprinnelige** kolonnene 1, 3 og 4 i $A$ — ikke RREF-kolonnene:\n$$\\Big\\{\\begin{bmatrix}1\\\\2\\\\-1\\\\0\\end{bmatrix},\\ \\begin{bmatrix}-1\\\\-1\\\\2\\\\1\\end{bmatrix},\\ \\begin{bmatrix}2\\\\5\\\\1\\\\3\\end{bmatrix}\\Big\\}.$$\nDisse er lineært uavhengige (de er pivotkolonner) og utspenner $\\operatorname{Col}A$ (de øvrige kolonnene er kombinasjoner av dem, jf. [kap. 1.1](/bok/mat1120/mat1120-1-1)). Altså $\\dim\\operatorname{Col}A=\\operatorname{rang}A=3$.\n\n**Sensorpoeng:** hadde vi tatt kolonnene $\\begin{bmatrix}1\\\\0\\\\0\\\\0\\end{bmatrix},\\begin{bmatrix}0\\\\1\\\\0\\\\0\\end{bmatrix},\\begin{bmatrix}0\\\\0\\\\1\\\\0\\end{bmatrix}$ fra RREF, ville svaret vært **feil** — de utspenner et annet rom enn $\\operatorname{Col}A$."
+    },
+    {
+      "id": "mat1120-1-2-e1",
+      "type": "exercise",
+      "exercise": {
+        "id": "mat1120-1-2-e1",
+        "number": "1",
+        "type": "classic",
+        "difficulty": "lett",
+        "task": "Vedlegget gir for en $3\\times4$-matrise $A$:\n$$\\operatorname{rref}(A)=\\begin{bmatrix}1&2&0&1\\\\0&0&1&4\\\\0&0&0&0\\end{bmatrix},\\qquad A=\\begin{bmatrix}1&2&0&1\\\\0&0&1&4\\\\1&2&1&5\\end{bmatrix}.$$\nFinn en basis for $\\operatorname{Col}A$ og oppgi $\\dim\\operatorname{Col}A$.",
+        "solution": "Pivotkolonner: 1 og 3. Basis = de **opprinnelige** kolonnene 1 og 3 i $A$:\n$$\\Big\\{\\begin{bmatrix}1\\\\0\\\\1\\end{bmatrix},\\ \\begin{bmatrix}0\\\\1\\\\1\\end{bmatrix}\\Big\\},\\qquad \\dim\\operatorname{Col}A=2.$$",
+        "hints": [
+          "Pivotkolonnene er 1 og 3. Hvilken matrise henter du selve vektorene fra?",
+          "Ta kolonnene fra A, ikke fra RREF."
+        ]
+      }
+    },
+    {
+      "id": "mat1120-1-2-e2",
+      "type": "exercise",
+      "exercise": {
+        "id": "mat1120-1-2-e2",
+        "number": "2",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "En student skriver at basis for $\\operatorname{Col}A$ er $\\{(1,0,0)^T,(0,1,0)^T\\}$ fordi det er pivotkolonnene i RREF. Forklar kort hvorfor dette er feil, og hva som er riktig framgangsmåte.",
+        "solution": "Feilen er å hente basisvektorene fra **RREF** i stedet for fra $A$. Radreduksjon endrer kolonnerommet, så RREF-kolonnene $(1,0,0)^T,(0,1,0)^T$ utspenner *ikke* $\\operatorname{Col}A$ (med mindre $A$ tilfeldigvis alt var på den formen). Riktig: bruk RREF **bare** til å finne *hvilke* kolonner som er pivotkolonner, og ta så de tilsvarende **opprinnelige** kolonnene fra $A$ som basis.",
+        "hints": [
+          "Hva bevarer radreduksjon — radrommet eller kolonnerommet?",
+          "RREF sier hvilke kolonner; A gir vektorene."
+        ]
+      }
+    },
+    {
+      "id": "mat1120-1-2-l2",
+      "type": "text",
+      "content": "## Løkke 2 — Nullrommet Nul A og de spesielle løsningene (~18 min)"
+    },
+    {
+      "id": "mat1120-1-2-l2-teori",
+      "type": "text",
+      "content": "$\\operatorname{Nul}A$ er løsningsmengden til det homogene systemet $A\\mathbf{x}=\\mathbf{0}$ — et underrom av $\\mathbb{R}^n$ ($n=$ antall kolonner). En basis får du ved å parametrisere løsningen med de **frie variablene**: sett én fri variabel lik $1$ og resten lik $0$, og les av den bundne delen fra RREF. Hver fri variabel gir én basisvektor — en **spesiell løsning**."
+    },
+    {
+      "id": "mat1120-1-2-def-nulA",
+      "type": "definition",
+      "title": "Nullrom $\\operatorname{Nul}A$",
+      "content": "Løsningsmengden til $A\\mathbf{x}=\\mathbf{0}$: $\\operatorname{Nul}A=\\{\\mathbf{x}\\in\\mathbb{R}^n:A\\mathbf{x}=\\mathbf{0}\\}$. Et underrom av $\\mathbb{R}^n$. $\\operatorname{Nul}A=\\{\\mathbf{0}\\}$ nøyaktig når kolonnene er lineært uavhengige (ingen frie variabler)."
+    },
+    {
+      "id": "mat1120-1-2-def-spesiell",
+      "type": "definition",
+      "title": "Spesiell løsning",
+      "content": "Basisvektoren for $\\operatorname{Nul}A$ du får ved å sette **én** fri variabel lik $1$, de andre frie lik $0$, og løse for de bundne variablene via RREF. Én spesiell løsning per fri variabel; til sammen danner de en basis for $\\operatorname{Nul}A$."
+    },
+    {
+      "id": "mat1120-1-2-def-nullitet",
+      "type": "definition",
+      "title": "Nullitet $\\dim\\operatorname{Nul}A$",
+      "content": "Dimensjonen til nullrommet $=$ antall frie variabler $=$ antall ikke-pivotkolonner. Kalles også **nulliteten** til $A$."
+    },
+    {
+      "id": "mat1120-1-2-ex-nulA",
+      "type": "example",
+      "title": "Eksempel 2: Basis for Nul A",
+      "problem": "Finn en basis for $\\operatorname{Nul}A$ for gjennomgangsmatrisen.",
+      "solution": "De frie variablene er $x_2$ og $x_5$ (ikke-pivotkolonner). Fra RREF leser vi likningene:\n$$x_1+3x_2-x_5=0,\\qquad x_3-x_5=0,\\qquad x_4+2x_5=0,$$\naltså $x_1=-3x_2+x_5,\\ x_3=x_5,\\ x_4=-2x_5$.\n\n**Spesiell løsning 1** ($x_2=1,\\ x_5=0$): $\\mathbf{u}_1=(-3,1,0,0,0)^T$.\n\n**Spesiell løsning 2** ($x_2=0,\\ x_5=1$): $x_1=1,\\ x_3=1,\\ x_4=-2$, altså $\\mathbf{u}_2=(1,0,1,-2,1)^T$.\n\nBasis for $\\operatorname{Nul}A$: $\\{\\mathbf{u}_1,\\mathbf{u}_2\\}$, og $\\dim\\operatorname{Nul}A=2$.\n\n**Kontroll:** $A\\mathbf{u}_1=\\mathbf{0}$ og $A\\mathbf{u}_2=\\mathbf{0}$ (regn gjerne etter). Antall vektorer $=$ antall frie variabler $=2$. ✓"
+    },
+    {
+      "id": "mat1120-1-2-e3",
+      "type": "exercise",
+      "exercise": {
+        "id": "mat1120-1-2-e3",
+        "number": "3",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "Bruk RREF-en\n$$\\operatorname{rref}(A)=\\begin{bmatrix}1&-2&0&-1&1\\\\0&0&1&1&2\\\\0&0&0&0&0\\end{bmatrix}$$\n(pivotkolonner 1 og 3) til å finne en basis for $\\operatorname{Nul}A$ og oppgi $\\dim\\operatorname{Nul}A$.",
+        "solution": "Frie variabler: $x_2,x_4,x_5$. Likningene: $x_1=2x_2+x_4-x_5$, $x_3=-x_4-2x_5$.\n\n**$x_2=1$:** $(2,1,0,0,0)^T$. **$x_4=1$:** $(1,0,-1,1,0)^T$. **$x_5=1$:** $(-1,0,-2,0,1)^T$.\n\nBasis: $\\{(2,1,0,0,0)^T,\\,(1,0,-1,1,0)^T,\\,(-1,0,-2,0,1)^T\\}$, og $\\dim\\operatorname{Nul}A=3$.",
+        "hints": [
+          "Løs RREF-likningene for de bundne variablene uttrykt ved de frie.",
+          "Sett én fri variabel = 1 og resten = 0 for hver basisvektor."
+        ]
+      }
+    },
+    {
+      "id": "mat1120-1-2-l3",
+      "type": "text",
+      "content": "## Løkke 3 — Rang og dimensjonsteoremet (~15 min)"
+    },
+    {
+      "id": "mat1120-1-2-l3-teori",
+      "type": "text",
+      "content": "**Rangen** $\\operatorname{rang}A$ er antall pivoter $=\\dim\\operatorname{Col}A$. Sammen med nulliteten fyller den opp alle kolonnene:\n$$\\boxed{\\ \\operatorname{rang}A+\\dim\\operatorname{Nul}A=n\\ }\\quad(n=\\text{antall søyler}).$$\nDette er **dimensjonsteoremet** (rang–nullitet). Bruk det som en rask kontroll: har du funnet en $\\operatorname{Col}$-basis og en $\\operatorname{Nul}$-basis, skal antallet basisvektorer summere til antall kolonner."
+    },
+    {
+      "id": "mat1120-1-2-def-rang",
+      "type": "definition",
+      "title": "Rang $\\operatorname{rang}A$",
+      "content": "Antall pivotposisjoner i RREF $=\\dim\\operatorname{Col}A=\\dim\\operatorname{Row}A$. Måler «hvor mange uavhengige kolonner (og rader)» $A$ har. Full kolonnerang betyr rang $=$ antall kolonner (ingen frie variabler); full radrang betyr rang $=$ antall rader."
+    },
+    {
+      "id": "mat1120-1-2-def-dim",
+      "type": "definition",
+      "title": "Dimensjon",
+      "content": "Antall vektorer i en (enhver) basis for et underrom. $\\dim\\operatorname{Col}A=\\operatorname{rang}A$ og $\\dim\\operatorname{Nul}A=$ antall frie variabler. Dimensjon er et tall; en basis er en mengde vektorer — bland ikke de to."
+    },
+    {
+      "id": "mat1120-1-2-def-dimteorem",
+      "type": "definition",
+      "title": "Dimensjonsteoremet (rang–nullitet)",
+      "content": "For en $m\\times n$-matrise: $\\operatorname{rang}A+\\dim\\operatorname{Nul}A=n$ (antall søyler). Brukes som obligatorisk kontroll: summen av $\\operatorname{Col}$-basisvektorer og $\\operatorname{Nul}$-basisvektorer skal bli antall kolonner."
+    },
+    {
+      "id": "mat1120-1-2-ex-rang",
+      "type": "example",
+      "title": "Eksempel 3: Rang og dimensjonsteoremet",
+      "problem": "Oppgi $\\operatorname{rang}A$ for gjennomgangsmatrisen og kontroller med dimensjonsteoremet.",
+      "solution": "Fra vedlegget har RREF tre pivoter (kolonne 1, 3, 4), så $\\operatorname{rang}A=3$. Vi fant $\\dim\\operatorname{Nul}A=2$ (to frie variabler).\n\n**Dimensjonsteoremet:** $\\operatorname{rang}A+\\dim\\operatorname{Nul}A=3+2=5=$ antall søyler. ✓\n\nKontrollen bekrefter at både $\\operatorname{Col}$-basisen (3 vektorer) og $\\operatorname{Nul}$-basisen (2 vektorer) har riktig antall."
+    },
+    {
+      "id": "mat1120-1-2-e4",
+      "type": "exercise",
+      "exercise": {
+        "id": "mat1120-1-2-e4",
+        "number": "4",
+        "type": "classic",
+        "difficulty": "lett",
+        "task": "En $4\\times7$-matrise $A$ har $\\operatorname{rang}A=4$.\n\n**a)** Hva er $\\dim\\operatorname{Nul}A$?\n\n**b)** Hva er $\\dim\\operatorname{Col}A$, og i hvilket rom lever $\\operatorname{Col}A$?",
+        "solution": "**a)** Dimensjonsteoremet: $\\dim\\operatorname{Nul}A=n-\\operatorname{rang}A=7-4=3$.\n\n**b)** $\\dim\\operatorname{Col}A=\\operatorname{rang}A=4$. Kolonnene har 4 komponenter, så $\\operatorname{Col}A$ er et underrom av $\\mathbb{R}^4$ (og siden $\\dim=4$ er $\\operatorname{Col}A=\\mathbb{R}^4$).",
+        "hints": [
+          "Bruk rang A + dim Nul A = antall søyler (n = 7).",
+          "Col A lever i R^m der m = antall rader."
+        ]
+      }
+    },
+    {
+      "id": "mat1120-1-2-e5",
+      "type": "exercise",
+      "exercise": {
+        "id": "mat1120-1-2-e5",
+        "number": "5",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "En matrise $A$ er $5\\times5$. Vedlegget viser at RREF har en nullrad og fire pivoter.\n\n**a)** Er kolonnene i $A$ lineært uavhengige?\n\n**b)** Finnes det ikke-trivielle løsninger av $A\\mathbf{x}=\\mathbf{0}$?",
+        "solution": "$\\operatorname{rang}A=4$, så $\\dim\\operatorname{Nul}A=5-4=1$.\n\n**a)** Nei — det er en fri variabel (én ikke-pivotkolonne), så kolonnene er lineært **avhengige**.\n\n**b)** Ja. $\\dim\\operatorname{Nul}A=1>0$, så $\\operatorname{Nul}A$ inneholder mer enn $\\mathbf{0}$; det finnes ikke-trivielle løsninger.",
+        "hints": [
+          "5 kolonner, 4 pivoter — hvor mange frie variabler?",
+          "En fri variabel betyr avhengige kolonner og et nullrom større enn {0}."
+        ]
+      }
+    },
+    {
+      "id": "mat1120-1-2-l4",
+      "type": "text",
+      "content": "## Løkke 4 — Ligger b i Col A? (~12 min)"
+    },
+    {
+      "id": "mat1120-1-2-l4-teori",
+      "type": "text",
+      "content": "Spørsmålet «er $A\\mathbf{x}=\\mathbf{b}$ løsbar?» er det samme som «ligger $\\mathbf{b}$ i $\\operatorname{Col}A$?». Det leser du av **totalmatrisen** $[\\,A\\mid\\mathbf{b}\\,]$: hvis dens RREF får en pivot i den siste kolonnen, er systemet inkonsistent og $\\mathbf{b}\\notin\\operatorname{Col}A$; ellers er $\\mathbf{b}\\in\\operatorname{Col}A$. Ekvivalent: $\\mathbf{b}\\in\\operatorname{Col}A\\iff\\operatorname{rang}[\\,A\\mid\\mathbf{b}\\,]=\\operatorname{rang}A$."
+    },
+    {
+      "id": "mat1120-1-2-def-bcolA",
+      "type": "definition",
+      "title": "Løsbarhet: $\\mathbf{b}\\in\\operatorname{Col}A$",
+      "content": "$A\\mathbf{x}=\\mathbf{b}$ er konsistent $\\iff\\mathbf{b}\\in\\operatorname{Col}A\\iff\\operatorname{rang}[\\,A\\mid\\mathbf{b}\\,]=\\operatorname{rang}A$. Fra vedlegget: en pivot i høyresidekolonnen i RREF av totalmatrisen betyr inkonsistent (da er $\\mathbf{b}\\notin\\operatorname{Col}A$)."
+    },
+    {
+      "id": "mat1120-1-2-ex-bcolA",
+      "type": "example",
+      "title": "Eksempel 4: Ligger b i Col A?",
+      "problem": "For $A=\\begin{bmatrix}1&2&0&1\\\\0&0&1&4\\\\1&2&1&5\\end{bmatrix}$ (samme som i oppgave 1), avgjør om $\\mathbf{b}=\\begin{bmatrix}1\\\\1\\\\0\\end{bmatrix}$ ligger i $\\operatorname{Col}A$.",
+      "solution": "Vi leser RREF av totalmatrisen $[\\,A\\mid\\mathbf{b}\\,]$ fra vedlegget:\n$$\\operatorname{rref}[\\,A\\mid\\mathbf{b}\\,]=\\begin{bmatrix}1&2&0&1&0\\\\0&0&1&4&0\\\\0&0&0&0&1\\end{bmatrix}.$$\nDen siste kolonnen (høyresiden) er en **pivotkolonne** — rad 3 gir likningen $0=1$, som er umulig. Systemet er **inkonsistent**, altså $\\mathbf{b}\\notin\\operatorname{Col}A$.\n\n**Tolkning:** $\\operatorname{rang}A=2$, men $\\operatorname{rang}[\\,A\\mid\\mathbf{b}\\,]=3$ — de er ulike, så $\\mathbf{b}$ ligger utenfor kolonnerommet."
+    },
+    {
+      "id": "mat1120-1-2-e6",
+      "type": "exercise",
+      "exercise": {
+        "id": "mat1120-1-2-e6",
+        "number": "6",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "For gjennomgangsmatrisen $A$ (den $4\\times5$) er $\\mathbf{b}=\\begin{bmatrix}3\\\\5\\\\-4\\\\-1\\end{bmatrix}$. Vedlegget viser at $\\operatorname{rang}[\\,A\\mid\\mathbf{b}\\,]=3=\\operatorname{rang}A$, og at $\\mathbf{b}=2\\mathbf{a}_1-\\mathbf{a}_3$.\n\n**a)** Ligger $\\mathbf{b}$ i $\\operatorname{Col}A$?\n\n**b)** Gi en konkret $\\mathbf{x}$ med $A\\mathbf{x}=\\mathbf{b}$.",
+        "solution": "**a)** Ja. Siden $\\operatorname{rang}[\\,A\\mid\\mathbf{b}\\,]=\\operatorname{rang}A=3$ er systemet konsistent, altså $\\mathbf{b}\\in\\operatorname{Col}A$. (Det bekreftes av at $\\mathbf{b}=2\\mathbf{a}_1-\\mathbf{a}_3$ er en lineærkombinasjon av kolonnene.)\n\n**b)** $\\mathbf{b}=2\\mathbf{a}_1-\\mathbf{a}_3$ betyr $x_1=2,\\ x_3=-1$ og de øvrige $0$: $\\mathbf{x}=(2,0,-1,0,0)^T$. Kontroll: $2\\mathbf{a}_1-\\mathbf{a}_3=2(1,2,-1,0)^T-(-1,-1,2,1)^T=(3,5,-4,-1)^T=\\mathbf{b}$. ✓",
+        "hints": [
+          "Konsistent ⇔ rang[A|b] = rang A.",
+          "En avhengighetsrelasjon b = 2a₁ − a₃ gir deg en x direkte."
+        ]
+      }
+    },
+    {
+      "id": "mat1120-1-2-warn",
+      "type": "warning",
+      "title": "Typiske feil",
+      "content": "- **Feil $\\operatorname{Col}A$-basis** (den klassiske MAT1120-fellen): oppgir de *reduserte* pivotkolonnene fra RREF i stedet for de **opprinnelige** kolonnene i $A$. RREF sier *hvilke* kolonner; $A$ gir vektorene.\n- **Forveksler $\\operatorname{Nul}A$ og $\\operatorname{Col}A$:** $\\operatorname{Nul}$-basis kommer fra de *frie* variablene (spesielle løsninger), $\\operatorname{Col}$-basis fra *pivotkolonnene*.\n- **Glemmer dimensjonsteoremet som kontroll** — det avslører raskt en tellefeil.\n- **Blander dimensjon og antall vektorer:** dimensjon er et tall; basis er vektorene. «$\\dim\\operatorname{Col}A=3$» og «basisen har 3 vektorer» er to sider av samme sak, men skriv begge riktig.\n- **Regner $\\operatorname{Col}A$ i feil rom:** $\\operatorname{Col}A\\subseteq\\mathbb{R}^m$ (rader), $\\operatorname{Nul}A\\subseteq\\mathbb{R}^n$ (kolonner)."
+    },
+    {
+      "id": "mat1120-1-2-bb-tekst",
+      "type": "text",
+      "content": "## Begrepsbank til eksamen\n\nKjernebegrepene fra kapitlet i eksamensrettet kortform.\n\n*Begrepsbanken er flashcard-/repetisjonsstoff — hopp trygt over ved førstegangslesing; tidsanslaget gjelder kjernestoffet.*"
+    },
+    {
+      "id": "mat1120-1-2-bb-fund",
+      "type": "definition",
+      "title": "Fundamentale underrom",
+      "content": "De underrommene som hører til en matrise: $\\operatorname{Col}A$ og $\\operatorname{Nul}A$ (og $\\operatorname{Row}A$, [kap. 1.3](/bok/mat1120/mat1120-1-3)). Alle fire leses av samme RREF fra vedlegget. De to sentrale på oppgave 1 er $\\operatorname{Col}A$ og $\\operatorname{Nul}A$."
+    },
+    {
+      "id": "mat1120-1-2-bb-colrang",
+      "type": "definition",
+      "title": "$\\dim\\operatorname{Col}A=\\operatorname{rang}A$",
+      "content": "Antall pivotkolonner. Kolonnerommets dimensjon er nettopp rangen — derfor teller du bare pivotene for å få $\\dim\\operatorname{Col}A$, uten å skrive ut basisen."
+    },
+    {
+      "id": "mat1120-1-2-bb-fullkol",
+      "type": "definition",
+      "title": "Full kolonnerang",
+      "content": "$\\operatorname{rang}A=n$ (antall kolonner): hver kolonne er pivotkolonne, ingen frie variabler, $\\operatorname{Nul}A=\\{\\mathbf{0}\\}$, og kolonnene er lineært uavhengige. Da har $A\\mathbf{x}=\\mathbf{b}$ høyst én løsning."
+    },
+    {
+      "id": "mat1120-1-2-bb-fullrad",
+      "type": "definition",
+      "title": "Full radrang",
+      "content": "$\\operatorname{rang}A=m$ (antall rader): ingen nullrader i RREF, $\\operatorname{Col}A=\\mathbb{R}^m$, og $A\\mathbf{x}=\\mathbf{b}$ er løsbar for **enhver** $\\mathbf{b}$."
+    },
+    {
+      "id": "mat1120-1-2-bb-endeligdim",
+      "type": "definition",
+      "title": "Endelig-dimensjonalt rom",
+      "content": "Et vektorrom med en endelig basis; dimensjonen er antall basisvektorer. $\\mathbb{R}^n$, $\\operatorname{Col}A$ og $\\operatorname{Nul}A$ er alle endelig-dimensjonale. (Funksjonsrom kan være uendelig-dimensjonale — Del 2.)"
+    },
+    {
+      "id": "mat1120-1-2-bb-koordinat",
+      "type": "definition",
+      "title": "Koordinater relativt en basis",
+      "content": "Er $\\mathcal{B}=\\{\\mathbf{b}_1,\\dots,\\mathbf{b}_k\\}$ en basis for $W$ og $\\mathbf{x}=c_1\\mathbf{b}_1+\\dots+c_k\\mathbf{b}_k$, er $[\\mathbf{x}]_{\\mathcal{B}}=(c_1,\\dots,c_k)^T$ **entydig**. Broen til abstrakte rom (Del 2); introdusert nærmere i [kap. 1.3](/bok/mat1120/mat1120-1-3)."
+    },
+    {
+      "id": "mat1120-1-2-bb-underrom-test",
+      "type": "definition",
+      "title": "Underrom-test i praksis",
+      "content": "For å vise at $W\\subseteq\\mathbb{R}^n$ er et underrom: sjekk $\\mathbf{0}\\in W$, lukket under addisjon og under skalarmultiplikasjon. $\\operatorname{Col}A$ og $\\operatorname{Nul}A$ oppfyller alle tre automatisk (de er henholdsvis et span og et løsningsrom for et homogent system)."
+    },
+    {
+      "id": "mat1120-1-2-bb-invertibel",
+      "type": "definition",
+      "title": "Invertibel matrise (koblingen)",
+      "content": "For en kvadratisk $n\\times n$-matrise er følgende ekvivalent: $A$ invertibel $\\iff\\operatorname{rang}A=n\\iff\\operatorname{Nul}A=\\{\\mathbf{0}\\}\\iff\\operatorname{Col}A=\\mathbb{R}^n\\iff$ kolonnene er en basis for $\\mathbb{R}^n$. (Invers-mekanikken forutsettes fra MAT1110.)"
+    },
+    {
+      "id": "mat1120-1-2-bb-bilderom",
+      "type": "definition",
+      "title": "$\\operatorname{Col}A$ som bilderom",
+      "content": "Ser du på $A$ som en avbildning $\\mathbf{x}\\mapsto A\\mathbf{x}$, er $\\operatorname{Col}A$ nøyaktig **bildet** (verdimengden): alle vektorer $A$ kan «treffe». $\\operatorname{Nul}A$ er tilsvarende **kjernen** — alt som avbildes på $\\mathbf{0}$. Dette språket brukes aktivt i Del 2."
+    },
+    {
+      "id": "mat1120-1-2-bb-losningsstruktur",
+      "type": "definition",
+      "title": "Løsningsstruktur for $A\\mathbf{x}=\\mathbf{b}$",
+      "content": "Er systemet konsistent, har det formen $\\mathbf{x}=\\mathbf{x}_p+\\mathbf{x}_h$: én **partikulærløsning** $\\mathbf{x}_p$ pluss en vilkårlig $\\mathbf{x}_h\\in\\operatorname{Nul}A$. Løsningsmengden er et **affint** underrom (et parallellforskjøvet $\\operatorname{Nul}A$) — entydig løsning nøyaktig når $\\operatorname{Nul}A=\\{\\mathbf{0}\\}$."
+    },
+    {
+      "id": "mat1120-1-2-bb-basis-min-maks",
+      "type": "definition",
+      "title": "Basis: minimal og maksimal",
+      "content": "En basis er samtidig en **minimal utspennende** mengde (fjern én vektor, og spennet krymper) og en **maksimal lineært uavhengig** mengde (legg til én vektor fra rommet, og den blir avhengig). Derfor har alle baser samme antall vektorer."
+    },
+    {
+      "id": "mat1120-1-2-bb-rangAT",
+      "type": "definition",
+      "title": "$\\operatorname{rang}A=\\operatorname{rang}A^{T}$",
+      "content": "Rangen er den samme for $A$ og dens transponerte: antall uavhengige kolonner $=$ antall uavhengige rader. Dette er hvorfor $\\dim\\operatorname{Col}A=\\dim\\operatorname{Row}A$ ([kap. 1.3](/bok/mat1120/mat1120-1-3))."
+    },
+    {
+      "id": "mat1120-1-2-bb-trivielt-nul",
+      "type": "definition",
+      "title": "Trivielt vs. ikke-trivielt nullrom",
+      "content": "$\\operatorname{Nul}A=\\{\\mathbf{0}\\}$ (trivielt) $\\iff$ kolonnene er uavhengige $\\iff$ ingen frie variabler. Er $\\dim\\operatorname{Nul}A\\ge1$ (ikke-trivielt), finnes ikke-trivielle løsninger av $A\\mathbf{x}=\\mathbf{0}$."
+    },
+    {
+      "id": "mat1120-1-2-bb-span-utspenning",
+      "type": "definition",
+      "title": "Utspennende mengde",
+      "content": "$\\{\\mathbf{v}_1,\\dots,\\mathbf{v}_k\\}$ **utspenner** $W$ hvis $\\operatorname{Span}\\{\\mathbf{v}_1,\\dots,\\mathbf{v}_k\\}=W$. En utspennende mengde kan ha overflødige vektorer; fjerner du de avhengige, sitter du igjen med en basis."
+    },
+    {
+      "id": "mat1120-1-2-bb-dimRn",
+      "type": "definition",
+      "title": "Dimensjonen til $\\mathbb{R}^n$",
+      "content": "$\\dim\\mathbb{R}^n=n$, med standardbasisen $\\{\\mathbf{e}_1,\\dots,\\mathbf{e}_n\\}$. Ethvert underrom av $\\mathbb{R}^n$ har dimensjon mellom $0$ (bare $\\mathbf{0}$) og $n$ (hele rommet)."
+    },
+    {
+      "id": "mat1120-1-2-bb-pivot-utspenner",
+      "type": "definition",
+      "title": "Pivotkolonnene utspenner $\\operatorname{Col}A$",
+      "content": "Fordi hver ikke-pivotkolonne er en lineærkombinasjon av pivotkolonnene (avhengighetsrelasjonene, [kap. 1.1](/bok/mat1120/mat1120-1-1)), utspenner pivotkolonnene alene hele $\\operatorname{Col}A$. De er også uavhengige — derfor er de en basis."
+    },
+    {
+      "id": "mat1120-1-2-rep",
+      "type": "collapsible",
+      "title": "Repetisjonsoppgaver",
+      "buttonText": "Vis repetisjonsoppgaver",
+      "content": [
+        {
+          "id": "mat1120-1-2-r1",
+          "type": "exercise",
+          "exercise": {
+            "id": "mat1120-1-2-eR1",
+            "number": "R1",
+            "type": "classic",
+            "difficulty": "lett",
+            "task": "(Fra kap. 1.1) Vedlegget gir $\\operatorname{rref}(A)=\\begin{bmatrix}1&5&0\\\\0&0&1\\\\0&0&0\\end{bmatrix}$. Hvilke kolonner er pivotkolonner, og hva er $\\operatorname{rang}A$?",
+            "solution": "Pivotkolonner 1 og 3; $\\operatorname{rang}A=2$ (to pivoter).",
+            "hints": [
+              "Ledende enere i kolonne 1 og 3."
+            ]
+          }
+        },
+        {
+          "id": "mat1120-1-2-r2",
+          "type": "exercise",
+          "exercise": {
+            "id": "mat1120-1-2-eR2",
+            "number": "R2",
+            "type": "classic",
+            "difficulty": "middels",
+            "task": "En $3\\times5$-matrise $A$ har $\\dim\\operatorname{Nul}A=3$. Finn $\\operatorname{rang}A$ og $\\dim\\operatorname{Col}A$, og avgjør om $A\\mathbf{x}=\\mathbf{b}$ er løsbar for enhver $\\mathbf{b}\\in\\mathbb{R}^3$.",
+            "solution": "Dimensjonsteoremet: $\\operatorname{rang}A=5-3=2$, så $\\dim\\operatorname{Col}A=2$. Siden $\\operatorname{Col}A$ er 2-dimensjonalt inne i $\\mathbb{R}^3$, er $\\operatorname{Col}A\\ne\\mathbb{R}^3$; altså er $A\\mathbf{x}=\\mathbf{b}$ **ikke** løsbar for enhver $\\mathbf{b}$ (ikke full radrang).",
+            "hints": [
+              "Bruk n = 5 kolonner i dimensjonsteoremet.",
+              "Full radrang (rang = 3) kreves for løsbarhet for alle b."
+            ]
+          }
+        },
+        {
+          "id": "mat1120-1-2-r3",
+          "type": "exercise",
+          "exercise": {
+            "id": "mat1120-1-2-eR3",
+            "number": "R3",
+            "type": "classic",
+            "difficulty": "lett",
+            "task": "(Fra kap. 1.1) Skriv med én setning forskjellen på å hente en $\\operatorname{Col}A$-basis og en $\\operatorname{Nul}A$-basis fra vedlegget.",
+            "solution": "$\\operatorname{Col}A$-basis er de **opprinnelige pivotkolonnene i $A$**, mens $\\operatorname{Nul}A$-basis er de **spesielle løsningene** (én per fri variabel) lest av RREF-likningene.",
+            "hints": [
+              "Col fra pivotkolonner (i A); Nul fra frie variabler."
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": "mat1120-1-2-symbol",
+      "type": "collapsible",
+      "title": "Symbol- og formelliste",
+      "buttonText": "Vis symboler og formler",
+      "content": [
+        {
+          "id": "mat1120-1-2-symbol-tekst",
+          "type": "text",
+          "content": "## Symbol- og formelliste\n\n*Oppslagsverk — alt her forklares underveis i kapitlet.*\n\n| Symbol | Betydning |\n|---|---|\n| $\\operatorname{Col}A$ | Kolonnerom $=\\operatorname{Span}\\{\\text{kolonnene}\\}\\subseteq\\mathbb{R}^m$ |\n| $\\operatorname{Nul}A$ | Nullrom $=\\{\\mathbf{x}:A\\mathbf{x}=\\mathbf{0}\\}\\subseteq\\mathbb{R}^n$ |\n| $\\operatorname{rang}A$ | Rang $=$ antall pivoter $=\\dim\\operatorname{Col}A$ |\n| $\\dim\\operatorname{Nul}A$ | Nullitet $=$ antall frie variabler |\n| $\\dim W$ | Dimensjon $=$ antall vektorer i en basis for $W$ |\n| $[\\,A\\mid\\mathbf{b}\\,]$ | Totalmatrise for løsbarhetssjekk |\n| $\\mathbf{a}_j$ | Kolonne $j$ i $A$ |\n| $n,\\ m$ | Antall kolonner / rader |\n\n**Formler / regler i dette delkapitlet:**\n\n$$\\operatorname{rang}A+\\dim\\operatorname{Nul}A=n$$\nDimensjonsteoremet (rang–nullitet): pivoter + frie variabler = antall søyler.\n\n$$\\dim\\operatorname{Col}A=\\operatorname{rang}A$$\nKolonnerommets dimensjon er antall pivotkolonner.\n\n$$\\mathbf{b}\\in\\operatorname{Col}A\\iff\\operatorname{rang}[\\,A\\mid\\mathbf{b}\\,]=\\operatorname{rang}A$$\nLøsbarhetskriteriet: $A\\mathbf{x}=\\mathbf{b}$ er konsistent nøyaktig når $\\mathbf{b}$ ligger i kolonnerommet.\n\n**Basisregel (til utenatlæring):** $\\operatorname{Col}A$-basis $=$ opprinnelige pivotkolonner i $A$; $\\operatorname{Nul}A$-basis $=$ spesielle løsninger (én per fri variabel)."
+        }
+      ]
+    }
+  ],
+  "exercises": []
+}

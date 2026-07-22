@@ -1,0 +1,182 @@
+[
+  {
+    "question": "Hva oppfyller overgangsmatrisen P_{C←B} per definisjon?",
+    "options": [
+      "[x]_C = P_{C←B} [x]_B for alle x",
+      "[x]_B = P_{C←B} [x]_C for alle x",
+      "P_{C←B} = [x]_B · [x]_C for alle x",
+      "[x]_C = [x]_B + P_{C←B} for alle x"
+    ],
+    "explanation": "Overgangsmatrisen tar B-koordinater inn og gir C-koordinater ut: [x]_C = P_{C←B}[x]_B. Det fastsetter retningen."
+  },
+  {
+    "question": "Hvordan bygger du kolonne j i P_{C←B}?",
+    "options": [
+      "Som koordinatvektoren [b_j]_C — B-vektor nr. j uttrykt i C-koordinater",
+      "Som koordinatvektoren [c_j]_B — C-vektor nr. j uttrykt i B-koordinater",
+      "Som selve basisvektoren b_j, satt inn direkte som kolonne",
+      "Som produktet av b_j og c_j komponentvis"
+    ],
+    "explanation": "For «C fra B» uttrykkes hver B-vektor i den nye basisen C; koordinatvektorene [b_j]_C blir kolonnene."
+  },
+  {
+    "question": "Hvordan leses notasjonen P_{C←B}?",
+    "options": [
+      "«C fra B» — den tar B-koordinater inn og gir C-koordinater ut",
+      "«B fra C» — den tar C-koordinater inn og gir B-koordinater ut",
+      "«C ganger B» — et produkt av de to basismatrisene",
+      "«C og B» — en matrise som kombinerer begge symmetrisk"
+    ],
+    "explanation": "Pilen peker mot resultatet: «ut ← inn». B står til høyre (inn), C til venstre (ut)."
+  },
+  {
+    "question": "Hva er forholdet mellom P_{B←C} og P_{C←B}?",
+    "options": [
+      "P_{B←C} = (P_{C←B})⁻¹",
+      "P_{B←C} = P_{C←B} (de er like)",
+      "P_{B←C} = (P_{C←B})ᵀ (transponert)",
+      "P_{B←C} = −P_{C←B}"
+    ],
+    "explanation": "De to veiene er hverandres inverser; produktet er identitetsmatrisen I."
+  },
+  {
+    "question": "Kolonnene i P_{C←B} er:",
+    "options": [
+      "koordinatvektorer (tallkolonner), ikke basisvektorene selv",
+      "selve polynomene eller funksjonene i basisen B",
+      "alltid enhetsvektorer med lengde 1",
+      "radene i C skrevet loddrett"
+    ],
+    "explanation": "Kolonnene er koordinatvektorer [b_j]_C. En vanlig felle er å sette selve basisvektorene inn i stedet."
+  },
+  {
+    "question": "La E = {1, t} og B = {2+t, 1+t}. Hva er P_{E←B}?",
+    "options": [
+      "[[2,1],[1,1]]",
+      "[[2,1],[1,1]] transponert til [[2,1],[1,1]]ᵀ",
+      "[[1,1],[2,1]]",
+      "[[2,1],[1,2]]"
+    ],
+    "explanation": "Fra standardbasis er P_{E←B} bare B-vektorene som kolonner i standardkoordinater: 2+t=(2,1), 1+t=(1,1)."
+  },
+  {
+    "question": "Hvorfor er det lurt å kontrollere retningen på P_{C←B} med et talleksempel?",
+    "options": [
+      "Fordi å forveksle den med inversen P_{B←C} er den vanligste feilen i sjanger I",
+      "Fordi determinanten alltid må sjekkes å være null",
+      "Fordi overgangsmatriser ofte ikke er invertible",
+      "Fordi koordinatvektorer kan endre lengde ved basisskifte"
+    ],
+    "explanation": "Retningsfellen er dokumentert og dyr. En rask sjekk — [x]_C = P_{C←B}[x]_B på en kjent vektor — avslører feil retning."
+  },
+  {
+    "question": "Er en overgangsmatrise noen gang singulær (ikke-invertibel)?",
+    "options": [
+      "Nei — den er alltid invertibel, siden basisskiftet må kunne reverseres",
+      "Ja, hvis de to basene har ulik dimensjon",
+      "Ja, hvis en av basene inneholder nullvektoren",
+      "Ja, hvis matrisen ikke er kvadratisk"
+    ],
+    "explanation": "Begge baser utspenner samme rom, så P_{C←B} er alltid invertibel (det ≠ 0); ellers kunne oversettelsen ikke snus."
+  },
+  {
+    "question": "Hva er P_{B←B}, overgangen fra en basis til seg selv?",
+    "options": [
+      "Identitetsmatrisen I",
+      "Nullmatrisen O",
+      "Den inverse av B",
+      "En diagonalmatrise med basisvektorenes lengder"
+    ],
+    "explanation": "Å bytte fra en basis til seg selv endrer ingen koordinater, så P_{B←B} = I."
+  },
+  {
+    "question": "La P_{C←B} = [[1,1],[1,-1]]. Hva er [x]_C når [x]_B = (2,3)?",
+    "options": [
+      "(5, −1)",
+      "(2, 3)",
+      "(−1, 5)",
+      "(5, 5)"
+    ],
+    "explanation": "[x]_C = P_{C←B}[x]_B = (1·2+1·3, 1·2−1·3) = (5, −1). Matrisen tar B inn og gir C ut."
+  },
+  {
+    "question": "Når begge baser er gitt i standardkoordinater (matrisene P_B, P_C med vektorene som kolonner), er:",
+    "options": [
+      "P_{C←B} = P_C⁻¹ P_B",
+      "P_{C←B} = P_B⁻¹ P_C",
+      "P_{C←B} = P_B P_C",
+      "P_{C←B} = P_C P_B⁻¹"
+    ],
+    "explanation": "Fra [x]_E = P_B[x]_B = P_C[x]_C følger [x]_C = P_C⁻¹P_B[x]_B, altså P_{C←B} = P_C⁻¹P_B."
+  },
+  {
+    "question": "Hvordan kan du finne inversen P_{B←C} ved radreduksjon?",
+    "options": [
+      "Radreduser [P_{C←B} | I] til [I | M⁻¹]; inversen står til høyre",
+      "Radreduser P_{C←B} alene til trappeform og les av inversen",
+      "Transponer P_{C←B} og bytt fortegn på diagonalen",
+      "Radreduser [I | P_{C←B}] til [P_{C←B} | I]"
+    ],
+    "explanation": "Standardmetoden [M | I] → [I | M⁻¹] gir inversen til høyre. På eksamen kan inversen også leses av vedlegget."
+  },
+  {
+    "question": "Ved et basisskifte er det som endres:",
+    "options": [
+      "koordinatene (beskrivelsen), mens selve vektoren er den samme",
+      "selve vektoren, mens koordinatene forblir uendret",
+      "både vektoren og dens plassering i rommet",
+      "dimensjonen til rommet vektoren lever i"
+    ],
+    "explanation": "Basisskifte endrer bare hvilke tall vi beskriver vektoren med; vektoren i V er uforandret."
+  },
+  {
+    "question": "Hvis P_{C←B} = [[2,1],[1,1]], hva er P_{B←C}?",
+    "options": [
+      "[[1,−1],[−1,2]]",
+      "[[2,1],[1,1]]",
+      "[[1,1],[2,1]]",
+      "[[2,−1],[−1,1]]"
+    ],
+    "explanation": "P_{B←C} = (P_{C←B})⁻¹. Med det = 2·1−1·1 = 1: inversen er [[1,−1],[−1,2]]."
+  },
+  {
+    "question": "Sammensetningen P_{D←C} P_{C←B} er lik:",
+    "options": [
+      "P_{D←B}",
+      "P_{B←D}",
+      "P_{C←C} = I",
+      "P_{D←C} + P_{C←B}"
+    ],
+    "explanation": "Overgangsmatriser kjedes som funksjoner: de indre basisene C kanselleres, så resultatet er P_{D←B}."
+  },
+  {
+    "question": "For B = {1,t,t²}, C = {t², t²+t, t²+t+1} er P_{C←B} = [[0,−1,1],[−1,1,0],[1,0,0]]. Hva blir [x]_C når [x]_B = (0,1,1) (dvs. x = t²+t)?",
+    "options": [
+      "(0, 1, 0)",
+      "(1, 1, 0)",
+      "(0, 1, 1)",
+      "(1, 0, 1)"
+    ],
+    "explanation": "P_{C←B}·(0,1,1) = (0−1+1, 0+1+0, 0) = (0,1,0). Stemmer: x = t²+t = 1·(t²+t), altså andre C-vektor alene."
+  },
+  {
+    "question": "For å bygge P_{C←B} når C er en ikke-standard basis, må du:",
+    "options": [
+      "løse et lite likningssystem for å uttrykke hver B-vektor i C-koordinater",
+      "bare sette B-vektorene rett inn som kolonner uten omregning",
+      "transponere matrisen av C-vektorene",
+      "regne determinanten av B-vektorene"
+    ],
+    "explanation": "Kolonnene er [b_j]_C, så hver B-vektor må skrives som lineærkombinasjon av C-vektorene — et lite likningssystem per kolonne."
+  },
+  {
+    "question": "Hvilken oppskrift gir feil retning?",
+    "options": [
+      "Å bruke P_{B←C} når oppgaven ber om å oversette fra B til C",
+      "Å bruke P_{C←B} når oppgaven ber om å oversette fra B til C",
+      "Å kontrollere svaret med [x]_C = P_{C←B}[x]_B på en kjent vektor",
+      "Å bygge kolonne j som [b_j]_C for P_{C←B}"
+    ],
+    "explanation": "Å oversette fra B til C krever P_{C←B}. Bruker du P_{B←C} der, går du feil vei — den klassiske retningsfellen."
+  }
+]

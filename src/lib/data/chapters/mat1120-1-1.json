@@ -1,0 +1,424 @@
+{
+  "id": "mat1120-1-1",
+  "courseId": "mat1120",
+  "chapterNumber": "1.1",
+  "title": "Vedleggslesning: RREF, pivoter og avhengighetsrelasjoner",
+  "description": "MAT1120s arbeidsmåte etablert: les RREF, pivotposisjoner og avhengighetsrelasjoner ut av vedlegget (Matlab-utskrift eller RREF-ark) i stedet for å radredusere for hånd — motoren under hele boka, med en rask repetisjon av span og lineær uavhengighet.",
+  "estimatedMinutes": 55,
+  "competenceGoals": [
+    "lese pivotposisjoner, pivotkolonner og frie variabler ut av en RREF fra vedlegget i stedet for å radredusere for hånd",
+    "lese avhengighetsrelasjoner direkte av RREF og forklare hvorfor de også gjelder i den opprinnelige matrisen A",
+    "bruke begrepene lineærkombinasjon, span, lineær uavhengighet og underrom trygt i R^n"
+  ],
+  "content": [
+    {
+      "id": "mat1120-1-1-tip-eksamensvinkel",
+      "type": "tip",
+      "title": "Eksamensvinkel",
+      "content": "**Dette er MAT1120s arbeidsmåte — motoren under hele boka.** Sjanger A (kolonnerom/nullrom/basis/rang fra RREF) er **den faste oppgave 1** og er med i praktisk talt *alle* sett i arkivet (~100 %), verdt 10–20 % av eksamen.\n\n- Emnet er formelt «uten hjelpemidler», men hvert sett kommer med et **vedlegg**: enten en Matlab-utskrift ($\\operatorname{rref}$, $\\operatorname{poly}$, $\\operatorname{eig}$) eller — fra og med 2024 — et ark med ferdige reduserte trappeformer. Vedlegget gjør den rå regningen for deg.\n- Sensor vil se at du **leser** pivoter og avhengighetsrelasjoner ut av vedlegget og **siterer** det: «Fra vedlegget ($\\operatorname{rref}$) ser vi at RREF er …». Å radredusere en $4\\times 5$-matrise for hånd er tidssluk og en unødvendig feilkilde.\n\nMålet med dette kapitlet er å lære å **lese** et vedlegg presist: hva en pivot, en fri variabel og en avhengighetsrelasjon er, og hvorfor relasjonene du leser av RREF gjelder like mye i den opprinnelige matrisen. Regningen kommer i [kap. 1.2](/bok/mat1120/mat1120-1-2) og [kap. 1.4](/bok/mat1120/mat1120-1-4)."
+    },
+    {
+      "id": "mat1120-1-1-forkunnskaper",
+      "type": "text",
+      "content": "**Forkunnskaper:** Dette kapitlet bygger på **radreduksjon og matriseføring**, som forutsettes kjent fra *(MAT1110 — forkunnskapsemne, ikke bygget ennå; aktiver `/bok/mat1110/<id>`-lenke når den finnes)*. En innføring på innføringsnivå finnes i [Lineære likningssystem og Gauss-eliminasjon](/bok/bi-okonomi/bi-okonomi-9-3). Vektorbegrepet i $\\mathbb{R}^n$ er repetert i [Vektorer i tre dimensjoner](/bok/r2/r2-5-1).\n\nDu trenger *ikke* å kunne regne radreduksjon raskt — poenget i MAT1120 er nettopp at vedlegget gjør den jobben. Du trenger å kunne **lese** en ferdig redusert trappeform. Begrepene span, lineær uavhengighet og underrom repeteres kort nederst i kapitlet (de forutsettes, men læres ikke fra grunnen)."
+    },
+    {
+      "id": "mat1120-1-1-intro",
+      "type": "text",
+      "content": "Hele Del 1 hviler på én ferdighet: å lese en **redusert trappeform (RREF)** fra vedlegget og hente ut det oppgaven spør om — pivotkolonner, frie variabler, rang og avhengighetsrelasjoner. Dette er MAT1120s definerende arbeidsmåte, og den bærer den faste oppgave 1 gjennom hele arkivet.\n\nKapitlet er bygget som tre små **læringsløkker** (teori → eksempel → oppgave): (1) hva et vedlegg inneholder og hvordan det leses, (2) pivotposisjoner og frie variabler, (3) avhengighetsrelasjoner og hvorfor de gjelder i $A$. Til slutt repeterer vi span, uavhengighet og underrom kort."
+    },
+    {
+      "id": "mat1120-1-1-lokke1",
+      "type": "text",
+      "content": "## Løkke 1 — Hva et vedlegg er, og hvordan det leses (~15 min)"
+    },
+    {
+      "id": "mat1120-1-1-l1-teori",
+      "type": "text",
+      "content": "På eksamen er den store regnejobben — å radredusere en matrise — allerede gjort for deg i **vedlegget**. Det finnes i to former, med nøyaktig samme funksjon:\n\n- **Matlab-utskrift** (arkivet 2018–2022): kommandoene $\\operatorname{rref}(A)$ (redusert trappeform), $\\operatorname{poly}(A)$ (karakteristisk polynom, brukes i Del 3) og $\\operatorname{eig}(A)$ eller $[V,\\,D]=\\operatorname{eig}(A)$ (egenverdier og egenvektorer, Del 3 og 6).\n- **RREF-ark** (fra og med 2024): et ark med de ferdige reduserte trappeformene, uten Matlab-syntaks.\n\nUansett form er beskjeden den samme: **du skal lese resultatet, ikke regne det ut.** Regel for hele boka: *radreduser aldri en stor matrise ($3\\times4$ eller større) for hånd — sitér vedlegget.* Små $2\\times2$-kontroller for hånd er greit."
+    },
+    {
+      "id": "mat1120-1-1-def-vedlegg",
+      "type": "definition",
+      "title": "Vedlegg",
+      "content": "Arket som deles ut sammen med eksamensoppgaven og gjør den rå regningen. Det inneholder ferdige reduserte trappeformer (og ved behov karakteristisk polynom og egenverdier) for oppgavens matriser. På eksamen **siterer** du vedlegget i stedet for å radredusere selv: «Fra vedlegget ser vi at RREF er …»."
+    },
+    {
+      "id": "mat1120-1-1-def-rref-cmd",
+      "type": "definition",
+      "title": "$\\operatorname{rref}(A)$",
+      "content": "Matlab-kommandoen som gir den **reduserte trappeformen** til $A$. Utskriften er den ferdig radreduserte matrisen — den du leser pivoter og frie variabler ut av. Fra 2024 erstattes utskriften av et rent RREF-ark med samme innhold."
+    },
+    {
+      "id": "mat1120-1-1-def-poly-cmd",
+      "type": "definition",
+      "title": "$\\operatorname{poly}(A)$",
+      "content": "Matlab-kommandoen som gir koeffisientene i det **karakteristiske polynomet** $\\det(A-\\lambda I)$. Brukes i Del 3 (egenverdier). Nevnt her fordi den er en fast del av vedlegget; den er ikke i bruk i Del 1."
+    },
+    {
+      "id": "mat1120-1-1-def-eig-cmd",
+      "type": "definition",
+      "title": "$\\operatorname{eig}(A)$ og $[V,\\,D]=\\operatorname{eig}(A)$",
+      "content": "Matlab-kommandoene for **egenverdier** ($\\operatorname{eig}(A)$) og for egenverdier med tilhørende egenvektorer ($[V,\\,D]=\\operatorname{eig}(A)$: kolonnene i $V$ er egenvektorer, diagonalen i $D$ er egenverdiene). Brukes i Del 3 og 6; nevnt her for oversikt."
+    },
+    {
+      "id": "mat1120-1-1-ex-lese-vedlegg",
+      "type": "example",
+      "title": "Eksempel 1: Lese en RREF-utskrift",
+      "problem": "Vedlegget oppgir at den reduserte trappeformen til en $3\\times4$-matrise $A$ er\n$$\\operatorname{rref}(A)=\\begin{bmatrix}1&2&0&1\\\\0&0&1&4\\\\0&0&0&0\\end{bmatrix}.$$\nHvor mange ledende enere har utskriften, og i hvilke kolonner står de?",
+      "solution": "Vi **leser** utskriften — ingen regning. En **ledende ener** er den første ener'en (fra venstre) i en rad som ikke er null.\n\nRad 1 har sin ledende ener i **kolonne 1**. Rad 2 har sin ledende ener i **kolonne 3**. Rad 3 er en nullrad og har ingen ledende ener.\n\n**Svar:** to ledende enere, i kolonne 1 og kolonne 3. Disse to kolonnene er *pivotkolonnene* (neste løkke). At det er to av dem, betyr at $A$ har rang 2 — mer om det i [kap. 1.2](/bok/mat1120/mat1120-1-2)."
+    },
+    {
+      "id": "mat1120-1-1-e1",
+      "type": "exercise",
+      "exercise": {
+        "id": "mat1120-1-1-e1",
+        "number": "1",
+        "type": "classic",
+        "difficulty": "lett",
+        "task": "(Innstegsoppgave — ren avlesning.) Vedlegget gir\n$$\\operatorname{rref}(A)=\\begin{bmatrix}1&0&5\\\\0&1&-2\\\\0&0&0\\end{bmatrix}.$$\n\n**a)** Hvor mange ledende enere har utskriften?\n\n**b)** I hvilke kolonner står de?",
+        "solution": "**a)** To ledende enere (rad 1 og rad 2; rad 3 er en nullrad).\n\n**b)** I kolonne 1 og kolonne 2.",
+        "hints": [
+          "En ledende ener er den første ener'en fra venstre i en rad som ikke er null.",
+          "Tell radene som ikke er nullrader."
+        ]
+      }
+    },
+    {
+      "id": "mat1120-1-1-lokke2",
+      "type": "text",
+      "content": "## Løkke 2 — Pivotposisjoner, pivotkolonner og frie variabler (~20 min)"
+    },
+    {
+      "id": "mat1120-1-1-l2-teori",
+      "type": "text",
+      "content": "Når du har RREF-en foran deg, er alt du trenger å avgjøre *hvor pivotene står*. Det bestemmer resten.\n\nEn **pivotposisjon** er plassen til en ledende ener i den reduserte trappeformen. Kolonnen den står i, er en **pivotkolonne**; de øvrige kolonnene svarer til **frie variabler**. I et likningssystem $A\\mathbf{x}=\\mathbf{0}$ er de frie variablene dem du kan velge fritt, mens de bundne (pivot-) variablene bestemmes av dem."
+    },
+    {
+      "id": "mat1120-1-1-def-trappeform",
+      "type": "definition",
+      "title": "Trappeform (echelon-form)",
+      "content": "En matrise er i trappeform når (1) alle nullrader står nederst, og (2) den ledende oppføringen i hver rad står til høyre for den ledende oppføringen i raden over. «Trappen» av ledende oppføringer går nedover mot høyre."
+    },
+    {
+      "id": "mat1120-1-1-def-rref",
+      "type": "definition",
+      "title": "Redusert trappeform (RREF)",
+      "content": "En trappeform der i tillegg (3) hver ledende oppføring er tallet $1$ (en **ledende ener**), og (4) hver ledende ener er det eneste tallet som ikke er null i sin kolonne. Hver matrise har **nøyaktig én** RREF — derfor kan vedlegget oppgi den entydig."
+    },
+    {
+      "id": "mat1120-1-1-def-ledende-ener",
+      "type": "definition",
+      "title": "Ledende ener (pivot)",
+      "content": "Den første oppføringen fra venstre i en rad som ikke er null; i RREF er den alltid $1$. Posisjonen kalles en **pivotposisjon**, og tallet kalles en **pivot**."
+    },
+    {
+      "id": "mat1120-1-1-def-pivotposisjon",
+      "type": "definition",
+      "title": "Pivotposisjon",
+      "content": "Plassen $(i,j)$ til en ledende ener i den reduserte trappeformen. Antallet pivotposisjoner er **rangen** til $A$."
+    },
+    {
+      "id": "mat1120-1-1-def-pivotkolonne",
+      "type": "definition",
+      "title": "Pivotkolonne",
+      "content": "En kolonne som inneholder en pivotposisjon. Pivotkolonnene i $A$ svarer til de **bundne variablene** og danner ryggraden i kolonnerommet (se [kap. 1.2](/bok/mat1120/mat1120-1-2)). **Merk skillet:** en *pivotposisjon* er en plass $(i,j)$; en *pivotkolonne* er hele kolonne $j$."
+    },
+    {
+      "id": "mat1120-1-1-def-fri-variabel",
+      "type": "definition",
+      "title": "Fri variabel",
+      "content": "En variabel som svarer til en kolonne **uten** pivot. I løsningen av $A\\mathbf{x}=\\mathbf{0}$ kan de frie variablene velges fritt, og hver av dem gir én basisvektor for nullrommet. Antall frie variabler $=$ antall ikke-pivotkolonner."
+    },
+    {
+      "id": "mat1120-1-1-def-bunden-variabel",
+      "type": "definition",
+      "title": "Bunden (basis-)variabel",
+      "content": "En variabel som svarer til en pivotkolonne. Den er *bundet* fordi verdien bestemmes av de frie variablene gjennom likningene i RREF."
+    },
+    {
+      "id": "mat1120-1-1-ex-pivot",
+      "type": "example",
+      "title": "Eksempel 2: Pivotkolonner og frie variabler",
+      "problem": "Vedlegget gir for en $4\\times5$-matrise $A$:\n$$\\operatorname{rref}(A)=\\begin{bmatrix}1&3&0&0&-1\\\\0&0&1&0&-1\\\\0&0&0&1&2\\\\0&0&0&0&0\\end{bmatrix}.$$\nAngi pivotposisjonene, pivotkolonnene og de frie variablene.",
+      "solution": "Vi leser av vedlegget. De ledende enerne står i:\n\n- rad 1, kolonne 1 → pivotposisjon $(1,1)$,\n- rad 2, kolonne 3 → pivotposisjon $(2,3)$,\n- rad 3, kolonne 4 → pivotposisjon $(3,4)$.\n\n**Pivotkolonner:** 1, 3 og 4. **Ikke-pivotkolonner** (frie variabler): kolonne 2 og kolonne 5, altså variablene $x_2$ og $x_5$.\n\n**Kontroll:** 3 pivoter $+$ 2 frie variabler $=5$ kolonner. Det stemmer (dette er dimensjonsteoremet, [kap. 1.2](/bok/mat1120/mat1120-1-2)). Merk at $x_2$ og $x_5$ er frie *fordi* kolonne 2 og 5 mangler pivot — ikke fordi de står sist."
+    },
+    {
+      "id": "mat1120-1-1-e2",
+      "type": "exercise",
+      "exercise": {
+        "id": "mat1120-1-1-e2",
+        "number": "2",
+        "type": "classic",
+        "difficulty": "lett",
+        "task": "Vedlegget gir\n$$\\operatorname{rref}(A)=\\begin{bmatrix}1&-2&0&-1&1\\\\0&0&1&1&2\\\\0&0&0&0&0\\end{bmatrix}.$$\n\n**a)** Angi pivotkolonnene.\n\n**b)** Hvilke variabler er frie?",
+        "solution": "**a)** Ledende enere i rad 1 (kolonne 1) og rad 2 (kolonne 3). Pivotkolonner: **1 og 3**.\n\n**b)** Kolonnene uten pivot er 2, 4 og 5, så de frie variablene er $x_2$, $x_4$ og $x_5$.",
+        "hints": [
+          "Finn de ledende enerne rad for rad; kolonnen de står i, er en pivotkolonne.",
+          "Alle kolonner som ikke er pivotkolonner, gir frie variabler."
+        ]
+      }
+    },
+    {
+      "id": "mat1120-1-1-e3",
+      "type": "exercise",
+      "exercise": {
+        "id": "mat1120-1-1-e3",
+        "number": "3",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "En matrise $A$ har 6 kolonner, og vedleggets RREF har ledende enere i kolonne 1, 2 og 5.\n\n**a)** Hvor mange pivoter har $A$?\n\n**b)** Hvor mange frie variabler har systemet $A\\mathbf{x}=\\mathbf{0}$, og hvilke er de?",
+        "solution": "**a)** Tre pivoter (én per ledende ener), altså tre pivotkolonner: 1, 2 og 5.\n\n**b)** Antall frie variabler $=$ antall kolonner $-$ antall pivoter $=6-3=3$. De frie variablene svarer til de tre ikke-pivotkolonnene 3, 4 og 6, altså $x_3$, $x_4$ og $x_6$.",
+        "hints": [
+          "Antall pivoter = antall ledende enere = antall pivotkolonner.",
+          "Frie variabler svarer til kolonnene UTEN pivot; tell dem."
+        ]
+      }
+    },
+    {
+      "id": "mat1120-1-1-lokke3",
+      "type": "text",
+      "content": "## Løkke 3 — Avhengighetsrelasjoner, og hvorfor de gjelder i $A$ (~20 min)"
+    },
+    {
+      "id": "mat1120-1-1-l3-teori",
+      "type": "text",
+      "content": "Det siste — og mest verdifulle — du kan lese rett av RREF, er hvordan hver **ikke-pivotkolonne** er en lineærkombinasjon av pivotkolonnene. Dette kalles en **avhengighetsrelasjon**, og koeffisientene står ferdig i RREF.\n\nTa en ikke-pivotkolonne $j$ i RREF. Tallene i den kolonnen, lest av mot pivotradene, er nettopp koeffisientene som uttrykker kolonne $j$ ved pivotkolonnene. **Det avgjørende poenget:** radoperasjoner endrer ikke lineære sammenhenger *mellom kolonnene*, så nøyaktig samme relasjon gjelder i den **opprinnelige** matrisen $A$. Derfor kan du lese en relasjon fra RREF og bruke den på $A$ uten videre."
+    },
+    {
+      "id": "mat1120-1-1-def-avhengighetsrelasjon",
+      "type": "definition",
+      "title": "Avhengighetsrelasjon",
+      "content": "En likning som uttrykker én kolonne i $A$ som en lineærkombinasjon av andre kolonner, f.eks. $\\mathbf{a}_5=2\\mathbf{a}_4-\\mathbf{a}_3-\\mathbf{a}_1$. Koeffisientene leses **direkte** av den tilhørende ikke-pivotkolonnen i RREF. Relasjonen gjelder like mye i $A$ som i RREF."
+    },
+    {
+      "id": "mat1120-1-1-def-radekvivalens",
+      "type": "definition",
+      "title": "Radekvivalens",
+      "content": "To matriser er radekvivalente når den ene kan lages fra den andre ved elementære radoperasjoner. $A$ og $\\operatorname{rref}(A)$ er radekvivalente. Radoperasjoner bevarer **kolonnesammenhengene** (avhengighetsrelasjonene) og **radrommet**, men endrer generelt kolonnerommet — derav skillet i [kap. 1.2](/bok/mat1120/mat1120-1-2)–[1.3](/bok/mat1120/mat1120-1-3)."
+    },
+    {
+      "id": "mat1120-1-1-ex-avhengighet",
+      "type": "example",
+      "title": "Eksempel 3: Lese en avhengighetsrelasjon",
+      "problem": "For matrisen\n$$A=\\begin{bmatrix}1&3&-1&2&4\\\\2&6&-1&5&9\\\\-1&-3&2&1&1\\\\0&0&1&3&5\\end{bmatrix}$$\ngir vedlegget\n$$\\operatorname{rref}(A)=\\begin{bmatrix}1&3&0&0&-1\\\\0&0&1&0&-1\\\\0&0&0&1&2\\\\0&0&0&0&0\\end{bmatrix}.$$\nPivotkolonnene er 1, 3 og 4. Skriv kolonne 2 og kolonne 5 i $A$ som lineærkombinasjoner av pivotkolonnene.",
+      "solution": "Vi leser koeffisientene **rett av RREF**, kolonne for kolonne, mot pivotradene (rad 1 ↔ pivotkolonne 1, rad 2 ↔ pivotkolonne 3, rad 3 ↔ pivotkolonne 4).\n\n**Kolonne 2** i RREF er $\\begin{bmatrix}3\\\\0\\\\0\\\\0\\end{bmatrix}$, altså $3$ mot pivotrad 1 og $0$ ellers. Relasjonen er\n$$\\mathbf{a}_2=3\\,\\mathbf{a}_1.$$\nKontroll i $A$: $3\\begin{bmatrix}1\\\\2\\\\-1\\\\0\\end{bmatrix}=\\begin{bmatrix}3\\\\6\\\\-3\\\\0\\end{bmatrix}=\\mathbf{a}_2$. ✓\n\n**Kolonne 5** i RREF er $\\begin{bmatrix}-1\\\\-1\\\\2\\\\0\\end{bmatrix}$: koeffisient $-1$ mot pivotkolonne 1, $-1$ mot pivotkolonne 3, $2$ mot pivotkolonne 4. Altså\n$$\\mathbf{a}_5=-\\mathbf{a}_1-\\mathbf{a}_3+2\\,\\mathbf{a}_4.$$\nKontroll i $A$: $-\\begin{bmatrix}1\\\\2\\\\-1\\\\0\\end{bmatrix}-\\begin{bmatrix}-1\\\\-1\\\\2\\\\1\\end{bmatrix}+2\\begin{bmatrix}2\\\\5\\\\1\\\\3\\end{bmatrix}=\\begin{bmatrix}4\\\\9\\\\1\\\\5\\end{bmatrix}=\\mathbf{a}_5$. ✓\n\nLegg merke til at relasjonene ble lest av RREF, men verifisert i **$A$** — det er hele poenget: radreduksjon bevarer kolonnesammenhengene."
+    },
+    {
+      "id": "mat1120-1-1-e4",
+      "type": "exercise",
+      "exercise": {
+        "id": "mat1120-1-1-e4",
+        "number": "4",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "Bruk RREF-en fra Eksempel 2,\n$$\\operatorname{rref}(A)=\\begin{bmatrix}1&-2&0&-1&1\\\\0&0&1&1&2\\\\0&0&0&0&0\\end{bmatrix},$$\nmed pivotkolonner 1 og 3. Skriv kolonne 2, 4 og 5 i $A$ som lineærkombinasjoner av pivotkolonnene $\\mathbf{a}_1$ og $\\mathbf{a}_3$.",
+        "solution": "Koeffisientene leses av RREF (pivotrad 1 ↔ $\\mathbf{a}_1$, pivotrad 2 ↔ $\\mathbf{a}_3$):\n\n**a)** Kolonne 2 i RREF er $\\begin{bmatrix}-2\\\\0\\end{bmatrix}$, så $\\mathbf{a}_2=-2\\,\\mathbf{a}_1$.\n\n**b)** Kolonne 4 i RREF er $\\begin{bmatrix}-1\\\\1\\end{bmatrix}$, så $\\mathbf{a}_4=-\\mathbf{a}_1+\\mathbf{a}_3$.\n\n**c)** Kolonne 5 i RREF er $\\begin{bmatrix}1\\\\2\\end{bmatrix}$, så $\\mathbf{a}_5=\\mathbf{a}_1+2\\,\\mathbf{a}_3$.\n\nAlle tre gjelder i $A$ fordi radreduksjon bevarer kolonnerelasjonene.",
+        "hints": [
+          "Koeffisientene til ikke-pivotkolonne $j$ er tallene i kolonne $j$ i RREF, lest mot pivotradene.",
+          "Rad 1 hører til første pivotkolonne, rad 2 til andre pivotkolonne, osv."
+        ]
+      }
+    },
+    {
+      "id": "mat1120-1-1-e5",
+      "type": "exercise",
+      "exercise": {
+        "id": "mat1120-1-1-e5",
+        "number": "5",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "Vedleggets RREF av en matrise $A$ har pivotkolonner 1 og 2, og kolonne 3 i RREF er $\\begin{bmatrix}4\\\\-3\\\\0\\end{bmatrix}$.\n\n**a)** Skriv $\\mathbf{a}_3$ som en lineærkombinasjon av $\\mathbf{a}_1$ og $\\mathbf{a}_2$.\n\n**b)** Kan du avgjøre om denne relasjonen også gjelder mellom kolonnene i $A$ selv, uten å regne mer?",
+        "solution": "**a)** $\\mathbf{a}_3=4\\,\\mathbf{a}_1-3\\,\\mathbf{a}_2$ (koeffisientene lest av RREF-kolonne 3 mot pivotradene 1 og 2).\n\n**b)** Ja. Radreduksjon bevarer alle lineære sammenhenger mellom kolonnene, så relasjonen $\\mathbf{a}_3=4\\,\\mathbf{a}_1-3\\,\\mathbf{a}_2$ gjelder uendret i $A$. Det er nettopp derfor vi kan lese den av vedlegget.",
+        "hints": [
+          "Koeffisientene står ferdig i RREF-kolonnen mot pivotradene.",
+          "Tenk på hva radoperasjoner gjør (og ikke gjør) med sammenhenger mellom kolonner."
+        ]
+      }
+    },
+    {
+      "id": "mat1120-1-1-rep-forutsatt",
+      "type": "text",
+      "content": "## Rask repetisjon: span, uavhengighet og underrom"
+    },
+    {
+      "id": "mat1120-1-1-rep-forutsatt-tekst",
+      "type": "text",
+      "content": "Disse begrepene forutsettes fra MAT1110 og brukes aktivt fra og med [kap. 1.2](/bok/mat1120/mat1120-1-2). Vi repeterer dem kort — de læres ikke fra grunnen her."
+    },
+    {
+      "id": "mat1120-1-1-def-linkomb",
+      "type": "definition",
+      "title": "Lineærkombinasjon",
+      "content": "En vektor på formen $c_1\\mathbf{v}_1+c_2\\mathbf{v}_2+\\dots+c_k\\mathbf{v}_k$ med skalarer $c_i$. Matrise-vektor-produktet $A\\mathbf{x}$ er nettopp en lineærkombinasjon av kolonnene i $A$ med vektene fra $\\mathbf{x}$."
+    },
+    {
+      "id": "mat1120-1-1-def-span",
+      "type": "definition",
+      "title": "Span (utspenning)",
+      "content": "$\\operatorname{Span}\\{\\mathbf{v}_1,\\dots,\\mathbf{v}_k\\}$ er mengden av **alle** lineærkombinasjoner av vektorene $\\mathbf{v}_1,\\dots,\\mathbf{v}_k$. Det er alltid et underrom. At $\\mathbf{b}\\in\\operatorname{Span}\\{\\dots\\}$ betyr at $\\mathbf{b}$ kan skrives som en slik kombinasjon."
+    },
+    {
+      "id": "mat1120-1-1-def-lin-uavh",
+      "type": "definition",
+      "title": "Lineær uavhengighet",
+      "content": "$\\{\\mathbf{v}_1,\\dots,\\mathbf{v}_k\\}$ er lineært **uavhengige** dersom $c_1\\mathbf{v}_1+\\dots+c_k\\mathbf{v}_k=\\mathbf{0}$ **bare** har løsningen $c_1=\\dots=c_k=0$. For kolonnene i en matrise: uavhengige $\\iff$ hver kolonne er en pivotkolonne (ingen frie variabler)."
+    },
+    {
+      "id": "mat1120-1-1-def-lin-avh",
+      "type": "definition",
+      "title": "Lineær avhengighet",
+      "content": "$\\{\\mathbf{v}_1,\\dots,\\mathbf{v}_k\\}$ er lineært **avhengige** dersom minst én av dem kan skrives som en lineærkombinasjon av de andre — likeverdig: $c_1\\mathbf{v}_1+\\dots+c_k\\mathbf{v}_k=\\mathbf{0}$ har en **ikke-triviell** løsning. Hver ikke-pivotkolonne gir en slik avhengighet."
+    },
+    {
+      "id": "mat1120-1-1-def-underrom",
+      "type": "definition",
+      "title": "Underrom",
+      "content": "En delmengde $W$ av et vektorrom er et **underrom** dersom (1) $\\mathbf{0}\\in W$; (2) $W$ er lukket under addisjon ($\\mathbf{u},\\mathbf{v}\\in W\\Rightarrow \\mathbf{u}+\\mathbf{v}\\in W$); (3) $W$ er lukket under skalarmultiplikasjon ($\\mathbf{u}\\in W,\\ c$ skalar $\\Rightarrow c\\mathbf{u}\\in W$). $\\operatorname{Col}A$ og $\\operatorname{Nul}A$ er de to sentrale eksemplene ([kap. 1.2](/bok/mat1120/mat1120-1-2))."
+    },
+    {
+      "id": "mat1120-1-1-e6",
+      "type": "exercise",
+      "exercise": {
+        "id": "mat1120-1-1-e6",
+        "number": "6",
+        "type": "classic",
+        "difficulty": "lett",
+        "task": "Vektorene $\\mathbf{v}_1=\\begin{bmatrix}1\\\\0\\\\2\\end{bmatrix}$, $\\mathbf{v}_2=\\begin{bmatrix}0\\\\1\\\\1\\end{bmatrix}$, $\\mathbf{v}_3=\\begin{bmatrix}2\\\\-1\\\\3\\end{bmatrix}$ er kolonnene i en matrise $A$. Vedlegget gir\n$$\\operatorname{rref}(A)=\\begin{bmatrix}1&0&2\\\\0&1&-1\\\\0&0&0\\end{bmatrix}.$$\n\n**a)** Er $\\{\\mathbf{v}_1,\\mathbf{v}_2,\\mathbf{v}_3\\}$ lineært uavhengige?\n\n**b)** Uttrykk $\\mathbf{v}_3$ ved $\\mathbf{v}_1$ og $\\mathbf{v}_2$.",
+        "solution": "**a)** Nei. Kolonne 3 er ikke en pivotkolonne (den mangler pivot), så det finnes en fri variabel og dermed en ikke-triviell avhengighet. Vektorene er lineært **avhengige**.\n\n**b)** Kolonne 3 i RREF er $\\begin{bmatrix}2\\\\-1\\end{bmatrix}$, så $\\mathbf{v}_3=2\\,\\mathbf{v}_1-\\mathbf{v}_2$. Kontroll: $2\\begin{bmatrix}1\\\\0\\\\2\\end{bmatrix}-\\begin{bmatrix}0\\\\1\\\\1\\end{bmatrix}=\\begin{bmatrix}2\\\\-1\\\\3\\end{bmatrix}=\\mathbf{v}_3$. ✓",
+        "hints": [
+          "Uavhengige $\\iff$ hver kolonne er en pivotkolonne (ingen frie variabler).",
+          "Les koeffisientene til $\\mathbf{v}_3$ av kolonne 3 i RREF."
+        ]
+      }
+    },
+    {
+      "id": "mat1120-1-1-warn-typiske-feil",
+      "type": "warning",
+      "title": "Typiske feil",
+      "content": "- **Radreduserer for hånd** i stedet for å bruke vedlegget. På eksamen er dette bortkastet tid og en unødvendig feilkilde — sitér RREF-en fra vedlegget.\n- **Leser avhengighetsrelasjoner fra feil kolonner** — koeffisientene til ikke-pivotkolonne $j$ er tallene i *kolonne $j$* i RREF, lest mot pivotradene.\n- **Tror relasjonene bare gjelder i RREF, ikke i $A$.** De gjelder i begge; radreduksjon bevarer kolonnesammenhengene. Verifiser gjerne i $A$.\n- **Forveksler pivotkolonne og pivotposisjon.** En pivotposisjon er en plass $(i,j)$; en pivotkolonne er hele kolonne $j$.\n- **Glemmer at RREF er entydig** — hver matrise har nøyaktig én redusert trappeform, så vedlegget er utvetydig."
+    },
+    {
+      "id": "mat1120-1-1-begrepsbank-tekst",
+      "type": "text",
+      "content": "## Begrepsbank til eksamen\n\nHer er kjernebegrepene fra kapitlet samlet i eksamensrettet kortform, sammen med noen støttebegreper fra MAT1110 du bør ha løst i ryggmargen.\n\n*Begrepsbanken er flashcard-/repetisjonsstoff — hopp trygt over ved førstegangslesing; tidsanslaget gjelder kjernestoffet.*"
+    },
+    {
+      "id": "mat1120-1-1-bb-homogent",
+      "type": "definition",
+      "title": "Homogent system $A\\mathbf{x}=\\mathbf{0}$",
+      "content": "Et likningssystem med høyreside $\\mathbf{0}$. Det har alltid minst løsningen $\\mathbf{x}=\\mathbf{0}$ (den trivielle). Løsningsmengden er nullrommet $\\operatorname{Nul}A$ ([kap. 1.2](/bok/mat1120/mat1120-1-2)); ikke-trivielle løsninger finnes nøyaktig når systemet har minst én fri variabel."
+    },
+    {
+      "id": "mat1120-1-1-bb-konsistent",
+      "type": "definition",
+      "title": "Konsistent / inkonsistent system",
+      "content": "$A\\mathbf{x}=\\mathbf{b}$ er **konsistent** om det har minst én løsning, ellers **inkonsistent**. Fra vedlegget: systemet er inkonsistent hvis totalmatrisens RREF har en pivot i den siste (høyreside-) kolonnen. Konsistent $\\iff \\mathbf{b}\\in\\operatorname{Col}A$ ([kap. 1.2](/bok/mat1120/mat1120-1-2))."
+    },
+    {
+      "id": "mat1120-1-1-bb-Ax",
+      "type": "definition",
+      "title": "Matrise-vektor-produktet $A\\mathbf{x}$",
+      "content": "$A\\mathbf{x}=x_1\\mathbf{a}_1+x_2\\mathbf{a}_2+\\dots+x_n\\mathbf{a}_n$: en **lineærkombinasjon av kolonnene** i $A$ med vektene fra $\\mathbf{x}$. Dette er hvorfor $A\\mathbf{x}=\\mathbf{b}$ er løsbar nøyaktig når $\\mathbf{b}$ ligger i kolonnerommet."
+    },
+    {
+      "id": "mat1120-1-1-bb-radop",
+      "type": "definition",
+      "title": "Elementære radoperasjoner",
+      "content": "De tre operasjonene bak radreduksjon: (1) bytte to rader; (2) gange en rad med et tall $\\ne 0$; (3) legge et multiplum av én rad til en annen. De bevarer løsningsmengden til systemet, radrommet og kolonnesammenhengene, men endrer generelt kolonnerommet."
+    },
+    {
+      "id": "mat1120-1-1-bb-nullvektor",
+      "type": "definition",
+      "title": "Nullvektor og nullrad",
+      "content": "**Nullvektoren** $\\mathbf{0}$ har alle komponenter lik null og ligger i ethvert underrom. En **nullrad** i RREF (bare nuller) svarer til en overflødig likning; antall nullrader $=$ antall rader $-$ rang."
+    },
+    {
+      "id": "mat1120-1-1-bb-koeff-total",
+      "type": "definition",
+      "title": "Koeffisientmatrise og totalmatrise",
+      "content": "For systemet $A\\mathbf{x}=\\mathbf{b}$ er $A$ **koeffisientmatrisen** og $[\\,A\\mid\\mathbf{b}\\,]$ **totalmatrisen** (utvidet matrise). For $\\operatorname{Col}/\\operatorname{Nul}/\\operatorname{rang}$ leser du RREF av $A$; for løsbarhet ($\\mathbf{b}\\in\\operatorname{Col}A$) leser du RREF av totalmatrisen."
+    },
+    {
+      "id": "mat1120-1-1-bb-triv-underrom",
+      "type": "definition",
+      "title": "Trivielle underrom",
+      "content": "De to «ytterpunktene»: $\\{\\mathbf{0}\\}$ (bare nullvektoren, dimensjon $0$) og hele rommet $\\mathbb{R}^n$ (dimensjon $n$). Alle andre underrom ligger mellom disse i dimensjon."
+    },
+    {
+      "id": "mat1120-1-1-bb-rref-entydig",
+      "type": "definition",
+      "title": "Entydigheten av RREF",
+      "content": "Hver matrise er radekvivalent med **nøyaktig én** redusert trappeform. Trappeformer (ikke-reduserte) er ikke entydige, men pivot*posisjonene* er de samme uansett hvordan man radreduserer. Derfor kan vedlegget oppgi RREF utvetydig."
+    },
+    {
+      "id": "mat1120-1-1-rep-oppg",
+      "type": "collapsible",
+      "title": "Repetisjonsoppgaver",
+      "buttonText": "Vis repetisjonsoppgaver",
+      "content": [
+        {
+          "id": "mat1120-1-1-rep1",
+          "type": "exercise",
+          "exercise": {
+            "id": "mat1120-1-1-eR1",
+            "number": "R1",
+            "type": "classic",
+            "difficulty": "lett",
+            "task": "Vedlegget gir\n$$\\operatorname{rref}(A)=\\begin{bmatrix}1&4&0&2\\\\0&0&1&-3\\\\0&0&0&0\\end{bmatrix}.$$\nAngi pivotkolonnene, de frie variablene og rangen til $A$.",
+            "solution": "Ledende enere i kolonne 1 og 3 → **pivotkolonner 1 og 3**. Ikke-pivotkolonner 2 og 4 → **frie variabler** $x_2$ og $x_4$. Antall pivoter $=2$, så $\\operatorname{rang}A=2$.",
+            "hints": [
+              "Tell de ledende enerne.",
+              "Rangen er antallet pivoter."
+            ]
+          }
+        },
+        {
+          "id": "mat1120-1-1-rep2",
+          "type": "exercise",
+          "exercise": {
+            "id": "mat1120-1-1-eR2",
+            "number": "R2",
+            "type": "classic",
+            "difficulty": "middels",
+            "task": "Med RREF-en fra R1: skriv kolonne 2 og kolonne 4 i $A$ som lineærkombinasjoner av pivotkolonnene $\\mathbf{a}_1$ og $\\mathbf{a}_3$.",
+            "solution": "Kolonne 2 i RREF er $\\begin{bmatrix}4\\\\0\\end{bmatrix}$ → $\\mathbf{a}_2=4\\,\\mathbf{a}_1$. Kolonne 4 i RREF er $\\begin{bmatrix}2\\\\-3\\end{bmatrix}$ → $\\mathbf{a}_4=2\\,\\mathbf{a}_1-3\\,\\mathbf{a}_3$. Begge gjelder i $A$.",
+            "hints": [
+              "Les koeffisientene av RREF-kolonnen mot pivotradene 1 og 2.",
+              "Relasjonene fra RREF gjelder uendret i $A$."
+            ]
+          }
+        },
+        {
+          "id": "mat1120-1-1-rep3",
+          "type": "exercise",
+          "exercise": {
+            "id": "mat1120-1-1-eR3",
+            "number": "R3",
+            "type": "classic",
+            "difficulty": "lett",
+            "task": "Forklar med én setning hvorfor man på MAT1120-eksamen ikke skal radredusere en $4\\times6$-matrise for hånd.",
+            "solution": "Fordi vedlegget allerede oppgir den reduserte trappeformen — å radredusere selv er tidssluk og en unødvendig feilkilde, og sensor forventer at du **siterer** vedlegget.",
+            "hints": [
+              "Tenk på hva vedlegget er til for."
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": "mat1120-1-1-symbolliste",
+      "type": "collapsible",
+      "title": "Symbol- og formelliste",
+      "buttonText": "Vis symboler og formler",
+      "content": [
+        {
+          "id": "mat1120-1-1-symbolliste-tekst",
+          "type": "text",
+          "content": "## Symbol- og formelliste\n\n*Oppslagsverk — alt her forklares underveis i kapitlet.*\n\n| Symbol | Betydning |\n|---|---|\n| $A$ | Matrise (koeffisientmatrise) |\n| $\\mathbf{a}_j$ | Kolonne nr. $j$ i $A$ |\n| $\\operatorname{rref}(A)$ | Redusert trappeform av $A$ (fra vedlegget) |\n| $\\operatorname{poly}(A)$ | Karakteristisk polynom $\\det(A-\\lambda I)$ (vedlegg, Del 3) |\n| $\\operatorname{eig}(A)$ | Egenverdier av $A$ (vedlegg, Del 3/6) |\n| $[V,\\,D]=\\operatorname{eig}(A)$ | Egenvektorer ($V$) og egenverdier ($D$) fra vedlegget |\n| $\\operatorname{rang}A$ | Rang $=$ antall pivotposisjoner |\n| $\\operatorname{Span}\\{\\dots\\}$ | Mengden av alle lineærkombinasjoner |\n| $A\\mathbf{x}=\\mathbf{0}$ | Homogent system (løsning: $\\operatorname{Nul}A$) |\n| $[\\,A\\mid\\mathbf{b}\\,]$ | Totalmatrise (utvidet matrise) |\n| $\\mathbf{0}$ | Nullvektoren |\n\n**Formler / regler i dette delkapitlet:**\n\n$$A\\mathbf{x}=x_1\\mathbf{a}_1+\\dots+x_n\\mathbf{a}_n$$\nMatrise-vektor-produktet er en lineærkombinasjon av kolonnene i $A$.\n\n$$\\text{(antall pivoter)}+\\text{(antall frie variabler)}=\\text{(antall kolonner)}$$\nKontrollen bak dimensjonsteoremet (utdypes i [kap. 1.2](/bok/mat1120/mat1120-1-2)).\n\n$$\\mathbf{a}_j=\\textstyle\\sum_i r_{ij}\\,\\mathbf{a}_{p_i}$$\nAvhengighetsrelasjon: en ikke-pivotkolonne $\\mathbf{a}_j$ uttrykt ved pivotkolonnene $\\mathbf{a}_{p_i}$, med koeffisienter $r_{ij}$ lest av RREF. Gjelder like mye i $A$ som i RREF."
+        }
+      ]
+    }
+  ],
+  "exercises": []
+}

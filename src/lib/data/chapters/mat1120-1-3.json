@@ -1,0 +1,395 @@
+{
+  "id": "mat1120-1-3",
+  "courseId": "mat1120",
+  "chapterNumber": "1.3",
+  "title": "Row A, lineærkombinasjoner og konstruksjonsvarianter",
+  "description": "Radrommet Row A og dets basis, å skrive ikke-pivotkolonnene eksplisitt som lineærkombinasjoner via avhengighetsrelasjonene, og konstruksjonsvarianten: bygg en matrise B med AB = O og gitt rang ved å plassere Nul A-vektorer som kolonner. Til slutt koordinater relativt en basis som bro til Del 2.",
+  "estimatedMinutes": 50,
+  "competenceGoals": [
+    "finne en basis for Row A som de ikke-null-radene i RREF og forklare hvorfor radrommet bevares av radreduksjon mens kolonnerommet ikke gjør det",
+    "skrive ikke-pivotkolonnene i A eksplisitt som lineærkombinasjoner av Col A-basisen",
+    "konstruere en matrise B med AB = O og gitt rang ved å plassere Nul A-vektorer som kolonner",
+    "bestemme koordinatvektoren [v]_B relativt en ordnet basis i R^n"
+  ],
+  "content": [
+    {
+      "id": "mat1120-1-3-tip",
+      "type": "tip",
+      "title": "Eksamensvinkel",
+      "content": "**Utvidelsene av oppgave 1.** Når du først har $\\operatorname{Col}A$, $\\operatorname{Nul}A$ og rangen fra vedlegget, kommer de tre variantene her ofte som deler av samme oppgave 1: **radrommet $\\operatorname{Row}A$** (~15 %, sett 2022), **eksplisitte lineærkombinasjoner** av kolonnene, og **konstruksjonsvarianten** $AB=O$ (sett 2020). Prioritet: **høyeste** (del av oppgave 1-kjeden).\n\n- Nøkkelkontrast: basis for $\\operatorname{Row}A$ er de **ikke-null-radene i RREF** — her *bruker* du RREF-radene direkte, i motsetning til $\\operatorname{Col}A$ der du måtte tilbake til $A$. Grunnen: radreduksjon bevarer radrommet, men endrer kolonnerommet.\n- For $AB=O$: hver kolonne i $B$ må ligge i $\\operatorname{Nul}A$ — du gjenbruker altså nullromsbasisen fra [kap. 1.2](/bok/mat1120/mat1120-1-2).\n\nKapitlet lukker Del 1s teori og bygger broen til Del 2 med **koordinater** $[\\mathbf{v}]_{\\mathcal{B}}$."
+    },
+    {
+      "id": "mat1120-1-3-forkunnskaper",
+      "type": "text",
+      "content": "**Forkunnskaper:** [Kap. 1.1](/bok/mat1120/mat1120-1-1) (RREF, avhengighetsrelasjoner) og [kap. 1.2](/bok/mat1120/mat1120-1-2) ($\\operatorname{Col}A$, $\\operatorname{Nul}A$, rang, dimensjonsteoremet). Matriseprodukt forutsettes fra *(MAT1110 — forkunnskapsemne, ikke bygget ennå; aktiver `/bok/mat1110/<id>`-lenke når den finnes)*."
+    },
+    {
+      "id": "mat1120-1-3-intro",
+      "type": "text",
+      "content": "Tre siste avlesninger fra samme RREF: **radrommet** $\\operatorname{Row}A$, kolonnene skrevet **eksplisitt som lineærkombinasjoner**, og **konstruksjonen** av en matrise $B$ med $AB=O$. Til slutt introduserer vi **koordinater** relativt en basis — språket som bærer hele Del 2.\n\nKapitlet går i fire løkker (teori → eksempel → oppgave). Vi bruker gjennomgangsmatrisen\n$$A=\\begin{bmatrix}1&2&3&1&0\\\\1&2&4&0&1\\\\2&4&7&1&1\\\\0&0&1&-1&1\\end{bmatrix},\\qquad \\operatorname{rref}(A)=\\begin{bmatrix}1&2&0&4&-3\\\\0&0&1&-1&1\\\\0&0&0&0&0\\\\0&0&0&0&0\\end{bmatrix}\\ \\text{(vedlegg).}$$\nPivotkolonner: **1 og 3**. Frie variabler: $x_2,x_4,x_5$."
+    },
+    {
+      "id": "mat1120-1-3-l1",
+      "type": "text",
+      "content": "## Løkke 1 — Radrommet Row A (~14 min)"
+    },
+    {
+      "id": "mat1120-1-3-l1-teori",
+      "type": "text",
+      "content": "$\\operatorname{Row}A$ er spennet av **radene** i $A$, et underrom av $\\mathbb{R}^n$ ($n=$ antall kolonner). Her er situasjonen motsatt av kolonnerommet: **radreduksjon bevarer radrommet**, fordi hver ny rad er en lineærkombinasjon av de gamle. Derfor er de **ikke-null-radene i RREF** en basis for $\\operatorname{Row}A$ — og denne gangen bruker du RREF-radene direkte.\n\nAntall ikke-null-rader $=$ antall pivoter, så $\\dim\\operatorname{Row}A=\\operatorname{rang}A=\\dim\\operatorname{Col}A$."
+    },
+    {
+      "id": "mat1120-1-3-def-rowA",
+      "type": "definition",
+      "title": "Radrom $\\operatorname{Row}A$",
+      "content": "Spennet av radene i $A$: $\\operatorname{Row}A=\\operatorname{Span}\\{\\text{rader}\\}\\subseteq\\mathbb{R}^n$. Radreduksjon **bevarer** $\\operatorname{Row}A$ (i motsetning til $\\operatorname{Col}A$), så en basis er de ikke-null-radene i RREF. Merk: $\\operatorname{Row}A=\\operatorname{Col}A^{T}$."
+    },
+    {
+      "id": "mat1120-1-3-def-rowA-basis",
+      "type": "definition",
+      "title": "Basis for $\\operatorname{Row}A$ (regelen)",
+      "content": "Basis for $\\operatorname{Row}A=$ de **ikke-null-radene i RREF**. Her brukes RREF-radene *direkte* — motsatt av $\\operatorname{Col}A$, der basisen måtte hentes fra den opprinnelige $A$. Antall $=\\operatorname{rang}A$."
+    },
+    {
+      "id": "mat1120-1-3-def-rangsymmetri",
+      "type": "definition",
+      "title": "$\\dim\\operatorname{Row}A=\\dim\\operatorname{Col}A=\\operatorname{rang}A$",
+      "content": "Radrom og kolonnerom har alltid **samme** dimensjon (rangen), selv om de lever i ulike rom ($\\operatorname{Row}A\\subseteq\\mathbb{R}^n$, $\\operatorname{Col}A\\subseteq\\mathbb{R}^m$). Dette er rangens grunnleggende symmetri, $\\operatorname{rang}A=\\operatorname{rang}A^{T}$."
+    },
+    {
+      "id": "mat1120-1-3-ex-row",
+      "type": "example",
+      "title": "Eksempel 1: Basis for Row A",
+      "problem": "Finn en basis for $\\operatorname{Row}A$ for gjennomgangsmatrisen, og oppgi $\\dim\\operatorname{Row}A$.",
+      "solution": "Fra vedlegget er de ikke-null-radene i RREF nettopp de to øverste. De danner en basis for $\\operatorname{Row}A$:\n$$\\{(1,2,0,4,-3),\\ (0,0,1,-1,1)\\}.$$\nHer tar vi radene **rett fra RREF** (radrommet bevares av radreduksjon). $\\dim\\operatorname{Row}A=2=\\operatorname{rang}A$.\n\n**Kontrast:** for $\\operatorname{Col}A$ måtte vi tilbake til $A$ og ta kolonne 1 og 3 der. For $\\operatorname{Row}A$ er RREF-radene selve svaret — fordi rader og kolonner behandles ulikt av radreduksjon."
+    },
+    {
+      "id": "mat1120-1-3-e1",
+      "type": "exercise",
+      "exercise": {
+        "id": "mat1120-1-3-e1",
+        "number": "1",
+        "type": "classic",
+        "difficulty": "lett",
+        "task": "Vedlegget gir $\\operatorname{rref}(A)=\\begin{bmatrix}1&-2&0&5\\\\0&0&1&2\\\\0&0&0&0\\end{bmatrix}$.\n\n**a)** Finn en basis for $\\operatorname{Row}A$.\n\n**b)** Hva er $\\dim\\operatorname{Row}A$?",
+        "solution": "**a)** De ikke-null-radene i RREF: $\\{(1,-2,0,5),\\ (0,0,1,2)\\}$.\n\n**b)** $\\dim\\operatorname{Row}A=2$ (to ikke-null-rader $=$ rangen).",
+        "hints": [
+          "For Row A bruker du RREF-radene direkte (radrommet bevares).",
+          "Tell de radene i RREF som ikke er nullrader."
+        ]
+      }
+    },
+    {
+      "id": "mat1120-1-3-e2",
+      "type": "exercise",
+      "exercise": {
+        "id": "mat1120-1-3-e2",
+        "number": "2",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "Forklar kort hvorfor man for $\\operatorname{Col}A$ må gå tilbake til $A$, mens man for $\\operatorname{Row}A$ kan bruke RREF-radene direkte.",
+        "solution": "Elementære radoperasjoner er lineærkombinasjoner *av rader*. De endrer derfor ikke spennet av radene — $\\operatorname{Row}A$ bevares, og RREF-radene er en (særlig pen) basis for det. De samme operasjonene blander derimot radene *innad i hver kolonne*, så kolonnevektorene endres og $\\operatorname{Col}A$ er generelt et **annet** rom i RREF enn i $A$. Derfor: RREF-rader gir $\\operatorname{Row}A$; opprinnelige kolonner gir $\\operatorname{Col}A$.",
+        "hints": [
+          "Hva er en radoperasjon uttrykt ved radene?",
+          "Radrommet bevares; kolonnerommet gjør det ikke."
+        ]
+      }
+    },
+    {
+      "id": "mat1120-1-3-l2",
+      "type": "text",
+      "content": "## Løkke 2 — Kolonner som eksplisitte lineærkombinasjoner (~13 min)"
+    },
+    {
+      "id": "mat1120-1-3-l2-teori",
+      "type": "text",
+      "content": "Ofte ber oppgaven deg skrive hver **ikke-pivotkolonne** i $A$ eksplisitt som en lineærkombinasjon av $\\operatorname{Col}A$-basisen. Koeffisientene står ferdig i RREF: tallene i ikke-pivotkolonnen, lest mot pivotradene, er nettopp vektene ([kap. 1.1](/bok/mat1120/mat1120-1-1)). Fordi radreduksjon bevarer kolonnesammenhengene, gjelder relasjonen i $A$."
+    },
+    {
+      "id": "mat1120-1-3-def-eksplisitt",
+      "type": "definition",
+      "title": "Eksplisitt lineærkombinasjon",
+      "content": "En ikke-pivotkolonne $\\mathbf{a}_j$ skrevet ut som $\\mathbf{a}_j=\\sum_i r_{ij}\\,\\mathbf{a}_{p_i}$, der $\\mathbf{a}_{p_i}$ er $\\operatorname{Col}A$-basisvektorene (pivotkolonnene i $A$) og $r_{ij}$ er tallene i kolonne $j$ i RREF. Verifiser gjerne i $A$."
+    },
+    {
+      "id": "mat1120-1-3-ex-linkomb",
+      "type": "example",
+      "title": "Eksempel 2: Kolonner som lineærkombinasjoner",
+      "problem": "$\\operatorname{Col}A$-basisen er $\\mathbf{a}_1=(1,1,2,0)^T$ og $\\mathbf{a}_3=(3,4,7,1)^T$. Skriv kolonne 2, 4 og 5 i $A$ som lineærkombinasjoner av disse.",
+      "solution": "Koeffisientene leses av RREF (pivotrad 1 ↔ $\\mathbf{a}_1$, pivotrad 2 ↔ $\\mathbf{a}_3$):\n\n**a)** Kolonne 2 i RREF er $(2,0)$: $\\mathbf{a}_2=2\\,\\mathbf{a}_1$. Kontroll: $2(1,1,2,0)^T=(2,2,4,0)^T=\\mathbf{a}_2$. ✓\n\n**b)** Kolonne 4 i RREF er $(4,-1)$: $\\mathbf{a}_4=4\\,\\mathbf{a}_1-\\mathbf{a}_3$. Kontroll: $4(1,1,2,0)^T-(3,4,7,1)^T=(1,0,1,-1)^T=\\mathbf{a}_4$. ✓\n\n**c)** Kolonne 5 i RREF er $(-3,1)$: $\\mathbf{a}_5=-3\\,\\mathbf{a}_1+\\mathbf{a}_3$. Kontroll: $-3(1,1,2,0)^T+(3,4,7,1)^T=(0,1,1,1)^T=\\mathbf{a}_5$. ✓"
+    },
+    {
+      "id": "mat1120-1-3-e3",
+      "type": "exercise",
+      "exercise": {
+        "id": "mat1120-1-3-e3",
+        "number": "3",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "Vedlegget gir $\\operatorname{rref}(A)=\\begin{bmatrix}1&-2&0&-1\\\\0&0&1&2\\\\0&0&0&0\\end{bmatrix}$ med $\\operatorname{Col}A$-basis $\\mathbf{a}_1,\\mathbf{a}_3$. Skriv kolonne 2 og 4 i $A$ som lineærkombinasjoner av $\\mathbf{a}_1$ og $\\mathbf{a}_3$.",
+        "solution": "**a)** Kolonne 2 i RREF er $(-2,0)$: $\\mathbf{a}_2=-2\\,\\mathbf{a}_1$.\n\n**b)** Kolonne 4 i RREF er $(-1,2)$: $\\mathbf{a}_4=-\\mathbf{a}_1+2\\,\\mathbf{a}_3$.\n\nBegge gjelder i $A$ fordi radreduksjon bevarer kolonnesammenhengene.",
+        "hints": [
+          "Les koeffisientene av ikke-pivotkolonnen mot pivotradene.",
+          "Rad 1 ↔ a₁, rad 2 ↔ a₃."
+        ]
+      }
+    },
+    {
+      "id": "mat1120-1-3-l3",
+      "type": "text",
+      "content": "## Løkke 3 — Konstruksjonsvarianten: AB = O (~15 min)"
+    },
+    {
+      "id": "mat1120-1-3-l3-teori",
+      "type": "text",
+      "content": "En egen sjanger (sett 2020) ber deg **konstruere** en matrise $B\\ne O$ med $AB=O$ og en foreskrevet rang. Nøkkelen: $AB$ har kolonnene $A\\mathbf{b}_1,A\\mathbf{b}_2,\\dots$ (der $\\mathbf{b}_j$ er kolonnene i $B$). At $AB=O$ betyr $A\\mathbf{b}_j=\\mathbf{0}$ for hver $j$ — altså at **hver kolonne i $B$ ligger i $\\operatorname{Nul}A$**.\n\nSå oppskriften er: plukk vektorer fra $\\operatorname{Nul}A$ og sett dem som kolonner i $B$. Vil du at $\\operatorname{rang}B=k$, velger du $k$ lineært uavhengige nullromsvektorer (mulig så lenge $k\\le\\dim\\operatorname{Nul}A$). Generelt gjelder også $\\operatorname{rang}(AB)\\le\\min(\\operatorname{rang}A,\\operatorname{rang}B)$."
+    },
+    {
+      "id": "mat1120-1-3-def-ABO",
+      "type": "definition",
+      "title": "Konstruksjonen $AB=O$",
+      "content": "$AB=O$ $\\iff$ hver kolonne i $B$ ligger i $\\operatorname{Nul}A$ (fordi kolonne $j$ i $AB$ er $A\\mathbf{b}_j$). For å bygge et slikt $B\\ne O$ med $\\operatorname{rang}B=k$: velg $k$ lineært uavhengige vektorer fra $\\operatorname{Nul}A$ som kolonner. Krever $k\\le\\dim\\operatorname{Nul}A$."
+    },
+    {
+      "id": "mat1120-1-3-def-rangprodukt",
+      "type": "definition",
+      "title": "$\\operatorname{rang}(AB)\\le\\min(\\operatorname{rang}A,\\operatorname{rang}B)$",
+      "content": "Rangen til et produkt overstiger aldri rangen til noen av faktorene. Derfor kan $AB=O$ (rang $0$) godt ha $B\\ne O$: kolonnene i $B$ trenger bare ligge i $\\operatorname{Nul}A$. Kolonne $j$ i $AB$ er $A\\mathbf{b}_j$, en lineærkombinasjon av kolonnene i $A$."
+    },
+    {
+      "id": "mat1120-1-3-ex-ABO",
+      "type": "example",
+      "title": "Eksempel 3: Konstruer B med AB = O",
+      "problem": "La $A=\\begin{bmatrix}1&2&-1&3\\\\2&4&-1&7\\\\-1&-2&0&-4\\end{bmatrix}$ med vedlegg $\\operatorname{rref}(A)=\\begin{bmatrix}1&2&0&4\\\\0&0&1&1\\\\0&0&0&0\\end{bmatrix}$. Konstruer en $4\\times2$-matrise $B\\ne O$ med $AB=O$ og $\\operatorname{rang}B=2$.",
+      "solution": "Fra vedlegget er pivotkolonnene 1 og 3, frie variabler $x_2,x_4$. Nullromslikningene: $x_1=-2x_2-4x_4$, $x_3=-x_4$.\n\n**Spesielle løsninger:** $x_2=1$ gir $\\mathbf{u}_1=(-2,1,0,0)^T$; $x_4=1$ gir $\\mathbf{u}_2=(-4,0,-1,1)^T$. Disse er en basis for $\\operatorname{Nul}A$ ($\\dim\\operatorname{Nul}A=2$).\n\nSett dem som kolonner i $B$:\n$$B=\\begin{bmatrix}-2&-4\\\\1&0\\\\0&-1\\\\0&1\\end{bmatrix}.$$\nDa er $A\\mathbf{u}_1=\\mathbf{0}$ og $A\\mathbf{u}_2=\\mathbf{0}$, så $AB=O$. Kolonnene $\\mathbf{u}_1,\\mathbf{u}_2$ er uavhengige, så $\\operatorname{rang}B=2$. ✓\n\n**Merk:** $\\operatorname{rang}B=2=\\dim\\operatorname{Nul}A$ er størst mulig her — vi kan ikke få $\\operatorname{rang}B=3$, for $\\operatorname{Nul}A$ har bare dimensjon 2."
+    },
+    {
+      "id": "mat1120-1-3-e4",
+      "type": "exercise",
+      "exercise": {
+        "id": "mat1120-1-3-e4",
+        "number": "4",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "Med samme $A$ som i Eksempel 3: konstruer en $4\\times1$-matrise (kolonnevektor) $\\mathbf{b}\\ne\\mathbf{0}$ med $A\\mathbf{b}=\\mathbf{0}$, og oppgi $\\operatorname{rang}$ til den.",
+        "solution": "Enhver ikke-null-vektor i $\\operatorname{Nul}A$ duger. Ta f.eks. $\\mathbf{b}=(-2,1,0,0)^T$ (den første spesielle løsningen). Da er $A\\mathbf{b}=\\mathbf{0}$, og $\\operatorname{rang}$ av en $4\\times1$-matrise ulik null er $1$.",
+        "hints": [
+          "Hver kolonne i B må ligge i Nul A.",
+          "Bruk en av de spesielle løsningene fra kap. 1.2."
+        ]
+      }
+    },
+    {
+      "id": "mat1120-1-3-e5",
+      "type": "exercise",
+      "exercise": {
+        "id": "mat1120-1-3-e5",
+        "number": "5",
+        "type": "classic",
+        "difficulty": "vanskelig",
+        "task": "En $3\\times5$-matrise $A$ har $\\operatorname{rang}A=2$.\n\n**a)** Hva er den største rangen en matrise $B$ kan ha dersom $AB=O$?\n\n**b)** Hvilke dimensjoner må $B$ ha for at produktet $AB$ skal være definert?",
+        "solution": "**a)** Kolonnene i $B$ må ligge i $\\operatorname{Nul}A$, og $\\dim\\operatorname{Nul}A=5-2=3$ (dimensjonsteoremet). Største mulige $\\operatorname{rang}B$ er derfor $3$ (velg de tre nullromsbasisvektorene som kolonner).\n\n**b)** $A$ er $3\\times5$, så $B$ må ha $5$ rader for at $AB$ skal være definert: $B$ er $5\\times p$ for et vilkårlig antall kolonner $p$.",
+        "hints": [
+          "Kolonnene i B ligger i Nul A; bruk dimensjonsteoremet på Nul A.",
+          "For AB må antall rader i B = antall kolonner i A."
+        ]
+      }
+    },
+    {
+      "id": "mat1120-1-3-l4",
+      "type": "text",
+      "content": "## Løkke 4 — Koordinater relativt en basis (bro til Del 2) (~10 min)"
+    },
+    {
+      "id": "mat1120-1-3-l4-teori",
+      "type": "text",
+      "content": "Siste byggekloss i Del 1 er **koordinater**. Er $\\mathcal{B}=\\{\\mathbf{b}_1,\\dots,\\mathbf{b}_k\\}$ en basis for et underrom $W$, kan hver $\\mathbf{v}\\in W$ skrives **entydig** som $\\mathbf{v}=c_1\\mathbf{b}_1+\\dots+c_k\\mathbf{b}_k$. Vektene samles i **koordinatvektoren** $[\\mathbf{v}]_{\\mathcal{B}}=(c_1,\\dots,c_k)^T$. Dette er språket hele Del 2 er skrevet i: å bytte til koordinater gjør abstrakte problemer om til vanlig regning i $\\mathbb{R}^k$."
+    },
+    {
+      "id": "mat1120-1-3-def-koordinatvektor",
+      "type": "definition",
+      "title": "Koordinatvektor $[\\mathbf{v}]_{\\mathcal{B}}$",
+      "content": "For en **ordnet** basis $\\mathcal{B}=\\{\\mathbf{b}_1,\\dots,\\mathbf{b}_k\\}$ og $\\mathbf{v}=c_1\\mathbf{b}_1+\\dots+c_k\\mathbf{b}_k$ er $[\\mathbf{v}]_{\\mathcal{B}}=(c_1,\\dots,c_k)^T$ koordinatvektoren. Rekkefølgen teller (basisen er ordnet). Utvikles fullt i [kap. 2.3](/bok/mat1120/mat1120-2-3)."
+    },
+    {
+      "id": "mat1120-1-3-def-entydig-koord",
+      "type": "definition",
+      "title": "Entydighet av koordinater",
+      "content": "Gitt en fast basis $\\mathcal{B}$ har hver vektor **nøyaktig én** koordinatvektor. Det følger av at basisvektorene er uavhengige: hadde $\\mathbf{v}$ to ulike framstillinger, ville differansen gi en ikke-triviell lineærkombinasjon lik $\\mathbf{0}$ — umulig for en basis."
+    },
+    {
+      "id": "mat1120-1-3-ex-koord",
+      "type": "example",
+      "title": "Eksempel 4: Koordinater relativt en basis",
+      "problem": "La $\\mathcal{B}=\\{\\mathbf{b}_1,\\mathbf{b}_2\\}$ med $\\mathbf{b}_1=(1,1)^T,\\ \\mathbf{b}_2=(1,-1)^T$ (en basis for $\\mathbb{R}^2$). Finn $[\\mathbf{v}]_{\\mathcal{B}}$ for $\\mathbf{v}=(4,2)^T$.",
+      "solution": "Vi løser $c_1\\mathbf{b}_1+c_2\\mathbf{b}_2=\\mathbf{v}$, altså\n$$c_1+c_2=4,\\qquad c_1-c_2=2.$$\nAdderer vi likningene: $2c_1=6\\Rightarrow c_1=3$; da $c_2=1$. Altså\n$$[\\mathbf{v}]_{\\mathcal{B}}=\\begin{bmatrix}3\\\\1\\end{bmatrix}.$$\nKontroll: $3(1,1)^T+1(1,-1)^T=(4,2)^T=\\mathbf{v}$. ✓ Koordinatene er entydige fordi $\\mathcal{B}$ er en basis."
+    },
+    {
+      "id": "mat1120-1-3-e6",
+      "type": "exercise",
+      "exercise": {
+        "id": "mat1120-1-3-e6",
+        "number": "6",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "Med samme basis $\\mathcal{B}=\\{(1,1)^T,(1,-1)^T\\}$: finn $[\\mathbf{w}]_{\\mathcal{B}}$ for $\\mathbf{w}=(2,6)^T$.",
+        "solution": "Løs $c_1+c_2=2$, $c_1-c_2=6$. Addisjon: $2c_1=8\\Rightarrow c_1=4$, så $c_2=-2$. Altså $[\\mathbf{w}]_{\\mathcal{B}}=(4,-2)^T$. Kontroll: $4(1,1)^T-2(1,-1)^T=(2,6)^T$. ✓",
+        "hints": [
+          "Sett opp c₁b₁ + c₂b₂ = w som et 2×2-system.",
+          "Legg sammen likningene for å eliminere c₂."
+        ]
+      }
+    },
+    {
+      "id": "mat1120-1-3-warn",
+      "type": "warning",
+      "title": "Typiske feil",
+      "content": "- **Behandler rader og kolonner likt:** riktig å ta $\\operatorname{Row}A$-basis fra RREF-radene, men $\\operatorname{Col}A$-basis må tas fra **opprinnelige** kolonner i $A$. Forstå *hvorfor*: radrommet bevares, kolonnerommet ikke.\n- **Feil koeffisienter i lineærkombinasjonene** — les tallene i ikke-pivotkolonnen mot pivotradene, i riktig rekkefølge.\n- **Plasserer ikke $\\operatorname{Nul}A$-vektorer som kolonner i $B$** ved $AB=O$; setter dem f.eks. som rader, eller bruker $\\operatorname{Col}A$-vektorer.\n- **Krever for høy rang på $B$:** $\\operatorname{rang}B\\le\\dim\\operatorname{Nul}A$ — du kan ikke få flere uavhengige nullromsvektorer enn nulliteten tillater.\n- **Feil rekkefølge på koordinatene:** basisen er *ordnet*, så $[\\mathbf{v}]_{\\mathcal{B}}$ avhenger av rekkefølgen på basisvektorene."
+    },
+    {
+      "id": "mat1120-1-3-bb-tekst",
+      "type": "text",
+      "content": "## Begrepsbank til eksamen\n\nKjernebegrepene fra kapitlet i eksamensrettet kortform.\n\n*Begrepsbanken er flashcard-/repetisjonsstoff — hopp trygt over ved førstegangslesing; tidsanslaget gjelder kjernestoffet.*"
+    },
+    {
+      "id": "mat1120-1-3-bb-transponert",
+      "type": "definition",
+      "title": "Transponert $A^{T}$",
+      "content": "$A^{T}$ har rader og kolonner byttet om. Radene i $A$ blir kolonnene i $A^{T}$, så $\\operatorname{Row}A=\\operatorname{Col}A^{T}$ og $\\operatorname{rang}A=\\operatorname{rang}A^{T}$. Nyttig når en oppgave om radrommet lettere løses som et kolonnromsspørsmål for $A^{T}$."
+    },
+    {
+      "id": "mat1120-1-3-bb-rad-kol-bevaring",
+      "type": "definition",
+      "title": "Hva radreduksjon bevarer",
+      "content": "Radoperasjoner bevarer **radrommet** $\\operatorname{Row}A$ og **kolonnesammenhengene** (avhengighetsrelasjonene), men endrer generelt **kolonnerommet** $\\operatorname{Col}A$. Derav de to ulike basisreglene: RREF-rader for $\\operatorname{Row}A$, opprinnelige kolonner for $\\operatorname{Col}A$."
+    },
+    {
+      "id": "mat1120-1-3-bb-matriseprodukt-kol",
+      "type": "definition",
+      "title": "Matriseprodukt kolonnevis",
+      "content": "Kolonne $j$ i $AB$ er $A\\mathbf{b}_j$, altså $A$ anvendt på kolonne $j$ i $B$. Dette er hvorfor $AB=O$ betyr $A\\mathbf{b}_j=\\mathbf{0}$ for hver kolonne — grunnlaget for $AB=O$-konstruksjonen."
+    },
+    {
+      "id": "mat1120-1-3-bb-ordnet-basis",
+      "type": "definition",
+      "title": "Ordnet basis",
+      "content": "En basis der rekkefølgen på vektorene er fastlagt. Koordinatvektoren $[\\mathbf{v}]_{\\mathcal{B}}$ er bare veldefinert for en ordnet basis, siden komponent $i$ er vekten foran $\\mathbf{b}_i$."
+    },
+    {
+      "id": "mat1120-1-3-bb-standardbasis",
+      "type": "definition",
+      "title": "Standardbasis $\\{\\mathbf{e}_1,\\dots,\\mathbf{e}_n\\}$",
+      "content": "Basisen for $\\mathbb{R}^n$ der $\\mathbf{e}_i$ har $1$ på plass $i$ og $0$ ellers. Relativt standardbasisen er koordinatvektoren lik vektoren selv: $[\\mathbf{v}]_{\\mathcal{E}}=\\mathbf{v}$. Andre baser gir andre koordinater."
+    },
+    {
+      "id": "mat1120-1-3-bb-orto-row-nul",
+      "type": "definition",
+      "title": "$\\operatorname{Row}A$ og $\\operatorname{Nul}A$",
+      "content": "$\\operatorname{Nul}A$ består nettopp av vektorene som står vinkelrett på alle rader i $A$ (siden $A\\mathbf{x}=\\mathbf{0}$ betyr rad$\\cdot\\mathbf{x}=0$ for hver rad). $\\operatorname{Row}A$ og $\\operatorname{Nul}A$ er ortogonalkomplementer i $\\mathbb{R}^n$; utdypes i Del 4–5."
+    },
+    {
+      "id": "mat1120-1-3-bb-dimsum-row",
+      "type": "definition",
+      "title": "Dimensjonsteorem via radrommet",
+      "content": "Siden $\\dim\\operatorname{Row}A=\\operatorname{rang}A$, kan dimensjonsteoremet også leses: $\\dim\\operatorname{Row}A+\\dim\\operatorname{Nul}A=n$. Radrom og nullrom deler $\\mathbb{R}^n$ mellom seg."
+    },
+    {
+      "id": "mat1120-1-3-bb-triviell-ABO",
+      "type": "definition",
+      "title": "Hvorfor $AB=O$ ikke tvinger $B=O$",
+      "content": "$AB=O$ betyr bare at kolonnene i $B$ ligger i $\\operatorname{Nul}A$. Har $A$ et ikke-trivielt nullrom, finnes $B\\ne O$ med $AB=O$. (For invertible $A$ er $\\operatorname{Nul}A=\\{\\mathbf{0}\\}$, og da må $B=O$.)"
+    },
+    {
+      "id": "mat1120-1-3-bb-nullmatrise",
+      "type": "definition",
+      "title": "Nullmatrisen $O$",
+      "content": "Matrisen der alle oppføringene er $0$. Den har rang $0$, og $\\operatorname{Col}O=\\{\\mathbf{0}\\}$. I $AB=O$ er $O$ nullmatrisen av samme størrelse som produktet $AB$."
+    },
+    {
+      "id": "mat1120-1-3-bb-radrang-kolrang",
+      "type": "definition",
+      "title": "Radrang $=$ kolonnerang",
+      "content": "Antall lineært uavhengige rader $=$ antall lineært uavhengige kolonner $=\\operatorname{rang}A$. Dette er den samme kjensgjerningen som $\\operatorname{rang}A=\\operatorname{rang}A^{T}$, sett fra rad- og kolonnesiden samtidig."
+    },
+    {
+      "id": "mat1120-1-3-bb-koordinatavbildning",
+      "type": "definition",
+      "title": "Koordinatavbildningen (forvarsel)",
+      "content": "Avbildningen $\\mathbf{v}\\mapsto[\\mathbf{v}]_{\\mathcal{B}}$ oversetter vektorer i $W$ til koordinatvektorer i $\\mathbb{R}^k$. Den er lineær og bijektiv (en isomorfi) — derfor kan uavhengighet, span og dimensjon regnes i koordinater. Bæresøylen i [kap. 2.3](/bok/mat1120/mat1120-2-3)."
+    },
+    {
+      "id": "mat1120-1-3-bb-uavhengige-rader",
+      "type": "definition",
+      "title": "Uavhengige rader fra RREF",
+      "content": "De ikke-null-radene i RREF er automatisk lineært uavhengige (hver har en ledende ener der de andre har $0$). Derfor er de ikke bare en utspennende mengde for $\\operatorname{Row}A$, men en ekte basis."
+    },
+    {
+      "id": "mat1120-1-3-rep",
+      "type": "collapsible",
+      "title": "Repetisjonsoppgaver",
+      "buttonText": "Vis repetisjonsoppgaver",
+      "content": [
+        {
+          "id": "mat1120-1-3-r1",
+          "type": "exercise",
+          "exercise": {
+            "id": "mat1120-1-3-eR1",
+            "number": "R1",
+            "type": "classic",
+            "difficulty": "lett",
+            "task": "(Fra kap. 1.2) Vedlegget gir $\\operatorname{rref}(A)=\\begin{bmatrix}1&0&2\\\\0&1&-1\\\\0&0&0\\end{bmatrix}$ for en $3\\times3$-matrise. Hva er $\\operatorname{rang}A$, og hva er $\\dim\\operatorname{Row}A$?",
+            "solution": "To pivoter, så $\\operatorname{rang}A=2$. Radrommet har samme dimensjon: $\\dim\\operatorname{Row}A=2$ (de to ikke-null-radene i RREF).",
+            "hints": [
+              "dim Row A = rang A."
+            ]
+          }
+        },
+        {
+          "id": "mat1120-1-3-r2",
+          "type": "exercise",
+          "exercise": {
+            "id": "mat1120-1-3-eR2",
+            "number": "R2",
+            "type": "classic",
+            "difficulty": "middels",
+            "task": "En $4\\times4$-matrise $A$ er invertibel. Kan det finnes en matrise $B\\ne O$ med $AB=O$? Begrunn.",
+            "solution": "Nei. $AB=O$ krever at hver kolonne i $B$ ligger i $\\operatorname{Nul}A$. For en invertibel matrise er $\\operatorname{Nul}A=\\{\\mathbf{0}\\}$, så alle kolonnene i $B$ må være $\\mathbf{0}$, altså $B=O$.",
+            "hints": [
+              "Kolonnene i B må ligge i Nul A.",
+              "Hva er Nul A for en invertibel matrise?"
+            ]
+          }
+        },
+        {
+          "id": "mat1120-1-3-r3",
+          "type": "exercise",
+          "exercise": {
+            "id": "mat1120-1-3-eR3",
+            "number": "R3",
+            "type": "classic",
+            "difficulty": "lett",
+            "task": "(Fra kap. 1.1) Skriv med én setning hvorfor $\\operatorname{Row}A$-basis tas fra RREF, mens $\\operatorname{Col}A$-basis tas fra $A$.",
+            "solution": "Fordi radoperasjoner bevarer radrommet (RREF-radene er da en basis for $\\operatorname{Row}A$), men endrer kolonnerommet (så $\\operatorname{Col}A$-basisen må hentes fra de opprinnelige kolonnene i $A$).",
+            "hints": [
+              "Radrom bevares, kolonnerom ikke."
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": "mat1120-1-3-symbol",
+      "type": "collapsible",
+      "title": "Symbol- og formelliste",
+      "buttonText": "Vis symboler og formler",
+      "content": [
+        {
+          "id": "mat1120-1-3-symbol-tekst",
+          "type": "text",
+          "content": "## Symbol- og formelliste\n\n*Oppslagsverk — alt her forklares underveis i kapitlet.*\n\n| Symbol | Betydning |\n|---|---|\n| $\\operatorname{Row}A$ | Radrom $=\\operatorname{Span}\\{\\text{radene}\\}\\subseteq\\mathbb{R}^n$ |\n| $A^{T}$ | Transponert; $\\operatorname{Row}A=\\operatorname{Col}A^{T}$ |\n| $\\mathbf{a}_j$ | Kolonne $j$ i $A$ |\n| $\\mathbf{b}_j$ | Kolonne $j$ i $B$ |\n| $O$ | Nullmatrisen |\n| $[\\mathbf{v}]_{\\mathcal{B}}$ | Koordinatvektor relativt ordnet basis $\\mathcal{B}$ |\n| $\\mathbf{e}_i$ | Standardbasisvektor ($1$ på plass $i$) |\n\n**Formler / regler i dette delkapitlet:**\n\n$$\\dim\\operatorname{Row}A=\\dim\\operatorname{Col}A=\\operatorname{rang}A$$\nRangens symmetri: radrom og kolonnerom har samme dimensjon.\n\n$$\\text{Basis for }\\operatorname{Row}A=\\text{ikke-null-radene i RREF}$$\nMotsatt av $\\operatorname{Col}A$: her brukes RREF-radene direkte.\n\n$$AB=O\\iff A\\mathbf{b}_j=\\mathbf{0}\\ \\text{for hver kolonne }\\mathbf{b}_j\\text{ i }B$$\nKolonnene i $B$ ligger i $\\operatorname{Nul}A$; $\\operatorname{rang}B\\le\\dim\\operatorname{Nul}A$.\n\n$$\\operatorname{rang}(AB)\\le\\min(\\operatorname{rang}A,\\operatorname{rang}B)$$\nRangen til et produkt overstiger ikke faktorenes rang.\n\n$$\\mathbf{v}=c_1\\mathbf{b}_1+\\dots+c_k\\mathbf{b}_k\\ \\Rightarrow\\ [\\mathbf{v}]_{\\mathcal{B}}=(c_1,\\dots,c_k)^T$$\nKoordinatvektoren relativt en ordnet basis (entydig)."
+        }
+      ]
+    }
+  ],
+  "exercises": []
+}
