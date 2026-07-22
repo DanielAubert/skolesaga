@@ -1,0 +1,202 @@
+[
+  {
+    "question": "Hva er forskjellen på det KI for forventet respons og prediksjonsintervallet skal fange?",
+    "options": [
+      "KI fanger parameteren $\\beta_0+\\beta_1x_0$; PI fanger en ny stokastisk enkeltobservasjon",
+      "KI fanger en ny enkeltobservasjon; PI fanger gjennomsnittslinja i det aktuelle punktet",
+      "KI fanger $\\hat y_0$; PI fanger residualet til den nye observasjonen",
+      "KI fanger hele regresjonslinja; PI fanger bare stigningstallet"
+    ],
+    "explanation": "Forventet respons er en fast parameter; en ny observasjon er stokastisk og trenger prediksjonsintervall."
+  },
+  {
+    "question": "Hva er formelen for 95 %-prediksjonsintervallet ved $x_0$ i enkel regresjon?",
+    "options": [
+      "$\\hat y_0\\pm t_{n-2,\\,0{,}025}\\,\\hat\\sigma\\sqrt{1+\\frac1n+\\frac{(x_0-\\bar x)^2}{S_{xx}}}$",
+      "$\\hat y_0\\pm t_{n-2,\\,0{,}025}\\,\\hat\\sigma\\,\\sqrt{\\frac{1}{n}+\\frac{(x_0-\\bar x)^2}{S_{xx}}}$",
+      "$\\hat y_0\\pm z_{0{,}025}\\,\\hat\\sigma\\sqrt{1+\\frac1n+\\frac{(x_0-\\bar x)^2}{S_{xx}}}$",
+      "$\\hat y_0\\pm t_{n-1,\\,0{,}025}\\,\\hat\\sigma\\sqrt{1+\\frac{(x_0-\\bar x)^2}{S_{xx}}}$"
+    ],
+    "explanation": "PI har «$1+$» under rota og t-kvantil med $n-2$ frihetsgrader; uten «$1+$» er det KI-et."
+  },
+  {
+    "question": "Hvor kommer «$1+$» under rota i prediksjonsintervallet fra?",
+    "options": [
+      "Den nye observasjonens eget feilledd $\\varepsilon_0$ med varians $\\sigma^2$",
+      "Usikkerheten i konstantleddet $\\hat\\beta_0$ som alltid bidrar med $\\sigma^2$",
+      "Korreksjonen for at $\\hat\\sigma$ er estimert og ikke kjent",
+      "Avrundingsfeilen i punktprediksjonen $\\hat y_0$"
+    ],
+    "explanation": "$V(Y_0-\\hat Y_0)=V(Y_0)+V(\\hat Y_0)$: den nye målingen spres selv $\\sigma^2$ rundt linja."
+  },
+  {
+    "question": "Hva er $V(\\hat Y_0)$ for den tilpassede verdien i $x_0$?",
+    "options": [
+      "$\\sigma^2\\bigl(\\frac1n+\\frac{(x_0-\\bar x)^2}{S_{xx}}\\bigr)$",
+      "$\\sigma^2\\bigl(1+\\frac1n+\\frac{(x_0-\\bar x)^2}{S_{xx}}\\bigr)$",
+      "$\\frac{\\sigma^2}{n}$ uavhengig av $x_0$",
+      "$\\sigma^2\\frac{(x_0-\\bar x)^2}{S_{xx}}$ uten nivåleddet"
+    ],
+    "explanation": "Nivåledd $\\sigma^2/n$ pluss helningsledd $(x_0-\\bar x)^2\\sigma^2/S_{xx}$ — uten enkeltobservasjonens støy."
+  },
+  {
+    "question": "Hvor er begge intervallene smalest?",
+    "options": [
+      "Ved $x_0=\\bar x$ — der forsvinner helningsleddet",
+      "Ved $x_0=0$ — der er konstantleddet eksakt kjent",
+      "Ved største observerte $x$ — der er mest data",
+      "Bredden er konstant over hele dataområdet"
+    ],
+    "explanation": "Helningsusikkerheten vipper linja om tyngdepunktet; i $\\bar x$ gjenstår bare nivåusikkerheten."
+  },
+  {
+    "question": "Hvorfor er prediksjonsintervallet alltid bredere enn KI-et ved samme $x_0$ og nivå?",
+    "options": [
+      "Uttrykket under rota er større med «$1+$», alt annet likt",
+      "Prediksjonsintervallet bruker en større t-kvantil enn KI-et",
+      "KI-et bruker $\\hat\\sigma$ mens prediksjonsintervallet bruker $\\sigma$",
+      "Prediksjonsintervallet har færre frihetsgrader enn KI-et"
+    ],
+    "explanation": "Samme kvantil, samme $\\hat\\sigma$ — bare «$1+$» skiller, og det gjør PI-et bredere overalt."
+  },
+  {
+    "question": "Hva skjer med de to intervallene når $n\\to\\infty$ (og $S_{xx}\\to\\infty$)?",
+    "options": [
+      "KI-bredden går mot null; PI-halvbredden mot $z_{\\alpha/2}\\,\\sigma$",
+      "Begge bredder går mot null når linja blir kjent eksakt",
+      "Begge stabiliserer seg på $z_{\\alpha/2}\\,\\sigma$ som felles grense",
+      "KI-bredden går mot $z_{\\alpha/2}\\,\\sigma$; PI-bredden mot null"
+    ],
+    "explanation": "Parameteren læres eksakt (KI → 0), men enkeltobservasjonens støy $\\sigma$ er irreduserbar (PI-gulv)."
+  },
+  {
+    "question": "Hvilke frihetsgrader har t-kvantilen i begge intervallene (enkel regresjon)?",
+    "options": [
+      "$n-2$ — de følger $\\hat\\sigma$ fra regresjonen",
+      "$n-1$ — som for et vanlig gjennomsnittsintervall",
+      "$n$ — prediksjon binder ingen frihetsgrader",
+      "$n-2$ for KI, men $n-1$ for prediksjonsintervallet"
+    ],
+    "explanation": "Frihetsgradene følger variansestimatoren $\\hat\\sigma^2=\\text{SSE}/(n-2)$ — samme i begge intervallene."
+  },
+  {
+    "question": "Hva er ekstrapolering?",
+    "options": [
+      "Å bruke modellen for $x_0$ utenfor de observerte $x$-verdiene",
+      "Å predikere responsen for en $x_0$-verdi som allerede finnes i datasettet",
+      "Å utvide modellen med flere prediktorer enn nødvendig",
+      "Å gjenta prediksjonen for mange $x_0$-verdier samtidig"
+    ],
+    "explanation": "Utenfor dataområdet mangler både presisjon (bred rot) og belegg for linearitet — derfor advarselen."
+  },
+  {
+    "question": "Hvorfor er ekstrapolering «dobbelt farlig»?",
+    "options": [
+      "Intervallet eksploderer i bredde, og lineariteten er ubegrunnet utenfor dataene",
+      "Frihetsgradene synker kraftig, og t-kvantilen blir udefinert utenfor dataområdet",
+      "$\\hat\\sigma$ overvurderes, og $S_{xx}$ kan bli negativ langt ute",
+      "Punktprediksjonen skifter fortegn, og residualene blir korrelerte"
+    ],
+    "explanation": "Både statistisk (helningsleddet vokser kvadratisk) og modellmessig (formen der ute er ren gjetning)."
+  },
+  {
+    "question": "«Hva blir strømforbruket i akkurat denne boligen på 120 m²?» Hvilket intervall?",
+    "options": [
+      "Prediksjonsintervall — spørsmålet gjelder én ny enkeltobservasjon",
+      "KI for forventet respons — spørsmålet gjelder boligtypens gjennomsnittsnivå",
+      "KI for $\\beta_1$ — spørsmålet gjelder arealeffekten",
+      "Ingen av dem — enkeltboliger kan ikke intervallestimeres"
+    ],
+    "explanation": "Nøkkelord «akkurat denne»: en stokastisk enkeltmåling krever prediksjonsintervall."
+  },
+  {
+    "question": "«Hva er gjennomsnittlig avling ved gjødselmengde 8?» Hvilket intervall?",
+    "options": [
+      "KI for forventet respons $\\mu_{Y\\mid 8}$ — gjennomsnittet er en parameter",
+      "Prediksjonsintervall — hver enkelt avlingsmåling er jo alltid en enkeltobservasjon",
+      "KI for $\\beta_0$ — konstantleddet beskriver nivået",
+      "Et tosidig testintervall for $\\hat y_0$"
+    ],
+    "explanation": "Nøkkelord «gjennomsnittlig»: den sanne snittresponsen er en fast parameter og får et KI."
+  },
+  {
+    "question": "Hva betyr 95 % for et prediksjonsintervall?",
+    "options": [
+      "Den nye observasjonen havner i intervallet med sannsynlighet 0,95",
+      "95 % av de gamle observasjonene ligger i intervallet",
+      "Sannsynligheten er 0,95 for at snittlinja ligger i intervallet",
+      "95 % av alle mulige regresjonslinjer passerer gjennom intervallet"
+    ],
+    "explanation": "PI er kalibrert mot den *neste enkeltmålingen* — ikke mot parameteren og ikke mot gamle data."
+  },
+  {
+    "question": "Punktprediksjonen $\\hat y_0$ for en ny observasjon og punktestimatet for forventet respons er …",
+    "options": [
+      "identiske — begge er $\\hat\\beta_0+\\hat\\beta_1x_0$; bare usikkerheten skiller",
+      "forskjellige — prediksjonen legger til et eget anslag for støyleddet $\\varepsilon_0$",
+      "forskjellige — forventningen bruker $\\bar y$ i stedet for linja",
+      "identiske bare når $x_0=\\bar x$, ellers ulike"
+    ],
+    "explanation": "Beste gjetning på $\\varepsilon_0$ er null, så punktsvarene sammenfaller; intervallene gjør ikke det."
+  },
+  {
+    "question": "Med $\\hat\\sigma=1{,}095$, $n=5$, $\\bar x=30$, $S_{xx}=1000$: hva er uttrykket under rota i PI ved $x_0=35$?",
+    "options": [
+      "$1+0{,}2+0{,}025=1{,}225$",
+      "$0{,}2+0{,}025=0{,}225$",
+      "$1+0{,}2+0{,}25=1{,}45$",
+      "$1+0{,}0025+0{,}2=1{,}2025$"
+    ],
+    "explanation": "$1+1/n+(x_0-\\bar x)^2/S_{xx}=1+1/5+25/1000$; uten «$1+$» hadde det vært KI-uttrykket."
+  },
+  {
+    "question": "KI-et ved $x_0$ er $(53{,}95,\\ 57{,}25)$ og prediksjonsintervallet $(51{,}74,\\ 59{,}46)$. En rapport bytter dem om. Hva blir konsekvensen?",
+    "options": [
+      "Enkeltprediksjonen fremstår altfor presis — det smale intervallet fanger langt under 95 % av nye målinger",
+      "Ingen praktisk konsekvens — de to intervallene er kalibrert mot samme dekningsgrad på 95 % og kan derfor trygt byttes om",
+      "Snittanslaget blir for smalt, siden det brede intervallet gjelder snittet",
+      "Begge intervallene mister gyldighet og må regnes ut på nytt"
+    ],
+    "explanation": "Det smale (KI) gjelder snittet; å selge det som PI gir falsk presisjon for enkeltmålinger."
+  },
+  {
+    "question": "Hva er linje-usikkerheten i multippel regresjon (kjenne til)?",
+    "options": [
+      "$V(\\hat Y_0)=\\sigma^2\\,x_0^T(X^TX)^{-1}x_0$ med $t_{n-k-1}$-kvantil i intervallene",
+      "$V(\\hat Y_0)=\\sigma^2\\,x_0^TX^TXx_0$ med $t_{n-2}$-kvantil i begge de to intervallene",
+      "$V(\\hat Y_0)=\\sigma^2/n$ uansett hvor $x_0$ ligger i prediktorrommet",
+      "$V(\\hat Y_0)=\\sigma^2(1-x_0^Tx_0)$ med normalkvantil i intervallene"
+    ],
+    "explanation": "Samme logikk som i enkel regresjon: kvadratisk form i $(X^TX)^{-1}$ måler avstanden fra datatyngdepunktet."
+  },
+  {
+    "question": "Hvorfor bør dataområdet alltid oppgis i en prediksjonsoppgave?",
+    "options": [
+      "Fordi vurderingen av om $x_0$ er interpolering eller ekstrapolering avhenger av det",
+      "Fordi $S_{xx}$ ikke kan beregnes uten at områdets endepunkter er kjent på forhånd",
+      "Fordi t-kvantilen skal slås opp med dataområdets bredde",
+      "Fordi intervallet alltid skal sentreres i midten av området"
+    ],
+    "explanation": "Sensor ser etter forsvarlighetsvurderingen: innenfor = støtte i data, utenfor = advarsel."
+  },
+  {
+    "question": "Bredden på KI-et ved $x_0=20$ vs. $x_0=30$ (med $\\bar x=30$): hvilket utsagn stemmer?",
+    "options": [
+      "Intervallet ved 20 er bredere — helningsleddet $(20-30)^2/S_{xx}$ kommer i tillegg",
+      "Intervallet ved 30 er bredere — der er usikkerheten i nivået på sitt aller største",
+      "Like brede — bredden avhenger ikke av $x_0$ i enkel regresjon",
+      "Det avhenger av responsverdiene, ikke av $x$-plasseringen"
+    ],
+    "explanation": "Avstand fra tyngdepunktet koster bredde: i $\\bar x$ er helningsbidraget null."
+  },
+  {
+    "question": "Når er prediksjonsintervallet til å stole på?",
+    "options": [
+      "Når $x_0$ ligger i dataområdet og residualdiagnostikken er godkjent",
+      "Når $n$ er stort nok, uansett hvor $x_0$ ligger",
+      "Når $R^2$ er høy, uansett modellantakelsene",
+      "Når punktprediksjonen er positiv og $\\hat\\sigma$ er tilstrekkelig liten i forhold"
+    ],
+    "explanation": "Interpolering + holdbare antakelser (kap. 3.4) er forutsetningene formlene hviler på."
+  }
+]

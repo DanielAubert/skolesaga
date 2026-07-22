@@ -1,0 +1,302 @@
+[
+  {
+    "question": "Hvordan skrives den multiple regresjonsmodellen på matriseform?",
+    "options": [
+      "$Y=X\\beta+\\varepsilon$ med $\\varepsilon\\sim N(0,\\sigma^2 I)$",
+      "$Y=\\beta X+\\varepsilon$ med $\\varepsilon\\sim N(0,\\sigma^2)$ skalar",
+      "$Y=X^T\\beta+\\varepsilon$ med $\\varepsilon\\sim N(0,\\sigma^2 I)$",
+      "$Y=X\\beta\\varepsilon$ med $\\varepsilon\\sim N(1,\\sigma^2 I)$"
+    ],
+    "explanation": "Responsvektoren er designmatrisen ganger koeffisientvektoren pluss feilvektoren: $Y=X\\beta+\\varepsilon$."
+  },
+  {
+    "question": "Hva er minste kvadraters estimator på matriseform?",
+    "options": [
+      "$\\hat\\beta=(X^TX)^{-1}X^TY$",
+      "$\\hat\\beta=(XX^T)^{-1}XY$",
+      "$\\hat\\beta=X^{-1}Y$ for alle $X$",
+      "$\\hat\\beta=X^T(XX^T)^{-1}Y$"
+    ],
+    "explanation": "Normalligningene $X^TX\\hat\\beta=X^TY$ løses ved å invertere $X^TX$: $\\hat\\beta=(X^TX)^{-1}X^TY$."
+  },
+  {
+    "question": "Hvilket krav sikrer at $\\hat\\beta=(X^TX)^{-1}X^TY$ er entydig?",
+    "options": [
+      "$X$ har full kolonnerang, så $X^TX$ er inverterbar",
+      "$X$ er kvadratisk, så $X^{-1}$ eksisterer direkte",
+      "Feilleddene er normalfordelte med kjent varians",
+      "Prediktorene er sentrerte slik at $X^TX$ blir diagonal"
+    ],
+    "explanation": "Uten full kolonnerang er $X^TX$ singulær og normalligningene har uendelig mange løsninger."
+  },
+  {
+    "question": "Hvor mange frihetsgrader har $S^2$ i multippel regresjon med $n$ observasjoner og $k$ prediktorer?",
+    "options": [
+      "$n-k-1$, fordi $k+1$ parametre er estimert",
+      "$n-k$, fordi bare de $k$ helningene regnes som estimerte parametre",
+      "$n-1$, som for vanlig utvalgsvarians",
+      "$n-2$, uansett antall prediktorer"
+    ],
+    "explanation": "Konstantleddet teller med: $k+1$ estimerte parametre gir df $=n-k-1$."
+  },
+  {
+    "question": "Hva skjer med $R^2$ når en ny prediktor legges til modellen?",
+    "options": [
+      "Den kan aldri synke — uansett hvor irrelevant variabelen er",
+      "Den øker bare hvis den nye variabelen er statistisk signifikant på 5 %-nivå",
+      "Den kan synke hvis variabelen er ukorrelert med responsen",
+      "Den er uendret til variabelen testes med F-test"
+    ],
+    "explanation": "Den store modellen inneholder den lille som spesialtilfelle, så SSE kan ikke øke — dermed kan $R^2$ ikke synke."
+  },
+  {
+    "question": "Hvilken størrelse skal brukes til å sammenligne modeller med ulikt antall prediktorer?",
+    "options": [
+      "Justert $R^2$ — den straffer ekstra parametre",
+      "Multiple R-squared — den måler forklart andel",
+      "Residual standard error uten justering",
+      "F-statistikken for den største modellen"
+    ],
+    "explanation": "Justert $R^2$ kan synke ved unyttige utvidelser og egner seg derfor til modellvalg; vanlig $R^2$ øker alltid."
+  },
+  {
+    "question": "Hva er formelen for justert $R^2$?",
+    "options": [
+      "$1-(1-R^2)\\,\\dfrac{n-1}{n-k-1}$",
+      "$1-(1-R^2)\\,\\dfrac{n-k-1}{n-1}$",
+      "$R^2\\cdot\\dfrac{n-1}{n-k-1}$",
+      "$1-R^2\\cdot\\dfrac{n-1}{n-k-1}$"
+    ],
+    "explanation": "Justert $R^2=1-\\frac{\\text{SSE}/(n-k-1)}{\\text{SST}/(n-1)}$, som omskrives til $1-(1-R^2)(n-1)/(n-k-1)$."
+  },
+  {
+    "question": "Hva er kovariansmatrisen til $\\hat\\beta$?",
+    "options": [
+      "$\\sigma^2(X^TX)^{-1}$",
+      "$\\sigma^2 X^TX$",
+      "$\\sigma^2(XX^T)^{-1}$",
+      "$\\sigma^2 I$ av dimensjon $k+1$"
+    ],
+    "explanation": "$\\text{Cov}(\\hat\\beta)=\\sigma^2(X^TX)^{-1}$; standardfeilene er røttene av diagonalelementene med $S$ for $\\sigma$."
+  },
+  {
+    "question": "Hva betyr koeffisienten $\\beta_j$ i multippel regresjon?",
+    "options": [
+      "Endring i forventet respons per enhet $x_j$ når de andre variablene holdes konstant",
+      "Den totale effekten av $x_j$ på responsen, uavhengig av modellens øvrige innhold",
+      "Korrelasjonen mellom $x_j$ og responsen, omregnet til standardisert skala med standardavvikene",
+      "Andelen av variasjonen i responsen som $x_j$ alene forklarer"
+    ],
+    "explanation": "Tolkningen er betinget: effekten av $x_j$ med de øvrige prediktorene i modellen holdt faste."
+  },
+  {
+    "question": "Hva kjennetegner en konfunderende variabel?",
+    "options": [
+      "Den påvirker responsen og er korrelert med prediktoren av interesse",
+      "Den er korrelert med prediktoren, men helt uten effekt på responsen",
+      "Den påvirker responsen, men er ukorrelert med alle prediktorene",
+      "Den har målefeil som blåser opp residualvariansen i modellen"
+    ],
+    "explanation": "Begge krav må til: sammenheng med både respons og prediktor. Da arver prediktoren dens effekt når den utelates."
+  },
+  {
+    "question": "Prediktorene $x_1$ og $x_2$ er sentrerte og ukorrelerte. Hva skjer med $\\hat\\beta_1$ når $x_2$ fjernes fra modellen?",
+    "options": [
+      "Den er uendret — koeffisientene beregnes uavhengig",
+      "Den øker, fordi $x_1$ overtar $x_2$ sin forklaringskraft",
+      "Den synker mot null når forklaringskraft går tapt",
+      "Den skifter fortegn på grunn av utelatt variabel-skjevhet"
+    ],
+    "explanation": "Med ukorrelerte, sentrerte prediktorer er $X^TX$ diagonal, og hver koeffisient estimeres som om de andre ikke fantes."
+  },
+  {
+    "question": "Hva er $R^2$ når to sentrerte, ukorrelerte prediktorer brukes?",
+    "options": [
+      "$R^2=r_1^2+r_2^2$ — bidragene er additive",
+      "$R^2=r_1^2\\cdot r_2^2$ — bidragene multipliseres",
+      "$R^2=(r_1+r_2)^2$ — korrelasjonene summeres først",
+      "$R^2=\\max(r_1^2,r_2^2)$ — den sterkeste teller"
+    ],
+    "explanation": "Uten korrelasjon overlapper ikke forklaringsbitene, og forklart andel blir summen av de kvadrerte korrelasjonene."
+  },
+  {
+    "question": "Hva er multikollinearitet?",
+    "options": [
+      "Sterk korrelasjon mellom prediktorene som blåser opp standardfeilene",
+      "Sterk korrelasjon mellom residualene og de tilpassede verdiene i modellen",
+      "At feilleddene er avhengige over tid i stedet for uavhengige",
+      "At responsen er lineær i noen prediktorer og ikke i andre"
+    ],
+    "explanation": "Nesten-overlappende prediktorer gjør $X^TX$ nær singulær: koeffisientene blir upresise selv om modellen samlet er god."
+  },
+  {
+    "question": "En koeffisient endrer seg kraftig når en ny variabel legges til modellen. Hva er den naturlige forklaringen?",
+    "options": [
+      "Den nye variabelen er korrelert med prediktoren og påvirker responsen — konfundering",
+      "Modellen har mistet en frihetsgrad, og det forskyver alle estimatene",
+      "Minste kvadraters metode er numerisk ustabil og gir litt ulike koeffisienter hver gang",
+      "Residualvariansen har økt, og det trekker koeffisientene mot null"
+    ],
+    "explanation": "Uten den nye variabelen arvet prediktoren dens effekt; med den måles bare prediktorens egen, betingede effekt."
+  },
+  {
+    "question": "Hva sier normalligningene på matriseform?",
+    "options": [
+      "$X^TX\\hat\\beta=X^TY$ — residualene er ukorrelerte med kolonnene i $X$",
+      "$XX^T\\hat\\beta=XY$ — residualene er ukorrelerte med hver enkelt rad i $X$",
+      "$X\\hat\\beta=Y$ — modellen skal treffe alle observasjonene",
+      "$X^T\\hat\\beta=Y^TX$ — transponert balanse mellom sidene"
+    ],
+    "explanation": "Minimering av $\\lVert y-X\\beta\\rVert^2$ gir $X^T(y-X\\hat\\beta)=0$, altså $X^TX\\hat\\beta=X^Ty$."
+  },
+  {
+    "question": "Hvilken dimensjon har designmatrisen $X$ med $n$ observasjoner og $k$ prediktorer?",
+    "options": [
+      "$n\\times(k+1)$ — én rad per observasjon, én kolonne per parameter",
+      "$n\\times k$ — konstantleddet trenger ingen kolonne",
+      "$(k+1)\\times n$ — én rad per parameter, én kolonne per observasjon",
+      "$(k+1)\\times(k+1)$ — kvadratisk som $X^TX$"
+    ],
+    "explanation": "Første kolonne er 1-ere (bærer $\\beta_0$), deretter én kolonne per prediktor: $n\\times(k+1)$."
+  },
+  {
+    "question": "Hva inneholder første kolonne i designmatrisen, og hvorfor?",
+    "options": [
+      "Bare 1-ere — den bærer konstantleddet $\\beta_0$ inn i hver ligning",
+      "Responsverdiene — de må stå først for at produktet skal stemme",
+      "Radnumrene — de identifiserer observasjonene i systemet",
+      "Gjennomsnittene av prediktorene — de sentrerer modellen rundt tyngdepunktet"
+    ],
+    "explanation": "Rad $i$ av $X\\beta$ starter med $1\\cdot\\beta_0$, så konstantleddet kommer med i alle $n$ ligningene."
+  },
+  {
+    "question": "I R-utskriften for multippel regresjon: hvor finner du $\\hat\\sigma$ og frihetsgradene?",
+    "options": [
+      "På «Residual standard error»-linja: tallet og «on … degrees of freedom»",
+      "I «Std. Error»-kolonnen: det øverste tallet og antallet rader i tabellen",
+      "På «Multiple R-squared»-linja: roten av tallet og $n-1$",
+      "På «F-statistic»-linja: første tall og andre DF-tall"
+    ],
+    "explanation": "«Residual standard error: $s$ on $n-k-1$ degrees of freedom» gir både $\\hat\\sigma$ og frihetsgradene."
+  },
+  {
+    "question": "Modell A ($k=2$) har justert $R^2=0{,}83$; modell B ($k=3$) har $R^2$ som er høyere, men justert $R^2=0{,}80$. Hva velger du?",
+    "options": [
+      "Modell A — utvidelsen forsvarer ikke den tapte frihetsgraden",
+      "Modell B — høyest $R^2$ betyr mest forklart variasjon",
+      "Modell B — flere variabler gir alltid mer presise prediksjoner av nye data",
+      "Ingen av dem før en F-test har sammenlignet modellene"
+    ],
+    "explanation": "Ved modellvalg vinner høyest justert $R^2$; at $R^2$ steg er automatikk, ikke bevis på bedre modell."
+  },
+  {
+    "question": "Hvorfor kan ikke to prediktorer der den ene er et fast multiplum av den andre stå i samme modell?",
+    "options": [
+      "Kolonnene blir lineært avhengige, så $X^TX$ ikke kan inverteres",
+      "Korrelasjonen mellom dem gjør at t-testene mister all sin statistiske styrke",
+      "Residualene blir da avhengige og bryter modellantakelsene",
+      "$R^2$ ville oversteget 1 når begge bidrar med det samme"
+    ],
+    "explanation": "Perfekt lineær avhengighet bryter full kolonnerang: normalligningene får uendelig mange løsninger."
+  },
+  {
+    "question": "Hva er t-observatoren for $H_0:\\beta_j=\\beta_j^0$ i multippel regresjon, og hvilken fordeling har den?",
+    "options": [
+      "$T=(\\hat\\beta_j-\\beta_j^0)/se(\\hat\\beta_j)\\sim t_{n-k-1}$",
+      "$T=(\\hat\\beta_j-\\beta_j^0)/se(\\hat\\beta_j)\\sim t_{n-2}$",
+      "$T=\\hat\\beta_j/S\\sim t_{n-k-1}$ uansett hypoteseverdi",
+      "$T=(\\hat\\beta_j-\\beta_j^0)^2/se(\\hat\\beta_j)\\sim F_{1,n-k}$"
+    ],
+    "explanation": "Samme mønster som alltid — estimat minus hypoteseverdi delt på standardfeil — men med df $=n-k-1$."
+  },
+  {
+    "question": "Hva gir 1-erkolonnen i $X$ innsatt i $X^Te=0$?",
+    "options": [
+      "$\\sum e_i=0$ — residualene summerer seg til null",
+      "$\\sum e_i^2=0$ — residualene er alle null",
+      "$\\sum e_i=n\\bar y$ — residualene balanserer responsen",
+      "$\\sum x_ie_i=1$ — residualene er normerte"
+    ],
+    "explanation": "Normalligningene sier at residualvektoren er ortogonal på hver kolonne; 1-erkolonnen gir $\\sum e_i=0$."
+  },
+  {
+    "question": "Hva er overtilpasning?",
+    "options": [
+      "Modellen jager tilfeldig støy i utvalget med for mange parametre",
+      "Modellen bruker for få parametre og overser dermed reelle effekter i dataene",
+      "Modellen brukes utenfor dataområdet der den ikke gjelder",
+      "Modellen bryter normalitetsantakelsen for feilleddene"
+    ],
+    "explanation": "Symptom: høy $R^2$ men synkende justert $R^2$ — god beskrivelse av utvalget, dårlig prediksjon av nye data."
+  },
+  {
+    "question": "Regresjon med én dummyvariabel (0/1 for gruppe) tilsvarer hvilken kjent test?",
+    "options": [
+      "Pooled to-utvalgs-t-test — samme testobservator og frihetsgrader",
+      "Parvis t-test — differansene mellom gruppene modelleres direkte som par",
+      "Kjikvadrattest for uavhengighet i en $2\\times 2$-tabell",
+      "Wilcoxons rangsumtest for to grupper"
+    ],
+    "explanation": "$\\beta_1$ er gruppedifferansen, og t-testen for $\\beta_1=0$ er identisk med pooled to-utvalgs-t-testen."
+  },
+  {
+    "question": "Hva er $\\hat\\beta_0$ og $\\hat\\beta_1$ i dummy-modellen $Y_i=\\beta_0+\\beta_1x_i+\\varepsilon_i$ med $x_i\\in\\{0,1\\}$?",
+    "options": [
+      "$\\hat\\beta_0=\\bar y$ i gruppe 0, og $\\hat\\beta_1$ er differansen mellom gruppegjennomsnittene",
+      "$\\hat\\beta_0$ er det samlede gjennomsnittet av alle observasjonene, og $\\hat\\beta_1$ er halve differansen mellom gruppene",
+      "$\\hat\\beta_0=\\bar y$ i gruppe 1, og $\\hat\\beta_1$ er gjennomsnittet i gruppe 0",
+      "$\\hat\\beta_0$ er alltid null, og $\\hat\\beta_1$ er forholdet mellom gjennomsnittene"
+    ],
+    "explanation": "Med $x=0$ er forventningen $\\beta_0$ (gruppe 0); med $x=1$ er den $\\beta_0+\\beta_1$, så $\\beta_1$ er forskjellen."
+  },
+  {
+    "question": "Med sterk multikollinearitet: hva kan du se i utskriften?",
+    "options": [
+      "Høy $R^2$ og sterk F-test, men store standardfeil og svake t-verdier per koeffisient",
+      "Lav $R^2$ og svak F-test, men sterke t-verdier for hver koeffisient",
+      "Standardfeilene blir negative for de korrelerte prediktorene, og P-verdiene kan ikke tolkes",
+      "Justert $R^2$ større enn vanlig $R^2$ for samme modell"
+    ],
+    "explanation": "Modellen samlet forklarer mye, men effektene kan ikke skilles: enkeltkoeffisientene blir upresise."
+  },
+  {
+    "question": "Hvordan inverteres $\\begin{pmatrix}a&b\\\\c&d\\end{pmatrix}$?",
+    "options": [
+      "$\\dfrac{1}{ad-bc}\\begin{pmatrix}d&-b\\\\-c&a\\end{pmatrix}$, når $ad-bc\\neq0$",
+      "$\\dfrac{1}{ad-bc}\\begin{pmatrix}a&-b\\\\-c&d\\end{pmatrix}$, når $ad-bc\\neq0$",
+      "$\\dfrac{1}{ad+bc}\\begin{pmatrix}d&b\\\\c&a\\end{pmatrix}$, når $ad+bc\\neq0$",
+      "$\\begin{pmatrix}1/a&1/b\\\\1/c&1/d\\end{pmatrix}$, når alle elementene er ulik null"
+    ],
+    "explanation": "Bytt diagonalelementene, skift fortegn på de andre, og del på determinanten $ad-bc$."
+  },
+  {
+    "question": "Hva er $E(\\hat\\beta)$ under modellantakelsene?",
+    "options": [
+      "$\\beta$ — minste kvadraters estimator er forventningsrett",
+      "$0$ — estimatoren er sentrert rundt null",
+      "$(X^TX)^{-1}\\beta$ — forventningen skaleres av designet",
+      "$\\beta$, men bare når prediktorene er sentrerte rundt sine gjennomsnitt"
+    ],
+    "explanation": "$E(\\hat\\beta)=(X^TX)^{-1}X^TE(Y)=(X^TX)^{-1}X^TX\\beta=\\beta$ uansett design med full rang."
+  },
+  {
+    "question": "Modellen har $k=3$ prediktorer og $n=24$. Hvilken t-kvantil hører til et 95 %-KI for $\\beta_2$?",
+    "options": [
+      "$t_{20,\\,0{,}025}$ — frihetsgrader $24-3-1=20$",
+      "$t_{22,\\,0{,}025}$ — frihetsgrader $24-2$",
+      "$t_{21,\\,0{,}05}$ — frihetsgrader $24-3$ og hele $\\alpha$",
+      "$z_{0{,}025}$ — normalkvantil siden $n>20$"
+    ],
+    "explanation": "df $=n-k-1=20$, og tosidig 95 % bruker øvre haleareal $\\alpha/2=0{,}025$."
+  },
+  {
+    "question": "Hvorfor er ikke $R^2$ i seg selv et argument for å legge til en variabel?",
+    "options": [
+      "Fordi økningen kommer automatisk — minimum av SSE over en større mengde kan ikke bli større",
+      "Fordi $R^2$ måler bare lineære sammenhenger og derfor overser både kurvatur og samspill i dataene",
+      "Fordi $R^2$ avhenger av måleenhetene til den nye variabelen",
+      "Fordi $R^2$ bare kan beregnes når prediktorene er ukorrelerte"
+    ],
+    "explanation": "Utvidet modell inneholder den gamle som spesialtilfelle; SSE synker mekanisk og $R^2$ øker uansett variabelens verdi."
+  }
+]

@@ -26,8 +26,8 @@ Byggeplan: `docs/hoyskole-boker/BYGGEPLAN-MAL.md` (steg 0→4).
 | 2 | 2.4–2.6 | ✅ committet 7409d9b7 (def 20/15/15, quiz 15/15/15) |
 | 2 | 2.7 + 2-prove | ✅ committet (def 15, quiz 25; salvage-verifisert) |
 | 3 | 3.1–3.2 | ✅ committet (def 30/25, quiz 30/25; salvage-verifisert) |
-| 3 | 3.3–3.7 (+ 3-prove) | ⏳ ikke startet |
-| 4 | 4.1–4.4 | ⏳ ikke startet |
+| 3 | 3.3–3.7 + 3-prove | ✅ committet (def 30/20/20/15/15, quiz 30/20/20/10/25) |
+| 4 | 4.1–4.4 | 🔨 agent kjører |
 
 Figurer: 9 SVG ✅ committet (b8bbe40e), lastes opp i Steg 4.
 

@@ -1,0 +1,252 @@
+[
+  {
+    "question": "Hva er alltid første trinn i syvtrinnsoppskriften for en regresjonsoppgave?",
+    "options": [
+      "Definere modellen $Y_i=\\beta_0+\\beta_1x_{i1}+\\dots+\\varepsilon_i$ med antakelsene",
+      "Regne ut $R^2$ og justert $R^2$ for alle kandidatmodellene som er oppgitt i oppgaven",
+      "Tegne de tre residualplottene og vurdere mønstrene i dem grundig",
+      "Konstruere prediksjonsintervallet for den nye observasjonen i oppgaven"
+    ],
+    "explanation": "Trinn 1 er modell + antakelser (uavhengige $\\varepsilon_i\\sim N(0,\\sigma^2)$); diagnostikk og prediksjon kommer i trinn 6–7."
+  },
+  {
+    "question": "Hvilken frihetsgrad brukes i koeffisientinferens i en multippel regresjon med $k$ prediktorer?",
+    "options": [
+      "$n-k-1$, fordi $k+1$ parametere er estimert",
+      "$n-1$, samme som for ett utvalg med estimert varians",
+      "$n-2$, uansett hvor mange prediktorer modellen har",
+      "$n-k$, fordi konstantleddet ikke teller som parameter"
+    ],
+    "explanation": "Modellen estimerer $\\beta_0,\\beta_1,\\dots,\\beta_k$ — altså $k+1$ parametere — og residualfrihetsgraden blir $n-k-1$ ($n-2$ er spesialtilfellet $k=1$)."
+  },
+  {
+    "question": "Hvordan verifiserer du t value-kolonnen i en R-utskrift?",
+    "options": [
+      "Del Estimate på Std. Error for hver rad i tabellen",
+      "Del Std. Error på Estimate og sammenlign med kvantilen",
+      "Gang Estimate med Std. Error og se mot F-statistikken",
+      "Del Estimate på Residual standard error fra df-linja"
+    ],
+    "explanation": "t value $=$ Estimate/Std. Error — observatoren for $H_0:\\beta_j=0$."
+  },
+  {
+    "question": "Hva betyr tallet i Pr(>|t|)-kolonnen?",
+    "options": [
+      "Tosidig P-verdi for testen av $H_0:\\beta_j=0$",
+      "Sannsynligheten for at koeffisienten $\\beta_j$ er lik null",
+      "Andelen av variasjonen i $y$ som variabelen forklarer",
+      "Sannsynligheten for at modellen som helhet er riktig"
+    ],
+    "explanation": "Pr(>|t|) er P-verdien: sannsynligheten under $H_0:\\beta_j=0$ for et minst like ekstremt utfall. Hypoteser har ingen sannsynlighet."
+  },
+  {
+    "question": "Hvordan bygger du et 95 %-KI for $\\beta_j$ rett fra utskriften?",
+    "options": [
+      "Estimate $\\pm\\ t_{df,\\,0{,}025}\\cdot$ Std. Error, med df fra RSE-linja",
+      "Estimate $\\pm\\ 1{,}96\\cdot$ Residual standard error, lest fra bunnlinja i utskriften",
+      "t value $\\pm\\ t_{df,\\,0{,}025}\\cdot$ Std. Error fra samme rad",
+      "Estimate $\\pm\\ 2\\cdot$ Pr(>|t|) multiplisert med standardfeilen"
+    ],
+    "explanation": "KI $=$ Estimate $\\pm\\ t_{df,\\,\\alpha/2}\\cdot$ Std. Error; frihetsgraden leses av «on … degrees of freedom»."
+  },
+  {
+    "question": "Hvilken hypotese tester F-statistic-linja i en multippel regresjon?",
+    "options": [
+      "$H_0:\\beta_1=\\dots=\\beta_k=0$ — ingen av prediktorene har effekt",
+      "$H_0:$ alle koeffisientene i modellen, inkludert konstantleddet $\\beta_0$, er lik null",
+      "$H_0:$ feilleddene er normalfordelte med konstant varians",
+      "$H_0:R^2=0{,}5$ — modellen forklarer halvparten av variasjonen"
+    ],
+    "explanation": "F-testen er den samlede testen av alle helningene (konstantleddet inngår ikke)."
+  },
+  {
+    "question": "I enkel regresjon: hva er sammenhengen mellom F-statistikken og t-verdien for stigningstallet?",
+    "options": [
+      "$F=T^2$ — de er samme test med samme P-verdi",
+      "$F=2T$ — F-testen dobler t-verdien for tosidighet",
+      "$F=T/2$ fordi F-testen bare bruker én hale av fordelingen",
+      "Ingen — F og t tester helt forskjellige nullhypoteser der"
+    ],
+    "explanation": "Med én prediktor er $F=T^2$ og $F_{1,\\nu}$-testen identisk med den tosidige $t_\\nu$-testen."
+  },
+  {
+    "question": "Hvorfor kan ikke Multiple R-squared brukes til å velge mellom modeller med ulikt antall variabler?",
+    "options": [
+      "$R^2$ øker alltid når en variabel legges til, uansett om den er nyttig",
+      "$R^2$ kan bare beregnes når modellen har nøyaktig én prediktor",
+      "$R^2$ synker alltid når utvalgsstørrelsen vokser, og er derfor for ustabil til modellvalg",
+      "$R^2$ måler bare variansen til residualene, ikke tilpasningen"
+    ],
+    "explanation": "SSE kan aldri øke når en variabel legges til, så $R^2$ stiger automatisk — derfor brukes justert $R^2$ til modellvalg."
+  },
+  {
+    "question": "Hva er formelen for justert $R^2$?",
+    "options": [
+      "$1-\\dfrac{\\text{SSE}/(n-k-1)}{\\text{SST}/(n-1)}$",
+      "$1-\\dfrac{\\text{SSE}}{\\text{SST}}$ multiplisert med $\\dfrac{k}{n}$",
+      "$R^2-\\dfrac{k}{n-1}$ der $k$ er antall prediktorer i modellen",
+      "$\\dfrac{\\text{SSR}}{\\text{SST}}\\cdot\\dfrac{n-1}{n-k-1}$ uten fratrekk"
+    ],
+    "explanation": "Justert $R^2$ erstatter kvadratsummene med variansestimater — det straffer ekstra prediktorer via $n-k-1$ i telleren."
+  },
+  {
+    "question": "Hva er konfundering i regresjonssammenheng?",
+    "options": [
+      "At en koeffisient endres når en korrelert variabel tas inn i modellen",
+      "At to prediktorer alltid må fjernes samtidig fra en multippel regresjonsmodell",
+      "At residualene blir korrelerte når modellen har flere prediktorer",
+      "At $R^2$ og justert $R^2$ gir motsatte konklusjoner om modellvalget"
+    ],
+    "explanation": "Uten den korrelerte variabelen fanger den gamle koeffisienten også noe av dens effekt; i multippel modell måles effekten med den andre holdt konstant."
+  },
+  {
+    "question": "Når endrer en koeffisient seg IKKE fra enkel til multippel modell?",
+    "options": [
+      "Når prediktorene er ukorrelerte (ortogonale), som ved balansert design",
+      "Når begge prediktorene i modellen er signifikante på 5 %-nivået",
+      "Når utvalgsstørrelsen er over 30, slik at sentralgrenseteorem-tilnærmingen gjelder",
+      "Når responsen er standardisert til gjennomsnitt null før analysen"
+    ],
+    "explanation": "Konfunderingen drives av korrelasjon mellom prediktorene; med ortogonale prediktorer står koeffisienten (tilnærmet) fast."
+  },
+  {
+    "question": "Et parabelmønster i residual-mot-tilpasset-plottet tyder på hva?",
+    "options": [
+      "Ikke-linearitet — modellen mangler f.eks. et kvadratledd",
+      "Heteroskedastisitet — variansen vokser med nivået på responsen",
+      "Ikke-normalitet — feilleddene har tydelig tyngre haler enn normalen",
+      "Autokorrelasjon — feilleddene er avhengige over tid i datasettet"
+    ],
+    "explanation": "Kurvatur i residual-mot-tilpasset avslører feil funksjonsform; varians sjekkes i scale-location og normalitet i QQ-plottet."
+  },
+  {
+    "question": "Hva avslører en stigende trend i scale-location-plottet?",
+    "options": [
+      "Heteroskedastisitet — feilvariansen er ikke konstant",
+      "Ikke-linearitet — sammenhengen er krum og ikke en rett linje",
+      "At residualene ikke summerer seg til null slik teorien krever",
+      "At QQ-plottet også nødvendigvis vil vise et klart brudd"
+    ],
+    "explanation": "Scale-location plotter $\\sqrt{|e_i|}$ mot tilpassede verdier; en trend betyr at spredningen endrer seg med nivået — brutt konstant varians."
+  },
+  {
+    "question": "Hva sjekker QQ-plottet av residualene?",
+    "options": [
+      "Om feilleddene er forenlige med normalfordelingen",
+      "Om det finnes kurvatur som tilsier et ekstra kvadratledd",
+      "Om residualvariansen er konstant over tilpassede verdier",
+      "Om prediktorene er sterkt korrelerte med hverandre"
+    ],
+    "explanation": "QQ-plottet sammenligner residualkvantiler med normalkvantiler; systematisk avvik fra linja indikerer ikke-normalitet."
+  },
+  {
+    "question": "Hvorfor er prediksjonsintervallet alltid bredere enn KI-et for forventet respons ved samme $x_0$?",
+    "options": [
+      "Den nye observasjonens eget støyledd $\\varepsilon_0$ kommer i tillegg",
+      "Prediksjonsintervallet bruker en større t-kvantil enn konfidensintervallet",
+      "KI-et gjelder bare i $\\bar x$, der usikkerheten alltid er minst",
+      "PI-et bruker frihetsgraden $n-1$ i stedet for $n-2$ i kvantilen"
+    ],
+    "explanation": "PI-et skal fange en ny enkeltobservasjon, ikke bare linjas nivå — derfor «$1+$» under rota. Kvantil og df er de samme."
+  },
+  {
+    "question": "Hvilket ledd i intervallformlene gjør at bredden vokser når $x_0$ fjerner seg fra $\\bar x$?",
+    "options": [
+      "$(x_0-\\bar x)^2/S_{xx}$ under rottegnet",
+      "$1/n$-leddet, som dominerer i begge haler av dataområdet",
+      "t-kvantilen, som øker med avstanden fra gjennomsnittet",
+      "$\\hat\\sigma$, som estimeres på nytt for hver verdi av $x_0$"
+    ],
+    "explanation": "Avstandsleddet $(x_0-\\bar x)^2/S_{xx}$ vokser kvadratisk — derfor blir intervaller stadig bredere mot og utenfor kanten av dataområdet."
+  },
+  {
+    "question": "Hva er den riktige reaksjonen når noen vil predikere langt utenfor dataområdet?",
+    "options": [
+      "Fraråde det: lineariteten er udokumentert der og intervallene eser ut",
+      "Godta det så lenge prediksjonsintervallet regnes med «$1+$» under rota",
+      "Bytte til konfidensintervall for forventningen, som tåler ekstrapolering",
+      "Øke konfidensnivået til 99 % slik at intervallet garantert dekker"
+    ],
+    "explanation": "Ekstrapolering er et modellproblem, ikke et intervallproblem: utenfor dataområdet finnes ikke belegg for linjeformen."
+  },
+  {
+    "question": "Hva er «Residual standard error» i utskriften?",
+    "options": [
+      "$\\hat\\sigma=\\sqrt{\\text{SSE}/df}$ — estimatet av feilleddets standardavvik",
+      "Standardfeilen til stigningstallet $\\hat\\beta_1$, klar til bruk i konfidensintervallet",
+      "Summen av de kvadrerte residualene delt på utvalgsstørrelsen $n$",
+      "Gjennomsnittet av absoluttverdien til residualene i tilpasningen"
+    ],
+    "explanation": "RSE er $\\hat\\sigma$ på $df=n-k-1$ frihetsgrader; standardfeilen til $\\hat\\beta_1$ står i Std. Error-kolonnen."
+  },
+  {
+    "question": "En koeffisient i en multippel modell er ikke signifikant. Hva er korrekt tolkning?",
+    "options": [
+      "Ingen påvisbar tilleggseffekt utover de andre variablene i modellen",
+      "Variabelen er uviktig og kan alltid strykes uten konsekvenser",
+      "Variabelen har effekt, men bare i den enkle modellen uten de andre",
+      "Testen er ugyldig fordi frihetsgradene blir for små i multippel modell"
+    ],
+    "explanation": "t-testen er betinget på de øvrige variablene; særlig ved korrelerte prediktorer kan en viktig variabel få svak t-test."
+  },
+  {
+    "question": "Utskriftens Pr(>|t|) hjelper deg ikke når du skal teste $H_0:\\beta_1=1$. Hvorfor?",
+    "options": [
+      "Kolonnen gjelder nullverdien 0; mot 1 må $T=(\\hat\\beta_1-1)/se$ regnes selv",
+      "Kolonnen gjelder bare konstantleddet i modellen, aldri helningskoeffisientene",
+      "P-verdier kan ikke brukes for andre nivåer enn akkurat 5 prosent",
+      "Testen mot 1 krever F-fordelingen, som ikke står i utskriften"
+    ],
+    "explanation": "t value og Pr(>|t|) er bygget for $H_0:\\beta_j=0$. Andre nullverdier: sett inn i $T=(\\hat\\beta_j-c)/se(\\hat\\beta_j)$ med samme df."
+  },
+  {
+    "question": "Hva krever sensor av en koeffisienttolkning i kontekst?",
+    "options": [
+      "Tall med enhet, og i multippel modell «med de øvrige holdt konstant»",
+      "At koeffisienten alltid standardiseres til enhetsfri form før den tolkes i svaret",
+      "At tolkningen alltid gjøres på logaritmisk skala for presisjon",
+      "At bare signifikante koeffisienter tolkes, resten hoppes over"
+    ],
+    "explanation": "«Per enhet $x$ endres forventet $y$ med … [enhet], med øvrige variabler holdt konstant» — naken tallverdi gir trekk."
+  },
+  {
+    "question": "Hva gjør du på eksamen hvis du ikke klarer deloppgave (b), men (c) bygger på svaret?",
+    "options": [
+      "Bruker det oppgitte mellomresultatet og regner (c) videre med det",
+      "Hopper over resten av oppgaven og går videre til neste storoppgave",
+      "Lar (c) stå blank siden den formelt sett avhenger av (b)-svaret",
+      "Gjetter et tall i (b) uten kommentar og fører det stille videre"
+    ],
+    "explanation": "Kjedene er bygget slik at oppgitte mellomresultater holder resten åpen — å stoppe ved første hinder er den dyreste strategifeilen."
+  },
+  {
+    "question": "Hvor i utskriften finner du både $\\hat\\sigma$ og utvalgsstørrelsen (indirekte)?",
+    "options": [
+      "I «Residual standard error: … on … degrees of freedom»-linja",
+      "I Estimate-kolonnen, som alltid har $n$ som siste oppføring",
+      "I F-statistic-linja, der $n$ alltid står oppført som den første frihetsgraden",
+      "I signifikanskodene (stjernene) etter Pr(>|t|)-kolonnen"
+    ],
+    "explanation": "Linja gir $\\hat\\sigma$ og $df$; med kjent $k$ er $n=df+k+1$. (F-linjas første df er $k$, ikke $n$.)"
+  },
+  {
+    "question": "Standardiserte residualer deler $e_i$ på $\\hat\\sigma\\sqrt{1-h_{ii}}$. Hvorfor korreksjonen $1-h_{ii}$?",
+    "options": [
+      "Residualene har ulik varians, $\\sigma^2(1-h_{ii})$, avhengig av posisjon",
+      "Fordi hatmatrisen ellers gjør alle residualene i utvalget nøyaktig like store",
+      "Fordi $h_{ii}$ er residualets P-verdi, som må skaleres bort først",
+      "For å tvinge residualene til å summere seg til nøyaktig null"
+    ],
+    "explanation": "Fra $E=(I-H)Y$ følger $\\text{Var}(e_i)=\\sigma^2(1-h_{ii})$ — punkter med høy leverage har små rå-residualer, og korreksjonen gjør dem sammenlignbare."
+  },
+  {
+    "question": "Hva må være med i en full a–f-besvarelse av prediksjonsleddet (trinn 7)?",
+    "options": [
+      "KI/PI-skillet, «$1+$» i PI-rota og en dataområde-kommentar",
+      "Bare punktprediksjonen $\\hat y_0$, siden intervallene er valgfrie",
+      "En ny F-test som bekrefter at prediksjonen er signifikant",
+      "Standardiserte residualer for den nye observasjonen $x_0$"
+    ],
+    "explanation": "Sensor ser etter at du skiller forventnings- og prediksjonsintervall, peker på «$1+$»-leddet og vurderer ekstrapoleringsfaren."
+  }
+]

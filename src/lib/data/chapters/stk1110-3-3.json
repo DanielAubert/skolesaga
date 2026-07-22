@@ -1,0 +1,506 @@
+{
+  "id": "stk1110-3-3",
+  "courseId": "stk1110",
+  "chapterNumber": "3.3",
+  "title": "Multippel regresjon: matriseform, justert R² og konfundering",
+  "description": "Modellen på matriseform Y=Xβ+ε med minste kvadraters estimator og full rang-kravet, valget mellom R² og justert R² for modellvalg, og konfundering — hvorfor en koeffisient endrer seg når en korrelert variabel legges til.",
+  "estimatedMinutes": 65,
+  "competenceGoals": [
+    "sette opp multippel regresjon på matriseform og finne minste kvadraters estimator via normalligningene",
+    "forklare kravet om full kolonnerang for at estimatoren skal være entydig",
+    "velge mellom modeller med justert R-kvadrat og forklare hvorfor vanlig R-kvadrat alltid øker",
+    "forklare konfundering: hvorfor en koeffisient endrer seg når en korrelert variabel legges til"
+  ],
+  "content": [
+    {
+      "id": "stk1110-3-3-tip",
+      "type": "tip",
+      "title": "Eksamensvinkel",
+      "content": "**Multippel regresjon er andre halvdel av den store regresjonsoppgaven.** Dette er *sjanger I* (en fast oppgavetype: du får en modell med flere forklaringsvariabler og en R-utskrift, og skal tolke koeffisienter, velge modell og forklare hva som skjer når variabler legges til). Den opptrer i **omtrent 11 av 22 sett (50 %)**.\n\n- **$R^2$ vs. justert $R^2$ og modellvalg** i rundt en tredel av settene (bl.a. H2013, H2015, H2018, H2024, H2025).\n- **Konfundering** — hvorfor en koeffisient endrer seg når en ny variabel inkluderes — i rundt fem sett (bl.a. H2018, H2019, H2020, H2024).\n- **Matriseform og full rang** ble testet eksplisitt i H2024.\n\n**Sensorkrav (§5.7, §5.10):** bruk *justert* $R^2$ til modellsammenligning, tolk hver koeffisient *betinget på de øvrige variablene*, og bruk frihetsgrader $n-k-1$. Dette hører til bokas høyeste prioritet.\n\n*Tidsbruk:* ~65 min i tre løkker (matriseform og minste kvadrater $\\to$ $R^2$ og justert $R^2$ $\\to$ konfundering). Ta gjerne en pause etter løkke 1 — den er den tyngste."
+    },
+    {
+      "id": "stk1110-3-3-forkunnskaper",
+      "type": "text",
+      "content": "**Forkunnskaper:** Dette kapitlet bygger direkte på enkel regresjon i **[kap. 3.1](/bok/stk1110/stk1110-3-1)** (minste kvadrater, $S^2$, t-inferens) og utskriftslesingen i **[kap. 3.2](/bok/stk1110/stk1110-3-2)** — alle R-utskriftene her leses med verktøyene derfra. Koblingen til to-utvalgs-t-testen og ANOVA bruker **[kap. 2.3](/bok/stk1110/stk1110-2-3)** og **[kap. 2.6](/bok/stk1110/stk1110-2-6)**.\n\nAv matriseregning trenger du bare transponering, matriseprodukt og invers av en $2\\times 2$-matrise — alt repeteres i en egen boks underveis. Du trenger ikke ha hatt noe eget lineær algebra-kurs."
+    },
+    {
+      "id": "stk1110-3-3-sistduvarher",
+      "type": "text",
+      "content": "**Sist du var her (fra kap. 3.1–3.2 — det du trenger nå):**\n\n$$\\hat\\beta_1=\\frac{S_{xy}}{S_{xx}},\\qquad S^2=\\frac{\\text{SSE}}{n-2},\\qquad T=\\frac{\\hat\\beta_j}{se(\\hat\\beta_j)},\\qquad R^2=1-\\frac{\\text{SSE}}{\\text{SST}}.$$\n\nI R-utskriften er `Estimate` $=\\hat\\beta_j$, `Std. Error` $=se(\\hat\\beta_j)$, `t value` $=$ `Estimate`$/$`Std. Error`, og `Pr(>|t|)` er den tosidige P-verdien. Alt dette gjelder fortsatt — det nye er at modellen får flere forklaringsvariabler, at frihetsgradene blir $n-k-1$, og at $R^2$ må erstattes av *justert* $R^2$ når modeller skal sammenlignes."
+    },
+    {
+      "id": "stk1110-3-3-motiv",
+      "type": "text",
+      "content": "Én forklaringsvariabel er sjelden nok. Strømforbruket til en bolig avhenger av både areal og antall beboere; leieprisen av både størrelse og avstand til sentrum. Multippel regresjon lar oss modellere responsen som en funksjon av flere variabler *samtidig* — og det endrer tolkningen: hver koeffisient måler nå effekten av sin variabel *med de andre holdt konstant*.\n\nKapitlet svarer på tre eksamensspørsmål: (1) Hvordan skrives og løses modellen kompakt på matriseform — og når har den en entydig løsning? (2) Hvordan sammenligner vi modeller med ulikt antall variabler — og hvorfor duger ikke vanlig $R^2$? (3) Hvorfor endrer en koeffisient seg når en ny variabel legges til modellen?"
+    },
+    {
+      "id": "stk1110-3-3-l1",
+      "type": "text",
+      "content": "## Løkke 1 — Modellen på matriseform og minste kvadrater (~30 min)"
+    },
+    {
+      "id": "stk1110-3-3-def-modell",
+      "type": "definition",
+      "title": "Multippel lineær regresjonsmodell",
+      "content": "**Modellen forklarer responsen med flere forklaringsvariabler samtidig — som et plan (eller hyperplan) pluss tilfeldig støy.** For observasjon $i$:\n$$Y_i=\\beta_0+\\beta_1 x_{i1}+\\beta_2 x_{i2}+\\dots+\\beta_k x_{ik}+\\varepsilon_i,\\qquad \\varepsilon_i\\sim N(0,\\sigma^2)\\ \\text{uavhengige}.$$\nHer er $x_{ij}$ verdien av forklaringsvariabel $j$ for observasjon $i$ (faste tall), og $\\beta_j$ er endringen i forventet respons når $x_j$ øker med én enhet *og alle de andre variablene holdes konstant*. Som alltid: annet argument i $N(0,\\sigma^2)$ er variansen."
+    },
+    {
+      "id": "stk1110-3-3-def-prediktorer",
+      "type": "definition",
+      "title": "Prediktorer og antall parametre",
+      "content": "**En prediktor (forklaringsvariabel) er en av $x$-ene i modellen; tell dem nøye, for frihetsgradene avhenger av antallet.** Med $k$ prediktorer har modellen $k+1$ regresjonsparametre — de $k$ helningene $\\beta_1,\\dots,\\beta_k$ *pluss konstantleddet* $\\beta_0$. Klassisk tellefeil: å glemme $\\beta_0$ og dermed få feil frihetsgrader."
+    },
+    {
+      "id": "stk1110-3-3-def-vektorer",
+      "type": "definition",
+      "title": "Vektorene $Y$, $\\beta$ og $\\varepsilon$",
+      "content": "**Matriseformen samler alle observasjonene i kolonnevektorer.** Responsvektoren $Y=(Y_1,\\dots,Y_n)^T$ er $n\\times 1$, koeffisientvektoren $\\beta=(\\beta_0,\\beta_1,\\dots,\\beta_k)^T$ er $(k+1)\\times 1$, og feilvektoren $\\varepsilon=(\\varepsilon_1,\\dots,\\varepsilon_n)^T$ er $n\\times 1$ med $E(\\varepsilon)=0$ og $\\text{Cov}(\\varepsilon)=\\sigma^2 I$ ($I$ er identitetsmatrisen — enerne på diagonalen betyr lik varians, nullene utenfor betyr ukorrelerte feilledd)."
+    },
+    {
+      "id": "stk1110-3-3-def-design",
+      "type": "definition",
+      "title": "Designmatrisen $X$",
+      "content": "**Designmatrisen stabler forklaringsvariablene: én rad per observasjon, én kolonne per parameter.** Den er $n\\times(k+1)$, og første kolonne består av bare 1-ere (den «bærer» konstantleddet $\\beta_0$):\n$$X=\\begin{pmatrix}1 & x_{11} & \\cdots & x_{1k}\\\\ 1 & x_{21} & \\cdots & x_{2k}\\\\ \\vdots & & & \\vdots\\\\ 1 & x_{n1} & \\cdots & x_{nk}\\end{pmatrix}.$$\nRad $i$ inneholder alt vi vet om observasjon $i$; kolonne $j+1$ inneholder alle verdiene av prediktor $j$."
+    },
+    {
+      "id": "stk1110-3-3-def-matriseform",
+      "type": "definition",
+      "title": "Modellen på matriseform",
+      "content": "**Hele modellen — alle $n$ ligningene på én gang — skrives som ett matriseprodukt:**\n$$Y=X\\beta+\\varepsilon.$$\nRad $i$ av produktet $X\\beta$ er nettopp $\\beta_0+\\beta_1x_{i1}+\\dots+\\beta_kx_{ik}$, så dette er bare en kompakt omskriving av modellen over. Formen er verdt å kunne skrive opp fra hukommelsen — H2024 ba eksplisitt om den."
+    },
+    {
+      "id": "stk1110-3-3-matriserep",
+      "type": "text",
+      "content": "**Mini-repetisjon av matriseregning** (alt du trenger her): $X^T$ (transponert) bytter rader og kolonner. Matriseproduktet $AB$ krever at antall kolonner i $A$ er lik antall rader i $B$; element $(i,j)$ er rad $i$ i $A$ prikket med kolonne $j$ i $B$. $X^TX$ blir alltid en kvadratisk $(k+1)\\times(k+1)$-matrise, og $X^TY$ en $(k+1)\\times 1$-vektor. En invers $A^{-1}$ oppfyller $A^{-1}A=I$ — den «opphever» $A$, slik $1/a$ opphever tallet $a$."
+    },
+    {
+      "id": "stk1110-3-3-def-invers",
+      "type": "definition",
+      "title": "Invers av en $2\\times 2$-matrise (regneregel)",
+      "content": "**For håndregning trenger du bare $2\\times2$-inversen — bytt diagonalen, skift fortegn på resten, og del på determinanten:**\n$$\\begin{pmatrix}a & b\\\\ c & d\\end{pmatrix}^{-1}=\\frac{1}{ad-bc}\\begin{pmatrix}d & -b\\\\ -c & a\\end{pmatrix},\\qquad ad-bc\\neq 0.$$\nEr determinanten $ad-bc=0$, finnes ingen invers — det er nøyaktig dette som går galt når designmatrisen ikke har full rang (nedenfor)."
+    },
+    {
+      "id": "stk1110-3-3-utledning",
+      "type": "text",
+      "content": "**Utledning av normalligningene** (må kunne gjøres aktivt — utledningen står ikke i formelsamlingen, bare sluttformelen). Minste kvadrater minimerer\n$$Q(\\beta)=\\sum_{i=1}^n\\Bigl(y_i-\\beta_0-\\beta_1x_{i1}-\\dots-\\beta_kx_{ik}\\Bigr)^2=\\lVert y-X\\beta\\rVert^2.$$\nDeriverer vi $Q$ med hensyn på hver $\\beta_j$ og setter alle deriverte lik null, får vi (på matriseform)\n$$X^T(y-X\\beta)=0\\quad\\Longleftrightarrow\\quad X^TX\\,\\beta=X^Ty.$$\n*Intuisjon:* i minimum skal residualvektoren $y-X\\beta$ stå «vinkelrett» på hver kolonne i $X$ — ingen av forklaringsvariablene har mer å forklare. Det er nøyaktig hva $X^T(y-X\\beta)=0$ sier, kolonne for kolonne."
+    },
+    {
+      "id": "stk1110-3-3-def-normalligninger",
+      "type": "definition",
+      "title": "Normalligningene på matriseform",
+      "content": "**Normalligningene er ligningssystemet som bestemmer minste kvadraters løsning** — de sier at residualene skal være ukorrelerte med hver kolonne i designmatrisen:\n$$X^TX\\,\\hat\\beta=X^TY.$$\nDette er $k+1$ lineære ligninger med $k+1$ ukjente. I enkel regresjon ($k=1$) er de nøyaktig de to normalligningene fra [kap. 3.1](/bok/stk1110/stk1110-3-1) — matriseformen er samme innhold i kompakt drakt."
+    },
+    {
+      "id": "stk1110-3-3-def-ls",
+      "type": "definition",
+      "title": "Minste kvadraters estimator på matriseform",
+      "content": "**Når $X^TX$ kan inverteres, løses normalligningene direkte, og svaret er bokas viktigste matriseformel:**\n$$\\hat\\beta=(X^TX)^{-1}X^TY.$$\nVektoren $\\hat\\beta$ inneholder alle estimatorene $\\hat\\beta_0,\\hat\\beta_1,\\dots,\\hat\\beta_k$ på én gang. Husk skillet: $\\hat\\beta$ med store $Y$ er en stokastisk vektor (estimator); setter du inn tallene $y$, får du estimatet (tall)."
+    },
+    {
+      "id": "stk1110-3-3-def-fullrang",
+      "type": "definition",
+      "title": "Full kolonnerang — entydighetskravet",
+      "content": "**Løsningen er entydig bare når ingen kolonne i $X$ kan skrives som en lineær kombinasjon av de andre — da sier vi at $X$ har full kolonnerang.** Har $X$ full kolonnerang (rang $k+1$), er $X^TX$ inverterbar og $\\hat\\beta=(X^TX)^{-1}X^TY$ veldefinert og entydig. Hvis derimot én kolonne er en lineær kombinasjon av andre (f.eks. samme pris målt i to valutaer), er $X^TX$ singulær: normalligningene har uendelig mange løsninger, og koeffisientene kan ikke skilles fra hverandre. Dette kravet ble testet i H2024."
+    },
+    {
+      "id": "stk1110-3-3-def-fitted",
+      "type": "definition",
+      "title": "Tilpassede verdier og residualvektoren",
+      "content": "**Tilpassede verdier er modellens forklarte del; residualene er resten.** På matriseform:\n$$\\hat y=X\\hat\\beta,\\qquad e=y-\\hat y=y-X\\hat\\beta.$$\nElementvis er $\\hat y_i=\\hat\\beta_0+\\hat\\beta_1x_{i1}+\\dots+\\hat\\beta_kx_{ik}$ og $e_i=y_i-\\hat y_i$, akkurat som i enkel regresjon — bare med flere ledd."
+    },
+    {
+      "id": "stk1110-3-3-def-sse",
+      "type": "definition",
+      "title": "SSE i multippel regresjon",
+      "content": "**Residualkvadratsummen måler den uforklarte variasjonen — det minste kvadraters metode faktisk minimerte:**\n$$\\text{SSE}=\\sum_{i=1}^n e_i^2=\\sum_{i=1}^n(y_i-\\hat y_i)^2.$$\nSSE kan aldri øke når en ny prediktor legges til modellen (mer om det i løkke 2)."
+    },
+    {
+      "id": "stk1110-3-3-def-s2",
+      "type": "definition",
+      "title": "Variansestimatoren $S^2=\\text{SSE}/(n-k-1)$",
+      "content": "**Feilvariansen $\\sigma^2$ estimeres med SSE delt på frihetsgradene:**\n$$S^2=\\frac{\\text{SSE}}{n-k-1},\\qquad \\hat\\sigma=S.$$\nI R-utskriften er $\\hat\\sigma$ tallet på «Residual standard error»-linja, og frihetsgradene står rett bak («on $n-k-1$ degrees of freedom»)."
+    },
+    {
+      "id": "stk1110-3-3-def-df",
+      "type": "definition",
+      "title": "Frihetsgradene $n-k-1$",
+      "content": "**Hver estimert regresjonsparameter «koster» én frihetsgrad.** Vi estimerer $k+1$ parametre ($\\beta_0,\\dots,\\beta_k$), så det gjenstår $n-(k+1)=n-k-1$ frihetsgrader til å estimere $\\sigma^2$. Sjekk: $k=1$ gir $n-2$ (enkel regresjon, [kap. 3.1](/bok/stk1110/stk1110-3-1)) — formlene henger sammen. Feil frihetsgrader er blant de hyppigst straffede feilene i regresjonsoppgavene (§5.2)."
+    },
+    {
+      "id": "stk1110-3-3-def-kovarians",
+      "type": "definition",
+      "title": "Forventning og kovariansmatrise til $\\hat\\beta$",
+      "content": "**Minste kvadraters estimator treffer riktig i snitt, og all usikkerheten dens står i én matrise.** Under modellantakelsene er\n$$E(\\hat\\beta)=\\beta,\\qquad \\text{Cov}(\\hat\\beta)=\\sigma^2(X^TX)^{-1}.$$\nDiagonalelementene i $\\sigma^2(X^TX)^{-1}$ er variansene $V(\\hat\\beta_j)$; kvadratrøttene av dem (med $\\sigma$ byttet ut med $S$) er standardfeilene i R-utskriftens «Std. Error»-kolonne. At $E(\\hat\\beta)=\\beta$ betyr at estimatoren er forventningsrett."
+    },
+    {
+      "id": "stk1110-3-3-def-ttest",
+      "type": "definition",
+      "title": "t-inferens for én koeffisient (df $=n-k-1$)",
+      "content": "**Hver koeffisient testes og intervallestimeres nøyaktig som i enkel regresjon — men med frihetsgrader $n-k-1$.** Standardfeilen $se(\\hat\\beta_j)$ er roten av diagonalelement $j$ i $S^2(X^TX)^{-1}$, og\n$$T=\\frac{\\hat\\beta_j-\\beta_j^0}{se(\\hat\\beta_j)}\\sim t_{n-k-1},\\qquad \\text{KI: }\\hat\\beta_j\\pm t_{n-k-1,\\,\\alpha/2}\\,se(\\hat\\beta_j).$$\nI praksis leser du $\\hat\\beta_j$ og $se(\\hat\\beta_j)$ rett ut av R-utskriften ([kap. 3.2](/bok/stk1110/stk1110-3-2)). Husk: testen for $\\beta_j=0$ er *betinget på at de øvrige variablene står i modellen*."
+    },
+    {
+      "id": "stk1110-3-3-ex1",
+      "type": "example",
+      "title": "Eksempel 1: Minste kvadrater med matriser — hele kjeden for hånd",
+      "problem": "Fire observasjoner av $(x,y)$: $(0,1)$, $(1,3)$, $(2,4)$, $(3,8)$. Bruk matriseformen til å finne minste kvadraters estimater i modellen $Y_i=\\beta_0+\\beta_1x_i+\\varepsilon_i$, og estimer $\\sigma^2$.",
+      "solution": "Designmatrisen og responsvektoren ($n=4$, $k=1$):\n$$X=\\begin{pmatrix}1&0\\\\1&1\\\\1&2\\\\1&3\\end{pmatrix},\\qquad y=\\begin{pmatrix}1\\\\3\\\\4\\\\8\\end{pmatrix}.$$\nByggeklossene:\n$$X^TX=\\begin{pmatrix}4&6\\\\6&14\\end{pmatrix},\\qquad X^Ty=\\begin{pmatrix}16\\\\35\\end{pmatrix}.$$\nDeterminanten er $4\\cdot 14-6\\cdot 6=20\\neq 0$, så $X$ har full kolonnerang og løsningen er entydig:\n$$(X^TX)^{-1}=\\frac{1}{20}\\begin{pmatrix}14&-6\\\\-6&4\\end{pmatrix},\\qquad \\hat\\beta=(X^TX)^{-1}X^Ty=\\frac{1}{20}\\begin{pmatrix}14\\cdot16-6\\cdot35\\\\-6\\cdot16+4\\cdot35\\end{pmatrix}=\\begin{pmatrix}0{,}7\\\\2{,}2\\end{pmatrix}.$$\nAltså $\\hat y=0{,}7+2{,}2x$. Tilpassede verdier $(0{,}7;\\,2{,}9;\\,5{,}1;\\,7{,}3)$ gir residualene $(0{,}3;\\,0{,}1;\\,-1{,}1;\\,0{,}7)$ og\n$$\\text{SSE}=0{,}09+0{,}01+1{,}21+0{,}49=1{,}8,\\qquad S^2=\\frac{1{,}8}{4-1-1}=0{,}9.$$\nKontroll: $\\sum e_i=0$ ✓."
+    },
+    {
+      "id": "stk1110-3-3-oppg1",
+      "type": "exercise",
+      "exercise": {
+        "id": "stk1110-3-3-oppg1-e",
+        "number": "1",
+        "type": "classic",
+        "difficulty": "lett",
+        "task": "En modell skal forklare leiepris med de to prediktorene areal og avstand til sentrum, basert på $n=6$ leiligheter.\n\n**a)** Hvilke dimensjoner har designmatrisen $X$, vektoren $\\beta$ og produktet $X^TX$?\n\n**b)** Hva inneholder første kolonne i $X$, og hvorfor?",
+        "solution": "**a)** Med $k=2$ prediktorer er $X$ en $6\\times 3$-matrise ($n$ rader, $k+1$ kolonner), $\\beta$ er $3\\times 1$, og $X^TX$ blir $3\\times 3$.\n\n**b)** Første kolonne er bare 1-ere. Den multipliseres med $\\beta_0$ i produktet $X\\beta$ og sørger dermed for at konstantleddet er med i hver av de $n$ ligningene.",
+        "hints": [
+          "Tell parametre: $k$ helninger pluss konstantleddet gir $k+1$ kolonner.",
+          "Se på rad $i$ av $X\\beta$: hva må stå først i raden for at $\\beta_0$ skal dukke opp?"
+        ]
+      }
+    },
+    {
+      "id": "stk1110-3-3-oppg2",
+      "type": "exercise",
+      "exercise": {
+        "id": "stk1110-3-3-oppg2-e",
+        "number": "2",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "Fire observasjoner: $x=(0,1,2,3)$ og $y=(2,3,7,8)$.\n\n**a)** Sett opp $X^TX$ og $X^Ty$, og finn $\\hat\\beta$ med matriseformelen.\n\n**b)** Beregn SSE og $S^2$. Hvor mange frihetsgrader har $S^2$?",
+        "solution": "**a)** $X$ har 1-erkolonne og $x$-kolonne, så $X^TX=\\begin{pmatrix}4&6\\\\6&14\\end{pmatrix}$ (som i eksempel 1 — samme $x$-er). Videre er $\\sum y_i=20$ og $\\sum x_iy_i=0\\cdot2+1\\cdot3+2\\cdot7+3\\cdot8=41$, så $X^Ty=(20,\\ 41)^T$.\n$$\\hat\\beta=\\frac{1}{20}\\begin{pmatrix}14&-6\\\\-6&4\\end{pmatrix}\\begin{pmatrix}20\\\\41\\end{pmatrix}=\\frac{1}{20}\\begin{pmatrix}280-246\\\\-120+164\\end{pmatrix}=\\begin{pmatrix}1{,}7\\\\2{,}2\\end{pmatrix}.$$\n\n**b)** Tilpassede verdier: $(1{,}7;\\,3{,}9;\\,6{,}1;\\,8{,}3)$, residualer $(0{,}3;\\,-0{,}9;\\,0{,}9;\\,-0{,}3)$, så $\\text{SSE}=0{,}09+0{,}81+0{,}81+0{,}09=1{,}8$ og $S^2=1{,}8/(4-1-1)=0{,}9$ med $n-k-1=2$ frihetsgrader.",
+        "hints": [
+          "$X^TX$ avhenger bare av $x$-ene — den kan gjenbrukes fra eksempel 1.",
+          "$X^Ty=(\\sum y_i,\\ \\sum x_iy_i)^T$; inverter med $2\\times2$-regelen.",
+          "Frihetsgrader: $n$ minus antall estimerte regresjonsparametre."
+        ]
+      }
+    },
+    {
+      "id": "stk1110-3-3-oppg3",
+      "type": "exercise",
+      "exercise": {
+        "id": "stk1110-3-3-oppg3-e",
+        "number": "3",
+        "type": "classic",
+        "difficulty": "lett",
+        "task": "En student vil forklare bruktbilpris med både «pris som ny, i kroner» ($x_1$) og «pris som ny, i euro» ($x_2$), der $x_2=x_1/11{,}5$ for alle bilene. Forklar hvorfor minste kvadraters estimator ikke er entydig i denne modellen. Hvilket krav er brutt?",
+        "solution": "Kolonnen for $x_2$ er $1/11{,}5$ ganger kolonnen for $x_1$ — altså en lineær kombinasjon av en annen kolonne. Da har ikke $X$ full kolonnerang, $X^TX$ blir singulær (determinant null), og $(X^TX)^{-1}$ finnes ikke. Normalligningene har uendelig mange løsninger: en økning i $\\hat\\beta_1$ kan alltid kompenseres av en tilsvarende reduksjon i $\\hat\\beta_2$, siden de to variablene bærer nøyaktig samme informasjon. Kravet som er brutt, er **full kolonnerang** (entydighetskravet).",
+        "hints": [
+          "Sammenlign kolonnene i $X$: kan én skrives som et multiplum av en annen?",
+          "Hva skjer med $(X^TX)^{-1}$ når determinanten er null?"
+        ]
+      }
+    },
+    {
+      "id": "stk1110-3-3-ex2",
+      "type": "example",
+      "title": "Eksempel 2: Multippel regresjon fra R-utskrift — leiepriser",
+      "problem": "For $n=8$ leiligheter er månedsleie (i tusen kroner) modellert med areal (m²) og avstand til sentrum (km):\n\n```\nCoefficients:\n             Estimate Std. Error t value Pr(>|t|)\n(Intercept)   4.36753    1.25974   3.467  0.01791 *\nareal         0.11135    0.01524   7.306 0.000752 ***\navstand      -0.51023    0.11921  -4.280  0.00786 **\n---\nResidual standard error: 0.9536 on 5 degrees of freedom\nMultiple R-squared:  0.9413,   Adjusted R-squared:  0.9178\nF-statistic: 40.08 on 2 and 5 DF,  p-value: 0.0008355\n```\n\n**a)** Tolk koeffisienten for avstand. **b)** Verifiser t-verdien for areal. **c)** Angi frihetsgradene og forklar tallet. **d)** Gi et 95 %-konfidensintervall for avstandskoeffisienten.",
+      "solution": "**a)** $\\hat\\beta_2=-0{,}510$: én kilometer lenger fra sentrum reduserer forventet månedsleie med om lag 510 kroner, *for leiligheter med samme areal* (betinget tolkning — de andre variablene holdes konstant).\n\n**b)** `t value` $=$ `Estimate`$/$`Std. Error` $=0{,}11135/0{,}01524=7{,}31$ ✓ (stemmer med utskriften).\n\n**c)** $n-k-1=8-2-1=5$ — vi har estimert $k+1=3$ parametre av $n=8$ observasjoner. Tallet står bak «Residual standard error».\n\n**d)** Kvantilen er $t_{5,\\,0{,}025}=2{,}571$ (formelsamlingen — tren *oppslaget*: 5 frihetsgrader, øvre haleareal $0{,}025$). KI:\n$$-0{,}51023\\pm 2{,}571\\cdot 0{,}11921=-0{,}510\\pm 0{,}306=(-0{,}817,\\ -0{,}204).$$\nIntervallet inneholder ikke 0, i samsvar med at `Pr(>|t|)` $=0{,}0079<0{,}05$."
+    },
+    {
+      "id": "stk1110-3-3-oppg4",
+      "type": "exercise",
+      "exercise": {
+        "id": "stk1110-3-3-oppg4-e",
+        "number": "4",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "Bruk R-utskriften i eksempel 2.\n\n**a)** Gi et 95 %-konfidensintervall for arealkoeffisienten ($t_{5,\\,0{,}025}=2{,}571$).\n\n**b)** Er arealeffekten signifikant på 1 %-nivå? Begrunn ut fra utskriften.\n\n**c)** Hva er $\\hat\\sigma$, og hvilken linje henter du den fra?",
+        "solution": "**a)** $0{,}11135\\pm 2{,}571\\cdot 0{,}01524=0{,}1113\\pm 0{,}0392=(0{,}072,\\ 0{,}151)$.\n\n**b)** Ja: `Pr(>|t|)` for areal er $0{,}000752<0{,}01$, så $H_0:\\beta_1=0$ forkastes på 1 %-nivå.\n\n**c)** $\\hat\\sigma=0{,}9536$, fra linja «Residual standard error: 0.9536 on 5 degrees of freedom».",
+        "hints": [
+          "KI: `Estimate` $\\pm\\ t_{n-k-1,\\,\\alpha/2}\\cdot$ `Std. Error`.",
+          "Sammenlign P-verdien i `Pr(>|t|)`-kolonnen direkte med nivået."
+        ]
+      }
+    },
+    {
+      "id": "stk1110-3-3-l2",
+      "type": "text",
+      "content": "## Løkke 2 — $R^2$ og justert $R^2$: modellvalg (~15 min)\n\n*Godt pausepunkt: løkke 1 er unnagjort — resten av kapitlet er lettere regning og mer tolkning.*"
+    },
+    {
+      "id": "stk1110-3-3-def-dekomp",
+      "type": "definition",
+      "title": "Kvadratsum-dekomponeringen",
+      "content": "**Total variasjon deles i forklart og uforklart del — samme regnskap som i enkel regresjon:**\n$$\\text{SST}=\\text{SSR}+\\text{SSE},$$\nder $\\text{SST}=\\sum(y_i-\\bar y)^2$ (total variasjon rundt gjennomsnittet), $\\text{SSR}=\\sum(\\hat y_i-\\bar y)^2$ (forklart av modellen) og $\\text{SSE}=\\sum(y_i-\\hat y_i)^2$ (residualene)."
+    },
+    {
+      "id": "stk1110-3-3-def-r2",
+      "type": "definition",
+      "title": "$R^2$ i multippel regresjon",
+      "content": "**Determinasjonskoeffisienten er andelen av variasjonen i responsen som modellen forklarer:**\n$$R^2=1-\\frac{\\text{SSE}}{\\text{SST}}=\\frac{\\text{SSR}}{\\text{SST}}.$$\nI R-utskriften heter den «Multiple R-squared». Med flere prediktorer er $R^2$ ikke lenger kvadratet av én enkelt korrelasjon — men spesialtilfellet med ukorrelerte prediktorer i løkke 3 gir en vakker sum-formel."
+    },
+    {
+      "id": "stk1110-3-3-def-monotoni",
+      "type": "definition",
+      "title": "Hvorfor $R^2$ aldri synker når en variabel legges til",
+      "content": "**$R^2$ kan bare øke (eller stå stille) når modellen utvides — uansett hvor irrelevant den nye variabelen er.** Grunnen: minste kvadrater minimerer SSE over alle koeffisientverdier, og den store modellen *inneholder* den lille som spesialtilfelle (sett den nye koeffisienten til null). Minimum over en større mengde kan aldri bli større, så SSE synker (eller er uendret) — og $R^2=1-\\text{SSE}/\\text{SST}$ øker. Derfor er høy $R^2$ i seg selv aldri et argument for en større modell."
+    },
+    {
+      "id": "stk1110-3-3-def-justr2",
+      "type": "definition",
+      "title": "Justert $R^2$",
+      "content": "**Justert $R^2$ straffer modellen for hver ekstra parameter ved å bruke frihetsgradsjusterte varianser i stedet for rå kvadratsummer:**\n$$R^2_{\\text{just}}=1-\\frac{\\text{SSE}/(n-k-1)}{\\text{SST}/(n-1)}=1-(1-R^2)\\,\\frac{n-1}{n-k-1}.$$\nLegges en variabel til, synker SSE — men $n-k-1$ synker også. Justert $R^2$ øker bare hvis SSE-reduksjonen er stor nok til å forsvare den tapte frihetsgraden. Den kan derfor *synke* (og til og med bli negativ), og det er nettopp det som gjør den brukbar til modellvalg. I utskriften: «Adjusted R-squared»."
+    },
+    {
+      "id": "stk1110-3-3-def-modellvalg",
+      "type": "definition",
+      "title": "Modellvalg med justert $R^2$",
+      "content": "**Regelen på eksamen: sammenlign modeller med justert $R^2$ — velg modellen med høyest justert $R^2$, aldri høyest $R^2$.** Vanlig $R^2$ premierer alltid den største modellen (monotoni-egenskapen), så den kan ikke skille nyttige utvidelser fra støy. En utvidelse som øker $R^2$ men *senker* justert $R^2$, har ikke tilført nok forklaringskraft til å forsvare ekstra kompleksitet — behold den lille modellen. (Å jage stadig større modeller kalles overtilpasning; se begrepsbanken.)"
+    },
+    {
+      "id": "stk1110-3-3-ex3",
+      "type": "example",
+      "title": "Eksempel 3: Er den utvidede modellen verdt det?",
+      "problem": "For $n=20$ bedrifter er omsetning modellert med to konkurrerende modeller ($\\text{SST}=200$ for begge):\n\n- **Modell A** ($k=2$ prediktorer): $\\text{SSE}=30$.\n- **Modell B** ($k=3$ prediktorer, A pluss én ekstra variabel): $\\text{SSE}=28{,}6$.\n\nBeregn $R^2$ og justert $R^2$ for begge, og avgjør hvilken modell som bør velges.",
+      "solution": "**Modell A:** $R^2=1-30/200=0{,}850$ og\n$$R^2_{\\text{just}}=1-\\frac{30/(20-2-1)}{200/19}=1-\\frac{30/17}{200/19}=1-\\frac{1{,}765}{10{,}526}=0{,}832.$$\n**Modell B:** $R^2=1-28{,}6/200=0{,}857$ og\n$$R^2_{\\text{just}}=1-\\frac{28{,}6/16}{200/19}=1-\\frac{1{,}788}{10{,}526}=0{,}830.$$\n$R^2$ økte som den *alltid* gjør ($0{,}850\\to 0{,}857$), men justert $R^2$ **sank** ($0{,}832\\to 0{,}830$): SSE-reduksjonen på $1{,}4$ forsvarer ikke den tapte frihetsgraden. **Velg modell A.**"
+    },
+    {
+      "id": "stk1110-3-3-oppg5",
+      "type": "exercise",
+      "exercise": {
+        "id": "stk1110-3-3-oppg5-e",
+        "number": "5",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "To modeller for samme datasett med $n=15$: modell 1 har $k=2$ og $R^2=0{,}62$; modell 2 har $k=4$ og $R^2=0{,}66$.\n\n**a)** Beregn justert $R^2$ for begge.\n\n**b)** Hvilken modell velger du, og hvorfor holder det ikke å se på $R^2$?",
+        "solution": "**a)** $R^2_{\\text{just}}=1-(1-R^2)\\frac{n-1}{n-k-1}$: modell 1: $1-0{,}38\\cdot\\frac{14}{12}=1-0{,}4433=0{,}557$. Modell 2: $1-0{,}34\\cdot\\frac{14}{10}=1-0{,}476=0{,}524$.\n\n**b)** Modell 1 — den har høyest justert $R^2$. $R^2$ kan ikke brukes til valget fordi den aldri synker når variabler legges til; økningen fra $0{,}62$ til $0{,}66$ kan derfor være ren overtilpasning, og justeringen viser at de to ekstra variablene ikke betaler for seg.",
+        "hints": [
+          "Bruk omskrivingen $R^2_{\\text{just}}=1-(1-R^2)(n-1)/(n-k-1)$.",
+          "Hvilken av de to størrelsene kan synke når modellen utvides?"
+        ]
+      }
+    },
+    {
+      "id": "stk1110-3-3-oppg6",
+      "type": "exercise",
+      "exercise": {
+        "id": "stk1110-3-3-oppg6-e",
+        "number": "6",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "En medstudent sier: «Modellen min har $R^2=0{,}91$ mot din $0{,}88$, så min er best.» Din modell bruker $k=2$ prediktorer, medstudentens $k=7$; begge har $n=25$.\n\n**a)** Beregn justert $R^2$ for begge modellene.\n\n**b)** Skriv et kort svar (2–3 setninger) til medstudenten.",
+        "solution": "**a)** Din: $1-0{,}12\\cdot\\frac{24}{22}=1-0{,}1309=0{,}869$. Medstudentens: $1-0{,}09\\cdot\\frac{24}{17}=1-0{,}1271=0{,}873$.\n\n**b)** «$R^2$ øker automatisk med hver variabel du legger til, så den kan ikke sammenligne modeller av ulik størrelse. Justert $R^2$ tar hensyn til antall parametre — her er tallene $0{,}869$ mot $0{,}873$, altså praktisk talt likeverdige modeller, ikke en klar seier. Skal du forsvare fem ekstra variabler, må gevinsten være tydeligere enn dette.»",
+        "hints": [
+          "Samme formel som i oppgave 5 — pass på riktig $n-k-1$ for hver modell.",
+          "Poenget i svaret: hvorfor er rå $R^2$-sammenligning urettferdig mot den lille modellen?"
+        ]
+      }
+    },
+    {
+      "id": "stk1110-3-3-l3",
+      "type": "text",
+      "content": "## Løkke 3 — Konfundering, multikollinearitet og ukorrelerte prediktorer (~20 min)"
+    },
+    {
+      "id": "stk1110-3-3-def-betinget",
+      "type": "definition",
+      "title": "Betinget tolkning av en regresjonskoeffisient",
+      "content": "**I multippel regresjon måler $\\beta_j$ effekten av $x_j$ når alle de andre variablene i modellen holdes konstant** («alt annet likt»). Koeffisienten er altså ikke «hele effekten» av $x_j$ — den er effekten *justert for* de øvrige variablene. Derfor kan samme variabel få helt ulik koeffisient i to modeller med ulike medspillere, uten at noe er galt."
+    },
+    {
+      "id": "stk1110-3-3-def-konfundering",
+      "type": "definition",
+      "title": "Konfundering",
+      "content": "**Konfundering er at sammenhengen mellom en prediktor og responsen helt eller delvis skyldes en tredje variabel som henger sammen med begge.** Utelates den tredje variabelen, «arver» den inkluderte prediktoren dens effekt, og koeffisienten blir misvisende stor (eller får galt fortegn). Når den tredje variabelen tas inn i modellen, endrer koeffisienten seg — det er dette eksamen ber deg *forklare*, ikke bare konstatere."
+    },
+    {
+      "id": "stk1110-3-3-def-konfvar",
+      "type": "definition",
+      "title": "Konfunderende variabel",
+      "content": "**En konfunderende variabel (konfunder) er en variabel som både (1) påvirker responsen og (2) er korrelert med prediktoren du er interessert i.** Begge kravene må være oppfylt: en variabel som bare påvirker responsen, men er ukorrelert med prediktoren, endrer ikke prediktorens koeffisient når den legges til (se ortogonale prediktorer nedenfor)."
+    },
+    {
+      "id": "stk1110-3-3-hvorfor-endres",
+      "type": "text",
+      "content": "**Hvorfor endrer koeffisienten seg?** Tenk deg at den sanne modellen har både $x_1$ og $x_2$, men du tilpasser bare $x_1$. I dataene følger $x_2$ med $x_1$ (de er korrelerte), så hver gang $x_1$ øker, øker som regel $x_2$ også — og responsen endres av *begge*. Den enkle regresjonen kan ikke skille bidragene og legger hele den samlede endringen på $x_1$.\n\n*Intuisjon:* koeffisienten i den enkle modellen svarer på «hva skjer med $y$ når $x_1$ øker — *med $x_2$ på slep*?», mens den multiple svarer på «hva skjer når $x_1$ øker og $x_2$ holdes fast?». To ulike spørsmål gir to ulike tall. Endringen er stor når korrelasjonen mellom $x_1$ og $x_2$ er sterk og $x_2$ har stor egen effekt."
+    },
+    {
+      "id": "stk1110-3-3-ex4",
+      "type": "example",
+      "title": "Eksempel 4: Konfundering i praksis — strømforbruk (eksamensnivå)",
+      "problem": "For $n=8$ boliger er årlig strømforbruk (i tusen kWh) først regressert på boligareal alene, deretter på areal og antall beboere. Korrelasjonen mellom areal og antall beboere i utvalget er $0{,}98$.\n\n**Modell 1** (kun areal):\n```\n             Estimate Std. Error t value Pr(>|t|)\n(Intercept)   0.68690    0.62293   1.103    0.312\nareal         0.06577    0.00452  14.551 6.61e-06 ***\n---\nResidual standard error: 0.5858 on 6 degrees of freedom\nMultiple R-squared:  0.9725,   Adjusted R-squared:  0.9679\n```\n\n**Modell 2** (areal + beboere):\n```\n             Estimate Std. Error t value Pr(>|t|)\n(Intercept)   1.63929    0.57331   2.859   0.0354 *\nareal         0.02411    0.01623   1.486   0.1977\nbeboere       1.42857    0.54560   2.618   0.0472 *\n---\nResidual standard error: 0.4167 on 5 degrees of freedom\nMultiple R-squared:  0.9884,   Adjusted R-squared:  0.9837\n```\n\n**a)** Arealkoeffisienten faller fra $0{,}0658$ til $0{,}0241$ og mister signifikansen. Forklar hvorfor. **b)** Hvilken modell foretrekkes ut fra justert $R^2$? **c)** Hva har skjedd med standardfeilen til arealkoeffisienten, og hvorfor?",
+      "solution": "**a)** Antall beboere er en konfunderende variabel: den påvirker strømforbruket (flere folk bruker mer strøm) *og* er sterkt korrelert med areal ($r=0{,}98$ — store boliger huser flere). I modell 1 fanger arealkoeffisienten derfor både arealets egen effekt og beboereffekten som «følger med på slep». Når beboere inkluderes, måler arealkoeffisienten bare effekten av mer areal *ved fast antall beboere* — en mye mindre (og her ikke-signifikant, $p=0{,}198$) effekt.\n\n**b)** Justert $R^2$ stiger fra $0{,}9679$ til $0{,}9837$, så modell 2 foretrekkes — beboervariabelen tilfører reell forklaringskraft.\n\n**c)** Den mer enn tredobles: $0{,}00452\\to 0{,}01623$. Det er multikollinearitet: med $r=0{,}98$ inneholder de to prediktorene nesten samme informasjon, og det blir vanskelig å skille effektene fra hverandre — usikkerheten i hver enkelt koeffisient blåses opp, selv om modellen som helhet er god."
+    },
+    {
+      "id": "stk1110-3-3-def-multikollinearitet",
+      "type": "definition",
+      "title": "Multikollinearitet",
+      "content": "**Multikollinearitet er sterk (men ikke perfekt) korrelasjon mellom prediktorene.** Modellen kan fortsatt estimeres ($X$ har full rang), men $X^TX$ er «nesten singulær»: standardfeilene til de involverte koeffisientene blåses opp, t-verdiene blir små, og enkeltkoeffisienter kan bli ikke-signifikante selv når modellen samlet forklarer mye (høy $R^2$, sterk F-test). Perfekt korrelasjon er grensetilfellet der full rang ryker helt."
+    },
+    {
+      "id": "stk1110-3-3-def-ortogonale",
+      "type": "definition",
+      "title": "Ortogonale (ukorrelerte) prediktorer",
+      "content": "**Når prediktorene er ukorrelerte i utvalget (og sentrerte — gjennomsnittet trukket fra), blir $X^TX$ en diagonalmatrise.** Da faller alt fra hverandre på fineste vis: hver koeffisient estimeres som om de andre variablene ikke fantes ($\\hat\\beta_j=S_{x_jy}/S_{x_jx_j}$), og koeffisientene *endrer seg ikke* når en annen ukorrelert variabel legges til eller fjernes. Konfundering krever korrelasjon — uten korrelasjon, ingen konfundering. Balanserte, planlagte forsøk konstrueres nettopp slik."
+    },
+    {
+      "id": "stk1110-3-3-def-r2sum",
+      "type": "definition",
+      "title": "$R^2=r_1^2+r_2^2$ ved ukorrelerte prediktorer",
+      "content": "**Med to sentrerte, ukorrelerte prediktorer deler forklaringskraften seg additivt:**\n$$R^2=r_1^2+r_2^2,$$\nder $r_j$ er utvalgskorrelasjonen mellom $x_j$ og $y$. Hver prediktor forklarer sin egen bit av variasjonen, og bitene overlapper ikke — det er overlappet korrelerte prediktorer krangler om. (Testet i H2018 og H2025.)"
+    },
+    {
+      "id": "stk1110-3-3-ex5",
+      "type": "example",
+      "title": "Eksempel 5: Ortogonalt design — alt blir diagonalt",
+      "problem": "Et balansert forsøk har $n=4$ observasjoner med sentrerte prediktorer $x_1=(-1,-1,1,1)$ og $x_2=(-1,1,-1,1)$, og respons $y=(2,4,6,10)$.\n\n**a)** Vis at $X^TX$ er diagonal. **b)** Finn $\\hat\\beta$. **c)** Verifiser at $R^2=r_1^2+r_2^2$.",
+      "solution": "**a)** $\\sum x_{i1}=\\sum x_{i2}=0$ (sentrerte) og $\\sum x_{i1}x_{i2}=1-1-1+1=0$ (ukorrelerte), så alle kryssledd forsvinner:\n$$X^TX=\\begin{pmatrix}4&0&0\\\\0&4&0\\\\0&0&4\\end{pmatrix}.$$\n\n**b)** Diagonal matrise inverteres elementvis, så hver koeffisient beregnes for seg: $\\hat\\beta_0=\\bar y=5{,}5$, $\\hat\\beta_1=\\sum x_{i1}y_i/4=(-2-4+6+10)/4=2{,}5$, $\\hat\\beta_2=\\sum x_{i2}y_i/4=(-2+4-6+10)/4=1{,}5$.\n\n**c)** Tilpassede verdier $(1{,}5;\\,4{,}5;\\,6{,}5;\\,9{,}5)$ gir $\\text{SSE}=4\\cdot 0{,}25=1$ og $\\text{SST}=35$, så $R^2=1-1/35=0{,}9714$. Korrelasjonene: $r_1^2=\\dfrac{(\\sum x_{i1}(y_i-\\bar y))^2}{\\sum x_{i1}^2\\cdot\\text{SST}}=\\dfrac{10^2}{4\\cdot 35}=0{,}7143$ og $r_2^2=\\dfrac{6^2}{4\\cdot 35}=0{,}2571$. Sum: $0{,}7143+0{,}2571=0{,}9714=R^2$ ✓."
+    },
+    {
+      "id": "stk1110-3-3-oppg7",
+      "type": "exercise",
+      "exercise": {
+        "id": "stk1110-3-3-oppg7-e",
+        "number": "7",
+        "type": "classic",
+        "difficulty": "vanskelig",
+        "task": "I en undersøkelse av $n=40$ studenter er eksamensskår først regressert på antall timer selvstudium per uke: koeffisient $2{,}10$ (sterkt signifikant). Når tidligere karaktersnitt legges til modellen, faller selvstudium-koeffisienten til $0{,}80$, og justert $R^2$ stiger fra $0{,}41$ til $0{,}58$.\n\n**a)** Forklar mekanismen bak fallet i koeffisienten. Hvilke to egenskaper må karaktersnitt ha for å skape denne endringen?\n\n**b)** Hvilken modell foretrekkes, og hvorfor?\n\n**c)** Skriv den utvidede modellen på matriseform og angi kravet som sikrer at $\\hat\\beta$ er entydig.",
+        "solution": "**a)** Karaktersnitt er en konfunderende variabel: (1) det påvirker eksamensskår direkte (flinke studenter skårer høyt uansett), og (2) det er korrelert med selvstudiumtid (flinke studenter jobber gjerne mer). I den enkle modellen arver selvstudium-koeffisienten derfor deler av karaktersnitt-effekten. Med karaktersnitt i modellen måler koeffisienten bare effekten av mer selvstudium *ved gitt karakternivå* — den rene studieeffekten, $0{,}80$.\n\n**b)** Den utvidede: justert $R^2$ stiger klart ($0{,}41\\to 0{,}58$), så den nye variabelen forsvarer frihetsgraden den koster.\n\n**c)** $Y=X\\beta+\\varepsilon$ med $X$ som $40\\times 3$-matrise (1-ere, selvstudium, karaktersnitt), $\\beta=(\\beta_0,\\beta_1,\\beta_2)^T$. Entydighet krever at $X$ har full kolonnerang — da er $X^TX$ inverterbar og $\\hat\\beta=(X^TX)^{-1}X^TY$.",
+        "hints": [
+          "Sjekk konfunder-definisjonen: hvilke to krav må variabelen oppfylle?",
+          "Modellvalg: hvilken størrelse kan brukes til å sammenligne modeller med ulikt antall variabler?",
+          "Matriseform: hvilke dimensjoner får $X$ med to prediktorer og konstantledd?"
+        ]
+      }
+    },
+    {
+      "id": "stk1110-3-3-oppg8",
+      "type": "exercise",
+      "exercise": {
+        "id": "stk1110-3-3-oppg8-e",
+        "number": "8",
+        "type": "classic",
+        "difficulty": "vanskelig",
+        "task": "Samme design som i eksempel 5 ($x_1=(-1,-1,1,1)$, $x_2=(-1,1,-1,1)$), men med respons $y=(1,5,3,8)$.\n\n**a)** Finn $\\hat\\beta$ ved å utnytte at $X^TX$ er diagonal.\n\n**b)** Beregn $R^2$ og verifiser at $R^2=r_1^2+r_2^2$.\n\n**c)** Hva ville skjedd med $\\hat\\beta_1$ om du droppet $x_2$ fra modellen? Begrunn uten å regne.",
+        "solution": "**a)** $\\hat\\beta_0=\\bar y=4{,}25$; $\\hat\\beta_1=(-1-5+3+8)/4=1{,}25$; $\\hat\\beta_2=(-1+5-3+8)/4=2{,}25$.\n\n**b)** Tilpassede verdier: $(0{,}75;\\,5{,}25;\\,3{,}25;\\,7{,}75)$, residualer $(0{,}25;\\,-0{,}25;\\,-0{,}25;\\,0{,}25)$, $\\text{SSE}=0{,}25$. $\\text{SST}=(1-4{,}25)^2+(5-4{,}25)^2+(3-4{,}25)^2+(8-4{,}25)^2=26{,}75$, så $R^2=1-0{,}25/26{,}75=0{,}9907$. Videre $r_1^2=5^2/(4\\cdot 26{,}75)=0{,}2336$ og $r_2^2=9^2/(4\\cdot 26{,}75)=0{,}7570$; sum $=0{,}9906\\approx R^2$ ✓ (avrunding).\n\n**c)** Ingenting — $\\hat\\beta_1$ ville fortsatt vært $1{,}25$. Prediktorene er ukorrelerte, så hver koeffisient beregnes uavhengig av om den andre står i modellen; konfundering krever korrelasjon.",
+        "hints": [
+          "Ved diagonal $X^TX$: $\\hat\\beta_j=\\sum x_{ij}y_i\\big/\\sum x_{ij}^2$ for hver $j$.",
+          "$r_j^2=(\\sum x_{ij}(y_i-\\bar y))^2\\big/(\\sum x_{ij}^2\\cdot\\text{SST})$; med sentrerte $x$-er er $\\sum x_{ij}(y_i-\\bar y)=\\sum x_{ij}y_i$.",
+          "Hva sa ortogonalitets-boksen om koeffisienter som legges til eller fjernes?"
+        ]
+      }
+    },
+    {
+      "id": "stk1110-3-3-def-dummy",
+      "type": "definition",
+      "title": "Dummyvariabel",
+      "content": "**En dummyvariabel koder en kategori som 0 eller 1, slik at grupper kan legges inn i en regresjonsmodell.** Med $x_i=1$ for gruppe B og $x_i=0$ for gruppe A blir modellen $Y_i=\\beta_0+\\beta_1x_i+\\varepsilon_i$: $\\beta_0$ er forventningen i gruppe A, og $\\beta_1$ er *forskjellen* mellom gruppene."
+    },
+    {
+      "id": "stk1110-3-3-def-dummykobling",
+      "type": "definition",
+      "title": "Dummy-regresjon = to-utvalg og ANOVA",
+      "content": "**Regresjon med én dummy er nøyaktig to-utvalgsproblemet i ny drakt:** t-testen for $H_0:\\beta_1=0$ er identisk med pooled to-utvalgs-t-testen fra [kap. 2.3](/bok/stk1110/stk1110-2-3) — begge har $n-2$ frihetsgrader når $n$ er samlet antall observasjoner i de to gruppene. Med flere kategorier (flere dummyer) blir F-testen for at alle gruppe-koeffisientene er null det samme som enveis ANOVA fra [kap. 2.6](/bok/stk1110/stk1110-2-6). Regresjon er altså paraplyen som samler testene du alt kan."
+    },
+    {
+      "id": "stk1110-3-3-warn",
+      "type": "warning",
+      "title": "Typiske feil i multippel regresjon",
+      "content": "1. **$R^2$ brukt til modellvalg** (§5.7). $R^2$ øker *alltid* når en variabel legges til — sammenlign modeller med justert $R^2$.\n2. **Koeffisient tolket som «hele effekten»** (§5.10). $\\hat\\beta_j$ er effekten *betinget på de øvrige variablene i modellen* — si det eksplisitt i tolkningen.\n3. **Feil frihetsgrader** (§5.2). Multippel regresjon har $n-k-1$, ikke $n-1$ eller $n-2$. Tell prediktorene, husk konstantleddet.\n4. **Full rang glemt** (H2024). $\\hat\\beta=(X^TX)^{-1}X^TY$ finnes bare når $X$ har full kolonnerang; nevn kravet når du skriver formelen.\n5. **Ikke-signifikant tolket som «uviktig»**. Med multikollinearitet kan en viktig variabel få stor standardfeil og liten t-verdi — kommenter korrelasjonen mellom prediktorene før du feller dommen."
+    },
+    {
+      "id": "stk1110-3-3-bank-note",
+      "type": "text",
+      "content": "*Flashcard-/repetisjonsstoff — hopp trygt over ved førstegangslesing; tidsanslaget gjelder kjernestoffet.* To siste begreper for repetisjonen."
+    },
+    {
+      "id": "stk1110-3-3-def-xte",
+      "type": "definition",
+      "title": "Residualvektorens ortogonalitet ($X^Te=0$)",
+      "content": "**Minste kvadraters residualer er alltid ukorrelerte med hver kolonne i designmatrisen** — det er normalligningene omskrevet:\n$$X^Te=X^T(y-X\\hat\\beta)=0.$$\nSpesielt gir 1-erkolonnen $\\sum e_i=0$: residualene summerer seg alltid til null (når modellen har konstantledd). Nyttig som kontrollregning i alle håndregningsoppgaver."
+    },
+    {
+      "id": "stk1110-3-3-def-overtilpasning",
+      "type": "definition",
+      "title": "Overtilpasning (overfitting)",
+      "content": "**Overtilpasning er å la modellen jage tilfeldig støy i utvalget ved å ta inn flere parametre enn dataene kan bære.** Symptomet er høy $R^2$ men synkende justert $R^2$ når modellen vokser. En overtilpasset modell beskriver utvalget godt, men predikerer nye observasjoner dårlig."
+    },
+    {
+      "id": "stk1110-3-3-symboler",
+      "type": "collapsible",
+      "title": "Symbol- og formelliste",
+      "buttonText": "Vis symboler og formler",
+      "content": [
+        {
+          "id": "stk1110-3-3-symboler-inner",
+          "type": "text",
+          "content": "## Symbol- og formelliste\n\n*Oppslagsverk — alt her forklares underveis i kapitlet.*\n\n| Symbol | Betydning |\n|---|---|\n| $k$ | Antall prediktorer (forklaringsvariabler); $k+1$ parametre |\n| $Y,\\ \\beta,\\ \\varepsilon$ | Responsvektor ($n\\times1$), koeffisientvektor ($(k+1)\\times1$), feilvektor |\n| $X$ | Designmatrisen, $n\\times(k+1)$, første kolonne 1-ere |\n| $X^T,\\ (X^TX)^{-1}$ | Transponert matrise og invers av $X^TX$ |\n| $\\hat\\beta$ | Minste kvadraters estimator (vektor) |\n| $\\hat y,\\ e$ | Tilpassede verdier $X\\hat\\beta$ og residualvektor $y-X\\hat\\beta$ |\n| SSE, SSR, SST | Uforklart, forklart og total kvadratsum |\n| $S^2,\\ \\hat\\sigma$ | Variansestimator $\\text{SSE}/(n-k-1)$ og residualstandardavvik |\n| $n-k-1$ | Frihetsgrader i multippel regresjon |\n| $R^2,\\ R^2_{\\text{just}}$ | Determinasjonskoeffisient og justert variant |\n| $r_j$ | Utvalgskorrelasjon mellom prediktor $x_j$ og $y$ |\n| $t_{n-k-1,\\,\\alpha/2}$ | t-kvantil med øvre haleareal $\\alpha/2$ |\n\n**Formler i dette delkapitlet:**\n\n$$Y=X\\beta+\\varepsilon,\\qquad \\varepsilon\\sim N(0,\\sigma^2 I)$$\nModellen på matriseform.\n\n$$X^TX\\,\\hat\\beta=X^TY,\\qquad \\hat\\beta=(X^TX)^{-1}X^TY$$\nNormalligningene og minste kvadraters estimator (krever full kolonnerang).\n\n$$E(\\hat\\beta)=\\beta,\\qquad \\text{Cov}(\\hat\\beta)=\\sigma^2(X^TX)^{-1}$$\nForventningsrett; standardfeil fra diagonalen.\n\n$$S^2=\\frac{\\text{SSE}}{n-k-1},\\qquad T=\\frac{\\hat\\beta_j-\\beta_j^0}{se(\\hat\\beta_j)}\\sim t_{n-k-1}$$\nVariansestimator og t-inferens per koeffisient.\n\n$$R^2=1-\\frac{\\text{SSE}}{\\text{SST}},\\qquad R^2_{\\text{just}}=1-(1-R^2)\\,\\frac{n-1}{n-k-1}$$\n$R^2$ øker alltid ved utvidelse; justert $R^2$ brukes til modellvalg.\n\n$$\\text{Ukorrelerte, sentrerte prediktorer: } X^TX \\text{ diagonal},\\qquad R^2=r_1^2+r_2^2$$\nOrtogonalt design — koeffisientene påvirker ikke hverandre."
+        }
+      ]
+    },
+    {
+      "id": "stk1110-3-3-repetisjon",
+      "type": "collapsible",
+      "title": "Repetisjonsoppgaver",
+      "buttonText": "Vis repetisjonsoppgaver",
+      "content": [
+        {
+          "id": "stk1110-3-3-rep1",
+          "type": "exercise",
+          "exercise": {
+            "id": "stk1110-3-3-rep1-e",
+            "number": "R1",
+            "type": "classic",
+            "difficulty": "lett",
+            "task": "(Fra kap. 3.1) Det er oppgitt $S_{xy}=180$ og $S_{xx}=240$. Finn $\\hat\\beta_1$, og angi hvor mange frihetsgrader $S^2$ har i enkel regresjon med $n=12$.",
+            "solution": "$\\hat\\beta_1=S_{xy}/S_{xx}=180/240=0{,}75$. I enkel regresjon er df $=n-2=10$ (to parametre estimert).",
+            "hints": [
+              "$\\hat\\beta_1=S_{xy}/S_{xx}$; frihetsgrader = $n$ minus antall estimerte parametre."
+            ]
+          }
+        },
+        {
+          "id": "stk1110-3-3-rep2",
+          "type": "exercise",
+          "exercise": {
+            "id": "stk1110-3-3-rep2-e",
+            "number": "R2",
+            "type": "classic",
+            "difficulty": "lett",
+            "task": "(Fra kap. 3.2) I en R-utskrift står `Estimate` $=1{,}84$ og `Std. Error` $=0{,}80$ for en koeffisient, med 14 frihetsgrader. Beregn `t value`, og avgjør med $t_{14,\\,0{,}025}=2{,}145$ om koeffisienten er signifikant på 5 %-nivå.",
+            "solution": "`t value` $=1{,}84/0{,}80=2{,}30$. Siden $|2{,}30|>2{,}145$, forkastes $H_0:\\beta=0$ — koeffisienten er signifikant på 5 %-nivå.",
+            "hints": [
+              "`t value` er alltid `Estimate` delt på `Std. Error`; sammenlign med kvantilen."
+            ]
+          }
+        },
+        {
+          "id": "stk1110-3-3-rep3",
+          "type": "exercise",
+          "exercise": {
+            "id": "stk1110-3-3-rep3-e",
+            "number": "R3",
+            "type": "classic",
+            "difficulty": "lett",
+            "task": "(Fra kap. 2.1) Skriv den generelle formen på et t-konfidensintervall, og pek på hva som spiller rollene som estimat, standardfeil og kvantil i intervallet for $\\beta_j$ i multippel regresjon.",
+            "solution": "Generelt: $\\hat\\theta\\pm t_{\\nu,\\,\\alpha/2}\\,se(\\hat\\theta)$. For $\\beta_j$: estimatet er $\\hat\\beta_j$ (`Estimate`), standardfeilen er $se(\\hat\\beta_j)$ (`Std. Error`), og kvantilen er $t_{n-k-1,\\,\\alpha/2}$ — merk frihetsgradene $n-k-1$.",
+            "hints": [
+              "Alle t-intervaller er estimat $\\pm$ kvantil $\\times$ standardfeil."
+            ]
+          }
+        },
+        {
+          "id": "stk1110-3-3-rep4",
+          "type": "exercise",
+          "exercise": {
+            "id": "stk1110-3-3-rep4-e",
+            "number": "R4",
+            "type": "classic",
+            "difficulty": "lett",
+            "task": "(Fra kap. 2.3) I to-utvalgsproblemet med lik varians brukes pooled t-test. Hvor mange frihetsgrader har den med utvalgsstørrelser $m=8$ og $n=7$ — og hvilken dummy-regresjon svarer det til?",
+            "solution": "Pooled df $=m+n-2=13$. Det svarer til regresjon av alle 15 observasjonene på én dummyvariabel (gruppeindikator): også der blir df $=15-1-1=13$, og t-testen for dummy-koeffisienten er identisk med pooled-testen.",
+            "hints": [
+              "Pooled: $m+n-2$. I dummy-regresjonen: totalt antall observasjoner minus $k+1$ parametre."
+            ]
+          }
+        }
+      ]
+    }
+  ],
+  "exercises": []
+}
