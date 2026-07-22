@@ -1,0 +1,131 @@
+{
+  "id": "tma4110-6-prove",
+  "courseId": "tma4110",
+  "chapterNumber": "6.P",
+  "title": "Prøver til del 6: Indreprodukt, ortogonalitet og minste kvadrater",
+  "description": "Fire prøver som dekker indreprodukt/norm/ortogonalitet (standard og integral), Gram–Schmidt og ortonormalisering, ortogonal projeksjon med dekomposisjon og avstand, og minste kvadrater med kurvetilpasning kjedet med Gram–Schmidt. Fire prøver à ~35–45 min — kan tas som separate økter.",
+  "estimatedMinutes": 160,
+  "competenceGoals": [
+    "regne indreprodukt, norm, avstand og vinkel i både standard prikkprodukt og integral-indreprodukt, og avgjøre ortogonalitet",
+    "gjennomføre Gram–Schmidt til ortogonal og ortonormal basis, og bruke den til ortogonal projeksjon, dekomposisjon og avstand",
+    "løse minste kvadraters problemer via normallikningene, tilpasse en regresjonslinje og se koblingen Ax̂=proj_Col A b"
+  ],
+  "content": [
+    {
+      "id": "tma4110-6-prove-tip-intro",
+      "type": "tip",
+      "title": "Om prøvene til Del 6",
+      "content": "**Fire prøver à ~35–45 min** som dekker indreprodukt/ortogonalitet, Gram–Schmidt, projeksjon og minste kvadrater (sjanger H + I, samlet den tyngst vektede lineær algebra-bolken — H i om lag 80 % av settene, I i om lag 47 %). Gjør hver prøve under tidspress **før** du åpner fasiten.\n\n- **Prøve 1 (35 min):** Indreprodukt/norm/ortogonalitet — standard og integral. *Kap. 6.1.*\n- **Prøve 2 (40 min):** Gram–Schmidt + ortonormalisering. *Kap. 6.2.*\n- **Prøve 3 (40 min):** Ortogonal projeksjon + dekomposisjon + avstand. *Kap. 6.3.*\n- **Prøve 4 (45 min):** Minste kvadrater via normallikninger + kurvetilpasning, kjedet med Gram–Schmidt. *Kap. 6.2–6.5.*\n\nSamlet ≈ 160 minutter (lesetid; regn ×1,5 ved håndskriving). Alle oppgavene er **langsvar med full begrunnelse** — som på ordinær eksamen er det **ingen flervalg** her; fasiten viser hvordan en A-besvarelse føres. Flervalgstrening ligger i quizene til kap. 6.1–6.5.\n\n**Prøvene kan trygt deles over flere kvelder — én prøve per økt.** Milepælen er å fullføre settet, ikke å ta alt på én gang. **Husk sensorregelen:** regn i det **oppgitte** indreproduktet, bruk **ortogonal basis før projeksjonsformelen**, **navngi normallikningene**, og gi **eksakte** svar."
+    },
+    {
+      "id": "tma4110-6-prove-forkunnskaper",
+      "type": "text",
+      "content": "**Forkunnskaper:** Prøvene forutsetter hele **Del 6** — indreprodukt, norm og ortogonalitet ([kap. 6.1](/bok/tma4110/tma4110-6-1)), Gram–Schmidt ([kap. 6.2](/bok/tma4110/tma4110-6-2)), ortogonal projeksjon og komplement ([kap. 6.3](/bok/tma4110/tma4110-6-3)), minste kvadrater ([kap. 6.4](/bok/tma4110/tma4110-6-4)) og drillkjeden ([kap. 6.5](/bok/tma4110/tma4110-6-5)) — pluss kolonnerom og lineær uavhengighet ([kap. 3.3](/bok/tma4110/tma4110-3-3)). Regningen er prikkprodukt, enkle integraler og løsning av små likningssystemer."
+    },
+    {
+      "id": "tma4110-6-prove-prove1",
+      "type": "collapsible",
+      "title": "Prøve 1 — Indreprodukt, norm og ortogonalitet (35 min)",
+      "buttonText": "Vis prøve 1",
+      "content": [
+        {
+          "id": "tma4110-6-prove-oppg-p1",
+          "type": "exercise",
+          "exercise": {
+            "id": "tma4110-6-prove-p1",
+            "number": "1",
+            "type": "classic",
+            "difficulty": "middels",
+            "task": "**Prøve 6.A (35 min, sjanger H).**\n\n**Del A — standard prikkprodukt i $\\mathbb R^3$.** La $\\mathbf u=(1,2,2)$ og $\\mathbf v=(2,-1,2)$.\n\n**a)** Regn $\\|\\mathbf u\\|$ og avstanden $\\|\\mathbf u-\\mathbf v\\|$.\n**b)** Regn $\\mathbf u\\cdot\\mathbf v$ og finn cosinus til vinkelen mellom $\\mathbf u$ og $\\mathbf v$.\n**c)** Finn en vektor som er ortogonal på både $\\mathbf u$ og $\\mathbf v$.\n\n**Del B — integral-indreprodukt på $\\operatorname{P}_2$.** Bruk $\\langle p,q\\rangle=\\int_{-1}^{1}p(t)q(t)\\,dt$.\n\n**d)** Vis at $t$ og $t^2$ er ortogonale, og regn $\\|t\\|$ og $\\|t^2\\|$.",
+            "solution": "**a)** $\\|\\mathbf u\\|=\\sqrt{1+4+4}=\\sqrt9=3$. $\\mathbf u-\\mathbf v=(-1,3,0)$, så $\\|\\mathbf u-\\mathbf v\\|=\\sqrt{1+9+0}=\\sqrt{10}$.\n\n**b)** $\\mathbf u\\cdot\\mathbf v=1\\cdot2+2\\cdot(-1)+2\\cdot2=2-2+4=4$. Med $\\|\\mathbf v\\|=\\sqrt{4+1+4}=3$:\n$$\\cos\\theta=\\frac{\\mathbf u\\cdot\\mathbf v}{\\|\\mathbf u\\|\\,\\|\\mathbf v\\|}=\\frac{4}{3\\cdot3}=\\frac{4}{9}.$$\n\n**c)** En vektor ortogonal på begge er kryssproduktet:\n$$\\mathbf u\\times\\mathbf v=\\begin{vmatrix}\\mathbf i&\\mathbf j&\\mathbf k\\\\1&2&2\\\\2&-1&2\\end{vmatrix}=(2\\cdot2-2\\cdot(-1),\\,2\\cdot2-1\\cdot2,\\,1\\cdot(-1)-2\\cdot2)=(6,2,-5).$$\nKontroll: $(6,2,-5)\\cdot\\mathbf u=6+4-10=0$ ✓ og $(6,2,-5)\\cdot\\mathbf v=12-2-10=0$ ✓.\n\n**d)** $\\langle t,t^2\\rangle=\\int_{-1}^1 t\\cdot t^2\\,dt=\\int_{-1}^1 t^3\\,dt=0$ (oddefunksjon over symmetrisk intervall), så $t\\perp t^2$. Videre\n$$\\|t\\|^2=\\int_{-1}^1 t^2\\,dt=\\tfrac23\\Rightarrow\\|t\\|=\\sqrt{\\tfrac23},\\qquad \\|t^2\\|^2=\\int_{-1}^1 t^4\\,dt=\\tfrac25\\Rightarrow\\|t^2\\|=\\sqrt{\\tfrac25}.\\ \\blacksquare$$",
+            "hints": []
+          }
+        },
+        {
+          "id": "tma4110-6-prove-p1-selvdiagnose",
+          "type": "text",
+          "content": "**Selvdiagnose (kryss av):**\n\n- ☐ Jeg regnet norm som $\\sqrt{\\langle\\mathbf v,\\mathbf v\\rangle}$ og husket kvadratrota.\n- ☐ Jeg brukte $\\cos\\theta=\\dfrac{\\mathbf u\\cdot\\mathbf v}{\\|\\mathbf u\\|\\,\\|\\mathbf v\\|}$ og lot svaret stå eksakt.\n- ☐ Jeg fant en vektor ortogonal på begge og **kontrollerte** med prikkprodukt.\n- ☐ I Del B regnet jeg i det **oppgitte** integral-indreproduktet, ikke prikkprodukt av koeffisienter.\n- ☐ Jeg gjenkjente at integralet av en oddefunksjon over $[-1,1]$ er $0$."
+        }
+      ]
+    },
+    {
+      "id": "tma4110-6-prove-prove2",
+      "type": "collapsible",
+      "title": "Prøve 2 — Gram–Schmidt og ortonormalisering (40 min)",
+      "buttonText": "Vis prøve 2",
+      "content": [
+        {
+          "id": "tma4110-6-prove-oppg-p2",
+          "type": "exercise",
+          "exercise": {
+            "id": "tma4110-6-prove-p2",
+            "number": "2",
+            "type": "classic",
+            "difficulty": "middels",
+            "task": "**Prøve 6.B (40 min, sjanger H).**\n\nLa $\\mathbf a_1=(1,1,0)$, $\\mathbf a_2=(2,0,1)$, $\\mathbf a_3=(0,1,2)$.\n\n**a)** Bruk Gram–Schmidt på $\\mathbf a_1,\\mathbf a_2,\\mathbf a_3$ og finn en **ortogonal** basis (skalér gjerne til heltall).\n**b)** Gjør basisen **ortonormal**.\n**c)** Kontroller at de tre ortogonale vektorene er parvis ortogonale.",
+            "solution": "**a) Gram–Schmidt.**\n$$\\mathbf v_1=\\mathbf a_1=(1,1,0).$$\n$$\\mathbf v_2=\\mathbf a_2-\\frac{\\mathbf a_2\\cdot\\mathbf v_1}{\\mathbf v_1\\cdot\\mathbf v_1}\\mathbf v_1=(2,0,1)-\\frac{2}{2}(1,1,0)=(1,-1,1).$$\n$$\\mathbf v_3=\\mathbf a_3-\\frac{\\mathbf a_3\\cdot\\mathbf v_1}{\\mathbf v_1\\cdot\\mathbf v_1}\\mathbf v_1-\\frac{\\mathbf a_3\\cdot\\mathbf v_2}{\\mathbf v_2\\cdot\\mathbf v_2}\\mathbf v_2=(0,1,2)-\\frac{1}{2}(1,1,0)-\\frac{1}{3}(1,-1,1)=\\left(-\\tfrac56,\\tfrac56,\\tfrac53\\right).$$\nSkalér $\\times\\tfrac65$: $\\mathbf v_3=(-1,1,2)$. **Ortogonal basis:** $\\{(1,1,0),(1,-1,1),(-1,1,2)\\}$.\n\n**b) Ortonormalisering.** Normer: $\\|\\mathbf v_1\\|=\\sqrt2$, $\\|\\mathbf v_2\\|=\\sqrt3$, $\\|\\mathbf v_3\\|=\\sqrt{1+1+4}=\\sqrt6$. Ortonormal basis:\n$$\\mathbf u_1=\\tfrac{1}{\\sqrt2}(1,1,0),\\quad \\mathbf u_2=\\tfrac{1}{\\sqrt3}(1,-1,1),\\quad \\mathbf u_3=\\tfrac{1}{\\sqrt6}(-1,1,2).$$\n\n**c) Kontroll.** $\\mathbf v_1\\cdot\\mathbf v_2=1-1+0=0$; $\\mathbf v_1\\cdot\\mathbf v_3=-1+1+0=0$; $\\mathbf v_2\\cdot\\mathbf v_3=-1-1+2=0$. Alle parvise prikkprodukt er $0$, så mengden er ortogonal. $\\blacksquare$",
+            "hints": []
+          }
+        },
+        {
+          "id": "tma4110-6-prove-p2-selvdiagnose",
+          "type": "text",
+          "content": "**Selvdiagnose (kryss av):**\n\n- ☐ Jeg trakk fra projeksjonen på de **allerede ortogonaliserte** $\\mathbf v_i$-ene (ikke $\\mathbf a_i$-ene).\n- ☐ I det tredje steget trakk jeg fra projeksjoner på **både** $\\mathbf v_1$ og $\\mathbf v_2$.\n- ☐ Jeg skalerte $\\mathbf v_3$ til heltall uten å endre retningen.\n- ☐ Jeg normaliserte hver vektor med **sin egen** norm.\n- ☐ Jeg kontrollerte at alle parvise prikkprodukt er $0$."
+        }
+      ]
+    },
+    {
+      "id": "tma4110-6-prove-prove3",
+      "type": "collapsible",
+      "title": "Prøve 3 — Projeksjon, dekomposisjon og avstand (40 min)",
+      "buttonText": "Vis prøve 3",
+      "content": [
+        {
+          "id": "tma4110-6-prove-oppg-p3",
+          "type": "exercise",
+          "exercise": {
+            "id": "tma4110-6-prove-p3",
+            "number": "3",
+            "type": "classic",
+            "difficulty": "middels",
+            "task": "**Prøve 6.C (40 min, sjanger H).**\n\nLa $W=\\operatorname{Span}\\{(1,1,1),(1,2,3)\\}$ og $\\mathbf y=(2,0,4)$ i $\\mathbb R^3$ (standard prikkprodukt).\n\n**a)** Er spennvektorene ortogonale? Finn en ortogonal basis for $W$.\n**b)** Finn $\\operatorname{proj}_W\\mathbf y$.\n**c)** Skriv dekomposisjonen $\\mathbf y=\\hat{\\mathbf y}+\\mathbf z$ med $\\hat{\\mathbf y}\\in W$, $\\mathbf z\\in W^{\\perp}$, og finn avstanden fra $\\mathbf y$ til $W$.",
+            "solution": "**a)** $(1,1,1)\\cdot(1,2,3)=1+2+3=6\\ne0$, så spennvektorene er **ikke** ortogonale — Gram–Schmidt først. $\\mathbf v_1=(1,1,1)$;\n$$\\mathbf v_2=(1,2,3)-\\frac{6}{3}(1,1,1)=(1,2,3)-(2,2,2)=(-1,0,1).$$\nOrtogonal basis: $\\{(1,1,1),(-1,0,1)\\}$.\n\n**b)** $\\mathbf y\\cdot\\mathbf v_1=2+0+4=6$, $\\mathbf v_1\\cdot\\mathbf v_1=3$; $\\mathbf y\\cdot\\mathbf v_2=-2+0+4=2$, $\\mathbf v_2\\cdot\\mathbf v_2=2$.\n$$\\operatorname{proj}_W\\mathbf y=\\frac{6}{3}(1,1,1)+\\frac{2}{2}(-1,0,1)=(2,2,2)+(-1,0,1)=(1,2,3).$$\n\n**c)** $\\hat{\\mathbf y}=(1,2,3)$ og $\\mathbf z=\\mathbf y-\\hat{\\mathbf y}=(2,0,4)-(1,2,3)=(1,-2,1)$. Kontroll: $\\mathbf z\\cdot\\mathbf v_1=1-2+1=0$ og $\\mathbf z\\cdot\\mathbf v_2=-1+0+1=0$ ✓ (så $\\mathbf z\\in W^{\\perp}$). Avstand:\n$$\\|\\mathbf z\\|=\\sqrt{1+4+1}=\\sqrt6.\\ \\blacksquare$$",
+            "hints": []
+          }
+        },
+        {
+          "id": "tma4110-6-prove-p3-selvdiagnose",
+          "type": "text",
+          "content": "**Selvdiagnose (kryss av):**\n\n- ☐ Jeg sjekket ortogonalitet og Gram–Schmidtet FØR jeg brukte projeksjonsformelen.\n- ☐ Jeg brukte $\\operatorname{proj}_W\\mathbf y=\\sum_i\\frac{\\mathbf y\\cdot\\mathbf v_i}{\\mathbf v_i\\cdot\\mathbf v_i}\\mathbf v_i$ med den ortogonale basisen.\n- ☐ Jeg skrev dekomposisjonen $\\mathbf y=\\hat{\\mathbf y}+\\mathbf z$ og **kontrollerte** at $\\mathbf z\\perp W$.\n- ☐ Jeg regnet avstanden som $\\|\\mathbf z\\|$ og husket kvadratrota."
+        }
+      ]
+    },
+    {
+      "id": "tma4110-6-prove-prove4",
+      "type": "collapsible",
+      "title": "Prøve 4 — Minste kvadrater og kurvetilpasning, kjedet (45 min)",
+      "buttonText": "Vis prøve 4",
+      "content": [
+        {
+          "id": "tma4110-6-prove-oppg-p4",
+          "type": "exercise",
+          "exercise": {
+            "id": "tma4110-6-prove-p4",
+            "number": "4",
+            "type": "classic",
+            "difficulty": "vanskelig",
+            "task": "**Prøve 6.D (45 min, sjanger H + I — kjedet).**\n\nLa $A=\\begin{bmatrix}1&-1\\\\1&0\\\\1&1\\\\1&2\\end{bmatrix}$ og $\\mathbf b=\\begin{bmatrix}1\\\\2\\\\2\\\\5\\end{bmatrix}$ (standard prikkprodukt i $\\mathbb R^4$).\n\n**a)** Bruk Gram–Schmidt på kolonnene i $A$ og finn en ortogonal basis for $\\operatorname{Col}A$.\n**b)** Finn minste kvadraters løsningen av $A\\mathbf x=\\mathbf b$ via normallikningene.\n**c)** $\\mathbf b$ er observasjonene $y$ i punktene $x=-1,0,1,2$. Skriv den rette linja $y=c_0+c_1x$ som best tilpasser punktene, og regn minste-kvadraters-feilen.\n**d)** Bekreft at $A\\hat{\\mathbf x}=\\operatorname{proj}_{\\operatorname{Col}A}\\mathbf b$.",
+            "solution": "**a) Gram–Schmidt.** Kolonnene er $\\mathbf a_1=(1,1,1,1)$, $\\mathbf a_2=(-1,0,1,2)$. $\\mathbf v_1=(1,1,1,1)$;\n$$\\mathbf v_2=\\mathbf a_2-\\frac{\\mathbf a_2\\cdot\\mathbf v_1}{\\mathbf v_1\\cdot\\mathbf v_1}\\mathbf v_1=(-1,0,1,2)-\\frac{2}{4}(1,1,1,1)=\\left(-\\tfrac32,-\\tfrac12,\\tfrac12,\\tfrac32\\right).$$\nSkalér $\\times2$: $\\mathbf v_2=(-3,-1,1,3)$. Ortogonal basis: $\\{(1,1,1,1),(-3,-1,1,3)\\}$.\n\n**b) Normallikningene** $A^{T}A\\hat{\\mathbf x}=A^{T}\\mathbf b$:\n$$A^{T}A=\\begin{bmatrix}4&2\\\\2&6\\end{bmatrix},\\qquad A^{T}\\mathbf b=\\begin{bmatrix}10\\\\11\\end{bmatrix}.$$\n$\\det=24-4=20$, så\n$$\\hat{\\mathbf x}=\\frac{1}{20}\\begin{bmatrix}6&-2\\\\-2&4\\end{bmatrix}\\begin{bmatrix}10\\\\11\\end{bmatrix}=\\frac{1}{20}\\begin{bmatrix}38\\\\24\\end{bmatrix}=\\left(\\tfrac{19}{10},\\tfrac{6}{5}\\right).$$\n\n**c) Regresjonslinja.** $\\hat{\\mathbf x}=(c_0,c_1)$, så\n$$y=\\tfrac{19}{10}+\\tfrac{6}{5}x.$$\nFeil: $A\\hat{\\mathbf x}=\\left(\\tfrac{7}{10},\\tfrac{19}{10},\\tfrac{31}{10},\\tfrac{43}{10}\\right)$ (regn $c_0+c_1x$ i hvert punkt), så $\\mathbf b-A\\hat{\\mathbf x}=\\left(\\tfrac{3}{10},\\tfrac{1}{10},-\\tfrac{11}{10},\\tfrac{7}{10}\\right)$ og\n$$\\|\\mathbf b-A\\hat{\\mathbf x}\\|^2=\\frac{9+1+121+49}{100}=\\frac{180}{100}=\\frac{9}{5},\\qquad \\|\\mathbf b-A\\hat{\\mathbf x}\\|=\\tfrac{3}{\\sqrt5}.$$\n\n**d) Bekreftelse.** $\\operatorname{proj}_{\\operatorname{Col}A}\\mathbf b=A\\hat{\\mathbf x}$ per definisjon av minste kvadrater (prediksjonen er projeksjonen). Med den ortogonale basisen: $\\mathbf b\\cdot\\mathbf v_1=1+2+2+5=10$, $\\mathbf v_1\\cdot\\mathbf v_1=4$; $\\mathbf b\\cdot\\mathbf v_2=-3-2+2+15=12$, $\\mathbf v_2\\cdot\\mathbf v_2=20$. Da $\\tfrac{10}{4}(1,1,1,1)+\\tfrac{12}{20}(-3,-1,1,3)=\\left(\\tfrac{7}{10},\\tfrac{19}{10},\\tfrac{31}{10},\\tfrac{43}{10}\\right)=A\\hat{\\mathbf x}$ ✓. Kjeden lukker seg. $\\blacksquare$",
+            "hints": []
+          }
+        },
+        {
+          "id": "tma4110-6-prove-p4-selvdiagnose",
+          "type": "text",
+          "content": "**Selvdiagnose (kryss av):**\n\n- ☐ Jeg Gram–Schmidtet kolonnene og skalerte til heltall.\n- ☐ Jeg **navnga** normallikningene $A^{T}A\\hat{\\mathbf x}=A^{T}\\mathbf b$ og løste dem.\n- ☐ Jeg leste av regresjonslinja fra $\\hat{\\mathbf x}=(c_0,c_1)$.\n- ☐ Jeg regnet minste-kvadraters-feilen som $\\|\\mathbf b-A\\hat{\\mathbf x}\\|$ (med kvadratrot).\n- ☐ Jeg bekreftet at $A\\hat{\\mathbf x}$ er lik projeksjonen — kjeden henger sammen.\n\n**Ferdig med alle fire prøvene?** Da har du drillet hele ortogonalitetsapparatet (6.1–6.5) på eksamensnivå. Gå tilbake til [drillkapitlet 6.5](/bok/tma4110/tma4110-6-5) for flere varianter hvis en av delene sitter løst."
+        }
+      ]
+    }
+  ],
+  "exercises": []
+}

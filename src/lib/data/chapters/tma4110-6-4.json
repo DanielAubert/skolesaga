@@ -1,0 +1,435 @@
+{
+  "id": "tma4110-6-4",
+  "courseId": "tma4110",
+  "chapterNumber": "6.4",
+  "title": "Minste kvadraters metode og normallikningene",
+  "description": "Minste kvadraters løsning av et overbestemt system via normallikningene AᵀA x̂=Aᵀb, koblingen til ortogonal projeksjon, og anvendelsen: tilpasse en rett linje eller parabel til datapunkter.",
+  "estimatedMinutes": 55,
+  "competenceGoals": [
+    "sette opp og løse normallikningene AᵀA x̂=Aᵀb for et overbestemt system og navngi dem i besvarelsen",
+    "tilpasse en rett linje eller et polynom til datapunkter ved minste kvadrater og regne ut minste-kvadraters-feilen",
+    "avgjøre når minste kvadraters løsningen er entydig (kolonnene i A uavhengige ⇔ AᵀA inverterbar) og håndtere affin løsning ved rangdefekt"
+  ],
+  "content": [
+    {
+      "id": "tma4110-6-4-tip-eksamensvinkel",
+      "type": "tip",
+      "title": "Eksamensvinkel",
+      "content": "**Minste kvadraters metode (sjanger I) forekommer i om lag 47 % av settene i analysen — og andelen har vokst i moderne sett.** Sjangeren er «lettjent når projeksjonen sitter»: hele metoden er å sette opp og løse ett lite likningssystem, normallikningene.\n\n- Du får typisk et **overbestemt** system $A\\mathbf x=\\mathbf b$ (flere likninger enn ukjente) og skal finne den $\\hat{\\mathbf x}$ som gjør feilen minst mulig, eller en **rett linje/kurve** som best passer noen datapunkter.\n- Sensor vil at du **navngir normallikningene** $A^{T}A\\hat{\\mathbf x}=A^{T}\\mathbf b$ og setter opp $A$ og $\\mathbf b$ riktig — der ligger de fleste poengene.\n\n**Karakterskilleren:** sett opp $A$ og $\\mathbf b$ korrekt, skriv normallikningene *ved navn*, og gi **eksakt** svar (brøk, aldri desimal). Ser du at $A\\hat{\\mathbf x}$ er projeksjonen av $\\mathbf b$ ned på $\\operatorname{Col}A$, har du hele kapitlet i én setning.\n\n*Kapitlet er en økt på ~55 min: løkke 1 (normallikningene, ~20 min) → løkke 2 (kurvetilpasning, ~20 min) → løkke 3 (entydighet og residual, ~15 min).*"
+    },
+    {
+      "id": "tma4110-6-4-forkunnskaper",
+      "type": "text",
+      "content": "**Forkunnskaper:** Dette kapitlet hviler på **ortogonal projeksjon** ([kap. 6.3](/bok/tma4110/tma4110-6-3)) — minste kvadrater *er* projeksjon ned på kolonnerommet. Du trenger også **matriseprodukt og transponert** samt **invers matrise** ([kap. 2.2](/bok/tma4110/tma4110-2-2)) for å løse normallikningene, og **lineær uavhengighet / kolonnerom** ([kap. 3.3](/bok/tma4110/tma4110-3-3)) for entydighetsbetingelsen.\n\n**Sist du var her (nøkkelformler):**\n$$\\operatorname{proj}_W\\mathbf y=\\sum_i\\frac{\\langle\\mathbf y,\\mathbf v_i\\rangle}{\\langle\\mathbf v_i,\\mathbf v_i\\rangle}\\mathbf v_i,\\qquad \\text{avstand}=\\|\\mathbf y-\\operatorname{proj}_W\\mathbf y\\|.$$\nDen beste tilnærmingen til $\\mathbf y$ i et underrom $W$ er projeksjonen $\\operatorname{proj}_W\\mathbf y$ (beste tilnærmingssetning) — det er nettopp dette minste kvadrater utnytter."
+    },
+    {
+      "id": "tma4110-6-4-lokke1",
+      "type": "text",
+      "content": "## Løkke 1 — Normallikningene (~20 min)\n\nOfte har vi **flere likninger enn ukjente**: mer data enn parametre. Da har $A\\mathbf x=\\mathbf b$ vanligvis *ingen* løsning — ingen $\\mathbf x$ treffer alle likningene samtidig. I stedet leter vi etter den $\\hat{\\mathbf x}$ som gjør **feilen** $\\|\\mathbf b-A\\mathbf x\\|$ minst mulig. Det er dette som er «minste kvadrater»: vi minimerer summen av de kvadrerte avvikene.\n\nNøkkelidéen: $A\\mathbf x$ løper gjennom hele kolonnerommet $\\operatorname{Col}A$ når $\\mathbf x$ varierer. Den vektoren i $\\operatorname{Col}A$ som ligger **nærmest** $\\mathbf b$, er projeksjonen $\\operatorname{proj}_{\\operatorname{Col}A}\\mathbf b$. Så vi skal finne $\\hat{\\mathbf x}$ med $A\\hat{\\mathbf x}=\\operatorname{proj}_{\\operatorname{Col}A}\\mathbf b$ — og det gir en overraskende enkel likning."
+    },
+    {
+      "id": "tma4110-6-4-def-overbestemt",
+      "type": "definition",
+      "title": "Overbestemt likningssystem",
+      "content": "Et likningssystem $A\\mathbf x=\\mathbf b$ med **flere likninger enn ukjente** kalles overbestemt. I symboler er $A$ da $m\\times n$ med $m>n$:\n\n$$A\\mathbf x=\\mathbf b,\\qquad m>n.$$\n\nSlike systemer har som regel **ingen** eksakt løsning — det finnes ingen $\\mathbf x$ som treffer alle radene samtidig. I stedet ser vi etter den $\\mathbf x$ som gjør venstresiden $A\\mathbf x$ nærmest høyresiden $\\mathbf b$."
+    },
+    {
+      "id": "tma4110-6-4-def-mkp",
+      "type": "definition",
+      "title": "Minste kvadraters problem",
+      "content": "Å finne den vektoren $\\hat{\\mathbf x}$ som gjør avstanden mellom $A\\mathbf x$ og $\\mathbf b$ **minst mulig** — altså minimerer normen av feilen:\n\n$$\\|\\mathbf b-A\\hat{\\mathbf x}\\|=\\min_{\\mathbf x}\\|\\mathbf b-A\\mathbf x\\|.$$\n\nNavnet «minste kvadrater» kommer av at $\\|\\mathbf b-A\\mathbf x\\|^2$ er en **sum av kvadrerte** avvik; å minimere normen er det samme som å minimere denne summen."
+    },
+    {
+      "id": "tma4110-6-4-def-mkl",
+      "type": "definition",
+      "title": "Minste kvadraters løsning",
+      "content": "En **minste kvadraters løsning** av $A\\mathbf x=\\mathbf b$ er en hvilken som helst $\\hat{\\mathbf x}$ som løser minste kvadraters problemet. Den kjennetegnes ved at $A\\hat{\\mathbf x}$ er den vektoren i $\\operatorname{Col}A$ som ligger nærmest $\\mathbf b$:\n\n$$A\\hat{\\mathbf x}=\\operatorname{proj}_{\\operatorname{Col}A}\\mathbf b.$$"
+    },
+    {
+      "id": "tma4110-6-4-def-normallik",
+      "type": "definition",
+      "title": "Normallikningene",
+      "content": "Kravet om at feilen $\\mathbf b-A\\hat{\\mathbf x}$ står **vinkelrett** på kolonnerommet gir et lite, kvadratisk likningssystem — **normallikningene**:\n\n$$A^{T}A\\,\\hat{\\mathbf x}=A^{T}\\mathbf b.$$\n\nDette er hovedverktøyet: enhver løsning $\\hat{\\mathbf x}$ av normallikningene er en minste kvadraters løsning av $A\\mathbf x=\\mathbf b$, og omvendt. Navngi dem alltid i besvarelsen."
+    },
+    {
+      "id": "tma4110-6-4-utledning",
+      "type": "text",
+      "content": "### Hvorfor akkurat normallikningene?\n\nFeilvektoren $\\mathbf b-A\\hat{\\mathbf x}$ skal stå ortogonalt på $\\operatorname{Col}A$ — det er nettopp det som kjennetegner projeksjonen. At en vektor står ortogonalt på hele kolonnerommet betyr at den ligger i $(\\operatorname{Col}A)^{\\perp}=\\operatorname{Nul}A^{T}$ (kap. 6.3). Altså:\n\n$$A^{T}(\\mathbf b-A\\hat{\\mathbf x})=\\mathbf 0.$$\n> *Intuisjon: hver rad i $A^{T}$ er en kolonne i $A$; at produktet er null betyr at feilen er ortogonal på hver kolonne — altså på hele $\\operatorname{Col}A$.*\n\nGanger vi ut, får vi $A^{T}\\mathbf b-A^{T}A\\hat{\\mathbf x}=\\mathbf 0$, som nettopp er normallikningene $A^{T}A\\hat{\\mathbf x}=A^{T}\\mathbf b$.\n> *Intuisjon: vi har byttet et uløselig $m\\times n$-system mot et løsbart $n\\times n$-system. Prisen er at vi løser det «på nærmeste hold», ikke eksakt.*"
+    },
+    {
+      "id": "tma4110-6-4-def-gram",
+      "type": "definition",
+      "title": "Gram-matrisen $A^{T}A$",
+      "content": "Matrisen $A^{T}A$ på venstresiden av normallikningene er alltid **kvadratisk** ($n\\times n$) og **symmetrisk**:\n\n$$(A^{T}A)^{T}=A^{T}(A^{T})^{T}=A^{T}A.$$\n\nElement $(i,j)$ er prikkproduktet av kolonne $i$ og kolonne $j$ i $A$. Den er liten og grei å regne med selv når $A$ har mange rader."
+    },
+    {
+      "id": "tma4110-6-4-ex1",
+      "type": "example",
+      "title": "Minste kvadraters løsning av et overbestemt system",
+      "problem": "Finn minste kvadraters løsningen av $A\\mathbf x=\\mathbf b$, og regn ut minste-kvadraters-feilen, der\n$$A=\\begin{bmatrix}1&0\\\\1&1\\\\1&1\\end{bmatrix},\\qquad \\mathbf b=\\begin{bmatrix}1\\\\2\\\\4\\end{bmatrix}.$$",
+      "solution": "**Sett opp normallikningene** $A^{T}A\\hat{\\mathbf x}=A^{T}\\mathbf b$.\n\n$$A^{T}A=\\begin{bmatrix}1&1&1\\\\0&1&1\\end{bmatrix}\\begin{bmatrix}1&0\\\\1&1\\\\1&1\\end{bmatrix}=\\begin{bmatrix}3&2\\\\2&2\\end{bmatrix},\\qquad A^{T}\\mathbf b=\\begin{bmatrix}1&1&1\\\\0&1&1\\end{bmatrix}\\begin{bmatrix}1\\\\2\\\\4\\end{bmatrix}=\\begin{bmatrix}7\\\\6\\end{bmatrix}.$$\n\nNormallikningene er da\n$$\\begin{bmatrix}3&2\\\\2&2\\end{bmatrix}\\hat{\\mathbf x}=\\begin{bmatrix}7\\\\6\\end{bmatrix}.$$\nTrekker vi rad 2 fra rad 1: $x_1=1$. Innsatt i rad 2: $2\\cdot1+2x_2=6\\Rightarrow x_2=2$. Altså\n$$\\hat{\\mathbf x}=\\begin{bmatrix}1\\\\2\\end{bmatrix}.$$\n**Feilen:** $A\\hat{\\mathbf x}=(1,3,3)$, så $\\mathbf b-A\\hat{\\mathbf x}=(0,-1,1)$, og\n$$\\|\\mathbf b-A\\hat{\\mathbf x}\\|=\\sqrt{0^2+(-1)^2+1^2}=\\sqrt2.$$\n**Sluttsvar:** $\\hat{\\mathbf x}=(1,2)$ med minste-kvadraters-feil $\\sqrt2$."
+    },
+    {
+      "id": "tma4110-6-4-oppg-e1",
+      "type": "exercise",
+      "exercise": {
+        "id": "tma4110-6-4-e1",
+        "number": "1",
+        "type": "classic",
+        "difficulty": "lett",
+        "task": "(Innstegsoppgave — sjanger I.) La $A=\\begin{bmatrix}1&1\\\\1&2\\\\1&3\\end{bmatrix}$ og $\\mathbf b=\\begin{bmatrix}2\\\\1\\\\3\\end{bmatrix}$. Sett opp og løs normallikningene $A^{T}A\\hat{\\mathbf x}=A^{T}\\mathbf b$.",
+        "solution": "$A^{T}A=\\begin{bmatrix}3&6\\\\6&14\\end{bmatrix}$ og $A^{T}\\mathbf b=\\begin{bmatrix}6\\\\13\\end{bmatrix}$. Normallikningene:\n$$\\begin{bmatrix}3&6\\\\6&14\\end{bmatrix}\\hat{\\mathbf x}=\\begin{bmatrix}6\\\\13\\end{bmatrix}.$$\nRad 2 minus $2\\times$ rad 1: $2x_2=1\\Rightarrow x_2=\\tfrac12$. Da $3x_1+6\\cdot\\tfrac12=6\\Rightarrow x_1=1$. **Svar:** $\\hat{\\mathbf x}=\\left(1,\\tfrac12\\right)$.",
+        "hints": [
+          "Normallikningene er $A^{T}A\\hat{\\mathbf x}=A^{T}\\mathbf b$ — regn de to matriseproduktene først.",
+          "$A^{T}A$ blir $2\\times2$ og symmetrisk; løs det lille systemet med eliminasjon."
+        ]
+      }
+    },
+    {
+      "id": "tma4110-6-4-oppg-e2",
+      "type": "exercise",
+      "exercise": {
+        "id": "tma4110-6-4-e2",
+        "number": "2",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "(Sjanger I.) Finn minste kvadraters løsningen av $A\\mathbf x=\\mathbf b$ med $A=\\begin{bmatrix}1&1\\\\1&-1\\\\1&0\\end{bmatrix}$, $\\mathbf b=\\begin{bmatrix}0\\\\1\\\\0\\end{bmatrix}$.",
+        "solution": "$A^{T}A=\\begin{bmatrix}3&0\\\\0&2\\end{bmatrix}$ (kolonnene er ortogonale, så matrisen blir diagonal) og $A^{T}\\mathbf b=\\begin{bmatrix}1\\\\-1\\end{bmatrix}$. Normallikningene $\\begin{bmatrix}3&0\\\\0&2\\end{bmatrix}\\hat{\\mathbf x}=\\begin{bmatrix}1\\\\-1\\end{bmatrix}$ gir direkte\n$$\\hat{\\mathbf x}=\\left(\\tfrac13,-\\tfrac12\\right).$$",
+        "hints": [
+          "Sett opp $A^{T}A$ og $A^{T}\\mathbf b$ og skriv normallikningene.",
+          "Legg merke til at kolonnene i $A$ er ortogonale ($(1,1,1)\\cdot(1,-1,0)=0$) — da blir $A^{T}A$ diagonal og systemet trivielt."
+        ]
+      }
+    },
+    {
+      "id": "tma4110-6-4-lokke2",
+      "type": "text",
+      "content": "## Løkke 2 — Kurvetilpasning (~20 min)\n\nDen vanligste innpakningen av sjangeren er å **tilpasse en kurve til datapunkter**. Vi har målepunkter $(x_1,y_1),\\dots,(x_m,y_m)$ og ønsker den rette linja — eller parabelen — som passer best. Trikset er å skrive «best passer» som et minste kvadraters problem $A\\mathbf x=\\mathbf b$ og så bruke normallikningene."
+    },
+    {
+      "id": "tma4110-6-4-def-kurvetilpasning",
+      "type": "definition",
+      "title": "Kurvetilpasning som minste kvadrater",
+      "content": "Å finne en kurve på formen $y=c_0f_0(x)+\\dots+c_kf_k(x)$ som passer best mulig til datapunktene $(x_i,y_i)$, i den forstand at summen av de kvadrerte avvikene\n\n$$\\sum_{i=1}^m\\big(y_i-(c_0f_0(x_i)+\\dots+c_kf_k(x_i))\\big)^2$$\n\nblir minst mulig. Dette er et minste kvadraters problem for de ukjente koeffisientene $c_0,\\dots,c_k$."
+    },
+    {
+      "id": "tma4110-6-4-def-design",
+      "type": "definition",
+      "title": "Designmatrisen",
+      "content": "Matrisen $A$ vi bygger fra datapunktene, med **én rad per punkt** og de utregnede funksjonsverdiene $f_j(x_i)$ som kolonner. For en rett linje $y=c_0+c_1x$ har raden formen $\\begin{bmatrix}1&x_i\\end{bmatrix}$:\n\n$$A=\\begin{bmatrix}1&x_1\\\\\\vdots&\\vdots\\\\1&x_m\\end{bmatrix}.$$\n\nDesignmatrisen koder hvordan hvert datapunkt avhenger av de ukjente koeffisientene."
+    },
+    {
+      "id": "tma4110-6-4-def-obs",
+      "type": "definition",
+      "title": "Observasjonsvektoren",
+      "content": "Vektoren $\\mathbf b$ av de målte $y$-verdiene — én komponent per datapunkt:\n\n$$\\mathbf b=\\begin{bmatrix}y_1\\\\\\vdots\\\\y_m\\end{bmatrix}.$$\n\nDe ukjente koeffisientene samles i vektoren $\\mathbf x=(c_0,c_1,\\dots)$, og kurvetilpasningen er da minste kvadraters løsningen av $A\\mathbf x=\\mathbf b$."
+    },
+    {
+      "id": "tma4110-6-4-def-regresjonslinje",
+      "type": "definition",
+      "title": "Regresjonslinjen $y=c_0+c_1x$",
+      "content": "Den rette linja som best tilpasser datapunktene ved minste kvadrater. Koeffisientene $(c_0,c_1)$ er minste kvadraters løsningen av $A\\mathbf x=\\mathbf b$ med designmatrisen $A=\\begin{bmatrix}1&x_1\\\\\\vdots&\\vdots\\\\1&x_m\\end{bmatrix}$ og $\\mathbf b=(y_1,\\dots,y_m)$. Her er $c_0$ skjæringspunktet med $y$-aksen og $c_1$ stigningstallet."
+    },
+    {
+      "id": "tma4110-6-4-ex2",
+      "type": "example",
+      "title": "Tilpass en rett linje ved minste kvadrater",
+      "problem": "Finn den rette linja $y=c_0+c_1x$ som best tilpasser punktene $(0,1),(1,3),(2,3),(3,5)$ ved minste kvadrater.",
+      "solution": "**Bygg designmatrisen og observasjonsvektoren.** Hver rad er $\\begin{bmatrix}1&x_i\\end{bmatrix}$:\n$$A=\\begin{bmatrix}1&0\\\\1&1\\\\1&2\\\\1&3\\end{bmatrix},\\qquad \\mathbf b=\\begin{bmatrix}1\\\\3\\\\3\\\\5\\end{bmatrix},\\qquad \\mathbf x=\\begin{bmatrix}c_0\\\\c_1\\end{bmatrix}.$$\n\n**Normallikningene** $A^{T}A\\hat{\\mathbf x}=A^{T}\\mathbf b$:\n$$A^{T}A=\\begin{bmatrix}4&6\\\\6&14\\end{bmatrix},\\qquad A^{T}\\mathbf b=\\begin{bmatrix}12\\\\24\\end{bmatrix}.$$\nLøs: fra rad 1 er $4c_0+6c_1=12$, fra rad 2 $6c_0+14c_1=24$. Gang rad 1 med $3$ og rad 2 med $2$: $12c_0+18c_1=36$ og $12c_0+28c_1=48$; subtraher: $10c_1=12\\Rightarrow c_1=\\tfrac{6}{5}$. Da $4c_0+6\\cdot\\tfrac65=12\\Rightarrow c_0=\\tfrac{6}{5}$.\n\n**Regresjonslinja:** $y=\\tfrac65+\\tfrac65x$.\n**Feilen (residual):** $A\\hat{\\mathbf x}=\\left(\\tfrac65,\\tfrac{12}{5},\\tfrac{18}{5},\\tfrac{24}{5}\\right)$, så $\\mathbf b-A\\hat{\\mathbf x}=\\left(-\\tfrac15,\\tfrac35,-\\tfrac35,\\tfrac15\\right)$ og $\\|\\mathbf b-A\\hat{\\mathbf x}\\|^2=\\tfrac{1+9+9+1}{25}=\\tfrac45$. **Sluttsvar:** $y=\\tfrac65+\\tfrac65x$."
+    },
+    {
+      "id": "tma4110-6-4-oppg-e3",
+      "type": "exercise",
+      "exercise": {
+        "id": "tma4110-6-4-e3",
+        "number": "3",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "(Sjanger I — regresjonslinje.) Finn den rette linja $y=c_0+c_1x$ som best tilpasser $(1,2),(2,2),(3,3),(4,3)$ ved minste kvadrater.",
+        "solution": "Designmatrise $A=\\begin{bmatrix}1&1\\\\1&2\\\\1&3\\\\1&4\\end{bmatrix}$, $\\mathbf b=(2,2,3,3)$. Normallikningene: $A^{T}A=\\begin{bmatrix}4&10\\\\10&30\\end{bmatrix}$, $A^{T}\\mathbf b=\\begin{bmatrix}10\\\\27\\end{bmatrix}$. Løsning: $\\det(A^{T}A)=120-100=20$, så\n$$\\hat{\\mathbf x}=\\frac{1}{20}\\begin{bmatrix}30&-10\\\\-10&4\\end{bmatrix}\\begin{bmatrix}10\\\\27\\end{bmatrix}=\\frac{1}{20}\\begin{bmatrix}30\\\\8\\end{bmatrix}=\\begin{bmatrix}3/2\\\\2/5\\end{bmatrix}.$$\n**Svar:** $y=\\tfrac32+\\tfrac25x$.",
+        "hints": [
+          "Bygg $A$ (rad $=[\\,1\\ x_i\\,]$) og $\\mathbf b=(y_i)$, og skriv normallikningene $A^{T}A\\hat{\\mathbf x}=A^{T}\\mathbf b$.",
+          "$A^{T}A$ er $2\\times2$; bruk $\\begin{bmatrix}a&b\\\\c&d\\end{bmatrix}^{-1}=\\tfrac{1}{ad-bc}\\begin{bmatrix}d&-b\\\\-c&a\\end{bmatrix}$."
+        ]
+      }
+    },
+    {
+      "id": "tma4110-6-4-def-polynom",
+      "type": "definition",
+      "title": "Polynomregresjon",
+      "content": "Samme oppskrift, men med en **parabel** (eller høyere polynom) i stedet for en linje: $y=c_0+c_1x+c_2x^2$. Designmatrisen får da en ekstra kolonne med $x_i^2$:\n\n$$A=\\begin{bmatrix}1&x_1&x_1^2\\\\\\vdots&\\vdots&\\vdots\\\\1&x_m&x_m^2\\end{bmatrix}.$$\n\nProblemet er fremdeles **lineært** i de ukjente $c_0,c_1,c_2$, så normallikningene $A^{T}A\\hat{\\mathbf x}=A^{T}\\mathbf b$ gjelder uendret."
+    },
+    {
+      "id": "tma4110-6-4-ex3",
+      "type": "example",
+      "title": "Tilpass en parabel ved minste kvadrater",
+      "problem": "Finn parabelen $y=c_0+c_1x+c_2x^2$ som best tilpasser $(-2,0),(-1,1),(0,2),(1,4),(2,1)$.",
+      "solution": "**Designmatrise** (rad $=[\\,1\\ x_i\\ x_i^2\\,]$) og observasjonsvektor:\n$$A=\\begin{bmatrix}1&-2&4\\\\1&-1&1\\\\1&0&0\\\\1&1&1\\\\1&2&4\\end{bmatrix},\\qquad \\mathbf b=\\begin{bmatrix}0\\\\1\\\\2\\\\4\\\\1\\end{bmatrix}.$$\n\n**Normallikningene** $A^{T}A\\hat{\\mathbf x}=A^{T}\\mathbf b$:\n$$A^{T}A=\\begin{bmatrix}5&0&10\\\\0&10&0\\\\10&0&34\\end{bmatrix},\\qquad A^{T}\\mathbf b=\\begin{bmatrix}8\\\\5\\\\9\\end{bmatrix}.$$\nMidterste likning er frittstående: $10c_1=5\\Rightarrow c_1=\\tfrac12$. De to andre: $5c_0+10c_2=8$ og $10c_0+34c_2=9$. Gang første med $2$: $10c_0+20c_2=16$; subtraher fra andre: $14c_2=-7\\Rightarrow c_2=-\\tfrac12$. Da $5c_0+10\\cdot(-\\tfrac12)=8\\Rightarrow c_0=\\tfrac{13}{5}$.\n\n**Sluttsvar:** $y=\\tfrac{13}{5}+\\tfrac12x-\\tfrac12x^2$. (Til kontroll: minste-kvadraters-feilen er $\\|\\mathbf b-A\\hat{\\mathbf x}\\|^2=\\tfrac{16}{5}$.)"
+    },
+    {
+      "id": "tma4110-6-4-oppg-e4",
+      "type": "exercise",
+      "exercise": {
+        "id": "tma4110-6-4-e4",
+        "number": "4",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "(Sjanger I.) Finn regresjonslinja $y=c_0+c_1x$ for punktene $(-1,0),(0,1),(1,2),(2,5)$.",
+        "solution": "$A=\\begin{bmatrix}1&-1\\\\1&0\\\\1&1\\\\1&2\\end{bmatrix}$, $\\mathbf b=(0,1,2,5)$. $A^{T}A=\\begin{bmatrix}4&2\\\\2&6\\end{bmatrix}$, $A^{T}\\mathbf b=\\begin{bmatrix}8\\\\12\\end{bmatrix}$. $\\det=24-4=20$, så\n$$\\hat{\\mathbf x}=\\frac{1}{20}\\begin{bmatrix}6&-2\\\\-2&4\\end{bmatrix}\\begin{bmatrix}8\\\\12\\end{bmatrix}=\\frac{1}{20}\\begin{bmatrix}24\\\\32\\end{bmatrix}=\\begin{bmatrix}6/5\\\\8/5\\end{bmatrix}.$$\n**Svar:** $y=\\tfrac65+\\tfrac85x$.",
+        "hints": [
+          "Rad $i$ i $A$ er $[\\,1\\ x_i\\,]$; sett opp normallikningene.",
+          "$\\sum x_i=2,\\ \\sum x_i^2=6,\\ \\sum y_i=8,\\ \\sum x_iy_i=12$ gir $A^{T}A$ og $A^{T}\\mathbf b$ direkte."
+        ]
+      }
+    },
+    {
+      "id": "tma4110-6-4-lokke3",
+      "type": "text",
+      "content": "## Løkke 3 — Entydighet, residual og bevis-broen (~15 min)\n\nTo spørsmål gjenstår: *når* er minste kvadraters løsningen entydig, og hvordan måler vi hvor god tilnærmingen er? Begge henger på matrisen $A^{T}A$."
+    },
+    {
+      "id": "tma4110-6-4-def-residual",
+      "type": "definition",
+      "title": "Residualvektoren",
+      "content": "Forskjellen mellom det vi observerte og det modellen gir — feilvektoren\n\n$$\\mathbf r=\\mathbf b-A\\hat{\\mathbf x}.$$\n\nDenne står per konstruksjon ortogonalt på $\\operatorname{Col}A$. Komponentene er de enkelte avvikene (residualene) i hvert datapunkt."
+    },
+    {
+      "id": "tma4110-6-4-def-mkfeil",
+      "type": "definition",
+      "title": "Minste-kvadraters-feilen",
+      "content": "Lengden av residualvektoren — tallet som forteller hvor godt tilnærmingen treffer:\n\n$$\\|\\mathbf b-A\\hat{\\mathbf x}\\|=\\sqrt{(\\mathbf b-A\\hat{\\mathbf x})\\cdot(\\mathbf b-A\\hat{\\mathbf x})}.$$\n\nEr den $0$, hadde systemet en eksakt løsning. Jo mindre den er, desto bedre passer modellen. Husk kvadratrota."
+    },
+    {
+      "id": "tma4110-6-4-def-projkobling",
+      "type": "definition",
+      "title": "Kobling til ortogonal projeksjon",
+      "content": "Minste kvadrater er projeksjon i forkledning: prediksjonen $A\\hat{\\mathbf x}$ er nøyaktig projeksjonen av $\\mathbf b$ ned på kolonnerommet,\n\n$$A\\hat{\\mathbf x}=\\operatorname{proj}_{\\operatorname{Col}A}\\mathbf b.$$\n\nDerfor er $A\\hat{\\mathbf x}$ det punktet i $\\operatorname{Col}A$ som ligger nærmest $\\mathbf b$, og residualen $\\mathbf b-A\\hat{\\mathbf x}$ ligger i $(\\operatorname{Col}A)^{\\perp}$."
+    },
+    {
+      "id": "tma4110-6-4-thm-entydig",
+      "type": "theorem",
+      "title": "Entydighet og $A^{T}A$",
+      "content": "Normallikningene $A^{T}A\\hat{\\mathbf x}=A^{T}\\mathbf b$ har **entydig** løsning hvis og bare hvis kolonnene i $A$ er lineært uavhengige. I så fall er $A^{T}A$ inverterbar og\n\n$$\\hat{\\mathbf x}=(A^{T}A)^{-1}A^{T}\\mathbf b.$$\n\nEr kolonnene lineært avhengige (rangdefekt), er $A^{T}A$ singulær og løsningsmengden **affin** — uendelig mange minste kvadraters løsninger, men alle gir samme prediksjon $A\\hat{\\mathbf x}$."
+    },
+    {
+      "id": "tma4110-6-4-def-entydig",
+      "type": "definition",
+      "title": "Entydig minste kvadraters løsning",
+      "content": "Minste kvadraters løsningen er entydig nøyaktig når kolonnene i $A$ er lineært uavhengige. Da er $A^{T}A$ inverterbar, og\n\n$$\\hat{\\mathbf x}=(A^{T}A)^{-1}A^{T}\\mathbf b.$$\n\nI praksis løser vi likevel normallikningene med eliminasjon i stedet for å regne ut inversen."
+    },
+    {
+      "id": "tma4110-6-4-def-affin",
+      "type": "definition",
+      "title": "Affin løsningsmengde ved rangdefekt",
+      "content": "Er kolonnene i $A$ lineært **avhengige**, er $A^{T}A$ singulær. Da har normallikningene fortsatt løsning (høyresiden $A^{T}\\mathbf b$ ligger alltid i $\\operatorname{Col}(A^{T}A)$), men **uendelig mange** — en affin mengde\n\n$$\\hat{\\mathbf x}=\\hat{\\mathbf x}_0+\\mathbf w,\\qquad \\mathbf w\\in\\operatorname{Nul}(A^{T}A)=\\operatorname{Nul}A.$$\n\nAlle disse gir samme prediksjon $A\\hat{\\mathbf x}=\\operatorname{proj}_{\\operatorname{Col}A}\\mathbf b$."
+    },
+    {
+      "id": "tma4110-6-4-def-symmetri",
+      "type": "definition",
+      "title": "$A^{T}A$ symmetrisk og positiv semidefinit",
+      "content": "For enhver $A$ er $A^{T}A$ symmetrisk, og den er **positiv semidefinit**: for alle $\\mathbf x$ er\n\n$$\\mathbf x^{T}(A^{T}A)\\mathbf x=(A\\mathbf x)\\cdot(A\\mathbf x)=\\|A\\mathbf x\\|^2\\ge 0.$$\n\nDette er grunnen til at normallikningene alltid har (minst) én løsning."
+    },
+    {
+      "id": "tma4110-6-4-ex4",
+      "type": "example",
+      "title": "Rangdefekt: affin løsningsmengde",
+      "problem": "La $A=\\begin{bmatrix}1&1&2\\\\1&2&3\\\\1&0&1\\\\1&3&4\\end{bmatrix}$ (merk: kolonne 3 $=$ kolonne 1 $+$ kolonne 2) og $\\mathbf b=(2,3,1,5)$. Finn alle minste kvadraters løsninger av $A\\mathbf x=\\mathbf b$.",
+      "solution": "Kolonnene er lineært **avhengige**, så vi venter en affin løsningsmengde. Normallikningene:\n$$A^{T}A=\\begin{bmatrix}4&6&10\\\\6&14&20\\\\10&20&30\\end{bmatrix},\\qquad A^{T}\\mathbf b=\\begin{bmatrix}11\\\\23\\\\34\\end{bmatrix}.$$\nRadreduksjon (rad 3 $=$ rad 1 $+$ rad 2 gir en nullrad) fører til systemet\n$$x_1+x_3=\\tfrac45,\\qquad x_2+x_3=\\tfrac{13}{10}.$$\nMed $x_3=t$ fri:\n$$\\hat{\\mathbf x}=\\begin{bmatrix}4/5\\\\13/10\\\\0\\end{bmatrix}+t\\begin{bmatrix}-1\\\\-1\\\\1\\end{bmatrix},\\qquad t\\in\\mathbb R.$$\n> *Merk: alle disse gir samme prediksjon $A\\hat{\\mathbf x}=\\operatorname{proj}_{\\operatorname{Col}A}\\mathbf b$. Retningsvektoren $(-1,-1,1)$ er nettopp $\\operatorname{Nul}A$.*\n\n**Sluttsvar:** den affine mengden over."
+    },
+    {
+      "id": "tma4110-6-4-oppg-e5",
+      "type": "exercise",
+      "exercise": {
+        "id": "tma4110-6-4-e5",
+        "number": "5",
+        "type": "classic",
+        "difficulty": "vanskelig",
+        "task": "(Bevis-sjanger.) La $A$ være en $m\\times n$-matrise. **a)** Vis at $A^{T}A$ er symmetrisk. **b)** Vis at $\\operatorname{Nul}(A^{T}A)=\\operatorname{Nul}A$, og bruk dette til å forklare at $A^{T}A$ er inverterbar når kolonnene i $A$ er lineært uavhengige.",
+        "solution": "**a)** $(A^{T}A)^{T}=A^{T}(A^{T})^{T}=A^{T}A$, siden $(BC)^{T}=C^{T}B^{T}$ og $(A^{T})^{T}=A$. Altså er $A^{T}A$ symmetrisk. $\\square$\n\n**b)** Vi viser begge inklusjoner.\n\n«$\\supseteq$»: Hvis $A\\mathbf x=\\mathbf 0$, så er $A^{T}A\\mathbf x=A^{T}\\mathbf 0=\\mathbf 0$, så $\\mathbf x\\in\\operatorname{Nul}(A^{T}A)$.\n\n«$\\subseteq$»: Anta $A^{T}A\\mathbf x=\\mathbf 0$. Da er $\\mathbf x^{T}A^{T}A\\mathbf x=0$, dvs. $(A\\mathbf x)\\cdot(A\\mathbf x)=\\|A\\mathbf x\\|^2=0$. Men bare nullvektoren har norm $0$, så $A\\mathbf x=\\mathbf 0$, altså $\\mathbf x\\in\\operatorname{Nul}A$.\n\nDermed $\\operatorname{Nul}(A^{T}A)=\\operatorname{Nul}A$. Er kolonnene i $A$ lineært uavhengige, er $\\operatorname{Nul}A=\\{\\mathbf 0\\}$, så $\\operatorname{Nul}(A^{T}A)=\\{\\mathbf 0\\}$. En kvadratisk matrise med trivielt nullrom er inverterbar (inverterbarhetssetningen, kap. 2.2), så $A^{T}A$ er inverterbar. $\\blacksquare$",
+        "hints": [
+          "**a)** Bruk regneregelen $(BC)^{T}=C^{T}B^{T}$ og $(A^{T})^{T}=A$.",
+          "**b)** For «$\\subseteq$»: gang $A^{T}A\\mathbf x=\\mathbf 0$ med $\\mathbf x^{T}$ fra venstre og kjenn igjen $\\|A\\mathbf x\\|^2$.",
+          "Et trivielt nullrom for en kvadratisk matrise $\\Rightarrow$ inverterbar (inverterbarhetssetningen)."
+        ]
+      }
+    },
+    {
+      "id": "tma4110-6-4-warn-typiske",
+      "type": "warning",
+      "title": "Typiske feil",
+      "content": "- **Feil oppsett av $A$ og $\\mathbf b$ fra datapunktene.** For en linje er raden $[\\,1\\ x_i\\,]$ og $\\mathbf b$-komponenten $y_i$ — ikke omvendt. En feil her forplanter seg til hele svaret.\n- **Regnefeil i $A^{T}A$.** Element $(i,j)$ er prikkproduktet av kolonne $i$ og $j$. Kontroller mot $\\sum x_i,\\ \\sum x_i^2$ osv.\n- **Antar entydig løsning ved rangdefekt.** Er kolonnene avhengige, er $A^{T}A$ singulær og løsningen **affin** — ikke gjett på ett svar.\n- **Forveksler residual og løsning.** $\\hat{\\mathbf x}$ er koeffisientene; $\\mathbf b-A\\hat{\\mathbf x}$ er feilen. Minste-kvadraters-feilen er *lengden* $\\|\\mathbf b-A\\hat{\\mathbf x}\\|$ — glem ikke kvadratrota.\n- **Bruker ikke normallikningene ved navn.** Sensor vil se $A^{T}A\\hat{\\mathbf x}=A^{T}\\mathbf b$ eksplisitt. Å hoppe rett til svaret koster uttelling."
+    },
+    {
+      "id": "tma4110-6-4-begrepsbank-note",
+      "type": "text",
+      "content": "### Begrepsbank — flere kort til repetisjon\n\n*Flashcard-/repetisjonsstoff — hopp trygt over ved førstegangslesing; tidsanslaget over gjelder kjernestoffet. Kortene under samler resultatene fra kapitlet i kompakt form.*"
+    },
+    {
+      "id": "tma4110-6-4-bb-kolonner",
+      "type": "definition",
+      "title": "Kolonnene i $A$ lineært uavhengige",
+      "content": "Kravet som avgjør entydighet: kolonnene $\\mathbf a_1,\\dots,\\mathbf a_n$ er lineært uavhengige når $A\\mathbf x=\\mathbf 0$ bare har løsningen $\\mathbf x=\\mathbf 0$, dvs. $\\operatorname{Nul}A=\\{\\mathbf 0\\}$. Nettopp da er $A^{T}A$ inverterbar og minste kvadraters løsningen entydig."
+    },
+    {
+      "id": "tma4110-6-4-bb-posdef",
+      "type": "definition",
+      "title": "$A^{T}A$ positiv definit",
+      "content": "Når kolonnene i $A$ er lineært uavhengige, er $A^{T}A$ ikke bare positiv semidefinit, men **positiv definit**: $\\mathbf x^{T}(A^{T}A)\\mathbf x=\\|A\\mathbf x\\|^2>0$ for alle $\\mathbf x\\ne\\mathbf 0$. En positiv definit matrise er inverterbar, som sikrer den entydige løsningen."
+    },
+    {
+      "id": "tma4110-6-4-bb-nulkjerne",
+      "type": "definition",
+      "title": "Kjernelikheten $\\operatorname{Nul}(A^{T}A)=\\operatorname{Nul}A$",
+      "content": "For enhver matrise $A$ har $A^{T}A$ og $A$ **samme nullrom**:\n\n$$\\operatorname{Nul}(A^{T}A)=\\operatorname{Nul}A.$$\n\nDette er broen mellom «kolonnene uavhengige» og «$A^{T}A$ inverterbar»: har $A$ trivielt nullrom, har $A^{T}A$ det også, og en kvadratisk matrise med trivielt nullrom er inverterbar."
+    },
+    {
+      "id": "tma4110-6-4-bb-ortkompl",
+      "type": "definition",
+      "title": "$(\\operatorname{Col}A)^{\\perp}=\\operatorname{Nul}A^{T}$",
+      "content": "Ortogonalkomplementet til kolonnerommet er nullrommet til den transponerte:\n\n$$(\\operatorname{Col}A)^{\\perp}=\\operatorname{Nul}A^{T}.$$\n\nDet er denne likheten som gjør normallikningene til det de er: at residualen står i $(\\operatorname{Col}A)^{\\perp}$ betyr $A^{T}(\\mathbf b-A\\hat{\\mathbf x})=\\mathbf 0$."
+    },
+    {
+      "id": "tma4110-6-4-bb-prediksjon",
+      "type": "definition",
+      "title": "Prediksjonsvektoren $A\\hat{\\mathbf x}$",
+      "content": "Den tilpassede vektoren $A\\hat{\\mathbf x}$ — modellens «beste gjetning» på $\\mathbf b$. Den er lik projeksjonen $\\operatorname{proj}_{\\operatorname{Col}A}\\mathbf b$ og er **entydig** selv om $\\hat{\\mathbf x}$ ikke er det (ved rangdefekt gir alle løsningene samme $A\\hat{\\mathbf x}$)."
+    },
+    {
+      "id": "tma4110-6-4-bb-beste",
+      "type": "definition",
+      "title": "Beste tilnærmingsegenskapen",
+      "content": "Hjørnesteinen fra kap. 6.3, brukt her: blant alle vektorer $A\\mathbf x$ i $\\operatorname{Col}A$ er $A\\hat{\\mathbf x}=\\operatorname{proj}_{\\operatorname{Col}A}\\mathbf b$ den som ligger nærmest $\\mathbf b$. Derfor minimerer minste kvadraters løsningen $\\|\\mathbf b-A\\mathbf x\\|$."
+    },
+    {
+      "id": "tma4110-6-4-bb-konsistent",
+      "type": "definition",
+      "title": "Konsistent system og minste kvadrater",
+      "content": "Har $A\\mathbf x=\\mathbf b$ faktisk en eksakt løsning (systemet er konsistent), så er den løsningen også minste kvadraters løsning, og feilen er $\\|\\mathbf b-A\\hat{\\mathbf x}\\|=0$. Minste kvadrater generaliserer altså vanlig løsning til det overbestemte tilfellet."
+    },
+    {
+      "id": "tma4110-6-4-bb-normalvektor",
+      "type": "definition",
+      "title": "Normalvektoren $A^{T}\\mathbf b$",
+      "content": "Høyresiden i normallikningene, $A^{T}\\mathbf b$. Komponent $j$ er prikkproduktet av kolonne $j$ i $A$ med $\\mathbf b$. For kurvetilpasning er dette summene $\\sum y_i$ og $\\sum x_iy_i$ (og $\\sum x_i^2y_i$ for parabel)."
+    },
+    {
+      "id": "tma4110-6-4-pool-header",
+      "type": "text",
+      "content": "## Oppgavesett (eksamensnivå, stigende)\n\nBlandet drill av hele sjangeren. Gjør dem uten fasit først; alle svar er eksakte brøker."
+    },
+    {
+      "id": "tma4110-6-4-oppg-p1",
+      "type": "exercise",
+      "exercise": {
+        "id": "tma4110-6-4-p1",
+        "number": "6",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "(Sjanger I.) Finn minste kvadraters løsningen av $A\\mathbf x=\\mathbf b$ med $A=\\begin{bmatrix}1&0\\\\1&2\\\\1&4\\end{bmatrix}$, $\\mathbf b=\\begin{bmatrix}0\\\\0\\\\2\\end{bmatrix}$, og oppgi minste-kvadraters-feilen.",
+        "solution": "$A^{T}A=\\begin{bmatrix}3&6\\\\6&20\\end{bmatrix}$, $A^{T}\\mathbf b=\\begin{bmatrix}2\\\\8\\end{bmatrix}$. $\\det=60-36=24$, så\n$$\\hat{\\mathbf x}=\\frac{1}{24}\\begin{bmatrix}20&-6\\\\-6&3\\end{bmatrix}\\begin{bmatrix}2\\\\8\\end{bmatrix}=\\frac{1}{24}\\begin{bmatrix}-8\\\\12\\end{bmatrix}=\\begin{bmatrix}-1/3\\\\1/2\\end{bmatrix}.$$\n$A\\hat{\\mathbf x}=\\left(-\\tfrac13,\\tfrac23,\\tfrac53\\right)$, $\\mathbf b-A\\hat{\\mathbf x}=\\left(\\tfrac13,-\\tfrac23,\\tfrac13\\right)$, $\\|\\mathbf b-A\\hat{\\mathbf x}\\|^2=\\tfrac{1+4+1}{9}=\\tfrac{6}{9}=\\tfrac23$. **Svar:** $\\hat{\\mathbf x}=\\left(-\\tfrac13,\\tfrac12\\right)$, feil $\\sqrt{2/3}$.",
+        "hints": [
+          "Sett opp normallikningene $A^{T}A\\hat{\\mathbf x}=A^{T}\\mathbf b$.",
+          "Feilen er $\\|\\mathbf b-A\\hat{\\mathbf x}\\|$ — regn $A\\hat{\\mathbf x}$ først, så residualen."
+        ]
+      }
+    },
+    {
+      "id": "tma4110-6-4-oppg-p2",
+      "type": "exercise",
+      "exercise": {
+        "id": "tma4110-6-4-p2",
+        "number": "7",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "(Sjanger I — regresjonslinje.) Finn den rette linja $y=c_0+c_1x$ som best tilpasser $(0,2),(1,2),(2,4),(3,5)$.",
+        "solution": "$A=\\begin{bmatrix}1&0\\\\1&1\\\\1&2\\\\1&3\\end{bmatrix}$, $\\mathbf b=(2,2,4,5)$. $A^{T}A=\\begin{bmatrix}4&6\\\\6&14\\end{bmatrix}$, $A^{T}\\mathbf b=\\begin{bmatrix}13\\\\25\\end{bmatrix}$. $\\det=56-36=20$, så\n$$\\hat{\\mathbf x}=\\frac{1}{20}\\begin{bmatrix}14&-6\\\\-6&4\\end{bmatrix}\\begin{bmatrix}13\\\\25\\end{bmatrix}=\\frac{1}{20}\\begin{bmatrix}32\\\\22\\end{bmatrix}=\\begin{bmatrix}8/5\\\\11/10\\end{bmatrix}.$$\n**Svar:** $y=\\tfrac85+\\tfrac{11}{10}x$.",
+        "hints": [
+          "Rad $=[\\,1\\ x_i\\,]$, $\\mathbf b=(y_i)$; skriv normallikningene.",
+          "$\\sum x_i=6,\\ \\sum x_i^2=14,\\ \\sum y_i=13,\\ \\sum x_iy_i=25$."
+        ]
+      }
+    },
+    {
+      "id": "tma4110-6-4-oppg-p3",
+      "type": "exercise",
+      "exercise": {
+        "id": "tma4110-6-4-p3",
+        "number": "8",
+        "type": "classic",
+        "difficulty": "vanskelig",
+        "task": "(Sjanger I — parabel.) Finn parabelen $y=c_0+c_1x+c_2x^2$ som best tilpasser $(-1,1),(0,0),(1,1),(2,5)$ ved minste kvadrater.",
+        "solution": "$A=\\begin{bmatrix}1&-1&1\\\\1&0&0\\\\1&1&1\\\\1&2&4\\end{bmatrix}$, $\\mathbf b=(1,0,1,5)$. Da\n$$A^{T}A=\\begin{bmatrix}4&2&6\\\\2&6&8\\\\6&8&18\\end{bmatrix},\\qquad A^{T}\\mathbf b=\\begin{bmatrix}7\\\\10\\\\22\\end{bmatrix}.$$\nRadreduksjon av totalmatrisen $[A^{T}A\\mid A^{T}\\mathbf b]$ gir\n$$\\hat{\\mathbf x}=\\left(-\\tfrac{3}{20},\\tfrac{1}{20},\\tfrac{5}{4}\\right).$$\n**Sluttsvar:** $y=-\\tfrac{3}{20}+\\tfrac{1}{20}x+\\tfrac54x^2$. (Minste-kvadraters-feil: $\\|\\mathbf b-A\\hat{\\mathbf x}\\|^2=\\tfrac{1}{20}$.)",
+        "hints": [
+          "Bygg $A$ med kolonner $1,\\ x,\\ x^2$; skriv normallikningene $A^{T}A\\hat{\\mathbf x}=A^{T}\\mathbf b$.",
+          "Radreduser $[A^{T}A\\mid A^{T}\\mathbf b]$; svaret er brøker med nevner $20$."
+        ]
+      }
+    },
+    {
+      "id": "tma4110-6-4-oppg-p4",
+      "type": "exercise",
+      "exercise": {
+        "id": "tma4110-6-4-p4",
+        "number": "9",
+        "type": "classic",
+        "difficulty": "vanskelig",
+        "task": "(Kald bank — ingen hint.) La $A$ ha lineært uavhengige kolonner, og la $\\hat{\\mathbf x}$ være minste kvadraters løsningen av $A\\mathbf x=\\mathbf b$. Vis at residualen $\\mathbf r=\\mathbf b-A\\hat{\\mathbf x}$ oppfyller $A^{T}\\mathbf r=\\mathbf 0$, og forklar geometrisk hva dette betyr.",
+        "solution": "$\\hat{\\mathbf x}$ løser normallikningene $A^{T}A\\hat{\\mathbf x}=A^{T}\\mathbf b$. Da er\n$$A^{T}\\mathbf r=A^{T}(\\mathbf b-A\\hat{\\mathbf x})=A^{T}\\mathbf b-A^{T}A\\hat{\\mathbf x}=\\mathbf 0.$$\n**Geometrisk:** hver komponent av $A^{T}\\mathbf r$ er prikkproduktet av en kolonne i $A$ med $\\mathbf r$. At alle er null betyr at $\\mathbf r$ står ortogonalt på hver kolonne, altså på hele $\\operatorname{Col}A$: $\\mathbf r\\in(\\operatorname{Col}A)^{\\perp}=\\operatorname{Nul}A^{T}$. Prediksjonen $A\\hat{\\mathbf x}=\\operatorname{proj}_{\\operatorname{Col}A}\\mathbf b$ er dermed foten av normalen fra $\\mathbf b$ ned på $\\operatorname{Col}A$. $\\blacksquare$",
+        "hints": []
+      }
+    },
+    {
+      "id": "tma4110-6-4-repetisjon",
+      "type": "collapsible",
+      "title": "Repetisjonsoppgaver (fra 6.2–6.3)",
+      "buttonText": "Vis repetisjonsoppgaver",
+      "content": [
+        {
+          "id": "tma4110-6-4-oppg-rep1",
+          "type": "exercise",
+          "exercise": {
+            "id": "tma4110-6-4-rep1",
+            "number": "R1",
+            "type": "classic",
+            "difficulty": "lett",
+            "task": "(Repetisjon 6.2 — Gram–Schmidt.) Bruk Gram–Schmidt på $\\mathbf a_1=(1,1,1)$, $\\mathbf a_2=(1,0,2)$ og finn en ortogonal basis.",
+            "solution": "$\\mathbf v_1=\\mathbf a_1=(1,1,1)$. $\\mathbf v_2=\\mathbf a_2-\\frac{\\mathbf a_2\\cdot\\mathbf v_1}{\\mathbf v_1\\cdot\\mathbf v_1}\\mathbf v_1=(1,0,2)-\\frac{3}{3}(1,1,1)=(0,-1,1)$. Ortogonal basis: $\\{(1,1,1),(0,-1,1)\\}$.",
+            "hints": [
+              "$\\mathbf v_1=\\mathbf a_1$; $\\mathbf v_2=\\mathbf a_2-\\frac{\\mathbf a_2\\cdot\\mathbf v_1}{\\mathbf v_1\\cdot\\mathbf v_1}\\mathbf v_1$."
+            ]
+          }
+        },
+        {
+          "id": "tma4110-6-4-oppg-rep2",
+          "type": "exercise",
+          "exercise": {
+            "id": "tma4110-6-4-rep2",
+            "number": "R2",
+            "type": "classic",
+            "difficulty": "middels",
+            "task": "(Repetisjon 6.3 — projeksjon og avstand.) La $W=\\operatorname{Span}\\{(1,2,1),(1,0,-1)\\}$. Finn $\\operatorname{proj}_W(1,2,4)$ og avstanden fra $(1,2,4)$ til $W$.",
+            "solution": "De to spennvektorene er ortogonale ($(1,2,1)\\cdot(1,0,-1)=0$), så\n$$\\operatorname{proj}_W\\mathbf y=\\frac{(1,2,4)\\cdot(1,2,1)}{6}(1,2,1)+\\frac{(1,2,4)\\cdot(1,0,-1)}{2}(1,0,-1)=\\frac{9}{6}(1,2,1)+\\frac{-3}{2}(1,0,-1)=(0,3,3).$$\n$\\mathbf z=(1,2,4)-(0,3,3)=(1,-1,1)$, avstand $\\|\\mathbf z\\|=\\sqrt3$.",
+            "hints": [
+              "Sjekk om spennvektorene allerede er ortogonale; da kan du bruke projeksjonsformelen direkte.",
+              "Avstand $=\\|\\mathbf y-\\operatorname{proj}_W\\mathbf y\\|$."
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": "tma4110-6-4-symbolliste",
+      "type": "collapsible",
+      "title": "Symbol- og formelliste",
+      "buttonText": "Vis symboler og formler",
+      "content": [
+        {
+          "id": "tma4110-6-4-symbolliste-text",
+          "type": "text",
+          "content": "## Symbol- og formelliste\n\n*Oppslagsverk — alt her forklares underveis i kapitlet.*\n\nAlle symboler og formler som brukes i dette delkapitlet (6.4), samlet på ett sted.\n\n| Symbol | Betydning |\n|---|---|\n| $A\\mathbf x=\\mathbf b$ | Overbestemt system ($A$ er $m\\times n$, $m>n$) |\n| $\\hat{\\mathbf x}$ | Minste kvadraters løsning |\n| $A^{T}$ | Transponerte av $A$ |\n| $A^{T}A$ | Gram-matrisen (kvadratisk, symmetrisk) |\n| $A^{T}\\mathbf b$ | Høyresiden i normallikningene |\n| $\\operatorname{Col}A$ | Kolonnerommet til $A$ |\n| $\\operatorname{Nul}A$ | Nullrommet til $A$ |\n| $\\operatorname{proj}_{\\operatorname{Col}A}\\mathbf b$ | Projeksjonen av $\\mathbf b$ på $\\operatorname{Col}A$ |\n| $\\mathbf r=\\mathbf b-A\\hat{\\mathbf x}$ | Residualvektoren |\n| $\\|\\mathbf b-A\\hat{\\mathbf x}\\|$ | Minste-kvadraters-feilen |\n| $c_0,c_1,c_2$ | Kurvekoeffisienter (regresjon) |\n| $(x_i,y_i)$ | Datapunkt $i$ |\n\n**Formler i dette delkapitlet:**\n\n$$A^{T}A\\hat{\\mathbf x}=A^{T}\\mathbf b$$\nNormallikningene — kjerneverktøyet.\n\n$$A\\hat{\\mathbf x}=\\operatorname{proj}_{\\operatorname{Col}A}\\mathbf b$$\nMinste kvadrater som ortogonal projeksjon.\n\n$$\\hat{\\mathbf x}=(A^{T}A)^{-1}A^{T}\\mathbf b\\quad(\\text{kolonnene uavhengige})$$\nEntydig løsning når $A^{T}A$ er inverterbar.\n\n$$\\|\\mathbf b-A\\hat{\\mathbf x}\\|=\\sqrt{(\\mathbf b-A\\hat{\\mathbf x})\\cdot(\\mathbf b-A\\hat{\\mathbf x})}$$\nMinste-kvadraters-feilen (husk kvadratrota).\n\n$$(\\operatorname{Col}A)^{\\perp}=\\operatorname{Nul}A^{T},\\qquad \\operatorname{Nul}(A^{T}A)=\\operatorname{Nul}A$$\nOrtogonalitets- og kjernelikhetene som bærer teorien.\n\n$$A=\\begin{bmatrix}1&x_1\\\\\\vdots&\\vdots\\\\1&x_m\\end{bmatrix},\\quad \\mathbf b=\\begin{bmatrix}y_1\\\\\\vdots\\\\y_m\\end{bmatrix}$$\nDesignmatrise og observasjonsvektor for regresjonslinja $y=c_0+c_1x$."
+        }
+      ]
+    }
+  ],
+  "exercises": []
+}

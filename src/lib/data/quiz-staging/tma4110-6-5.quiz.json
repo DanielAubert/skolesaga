@@ -1,0 +1,162 @@
+[
+  {
+    "question": "Hva er første steg i ortogonalitetskjeden (sjanger H/I)?",
+    "options": [
+      "Identifiser hvilket indreprodukt oppgaven bruker",
+      "Sett opp normallikningene med en gang",
+      "Normaliser alle vektorene til lengde 1",
+      "Regn ut determinanten til matrisen"
+    ],
+    "explanation": "Alt (skalarprodukt, norm, projeksjon) må regnes i det oppgitte indreproduktet — så det identifiseres først."
+  },
+  {
+    "question": "I Gram–Schmidt trekker man i hvert steg fra projeksjonen på hvilke vektorer?",
+    "options": [
+      "De allerede ortogonaliserte $\\mathbf v_i$-ene",
+      "De opprinnelige $\\mathbf a_i$-ene",
+      "Bare den aller første $\\mathbf a_1$",
+      "Enhetsvektorene i standardbasisen"
+    ],
+    "explanation": "$\\mathbf v_k=\\mathbf a_k-\\sum_{i<k}\\frac{\\langle\\mathbf a_k,\\mathbf v_i\\rangle}{\\langle\\mathbf v_i,\\mathbf v_i\\rangle}\\mathbf v_i$ — man projiserer på de ortogonaliserte $\\mathbf v_i$, ikke på $\\mathbf a_i$."
+  },
+  {
+    "question": "Projeksjonsformelen $\\operatorname{proj}_W\\mathbf y=\\sum_i\\frac{\\langle\\mathbf y,\\mathbf v_i\\rangle}{\\langle\\mathbf v_i,\\mathbf v_i\\rangle}\\mathbf v_i$ krever at basisen $\\{\\mathbf v_i\\}$ er:",
+    "options": [
+      "Ortogonal",
+      "Lineært avhengig",
+      "Normalisert til heltall",
+      "Sortert etter lengde"
+    ],
+    "explanation": "Formelen gjelder bare med en ortogonal basis; er spennvektorene ikke ortogonale, må du Gram–Schmidte først."
+  },
+  {
+    "question": "Hvordan finner man avstanden fra en vektor $\\mathbf y$ til underrommet $W$?",
+    "options": [
+      "$\\|\\mathbf y-\\operatorname{proj}_W\\mathbf y\\|$",
+      "$\\|\\operatorname{proj}_W\\mathbf y\\|$",
+      "$\\|\\mathbf y\\|+\\|\\operatorname{proj}_W\\mathbf y\\|$",
+      "$\\langle\\mathbf y,\\operatorname{proj}_W\\mathbf y\\rangle$"
+    ],
+    "explanation": "Avstanden er lengden av restleddet $\\mathbf z=\\mathbf y-\\operatorname{proj}_W\\mathbf y$, altså $\\|\\mathbf y-\\operatorname{proj}_W\\mathbf y\\|$."
+  },
+  {
+    "question": "Hvordan gjør man en ortogonal basis $\\{\\mathbf v_i\\}$ om til en ortonormal basis?",
+    "options": [
+      "Del hver vektor på sin egen norm: $\\mathbf u_i=\\mathbf v_i/\\|\\mathbf v_i\\|$",
+      "Legg sammen alle vektorene og normaliser summen til lengde 1",
+      "Multipliser hver vektor med sin egen norm i stedet",
+      "Bytt fortegn på annenhver vektor i basisen, så deles på 2"
+    ],
+    "explanation": "Ortonormal $=$ ortogonal $+$ enhetslengde; del hver $\\mathbf v_i$ på sin norm."
+  },
+  {
+    "question": "Hva er integral-indreproduktet på $\\operatorname{P}_n$ over $[a,b]$?",
+    "options": [
+      "$\\langle p,q\\rangle=\\int_a^b p(t)q(t)\\,dt$",
+      "$\\langle p,q\\rangle=\\sum_i p_iq_i$ av koeffisientene",
+      "$\\langle p,q\\rangle=p(a)q(b)$",
+      "$\\langle p,q\\rangle=\\int_a^b p(t)\\,dt\\cdot\\int_a^b q(t)\\,dt$"
+    ],
+    "explanation": "Indreproduktet er $\\int_a^b p(t)q(t)\\,dt$; norm og ortogonalitet regnes med dette, ikke med koeffisientene."
+  },
+  {
+    "question": "Hva endrer heltalls-oppskalering av en Gram–Schmidt-vektor?",
+    "options": [
+      "Ingenting av betydning — retning og ortogonalitet beholdes",
+      "Ortogonaliteten mot de andre vektorene forsvinner umiddelbart",
+      "Vektoren blir automatisk en enhetsvektor med lengde 1",
+      "Underrommet den spenner ut sammen med de andre, endres"
+    ],
+    "explanation": "Å gange $\\mathbf v_k$ med et positivt tall beholder både retning og ortogonalitet; det gir bare renere regning."
+  },
+  {
+    "question": "To vektorer $\\mathbf u$ og $\\mathbf v$ er ortogonale nøyaktig når:",
+    "options": [
+      "$\\langle\\mathbf u,\\mathbf v\\rangle=0$",
+      "$\\|\\mathbf u\\|=\\|\\mathbf v\\|$",
+      "$\\mathbf u=\\mathbf v$",
+      "$\\langle\\mathbf u,\\mathbf v\\rangle=1$"
+    ],
+    "explanation": "Ortogonalitet betyr at indreproduktet er null, i det oppgitte indreproduktet."
+  },
+  {
+    "question": "Hva er den første vektoren $\\mathbf v_1$ i Gram–Schmidt-prosessen?",
+    "options": [
+      "$\\mathbf v_1=\\mathbf a_1$ (uendret)",
+      "$\\mathbf v_1=\\mathbf a_1/\\|\\mathbf a_1\\|$",
+      "$\\mathbf v_1=\\mathbf a_2-\\mathbf a_1$",
+      "$\\mathbf v_1=\\mathbf 0$"
+    ],
+    "explanation": "Prosessen starter med $\\mathbf v_1=\\mathbf a_1$; deretter ortogonaliseres de øvrige mot denne."
+  },
+  {
+    "question": "Minste kvadraters løsningen finnes fra hvilket system?",
+    "options": [
+      "Normallikningene $A^{T}A\\hat{\\mathbf x}=A^{T}\\mathbf b$",
+      "Det opprinnelige $A\\mathbf x=\\mathbf b$ ved radreduksjon",
+      "Egenverdilikningen $A\\mathbf x=\\lambda\\mathbf x$",
+      "Karakteristisk likning $\\det(A-\\lambda I)=0$"
+    ],
+    "explanation": "Normallikningene $A^{T}A\\hat{\\mathbf x}=A^{T}\\mathbf b$ gir minste kvadraters løsningen."
+  },
+  {
+    "question": "Ved rangdefekt (kolonnene i $A$ avhengige) er minste kvadraters løsningen:",
+    "options": [
+      "Affin — uendelig mange, alle med samme prediksjon $A\\hat{\\mathbf x}$",
+      "Alltid entydig likevel, akkurat som ved uavhengige kolonner",
+      "Ikke-eksisterende — normallikningene mangler da løsning",
+      "Alltid lik nullvektoren, uansett hva $\\mathbf b$ er"
+    ],
+    "explanation": "$A^{T}A$ er da singulær; løsningsmengden er affin, men $A\\hat{\\mathbf x}=\\operatorname{proj}_{\\operatorname{Col}A}\\mathbf b$ er entydig."
+  },
+  {
+    "question": "Hvilken sammenheng knytter minste kvadrater til ortogonal projeksjon?",
+    "options": [
+      "$A\\hat{\\mathbf x}=\\operatorname{proj}_{\\operatorname{Col}A}\\mathbf b$",
+      "$\\hat{\\mathbf x}=\\operatorname{proj}_{\\operatorname{Col}A}\\mathbf b$",
+      "$A\\hat{\\mathbf x}=\\mathbf b$ eksakt",
+      "$A^{T}\\hat{\\mathbf x}=\\operatorname{proj}_{\\operatorname{Nul}A}\\mathbf b$"
+    ],
+    "explanation": "Prediksjonen $A\\hat{\\mathbf x}$ er nøyaktig projeksjonen av $\\mathbf b$ på kolonnerommet."
+  },
+  {
+    "question": "I dekomposisjonen $\\mathbf y=\\hat{\\mathbf y}+\\mathbf z$ hva er $\\mathbf z$?",
+    "options": [
+      "Restleddet $\\mathbf y-\\operatorname{proj}_W\\mathbf y$, som ligger i $W^{\\perp}$",
+      "Projeksjonen $\\operatorname{proj}_W\\mathbf y$, som ligger i $W$",
+      "En enhetsvektor i $W$",
+      "Nullvektoren uansett $\\mathbf y$"
+    ],
+    "explanation": "$\\hat{\\mathbf y}=\\operatorname{proj}_W\\mathbf y\\in W$ og $\\mathbf z=\\mathbf y-\\hat{\\mathbf y}\\in W^{\\perp}$; avstanden er $\\|\\mathbf z\\|$."
+  },
+  {
+    "question": "Hva er $\\langle t,t^2\\rangle=\\int_{-1}^{1}t\\cdot t^2\\,dt$?",
+    "options": [
+      "$0$ — integranden $t^3$ er en oddefunksjon over $[-1,1]$",
+      "$\\tfrac23$, som er verdien av $\\int_{-1}^1 t^2\\,dt$",
+      "$\\tfrac25$, som er verdien av $\\int_{-1}^1 t^4\\,dt$",
+      "$2$, som er verdien av $\\int_{-1}^1 1\\,dt$"
+    ],
+    "explanation": "$\\int_{-1}^1 t^3\\,dt=0$ fordi $t^3$ er odde og intervallet symmetrisk; altså er $t\\perp t^2$."
+  },
+  {
+    "question": "Hvordan defineres normen i et indreproduktrom?",
+    "options": [
+      "$\\|\\mathbf v\\|=\\sqrt{\\langle\\mathbf v,\\mathbf v\\rangle}$",
+      "$\\|\\mathbf v\\|=\\langle\\mathbf v,\\mathbf v\\rangle$",
+      "$\\|\\mathbf v\\|=\\sum_i v_i$",
+      "$\\|\\mathbf v\\|=\\max_i|v_i|$"
+    ],
+    "explanation": "Normen er kvadratrota av indreproduktet med seg selv, $\\|\\mathbf v\\|=\\sqrt{\\langle\\mathbf v,\\mathbf v\\rangle}$."
+  },
+  {
+    "question": "Hvilken feil advarer sensor oftest mot i projeksjonsoppgaver?",
+    "options": [
+      "Å bruke projeksjonsformelen uten å ortogonalisere basisen først",
+      "Å normalisere alle vektorene altfor tidlig i regningen",
+      "Å regne avstanden med kvadratrot i stedet for uten",
+      "Å skalere Gram–Schmidt-vektorene til heltall underveis"
+    ],
+    "explanation": "Projeksjonsformelen krever ortogonal basis; brukes den på en ikke-ortogonal spenn, blir svaret feil."
+  }
+]

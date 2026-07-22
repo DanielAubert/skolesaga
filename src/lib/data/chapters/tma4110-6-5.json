@@ -1,0 +1,317 @@
+{
+  "id": "tma4110-6-5",
+  "courseId": "tma4110",
+  "chapterNumber": "6.5",
+  "title": "Drill: Gram–Schmidt, projeksjon og minste kvadrater",
+  "description": "Ortogonalitetsapparatet drillet som én kjede: identifiser indreproduktet → Gram–Schmidt → ortogonal projeksjon/avstand → minste kvadrater via normallikningene, ofte på samme matrise.",
+  "estimatedMinutes": 85,
+  "competenceGoals": [
+    "gjennomføre hele ortogonalitetskjeden under tidspress: identifisere indreproduktet, Gram–Schmidte til ortogonal basis, og projisere/finne avstand",
+    "løse minste kvadraters problemer via normallikningene og gjenkjenne at Ax̂ er projeksjonen av b på Col A",
+    "håndtere kjedede oppgaver på samme matrise, integral-indreprodukt på Pₙ, og affin løsning ved rangdefekt"
+  ],
+  "content": [
+    {
+      "id": "tma4110-6-5-tip-eksamensvinkel",
+      "type": "tip",
+      "title": "Eksamensvinkel",
+      "content": "**Ortogonalitetsapparatet er den tyngst vektede sjangeren i lineær algebra-delen: Gram–Schmidt, projeksjon og avstand (sjanger H) forekommer i om lag 80 % av settene, minste kvadrater (sjanger I) i om lag 47 %.** Ofte kommer de som én kjedet oppgave på *samme* matrise. Dette drillkapitlet trener hele kjeden til automatikk.\n\n**Varianter som har forekommet:**\n- indreprodukt/norm/vinkel/ortogonalitet i **standard** og **integral**-indreprodukt;\n- Gram–Schmidt til ortogonal basis (med heltalls-oppskalering) + normalisering;\n- ortogonal projeksjon $\\operatorname{proj}_W\\mathbf y$, dekomposisjon $\\mathbf y=\\hat{\\mathbf y}+\\mathbf z$ og avstand;\n- minste kvadrater via normallikningene + kurvetilpasning;\n- **kjedet:** Gram–Schmidt $\\to$ projeksjon $\\to$ minste kvadrater på samme $A$.\n\n**Karakterskilleren:** bruk **alltid en ortogonal basis før projeksjonsformelen**, og **navngi normallikningene**. Regn i det **oppgitte** indreproduktet — ikke standard prikkprodukt når oppgaven har gitt et annet.\n\n*Dette er en drilløkt på ~85 min. Ta den gjennomregnede casen først (~20 min), så oppgavesettet i to bolker med en kort pause imellom.*"
+    },
+    {
+      "id": "tma4110-6-5-losningsoppskrift",
+      "type": "text",
+      "content": "## Løsningsoppskrift — ortogonalitetskjeden\n\nHver oppgave i sjanger H/I løses med samme faste kjede. Lær den utenat (kode E — ingen formelsamling på eksamen):\n\n**1. Identifiser indreproduktet.** Er det standard prikkprodukt $\\mathbf u\\cdot\\mathbf v=\\sum u_iv_i$, et **vektet** $\\sum w_iu_iv_i$, eller et **integral** $\\langle p,q\\rangle=\\int_a^b p(t)q(t)\\,dt$? Alle skalarprodukt, normer og vinkler skal regnes i *dette* produktet.\n\n**2. Gram–Schmidt** til ortogonal basis:\n$$\\mathbf v_1=\\mathbf a_1,\\qquad \\mathbf v_k=\\mathbf a_k-\\sum_{i<k}\\frac{\\langle\\mathbf a_k,\\mathbf v_i\\rangle}{\\langle\\mathbf v_i,\\mathbf v_i\\rangle}\\mathbf v_i.$$\nSkalér gjerne hver $\\mathbf v_k$ til heltall underveis (det endrer ikke retningen). Normaliser til slutt hvis oppgaven ber om ortonormal basis: $\\mathbf u_i=\\mathbf v_i/\\|\\mathbf v_i\\|$.\n\n**3. Projeksjon og avstand** med den ortogonale basisen:\n$$\\operatorname{proj}_W\\mathbf y=\\sum_i\\frac{\\langle\\mathbf y,\\mathbf v_i\\rangle}{\\langle\\mathbf v_i,\\mathbf v_i\\rangle}\\mathbf v_i,\\qquad \\mathbf y=\\hat{\\mathbf y}+\\mathbf z,\\qquad \\text{avstand}=\\|\\mathbf z\\|=\\|\\mathbf y-\\operatorname{proj}_W\\mathbf y\\|.$$\n\n**4. Minste kvadrater** via normallikningene:\n$$A^{T}A\\hat{\\mathbf x}=A^{T}\\mathbf b.$$\nEntydig når kolonnene i $A$ er uavhengige; **affin** løsningsmengde ved rangdefekt. Prediksjonen er $A\\hat{\\mathbf x}=\\operatorname{proj}_{\\operatorname{Col}A}\\mathbf b$ — samme projeksjon som i steg 3.\n\nUnder følger en gjennomregnet case der samme matrise går gjennom Gram–Schmidt, projeksjon og minste kvadrater, med sensor-margnotater, så et oppgavesett på eksamensnivå."
+    },
+    {
+      "id": "tma4110-6-5-forkunnskaper",
+      "type": "text",
+      "content": "**Forkunnskaper:** Hele Del 6 — indreprodukt, norm og ortogonalitet ([kap. 6.1](/bok/tma4110/tma4110-6-1)), Gram–Schmidt ([kap. 6.2](/bok/tma4110/tma4110-6-2)), ortogonal projeksjon og komplement ([kap. 6.3](/bok/tma4110/tma4110-6-3)) og minste kvadrater ([kap. 6.4](/bok/tma4110/tma4110-6-4)) — pluss kolonnerom og lineær uavhengighet ([kap. 3.3](/bok/tma4110/tma4110-3-3)).\n\n**Sist du var her (nøkkelformler):**\n$$\\mathbf v_k=\\mathbf a_k-\\sum_{i<k}\\frac{\\langle\\mathbf a_k,\\mathbf v_i\\rangle}{\\langle\\mathbf v_i,\\mathbf v_i\\rangle}\\mathbf v_i,\\quad \\operatorname{proj}_W\\mathbf y=\\sum_i\\frac{\\langle\\mathbf y,\\mathbf v_i\\rangle}{\\langle\\mathbf v_i,\\mathbf v_i\\rangle}\\mathbf v_i,\\quad A^{T}A\\hat{\\mathbf x}=A^{T}\\mathbf b.$$"
+    },
+    {
+      "id": "tma4110-6-5-case",
+      "type": "example",
+      "title": "Gjennomregnet eksamenscase (med sensor-margnotater)",
+      "problem": "La $A=\\begin{bmatrix}1&0\\\\1&1\\\\1&2\\\\1&3\\end{bmatrix}$ og $\\mathbf b=\\begin{bmatrix}1\\\\3\\\\3\\\\5\\end{bmatrix}$ (standard prikkprodukt i $\\mathbb R^4$).\n\n**a)** Bruk Gram–Schmidt på kolonnene i $A$ og finn en ortogonal basis for $\\operatorname{Col}A$.\n**b)** Finn $\\operatorname{proj}_{\\operatorname{Col}A}\\mathbf b$ og avstanden fra $\\mathbf b$ til $\\operatorname{Col}A$.\n**c)** Finn minste kvadraters løsningen av $A\\mathbf x=\\mathbf b$ via normallikningene, og bekreft at $A\\hat{\\mathbf x}$ er lik projeksjonen fra (b).",
+      "solution": "**a) Gram–Schmidt.** Kolonnene er $\\mathbf a_1=(1,1,1,1)$ og $\\mathbf a_2=(0,1,2,3)$.\n$$\\mathbf v_1=\\mathbf a_1=(1,1,1,1).$$\n$$\\mathbf v_2=\\mathbf a_2-\\frac{\\mathbf a_2\\cdot\\mathbf v_1}{\\mathbf v_1\\cdot\\mathbf v_1}\\mathbf v_1=(0,1,2,3)-\\frac{6}{4}(1,1,1,1)=\\left(-\\tfrac32,-\\tfrac12,\\tfrac12,\\tfrac32\\right).$$\nSkalér med $2$ til heltall: $\\mathbf v_2=(-3,-1,1,3)$. Ortogonal basis: $\\{(1,1,1,1),(-3,-1,1,3)\\}$.\n> *Sensor: heltalls-oppskalering endrer ikke retningen og gir renere regning videre — men si eksplisitt at du skalerer.*\n\n**b) Projeksjon og avstand.** Med den ortogonale basisen:\n$$\\operatorname{proj}_{\\operatorname{Col}A}\\mathbf b=\\frac{\\mathbf b\\cdot\\mathbf v_1}{\\mathbf v_1\\cdot\\mathbf v_1}\\mathbf v_1+\\frac{\\mathbf b\\cdot\\mathbf v_2}{\\mathbf v_2\\cdot\\mathbf v_2}\\mathbf v_2.$$\nHer er $\\mathbf b\\cdot\\mathbf v_1=1+3+3+5=12$, $\\mathbf v_1\\cdot\\mathbf v_1=4$; $\\mathbf b\\cdot\\mathbf v_2=-3-3+3+15=12$, $\\mathbf v_2\\cdot\\mathbf v_2=9+1+1+9=20$. Da\n$$\\operatorname{proj}_{\\operatorname{Col}A}\\mathbf b=\\frac{12}{4}(1,1,1,1)+\\frac{12}{20}(-3,-1,1,3)=3(1,1,1,1)+\\tfrac35(-3,-1,1,3)=\\left(\\tfrac65,\\tfrac{12}{5},\\tfrac{18}{5},\\tfrac{24}{5}\\right).$$\n> *Sensor: bruk ortogonal basis FØR projeksjonsformelen. Bruker du $\\mathbf a$-vektorene direkte (de er ikke ortogonale), blir formelen feil.*\n\nDekomposisjon $\\mathbf b=\\hat{\\mathbf b}+\\mathbf z$ med $\\mathbf z=\\mathbf b-\\hat{\\mathbf b}=\\left(-\\tfrac15,\\tfrac35,-\\tfrac35,\\tfrac15\\right)$. Avstand:\n$$\\|\\mathbf z\\|=\\sqrt{\\tfrac{1+9+9+1}{25}}=\\sqrt{\\tfrac{20}{25}}=\\sqrt{\\tfrac45}=\\tfrac{2}{\\sqrt5}.$$\n\n**c) Minste kvadrater.** Normallikningene $A^{T}A\\hat{\\mathbf x}=A^{T}\\mathbf b$:\n$$A^{T}A=\\begin{bmatrix}4&6\\\\6&14\\end{bmatrix},\\qquad A^{T}\\mathbf b=\\begin{bmatrix}12\\\\24\\end{bmatrix}.$$\nLøsning: $\\det=56-36=20$, $\\hat{\\mathbf x}=\\frac{1}{20}\\begin{bmatrix}14&-6\\\\-6&4\\end{bmatrix}\\begin{bmatrix}12\\\\24\\end{bmatrix}=\\frac{1}{20}\\begin{bmatrix}24\\\\24\\end{bmatrix}=\\left(\\tfrac65,\\tfrac65\\right).$\n> *Sensor: navngi normallikningene. Her tilsvarer $\\hat{\\mathbf x}=(c_0,c_1)$ regresjonslinja $y=\\tfrac65+\\tfrac65x$ for punktene $(0,1),(1,3),(2,3),(3,5)$.*\n\n**Bekreftelse:** $A\\hat{\\mathbf x}=\\tfrac65(1,1,1,1)+\\tfrac65(0,1,2,3)=\\left(\\tfrac65,\\tfrac{12}{5},\\tfrac{18}{5},\\tfrac{24}{5}\\right)=\\operatorname{proj}_{\\operatorname{Col}A}\\mathbf b$ ✓. Kjeden lukker seg: minste kvadrater *er* projeksjon. $\\blacksquare$"
+    },
+    {
+      "id": "tma4110-6-5-pool-header",
+      "type": "text",
+      "content": "## Oppgavesett (eksamensnivå, stigende)\n\nBlandet drill av hele kjeden. Gjør oppgavene uten fasit først; alle svar er eksakte."
+    },
+    {
+      "id": "tma4110-6-5-oppg-o1",
+      "type": "exercise",
+      "exercise": {
+        "id": "tma4110-6-5-o1",
+        "number": "1",
+        "type": "classic",
+        "difficulty": "lett",
+        "task": "(Sjanger H — indreprodukt.) I $\\mathbb R^3$ med standard prikkprodukt: la $\\mathbf u=(2,1,2)$ og $\\mathbf v=(1,-2,0)$. **a)** Regn $\\|\\mathbf u\\|$. **b)** Er $\\mathbf u$ og $\\mathbf v$ ortogonale? **c)** Finn vinkelen mellom dem hvis de ikke er det.",
+        "solution": "**a)** $\\|\\mathbf u\\|=\\sqrt{4+1+4}=\\sqrt9=3$.\n**b)** $\\mathbf u\\cdot\\mathbf v=2-2+0=0$, så **ja**, $\\mathbf u\\perp\\mathbf v$.\n**c)** Siden prikkproduktet er $0$ er vinkelen $\\theta=90^\\circ$ (ingen videre regning nødvendig).",
+        "hints": [
+          "Norm: $\\|\\mathbf u\\|=\\sqrt{\\mathbf u\\cdot\\mathbf u}$. Ortogonalitet: $\\mathbf u\\cdot\\mathbf v=0$?",
+          "Er prikkproduktet null, er vinkelen $90^\\circ$."
+        ]
+      }
+    },
+    {
+      "id": "tma4110-6-5-oppg-o2",
+      "type": "exercise",
+      "exercise": {
+        "id": "tma4110-6-5-o2",
+        "number": "2",
+        "type": "classic",
+        "difficulty": "lett",
+        "task": "(Sjanger H — Gram–Schmidt.) Finn en ortogonal basis for $\\operatorname{Span}\\{(1,1,1),(2,0,1)\\}$ ved Gram–Schmidt.",
+        "solution": "$\\mathbf v_1=(1,1,1)$. $\\mathbf v_2=(2,0,1)-\\frac{(2,0,1)\\cdot(1,1,1)}{(1,1,1)\\cdot(1,1,1)}(1,1,1)=(2,0,1)-\\frac{3}{3}(1,1,1)=(1,-1,0)$. Ortogonal basis: $\\{(1,1,1),(1,-1,0)\\}$. (Kontroll: $(1,1,1)\\cdot(1,-1,0)=0$ ✓.)",
+        "hints": [
+          "$\\mathbf v_1=\\mathbf a_1$; $\\mathbf v_2=\\mathbf a_2-\\frac{\\mathbf a_2\\cdot\\mathbf v_1}{\\mathbf v_1\\cdot\\mathbf v_1}\\mathbf v_1$.",
+          "Sjekk til slutt at $\\mathbf v_1\\cdot\\mathbf v_2=0$."
+        ]
+      }
+    },
+    {
+      "id": "tma4110-6-5-oppg-o3",
+      "type": "exercise",
+      "exercise": {
+        "id": "tma4110-6-5-o3",
+        "number": "3",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "(Sjanger H — Gram–Schmidt, 3 vektorer.) Bruk Gram–Schmidt på $\\mathbf a_1=(1,0,1)$, $\\mathbf a_2=(1,1,0)$, $\\mathbf a_3=(0,1,1)$, og oppgi en ortogonal basis (skalert til heltall).",
+        "solution": "$\\mathbf v_1=(1,0,1)$.\n$\\mathbf v_2=(1,1,0)-\\frac{(1,1,0)\\cdot(1,0,1)}{2}(1,0,1)=(1,1,0)-\\tfrac12(1,0,1)=\\left(\\tfrac12,1,-\\tfrac12\\right)$; skalér $\\times2$: $\\mathbf v_2=(1,2,-1)$.\n$\\mathbf v_3=(0,1,1)-\\frac{(0,1,1)\\cdot(1,0,1)}{2}(1,0,1)-\\frac{(0,1,1)\\cdot(1,2,-1)}{6}(1,2,-1)=(0,1,1)-\\tfrac12(1,0,1)-\\tfrac16(1,2,-1)=\\left(-\\tfrac23,\\tfrac23,\\tfrac23\\right)$; skalér: $\\mathbf v_3=(-1,1,1)$.\nOrtogonal basis: $\\{(1,0,1),(1,2,-1),(-1,1,1)\\}$.",
+        "hints": [
+          "$\\mathbf v_1=\\mathbf a_1$, trekk fra projeksjonen på hver tidligere $\\mathbf v_i$ (ikke $\\mathbf a_i$).",
+          "I det tredje steget må du trekke fra projeksjoner på BÅDE $\\mathbf v_1$ og $\\mathbf v_2$.",
+          "Skalér hver $\\mathbf v_i$ til heltall for renere regning."
+        ]
+      }
+    },
+    {
+      "id": "tma4110-6-5-oppg-o4",
+      "type": "exercise",
+      "exercise": {
+        "id": "tma4110-6-5-o4",
+        "number": "4",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "(Sjanger H — ortonormalisering.) Den ortogonale basisen $\\{(1,1,1),(1,-1,0)\\}$ skal gjøres **ortonormal**. Finn den ortonormale basisen.",
+        "solution": "Normaliser hver vektor: $\\|(1,1,1)\\|=\\sqrt3$, $\\|(1,-1,0)\\|=\\sqrt2$. Ortonormal basis:\n$$\\mathbf u_1=\\tfrac{1}{\\sqrt3}(1,1,1),\\qquad \\mathbf u_2=\\tfrac{1}{\\sqrt2}(1,-1,0).$$",
+        "hints": [
+          "Ortonormal $=$ ortogonal $+$ hver vektor delt på sin norm: $\\mathbf u_i=\\mathbf v_i/\\|\\mathbf v_i\\|$."
+        ]
+      }
+    },
+    {
+      "id": "tma4110-6-5-oppg-o5",
+      "type": "exercise",
+      "exercise": {
+        "id": "tma4110-6-5-o5",
+        "number": "5",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "(Sjanger H — projeksjon og avstand.) La $W=\\operatorname{Span}\\{(1,2,1),(1,0,-1)\\}$ og $\\mathbf y=(1,2,4)$. Finn $\\operatorname{proj}_W\\mathbf y$, dekomposisjonen $\\mathbf y=\\hat{\\mathbf y}+\\mathbf z$, og avstanden fra $\\mathbf y$ til $W$.",
+        "solution": "Spennvektorene er ortogonale: $(1,2,1)\\cdot(1,0,-1)=0$, så vi kan bruke projeksjonsformelen direkte.\n$$\\operatorname{proj}_W\\mathbf y=\\frac{\\mathbf y\\cdot(1,2,1)}{6}(1,2,1)+\\frac{\\mathbf y\\cdot(1,0,-1)}{2}(1,0,-1)=\\frac{9}{6}(1,2,1)+\\frac{-3}{2}(1,0,-1)=(0,3,3).$$\nDekomposisjon: $\\hat{\\mathbf y}=(0,3,3)$, $\\mathbf z=\\mathbf y-\\hat{\\mathbf y}=(1,-1,1)$. Avstand $\\|\\mathbf z\\|=\\sqrt{1+1+1}=\\sqrt3$.",
+        "hints": [
+          "Sjekk om spennvektorene allerede er ortogonale — da slipper du Gram–Schmidt.",
+          "$\\operatorname{proj}_W\\mathbf y=\\sum_i\\frac{\\mathbf y\\cdot\\mathbf v_i}{\\mathbf v_i\\cdot\\mathbf v_i}\\mathbf v_i$; avstand $=\\|\\mathbf y-\\operatorname{proj}_W\\mathbf y\\|$."
+        ]
+      }
+    },
+    {
+      "id": "tma4110-6-5-oppg-o6",
+      "type": "exercise",
+      "exercise": {
+        "id": "tma4110-6-5-o6",
+        "number": "6",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "(Sjanger H — projeksjon, ikke-ortogonal spenn.) La $W=\\operatorname{Span}\\{(1,1,1),(1,-1,1)\\}$ og $\\mathbf y=(4,1,3)$. Finn $\\operatorname{proj}_W\\mathbf y$ og avstanden fra $\\mathbf y$ til $W$.",
+        "solution": "Sjekk ortogonalitet: $(1,1,1)\\cdot(1,-1,1)=1-1+1=1\\ne0$, så spennvektorene er **ikke** ortogonale — Gram–Schmidt først. $\\mathbf v_1=(1,1,1)$; $\\mathbf v_2=(1,-1,1)-\\frac{1}{3}(1,1,1)=\\left(\\tfrac23,-\\tfrac43,\\tfrac23\\right)$, skalér: $\\mathbf v_2=(1,-2,1)$.\nProjeksjon: $\\mathbf y\\cdot\\mathbf v_1=8$, $\\mathbf v_1\\cdot\\mathbf v_1=3$; $\\mathbf y\\cdot\\mathbf v_2=4-2+3=5$, $\\mathbf v_2\\cdot\\mathbf v_2=6$.\n$$\\operatorname{proj}_W\\mathbf y=\\tfrac83(1,1,1)+\\tfrac56(1,-2,1)=\\left(\\tfrac72,1,\\tfrac72\\right).$$\n$\\mathbf z=(4,1,3)-\\left(\\tfrac72,1,\\tfrac72\\right)=\\left(\\tfrac12,0,-\\tfrac12\\right)$, avstand $\\|\\mathbf z\\|=\\sqrt{\\tfrac14+0+\\tfrac14}=\\tfrac{1}{\\sqrt2}$.",
+        "hints": [
+          "Sjekk ortogonalitet: $(1,1,1)\\cdot(1,-1,1)\\ne0$, så Gram–Schmidt FØR projeksjonsformelen.",
+          "Etter GS: $\\operatorname{proj}_W\\mathbf y=\\sum_i\\frac{\\mathbf y\\cdot\\mathbf v_i}{\\mathbf v_i\\cdot\\mathbf v_i}\\mathbf v_i$, avstand $=\\|\\mathbf z\\|$."
+        ]
+      }
+    },
+    {
+      "id": "tma4110-6-5-oppg-o7",
+      "type": "exercise",
+      "exercise": {
+        "id": "tma4110-6-5-o7",
+        "number": "7",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "(Sjanger I — minste kvadrater.) Finn minste kvadraters løsningen av $A\\mathbf x=\\mathbf b$ med $A=\\begin{bmatrix}1&0\\\\1&1\\\\1&1\\end{bmatrix}$, $\\mathbf b=\\begin{bmatrix}1\\\\2\\\\4\\end{bmatrix}$, og minste-kvadraters-feilen.",
+        "solution": "Normallikningene: $A^{T}A=\\begin{bmatrix}3&2\\\\2&2\\end{bmatrix}$, $A^{T}\\mathbf b=\\begin{bmatrix}7\\\\6\\end{bmatrix}$. Rad 1 minus rad 2: $x_1=1$; da $2+2x_2=6\\Rightarrow x_2=2$. $\\hat{\\mathbf x}=(1,2)$. $A\\hat{\\mathbf x}=(1,3,3)$, residual $(0,-1,1)$, feil $\\sqrt2$.",
+        "hints": [
+          "Skriv normallikningene $A^{T}A\\hat{\\mathbf x}=A^{T}\\mathbf b$.",
+          "Feilen $=\\|\\mathbf b-A\\hat{\\mathbf x}\\|$ — regn $A\\hat{\\mathbf x}$ først."
+        ]
+      }
+    },
+    {
+      "id": "tma4110-6-5-oppg-o8",
+      "type": "exercise",
+      "exercise": {
+        "id": "tma4110-6-5-o8",
+        "number": "8",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "(Sjanger I — regresjonslinje.) Finn den rette linja $y=c_0+c_1x$ som best tilpasser $(0,1),(1,1),(2,2),(3,2)$.",
+        "solution": "$A=\\begin{bmatrix}1&0\\\\1&1\\\\1&2\\\\1&3\\end{bmatrix}$, $\\mathbf b=(1,1,2,2)$. $A^{T}A=\\begin{bmatrix}4&6\\\\6&14\\end{bmatrix}$, $A^{T}\\mathbf b=\\begin{bmatrix}6\\\\11\\end{bmatrix}$. $\\det=20$, $\\hat{\\mathbf x}=\\frac{1}{20}\\begin{bmatrix}14&-6\\\\-6&4\\end{bmatrix}\\begin{bmatrix}6\\\\11\\end{bmatrix}=\\frac{1}{20}\\begin{bmatrix}18\\\\8\\end{bmatrix}=\\left(\\tfrac{9}{10},\\tfrac25\\right)$. **Svar:** $y=\\tfrac{9}{10}+\\tfrac25x$.",
+        "hints": [
+          "Rad $=[\\,1\\ x_i\\,]$, $\\mathbf b=(y_i)$; skriv normallikningene.",
+          "$\\sum x_i=6,\\ \\sum x_i^2=14,\\ \\sum y_i=6,\\ \\sum x_iy_i=11$."
+        ]
+      }
+    },
+    {
+      "id": "tma4110-6-5-oppg-o9",
+      "type": "exercise",
+      "exercise": {
+        "id": "tma4110-6-5-o9",
+        "number": "9",
+        "type": "classic",
+        "difficulty": "vanskelig",
+        "task": "(Sjanger I — parabel.) Finn parabelen $y=c_0+c_1x+c_2x^2$ som best tilpasser $(-2,0),(-1,1),(0,2),(1,4),(2,1)$.",
+        "solution": "$A$ har rader $[\\,1\\ x_i\\ x_i^2\\,]$, $\\mathbf b=(0,1,2,4,1)$. Da\n$$A^{T}A=\\begin{bmatrix}5&0&10\\\\0&10&0\\\\10&0&34\\end{bmatrix},\\qquad A^{T}\\mathbf b=\\begin{bmatrix}8\\\\5\\\\9\\end{bmatrix}.$$\nMidterste likning: $10c_1=5\\Rightarrow c_1=\\tfrac12$. De to andre: $5c_0+10c_2=8$, $10c_0+34c_2=9$; eliminasjon gir $14c_2=-7\\Rightarrow c_2=-\\tfrac12$, $c_0=\\tfrac{13}{5}$. **Svar:** $y=\\tfrac{13}{5}+\\tfrac12x-\\tfrac12x^2$.",
+        "hints": [
+          "Bygg $A$ med kolonner $1,\\ x,\\ x^2$; skriv normallikningene.",
+          "Symmetriske $x$-verdier gjør $A^{T}A$ nesten diagonal — midterste likning gir $c_1$ direkte."
+        ]
+      }
+    },
+    {
+      "id": "tma4110-6-5-oppg-o10",
+      "type": "exercise",
+      "exercise": {
+        "id": "tma4110-6-5-o10",
+        "number": "10",
+        "type": "classic",
+        "difficulty": "vanskelig",
+        "task": "(Sjanger H — integral-indreprodukt.) På $\\operatorname{P}_2$ med indreproduktet $\\langle p,q\\rangle=\\int_{-1}^{1}p(t)q(t)\\,dt$: bruk Gram–Schmidt på $\\{1,t,t^2\\}$ og finn en ortogonal basis.",
+        "solution": "$p_0=1$. $\\langle t,1\\rangle=\\int_{-1}^1 t\\,dt=0$, så $p_1=t$ (allerede ortogonal på $1$). For $t^2$: $\\langle t^2,1\\rangle=\\int_{-1}^1 t^2\\,dt=\\tfrac23$, $\\langle1,1\\rangle=\\int_{-1}^1 1\\,dt=2$, og $\\langle t^2,t\\rangle=\\int_{-1}^1 t^3\\,dt=0$. Da\n$$p_2=t^2-\\frac{2/3}{2}\\cdot1-0\\cdot t=t^2-\\tfrac13.$$\nOrtogonal basis: $\\{1,\\ t,\\ t^2-\\tfrac13\\}$.",
+        "hints": [
+          "Bruk det OPPGITTE integral-indreproduktet, ikke prikkprodukt av koeffisienter.",
+          "$\\langle t,1\\rangle$ og $\\langle t^2,t\\rangle$ er integraler av oddefunksjoner over $[-1,1]$, altså $0$.",
+          "$p_2=t^2-\\frac{\\langle t^2,1\\rangle}{\\langle1,1\\rangle}\\cdot1-\\frac{\\langle t^2,t\\rangle}{\\langle t,t\\rangle}t$."
+        ]
+      }
+    },
+    {
+      "id": "tma4110-6-5-oppg-o11",
+      "type": "exercise",
+      "exercise": {
+        "id": "tma4110-6-5-o11",
+        "number": "11",
+        "type": "classic",
+        "difficulty": "vanskelig",
+        "task": "(Sjanger H — integral, projeksjon.) Med samme indreprodukt $\\langle p,q\\rangle=\\int_{-1}^{1}pq\\,dt$: finn projeksjonen av $f(t)=t^2$ ned på $W=\\operatorname{Span}\\{1,t\\}$, og avstanden $\\|f-\\operatorname{proj}_W f\\|$.",
+        "solution": "$1$ og $t$ er ortogonale i dette produktet. $\\langle t^2,1\\rangle=\\tfrac23$, $\\langle1,1\\rangle=2$; $\\langle t^2,t\\rangle=0$. Da\n$$\\operatorname{proj}_W f=\\frac{2/3}{2}\\cdot1+0\\cdot t=\\tfrac13.$$\nRest: $f-\\operatorname{proj}_W f=t^2-\\tfrac13$. Avstand i kvadrat: $\\left\\langle t^2-\\tfrac13,\\,t^2-\\tfrac13\\right\\rangle=\\int_{-1}^1\\left(t^2-\\tfrac13\\right)^2dt=\\tfrac{8}{45}$, så avstanden er $\\sqrt{8/45}=\\tfrac{2\\sqrt2}{3\\sqrt5}$.",
+        "hints": [
+          "Projeksjonsformelen med den ortogonale basisen $\\{1,t\\}$ i integral-indreproduktet.",
+          "Avstand$^2=\\langle f-\\hat f,\\ f-\\hat f\\rangle=\\int_{-1}^1(t^2-\\tfrac13)^2\\,dt$."
+        ]
+      }
+    },
+    {
+      "id": "tma4110-6-5-oppg-o12",
+      "type": "exercise",
+      "exercise": {
+        "id": "tma4110-6-5-o12",
+        "number": "12",
+        "type": "classic",
+        "difficulty": "vanskelig",
+        "task": "(Kjedet — sjanger H + I.) La $A=\\begin{bmatrix}1&1\\\\1&2\\\\1&3\\\\1&4\\end{bmatrix}$ og $\\mathbf b=\\begin{bmatrix}1\\\\3\\\\4\\\\5\\end{bmatrix}$. **a)** Gram–Schmidt på kolonnene i $A$. **b)** $\\operatorname{proj}_{\\operatorname{Col}A}\\mathbf b$. **c)** Minste kvadraters løsningen av $A\\mathbf x=\\mathbf b$, og bekreft $A\\hat{\\mathbf x}=\\operatorname{proj}_{\\operatorname{Col}A}\\mathbf b$.",
+        "solution": "**a)** $\\mathbf a_1=(1,1,1,1)$, $\\mathbf a_2=(1,2,3,4)$. $\\mathbf v_1=(1,1,1,1)$; $\\mathbf v_2=(1,2,3,4)-\\frac{10}{4}(1,1,1,1)=\\left(-\\tfrac32,-\\tfrac12,\\tfrac12,\\tfrac32\\right)$, skalér: $\\mathbf v_2=(-3,-1,1,3)$.\n**b)** $\\mathbf b\\cdot\\mathbf v_1=13$, $\\mathbf v_1\\cdot\\mathbf v_1=4$; $\\mathbf b\\cdot\\mathbf v_2=-3-3+4+15=13$, $\\mathbf v_2\\cdot\\mathbf v_2=20$. $\\operatorname{proj}=\\tfrac{13}{4}(1,1,1,1)+\\tfrac{13}{20}(-3,-1,1,3)=\\left(\\tfrac{13}{10},\\tfrac{26}{10},\\tfrac{39}{10},\\tfrac{52}{10}\\right)=\\left(\\tfrac{13}{10},\\tfrac{13}{5},\\tfrac{39}{10},\\tfrac{26}{5}\\right)$.\n**c)** $A^{T}A=\\begin{bmatrix}4&10\\\\10&30\\end{bmatrix}$, $A^{T}\\mathbf b=\\begin{bmatrix}13\\\\39\\end{bmatrix}$. $\\det=20$, $\\hat{\\mathbf x}=\\frac{1}{20}\\begin{bmatrix}30&-10\\\\-10&4\\end{bmatrix}\\begin{bmatrix}13\\\\39\\end{bmatrix}=\\frac{1}{20}\\begin{bmatrix}0\\\\26\\end{bmatrix}=\\left(0,\\tfrac{13}{10}\\right)$. Da $A\\hat{\\mathbf x}=\\tfrac{13}{10}(1,2,3,4)=\\left(\\tfrac{13}{10},\\tfrac{26}{10},\\tfrac{39}{10},\\tfrac{52}{10}\\right)$, som er projeksjonen fra (b) ✓.",
+        "hints": [
+          "(a) Gram–Schmidt: $\\mathbf v_2=\\mathbf a_2-\\frac{\\mathbf a_2\\cdot\\mathbf v_1}{\\mathbf v_1\\cdot\\mathbf v_1}\\mathbf v_1$, skalér til heltall.",
+          "(b) Projeksjonsformelen med $\\{\\mathbf v_1,\\mathbf v_2\\}$.",
+          "(c) Normallikningene $A^{T}A\\hat{\\mathbf x}=A^{T}\\mathbf b$; sjekk at $A\\hat{\\mathbf x}$ matcher (b)."
+        ]
+      }
+    },
+    {
+      "id": "tma4110-6-5-oppg-o13",
+      "type": "exercise",
+      "exercise": {
+        "id": "tma4110-6-5-o13",
+        "number": "13",
+        "type": "classic",
+        "difficulty": "vanskelig",
+        "task": "(Kald bank — rangdefekt.) La $A=\\begin{bmatrix}1&1&2\\\\1&2&3\\\\1&0&1\\\\1&3&4\\end{bmatrix}$ (kolonne 3 $=$ kolonne 1 $+$ kolonne 2) og $\\mathbf b=(2,3,1,5)$. Finn alle minste kvadraters løsninger av $A\\mathbf x=\\mathbf b$.",
+        "solution": "Kolonnene er lineært avhengige, så $A^{T}A$ er singulær og løsningsmengden affin. Normallikningene: $A^{T}A=\\begin{bmatrix}4&6&10\\\\6&14&20\\\\10&20&30\\end{bmatrix}$, $A^{T}\\mathbf b=(11,23,34)$. Radreduksjon gir $x_1+x_3=\\tfrac45$, $x_2+x_3=\\tfrac{13}{10}$. Med $x_3=s$ fri:\n$$\\hat{\\mathbf x}=\\begin{bmatrix}4/5\\\\13/10\\\\0\\end{bmatrix}+s\\begin{bmatrix}-1\\\\-1\\\\1\\end{bmatrix},\\qquad s\\in\\mathbb R.$$\nAlle gir samme prediksjon $A\\hat{\\mathbf x}=\\operatorname{proj}_{\\operatorname{Col}A}\\mathbf b$; retningsvektoren $(-1,-1,1)$ er $\\operatorname{Nul}A$.",
+        "hints": []
+      }
+    },
+    {
+      "id": "tma4110-6-5-symbolliste",
+      "type": "collapsible",
+      "title": "Symbol- og formelliste",
+      "buttonText": "Vis symboler og formler",
+      "content": [
+        {
+          "id": "tma4110-6-5-symbolliste-text",
+          "type": "text",
+          "content": "## Symbol- og formelliste\n\n*Oppslagsverk — alt her forklares underveis i kapitlet.*\n\nAlle symboler og formler som brukes i dette drillkapitlet (6.5), samlet på ett sted.\n\n| Symbol | Betydning |\n|---|---|\n| $\\langle\\mathbf u,\\mathbf v\\rangle$ | Indreprodukt (det oppgitte) |\n| $\\mathbf u\\cdot\\mathbf v$ | Standard prikkprodukt $\\sum u_iv_i$ |\n| $\\int_a^b p(t)q(t)\\,dt$ | Integral-indreprodukt på $\\operatorname{P}_n$ |\n| $\\|\\mathbf v\\|$ | Norm $\\sqrt{\\langle\\mathbf v,\\mathbf v\\rangle}$ |\n| $\\mathbf v_k$ | Gram–Schmidt-vektor (ortogonalisert) |\n| $\\mathbf u_i$ | Ortonormal vektor $\\mathbf v_i/\\|\\mathbf v_i\\|$ |\n| $\\operatorname{proj}_W\\mathbf y$ | Ortogonal projeksjon på $W$ |\n| $\\mathbf y=\\hat{\\mathbf y}+\\mathbf z$ | Ortogonal dekomposisjon |\n| $\\|\\mathbf z\\|$ | Avstand fra $\\mathbf y$ til $W$ |\n| $A^{T}A\\hat{\\mathbf x}=A^{T}\\mathbf b$ | Normallikningene |\n| $\\operatorname{Col}A$ | Kolonnerommet til $A$ |\n\n**Formler i dette delkapitlet:**\n\n$$\\mathbf v_k=\\mathbf a_k-\\sum_{i<k}\\frac{\\langle\\mathbf a_k,\\mathbf v_i\\rangle}{\\langle\\mathbf v_i,\\mathbf v_i\\rangle}\\mathbf v_i$$\nGram–Schmidt-prosessen.\n\n$$\\operatorname{proj}_W\\mathbf y=\\sum_i\\frac{\\langle\\mathbf y,\\mathbf v_i\\rangle}{\\langle\\mathbf v_i,\\mathbf v_i\\rangle}\\mathbf v_i$$\nProjeksjon med ortogonal basis (obligatorisk å ortogonalisere først).\n\n$$\\text{avstand}=\\|\\mathbf y-\\operatorname{proj}_W\\mathbf y\\|$$\nKorteste avstand fra punkt til underrom.\n\n$$A^{T}A\\hat{\\mathbf x}=A^{T}\\mathbf b,\\qquad A\\hat{\\mathbf x}=\\operatorname{proj}_{\\operatorname{Col}A}\\mathbf b$$\nMinste kvadrater — og koblingen til projeksjon.\n\n$$\\mathbf u_i=\\frac{\\mathbf v_i}{\\|\\mathbf v_i\\|}$$\nNormalisering til ortonormal basis."
+        }
+      ]
+    },
+    {
+      "id": "tma4110-6-5-formelkort-note",
+      "type": "text",
+      "content": "### Formelkort for kjeden — repetisjon\n\n*Flashcard-/repetisjonsstoff — hopp trygt over ved førstegangslesing; tidsanslaget over gjelder kjernestoffet. Kortene under komprimerer kjeden.*"
+    },
+    {
+      "id": "tma4110-6-5-bb-oppskrift",
+      "type": "definition",
+      "title": "Løsningsoppskriften for ortogonalitetskjeden",
+      "content": "Den faste rekkefølgen for sjanger H/I: (1) identifiser indreproduktet; (2) Gram–Schmidt til ortogonal basis; (3) projeksjon/dekomposisjon/avstand med den ortogonale basisen; (4) minste kvadrater via normallikningene. Samme matrise går ofte gjennom hele kjeden."
+    },
+    {
+      "id": "tma4110-6-5-bb-indreprodukt",
+      "type": "definition",
+      "title": "Steg 1 — identifiser indreproduktet",
+      "content": "Alt (skalarprodukt, norm, vinkel, projeksjon) regnes i det **oppgitte** indreproduktet: standard $\\mathbf u\\cdot\\mathbf v=\\sum u_iv_i$, vektet $\\sum w_iu_iv_i$, eller integral $\\langle p,q\\rangle=\\int_a^b p(t)q(t)\\,dt$. Å bruke standard prikkprodukt når et annet er oppgitt, er den klassiske fellen."
+    },
+    {
+      "id": "tma4110-6-5-bb-gs",
+      "type": "definition",
+      "title": "Gram–Schmidt-formelen",
+      "content": "Fra en basis $\\{\\mathbf a_1,\\dots,\\mathbf a_n\\}$ bygges en ortogonal basis:\n\n$$\\mathbf v_1=\\mathbf a_1,\\qquad \\mathbf v_k=\\mathbf a_k-\\sum_{i<k}\\frac{\\langle\\mathbf a_k,\\mathbf v_i\\rangle}{\\langle\\mathbf v_i,\\mathbf v_i\\rangle}\\mathbf v_i.$$\n\nTrekk fra projeksjonen på det **allerede ortogonaliserte** ($\\mathbf v_i$, ikke $\\mathbf a_i$)."
+    },
+    {
+      "id": "tma4110-6-5-bb-skaler",
+      "type": "definition",
+      "title": "Heltalls-oppskalering",
+      "content": "Underveis i Gram–Schmidt kan hver $\\mathbf v_k$ ganges med et positivt tall uten at retningen (eller ortogonaliteten) endres. Å skalere bort brøker gir renere regning i de neste stegene. Normaliser til slutt hvis ortonormal basis kreves: $\\mathbf u_i=\\mathbf v_i/\\|\\mathbf v_i\\|$."
+    },
+    {
+      "id": "tma4110-6-5-bb-proj",
+      "type": "definition",
+      "title": "Ortogonal projeksjon med ortogonal basis",
+      "content": "Med en **ortogonal** basis $\\{\\mathbf v_1,\\dots,\\mathbf v_p\\}$ for $W$:\n\n$$\\operatorname{proj}_W\\mathbf y=\\sum_{i=1}^p\\frac{\\langle\\mathbf y,\\mathbf v_i\\rangle}{\\langle\\mathbf v_i,\\mathbf v_i\\rangle}\\mathbf v_i.$$\n\nFormelen krever ortogonal basis — er spennvektorene ikke ortogonale, må du Gram–Schmidte først."
+    },
+    {
+      "id": "tma4110-6-5-bb-dekomp",
+      "type": "definition",
+      "title": "Ortogonal dekomposisjon og avstand",
+      "content": "Enhver $\\mathbf y$ splittes entydig som $\\mathbf y=\\hat{\\mathbf y}+\\mathbf z$ med $\\hat{\\mathbf y}=\\operatorname{proj}_W\\mathbf y\\in W$ og $\\mathbf z=\\mathbf y-\\hat{\\mathbf y}\\in W^{\\perp}$. Avstanden fra $\\mathbf y$ til $W$ er lengden av $\\mathbf z$:\n\n$$\\text{avstand}=\\|\\mathbf z\\|=\\|\\mathbf y-\\operatorname{proj}_W\\mathbf y\\|.$$"
+    },
+    {
+      "id": "tma4110-6-5-bb-normallik",
+      "type": "definition",
+      "title": "Normallikningene",
+      "content": "Minste kvadraters løsningen $\\hat{\\mathbf x}$ av et overbestemt $A\\mathbf x=\\mathbf b$ finnes fra\n\n$$A^{T}A\\hat{\\mathbf x}=A^{T}\\mathbf b,$$\n\nog prediksjonen er $A\\hat{\\mathbf x}=\\operatorname{proj}_{\\operatorname{Col}A}\\mathbf b$. Navngi dem alltid i besvarelsen."
+    },
+    {
+      "id": "tma4110-6-5-bb-affin",
+      "type": "definition",
+      "title": "Affin løsning ved rangdefekt",
+      "content": "Er kolonnene i $A$ lineært avhengige, er $A^{T}A$ singulær og normallikningene har **uendelig mange** løsninger — en affin mengde $\\hat{\\mathbf x}_0+\\operatorname{Nul}A$. Alle gir samme prediksjon $A\\hat{\\mathbf x}$. Anta aldri entydig løsning uten å ha sjekket at kolonnene er uavhengige."
+    }
+  ],
+  "exercises": []
+}
