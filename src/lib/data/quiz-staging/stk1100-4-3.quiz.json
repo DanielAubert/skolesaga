@@ -1,0 +1,152 @@
+[
+  {
+    "question": "For eksponensial i forventningsform ($E(X)=\\mu$) er summen $2\\sum_{i=1}^n X_i/\\mu$ fordelt som:",
+    "options": [
+      "$\\chi^2_{2n}$",
+      "$\\chi^2_n$",
+      "$\\chi^2_{n-1}$",
+      "gamma$(n, \\mu)$"
+    ],
+    "explanation": "Hvert $2X_i/\\mu \\sim \\chi^2_2$, og $n$ ledd med felles skala 2 gir gamma$(n,2)=\\chi^2_{2n}$. Eksponensial gir to frihetsgrader per ledd."
+  },
+  {
+    "question": "For normalfordelte $X_i$ med kjent $\\mu$ er $\\sum_{i=1}^n (X_i-\\mu)^2/\\sigma^2$ fordelt som:",
+    "options": [
+      "$\\chi^2_n$",
+      "$\\chi^2_{2n}$",
+      "$\\chi^2_{n-1}$",
+      "$\\chi^2_1$"
+    ],
+    "explanation": "Hvert $(X_i-\\mu)^2/\\sigma^2 = Z_i^2 \\sim \\chi^2_1$, så summen av $n$ er $\\chi^2_n$. Normal gir én frihetsgrad per ledd — i motsetning til eksponensial."
+  },
+  {
+    "question": "Hvor mange frihetsgrader bidrar ett eksponensialledd $2X/\\mu$ med?",
+    "options": [
+      "To ($\\chi^2_2$)",
+      "Én ($\\chi^2_1$)",
+      "Null",
+      "Halvparten ($\\chi^2_{1/2}$)"
+    ],
+    "explanation": "$2X/\\mu \\sim \\chi^2_2$, altså to frihetsgrader. Dette er grunnen til at summen blir $\\chi^2_{2n}$, ikke $\\chi^2_n$."
+  },
+  {
+    "question": "Hva er første trinn i løsningsoppskriften for sjanger E?",
+    "options": [
+      "Identifiser transformasjonen som gjør observasjonen standard",
+      "Regn ut forventning og varians til $X$ før du velger noen transformasjon overhodet",
+      "Sett opp likelihood-funksjonen",
+      "Slå opp $\\chi^2$-persentilen i tabellen"
+    ],
+    "explanation": "Du starter med å velge transformasjonen (skala/kvadrat/potens/log). Likelihood og persentiler hører til senere ledd i kjeden (Del 5–6)."
+  },
+  {
+    "question": "For eksponensial i rateform ($f(x)=\\lambda e^{-\\lambda x}$) er den riktige transformasjonen til $\\chi^2_2$:",
+    "options": [
+      "$2\\lambda X$",
+      "$2X/\\lambda$",
+      "$\\lambda X / 2$",
+      "$X/(2\\lambda)$"
+    ],
+    "explanation": "I rateform blir det $2\\lambda X \\sim \\chi^2_2$; $F(w)=1-e^{-w/2}$. Forventningsform gir derimot $2X/\\mu$."
+  },
+  {
+    "question": "For en Weibull-variabel med skala $\\beta$ og form $\\alpha$ er $(X/\\beta)^\\alpha$ fordelt som:",
+    "options": [
+      "eksponensial med forventning 1 (gamma$(1,1)$)",
+      "$\\chi^2_2$",
+      "Weibull med samme parametre",
+      "gamma$(\\alpha, \\beta)$"
+    ],
+    "explanation": "$F((X/\\beta)^\\alpha \\le y)=1-e^{-y}$ — potensløftet gir en standard eksponensial med forventning 1."
+  },
+  {
+    "question": "For Pareto med $F_X(x)=1-(k/x)^\\theta$ er den transformasjonen som gir $\\chi^2_2$:",
+    "options": [
+      "$2\\theta\\ln(X/k)$",
+      "$2\\theta X/k$",
+      "$(X/k)^\\theta$",
+      "$2\\theta k/X$"
+    ],
+    "explanation": "Log-løftet $2\\theta\\ln(X/k) \\sim \\chi^2_2$; logaritmen gjør potenshalen om til en eksponensial. Summen blir $\\chi^2_{2n}$."
+  },
+  {
+    "question": "Hvilken regel brukes for å løfte fra enkelt-ledd til sum?",
+    "options": [
+      "Sum av uavhengige gamma med felles skala legger sammen formparametrene",
+      "Sum av gamma legger sammen skalaparametrene mens formparameteren holdes uendret",
+      "Summen av MGF-ene gir fordelingen til summen",
+      "Summen av tetthetene gir fordelingen til summen"
+    ],
+    "explanation": "$\\sum \\text{gamma}(\\alpha_i,\\beta)=\\text{gamma}(\\sum\\alpha_i,\\beta)$ — formparametrene adderes ved felles skala. Bevist via MGF-entydighet (kap. 4.1)."
+  },
+  {
+    "question": "Hvorfor er kravet om felles skala avgjørende i sum-av-gamma-regelen?",
+    "options": [
+      "Uten felles skala er summen ikke lenger en gammafordeling",
+      "Uten felles skala blir formparameteren negativ",
+      "Uten felles skala divergerer MGF-en",
+      "Uten felles skala blir summen normal"
+    ],
+    "explanation": "Bare når skalaen $\\beta$ er lik faktoriserer MGF-produktet til $(1-\\beta t)^{-\\sum\\alpha_i}$. Ulik skala gir ingen ren gamma."
+  },
+  {
+    "question": "Hva kjennetegner en 'pivotal' som $W = 2\\sum X_i/\\mu$?",
+    "options": [
+      "Fordelingen ($\\chi^2_{2n}$) avhenger ikke av den ukjente parameteren",
+      "Forventningen til den transformerte størrelsen er alltid nøyaktig lik null uansett",
+      "Den er alltid normalfordelt",
+      "Den inneholder ingen observasjoner"
+    ],
+    "explanation": "En pivotal har en fordeling uten den ukjente parameteren, selv om størrelsen inneholder den. Det gir eksakt KI ved å løse $P(a\\le W\\le b)=0{,}95$."
+  },
+  {
+    "question": "I CDF-steget, hva gjør du hvis transformasjonen $g$ er avtakende?",
+    "options": [
+      "Snu ulikheten: $\\{g(X)\\le y\\}=\\{X\\ge g^{-1}(y)\\}$, så $F_Y=1-F_X(g^{-1}(y))$",
+      "Behold ulikheten uendret, siden retningen aldri påvirkes av om $g$ vokser eller avtar",
+      "Deriver $g$ først og sett lik null",
+      "Bruk $F_Y = F_X(g^{-1}(y))$ som vanlig"
+    ],
+    "explanation": "Avtakende $g$ snur ulikheten, og halen $1-F_X$ dukker opp. Å glemme dette er en klassisk feil."
+  },
+  {
+    "question": "For $\\chi^2_{2n}$ med $n=12$ (altså $\\nu=24$), hva er $E(W)$ og $\\text{Var}(W)$?",
+    "options": [
+      "$E=24$, $\\text{Var}=48$",
+      "$E=12$, $\\text{Var}=24$",
+      "$E=24$, $\\text{Var}=24$",
+      "$E=48$, $\\text{Var}=24$"
+    ],
+    "explanation": "For $\\chi^2_\\nu$ er $E=\\nu$ og $\\text{Var}=2\\nu$; med $\\nu=24$ blir det $E=24$, $\\text{Var}=48$."
+  },
+  {
+    "question": "Hva er den dyreste (mest belønnede) feilen i denne sjangeren?",
+    "options": [
+      "Feil frihetsgrader — $n$ i stedet for $2n$ (eller omvendt)",
+      "Å bruke integrasjon i stedet for derivasjon",
+      "Å skrive $F_X$ i stedet for $f_X$",
+      "Å oppgi standardavviket i stedet for variansen"
+    ],
+    "explanation": "Frihetsgradene ($2n$ for eksponensial/Pareto, $n$ for normal med kjent $\\mu$) er der sensor legger A-poenget — tell dem hver gang."
+  },
+  {
+    "question": "For en Rayleigh-variabel med $F_X(x)=1-e^{-x^2/(2\\sigma^2)}$ er $X^2/\\sigma^2$ fordelt som:",
+    "options": [
+      "$\\chi^2_2$",
+      "$\\chi^2_1$",
+      "Rayleigh med samme $\\sigma$",
+      "eksponensial med forventning $\\sigma^2$"
+    ],
+    "explanation": "$F(x^2/\\sigma^2 \\le y)=1-e^{-y/2}$, altså $\\chi^2_2$. Summen av $n$ slike blir $\\chi^2_{2n}$."
+  },
+  {
+    "question": "Du får en 'oppskriftsfordeling' med ukjent navn men oppgitt $F_X(x)=1-e^{-(x/\\theta)^3}$. Hva gjør du?",
+    "options": [
+      "Følger oppskriften: potensløftet $(X/\\theta)^3$ gir en standard eksponensial",
+      "Gjetter at det er en normalfordeling og standardiserer observasjonene før summering",
+      "Gir opp fordi fordelingsnavnet er ukjent",
+      "Bruker $\\chi^2_1$ fordi det alltid er én frihetsgrad"
+    ],
+    "explanation": "Ukjent navn skremmer ikke — $F_X$ er alt du trenger. Potensløftet $(X/\\theta)^3$ gir $1-e^{-y}$, en standard eksponensial; deretter summerer du til $\\chi^2_{2n}$."
+  }
+]

@@ -1,0 +1,326 @@
+{
+  "id": "stk1100-4-3",
+  "courseId": "stk1100",
+  "chapterNumber": "4.3",
+  "title": "Drill: transformasjon til gamma/χ² — pivot-fabrikken (eget drillmål)",
+  "description": "Første ledd i ryggrad-drillen: gjør en observasjon om til en gamma/χ²-størrelse på autopilot — råmaterialet til den eksakte pivotalen.",
+  "estimatedMinutes": 80,
+  "competenceGoals": [
+    "identifisere riktig transformasjon (skala, kvadrat, potens, log) som gjør en observasjon standard",
+    "vise med CDF-metoden at den transformerte størrelsen er eksponensial, gamma eller kjikvadrat",
+    "løfte til summen med sum-av-gamma-regelen og angi riktige frihetsgrader (2n mot n)",
+    "kjenne igjen den bygde pivotalen som råstoff for det eksakte konfidensintervallet"
+  ],
+  "content": [
+    {
+      "id": "stk1100-4-3-tip-eksamensvinkel",
+      "type": "tip",
+      "title": "Eksamensvinkel",
+      "content": "**Transformasjonen til gamma/$\\chi^2$ er broen til pivotal-KI-et i 7 av 10 avsluttende skoleeksamener (70 %)** i STK1100-arkivet 2015–2024, og analysen kaller den «emnets viktigste bro». Dette er **drillsporets første ledd**: her lærer du å gjøre en observasjon om til en gamma-/$\\chi^2$-størrelse på autopilot — råmaterialet til den eksakte pivotalen (fortsettes i kap. 5.3 og kap. 6.3).\n\nDette kalles **sjanger E** i boka (transformasjon mot pivotal). Standardgrepene som går igjen: $2X/\\mu \\sim \\chi^2_2$ (eksponensial), summen $2\\sum X_i/\\mu \\sim \\chi^2_{2n}$; $(X-\\mu)^2/\\sigma^2 \\sim \\chi^2_1$, summen $\\sim \\chi^2_n$; Weibull-potensløftet mot gamma$(n,1)$; Pareto-log-løftet mot $\\chi^2_{2n}$. Prioritet: **høyeste** — A-kandidatens signaturbro.\n\nDette er et drillkapittel: kort oppskrift, ett gjennomregnet eksamenscase med sensornotater, og deretter mange varianter. **Der sitter poengene:** ulikhetshåndteringen i CDF-steget, MGF-entydigheten for summen, og — viktigst — **riktige frihetsgrader** ($2n$ vs. $n$)."
+    },
+    {
+      "id": "stk1100-4-3-forkunnskaper",
+      "type": "text",
+      "content": "**Forkunnskaper:** [kap. 4.2](/bok/stk1100/stk1100-4-2) (CDF-metoden) og [kap. 2.2](/bok/stk1100/stk1100-2-2) (gamma, $\\chi^2_n = \\text{gamma}(n/2,2)$, sum av gamma med felles skala). MGF-entydigheten er fra [kap. 4.1](/bok/stk1100/stk1100-4-1).\n\n**Sist du var her — de tre formlene hele dette drillkapitlet hviler på:**\n\n$$\\textbf{CDF-metoden:}\\quad F_Y(y) = P(g(X) \\le y) = F_X(g^{-1}(y)) \\ \\text{(voksende } g),\\ \\text{deriver til } f_Y.$$\n\n$$\\textbf{Sum av gamma (felles skala):}\\quad \\sum_{i=1}^n V_i \\sim \\text{gamma}\\!\\left(\\sum \\alpha_i,\\ \\beta\\right)\\ \\text{for } V_i \\sim \\text{gamma}(\\alpha_i, \\beta).$$\n\n$$\\textbf{Kjikvadrat-identiteten:}\\quad \\chi^2_n = \\text{gamma}(n/2,\\ 2), \\qquad \\text{dvs. gamma}(k, 2) = \\chi^2_{2k}.$$\n\nDisse tre er alt du trenger. Eksponensial oppgis i **både** rate- og forventningsform i arkivet — les alltid oppgavens egen definisjon (som i [kap. 2.1](/bok/stk1100/stk1100-2-1))."
+    },
+    {
+      "id": "stk1100-4-3-oppskrift-head",
+      "type": "text",
+      "content": "## Løsningsoppskriften: fra observasjon til $\\chi^2$/gamma"
+    },
+    {
+      "id": "stk1100-4-3-oppskrift",
+      "type": "text",
+      "content": "Møter du en sjanger E-oppgave («vis at $\\ldots$ er kjikvadrat-/gammafordelt», «finn fordelingen til $\\sum \\ldots$»), kjør denne faste algoritmen:\n\n**1. Identifiser transformasjonen** som gjør observasjonen standard. Se på oppgavens fordeling:\n- eksponensial → skalér: $2X/\\mu$ (forventningsform) eller $2\\lambda X$ (rateform);\n- normal med kjent $\\mu$ → standardiser og kvadrer: $(X-\\mu)^2/\\sigma^2$;\n- Weibull → potensløft: $(X/\\beta)^\\alpha$;\n- Pareto → log-løft: $2\\theta\\ln(X/k)$;\n- Rayleigh → kvadrat: $X^2/\\sigma^2$.\n\n**2. Vis med CDF-metoden** at den *enkelte* transformerte størrelsen er eksponensial/gamma/$\\chi^2$. Skriv $F_Y(y) = P(g(X) \\le y)$, oversett til en hendelse om $X$ (snu ulikheten hvis $g$ avtar), sett inn $F_X$, og kjenn igjen $1 - e^{-y/2}$ ($\\chi^2_2$), $1 - e^{-y}$ (eksponensial forventning 1), osv.\n\n**3. Løft til summen.** Bruk «sum av uavhengige gamma med felles skala er gamma$(\\sum\\alpha, \\beta)$» (bevist via MGF i [kap. 4.1](/bok/stk1100/stk1100-4-1)). **Pass frihetsgradene:**\n\n| Fordeling | Enkelt-ledd | Sum av $n$ |\n|---|---|---|\n| Eksponensial ($2X/\\mu$ el. $2\\lambda X$) | $\\chi^2_2$ | $\\chi^2_{2n}$ |\n| Normal, kjent $\\mu$ ($(X-\\mu)^2/\\sigma^2$) | $\\chi^2_1$ | $\\chi^2_n$ |\n| Weibull ($(X/\\beta)^\\alpha$) | gamma$(1,1)$ | gamma$(n,1)$ |\n| Pareto ($2\\theta\\ln(X/k)$) | $\\chi^2_2$ | $\\chi^2_{2n}$ = gamma$(n,2)$ |\n\n**4. Pek fremover.** Størrelsen du nettopp bygde er $W(X; \\theta)$ — en **pivotal** der den ukjente parameteren har falt ut av fordelingen. Det er nøyaktig råstoffet som gir det eksakte konfidensintervallet i kap. 6.1."
+    },
+    {
+      "id": "stk1100-4-3-case",
+      "type": "example",
+      "title": "Gjennomregnet eksamenscase: eksponensiale levetider (med sensornotater)",
+      "problem": "Levetidene $X_1, \\ldots, X_{10}$ til ti komponenter er uavhengige og eksponensialfordelte i forventningsform med forventning $\\mu$, altså $f(x) = \\tfrac{1}{\\mu}e^{-x/\\mu}$, $x \\ge 0$.\n\n**a)** Vis ved CDF-metoden at $2X_1/\\mu \\sim \\chi^2_2$.\n**b)** Angi med begrunnelse fordelingen til $W = 2\\sum_{i=1}^{10} X_i/\\mu$.\n**c)** Forklar hvorfor $W$ er nyttig for å lage et konfidensintervall for $\\mu$.",
+      "solution": "**a)** *Sensornotat: gå via CDF — ikke gjett tettheten. Ulikhetshåndteringen gir 1 poeng.* La $Y = 2X_1/\\mu$. Transformasjonen $g(x) = 2x/\\mu$ er voksende, med invers $g^{-1}(y) = \\mu y/2$. For $y > 0$:\n\n$$F_Y(y) = P\\!\\left(\\tfrac{2X_1}{\\mu} \\le y\\right) = P\\!\\left(X_1 \\le \\tfrac{\\mu y}{2}\\right) = F_X\\!\\left(\\tfrac{\\mu y}{2}\\right) = 1 - e^{-(\\mu y/2)/\\mu} = 1 - e^{-y/2}.$$\n\nDette er fordelingsfunksjonen til eksponensial med forventning 2, altså gamma$(1, 2)$. Og gamma$(1,2) = \\text{gamma}(2/2, 2) = \\chi^2_2$. Dermed $2X_1/\\mu \\sim \\chi^2_2$. *Sensornotat: at $\\mu$ faller ut er hele poenget — noter det.*\n\n**b)** *Sensornotat: her sitter A-poenget — riktig antall frihetsgrader OG entydighetsargumentet.* Hver $2X_i/\\mu \\sim \\chi^2_2 = \\text{gamma}(1, 2)$, og de er uavhengige med **felles skala** 2. Ved sum-av-gamma-regelen (bevist via MGF-entydighet i [kap. 4.1](/bok/stk1100/stk1100-4-1)):\n\n$$W = \\sum_{i=1}^{10} \\frac{2X_i}{\\mu} \\sim \\text{gamma}\\!\\left(\\sum_{i=1}^{10} 1,\\ 2\\right) = \\text{gamma}(10, 2) = \\chi^2_{20}.$$\n\nAltså $W \\sim \\chi^2_{2n}$ med $2n = 20$ frihetsgrader — **ikke** $\\chi^2_{10}$. *Sensornotat: den vanligste feilen er $\\chi^2_n = \\chi^2_{10}$; dobbeltsjekk at eksponensial gir $2n$.*\n\n**c)** *Sensornotat: dette peker mot Del 6 — behøver ikke regnes her, men vis at du ser broen.* $W = 2\\sum X_i/\\mu$ inneholder den ukjente $\\mu$, men *fordelingen* til $W$ er $\\chi^2_{20}$ — helt uten $\\mu$. En slik størrelse kalles en **pivotal**. Fordi vi kjenner $\\chi^2_{20}$-persentilene, kan vi skrive $P(\\chi^2_{20, 0{,}975} \\le W \\le \\chi^2_{20, 0{,}025}) = 0{,}95$ og løse ulikheten for $\\mu$ — det gir et eksakt 95 %-konfidensintervall for $\\mu$ (kap. 6.1). Broen du bygde her er selve inngangen til den oppgaven.\n\n> — naturlig pausepunkt — nå har du hele oppskriften på ett case. Under følger drilloppgavene; ta dem i porsjoner."
+    },
+    {
+      "id": "stk1100-4-3-drill-head",
+      "type": "text",
+      "content": "## Drilloppgaver — roter variantene"
+    },
+    {
+      "id": "stk1100-4-3-o1",
+      "type": "exercise",
+      "exercise": {
+        "id": "stk1100-4-3-x-o1",
+        "number": "1",
+        "type": "classic",
+        "difficulty": "lett",
+        "task": "Vanntrykket $X$ (bar) i et rør er eksponensialfordelt i **forventningsform** med forventning $\\mu$, $f(x) = \\tfrac1\\mu e^{-x/\\mu}$. Vis ved CDF-metoden at $2X/\\mu \\sim \\chi^2_2$.",
+        "solution": "La $Y = 2X/\\mu$, voksende med $g^{-1}(y) = \\mu y/2$. For $y > 0$: $F_Y(y) = P(X \\le \\mu y/2) = 1 - e^{-(\\mu y/2)/\\mu} = 1 - e^{-y/2}$. Dette er eksponensial med forventning 2 = gamma$(1,2) = \\chi^2_2$. Altså $2X/\\mu \\sim \\chi^2_2$.",
+        "hints": [
+          "Sett $g(x) = 2x/\\mu$ inn i CDF-metoden: $F_Y(y) = P(X \\le \\mu y/2)$.",
+          "Kjenn igjen $1 - e^{-y/2}$ som $\\chi^2_2 = $ gamma$(1,2)$."
+        ]
+      }
+    },
+    {
+      "id": "stk1100-4-3-o2",
+      "type": "exercise",
+      "exercise": {
+        "id": "stk1100-4-3-x-o2",
+        "number": "2",
+        "type": "classic",
+        "difficulty": "lett",
+        "task": "Ventetiden $X$ (minutter) mellom kundeankomster er eksponensialfordelt i **rateform** med rate $\\lambda$, $f(x) = \\lambda e^{-\\lambda x}$, $F_X(x) = 1 - e^{-\\lambda x}$. Vis at $2\\lambda X \\sim \\chi^2_2$.",
+        "solution": "La $Y = 2\\lambda X$, voksende med $g^{-1}(y) = y/(2\\lambda)$. For $y > 0$: $F_Y(y) = P(X \\le y/(2\\lambda)) = 1 - e^{-\\lambda\\cdot y/(2\\lambda)} = 1 - e^{-y/2}$. Dette er $\\chi^2_2$. Merk: i rateform blir det $2\\lambda X$ (ikke $2X/\\mu$), men resultatet er det samme $\\chi^2_2$.",
+        "hints": [
+          "Rateform: $F_X(x) = 1 - e^{-\\lambda x}$; sett $x = y/(2\\lambda)$.",
+          "Eksponenten $-\\lambda\\cdot y/(2\\lambda) = -y/2$ gir $\\chi^2_2$."
+        ]
+      }
+    },
+    {
+      "id": "stk1100-4-3-o3",
+      "type": "exercise",
+      "exercise": {
+        "id": "stk1100-4-3-x-o3",
+        "number": "3",
+        "type": "classic",
+        "difficulty": "lett",
+        "task": "En måling $X$ er normalfordelt med **kjent** forventning $\\mu$ og ukjent varians $\\sigma^2$. Vis at $(X-\\mu)^2/\\sigma^2 \\sim \\chi^2_1$.",
+        "solution": "Standardiser: $Z = (X-\\mu)/\\sigma \\sim N(0,1)$ (lineær funksjon av normal er normal, med forventning 0 og varians 1). Da er $(X-\\mu)^2/\\sigma^2 = Z^2$, og fra kroneksempelet i [kap. 4.2](/bok/stk1100/stk1100-4-2) er $Z^2 \\sim \\chi^2_1$. Altså én frihetsgrad.",
+        "hints": [
+          "Standardiser $X$ til $Z = (X-\\mu)/\\sigma$; da er størrelsen $Z^2$.",
+          "$Z^2 \\sim \\chi^2_1$ — én frihetsgrad, ikke to."
+        ]
+      }
+    },
+    {
+      "id": "stk1100-4-3-o4",
+      "type": "exercise",
+      "exercise": {
+        "id": "stk1100-4-3-x-o4",
+        "number": "4",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "Levetidene $X_1, \\ldots, X_n$ er uavhengige og eksponensialfordelte i forventningsform med felles forventning $\\mu$. Angi med full begrunnelse fordelingen til $W = 2\\sum_{i=1}^n X_i/\\mu$.",
+        "solution": "Hver $2X_i/\\mu \\sim \\chi^2_2 = \\text{gamma}(1, 2)$ (oppgave 1), uavhengige med felles skala 2. Sum-av-gamma med felles skala legger sammen formparametrene: $W = \\sum 2X_i/\\mu \\sim \\text{gamma}(\\sum 1, 2) = \\text{gamma}(n, 2) = \\chi^2_{2n}$. Altså $W \\sim \\chi^2_{2n}$ — dobbelt så mange frihetsgrader som antall observasjoner. Begrunnelsen hviler på MGF-entydigheten (kap. 4.1).",
+        "hints": [
+          "Hvert ledd er $\\chi^2_2 = $ gamma$(1,2)$; bruk sum-av-gamma (felles skala 2).",
+          "Formparametrene $1$ legges sammen $n$ ganger: gamma$(n,2) = \\chi^2_{2n}$."
+        ]
+      }
+    },
+    {
+      "id": "stk1100-4-3-o5",
+      "type": "exercise",
+      "exercise": {
+        "id": "stk1100-4-3-x-o5",
+        "number": "5",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "Ventetidene $X_1, \\ldots, X_n$ er uavhengige og eksponensialfordelte i **rateform** med felles rate $\\lambda$. Angi fordelingen til $W = 2\\lambda\\sum_{i=1}^n X_i$, og forklar hvorfor $W$ ikke inneholder $\\lambda$ i fordelingen.",
+        "solution": "Hver $2\\lambda X_i \\sim \\chi^2_2 = \\text{gamma}(1,2)$ (oppgave 2), uavhengige med felles skala 2. Summen: $W = \\sum 2\\lambda X_i \\sim \\text{gamma}(n, 2) = \\chi^2_{2n}$. Selv om $W$ *inneholder* $\\lambda$ som faktor, er *fordelingen* $\\chi^2_{2n}$ helt uavhengig av $\\lambda$ — det er nettopp det som gjør $W$ til en pivotal for $\\lambda$ (bro til KI i kap. 6.1).",
+        "hints": [
+          "Samme som oppgave 4, men rateform: hvert ledd $2\\lambda X_i \\sim \\chi^2_2$.",
+          "Summen er $\\chi^2_{2n}$; pivotal fordi fordelingen ikke avhenger av $\\lambda$."
+        ]
+      }
+    },
+    {
+      "id": "stk1100-4-3-o6",
+      "type": "exercise",
+      "exercise": {
+        "id": "stk1100-4-3-x-o6",
+        "number": "6",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "Målingene $X_1, \\ldots, X_n$ er uavhengige og $N(\\mu, \\sigma^2)$ med **kjent** $\\mu$. Angi fordelingen til $W = \\sum_{i=1}^n (X_i - \\mu)^2/\\sigma^2$, og sammenlign frihetsgradene med det eksponensiale tilfellet.",
+        "solution": "Hver $(X_i-\\mu)^2/\\sigma^2 = Z_i^2 \\sim \\chi^2_1 = \\text{gamma}(\\tfrac12, 2)$ (oppgave 3), uavhengige med felles skala 2. Sum-av-gamma: $W \\sim \\text{gamma}(\\sum \\tfrac12, 2) = \\text{gamma}(n/2, 2) = \\chi^2_n$. Altså $W \\sim \\chi^2_n$ — **$n$** frihetsgrader, i motsetning til det eksponensiale tilfellet som gir $\\chi^2_{2n}$. Forskjellen: hvert normalledd bidrar med én frihetsgrad ($\\chi^2_1$), hvert eksponensialledd med to ($\\chi^2_2$).",
+        "hints": [
+          "Hvert ledd er $\\chi^2_1 = $ gamma$(\\tfrac12, 2)$; legg sammen formparametrene $\\tfrac12$.",
+          "$n$ ledd à $\\tfrac12$ gir gamma$(n/2, 2) = \\chi^2_n$ — ikke $\\chi^2_{2n}$."
+        ]
+      }
+    },
+    {
+      "id": "stk1100-4-3-o7",
+      "type": "exercise",
+      "exercise": {
+        "id": "stk1100-4-3-x-o7",
+        "number": "7",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "Levetidene $X_1, \\ldots, X_n$ er uavhengige og Weibull-fordelte med **kjent** formparameter $\\alpha$ og skala $\\beta$, $F_X(x) = 1 - e^{-(x/\\beta)^\\alpha}$.\n\n**a)** Vis at $Y_i = (X_i/\\beta)^\\alpha$ er eksponensialfordelt med forventning 1.\n**b)** Angi fordelingen til $\\sum_{i=1}^n (X_i/\\beta)^\\alpha$.",
+        "solution": "**a)** $g(x) = (x/\\beta)^\\alpha$ er voksende, $g^{-1}(y) = \\beta y^{1/\\alpha}$. For $y > 0$: $F_{Y_i}(y) = P(X_i \\le \\beta y^{1/\\alpha}) = 1 - e^{-((\\beta y^{1/\\alpha})/\\beta)^\\alpha} = 1 - e^{-y}$. Dette er eksponensial med forventning 1 = gamma$(1,1)$.\n\n**b)** Hver $Y_i \\sim \\text{gamma}(1,1)$, uavhengige med felles skala 1. Sum-av-gamma: $\\sum (X_i/\\beta)^\\alpha \\sim \\text{gamma}(n, 1)$. (Merk: skala 1, så dette er *ikke* et $\\chi^2$ direkte — men $2\\sum (X_i/\\beta)^\\alpha \\sim \\text{gamma}(n, 2) = \\chi^2_{2n}$ hvis man vil ha en $\\chi^2$-form.)",
+        "hints": [
+          "Potensløft $(X/\\beta)^\\alpha$: sett inn i Weibull-$F_X$, eksponenten blir $-y$.",
+          "gamma$(1,1)$-ledd med felles skala 1 summerer til gamma$(n,1)$."
+        ]
+      }
+    },
+    {
+      "id": "stk1100-4-3-o8",
+      "type": "exercise",
+      "exercise": {
+        "id": "stk1100-4-3-x-o8",
+        "number": "8",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "Inntektene $X_1, \\ldots, X_n$ (over minsteinntekt $k$) er uavhengige og Pareto-fordelte med $F_X(x) = 1 - (k/x)^\\theta$, $x \\ge k$, med kjent $k$ og ukjent $\\theta$.\n\n**a)** Vis at $Y_i = 2\\theta\\ln(X_i/k) \\sim \\chi^2_2$.\n**b)** Angi fordelingen til $2\\theta\\sum_{i=1}^n \\ln(X_i/k)$.",
+        "solution": "**a)** $g(x) = 2\\theta\\ln(x/k)$ er voksende for $x \\ge k$, og $Y_i \\ge 0$. Invers: $y = 2\\theta\\ln(x/k) \\Rightarrow x = k e^{y/(2\\theta)}$. For $y > 0$: $F_{Y_i}(y) = P(X_i \\le k e^{y/(2\\theta)}) = 1 - (k/(k e^{y/(2\\theta)}))^\\theta = 1 - e^{-y/2}$. Dette er $\\chi^2_2$.\n\n**b)** Hver $Y_i \\sim \\chi^2_2 = \\text{gamma}(1,2)$, uavhengige med felles skala 2. Sum: $2\\theta\\sum \\ln(X_i/k) \\sim \\text{gamma}(n, 2) = \\chi^2_{2n}$.",
+        "hints": [
+          "Log-løft: $y = 2\\theta\\ln(x/k)$ har invers $x = k e^{y/(2\\theta)}$; sett inn i Pareto-$F_X$.",
+          "$(k/x)^\\theta = e^{-y/2}$; hvert ledd $\\chi^2_2$, summen $\\chi^2_{2n}$."
+        ]
+      }
+    },
+    {
+      "id": "stk1100-4-3-o9",
+      "type": "exercise",
+      "exercise": {
+        "id": "stk1100-4-3-x-o9",
+        "number": "9",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "Bølgehøydene $X_1, \\ldots, X_n$ er uavhengige og Rayleigh-fordelte med $F_X(x) = 1 - e^{-x^2/(2\\sigma^2)}$, $x \\ge 0$, med ukjent $\\sigma$.\n\n**a)** Vis at $X_i^2/\\sigma^2 \\sim \\chi^2_2$.\n**b)** Angi fordelingen til $\\sum_{i=1}^n X_i^2/\\sigma^2$.",
+        "solution": "**a)** $g(x) = x^2/\\sigma^2$ er voksende for $x \\ge 0$, $g^{-1}(y) = \\sigma\\sqrt y$. For $y > 0$: $F_Y(y) = P(X_i \\le \\sigma\\sqrt y) = 1 - e^{-(\\sigma\\sqrt y)^2/(2\\sigma^2)} = 1 - e^{-y/2}$. Dette er $\\chi^2_2$.\n\n**b)** Hver $X_i^2/\\sigma^2 \\sim \\chi^2_2 = \\text{gamma}(1,2)$, felles skala 2. Sum: $\\sum X_i^2/\\sigma^2 \\sim \\text{gamma}(n, 2) = \\chi^2_{2n}$.",
+        "hints": [
+          "Kvadratløft $x^2/\\sigma^2$: sett $x = \\sigma\\sqrt y$ inn i Rayleigh-$F_X$.",
+          "Eksponenten $-(\\sigma\\sqrt y)^2/(2\\sigma^2) = -y/2$ gir $\\chi^2_2$; summen $\\chi^2_{2n}$."
+        ]
+      }
+    },
+    {
+      "id": "stk1100-4-3-o10",
+      "type": "exercise",
+      "exercise": {
+        "id": "stk1100-4-3-x-o10",
+        "number": "10",
+        "type": "classic",
+        "difficulty": "vanskelig",
+        "task": "En «oppskriftsfordeling» dukker opp: konsentrasjonen $X$ (mg/L) har fordelingsfunksjon $F_X(x) = 1 - e^{-(x/\\theta)^3}$ for $x \\ge 0$, med ukjent skala $\\theta$ (dette er Weibull med form 3, men behandle den bare fra $F_X$). Observasjonene $X_1, \\ldots, X_n$ er uavhengige.\n\n**a)** Identifiser en transformasjon som gir en standard eksponensial, og vis det med CDF-metoden.\n**b)** Bygg en $\\chi^2$-pivotal av summen og angi frihetsgradene.",
+        "solution": "**a)** Potensløftet $Y_i = (X_i/\\theta)^3$. $g(x) = (x/\\theta)^3$ er voksende, $g^{-1}(y) = \\theta y^{1/3}$. For $y > 0$: $F_{Y_i}(y) = P(X_i \\le \\theta y^{1/3}) = 1 - e^{-((\\theta y^{1/3})/\\theta)^3} = 1 - e^{-y}$. Altså $Y_i \\sim$ eksponensial med forventning 1 = gamma$(1,1)$.\n\n**b)** Legg inn faktoren 2 for å få $\\chi^2$-skala: $2Y_i = 2(X_i/\\theta)^3 \\sim \\text{gamma}(1, 2) = \\chi^2_2$. Sum-av-gamma (felles skala 2): $W = 2\\sum_{i=1}^n (X_i/\\theta)^3 \\sim \\text{gamma}(n, 2) = \\chi^2_{2n}$. Fordelingen $\\chi^2_{2n}$ er uavhengig av $\\theta$, så $W$ er en pivotal for $\\theta$ — ukjent fordelingsnavn skremmer ikke når du bare følger oppskriften.",
+        "hints": [
+          "Ukjent navn, men $F_X$ er alt du trenger: prøv potensløftet $(X/\\theta)^3$.",
+          "Enkelt-ledd $(X/\\theta)^3 \\sim$ gamma$(1,1)$; gang med 2 og summer til $\\chi^2_{2n}$."
+        ]
+      }
+    },
+    {
+      "id": "stk1100-4-3-o11",
+      "type": "exercise",
+      "exercise": {
+        "id": "stk1100-4-3-x-o11",
+        "number": "11",
+        "type": "classic",
+        "difficulty": "vanskelig",
+        "task": "To studenter drøfter en oppgave der $X_1, \\ldots, X_{12}$ er uavhengige eksponensiale (forventningsform, forventning $\\mu$). Den ene påstår at $2\\sum X_i/\\mu \\sim \\chi^2_{12}$, den andre at det er $\\chi^2_{24}$.\n\n**a)** Avgjør hvem som har rett, med full begrunnelse.\n**b)** Angi forventning og varians til den korrekte $\\chi^2$-fordelingen (bruk $E(\\chi^2_\\nu) = \\nu$, $\\text{Var}(\\chi^2_\\nu) = 2\\nu$).",
+        "solution": "**a)** Den andre har rett: $2\\sum X_i/\\mu \\sim \\chi^2_{24}$. Hvert ledd $2X_i/\\mu \\sim \\chi^2_2 = \\text{gamma}(1,2)$ (ikke $\\chi^2_1$), og $n = 12$ uavhengige ledd med felles skala 2 gir $\\text{gamma}(12, 2) = \\chi^2_{24}$. Feilen $\\chi^2_{12}$ kommer av å tro at hvert eksponensialledd gir én frihetsgrad — men det gir *to*. (Normal med kjent $\\mu$ gir derimot $\\chi^2_n = \\chi^2_{12}$.)\n\n**b)** Med $\\nu = 24$: $E(W) = 24$ og $\\text{Var}(W) = 2\\cdot 24 = 48$.",
+        "hints": [
+          "Nøkkelen er hvor mange frihetsgrader hvert eksponensialledd bidrar med.",
+          "Eksponensial: $\\chi^2_2$ per ledd → $\\chi^2_{2n}$; sett inn $E = \\nu$, $\\text{Var} = 2\\nu$."
+        ]
+      }
+    },
+    {
+      "id": "stk1100-4-3-o12",
+      "type": "exercise",
+      "exercise": {
+        "id": "stk1100-4-3-x-o12",
+        "number": "12",
+        "type": "classic",
+        "difficulty": "vanskelig",
+        "task": "Inntektene $X_1, \\ldots, X_n$ er uavhengige og Pareto-fordelte med $F_X(x) = 1 - (k/x)^\\theta$, $x \\ge k$ (kjent $k$, ukjent $\\theta$). Bygg en pivotal for $\\theta$ og forklar hvordan den brukes til et konfidensintervall.",
+        "solution": "Fra oppgave 8: $W = 2\\theta\\sum_{i=1}^n \\ln(X_i/k) \\sim \\chi^2_{2n}$ (hvert $2\\theta\\ln(X_i/k) \\sim \\chi^2_2$, sum av $n$ med felles skala 2). Fordelingen $\\chi^2_{2n}$ inneholder ikke $\\theta$, så $W$ er en pivotal. **KI-bruk:** velg $\\chi^2$-persentiler slik at $P(\\chi^2_{2n, 0{,}975} \\le W \\le \\chi^2_{2n, 0{,}025}) = 0{,}95$, sett inn $W = 2\\theta\\sum \\ln(X_i/k)$, og løs ulikheten for $\\theta$:\n\n$$\\frac{\\chi^2_{2n, 0{,}975}}{2\\sum \\ln(X_i/k)} \\le \\theta \\le \\frac{\\chi^2_{2n, 0{,}025}}{2\\sum \\ln(X_i/k)}.$$\n\nDette er et eksakt 95 %-konfidensintervall for $\\theta$ — den fulle sjanger G-oppgaven i kap. 6.1. Her stopper drillen: du har bygget broen.",
+        "hints": [
+          "Bruk log-løftet fra oppgave 8 til å få $W = 2\\theta\\sum \\ln(X_i/k) \\sim \\chi^2_{2n}$.",
+          "KI: klem $W$ mellom to $\\chi^2_{2n}$-persentiler og løs den doble ulikheten for $\\theta$."
+        ]
+      }
+    },
+    {
+      "id": "stk1100-4-3-warn-typiske",
+      "type": "warning",
+      "title": "Typiske feil",
+      "content": "- **Frihetsgrader $n$ i stedet for $2n$ (eller omvendt).** Eksponensial og Pareto/Rayleigh gir $\\chi^2_2$ per ledd → $\\chi^2_{2n}$ for summen; normal med kjent $\\mu$ gir $\\chi^2_1$ per ledd → $\\chi^2_n$. Dette er den dyreste feilen i hele sjangeren — tell frihetsgrader hver gang.\n- **Slurve med ulikhetsretningen i CDF-steget.** Er transformasjonen voksende, brukes $\\le$; er den avtakende, snus til $\\ge$ (og halen $1 - F_X$ dukker opp).\n- **Hoppe over MGF-entydigheten for summen.** «$W$ er en sum av $\\chi^2_2$-er, altså $\\chi^2_{2n}$» krever begrunnelsen «sum av uavhengige gamma med felles skala er gamma med lagt-sammen form (MGF-entydighet)».\n- **Glemme potens-/log-løftet for Weibull/Pareto** og prøve å bruke apparatet direkte på $X$. Weibull krever $(X/\\beta)^\\alpha$, Pareto krever $2\\theta\\ln(X/k)$ — først *da* blir det eksponensial/$\\chi^2$.\n- **Blande eksponensialens to parametriseringer:** rateform gir $2\\lambda X \\sim \\chi^2_2$, forventningsform gir $2X/\\mu \\sim \\chi^2_2$. Les oppgavens egen $f(x)$."
+    },
+    {
+      "id": "stk1100-4-3-kort-head",
+      "type": "text",
+      "content": "## Oppskriftskort — flashcards\n\n*Flashcard-/repetisjonsstoff — hopp trygt over ved førstegangslesing; tidsanslaget gjelder kjernestoffet.* Ti korte «formelkort» som samler pivot-fabrikkens standardgrep."
+    },
+    {
+      "id": "stk1100-4-3-kort-oppskrift",
+      "type": "definition",
+      "title": "Oppskrift: observasjon → $\\chi^2$",
+      "content": "Fire trinn: 1) identifiser transformasjonen (skala/kvadrat/potens/log); 2) vis med CDF-metoden at enkelt-leddet er eksponensial/gamma/$\\chi^2$; 3) løft til summen med sum-av-gamma (felles skala); 4) pek fremover — pivotalen gir eksakt KI (kap. 6.1)."
+    },
+    {
+      "id": "stk1100-4-3-kort-frihetsgrader",
+      "type": "definition",
+      "title": "Frihetsgrad-tabellen",
+      "content": "Eksponensial ($2X/\\mu$ el. $2\\lambda X$): $\\chi^2_2$ per ledd, $\\chi^2_{2n}$ for summen. Normal, kjent $\\mu$ ($(X-\\mu)^2/\\sigma^2$): $\\chi^2_1$ per ledd, $\\chi^2_n$ for summen. Weibull: gamma$(1,1)$ per ledd, gamma$(n,1)$. Pareto/Rayleigh: $\\chi^2_2$ per ledd, $\\chi^2_{2n}$."
+    },
+    {
+      "id": "stk1100-4-3-kort-eksp-forventning",
+      "type": "definition",
+      "title": "Eksponensial, forventningsform",
+      "content": "Er $f(x) = \\tfrac1\\mu e^{-x/\\mu}$ ($E(X) = \\mu$), er $2X/\\mu \\sim \\chi^2_2$ og $2\\sum X_i/\\mu \\sim \\chi^2_{2n}$. Parameteren $\\mu$ faller ut av fordelingen — pivotal for $\\mu$."
+    },
+    {
+      "id": "stk1100-4-3-kort-eksp-rate",
+      "type": "definition",
+      "title": "Eksponensial, rateform",
+      "content": "Er $f(x) = \\lambda e^{-\\lambda x}$ (rate $\\lambda$), er $2\\lambda X \\sim \\chi^2_2$ og $2\\lambda\\sum X_i \\sim \\chi^2_{2n}$. Samme $\\chi^2$-resultat som forventningsform, men transformasjonen skrives med $\\lambda$ — les oppgavens definisjon."
+    },
+    {
+      "id": "stk1100-4-3-kort-normal-kvadrat",
+      "type": "definition",
+      "title": "Normal med kjent $\\mu$",
+      "content": "$(X-\\mu)^2/\\sigma^2 = Z^2 \\sim \\chi^2_1$ per ledd, og $\\sum (X_i-\\mu)^2/\\sigma^2 \\sim \\chi^2_n$. Én frihetsgrad per observasjon (ikke to) — det som skiller normal fra eksponensial."
+    },
+    {
+      "id": "stk1100-4-3-kort-weibull",
+      "type": "definition",
+      "title": "Weibull-potensløftet",
+      "content": "For Weibull med skala $\\beta$, form $\\alpha$: $(X/\\beta)^\\alpha \\sim$ eksponensial(forventning 1) = gamma$(1,1)$, og $\\sum (X_i/\\beta)^\\alpha \\sim$ gamma$(n,1)$. Potensen $\\alpha$ retter ut fordelingen først."
+    },
+    {
+      "id": "stk1100-4-3-kort-pareto",
+      "type": "definition",
+      "title": "Pareto-log-løftet",
+      "content": "For Pareto med minsteinntekt $k$, form $\\theta$: $2\\theta\\ln(X/k) \\sim \\chi^2_2$, og $2\\theta\\sum \\ln(X_i/k) \\sim \\chi^2_{2n}$. Logaritmen gjør potenshalen om til en eksponensial."
+    },
+    {
+      "id": "stk1100-4-3-kort-sum-gamma",
+      "type": "definition",
+      "title": "Sum-av-gamma-regelen",
+      "content": "Uavhengige gamma med **felles skala** $\\beta$ summerer til gamma med lagt-sammen form: $\\sum \\text{gamma}(\\alpha_i, \\beta) = \\text{gamma}(\\sum\\alpha_i, \\beta)$. Bevist via MGF-entydighet (kap. 4.1). Kravet om felles skala er avgjørende."
+    },
+    {
+      "id": "stk1100-4-3-kort-pivotal",
+      "type": "definition",
+      "title": "Pivotal — hva og hvorfor",
+      "content": "En transformert størrelse $W(X;\\theta)$ der fordelingen ikke avhenger av den ukjente $\\theta$ (typisk $\\chi^2_{2n}$ eller $\\chi^2_n$). Fordi persentilene er kjent, gir den et eksakt konfidensintervall når man løser $P(a \\le W \\le b) = 0{,}95$ for $\\theta$ (kap. 6.1)."
+    },
+    {
+      "id": "stk1100-4-3-kort-chi2-gamma",
+      "type": "definition",
+      "title": "$\\chi^2$-gamma-oversettingen",
+      "content": "gamma$(k, 2) = \\chi^2_{2k}$ og $\\chi^2_n = \\text{gamma}(n/2, 2)$. Så en sum av $n$ ledd à gamma$(1,2)$ er gamma$(n,2) = \\chi^2_{2n}$; en sum av $n$ ledd à gamma$(\\tfrac12, 2)$ er gamma$(n/2, 2) = \\chi^2_n$."
+    },
+    {
+      "id": "stk1100-4-3-symbolliste",
+      "type": "collapsible",
+      "title": "Symbol- og formelliste",
+      "buttonText": "Vis symboler og formler",
+      "content": [
+        {
+          "id": "stk1100-4-3-sym-innhold",
+          "type": "text",
+          "content": "*Oppslagsverk — alt her forklares underveis i kapitlet.*\n\n| Symbol | Betydning |\n|---|---|\n| $X_1,\\ldots,X_n$ | Uavhengige observasjoner (iid) |\n| $\\mu$ | Forventning (eksponensialens forventningsform) |\n| $\\lambda$ | Rate (eksponensialens rateform) |\n| $\\sigma^2$ | Varians (normal/Rayleigh) |\n| $\\alpha, \\beta$ | Form- og skalaparameter (Weibull/gamma) |\n| $\\theta, k$ | Formparameter og minsteinntekt (Pareto) |\n| $\\chi^2_\\nu$ | Kjikvadrat med $\\nu$ frihetsgrader $= \\text{gamma}(\\nu/2, 2)$ |\n| $W$ | Den bygde pivotalen |\n| $g^{-1}$ | Invers av transformasjonen |\n| $F_X, f_X$ | Fordelingsfunksjon og tetthet til $X$ |\n\n**Formler i dette kapitlet:**\n\n$$F_Y(y) = P(g(X) \\le y) = F_X(g^{-1}(y)) \\quad (\\text{voksende } g)$$\n\n$$2X/\\mu \\sim \\chi^2_2, \\qquad 2\\textstyle\\sum X_i/\\mu \\sim \\chi^2_{2n} \\quad (\\text{eksponensial, forventning})$$\n\n$$2\\lambda X \\sim \\chi^2_2, \\qquad 2\\lambda\\textstyle\\sum X_i \\sim \\chi^2_{2n} \\quad (\\text{eksponensial, rate})$$\n\n$$(X-\\mu)^2/\\sigma^2 \\sim \\chi^2_1, \\qquad \\textstyle\\sum (X_i-\\mu)^2/\\sigma^2 \\sim \\chi^2_n \\quad (\\text{normal, kjent } \\mu)$$\n\n$$(X/\\beta)^\\alpha \\sim \\text{gamma}(1,1), \\qquad \\textstyle\\sum (X_i/\\beta)^\\alpha \\sim \\text{gamma}(n,1) \\quad (\\text{Weibull})$$\n\n$$2\\theta\\ln(X/k) \\sim \\chi^2_2, \\qquad 2\\theta\\textstyle\\sum \\ln(X_i/k) \\sim \\chi^2_{2n} \\quad (\\text{Pareto})$$\n\n$$\\textstyle\\sum_{i} \\text{gamma}(\\alpha_i, \\beta) = \\text{gamma}(\\sum \\alpha_i, \\beta) \\quad (\\text{felles skala } \\beta)$$\n\n$$\\text{gamma}(k, 2) = \\chi^2_{2k}, \\qquad \\chi^2_n = \\text{gamma}(n/2, 2)$$"
+        }
+      ]
+    }
+  ],
+  "exercises": []
+}

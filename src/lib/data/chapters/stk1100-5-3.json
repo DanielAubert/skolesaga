@@ -1,0 +1,326 @@
+{
+  "id": "stk1100-5-3",
+  "courseId": "stk1100",
+  "chapterNumber": "5.3",
+  "title": "Drill: estimatoren fra fordeling til egenskaper (sjanger G)",
+  "description": "Andre ledd i ryggrad-drillen: utled estimatoren, vis forventningsretthet (korriger skjevhet), finn variansen — i alle arkivets fordelinger.",
+  "estimatedMinutes": 75,
+  "competenceGoals": [
+    "utlede ML-estimatoren for arkivets fordelinger (eksponensial, Poisson, gamma, Pareto, Weibull, Rayleigh) etter en fast oppskrift",
+    "avgjøre om estimatoren er forventningsrett og korrigere skjevhet via Γ/E(Vʳ) ved å identifisere en gamma-fordelt pivot",
+    "finne varians og standardfeil til estimatoren",
+    "sammenligne flere foreslåtte estimatorer og velge med begrunnelse i både forventningsretthet og varians"
+  ],
+  "content": [
+    {
+      "id": "stk1100-5-3-tip-eksamensvinkel",
+      "type": "tip",
+      "title": "Eksamensvinkel",
+      "content": "Dette er **andre ledd i ryggrad-drillen** (drillsporet 4.3 → **5.3** → 6.3): fra en fordeling til den ferdige estimatoren med alle egenskaper. Sjanger G (estimering + eksakt KI) er i **9 av 10 sett (90 %)**, og denne drillen dekker G-halvdelen komplett: standard-ML pluss egenskaper (90 %), skjevhetskorreksjon via Γ (A-differensiatoren: Weibull V2021, $\\sqrt{}$-skjevhet V2018), og estimator-sammenligning (V2015, V2017, V2022).\n\nDette er et drillkapittel: kort løsningsoppskrift, ett gjennomregnet eksamenscase med sensornotater, og deretter mange oppgaver som roterer over arkivets fordelinger (eksponensial, Poisson, gamma, Pareto, Weibull, Rayleigh). Målet er at **hele kjeden — likelihood → log → derivér → løs → egenskaper → korreksjon → sammenligning — går på autopilot** under tidspress. Prioritet: **høyeste**."
+    },
+    {
+      "id": "stk1100-5-3-forkunnskaper",
+      "type": "text",
+      "content": "**Forkunnskaper:** Alt fra [kap. 5.2](/bok/stk1100/stk1100-5-2) (ML-ritualet, standardestimatorene), [kap. 5.1](/bok/stk1100/stk1100-5-1) (forventningsretthet, varians, skjevhetskorreksjon), [kap. 2.2](/bok/stk1100/stk1100-2-2) (E(Vʳ)-formelen, sum av gamma, Γ-reglene) og transformasjonene fra [kap. 2.3](/bok/stk1100/stk1100-2-3) ($(X/\\beta)^\\alpha$ og $\\ln(X/k)$ blir eksponensial).\n\n**Sist du var her — nøkkelformlene du bruker i hver oppgave:**\n- **ML-ritualet:** $L(\\theta) = \\prod_{i=1}^n f(x_i;\\theta)$, $\\ell = \\ln L$, $\\ell'(\\theta) = 0$, løs for $\\hat\\theta$.\n- **Forventningsrett?** Regn $E(\\hat\\theta)$; er $E(\\hat\\theta) = c\\theta$ med kjent $c \\ne 1$, er $\\hat\\theta/c$ forventningsrett (kap. 5.1).\n- **E(Vʳ)-formelen** (kap. 2.2): $V \\sim \\text{gamma}(\\alpha, \\beta) \\Rightarrow E(V^r) = \\beta^r\\dfrac{\\Gamma(\\alpha+r)}{\\Gamma(\\alpha)}$ — motoren i skjevhetskorreksjonen.\n- **Sum av gamma** (kap. 2.2): uavhengige $\\text{gamma}(\\alpha_i, \\beta)$ med felles skala summerer til $\\text{gamma}(\\sum\\alpha_i, \\beta)$; spesielt sum av $n$ eksponensiale $= \\text{gamma}(n, \\cdot)$.\n\nDette leddet forbereder [kap. 6.1](/bok/stk1100/stk1100-6-1) (eksakt pivotal-KI): den gamma-fordelte pivoten du bygger her, blir intervallet der."
+    },
+    {
+      "id": "stk1100-5-3-oppskrift-head",
+      "type": "text",
+      "content": "## Løsningsoppskriften for sjanger G (estimeringshalvdelen)"
+    },
+    {
+      "id": "stk1100-5-3-oppskrift",
+      "type": "text",
+      "content": "Møter du «utled estimatoren for $\\theta$ og undersøk egenskapene», kjør denne faste algoritmen — den løser praktisk talt hver sjanger G-oppgave:\n\n**1. Definer og skriv likelihood for ALLE observasjoner.** «La $X_1, \\dots, X_n$ være iid med tetthet $f(x;\\theta)$.» $L(\\theta) = \\prod_{i=1}^n f(x_i;\\theta)$.\n\n**2. Ta logaritmen.** $\\ell(\\theta) = \\ln L = \\sum_{i=1}^n \\ln f(x_i;\\theta)$ — produkt blir sum.\n\n**3. Derivér.** $\\ell'(\\theta)$; ledd uten $\\theta$ forsvinner.\n\n**4. Løs fullstendig** $\\ell'(\\theta) = 0$ for $\\hat\\theta$.\n\n**5. Forventningsrett?** Regn $E(\\hat\\theta)$. Er den skjev med kjent faktor $E(\\hat\\theta) = c\\theta$ — **korriger via Γ/E(Vʳ)**: identifiser fordelingen til en passende funksjon av dataene (ofte gamma via transformasjon fra kap. 4.3/2.3), bruk E(Vʳ) til å finne $c$, og oppgi $\\hat\\theta/c$.\n\n**6. Varians og SE.** $\\text{Var}(\\hat\\theta)$; estimert standardfeil ved å sette inn $\\hat\\theta$.\n\n**7. Flere kandidater?** Sjekk forventningsretthet og varians for hver, og **velg** den forventningsrette med lavest varians — begrunn i begge kriterier.\n\n> Merk parametriseringen for eksponensial hver gang: rate $f = \\lambda e^{-\\lambda x}$ gir $\\hat\\lambda = 1/\\bar X$, forventning $f = \\tfrac1\\mu e^{-x/\\mu}$ gir $\\hat\\mu = \\bar X$."
+    },
+    {
+      "id": "stk1100-5-3-case",
+      "type": "example",
+      "title": "Gjennomregnet eksamenscase: Weibull-levetid med skjevhetskorreksjon (med sensornotater)",
+      "problem": "Levetidene $X_1, \\dots, X_n$ til komponenter er iid Weibull med **kjent** formparameter $\\alpha$ og ukjent skalaparameter $\\beta$:\n\n$$f(x;\\beta) = \\frac{\\alpha}{\\beta}\\left(\\frac{x}{\\beta}\\right)^{\\alpha-1}e^{-(x/\\beta)^\\alpha}, \\qquad x \\ge 0.$$\n\n**a)** Utled ML-estimatoren $\\hat\\beta$.\n**b)** Vis at $n(\\hat\\beta/\\beta)^\\alpha \\sim \\text{gamma}(n, 1)$.\n**c)** Bruk E(Vʳ)-formelen til å avgjøre om $\\hat\\beta$ er forventningsrett, og finn en forventningsrett korreksjon.\n**d)** Tallverdi for korreksjonsfaktoren når $\\alpha = 2$ og $n = 8$.",
+      "solution": "**a)** *Sensornotat: hele regnekjeden må vises — sensorkrav 5.*\n\n$$L(\\beta) = \\prod_{i=1}^n \\frac{\\alpha}{\\beta}\\left(\\frac{x_i}{\\beta}\\right)^{\\alpha-1}e^{-(x_i/\\beta)^\\alpha}, \\qquad \\ell(\\beta) = n\\ln\\alpha - n\\alpha\\ln\\beta + (\\alpha-1)\\sum\\ln x_i - \\beta^{-\\alpha}\\sum x_i^\\alpha.$$\n\nDeriver: $\\ell'(\\beta) = -\\dfrac{n\\alpha}{\\beta} + \\alpha\\beta^{-\\alpha-1}\\sum x_i^\\alpha = 0$. Del på $\\alpha$ og gang med $\\beta^{\\alpha+1}$: $-n\\beta^\\alpha + \\sum x_i^\\alpha = 0$, altså\n\n$$\\hat\\beta = \\left(\\frac{1}{n}\\sum_{i=1}^n x_i^\\alpha\\right)^{1/\\alpha}.$$\n\n**b)** *Sensornotat: dette er transformasjonskoblingen (kap. 2.3/4.3) — A-poeng.* Fra kap. 2.3: $(X_i/\\beta)^\\alpha \\sim$ eksponensial med forventning 1, altså $\\text{gamma}(1,1)$. Nå er\n\n$$n\\left(\\frac{\\hat\\beta}{\\beta}\\right)^\\alpha = n\\cdot\\frac{\\hat\\beta^\\alpha}{\\beta^\\alpha} = n\\cdot\\frac{\\tfrac1n\\sum x_i^\\alpha}{\\beta^\\alpha} = \\sum_{i=1}^n\\left(\\frac{X_i}{\\beta}\\right)^\\alpha.$$\n\nDette er en sum av $n$ uavhengige $\\text{gamma}(1,1)$, som (felles skala 1, kap. 2.2) er $\\text{gamma}(n, 1)$. Altså $W := n(\\hat\\beta/\\beta)^\\alpha \\sim \\text{gamma}(n, 1)$.\n\n**c)** *Sensornotat: her skiller topbesvarelsen seg — E(Vʳ) på $W$.* Fra (b): $\\hat\\beta = \\beta\\,(W/n)^{1/\\alpha} = \\beta\\,n^{-1/\\alpha}W^{1/\\alpha}$. Ta forventning og bruk E(Vʳ)-formelen med $V = W \\sim \\text{gamma}(n, 1)$, $r = 1/\\alpha$:\n\n$$E(W^{1/\\alpha}) = 1^{1/\\alpha}\\frac{\\Gamma(n + 1/\\alpha)}{\\Gamma(n)} = \\frac{\\Gamma(n + 1/\\alpha)}{\\Gamma(n)}.$$\n\nDermed\n\n$$E(\\hat\\beta) = \\beta\\,n^{-1/\\alpha}\\frac{\\Gamma(n + 1/\\alpha)}{\\Gamma(n)} = c\\,\\beta, \\qquad c = n^{-1/\\alpha}\\frac{\\Gamma(n + 1/\\alpha)}{\\Gamma(n)}.$$\n\nSiden $c \\ne 1$ (for $\\alpha \\ne 1$) er $\\hat\\beta$ **skjev**. Skjevhetskorreksjon (kap. 5.1): $\\hat\\beta/c$ er forventningsrett for $\\beta$. Kontroll: ved $\\alpha = 1$ (eksponensial) er $c = n^{-1}\\Gamma(n+1)/\\Gamma(n) = n^{-1}\\cdot n = 1$ — da er $\\hat\\beta = \\bar X$ allerede forventningsrett, som ventet.\n\n**d)** Med $\\alpha = 2$, $n = 8$: $c = 8^{-1/2}\\dfrac{\\Gamma(8{,}5)}{\\Gamma(8)}$. Her er $\\Gamma(8) = 7! = 5040$ og $\\Gamma(8{,}5) = 7{,}5\\cdot 6{,}5\\cdots 0{,}5\\cdot\\sqrt\\pi \\approx 14034{,}4$, så $\\dfrac{\\Gamma(8{,}5)}{\\Gamma(8)} \\approx 2{,}7846$ og $c = \\dfrac{2{,}7846}{\\sqrt 8} = \\dfrac{2{,}7846}{2{,}8284} \\approx 0{,}9845$. ML-estimatoren treffer altså i snitt $98{,}45\\,\\%$ av $\\beta$; den forventningsrette korreksjonen er $\\hat\\beta/0{,}9845$.\n\n> — naturlig pausepunkt — du har nå sett hele kjeden på ett case: ML → gamma-pivot → E(Vʳ)-korreksjon. Oppgavene under roterer dette over arkivets fordelinger."
+    },
+    {
+      "id": "stk1100-5-3-oppg-head",
+      "type": "text",
+      "content": "## Drilloppgaver (eksamensnivå)\n\nRoterer over arkivets fordelinger. Minst tre oppgaver krever skjevhetskorreksjon via Γ, minst to er estimator-sammenligning."
+    },
+    {
+      "id": "stk1100-5-3-o1-eksp",
+      "type": "exercise",
+      "exercise": {
+        "id": "stk1100-5-3-ex-o1-eksp",
+        "number": "1",
+        "type": "classic",
+        "difficulty": "lett",
+        "task": "Ventetidene $X_1, \\dots, X_n$ er iid eksponensiale i **rateform** $f(x) = \\lambda e^{-\\lambda x}$.\n\n**a)** Utled ML-estimatoren $\\hat\\lambda$.\n\n**b)** Hva blir estimatoren hvis oppgaven i stedet bruker forventningsform $f(x) = \\tfrac1\\mu e^{-x/\\mu}$?",
+        "solution": "**a)** $L(\\lambda) = \\lambda^n e^{-\\lambda\\sum x_i}$, $\\ell(\\lambda) = n\\ln\\lambda - \\lambda\\sum x_i$, $\\ell'(\\lambda) = n/\\lambda - \\sum x_i = 0 \\Rightarrow \\hat\\lambda = n/\\sum x_i = 1/\\bar X$.\n\n**b)** I forventningsform er parameteren $\\mu = 1/\\lambda$, og $\\hat\\mu = \\bar X$. Samme fordeling, ulik estimator — les parametriseringen.",
+        "hints": [
+          "Rateform: $L = \\lambda^n e^{-\\lambda\\sum x_i}$.",
+          "$\\hat\\lambda = 1/\\bar X$ i rateform; $\\hat\\mu = \\bar X$ i forventningsform."
+        ]
+      }
+    },
+    {
+      "id": "stk1100-5-3-o2-poisson",
+      "type": "exercise",
+      "exercise": {
+        "id": "stk1100-5-3-ex-o2-poisson",
+        "number": "2",
+        "type": "classic",
+        "difficulty": "lett",
+        "task": "Antall registrerte skjelvinger per døgn er iid $\\text{Poisson}(\\lambda)$, observert over $n$ døgn.\n\n**a)** Utled $\\hat\\lambda$.\n\n**b)** Vis at $\\hat\\lambda$ er forventningsrett, og finn $\\text{Var}(\\hat\\lambda)$.",
+        "solution": "**a)** $\\ell(\\lambda) = -n\\lambda + (\\sum x_i)\\ln\\lambda - \\sum\\ln(x_i!)$, $\\ell'(\\lambda) = -n + \\sum x_i/\\lambda = 0 \\Rightarrow \\hat\\lambda = \\bar X$.\n\n**b)** $E(\\hat\\lambda) = E(\\bar X) = \\lambda$ (forventningsrett). For Poisson er $\\text{Var}(X_i) = \\lambda$, så $\\text{Var}(\\hat\\lambda) = \\text{Var}(\\bar X) = \\lambda/n$.",
+        "hints": [
+          "$\\ell'(\\lambda) = -n + \\sum x_i/\\lambda$.",
+          "$E(X_i) = \\text{Var}(X_i) = \\lambda$ for Poisson."
+        ]
+      }
+    },
+    {
+      "id": "stk1100-5-3-o3-gamma",
+      "type": "exercise",
+      "exercise": {
+        "id": "stk1100-5-3-ex-o3-gamma",
+        "number": "3",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "Bruddstyrkene $X_1, \\dots, X_n$ er iid gammafordelte med **kjent** form $\\alpha = 3$ og ukjent skala $\\beta$.\n\n**a)** Utled $\\hat\\beta$.\n\n**b)** Vis at $\\hat\\beta$ er forventningsrett, og finn $\\text{Var}(\\hat\\beta)$.",
+        "solution": "**a)** $\\ell(\\beta) = (\\alpha-1)\\sum\\ln x_i - \\tfrac{\\sum x_i}{\\beta} - n\\alpha\\ln\\beta - n\\ln\\Gamma(\\alpha)$. $\\ell'(\\beta) = \\tfrac{\\sum x_i}{\\beta^2} - \\tfrac{n\\alpha}{\\beta} = 0 \\Rightarrow \\hat\\beta = \\tfrac{\\sum x_i}{n\\alpha} = \\bar X/\\alpha = \\bar X/3$.\n\n**b)** $E(\\hat\\beta) = E(\\bar X)/\\alpha = \\alpha\\beta/\\alpha = \\beta$ — forventningsrett. $\\text{Var}(\\hat\\beta) = \\tfrac{1}{\\alpha^2}\\cdot\\tfrac{\\text{Var}(X_i)}{n} = \\tfrac{1}{\\alpha^2}\\cdot\\tfrac{\\alpha\\beta^2}{n} = \\tfrac{\\beta^2}{n\\alpha} = \\tfrac{\\beta^2}{3n}$.",
+        "hints": [
+          "$\\hat\\beta = \\bar X/\\alpha$ for gamma med kjent form.",
+          "$E(X_i) = \\alpha\\beta$, $\\text{Var}(X_i) = \\alpha\\beta^2$."
+        ]
+      }
+    },
+    {
+      "id": "stk1100-5-3-o4-pareto-korr",
+      "type": "exercise",
+      "exercise": {
+        "id": "stk1100-5-3-ex-o4-pareto-korr",
+        "number": "4",
+        "type": "classic",
+        "difficulty": "vanskelig",
+        "task": "Inntektene $X_1, \\dots, X_n$ er iid Pareto med kjent minsteverdi $k$ og ukjent form $\\theta$: $F(x) = 1 - (k/x)^\\theta$, $x \\ge k$. ML-estimatoren er $\\hat\\theta = n/\\sum\\ln(X_i/k)$ (fra kap. 5.2).\n\n**a)** Vis at $\\sum_{i=1}^n \\ln(X_i/k) \\sim \\text{gamma}(n, 1/\\theta)$.\n\n**b)** Bruk E(Vʳ)-formelen (med $r = -1$) til å vise at $\\hat\\theta$ er skjev, og finn en forventningsrett korreksjon.",
+        "solution": "**a)** Fra kap. 2.3 er $\\ln(X_i/k)$ eksponensial i rateform med rate $\\theta$, altså forventning $1/\\theta$, som er $\\text{gamma}(1, 1/\\theta)$. Summen av $n$ uavhengige med felles skala $1/\\theta$ er (kap. 2.2) $S := \\sum\\ln(X_i/k) \\sim \\text{gamma}(n, 1/\\theta)$.\n\n**b)** $\\hat\\theta = n/S = n\\,S^{-1}$. E(Vʳ)-formelen med $V = S \\sim \\text{gamma}(n, 1/\\theta)$, $r = -1$ (gyldig siden $r = -1 > -n$ for $n \\ge 2$):\n\n$$E(S^{-1}) = \\left(\\tfrac1\\theta\\right)^{-1}\\frac{\\Gamma(n-1)}{\\Gamma(n)} = \\theta\\cdot\\frac{1}{n-1} = \\frac{\\theta}{n-1}.$$\n\nDermed $E(\\hat\\theta) = n\\cdot\\frac{\\theta}{n-1} = \\frac{n}{n-1}\\theta \\ne \\theta$: **skjev** (overestimerer). Med $c = n/(n-1)$ er $\\hat\\theta/c = \\frac{n-1}{n}\\hat\\theta = \\frac{n-1}{\\sum\\ln(X_i/k)}$ forventningsrett for $\\theta$.",
+        "hints": [
+          "$\\ln(X_i/k)$ er eksponensial med rate $\\theta$; summen er gamma (felles skala).",
+          "E(Vʳ) med $r = -1$: $E(S^{-1}) = (1/\\theta)^{-1}\\Gamma(n-1)/\\Gamma(n) = \\theta/(n-1)$."
+        ]
+      }
+    },
+    {
+      "id": "stk1100-5-3-o5-weibull-korr",
+      "type": "exercise",
+      "exercise": {
+        "id": "stk1100-5-3-ex-o5-weibull-korr",
+        "number": "5",
+        "type": "classic",
+        "difficulty": "vanskelig",
+        "task": "Levetidene er iid Weibull med kjent form $\\alpha$ og ukjent skala $\\beta$; ML-estimatoren er $\\hat\\beta = (\\tfrac1n\\sum X_i^\\alpha)^{1/\\alpha}$, og $W = n(\\hat\\beta/\\beta)^\\alpha \\sim \\text{gamma}(n,1)$ (fra caset over).\n\n**a)** Vis at $E(\\hat\\beta) = \\beta\\,n^{-1/\\alpha}\\Gamma(n + 1/\\alpha)/\\Gamma(n)$.\n\n**b)** Regn ut korreksjonsfaktoren for $\\alpha = 3$, $n = 5$, og oppgi den forventningsrette estimatoren. (Bruk $\\Gamma(5) = 24$, $\\Gamma(5{,}333) \\approx 40{,}13$.)",
+        "solution": "**a)** $\\hat\\beta = \\beta(W/n)^{1/\\alpha} = \\beta n^{-1/\\alpha}W^{1/\\alpha}$. E(Vʳ) med $V = W \\sim \\text{gamma}(n, 1)$, $r = 1/\\alpha$: $E(W^{1/\\alpha}) = 1^{1/\\alpha}\\Gamma(n+1/\\alpha)/\\Gamma(n)$. Dermed $E(\\hat\\beta) = \\beta\\,n^{-1/\\alpha}\\Gamma(n+1/\\alpha)/\\Gamma(n) = c\\beta$.\n\n**b)** Med $\\alpha = 3$, $n = 5$: $1/\\alpha = 1/3 \\approx 0{,}333$, så $\\Gamma(n+1/\\alpha) = \\Gamma(5{,}333) \\approx 40{,}13$ og $\\Gamma(5) = 24$. Da $c = 5^{-1/3}\\cdot\\frac{40{,}13}{24} = 0{,}5848\\cdot 1{,}672 \\approx 0{,}978$. Den forventningsrette estimatoren er $\\hat\\beta/c \\approx \\hat\\beta/0{,}978 = 1{,}023\\,\\hat\\beta$.",
+        "hints": [
+          "$\\hat\\beta = \\beta n^{-1/\\alpha}W^{1/\\alpha}$; ta $E$ med E(Vʳ), $r = 1/\\alpha$.",
+          "$c = n^{-1/\\alpha}\\Gamma(n+1/\\alpha)/\\Gamma(n)$; sett inn tallene."
+        ]
+      }
+    },
+    {
+      "id": "stk1100-5-3-o6-rayleigh",
+      "type": "exercise",
+      "exercise": {
+        "id": "stk1100-5-3-ex-o6-rayleigh",
+        "number": "6",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "Bølgehøydene $X_1, \\dots, X_n$ er iid Rayleigh med tetthet $f(x;\\sigma^2) = \\tfrac{x}{\\sigma^2}e^{-x^2/(2\\sigma^2)}$, $x \\ge 0$ (parameter $\\theta = \\sigma^2$). Utled ML-estimatoren for $\\sigma^2$.",
+        "solution": "$\\ell(\\theta) = \\sum\\ln x_i - n\\ln\\theta - \\tfrac{1}{2\\theta}\\sum x_i^2$ (der $\\theta = \\sigma^2$). Deriver: $\\ell'(\\theta) = -\\tfrac{n}{\\theta} + \\tfrac{1}{2\\theta^2}\\sum x_i^2 = 0$. Multipliser med $\\theta^2$: $-n\\theta + \\tfrac12\\sum x_i^2 = 0 \\Rightarrow \\hat\\sigma^2 = \\tfrac{1}{2n}\\sum_{i=1}^n x_i^2$.",
+        "hints": [
+          "Skriv tettheten med $\\theta = \\sigma^2$: eksponenten er $-x^2/(2\\theta)$.",
+          "Derivér $-n\\ln\\theta - \\tfrac{1}{2\\theta}\\sum x_i^2$ mot $\\theta$."
+        ]
+      }
+    },
+    {
+      "id": "stk1100-5-3-o7-eksp-korr",
+      "type": "exercise",
+      "exercise": {
+        "id": "stk1100-5-3-ex-o7-eksp-korr",
+        "number": "7",
+        "type": "classic",
+        "difficulty": "vanskelig",
+        "task": "Levetidene er iid eksponensiale i **rateform** $f(x) = \\lambda e^{-\\lambda x}$; ML-estimatoren er $\\hat\\lambda = n/\\sum X_i$.\n\n**a)** Vis at $\\sum_{i=1}^n X_i \\sim \\text{gamma}(n, 1/\\lambda)$.\n\n**b)** Bruk E(Vʳ)-formelen til å vise at $\\hat\\lambda$ er skjev, og finn en forventningsrett korreksjon av $\\hat\\lambda$.",
+        "solution": "**a)** Hver $X_i$ er eksponensial i rateform med rate $\\lambda$, altså $\\text{gamma}(1, 1/\\lambda)$ (forventning $1/\\lambda$). Sum av $n$ uavhengige med felles skala $1/\\lambda$ er $T := \\sum X_i \\sim \\text{gamma}(n, 1/\\lambda)$.\n\n**b)** $\\hat\\lambda = n/T = n\\,T^{-1}$. E(Vʳ) med $V = T$, $r = -1$: $E(T^{-1}) = (1/\\lambda)^{-1}\\Gamma(n-1)/\\Gamma(n) = \\lambda/(n-1)$. Da $E(\\hat\\lambda) = n\\lambda/(n-1) \\ne \\lambda$: skjev (overestimerer). Korreksjon: $\\frac{n-1}{n}\\hat\\lambda = \\frac{n-1}{\\sum X_i}$ er forventningsrett for $\\lambda$.",
+        "hints": [
+          "$X_i \\sim \\text{gamma}(1, 1/\\lambda)$; summen har felles skala.",
+          "E(Vʳ) med $r = -1$: $E(T^{-1}) = \\lambda/(n-1)$."
+        ]
+      }
+    },
+    {
+      "id": "stk1100-5-3-o8-sammenlign-eksp",
+      "type": "exercise",
+      "exercise": {
+        "id": "stk1100-5-3-ex-o8-sammenlign-eksp",
+        "number": "8",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "Levetidene $X_1, \\dots, X_n$ ($n \\ge 3$) er iid eksponensiale i **forventningsform** ($E(X_i) = \\mu$, $\\text{Var}(X_i) = \\mu^2$). To estimatorer for $\\mu$ foreslås: $\\hat\\mu_1 = \\bar X$ og $\\hat\\mu_2 = \\tfrac12(X_1 + X_2)$.\n\n**a)** Vis at begge er forventningsrette.\n\n**b)** Finn variansene og velg med begrunnelse.",
+        "solution": "**a)** $E(\\hat\\mu_1) = E(\\bar X) = \\mu$. $E(\\hat\\mu_2) = \\tfrac12(\\mu + \\mu) = \\mu$. Begge forventningsrette.\n\n**b)** $\\text{Var}(\\hat\\mu_1) = \\text{Var}(\\bar X) = \\mu^2/n$. $\\text{Var}(\\hat\\mu_2) = \\tfrac14(\\mu^2 + \\mu^2) = \\mu^2/2$. For $n \\ge 3$ er $\\mu^2/n < \\mu^2/2$, så $\\hat\\mu_1 = \\bar X$ har lavest varians og velges. Begge treffer i snitt, men $\\bar X$ bruker alle $n$ observasjonene og er skarpest.",
+        "hints": [
+          "$E(X_i) = \\mu$, $\\text{Var}(X_i) = \\mu^2$ i forventningsform.",
+          "Sammenlign $\\mu^2/n$ mot $\\mu^2/2$."
+        ]
+      }
+    },
+    {
+      "id": "stk1100-5-3-o9-sammenlign-poisson",
+      "type": "exercise",
+      "exercise": {
+        "id": "stk1100-5-3-ex-o9-sammenlign-poisson",
+        "number": "9",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "Antall feil per enhet er iid $\\text{Poisson}(\\lambda)$, $n = 4$ enheter. To estimatorer for $\\lambda$: $\\hat\\lambda_1 = \\bar X = \\tfrac14(X_1+X_2+X_3+X_4)$ og $\\hat\\lambda_2 = \\tfrac12(X_1 + X_2)$ (bruk bare de to første).\n\n**a)** Vis at begge er forventningsrette.\n\n**b)** Finn variansene og velg.",
+        "solution": "**a)** $E(\\hat\\lambda_1) = \\tfrac14(4\\lambda) = \\lambda$. $E(\\hat\\lambda_2) = \\tfrac12(\\lambda + \\lambda) = \\lambda$. Begge forventningsrette.\n\n**b)** For Poisson er $\\text{Var}(X_i) = \\lambda$. $\\text{Var}(\\hat\\lambda_1) = \\lambda/4$. $\\text{Var}(\\hat\\lambda_2) = \\tfrac14(\\lambda + \\lambda) = \\lambda/2$. Siden $\\lambda/4 < \\lambda/2$ velges $\\hat\\lambda_1 = \\bar X$ (utnytter alle fire enhetene).",
+        "hints": [
+          "$\\text{Var}(X_i) = \\lambda$ for Poisson.",
+          "$\\text{Var}(\\bar X) = \\lambda/n$; sammenlign med $\\lambda/2$."
+        ]
+      }
+    },
+    {
+      "id": "stk1100-5-3-o10-gamma-moment",
+      "type": "exercise",
+      "exercise": {
+        "id": "stk1100-5-3-ex-o10-gamma-moment",
+        "number": "10",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "Konsentrasjonene $X_1, \\dots, X_n$ er iid gammafordelte med kjent form $\\alpha = 2$ og ukjent skala $\\beta$, der $E(X) = \\alpha\\beta = 2\\beta$.\n\n**a)** Finn momentestimatoren for $\\beta$.\n\n**b)** Sammenlign med ML-estimatoren $\\hat\\beta_{\\text{ML}} = \\bar X/\\alpha$.",
+        "solution": "**a)** Momentmetoden: sett $E(X) = \\bar X$, altså $2\\beta = \\bar X \\Rightarrow \\hat\\beta_{\\text{mom}} = \\bar X/2 = \\bar X/\\alpha$.\n\n**b)** ML gir også $\\hat\\beta_{\\text{ML}} = \\bar X/\\alpha = \\bar X/2$. For gamma med kjent form **sammenfaller** momentmetoden og ML — begge gir $\\bar X/\\alpha$, som er forventningsrett.",
+        "hints": [
+          "Momentmetoden: sett $E(X) = \\alpha\\beta$ lik $\\bar X$.",
+          "Løs for $\\beta$ og sammenlign med $\\bar X/\\alpha$."
+        ]
+      }
+    },
+    {
+      "id": "stk1100-5-3-o11-normal-var",
+      "type": "exercise",
+      "exercise": {
+        "id": "stk1100-5-3-ex-o11-normal-var",
+        "number": "11",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "Målingene $X_1, \\dots, X_n$ er iid $N(\\mu, \\sigma^2)$, begge parametre ukjente. ML gir $\\hat\\sigma^2 = \\tfrac1n\\sum(X_i - \\bar X)^2$.\n\n**a)** Er $\\hat\\sigma^2$ forventningsrett for $\\sigma^2$?\n\n**b)** Gi den forventningsrette estimatoren og forklar skillet.",
+        "solution": "**a)** Nei. $E(\\hat\\sigma^2) = \\tfrac{n-1}{n}\\sigma^2 < \\sigma^2$ — ML-variansen er skjev (underestimerer), fordi den har $n$ i nevneren.\n\n**b)** Forventningsrett: $S^2 = \\tfrac{1}{n-1}\\sum(X_i - \\bar X)^2$ (deling på $n-1$). Skillet: ML optimerer likelihooden og gir $n$ i nevner; forventningsretthet krever $n-1$. Her trekker de to kriteriene i ulik retning — ML-varians er skjev, $S^2$ er forventningsrett.",
+        "hints": [
+          "ML-varians har $n$ i nevneren og er skjev.",
+          "Korreksjon: gang med $n/(n-1)$ for å få $S^2$."
+        ]
+      }
+    },
+    {
+      "id": "stk1100-5-3-o12-pareto-invarians",
+      "type": "exercise",
+      "exercise": {
+        "id": "stk1100-5-3-ex-o12-pareto-invarians",
+        "number": "12",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "Inntektene er iid Pareto med kjent $k$ og ukjent $\\theta$; ML-estimatoren er $\\hat\\theta = n/\\sum\\ln(X_i/k)$. Medianinntekten er $m = k\\cdot 2^{1/\\theta}$ (kap. 2.3).\n\n**a)** Bruk invariansprinsippet til å gi ML-estimatoren for medianen.\n\n**b)** Er median-estimatoren forventningsrett? (Kort begrunnelse.)",
+        "solution": "**a)** Medianen er en funksjon $g(\\theta) = k\\cdot 2^{1/\\theta}$ av parameteren, så invariansprinsippet gir $\\hat m = k\\cdot 2^{1/\\hat\\theta} = k\\cdot 2^{\\sum\\ln(X_i/k)/n}$.\n\n**b)** Nei, generelt ikke. $g$ er en ikke-lineær funksjon, og invarians bevarer ikke forventningsretthet ($E[g(\\hat\\theta)] \\ne g(E[\\hat\\theta])$, jf. $E[\\sqrt V] \\ne \\sqrt{E V}$). Median-estimatoren arver ikke engang $\\hat\\theta$-ens (skjeve) egenskaper direkte.",
+        "hints": [
+          "Invarians: sett $\\hat\\theta$ inn i medianformelen $k\\cdot 2^{1/\\theta}$.",
+          "Ikke-lineær $g$ $\\Rightarrow$ forventningsretthet bevares ikke."
+        ]
+      }
+    },
+    {
+      "id": "stk1100-5-3-warn-typiske",
+      "type": "warning",
+      "title": "Typiske feil",
+      "content": "- **Anta forventningsretthet uten å regne.** Mange ML-estimatorer (Pareto-$\\hat\\theta$, Weibull-$\\hat\\beta$, eksponensial-rate-$\\hat\\lambda$, ML-varians) er skjeve. Regn alltid $E(\\hat\\theta)$ — ikke gjett.\n- **Glemme Γ-faktoren.** Når estimatoren er en potens/rot/invers av en gamma-fordelt størrelse, kvantifiseres skjevheten med E(Vʳ) og korrigeres med $\\Gamma$-forholdet. Å hoppe over dette koster A-poengene.\n- **Feil frihetsgrad/skala i gamma-pivoten.** Sum av $n$ eksponensiale (rate $\\theta$) er $\\text{gamma}(n, 1/\\theta)$ — sjekk at skalaen stemmer før du bruker E(Vʳ). Weibull gir $\\text{gamma}(n, 1)$, Pareto/eksponensial $\\text{gamma}(n, 1/\\theta)$.\n- **Velge estimator uten begrunnelse i begge kriterier.** Sammenlign forventningsretthet OG varians; skriv hvorfor den valgte vinner.\n- **Blande eksponensialens parametriseringer.** Rate gir $\\hat\\lambda = 1/\\bar X$, forventning gir $\\hat\\mu = \\bar X$ — les oppgavens definisjon hver gang.\n- **Forveksle estimator og estimat.** Estimatoren skrives med store $X_i$; et innsatt tall er et estimat (sensorkrav 6)."
+    },
+    {
+      "id": "stk1100-5-3-kort-head",
+      "type": "text",
+      "content": "## Oppskriftskort — flashcards\n\n*Flashcard-/repetisjonsstoff — hopp trygt over ved førstegangslesing.* Formel- og oppskriftskort for sjanger G, til rask oppslag under drilling."
+    },
+    {
+      "id": "stk1100-5-3-kort-oppskrift",
+      "type": "definition",
+      "title": "Sjanger G — oppskriften",
+      "content": "Sju trinn: (1) definer og skriv $L(\\theta) = \\prod f(x_i;\\theta)$; (2) $\\ell = \\ln L$; (3) derivér; (4) løs $\\ell'=0$ for $\\hat\\theta$; (5) forventningsrett? korriger via Γ/E(Vʳ) ved behov; (6) varians + SE; (7) flere kandidater: sammenlign og velg."
+    },
+    {
+      "id": "stk1100-5-3-kort-likelihood",
+      "type": "definition",
+      "title": "Likelihood-kortet",
+      "content": "$L(\\theta) = \\prod_{i=1}^n f(x_i;\\theta)$ over ALLE observasjoner. Log gjør produkt til sum: $\\ell = \\sum\\ln f(x_i;\\theta)$. Ledd uten $\\theta$ forsvinner ved derivasjon."
+    },
+    {
+      "id": "stk1100-5-3-kort-score",
+      "type": "definition",
+      "title": "Score-kortet",
+      "content": "Løs $\\ell'(\\theta) = 0$ for $\\hat\\theta$. Standard: eksp. rate $1/\\bar X$, eksp. forventning $\\bar X$, Poisson $\\bar X$, gamma (kjent $\\alpha$) $\\bar X/\\alpha$, Pareto $n/\\sum\\ln(X_i/k)$, Weibull (kjent $\\alpha$) $(\\tfrac1n\\sum X_i^\\alpha)^{1/\\alpha}$."
+    },
+    {
+      "id": "stk1100-5-3-kort-forventningsrett-sjekk",
+      "type": "definition",
+      "title": "Forventningsrett-sjekk-kortet",
+      "content": "Regn $E(\\hat\\theta)$ med momentreglene. $= \\theta$: forventningsrett. $= c\\theta$ med kjent $c$: skjev, korriger med $\\hat\\theta/c$. Forventningsrette: $\\bar X$, gamma-$\\hat\\beta = \\bar X/\\alpha$. Skjeve: Pareto-$\\hat\\theta$, Weibull-$\\hat\\beta$, eksp.-rate-$\\hat\\lambda$, ML-varians."
+    },
+    {
+      "id": "stk1100-5-3-kort-evr-korreksjon",
+      "type": "definition",
+      "title": "Skjevhetskorreksjon via E(Vʳ) — kortet",
+      "content": "Er estimatoren $\\propto V^r$ med $V \\sim \\text{gamma}(\\alpha, \\beta)$: $E(V^r) = \\beta^r\\Gamma(\\alpha+r)/\\Gamma(\\alpha)$ gir skjevfaktoren $c$; forventningsrett estimator er $\\hat\\theta/c$. Rot ($r = \\tfrac12$) og invers ($r = -1$) er de vanligste."
+    },
+    {
+      "id": "stk1100-5-3-kort-gamma-pivot",
+      "type": "definition",
+      "title": "Gamma-pivot-kortet",
+      "content": "Sum av $n$ uavhengige eksponensiale (rate $\\theta$) er $\\text{gamma}(n, 1/\\theta)$. Weibull: $n(\\hat\\beta/\\beta)^\\alpha = \\sum(X_i/\\beta)^\\alpha \\sim \\text{gamma}(n, 1)$. Pareto: $2\\theta\\sum\\ln(X_i/k) \\sim \\chi^2_{2n}$. Denne gamma-størrelsen blir pivoten i Del 6."
+    },
+    {
+      "id": "stk1100-5-3-kort-weibull",
+      "type": "definition",
+      "title": "Weibull-ML-kortet",
+      "content": "$\\hat\\beta = (\\tfrac1n\\sum X_i^\\alpha)^{1/\\alpha}$ (kjent $\\alpha$). Skjev: $E(\\hat\\beta) = \\beta\\,n^{-1/\\alpha}\\Gamma(n+1/\\alpha)/\\Gamma(n)$. Forventningsrett: del på $c = n^{-1/\\alpha}\\Gamma(n+1/\\alpha)/\\Gamma(n)$. Ved $\\alpha=1$: $c=1$, $\\hat\\beta = \\bar X$."
+    },
+    {
+      "id": "stk1100-5-3-kort-pareto",
+      "type": "definition",
+      "title": "Pareto-ML-kortet",
+      "content": "$\\hat\\theta = n/\\sum\\ln(X_i/k)$ (kjent $k$). Skjev: $E(\\hat\\theta) = \\tfrac{n}{n-1}\\theta$ (siden $\\sum\\ln(X_i/k) \\sim \\text{gamma}(n, 1/\\theta)$, E(Vʳ) med $r=-1$). Forventningsrett: $\\tfrac{n-1}{n}\\hat\\theta = \\tfrac{n-1}{\\sum\\ln(X_i/k)}$."
+    },
+    {
+      "id": "stk1100-5-3-kort-sammenligning",
+      "type": "definition",
+      "title": "Estimator-sammenligning-kortet",
+      "content": "Flere kandidater: (1) sjekk forventningsretthet for hver, (2) regn varians for hver, (3) velg den forventningsrette med lavest varians. Like vekter $1/n$ (dvs. $\\bar X$) gir lavest varians blant forventningsrette lineærkombinasjoner av iid-data."
+    },
+    {
+      "id": "stk1100-5-3-kort-eksp-parametrisering",
+      "type": "definition",
+      "title": "Eksponensial-parametrisering-kortet",
+      "content": "Rateform $f = \\lambda e^{-\\lambda x}$: $\\hat\\lambda = 1/\\bar X$ (skjev, korriger med $\\tfrac{n-1}{n}$). Forventningsform $f = \\tfrac1\\mu e^{-x/\\mu}$: $\\hat\\mu = \\bar X$ (forventningsrett). Les oppgavens definisjon hver gang."
+    },
+    {
+      "id": "stk1100-5-3-symbolliste",
+      "type": "collapsible",
+      "title": "Symbol- og formelliste",
+      "buttonText": "Vis symboler og formler",
+      "content": [
+        {
+          "id": "stk1100-5-3-sym-innhold",
+          "type": "text",
+          "content": "*Oppslagsverk — alt her forklares underveis i kapitlet.*\n\n| Symbol | Betydning |\n|---|---|\n| $\\hat\\theta$ | ML-estimatoren (generelt) |\n| $L(\\theta), \\ell(\\theta)$ | Likelihood og log-likelihood |\n| $\\bar X$ | Utvalgsgjennomsnittet |\n| $\\hat\\lambda, \\hat\\mu, \\hat\\beta$ | ML-estimatorer (rate/forventning/skala) |\n| $\\alpha, \\beta$ | Form / skala (gamma, Weibull) |\n| $k, \\theta$ | Pareto minsteverdi / formparameter |\n| $c$ | Skjevhetskorreksjonsfaktor |\n| $W, S, T$ | Gamma-fordelte pivot-størrelser |\n| $\\Gamma$ | Gammafunksjonen |\n| $\\text{gamma}(n, 1)$ | Gamma med form $n$, skala 1 |\n\n**Formler i dette kapitlet:**\n\n$$\\text{ML: } L(\\theta) = \\prod_{i=1}^n f(x_i;\\theta), \\quad \\ell'(\\hat\\theta) = 0$$\n\n$$\\text{Standardestimatorer: eksp. rate } 1/\\bar X,\\ \\text{Poisson } \\bar X,\\ \\text{gamma (kjent } \\alpha)\\ \\bar X/\\alpha$$\n\n$$\\text{Pareto: } \\hat\\theta = \\frac{n}{\\sum\\ln(X_i/k)}, \\quad E(\\hat\\theta) = \\frac{n}{n-1}\\theta, \\quad \\text{forventningsrett: } \\frac{n-1}{\\sum\\ln(X_i/k)}$$\n\n$$\\text{Weibull: } \\hat\\beta = \\left(\\tfrac1n\\textstyle\\sum X_i^\\alpha\\right)^{1/\\alpha}, \\quad n(\\hat\\beta/\\beta)^\\alpha \\sim \\text{gamma}(n,1)$$\n\n$$\\text{E(Vʳ): } E(V^r) = \\beta^r\\frac{\\Gamma(\\alpha+r)}{\\Gamma(\\alpha)}\\ (V \\sim \\text{gamma}(\\alpha,\\beta)); \\quad \\text{korreksjon: } E(\\hat\\theta) = c\\theta \\Rightarrow \\hat\\theta/c$$\n\n$$\\text{Sammenligning: velg forventningsrett med lavest } \\text{Var}(\\hat\\theta)$$"
+        }
+      ]
+    }
+  ],
+  "exercises": []
+}

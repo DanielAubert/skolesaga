@@ -1,0 +1,252 @@
+[
+  {
+    "question": "Hva er forskjellen på en estimator og et estimat?",
+    "options": [
+      "Estimatoren er en stokastisk regel av observasjonene; estimatet er tallet regelen gir",
+      "Estimatoren er tallet man leser av; estimatet er den stokastiske regelen som ligger bak",
+      "Estimatoren gjelder for diskrete data, mens estimatet gjelder for kontinuerlige data",
+      "Det er to helt likeverdige navn på samme størrelse, og skillet er uten betydning"
+    ],
+    "explanation": "Estimatoren $\\hat\\theta$ er en funksjon av de stokastiske observasjonene (stor bokstav); estimatet er tallverdien når konkrete data settes inn."
+  },
+  {
+    "question": "En estimator $\\hat\\theta$ kalles forventningsrett for $\\theta$ dersom:",
+    "options": [
+      "$E(\\hat\\theta) = \\theta$ for alle verdier av $\\theta$",
+      "$\\hat\\theta = \\theta$ for hvert enkelt utvalg man trekker",
+      "$\\text{Var}(\\hat\\theta) = 0$ for alle verdier av $\\theta$",
+      "$\\hat\\theta$ nærmer seg $\\theta$ bare når $n$ blir uendelig stor"
+    ],
+    "explanation": "Forventningsretthet betyr at estimatoren treffer riktig i snitt over alle utvalg, altså $E(\\hat\\theta) = \\theta$."
+  },
+  {
+    "question": "For iid $X_1, \\dots, X_n$ med $E(X_i) = \\mu$ er $E(\\bar X)$ lik:",
+    "options": [
+      "$\\mu$",
+      "$\\mu/n$",
+      "$n\\mu$",
+      "$\\mu^2$"
+    ],
+    "explanation": "$E(\\bar X) = \\frac1n\\sum E(X_i) = \\frac1n\\cdot n\\mu = \\mu$, så $\\bar X$ er forventningsrett for $\\mu$."
+  },
+  {
+    "question": "For iid-observasjoner med varians $\\sigma^2$ er $\\text{Var}(\\bar X)$ lik:",
+    "options": [
+      "$\\sigma^2/n$",
+      "$\\sigma^2$",
+      "$\\sigma^2/n^2$",
+      "$n\\sigma^2$"
+    ],
+    "explanation": "$\\text{Var}(\\bar X) = \\frac{1}{n^2}\\sum\\text{Var}(X_i) = \\frac{n\\sigma^2}{n^2} = \\sigma^2/n$."
+  },
+  {
+    "question": "Standardfeilen til $\\bar X$ (med kjent $\\sigma$) er:",
+    "options": [
+      "$\\sigma/\\sqrt n$",
+      "$\\sigma^2/n$",
+      "$\\sigma/n$",
+      "$\\sigma\\sqrt n$"
+    ],
+    "explanation": "$\\text{SE}(\\bar X) = \\sqrt{\\text{Var}(\\bar X)} = \\sqrt{\\sigma^2/n} = \\sigma/\\sqrt n$."
+  },
+  {
+    "question": "Skjevheten (bias) til en estimator er definert som:",
+    "options": [
+      "$E(\\hat\\theta) - \\theta$",
+      "$\\hat\\theta - E(\\hat\\theta)$",
+      "$\\theta - \\hat\\theta$ for det aktuelle utvalget",
+      "$\\sqrt{\\text{Var}(\\hat\\theta)}$"
+    ],
+    "explanation": "Skjevheten er den systematiske forskjellen mellom forventningen til estimatoren og sann verdi: $E(\\hat\\theta) - \\theta$."
+  },
+  {
+    "question": "Hvorfor deler utvalgsvariansen $S^2$ på $n-1$ og ikke på $n$?",
+    "options": [
+      "Fordi $\\frac{1}{n-1}\\sum(X_i-\\bar X)^2$ er forventningsrett for $\\sigma^2$",
+      "Fordi $n-1$ alltid gir et litt større og dermed mer forsiktig og sikkert tall",
+      "Fordi det er dette som gjør at $\\bar X$ blir forventningsrett for forventningen $\\mu$",
+      "Fordi kravet er at den utregnede variansen alltid skal komme ut som et helt tall"
+    ],
+    "explanation": "$n$-varianten er skjev ($E = \\frac{n-1}{n}\\sigma^2$); deling på $n-1$ gjør estimatoren forventningsrett for $\\sigma^2$."
+  },
+  {
+    "question": "$n$-varianten $\\hat\\sigma^2 = \\frac1n\\sum(X_i-\\bar X)^2$ har forventning:",
+    "options": [
+      "$\\frac{n-1}{n}\\sigma^2$",
+      "$\\sigma^2$",
+      "$\\frac{n}{n-1}\\sigma^2$",
+      "$\\frac{\\sigma^2}{n}$"
+    ],
+    "explanation": "$E(\\hat\\sigma^2) = \\frac{n-1}{n}\\sigma^2 < \\sigma^2$, så $n$-varianten underestimerer systematisk."
+  },
+  {
+    "question": "Er $E(\\hat\\theta) = c\\theta$ med kjent $c \\ne 1$, hvilken estimator er forventningsrett?",
+    "options": [
+      "$\\hat\\theta/c$",
+      "$c\\,\\hat\\theta$",
+      "$\\hat\\theta - c$",
+      "$\\hat\\theta + c$"
+    ],
+    "explanation": "$E(\\hat\\theta/c) = \\frac1c E(\\hat\\theta) = \\frac1c\\cdot c\\theta = \\theta$, så deling på faktoren $c$ korrigerer skjevheten."
+  },
+  {
+    "question": "Er $S^2$ forventningsrett for $\\sigma^2$, er $S = \\sqrt{S^2}$ for $\\sigma$:",
+    "options": [
+      "skjev — den underestimerer systematisk fordi $\\sqrt{\\cdot}$ er konkav",
+      "alltid forventningsrett, som en direkte følge av at $S^2$ er forventningsrett",
+      "skjev — den overestimerer systematisk fordi rot-operasjonen forsterker tallet",
+      "forventningsrett, men bare i de tilfellene der $n$ er et partall"
+    ],
+    "explanation": "$E[\\sqrt V] < \\sqrt{E V}$ for konkav rot, så $S$ underestimerer $\\sigma$ selv om $S^2$ treffer $\\sigma^2$."
+  },
+  {
+    "question": "Nøkkelinnsikten $E[\\sqrt V] \\ne \\sqrt{E[V]}$ skyldes at:",
+    "options": [
+      "kvadratrot er en krum (konkav) funksjon, så forventning og funksjon ikke bytter plass",
+      "$V$ i disse tilfellene alltid er negativ, slik at kvadratrota ikke er definert i det hele tatt",
+      "variansen til $V$ er nøyaktig null her, og likheten faller da sammen av seg selv",
+      "$V$ må være normalfordelt for at en slik likhet mellom sidene skal kunne gjelde"
+    ],
+    "explanation": "For en ikke-lineær (her konkav) funksjon gjelder $E[g(V)] \\ne g(E[V])$; for rot blir det $E[\\sqrt V] < \\sqrt{E V}$."
+  },
+  {
+    "question": "For $V \\sim \\text{gamma}(\\alpha, \\beta)$ gir E(Vʳ)-formelen $E(V^r)$ lik:",
+    "options": [
+      "$\\beta^r\\,\\Gamma(\\alpha+r)/\\Gamma(\\alpha)$",
+      "$\\beta^r\\,\\Gamma(\\alpha)/\\Gamma(\\alpha+r)$",
+      "$\\alpha^r\\,\\Gamma(\\beta+r)/\\Gamma(\\beta)$",
+      "$\\beta^r\\,\\Gamma(\\alpha)\\,\\Gamma(r)$"
+    ],
+    "explanation": "E(Vʳ)-formelen fra kap. 2.2: $E(V^r) = \\beta^r\\Gamma(\\alpha+r)/\\Gamma(\\alpha)$ for $r > -\\alpha$."
+  },
+  {
+    "question": "Γ-faktoren som kvantifiserer skjevheten til en rot-/potensestimator er:",
+    "options": [
+      "$\\Gamma(\\alpha+r)/\\Gamma(\\alpha)$",
+      "$\\Gamma(\\alpha)/\\Gamma(\\alpha+r)$",
+      "$\\Gamma(\\alpha+r)\\cdot\\Gamma(\\alpha)$",
+      "$\\Gamma(\\alpha)^r$"
+    ],
+    "explanation": "Forholdet $\\Gamma(\\alpha+r)/\\Gamma(\\alpha)$ i E(Vʳ)-formelen er akkurat skjevhetsfaktoren; deling på den gir forventningsrett."
+  },
+  {
+    "question": "To forventningsrette estimatorer for samme $\\theta$ velges mellom. Hvilken bør brukes?",
+    "options": [
+      "Den med lavest varians",
+      "Den med størst varians, for sikkerhets skyld",
+      "Den som gir det største estimatet på dine data",
+      "Det spiller ingen rolle når begge er forventningsrette"
+    ],
+    "explanation": "Blant forventningsrette estimatorer er den med lavest varians mest presis (effektiv)."
+  },
+  {
+    "question": "$\\hat\\mu_1 = \\bar X$ (av $n$) og $\\hat\\mu_2 = X_1$ er begge forventningsrette for $\\mu$. Hvilken er best, og hvorfor?",
+    "options": [
+      "$\\bar X$, fordi $\\text{Var}(\\bar X) = \\sigma^2/n < \\sigma^2 = \\text{Var}(X_1)$",
+      "$X_1$, fordi den er klart enklest å regne ut for hånd på en eksamen",
+      "$X_1$, fordi den er robust ved at den ikke avhenger av utvalgsstørrelsen $n$",
+      "De er nøyaktig like gode i alle henseender, siden begge er forventningsrette"
+    ],
+    "explanation": "Begge treffer i snitt, men $\\bar X$ har $n$ ganger mindre varians og er dermed skarpere."
+  },
+  {
+    "question": "En estimator med $E(\\hat\\theta) = \\frac{n}{n+1}\\theta$ har skjevhet:",
+    "options": [
+      "$-\\frac{1}{n+1}\\theta$ (underestimerer)",
+      "$+\\frac{1}{n+1}\\theta$ (overestimerer)",
+      "$0$ (forventningsrett)",
+      "$\\frac{n}{n+1}$ uavhengig av $\\theta$"
+    ],
+    "explanation": "$\\text{bias} = E(\\hat\\theta)-\\theta = \\frac{n}{n+1}\\theta - \\theta = -\\frac{1}{n+1}\\theta$, altså negativ (underestimering)."
+  },
+  {
+    "question": "Hvordan sjekker man om en estimator er forventningsrett?",
+    "options": [
+      "Regner ut $E(\\hat\\theta)$ med momentreglene og ser om det blir $\\theta$",
+      "Regner ut variansen $\\text{Var}(\\hat\\theta)$ og sjekker om den er lik null",
+      "Setter inn ett bestemt datasett og ser om estimatet treffer $\\theta$ nøyaktig",
+      "Antar det uten regning, siden de aller fleste estimatorer er forventningsrette"
+    ],
+    "explanation": "Forventningsretthet må regnes ut: ta $E$ av estimatoren via $E(\\sum a_iX_i) = \\sum a_iE(X_i)$ og sammenlign med $\\theta$."
+  },
+  {
+    "question": "For eksponensial i forventningsform ($E(X_i)=\\mu$, $\\text{Var}(X_i)=\\mu^2$) er $\\text{Var}(\\bar X)$:",
+    "options": [
+      "$\\mu^2/n$",
+      "$\\mu/n$",
+      "$\\mu^2$",
+      "$\\mu^2/n^2$"
+    ],
+    "explanation": "$\\text{Var}(\\bar X) = \\text{Var}(X_i)/n = \\mu^2/n$."
+  },
+  {
+    "question": "Hvor mange målinger trengs for at $\\text{SE}(\\bar X) = \\sigma/\\sqrt n$ skal halveres?",
+    "options": [
+      "Fire ganger så mange",
+      "Dobbelt så mange",
+      "Halvparten så mange",
+      "Det er umulig å redusere standardfeilen"
+    ],
+    "explanation": "$\\text{SE}$ synker som $1/\\sqrt n$; for å halvere den må $\\sqrt n$ dobles, altså $n$ firedobles."
+  },
+  {
+    "question": "Middelkvadratfeilen (MSE) til en estimator kan skrives som:",
+    "options": [
+      "$\\text{Var}(\\hat\\theta) + [\\text{bias}(\\hat\\theta)]^2$",
+      "$\\text{Var}(\\hat\\theta) - [\\text{bias}(\\hat\\theta)]^2$",
+      "$\\text{Var}(\\hat\\theta)\\cdot\\text{bias}(\\hat\\theta)$",
+      "$[\\text{bias}(\\hat\\theta)]^2$ alene"
+    ],
+    "explanation": "$\\text{MSE} = E[(\\hat\\theta-\\theta)^2] = \\text{Var}(\\hat\\theta) + [\\text{bias}(\\hat\\theta)]^2$; for forventningsrette er MSE = varians."
+  },
+  {
+    "question": "For korreksjonsfaktoren $c_n$ i $E(S) = c_n\\sigma$ (normal) gjelder:",
+    "options": [
+      "$c_n < 1$, så $S$ underestimerer $\\sigma$",
+      "$c_n > 1$, så $S$ overestimerer $\\sigma$",
+      "$c_n = 1$, så $S$ er forventningsrett for $\\sigma$",
+      "$c_n$ avhenger av $\\sigma$ og kan ikke regnes ut"
+    ],
+    "explanation": "$c_n = \\sqrt{\\tfrac{2}{n-1}}\\Gamma(n/2)/\\Gamma((n-1)/2) < 1$ (f.eks. $0{,}9727$ for $n=10$), så $S$ bommer nedover."
+  },
+  {
+    "question": "En vektet estimator $\\sum a_i X_i$ er forventningsrett for $\\mu$ nettopp når:",
+    "options": [
+      "vektene summerer til 1: $\\sum a_i = 1$",
+      "alle vektene er like: $a_i = 1$",
+      "vektene summerer til $n$: $\\sum a_i = n$",
+      "vektene er positive"
+    ],
+    "explanation": "$E(\\sum a_iX_i) = \\mu\\sum a_i$, som er $\\mu$ hviss $\\sum a_i = 1$."
+  },
+  {
+    "question": "Konsistens for en estimator betyr (STK1100-intuisjonen):",
+    "options": [
+      "at variansen (og skjevheten) går mot null når $n \\to \\infty$",
+      "at estimatoren er nøyaktig forventningsrett for enhver utvalgsstørrelse $n$",
+      "at det utregnede estimatet alltid treffer parameteren $\\theta$ helt eksakt",
+      "at estimatoren beholder én og samme konstante varians uansett $n$"
+    ],
+    "explanation": "En konsistent estimator nærmer seg $\\theta$ når $n$ vokser; kravet er $\\text{Var} \\to 0$ og $\\text{bias} \\to 0$."
+  },
+  {
+    "question": "$X_1$ (én observasjon) er forventningsrett for $\\mu$, men den er:",
+    "options": [
+      "ikke konsistent — variansen $\\sigma^2$ krymper aldri",
+      "samtidig den mest effektive av alle mulige estimatorer",
+      "skjev nedover, nettopp fordi den bruker bare én observasjon",
+      "konsistent, som en direkte følge av at den er forventningsrett"
+    ],
+    "explanation": "$X_1$ har fast varians $\\sigma^2$ som ikke går mot 0 når $n$ vokser, så den er forventningsrett, men ikke konsistent."
+  },
+  {
+    "question": "Hvorfor er skjevhetskorreksjon via en $c$ med $c = c(\\theta)$ problematisk?",
+    "options": [
+      "Fordi $c$ da ikke er kjent — den avhenger av den ukjente $\\theta$ vi prøver å estimere",
+      "Fordi en deling på faktoren $c$ i så fall alltid vil føre til overestimering",
+      "Fordi faktoren $c$ da nødvendigvis kommer ut som et negativt tall",
+      "Fordi faktoren $c$ da er nødt til å være et helt tall for å virke"
+    ],
+    "explanation": "Korreksjonen $\\hat\\theta/c$ krever at $c$ kan regnes ut fra kjente størrelser; avhenger $c$ av $\\theta$, er den ukjent og korreksjonen ikke brukbar direkte."
+  }
+]

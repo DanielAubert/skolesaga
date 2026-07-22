@@ -1,0 +1,152 @@
+[
+  {
+    "question": "Første steg i sjanger G-oppskriften (etter å ha definert observasjonene) er å:",
+    "options": [
+      "skrive likelihooden $L(\\theta) = \\prod_{i=1}^n f(x_i;\\theta)$ over alle observasjonene",
+      "regne ut forventningen $E(\\hat\\theta)$ for å sjekke om estimatoren er forventningsrett",
+      "finne variansen $\\text{Var}(\\hat\\theta)$ og deretter den estimerte standardfeilen til estimatoren",
+      "sammenligne to foreslåtte kandidatestimatorer og velge den beste av dem med begrunnelse"
+    ],
+    "explanation": "Oppskriften starter med likelihooden som produkt over alle $n$ observasjoner; egenskapene kommer etter at $\\hat\\theta$ er utledet."
+  },
+  {
+    "question": "For Weibull med kjent form $\\alpha$ og ukjent skala $\\beta$ er ML-estimatoren:",
+    "options": [
+      "$\\hat\\beta = \\left(\\tfrac1n\\sum X_i^\\alpha\\right)^{1/\\alpha}$",
+      "$\\hat\\beta = \\tfrac1n\\sum X_i^\\alpha$ uten noen ekstra rot",
+      "$\\hat\\beta = \\bar X$ nøyaktig som for Poisson-fordelingen",
+      "$\\hat\\beta = \\left(\\sum X_i\\right)^{1/\\alpha}$ uten deling på $n$"
+    ],
+    "explanation": "$\\ell'(\\beta)=0$ gir $\\beta^\\alpha = \\tfrac1n\\sum x_i^\\alpha$, altså $\\hat\\beta = (\\tfrac1n\\sum X_i^\\alpha)^{1/\\alpha}$."
+  },
+  {
+    "question": "Størrelsen $n(\\hat\\beta/\\beta)^\\alpha$ for Weibull-ML er fordelt som:",
+    "options": [
+      "$\\text{gamma}(n, 1)$",
+      "$\\text{gamma}(n, \\beta)$ med skala lik $\\beta$",
+      "$\\chi^2_{n-1}$ med $n-1$ frihetsgrader",
+      "eksponensial med forventning $n$"
+    ],
+    "explanation": "$n(\\hat\\beta/\\beta)^\\alpha = \\sum(X_i/\\beta)^\\alpha$, en sum av $n$ uavhengige $\\text{gamma}(1,1)$, altså $\\text{gamma}(n,1)$."
+  },
+  {
+    "question": "Hvorfor er den eksponensiale rate-estimatoren $\\hat\\lambda = n/\\sum X_i$ skjev?",
+    "options": [
+      "Fordi $\\sum X_i \\sim \\text{gamma}(n, 1/\\lambda)$ gir $E(\\hat\\lambda) = \\tfrac{n}{n-1}\\lambda \\ne \\lambda$",
+      "Fordi selve summen $\\sum X_i$ av en eller annen grunn alltid overestimerer forventningen $1/\\lambda$ systematisk",
+      "Fordi rateformen av eksponensialfordelingen slett ikke har noen veldefinert ML-estimator i det hele tatt",
+      "Fordi estimatoren $\\hat\\lambda$ underestimerer $\\lambda$ systematisk med nettopp den kjente faktoren $(n-1)/n$"
+    ],
+    "explanation": "$T = \\sum X_i \\sim \\text{gamma}(n, 1/\\lambda)$; E(Vʳ) med $r=-1$ gir $E(T^{-1}) = \\lambda/(n-1)$, så $E(\\hat\\lambda) = n\\lambda/(n-1)$."
+  },
+  {
+    "question": "En forventningsrett korreksjon av Pareto-ML-estimatoren $\\hat\\theta = n/\\sum\\ln(X_i/k)$ er:",
+    "options": [
+      "$\\frac{n-1}{\\sum\\ln(X_i/k)}$",
+      "$\\frac{n+1}{\\sum\\ln(X_i/k)}$",
+      "$\\frac{n}{\\sum\\ln(X_i/k)}$ uten noen korreksjon",
+      "$\\frac{\\sum\\ln(X_i/k)}{n-1}$"
+    ],
+    "explanation": "$E(\\hat\\theta) = \\tfrac{n}{n-1}\\theta$, så $\\tfrac{n-1}{n}\\hat\\theta = \\tfrac{n-1}{\\sum\\ln(X_i/k)}$ er forventningsrett."
+  },
+  {
+    "question": "For å korrigere skjevheten til en estimator $\\propto V^r$ med $V \\sim \\text{gamma}(\\alpha,\\beta)$ bruker man:",
+    "options": [
+      "E(Vʳ)-formelen $E(V^r) = \\beta^r\\Gamma(\\alpha+r)/\\Gamma(\\alpha)$ til å finne skjevfaktoren",
+      "variansformelen $\\text{Var}(V) = \\alpha\\beta^2$ for gammafordelingen til å finne skjevfaktoren $c$",
+      "sentralgrenseteoremet til å tilnærme hele fordelingen til potensen $V^r$ med en normalfordeling",
+      "medianformelen for gammafordelingen til å finne den systematiske bommen i estimatoren"
+    ],
+    "explanation": "E(Vʳ)-formelen gir eksakt $E(V^r)$; forholdet $\\Gamma(\\alpha+r)/\\Gamma(\\alpha)$ er skjevfaktoren $c$, og $\\hat\\theta/c$ blir forventningsrett."
+  },
+  {
+    "question": "Skal man velge mellom to forventningsrette estimatorer, velger man den med:",
+    "options": [
+      "lavest varians",
+      "høyest varians, for å være på den sikre siden",
+      "størst estimat på det aktuelle datasettet",
+      "flest observasjoner i formelen, uansett varians"
+    ],
+    "explanation": "Blant forventningsrette estimatorer er den med lavest varians mest presis og skal velges."
+  },
+  {
+    "question": "Summen $\\sum_{i=1}^n \\ln(X_i/k)$ for Pareto (kjent $k$, form $\\theta$) er fordelt som:",
+    "options": [
+      "$\\text{gamma}(n, 1/\\theta)$",
+      "$\\text{gamma}(n, \\theta)$ med skala lik $\\theta$",
+      "$\\text{gamma}(1, n/\\theta)$",
+      "$\\chi^2_n$ med $n$ frihetsgrader"
+    ],
+    "explanation": "$\\ln(X_i/k)$ er eksponensial med rate $\\theta$ ($\\text{gamma}(1,1/\\theta)$); summen av $n$ med felles skala er $\\text{gamma}(n, 1/\\theta)$."
+  },
+  {
+    "question": "For eksponensial i forventningsform ($\\hat\\mu = \\bar X$) er estimatoren:",
+    "options": [
+      "forventningsrett, siden $E(\\bar X) = \\mu$",
+      "skjev, og må korrigeres med faktoren $\\tfrac{n-1}{n}$",
+      "skjev, og må korrigeres med en Γ-faktor",
+      "udefinert med mindre $n$ er stor"
+    ],
+    "explanation": "$E(\\hat\\mu) = E(\\bar X) = \\mu$ i forventningsform, så $\\hat\\mu = \\bar X$ er forventningsrett (i motsetning til rateformens $\\hat\\lambda$)."
+  },
+  {
+    "question": "Korreksjonsfaktoren $c$ for Weibull-ML $\\hat\\beta$ ved formparameter $\\alpha = 1$ (eksponensial) blir:",
+    "options": [
+      "$c = 1$ — da er $\\hat\\beta = \\bar X$ allerede forventningsrett",
+      "$c = \\tfrac{n-1}{n}$ — en liten nedjustering trengs likevel",
+      "$c = \\sqrt{2/(n-1)}$ som for utvalgsstandardavviket",
+      "$c = n$ — en kraftig oppjustering trengs"
+    ],
+    "explanation": "$c = n^{-1}\\Gamma(n+1)/\\Gamma(n) = n^{-1}\\cdot n = 1$, så ingen korreksjon; $\\hat\\beta = \\bar X$ er forventningsrett ved $\\alpha=1$."
+  },
+  {
+    "question": "Bevarer invariansprinsippet forventningsretthet, f.eks. for Pareto-medianen $\\hat m = k\\cdot 2^{1/\\hat\\theta}$?",
+    "options": [
+      "Nei — $g$ er ikke-lineær, så $E[g(\\hat\\theta)] \\ne g(E[\\hat\\theta])$",
+      "Ja — invariansprinsippet bevarer alltid forventningsretthet uansett funksjon $g$",
+      "Ja — dette gjelder så lenge estimatoren $\\hat\\theta$ selv er forventningsrett for $\\theta$",
+      "Bare i det spesielle tilfellet der medianformelen tilfeldigvis er en lineær funksjon"
+    ],
+    "explanation": "Invariansprinsippet gir ML av en funksjon, men bevarer ikke forventningsretthet for ikke-lineære $g$ (jf. $E[\\sqrt V] \\ne \\sqrt{E V}$)."
+  },
+  {
+    "question": "For Rayleigh $f(x;\\sigma^2) = \\tfrac{x}{\\sigma^2}e^{-x^2/(2\\sigma^2)}$ er ML-estimatoren for $\\sigma^2$:",
+    "options": [
+      "$\\hat\\sigma^2 = \\tfrac{1}{2n}\\sum X_i^2$",
+      "$\\hat\\sigma^2 = \\tfrac1n\\sum X_i^2$ uten faktoren en halv",
+      "$\\hat\\sigma^2 = \\bar X^2$ som kvadratet av snittet",
+      "$\\hat\\sigma^2 = \\tfrac1n\\sum X_i$ som selve snittet"
+    ],
+    "explanation": "$\\ell'(\\theta)=0$ med $\\theta=\\sigma^2$ gir $-n\\theta + \\tfrac12\\sum x_i^2 = 0$, altså $\\hat\\sigma^2 = \\tfrac{1}{2n}\\sum X_i^2$."
+  },
+  {
+    "question": "Den vanligste feilen i sjanger G under tidspress er å:",
+    "options": [
+      "anta forventningsretthet uten å regne $E(\\hat\\theta)$",
+      "bruke for få desimaler i det endelige tallsvaret",
+      "ta med logaritmen når man deriverer likelihooden",
+      "definere observasjonene før man setter opp likelihooden"
+    ],
+    "explanation": "Mange ML-estimatorer er skjeve (Pareto, Weibull, eksp.-rate); forventningsretthet må regnes ut, ikke antas."
+  },
+  {
+    "question": "For gamma med kjent form $\\alpha$ gir momentmetoden og ML for skalaen $\\beta$:",
+    "options": [
+      "det samme svaret, $\\hat\\beta = \\bar X/\\alpha$",
+      "helt ulike svar som må avstemmes",
+      "ML $\\bar X/\\alpha$, men moment $\\alpha\\bar X$",
+      "moment $\\bar X/\\alpha$, men ML $\\bar X$"
+    ],
+    "explanation": "Både $E(X) = \\alpha\\beta = \\bar X$ (moment) og score-ligningen (ML) gir $\\hat\\beta = \\bar X/\\alpha$; de sammenfaller."
+  },
+  {
+    "question": "Variansen til den forventningsrette gamma-estimatoren $\\hat\\beta = \\bar X/\\alpha$ (kjent $\\alpha$) er:",
+    "options": [
+      "$\\text{Var}(\\hat\\beta) = \\beta^2/(n\\alpha)$",
+      "$\\text{Var}(\\hat\\beta) = \\alpha\\beta^2/n$",
+      "$\\text{Var}(\\hat\\beta) = \\beta^2/n$",
+      "$\\text{Var}(\\hat\\beta) = \\alpha^2\\beta^2/n$"
+    ],
+    "explanation": "$\\text{Var}(\\hat\\beta) = \\tfrac{1}{\\alpha^2}\\text{Var}(\\bar X) = \\tfrac{1}{\\alpha^2}\\cdot\\tfrac{\\alpha\\beta^2}{n} = \\beta^2/(n\\alpha)$."
+  }
+]

@@ -1,0 +1,495 @@
+{
+  "id": "stk1100-4-2",
+  "courseId": "stk1100",
+  "chapterNumber": "4.2",
+  "title": "Transformasjonsteknikkene: CDF-metoden og Jacobi",
+  "description": "Finn fordelingen til Y=g(X) med CDF-metoden, og til (U,V)=g(X,Y) med Jacobi-determinanten — teknikkene som identifiserer fordelinger og bygger pivotaler.",
+  "estimatedMinutes": 65,
+  "competenceGoals": [
+    "finne fordelingen til Y=g(X) med CDF-metoden for både voksende og avtakende g",
+    "utlede at kvadratet av en standardnormal er kjikvadratfordelt med én frihetsgrad",
+    "bruke Jacobi-formelen med absoluttverdien av determinanten for et bivariat variabelbytte",
+    "integrere ut en marginaltetthet etter Jacobi ved å tegne integrasjonsområdet"
+  ],
+  "content": [
+    {
+      "id": "stk1100-4-2-tip-eksamensvinkel",
+      "type": "tip",
+      "title": "Eksamensvinkel",
+      "content": "**Transformasjon er i 9 av 10 avsluttende skoleeksamener (90 %)** i STK1100-arkivet 2015–2024 — den mest brukte teknikken overhodet, og «broen til pivotalen» som hele estimerings-kjeden hviler på. To sjangre bor her: **sjanger E** (finn fordelingen til $Y = g(X)$ med CDF-metoden) og **sjanger J** (finn fordelingen til $(U,V) = g(X,Y)$ med Jacobi-determinanten, forekom som ren oppgave i ~3/10 sett).\n\nSammen med MGF-en fra [kap. 4.1](/bok/stk1100/stk1100-4-1) er dette de tre transformasjonsverktøyene: CDF-metoden (for én variabel), Jacobi (for to), og MGF-identifikasjon (for summer). Prioritet: **høyeste** (nivå 1).\n\n**Sensor krever at du utleder — aldri gjetter — fordelingen:** (1) gå alltid via fordelingsfunksjonen $F_Y$, ikke ved å «bytte inn» i tettheten; (2) **snu ulikheten** når $g$ er avtakende; (3) i Jacobi-formelen står **absoluttverdien** $|J|$ av determinanten, og du må **tegne integrasjonsområdet** før du integrerer ut en marginal."
+    },
+    {
+      "id": "stk1100-4-2-forkunnskaper",
+      "type": "text",
+      "content": "**Forkunnskaper:** Dette kapitlet bygger på gammafordelingen og $\\chi^2_n = \\text{gamma}(n/2, 2)$ fra [kap. 2.2](/bok/stk1100/stk1100-2-2), på simultantetthet, marginaler og dobbeltintegral fra [kap. 3.1](/bok/stk1100/stk1100-3-1), og på fordelingsfunksjonen $F_X$ fra [kap. 2.1](/bok/stk1100/stk1100-2-1). MGF-metoden fra [kap. 4.1](/bok/stk1100/stk1100-4-1) er den tredje transformasjonsteknikken.\n\nDu deriverer $F$ til $f$ og bruker kjerneregelen hele veien; frisk opp [R1 4.1 Derivasjonsregler](/bok/r1/r1-4-1). Fagordene *CDF-metoden*, *Jacobi-determinant* og *marginaltetthet* forklares der de innføres."
+    },
+    {
+      "id": "stk1100-4-2-intro",
+      "type": "text",
+      "content": "Du har en variabel $X$ med kjent fordeling, og du er interessert i en *funksjon* av den — kvadratet $X^2$, logaritmen $\\ln X$, summen $X + Y$. Hva er fordelingen til den nye variabelen? Dette spørsmålet er selve motoren i STK1100: det er slik en observasjon gjøres om til en $\\chi^2$-størrelse som gir eksakt konfidensintervall senere.\n\nDet finnes to hovedmetoder. For én variabel bruker vi **CDF-metoden**: regn ut fordelingsfunksjonen til $Y = g(X)$ ved å oversette hendelsen $\\{g(X) \\le y\\}$ til en hendelse om $X$, og deriver til tetthet. For to variable bruker vi **Jacobi-formelen**, som er flerdimensjonal substitusjon: bytt variabler, gang med absoluttverdien av Jacobi-determinanten, og integrer ut det du ikke trenger.\n\nKapitlet er seks **læringsløkker**: CDF-metoden for voksende $g$ → for avtakende $g$ → kroneksempelet $Z^2 \\sim \\chi^2_1$ → standardtransformasjonene mot gamma/$\\chi^2$ → Jacobi-formelen → Jacobi med marginalisering. Hver løkke går teori → eksempel → oppgave.\n\n> 65-minutters kapittel. Naturlig pausepunkt er markert ved løkke 4 (overgangen til Jacobi)."
+    },
+    {
+      "id": "stk1100-4-2-l1-head",
+      "type": "text",
+      "content": "## Løkke 1 — CDF-metoden for voksende $g$ (~9 min)"
+    },
+    {
+      "id": "stk1100-4-2-l1-teori",
+      "type": "text",
+      "content": "Grunnideen i CDF-metoden er å regne fordelingsfunksjonen til $Y = g(X)$ *først*, og derivere til tetthet etterpå. Nøkkelen er å oversette hendelsen $\\{Y \\le y\\} = \\{g(X) \\le y\\}$ til en hendelse om $X$. Er $g$ **monotont voksende**, kan vi bruke den inverse $g^{-1}$ direkte: $g(X) \\le y$ er det samme som $X \\le g^{-1}(y)$."
+    },
+    {
+      "id": "stk1100-4-2-def-cdf-metode",
+      "type": "definition",
+      "title": "CDF-metoden (monotont voksende $g$)",
+      "content": "Oppskriften for å finne fordelingen til $Y = g(X)$ når $g$ er voksende: uttrykk $F_Y$ ved $F_X$, deriver så til tetthet.\n\n$$F_Y(y) = P(g(X) \\le y) = P\\big(X \\le g^{-1}(y)\\big) = F_X\\big(g^{-1}(y)\\big),$$\n\n$$f_Y(y) = f_X\\big(g^{-1}(y)\\big)\\cdot \\left|\\frac{d}{dy}g^{-1}(y)\\right|.$$\n\nMetoden heter CDF-metoden fordi du går via fordelingsfunksjonen (engelsk *cumulative distribution function*). Du **gjetter aldri** tettheten til $Y$ — du utleder den fra $F_X$."
+    },
+    {
+      "id": "stk1100-4-2-ex-l1",
+      "type": "example",
+      "title": "Eksempel 1: En lineær transformasjon",
+      "problem": "Levetiden $X$ (år) er eksponensialfordelt i forventningsform med $\\mu = 3$. En omregnet størrelse er $Y = 2X + 1$. Finn tettheten til $Y$ med CDF-metoden.",
+      "solution": "Her er $g(x) = 2x + 1$ voksende, med invers $g^{-1}(y) = (y-1)/2$. Støtten $x \\ge 0$ blir $y \\ge 1$. Fordelingsfunksjonen ($F_X(x) = 1 - e^{-x/3}$):\n\n$$F_Y(y) = P(2X + 1 \\le y) = P\\!\\left(X \\le \\tfrac{y-1}{2}\\right) = 1 - e^{-(y-1)/6}, \\qquad y \\ge 1.$$\n\nDeriver:\n\n$$f_Y(y) = \\frac{d}{dy}\\left(1 - e^{-(y-1)/6}\\right) = \\tfrac16 e^{-(y-1)/6}, \\qquad y \\ge 1.$$\n\nDette er en (forskjøvet) eksponensialtetthet. Kontroll av forventningen: $E(Y) = 2E(X) + 1 = 2\\cdot 3 + 1 = 7$."
+    },
+    {
+      "id": "stk1100-4-2-oppg-l1a",
+      "type": "exercise",
+      "exercise": {
+        "id": "stk1100-4-2-x-oppg-l1a",
+        "number": "1",
+        "type": "classic",
+        "difficulty": "lett",
+        "task": "En variabel $X$ er eksponensialfordelt i rateform med rate $\\lambda = 0{,}5$ (altså $F_X(x) = 1 - e^{-0{,}5x}$, $x \\ge 0$). Sett $Y = 3X$.\n\n**a)** Finn $F_Y(y)$ med CDF-metoden.\n**b)** Deriver til $f_Y(y)$ og angi hvilken fordeling $Y$ har.",
+        "solution": "**a)** $g(x) = 3x$ er voksende, $g^{-1}(y) = y/3$. $F_Y(y) = P(3X \\le y) = P(X \\le y/3) = 1 - e^{-0{,}5\\cdot y/3} = 1 - e^{-y/6}$, $y \\ge 0$.\n\n**b)** $f_Y(y) = \\tfrac16 e^{-y/6}$, $y \\ge 0$. Dette er eksponensial i rateform med rate $1/6$ (forventning 6) — en eksponensial skalert med 3 er igjen eksponensial.",
+        "hints": [
+          "Skriv $\\{3X \\le y\\}$ som $\\{X \\le y/3\\}$ og sett inn i $F_X$.",
+          "Deriver $F_Y$; kjenn igjen $\\tfrac16 e^{-y/6}$ som eksponensial med rate $1/6$."
+        ]
+      }
+    },
+    {
+      "id": "stk1100-4-2-l2-head",
+      "type": "text",
+      "content": "## Løkke 2 — CDF-metoden for avtakende $g$: snu ulikheten (~9 min)"
+    },
+    {
+      "id": "stk1100-4-2-l2-teori",
+      "type": "text",
+      "content": "Er $g$ **avtakende**, snur ulikheten når du løser for $X$: $g(X) \\le y$ betyr nå $X \\ge g^{-1}(y)$ (en stor $Y$-verdi svarer til en liten $X$-verdi). Da blir $F_Y(y) = P(X \\ge g^{-1}(y)) = 1 - F_X(g^{-1}(y))$. Å glemme å snu ulikheten er den vanligste feilen i CDF-metoden."
+    },
+    {
+      "id": "stk1100-4-2-def-cdf-avtakende",
+      "type": "definition",
+      "title": "CDF-metoden (avtakende $g$)",
+      "content": "Når $g$ er avtakende, snur ulikhetsretningen idet du løser for $X$, og halen $1 - F_X$ dukker opp:\n\n$$F_Y(y) = P(g(X) \\le y) = P\\big(X \\ge g^{-1}(y)\\big) = 1 - F_X\\big(g^{-1}(y)\\big).$$\n\nTettheten blir igjen $f_Y(y) = f_X(g^{-1}(y))\\,|\\tfrac{d}{dy}g^{-1}(y)|$ — absoluttverdien gjør at fortegnet fra den avtakende $g^{-1}$ ikke gir en negativ tetthet. Sjekk alltid retningen: en stor verdi av en avtakende $g$ svarer til en liten $X$."
+    },
+    {
+      "id": "stk1100-4-2-ex-l2",
+      "type": "example",
+      "title": "Eksempel 2: Fra eksponensial til uniform",
+      "problem": "La $X$ være eksponensialfordelt med rate 1 ($F_X(x) = 1 - e^{-x}$, $x \\ge 0$), og sett $Y = e^{-X}$. Finn fordelingen til $Y$.",
+      "solution": "Funksjonen $g(x) = e^{-x}$ er avtakende, og for $x \\ge 0$ ligger $Y = e^{-X}$ i $(0, 1]$. For $0 < y \\le 1$ snur vi ulikheten:\n\n$$F_Y(y) = P(e^{-X} \\le y) = P(-X \\le \\ln y) = P(X \\ge -\\ln y).$$\n\nHalen er $P(X \\ge x) = e^{-x}$, så med $x = -\\ln y$:\n\n$$F_Y(y) = e^{-(-\\ln y)} = e^{\\ln y} = y, \\qquad 0 < y \\le 1.$$\n\nDeriver: $f_Y(y) = 1$ på $(0, 1)$. **$Y$ er uniformt fordelt på $[0,1]$.** (Dette er ikke tilfeldig: $Y = 1 - F_X(X)$-typen transformasjon gir alltid uniform — grunnlaget for inversjonsmetoden i kap. 7.1.)"
+    },
+    {
+      "id": "stk1100-4-2-oppg-l2a",
+      "type": "exercise",
+      "exercise": {
+        "id": "stk1100-4-2-x-oppg-l2a",
+        "number": "2",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "La $U$ være uniformt fordelt på $[0,1]$ ($F_U(u) = u$), og sett $Y = -\\ln U$.\n\n**a)** Er $g(u) = -\\ln u$ voksende eller avtakende? Finn $F_Y(y)$ for $y > 0$.\n**b)** Deriver til $f_Y(y)$ og angi fordelingen til $Y$.",
+        "solution": "**a)** $g(u) = -\\ln u$ er avtakende (større $u$ gir mindre $-\\ln u$). For $y > 0$: $F_Y(y) = P(-\\ln U \\le y) = P(\\ln U \\ge -y) = P(U \\ge e^{-y}) = 1 - e^{-y}$.\n\n**b)** $f_Y(y) = e^{-y}$, $y > 0$. Dette er eksponensial med rate 1 (forventning 1). Å ta $-\\ln$ av en uniform gir altså en eksponensial — nettopp inversjonsmetoden.",
+        "hints": [
+          "$g(u)=-\\ln u$ er avtakende; skriv $\\{-\\ln U \\le y\\}$ som $\\{U \\ge e^{-y}\\}$.",
+          "$P(U \\ge e^{-y}) = 1 - F_U(e^{-y}) = 1 - e^{-y}$; deriver."
+        ]
+      }
+    },
+    {
+      "id": "stk1100-4-2-l3-head",
+      "type": "text",
+      "content": "## Løkke 3 — Kroneksempelet: $Z^2 \\sim \\chi^2_1$ (~11 min)"
+    },
+    {
+      "id": "stk1100-4-2-l3-teori",
+      "type": "text",
+      "content": "Nå til den enkelttransformasjonen STK1100 elsker mest: kvadratet av en standardnormal er kjikvadratfordelt med én frihetsgrad. Her er $g(x) = x^2$ **ikke monoton** (både $+z$ og $-z$ gir samme kvadrat), så vi kan ikke bruke en enkelt invers — vi må samle begge greinene i CDF-steget. Skriv $\\Phi$ for standardnormalens fordelingsfunksjon og $\\varphi(z) = \\tfrac{1}{\\sqrt{2\\pi}}e^{-z^2/2}$ for tettheten."
+    },
+    {
+      "id": "stk1100-4-2-def-normal-kvadrat",
+      "type": "definition",
+      "title": "Kvadrat av standardnormal: $Z^2 \\sim \\chi^2_1$",
+      "content": "Grunntransformasjonen bak alle normalbaserte pivotaler: kvadratet av en standardnormal variabel er kjikvadratfordelt med én frihetsgrad.\n\n$$Z \\sim N(0,1) \\;\\Rightarrow\\; Z^2 \\sim \\chi^2_1 = \\text{gamma}\\!\\left(\\tfrac12, 2\\right).$$\n\nMer generelt: er $X \\sim N(\\mu, \\sigma^2)$, er den standardiserte og kvadrerte størrelsen $(X-\\mu)^2/\\sigma^2 \\sim \\chi^2_1$. Summen av $n$ uavhengige slike er $\\chi^2_n$ (kap. 4.3)."
+    },
+    {
+      "id": "stk1100-4-2-ex-l3",
+      "type": "example",
+      "title": "Eksempel 3: Utled $Z^2 \\sim \\chi^2_1$ med CDF-metoden",
+      "problem": "La $Z \\sim N(0,1)$ og $Y = Z^2$. Vis ved CDF-metoden at $Y \\sim \\text{gamma}(\\tfrac12, 2)$.",
+      "solution": "Siden $Y = Z^2 \\ge 0$, ser vi på $y > 0$. Hendelsen $\\{Z^2 \\le y\\}$ er $\\{-\\sqrt y \\le Z \\le \\sqrt y\\}$ (begge greiner):\n\n$$F_Y(y) = P(-\\sqrt y \\le Z \\le \\sqrt y) = \\Phi(\\sqrt y) - \\Phi(-\\sqrt y) = 2\\Phi(\\sqrt y) - 1,$$\n\nder vi brukte symmetrien $\\Phi(-\\sqrt y) = 1 - \\Phi(\\sqrt y)$. Deriver med kjerneregelen ($\\Phi' = \\varphi$, $\\tfrac{d}{dy}\\sqrt y = \\tfrac{1}{2\\sqrt y}$):\n\n$$f_Y(y) = 2\\varphi(\\sqrt y)\\cdot \\frac{1}{2\\sqrt y} = \\frac{\\varphi(\\sqrt y)}{\\sqrt y} = \\frac{1}{\\sqrt{2\\pi}}\\,y^{-1/2}\\,e^{-y/2}, \\qquad y > 0.$$\n\nSammenlign med gamma$(\\tfrac12, 2)$-tettheten $\\frac{1}{2^{1/2}\\Gamma(1/2)}y^{1/2-1}e^{-y/2}$. Siden $\\Gamma(\\tfrac12) = \\sqrt\\pi$ er $2^{1/2}\\Gamma(\\tfrac12) = \\sqrt 2\\cdot\\sqrt\\pi = \\sqrt{2\\pi}$ — nøyaktig samme konstant. Altså $Y \\sim \\text{gamma}(\\tfrac12, 2) = \\chi^2_1$."
+    },
+    {
+      "id": "stk1100-4-2-oppg-l3a",
+      "type": "exercise",
+      "exercise": {
+        "id": "stk1100-4-2-x-oppg-l3a",
+        "number": "3",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "Levetiden $X$ (timer) er Weibull-fordelt med $F_X(x) = 1 - e^{-(x/\\beta)^\\alpha}$, $x \\ge 0$, med kjent formparameter $\\alpha$ og skala $\\beta$. Sett $Y = (X/\\beta)^\\alpha$.\n\n**a)** Er $g(x) = (x/\\beta)^\\alpha$ voksende på $x \\ge 0$? Finn $F_Y(y)$.\n**b)** Angi fordelingen til $Y$.",
+        "solution": "**a)** $g(x) = (x/\\beta)^\\alpha$ er voksende for $x \\ge 0$ (både $\\alpha, \\beta > 0$). For $y > 0$: $g^{-1}(y) = \\beta y^{1/\\alpha}$, så $F_Y(y) = P((X/\\beta)^\\alpha \\le y) = P(X \\le \\beta y^{1/\\alpha}) = 1 - e^{-((\\beta y^{1/\\alpha})/\\beta)^\\alpha} = 1 - e^{-y}$.\n\n**b)** $F_Y(y) = 1 - e^{-y}$ er fordelingsfunksjonen til eksponensial med forventning 1, altså $Y \\sim \\text{gamma}(1, 1)$. Potensløftet $(X/\\beta)^\\alpha$ gjør en Weibull om til en standard eksponensial — nøkkelgrepet for Weibull-pivotalen (kap. 4.3).",
+        "hints": [
+          "Sett $\\{(X/\\beta)^\\alpha \\le y\\}$ som $\\{X \\le \\beta y^{1/\\alpha}\\}$ og bruk Weibull-$F_X$.",
+          "Innsatt blir eksponenten $-y$; kjenn igjen $1 - e^{-y}$ som eksponensial med forventning 1."
+        ]
+      }
+    },
+    {
+      "id": "stk1100-4-2-l4-head",
+      "type": "text",
+      "content": "## Løkke 4 — Standardtransformasjonene mot gamma/$\\chi^2$ (~9 min)"
+    },
+    {
+      "id": "stk1100-4-2-l4-note",
+      "type": "text",
+      "content": "> — naturlig pausepunkt — nå går vi fra én til to variable (Jacobi). Ta gjerne en pause."
+    },
+    {
+      "id": "stk1100-4-2-l4-teori",
+      "type": "text",
+      "content": "Noen få transformasjoner dukker opp om og om igjen fordi de bygger de eksakte pivotalene i Del 6. De er alle bare CDF-metoden anvendt på en standardfordeling. Her er de fire som **skal sitte** — vi drillsetter dem i [kap. 4.3](/bok/stk1100/stk1100-4-3), men du bør kjenne dem igjen allerede nå."
+    },
+    {
+      "id": "stk1100-4-2-def-standard-transf",
+      "type": "definition",
+      "title": "Standardtransformasjonene (kroneksemplene)",
+      "content": "De faste transformasjonene som gjør en observasjon om til en gamma-/$\\chi^2$-størrelse. Les hvilken parametrisering hver forutsetter:\n\n- **Normal, kjent $\\mu$:** $(X-\\mu)^2/\\sigma^2 \\sim \\chi^2_1$.\n- **Eksponensial, forventningsform $\\mu$:** $2X/\\mu \\sim \\chi^2_2$ (gamma$(1,2)$).\n- **Halvnormal / skala $\\theta$:** $(X/\\theta)^2 \\sim \\text{gamma}(1, 2) = \\chi^2_2$ når $X/\\theta$ er halv-standardnormal.\n- **Weibull, skala $\\beta$, form $\\alpha$:** $(X/\\beta)^\\alpha \\sim \\text{eksponensial}(\\text{forventning } 1) = \\text{gamma}(1,1)$.\n\nSummer av $n$ uavhengige slike blir $\\chi^2_n$, $\\chi^2_{2n}$ eller gamma$(n, \\cdot)$ — pass frihetsgradene (kap. 4.3)."
+    },
+    {
+      "id": "stk1100-4-2-ex-l4",
+      "type": "example",
+      "title": "Eksempel 4: $2X/\\mu \\sim \\chi^2_2$ for eksponensial",
+      "problem": "La $X$ være eksponensialfordelt i forventningsform med forventning $\\mu$ ($F_X(x) = 1 - e^{-x/\\mu}$). Vis at $W = 2X/\\mu \\sim \\chi^2_2$.",
+      "solution": "$g(x) = 2x/\\mu$ er voksende, $g^{-1}(w) = \\mu w/2$. For $w > 0$:\n\n$$F_W(w) = P\\!\\left(\\tfrac{2X}{\\mu} \\le w\\right) = P\\!\\left(X \\le \\tfrac{\\mu w}{2}\\right) = 1 - e^{-(\\mu w/2)/\\mu} = 1 - e^{-w/2}.$$\n\nDette er fordelingsfunksjonen til eksponensial med forventning 2, altså gamma$(1, 2)$. Og gamma$(1,2) = \\text{gamma}(2/2, 2) = \\chi^2_2$. **$W = 2X/\\mu \\sim \\chi^2_2$** (2 frihetsgrader). Legg merke til at $\\mu$-en faller helt ut — det er dette som gjør $W$ til en *pivotal* (fordelingen avhenger ikke av $\\mu$)."
+    },
+    {
+      "id": "stk1100-4-2-oppg-l4a",
+      "type": "exercise",
+      "exercise": {
+        "id": "stk1100-4-2-x-oppg-l4a",
+        "number": "4",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "La $X \\sim N(\\mu, \\sigma^2)$ med kjent $\\mu$, og sett $W = (X - \\mu)^2/\\sigma^2$.\n\n**a)** Vis at $Z = (X-\\mu)/\\sigma \\sim N(0,1)$, og skriv $W$ ved $Z$.\n**b)** Angi fordelingen til $W$ med begrunnelse.",
+        "solution": "**a)** Standardisering: $Z = (X-\\mu)/\\sigma$ har forventning 0 og varians 1, og er normal fordi en lineær funksjon av en normal er normal — altså $Z \\sim N(0,1)$. Da er $W = (X-\\mu)^2/\\sigma^2 = Z^2$.\n\n**b)** Fra kroneksempelet (løkke 3) er $Z^2 \\sim \\chi^2_1$. Altså $W \\sim \\chi^2_1$ (én frihetsgrad). $\\sigma^2$ faller ut, så $W$ er pivotal.",
+        "hints": [
+          "Standardiser $X$ til $Z=(X-\\mu)/\\sigma$; da er $W=Z^2$.",
+          "Bruk $Z^2 \\sim \\chi^2_1$ fra løkke 3 — én frihetsgrad, ikke to."
+        ]
+      }
+    },
+    {
+      "id": "stk1100-4-2-l5-head",
+      "type": "text",
+      "content": "## Løkke 5 — Jacobi-formelen for $(X,Y) \\to (U,V)$ (~14 min)"
+    },
+    {
+      "id": "stk1100-4-2-l5-teori",
+      "type": "text",
+      "content": "For to variable trenger vi en flerdimensjonal utgave av substitusjon. **Jacobi-formelen** sier: uttrykk de gamle variablene ved de nye ($X = x(U,V)$, $Y = y(U,V)$), sett inn i simultantettheten, og gang med absoluttverdien av **Jacobi-determinanten** $|J|$. Determinanten korrigerer for hvor mye byttet strekker eller krymper arealet — akkurat som $|g^{-1}{}'(y)|$ gjorde i én dimensjon."
+    },
+    {
+      "id": "stk1100-4-2-def-jacobi-determinant",
+      "type": "definition",
+      "title": "Jacobi-determinanten",
+      "content": "Determinanten av matrisen med de partielle deriverte av de gamle variablene mhp. de nye — arealkorreksjonen ved variabelbytte:\n\n$$J = \\det\\begin{pmatrix} \\dfrac{\\partial x}{\\partial u} & \\dfrac{\\partial x}{\\partial v} \\\\[8pt] \\dfrac{\\partial y}{\\partial u} & \\dfrac{\\partial y}{\\partial v} \\end{pmatrix} = \\frac{\\partial x}{\\partial u}\\frac{\\partial y}{\\partial v} - \\frac{\\partial x}{\\partial v}\\frac{\\partial y}{\\partial u}.$$\n\nSymbolet $\\partial x/\\partial u$ betyr «deriver $x(u,v)$ mhp. $u$ og hold $v$ fast» (partiell derivert). I formelen brukes **absoluttverdien** $|J|$ — en tetthet kan ikke være negativ."
+    },
+    {
+      "id": "stk1100-4-2-def-jacobi",
+      "type": "definition",
+      "title": "Jacobi-formelen for simultantetthet",
+      "content": "Oppskriften for fordelingen til $(U,V) = g(X,Y)$: sett de gamle variablene inn i simultantettheten og gang med $|J|$.\n\n$$f_{UV}(u,v) = f_{XY}\\big(x(u,v),\\, y(u,v)\\big)\\cdot |J|.$$\n\nTrinnene: (1) løs $U, V$ for $X, Y$ (finn inversen); (2) regn $|J|$; (3) sett inn i $f_{XY}$ og gang; (4) finn **støtten** til $(U,V)$ ved å oversette den gamle støtten — tegn området! For å få en marginaltetthet integrerer du ut den andre variabelen (løkke 6)."
+    },
+    {
+      "id": "stk1100-4-2-l5-utledning",
+      "type": "text",
+      "content": "**Utledning (idé).** For en liten rektangelbit i $(u,v)$-planet med areal $du\\,dv$ svarer en tilsvarende bit i $(x,y)$-planet med areal $|J|\\,du\\,dv$ (det er nettopp hva determinanten måler — hvor mye et areal skaleres av byttet). Sannsynligheten i biten er den samme uansett koordinater, så $f_{UV}(u,v)\\,du\\,dv = f_{XY}(x,y)\\,dx\\,dy = f_{XY}(x,y)\\,|J|\\,du\\,dv$. Del på $du\\,dv$, og formelen står igjen.\n\n*Intuisjon:* $|J|$ er «vekslingskursen» mellom de to arealmålene; uten den ville tettheten ikke integrere til 1 i de nye koordinatene."
+    },
+    {
+      "id": "stk1100-4-2-ex-l5",
+      "type": "example",
+      "title": "Eksempel 5: $U = X + Y$, $V = X$ med tegnet område",
+      "problem": "La $X$ og $Y$ være uavhengige og eksponensialfordelte med rate 1 (forventning 1), så $f_{XY}(x,y) = e^{-(x+y)}$ for $x, y > 0$. Sett $U = X + Y$ og $V = X$. Finn simultantettheten til $(U,V)$, tegn integrasjonsområdet, og finn marginaltettheten til $U$.",
+      "solution": "**Inverse:** $V = X$ gir $X = V$; $U = X + Y$ gir $Y = U - V$.\n\n**Jacobi:** $x = v \\Rightarrow \\tfrac{\\partial x}{\\partial u} = 0,\\ \\tfrac{\\partial x}{\\partial v} = 1$; $y = u - v \\Rightarrow \\tfrac{\\partial y}{\\partial u} = 1,\\ \\tfrac{\\partial y}{\\partial v} = -1$. Determinanten:\n\n$$J = (0)(-1) - (1)(1) = -1, \\qquad |J| = 1.$$\n\n**Simultantetthet:** sett $x = v$, $y = u - v$ inn i $f_{XY}$:\n\n$$f_{UV}(u,v) = e^{-(v + (u-v))}\\cdot 1 = e^{-u}.$$\n\n**Støtte:** $x > 0 \\Rightarrow v > 0$; $y > 0 \\Rightarrow u - v > 0 \\Rightarrow v < u$. Altså $0 < v < u$ — en trekantformet «kile» under linjen $v = u$ (se figuren under).\n\n**Marginal til $U$:** for fast $u > 0$ integrerer vi $v$ fra 0 til $u$:\n\n$$f_U(u) = \\int_0^u e^{-u}\\,dv = u\\,e^{-u}, \\qquad u > 0.$$\n\nDette er gamma$(2, 1)$-tettheten — summen av to uavhengige eksponensiale (forventning 1) er gamma$(2,1)$, akkurat som Erlang-resultatet i [kap. 2.2](/bok/stk1100/stk1100-2-2)."
+    },
+    {
+      "id": "stk1100-4-2-fig-jacobi",
+      "type": "image",
+      "src": "/images/textbook/stk1100/stk1100-4-2-jacobi-omrade.svg",
+      "alt": "Koordinatsystem med u langs den vannrette aksen og v langs den loddrette. En skyggelagt trekant avgrenses av v-aksen nederst, linjen v = u og en loddrett strek. En stiplet loddrett pil ved en fast u-verdi viser integrasjon i v fra 0 opp til u.",
+      "caption": "Integrasjonsområdet $0 < v < u$ etter byttet $(U,V) = (X+Y, X)$. For å finne marginaltettheten $f_U(u)$ holdes $u$ fast og $v$ integreres fra 0 til $u$ (den stiplede stripa) — grensene leses rett av området, ikke gjettes."
+    },
+    {
+      "id": "stk1100-4-2-oppg-l5a",
+      "type": "exercise",
+      "exercise": {
+        "id": "stk1100-4-2-x-oppg-l5a",
+        "number": "5",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "La $X, Y$ være uavhengige og eksponensialfordelte med rate 1, $f_{XY}(x,y) = e^{-(x+y)}$ for $x, y > 0$. Sett $U = X + Y$ og $V = X - Y$.\n\n**a)** Finn inversen $X, Y$ uttrykt ved $U, V$ og regn $|J|$.\n**b)** Finn $f_{UV}(u,v)$ (du trenger ikke støtten).",
+        "solution": "**a)** Løs: $X = (U+V)/2$, $Y = (U-V)/2$. Partielle deriverte: $\\tfrac{\\partial x}{\\partial u} = \\tfrac12,\\ \\tfrac{\\partial x}{\\partial v} = \\tfrac12,\\ \\tfrac{\\partial y}{\\partial u} = \\tfrac12,\\ \\tfrac{\\partial y}{\\partial v} = -\\tfrac12$. Determinant: $J = (\\tfrac12)(-\\tfrac12) - (\\tfrac12)(\\tfrac12) = -\\tfrac14 - \\tfrac14 = -\\tfrac12$, så $|J| = \\tfrac12$.\n\n**b)** $x + y = u$, så $f_{UV}(u,v) = e^{-(x+y)}\\cdot|J| = e^{-u}\\cdot\\tfrac12 = \\tfrac12 e^{-u}$.",
+        "hints": [
+          "Løs likningssystemet $u = x+y$, $v = x-y$ for $x$ og $y$.",
+          "$|J| = \\tfrac12$; og $x + y = u$ forenkler eksponenten."
+        ]
+      }
+    },
+    {
+      "id": "stk1100-4-2-l6-head",
+      "type": "text",
+      "content": "## Løkke 6 — Jacobi med marginalisering: $U = X+Y$, $V = X/(X+Y)$ (~13 min)"
+    },
+    {
+      "id": "stk1100-4-2-l6-teori",
+      "type": "text",
+      "content": "Den klassiske eksamensvarianten (sjanger J, V2019) kombinerer Jacobi med et forhold. Byttet $U = X + Y$, $V = X/(X+Y)$ splitter «totalen» $U$ fra «andelen» $V$. Etter Jacobi må du **tegne området** og integrere ut for å få marginalene — og her faller det ofte ut at $U$ og $V$ blir uavhengige."
+    },
+    {
+      "id": "stk1100-4-2-ex-l6",
+      "type": "example",
+      "title": "Eksempel 6: Total og andel — $U = X+Y$, $V = X/(X+Y)$",
+      "problem": "La $X, Y$ være uavhengige og eksponensialfordelte med rate 1, $f_{XY}(x,y) = e^{-(x+y)}$ for $x, y > 0$. Sett $U = X + Y$ og $V = X/(X+Y)$. Finn $f_{UV}$, marginaltetthetene, og avgjør om $U$ og $V$ er uavhengige.",
+      "solution": "**Inverse:** $V = X/(X+Y) = X/U$ gir $X = UV$; da er $Y = U - X = U(1 - V)$.\n\n**Jacobi:** $x = uv \\Rightarrow \\tfrac{\\partial x}{\\partial u} = v,\\ \\tfrac{\\partial x}{\\partial v} = u$; $y = u(1-v) \\Rightarrow \\tfrac{\\partial y}{\\partial u} = 1 - v,\\ \\tfrac{\\partial y}{\\partial v} = -u$. Determinanten:\n\n$$J = (v)(-u) - (u)(1 - v) = -uv - u + uv = -u, \\qquad |J| = u.$$\n\n**Simultantetthet:** $x + y = uv + u(1-v) = u$, så\n\n$$f_{UV}(u,v) = e^{-u}\\cdot u = u\\,e^{-u}, \\qquad u > 0,\\ 0 < v < 1.$$\n\n**Støtte:** $x, y > 0$ gir $u > 0$ og $0 < v < 1$ — et rektangel (uendelig langt i $u$). *Her trenger vi ikke tegne en kile: støtten er et produktområde.*\n\n**Marginaler:** integrer ut hver variabel:\n\n$$f_U(u) = \\int_0^1 u e^{-u}\\,dv = u e^{-u}\\ (\\text{gamma}(2,1)); \\qquad f_V(v) = \\int_0^\\infty u e^{-u}\\,du = 1\\ (\\text{uniform på }[0,1]).$$\n\n**Uavhengighet:** $f_{UV}(u,v) = u e^{-u}\\cdot 1 = f_U(u)\\,f_V(v)$ for alle $(u,v)$ i støtten, og støtten er et produktområde. Altså er **$U$ og $V$ uavhengige** — totalen og andelen er uavhengige for eksponensiale. (Marginalen $f_V$ integrerer $\\int_0^\\infty u e^{-u}du = \\Gamma(2) = 1$, gammaintegralet fra kap. 2.2.)"
+    },
+    {
+      "id": "stk1100-4-2-oppg-l6a",
+      "type": "exercise",
+      "exercise": {
+        "id": "stk1100-4-2-x-oppg-l6a",
+        "number": "6",
+        "type": "classic",
+        "difficulty": "vanskelig",
+        "task": "La $X, Y$ være uavhengige med $X \\sim \\text{gamma}(2, 1)$ og $Y \\sim \\text{gamma}(3, 1)$, altså $f_{XY}(x,y) = \\tfrac{1}{\\Gamma(2)\\Gamma(3)} x^{1} y^{2} e^{-(x+y)}$ for $x, y > 0$. Sett $U = X + Y$ og $V = X/(X+Y)$.\n\n**a)** Finn $|J|$ og $f_{UV}(u,v)$ (bruk $X = UV$, $Y = U(1-V)$).\n**b)** Vis at $U$ og $V$ er uavhengige, og identifiser marginalfordelingen til $U$.",
+        "solution": "**a)** Som i eksempel 6: $X = UV$, $Y = U(1-V)$, $|J| = u$. Sett inn ($\\Gamma(2) = 1$, $\\Gamma(3) = 2$):\n\n$$f_{UV}(u,v) = \\frac{1}{1\\cdot 2}(uv)^1\\,(u(1-v))^2\\,e^{-u}\\cdot u = \\tfrac12 u^{4} v (1-v)^2 e^{-u}, \\quad u > 0,\\ 0 < v < 1.$$\n\n**b)** Faktoriser: $f_{UV}(u,v) = \\underbrace{\\tfrac{1}{\\Gamma(5)}u^{4}e^{-u}}_{\\text{gamma}(5,1)}\\cdot \\underbrace{\\tfrac{\\Gamma(5)}{2}v(1-v)^2}_{\\text{funksjon av }v}$, siden $\\Gamma(5) = 24$ og $\\tfrac{1}{2} = \\tfrac{24}{2}\\cdot\\tfrac{1}{24}$. Tettheten er et produkt av en $u$-del og en $v$-del over et produktområde, så $U$ og $V$ er uavhengige. $U$-delen er gamma$(5, 1)$-tettheten (formparametrene $2 + 3 = 5$ lagt sammen, felles skala 1), i tråd med sum-av-gamma-regelen fra [kap. 2.2](/bok/stk1100/stk1100-2-2).",
+        "hints": [
+          "Bruk samme inverse og $|J| = u$ som i eksempel 6; sett inn i den nye $f_{XY}$.",
+          "Samle $u$-avhengigheten: $u^{1}\\cdot u^{2}\\cdot u = u^{4}$, og $e^{-u}$ — kjenn igjen gamma$(5,1)$ i $u^{4}e^{-u}$."
+        ]
+      }
+    },
+    {
+      "id": "stk1100-4-2-warn-typiske",
+      "type": "warning",
+      "title": "Typiske feil",
+      "content": "- **Gjette tettheten til $Y = g(X)$** i stedet for å gå via $F_Y$. Metoden krever alltid CDF-steget først, derivasjon etterpå.\n- **Glemme å snu ulikheten for avtakende $g$.** $g(X) \\le y$ blir $X \\ge g^{-1}(y)$ når $g$ avtar — og halen $1 - F_X$ dukker opp. Sjekk retningen med et talleksempel.\n- **Glemme absoluttverdien $|J|$** i Jacobi-formelen. En negativ determinant gir en negativ «tetthet» — umulig. Bruk alltid $|J|$.\n- **Derivere feil ledd i kjerneregelen.** I $\\tfrac{d}{dy}F_X(g^{-1}(y))$ må du gange med $\\tfrac{d}{dy}g^{-1}(y)$.\n- **Feil grenser etter Jacobi fordi området ikke er tegnet.** Oversett den gamle støtten til de nye variablene og *tegn* den før du setter integrasjonsgrenser (særlig for trekant-/kileområder).\n- **Bruke $\\chi^2_2$ der det skal være $\\chi^2_1$** (eller omvendt): $(X-\\mu)^2/\\sigma^2$ er $\\chi^2_1$ (én kvadrert normal), mens $2X/\\mu$ for eksponensial er $\\chi^2_2$."
+    },
+    {
+      "id": "stk1100-4-2-begrepsbank-head",
+      "type": "text",
+      "content": "## Begrepsbank — flashcards\n\n*Flashcard-/repetisjonsstoff — hopp trygt over ved førstegangslesing; tidsanslaget gjelder kjernestoffet.* Kortene samler transformasjonsbegrepene til pugg og raskt oppslag."
+    },
+    {
+      "id": "stk1100-4-2-bb-cdf-oppskrift",
+      "type": "definition",
+      "title": "CDF-metoden — oppskrift",
+      "content": "For å finne fordelingen til $Y = g(X)$: skriv $F_Y(y) = P(g(X) \\le y)$, oversett til en hendelse om $X$, sett inn $F_X$, og deriver til $f_Y$. Aldri gjett tettheten — utled den."
+    },
+    {
+      "id": "stk1100-4-2-bb-snu-ulikhet",
+      "type": "definition",
+      "title": "Snu ulikheten",
+      "content": "Er $g$ avtakende, blir $\\{g(X) \\le y\\} = \\{X \\ge g^{-1}(y)\\}$, så $F_Y(y) = 1 - F_X(g^{-1}(y))$. Sjekk: en stor verdi av en avtakende $g$ svarer til en liten $X$."
+    },
+    {
+      "id": "stk1100-4-2-bb-deriver-cdf",
+      "type": "definition",
+      "title": "Deriver med kjerneregelen",
+      "content": "Tettheten er $f_Y(y) = f_X(g^{-1}(y))\\cdot |\\tfrac{d}{dy}g^{-1}(y)|$. Absoluttverdien på den inverses deriverte sikrer en positiv tetthet, uansett om $g$ vokser eller avtar."
+    },
+    {
+      "id": "stk1100-4-2-bb-ikke-monoton",
+      "type": "definition",
+      "title": "Ikke-monoton $g$",
+      "content": "Er $g$ ikke monoton (typisk $g(x) = x^2$), samler du alle greinene i CDF-steget: $\\{X^2 \\le y\\} = \\{-\\sqrt y \\le X \\le \\sqrt y\\}$. Kan ikke bruke én enkelt invers."
+    },
+    {
+      "id": "stk1100-4-2-bb-chi2-1-kort",
+      "type": "definition",
+      "title": "$Z^2 \\sim \\chi^2_1$",
+      "content": "Kvadratet av en standardnormal er $\\chi^2_1 = \\text{gamma}(\\tfrac12, 2)$. Generelt $(X-\\mu)^2/\\sigma^2 \\sim \\chi^2_1$ for $X \\sim N(\\mu, \\sigma^2)$. Byggeklossen for alle normalpivotaler."
+    },
+    {
+      "id": "stk1100-4-2-bb-standard-2xmu",
+      "type": "definition",
+      "title": "$2X/\\mu \\sim \\chi^2_2$",
+      "content": "For eksponensial i forventningsform ($E(X) = \\mu$) er $2X/\\mu \\sim \\chi^2_2 = \\text{gamma}(1,2)$. Parameteren $\\mu$ faller ut, så størrelsen er pivotal — grunnlaget for eksponensial-KI-et."
+    },
+    {
+      "id": "stk1100-4-2-bb-weibull-exp",
+      "type": "definition",
+      "title": "Weibull-potensløftet",
+      "content": "For Weibull med skala $\\beta$, form $\\alpha$ er $(X/\\beta)^\\alpha \\sim \\text{eksponensial}(\\text{forventning }1) = \\text{gamma}(1,1)$. Potensen $\\alpha$ retter ut Weibull til en standard eksponensial."
+    },
+    {
+      "id": "stk1100-4-2-bb-jacobi-kort",
+      "type": "definition",
+      "title": "Jacobi-formelen",
+      "content": "For $(U,V) = g(X,Y)$: $f_{UV}(u,v) = f_{XY}(x(u,v), y(u,v))\\cdot |J|$, der $|J|$ er absoluttverdien av determinanten av de partielle deriverte av de gamle variablene mhp. de nye."
+    },
+    {
+      "id": "stk1100-4-2-bb-absoluttverdi-J",
+      "type": "definition",
+      "title": "Absoluttverdien i $|J|$",
+      "content": "Jacobi-formelen bruker $|J|$, ikke $J$. Determinanten kan bli negativ (avhengig av rekkefølgen på variablene), men en tetthet er aldri negativ — derfor absoluttverdien."
+    },
+    {
+      "id": "stk1100-4-2-bb-invers-forst",
+      "type": "definition",
+      "title": "Finn inversen først",
+      "content": "Første steg i Jacobi: løs $U, V$ for $X, Y$ (uttrykk de gamle ved de nye). Deretter deriverer du $x(u,v)$ og $y(u,v)$ partielt for determinanten."
+    },
+    {
+      "id": "stk1100-4-2-bb-tegn-omraadet",
+      "type": "definition",
+      "title": "Tegn integrasjonsområdet",
+      "content": "Etter Jacobi må du oversette den gamle støtten ($x, y > 0$ e.l.) til de nye variablene og tegne området. Grensene i marginaliseringsintegralet leses av tegningen — ikke gjettes."
+    },
+    {
+      "id": "stk1100-4-2-bb-marginal-integrer",
+      "type": "definition",
+      "title": "Marginal etter Jacobi",
+      "content": "For marginaltettheten integrerer du $f_{UV}$ over den andre variabelen: $f_U(u) = \\int f_{UV}(u,v)\\,dv$, med grenser fra det tegnede området. Ofte gir dette en gjenkjennbar gamma/eksponensial."
+    },
+    {
+      "id": "stk1100-4-2-bb-jacobi-uavhengig",
+      "type": "definition",
+      "title": "Uavhengighet etter bytte",
+      "content": "Faktoriserer $f_{UV}(u,v)$ i en $u$-del ganger en $v$-del over et produktområde, er $U$ og $V$ uavhengige. For eksponensiale er totalen $X+Y$ og andelen $X/(X+Y)$ uavhengige."
+    },
+    {
+      "id": "stk1100-4-2-bb-tre-teknikker",
+      "type": "definition",
+      "title": "Tre transformasjonsteknikker",
+      "content": "CDF-metoden (én variabel, via $F_Y$), Jacobi (to variable, via $|J|$) og MGF-identifikasjon (summer, via produkt av MGF-er, kap. 4.1). Velg etter oppgaven: én funksjon, et par, eller en sum."
+    },
+    {
+      "id": "stk1100-4-2-bb-standardnormal-Phi",
+      "type": "definition",
+      "title": "$\\Phi$ og symmetrien",
+      "content": "$\\Phi$ er standardnormalens fordelingsfunksjon; tettheten er $\\varphi(z) = \\tfrac{1}{\\sqrt{2\\pi}}e^{-z^2/2}$. Symmetrien $\\Phi(-z) = 1 - \\Phi(z)$ brukes i utledningen av $Z^2 \\sim \\chi^2_1$."
+    },
+    {
+      "id": "stk1100-4-2-bb-monoton-nodvendig",
+      "type": "definition",
+      "title": "Monotoni og invers",
+      "content": "CDF-metoden med én invers krever at $g$ er monoton på støtten (så $g^{-1}$ finnes). Er $g$ voksende, brukes $\\le$; er den avtakende, snus til $\\ge$. Ikke-monotone $g$ splittes i greiner."
+    },
+    {
+      "id": "stk1100-4-2-bb-skala-gamma",
+      "type": "definition",
+      "title": "Skalering av gamma",
+      "content": "En positiv skalering av en gammavariabel endrer bare skalaparameteren: $c\\cdot\\text{gamma}(\\alpha, \\beta) = \\text{gamma}(\\alpha, c\\beta)$. Derfor blir $2X/\\mu$ (skalering av eksponensial) igjen en gamma/$\\chi^2$."
+    },
+    {
+      "id": "stk1100-4-2-bb-pivotal-forvarsel",
+      "type": "definition",
+      "title": "Pivotal — forvarsel",
+      "content": "En transformert størrelse der de ukjente parametrene *faller ut* av fordelingen (som $2X/\\mu \\sim \\chi^2_2$) kalles en pivotal. Den er råstoffet til det eksakte konfidensintervallet i Del 6 — transformasjonene her er «broen» dit."
+    },
+    {
+      "id": "stk1100-4-2-bb-uniform-transform",
+      "type": "definition",
+      "title": "Uniform-transformasjonen",
+      "content": "Setter du en variabel inn i sin egen fordelingsfunksjon, $Y = F_X(X)$, blir $Y$ uniform på $[0,1]$ (og $Y = e^{-X}$ for eksponensial er samme idé). Omvendt gir $F_X^{-1}(U)$ av en uniform tilbake $X$ — grunnlaget for inversjonsmetoden (kap. 7.1)."
+    },
+    {
+      "id": "stk1100-4-2-rep",
+      "type": "collapsible",
+      "title": "Repetisjonsoppgaver",
+      "buttonText": "Vis repetisjonsoppgaver",
+      "content": [
+        {
+          "id": "stk1100-4-2-rep-intro",
+          "type": "text",
+          "content": "Korte oppgaver fra forkunnskapene — fordelingsfunksjon fra [kap. 2.1](/bok/stk1100/stk1100-2-1), gamma/$\\chi^2$ fra [kap. 2.2](/bok/stk1100/stk1100-2-2), marginaler fra [kap. 3.1](/bok/stk1100/stk1100-3-1) og derivasjon fra [R1 4.1](/bok/r1/r1-4-1)."
+        },
+        {
+          "id": "stk1100-4-2-rep-o1",
+          "type": "exercise",
+          "exercise": {
+            "id": "stk1100-4-2-x-rep-o1",
+            "number": "R1",
+            "type": "classic",
+            "difficulty": "lett",
+            "task": "Deriver $F_Y(y) = 1 - e^{-y/6}$ (for $y \\ge 0$) til tettheten $f_Y(y)$.",
+            "solution": "$f_Y(y) = \\tfrac{d}{dy}(1 - e^{-y/6}) = \\tfrac16 e^{-y/6}$, $y \\ge 0$.",
+            "hints": [
+              "Kjerneregel: indre $-y/6$ har derivert $-1/6$."
+            ]
+          }
+        },
+        {
+          "id": "stk1100-4-2-rep-o2",
+          "type": "exercise",
+          "exercise": {
+            "id": "stk1100-4-2-x-rep-o2",
+            "number": "R2",
+            "type": "classic",
+            "difficulty": "lett",
+            "task": "Skriv $\\chi^2_2$ som en gammafordeling og som en eksponensialfordeling.",
+            "solution": "$\\chi^2_2 = \\text{gamma}(1, 2)$ — formparameter $1$, skala $2$ — som er eksponensial i forventningsform med forventning 2.",
+            "hints": [
+              "$\\chi^2_n = \\text{gamma}(n/2, 2)$; med $n=2$ blir form $1$."
+            ]
+          }
+        },
+        {
+          "id": "stk1100-4-2-rep-o3",
+          "type": "exercise",
+          "exercise": {
+            "id": "stk1100-4-2-x-rep-o3",
+            "number": "R3",
+            "type": "classic",
+            "difficulty": "middels",
+            "task": "La $f_{XY}(x,y) = e^{-(x+y)}$ for $x, y > 0$. Finn marginaltettheten $f_X(x)$.",
+            "solution": "$f_X(x) = \\int_0^\\infty e^{-(x+y)}\\,dy = e^{-x}\\int_0^\\infty e^{-y}\\,dy = e^{-x}$, $x > 0$. ($X$ er eksponensial med rate 1.)",
+            "hints": [
+              "Integrer ut $y$ fra 0 til $\\infty$; $\\int_0^\\infty e^{-y}dy = 1$."
+            ]
+          }
+        },
+        {
+          "id": "stk1100-4-2-rep-o4",
+          "type": "exercise",
+          "exercise": {
+            "id": "stk1100-4-2-x-rep-o4",
+            "number": "R4",
+            "type": "classic",
+            "difficulty": "lett",
+            "task": "For $Z \\sim N(0,1)$, bruk symmetrien til å skrive $\\Phi(-1{,}5)$ ved $\\Phi(1{,}5)$.",
+            "solution": "$\\Phi(-1{,}5) = 1 - \\Phi(1{,}5)$ (standardnormalens symmetri om 0).",
+            "hints": [
+              "$\\Phi(-z) = 1 - \\Phi(z)$."
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": "stk1100-4-2-symbolliste",
+      "type": "collapsible",
+      "title": "Symbol- og formelliste",
+      "buttonText": "Vis symboler og formler",
+      "content": [
+        {
+          "id": "stk1100-4-2-sym-innhold",
+          "type": "text",
+          "content": "*Oppslagsverk — alt her forklares underveis i kapitlet.*\n\n| Symbol | Betydning |\n|---|---|\n| $Y = g(X)$ | Transformert variabel |\n| $g^{-1}$ | Den inverse funksjonen |\n| $F_Y, f_Y$ | Fordelingsfunksjon og tetthet til $Y$ |\n| $\\Phi, \\varphi$ | Standardnormalens fordelingsfunksjon og tetthet |\n| $Z$ | Standardnormal variabel, $N(0,1)$ |\n| $\\chi^2_n$ | Kjikvadrat med $n$ frihetsgrader $= \\text{gamma}(n/2, 2)$ |\n| $(U,V)$ | Nye variable etter bivariat bytte |\n| $J$ | Jacobi-determinanten |\n| $|J|$ | Absoluttverdien av Jacobi-determinanten |\n| $\\partial x/\\partial u$ | Partiell derivert av $x(u,v)$ mhp. $u$ |\n| $f_{XY}, f_{UV}$ | Simultantettheter før/etter bytte |\n\n**Formler i dette kapitlet:**\n\n$$\\text{CDF-metoden (voksende } g):\\ F_Y(y) = F_X(g^{-1}(y))$$\n\n$$\\text{CDF-metoden (avtakende } g):\\ F_Y(y) = 1 - F_X(g^{-1}(y))$$\n\n$$f_Y(y) = f_X(g^{-1}(y))\\,\\left|\\tfrac{d}{dy}g^{-1}(y)\\right|$$\n\n$$Z \\sim N(0,1) \\;\\Rightarrow\\; Z^2 \\sim \\chi^2_1; \\qquad (X-\\mu)^2/\\sigma^2 \\sim \\chi^2_1$$\n\n$$2X/\\mu \\sim \\chi^2_2 \\ (\\text{eksponensial}); \\qquad (X/\\beta)^\\alpha \\sim \\text{gamma}(1,1)\\ (\\text{Weibull})$$\n\n$$J = \\frac{\\partial x}{\\partial u}\\frac{\\partial y}{\\partial v} - \\frac{\\partial x}{\\partial v}\\frac{\\partial y}{\\partial u}$$\n\n$$f_{UV}(u,v) = f_{XY}(x(u,v), y(u,v))\\cdot |J|$$\n\n$$f_U(u) = \\int f_{UV}(u,v)\\,dv \\quad (\\text{marginal, grenser fra tegnet område})$$"
+        }
+      ]
+    }
+  ],
+  "exercises": []
+}

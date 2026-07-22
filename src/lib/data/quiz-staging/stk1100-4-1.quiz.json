@@ -1,0 +1,202 @@
+[
+  {
+    "question": "Hva er definisjonen av den momentgenererende funksjonen $M_X(t)$?",
+    "options": [
+      "$E(e^{tX})$",
+      "$E(tX)$",
+      "$e^{E(tX)}$",
+      "$\\ln E(e^{tX})$"
+    ],
+    "explanation": "MGF-en er forventningen av $e^{tX}$; de andre er henholdsvis forventningen av $tX$, eksponentialen av forventningen og den kumulantgenererende funksjonen."
+  },
+  {
+    "question": "Hvordan finner du $E(X)$ fra MGF-en?",
+    "options": [
+      "$M'(0)$ — den deriverte i null",
+      "$M(0)$ — verdien i null",
+      "$M''(0)$ — den andrederiverte i null",
+      "$\\ln M(0)$ — logaritmen i null"
+    ],
+    "explanation": "Forventningen er den førstederiverte i $t=0$. $M(0)=1$ alltid, $M''(0)=E(X^2)$, og $\\ln M(0)=0$."
+  },
+  {
+    "question": "Hva er $\\text{Var}(X)$ uttrykt ved MGF-en?",
+    "options": [
+      "$M''(0) - [M'(0)]^2$",
+      "$M''(0)$ alene",
+      "$[M'(0)]^2 - M''(0)$",
+      "$M'(0) - M''(0)$"
+    ],
+    "explanation": "Variansen er $E(X^2) - [E(X)]^2 = M''(0) - [M'(0)]^2$. $M''(0)$ alene er bare andre moment."
+  },
+  {
+    "question": "Hva er MGF-en til $X \\sim \\text{gamma}(\\alpha,\\beta)$ (skala $\\beta$), med gyldighetsområde?",
+    "options": [
+      "$(1-\\beta t)^{-\\alpha}$ for $t < 1/\\beta$",
+      "$(1-\\beta t)^{-\\alpha}$ for alle $t$",
+      "$(1-\\beta t)^{\\alpha}$ for $t < 1/\\beta$",
+      "$(1+\\beta t)^{-\\alpha}$ for $t > 1/\\beta$"
+    ],
+    "explanation": "Gamma-MGF er $(1-\\beta t)^{-\\alpha}$, og den konvergerer bare for $t < 1/\\beta$ — kravet må alltid oppgis."
+  },
+  {
+    "question": "Hvorfor er konvergenskravet $t < 1/\\beta$ nødvendig i gamma-MGF-en?",
+    "options": [
+      "Ellers divergerer integralet fordi $e^{tx}$ vokser raskere enn tettheten avtar",
+      "Ellers blir MGF-en negativ, som er umulig",
+      "Ellers blir $M(0) \\ne 1$",
+      "Ellers blir forventningen negativ"
+    ],
+    "explanation": "De sammensmeltede eksponentene har rate $1/\\beta - t$; er den ikke positiv, divergerer integralet. Det er derfor kravet oppstår."
+  },
+  {
+    "question": "Hva er MGF-en til $\\sum_{i=1}^n X_i$ når $X_1,\\ldots,X_n$ er uavhengige?",
+    "options": [
+      "$\\prod_{i=1}^n M_{X_i}(t)$ — produktet av MGF-ene",
+      "$\\sum_{i=1}^n M_{X_i}(t)$ — summen av MGF-ene",
+      "$\\frac{1}{n}\\sum_{i=1}^n M_{X_i}(t)$ — snittet av MGF-ene",
+      "$M_{X_1}(t)$ — bare den første MGF-en"
+    ],
+    "explanation": "For uavhengige variable multipliseres MGF-ene. Det er kumulantene $R=\\ln M$ som adderes — ikke MGF-ene selv."
+  },
+  {
+    "question": "Hvilket prinsipp lar deg identifisere en fordeling fra MGF-en?",
+    "options": [
+      "MGF-en bestemmer fordelingen entydig",
+      "MGF-en er alltid lik fordelingsfunksjonen",
+      "MGF-en er alltid lik tettheten",
+      "Enhver funksjon av $t$ er en MGF"
+    ],
+    "explanation": "Entydigheten sier at lik MGF nær $t=0$ betyr lik fordeling; derfor kan du kjenne igjen en sum i katalogen. De andre er gale påstander."
+  },
+  {
+    "question": "En sum av uavhengige $X_i \\sim \\text{Poisson}(\\lambda_i)$ er fordelt som:",
+    "options": [
+      "$\\text{Poisson}(\\sum_i \\lambda_i)$",
+      "$\\text{Poisson}(\\prod_i \\lambda_i)$",
+      "$\\text{gamma}(\\sum_i \\lambda_i,\\ 1)$",
+      "$\\text{Poisson}(\\bar\\lambda)$ med snittraten"
+    ],
+    "explanation": "Produktet av MGF-ene $e^{\\lambda_i(e^t-1)}$ blir $e^{(\\sum\\lambda_i)(e^t-1)}$, altså Poisson med sum av ratene — ikke produkt eller snitt."
+  },
+  {
+    "question": "En sum av $n$ uavhengige eksponensiale med felles forventning $\\mu$ er fordelt som:",
+    "options": [
+      "$\\text{gamma}(n, \\mu)$",
+      "$\\text{gamma}(1, n\\mu)$",
+      "eksponensial med forventning $n\\mu$",
+      "$\\text{gamma}(n/2, 2)$"
+    ],
+    "explanation": "Hver har MGF $(1-\\mu t)^{-1}$; produktet er $(1-\\mu t)^{-n}$, som er gamma$(n,\\mu)$ (Erlang). Summen er ikke lenger eksponensial."
+  },
+  {
+    "question": "Gjennomsnittet $\\bar X = \\tfrac1n\\sum X_i$ av $n$ uavhengige eksponensiale med forventning $\\mu$ er fordelt som:",
+    "options": [
+      "$\\text{gamma}(n, \\mu/n)$",
+      "$\\text{gamma}(n, \\mu)$",
+      "$\\text{gamma}(1, \\mu)$",
+      "$\\text{gamma}(n/2, 2)$"
+    ],
+    "explanation": "$M_{\\bar X}(t)=M_S(t/n)=(1-\\tfrac\\mu n t)^{-n}$, altså gamma$(n,\\mu/n)$ med $E=\\mu$ og $\\text{Var}=\\mu^2/n$."
+  },
+  {
+    "question": "Hva er MGF-en til $X \\sim \\text{Poisson}(\\lambda)$?",
+    "options": [
+      "$e^{\\lambda(e^t - 1)}$",
+      "$e^{\\lambda t}$",
+      "$(1-\\lambda t)^{-1}$",
+      "$e^{\\lambda t + \\lambda t^2/2}$"
+    ],
+    "explanation": "Poisson-MGF er $e^{\\lambda(e^t-1)}$, gyldig for alle $t$. De andre er henholdsvis feil, gamma- og normal-lignende former."
+  },
+  {
+    "question": "Hva er MGF-en til $X \\sim N(\\mu,\\sigma^2)$?",
+    "options": [
+      "$e^{\\mu t + \\sigma^2 t^2/2}$",
+      "$e^{\\mu t + \\sigma t^2/2}$",
+      "$e^{\\mu t^2 + \\sigma^2 t/2}$",
+      "$(1 - \\sigma^2 t)^{-\\mu}$"
+    ],
+    "explanation": "Normal-MGF er $e^{\\mu t + \\sigma^2 t^2/2}$ (variansen $\\sigma^2$ i $t^2$-leddet), gyldig for alle $t$."
+  },
+  {
+    "question": "Hva gir den kumulantgenererende funksjonen $R(t) = \\ln M(t)$ direkte?",
+    "options": [
+      "$E(X) = R'(0)$ og $\\text{Var}(X) = R''(0)$",
+      "$E(X) = R(0)$ og $\\text{Var}(X) = R'(0)$",
+      "$E(X) = R''(0)$ og $E(X^2) = R'(0)$",
+      "$E(X^2) = R'(0)$ og $\\text{Var}(X) = R(0)$"
+    ],
+    "explanation": "Snarveien gir forventning som $R'(0)$ og — praktisk — variansen som $R''(0)$ direkte, uten regneformelen. $R(0)=0$ alltid."
+  },
+  {
+    "question": "Hva er $M_X(0)$ for enhver MGF?",
+    "options": [
+      "1, fordi $E(e^0) = E(1) = 1$",
+      "0, fordi eksponenten er null",
+      "$E(X)$, forventningen",
+      "Uendelig, fordi integralet divergerer i null"
+    ],
+    "explanation": "$M_X(0)=E(e^{0\\cdot X})=E(1)=1$ alltid — en rask kontroll. $E(X)$ får du derimot av $M'(0)$."
+  },
+  {
+    "question": "Hvorfor kreves uavhengighet for at $M_{\\sum X_i} = \\prod M_{X_i}$?",
+    "options": [
+      "Fordi $E(\\prod e^{tX_i}) = \\prod E(e^{tX_i})$ bare gjelder for uavhengige variable",
+      "Fordi MGF-en ellers blir negativ",
+      "Fordi konvergenskravet ellers ikke holder",
+      "Fordi summen ellers ikke har forventning"
+    ],
+    "explanation": "Faktoriseringen av forventningen til et produkt krever uavhengighet; uten den må kovariansleddene håndteres direkte."
+  },
+  {
+    "question": "For $Y = aX + b$ er MGF-en:",
+    "options": [
+      "$e^{bt} M_X(at)$",
+      "$a\\,M_X(t) + b$",
+      "$M_X(at + b)$",
+      "$e^{at} M_X(bt)$"
+    ],
+    "explanation": "$E(e^{t(aX+b)}) = e^{bt}E(e^{(at)X}) = e^{bt}M_X(at)$. Skaleringen går inn i argumentet, forskyvningen som faktor foran."
+  },
+  {
+    "question": "Hva er MGF-en til $\\chi^2_n$?",
+    "options": [
+      "$(1 - 2t)^{-n/2}$ for $t < 1/2$",
+      "$(1 - 2t)^{-n}$ for $t < 1/2$",
+      "$(1 - t)^{-n/2}$ for $t < 1$",
+      "$e^{n(e^t-1)}$ for alle $t$"
+    ],
+    "explanation": "Siden $\\chi^2_n = \\text{gamma}(n/2, 2)$, er MGF-en $(1-2t)^{-n/2}$ med krav $t < 1/2$."
+  },
+  {
+    "question": "Hva er den vanligste feilen når man finner fordelingen til en sum via MGF?",
+    "options": [
+      "Å addere MGF-ene i stedet for å multiplisere dem",
+      "Å multiplisere MGF-ene i stedet for å addere dem",
+      "Å derivere MGF-en før man summerer",
+      "Å sette $t = 1$ i stedet for $t = 0$"
+    ],
+    "explanation": "For uavhengige ledd multipliseres MGF-ene. Å addere dem er den klassiske feilen (det er kumulantene som adderes)."
+  },
+  {
+    "question": "For Poisson$(\\lambda)$ gjelder for forventning og varians at:",
+    "options": [
+      "begge er lik $\\lambda$",
+      "$E(X) = \\lambda$ og $\\text{Var}(X) = \\lambda^2$",
+      "$E(X) = \\lambda^2$ og $\\text{Var}(X) = \\lambda$",
+      "$E(X) = \\lambda$ og $\\text{Var}(X) = \\sqrt\\lambda$"
+    ],
+    "explanation": "MGF-utledningen gir $M'(0)=\\lambda$ og $M''(0)-\\lambda^2=\\lambda$, så både forventning og varians er $\\lambda$ — Poisson-signaturen."
+  },
+  {
+    "question": "Hva er MGF-en til en eksponensialfordeling i forventningsform ($\\alpha=1$, skala $\\mu$)?",
+    "options": [
+      "$(1 - \\mu t)^{-1}$ for $t < 1/\\mu$",
+      "$(1 - \\mu t)^{-\\mu}$ for $t < 1/\\mu$",
+      "$e^{\\mu(e^t - 1)}$ for alle $t$",
+      "$e^{\\mu t}$ for alle $t$"
+    ],
+    "explanation": "Eksponensial er gamma med $\\alpha=1$, skala $\\mu$: MGF $(1-\\mu t)^{-1}$, krav $t < 1/\\mu$."
+  }
+]
