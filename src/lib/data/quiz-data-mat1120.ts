@@ -2406,7 +2406,7 @@ const quizData_mat1120: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Rangen til A leses av SVD-en som",
-      options: ["antallet singulærverdier σᵢ som er strengt større enn 0", "summen av alle singulærverdiene til matrisen A samlet", "den største singulærverdien σ₁ i dekomposisjonen dens", "antallet rader i matrisen Σ som ikke er lik nullraden"],
+      options: ["antallet singulærverdier σᵢ som er strengt større enn 0", "summen av alle singulærverdiene til matrisen A samlet", "den største singulærverdien σ₁ i dekomposisjonen dens", "differansen m−n mellom antall rader og antall søyler i A"],
       explanation: "rang A = #{σᵢ>0}. Nullsingulærverdier svarer til retninger A kollapser og teller ikke; sum eller σ₁ gir ikke rangen.",
     },
     {
@@ -2731,7 +2731,7 @@ const quizData_mat1120: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Når AᵀA har egenverdiene 16 og 4, er singulærverdiene til A",
-      options: ["4 og 2, altså kvadratrøttene ordnet synkende", "16 og 4, altså egenverdiene brukt direkte", "8 og 2, altså egenverdiene delt på en faktor to", "2 og 4, altså kvadratrøttene ordnet stigende"],
+      options: ["4 og 2, altså kvadratrøttene ordnet synkende", "16 og 4, altså egenverdiene brukt direkte", "8 og 2, altså egenverdiene delt på en faktor to", "$\\sqrt{12}$ og $\\sqrt{2}$, altså røttene av egenverdiene minus 4"],
       explanation: "σᵢ = √(egenverdi til AᵀA), synkende: √16=4 og √4=2. Da er max‖Ax‖ = σ₁ = 4, nådd i første høyre-singulærvektor.",
     },
   ],
