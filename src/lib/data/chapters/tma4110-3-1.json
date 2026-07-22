@@ -1,0 +1,427 @@
+{
+  "id": "tma4110-3-1",
+  "courseId": "tma4110",
+  "chapterNumber": "3.1",
+  "title": "Vektorrom og underrom: ℝⁿ, Pₙ, matriser og funksjonsrom",
+  "description": "Løftet fra ℝⁿ til abstrakte vektorrom: de åtte aksiomene, underrom via de tre betingelsene, og de eksamensviktige familiene — polynomrommet Pₙ, matriserommet og funksjonsrom. Grunnmuren under 82 %-søylen.",
+  "estimatedMinutes": 55,
+  "competenceGoals": [
+    "avgjøre om en mengde er et vektorrom, med de eksamensviktige familiene Pₙ, matriserommet og funksjonsrom",
+    "føre et fullstendig underrom-bevis via de tre betingelsene (0 ∈ W, lukket under addisjon og skalarmultiplikasjon)",
+    "regne dimensjonen til underrom i Pₙ og matriserom, og kjenne at dim Pₙ = n+1"
+  ],
+  "content": [
+    {
+      "id": "tma4110-3-1-tip-eksamensvinkel",
+      "type": "tip",
+      "title": "Eksamensvinkel",
+      "content": "**Dette er grunnmuren under 82 %-søylen** — nesten hvert sett har en oppgave i et vektorrom som *ikke* er $\\mathbb R^n$, eller ber deg verifisere at en mengde er et underrom.\n\n- **Underrom-verifisering (sjanger D)** går igjen: «vis at $W$ er et underrom av $V$». Sensor krever at du sjekker **alle de tre betingelsene** eksplisitt — å hoppe over én (typisk $\\mathbf 0\\in W$) er den dyreste og vanligste fellen.\n- **Abstrakte rom** — polynomrommet $\\operatorname{P}_n$, matriserommet og funksjonsrom — testes fordi de tvinger deg til å tenke på vektorer som *objekter du kan addere og skalere*, ikke bare tallkolonner.\n\nMålet med kapitlet er at du trygt kan (1) kjenne igjen når en mengde er et vektorrom, (2) føre et fullstendig underrom-bevis, og (3) regne dimensjon i $\\operatorname{P}_n$ og matriserom. Det åpner nesten hver «abstrakt» deloppgave riktig."
+    },
+    {
+      "id": "tma4110-3-1-forkunnskaper",
+      "type": "text",
+      "content": "**Forkunnskaper:** Dette kapitlet bygger på radreduksjon og homogene system fra [kap. 1.1](/bok/tma4110/tma4110-1-1) og løsningsmengdene i [kap. 1.2](/bok/tma4110/tma4110-1-2) (du gjenkjenner nullrommet som «den homogene delen»). Det konkrete vektorbegrepet — pilene du kan addere og skalere — kjenner du fra [Vektorer i tre dimensjoner](/bok/r2/r2-5-1), og polynomer og grad fra [Polynomer og polynomdivisjon](/bok/r1/r1-1-1). Kan du regne med vektorer i $\\mathbb R^3$ og med polynomer, er du klar — resten bygger vi opp fra grunnen."
+    },
+    {
+      "id": "tma4110-3-1-motivasjon",
+      "type": "text",
+      "content": "## Hvorfor abstrakte vektorrom?\n\nDu har regnet med vektorer i $\\mathbb R^2$ og $\\mathbb R^3$ — piler du kan legge sammen og gange med et tall. Men de *samme regnereglene* gjelder for helt andre objekter: polynomer kan legges sammen og skaleres, det samme kan matriser og funksjoner. I stedet for å bevise alt på nytt for hvert slag objekt, samler vi reglene i én pakke — et **vektorrom** — og beviser én gang for alle.\n\nGevinsten på eksamen er konkret: når du forstår at $\\operatorname{P}_2$ (andregradspolynomer) «er» $\\mathbb R^3$ i forkledning, kan du bruke radreduksjon på polynomoppgaver. Kapitlet har to løkker: først **hva et vektorrom er** (med de eksamensviktige familiene $\\operatorname{P}_n$, matriser og funksjoner), så **underrom** — de tre betingelsene og bevismalen sensor forventer."
+    },
+    {
+      "id": "tma4110-3-1-lokke1",
+      "type": "text",
+      "content": "## Løkke 1 — Hva er et vektorrom (~20 min)"
+    },
+    {
+      "id": "tma4110-3-1-vr-intro",
+      "type": "text",
+      "content": "Et vektorrom er rett og slett en mengde objekter du kan **addere** og **gange med tall (skalarer)**, slik at de vanlige regnereglene holder. «Vektor» betyr her et hvilket som helst element i et slikt rom — ikke nødvendigvis en pil. Vi jobber gjennomgående med reelle skalarer ($\\mathbb R$)."
+    },
+    {
+      "id": "tma4110-3-1-def-vektorrom",
+      "type": "definition",
+      "title": "Vektorrom",
+      "content": "Et **vektorrom** er en mengde $V$ av objekter (kalt vektorer) med en addisjon og en skalarmultiplikasjon, slik at summen $\\mathbf u+\\mathbf v$ og produktet $c\\mathbf u$ igjen ligger i $V$, og de åtte regnereglene (aksiomene) under holder for alle $\\mathbf u,\\mathbf v,\\mathbf w\\in V$ og alle skalarer $c,d\\in\\mathbb R$. Kort: et rom der du kan regne med $+$ og skalar akkurat som i $\\mathbb R^n$."
+    },
+    {
+      "id": "tma4110-3-1-def-aksiomer",
+      "type": "definition",
+      "title": "Vektorromsaksiomene (de åtte)",
+      "content": "Reglene et vektorrom må oppfylle — de du allerede bruker i $\\mathbb R^n$:\n\n1. $\\mathbf u+\\mathbf v=\\mathbf v+\\mathbf u$ (kommutativ)\n2. $(\\mathbf u+\\mathbf v)+\\mathbf w=\\mathbf u+(\\mathbf v+\\mathbf w)$ (assosiativ)\n3. det finnes en **nullvektor** $\\mathbf 0$ med $\\mathbf v+\\mathbf 0=\\mathbf v$\n4. hver $\\mathbf v$ har en **motvektor** $-\\mathbf v$ med $\\mathbf v+(-\\mathbf v)=\\mathbf 0$\n5. $c(\\mathbf u+\\mathbf v)=c\\mathbf u+c\\mathbf v$\n6. $(c+d)\\mathbf u=c\\mathbf u+d\\mathbf u$\n7. $c(d\\mathbf u)=(cd)\\mathbf u$\n8. $1\\mathbf u=\\mathbf u$\n\nDu trenger sjelden å sjekke alle åtte på eksamen — de arves gratis når $V$ er et **underrom** av et rom du allerede kjenner (se løkke 2)."
+    },
+    {
+      "id": "tma4110-3-1-familier-intro",
+      "type": "text",
+      "content": "De tre familiene som går igjen på eksamen er polynomrommet, matriserommet og funksjonsrom. Merk dem godt — en «abstrakt» oppgave lever nesten alltid i ett av dem."
+    },
+    {
+      "id": "tma4110-3-1-def-Pn",
+      "type": "definition",
+      "title": "Polynomrommet $\\operatorname{P}_n$",
+      "content": "Mengden av alle polynomer av grad **høyst** $n$ (pluss nullpolynomet):\n$$\\operatorname{P}_n=\\{a_0+a_1t+\\dots+a_nt^n:\\ a_i\\in\\mathbb R\\}.$$\nAddisjon og skalering skjer ledd for ledd, og resultatet har fortsatt grad $\\le n$ — så $\\operatorname{P}_n$ er et vektorrom. Nullvektoren er nullpolynomet $0$."
+    },
+    {
+      "id": "tma4110-3-1-def-standardbasis-Pn",
+      "type": "definition",
+      "title": "Standard byggeklosser i $\\operatorname{P}_n$",
+      "content": "Ethvert polynom i $\\operatorname{P}_n$ er en lineærkombinasjon av **potensene** $1,t,t^2,\\dots,t^n$. Disse $n+1$ polynomene er byggeklossene (standardbasisen, formelt definert i [kap. 3.2](/bok/tma4110/tma4110-3-2)), og koeffisientene $(a_0,a_1,\\dots,a_n)$ er «koordinatene» til polynomet. Det er nettopp dette som lar deg gjøre polynomoppgaver om til vanlig tallregning."
+    },
+    {
+      "id": "tma4110-3-1-def-dim-Pn",
+      "type": "definition",
+      "title": "Dimensjonen $\\dim\\operatorname{P}_n=n+1$",
+      "content": "Fordi det trengs $n+1$ byggeklosser ($1,t,\\dots,t^n$) for å lage et vilkårlig polynom av grad $\\le n$, er\n$$\\dim\\operatorname{P}_n=n+1.$$\nHer teller vi **antall byggeklosser** (basisvektorer). Vanligste felle: å tro $\\dim\\operatorname{P}_n=n$. Konkret: $\\dim\\operatorname{P}_2=3$ (byggeklossene $1,t,t^2$), $\\dim\\operatorname{P}_3=4$. Dimensjon behandles grundig i [kap. 3.2](/bok/tma4110/tma4110-3-2); her holder det å telle byggeklosser."
+    },
+    {
+      "id": "tma4110-3-1-def-Mmn",
+      "type": "definition",
+      "title": "Matriserommet $M_{m\\times n}$",
+      "content": "Mengden av alle $m\\times n$-matriser, med vanlig matriseaddisjon og skalering. Det er et vektorrom med nullvektor lik nullmatrisen. Dimensjonen er $mn$ (én byggekloss per posisjon), så f.eks. $\\dim M_{2\\times 2}=4$."
+    },
+    {
+      "id": "tma4110-3-1-def-funksjonsrom",
+      "type": "definition",
+      "title": "Funksjonsrommet $F(\\mathbb R)$",
+      "content": "Mengden av alle reelle funksjoner $f:\\mathbb R\\to\\mathbb R$, der $(f+g)(x)=f(x)+g(x)$ og $(cf)(x)=cf(x)$. Nullvektoren er funksjonen som er $0$ overalt. Dette rommet er **uendelig-dimensjonalt**, men de eksamensviktige eksemplene er *underrom* av det (polynomer, kontinuerlige funksjoner, løsninger av en differensiallikning)."
+    },
+    {
+      "id": "tma4110-3-1-ex1",
+      "type": "example",
+      "title": "Eksempel 1: Er $\\operatorname{P}_2$ et vektorrom?",
+      "problem": "Forklar hvorfor $\\operatorname{P}_2$ (polynomer $a_0+a_1t+a_2t^2$) er lukket under addisjon og skalering, og oppgi nullvektoren og dimensjonen.",
+      "solution": "**Lukket under addisjon:** Legg sammen to slike polynomer: $(a_0+a_1t+a_2t^2)+(b_0+b_1t+b_2t^2)=(a_0+b_0)+(a_1+b_1)t+(a_2+b_2)t^2$. Resultatet har fortsatt grad $\\le 2$, altså ligger det i $\\operatorname{P}_2$.\n\n**Lukket under skalering:** $c(a_0+a_1t+a_2t^2)=ca_0+ca_1t+ca_2t^2\\in\\operatorname{P}_2$.\n\n**Nullvektor:** nullpolynomet $0$ (alle koeffisienter $0$). Regnereglene arves fra vanlig polynomregning.\n\n**Dimensjon:** byggeklossene er $1,t,t^2$ — tre stykker — så $\\dim\\operatorname{P}_2=3$. (Polynomet «er» tallkolonnen $(a_0,a_1,a_2)\\in\\mathbb R^3$.)"
+    },
+    {
+      "id": "tma4110-3-1-e1",
+      "type": "exercise",
+      "exercise": {
+        "id": "tma4110-3-1-e1",
+        "number": "1",
+        "type": "classic",
+        "difficulty": "lett",
+        "task": "(Ren gjengivelse.) Avgjør for hver mengde om det er et vektorrom (med vanlig addisjon og skalering):\n\n**a)** alle $2\\times 2$-matriser,\n**b)** alle polynomer av grad høyst $3$,\n**c)** alle reelle funksjoner $f:\\mathbb R\\to\\mathbb R$.",
+        "solution": "Alle tre **er** vektorrom.\n\n**a)** $M_{2\\times 2}$ — matriser lukket under $+$ og skalering, nullvektor = nullmatrisen; $\\dim=4$.\n**b)** $\\operatorname{P}_3$ — polynomer lukket under $+$ og skalering, nullvektor = nullpolynomet; $\\dim=4$.\n**c)** $F(\\mathbb R)$ — funksjoner adderes/skaleres punktvis, nullvektor = nullfunksjonen (uendelig-dimensjonalt).",
+        "hints": [
+          "Sjekk: kan du addere to objekter og gange med et tall og fortsatt lande i mengden?",
+          "Finn nullvektoren i hvert tilfelle."
+        ]
+      }
+    },
+    {
+      "id": "tma4110-3-1-e2",
+      "type": "exercise",
+      "exercise": {
+        "id": "tma4110-3-1-e2",
+        "number": "2",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "(Sjanger D — byggekloss.) Skriv polynomet $p(t)=5-3t+2t^2$ som en lineærkombinasjon av byggeklossene $1,t,t^2$, og oppgi «koordinatene» $(a_0,a_1,a_2)$. Hva blir $2p(t)$ uttrykt på samme måte?",
+        "solution": "$p(t)=5\\cdot 1+(-3)\\cdot t+2\\cdot t^2$, altså koordinatene $(a_0,a_1,a_2)=(5,-3,2)$.\n\n$2p(t)=10-6t+4t^2$, med koordinater $(10,-6,4)=2\\cdot(5,-3,2)$. Skalering av polynomet svarer nøyaktig til skalering av koordinatkolonnen — det er koblingen til $\\mathbb R^3$.",
+        "hints": [
+          "Koeffisienten foran hver potens er én koordinat.",
+          "Skalering med $2$ ganger hver koeffisient med $2$."
+        ]
+      }
+    },
+    {
+      "id": "tma4110-3-1-lokke2",
+      "type": "text",
+      "content": "## Løkke 2 — Underrom og de tre betingelsene (~25 min)"
+    },
+    {
+      "id": "tma4110-3-1-underrom-intro",
+      "type": "text",
+      "content": "Et **plan gjennom origo** i $\\mathbb R^3$ er selv et lite vektorrom: legger du sammen to piler i planet, blir summen liggende i planet, og skalerer du en pil, blir den værende. Et plan som *ikke* går gjennom origo mangler nullvektoren og er ikke et vektorrom. Denne ideen — et vektorrom «inni» et større — er et **underrom**, og det er akkurat det eksamen ber deg gjenkjenne."
+    },
+    {
+      "id": "tma4110-3-1-def-underrom",
+      "type": "definition",
+      "title": "Underrom",
+      "content": "Et **underrom** $W$ av et vektorrom $V$ er en delmengde $W\\subseteq V$ som selv er et vektorrom med samme addisjon og skalering. Da slipper du å sjekke alle åtte aksiomene — de arves fra $V$. Det holder å sjekke at $W$ «holder seg innenfor seg selv», og det er nettopp de tre betingelsene under."
+    },
+    {
+      "id": "tma4110-3-1-def-tre-betingelser",
+      "type": "definition",
+      "title": "De tre underromsbetingelsene",
+      "content": "En delmengde $W\\subseteq V$ er et underrom **hvis og bare hvis** alle tre holder:\n\n**(1)** Nullvektoren ligger i $W$: $\\mathbf 0\\in W$.\n**(2)** $W$ er lukket under addisjon: hvis $\\mathbf u,\\mathbf v\\in W$, så $\\mathbf u+\\mathbf v\\in W$.\n**(3)** $W$ er lukket under skalarmultiplikasjon: hvis $\\mathbf u\\in W$ og $c\\in\\mathbb R$, så $c\\mathbf u\\in W$.\n\nDette er **bevismalen** for sjanger D. Du må vise alle tre — og betingelse (1) er den som oftest glemmes."
+    },
+    {
+      "id": "tma4110-3-1-def-nullkrav",
+      "type": "definition",
+      "title": "Betingelse (1): $\\mathbf 0\\in W$",
+      "content": "Nullvektoren i $V$ må ligge i $W$. Dette er både et krav og en rask **motprøve**: er $\\mathbf 0\\notin W$, er $W$ *ikke* et underrom, og du er ferdig. Eksempel: $\\{p\\in\\operatorname{P}_2:p(0)=1\\}$ inneholder ikke nullpolynomet (det har $p(0)=0\\ne1$), så det er ikke et underrom."
+    },
+    {
+      "id": "tma4110-3-1-def-lukket-add",
+      "type": "definition",
+      "title": "Betingelse (2): lukket under addisjon",
+      "content": "Tar du to elementer i $W$ og legger dem sammen, må summen fortsatt ligge i $W$. Bevisføring: skriv to generelle elementer i $W$, legg dem sammen, og vis at summen oppfyller den definerende egenskapen til $W$ (f.eks. «$p(1)=0$» eller «$A^{T}=A$»)."
+    },
+    {
+      "id": "tma4110-3-1-def-lukket-skalar",
+      "type": "definition",
+      "title": "Betingelse (3): lukket under skalarmultiplikasjon",
+      "content": "Ganger du et element i $W$ med et vilkårlig tall $c$, må resultatet fortsatt ligge i $W$. Bevisføring: ta et generelt element i $W$, gang med $c$, og vis at produktet oppfyller den definerende egenskapen. Tips: betingelse (2) og (3) kan slås sammen til «lukket under lineærkombinasjon: $c\\mathbf u+d\\mathbf v\\in W$»."
+    },
+    {
+      "id": "tma4110-3-1-ex2",
+      "type": "example",
+      "title": "Eksempel 2: Vis at $W=\\{p\\in\\operatorname{P}_3:p(1)=0\\}$ er et underrom, og finn dimensjonen",
+      "problem": "La $W$ være mengden av polynomer av grad $\\le 3$ med $p(1)=0$. Vis at $W$ er et underrom av $\\operatorname{P}_3$, og bestem $\\dim W$.",
+      "solution": "Vi sjekker de **tre betingelsene**.\n\n**(1) $\\mathbf 0\\in W$:** Nullpolynomet $0$ har $0(1)=0$, så det ligger i $W$. ✓\n\n**(2) Lukket under $+$:** La $p,q\\in W$, altså $p(1)=0$ og $q(1)=0$. Da er $(p+q)(1)=p(1)+q(1)=0+0=0$, så $p+q\\in W$. ✓\n\n**(3) Lukket under skalar:** La $p\\in W$ og $c\\in\\mathbb R$. Da er $(cp)(1)=c\\,p(1)=c\\cdot 0=0$, så $cp\\in W$. ✓\n\nAlle tre holder, så $W$ er et underrom (navngi: **de tre betingelsene**).\n\n**Dimensjon:** Betingelsen $p(1)=0$ er **én** lineær likning på de fire koeffisientene $(a_0,a_1,a_2,a_3)$: $a_0+a_1+a_2+a_3=0$. Én likning fjerner én frihetsgrad, så $\\dim W=4-1=3$. (En konkret beskrivelse: hvert $p\\in W$ har $t=1$ som rot, altså $p(t)=(t-1)q(t)$ med $q\\in\\operatorname{P}_2$ — og $\\operatorname{P}_2$ har dimensjon $3$.)"
+    },
+    {
+      "id": "tma4110-3-1-e3",
+      "type": "exercise",
+      "exercise": {
+        "id": "tma4110-3-1-e3",
+        "number": "3",
+        "type": "classic",
+        "difficulty": "lett",
+        "task": "(Innøving — betingelse (1).) Avgjør *uten* full utregning om $W=\\{p\\in\\operatorname{P}_2:p(0)=2\\}$ kan være et underrom av $\\operatorname{P}_2$. Begrunn.",
+        "solution": "Nei. Nullpolynomet $0$ har $0(0)=0\\ne 2$, så $\\mathbf 0\\notin W$. Betingelse (1) svikter, og da er $W$ **ikke** et underrom — vi trenger ikke sjekke (2) og (3). Regelen: krever definisjonen at en verdi er lik et *tall forskjellig fra 0*, mangler nullvektoren nesten alltid.",
+        "hints": [
+          "Sjekk om nullpolynomet oppfyller kravet.",
+          "Er $\\mathbf 0\\notin W$, er du ferdig — det er ikke et underrom."
+        ]
+      }
+    },
+    {
+      "id": "tma4110-3-1-e4",
+      "type": "exercise",
+      "exercise": {
+        "id": "tma4110-3-1-e4",
+        "number": "4",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "(Sjanger D — underrom i matriserom.) Vis at mengden $W$ av **symmetriske** $2\\times2$-matriser ($A^{T}=A$) er et underrom av $M_{2\\times2}$.",
+        "solution": "**(1)** Nullmatrisen $O$ har $O^{T}=O$, så $O\\in W$. ✓\n\n**(2)** La $A,B\\in W$, altså $A^{T}=A$ og $B^{T}=B$. Da er $(A+B)^{T}=A^{T}+B^{T}=A+B$, så $A+B\\in W$. ✓\n\n**(3)** La $A\\in W$, $c\\in\\mathbb R$. Da er $(cA)^{T}=cA^{T}=cA$, så $cA\\in W$. ✓\n\nAlle tre holder ⇒ $W$ er et underrom. (Til orientering: $\\dim W=3$ — de tre frie posisjonene er de to diagonalelementene og ett av de like off-diagonalelementene.)",
+        "hints": [
+          "Bruk transponeringsreglene $(A+B)^{T}=A^{T}+B^{T}$ og $(cA)^{T}=cA^{T}$ fra kap. 2.1.",
+          "Sjekk at summen og skalarmultiplumet fortsatt oppfyller $X^{T}=X$."
+        ]
+      }
+    },
+    {
+      "id": "tma4110-3-1-def-span",
+      "type": "definition",
+      "title": "Span som underrom",
+      "content": "Mengden av **alle** lineærkombinasjoner av gitte vektorer $\\mathbf v_1,\\dots,\\mathbf v_k$ i $V$,\n$$\\operatorname{Span}\\{\\mathbf v_1,\\dots,\\mathbf v_k\\}=\\{c_1\\mathbf v_1+\\dots+c_k\\mathbf v_k:\\ c_i\\in\\mathbb R\\},$$\ner **alltid** et underrom av $V$. Den inneholder $\\mathbf 0$ (sett alle $c_i=0$) og er lukket under $+$ og skalar. Dette er den vanligste måten å *lage* underrom på."
+    },
+    {
+      "id": "tma4110-3-1-def-trivielle",
+      "type": "definition",
+      "title": "Trivielle underrom",
+      "content": "Hvert vektorrom $V$ har alltid to «gratis» underrom: **nullrommet** $\\{\\mathbf 0\\}$ (bare nullvektoren) og **hele $V$** selv. Alle andre underrom kalles ekte (ikke-trivielle). $\\{\\mathbf 0\\}$ har dimensjon $0$."
+    },
+    {
+      "id": "tma4110-3-1-def-nulA-underrom",
+      "type": "definition",
+      "title": "Løsningsrommet $\\operatorname{Nul}A$ som underrom",
+      "content": "Løsningsmengden til et **homogent** system $A\\mathbf x=\\mathbf 0$ er et underrom av $\\mathbb R^n$ — det kalles nullrommet $\\operatorname{Nul}A$. Det inneholder $\\mathbf 0$, og hvis $A\\mathbf u=\\mathbf 0$ og $A\\mathbf v=\\mathbf 0$, så er $A(c\\mathbf u+d\\mathbf v)=\\mathbf 0$. Løsningsmengden til et **inhomogent** system ($\\mathbf b\\ne\\mathbf 0$) er derimot *ikke* et underrom — den inneholder ikke $\\mathbf 0$. (Utdypes i [kap. 3.3](/bok/tma4110/tma4110-3-3).)"
+    },
+    {
+      "id": "tma4110-3-1-ex3",
+      "type": "example",
+      "title": "Eksempel 3: Hvilke mengder er IKKE underrom?",
+      "problem": "Avgjør for hver mengde om den er et underrom, og hvilken betingelse som eventuelt svikter:\n(i) $W_1=\\{(x,y)\\in\\mathbb R^2:x\\ge 0\\}$, (ii) $W_2=\\{(x,y)\\in\\mathbb R^2:xy=0\\}$, (iii) $W_3=\\{p\\in\\operatorname{P}_2:p(0)=1\\}$.",
+      "solution": "**(i) $W_1$ (første kvadrant + akse):** Inneholder $\\mathbf 0=(0,0)$ ✓ og er lukket under $+$ ✓, men **ikke** under skalar: $(1,0)\\in W_1$, men $(-1)(1,0)=(-1,0)\\notin W_1$ (negativ $x$). Betingelse (3) svikter ⇒ **ikke** underrom.\n\n**(ii) $W_2$ (de to aksene):** Inneholder $\\mathbf 0$ ✓ og er lukket under skalar ✓, men **ikke** under $+$: $(1,0)\\in W_2$ og $(0,1)\\in W_2$, men summen $(1,1)$ har $xy=1\\ne0$, så $(1,1)\\notin W_2$. Betingelse (2) svikter ⇒ **ikke** underrom.\n\n**(iii) $W_3$:** Nullpolynomet har $p(0)=0\\ne1$, så $\\mathbf 0\\notin W_3$. Betingelse (1) svikter ⇒ **ikke** underrom.\n\nMoral: en delmengde kan oppfylle to av tre betingelser og likevel falle — du må sjekke alle tre."
+    },
+    {
+      "id": "tma4110-3-1-def-delmengde-vs-underrom",
+      "type": "definition",
+      "title": "Delmengde vs. underrom",
+      "content": "Enhver mengde vektorer i $V$ er en **delmengde** av $V$, men bare de som består de tre betingelsene er **underrom**. «Delmengde» krever ingenting; «underrom» krever $\\mathbf 0$ og lukkethet. Ikke forveksle de to — en tilfeldig samling piler er sjelden et underrom."
+    },
+    {
+      "id": "tma4110-3-1-def-ikke-null-underrom",
+      "type": "definition",
+      "title": "Hvorfor $\\{p:p(0)=1\\}$ ikke er underrom",
+      "content": "En definerende betingelse som setter en verdi lik et *tall forskjellig fra 0* (som $p(0)=1$, $x+y=3$, $\\operatorname{spor}A=2$) utelukker nesten alltid nullvektoren og gir en mengde som ikke er lukket. Slike «forskjøvne» mengder (affine mengder) er ikke underrom. Er kravet derimot $=0$ ($p(1)=0$, $x+y=0$), er mengden typisk et underrom."
+    },
+    {
+      "id": "tma4110-3-1-warn",
+      "type": "warning",
+      "title": "Typiske feil",
+      "content": "- **Hopper over en av de tre betingelsene** — den dyreste og vanligste fellen. Særlig $\\mathbf 0\\in W$ glemmes. Sensor vil se alle tre eksplisitt sjekket.\n- **Glemmer å sjekke $\\mathbf 0\\in W$** som rask motprøve når kravet er «$=$ et tall $\\ne0$».\n- **Forveksler «delmengde» og «underrom»** — ikke enhver samling vektorer er et underrom.\n- **Behandler $\\operatorname{P}_n$ som om $\\dim=n$** — det er $n+1$ (byggeklossene $1,t,\\dots,t^n$).\n- **Antar at enhver mengde funksjoner/matriser er et vektorrom** uten å sjekke lukkethet.\n- **Sjekker bare ett tallpar** i stedet for *generelle* elementer — et bevis må gjelde alle, ikke ett eksempel."
+    },
+    {
+      "id": "tma4110-3-1-e5",
+      "type": "exercise",
+      "exercise": {
+        "id": "tma4110-3-1-e5",
+        "number": "5",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "(Sjanger D.) Avgjør om $W=\\{(x,y,z)\\in\\mathbb R^3:x+y+z=0\\}$ er et underrom av $\\mathbb R^3$. Hvis ja, finn dimensjonen.",
+        "solution": "**(1)** $(0,0,0)$ har $0+0+0=0$ ⇒ $\\mathbf 0\\in W$. ✓\n**(2)** La $(x_1,y_1,z_1),(x_2,y_2,z_2)\\in W$. Summen $(x_1+x_2,\\dots)$ har koordinatsum $(x_1+y_1+z_1)+(x_2+y_2+z_2)=0+0=0$ ⇒ i $W$. ✓\n**(3)** $c(x,y,z)=(cx,cy,cz)$ har sum $c(x+y+z)=0$ ⇒ i $W$. ✓\n\nAlle tre holder ⇒ **underrom**. Betingelsen $x+y+z=0$ er én likning på tre variabler ⇒ $\\dim W=3-1=2$ (et plan gjennom origo). En beskrivelse: $z=-x-y$, så $(x,y,z)=x(1,0,-1)+y(0,1,-1)$.",
+        "hints": [
+          "Sjekk de tre betingelsene på generelle elementer.",
+          "Dimensjon = antall variabler minus antall (uavhengige) betingelser."
+        ]
+      }
+    },
+    {
+      "id": "tma4110-3-1-e6",
+      "type": "exercise",
+      "exercise": {
+        "id": "tma4110-3-1-e6",
+        "number": "6",
+        "type": "classic",
+        "difficulty": "vanskelig",
+        "task": "(Sjanger D/N — fullstendig underrom-bevis.) La $V=M_{2\\times2}$ og $B=\\begin{bmatrix}1&0\\\\0&2\\end{bmatrix}$. Vis at $W=\\{A\\in M_{2\\times2}:AB=BA\\}$ (matriser som kommuterer med $B$) er et underrom av $M_{2\\times2}$.",
+        "solution": "Vi verifiserer de tre betingelsene med matriseregnereglene fra kap. 2.1.\n\n**(1)** Nullmatrisen: $OB=O=BO$, så $O\\in W$. ✓\n\n**(2)** La $A_1,A_2\\in W$, altså $A_1B=BA_1$ og $A_2B=BA_2$. Da:\n$$(A_1+A_2)B=A_1B+A_2B=BA_1+BA_2=B(A_1+A_2),$$\nså $A_1+A_2\\in W$. ✓ (Brukte distributiv lov.)\n\n**(3)** La $A\\in W$, $c\\in\\mathbb R$. Da $(cA)B=c(AB)=c(BA)=B(cA)$, så $cA\\in W$. ✓\n\nAlle tre holder ⇒ $W$ er et underrom. Konklusjonen hviler på **de tre betingelsene** og distributiviteten $A(B+C)=AB+AC$.",
+        "hints": [
+          "Skriv ut kommuteringsbetingelsen $AB=BA$ for to generelle elementer.",
+          "Bruk distributiv lov: $(A_1+A_2)B=A_1B+A_2B$.",
+          "Nullmatrisen kommuterer med alt."
+        ]
+      }
+    },
+    {
+      "id": "tma4110-3-1-e7",
+      "type": "exercise",
+      "exercise": {
+        "id": "tma4110-3-1-e7",
+        "number": "7",
+        "type": "classic",
+        "difficulty": "vanskelig",
+        "task": "(Sjanger D/N.) Avgjør om $W=\\{p\\in\\operatorname{P}_2:p(1)=p(2)\\}$ er et underrom av $\\operatorname{P}_2$. Hvis ja, finn dimensjonen.",
+        "solution": "**(1)** Nullpolynomet: $0(1)=0=0(2)$ ⇒ $\\mathbf 0\\in W$. ✓\n**(2)** La $p,q\\in W$: $p(1)=p(2)$, $q(1)=q(2)$. Da $(p+q)(1)=p(1)+q(1)=p(2)+q(2)=(p+q)(2)$ ⇒ $p+q\\in W$. ✓\n**(3)** $(cp)(1)=c\\,p(1)=c\\,p(2)=(cp)(2)$ ⇒ $cp\\in W$. ✓\n\n⇒ **underrom**. Betingelsen $p(1)=p(2)$ er én lineær likning på $(a_0,a_1,a_2)$: for $p=a_0+a_1t+a_2t^2$ er $p(1)=a_0+a_1+a_2$ og $p(2)=a_0+2a_1+4a_2$, så kravet blir $a_1+3a_2=0$. Én likning på tre koeffisienter ⇒ $\\dim W=3-1=2$.",
+        "hints": [
+          "Kravet $p(1)=p(2)$ er lineært — bevar det gjennom $+$ og skalar.",
+          "Regn ut $p(1)$ og $p(2)$ for $p=a_0+a_1t+a_2t^2$ og skriv betingelsen som én likning i koeffisientene."
+        ]
+      }
+    },
+    {
+      "id": "tma4110-3-1-begrepsbank",
+      "type": "text",
+      "content": "## Begrepsbank til eksamen\n\nHer er de resterende kjernebegrepene og de vanligste underroms-familiene samlet i kortform for pugging (kode E — intet formelark).\n\n*Begrepsbanken er flashcard-/repetisjonsstoff — det gjentar det du nettopp har lest. Hopp trygt over ved førstegangslesing; tidsanslaget for kapitlet gjelder kjernestoffet.*"
+    },
+    {
+      "id": "tma4110-3-1-bb-linkomb",
+      "type": "definition",
+      "title": "Lineærkombinasjon",
+      "content": "Et uttrykk $c_1\\mathbf v_1+c_2\\mathbf v_2+\\dots+c_k\\mathbf v_k$ med skalarer $c_i\\in\\mathbb R$. Lineærkombinasjoner er «alt du kan bygge» fra vektorene med $+$ og skalar — grunnsteinen bak span, uavhengighet og basis (kap. 3.2)."
+    },
+    {
+      "id": "tma4110-3-1-bb-diagonal",
+      "type": "definition",
+      "title": "Diagonalmatriser (underrom)",
+      "content": "Mengden av $n\\times n$-matriser med bare nuller utenfor hoveddiagonalen er et underrom av $M_{n\\times n}$: nullmatrisen er diagonal, og sum/skalarmultiplum av diagonalmatriser er diagonalt. $\\dim=n$."
+    },
+    {
+      "id": "tma4110-3-1-bb-triangular",
+      "type": "definition",
+      "title": "Øvre triangulære matriser (underrom)",
+      "content": "Mengden av $n\\times n$-matriser med bare nuller *under* hoveddiagonalen er et underrom av $M_{n\\times n}$ — lukket under $+$ og skalar, og inneholder nullmatrisen. For $2\\times2$ er $\\dim=3$."
+    },
+    {
+      "id": "tma4110-3-1-bb-skjev",
+      "type": "definition",
+      "title": "Skjevsymmetriske matriser (underrom)",
+      "content": "Matriser med $A^{T}=-A$ danner et underrom av $M_{n\\times n}$: $(A+B)^{T}=-(A+B)$ og $(cA)^{T}=-cA$, og $O^{T}=-O$. For $2\\times2$ er $\\dim=1$ (bare $\\begin{bmatrix}0&b\\\\-b&0\\end{bmatrix}$)."
+    },
+    {
+      "id": "tma4110-3-1-bb-CR",
+      "type": "definition",
+      "title": "Kontinuerlige funksjoner $C(\\mathbb R)$",
+      "content": "Mengden av alle kontinuerlige funksjoner $\\mathbb R\\to\\mathbb R$ er et underrom av $F(\\mathbb R)$: summen og skalarmultiplumet av kontinuerlige funksjoner er kontinuerlig, og nullfunksjonen er kontinuerlig. Polynomrommene $\\operatorname{P}_n$ er underrom av $C(\\mathbb R)$."
+    },
+    {
+      "id": "tma4110-3-1-bb-ode",
+      "type": "definition",
+      "title": "Løsningsrommet til en homogen ODE (underrom)",
+      "content": "Løsningene av en **homogen lineær** differensiallikning, f.eks. $y''+py'+qy=0$, danner et underrom av funksjonsrommet: er $y_1,y_2$ løsninger, er $c_1y_1+c_2y_2$ også en løsning (superposisjon). Dette møter du igjen i Del 9."
+    },
+    {
+      "id": "tma4110-3-1-bb-grad-n",
+      "type": "definition",
+      "title": "Polynomer av eksakt grad $n$ (IKKE underrom)",
+      "content": "Mengden $\\{p:\\deg p=n\\}$ (polynomer av *nøyaktig* grad $n$) er **ikke** et underrom: den inneholder ikke nullpolynomet, og er ikke lukket under $+$ (f.eks. $t^2$ og $-t^2+t$ har begge grad $2$, men summen $t$ har grad $1$). Bruk $\\operatorname{P}_n$ (grad $\\le n$) når du vil ha et vektorrom."
+    },
+    {
+      "id": "tma4110-3-1-bb-snitt",
+      "type": "definition",
+      "title": "Snitt av underrom",
+      "content": "Snittet $U\\cap W$ av to underrom av $V$ er alltid selv et underrom: begge inneholder $\\mathbf 0$, og en vektor som ligger i begge og lukketheten arves fra hver av dem. (Unionen $U\\cup W$ er derimot sjelden et underrom.)"
+    },
+    {
+      "id": "tma4110-3-1-bb-dimensjon",
+      "type": "definition",
+      "title": "Dimensjon (foreløpig)",
+      "content": "Antallet byggeklosser (basisvektorer) som trengs for å bygge hele rommet — ekvivalent med antall frie parametre i en generell beskrivelse. $\\dim\\{\\mathbf 0\\}=0$, $\\dim\\operatorname{P}_n=n+1$, $\\dim M_{m\\times n}=mn$. Presis definisjon (basis) kommer i [kap. 3.2](/bok/tma4110/tma4110-3-2)."
+    },
+    {
+      "id": "tma4110-3-1-rep",
+      "type": "collapsible",
+      "title": "Repetisjonsoppgaver",
+      "buttonText": "Vis repetisjonsoppgaver",
+      "content": [
+        {
+          "id": "tma4110-3-1-rep-1",
+          "type": "exercise",
+          "exercise": {
+            "id": "tma4110-3-1-eR1",
+            "number": "R1",
+            "type": "classic",
+            "difficulty": "lett",
+            "task": "(Fra kap. 1.2) Skriv løsningen av det homogene systemet med redusert trappeform $\\left[\\begin{array}{ccc}1&0&2\\\\0&1&-3\\\\0&0&0\\end{array}\\right]$ på parameterform, og forklar hvorfor løsningsmengden er et underrom av $\\mathbb R^3$.",
+            "solution": "Med $z=t$ fri: $x=-2t$, $y=3t$, så $(x,y,z)=t(-2,3,1)$, $t\\in\\mathbb R$ — en linje gjennom origo. Den er et underrom fordi den er løsningsmengden til et **homogent** system: den inneholder $\\mathbf 0$ (ved $t=0$) og er lukket under $+$ og skalar. Dette er $\\operatorname{Nul}A$.",
+            "hints": [
+              "Homogent ⇒ ingen konstant, bare retningsvektor.",
+              "Homogene løsningsmengder er alltid underrom."
+            ]
+          }
+        },
+        {
+          "id": "tma4110-3-1-rep-2",
+          "type": "exercise",
+          "exercise": {
+            "id": "tma4110-3-1-eR2",
+            "number": "R2",
+            "type": "classic",
+            "difficulty": "lett",
+            "task": "(Fra kap. 2.1) La $A=\\begin{bmatrix}1&2\\\\3&4\\end{bmatrix}$. Regn ut $A^{T}$ og avgjør om $A$ er symmetrisk.",
+            "solution": "$A^{T}=\\begin{bmatrix}1&3\\\\2&4\\end{bmatrix}$. Siden $A^{T}\\ne A$ (posisjon (1,2): $2\\ne3$), er $A$ **ikke** symmetrisk.",
+            "hints": [
+              "Transponert = speil om hoveddiagonalen.",
+              "Symmetrisk betyr $A^{T}=A$."
+            ]
+          }
+        },
+        {
+          "id": "tma4110-3-1-rep-3",
+          "type": "exercise",
+          "exercise": {
+            "id": "tma4110-3-1-eR3",
+            "number": "R3",
+            "type": "classic",
+            "difficulty": "middels",
+            "task": "(Fra [R1](/bok/r1/r1-1-1)) Faktoriser $p(t)=t^2-3t+2$ og oppgi røttene. Ligger $p$ i mengden $\\{q\\in\\operatorname{P}_2:q(1)=0\\}$?",
+            "solution": "$p(t)=t^2-3t+2=(t-1)(t-2)$, med røtter $t=1$ og $t=2$. Siden $p(1)=0$, ja — $p$ ligger i $\\{q\\in\\operatorname{P}_2:q(1)=0\\}$.",
+            "hints": [
+              "Finn to tall med produkt $2$ og sum $3$.",
+              "Sett $t=1$ inn i $p$."
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": "tma4110-3-1-symbolliste",
+      "type": "collapsible",
+      "title": "Symbol- og formelliste",
+      "buttonText": "Vis symboler og formler",
+      "content": [
+        {
+          "id": "tma4110-3-1-symbolliste-text",
+          "type": "text",
+          "content": "## Symbol- og formelliste\n\n*Oppslagsverk — alt her forklares underveis i kapitlet.*\n\nAlle symboler og skrivemåter som brukes i dette delkapitlet (3.1), samlet på ett sted.\n\n| Symbol | Betydning |\n|---|---|\n| $V,W$ | Vektorrom / underrom |\n| $\\mathbf u,\\mathbf v,\\mathbf w$ | Vektorer (elementer i et vektorrom) |\n| $\\mathbf 0$ | Nullvektoren |\n| $-\\mathbf v$ | Motvektoren til $\\mathbf v$ |\n| $c,d$ | Skalarer (reelle tall) |\n| $\\mathbb R^n$ | Rommet av tallkolonner med $n$ komponenter |\n| $\\operatorname{P}_n$ | Polynomer av grad $\\le n$ |\n| $M_{m\\times n}$ | $m\\times n$-matriser |\n| $F(\\mathbb R)$ | Alle reelle funksjoner $\\mathbb R\\to\\mathbb R$ |\n| $C(\\mathbb R)$ | Kontinuerlige funksjoner $\\mathbb R\\to\\mathbb R$ |\n| $\\operatorname{Span}\\{\\dots\\}$ | Mengden av alle lineærkombinasjoner |\n| $\\operatorname{Nul}A$ | Nullrommet: løsninger av $A\\mathbf x=\\mathbf 0$ |\n| $A^{T}$ | Transponert matrise |\n| $\\dim V$ | Dimensjonen (antall byggeklosser) |\n| $\\subseteq$ | «er en delmengde av» |\n\n**Nøkkelfakta i dette delkapitlet:**\n\n$$W\\text{ underrom }\\Leftrightarrow\\ \\mathbf 0\\in W,\\ \\text{lukket under }+,\\ \\text{lukket under skalar}$$\nDe tre underromsbetingelsene — bevismalen for sjanger D.\n\n$$\\dim\\operatorname{P}_n=n+1,\\qquad \\dim M_{m\\times n}=mn$$\nDimensjonene du må kunne utenat (felle: $\\operatorname{P}_n$ er $n+1$, ikke $n$).\n\n$$\\operatorname{Span}\\{\\mathbf v_1,\\dots,\\mathbf v_k\\}=\\{c_1\\mathbf v_1+\\dots+c_k\\mathbf v_k\\}$$\nEr alltid et underrom.\n\n**Krav lik $0$** (som $p(1)=0$, $x+y+z=0$) gir typisk et underrom; **krav lik et tall $\\ne0$** (som $p(0)=1$) gjør det ikke (mangler $\\mathbf 0$)."
+        }
+      ]
+    }
+  ],
+  "exercises": []
+}

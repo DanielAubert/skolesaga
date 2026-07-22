@@ -1,0 +1,421 @@
+{
+  "id": "tma4110-3-2",
+  "courseId": "tma4110",
+  "chapterNumber": "3.2",
+  "title": "Lineær uavhengighet, span og basis",
+  "description": "Lineær uavhengighet og span i ℝⁿ OG i abstrakte rom (polynomer/matriser), basisbegrepet, og den todelte standarden sensor krever: uavhengighet + riktig antall = dimensjonsargumentet.",
+  "estimatedMinutes": 55,
+  "competenceGoals": [
+    "avgjøre om vektorer i ℝⁿ, Pₙ eller et matriserom er lineært uavhengige med radreduksjon eller koeffisientsammenligning",
+    "avgjøre om en mengde er en basis for et vektorrom, og bruke dimensjonsargumentet til å korte ned beviset",
+    "regne med span og lineærkombinasjoner, og kjenne dimensjonene dim ℝⁿ = n, dim Pₙ = n+1"
+  ],
+  "content": [
+    {
+      "id": "tma4110-3-2-tip-eksamensvinkel",
+      "type": "tip",
+      "title": "Eksamensvinkel",
+      "content": "**Basisbegrepet er selve språket i lineær algebra — og en fast del av 82 %-søylen.**\n\n- **Basis-oppgaver (sjanger D)** kommer nesten hvert sett: «avgjør om mengden er en basis for $V$», ofte i $\\operatorname{P}_n$ eller et matriserom (lineær uavhengighet i abstrakt rom ~18 %).\n- **Sensor krever det todelte argumentet:** en basis er *uavhengig* **og** *utspenner*. I et rom med kjent dimensjon slår **dimensjonsargumentet** de to sammen: har du riktig antall uavhengige vektorer, er du ferdig.\n\nMålet er at du sikkert kan (1) sjekke lineær uavhengighet — i $\\mathbb R^n$ med radreduksjon, i $\\operatorname{P}_n$ med koeffisientsammenligning — og (2) avgjøre om en mengde er en basis med det korteste gyldige argumentet. Den vanligste fellen er å vise bare *én* av de to egenskapene."
+    },
+    {
+      "id": "tma4110-3-2-forkunnskaper",
+      "type": "text",
+      "content": "**Forkunnskaper:** Dette kapitlet bygger på vektorrom og underrom fra [kap. 3.1](/bok/tma4110/tma4110-3-1) (særlig $\\operatorname{P}_n$, matriserom og $\\operatorname{Span}$) og på radreduksjon til trappeform fra [kap. 1.1](/bok/tma4110/tma4110-1-1) — verktøyet vi bruker til å avgjøre uavhengighet i $\\mathbb R^n$. Kjenner du de tre underromsbetingelsene og kan radredusere, er du klar."
+    },
+    {
+      "id": "tma4110-3-2-motivasjon",
+      "type": "text",
+      "content": "## Fra «en haug vektorer» til et koordinatsystem\n\nEt vektorrom kan beskrives med uendelig mange vektorer, men vi vil ha et *minimalt* sett som likevel når alt — akkurat som $x$-, $y$- og $z$-aksen beskriver hele $\\mathbb R^3$ med bare tre retninger. Et slikt minimalt, komplett sett er en **basis**, og det gir rommet et koordinatsystem (kap. 3.4).\n\nTo egenskaper bærer hele kapitlet: at vektorene **utspenner** rommet (når alt) og at de er **lineært uavhengige** (ingen overflødig). Vi bygger i tre løkker: (1) lineærkombinasjon og span, (2) lineær uavhengighet, (3) basis og dimensjonsargumentet."
+    },
+    {
+      "id": "tma4110-3-2-lokke1",
+      "type": "text",
+      "content": "## Løkke 1 — Lineærkombinasjon og span (~15 min)"
+    },
+    {
+      "id": "tma4110-3-2-def-linkomb",
+      "type": "definition",
+      "title": "Lineærkombinasjon",
+      "content": "En **lineærkombinasjon** av vektorene $\\mathbf v_1,\\dots,\\mathbf v_k$ er ethvert uttrykk\n$$c_1\\mathbf v_1+c_2\\mathbf v_2+\\dots+c_k\\mathbf v_k,\\qquad c_i\\in\\mathbb R.$$\nDet er «alt du kan bygge» fra vektorene ved å skalere og legge sammen. Å avgjøre om $\\mathbf b$ er en lineærkombinasjon av $\\mathbf v_1,\\dots,\\mathbf v_k$ i $\\mathbb R^n$ er nøyaktig å avgjøre om systemet $[\\mathbf v_1\\ \\cdots\\ \\mathbf v_k\\mid\\mathbf b]$ er løsbart."
+    },
+    {
+      "id": "tma4110-3-2-def-span",
+      "type": "definition",
+      "title": "Span",
+      "content": "**Spennet** (span) av $\\mathbf v_1,\\dots,\\mathbf v_k$ er mengden av *alle* lineærkombinasjoner:\n$$\\operatorname{Span}\\{\\mathbf v_1,\\dots,\\mathbf v_k\\}=\\{c_1\\mathbf v_1+\\dots+c_k\\mathbf v_k:\\ c_i\\in\\mathbb R\\}.$$\nDet er alltid et underrom (kap. 3.1). $\\operatorname{Span}$ av én vektor er en linje gjennom origo; av to ikke-parallelle vektorer et plan."
+    },
+    {
+      "id": "tma4110-3-2-def-utspenner",
+      "type": "definition",
+      "title": "Utspennende mengde",
+      "content": "Vektorene $\\mathbf v_1,\\dots,\\mathbf v_k$ **utspenner** $V$ dersom $\\operatorname{Span}\\{\\mathbf v_1,\\dots,\\mathbf v_k\\}=V$ — altså hvis *hver* vektor i $V$ kan skrives som en lineærkombinasjon av dem. Da «når» settet hele rommet, men det kan godt inneholde overflødige vektorer."
+    },
+    {
+      "id": "tma4110-3-2-ex1",
+      "type": "example",
+      "title": "Eksempel 1: Ligger vektoren i spennet?",
+      "problem": "Avgjør om $\\mathbf b=(2,3,1)$ ligger i $\\operatorname{Span}\\{(1,1,0),(0,1,1)\\}$, og om $\\mathbf c=(3,3,3)$ gjør det.",
+      "solution": "**$\\mathbf b$:** Løs $a(1,1,0)+b(0,1,1)=(2,3,1)$, altså $(a,\\ a+b,\\ b)=(2,3,1)$. Fra første og tredje komponent: $a=2$, $b=1$; sjekk andre: $a+b=3$ ✓. Så $\\mathbf b=2(1,1,0)+1(0,1,1)$ — **ja**, $\\mathbf b\\in\\operatorname{Span}$.\n\n**$\\mathbf c$:** Løs $(a,a+b,b)=(3,3,3)$: $a=3$, $b=3$, men da $a+b=6\\ne3$ — **motsigelse**. Systemet er inkonsistent, så $\\mathbf c\\notin\\operatorname{Span}$. (Geometrisk: de to vektorene utspenner et plan gjennom origo, og $\\mathbf c$ ligger utenfor det planet.)"
+    },
+    {
+      "id": "tma4110-3-2-e1",
+      "type": "exercise",
+      "exercise": {
+        "id": "tma4110-3-2-e1",
+        "number": "1",
+        "type": "classic",
+        "difficulty": "lett",
+        "task": "(Innøving.) Skriv $\\mathbf b=(5,1)$ som en lineærkombinasjon av $(1,1)$ og $(1,-1)$.",
+        "solution": "Løs $a(1,1)+b(1,-1)=(5,1)$: $a+b=5$ og $a-b=1$. Adder: $2a=6\\Rightarrow a=3$, så $b=2$. Altså $\\mathbf b=3(1,1)+2(1,-1)$. Kontroll: $3(1,1)+2(1,-1)=(3+2,\\,3-2)=(5,1)$ ✓.",
+        "hints": [
+          "Sett opp likningssystemet $a+b=5$, $a-b=1$.",
+          "Adder de to likningene for å eliminere $b$."
+        ]
+      }
+    },
+    {
+      "id": "tma4110-3-2-e2",
+      "type": "exercise",
+      "exercise": {
+        "id": "tma4110-3-2-e2",
+        "number": "2",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "(Sjanger D.) Utspenner $(1,1,0)$ og $(0,1,1)$ hele $\\mathbb R^3$? Begrunn.",
+        "solution": "Nei. To vektorer kan aldri utspenne $\\mathbb R^3$ (som har dimensjon $3$): spennet deres er høyst et plan. Konkret er $(1,0,0)\\notin\\operatorname{Span}\\{(1,1,0),(0,1,1)\\}$ — likningen $a(1,1,0)+b(0,1,1)=(1,0,0)$ gir $a=1$, $b=0$ og $a+b=0$, altså $1=0$, motsigelse. Derfor når de to vektorene ikke hele $\\mathbb R^3$.",
+        "hints": [
+          "Hvor mange vektorer trengs minst for å utspenne $\\mathbb R^3$?",
+          "Finn en konkret vektor systemet ikke kan lage."
+        ]
+      }
+    },
+    {
+      "id": "tma4110-3-2-lokke2",
+      "type": "text",
+      "content": "## Løkke 2 — Lineær uavhengighet (~20 min)"
+    },
+    {
+      "id": "tma4110-3-2-def-uavhengig",
+      "type": "definition",
+      "title": "Lineær uavhengighet",
+      "content": "Vektorene $\\mathbf v_1,\\dots,\\mathbf v_k$ er **lineært uavhengige** dersom den eneste måten å få\n$$c_1\\mathbf v_1+c_2\\mathbf v_2+\\dots+c_k\\mathbf v_k=\\mathbf 0$$\npå, er den trivielle $c_1=c_2=\\dots=c_k=0$. Ingen av vektorene kan da skrives ved hjelp av de andre — settet har «ingen overflødig retning»."
+    },
+    {
+      "id": "tma4110-3-2-def-avhengig",
+      "type": "definition",
+      "title": "Lineær avhengighet",
+      "content": "Vektorene er **lineært avhengige** hvis det finnes en *ikke-triviell* relasjon $c_1\\mathbf v_1+\\dots+c_k\\mathbf v_k=\\mathbf 0$ der minst én $c_i\\ne0$. Da kan minst én vektor uttrykkes som en lineærkombinasjon av de andre — den er «overflødig». En mengde som inneholder $\\mathbf 0$, eller to parallelle vektorer, er alltid avhengig."
+    },
+    {
+      "id": "tma4110-3-2-def-test-Rn",
+      "type": "definition",
+      "title": "Uavhengighetstest i $\\mathbb R^n$ (radreduksjon)",
+      "content": "Sett vektorene som **kolonner** i en matrise $A$ og radreduser. Vektorene er lineært **uavhengige** hvis og bare hvis det er en **pivot i hver kolonne** (ingen frie variabler i $A\\mathbf x=\\mathbf 0$). Mangler en kolonne pivot, er settet avhengig, og den frie variabelen gir en ikke-triviell relasjon."
+    },
+    {
+      "id": "tma4110-3-2-def-test-poly",
+      "type": "definition",
+      "title": "Koeffisientsammenligning (polynomer)",
+      "content": "For polynomer settes lineærkombinasjonen lik nullpolynomet, og du **sammenligner koeffisienter** potens for potens. Det gir et homogent lineært system i $c_i$-ene. Ekvivalent (og raskere): skriv polynomenes koordinater relativt $\\{1,t,\\dots,t^n\\}$ som kolonner og radreduser — uavhengige polynomer ⇔ uavhengige koordinatvektorer."
+    },
+    {
+      "id": "tma4110-3-2-def-wronski",
+      "type": "definition",
+      "title": "Wronski-determinanten (kjennskap)",
+      "content": "For funksjoner $f_1,\\dots,f_k$ kan uavhengighet vises via **Wronski-determinanten** $W(x)=\\det[f_i^{(j-1)}(x)]$ (funksjonene og deres deriverte i en matrise). Er $W(x_0)\\ne0$ for **ett** punkt $x_0$, er funksjonene lineært uavhengige. (Omvendt gjelder ikke generelt.) Dette er kjennskapsstoff — bruk det når objektene er funksjoner, ikke polynomer/vektorer."
+    },
+    {
+      "id": "tma4110-3-2-ex2",
+      "type": "example",
+      "title": "Eksempel 2: Uavhengighet i $\\mathbb R^3$",
+      "problem": "Avgjør om $\\{(1,0,1),(1,1,0),(0,1,1)\\}$ er lineært uavhengige.",
+      "solution": "Sett vektorene som kolonner og radreduser $A=\\begin{bmatrix}1&1&0\\\\0&1&1\\\\1&0&1\\end{bmatrix}$. Trekk rad 1 fra rad 3: $\\begin{bmatrix}1&1&0\\\\0&1&1\\\\0&-1&1\\end{bmatrix}$, så $R_3\\to R_3+R_2$: $\\begin{bmatrix}1&1&0\\\\0&1&1\\\\0&0&2\\end{bmatrix}$. Tre pivoter — én i hver kolonne — så vektorene er **lineært uavhengige**. (Ekvivalent: $\\det A=2\\ne0$.)"
+    },
+    {
+      "id": "tma4110-3-2-ex3",
+      "type": "example",
+      "title": "Eksempel 3: Avhengige polynomer",
+      "problem": "Er $\\{1+t,\\ t+t^2,\\ 1+2t+t^2\\}$ lineært uavhengige i $\\operatorname{P}_2$?",
+      "solution": "Koordinater relativt $\\{1,t,t^2\\}$: $(1,1,0)$, $(0,1,1)$, $(1,2,1)$. Legg merke til at $(1,1,0)+(0,1,1)=(1,2,1)$ — den tredje er summen av de to første. Altså\n$$(1+t)+(t+t^2)-(1+2t+t^2)=0,$$\nen ikke-triviell relasjon (koeffisienter $1,1,-1$). Vektorene er derfor **lineært avhengige** — det tredje polynomet er overflødig."
+    },
+    {
+      "id": "tma4110-3-2-e3",
+      "type": "exercise",
+      "exercise": {
+        "id": "tma4110-3-2-e3",
+        "number": "3",
+        "type": "classic",
+        "difficulty": "lett",
+        "task": "(Innøving.) Er $(1,2)$ og $(3,6)$ lineært uavhengige i $\\mathbb R^2$?",
+        "solution": "Nei. $(3,6)=3(1,2)$, så de er parallelle: $3(1,2)-1(3,6)=\\mathbf 0$ er en ikke-triviell relasjon. To vektorer er uavhengige hvis og bare hvis de *ikke* er parallelle — her er de det, så de er **avhengige**.",
+        "hints": [
+          "Er den ene et multiplum av den andre?",
+          "To parallelle vektorer er alltid avhengige."
+        ]
+      }
+    },
+    {
+      "id": "tma4110-3-2-e4",
+      "type": "exercise",
+      "exercise": {
+        "id": "tma4110-3-2-e4",
+        "number": "4",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "(Sjanger D — uavhengighet av polynomer.) Avgjør om $\\{1+t^2,\\ t+t^2,\\ 1+t\\}$ er lineært uavhengige i $\\operatorname{P}_2$.",
+        "solution": "Koordinater relativt $\\{1,t,t^2\\}$: $(1,0,1)$, $(0,1,1)$, $(1,1,0)$. Sett som kolonner og regn determinanten (eller radreduser):\n$$\\det\\begin{bmatrix}1&0&1\\\\0&1&1\\\\1&1&0\\end{bmatrix}=1(0-1)-0+1(0-1)=-2\\ne0.$$\nDeterminanten er ulik null ⇒ pivot i hver kolonne ⇒ polynomene er **lineært uavhengige**.",
+        "hints": [
+          "Skriv koordinatvektorene relativt $\\{1,t,t^2\\}$.",
+          "Uavhengige ⇔ determinanten av koordinatmatrisen er $\\ne0$."
+        ]
+      }
+    },
+    {
+      "id": "tma4110-3-2-e5",
+      "type": "exercise",
+      "exercise": {
+        "id": "tma4110-3-2-e5",
+        "number": "5",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "(Sjanger D.) Finn en ikke-triviell relasjon mellom $(1,2,-1)$, $(2,1,3)$ og $(4,5,1)$, og konkluder om uavhengighet.",
+        "solution": "Prøv $c_1(1,2,-1)+c_2(2,1,3)=(4,5,1)$: fra komponentene $c_1+2c_2=4$, $2c_1+c_2=5$, $-c_1+3c_2=1$. De to første gir $c_1=2$, $c_2=1$; sjekk tredje: $-2+3=1$ ✓. Altså $2(1,2,-1)+1(2,1,3)=(4,5,1)$, dvs.\n$$2(1,2,-1)+1(2,1,3)-1(4,5,1)=\\mathbf 0.$$\nEn ikke-triviell relasjon (koeffisienter $2,1,-1$) ⇒ vektorene er **lineært avhengige**.",
+        "hints": [
+          "Prøv å skrive den tredje vektoren som en kombinasjon av de to første.",
+          "En løsning $\\ne0$ av kombinasjonen $=\\mathbf 0$ betyr avhengighet."
+        ]
+      }
+    },
+    {
+      "id": "tma4110-3-2-lokke3",
+      "type": "text",
+      "content": "## Løkke 3 — Basis og dimensjonsargumentet (~20 min)"
+    },
+    {
+      "id": "tma4110-3-2-def-basis",
+      "type": "definition",
+      "title": "Basis",
+      "content": "En **basis** for et vektorrom $V$ er en mengde vektorer som er **(1) lineært uavhengig** og **(2) utspenner $V$**. En basis er dermed et minimalt utspennende sett — nok vektorer til å nå alt, men ingen overflødige. Standardbasisen for $\\mathbb R^n$ er $\\{\\mathbf e_1,\\dots,\\mathbf e_n\\}$, og for $\\operatorname{P}_n$ er den $\\{1,t,\\dots,t^n\\}$."
+    },
+    {
+      "id": "tma4110-3-2-def-dimensjon",
+      "type": "definition",
+      "title": "Dimensjon",
+      "content": "**Dimensjonen** $\\dim V$ er antallet vektorer i en basis for $V$ — et tall som er det samme for enhver basis. $\\dim\\mathbb R^n=n$, $\\dim\\operatorname{P}_n=n+1$, $\\dim M_{m\\times n}=mn$, $\\dim\\{\\mathbf 0\\}=0$. Dimensjonen forteller hvor mange «frie retninger» rommet har."
+    },
+    {
+      "id": "tma4110-3-2-def-dimargument",
+      "type": "definition",
+      "title": "Dimensjonsargumentet",
+      "content": "I et rom $V$ med kjent dimensjon $\\dim V=n$ gjelder snarveien: **$n$ lineært uavhengige vektorer i $V$ er automatisk en basis** (de utspenner da nødvendigvis $V$). Like fullt: **$n$ utspennende vektorer er automatisk uavhengige.** Så når du allerede vet at antallet stemmer med dimensjonen, trenger du bare sjekke *én* av de to egenskapene. Sensor forventer at du navngir dette argumentet."
+    },
+    {
+      "id": "tma4110-3-2-ex4",
+      "type": "example",
+      "title": "Eksempel 4: Er mengden en basis for $\\operatorname{P}_2$?",
+      "problem": "Avgjør om $\\{1+t,\\ t+t^2,\\ 1+t^2\\}$ er en basis for $\\operatorname{P}_2$.",
+      "solution": "$\\operatorname{P}_2$ har dimensjon $3$, og vi har $3$ polynomer — antallet stemmer, så vi bruker **dimensjonsargumentet**: det holder å vise lineær uavhengighet.\n\nKoordinater relativt $\\{1,t,t^2\\}$: $(1,1,0)$, $(0,1,1)$, $(1,0,1)$. Determinanten av koordinatmatrisen:\n$$\\det\\begin{bmatrix}1&0&1\\\\1&1&0\\\\0&1&1\\end{bmatrix}=1(1-0)-0+1(1-0)=2\\ne0.$$\nPivot i hver kolonne ⇒ de tre polynomene er lineært uavhengige. Tre uavhengige vektorer i et $3$-dimensjonalt rom er en basis (dimensjonsargumentet). Altså: **ja**, en basis for $\\operatorname{P}_2$."
+    },
+    {
+      "id": "tma4110-3-2-e6",
+      "type": "exercise",
+      "exercise": {
+        "id": "tma4110-3-2-e6",
+        "number": "6",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "(Sjanger D — basis via dimensjonsargument.) Er $\\{1,\\ 1+t,\\ 1+t+t^2\\}$ en basis for $\\operatorname{P}_2$?",
+        "solution": "Tre polynomer i det $3$-dimensjonale $\\operatorname{P}_2$ — bruk dimensjonsargumentet og sjekk uavhengighet. Koordinater: $(1,0,0)$, $(1,1,0)$, $(1,1,1)$. Koordinatmatrisen er øvre triangulær med enere på diagonalen, så $\\det=1\\ne0$ ⇒ uavhengige. Tre uavhengige vektorer i et $3$-dim rom ⇒ **basis** for $\\operatorname{P}_2$.",
+        "hints": [
+          "Antallet ($3$) stemmer med $\\dim\\operatorname{P}_2$ — sjekk bare uavhengighet.",
+          "Koordinatmatrisen er triangulær; les determinanten av diagonalen."
+        ]
+      }
+    },
+    {
+      "id": "tma4110-3-2-e7",
+      "type": "exercise",
+      "exercise": {
+        "id": "tma4110-3-2-e7",
+        "number": "7",
+        "type": "classic",
+        "difficulty": "vanskelig",
+        "task": "(Sjanger D — full basis-vurdering.) Avgjør om $\\{(1,2,3),(0,1,4),(0,0,5)\\}$ er en basis for $\\mathbb R^3$, og forklar hvorfor du ikke trenger å sjekke både uavhengighet og utspenning.",
+        "solution": "Tre vektorer i $\\mathbb R^3$ (dim $3$) — dimensjonsargumentet gjelder, så det holder å sjekke *én* egenskap. Sett vektorene som kolonner: matrisen $\\begin{bmatrix}1&0&0\\\\2&1&0\\\\3&4&5\\end{bmatrix}$ er nedre triangulær med diagonal $1,1,5$, så $\\det=1\\cdot1\\cdot5=5\\ne0$. Pivot i hver kolonne ⇒ lineært uavhengige. Fordi $\\dim\\mathbb R^3=3$ og vi har $3$ uavhengige vektorer, **utspenner de automatisk** $\\mathbb R^3$ — så mengden er en **basis**. Det er nettopp dimensjonsargumentet som sparer oss den andre sjekken.",
+        "hints": [
+          "Tell vektorene mot $\\dim\\mathbb R^3$.",
+          "Triangulær matrise ⇒ determinant = produkt av diagonalen.",
+          "Uavhengig + riktig antall ⇒ utspenner automatisk."
+        ]
+      }
+    },
+    {
+      "id": "tma4110-3-2-warn",
+      "type": "warning",
+      "title": "Typiske feil",
+      "content": "- **Glemmer dimensjonsargumentet** — viser bare uavhengighet ELLER bare utspenning, når begge (eller riktig antall + én av dem) kreves for basis.\n- **Regner uavhengighet av polynomer feil** — husk å sammenligne koeffisienter potens for potens, eller bruk koordinatvektorene.\n- **Teller dimensjonen feil** — $\\dim\\operatorname{P}_n=n+1$, ikke $n$.\n- **Oppgir en avhengig mengde som basis** — sjekk alltid at determinanten (eller pivotmønsteret) faktisk gir uavhengighet.\n- **Bruker dimensjonsargumentet med feil antall** — snarveien gjelder bare når antallet vektorer er *nøyaktig* $\\dim V$. Har du for få eller for mange, må du argumentere fullt.\n- **Forveksler «utspenner» og «uavhengig»** — utspenner = når alt; uavhengig = ingen overflødig."
+    },
+    {
+      "id": "tma4110-3-2-begrepsbank",
+      "type": "text",
+      "content": "## Begrepsbank til eksamen\n\nKjernebegrepene fra kapitlet samlet i kortform for pugging (kode E).\n\n*Begrepsbanken er flashcard-/repetisjonsstoff — det gjentar det du nettopp har lest. Hopp trygt over ved førstegangslesing; tidsanslaget for kapitlet gjelder kjernestoffet.*"
+    },
+    {
+      "id": "tma4110-3-2-bb-std-Rn",
+      "type": "definition",
+      "title": "Standardbasis for $\\mathbb R^n$",
+      "content": "Mengden $\\{\\mathbf e_1,\\dots,\\mathbf e_n\\}$ der $\\mathbf e_i$ har $1$ i posisjon $i$ og $0$ ellers. Den er den enkleste basisen for $\\mathbb R^n$: koordinatene til en vektor relativt standardbasisen er rett og slett komponentene."
+    },
+    {
+      "id": "tma4110-3-2-bb-std-Pn",
+      "type": "definition",
+      "title": "Standardbasis for $\\operatorname{P}_n$",
+      "content": "Potensene $\\{1,t,t^2,\\dots,t^n\\}$ — $n+1$ polynomer som er uavhengige (ulik grad) og utspenner alle polynomer av grad $\\le n$. Koordinatene til $a_0+a_1t+\\dots+a_nt^n$ relativt denne basisen er $(a_0,a_1,\\dots,a_n)$."
+    },
+    {
+      "id": "tma4110-3-2-bb-std-M",
+      "type": "definition",
+      "title": "Standardbasis for matriserommet",
+      "content": "For $M_{2\\times2}$ er standardbasisen de fire matrisene $E_{11},E_{12},E_{21},E_{22}$ med ett $1$-tall i én posisjon og $0$ ellers. Enhver $2\\times2$-matrise er en lineærkombinasjon av dem, så $\\dim M_{2\\times2}=4$."
+    },
+    {
+      "id": "tma4110-3-2-bb-entydig",
+      "type": "definition",
+      "title": "Entydig fremstilling i en basis",
+      "content": "Er $\\{\\mathbf b_1,\\dots,\\mathbf b_n\\}$ en basis, kan hver vektor $\\mathbf x$ skrives på **nøyaktig én** måte som $\\mathbf x=c_1\\mathbf b_1+\\dots+c_n\\mathbf b_n$. Nettopp entydigheten (som følger av uavhengighet) gjør at koordinatene $[\\mathbf x]_{\\mathcal B}=(c_1,\\dots,c_n)$ er veldefinerte (kap. 3.4)."
+    },
+    {
+      "id": "tma4110-3-2-bb-koord-uavh",
+      "type": "definition",
+      "title": "Koordinat-uavhengighet (bro til 3.4)",
+      "content": "Vektorer $\\mathbf w_1,\\dots,\\mathbf w_k$ i et abstrakt rom $V$ er lineært uavhengige **hvis og bare hvis** koordinatvektorene deres (relativt en fast basis) er uavhengige i $\\mathbb R^n$. Dette er grunnen til at polynom- og matrisespørsmål kan avgjøres med radreduksjon i $\\mathbb R^n$."
+    },
+    {
+      "id": "tma4110-3-2-bb-nullvektor-avh",
+      "type": "definition",
+      "title": "Nullvektor gjør mengden avhengig",
+      "content": "Enhver mengde som inneholder nullvektoren $\\mathbf 0$ er lineært avhengig: relasjonen $1\\cdot\\mathbf 0+0\\cdot\\mathbf v_2+\\dots=\\mathbf 0$ er ikke-triviell (koeffisienten foran $\\mathbf 0$ er $1\\ne0$). En basis kan derfor aldri inneholde $\\mathbf 0$."
+    },
+    {
+      "id": "tma4110-3-2-bb-to-parallelle",
+      "type": "definition",
+      "title": "To vektorer: uavhengige ⇔ ikke parallelle",
+      "content": "To vektorer $\\mathbf u,\\mathbf v$ er lineært uavhengige hvis og bare hvis ingen av dem er et skalarmultiplum av den andre (de er ikke parallelle). Er $\\mathbf v=c\\mathbf u$, er $\\mathbf v-c\\mathbf u=\\mathbf 0$ en ikke-triviell relasjon."
+    },
+    {
+      "id": "tma4110-3-2-bb-for-mange",
+      "type": "definition",
+      "title": "For mange vektorer ⇒ avhengig",
+      "content": "Mer enn $\\dim V$ vektorer i $V$ er **alltid** lineært avhengige. F.eks. er fire vektorer i $\\mathbb R^3$ garantert avhengige, og fire polynomer i $\\operatorname{P}_2$ (dim $3$) likeså — uansett hvilke."
+    },
+    {
+      "id": "tma4110-3-2-bb-for-fa",
+      "type": "definition",
+      "title": "For få vektorer ⇒ utspenner ikke",
+      "content": "Færre enn $\\dim V$ vektorer kan **aldri** utspenne $V$. To vektorer utspenner ikke $\\mathbb R^3$, og tre polynomer utspenner ikke $\\operatorname{P}_3$ (dim $4$). En basis må ha nøyaktig $\\dim V$ vektorer."
+    },
+    {
+      "id": "tma4110-3-2-bb-basis-underrom",
+      "type": "definition",
+      "title": "Basis for et underrom",
+      "content": "Et underrom $W$ har sin egen dimensjon og basis. F.eks. har planet $\\{(x,y,z):x+y+z=0\\}$ (dim $2$) basisen $\\{(1,0,-1),(0,1,-1)\\}$. En basis for $W$ trenger ikke være en del av en basis for hele rommet, men kan alltid utvides til én."
+    },
+    {
+      "id": "tma4110-3-2-bb-maksimal",
+      "type": "definition",
+      "title": "Maksimal uavhengig / minimal utspennende",
+      "content": "En basis kan beskrives på to ekvivalente måter: som en **maksimal** lineært uavhengig mengde (kan ikke utvides uten å bli avhengig) eller som en **minimal** utspennende mengde (kan ikke trimmes uten å slutte å nå alt). Begge landet er nøyaktig $\\dim V$ vektorer."
+    },
+    {
+      "id": "tma4110-3-2-bb-trim-utvid",
+      "type": "definition",
+      "title": "Trimme eller utvide til en basis",
+      "content": "Har du for **mange** vektorer (utspenner, men avhengige), kan du fjerne overflødige til du sitter igjen med en basis. Har du for **få** uavhengige, kan du legge til vektorer utenfor spennet til du utspenner. Begge veier ender på $\\dim V$ vektorer."
+    },
+    {
+      "id": "tma4110-3-2-bb-triviell-relasjon",
+      "type": "definition",
+      "title": "Triviell vs. ikke-triviell relasjon",
+      "content": "Relasjonen $c_1\\mathbf v_1+\\dots+c_k\\mathbf v_k=\\mathbf 0$ har alltid den **trivielle** løsningen (alle $c_i=0$). En **ikke-triviell** løsning har minst én $c_i\\ne0$. Uavhengighet = kun den trivielle finnes; avhengighet = det finnes en ikke-triviell relasjon."
+    },
+    {
+      "id": "tma4110-3-2-bb-avhengig-geom",
+      "type": "definition",
+      "title": "Avhengig = én vektor er overflødig",
+      "content": "At $\\mathbf v_1,\\dots,\\mathbf v_k$ er avhengige betyr geometrisk at minst én av dem allerede ligger i spennet av de øvrige — den tilfører ingen ny retning. Fjerner du en slik overflødig vektor, endres ikke $\\operatorname{Span}$."
+    },
+    {
+      "id": "tma4110-3-2-bb-rang-uavh",
+      "type": "definition",
+      "title": "Uavhengighet og rang",
+      "content": "For en matrise $A$ hvis kolonner er $\\mathbf v_1,\\dots,\\mathbf v_k$ gjelder: vektorene er uavhengige ⇔ $\\operatorname{rang}A=k$ (pivot i hver kolonne). Rangen teller altså hvor mange av vektorene som er uavhengige — koblingen til Col/Nul og rang i [kap. 3.3](/bok/tma4110/tma4110-3-3)."
+    },
+    {
+      "id": "tma4110-3-2-rep",
+      "type": "collapsible",
+      "title": "Repetisjonsoppgaver",
+      "buttonText": "Vis repetisjonsoppgaver",
+      "content": [
+        {
+          "id": "tma4110-3-2-rep-1",
+          "type": "exercise",
+          "exercise": {
+            "id": "tma4110-3-2-eR1",
+            "number": "R1",
+            "type": "classic",
+            "difficulty": "lett",
+            "task": "(Fra kap. 3.1) Er $\\operatorname{Span}\\{(1,1,0),(0,1,1)\\}$ et underrom av $\\mathbb R^3$? Begrunn i én setning.",
+            "solution": "Ja — et span er alltid et underrom: det inneholder $\\mathbf 0$ (alle koeffisienter $0$) og er lukket under addisjon og skalering.",
+            "hints": [
+              "Hva gjelder for alle span?"
+            ]
+          }
+        },
+        {
+          "id": "tma4110-3-2-rep-2",
+          "type": "exercise",
+          "exercise": {
+            "id": "tma4110-3-2-eR2",
+            "number": "R2",
+            "type": "classic",
+            "difficulty": "lett",
+            "task": "(Fra kap. 3.1) Hva er $\\dim\\operatorname{P}_3$ og $\\dim M_{2\\times2}$?",
+            "solution": "$\\dim\\operatorname{P}_3=4$ (byggeklossene $1,t,t^2,t^3$) og $\\dim M_{2\\times2}=4$ (fire posisjoner).",
+            "hints": [
+              "Tell byggeklossene i hvert rom."
+            ]
+          }
+        },
+        {
+          "id": "tma4110-3-2-rep-3",
+          "type": "exercise",
+          "exercise": {
+            "id": "tma4110-3-2-eR3",
+            "number": "R3",
+            "type": "classic",
+            "difficulty": "middels",
+            "task": "(Fra kap. 1.1) Radreduser $\\begin{bmatrix}1&2&1\\\\1&3&2\\\\0&1&1\\end{bmatrix}$ og oppgi antall pivoter.",
+            "solution": "$R_2\\to R_2-R_1$ gir $\\begin{bmatrix}1&2&1\\\\0&1&1\\\\0&1&1\\end{bmatrix}$, så $R_3\\to R_3-R_2$ gir $\\begin{bmatrix}1&2&1\\\\0&1&1\\\\0&0&0\\end{bmatrix}$. **To** pivoter (kolonne 1 og 2); kolonne 3 er fri. Kolonnene er altså lineært avhengige.",
+            "hints": [
+              "Elimer under den første pivoten, så under den andre."
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": "tma4110-3-2-symbolliste",
+      "type": "collapsible",
+      "title": "Symbol- og formelliste",
+      "buttonText": "Vis symboler og formler",
+      "content": [
+        {
+          "id": "tma4110-3-2-symbolliste-text",
+          "type": "text",
+          "content": "## Symbol- og formelliste\n\n*Oppslagsverk — alt her forklares underveis i kapitlet.*\n\nAlle symboler og skrivemåter i dette delkapitlet (3.2), samlet.\n\n| Symbol | Betydning |\n|---|---|\n| $\\mathbf v_1,\\dots,\\mathbf v_k$ | Vektorer i et vektorrom |\n| $c_1,\\dots,c_k$ | Skalarer (koeffisienter) i en lineærkombinasjon |\n| $c_1\\mathbf v_1+\\dots+c_k\\mathbf v_k$ | Lineærkombinasjon |\n| $\\operatorname{Span}\\{\\dots\\}$ | Spennet — alle lineærkombinasjoner |\n| $\\mathbf e_1,\\dots,\\mathbf e_n$ | Standardbasisvektorene i $\\mathbb R^n$ |\n| $\\mathcal B$ | En (ordnet) basis |\n| $\\dim V$ | Dimensjonen til $V$ (antall basisvektorer) |\n| $W(x)$ | Wronski-determinanten (funksjoner) |\n| $\\det A$ | Determinant — uavhengighetstest for $n$ vektorer i $\\mathbb R^n$ |\n\n**Nøkkelfakta i dette delkapitlet:**\n\n$$c_1\\mathbf v_1+\\dots+c_k\\mathbf v_k=\\mathbf 0\\ \\Rightarrow\\ \\text{alle }c_i=0\\quad(\\text{lineær uavhengighet})$$\n\n$$\\text{uavhengige i }\\mathbb R^n\\ \\Leftrightarrow\\ \\text{pivot i hver kolonne}\\ \\Leftrightarrow\\ \\det\\ne0\\ (\\text{når }n\\times n)$$\n\n$$\\text{basis}=\\text{lineært uavhengig}\\ \\textbf{og}\\ \\text{utspenner }V$$\n\n$$\\dim\\mathbb R^n=n,\\quad \\dim\\operatorname{P}_n=n+1,\\quad \\dim M_{m\\times n}=mn$$\n\n**Dimensjonsargumentet:** i et rom med $\\dim V=n$ er *$n$ uavhengige vektorer* automatisk en basis, og *$n$ utspennende vektorer* automatisk uavhengige — sjekk da bare én av egenskapene.\n\n**Uavhengighet av polynomer:** sammenlign koeffisienter potens for potens, eller radreduser koordinatvektorene relativt $\\{1,t,\\dots,t^n\\}$."
+        }
+      ]
+    }
+  ],
+  "exercises": []
+}

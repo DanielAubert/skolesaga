@@ -1,0 +1,386 @@
+{
+  "id": "tma4110-3-3",
+  "courseId": "tma4110",
+  "chapterNumber": "3.3",
+  "title": "Kolonnerom, nullrom, rang og dimensjonsteoremet",
+  "description": "De fundamentale underrommene fra radreduksjon: basis for Col A (opprinnelige pivotkolonner i A), basis for Nul A (spesielle løsninger), rang, og dimensjonsteoremet rang A + dim Nul A = n — den mest gjentatte lineær-algebra-deloppgaven (89 %).",
+  "estimatedMinutes": 60,
+  "competenceGoals": [
+    "lese en basis for Col A (opprinnelige pivotkolonner) og for Nul A (spesielle løsninger) rett ut av en radreduksjon",
+    "oppgi rang og nullitet og bruke dimensjonsteoremet rang A + dim Nul A = n som kontroll",
+    "avgjøre løsbarhet via b ∈ Col A og skille de fundamentale underrommene i ℝᵐ og ℝⁿ"
+  ],
+  "content": [
+    {
+      "id": "tma4110-3-3-tip-eksamensvinkel",
+      "type": "tip",
+      "title": "Eksamensvinkel",
+      "content": "**Dette er den mest gjentatte lineær-algebra-deloppgaven i hele arkivet (~89 %).** Nesten hvert sett ber deg lese av de fundamentale underrommene fra en radreduksjon.\n\n- **Sjanger E:** «finn en basis for $\\operatorname{Col}A$ og for $\\operatorname{Nul}A$, oppgi $\\operatorname{rang}A$, og kontroller med dimensjonsteoremet.» Alt leses av trappeformen.\n- **Den klassiske fellen sensor jakter på:** basis for $\\operatorname{Col}A$ skal være de **opprinnelige** pivotkolonnene i $A$ — *ikke* de reduserte kolonnene fra RREF. Denne ene detaljen skiller riktig fra galt svar.\n\nMålet: fra én radreduksjon skal du sikkert lese ut $\\operatorname{Col}A$-basis (originalkolonner), $\\operatorname{Nul}A$-basis (spesielle løsninger), rangen (antall pivoter) og bruke dimensjonsteoremet $\\operatorname{rang}A+\\dim\\operatorname{Nul}A=n$ som kontroll. Under kode E gjøres alt for hånd."
+    },
+    {
+      "id": "tma4110-3-3-forkunnskaper",
+      "type": "text",
+      "content": "**Forkunnskaper:** Dette kapitlet kobler sammen radreduksjon til (redusert) trappeform fra [kap. 1.1](/bok/tma4110/tma4110-1-1), løsning av homogene system på parameterform fra [kap. 1.2](/bok/tma4110/tma4110-1-2), og lineær uavhengighet/basis fra [kap. 3.2](/bok/tma4110/tma4110-3-2). Kan du radredusere, skrive nullromsløsningen med retningsvektorer og avgjøre uavhengighet, har du alt du trenger."
+    },
+    {
+      "id": "tma4110-3-3-motivasjon",
+      "type": "text",
+      "content": "## To rom knyttet til én matrise\n\nEnhver matrise $A$ bærer med seg to fundamentale underrom: **kolonnerommet** $\\operatorname{Col}A$ (alt $A$ kan «treffe», altså alle mulige $A\\mathbf x$) og **nullrommet** $\\operatorname{Nul}A$ (alt $A$ «dreper», altså alle $\\mathbf x$ med $A\\mathbf x=\\mathbf 0$). Det fine er at én radreduksjon gir deg basis for begge, pluss rangen — og et regnskap som alltid går opp: dimensjonsteoremet.\n\nKapitlet har to løkker: (1) kolonnerommet og rangen, (2) nullrommet og dimensjonsteoremet. Nøkkelmatrisen vi bruker gjennomgående er $A=\\begin{bmatrix}1&2&-1&3\\\\2&4&-1&8\\\\3&6&-2&11\\end{bmatrix}$."
+    },
+    {
+      "id": "tma4110-3-3-lokke1",
+      "type": "text",
+      "content": "## Løkke 1 — Kolonnerom og rang (~25 min)"
+    },
+    {
+      "id": "tma4110-3-3-def-colA",
+      "type": "definition",
+      "title": "Kolonnerommet $\\operatorname{Col}A$",
+      "content": "**Kolonnerommet** til en $m\\times n$-matrise $A$ er spennet av kolonnene:\n$$\\operatorname{Col}A=\\operatorname{Span}\\{\\mathbf a_1,\\dots,\\mathbf a_n\\}\\subseteq\\mathbb R^m.$$\nDet er et underrom av $\\mathbb R^m$, og det består nøyaktig av alle vektorer på formen $A\\mathbf x$ (alle mulige lineærkombinasjoner av kolonnene). Derfor er systemet $A\\mathbf x=\\mathbf b$ løsbart **hvis og bare hvis** $\\mathbf b\\in\\operatorname{Col}A$."
+    },
+    {
+      "id": "tma4110-3-3-def-pivotkol",
+      "type": "definition",
+      "title": "Pivotkolonne",
+      "content": "En **pivotkolonne** i $A$ er en kolonne som får en pivot (ledende ener) etter radreduksjon til trappeform. Pivotkolonnene svarer til de bundne variablene; de øvrige kolonnene (uten pivot) svarer til de frie variablene. Antallet pivotkolonner er rangen."
+    },
+    {
+      "id": "tma4110-3-3-def-colbasis",
+      "type": "definition",
+      "title": "Basis for $\\operatorname{Col}A$ — de OPPRINNELIGE pivotkolonnene",
+      "content": "En basis for $\\operatorname{Col}A$ er **pivotkolonnene, hentet fra den opprinnelige matrisen $A$** — *ikke* fra RREF. Radreduksjon avslører *hvilke* kolonner som er pivotkolonner, men endrer kolonnerommet, så du må gå tilbake til $A$ og plukke de kolonnene. Dette er den mest testede detaljen i hele kapitlet: **RREF-kolonnene er feil svar.**"
+    },
+    {
+      "id": "tma4110-3-3-def-rang",
+      "type": "definition",
+      "title": "Rang $\\operatorname{rang}A$",
+      "content": "**Rangen** er antallet pivoter i trappeformen — ekvivalent antallet pivotkolonner, og $\\dim\\operatorname{Col}A$. Rangen måler hvor mange lineært uavhengige kolonner (og rader) $A$ har. Alltid $\\operatorname{rang}A\\le\\min(m,n)$."
+    },
+    {
+      "id": "tma4110-3-3-ex1",
+      "type": "example",
+      "title": "Eksempel 1: Basis for $\\operatorname{Col}A$ og rangen",
+      "problem": "Finn en basis for $\\operatorname{Col}A$ og oppgi $\\operatorname{rang}A$ for $A=\\begin{bmatrix}1&2&-1&3\\\\2&4&-1&8\\\\3&6&-2&11\\end{bmatrix}$.",
+      "solution": "**Radreduser.** $R_2\\to R_2-2R_1$ gir $(0,0,1,2)$; $R_3\\to R_3-3R_1$ gir $(0,0,1,2)$; $R_3\\to R_3-R_2$ gir en nullrad. Trappeform:\n$$\\begin{bmatrix}1&2&-1&3\\\\0&0&1&2\\\\0&0&0&0\\end{bmatrix}\\ \\xrightarrow{\\ R_1\\to R_1+R_2\\ }\\ \\begin{bmatrix}1&2&0&5\\\\0&0&1&2\\\\0&0&0&0\\end{bmatrix}\\ (\\text{RREF}).$$\n**Pivotkolonner:** kolonne $1$ og $3$. Dermed $\\operatorname{rang}A=2$.\n\n**Basis for $\\operatorname{Col}A$** = de **opprinnelige** kolonnene $1$ og $3$ i $A$:\n$$\\left\\{\\begin{bmatrix}1\\\\2\\\\3\\end{bmatrix},\\ \\begin{bmatrix}-1\\\\-1\\\\-2\\end{bmatrix}\\right\\}.$$\nMerk: vi bruker $A$-kolonnene, **ikke** $(1,0,0)$ og $(0,1,0)$ fra RREF. $\\operatorname{Col}A$ er et $2$-dimensjonalt underrom av $\\mathbb R^3$ (et plan gjennom origo)."
+    },
+    {
+      "id": "tma4110-3-3-e1",
+      "type": "exercise",
+      "exercise": {
+        "id": "tma4110-3-3-e1",
+        "number": "1",
+        "type": "classic",
+        "difficulty": "lett",
+        "task": "(Ren gjengivelse.) En $3\\times4$-matrise radreduseres til en trappeform med pivoter i kolonne $1$ og $2$. Hva er $\\operatorname{rang}A$, og hvor mange vektorer har en basis for $\\operatorname{Col}A$?",
+        "solution": "$\\operatorname{rang}A=2$ (to pivoter). En basis for $\\operatorname{Col}A$ har $\\operatorname{rang}A=2$ vektorer — nemlig de **opprinnelige** kolonnene $1$ og $2$ i $A$. (Antall basisvektorer i $\\operatorname{Col}A$ er alltid lik rangen.)",
+        "hints": [
+          "Rang = antall pivoter.",
+          "$\\dim\\operatorname{Col}A=\\operatorname{rang}A$."
+        ]
+      }
+    },
+    {
+      "id": "tma4110-3-3-e2",
+      "type": "exercise",
+      "exercise": {
+        "id": "tma4110-3-3-e2",
+        "number": "2",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "(Sjanger E — kolonnerom.) Finn en basis for $\\operatorname{Col}B$ og $\\operatorname{rang}B$ for $B=\\begin{bmatrix}1&0&2&1\\\\0&1&1&0\\\\1&1&3&2\\end{bmatrix}$.",
+        "solution": "Radreduser: $R_3\\to R_3-R_1$ gir $(0,1,1,1)$, så $R_3\\to R_3-R_2$ gir $(0,0,0,1)$. Videre reduksjon gir RREF\n$$\\begin{bmatrix}1&0&2&0\\\\0&1&1&0\\\\0&0&0&1\\end{bmatrix},$$\nmed pivoter i kolonne $1,2,4$. Så $\\operatorname{rang}B=3$, og en basis for $\\operatorname{Col}B$ er de **opprinnelige** kolonnene $1,2,4$:\n$$\\left\\{\\begin{bmatrix}1\\\\0\\\\1\\end{bmatrix},\\begin{bmatrix}0\\\\1\\\\1\\end{bmatrix},\\begin{bmatrix}1\\\\0\\\\2\\end{bmatrix}\\right\\}.$$\nSiden $\\operatorname{Col}B$ har dimensjon $3=m$, er $\\operatorname{Col}B=\\mathbb R^3$ (kolonnene utspenner hele $\\mathbb R^3$).",
+        "hints": [
+          "Radreduser og noter hvilke kolonner som får pivot.",
+          "Plukk de opprinnelige kolonnene med de indeksene — ikke RREF-kolonnene."
+        ]
+      }
+    },
+    {
+      "id": "tma4110-3-3-lokke2",
+      "type": "text",
+      "content": "## Løkke 2 — Nullrom og dimensjonsteoremet (~25 min)"
+    },
+    {
+      "id": "tma4110-3-3-def-nulA",
+      "type": "definition",
+      "title": "Nullrommet $\\operatorname{Nul}A$",
+      "content": "**Nullrommet** til $A$ er løsningsmengden til det homogene systemet:\n$$\\operatorname{Nul}A=\\{\\mathbf x\\in\\mathbb R^n:A\\mathbf x=\\mathbf 0\\}\\subseteq\\mathbb R^n.$$\nDet er et underrom av $\\mathbb R^n$ (inneholder $\\mathbf 0$, lukket under $+$ og skalar). Mens $\\operatorname{Col}A$ lever i $\\mathbb R^m$, lever $\\operatorname{Nul}A$ i $\\mathbb R^n$ — ikke bland de to."
+    },
+    {
+      "id": "tma4110-3-3-def-fri-variabel",
+      "type": "definition",
+      "title": "Fri variabel og spesiell løsning",
+      "content": "En **fri variabel** svarer til en kolonne uten pivot. For hver fri variabel får du én **spesiell løsning**: sett den frie variabelen til $1$ og de andre frie til $0$, og les de bundne variablene av RREF. De spesielle løsningene er byggeklossene i nullrommet."
+    },
+    {
+      "id": "tma4110-3-3-def-nulbasis",
+      "type": "definition",
+      "title": "Basis for $\\operatorname{Nul}A$ — de spesielle løsningene",
+      "content": "En basis for $\\operatorname{Nul}A$ er mengden av **spesielle løsninger** — én per fri variabel. Disse er automatisk lineært uavhengige (hver har en $1$-ener i sin egen frie posisjon der de andre har $0$). Antallet er derfor lik antall frie variabler."
+    },
+    {
+      "id": "tma4110-3-3-def-nullitet",
+      "type": "definition",
+      "title": "Nullitet $\\dim\\operatorname{Nul}A$",
+      "content": "**Nulliteten** er dimensjonen til nullrommet — altså antallet **frie variabler** = antall kolonner uten pivot. Skrives $\\dim\\operatorname{Nul}A$. Sammen med rangen fyller den opp alle kolonnene, jf. dimensjonsteoremet."
+    },
+    {
+      "id": "tma4110-3-3-def-dimteorem",
+      "type": "definition",
+      "title": "Dimensjonsteoremet (rang–nullitet)",
+      "content": "For en $m\\times n$-matrise $A$:\n$$\\operatorname{rang}A+\\dim\\operatorname{Nul}A=n\\ \\ (\\text{antall kolonner}).$$\nHver kolonne er enten en pivotkolonne (teller mot rangen) eller uten pivot (teller mot nulliteten). Bruk teoremet som **kontroll**: har du regnet ut rang og nullitet hver for seg, må summen bli $n$ — ellers har du gjort en feil. Navngi det i besvarelsen."
+    },
+    {
+      "id": "tma4110-3-3-ex2",
+      "type": "example",
+      "title": "Eksempel 2: Basis for $\\operatorname{Nul}A$ og dimensjonsteoremet",
+      "problem": "For samme $A=\\begin{bmatrix}1&2&-1&3\\\\2&4&-1&8\\\\3&6&-2&11\\end{bmatrix}$ (RREF $\\begin{bmatrix}1&2&0&5\\\\0&0&1&2\\\\0&0&0&0\\end{bmatrix}$): finn en basis for $\\operatorname{Nul}A$, oppgi nulliteten og kontroller dimensjonsteoremet.",
+      "solution": "Fra RREF er kolonne $1$ og $3$ pivotkolonner, så $x_2$ og $x_4$ er **frie**. Radene gir:\n$$x_1=-2x_2-5x_4,\\qquad x_3=-2x_4.$$\n**Spesiell løsning 1** ($x_2=1,x_4=0$): $(x_1,x_2,x_3,x_4)=(-2,1,0,0)$.\n**Spesiell løsning 2** ($x_2=0,x_4=1$): $(x_1,x_2,x_3,x_4)=(-5,0,-2,1)$.\n\nBasis for $\\operatorname{Nul}A$:\n$$\\left\\{(-2,1,0,0),\\ (-5,0,-2,1)\\right\\},\\qquad \\dim\\operatorname{Nul}A=2.$$\n\n**Kontroll (dimensjonsteoremet):** $\\operatorname{rang}A+\\dim\\operatorname{Nul}A=2+2=4=n$ ✓. Regnskapet går opp."
+    },
+    {
+      "id": "tma4110-3-3-e3",
+      "type": "exercise",
+      "exercise": {
+        "id": "tma4110-3-3-e3",
+        "number": "3",
+        "type": "classic",
+        "difficulty": "lett",
+        "task": "(Innøving — spesielle løsninger.) En matrise har RREF $\\begin{bmatrix}1&3&0\\\\0&0&1\\\\0&0&0\\end{bmatrix}$. Finn en basis for nullrommet.",
+        "solution": "Kolonne $2$ mangler pivot ⇒ $x_2$ fri. Radene: $x_1=-3x_2$, $x_3=0$. Spesiell løsning ($x_2=1$): $(-3,1,0)$. Basis for $\\operatorname{Nul}A$: $\\{(-3,1,0)\\}$, så $\\dim\\operatorname{Nul}A=1$.",
+        "hints": [
+          "Hvilken kolonne mangler pivot? Den variabelen er fri.",
+          "Sett den frie variabelen til $1$ og les av de bundne."
+        ]
+      }
+    },
+    {
+      "id": "tma4110-3-3-e4",
+      "type": "exercise",
+      "exercise": {
+        "id": "tma4110-3-3-e4",
+        "number": "4",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "(Sjanger E — full avlesning.) For $F=\\begin{bmatrix}1&0&2&1\\\\0&1&1&0\\\\1&1&3&2\\end{bmatrix}$ (RREF $\\begin{bmatrix}1&0&2&0\\\\0&1&1&0\\\\0&0&0&1\\end{bmatrix}$): finn basis for $\\operatorname{Nul}F$, oppgi rang og nullitet, og kontroller dimensjonsteoremet.",
+        "solution": "Pivoter i kolonne $1,2,4$ ⇒ $x_3$ er eneste frie variabel. Radene: $x_1=-2x_3$, $x_2=-x_3$, $x_4=0$. Spesiell løsning ($x_3=1$): $(-2,-1,1,0)$. Basis for $\\operatorname{Nul}F$: $\\{(-2,-1,1,0)\\}$, $\\dim\\operatorname{Nul}F=1$.\n\n$\\operatorname{rang}F=3$ (tre pivoter). **Kontroll:** $\\operatorname{rang}F+\\dim\\operatorname{Nul}F=3+1=4=n$ ✓.",
+        "hints": [
+          "Én fri variabel (kolonne $3$) ⇒ nullrommet er $1$-dimensjonalt.",
+          "Sjekk at rang + nullitet = antall kolonner."
+        ]
+      }
+    },
+    {
+      "id": "tma4110-3-3-def-rowA",
+      "type": "definition",
+      "title": "Radrommet $\\operatorname{Row}A$",
+      "content": "**Radrommet** er spennet av radene i $A$, et underrom av $\\mathbb R^n$. En basis for $\\operatorname{Row}A$ er de **ikke-null-radene i RREF** (her er RREF-radene lov — radoperasjoner bevarer radrommet). $\\dim\\operatorname{Row}A=\\operatorname{rang}A$: radrang og kolonnerang er alltid like."
+    },
+    {
+      "id": "tma4110-3-3-def-losbarhet",
+      "type": "definition",
+      "title": "$\\mathbf b\\in\\operatorname{Col}A$ og løsbarhet",
+      "content": "Systemet $A\\mathbf x=\\mathbf b$ er konsistent **hvis og bare hvis** $\\mathbf b$ ligger i $\\operatorname{Col}A$ — altså kan skrives som en lineærkombinasjon av kolonnene. Dette er koblingen til kap. 1.2: en høyreside utenfor kolonnerommet gir en motsigelsesrad."
+    },
+    {
+      "id": "tma4110-3-3-warn",
+      "type": "warning",
+      "title": "Typiske feil",
+      "content": "- **Feil $\\operatorname{Col}A$-basis:** å oppgi de reduserte pivotkolonnene fra RREF i stedet for de **opprinnelige** kolonnene i $A$. Den mest testede fellen — RREF avslører *hvilke* kolonner, men basisen er $A$-kolonnene.\n- **Forveksler $\\operatorname{Nul}A$ (frie variabler) og $\\operatorname{Col}A$ (pivotkolonner).**\n- **Blander rommene:** $\\operatorname{Col}A\\subseteq\\mathbb R^m$, $\\operatorname{Nul}A\\subseteq\\mathbb R^n$.\n- **Glemmer dimensjonsteoremet som kontroll** — den gratis feilsjekken.\n- **Blander dimensjon og antall vektorer** — dimensjonen til $\\operatorname{Nul}A$ er *antall* spesielle løsninger, ikke lengden på dem.\n- **Bruker RREF-kolonner også for radrommet feil vei:** for $\\operatorname{Row}A$ er RREF-radene riktige; for $\\operatorname{Col}A$ er RREF-kolonnene gale. Hold de to fra hverandre."
+    },
+    {
+      "id": "tma4110-3-3-e5",
+      "type": "exercise",
+      "exercise": {
+        "id": "tma4110-3-3-e5",
+        "number": "5",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "(Sjanger E — samlet.) For $A=\\begin{bmatrix}1&2&-1&3\\\\2&4&-1&8\\\\3&6&-2&11\\end{bmatrix}$: er $\\mathbf b=(0,1,1)$ i $\\operatorname{Col}A$? (Bruk at $\\operatorname{Col}A=\\operatorname{Span}\\{(1,2,3),(-1,-1,-2)\\}$.)",
+        "solution": "Vi sjekker om $\\mathbf b=(0,1,1)$ er en lineærkombinasjon av basisvektorene: $s(1,2,3)+t(-1,-1,-2)=(0,1,1)$. Komponentvis: $s-t=0$, $2s-t=1$, $3s-2t=1$. Fra de to første: $s=t$, og $2s-s=s=1$, så $s=t=1$. Sjekk tredje: $3(1)-2(1)=1$ ✓. Alle tre stemmer, så $\\mathbf b=1\\cdot(1,2,3)+1\\cdot(-1,-1,-2)=(0,1,1)$ ✓. **Ja**, $\\mathbf b\\in\\operatorname{Col}A$, så $A\\mathbf x=\\mathbf b$ er løsbart.",
+        "hints": [
+          "$\\mathbf b\\in\\operatorname{Col}A$ ⇔ $\\mathbf b$ er en lineærkombinasjon av en basis for $\\operatorname{Col}A$.",
+          "Sett opp $s(1,2,3)+t(-1,-1,-2)=\\mathbf b$ og sjekk konsistens."
+        ]
+      }
+    },
+    {
+      "id": "tma4110-3-3-e6",
+      "type": "exercise",
+      "exercise": {
+        "id": "tma4110-3-3-e6",
+        "number": "6",
+        "type": "classic",
+        "difficulty": "vanskelig",
+        "task": "(Sjanger E på eksamensnivå.) La $C=\\begin{bmatrix}1&-2&1&1\\\\2&-4&3&-1\\\\1&-2&2&-2\\end{bmatrix}$. Finn basis for $\\operatorname{Col}C$ og $\\operatorname{Nul}C$, oppgi $\\operatorname{rang}C$, og kontroller dimensjonsteoremet.",
+        "solution": "**Radreduser.** $R_2\\to R_2-2R_1=(0,0,1,-3)$; $R_3\\to R_3-R_1=(0,0,1,-3)$; $R_3\\to R_3-R_2=0$. Trappeform $\\begin{bmatrix}1&-2&1&1\\\\0&0&1&-3\\\\0&0&0&0\\end{bmatrix}$, RREF (via $R_1\\to R_1-R_2$) $\\begin{bmatrix}1&-2&0&4\\\\0&0&1&-3\\\\0&0&0&0\\end{bmatrix}$.\n\n**Pivoter** i kolonne $1$ og $3$ ⇒ $\\operatorname{rang}C=2$. **Basis for $\\operatorname{Col}C$** = opprinnelige kolonner $1,3$: $\\{(1,2,1),(1,3,2)\\}$.\n\n**Frie:** $x_2,x_4$. Radene: $x_1=2x_2-4x_4$, $x_3=3x_4$. Spesielle løsninger: $x_2=1,x_4=0\\Rightarrow(2,1,0,0)$; $x_2=0,x_4=1\\Rightarrow(-4,0,3,1)$. **Basis for $\\operatorname{Nul}C$**: $\\{(2,1,0,0),(-4,0,3,1)\\}$, $\\dim\\operatorname{Nul}C=2$.\n\n**Kontroll:** $\\operatorname{rang}C+\\dim\\operatorname{Nul}C=2+2=4=n$ ✓.",
+        "hints": [
+          "Radreduser til RREF og noter pivotkolonnene.",
+          "$\\operatorname{Col}$-basis fra originalkolonner; $\\operatorname{Nul}$-basis fra spesielle løsninger.",
+          "Kontroller at rang + nullitet = $4$."
+        ]
+      }
+    },
+    {
+      "id": "tma4110-3-3-begrepsbank",
+      "type": "text",
+      "content": "## Begrepsbank til eksamen\n\nKjernebegrepene om de fundamentale underrommene, samlet for pugging (kode E).\n\n*Begrepsbanken er flashcard-/repetisjonsstoff — det gjentar det du nettopp har lest. Hopp trygt over ved førstegangslesing; tidsanslaget for kapitlet gjelder kjernestoffet.*"
+    },
+    {
+      "id": "tma4110-3-3-bb-rowbasis",
+      "type": "definition",
+      "title": "Basis for $\\operatorname{Row}A$ (RREF-radene)",
+      "content": "Til forskjell fra kolonnerommet: en basis for radrommet er de **ikke-null-radene i RREF**. Radoperasjoner bevarer radrommet, så RREF-radene er lov her. $\\dim\\operatorname{Row}A=\\operatorname{rang}A$."
+    },
+    {
+      "id": "tma4110-3-3-bb-radrang-kolrang",
+      "type": "definition",
+      "title": "Radrang = kolonnerang",
+      "content": "Antallet uavhengige rader er alltid lik antallet uavhengige kolonner — begge er $\\operatorname{rang}A$. Derfor er $\\dim\\operatorname{Row}A=\\dim\\operatorname{Col}A=\\operatorname{rang}A$, selv om de to rommene lever i ulike rom ($\\mathbb R^n$ og $\\mathbb R^m$)."
+    },
+    {
+      "id": "tma4110-3-3-bb-rang-bound",
+      "type": "definition",
+      "title": "$\\operatorname{rang}A\\le\\min(m,n)$",
+      "content": "Rangen kan ikke overstige verken antall rader eller antall kolonner: $\\operatorname{rang}A\\le\\min(m,n)$. En $3\\times5$-matrise har rang høyst $3$; en $4\\times2$-matrise rang høyst $2$."
+    },
+    {
+      "id": "tma4110-3-3-bb-fullrang",
+      "type": "definition",
+      "title": "Full rang",
+      "content": "En matrise har **full kolonnerang** hvis $\\operatorname{rang}A=n$ (uavhengige kolonner, $\\operatorname{Nul}A=\\{\\mathbf 0\\}$), og **full radrang** hvis $\\operatorname{rang}A=m$ ($\\operatorname{Col}A=\\mathbb R^m$, løsbar for alle $\\mathbf b$). En kvadratisk matrise med full rang er inverterbar."
+    },
+    {
+      "id": "tma4110-3-3-bb-col-uavh",
+      "type": "definition",
+      "title": "Full kolonnerang ⇔ uavhengige kolonner",
+      "content": "$\\operatorname{rang}A=n$ betyr pivot i hver kolonne, altså at kolonnene er lineært uavhengige og $\\operatorname{Nul}A=\\{\\mathbf 0\\}$ (bare den trivielle løsningen). Da er $A\\mathbf x=\\mathbf b$ enten uløsbart eller entydig løsbart."
+    },
+    {
+      "id": "tma4110-3-3-bb-row-surj",
+      "type": "definition",
+      "title": "Full radrang ⇔ løsbar for alle $\\mathbf b$",
+      "content": "$\\operatorname{rang}A=m$ betyr pivot i hver rad, altså $\\operatorname{Col}A=\\mathbb R^m$: systemet $A\\mathbf x=\\mathbf b$ er konsistent for **enhver** høyreside $\\mathbf b$. Ingen rad kan da bli en motsigelsesrad."
+    },
+    {
+      "id": "tma4110-3-3-bb-nulunderrom",
+      "type": "definition",
+      "title": "$\\operatorname{Nul}A$ er et underrom av $\\mathbb R^n$",
+      "content": "Nullrommet ligger i $\\mathbb R^n$ (så mange komponenter som $A$ har kolonner): det inneholder $\\mathbf 0$, og hvis $A\\mathbf u=\\mathbf 0$ og $A\\mathbf v=\\mathbf 0$, så $A(c\\mathbf u+d\\mathbf v)=\\mathbf 0$. Dimensjonen er nulliteten."
+    },
+    {
+      "id": "tma4110-3-3-bb-colunderrom",
+      "type": "definition",
+      "title": "$\\operatorname{Col}A$ er et underrom av $\\mathbb R^m$",
+      "content": "Kolonnerommet ligger i $\\mathbb R^m$ (så mange komponenter som $A$ har rader), fordi hver kolonne er en vektor i $\\mathbb R^m$. Det består av alle $A\\mathbf x$ og har dimensjon lik rangen."
+    },
+    {
+      "id": "tma4110-3-3-bb-rang-invers",
+      "type": "definition",
+      "title": "Rang og inverterbarhet (bro)",
+      "content": "For en kvadratisk $n\\times n$-matrise er $\\operatorname{rang}A=n$ ekvivalent med at $A$ er inverterbar, $\\det A\\ne0$ og $\\operatorname{Nul}A=\\{\\mathbf 0\\}$ — alle ledd i inverterbarhetssetningen (kap. 2.2). Rangen er dermed et mål på «hvor langt fra inverterbar» en matrise er."
+    },
+    {
+      "id": "tma4110-3-3-bb-spesiell-los",
+      "type": "definition",
+      "title": "Spesiell løsning (oppskrift)",
+      "content": "For hver fri variabel: sett *den* frie variabelen til $1$, alle andre frie til $0$, og les de bundne variablene av RREF. Vektoren du får er en spesiell løsning. Samlingen av dem er en basis for $\\operatorname{Nul}A$ — og du kjenner den fra parameterformen i kap. 1.2 (retningsvektorene)."
+    },
+    {
+      "id": "tma4110-3-3-bb-kontroll",
+      "type": "definition",
+      "title": "Dimensjonsteoremet som kontroll",
+      "content": "Etter å ha regnet ut $\\operatorname{rang}A$ og $\\dim\\operatorname{Nul}A$ hver for seg, sjekk at summen er $n$. Stemmer det ikke, har du enten talt pivoter feil eller mistet en spesiell løsning. Denne kontrollen fanger opp de fleste regnefeil under tidspress."
+    },
+    {
+      "id": "tma4110-3-3-bb-colnull-skille",
+      "type": "definition",
+      "title": "Skillet $\\operatorname{Col}A$ vs. $\\operatorname{Nul}A$",
+      "content": "$\\operatorname{Col}A$: pivotkolonner fra **originalen**, lever i $\\mathbb R^m$, dimensjon = rang. $\\operatorname{Nul}A$: spesielle løsninger fra frie variabler, lever i $\\mathbb R^n$, dimensjon = nullitet. Ett handler om «hva $A$ treffer», det andre om «hva $A$ dreper»."
+    },
+    {
+      "id": "tma4110-3-3-bb-nulnull",
+      "type": "definition",
+      "title": "$\\operatorname{Nul}A=\\{\\mathbf 0\\}$ ⇔ uavhengige kolonner",
+      "content": "Nullrommet er trivielt ($\\operatorname{Nul}A=\\{\\mathbf 0\\}$) nettopp når det ikke finnes frie variabler — altså pivot i hver kolonne, kolonnene uavhengige, $\\operatorname{rang}A=n$. Da har $A\\mathbf x=\\mathbf b$ høyst én løsning."
+    },
+    {
+      "id": "tma4110-3-3-bb-geometrisk",
+      "type": "definition",
+      "title": "Geometrisk bilde av $\\operatorname{Col}A$",
+      "content": "$\\operatorname{Col}A$ er et flatt objekt gjennom origo i $\\mathbb R^m$: dimensjon $0$ (bare origo), $1$ (linje), $2$ (plan), osv., etter rangen. $A\\mathbf x=\\mathbf b$ er løsbart nøyaktig når $\\mathbf b$ ligger på dette objektet."
+    },
+    {
+      "id": "tma4110-3-3-bb-rangteorem-samlet",
+      "type": "definition",
+      "title": "Rangteoremet oppsummert",
+      "content": "For enhver $m\\times n$-matrise gjelder samtidig: $\\operatorname{rang}A=\\dim\\operatorname{Col}A=\\dim\\operatorname{Row}A$, og $\\operatorname{rang}A+\\dim\\operatorname{Nul}A=n$. De to likhetene sammen lar deg krysskontrollere alle fire størrelsene fra én radreduksjon."
+    },
+    {
+      "id": "tma4110-3-3-rep",
+      "type": "collapsible",
+      "title": "Repetisjonsoppgaver",
+      "buttonText": "Vis repetisjonsoppgaver",
+      "content": [
+        {
+          "id": "tma4110-3-3-rep-1",
+          "type": "exercise",
+          "exercise": {
+            "id": "tma4110-3-3-eR1",
+            "number": "R1",
+            "type": "classic",
+            "difficulty": "lett",
+            "task": "(Fra kap. 1.2) Skriv løsningen av det homogene systemet med RREF $\\begin{bmatrix}1&2&0\\\\0&0&1\\\\0&0&0\\end{bmatrix}$ på parameterform.",
+            "solution": "Kolonne $2$ fri ⇒ $x_2=t$. Radene: $x_1=-2t$, $x_3=0$. Løsning $(x_1,x_2,x_3)=t(-2,1,0)$ — dette er nettopp en basis for $\\operatorname{Nul}A$.",
+            "hints": [
+              "Fri variabel = kolonne uten pivot."
+            ]
+          }
+        },
+        {
+          "id": "tma4110-3-3-rep-2",
+          "type": "exercise",
+          "exercise": {
+            "id": "tma4110-3-3-eR2",
+            "number": "R2",
+            "type": "classic",
+            "difficulty": "lett",
+            "task": "(Fra kap. 3.2) Hvorfor er de spesielle løsningene automatisk lineært uavhengige?",
+            "solution": "Hver spesiell løsning har en $1$-ener i sin egen frie posisjon der de andre spesielle løsningene har $0$. Ser du bare på de frie posisjonene, danner de en enhetsmatrise — så ingen kan være en kombinasjon av de andre. De er derfor uavhengige.",
+            "hints": [
+              "Se på verdiene i de frie posisjonene."
+            ]
+          }
+        },
+        {
+          "id": "tma4110-3-3-rep-3",
+          "type": "exercise",
+          "exercise": {
+            "id": "tma4110-3-3-eR3",
+            "number": "R3",
+            "type": "classic",
+            "difficulty": "middels",
+            "task": "(Fra kap. 3.2) En $4\\times4$-matrise har rang $4$. Er kolonnene en basis for $\\mathbb R^4$? Er $A$ inverterbar?",
+            "solution": "Rang $4$ i en $4\\times4$-matrise ⇒ fire uavhengige kolonner i $\\mathbb R^4$ ⇒ de er en basis for $\\mathbb R^4$. Da er $\\operatorname{Nul}A=\\{\\mathbf 0\\}$ og $A$ **inverterbar** (full rang, kvadratisk).",
+            "hints": [
+              "Full rang + kvadratisk ⇒ inverterbar."
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": "tma4110-3-3-symbolliste",
+      "type": "collapsible",
+      "title": "Symbol- og formelliste",
+      "buttonText": "Vis symboler og formler",
+      "content": [
+        {
+          "id": "tma4110-3-3-symbolliste-text",
+          "type": "text",
+          "content": "## Symbol- og formelliste\n\n*Oppslagsverk — alt her forklares underveis i kapitlet.*\n\nAlle symboler og skrivemåter i dette delkapitlet (3.3), samlet.\n\n| Symbol | Betydning |\n|---|---|\n| $A$ | En $m\\times n$-matrise |\n| $\\mathbf a_1,\\dots,\\mathbf a_n$ | Kolonnene i $A$ |\n| $\\operatorname{Col}A$ | Kolonnerommet (spennet av kolonnene) $\\subseteq\\mathbb R^m$ |\n| $\\operatorname{Nul}A$ | Nullrommet: løsninger av $A\\mathbf x=\\mathbf 0$, $\\subseteq\\mathbb R^n$ |\n| $\\operatorname{Row}A$ | Radrommet (spennet av radene) $\\subseteq\\mathbb R^n$ |\n| $\\operatorname{rang}A$ | Rangen = antall pivoter = $\\dim\\operatorname{Col}A$ |\n| $\\dim\\operatorname{Nul}A$ | Nulliteten = antall frie variabler |\n| RREF | Redusert trappeform |\n| $m,n$ | Antall rader / kolonner |\n\n**Nøkkelfakta i dette delkapitlet:**\n\n$$\\operatorname{rang}A+\\dim\\operatorname{Nul}A=n\\quad(\\text{dimensjonsteoremet})$$\nBrukes alltid som kontroll.\n\n$$\\text{basis for }\\operatorname{Col}A=\\text{de OPPRINNELIGE pivotkolonnene i }A$$\nRREF-kolonnene er feil svar — den mest testede fellen.\n\n$$\\text{basis for }\\operatorname{Nul}A=\\text{de spesielle løsningene (én per fri variabel)}$$\n\n$$\\text{basis for }\\operatorname{Row}A=\\text{de ikke-null-radene i RREF}$$\n\n$$\\operatorname{rang}A=\\dim\\operatorname{Col}A=\\dim\\operatorname{Row}A\\le\\min(m,n)$$\n\n$$A\\mathbf x=\\mathbf b\\text{ løsbar}\\ \\Leftrightarrow\\ \\mathbf b\\in\\operatorname{Col}A$$"
+        }
+      ]
+    }
+  ],
+  "exercises": []
+}
