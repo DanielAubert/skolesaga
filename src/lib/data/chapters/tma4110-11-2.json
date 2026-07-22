@@ -1,0 +1,395 @@
+{
+  "id": "tma4110-11-2",
+  "courseId": "tma4110",
+  "chapterNumber": "11.2",
+  "title": "Bevis-drill: «vis at …»-oppgaven",
+  "description": "Bevis-sjangeren (sjanger N, ~42 % av settene, siste oppgave) drillet: bevismetodikk (gitt vs. skal-vises, teoremnavning, ⇒ mot ⇔) og de tre dokumenterte arketypene — egenverdier av A²=A, nilpotens og (I-A)⁻¹=I+A+A², og A inverterbar ⇔ AᵀA inverterbar — med komplett førte modellbevis og øvingsbevis med full føring.",
+  "estimatedMinutes": 80,
+  "competenceGoals": [
+    "strukturere et bevis: skille gitt fra skal-vises, navngi teoremet bak hvert steg og skille ⇒ fra ⇔",
+    "føre de tre bevis-arketypene: egenverdier av en idempotent matrise, invers av I-A ved nilpotens, og A inverterbar ⇔ AᵀA inverterbar",
+    "bruke standardteknikkene: egenverdi-innsetting, skalar-trikset xᵀAᵀAx=‖Ax‖², den geometriske matriseserien og inverterbarhetssetningen",
+    "unngå bevis-fellene: tallesempel i stedet for generelt bevis, bare én vei i en ekvivalens, og manglende forutsetningssjekk"
+  ],
+  "content": [
+    {
+      "id": "tma4110-11-2-tip",
+      "type": "tip",
+      "title": "Eksamensvinkel",
+      "content": "**Bevisoppgaven — sjanger N — avslutter rundt $42\\%$ av settene, og er en av de tydeligste karakterskillerne.** Den er ofte den siste oppgaven: en kort «vis at …» som tester om du kan *argumentere*, ikke bare regne.\n\nTre arketyper går igjen, alle drillet her:\n\n**a)** **$A^2=A\\ \\Rightarrow$ egenverdiene er $0$ eller $1$** (og $A$ er diagonaliserbar) — idempotente matriser.\n\n**b)** **$A^3=O\\ \\Rightarrow (I-A)^{-1}=I+A+A^2$** — nilpotente matriser og den geometriske matriseserien.\n\n**c)** **$A$ inverterbar $\\iff A^{T}A$ inverterbar** — transponert-triks og inverterbarhetssetningen.\n\nNøkkelen er ikke ny matematikk — alt er fra Del 2–6 — men **føringen**: skill gitt fra skal-vises, navngi teoremet bak hvert steg, sjekk forutsetningene, og vis **begge veier** i en «hvis og bare hvis». Et tallesempel er *ikke* et bevis.\n\nRegn med rundt 80 minutter. Bevis krever ro; ta det i to økter med et pausepunkt etter arketype B."
+    },
+    {
+      "id": "tma4110-11-2-forkunnskaper",
+      "type": "text",
+      "content": "**Forkunnskaper.** Bevistemaene forankres i sine kapitler: idempotens og egenverdier i [kap. 5.1](/bok/tma4110/tma4110-5-1), matrisepotenser og nilpotens i [kap. 5.3](/bok/tma4110/tma4110-5-3), inverterbarhet og inverterbarhetssetningen i [kap. 2.2](/bok/tma4110/tma4110-2-2)–[2.3](/bok/tma4110/tma4110-2-3), underrom i [kap. 3.1](/bok/tma4110/tma4110-3-1), og $A^{T}A$-triksene i [kap. 6.4](/bok/tma4110/tma4110-6-4). Føringsstandarden (navngi teoremer, eksakte svar) er samlet i [kap. 11.1](/bok/tma4110/tma4110-11-1).\n\n**Sist du var her — de tre verktøyene du bruker mest:** (1) **egenverdi-innsetting** $A\\mathbf v=\\lambda\\mathbf v$ med $\\mathbf v\\ne\\mathbf 0$; (2) **inverterbarhetssetningen** — $A$ inverterbar $\\iff \\operatorname{Nul}A=\\{\\mathbf 0\\}\\iff \\det A\\ne0$; (3) **skalar-triks** $\\mathbf x^{T}A^{T}A\\mathbf x=\\lVert A\\mathbf x\\rVert^{2}\\ge0$."
+    },
+    {
+      "id": "tma4110-11-2-metodikk",
+      "type": "text",
+      "content": "## Bevismetodikk — den faste oppskriften\n\nHver «vis at …» følger samme fem steg:\n\n1. **Skriv opp gitt og skal-vises hver for seg.** «Gitt: $A^2=A$. Skal vise: hver egenverdi er $0$ eller $1$.» Dette alene gir struktur og ofte delpoeng.\n2. **Velg innfallsvinkel.** Egenverdi-påstand $\\Rightarrow$ sett inn $A\\mathbf v=\\lambda\\mathbf v$. Inverterbarhet $\\Rightarrow$ inverterbarhetssetningen eller $\\operatorname{Nul}$. Invers-formel $\\Rightarrow$ gang ut og vis at produktet er $I$.\n3. **Navngi teoremet/definisjonen** bak hvert avgjørende steg.\n4. **Sjekk forutsetningene** — brukte du at $\\mathbf v\\ne\\mathbf 0$? At $A$ er kvadratisk? At kolonnene er uavhengige?\n5. **Skill «$\\Rightarrow$» og «$\\iff$».** En «hvis og bare hvis» krever **begge** retninger — vis dem hver for seg.\n\nGjennomgående regel: **et konkret tallesempel beviser ingenting generelt.** Argumentet må gjelde for en vilkårlig matrise som oppfyller forutsetningen."
+    },
+    {
+      "id": "tma4110-11-2-bd-struktur",
+      "type": "definition",
+      "title": "Bevisstruktur: gitt vs. skal-vises",
+      "content": "Første steg i ethvert bevis: separer det du **vet** fra det du **skal frem til**. Skriv dem på hver sin linje:\n\n$$\\text{Gitt: (forutsetningene)}\\qquad\\text{Skal vise: (påstanden)}.$$\n\nDette hindrer sirkelargumentasjon (å bruke det du skal vise) og gir sensor en tydelig rød tråd. Ofte gir selve oppstillingen delpoeng."
+    },
+    {
+      "id": "tma4110-11-2-bd-navn",
+      "type": "definition",
+      "title": "Teoremnavning i bevis",
+      "content": "Hvert ikke-trivielt steg skal begrunnes med en navngitt setning eller definisjon, ikke bare et regnestykke:\n\n$$\\text{«... og siden }\\mathbf v\\ne\\mathbf 0\\text{, gir egenverdilikningen ...»}$$\n\nAktuelle navn: inverterbarhetssetningen, diagonaliserbarhetskriteriet, dimensjonsteoremet, definisjonen av egenverdi. Navngiving er det som skiller et bevis fra en påstandsrekke."
+    },
+    {
+      "id": "tma4110-11-2-bd-implikasjon",
+      "type": "definition",
+      "title": "«$\\Rightarrow$» mot «$\\iff$» — vis begge veier",
+      "content": "En **implikasjon** $P\\Rightarrow Q$ krever bare én retning. En **ekvivalens** $P\\iff Q$ («hvis og bare hvis») krever **to** separate bevis:\n\n$$P\\Rightarrow Q\\quad\\text{og}\\quad Q\\Rightarrow P.$$\n\nÅ vise bare den ene halvparten av en $\\iff$ er den vanligste bevis-fellen. Merk hvilken type påstanden er før du starter."
+    },
+    {
+      "id": "tma4110-11-2-bd-teknikk-tall",
+      "type": "definition",
+      "title": "Hvorfor et tallesempel ikke er et bevis",
+      "content": "At en påstand stemmer for *én* matrise viser ingenting om *alle* matriser. Et generelt bevis må bruke en vilkårlig $A$ med bare forutsetningen kjent:\n\n$$\\text{«La }A\\text{ være en vilkårlig }n\\times n\\text{-matrise med }A^2=A\\text{ ...»}$$\n\nTallesempler er nyttige for å *forstå* eller *motbevise* (ett moteksempel felller en påstand), aldri for å *bevise* et «for alle»."
+    },
+    {
+      "id": "tma4110-11-2-lokkeA",
+      "type": "text",
+      "content": "## Arketype A — egenverdier av $A^2=A$ (~14 min)\n\nIdempotente matriser ($A^2=A$) er projeksjoner. Vi viser at egenverdiene bare kan være $0$ eller $1$."
+    },
+    {
+      "id": "tma4110-11-2-bd-idempotent",
+      "type": "definition",
+      "title": "Idempotent matrise ($A^2=A$)",
+      "content": "En matrise som er sin egen kvadrat kalles **idempotent**:\n\n$$A^2=A.$$\n\nGeometrisk er slike matriser projeksjoner (å projisere to ganger er det samme som å projisere én gang). Egenverdiene deres er alltid $0$ eller $1$, og de er alltid diagonaliserbare."
+    },
+    {
+      "id": "tma4110-11-2-bd-egeninnsett",
+      "type": "definition",
+      "title": "Egenverdi-innsetting $A\\mathbf v=\\lambda\\mathbf v$",
+      "content": "Standardgrepet i ethvert egenverdibevis: la $\\lambda$ være en egenverdi med egenvektor $\\mathbf v\\ne\\mathbf 0$, og bruk\n\n$$A\\mathbf v=\\lambda\\mathbf v.$$\n\nGang med $A$, eller sett inn i en gitt matriselikning, for å få en skalarlikning i $\\lambda$. Forutsetningen $\\mathbf v\\ne\\mathbf 0$ er det som lar deg «stryke» $\\mathbf v$ til slutt."
+    },
+    {
+      "id": "tma4110-11-2-ex-A",
+      "type": "example",
+      "title": "Modellbevis A: $A^2=A$ gir egenverdier i $\\{0,1\\}$ (sjanger N)",
+      "problem": "La $A$ være en $n\\times n$-matrise med $A^2=A$. Vis at enhver egenverdi $\\lambda$ er $0$ eller $1$, og at $A$ er diagonaliserbar.",
+      "solution": "**Gitt:** $A^2=A$. **Skal vise:** hver egenverdi $\\lambda\\in\\{0,1\\}$, og $A$ diagonaliserbar.\n\n**Egenverdiene.** La $\\lambda$ være en egenverdi med egenvektor $\\mathbf v\\ne\\mathbf 0$, så $A\\mathbf v=\\lambda\\mathbf v$ (definisjonen av egenverdi). Gang med $A$:\n\n$$A^2\\mathbf v=A(\\lambda\\mathbf v)=\\lambda A\\mathbf v=\\lambda^2\\mathbf v.$$\n\nMen $A^2=A$, så $A^2\\mathbf v=A\\mathbf v=\\lambda\\mathbf v$. Dermed\n\n$$\\lambda^2\\mathbf v=\\lambda\\mathbf v\\ \\Rightarrow\\ (\\lambda^2-\\lambda)\\mathbf v=\\mathbf 0.$$\n\nSiden $\\mathbf v\\ne\\mathbf 0$, må skalaren være null: $\\lambda^2-\\lambda=\\lambda(\\lambda-1)=0$, altså $\\boxed{\\lambda=0\\ \\text{eller}\\ \\lambda=1}$.\n\n**Diagonaliserbarhet.** Vi viser at $\\mathbb R^n=\\operatorname{Nul}A\\oplus\\operatorname{Nul}(A-I)$ (egenrommene for $0$ og $1$). For enhver $\\mathbf x$:\n\n$$\\mathbf x=\\underbrace{(\\mathbf x-A\\mathbf x)}_{\\in\\,\\operatorname{Nul}A}+\\underbrace{A\\mathbf x}_{\\in\\,\\operatorname{Nul}(A-I)}.$$\n\nHer er $A(\\mathbf x-A\\mathbf x)=A\\mathbf x-A^2\\mathbf x=A\\mathbf x-A\\mathbf x=\\mathbf 0$, så første ledd er egenvektor for $\\lambda=0$; og $A(A\\mathbf x)=A^2\\mathbf x=A\\mathbf x$, så andre ledd er egenvektor for $\\lambda=1$. Dermed spennes $\\mathbb R^n$ av egenvektorer, og etter **diagonaliserbarhetskriteriet** er $A$ diagonaliserbar. $\\blacksquare$\n\n**Merk føringen:** $\\mathbf v\\ne\\mathbf 0$ ble brukt eksplisitt til å stryke $\\mathbf v$, og diagonaliserbarhet ble *begrunnet* (ikke bare påstått)."
+    },
+    {
+      "id": "tma4110-11-2-oppg-A1",
+      "type": "exercise",
+      "exercise": {
+        "id": "tma4110-11-2-oppg-A1-e",
+        "number": "1",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "(Sjanger N.) La $A$ være en $n\\times n$-matrise med $A^2=A$. Vis at $B=I-A$ også er idempotent ($B^2=B$), og finn egenverdiene til $B$.",
+        "solution": "**Gitt:** $A^2=A$. **Skal vise:** $(I-A)^2=I-A$.\n\nGang ut, og bruk at $I$ kommuterer med alt:\n\n$$(I-A)^2=I-2A+A^2=I-2A+A=I-A.$$\n\nSå $B=I-A$ er idempotent. **Egenverdiene:** etter samme resultat som for $A$ er egenverdiene til en idempotent matrise $0$ eller $1$. (Sammenheng: er $\\lambda$ egenverdi for $A$, er $1-\\lambda$ egenverdi for $I-A$, så $A$s egenverdier $\\{0,1\\}$ svarer til $B$s egenverdier $\\{1,0\\}$.)",
+        "hints": [
+          "Gang ut $(I-A)^2$ og sett inn $A^2=A$.",
+          "$I-2A+A^2=I-2A+A$.",
+          "En idempotent matrise har egenverdier 0 og 1."
+        ]
+      }
+    },
+    {
+      "id": "tma4110-11-2-lokkeB",
+      "type": "text",
+      "content": "## Arketype B — nilpotens og den geometriske matriseserien (~14 min)\n\n*— naturlig pausepunkt før arketype C. —*\n\nEr $A^k=O$ for en $k$, kalles $A$ **nilpotent**. Da har $I-A$ en invers gitt av en endelig geometrisk serie — akkurat som $\\frac1{1-a}=1+a+a^2+\\dots$ for tall, men her stopper serien."
+    },
+    {
+      "id": "tma4110-11-2-bd-nilpotent",
+      "type": "definition",
+      "title": "Nilpotent matrise",
+      "content": "En matrise som blir null når den opphøyes høyt nok:\n\n$$A^k=O\\ \\text{for et heltall}\\ k\\ge1.$$\n\nNilpotente matriser har **bare egenverdien $0$**, og $I-A$ er alltid inverterbar. De opptrer typisk som strengt triangulære matriser (nuller på og under/over diagonalen)."
+    },
+    {
+      "id": "tma4110-11-2-bd-geoserie",
+      "type": "definition",
+      "title": "Geometrisk matriseserie (Neumann)",
+      "content": "For en nilpotent $A$ med $A^k=O$ er $I-A$ inverterbar, og inversen er en endelig serie:\n\n$$(I-A)^{-1}=I+A+A^2+\\dots+A^{k-1}.$$\n\nDet bevises ved å gange ut: $(I-A)(I+A+\\dots+A^{k-1})=I-A^k=I$. Serien stopper fordi $A^k=O$ — ingen konvergens trengs."
+    },
+    {
+      "id": "tma4110-11-2-ex-B",
+      "type": "example",
+      "title": "Modellbevis B: $A^3=O$ gir $(I-A)^{-1}=I+A+A^2$ (sjanger N)",
+      "problem": "La $A$ være en $n\\times n$-matrise med $A^3=O$. Vis at $I-A$ er inverterbar med $(I-A)^{-1}=I+A+A^2$.",
+      "solution": "**Gitt:** $A^3=O$. **Skal vise:** $I-A$ inverterbar og $(I-A)^{-1}=I+A+A^2$.\n\nFor å vise at en matrise $M$ er inversen til $I-A$, holder det å vise at produktet begge veier er $I$ (definisjonen av invers). Sett $M=I+A+A^2$ og gang ut:\n\n$$(I-A)(I+A+A^2)=I+A+A^2-A-A^2-A^3=I-A^3.$$\n\nAlle mellomledd kanselleres teleskopisk, og $A^3=O$ gir\n\n$$(I-A)(I+A+A^2)=I-O=I.$$\n\nSamme regning fra andre siden (matrisemultiplikasjon er ikke kommutativ generelt, men her kommuterer $A$ med potensene sine):\n\n$$(I+A+A^2)(I-A)=I+A+A^2-A-A^2-A^3=I-A^3=I.$$\n\nProduktet er $I$ begge veier, så $I-A$ er inverterbar med $\\boxed{(I-A)^{-1}=I+A+A^2}$. $\\blacksquare$\n\n**Merk:** vi brukte $A^3=O$ (forutsetningen) i det avgjørende steget, og viste *begge* produkter fordi invers krever venstre- og høyreinvers."
+    },
+    {
+      "id": "tma4110-11-2-oppg-B1",
+      "type": "exercise",
+      "exercise": {
+        "id": "tma4110-11-2-oppg-B1-e",
+        "number": "2",
+        "type": "classic",
+        "difficulty": "vanskelig",
+        "task": "(Sjanger N — variant.) La $A$ oppfylle $A^2=O$ (nilpotent med $k=2$). Vis at $(I-A)^{-1}=I+A$, og at $(I+A)^{-1}=I-A$.",
+        "solution": "**Gitt:** $A^2=O$. Gang ut begge:\n\n$$(I-A)(I+A)=I+A-A-A^2=I-A^2=I-O=I,$$\n$$(I+A)(I-A)=I-A+A-A^2=I.$$\n\nSå $I-A$ er inverterbar med $(I-A)^{-1}=I+A$. Symmetrisk gir samme regning $(I+A)(I-A)=I$, altså $(I+A)^{-1}=I-A$. Begge følger av at serien $I+A+A^2+\\dots$ stopper allerede etter to ledd når $A^2=O$.",
+        "hints": [
+          "Serien stopper etter to ledd når $A^2=O$.",
+          "Gang ut $(I-A)(I+A)$ og bruk $A^2=O$.",
+          "Vis produktet begge veier for å ha både venstre- og høyreinvers."
+        ]
+      }
+    },
+    {
+      "id": "tma4110-11-2-oppg-B2",
+      "type": "exercise",
+      "exercise": {
+        "id": "tma4110-11-2-oppg-B2-e",
+        "number": "3",
+        "type": "classic",
+        "difficulty": "vanskelig",
+        "task": "(Sjanger N — konkret + generelt.) La $N=\\begin{pmatrix}0&1&1\\\\0&0&1\\\\0&0&0\\end{pmatrix}$. Bekreft at $N^3=O$, og bruk seriene fra arketype B til å finne $(I-N)^{-1}$ eksplisitt.",
+        "solution": "**Nilpotens.** $N^2=\\begin{pmatrix}0&0&1\\\\0&0&0\\\\0&0&0\\end{pmatrix}$ og $N^3=N\\cdot N^2=O$ (regn ut, eller merk at $N$ er strengt øvre triangulær $3\\times3$, så $N^3=O$ automatisk).\n\n**Invers.** Etter modellbevis B er $(I-N)^{-1}=I+N+N^2$:\n\n$$(I-N)^{-1}=\\begin{pmatrix}1&0&0\\\\0&1&0\\\\0&0&1\\end{pmatrix}+\\begin{pmatrix}0&1&1\\\\0&0&1\\\\0&0&0\\end{pmatrix}+\\begin{pmatrix}0&0&1\\\\0&0&0\\\\0&0&0\\end{pmatrix}=\\begin{pmatrix}1&1&2\\\\0&1&1\\\\0&0&1\\end{pmatrix}.$$\n\n**Kontroll:** $(I-N)\\begin{pmatrix}1&1&2\\\\0&1&1\\\\0&0&1\\end{pmatrix}=I$ (regn ut én kolonne om du vil). Merk: her *illustrerte* tallmatrisen resultatet, men beviset for formelen er det generelle i arketype B.",
+        "hints": [
+          "Strengt øvre triangulær $3\\times3$ er nilpotent med $N^3=O$.",
+          "Regn ut $N^2$ og legg sammen $I+N+N^2$.",
+          "Kontroller ved å gange $(I-N)$ med svaret."
+        ]
+      }
+    },
+    {
+      "id": "tma4110-11-2-lokkeC",
+      "type": "text",
+      "content": "## Arketype C — inverterbarhet og $A^{T}A$ (~14 min)\n\nDen mest teknikk-tunge arketypen. Nøkkelen er skalar-trikset $\\lVert A\\mathbf x\\rVert^2=\\mathbf x^{T}A^{T}A\\mathbf x$, som kobler $\\operatorname{Nul}(A^{T}A)$ til $\\operatorname{Nul}(A)$."
+    },
+    {
+      "id": "tma4110-11-2-bd-skalar",
+      "type": "definition",
+      "title": "Skalar-trikset $\\mathbf x^{T}A^{T}A\\mathbf x=\\lVert A\\mathbf x\\rVert^2$",
+      "content": "En likhet som gjør $A^{T}A$ håndterbar: for enhver vektor $\\mathbf x$ er\n\n$$\\mathbf x^{T}A^{T}A\\mathbf x=(A\\mathbf x)^{T}(A\\mathbf x)=\\lVert A\\mathbf x\\rVert^{2}\\ge0.$$\n\nEr venstresiden $0$, må $\\lVert A\\mathbf x\\rVert=0$, altså $A\\mathbf x=\\mathbf 0$. Dette er broa fra $A^{T}A$ til $A$."
+    },
+    {
+      "id": "tma4110-11-2-bd-nulATA",
+      "type": "definition",
+      "title": "$\\operatorname{Nul}(A^{T}A)=\\operatorname{Nul}(A)$",
+      "content": "En matrise og dens $A^{T}A$ har **samme nullrom**:\n\n$$A^{T}A\\mathbf x=\\mathbf 0\\ \\iff\\ A\\mathbf x=\\mathbf 0.$$\n\n«$\\Leftarrow$» er triviell. «$\\Rightarrow$»: $A^{T}A\\mathbf x=\\mathbf 0\\Rightarrow \\mathbf x^{T}A^{T}A\\mathbf x=0\\Rightarrow\\lVert A\\mathbf x\\rVert^2=0\\Rightarrow A\\mathbf x=\\mathbf 0$ (skalar-trikset). Dette er kjernelemmaet bak både normallikningene og inverterbarhetsbeviset."
+    },
+    {
+      "id": "tma4110-11-2-bd-imt-verktoy",
+      "type": "definition",
+      "title": "Inverterbarhetssetningen som bevisverktøy",
+      "content": "For en kvadratisk $A$ kan du fritt bytte mellom ekvivalente betingelser — perfekt i bevis:\n\n$$A\\ \\text{inverterbar}\\iff \\operatorname{Nul}A=\\{\\mathbf 0\\}\\iff \\det A\\ne0\\iff \\text{kolonnene uavhengige}.$$\n\nI $A^{T}A$-beviset oversetter du «$A^{T}A$ inverterbar» til «$\\operatorname{Nul}(A^{T}A)=\\{\\mathbf 0\\}$», bruker $\\operatorname{Nul}(A^{T}A)=\\operatorname{Nul}(A)$, og oversetter tilbake."
+    },
+    {
+      "id": "tma4110-11-2-bd-transponert",
+      "type": "definition",
+      "title": "Transponert-regler i bevis",
+      "content": "De algebraiske reglene du trenger for å manipulere transponerte i bevis:\n\n$$(AB)^{T}=B^{T}A^{T},\\qquad (A^{T})^{T}=A,\\qquad (A^{-1})^{T}=(A^{T})^{-1}.$$\n\nDen siste sier at $A$ inverterbar $\\Rightarrow A^{T}$ inverterbar. Skill $\\mathbf v\\mathbf v^{T}$ (matrise, rang $\\le1$) fra $\\mathbf v^{T}\\mathbf v$ (skalar, $=\\lVert\\mathbf v\\rVert^2$)."
+    },
+    {
+      "id": "tma4110-11-2-ex-C",
+      "type": "example",
+      "title": "Modellbevis C: $A$ inverterbar $\\iff A^{T}A$ inverterbar (sjanger N)",
+      "problem": "La $A$ være en $n\\times n$-matrise. Vis at $A$ er inverterbar hvis og bare hvis $A^{T}A$ er inverterbar.",
+      "solution": "Dette er en **ekvivalens**, så vi viser begge retninger.\n\n**($\\Rightarrow$) Anta $A$ inverterbar.** Da er $A^{T}$ også inverterbar (siden $(A^{-1})^{T}=(A^{T})^{-1}$). Produktet av to inverterbare matriser er inverterbart, så\n\n$$A^{T}A\\ \\text{er inverterbar, med}\\ (A^{T}A)^{-1}=A^{-1}(A^{T})^{-1}.$$\n\n**($\\Leftarrow$) Anta $A^{T}A$ inverterbar.** Vi viser $\\operatorname{Nul}A=\\{\\mathbf 0\\}$. La $\\mathbf x$ oppfylle $A\\mathbf x=\\mathbf 0$. Da er også $A^{T}A\\mathbf x=A^{T}\\mathbf 0=\\mathbf 0$. Men $A^{T}A$ er inverterbar, så etter **inverterbarhetssetningen** er $\\operatorname{Nul}(A^{T}A)=\\{\\mathbf 0\\}$, altså $\\mathbf x=\\mathbf 0$.\n\nDermed er $\\operatorname{Nul}A=\\{\\mathbf 0\\}$, og siden $A$ er kvadratisk, gir inverterbarhetssetningen at $A$ er inverterbar. $\\blacksquare$\n\n**Merk:** begge veier ble vist (det er en $\\iff$), og forutsetningen «$A$ kvadratisk» ble brukt eksplisitt i den siste retningen — for en ikke-kvadratisk $A$ gjelder i stedet at $A^{T}A$ inverterbar $\\iff$ kolonnene i $A$ er lineært uavhengige."
+    },
+    {
+      "id": "tma4110-11-2-oppg-C1",
+      "type": "exercise",
+      "exercise": {
+        "id": "tma4110-11-2-oppg-C1-e",
+        "number": "4",
+        "type": "classic",
+        "difficulty": "vanskelig",
+        "task": "(Sjanger N.) La $A$ være en $m\\times n$-matrise. Vis at $\\operatorname{Nul}(A^{T}A)=\\operatorname{Nul}(A)$. (Dette er lemmaet bak normallikningene.)",
+        "solution": "**Skal vise:** de to nullrommene er like — vis begge inklusjoner.\n\n**($\\supseteq$)** Er $A\\mathbf x=\\mathbf 0$, så $A^{T}A\\mathbf x=A^{T}(A\\mathbf x)=A^{T}\\mathbf 0=\\mathbf 0$, altså $\\mathbf x\\in\\operatorname{Nul}(A^{T}A)$.\n\n**($\\subseteq$)** Anta $A^{T}A\\mathbf x=\\mathbf 0$. Gang fra venstre med $\\mathbf x^{T}$:\n\n$$\\mathbf x^{T}A^{T}A\\mathbf x=0\\ \\Rightarrow\\ (A\\mathbf x)^{T}(A\\mathbf x)=\\lVert A\\mathbf x\\rVert^{2}=0\\ \\Rightarrow\\ A\\mathbf x=\\mathbf 0.$$\n\n(En norm er null bare for nullvektoren.) Så $\\mathbf x\\in\\operatorname{Nul}(A)$. Begge inklusjoner gir likhet. $\\blacksquare$",
+        "hints": [
+          "To mengder er like: vis begge inklusjoner.",
+          "Den lette veien: $A\\mathbf x=\\mathbf 0\\Rightarrow A^{T}A\\mathbf x=\\mathbf 0$.",
+          "Den andre: gang med $\\mathbf x^{T}$ og bruk $\\mathbf x^{T}A^{T}A\\mathbf x=\\lVert A\\mathbf x\\rVert^2$."
+        ]
+      }
+    },
+    {
+      "id": "tma4110-11-2-drill-tekst",
+      "type": "text",
+      "content": "## Flere bevisoppgaver — blandede arketyper\n\nNå blandet, så du selv må kjenne igjen hvilken teknikk som bærer. Skriv alltid gitt/skal-vises først."
+    },
+    {
+      "id": "tma4110-11-2-oppg-D1",
+      "type": "exercise",
+      "exercise": {
+        "id": "tma4110-11-2-oppg-D1-e",
+        "number": "5",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "(Sjanger N.) La $\\lambda$ være en egenverdi for $A$ med egenvektor $\\mathbf v$. Vis at $\\lambda^k$ er en egenverdi for $A^k$ (samme $\\mathbf v$), for alle heltall $k\\ge1$.",
+        "solution": "**Gitt:** $A\\mathbf v=\\lambda\\mathbf v$, $\\mathbf v\\ne\\mathbf 0$. **Skal vise:** $A^k\\mathbf v=\\lambda^k\\mathbf v$.\n\nInduksjon på $k$. **Basis** $k=1$: $A\\mathbf v=\\lambda\\mathbf v$ er gitt. **Induksjonssteg:** anta $A^k\\mathbf v=\\lambda^k\\mathbf v$. Da\n\n$$A^{k+1}\\mathbf v=A(A^k\\mathbf v)=A(\\lambda^k\\mathbf v)=\\lambda^k(A\\mathbf v)=\\lambda^k\\lambda\\mathbf v=\\lambda^{k+1}\\mathbf v.$$\n\nSiden $\\mathbf v\\ne\\mathbf 0$, er $\\lambda^k$ virkelig en egenverdi (ikke bare en formell likhet). $\\blacksquare$",
+        "hints": [
+          "Bruk induksjon på $k$.",
+          "Skriv $A^{k+1}\\mathbf v=A(A^k\\mathbf v)$ og sett inn induksjonshypotesen.",
+          "Flytt skalaren $\\lambda^k$ forbi $A$."
+        ]
+      }
+    },
+    {
+      "id": "tma4110-11-2-oppg-D2",
+      "type": "exercise",
+      "exercise": {
+        "id": "tma4110-11-2-oppg-D2-e",
+        "number": "6",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "(Sjanger N — underrom.) La $A$ være en $m\\times n$-matrise. Vis at $\\operatorname{Nul}A=\\{\\mathbf x\\in\\mathbb R^{n}:A\\mathbf x=\\mathbf 0\\}$ er et underrom av $\\mathbb R^{n}$.",
+        "solution": "**Skal vise:** de tre underrom-betingelsene.\n\n**(1) $\\mathbf 0\\in\\operatorname{Nul}A$:** $A\\mathbf 0=\\mathbf 0$, ja.\n\n**(2) Lukket under addisjon:** la $\\mathbf u,\\mathbf v\\in\\operatorname{Nul}A$, så $A\\mathbf u=\\mathbf 0$ og $A\\mathbf v=\\mathbf 0$. Da $A(\\mathbf u+\\mathbf v)=A\\mathbf u+A\\mathbf v=\\mathbf 0+\\mathbf 0=\\mathbf 0$, så $\\mathbf u+\\mathbf v\\in\\operatorname{Nul}A$.\n\n**(3) Lukket under skalarmultiplikasjon:** la $\\mathbf u\\in\\operatorname{Nul}A$ og $c$ skalar. Da $A(c\\mathbf u)=cA\\mathbf u=c\\mathbf 0=\\mathbf 0$, så $c\\mathbf u\\in\\operatorname{Nul}A$.\n\nAlle tre holder (og vi brukte bare at $A$ er lineær), så $\\operatorname{Nul}A$ er et underrom. $\\blacksquare$",
+        "hints": [
+          "Sjekk de tre underrom-betingelsene eksplisitt.",
+          "Bruk lineariteten: $A(\\mathbf u+\\mathbf v)=A\\mathbf u+A\\mathbf v$.",
+          "Nullvektoren ligger alltid i $\\operatorname{Nul}A$ fordi $A\\mathbf 0=\\mathbf 0$."
+        ]
+      }
+    },
+    {
+      "id": "tma4110-11-2-oppg-D3",
+      "type": "exercise",
+      "exercise": {
+        "id": "tma4110-11-2-oppg-D3-e",
+        "number": "7",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "(Sjanger N.) Vis at hvis $A$ er inverterbar, kan ikke $0$ være en egenverdi for $A$.",
+        "solution": "**Gitt:** $A$ inverterbar. **Skal vise:** $0$ er ikke egenverdi.\n\nAnta for motsigelse at $0$ *er* en egenverdi. Da finnes $\\mathbf v\\ne\\mathbf 0$ med $A\\mathbf v=0\\cdot\\mathbf v=\\mathbf 0$. Men da er $\\mathbf v$ en ikke-null-vektor i $\\operatorname{Nul}A$, så $\\operatorname{Nul}A\\ne\\{\\mathbf 0\\}$. Etter **inverterbarhetssetningen** betyr det at $A$ *ikke* er inverterbar — motsigelse.\n\nAlternativt direkte: $0$ egenverdi $\\iff\\det(A-0\\cdot I)=\\det A=0\\iff A$ ikke inverterbar. Siden $A$ er inverterbar, er $\\det A\\ne0$, så $0$ er ikke egenverdi. $\\blacksquare$",
+        "hints": [
+          "Anta det motsatte: at $0$ er egenverdi.",
+          "$A\\mathbf v=\\mathbf 0$ med $\\mathbf v\\ne\\mathbf 0$ betyr $\\operatorname{Nul}A\\ne\\{\\mathbf 0\\}$.",
+          "Koble til $\\det A$: $0$ egenverdi $\\iff\\det A=0$."
+        ]
+      }
+    },
+    {
+      "id": "tma4110-11-2-oppg-D4",
+      "type": "exercise",
+      "exercise": {
+        "id": "tma4110-11-2-oppg-D4-e",
+        "number": "8",
+        "type": "classic",
+        "difficulty": "vanskelig",
+        "task": "(Sjanger N — kald bank, uten mellomsteg. Fasit er momentliste.) La $\\mathbf v_1,\\mathbf v_2$ være egenvektorer for $A$ som hører til **forskjellige** egenverdier $\\lambda_1\\ne\\lambda_2$. Vis at $\\mathbf v_1,\\mathbf v_2$ er lineært uavhengige.",
+        "solution": "**Momentliste (A-svar).** Anta $c_1\\mathbf v_1+c_2\\mathbf v_2=\\mathbf 0$ $(\\star)$. Gang $(\\star)$ med $A$: $c_1\\lambda_1\\mathbf v_1+c_2\\lambda_2\\mathbf v_2=\\mathbf 0$. Gang $(\\star)$ med $\\lambda_1$: $c_1\\lambda_1\\mathbf v_1+c_2\\lambda_1\\mathbf v_2=\\mathbf 0$. Trekk fra: $c_2(\\lambda_2-\\lambda_1)\\mathbf v_2=\\mathbf 0$. Siden $\\mathbf v_2\\ne\\mathbf 0$ og $\\lambda_2-\\lambda_1\\ne0$, må $c_2=0$. Innsatt i $(\\star)$: $c_1\\mathbf v_1=\\mathbf 0$, og $\\mathbf v_1\\ne\\mathbf 0$ gir $c_1=0$. Bare den trivielle kombinasjonen gir null, så $\\mathbf v_1,\\mathbf v_2$ er lineært uavhengige. $\\blacksquare$ (Forutsetningene brukt: $\\lambda_1\\ne\\lambda_2$ og egenvektorer $\\ne\\mathbf 0$.)",
+        "hints": [
+          "Ingen mellomsteg gitt — kald bank.",
+          "Start med $c_1\\mathbf v_1+c_2\\mathbf v_2=\\mathbf 0$ og gang med både $A$ og $\\lambda_1$.",
+          "Differansen isolerer $c_2(\\lambda_2-\\lambda_1)\\mathbf v_2=\\mathbf 0$."
+        ]
+      }
+    },
+    {
+      "id": "tma4110-11-2-oppg-D5",
+      "type": "exercise",
+      "exercise": {
+        "id": "tma4110-11-2-oppg-D5-e",
+        "number": "9",
+        "type": "classic",
+        "difficulty": "vanskelig",
+        "task": "(Sjanger N — «kjennskap»-arketype.) La $A$ være en **symmetrisk** reell matrise ($A^{T}=A$), og la $\\lambda$ være en egenverdi med (mulig kompleks) egenvektor $\\mathbf v\\ne\\mathbf 0$. Vis at $\\lambda$ er reell.",
+        "solution": "**Gitt:** $A^{T}=A$ reell. **Skal vise:** $\\lambda\\in\\mathbb R$.\n\nLa $A\\mathbf v=\\lambda\\mathbf v$ og la $\\bar{\\mathbf v}$ være den konjugerte. Betrakt skalaren $\\bar{\\mathbf v}^{T}A\\mathbf v$ på to måter.\n\n**Måte 1:** $\\bar{\\mathbf v}^{T}A\\mathbf v=\\bar{\\mathbf v}^{T}(\\lambda\\mathbf v)=\\lambda\\,\\bar{\\mathbf v}^{T}\\mathbf v=\\lambda\\lVert\\mathbf v\\rVert^{2}$.\n\n**Måte 2:** siden $A$ er reell og symmetrisk, er $A\\bar{\\mathbf v}=\\overline{A\\mathbf v}=\\bar\\lambda\\bar{\\mathbf v}$. Da\n\n$$\\bar{\\mathbf v}^{T}A\\mathbf v=(A^{T}\\bar{\\mathbf v})^{T}\\mathbf v=(A\\bar{\\mathbf v})^{T}\\mathbf v=(\\bar\\lambda\\bar{\\mathbf v})^{T}\\mathbf v=\\bar\\lambda\\,\\bar{\\mathbf v}^{T}\\mathbf v=\\bar\\lambda\\lVert\\mathbf v\\rVert^{2}.$$\n\nSett de to like: $\\lambda\\lVert\\mathbf v\\rVert^2=\\bar\\lambda\\lVert\\mathbf v\\rVert^2$. Siden $\\mathbf v\\ne\\mathbf 0$ er $\\lVert\\mathbf v\\rVert^2>0$, så $\\lambda=\\bar\\lambda$, altså $\\lambda$ reell. $\\blacksquare$",
+        "hints": [
+          "Betrakt skalaren $\\bar{\\mathbf v}^{T}A\\mathbf v$ på to måter.",
+          "Bruk $A^{T}=A$ til å flytte $A$ over på $\\bar{\\mathbf v}$.",
+          "$\\lambda=\\bar\\lambda$ betyr at $\\lambda$ er reell."
+        ]
+      }
+    },
+    {
+      "id": "tma4110-11-2-warn",
+      "type": "warning",
+      "title": "Typiske feil",
+      "content": "- **Regner på et tallesempel i stedet for et generelt bevis.** Ett eksempel viser ikke «for alle». Start med «La $A$ være en vilkårlig matrise med …».\n- **Viser bare én vei i en «hvis og bare hvis».** En $\\iff$ krever to separate bevis. Merk deg om påstanden er $\\Rightarrow$ eller $\\iff$ før du starter.\n- **Glemmer forutsetningssjekk.** Brukte du $\\mathbf v\\ne\\mathbf 0$ (for å stryke $\\mathbf v$)? At $A$ er kvadratisk (for inverterbarhetssetningen)? Skriv det.\n- **Forveksler $\\mathbf v\\mathbf v^{T}$ (matrise) og $\\mathbf v^{T}\\mathbf v$ (skalar).** Den ene er en $n\\times n$-matrise med rang $\\le1$; den andre er tallet $\\lVert\\mathbf v\\rVert^2$.\n- **Manglende teoremnavn.** «Etter inverterbarhetssetningen …», «etter diagonaliserbarhetskriteriet …» — navngi det som bærer argumentet.\n- **Bruker udokumenterte påstander.** Alt du støtter deg på må enten være gitt, være en navngitt setning, eller være vist tidligere i beviset.\n- **Invers vist bare én vei.** For å konkludere $(I-A)^{-1}=M$ må du vise $\\textbf{både}$ $(I-A)M=I$ og $M(I-A)=I$."
+    },
+    {
+      "id": "tma4110-11-2-begrepsbank-tekst",
+      "type": "text",
+      "content": "## Begrepsbank til bevis-sjangeren\n\nBevis-teknikkene i kortform, klare for repetisjon.\n\n*Begrepsbanken er flashcard-/repetisjonsstoff — hopp trygt over ved førstegangslesing; tidsanslaget gjelder kjernestoffet.*"
+    },
+    {
+      "id": "tma4110-11-2-bb-kontrapositiv",
+      "type": "definition",
+      "title": "Kontrapositivt bevis",
+      "content": "I stedet for $P\\Rightarrow Q$ kan du vise det logisk ekvivalente $\\lnot Q\\Rightarrow\\lnot P$:\n\n$$(P\\Rightarrow Q)\\iff(\\lnot Q\\Rightarrow\\lnot P).$$\n\nNyttig når «ikke $Q$» er lettere å jobbe med. Eksempel: «$A\\mathbf x=\\mathbf 0$ har bare triviell løsning $\\Rightarrow$ kolonnene uavhengige» vises ofte kontrapositivt."
+    },
+    {
+      "id": "tma4110-11-2-bb-motsigelse",
+      "type": "definition",
+      "title": "Motsigelsesbevis",
+      "content": "Anta det motsatte av påstanden og utled noe umulig:\n\n$$\\text{anta }\\lnot Q;\\ \\text{utled en motsigelse}\\ \\Rightarrow\\ Q\\ \\text{må gjelde}.$$\n\nBrukt over: «anta $0$ *er* egenverdi for inverterbar $A$» leder til $\\operatorname{Nul}A\\ne\\{\\mathbf 0\\}$, som motsier inverterbarhet."
+    },
+    {
+      "id": "tma4110-11-2-bb-direkte",
+      "type": "definition",
+      "title": "Direkte bevis",
+      "content": "Den vanligste formen: start fra forutsetningene og regn/argumenter deg fram til påstanden i en kjede av gyldige steg:\n\n$$P=P_0\\Rightarrow P_1\\Rightarrow\\dots\\Rightarrow P_k=Q.$$\n\nModellbevis A, B og C er alle direkte. Hvert steg begrunnes med en definisjon, en navngitt setning eller ren algebra."
+    },
+    {
+      "id": "tma4110-11-2-bb-induksjon",
+      "type": "definition",
+      "title": "Induksjonsbevis",
+      "content": "For en påstand om alle heltall $k\\ge1$: vis den for $k=1$ (basis), og at den for $k$ medfører den for $k+1$ (steg):\n\n$$P(1)\\ \\text{sann},\\quad P(k)\\Rightarrow P(k+1)\\ \\Rightarrow\\ P(k)\\ \\text{for alle}\\ k.$$\n\nBrukt i «$\\lambda^k$ er egenverdi for $A^k$». Standardteknikk for potensutsagn."
+    },
+    {
+      "id": "tma4110-11-2-bb-egenrom",
+      "type": "definition",
+      "title": "Egenrom og multiplisitet i bevis",
+      "content": "**Algebraisk multiplisitet** er antall ganger $\\lambda$ er rot i $\\det(A-\\lambda I)$; **geometrisk** er $\\dim\\operatorname{Nul}(A-\\lambda I)$:\n\n$$1\\le\\text{geometrisk}\\le\\text{algebraisk}.$$\n\nDiagonaliserbar $\\iff$ geometrisk $=$ algebraisk for hver egenverdi. I diagonaliserbarhetsbevis teller du egenvektorer opp mot $n$."
+    },
+    {
+      "id": "tma4110-11-2-bb-basisutvid",
+      "type": "definition",
+      "title": "Basisutvidelse",
+      "content": "En lineært uavhengig mengde i et rom $V$ kan alltid utvides til en basis for $V$:\n\n$$\\{\\mathbf v_1,\\dots,\\mathbf v_k\\}\\ \\text{uavhengig}\\ \\Rightarrow\\ \\exists\\ \\mathbf v_{k+1},\\dots,\\mathbf v_n:\\ \\{\\mathbf v_1,\\dots,\\mathbf v_n\\}\\ \\text{basis}.$$\n\nVerktøy i abstrakte vektorrom-bevis (sjanger D/N) når du trenger å bygge en basis rundt gitte vektorer."
+    },
+    {
+      "id": "tma4110-11-2-bb-vvT",
+      "type": "definition",
+      "title": "$\\mathbf v\\mathbf v^{T}$ (matrise) mot $\\mathbf v^{T}\\mathbf v$ (skalar)",
+      "content": "To ulike produkter av samme vektor — hold dem fra hverandre:\n\n$$\\mathbf v^{T}\\mathbf v=\\lVert\\mathbf v\\rVert^{2}\\ (\\text{skalar}),\\qquad \\mathbf v\\mathbf v^{T}\\ (\\text{en}\\ n\\times n\\text{-matrise, rang}\\le1).$$\n\nForvekslingen er en klassisk feilkilde i $A^{T}A$-bevis. Sjekk dimensjonene: rad $\\times$ kolonne gir tall, kolonne $\\times$ rad gir matrise."
+    },
+    {
+      "id": "tma4110-11-2-bb-detbevis",
+      "type": "definition",
+      "title": "Determinant og inverterbarhet i bevis",
+      "content": "Determinanten kobler mange bevisbetingelser i én skalar:\n\n$$\\det(AB)=\\det A\\,\\det B,\\qquad \\det A^{T}=\\det A,\\qquad A\\ \\text{inverterbar}\\iff\\det A\\ne0.$$\n\nBrukes til å vise inverterbarhet av produkter ($\\det(A^{T}A)=(\\det A)^2$) og til å utelukke $0$ som egenverdi."
+    },
+    {
+      "id": "tma4110-11-2-bb-invers-def",
+      "type": "definition",
+      "title": "Å vise at $M$ er invers til $N$",
+      "content": "Definisjonen av invers gir en fast bevisoppskrift: for å slå fast $N^{-1}=M$, gang ut og vis at produktet er identiteten **begge veier**:\n\n$$NM=I\\quad\\text{og}\\quad MN=I.$$\n\nFordi matrisemultiplikasjon ikke er kommutativ generelt, holder det ikke å vise bare den ene. (For kvadratiske matriser følger riktignok den ene av den andre, men på eksamen vises begge for sikker uttelling.)"
+    },
+    {
+      "id": "tma4110-11-2-bb-egenverdi-def",
+      "type": "definition",
+      "title": "Definisjonen av egenverdi (i bevis)",
+      "content": "Presis definisjon, brukt som utgangspunkt i alle egenverdibevis: $\\lambda$ er en egenverdi for $A$ hvis det finnes en **ikke-null**-vektor $\\mathbf v$ med\n\n$$A\\mathbf v=\\lambda\\mathbf v,\\qquad \\mathbf v\\ne\\mathbf 0.$$\n\nKravet $\\mathbf v\\ne\\mathbf 0$ er avgjørende: uten det ville enhver $\\lambda$ «passet». Det er nettopp $\\mathbf v\\ne\\mathbf 0$ som lar deg konkludere fra $(\\lambda^2-\\lambda)\\mathbf v=\\mathbf 0$ at $\\lambda^2-\\lambda=0$."
+    },
+    {
+      "id": "tma4110-11-2-bb-projeksjon",
+      "type": "definition",
+      "title": "Idempotent $=$ projeksjon (geometrisk)",
+      "content": "Den geometriske tolkningen bak arketype A: en idempotent matrise ($A^2=A$) projiserer $\\mathbb R^n$ ned på $\\operatorname{Col}A$ langs $\\operatorname{Nul}A$.\n\n$$A\\mathbf x\\in\\operatorname{Col}A,\\qquad A(A\\mathbf x)=A\\mathbf x\\ (\\text{projisere igjen endrer ingenting}).$$\n\nDerfor er egenverdiene $1$ (retninger i $\\operatorname{Col}A$, som holdes fast) og $0$ (retninger i $\\operatorname{Nul}A$, som sendes til null)."
+    },
+    {
+      "id": "tma4110-11-2-bb-kvadratform",
+      "type": "definition",
+      "title": "Kvadratisk form og positivitet",
+      "content": "Uttrykket $\\mathbf x^{T}M\\mathbf x$ er en **kvadratisk form**. For $M=A^{T}A$ er den aldri negativ, og det er nøkkelen i arketype C:\n\n$$\\mathbf x^{T}A^{T}A\\mathbf x=\\lVert A\\mathbf x\\rVert^{2}\\ge0,\\qquad =0\\iff A\\mathbf x=\\mathbf 0.$$\n\nAt en sum av kvadrater bare er null når alt er null, er det som kobler $\\operatorname{Nul}(A^{T}A)$ til $\\operatorname{Nul}(A)$."
+    },
+    {
+      "id": "tma4110-11-2-symbolliste",
+      "type": "collapsible",
+      "title": "Symbol- og formelliste",
+      "buttonText": "Vis symboler og formler",
+      "content": [
+        {
+          "id": "tma4110-11-2-symbolliste-text",
+          "type": "text",
+          "content": "## Symbol- og formelliste\n\n*Oppslagsverk — alt her forklares underveis i kapitlet.*\n\n| Symbol | Betydning |\n|---|---|\n| $A^2=A$ | Idempotent (projeksjon) |\n| $A^k=O$ | Nilpotent |\n| $A\\mathbf v=\\lambda\\mathbf v$ | Egenverdilikning ($\\mathbf v\\ne\\mathbf 0$) |\n| $A^{T}$ | Transponert |\n| $\\operatorname{Nul}A$ | Nullrom $\\{\\mathbf x:A\\mathbf x=\\mathbf 0\\}$ |\n| $\\lVert A\\mathbf x\\rVert$ | Lengden (norm) av $A\\mathbf x$ |\n| $I,\\ O$ | Identitets- og nullmatrise |\n| $\\Rightarrow,\\ \\iff$ | Implikasjon, ekvivalens |\n| $\\blacksquare$ | Slutt på bevis |\n\n**Kjerneidentiteter (utenat):**\n\n$$A^2\\mathbf v=\\lambda^2\\mathbf v\\ \\text{når}\\ A\\mathbf v=\\lambda\\mathbf v;\\qquad \\mathbf x^{T}A^{T}A\\mathbf x=\\lVert A\\mathbf x\\rVert^2$$\n\n$$(I-A)(I+A+\\dots+A^{k-1})=I-A^{k}\\qquad(\\text{geometrisk matriseserie})$$\n\n$$(AB)^{T}=B^{T}A^{T},\\qquad \\operatorname{Nul}(A^{T}A)=\\operatorname{Nul}(A)$$\n\n**Inverterbarhetssetningen (kvadratisk $A$):**\n$$A\\ \\text{inverterbar}\\iff\\det A\\ne0\\iff\\operatorname{Nul}A=\\{\\mathbf 0\\}\\iff\\text{kolonnene uavhengige}.$$"
+        }
+      ]
+    }
+  ],
+  "exercises": []
+}

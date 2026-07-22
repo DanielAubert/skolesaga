@@ -1,0 +1,188 @@
+{
+  "id": "tma4110-11-5",
+  "courseId": "tma4110",
+  "chapterNumber": "11.5",
+  "title": "Øvingseksamen 3: de skarpeste karakterskillerne",
+  "description": "Tredje sett, kalibrert på de vanskeligste variantene: z⁴=-16 med skisse og kompleks kvadratrot, parametersystem med tilfelledeling, ett diagonaliserbart og ett ikke-diagonaliserbart tilfelle begrunnet med multiplisitet, Gram–Schmidt i integral-indreprodukt på P₂, 2. ordens ODE med resonans, ODE-system med komplekse egenverdier, og beviset A inverterbar ⇔ AᵀA inverterbar. Løsningsforslag som A-besvarelser med tids- og vektingsnotat.",
+  "estimatedMinutes": 240,
+  "competenceGoals": [
+    "håndtere de vanskeligste variantene: ikke-diagonaliserbarhet, integral-indreprodukt og resonans i ett sett",
+    "skille diagonaliserbar fra ikke-diagonaliserbar ved å sammenligne geometrisk og algebraisk multiplisitet",
+    "kjøre Gram–Schmidt og projeksjon i et integral-indreprodukt uten å falle tilbake på prikkproduktet",
+    "føre et toveis ekvivalensbevis og løse ODE med resonans etter føringsstandarden"
+  ],
+  "content": [
+    {
+      "id": "tma4110-11-5-tip",
+      "type": "tip",
+      "title": "Om øvingseksamen 3",
+      "content": "**Tredje sett — samme form (4 timer, ~10 likt vektede deloppgaver, kode E), men kalibrert på de vanskeligste dokumenterte variantene.** Dette er karakterskiller-settet: her testes nettopp det som skiller topp fra midt.\n\nMiksen: $z^n=c$ **med skisse** + kompleks kvadratrot (O1, J), parametersystem med tilfelledeling (O2, A), egenverdier der én matrise er diagonaliserbar og én **ikke** er det (O3, G), Gram–Schmidt i **integral-indreprodukt** (O4, H — ikke-standard), 2. ordens ODE **med resonans** (O5, L), ODE-system med komplekse egenverdier (O6, M) og et krevende bevis (O7, N).\n\n**To feller å være ekstra våken på:** i **O4** er indreproduktet et integral — *alle* skalarprodukt og normer regnes med integralet, ikke prikkproduktet. I **O5** er det **resonans** — ansatsen må ganges med $x$. Løs settet under tidspress først, og bruk løsningene til å sjekke føringen etterpå."
+    },
+    {
+      "id": "tma4110-11-5-forkunnskaper",
+      "type": "text",
+      "content": "**Forkunnskaper:** hele Del 1–9 pluss ODE-system, på det vanskeligste nivået. Repeter ved behov: $z^n=c$ med skisse [kap. 7.3](/bok/tma4110/tma4110-7-3), parametersystem [kap. 1.2](/bok/tma4110/tma4110-1-2), diagonaliserbarhet med multiplisitet [kap. 5.2](/bok/tma4110/tma4110-5-2), integral-indreprodukt og Gram–Schmidt [kap. 6.1](/bok/tma4110/tma4110-6-1)–[6.2](/bok/tma4110/tma4110-6-2), resonans [kap. 9.2](/bok/tma4110/tma4110-9-2), og bevis [kap. 11.2](/bok/tma4110/tma4110-11-2). Føringsstandarden: [kap. 11.1](/bok/tma4110/tma4110-11-1)."
+    },
+    {
+      "id": "tma4110-11-5-sett",
+      "type": "text",
+      "content": "## Øvingseksamen 3 — oppgavesettet (4 timer, kode E)\n\n*Alle svar begrunnes. Eksakte svar. De sju oppgavene er likt vektet.*\n\n**Oppgave 1 (komplekse tall).**\n\n**a)** Finn alle løsninger av $z^{4}=-16$, oppgi dem eksakt, og **skisser** dem i det komplekse planet.\n\n**b)** Finn begge de komplekse kvadratrøttene av $5-12i$ (dvs. løs $z^{2}=5-12i$).\n\n**Oppgave 2 (parametersystem).** Gitt\n\n$$\\begin{aligned}x+y+z&=1\\\\ x+2y+3z&=2\\\\ x+4y+az&=b.\\end{aligned}$$\n\n**a)** Bestem for hvilke $a,b$ systemet har ingen, én, og uendelig mange løsninger.\n\n**b)** Løs systemet på parameterform når det har uendelig mange løsninger.\n\n**Oppgave 3 (diagonaliserbarhet).**\n\n**a)** Avgjør om $A=\\begin{pmatrix}3&1\\\\0&3\\end{pmatrix}$ er diagonaliserbar. Begrunn.\n\n**b)** Avgjør om $B=\\begin{pmatrix}4&1\\\\0&2\\end{pmatrix}$ er diagonaliserbar, og diagonaliser den i så fall ($B=PDP^{-1}$).\n\n**Oppgave 4 (Gram–Schmidt i integral-indreprodukt).** På $\\operatorname{P}_2$ brukes indreproduktet $\\displaystyle\\langle f,g\\rangle=\\int_{-1}^{1}f(x)g(x)\\,dx$.\n\n**a)** Bruk Gram–Schmidt på $\\{1,x,x^{2}\\}$ til å finne en ortogonal basis.\n\n**b)** Finn den ortogonale projeksjonen av $f(x)=x^{2}$ ned på $\\operatorname{P}_1=\\operatorname{Span}\\{1,x\\}$.\n\n**Oppgave 5 (2. ordens ODE med resonans).** Løs initialverdiproblemet\n\n$$y''+4y=\\sin 2x,\\qquad y(0)=0,\\ y'(0)=0.$$\n\n**Oppgave 6 (system av differensiallikninger).** Gitt $\\mathbf x'=A\\mathbf x$ med $A=\\begin{pmatrix}2&-1\\\\1&2\\end{pmatrix}$.\n\n**a)** Finn den generelle reelle løsningen og klassifiser likevekten.\n\n**b)** Løs initialverdiproblemet $\\mathbf x(0)=(1,0)$.\n\n**Oppgave 7 (bevis).** La $A$ være en $n\\times n$-matrise. Vis at $A$ er inverterbar hvis og bare hvis $A^{T}A$ er inverterbar."
+    },
+    {
+      "id": "tma4110-11-5-los-intro",
+      "type": "text",
+      "content": "## Løsningsforslag\n\nEn A-besvarelse for hver oppgave, ført etter standarden i [kap. 11.1](/bok/tma4110/tma4110-11-1). O1 og O4 er de mest fellerike — les føringsnotatene."
+    },
+    {
+      "id": "tma4110-11-5-los-o1",
+      "type": "collapsible",
+      "title": "Løsning oppgave 1 — komplekse tall med skisse (J)",
+      "buttonText": "Vis løsningsforslag",
+      "content": [
+        {
+          "id": "tma4110-11-5-los-o1-sola",
+          "type": "text",
+          "content": "**a)** Skriv $-16$ på polarform: $|-16|=16$, $\\arg(-16)=\\pi$. **Røtterformelen** $z_k=16^{1/4}e^{i(\\pi+2\\pi k)/4}$, $k=0,1,2,3$, med $16^{1/4}=2$ og vinkelavstand $\\tfrac{2\\pi}{4}=\\tfrac{\\pi}{2}$:\n\n$$\\theta_0=\\tfrac{\\pi}{4},\\ \\theta_1=\\tfrac{3\\pi}{4},\\ \\theta_2=\\tfrac{5\\pi}{4},\\ \\theta_3=\\tfrac{7\\pi}{4}.$$\n\nHver rot har modulus $2$, og $2\\cos\\tfrac{\\pi}{4}=2\\sin\\tfrac{\\pi}{4}=\\sqrt2$:\n\n$$z_0=\\sqrt2+\\sqrt2\\,i,\\quad z_1=-\\sqrt2+\\sqrt2\\,i,\\quad z_2=-\\sqrt2-\\sqrt2\\,i,\\quad z_3=\\sqrt2-\\sqrt2\\,i.$$\n\n$$\\boxed{\\ z\\in\\{\\ \\sqrt2\\pm\\sqrt2\\,i,\\ -\\sqrt2\\pm\\sqrt2\\,i\\ \\}\\ }.$$\n\nAlle fire ligger på sirkelen $r=2$, jevnt fordelt med $90^\\circ$, som to konjugerte par. Skissen:"
+        },
+        {
+          "id": "tma4110-11-5-los-o1-fig",
+          "type": "image",
+          "src": "/images/textbook/tma4110/tma4110-7-3-z4-minus16.svg",
+          "alt": "Det komplekse planet med de fire løsningene av z^4=-16 på en sirkel med radius 2, i punktene ±√2±√2i, jevnt fordelt med 90 grader.",
+          "caption": "Til oppgave 1a: de fire fjerderøttene av $-16$ ligger på sirkelen $r=2$ i punktene $\\sqrt2\\pm\\sqrt2\\,i$ og $-\\sqrt2\\pm\\sqrt2\\,i$ — jevnt fordelt med $90^\\circ$, som to konjugerte par."
+        },
+        {
+          "id": "tma4110-11-5-los-o1-solb",
+          "type": "text",
+          "content": "**b)** Søk $z=a+bi$ med $z^2=5-12i$. Da $z^2=(a^2-b^2)+2ab\\,i$, så\n\n$$a^2-b^2=5,\\qquad 2ab=-12\\ \\Rightarrow\\ ab=-6.$$\n\nModulus gir en tredje likning: $|z|^2=a^2+b^2=|5-12i|=\\sqrt{25+144}=13$. Legg sammen med $a^2-b^2=5$:\n\n$$2a^2=18\\Rightarrow a^2=9,\\qquad 2b^2=8\\Rightarrow b^2=4.$$\n\nSå $a=\\pm3$, $b=\\pm2$, og $ab=-6<0$ velger fortegnskombinasjonene:\n\n$$\\boxed{\\ z=3-2i\\quad\\text{eller}\\quad z=-3+2i\\ }.$$\n\n**Kontroll:** $(3-2i)^2=9-12i+4i^2=9-12i-4=5-12i$ ✓."
+        },
+        {
+          "id": "tma4110-11-5-los-o1-tid",
+          "type": "tip",
+          "title": "Tidsbudsjett og vekting",
+          "content": "**~24 min.** I a) **skal** skissen med — oppgaven ber om det, så et svar uten figur er ufullstendig. Marker aksene, sirkelen $r=2$ og de fire punktene. I b) er $|z|^2=13$-trikset raskere enn å løse $a^2-b^2=5,\\ ab=-6$ direkte; $ab<0$ avgjør fortegnene."
+        }
+      ]
+    },
+    {
+      "id": "tma4110-11-5-los-o2",
+      "type": "collapsible",
+      "title": "Løsning oppgave 2 — parametersystem (A)",
+      "buttonText": "Vis løsningsforslag",
+      "content": [
+        {
+          "id": "tma4110-11-5-los-o2-sol",
+          "type": "text",
+          "content": "**a)** Radreduser. Trekk rad 1 fra rad 2 og rad 3:\n\n$$\\begin{pmatrix}1&1&1&\\big|&1\\\\1&2&3&\\big|&2\\\\1&4&a&\\big|&b\\end{pmatrix}\\to\\begin{pmatrix}1&1&1&\\big|&1\\\\0&1&2&\\big|&1\\\\0&3&a-1&\\big|&b-1\\end{pmatrix}\\to\\begin{pmatrix}1&1&1&\\big|&1\\\\0&1&2&\\big|&1\\\\0&0&a-7&\\big|&b-4\\end{pmatrix},$$\n\nder siste steg er rad 3 minus $3\\times$ rad 2. Siste rad: $(a-7)z=b-4$.\n\n- **$a\\ne7$:** **nøyaktig én løsning** (for enhver $b$).\n- **$a=7,\\ b\\ne4$:** $0=b-4\\ne0$ $\\Rightarrow$ **ingen løsning**.\n- **$a=7,\\ b=4$:** $0=0$, én fri variabel $\\Rightarrow$ **uendelig mange løsninger**.\n\n**b)** Med $a=7,\\ b=4$: $y+2z=1$ og $x+y+z=1$. La $z=t$. Da $y=1-2t$, $x=1-y-z=1-(1-2t)-t=t$:\n\n$$\\boxed{\\ (x,y,z)=(0,1,0)+t\\,(1,-2,1),\\quad t\\in\\mathbb R\\ }.$$\n\n**Kontroll:** $t=0$ gir $(0,1,0)$: $0+1+0=1$, $0+2+0=2$, $0+4+0=4$ ✓."
+        },
+        {
+          "id": "tma4110-11-5-los-o2-tid",
+          "type": "tip",
+          "title": "Tidsbudsjett og vekting",
+          "content": "**~24 min.** Alle tre tilfellene med **begge** betingelsene ($a$ og $b$) gir full uttelling; å glemme $b$-betingelsen er den vanlige fellen. Parameterform i b) — ikke bare «uendelig mange»."
+        }
+      ]
+    },
+    {
+      "id": "tma4110-11-5-los-o3",
+      "type": "collapsible",
+      "title": "Løsning oppgave 3 — diagonaliserbarhet med multiplisitet (G)",
+      "buttonText": "Vis løsningsforslag",
+      "content": [
+        {
+          "id": "tma4110-11-5-los-o3-sol",
+          "type": "text",
+          "content": "**a)** $A=\\begin{pmatrix}3&1\\\\0&3\\end{pmatrix}$ er triangulær, så egenverdiene er diagonalen: $\\lambda=3$ med **algebraisk multiplisitet 2**. Egenrommet:\n\n$$A-3I=\\begin{pmatrix}0&1\\\\0&0\\end{pmatrix}\\ \\Rightarrow\\ \\operatorname{Nul}(A-3I)=\\operatorname{Span}\\{(1,0)\\},\\quad \\dim=1.$$\n\nGeometrisk multiplisitet $=1<2=$ algebraisk. Etter **diagonaliserbarhetskriteriet** er $A$ **ikke** diagonaliserbar (for få lineært uavhengige egenvektorer — bare én, ikke to).\n\n**b)** $B=\\begin{pmatrix}4&1\\\\0&2\\end{pmatrix}$ er triangulær med egenverdier $\\lambda=4$ og $\\lambda=2$ — **to distinkte** egenverdier, så $B$ **er** diagonaliserbar. Egenvektorer:\n\n- $\\lambda=4$: $B-4I=\\begin{pmatrix}0&1\\\\0&-2\\end{pmatrix}\\Rightarrow \\mathbf v_1=(1,0)$.\n- $\\lambda=2$: $B-2I=\\begin{pmatrix}2&1\\\\0&0\\end{pmatrix}\\Rightarrow 2x+y=0\\Rightarrow \\mathbf v_2=(1,-2)$.\n\n$$\\boxed{\\ B=PDP^{-1},\\quad P=\\begin{pmatrix}1&1\\\\0&-2\\end{pmatrix},\\ D=\\begin{pmatrix}4&0\\\\0&2\\end{pmatrix}\\ }.$$\n\n**Kontroll:** $P^{-1}=\\tfrac{1}{-2}\\begin{pmatrix}-2&-1\\\\0&1\\end{pmatrix}=\\begin{pmatrix}1&\\tfrac12\\\\0&-\\tfrac12\\end{pmatrix}$, og $PDP^{-1}=B$ (regn ut om ønskelig)."
+        },
+        {
+          "id": "tma4110-11-5-los-o3-tid",
+          "type": "tip",
+          "title": "Tidsbudsjett og vekting",
+          "content": "**~24 min.** Poenget med paret: i a) må ikke-diagonaliserbarhet vises **eksplisitt** ved at geometrisk $<$ algebraisk multiplisitet — «den er ikke diagonaliserbar» uten dimensjonsargument gir ikke uttelling. I b) begrunnes diagonaliserbarheten med **to distinkte egenverdier**, og $P/D$ matches kolonnevis."
+        }
+      ]
+    },
+    {
+      "id": "tma4110-11-5-los-o4",
+      "type": "collapsible",
+      "title": "Løsning oppgave 4 — Gram–Schmidt i integral-indreprodukt (H)",
+      "buttonText": "Vis løsningsforslag",
+      "content": [
+        {
+          "id": "tma4110-11-5-los-o4-sol",
+          "type": "text",
+          "content": "**Merk:** her er $\\langle f,g\\rangle=\\int_{-1}^{1}fg\\,dx$ — **alle** skalarprodukt og normer regnes med dette integralet, ikke prikkproduktet.\n\n**a)** Gram–Schmidt på $\\{1,x,x^2\\}$. Nyttige integraler: $\\langle 1,1\\rangle=\\int_{-1}^{1}1\\,dx=2$, $\\langle x,x\\rangle=\\int_{-1}^{1}x^2\\,dx=\\tfrac23$, $\\langle x,1\\rangle=\\int_{-1}^{1}x\\,dx=0$, $\\langle x^2,1\\rangle=\\tfrac23$, $\\langle x^2,x\\rangle=\\int_{-1}^{1}x^3\\,dx=0$.\n\n$$v_1=1.$$\n$$v_2=x-\\frac{\\langle x,1\\rangle}{\\langle 1,1\\rangle}\\,1=x-\\frac{0}{2}=x.$$\n$$v_3=x^2-\\frac{\\langle x^2,1\\rangle}{\\langle 1,1\\rangle}\\,1-\\frac{\\langle x^2,x\\rangle}{\\langle x,x\\rangle}\\,x=x^2-\\frac{2/3}{2}\\cdot1-0=x^2-\\tfrac13.$$\n\n$$\\boxed{\\ \\text{ortogonal basis}=\\{\\,1,\\ x,\\ x^2-\\tfrac13\\,\\}\\ }.$$\n\n(Sjekk: $\\langle 1,x^2-\\tfrac13\\rangle=\\tfrac23-\\tfrac13\\cdot2=0$ ✓.)\n\n**b)** Projeksjonen av $f=x^2$ ned på $\\operatorname{P}_1=\\operatorname{Span}\\{1,x\\}$ (ortogonal basis $\\{1,x\\}$):\n\n$$\\operatorname{proj}_{\\operatorname{P}_1}x^2=\\frac{\\langle x^2,1\\rangle}{\\langle 1,1\\rangle}\\,1+\\frac{\\langle x^2,x\\rangle}{\\langle x,x\\rangle}\\,x=\\frac{2/3}{2}\\cdot1+\\frac{0}{2/3}\\cdot x=\\boxed{\\tfrac13}.$$\n\nAltså er den konstanten $\\tfrac13$ den beste lineære (grad $\\le1$) tilnærmingen til $x^2$ på $[-1,1]$ i denne normen — nettopp $v_3=x^2-\\tfrac13$ er «resten» ortogonal på $\\operatorname{P}_1$."
+        },
+        {
+          "id": "tma4110-11-5-los-o4-tid",
+          "type": "tip",
+          "title": "Tidsbudsjett og vekting",
+          "content": "**~24 min.** Hele oppgaven står og faller på at du bruker **integral-indreproduktet** overalt — den vanligste fellen er å smugle inn standard prikkprodukt. De odde integralene ($\\int_{-1}^1 x\\,dx=\\int_{-1}^1 x^3\\,dx=0$) forenkler mye; symmetri om $0$ er verdt å utnytte."
+        }
+      ]
+    },
+    {
+      "id": "tma4110-11-5-los-o5",
+      "type": "collapsible",
+      "title": "Løsning oppgave 5 — 2. ordens ODE med resonans (L)",
+      "buttonText": "Vis løsningsforslag",
+      "content": [
+        {
+          "id": "tma4110-11-5-los-o5-sol",
+          "type": "text",
+          "content": "**Homogen del.** $r^2+4=0\\Rightarrow r=\\pm2i$, så $y_h=C_1\\cos2x+C_2\\sin2x$.\n\n**Resonanssjekk.** Pådraget $\\sin2x$ svarer til $\\pm2i$, som **er** røttene $\\Rightarrow$ **resonans** ($s=1$). Standardansatsen $A\\cos2x+B\\sin2x$ ligger i $y_h$; gang med $x$:\n\n$$y_p=x(A\\cos2x+B\\sin2x).$$\n\nDeriver (produktregel):\n\n$$y_p'=(A\\cos2x+B\\sin2x)+x(-2A\\sin2x+2B\\cos2x),$$\n$$y_p''=2(-2A\\sin2x+2B\\cos2x)+x(-4A\\cos2x-4B\\sin2x).$$\n\nDa kanselleres $x$-leddene i $y_p''+4y_p$:\n\n$$y_p''+4y_p=2(-2A\\sin2x+2B\\cos2x)=-4A\\sin2x+4B\\cos2x.$$\n\nSett $=\\sin2x$: $-4A=1\\Rightarrow A=-\\tfrac14$, og $4B=0\\Rightarrow B=0$. Så $y_p=-\\tfrac14x\\cos2x$.\n\n**Generell løsning:** $y=C_1\\cos2x+C_2\\sin2x-\\tfrac14x\\cos2x$.\n\n**Initialbetingelser.** $y(0)=C_1=0$. Deriver: $y'=-2C_1\\sin2x+2C_2\\cos2x-\\tfrac14\\cos2x+\\tfrac12x\\sin2x$, så $y'(0)=2C_2-\\tfrac14=0\\Rightarrow C_2=\\tfrac18$. Dermed\n\n$$\\boxed{\\ y=\\tfrac18\\sin2x-\\tfrac14x\\cos2x\\ }.$$\n\n**Kontroll:** $y(0)=0$ ✓, $y'(0)=2\\cdot\\tfrac18-\\tfrac14=0$ ✓. Amplituden vokser med $x$ (leddet $-\\tfrac14x\\cos2x$) — den matematiske signaturen på resonans."
+        },
+        {
+          "id": "tma4110-11-5-los-o5-tid",
+          "type": "tip",
+          "title": "Tidsbudsjett og vekting",
+          "content": "**~24 min.** Den dyreste feilen: å glemme $x$-faktoren. Skriv resonanssjekken eksplisitt ($\\pm2i$ **er** røttene). Bestem $C_1,C_2$ til slutt fra hele $y$. Eksakte brøker — ikke desimaler."
+        }
+      ]
+    },
+    {
+      "id": "tma4110-11-5-los-o6",
+      "type": "collapsible",
+      "title": "Løsning oppgave 6 — system med komplekse egenverdier (M)",
+      "buttonText": "Vis løsningsforslag",
+      "content": [
+        {
+          "id": "tma4110-11-5-los-o6-sol",
+          "type": "text",
+          "content": "**a)** Egenverdier til $A=\\begin{pmatrix}2&-1\\\\1&2\\end{pmatrix}$:\n\n$$\\det(A-\\lambda I)=(2-\\lambda)^2+1=\\lambda^2-4\\lambda+5=0\\ \\Rightarrow\\ \\lambda=2\\pm i.$$\n\nEgenvektor for $\\lambda=2+i$: $(A-(2+i)I)=\\begin{pmatrix}-i&-1\\\\1&-i\\end{pmatrix}$; rad 1 gir $-i\\,v_1-v_2=0\\Rightarrow v_2=-i\\,v_1$, så $\\mathbf v=(1,-i)$. Med $e^{(2+i)t}=e^{2t}(\\cos t+i\\sin t)$:\n\n$$e^{(2+i)t}(1,-i)=e^{2t}\\underbrace{\\begin{pmatrix}\\cos t\\\\ \\sin t\\end{pmatrix}}_{\\text{realdel}}+i\\,e^{2t}\\underbrace{\\begin{pmatrix}\\sin t\\\\ -\\cos t\\end{pmatrix}}_{\\text{imaginærdel}}.$$\n\nGenerell reell løsning:\n\n$$\\boxed{\\ \\mathbf x(t)=e^{2t}\\!\\left[C_1\\begin{pmatrix}\\cos t\\\\ \\sin t\\end{pmatrix}+C_2\\begin{pmatrix}\\sin t\\\\ -\\cos t\\end{pmatrix}\\right]\\ }.$$\n\nEgenverdiene $2\\pm i$ har positiv realdel, så origo er en **ustabil spiral (spiralkilde)**.\n\n**b)** Initialverdi $\\mathbf x(0)=(1,0)$. Ved $t=0$: $\\cos0=1,\\sin0=0$, så\n\n$$\\mathbf x(0)=C_1\\begin{pmatrix}1\\\\0\\end{pmatrix}+C_2\\begin{pmatrix}0\\\\-1\\end{pmatrix}=\\begin{pmatrix}C_1\\\\-C_2\\end{pmatrix}=\\begin{pmatrix}1\\\\0\\end{pmatrix}\\ \\Rightarrow\\ C_1=1,\\ C_2=0.$$\n\n$$\\boxed{\\ \\mathbf x(t)=e^{2t}\\begin{pmatrix}\\cos t\\\\ \\sin t\\end{pmatrix}\\ }.$$\n\n**Kontroll:** $\\mathbf x(0)=(1,0)$ ✓; banen spiralerer utover med voksende $e^{2t}$."
+        },
+        {
+          "id": "tma4110-11-5-los-o6-tid",
+          "type": "tip",
+          "title": "Tidsbudsjett og vekting",
+          "content": "**~24 min.** Igjen: **real- og imaginærdel** av den komplekse løsningen gir de to reelle basisløsningene. Klassifiseringen fra $\\operatorname{Re}\\lambda=2>0$ (ustabil spiral). IVP settes inn i den ferdige reelle løsningen."
+        }
+      ]
+    },
+    {
+      "id": "tma4110-11-5-los-o7",
+      "type": "collapsible",
+      "title": "Løsning oppgave 7 — bevis, inverterbarhet og AᵀA (N)",
+      "buttonText": "Vis løsningsforslag",
+      "content": [
+        {
+          "id": "tma4110-11-5-los-o7-sol",
+          "type": "text",
+          "content": "Dette er en **ekvivalens** ($\\iff$), så vi viser begge veier. La $A$ være $n\\times n$.\n\n**($\\Rightarrow$) Anta $A$ inverterbar.** Da er $A^{T}$ inverterbar ($(A^{-1})^{T}=(A^{T})^{-1}$), og produktet av to inverterbare matriser er inverterbart:\n\n$$A^{T}A\\ \\text{inverterbar, med}\\ (A^{T}A)^{-1}=A^{-1}(A^{T})^{-1}.$$\n\n**($\\Leftarrow$) Anta $A^{T}A$ inverterbar.** Vi viser $\\operatorname{Nul}A=\\{\\mathbf 0\\}$. La $A\\mathbf x=\\mathbf 0$. Da er også $A^{T}A\\mathbf x=A^{T}\\mathbf 0=\\mathbf 0$. Men $A^{T}A$ er inverterbar, så etter **inverterbarhetssetningen** har den bare den trivielle løsningen: $\\mathbf x=\\mathbf 0$. Altså $\\operatorname{Nul}A=\\{\\mathbf 0\\}$, og siden $A$ er kvadratisk, gir inverterbarhetssetningen at $A$ er inverterbar.\n\nBegge retninger er vist, så\n\n$$\\boxed{\\ A\\ \\text{inverterbar}\\iff A^{T}A\\ \\text{inverterbar}\\ }.\\qquad\\blacksquare$$\n\n**Merk:** «$A$ kvadratisk» ble brukt eksplisitt i «$\\Leftarrow$» — for en generell $m\\times n$-matrise gjelder i stedet at $A^{T}A$ inverterbar $\\iff$ kolonnene i $A$ er lineært uavhengige (via $\\operatorname{Nul}(A^{T}A)=\\operatorname{Nul}A$)."
+        },
+        {
+          "id": "tma4110-11-5-los-o7-tid",
+          "type": "tip",
+          "title": "Tidsbudsjett og vekting",
+          "content": "**~24 min.** Karakterskiller: vis **begge** retninger (det er en $\\iff$), og bruk **inverterbarhetssetningen** for å oversette «inverterbar» til «$\\operatorname{Nul}=\\{\\mathbf 0\\}$». Full drill av denne arketypen: [kap. 11.2](/bok/tma4110/tma4110-11-2)."
+        }
+      ]
+    },
+    {
+      "id": "tma4110-11-5-selvdiagnose",
+      "type": "text",
+      "content": "## Selvdiagnose\n\n- ☐ **O1:** alle fire røttene av $z^4=-16$ **og skissen**; kvadratrøttene $\\pm(3-2i)$ av $5-12i$.\n- ☐ **O2:** alle tre tilfellene med betingelse på $a$ og $b$; parameterform i b).\n- ☐ **O3:** ikke-diagonaliserbarhet i a) vist ved **geometrisk $<$ algebraisk** multiplisitet; b) diagonalisert.\n- ☐ **O4:** brukte **integral-indreproduktet** overalt; ortogonal basis $\\{1,x,x^2-\\tfrac13\\}$; projeksjon $\\tfrac13$.\n- ☐ **O5:** oppdaget **resonans**, ganget med $x$; $y=\\tfrac18\\sin2x-\\tfrac14x\\cos2x$.\n- ☐ **O6:** real-/imaginærdel; ustabil spiral; IVP $\\mathbf x=e^{2t}(\\cos t,\\sin t)$.\n- ☐ **O7:** **begge veier** i ekvivalensen; inverterbarhetssetningen navngitt.\n\nFikk du de fleste av disse tre settene, er du godt rustet. Repeter [kap. 11.1](/bok/tma4110/tma4110-11-1)-sjekklisten kvelden før. Husk: **C er en god og vanlig karakter** — du trenger ikke feilfrie A-svar for et sterkt resultat."
+    }
+  ],
+  "exercises": []
+}

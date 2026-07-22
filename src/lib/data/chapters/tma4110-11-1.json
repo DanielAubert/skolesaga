@@ -1,0 +1,290 @@
+{
+  "id": "tma4110-11-1",
+  "courseId": "tma4110",
+  "chapterNumber": "11.1",
+  "title": "Føringsstandarden og utenat-apparatet (kode E)",
+  "description": "Sensorreglene operasjonalisert for kode E: begrunn alt, navngi teoremene, gi eksakte svar, Col A-basis fra originalkolonnene, diagonaliserbarhet med multiplisitet, riktig ODE-form med resonanssjekk. Med hele utenat-banken (de Moivre, n-te røtter, egenverdiprosedyren, diagonaliserbarhetskriteriet, de tre ODE-tilfellene, ubestemte koeffisienter, resonansregelen, Gram–Schmidt, normallikningene, dimensjonsteoremet, inverterbarhetssetningen) og sjekklisten før innlevering.",
+  "estimatedMinutes": 55,
+  "competenceGoals": [
+    "føre en eksamensbesvarelse etter standarden: navngi teoremene, vis mellomregning og gi eksakte svar",
+    "gjengi utenat-banken for kode E (de Moivre, n-te røtter, egenverdiprosedyren, de tre ODE-tilfellene, resonansregelen, Gram–Schmidt, normallikningene, dimensjonsteoremet, inverterbarhetssetningen) uten oppslag",
+    "unngå føringsfellene: Col A-basis fra RREF, diagonaliserbarhet uten multiplisitet, projeksjon uten ortogonal basis, glemt resonans og desimalsvar",
+    "bruke sjekklisten før innlevering og kjede delpunkter innenfor tidsbudsjettet"
+  ],
+  "content": [
+    {
+      "id": "tma4110-11-1-tip-eksamensvinkel",
+      "type": "tip",
+      "title": "Eksamensvinkel",
+      "content": "**Høyeste prioritet — dette kapitlet bærer karakteren på tvers av alle sjangre.** Under **kode E** (ingen hjelpemidler, intet formelark) avgjøres uttellingen like mye av *hvordan* du fører som av *hva* du regner. To besvarelser med samme sluttsvar kan få ulik karakter.\n\nKapitlet samler tre ting du må ha automatisert før eksamen:\n\n**a)** **Føringsstandarden** — den faste eksameninstruksen «alle svar skal begrunnes; vis nok mellomregning». Du skal navngi teoremene du bruker, vise mellomregning, og gi **eksakte** svar.\n\n**b)** **Utenat-banken** — alt apparatet du må kunne uten oppslag (de Moivre, $n$-te røtter, egenverdiprosedyren, diagonaliserbarhetskriteriet, de tre ODE-tilfellene, ubestemte koeffisienter + resonans, Gram–Schmidt, normallikningene, dimensjonsteoremet, inverterbarhetssetningen).\n\n**c)** **Sjekklisten før innlevering** — de sju kontrollpunktene som fanger de dyreste føringsfellene.\n\nDette er ikke et regnekapittel; det er kartet over hvordan de foregående ti delene skal *presenteres*. Les det tidlig, og igjen kvelden før eksamen."
+    },
+    {
+      "id": "tma4110-11-1-forkunnskaper",
+      "type": "text",
+      "content": "**Forkunnskaper.** Dette er et oppsummeringskapittel for **hele Del 1–10**, så det forutsetter at metodene sitter. Du trenger ikke lese det på nytt, men de tetteste knaggene er egenverdier og diagonalisering ([kap. 5.2](/bok/tma4110/tma4110-5-2)), Gram–Schmidt og projeksjon ([kap. 6.2](/bok/tma4110/tma4110-6-2)–[6.3](/bok/tma4110/tma4110-6-3)), minste kvadrater ([kap. 6.4](/bok/tma4110/tma4110-6-4)), $\\operatorname{Col}/\\operatorname{Nul}$-basis og rang ([kap. 3.3](/bok/tma4110/tma4110-3-3)), komplekse røtter ([kap. 7.3](/bok/tma4110/tma4110-7-3)) og 2. ordens differensiallikninger ([kap. 9.1](/bok/tma4110/tma4110-9-1)–[9.2](/bok/tma4110/tma4110-9-2)). Systemer av differensiallikninger (sjanger M) hører til Del 10. Bevis-sjangeren (sjanger N) drilles i det neste kapitlet, [kap. 11.2](/bok/tma4110/tma4110-11-2).\n\n**Kodene i korthet.** Boka bruker bokstavene **A–N** som snarvei for de faste oppgavetypene (A = Gauss, G = egenverdier, J = komplekse tall, L = 2. ordens ODE, N = bevis, osv. — full liste i [kap. 0.1](/bok/tma4110/tma4110-0-1)). **Kode E** er NTNUs hjelpemiddelkode for «ingen hjelpemidler». Begge forklares der de først dukker opp; du trenger ikke pugge bokstavene."
+    },
+    {
+      "id": "tma4110-11-1-motivasjon",
+      "type": "text",
+      "content": "Eksamensinstruksen er kort og står over hvert sett: **«Alle svar skal begrunnes. Vis nok mellomregning til at framgangsmåten er tydelig.»** Det er ikke en høflighetsfrase — det er vurderingskriteriet. Et riktig tall uten begrunnelse gir sjelden full uttelling, mens en riktig *begrunnet* framgangsmåte med en liten regnefeil ofte gjør det.\n\nUnder **kode E** kommer et ekstra krav: du har verken kalkulator eller formelsamling, så hele apparatet må sitte i hodet. Derfor to jobber i dette kapitlet: lære føringsstandarden (hvordan begrunne), og pugge utenat-banken (hva du må kunne uten oppslag).\n\nRegn med rundt 55 minutter. Utenat-banken under er ren repetisjon — bla forbi den ved førstegangslesing hvis du kan formlene, og kom tilbake til den som pugge-liste før eksamen."
+    },
+    {
+      "id": "tma4110-11-1-begrunnelsestrappen",
+      "type": "text",
+      "content": "## Begrunnelsestrappen — hva teller som «nok» per sjanger\n\nSensor ser etter et bestemt begrunnelsesnivå i hver sjanger. Tabellen sier hva som skiller *«riktig svar»* fra *«riktig og godt begrunnet svar»*.\n\n| Sjanger | Tilstrekkelig begrunnelse |\n|---|---|\n| A (Gauss) | Vis radoperasjonene til trappeform; les av pivot/frie variabler; skriv løsningen på **parameterform** ved uendelig mange løsninger; oppgi tilfelledelingen ved parameter. |\n| B/C (matrise/determinant) | Regn ut $\\det$ ved kofaktor eller radreduksjon; konkluder inverterbarhet ved å **navngi inverterbarhetssetningen**. |\n| D (vektorrom) | Verifiser de **tre underrom-betingelsene** (ikke bare «det ser lukket ut»); begrunn basis med både utspenning og uavhengighet, eller med et dimensjonsargument. |\n| E ($\\operatorname{Col}/\\operatorname{Nul}$) | Basis for $\\operatorname{Col}A$ = **originalkolonnene** ved pivotene (aldri RREF-kolonnene); $\\operatorname{Nul}A$-basis fra frie variabler; verifiser med **dimensjonsteoremet**. |\n| G (egenverdier) | Karakteristisk likning $\\det(A-\\lambda I)=0$; egenrom per egenverdi; **begrunn diagonaliserbarhet** (distinkte egenverdier / symmetri / geometrisk $=$ algebraisk multiplisitet); match $P$ og $D$ kolonnevis. |\n| H (Gram–Schmidt) | Ortogonal basis **før** projeksjon; oppgi hvilket indreprodukt (standard eller integral); projeksjonsformelen ledd for ledd. |\n| I (minste kvadrater) | Sett opp $A^{T}A\\hat{\\mathbf x}=A^{T}\\mathbf b$ ved navn (normallikningene); løs; tolk. |\n| J (komplekse tall) | Alltid **alle** røtter; polar form med eksakt argument; de Moivre navngitt der den brukes; skisse på sirkel når oppgaven ber om det. |\n| K/L (ODE) | Riktig løsningsform ($y_h+y_p$); **resonanssjekk**; integrasjonskonstanter navngitt og bestemt til slutt fra initialbetingelser. |\n| M (ODE-system) | Egenverdier/egenvektorer; riktig reell løsningsform i det komplekse tilfellet; klassifiser likevekten. |\n| N (bevis) | Skill gitt fra skal-vises; navngi teoremet/definisjonen bak hvert steg; vis **begge veier** i en «hvis og bare hvis». |\n\nKort sagt: **navngi verktøyet, vis steget, gi eksakt svar.**"
+    },
+    {
+      "id": "tma4110-11-1-utenat-intro",
+      "type": "text",
+      "content": "## Utenat-banken (kode E)\n\nUnder er hele det uunnværlige apparatet, ett kort per formel eller prosedyre. Dette er selve puggematerialet for et fag uten formelark.\n\n*Utenat-banken er flashcard-/repetisjonsstoff — hopp trygt over ved førstegangslesing; tidsanslaget for kapitlet gjelder føringsstoffet over. Kom tilbake hit som pugge-liste før eksamen.*"
+    },
+    {
+      "id": "tma4110-11-1-uk-euler",
+      "type": "definition",
+      "title": "Eulers formel",
+      "content": "Broa mellom eksponentialfunksjon og svingninger: den lar deg skrive et komplekst tall på eksponentform.\n\n$$e^{i\\theta}=\\cos\\theta+i\\sin\\theta.$$\n\nMed denne blir polarformen $z=r(\\cos\\theta+i\\sin\\theta)=re^{i\\theta}$. Spesialtilfellet $\\theta=\\pi$ gir $e^{i\\pi}=-1$."
+    },
+    {
+      "id": "tma4110-11-1-uk-polar",
+      "type": "definition",
+      "title": "Polarform og modulus–argument",
+      "content": "Et komplekst tall beskrevet ved lengde og vinkel i stedet for koordinater:\n\n$$z=r(\\cos\\theta+i\\sin\\theta)=re^{i\\theta},\\qquad r=|z|=\\sqrt{x^2+y^2},\\quad \\theta=\\arg z.$$\n\nHer er $r$ avstanden fra origo og $\\theta$ vinkelen fra den positive reelle aksen. Multiplikasjon blir da: gang modulusene, legg sammen argumentene."
+    },
+    {
+      "id": "tma4110-11-1-uk-demoivre",
+      "type": "definition",
+      "title": "de Moivres formel",
+      "content": "Regelen for å opphøye et komplekst tall i heltallspotens: opphøy modulus, multipliser argumentet.\n\n$$(\\cos\\theta+i\\sin\\theta)^n=\\cos n\\theta+i\\sin n\\theta,\\qquad z^n=r^n e^{in\\theta}.$$\n\nDen gjør $z^{6}$ til én linje i stedet for gjentatt multiplikasjon, og er startpunktet for $n$-te røtter."
+    },
+    {
+      "id": "tma4110-11-1-uk-rotter",
+      "type": "definition",
+      "title": "Formelen for $n$-te røtter ($z^n=c$",
+      "content": "Oppskriften for alle løsninger av $z^n=c$: $n$ røtter jevnt fordelt på en sirkel. Skriv $c=Re^{i\\varphi}$; da er\n\n$$z_k=R^{1/n}\\,e^{i(\\varphi+2\\pi k)/n},\\qquad k=0,1,\\dots,n-1.$$\n\nAlle $n$ røttene ligger på sirkelen med radius $R^{1/n}$, med vinkelavstand $2\\pi/n$. **Oppgi alltid alle $n$.**"
+    },
+    {
+      "id": "tma4110-11-1-uk-kvadrat",
+      "type": "definition",
+      "title": "Komplekse røtter av annengradslikninger",
+      "content": "Andregradsformelen gjelder også når diskriminanten er negativ — da bruker du $\\sqrt{-1}=i$:\n\n$$z=\\frac{-b\\pm\\sqrt{b^2-4ac}}{2a}.$$\n\nEr $b^2-4ac<0$, kommer røttene som et konjugert par $p\\pm qi$. For $z^2=w$ med komplekst $w=u+vi$ løser du $a^2-b^2=u$, $2ab=v$."
+    },
+    {
+      "id": "tma4110-11-1-uk-egenverdi",
+      "type": "definition",
+      "title": "Egenverdiprosedyren",
+      "content": "Framgangsmåten for å finne egenverdier og egenvektorer: løs den karakteristiske likningen, så nullrommet.\n\n$$\\det(A-\\lambda I)=0\\ \\Rightarrow\\ \\lambda_i;\\qquad (A-\\lambda_i I)\\mathbf v=\\mathbf 0\\ \\Rightarrow\\ \\text{egenrom}.$$\n\nEgenverdiene er røttene i det karakteristiske polynomet; egenvektorene er ikke-null-løsningene av $(A-\\lambda_i I)\\mathbf v=\\mathbf 0$."
+    },
+    {
+      "id": "tma4110-11-1-uk-diagkriterium",
+      "type": "definition",
+      "title": "Diagonaliserbarhetskriteriet",
+      "content": "Betingelsen for at $A$ kan diagonaliseres: nok lineært uavhengige egenvektorer.\n\n$$A\\ (n\\times n)\\ \\text{diagonaliserbar}\\ \\iff\\ A\\ \\text{har}\\ n\\ \\text{lineært uavhengige egenvektorer}\\ \\iff\\ \\text{geometrisk multiplisitet}=\\text{algebraisk multiplisitet for hver}\\ \\lambda.$$\n\n**Tilstrekkelig** (men ikke nødvendig): $n$ distinkte egenverdier, eller $A$ symmetrisk. **Begrunn alltid** — ubegrunnet «$A$ er diagonaliserbar» taper uttelling."
+    },
+    {
+      "id": "tma4110-11-1-uk-diag",
+      "type": "definition",
+      "title": "Diagonalisering $A=PDP^{-1}$ — bygg $P$ og $D$",
+      "content": "Selve dekomposisjonen: samle egenvektorene i $P$, egenverdiene i $D$, i **samme rekkefølge**.\n\n$$A=PDP^{-1},\\qquad P=[\\mathbf v_1\\ \\cdots\\ \\mathbf v_n],\\quad D=\\operatorname{diag}(\\lambda_1,\\dots,\\lambda_n).$$\n\nKolonne $i$ i $P$ er egenvektoren som hører til $\\lambda_i$ i posisjon $(i,i)$ i $D$. Feilmatchet $P/D$ er en klassisk føringsfelle."
+    },
+    {
+      "id": "tma4110-11-1-uk-ortdiag",
+      "type": "definition",
+      "title": "Ortogonal diagonalisering (spektralteoremet)",
+      "content": "For en **symmetrisk** matrise finnes en ortonormal egenvektorbasis, så $P$ kan velges ortogonal:\n\n$$A=A^{T}\\ \\Rightarrow\\ A=PDP^{T},\\qquad P^{T}P=I.$$\n\nDa er $P^{-1}=P^{T}$. Egenverdiene er reelle, og egenvektorer fra ulike egenverdier er automatisk ortogonale (Gram–Schmidt trengs bare innen et egenrom av dimensjon $>1$)."
+    },
+    {
+      "id": "tma4110-11-1-uk-potens",
+      "type": "definition",
+      "title": "Matrisepotenser $A^n$ via diagonalisering",
+      "content": "Diagonalisering gjør høye potenser billige: bare diagonalen opphøyes.\n\n$$A=PDP^{-1}\\ \\Rightarrow\\ A^{n}=PD^{n}P^{-1},\\qquad D^{n}=\\operatorname{diag}(\\lambda_1^{n},\\dots,\\lambda_k^{n}).$$\n\nDette er standardgrepet i sjanger G når oppgaven ber om $A^{n}$ eller langtidsoppførsel."
+    },
+    {
+      "id": "tma4110-11-1-uk-markov",
+      "type": "definition",
+      "title": "Markov-kjeder: stasjonær vektor",
+      "content": "Langtidsfordelingen til en Markov-kjede er egenvektoren for egenverdi $1$, normalisert til sannsynligheter:\n\n$$P\\mathbf q=\\mathbf q,\\qquad \\sum q_i=1.$$\n\nFinn $\\operatorname{Nul}(P-I)$ og skaler så komponentene summerer til $1$. En regulær stokastisk matrise har alltid nettopp én slik $\\mathbf q$."
+    },
+    {
+      "id": "tma4110-11-1-uk-ode3",
+      "type": "definition",
+      "title": "De tre tilfellene for homogen 2. ordens ODE",
+      "content": "Løsningen av $y''+py'+qy=0$ styres av røttene i den karakteristiske likningen $r^2+pr+q=0$:\n\n$$\\text{reelle ulike }r_1\\ne r_2:\\ y=C_1e^{r_1x}+C_2e^{r_2x};$$\n$$\\text{dobbel rot }r:\\ y=(C_1+C_2x)e^{rx};$$\n$$\\text{komplekse }a\\pm bi:\\ y=e^{ax}(C_1\\cos bx+C_2\\sin bx).$$\n\nDobbeltrot-tilfellet krever $x$-faktoren; komplekse røtter gir en dempet/udempet svingning."
+    },
+    {
+      "id": "tma4110-11-1-uk-ansats",
+      "type": "definition",
+      "title": "Ubestemte koeffisienter: ansats-tabellen",
+      "content": "For $y''+py'+qy=g(x)$ velges $y_p$ med samme form som pådraget $g$, med ukjente koeffisienter:\n\n$$g=\\text{polynom grad }n\\ \\Rightarrow\\ y_p=A_nx^n+\\dots+A_0;$$\n$$g=e^{\\alpha x}\\ \\Rightarrow\\ y_p=Ae^{\\alpha x};\\qquad g=\\cos\\beta x\\text{ el. }\\sin\\beta x\\ \\Rightarrow\\ y_p=A\\cos\\beta x+B\\sin\\beta x.$$\n\nTa alltid med hele familien (alle polynomledd; både $\\cos$ og $\\sin$). Sett inn og sammenlign koeffisienter."
+    },
+    {
+      "id": "tma4110-11-1-uk-resonans",
+      "type": "definition",
+      "title": "Resonansregelen ($x^s$)",
+      "content": "Kolliderer standardansatsen med et ledd i $y_h$, gang **hele ansatsen** med $x^s$:\n\n$$s=\\text{multiplisiteten til den kolliderende roten}\\quad(s=1\\ \\text{enkel},\\ s=2\\ \\text{dobbel}).$$\n\nEr $g=e^{\\alpha x}$ og $\\alpha$ er rot, gir $Ae^{\\alpha x}$ bare $0=g$ — umulig. Å glemme $x^s$ er den dyreste enkeltfeilen i sjanger L."
+    },
+    {
+      "id": "tma4110-11-1-uk-separabel",
+      "type": "definition",
+      "title": "Separabel 1. ordens likning",
+      "content": "Kan $y'=f(x)g(y)$ deles slik at $x$ og $y$ havner på hver sin side, integrerer du hver side:\n\n$$\\frac{dy}{g(y)}=f(x)\\,dx\\ \\Rightarrow\\ \\int\\frac{dy}{g(y)}=\\int f(x)\\,dx+C.$$\n\nHusk å sjekke **konstantløsninger** $g(y)=0$ separat, og bestem $C$ fra initialbetingelsen til slutt."
+    },
+    {
+      "id": "tma4110-11-1-uk-lineaer1",
+      "type": "definition",
+      "title": "Lineær 1. ordens likning og integrerende faktor",
+      "content": "For $y'+p(x)y=q(x)$ ganger du med en faktor som gjør venstresiden til en produktderivert:\n\n$$\\mu=e^{\\int p\\,dx},\\qquad (\\mu y)'=\\mu q\\ \\Rightarrow\\ y=\\frac1\\mu\\Big(\\int \\mu q\\,dx+C\\Big).$$\n\nSkriv likningen på standardform ($y'$ alene, koeffisient $1$) før du leser av $p(x)$."
+    },
+    {
+      "id": "tma4110-11-1-uk-system",
+      "type": "definition",
+      "title": "ODE-system $\\mathbf x'=A\\mathbf x$ via egenverdier",
+      "content": "Et lineært system løses med egenverdiene til $A$: hver reell egenverdi gir et eksponentialledd.\n\n$$\\lambda_i\\ \\text{reell}:\\ \\mathbf x=\\textstyle\\sum c_i e^{\\lambda_i t}\\mathbf v_i;\\qquad \\lambda=a\\pm bi:\\ \\text{ta real- og imaginærdel av }e^{\\lambda t}\\mathbf v.$$\n\nKlassifiser likevekten fra egenverdiene (node/sadel/senter/spiral), og bestem $c_i$ fra initialverdien til slutt."
+    },
+    {
+      "id": "tma4110-11-1-uk-gs",
+      "type": "definition",
+      "title": "Gram–Schmidt-formelen",
+      "content": "Gjør en basis $\\{\\mathbf x_1,\\dots\\}$ om til en ortogonal basis $\\{\\mathbf v_1,\\dots\\}$ ved å trekke fra projeksjonene på det du alt har:\n\n$$\\mathbf v_k=\\mathbf x_k-\\sum_{j<k}\\frac{\\langle \\mathbf x_k,\\mathbf v_j\\rangle}{\\langle \\mathbf v_j,\\mathbf v_j\\rangle}\\,\\mathbf v_j.$$\n\nNormaliser til slutt ($\\mathbf u_k=\\mathbf v_k/\\lVert\\mathbf v_k\\rVert$) om du trenger en ortonormal basis. Bruk oppgavens indreprodukt — standard *eller* integral."
+    },
+    {
+      "id": "tma4110-11-1-uk-proj",
+      "type": "definition",
+      "title": "Ortogonal projeksjon $\\operatorname{proj}_W\\mathbf y$",
+      "content": "Nærmeste punkt i et underrom $W$ til en vektor $\\mathbf y$, gitt en **ortogonal** basis $\\{\\mathbf v_1,\\dots,\\mathbf v_p\\}$ for $W$:\n\n$$\\operatorname{proj}_W\\mathbf y=\\sum_{j=1}^{p}\\frac{\\langle \\mathbf y,\\mathbf v_j\\rangle}{\\langle \\mathbf v_j,\\mathbf v_j\\rangle}\\,\\mathbf v_j.$$\n\nAvstanden fra $\\mathbf y$ til $W$ er $\\lVert \\mathbf y-\\operatorname{proj}_W\\mathbf y\\rVert$. Basisen **må** være ortogonal før du bruker formelen."
+    },
+    {
+      "id": "tma4110-11-1-uk-normal",
+      "type": "definition",
+      "title": "Normallikningene (minste kvadrater)",
+      "content": "Den beste tilnærmede løsningen av et overbestemt $A\\mathbf x=\\mathbf b$ løser i stedet:\n\n$$A^{T}A\\hat{\\mathbf x}=A^{T}\\mathbf b.$$\n\nHar $A$ lineært uavhengige kolonner, er $A^{T}A$ inverterbar og $\\hat{\\mathbf x}=(A^{T}A)^{-1}A^{T}\\mathbf b$. Dette er verktøyet for kurvetilpasning (sjanger I): sett datapunktene inn i $A$ og $\\mathbf b$."
+    },
+    {
+      "id": "tma4110-11-1-uk-dimteorem",
+      "type": "definition",
+      "title": "Dimensjonsteoremet (rang–nullitet)",
+      "content": "Kobler rang og nullromsdimensjon til antall kolonner:\n\n$$\\operatorname{rang}A+\\dim\\operatorname{Nul}A=n\\quad(n=\\text{antall kolonner}).$$\n\nHer er $\\operatorname{rang}A=\\dim\\operatorname{Col}A=$ antall pivoter. Bruk teoremet som **kontroll**: teller du basisene dine og summen ikke blir $n$, har du en feil."
+    },
+    {
+      "id": "tma4110-11-1-uk-imt",
+      "type": "definition",
+      "title": "Inverterbarhetssetningen",
+      "content": "Samlingen av utsagn som alle er ekvivalente for en kvadratisk $A$ — er ett sant, er alle sanne:\n\n$$A\\ \\text{inverterbar}\\iff \\det A\\ne0\\iff \\operatorname{rang}A=n\\iff \\operatorname{Nul}A=\\{\\mathbf 0\\}\\iff \\text{kolonnene er en basis for }\\mathbb R^n.$$\n\nIdeelt føringsverktøy i sjanger B/C og i bevis: du kan bytte mellom betingelsene fritt og navngi setningen."
+    },
+    {
+      "id": "tma4110-11-1-uk-colbasis",
+      "type": "definition",
+      "title": "Basis for $\\operatorname{Col}A$ — fra originalkolonnene",
+      "content": "Kolonnerommet spennes av **pivotkolonnene i den opprinnelige matrisen**, ikke i RREF:\n\n$$\\text{finn pivotposisjonene i RREF}\\ \\Rightarrow\\ \\text{ta de tilsvarende kolonnene fra det opprinnelige }A.$$\n\nRREF-kolonnene har feil tallverdier — de forteller bare *hvor* pivotene er. Dette er den mest sanksjonerte føringsfellen i sjanger E."
+    },
+    {
+      "id": "tma4110-11-1-uk-nulbasis",
+      "type": "definition",
+      "title": "Basis for $\\operatorname{Nul}A$ — fra RREF",
+      "content": "Nullrommet leses ut fra RREF ved å la hver fri variabel være parameter:\n\n$$\\text{løs }A\\mathbf x=\\mathbf 0\\ \\text{på parameterform}\\ \\Rightarrow\\ \\mathbf x=x_{f_1}\\mathbf u_1+\\dots;\\quad \\{\\mathbf u_1,\\dots\\}\\ \\text{er basis}.$$\n\nAntall basisvektorer $=$ antall frie variabler $=\\dim\\operatorname{Nul}A$. Her *skal* du bruke RREF (i motsetning til $\\operatorname{Col}A$)."
+    },
+    {
+      "id": "tma4110-11-1-uk-rang",
+      "type": "definition",
+      "title": "Rang og redusert trappeform",
+      "content": "Rangen er antall pivotposisjoner, som du finner ved radreduksjon til (redusert) trappeform:\n\n$$\\operatorname{rang}A=\\#\\text{pivoter}=\\dim\\operatorname{Col}A=\\dim\\operatorname{Row}A.$$\n\nRad- og kolonnerang er alltid like. Rangen styrer både løsbarhet (sjanger A) og dimensjonstellingen (sjanger E)."
+    },
+    {
+      "id": "tma4110-11-1-uk-koord",
+      "type": "definition",
+      "title": "Koordinatvektor $[\\mathbf x]_{\\mathcal B}$ og basisskifte",
+      "content": "Koordinatvektoren er vektene som uttrykker $\\mathbf x$ i en basis $\\mathcal B$; basisskiftematrisen oversetter mellom baser:\n\n$$\\mathbf x=P_{\\mathcal B}[\\mathbf x]_{\\mathcal B},\\qquad [\\mathbf x]_{\\mathcal C}=P_{\\mathcal C\\leftarrow\\mathcal B}\\,[\\mathbf x]_{\\mathcal B}.$$\n\nLøs $\\mathbf x=c_1\\mathbf b_1+\\dots+c_n\\mathbf b_n$ for koordinatene $c_i$. I abstrakte rom (polynomer) gjør koordinatvektoren regningen om til vanlig $\\mathbb R^n$-algebra."
+    },
+    {
+      "id": "tma4110-11-1-uk-indre",
+      "type": "definition",
+      "title": "Indreprodukt, norm og ortogonalitet",
+      "content": "Et indreprodukt måler «vinkel og lengde»; standard i $\\mathbb R^n$ er prikkproduktet, men integral-varianten brukes i funksjonsrom:\n\n$$\\langle \\mathbf u,\\mathbf v\\rangle=\\mathbf u\\cdot\\mathbf v\\quad\\text{eller}\\quad \\langle f,g\\rangle=\\int_a^b f(x)g(x)\\,dx;$$\n$$\\lVert \\mathbf u\\rVert=\\sqrt{\\langle\\mathbf u,\\mathbf u\\rangle},\\qquad \\mathbf u\\perp\\mathbf v\\iff\\langle\\mathbf u,\\mathbf v\\rangle=0.$$\n\n**Sjekk alltid hvilket indreprodukt oppgaven bruker** — normer og ortogonalitet regnes med *det*."
+    },
+    {
+      "id": "tma4110-11-1-uk-underrom",
+      "type": "definition",
+      "title": "Underrom — de tre betingelsene",
+      "content": "En delmengde $W$ av et vektorrom er et underrom hvis den er lukket og inneholder null:\n\n$$(1)\\ \\mathbf 0\\in W;\\qquad (2)\\ \\mathbf u,\\mathbf v\\in W\\Rightarrow \\mathbf u+\\mathbf v\\in W;\\qquad (3)\\ \\mathbf u\\in W,\\ c\\ \\text{skalar}\\Rightarrow c\\mathbf u\\in W.$$\n\nI sjanger D må du **verifisere alle tre** eksplisitt — «det ser lukket ut» gir ikke uttelling."
+    },
+    {
+      "id": "tma4110-11-1-uk-lu",
+      "type": "definition",
+      "title": "Lineær uavhengighet og basis",
+      "content": "Vektorer er lineært uavhengige hvis bare den trivielle kombinasjonen gir null; en basis er en uavhengig mengde som spenner rommet:\n\n$$c_1\\mathbf v_1+\\dots+c_k\\mathbf v_k=\\mathbf 0\\ \\Rightarrow\\ c_1=\\dots=c_k=0;\\qquad \\text{basis}=\\text{uavhengig}+\\text{utspennende}.$$\n\nSnarvei: $\\dim V$ uavhengige vektorer i $V$ **er** automatisk en basis (dimensjonsargument)."
+    },
+    {
+      "id": "tma4110-11-1-uk-standardmatrise",
+      "type": "definition",
+      "title": "Standardmatrisen $[T]$ til en lineær transformasjon",
+      "content": "En lineær transformasjon bestemmes fullt av hva den gjør med basisvektorene; kolonnene i matrisen er nettopp bildene:\n\n$$[T]=[\\,T(\\mathbf e_1)\\ \\cdots\\ T(\\mathbf e_n)\\,],\\qquad [T]_{\\mathcal B}=[\\,[T(\\mathbf b_1)]_{\\mathcal B}\\ \\cdots\\ ].$$\n\nKjernen er $\\operatorname{Nul}[T]$ og bildet er $\\operatorname{Col}[T]$; dimensjonsteoremet knytter dem sammen (sjanger F)."
+    },
+    {
+      "id": "tma4110-11-1-uk-det",
+      "type": "definition",
+      "title": "Determinant: kofaktor og radreduksjon",
+      "content": "Determinanten avgjør inverterbarhet og skaleringsfaktor; regn den ved kofaktorutvikling eller ved radreduksjon:\n\n$$\\det A=\\sum_j (-1)^{i+j}a_{ij}\\det A_{ij};\\qquad \\det\\ \\text{er uendret ved }R_i\\to R_i+cR_j,\\ \\text{skifter fortegn ved radbytte}.$$\n\nFor $2\\times2$: $\\det\\begin{psmallmatrix}a&b\\\\c&d\\end{psmallmatrix}=ad-bc$. Trekantmatriser: produkt av diagonalen."
+    },
+    {
+      "id": "tma4110-11-1-uk-cramer",
+      "type": "definition",
+      "title": "Cramers regel",
+      "content": "En formel for enkeltkomponenter i løsningen av $A\\mathbf x=\\mathbf b$ når $A$ er inverterbar:\n\n$$x_i=\\frac{\\det A_i(\\mathbf b)}{\\det A},$$\n\nder $A_i(\\mathbf b)$ er $A$ med kolonne $i$ byttet ut med $\\mathbf b$. Praktisk når du bare trenger én komponent; ellers er Gauss raskere."
+    },
+    {
+      "id": "tma4110-11-1-fr-eksakt",
+      "type": "definition",
+      "title": "Kravet om eksakte svar (kode E)",
+      "content": "Under kode E oppgis alle svar **eksakt** — aldri desimaltilnærming:\n\n$$\\tfrac12,\\ \\sqrt2,\\ e^{i\\pi/3},\\ \\tfrac{9}{10}+\\tfrac25x,\\ C_1e^{2x}+C_2e^{-x},\\ \\sqrt2\\pm\\sqrt2\\,i.$$\n\nBrøker forkortes, røtter og $e$/$\\pi$ står som symboler. Et desimalsvar signaliserer kalkulatorbruk (som ikke er tillatt) og trekker ned."
+    },
+    {
+      "id": "tma4110-11-1-fr-navn",
+      "type": "definition",
+      "title": "Teoremnavning og delpunkt-kjeding",
+      "content": "To føringsvaner som løfter karakteren: **navngi** setningen bak hvert avgjørende steg (diagonaliserbarhetskriteriet, dimensjonsteoremet, spektralteoremet, de Moivre, superposisjonsprinsippet, inverterbarhetssetningen), og **gjenbruk** resultater mellom delpunkter i samme oppgave.\n\n$$\\text{«Etter dimensjonsteoremet er }\\dim\\operatorname{Nul}A=n-\\operatorname{rang}A=\\dots»$$\n\nSitter samme matrise igjen i b) som i a), skriv «fra a) har vi …» i stedet for å regne på nytt."
+    },
+    {
+      "id": "tma4110-11-1-ex-kontrast-col",
+      "type": "example",
+      "title": "Kontrastpar 1: Col A-basis — samme matematikk, ulik føring",
+      "problem": "La $A=\\begin{pmatrix}1&2&0&1\\\\2&4&1&4\\\\3&6&1&5\\end{pmatrix}$. To studenter radreduserer og finner samme RREF $\\begin{pmatrix}1&2&0&1\\\\0&0&1&2\\\\0&0&0&0\\end{pmatrix}$ (pivoter i kolonne 1 og 3). Begge skal gi en basis for $\\operatorname{Col}A$. Hvem fører riktig?\n\n**Student 1** skriver: «Basis for $\\operatorname{Col}A$ er $\\{(1,0,0),(0,1,0)\\}$» (pivotkolonnene i RREF).\n\n**Student 2** skriver: «Pivotene ligger i kolonne 1 og 3, så en basis for $\\operatorname{Col}A$ er de tilsvarende **originalkolonnene** $\\{(1,2,3),(0,1,1)\\}$.»",
+      "solution": "**Student 2 fører riktig.** Radreduksjon endrer kolonnerommet — RREF-kolonnene $(1,0,0)$ og $(0,1,0)$ ligger *ikke* i $\\operatorname{Col}A$ (ingen kombinasjon av de opprinnelige kolonnene gir dem). RREF forteller bare **hvor** pivotene er; basisvektorene hentes fra det opprinnelige $A$.\n\nRiktig føring:\n\n$$\\operatorname{rang}A=2\\ (\\text{to pivoter}),\\qquad \\text{basis for }\\operatorname{Col}A=\\{(1,2,3),\\ (0,1,1)\\}.$$\n\n**Kontroll med dimensjonsteoremet:** $\\dim\\operatorname{Nul}A=4-2=2$, som stemmer med de to frie variablene $x_2,x_4$.\n\nStudent 1 ville tapt uttelling til tross for riktig rang og riktig antall vektorer — føringsfellen er å ta kolonnene fra feil matrise. Merk: for $\\operatorname{Nul}A$ er det motsatt — der *skal* du bruke RREF."
+    },
+    {
+      "id": "tma4110-11-1-ex-kontrast-ode",
+      "type": "example",
+      "title": "Kontrastpar 2: ODE med og uten resonanskorreksjon",
+      "problem": "Løs $y''-3y'+2y=e^{2x}$. To studenter starter likt: karakteristisk likning $r^2-3r+2=(r-1)(r-2)=0$, så $y_h=C_1e^{x}+C_2e^{2x}$.\n\n**Student A** velger ansats $y_p=Ae^{2x}$ og setter inn.\n\n**Student B** sjekker først: er $\\alpha=2$ en rot? Ja. Altså resonans, og hun velger $y_p=Axe^{2x}$.",
+      "solution": "**Student B fører riktig.** Pådraget $e^{2x}$ svarer til roten $r=2$, som *er* en rot i den karakteristiske likningen — altså **resonans** med multiplisitet $s=1$.\n\nStudent A får en umulig likning: $y_p=Ae^{2x}$ gir $y_p''-3y_p'+2y_p=(4-6+2)Ae^{2x}=0\\ne e^{2x}$. Ansatsen løser den homogene likningen og kan aldri matche pådraget.\n\nStudent B ganger med $x$: $y_p=Axe^{2x}$. Da $y_p'=A(1+2x)e^{2x}$, $y_p''=A(4+4x)e^{2x}$, og\n\n$$y_p''-3y_p'+2y_p=Ae^{2x}\\big[(4+4x)-3(1+2x)+2x\\big]=Ae^{2x}\\cdot1=e^{2x}\\ \\Rightarrow\\ A=1.$$\n\n$$\\boxed{\\,y=C_1e^{x}+C_2e^{2x}+xe^{2x}\\,}.$$\n\nLærdommen: **resonanssjekken kommer før ansatsvalget.** En glemt $x$-faktor er den dyreste feilen i sjanger L."
+    },
+    {
+      "id": "tma4110-11-1-sjekkliste",
+      "type": "text",
+      "content": "## Sjekklisten før innlevering\n\nBruk de siste minuttene på disse sju kontrollspørsmålene — de fanger føringsfellene som koster mest:\n\n- ☐ **$\\operatorname{Col}A$-basis fra originalkolonnene** (ikke fra RREF)?\n- ☐ **$P$ og $D$ matchet** kolonnevis, og **diagonaliserbarhet begrunnet** (multiplisitet / distinkte / symmetri)?\n- ☐ **Ortogonal basis før projeksjon**, og riktig indreprodukt (standard vs. integral)?\n- ☐ **Alle komplekse røtter** med — $n$ stykker for $z^n=c$, konjugerte par for reelle koeffisienter?\n- ☐ **Riktig ODE-form** ($y_h+y_p$) med **resonanssjekk** utført?\n- ☐ **Integrasjonskonstanter** bestemt til slutt fra initialbetingelser (satt inn i hele $y$)?\n- ☐ **Eksakte svar** overalt (ingen desimaler), og **teoremene navngitt**?\n\nDelpunkt-kobling: gjenbrukte du samme matrise/resultat mellom a), b), c) i stedet for å regne på nytt?"
+    },
+    {
+      "id": "tma4110-11-1-strategi",
+      "type": "text",
+      "content": "## Strategi for kjedede delpunkter og tidsbudsjett\n\nEksamen er ~10 likt vektede deloppgaver på 4 timer — altså rundt **24 minutter per deloppgave** i snitt. Tidsstrategi:\n\n**Kjed delpunktene.** Oppgaver er ofte bygd slik at a) leverer noe b) trenger (egenverdiene fra a) brukes til $A^n$ i b); RREF fra a) gir både $\\operatorname{Col}$- og $\\operatorname{Nul}$-basis). Ikke start på nytt — skriv «fra a) …».\n\n**Ta de sikre poengene først.** Komplekse tall (J) og egenverdier (G) kommer nesten hvert år og er raske uttellinger — start der du er trygg, ikke nødvendigvis på oppgave 1.\n\n**Bevisoppgaven (siste) er en karakterskiller, ikke en bestått-blokk.** Har du dårlig tid, sikre kjernesjangrene først; bevis krever ro. Den drilles i [kap. 11.2](/bok/tma4110/tma4110-11-2).\n\n**Anslagene i boka er lesetid.** Skal du regne for hånd, gang opp med rundt $1{,}5$. En «~24 min»-deloppgave på eksamen inkluderer skrivetid, ikke bare tenketid."
+    },
+    {
+      "id": "tma4110-11-1-warn-typiske-feil",
+      "type": "warning",
+      "title": "Typiske feil (føringsfellekatalogen)",
+      "content": "De konkrete feilene fra de offisielle løsningsforslagene, samlet:\n\n- **$\\operatorname{Col}A$-basis fra RREF-kolonnene** i stedet for originalkolonnene.\n- **Diagonaliserbarhet påstått uten begrunnelse** (ingen multiplisitets-/distinkthetsargument).\n- **$P$ og $D$ feilmatchet** — egenvektor i $P$ hører ikke til egenverdien i samme kolonne av $D$.\n- **Projeksjon uten ortogonal basis** — projeksjonsformelen brukt på en ikke-ortogonal basis.\n- **Feil indreprodukt** — standard prikkprodukt brukt der oppgaven har integral-indreprodukt.\n- **Glemt resonans** i 2. ordens ODE — ingen $x^s$-faktor når pådraget er en homogen løsning.\n- **Manglende komplekse røtter** — bare de reelle oppgitt, eller færre enn $n$ røtter for $z^n=c$.\n- **Konstanter bestemt for tidlig** — initialbetingelser satt inn i $y_h$ før $y_p$ er lagt til.\n- **Desimaltilnærming** i stedet for eksakt svar (signaliserer kalkulator, ikke tillatt under kode E).\n- **Ubegrunnet svar** — riktig tall uten mellomregning eller teoremnavn."
+    },
+    {
+      "id": "tma4110-11-1-symbolliste",
+      "type": "collapsible",
+      "title": "Symbol- og formelliste",
+      "buttonText": "Vis symboler og formler",
+      "content": [
+        {
+          "id": "tma4110-11-1-symbolliste-text",
+          "type": "text",
+          "content": "## Symbol- og formelliste\n\n*Oppslagsverk — alt her forklares underveis i kapitlet.*\n\nDe sentrale symbolene og formlene fra utenat-banken, samlet.\n\n| Symbol | Betydning |\n|---|---|\n| $z=re^{i\\theta}$ | Komplekst tall på polarform ($r=\\lvert z\\rvert$, $\\theta=\\arg z$) |\n| $\\det(A-\\lambda I)$ | Karakteristisk polynom; nullpunkter $=$ egenverdier |\n| $A=PDP^{-1}$ | Diagonalisering ($P$: egenvektorer, $D$: egenverdier) |\n| $A=PDP^{T}$ | Ortogonal diagonalisering (symmetrisk $A$, $P$ ortogonal) |\n| $\\operatorname{Col}A,\\ \\operatorname{Nul}A$ | Kolonnerom og nullrom |\n| $\\operatorname{rang}A$ | Antall pivoter $=\\dim\\operatorname{Col}A$ |\n| $[\\mathbf x]_{\\mathcal B}$ | Koordinatvektor i basis $\\mathcal B$ |\n| $P_{\\mathcal C\\leftarrow\\mathcal B}$ | Basisskiftematrise |\n| $\\langle\\mathbf u,\\mathbf v\\rangle$ | Indreprodukt (standard eller integral) |\n| $\\operatorname{proj}_W\\mathbf y$ | Ortogonal projeksjon på $W$ |\n| $W^{\\perp}$ | Ortogonalkomplementet til $W$ |\n| $y_h,\\ y_p$ | Homogen og partikulær ODE-løsning |\n| $s$ | Resonans-eksponent i $x^s$ |\n\n**Kjerneformlene (utenat under kode E):**\n\n$$e^{i\\theta}=\\cos\\theta+i\\sin\\theta,\\qquad (\\cos\\theta+i\\sin\\theta)^n=\\cos n\\theta+i\\sin n\\theta$$\n\n$$z_k=R^{1/n}e^{i(\\varphi+2\\pi k)/n},\\quad k=0,\\dots,n-1\\qquad(\\text{røtter av }z^n=Re^{i\\varphi})$$\n\n$$\\det(A-\\lambda I)=0,\\qquad A=PDP^{-1},\\qquad A^{n}=PD^{n}P^{-1}$$\n\n$$\\mathbf v_k=\\mathbf x_k-\\sum_{j<k}\\frac{\\langle\\mathbf x_k,\\mathbf v_j\\rangle}{\\langle\\mathbf v_j,\\mathbf v_j\\rangle}\\mathbf v_j\\qquad(\\text{Gram–Schmidt})$$\n\n$$\\operatorname{proj}_W\\mathbf y=\\sum_j\\frac{\\langle\\mathbf y,\\mathbf v_j\\rangle}{\\langle\\mathbf v_j,\\mathbf v_j\\rangle}\\mathbf v_j,\\qquad A^{T}A\\hat{\\mathbf x}=A^{T}\\mathbf b$$\n\n$$\\operatorname{rang}A+\\dim\\operatorname{Nul}A=n\\qquad(\\text{dimensjonsteoremet})$$\n\n**De tre ODE-tilfellene** ($r^2+pr+q=0$): $C_1e^{r_1x}+C_2e^{r_2x}$ (reelle ulike), $(C_1+C_2x)e^{rx}$ (dobbel), $e^{ax}(C_1\\cos bx+C_2\\sin bx)$ (komplekse $a\\pm bi$). **Resonans:** gang $y_p$-ansatsen med $x^s$."
+        }
+      ]
+    }
+  ],
+  "exercises": []
+}
