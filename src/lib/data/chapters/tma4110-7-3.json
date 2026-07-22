@@ -1,0 +1,486 @@
+{
+  "id": "tma4110-7-3",
+  "courseId": "tma4110",
+  "chapterNumber": "7.3",
+  "title": "Komplekse røtter og likninger (zⁿ=c, annen- og tredjegrad)",
+  "description": "n-te røtter av et komplekst tall jevnt fordelt på en sirkel, binomiske likninger zⁿ=c med skisse, og komplekse annen- og tredjegradslikninger via abc-formel, polynomdivisjon og konjugatrot-setningen — den klassiske komplekstall-oppgaven.",
+  "estimatedMinutes": 55,
+  "competenceGoals": [
+    "finne alle n-te røtter av et komplekst tall og løse binomiske likninger zⁿ=c med skisse i det komplekse planet",
+    "løse komplekse annengradslikninger med abc-formelen og kompleks kvadratrot",
+    "løse tredjegradslikninger ved å gjette en rot og polynomdividere, og faktorisere polynom over C med konjugatrot-setningen"
+  ],
+  "content": [
+    {
+      "id": "tma4110-7-3-tip-eksamensvinkel",
+      "type": "tip",
+      "title": "Eksamensvinkel",
+      "content": "**Binomiske likninger $z^n=c$ er den mest gjentatte enkeltoppgaven i hele arkivet (~95 %, oppgave 1).** Sensor vil se alle $n$ løsningene, en skisse i planet og eksakte svar.\n\n- Grepet: skriv $c$ på polar form, ta $n$-te rot av modulus, del argumentet, og legg til $\\tfrac{2\\pi k}{n}$ for $k=0,\\dots,n-1$.\n- **Ber oppgaven om skisse, skal du tegne** røttene som punkter jevnt fordelt på en sirkel — det er verdt poeng.\n- Komplekse annen- og tredjegradslikninger dukker også opp; da hjelper konjugatrot-setningen og polynomdivisjon.\n\n**Utenat (kode E):** rot-formelen $z_k=R^{1/n}e^{i(\\varphi+2\\pi k)/n}$ og den komplekse abc-formelen."
+    },
+    {
+      "id": "tma4110-7-3-forkunnskaper",
+      "type": "text",
+      "content": "**Forkunnskaper:** Dette kapitlet bygger rett på [kap. 7.2](/bok/tma4110/tma4110-7-2) — polar form, eksponentialform og de Moivres formel. Andregradslikninger og faktorisering friskes opp i [Andregradslikninger – faktorisering](/bok/1t/1t-2-2).\n\n**Sist du var her (fra 7.2):** $z=re^{i\\theta}$, og $z^n=r^n e^{in\\theta}$ (de Moivre). At argumentet er bestemt opp til $2\\pi k$ er nettopp det som gir $n$ ulike røtter her."
+    },
+    {
+      "id": "tma4110-7-3-intro",
+      "type": "text",
+      "content": "En **binomisk likning** $z^n=c$ ber om alle tallene som opphøyd i $n$ gir $c$. Over de reelle tallene har $x^n=c$ høyst to løsninger, men over $\\mathbb C$ har $z^n=c$ **nøyaktig $n$ løsninger** — og de ligger vakkert fordelt: jevnt utover en sirkel. Det er de Moivres formel lest baklengs.\n\nVi går i fire løkker: $n$-te røtter og formelen, binomiske likninger $z^n=c$ med skisse, komplekse annengradslikninger via abc-formelen, og til slutt tredjegrad med gjett-og-divider og faktorisering over $\\mathbb C$."
+    },
+    {
+      "id": "tma4110-7-3-l1",
+      "type": "text",
+      "content": "## Løkke 1 — $n$-te røtter av et komplekst tall (~13 min)"
+    },
+    {
+      "id": "tma4110-7-3-def-nrot",
+      "type": "definition",
+      "title": "$n$-te røtter av $c$",
+      "content": "For $c=Re^{i\\varphi}\\ne0$ har likningen $z^n=c$ nøyaktig $n$ løsninger, gitt ved\n\n$$z_k=R^{1/n}\\,e^{i(\\varphi+2\\pi k)/n},\\qquad k=0,1,\\dots,n-1.$$\n\nAlle har samme modulus $R^{1/n}$ (den reelle $n$-te roten av $|c|$), og argumentene skiller seg med $\\tfrac{2\\pi}{n}$. For $k\\ge n$ gjentar løsningene seg."
+    },
+    {
+      "id": "tma4110-7-3-def-sirkel",
+      "type": "definition",
+      "title": "Røttene ligger jevnt på en sirkel",
+      "content": "De $n$ løsningene av $z^n=c$ ligger på en **sirkel med radius $R^{1/n}$** om origo, med lik vinkelavstand $\\tfrac{2\\pi}{n}$ mellom nabopunktene — hjørnene i en regulær $n$-kant. Derfor holder det å finne den første roten $z_0$ og så rotere den videre med $\\tfrac{2\\pi}{n}$."
+    },
+    {
+      "id": "tma4110-7-3-def-enhetsrot",
+      "type": "definition",
+      "title": "Enhetsrøtter ($z^n=1$)",
+      "content": "Løsningene av $z^n=1$ kalles **$n$-te enhetsrøtter**:\n\n$$z_k=e^{i2\\pi k/n},\\qquad k=0,\\dots,n-1.$$\n\nDe ligger jevnt på **enhetssirkelen**, med $z_0=1$ alltid blant dem. Enhver $n$-te rot av et vilkårlig $c$ fås ved å gange én bestemt rot med enhetsrøttene."
+    },
+    {
+      "id": "tma4110-7-3-ex1",
+      "type": "example",
+      "title": "Eksempel 1: Fjerderøttene av 1",
+      "problem": "Løs $z^4=1$, og skissér løsningene i det komplekse planet.",
+      "solution": "Her er $c=1=1\\cdot e^{i0}$, så $R=1$, $\\varphi=0$, $n=4$. Formelen gir $z_k=1^{1/4}e^{i(0+2\\pi k)/4}=e^{i\\pi k/2}$ for $k=0,1,2,3$:\n\n$$z_0=e^{i0}=1,\\quad z_1=e^{i\\pi/2}=i,\\quad z_2=e^{i\\pi}=-1,\\quad z_3=e^{i3\\pi/2}=-i.$$\n\nDe fire løsningene $\\{1,i,-1,-i\\}$ ligger på enhetssirkelen med $90^\\circ$ mellom hver — hjørnene i et kvadrat. Se figuren."
+    },
+    {
+      "id": "tma4110-7-3-fig-z4-1",
+      "type": "image",
+      "src": "/images/textbook/tma4110/tma4110-7-3-z4-1.svg",
+      "alt": "Enhetssirkelen med de fire løsningene av z^4=1 markert som punkter i 1, i, -1 og -i, jevnt fordelt med 90 grader mellom hver.",
+      "caption": "Til Eksempel 1: de fire fjerderøttene av $1$ ligger på enhetssirkelen ($r=1$) i $1,i,-1,-i$, som hjørnene i et kvadrat."
+    },
+    {
+      "id": "tma4110-7-3-oppg-l1a",
+      "type": "exercise",
+      "exercise": {
+        "id": "tma4110-7-3-l1a",
+        "number": "1",
+        "type": "classic",
+        "difficulty": "lett",
+        "task": "(Innsteg.) Skriv opp de tre tredjerøttene av $1$ ($z^3=1$) på eksponentialform.",
+        "solution": "$z_k=e^{i2\\pi k/3}$, $k=0,1,2$: $z_0=1$, $z_1=e^{i2\\pi/3}$, $z_2=e^{i4\\pi/3}$. De ligger på enhetssirkelen med $120^\\circ$ mellom hver.",
+        "hints": [
+          "$z^3=1$ har $c=1$, altså $R=1,\\varphi=0$; bruk $z_k=e^{i2\\pi k/3}$.",
+          "Tre løsninger for $k=0,1,2$."
+        ]
+      }
+    },
+    {
+      "id": "tma4110-7-3-l2",
+      "type": "text",
+      "content": "## Løkke 2 — Binomiske likninger $z^n=c$ (~14 min)"
+    },
+    {
+      "id": "tma4110-7-3-def-binom",
+      "type": "definition",
+      "title": "Binomisk likning",
+      "content": "En likning på formen\n\n$$z^n=c\\qquad(c\\in\\mathbb C,\\ c\\ne0)$$\n\nkalles **binomisk**. Løsningsoppskriften: (1) skriv $c=Re^{i\\varphi}$ på polar form; (2) $z_k=R^{1/n}e^{i(\\varphi+2\\pi k)/n}$ for $k=0,\\dots,n-1$; (3) konverter til kartesisk form der det kreves; (4) skissér."
+    },
+    {
+      "id": "tma4110-7-3-def-antall",
+      "type": "definition",
+      "title": "Antall løsninger er nøyaktig $n$",
+      "content": "En binomisk likning $z^n=c$ med $c\\ne0$ har **nøyaktig $n$ forskjellige** komplekse løsninger. Får du færre, har du glemt noen $k$-verdier; får du flere, har du regnet en modulo-$2\\pi$-gjentakelse som ny løsning. Dette er algebraens fundamentalsetning for dette spesialtilfellet."
+    },
+    {
+      "id": "tma4110-7-3-ex2",
+      "type": "example",
+      "title": "Eksempel 2: Tredjerøttene av 8",
+      "problem": "Løs $z^3=8$, og skissér løsningene.",
+      "solution": "Skriv $8=8e^{i0}$: $R=8$, $\\varphi=0$, $n=3$. Modulus til røttene er $8^{1/3}=2$. Formelen gir $z_k=2e^{i(0+2\\pi k)/3}$:\n\n$$z_0=2e^{i0}=2,\\quad z_1=2e^{i2\\pi/3}=2\\left(-\\tfrac12+i\\tfrac{\\sqrt3}{2}\\right)=-1+i\\sqrt3,\\quad z_2=2e^{i4\\pi/3}=-1-i\\sqrt3.$$\n\nDe tre løsningene ligger på en sirkel med radius $2$ med $120^\\circ$ mellom hver. Merk at bare $z_0=2$ er reell; de to andre er et konjugert par (fordi koeffisientene i $z^3-8$ er reelle)."
+    },
+    {
+      "id": "tma4110-7-3-fig-z3-8",
+      "type": "image",
+      "src": "/images/textbook/tma4110/tma4110-7-3-z3-8.svg",
+      "alt": "Det komplekse planet med de tre løsningene av z^3=8 på en sirkel med radius 2: reell rot i 2, og et konjugert par i -1+i√3 og -1-i√3, med 120 grader mellom hver.",
+      "caption": "Til Eksempel 2: tredjerøttene av $8$ på sirkelen $r=2$ — den reelle roten $z_0=2$ og det konjugerte paret $-1\\pm i\\sqrt3$."
+    },
+    {
+      "id": "tma4110-7-3-ex3",
+      "type": "example",
+      "title": "Eksempel 3: Mønsteroppgaven $z^4=-16$ (sjanger J)",
+      "problem": "Løs likningen $z^4=-16$. Skriv alle fire løsningene på kartesisk form og skissér dem i det komplekse planet.",
+      "solution": "Skriv $-16$ på polar form: $-16=16\\,e^{i\\pi}$, så $R=16$, $\\varphi=\\pi$, $n=4$. Røttenes modulus er $16^{1/4}=2$. Formelen gir $z_k=2\\,e^{i(\\pi+2\\pi k)/4}$ for $k=0,1,2,3$:\n\n$$z_0=2e^{i\\pi/4}=2\\left(\\tfrac{\\sqrt2}{2}+i\\tfrac{\\sqrt2}{2}\\right)=\\sqrt2+\\sqrt2\\,i,$$\n$$z_1=2e^{i3\\pi/4}=-\\sqrt2+\\sqrt2\\,i,\\quad z_2=2e^{i5\\pi/4}=-\\sqrt2-\\sqrt2\\,i,\\quad z_3=2e^{i7\\pi/4}=\\sqrt2-\\sqrt2\\,i.$$\n\nDe fire løsningene ligger på sirkelen $r=2$ med $90^\\circ$ mellom hver (et kvadrat rotert $45^\\circ$). De opptrer i to konjugerte par, som seg hør og bør for et reelt polynom."
+    },
+    {
+      "id": "tma4110-7-3-fig-z4-16",
+      "type": "image",
+      "src": "/images/textbook/tma4110/tma4110-7-3-z4-minus16.svg",
+      "alt": "Det komplekse planet med de fire løsningene av z^4=-16 på en sirkel med radius 2, i punktene ±√2±√2 i, jevnt fordelt med 90 grader.",
+      "caption": "Til Eksempel 3: fjerderøttene av $-16$ på sirkelen $r=2$ — punktene $\\sqrt2\\pm\\sqrt2\\,i$ og $-\\sqrt2\\pm\\sqrt2\\,i$, to konjugerte par."
+    },
+    {
+      "id": "tma4110-7-3-oppg-l2a",
+      "type": "exercise",
+      "exercise": {
+        "id": "tma4110-7-3-l2a",
+        "number": "2",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "Løs $z^4=16$. Oppgi alle løsningene på kartesisk form.",
+        "solution": "$16=16e^{i0}$, $R^{1/4}=2$. $z_k=2e^{i2\\pi k/4}=2e^{i\\pi k/2}$: $z_0=2$, $z_1=2i$, $z_2=-2$, $z_3=-2i$. Løsningene er $\\pm2,\\ \\pm2i$.",
+        "hints": [
+          "Skriv $16=16e^{i0}$; røttenes modulus er $16^{1/4}=2$.",
+          "Fire løsninger med $90^\\circ$ mellom — de ligger på aksene her."
+        ]
+      }
+    },
+    {
+      "id": "tma4110-7-3-oppg-l2b",
+      "type": "exercise",
+      "exercise": {
+        "id": "tma4110-7-3-l2b",
+        "number": "3",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "Løs $z^3=-8$ på kartesisk form.",
+        "solution": "$-8=8e^{i\\pi}$, $R^{1/3}=2$. $z_k=2e^{i(\\pi+2\\pi k)/3}$: $z_0=2e^{i\\pi/3}=1+i\\sqrt3$, $z_1=2e^{i\\pi}=-2$, $z_2=2e^{i5\\pi/3}=1-i\\sqrt3$. Løsningene: $-2,\\ 1\\pm i\\sqrt3$.",
+        "hints": [
+          "$-8=8e^{i\\pi}$; røttenes modulus er $8^{1/3}=2$.",
+          "$k=0,1,2$ gir argumentene $\\tfrac\\pi3,\\pi,\\tfrac{5\\pi}3$."
+        ]
+      }
+    },
+    {
+      "id": "tma4110-7-3-oppg-l2c",
+      "type": "exercise",
+      "exercise": {
+        "id": "tma4110-7-3-l2c",
+        "number": "4",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "Løs $z^3=27i$ på kartesisk form.",
+        "solution": "$27i=27e^{i\\pi/2}$, $R^{1/3}=3$. $z_k=3e^{i(\\pi/2+2\\pi k)/3}=3e^{i(\\pi/6+2\\pi k/3)}$:\n$z_0=3e^{i\\pi/6}=3\\left(\\tfrac{\\sqrt3}{2}+i\\tfrac12\\right)=\\tfrac{3\\sqrt3}{2}+\\tfrac32 i$; $z_1=3e^{i5\\pi/6}=-\\tfrac{3\\sqrt3}{2}+\\tfrac32 i$; $z_2=3e^{i3\\pi/2}=-3i.$",
+        "hints": [
+          "$27i=27e^{i\\pi/2}$; røttenes modulus er $27^{1/3}=3$.",
+          "Startargument $\\tfrac{\\pi/2}{3}=\\tfrac\\pi6$, deretter steg $\\tfrac{2\\pi}3$."
+        ]
+      }
+    },
+    {
+      "id": "tma4110-7-3-l3",
+      "type": "text",
+      "content": "## Løkke 3 — Komplekse annengradslikninger (~13 min)"
+    },
+    {
+      "id": "tma4110-7-3-def-kvadratrot",
+      "type": "definition",
+      "title": "Kompleks kvadratrot",
+      "content": "En **kvadratrot** av $w$ er et tall $z$ med $z^2=w$. Hvert $w\\ne0$ har nøyaktig to kvadratrøtter, $\\pm z_0$. Du finner dem enten ved rot-formelen ($n=2$) eller ved å sette $z=x+iy$, kvadrere og sammenligne real- og imaginærdel. For eksempel er kvadratrøttene av $-2i$ nettopp $\\pm(1-i)$, siden $(1-i)^2=-2i$."
+    },
+    {
+      "id": "tma4110-7-3-def-abc",
+      "type": "definition",
+      "title": "Kompleks abc-formel",
+      "content": "Andregradslikningen $az^2+bz+c=0$ (med komplekse koeffisienter, $a\\ne0$) løses med samme formel som over $\\mathbb R$:\n\n$$z=\\frac{-b\\pm\\sqrt{b^2-4ac}}{2a},$$\n\nmen her betyr $\\sqrt{\\ }$ en **kompleks** kvadratrot (velg én av de to; $\\pm$ tar den andre). Det finnes alltid to løsninger (talt med multiplisitet)."
+    },
+    {
+      "id": "tma4110-7-3-def-diskriminant",
+      "type": "definition",
+      "title": "Diskriminanten $b^2-4ac$",
+      "content": "**Diskriminanten** $D=b^2-4ac$ styrer røttene. Over $\\mathbb C$ finnes alltid $\\sqrt D$: er $D=0$ er det én dobbeltrot; ellers to distinkte røtter. For **reelle** koeffisienter gir $D<0$ et konjugert par $\\tfrac{-b}{2a}\\pm i\\tfrac{\\sqrt{|D|}}{2a}$."
+    },
+    {
+      "id": "tma4110-7-3-ex4",
+      "type": "example",
+      "title": "Eksempel 4: Reelle koeffisienter, komplekse røtter",
+      "problem": "Løs $z^2+2z+5=0$.",
+      "solution": "Her er $a=1,b=2,c=5$, alle reelle. Diskriminant $D=b^2-4ac=4-20=-16<0$, så $\\sqrt D=\\sqrt{-16}=4i$. abc-formelen:\n\n$$z=\\frac{-2\\pm4i}{2}=-1\\pm2i.$$\n\nLøsningene $-1+2i$ og $-1-2i$ er et **konjugert par** — som forventet når koeffisientene er reelle. Kontroll (Vieta): sum $=-2=-b/a$ ✓, produkt $=(-1)^2+2^2=5=c/a$ ✓."
+    },
+    {
+      "id": "tma4110-7-3-oppg-l3a",
+      "type": "exercise",
+      "exercise": {
+        "id": "tma4110-7-3-l3a",
+        "number": "5",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "Løs **a)** $z^2+9=0$ og **b)** $z^2-2z+2=0$.",
+        "solution": "**a)** $z^2=-9$, så $z=\\pm3i$.\n\n**b)** $D=4-8=-4$, $\\sqrt D=2i$, $z=\\dfrac{2\\pm2i}{2}=1\\pm i.$",
+        "hints": [
+          "a) Isoler $z^2$ og ta kvadratrot. b) Bruk abc-formelen.",
+          "$\\sqrt{-4}=2i$; reelle koeffisienter gir konjugerte røtter."
+        ]
+      }
+    },
+    {
+      "id": "tma4110-7-3-ex5",
+      "type": "example",
+      "title": "Eksempel 5: Komplekse koeffisienter",
+      "problem": "Løs $z^2-(3+i)z+(2+2i)=0$.",
+      "solution": "$a=1$, $b=-(3+i)$, $c=2+2i$. Diskriminant:\n$$D=b^2-4ac=(3+i)^2-4(2+2i)=(9+6i-1)-(8+8i)=(8+6i)-(8+8i)=-2i.$$\nVi trenger en kvadratrot av $-2i$. Fra Løkke 3 er $\\sqrt{-2i}=\\pm(1-i)$ (fordi $(1-i)^2=-2i$). abc-formelen:\n$$z=\\frac{(3+i)\\pm(1-i)}{2}.$$\n$z_1=\\dfrac{3+i+1-i}{2}=\\dfrac{4}{2}=2$, og $z_2=\\dfrac{3+i-1+i}{2}=\\dfrac{2+2i}{2}=1+i.$\n\nLøsningene er $2$ og $1+i$. (Her er koeffisientene komplekse, så røttene er **ikke** et konjugert par — kontroll: produkt $2(1+i)=2+2i=c$ ✓.)"
+    },
+    {
+      "id": "tma4110-7-3-oppg-l3b",
+      "type": "exercise",
+      "exercise": {
+        "id": "tma4110-7-3-l3b",
+        "number": "6",
+        "type": "classic",
+        "difficulty": "vanskelig",
+        "task": "(Eksamensnivå.) Løs $z^2-4z+13=0$, og faktorisér polynomet $z^2-4z+13$ over $\\mathbb C$.",
+        "solution": "$D=16-52=-36$, $\\sqrt D=6i$, $z=\\dfrac{4\\pm6i}{2}=2\\pm3i$. Med røttene $z_1=2+3i$, $z_2=2-3i$ er faktoriseringen\n$$z^2-4z+13=(z-(2+3i))(z-(2-3i)).$$\n(Kontroll: gang ut $=(z-2)^2+9=z^2-4z+13$ ✓.)",
+        "hints": [
+          "Bruk abc-formelen; $\\sqrt{-36}=6i$.",
+          "Et andregradspolynom faktoriseres som $a(z-z_1)(z-z_2)$."
+        ]
+      }
+    },
+    {
+      "id": "tma4110-7-3-l4",
+      "type": "text",
+      "content": "## Løkke 4 — Tredjegrad, faktorisering og konjugatrøtter (~11 min)"
+    },
+    {
+      "id": "tma4110-7-3-def-fundamental",
+      "type": "definition",
+      "title": "Algebraens fundamentalsetning",
+      "content": "Ethvert polynom av grad $n\\ge1$ med komplekse koeffisienter har **nøyaktig $n$ røtter** i $\\mathbb C$ (talt med multiplisitet). Derfor kan et polynom av grad $n$ alltid faktoriseres fullstendig i $n$ førstegradsfaktorer over $\\mathbb C$:\n\n$$p(z)=a_n(z-z_1)(z-z_2)\\cdots(z-z_n).$$"
+    },
+    {
+      "id": "tma4110-7-3-def-konjugatrot",
+      "type": "definition",
+      "title": "Konjugatrot-setningen",
+      "content": "Har polynomet **reelle** koeffisienter og $z_0=a+bi$ (med $b\\ne0$) er en rot, så er også $\\bar z_0=a-bi$ en rot. Komplekse røtter opptrer altså i **konjugerte par**. Følge: et reelt polynom av oddetallsgrad har minst én reell rot."
+    },
+    {
+      "id": "tma4110-7-3-def-polydiv",
+      "type": "definition",
+      "title": "Gjett en rot og polynomdivider",
+      "content": "For en tredjegradslikning $p(z)=0$: (1) **gjett** en enkel rot $z_1$ (prøv $\\pm1,\\pm2,\\pm i$, delere av konstantleddet); (2) **polynomdivider** $p(z)$ med $(z-z_1)$; (3) løs det gjenværende andregradspolynomet med abc-formelen. Faktor-setningen sier at $z_1$ er rot nøyaktig når $(z-z_1)$ deler $p(z)$."
+    },
+    {
+      "id": "tma4110-7-3-def-reellfaktor",
+      "type": "definition",
+      "title": "Reell faktorisering (konjugerte par)",
+      "content": "Et konjugert rotpar $a\\pm bi$ svarer til en **reell** andregradsfaktor:\n\n$$(z-(a+bi))(z-(a-bi))=z^2-2az+(a^2+b^2).$$\n\nDerfor kan ethvert reelt polynom skrives som et produkt av reelle første- og andregradsfaktorer."
+    },
+    {
+      "id": "tma4110-7-3-ex6",
+      "type": "example",
+      "title": "Eksempel 6: Tredjegrad ved gjetting",
+      "problem": "Løs $z^3-2z^2+4z-8=0$.",
+      "solution": "**Gjett en rot:** prøv delere av $8$. $z=2$: $8-8+8-8=0$ ✓, så $z_1=2$ er en rot.\n\n**Polynomdivider** $z^3-2z^2+4z-8$ med $(z-2)$: resultatet er $z^2+4$ (siden $(z-2)(z^2+4)=z^3+4z-2z^2-8$ ✓).\n\n**Løs resten:** $z^2+4=0\\Rightarrow z^2=-4\\Rightarrow z=\\pm2i.$\n\nLøsningene er $z=2,\\ 2i,\\ -2i$. De to komplekse er et konjugert par (polynomet har reelle koeffisienter)."
+    },
+    {
+      "id": "tma4110-7-3-oppg-l4a",
+      "type": "exercise",
+      "exercise": {
+        "id": "tma4110-7-3-l4a",
+        "number": "7",
+        "type": "classic",
+        "difficulty": "vanskelig",
+        "task": "(Eksamensnivå.) Løs $z^3-z^2+z-1=0$, og faktorisér polynomet fullstendig over $\\mathbb C$.",
+        "solution": "Gjett $z=1$: $1-1+1-1=0$ ✓. Polynomdivisjon med $(z-1)$ gir $z^2+1$ (siden $(z-1)(z^2+1)=z^3+z-z^2-1$ ✓). Så $z^2+1=0\\Rightarrow z=\\pm i.$\n\nRøttene er $1,\\ i,\\ -i$, og faktoriseringen er $z^3-z^2+z-1=(z-1)(z-i)(z+i).$",
+        "hints": [
+          "Gjett en rot blant delerne av konstantleddet ($\\pm1$).",
+          "Polynomdivider med $(z-1)$ og løs andregradsresten."
+        ]
+      }
+    },
+    {
+      "id": "tma4110-7-3-warn-typiske",
+      "type": "warning",
+      "title": "Typiske feil",
+      "content": "- **Finner bare én rot** av $z^n=c$ — glemmer $+\\tfrac{2\\pi k}{n}$-leddet og de øvrige $k$-verdiene.\n- **Feil radius:** røttenes modulus er $R^{1/n}$ (den $n$-te roten av $|c|$), ikke $R$ eller $R/n$.\n- **Feil startargument:** $\\varphi/n$, ikke $\\varphi$.\n- **Glemmer konjugatrot-setningen:** for reelle koeffisienter kommer komplekse røtter alltid i par $a\\pm bi$.\n- **Regnefeil i kompleks abc:** feil kvadratrot av diskriminanten (sjekk ved å kvadrere).\n- **Desimalsvar:** oppgi eksakte former ($-1+i\\sqrt3$), aldri avrundede tall (kode E)."
+    },
+    {
+      "id": "tma4110-7-3-pool",
+      "type": "text",
+      "content": "### Blandet oppgavesett (stigende vanskegrad)"
+    },
+    {
+      "id": "tma4110-7-3-oppg-p1",
+      "type": "exercise",
+      "exercise": {
+        "id": "tma4110-7-3-p1",
+        "number": "8",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "Løs $z^2=-2i$ ved å sette $z=x+iy$ og sammenligne real- og imaginærdel.",
+        "solution": "$z^2=(x+iy)^2=x^2-y^2+2xyi=-2i$. Sammenlign: $x^2-y^2=0$ og $2xy=-2$. Fra første: $y=\\pm x$. Med $2xy=-2<0$ må $x,y$ ha motsatt fortegn, så $y=-x$ og $-2x^2=-2\\Rightarrow x^2=1\\Rightarrow x=\\pm1$. Løsninger: $z=1-i$ og $z=-1+i$, altså $z=\\pm(1-i)$.",
+        "hints": [
+          "Sett $z=x+iy$, kvadrer, og sett real- og imaginærdel lik $0$ og $-2$.",
+          "$x^2-y^2=0$ gir $y=\\pm x$; fortegnet på $2xy$ avgjør hvilket."
+        ]
+      }
+    },
+    {
+      "id": "tma4110-7-3-oppg-p2",
+      "type": "exercise",
+      "exercise": {
+        "id": "tma4110-7-3-p2",
+        "number": "9",
+        "type": "classic",
+        "difficulty": "vanskelig",
+        "task": "(Eksamensnivå.) Løs $z^4=-16$ (regn på nytt uten å slå opp figuren) og forklar hvorfor de fire løsningene danner et kvadrat i planet.",
+        "solution": "$-16=16e^{i\\pi}$, $R^{1/4}=2$. $z_k=2e^{i(\\pi+2\\pi k)/4}$ gir argumentene $\\tfrac\\pi4,\\tfrac{3\\pi}4,\\tfrac{5\\pi}4,\\tfrac{7\\pi}4$, altså $z=\\sqrt2\\pm\\sqrt2 i$ og $-\\sqrt2\\pm\\sqrt2 i$. Alle har samme modulus $2$ (samme avstand fra origo) og argumentene skiller seg med $\\tfrac{2\\pi}{4}=\\tfrac\\pi2=90^\\circ$. Fire punkter på en sirkel med lik vinkelavstand $90^\\circ$ er nettopp hjørnene i et **kvadrat**.",
+        "hints": [
+          "Skriv $-16$ på polar form; røttenes modulus er $16^{1/4}=2$.",
+          "Lik modulus + lik vinkelavstand $\\tfrac{2\\pi}n$ ⇒ regulær $n$-kant."
+        ]
+      }
+    },
+    {
+      "id": "tma4110-7-3-oppg-p3",
+      "type": "exercise",
+      "exercise": {
+        "id": "tma4110-7-3-p3",
+        "number": "10",
+        "type": "classic",
+        "difficulty": "vanskelig",
+        "task": "(Krevende.) Vis at summen av de tre tredjerøttene av ethvert $c\\ne0$ er $0$.",
+        "solution": "La røttene være $z_k=R^{1/3}e^{i(\\varphi+2\\pi k)/3}$, $k=0,1,2$. Sett $\\rho=R^{1/3}e^{i\\varphi/3}$ (den første roten) og $\\omega=e^{i2\\pi/3}$. Da er $z_0=\\rho$, $z_1=\\rho\\omega$, $z_2=\\rho\\omega^2$, så\n$$z_0+z_1+z_2=\\rho(1+\\omega+\\omega^2).$$\nHer er $1+\\omega+\\omega^2$ summen av de tre enhetsrøttene, som er en geometrisk rekke: $\\dfrac{\\omega^3-1}{\\omega-1}=\\dfrac{1-1}{\\omega-1}=0$ (siden $\\omega^3=1$ og $\\omega\\ne1$). Altså er summen $\\rho\\cdot0=0.\\qquad\\blacksquare$",
+        "hints": [
+          "Skriv røttene som $\\rho,\\rho\\omega,\\rho\\omega^2$ med $\\omega=e^{i2\\pi/3}$.",
+          "Bruk at $1+\\omega+\\omega^2=\\tfrac{\\omega^3-1}{\\omega-1}$ og $\\omega^3=1$."
+        ]
+      }
+    },
+    {
+      "id": "tma4110-7-3-bb-intro",
+      "type": "text",
+      "content": "## Begrepsbank til eksamen\n\nKjernebegrepene samlet i kortform.\n\n*Begrepsbanken er flashcard-/repetisjonsstoff — hopp trygt over ved førstegangslesing; tidsanslaget gjelder kjernestoffet.*"
+    },
+    {
+      "id": "tma4110-7-3-bb-radius",
+      "type": "definition",
+      "title": "Røttenes felles radius $R^{1/n}$",
+      "content": "Alle $n$-te røttene av $c=Re^{i\\varphi}$ har samme modulus $R^{1/n}$ — den positive reelle $n$-te roten av $|c|$. De ligger derfor på én sirkel om origo. Feil her (f.eks. $R/n$) er en klassisk tabbe."
+    },
+    {
+      "id": "tma4110-7-3-bb-vinkelavstand",
+      "type": "definition",
+      "title": "Vinkelavstand $2\\pi/n$",
+      "content": "Nabo-røtter av $z^n=c$ skiller seg med argumentet $\\tfrac{2\\pi}{n}$. Har du funnet én rot, får du de neste ved gjentatt rotasjon $\\tfrac{2\\pi}{n}$ mot klokka."
+    },
+    {
+      "id": "tma4110-7-3-bb-sumenhet",
+      "type": "definition",
+      "title": "Sum av enhetsrøtter er 0",
+      "content": "For $n\\ge2$ er summen av de $n$ enhetsrøttene $1+\\omega+\\dots+\\omega^{n-1}=0$ (geometrisk rekke, $\\omega=e^{i2\\pi/n}$). Mer generelt er summen av de $n$ røttene av $z^n=c$ lik $0$ for $n\\ge2$."
+    },
+    {
+      "id": "tma4110-7-3-bb-vieta",
+      "type": "definition",
+      "title": "Vietas formler (andregrad)",
+      "content": "For $z^2+pz+q=0$ med røtter $z_1,z_2$ gjelder $z_1+z_2=-p$ og $z_1z_2=q$. Nyttig kontroll etter abc-formelen og til å gjette røtter."
+    },
+    {
+      "id": "tma4110-7-3-bb-dobbelrot",
+      "type": "definition",
+      "title": "Dobbeltrot",
+      "content": "Er diskriminanten $D=b^2-4ac=0$, faller de to røttene sammen i én **dobbeltrot** $z=\\tfrac{-b}{2a}$. Da er $az^2+bz+c=a(z-z_0)^2$."
+    },
+    {
+      "id": "tma4110-7-3-bb-brokpotens",
+      "type": "definition",
+      "title": "$n$-te røtter som brøkpotens",
+      "content": "Å ta $n$-te rot er de Moivres formel med brøkeksponent: $c^{1/n}=R^{1/n}e^{i\\varphi/n}$ gir *én* rot, og de øvrige fås ved å legge til $\\tfrac{2\\pi k}{n}$ i argumentet. Røtter er altså «potenser baklengs»."
+    },
+    {
+      "id": "tma4110-7-3-bb-primitiv",
+      "type": "definition",
+      "title": "Primitiv enhetsrot $\\omega$",
+      "content": "$\\omega=e^{i2\\pi/n}$ er den **primitive** $n$-te enhetsroten: alle enhetsrøttene er potensene $1,\\omega,\\omega^2,\\dots,\\omega^{n-1}$. Å gange en rot av $z^n=c$ med $\\omega$ gir nabo-roten."
+    },
+    {
+      "id": "tma4110-7-3-bb-faktorsetning",
+      "type": "definition",
+      "title": "Faktor-setningen",
+      "content": "$z_1$ er en rot av polynomet $p(z)$ nøyaktig når $(z-z_1)$ er en faktor i $p(z)$, altså når divisjonen $p(z)/(z-z_1)$ går opp uten rest. Dette rettferdiggjør gjett-og-divider-metoden."
+    },
+    {
+      "id": "tma4110-7-3-bb-multiplisitet",
+      "type": "definition",
+      "title": "Multiplisitet av en rot",
+      "content": "En rot $z_1$ har **multiplisitet** $m$ hvis $(z-z_1)^m$ deler $p(z)$, men $(z-z_1)^{m+1}$ ikke gjør det. Talt med multiplisitet har et gradspolynom $n$ nøyaktig $n$ røtter."
+    },
+    {
+      "id": "tma4110-7-3-bb-oddegrad",
+      "type": "definition",
+      "title": "Reell rot av oddegrads polynom",
+      "content": "Et polynom med reelle koeffisienter av **oddetallsgrad** har minst én reell rot: komplekse røtter kommer i konjugerte par (konjugatrot-setningen), og et oddetall kan ikke deles helt i par."
+    },
+    {
+      "id": "tma4110-7-3-bb-kvadratkomplett",
+      "type": "definition",
+      "title": "Kvadratkomplettering (alternativ)",
+      "content": "$z^2+bz+c=0$ kan også løses ved å fullføre kvadratet: $(z+\\tfrac b2)^2=\\tfrac{b^2}{4}-c$, deretter kompleks kvadratrot. Gir samme svar som abc-formelen, men er nyttig når koeffisientene er enkle."
+    },
+    {
+      "id": "tma4110-7-3-bb-regnkant",
+      "type": "definition",
+      "title": "Regulær $n$-kant",
+      "content": "De $n$ løsningene av $z^n=c$ er hjørnene i en **regulær $n$-kant** innskrevet i sirkelen med radius $R^{1/n}$. For $n=3$ en likesidet trekant, $n=4$ et kvadrat, osv. — et raskt kontrollbilde på skissen."
+    },
+    {
+      "id": "tma4110-7-3-rep",
+      "type": "collapsible",
+      "title": "Repetisjonsoppgaver",
+      "buttonText": "Vis repetisjonsoppgaver",
+      "content": [
+        {
+          "id": "tma4110-7-3-oppg-rep1",
+          "type": "exercise",
+          "exercise": {
+            "id": "tma4110-7-3-rep1",
+            "number": "R1",
+            "type": "classic",
+            "difficulty": "lett",
+            "task": "(Fra kap. 7.2) Skriv $-16$ og $8i$ på polar form.",
+            "solution": "$-16=16e^{i\\pi}$ (negativ realakse, $\\theta=\\pi$); $8i=8e^{i\\pi/2}$ (positiv imaginærakse, $\\theta=\\tfrac\\pi2$).",
+            "hints": [
+              "Plasser tallet på aksen og les av argumentet ($\\pi$ eller $\\tfrac\\pi2$)."
+            ]
+          }
+        },
+        {
+          "id": "tma4110-7-3-oppg-rep2",
+          "type": "exercise",
+          "exercise": {
+            "id": "tma4110-7-3-rep2",
+            "number": "R2",
+            "type": "classic",
+            "difficulty": "middels",
+            "task": "(Fra kap. 7.2) Regn ut $(2e^{i\\pi/6})^3$ på kartesisk form med de Moivre.",
+            "solution": "$(2e^{i\\pi/6})^3=8e^{i\\pi/2}=8i.$",
+            "hints": [
+              "$z^3=r^3e^{i3\\theta}$; $3\\cdot\\tfrac\\pi6=\\tfrac\\pi2$."
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": "tma4110-7-3-symbolliste",
+      "type": "collapsible",
+      "title": "Symbol- og formelliste",
+      "buttonText": "Vis symboler og formler",
+      "content": [
+        {
+          "id": "tma4110-7-3-symbolliste-text",
+          "type": "text",
+          "content": "## Symbol- og formelliste\n\n*Oppslagsverk — alt her forklares underveis i kapitlet.*\n\n| Symbol | Betydning |\n|---|---|\n| $z^n=c$ | Binomisk likning |\n| $R=|c|,\\ \\varphi=\\arg c$ | Modulus og argument til høyresida |\n| $R^{1/n}$ | Felles modulus for alle $n$ røttene |\n| $\\omega=e^{i2\\pi/n}$ | Primitiv $n$-te enhetsrot |\n| $D=b^2-4ac$ | Diskriminant (andregrad) |\n| $\\sqrt{w}$ | Kompleks kvadratrot (to verdier $\\pm$) |\n\n**Formler i dette delkapitlet:**\n\n$$z_k=R^{1/n}\\,e^{i(\\varphi+2\\pi k)/n},\\quad k=0,\\dots,n-1$$\n$n$-te røtter av $c=Re^{i\\varphi}$ — jevnt på sirkel med radius $R^{1/n}$.\n\n$$z=\\frac{-b\\pm\\sqrt{b^2-4ac}}{2a}$$\nKompleks abc-formel (rota er en kompleks kvadratrot).\n\n$$(z-(a+bi))(z-(a-bi))=z^2-2az+(a^2+b^2)$$\nReell andregradsfaktor fra et konjugert rotpar.\n\n$$p(z)=a_n(z-z_1)\\cdots(z-z_n)$$\nFull faktorisering (algebraens fundamentalsetning)."
+        }
+      ]
+    }
+  ],
+  "exercises": []
+}

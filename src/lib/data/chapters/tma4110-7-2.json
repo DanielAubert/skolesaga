@@ -1,0 +1,475 @@
+{
+  "id": "tma4110-7-2",
+  "courseId": "tma4110",
+  "chapterNumber": "7.2",
+  "title": "Polar form, Eulers formel og de Moivres formel",
+  "description": "Polar/eksponentialform z=r(cos θ+i sin θ)=re^{iθ}, Eulers formel, multiplikasjon og divisjon i polar form, og de Moivres formel for potenser — motoren bak røtter og binomiske likninger.",
+  "estimatedMinutes": 55,
+  "competenceGoals": [
+    "skrive komplekse tall på polar og eksponentialform og bestemme argumentet med riktig kvadrant",
+    "bruke Eulers formel og regnereglene for multiplikasjon og divisjon i polar form",
+    "regne ut potenser av komplekse tall med de Moivres formel og konvertere sikkert mellom kartesisk og polar form"
+  ],
+  "content": [
+    {
+      "id": "tma4110-7-2-tip-eksamensvinkel",
+      "type": "tip",
+      "title": "Eksamensvinkel",
+      "content": "**Polar form og de Moivres formel er motoren bak komplekstall-oppgaven (~95 %).** Potenser som $z^6$ og røtter (kap. 7.3) er nesten umulige på kartesisk form, men enkle i polar form.\n\n- Sensor forventer at du **konverterer til polarform med riktig kvadrant** for argumentet, og bruker **de Moivre** for potenser.\n- Under **kode E** må du kunne de **eksakte trig-verdiene** på enhetssirkelen ($\\cos\\tfrac\\pi6=\\tfrac{\\sqrt3}2$ osv.) utenat — det finnes ingen kalkulator.\n\n**Utenat-krav (kode E):** de Moivres formel, Eulers formel og enhetssirkelens standardvinkler. Sitter de, går resten av seg selv."
+    },
+    {
+      "id": "tma4110-7-2-forkunnskaper",
+      "type": "text",
+      "content": "**Forkunnskaper:** Dette kapitlet bygger rett på [kap. 7.1](/bok/tma4110/tma4110-7-1) — kartesisk form, modulus $|z|$ og konjugat. Du trenger også de eksakte trigonometriske verdiene og enhetssirkelen; friskt opp med [Trigonometriske funksjoner og grafer](/bok/r2/r2-4-7).\n\n**Sist du var her (fra 7.1):** $|z|=\\sqrt{x^2+y^2}$ er avstanden fra origo, og $z$ tegnes som punktet $(x,y)$ i det komplekse planet. Nå legger vi til **vinkelen** til dette punktet."
+    },
+    {
+      "id": "tma4110-7-2-intro",
+      "type": "text",
+      "content": "På kartesisk form beskriver vi $z$ ved koordinatene $(x,y)$. Men et punkt i planet kan like gjerne beskrives ved **avstanden** fra origo og **vinkelen** med den positive realaksen — akkurat som polarkoordinater. Det er denne **polare formen** som gjør potenser, røtter og produkt av komplekse tall enkelt: å multiplisere blir å legge sammen vinkler.\n\nKapitlet går i fem løkker: polar form og argument, Eulers formel og eksponentialform, multiplikasjon/divisjon i polar, de Moivres formel for potenser, og til slutt sikker konvertering begge veier."
+    },
+    {
+      "id": "tma4110-7-2-l1",
+      "type": "text",
+      "content": "## Løkke 1 — Polar form og argument (~10 min)"
+    },
+    {
+      "id": "tma4110-7-2-def-polar",
+      "type": "definition",
+      "title": "Polar form",
+      "content": "Et komplekst tall $z\\ne0$ kan skrives ved sin avstand fra origo og sin vinkel med realaksen:\n\n$$z=r(\\cos\\theta+i\\sin\\theta),\\qquad r=|z|>0.$$\n\nHer er $r=|z|=\\sqrt{x^2+y^2}$ modulus, og $\\theta$ er **argumentet** — vinkelen fra den positive realaksen til pila mot $z$, målt i radianer. Sammenhengen med kartesisk form er $x=r\\cos\\theta$, $y=r\\sin\\theta$."
+    },
+    {
+      "id": "tma4110-7-2-def-arg",
+      "type": "definition",
+      "title": "Argument $\\arg z$",
+      "content": "**Argumentet** $\\arg z=\\theta$ er vinkelen fra den positive realaksen til $z$. Det er bare bestemt opp til hele omdreininger:\n\n$$\\arg z=\\theta+2\\pi k,\\qquad k\\in\\mathbb Z.$$\n\nVi finner $\\theta$ fra $\\tan\\theta=\\dfrac yx$, men **kvadranten** avgjøres av fortegnene til $x$ og $y$ — ikke av $\\tan^{-1}$ alene."
+    },
+    {
+      "id": "tma4110-7-2-def-hovedarg",
+      "type": "definition",
+      "title": "Hovedargument",
+      "content": "For å få en entydig vinkel velger vi ofte **hovedargumentet** i intervallet $(-\\pi,\\pi]$ (noen bøker bruker $[0,2\\pi)$). Skriver du et svar, oppgi hvilket intervall du bruker. Alle vinkler som skiller seg med et helt antall $2\\pi$, gir samme tall."
+    },
+    {
+      "id": "tma4110-7-2-def-kvadrant",
+      "type": "definition",
+      "title": "Kvadrantbestemmelse av argumentet",
+      "content": "Bestem $\\theta$ i to steg: (1) finn referansevinkelen $\\alpha=\\arctan\\left|\\tfrac yx\\right|$; (2) juster etter kvadranten $z$ ligger i:\n\n- 1. kvadrant ($x>0,y>0$): $\\theta=\\alpha$.\n- 2. kvadrant ($x<0,y>0$): $\\theta=\\pi-\\alpha$.\n- 3. kvadrant ($x<0,y<0$): $\\theta=-\\pi+\\alpha$ (eller $\\pi+\\alpha$).\n- 4. kvadrant ($x>0,y<0$): $\\theta=-\\alpha$."
+    },
+    {
+      "id": "tma4110-7-2-ex1",
+      "type": "example",
+      "title": "Eksempel 1: Kartesisk til polar",
+      "problem": "Skriv $z=-1+i$ på polar form.",
+      "solution": "Modulus: $r=|z|=\\sqrt{(-1)^2+1^2}=\\sqrt2$.\n\nPunktet $(-1,1)$ ligger i **2. kvadrant** ($x<0,y>0$). Referansevinkel $\\alpha=\\arctan\\tfrac{1}{1}=\\tfrac\\pi4$, så $\\theta=\\pi-\\tfrac\\pi4=\\tfrac{3\\pi}{4}$.\n\n$$z=\\sqrt2\\left(\\cos\\tfrac{3\\pi}{4}+i\\sin\\tfrac{3\\pi}{4}\\right).$$\nKontroll: $\\sqrt2\\cos\\tfrac{3\\pi}{4}=\\sqrt2\\cdot(-\\tfrac{\\sqrt2}{2})=-1$ ✓ og $\\sqrt2\\sin\\tfrac{3\\pi}{4}=1$ ✓."
+    },
+    {
+      "id": "tma4110-7-2-oppg-l1a",
+      "type": "exercise",
+      "exercise": {
+        "id": "tma4110-7-2-l1a",
+        "number": "1",
+        "type": "classic",
+        "difficulty": "lett",
+        "task": "(Innstegsoppgave.) Skriv på polar form: **a)** $z=2i$, **b)** $z=-3$.",
+        "solution": "**a)** $r=2$, punktet $(0,2)$ ligger på positiv imaginærakse: $\\theta=\\tfrac\\pi2$. Så $z=2(\\cos\\tfrac\\pi2+i\\sin\\tfrac\\pi2)$.\n**b)** $r=3$, punktet $(-3,0)$ ligger på negativ realakse: $\\theta=\\pi$. Så $z=3(\\cos\\pi+i\\sin\\pi)$.",
+        "hints": [
+          "Finn $r=|z|$ først, deretter vinkelen ved å plassere punktet i planet.",
+          "Tall på aksene har argument $0,\\tfrac\\pi2,\\pi$ eller $-\\tfrac\\pi2$."
+        ]
+      }
+    },
+    {
+      "id": "tma4110-7-2-l2",
+      "type": "text",
+      "content": "## Løkke 2 — Eulers formel og eksponentialform (~9 min)"
+    },
+    {
+      "id": "tma4110-7-2-th-euler",
+      "type": "definition",
+      "title": "Eulers formel",
+      "content": "For enhver reell vinkel $\\theta$ gjelder\n\n$$e^{i\\theta}=\\cos\\theta+i\\sin\\theta.$$\n\nDette knytter eksponentialfunksjonen til trigonometrien og er ett av de viktigste resultatene i faget. Spesialtilfellet $\\theta=\\pi$ gir den berømte $e^{i\\pi}=-1$, altså $e^{i\\pi}+1=0$."
+    },
+    {
+      "id": "tma4110-7-2-def-exp",
+      "type": "definition",
+      "title": "Eksponentialform $re^{i\\theta}$",
+      "content": "Med Eulers formel skrives polar form kompakt som\n\n$$z=r(\\cos\\theta+i\\sin\\theta)=re^{i\\theta}.$$\n\nDenne **eksponentialformen** gjør regnereglene opplagte: potensregler for eksponenter gir automatisk reglene for multiplikasjon, divisjon og potens av komplekse tall."
+    },
+    {
+      "id": "tma4110-7-2-def-spesial",
+      "type": "definition",
+      "title": "Spesialverdier på enhetssirkelen",
+      "content": "Noen verdier bør sitte som fingerspiss-kunnskap:\n\n$$e^{i\\cdot0}=1,\\quad e^{i\\pi/2}=i,\\quad e^{i\\pi}=-1,\\quad e^{i3\\pi/2}=e^{-i\\pi/2}=-i,\\quad e^{i2\\pi}=1.$$\n\nAlle har modulus $1$ (ligger på enhetssirkelen). Å gange med $e^{i\\pi/2}=i$ svarer til å rotere $90^\\circ$ mot klokka."
+    },
+    {
+      "id": "tma4110-7-2-def-utenat",
+      "type": "definition",
+      "title": "Enhetssirkelens standardvinkler (utenat, kode E)",
+      "content": "Under kode E må disse eksakte verdiene sitte utenat:\n\n| $\\theta$ | $\\cos\\theta$ | $\\sin\\theta$ |\n|---|---|---|\n| $0$ | $1$ | $0$ |\n| $\\tfrac\\pi6$ | $\\tfrac{\\sqrt3}{2}$ | $\\tfrac12$ |\n| $\\tfrac\\pi4$ | $\\tfrac{\\sqrt2}{2}$ | $\\tfrac{\\sqrt2}{2}$ |\n| $\\tfrac\\pi3$ | $\\tfrac12$ | $\\tfrac{\\sqrt3}{2}$ |\n| $\\tfrac\\pi2$ | $0$ | $1$ |\n\nVinkler i andre kvadranter fås ved symmetri (fortegnsbytte)."
+    },
+    {
+      "id": "tma4110-7-2-ex2",
+      "type": "example",
+      "title": "Eksempel 2: Eksponentialform til kartesisk",
+      "problem": "Skriv $z=2e^{i\\pi/3}$ på kartesisk form.",
+      "solution": "Bruk $e^{i\\pi/3}=\\cos\\tfrac\\pi3+i\\sin\\tfrac\\pi3=\\tfrac12+i\\tfrac{\\sqrt3}{2}$. Da er\n$$z=2\\left(\\tfrac12+i\\tfrac{\\sqrt3}{2}\\right)=1+i\\sqrt3.$$\nKontroll: $|1+i\\sqrt3|=\\sqrt{1+3}=2=r$ ✓."
+    },
+    {
+      "id": "tma4110-7-2-oppg-l2a",
+      "type": "exercise",
+      "exercise": {
+        "id": "tma4110-7-2-l2a",
+        "number": "2",
+        "type": "classic",
+        "difficulty": "lett",
+        "task": "Skriv på kartesisk form: **a)** $3e^{i\\pi/2}$, **b)** $\\sqrt2\\,e^{i\\pi/4}$.",
+        "solution": "**a)** $3e^{i\\pi/2}=3i$.\n**b)** $\\sqrt2\\,e^{i\\pi/4}=\\sqrt2\\left(\\tfrac{\\sqrt2}{2}+i\\tfrac{\\sqrt2}{2}\\right)=1+i.$",
+        "hints": [
+          "Bruk Eulers formel $e^{i\\theta}=\\cos\\theta+i\\sin\\theta$ og de eksakte verdiene.",
+          "$\\cos\\tfrac\\pi4=\\sin\\tfrac\\pi4=\\tfrac{\\sqrt2}{2}$."
+        ]
+      }
+    },
+    {
+      "id": "tma4110-7-2-l3",
+      "type": "text",
+      "content": "## Løkke 3 — Multiplikasjon og divisjon i polar form (~9 min)"
+    },
+    {
+      "id": "tma4110-7-2-th-mult",
+      "type": "definition",
+      "title": "Multiplikasjon i polar form",
+      "content": "For $z_1=r_1e^{i\\theta_1}$ og $z_2=r_2e^{i\\theta_2}$:\n\n$$z_1z_2=r_1r_2\\,e^{i(\\theta_1+\\theta_2)}.$$\n\n**Moduli ganges, argumenter adderes.** Å multiplisere med $z_2$ betyr altså å skalere med $r_2$ og rotere med $\\theta_2$."
+    },
+    {
+      "id": "tma4110-7-2-th-div",
+      "type": "definition",
+      "title": "Divisjon i polar form",
+      "content": "For $z_2\\ne0$:\n\n$$\\frac{z_1}{z_2}=\\frac{r_1}{r_2}\\,e^{i(\\theta_1-\\theta_2)}.$$\n\n**Moduli deles, argumenter subtraheres.** Spesielt er $\\dfrac1z=\\dfrac1r e^{-i\\theta}$ og $\\bar z=re^{-i\\theta}$."
+    },
+    {
+      "id": "tma4110-7-2-def-konjpolar",
+      "type": "definition",
+      "title": "Konjugat i polar form",
+      "content": "Konjugering speiler om realaksen, altså snur fortegnet på argumentet:\n\n$$\\overline{re^{i\\theta}}=re^{-i\\theta}.$$\n\nDerfor er $z\\bar z=re^{i\\theta}\\cdot re^{-i\\theta}=r^2=|z|^2$, i tråd med 7.1."
+    },
+    {
+      "id": "tma4110-7-2-ex3",
+      "type": "example",
+      "title": "Eksempel 3: Produkt og kvotient i polar",
+      "problem": "La $z_1=2e^{i\\pi/3}$ og $z_2=3e^{i\\pi/6}$. Finn **a)** $z_1z_2$ og **b)** $\\dfrac{z_1}{z_2}$, begge på kartesisk form.",
+      "solution": "**a)** Gang moduli, adder argumenter: $z_1z_2=2\\cdot3\\,e^{i(\\pi/3+\\pi/6)}=6e^{i\\pi/2}=6i.$\n\n**b)** Del moduli, subtraher argumenter: $\\dfrac{z_1}{z_2}=\\dfrac23 e^{i(\\pi/3-\\pi/6)}=\\dfrac23 e^{i\\pi/6}=\\dfrac23\\left(\\tfrac{\\sqrt3}{2}+i\\tfrac12\\right)=\\dfrac{\\sqrt3}{3}+\\dfrac13 i.$"
+    },
+    {
+      "id": "tma4110-7-2-oppg-l3a",
+      "type": "exercise",
+      "exercise": {
+        "id": "tma4110-7-2-l3a",
+        "number": "3",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "La $z_1=4e^{i2\\pi/3}$ og $z_2=2e^{i\\pi/6}$. Finn $z_1z_2$ og $\\dfrac{z_1}{z_2}$ på eksponentialform.",
+        "solution": "$z_1z_2=8e^{i(2\\pi/3+\\pi/6)}=8e^{i5\\pi/6}.$\n\n$\\dfrac{z_1}{z_2}=2e^{i(2\\pi/3-\\pi/6)}=2e^{i\\pi/2}\\;(=2i).$",
+        "hints": [
+          "Gang/del moduli; adder/subtraher argumenter.",
+          "$\\tfrac{2\\pi}{3}+\\tfrac\\pi6=\\tfrac{5\\pi}{6}$ og $\\tfrac{2\\pi}{3}-\\tfrac\\pi6=\\tfrac\\pi2$."
+        ]
+      }
+    },
+    {
+      "id": "tma4110-7-2-l4",
+      "type": "text",
+      "content": "## Løkke 4 — de Moivres formel for potenser (~10 min)"
+    },
+    {
+      "id": "tma4110-7-2-th-demoivre",
+      "type": "definition",
+      "title": "de Moivres formel",
+      "content": "Ved å multiplisere $z=re^{i\\theta}$ med seg selv $n$ ganger:\n\n$$z^n=r^n\\,e^{in\\theta}=r^n(\\cos n\\theta+i\\sin n\\theta),\\qquad n\\in\\mathbb Z.$$\n\n**Modulus opphøyes i $n$, argumentet ganges med $n$.** Dette gjør ellers uhåndterlige potenser som $(-1+i)^6$ til en linje med regning."
+    },
+    {
+      "id": "tma4110-7-2-def-trigid",
+      "type": "definition",
+      "title": "Trig-identiteter fra de Moivre (kjennskap)",
+      "content": "Setter du $r=1$ og ganger ut, får du trigonometriske identiteter. For $n=2$:\n\n$$(\\cos\\theta+i\\sin\\theta)^2=\\cos2\\theta+i\\sin2\\theta,$$\n\nog ved å sammenligne realdel og imaginærdel får du $\\cos2\\theta=\\cos^2\\theta-\\sin^2\\theta$ og $\\sin2\\theta=2\\sin\\theta\\cos\\theta$. Samme grep gir formler for $\\cos3\\theta$ osv."
+    },
+    {
+      "id": "tma4110-7-2-ex4",
+      "type": "example",
+      "title": "Eksempel 4: de Moivre (skjelettets mønster)",
+      "problem": "Skriv $z=-1+i$ på polar form og regn ut $z^6$ ved de Moivres formel. Gi svaret på kartesisk form.",
+      "solution": "Fra Eksempel 1: $z=\\sqrt2\\,e^{i3\\pi/4}$. de Moivre med $n=6$:\n$$z^6=(\\sqrt2)^6\\,e^{i\\cdot6\\cdot3\\pi/4}=8\\,e^{i18\\pi/4}=8\\,e^{i9\\pi/2}.$$\nReduser argumentet modulo $2\\pi$: $\\tfrac{9\\pi}{2}-4\\pi=\\tfrac\\pi2$, så $z^6=8e^{i\\pi/2}=8i.$\n\nSluttsvar: $z^6=8i$. (Kontroll: $(\\sqrt2)^6=2^3=8$; argumentet $9\\pi/2\\equiv\\pi/2$.)"
+    },
+    {
+      "id": "tma4110-7-2-oppg-l4a",
+      "type": "exercise",
+      "exercise": {
+        "id": "tma4110-7-2-l4a",
+        "number": "4",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "Regn ut ved de Moivres formel: **a)** $(1+i)^8$, **b)** $(1+i)^{10}$. Gi svar på kartesisk form.",
+        "solution": "$1+i=\\sqrt2\\,e^{i\\pi/4}$.\n\n**a)** $(1+i)^8=(\\sqrt2)^8 e^{i8\\pi/4}=16\\,e^{i2\\pi}=16.$\n\n**b)** $(1+i)^{10}=(\\sqrt2)^{10}e^{i10\\pi/4}=32\\,e^{i5\\pi/2}=32e^{i\\pi/2}=32i.$",
+        "hints": [
+          "Skriv $1+i$ på polar form ($r=\\sqrt2$, $\\theta=\\tfrac\\pi4$), bruk $z^n=r^ne^{in\\theta}$.",
+          "Reduser argumentet modulo $2\\pi$ til slutt."
+        ]
+      }
+    },
+    {
+      "id": "tma4110-7-2-oppg-l4b",
+      "type": "exercise",
+      "exercise": {
+        "id": "tma4110-7-2-l4b",
+        "number": "5",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "Regn ut $(\\sqrt3+i)^4$ på kartesisk form.",
+        "solution": "$\\sqrt3+i$: $r=\\sqrt{3+1}=2$, ligger i 1. kvadrant med $\\theta=\\arctan\\tfrac{1}{\\sqrt3}=\\tfrac\\pi6$. Så $\\sqrt3+i=2e^{i\\pi/6}$.\n$(\\sqrt3+i)^4=2^4 e^{i4\\pi/6}=16e^{i2\\pi/3}=16\\left(-\\tfrac12+i\\tfrac{\\sqrt3}{2}\\right)=-8+8\\sqrt3\\,i.$",
+        "hints": [
+          "Finn $r$ og $\\theta$ for $\\sqrt3+i$; $\\tan\\theta=\\tfrac{1}{\\sqrt3}$ gir $\\theta=\\tfrac\\pi6$.",
+          "$z^4=r^4e^{i4\\theta}$; regn $\\cos\\tfrac{2\\pi}{3},\\sin\\tfrac{2\\pi}{3}$ eksakt."
+        ]
+      }
+    },
+    {
+      "id": "tma4110-7-2-l5",
+      "type": "text",
+      "content": "## Løkke 5 — Sikker konvertering begge veier (~9 min)"
+    },
+    {
+      "id": "tma4110-7-2-def-kart2pol",
+      "type": "definition",
+      "title": "Kartesisk → polar (prosedyre)",
+      "content": "Fra $z=x+iy$ til $z=re^{i\\theta}$: (1) $r=\\sqrt{x^2+y^2}$; (2) tegn punktet og bestem kvadranten; (3) referansevinkel $\\alpha=\\arctan\\left|\\tfrac yx\\right|$; (4) juster $\\alpha$ til riktig kvadrant. **Sjekk alltid mot en skisse** — det er den vanligste feilkilden."
+    },
+    {
+      "id": "tma4110-7-2-def-pol2kart",
+      "type": "definition",
+      "title": "Polar → kartesisk (prosedyre)",
+      "content": "Fra $z=re^{i\\theta}$ til $z=x+iy$: regn $x=r\\cos\\theta$ og $y=r\\sin\\theta$ med eksakte verdier. Under kode E holder de fem standardvinklene pluss symmetri."
+    },
+    {
+      "id": "tma4110-7-2-ex5",
+      "type": "example",
+      "title": "Eksempel 5: Kvadrant i 3. kvadrant",
+      "problem": "Skriv $z=-\\sqrt3-i$ på polar/eksponentialform (hovedargument i $(-\\pi,\\pi]$).",
+      "solution": "$r=\\sqrt{3+1}=2$. Punktet $(-\\sqrt3,-1)$ ligger i **3. kvadrant**. Referansevinkel $\\alpha=\\arctan\\tfrac{1}{\\sqrt3}=\\tfrac\\pi6$.\n\nI 3. kvadrant er hovedargumentet $\\theta=-\\pi+\\alpha=-\\pi+\\tfrac\\pi6=-\\tfrac{5\\pi}{6}$ (ekvivalent $\\tfrac{7\\pi}{6}$). Så\n$$z=2e^{-i5\\pi/6}=2\\left(\\cos\\tfrac{5\\pi}{6}-i\\sin\\tfrac{5\\pi}{6}\\right)... $$\nKontroll: $2\\cos(-\\tfrac{5\\pi}{6})=2\\cdot(-\\tfrac{\\sqrt3}{2})=-\\sqrt3$ ✓ og $2\\sin(-\\tfrac{5\\pi}{6})=2\\cdot(-\\tfrac12)=-1$ ✓."
+    },
+    {
+      "id": "tma4110-7-2-oppg-l5a",
+      "type": "exercise",
+      "exercise": {
+        "id": "tma4110-7-2-l5a",
+        "number": "6",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "Skriv $z=-2+2i$ på eksponentialform med hovedargument i $(-\\pi,\\pi]$.",
+        "solution": "$r=\\sqrt{4+4}=2\\sqrt2$. Punktet $(-2,2)$ ligger i 2. kvadrant, referansevinkel $\\arctan\\tfrac{2}{2}=\\tfrac\\pi4$, så $\\theta=\\pi-\\tfrac\\pi4=\\tfrac{3\\pi}{4}$. Altså $z=2\\sqrt2\\,e^{i3\\pi/4}$.",
+        "hints": [
+          "$r=\\sqrt{x^2+y^2}$; plasser $(-2,2)$ i planet for kvadranten.",
+          "2. kvadrant: $\\theta=\\pi-\\alpha$."
+        ]
+      }
+    },
+    {
+      "id": "tma4110-7-2-warn-typiske",
+      "type": "warning",
+      "title": "Typiske feil",
+      "content": "- **Feil kvadrant for $\\arg z$:** $\\tan^{-1}$ gir bare en verdi i $(-\\tfrac\\pi2,\\tfrac\\pi2)$. Bruk fortegnene til $x,y$ og en skisse.\n- **Glemme å redusere argumentet** modulo $2\\pi$ etter de Moivre (f.eks. $\\tfrac{9\\pi}{2}\\to\\tfrac\\pi2$).\n- **Regnefeil i $r^n$:** $(\\sqrt2)^6=8$, ikke $\\sqrt2\\cdot6$.\n- **Blande grader og radianer** — hold alt i radianer.\n- **Feil eksakte trig-verdier** (kode E): $\\cos\\tfrac\\pi6=\\tfrac{\\sqrt3}{2}$, ikke $\\tfrac12$.\n- **Desimalsvar:** gi eksakt form ($8i$, $-8+8\\sqrt3 i$), aldri avrundede tall."
+    },
+    {
+      "id": "tma4110-7-2-pool",
+      "type": "text",
+      "content": "### Blandet oppgavesett (stigende vanskegrad)"
+    },
+    {
+      "id": "tma4110-7-2-oppg-p1",
+      "type": "exercise",
+      "exercise": {
+        "id": "tma4110-7-2-p1",
+        "number": "7",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "Skriv $z=-1-i\\sqrt3$ på eksponentialform (hovedargument), og regn ut $z^3$.",
+        "solution": "$r=\\sqrt{1+3}=2$. Punktet $(-1,-\\sqrt3)$ ligger i 3. kvadrant, $\\alpha=\\arctan\\sqrt3=\\tfrac\\pi3$, så $\\theta=-\\pi+\\tfrac\\pi3=-\\tfrac{2\\pi}{3}$. Altså $z=2e^{-i2\\pi/3}$.\n\n$z^3=2^3 e^{-i2\\pi}=8e^{0}=8.$ (Reelt — som forventet, siden $-1-i\\sqrt3$ er en kubikkrot av 8.)",
+        "hints": [
+          "Finn $r$ og kvadranten; $\\tan\\alpha=\\tfrac{\\sqrt3}{1}$ gir $\\alpha=\\tfrac\\pi3$.",
+          "$z^3=r^3e^{i3\\theta}$; $3\\cdot(-\\tfrac{2\\pi}{3})=-2\\pi\\equiv0$."
+        ]
+      }
+    },
+    {
+      "id": "tma4110-7-2-oppg-p2",
+      "type": "exercise",
+      "exercise": {
+        "id": "tma4110-7-2-p2",
+        "number": "8",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "Regn ut $(1-i\\sqrt3)^5$ på kartesisk form.",
+        "solution": "$1-i\\sqrt3$: $r=2$, 4. kvadrant, $\\theta=-\\tfrac\\pi3$. de Moivre: $(1-i\\sqrt3)^5=2^5 e^{-i5\\pi/3}=32e^{-i5\\pi/3}.$ Reduser: $-\\tfrac{5\\pi}{3}+2\\pi=\\tfrac\\pi3$, så $=32e^{i\\pi/3}=32\\left(\\tfrac12+i\\tfrac{\\sqrt3}{2}\\right)=16+16\\sqrt3\\,i.$",
+        "hints": [
+          "$1-i\\sqrt3=2e^{-i\\pi/3}$; bruk $z^5=r^5e^{i5\\theta}$.",
+          "Reduser argumentet til $(-\\pi,\\pi]$ før du regner cos/sin."
+        ]
+      }
+    },
+    {
+      "id": "tma4110-7-2-oppg-p3",
+      "type": "exercise",
+      "exercise": {
+        "id": "tma4110-7-2-p3",
+        "number": "9",
+        "type": "classic",
+        "difficulty": "vanskelig",
+        "task": "(Eksamensnivå.) Bruk de Moivres formel med $n=2$ til å utlede formlene for $\\cos2\\theta$ og $\\sin2\\theta$.",
+        "solution": "de Moivre: $(\\cos\\theta+i\\sin\\theta)^2=\\cos2\\theta+i\\sin2\\theta$. Gang ut venstresida:\n$$(\\cos\\theta+i\\sin\\theta)^2=\\cos^2\\theta+2i\\sin\\theta\\cos\\theta+i^2\\sin^2\\theta=(\\cos^2\\theta-\\sin^2\\theta)+i\\,(2\\sin\\theta\\cos\\theta).$$\nSammenlign realdel og imaginærdel:\n$$\\cos2\\theta=\\cos^2\\theta-\\sin^2\\theta,\\qquad \\sin2\\theta=2\\sin\\theta\\cos\\theta.\\qquad\\blacksquare$$",
+        "hints": [
+          "Skriv $(\\cos\\theta+i\\sin\\theta)^2$ på to måter: via de Moivre og ved å gange ut.",
+          "Sammenlign real- og imaginærdel — det gir begge identitetene."
+        ]
+      }
+    },
+    {
+      "id": "tma4110-7-2-oppg-p4",
+      "type": "exercise",
+      "exercise": {
+        "id": "tma4110-7-2-p4",
+        "number": "10",
+        "type": "classic",
+        "difficulty": "vanskelig",
+        "task": "(Krevende.) Vis at $\\left|e^{i\\theta}\\right|=1$ for alle reelle $\\theta$, og forklar geometrisk hva multiplikasjon med $e^{i\\theta}$ gjør med et komplekst tall.",
+        "solution": "$\\left|e^{i\\theta}\\right|=|\\cos\\theta+i\\sin\\theta|=\\sqrt{\\cos^2\\theta+\\sin^2\\theta}=\\sqrt1=1.$ Alle $e^{i\\theta}$ ligger altså på enhetssirkelen.\n\nMultiplikasjon: for $z=re^{i\\varphi}$ er $e^{i\\theta}\\cdot z=r\\,e^{i(\\varphi+\\theta)}$. Modulus $r$ er uendret, mens argumentet øker med $\\theta$. Geometrisk er det en **ren rotasjon** med vinkel $\\theta$ om origo (mot klokka for $\\theta>0$).",
+        "hints": [
+          "Bruk $|e^{i\\theta}|^2=\\cos^2\\theta+\\sin^2\\theta$.",
+          "I produktet $e^{i\\theta}re^{i\\varphi}$: hva skjer med modulus, og hva med argumentet?"
+        ]
+      }
+    },
+    {
+      "id": "tma4110-7-2-bb-intro",
+      "type": "text",
+      "content": "## Begrepsbank til eksamen\n\nKjernebegrepene samlet i kortform.\n\n*Begrepsbanken er flashcard-/repetisjonsstoff — hopp trygt over ved førstegangslesing; tidsanslaget gjelder kjernestoffet.*"
+    },
+    {
+      "id": "tma4110-7-2-bb-radianer",
+      "type": "definition",
+      "title": "Radianer",
+      "content": "Argumenter måles i **radianer**, der en hel omdreining er $2\\pi$. Sammenhengen med grader: $180^\\circ=\\pi$. På eksamen holdes alt i radianer; unngå å blande inn grader."
+    },
+    {
+      "id": "tma4110-7-2-bb-rotasjon",
+      "type": "definition",
+      "title": "Multiplikasjon som rotasjon og skalering",
+      "content": "Å gange med $z=re^{i\\theta}$ betyr geometrisk å **skalere** med faktoren $r$ og **rotere** vinkelen $\\theta$ om origo. Spesielt roterer $\\cdot\\,i=e^{i\\pi/2}$ med $90^\\circ$ mot klokka."
+    },
+    {
+      "id": "tma4110-7-2-bb-cossin-euler",
+      "type": "definition",
+      "title": "cos og sin uttrykt ved Euler",
+      "content": "Fra $e^{\\pm i\\theta}=\\cos\\theta\\pm i\\sin\\theta$ følger\n\n$$\\cos\\theta=\\frac{e^{i\\theta}+e^{-i\\theta}}{2},\\qquad \\sin\\theta=\\frac{e^{i\\theta}-e^{-i\\theta}}{2i}.$$\n\nNyttig i utledninger og for å gjenkjenne trig i eksponentialform."
+    },
+    {
+      "id": "tma4110-7-2-bb-inversz",
+      "type": "definition",
+      "title": "Invers $1/z$ i polar",
+      "content": "For $z=re^{i\\theta}\\ne0$ er\n\n$$\\frac1z=\\frac1r e^{-i\\theta}=\\frac{\\bar z}{|z|^2}.$$\n\nModulus inverteres, argumentet snur fortegn."
+    },
+    {
+      "id": "tma4110-7-2-bb-periodisk",
+      "type": "definition",
+      "title": "Periodisitet i argumentet",
+      "content": "Fordi $e^{i2\\pi}=1$, er $re^{i\\theta}=re^{i(\\theta+2\\pi k)}$ for alle heltall $k$. Dette er nettopp grunnen til at $z^n=c$ har $n$ ulike løsninger (kap. 7.3): $n$ ulike valg av $k$ gir ulike argumenter før de gjentar seg."
+    },
+    {
+      "id": "tma4110-7-2-bb-akse",
+      "type": "definition",
+      "title": "Argument for tall på aksene",
+      "content": "For tall på aksene er argumentet enkelt: positiv realakse $\\theta=0$, positiv imaginærakse $\\theta=\\tfrac\\pi2$, negativ realakse $\\theta=\\pi$, negativ imaginærakse $\\theta=-\\tfrac\\pi2$. Bruk disse som holdepunkter når du bestemmer kvadrant."
+    },
+    {
+      "id": "tma4110-7-2-bb-argprod",
+      "type": "definition",
+      "title": "Argument av produkt og kvotient",
+      "content": "Argumentet er additivt under multiplikasjon: $\\arg(z_1z_2)=\\arg z_1+\\arg z_2$ og $\\arg\\tfrac{z_1}{z_2}=\\arg z_1-\\arg z_2$ (opp til $2\\pi k$). Dette er kjernen i hvorfor multiplikasjon roterer."
+    },
+    {
+      "id": "tma4110-7-2-bb-modpot",
+      "type": "definition",
+      "title": "Modulus av en potens",
+      "content": "Fra de Moivre følger $|z^n|=|z|^n$: modulus av en potens er potensen av modulus. Kombinert med $\\arg(z^n)=n\\arg z$ gir det hele de Moivres formel."
+    },
+    {
+      "id": "tma4110-7-2-bb-enhetssirkel",
+      "type": "definition",
+      "title": "Enhetssirkelen",
+      "content": "**Enhetssirkelen** er sirkelen $|z|=1$. Alle tall $e^{i\\theta}$ ligger her. Punktene $1,i,-1,-i$ svarer til $\\theta=0,\\tfrac\\pi2,\\pi,-\\tfrac\\pi2$ og deler sirkelen i fire."
+    },
+    {
+      "id": "tma4110-7-2-bb-nullarg",
+      "type": "definition",
+      "title": "Argumentet til $0$",
+      "content": "Tallet $z=0$ har modulus $0$ og **ikke noe argument** — det ligger i origo og peker ingen vei. Polar form gjelder bare for $z\\ne0$. Sjekk alltid dette unntaket i utledninger."
+    },
+    {
+      "id": "tma4110-7-2-bb-negpotens",
+      "type": "definition",
+      "title": "Negative potenser i polar",
+      "content": "de Moivres formel gjelder også for $n<0$: $z^{-n}=r^{-n}e^{-in\\theta}$. Spesielt er $z^{-1}=\\tfrac1r e^{-i\\theta}$, i tråd med invers-regelen. Dette forbereder brøkpotenser (røtter) i kap. 7.3."
+    },
+    {
+      "id": "tma4110-7-2-rep",
+      "type": "collapsible",
+      "title": "Repetisjonsoppgaver",
+      "buttonText": "Vis repetisjonsoppgaver",
+      "content": [
+        {
+          "id": "tma4110-7-2-oppg-rep1",
+          "type": "exercise",
+          "exercise": {
+            "id": "tma4110-7-2-rep1",
+            "number": "R1",
+            "type": "classic",
+            "difficulty": "lett",
+            "task": "(Fra kap. 7.1) Regn ut $|{-3+4i}|$ og $\\overline{-3+4i}$.",
+            "solution": "$|-3+4i|=\\sqrt{9+16}=5$; $\\overline{-3+4i}=-3-4i$.",
+            "hints": [
+              "$|z|=\\sqrt{x^2+y^2}$; konjugat snur fortegn på imaginærdelen."
+            ]
+          }
+        },
+        {
+          "id": "tma4110-7-2-oppg-rep2",
+          "type": "exercise",
+          "exercise": {
+            "id": "tma4110-7-2-rep2",
+            "number": "R2",
+            "type": "classic",
+            "difficulty": "middels",
+            "task": "(Fra kap. 7.1) Skriv $\\dfrac{2}{1+i}$ på kartesisk form.",
+            "solution": "Utvid med $1-i$: $\\dfrac{2(1-i)}{(1+i)(1-i)}=\\dfrac{2-2i}{2}=1-i.$",
+            "hints": [
+              "Utvid med konjugatet $1-i$; nevneren blir $|1+i|^2=2$."
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": "tma4110-7-2-symbolliste",
+      "type": "collapsible",
+      "title": "Symbol- og formelliste",
+      "buttonText": "Vis symboler og formler",
+      "content": [
+        {
+          "id": "tma4110-7-2-symbolliste-text",
+          "type": "text",
+          "content": "## Symbol- og formelliste\n\n*Oppslagsverk — alt her forklares underveis i kapitlet.*\n\n| Symbol | Betydning |\n|---|---|\n| $r=|z|$ | Modulus (avstand fra origo) |\n| $\\theta=\\arg z$ | Argument (vinkel med positiv realakse, radianer) |\n| $r(\\cos\\theta+i\\sin\\theta)$ | Polar form |\n| $re^{i\\theta}$ | Eksponentialform (Eulers formel) |\n| $\\alpha$ | Referansevinkel $\\arctan|y/x|$ |\n| $(-\\pi,\\pi]$ | Vanlig intervall for hovedargument |\n\n**Formler i dette delkapitlet:**\n\n$$e^{i\\theta}=\\cos\\theta+i\\sin\\theta$$\nEulers formel.\n\n$$z=r(\\cos\\theta+i\\sin\\theta)=re^{i\\theta}$$\nPolar / eksponentialform.\n\n$$z_1z_2=r_1r_2e^{i(\\theta_1+\\theta_2)},\\qquad \\frac{z_1}{z_2}=\\frac{r_1}{r_2}e^{i(\\theta_1-\\theta_2)}$$\nMultiplikasjon (moduli ganges, argumenter adderes) og divisjon.\n\n$$z^n=r^n e^{in\\theta}=r^n(\\cos n\\theta+i\\sin n\\theta)$$\nde Moivres formel.\n\n$$\\overline{re^{i\\theta}}=re^{-i\\theta},\\qquad \\frac1z=\\frac1r e^{-i\\theta}$$\nKonjugat og invers i polar.\n\n$$\\cos\\theta=\\frac{e^{i\\theta}+e^{-i\\theta}}{2},\\qquad \\sin\\theta=\\frac{e^{i\\theta}-e^{-i\\theta}}{2i}$$\ncos og sin via Euler."
+        }
+      ]
+    }
+  ],
+  "exercises": []
+}

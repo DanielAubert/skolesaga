@@ -1,0 +1,514 @@
+{
+  "id": "tma4110-7-1",
+  "courseId": "tma4110",
+  "chapterNumber": "7.1",
+  "title": "Kartesisk form: regning, konjugat og modulus",
+  "description": "Komplekse tall på kartesisk form z=x+iy: addisjon, multiplikasjon, divisjon (utvid med konjugat), konjugat z̄, modulus |z| og det komplekse planet med geometriske steder — grunnlaget for den 95 %-sikre komplekstall-oppgaven.",
+  "estimatedMinutes": 50,
+  "competenceGoals": [
+    "regne med komplekse tall på kartesisk form (addisjon, multiplikasjon og divisjon ved å utvide med konjugatet)",
+    "finne konjugat, modulus og real-/imaginærdel og bruke regnereglene for disse",
+    "plassere komplekse tall i det komplekse planet og bestemme enkle geometriske steder (sirkel og midtnormal)"
+  ],
+  "content": [
+    {
+      "id": "tma4110-7-1-tip-eksamensvinkel",
+      "type": "tip",
+      "title": "Eksamensvinkel",
+      "content": "**Et komplekst tall-problem er den mest forutsigbare oppgaven på hele eksamen — den kom i ~95 % av settene (2004–2025), nesten alltid som oppgave 1.** Den teller på linje med de andre ~10 deloppgavene.\n\n- Dette kapitlet dekker **grunnlaget**: regning på kartesisk form $z=x+iy$, konjugat $\\bar z$ og modulus $|z|$. Polar form og de Moivre (7.2) og røtter/$z^n=c$ (7.3) bygger rett på dette.\n- Sensor krever **eksakte svar** (brøk, $\\sqrt2$ — aldri desimaltall) og at du **utvider med konjugatet** ved divisjon. Under **kode E** (ingen hjelpemidler — forklart i kap. 0.1) må regnereglene sitte utenat.\n\n**Billige poeng som må sitte:** skriv en brøk $\\frac{a+bi}{c+di}$ på formen $x+iy$, regn ut $\\bar z$ og $|z|$. Klarer du det uten å nøle, åpner du eksamen trygt."
+    },
+    {
+      "id": "tma4110-7-1-forkunnskaper",
+      "type": "text",
+      "content": "**Forkunnskaper:** Du trenger vanlig regning med reelle tall og litt bokstavregning. Andregradslikningen $x^2=-1$ har ingen reell løsning — det er akkurat den mangelen komplekse tall fyller. Vil du friske opp andregradslikninger og faktorisering, se [Andregradslikninger – faktorisering](/bok/1t/1t-2-2).\n\nKomplekse tall er **ikke** et eget tema i VGS-bøkene under LK20, så dette kapitlet bygger begrepet fra grunnen. Du trenger ingen forkunnskap om komplekse tall for å starte her."
+    },
+    {
+      "id": "tma4110-7-1-intro",
+      "type": "text",
+      "content": "Likningen $x^2=-1$ har ingen løsning blant de reelle tallene — intet reelt tall gir et negativt kvadrat. I stedet for å stoppe der, **utvider** vi tallsystemet: vi innfører ett nytt tall $i$ med egenskapen $i^2=-1$, og bygger videre derfra. Resultatet, de **komplekse tallene**, gjør at *enhver* polynomlikning får løsninger (algebraens fundamentalsetning), og de dukker opp overalt i ingeniørfag — vekselstrøm, svingninger og signalbehandling beskrives naturlig med komplekse tall.\n\nKapitlet er bygget som seks korte **læringsløkker** (teori → eksempel → oppgave): kartesisk form og Re/Im, de fire regneartene, konjugat, divisjon, modulus, og til slutt det komplekse planet med geometriske steder. Jobb deg gjennom én løkke om gangen."
+    },
+    {
+      "id": "tma4110-7-1-l1",
+      "type": "text",
+      "content": "## Løkke 1 — Kartesisk form, realdel og imaginærdel (~8 min)"
+    },
+    {
+      "id": "tma4110-7-1-def-kompleks",
+      "type": "definition",
+      "title": "Komplekst tall (kartesisk form)",
+      "content": "Et **komplekst tall** er et tall som kan skrives som en reell del pluss en imaginær del — på symboler:\n\n$$z=x+iy,\\qquad x,y\\in\\mathbb R.$$\n\nHer er $x$ og $y$ vanlige reelle tall, og $i$ er den imaginære enheten. Skrivemåten $x+iy$ kalles **kartesisk form** (eller rektangulær form). Mengden av alle komplekse tall skrives $\\mathbb C$."
+    },
+    {
+      "id": "tma4110-7-1-def-i",
+      "type": "definition",
+      "title": "Imaginær enhet $i$",
+      "content": "Den **imaginære enheten** $i$ er tallet med egenskapen\n\n$$i^2=-1.$$\n\nDet er hele definisjonen — alt annet følger av vanlig regning der du hver gang bytter ut $i^2$ med $-1$. Et reelt tall er spesialtilfellet $y=0$, så de reelle tallene ligger inne i $\\mathbb C$."
+    },
+    {
+      "id": "tma4110-7-1-def-reim",
+      "type": "definition",
+      "title": "Realdel og imaginærdel",
+      "content": "For $z=x+iy$ kaller vi $x$ **realdelen** og $y$ **imaginærdelen**:\n\n$$\\operatorname{Re}z=x,\\qquad \\operatorname{Im}z=y.$$\n\nMerk at imaginærdelen $\\operatorname{Im}z=y$ er et **reelt** tall (koeffisienten foran $i$), ikke $iy$. Et tall med $x=0$ kalles **rent imaginært**; et tall med $y=0$ er reelt."
+    },
+    {
+      "id": "tma4110-7-1-def-likhet",
+      "type": "definition",
+      "title": "Likhet av komplekse tall",
+      "content": "To komplekse tall er like nøyaktig når **både** realdelene og imaginærdelene er like:\n\n$$x+iy=u+iv\\iff x=u \\text{ og } y=v.$$\n\nÉn kompleks likning er altså to reelle likninger på én gang. Dette er grepet bak «sammenlign realdel og imaginærdel», som brukes i nesten hver komplekstall-oppgave."
+    },
+    {
+      "id": "tma4110-7-1-ex1",
+      "type": "example",
+      "title": "Eksempel 1: Les av Re og Im",
+      "problem": "Oppgi realdel og imaginærdel av **a)** $z=4-3i$, **b)** $w=7i$, **c)** $u=5$. Hvilke er rent imaginære eller rent reelle?",
+      "solution": "**a)** $z=4-3i$: her er $x=4$ og $y=-3$, så $\\operatorname{Re}z=4$ og $\\operatorname{Im}z=-3$. (Pass på fortegnet: imaginærdelen er $-3$, ikke $3$.)\n\n**b)** $w=7i=0+7i$: $\\operatorname{Re}w=0$, $\\operatorname{Im}w=7$. Siden realdelen er $0$, er $w$ **rent imaginært**.\n\n**c)** $u=5=5+0\\,i$: $\\operatorname{Re}u=5$, $\\operatorname{Im}u=0$. Siden imaginærdelen er $0$, er $u$ **rent reelt**."
+    },
+    {
+      "id": "tma4110-7-1-oppg-l1a",
+      "type": "exercise",
+      "exercise": {
+        "id": "tma4110-7-1-l1a",
+        "number": "1",
+        "type": "classic",
+        "difficulty": "lett",
+        "task": "(Innstegsoppgave — ren avlesning.) Oppgi $\\operatorname{Re}z$ og $\\operatorname{Im}z$ for **a)** $z=-2+6i$, **b)** $z=-i$, **c)** $z=3$.",
+        "solution": "**a)** $\\operatorname{Re}z=-2$, $\\operatorname{Im}z=6$.\n**b)** $z=0-1\\,i$, så $\\operatorname{Re}z=0$, $\\operatorname{Im}z=-1$ (rent imaginært).\n**c)** $z=3+0\\,i$, så $\\operatorname{Re}z=3$, $\\operatorname{Im}z=0$ (rent reelt).",
+        "hints": [
+          "Skriv tallet på formen $x+iy$ først, med fortegn.",
+          "$\\operatorname{Im}z$ er koeffisienten foran $i$ — et reelt tall, med fortegn."
+        ]
+      }
+    },
+    {
+      "id": "tma4110-7-1-l2",
+      "type": "text",
+      "content": "## Løkke 2 — Addisjon, subtraksjon og multiplikasjon (~9 min)"
+    },
+    {
+      "id": "tma4110-7-1-def-add",
+      "type": "definition",
+      "title": "Addisjon og subtraksjon",
+      "content": "Legg sammen (eller trekk fra) realdel for seg og imaginærdel for seg — som å samle like ledd:\n\n$$(x+iy)\\pm(u+iv)=(x\\pm u)+i\\,(y\\pm v).$$\n\nGeometrisk svarer addisjon til å legge sammen pilene i planet på samme måte som vektorer."
+    },
+    {
+      "id": "tma4110-7-1-def-mult",
+      "type": "definition",
+      "title": "Multiplikasjon",
+      "content": "Gang ut som vanlige parenteser, og bytt til slutt $i^2$ med $-1$:\n\n$$(x+iy)(u+iv)=xu+ixv+iyu+i^2yv=(xu-yv)+i\\,(xv+yu).$$\n\nDu trenger ikke pugge sluttformelen — det holder å gange ut og huske $i^2=-1$. Multiplikasjon er kommutativ og distributiv, akkurat som for reelle tall."
+    },
+    {
+      "id": "tma4110-7-1-def-ipot",
+      "type": "definition",
+      "title": "Potenser av $i$",
+      "content": "Potensene av $i$ gjentar seg i en syklus på fire:\n\n$$i^1=i,\\quad i^2=-1,\\quad i^3=-i,\\quad i^4=1,\\quad i^5=i,\\dots$$\n\nFor en hvilken som helst potens deler du eksponenten på $4$ og ser på resten: $i^n=i^{\\,n\\bmod 4}$. For eksempel $i^{23}=i^{3}=-i$ fordi $23=4\\cdot5+3$."
+    },
+    {
+      "id": "tma4110-7-1-ex2",
+      "type": "example",
+      "title": "Eksempel 2: Multiplikasjon",
+      "problem": "Regn ut **a)** $(5-2i)+(-1+6i)$ og **b)** $(2+3i)(1-4i)$. Gi svaret på formen $x+iy$.",
+      "solution": "**a)** Samle realdel og imaginærdel hver for seg:\n$$(5-2i)+(-1+6i)=(5-1)+(-2+6)i=4+4i.$$\n\n**b)** Gang ut og bruk $i^2=-1$:\n$$(2+3i)(1-4i)=2-8i+3i-12i^2=2-5i+12=14-5i.$$\n\nSluttsvar: $\\boxed{14-5i}$. Legg merke til at $-12i^2=+12$ — det er her fortegnsfeilene oppstår."
+    },
+    {
+      "id": "tma4110-7-1-oppg-l2a",
+      "type": "exercise",
+      "exercise": {
+        "id": "tma4110-7-1-l2a",
+        "number": "2",
+        "type": "classic",
+        "difficulty": "lett",
+        "task": "Regn ut og gi svaret på formen $x+iy$: **a)** $(3+i)+(2-5i)$, **b)** $(4+2i)-(1+7i)$.",
+        "solution": "**a)** $(3+2)+(1-5)i=5-4i$.\n**b)** $(4-1)+(2-7)i=3-5i$.",
+        "hints": [
+          "Legg sammen realdelene for seg og imaginærdelene for seg.",
+          "Husk fortegnet når du trekker fra hele parentesen i b)."
+        ]
+      }
+    },
+    {
+      "id": "tma4110-7-1-oppg-l2b",
+      "type": "exercise",
+      "exercise": {
+        "id": "tma4110-7-1-l2b",
+        "number": "3",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "Regn ut **a)** $(2-i)(3+2i)$ og **b)** $i^{47}$.",
+        "solution": "**a)** $(2-i)(3+2i)=6+4i-3i-2i^2=6+i+2=8+i$.\n\n**b)** $47=4\\cdot11+3$, så $i^{47}=i^{3}=-i$.",
+        "hints": [
+          "Gang ut parentesene og bytt $i^2\\to-1$; for potensen: del eksponenten på 4.",
+          "$i^{47}=i^{\\,47\\bmod4}$."
+        ]
+      }
+    },
+    {
+      "id": "tma4110-7-1-l3",
+      "type": "text",
+      "content": "## Løkke 3 — Det komplekskonjugerte (~7 min)"
+    },
+    {
+      "id": "tma4110-7-1-def-konj",
+      "type": "definition",
+      "title": "Konjugat $\\bar z$",
+      "content": "Det **komplekskonjugerte** til $z=x+iy$ fås ved å bytte fortegn på imaginærdelen:\n\n$$\\bar z=x-iy.$$\n\nGeometrisk er $\\bar z$ speilingen av $z$ om den reelle aksen. Et tall er reelt nøyaktig når $z=\\bar z$, og rent imaginært nøyaktig når $\\bar z=-z$."
+    },
+    {
+      "id": "tma4110-7-1-def-konjregler",
+      "type": "definition",
+      "title": "Regneregler for konjugat",
+      "content": "Konjugatet «går gjennom» sum, differanse, produkt og kvotient:\n\n$$\\overline{z+w}=\\bar z+\\bar w,\\quad \\overline{zw}=\\bar z\\,\\bar w,\\quad \\overline{\\left(\\tfrac{z}{w}\\right)}=\\tfrac{\\bar z}{\\bar w},\\quad \\overline{\\bar z}=z.$$\n\nEn nyttig følge: har et polynom **reelle** koeffisienter og $z$ er en rot, så er $\\bar z$ også en rot. Det er konjugatrot-setningen (brukes i 7.3)."
+    },
+    {
+      "id": "tma4110-7-1-def-zzbar",
+      "type": "definition",
+      "title": "Produktet $z\\bar z=|z|^2$",
+      "content": "Ganger du et tall med sitt eget konjugat, forsvinner $i$ og du får et **reelt, ikke-negativt** tall:\n\n$$z\\bar z=(x+iy)(x-iy)=x^2-i^2y^2=x^2+y^2.$$\n\nDette tallet er $|z|^2$ (modulus i annen, se løkke 5). Nettopp fordi $z\\bar z$ blir reelt, kan vi bruke konjugatet til å bli kvitt $i$ i en nevner (løkke 4)."
+    },
+    {
+      "id": "tma4110-7-1-ex3",
+      "type": "example",
+      "title": "Eksempel 3: Konjugat og $z\\bar z$",
+      "problem": "La $z=3+2i$. Finn **a)** $\\bar z$ og **b)** $z\\bar z$.",
+      "solution": "**a)** Bytt fortegn på imaginærdelen: $\\bar z=3-2i$.\n\n**b)** $z\\bar z=(3+2i)(3-2i)=3^2+2^2=9+4=13.$ Svaret er reelt, som det skal være — legg merke til at $z\\bar z=13=|z|^2$."
+    },
+    {
+      "id": "tma4110-7-1-oppg-l3a",
+      "type": "exercise",
+      "exercise": {
+        "id": "tma4110-7-1-l3a",
+        "number": "4",
+        "type": "classic",
+        "difficulty": "lett",
+        "task": "Skriv opp $\\bar z$ og regn ut $z\\bar z$ for **a)** $z=2+5i$, **b)** $z=-1-i$.",
+        "solution": "**a)** $\\bar z=2-5i$, og $z\\bar z=2^2+5^2=4+25=29$.\n**b)** $\\bar z=-1+i$, og $z\\bar z=(-1)^2+(-1)^2=1+1=2$.",
+        "hints": [
+          "$\\bar z$ = samme realdel, motsatt fortegn på imaginærdelen.",
+          "$z\\bar z=x^2+y^2$ — alltid reelt og $\\ge0$."
+        ]
+      }
+    },
+    {
+      "id": "tma4110-7-1-l4",
+      "type": "text",
+      "content": "## Løkke 4 — Divisjon (utvid med konjugatet) (~8 min)"
+    },
+    {
+      "id": "tma4110-7-1-def-div",
+      "type": "definition",
+      "title": "Divisjon ved å utvide med konjugatet",
+      "content": "For å skrive en kvotient på formen $x+iy$ **utvider** du med konjugatet av nevneren. Da blir nevneren reell ($w\\bar w=|w|^2$):\n\n$$\\frac{z}{w}=\\frac{z}{w}\\cdot\\frac{\\bar w}{\\bar w}=\\frac{z\\bar w}{|w|^2}.$$\n\nEtterpå deler du real- og imaginærdel hver for seg på det reelle tallet $|w|^2$. Dette grepet er den vanligste enkeltteknikken i oppgave 1 — sensor forventer å se det."
+    },
+    {
+      "id": "tma4110-7-1-ex4",
+      "type": "example",
+      "title": "Eksempel 4: Divisjon på kartesisk form",
+      "problem": "Skriv $\\dfrac{3+i}{1-2i}$ på formen $x+iy$, og finn $\\left|\\dfrac{3+i}{1-2i}\\right|$.",
+      "solution": "Nevneren er $1-2i$; konjugatet er $1+2i$. Utvid:\n$$\\frac{3+i}{1-2i}=\\frac{(3+i)(1+2i)}{(1-2i)(1+2i)}=\\frac{3+6i+i+2i^2}{1^2+2^2}=\\frac{3+7i-2}{5}=\\frac{1+7i}{5}=\\frac15+\\frac75 i.$$\n\nModulus regnes enklest som kvotient av moduli (regel fra løkke 5): $\\left|\\dfrac{3+i}{1-2i}\\right|=\\dfrac{|3+i|}{|1-2i|}=\\dfrac{\\sqrt{10}}{\\sqrt5}=\\sqrt2$. (Kontroll: $\\left|\\tfrac15+\\tfrac75i\\right|=\\sqrt{\\tfrac1{25}+\\tfrac{49}{25}}=\\sqrt{\\tfrac{50}{25}}=\\sqrt2$.) Sluttsvar: $\\dfrac15+\\dfrac75 i$, med modulus $\\sqrt2$."
+    },
+    {
+      "id": "tma4110-7-1-oppg-l4a",
+      "type": "exercise",
+      "exercise": {
+        "id": "tma4110-7-1-l4a",
+        "number": "5",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "Skriv på formen $x+iy$: **a)** $\\dfrac{1+i}{3-i}$, **b)** $\\dfrac{7+i}{2+3i}$.",
+        "solution": "**a)** Utvid med $3+i$: $\\dfrac{(1+i)(3+i)}{3^2+1^2}=\\dfrac{3+i+3i+i^2}{10}=\\dfrac{2+4i}{10}=\\dfrac15+\\dfrac25 i.$\n\n**b)** Utvid med $2-3i$: $\\dfrac{(7+i)(2-3i)}{2^2+3^2}=\\dfrac{14-21i+2i-3i^2}{13}=\\dfrac{17-19i}{13}=\\dfrac{17}{13}-\\dfrac{19}{13}i.$",
+        "hints": [
+          "Utvid med konjugatet av nevneren; nevneren blir $|w|^2=c^2+d^2$.",
+          "Del real- og imaginærdel hver for seg på det reelle tallet i nevneren."
+        ]
+      }
+    },
+    {
+      "id": "tma4110-7-1-oppg-l4b",
+      "type": "exercise",
+      "exercise": {
+        "id": "tma4110-7-1-l4b",
+        "number": "6",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "Regn ut $\\dfrac{1}{i}$ og $\\dfrac{2-i}{i}$ på formen $x+iy$.",
+        "solution": "$\\dfrac1i=\\dfrac{1}{i}\\cdot\\dfrac{-i}{-i}=\\dfrac{-i}{-i^2}=\\dfrac{-i}{1}=-i.$ Videre $\\dfrac{2-i}{i}=\\dfrac{(2-i)(-i)}{i\\cdot(-i)}=\\dfrac{-2i+i^2}{1}=-1-2i.$",
+        "hints": [
+          "Konjugatet av $i$ er $-i$; utvid med det ($i\\cdot(-i)=1$).",
+          "Alternativt: gang teller og nevner med $-i$."
+        ]
+      }
+    },
+    {
+      "id": "tma4110-7-1-l5",
+      "type": "text",
+      "content": "## Løkke 5 — Modulus (~7 min)"
+    },
+    {
+      "id": "tma4110-7-1-def-modulus",
+      "type": "definition",
+      "title": "Modulus $|z|$",
+      "content": "**Modulus** (absoluttverdi) til $z=x+iy$ er avstanden fra origo til punktet $(x,y)$ i planet:\n\n$$|z|=\\sqrt{x^2+y^2}=\\sqrt{z\\bar z}.$$\n\nModulus er alltid et reelt tall $\\ge0$. Husk kvadratroten: $|3+4i|=\\sqrt{9+16}=5$, ikke $25$."
+    },
+    {
+      "id": "tma4110-7-1-def-modregler",
+      "type": "definition",
+      "title": "Regneregler for modulus",
+      "content": "Modulus er multiplikativ:\n\n$$|zw|=|z|\\,|w|,\\qquad \\left|\\frac{z}{w}\\right|=\\frac{|z|}{|w|},\\qquad |z|^2=z\\bar z,\\qquad |\\bar z|=|z|.$$\n\nMerk: modulus er **ikke** additiv — $|z+w|\\ne|z|+|w|$ i alminnelighet (bare trekantulikheten $|z+w|\\le|z|+|w|$ gjelder). Bruk multiplikasjonsregelen for å slippe å regne ut kvotienter før du tar modulus."
+    },
+    {
+      "id": "tma4110-7-1-ex5",
+      "type": "example",
+      "title": "Eksempel 5: Modulus",
+      "problem": "Regn ut **a)** $|3-4i|$ og **b)** $|(2+i)(1-3i)|$ uten å gange ut produktet.",
+      "solution": "**a)** $|3-4i|=\\sqrt{3^2+(-4)^2}=\\sqrt{9+16}=\\sqrt{25}=5.$\n\n**b)** Bruk $|zw|=|z||w|$: $|2+i|=\\sqrt{4+1}=\\sqrt5$ og $|1-3i|=\\sqrt{1+9}=\\sqrt{10}$, så\n$$|(2+i)(1-3i)|=\\sqrt5\\cdot\\sqrt{10}=\\sqrt{50}=5\\sqrt2.$$"
+    },
+    {
+      "id": "tma4110-7-1-oppg-l5a",
+      "type": "exercise",
+      "exercise": {
+        "id": "tma4110-7-1-l5a",
+        "number": "7",
+        "type": "classic",
+        "difficulty": "lett",
+        "task": "Regn ut modulus: **a)** $|5+12i|$, **b)** $|-2i|$, **c)** $\\left|\\dfrac{1+i}{2-i}\\right|$.",
+        "solution": "**a)** $\\sqrt{25+144}=\\sqrt{169}=13$.\n**b)** $\\sqrt{0+(-2)^2}=2$.\n**c)** $\\dfrac{|1+i|}{|2-i|}=\\dfrac{\\sqrt2}{\\sqrt5}=\\sqrt{\\tfrac25}=\\dfrac{\\sqrt{10}}{5}.$",
+        "hints": [
+          "$|z|=\\sqrt{x^2+y^2}$; for kvotienten bruk $|z/w|=|z|/|w|$.",
+          "Ikke gang ut kvotienten i c) — ta modulus av teller og nevner hver for seg."
+        ]
+      }
+    },
+    {
+      "id": "tma4110-7-1-l6",
+      "type": "text",
+      "content": "## Løkke 6 — Det komplekse planet og geometriske steder (~11 min)"
+    },
+    {
+      "id": "tma4110-7-1-def-planet",
+      "type": "definition",
+      "title": "Det komplekse planet (Argand-diagram)",
+      "content": "Vi tegner $z=x+iy$ som punktet $(x,y)$ i et koordinatsystem der den vannrette aksen er **realaksen** og den loddrette er **imaginæraksen**. Dette kalles det **komplekse planet** eller **Argand-diagrammet**.\n\nDa svarer $|z|$ til avstanden fra origo, og $|z-w|$ til avstanden mellom punktene $z$ og $w$. Geometrien gjør mange komplekstall-oppgaver enklere å se."
+    },
+    {
+      "id": "tma4110-7-1-def-speiling",
+      "type": "definition",
+      "title": "$z$, $\\bar z$ og $-z$ i planet",
+      "content": "De tre nære slektningene til $z=x+iy$ ligger symmetrisk:\n\n- $\\bar z=x-iy$ er speilingen om **realaksen**,\n- $-z=-x-iy$ er speilingen gjennom **origo** (punktspeiling),\n- $-\\bar z=-x+iy$ er speilingen om **imaginæraksen**.\n\nAlle fire har samme modulus $|z|$."
+    },
+    {
+      "id": "tma4110-7-1-def-sirkel",
+      "type": "definition",
+      "title": "Geometrisk sted: sirkel $|z-a|=r$",
+      "content": "Mengden av alle $z$ med fast avstand $r$ til et punkt $a$ er en **sirkel** med sentrum $a$ og radius $r$:\n\n$$|z-a|=r.$$\n\nFor eksempel er $|z-(1+i)|=2$ sirkelen med sentrum $(1,1)$ og radius $2$. Ulikheten $|z-a|<r$ gir det indre av sirkelen (en disk)."
+    },
+    {
+      "id": "tma4110-7-1-def-midtnormal",
+      "type": "definition",
+      "title": "Geometrisk sted: midtnormal $|z-a|=|z-b|$",
+      "content": "Mengden av alle $z$ som ligger **like langt** fra to punkter $a$ og $b$ er **midtnormalen** på linjestykket mellom dem:\n\n$$|z-a|=|z-b|.$$\n\nDu finner likningen ved å sette $z=x+iy$, kvadrere begge sider ($|z-a|^2=|z-b|^2$) og forenkle — de kvadratiske leddene $x^2+y^2$ faller bort, og du står igjen med en rett linje."
+    },
+    {
+      "id": "tma4110-7-1-ex6",
+      "type": "example",
+      "title": "Eksempel 6: Geometrisk sted (sjanger J med skisse)",
+      "problem": "Bestem og skissér mengden av alle komplekse tall $z$ som oppfyller $|z-2|=|z-2i|$.",
+      "solution": "Kravet er at $z$ ligger like langt fra $a=2$ (punktet $(2,0)$) og $b=2i$ (punktet $(0,2)$) — altså midtnormalen på linjestykket mellom dem. Vi finner likningen. Sett $z=x+iy$:\n$$|z-2|^2=|z-2i|^2\\;\\Rightarrow\\;(x-2)^2+y^2=x^2+(y-2)^2.$$\nGang ut: $x^2-4x+4+y^2=x^2+y^2-4y+4$. De felles leddene $x^2+y^2+4$ faller bort, og vi får $-4x=-4y$, altså\n$$\\boxed{\\,y=x\\,}.$$\nDet geometriske stedet er linja $y=x$ (midtnormalen står vinkelrett på linjestykket fra $(2,0)$ til $(0,2)$ og går gjennom midtpunktet $(1,1)$)."
+    },
+    {
+      "id": "tma4110-7-1-locus-fig",
+      "type": "image",
+      "src": "/images/textbook/tma4110/tma4110-7-1-locus-midtnormal.svg",
+      "alt": "Det komplekse planet med punktene a=2 og b=2i, og den rette linja y=x som ligger like langt fra begge og går gjennom midtpunktet (1,1).",
+      "caption": "Til Eksempel 6: løsningen av $|z-2|=|z-2i|$ er midtnormalen $y=x$ på linjestykket mellom $a=2$ og $b=2i$ — den går gjennom midtpunktet $(1,1)$."
+    },
+    {
+      "id": "tma4110-7-1-oppg-l6a",
+      "type": "exercise",
+      "exercise": {
+        "id": "tma4110-7-1-l6a",
+        "number": "8",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "**a)** Beskriv geometrisk mengden $|z-3i|=2$. **b)** Finn likningen (i $x,y$) for mengden $|z-1|=|z+i|$.",
+        "solution": "**a)** Sirkel med sentrum $3i$, altså punktet $(0,3)$, og radius $2$.\n\n**b)** Sett $z=x+iy$ og kvadrer: $(x-1)^2+y^2=x^2+(y+1)^2$. Gang ut: $x^2-2x+1+y^2=x^2+y^2+2y+1$, som gir $-2x=2y$, altså $y=-x$. Det er midtnormalen på linjestykket mellom $1$ og $-i$.",
+        "hints": [
+          "$|z-a|=r$ er sirkel om $a$ med radius $r$; $|z-a|=|z-b|$ er en rett linje.",
+          "I b): kvadrer begge sider og la $x^2+y^2$ falle bort."
+        ]
+      }
+    },
+    {
+      "id": "tma4110-7-1-warn-typiske",
+      "type": "warning",
+      "title": "Typiske feil",
+      "content": "- **Glemme å utvide med konjugatet** ved divisjon — man kan ikke bare «dele hver del».\n- **Fortegnsfeil i $\\bar z$** eller i $-12i^2=+12$ (glemmer at $i^2=-1$ snur fortegnet).\n- **Modulus uten kvadratrot:** $|z|=x^2+y^2$ er galt; det skal være $\\sqrt{x^2+y^2}$.\n- **Forveksle $z\\bar z$ og $z^2$:** $z\\bar z=|z|^2$ er reelt, mens $z^2=(x+iy)^2$ som regel er komplekst.\n- **$\\operatorname{Im}z$ tatt som $iy$:** imaginærdelen er det reelle tallet $y$, ikke $iy$.\n- **Desimalsvar under kode E:** svar eksakt ($\\sqrt2$, $\\tfrac{1+7i}{5}$), aldri $1{,}41\\ldots$"
+    },
+    {
+      "id": "tma4110-7-1-pool",
+      "type": "text",
+      "content": "### Blandet oppgavesett (stigende vanskegrad)"
+    },
+    {
+      "id": "tma4110-7-1-oppg-p1",
+      "type": "exercise",
+      "exercise": {
+        "id": "tma4110-7-1-p1",
+        "number": "9",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "La $z=2-3i$ og $w=-1+4i$. Regn ut **a)** $z+w$, **b)** $zw$, **c)** $\\dfrac{z}{w}$ på formen $x+iy$.",
+        "solution": "**a)** $z+w=(2-1)+(-3+4)i=1+i.$\n\n**b)** $zw=(2-3i)(-1+4i)=-2+8i+3i-12i^2=-2+11i+12=10+11i.$\n\n**c)** Utvid med $\\bar w=-1-4i$, $|w|^2=1+16=17$: $\\dfrac{(2-3i)(-1-4i)}{17}=\\dfrac{-2-8i+3i+12i^2}{17}=\\dfrac{-14-5i}{17}=-\\dfrac{14}{17}-\\dfrac{5}{17}i.$",
+        "hints": [
+          "Addisjon: samle deler. Multiplikasjon: gang ut, bytt $i^2\\to-1$.",
+          "Divisjon: utvid med $\\bar w$; $|w|^2=(-1)^2+4^2=17$."
+        ]
+      }
+    },
+    {
+      "id": "tma4110-7-1-oppg-p2",
+      "type": "exercise",
+      "exercise": {
+        "id": "tma4110-7-1-p2",
+        "number": "10",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "Finn alle reelle tall $a$ slik at $(a+2i)(3-i)$ er **rent imaginært**.",
+        "solution": "Gang ut: $(a+2i)(3-i)=3a-ai+6i-2i^2=(3a+2)+(6-a)i.$ Rent imaginært betyr realdel $=0$: $3a+2=0$, altså $a=-\\dfrac23.$ (Da er tallet $\\left(6-(-\\tfrac23)\\right)i=\\tfrac{20}{3}i$, som er rent imaginært.)",
+        "hints": [
+          "Gang ut og skriv resultatet som $(\\text{realdel})+(\\text{imaginærdel})\\,i$.",
+          "Rent imaginært $\\iff$ realdelen er $0$."
+        ]
+      }
+    },
+    {
+      "id": "tma4110-7-1-oppg-p3",
+      "type": "exercise",
+      "exercise": {
+        "id": "tma4110-7-1-p3",
+        "number": "11",
+        "type": "classic",
+        "difficulty": "vanskelig",
+        "task": "(Eksamensnivå.) Løs likningssystemet i de komplekse ukjente ved å sammenligne real- og imaginærdel: finn $z=x+iy$ slik at $z+2\\bar z=6-3i$.",
+        "solution": "Skriv $z=x+iy$, så $\\bar z=x-iy$. Da er $z+2\\bar z=(x+iy)+2(x-iy)=3x-iy.$ Sett lik $6-3i$ og sammenlign:\n$$3x=6\\ \\Rightarrow\\ x=2,\\qquad -y=-3\\ \\Rightarrow\\ y=3.$$\nAltså $z=2+3i$. Kontroll: $z+2\\bar z=(2+3i)+2(2-3i)=2+3i+4-6i=6-3i.$ ✓",
+        "hints": [
+          "Sett $z=x+iy$ og $\\bar z=x-iy$, og regn ut venstresida.",
+          "Sammenlign realdel og imaginærdel — det gir to reelle likninger."
+        ]
+      }
+    },
+    {
+      "id": "tma4110-7-1-oppg-p4",
+      "type": "exercise",
+      "exercise": {
+        "id": "tma4110-7-1-p4",
+        "number": "12",
+        "type": "classic",
+        "difficulty": "vanskelig",
+        "task": "(Krevende.) Vis at for alle $z,w\\in\\mathbb C$ gjelder $|z+w|^2+|z-w|^2=2|z|^2+2|w|^2$ (parallellogramloven).",
+        "solution": "Bruk $|u|^2=u\\bar u$ og at konjugatet er lineært. Da er\n$$|z+w|^2=(z+w)\\overline{(z+w)}=(z+w)(\\bar z+\\bar w)=z\\bar z+z\\bar w+w\\bar z+w\\bar w,$$\n$$|z-w|^2=(z-w)(\\bar z-\\bar w)=z\\bar z-z\\bar w-w\\bar z+w\\bar w.$$\nLegger vi sammen, kanselleres krysleddene $\\pm(z\\bar w+w\\bar z)$, og vi får\n$$|z+w|^2+|z-w|^2=2z\\bar z+2w\\bar w=2|z|^2+2|w|^2.\\qquad\\blacksquare$$\nNavngitt idé: skriv modulus i annen som $u\\bar u$ og bruk $\\overline{u+v}=\\bar u+\\bar v$.",
+        "hints": [
+          "Skriv $|u|^2=u\\bar u$ og bruk $\\overline{z\\pm w}=\\bar z\\pm\\bar w$.",
+          "Gang ut begge kvadratene; krysseleddene skal kansellere når du adderer."
+        ]
+      }
+    },
+    {
+      "id": "tma4110-7-1-bb-intro",
+      "type": "text",
+      "content": "## Begrepsbank til eksamen\n\nKjernebegrepene fra kapitlet samlet i kortform for repetisjon.\n\n*Begrepsbanken er flashcard-/repetisjonsstoff — hopp trygt over ved førstegangslesing; tidsanslaget gjelder kjernestoffet.*"
+    },
+    {
+      "id": "tma4110-7-1-bb-reim-zzbar",
+      "type": "definition",
+      "title": "Re og Im uttrykt ved $z$ og $\\bar z$",
+      "content": "Real- og imaginærdel kan hentes ut av $z$ og $\\bar z$:\n\n$$\\operatorname{Re}z=\\frac{z+\\bar z}{2},\\qquad \\operatorname{Im}z=\\frac{z-\\bar z}{2i}.$$\n\nNyttig når du skal vise at et uttrykk er reelt ($z=\\bar z$) eller rent imaginært ($z=-\\bar z$)."
+    },
+    {
+      "id": "tma4110-7-1-bb-rentreell",
+      "type": "definition",
+      "title": "Rent reelt tall",
+      "content": "Et komplekst tall er **rent reelt** når imaginærdelen er null: $z=x+0\\,i=x$. Ekvivalent: $z=\\bar z$. De reelle tallene er dermed en delmengde av $\\mathbb C$."
+    },
+    {
+      "id": "tma4110-7-1-bb-rentimag",
+      "type": "definition",
+      "title": "Rent imaginært tall",
+      "content": "Et tall er **rent imaginært** når realdelen er null: $z=0+iy=iy$. Ekvivalent: $\\bar z=-z$. Eksempel: $z=-4i$."
+    },
+    {
+      "id": "tma4110-7-1-bb-avstand",
+      "type": "definition",
+      "title": "Avstand $|z-w|$",
+      "content": "Modulus av differansen er den geometriske **avstanden** mellom punktene $z$ og $w$ i planet:\n\n$$|z-w|=\\sqrt{(x_1-x_2)^2+(y_1-y_2)^2}.$$\n\nDette er grunnlaget for geometriske steder som sirkel og midtnormal."
+    },
+    {
+      "id": "tma4110-7-1-bb-reell-rot",
+      "type": "definition",
+      "title": "Konjugatrot-setningen",
+      "content": "Har et polynom **reelle** koeffisienter og $z_0$ er en (kompleks) rot, så er $\\bar z_0$ også en rot. Komplekse røtter opptrer altså i **konjugerte par** $a\\pm bi$. Dette brukes til å faktorisere reelle polynom (kap. 7.3)."
+    },
+    {
+      "id": "tma4110-7-1-bb-trekant",
+      "type": "definition",
+      "title": "Trekantulikheten (kjennskap)",
+      "content": "For alle komplekse $z,w$ gjelder\n\n$$|z+w|\\le|z|+|w|.$$\n\nGeometrisk: den ene siden i en trekant er aldri lengre enn summen av de to andre. Likhet gjelder når $z$ og $w$ peker samme vei fra origo."
+    },
+    {
+      "id": "tma4110-7-1-bb-kvadrat",
+      "type": "definition",
+      "title": "Kvadratet $(a+bi)^2$",
+      "content": "Å kvadrere et komplekst tall gir\n\n$$(a+bi)^2=a^2-b^2+2ab\\,i.$$\n\nMerk at $(a+bi)^2\\ne a^2+b^2$; det siste er $|a+bi|^2=(a+bi)(a-bi)$. Kvadratet brukes når du skal ta komplekse kvadratrøtter (kap. 7.3)."
+    },
+    {
+      "id": "tma4110-7-1-rep",
+      "type": "collapsible",
+      "title": "Repetisjonsoppgaver",
+      "buttonText": "Vis repetisjonsoppgaver",
+      "content": [
+        {
+          "id": "tma4110-7-1-oppg-rep1",
+          "type": "exercise",
+          "exercise": {
+            "id": "tma4110-7-1-rep1",
+            "number": "R1",
+            "type": "classic",
+            "difficulty": "lett",
+            "task": "(Forkunnskap fra 1T.) Løs andregradslikningen $x^2+4=0$ over de reelle tallene. Har den reelle løsninger?",
+            "solution": "$x^2=-4$ har **ingen** reelle løsninger, fordi et reelt kvadrat aldri er negativt. (Over $\\mathbb C$ er løsningene $x=\\pm2i$ — det er nettopp derfor vi utvider til komplekse tall.)",
+            "hints": [
+              "Isoler $x^2$. Kan et reelt tall opphøyd i annen bli negativt?"
+            ]
+          }
+        },
+        {
+          "id": "tma4110-7-1-oppg-rep2",
+          "type": "exercise",
+          "exercise": {
+            "id": "tma4110-7-1-rep2",
+            "number": "R2",
+            "type": "classic",
+            "difficulty": "lett",
+            "task": "Regn ut $i^2$, $i^3$ og $i^4$ direkte fra $i^2=-1$.",
+            "solution": "$i^2=-1$; $i^3=i^2\\cdot i=-i$; $i^4=(i^2)^2=(-1)^2=1$.",
+            "hints": [
+              "Bruk $i^3=i^2\\cdot i$ og $i^4=i^2\\cdot i^2$."
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": "tma4110-7-1-symbolliste",
+      "type": "collapsible",
+      "title": "Symbol- og formelliste",
+      "buttonText": "Vis symboler og formler",
+      "content": [
+        {
+          "id": "tma4110-7-1-symbolliste-text",
+          "type": "text",
+          "content": "## Symbol- og formelliste\n\n*Oppslagsverk — alt her forklares underveis i kapitlet.*\n\n| Symbol | Betydning |\n|---|---|\n| $z=x+iy$ | Komplekst tall på kartesisk form |\n| $i$ | Imaginær enhet, $i^2=-1$ |\n| $\\operatorname{Re}z=x$ | Realdel (reelt tall) |\n| $\\operatorname{Im}z=y$ | Imaginærdel (reelt tall, uten $i$) |\n| $\\bar z=x-iy$ | Komplekskonjugert (speiling om realaksen) |\n| $|z|$ | Modulus / absoluttverdi (avstand fra origo) |\n| $\\mathbb C$ | Mengden av komplekse tall |\n| $|z-a|=r$ | Sirkel, sentrum $a$, radius $r$ |\n| $|z-a|=|z-b|$ | Midtnormal mellom $a$ og $b$ |\n\n**Formler i dette delkapitlet:**\n\n$$(x+iy)\\pm(u+iv)=(x\\pm u)+i(y\\pm v)$$\nAddisjon/subtraksjon: del for del.\n\n$$(x+iy)(u+iv)=(xu-yv)+i(xv+yu)$$\nMultiplikasjon (gang ut, $i^2=-1$).\n\n$$\\frac{z}{w}=\\frac{z\\bar w}{|w|^2}$$\nDivisjon: utvid med konjugatet av nevneren.\n\n$$\\bar z=x-iy,\\qquad z\\bar z=x^2+y^2=|z|^2$$\nKonjugat og produktet med konjugatet.\n\n$$|z|=\\sqrt{x^2+y^2},\\quad |zw|=|z||w|,\\quad \\left|\\tfrac{z}{w}\\right|=\\tfrac{|z|}{|w|}$$\nModulus og regnereglene.\n\n$$\\operatorname{Re}z=\\frac{z+\\bar z}{2},\\qquad \\operatorname{Im}z=\\frac{z-\\bar z}{2i}$$\nRe og Im uttrykt ved $z$ og $\\bar z$."
+        }
+      ]
+    }
+  ],
+  "exercises": []
+}
