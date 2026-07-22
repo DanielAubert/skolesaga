@@ -1,0 +1,151 @@
+{
+  "id": "tma4110-8-prove",
+  "courseId": "tma4110",
+  "chapterNumber": "8.P",
+  "title": "Prøver til del 8: Differensiallikninger av 1. orden",
+  "description": "Fire prøver à ~35–40 minutter som dekker separable likninger, initialverdiproblem, konstantløsninger og lineære 1. ordens likninger med integrerende faktor — med full fasit og selvdiagnose. Kan deles over flere kvelder.",
+  "estimatedMinutes": 150,
+  "competenceGoals": [
+    "løse separable og lineære 1. ordens differensiallikninger under tidspress uten hjelpemidler",
+    "sette opp og løse avkjølings- og blandingsmodeller med eksakte svar",
+    "velge riktig løsningsmetode og kontrollere svaret ved innsetting"
+  ],
+  "content": [
+    {
+      "id": "tma4110-8-prove-tip",
+      "type": "tip",
+      "title": "Om prøvene til Del 8",
+      "content": "**Dekning:** Fire prøver som dekker hele Del 8 — separable likninger og initialverdiproblem (kap. [8.1](/bok/tma4110/tma4110-8-1)) og lineære 1. ordens likninger med integrerende faktor (kap. [8.2](/bok/tma4110/tma4110-8-2)), inkludert modeller (avkjøling og blanding).\n\n- **Prøve 1 (8.A, ~35 min):** separabel ODE + initialverdi + konstantløsninger (kap. 8.1).\n- **Prøve 2 (8.B, ~40 min):** lineær 1. ordens via integrerende faktor + IVP (kap. 8.2).\n- **Prøve 3 (8.C, ~35 min):** modell (avkjøling/blanding) satt opp og løst (kap. 8.2).\n- **Prøve 4 (8.D, ~40 min):** ODE-1-tverrsnitt — separabel *og* lineær på samme sett (kap. 8.1–8.2).\n\n**Til sammen fire prøver à ~35–40 minutter. Du trenger ikke ta alle på én gang — prøvene kan trygt deles over flere kvelder, én prøve per økt.** Tidene er regnetid for hånd uten hjelpemidler (kode E). Alle oppgavene er **regneoppgaver** (sjanger K) — ingen flervalg; alt skal begrunnes og svaret gis eksakt (ingen desimaltilnærming). Fasit med full utregning og en avkryssbar selvdiagnose ligger som utslåbar boks etter hver prøve."
+    },
+    {
+      "id": "tma4110-8-prove-forkunnskaper",
+      "type": "text",
+      "content": "**Forkunnskaper.** Prøvene forutsetter hele Del 8: den separable metoden (skill de variable, integrer, konstantløsninger, initialverdi) fra [kap. 8.1](/bok/tma4110/tma4110-8-1) og integrerende faktor $\\mu=e^{\\int p\\,dx}$ med strukturen $y=y_h+y_p$ fra [kap. 8.2](/bok/tma4110/tma4110-8-2). Du bør kunne integrere trygt (inkludert delvis integrasjon) — se [Ubestemt integral (R2)](/bok/r2/r2-2-2) ved behov. Ta prøvene med blanke ark, uten formelsamling, som på eksamen."
+    },
+    {
+      "id": "tma4110-8-prove-prove1",
+      "type": "collapsible",
+      "title": "Prøve 1 (8.A) — Separabel + initialverdi + konstantløsninger",
+      "buttonText": "Vis prøve 1",
+      "content": [
+        {
+          "id": "tma4110-8-prove-prove1-oppg",
+          "type": "text",
+          "content": "### Prøve 1 (8.A) — Separabel ODE, initialverdi og konstantløsninger\n**Tid: ~35 min. Kap. 8.1. Begrunn hvert steg; eksakte svar.**\n\n**Oppgave 1** (generell løsning). Finn den generelle løsningen av\n$$y'=3x^2y.$$\n\n**Oppgave 2** (initialverdiproblem). Løs\n$$y'=y^2,\\qquad y(0)=1,$$\nog oppgi løsningens definisjonsintervall.\n\n**Oppgave 3** (konstantløsninger). Finn alle konstantløsninger av\n$$y'=x\\,(y-2)(y+1),$$\nog begrunn kort hvorfor en løsning som starter i $y(0)=\\tfrac12$ ikke kan krysse linjen $y=2$."
+        },
+        {
+          "id": "tma4110-8-prove-prove1-fasit-wrap",
+          "type": "collapsible",
+          "title": "Fasit og selvdiagnose — Prøve 1",
+          "buttonText": "Vis fasit",
+          "content": [
+            {
+              "id": "tma4110-8-prove-prove1-fasit",
+              "type": "text",
+              "content": "**Oppgave 1.** Separabel med $g(y)=y$. Skill de variable (for $y\\neq0$): $\\dfrac{dy}{y}=3x^2\\,dx$. Integrer: $\\ln|y|=x^3+C_1$. Eksponentér: $y=Ce^{x^3}$. Konstantløsningen $y=0$ svarer til $C=0$, så\n$$\\boxed{y=Ce^{x^3},\\quad C\\in\\mathbb{R}.}$$\nKontroll: $y'=Ce^{x^3}\\cdot3x^2=3x^2y$. ✓\n\n**Oppgave 2.** Separabel, $g(y)=y^2$ (konstantløsning $y=0$ ikke aktuell siden $y(0)=1$). $\\dfrac{dy}{y^2}=dx\\Rightarrow -\\dfrac1y=x+C$. Initialbetingelse $y(0)=1$: $-1=C$, så $-\\dfrac1y=x-1$, altså\n$$\\boxed{y=\\dfrac{1}{1-x}.}$$\nNevneren $1-x=0$ i $x=1$; løsningen gjennom $x_0=0$ lever på $(-\\infty,\\,1)$. Kontroll: $y'=\\dfrac{1}{(1-x)^2}=y^2$, $y(0)=1$. ✓\n\n**Oppgave 3.** Konstantløsninger fra $(y-2)(y+1)=0$: $\\boxed{y=2\\ \\text{og}\\ y=-1.}$ Høyresida og dens deriverte etter $y$ er kontinuerlige overalt, så entydighetssetningen gjelder. $y\\equiv2$ er allerede en løsning; hvis kurven med $y(0)=\\tfrac12$ berørte $y=2$, ville to løsninger møtes i ett punkt — umulig. Derfor er løsningen fanget i stripen $-1<y<2$ og kan ikke krysse $y=2$."
+            },
+            {
+              "id": "tma4110-8-prove-prove1-selvdiag",
+              "type": "text",
+              "content": "**Selvdiagnose — kryss av:**\n\n- ☐ Jeg skilte de variable riktig og husket integrasjonskonstanten.\n- ☐ Jeg fikk $y=Ce^{x^3}$ og sjekket ved innsetting.\n- ☐ Jeg bestemte $C$ fra initialbetingelsen *etter* integrasjonen (oppg. 2).\n- ☐ Jeg fant definisjonsintervallet $(-\\infty,1)$ ut fra nevneren.\n- ☐ Jeg fant begge konstantløsningene $y=2$ og $y=-1$.\n- ☐ Jeg begrunnet ikke-kryssing med entydighetssetningen."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "tma4110-8-prove-prove2",
+      "type": "collapsible",
+      "title": "Prøve 2 (8.B) — Lineær 1. ordens via integrerende faktor",
+      "buttonText": "Vis prøve 2",
+      "content": [
+        {
+          "id": "tma4110-8-prove-prove2-oppg",
+          "type": "text",
+          "content": "### Prøve 2 (8.B) — Lineær 1. ordens via integrerende faktor\n**Tid: ~40 min. Kap. 8.2. Bruk integrerende faktor; eksakte svar.**\n\n**Oppgave 1** (generell løsning). Løs\n$$y'+y=x.$$\n\n**Oppgave 2** (initialverdiproblem). Løs\n$$y'-2y=e^{2x},\\qquad y(0)=1.$$\n\n**Oppgave 3** (variabel koeffisient). Løs, for $x>0$,\n$$y'+\\frac{2}{x}\\,y=x.$$"
+        },
+        {
+          "id": "tma4110-8-prove-prove2-fasit-wrap",
+          "type": "collapsible",
+          "title": "Fasit og selvdiagnose — Prøve 2",
+          "buttonText": "Vis fasit",
+          "content": [
+            {
+              "id": "tma4110-8-prove-prove2-fasit",
+              "type": "text",
+              "content": "**Oppgave 1.** $p=1$, $q=x$. $\\mu=e^{\\int 1\\,dx}=e^{x}$. Gang: $(e^{x}y)'=xe^{x}$. Delvis integrasjon: $\\int xe^{x}\\,dx=(x-1)e^{x}+C$. Så $e^{x}y=(x-1)e^{x}+C$, del på $e^x$:\n$$\\boxed{y=x-1+Ce^{-x}.}$$\nKontroll: $y'=1-Ce^{-x}$, $y'+y=1-Ce^{-x}+x-1+Ce^{-x}=x$. ✓\n\n**Oppgave 2.** $p=-2$, $\\mu=e^{-2x}$. Gang: $(e^{-2x}y)'=e^{-2x}e^{2x}=1$. Integrer: $e^{-2x}y=x+C$. Del: $y=(x+C)e^{2x}$. Initialbetingelse $y(0)=C=1$, altså\n$$\\boxed{y=(x+1)e^{2x}.}$$\nKontroll: $y'=(2x+3)e^{2x}$, $y'-2y=(2x+3)e^{2x}-2(x+1)e^{2x}=e^{2x}$, $y(0)=1$. ✓ (Merk: kildeleddet $e^{2x}$ er selv en homogen løsning, derav $x$-faktoren — forvarsel om resonans i Del 9.)\n\n**Oppgave 3.** $p=\\dfrac2x$, $q=x$. $\\mu=e^{\\int(2/x)\\,dx}=e^{2\\ln x}=x^2$. Gang: $(x^2y)'=x^2\\cdot x=x^3$. Integrer: $x^2y=\\dfrac{x^4}{4}+C$. Del på $x^2$:\n$$\\boxed{y=\\dfrac{x^2}{4}+\\dfrac{C}{x^2}.}$$\nKontroll: $y'=\\dfrac{x}{2}-\\dfrac{2C}{x^3}$, $y'+\\dfrac2x y=\\dfrac{x}{2}-\\dfrac{2C}{x^3}+\\dfrac{x}{2}+\\dfrac{2C}{x^3}=x$. ✓"
+            },
+            {
+              "id": "tma4110-8-prove-prove2-selvdiag",
+              "type": "text",
+              "content": "**Selvdiagnose — kryss av:**\n\n- ☐ Jeg brakte hver likning på standardform før jeg leste av $p$.\n- ☐ Jeg regnet $\\mu=e^{\\int p\\,dx}$ med riktig fortegn.\n- ☐ Jeg kjente igjen venstresida som $(\\mu y)'$ og integrerte.\n- ☐ Jeg delte *hele* høyresida (også $C$) på $\\mu$.\n- ☐ Jeg brukte delvis integrasjon riktig i oppg. 1.\n- ☐ Jeg fikk $\\mu=x^2$ i oppg. 3 (ikke $e^{2/x}$)."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "tma4110-8-prove-prove3",
+      "type": "collapsible",
+      "title": "Prøve 3 (8.C) — Modeller: avkjøling og blanding",
+      "buttonText": "Vis prøve 3",
+      "content": [
+        {
+          "id": "tma4110-8-prove-prove3-oppg",
+          "type": "text",
+          "content": "### Prøve 3 (8.C) — Modeller: avkjøling og blanding\n**Tid: ~35 min. Kap. 8.2. Sett opp modellen selv, løs, og svar eksakt.**\n\n**Oppgave 1** (Newtons avkjølingslov). En stekt potet på $100^\\circ\\text{C}$ settes i et rom med $25^\\circ\\text{C}$. Etter $10$ minutter er den $75^\\circ\\text{C}$.\n\n**a)** Sett opp differensiallikningen og finn $T(t)$.\n\n**b)** Når (eksakt) er poteten $50^\\circ\\text{C}$?\n\n**Oppgave 2** (blanding). En tank inneholder $200$ liter vann med $10$ kg salt oppløst. Rent vann renner inn med $4$ L/min, blandingen holdes homogen og renner ut med $4$ L/min. La $y(t)$ være kg salt i tanken.\n\n**a)** Sett opp og løs differensiallikningen for $y(t)$.\n\n**b)** Når (eksakt) er halvparten av saltet skylt ut?"
+        },
+        {
+          "id": "tma4110-8-prove-prove3-fasit-wrap",
+          "type": "collapsible",
+          "title": "Fasit og selvdiagnose — Prøve 3",
+          "buttonText": "Vis fasit",
+          "content": [
+            {
+              "id": "tma4110-8-prove-prove3-fasit",
+              "type": "text",
+              "content": "**Oppgave 1.**\n**a)** Newtons lov: $T'=-k(T-25)$, $k>0$. Med $u=T-25$ er $u'=-ku$, så $u=u_0e^{-kt}$; $u_0=100-25=75$, altså $T=25+75e^{-kt}$. Fra $T(10)=75$: $75=25+75e^{-10k}\\Rightarrow e^{-10k}=\\tfrac{50}{75}=\\tfrac23$. Dermed\n$$\\boxed{T(t)=25+75\\left(\\tfrac23\\right)^{t/10}}\\quad\\Big(k=\\tfrac1{10}\\ln\\tfrac32\\Big).$$\nKontroll: $T(0)=100$, $T(10)=25+75\\cdot\\tfrac23=75$. ✓\n**b)** $T=50$: $50=25+75e^{-kt}\\Rightarrow e^{-kt}=\\tfrac{25}{75}=\\tfrac13\\Rightarrow t=\\dfrac{\\ln3}{k}=\\dfrac{10\\ln3}{\\ln(3/2)}$ minutter (eksakt).\n\n**Oppgave 2.**\n**a)** Konstant volum $V=200$ ($4$ inn $=4$ ut). Inn-rate $=0\\cdot4=0$; ut-rate $=4\\cdot\\dfrac{y}{200}=\\dfrac{y}{50}$. Altså $y'=-\\dfrac{y}{50}$, $y(0)=10$. Løsning (separabel/lineær):\n$$\\boxed{y=10e^{-t/50}.}$$\nKontroll: $y(0)=10$, $y'=-\\tfrac{10}{50}e^{-t/50}=-\\tfrac{y}{50}$. ✓\n**b)** Halvparten igjen: $y=5$. $5=10e^{-t/50}\\Rightarrow e^{-t/50}=\\tfrac12\\Rightarrow t=50\\ln2$ minutter (eksakt)."
+            },
+            {
+              "id": "tma4110-8-prove-prove3-selvdiag",
+              "type": "text",
+              "content": "**Selvdiagnose — kryss av:**\n\n- ☐ Jeg satte opp Newtons lov $T'=-k(T-T_m)$ med riktig $T_m$.\n- ☐ Jeg brukte substitusjonen $u=T-T_m$ (eller integrerende faktor) korrekt.\n- ☐ Jeg fant $k$ (eller potensformen) av måletidspunktet, uten desimaler.\n- ☐ Jeg satte opp blandingslikningen med ut-rate $=$ (volumstrøm)$\\cdot y/V$.\n- ☐ Jeg husket at rent vann inn gir inn-rate $=0$.\n- ☐ Mine tidssvar er eksakte ($10\\ln3/\\ln(3/2)$ og $50\\ln2$)."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "tma4110-8-prove-prove4",
+      "type": "collapsible",
+      "title": "Prøve 4 (8.D) — Tverrsnitt: separabel og lineær",
+      "buttonText": "Vis prøve 4",
+      "content": [
+        {
+          "id": "tma4110-8-prove-prove4-oppg",
+          "type": "text",
+          "content": "### Prøve 4 (8.D) — Tverrsnitt: separabel og lineær om hverandre\n**Tid: ~40 min. Kap. 8.1–8.2. Velg riktig metode for hver oppgave.**\n\n**Oppgave 1** (separabel, IVP). Løs\n$$y'=y\\cos x,\\qquad y(0)=2.$$\n\n**Oppgave 2** (lineær, IVP). Løs\n$$y'+3y=6,\\qquad y(0)=4.$$\n\n**Oppgave 3** (begge metoder). Betrakt\n$$y'=2xy.$$\n\n**a)** Avgjør om likningen er separabel, lineær, eller begge deler.\n\n**b)** Løs den med *begge* metodene og vis at du får samme svar."
+        },
+        {
+          "id": "tma4110-8-prove-prove4-fasit-wrap",
+          "type": "collapsible",
+          "title": "Fasit og selvdiagnose — Prøve 4",
+          "buttonText": "Vis fasit",
+          "content": [
+            {
+              "id": "tma4110-8-prove-prove4-fasit",
+              "type": "text",
+              "content": "**Oppgave 1.** Separabel, $g(y)=y$. $\\dfrac{dy}{y}=\\cos x\\,dx\\Rightarrow \\ln|y|=\\sin x+C_1\\Rightarrow y=Ce^{\\sin x}$. Initialbetingelse $y(0)=Ce^{0}=C=2$:\n$$\\boxed{y=2e^{\\sin x}.}$$\nKontroll: $y'=2e^{\\sin x}\\cos x=y\\cos x$, $y(0)=2$. ✓\n\n**Oppgave 2.** Lineær, $p=3$, $q=6$. $\\mu=e^{3x}$; $(e^{3x}y)'=6e^{3x}\\Rightarrow e^{3x}y=2e^{3x}+C\\Rightarrow y=2+Ce^{-3x}$. Initialbetingelse $y(0)=2+C=4\\Rightarrow C=2$:\n$$\\boxed{y=2+2e^{-3x}.}$$\n($y_p=2$ er likevekten $q/p$, $y_h=2e^{-3x}$.) Kontroll: $y'=-6e^{-3x}$, $y'+3y=-6e^{-3x}+6+6e^{-3x}=6$, $y(0)=4$. ✓\n\n**Oppgave 3.**\n**a)** $y'=2xy$ er **begge**: separabel ($f(x)=2x$, $g(y)=y$) og lineær (standardform $y'-2xy=0$, $p=-2x$, $q=0$ — altså homogen lineær).\n**b)** *Separabelt:* $\\dfrac{dy}{y}=2x\\,dx\\Rightarrow \\ln|y|=x^2+C_1\\Rightarrow y=Ce^{x^2}$. *Lineært:* $\\mu=e^{\\int(-2x)\\,dx}=e^{-x^2}$; $(e^{-x^2}y)'=0\\Rightarrow e^{-x^2}y=C\\Rightarrow y=Ce^{x^2}$. Samme svar:\n$$\\boxed{y=Ce^{x^2}.}$$"
+            },
+            {
+              "id": "tma4110-8-prove-prove4-selvdiag",
+              "type": "text",
+              "content": "**Selvdiagnose — kryss av:**\n\n- ☐ Jeg kjente igjen oppg. 1 som separabel og oppg. 2 som lineær.\n- ☐ Jeg brukte initialbetingelsen etter integrasjonen i begge.\n- ☐ Jeg identifiserte $y'=2xy$ som både separabel og (homogen) lineær.\n- ☐ Jeg løste oppg. 3 med begge metodene og fikk samme $y=Ce^{x^2}$.\n- ☐ Alle svarene mine er eksakte, og jeg kontrollerte ved innsetting.\n- ☐ Jeg valgte metode bevisst (lineær-sjekk først, så separabel)."
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "exercises": []
+}

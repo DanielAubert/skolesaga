@@ -1,0 +1,455 @@
+{
+  "id": "tma4110-8-1",
+  "courseId": "tma4110",
+  "chapterNumber": "8.1",
+  "title": "Separable differensiallikninger og initialverdiproblem",
+  "description": "Første ordens separable differensiallikninger y'=f(x)g(y): skill de variable, integrer begge sider, løs for y, og bestem konstanten fra en initialbetingelse — pluss konstantløsningene g(y)=0 og enkle vekstmodeller.",
+  "estimatedMinutes": 50,
+  "competenceGoals": [
+    "kjenne igjen og løse separable 1. ordens differensiallikninger y'=f(x)g(y) ved å skille de variable og integrere",
+    "finne og begrunne konstantløsningene g(y)=0 og forklare hvorfor de kan gå tapt i regningen",
+    "løse initialverdiproblemer og bestemme løsningens definisjonsintervall",
+    "sette opp og løse enkle modeller for eksponentiell vekst og henfall med eksakte svar"
+  ],
+  "content": [
+    {
+      "id": "tma4110-8-1-tip-eksamensvinkel",
+      "type": "tip",
+      "title": "Eksamensvinkel",
+      "content": "**Prioritet: kjenne (grunnlaget for Del 9 og 10).**\n\nEn ren separabel likning er sjelden en egen tung oppgave på TMA4110-eksamen. Men metoden er *nødvendig forkunnskap* for differensiallikninger av 2. orden (Del 9, ~82 % av settene) og for systemer (Del 10), og den dukker jevnlig opp som **deloppgave** i en større modelloppgave. Med *sjanger K* mener vi i denne boka en oppgave der du skal *løse en 1. ordens differensiallikning* — her den separable typen.\n\nFasitens grep er alltid det samme og må sitte utenat (kode E — ingen formelsamling): **skill de variable, integrer begge sider, løs for $y$, bestem konstanten fra initialbetingelsen, og sjekk konstantløsningene.** Sensor krever at hvert ledd begrunnes og at svaret er *eksakt* (ingen desimaltilnærming).\n\nDette kapitlet er kort og gir billige, sikre poeng: får du metoden til å sitte her, er du klar for de tunge ODE-kapitlene."
+    },
+    {
+      "id": "tma4110-8-1-forkunnskaper",
+      "type": "text",
+      "content": "**Forkunnskaper.** Du trenger å kunne **integrere** trygt — det er integrasjon som gjør jobben når vi har skilt de variable. Frisk opp ved behov med [Ubestemt integral (R2)](/bok/r2/r2-2-2). Du har også møtt separable likninger på VGS-nivå i [Separable differensiallikninger (S2)](/bok/s2/s2-2-2); dette kapitlet bygger videre på nettopp det, men strammer inn på begrunnelse, konstantløsninger og eksakte svar slik NTNU-sensor krever.\n\nNoen navn du vil se: en **differensiallikning** (heretter ofte *ODE*, fra engelsk *ordinary differential equation* — en likning der den ukjente er en funksjon og likningen inneholder funksjonens deriverte) og en **initialbetingelse** (en oppgitt verdi $y(x_0)=y_0$ som plukker ut én bestemt løsning). Begge forklares grundig under. Kapitlet kan leses rett fram uten annet enn integrasjon."
+    },
+    {
+      "id": "tma4110-8-1-intro",
+      "type": "text",
+      "content": "En **differensiallikning** beskriver hvordan en størrelse *forandrer seg*, ikke hva den *er*. \"Bakteriekulturen vokser like fort som den er stor\" er en setning om endring — $y' = ky$ — og målet er å finne funksjonen $y(x)$ som faktisk endrer seg slik. Slike likninger er selve språket for vekst, henfall, avkjøling og bevegelse, og hele Del 8–10 handler om å løse dem.\n\nVi starter med den enkleste typen som likevel dekker overraskende mye: den **separable** likningen $y'=f(x)g(y)$, der høyresida faktoriserer i én del som bare avhenger av $x$ og én som bare avhenger av $y$. Da kan vi *skille de variable* og integrere hver side for seg.\n\nKapitlet er bygget som fem korte **læringsløkker** (teori → eksempel → oppgave): (1) hva en løsning *er*, (2) den separable metoden, (3) konstantløsningene, (4) initialverdiproblemet, og (5) eksistens/entydighet og enkle vekstmodeller. Regn med rundt 50 minutter; jobb deg gjennom én løkke om gangen."
+    },
+    {
+      "id": "tma4110-8-1-lokke1",
+      "type": "text",
+      "content": "## Løkke 1 — Hva er en løsning av en differensiallikning? (~8 min)"
+    },
+    {
+      "id": "tma4110-8-1-def-ode",
+      "type": "definition",
+      "title": "Differensiallikning av 1. orden",
+      "content": "En likning der den ukjente er en **funksjon** $y=y(x)$, og der likningen knytter sammen funksjonen og dens deriverte. Er den høyeste deriverte som opptrer $y'$, kaller vi likningen **av 1. orden**. Den kan alltid tenkes skrevet på formen\n\n$$y' = F(x,y),$$\n\nsom leses: *stigningstallet til grafen i punktet $(x,y)$ er $F(x,y)$*. Å \"løse\" likningen betyr å finne alle funksjoner $y(x)$ som gjør likningen sann for alle $x$ i et intervall."
+    },
+    {
+      "id": "tma4110-8-1-def-orden",
+      "type": "definition",
+      "title": "Ordenen til en differensiallikning",
+      "content": "**Ordenen** er den høyeste deriverte som forekommer i likningen. $y'=xy$ er av 1. orden; $y''+y=0$ er av 2. orden. Hele Del 8 handler om 1. orden — det enkleste tilfellet, og byggeklossen for 2. orden i Del 9."
+    },
+    {
+      "id": "tma4110-8-1-def-losning",
+      "type": "definition",
+      "title": "Løsning av en differensiallikning",
+      "content": "En **løsning** er en konkret funksjon $y(x)$ som, satt inn i likningen, gjør venstre side lik høyre side for alle $x$ i et intervall. Du sjekker en påstått løsning ved **innsetting**: regn ut $y'$, sett $y$ og $y'$ inn i likningen, og se om de to sidene blir like. Dette er den sikreste kontrollen på eksamen — en løsning som ikke passer ved innsetting, er feil."
+    },
+    {
+      "id": "tma4110-8-1-def-verifikasjon",
+      "type": "definition",
+      "title": "Verifikasjon ved innsetting",
+      "content": "Metoden for å *bekrefte* at en funksjon løser en gitt likning: deriver funksjonen, sett funksjonen og den deriverte inn i likningen, og forenkle til begge sider er identiske. Verifikasjon krever ingen løsningsteknikk og brukes både som kontroll av eget svar og som egen oppgavetype (\"vis at $y=\\dots$ er en løsning\")."
+    },
+    {
+      "id": "tma4110-8-1-ex1",
+      "type": "example",
+      "title": "Eksempel 1: Verifiser en løsning (sjanger K)",
+      "problem": "Vis at $y(x)=Ce^{x^2/2}$ er en løsning av $y'=xy$ for enhver konstant $C$.",
+      "solution": "Vi bruker **verifikasjon ved innsetting**.\n\nDeriver: med kjerneregelen er\n$$y' = C\\cdot e^{x^2/2}\\cdot \\frac{d}{dx}\\!\\left(\\tfrac{x^2}{2}\\right) = C e^{x^2/2}\\cdot x = x\\,\\big(Ce^{x^2/2}\\big).$$\n\nSett inn: høyresida er $xy = x\\cdot Ce^{x^2/2}$. Venstre og høyre side er identiske for alle $x$.\n\n**Konklusjon:** $y=Ce^{x^2/2}$ tilfredsstiller $y'=xy$ for enhver $C$, så det er en løsning. $\\blacksquare$\n\nMerk at $C$ er vilkårlig: én likning av 1. orden har en hel **familie** av løsninger, én for hver verdi av $C$."
+    },
+    {
+      "id": "tma4110-8-1-oppg-verifiser",
+      "type": "exercise",
+      "exercise": {
+        "id": "tma4110-8-1-l1",
+        "number": "1",
+        "type": "classic",
+        "difficulty": "lett",
+        "task": "(Innstegsoppgave — ren verifikasjon.) Vis ved innsetting at $y(x)=3e^{x^2}$ er en løsning av $y'=2xy$.",
+        "solution": "Deriver med kjerneregelen: $y' = 3e^{x^2}\\cdot 2x = 2x\\cdot 3e^{x^2} = 2x\\,y$.\n\nHøyresida er $2xy = 2x\\cdot 3e^{x^2}$. Sidene er like for alle $x$, så $y=3e^{x^2}$ er en løsning. $\\blacksquare$",
+        "hints": [
+          "Bruk kjerneregelen: den deriverte av $e^{x^2}$ er $e^{x^2}\\cdot 2x$.",
+          "Sett den deriverte inn på venstre side og $y$ inn på høyre side, og sammenlign."
+        ]
+      }
+    },
+    {
+      "id": "tma4110-8-1-def-retningsfelt",
+      "type": "definition",
+      "title": "Retningsfelt (kjennskap)",
+      "content": "Fordi $y'=F(x,y)$ gir stigningstallet i hvert punkt, kan vi tegne en liten strek med dette stigningstallet i hvert punkt i planet. Mønsteret av streker er **retningsfeltet**, og en løsningskurve er en kurve som overalt følger strekene. Du trenger ikke tegne retningsfelt for hånd på eksamen; poenget er den geometriske intuisjonen — *en løsning er en kurve som hele tiden har den stigningen likningen foreskriver.*"
+    },
+    {
+      "id": "tma4110-8-1-lokke2",
+      "type": "text",
+      "content": "## Løkke 2 — Den separable metoden (~12 min)"
+    },
+    {
+      "id": "tma4110-8-1-def-separabel",
+      "type": "definition",
+      "title": "Separabel differensiallikning",
+      "content": "En 1. ordens likning er **separabel** hvis høyresida kan skrives som et produkt av én funksjon av $x$ og én funksjon av $y$:\n\n$$y' = f(x)\\,g(y).$$\n\nEksempler: $y'=xy$ ($f(x)=x$, $g(y)=y$), $y'=3x^2(1+y^2)$, $y'=y\\cos x$. Kjennetegnet er at $x$ og $y$ lar seg *skille* på hver sin side — det er nettopp det som gjør likningen løsbar med integrasjon."
+    },
+    {
+      "id": "tma4110-8-1-def-skille",
+      "type": "definition",
+      "title": "Å skille de variable (metoden)",
+      "content": "Fremgangsmåten for en separabel likning $y'=f(x)g(y)$, skritt for skritt:\n\n1. **Skriv $y'=\\frac{dy}{dx}$** og flytt alt med $y$ til venstre, alt med $x$ til høyre:\n$$\\frac{dy}{g(y)} = f(x)\\,dx.$$\n2. **Integrer begge sider** (én integrasjonskonstant holder, samle den på høyre side).\n3. **Løs for $y$** hvis mulig (ellers la svaret stå implisitt).\n4. **Sjekk konstantløsningene** $g(y)=0$ (se løkke 3) — de kan ha gått tapt da du delte på $g(y)$.\n\nAt vi \"deler på $g(y)$\" og \"ganger med $dx$\" er en trygg regnesnarvei; den kan begrunnes stringent, men på eksamen brukes den direkte."
+    },
+    {
+      "id": "tma4110-8-1-ex2",
+      "type": "example",
+      "title": "Eksempel 2: Løs en separabel likning (sjanger K)",
+      "problem": "Finn den generelle løsningen av $y'=2xy$.",
+      "solution": "Likningen er separabel med $f(x)=2x$ og $g(y)=y$.\n\n**Skill de variable** (anta $y\\neq 0$):\n$$\\frac{dy}{y} = 2x\\,dx.$$\n\n**Integrer begge sider:**\n$$\\int \\frac{dy}{y} = \\int 2x\\,dx \\;\\Longrightarrow\\; \\ln|y| = x^2 + C_1.$$\n\n**Løs for $y$:** eksponentér begge sider:\n$$|y| = e^{x^2+C_1} = e^{C_1}e^{x^2} \\;\\Longrightarrow\\; y = \\pm e^{C_1}e^{x^2}.$$\n\nSkriv $C=\\pm e^{C_1}$ (en vilkårlig konstant $\\neq 0$). Konstantløsningen $y=0$ (fra $g(y)=y=0$) svarer til $C=0$, så vi kan la $C$ være helt vilkårlig:\n\n$$\\boxed{\\,y = Ce^{x^2}\\,},\\qquad C\\in\\mathbb{R}.$$\n\n**Kontroll:** $y'=C e^{x^2}\\cdot 2x = 2x\\,y$. ✓"
+    },
+    {
+      "id": "tma4110-8-1-oppg-sep1",
+      "type": "exercise",
+      "exercise": {
+        "id": "tma4110-8-1-l2",
+        "number": "2",
+        "type": "classic",
+        "difficulty": "lett",
+        "task": "(Sjanger K.) Finn den generelle løsningen av $y'=y\\cos x$.",
+        "solution": "Separabel med $f(x)=\\cos x$, $g(y)=y$. Skill de variable (anta $y\\neq0$):\n$$\\frac{dy}{y}=\\cos x\\,dx.$$\nIntegrer: $\\ln|y| = \\sin x + C_1$. Eksponentér: $y = Ce^{\\sin x}$, der $C=\\pm e^{C_1}$. Konstantløsningen $y=0$ svarer til $C=0$, så\n$$y = Ce^{\\sin x},\\qquad C\\in\\mathbb{R}.$$\nKontroll: $y' = Ce^{\\sin x}\\cos x = y\\cos x$. ✓",
+        "hints": [
+          "$f(x)=\\cos x$ og $g(y)=y$: del på $y$ og gang med $dx$.",
+          "$\\int \\cos x\\,dx=\\sin x$; husk å eksponentere til slutt."
+        ]
+      }
+    },
+    {
+      "id": "tma4110-8-1-oppg-sep2",
+      "type": "exercise",
+      "exercise": {
+        "id": "tma4110-8-1-m1",
+        "number": "3",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "(Sjanger K.) Løs $y'=3x^2(1+y^2)$ og skriv svaret på eksplisitt form $y=\\dots$",
+        "solution": "Separabel med $f(x)=3x^2$, $g(y)=1+y^2$. Siden $1+y^2>0$ alltid, finnes ingen konstantløsning. Skill de variable:\n$$\\frac{dy}{1+y^2}=3x^2\\,dx.$$\nIntegrer: $\\arctan y = x^3 + C$. Løs for $y$:\n$$y=\\tan\\!\\left(x^3+C\\right).$$\nKontroll: $y'=\\sec^2(x^3+C)\\cdot 3x^2 = (1+\\tan^2(x^3+C))\\cdot 3x^2 = 3x^2(1+y^2)$. ✓",
+        "hints": [
+          "$\\int \\frac{dy}{1+y^2}=\\arctan y$.",
+          "$1+y^2$ er aldri null — ingen konstantløsning å lete etter her.",
+          "Ta $\\tan$ på begge sider for å løse for $y$."
+        ]
+      }
+    },
+    {
+      "id": "tma4110-8-1-lokke3",
+      "type": "text",
+      "content": "## Løkke 3 — Konstantløsninger (~8 min)"
+    },
+    {
+      "id": "tma4110-8-1-def-konstantlosning",
+      "type": "definition",
+      "title": "Konstantløsning (likevektsløsning)",
+      "content": "En **konstantløsning** er en løsning av formen $y(x)=c$ (konstant), altså en vannrett rett linje. Siden $y'=0$ for en konstant, må $f(x)g(c)=0$ for alle $x$; det gir betingelsen\n\n$$g(c)=0.$$\n\nHver nullpunkt-verdi $c$ av $g$ gir altså en konstantløsning. Disse *forsvinner* i det øyeblikket du deler på $g(y)$ i den separable metoden, så de må hentes inn igjen til slutt. Konstantløsninger kalles også **likevektsløsninger**, fordi systemet står stille der."
+    },
+    {
+      "id": "tma4110-8-1-def-autonom",
+      "type": "definition",
+      "title": "Autonom differensiallikning",
+      "content": "En likning der høyresida ikke avhenger eksplisitt av $x$: $y'=g(y)$. Da er $f(x)=1$, og konstantløsningene $g(y)=0$ er spesielt viktige (de er systemets likevekter). Eksempel: $y'=y(1-y)$ har konstantløsningene $y=0$ og $y=1$."
+    },
+    {
+      "id": "tma4110-8-1-ex3",
+      "type": "example",
+      "title": "Eksempel 3: Konstantløsninger og generell løsning",
+      "problem": "Løs $y'=2x(y-3)$. Ta med eventuelle konstantløsninger.",
+      "solution": "Her er $f(x)=2x$ og $g(y)=y-3$.\n\n**Konstantløsninger** ($g(y)=0$): $y-3=0\\Rightarrow y=3$. Sjekk: $y=3$ gir $y'=0$ og $2x(3-3)=0$. ✓ Så $y=3$ er en løsning.\n\n**Generell løsning** (anta $y\\neq 3$): skill de variable,\n$$\\frac{dy}{y-3}=2x\\,dx \\;\\Longrightarrow\\; \\ln|y-3| = x^2 + C_1.$$\nEksponentér: $y-3 = Ae^{x^2}$ med $A=\\pm e^{C_1}$. Altså\n$$y = 3 + Ae^{x^2}.$$\nKonstantløsningen $y=3$ svarer til $A=0$, så den er inkludert hvis vi lar $A\\in\\mathbb{R}$ være helt vilkårlig:\n$$\\boxed{\\,y = 3 + Ae^{x^2},\\quad A\\in\\mathbb{R}.\\,}$$\n**Kontroll:** $y'=A e^{x^2}\\cdot 2x = 2x\\,(y-3)$. ✓"
+    },
+    {
+      "id": "tma4110-8-1-oppg-konst",
+      "type": "exercise",
+      "exercise": {
+        "id": "tma4110-8-1-m2",
+        "number": "4",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "(Sjanger K.) Løs $y'=3x^2(y+1)$, og oppgi konstantløsningen eksplisitt.",
+        "solution": "$f(x)=3x^2$, $g(y)=y+1$.\n\n**Konstantløsning** ($g=0$): $y+1=0\\Rightarrow y=-1$. Kontroll: $y=-1$ gir $y'=0=3x^2(-1+1)$. ✓\n\n**Generell løsning** (anta $y\\neq -1$): $\\dfrac{dy}{y+1}=3x^2\\,dx\\Rightarrow \\ln|y+1|=x^3+C_1$. Eksponentér: $y+1=Ae^{x^3}$, så\n$$y=-1+Ae^{x^3},\\qquad A\\in\\mathbb{R}.$$\nKonstantløsningen $y=-1$ svarer til $A=0$. Kontroll: $y'=Ae^{x^3}\\cdot3x^2=3x^2(y+1)$. ✓",
+        "hints": [
+          "Sett $g(y)=y+1=0$ for konstantløsningen.",
+          "Del på $y+1$, integrer, og husk at $\\int 3x^2\\,dx=x^3$."
+        ]
+      }
+    },
+    {
+      "id": "tma4110-8-1-lokke4",
+      "type": "text",
+      "content": "## Løkke 4 — Initialverdiproblem (~12 min)"
+    },
+    {
+      "id": "tma4110-8-1-def-initialbetingelse",
+      "type": "definition",
+      "title": "Initialbetingelse",
+      "content": "En **initialbetingelse** er en oppgitt verdi $y(x_0)=y_0$: løsningskurven skal gå gjennom det bestemte punktet $(x_0,y_0)$. Betingelsen plukker ut *én* kurve fra den uendelige familien den generelle løsningen beskriver, ved å fastlegge integrasjonskonstanten."
+    },
+    {
+      "id": "tma4110-8-1-def-ivp",
+      "type": "definition",
+      "title": "Initialverdiproblem (IVP)",
+      "content": "Et **initialverdiproblem** er en differensiallikning sammen med en initialbetingelse:\n\n$$y'=F(x,y),\\qquad y(x_0)=y_0.$$\n\nLøsningsoppskriften: (1) finn den generelle løsningen (med konstant $C$), (2) sett inn $x=x_0,\\ y=y_0$ og løs for $C$, (3) skriv den *partikulære* løsningen med denne $C$-verdien. Sett alltid inn initialbetingelsen **etter** integrasjonen, aldri før."
+    },
+    {
+      "id": "tma4110-8-1-def-generell-partikulaer",
+      "type": "definition",
+      "title": "Generell og partikulær løsning",
+      "content": "Den **generelle løsningen** inneholder den vilkårlige konstanten $C$ og beskriver *hele* løsningsfamilien. En **partikulær løsning** er ett bestemt medlem av familien — det du får når $C$ er fastlagt, typisk av en initialbetingelse. En 1. ordens likning har alltid *én* fri konstant i den generelle løsningen."
+    },
+    {
+      "id": "tma4110-8-1-def-integrasjonskonstant",
+      "type": "definition",
+      "title": "Integrasjonskonstant",
+      "content": "Konstanten $C$ (eller $C_1$, $A$) som oppstår når du integrerer et ubestemt integral. I differensiallikninger bærer den friheten i den generelle løsningen. **Vanligste tabbe:** å glemme den, eller å sette inn initialbetingelsen før man har integrert ferdig. Én integrasjon i en 1. ordens likning gir nøyaktig én slik konstant."
+    },
+    {
+      "id": "tma4110-8-1-def-definisjonsintervall",
+      "type": "definition",
+      "title": "Definisjonsintervall",
+      "content": "Det største åpne intervallet rundt $x_0$ der den partikulære løsningen er definert og deriverbar. En løsning kan \"sprekke\" (gå mot uendelig) i et punkt; da stopper definisjonsintervallet der. Eksempel: $y=\\dfrac{2}{2-x^2}$ er udefinert i $x=\\pm\\sqrt2$, så løsningen gjennom $x_0=0$ lever bare på $(-\\sqrt2,\\ \\sqrt2)$."
+    },
+    {
+      "id": "tma4110-8-1-ex4",
+      "type": "example",
+      "title": "Eksempel 4: Initialverdiproblem med definisjonsintervall (sjanger K)",
+      "problem": "Løs initialverdiproblemet $y'=xy^2$, $y(0)=1$, og oppgi definisjonsintervallet.",
+      "solution": "Separabel med $f(x)=x$, $g(y)=y^2$.\n\n**Konstantløsning:** $g(y)=y^2=0\\Rightarrow y=0$. Men $y(0)=1\\neq0$, så denne er ikke aktuell her.\n\n**Skill de variable** (for $y\\neq0$):\n$$\\frac{dy}{y^2}=x\\,dx \\;\\Longrightarrow\\; -\\frac{1}{y} = \\frac{x^2}{2} + C.$$\n\n**Bruk initialbetingelsen** $y(0)=1$: $-\\dfrac{1}{1} = 0 + C \\Rightarrow C=-1$. Altså\n$$-\\frac{1}{y} = \\frac{x^2}{2} - 1.$$\n\n**Løs for $y$:** $\\dfrac{1}{y} = 1-\\dfrac{x^2}{2} = \\dfrac{2-x^2}{2}$, så\n$$\\boxed{\\,y = \\frac{2}{2-x^2}\\,}.$$\n\n**Definisjonsintervall:** nevneren $2-x^2$ er null i $x=\\pm\\sqrt2$. Løsningen gjennom $x_0=0$ lever på det intervallet rundt $0$ der nevneren holder seg positiv: $(-\\sqrt2,\\ \\sqrt2)$.\n\n**Kontroll:** $y=2(2-x^2)^{-1}\\Rightarrow y' = 2\\cdot(-1)(2-x^2)^{-2}\\cdot(-2x) = \\dfrac{4x}{(2-x^2)^2}$, og $xy^2 = x\\cdot\\dfrac{4}{(2-x^2)^2}$ — likt. ✓ Og $y(0)=\\frac{2}{2}=1$. ✓"
+    },
+    {
+      "id": "tma4110-8-1-oppg-ivp1",
+      "type": "exercise",
+      "exercise": {
+        "id": "tma4110-8-1-m3",
+        "number": "5",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "(Sjanger K.) Løs initialverdiproblemet $y'=2xy$, $y(0)=3$.",
+        "solution": "Fra eksempel 2 er den generelle løsningen $y=Ce^{x^2}$. Sett inn initialbetingelsen: $y(0)=Ce^0=C=3$. Altså\n$$y=3e^{x^2}.$$\nDefinisjonsintervall: hele $\\mathbb{R}$ (ingen brudd). Kontroll: $y'=3e^{x^2}\\cdot2x=2x\\,y$ og $y(0)=3$. ✓",
+        "hints": [
+          "Den generelle løsningen av $y'=2xy$ fant vi i eksempel 2: $y=Ce^{x^2}$.",
+          "Sett $x=0,\\ y=3$ og løs for $C$; husk $e^0=1$."
+        ]
+      }
+    },
+    {
+      "id": "tma4110-8-1-lokke5",
+      "type": "text",
+      "content": "## Løkke 5 — Eksistens, entydighet og vekstmodeller (~10 min)"
+    },
+    {
+      "id": "tma4110-8-1-def-eksistens-entydighet",
+      "type": "definition",
+      "title": "Eksistens- og entydighetssetningen (kjennskap)",
+      "content": "For initialverdiproblemet $y'=F(x,y)$, $y(x_0)=y_0$ gjelder: hvis $F$ og dens partielt deriverte med hensyn på $y$ er kontinuerlige i et område rundt $(x_0,y_0)$, så finnes det **nøyaktig én** løsning i et intervall rundt $x_0$. På eksamen brukes dette som *trygghet*: for de pene høyresidene vi møter, finnes det én entydig løsning — derfor gir en initialbetingelse alltid ett bestemt svar. (Kjennskap: du skal vite at setningen finnes og hva den garanterer, ikke bevise den.)"
+    },
+    {
+      "id": "tma4110-8-1-def-eksponentiell",
+      "type": "definition",
+      "title": "Eksponentiell vekst og henfall",
+      "content": "Modellen $y'=ky$ sier at endringen er *proporsjonal med mengden selv*. Den er separabel, og løsningen er\n\n$$y(t)=y_0e^{kt},$$\n\nder $y_0=y(0)$. Er $k>0$ har vi **vekst** (bakterier, rente på rente); er $k<0$ har vi **henfall** (radioaktivt henfall, avkjøling mot 0). Konstanten $k$ er den relative vekstraten: $k=\\dfrac{y'}{y}$."
+    },
+    {
+      "id": "tma4110-8-1-def-relativ-vekstrate",
+      "type": "definition",
+      "title": "Relativ vekstrate",
+      "content": "Forholdet $\\dfrac{y'}{y}$ — den *prosentvise* endringen per tidsenhet. For eksponentiell vekst $y=y_0e^{kt}$ er den relative vekstraten konstant lik $k$. Det er dette som skiller eksponentiell vekst fra lineær vekst (der det er $y'$ selv, ikke $y'/y$, som er konstant)."
+    },
+    {
+      "id": "tma4110-8-1-def-halveringstid",
+      "type": "definition",
+      "title": "Halveringstid",
+      "content": "For henfall $y=y_0e^{kt}$ (med $k<0$) er **halveringstiden** $T_{1/2}$ tiden det tar før mengden er halvert: $y(T_{1/2})=\\tfrac12 y_0$. Det gir $e^{kT_{1/2}}=\\tfrac12$, altså $T_{1/2}=\\dfrac{\\ln 2}{-k}=\\dfrac{\\ln 2}{|k|}$. Praktisk: med halveringstid $T$ er $y=y_0\\left(\\tfrac12\\right)^{t/T}$."
+    },
+    {
+      "id": "tma4110-8-1-def-doblingstid",
+      "type": "definition",
+      "title": "Doblingstid",
+      "content": "For vekst $y=y_0e^{kt}$ (med $k>0$) er **doblingstiden** $T_2$ tiden til mengden er doblet: $e^{kT_2}=2$, altså $T_2=\\dfrac{\\ln 2}{k}$. Praktisk: med doblingstid $T$ er $y=y_0\\cdot 2^{t/T}$."
+    },
+    {
+      "id": "tma4110-8-1-ex5",
+      "type": "example",
+      "title": "Eksempel 5: Vekstmodell med doblingstid (sjanger K)",
+      "problem": "En bakteriekultur vokser slik at veksten til enhver tid er proporsjonal med mengden. Ved start ($t=0$, målt i timer) er mengden $y_0$, og etter 2 timer er mengden doblet. Sett opp differensiallikningen, løs den, og skriv løsningen på formen $y=y_0\\cdot 2^{t/T}$.",
+      "solution": "**Modell:** \"veksten proporsjonal med mengden\" betyr $y'=ky$ for en konstant $k>0$.\n\n**Løs** (separabel, eller gjenkjenn eksponentiell vekst): $y=y_0e^{kt}$, med $y_0=y(0)$.\n\n**Bruk opplysningen** $y(2)=2y_0$:\n$$y_0e^{2k}=2y_0 \\;\\Longrightarrow\\; e^{2k}=2 \\;\\Longrightarrow\\; k=\\frac{\\ln 2}{2}.$$\n\n**Skriv om:** $y=y_0e^{(\\ln 2)t/2}=y_0\\big(e^{\\ln 2}\\big)^{t/2}=y_0\\cdot 2^{t/2}$. Doblingstiden er altså $T=2$ timer:\n$$\\boxed{\\,y=y_0\\cdot 2^{t/2}\\,}.$$\n**Kontroll:** $y(0)=y_0$ og $y(2)=y_0\\cdot 2^{1}=2y_0$. ✓ Svaret er eksakt — ingen desimaltilnærming av $\\ln 2$."
+    },
+    {
+      "id": "tma4110-8-1-oppg-modell",
+      "type": "exercise",
+      "exercise": {
+        "id": "tma4110-8-1-v1",
+        "number": "6",
+        "type": "classic",
+        "difficulty": "vanskelig",
+        "task": "(Sjanger K — modell.) Et radioaktivt stoff henfaller slik at endringen er proporsjonal med mengden, med halveringstid $8$ dager. En prøve inneholder $y_0$ gram ved $t=0$.\n\n**a)** Skriv $y(t)$ på formen $y_0\\left(\\tfrac12\\right)^{t/T}$.\n\n**b)** Hvor stor andel av stoffet er igjen etter $24$ dager?",
+        "solution": "Modellen er $y'=ky$ med $k<0$; løsningen er $y=y_0e^{kt}$.\n\n**a)** Halveringstid $8$ betyr $y(8)=\\tfrac12 y_0$, altså $e^{8k}=\\tfrac12$, så $k=\\dfrac{\\ln(1/2)}{8}=-\\dfrac{\\ln 2}{8}$. Da er\n$$y=y_0e^{-(\\ln 2)t/8}=y_0\\left(\\tfrac12\\right)^{t/8}.$$\n\n**b)** Etter $24=3\\cdot8$ dager er $y=y_0\\left(\\tfrac12\\right)^{3}=\\dfrac{y_0}{8}$. Andelen igjen er $\\dfrac{1}{8}$ (tre halveringer). Eksakt svar: $\\tfrac18$.",
+        "hints": [
+          "Sett opp $y'=ky$ og bruk $y=y_0e^{kt}$.",
+          "Halveringstid: $y(8)=\\tfrac12 y_0$ gir $k=-\\tfrac{\\ln 2}{8}$.",
+          "$24$ dager er tre halveringstider — tell halveringer i stedet for å regne med desimaler."
+        ]
+      }
+    },
+    {
+      "id": "tma4110-8-1-warn-typiske-feil",
+      "type": "warning",
+      "title": "Typiske feil",
+      "content": "- **Glemmer integrasjonskonstanten.** Uten $C$ mister du hele løsningsfamilien — og kan ikke oppfylle en initialbetingelse. Én integrasjon = én konstant.\n- **Glemmer konstantløsningene $g(y)=0$.** Når du deler på $g(y)$, faller løsningen(e) $y=c$ med $g(c)=0$ ut. Hent dem inn igjen til slutt.\n- **Deler på $g(y)$ uten å nevne $g(y)=0$-tilfellet.** Sensor vil se at du er klar over at delingen forutsetter $g(y)\\neq0$.\n- **Setter inn initialbetingelsen for tidlig.** Integrer først, bestem så $C$. Setter du inn før integrasjonen, mister du konstanten.\n- **Desimalsvar.** Under kode E er det ingen kalkulator; la $\\ln 2$, $\\sqrt2$, $e$ stå eksakt. Et desimaltall signaliserer regnefeil.\n- **Fortegnsfeil i $\\ln|y|$.** Etter integrasjon av $\\frac{dy}{y}$ får du $\\ln|y|$; hold styr på absoluttverdien til du eksponentiell og samler fortegnet i konstanten."
+    },
+    {
+      "id": "tma4110-8-1-drill-tekst",
+      "type": "text",
+      "content": "## Eksamensdrill — blandede separable likninger\n\nUnder følger flere oppgaver i stigende vanskegrad. Alle løses med samme fem-stegs oppskrift; gjenta til grepet sitter uten å tenke."
+    },
+    {
+      "id": "tma4110-8-1-oppg-d1",
+      "type": "exercise",
+      "exercise": {
+        "id": "tma4110-8-1-d1",
+        "number": "7",
+        "type": "classic",
+        "difficulty": "lett",
+        "task": "(Sjanger K.) Løs $y'=3x^2y$ (generell løsning).",
+        "solution": "Separabel: $\\dfrac{dy}{y}=3x^2\\,dx$. Integrer: $\\ln|y|=x^3+C_1$. Eksponentér: $y=Ce^{x^3}$, $C\\in\\mathbb{R}$ (konstantløsningen $y=0$ svarer til $C=0$). Kontroll: $y'=Ce^{x^3}\\cdot3x^2=3x^2y$. ✓",
+        "hints": [
+          "$f(x)=3x^2$, $g(y)=y$.",
+          "$\\int 3x^2\\,dx=x^3$."
+        ]
+      }
+    },
+    {
+      "id": "tma4110-8-1-oppg-d2",
+      "type": "exercise",
+      "exercise": {
+        "id": "tma4110-8-1-d2",
+        "number": "8",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "(Sjanger K.) Løs initialverdiproblemet $y'=y^2$, $y(0)=1$, og oppgi definisjonsintervallet.",
+        "solution": "Separabel med $g(y)=y^2$ (konstantløsning $y=0$, ikke aktuell siden $y(0)=1$). Skill: $\\dfrac{dy}{y^2}=dx\\Rightarrow -\\dfrac{1}{y}=x+C$. Initialbetingelse $y(0)=1$: $-1=0+C\\Rightarrow C=-1$, så $-\\dfrac1y=x-1$, altså\n$$y=\\frac{1}{1-x}.$$\nDefinisjonsintervall: nevneren $1-x=0$ i $x=1$, så løsningen gjennom $x_0=0$ lever på $(-\\infty,\\ 1)$. Kontroll: $y'=\\dfrac{1}{(1-x)^2}=y^2$ og $y(0)=1$. ✓",
+        "hints": [
+          "$\\int \\frac{dy}{y^2}=-\\frac1y$.",
+          "Bestem $C$ fra $y(0)=1$ etter integrasjonen.",
+          "Definisjonsintervallet stopper der nevneren blir null."
+        ]
+      }
+    },
+    {
+      "id": "tma4110-8-1-oppg-d3",
+      "type": "exercise",
+      "exercise": {
+        "id": "tma4110-8-1-d3",
+        "number": "9",
+        "type": "classic",
+        "difficulty": "vanskelig",
+        "task": "(Sjanger K — krevende.) Betrakt $y'=x(y-2)(y+1)$.\n\n**a)** Finn alle konstantløsninger.\n\n**b)** Avgjør, uten å løse likningen fullstendig, om løsningen med $y(0)=\\tfrac12$ kan krysse linjen $y=2$. Begrunn med entydighetssetningen.",
+        "solution": "**a)** Konstantløsninger fra $g(y)=(y-2)(y+1)=0$: $y=2$ og $y=-1$. Kontroll: begge gir $y'=0$ og høyresida $=0$. ✓\n\n**b)** Nei. Høyresida $F(x,y)=x(y-2)(y+1)$ og $\\partial F/\\partial y$ er kontinuerlige overalt, så eksistens- og entydighetssetningen gjelder. $y\\equiv2$ er allerede en (konstant) løsning. Hvis løsningen med $y(0)=\\tfrac12$ berørte linjen $y=2$ i et punkt, ville to forskjellige løsninger gå gjennom samme punkt — i strid med entydighet. Derfor kan løsningen som starter i $(0,\\tfrac12)$ (mellom $-1$ og $2$) aldri krysse $y=2$; den er fanget i stripen $-1<y<2$.",
+        "hints": [
+          "Konstantløsninger: sett hver faktor i $g(y)$ lik null.",
+          "To løsninger kan aldri møtes i ett punkt hvis entydighetssetningen gjelder.",
+          "Konstantløsningene $y=2$ og $y=-1$ virker som 'vegger' løsningen ikke kan passere."
+        ]
+      }
+    },
+    {
+      "id": "tma4110-8-1-begrepsbank-tekst",
+      "type": "text",
+      "content": "## Begrepsbank til eksamen\n\nKjernebegrepene fra kapitlet i kortform, klare for repetisjon.\n\n*Begrepsbanken er flashcard-/repetisjonsstoff — hopp trygt over ved førstegangslesing; tidsanslaget for kapitlet gjelder kjernestoffet.*"
+    },
+    {
+      "id": "tma4110-8-1-bb-implisitt",
+      "type": "definition",
+      "title": "Implisitt løsning",
+      "content": "En løsning der $y$ ikke er skilt ut alene, men bundet i en likning som $\\ln|y-3|=x^2+C_1$ eller $\\arctan y = x^3+C$. Er det umulig eller upraktisk å løse for $y$, er en **implisitt** løsning et fullgodt svar — men på eksamen løses for $y$ (eksplisitt form) når det lar seg gjøre."
+    },
+    {
+      "id": "tma4110-8-1-bb-eksplisitt",
+      "type": "definition",
+      "title": "Eksplisitt løsning",
+      "content": "En løsning på formen $y=(\\text{uttrykk i }x)$, altså der $y$ er skilt ut alene, som $y=Ce^{x^2}$ eller $y=\\dfrac{2}{2-x^2}$. Foretrekkes når oppgaven ber om \"løs for $y$\" eller et definisjonsintervall skal bestemmes."
+    },
+    {
+      "id": "tma4110-8-1-bb-losningsfamilie",
+      "type": "definition",
+      "title": "Løsningsfamilie",
+      "content": "Mengden av *alle* løsninger, beskrevet av den generelle løsningen med den frie konstanten. En 1. ordens likning har en én-parameter familie (én konstant $C$): geometrisk en kurveskare som fyller planet, der akkurat én kurve går gjennom hvert punkt (der entydighetssetningen gjelder)."
+    },
+    {
+      "id": "tma4110-8-1-rep",
+      "type": "collapsible",
+      "title": "Repetisjonsoppgaver",
+      "buttonText": "Vis repetisjonsoppgaver",
+      "content": [
+        {
+          "id": "tma4110-8-1-oppg-R1",
+          "type": "exercise",
+          "exercise": {
+            "id": "tma4110-8-1-rep-1",
+            "number": "R1",
+            "type": "classic",
+            "difficulty": "lett",
+            "task": "(Integrasjon — forkunnskap.) Regn ut $\\int 2x\\,dx$ og $\\int \\dfrac{dy}{y}$.",
+            "solution": "$\\int 2x\\,dx = x^2 + C$ og $\\int \\dfrac{dy}{y} = \\ln|y| + C$. Disse to er akkurat integralene som dukker opp når du løser $y'=2xy$.",
+            "hints": [
+              "Potensregelen for $\\int 2x\\,dx$; standardintegralet for $\\int dy/y$."
+            ]
+          }
+        },
+        {
+          "id": "tma4110-8-1-oppg-R2",
+          "type": "exercise",
+          "exercise": {
+            "id": "tma4110-8-1-rep-2",
+            "number": "R2",
+            "type": "classic",
+            "difficulty": "lett",
+            "task": "(Separabel — VGS-nivå.) Løs $y'=y$ med $y(0)=5$.",
+            "solution": "Separabel: $\\dfrac{dy}{y}=dx\\Rightarrow \\ln|y|=x+C_1\\Rightarrow y=Ce^{x}$. Initialbetingelse: $y(0)=C=5$, så $y=5e^{x}$. Kontroll: $y'=5e^x=y$ og $y(0)=5$. ✓",
+            "hints": [
+              "Standard eksponentiell vekst: $y'=y$ gir $y=Ce^x$."
+            ]
+          }
+        },
+        {
+          "id": "tma4110-8-1-oppg-R3",
+          "type": "exercise",
+          "exercise": {
+            "id": "tma4110-8-1-rep-3",
+            "number": "R3",
+            "type": "classic",
+            "difficulty": "middels",
+            "task": "(Kjerneregelen — forkunnskap.) Deriver $y=e^{\\sin x}$ og $y=\\tan(x^3+C)$.",
+            "solution": "$\\dfrac{d}{dx}e^{\\sin x}=e^{\\sin x}\\cos x$. $\\dfrac{d}{dx}\\tan(x^3+C)=\\sec^2(x^3+C)\\cdot 3x^2$. Begge er kontroller du gjør når du verifiserer separable løsninger.",
+            "hints": [
+              "Kjerneregelen: ytre derivert gange indre derivert."
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": "tma4110-8-1-symbolliste",
+      "type": "collapsible",
+      "title": "Symbol- og formelliste",
+      "buttonText": "Vis symboler og formler",
+      "content": [
+        {
+          "id": "tma4110-8-1-symbolliste-text",
+          "type": "text",
+          "content": "## Symbol- og formelliste\n\n*Oppslagsverk — alt her forklares underveis i kapitlet.*\n\nAlle symboler og formler i delkapittel 8.1, samlet.\n\n| Symbol | Betydning |\n|---|---|\n| $y=y(x)$ | Den ukjente funksjonen vi løser for |\n| $y'=\\dfrac{dy}{dx}$ | Den deriverte — endringsraten |\n| $F(x,y)$ | Høyresida i $y'=F(x,y)$ (stigningstallet i punktet) |\n| $f(x),\\ g(y)$ | Faktorene i en separabel likning $y'=f(x)g(y)$ |\n| $C,\\ C_1,\\ A$ | Integrasjonskonstant / fri konstant |\n| $y(x_0)=y_0$ | Initialbetingelse (kurven går gjennom $(x_0,y_0)$) |\n| $T_{1/2}$ | Halveringstid |\n| $T_2,\\ T$ | Doblingstid |\n| $k$ | Relativ vekstrate i $y'=ky$ |\n| $\\ln,\\ e^{(\\cdot)}$ | Naturlig logaritme og eksponentialfunksjon (invers av hverandre) |\n\n**Formler i dette delkapitlet:**\n\n$$y'=f(x)g(y)$$\nSeparabel form: høyresida faktoriserer i én $x$-del og én $y$-del.\n\n$$\\frac{dy}{g(y)}=f(x)\\,dx$$\nSkille de variable — klar for integrasjon på hver side.\n\n$$g(y)=0$$\nGir konstantløsningene $y=c$ (hent dem inn til slutt).\n\n$$y'=ky\\ \\Longrightarrow\\ y=y_0e^{kt}$$\nEksponentiell vekst ($k>0$) / henfall ($k<0$).\n\n$$T_{1/2}=\\frac{\\ln 2}{|k|},\\qquad T_2=\\frac{\\ln 2}{k}$$\nHalverings- og doblingstid.\n\n$$y=y_0\\left(\\tfrac12\\right)^{t/T_{1/2}}=y_0\\,2^{\\,t/T_2}$$\nPraktisk potensform for henfall / vekst."
+        }
+      ]
+    }
+  ],
+  "exercises": []
+}

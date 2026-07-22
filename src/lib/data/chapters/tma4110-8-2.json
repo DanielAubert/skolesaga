@@ -1,0 +1,461 @@
+{
+  "id": "tma4110-8-2",
+  "courseId": "tma4110",
+  "chapterNumber": "8.2",
+  "title": "Lineære 1. ordens differensiallikninger og integrerende faktor",
+  "description": "Lineære første ordens likninger y'+p(x)y=q(x) løst med integrerende faktor μ=e^{∫p dx}, generell løsning som homogen pluss partikulær (y=y_h+y_p), initialverdiproblem, og modeller: Newtons avkjølingslov, blandingstank og RL-krets.",
+  "estimatedMinutes": 55,
+  "competenceGoals": [
+    "skrive en lineær 1. ordens likning på standardform y'+p(x)y=q(x) og lese av p og q",
+    "løse lineære 1. ordens likninger med integrerende faktor μ=e^{∫p dx} og gi eksakte svar",
+    "identifisere strukturen y=y_h+y_p og bruke initialbetingelser til å bestemme konstanten",
+    "sette opp og løse modeller for avkjøling (Newton) og blanding med riktig enhetskontroll"
+  ],
+  "content": [
+    {
+      "id": "tma4110-8-2-tip-eksamensvinkel",
+      "type": "tip",
+      "title": "Eksamensvinkel",
+      "content": "**Prioritet: kunne (fast metode — dukker gjerne opp som deloppgave).**\n\nDen lineære 1. ordens likningen har én oppskrift som *alltid* virker: gang med **integrerende faktor**. På TMA4110-eksamen er dette *sjanger K* (løs en 1. ordens differensiallikning) i den lineære varianten. Den er sjelden en hel tung oppgave alene, men er en fast byggekloss: den forekommer som deloppgave, som modelloppgave (avkjøling, blanding, kretser), og strukturen $y=y_h+y_p$ (homogen pluss partikulær) er *broen* til 2. ordens likninger i Del 9.\n\nFasitens grep, som må sitte utenat under kode E: **skriv på standardform $y'+p(x)y=q(x)$, regn ut $\\mu=e^{\\int p\\,dx}$, gjenkjenn venstresida som $(\\mu y)'$, integrer, og del på $\\mu$.** Sensor krever begrunnelse for hvert ledd og eksakt svar.\n\nFår du metoden til å sitte her, låser du opp både modelloppgavene og strukturen 2. ordens-teorien hviler på."
+    },
+    {
+      "id": "tma4110-8-2-forkunnskaper",
+      "type": "text",
+      "content": "**Sist du var her (kap. 8.1).** Du kan nå løse en **separabel** likning: skill de variable, integrer, løs for $y$, sjekk konstantløsninger. Nøkkelgrepene du tar med deg:\n\n$$\\int \\frac{dy}{y}=\\ln|y|+C,\\qquad y'=ky\\ \\Rightarrow\\ y=y_0e^{kt}.$$\n\n**Forkunnskaper.** Du trenger integrasjon — særlig **delvis integrasjon** for integraler som $\\int xe^{x}\\,dx$ — og produktregelen for derivasjon, som er selve motoren i den integrerende faktoren. Frisk opp med [Ubestemt integral (R2)](/bok/r2/r2-2-2) ved behov. Lineære 1. ordens likninger møtte du på VGS i [Lineære differensiallikninger (S2)](/bok/s2/s2-2-3); her generaliserer vi til variabel koeffisient $p(x)$ og strammer til på begrunnelse og eksakte svar. Bygger direkte på [kap. 8.1](/bok/tma4110/tma4110-8-1)."
+    },
+    {
+      "id": "tma4110-8-2-intro",
+      "type": "text",
+      "content": "Ikke alle 1. ordens likninger er separable. $y'+2y=e^{-x}$ lar seg ikke skille i en ren $x$-del og en ren $y$-del. Men den har en annen, like sikker struktur: den er **lineær** i $y$ og $y'$. For slike finnes ett universalgrep — den **integrerende faktoren** — som gjør venstresida om til den deriverte av et produkt, slik at vi bare trenger å integrere én gang.\n\nIdeen er å gange hele likningen med en smart valgt funksjon $\\mu(x)$ slik at venstresida blir nøyaktig $(\\mu y)'$. Da sier likningen $(\\mu y)'=\\mu q$, og vi integrerer begge sider.\n\nKapitlet er fire **læringsløkker** (teori → eksempel → oppgave): (1) standardform og hva lineær betyr, (2) den integrerende faktoren og metoden, (3) initialverdiproblem og strukturen $y=y_h+y_p$, og (4) modeller: avkjøling og blanding. Regn med rundt 55 minutter."
+    },
+    {
+      "id": "tma4110-8-2-lokke1",
+      "type": "text",
+      "content": "## Løkke 1 — Standardform: hva betyr lineær? (~10 min)"
+    },
+    {
+      "id": "tma4110-8-2-def-lineaer",
+      "type": "definition",
+      "title": "Lineær differensiallikning av 1. orden",
+      "content": "En likning der $y$ og $y'$ bare opptrer i **første potens** og ikke ganges med hverandre. Den kan alltid ordnes til **standardformen**\n\n$$y'+p(x)\\,y=q(x),$$\n\nder $p$ og $q$ er kjente funksjoner av $x$ alene. \"Lineær\" viser til at venstresida er en lineær kombinasjon av $y$ og $y'$. Eksempel: $y'+2y=e^{-x}$ ($p=2$, $q=e^{-x}$). Til motsetning er $y'=xy^2$ *ikke* lineær (leddet $y^2$)."
+    },
+    {
+      "id": "tma4110-8-2-def-standardform",
+      "type": "definition",
+      "title": "Standardform",
+      "content": "Formen $y'+p(x)y=q(x)$ med koeffisienten **1 foran $y'$**. Det er avgjørende å få $y'$ alene med koeffisient 1 *før* du leser av $p(x)$ — ellers blir den integrerende faktoren feil. Har du f.eks. $2y'+4y=6$, del først på 2: $y'+2y=3$, så er $p=2$."
+    },
+    {
+      "id": "tma4110-8-2-def-homogen",
+      "type": "definition",
+      "title": "Homogen lineær likning",
+      "content": "Den lineære likningen med $q(x)=0$: $y'+p(x)y=0$. Den er samtidig **separabel**, og har løsningen\n\n$$y_h=Ce^{-\\int p(x)\\,dx}.$$\n\nDenne kalles den **homogene løsningen** $y_h$ og bærer den frie konstanten $C$. (Merk: \"homogen\" betyr her *høyresida er null* — ikke det samme som homogen brukt om vekstlikninger.)"
+    },
+    {
+      "id": "tma4110-8-2-def-inhomogen",
+      "type": "definition",
+      "title": "Inhomogen lineær likning",
+      "content": "Den lineære likningen med $q(x)\\neq0$: $y'+p(x)y=q(x)$. Høyresida $q(x)$ kalles **kildeleddet** eller pådraget. Den generelle løsningen er da homogen pluss en partikulær løsning, $y=y_h+y_p$ — strukturen vi bygger videre på i Del 9."
+    },
+    {
+      "id": "tma4110-8-2-ex1",
+      "type": "example",
+      "title": "Eksempel 1: Bring på standardform og les av p og q",
+      "problem": "Skriv $2y'+4y=6$ og $xy'+y=x^2$ (for $x>0$) på standardform, og oppgi $p(x)$ og $q(x)$.",
+      "solution": "**$2y'+4y=6$:** del på 2 (koeffisient 1 foran $y'$):\n$$y'+2y=3,\\qquad p(x)=2,\\quad q(x)=3.$$\n\n**$xy'+y=x^2$:** del på $x$ (lov siden $x>0$):\n$$y'+\\frac{1}{x}\\,y=x,\\qquad p(x)=\\frac{1}{x},\\quad q(x)=x.$$\n\nPoenget: $p(x)$ er det som står foran $y$ **etter** at $y'$ har koeffisient 1. Leser du av $p$ før du har delt, blir alt etterpå galt."
+    },
+    {
+      "id": "tma4110-8-2-oppg-std",
+      "type": "exercise",
+      "exercise": {
+        "id": "tma4110-8-2-l1",
+        "number": "1",
+        "type": "classic",
+        "difficulty": "lett",
+        "task": "(Innstegsoppgave.) Skriv $3y'-9y=12$ på standardform og oppgi $p(x)$ og $q(x)$.",
+        "solution": "Del på 3: $y'-3y=4$. Da er $p(x)=-3$ og $q(x)=4$. (Fortegnet på $p$ er negativt her — pass på det når du senere regner $\\mu=e^{\\int p\\,dx}$.)",
+        "hints": [
+          "Del hele likningen slik at $y'$ får koeffisient 1.",
+          "$p$ er tallet foran $y$, med fortegn."
+        ]
+      }
+    },
+    {
+      "id": "tma4110-8-2-lokke2",
+      "type": "text",
+      "content": "## Løkke 2 — Integrerende faktor og metoden (~18 min)"
+    },
+    {
+      "id": "tma4110-8-2-def-integrerende-faktor",
+      "type": "definition",
+      "title": "Integrerende faktor",
+      "content": "Funksjonen\n\n$$\\mu(x)=e^{\\int p(x)\\,dx}$$\n\nsom vi ganger hele standardformen med. Den er valgt akkurat slik at venstresida $\\mu y'+\\mu p y$ blir den deriverte av produktet $\\mu y$. (Ved integralet $\\int p\\,dx$ trenger vi ingen konstant — enhver antiderivert virker.) Under kode E skal denne formelen sitte utenat."
+    },
+    {
+      "id": "tma4110-8-2-def-produktregel-bakover",
+      "type": "definition",
+      "title": "Produktregelen baklengs: (μy)′=μq",
+      "content": "Kjernen i metoden. Produktregelen gir $(\\mu y)'=\\mu y'+\\mu' y$. Fordi $\\mu=e^{\\int p\\,dx}$ er $\\mu'=\\mu\\,p$, så\n\n$$(\\mu y)'=\\mu y'+\\mu p\\,y=\\mu\\big(y'+py\\big)=\\mu q.$$\n\nDermed forvandles hele venstresida til én derivert, $(\\mu y)'$, og likningen blir $(\\mu y)'=\\mu q$ — klar til integrasjon."
+    },
+    {
+      "id": "tma4110-8-2-def-losningsformel",
+      "type": "definition",
+      "title": "Løsningsformelen",
+      "content": "Integrerer vi $(\\mu y)'=\\mu q$ får vi $\\mu y=\\int \\mu q\\,dx + C$, altså\n\n$$y=\\frac{1}{\\mu}\\left(\\int \\mu(x)\\,q(x)\\,dx + C\\right).$$\n\nDel **hele** høyresida (også $C$) på $\\mu$ — en vanlig tabbe er å glemme å dele $C$-leddet. I praksis er det tryggere å huske stegene ($\\mu$, $(\\mu y)'=\\mu q$, integrer, del) enn å pugge formelen som helhet."
+    },
+    {
+      "id": "tma4110-8-2-def-metoden",
+      "type": "definition",
+      "title": "Metoden steg for steg",
+      "content": "For $y'+p(x)y=q(x)$:\n\n1. **Standardform** (koeffisient 1 foran $y'$); les av $p$ og $q$.\n2. **Regn $\\mu=e^{\\int p\\,dx}$** (ingen konstant nødvendig).\n3. **Gang likningen med $\\mu$**; venstresida er nå $(\\mu y)'$.\n4. **Integrer:** $\\mu y=\\int \\mu q\\,dx + C$.\n5. **Del på $\\mu$** for å få $y$; bruk evt. initialbetingelsen til å finne $C$."
+    },
+    {
+      "id": "tma4110-8-2-ex2",
+      "type": "example",
+      "title": "Eksempel 2: Konstant koeffisient (sjanger K)",
+      "problem": "Finn den generelle løsningen av $y'+2y=6$.",
+      "solution": "Standardform er allerede på plass: $p(x)=2$, $q(x)=6$.\n\n**Integrerende faktor:** $\\mu=e^{\\int 2\\,dx}=e^{2x}$.\n\n**Gang med $\\mu$:** $e^{2x}y'+2e^{2x}y=6e^{2x}$, det vil si\n$$\\big(e^{2x}y\\big)'=6e^{2x}.$$\n\n**Integrer:** $e^{2x}y=\\int 6e^{2x}\\,dx=3e^{2x}+C.$\n\n**Del på $\\mu=e^{2x}$:**\n$$\\boxed{\\,y=3+Ce^{-2x}\\,}.$$\n\nLegg merke til strukturen: $y_p=3$ (en konstant partikulærløsning — likevektsverdien) pluss $y_h=Ce^{-2x}$ (den homogene løsningen som dør ut når $x\\to\\infty$). **Kontroll:** $y'=-2Ce^{-2x}$ og $y'+2y=-2Ce^{-2x}+2(3+Ce^{-2x})=6$. ✓"
+    },
+    {
+      "id": "tma4110-8-2-oppg-if1",
+      "type": "exercise",
+      "exercise": {
+        "id": "tma4110-8-2-l2",
+        "number": "2",
+        "type": "classic",
+        "difficulty": "lett",
+        "task": "(Sjanger K.) Løs $y'+2xy=x$ med integrerende faktor.",
+        "solution": "$p(x)=2x$, $q(x)=x$. Integrerende faktor: $\\mu=e^{\\int 2x\\,dx}=e^{x^2}$.\n\nGang med $\\mu$: $\\big(e^{x^2}y\\big)'=x e^{x^2}$. Integrer (substitusjon $u=x^2$): $e^{x^2}y=\\tfrac12 e^{x^2}+C$. Del på $e^{x^2}$:\n$$y=\\tfrac12+Ce^{-x^2}.$$\nKontroll: $y'=-2xCe^{-x^2}$, og $y'+2xy=-2xCe^{-x^2}+2x(\\tfrac12+Ce^{-x^2})=x$. ✓",
+        "hints": [
+          "$\\mu=e^{\\int 2x\\,dx}=e^{x^2}$.",
+          "$\\int xe^{x^2}\\,dx=\\tfrac12 e^{x^2}$ (substitusjon $u=x^2$).",
+          "Del hele høyresida på $\\mu$, også konstanten."
+        ]
+      }
+    },
+    {
+      "id": "tma4110-8-2-ex3",
+      "type": "example",
+      "title": "Eksempel 3: Variabel koeffisient (sjanger K)",
+      "problem": "Løs $y'+\\dfrac{1}{x}y=x$ for $x>0$.",
+      "solution": "$p(x)=\\dfrac1x$, $q(x)=x$.\n\n**Integrerende faktor:** $\\mu=e^{\\int (1/x)\\,dx}=e^{\\ln x}=x$ (siden $x>0$).\n\n**Gang med $\\mu=x$:** $xy'+y=x^2$, altså $(xy)'=x^2$.\n\n**Integrer:** $xy=\\dfrac{x^3}{3}+C$.\n\n**Del på $x$:**\n$$\\boxed{\\,y=\\frac{x^2}{3}+\\frac{C}{x}\\,}.$$\n\n**Kontroll:** $y'=\\dfrac{2x}{3}-\\dfrac{C}{x^2}$, og $y'+\\dfrac1x y=\\dfrac{2x}{3}-\\dfrac{C}{x^2}+\\dfrac{x}{3}+\\dfrac{C}{x^2}=x$. ✓ Her ser du hvorfor $\\int p\\,dx$ ikke trenger konstant: en ekstra konstant $c$ ville gitt $\\mu=e^{c}x$, og $e^c$ forkorter bort."
+    },
+    {
+      "id": "tma4110-8-2-oppg-if2",
+      "type": "exercise",
+      "exercise": {
+        "id": "tma4110-8-2-m1",
+        "number": "3",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "(Sjanger K.) Løs $y'-y=x$ med integrerende faktor. (Hint: du trenger delvis integrasjon.)",
+        "solution": "$p(x)=-1$, $q(x)=x$. $\\mu=e^{\\int(-1)\\,dx}=e^{-x}$.\n\nGang med $\\mu$: $(e^{-x}y)'=xe^{-x}$. Integrer med delvis integrasjon: $\\int xe^{-x}\\,dx=-xe^{-x}-e^{-x}+C$ (velg $u=x$, $dv=e^{-x}dx$). Altså $e^{-x}y=-xe^{-x}-e^{-x}+C$. Del på $e^{-x}$:\n$$y=-x-1+Ce^{x}.$$\nKontroll: $y'=-1+Ce^{x}$, og $y'-y=-1+Ce^x-(-x-1+Ce^x)=x$. ✓",
+        "hints": [
+          "$p=-1$ gir $\\mu=e^{-x}$ (pass fortegnet).",
+          "$\\int xe^{-x}\\,dx$: delvis integrasjon med $u=x$, $dv=e^{-x}dx$.",
+          "Del hele høyresida på $e^{-x}$."
+        ]
+      }
+    },
+    {
+      "id": "tma4110-8-2-lokke3",
+      "type": "text",
+      "content": "## Løkke 3 — Initialverdi og strukturen y = y_h + y_p (~12 min)"
+    },
+    {
+      "id": "tma4110-8-2-def-yh",
+      "type": "definition",
+      "title": "Homogen løsning y_h",
+      "content": "Løsningen av den tilhørende homogene likningen $y'+p(x)y=0$: $y_h=Ce^{-\\int p\\,dx}$. Den bærer den frie konstanten og oppfyller ingen initialbetingelse i seg selv. For konstant $p>0$ dør $y_h=Ce^{-px}$ ut når $x\\to\\infty$ — derav navnet **transient** (forbigående) ledd i modeller."
+    },
+    {
+      "id": "tma4110-8-2-def-yp",
+      "type": "definition",
+      "title": "Partikulær løsning y_p",
+      "content": "*Én* bestemt løsning av den fulle likningen $y'+py=q$, uten fri konstant. Du finner den som resten av $\\dfrac1\\mu\\int\\mu q\\,dx$ etter at det konstant-ganger-$\\tfrac1\\mu$-leddet er skilt ut som $y_h$. For konstant $p$ og konstant $q$ er $y_p=q/p$ (likevektsverdien). Den representerer systemets *drevne* svar på kildeleddet $q$."
+    },
+    {
+      "id": "tma4110-8-2-def-struktur",
+      "type": "definition",
+      "title": "Strukturen y = y_h + y_p",
+      "content": "Den generelle løsningen av en lineær 1. ordens likning er alltid summen av den homogene løsningen (med fri konstant) og *én* partikulær løsning:\n\n$$y=y_h+y_p.$$\n\nDette er **superposisjonsstrukturen**, og den er broen til Del 9: også for 2. ordens lineære likninger er den generelle løsningen $y_h+y_p$, bare med to frie konstanter i $y_h$ i stedet for én."
+    },
+    {
+      "id": "tma4110-8-2-def-ivp",
+      "type": "definition",
+      "title": "Initialverdiproblem (lineær)",
+      "content": "En lineær likning med en initialbetingelse $y(x_0)=y_0$. Fremgangsmåte: finn den generelle løsningen $y=y_h+y_p$ (med konstant $C$) **først**, sett så inn $x_0,y_0$ og løs for $C$. Fordi $p,q$ pene funksjoner gir eksistens- og entydighet (kap. 8.1), har problemet nøyaktig én løsning."
+    },
+    {
+      "id": "tma4110-8-2-ex4",
+      "type": "example",
+      "title": "Eksempel 4: Fullt initialverdiproblem (sjanger K)",
+      "problem": "Løs $y'+2y=e^{-x}$ med $y(0)=3$.",
+      "solution": "$p=2$, $q=e^{-x}$. **Integrerende faktor:** $\\mu=e^{2x}$.\n\n**Gang med $\\mu$:** $(e^{2x}y)'=e^{2x}e^{-x}=e^{x}$.\n\n**Integrer:** $e^{2x}y=e^{x}+C$.\n\n**Del på $\\mu$:** $y=e^{-x}+Ce^{-2x}$. Her er $y_p=e^{-x}$ (drevet av kildeleddet) og $y_h=Ce^{-2x}$.\n\n**Initialbetingelse** $y(0)=3$: $e^{0}+Ce^{0}=1+C=3\\Rightarrow C=2$. Altså\n$$\\boxed{\\,y=e^{-x}+2e^{-2x}\\,}.$$\n\n**Kontroll:** $y'=-e^{-x}-4e^{-2x}$, og $y'+2y=-e^{-x}-4e^{-2x}+2e^{-x}+4e^{-2x}=e^{-x}$. ✓ Og $y(0)=1+2=3$. ✓"
+    },
+    {
+      "id": "tma4110-8-2-oppg-ivp1",
+      "type": "exercise",
+      "exercise": {
+        "id": "tma4110-8-2-m2",
+        "number": "4",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "(Sjanger K.) Løs initialverdiproblemet $y'+y=e^{x}$, $y(0)=1$. Identifiser $y_h$ og $y_p$.",
+        "solution": "$p=1$, $q=e^x$. $\\mu=e^{x}$. Gang med $\\mu$: $(e^{x}y)'=e^{x}\\cdot e^{x}=e^{2x}$. Integrer: $e^{x}y=\\tfrac12 e^{2x}+C$. Del på $e^x$:\n$$y=\\tfrac12 e^{x}+Ce^{-x}.$$\nHer er $y_p=\\tfrac12 e^{x}$ og $y_h=Ce^{-x}$. Initialbetingelse $y(0)=1$: $\\tfrac12+C=1\\Rightarrow C=\\tfrac12$. Altså $y=\\tfrac12 e^{x}+\\tfrac12 e^{-x}$ (som er $\\cosh x$). Kontroll: $y'=\\tfrac12 e^x-\\tfrac12 e^{-x}$, $y'+y=e^{x}$ ✓, $y(0)=1$ ✓.",
+        "hints": [
+          "$\\mu=e^{x}$; venstresida blir $(e^x y)'$.",
+          "$e^x\\cdot e^x=e^{2x}$, og $\\int e^{2x}dx=\\tfrac12 e^{2x}$.",
+          "$y_h$ er $C$-leddet; $y_p$ er resten."
+        ]
+      }
+    },
+    {
+      "id": "tma4110-8-2-lokke4",
+      "type": "text",
+      "content": "## Løkke 4 — Modeller: avkjøling og blanding (~13 min)"
+    },
+    {
+      "id": "tma4110-8-2-def-newton",
+      "type": "definition",
+      "title": "Newtons avkjølingslov",
+      "content": "Et legemes temperatur $T(t)$ endrer seg proporsjonalt med forskjellen fra omgivelsestemperaturen $T_m$:\n\n$$T'=-k\\,(T-T_m),\\qquad k>0.$$\n\nSubstitusjonen $u=T-T_m$ gir $u'=-ku$, altså eksponentielt henfall $u=u_0e^{-kt}$, så $T=T_m+(T_0-T_m)e^{-kt}$. Temperaturen nærmer seg omgivelsene når $t\\to\\infty$. Likningen er både lineær ($T'+kT=kT_m$) og separabel."
+    },
+    {
+      "id": "tma4110-8-2-def-likevektstemperatur",
+      "type": "definition",
+      "title": "Likevektstemperatur (stasjonær løsning)",
+      "content": "Verdien temperaturen nærmer seg: omgivelsestemperaturen $T_m$. Den er den **partikulære** (konstante) løsningen $T_p=T_m$, og leddet $(T_0-T_m)e^{-kt}$ er den transiente homogene delen som forsvinner. I standardform $T'+kT=kT_m$ er likevekten $q/p=kT_m/k=T_m$."
+    },
+    {
+      "id": "tma4110-8-2-ex5",
+      "type": "example",
+      "title": "Eksempel 5: Newtons avkjølingslov (sjanger K — modell)",
+      "problem": "En kopp kaffe holder $90^\\circ\\text{C}$ og settes i et rom med $20^\\circ\\text{C}$. Etter $5$ minutter er kaffen $70^\\circ\\text{C}$. Finn $T(t)$.",
+      "solution": "**Modell:** Newtons lov $T'=-k(T-20)$, som på standardform er $T'+kT=20k$.\n\n**Substituér** $u=T-20$: da er $u'=T'=-ku$, altså $u=u_0e^{-kt}$. Ved $t=0$ er $T=90$, så $u_0=90-20=70$:\n$$T=20+70e^{-kt}.$$\n\n**Bruk $T(5)=70$:** $70=20+70e^{-5k}\\Rightarrow 50=70e^{-5k}\\Rightarrow e^{-5k}=\\dfrac{5}{7}$. Da er $e^{-k}=\\left(\\dfrac57\\right)^{1/5}$, så\n$$\\boxed{\\,T(t)=20+70\\left(\\tfrac{5}{7}\\right)^{t/5}\\,}\\quad\\Big(\\text{eller } T=20+70e^{-kt},\\ k=\\tfrac15\\ln\\tfrac{7}{5}\\Big).$$\n\n**Kontroll:** $T(0)=20+70=90$ ✓ og $T(5)=20+70\\cdot\\tfrac57=20+50=70$ ✓. Svaret er eksakt — $\\ln\\tfrac75$ står som det er."
+    },
+    {
+      "id": "tma4110-8-2-oppg-cool",
+      "type": "exercise",
+      "exercise": {
+        "id": "tma4110-8-2-m3",
+        "number": "5",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "(Sjanger K — modell.) En metallkule på $100^\\circ\\text{C}$ legges i et rom på $25^\\circ\\text{C}$. Etter $10$ minutter er den $75^\\circ\\text{C}$. Finn $T(t)$ og bestem (eksakt) når kula er $50^\\circ\\text{C}$.",
+        "solution": "Newton: $T'=-k(T-25)$. Med $u=T-25$, $u_0=100-25=75$: $T=25+75e^{-kt}$.\n\n$T(10)=75$: $75=25+75e^{-10k}\\Rightarrow 50=75e^{-10k}\\Rightarrow e^{-10k}=\\tfrac{2}{3}$. Altså $T=25+75\\left(\\tfrac23\\right)^{t/10}$, med $k=\\tfrac{1}{10}\\ln\\tfrac32$.\n\nNår $T=50$: $50=25+75e^{-kt}\\Rightarrow e^{-kt}=\\tfrac{25}{75}=\\tfrac13\\Rightarrow t=\\dfrac{\\ln 3}{k}=\\dfrac{10\\ln 3}{\\ln(3/2)}$ minutter (eksakt).",
+        "hints": [
+          "$u=T-25$ gir $u'=-ku$, altså $T=25+75e^{-kt}$.",
+          "Finn $e^{-10k}$ av opplysningen ved $t=10$.",
+          "For $T=50$: løs $e^{-kt}=\\tfrac13$ for $t$; svaret inneholder $\\ln 3$ og $\\ln\\tfrac32$."
+        ]
+      }
+    },
+    {
+      "id": "tma4110-8-2-def-blanding",
+      "type": "definition",
+      "title": "Blandingsproblem (blandingstank)",
+      "content": "En tank inneholder en oppløst mengde $y(t)$ (f.eks. salt). Væske med kjent konsentrasjon strømmer inn, blandingen holdes homogen, og væske strømmer ut. Endringsraten er\n\n$$y'=(\\text{inn-rate})-(\\text{ut-rate})=r_{\\text{inn}}c_{\\text{inn}}-r_{\\text{ut}}\\frac{y}{V(t)},$$\n\nder $r$ er volumstrømmer (volum/tid), $c_{\\text{inn}}$ er innkonsentrasjon (mengde/volum) og $V(t)$ er væskevolumet i tanken. Med lik inn- og utstrøm er $V$ konstant, og likningen er **lineær** med konstante koeffisienter."
+    },
+    {
+      "id": "tma4110-8-2-def-rater",
+      "type": "definition",
+      "title": "Innstrømnings- og utstrømningsrate",
+      "content": "**Inn-rate** = (volumstrøm inn) × (konsentrasjon inn) = mengde tilført per tid. **Ut-rate** = (volumstrøm ut) × (konsentrasjon i tanken) = (volumstrøm ut) × $\\dfrac{y}{V}$, fordi blandingen er homogen. Enhetskontroll (mengde/tid på begge) er den sikreste måten å sette opp likningen riktig på."
+    },
+    {
+      "id": "tma4110-8-2-def-konsentrasjon",
+      "type": "definition",
+      "title": "Konsentrasjon",
+      "content": "Mengde oppløst stoff per volumenhet: $c=\\dfrac{y}{V}$ (f.eks. kg/L). I en godt blandet tank er konsentrasjonen i utløpet lik konsentrasjonen i tanken, $y/V$ — det er dette som gjør ut-raten lineær i $y$."
+    },
+    {
+      "id": "tma4110-8-2-ex6",
+      "type": "example",
+      "title": "Eksempel 6: Blandingstank (sjanger K — modell)",
+      "problem": "En tank inneholder $100$ liter rent vann. Saltlake med konsentrasjon $2$ kg/L renner inn med $5$ L/min, blandingen holdes homogen og renner ut med $5$ L/min. La $y(t)$ være kg salt i tanken. Finn $y(t)$.",
+      "solution": "**Sett opp likningen.** Volumet er konstant ($5$ inn $=5$ ut), $V=100$ L.\n- Inn-rate: $2\\ \\tfrac{\\text{kg}}{\\text{L}}\\cdot 5\\ \\tfrac{\\text{L}}{\\text{min}}=10\\ \\tfrac{\\text{kg}}{\\text{min}}$.\n- Ut-rate: $5\\ \\tfrac{\\text{L}}{\\text{min}}\\cdot \\dfrac{y}{100}\\ \\tfrac{\\text{kg}}{\\text{L}}=\\dfrac{y}{20}\\ \\tfrac{\\text{kg}}{\\text{min}}$.\n\nAltså $y'=10-\\dfrac{y}{20}$, på standardform\n$$y'+\\frac{1}{20}y=10.$$\n\n**Integrerende faktor:** $\\mu=e^{t/20}$. Da er $(e^{t/20}y)'=10e^{t/20}$, så $e^{t/20}y=200e^{t/20}+C$, og\n$$y=200+Ce^{-t/20}.$$\n\n**Initialbetingelse** $y(0)=0$ (rent vann): $0=200+C\\Rightarrow C=-200$. Altså\n$$\\boxed{\\,y(t)=200\\left(1-e^{-t/20}\\right)\\,}.$$\n\n**Tolkning:** likevekt (stasjonær løsning) er $y_p=200$ kg — konsentrasjonen nærmer seg $200/100=2$ kg/L, altså innkonsentrasjonen, som forventet. **Kontroll:** $y(0)=0$ ✓; $y'=10e^{-t/20}$ og $y'+\\tfrac{1}{20}y=10e^{-t/20}+10(1-e^{-t/20})=10$ ✓."
+    },
+    {
+      "id": "tma4110-8-2-oppg-blanding",
+      "type": "exercise",
+      "exercise": {
+        "id": "tma4110-8-2-v1",
+        "number": "6",
+        "type": "classic",
+        "difficulty": "vanskelig",
+        "task": "(Sjanger K — modell, krevende.) En tank inneholder $200$ liter vann med $10$ kg salt oppløst. Rent vann ($0$ kg/L) renner inn med $4$ L/min, blandingen holdes homogen og renner ut med $4$ L/min.\n\n**a)** Sett opp og løs differensiallikningen for saltmengden $y(t)$.\n\n**b)** Når er halvparten av saltet skylt ut? Gi eksakt svar.",
+        "solution": "**a)** Konstant volum $V=200$. Inn-rate $=0\\cdot4=0$; ut-rate $=4\\cdot\\dfrac{y}{200}=\\dfrac{y}{50}$. Altså\n$$y'=-\\frac{y}{50},\\qquad y(0)=10.$$\nDette er separabelt/lineært henfall: $y=10e^{-t/50}$. (Med integrerende faktor $\\mu=e^{t/50}$: $(e^{t/50}y)'=0\\Rightarrow y=Ce^{-t/50}$, $C=10$.)\n\n**b)** Halvparten igjen: $y=5$. $5=10e^{-t/50}\\Rightarrow e^{-t/50}=\\tfrac12\\Rightarrow t=50\\ln 2$ minutter (eksakt).",
+        "hints": [
+          "Rent vann inn betyr inn-rate $=0$; bare ut-lekkasjen er igjen.",
+          "Volumet er konstant ($4$ inn $=4$ ut), så $V=200$ hele tiden.",
+          "Sett $y=5$ og løs for $t$; svaret er $50\\ln 2$."
+        ]
+      }
+    },
+    {
+      "id": "tma4110-8-2-warn-typiske-feil",
+      "type": "warning",
+      "title": "Typiske feil",
+      "content": "- **Feil integrerende faktor — fortegn i $\\int p$.** $\\mu=e^{\\int p\\,dx}$, ikke $e^{-\\int p\\,dx}$. Ved $y'-3y=\\dots$ er $p=-3$, så $\\mu=e^{-3x}$. Sjekk alltid ved å derivere $\\mu$: skal gi $\\mu' = p\\mu$.\n- **Leser av $p$ før standardform.** Har du ikke koeffisient 1 foran $y'$, blir $p$ (og $\\mu$) feil. Del først.\n- **Deler ikke hele høyresida på $\\mu$.** Både integralet *og* konstanten $C$ skal deles på $\\mu$. Å glemme å dele $C$ gir feil homogen del.\n- **Forveksler $y_h$ og $y_p$.** $y_h$ har den frie konstanten (dør ut for stabile systemer); $y_p$ er én bestemt løsning drevet av $q$. Strukturen er $y=y_h+y_p$.\n- **Setter inn initialbetingelsen for tidlig.** Finn generell løsning først, bestem $C$ etterpå.\n- **Enhetsrot i modeller.** I blanding: ut-raten er (volumstrøm) × ($y/V$), ikke (volumstrøm) × $y$. Sjekk at hvert ledd har enhet mengde/tid.\n- **Desimalsvar.** La $\\ln 2$, $\\ln\\tfrac75$, $e$ stå eksakt (kode E)."
+    },
+    {
+      "id": "tma4110-8-2-drill-tekst",
+      "type": "text",
+      "content": "## Eksamensdrill — blandede lineære likninger\n\nSamme fem stegs oppskrift på alle. Varier mellom konstant og variabel $p(x)$, og pass fortegnet i $\\mu$."
+    },
+    {
+      "id": "tma4110-8-2-oppg-d1",
+      "type": "exercise",
+      "exercise": {
+        "id": "tma4110-8-2-d1",
+        "number": "7",
+        "type": "classic",
+        "difficulty": "lett",
+        "task": "(Sjanger K.) Løs $y'+3y=6$ (generell løsning).",
+        "solution": "$p=3$, $q=6$, $\\mu=e^{3x}$. $(e^{3x}y)'=6e^{3x}\\Rightarrow e^{3x}y=2e^{3x}+C\\Rightarrow y=2+Ce^{-3x}$. Her er $y_p=2$ (likevekt $q/p=6/3$) og $y_h=Ce^{-3x}$. Kontroll: $y'=-3Ce^{-3x}$, $y'+3y=-3Ce^{-3x}+6+3Ce^{-3x}=6$. ✓",
+        "hints": [
+          "$\\mu=e^{3x}$.",
+          "Konstant likevekt: $y_p=q/p=2$."
+        ]
+      }
+    },
+    {
+      "id": "tma4110-8-2-oppg-d2",
+      "type": "exercise",
+      "exercise": {
+        "id": "tma4110-8-2-d2",
+        "number": "8",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "(Sjanger K.) Løs initialverdiproblemet $y'+\\dfrac{2}{x}y=x$ for $x>0$, med $y(1)=1$.",
+        "solution": "$p=\\dfrac2x$, $q=x$. $\\mu=e^{\\int (2/x)\\,dx}=e^{2\\ln x}=x^2$. Gang med $\\mu$: $(x^2 y)'=x^2\\cdot x=x^3$. Integrer: $x^2 y=\\dfrac{x^4}{4}+C$. Del på $x^2$: $y=\\dfrac{x^2}{4}+\\dfrac{C}{x^2}$. Initialbetingelse $y(1)=1$: $\\dfrac14+C=1\\Rightarrow C=\\dfrac34$. Altså\n$$y=\\frac{x^2}{4}+\\frac{3}{4x^2}.$$\nKontroll: $y'=\\dfrac{x}{2}-\\dfrac{3}{2x^3}$, og $y'+\\dfrac2x y=\\dfrac{x}{2}-\\dfrac{3}{2x^3}+\\dfrac{x}{2}+\\dfrac{3}{2x^3}=x$ ✓; $y(1)=\\tfrac14+\\tfrac34=1$ ✓.",
+        "hints": [
+          "$\\int \\tfrac2x\\,dx=2\\ln x$, så $\\mu=e^{2\\ln x}=x^2$.",
+          "$(x^2y)'=x^3$; integrer og del på $x^2$.",
+          "Bestem $C$ fra $y(1)=1$."
+        ]
+      }
+    },
+    {
+      "id": "tma4110-8-2-oppg-d3",
+      "type": "exercise",
+      "exercise": {
+        "id": "tma4110-8-2-d3",
+        "number": "9",
+        "type": "classic",
+        "difficulty": "vanskelig",
+        "task": "(Sjanger K — krevende, kald: fasit er momentliste, ingen mellomsteg gitt.) Løs $y'-2y=e^{2x}$ med $y(0)=1$.",
+        "solution": "Momentliste (A-svar): $p=-2$, $\\mu=e^{-2x}$; $(e^{-2x}y)'=e^{-2x}e^{2x}=1$; integrer: $e^{-2x}y=x+C$; del: $y=(x+C)e^{2x}$; initialbetingelse $y(0)=C=1$; svar $y=(x+1)e^{2x}$. Merk resonanslignende trekk: kildeleddet $e^{2x}$ er selv en homogen løsning, så $y_p$ inneholder faktoren $x$ — et forvarsel om resonans i Del 9. Kontroll: $y'=(1)e^{2x}+(x+1)2e^{2x}=(2x+3)e^{2x}$; $y'-2y=(2x+3)e^{2x}-2(x+1)e^{2x}=e^{2x}$ ✓.",
+        "hints": [
+          "Ingen mellomsteg oppgitt med vilje — kald bank.",
+          "$\\mu=e^{-2x}$; venstresida $(e^{-2x}y)'$.",
+          "Legg merke til at $e^{-2x}\\cdot e^{2x}=1$."
+        ]
+      }
+    },
+    {
+      "id": "tma4110-8-2-begrepsbank-tekst",
+      "type": "text",
+      "content": "## Begrepsbank til eksamen\n\nKjernebegrepene fra kapitlet i kortform, klare for repetisjon.\n\n*Begrepsbanken er flashcard-/repetisjonsstoff — hopp trygt over ved førstegangslesing; tidsanslaget for kapitlet gjelder kjernestoffet.*"
+    },
+    {
+      "id": "tma4110-8-2-bb-transient",
+      "type": "definition",
+      "title": "Transient (forbigående) ledd",
+      "content": "Den delen av løsningen som dør ut med tiden — typisk den homogene delen $y_h=Ce^{-\\int p\\,dx}$ når $\\int p\\to\\infty$. I avkjøling er det $(T_0-T_m)e^{-kt}$; i blanding $Ce^{-t/20}$. Etter lang tid dominerer den stasjonære delen."
+    },
+    {
+      "id": "tma4110-8-2-bb-stasjonaer",
+      "type": "definition",
+      "title": "Stasjonær (steady-state) løsning",
+      "content": "Verdien løsningen nærmer seg når $t\\to\\infty$, altså den partikulære delen $y_p$ når $y_h$ har dødd ut. For konstante $p>0,q$ er den $y_p=q/p$. Eksempler: likevektstemperaturen $T_m$, saltlikevekten $200$ kg i blandingstanken."
+    },
+    {
+      "id": "tma4110-8-2-bb-superposisjon",
+      "type": "definition",
+      "title": "Superposisjonsprinsippet (kjennskap)",
+      "content": "For lineære likninger: er $y_1$ løsning med kildeledd $q_1$ og $y_2$ med $q_2$, så er $y_1+y_2$ løsning med kildeledd $q_1+q_2$; og enhver løsning av den fulle likningen er en homogen løsning pluss én partikulær. Dette prinsippet er grunnen til strukturen $y=y_h+y_p$ og bæres videre til 2. ordens likninger i Del 9."
+    },
+    {
+      "id": "tma4110-8-2-bb-velg-metode",
+      "type": "definition",
+      "title": "Velg metode: separabel eller lineær?",
+      "content": "Sjekk i denne rekkefølgen: (1) Er den **lineær** ($y'+p(x)y=q(x)$)? Bruk integrerende faktor. (2) Er den **separabel** ($y'=f(x)g(y)$)? Skill de variable. Noen likninger er *begge* (f.eks. $y'+ky=0$ og $y'=2xy$) — da virker begge metodene og gir samme svar. Er den verken lineær eller separabel, ligger den utenfor pensum i denne boka."
+    },
+    {
+      "id": "tma4110-8-2-def-rl-krets",
+      "type": "definition",
+      "title": "RL-krets (anvendelse)",
+      "content": "I en elektrisk krets med motstand $R$ og spole (induktans) $L$ og påtrykt spenning $E(t)$ følger strømmen $I(t)$ den lineære likningen\n\n$$L\\,I'+R\\,I=E(t),\\qquad\\text{standardform } I'+\\frac{R}{L}I=\\frac{E(t)}{L}.$$\n\nMed konstant $E$ er stasjonærstrømmen $I_p=E/R$ og den transiente delen $Ce^{-(R/L)t}$. Samme matematikk som avkjøling og blanding — bare andre navn på størrelsene."
+    },
+    {
+      "id": "tma4110-8-2-rep",
+      "type": "collapsible",
+      "title": "Repetisjonsoppgaver",
+      "buttonText": "Vis repetisjonsoppgaver",
+      "content": [
+        {
+          "id": "tma4110-8-2-oppg-R1",
+          "type": "exercise",
+          "exercise": {
+            "id": "tma4110-8-2-rep-1",
+            "number": "R1",
+            "type": "classic",
+            "difficulty": "lett",
+            "task": "(Fra kap. 8.1) Løs den separable likningen $y'=3y$ med $y(0)=2$.",
+            "solution": "Separabel: $\\dfrac{dy}{y}=3\\,dx\\Rightarrow \\ln|y|=3x+C_1\\Rightarrow y=Ce^{3x}$. Initialbetingelse $y(0)=C=2$, så $y=2e^{3x}$. (Merk: samme likning kan også løses lineært, $y'-3y=0$, $\\mu=e^{-3x}$.)",
+            "hints": [
+              "Skill de variable, eller gjenkjenn eksponentiell vekst."
+            ]
+          }
+        },
+        {
+          "id": "tma4110-8-2-oppg-R2",
+          "type": "exercise",
+          "exercise": {
+            "id": "tma4110-8-2-rep-2",
+            "number": "R2",
+            "type": "classic",
+            "difficulty": "lett",
+            "task": "(Delvis integrasjon — forkunnskap.) Regn ut $\\int xe^{x}\\,dx$.",
+            "solution": "Delvis integrasjon med $u=x$, $dv=e^x dx$: $\\int xe^x\\,dx=xe^x-\\int e^x\\,dx=xe^x-e^x+C=(x-1)e^x+C$. Nettopp integralet du trenger når $q(x)=e^x$ ganges med $\\mu$.",
+            "hints": [
+              "$u=x$, $dv=e^x dx$ gir $du=dx$, $v=e^x$."
+            ]
+          }
+        },
+        {
+          "id": "tma4110-8-2-oppg-R3",
+          "type": "exercise",
+          "exercise": {
+            "id": "tma4110-8-2-rep-3",
+            "number": "R3",
+            "type": "classic",
+            "difficulty": "middels",
+            "task": "(Produktregelen — forkunnskap.) Deriver $e^{2x}y(x)$ og forklar hvorfor $(\\mu y)'=\\mu q$ når $\\mu=e^{2x}$ og likningen er $y'+2y=q$.",
+            "solution": "$\\dfrac{d}{dx}\\big(e^{2x}y\\big)=2e^{2x}y+e^{2x}y'=e^{2x}(y'+2y)$. Er $y'+2y=q$, blir dette $e^{2x}q=\\mu q$. Det er akkurat derfor den integrerende faktoren gjør venstresida til én derivert.",
+            "hints": [
+              "Produktregelen: $(fg)'=f'g+fg'$.",
+              "$\\dfrac{d}{dx}e^{2x}=2e^{2x}$."
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": "tma4110-8-2-symbolliste",
+      "type": "collapsible",
+      "title": "Symbol- og formelliste",
+      "buttonText": "Vis symboler og formler",
+      "content": [
+        {
+          "id": "tma4110-8-2-symbolliste-text",
+          "type": "text",
+          "content": "## Symbol- og formelliste\n\n*Oppslagsverk — alt her forklares underveis i kapitlet.*\n\nAlle symboler og formler i delkapittel 8.2, samlet.\n\n| Symbol | Betydning |\n|---|---|\n| $y=y(x)$ | Den ukjente funksjonen |\n| $y'$ | Den deriverte |\n| $p(x)$ | Koeffisienten foran $y$ i standardform |\n| $q(x)$ | Høyresida (kildeleddet / pådraget) |\n| $\\mu(x)$ | Integrerende faktor, $\\mu=e^{\\int p\\,dx}$ |\n| $y_h$ | Homogen løsning (med fri konstant $C$) |\n| $y_p$ | Partikulær løsning (én bestemt) |\n| $C$ | Integrasjonskonstant / fri konstant |\n| $T(t),\\ T_m$ | Temperatur og omgivelsestemperatur (avkjøling) |\n| $k$ | Avkjølingskonstant / rate |\n| $y(t),\\ V,\\ c$ | Saltmengde, volum og konsentrasjon (blanding) |\n| $R,\\ L,\\ E,\\ I$ | Motstand, induktans, spenning, strøm (RL-krets) |\n\n**Formler i dette delkapitlet:**\n\n$$y'+p(x)y=q(x)$$\nStandardform for lineær 1. ordens likning.\n\n$$\\mu(x)=e^{\\int p(x)\\,dx}$$\nIntegrerende faktor.\n\n$$(\\mu y)'=\\mu q\\ \\Longrightarrow\\ y=\\frac{1}{\\mu}\\left(\\int \\mu q\\,dx+C\\right)$$\nMetoden: gjør venstresida til én derivert, integrer, del på $\\mu$.\n\n$$y=y_h+y_p,\\qquad y_h=Ce^{-\\int p\\,dx}$$\nStrukturen: homogen pluss partikulær (bro til Del 9).\n\n$$T'=-k(T-T_m)\\ \\Longrightarrow\\ T=T_m+(T_0-T_m)e^{-kt}$$\nNewtons avkjølingslov.\n\n$$y'=r_{\\text{inn}}c_{\\text{inn}}-r_{\\text{ut}}\\frac{y}{V}$$\nBlandingstank (endringsrate = inn-rate − ut-rate).\n\n$$L I'+RI=E(t)$$\nRL-krets (samme lineære form)."
+        }
+      ]
+    }
+  ],
+  "exercises": []
+}
