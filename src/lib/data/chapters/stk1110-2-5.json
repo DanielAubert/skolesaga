@@ -1,0 +1,356 @@
+{
+  "id": "stk1110-2-5",
+  "courseId": "stk1110",
+  "chapterNumber": "2.5",
+  "title": "Eksakt fordelingsteori: transformasjons-pivot og F-test for varianser",
+  "description": "STK1100-transformasjonen gjenbrukt til inferens: bygg en eksakt pivot 2X/theta som er kjikvadratfordelt og et eksakt/asymmetrisk KI eller en F-test for variansforhold — foretrukket nar standardavviket avhenger av parameteren.",
+  "estimatedMinutes": 50,
+  "competenceGoals": [
+    "gjenkjenne en pivotal storrelse med fordeling uavhengig av parameteren og bruke den til et eksakt konfidensintervall",
+    "utlede at 2 ganger summen av X delt pa theta er kjikvadratfordelt med 2n frihetsgrader",
+    "sette opp en F-test for variansforhold og bruke den til a sjekke lik-varians-antakelsen",
+    "vite nar et eksakt/asymmetrisk intervall foretrekkes framfor Wald-intervallet"
+  ],
+  "content": [
+    {
+      "id": "stk1110-2-5-tip",
+      "type": "tip",
+      "title": "Eksamensvinkel",
+      "content": "**A-differensiatoren.** Eksakt fordelingsteori — transformasjons-pivot og F-test — opptrer i **omtrent 4 av 22 sett (18 %)**, F-testen for variansforhold i ~9 %. Dette er stoff som skiller de beste besvarelsene.\n\n- **Sjanger N** = eksakt fordelingsteori / transformasjons-pivot. *Sjanger* = en fast type deloppgave.\n- Kjernen: gjenbruk en STK1100-transformasjon til å bygge en **pivot** — en størrelse med kjent fordeling *uavhengig av parameteren* — og les kvantiler rundt den.\n- Et **asymmetrisk** eksakt intervall er *riktig*, ikke en regnefeil (§4.7).\n\n**Sensorens krav (§4.7, §5.13):** riktige frihetsgrader i pivoten, og at eksakt/pivot foretrekkes framfor Wald når standardavviket avhenger av parameteren. Prioritet: **kjenne godt (A-nivå).**\n\n*Tidsbruk:* ~50 min kjernestoff i tre løkker (pivot-oppskriften $\\to$ eksakt/asymmetrisk KI og test $\\to$ F-test for varianser)."
+    },
+    {
+      "id": "stk1110-2-5-forkunnskaper",
+      "type": "text",
+      "content": "**Forkunnskaper:** Dette kapitlet bygger på konfidensintervallene i **[kap. 2.1](/bok/stk1110/stk1110-2-1)** (kvantiler, $\\chi^2$-intervall for varians) og på testritualet i **[kap. 2.2](/bok/stk1110/stk1110-2-2)**. Sammenhengen med den pooled to-utvalgstesten kommer fra **[kap. 2.3](/bok/stk1110/stk1110-2-3)** (lik-varians-antakelsen).\n\nSelve verktøyet — transformasjonsformelen og gamma/$\\chi^2$-koblingen — er STK1100-stoff: kap. 0.2 friskeropp det. Fullstendig behandling i STK1100 kap. 4.2 *Transformasjonsteknikkene* (→ stk1100-4-2) og kap. 6.1 *Eksakt pivotal-KI* (→ stk1100-6-1) *(klartekst — STK1100 er ikke bygget ennå)*."
+    },
+    {
+      "id": "stk1110-2-5-sistduvarher",
+      "type": "text",
+      "content": "**Sist du var her (fra kap. 0.2 og 2.1 — det du trenger nå):**\n\n$$\\text{Kjikvadrat: } \\chi^2_\\nu=\\text{gamma}(\\nu/2,\\,2);\\qquad \\text{transformasjon: } g(w)=f(x(w))\\,\\left|\\frac{dx}{dw}\\right|.$$\n\nEn kjikvadratfordeling med $\\nu$ frihetsgrader er bare en gammafordeling med formparameter $\\nu/2$ og skala 2. Og når vi transformerer en variabel, ganger vi tettheten med absoluttverdien av den deriverte. Disse to fakta er alt vi trenger for å bygge en eksakt pivot."
+    },
+    {
+      "id": "stk1110-2-5-motiv",
+      "type": "text",
+      "content": "Wald-intervallet fra [kap. 1.3](/bok/stk1110/stk1110-1-3) er en tilnærming som hviler på at $n$ er stor. Men noen ganger kan vi gjøre bedre: hvis vi finner en størrelse som er bygget av dataene *og* parameteren, men som har en fordeling som **ikke** avhenger av parameteren, kan vi lese av eksakte kvantiler og snu ulikheten til et **eksakt** konfidensintervall — gyldig for enhver $n$.\n\nEn slik størrelse kalles en **pivot**. For eksponensiallignende data er standardpivoten $2\\sum X_i/\\theta$, som er nøyaktig kjikvadratfordelt. Vi bruker den til KI og test, og møter så **F-testen** for å sammenligne to varianser.\n\nVi går i tre løkker: (1) pivot-oppskriften og det eksakte KI-et, (2) asymmetriske intervaller og eksakte tester, (3) F-testen for variansforhold."
+    },
+    {
+      "id": "stk1110-2-5-l1",
+      "type": "text",
+      "content": "## Løkke 1 — Pivot-oppskriften og det eksakte KI-et (~18 min)"
+    },
+    {
+      "id": "stk1110-2-5-def-pivot",
+      "type": "definition",
+      "title": "Pivotal storrelse (pivot)",
+      "content": "**En pivot** er en funksjon $W=W(X_1,\\dots,X_n,\\theta)$ av både dataene og parameteren, hvis **fordeling ikke avhenger av $\\theta$** (typisk $\\chi^2$, $t$ eller $F$). Fordi fordelingen er kjent og fast, kan vi finne tall $a,b$ med $P(a<W<b)=1-\\alpha$ og deretter **løse ulikheten $a<W<b$ for $\\theta$**. Det gir et konfidensintervall som er *eksakt* — dekningen er nøyaktig $1-\\alpha$ for enhver $n$, ikke bare asymptotisk."
+    },
+    {
+      "id": "stk1110-2-5-def-transfpivot",
+      "type": "definition",
+      "title": "Transformasjons-pivoten $2\\sum X_i/\\theta\\sim\\chi^2_{2n}$",
+      "content": "**Standardpivoten** for eksponensialfordelte data: hvis $X_1,\\dots,X_n$ er uavhengige og eksponensialfordelte med forventning $\\theta$ (tetthet $f(x)=\\tfrac1\\theta e^{-x/\\theta}$, $x>0$), så er\n$$\\frac{2\\sum_{i=1}^n X_i}{\\theta}\\ \\sim\\ \\chi^2_{2n}.$$\nStørrelsen inneholder både data ($\\sum X_i$) og parameter ($\\theta$), men fordelingen $\\chi^2_{2n}$ er fri for $\\theta$ — derfor er den en pivot. Frihetsgradene er $2n$ (ikke $n$ eller $n-1$) — les dem riktig (§5.13)."
+    },
+    {
+      "id": "stk1110-2-5-l1-utl",
+      "type": "text",
+      "content": "**Hvor kommer pivoten fra? (transformasjonsformelen, kap. 0.2):**\n\nÉn eksponensialvariabel med forventning $\\theta$ er en gamma$(1,\\theta)$. Setter vi $Y=2X/\\theta$, gir transformasjonsformelen (→ stk1100-4-2) en gamma$(1,2)$-tetthet — og gamma$(1,2)=\\chi^2_2$.\n*Intuisjon: å gange med $2/\\theta$ skalerer bort $\\theta$ og lander på skala 2 = kjikvadrat.*\n\nSummen av $n$ uavhengige gamma med samme skala er igjen gamma, med formparametrene lagt sammen: $\\sum 2X_i/\\theta\\sim\\text{gamma}(n,2)=\\chi^2_{2n}$. Derfor $2\\sum X_i/\\theta\\sim\\chi^2_{2n}$. *Intuisjon: $n$ ledd à «formvekt 1» gir formvekt $n$, altså $2n$ frihetsgrader.*"
+    },
+    {
+      "id": "stk1110-2-5-def-eksaktki",
+      "type": "definition",
+      "title": "Eksakt konfidensintervall (pivot-metoden)",
+      "content": "**Løs pivoten for $\\theta$.** Med $\\chi^2_{2n}$-kvantiler (øvre haleareal) er\n$$P\\!\\left(\\chi^2_{2n,\\,1-\\alpha/2}<\\frac{2\\sum X_i}{\\theta}<\\chi^2_{2n,\\,\\alpha/2}\\right)=1-\\alpha.$$\nSnur vi ulikheten (husk at $\\theta$ står i nevneren, så ulikhetstegnene byttes), får vi det eksakte $(1-\\alpha)$-intervallet\n$$\\left[\\ \\frac{2\\sum X_i}{\\chi^2_{2n,\\,\\alpha/2}}\\ ,\\ \\frac{2\\sum X_i}{\\chi^2_{2n,\\,1-\\alpha/2}}\\ \\right].$$\nDet er **asymmetrisk** om punktestimatet $\\hat\\theta=\\bar X$ — helt som forventet, siden $\\chi^2$ er skjev."
+    },
+    {
+      "id": "stk1110-2-5-ex1",
+      "type": "example",
+      "title": "Eksempel 1: Eksakt KI via transformasjons-pivot (sjanger N)",
+      "problem": "Levetider $X_1,\\dots,X_{10}$ er eksponensialfordelte med forventning $\\theta$, og $\\sum x_i=50$ (så $\\hat\\theta=\\bar x=5$). Finn et eksakt 95 % konfidensintervall for $\\theta$. Bruk $\\chi^2_{20,\\,0{,}025}=34{,}17$ og $\\chi^2_{20,\\,0{,}975}=9{,}591$.",
+      "solution": "Pivoten er $\\dfrac{2\\sum X_i}{\\theta}\\sim\\chi^2_{20}$ (frihetsgrader $2n=20$). Her er $2\\sum x_i=2\\cdot 50=100$.\n\nDet eksakte 95 %-intervallet:\n$$\\left[\\frac{100}{\\chi^2_{20,\\,0{,}025}},\\ \\frac{100}{\\chi^2_{20,\\,0{,}975}}\\right]=\\left[\\frac{100}{34{,}17},\\ \\frac{100}{9{,}591}\\right]=[2{,}93,\\ 10{,}43].$$\n\nLegg merke til at intervallet **ikke** er symmetrisk om $\\hat\\theta=5$: det strekker seg lenger opp (til 10,43) enn ned (til 2,93). Det er riktig — kjikvadratfordelingen er skjev.\n\n*Sensor-margnotat:* riktige frihetsgrader ($2n=20$), riktig plassering av kvantilene (stor kvantil i nevneren gir nedre grense), og en kommentar om at asymmetrien er korrekt."
+    },
+    {
+      "id": "stk1110-2-5-oppg1",
+      "type": "exercise",
+      "exercise": {
+        "id": "stk1110-2-5-oppg1-e",
+        "number": "1",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "Ventetider $X_1,\\dots,X_8$ er eksponensialfordelte med forventning $\\theta$, og $\\sum x_i=32$. Finn et eksakt 95 % KI for $\\theta$. Bruk $\\chi^2_{16,\\,0{,}025}=28{,}85$ og $\\chi^2_{16,\\,0{,}975}=6{,}908$.",
+        "solution": "Pivot: $2\\sum X_i/\\theta\\sim\\chi^2_{16}$ (df $=2n=16$). Her $2\\sum x_i=64$.\n$$\\left[\\frac{64}{28{,}85},\\ \\frac{64}{6{,}908}\\right]=[2{,}22,\\ 9{,}27].$$\nAsymmetrisk om $\\hat\\theta=\\bar x=4$ — som forventet.",
+        "hints": [
+          "Frihetsgrader er $2n=16$; regn $2\\sum x_i=64$.",
+          "Nedre grense $=2\\sum x_i/\\chi^2_{16,0{,}025}$, øvre $=2\\sum x_i/\\chi^2_{16,0{,}975}$."
+        ]
+      }
+    },
+    {
+      "id": "stk1110-2-5-l2",
+      "type": "text",
+      "content": "## Løkke 2 — Asymmetriske intervaller og eksakte tester (~14 min)"
+    },
+    {
+      "id": "stk1110-2-5-def-asymmetrisk",
+      "type": "definition",
+      "title": "Asymmetrisk intervall (riktig, ikke feil)",
+      "content": "**Et eksakt intervall bygget på en skjev pivot ($\\chi^2$, $F$) er asymmetrisk** om punktestimatet — grensene ligger ikke like langt over og under $\\hat\\theta$. Dette er en *egenskap*, ikke en regnefeil (§4.7). Symmetriske $\\hat\\theta\\pm z\\cdot se$-intervaller gjelder bare når pivoten er (tilnærmet) normal. Ser du et skjevt eksakt intervall, skal du **ikke** «rette» det til å bli symmetrisk."
+    },
+    {
+      "id": "stk1110-2-5-def-eksakttest",
+      "type": "definition",
+      "title": "Eksakt ensidig test via pivoten",
+      "content": "**Samme pivot gir en eksakt test.** For $H_0:\\theta=\\theta_0$ mot $H_a:\\theta>\\theta_0$ er observatoren $W=2\\sum X_i/\\theta_0$, som under $H_0$ er $\\chi^2_{2n}$. Stor $\\theta$ gir stor $\\sum X_i$ og dermed stor $W$, så vi forkaster for **store** $W$: forkast når $W>\\chi^2_{2n,\\,\\alpha}$. Nivået er eksakt $\\alpha$ fordi $P(W>\\chi^2_{2n,\\alpha}\\mid H_0)=\\alpha$ per definisjon av kvantilen."
+    },
+    {
+      "id": "stk1110-2-5-ex2",
+      "type": "example",
+      "title": "Eksempel 2: Eksakt ensidig test (sjanger N)",
+      "problem": "For dataene i eksempel 1 ($n=10$, $\\sum x_i=50$), test $H_0:\\theta=3$ mot $H_a:\\theta>3$ eksakt på 5 %-nivå. Bruk $\\chi^2_{20,\\,0{,}05}=31{,}41$.",
+      "solution": "**1.** $H_0:\\theta=3$ mot $H_a:\\theta>3$ (ensidig — vi vil påvise at forventet levetid er større).\n\n**2.** Observator $W=\\dfrac{2\\sum X_i}{\\theta_0}$; under $H_0$: $W\\sim\\chi^2_{20}$.\n\n**3.** Stor $\\theta$ $\\Rightarrow$ stor $W$, så vi forkaster når $W>\\chi^2_{20,\\,0{,}05}=31{,}41$. Under $H_0$: $P(W>31{,}41\\mid H_0)=0{,}05$ — eksakt nivå 5 %.\n\n**4.** $W=\\dfrac{2\\cdot 50}{3}=\\dfrac{100}{3}=33{,}33>31{,}41$: forkast $H_0$. (P-verdi $=P(\\chi^2_{20}>33{,}33)\\approx 0{,}031<0{,}05$.)\n\n**5.** På 5 %-nivå er det belegg for at forventet levetid overstiger 3."
+    },
+    {
+      "id": "stk1110-2-5-oppg2",
+      "type": "exercise",
+      "exercise": {
+        "id": "stk1110-2-5-oppg2-e",
+        "number": "2",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "Bruk det eksakte 95 % KI-et fra eksempel 1, $[2{,}93,\\ 10{,}43]$, og dualiteten.\n\n**a)** Kan $H_0:\\theta=3$ forkastes *tosidig* på 5 %-nivå?\n\n**b)** Kan $H_0:\\theta=12$ forkastes tosidig på 5 %-nivå?",
+        "solution": "**a)** Nei — $3$ ligger **innenfor** $[2{,}93,\\ 10{,}43]$, så en tosidig 5 %-test kan ikke forkaste $H_0:\\theta=3$. (Den *ensidige* testen i eksempel 2 forkastet så vidt — en ensidig test på 5 % er kraftigere i den retningen enn den tosidige.)\n\n**b)** Ja — $12$ ligger **utenfor** intervallet, så $H_0:\\theta=12$ forkastes tosidig på 5 %-nivå.",
+        "hints": [
+          "Dualitet: tosidig forkast $\\iff$ verdien ligger utenfor det tosidige $(1-\\alpha)$-KI-et.",
+          "Sjekk om 3 og 12 er innenfor eller utenfor $[2{,}93,\\ 10{,}43]$."
+        ]
+      }
+    },
+    {
+      "id": "stk1110-2-5-l3",
+      "type": "text",
+      "content": "## Løkke 3 — F-testen for variansforhold (~14 min)"
+    },
+    {
+      "id": "stk1110-2-5-def-ffordeling",
+      "type": "definition",
+      "title": "F-fordelingen",
+      "content": "**F-fordelingen** oppstår som forholdet mellom to uavhengige kjikvadrat, hver delt på sine frihetsgrader: $F=\\dfrac{U/\\nu_1}{V/\\nu_2}\\sim F_{\\nu_1,\\nu_2}$ når $U\\sim\\chi^2_{\\nu_1}$, $V\\sim\\chi^2_{\\nu_2}$ uavhengige. Den er skjev og positiv, og har to frihetsgrader — teller-df $\\nu_1$ og nevner-df $\\nu_2$ — i den rekkefølgen. Kvantilen $F_{\\nu_1,\\nu_2,\\alpha}$ har øvre haleareal $\\alpha$."
+    },
+    {
+      "id": "stk1110-2-5-def-ftest",
+      "type": "definition",
+      "title": "F-test for variansforhold",
+      "content": "**For å sammenligne to variansene** $\\sigma_1^2$ og $\\sigma_2^2$ fra to uavhengige normale utvalg ($m$ og $n$ observasjoner) brukes forholdet mellom utvalgsvariansene:\n$$F=\\frac{S_1^2}{S_2^2}\\ \\sim\\ F_{m-1,\\,n-1}\\quad(\\text{under } H_0:\\sigma_1^2=\\sigma_2^2).$$\nUnder $H_0$ er de to $S^2$-ene forventet like store, så $F\\approx 1$. Store eller små $F$ taler mot $H_0$. En tosidig test på nivå $\\alpha$ forkaster når $F>F_{m-1,n-1,\\alpha/2}$ (eller $F<F_{m-1,n-1,1-\\alpha/2}$). Legg gjerne den største $S^2$ i telleren."
+    },
+    {
+      "id": "stk1110-2-5-ex3",
+      "type": "example",
+      "title": "Eksempel 3: F-test for lik varians (sjanger N)",
+      "problem": "Før du kjører en pooled to-utvalgstest vil du sjekke lik-varians-antakelsen. Utvalg 1 har $m=13$ med $s_1^2=45$; utvalg 2 har $n=16$ med $s_2^2=12$. Test tosidig på 5 %-nivå om variansene er like. Bruk $F_{12,\\,15,\\,0{,}025}=2{,}96$.",
+      "solution": "**1.** $H_0:\\sigma_1^2=\\sigma_2^2$ mot $H_a:\\sigma_1^2\\ne\\sigma_2^2$ (tosidig).\n\n**2.** Legg største varians i telleren: $F=\\dfrac{S_1^2}{S_2^2}\\sim F_{m-1,\\,n-1}=F_{12,\\,15}$ under $H_0$.\n\n**3.** Tosidig forkast når $F>F_{12,\\,15,\\,0{,}025}=2{,}96$ (øvre grense).\n\n**4.** $F=\\dfrac{45}{12}=3{,}75>2{,}96$: forkast $H_0$.\n\n**5.** På 5 %-nivå er variansene forskjellige — **lik-varians-antakelsen holder ikke**, så en pooled to-utvalgstest er ikke forsvarlig her (bruk heller Welch-varianten fra [kap. 2.3](/bok/stk1110/stk1110-2-3)).\n\n*Sensor-margnotat:* riktige frihetsgrader $(m-1,\\,n-1)=(12,15)$ i den rekkefølgen, og koblingen tilbake til pooling-antakelsen."
+    },
+    {
+      "id": "stk1110-2-5-oppg3",
+      "type": "exercise",
+      "exercise": {
+        "id": "stk1110-2-5-oppg3-e",
+        "number": "3",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "To uavhengige normale utvalg: utvalg 1 har $m=8$ med $s_1=5$; utvalg 2 har $n=10$ med $s_2=3$. Test tosidig på 5 %-nivå om variansene er like. Bruk $F_{7,\\,9,\\,0{,}025}=4{,}20$.",
+        "solution": "$H_0:\\sigma_1^2=\\sigma_2^2$ mot $H_a:\\sigma_1^2\\ne\\sigma_2^2$. Med største varians i telleren: $F=\\dfrac{s_1^2}{s_2^2}=\\dfrac{25}{9}=2{,}78\\sim F_{7,\\,9}$ under $H_0$. Forkast tosidig når $F>F_{7,\\,9,\\,0{,}025}=4{,}20$. Siden $2{,}78<4{,}20$: forkast **ikke**. På 5 %-nivå er det ikke belegg for ulik varians — lik-varians-antakelsen kan beholdes.",
+        "hints": [
+          "Regn $F=s_1^2/s_2^2=25/9$; frihetsgrader $(m-1,n-1)=(7,9)$.",
+          "Sammenlign med øvre kvantil $F_{7,9,0{,}025}=4{,}20$."
+        ]
+      }
+    },
+    {
+      "id": "stk1110-2-5-def-eksaktvswald",
+      "type": "definition",
+      "title": "Eksakt/pivot mot Wald",
+      "content": "**Når foretrekkes eksakt/pivot framfor Wald?** Wald-intervallet $\\hat\\theta\\pm z_{\\alpha/2}\\,se(\\hat\\theta)$ er symmetrisk og bygger på normaltilnærming for store $n$. Når standardfeilen $se$ selv **avhenger av parameteren** (som for eksponensial/Poisson), eller når $n$ er liten, gir pivot-metoden et eksakt intervall som er å foretrekke (§4.7). Wald er greit for store $n$ når $se$ er tilnærmet konstant."
+    },
+    {
+      "id": "stk1110-2-5-warn",
+      "type": "warning",
+      "title": "Typiske feil (fra losningsforslagene)",
+      "content": "- **Feil frihetsgrader i pivoten.** For $2\\sum X_i/\\theta$ er det $\\chi^2_{2n}$ — ikke $\\chi^2_n$ eller $\\chi^2_{n-1}$. Les hvilken gamma/$\\chi^2$ transformasjonen faktisk gir. (§5.13)\n- **Tro at et asymmetrisk eksakt intervall er en regnefeil.** En skjev pivot ($\\chi^2$, $F$) gir naturlig et asymmetrisk intervall — det er riktig. (§4.7)\n- **Feil plassering av kvantilene.** Fordi $\\theta$ står i nevneren, byttes ulikhetstegnene: den **store** kvantilen gir **nedre** grense.\n- **Hoppe til Wald der en eksakt pivot finnes.** Når $se$ avhenger av parameteren, er pivoten bedre.\n- **Bytte om teller- og nevner-df i F-testen.** $F=S_1^2/S_2^2\\sim F_{m-1,\\,n-1}$ — teller-df fra utvalg 1, nevner-df fra utvalg 2.\n- **Glemme absoluttverdien/Jacobi** i transformasjonen (→ stk1100-4-2)."
+    },
+    {
+      "id": "stk1110-2-5-drill",
+      "type": "text",
+      "content": "## Blandet drill (sjanger N, stigende)"
+    },
+    {
+      "id": "stk1110-2-5-d4",
+      "type": "exercise",
+      "exercise": {
+        "id": "stk1110-2-5-d4-e",
+        "number": "4",
+        "type": "classic",
+        "difficulty": "vanskelig",
+        "task": "Uavhengige eksponensiallevetider $X_1,\\dots,X_{10}$ med forventning $\\theta$, $\\sum x_i=50$.\n\n**a)** Angi pivoten og dens fordeling.\n\n**b)** Gi et eksakt *ensidig* nedre 95 % KI (en nedre grense $\\theta>L$). Bruk $\\chi^2_{20,\\,0{,}05}=31{,}41$.\n\n**c)** Hvordan henger dette sammen med den ensidige testen av $H_0:\\theta=3$ i eksempel 2?",
+        "solution": "**a)** $W=2\\sum X_i/\\theta\\sim\\chi^2_{20}$.\n\n**b)** Et ensidig nedre 95 %-intervall bruker hele $\\alpha=0{,}05$ i én hale: $P(W<\\chi^2_{20,\\,0{,}05})=0{,}95$ gir $2\\sum X_i/\\theta<31{,}41$, altså $\\theta>2\\sum x_i/31{,}41=100/31{,}41=3{,}18$. Så $\\theta>3{,}18$ (nedre grense $L=3{,}18$).\n\n**c)** Verdien $\\theta_0=3$ ligger **under** den nedre grensen 3,18, så den forkastes av det ensidige intervallet — nøyaktig samme konklusjon som den ensidige testen (dualitet). $W=33{,}33>31{,}41$ svarer til $\\theta>3{,}18>3$.",
+        "hints": [
+          "Ensidig nedre KI: legg hele $\\alpha$ i én hale, $P(W<\\chi^2_{2n,\\alpha})=1-\\alpha$.",
+          "Løs $2\\sum x_i/\\theta<\\chi^2_{20,0{,}05}$ for $\\theta$."
+        ]
+      }
+    },
+    {
+      "id": "stk1110-2-5-d5",
+      "type": "exercise",
+      "exercise": {
+        "id": "stk1110-2-5-d5-e",
+        "number": "5",
+        "type": "classic",
+        "difficulty": "vanskelig",
+        "task": "(Krevende.) Forklar hvorfor $2\\sum X_i/\\theta$ er en pivot, mens $\\sum X_i$ alene ikke er det. Hva ville gått galt om du prøvde å bygge et konfidensintervall direkte fra $\\sum X_i$ uten å dele på $\\theta$?",
+        "solution": "$2\\sum X_i/\\theta$ har fordeling $\\chi^2_{2n}$, som **ikke** avhenger av $\\theta$ — derfor kjenner vi kvantilene uansett hva $\\theta$ er, og kan snu ulikheten til et intervall. $\\sum X_i$ alene er gamma$(n,\\theta)$: fordelingen (og dermed kvantilene) avhenger av det ukjente $\\theta$. Da kjenner vi ikke tallene $a,b$ med $P(a<\\sum X_i<b)=1-\\alpha$ uten allerede å vite $\\theta$ — sirkulært. Å dele på $\\theta$ skalerer bort parameteren og gir en fast, kjent fordeling.",
+        "hints": [
+          "En pivot må ha en fordeling som ikke avhenger av parameteren.",
+          "Hvilken fordeling har $\\sum X_i$, og avhenger kvantilene av $\\theta$?"
+        ]
+      }
+    },
+    {
+      "id": "stk1110-2-5-d6",
+      "type": "exercise",
+      "exercise": {
+        "id": "stk1110-2-5-d6-e",
+        "number": "6",
+        "type": "classic",
+        "difficulty": "vanskelig",
+        "task": "(Kald oppgave — fasit som momentliste, ingen hint.) To maskiner produserer samme del. Fra maskin A ($m=21$) er $s_A^2=8{,}0$; fra maskin B ($n=16$) er $s_B^2=2{,}5$. Sett opp en tosidig F-test på 5 %-nivå for om variansene er like, angi observator med frihetsgrader, tallfest, og si hva konklusjonen betyr for en påfølgende pooled to-utvalgstest. Bruk $F_{20,\\,15,\\,0{,}025}=2{,}76$.",
+        "solution": "- $H_0:\\sigma_A^2=\\sigma_B^2$ mot $H_a:\\sigma_A^2\\ne\\sigma_B^2$.\n- Største varians i teller: $F=s_A^2/s_B^2\\sim F_{m-1,\\,n-1}=F_{20,\\,15}$ under $H_0$.\n- $F=8{,}0/2{,}5=3{,}20$.\n- Tosidig forkast når $F>F_{20,\\,15,\\,0{,}025}=2{,}76$. Siden $3{,}20>2{,}76$: forkast $H_0$.\n- Variansene er forskjellige på 5 %-nivå $\\Rightarrow$ lik-varians-antakelsen svikter, så en pooled to-utvalgstest er ikke forsvarlig (bruk Welch).",
+        "hints": []
+      }
+    },
+    {
+      "id": "stk1110-2-5-bank",
+      "type": "text",
+      "content": "## Begrepsbank"
+    },
+    {
+      "id": "stk1110-2-5-bank-note",
+      "type": "text",
+      "content": "*Flashcard-/repetisjonsstoff — hopp trygt over ved førstegangslesing; tidsanslaget gjelder kjernestoffet.* Korte, navngitte definisjoner for eksamensrepetisjon."
+    },
+    {
+      "id": "stk1110-2-5-bank-chikvantiler",
+      "type": "definition",
+      "title": "Kjikvadrat-kvantiler (ovre haleareal)",
+      "content": "$\\chi^2_{\\nu,\\alpha}$ er verdien med $P(\\chi^2_\\nu>\\chi^2_{\\nu,\\alpha})=\\alpha$ (øvre hale). I et tosidig intervall brukes $\\chi^2_{\\nu,\\alpha/2}$ (øvre) og $\\chi^2_{\\nu,1-\\alpha/2}$ (nedre). Den store kvantilen havner i nevneren til den nedre grensen."
+    },
+    {
+      "id": "stk1110-2-5-bank-likvariansssjekk",
+      "type": "definition",
+      "title": "Lik-varians-sjekk for pooling",
+      "content": "Før en pooled to-utvalgs t-test kan lik-varians-antakelsen sjekkes med F-testen $S_1^2/S_2^2\\sim F_{m-1,n-1}$. Forkastes $H_0:\\sigma_1^2=\\sigma_2^2$, er pooling uforsvarlig — bruk Welch i stedet."
+    },
+    {
+      "id": "stk1110-2-5-bank-transfformel",
+      "type": "definition",
+      "title": "Transformasjonsformelen (repetisjon)",
+      "content": "For $Y=g(X)$ monoton er $f_Y(y)=f_X(x(y))\\,|dx/dy|$. Absoluttverdien av den deriverte (Jacobi) må være med. Verktøyet bak transformasjons-pivoten (→ stk1100-4-2)."
+    },
+    {
+      "id": "stk1110-2-5-bank-gammachi",
+      "type": "definition",
+      "title": "Gamma-koblingen",
+      "content": "Sum av $n$ uavhengige gamma med felles skala er gamma med formparametrene lagt sammen. Eksponensial = gamma$(1,\\theta)$, så $\\sum X_i\\sim\\text{gamma}(n,\\theta)$. Råstoffet for pivoten."
+    },
+    {
+      "id": "stk1110-2-5-bank-frihetsgraderpivot",
+      "type": "definition",
+      "title": "Frihetsgrader i pivoten",
+      "content": "$2\\sum X_i/\\theta\\sim\\chi^2_{2n}$ — $2n$ frihetsgrader, ikke $n$ eller $n-1$. Hvert av de $n$ leddene bidrar med $\\chi^2_2$, som summerer til $\\chi^2_{2n}$. Feil df er den hyppigste tabben (§5.13)."
+    },
+    {
+      "id": "stk1110-2-5-bank-chisomgamma",
+      "type": "definition",
+      "title": "Kjikvadrat som gamma",
+      "content": "$\\chi^2_\\nu=\\text{gamma}(\\nu/2,\\,2)$ (form $\\nu/2$, skala 2), med $E=\\nu$ og $\\text{Var}=2\\nu$. Denne identiteten lar oss gjenkjenne pivotens fordeling."
+    },
+    {
+      "id": "stk1110-2-5-bank-pivotoppskrift",
+      "type": "definition",
+      "title": "Pivot-oppskriften (tre steg)",
+      "content": "1) Finn $W(X,\\theta)$ med fordeling uavhengig av $\\theta$. 2) Sett kvantiler rundt: $P(a<W<b)=1-\\alpha$. 3) Løs $a<W<b$ for $\\theta$. Gir eksakt KI (og, med $\\theta_0$ innsatt, en eksakt test)."
+    },
+    {
+      "id": "stk1110-2-5-symbol",
+      "type": "collapsible",
+      "title": "Symbol- og formelliste",
+      "buttonText": "Vis symboler og formler",
+      "content": [
+        {
+          "id": "stk1110-2-5-symbol-t",
+          "type": "text",
+          "content": "## Symbol- og formelliste\n\n*Oppslagsverk — alt her forklares underveis i kapitlet.*\n\n| Symbol | Betydning |\n|---|---|\n| $\\theta$ | Forventningsparameteren (eksponensial) |\n| $W$ | Pivotal størrelse |\n| $\\chi^2_\\nu$ | Kjikvadrat med $\\nu$ frihetsgrader |\n| $\\chi^2_{\\nu,\\alpha}$ | Øvre $\\alpha$-kvantil i $\\chi^2_\\nu$ |\n| $F_{\\nu_1,\\nu_2}$ | F-fordeling, teller-/nevner-df |\n| $F_{\\nu_1,\\nu_2,\\alpha}$ | Øvre $\\alpha$-kvantil i $F$ |\n| $S_1^2,\\ S_2^2$ | Utvalgsvariansene |\n| $m,\\ n$ | Utvalgsstørrelser |\n\n**Formler i dette delkapitlet:**\n\n$$\\frac{2\\sum X_i}{\\theta}\\sim\\chi^2_{2n}$$\nTransformasjons-pivoten (eksponensialdata).\n\n$$\\left[\\frac{2\\sum X_i}{\\chi^2_{2n,\\,\\alpha/2}},\\ \\frac{2\\sum X_i}{\\chi^2_{2n,\\,1-\\alpha/2}}\\right]$$\nEksakt (asymmetrisk) $(1-\\alpha)$-KI for $\\theta$.\n\n$$F=\\frac{S_1^2}{S_2^2}\\sim F_{m-1,\\,n-1}\\quad(\\text{under } H_0:\\sigma_1^2=\\sigma_2^2)$$\nF-test for variansforhold."
+        }
+      ]
+    },
+    {
+      "id": "stk1110-2-5-rep",
+      "type": "collapsible",
+      "title": "Repetisjonsoppgaver",
+      "buttonText": "Vis repetisjonsoppgaver",
+      "content": [
+        {
+          "id": "stk1110-2-5-rep1",
+          "type": "exercise",
+          "exercise": {
+            "id": "stk1110-2-5-rep1e",
+            "number": "R1",
+            "type": "classic",
+            "difficulty": "lett",
+            "task": "(Fra kap. 2.1) Skriv opp $\\chi^2$-intervallet for variansen $\\sigma^2$ til ett normalt utvalg, basert på $(n-1)S^2/\\sigma^2\\sim\\chi^2_{n-1}$.",
+            "solution": "$\\left[\\dfrac{(n-1)S^2}{\\chi^2_{n-1,\\,\\alpha/2}},\\ \\dfrac{(n-1)S^2}{\\chi^2_{n-1,\\,1-\\alpha/2}}\\right]$ — også dette er en pivot ($(n-1)S^2/\\sigma^2$) med $\\chi^2_{n-1}$-fordeling, og intervallet er asymmetrisk.",
+            "hints": ["Samme pivot-idé: $(n-1)S^2/\\sigma^2$ er $\\chi^2_{n-1}$, løs for $\\sigma^2$."]
+          }
+        },
+        {
+          "id": "stk1110-2-5-rep2",
+          "type": "exercise",
+          "exercise": {
+            "id": "stk1110-2-5-rep2e",
+            "number": "R2",
+            "type": "classic",
+            "difficulty": "lett",
+            "task": "(Fra kap. 0.2) Hva er sammenhengen mellom kjikvadrat- og gammafordelingen?",
+            "solution": "$\\chi^2_\\nu=\\text{gamma}(\\nu/2,\\,2)$: en kjikvadrat med $\\nu$ frihetsgrader er en gamma med form $\\nu/2$ og skala 2. Derfor blir sumbaserte gamma-størrelser kjikvadrat etter riktig skalering.",
+            "hints": ["Kjikvadrat er et spesialtilfelle av gamma."]
+          }
+        },
+        {
+          "id": "stk1110-2-5-rep3",
+          "type": "exercise",
+          "exercise": {
+            "id": "stk1110-2-5-rep3e",
+            "number": "R3",
+            "type": "classic",
+            "difficulty": "middels",
+            "task": "(Fra kap. 2.3) Hvorfor er det relevant å F-teste variansene før en pooled to-utvalgs t-test?",
+            "solution": "Fordi pooled t forutsetter lik varians i de to gruppene. F-testen $S_1^2/S_2^2\\sim F_{m-1,n-1}$ sjekker $H_0:\\sigma_1^2=\\sigma_2^2$. Forkastes den, er pooling uforsvarlig, og man bruker Welch-varianten.",
+            "hints": ["Pooling slår sammen variansene — det krever at de faktisk er like."]
+          }
+        },
+        {
+          "id": "stk1110-2-5-rep4",
+          "type": "exercise",
+          "exercise": {
+            "id": "stk1110-2-5-rep4e",
+            "number": "R4",
+            "type": "classic",
+            "difficulty": "middels",
+            "task": "(Fra kap. 1.3) Hva er forskjellen på et Wald-intervall og et eksakt pivot-intervall?",
+            "solution": "Wald: $\\hat\\theta\\pm z_{\\alpha/2}\\,se$, symmetrisk, bygger på normaltilnærming for store $n$. Eksakt pivot: løs en pivot med kjent (ofte skjev) fordeling for $\\theta$, gir et asymmetrisk intervall med eksakt dekning for enhver $n$. Eksakt foretrekkes når $se$ avhenger av parameteren eller $n$ er liten.",
+            "hints": ["Tenk symmetrisk/tilnærmet mot asymmetrisk/eksakt."]
+          }
+        }
+      ]
+    }
+  ],
+  "exercises": []
+}
