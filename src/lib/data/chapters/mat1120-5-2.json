@@ -50,7 +50,7 @@
       "type": "example",
       "title": "Eksempel 1: Minste kvadrater via normallikningene",
       "problem": "Finn minste kvadraters løsning av $C\\mathbf{x}=\\mathbf{b}$ med\n$$C=\\begin{bmatrix}1&1\\\\1&2\\\\1&3\\\\1&4\\end{bmatrix},\\qquad \\mathbf{b}=\\begin{bmatrix}3\\\\2\\\\3\\\\6\\end{bmatrix}.$$\nVedlegget gir $\\operatorname{rref}\\big[\\,C^{T}C\\mid C^{T}\\mathbf{b}\\,\\big]=\\begin{bmatrix}1&0&1\\\\0&1&1\\end{bmatrix}.$",
-      "solution": "**Sett opp normallikningene.** Regn de små produktene for hånd:\n$$C^{T}C=\\begin{bmatrix}4&10\\\\10&30\\end{bmatrix},\\qquad C^{T}\\mathbf{b}=\\begin{bmatrix}1+1+1+1\\\\ \\end{bmatrix}\\!\\!\\cdot\\ldots=\\begin{bmatrix}14\\\\40\\end{bmatrix}.$$\n(Første komponent i $C^{T}\\mathbf{b}$ er $3+2+3+6=14$; andre er $1\\cdot3+2\\cdot2+3\\cdot3+4\\cdot6=3+4+9+24=40$.)\n\n**Løs systemet.** Fra vedleggets RREF ser vi at\n$$\\operatorname{rref}\\begin{bmatrix}4&10&14\\\\10&30&40\\end{bmatrix}=\\begin{bmatrix}1&0&1\\\\0&1&1\\end{bmatrix}\\ \\Rightarrow\\ \\hat{\\mathbf{x}}=\\begin{bmatrix}1\\\\1\\end{bmatrix}.$$\n\n**Kontroll og residual.** $C\\hat{\\mathbf{x}}=(2,3,4,5)$, så residualet er\n$$\\mathbf{b}-C\\hat{\\mathbf{x}}=(3,2,3,6)-(2,3,4,5)=(1,-1,-1,1).$$\nDette står vinkelrett på begge kolonnene i $C$: $\\langle(1,-1,-1,1),(1,1,1,1)\\rangle=0$ og $\\langle(1,-1,-1,1),(1,2,3,4)\\rangle=1-2-3+4=0.$ ✓ **Eksakt svar:** $\\hat{\\mathbf{x}}=(1,1)$."
+      "solution": "**Sett opp normallikningene.** Regn de små produktene for hånd:\n$$C^{T}C=\\begin{bmatrix}4&10\\\\10&30\\end{bmatrix},\\qquad C^{T}\\mathbf{b}=\\begin{bmatrix}14\\\\40\\end{bmatrix}.$$\n(Første komponent i $C^{T}\\mathbf{b}$ er $3+2+3+6=14$; andre er $1\\cdot3+2\\cdot2+3\\cdot3+4\\cdot6=3+4+9+24=40$.)\n\n**Løs systemet.** Fra vedleggets RREF ser vi at\n$$\\operatorname{rref}\\begin{bmatrix}4&10&14\\\\10&30&40\\end{bmatrix}=\\begin{bmatrix}1&0&1\\\\0&1&1\\end{bmatrix}\\ \\Rightarrow\\ \\hat{\\mathbf{x}}=\\begin{bmatrix}1\\\\1\\end{bmatrix}.$$\n\n**Kontroll og residual.** $C\\hat{\\mathbf{x}}=(2,3,4,5)$, så residualet er\n$$\\mathbf{b}-C\\hat{\\mathbf{x}}=(3,2,3,6)-(2,3,4,5)=(1,-1,-1,1).$$\nDette står vinkelrett på begge kolonnene i $C$: $\\langle(1,-1,-1,1),(1,1,1,1)\\rangle=0$ og $\\langle(1,-1,-1,1),(1,2,3,4)\\rangle=1-2-3+4=0.$ ✓ **Eksakt svar:** $\\hat{\\mathbf{x}}=(1,1)$."
     },
     {
       "id": "mat1120-5-2-x1",
@@ -315,7 +315,7 @@
       "id": "mat1120-5-2-bb-21",
       "type": "definition",
       "title": "$C^{T}C$ er symmetrisk og positiv semidefinit",
-      "content": "Uansett $C$ er $C^{T}C$ symmetrisk, og $\\\\mathbf{x}^{T}C^{T}C\\\\mathbf{x}=\\\\|C\\\\mathbf{x}\\\\|^2\\\\ge0$. Den er positiv definit (dermed invertibel) nøyaktig når $C$ har full kolonnerang."
+      "content": "Uansett $C$ er $C^{T}C$ symmetrisk, og $\\mathbf{x}^{T}C^{T}C\\mathbf{x}=\\|C\\mathbf{x}\\|^2\\ge0$. Den er positiv definit (dermed invertibel) nøyaktig når $C$ har full kolonnerang."
     },
     {
       "id": "mat1120-5-2-bb-22",
@@ -327,7 +327,7 @@
       "id": "mat1120-5-2-bb-23",
       "type": "definition",
       "title": "Velg partikulær løsning",
-      "content": "Ved rangdefekt oppgir du gjerne den enkleste partikulære løsningen (frie variabler $=0$) og legger til $\\\\operatorname{Nul}C$. Alle valg gir samme $C\\\\hat{\\\\mathbf{x}}=\\\\operatorname{proj}_W\\\\mathbf{b}$."
+      "content": "Ved rangdefekt oppgir du gjerne den enkleste partikulære løsningen (frie variabler $=0$) og legger til $\\operatorname{Nul}C$. Alle valg gir samme $C\\hat{\\mathbf{x}}=\\operatorname{proj}_W\\mathbf{b}$."
     },
     {
       "id": "mat1120-5-2-rep",

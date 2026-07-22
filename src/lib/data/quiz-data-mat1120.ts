@@ -1757,7 +1757,7 @@ const quizData_mat1120: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva er en basis for $(\\operatorname{Col}A)^{\\perp}$?",
-      options: ["$\\operatorname{Nul}(A^{T})$, nullrommet til den transponerte", "$\\operatorname{Nul}(A)$, nullrommet til $A$ selv", "$\\operatorname{Col}(A^{T})$, kolonnerommet til den transponerte", "$\\operatorname{Row}(A)$, radrommet til $A$"],
+      options: ["$\\operatorname{Nul}(A^{T})$, nullrommet til den transponerte", "$\\operatorname{Nul}(A)$, nullrommet til $A$ selv", "$\\operatorname{Col}(A^{T})$, kolonnerommet til den transponerte", "$\\operatorname{Col}(A)$, kolonnerommet til $A$ selv"],
       explanation: "$(\\operatorname{Col}A)^{\\perp}=\\operatorname{Nul}(A^{T})$: å være ortogonal på alle kolonnene betyr $A^{T}\\mathbf{z}=\\mathbf{0}$. $\\operatorname{Nul}(A)$ er komplementet til $\\operatorname{Row}A$, ikke til $\\operatorname{Col}A$.",
     },
     {
@@ -1874,7 +1874,7 @@ const quizData_mat1120: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva er de to belønnede veiene til en minste kvadraters løsning?",
-      options: ["Normallikningene, eller projeksjonssnarveien via $\\operatorname{proj}_W\\mathbf{b}$", "Nei, hver enkelt affin løsning gir hver sin forskjellige projeksjon av $\\mathbf{b}$", "Gauss-eliminasjon av $C\\mathbf{x}=\\mathbf{b}$, eller determinanten", "Egenverdier av $C$, eller diagonalisering"],
+      options: ["Normallikningene, eller projeksjonssnarveien via $\\operatorname{proj}_W\\mathbf{b}$", "Cramers regel på $C\\mathbf{x}=\\mathbf{b}$, eller invertering $C^{-1}\\mathbf{b}$", "Gauss-eliminasjon av $C\\mathbf{x}=\\mathbf{b}$, eller determinanten", "Egenverdier av $C$, eller diagonalisering"],
       explanation: "Enten løs $C^{T}C\\hat{\\mathbf{x}}=C^{T}\\mathbf{b}$, eller regn $\\mathbf{p}=\\operatorname{proj}_W\\mathbf{b}$ og løs det konsistente $C\\mathbf{x}=\\mathbf{p}$. $C$ er sjelden kvadratisk/invertibel, så Cramer og invers gjelder ikke.",
     },
     {
@@ -1924,12 +1924,12 @@ const quizData_mat1120: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva må sensor se i en minste kvadraters besvarelse ved rangdefekt?",
-      options: ["En eksplisitt setning om at løsningen er affin, med $\\operatorname{Nul}C$ oppgitt", "Bare ett tallsvar, uten videre kommentar", "En determinantberegning av $C$", "$\\begin{bmatrix}4&10\\\\10&20\\end{bmatrix}$, med feil nedre diagonalledd $20$"],
+      options: ["En eksplisitt setning om at løsningen er affin, med $\\operatorname{Nul}C$ oppgitt", "Bare ett tallsvar, uten videre kommentar", "En determinantberegning av $C$", "En håndradredusering av hele $[C\\mid\\mathbf{b}]$ uten kommentar om rang"],
       explanation: "Ved avhengige kolonner må du si eksplisitt at løsningen er affin (partikulær $+\\operatorname{Nul}C$) — å oppgi ett svar som entydig er felle nr. 5. Determinant og håndradredusering er unødvendig.",
     },
     {
       question: "Hva er en kurvetilpasning $y=\\beta_0+\\beta_1t+\\beta_2t^2$ i minste kvadraters språk?",
-      options: ["Et minste kvadraters problem med en ekstra $t^2$-kolonne i $C$", "Bare ett tallsvar er nok, uten noen ytterligere kommentar om entydighet", "Et egenverdiproblem for $C$", "Et problem som krever at $C$ er kvadratisk"],
+      options: ["Et minste kvadraters problem med en ekstra $t^2$-kolonne i $C$", "Et ikke-lineært problem som ikke kan løses med normallikningene", "Et egenverdiproblem for $C$", "Et problem som krever at $C$ er kvadratisk"],
       explanation: "Modellen er lineær i $\\beta$-ene, så $C$ får kolonner $1,t,t^2$ og normallikningene gjelder uendret. Det er ikke ikke-lineært eller et egenverdiproblem.",
     },
   ],
@@ -1951,8 +1951,8 @@ const quizData_mat1120: Record<string, QuizQuestion[]> = {
     },
     {
       question: "For en matrise $A$ (standardprikkprodukt) er $(\\operatorname{Col}A)^{\\perp}$ lik:",
-      options: ["$\\operatorname{Nul}(A^{T})$", "$\\operatorname{Nul}(A)$", "$\\operatorname{Col}(A^{T})$", "$\\operatorname{Row}(A)$"],
-      explanation: "En vektor er ortogonal på alle kolonnene i $A$ nettopp når $A^{T}\\mathbf{z}=\\mathbf{0}$, altså $(\\operatorname{Col}A)^{\\perp}=\\operatorname{Nul}(A^{T})$. $\\operatorname{Nul}(A)=(\\operatorname{Row}A)^{\\perp}$, mens $\\operatorname{Col}(A^{T})=\\operatorname{Row}A$ er komplementet, ikke lik det.",
+      options: ["$\\operatorname{Nul}(A^{T})$", "$\\operatorname{Nul}(A)$", "$\\operatorname{Col}(A^{T})$", "$\\operatorname{Col}(A)$"],
+      explanation: "En vektor er ortogonal på alle kolonnene i $A$ nettopp når $A^{T}\\mathbf{z}=\\mathbf{0}$, altså $(\\operatorname{Col}A)^{\\perp}=\\operatorname{Nul}(A^{T})$. $\\operatorname{Nul}(A)=(\\operatorname{Row}A)^{\\perp}$, mens $\\operatorname{Col}(A^{T})=\\operatorname{Row}A$ og $\\operatorname{Col}(A)$ er rommene selv, ikke komplementene til $\\operatorname{Col}A$.",
     },
     {
       question: "Dimensjonsrelasjonen for et underrom $W$ og komplementet $W^{\\perp}$ sier at $\\dim W+\\dim W^{\\perp}$ er lik:",
