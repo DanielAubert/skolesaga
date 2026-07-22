@@ -1,0 +1,225 @@
+{
+  "id": "stk1110-0-1",
+  "courseId": "stk1110",
+  "chapterNumber": "0.1",
+  "title": "Eksamenskartet: slik testes STK1110",
+  "description": "Eksamensformen, de tre likevektede søylene, temafrekvensene, sjangerkatalogen A–P og lesestrategien som styrer hele boka — og hva som bevisst er utelatt.",
+  "estimatedMinutes": 30,
+  "competenceGoals": [
+    "orientere deg i eksamensformen: to–tre kjededelte storoppgaver på fire timer",
+    "kjenne igjen de tre likevektede søylene og hvor hyppig hvert tema opptrer",
+    "legge en leseplan tilpasset egen tid og egne svake punkter",
+    "vite hva sensor belønner og hva som bevisst er utelatt fra emnet"
+  ],
+  "content": [
+    {
+      "id": "stk1110-0-1-tip-eksamensvinkel",
+      "type": "tip",
+      "title": "Eksamensvinkel",
+      "content": "**Dette kapitlet er selve kartet — les det først, og kom tilbake til det underveis.** Det gir deg ingen regnepoeng direkte, men det avgjør hvor du bruker tiden din, og det er der de fleste taper karakter: på å øve på feil ting.\n\n- **Eksamen er usedvanlig forutsigbar.** Fire timer, skriftlig, med kalkulator og formelsamling for STK1110 som eneste hjelpemidler. Nesten hvert sett er **to–tre store oppgaver**, hver en kjede av 4–7 punktdelte deloppgaver (a, b, c, …) i samme kontekst. Ingen kortsvars- eller flervalgsdel.\n- **Tre likevektede søyler bærer alt:** estimeringsteori, hypotesetesting + konfidensintervall, og lineær regresjon. Hver dukker opp i rundt 90 % av settene. Ingen kan velges bort.\n- **Sensor belønner utledning og valg, ikke pugging** — formelsamlingen ligger på pulten. Boka er bygd som målrettet drill mot nettopp de tre kjedene.\n\nBruk dette kapitlet til å legge en realistisk leseplan (se «Lite tid?»-boksen), og kap. [0.2](/bok/stk1110/stk1110-0-2) hvis du er rusten på sannsynlighet fra STK1100."
+    },
+    {
+      "id": "stk1110-0-1-forkunnskaper",
+      "type": "text",
+      "content": "**Forkunnskaper:** Dette kapitlet kan leses uten forkunnskaper — det er en orientering, ikke en regneleksjon. Du trenger verken STK1100 eller kalkulator for å komme gjennom det. Symbolene du møter nedenfor er bare pekere framover; hver enkelt forklares grundig når vi kommer dit."
+    },
+    {
+      "id": "stk1110-0-1-slik-leser-du",
+      "type": "text",
+      "content": "## Slik leser du denne boka\n\nFør vi går løs på faget, tre ting du trenger for å lese resten uten å snuble.\n\n### Karakterskalaen A–F\nEksamen gir bokstavkarakter fra **A** (best) til **F** (stryk); **E** er laveste ståkarakter. Den avsluttende eksamenen teller 100 %, og to obligatoriske innleveringer må være godkjent for at du får gå opp. Et nyttig utgangspunkt: **C er en god og vanlig karakter** — den betyr at du behersker kjernestoffet solid. Du trenger ikke være feilfri for å gjøre det bra; du trenger å treffe de tre søylene sikkert.\n\n### Sjangerkodene A–P — oppgavetypene som går igjen\nGjennom hele boka viser vi til **sjangre** med en bokstav. Dette er ganske enkelt de oppgavetypene som faktisk dukker opp, samlet i en sjekkliste. Her er hele lista i klarspråk (du møter hver enkelt igjen der den hører hjemme):\n\n- **A** — moment- og ML-estimator: finn en formel for en ukjent parameter ut fra data.\n- **B** — forventningsretthet, varians og sammenligning: er estimatoren «treffsikker», og hvilken av to er best?\n- **C** — Fisher-informasjon og MLE-fordeling: hvor presis er estimatoren i store utvalg?\n- **D** — konfidensintervall: et intervall vi er f.eks. 95 % sikre på fanger den sanne verdien.\n- **E** — hypotesetest, hele pakken: kan vi slå fast en effekt, med fullt oppsett?\n- **F** — styrke og dimensjonering: hvor mange målinger trengs for å oppdage en effekt?\n- **G** — to utvalg og parvise data: sammenlign to grupper riktig.\n- **H** — enkel lineær regresjon: én forklaringsvariabel, rett linje.\n- **I** — multippel regresjon: flere forklaringsvariabler samtidig.\n- **J** — modelldiagnostikk: sjekk om regresjonsmodellen holder (residualplott).\n- **K** — prediksjonsintervall: usikkerheten i en *ny* observasjon, ikke bare i snittet.\n- **L** — bayesiansk inferens: kombiner forhåndskunnskap med data.\n- **M** — enveis ANOVA: sammenlign flere grupper på én gang.\n- **N** — eksakt fordelingsteori: bygg et intervall/test fra en transformasjon.\n- **O** — ikke-parametrikk: robuste metoder når normalantakelsen svikter.\n- **P** — logistisk regresjon: når svaret er ja/nei i stedet for et tall.\n\nDu trenger ikke huske bokstavene — de er bare en rask måte å si «denne oppgavetypen» på. Hele katalogen samles igjen i kap. 4.1.\n\n### Typiske feil har et samlet register\nHvert kapittel har en «Typiske feil»-boks med de tabbene sensor faktisk trekker for — z der det skal være t, glemt maksimums-bekreftelse i ML, P-verdi tolket feil, $R^2$ i stedet for justert $R^2$, og flere. De er ikke tilfeldige: de er destillert fra løsningsforslagene. Les dem som en tsjekkliste før eksamen.\n\n### Tunge symboler du vil møte — men ikke ennå\nLenger inn i boka dukker det opp uttrykk som ser skremmende ut ved første blikk:\n\n$$\\hat{\\theta}, \\quad \\ell''(\\hat{\\theta}) < 0, \\quad I(\\theta) = -E\\!\\left[\\tfrac{\\partial^2 \\log f}{\\partial\\theta^2}\\right], \\quad \\hat{\\beta} = (X^TX)^{-1}X^TY, \\quad 2\\sum X_i/\\theta \\sim \\chi^2_{2n}.$$\n\n**Du trenger ikke forstå disse ennå.** Hvert av dem bygges opp fra grunnen der det hører hjemme — Fisher-informasjonen i kap. [1.3](/bok/stk1110/stk1110-1-3), hatmatrisen i kap. [3.4](/bok/stk1110/stk1110-3-4), pivoten i kap. [2.5](/bok/stk1110/stk1110-2-5). Ta dem som et løfte om hva du snart kommer til å kunne lese.\n\nNotasjonen i hele boka følger eksamenssettenes egen: store bokstaver for stokastiske variable ($X$), hatt for estimatorer ($\\hat{\\theta}$), og $X \\sim N(\\mu, \\sigma^2)$ der **andre argument er variansen** — aldri standardavviket."
+    },
+    {
+      "id": "stk1110-0-1-eksamensform-intro",
+      "type": "text",
+      "content": "## Eksamensformen og de tre søylene\n\nSTK1110 har en av de mest stabile eksamensformene du finner. Formen har knapt endret seg på tjue år, og det er godt nytt: det betyr at du kan trene målrettet."
+    },
+    {
+      "id": "stk1110-0-1-def-storoppgave",
+      "type": "definition",
+      "title": "Den kjededelte storoppgaven",
+      "content": "Eksamensformatet: **to–tre store oppgaver**, hver en kjede av 4–7 punktdelte deloppgaver (a, b, c, …) i samme kontekst, der tidlige svar gjenbrukes senere. Det finnes ingen kortsvars- eller flervalgsdel. Nødvendige kvantiler (z, t, χ², F) legges ofte rett i oppgaveteksten. Nøkkelgrep: står du fast på ett deltrinn, hopper du ikke av — senere punkter kan løses med et *oppgitt* mellomresultat."
+    },
+    {
+      "id": "stk1110-0-1-def-tre-soyler",
+      "type": "definition",
+      "title": "De tre likevektede søylene",
+      "content": "Nesten hvert sett har én storoppgave per søyle: **(1) estimeringsteori** (Oppgave 1), **(2) hypotesetesting + konfidensintervall** (Oppgave 2) og **(3) lineær regresjon** (Oppgave 3, den tunge). Hver søyle forekommer i rundt 90 % av settene — de er likevektede, og bredden er selve poenget. Ingen enkeltferdighet dominerer, og ingen søyle kan velges bort."
+    },
+    {
+      "id": "stk1110-0-1-kildenote",
+      "type": "text",
+      "content": "### Hvor tallene kommer fra\n\nFrekvenstallene i dette kapitlet er ikke gjetning. De er talt opp fra **22 avsluttende skoleeksamener 2004–2025** i UiOs STK1110-arkiv. Av disse er **11 sett (2015–2025) lest grundig sammen med de offisielle løsningsforslagene**, som er den beste kilden til *hva sensor faktisk belønner*.\n\nEt par ærlige forbehold: settene **2007–2014** er skumlest sammen med løsningsforslagene, og **2004–2006** er kun lest på oppgavenivå (arkivet har ikke løsningsforslag for dem). Settet fra **2004 forelå bare som skannet bilde** og er registrert med lav vekt. Der en prosent bygger på få eller eldre sett, skal du lese den som et *omtrentlig* signal, ikke en eksakt måling. Tallene er avrundet og oppgitt som «andel av 22 sett».\n\n*(Merk: arkivet inneholder **løsningsforslag** (faglærerskrevne fasitforslag), ikke offisielle rettemerknader fra sensor — slike foreligger ikke i materialet. Modellbesvarelsene i denne boka er dessuten nyskrevne, ikke gjengitte studentbesvarelser.)*"
+    },
+    {
+      "id": "stk1110-0-1-temafrekvens",
+      "type": "text",
+      "content": "### Temafrekvens — hva som faktisk testes\n\nAndelen av de 22 settene der temaet forekommer som minst én deloppgave:\n\n| Tema | Andel av 22 sett |\n|---|---|\n| Konfidensintervall (t/z/χ²/Wald/pivot) | ≈ 95 % |\n| Punktestimering (ML og/eller moment) | ≈ 95 % |\n| Enkel lineær regresjon | ≈ 91 % |\n| Hypotesetesting (oppsett → konklusjon) | ≈ 91 % |\n| Forventningsretthet + varians av estimator | ≈ 91 % |\n| ML-utledning (L → ℓ → score → løs → bekreft maks) | ≈ 82 % |\n| Tolkning av R-utskrift (lm-sammendrag) | ≈ 68 % |\n| P-verdi (definere + beregne) | ≈ 64 % |\n| Momentestimator | ≈ 50 % |\n| Multippel regresjon | ≈ 50 % |\n| Fisher-informasjon + MLE-fordeling | ≈ 45 % (stigende) |\n| Residualdiagnostikk | ≈ 41 % |\n| R² / justert R² + modellvalg | ≈ 36 % |\n| To-utvalgs t / pooled varians | ≈ 36 % |\n| Minste kvadraters utledning | ≈ 36 % |\n| Andelstest / to-utvalgsandeler | ≈ 23 % |\n| Poisson-modell / Poisson-test | ≈ 23 % |\n| Styrke / dimensjonering | ≈ 23 % |\n| Eksakt/transformasjons-pivot | ≈ 18 % |\n| Prediksjonsintervall | ≈ 18 % |\n| Bayes / konjugering | ≈ 9 % (nytt fra 2022) |\n| ANOVA | ≈ 9 % |\n| Ikke-parametrikk (bootstrap, rang) | ≈ 9 % |\n| Logistisk regresjon | ≈ 5 % |\n| Ren sannsynlighetsregning (MGF, Jacobi, kombinatorikk) | ≈ 0 % (ligger i STK1100) |\n| Python-koding | 0 % (STK1110 tolker R-utskrift) |\n\nLes tabellen slik: alt øverst *må* sitte, midten skiller C fra B, og bunnen (Bayes, ANOVA, eksakt pivot, ikke-parametrikk) er A-differensiatorene som roterer inn."
+    },
+    {
+      "id": "stk1110-0-1-tre-kjeder-intro",
+      "type": "text",
+      "content": "### De tre kjedene som ryggrad\n\nHver søyle har en fast «kjede» — en rekkefølge av grep du går gjennom, ledd for ledd. Lærer du kjedene som en refleks, åpner du nesten hvilken som helst oppgave riktig. Dette er ryggraden i hele boka."
+    },
+    {
+      "id": "stk1110-0-1-def-estimeringskjeden",
+      "type": "definition",
+      "title": "Estimeringskjeden (Oppgave 1)",
+      "content": "Den faste rekkefølgen i estimeringsoppgaven: **moment/ML → bekreft maksimum → forventningsretthet → varians → Fisher-informasjon → Wald-konfidensintervall**. Du starter med en fordeling og en parameter, finner en estimator, viser at den er «treffsikker», måler presisjonen og bygger et intervall. Bæres av Del 1 (kap. [1.1](/bok/stk1110/stk1110-1-1)–[1.5](/bok/stk1110/stk1110-1-5))."
+    },
+    {
+      "id": "stk1110-0-1-def-testritualet",
+      "type": "definition",
+      "title": "Testritualet (Oppgave 2)",
+      "content": "Den faste rekkefølgen i hypotesetesten: **$H_0/H_a$ med begrunnet retning → testobservator med fordeling under $H_0$ → utled at nivået blir $\\alpha$ → P-verdi → konklusjon i ord → CI↔test-dualitet som kryssjekk**. Sensor krever hele ritualet skrevet ut — særlig nivå-utledningen. Bæres av Del 2 (kap. [2.1](/bok/stk1110/stk1110-2-1)–[2.7](/bok/stk1110/stk1110-2-7))."
+    },
+    {
+      "id": "stk1110-0-1-def-regresjonskjeden",
+      "type": "definition",
+      "title": "Regresjonskjeden (Oppgave 3)",
+      "content": "Den faste rekkefølgen i regresjonsoppgaven: **minste kvadrater / matriseform → inferens for koeffisientene → $R^2$/justert $R^2$ → diagnostikk → prediksjon**, nesten alltid med **tolkning av R-utskrift**. Dette er den tunge oppgaven som bærer mest poeng. Bæres av Del 3 (kap. [3.1](/bok/stk1110/stk1110-3-1)–[3.7](/bok/stk1110/stk1110-3-7))."
+    },
+    {
+      "id": "stk1110-0-1-def-sjangerkatalogen",
+      "type": "definition",
+      "title": "Sjangerkatalogen A–P",
+      "content": "Studentens sjekkliste over de 16 oppgavetypene som går igjen, gruppert etter søyle: estimering (A moment/ML, B forventningsretthet/varians, C Fisher/MLE, L Bayes), test+KI (D KI, E ritualet, F styrke, G to-utvalg/parvis, M ANOVA, N eksakt pivot, O ikke-param) og regresjon (H enkel, I multippel, J diagnostikk, K prediksjon, P logistisk). Full oversikt i kap. 4.1."
+    },
+    {
+      "id": "stk1110-0-1-def-formelsamling",
+      "type": "definition",
+      "title": "Formelsamlingsprinsippet",
+      "content": "Formelsamlingen for STK1110 er alltid tillatt og inneholder alle fordelinger med $E$/Var, kvantiltabeller og standard KI-/testformler. Konsekvensen: eksamen tester ikke pugging, men **å velge** riktig fordeling/test/intervall, **å utlede** det som ikke står der (ML, Fisher-info, pivotaler, LS-estimatorer), **å tolke R-utskrift** og **å skrive testritualet ut**. Hvert kapittel merker hva som «står i formelsamlingen» vs. hva som «må utledes aktivt»."
+    },
+    {
+      "id": "stk1110-0-1-def-sensorkrav",
+      "type": "definition",
+      "title": "Sensorens elleve krav",
+      "content": "Elleve gjennomgående krav destillert fra løsningsforslagene: (1) definer modellen først; (2) ML med alle trinn + bekreft maksimum; (3) vis forventningsretthet og varians fullstendig; (4) nevn MLE-asymptotikk/sentralgrenseteoremet eksplisitt; (5) skriv hele testritualet inkl. nivå-utledning; (6) riktig fordeling og frihetsgrader; (7) eksakt/pivot-KI framfor Wald når SD avhenger av parameteren; (8) tolk regresjonskoeffisienter, bruk justert $R^2$, forklar konfundering, advar mot ekstrapolering; (9) tolk residualplott i mønstre; (10) les R-utskrift presist; (11) tallsvar med rimelig presisjon og enhet."
+    },
+    {
+      "id": "stk1110-0-1-karakter-intro",
+      "type": "text",
+      "content": "### Hva som skiller karakterene\n\nLøsningsforslagene og oppgavestrukturen tegner et ganske tydelig bilde av hva som løfter en besvarelse fra ståkarakter til topp."
+    },
+    {
+      "id": "stk1110-0-1-def-karakterskillene",
+      "type": "definition",
+      "title": "Karakterskillene: bestått, C–B og A",
+      "content": "**Bestått** sikres av åpningsdelene: definer modellen, en enkel estimator, et standard t-intervall, og å lese en R-utskrift. **C–B** krever at du behersker full ML-utledning (med bekreftet maksimum), det komplette testritualet og standard regresjonsinferens. **A** skiller seg på det tyngste: Fisher-info → Wald-KI med Cramér–Rao, eksakt/pivot-utledninger, matriseregresjon (hatmatrise), konfunderingsargumentet, konjugering/Bayes og de ikke-parametriske alternativene."
+    },
+    {
+      "id": "stk1110-0-1-def-utelatte",
+      "type": "definition",
+      "title": "Det bevisst utelatte",
+      "content": "To ting testes så godt som aldri, og du skal ikke bruke forberedelsestid på dem: **ren sannsynlighetsregning** (simultantetthet, MGF, Jacobi, kombinatorikk, ordningsvariable) — det er STK1100s domene, kort oppfrisket i kap. [0.2](/bok/stk1110/stk1110-0-2) — og **Python-koding**. STK1110 *tolker* R-utskrift, den skriver ingen kode. En vanlig tabbe er å pugge feil emne."
+    },
+    {
+      "id": "stk1110-0-1-tidsbudsjett",
+      "type": "text",
+      "content": "## Tidsbudsjett på selve eksamen\n\nFire timer og to–tre oppgaver gir grovt **80–120 minutter per oppgave**. En fornuftig strategi:\n\n- Ta de **tidlige, sikre deltrinnene** i hver oppgave først — de gir trygge poeng og varmer deg opp.\n- **Hopp aldri av en kjede** fordi ett deltrinn stopper. Skriv «anta resultatet fra (b) er …» og gå videre; senere punkter poengsettes for seg.\n- Prioriter at **regresjonsoppgaven** (den tunge) faktisk får tid — den bærer mest poeng, og det er lett å bli sittende for lenge i estimeringen.\n- Hold av 10–15 minutter til slutt for gjennomlesing: rett kvantil, rett frihetsgrad, rett enhet.\n\nUnder følger noen refleksjonsoppgaver som lar deg øve nettopp denne planleggingen — det finnes ingen regneoppgaver i dette kapitlet."
+    },
+    {
+      "id": "stk1110-0-1-oppg-1-wrap",
+      "type": "exercise",
+      "exercise": {
+        "id": "stk1110-0-1-oppg-1",
+        "number": "1",
+        "type": "classic",
+        "difficulty": "lett",
+        "task": "(Strategi — tidsbudsjett.) Et sett har tre kjededelte storoppgaver — én estimering, én test/KI og én regresjon — og du har fire timer (240 minutter). Sett opp et grovt tidsbudsjett og en rekkefølge, og begrunn valget.",
+        "solution": "Med tre oppgaver og 240 minutter er utgangspunktet rundt **75–80 minutter per oppgave**, og hold av **10–15 minutter** til gjennomlesing på slutten.\n\nRekkefølge: start med den søylen du er tryggest på (for mange er det estimeringsoppgaven, Oppgave 1) for å sikre poeng tidlig og komme i flyt. Men pass på at **regresjonsoppgaven** får sin fulle tid — den bærer mest poeng, og det er lett å bli hengende igjen i estimeringen. Ta de sikre åpningsdelene (a, b) i alle tre oppgavene før du graver deg ned i det vanskeligste deltrinnet i én av dem.",
+        "hints": [
+          "Del 240 minutter på antall oppgaver, og hold av litt sluttid til kontroll.",
+          "Tenk på hvilken søyle som gir deg de tryggeste poengene tidlig — og hvilken som bærer mest poeng."
+        ]
+      }
+    },
+    {
+      "id": "stk1110-0-1-oppg-2-wrap",
+      "type": "exercise",
+      "exercise": {
+        "id": "stk1110-0-1-oppg-2",
+        "number": "2",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "(Strategi — kjeden.) I en oppgave med deltrinn (a)–(f) står du helt fast på (b). Forklar hvorfor det likevel er feil å hoppe over resten av oppgaven, og hva du konkret gjør.",
+        "solution": "Deltrinnene deler kontekst, men **poengsettes hver for seg**. En blank (b) sperrer ikke (c)–(f): senere punkter kan nesten alltid løses med et *oppgitt* eller *antatt* mellomresultat.\n\nKonkret: skriv «jeg antar at resultatet fra (b) er …» (bruk gjerne en oppgitt formel eller et rimelig symbol), og regn videre på (c)–(f) med det. Du får full uttelling for de senere punktene uavhengig av (b). Kom eventuelt tilbake til (b) hvis du får tid til overs. Å hoppe av hele oppgaven fordi ett ledd stopper, er den dyreste tabben på hele eksamen.",
+        "hints": [
+          "Deloppgavene deler kontekst, men hva med poengsettingen?",
+          "Hva kan du gjøre videre hvis du mangler ett mellomresultat men trenger en verdi for det?"
+        ]
+      }
+    },
+    {
+      "id": "stk1110-0-1-oppg-3-wrap",
+      "type": "exercise",
+      "exercise": {
+        "id": "stk1110-0-1-oppg-3",
+        "number": "3",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "(Strategi — sjangergjenkjenning.) Klassifiser hvert deltrinn etter søyle og sjanger (A–P):\n\n**a)** utled ML-estimatoren og bekreft maksimum\n**b)** finn Fisher-informasjonen og angi et Wald-intervall\n**c)** test $H_0: \\theta = \\theta_0$ med fullstendig rituale\n**d)** tolk stigningstallet i et lm-sammendrag og angi et 95 % KI",
+        "solution": "**a)** Estimeringssøylen, **sjanger A** (moment/ML-estimator), med maksimums-bekreftelsen som er en del av ML-kjeden.\n**b)** Estimeringssøylen, **sjanger C** (Fisher-informasjon og MLE-fordeling) som leder inn i **D** (Wald-konfidensintervall).\n**c)** Test/KI-søylen, **sjanger E** (hypotesetestens fulle rituale).\n**d)** Regresjonssøylen, **sjanger H** (enkel lineær regresjon), tolkning av R-utskrift.\n\nPoenget med øvelsen: når du kjenner sjangeren, vet du hvilken kjede og hvilke sensorkrav som gjelder — det gjør at du åpner deltrinnet riktig.",
+        "hints": [
+          "Tre søyler: estimering, test/KI, regresjon. Plasser hvert trinn i én av dem først.",
+          "Bokstavkodene står forklart i «Slik leser du denne boka»-boksen lenger opp."
+        ]
+      }
+    },
+    {
+      "id": "stk1110-0-1-oppg-4-wrap",
+      "type": "exercise",
+      "exercise": {
+        "id": "stk1110-0-1-oppg-4",
+        "number": "4",
+        "type": "classic",
+        "difficulty": "lett",
+        "task": "(Strategi — leseplan.) Du har to uker igjen til eksamen og føler deg trygg på estimering, men usikker på regresjon. Sett opp en prioritert leseplan.",
+        "solution": "De tre søylene er likevektede, og **regresjon kan ikke velges bort** — den forekommer i ~91 % av settene og bærer mest poeng. Så selv om det frister å pusse på det du allerede kan, ligger den største gevinsten i regresjonen.\n\nPrioritert plan: bruk mest tid på **Del 3**, særlig på **å lese R-utskrift** (kap. [3.2](/bok/stk1110/stk1110-3-2)) og drillkapitlet [3.7](/bok/stk1110/stk1110-3-7). Ikke slipp **testritualet** (Del 2, drill [2.7](/bok/stk1110/stk1110-2-7)) — det er også et sensorkrav. Vedlikehold estimeringen kort med drill [1.5](/bok/stk1110/stk1110-1-5). Avslutt med minst én **øvingseksamen** (kap. [4.2](/bok/stk1110/stk1110-4-2)–[4.4](/bok/stk1110/stk1110-4-4)) under tidspress som generalprøve.",
+        "hints": [
+          "Hvilken søyle bærer flest poeng — og kan den i det hele tatt velges bort?",
+          "Drillkapitlene og øvingseksamenene er laget nettopp for sluttspurten."
+        ]
+      }
+    },
+    {
+      "id": "stk1110-0-1-lite-tid",
+      "type": "tip",
+      "title": "Lite tid?",
+      "content": "**Har du bare noen dager?** Her er to ruter, begge bygd på bokas egne tidsanslag: summen av alle kapitlene er **≈ 1 485 minutter ≈ 25 timers lesetid**.\n\n**Hurtigrute (3–5 dager, ~2–3 t/dag):**\n- **Dag 1:** Del 0 (dette kartet + STK1100-broen), og start estimeringssøylen (kap. 1.1–1.2).\n- **Dag 2:** fullfør Del 1, med drillkapitlet 1.5 som hovedtrening.\n- **Dag 3:** test/KI-søylen — kap. 2.1–2.2 + drill 2.7 (testritualet).\n- **Dag 4:** regresjonssøylen — kap. 3.1–3.2 (lær å lese R-utskrift!) + drill 3.7.\n- **Dag 5:** én øvingseksamen (kap. 4.2) under tidspress, med fasit som selvretting.\n\n**Ukeplan (én uke, jevnt tempo):** ~5 timer × 5 dager, fordelt som hurtigruta over, med de tre drillkapitlene (1.5, 2.7, 3.7) og én øvingseksamen som ryggrad.\n\n**Anslagene er lesetid; regn ×1,5 ved håndskriving** — du lærer statistikk med penn, ikke bare med øyet, så sett av ekstra tid til å faktisk regne oppgavene."
+    },
+    {
+      "id": "stk1110-0-1-deltid",
+      "type": "tip",
+      "title": "Har du bedre tid? Deltidsrute og treningsprinsipp",
+      "content": "**Deltidsrute (10–12 uker, ~2–3 t/uke):** ta én søyle om gangen. Del 1 over uke 1–3, **Del 2 over uke 4–7** (den er størst, sju kapitler), Del 3 over uke 8–11. Legg de tre generalprøvene jevnt utover mot slutten i stedet for alt til slutt: **øvingseksamen 4.2 etter uke 6, 4.3 etter uke 9, 4.4 etter uke 11**. Da prøver du deg selv underveis og oppdager hullene mens det ennå er tid.\n\n**Lese mye, skrive lite:** les gjerne bredt, men **tren smalt og aktivt**. Det er langt mer verdt å regne ett drillsett med penn enn å lese tre kapitler passivt. Et enkelt knep: ved hver formel du møter, lukk boka og prøv å gjenskape utledningen selv før du leser videre. Det er den eneste måten kjedene fester seg som en refleks til eksamen."
+    },
+    {
+      "id": "stk1110-0-1-formelminimum",
+      "type": "collapsible",
+      "title": "Formlene du må kunne utenat — og resten kan du slå opp",
+      "buttonText": "Vis formel-minimum",
+      "content": [
+        {
+          "id": "stk1110-0-1-formelminimum-text",
+          "type": "text",
+          "content": "## Formel-minimum\n\n*Formelsamlingen for STK1110 er alltid tillatt og inneholder alle fordelinger, kvantiltabeller og standard KI-/testformler. Du skal derfor **ikke pugge formelsamlingen**. Men noen få ting bør sitte som en refleks, fordi de utledes eller velges under tidspress — resten slår du opp. Dette er også bokas samlede oppslagskort.*\n\n**1. ML-kjeden.**\n$$L(\\theta)=\\prod_{i=1}^n f(x_i;\\theta) \\;\\to\\; \\ell(\\theta)=\\log L(\\theta) \\;\\to\\; s(\\theta)=\\ell'(\\theta)=0 \\;\\to\\; \\hat{\\theta}, \\quad \\text{bekreft } \\ell''(\\hat{\\theta})<0.$$\nHjertet i hver Oppgave 1. Maksimums-bekreftelsen glemmes ofte — ikke gjør det.\n\n**2. Fisher-informasjon og MLE-fordeling.**\n$$I(\\theta)=-E\\!\\left[\\frac{\\partial^2 \\log f(X;\\theta)}{\\partial\\theta^2}\\right], \\qquad \\hat{\\theta} \\approx N\\!\\left(\\theta,\\ \\frac{1}{nI(\\theta)}\\right) \\text{ for stor } n.$$\nGrunnlaget for Wald-intervallet $\\hat{\\theta} \\pm z_{\\alpha/2}\\,se(\\hat{\\theta})$.\n\n**3. t-intervallet.**\n$$\\bar X \\pm t_{\\alpha/2,\\,n-1}\\,\\frac{S}{\\sqrt n}.$$\nStandard-KI når $\\sigma$ er ukjent. Bruk $t$ (ikke $z$), og $n-1$ frihetsgrader.\n\n**4. Testritualet i én linje.**\n$$H_0/H_a \\to \\text{observator m/fordeling under } H_0 \\to \\text{utled nivå } \\alpha \\to \\text{P-verdi} \\to \\text{konklusjon i ord}.$$\nSensorkravet i Oppgave 2.\n\n**5. P-verdien (verbalt).** Sannsynligheten *under $H_0$* for et minst like ekstremt utfall som det observerte — aldri «sannsynligheten for at $H_0$ er sann».\n\n**6. Enkel regresjon.**\n$$\\hat{\\beta}_1=\\frac{\\sum(x_i-\\bar x)(Y_i-\\bar Y)}{\\sum(x_i-\\bar x)^2}, \\quad V(\\hat{\\beta}_1)=\\frac{\\sigma^2}{\\sum(x_i-\\bar x)^2}, \\quad T=\\frac{\\hat{\\beta}_1-\\beta_1^0}{se(\\hat{\\beta}_1)} \\sim t_{n-2}.$$\nKjernen i Oppgave 3.\n\n**7. Justert $R^2$ til modellvalg.** $R^2$ øker alltid når du legger til en variabel — bruk **justert $R^2$** når du sammenligner modeller.\n\n**8. Frihetsgradene.** $n-1$ (ett utvalg), $m+n-2$ (pooled to-utvalg), $n-2$ (enkel regresjon), $n-k-1$ (multippel med $k$ prediktorer). Feil frihetsgrad straffes hardt.\n\nAlt annet — tetthetsuttrykk, $E$/Var for hver fordeling, kvantiltabellene, χ²-/F-intervaller — **slår du opp**. Tren *valg* og *oppslag*, ikke pugging."
+        }
+      ]
+    },
+    {
+      "id": "stk1110-0-1-symbolliste",
+      "type": "collapsible",
+      "title": "Symbol- og formelliste",
+      "buttonText": "Vis symboler og formler",
+      "content": [
+        {
+          "id": "stk1110-0-1-symbolliste-text",
+          "type": "text",
+          "content": "## Symbol- og formelliste\n\n*Oppslagsverk — alt her forklares underveis i kapitlet.*\n\nSymbolene og formlene som er nevnt i dette kartkapitlet, samlet på ett sted. De fleste er bare pekere framover; hvert forklares grundig i sitt eget kapittel.\n\n| Symbol | Betydning |\n|---|---|\n| $X$ | Stokastisk (tilfeldig) variabel — stor bokstav |\n| $x$ | Observasjon (tallverdi) — liten bokstav |\n| $\\bar X$ | Utvalgsgjennomsnitt |\n| $S^2$ | Utvalgsvarians |\n| $\\theta$ | Ukjent parameter (generisk) |\n| $\\hat{\\theta}$ | Estimator for $\\theta$ (hatt = estimert, stokastisk) |\n| $\\mu,\\ \\sigma^2$ | Forventning og varians |\n| $N(\\mu,\\sigma^2)$ | Normalfordeling — **andre argument er variansen** |\n| $\\Phi$ | Standardnormal fordelingsfunksjon |\n| $z_\\alpha,\\ t_{\\nu,\\alpha}$ | Kvantiler med øvre haleareal $\\alpha$ ($P(Z>z_\\alpha)=\\alpha$) |\n| $\\chi^2,\\ F$ | Kjikvadrat- og F-fordelingens kvantiler |\n| $\\alpha$ | Signifikansnivå (og øvre haleareal) |\n| $L,\\ \\ell,\\ s(\\theta)$ | Likelihood, log-likelihood, scorefunksjon |\n| $I(\\theta)$ | Fisher-informasjon |\n| $\\beta_0,\\ \\beta_1$ | Regresjonens konstantledd og stigningstall |\n| $\\varepsilon_i$ | Feilledd i regresjon, $\\varepsilon_i \\sim N(0,\\sigma^2)$ |\n| $R^2$ | Forklart andel av variasjonen |\n| $(X^TX)^{-1}X^TY$ | Minste-kvadraters-estimatoren på matriseform (multippel) |\n| $n-1,\\ n-2,\\ m+n-2,\\ n-k-1$ | Frihetsgrader for ulike situasjoner |\n| P-verdi | Sannsynligheten under $H_0$ for et minst like ekstremt utfall |\n\n**Formler i dette delkapitlet:**\n\nDe tre kjedene som bærer eksamen:\n\n$$\\textbf{Estimering:}\\quad \\text{moment/ML} \\to \\text{bekreft maks} \\to E(\\hat{\\theta}) \\to \\text{Var}(\\hat{\\theta}) \\to I(\\theta) \\to \\text{Wald-KI}.$$\n$$\\textbf{Test:}\\quad H_0/H_a \\to \\text{observator m/fordeling} \\to \\text{utled nivå } \\alpha \\to \\text{P-verdi} \\to \\text{konklusjon} \\to \\text{dualitet}.$$\n$$\\textbf{Regresjon:}\\quad \\text{LS/matrise} \\to \\text{inferens} \\to R^2/\\text{justert } R^2 \\to \\text{diagnostikk} \\to \\text{prediksjon}.$$\n\nTidsbudsjett-tommelen: $4\\text{ timer} / (2\\text{–}3\\text{ oppgaver}) \\approx 80\\text{–}120$ minutter per oppgave."
+        }
+      ]
+    }
+  ],
+  "exercises": []
+}
