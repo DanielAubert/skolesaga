@@ -1,0 +1,182 @@
+[
+  {
+    "question": "En singulærverdi til A er definert som",
+    "options": [
+      "kvadratroten √λ av en egenverdi λ til matrisen AᵀA",
+      "en vilkårlig egenverdi λ til selve matrisen A her",
+      "determinanten til A opphøyd i en halv, altså √det A",
+      "summen av egenverdiene til AᵀA delt på antall rader"
+    ],
+    "explanation": "Per definisjon er σᵢ=√λᵢ der λᵢ er egenverdiene til AᵀA. De er ikke egenverdiene til A selv, og heller ikke knyttet til det A på denne måten."
+  },
+  {
+    "question": "Egenverdiene til AᵀA er alltid",
+    "options": [
+      "ikke-negative, siden λ=‖Av‖² for en enhetsegenvektor v",
+      "strengt positive uansett hvilken matrise A man starter med",
+      "hele tall når elementene i matrisen A selv er hele tall",
+      "like egenverdiene til A opphøyd i andre potens her nå"
+    ],
+    "explanation": "For enhetsegenvektor v er λ=vᵀAᵀAv=‖Av‖²≥0. De kan være 0 (rangdefekt), så ikke strengt positive; heltall/kobling til A² gjelder ikke generelt."
+  },
+  {
+    "question": "Singulærverdiene i Σ skal alltid ordnes",
+    "options": [
+      "synkende, altså σ₁≥σ₂≥…≥0 langs diagonalen i Σ",
+      "stigende, med den minste singulærverdien øverst her",
+      "i den rekkefølgen vedlegget tilfeldigvis oppgir dem",
+      "etter fortegn, med de positive samlet nederst i Σ"
+    ],
+    "explanation": "Konvensjonen er synkende: σ₁≥σ₂≥…≥0. Da må V, Σ og U matches til samme rekkefølge for at A=UΣVᵀ skal stemme."
+  },
+  {
+    "question": "Høyresingulærvektorene (søylene i V) er",
+    "options": [
+      "en ortonormal egenbasis for den symmetriske matrisen AᵀA",
+      "egenvektorene til A selv, uansett om A er kvadratisk",
+      "de samme som venstresingulærvektorene i matrisen U her",
+      "søylene i A etter at de er blitt normalisert til lengde 1"
+    ],
+    "explanation": "V består av ortonormale egenvektorer til AᵀA (spektralteoremet på AᵀA). De er verken egenvektorer til A eller lik U i sin alminnelighet."
+  },
+  {
+    "question": "Venstresingulærvektorene beregnes ved formelen",
+    "options": [
+      "uᵢ=(1/σᵢ)Avᵢ for hver positiv singulærverdi σᵢ>0",
+      "uᵢ=σᵢ·Avᵢ ved å gange vektoren Avᵢ med σᵢ her",
+      "uᵢ=Aᵀvᵢ uten noen normaliserende faktor foran her",
+      "uᵢ=vᵢ, altså de er de samme som høyrevektorene her"
+    ],
+    "explanation": "uᵢ=(1/σᵢ)Avᵢ for σᵢ>0. Faktoren 1/σᵢ normaliserer siden ‖Avᵢ‖=σᵢ. Å gange med σᵢ eller droppe faktoren gir ikke enhetsvektorer."
+  },
+  {
+    "question": "Faktoren 1/σᵢ i uᵢ=(1/σᵢ)Avᵢ er med for å",
+    "options": [
+      "gjøre uᵢ til en enhetsvektor, siden ‖Avᵢ‖=σᵢ nettopp",
+      "sortere singulærverdiene i riktig synkende rekkefølge",
+      "sørge for at matrisen A blir symmetrisk i etterkant nå",
+      "bytte fortegn på vektoren slik at uᵢ peker riktig vei"
+    ],
+    "explanation": "‖Avᵢ‖=σᵢ, så deling på σᵢ gir ‖uᵢ‖=1. Uten faktoren blir U ikke ortogonal. Den har ingenting med sortering eller symmetri å gjøre."
+  },
+  {
+    "question": "En singulærverdidekomposisjon A=UΣVᵀ finnes",
+    "options": [
+      "for enhver matrise A, kvadratisk eller ikke, uansett rang",
+      "bare når matrisen A er kvadratisk og diagonaliserbar her",
+      "bare når A er symmetrisk med reelle egenverdier overalt",
+      "bare når alle singulærverdiene til A er strengt positive"
+    ],
+    "explanation": "SVD finnes for alle m×n-matriser, i motsetning til diagonalisering (krever egenvektorbasis) og ortogonal diagonalisering (krever symmetri)."
+  },
+  {
+    "question": "Matrisene U og V i A=UΣVᵀ er begge",
+    "options": [
+      "ortogonale, altså UᵀU=I og VᵀV=I med ortonormale søyler",
+      "diagonale med singulærverdiene plassert langs diagonalen",
+      "øvre triangulære slik at produktet blir enkelt å regne",
+      "like hverandre, siden A alltid er en symmetrisk matrise"
+    ],
+    "explanation": "U og V har ortonormale søyler (UᵀU=I, VᵀV=I). Σ er den «diagonale»; U=V bare i spesialtilfeller (symmetrisk posdef A)."
+  },
+  {
+    "question": "Rangen til A leses av SVD-en som",
+    "options": [
+      "antallet singulærverdier σᵢ som er strengt større enn 0",
+      "summen av alle singulærverdiene til matrisen A samlet",
+      "den største singulærverdien σ₁ i dekomposisjonen dens",
+      "antallet rader i matrisen Σ som ikke er lik nullraden"
+    ],
+    "explanation": "rang A = #{σᵢ>0}. Nullsingulærverdier svarer til retninger A kollapser og teller ikke; sum eller σ₁ gir ikke rangen."
+  },
+  {
+    "question": "Uttrykket max{‖Ax‖ : ‖x‖=1} er lik",
+    "options": [
+      "σ₁, den største singulærverdien, oppnådd i retningen v₁",
+      "σ₁², altså kvadratet av den største singulærverdien her",
+      "λ₁, den største egenverdien til A opphøyd i andre her",
+      "summen σ₁+σ₂ av de to største singulærverdiene til A"
+    ],
+    "explanation": "Ved Rayleigh på AᵀA er max‖Ax‖=σ₁, i x=v₁. Svaret er σ₁ selv, ikke σ₁²=λ₁, og ikke en sum."
+  },
+  {
+    "question": "At max‖Ax‖=σ₁ følger fordi",
+    "options": [
+      "‖Ax‖²=xᵀAᵀAx er en Rayleigh-kvotient for matrisen AᵀA",
+      "‖Ax‖ er lineær i x og derfor maksimal i en hjørnevektor",
+      "A alltid strekker enhver vektor med nøyaktig samme faktor",
+      "σ₁ per definisjon er gjennomsnittet av alle strekkfaktorene"
+    ],
+    "explanation": "‖Ax‖²=xᵀAᵀAx, som maksimeres av største egenverdi λ₁=σ₁² til AᵀA i egenvektoren v₁ (Rayleigh). Altså max‖Ax‖=σ₁."
+  },
+  {
+    "question": "Når A har færre positive σᵢ enn antall rader m, må U",
+    "options": [
+      "utvides med ekstra ortonormale søyler til en basis for ℝᵐ",
+      "kuttes ned slik at bare de positive retningene står igjen",
+      "erstattes helt av identitetsmatrisen I av passende størrelse",
+      "transponeres for at produktet UΣVᵀ skal få riktig form"
+    ],
+    "explanation": "De manglende søylene fylles med en ortonormal basis for komplementet (de ganges med 0 i Σ), slik at U blir ortogonal."
+  },
+  {
+    "question": "For en symmetrisk matrise A med egenverdi −1 blir σ",
+    "options": [
+      "|−1|=1, og fortegnet flytter seg over i matrisen U her",
+      "−1, altså singulærverdien arver fortegnet til egenverdien",
+      "0, siden negative egenverdier ikke gir singulærverdier",
+      "kompleks, fordi kvadratroten av et negativt tall er det"
+    ],
+    "explanation": "σ=√(λ av AᵀA)=|λ av A|=1. Singulærverdier er ≥0; fortegnet til −1 dukker opp som uᵢ=−vᵢ i U."
+  },
+  {
+    "question": "Σ har samme størrelse som A, nemlig",
+    "options": [
+      "m×n, med σᵢ på diagonalen og nullrader/-søyler ellers",
+      "n×n, altså alltid kvadratisk uansett formen på A her",
+      "m×m, med singulærverdiene gjentatt langs hele diagonalen",
+      "1×1, siden bare den største singulærverdien betyr noe"
+    ],
+    "explanation": "Σ er m×n som A. Er A ikke kvadratisk, får Σ en ekstra nullrad eller -søyle for å passe formen."
+  },
+  {
+    "question": "AᵀA og AAᵀ deler",
+    "options": [
+      "de samme positive egenverdiene σᵢ², bare med ulike egenvektorer",
+      "ingenting, siden de to produktene aldri har felles struktur",
+      "alle egenvektorer, som er nøyaktig de samme i begge to her",
+      "determinanten, som alltid er lik for de to matriseproduktene"
+    ],
+    "explanation": "AᵀA (gir V) og AAᵀ (gir U) har de samme positive egenverdiene σᵢ², men egenvektorene (V mot U) er forskjellige."
+  },
+  {
+    "question": "Egenvektoren (3,4)ᵀ, som høyresingulærvektor, normaliseres til",
+    "options": [
+      "(1/5)(3,4)ᵀ, ettersom lengden er √(9+16)=5 nettopp her",
+      "(1/7)(3,4)ᵀ, siden 3+4=7 er summen av komponentene",
+      "(1/25)(3,4)ᵀ, fordi 3²+4²=25 er lengden i kvadrat her",
+      "(3,4)ᵀ selv, ettersom den allerede har lengde lik 1 her"
+    ],
+    "explanation": "‖(3,4)‖=√25=5, så enhetsvektoren er (1/5)(3,4)ᵀ. Del på lengden, ikke summen eller kvadratet av lengden."
+  },
+  {
+    "question": "Den minste verdien min{‖Ax‖ : ‖x‖=1} er",
+    "options": [
+      "σₙ, den minste singulærverdien, oppnådd i retningen vₙ",
+      "0, uansett hvilken matrise A man tar utgangspunkt i her",
+      "1, siden x er en enhetsvektor med lengde nøyaktig lik 1",
+      "σ₁, den samme største singulærverdien som for maksimum"
+    ],
+    "explanation": "min‖Ax‖=σₙ (minste singulærverdi), i x=vₙ. Den er 0 bare hvis A har rangdefekt; ellers positiv."
+  },
+  {
+    "question": "Operatornormen ‖A‖ (2-normen) til en matrise er lik",
+    "options": [
+      "σ₁, den største singulærverdien, altså maksimal strekkfaktor",
+      "sporet av A, altså summen av elementene på diagonalen",
+      "det A, altså determinanten til den kvadratiske matrisen",
+      "√n der n er antall søyler i matrisen A som er gitt her"
+    ],
+    "explanation": "Operatornormen er σ₁ = max‖Ax‖/‖x‖ — den største forsterkningen A kan gi. Spor og determinant er andre størrelser."
+  }
+]

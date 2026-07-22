@@ -1,0 +1,486 @@
+{
+  "id": "mat1120-7-3",
+  "courseId": "mat1120",
+  "chapterNumber": "7.3",
+  "title": "Kort teori og bevis: refleksjon, positiv definitthet, normbevaring, isomorfi",
+  "description": "Bevishåndverket for MAT1120 — teoremnavning og forutsetningssjekk — anvendt på de gjenkjennelige bevisvariantene: Householder-refleksjon R=I−2vvᵀ ortogonal og speiling om v⊥, ortogonal matrise normbevarende, posdef ⇒ invertibel og B⁻¹ posdef, ikke-diagonaliserbarhet og isomorfi-kriteriet — ført komplett som modeller.",
+  "estimatedMinutes": 55,
+  "competenceGoals": [
+    "føre et bevis strukturert: identifisere gitt vs. skal-vises, navngi teoremet og sjekke forutsetningene, og skille ⇒ fra ⇔",
+    "bevise at Householder-matrisen R=I−2vvᵀ er symmetrisk, ortogonal og oppfyller R²=I, og tolke den som en speiling om v⊥",
+    "bevise at ortogonale matriser er normbevarende og at posdef ⇒ invertibel med B⁻¹ posdef, via spektralteoremet",
+    "bruke isomorfi-kriteriet og vise ikke-diagonaliserbarhet via geometrisk < algebraisk multiplisitet"
+  ],
+  "content": [
+    {
+      "id": "mat1120-7-3-tip",
+      "type": "tip",
+      "title": "Eksamensvinkel",
+      "content": "**Bevisoppgaven er den skarpeste karakterskilleren i faget.** Sjanger L — vis en generell påstand med navngitte teoremer og forutsetningssjekk — er med i **~50 %** av settene, enten som egen deloppgave eller innbakt. Dokumenterte varianter: **Householder** $R=I-2\\mathbf{v}\\mathbf{v}^{T}$ ortogonal + speiling (2024 O5), **ortogonal matrise normbevarende** (2020 O4b), **posdef ⇒ invertibel og $B^{-1}$ posdef** (2020 O4c), **linearitet** $T(f)=f'+f''$ (2021 O3a), **ikke-diagonaliserbarhet** (2022-u O2b), **isomorfi-kriteriet** (2018 O4b). Prioritet: **kjenne** (topp-karakterskiller).\n\n- Sensor premierer **struktur**, ikke tall: identifiser gitt vs. skal-vises, **navngi** teoremet/definisjonen som bærer hvert steg, og sjekk forutsetningene *før* du bruker dem.\n- Et **tallesempel er ikke et bevis** — en generell påstand krever et generelt argument.\n- Skill klart mellom «$\\Rightarrow$» (én vei) og «$\\Leftrightarrow$» (begge veier); en «hvis og bare hvis» krever *begge* retninger.\n\nDette kapitlet fører bevisene komplett som **modeller** du kan gjenkjenne og gjenskape."
+    },
+    {
+      "id": "mat1120-7-3-forkunnskaper",
+      "type": "text",
+      "content": "**Forkunnskaper:** [kap. 6.1](/bok/mat1120/mat1120-6-1) (ortogonale/symmetriske matriser, spektralteoremet, normbevaring), [kap. 6.2](/bok/mat1120/mat1120-6-2) (positiv definitthet), [kap. 2.6](/bok/mat1120/mat1120-2-6) (isomorfi, $\\ker T$, $[T]_{\\mathcal{B}}$) og [kap. 3.2](/bok/mat1120/mat1120-3-2) (diagonaliserbarhet, geometrisk vs. algebraisk multiplisitet). Generell bevisteknikk fra [Bevis og matematisk argumentasjon](/bok/r2/r2-6-6). Matriseregning og transponering fra [MAT1110](/bok/mat1110/mat1110-1-1)."
+    },
+    {
+      "id": "mat1120-7-3-sist",
+      "type": "text",
+      "content": "## Sist du var her\n\nBevisene her trekker på et lite knippe navngitte resultater — ha dem klare:\n\n- **Ortogonal matrise** ([kap. 6.1](/bok/mat1120/mat1120-6-1)): $P^{T}P=I$ ⇔ ortonormale søyler ⇔ $P^{-1}=P^{T}$; normbevarende ($\\lVert P\\mathbf{x}\\rVert=\\lVert\\mathbf{x}\\rVert$).\n- **Spektralteoremet** ([kap. 6.1](/bok/mat1120/mat1120-6-1)): symmetrisk $B=PDP^{T}$ med ortogonal $P$.\n- **Positiv definit** ([kap. 6.2](/bok/mat1120/mat1120-6-2)): symmetrisk med alle egenverdier $>0$ ⇔ $\\mathbf{x}^{T}B\\mathbf{x}>0$ for $\\mathbf{x}\\ne\\mathbf{0}$.\n- **Isomorfi-kriteriet** ([kap. 2.6](/bok/mat1120/mat1120-2-6)): $T$ isomorfi ⇔ $[T]_{\\mathcal{B}}$ invertibel ⇔ $\\ker T=\\{\\mathbf{0}\\}$.\n- **Diagonaliserbar** ([kap. 3.2](/bok/mat1120/mat1120-3-2)): geometrisk = algebraisk multiplisitet for hver egenverdi.\n\n*Kapitlet er ~55 min; ta gjerne Householder (løkke 1–2) i én økt og de tre siste bevisene i en annen. — naturlig pausepunkt —*"
+    },
+    {
+      "id": "mat1120-7-3-intro",
+      "type": "text",
+      "content": "På MAT1120 skal du ikke bare *regne* — du skal **argumentere**. Bevisoppgavene tester om du kan gjøre et generelt resonnement stramt: hva er gitt, hva skal vises, og hvilket navngitt teorem bærer hvert skritt. Dette kapitlet er et **verksted i bevishåndverk**: vi går gjennom bevismetodikken og fører deretter de gjenkjennelige bevisvariantene komplett, med full forutsetningssjekk.\n\nKapitlet går i fem løkker:\n\n1. **Bevismetodikk** — verktøykassa (identifiser, navngi, sjekk forutsetninger, transponert-trikset).\n2. **Householder-refleksjonen** $R=I-2\\mathbf{v}\\mathbf{v}^{T}$ — symmetrisk, ortogonal, $R^2=I$, geometrisk en speiling.\n3. **Ortogonal matrise er normbevarende.**\n4. **Posdef ⇒ invertibel og $B^{-1}$ posdef.**\n5. **Isomorfi-kriteriet** (og et blikk på ikke-diagonaliserbarhet)."
+    },
+    {
+      "id": "mat1120-7-3-l1",
+      "type": "text",
+      "content": "## Løkke 1 — Bevismetodikk: verktøykassa (~10 min)"
+    },
+    {
+      "id": "mat1120-7-3-l1-teori",
+      "type": "text",
+      "content": "Et godt bevis følger fire skritt:\n\n1. **Identifiser gitt vs. skal-vises.** Skriv ned forutsetningene ($A=A^{T}$, $\\lVert\\mathbf{v}\\rVert=1$, alle $\\lambda_i>0$ …) og hva konklusjonen er. Da vet du hvor du skal.\n2. **Navngi teoremet/definisjonen** som bærer hvert steg (spektralteoremet, definisjonen av ortogonal, isomorfi-kriteriet). Sensor vil se *hvorfor* et skritt er lov.\n3. **Sjekk forutsetningene** før du bruker et teorem. Spektralteoremet krever symmetri; skriv at $B=B^{T}$ *før* du bruker $B=PDP^{T}$.\n4. **Skill $\\Rightarrow$ og $\\Leftrightarrow$.** En «hvis og bare hvis» krever *to* argumenter.\n\nTo tekniske grep går igjen. **Transponert-trikset:** en skalar er lik sin egen transponerte, så $\\mathbf{x}^{T}M\\mathbf{x}=(\\mathbf{x}^{T}M\\mathbf{x})^{T}=\\mathbf{x}^{T}M^{T}\\mathbf{x}$ — nyttig for symmetriargumenter. Og **skill ytterprodukt fra skalar:** $\\mathbf{v}\\mathbf{v}^{T}$ er en $n\\times n$-**matrise** (rang 1), mens $\\mathbf{v}^{T}\\mathbf{v}=\\lVert\\mathbf{v}\\rVert^2$ er et **tall**. Å blande dem er den vanligste feilen i Householder-beviset."
+    },
+    {
+      "id": "mat1120-7-3-def-metodikk",
+      "type": "definition",
+      "title": "Bevismetodikk",
+      "content": "Et bevis føres i fire skritt: (1) **identifiser** gitt (forutsetninger) og skal-vises (konklusjon); (2) **navngi** teoremet eller definisjonen som rettferdiggjør hvert steg; (3) **sjekk forutsetningene** før et teorem brukes; (4) skill klart mellom **implikasjon** ($\\Rightarrow$) og **ekvivalens** ($\\Leftrightarrow$). Sensor premierer denne strukturen — riktig sluttsvar uten begrunnelse gir lite uttelling."
+    },
+    {
+      "id": "mat1120-7-3-def-transp",
+      "type": "definition",
+      "title": "Transponert-trikset",
+      "content": "En $1\\times1$-matrise (et tall) er lik sin egen transponerte. Derfor er $\\mathbf{x}^{T}M\\mathbf{x}=(\\mathbf{x}^{T}M\\mathbf{x})^{T}=\\mathbf{x}^{T}M^{T}\\mathbf{x}$ for enhver $M$. Er $M$ symmetrisk, er dette bare $\\mathbf{x}^{T}M\\mathbf{x}$ igjen; er $M$ vilkårlig, viser trikset at bare den symmetriske delen av $M$ teller i en kvadratisk form. Et standardgrep i symmetri- og definitthetsbevis."
+    },
+    {
+      "id": "mat1120-7-3-def-ytterprodukt",
+      "type": "definition",
+      "title": "Ytterprodukt $\\mathbf{v}\\mathbf{v}^{T}$ vs. skalar $\\mathbf{v}^{T}\\mathbf{v}$",
+      "content": "For en søylevektor $\\mathbf{v}\\in\\mathbb{R}^n$ er $\\mathbf{v}\\mathbf{v}^{T}$ et **ytterprodukt** — en $n\\times n$-matrise av rang 1. Derimot er $\\mathbf{v}^{T}\\mathbf{v}=\\lVert\\mathbf{v}\\rVert^2$ et **tall** (indreprodukt). Er $\\mathbf{v}$ en enhetsvektor, er $\\mathbf{v}^{T}\\mathbf{v}=1$. Å forveksle disse to er kilden til de fleste feil i Householder-beviset — hold styr på formen ($n\\times n$ mot $1\\times1$)."
+    },
+    {
+      "id": "mat1120-7-3-e0",
+      "type": "exercise",
+      "exercise": {
+        "id": "mat1120-7-3-e0",
+        "number": "1",
+        "type": "classic",
+        "difficulty": "lett",
+        "task": "La $\\mathbf{v}=\\tfrac{1}{\\sqrt2}(1,1)^{T}$.\n\n**a)** Regn skalaren $\\mathbf{v}^{T}\\mathbf{v}$.\n\n**b)** Regn matrisen $\\mathbf{v}\\mathbf{v}^{T}$.",
+        "solution": "**a)** $\\mathbf{v}^{T}\\mathbf{v}=\\lVert\\mathbf{v}\\rVert^2=\\tfrac12(1^2+1^2)=1$ — et tall (og $=1$ fordi $\\mathbf{v}$ er en enhetsvektor).\n\n**b)** $\\mathbf{v}\\mathbf{v}^{T}=\\tfrac12\\begin{bmatrix}1\\\\1\\end{bmatrix}\\begin{bmatrix}1&1\\end{bmatrix}=\\tfrac12\\begin{bmatrix}1&1\\\\1&1\\end{bmatrix}$ — en $2\\times2$-matrise av rang 1.",
+        "hints": [
+          "$\\mathbf{v}^{T}\\mathbf{v}$ er $1\\times1$ (et tall); $\\mathbf{v}\\mathbf{v}^{T}$ er $n\\times n$ (en matrise).",
+          "For en enhetsvektor er $\\mathbf{v}^{T}\\mathbf{v}=1$."
+        ]
+      }
+    },
+    {
+      "id": "mat1120-7-3-l2",
+      "type": "text",
+      "content": "## Løkke 2 — Householder-refleksjonen $R=I-2\\mathbf{v}\\mathbf{v}^{T}$ (~15 min)"
+    },
+    {
+      "id": "mat1120-7-3-l2-teori",
+      "type": "text",
+      "content": "La $\\mathbf{v}$ være en **enhetsvektor** ($\\mathbf{v}^{T}\\mathbf{v}=1$). **Householder-matrisen** er\n$$R=I-2\\mathbf{v}\\mathbf{v}^{T}.$$\nDette er et ytterprodukt-uttrykk: $\\mathbf{v}\\mathbf{v}^{T}$ er en $n\\times n$-matrise. Vi skal vise fire egenskaper — at $R$ er **symmetrisk**, **ortogonal**, at **$R^2=I$**, og at den geometrisk er en **speiling** om hyperplanet $\\mathbf{v}^{\\perp}$ (mengden av vektorer vinkelrett på $\\mathbf{v}$). Nøkkelen i alle regninger er enhetsbetingelsen $\\mathbf{v}^{T}\\mathbf{v}=1$, som lar $\\mathbf{v}\\mathbf{v}^{T}\\mathbf{v}\\mathbf{v}^{T}=\\mathbf{v}(\\mathbf{v}^{T}\\mathbf{v})\\mathbf{v}^{T}=\\mathbf{v}\\mathbf{v}^{T}$ kollapse."
+    },
+    {
+      "id": "mat1120-7-3-def-householder",
+      "type": "definition",
+      "title": "Householder-matrise $R=I-2\\mathbf{v}\\mathbf{v}^{T}$",
+      "content": "For en **enhetsvektor** $\\mathbf{v}$ ($\\mathbf{v}^{T}\\mathbf{v}=1$) er Householder-matrisen $R=I-2\\mathbf{v}\\mathbf{v}^{T}$. Den er symmetrisk og ortogonal, oppfyller $R^2=I$, har egenverdier $-1$ (enkel, i retning $\\mathbf{v}$) og $+1$ (i hyperplanet $\\mathbf{v}^{\\perp}$), og virker geometrisk som en **speiling** om hyperplanet vinkelrett på $\\mathbf{v}$. Determinanten er $\\det R=-1$ (en refleksjon)."
+    },
+    {
+      "id": "mat1120-7-3-thm-householder",
+      "type": "theorem",
+      "title": "Householder-refleksjonen er ortogonal og $R^2=I$",
+      "content": "La $\\mathbf{v}\\in\\mathbb{R}^n$ med $\\mathbf{v}^{T}\\mathbf{v}=1$, og $R=I-2\\mathbf{v}\\mathbf{v}^{T}$. Da er $R^{T}=R$ (symmetrisk), $R^{T}R=I$ (ortogonal) og $R^2=I$ (involusjon). Egenverdiene er $-1$ (egenvektor $\\mathbf{v}$) og $+1$ (egenrom $\\mathbf{v}^{\\perp}$), så $R$ er en speiling om hyperplanet $\\mathbf{v}^{\\perp}$, med $\\det R=-1$."
+    },
+    {
+      "id": "mat1120-7-3-ex1",
+      "type": "example",
+      "title": "Eksempel 1: Komplett bevis for Householder-egenskapene",
+      "problem": "La $\\mathbf{v}$ være en enhetsvektor og $R=I-2\\mathbf{v}\\mathbf{v}^{T}$. Vis at $R$ er symmetrisk, at $R$ er ortogonal, at $R^2=I$, og finn egenverdiene. Forklar geometrisk.",
+      "solution": "**Gitt:** $\\mathbf{v}^{T}\\mathbf{v}=1$ (enhetsvektor), $R=I-2\\mathbf{v}\\mathbf{v}^{T}$. **Skal vise:** $R^{T}=R$, $R^{T}R=I$, $R^2=I$, egenverdier $\\pm1$.\n\n**1) Symmetrisk.** Transponer, og bruk at $(\\mathbf{v}\\mathbf{v}^{T})^{T}=\\mathbf{v}\\mathbf{v}^{T}$ og $I^{T}=I$:\n$$R^{T}=(I-2\\mathbf{v}\\mathbf{v}^{T})^{T}=I-2(\\mathbf{v}\\mathbf{v}^{T})^{T}=I-2\\mathbf{v}\\mathbf{v}^{T}=R.$$\nSå $R$ er symmetrisk. $\\checkmark$\n\n**2) $R^2=I$.** Ganger ut, og bruker enhetsbetingelsen $\\mathbf{v}^{T}\\mathbf{v}=1$ i mellomleddet:\n$$R^2=(I-2\\mathbf{v}\\mathbf{v}^{T})(I-2\\mathbf{v}\\mathbf{v}^{T})=I-4\\mathbf{v}\\mathbf{v}^{T}+4\\mathbf{v}(\\mathbf{v}^{T}\\mathbf{v})\\mathbf{v}^{T}=I-4\\mathbf{v}\\mathbf{v}^{T}+4\\mathbf{v}\\mathbf{v}^{T}=I.$$\nHer var $\\mathbf{v}\\mathbf{v}^{T}\\mathbf{v}\\mathbf{v}^{T}=\\mathbf{v}(\\mathbf{v}^{T}\\mathbf{v})\\mathbf{v}^{T}=\\mathbf{v}\\cdot1\\cdot\\mathbf{v}^{T}=\\mathbf{v}\\mathbf{v}^{T}$ det avgjørende. $\\checkmark$\n\n**3) Ortogonal.** Siden $R^{T}=R$ (steg 1), er $R^{T}R=R\\cdot R=R^2=I$ (steg 2). Altså $R^{T}R=I$, så $R$ er ortogonal (og $R^{-1}=R^{T}=R$). $\\checkmark$\n\n**4) Egenverdier og geometri.** For $\\mathbf{v}$ selv: $R\\mathbf{v}=\\mathbf{v}-2\\mathbf{v}(\\mathbf{v}^{T}\\mathbf{v})=\\mathbf{v}-2\\mathbf{v}=-\\mathbf{v}$, så $\\mathbf{v}$ er egenvektor med egenverdi $-1$. For en vilkårlig $\\mathbf{w}\\perp\\mathbf{v}$ (dvs. $\\mathbf{v}^{T}\\mathbf{w}=0$): $R\\mathbf{w}=\\mathbf{w}-2\\mathbf{v}(\\mathbf{v}^{T}\\mathbf{w})=\\mathbf{w}-0=\\mathbf{w}$, egenverdi $+1$. Så $R$ snur retningen langs $\\mathbf{v}$ og lar hyperplanet $\\mathbf{v}^{\\perp}$ stå fast — det er nettopp en **speiling om hyperplanet $\\mathbf{v}^{\\perp}$**. Egenverdiene $-1$ (enkel) og $+1$ (multiplisitet $n-1$) gir $\\det R=(-1)\\cdot1^{\\,n-1}=-1$, som bekrefter en refleksjon. $\\blacksquare$"
+    },
+    {
+      "id": "mat1120-7-3-fig-householder",
+      "type": "image",
+      "src": "/images/textbook/mat1120/mat1120-7-3-householder.svg",
+      "alt": "Et koordinatsystem med et skrått speilplan gjennom origo, merket v-perp. En kort normalvektor v peker vinkelrett ut fra planet. En vektor x på den ene siden av planet og speilbildet Rx på den andre siden er tegnet fra origo; en stiplet linje forbinder spissene til x og Rx og krysser speilplanet vinkelrett, halvveis mellom dem.",
+      "caption": "Householder-refleksjonen $R=I-2\\mathbf{v}\\mathbf{v}^{T}$ speiler en vektor $\\mathbf{x}$ om hyperplanet $\\mathbf{v}^{\\perp}$ (vinkelrett på enhetsvektoren $\\mathbf{v}$). Komponenten langs $\\mathbf{v}$ snus ($R\\mathbf{v}=-\\mathbf{v}$), mens komponenten i planet står fast ($R\\mathbf{w}=\\mathbf{w}$ for $\\mathbf{w}\\perp\\mathbf{v}$). Speilbildet $R\\mathbf{x}$ har samme lengde som $\\mathbf{x}$, og forbindelseslinjen står vinkelrett på planet."
+    },
+    {
+      "id": "mat1120-7-3-ex2",
+      "type": "example",
+      "title": "Eksempel 2: Householder på et konkret tall — kontroll av beviset",
+      "problem": "La $\\mathbf{v}=(\\tfrac35,\\tfrac45)^{T}$ (enhetsvektor). Regn $R=I-2\\mathbf{v}\\mathbf{v}^{T}$ og kontroller at $R^{T}R=I$, $R^2=I$ og $\\det R=-1$. (Et tallesempel *illustrerer* det generelle beviset — det erstatter det ikke.)",
+      "solution": "$\\mathbf{v}^{T}\\mathbf{v}=\\tfrac{9}{25}+\\tfrac{16}{25}=1$ ✓ (enhetsvektor). Ytterproduktet:\n$$\\mathbf{v}\\mathbf{v}^{T}=\\begin{bmatrix}\\tfrac{9}{25}&\\tfrac{12}{25}\\\\\\tfrac{12}{25}&\\tfrac{16}{25}\\end{bmatrix},\\qquad R=I-2\\mathbf{v}\\mathbf{v}^{T}=\\begin{bmatrix}1-\\tfrac{18}{25}&-\\tfrac{24}{25}\\\\-\\tfrac{24}{25}&1-\\tfrac{32}{25}\\end{bmatrix}=\\frac{1}{25}\\begin{bmatrix}7&-24\\\\-24&-7\\end{bmatrix}.$$\n**Symmetrisk:** ja, $R^{T}=R$. **$R^2$:** $\\tfrac{1}{625}\\begin{bmatrix}7&-24\\\\-24&-7\\end{bmatrix}\\begin{bmatrix}7&-24\\\\-24&-7\\end{bmatrix}=\\tfrac{1}{625}\\begin{bmatrix}625&0\\\\0&625\\end{bmatrix}=I$ ✓, og siden $R^{T}=R$ er også $R^{T}R=I$. **Determinant:** $\\det R=\\tfrac{1}{625}(7\\cdot(-7)-(-24)^2)=\\tfrac{-49-576}{625}=-1$ ✓. **Kontroll av $R\\mathbf{v}=-\\mathbf{v}$:** $\\tfrac{1}{25}\\begin{bmatrix}7&-24\\\\-24&-7\\end{bmatrix}\\begin{bmatrix}3/5\\\\4/5\\end{bmatrix}=\\tfrac{1}{125}\\begin{bmatrix}21-96\\\\-72-28\\end{bmatrix}=\\tfrac{1}{125}\\begin{bmatrix}-75\\\\-100\\end{bmatrix}=\\begin{bmatrix}-3/5\\\\-4/5\\end{bmatrix}=-\\mathbf{v}$ ✓. Alt stemmer med det generelle beviset."
+    },
+    {
+      "id": "mat1120-7-3-e1",
+      "type": "exercise",
+      "exercise": {
+        "id": "mat1120-7-3-e1",
+        "number": "2",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "La $\\mathbf{v}$ være en enhetsvektor og $R=I-2\\mathbf{v}\\mathbf{v}^{T}$.\n\n**a)** Vis at $R\\mathbf{v}=-\\mathbf{v}$.\n\n**b)** Vis at $R\\mathbf{w}=\\mathbf{w}$ for enhver $\\mathbf{w}$ med $\\mathbf{v}^{T}\\mathbf{w}=0$.\n\n**c)** Hva sier a) og b) om egenverdiene til $R$ og om hva $R$ gjør geometrisk?",
+        "solution": "**a)** $R\\mathbf{v}=(I-2\\mathbf{v}\\mathbf{v}^{T})\\mathbf{v}=\\mathbf{v}-2\\mathbf{v}(\\mathbf{v}^{T}\\mathbf{v})=\\mathbf{v}-2\\mathbf{v}\\cdot1=-\\mathbf{v}$ (brukte $\\mathbf{v}^{T}\\mathbf{v}=1$). Så $\\mathbf{v}$ er egenvektor med egenverdi $-1$.\n\n**b)** $R\\mathbf{w}=\\mathbf{w}-2\\mathbf{v}(\\mathbf{v}^{T}\\mathbf{w})=\\mathbf{w}-2\\mathbf{v}\\cdot0=\\mathbf{w}$ (brukte $\\mathbf{v}^{T}\\mathbf{w}=0$). Så enhver $\\mathbf{w}\\perp\\mathbf{v}$ er egenvektor med egenverdi $+1$.\n\n**c)** $R$ har egenverdi $-1$ (retning $\\mathbf{v}$) og $+1$ (hyperplanet $\\mathbf{v}^{\\perp}$). Geometrisk **speiler** $R$ om hyperplanet $\\mathbf{v}^{\\perp}$: komponenten langs $\\mathbf{v}$ snus, resten står fast.",
+        "hints": [
+          "Regn $R\\mathbf{v}$ og bruk $\\mathbf{v}^{T}\\mathbf{v}=1$; regn $R\\mathbf{w}$ og bruk $\\mathbf{v}^{T}\\mathbf{w}=0$.",
+          "Egenverdi $-1$ langs $\\mathbf{v}$, $+1$ på $\\mathbf{v}^{\\perp}$ ⇒ en speiling."
+        ]
+      }
+    },
+    {
+      "id": "mat1120-7-3-l3",
+      "type": "text",
+      "content": "## Løkke 3 — Ortogonal matrise er normbevarende (~8 min)"
+    },
+    {
+      "id": "mat1120-7-3-l3-teori",
+      "type": "text",
+      "content": "Et kort, men typisk bevis (2020 O4b): en **ortogonal** matrise bevarer lengder. Gitt $P^{T}P=I$, skal vi vise $\\lVert P\\mathbf{x}\\rVert=\\lVert\\mathbf{x}\\rVert$ for alle $\\mathbf{x}$. Grepet er å regne på **kvadratet** av normen (så vi slipper røtter) og bruke definisjonen $\\lVert\\mathbf{y}\\rVert^2=\\mathbf{y}^{T}\\mathbf{y}$."
+    },
+    {
+      "id": "mat1120-7-3-thm-norm",
+      "type": "theorem",
+      "title": "Ortogonal matrise er normbevarende",
+      "content": "La $P$ være ortogonal ($P^{T}P=I$). Da er $\\lVert P\\mathbf{x}\\rVert=\\lVert\\mathbf{x}\\rVert$ for alle $\\mathbf{x}$, og mer generelt bevarer $P$ skalarprodukt: $(P\\mathbf{x})^{T}(P\\mathbf{y})=\\mathbf{x}^{T}\\mathbf{y}$."
+    },
+    {
+      "id": "mat1120-7-3-ex3",
+      "type": "example",
+      "title": "Eksempel 3: Bevis for normbevaring",
+      "problem": "La $P$ være ortogonal. Vis at $\\lVert P\\mathbf{x}\\rVert=\\lVert\\mathbf{x}\\rVert$ for alle $\\mathbf{x}$.",
+      "solution": "**Gitt:** $P^{T}P=I$. **Skal vise:** $\\lVert P\\mathbf{x}\\rVert=\\lVert\\mathbf{x}\\rVert$. Regn på kvadratet av normen og bruk definisjonen $\\lVert\\mathbf{y}\\rVert^2=\\mathbf{y}^{T}\\mathbf{y}$:\n$$\\lVert P\\mathbf{x}\\rVert^2=(P\\mathbf{x})^{T}(P\\mathbf{x})=\\mathbf{x}^{T}P^{T}P\\mathbf{x}=\\mathbf{x}^{T}I\\mathbf{x}=\\mathbf{x}^{T}\\mathbf{x}=\\lVert\\mathbf{x}\\rVert^2.$$\nDet avgjørende steget var $P^{T}P=I$ (forutsetningen). Siden begge normer er $\\ge0$, gir $\\lVert P\\mathbf{x}\\rVert^2=\\lVert\\mathbf{x}\\rVert^2$ at $\\lVert P\\mathbf{x}\\rVert=\\lVert\\mathbf{x}\\rVert$. $\\blacksquare$\n\n**Konklusjon:** ortogonale matriser er stive bevegelser — de endrer verken lengder eller (tilsvarende) vinkler."
+    },
+    {
+      "id": "mat1120-7-3-e2",
+      "type": "exercise",
+      "exercise": {
+        "id": "mat1120-7-3-e2",
+        "number": "3",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "La $P$ være ortogonal. Vis at $P$ bevarer skalarprodukt: $(P\\mathbf{x})^{T}(P\\mathbf{y})=\\mathbf{x}^{T}\\mathbf{y}$ for alle $\\mathbf{x},\\mathbf{y}$. Hvorfor følger det at $P$ også bevarer vinkler?",
+        "solution": "**Gitt:** $P^{T}P=I$. Regn:\n$$(P\\mathbf{x})^{T}(P\\mathbf{y})=\\mathbf{x}^{T}P^{T}P\\mathbf{y}=\\mathbf{x}^{T}I\\mathbf{y}=\\mathbf{x}^{T}\\mathbf{y}.$$\nSå skalarproduktet er bevart. Vinkelen mellom to vektorer er gitt ved $\\cos\\theta=\\dfrac{\\mathbf{x}^{T}\\mathbf{y}}{\\lVert\\mathbf{x}\\rVert\\lVert\\mathbf{y}\\rVert}$. Både teller (skalarprodukt) og nevner (normer, fra normbevaring) er uendret under $P$, så $\\cos\\theta$ — og dermed vinkelen — bevares. $\\blacksquare$",
+        "hints": [
+          "Skriv $(P\\mathbf{x})^{T}(P\\mathbf{y})=\\mathbf{x}^{T}P^{T}P\\mathbf{y}$ og bruk $P^{T}P=I$.",
+          "Vinkelen avhenger bare av skalarprodukt og normer, som alle bevares."
+        ]
+      }
+    },
+    {
+      "id": "mat1120-7-3-l4",
+      "type": "text",
+      "content": "## Løkke 4 — Posdef ⇒ invertibel og $B^{-1}$ posdef (~11 min)"
+    },
+    {
+      "id": "mat1120-7-3-l4-teori",
+      "type": "text",
+      "content": "Et bevis (2020 O4c) som viser hvordan **spektralteoremet** bærer et argument. En symmetrisk **positiv definit** matrise $B$ har per definisjon alle egenverdier $\\lambda_i>0$. Vi bruker $B=PDP^{T}$ (spektralteoremet, [kap. 6.1](/bok/mat1120/mat1120-6-1)) til å vise to ting: at $B$ er invertibel, og at inversen $B^{-1}$ *også* er positiv definit. Nøkkelen er at inversen av en ortogonal diagonalisering er en ny ortogonal diagonalisering, med egenverdiene $1/\\lambda_i$."
+    },
+    {
+      "id": "mat1120-7-3-thm-posdef",
+      "type": "theorem",
+      "title": "Posdef ⇒ invertibel og $B^{-1}$ posdef",
+      "content": "La $B$ være symmetrisk og positiv definit (alle egenverdier $\\lambda_i>0$). Da er $B$ invertibel, og $B^{-1}$ er også symmetrisk positiv definit, med egenverdier $1/\\lambda_i>0$ og de samme egenvektorene."
+    },
+    {
+      "id": "mat1120-7-3-ex4",
+      "type": "example",
+      "title": "Eksempel 4: Bevis via spektralteoremet",
+      "problem": "La $B$ være symmetrisk positiv definit. Vis at $B$ er invertibel og at $B^{-1}$ også er positiv definit.",
+      "solution": "**Gitt:** $B=B^{T}$ med alle egenverdier $\\lambda_i>0$ (positiv definit). **Skal vise:** $B$ invertibel og $B^{-1}$ posdef.\n\nSiden $B$ er symmetrisk, gir **spektralteoremet** ([kap. 6.1](/bok/mat1120/mat1120-6-1)) $B=PDP^{T}$ med ortogonal $P$ ($P^{-1}=P^{T}$) og $D=\\operatorname{diag}(\\lambda_1,\\dots,\\lambda_n)$.\n\n**Invertibel:** $\\det B=\\det(PDP^{T})=\\det P\\cdot\\det D\\cdot\\det P^{T}=(\\det P)^2\\prod\\lambda_i=\\prod\\lambda_i>0$ (hver $\\lambda_i>0$). Siden $\\det B\\ne0$, er $B$ invertibel.\n\n**$B^{-1}$ posdef:** fordi $P^{-1}=P^{T}$ er\n$$B^{-1}=(PDP^{T})^{-1}=(P^{T})^{-1}D^{-1}P^{-1}=PD^{-1}P^{T},\\qquad D^{-1}=\\operatorname{diag}(1/\\lambda_1,\\dots,1/\\lambda_n).$$\nDette er en ortogonal diagonalisering av $B^{-1}$, så $B^{-1}$ er symmetrisk med egenverdier $1/\\lambda_i$. Fordi hver $\\lambda_i>0$, er hver $1/\\lambda_i>0$, altså er $B^{-1}$ **positiv definit**. $\\blacksquare$\n\n**Konklusjon:** posdef ⇒ invertibel, og $B^{-1}$ arver posdef med inverterte egenverdier. (Merk hvordan *forutsetningen* $B=B^{T}$ ble nevnt før spektralteoremet ble brukt.)"
+    },
+    {
+      "id": "mat1120-7-3-e3",
+      "type": "exercise",
+      "exercise": {
+        "id": "mat1120-7-3-e3",
+        "number": "4",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "La $B=\\begin{bmatrix}2&-1\\\\-1&2\\end{bmatrix}$. Vedlegget gir egenverdiene $1$ og $3$.\n\n**a)** Er $B$ positiv definit? Er den invertibel?\n\n**b)** Uten å regne ut $B^{-1}$ eksplisitt: hva er egenverdiene til $B^{-1}$, og er $B^{-1}$ positiv definit?",
+        "solution": "**a)** $B=B^{T}$ og begge egenverdier $1,3>0$, så $B$ er **positiv definit**. Da er $\\det B=1\\cdot3=3\\ne0$, så $B$ er **invertibel**.\n\n**b)** Ved beviset over har $B^{-1}$ egenverdiene $1/\\lambda_i$, altså $\\tfrac{1}{1}=1$ og $\\tfrac13$, med de samme egenvektorene. Begge $>0$, så $B^{-1}$ er **positiv definit**.",
+        "hints": [
+          "Positiv definit ⇔ symmetrisk med alle egenverdier $>0$; invertibel ⇔ $\\det\\ne0=\\prod\\lambda_i$.",
+          "$B^{-1}$ har egenverdier $1/\\lambda_i$ (samme egenvektorer) — les av uten å invertere."
+        ]
+      }
+    },
+    {
+      "id": "mat1120-7-3-l5",
+      "type": "text",
+      "content": "## Løkke 5 — Isomorfi-kriteriet og ikke-diagonaliserbarhet (~11 min)"
+    },
+    {
+      "id": "mat1120-7-3-l5-teori",
+      "type": "text",
+      "content": "To bevis til. **Isomorfi-kriteriet** (2018 O4b): en operator $T:V\\to V$ på et endeligdimensjonalt rom er en isomorfi hvis og bare hvis matrisen $[T]_{\\mathcal{B}}$ er invertibel ([kap. 2.6](/bok/mat1120/mat1120-2-6)). Merk «hvis og bare hvis» — her må vi tenke *begge veier*, men koordinatavbildningen gjør dem til ett argument. **Ikke-diagonaliserbarhet** (2022-u O2b): for å vise at en matrise *ikke* er diagonaliserbar, viser du at et egenrom er **for lite** — geometrisk multiplisitet $<$ algebraisk ([kap. 3.2](/bok/mat1120/mat1120-3-2))."
+    },
+    {
+      "id": "mat1120-7-3-thm-isomorfi",
+      "type": "theorem",
+      "title": "Isomorfi-kriteriet",
+      "content": "La $T:V\\to V$ være lineær på et endeligdimensjonalt rom med basis $\\mathcal{B}$. Da er ekvivalent: (i) $T$ er en isomorfi (injektiv og surjektiv); (ii) $[T]_{\\mathcal{B}}$ er invertibel; (iii) $\\ker T=\\{\\mathbf{0}\\}$. Kriteriet er basisuavhengig."
+    },
+    {
+      "id": "mat1120-7-3-ex5",
+      "type": "example",
+      "title": "Eksempel 5: Bevis for isomorfi-kriteriet",
+      "problem": "Vis at en lineær operator $T:V\\to V$ (endeligdimensjonalt $V$, basis $\\mathcal{B}$) er en isomorfi hvis og bare hvis $[T]_{\\mathcal{B}}$ er invertibel.",
+      "solution": "**Gitt:** $T$ lineær, $\\dim V=n<\\infty$, basis $\\mathcal{B}$. **Skal vise:** $T$ isomorfi $\\Leftrightarrow$ $[T]_{\\mathcal{B}}$ invertibel.\n\nKjernen er at **koordinatavbildningen** $\\mathbf{x}\\mapsto[\\mathbf{x}]_{\\mathcal{B}}$ er en isomorfi $V\\to\\mathbb{R}^n$ ([kap. 2.6](/bok/mat1120/mat1120-2-6)), og at $[T\\mathbf{x}]_{\\mathcal{B}}=[T]_{\\mathcal{B}}[\\mathbf{x}]_{\\mathcal{B}}$. Da svarer $T$ nøyaktig til matriseavbildningen $\\mathbf{y}\\mapsto[T]_{\\mathcal{B}}\\mathbf{y}$ på $\\mathbb{R}^n$.\n\n$(\\Rightarrow)$ Er $T$ en isomorfi, er $T$ injektiv, så $\\ker T=\\{\\mathbf{0}\\}$. Da har $[T]_{\\mathcal{B}}\\mathbf{y}=\\mathbf{0}$ bare løsningen $\\mathbf{y}=\\mathbf{0}$ (via koordinatavbildningen), så $\\operatorname{Nul}[T]_{\\mathcal{B}}=\\{\\mathbf{0}\\}$ — altså har $[T]_{\\mathcal{B}}$ full rang og er invertibel.\n\n$(\\Leftarrow)$ Er $[T]_{\\mathcal{B}}$ invertibel, er $\\operatorname{Nul}[T]_{\\mathcal{B}}=\\{\\mathbf{0}\\}$ og $\\operatorname{Col}[T]_{\\mathcal{B}}=\\mathbb{R}^n$. Oversatt tilbake: $\\ker T=\\{\\mathbf{0}\\}$ (injektiv) og $\\operatorname{im}T=V$ (surjektiv), så $T$ er en isomorfi. $\\blacksquare$\n\n**Konklusjon:** de to påstandene er ekvivalente fordi koordinatavbildningen kobler $T$ og $[T]_{\\mathcal{B}}$ perfekt — begge retninger fulgt."
+    },
+    {
+      "id": "mat1120-7-3-ex6",
+      "type": "example",
+      "title": "Eksempel 6: Vis at en matrise ikke er diagonaliserbar",
+      "problem": "Vis at $A=\\begin{bmatrix}3&1\\\\0&3\\end{bmatrix}$ ikke er diagonaliserbar.",
+      "solution": "**Gitt:** $A=\\begin{bmatrix}3&1\\\\0&3\\end{bmatrix}$ (triangulær). **Skal vise:** ikke diagonaliserbar.\n\n$A$ er triangulær, så egenverdiene står på diagonalen: $\\lambda=3$ med **algebraisk** multiplisitet $2$. Egenrommet:\n$$E_3=\\operatorname{Nul}(A-3I)=\\operatorname{Nul}\\begin{bmatrix}0&1\\\\0&0\\end{bmatrix}.$$\nLikningen $\\begin{bmatrix}0&1\\\\0&0\\end{bmatrix}\\mathbf{x}=\\mathbf{0}$ gir $x_2=0$, $x_1$ fri, så $E_3=\\operatorname{Span}\\{(1,0)^{T}\\}$ — **geometrisk** multiplisitet $1$. Siden geometrisk multiplisitet $1<2=$ algebraisk multiplisitet, har $A$ **ikke** nok uavhengige egenvektorer til en egenbasis. Derfor er $A$ **ikke diagonaliserbar** ([kap. 3.2](/bok/mat1120/mat1120-3-2)). $\\blacksquare$\n\n**Konklusjon:** ikke-diagonaliserbarhet vises ved å peke på ett egenrom som er *for lite* (geo $<$ alg) — ikke ved å prøve og feile."
+    },
+    {
+      "id": "mat1120-7-3-e4",
+      "type": "exercise",
+      "exercise": {
+        "id": "mat1120-7-3-e4",
+        "number": "5",
+        "type": "classic",
+        "difficulty": "vanskelig",
+        "task": "La $T:\\operatorname{P}_2\\to\\operatorname{P}_2$ være derivasjon, $T(p)=p'$, med matrisen $[T]_{\\mathcal{B}}=\\begin{bmatrix}0&1&0\\\\0&0&2\\\\0&0&0\\end{bmatrix}$ i basisen $\\mathcal{B}=\\{1,t,t^2\\}$.\n\n**a)** Er $T$ en isomorfi? Bruk isomorfi-kriteriet.\n\n**b)** Beskriv $\\ker T$ som funksjoner.",
+        "solution": "**a)** Isomorfi-kriteriet: $T$ er isomorfi ⇔ $[T]_{\\mathcal{B}}$ invertibel. Matrisen er triangulær med diagonal $0,0,0$, så $\\det[T]_{\\mathcal{B}}=0$ — **ikke** invertibel. Derfor er $T$ **ikke** en isomorfi. (Alternativt: $\\operatorname{Nul}[T]_{\\mathcal{B}}\\ne\\{\\mathbf{0}\\}$.)\n\n**b)** $\\ker T=\\{p:p'=0\\}$. I koordinater: $[T]_{\\mathcal{B}}\\mathbf{c}=\\mathbf{0}$ gir $c_2=0,\\ 2c_3=0$, altså $c_2=c_3=0$ og $c_1$ fri — koordinatvektor $(1,0,0)^{T}$. Oversatt tilbake til funksjoner: $\\ker T=\\operatorname{Span}\\{1\\}$, de **konstante** polynomene. (Det stemmer: en konstant har derivert $0$.)",
+        "hints": [
+          "Isomorfi ⇔ $[T]_{\\mathcal{B}}$ invertibel ⇔ $\\det\\ne0$. En triangulær matrise har $\\det=$ produkt av diagonalen.",
+          "$\\ker T$ = løsningene av $[T]_{\\mathcal{B}}\\mathbf{c}=\\mathbf{0}$, oversatt tilbake til polynomer via basisen $\\{1,t,t^2\\}$."
+        ]
+      }
+    },
+    {
+      "id": "mat1120-7-3-warn",
+      "type": "warning",
+      "title": "Typiske feil",
+      "content": "- **Regner på et tallesempel** i stedet for et generelt argument. En generell påstand krever et generelt bevis; et konkret tilfelle *illustrerer*, men beviser ikke.\n- **Forveksler $\\mathbf{v}\\mathbf{v}^{T}$ (matrise) og $\\mathbf{v}^{T}\\mathbf{v}$ (skalar).** I Householder-beviset er $\\mathbf{v}^{T}\\mathbf{v}=1$ tallet som får kryssleddet til å kollapse; $\\mathbf{v}\\mathbf{v}^{T}$ er $n\\times n$-matrisen.\n- **Glemmer transponert-/enhetsgrepet:** uten $\\mathbf{v}^{T}\\mathbf{v}=1$ blir $R^2\\ne I$. Nevn forutsetningen der du bruker den.\n- **Bevis uten forutsetningssjekk eller navngitt teorem:** skriv $B=B^{T}$ *før* du bruker spektralteoremet; navngi isomorfi-kriteriet der du bruker det.\n- **Viser bare én vei i en «hvis og bare hvis»:** $\\Leftrightarrow$ krever begge retninger (eller et argument som eksplisitt går begge veier).\n- **Påstår ikke-diagonaliserbarhet uten å vise et for lite egenrom:** dokumenter geo $<$ alg for en konkret egenverdi."
+    },
+    {
+      "id": "mat1120-7-3-bb",
+      "type": "text",
+      "content": "## Begrepsbank til eksamen\n\nKjernebegrepene fra kapitlet i eksamensrettet kortform.\n\n*Begrepsbanken er flashcard-/repetisjonsstoff — hopp trygt over ved førstegangslesing; tidsanslaget gjelder kjernestoffet.*"
+    },
+    {
+      "id": "mat1120-7-3-bb-firesteg",
+      "type": "definition",
+      "title": "Bevisets fire skritt",
+      "content": "(1) Identifiser gitt vs. skal-vises. (2) Navngi teoremet/definisjonen bak hvert steg. (3) Sjekk forutsetningene før bruk. (4) Skill $\\Rightarrow$ fra $\\Leftrightarrow$. Struktur premieres — riktig svar uten begrunnelse gir lite uttelling."
+    },
+    {
+      "id": "mat1120-7-3-bb-tallesempel",
+      "type": "definition",
+      "title": "Tallesempel er ikke bevis",
+      "content": "En generell påstand («for enhver enhetsvektor …») krever et generelt argument. Et konkret tall *illustrerer* eller *kontrollerer* et bevis, men erstatter det aldri. Fasit gir null uttelling for «bevis» som bare regner ett tilfelle."
+    },
+    {
+      "id": "mat1120-7-3-bb-householder",
+      "type": "definition",
+      "title": "Householder $R=I-2\\mathbf{v}\\mathbf{v}^{T}$",
+      "content": "For enhetsvektor $\\mathbf{v}$: en speiling om hyperplanet $\\mathbf{v}^{\\perp}$. Symmetrisk, ortogonal, $R^2=I$, egenverdier $-1$ (i $\\mathbf{v}$) og $+1$ (i $\\mathbf{v}^{\\perp}$), $\\det R=-1$."
+    },
+    {
+      "id": "mat1120-7-3-bb-R-symm",
+      "type": "definition",
+      "title": "$R$ symmetrisk",
+      "content": "$R^{T}=(I-2\\mathbf{v}\\mathbf{v}^{T})^{T}=I-2\\mathbf{v}\\mathbf{v}^{T}=R$, fordi $(\\mathbf{v}\\mathbf{v}^{T})^{T}=\\mathbf{v}\\mathbf{v}^{T}$. Ytterproduktet er alltid symmetrisk."
+    },
+    {
+      "id": "mat1120-7-3-bb-R2",
+      "type": "definition",
+      "title": "$R^2=I$ (involusjon)",
+      "content": "$R^2=I-4\\mathbf{v}\\mathbf{v}^{T}+4\\mathbf{v}(\\mathbf{v}^{T}\\mathbf{v})\\mathbf{v}^{T}=I$, siden $\\mathbf{v}^{T}\\mathbf{v}=1$ får mellomleddene til å kansellere. En speiling gjentatt to ganger gir identiteten."
+    },
+    {
+      "id": "mat1120-7-3-bb-R-ort",
+      "type": "definition",
+      "title": "$R$ ortogonal",
+      "content": "Fordi $R^{T}=R$ og $R^2=I$, er $R^{T}R=R^2=I$. Så $R$ er ortogonal og selvinvers: $R^{-1}=R^{T}=R$."
+    },
+    {
+      "id": "mat1120-7-3-bb-R-egen",
+      "type": "definition",
+      "title": "Egenverdiene til $R$",
+      "content": "$R\\mathbf{v}=-\\mathbf{v}$ (egenverdi $-1$, retning $\\mathbf{v}$); $R\\mathbf{w}=\\mathbf{w}$ for $\\mathbf{w}\\perp\\mathbf{v}$ (egenverdi $+1$, multiplisitet $n-1$). Derav $\\det R=(-1)\\cdot1^{n-1}=-1$ (refleksjon)."
+    },
+    {
+      "id": "mat1120-7-3-bb-R-geom",
+      "type": "definition",
+      "title": "$R$ som speiling",
+      "content": "Komponenten av $\\mathbf{x}$ langs $\\mathbf{v}$ snus, komponenten i hyperplanet $\\mathbf{v}^{\\perp}$ står fast. Det er en speiling om $\\mathbf{v}^{\\perp}$ — lengdebevarende, med $\\det=-1$."
+    },
+    {
+      "id": "mat1120-7-3-bb-enhetskrav",
+      "type": "definition",
+      "title": "Enhetsforutsetningen",
+      "content": "Householder-egenskapene krever $\\mathbf{v}^{T}\\mathbf{v}=1$. Er $\\mathbf{v}$ ikke normalisert, bytt til $\\mathbf{v}/\\lVert\\mathbf{v}\\rVert$ eller skriv $R=I-\\tfrac{2}{\\mathbf{v}^{T}\\mathbf{v}}\\mathbf{v}\\mathbf{v}^{T}$. Ellers blir $R^2\\ne I$."
+    },
+    {
+      "id": "mat1120-7-3-bb-detR",
+      "type": "definition",
+      "title": "$\\det R=-1$",
+      "content": "Produktet av egenverdiene er $(-1)\\cdot1^{n-1}=-1$, så Householder-matrisen er en **refleksjon** (ikke en rotasjon, som ville hatt $\\det=+1$)."
+    },
+    {
+      "id": "mat1120-7-3-bb-normbev",
+      "type": "definition",
+      "title": "Ortogonal ⇒ normbevarende",
+      "content": "$\\lVert P\\mathbf{x}\\rVert^2=(P\\mathbf{x})^{T}(P\\mathbf{x})=\\mathbf{x}^{T}P^{T}P\\mathbf{x}=\\mathbf{x}^{T}\\mathbf{x}=\\lVert\\mathbf{x}\\rVert^2$, ved $P^{T}P=I$. Regn på kvadratet av normen for å slippe røtter."
+    },
+    {
+      "id": "mat1120-7-3-bb-skalarbev",
+      "type": "definition",
+      "title": "Ortogonal ⇒ bevarer skalarprodukt",
+      "content": "$(P\\mathbf{x})^{T}(P\\mathbf{y})=\\mathbf{x}^{T}P^{T}P\\mathbf{y}=\\mathbf{x}^{T}\\mathbf{y}$. Derfor bevarer $P$ også vinkler ($\\cos\\theta$ avhenger bare av skalarprodukt og normer)."
+    },
+    {
+      "id": "mat1120-7-3-bb-posdef-def",
+      "type": "definition",
+      "title": "Positiv definit",
+      "content": "Symmetrisk $B$ med $\\mathbf{x}^{T}B\\mathbf{x}>0$ for alle $\\mathbf{x}\\ne\\mathbf{0}$, ekvivalent alle egenverdier $\\lambda_i>0$ ([kap. 6.2](/bok/mat1120/mat1120-6-2)). Forutsetningen som starter posdef-beviset."
+    },
+    {
+      "id": "mat1120-7-3-bb-posdef-inv",
+      "type": "definition",
+      "title": "Posdef ⇒ invertibel",
+      "content": "$\\det B=\\prod\\lambda_i>0\\ne0$ (alle $\\lambda_i>0$), så $B$ er invertibel. Argumentet går via $B=PDP^{T}$ og $\\det B=\\prod\\lambda_i$."
+    },
+    {
+      "id": "mat1120-7-3-bb-Binv-posdef",
+      "type": "definition",
+      "title": "$B^{-1}$ posdef",
+      "content": "$B^{-1}=PD^{-1}P^{T}$ er en ortogonal diagonalisering med egenverdier $1/\\lambda_i>0$, så $B^{-1}$ er symmetrisk positiv definit med samme egenvektorer som $B$."
+    },
+    {
+      "id": "mat1120-7-3-bb-spektral-bevis",
+      "type": "definition",
+      "title": "Spektralteoremet i bevis",
+      "content": "Er $B$ symmetrisk, gir $B=PDP^{T}$ (ortogonal $P$) et kraftig grep: inverser, potenser og funksjoner av $B$ blir $P\\,f(D)\\,P^{T}$ med egenverdiene transformert. Nevn alltid symmetrien først."
+    },
+    {
+      "id": "mat1120-7-3-bb-isomorfi",
+      "type": "definition",
+      "title": "Isomorfi",
+      "content": "En lineær avbildning som er både injektiv og surjektiv — den kobler to rom perfekt, med en invers som også er lineær. To rom med en isomorfi mellom seg er «like» som vektorrom."
+    },
+    {
+      "id": "mat1120-7-3-bb-iso-krit",
+      "type": "definition",
+      "title": "Isomorfi-kriteriet",
+      "content": "$T:V\\to V$ er en isomorfi $\\Leftrightarrow$ $[T]_{\\mathcal{B}}$ er invertibel $\\Leftrightarrow$ $\\ker T=\\{\\mathbf{0}\\}$. Praktisk sjekk: $\\det[T]_{\\mathcal{B}}\\ne0$ eller full rang. Basisuavhengig ([kap. 2.6](/bok/mat1120/mat1120-2-6))."
+    },
+    {
+      "id": "mat1120-7-3-bb-koordinat",
+      "type": "definition",
+      "title": "Koordinatavbildningen bærer beviset",
+      "content": "$\\mathbf{x}\\mapsto[\\mathbf{x}]_{\\mathcal{B}}$ er selv en isomorfi $V\\to\\mathbb{R}^n$ med $[T\\mathbf{x}]_{\\mathcal{B}}=[T]_{\\mathcal{B}}[\\mathbf{x}]_{\\mathcal{B}}$. Derfor «arver» $T$ nøyaktig egenskapene til matrisen $[T]_{\\mathcal{B}}$ — det gjør isomorfi-beviset til ett argument for begge retninger."
+    },
+    {
+      "id": "mat1120-7-3-bb-hvisogbare",
+      "type": "definition",
+      "title": "«$\\Rightarrow$» vs. «$\\Leftrightarrow$»",
+      "content": "En implikasjon $\\Rightarrow$ går én vei; en ekvivalens $\\Leftrightarrow$ krever *begge*. I isomorfi-kriteriet må du vise både at isomorfi ⇒ invertibel matrise og omvendt (eller bruke koordinatavbildningen, som gir begge på én gang)."
+    },
+    {
+      "id": "mat1120-7-3-bb-ikkediag",
+      "type": "definition",
+      "title": "Ikke-diagonaliserbarhet",
+      "content": "For å vise at $A$ *ikke* er diagonaliserbar: pek på én egenverdi der **geometrisk multiplisitet $<$ algebraisk** ($\\dim E_\\lambda<$ mult). Da finnes ikke nok uavhengige egenvektorer til en egenbasis ([kap. 3.2](/bok/mat1120/mat1120-3-2))."
+    },
+    {
+      "id": "mat1120-7-3-bb-geo-alg",
+      "type": "definition",
+      "title": "Geometrisk vs. algebraisk multiplisitet",
+      "content": "Algebraisk multiplisitet = hvor mange ganger $\\lambda$ er rot i det karakteristiske polynomet; geometrisk = $\\dim E_\\lambda$. Alltid geo $\\le$ alg; diagonaliserbar ⇔ geo $=$ alg for alle egenverdier."
+    },
+    {
+      "id": "mat1120-7-3-bb-linearitet",
+      "type": "definition",
+      "title": "Linearitetsbevis",
+      "content": "For å vise at $T$ er lineær: verifiser $T(a\\mathbf{u}+b\\mathbf{v})=aT(\\mathbf{u})+bT(\\mathbf{v})$ for vilkårlige skalarer $a,b$ og vektorer $\\mathbf{u},\\mathbf{v}$. F.eks. $T(f)=f'+f''$ er lineær fordi derivasjon er lineær (2021 O3a)."
+    },
+    {
+      "id": "mat1120-7-3-bb-forutsetning",
+      "type": "definition",
+      "title": "Forutsetningssjekk",
+      "content": "Et teorem gjelder bare når forutsetningene er oppfylt. Skriv dem eksplisitt: «$B=B^{T}$, derfor spektralteoremet»; «$\\mathbf{v}^{T}\\mathbf{v}=1$, derfor $R^2=I$». Sensor ser etter at du sjekket dem *før* bruk."
+    },
+    {
+      "id": "mat1120-7-3-rep",
+      "type": "collapsible",
+      "title": "Repetisjonsoppgaver",
+      "buttonText": "Vis repetisjonsoppgaver",
+      "content": [
+        {
+          "id": "mat1120-7-3-r1",
+          "type": "exercise",
+          "exercise": {
+            "id": "mat1120-7-3-r1",
+            "number": "R1",
+            "type": "classic",
+            "difficulty": "lett",
+            "task": "Er $\\mathbf{v}^{T}\\mathbf{v}$ et tall eller en matrise? Og $\\mathbf{v}\\mathbf{v}^{T}$?",
+            "solution": "$\\mathbf{v}^{T}\\mathbf{v}=\\lVert\\mathbf{v}\\rVert^2$ er et **tall** ($1\\times1$). $\\mathbf{v}\\mathbf{v}^{T}$ er en **matrise** ($n\\times n$, rang 1).",
+            "hints": [
+              "Tell dimensjonene: $(1\\times n)(n\\times1)$ vs. $(n\\times1)(1\\times n)$."
+            ]
+          }
+        },
+        {
+          "id": "mat1120-7-3-r2",
+          "type": "exercise",
+          "exercise": {
+            "id": "mat1120-7-3-r2",
+            "number": "R2",
+            "type": "classic",
+            "difficulty": "middels",
+            "task": "La $P$ være ortogonal. Vis i én linje at $\\lVert P\\mathbf{x}\\rVert^2=\\lVert\\mathbf{x}\\rVert^2$.",
+            "solution": "$\\lVert P\\mathbf{x}\\rVert^2=(P\\mathbf{x})^{T}(P\\mathbf{x})=\\mathbf{x}^{T}P^{T}P\\mathbf{x}=\\mathbf{x}^{T}\\mathbf{x}=\\lVert\\mathbf{x}\\rVert^2$ (brukte $P^{T}P=I$).",
+            "hints": [
+              "Skriv normen som $\\mathbf{y}^{T}\\mathbf{y}$ og sett inn $P^{T}P=I$."
+            ]
+          }
+        },
+        {
+          "id": "mat1120-7-3-r3",
+          "type": "exercise",
+          "exercise": {
+            "id": "mat1120-7-3-r3",
+            "number": "R3",
+            "type": "classic",
+            "difficulty": "middels",
+            "task": "En symmetrisk $B$ har egenverdier $2$ og $5$. Hva er egenverdiene til $B^{-1}$, og er $B^{-1}$ posdef?",
+            "solution": "$B^{-1}$ har egenverdier $\\tfrac12$ og $\\tfrac15$ (samme egenvektorer). Begge $>0$, så $B^{-1}$ er positiv definit.",
+            "hints": [
+              "Egenverdiene til $B^{-1}$ er $1/\\lambda_i$."
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": "mat1120-7-3-symbol",
+      "type": "collapsible",
+      "title": "Symbol- og formelliste",
+      "buttonText": "Vis symboler og formler",
+      "content": [
+        {
+          "id": "mat1120-7-3-symbol-tekst",
+          "type": "text",
+          "content": "## Symbol- og formelliste\n\n*Oppslagsverk — alt her forklares underveis i kapitlet.*\n\n| Symbol | Betydning |\n|---|---|\n| $R=I-2\\mathbf{v}\\mathbf{v}^{T}$ | Householder-matrise (enhets-$\\mathbf{v}$) |\n| $\\mathbf{v}\\mathbf{v}^{T}$ | Ytterprodukt ($n\\times n$-matrise) |\n| $\\mathbf{v}^{T}\\mathbf{v}=\\lVert\\mathbf{v}\\rVert^2$ | Skalar (indreprodukt) |\n| $\\mathbf{v}^{\\perp}$ | Hyperplanet vinkelrett på $\\mathbf{v}$ |\n| $P^{T}P=I$ | Ortogonal matrise |\n| $B=PDP^{T}$ | Spektralteoremet (symmetrisk $B$) |\n| $[T]_{\\mathcal{B}}$ | Matriserepresentasjon av $T$ |\n| $\\ker T$ | Kjernen $\\{\\mathbf{x}:T\\mathbf{x}=\\mathbf{0}\\}$ |\n\n**Resultater i dette delkapitlet:**\n\n$$R=I-2\\mathbf{v}\\mathbf{v}^{T}\\ (\\mathbf{v}^{T}\\mathbf{v}=1):\\quad R^{T}=R,\\ R^{T}R=I,\\ R^2=I,\\ \\det R=-1$$\nHouseholder-refleksjonen — speiling om $\\mathbf{v}^{\\perp}$, egenverdier $\\pm1$.\n\n$$P^{T}P=I\\ \\Rightarrow\\ \\lVert P\\mathbf{x}\\rVert=\\lVert\\mathbf{x}\\rVert,\\quad (P\\mathbf{x})^{T}(P\\mathbf{y})=\\mathbf{x}^{T}\\mathbf{y}$$\nOrtogonal ⇒ normbevarende og skalarproduktbevarende.\n\n$$B\\ \\text{posdef}\\ \\Rightarrow\\ \\det B=\\prod\\lambda_i>0,\\quad B^{-1}=PD^{-1}P^{T}\\ \\text{posdef}\\ (\\lambda_i\\to1/\\lambda_i)$$\nPosdef ⇒ invertibel og $B^{-1}$ posdef.\n\n$$T\\ \\text{isomorfi}\\ \\Leftrightarrow\\ [T]_{\\mathcal{B}}\\ \\text{invertibel}\\ \\Leftrightarrow\\ \\ker T=\\{\\mathbf{0}\\}$$\nIsomorfi-kriteriet. Ikke-diagonaliserbar: geo $<$ alg for en egenverdi."
+        }
+      ]
+    }
+  ],
+  "exercises": []
+}

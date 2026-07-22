@@ -1,0 +1,152 @@
+{
+  "id": "mat1120-7-prove",
+  "courseId": "mat1120",
+  "chapterNumber": "7.P",
+  "title": "Prøver til del 7: SVD, dynamiske systemer og bevis",
+  "description": "Fire temaprøver til Del 7: SVD A=UΣVᵀ med max‖Ax‖=σ₁ (kap. 7.1), x′=Ax og diskret dynamikk med normbevaring (kap. 7.2), bevis (Householder, posdef, isomorfi-kriteriet, kap. 7.3), og et bredde-tverrsnitt med ett tema fra hvert delkapittel. Full fasit etter føringsstandarden, med vedlegg, teoremnavning og selvdiagnose.",
+  "estimatedMinutes": 150,
+  "competenceGoals": [
+    "kunne bygge en SVD A=UΣVᵀ fra vedleggets eig(AᵀA) og lese av max‖Ax‖=σ₁ og rangen",
+    "kunne løse x′=Ax med begynnelsesverdi og analysere diskret dynamikk (langtid, normbevaring)",
+    "kunne føre modellbevisene med forutsetningssjekk og navngitte teoremer (Householder, posdef, isomorfi-kriteriet)",
+    "kunne kjede SVD, dynamikk og bevis i et bredde-tverrsnitt med full føring og eksakte svar"
+  ],
+  "content": [
+    {
+      "id": "mat1120-7-prove-tip",
+      "type": "tip",
+      "title": "Om prøvene til Del 7",
+      "content": "Disse fire prøvene dekker hele **Del 7 — SVD, dynamiske systemer og bevis** og trener sjangrene K (SVD), J (dynamikk) og L (bevis) — bredden og topp-poengene på nivå 3. Egenverdier og egenvektorer **leses av et vedlegg** (`eig`); du regner dem ikke for hånd.\n\n- **Prøve 7.A — SVD $A=U\\Sigma V^{T}$ + $\\max\\lVert A\\mathbf{x}\\rVert$ ([kap. 7.1](/bok/mat1120/mat1120-7-1)):** bygg $V,\\Sigma,U$ fra $A^{T}A$, utvid $U$, les av $\\max\\lVert A\\mathbf{x}\\rVert=\\sigma_1$. ~40 min.\n- **Prøve 7.B — $\\mathbf{x}'=A\\mathbf{x}$ + diskret dynamikk ([kap. 7.2](/bok/mat1120/mat1120-7-2)):** generell løsning + begynnelsesverdi, og diskret langtid/normbevaring. ~35 min.\n- **Prøve 7.C — bevis ([kap. 7.3](/bok/mat1120/mat1120-7-3)):** Householder ortogonal, posdef ⇒ invertibel, isomorfi-kriteriet — full føring med teoremnavning. ~35 min.\n- **Prøve 7.D — bredde-tverrsnitt ([kap. 7.1](/bok/mat1120/mat1120-7-1)–[7.3](/bok/mat1120/mat1120-7-3)):** ett tema fra hvert delkapittel, kjedet. ~40 min.\n\n**4 prøver à ~35–40 min, kan trygt deles over flere kvelder — én prøve per økt.** Milepælen er å fullføre settet.\n\n**Merk formatet:** MAT1120-eksamen har **ingen flervalg** — alt er fullt begrunnet langsvar. Her har likevel **Prøve 7.A** en liten flervalgsdel til rask begrepssjekk (flervalget bor *inne i* Prøve 7.A); kryss av og kontroller mot fasiten. De øvrige oppgavene føres som en fullstendig besvarelse: **navngi teoremet** (spektralteoremet, Rayleigh, isomorfi-kriteriet), bygg $U$ med $\\mathbf{u}_i=\\tfrac{1}{\\sigma_i}A\\mathbf{v}_i$, bruk $e^{\\lambda_it}$/$\\lambda_i^k$ riktig, sjekk **forutsetningene** i bevisene, og avslutt med verbal konklusjon og **eksakte** svar. Etter hver fasit står en avkryssbar selvdiagnose."
+    },
+    {
+      "id": "mat1120-7-prove-forkunnskaper",
+      "type": "text",
+      "content": "**Forkunnskaper:** hele Del 7 — [kap. 7.1](/bok/mat1120/mat1120-7-1) (SVD $A=U\\Sigma V^{T}$, $\\max\\lVert A\\mathbf{x}\\rVert=\\sigma_1$), [kap. 7.2](/bok/mat1120/mat1120-7-2) ($\\mathbf{x}'=A\\mathbf{x}$ og diskret dynamikk) og [kap. 7.3](/bok/mat1120/mat1120-7-3) (bevis: Householder, normbevaring, posdef, isomorfi). Bygger på spektralteoremet [kap. 6.1](/bok/mat1120/mat1120-6-1), diagonalisering [kap. 3.2](/bok/mat1120/mat1120-3-2) og isomorfi [kap. 2.6](/bok/mat1120/mat1120-2-6). Matriseprodukt og transponering fra [MAT1110](/bok/mat1110/mat1110-1-1). Ta prøvene uten hjelpemidler utover vedlegget, slik eksamen er lagt opp."
+    },
+    {
+      "id": "mat1120-7-prove-p1",
+      "type": "collapsible",
+      "title": "Prøve 1 — 7.A",
+      "buttonText": "Vis prøve 1",
+      "content": [
+        {
+          "id": "mat1120-7-prove-p1-oppg",
+          "type": "text",
+          "content": "**Sjanger:** SVD $A=U\\Sigma V^{T}$ + $\\max\\lVert A\\mathbf{x}\\rVert$ (K). **Anbefalt tid:** ca. 40 minutter.\n\n**Vedlegg** (`eig`$(A^{T}A)$): for\n$$A=\\begin{bmatrix}3&1\\\\1&3\\\\0&0\\end{bmatrix}$$\ner $A^{T}A=\\begin{bmatrix}10&6\\\\6&10\\end{bmatrix}$ med egenverdiene $\\lambda=16$ (egenvektor $(1,1)^{T}$) og $\\lambda=4$ (egenvektor $(1,-1)^{T}$).\n\n**Flervalg (kryss av, sjekk mot fasit):**\n\n1. Singulærverdiene til $A$ er (a) egenverdiene til $A$ (b) **kvadratrøttene av egenverdiene til $A^{T}A$** (c) egenverdiene til $A^{T}A$ (d) alltid heltall.\n2. I $\\mathbf{u}_i=\\tfrac{1}{\\sigma_i}A\\mathbf{v}_i$ er faktoren $\\tfrac{1}{\\sigma_i}$ med for å (a) sortere synkende (b) gjøre $A$ symmetrisk (c) fjerne fortegn (d) **gjøre $\\mathbf{u}_i$ til en enhetsvektor**.\n3. $\\max\\{\\lVert A\\mathbf{x}\\rVert:\\lVert\\mathbf{x}\\rVert=1\\}$ er lik (a) **$\\sigma_1$** (b) $\\sigma_1^2$ (c) $\\lambda_1^2$ (d) $\\sigma_n$.\n4. Rangen til $A$ er (a) alltid lik antall rader (b) $\\det A$ (c) **antallet positive singulærverdier** (d) antallet egenverdier lik $0$.\n\n**Skriveoppgaver:**\n\n**a)** Oppgi singulærverdiene til $A$ og en ortogonal $V$ av høyresingulærvektorer.\n\n**b)** Bygg $U$ (regn $\\mathbf{u}_1,\\mathbf{u}_2$ og utvid til en ortonormal basis for $\\mathbb{R}^3$), og skriv $A=U\\Sigma V^{T}$.\n\n**c)** Finn $\\max\\{\\lVert A\\mathbf{x}\\rVert:\\lVert\\mathbf{x}\\rVert=1\\}$ og retningen den nås i, og oppgi $\\operatorname{rang}A$."
+        },
+        {
+          "id": "mat1120-7-prove-p1-fasit",
+          "type": "collapsible",
+          "title": "Fasit — Prøve 7.A",
+          "buttonText": "Vis fasit",
+          "content": [
+            {
+              "id": "mat1120-7-prove-p1-fasit-tekst",
+              "type": "text",
+              "content": "**Flervalg — riktige svar:** 1b · 2d · 3a · 4c. *(1 poeng hver.)*\n\n*Om 1a/1c: singulærverdier er $\\sqrt{\\lambda_i(A^{T}A)}$ — verken egenverdiene til $A$ eller til $A^{T}A$ direkte. Om 3b: $\\sigma_1^2=\\lambda_1$ er svaret på $\\max\\lVert A\\mathbf{x}\\rVert^2$, ikke $\\max\\lVert A\\mathbf{x}\\rVert$.*\n\n**a)** Fra vedlegget er egenverdiene til $A^{T}A$ $16$ og $4$, synkende. Singulærverdier: $\\sigma_1=\\sqrt{16}=4$, $\\sigma_2=\\sqrt4=2$. Normalisér egenvektorene (begge lengde $\\sqrt2$):\n$$V=\\frac{1}{\\sqrt2}\\begin{bmatrix}1&1\\\\1&-1\\end{bmatrix},\\qquad \\Sigma=\\begin{bmatrix}4&0\\\\0&2\\\\0&0\\end{bmatrix}.$$\n\n**b)** Regn $A\\mathbf{v}_i$ (uten $\\tfrac{1}{\\sqrt2}$): $A(1,1)^{T}=(4,4,0)^{T}$, $A(1,-1)^{T}=(2,-2,0)^{T}$. Da\n$$\\mathbf{u}_1=\\frac{1}{\\sigma_1}A\\mathbf{v}_1=\\frac{1}{4}\\cdot\\frac{1}{\\sqrt2}(4,4,0)^{T}=\\frac{1}{\\sqrt2}(1,1,0)^{T},\\quad \\mathbf{u}_2=\\frac{1}{2}\\cdot\\frac{1}{\\sqrt2}(2,-2,0)^{T}=\\frac{1}{\\sqrt2}(1,-1,0)^{T}.$$\nBegge er enhetsvektorer og ortogonale (kontroll: $\\mathbf{u}_1\\cdot\\mathbf{u}_2=\\tfrac12(1-1+0)=0$ ✓). Utvid til $\\mathbb{R}^3$ med en tredje enhetsvektor ortogonal på begge: $\\mathbf{u}_3=(0,0,1)^{T}$ (den eneste retningen igjen). Da\n$$U=\\begin{bmatrix}\\tfrac{1}{\\sqrt2}&\\tfrac{1}{\\sqrt2}&0\\\\[2pt]\\tfrac{1}{\\sqrt2}&-\\tfrac{1}{\\sqrt2}&0\\\\[2pt]0&0&1\\end{bmatrix},\\qquad \\Sigma=\\begin{bmatrix}4&0\\\\0&2\\\\0&0\\end{bmatrix},\\qquad V=\\frac{1}{\\sqrt2}\\begin{bmatrix}1&1\\\\1&-1\\end{bmatrix}.$$\nDa er $A=U\\Sigma V^{T}$ ($\\mathbf{u}_3$ ganges med $\\Sigma$s nullrad og påvirker ikke produktet, men gjør $U$ ortogonal).\n\n**c)** Ved Rayleigh på $A^{T}A$: $\\max\\{\\lVert A\\mathbf{x}\\rVert:\\lVert\\mathbf{x}\\rVert=1\\}=\\sigma_1=4$, oppnådd i $\\mathbf{x}=\\mathbf{v}_1=\\tfrac{1}{\\sqrt2}(1,1)^{T}$. To positive singulærverdier ⇒ $\\operatorname{rang}A=2$. **Eksakt svar** — $\\sigma_1=4,\\sigma_2=2$; $U,\\Sigma,V$ som over; $\\max\\lVert A\\mathbf{x}\\rVert=4$ i $\\tfrac{1}{\\sqrt2}(1,1)^{T}$; $\\operatorname{rang}A=2$."
+            },
+            {
+              "id": "mat1120-7-prove-p1-diag",
+              "type": "text",
+              "content": "**Selvdiagnose — kryss av ($\\square$):**\n\n- ☐ Jeg tok $\\sigma_i=\\sqrt{\\lambda_i}$ (ikke $\\lambda_i$) og ordnet **synkende**.\n- ☐ Jeg normaliserte egenvektorene til $V$.\n- ☐ Jeg bygde $\\mathbf{u}_i=\\tfrac{1}{\\sigma_i}A\\mathbf{v}_i$ og **utvidet** $U$ til ortonormal basis.\n- ☐ Jeg svarte $\\max\\lVert A\\mathbf{x}\\rVert=\\sigma_1$ (ikke $\\sigma_1^2$), med retningen $\\mathbf{v}_1$.\n- ☐ Jeg leste $\\operatorname{rang}A$ som antall positive singulærverdier."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "mat1120-7-prove-p2",
+      "type": "collapsible",
+      "title": "Prøve 2 — 7.B",
+      "buttonText": "Vis prøve 2",
+      "content": [
+        {
+          "id": "mat1120-7-prove-p2-oppg",
+          "type": "text",
+          "content": "**Sjanger:** $\\mathbf{x}'=A\\mathbf{x}$ + diskret dynamikk (J). **Anbefalt tid:** ca. 35 minutter. Før som en fullstendig besvarelse.\n\n**Oppgave 1 (kontinuerlig).** La $\\mathbf{x}'=A\\mathbf{x}$ med $A=\\begin{bmatrix}-3&2\\\\2&-3\\end{bmatrix}$. **Vedlegg** (`eig`): $\\lambda_1=-1$ med egenvektor $(1,1)^{T}$ og $\\lambda_2=-5$ med egenvektor $(1,-1)^{T}$.\n\n**a)** Skriv den generelle løsningen.\n\n**b)** Løs med begynnelsesverdi $\\mathbf{x}(0)=(2,0)^{T}$.\n\n**c)** Hva skjer med $\\mathbf{x}(t)$ når $t\\to\\infty$? Er origo stabilt?\n\n**Oppgave 2 (diskret).** Et system $\\mathbf{x}_{k+1}=B\\mathbf{x}_k$ har (fra vedlegg) egenverdier $\\mu_1=1$ (egenvektor $(3,1)^{T}$) og $\\mu_2=\\tfrac14$ (egenvektor $(1,-1)^{T}$), med $\\mathbf{x}_0=(4,0)^{T}$.\n\n**d)** Finn $\\mathbf{x}_k$ og $\\lim_{k\\to\\infty}\\mathbf{x}_k$.\n\n**e)** La i stedet $C=\\begin{bmatrix}1&0\\\\0&-1\\end{bmatrix}$ og $\\mathbf{x}_0=(3,2)^{T}$. Regn $\\lVert\\mathbf{x}_k\\rVert$ og forklar hvorfor den er konstant."
+        },
+        {
+          "id": "mat1120-7-prove-p2-fasit",
+          "type": "collapsible",
+          "title": "Fasit — Prøve 7.B",
+          "buttonText": "Vis fasit",
+          "content": [
+            {
+              "id": "mat1120-7-prove-p2-fasit-tekst",
+              "type": "text",
+              "content": "**a)** $A$ er symmetrisk med distinkte egenverdier ⇒ egenvektorbasis. Ett ledd per egenpar med $e^{\\lambda_it}$:\n$$\\mathbf{x}(t)=c_1\\begin{bmatrix}1\\\\1\\end{bmatrix}e^{-t}+c_2\\begin{bmatrix}1\\\\-1\\end{bmatrix}e^{-5t}.$$\n\n**b)** Sett $t=0$: $c_1(1,1)^{T}+c_2(1,-1)^{T}=(2,0)^{T}$ ⇒ $c_1+c_2=2,\\ c_1-c_2=0$ ⇒ $c_1=c_2=1$. Altså\n$$\\mathbf{x}(t)=\\begin{bmatrix}1\\\\1\\end{bmatrix}e^{-t}+\\begin{bmatrix}1\\\\-1\\end{bmatrix}e^{-5t}.$$\nKontroll ved $t=0$: $(1,1)^{T}+(1,-1)^{T}=(2,0)^{T}$ ✓.\n\n**c)** Begge egenverdier er negative, så $e^{-t},e^{-5t}\\to0$, og $\\mathbf{x}(t)\\to\\mathbf{0}$. Origo er **stabilt** (for enhver begynnelsesverdi). Til slutt dominerer det tregeste leddet $e^{-t}$, så løsningen nærmer seg origo langs $(1,1)^{T}$.\n\n**d)** Dekomponer $\\mathbf{x}_0=(4,0)^{T}$: $c_1(3,1)^{T}+c_2(1,-1)^{T}=(4,0)^{T}$ ⇒ $3c_1+c_2=4,\\ c_1-c_2=0$ ⇒ $c_1=c_2=1$. Da\n$$\\mathbf{x}_k=1^k\\begin{bmatrix}3\\\\1\\end{bmatrix}+\\Big(\\tfrac14\\Big)^k\\begin{bmatrix}1\\\\-1\\end{bmatrix}=\\begin{bmatrix}3\\\\1\\end{bmatrix}+\\Big(\\tfrac14\\Big)^k\\begin{bmatrix}1\\\\-1\\end{bmatrix}.$$\nSiden $|\\tfrac14|<1$ dør det andre leddet ut: $\\lim_{k\\to\\infty}\\mathbf{x}_k=(3,1)^{T}$ — en likevekt langs egenvektoren til $\\mu=1$.\n\n**e)** $C^{T}C=\\begin{bmatrix}1&0\\\\0&1\\end{bmatrix}=I$, så $C$ er **ortogonal** (normbevarende). $\\mathbf{x}_1=C(3,2)^{T}=(3,-2)^{T}$, $\\mathbf{x}_2=(3,2)^{T}$, … Normen er konstant: $\\lVert\\mathbf{x}_k\\rVert=\\sqrt{3^2+2^2}=\\sqrt{13}$ for alle $k$, fordi ortogonale matriser bevarer lengder (egenverdiene $1,-1$ har $|\\mu|=1$). **Eksakt svar** — a)–b) som over; c) $\\mathbf{x}(t)\\to\\mathbf{0}$, stabilt; d) $\\mathbf{x}_k\\to(3,1)^{T}$; e) $\\lVert\\mathbf{x}_k\\rVert=\\sqrt{13}$ konstant."
+            },
+            {
+              "id": "mat1120-7-prove-p2-diag",
+              "type": "text",
+              "content": "**Selvdiagnose — kryss av ($\\square$):**\n\n- ☐ Jeg brukte $e^{\\lambda_it}$ (kontinuerlig) og $\\mu_i^k$ (diskret) — ikke $\\lambda_i$ eller $\\lambda_i^t$.\n- ☐ Jeg fant $c_i$ fra $P\\mathbf{c}=\\mathbf{x}(0)$ (satte $t=0$).\n- ☐ Jeg avgjorde kontinuerlig langtid fra **fortegnet** på $\\lambda_i$.\n- ☐ Jeg avgjorde diskret langtid fra **$|\\mu_i|$** og fant likevekten langs $\\mu=1$.\n- ☐ Jeg begrunnet normbevaring med at $C$ er ortogonal ($C^{T}C=I$)."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "mat1120-7-prove-p3",
+      "type": "collapsible",
+      "title": "Prøve 3 — 7.C",
+      "buttonText": "Vis prøve 3",
+      "content": [
+        {
+          "id": "mat1120-7-prove-p3-oppg",
+          "type": "text",
+          "content": "**Sjanger:** bevis — Householder, posdef, isomorfi-kriteriet (L). **Anbefalt tid:** ca. 35 minutter. Før hvert bevis med forutsetningssjekk og navngitte teoremer.\n\n**Oppgave 1 (Householder).** La $\\mathbf{v}$ være en enhetsvektor ($\\mathbf{v}^{T}\\mathbf{v}=1$) og $R=I-2\\mathbf{v}\\mathbf{v}^{T}$.\n\n**a)** Vis at $R$ er symmetrisk og at $R^2=I$. Følg at $R$ er ortogonal.\n\n**b)** Vis at $R\\mathbf{v}=-\\mathbf{v}$, og forklar geometrisk hva $R$ gjør.\n\n**Oppgave 2 (posdef).** La $B$ være symmetrisk positiv definit.\n\n**c)** Vis at $B$ er invertibel og at $B^{-1}$ også er positiv definit. Bruk spektralteoremet.\n\n**Oppgave 3 (isomorfi).** La $T:\\operatorname{P}_2\\to\\operatorname{P}_2$ ha matrisen $[T]_{\\mathcal{B}}=\\begin{bmatrix}1&1&0\\\\0&1&2\\\\0&0&1\\end{bmatrix}$ i basisen $\\mathcal{B}=\\{1,t,t^2\\}$.\n\n**d)** Avgjør med isomorfi-kriteriet om $T$ er en isomorfi, og oppgi $\\ker T$."
+        },
+        {
+          "id": "mat1120-7-prove-p3-fasit",
+          "type": "collapsible",
+          "title": "Fasit — Prøve 7.C",
+          "buttonText": "Vis fasit",
+          "content": [
+            {
+              "id": "mat1120-7-prove-p3-fasit-tekst",
+              "type": "text",
+              "content": "**a)** **Gitt:** $\\mathbf{v}^{T}\\mathbf{v}=1$, $R=I-2\\mathbf{v}\\mathbf{v}^{T}$. *Symmetrisk:* $R^{T}=(I-2\\mathbf{v}\\mathbf{v}^{T})^{T}=I-2(\\mathbf{v}\\mathbf{v}^{T})^{T}=I-2\\mathbf{v}\\mathbf{v}^{T}=R$ (ytterproduktet er symmetrisk). *$R^2=I$:*\n$$R^2=(I-2\\mathbf{v}\\mathbf{v}^{T})^2=I-4\\mathbf{v}\\mathbf{v}^{T}+4\\mathbf{v}(\\mathbf{v}^{T}\\mathbf{v})\\mathbf{v}^{T}=I-4\\mathbf{v}\\mathbf{v}^{T}+4\\mathbf{v}\\mathbf{v}^{T}=I,$$\nder $\\mathbf{v}^{T}\\mathbf{v}=1$ ble brukt. *Ortogonal:* siden $R^{T}=R$, er $R^{T}R=R^2=I$, så $R$ er ortogonal. $\\checkmark$\n\n**b)** $R\\mathbf{v}=\\mathbf{v}-2\\mathbf{v}(\\mathbf{v}^{T}\\mathbf{v})=\\mathbf{v}-2\\mathbf{v}=-\\mathbf{v}$. For $\\mathbf{w}\\perp\\mathbf{v}$ (dvs. $\\mathbf{v}^{T}\\mathbf{w}=0$): $R\\mathbf{w}=\\mathbf{w}$. $R$ snur altså komponenten langs $\\mathbf{v}$ og lar hyperplanet $\\mathbf{v}^{\\perp}$ stå fast — en **speiling om $\\mathbf{v}^{\\perp}$** (egenverdier $-1$ og $+1$, $\\det R=-1$). $\\blacksquare$\n\n**c)** **Gitt:** $B=B^{T}$ med alle egenverdier $\\lambda_i>0$. Ved **spektralteoremet** ([kap. 6.1](/bok/mat1120/mat1120-6-1)) er $B=PDP^{T}$ med ortogonal $P$ og $D=\\operatorname{diag}(\\lambda_i)$. *Invertibel:* $\\det B=\\prod\\lambda_i>0\\ne0$. *$B^{-1}$ posdef:* $B^{-1}=PD^{-1}P^{T}$ med $D^{-1}=\\operatorname{diag}(1/\\lambda_i)$ — en ortogonal diagonalisering, så $B^{-1}$ er symmetrisk med egenverdier $1/\\lambda_i>0$, altså positiv definit. $\\blacksquare$\n\n**d)** Isomorfi-kriteriet: $T$ isomorfi ⇔ $[T]_{\\mathcal{B}}$ invertibel. Matrisen er triangulær med diagonal $1,1,1$, så $\\det[T]_{\\mathcal{B}}=1\\ne0$ — **invertibel**. Derfor er $T$ **en isomorfi**, og $\\ker T=\\{\\mathbf{0}\\}$ (bare nullpolynomet). **Eksakt svar** — R symmetrisk/ortogonal/$R^2=I$, speiling; $B$ invertibel og $B^{-1}$ posdef med egenverdier $1/\\lambda_i$; $T$ isomorfi, $\\ker T=\\{0\\}$."
+            },
+            {
+              "id": "mat1120-7-prove-p3-diag",
+              "type": "text",
+              "content": "**Selvdiagnose — kryss av ($\\square$):**\n\n- ☐ Jeg **nevnte forutsetningen** ($\\mathbf{v}^{T}\\mathbf{v}=1$ / $B=B^{T}$) der jeg brukte den.\n- ☐ Jeg holdt $\\mathbf{v}\\mathbf{v}^{T}$ (matrise) og $\\mathbf{v}^{T}\\mathbf{v}$ (skalar) fra hverandre.\n- ☐ Jeg **navngav** spektralteoremet og isomorfi-kriteriet.\n- ☐ Jeg tolket $R$ geometrisk (speiling om $\\mathbf{v}^{\\perp}$, egenverdier $\\pm1$).\n- ☐ Jeg avgjorde isomorfi via $\\det[T]_{\\mathcal{B}}\\ne0$ og oversatte $\\ker T$ tilbake."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "mat1120-7-prove-p4",
+      "type": "collapsible",
+      "title": "Prøve 4 — 7.D",
+      "buttonText": "Vis prøve 4",
+      "content": [
+        {
+          "id": "mat1120-7-prove-p4-oppg",
+          "type": "text",
+          "content": "**Sjanger:** bredde-tverrsnitt — ett tema fra hvert av 7.1–7.3 (K + J + L). **Anbefalt tid:** ca. 40 minutter. Full føring med teoremnavning.\n\n**Oppgave 1 (SVD).** **Vedlegg** (`eig`$(A^{T}A)$): for\n$$A=\\begin{bmatrix}4&0\\\\3&0\\\\0&2\\end{bmatrix}$$\ner $A^{T}A=\\begin{bmatrix}25&0\\\\0&4\\end{bmatrix}$ med egenverdiene $\\lambda=25$ (egenvektor $(1,0)^{T}$) og $\\lambda=4$ (egenvektor $(0,1)^{T}$).\n\n**a)** Finn singulærverdiene, $V$, $\\Sigma$ og $U$, og skriv $A=U\\Sigma V^{T}$.\n\n**b)** Hva er $\\max\\{\\lVert A\\mathbf{x}\\rVert:\\lVert\\mathbf{x}\\rVert=1\\}$?\n\n**Oppgave 2 (dynamikk).** La $\\mathbf{x}'=B\\mathbf{x}$ med (fra vedlegg) $\\lambda_1=2$ (egenvektor $(1,1)^{T}$) og $\\lambda_2=-1$ (egenvektor $(1,-1)^{T}$).\n\n**c)** Skriv den generelle løsningen, og beskriv $\\mathbf{x}(t)$ når $t\\to\\infty$.\n\n**Oppgave 3 (bevis).** \n\n**d)** La $P$ være ortogonal. Vis at $\\lVert P\\mathbf{x}\\rVert=\\lVert\\mathbf{x}\\rVert$ for alle $\\mathbf{x}$, og navngi hvilken egenskap ved $P$ du bruker."
+        },
+        {
+          "id": "mat1120-7-prove-p4-fasit",
+          "type": "collapsible",
+          "title": "Fasit — Prøve 7.D",
+          "buttonText": "Vis fasit",
+          "content": [
+            {
+              "id": "mat1120-7-prove-p4-fasit-tekst",
+              "type": "text",
+              "content": "**a)** Egenverdiene til $A^{T}A$ er $25$ og $4$, synkende. Singulærverdier $\\sigma_1=5,\\ \\sigma_2=2$. Egenvektorene $(1,0)^{T},(0,1)^{T}$ er allerede ortonormale, så $V=I$. Bygg $U$: $A(1,0)^{T}=(4,3,0)^{T}$, $A(0,1)^{T}=(0,0,2)^{T}$, så\n$$\\mathbf{u}_1=\\tfrac{1}{5}(4,3,0)^{T}=(\\tfrac45,\\tfrac35,0)^{T},\\qquad \\mathbf{u}_2=\\tfrac{1}{2}(0,0,2)^{T}=(0,0,1)^{T}.$$\nUtvid med $\\mathbf{u}_3\\perp\\mathbf{u}_1,\\mathbf{u}_2$: $\\mathbf{u}_3=(\\tfrac35,-\\tfrac45,0)^{T}$ (kontroll: $\\mathbf{u}_1\\cdot\\mathbf{u}_3=\\tfrac{12-12}{25}=0$, $\\mathbf{u}_2\\cdot\\mathbf{u}_3=0$ ✓). Da\n$$U=\\begin{bmatrix}\\tfrac45&0&\\tfrac35\\\\[2pt]\\tfrac35&0&-\\tfrac45\\\\[2pt]0&1&0\\end{bmatrix},\\quad \\Sigma=\\begin{bmatrix}5&0\\\\0&2\\\\0&0\\end{bmatrix},\\quad V=\\begin{bmatrix}1&0\\\\0&1\\end{bmatrix},\\qquad A=U\\Sigma V^{T}.$$\n\n**b)** $\\max\\{\\lVert A\\mathbf{x}\\rVert:\\lVert\\mathbf{x}\\rVert=1\\}=\\sigma_1=5$, oppnådd i $\\mathbf{v}_1=(1,0)^{T}$.\n\n**c)** $B$ har distinkte egenverdier ⇒ egenvektorbasis. Generell løsning:\n$$\\mathbf{x}(t)=c_1\\begin{bmatrix}1\\\\1\\end{bmatrix}e^{2t}+c_2\\begin{bmatrix}1\\\\-1\\end{bmatrix}e^{-t}.$$\nNår $t\\to\\infty$: $e^{-t}\\to0$ (dør ut), $e^{2t}\\to\\infty$ (vokser). Løsningen vokser uten grense langs $(1,1)^{T}$ (egenvektoren til $\\lambda_{\\max}=2$), med mindre $c_1=0$. Origo er et **sadelpunkt**.\n\n**d)** **Gitt:** $P$ ortogonal, altså $P^{T}P=I$. Regn på kvadratet av normen:\n$$\\lVert P\\mathbf{x}\\rVert^2=(P\\mathbf{x})^{T}(P\\mathbf{x})=\\mathbf{x}^{T}P^{T}P\\mathbf{x}=\\mathbf{x}^{T}I\\mathbf{x}=\\lVert\\mathbf{x}\\rVert^2.$$\nSiden begge normer er $\\ge0$, gir dette $\\lVert P\\mathbf{x}\\rVert=\\lVert\\mathbf{x}\\rVert$. Egenskapen som ble brukt er **ortogonalitet** ($P^{T}P=I$). $\\blacksquare$ **Eksakt svar** — a) $\\sigma_1=5,\\sigma_2=2$, $A=U\\Sigma V^{T}$ som over; b) $\\max\\lVert A\\mathbf{x}\\rVert=5$; c) sadelpunkt, vekst langs $(1,1)^{T}$; d) normbevaring fra $P^{T}P=I$."
+            },
+            {
+              "id": "mat1120-7-prove-p4-diag",
+              "type": "text",
+              "content": "**Selvdiagnose — kryss av ($\\square$):**\n\n- ☐ Jeg tok $\\sigma_i=\\sqrt{\\lambda_i}$, satte $V=I$ (ortonormale egenvektorer) og bygde $U$ med utvidelse.\n- ☐ Jeg svarte $\\max\\lVert A\\mathbf{x}\\rVert=\\sigma_1$.\n- ☐ Jeg skrev den generelle løsningen med $e^{\\lambda_it}$ og avgjorde langtid fra fortegnene (sadelpunkt).\n- ☐ Jeg førte normbeviset via $\\lVert P\\mathbf{x}\\rVert^2=\\mathbf{x}^{T}P^{T}P\\mathbf{x}$ og **navngav** $P^{T}P=I$.\n- ☐ Jeg brukte eksakte svar (heltall/brøk) hele veien."
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "exercises": []
+}
