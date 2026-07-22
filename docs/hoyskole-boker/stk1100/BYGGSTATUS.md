@@ -16,8 +16,8 @@
 - **Steg 1** (byggebølge): 27/27 kapittelfiler på disk (0.1–9.4), alle JSON gyldige.
   Quiz 27/27 kapitler (Del 9-quizene 9.1–9.4 gap-fylt av ny byggeleder + LENGDE-TELL
   rebalansert til 23 %). Flashcards 505 (definisjonsblokker) = skjelettkvote eksakt.
-  Prøvefiler: Del 1–7 bygget+struktur-validert (6 SVG-er). Del 8 under bygging.
-  GJENSTÅR: prøve Del 8. Blokkerende (verifiser)-markør i 9-1 ryddet.
+  Prøvefiler: ALLE 8 (Del 1–8) bygget+struktur-validert (7 SVG-er). Steg 1 FERDIG.
+  Blokkerende (verifiser)-markør i 9-1 ryddet.
   NB: API-en er degradert (5 underagenter døde på ECONNRESET) — alle rakk å skrive
   filene til disk før død; salvaget + struktur-validert av byggeleder. Substreng-
   opprydding: «bootstrap-verdien»→«bootstrap-anslaget» i 7-prove OG kap. 7-2 (fjernet
