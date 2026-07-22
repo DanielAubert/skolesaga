@@ -14,9 +14,14 @@ Ny byggeleder overtok 22. juli (forrige leder døde på API-feil).
       quiz-data-mat1120.ts 539 spm, 644 def, institusjoner uio) + kildegrunnlag
       (sannferdig: 7 løsningsforslag H2018–H2024). sjekk-bok BOKPORT OK. tsc rent,
       npm run build grønn.
-- [~] Steg 3 — verifikatorbølge (numerisk etterregning) — PÅGÅR
-- [~] Steg 4 — sluttport: sjekk-bok ✓, tsc ✓, build ✓. GJENSTÅR: SVG-opplasting
-      Storage + prod-curl PORT=3061.
+- [x] Steg 3 — verifikatorbølge FERDIG 22. juli: alle 40 kap + 539 quiz
+      etterregnet numerisk (sympy/numpy, ~800 kontroller). 0 fasitavvik i
+      sluttsvar; 8 kap-småfunn + 8 quiz-distraktorfunn rettet (se tabell).
+- [x] Steg 4 — sluttport FERDIG 22. juli: sjekk-bok BOKPORT OK (40 kap,
+      644 def, 539 quiz), tsc rent, build grønn. Alle 6 SVG-er lastet opp til
+      Supabase Storage (bucket media, verifisert i bucket + public-URL 200).
+      Prod-curl PORT=3061: /bok/mat1120 + 7 kapittelruter + flashcards/
+      kildegrunnlag/kompetansemal alle 200 med innhold (SVD-tekst, SVG-ref).
 
 ## Byggebølge-batcher (maks 2 samtidige agenter)
 | Batch | Kapitler | Status |
@@ -55,4 +60,9 @@ Numerisk etterregning (python3/numpy/sympy) av alle fasiter del for del:
 | 8 | FERDIG (102 sjekker: alle vedleggs-RREF-er etterregnet, 3 øvingseks fullregnet, kjeglesnitt-SVG OK) | 2 tellefeil rettet (8-3-tip + 8-4-tip: «elleve»→«tolv» deloppgaver, 20 min/stk); quiz 29 spm OK, 1 nær-defekt distraktor byttet (8-3 σ-rekkefølge). Redaksjonell rest: titlene 8-3/8-4 sier «10 deloppgaver» men settene har 12 (O5 ekstra — forklart i tip) |
 
 ## Gjenstår
-- Steg 3 verifikator (pågår), Steg 4 sluttport (SVG-opplasting Storage + prod-curl PORT=3061).
+- Ingenting blokkerende — boka er FERDIG (steg 0–4 komplett).
+- Redaksjonell rest (ikke-blokkerende, vurderes ved ønske):
+  titlene på 8-3/8-4 sier «10 deloppgaver» men settene har 12 (O5 er ekstra,
+  forklart i tip-blokkene); poly(A)-konvensjonsnyanse i 3-1/3-4 (monisk vs.
+  det(A−λI) — samme røtter); tomt toppunkt-label ved venstre gren i de to
+  hyperbel-SVG-ene (kosmetisk).
