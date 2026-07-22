@@ -19,16 +19,27 @@ Byggeplan: `docs/hoyskole-boker/BYGGEPLAN-MAL.md` (steg 0→4).
 ## Steg 1 — Byggebølge (kapittelforfattere, maks 2 samtidige)
 | Del | Kapitler | Status |
 |---|---|---|
-| 0 | 0.1, 0.2 | ⏳ ikke startet |
-| 1 | 1.1–1.5 | ⏳ ikke startet |
-| 2 | 2.1–2.7 (+ prøve) | ⏳ ikke startet |
-| 3 | 3.1–3.7 (+ prøve) | ⏳ ikke startet |
+| 0 | 0.1, 0.2 | ✅ committet (def 10/25, quiz 10/15) |
+| 1 | 1.1–1.4 | ✅ committet (def 30/35/30/25, quiz 25/30/30/20) |
+| 1 | 1.5 drill + 1-prove | 🔨 agent kjører |
+| 2 | 2.1–2.3 | 🔨 agent kjører |
+| 2 | 2.4–2.7 (+ 2-prove) | ⏳ ikke startet |
+| 3 | 3.1–3.7 (+ 3-prove) | ⏳ ikke startet |
 | 4 | 4.1–4.4 | ⏳ ikke startet |
-| prøver | 1-prove, 2-prove, 3-prove | ⏳ ikke startet |
+
+Figurer: 9 SVG ✅ committet (b8bbe40e), lastes opp i Steg 4.
 
 ## Steg 2 — Wiring ⏳
 ## Steg 3 — Verifiseringsbølge ⏳
 ## Steg 4 — Sluttport + deploy ⏳
 
 ## Commit-logg
-- (ingen ennå)
+- 325284b1 Steg 0 (BYGGEKONTRAKT+BOKCONFIG+BYGGSTATUS)
+- b8bbe40e 9 SVG-figurer
+- e30ce9f2 Del 0 (0.1, 0.2)
+- ba269ed5 kap 1.1-1.2
+- b9a7e5d4 kap 1.3-1.4
+
+## Lærdom
+- ECONNRESET drepte 2 agenter midt i bølge; innhold var berget på disk hver gang.
+  Protokoll: mål disk → json.load → kvotetell → commit gyldig → relanser kun det som mangler.
