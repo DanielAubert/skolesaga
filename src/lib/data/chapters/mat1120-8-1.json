@@ -1,0 +1,365 @@
+{
+  "id": "mat1120-8-1",
+  "courseId": "mat1120",
+  "chapterNumber": "8.1",
+  "title": "Føringsstandarden og vedleggsbruken: slik skriver du en fullt begrunnet MAT1120-besvarelse",
+  "description": "Sensorreglene operasjonalisert: siter vedlegget (ikke radreduser for hånd), begrunn alt og navngi teoremene, Col A-basis fra original, riktig P_{C←B}-retning, ortonormale P, ikke-standard indreprodukt konsekvent og multiplisitet ved diagonaliserbarhet – samlet i en begrunnelsestrapp per sjanger A–L, en teoremnavn-bank til pugging og en sjekkliste før innlevering.",
+  "estimatedMinutes": 50,
+  "competenceGoals": [
+    "kunne føre en fullt begrunnet MAT1120-besvarelse som siterer vedlegget og navngir teoremet argumentet hviler på",
+    "kunne bruke begrunnelsestrappen A–L til å avgjøre hva som er tilstrekkelig begrunnelse i hver sjanger",
+    "kunne teoremnavn-banken utenat (intet formelark) og bruke sjekklisten før innlevering",
+    "kunne kjenne igjen og rette de vanligste føringsfeilene fra riktig tallsvar til full uttelling"
+  ],
+  "content": [
+    {
+      "id": "mat1120-8-1-tip",
+      "type": "tip",
+      "title": "Eksamensvinkel",
+      "content": "**Dette kapitlet gir deg poengene som ikke handler om å regne riktig, men om å _føre_ riktig.** Sensorinstruksen står ordrett på hvert eneste sett: *«du må begrunne alle svar, og vise nok mellomregning til at argumentene lett kan følges»*. Et riktig sluttsvar uten begrunnelse gir lite uttelling; en godt ført besvarelse med en liten regnefeil kan gi nesten full uttelling.\n\nDe sju offisielle løsningsforslagene (H2018–H2024) deler et fast særpreg: de **siterer vedlegget** («Fra Matlab-utskriften ser vi at RREF er …») i stedet for å radredusere for hånd, de **navngir teoremet** der argumentet bæres, og de følger en **fast føringsstandard**. Denne standarden er den samme i alle ti deloppgavene, og å kunne den utenat er høyeste prioritet – den bærer karakteren på tvers av tema.\n\nDette er et **metodekapittel**: her er det ingen nye matte-teknikker, bare reglene for hvordan du skriver dem ned. Les det før du tar de tre øvingseksamenene i [kap. 8.2](/bok/mat1120/mat1120-8-2)–[8.4](/bok/mat1120/mat1120-8-4)."
+    },
+    {
+      "id": "mat1120-8-1-forkunnskaper",
+      "type": "text",
+      "content": "**Forkunnskaper:** hele boka – Del 1–Del 7. Dette kapitlet oppsummerer føringen for alle sjangrene A–L, så du bør ha sett metodene før: fundamentale underrom ([kap. 1.2](/bok/mat1120/mat1120-1-2)), abstrakte vektorrom og $[T]_{\\mathcal{B}}$ ([kap. 2.5](/bok/mat1120/mat1120-2-5)–[2.6](/bok/mat1120/mat1120-2-6)), diagonalisering ([kap. 3.2](/bok/mat1120/mat1120-3-2)), Gram–Schmidt ([kap. 4.2](/bok/mat1120/mat1120-4-2)), minste kvadrater ([kap. 5.2](/bok/mat1120/mat1120-5-2)), spektralteoremet og kvadratiske former ([kap. 6.1](/bok/mat1120/mat1120-6-1)–[6.3](/bok/mat1120/mat1120-6-3)) og SVD/bevis ([kap. 7.1](/bok/mat1120/mat1120-7-1)–[7.3](/bok/mat1120/mat1120-7-3)). Du trenger ikke pugge tallene fra de kapitlene – men du må kunne _navngi_ teoremene, og det øver vi på her."
+    },
+    {
+      "id": "mat1120-8-1-intro",
+      "type": "text",
+      "content": "## Fire ting sensor ser etter\n\nUansett tema leter sensor etter de samme fire tingene i en deloppgave:\n\n1. **Ble vedlegget brukt?** Store matriser radreduseres ikke for hånd – du siterer RREF/`poly`/`eig` fra vedlegget og bruker resultatet.\n2. **Er teoremet navngitt?** Argumentet skal hvile på et navngitt resultat (spektralteoremet, dimensjonsteoremet, …), ikke en udokumentert påstand.\n3. **Følger føringen standarden?** $\\operatorname{Col}A$-basis fra original, $P/D$ matchet, ortonormal $P$ der påkrevd, kryssledd delt på 2, riktig indreprodukt, riktig $P_{\\mathcal{C}\\leftarrow\\mathcal{B}}$-retning, eksakte svar.\n4. **Er svaret konkludert?** En verbal setning som svarer på spørsmålet, med sluttsvaret markert – ikke bare et tall på slutten av en regnekladd.\n\nResten av kapitlet gjør disse fire om til en tabell («begrunnelsestrappen»), en puggeliste («teoremnavn-banken») og en sjekkliste før innlevering."
+    },
+    {
+      "id": "mat1120-8-1-trapp",
+      "type": "text",
+      "content": "## Begrunnelsestrappen: hva som gir full uttelling per sjanger\n\nHver rad sier hva en A-besvarelse i _den_ sjangeren må vise. Sjangerkodene A–L er de samme som i [eksamenskartet](/bok/mat1120/mat1120-0-1).\n\n| Sjanger | Hva full uttelling krever |\n|---|---|\n| **A** $\\operatorname{Col}/\\operatorname{Nul}$/rang | Siter RREF fra vedlegget; $\\operatorname{Col}A$-basis = pivotkolonnene i **$A$** (ikke RREF); $\\operatorname{Nul}A$-basis = spesielle løsninger (én per fri variabel); rang = antall pivoter; kontroll med dimensjonsteoremet. |\n| **B** Gram–Schmidt/projeksjon | Vis hvert $\\mathbf{w}_i$-steg; oppgi om du vil ha ortogonal eller ortonormal basis; ved projeksjon: dekomponer $\\mathbf{y}=\\hat{\\mathbf{y}}+\\mathbf{z}$ og hent avstand $=\\lVert\\mathbf{z}\\rVert$. |\n| **C** minste kvadrater | Sett opp normallikningene $C^{T}C\\hat{\\mathbf{x}}=C^{T}\\mathbf{b}$; ved rangdefekt: gi **affin** løsningsmengde (partikulær $+$ $\\operatorname{Nul}$); $\\operatorname{proj}_W\\mathbf{b}=C\\hat{\\mathbf{x}}$ er entydig. |\n| **D** egenverdier/diagonalisering | Egenverdier fra vedlegget; **begrunn diagonaliserbarhet med multiplisitet** eller navngitt snarvei; $A=PDP^{-1}$ med $P/D$ matchet søyle for søyle. |\n| **E** $A^{k}$/$q(A)$ | Bruk $A^{k}=PD^{k}P^{-1}$ / $q(A)=Pq(D)P^{-1}$ med **samme** $P$; regn $D^{k}$/$q(D)$ elementvis. |\n| **F** ortogonal diagonalisering | Navngi **spektralteoremet** ($A=A^{T}$); $P$ **ortonormal** ($P^{T}P=I$); Gram–Schmidt _innen_ et egenrom med multiplisitet; skriv $A=PDP^{T}$. |\n| **G** kvadratiske former | Symmetrisér med **kryssledd delt på 2**; klassifiser fra **egenverditegn**; ved kjeglesnitt: $\\mathbf{x}=P\\mathbf{y}$ og standardform. |\n| **H** abstrakt vektorrom | Underrom: vis de **tre betingelsene**; basis: **uavhengig $+$ utspenner** (eller dimensjonsargument); alt ført i det abstrakte rommet, ikke bare i koordinater. |\n| **I** $[T]_{\\mathcal{B}}$/basisskifte | Søyle $j$ i $[T]_{\\mathcal{B}}$ = $[T(\\mathbf{b}_j)]_{\\mathcal{B}}$; $P_{\\mathcal{C}\\leftarrow\\mathcal{B}}$ i **riktig retning**; $\\ker T$ **oversatt tilbake til funksjoner/polynomer**. |\n| **J** $\\mathbf{x}'=A\\mathbf{x}$ | Generell løsning $\\sum c_i e^{\\lambda_i t}\\mathbf{v}_i$; ved begynnelsesverdi: løs for $c_i$ og oppgi partikulær løsning. |\n| **K** SVD | $\\sigma_i=\\sqrt{\\lambda_i(A^{T}A)}$ **synkende**; $\\mathbf{u}_i=A\\mathbf{v}_i/\\sigma_i$; skriv $A=U\\Sigma V^{T}$ og bruk $\\max\\lVert A\\mathbf{x}\\rVert=\\sigma_1$. |\n| **L** kort bevis | Nevn **forutsetningene først**; før beviset ledd for ledd med navngitte steg; avslutt med $\\blacksquare$ og en verbal tolkning der oppgaven ber om det. |\n\nTabellen er selve fasiten på «hva er nok begrunnelse» – les den kolonne for kolonne mot dine egne besvarelser."
+    },
+    {
+      "id": "mat1120-8-1-bank-intro",
+      "type": "text",
+      "content": "## Teoremnavn-banken: det du må kunne _navngi_ utenat\n\nMAT1120 deler **ikke ut formelark**. Derfor er det ikke nok å kunne bruke et resultat – du må kunne skrive navnet på det, for sensor premierer den navngitte begrunnelsen. Kortene under er hele puggematerialet: teoremnavn med én-linjes innhold, føringsreglene, og vedleggslesingen. Dette er de 34 flashcard-kortene for kapitlet.\n\n*Kortene under er flashcard-/repetisjonsstoff – hopp trygt over ved førstegangslesing; tidsanslaget gjelder kjernestoffet foran.*"
+    },
+    {
+      "id": "mat1120-8-1-bank-dimteo",
+      "type": "definition",
+      "title": "Dimensjonsteoremet (rang–nullitet)",
+      "content": "$\\operatorname{rang}A+\\dim\\operatorname{Nul}A=n$ (antall søyler i $A$). Brukes som kontroll i sjanger A: teller pivoter og frie variabler, summen skal bli antall søyler."
+    },
+    {
+      "id": "mat1120-8-1-bank-underromrref",
+      "type": "definition",
+      "title": "Grunnleggende underrom fra RREF",
+      "content": "$\\operatorname{Col}A$-basis = pivotkolonnene i **originalen $A$**; $\\operatorname{Nul}A$-basis = de spesielle løsningene (én per fri variabel); $\\operatorname{Row}A$-basis = ikke-null-radene i RREF."
+    },
+    {
+      "id": "mat1120-8-1-bank-spektral",
+      "type": "definition",
+      "title": "Spektralteoremet",
+      "content": "En reell symmetrisk matrise ($A=A^{T}$) er ortogonalt diagonaliserbar: $A=PDP^{T}$ med ortonormal $P$ og reelle egenverdier. Den sterkeste snarveien til diagonaliserbarhet."
+    },
+    {
+      "id": "mat1120-8-1-bank-diagkrit",
+      "type": "definition",
+      "title": "Diagonaliserbarhetskriteriet",
+      "content": "En $n\\times n$-matrise er diagonaliserbar $\\iff$ summen av de geometriske multiplisitetene er $n$, dvs. geometrisk $=$ algebraisk multiplisitet for hver egenverdi. $n$ distinkte egenverdier $\\Rightarrow$ diagonaliserbar."
+    },
+    {
+      "id": "mat1120-8-1-bank-ortdekomp",
+      "type": "definition",
+      "title": "Ortogonal dekomposisjon",
+      "content": "Enhver $\\mathbf{y}$ skrives entydig som $\\mathbf{y}=\\hat{\\mathbf{y}}+\\mathbf{z}$ med $\\hat{\\mathbf{y}}=\\operatorname{proj}_W\\mathbf{y}\\in W$ og $\\mathbf{z}\\in W^{\\perp}$. Avstanden fra $\\mathbf{y}$ til $W$ er $\\lVert\\mathbf{z}\\rVert$."
+    },
+    {
+      "id": "mat1120-8-1-bank-besttiln",
+      "type": "definition",
+      "title": "Beste tilnærming (projeksjonssetningen)",
+      "content": "$\\operatorname{proj}_W\\mathbf{y}$ er punktet i $W$ som ligger nærmest $\\mathbf{y}$: $\\lVert\\mathbf{y}-\\operatorname{proj}_W\\mathbf{y}\\rVert\\le\\lVert\\mathbf{y}-\\mathbf{w}\\rVert$ for alle $\\mathbf{w}\\in W$. Grunnlaget for minste kvadrater."
+    },
+    {
+      "id": "mat1120-8-1-bank-normal",
+      "type": "definition",
+      "title": "Normallikningene",
+      "content": "Minste kvadraters løsning av $C\\mathbf{x}=\\mathbf{b}$ oppfyller $C^{T}C\\hat{\\mathbf{x}}=C^{T}\\mathbf{b}$. Entydig $\\iff$ $C$ har full kolonnerang; ellers en affin løsningsmengde."
+    },
+    {
+      "id": "mat1120-8-1-bank-gs",
+      "type": "definition",
+      "title": "Gram–Schmidt-prosessen",
+      "content": "Lager en ortogonal basis $\\{\\mathbf{v}_i\\}$ fra en gitt basis $\\{\\mathbf{a}_i\\}$: $\\mathbf{v}_i=\\mathbf{a}_i-\\sum_{j<i}\\frac{\\langle\\mathbf{a}_i,\\mathbf{v}_j\\rangle}{\\langle\\mathbf{v}_j,\\mathbf{v}_j\\rangle}\\mathbf{v}_j$. Normalisér til slutt for ortonormal basis."
+    },
+    {
+      "id": "mat1120-8-1-bank-rayleigh6",
+      "type": "definition",
+      "title": "Rayleigh (Teorem 6 §7.3)",
+      "content": "For symmetrisk $A$ er $\\max_{\\lVert\\mathbf{x}\\rVert=1}\\mathbf{x}^{T}A\\mathbf{x}=\\lambda_{\\max}$ (oppnådd i en egenvektor for $\\lambda_{\\max}$) og $\\min=\\lambda_{\\min}$."
+    },
+    {
+      "id": "mat1120-8-1-bank-rayleigh7",
+      "type": "definition",
+      "title": "Rayleigh med bibetingelse (Teorem 7 §7.3)",
+      "content": "Legger du til $\\mathbf{x}\\perp\\mathbf{u}_1$ (største egenvektor), blir maksimum av $\\mathbf{x}^{T}A\\mathbf{x}$ over enhetssfæren **nest største** egenverdi $\\lambda_2$."
+    },
+    {
+      "id": "mat1120-8-1-bank-isokrit",
+      "type": "definition",
+      "title": "Isomorfi-kriteriet",
+      "content": "En lineær $T:V\\to W$ med $\\dim V=\\dim W$ er en isomorfi $\\iff$ $T$ er injektiv $\\iff$ $\\ker T=\\{\\mathbf{0}\\}$ $\\iff$ $[T]_{\\mathcal{B}}$ er invertibel."
+    },
+    {
+      "id": "mat1120-8-1-bank-koordavb",
+      "type": "definition",
+      "title": "Koordinatavbildningen",
+      "content": "$\\mathbf{x}\\mapsto[\\mathbf{x}]_{\\mathcal{B}}$ er en isomorfi $V\\to\\mathbb{R}^{n}$. Derfor kan alle spørsmål om uavhengighet, span og lineære avbildninger flyttes til koordinater i $\\mathbb{R}^{n}$."
+    },
+    {
+      "id": "mat1120-8-1-bank-basisskifteT",
+      "type": "definition",
+      "title": "Basisskifte for $[T]$",
+      "content": "$[T]_{\\mathcal{C}}=P_{\\mathcal{C}\\leftarrow\\mathcal{B}}\\,[T]_{\\mathcal{B}}\\,P_{\\mathcal{B}\\leftarrow\\mathcal{C}}$. Matrisene $[T]_{\\mathcal{B}}$ og $[T]_{\\mathcal{C}}$ er likedannede (similar) og har samme egenverdier."
+    },
+    {
+      "id": "mat1120-8-1-bank-overgang",
+      "type": "definition",
+      "title": "Overgangsmatrisens retning",
+      "content": "$P_{\\mathcal{C}\\leftarrow\\mathcal{B}}$ har $\\mathcal{B}$-vektorenes $\\mathcal{C}$-koordinater som søyler, og $[\\mathbf{x}]_{\\mathcal{C}}=P_{\\mathcal{C}\\leftarrow\\mathcal{B}}[\\mathbf{x}]_{\\mathcal{B}}$. Motsatt vei: $P_{\\mathcal{B}\\leftarrow\\mathcal{C}}=(P_{\\mathcal{C}\\leftarrow\\mathcal{B}})^{-1}$."
+    },
+    {
+      "id": "mat1120-8-1-bank-svd",
+      "type": "definition",
+      "title": "SVD-oppskriften",
+      "content": "$A=U\\Sigma V^{T}$: $V$ har ortonormale egenvektorer til $A^{T}A$, $\\sigma_i=\\sqrt{\\lambda_i(A^{T}A)}$ **synkende** i $\\Sigma$, og $\\mathbf{u}_i=A\\mathbf{v}_i/\\sigma_i$."
+    },
+    {
+      "id": "mat1120-8-1-bank-maxAx",
+      "type": "definition",
+      "title": "$\\max\\lVert A\\mathbf{x}\\rVert=\\sigma_1$",
+      "content": "Over $\\lVert\\mathbf{x}\\rVert=1$ er den største verdien av $\\lVert A\\mathbf{x}\\rVert$ lik største singulærverdi $\\sigma_1$, oppnådd i den første høyre-singulærvektoren $\\mathbf{v}_1$."
+    },
+    {
+      "id": "mat1120-8-1-bank-poweq",
+      "type": "definition",
+      "title": "$A^{k}$ og $q(A)$ deler $P$",
+      "content": "$A^{k}=PD^{k}P^{-1}$ og $q(A)=Pq(D)P^{-1}$ med **samme** $P$ som diagonaliseringen; $D^{k}$ og $q(D)$ regnes elementvis på diagonalen."
+    },
+    {
+      "id": "mat1120-8-1-bank-coloriginal",
+      "type": "definition",
+      "title": "Føring: $\\operatorname{Col}A$-basis fra original",
+      "content": "Basis for $\\operatorname{Col}A$ er pivotkolonnene i **$A$**, ikke de reduserte kolonnene i RREF. RREF sier _hvilke_ kolonner som er pivot; vektorene hentes fra $A$."
+    },
+    {
+      "id": "mat1120-8-1-bank-PDmatch",
+      "type": "definition",
+      "title": "Føring: $P/D$ matchet søyle for søyle",
+      "content": "Søyle $j$ i $P$ (egenvektor) og element $j$ på diagonalen i $D$ (egenverdi) må høre sammen. Bytter du rekkefølge i $D$, må $P$ følge med."
+    },
+    {
+      "id": "mat1120-8-1-bank-Portho",
+      "type": "definition",
+      "title": "Føring: $P$ ortonormal ved $A=PDP^{T}$",
+      "content": "Ved ortogonal diagonalisering skal $P$ ha **enhetslange** ortogonale søyler ($P^{T}P=I$). Glemt normalisering $\\Rightarrow$ $P^{T}P\\ne I$ og $A=PDP^{T}$ blir feil."
+    },
+    {
+      "id": "mat1120-8-1-bank-kryss2",
+      "type": "definition",
+      "title": "Føring: kryssledd delt på 2",
+      "content": "I $Q=\\mathbf{x}^{T}A\\mathbf{x}$ blir et ledd $c\\,x_ix_j$ til $a_{ij}=a_{ji}=c/2$. Glemmer du halveringen, blir $A$ usymmetrisk og egenverdiene feil."
+    },
+    {
+      "id": "mat1120-8-1-bank-sigmasynk",
+      "type": "definition",
+      "title": "Føring: $\\sigma_i$ synkende",
+      "content": "Singulærverdiene ordnes $\\sigma_1\\ge\\sigma_2\\ge\\dots\\ge0$ i $\\Sigma$, og søylene i $U$ og $V$ følger samme rekkefølge. Da er $\\sigma_1$ den maksimale strekkfaktoren."
+    },
+    {
+      "id": "mat1120-8-1-bank-kerntilbake",
+      "type": "definition",
+      "title": "Føring: $\\ker T$ oversatt til funksjoner",
+      "content": "Finner du $\\operatorname{Nul}[T]_{\\mathcal{B}}$ i koordinater, må svaret **oversettes tilbake** til det abstrakte rommet: koordinatvektoren $(c_0,c_1,\\dots)$ blir polynomet/funksjonen $c_0\\mathbf{b}_0+c_1\\mathbf{b}_1+\\dots$."
+    },
+    {
+      "id": "mat1120-8-1-bank-multbegrunn",
+      "type": "definition",
+      "title": "Føring: diagonaliserbarhet begrunnet med multiplisitet",
+      "content": "Det holder ikke å påstå diagonaliserbarhet. Vis $n$ distinkte egenverdier, eller symmetri, eller at geometrisk $=$ algebraisk multiplisitet for hver gjentatt egenverdi."
+    },
+    {
+      "id": "mat1120-8-1-bank-eksakt",
+      "type": "definition",
+      "title": "Føring: eksakte svar, aldri desimal",
+      "content": "Svar skrives eksakt: heltall, brøk, $\\sqrt2$, $\\tfrac{1}{\\sqrt5}$. Vedlegget garanterer at tallene er pene, så en avrundet desimaltilnærming signaliserer regnefeil eller feil avlesning."
+    },
+    {
+      "id": "mat1120-8-1-bank-ipkonsekvent",
+      "type": "definition",
+      "title": "Føring: ikke-standard indreprodukt konsekvent",
+      "content": "Er indreproduktet oppgitt (vektet, integral eller evaluering), regnes **alle** skalarprodukt, normer og ortogonalitetssjekker – også normen i Gram–Schmidt – med den definisjonen, aldri med standardprikkproduktet."
+    },
+    {
+      "id": "mat1120-8-1-bank-begrunnalt",
+      "type": "definition",
+      "title": "Føring: begrunn alle svar",
+      "content": "Sensorinstruksen krever mellomregning ledd for ledd og en verbal konklusjon. Et bart tallsvar, uansett riktig, gir lav uttelling."
+    },
+    {
+      "id": "mat1120-8-1-bank-kjeding",
+      "type": "definition",
+      "title": "Føring: delpunkt-kjeding",
+      "content": "Deloppgavene i en hovedoppgave deler ofte samme matrise/underrom. Les hele oppgaven først, og gjenbruk vedleggets RREF/egenvektorer på tvers av delene – det sparer tid og premieres."
+    },
+    {
+      "id": "mat1120-8-1-bank-rref",
+      "type": "definition",
+      "title": "Vedlegget: $\\operatorname{rref}(A)$",
+      "content": "Matlab-kommandoen (eller RREF-arket) gir den reduserte trappeformen. Herfra leser du pivotkolonner, frie variabler og avhengighetsrelasjoner – du radreduserer ikke selv."
+    },
+    {
+      "id": "mat1120-8-1-bank-poly",
+      "type": "definition",
+      "title": "Vedlegget: $\\operatorname{poly}(A)$",
+      "content": "Gir koeffisientene i det karakteristiske polynomet $\\det(A-\\lambda I)$. Røttene er egenverdiene; du løser ikke $\\det(A-\\lambda I)=0$ for hånd for store matriser."
+    },
+    {
+      "id": "mat1120-8-1-bank-eig",
+      "type": "definition",
+      "title": "Vedlegget: $[V\\ D]=\\operatorname{eig}(A)$",
+      "content": "Gir egenvektorer som søyler i $V$ og egenverdiene i $D$. For symmetrisk $A$ er søylene ofte allerede ortonormale – men kontroller, og normalisér/Gram–Schmidt om nødvendig."
+    },
+    {
+      "id": "mat1120-8-1-bank-ikkeradreduser",
+      "type": "definition",
+      "title": "Vedlegget: radreduser aldri store matriser",
+      "content": "Manuell radreduksjon av en $\\ge 3\\times4$-matrise er tidssluk og feilkilde. Små $2\\times2$-kontroller (verifisere $A\\mathbf{v}=\\lambda\\mathbf{v}$, én liten normallikning) gjør du for hånd."
+    },
+    {
+      "id": "mat1120-8-1-bank-avhengA",
+      "type": "definition",
+      "title": "Vedlegget: avhengighetsrelasjoner gjelder i $A$",
+      "content": "Skriver RREF en ikke-pivotkolonne som en kombinasjon av pivotkolonnene, gjelder **samme** kombinasjon i $A$ – radreduksjon bevarer lineære relasjoner mellom kolonnene."
+    },
+    {
+      "id": "mat1120-8-1-bank-underrom3",
+      "type": "definition",
+      "title": "Sjanger H: underrom – tre betingelser",
+      "content": "En delmengde $W$ er et underrom hvis $\\mathbf{0}\\in W$, $W$ er lukket under addisjon og under skalarmultiplikasjon. Vis alle tre – det er full begrunnelse i H-oppgaver."
+    },
+    {
+      "id": "mat1120-8-1-bank-basisarg",
+      "type": "definition",
+      "title": "Sjanger H: basis – uavhengig $+$ utspenner",
+      "content": "En basis må både være lineært uavhengig og utspenne rommet. Kjenner du dimensjonen $d$, holder det å vise $d$ uavhengige vektorer (eller $d$ som utspenner) – et dimensjonsargument."
+    },
+    {
+      "id": "mat1120-8-1-kontrast-intro",
+      "type": "text",
+      "content": "## To kontrastpar: samme matematikk, ulik uttelling\n\nDe to eksemplene under viser hvordan _identisk_ regning kan gi full eller halv uttelling avhengig av føringen. Studer forskjellen – det er akkurat her karakterpoengene ligger."
+    },
+    {
+      "id": "mat1120-8-1-kontrast1",
+      "type": "example",
+      "title": "Kontrastpar 1: Col A-basis – fra RREF eller fra A?",
+      "problem": "Vedlegget gir at $A=\\begin{bmatrix}1&3&-1\\\\2&0&4\\\\2&3&1\\end{bmatrix}$ har RREF $\\begin{bmatrix}1&0&2\\\\0&1&-1\\\\0&0&0\\end{bmatrix}$. To studenter oppgir basis for $\\operatorname{Col}A$.",
+      "solution": "**Svak føring (halv uttelling):** «Pivotene står i søyle 1 og 2, så basis for $\\operatorname{Col}A$ er $\\{(1,0,0)^{T},(0,1,0)^{T}\\}$.»\n\nDette er den **klassiske $\\operatorname{Col}A$-fellen**: studenten tok pivotkolonnene fra _RREF_. Men kolonnerommet endres av radreduksjon, så RREF-kolonnene spenner ut feil rom.\n\n**Full uttelling:** «Fra vedleggets RREF ser vi at pivotene står i søyle 1 og 2. Basis for $\\operatorname{Col}A$ er de tilsvarende **kolonnene i $A$**: $\\{(1,2,2)^{T},(3,0,3)^{T}\\}$. Da er $\\operatorname{rang}A=2$.»\n\nSamme avlesning av vedlegget – men vektorene hentes fra $A$, ikke fra RREF. Det er hele forskjellen mellom en A og en C her."
+    },
+    {
+      "id": "mat1120-8-1-kontrast2",
+      "type": "example",
+      "title": "Kontrastpar 2: diagonaliserbarhet – påstand eller begrunnelse?",
+      "problem": "En $3\\times3$-matrise $A$ har (fra vedlegget) egenverdiene $2,2,5$, og egenrommet $E_2$ har dimensjon $2$. Er $A$ diagonaliserbar?",
+      "solution": "**Svak føring (lav uttelling):** «Ja, $A$ er diagonaliserbar fordi den har egenvektorer.»\n\nEn udokumentert påstand. Sensor kan ikke se _hvorfor_, og for en gjentatt egenverdi er nettopp dette det kritiske punktet – en matrise med egenverdier $2,2,5$ kan være ikke-diagonaliserbar.\n\n**Full uttelling:** «$\\lambda=2$ har algebraisk multiplisitet $2$, og fra vedlegget har $E_2=\\operatorname{Nul}(A-2I)$ dimensjon $2$, så geometrisk $=$ algebraisk multiplisitet. $\\lambda=5$ er enkel. Ved **diagonaliserbarhetskriteriet** er $A$ derfor diagonaliserbar.»\n\nDen navngitte begrunnelsen med multiplisitet er det som gjør svaret komplett."
+    },
+    {
+      "id": "mat1120-8-1-oppg-intro",
+      "type": "text",
+      "content": "## Øv på føringen\n\nOppgavene under gir deg en besvarelse med riktig tallsvar men mangelfull føring. Din jobb er å finne feilen mot standarden og skrive om til full uttelling – akkurat den vurderingen sensor gjør."
+    },
+    {
+      "id": "mat1120-8-1-e1",
+      "type": "exercise",
+      "exercise": {
+        "id": "mat1120-8-1-e1",
+        "number": "1",
+        "type": "classic",
+        "difficulty": "lett",
+        "task": "En besvarelse skriver: «Egenvektorene til den symmetriske matrisen er $(1,1)^{T}$ og $(1,-1)^{T}$, så $P=\\begin{bmatrix}1&1\\\\1&-1\\end{bmatrix}$ og $A=PDP^{T}$.» Pek på føringsfeilen og rett den.",
+        "solution": "Feilen er at $P$ **ikke er normalisert**. Søylene $(1,1)^{T}$ og $(1,-1)^{T}$ er ortogonale, men har lengde $\\sqrt2$, så $P^{T}P=2I\\ne I$ – $P$ er ikke ortogonal, og $A=PDP^{T}$ blir feil. Rettelse: del hver søyle på $\\sqrt2$, $P=\\tfrac{1}{\\sqrt2}\\begin{bmatrix}1&1\\\\1&-1\\end{bmatrix}$. Nå er $P^{T}P=I$ og $A=PDP^{T}$ holder. (Føringsregel: $P$ ortonormal ved ortogonal diagonalisering.)",
+        "hints": [
+          "Sjekk $P^{T}P$: blir den $I$?",
+          "Ortogonal $P$ krever søyler av lengde 1 – normalisér."
+        ]
+      }
+    },
+    {
+      "id": "mat1120-8-1-e2",
+      "type": "exercise",
+      "exercise": {
+        "id": "mat1120-8-1-e2",
+        "number": "2",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "En besvarelse løser minste kvadrater for $C\\mathbf{x}=\\mathbf{b}$ der $C$ har rangdefekt, og skriver bare «$\\hat{\\mathbf{x}}=(1,1,0)^{T}$». Hva mangler for full uttelling i sjanger C?",
+        "solution": "Når $C$ ikke har full kolonnerang, er minste kvadraters løsning **ikke entydig** – den er en hel affin mengde. Et enkelt punkt $\\hat{\\mathbf{x}}=(1,1,0)^{T}$ er bare én av uendelig mange. Full uttelling krever hele løsningsmengden: en partikulær løsning pluss $\\operatorname{Nul}(C^{T}C)=\\operatorname{Nul}C$, f.eks. $\\hat{\\mathbf{x}}=(1,1,0)^{T}+s\\,(-1,-1,1)^{T}$. Man bør også påpeke at $\\operatorname{proj}_W\\mathbf{b}=C\\hat{\\mathbf{x}}$ er den **samme** for alle disse (entydig). (Føringsregel: affin løsning ved rangdefekt.)",
+        "hints": [
+          "Har $C$ full kolonnerang? Hva sier det om entydighet?",
+          "Skriv løsningen som partikulær $+$ $\\operatorname{Nul}C$, og bemerk at $C\\hat{\\mathbf{x}}$ er entydig."
+        ]
+      }
+    },
+    {
+      "id": "mat1120-8-1-e3",
+      "type": "exercise",
+      "exercise": {
+        "id": "mat1120-8-1-e3",
+        "number": "3",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "I en oppgave er indreproduktet oppgitt som $\\langle p,q\\rangle=\\int_{-1}^{1}p(t)q(t)\\,dt$. En besvarelse normaliserer $p_2=t$ ved «$\\lVert t\\rVert=1$ siden vektoren «har lengde 1»». Hva er feil?",
+        "solution": "Studenten har brukt **standardprikkproduktet** (der en koordinat lik 1 gir lengde 1) i stedet for det oppgitte integral-indreproduktet. Med riktig indreprodukt er $\\lVert t\\rVert^2=\\langle t,t\\rangle=\\int_{-1}^{1}t^2\\,dt=\\tfrac{2}{3}$, så $\\lVert t\\rVert=\\sqrt{2/3}$, ikke $1$. Den normaliserte vektoren er $t/\\sqrt{2/3}=\\sqrt{\\tfrac{3}{2}}\\,t$. Regelen: når et indreprodukt er oppgitt, regnes **alle** normer og skalarprodukt med det – også i Gram–Schmidt. Dette er den dyreste MAT1120-fellen.",
+        "hints": [
+          "Hvilket indreprodukt er oppgitt – og hvilket brukte studenten?",
+          "Regn $\\lVert t\\rVert^2=\\int_{-1}^1 t^2\\,dt$ og se om det er 1."
+        ]
+      }
+    },
+    {
+      "id": "mat1120-8-1-e4",
+      "type": "exercise",
+      "exercise": {
+        "id": "mat1120-8-1-e4",
+        "number": "4",
+        "type": "classic",
+        "difficulty": "vanskelig",
+        "task": "En besvarelse skal finne $\\ker T$ for derivasjonsoperatoren $T(p)=p'$ på $\\operatorname{P}_3$ med basis $\\mathcal{B}=\\{1,t,t^2,t^3\\}$, regner $\\operatorname{Nul}[T]_{\\mathcal{B}}=\\operatorname{Span}\\{(1,0,0,0)^{T}\\}$ og svarer «$\\ker T=\\operatorname{Span}\\{(1,0,0,0)^{T}\\}$». Hva mangler?",
+        "solution": "Svaret står fortsatt i **koordinater**, men $\\ker T$ er et underrom av polynomrommet $\\operatorname{P}_3$, ikke av $\\mathbb{R}^4$. Koordinatvektoren $(1,0,0,0)^{T}$ i basis $\\mathcal{B}$ svarer til polynomet $1\\cdot 1+0\\cdot t+0\\cdot t^2+0\\cdot t^3=1$. Full uttelling: «$\\ker T=\\operatorname{Span}\\{1\\}$, de konstante polynomene» – med en verbal tolkning (derivasjon gir null nettopp for konstantene). (Føringsregel: $\\ker T$ oversatt tilbake til funksjoner/polynomer.)",
+        "hints": [
+          "I hvilket rom lever $\\ker T$ – $\\mathbb{R}^4$ eller $\\operatorname{P}_3$?",
+          "Oversett koordinatvektoren $(1,0,0,0)^{T}$ tilbake via basis $\\{1,t,t^2,t^3\\}$."
+        ]
+      }
+    },
+    {
+      "id": "mat1120-8-1-sjekkliste",
+      "type": "text",
+      "content": "## Sjekklisten før du leverer en deloppgave\n\nGå gjennom denne for hver deloppgave før du går videre – den fanger de dyreste føringsfeilene:\n\n- ☐ Brukte jeg **vedlegget** (siterte RREF/`poly`/`eig`) i stedet for å radredusere for hånd?\n- ☐ Er $\\operatorname{Col}A$-basisen hentet fra **$A$**, ikke fra RREF?\n- ☐ Er $P$ og $D$ **matchet søyle for søyle**?\n- ☐ Er $P$ **ortonormal** ($P^{T}P=I$) der ortogonal diagonalisering kreves?\n- ☐ Brukte jeg **riktig indreprodukt** overalt (også i normen i Gram–Schmidt)?\n- ☐ Er $P_{\\mathcal{C}\\leftarrow\\mathcal{B}}$ fylt i **riktig retning**?\n- ☐ Delte jeg **kryssleddet på 2** i den kvadratiske formen?\n- ☐ Er diagonaliserbarhet **begrunnet med multiplisitet** (eller navngitt snarvei)?\n- ☐ Er $\\ker T$/$\\operatorname{Nul}[T]_{\\mathcal{B}}$ **oversatt tilbake til funksjoner**?\n- ☐ Er svaret **eksakt** (ingen desimaltilnærming) og **navngir jeg teoremet** argumentet hviler på?\n- ☐ Utnyttet jeg **delpunkt-koblingene** (samme matrise/underrom på tvers av deler)?\n\nHar du hake på alle relevante punkter, sitter føringspoengene."
+    },
+    {
+      "id": "mat1120-8-1-warn",
+      "type": "warning",
+      "title": "Typiske feil",
+      "content": "- **Radredusere store matriser for hånd** i stedet for å sitere vedlegget – tidssluk og feilkilde.\n- **$\\operatorname{Col}A$-basis fra RREF** i stedet for fra $A$ (den klassiske fellen).\n- **$P/D$ feilmatchet** eller **$P$ ikke ortonormal** ved $A=PDP^{T}$.\n- **Feil indreprodukt**: standardprikkprodukt der oppgaven ga et vektet/integral/evaluerings-indreprodukt.\n- **Feil $P_{\\mathcal{C}\\leftarrow\\mathcal{B}}$-retning** – søylene skal være $\\mathcal{B}$-vektorenes $\\mathcal{C}$-koordinater.\n- **Kryssledd ikke delt på 2** i den kvadratiske formen.\n- **Diagonaliserbarhet påstått uten multiplisitet.**\n- **$\\ker T$ ikke oversatt tilbake** til polynomer/funksjoner.\n- **Desimaltilnærming** av pene svar, og **ubegrunnede tallsvar** uten mellomregning eller navngitt teorem."
+    },
+    {
+      "id": "mat1120-8-1-symbol",
+      "type": "collapsible",
+      "title": "Symbol- og formelliste",
+      "buttonText": "Vis symboler og formler",
+      "content": [
+        {
+          "id": "mat1120-8-1-symbol-tekst",
+          "type": "text",
+          "content": "## Symbol- og formelliste\n\n*Oppslagsverk – alt her forklares underveis i kapitlet.*\n\n| Symbol | Betydning |\n|---|---|\n| $\\operatorname{rref}/\\operatorname{poly}/\\operatorname{eig}$ | Vedleggets tre Matlab-utskrifter |\n| $A=PDP^{-1}$ | Diagonalisering (generell) |\n| $A=PDP^{T}$ | Ortogonal diagonalisering (symmetrisk $A$) |\n| $C^{T}C\\hat{\\mathbf{x}}=C^{T}\\mathbf{b}$ | Normallikningene |\n| $[T]_{\\mathcal{B}}$ | Matriserepresentasjon av $T$ i basis $\\mathcal{B}$ |\n| $P_{\\mathcal{C}\\leftarrow\\mathcal{B}}$ | Overgangsmatrise ($\\mathcal{C}$ fra $\\mathcal{B}$) |\n| $A=U\\Sigma V^{T}$ | Singulærverdidekomposisjon |\n| $\\operatorname{proj}_W\\mathbf{y}$ | Ortogonal projeksjon |\n\n**Nøkkelresultater du må kunne navngi (intet formelark):**\n\n$$\\operatorname{rang}A+\\dim\\operatorname{Nul}A=n\\qquad\\text{(dimensjonsteoremet)}$$\n$$A=A^{T}\\ \\Rightarrow\\ A=PDP^{T}\\qquad\\text{(spektralteoremet)}$$\n$$C^{T}C\\hat{\\mathbf{x}}=C^{T}\\mathbf{b}\\qquad\\text{(normallikningene)}$$\n$$\\max_{\\lVert\\mathbf{x}\\rVert=1}\\mathbf{x}^{T}A\\mathbf{x}=\\lambda_{\\max}\\qquad\\text{(Rayleigh, Teorem 6 §7.3)}$$\n$$\\sigma_i=\\sqrt{\\lambda_i(A^{T}A)},\\quad \\mathbf{u}_i=A\\mathbf{v}_i/\\sigma_i\\qquad\\text{(SVD)}$$\n\n**Metode (føring):** (1) siter vedlegget; (2) navngi teoremet; (3) følg føringsstandarden per sjanger (tabellen over); (4) konkluder verbalt med eksakt sluttsvar."
+        }
+      ]
+    }
+  ],
+  "exercises": []
+}

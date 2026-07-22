@@ -1,0 +1,189 @@
+{
+  "id": "mat1120-8-2",
+  "courseId": "mat1120",
+  "chapterNumber": "8.2",
+  "title": "Øvingseksamen 1: 10 deloppgaver à 10 p — bred kjerne med vedlegg",
+  "description": "Komplett 4-timers øvingseksamen med ti likt tellende deloppgaver og eget vedlegg (RREF/eig), kalibrert på den typiske MAT1120-eksamenen: Col/Nul-basis → Gram–Schmidt → projeksjon med avstand, egenverdier/diagonalisering og Aᵏ, abstrakt vektorrom P₃ med koordinater/overgangsmatrise og [T]_B for derivasjon, og symmetrisk matrise → ortogonal diagonalisering → kvadratisk form. Løsningsforslag i collapsible per deloppgave etter føringsstandarden i kap. 8.1.",
+  "estimatedMinutes": 240,
+  "competenceGoals": [
+    "kunne føre en komplett oppgave 1-kjede: Col/Nul-basis fra vedlegg → Gram–Schmidt → ortogonal projeksjon med dekomposisjon og avstand",
+    "kunne diagonalisere med multiplisitetsbegrunnelse og finne en lukket formel for Aᵏ",
+    "kunne arbeide i det abstrakte rommet P₃: underrom og basis, overgangsmatrise og [T]_B for derivasjon med kjerne oversatt til polynomer",
+    "kunne ortogonaldiagonalisere en symmetrisk matrise A=PDPᵀ og klassifisere den tilhørende kvadratiske formen"
+  ],
+  "content": [
+    {
+      "id": "mat1120-8-2-tip",
+      "type": "tip",
+      "title": "Om øvingseksamen 1 (bred kjerne)",
+      "content": "Dette er et **komplett 4-timers sett** kalibrert på den typiske MAT1120-eksamenen: **ti deloppgaver som teller likt (10 poeng hver, 100 totalt)**, fordelt på fire hovedoppgaver, med et **eget vedlegg** (RREF/`poly`/`eig`) som løsningen siterer.\n\n- **Tidsbudsjett:** ca. **24 minutter per deloppgave**. Bruk de første minuttene på å lese hele hovedoppgaven – delene er **kjedet** (samme matrise går igjen), så vedleggets RREF/egenvektorer gjenbrukes på tvers av delene.\n- **Hvor føringspoengene sitter:** $\\operatorname{Col}A$-basis fra **original** (O1a), ortonormal basis eksplisitt (O1b), dekomposisjon $\\mathbf{y}=\\hat{\\mathbf{y}}+\\mathbf{z}$ og avstand (O1c), **multiplisitetsbegrunnet** diagonaliserbarhet (O2a), $A=PDP^{T}$ med **ortonormal** $P$ (O4a), **kryssledd delt på 2** og klassifisering fra egenverditegn (O4b).\n- Ta settet under tidspress, skriv fullt begrunnet (jf. [føringsstandarden, kap. 8.1](/bok/mat1120/mat1120-8-1)), og åpne løsningen per deloppgave **etterpå**.\n\nMiks: **O1** $\\operatorname{Col}/\\operatorname{Nul}$ + Gram–Schmidt + projeksjon (A+B) · **O2** egenverdier/diagonalisering + $A^{k}$ (D+E) · **O3** abstrakt vektorrom $\\operatorname{P}_3$ + $[T]_{\\mathcal{B}}$ (H+I) · **O4** symmetrisk $\\to$ kvadratisk form (F+G)."
+    },
+    {
+      "id": "mat1120-8-2-forkunnskaper",
+      "type": "text",
+      "content": "**Forkunnskaper:** hele boka, særlig [kap. 1.2](/bok/mat1120/mat1120-1-2) ($\\operatorname{Col}/\\operatorname{Nul}$), [kap. 4.2](/bok/mat1120/mat1120-4-2) (Gram–Schmidt), [kap. 5.1](/bok/mat1120/mat1120-5-1) (projeksjon/avstand), [kap. 3.2](/bok/mat1120/mat1120-3-2)–[3.3](/bok/mat1120/mat1120-3-3) (diagonalisering, $A^{k}$), [kap. 2.1](/bok/mat1120/mat1120-2-1)–[2.6](/bok/mat1120/mat1120-2-6) (abstrakte vektorrom, $[T]_{\\mathcal{B}}$) og [kap. 6.1](/bok/mat1120/mat1120-6-1)–[6.2](/bok/mat1120/mat1120-6-2) (spektralteorem, kvadratiske former). Føringen følger [kap. 8.1](/bok/mat1120/mat1120-8-1). Egenverdier og radreduksjon forutsettes også fra [MAT1110 (egenverdier)](/bok/mat1110/mat1110-6-1) og [radreduksjon](/bok/mat1110/mat1110-1-1)."
+    },
+    {
+      "id": "mat1120-8-2-vedlegg",
+      "type": "text",
+      "content": "## Vedlegg (utleveres med settet)\n\nDette erstatter manuell radreduksjon – les av det du trenger.\n\n**V1 — til oppgave 1.** For $A=\\begin{bmatrix}1&3&-1&4&5\\\\2&0&4&2&-2\\\\2&3&1&5&4\\end{bmatrix}$ gir $\\operatorname{rref}(A)$:\n$$\\operatorname{rref}(A)=\\begin{bmatrix}1&0&2&1&-1\\\\0&1&-1&1&2\\\\0&0&0&0&0\\end{bmatrix}.$$\n\n**V2 — til oppgave 2.** For $A=\\begin{bmatrix}2&0&3\\\\0&2&3\\\\0&0&5\\end{bmatrix}$ gir $[V\\ D]=\\operatorname{eig}(A)$ egenverdiene $\\lambda=2$ (algebraisk multiplisitet $2$) med to uavhengige egenvektorer $(1,0,0)^{T}$ og $(0,1,0)^{T}$, og $\\lambda=5$ med egenvektor $(1,1,1)^{T}$.\n\n**V3 — til oppgave 4.** For $A=\\begin{bmatrix}3&1&1\\\\1&3&1\\\\1&1&3\\end{bmatrix}$ gir $[V\\ D]=\\operatorname{eig}(A)$ egenverdien $\\lambda=5$ med egenvektor $(1,1,1)^{T}$, og $\\lambda=2$ (algebraisk multiplisitet $2$) med egenrom utspent av $(1,-1,0)^{T}$ og $(1,0,-1)^{T}$."
+    },
+    {
+      "id": "mat1120-8-2-o1",
+      "type": "text",
+      "content": "## Oppgave 1 — $\\operatorname{Col}/\\operatorname{Nul}$, Gram–Schmidt og projeksjon (sjanger A + B)\n\nLa $A$ og $\\operatorname{rref}(A)$ være som i **vedlegg V1**. Sett $W=\\operatorname{Col}A$.\n\n**a)** Finn en basis for $\\operatorname{Col}A$ (bestående av kolonner i $A$) og en basis for $\\operatorname{Nul}A$. Oppgi $\\operatorname{rang}A$, og kontroller med dimensjonsteoremet.\n\n**b)** Bruk Gram–Schmidt på $\\operatorname{Col}A$-basisen fra a) til å finne en **ortonormal** basis for $W$.\n\n**c)** La $\\mathbf{b}=(5,1,1)^{T}$. Finn $\\operatorname{proj}_W\\mathbf{b}$, dekomponer $\\mathbf{b}=\\hat{\\mathbf{b}}+\\mathbf{z}$ med $\\mathbf{z}\\in W^{\\perp}$, og oppgi avstanden fra $\\mathbf{b}$ til $W$."
+    },
+    {
+      "id": "mat1120-8-2-o1a-sol",
+      "type": "collapsible",
+      "title": "Løsning O1 a)",
+      "buttonText": "Vis løsning",
+      "content": [
+        {
+          "id": "mat1120-8-2-o1a-sol-t",
+          "type": "text",
+          "content": "**a)** **Fra vedlegg V1** står pivotene i søyle 1 og 2. Basis for $\\operatorname{Col}A$ er de tilsvarende **kolonnene i $A$** (ikke i RREF):\n$$\\operatorname{Col}A\\text{-basis}=\\left\\{\\begin{bmatrix}1\\\\2\\\\2\\end{bmatrix},\\begin{bmatrix}3\\\\0\\\\3\\end{bmatrix}\\right\\},\\qquad \\operatorname{rang}A=2.$$\nSøyle 3, 4, 5 er ikke-pivot, så $x_3,x_4,x_5$ er frie. Fra RREF: $x_1=-2x_3-x_4+x_5$, $x_2=x_3-x_4-2x_5$. De tre spesielle løsningene (én per fri variabel) gir\n$$\\operatorname{Nul}A\\text{-basis}=\\left\\{\\begin{bmatrix}-2\\\\1\\\\1\\\\0\\\\0\\end{bmatrix},\\begin{bmatrix}-1\\\\-1\\\\0\\\\1\\\\0\\end{bmatrix},\\begin{bmatrix}1\\\\-2\\\\0\\\\0\\\\1\\end{bmatrix}\\right\\},\\qquad \\dim\\operatorname{Nul}A=3.$$\n**Dimensjonsteoremet** (kontroll): $\\operatorname{rang}A+\\dim\\operatorname{Nul}A=2+3=5=$ antall søyler ✓. **Svar:** $\\operatorname{Col}A$-basis $\\{(1,2,2)^{T},(3,0,3)^{T}\\}$, $\\operatorname{Nul}A$-basis som over, $\\operatorname{rang}A=2$."
+        }
+      ]
+    },
+    {
+      "id": "mat1120-8-2-o1b-sol",
+      "type": "collapsible",
+      "title": "Løsning O1 b)",
+      "buttonText": "Vis løsning",
+      "content": [
+        {
+          "id": "mat1120-8-2-o1b-sol-t",
+          "type": "text",
+          "content": "**b)** Sett $\\mathbf{a}_1=(1,2,2)^{T}$, $\\mathbf{a}_2=(3,0,3)^{T}$. **Gram–Schmidt:**\n$$\\mathbf{v}_1=\\mathbf{a}_1=(1,2,2)^{T},\\qquad \\mathbf{v}_2=\\mathbf{a}_2-\\frac{\\mathbf{a}_2\\cdot\\mathbf{v}_1}{\\mathbf{v}_1\\cdot\\mathbf{v}_1}\\mathbf{v}_1.$$\nHer er $\\mathbf{a}_2\\cdot\\mathbf{v}_1=3+0+6=9$ og $\\mathbf{v}_1\\cdot\\mathbf{v}_1=1+4+4=9$, så\n$$\\mathbf{v}_2=(3,0,3)^{T}-\\tfrac{9}{9}(1,2,2)^{T}=(2,-2,1)^{T}.$$\nKontroll: $\\mathbf{v}_1\\cdot\\mathbf{v}_2=2-4+2=0$ ✓. Lengdene er $\\lVert\\mathbf{v}_1\\rVert=\\sqrt9=3$ og $\\lVert\\mathbf{v}_2\\rVert=\\sqrt{4+4+1}=3$. **Ortonormal basis** for $W$:\n$$\\mathbf{u}_1=\\tfrac{1}{3}(1,2,2)^{T},\\qquad \\mathbf{u}_2=\\tfrac{1}{3}(2,-2,1)^{T}.$$\n**Svar:** $\\{\\mathbf{u}_1,\\mathbf{u}_2\\}$ er en ortonormal basis for $W=\\operatorname{Col}A$ (eksakt, med $\\tfrac13$)."
+        }
+      ]
+    },
+    {
+      "id": "mat1120-8-2-o1c-sol",
+      "type": "collapsible",
+      "title": "Løsning O1 c)",
+      "buttonText": "Vis løsning",
+      "content": [
+        {
+          "id": "mat1120-8-2-o1c-sol-t",
+          "type": "text",
+          "content": "**c)** Med den ortonormale basisen fra b) er $\\operatorname{proj}_W\\mathbf{b}=(\\mathbf{b}\\cdot\\mathbf{u}_1)\\mathbf{u}_1+(\\mathbf{b}\\cdot\\mathbf{u}_2)\\mathbf{u}_2$. Regn med $\\mathbf{v}_i$ (enklere): $\\dfrac{\\mathbf{b}\\cdot\\mathbf{v}_1}{9}=\\dfrac{5+2+2}{9}=1$ og $\\dfrac{\\mathbf{b}\\cdot\\mathbf{v}_2}{9}=\\dfrac{10-2+1}{9}=1$, så\n$$\\hat{\\mathbf{b}}=\\operatorname{proj}_W\\mathbf{b}=1\\cdot(1,2,2)^{T}+1\\cdot(2,-2,1)^{T}=(3,0,3)^{T}.$$\n**Dekomposisjon:** $\\mathbf{z}=\\mathbf{b}-\\hat{\\mathbf{b}}=(5,1,1)^{T}-(3,0,3)^{T}=(2,1,-2)^{T}$. Kontroll at $\\mathbf{z}\\in W^{\\perp}$: $\\mathbf{z}\\cdot\\mathbf{v}_1=2+2-4=0$ og $\\mathbf{z}\\cdot\\mathbf{v}_2=4-2-2=0$ ✓. Altså $\\mathbf{b}=\\underbrace{(3,0,3)^{T}}_{\\in W}+\\underbrace{(2,1,-2)^{T}}_{\\in W^{\\perp}}$.\n**Avstand** fra $\\mathbf{b}$ til $W$ (ved ortogonal dekomposisjon): $\\lVert\\mathbf{z}\\rVert=\\sqrt{4+1+4}=3$. **Svar:** $\\operatorname{proj}_W\\mathbf{b}=(3,0,3)^{T}$, avstand $=3$."
+        }
+      ]
+    },
+    {
+      "id": "mat1120-8-2-o2",
+      "type": "text",
+      "content": "## Oppgave 2 — egenverdier, diagonalisering og $A^{k}$ (sjanger D + E)\n\nLa $A=\\begin{bmatrix}2&0&3\\\\0&2&3\\\\0&0&5\\end{bmatrix}$ med egenvektordata fra **vedlegg V2**.\n\n**a)** Finn egenverdiene til $A$, avgjør med begrunnelse om $A$ er diagonaliserbar, og finn i så fall $P$ og $D$ med $A=PDP^{-1}$.\n\n**b)** Finn en lukket formel for $A^{k}$ ($k\\ge1$), og bruk den til å skrive opp $A^{3}$."
+    },
+    {
+      "id": "mat1120-8-2-o2a-sol",
+      "type": "collapsible",
+      "title": "Løsning O2 a)",
+      "buttonText": "Vis løsning",
+      "content": [
+        {
+          "id": "mat1120-8-2-o2a-sol-t",
+          "type": "text",
+          "content": "**a)** $A$ er **øvre triangulær**, så egenverdiene står på diagonalen: $\\lambda=2$ (algebraisk multiplisitet $2$) og $\\lambda=5$ (enkel). **Fra vedlegg V2** har $\\lambda=2$ to uavhengige egenvektorer $(1,0,0)^{T},(0,1,0)^{T}$, altså $\\dim E_2=2=$ algebraisk multiplisitet; $\\lambda=5$ er enkel med $\\dim E_5=1$. Ved **diagonaliserbarhetskriteriet** (geometrisk $=$ algebraisk multiplisitet for hver egenverdi) er $A$ **diagonaliserbar**. Bygg $P$ og $D$ matchet søyle for søyle (rekkefølge $2,2,5$):\n$$P=\\begin{bmatrix}1&0&1\\\\0&1&1\\\\0&0&1\\end{bmatrix},\\qquad D=\\begin{bmatrix}2&0&0\\\\0&2&0\\\\0&0&5\\end{bmatrix},\\qquad A=PDP^{-1}.$$\nSiden $A$ ikke er symmetrisk, er dette den **generelle** diagonaliseringen $A=PDP^{-1}$ (ikke $PDP^{T}$)."
+        }
+      ]
+    },
+    {
+      "id": "mat1120-8-2-o2b-sol",
+      "type": "collapsible",
+      "title": "Løsning O2 b)",
+      "buttonText": "Vis løsning",
+      "content": [
+        {
+          "id": "mat1120-8-2-o2b-sol-t",
+          "type": "text",
+          "content": "**b)** Med $A=PDP^{-1}$ er $A^{k}=PD^{k}P^{-1}$, der $D^{k}=\\operatorname{diag}(2^{k},2^{k},5^{k})$. Her er $P^{-1}=\\begin{bmatrix}1&0&-1\\\\0&1&-1\\\\0&0&1\\end{bmatrix}$. Regner vi ut $PD^{k}P^{-1}$:\n$$A^{k}=\\begin{bmatrix}2^{k}&0&5^{k}-2^{k}\\\\0&2^{k}&5^{k}-2^{k}\\\\0&0&5^{k}\\end{bmatrix}.$$\nKontroll for $k=1$: $5-2=3$ gir $A$ tilbake ✓. **For $k=3$** ($2^{3}=8$, $5^{3}=125$, $5^{3}-2^{3}=117$):\n$$A^{3}=\\begin{bmatrix}8&0&117\\\\0&8&117\\\\0&0&125\\end{bmatrix}.$$\n**Svar:** $A^{k}$ som over; $A^{3}=\\begin{bmatrix}8&0&117\\\\0&8&117\\\\0&0&125\\end{bmatrix}$ (eksakt)."
+        }
+      ]
+    },
+    {
+      "id": "mat1120-8-2-o3",
+      "type": "text",
+      "content": "## Oppgave 3 — abstrakt vektorrom $\\operatorname{P}_3$ og $[T]_{\\mathcal{B}}$ (sjanger H + I)\n\nLa $\\operatorname{P}_3$ være polynomer av grad $\\le 3$, med standardbasis $\\mathcal{B}=\\{1,t,t^{2},t^{3}\\}$.\n\n**a)** La $W=\\{p\\in\\operatorname{P}_3:p(1)=0\\}$. Vis at $W$ er et underrom, og finn en basis for $W$ og $\\dim W$.\n\n**b)** La $\\mathcal{C}=\\{1,\\ 1+t,\\ 1+t+t^{2},\\ 1+t+t^{2}+t^{3}\\}$. Finn overgangsmatrisen $P_{\\mathcal{C}\\leftarrow\\mathcal{B}}$ og bruk den til å finne $[p]_{\\mathcal{C}}$ for $p=2+3t+t^{2}-t^{3}$.\n\n**c)** La $T:\\operatorname{P}_3\\to\\operatorname{P}_3$ være derivasjon, $T(p)=p'$. Finn $[T]_{\\mathcal{B}}$, og bestem $\\ker T$ og $\\operatorname{im}T$ (oversatt til polynomer)."
+    },
+    {
+      "id": "mat1120-8-2-o3a-sol",
+      "type": "collapsible",
+      "title": "Løsning O3 a)",
+      "buttonText": "Vis løsning",
+      "content": [
+        {
+          "id": "mat1120-8-2-o3a-sol-t",
+          "type": "text",
+          "content": "**a)** **Underrom (tre betingelser):** (i) nullpolynomet $\\mathbf{0}$ oppfyller $\\mathbf{0}(1)=0$, så $\\mathbf{0}\\in W$. (ii) Er $p,q\\in W$, så $(p+q)(1)=p(1)+q(1)=0+0=0$, altså $p+q\\in W$. (iii) For skalar $c$: $(cp)(1)=c\\,p(1)=0$, så $cp\\in W$. Dermed er $W$ et underrom av $\\operatorname{P}_3$.\n\n**Basis:** $p(1)=0$ betyr at $(t-1)$ deler $p$. Polynomene $t-1,\\ t^{2}-1,\\ t^{3}-1$ ligger alle i $W$ (hver har verdi $0$ i $t=1$), de er lineært uavhengige (ulik grad: $1,2,3$), og et vilkårlig $p\\in W$ med $p=a_0+a_1t+a_2t^2+a_3t^3$ og $a_0+a_1+a_2+a_3=0$ kan skrives $p=a_1(t-1)+a_2(t^{2}-1)+a_3(t^{3}-1)$ (siden $a_0=-(a_1+a_2+a_3)$). Så de utspenner $W$.\n$$W\\text{-basis}=\\{t-1,\\ t^{2}-1,\\ t^{3}-1\\},\\qquad \\dim W=3.$$\n(Kontroll: betingelsen $p(1)=0$ er én lineær likning på de fire koeffisientene, så $\\dim W=4-1=3$ ✓.)"
+        }
+      ]
+    },
+    {
+      "id": "mat1120-8-2-o3b-sol",
+      "type": "collapsible",
+      "title": "Løsning O3 b)",
+      "buttonText": "Vis løsning",
+      "content": [
+        {
+          "id": "mat1120-8-2-o3b-sol-t",
+          "type": "text",
+          "content": "**b)** Søylene i $P_{\\mathcal{B}\\leftarrow\\mathcal{C}}$ er $\\mathcal{C}$-vektorenes koordinater i $\\mathcal{B}$:\n$$P_{\\mathcal{B}\\leftarrow\\mathcal{C}}=\\begin{bmatrix}1&1&1&1\\\\0&1&1&1\\\\0&0&1&1\\\\0&0&0&1\\end{bmatrix}.$$\nOvergangsmatrisen andre vei er inversen (retning: $[\\mathbf{x}]_{\\mathcal{C}}=P_{\\mathcal{C}\\leftarrow\\mathcal{B}}[\\mathbf{x}]_{\\mathcal{B}}$):\n$$P_{\\mathcal{C}\\leftarrow\\mathcal{B}}=(P_{\\mathcal{B}\\leftarrow\\mathcal{C}})^{-1}=\\begin{bmatrix}1&-1&0&0\\\\0&1&-1&0\\\\0&0&1&-1\\\\0&0&0&1\\end{bmatrix}.$$\nFor $p=2+3t+t^{2}-t^{3}$ er $[p]_{\\mathcal{B}}=(2,3,1,-1)^{T}$, så\n$$[p]_{\\mathcal{C}}=P_{\\mathcal{C}\\leftarrow\\mathcal{B}}[p]_{\\mathcal{B}}=\\begin{bmatrix}2-3\\\\3-1\\\\1-(-1)\\\\-1\\end{bmatrix}=\\begin{bmatrix}-1\\\\2\\\\2\\\\-1\\end{bmatrix}.$$\nKontroll: $-1\\cdot1+2(1+t)+2(1+t+t^{2})-1(1+t+t^{2}+t^{3})=2+3t+t^{2}-t^{3}=p$ ✓. **Svar:** $[p]_{\\mathcal{C}}=(-1,2,2,-1)^{T}$."
+        }
+      ]
+    },
+    {
+      "id": "mat1120-8-2-o3c-sol",
+      "type": "collapsible",
+      "title": "Løsning O3 c)",
+      "buttonText": "Vis løsning",
+      "content": [
+        {
+          "id": "mat1120-8-2-o3c-sol-t",
+          "type": "text",
+          "content": "**c)** $T(p)=p'$ virker på basis $\\mathcal{B}=\\{1,t,t^{2},t^{3}\\}$: $T(1)=0$, $T(t)=1$, $T(t^{2})=2t$, $T(t^{3})=3t^{2}$. Søyle $j$ i $[T]_{\\mathcal{B}}$ er koordinatene til $T(\\mathbf{b}_j)$:\n$$[T]_{\\mathcal{B}}=\\begin{bmatrix}0&1&0&0\\\\0&0&2&0\\\\0&0&0&3\\\\0&0&0&0\\end{bmatrix}.$$\n**Kjerne:** $\\operatorname{Nul}[T]_{\\mathcal{B}}$ er utspent av $(1,0,0,0)^{T}$ (bare første søyle er null). **Oversatt til polynom:** $(1,0,0,0)^{T}$ svarer til $1$, så $\\ker T=\\operatorname{Span}\\{1\\}$ – de konstante polynomene (derivert av en konstant er null). $\\dim\\ker T=1$.\n**Bilde:** $[T]_{\\mathcal{B}}$ har rang $3$ (tre pivoter), så $\\dim\\operatorname{im}T=3$; søylerommet svarer til $\\operatorname{Span}\\{1,t,t^{2}\\}=\\operatorname{P}_2$. Altså $\\operatorname{im}T=\\operatorname{P}_2$. (Kontroll, dimensjonsteoremet for $T$: $\\dim\\ker T+\\dim\\operatorname{im}T=1+3=4=\\dim\\operatorname{P}_3$ ✓.) **Svar:** $\\ker T=\\operatorname{Span}\\{1\\}$, $\\operatorname{im}T=\\operatorname{P}_2$."
+        }
+      ]
+    },
+    {
+      "id": "mat1120-8-2-o4",
+      "type": "text",
+      "content": "## Oppgave 4 — symmetrisk matrise og kvadratisk form (sjanger F + G)\n\nLa $A=\\begin{bmatrix}3&1&1\\\\1&3&1\\\\1&1&3\\end{bmatrix}$ med egenvektordata fra **vedlegg V3**.\n\n**a)** Begrunn at $A$ er ortogonalt diagonaliserbar, og finn en ortogonal $P$ og diagonal $D$ med $A=PDP^{T}$ (vis Gram–Schmidt i egenrommet med multiplisitet).\n\n**b)** Skriv den kvadratiske formen $Q(\\mathbf{x})=\\mathbf{x}^{T}A\\mathbf{x}$ ut i koordinater, klassifiser definittheten, og angi hva origo er (minimum/maksimum/sadelpunkt)."
+    },
+    {
+      "id": "mat1120-8-2-o4a-sol",
+      "type": "collapsible",
+      "title": "Løsning O4 a)",
+      "buttonText": "Vis løsning",
+      "content": [
+        {
+          "id": "mat1120-8-2-o4a-sol-t",
+          "type": "text",
+          "content": "**a)** $A=A^{T}$ (symmetrisk), så ved **spektralteoremet** er $A$ ortogonalt diagonaliserbar: det finnes ortonormal $P$ og diagonal $D$ med $A=PDP^{T}$. **Fra vedlegg V3:** $\\lambda=5$ med $(1,1,1)^{T}$, og $\\lambda=2$ (dobbel) med egenrom $E_2=\\operatorname{Span}\\{(1,-1,0)^{T},(1,0,-1)^{T}\\}$.\n\nEgenvektoren $(1,1,1)^{T}$ er ortogonal på hele $E_2$ (ulike egenverdier – kontroll: $(1,1,1)\\cdot(1,-1,0)=0$, $(1,1,1)\\cdot(1,0,-1)=0$ ✓). **Inne i $E_2$** er $(1,-1,0)\\cdot(1,0,-1)=1\\ne0$, så vi kjører **Gram–Schmidt** med $\\mathbf{v}_1=(1,-1,0)^{T}$, $\\mathbf{v}_2=(1,0,-1)^{T}$:\n$$\\mathbf{w}_2=(1,0,-1)^{T}-\\frac{(1,0,-1)\\cdot(1,-1,0)}{(1,-1,0)\\cdot(1,-1,0)}(1,-1,0)^{T}=(1,0,-1)^{T}-\\tfrac{1}{2}(1,-1,0)^{T}=\\tfrac{1}{2}(1,1,-2)^{T}\\sim(1,1,-2)^{T}.$$\nKontroll: $(1,-1,0)\\cdot(1,1,-2)=0$ ✓. **Normalisér** ($\\lVert(1,-1,0)\\rVert=\\sqrt2$, $\\lVert(1,1,-2)\\rVert=\\sqrt6$, $\\lVert(1,1,1)\\rVert=\\sqrt3$):\n$$P=\\begin{bmatrix}\\tfrac{1}{\\sqrt2}&\\tfrac{1}{\\sqrt6}&\\tfrac{1}{\\sqrt3}\\\\[2pt]-\\tfrac{1}{\\sqrt2}&\\tfrac{1}{\\sqrt6}&\\tfrac{1}{\\sqrt3}\\\\[2pt]0&-\\tfrac{2}{\\sqrt6}&\\tfrac{1}{\\sqrt3}\\end{bmatrix},\\qquad D=\\begin{bmatrix}2&0&0\\\\0&2&0\\\\0&0&5\\end{bmatrix}.$$\nSøyle 1, 2 hører til $\\lambda=2$, søyle 3 til $\\lambda=5$; $P^{T}P=I$, så $A=PDP^{T}$. **Svar:** $A=PDP^{T}$ med $P,D$ som over (eksakt)."
+        }
+      ]
+    },
+    {
+      "id": "mat1120-8-2-o4b-sol",
+      "type": "collapsible",
+      "title": "Løsning O4 b)",
+      "buttonText": "Vis løsning",
+      "content": [
+        {
+          "id": "mat1120-8-2-o4b-sol-t",
+          "type": "text",
+          "content": "**b)** Diagonalen gir $3x_1^2+3x_2^2+3x_3^2$; hvert kryssledd har $a_{ij}=1$, så $2a_{ij}x_ix_j=2x_ix_j$ (kryssledd **delt på 2** motsatt vei):\n$$Q(\\mathbf{x})=\\mathbf{x}^{T}A\\mathbf{x}=3x_1^2+3x_2^2+3x_3^2+2x_1x_2+2x_1x_3+2x_2x_3.$$\n**Klassifisering fra egenverditegn:** egenverdiene er $2,2,5$, **alle $>0$**, så $Q$ er **positiv definit**. (Med variabelskiftet $\\mathbf{x}=P\\mathbf{y}$ fra a) blir $Q=2y_1^2+2y_2^2+5y_3^2>0$ for $\\mathbf{y}\\ne\\mathbf{0}$ – ingen kryssledd, bekrefter posdef.) Da er $Q(\\mathbf{x})>0$ for alle $\\mathbf{x}\\ne\\mathbf{0}$, og **origo er et globalt minimum** for $Q$. **Svar:** $Q$ positiv definit, origo er minimum."
+        }
+      ]
+    },
+    {
+      "id": "mat1120-8-2-bnote",
+      "type": "tip",
+      "title": "Etter settet: en B-besvarelse vs. en A-besvarelse",
+      "content": "Til sammenligning – slik kan en **midtnivå- (B-) besvarelse** av O1a se ut: den finner riktig at pivotene står i søyle 1 og 2 og skriver riktig $\\operatorname{Nul}A$-basis og $\\operatorname{rang}A=2$, **men** oppgir $\\operatorname{Col}A$-basis som RREF-kolonnene $\\{(1,0,0)^{T},(0,1,0)^{T}\\}$ og glemmer dimensjonskontrollen. Regningen er nesten riktig, men den ene føringsfeilen (basis fra RREF, ikke fra $A$) trekker fra. **A-besvarelsen** over henter basisvektorene fra $A$ og navngir dimensjonsteoremet. Forskjellen er ren føring – nettopp det [kap. 8.1](/bok/mat1120/mat1120-8-1) trener."
+    }
+  ],
+  "exercises": []
+}

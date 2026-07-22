@@ -1,0 +1,237 @@
+{
+  "id": "mat1120-8-4",
+  "courseId": "mat1120",
+  "chapterNumber": "8.4",
+  "title": "Øvingseksamen 3: 10 deloppgaver à 10 p — ikke-standard indreprodukt, kjeglesnitt og x′=Ax",
+  "description": "Tredje og vanskeligste sett med eget vedlegg: integral-indreprodukt gjennom hele signaturoppgaven på P₂, kjeglesnitt (ellipse) via variabelskifte x=Py med skisse i hovedaksene, differensiallikningssystemet x′=Ax med begynnelsesverdi og et posdef-bevis. Løsningsforslag i collapsible per deloppgave etter føringsstandarden i kap. 8.1.",
+  "estimatedMinutes": 240,
+  "competenceGoals": [
+    "kunne kjøre Gram–Schmidt, projeksjon og avstand konsekvent i et integral-indreprodukt på P₂",
+    "kunne klassifisere et kjeglesnitt via variabelskiftet x=Py, skrive standardform og skissere i hovedaksene",
+    "kunne løse x′=Ax generelt og med begynnelsesverdi ut fra egenverdier og egenvektorer",
+    "kunne føre et stramt bevis for at en symmetrisk positiv definit matrise er invertibel med positiv definit invers"
+  ],
+  "content": [
+    {
+      "id": "mat1120-8-4-tip",
+      "type": "tip",
+      "title": "Om øvingseksamen 3 (vanskeligste varianter)",
+      "content": "Tredje sett samler de skarpeste karakterskillerne: **integral-indreprodukt** gjennom hele signaturoppgaven, **kjeglesnitt** via variabelskifte, og **differensiallikningssystemet** $\\mathbf{x}'=A\\mathbf{x}$.\n\n- **Omfang:** **elleve deloppgaver som teller likt** (om lag **22–24 minutter hver**, 4 timer). Bevisdelen **O5** er lagt til som ekstra bredde utover et standard tisett.\n- **Den dyreste fellen (O2):** indreproduktet er et **integral** $\\langle p,q\\rangle=\\int_{-1}^{1}pq\\,dt$. **Alle** skalarprodukt, normer og ortogonalitetssjekker – også normen i Gram–Schmidt – skal regnes med dette integralet. Bruker du standardprikkproduktet, mister du hele oppgaven.\n- **Topp-karakterskillerne:** Gram–Schmidt i integralet (O2), riktig kjeglesnittklassifisering og skisse i hovedaksene (O3), full løsning av $\\mathbf{x}'=A\\mathbf{x}$ med begynnelsesverdi (O4) og et stramt posdef-bevis (O5).\n\nMiks: **O1** $\\operatorname{Col}/\\operatorname{Nul}$ + Gram–Schmidt + projeksjon (A+B) · **O2** $\\operatorname{P}_2$ med integral-indreprodukt (B+H) · **O3** symmetrisk $\\to$ kjeglesnitt + Rayleigh (F+G) · **O4** $\\mathbf{x}'=A\\mathbf{x}$ (J) · **O5** posdef-bevis (L). Før alt fullt begrunnet etter [kap. 8.1](/bok/mat1120/mat1120-8-1)."
+    },
+    {
+      "id": "mat1120-8-4-forkunnskaper",
+      "type": "text",
+      "content": "**Forkunnskaper:** hele boka, særlig [kap. 4.1](/bok/mat1120/mat1120-4-1)–[4.2](/bok/mat1120/mat1120-4-2) (indreprodukt, Gram–Schmidt i ikke-standard indreprodukt), [kap. 5.1](/bok/mat1120/mat1120-5-1) (projeksjon/avstand), [kap. 6.2](/bok/mat1120/mat1120-6-2)–[6.3](/bok/mat1120/mat1120-6-3) (kvadratiske former, Rayleigh, kjeglesnitt) og [kap. 7.2](/bok/mat1120/mat1120-7-2) ($\\mathbf{x}'=A\\mathbf{x}$). Føring: [kap. 8.1](/bok/mat1120/mat1120-8-1)."
+    },
+    {
+      "id": "mat1120-8-4-vedlegg",
+      "type": "text",
+      "content": "## Vedlegg (utleveres med settet)\n\n**V1 — til oppgave 1.** For $A=\\begin{bmatrix}1&3&-1&4&2\\\\2&1&3&3&-1\\\\2&2&2&4&0\\\\0&2&-2&2&2\\end{bmatrix}$ gir $\\operatorname{rref}(A)=\\begin{bmatrix}1&0&2&1&-1\\\\0&1&-1&1&1\\\\0&0&0&0&0\\\\0&0&0&0&0\\end{bmatrix}$.\n\n**V3 — til oppgave 3.** For $A=\\begin{bmatrix}3&1\\\\1&3\\end{bmatrix}$ gir $[V\\ D]=\\operatorname{eig}(A)$ egenverdiene $\\lambda=4$ (egenvektor $(1,1)^{T}$) og $\\lambda=2$ (egenvektor $(1,-1)^{T}$).\n\n**V4 — til oppgave 4.** For $A=\\begin{bmatrix}0&1\\\\2&1\\end{bmatrix}$ gir $[V\\ D]=\\operatorname{eig}(A)$ egenverdiene $\\lambda=2$ (egenvektor $(1,2)^{T}$) og $\\lambda=-1$ (egenvektor $(1,-1)^{T}$)."
+    },
+    {
+      "id": "mat1120-8-4-o1",
+      "type": "text",
+      "content": "## Oppgave 1 — $\\operatorname{Col}/\\operatorname{Nul}$, Gram–Schmidt og projeksjon (sjanger A + B)\n\nLa $A$ og $\\operatorname{rref}(A)$ være som i **vedlegg V1**, og $W=\\operatorname{Col}A$.\n\n**a)** Finn en basis for $\\operatorname{Col}A$ (kolonner i $A$) og for $\\operatorname{Nul}A$; oppgi $\\operatorname{rang}A$ og kontroller med dimensjonsteoremet.\n\n**b)** Bruk Gram–Schmidt på $\\operatorname{Col}A$-basisen til å finne en ortonormal basis for $W$.\n\n**c)** La $\\mathbf{b}=(3,3,0,3)^{T}$. Finn $\\operatorname{proj}_W\\mathbf{b}$, dekomponer $\\mathbf{b}=\\hat{\\mathbf{b}}+\\mathbf{z}$ med $\\mathbf{z}\\in W^{\\perp}$, og oppgi avstanden fra $\\mathbf{b}$ til $W$."
+    },
+    {
+      "id": "mat1120-8-4-o1a-sol",
+      "type": "collapsible",
+      "title": "Løsning O1 a)",
+      "buttonText": "Vis løsning",
+      "content": [
+        {
+          "id": "mat1120-8-4-o1a-sol-t",
+          "type": "text",
+          "content": "**a)** **Fra vedlegg V1** står pivotene i søyle 1 og 2. Basis for $\\operatorname{Col}A$ = de tilsvarende **kolonnene i $A$**:\n$$\\operatorname{Col}A\\text{-basis}=\\{(1,2,2,0)^{T},(3,1,2,2)^{T}\\},\\qquad \\operatorname{rang}A=2.$$\nFrie variabler $x_3,x_4,x_5$; fra RREF: $x_1=-2x_3-x_4+x_5$, $x_2=x_3-x_4-x_5$. Spesielle løsninger:\n$$\\operatorname{Nul}A\\text{-basis}=\\{(-2,1,1,0,0)^{T},(-1,-1,0,1,0)^{T},(1,-1,0,0,1)^{T}\\},\\qquad \\dim\\operatorname{Nul}A=3.$$\n**Dimensjonsteoremet:** $\\operatorname{rang}A+\\dim\\operatorname{Nul}A=2+3=5$ = antall søyler ✓."
+        }
+      ]
+    },
+    {
+      "id": "mat1120-8-4-o1b-sol",
+      "type": "collapsible",
+      "title": "Løsning O1 b)",
+      "buttonText": "Vis løsning",
+      "content": [
+        {
+          "id": "mat1120-8-4-o1b-sol-t",
+          "type": "text",
+          "content": "**b)** Sett $\\mathbf{a}_1=(1,2,2,0)^{T}$, $\\mathbf{a}_2=(3,1,2,2)^{T}$. **Gram–Schmidt:** $\\mathbf{v}_1=\\mathbf{a}_1$, og med $\\mathbf{a}_2\\cdot\\mathbf{v}_1=3+2+4+0=9$, $\\mathbf{v}_1\\cdot\\mathbf{v}_1=1+4+4+0=9$:\n$$\\mathbf{v}_2=\\mathbf{a}_2-\\tfrac{9}{9}\\mathbf{v}_1=(3,1,2,2)^{T}-(1,2,2,0)^{T}=(2,-1,0,2)^{T}.$$\nKontroll: $\\mathbf{v}_1\\cdot\\mathbf{v}_2=2-2+0+0=0$ ✓. Lengder: $\\lVert\\mathbf{v}_1\\rVert=\\sqrt9=3$, $\\lVert\\mathbf{v}_2\\rVert=\\sqrt{4+1+0+4}=3$. **Ortonormal basis:**\n$$\\mathbf{u}_1=\\tfrac{1}{3}(1,2,2,0)^{T},\\qquad \\mathbf{u}_2=\\tfrac{1}{3}(2,-1,0,2)^{T}.$$"
+        }
+      ]
+    },
+    {
+      "id": "mat1120-8-4-o1c-sol",
+      "type": "collapsible",
+      "title": "Løsning O1 c)",
+      "buttonText": "Vis løsning",
+      "content": [
+        {
+          "id": "mat1120-8-4-o1c-sol-t",
+          "type": "text",
+          "content": "**c)** $\\dfrac{\\mathbf{b}\\cdot\\mathbf{v}_1}{9}=\\dfrac{3+6+0+0}{9}=1$ og $\\dfrac{\\mathbf{b}\\cdot\\mathbf{v}_2}{9}=\\dfrac{6-3+0+6}{9}=1$, så\n$$\\hat{\\mathbf{b}}=\\operatorname{proj}_W\\mathbf{b}=(1,2,2,0)^{T}+(2,-1,0,2)^{T}=(3,1,2,2)^{T}.$$\n$\\mathbf{z}=\\mathbf{b}-\\hat{\\mathbf{b}}=(3,3,0,3)^{T}-(3,1,2,2)^{T}=(0,2,-2,1)^{T}$; kontroll $\\mathbf{z}\\cdot\\mathbf{v}_1=0+4-4+0=0$, $\\mathbf{z}\\cdot\\mathbf{v}_2=0-2+0+2=0$ ✓. **Avstand** $=\\lVert\\mathbf{z}\\rVert=\\sqrt{0+4+4+1}=3$. **Svar:** $\\operatorname{proj}_W\\mathbf{b}=(3,1,2,2)^{T}$, avstand $=3$."
+        }
+      ]
+    },
+    {
+      "id": "mat1120-8-4-o2",
+      "type": "text",
+      "content": "## Oppgave 2 — $\\operatorname{P}_2$ med integral-indreprodukt (sjanger B + H)\n\nPå $\\operatorname{P}_2$ (polynomer av grad $\\le 2$) brukes indreproduktet\n$$\\langle p,q\\rangle=\\int_{-1}^{1}p(t)q(t)\\,dt.$$\n\n**a)** Bruk Gram–Schmidt på standardbasisen $\\{1,t,t^{2}\\}$ til å finne en **ortogonal** basis for $\\operatorname{P}_2$ i dette indreproduktet.\n\n**b)** Finn den beste tilnærmingen (ortogonale projeksjonen) av $f(t)=t^{3}$ ned på $\\operatorname{P}_2$.\n\n**c)** Finn avstanden $\\lVert t^{3}-\\operatorname{proj}_{\\operatorname{P}_2}t^{3}\\rVert$ i dette indreproduktet."
+    },
+    {
+      "id": "mat1120-8-4-o2a-sol",
+      "type": "collapsible",
+      "title": "Løsning O2 a)",
+      "buttonText": "Vis løsning",
+      "content": [
+        {
+          "id": "mat1120-8-4-o2a-sol-t",
+          "type": "text",
+          "content": "**a)** Alt regnes med integralet. $\\mathbf{p}_1=1$, og $\\langle 1,1\\rangle=\\int_{-1}^{1}1\\,dt=2$.\n\n$\\mathbf{p}_2=t-\\dfrac{\\langle t,1\\rangle}{\\langle 1,1\\rangle}\\cdot1$. Her er $\\langle t,1\\rangle=\\int_{-1}^{1}t\\,dt=0$, så $\\mathbf{p}_2=t$. Videre $\\langle t,t\\rangle=\\int_{-1}^{1}t^{2}\\,dt=\\tfrac{2}{3}$.\n\n$\\mathbf{p}_3=t^{2}-\\dfrac{\\langle t^{2},1\\rangle}{\\langle 1,1\\rangle}\\cdot1-\\dfrac{\\langle t^{2},t\\rangle}{\\langle t,t\\rangle}\\cdot t$. Med $\\langle t^{2},1\\rangle=\\int_{-1}^{1}t^{2}\\,dt=\\tfrac{2}{3}$ og $\\langle t^{2},t\\rangle=\\int_{-1}^{1}t^{3}\\,dt=0$:\n$$\\mathbf{p}_3=t^{2}-\\frac{2/3}{2}\\cdot1-0=t^{2}-\\tfrac{1}{3}.$$\n**Ortogonal basis:** $\\{1,\\ t,\\ t^{2}-\\tfrac{1}{3}\\}$ (de tre første Legendre-polynomene opp til skalering). Kontroll: $\\langle 1,t^{2}-\\tfrac13\\rangle=\\tfrac23-\\tfrac13\\cdot2=0$ og $\\langle t,t^{2}-\\tfrac13\\rangle=0$ ✓. Til bruk siden: $\\langle t^{2}-\\tfrac13,\\ t^{2}-\\tfrac13\\rangle=\\tfrac{8}{45}$."
+        }
+      ]
+    },
+    {
+      "id": "mat1120-8-4-o2b-sol",
+      "type": "collapsible",
+      "title": "Løsning O2 b)",
+      "buttonText": "Vis løsning",
+      "content": [
+        {
+          "id": "mat1120-8-4-o2b-sol-t",
+          "type": "text",
+          "content": "**b)** Projeksjonen på $\\operatorname{P}_2$ med den ortogonale basisen fra a) er summen av tre projeksjonsledd. Regn koeffisientene (alt i integralet):\n$$\\langle t^{3},1\\rangle=\\int_{-1}^{1}t^{3}\\,dt=0,\\quad \\langle t^{3},t\\rangle=\\int_{-1}^{1}t^{4}\\,dt=\\tfrac{2}{5},\\quad \\langle t^{3},t^{2}-\\tfrac13\\rangle=\\int_{-1}^{1}\\!\\big(t^{5}-\\tfrac13t^{3}\\big)dt=0.$$\nBare $t$-leddet overlever (fordi $t^{3}$ er odde):\n$$\\operatorname{proj}_{\\operatorname{P}_2}t^{3}=\\frac{\\langle t^{3},t\\rangle}{\\langle t,t\\rangle}\\,t=\\frac{2/5}{2/3}\\,t=\\tfrac{3}{5}t.$$\n**Svar:** beste tilnærming er $\\tfrac{3}{5}t$ – den nærmeste kvadratiske (her lineære) tilpasningen til $t^{3}$ på $[-1,1]$ i denne normen."
+        }
+      ]
+    },
+    {
+      "id": "mat1120-8-4-o2c-sol",
+      "type": "collapsible",
+      "title": "Løsning O2 c)",
+      "buttonText": "Vis løsning",
+      "content": [
+        {
+          "id": "mat1120-8-4-o2c-sol-t",
+          "type": "text",
+          "content": "**c)** Ved Pytagoras i indreproduktet er $\\lVert t^{3}-\\operatorname{proj}\\rVert^{2}=\\langle t^{3},t^{3}\\rangle-\\lVert\\operatorname{proj}\\rVert^{2}$. Her:\n$$\\langle t^{3},t^{3}\\rangle=\\int_{-1}^{1}t^{6}\\,dt=\\tfrac{2}{7},\\qquad \\lVert\\tfrac35 t\\rVert^{2}=\\big(\\tfrac35\\big)^{2}\\langle t,t\\rangle=\\tfrac{9}{25}\\cdot\\tfrac{2}{3}=\\tfrac{6}{25}.$$\nSå $\\lVert t^{3}-\\tfrac35 t\\rVert^{2}=\\tfrac{2}{7}-\\tfrac{6}{25}=\\tfrac{50-42}{175}=\\tfrac{8}{175}$, og\n$$\\lVert t^{3}-\\operatorname{proj}_{\\operatorname{P}_2}t^{3}\\rVert=\\sqrt{\\tfrac{8}{175}}=\\frac{2\\sqrt{14}}{35}.$$\n**Svar:** avstanden er $\\dfrac{2\\sqrt{14}}{35}$ (eksakt)."
+        }
+      ]
+    },
+    {
+      "id": "mat1120-8-4-o2-warn",
+      "type": "warning",
+      "title": "O2: alt regnes i integral-indreproduktet",
+      "content": "Denne oppgaven har oppgitt $\\langle p,q\\rangle=\\int_{-1}^{1}pq\\,dt$. **Alle** skalarprodukt, normer, ortogonalitetssjekker og projeksjonskoeffisienter – også i Gram–Schmidt i a) – er integraler, aldri standardprikkproduktet av koeffisientene. F.eks. er $\\lVert t\\rVert^{2}=\\int_{-1}^{1}t^{2}\\,dt=\\tfrac23$, ikke $1$. Å bytte til standardprikkproduktet er den dyreste MAT1120-fellen."
+    },
+    {
+      "id": "mat1120-8-4-o3",
+      "type": "text",
+      "content": "## Oppgave 3 — symmetrisk matrise, kjeglesnitt og Rayleigh (sjanger F + G)\n\nBetrakt kurven $3x_1^{2}+2x_1x_2+3x_2^{2}=4$, med tilhørende matrise $A=\\begin{bmatrix}3&1\\\\1&3\\end{bmatrix}$ (data i **vedlegg V3**).\n\n**a)** Utfør variabelskiftet $\\mathbf{x}=P\\mathbf{y}$ (ortogonal $P$) som fjerner kryssleddet, klassifiser kurven, skriv den på standardform og **skisser** den i hovedaksene $y_1,y_2$.\n\n**b)** La $Q(\\mathbf{x})=\\mathbf{x}^{T}A\\mathbf{x}$. Finn $\\max$ og $\\min$ av $Q$ over $\\lVert\\mathbf{x}\\rVert=1$, og oppgi hvor de nås."
+    },
+    {
+      "id": "mat1120-8-4-o3a-sol",
+      "type": "collapsible",
+      "title": "Løsning O3 a)",
+      "buttonText": "Vis løsning",
+      "content": [
+        {
+          "id": "mat1120-8-4-o3a-sol-t",
+          "type": "text",
+          "content": "**a)** Kurven er $Q(\\mathbf{x})=\\mathbf{x}^{T}A\\mathbf{x}=4$ med den symmetriske $A=\\begin{bmatrix}3&1\\\\1&3\\end{bmatrix}$ (kryssleddet $2x_1x_2$ gir $a_{12}=a_{21}=1$, delt på 2). **Fra vedlegg V3:** $\\lambda=4$ med egenvektor $(1,1)^{T}$, $\\lambda=2$ med $(1,-1)^{T}$. Egenvektorene er ortogonale (ulike egenverdier, symmetrisk $A$); normalisér (begge lengde $\\sqrt2$) og sett\n$$P=\\tfrac{1}{\\sqrt2}\\begin{bmatrix}1&1\\\\1&-1\\end{bmatrix}\\ (\\text{søyle 1}\\leftrightarrow\\lambda=4,\\ \\text{søyle 2}\\leftrightarrow\\lambda=2),\\qquad P^{T}P=I.$$\nMed $\\mathbf{x}=P\\mathbf{y}$ blir $Q=4y_1^{2}+2y_2^{2}$, så kurven er\n$$4y_1^{2}+2y_2^{2}=4\\ \\Longleftrightarrow\\ \\frac{y_1^{2}}{1}+\\frac{y_2^{2}}{2}=1.$$\nBegge egenverdier er **positive** (samme fortegn) ⇒ kurven er en **ellipse**. Halvaksene er $1$ langs $y_1$ og $\\sqrt2$ langs $y_2$. Hovedaksene peker langs egenvektorene $(1,1)^{T}$ og $(1,-1)^{T}$ (en $45^{\\circ}$-dreining i $x$-planet). Skisse i hovedaksene:"
+        },
+        {
+          "id": "mat1120-8-4-o3a-fig",
+          "type": "image",
+          "src": "/images/textbook/mat1120/mat1120-8-4-kjeglesnitt.svg",
+          "alt": "Koordinatsystem med hovedaksene y-en og y-to. En ellipse er sentrert i origo med halvakse 1 langs den vannrette y-en-aksen (skjæringspunkter i y-en lik pluss/minus 1) og halvakse kvadratroten av to langs den loddrette y-to-aksen (skjæringspunkter i y-to lik pluss/minus kvadratroten av to). Ellipsen er dermed høyest langs y-to-retningen.",
+          "caption": "Ellipsen $\\tfrac{y_1^{2}}{1}+\\tfrac{y_2^{2}}{2}=1$ fra oppgave 3, i hovedaksene. Den største egenverdien ($\\lambda=4$, langs $y_1$) gir den korteste halvaksen ($1$), og den minste egenverdien ($\\lambda=2$, langs $y_2$) den lengste ($\\sqrt2$) – jo større egenverdi, jo strammere kurve i den retningen."
+        },
+        {
+          "id": "mat1120-8-4-o3a-sol-t2",
+          "type": "text",
+          "content": "**Svar:** ellipse, standardform $\\dfrac{y_1^{2}}{1}+\\dfrac{y_2^{2}}{2}=1$, halvakser $1$ (langs $y_1$) og $\\sqrt2$ (langs $y_2$)."
+        }
+      ]
+    },
+    {
+      "id": "mat1120-8-4-o3b-sol",
+      "type": "collapsible",
+      "title": "Løsning O3 b)",
+      "buttonText": "Vis løsning",
+      "content": [
+        {
+          "id": "mat1120-8-4-o3b-sol-t",
+          "type": "text",
+          "content": "**b)** Ved **Rayleigh (Teorem 6 §7.3)** for symmetrisk $A$:\n$$\\max_{\\lVert\\mathbf{x}\\rVert=1}Q(\\mathbf{x})=\\lambda_{\\max}=4,\\quad\\text{oppnådd i }\\mathbf{x}=\\tfrac{1}{\\sqrt2}(1,1)^{T};$$\n$$\\min_{\\lVert\\mathbf{x}\\rVert=1}Q(\\mathbf{x})=\\lambda_{\\min}=2,\\quad\\text{oppnådd i }\\mathbf{x}=\\tfrac{1}{\\sqrt2}(1,-1)^{T}.$$\nDette er nettopp de to egenvektorretningene fra a): $Q$ er størst der ellipsen er strammest (langs $y_1$) og minst der den er videst (langs $y_2$). **Svar:** $\\max=4$, $\\min=2$."
+        }
+      ]
+    },
+    {
+      "id": "mat1120-8-4-o4",
+      "type": "text",
+      "content": "## Oppgave 4 — differensiallikningssystemet $\\mathbf{x}'=A\\mathbf{x}$ (sjanger J)\n\nLa $A=\\begin{bmatrix}0&1\\\\2&1\\end{bmatrix}$ med data fra **vedlegg V4**, og betrakt systemet $\\mathbf{x}'(t)=A\\mathbf{x}(t)$.\n\n**a)** Finn den generelle løsningen.\n\n**b)** Finn løsningen som oppfyller begynnelsesverdien $\\mathbf{x}(0)=(3,3)^{T}$."
+    },
+    {
+      "id": "mat1120-8-4-o4a-sol",
+      "type": "collapsible",
+      "title": "Løsning O4 a)",
+      "buttonText": "Vis løsning",
+      "content": [
+        {
+          "id": "mat1120-8-4-o4a-sol-t",
+          "type": "text",
+          "content": "**a)** **Fra vedlegg V4:** $A$ har egenverdiene $\\lambda_1=2$ (egenvektor $\\mathbf{v}_1=(1,2)^{T}$) og $\\lambda_2=-1$ (egenvektor $\\mathbf{v}_2=(1,-1)^{T}$), begge reelle og distinkte. For $\\mathbf{x}'=A\\mathbf{x}$ er hver $e^{\\lambda_i t}\\mathbf{v}_i$ en løsning, og den **generelle løsningen** er en lineærkombinasjon:\n$$\\mathbf{x}(t)=c_1e^{2t}\\begin{bmatrix}1\\\\2\\end{bmatrix}+c_2e^{-t}\\begin{bmatrix}1\\\\-1\\end{bmatrix},\\qquad c_1,c_2\\in\\mathbb{R}.$$\n(Kontroll: $\\tfrac{d}{dt}\\big(e^{2t}\\mathbf{v}_1\\big)=2e^{2t}\\mathbf{v}_1=A e^{2t}\\mathbf{v}_1$ siden $A\\mathbf{v}_1=2\\mathbf{v}_1$ ✓.)"
+        }
+      ]
+    },
+    {
+      "id": "mat1120-8-4-o4b-sol",
+      "type": "collapsible",
+      "title": "Løsning O4 b)",
+      "buttonText": "Vis løsning",
+      "content": [
+        {
+          "id": "mat1120-8-4-o4b-sol-t",
+          "type": "text",
+          "content": "**b)** Sett $t=0$: $\\mathbf{x}(0)=c_1(1,2)^{T}+c_2(1,-1)^{T}=(3,3)^{T}$, altså\n$$c_1+c_2=3,\\qquad 2c_1-c_2=3.$$\nLegg sammen: $3c_1=6\\Rightarrow c_1=2$, og $c_2=1$. **Løsning:**\n$$\\mathbf{x}(t)=2e^{2t}\\begin{bmatrix}1\\\\2\\end{bmatrix}+e^{-t}\\begin{bmatrix}1\\\\-1\\end{bmatrix}=\\begin{bmatrix}2e^{2t}+e^{-t}\\\\4e^{2t}-e^{-t}\\end{bmatrix}.$$\nKontroll: $\\mathbf{x}(0)=(2+1,\\ 4-1)^{T}=(3,3)^{T}$ ✓. **Svar:** $\\mathbf{x}(t)=(2e^{2t}+e^{-t},\\ 4e^{2t}-e^{-t})^{T}$."
+        }
+      ]
+    },
+    {
+      "id": "mat1120-8-4-o5",
+      "type": "text",
+      "content": "## Oppgave 5 — kort bevis: positiv definit matrise (sjanger L)\n\nLa $B$ være en symmetrisk positiv definit $n\\times n$-matrise.\n\n**a)** Vis at $B$ er invertibel.\n\n**b)** Vis at $B^{-1}$ også er symmetrisk positiv definit, og angi egenverdiene til $B^{-1}$ uttrykt ved egenverdiene til $B$."
+    },
+    {
+      "id": "mat1120-8-4-o5a-sol",
+      "type": "collapsible",
+      "title": "Løsning O5 a)",
+      "buttonText": "Vis løsning",
+      "content": [
+        {
+          "id": "mat1120-8-4-o5a-sol-t",
+          "type": "text",
+          "content": "**a)** $B$ er symmetrisk ($B=B^{T}$), så ved **spektralteoremet** er $B=PDP^{T}$ med ortogonal $P$ ($P^{T}P=I$) og $D=\\operatorname{diag}(\\lambda_1,\\dots,\\lambda_n)$. At $B$ er **positiv definit** betyr at alle egenverdiene er positive: $\\lambda_i>0$. Da er\n$$\\det B=\\det(PDP^{T})=\\det D=\\prod_{i=1}^{n}\\lambda_i>0\\ne0,$$\nså $B$ er **invertibel**. $\\blacksquare$"
+        }
+      ]
+    },
+    {
+      "id": "mat1120-8-4-o5b-sol",
+      "type": "collapsible",
+      "title": "Løsning O5 b)",
+      "buttonText": "Vis løsning",
+      "content": [
+        {
+          "id": "mat1120-8-4-o5b-sol-t",
+          "type": "text",
+          "content": "**b)** Fra $B=PDP^{T}$ med $P^{-1}=P^{T}$ er\n$$B^{-1}=(PDP^{T})^{-1}=(P^{T})^{-1}D^{-1}P^{-1}=PD^{-1}P^{T},\\qquad D^{-1}=\\operatorname{diag}\\!\\big(\\tfrac{1}{\\lambda_1},\\dots,\\tfrac{1}{\\lambda_n}\\big).$$\nDette er en **ortogonal diagonalisering** av $B^{-1}$ (samme ortogonale $P$), så $B^{-1}$ er symmetrisk, og egenverdiene er $\\tfrac{1}{\\lambda_i}$. Siden hver $\\lambda_i>0$, er hver $\\tfrac{1}{\\lambda_i}>0$, altså er $B^{-1}$ **positiv definit**. $\\blacksquare$\n\n**Svar:** egenverdiene til $B^{-1}$ er $\\tfrac{1}{\\lambda_i}$, alle positive."
+        },
+        {
+          "id": "mat1120-8-4-o5-slutt",
+          "type": "text",
+          "content": "— naturlig pausepunkt — Du har nå gått gjennom alle tre øvingseksamenene. Kjør en siste runde med [sjekklisten i kap. 8.1](/bok/mat1120/mat1120-8-1) på dine egne besvarelser: brukte du vedlegget, navnga du teoremene, og er alle svar eksakte?"
+        }
+      ]
+    }
+  ],
+  "exercises": []
+}

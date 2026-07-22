@@ -1,0 +1,214 @@
+{
+  "id": "mat1120-8-3",
+  "courseId": "mat1120",
+  "chapterNumber": "8.3",
+  "title": "Øvingseksamen 2: 10 deloppgaver à 10 p — signaturoppgave, minste kvadrater og SVD",
+  "description": "Sett nummer to med eget vedlegg, vridd mot funksjonsrom-signaturoppgaven, minste kvadrater ved rangdefekt (affin løsning), SVD og en kort Householder-bevisdel – slik at de tre settene til sammen dekker A–L. Løsningsforslag i collapsible per deloppgave etter føringsstandarden i kap. 8.1.",
+  "estimatedMinutes": 240,
+  "competenceGoals": [
+    "kunne føre minste kvadrater ved rangdefekt med affin løsningsmengde og hente projeksjonen via proj_W b = C x̂",
+    "kunne arbeide i et funksjonsrom: uavhengighet, [T]_B for derivasjon og ker(T-I) oversatt tilbake til funksjoner",
+    "kunne diagonalisere med multiplisitetsbegrunnelse og evaluere et polynom q(A) via samme P",
+    "kunne finne en fullstendig SVD A=UΣVᵀ og bruke max‖Ax‖=σ₁, og føre et stramt Householder-bevis"
+  ],
+  "content": [
+    {
+      "id": "mat1120-8-3-tip",
+      "type": "tip",
+      "title": "Om øvingseksamen 2 (signatur, minste kvadrater og SVD)",
+      "content": "Sett nummer to vrir mot de tema som skiller toppkarakterene: funksjonsrom-signaturoppgaven, minste kvadrater ved **rangdefekt** (affin løsning), SVD og en kort bevisdel. Sammen med [8.2](/bok/mat1120/mat1120-8-2) og [8.4](/bok/mat1120/mat1120-8-4) dekker de tre settene alle sjangrene A–L.\n\n- **Omfang:** dette settet har **elleve deloppgaver som teller likt** (om lag **22–24 minutter hver**, 4 timer). Et ekte sett har presis ti; her er bevisdelen **O5** lagt til som ekstra bredde.\n- **Tidsbudsjett:** les hele hovedoppgaven først – **O1** gjenbruker samme matrise til $\\operatorname{Col}/\\operatorname{Nul}$, minste kvadrater og projeksjon, og **O3** deler egenvektorer mellom diagonalisering og $q(A)$.\n- **Topp-karakterskillerne:** funksjonsrommet i **O2** ($\\ker(T-I)$ oversatt til funksjoner), den **affine** minste kvadraters løsningen i **O1b**, komplett SVD i **O4**, og et stramt ført bevis i **O5**.\n\nMiks: **O1** $\\operatorname{Col}/\\operatorname{Nul}$ + minste kvadrater (affin) + projeksjon (A+C) · **O2** funksjonsrom $V=\\operatorname{Span}\\{e^{x},e^{x}\\cos x,e^{x}\\sin x\\}$ (H+I) · **O3** egenverdier/diagonalisering + $q(A)$ (D+E) · **O4** SVD (K) · **O5** Householder-bevis (L). Før alt fullt begrunnet etter [kap. 8.1](/bok/mat1120/mat1120-8-1)."
+    },
+    {
+      "id": "mat1120-8-3-forkunnskaper",
+      "type": "text",
+      "content": "**Forkunnskaper:** hele boka, særlig [kap. 1.2](/bok/mat1120/mat1120-1-2), [kap. 5.2](/bok/mat1120/mat1120-5-2) (minste kvadrater, affin), [kap. 5.1](/bok/mat1120/mat1120-5-1) (projeksjonssnarvei), [kap. 2.5](/bok/mat1120/mat1120-2-5)–[2.6](/bok/mat1120/mat1120-2-6) (funksjonsrom, $[T]_{\\mathcal{B}}$, kjerne), [kap. 3.2](/bok/mat1120/mat1120-3-2)–[3.3](/bok/mat1120/mat1120-3-3), [kap. 7.1](/bok/mat1120/mat1120-7-1) (SVD) og [kap. 7.3](/bok/mat1120/mat1120-7-3) (Householder). Føring: [kap. 8.1](/bok/mat1120/mat1120-8-1)."
+    },
+    {
+      "id": "mat1120-8-3-vedlegg",
+      "type": "text",
+      "content": "## Vedlegg (utleveres med settet)\n\n**V1 — til oppgave 1.** For $C=\\begin{bmatrix}1&1&2\\\\1&-1&0\\\\1&1&2\\\\1&-1&0\\end{bmatrix}$ gir $\\operatorname{rref}(C)=\\begin{bmatrix}1&0&1\\\\0&1&1\\\\0&0&0\\\\0&0&0\\end{bmatrix}$.\n\n**V3 — til oppgave 3.** For $A=\\begin{bmatrix}5&-3&-3\\\\3&-1&-3\\\\3&-3&-1\\end{bmatrix}$ gir $\\operatorname{poly}(A)$ det karakteristiske polynomet $\\lambda^{3}-3\\lambda^{2}+4$, og $[V\\ D]=\\operatorname{eig}(A)$ egenverdiene $\\lambda=2$ (algebraisk multiplisitet $2$) med uavhengige egenvektorer $(1,1,0)^{T}$ og $(1,0,1)^{T}$, og $\\lambda=-1$ med egenvektor $(1,1,1)^{T}$.\n\n**V4 — til oppgave 4.** For $A=\\begin{bmatrix}3&1\\\\1&3\\\\0&0\\end{bmatrix}$ er $A^{T}A=\\begin{bmatrix}10&6\\\\6&10\\end{bmatrix}$, med egenverdiene $\\lambda_1=16$ (egenvektor $(1,1)^{T}$) og $\\lambda_2=4$ (egenvektor $(1,-1)^{T}$)."
+    },
+    {
+      "id": "mat1120-8-3-o1",
+      "type": "text",
+      "content": "## Oppgave 1 — $\\operatorname{Col}/\\operatorname{Nul}$, minste kvadrater (affin) og projeksjon (sjanger A + C)\n\nLa $C$ være matrisen i **vedlegg V1** og $\\mathbf{b}=(3,1,1,-1)^{T}$. Sett $W=\\operatorname{Col}C$.\n\n**a)** Finn en basis for $\\operatorname{Col}C$ (kolonner i $C$) og for $\\operatorname{Nul}C$, og oppgi $\\operatorname{rang}C$.\n\n**b)** Systemet $C\\mathbf{x}=\\mathbf{b}$ er inkonsistent. Sett opp normallikningene og finn **hele** den minste kvadraters løsningsmengden. Forklar hvorfor den ikke er entydig.\n\n**c)** Finn $\\operatorname{proj}_W\\mathbf{b}$ via snarveien $\\operatorname{proj}_W\\mathbf{b}=C\\hat{\\mathbf{x}}$, og oppgi avstanden fra $\\mathbf{b}$ til $W$."
+    },
+    {
+      "id": "mat1120-8-3-o1a-sol",
+      "type": "collapsible",
+      "title": "Løsning O1 a)",
+      "buttonText": "Vis løsning",
+      "content": [
+        {
+          "id": "mat1120-8-3-o1a-sol-t",
+          "type": "text",
+          "content": "**a)** **Fra vedlegg V1** står pivotene i søyle 1 og 2. Basis for $\\operatorname{Col}C$ er de tilsvarende kolonnene i $C$:\n$$\\operatorname{Col}C\\text{-basis}=\\left\\{(1,1,1,1)^{T},(1,-1,1,-1)^{T}\\right\\},\\qquad \\operatorname{rang}C=2.$$\nSøyle 3 er ikke-pivot, så $x_3$ er fri: fra RREF er $x_1=-x_3$, $x_2=-x_3$, altså\n$$\\operatorname{Nul}C\\text{-basis}=\\{(-1,-1,1)^{T}\\},\\qquad \\dim\\operatorname{Nul}C=1.$$\n$C$ har **rangdefekt** (3 søyler, rang 2). Kontroll: $\\operatorname{rang}C+\\dim\\operatorname{Nul}C=2+1=3$ = antall søyler ✓."
+        }
+      ]
+    },
+    {
+      "id": "mat1120-8-3-o1b-sol",
+      "type": "collapsible",
+      "title": "Løsning O1 b)",
+      "buttonText": "Vis løsning",
+      "content": [
+        {
+          "id": "mat1120-8-3-o1b-sol-t",
+          "type": "text",
+          "content": "**b)** **Normallikningene** $C^{T}C\\hat{\\mathbf{x}}=C^{T}\\mathbf{b}$. Med kolonnene $\\mathbf{c}_1=(1,1,1,1)^{T}$, $\\mathbf{c}_2=(1,-1,1,-1)^{T}$, $\\mathbf{c}_3=\\mathbf{c}_1+\\mathbf{c}_2=(2,0,2,0)^{T}$ er\n$$C^{T}C=\\begin{bmatrix}4&0&4\\\\0&4&4\\\\4&4&8\\end{bmatrix},\\qquad C^{T}\\mathbf{b}=\\begin{bmatrix}\\mathbf{c}_1\\cdot\\mathbf{b}\\\\\\mathbf{c}_2\\cdot\\mathbf{b}\\\\\\mathbf{c}_3\\cdot\\mathbf{b}\\end{bmatrix}=\\begin{bmatrix}4\\\\4\\\\8\\end{bmatrix}.$$\nLikningene: $4x_1+4x_3=4$ og $4x_2+4x_3=4$ (den tredje, $4x_1+4x_2+8x_3=8$, er summen av de to og gir ingen ny info). Med $x_3=s$ fritt: $x_1=1-s$, $x_2=1-s$. **Hele løsningsmengden:**\n$$\\hat{\\mathbf{x}}=\\begin{bmatrix}1\\\\1\\\\0\\end{bmatrix}+s\\begin{bmatrix}-1\\\\-1\\\\1\\end{bmatrix},\\quad s\\in\\mathbb{R}.$$\nDen er **ikke entydig** fordi $C$ mangler full kolonnerang ($\\operatorname{Nul}C\\ne\\{\\mathbf{0}\\}$): retningsvektoren $(-1,-1,1)^{T}$ er nettopp $\\operatorname{Nul}C$-basisen fra a), og $C^{T}C$ er singulær. Løsningsmengden er en **affin** linje – partikulær løsning $+\\operatorname{Nul}C$."
+        }
+      ]
+    },
+    {
+      "id": "mat1120-8-3-o1c-sol",
+      "type": "collapsible",
+      "title": "Løsning O1 c)",
+      "buttonText": "Vis løsning",
+      "content": [
+        {
+          "id": "mat1120-8-3-o1c-sol-t",
+          "type": "text",
+          "content": "**c)** Selv om $\\hat{\\mathbf{x}}$ ikke er entydig, er $\\operatorname{proj}_W\\mathbf{b}=C\\hat{\\mathbf{x}}$ **den samme** for alle $s$ (endringen $C\\cdot s(-1,-1,1)^{T}=s(\\mathbf{c}_3-\\mathbf{c}_1-\\mathbf{c}_2)=\\mathbf{0}$). Med den partikulære $\\hat{\\mathbf{x}}=(1,1,0)^{T}$:\n$$\\operatorname{proj}_W\\mathbf{b}=C\\hat{\\mathbf{x}}=1\\cdot\\mathbf{c}_1+1\\cdot\\mathbf{c}_2=(2,0,2,0)^{T}.$$\n**Avstand:** $\\mathbf{z}=\\mathbf{b}-\\operatorname{proj}_W\\mathbf{b}=(3,1,1,-1)^{T}-(2,0,2,0)^{T}=(1,1,-1,-1)^{T}$, og (kontroll) $\\mathbf{z}\\cdot\\mathbf{c}_1=1+1-1-1=0$, $\\mathbf{z}\\cdot\\mathbf{c}_2=1-1-1+1=0$ ✓. Avstanden er $\\lVert\\mathbf{z}\\rVert=\\sqrt{1+1+1+1}=2$. **Svar:** $\\operatorname{proj}_W\\mathbf{b}=(2,0,2,0)^{T}$, avstand $=2$."
+        }
+      ]
+    },
+    {
+      "id": "mat1120-8-3-o2",
+      "type": "text",
+      "content": "## Oppgave 2 — funksjonsrom og $[T]_{\\mathcal{B}}$ (sjanger H + I)\n\nLa $V=\\operatorname{Span}\\{f_1,f_2,f_3\\}$ der $f_1=e^{x}$, $f_2=e^{x}\\cos x$, $f_3=e^{x}\\sin x$, og la $T:V\\to V$ være derivasjon, $T(f)=f'$.\n\n**a)** Vis at $\\mathcal{B}=\\{f_1,f_2,f_3\\}$ er lineært uavhengig, så $\\dim V=3$.\n\n**b)** Vis at $T$ avbilder $V$ inn i $V$, og finn $[T]_{\\mathcal{B}}$.\n\n**c)** Finn $\\ker(T-I)$ (der $I$ er identiteten), og oversett svaret tilbake til funksjoner. Tolk resultatet."
+    },
+    {
+      "id": "mat1120-8-3-o2a-sol",
+      "type": "collapsible",
+      "title": "Løsning O2 a)",
+      "buttonText": "Vis løsning",
+      "content": [
+        {
+          "id": "mat1120-8-3-o2a-sol-t",
+          "type": "text",
+          "content": "**a)** Anta $a\\,e^{x}+b\\,e^{x}\\cos x+c\\,e^{x}\\sin x=0$ for alle $x$. Del på $e^{x}>0$: $a+b\\cos x+c\\sin x=0$ for alle $x$. Sett inn tre verdier: $x=0$ gir $a+b=0$; $x=\\pi$ gir $a-b=0$, så $a=b=0$; $x=\\tfrac{\\pi}{2}$ gir $a+c=0$, så $c=0$. Alle koeffisienter er null, så $f_1,f_2,f_3$ er **lineært uavhengige** og $\\dim V=3$. (Alternativt: $1,\\cos x,\\sin x$ er velkjent uavhengige.)"
+        }
+      ]
+    },
+    {
+      "id": "mat1120-8-3-o2b-sol",
+      "type": "collapsible",
+      "title": "Løsning O2 b)",
+      "buttonText": "Vis løsning",
+      "content": [
+        {
+          "id": "mat1120-8-3-o2b-sol-t",
+          "type": "text",
+          "content": "**b)** Deriver hver basisfunksjon (produktregel):\n$$T(f_1)=(e^{x})'=e^{x}=f_1,$$\n$$T(f_2)=(e^{x}\\cos x)'=e^{x}\\cos x-e^{x}\\sin x=f_2-f_3,$$\n$$T(f_3)=(e^{x}\\sin x)'=e^{x}\\sin x+e^{x}\\cos x=f_2+f_3.$$\nAlle bildene ligger i $V$, så $T:V\\to V$. Søyle $j$ i $[T]_{\\mathcal{B}}$ er $[T(f_j)]_{\\mathcal{B}}$:\n$$[T]_{\\mathcal{B}}=\\begin{bmatrix}1&0&0\\\\0&1&1\\\\0&-1&1\\end{bmatrix}.$$\n(Søyle 1 fra $f_1$, søyle 2 fra $f_2-f_3$, søyle 3 fra $f_2+f_3$.)"
+        }
+      ]
+    },
+    {
+      "id": "mat1120-8-3-o2c-sol",
+      "type": "collapsible",
+      "title": "Løsning O2 c)",
+      "buttonText": "Vis løsning",
+      "content": [
+        {
+          "id": "mat1120-8-3-o2c-sol-t",
+          "type": "text",
+          "content": "**c)** $\\ker(T-I)=\\{f\\in V:T(f)=f\\}$, som i koordinater er $\\operatorname{Nul}([T]_{\\mathcal{B}}-I)$:\n$$[T]_{\\mathcal{B}}-I=\\begin{bmatrix}0&0&0\\\\0&0&1\\\\0&-1&0\\end{bmatrix}.$$\nLikningene: rad 2 gir $x_3=0$, rad 3 gir $x_2=0$, mens $x_1$ er fri. Så $\\operatorname{Nul}([T]_{\\mathcal{B}}-I)=\\operatorname{Span}\\{(1,0,0)^{T}\\}$. **Oversatt til funksjon:** $(1,0,0)^{T}$ svarer til $f_1=e^{x}$, så\n$$\\ker(T-I)=\\operatorname{Span}\\{e^{x}\\}.$$\n**Tolkning:** de eneste funksjonene i $V$ som er sin egen deriverte ($f'=f$), er multiplene av $e^{x}$ – som forventet, for $e^{x}\\cos x$ og $e^{x}\\sin x$ deriverer til blandinger av hverandre. $\\dim\\ker(T-I)=1$."
+        }
+      ]
+    },
+    {
+      "id": "mat1120-8-3-o3",
+      "type": "text",
+      "content": "## Oppgave 3 — diagonalisering og $q(A)$ (sjanger D + E)\n\nLa $A=\\begin{bmatrix}5&-3&-3\\\\3&-1&-3\\\\3&-3&-1\\end{bmatrix}$ med data fra **vedlegg V3**.\n\n**a)** Finn egenverdiene, avgjør med begrunnelse om $A$ er diagonaliserbar, og finn $P$ og $D$ med $A=PDP^{-1}$.\n\n**b)** La $q(x)=x^{2}-x$. Regn ut $q(A)=A^{2}-A$ ved å bruke diagonaliseringen, og tolk resultatet."
+    },
+    {
+      "id": "mat1120-8-3-o3a-sol",
+      "type": "collapsible",
+      "title": "Løsning O3 a)",
+      "buttonText": "Vis løsning",
+      "content": [
+        {
+          "id": "mat1120-8-3-o3a-sol-t",
+          "type": "text",
+          "content": "**a)** **Fra vedlegg V3** ($\\operatorname{poly}$/$\\operatorname{eig}$): $\\lambda^{3}-3\\lambda^{2}+4=(\\lambda-2)^{2}(\\lambda+1)$, så egenverdiene er $\\lambda=2$ (algebraisk multiplisitet $2$) og $\\lambda=-1$ (enkel). $\\lambda=2$ har to uavhengige egenvektorer $(1,1,0)^{T},(1,0,1)^{T}$, altså $\\dim E_2=2=$ algebraisk multiplisitet; $\\lambda=-1$ er enkel. Ved **diagonaliserbarhetskriteriet** (geometrisk $=$ algebraisk for hver egenverdi) er $A$ **diagonaliserbar**. Matchet søyle for søyle:\n$$P=\\begin{bmatrix}1&1&1\\\\1&0&1\\\\0&1&1\\end{bmatrix},\\qquad D=\\begin{bmatrix}2&0&0\\\\0&2&0\\\\0&0&-1\\end{bmatrix},\\qquad A=PDP^{-1}.$$\n(Søyle 1, 2 hører til $\\lambda=2$, søyle 3 til $\\lambda=-1$.)"
+        }
+      ]
+    },
+    {
+      "id": "mat1120-8-3-o3b-sol",
+      "type": "collapsible",
+      "title": "Løsning O3 b)",
+      "buttonText": "Vis løsning",
+      "content": [
+        {
+          "id": "mat1120-8-3-o3b-sol-t",
+          "type": "text",
+          "content": "**b)** Med $A=PDP^{-1}$ er $q(A)=P\\,q(D)\\,P^{-1}$ med **samme** $P$, der $q(D)$ regnes elementvis: $q(2)=2^{2}-2=2$ og $q(-1)=(-1)^{2}-(-1)=2$. Altså\n$$q(D)=\\begin{bmatrix}2&0&0\\\\0&2&0\\\\0&0&2\\end{bmatrix}=2I\\ \\Rightarrow\\ q(A)=P(2I)P^{-1}=2I.$$\nSå $A^{2}-A=2I$, det vil si $A^{2}=A+2I$. **Tolkning:** begge egenverdiene oppfyller $\\lambda^{2}-\\lambda=2$, så $A$ tilfredsstiller polynomet $x^{2}-x-2=(x-2)(x+1)$ – dette er **minimalpolynomet** til $A$. En rask kontroll av ett element bekrefter $A^{2}-A=2I$. **Svar:** $q(A)=2I$."
+        }
+      ]
+    },
+    {
+      "id": "mat1120-8-3-o4",
+      "type": "text",
+      "content": "## Oppgave 4 — singulærverdidekomposisjon (sjanger K)\n\nLa $A=\\begin{bmatrix}3&1\\\\1&3\\\\0&0\\end{bmatrix}$ med data fra **vedlegg V4**.\n\n**a)** Finn en singulærverdidekomposisjon $A=U\\Sigma V^{T}$.\n\n**b)** Bestem $\\max_{\\lVert\\mathbf{x}\\rVert=1}\\lVert A\\mathbf{x}\\rVert$ og en $\\mathbf{x}$ der maksimum nås."
+    },
+    {
+      "id": "mat1120-8-3-o4a-sol",
+      "type": "collapsible",
+      "title": "Løsning O4 a)",
+      "buttonText": "Vis løsning",
+      "content": [
+        {
+          "id": "mat1120-8-3-o4a-sol-t",
+          "type": "text",
+          "content": "**a)** **Fra vedlegg V4:** $A^{T}A$ har egenverdier $16$ og $4$, så singulærverdiene (synkende) er $\\sigma_1=\\sqrt{16}=4$ og $\\sigma_2=\\sqrt{4}=2$. **Høyre-singulærvektorer** $\\mathbf{v}_i$ = normaliserte egenvektorer til $A^{T}A$ (begge lengde $\\sqrt2$):\n$$\\mathbf{v}_1=\\tfrac{1}{\\sqrt2}(1,1)^{T},\\qquad \\mathbf{v}_2=\\tfrac{1}{\\sqrt2}(1,-1)^{T}.$$\n**Venstre-singulærvektorer** $\\mathbf{u}_i=\\dfrac{1}{\\sigma_i}A\\mathbf{v}_i$:\n$$\\mathbf{u}_1=\\tfrac{1}{4}A\\mathbf{v}_1=\\tfrac{1}{4}\\cdot\\tfrac{1}{\\sqrt2}(4,4,0)^{T}=\\tfrac{1}{\\sqrt2}(1,1,0)^{T},\\quad \\mathbf{u}_2=\\tfrac{1}{2}A\\mathbf{v}_2=\\tfrac{1}{2}\\cdot\\tfrac{1}{\\sqrt2}(2,-2,0)^{T}=\\tfrac{1}{\\sqrt2}(1,-1,0)^{T}.$$\nSuppler med $\\mathbf{u}_3=(0,0,1)^{T}$ til en ortonormal basis for $\\mathbb{R}^{3}$. Da\n$$U=\\begin{bmatrix}\\tfrac{1}{\\sqrt2}&\\tfrac{1}{\\sqrt2}&0\\\\[2pt]\\tfrac{1}{\\sqrt2}&-\\tfrac{1}{\\sqrt2}&0\\\\[2pt]0&0&1\\end{bmatrix},\\quad \\Sigma=\\begin{bmatrix}4&0\\\\0&2\\\\0&0\\end{bmatrix},\\quad V=\\tfrac{1}{\\sqrt2}\\begin{bmatrix}1&1\\\\1&-1\\end{bmatrix},$$\nog $A=U\\Sigma V^{T}$ (eksakt)."
+        }
+      ]
+    },
+    {
+      "id": "mat1120-8-3-o4b-sol",
+      "type": "collapsible",
+      "title": "Løsning O4 b)",
+      "buttonText": "Vis løsning",
+      "content": [
+        {
+          "id": "mat1120-8-3-o4b-sol-t",
+          "type": "text",
+          "content": "**b)** For en hvilken som helst matrise er $\\max_{\\lVert\\mathbf{x}\\rVert=1}\\lVert A\\mathbf{x}\\rVert=\\sigma_1$, den **største singulærverdien**, oppnådd i den første høyre-singulærvektoren $\\mathbf{v}_1$. Her:\n$$\\max_{\\lVert\\mathbf{x}\\rVert=1}\\lVert A\\mathbf{x}\\rVert=\\sigma_1=4,\\quad\\text{oppnådd i}\\quad \\mathbf{x}=\\mathbf{v}_1=\\tfrac{1}{\\sqrt2}(1,1)^{T}.$$\nKontroll: $A\\mathbf{v}_1=\\tfrac{1}{\\sqrt2}(4,4,0)^{T}$, med $\\lVert A\\mathbf{v}_1\\rVert=\\tfrac{1}{\\sqrt2}\\sqrt{16+16}=\\tfrac{1}{\\sqrt2}\\cdot\\sqrt{32}=\\tfrac{\\sqrt{32}}{\\sqrt2}=\\sqrt{16}=4$ ✓. **Svar:** maksimum $4$, i $\\mathbf{x}=\\tfrac{1}{\\sqrt2}(1,1)^{T}$."
+        }
+      ]
+    },
+    {
+      "id": "mat1120-8-3-o5",
+      "type": "text",
+      "content": "## Oppgave 5 — kort bevis: Householder-matrisen (sjanger L)\n\nLa $\\mathbf{v}\\in\\mathbb{R}^{n}$ være en **enhetsvektor** ($\\mathbf{v}^{T}\\mathbf{v}=1$), og la $R=I-2\\mathbf{v}\\mathbf{v}^{T}$.\n\n**a)** Vis at $R$ er symmetrisk og ortogonal, og at $R^{2}=I$.\n\n**b)** Regn ut $R\\mathbf{v}$ og $R\\mathbf{w}$ for en $\\mathbf{w}$ med $\\mathbf{v}^{T}\\mathbf{w}=0$, og gi den geometriske tolkningen av $R$."
+    },
+    {
+      "id": "mat1120-8-3-o5a-sol",
+      "type": "collapsible",
+      "title": "Løsning O5 a)",
+      "buttonText": "Vis løsning",
+      "content": [
+        {
+          "id": "mat1120-8-3-o5a-sol-t",
+          "type": "text",
+          "content": "**a)** **Symmetrisk:** $(\\mathbf{v}\\mathbf{v}^{T})^{T}=\\mathbf{v}\\mathbf{v}^{T}$, så $R^{T}=(I-2\\mathbf{v}\\mathbf{v}^{T})^{T}=I-2\\mathbf{v}\\mathbf{v}^{T}=R$.\n\n**Ortogonal:** siden $R^{T}=R$ er det nok å vise $R^{2}=I$. Bruk $\\mathbf{v}^{T}\\mathbf{v}=1$:\n$$R^{2}=(I-2\\mathbf{v}\\mathbf{v}^{T})(I-2\\mathbf{v}\\mathbf{v}^{T})=I-4\\mathbf{v}\\mathbf{v}^{T}+4\\mathbf{v}(\\mathbf{v}^{T}\\mathbf{v})\\mathbf{v}^{T}=I-4\\mathbf{v}\\mathbf{v}^{T}+4\\mathbf{v}\\mathbf{v}^{T}=I.$$\nDa er $R^{T}R=R\\cdot R=R^{2}=I$, så $R$ er **ortogonal** (og $R^{-1}=R$). $\\blacksquare$"
+        }
+      ]
+    },
+    {
+      "id": "mat1120-8-3-o5b-sol",
+      "type": "collapsible",
+      "title": "Løsning O5 b)",
+      "buttonText": "Vis løsning",
+      "content": [
+        {
+          "id": "mat1120-8-3-o5b-sol-t",
+          "type": "text",
+          "content": "**b)** Med $\\mathbf{v}^{T}\\mathbf{v}=1$:\n$$R\\mathbf{v}=\\mathbf{v}-2\\mathbf{v}(\\mathbf{v}^{T}\\mathbf{v})=\\mathbf{v}-2\\mathbf{v}=-\\mathbf{v}.$$\nFor $\\mathbf{w}$ med $\\mathbf{v}^{T}\\mathbf{w}=0$:\n$$R\\mathbf{w}=\\mathbf{w}-2\\mathbf{v}(\\mathbf{v}^{T}\\mathbf{w})=\\mathbf{w}-2\\mathbf{v}\\cdot0=\\mathbf{w}.$$\n**Geometrisk tolkning:** $R$ **speiler om hyperplanet** $\\mathbf{v}^{\\perp}=\\{\\mathbf{x}:\\mathbf{v}^{T}\\mathbf{x}=0\\}$. Komponenten langs $\\mathbf{v}$ snus ($\\mathbf{v}\\mapsto-\\mathbf{v}$), mens alt i hyperplanet står fast ($\\mathbf{w}\\mapsto\\mathbf{w}$). En slik refleksjon er normbevarende (som ortogonaliteten viste) og har $\\det R=-1$."
+        }
+      ]
+    }
+  ],
+  "exercises": []
+}
