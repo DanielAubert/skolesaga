@@ -1,0 +1,376 @@
+{
+  "id": "mat1120-2-6",
+  "courseId": "mat1120",
+  "chapterNumber": "2.6",
+  "title": "Basisskifte for [T]_B, isomorfi og kjerne oversatt til funksjoner",
+  "description": "Hvordan matrisen endres ved basisskifte ([T]_C = P_{C←B}[T]_B P_{B←C}), isomorfi-kriteriet (T isomorfi ⇔ [T]_B invertibel), og å oversette ker T / Nul[T]_B tilbake til polynomer eller funksjoner.",
+  "estimatedMinutes": 55,
+  "competenceGoals": [
+    "bytte basis for en operatormatrise med [T]_C = P_{C←B}[T]_B P_{B←C} i riktig rekkefølge og retning",
+    "avgjøre om en lineær avbildning er en isomorfi ved å sjekke om [T]_B er invertibel",
+    "finne ker T som Nul[T]_B og oversette basisen tilbake til polynomer/funksjoner",
+    "forklare at egenverdiene til en operator er basisuavhengige"
+  ],
+  "content": [
+    {
+      "id": "mat1120-2-6-tip-eksamensvinkel",
+      "type": "tip",
+      "title": "Eksamensvinkel",
+      "content": "**Tre grep samles her: basisskifte, isomorfi og kjerne oversatt tilbake** — sjanger I/L, **~60 %** (basisskifte) pluss isomorfi-kriteriet (2018 O4b, 2021 O3b) og kjerne-oversettelsen (2019, 2022-u).\n\n- **Basisskifte:** $[T]_{\\mathcal{C}}=P_{\\mathcal{C}\\leftarrow\\mathcal{B}}[T]_{\\mathcal{B}}P_{\\mathcal{B}\\leftarrow\\mathcal{C}}$ — riktig rekkefølge og retning er karakterskillet.\n- **Isomorfi:** $T$ er en isomorfi ⇔ $[T]_{\\mathcal{B}}$ er invertibel ⇔ $\\ker T=\\{\\mathbf{0}\\}$. En likning $T(f)=g$ har entydig løsning ⇔ $[T]_{\\mathcal{B}}$ invertibel.\n- **Kjerne til funksjoner:** finn en basis for $\\operatorname{Nul}[T]_{\\mathcal{B}}$ (koordinatvektorer), og **oversett tilbake** til polynomer/funksjoner — la aldri svaret bli stående i $\\mathbb{R}^n$.\n\n**Sensorregel:** toppsjikt-poengene sitter i tilbakeoversettelsen og i at du sjekker invertibilitet før du konkluderer isomorfi — ikke bare påstår det."
+    },
+    {
+      "id": "mat1120-2-6-forkunnskaper",
+      "type": "text",
+      "content": "**Forkunnskaper:** Bygger på [kap. 2.5](/bok/mat1120/mat1120-2-5) (matriserepresentasjonen $[T]_{\\mathcal{B}}$) og [kap. 2.4](/bok/mat1120/mat1120-2-4) (overgangsmatrisen $P_{\\mathcal{C}\\leftarrow\\mathcal{B}}$ og retningen «$\\mathcal{C}$ fra $\\mathcal{B}$»). Vi finner kjernen som et nullrom, så [kap. 1.2](/bok/mat1120/mat1120-1-2) ($\\operatorname{Nul}A$, basis fra frie variabler) er nyttig. Invers matrise forutsettes fra *(MAT1110 — forkunnskapsemne, ikke bygget ennå; aktiver `/bok/mat1110/<id>`-lenke når den finnes)*."
+    },
+    {
+      "id": "mat1120-2-6-intro",
+      "type": "text",
+      "content": "I kap. 2.5 fant vi matrisen $[T]_{\\mathcal{B}}$ til en operator relativt én basis. Men matrisen avhenger av basisen — velger vi en annen basis $\\mathcal{C}$, får vi en annen matrise $[T]_{\\mathcal{C}}$ for samme operator. Første spørsmål: hvordan henger de to sammen? Svaret er **basisskifteformelen**, og den bruker overgangsmatrisene fra kap. 2.4.\n\nDeretter høster vi to gevinster av at $T$ nå er en matrise: vi kan avgjøre om $T$ er en **isomorfi** (bare sjekk om matrisen er invertibel), og vi kan finne **kjernen** $\\ker T$ som et nullrom — for så å oversette svaret tilbake til polynomer eller funksjoner. Vi jobber i tre løkker: **(1)** basisskifte, **(2)** isomorfi-kriteriet, **(3)** kjernen oversatt tilbake."
+    },
+    {
+      "id": "mat1120-2-6-lokke1",
+      "type": "text",
+      "content": "## Løkke 1 — Basisskifte for operatormatrisen (~18 min)"
+    },
+    {
+      "id": "mat1120-2-6-def-basisskifteformel",
+      "type": "definition",
+      "title": "Basisskifteformelen",
+      "content": "Samme operator $T$ har ulik matrise i ulike baser. Matrisene henger sammen via overgangsmatrisene:\n\n$$[T]_{\\mathcal{C}}=P_{\\mathcal{C}\\leftarrow\\mathcal{B}}\\,[T]_{\\mathcal{B}}\\,P_{\\mathcal{B}\\leftarrow\\mathcal{C}}.$$\n\nLes den fra høyre mot venstre, slik en koordinatvektor reiser: en $\\mathcal{C}$-koordinatvektor kommer inn, $P_{\\mathcal{B}\\leftarrow\\mathcal{C}}$ oversetter den til $\\mathcal{B}$-koordinater, $[T]_{\\mathcal{B}}$ utfører $T$, og $P_{\\mathcal{C}\\leftarrow\\mathcal{B}}$ oversetter resultatet tilbake til $\\mathcal{C}$. Rekkefølgen og retningen på pilene *må* stemme — det er her poengene vinnes eller tapes."
+    },
+    {
+      "id": "mat1120-2-6-def-likedannethet",
+      "type": "definition",
+      "title": "Likedannethet (similaritet)",
+      "content": "Siden $P_{\\mathcal{B}\\leftarrow\\mathcal{C}}=(P_{\\mathcal{C}\\leftarrow\\mathcal{B}})^{-1}$, kan vi skrive $P=P_{\\mathcal{C}\\leftarrow\\mathcal{B}}$ og få\n\n$$[T]_{\\mathcal{C}}=P\\,[T]_{\\mathcal{B}}\\,P^{-1}.$$\n\nTo matriser som er knyttet slik ($A$ og $PAP^{-1}$) kalles **likedannede** (similære). De representerer *samme* avbildning sett fra to baser. Likedannede matriser deler mange egenskaper — determinant, spor, rang og, som vi skal se, egenverdier."
+    },
+    {
+      "id": "mat1120-2-6-thm-egenverdier-basisuavh",
+      "type": "theorem",
+      "title": "Egenverdiene er basisuavhengige",
+      "content": "Fordi $[T]_{\\mathcal{B}}$ og $[T]_{\\mathcal{C}}$ er likedannede, har de **samme karakteristiske polynom** og dermed **samme egenverdier**:\n\n$$\\det([T]_{\\mathcal{C}}-\\lambda I)=\\det(P[T]_{\\mathcal{B}}P^{-1}-\\lambda I)=\\det(P([T]_{\\mathcal{B}}-\\lambda I)P^{-1})=\\det([T]_{\\mathcal{B}}-\\lambda I).$$\n\nEgenverdiene tilhører altså *operatoren* $T$, ikke basisen. Det gjør det trygt å velge den basisen som gjør $[T]_{\\mathcal{B}}$ enklest når du skal finne egenverdier."
+    },
+    {
+      "id": "mat1120-2-6-1",
+      "type": "exercise",
+      "exercise": {
+        "id": "mat1120-2-6-e1",
+        "number": "1",
+        "type": "classic",
+        "difficulty": "lett",
+        "task": "(Innstegsoppgave — ren gjengivelse.) Basisskifteformelen er $[T]_{\\mathcal{C}}=P_{\\mathcal{C}\\leftarrow\\mathcal{B}}[T]_{\\mathcal{B}}P_{\\mathcal{B}\\leftarrow\\mathcal{C}}$.\n\n**a)** Hvilken matrise står lengst til høyre, og hvorfor?\n\n**b)** Hvilke to egenskaper deler $[T]_{\\mathcal{B}}$ og $[T]_{\\mathcal{C}}$ fordi de er likedannede?",
+        "solution": "**a)** $P_{\\mathcal{B}\\leftarrow\\mathcal{C}}$ står lengst til høyre. En $\\mathcal{C}$-koordinatvektor kommer inn til høyre og må først oversettes til $\\mathcal{B}$-koordinater (der $[T]_{\\mathcal{B}}$ virker), så $P_{\\mathcal{B}\\leftarrow\\mathcal{C}}$ må virke først.\n\n**b)** De deler blant annet **egenverdier** og **determinant** (og spor og rang) — alt som er felles for likedannede matriser.",
+        "hints": [
+          "Les formelen fra høyre mot venstre, slik en koordinatvektor beveger seg.",
+          "Likedannede matriser $A$ og $PAP^{-1}$ har samme karakteristiske polynom."
+        ]
+      }
+    },
+    {
+      "id": "mat1120-2-6-ex-basisskifte",
+      "type": "example",
+      "title": "Eksempel 1: $[T]_{\\mathcal{C}}$ for derivasjon via basisskifte (sjanger I)",
+      "problem": "La $T(p)=p'$ på $\\operatorname{P}_2$, med $\\mathcal{B}=\\{1,t,t^2\\}$ og $\\mathcal{C}=\\{1,\\ 1+t,\\ 1+t+t^2\\}$. Fra kap. 2.5 er $[T]_{\\mathcal{B}}=\\begin{bmatrix}0&1&0\\\\ 0&0&2\\\\ 0&0&0\\end{bmatrix}$, og fra kap. 2.4 er $P_{\\mathcal{C}\\leftarrow\\mathcal{B}}=\\begin{bmatrix}1&-1&0\\\\ 0&1&-1\\\\ 0&0&1\\end{bmatrix}$, $P_{\\mathcal{B}\\leftarrow\\mathcal{C}}=\\begin{bmatrix}1&1&1\\\\ 0&1&1\\\\ 0&0&1\\end{bmatrix}$. Finn $[T]_{\\mathcal{C}}$.",
+      "solution": "Bruk $[T]_{\\mathcal{C}}=P_{\\mathcal{C}\\leftarrow\\mathcal{B}}[T]_{\\mathcal{B}}P_{\\mathcal{B}\\leftarrow\\mathcal{C}}$. Regn innenfra og ut.\n\n**Først $[T]_{\\mathcal{B}}P_{\\mathcal{B}\\leftarrow\\mathcal{C}}$:**\n$$\\begin{bmatrix}0&1&0\\\\ 0&0&2\\\\ 0&0&0\\end{bmatrix}\\begin{bmatrix}1&1&1\\\\ 0&1&1\\\\ 0&0&1\\end{bmatrix}=\\begin{bmatrix}0&1&1\\\\ 0&0&2\\\\ 0&0&0\\end{bmatrix}.$$\n\n**Så $P_{\\mathcal{C}\\leftarrow\\mathcal{B}}\\cdot(\\dots)$:**\n$$\\begin{bmatrix}1&-1&0\\\\ 0&1&-1\\\\ 0&0&1\\end{bmatrix}\\begin{bmatrix}0&1&1\\\\ 0&0&2\\\\ 0&0&0\\end{bmatrix}=\\begin{bmatrix}0&1&-1\\\\ 0&0&2\\\\ 0&0&0\\end{bmatrix}.$$\n\nAltså $[T]_{\\mathcal{C}}=\\begin{bmatrix}0&1&-1\\\\ 0&0&2\\\\ 0&0&0\\end{bmatrix}$. **Kontroll — egenverdier:** både $[T]_{\\mathcal{B}}$ og $[T]_{\\mathcal{C}}$ er øvre triangulære med bare nuller på diagonalen, så begge har egenverdien $0$ (trippel) — som de skal, siden egenverdiene er basisuavhengige. ✓"
+    },
+    {
+      "id": "mat1120-2-6-2",
+      "type": "exercise",
+      "exercise": {
+        "id": "mat1120-2-6-e2",
+        "number": "2",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "La $T(p)=p'$ på $\\operatorname{P}_2$ med $[T]_{\\mathcal{B}}=\\begin{bmatrix}0&1&0\\\\ 0&0&2\\\\ 0&0&0\\end{bmatrix}$ ($\\mathcal{B}=\\{1,t,t^2\\}$). La $\\mathcal{C}=\\{1,\\ 1-t,\\ t^2\\}$. Overgangsmatrisene er $P_{\\mathcal{B}\\leftarrow\\mathcal{C}}=\\begin{bmatrix}1&1&0\\\\ 0&-1&0\\\\ 0&0&1\\end{bmatrix}$ og $P_{\\mathcal{C}\\leftarrow\\mathcal{B}}=\\begin{bmatrix}1&1&0\\\\ 0&-1&0\\\\ 0&0&1\\end{bmatrix}$. Finn $[T]_{\\mathcal{C}}$.",
+        "solution": "$[T]_{\\mathcal{C}}=P_{\\mathcal{C}\\leftarrow\\mathcal{B}}[T]_{\\mathcal{B}}P_{\\mathcal{B}\\leftarrow\\mathcal{C}}$.\n\nFørst $[T]_{\\mathcal{B}}P_{\\mathcal{B}\\leftarrow\\mathcal{C}}$:\n$$\\begin{bmatrix}0&1&0\\\\ 0&0&2\\\\ 0&0&0\\end{bmatrix}\\begin{bmatrix}1&1&0\\\\ 0&-1&0\\\\ 0&0&1\\end{bmatrix}=\\begin{bmatrix}0&-1&0\\\\ 0&0&2\\\\ 0&0&0\\end{bmatrix}.$$\nSå $P_{\\mathcal{C}\\leftarrow\\mathcal{B}}\\cdot(\\dots)$:\n$$\\begin{bmatrix}1&1&0\\\\ 0&-1&0\\\\ 0&0&1\\end{bmatrix}\\begin{bmatrix}0&-1&0\\\\ 0&0&2\\\\ 0&0&0\\end{bmatrix}=\\begin{bmatrix}0&-1&2\\\\ 0&0&-2\\\\ 0&0&0\\end{bmatrix}.$$\nAltså $[T]_{\\mathcal{C}}=\\begin{bmatrix}0&-1&2\\\\ 0&0&-2\\\\ 0&0&0\\end{bmatrix}$. (Merk: her er $P_{\\mathcal{C}\\leftarrow\\mathcal{B}}=P_{\\mathcal{B}\\leftarrow\\mathcal{C}}$ fordi denne $\\mathcal{C}$ er sin egen «invers-basis».) Egenverdiene er fortsatt $0,0,0$. ✓",
+        "hints": [
+          "Regn innenfra: $[T]_{\\mathcal{B}}P_{\\mathcal{B}\\leftarrow\\mathcal{C}}$ først, deretter gang $P_{\\mathcal{C}\\leftarrow\\mathcal{B}}$ på fra venstre.",
+          "Kontroller med egenverdiene — de skal være uendret (basisuavhengige)."
+        ]
+      }
+    },
+    {
+      "id": "mat1120-2-6-lokke2",
+      "type": "text",
+      "content": "## Løkke 2 — Isomorfi-kriteriet (~18 min)"
+    },
+    {
+      "id": "mat1120-2-6-def-kjerne-bilde",
+      "type": "definition",
+      "title": "Kjerne og bilde av $T$",
+      "content": "**Kjernen** til $T$ er de vektorene som sendes til null: $\\ker T=\\{\\mathbf{x}\\in V:T(\\mathbf{x})=\\mathbf{0}\\}$. **Bildet** er alt $T$ treffer: $\\operatorname{im}T=\\{T(\\mathbf{x}):\\mathbf{x}\\in V\\}$. Via koordinatavbildningen svarer disse nøyaktig til matrisens nullrom og kolonnerom:\n\n$$\\ker T\\ \\cong\\ \\operatorname{Nul}[T]_{\\mathcal{B}},\\qquad \\operatorname{im}T\\ \\cong\\ \\operatorname{Col}[T]_{\\mathcal{B}}.$$\n\nSå for å finne kjernen til en abstrakt operator, finner du nullrommet til matrisen — og oversetter tilbake (løkke 3)."
+    },
+    {
+      "id": "mat1120-2-6-def-isomorfi",
+      "type": "definition",
+      "title": "Isomorfi-kriteriet",
+      "content": "En **isomorfi** er en lineær avbildning som er både injektiv (én-til-én) og surjektiv (treffer alt) — den kobler to rom perfekt sammen. For en operator $T:V\\to V$ på et endeligdimensjonalt rom er dette lett å avgjøre:\n\n$$T\\text{ er en isomorfi}\\ \\Longleftrightarrow\\ [T]_{\\mathcal{B}}\\text{ er invertibel}\\ \\Longleftrightarrow\\ \\ker T=\\{\\mathbf{0}\\}.$$\n\nDu sjekker altså bare om matrisen er invertibel (f.eks. $\\det[T]_{\\mathcal{B}}\\ne0$, eller full rang). Kriteriet er basisuavhengig — velg den basisen som gjør matrisen enklest."
+    },
+    {
+      "id": "mat1120-2-6-def-entydig-losning",
+      "type": "definition",
+      "title": "Entydig løsning av $T(f)=g$",
+      "content": "Isomorfi-kriteriet svarer også på løsbarhet. Likningen $T(f)=g$ har **nøyaktig én løsning $f$ for hver $g$** ⇔ $T$ er en isomorfi ⇔ $[T]_{\\mathcal{B}}$ er invertibel. Da er $[f]_{\\mathcal{B}}=[T]_{\\mathcal{B}}^{-1}[g]_{\\mathcal{B}}$. Er $[T]_{\\mathcal{B}}$ singulær, har likningen enten ingen eller uendelig mange løsninger (avhengig av $g$). Dette er 2021 O3b-grepet."
+    },
+    {
+      "id": "mat1120-2-6-ex-isomorfi",
+      "type": "example",
+      "title": "Eksempel 2: Er $T(p)=p'-p$ en isomorfi? (sjanger I/L)",
+      "problem": "La $T:\\operatorname{P}_2\\to\\operatorname{P}_2$ være $T(p)=p'-p$, og $\\mathcal{B}=\\{1,t,t^2\\}$. Finn $[T]_{\\mathcal{B}}$, avgjør om $T$ er en isomorfi, og bruk det til å si hvor mange løsninger $T(p)=t^2$ har.",
+      "solution": "**$[T]_{\\mathcal{B}}$** — regn $T$ på hver basisvektor og skriv i $\\mathcal{B}$-koordinater:\n\n- $T(1)=0-1=-1\\Rightarrow(-1,0,0)$.\n- $T(t)=1-t\\Rightarrow(1,-1,0)$.\n- $T(t^2)=2t-t^2\\Rightarrow(0,2,-1)$.\n\n$$[T]_{\\mathcal{B}}=\\begin{bmatrix}-1&1&0\\\\ 0&-1&2\\\\ 0&0&-1\\end{bmatrix}.$$\n\n**Isomorfi?** Matrisen er øvre triangulær, så determinanten er produktet av diagonalen: $\\det[T]_{\\mathcal{B}}=(-1)(-1)(-1)=-1\\ne0$. Altså er $[T]_{\\mathcal{B}}$ **invertibel**, og etter isomorfi-kriteriet er $T$ **en isomorfi**. Da er $\\ker T=\\{\\mathbf{0}\\}$.\n\n**Løsninger av $T(p)=t^2$:** siden $T$ er en isomorfi, har $T(p)=g$ **nøyaktig én løsning** for hver $g$ — spesielt for $g=t^2$. (Konklusjon: entydig løsbar.)"
+    },
+    {
+      "id": "mat1120-2-6-3",
+      "type": "exercise",
+      "exercise": {
+        "id": "mat1120-2-6-e3",
+        "number": "3",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "La $T:\\operatorname{P}_2\\to\\operatorname{P}_2$ være $T(p)=p'+2p$, og $\\mathcal{B}=\\{1,t,t^2\\}$.\n\n**a)** Finn $[T]_{\\mathcal{B}}$.\n\n**b)** Avgjør om $T$ er en isomorfi ved å regne determinanten.",
+        "solution": "**a)** $T(1)=0+2=2\\Rightarrow(2,0,0)$; $T(t)=1+2t\\Rightarrow(1,2,0)$; $T(t^2)=2t+2t^2\\Rightarrow(0,2,2)$. Så\n$$[T]_{\\mathcal{B}}=\\begin{bmatrix}2&1&0\\\\ 0&2&2\\\\ 0&0&2\\end{bmatrix}.$$\n\n**b)** Øvre triangulær, så $\\det[T]_{\\mathcal{B}}=2\\cdot2\\cdot2=8\\ne0$. Matrisen er invertibel, så $T$ er **en isomorfi** (og $\\ker T=\\{\\mathbf{0}\\}$).",
+        "hints": [
+          "Kolonne $j$ er $[T(\\mathbf{b}_j)]_{\\mathcal{B}}$: regn $p'+2p$ for $p=1,t,t^2$.",
+          "For en triangulær matrise er determinanten produktet av diagonalelementene."
+        ]
+      }
+    },
+    {
+      "id": "mat1120-2-6-lokke3",
+      "type": "text",
+      "content": "## Løkke 3 — Kjernen oversatt tilbake til funksjoner (~15 min)"
+    },
+    {
+      "id": "mat1120-2-6-def-oversettelse",
+      "type": "definition",
+      "title": "Oversett $\\operatorname{Nul}[T]_{\\mathcal{B}}$ tilbake",
+      "content": "Når $[T]_{\\mathcal{B}}$ er singulær, er $\\ker T\\ne\\{\\mathbf{0}\\}$. Oppskriften for å finne kjernen som polynomer/funksjoner:\n\n1. **Finn $\\operatorname{Nul}[T]_{\\mathcal{B}}$** — en basis av koordinatvektorer (spesielle løsninger, én per fri variabel, akkurat som i kap. 1.2).\n2. **Oversett tilbake** — hver koordinatvektor $(c_1,\\dots,c_n)$ svarer til vektoren $c_1\\mathbf{b}_1+\\dots+c_n\\mathbf{b}_n$ i $V$.\n\nSluttsvaret skal være en mengde **polynomer eller funksjoner**, ikke tallkolonner. Å la $\\ker T$ bli stående i $\\mathbb{R}^n$ er den dokumenterte fellen — og et tapt toppsjikt-poeng."
+    },
+    {
+      "id": "mat1120-2-6-ex-kjerne",
+      "type": "example",
+      "title": "Eksempel 3: $\\ker T$ for derivasjon, oversatt til polynomer",
+      "problem": "La $T(p)=p'$ på $\\operatorname{P}_2$, $\\mathcal{B}=\\{1,t,t^2\\}$, med $[T]_{\\mathcal{B}}=\\begin{bmatrix}0&1&0\\\\ 0&0&2\\\\ 0&0&0\\end{bmatrix}$. Finn $\\ker T$ som en mengde polynomer.",
+      "solution": "**Steg 1 — $\\operatorname{Nul}[T]_{\\mathcal{B}}$.** Løs $[T]_{\\mathcal{B}}\\mathbf{c}=\\mathbf{0}$. Radene gir $c_2=0$ og $2c_3=0$, altså $c_2=c_3=0$, mens $c_1$ er fri. Nullrommet er utspent av $(1,0,0)$:\n$$\\operatorname{Nul}[T]_{\\mathcal{B}}=\\operatorname{Span}\\{(1,0,0)\\}.$$\n\n**Steg 2 — oversett tilbake.** Koordinatvektoren $(1,0,0)$ i basisen $\\{1,t,t^2\\}$ svarer til polynomet $1\\cdot1+0\\cdot t+0\\cdot t^2=1$. Altså\n$$\\ker T=\\operatorname{Span}\\{1\\}=\\{\\text{konstantpolynomene}\\}.$$\n\n**Verbal konklusjon:** kjernen består av de konstante polynomene — helt riktig, for det er nøyaktig polynomene med derivert lik null. Svaret er en mengde *polynomer*, ikke en tallkolonne."
+    },
+    {
+      "id": "mat1120-2-6-4",
+      "type": "exercise",
+      "exercise": {
+        "id": "mat1120-2-6-e4",
+        "number": "4",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "La $T(p)=p''$ (dobbelderivasjon) på $\\operatorname{P}_3$, $\\mathcal{B}=\\{1,t,t^2,t^3\\}$.\n\n**a)** Finn $[T]_{\\mathcal{B}}$.\n\n**b)** Finn $\\ker T$ som en mengde polynomer.",
+        "solution": "**a)** $T(1)=0\\Rightarrow(0,0,0,0)$; $T(t)=0\\Rightarrow(0,0,0,0)$; $T(t^2)=2\\Rightarrow(2,0,0,0)$; $T(t^3)=6t\\Rightarrow(0,6,0,0)$. Så\n$$[T]_{\\mathcal{B}}=\\begin{bmatrix}0&0&2&0\\\\ 0&0&0&6\\\\ 0&0&0&0\\\\ 0&0&0&0\\end{bmatrix}.$$\n\n**b)** Løs $[T]_{\\mathcal{B}}\\mathbf{c}=\\mathbf{0}$: radene gir $2c_3=0$ og $6c_4=0$, altså $c_3=c_4=0$, mens $c_1,c_2$ er frie. Basis for nullrommet: $(1,0,0,0)$ og $(0,1,0,0)$. Oversatt tilbake: polynomene $1$ og $t$. Altså\n$$\\ker T=\\operatorname{Span}\\{1,\\ t\\}=\\{\\text{polynomer av grad}\\le1\\}.$$\nDet stemmer: $p''=0$ nettopp for de lineære polynomene.",
+        "hints": [
+          "Kolonne $j$ er $[(\\mathbf{b}_j)'']_{\\mathcal{B}}$: dobbelderiver $1,t,t^2,t^3$.",
+          "Finn de frie variablene i $\\operatorname{Nul}[T]_{\\mathcal{B}}$, og oversett hver spesiell løsning tilbake til et polynom."
+        ]
+      }
+    },
+    {
+      "id": "mat1120-2-6-5",
+      "type": "exercise",
+      "exercise": {
+        "id": "mat1120-2-6-e5",
+        "number": "5",
+        "type": "classic",
+        "difficulty": "vanskelig",
+        "task": "La $V=\\operatorname{Span}\\{1,\\ \\cos t,\\ \\sin t\\}$ med basis $\\mathcal{B}=\\{1,\\cos t,\\sin t\\}$, og $T(f)=f'$.\n\n**a)** Finn $[T]_{\\mathcal{B}}$.\n\n**b)** Er $T$ en isomorfi? Finn $\\ker T$ som en mengde funksjoner.",
+        "solution": "**a)** Deriver basisfunksjonene og uttrykk i $\\mathcal{B}=\\{1,\\cos t,\\sin t\\}$:\n\n- $(1)'=0\\Rightarrow(0,0,0)$.\n- $(\\cos t)'=-\\sin t\\Rightarrow(0,0,-1)$.\n- $(\\sin t)'=\\cos t\\Rightarrow(0,1,0)$.\n\n$$[T]_{\\mathcal{B}}=\\begin{bmatrix}0&0&0\\\\ 0&0&1\\\\ 0&-1&0\\end{bmatrix}.$$\n\n**b)** $\\det[T]_{\\mathcal{B}}=0$ (første kolonne er null), så matrisen er **ikke** invertibel — $T$ er **ikke** en isomorfi. Kjerne: løs $[T]_{\\mathcal{B}}\\mathbf{c}=\\mathbf{0}$. Radene gir $c_3=0$ og $-c_2=0$, mens $c_1$ er fri. Nullrommet er $\\operatorname{Span}\\{(1,0,0)\\}$, som oversatt tilbake er funksjonen $1$. Altså\n$$\\ker T=\\operatorname{Span}\\{1\\}=\\{\\text{konstantfunksjonene}\\}.$$\nRiktig — det er nettopp funksjonene i $V$ med derivert null.",
+        "hints": [
+          "Deriver $1,\\cos t,\\sin t$; pass på fortegnet på $(\\cos t)'=-\\sin t$.",
+          "En kolonne av bare nuller gir determinant $0$ — og en fri variabel i nullrommet. Oversett den frie retningen tilbake til en funksjon."
+        ]
+      }
+    },
+    {
+      "id": "mat1120-2-6-warn-typiske-feil",
+      "type": "warning",
+      "title": "Typiske feil",
+      "content": "- **Feil rekkefølge/retning i basisskifteformelen.** Riktig er $[T]_{\\mathcal{C}}=P_{\\mathcal{C}\\leftarrow\\mathcal{B}}[T]_{\\mathcal{B}}P_{\\mathcal{B}\\leftarrow\\mathcal{C}}$ — $P_{\\mathcal{B}\\leftarrow\\mathcal{C}}$ til høyre (leser $\\mathcal{C}$-inn), $P_{\\mathcal{C}\\leftarrow\\mathcal{B}}$ til venstre (skriver $\\mathcal{C}$-ut). Bytter du dem, blir alt speilvendt.\n- **Konkluderer isomorfi uten å sjekke invertibilitet.** Det holder ikke å påstå — regn $\\det[T]_{\\mathcal{B}}$ eller sjekk rangen, og skriv «$[T]_{\\mathcal{B}}$ invertibel ⇒ $T$ isomorfi».\n- **Lar $\\ker T$ bli stående i $\\mathbb{R}^n$.** Den dokumenterte toppsjikt-fellen: du finner $\\operatorname{Nul}[T]_{\\mathcal{B}}$, men oversetter ikke koordinatvektorene tilbake til polynomer/funksjoner. Sluttsvaret skal være en mengde funksjoner.\n- **Glemmer at egenverdiene er basisuavhengige.** $[T]_{\\mathcal{B}}$ og $[T]_{\\mathcal{C}}$ har samme egenverdier — hvis du får ulike, har du regnet feil.\n- **Bruker $P_{\\mathcal{C}\\leftarrow\\mathcal{B}}$ der du trenger inversen.** Sjekk retningen mot kap. 2.4 hver gang."
+    },
+    {
+      "id": "mat1120-2-6-begrepsbank-tekst",
+      "type": "text",
+      "content": "## Begrepsbank til eksamen\n\nBasisskifte, isomorfi og kjerne-oversettelse i kortform — dette apparatet må sitte utenat (intet formelark).\n\n*Begrepsbanken er flashcard-/repetisjonsstoff — den gjentar det du nettopp har lest. Hopp trygt over ved førstegangslesing; tidsanslaget for kapitlet gjelder kjernestoffet.*"
+    },
+    {
+      "id": "mat1120-2-6-bb-basisskifteformel",
+      "type": "definition",
+      "title": "Basisskifteformelen",
+      "content": "$[T]_{\\mathcal{C}}=P_{\\mathcal{C}\\leftarrow\\mathcal{B}}[T]_{\\mathcal{B}}P_{\\mathcal{B}\\leftarrow\\mathcal{C}}$. Les fra høyre: $\\mathcal{C}$-vektor inn → $P_{\\mathcal{B}\\leftarrow\\mathcal{C}}$ oversetter til $\\mathcal{B}$ → $[T]_{\\mathcal{B}}$ virker → $P_{\\mathcal{C}\\leftarrow\\mathcal{B}}$ oversetter tilbake til $\\mathcal{C}$."
+    },
+    {
+      "id": "mat1120-2-6-bb-likedannethet",
+      "type": "definition",
+      "title": "Likedannethet (similaritet)",
+      "content": "$A$ og $PAP^{-1}$ er likedannede — de representerer samme avbildning i to baser. Likedannede matriser deler determinant, spor, rang og egenverdier (samme karakteristiske polynom)."
+    },
+    {
+      "id": "mat1120-2-6-bb-egenverdier-basisuavh",
+      "type": "definition",
+      "title": "Egenverdier er basisuavhengige",
+      "content": "$[T]_{\\mathcal{B}}$ og $[T]_{\\mathcal{C}}$ har samme egenverdier, fordi de er likedannede. Egenverdiene tilhører operatoren $T$, ikke basisen — velg den basisen som gjør matrisen enklest."
+    },
+    {
+      "id": "mat1120-2-6-bb-rekkefolge",
+      "type": "definition",
+      "title": "Rekkefølge og retning i formelen",
+      "content": "$P_{\\mathcal{B}\\leftarrow\\mathcal{C}}$ står lengst til høyre (leser $\\mathcal{C}$-koordinater inn), $P_{\\mathcal{C}\\leftarrow\\mathcal{B}}$ lengst til venstre (skriver $\\mathcal{C}$-koordinater ut). Bytter du de to, blir hele resultatet speilvendt."
+    },
+    {
+      "id": "mat1120-2-6-bb-kjerne",
+      "type": "definition",
+      "title": "Kjernen $\\ker T$",
+      "content": "$\\ker T=\\{\\mathbf{x}:T(\\mathbf{x})=\\mathbf{0}\\}$, et underrom av $V$. Via koordinater er $\\ker T\\cong\\operatorname{Nul}[T]_{\\mathcal{B}}$ — finn matrisens nullrom og oversett tilbake."
+    },
+    {
+      "id": "mat1120-2-6-bb-bilde",
+      "type": "definition",
+      "title": "Bildet $\\operatorname{im}T$",
+      "content": "$\\operatorname{im}T=\\{T(\\mathbf{x}):\\mathbf{x}\\in V\\}$, alt $T$ treffer. Via koordinater er $\\operatorname{im}T\\cong\\operatorname{Col}[T]_{\\mathcal{B}}$ — kolonnerommet til matrisen."
+    },
+    {
+      "id": "mat1120-2-6-bb-isomorfi",
+      "type": "definition",
+      "title": "Isomorfi",
+      "content": "En lineær avbildning som er både injektiv og surjektiv — den kobler to rom perfekt, med en invers som også er lineær. To rom med en isomorfi mellom seg er «like» som vektorrom."
+    },
+    {
+      "id": "mat1120-2-6-bb-isomorfi-kriteriet",
+      "type": "definition",
+      "title": "Isomorfi-kriteriet",
+      "content": "$T$ er en isomorfi ⇔ $[T]_{\\mathcal{B}}$ er invertibel ⇔ $\\ker T=\\{\\mathbf{0}\\}$. Praktisk sjekk: $\\det[T]_{\\mathcal{B}}\\ne0$ eller full rang. Basisuavhengig."
+    },
+    {
+      "id": "mat1120-2-6-bb-entydig-losning",
+      "type": "definition",
+      "title": "Entydig løsning av $T(f)=g$",
+      "content": "$T(f)=g$ har nøyaktig én løsning for hver $g$ ⇔ $T$ isomorfi ⇔ $[T]_{\\mathcal{B}}$ invertibel. Da er $[f]_{\\mathcal{B}}=[T]_{\\mathcal{B}}^{-1}[g]_{\\mathcal{B}}$."
+    },
+    {
+      "id": "mat1120-2-6-bb-oversettelse",
+      "type": "definition",
+      "title": "Oversett kjernen tilbake",
+      "content": "Finn en basis for $\\operatorname{Nul}[T]_{\\mathcal{B}}$ (koordinatvektorer), og gjør hver til en vektor $c_1\\mathbf{b}_1+\\dots+c_n\\mathbf{b}_n$ i $V$. Sluttsvaret er en mengde polynomer/funksjoner — aldri tallkolonner."
+    },
+    {
+      "id": "mat1120-2-6-bb-oversettelsesfelle",
+      "type": "definition",
+      "title": "Oversettelsesfellen",
+      "content": "Den dokumenterte toppsjikt-fellen: å la $\\ker T$ bli stående som $\\operatorname{Nul}[T]_{\\mathcal{B}}$ i $\\mathbb{R}^n$. Oppgaven spør etter funksjoner/polynomer, så tilbakeoversettelsen er obligatorisk."
+    },
+    {
+      "id": "mat1120-2-6-bb-deriv-kjerne",
+      "type": "definition",
+      "title": "Kjernen til derivasjon",
+      "content": "For $T(f)=f'$ er $\\ker T$ = konstantfunksjonene (det som deriveres til null). For $T(f)=f''$ er $\\ker T$ = polynomene av grad $\\le1$. Nyttige kontroller."
+    },
+    {
+      "id": "mat1120-2-6-bb-singular-kjerne",
+      "type": "definition",
+      "title": "Singulær matrise ⇒ ikke-triviell kjerne",
+      "content": "$[T]_{\\mathcal{B}}$ singulær ($\\det=0$) ⇔ $\\ker T\\ne\\{\\mathbf{0}\\}$ ⇔ $T$ ikke isomorfi. Antall frie variabler i $\\operatorname{Nul}[T]_{\\mathcal{B}}$ = $\\dim\\ker T$."
+    },
+    {
+      "id": "mat1120-2-6-bb-triangular-det",
+      "type": "definition",
+      "title": "Determinant av triangulær $[T]_{\\mathcal{B}}$",
+      "content": "Er $[T]_{\\mathcal{B}}$ triangulær (vanlig for derivasjonsoperatorer på $\\operatorname{P}_n$), er determinanten produktet av diagonalelementene. Rask isomorfi-sjekk: er noen diagonalelement null, er $T$ ikke isomorfi."
+    },
+    {
+      "id": "mat1120-2-6-bb-dim-kjerne-bilde",
+      "type": "definition",
+      "title": "Dimensjonsteoremet for $T$",
+      "content": "$\\dim\\ker T+\\dim\\operatorname{im}T=\\dim V$ (rang–nullitet anvendt på $[T]_{\\mathcal{B}}$). Kontroll: teller kjerne- og bildedimensjonene til $\\dim V$?"
+    },
+    {
+      "id": "mat1120-2-6-bb-invers-matrise-losning",
+      "type": "definition",
+      "title": "Løs $T(f)=g$ med inversmatrisen",
+      "content": "Når $[T]_{\\mathcal{B}}$ er invertibel: skriv $g$ i koordinater, regn $[f]_{\\mathcal{B}}=[T]_{\\mathcal{B}}^{-1}[g]_{\\mathcal{B}}$, og oversett $f$ tilbake til et polynom/en funksjon."
+    },
+    {
+      "id": "mat1120-2-6-bb-diagonalisering-bro",
+      "type": "definition",
+      "title": "Bro til diagonalisering",
+      "content": "Basisskifte $[T]_{\\mathcal{C}}=P[T]_{\\mathcal{B}}P^{-1}$ er nøyaktig samme relasjon som diagonalisering $A=PDP^{-1}$ (Del 3): der velger man en egenvektorbasis $\\mathcal{C}$ slik at $[T]_{\\mathcal{C}}=D$ blir diagonal."
+    },
+    {
+      "id": "mat1120-2-6-bb-koordinatavbildning-iso",
+      "type": "definition",
+      "title": "Koordinatavbildningen er en isomorfi",
+      "content": "Selve koordinatavbildningen $\\mathbf{x}\\mapsto[\\mathbf{x}]_{\\mathcal{B}}$ (kap. 2.3) er en isomorfi $V\\to\\mathbb{R}^n$. Det er grunnen til at $\\ker T$ og $\\operatorname{im}T$ svarer nøyaktig til $\\operatorname{Nul}$ og $\\operatorname{Col}$ av matrisen."
+    },
+    {
+      "id": "mat1120-2-6-rep",
+      "type": "collapsible",
+      "title": "Repetisjonsoppgaver",
+      "buttonText": "Vis repetisjonsoppgaver",
+      "content": [
+        {
+          "id": "mat1120-2-6-R1",
+          "type": "exercise",
+          "exercise": {
+            "id": "mat1120-2-6-eR1",
+            "number": "R1",
+            "type": "classic",
+            "difficulty": "lett",
+            "task": "(Fra dette kapitlet) Hvordan avgjør du om en operator $T$ er en isomorfi når du kjenner $[T]_{\\mathcal{B}}$?",
+            "solution": "Sjekk om $[T]_{\\mathcal{B}}$ er invertibel — for eksempel om $\\det[T]_{\\mathcal{B}}\\ne0$ eller om matrisen har full rang. Er den invertibel, er $T$ en isomorfi (og $\\ker T=\\{\\mathbf{0}\\}$); ellers ikke.",
+            "hints": [
+              "Isomorfi ⇔ matrisen er invertibel."
+            ]
+          }
+        },
+        {
+          "id": "mat1120-2-6-R2",
+          "type": "exercise",
+          "exercise": {
+            "id": "mat1120-2-6-eR2",
+            "number": "R2",
+            "type": "classic",
+            "difficulty": "middels",
+            "task": "(Fra dette kapitlet) $\\operatorname{Nul}[T]_{\\mathcal{B}}=\\operatorname{Span}\\{(0,1,0)\\}$ for $T$ på $\\operatorname{P}_2$ med $\\mathcal{B}=\\{1,t,t^2\\}$. Hva er $\\ker T$ som en mengde polynomer?",
+            "solution": "Koordinatvektoren $(0,1,0)$ i basisen $\\{1,t,t^2\\}$ svarer til polynomet $0\\cdot1+1\\cdot t+0\\cdot t^2=t$. Altså $\\ker T=\\operatorname{Span}\\{t\\}$ — de skalare multiplene av $t$.",
+            "hints": [
+              "Oversett koordinatvektoren tilbake: gang komponentene med basisvektorene."
+            ]
+          }
+        },
+        {
+          "id": "mat1120-2-6-R3",
+          "type": "exercise",
+          "exercise": {
+            "id": "mat1120-2-6-eR3",
+            "number": "R3",
+            "type": "classic",
+            "difficulty": "middels",
+            "task": "(Fra [kap. 2.4](/bok/mat1120/mat1120-2-4)) I basisskifteformelen $[T]_{\\mathcal{C}}=P_{\\mathcal{C}\\leftarrow\\mathcal{B}}[T]_{\\mathcal{B}}P_{\\mathcal{B}\\leftarrow\\mathcal{C}}$: hva er sammenhengen mellom de to overgangsmatrisene?",
+            "solution": "De er hverandres inverser: $P_{\\mathcal{B}\\leftarrow\\mathcal{C}}=(P_{\\mathcal{C}\\leftarrow\\mathcal{B}})^{-1}$. Derfor kan formelen skrives $[T]_{\\mathcal{C}}=P[T]_{\\mathcal{B}}P^{-1}$ med $P=P_{\\mathcal{C}\\leftarrow\\mathcal{B}}$ — likedannethet.",
+            "hints": [
+              "Overgangen den ene veien er inversen av overgangen den andre veien."
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": "mat1120-2-6-symbolliste",
+      "type": "collapsible",
+      "title": "Symbol- og formelliste",
+      "buttonText": "Vis symboler og formler",
+      "content": [
+        {
+          "id": "mat1120-2-6-symbolliste-text",
+          "type": "text",
+          "content": "## Symbol- og formelliste\n\n*Oppslagsverk — alt her forklares underveis i kapitlet.*\n\nAlle symboler og formler som brukes i dette delkapitlet (2.6), samlet på ett sted.\n\n| Symbol | Betydning |\n|---|---|\n| $[T]_{\\mathcal{B}},\\ [T]_{\\mathcal{C}}$ | Matrisen til $T$ i basis $\\mathcal{B}$ / $\\mathcal{C}$ |\n| $P_{\\mathcal{C}\\leftarrow\\mathcal{B}}$ | Overgangsmatrise «$\\mathcal{C}$ fra $\\mathcal{B}$» |\n| $P_{\\mathcal{B}\\leftarrow\\mathcal{C}}$ | Inversen $=(P_{\\mathcal{C}\\leftarrow\\mathcal{B}})^{-1}$ |\n| $\\ker T$ | Kjernen $\\{\\mathbf{x}:T(\\mathbf{x})=\\mathbf{0}\\}$ |\n| $\\operatorname{im}T$ | Bildet $\\{T(\\mathbf{x})\\}$ |\n| $\\operatorname{Nul}[T]_{\\mathcal{B}}$ | Nullrommet til matrisen ($\\cong\\ker T$) |\n| $\\operatorname{Col}[T]_{\\mathcal{B}}$ | Kolonnerommet ($\\cong\\operatorname{im}T$) |\n| $\\det[T]_{\\mathcal{B}}$ | Determinant (isomorfi-sjekk) |\n\n**Formler i dette delkapitlet:**\n\n$$[T]_{\\mathcal{C}}=P_{\\mathcal{C}\\leftarrow\\mathcal{B}}\\,[T]_{\\mathcal{B}}\\,P_{\\mathcal{B}\\leftarrow\\mathcal{C}}$$\nBasisskifte for operatormatrisen — riktig rekkefølge og retning.\n\n$$[T]_{\\mathcal{C}}=P\\,[T]_{\\mathcal{B}}\\,P^{-1}\\quad(P=P_{\\mathcal{C}\\leftarrow\\mathcal{B}})$$\nLikedannethet: samme egenverdier, determinant, spor og rang.\n\n$$T\\text{ isomorfi}\\ \\Longleftrightarrow\\ [T]_{\\mathcal{B}}\\text{ invertibel}\\ \\Longleftrightarrow\\ \\ker T=\\{\\mathbf{0}\\}$$\nIsomorfi-kriteriet.\n\n$$\\ker T\\cong\\operatorname{Nul}[T]_{\\mathcal{B}},\\qquad \\operatorname{im}T\\cong\\operatorname{Col}[T]_{\\mathcal{B}}$$\nKjerne og bilde via matrisen — husk å oversette tilbake til funksjoner."
+        }
+      ]
+    }
+  ],
+  "exercises": []
+}

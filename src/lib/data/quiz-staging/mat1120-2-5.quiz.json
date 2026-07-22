@@ -1,0 +1,202 @@
+[
+  {
+    "question": "Hva står i kolonne j av matriserepresentasjonen [T]_B?",
+    "options": [
+      "Koordinatvektoren [T(b_j)]_B",
+      "Selve vektoren T(b_j) skrevet ut i sin opprinnelige form",
+      "Koordinatvektoren [b_j]_B til basisvektor nummer j",
+      "Verdien T(b_j) evaluert i punktet j langs tallinjen"
+    ],
+    "explanation": "Kolonne j er T anvendt på basisvektor j, deretter uttrykt i B-koordinater: [T(b_j)]_B. En tallkolonne, ikke vektoren selv."
+  },
+  {
+    "question": "Hvilken relasjon gjør [T]_B nyttig i praksis?",
+    "options": [
+      "[T(x)]_B = [T]_B [x]_B",
+      "[T(x)]_B = [x]_B [T]_B",
+      "[T(x)]_B = [T]_B + [x]_B",
+      "[T(x)]_B = [T]_B / [x]_B"
+    ],
+    "explanation": "For å regne T(x) ganger du koordinatvektoren [x]_B med matrisen [T]_B. Abstrakt operasjon blir matrisemultiplikasjon i ℝⁿ."
+  },
+  {
+    "question": "Hva er den vanligste feilen når man bygger [T]_B?",
+    "options": [
+      "Å sette T(b_j) inn som kolonne uten å oversette til B-koordinater",
+      "Å regne T på for mange basisvektorer samtidig i samme steg",
+      "Å bruke standardbasisen når oppgaven ikke nevner noen basis",
+      "Å multiplisere matrisen med feil koordinatvektor til slutt"
+    ],
+    "explanation": "Den dokumenterte fellen: kolonnene skal være koordinatvektorer [T(b_j)]_B, ikke polynomene/funksjonene T(b_j) selv."
+  },
+  {
+    "question": "For T(p) = p′ på P₂ med B = {1, t, t²}, hva er [T]_B?",
+    "options": [
+      "[[0,1,0],[0,0,2],[0,0,0]]",
+      "[[0,0,0],[1,0,0],[0,2,0]]",
+      "[[1,0,0],[0,1,0],[0,0,1]]",
+      "[[0,1,0],[0,0,1],[0,0,0]]"
+    ],
+    "explanation": "T(1)=0→(0,0,0), T(t)=1→(1,0,0), T(t²)=2t→(0,2,0). Kolonnene gir [[0,1,0],[0,0,2],[0,0,0]]."
+  },
+  {
+    "question": "Hvorfor må T være lineær for at [T]_B skal finnes?",
+    "options": [
+      "Fordi matriserepresentasjonen bare kan gjengi avbildninger som respekterer addisjon og skalarmultiplikasjon",
+      "Fordi bare lineære avbildninger kan brukes på polynomer av lav grad i det hele tatt",
+      "Fordi ikke-lineære avbildninger alltid mangler et definisjonsområde man kan velge basis for",
+      "Fordi en matrise per definisjon bare kan multipliseres med kvadratiske koordinatvektorer"
+    ],
+    "explanation": "Matrisemultiplikasjon er en lineær operasjon; den kan bare etterligne en avbildning som selv er lineær."
+  },
+  {
+    "question": "Hva blir T(0) for enhver lineær avbildning T?",
+    "options": [
+      "0 (nullvektoren)",
+      "1 (identitetselementet for multiplikasjon)",
+      "En vektor som avhenger av hvilken basis man har valgt",
+      "Udefinert, siden T ikke trenger å være definert i 0"
+    ],
+    "explanation": "Sett c=0 i homogeniteten: T(0)=T(0·u)=0·T(u)=0. Bryter en regel dette, er den ikke lineær."
+  },
+  {
+    "question": "For en differensialoperator S = T² − 2T + 2I, hva er [S]_B?",
+    "options": [
+      "[T]_B² − 2[T]_B + 2I",
+      "[T]_B² − 2[T]_B + 2 (skalaren 2 lagt til hvert element)",
+      "([T]_B − 2)([T]_B + 2) regnet elementvis",
+      "2[T]_B² − [T]_B, siden koeffisientene bytter plass"
+    ],
+    "explanation": "Et polynom i T representeres av samme polynom i [T]_B: [S]_B = [T]_B² − 2[T]_B + 2I, der I er identitetsmatrisen."
+  },
+  {
+    "question": "Hva betyr [T]_B² i uttrykket for en differensialoperator?",
+    "options": [
+      "Matriseproduktet [T]_B · [T]_B",
+      "Hvert element i [T]_B opphøyd i annen potens",
+      "Determinanten til [T]_B ganget med seg selv",
+      "[T]_B multiplisert med tallet 2"
+    ],
+    "explanation": "[T]_B² er matrisemultiplikasjon, ikke elementvis kvadrering. Det svarer til T²(f)=f″ for derivasjonsoperatoren."
+  },
+  {
+    "question": "På Span{sin t, cos t} med B = {sin t, cos t} og T(f)=f′, hva er [T]_B?",
+    "options": [
+      "[[0,−1],[1,0]]",
+      "[[0,1],[−1,0]]",
+      "[[1,0],[0,−1]]",
+      "[[0,1],[1,0]]"
+    ],
+    "explanation": "(sin t)′=cos t→(0,1), (cos t)′=−sin t→(−1,0). Kolonnene gir [[0,−1],[1,0]]. Fortegnet på (cos t)′ er fellen."
+  },
+  {
+    "question": "Hvorfor kan derivasjon representeres som en matrise, mens T(p)=p² ikke kan?",
+    "options": [
+      "Derivasjon er lineær, mens kvadrering bryter homogenitet (T(cp) = c²T(p))",
+      "Derivasjon gir alltid lavere grad, mens kvadrering gir høyere grad enn rommet tåler",
+      "Derivasjon er definert for alle polynomer, mens kvadrering ikke er det",
+      "Kvadrering krever et indreprodukt, som ikke er oppgitt"
+    ],
+    "explanation": "T(cp)=(cp)²=c²p², ikke cT(p). Kvadrering er ikke lineær, så den har ingen matriserepresentasjon."
+  },
+  {
+    "question": "Hva er størrelsen på [T]_B for en operator T: P₃ → P₃?",
+    "options": [
+      "4×4, siden dim P₃ = 4",
+      "3×3, siden indeksen i P₃ er 3",
+      "4×3, siden den senker graden med 1",
+      "3×4, siden det er fire basisvektorer og tre komponenter"
+    ],
+    "explanation": "dim P₃ = 4 (polynomer av grad ≤ 3), så [T]_B er kvadratisk 4×4 for en operator fra P₃ til P₃."
+  },
+  {
+    "question": "På Span{eˣcos x, eˣsin x} med T(f)=f′ og S = T²−2T+2I ble [S]_B = 0. Hva betyr det?",
+    "options": [
+      "S er nulloperatoren på rommet: hver funksjon der løser y″−2y′+2y=0",
+      "S er identitetsoperatoren, siden en nullmatrise virker som identitet",
+      "Rommet er ikke lukket under S, så S er ikke veldefinert",
+      "[T]_B må ha vært regnet feil, siden ingen ekte operator gir nullmatrise"
+    ],
+    "explanation": "[S]_B = 0 betyr S(f)=0 for alle f i rommet. Det stemmer: eˣcos x og eˣsin x løser nettopp y″−2y′+2y=0."
+  },
+  {
+    "question": "Hvordan sjekker man raskt at én av betingelsene for linearitet: T(cu + dv) = ?",
+    "options": [
+      "cT(u) + dT(v)",
+      "T(u) + T(v) uansett verdiene til c og d",
+      "cdT(u + v) med koeffisientene ganget sammen",
+      "T(cu) · T(dv) som et produkt"
+    ],
+    "explanation": "Den samlede testen T(cu+dv)=cT(u)+dT(v) dekker både additivitet (c=d=1) og homogenitet (d=0)."
+  },
+  {
+    "question": "Hva svarer [T(x)]_B = [T]_B [x]_B til når man er ferdig med regningen?",
+    "options": [
+      "Koordinatvektoren til T(x), som må oversettes tilbake til en funksjon/polynom",
+      "Selve funksjonen T(x) ferdig uttrykt, uten flere steg",
+      "En ny basis for rommet som T avbilder inn i",
+      "Determinanten til T, som avgjør om T er lineær"
+    ],
+    "explanation": "Produktet gir koordinatvektoren til T(x). Svaret må oversettes tilbake til et polynom/en funksjon for å være fullstendig."
+  },
+  {
+    "question": "Hva er [I]_B for identitetsavbildningen I(x)=x i en hvilken som helst basis?",
+    "options": [
+      "Identitetsmatrisen I",
+      "Nullmatrisen, siden I ikke endrer noe",
+      "En matrise som avhenger sterkt av valget av basis",
+      "En diagonalmatrise med basisvektorenes lengder"
+    ],
+    "explanation": "I(b_j)=b_j gir koordinatvektoren e_j i hver kolonne, altså identitetsmatrisen — uansett basis."
+  },
+  {
+    "question": "For T(p)=p′+p på P₂ med B={1,t,t²}, hva er kolonne 2 (svarende til t) i [T]_B?",
+    "options": [
+      "(1, 1, 0)",
+      "(0, 1, 0)",
+      "(1, 0, 0)",
+      "(0, 1, 1)"
+    ],
+    "explanation": "T(t)=t′+t=1+t, som i koordinater (1,t,t²) er (1,1,0)."
+  },
+  {
+    "question": "Hva menes med at basisen B er «ordnet» i sammenheng med [T]_B?",
+    "options": [
+      "Rekkefølgen på basisvektorene bestemmer rekkefølgen på kolonnene og radene",
+      "Basisvektorene må stå i stigende gradsrekkefølge for at matrisen skal finnes",
+      "Basisen må være ortogonal for at [T]_B skal kunne regnes ut",
+      "Rekkefølgen er likegyldig, men basisen må inneholde nullvektoren"
+    ],
+    "explanation": "En ordnet basis fastsetter hvilken b_j som gir hvilken kolonne, og hvilken koordinatplass som gir hvilken rad. Bytt rekkefølge, og matrisen endres."
+  },
+  {
+    "question": "Sammensetning av avbildninger S∘T svarer til hvilken matriseoperasjon?",
+    "options": [
+      "Produktet [S]_B [T]_B, i den rekkefølgen",
+      "Summen [S]_B + [T]_B",
+      "Produktet [T]_B [S]_B, altså motsatt rekkefølge",
+      "Den elementvise produktmatrisen"
+    ],
+    "explanation": "[S∘T]_B = [S]_B [T]_B, i samme rekkefølge som avbildningene virker. Spesielt er [T²]_B = [T]_B²."
+  },
+  {
+    "question": "I standardbasisen {1, t, …, tⁿ} for Pₙ, hva er kolonnene i [T]_B lette å lese av som?",
+    "options": [
+      "Koeffisientene til polynomet T(b_j)",
+      "Røttene til polynomet T(b_j)",
+      "Gradene til hvert ledd i T(b_j)",
+      "Verdiene av T(b_j) i punktet t=1"
+    ],
+    "explanation": "I standardbasisen er koordinatvektoren bare koeffisientene, så kolonne j er koeffisientene til T(b_j)."
+  },
+  {
+    "question": "Hvorfor er det nok å finne [T]_B én gang for å regne en hel differensialoperator q(T)?",
+    "options": [
+      "Fordi [q(T)]_B = q([T]_B): samme polynom i matrisen som i operatoren",
+      "Fordi q(T) alltid har samme matrise som T uansett polynom",
+      "Fordi differensialoperatorer alltid gir nullmatrisen til slutt",
+      "Fordi q(T) bare endrer basisen, ikke selve matrisen"
+    ],
+    "explanation": "Matriserepresentasjon bevarer sum, skalar og produkt, så [q(T)]_B = q([T]_B). Finn [T]_B, og regn resten som matriseregning."
+  }
+]

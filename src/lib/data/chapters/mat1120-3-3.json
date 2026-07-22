@@ -1,0 +1,419 @@
+{
+  "id": "mat1120-3-3",
+  "courseId": "mat1120",
+  "chapterNumber": "3.3",
+  "title": "Aᵏ og polynom i A",
+  "description": "Potenser Aᵏ=PDᵏP⁻¹ og polynom i A: hvis Av=λv er q(A)v=q(λ)v, så B=q(A) deler egenvektorer med A og diagonaliseres med samme P — egenverdier q(λ). Invertibel ⇔ ingen q(λ)=0; kort om Cayley–Hamilton.",
+  "estimatedMinutes": 50,
+  "competenceGoals": [
+    "regne Aᵏ=PDᵏP⁻¹ via diagonalisering i stedet for gjentatt multiplikasjon",
+    "bruke q(A)v=q(λ)v: finne egenverdiene q(λ) til q(A) og diagonalisere med samme P",
+    "avgjøre om q(A) er invertibel ved å sjekke at ingen q(λ)=0",
+    "kjenne Cayley–Hamilton (p(A)=O) og bruke den til å redusere potenser"
+  ],
+  "content": [
+    {
+      "id": "mat1120-3-3-tip",
+      "type": "tip",
+      "title": "Eksamensvinkel",
+      "content": "**Et elegant og lettjent grep når egenverdiene først er kjent.** Potenser $A^{k}$ og polynom i $A$ er sjanger E, ~40 % av settene (2018, 2021 O5, 2022) — ofte som en kortere deloppgave i egenverdioppgaven. Prioritet: **kjenne** (nivå 3), men billig når du har diagonalisert.\n\n- $A^{k}=PD^{k}P^{-1}$: samme $P$ og $D$ som i [kap. 3.2](/bok/mat1120/mat1120-3-2), bare med $\\lambda^{k}$ på diagonalen. Regn **aldri** $A^{k}$ ved gjentatt matrisemultiplikasjon.\n- For et polynom $q$: $q(A)$ **deler egenvektorer** med $A$ og har egenverdier $q(\\lambda)$. Derfor diagonaliseres $q(A)=Pq(D)P^{-1}$ med **samme** $P$.\n- $q(A)$ er invertibel $\\iff q(\\lambda)\\ne0$ for **alle** egenverdier $\\lambda$.\n\nHele kapitlet hviler på diagonaliseringen fra [kap. 3.2](/bok/mat1120/mat1120-3-2)."
+    },
+    {
+      "id": "mat1120-3-3-forkunnskaper",
+      "type": "text",
+      "content": "**Forkunnskaper:** [kap. 3.2](/bok/mat1120/mat1120-3-2) (diagonalisering $A=PDP^{-1}$ og bygging av $P,D$) og [kap. 3.1](/bok/mat1120/mat1120-3-1) (egenverdier, egenvektorer). Matriseprodukt og matriseinvers forutsettes fra *(MAT1110 — forkunnskapsemne, ikke bygget ennå; aktiver `/bok/mat1110/<id>`-lenke når den finnes)*. Regelen $A^{k}\\mathbf{v}=\\lambda^{k}\\mathbf{v}$ ble varslet i begrepsbanken i [kap. 3.1](/bok/mat1120/mat1120-3-1); her utnytter vi den fullt ut."
+    },
+    {
+      "id": "mat1120-3-3-intro",
+      "type": "text",
+      "content": "Har du først skrevet $A=PDP^{-1}$, blir alt som er «bygget av $A$» enkelt. Kapitlet går i tre løkker:\n\n1. **Potenser** $A^{k}=PD^{k}P^{-1}$ — les av $\\lambda^{k}$ på diagonalen.\n2. **Polynom i $A$**: $q(A)$ deler egenvektorer med $A$ og har egenverdier $q(\\lambda)$, så $q(A)=Pq(D)P^{-1}$ med **samme** $P$.\n3. **Invertibilitet** av $q(A)$ og et blikk på Cayley–Hamilton.\n\nDen røde tråden: en egenvektor for $A$ er egenvektor for alt som er bygget av $A$ — bare egenverdien endres."
+    },
+    {
+      "id": "mat1120-3-3-l1",
+      "type": "text",
+      "content": "## Løkke 1 — Potenser: A^k = PD^k P⁻¹ (~15 min)"
+    },
+    {
+      "id": "mat1120-3-3-l1-teori",
+      "type": "text",
+      "content": "Er $A=PDP^{-1}$, blir\n$$A^{2}=PDP^{-1}\\cdot PDP^{-1}=PD(P^{-1}P)DP^{-1}=PD^{2}P^{-1},$$\nog generelt $A^{k}=PD^{k}P^{-1}$. Det indre $P^{-1}P=I$ forsvinner hver gang. Siden $D$ er diagonal, er $D^{k}=\\operatorname{diag}(\\lambda_1^{k},\\dots,\\lambda_n^{k})$ — bare hvert diagonalelement opphøyd i $k$. Dette speiler at $A^{k}\\mathbf{v}=\\lambda^{k}\\mathbf{v}$: samme egenvektorer, egenverdier $\\lambda^{k}$. Å regne $A^{k}$ ved å gange $A$ med seg selv $k$ ganger er unødvendig arbeid."
+    },
+    {
+      "id": "mat1120-3-3-def-potens",
+      "type": "definition",
+      "title": "Potenser $A^{k}=PD^{k}P^{-1}$",
+      "content": "Er $A=PDP^{-1}$ diagonaliserbar, er $A^{k}=PD^{k}P^{-1}$ for ethvert $k\\ge1$, med $D^{k}=\\operatorname{diag}(\\lambda_1^{k},\\dots,\\lambda_n^{k})$. Samme $P$ som for $A$; bare diagonalen endres. (Er $A$ invertibel, gjelder det også for negative $k$, med $\\lambda^{k}$.)"
+    },
+    {
+      "id": "mat1120-3-3-def-lambdak",
+      "type": "definition",
+      "title": "Egenverdier til $A^{k}$",
+      "content": "$A^{k}$ har samme egenvektorer som $A$, med egenverdier $\\lambda^{k}$: $A^{k}\\mathbf{v}=\\lambda^{k}\\mathbf{v}$. Dette følger av at $A$ virker på en egenvektor bare som skalering med $\\lambda$, så $k$ gjentakelser skalerer med $\\lambda^{k}$."
+    },
+    {
+      "id": "mat1120-3-3-ex1",
+      "type": "example",
+      "title": "Eksempel 1: Regn A^k via diagonalisering",
+      "problem": "La $A=\\begin{bmatrix}3&-2\\\\1&0\\end{bmatrix}$. Finn et lukket uttrykk for $A^{k}$. (Vedlegget: egenverdier $1$ og $2$ med egenvektorer $(1,1)^{T}$ og $(2,1)^{T}$.)",
+      "solution": "Egenverdiene $1$ og $2$ er distinkte, så $A$ er diagonaliserbar med\n$$P=\\begin{bmatrix}1&2\\\\1&1\\end{bmatrix},\\quad D=\\begin{bmatrix}1&0\\\\0&2\\end{bmatrix},\\quad P^{-1}=\\begin{bmatrix}-1&2\\\\1&-1\\end{bmatrix}.$$\nDa er $A^{k}=PD^{k}P^{-1}$ med $D^{k}=\\begin{bmatrix}1&0\\\\0&2^{k}\\end{bmatrix}$:\n$$A^{k}=\\begin{bmatrix}1&2\\\\1&1\\end{bmatrix}\\begin{bmatrix}1&0\\\\0&2^{k}\\end{bmatrix}\\begin{bmatrix}-1&2\\\\1&-1\\end{bmatrix}=\\begin{bmatrix}1&2\\cdot2^{k}\\\\1&2^{k}\\end{bmatrix}\\begin{bmatrix}-1&2\\\\1&-1\\end{bmatrix}=\\begin{bmatrix}2\\cdot2^{k}-1&2-2\\cdot2^{k}\\\\2^{k}-1&2-2^{k}\\end{bmatrix}.$$\n**Kontroll ($k=1$):** $\\begin{bmatrix}2\\cdot2-1&2-2\\cdot2\\\\2-1&2-2\\end{bmatrix}=\\begin{bmatrix}3&-2\\\\1&0\\end{bmatrix}=A$ ✓. **Konklusjon:** $A^{k}=\\begin{bmatrix}2^{k+1}-1&2-2^{k+1}\\\\2^{k}-1&2-2^{k}\\end{bmatrix}$."
+    },
+    {
+      "id": "mat1120-3-3-e1",
+      "type": "exercise",
+      "exercise": {
+        "id": "mat1120-3-3-e1",
+        "number": "1",
+        "type": "classic",
+        "difficulty": "lett",
+        "task": "La $A=PDP^{-1}$ med $D=\\operatorname{diag}(1,-1,3)$. Skriv opp $D^{k}$, og forklar med én setning hvorfor $A^{k}=PD^{k}P^{-1}$.",
+        "solution": "$D^{k}=\\operatorname{diag}(1^{k},(-1)^{k},3^{k})=\\operatorname{diag}(1,(-1)^{k},3^{k})$. Grunnen: i $A^{k}=(PDP^{-1})^{k}$ kanselleres alle indre $P^{-1}P=I$, så bare $PD^{k}P^{-1}$ blir igjen.",
+        "hints": [
+          "Opphøy hvert diagonalelement i k.",
+          "(PDP⁻¹)(PDP⁻¹)… — hva skjer med de indre P⁻¹P-paret?"
+        ]
+      }
+    },
+    {
+      "id": "mat1120-3-3-e2",
+      "type": "exercise",
+      "exercise": {
+        "id": "mat1120-3-3-e2",
+        "number": "2",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "For $A=\\begin{bmatrix}3&-2\\\\1&0\\end{bmatrix}$ i eksempel 1, bruk formelen $A^{k}=\\begin{bmatrix}2^{k+1}-1&2-2^{k+1}\\\\2^{k}-1&2-2^{k}\\end{bmatrix}$ til å regne ut $A^{3}$, og kontroller mot $A\\cdot A^{2}$.",
+        "solution": "Med $k=3$: $2^{4}-1=15$, $2-2^{4}=-14$, $2^{3}-1=7$, $2-2^{3}=-6$, altså $A^{3}=\\begin{bmatrix}15&-14\\\\7&-6\\end{bmatrix}$. Kontroll: $A^{2}=\\begin{bmatrix}7&-6\\\\3&-2\\end{bmatrix}$ (formel med $k=2$), og $A\\cdot A^{2}=\\begin{bmatrix}3&-2\\\\1&0\\end{bmatrix}\\begin{bmatrix}7&-6\\\\3&-2\\end{bmatrix}=\\begin{bmatrix}21-6&-18+4\\\\7&-6\\end{bmatrix}=\\begin{bmatrix}15&-14\\\\7&-6\\end{bmatrix}$ ✓.",
+        "hints": [
+          "Sett k=3 inn i formelen.",
+          "For kontrollen: A·A² = A³ skal gi samme matrise."
+        ]
+      }
+    },
+    {
+      "id": "mat1120-3-3-l2",
+      "type": "text",
+      "content": "## Løkke 2 — Polynom i A: q(A) deler egenvektorer med A (~18 min)"
+    },
+    {
+      "id": "mat1120-3-3-l2-teori",
+      "type": "text",
+      "content": "Et **polynom i $A$** er en matrise bygget av potenser av $A$, f.eks. $q(A)=A^{2}-3A+2I$ (der $q(x)=x^{2}-3x+2$). Konstantleddet blir alltid gange $I$, ikke bare et tall. Det sentrale resultatet: dersom $A\\mathbf{v}=\\lambda\\mathbf{v}$, så\n$$q(A)\\mathbf{v}=q(\\lambda)\\mathbf{v}.$$\nSå $q(A)$ har **samme** egenvektorer som $A$, med egenverdier $q(\\lambda)$. Er $A=PDP^{-1}$, følger det at\n$$q(A)=Pq(D)P^{-1},\\qquad q(D)=\\operatorname{diag}(q(\\lambda_1),\\dots,q(\\lambda_n)).$$\nDu diagonaliserer altså $q(A)$ **gratis** med den samme $P$ — bare sett egenverdiene inn i $q$."
+    },
+    {
+      "id": "mat1120-3-3-def-polyA",
+      "type": "definition",
+      "title": "Polynom i $A$",
+      "content": "For et polynom $q(x)=c_mx^{m}+\\dots+c_1x+c_0$ er $q(A)=c_mA^{m}+\\dots+c_1A+c_0I$ — konstantleddet blir $c_0I$ (identiteten), ikke tallet $c_0$. $q(A)$ er en $n\\times n$-matrise av samme størrelse som $A$."
+    },
+    {
+      "id": "mat1120-3-3-def-spektral",
+      "type": "definition",
+      "title": "Spektral avbildning: $q(A)\\mathbf{v}=q(\\lambda)\\mathbf{v}$",
+      "content": "Er $A\\mathbf{v}=\\lambda\\mathbf{v}$, så er $q(A)\\mathbf{v}=q(\\lambda)\\mathbf{v}$ for ethvert polynom $q$. Altså **deler $q(A)$ egenvektorer med $A$**, og egenverdiene transformeres ved $\\lambda\\mapsto q(\\lambda)$. Følger av $A^{j}\\mathbf{v}=\\lambda^{j}\\mathbf{v}$ ledd for ledd."
+    },
+    {
+      "id": "mat1120-3-3-def-qD",
+      "type": "definition",
+      "title": "$q(A)=Pq(D)P^{-1}$ med samme P",
+      "content": "Er $A=PDP^{-1}$, er $q(A)=Pq(D)P^{-1}$ der $q(D)=\\operatorname{diag}(q(\\lambda_1),\\dots,q(\\lambda_n))$. Diagonaliseringen av $q(A)$ bruker **samme** $P$ som $A$ — du regner bare $q$ av hver egenverdi. Dette er den store tidsbesparelsen i sjanger E."
+    },
+    {
+      "id": "mat1120-3-3-ex2",
+      "type": "example",
+      "title": "Eksempel 2: Diagonaliser B = 2I + A − A²",
+      "problem": "La $A=\\begin{bmatrix}1&0&-2\\\\-3&5&-3\\\\-5&6&-2\\end{bmatrix}$ (egenverdier $-1,2,3$, egenvektorer $(1,1,1)^{T},(-2,-1,1)^{T},(-1,0,1)^{T}$ fra [kap. 3.1](/bok/mat1120/mat1120-3-1)). Sett $B=2I+A-A^{2}$. Vis at $B$ deler egenvektorer med $A$, og finn en diagonalisering av $B$.",
+      "solution": "Her er $B=q(A)$ med $q(x)=2+x-x^{2}$. Etter spektralregelen deler $B$ egenvektorene med $A$, med egenverdier $q(\\lambda)$:\n$$q(-1)=2-1-1=0,\\qquad q(2)=2+2-4=0,\\qquad q(3)=2+3-9=-4.$$\nSå $B$ har egenverdier $0,0,-4$ med **samme** egenvektorer. Med\n$$P=\\begin{bmatrix}1&-2&-1\\\\1&-1&0\\\\1&1&1\\end{bmatrix}\\ (\\text{søyler for }-1,2,3)$$\nfår vi $B=Pq(D)P^{-1}=P\\operatorname{diag}(0,0,-4)P^{-1}$.\n\n**Kontroll ved innsetting:** egenvektoren $(1,1,1)^{T}$ (for $\\lambda=-1$) gir $B(1,1,1)^{T}=q(-1)(1,1,1)^{T}=\\mathbf{0}$, og $(-1,0,1)^{T}$ (for $\\lambda=3$) gir $B(-1,0,1)^{T}=-4(-1,0,1)^{T}$. **Konklusjon:** $B=P\\operatorname{diag}(0,0,-4)P^{-1}$, samme $P$ som $A$."
+    },
+    {
+      "id": "mat1120-3-3-e3",
+      "type": "exercise",
+      "exercise": {
+        "id": "mat1120-3-3-e3",
+        "number": "3",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "La $A$ ha egenverdier $-1,2,3$ (som i eksempel 2). For $q(x)=x^{2}-2$, oppgi egenverdiene til $B=q(A)=A^{2}-2I$, og forklar hvorfor $B$ diagonaliseres med samme $P$ som $A$.",
+        "solution": "Egenverdiene til $B$ er $q(\\lambda)$: $q(-1)=1-2=-1$, $q(2)=4-2=2$, $q(3)=9-2=7$. Så $B$ har egenverdier $-1,2,7$. $B$ deler egenvektorer med $A$ (spektralregelen $q(A)\\mathbf{v}=q(\\lambda)\\mathbf{v}$), derfor er $B=P\\operatorname{diag}(-1,2,7)P^{-1}$ med samme $P$.",
+        "hints": [
+          "Sett hver egenverdi λ inn i q(x)=x²−2.",
+          "q(A) har samme egenvektorer som A ⇒ samme P."
+        ]
+      }
+    },
+    {
+      "id": "mat1120-3-3-e4",
+      "type": "exercise",
+      "exercise": {
+        "id": "mat1120-3-3-e4",
+        "number": "4",
+        "type": "classic",
+        "difficulty": "lett",
+        "task": "For $q(x)=x^{2}-5x+6$ og en matrise $A$ med egenverdi $\\lambda=2$, hva er egenverdien til $q(A)$ for den samme egenvektoren?",
+        "solution": "Egenverdien er $q(2)=2^{2}-5\\cdot2+6=4-10+6=0$. Så $q(A)$ har egenverdi $0$ for egenvektoren til $A$s $\\lambda=2$ (den ligger i $\\operatorname{Nul}\\,q(A)$).",
+        "hints": [
+          "Sett λ=2 inn i q(x).",
+          "q(A)v = q(λ)v for samme v."
+        ]
+      }
+    },
+    {
+      "id": "mat1120-3-3-l3",
+      "type": "text",
+      "content": "## Løkke 3 — Invertibilitet av q(A) og Cayley–Hamilton (~15 min)"
+    },
+    {
+      "id": "mat1120-3-3-l3-teori",
+      "type": "text",
+      "content": "Siden $q(A)$ har egenverdier $q(\\lambda)$, er determinanten $\\det q(A)=\\prod_i q(\\lambda_i)$. Derfor:\n$$q(A)\\text{ er invertibel}\\iff q(\\lambda)\\ne0\\text{ for ALLE egenverdier }\\lambda\\text{ til }A.$$\nÉn eneste egenverdi med $q(\\lambda)=0$ gjør $q(A)$ singulær (den egenvektoren havner i $\\operatorname{Nul}\\,q(A)$). Sjekk derfor **alle** egenverdiene, ikke bare én.\n\nEt beslektet resultat er **Cayley–Hamilton**: enhver matrise oppfyller sin egen karakteristiske likning, $p(A)=O$, der $p$ er det karakteristiske polynomet. Det forklarer hvorfor høye potenser av $A$ alltid kan uttrykkes ved lavere — nyttig kjennskap, sjelden regnetung på eksamen."
+    },
+    {
+      "id": "mat1120-3-3-def-invertibel",
+      "type": "definition",
+      "title": "Invertibilitet av $q(A)$",
+      "content": "$q(A)$ er invertibel $\\iff q(\\lambda)\\ne0$ for **hver** egenverdi $\\lambda$ til $A$ (fordi $\\det q(A)=\\prod q(\\lambda_i)$). Har $A$ en egenverdi med $q(\\lambda)=0$, er $q(A)$ singulær, og egenvektoren for den $\\lambda$ ligger i $\\operatorname{Nul}\\,q(A)$."
+    },
+    {
+      "id": "mat1120-3-3-def-cayley",
+      "type": "definition",
+      "title": "Cayley–Hamilton",
+      "content": "Enhver kvadratisk matrise annullerer sitt eget karakteristiske polynom: er $p(\\lambda)=\\det(A-\\lambda I)$, så $p(A)=O$ (nullmatrisen). Følge: $A^{n}$ (og høyere potenser) kan skrives som lineærkombinasjoner av $I,A,\\dots,A^{n-1}$. Regnes sjelden ut på eksamen, men er nyttig teori."
+    },
+    {
+      "id": "mat1120-3-3-ex3",
+      "type": "example",
+      "title": "Eksempel 3: Er q(A) invertibel?",
+      "problem": "La $A$ ha egenverdier $-1,2,3$. Avgjør om $B=A^{2}-2I$ og $C=2I+A-A^{2}$ er invertible.",
+      "solution": "**$B=A^{2}-2I$**, altså $q(x)=x^{2}-2$: fra oppgave 3 er egenverdiene $q(-1)=-1$, $q(2)=2$, $q(3)=7$. **Ingen** er $0$, så $B$ er **invertibel** (og $B^{-1}=P\\operatorname{diag}(-1,\\tfrac12,\\tfrac17)P^{-1}$).\n\n**$C=2I+A-A^{2}$**, altså $q(x)=2+x-x^{2}$: fra eksempel 2 er egenverdiene $q(-1)=0$, $q(2)=0$, $q(3)=-4$. **To** egenverdier er $0$, så $C$ er **ikke** invertibel — $\\det C=0\\cdot0\\cdot(-4)=0$, og $\\operatorname{Nul}C$ inneholder egenvektorene for $A$s $\\lambda=-1$ og $\\lambda=2$.\n\n**Konklusjon:** $B$ invertibel, $C$ singulær. Regelen er: sjekk $q(\\lambda)$ for **alle** egenverdiene."
+    },
+    {
+      "id": "mat1120-3-3-e5",
+      "type": "exercise",
+      "exercise": {
+        "id": "mat1120-3-3-e5",
+        "number": "5",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "En matrise $A$ har egenverdier $1,\\ 4,\\ -2$. Er $q(A)=A^{2}-A-2I$ invertibel? Begrunn ved å sjekke alle egenverdiene.",
+        "solution": "$q(x)=x^{2}-x-2=(x-2)(x+1)$. Egenverdiene til $q(A)$: $q(1)=1-1-2=-2$, $q(4)=16-4-2=10$, $q(-2)=4+2-2=4$. Ingen er $0$, så $q(A)$ er **invertibel**. (Merk: $q(x)=0$ har røtter $2$ og $-1$; siden verken $2$ eller $-1$ er egenverdier til $A$, blir ingen $q(\\lambda)=0$.)",
+        "hints": [
+          "Regn q(λ) for hver av egenverdiene 1, 4, −2.",
+          "q(A) invertibel ⇔ ingen q(λ) er 0."
+        ]
+      }
+    },
+    {
+      "id": "mat1120-3-3-e6",
+      "type": "exercise",
+      "exercise": {
+        "id": "mat1120-3-3-e6",
+        "number": "6",
+        "type": "classic",
+        "difficulty": "vanskelig",
+        "task": "En matrise $A$ har egenverdier $3$ og $5$. Bestem et tall $c$ slik at $A-cI$ IKKE er invertibel, og forklar hva egenrommet til den tilhørende egenverdien har med $\\operatorname{Nul}(A-cI)$ å gjøre.",
+        "solution": "$A-cI=q(A)$ med $q(x)=x-c$. $q(A)$ er singulær $\\iff q(\\lambda)=0$ for en egenverdi, altså $\\lambda-c=0$, dvs. $c=\\lambda$. Så $c=3$ eller $c=5$ gjør $A-cI$ singulær. For $c=3$: $\\operatorname{Nul}(A-3I)=E_{3}$, egenrommet til $\\lambda=3$ — nøyaktig egenvektorene som $A-3I$ sender til $\\mathbf{0}$.",
+        "hints": [
+          "A−cI er polynomet q(A) med q(x)=x−c.",
+          "q(λ)=λ−c=0 gir c=λ; Nul(A−λI) er egenrommet E_λ."
+        ]
+      }
+    },
+    {
+      "id": "mat1120-3-3-warn",
+      "type": "warning",
+      "title": "Typiske feil",
+      "content": "- **Regner $A^{k}$ direkte** ved gjentatt multiplikasjon i stedet for $PD^{k}P^{-1}$ — unødvendig og feilutsatt.\n- **Bruker feil $P$ for $q(A)$:** $q(A)$ har **samme** egenvektorer som $A$, altså samme $P$. Du skal ikke diagonalisere $q(A)$ på nytt fra bunnen.\n- **Regner $q(\\lambda)$ feil**, eller glemmer at konstantleddet i $q(A)$ er $c_0I$, ikke bare tallet $c_0$.\n- **Konkluderer invertibilitet av $q(A)$ etter å ha sjekket bare én egenverdi:** du må sjekke $q(\\lambda)\\ne0$ for **alle** egenverdiene.\n- **Glemmer at $D^{k}$ bare er diagonalelementene opphøyd i $k$** — ikke hele $D$ ganget med seg selv på annen måte."
+    },
+    {
+      "id": "mat1120-3-3-bb",
+      "type": "text",
+      "content": "## Begrepsbank til eksamen\n\nKjernebegrepene fra kapitlet i eksamensrettet kortform.\n\n*Begrepsbanken er flashcard-/repetisjonsstoff — hopp trygt over ved førstegangslesing; tidsanslaget gjelder kjernestoffet.*"
+    },
+    {
+      "id": "mat1120-3-3-bb-Dk",
+      "type": "definition",
+      "title": "$D^{k}$ er trivielt",
+      "content": "For en diagonal $D=\\operatorname{diag}(\\lambda_1,\\dots,\\lambda_n)$ er $D^{k}=\\operatorname{diag}(\\lambda_1^{k},\\dots,\\lambda_n^{k})$ — hvert diagonalelement opphøyd i $k$, alt utenfor diagonalen forblir $0$. Det er derfor $A^{k}$ blir enkelt via diagonalisering."
+    },
+    {
+      "id": "mat1120-3-3-bb-samme-egenvektor",
+      "type": "definition",
+      "title": "Samme egenvektorer for A, A^k og q(A)",
+      "content": "En egenvektor for $A$ er egenvektor for $A^{k}$ (egenverdi $\\lambda^{k}$) og for $q(A)$ (egenverdi $q(\\lambda)$). Egenvektorene endres aldri av å ta potenser eller polynom — bare egenverdiene transformeres."
+    },
+    {
+      "id": "mat1120-3-3-bb-konstantledd",
+      "type": "definition",
+      "title": "Konstantleddet blir $c_0I$",
+      "content": "I $q(A)$ erstattes hver $x^{j}$ med $A^{j}$ og konstantleddet $c_0$ med $c_0I$. Å skrive bare $+c_0$ (et tall) i en matriseligning er en typefeil — man kan ikke addere et tall til en matrise."
+    },
+    {
+      "id": "mat1120-3-3-bb-detqA",
+      "type": "definition",
+      "title": "$\\det q(A)=\\prod q(\\lambda_i)$",
+      "content": "Determinanten til $q(A)$ er produktet av $q(\\lambda_i)$ over alle egenverdiene (med multiplisitet). Derfor styrer nullpunktene til $q$ på $A$s spektrum om $q(A)$ er singulær."
+    },
+    {
+      "id": "mat1120-3-3-bb-nulqA",
+      "type": "definition",
+      "title": "$\\operatorname{Nul}q(A)$ og egenrom",
+      "content": "Er $q(\\lambda_0)=0$ for en egenverdi $\\lambda_0$, ligger hele egenrommet $E_{\\lambda_0}$ i $\\operatorname{Nul}q(A)$: for $\\mathbf{v}\\in E_{\\lambda_0}$ er $q(A)\\mathbf{v}=q(\\lambda_0)\\mathbf{v}=\\mathbf{0}$. Slik oppstår singularitet i $q(A)$."
+    },
+    {
+      "id": "mat1120-3-3-bb-negpotens",
+      "type": "definition",
+      "title": "Negative potenser",
+      "content": "Er $A$ invertibel ($0$ ikke egenverdi), gjelder $A^{-k}=PD^{-k}P^{-1}$ med $D^{-k}=\\operatorname{diag}(\\lambda_i^{-k})$. Egenverdiene til $A^{-1}$ er $1/\\lambda_i$ — spesialtilfellet $q(x)=x^{-1}$ av samme idé."
+    },
+    {
+      "id": "mat1120-3-3-bb-diagbevart",
+      "type": "definition",
+      "title": "q(A) arver diagonaliserbarhet",
+      "content": "Er $A$ diagonaliserbar, er $q(A)$ det også — med samme $P$. Merk at $q(A)$ kan ha **færre distinkte** egenverdier enn $A$ (hvis $q$ sender ulike $\\lambda$ til samme verdi), men den er fortsatt diagonaliserbar."
+    },
+    {
+      "id": "mat1120-3-3-bb-cayley-bruk",
+      "type": "definition",
+      "title": "Bruk av Cayley–Hamilton",
+      "content": "Cayley–Hamilton ($p(A)=O$) lar deg redusere høye potenser: for en $2\\times2$-matrise med $p(\\lambda)=\\lambda^{2}-t\\lambda+d$ gir $A^{2}=tA-dI$, så $A^{3}=tA^{2}-dA$ osv. Nyttig når diagonalisering ikke er tilgjengelig."
+    },
+    {
+      "id": "mat1120-3-3-bb-polynom-kommuterer",
+      "type": "definition",
+      "title": "Polynom i A kommuterer med A",
+      "content": "$A$ og $q(A)$ kommuterer alltid: $A\\,q(A)=q(A)\\,A$ (begge er polynom i $A$). Det er en del av grunnen til at de deler egenvektorer og egenrom."
+    },
+    {
+      "id": "mat1120-3-3-bb-idempotent",
+      "type": "definition",
+      "title": "Spesielle q gir spesielle matriser",
+      "content": "Velger man $q$ smart, får man nyttige matriser: en projeksjon oppfyller $q(x)=x^{2}-x=0$ på spekteret (egenverdier $0,1$), en involusjon $q(x)=x^{2}-1=0$ (egenverdier $\\pm1$). Egenverdibetingelsen $q(\\lambda)=0$ karakteriserer klassen."
+    },
+    {
+      "id": "mat1120-3-3-bb-fibonacci",
+      "type": "definition",
+      "title": "Anvendelse: rekursjoner og dynamikk",
+      "content": "$A^{k}=PD^{k}P^{-1}$ er motoren bak lukkede formler for lineære rekursjoner og diskret dynamikk $\\mathbf{x}_{k+1}=A\\mathbf{x}_k\\Rightarrow\\mathbf{x}_k=A^{k}\\mathbf{x}_0$. Langtidsoppførselen styres av den største $|\\lambda|$ (utdypes i Del 7)."
+    },
+    {
+      "id": "mat1120-3-3-bb-eksponentiell",
+      "type": "definition",
+      "title": "Fra polynom til matrisefunksjoner",
+      "content": "Samme idé strekker seg til $e^{At}=Pe^{Dt}P^{-1}$ med $e^{Dt}=\\operatorname{diag}(e^{\\lambda_it})$ — grunnlaget for løsning av $\\mathbf{x}'=A\\mathbf{x}$ (Del 7). En egenvektor er egenvektor også for matrisefunksjoner, med egenverdi $f(\\lambda)$."
+    },
+    {
+      "id": "mat1120-3-3-bb-samme-P-poeng",
+      "type": "definition",
+      "title": "Hvorfor 'samme P' er poenget",
+      "content": "Har du allerede $P$ og $D$ for $A$, koster $q(A)$ eller $A^{k}$ nesten ingenting: du bytter bare $D$ mot $q(D)$ eller $D^{k}$. Å diagonalisere $q(A)$ på nytt fra bunnen er bortkastet — og en vanlig tidstyv."
+    },
+    {
+      "id": "mat1120-3-3-bb-spekteret-bilde",
+      "type": "definition",
+      "title": "q avbilder spekteret",
+      "content": "Spekteret til $q(A)$ er bildet $\\{q(\\lambda):\\lambda\\text{ egenverdi til }A\\}$. Dette er «spektralavbildningssetningen» i praksis: for å finne egenverdiene til $q(A)$ trenger du bare kjøre $A$s egenverdier gjennom $q$."
+    },
+    {
+      "id": "mat1120-3-3-bb-multiplisitet-q",
+      "type": "definition",
+      "title": "Multiplisitet kan slå sammen",
+      "content": "Sender $q$ to ulike egenverdier $\\lambda_1\\ne\\lambda_2$ til samme verdi $q(\\lambda_1)=q(\\lambda_2)$, får $q(A)$ en egenverdi med større geometrisk multiplisitet (egenrommene slås sammen). Diagonaliserbarheten bevares, men strukturen forenkles."
+    },
+    {
+      "id": "mat1120-3-3-bb-invers-som-poly",
+      "type": "definition",
+      "title": "Inversen som polynom i A",
+      "content": "For en invertibel matrise kan $A^{-1}$ uttrykkes som et polynom i $A$ (følge av Cayley–Hamilton). F.eks. $2\\times2$: $A^{-1}=\\tfrac{1}{d}(tI-A)$ når $p(\\lambda)=\\lambda^{2}-t\\lambda+d$. Illustrerer at «alt bygget av $A$» deler $A$s egenvektorer."
+    },
+    {
+      "id": "mat1120-3-3-bb-nullmatrise-q",
+      "type": "definition",
+      "title": "Når blir q(A) nullmatrisen?",
+      "content": "$q(A)=O$ nøyaktig når $q(\\lambda)=0$ for **alle** egenverdier OG $A$ er diagonaliserbar (så $q(D)=O$). Det karakteristiske polynomet er ett slikt $q$ (Cayley–Hamilton); det **minimale polynomet** er det av lavest grad med denne egenskapen."
+    },
+    {
+      "id": "mat1120-3-3-bb-potens-grense",
+      "type": "definition",
+      "title": "Potensens vekst",
+      "content": "$A^{k}$ vokser eller krymper styrt av $|\\lambda|$: er alle $|\\lambda|<1$ går $A^{k}\\to O$; er en $|\\lambda|>1$ vokser den retningen. $|\\lambda|=1$ gir bevart størrelse. Direkte lesbart fra $D^{k}=\\operatorname{diag}(\\lambda_i^{k})$."
+    },
+    {
+      "id": "mat1120-3-3-bb-verifiser-innsetting",
+      "type": "definition",
+      "title": "Kontroll ved innsetting",
+      "content": "Kontroller alltid et $q(A)$- eller $A^{k}$-resultat ved å sette inn en egenvektor: $q(A)\\mathbf{v}$ skal bli $q(\\lambda)\\mathbf{v}$, og $A^{k}\\mathbf{v}$ skal bli $\\lambda^{k}\\mathbf{v}$. Rask sjekk uten å gange ut hele produktet."
+    },
+    {
+      "id": "mat1120-3-3-bb-samlet-oppskrift",
+      "type": "definition",
+      "title": "Oppskrift for sjanger E",
+      "content": "(1) Diagonaliser $A=PDP^{-1}$ (fra kap. 3.2). (2) For $A^{k}$: bytt $D$ mot $D^{k}$. (3) For $q(A)$: bytt $D$ mot $q(D)=\\operatorname{diag}(q(\\lambda_i))$, behold $P$. (4) Invertibel $\\iff$ ingen $q(\\lambda)=0$. Samme $P$ hele veien."
+    },
+    {
+      "id": "mat1120-3-3-rep",
+      "type": "collapsible",
+      "title": "Repetisjonsoppgaver",
+      "buttonText": "Vis repetisjonsoppgaver",
+      "content": [
+        {
+          "id": "mat1120-3-3-r1",
+          "type": "exercise",
+          "exercise": {
+            "id": "mat1120-3-3-eR1",
+            "number": "R1",
+            "type": "classic",
+            "difficulty": "lett",
+            "task": "$A=PDP^{-1}$ med $D=\\operatorname{diag}(2,-3)$. Hva er $D^{4}$?",
+            "solution": "$D^{4}=\\operatorname{diag}(2^{4},(-3)^{4})=\\operatorname{diag}(16,81)$.",
+            "hints": [
+              "Opphøy hvert diagonalelement i 4; (−3)⁴ er positiv."
+            ]
+          }
+        },
+        {
+          "id": "mat1120-3-3-r2",
+          "type": "exercise",
+          "exercise": {
+            "id": "mat1120-3-3-eR2",
+            "number": "R2",
+            "type": "classic",
+            "difficulty": "middels",
+            "task": "$A$ har egenverdier $0,3,-1$. Er $B=A^{2}+A$ invertibel?",
+            "solution": "$q(x)=x^{2}+x$: $q(0)=0$, $q(3)=12$, $q(-1)=0$. To egenverdier gir $q(\\lambda)=0$, så $B$ er **ikke** invertibel.",
+            "hints": [
+              "Regn q(λ) for hver egenverdi; en eneste 0 gjør B singulær."
+            ]
+          }
+        },
+        {
+          "id": "mat1120-3-3-r3",
+          "type": "exercise",
+          "exercise": {
+            "id": "mat1120-3-3-eR3",
+            "number": "R3",
+            "type": "classic",
+            "difficulty": "lett",
+            "task": "(Fra kap. 3.1) $A\\mathbf{v}=5\\mathbf{v}$. Hva er $A^{3}\\mathbf{v}$ og $(A^{2}-4I)\\mathbf{v}$?",
+            "solution": "$A^{3}\\mathbf{v}=5^{3}\\mathbf{v}=125\\mathbf{v}$, og $(A^{2}-4I)\\mathbf{v}=(5^{2}-4)\\mathbf{v}=21\\mathbf{v}$.",
+            "hints": [
+              "A^k v = λ^k v; q(A)v = q(λ)v med q(x)=x²−4."
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": "mat1120-3-3-symbol",
+      "type": "collapsible",
+      "title": "Symbol- og formelliste",
+      "buttonText": "Vis symboler og formler",
+      "content": [
+        {
+          "id": "mat1120-3-3-symbol-tekst",
+          "type": "text",
+          "content": "## Symbol- og formelliste\n\n*Oppslagsverk — alt her forklares underveis i kapitlet.*\n\n| Symbol | Betydning |\n|---|---|\n| $A^{k}$ | $k$-te potens av $A$ |\n| $D^{k}$ | Diagonalelementene opphøyd i $k$ |\n| $q(A)$ | Polynom i $A$ (konstantledd $c_0I$) |\n| $q(\\lambda)$ | Egenverdi til $q(A)$ |\n| $q(D)$ | $\\operatorname{diag}(q(\\lambda_1),\\dots,q(\\lambda_n))$ |\n| $p(A)=O$ | Cayley–Hamilton |\n\n**Formler og regler i dette delkapitlet:**\n\n$$A^{k}=PD^{k}P^{-1},\\qquad D^{k}=\\operatorname{diag}(\\lambda_1^{k},\\dots,\\lambda_n^{k})$$\nPotenser via diagonalisering; egenverdier $\\lambda^{k}$, samme egenvektorer.\n\n$$A\\mathbf{v}=\\lambda\\mathbf{v}\\ \\Rightarrow\\ q(A)\\mathbf{v}=q(\\lambda)\\mathbf{v}$$\nSpektral avbildning: $q(A)$ deler egenvektorer med $A$.\n\n$$q(A)=Pq(D)P^{-1},\\qquad q(D)=\\operatorname{diag}(q(\\lambda_i))$$\nSamme $P$ som $A$; bare egenverdiene kjøres gjennom $q$.\n\n$$q(A)\\text{ invertibel}\\iff q(\\lambda)\\ne0\\text{ for alle egenverdier }\\lambda$$\nInvertibilitet; $\\det q(A)=\\prod q(\\lambda_i)$.\n\n$$p(A)=O\\quad(\\text{Cayley–Hamilton})$$\n$A$ annullerer sitt karakteristiske polynom."
+        }
+      ]
+    }
+  ],
+  "exercises": []
+}

@@ -1,0 +1,304 @@
+{
+  "id": "mat1120-3-4",
+  "courseId": "mat1120",
+  "chapterNumber": "3.4",
+  "title": "Drill: egenverdi- og diagonaliseringskjeden",
+  "description": "Egenverdi-repertoaret drillet: verifiser egenvektor → les polynom/egenverdier fra vedlegg → begrunn diagonaliserbarhet med multiplisitet/snarvei → bygg P og D matchet → Aᵏ/q(A) med samme P. Løsningsoppskrift, sensor-kommentert O2-case og stigende oppgavebank.",
+  "estimatedMinutes": 90,
+  "competenceGoals": [
+    "kjøre løsningsoppskriften for sjanger D+E: innsetting, vedleggslesing, egenrom, diagonaliserbarhet",
+    "begrunne diagonaliserbarhet med snarvei eller multiplisitet og bygge P/D matchet søyle for søyle",
+    "vise at en matrise ikke er diagonaliserbar (geo<alg) og håndtere parametertilfeller",
+    "regne Aᵏ=PDᵏP⁻¹ og q(A)=Pq(D)P⁻¹ med samme P og avgjøre invertibilitet"
+  ],
+  "content": [
+    {
+      "id": "mat1120-3-4-tip",
+      "type": "tip",
+      "title": "Eksamensvinkel",
+      "content": "**Her drilles hele egenverdioppgaven til automatikk.** Sjanger D + E (verifiser egenvektor, egenverdier/egenrom fra vedlegg, begrunn diagonaliserbarhet, bygg $P/D$, $A^{k}$/$q(A)$) er ~100 % av settene, nesten alltid oppgave 2 — ofte kjedet på **én** matrise gjennom flere deler.\n\n- **Diagonaliserbarhet skal ALLTID begrunnes** — med en navngitt snarvei (distinkt/symmetrisk/triangulær) eller multiplisitet (geo $=$ alg). Det er her flest taper poeng.\n- Alt av egenverdier/egenrom **leses av vedlegget** ($\\operatorname{poly}$/`eig`/RREF).\n- $P$ og $D$ **matches søyle for søyle**; $A^{k}$ og $q(A)$ bruker **samme** $P$.\n- Regn ~15–25 min på en typisk oppgave 2.\n\nUnder følger løsningsoppskriften, en sensor-kommentert O2-case, og en stigende oppgavebank. Forkunnskaper: [kap. 3.1](/bok/mat1120/mat1120-3-1)–[3.3](/bok/mat1120/mat1120-3-3)."
+    },
+    {
+      "id": "mat1120-3-4-oppskrift",
+      "type": "text",
+      "content": "## Løsningsoppskrift — egenverdioppgaven steg for steg\n\nMøter du en sjanger D/E-oppgave, kjør denne algoritmen:\n\n1. **Er en egenvektor oppgitt?** Verifiser ved **innsetting** $A\\mathbf{v}=\\lambda\\mathbf{v}$ — ikke via polynomet.\n2. **Trengs egenverdiene?** Les $\\operatorname{poly}$/`eig` av vedlegget og faktoriser. Kontroll: $\\sum\\lambda=\\operatorname{spor}A$, $\\prod\\lambda=\\det A$.\n3. **Egenrom:** $E_\\lambda=\\operatorname{Nul}(A-\\lambda I)$ — spesielle løsninger fra vedleggets RREF.\n4. **Begrunn diagonaliserbarhet** med en navngitt snarvei ($n$ distinkte / symmetrisk / triangulær) eller multiplisitet (geo $=$ alg for hver egenverdi). Ikke-diagonaliserbar: vis geo $<$ alg for én egenverdi.\n5. **Bygg $P$/$D$** matchet søyle for søyle. For $A^{k}$: $PD^{k}P^{-1}$. For $q(A)$: $Pq(D)P^{-1}$ (samme $P$), invertibel $\\iff$ ingen $q(\\lambda)=0$.\n\nSkriv en **verbal konklusjonssetning** til slutt, og oppgi **eksakte** svar."
+    },
+    {
+      "id": "mat1120-3-4-m-innsetting",
+      "type": "definition",
+      "title": "Innsetting-regelen (drill)",
+      "content": "Er en egenvektor oppgitt, verifiser med $A\\mathbf{v}=\\lambda\\mathbf{v}$ ved ett matrise–vektor-produkt. Raskere enn polynomet og full uttelling. Egenverdien leser du av forholdet $A\\mathbf{v}$ mot $\\mathbf{v}$."
+    },
+    {
+      "id": "mat1120-3-4-m-vedlegg",
+      "type": "definition",
+      "title": "Vedlegg-regelen (drill)",
+      "content": "Egenverdier og egenrom hentes av vedlegget: $\\operatorname{poly}$/`eig` for egenverdiene, RREF av $A-\\lambda I$ for egenrommet. Radreduser aldri en stor $A-\\lambda I$ for hånd — det er byggefeil."
+    },
+    {
+      "id": "mat1120-3-4-m-begrunn",
+      "type": "definition",
+      "title": "Begrunnelse-regelen (drill)",
+      "content": "Diagonaliserbarhet begrunnes ALLTID: navngi en snarvei ($n$ distinkte $\\Rightarrow$ diagonaliserbar; symmetrisk $\\Rightarrow$ ortogonalt diagonaliserbar; triangulær $\\Rightarrow$ egenverdier avlest) eller vis geo $=$ alg per egenverdi. Aldri en påstand uten argument."
+    },
+    {
+      "id": "mat1120-3-4-m-match",
+      "type": "definition",
+      "title": "Match-regelen (drill)",
+      "content": "Egenvektoren i søyle $j$ av $P$ og egenverdien i posisjon $(j,j)$ av $D$ må høre sammen. Kontroller med $AP=PD$ søyle for søyle. Rekkefølgen er fri, men lik i $P$ og $D$."
+    },
+    {
+      "id": "mat1120-3-4-m-ikkediag",
+      "type": "definition",
+      "title": "Ikke-diagonaliserbar-regelen (drill)",
+      "content": "For å vise at $A$ ikke er diagonaliserbar: pek ut én egenverdi med $\\dim E_\\lambda<$ algebraisk multiplisitet (defekt). Regn $\\dim E_\\lambda$ = antall frie variabler i $A-\\lambda I$ og sammenlign med rotens multiplisitet."
+    },
+    {
+      "id": "mat1120-3-4-m-poly",
+      "type": "definition",
+      "title": "Potens/polynom-regelen (drill)",
+      "content": "$A^{k}=PD^{k}P^{-1}$ (egenverdier $\\lambda^{k}$); $q(A)=Pq(D)P^{-1}$ (egenverdier $q(\\lambda)$) — **samme** $P$ som $A$. $q(A)$ invertibel $\\iff q(\\lambda)\\ne0$ for alle egenverdier."
+    },
+    {
+      "id": "mat1120-3-4-case",
+      "type": "example",
+      "title": "Gjennomregnet O2-case (sensor-kommentert)",
+      "problem": "**Oppgave 2 (10 p).** La $A=\\begin{bmatrix}5&-3&3\\\\3&-1&3\\\\3&-3&5\\end{bmatrix}$. Vedlegget gir karakteristisk polynom $(\\lambda-2)^{2}(\\lambda-5)$, $\\operatorname{rref}(A-2I)=\\begin{bmatrix}1&-1&1\\\\0&0&0\\\\0&0&0\\end{bmatrix}$ og $\\operatorname{rref}(A-5I)=\\begin{bmatrix}1&0&-1\\\\0&1&-1\\\\0&0&0\\end{bmatrix}$.\n\n**a)** Avgjør om $A$ er diagonaliserbar, og finn i så fall $P$ og $D$ med $A=PDP^{-1}$.\n\n**b)** Finn $A^{k}$ uttrykt ved $2^{k}$ og $5^{k}$.",
+      "solution": "**a)** Fra vedlegget ($\\operatorname{poly}$) er egenverdiene $\\lambda=2$ (algebraisk multiplisitet $2$) og $\\lambda=5$ (enkel).\n\n*Sensormerknad: her holder ingen snarvei — egenverdiene er ikke distinkte, $A$ er ikke symmetrisk og ikke triangulær. Diagonaliserbarhet MÅ derfor begrunnes med multiplisitet, og det er dette poenget sensor leter etter.*\n\n$\\lambda=2$: $\\operatorname{rref}(A-2I)$ har **én** pivot, altså to frie variabler, så $\\dim E_{2}=2$. Likningen $x_1=x_2-x_3$ gir spesielle løsninger $(1,1,0)^{T}$ ($x_2=1$) og $(-1,0,1)^{T}$ ($x_3=1$). Her er geo $=2=$ alg.\n\n$\\lambda=5$: enkel, så geo $=1$ automatisk. Fra $\\operatorname{rref}(A-5I)$: $x_1=x_3,\\ x_2=x_3$, spesiell løsning $(1,1,1)^{T}$.\n\nSummen av geometriske multiplisiteter er $2+1=3=n$, så **$A$ er diagonaliserbar** (geo $=$ alg for hver egenverdi). Matchet søyle for søyle:\n$$P=\\begin{bmatrix}1&-1&1\\\\1&0&1\\\\0&1&1\\end{bmatrix},\\qquad D=\\begin{bmatrix}2&0&0\\\\0&2&0\\\\0&0&5\\end{bmatrix}.$$\n\n*Sensormerknad: søyle 1 og 2 er egenvektorer for $\\lambda=2$, søyle 3 for $\\lambda=5$ — og $D$ har $2,2,5$ i nøyaktig samme rekkefølge. Feilmatchet $D$ er et klassisk poengtap her.*\n\nKontroll: $A(1,1,0)^{T}=(2,2,0)^{T}=2(1,1,0)^{T}$ ✓, og $\\operatorname{spor}A=9=2+2+5$ ✓, $\\det A=20=2\\cdot2\\cdot5$ ✓.\n\n**b)** $A^{k}=PD^{k}P^{-1}$ med $D^{k}=\\operatorname{diag}(2^{k},2^{k},5^{k})$. Her er $P^{-1}=\\begin{bmatrix}-1&2&-1\\\\-1&1&0\\\\1&-1&1\\end{bmatrix}$, og multiplikasjonen gir\n$$A^{k}=\\begin{bmatrix}5^{k}&2^{k}-5^{k}&5^{k}-2^{k}\\\\5^{k}-2^{k}&2\\cdot2^{k}-5^{k}&5^{k}-2^{k}\\\\5^{k}-2^{k}&2^{k}-5^{k}&5^{k}\\end{bmatrix}.$$\n\n*Sensormerknad: at $A^{k}$ bruker SAMME $P$ som i a) er hele poenget — man diagonaliserer ikke $A^{k}$ på nytt. Kontroll $k=1$ gir tilbake $A$ (f.eks. øvre venstre $5^{1}=5$; midtre $2\\cdot2-5=-1$) ✓.*\n\n**Konklusjon:** $A$ er diagonaliserbar med $P,D$ som over, og $A^{k}=PD^{k}P^{-1}$ som angitt."
+    },
+    {
+      "id": "mat1120-3-4-bank",
+      "type": "text",
+      "content": "## Oppgavebank — stigende vanskegrad\n\nBland deloppgavene fritt, men før hver som en A-besvarelse: siter vedlegget, begrunn diagonaliserbarhet, match $P/D$, og skriv eksakte svar."
+    },
+    {
+      "id": "mat1120-3-4-e1",
+      "type": "exercise",
+      "exercise": {
+        "id": "mat1120-3-4-e1",
+        "number": "1",
+        "type": "classic",
+        "difficulty": "lett",
+        "task": "Verifiser ved innsetting at $\\mathbf{v}=(-1,0,1)^{T}$ er en egenvektor for $A=\\begin{bmatrix}1&2&-1\\\\0&-1&0\\\\2&2&4\\end{bmatrix}$, og oppgi egenverdien.",
+        "solution": "$A\\mathbf{v}=\\begin{bmatrix}1(-1)+2(0)+(-1)(1)\\\\0\\\\2(-1)+2(0)+4(1)\\end{bmatrix}=\\begin{bmatrix}-2\\\\0\\\\2\\end{bmatrix}=2\\begin{bmatrix}-1\\\\0\\\\1\\end{bmatrix}=2\\mathbf{v}$. Altså egenvektor med egenverdi $\\lambda=2$.",
+        "hints": [
+          "Regn A·v og se etter en felles faktor mot v.",
+          "A·v = (−2,0,2) = 2·(−1,0,1)."
+        ]
+      }
+    },
+    {
+      "id": "mat1120-3-4-e2",
+      "type": "exercise",
+      "exercise": {
+        "id": "mat1120-3-4-e2",
+        "number": "2",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "Vedlegget gir for $A$ (en $3\\times3$-matrise) $\\operatorname{poly}(A)=\\lambda^{3}-4\\lambda^{2}+\\lambda+6$ og $\\operatorname{rref}(A-2I)=\\begin{bmatrix}1&0&2\\\\0&1&1\\\\0&0&0\\end{bmatrix}$.\n\n**a)** Faktoriser polynomet og oppgi egenverdiene.\n\n**b)** Finn egenrommet $E_{2}$.",
+        "solution": "**a)** $\\lambda=-1$ er rot ($-1-4-1+6=0$), og $\\lambda^{3}-4\\lambda^{2}+\\lambda+6=(\\lambda+1)(\\lambda-2)(\\lambda-3)$. Egenverdiene er $-1,2,3$ (distinkte).\n\n**b)** Fra RREF: pivotkolonner 1,2; $x_3$ fri; $x_1=-2x_3,\\ x_2=-x_3$. Med $x_3=1$: $\\mathbf{v}=(-2,-1,1)^{T}$. Så $E_{2}=\\operatorname{Span}\\{(-2,-1,1)^{T}\\}$, $\\dim E_{2}=1$.",
+        "hints": [
+          "Prøv heltallsrøtter blant divisorene av 6.",
+          "Les E₂ som spesielle løsninger fra RREF av A−2I."
+        ]
+      }
+    },
+    {
+      "id": "mat1120-3-4-e3",
+      "type": "exercise",
+      "exercise": {
+        "id": "mat1120-3-4-e3",
+        "number": "3",
+        "type": "classic",
+        "difficulty": "lett",
+        "task": "Gi kortest mulig begrunnelse for om hver matrise er diagonaliserbar:\n\n**a)** en $3\\times3$-matrise med egenverdier $-1,2,3$.\n\n**b)** $A=\\begin{bmatrix}2&1&1\\\\1&2&1\\\\1&1&2\\end{bmatrix}$.",
+        "solution": "**a)** Ja — tre **distinkte** egenverdier gir en egenbasis (distinkt-snarveien).\n\n**b)** Ja — $A$ er **symmetrisk** ($A=A^{T}$), så ortogonalt diagonaliserbar ved spektralteoremet.",
+        "hints": [
+          "Let etter en snarvei: distinkt eller symmetrisk?",
+          "b) sjekk om A = Aᵀ."
+        ]
+      }
+    },
+    {
+      "id": "mat1120-3-4-e4",
+      "type": "exercise",
+      "exercise": {
+        "id": "mat1120-3-4-e4",
+        "number": "4",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "For $A=\\begin{bmatrix}4&-2&2\\\\2&0&2\\\\-1&1&1\\end{bmatrix}$ gir vedlegget $(\\lambda-2)^{2}(\\lambda-1)$ og $\\operatorname{rref}(A-2I)=\\begin{bmatrix}1&-1&1\\\\0&0&0\\\\0&0&0\\end{bmatrix}$. Er $A$ diagonaliserbar? Begrunn med multiplisitet.",
+        "solution": "$\\lambda=2$ har alg $=2$; $\\operatorname{rref}(A-2I)$ har én pivot, så to frie variabler og $\\dim E_{2}=2=$ alg. $\\lambda=1$ er enkel (geo $=$ alg $=1$). Summen av geometriske multiplisiteter er $2+1=3=n$, så **$A$ er diagonaliserbar** (geo $=$ alg for hver egenverdi).",
+        "hints": [
+          "Sjekk den doble egenverdien 2: hvor mange frie variabler i A−2I?",
+          "Distinkt/symmetrisk/triangulær gjelder ikke her — bruk geo = alg."
+        ]
+      }
+    },
+    {
+      "id": "mat1120-3-4-e5",
+      "type": "exercise",
+      "exercise": {
+        "id": "mat1120-3-4-e5",
+        "number": "5",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "Er $A=\\begin{bmatrix}1&2&-4\\\\-1&1&-1\\\\2&-1&7\\end{bmatrix}$ diagonaliserbar? Vedlegget: $(\\lambda-2)^{2}(\\lambda-5)$ og $\\operatorname{rref}(A-2I)=\\begin{bmatrix}1&0&2\\\\0&1&-1\\\\0&0&0\\end{bmatrix}$.",
+        "solution": "$\\lambda=2$ har alg $=2$. Fra $\\operatorname{rref}(A-2I)$ er kolonne 1,2 pivotkolonner, bare $x_3$ fri, så $\\dim E_{2}=1<2=$ alg — $\\lambda=2$ er **defekt**. Altså er $A$ **ikke** diagonaliserbar: egenrommet $E_{2}$ er for lite (bare én dimensjon mot dobbeltroten).",
+        "hints": [
+          "Tell frie variabler i A−2I: bare én?",
+          "geo = 1 < 2 = alg ⇒ defekt ⇒ ikke diagonaliserbar."
+        ]
+      }
+    },
+    {
+      "id": "mat1120-3-4-e6",
+      "type": "exercise",
+      "exercise": {
+        "id": "mat1120-3-4-e6",
+        "number": "6",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "Matrisen $A=\\begin{bmatrix}1&0&-2\\\\-3&5&-3\\\\-5&6&-2\\end{bmatrix}$ har egenverdier $-1,2,3$ med egenvektorer $(1,1,1)^{T},(-2,-1,1)^{T},(-1,0,1)^{T}$. Skriv opp $P$ og $D$ med $A=PDP^{-1}$, og kontroller matchingen for én søyle.",
+        "solution": "Distinkte egenverdier ⇒ diagonaliserbar. Matchet (rekkefølge $-1,2,3$):\n$$P=\\begin{bmatrix}1&-2&-1\\\\1&-1&0\\\\1&1&1\\end{bmatrix},\\quad D=\\begin{bmatrix}-1&0&0\\\\0&2&0\\\\0&0&3\\end{bmatrix}.$$\nKontroll søyle 1: $A(1,1,1)^{T}=(1+0-2,-3+5-3,-5+6-2)^{T}=(-1,-1,-1)^{T}=-1\\cdot(1,1,1)^{T}$ ✓ — matcher $D_{11}=-1$.",
+        "hints": [
+          "Egenvektorene blir søyler; egenverdiene diagonal i samme rekkefølge.",
+          "Kontroller AP = PD søyle for søyle."
+        ]
+      }
+    },
+    {
+      "id": "mat1120-3-4-e7",
+      "type": "exercise",
+      "exercise": {
+        "id": "mat1120-3-4-e7",
+        "number": "7",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "La $A=\\begin{bmatrix}3&-2\\\\1&0\\end{bmatrix}$ ha egenverdier $1,2$ med egenvektorer $(1,1)^{T},(2,1)^{T}$. Finn et lukket uttrykk for $A^{k}$.",
+        "solution": "$P=\\begin{bmatrix}1&2\\\\1&1\\end{bmatrix},\\ D=\\operatorname{diag}(1,2),\\ P^{-1}=\\begin{bmatrix}-1&2\\\\1&-1\\end{bmatrix}$. Da $A^{k}=PD^{k}P^{-1}=\\begin{bmatrix}2^{k+1}-1&2-2^{k+1}\\\\2^{k}-1&2-2^{k}\\end{bmatrix}$. Kontroll $k=1$ gir $A$ ✓.",
+        "hints": [
+          "A^k = PD^k P⁻¹ med D^k = diag(1, 2^k).",
+          "Gang ut; kontroller mot A for k=1."
+        ]
+      }
+    },
+    {
+      "id": "mat1120-3-4-e8",
+      "type": "exercise",
+      "exercise": {
+        "id": "mat1120-3-4-e8",
+        "number": "8",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "$A$ har egenverdier $-1,2,3$ med egenvektormatrise $P=\\begin{bmatrix}1&-2&-1\\\\1&-1&0\\\\1&1&1\\end{bmatrix}$. Sett $B=A^{2}-2I$.\n\n**a)** Oppgi egenverdiene til $B$.\n\n**b)** Skriv en diagonalisering av $B$.",
+        "solution": "$q(x)=x^{2}-2$: $q(-1)=-1,\\ q(2)=2,\\ q(3)=7$.\n\n**a)** Egenverdiene til $B$ er $-1,2,7$.\n\n**b)** $B$ deler egenvektorer med $A$ (spektralregelen), så $B=P\\operatorname{diag}(-1,2,7)P^{-1}$ med **samme** $P$.",
+        "hints": [
+          "Kjør hver egenverdi gjennom q(x)=x²−2.",
+          "q(A) diagonaliseres med samme P som A."
+        ]
+      }
+    },
+    {
+      "id": "mat1120-3-4-e9",
+      "type": "exercise",
+      "exercise": {
+        "id": "mat1120-3-4-e9",
+        "number": "9",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "$A$ har egenverdier $-1,2,3$. Er $C=2I+A-A^{2}$ invertibel? Og er $B=A^{2}-A-2I$ invertibel? Begrunn ved å sjekke alle egenverdiene.",
+        "solution": "**$C$:** $q(x)=2+x-x^{2}$: $q(-1)=0,\\ q(2)=0,\\ q(3)=-4$. To egenverdier gir $q(\\lambda)=0$, så $C$ er **ikke** invertibel.\n\n**$B$:** $q(x)=x^{2}-x-2$: $q(-1)=0,\\ q(2)=0,\\ q(3)=4$. Igjen to nuller, så $B$ er **ikke** invertibel. (Røttene til $x^{2}-x-2=(x-2)(x+1)$ er nettopp $2$ og $-1$, som begge er egenverdier.)",
+        "hints": [
+          "q(A) invertibel ⇔ ingen q(λ)=0.",
+          "Regn q(λ) for hver av −1, 2, 3."
+        ]
+      }
+    },
+    {
+      "id": "mat1120-3-4-e10",
+      "type": "exercise",
+      "exercise": {
+        "id": "mat1120-3-4-e10",
+        "number": "10",
+        "type": "classic",
+        "difficulty": "vanskelig",
+        "task": "For hvilke $\\alpha$ er $A(\\alpha)=\\begin{bmatrix}5&0&0\\\\\\alpha&5&0\\\\0&0&2\\end{bmatrix}$ diagonaliserbar? Begrunn med egenrommets dimensjon.",
+        "solution": "Triangulær ⇒ egenverdier $5$ (dobbel) og $2$ (enkel). Sjekk $\\lambda=5$: $A(\\alpha)-5I=\\begin{bmatrix}0&0&0\\\\\\alpha&0&0\\\\0&0&-3\\end{bmatrix}$. For $\\alpha\\ne0$: rang $2$, $\\dim E_{5}=1<2$ — defekt, ikke diagonaliserbar. For $\\alpha=0$: rang $1$, $\\dim E_{5}=2=$ alg — diagonaliserbar. **Svar:** diagonaliserbar nøyaktig når $\\alpha=0$.",
+        "hints": [
+          "Egenverdiene ligger på diagonalen uansett α.",
+          "Tell rangen til A(α)−5I; den styrer dim E₅."
+        ]
+      }
+    },
+    {
+      "id": "mat1120-3-4-e11",
+      "type": "exercise",
+      "exercise": {
+        "id": "mat1120-3-4-e11",
+        "number": "11",
+        "type": "classic",
+        "difficulty": "vanskelig",
+        "task": "**Kjedet oppgave (O2-simulering).** La $A=\\begin{bmatrix}3&-1&1\\\\-1&3&1\\\\1&1&3\\end{bmatrix}$. Vedlegget: $(\\lambda-4)^{2}(\\lambda-1)$, $\\operatorname{rref}(A-4I)=\\begin{bmatrix}1&1&-1\\\\0&0&0\\\\0&0&0\\end{bmatrix}$, $\\operatorname{rref}(A-I)=\\begin{bmatrix}1&0&1\\\\0&1&1\\\\0&0&0\\end{bmatrix}$.\n\n**a)** Verifiser ved innsetting at $(-1,1,0)^{T}$ er egenvektor, og oppgi egenverdien.\n\n**b)** Er $A$ diagonaliserbar? Begrunn.\n\n**c)** Finn $P$ og $D$ med $A=PDP^{-1}$.",
+        "solution": "**a)** $A(-1,1,0)^{T}=(-3-1,1+3,-1+1)^{T}=(-4,4,0)^{T}=4(-1,1,0)^{T}$, så egenvektor med $\\lambda=4$.\n\n**b)** Egenverdier $\\lambda=4$ (alg $2$) og $\\lambda=1$ (enkel). $A$ er dessuten **symmetrisk**, så diagonaliserbar ved spektralteoremet. Vi bekrefter med multiplisitet: $\\operatorname{rref}(A-4I)$ har én pivot ⇒ $\\dim E_{4}=2=$ alg, og $\\lambda=1$ enkel. Diagonaliserbar.\n\n**c)** $E_{4}$ ($x_1=-x_2+x_3$): $(-1,1,0)^{T}$ ($x_2=1$) og $(1,0,1)^{T}$ ($x_3=1$). $E_{1}$ ($x_1=-x_3,\\ x_2=-x_3$): $(-1,-1,1)^{T}$. Matchet:\n$$P=\\begin{bmatrix}-1&1&-1\\\\1&0&-1\\\\0&1&1\\end{bmatrix},\\quad D=\\begin{bmatrix}4&0&0\\\\0&4&0\\\\0&0&1\\end{bmatrix}.$$",
+        "hints": [
+          "a) regn A·v og se om det blir 4v.",
+          "b) symmetrisk er en gyldig snarvei — men vis gjerne geo=alg også.",
+          "c) to søyler for λ=4 (basis for E₄), én for λ=1."
+        ]
+      }
+    },
+    {
+      "id": "mat1120-3-4-e12",
+      "type": "exercise",
+      "exercise": {
+        "id": "mat1120-3-4-e12",
+        "number": "12",
+        "type": "classic",
+        "difficulty": "lett",
+        "task": "En $3\\times3$-matrise har egenverdier $2,2,5$. Bruk kontrollrelasjonene til å oppgi $\\operatorname{spor}A$ og $\\det A$, og avgjør om $A$ er invertibel.",
+        "solution": "$\\operatorname{spor}A=2+2+5=9$ og $\\det A=2\\cdot2\\cdot5=20$. Siden $\\det A=20\\ne0$ (ingen egenverdi er $0$), er $A$ invertibel.",
+        "hints": [
+          "Spor = sum av egenverdier (med multiplisitet); det = produkt.",
+          "λ=0 egenverdi ⇔ det = 0."
+        ]
+      }
+    },
+    {
+      "id": "mat1120-3-4-e13",
+      "type": "exercise",
+      "exercise": {
+        "id": "mat1120-3-4-e13",
+        "number": "13",
+        "type": "classic",
+        "difficulty": "vanskelig",
+        "task": "$A$ har egenverdier $1$ og $-1$, begge med fullt egenrom, og $A=PDP^{-1}$. Vis at $A^{2}=I$, og forklar hva slags avbildning $A$ er geometrisk.",
+        "solution": "$A^{2}=PD^{2}P^{-1}$ med $D^{2}=\\operatorname{diag}(1^{2},\\dots,(-1)^{2})=\\operatorname{diag}(1,\\dots,1)=I$, så $A^{2}=PIP^{-1}=PP^{-1}=I$. Med $q(x)=x^{2}-1$ er $q(\\lambda)=0$ for begge egenverdier, altså $q(A)=A^{2}-I=O$. Geometrisk er $A$ en **involusjon** (en speiling): den fikserer egenrommet til $\\lambda=1$ og snur egenrommet til $\\lambda=-1$; to anvendelser gir identiteten.",
+        "hints": [
+          "Regn D² når diagonalelementene er ±1.",
+          "q(x)=x²−1 er 0 på hele spekteret ⇒ q(A)=O ⇒ A²=I."
+        ]
+      }
+    },
+    {
+      "id": "mat1120-3-4-warn",
+      "type": "warning",
+      "title": "Typiske feil under tidspress",
+      "content": "- **Diagonaliserbarhet uten begrunnelse** — den dyreste vanen. Navngi alltid snarveien eller vis geo $=$ alg.\n- **$P/D$ feilmatchet:** egenverdien i $D_{jj}$ må høre til egenvektoren i søyle $j$ av $P$.\n- **«Ikke diagonaliserbar» uten å peke på et for lite egenrom** (geo $<$ alg).\n- **Regner polynom/egenverdier for hånd** i stedet for å bruke vedlegget; eller regner $A^{k}$ ved gjentatt multiplikasjon i stedet for $PD^{k}P^{-1}$.\n- **Feil $P$ for $q(A)$:** skal være **samme** $P$ som $A$; og invertibilitet krever at **alle** $q(\\lambda)\\ne0$.\n- **Glemmer kontrollene** $\\sum\\lambda=\\operatorname{spor}A$, $\\prod\\lambda=\\det A$ — de avslører raskt en avlesningsfeil."
+    },
+    {
+      "id": "mat1120-3-4-symbol",
+      "type": "collapsible",
+      "title": "Symbol- og formelliste",
+      "buttonText": "Vis symboler og formler",
+      "content": [
+        {
+          "id": "mat1120-3-4-symbol-tekst",
+          "type": "text",
+          "content": "## Symbol- og formelliste\n\n*Oppslagsverk — alt her forklares i kap. 3.1–3.3.*\n\n| Symbol | Betydning |\n|---|---|\n| $A\\mathbf{v}=\\lambda\\mathbf{v}$ | Egenpar (verifiser ved innsetting) |\n| $E_\\lambda=\\operatorname{Nul}(A-\\lambda I)$ | Egenrom |\n| geo / alg | $\\dim E_\\lambda$ / rotens multiplisitet |\n| $A=PDP^{-1}$ | Diagonalisering (match søyle for søyle) |\n| $A^{k}=PD^{k}P^{-1}$ | Potens |\n| $q(A)=Pq(D)P^{-1}$ | Polynom i $A$ (samme $P$) |\n\n**Oppskrift-kjernen:** (1) egenvektor gitt? innsetting. (2) egenverdier fra vedlegg + kontroll $\\sum\\lambda=\\operatorname{spor}$, $\\prod\\lambda=\\det$. (3) egenrom fra RREF. (4) begrunn diagonaliserbarhet (snarvei / geo $=$ alg; ikke-diag $=$ geo $<$ alg). (5) $P/D$ matchet; $A^{k}/q(A)$ samme $P$; $q(A)$ invertibel $\\iff$ ingen $q(\\lambda)=0$."
+        }
+      ]
+    }
+  ],
+  "exercises": []
+}

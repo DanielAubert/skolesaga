@@ -1,0 +1,464 @@
+{
+  "id": "mat1120-3-2",
+  "courseId": "mat1120",
+  "chapterNumber": "3.2",
+  "title": "Diagonalisering A=PDP⁻¹ og multiplisitetskriteriet",
+  "description": "Diagonalisering A=PDP⁻¹ og selve karakterskilleren: å BEGRUNNE diagonaliserbarhet med multiplisitet eller en navngitt snarvei (distinkt/symmetrisk/triangulær), å bygge P og D matchet søyle for søyle, og å vise ikke-diagonaliserbarhet ved et for lite egenrom.",
+  "estimatedMinutes": 60,
+  "competenceGoals": [
+    "skrive A=PDP⁻¹ og bygge P og D matchet søyle for søyle",
+    "begrunne diagonaliserbarhet med multiplisitetskriteriet (geo=alg) eller en navngitt snarvei",
+    "vise at en matrise ikke er diagonaliserbar ved at et egenrom er for lite (geo<alg)",
+    "avgjøre for hvilke parameterverdier en matrise A(α) er diagonaliserbar"
+  ],
+  "content": [
+    {
+      "id": "mat1120-3-2-tip",
+      "type": "tip",
+      "title": "Eksamensvinkel",
+      "content": "**Dette er selve karakterskilleren i egenverdioppgaven.** Å diagonalisere $A=PDP^{-1}$ og — enda viktigere — å **begrunne** at $A$ er (eller ikke er) diagonaliserbar, er sjanger D, ~100 % av settene. Prioritet: **høyeste**.\n\n- **Diagonaliserbarhet skal ALLTID begrunnes.** Det holder ikke å påstå det. Sensor vil se enten (a) $n$ **distinkte** egenverdier, (b) at $A$ er **symmetrisk**, (c) at $A$ er **triangulær** med kjente egenverdier, eller (d) at **geometrisk $=$ algebraisk multiplisitet** for hver egenverdi (dokumentert felle nr. 3 i faget).\n- **Ikke-diagonaliserbar** vises eksplisitt ved at et **egenrom er for lite** (geo $<$ alg).\n- $P$ og $D$ **matches søyle for søyle**: står egenvektoren $\\mathbf{v}_j$ i søyle $j$ av $P$, står egenverdien dens i posisjon $(j,j)$ av $D$.\n\nAlt hviler på skillet algebraisk/geometrisk multiplisitet fra [kap. 3.1](/bok/mat1120/mat1120-3-1). Egenverdiene og egenrommene leses fortsatt av vedlegget."
+    },
+    {
+      "id": "mat1120-3-2-forkunnskaper",
+      "type": "text",
+      "content": "**Forkunnskaper:** [kap. 3.1](/bok/mat1120/mat1120-3-1) (egenverdier, egenrom, algebraisk vs. geometrisk multiplisitet — hele kapitlet bygger på disse begrepene) og [kap. 1.2](/bok/mat1120/mat1120-1-2) (dimensjon og basis). Matriseinvers og matriseprodukt forutsettes fra *(MAT1110 — forkunnskapsemne, ikke bygget ennå; aktiver `/bok/mat1110/<id>`-lenke når den finnes)*; vi regner ikke ut $P^{-1}$ fra grunnen, men bruker den. Similaritetsbegrepet ble introdusert i begrepsbanken i [kap. 3.1](/bok/mat1120/mat1120-3-1)."
+    },
+    {
+      "id": "mat1120-3-2-intro",
+      "type": "text",
+      "content": "Å **diagonalisere** $A$ er å skrive $A=PDP^{-1}$ der $D$ er diagonal. Det betyr at $A$ oppfører seg som en ren strekking langs egenvektorretningene — og det gjør potenser, differenslikninger og mye annet enkelt ([kap. 3.3](/bok/mat1120/mat1120-3-3)). Kapitlet går i fire løkker:\n\n1. Hva $A=PDP^{-1}$ betyr, og hvordan du **bygger $P$ og $D$** matchet søyle for søyle.\n2. **Diagonaliserbarhetskriteriet** og de tre snarveiene som gir en rask begrunnelse.\n3. **Ikke-diagonaliserbarhet**: vis at et egenrom er for lite.\n4. **Parameteravhengige** matriser: for hvilke verdier er $A$ diagonaliserbar?"
+    },
+    {
+      "id": "mat1120-3-2-l1",
+      "type": "text",
+      "content": "## Løkke 1 — A = PDP⁻¹: bygg P og D matchet søyle for søyle (~15 min)"
+    },
+    {
+      "id": "mat1120-3-2-l1-teori",
+      "type": "text",
+      "content": "Anta $A$ har en **egenbasis** — $n$ lineært uavhengige egenvektorer $\\mathbf{v}_1,\\dots,\\mathbf{v}_n$ med egenverdier $\\lambda_1,\\dots,\\lambda_n$. Sett dem som søyler i $P=[\\mathbf{v}_1\\ \\cdots\\ \\mathbf{v}_n]$ og egenverdiene på diagonalen i $D=\\operatorname{diag}(\\lambda_1,\\dots,\\lambda_n)$. Da er $AP=PD$ (søyle for søyle: $A\\mathbf{v}_j=\\lambda_j\\mathbf{v}_j$), og fordi søylene er uavhengige er $P$ invertibel, så\n$$A=PDP^{-1}.$$\nDet **kritiske** er matchingen: egenvektoren i søyle $j$ av $P$ og egenverdien i posisjon $(j,j)$ av $D$ må høre sammen. Bytter du rekkefølge, må du bytte i begge."
+    },
+    {
+      "id": "mat1120-3-2-def-diag",
+      "type": "definition",
+      "title": "Diagonalisering $A=PDP^{-1}$",
+      "content": "Å diagonalisere en $n\\times n$-matrise $A$ er å skrive $A=PDP^{-1}$ der $D$ er en diagonalmatrise og $P$ er invertibel. Søylene i $P$ er lineært uavhengige **egenvektorer**, og $D$ har de tilhørende **egenverdiene** på diagonalen — matchet søyle for søyle. $A$ og $D$ er da similære (samme egenverdier, spor, determinant)."
+    },
+    {
+      "id": "mat1120-3-2-def-diagbar",
+      "type": "definition",
+      "title": "Diagonaliserbar matrise",
+      "content": "$A$ er **diagonaliserbar** dersom den kan skrives $A=PDP^{-1}$ med $D$ diagonal — ekvivalent: dersom det finnes en basis for $\\mathbb{R}^{n}$ som består av egenvektorer for $A$ (en **egenbasis**). Ikke alle matriser er diagonaliserbare."
+    },
+    {
+      "id": "mat1120-3-2-def-match",
+      "type": "definition",
+      "title": "Matching av P og D",
+      "content": "Bygg $P$ og $D$ samtidig: står egenvektoren $\\mathbf{v}_j$ i søyle $j$ av $P$, skal egenverdien $\\lambda_j$ stå i diagonalposisjon $(j,j)$ av $D$. Rekkefølgen på egenparene er fri, men **må være den samme** i $P$ og $D$. Feil matching gir $A\\ne PDP^{-1}$ — en klassisk føringsfeil."
+    },
+    {
+      "id": "mat1120-3-2-ex1",
+      "type": "example",
+      "title": "Eksempel 1: Diagonaliser en matrise med distinkte egenverdier",
+      "problem": "Diagonaliser $A=\\begin{bmatrix}1&0&-2\\\\-3&5&-3\\\\-5&6&-2\\end{bmatrix}$. Fra vedlegget er egenverdiene $-1,2,3$ med egenrom utspent av henholdsvis $(1,1,1)^{T}$, $(-2,-1,1)^{T}$ og $(-1,0,1)^{T}$.",
+      "solution": "Egenverdiene $-1,2,3$ er **tre distinkte** verdier for en $3\\times3$-matrise, så $A$ er diagonaliserbar (distinkt-snarveien, løkke 2), og de tre egenvektorene danner en egenbasis.\n\nVi matcher søyle for søyle. Velger vi rekkefølgen $\\lambda=-1,2,3$:\n$$P=\\begin{bmatrix}1&-2&-1\\\\1&-1&0\\\\1&1&1\\end{bmatrix},\\qquad D=\\begin{bmatrix}-1&0&0\\\\0&2&0\\\\0&0&3\\end{bmatrix}.$$\nSøyle 1 er egenvektoren for $-1$, søyle 2 for $2$, søyle 3 for $3$ — og $D$ har $-1,2,3$ i samme rekkefølge.\n\n**Kontroll:** $P$ er invertibel (uavhengige søyler), her med $P^{-1}=\\begin{bmatrix}1&-1&1\\\\1&-2&1\\\\-2&3&-1\\end{bmatrix}$, og man verifiserer $AP=PD$ søyle for søyle, f.eks. $A\\cdot(1,1,1)^{T}=(-1,-1,-1)^{T}=-1\\cdot(1,1,1)^{T}$ ✓.\n\n**Konklusjon:** $A=PDP^{-1}$ med $P,D$ som over. (Andre rekkefølger på egenparene gir andre, like gyldige $P,D$.)"
+    },
+    {
+      "id": "mat1120-3-2-e1",
+      "type": "exercise",
+      "exercise": {
+        "id": "mat1120-3-2-e1",
+        "number": "1",
+        "type": "classic",
+        "difficulty": "lett",
+        "task": "En $2\\times2$-matrise $A$ har egenverdi $4$ med egenvektor $(1,1)^{T}$ og egenverdi $-1$ med egenvektor $(1,-2)^{T}$. Skriv opp et par $P,D$ med $A=PDP^{-1}$.",
+        "solution": "De to egenverdiene er distinkte, så $A$ er diagonaliserbar. Matchet søyle for søyle (rekkefølge $4,-1$):\n$$P=\\begin{bmatrix}1&1\\\\1&-2\\end{bmatrix},\\qquad D=\\begin{bmatrix}4&0\\\\0&-1\\end{bmatrix}.$$\nSøyle 1 er egenvektoren for $4$, søyle 2 for $-1$, og $D$ har $4$ og $-1$ i samme rekkefølge.",
+        "hints": [
+          "Egenvektorene blir søyler i P, egenverdiene diagonal i D.",
+          "Pass på at egenverdien i posisjon (j,j) hører til egenvektoren i søyle j."
+        ]
+      }
+    },
+    {
+      "id": "mat1120-3-2-e2",
+      "type": "exercise",
+      "exercise": {
+        "id": "mat1120-3-2-e2",
+        "number": "2",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "For $A$ i eksempel 1, en student skriver $P=\\begin{bmatrix}1&-2&-1\\\\1&-1&0\\\\1&1&1\\end{bmatrix}$ men $D=\\begin{bmatrix}2&0&0\\\\0&3&0\\\\0&0&-1\\end{bmatrix}$. Forklar hva som er galt, og rett det.",
+        "solution": "Søylene i $P$ er egenvektorene for $-1,2,3$ (i den rekkefølgen), men $D$ har egenverdiene i rekkefølgen $2,3,-1$ — de er **feilmatchet**. Med denne $D$ er $A\\ne PDP^{-1}$. Retting: enten sett $D=\\operatorname{diag}(-1,2,3)$ (match til $P$s søyler), eller behold $D=\\operatorname{diag}(2,3,-1)$ og omordne $P$s søyler til $(-2,-1,1)^{T},(-1,0,1)^{T},(1,1,1)^{T}$.",
+        "hints": [
+          "Sjekk hvilken egenverdi som hører til søyle 1 i P.",
+          "D-diagonalen må stå i samme rekkefølge som egenvektorene i P."
+        ]
+      }
+    },
+    {
+      "id": "mat1120-3-2-l2",
+      "type": "text",
+      "content": "## Løkke 2 — Diagonaliserbarhetskriteriet og de tre snarveiene (~18 min)"
+    },
+    {
+      "id": "mat1120-3-2-l2-teori",
+      "type": "text",
+      "content": "Når er $A$ diagonaliserbar? Nøyaktig når det finnes en egenbasis — altså når summen av de **geometriske** multiplisitetene er $n$. Ekvivalent, per egenverdi: **geometrisk $=$ algebraisk multiplisitet** for hver egenverdi. (Enkle egenverdier oppfyller dette gratis; bare egenverdier med algebraisk multiplisitet $\\ge2$ må sjekkes.)\n\nTre **snarveier** lar deg begrunne uten å regne ut alle egenrom:\n\n1. **$n$ distinkte egenverdier** $\\Rightarrow$ diagonaliserbar (egenvektorer til ulike egenverdier er uavhengige, [kap. 3.1](/bok/mat1120/mat1120-3-1)).\n2. **Symmetrisk** ($A=A^{T}$) $\\Rightarrow$ ortogonalt diagonaliserbar (spektralteoremet, [Del 6]).\n3. **Triangulær** $\\Rightarrow$ egenverdiene leses av diagonalen; sjekk så multiplisitet ved behov.\n\nHar ingen snarvei, faller du tilbake på hovedkriteriet: sjekk geo $=$ alg for hver gjentatt egenverdi."
+    },
+    {
+      "id": "mat1120-3-2-def-kriteriet",
+      "type": "definition",
+      "title": "Diagonaliserbarhetskriteriet",
+      "content": "En $n\\times n$-matrise $A$ er diagonaliserbar $\\iff$ summen av de geometriske multiplisitetene er $n$ $\\iff$ for **hver** egenverdi er geometrisk multiplisitet $=$ algebraisk multiplisitet. I praksis: bare egenverdier med algebraisk multiplisitet $\\ge2$ må sjekkes — de enkle er alltid i orden."
+    },
+    {
+      "id": "mat1120-3-2-def-distinkt",
+      "type": "definition",
+      "title": "Snarvei: $n$ distinkte egenverdier",
+      "content": "Har en $n\\times n$-matrise $n$ **forskjellige** egenverdier, er den automatisk diagonaliserbar: hver egenverdi er enkel (geo $=$ alg $=1$), og egenvektorene til ulike egenverdier er uavhengige, så de danner en egenbasis. Merk: distinkte egenverdier er **tilstrekkelig**, men ikke nødvendig."
+    },
+    {
+      "id": "mat1120-3-2-def-symmetrisk",
+      "type": "definition",
+      "title": "Snarvei: symmetrisk matrise",
+      "content": "Er $A=A^{T}$ (symmetrisk med reelle tall), er $A$ alltid diagonaliserbar — til og med **ortogonalt** ($A=PDP^{T}$ med ortonormal $P$), ved spektralteoremet ([Del 6]). Egenverdiene er reelle og ingen egenverdi er defekt. En rask og sikker begrunnelse når du ser symmetri."
+    },
+    {
+      "id": "mat1120-3-2-def-triangulaer2",
+      "type": "definition",
+      "title": "Snarvei: triangulær matrise",
+      "content": "En triangulær matrise har egenverdiene på diagonalen. Er de alle **forskjellige**, er den diagonaliserbar (distinkt-snarveien). Er noen like, må du likevel sjekke geo $=$ alg — triangulær garanterer ikke diagonaliserbarhet i seg selv."
+    },
+    {
+      "id": "mat1120-3-2-ex2",
+      "type": "example",
+      "title": "Eksempel 2: Begrunn diagonaliserbarhet med multiplisitet",
+      "problem": "Er $A=\\begin{bmatrix}5&-3&3\\\\3&-1&3\\\\3&-3&5\\end{bmatrix}$ diagonaliserbar? Fra vedlegget: karakteristisk polynom $(\\lambda-2)^{2}(\\lambda-5)$, og $\\operatorname{rref}(A-2I)=\\begin{bmatrix}1&-1&1\\\\0&0&0\\\\0&0&0\\end{bmatrix}$.",
+      "solution": "Egenverdiene er $\\lambda=2$ (algebraisk multiplisitet $2$) og $\\lambda=5$ (enkel). Her er ingen snarvei nok: egenverdiene er ikke distinkte, matrisen er ikke symmetrisk, ikke triangulær. Vi bruker **hovedkriteriet** og sjekker den gjentatte egenverdien.\n\n$\\lambda=2$: fra RREF har $A-2I$ bare **én** pivot, altså **to** frie variabler, så $\\dim E_{2}=2$. Da er geometrisk multiplisitet $2=$ algebraisk multiplisitet.\n\n$\\lambda=5$: enkel, så geo $=$ alg $=1$ automatisk.\n\nSummen av geometriske multiplisiteter er $2+1=3=n$. **Konklusjon: $A$ er diagonaliserbar** — geo $=$ alg for hver egenverdi. (En egenbasis: $(1,1,0)^{T},(-1,0,1)^{T}$ for $\\lambda=2$ og $(1,1,1)^{T}$ for $\\lambda=5$.)"
+    },
+    {
+      "id": "mat1120-3-2-e3",
+      "type": "exercise",
+      "exercise": {
+        "id": "mat1120-3-2-e3",
+        "number": "3",
+        "type": "classic",
+        "difficulty": "lett",
+        "task": "Avgjør, med kortest mulig begrunnelse, om hver matrise er diagonaliserbar:\n\n**a)** en $3\\times3$-matrise med egenverdier $1,\\ 4,\\ -2$.\n\n**b)** en symmetrisk $4\\times4$-matrise.\n\n**c)** $\\begin{bmatrix}2&7\\\\0&5\\end{bmatrix}$.",
+        "solution": "**a)** Ja — **tre distinkte** egenverdier for en $3\\times3$-matrise gir en egenbasis (distinkt-snarveien).\n\n**b)** Ja — **symmetrisk** matrise er alltid (ortogonalt) diagonaliserbar (spektralteoremet).\n\n**c)** Ja — **triangulær** med egenverdier $2$ og $5$ på diagonalen; de er distinkte, så diagonaliserbar.",
+        "hints": [
+          "Let etter en snarvei før du regner: distinkt, symmetrisk eller triangulær?",
+          "For 2×2 triangulær: les egenverdiene av diagonalen og sjekk om de er forskjellige."
+        ]
+      }
+    },
+    {
+      "id": "mat1120-3-2-e4",
+      "type": "exercise",
+      "exercise": {
+        "id": "mat1120-3-2-e4",
+        "number": "4",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "En $3\\times3$-matrise $A$ har karakteristisk polynom $(\\lambda-3)^{2}(\\lambda-1)$. Vedlegget viser at $\\dim E_{3}=2$.\n\n**a)** Er $A$ diagonaliserbar? Begrunn med multiplisitet.\n\n**b)** Hvor mange søyler i $P$ hører til egenverdien $3$, og hvor mange til $1$?",
+        "solution": "**a)** $\\lambda=3$: alg $=2$, geo $=\\dim E_{3}=2$, så geo $=$ alg. $\\lambda=1$: enkel, geo $=$ alg $=1$. Summen av geometriske multiplisiteter er $2+1=3=n$, så **$A$ er diagonaliserbar**.\n\n**b)** To søyler i $P$ hører til $\\lambda=3$ (en basis for det to-dimensjonale $E_{3}$), og én søyle til $\\lambda=1$. Da har $D$ diagonalen $3,3,1$ i matchende rekkefølge.",
+        "hints": [
+          "Sjekk geo = alg for den gjentatte egenverdien 3.",
+          "Antall søyler for en egenverdi = dimensjonen til egenrommet dens."
+        ]
+      }
+    },
+    {
+      "id": "mat1120-3-2-l3",
+      "type": "text",
+      "content": "## Løkke 3 — Ikke-diagonaliserbar: vis at et egenrom er for lite (~15 min)"
+    },
+    {
+      "id": "mat1120-3-2-l3-teori",
+      "type": "text",
+      "content": "Er $A$ **ikke** diagonaliserbar, må du vise det — ikke bare påstå det. Beviset er alltid det samme: pek ut en egenverdi der **geometrisk $<$ algebraisk** multiplisitet, altså et egenrom som er for lite til å fylle rotens multiplisitet. Da finnes det ikke nok uavhengige egenvektorer til en egenbasis."
+    },
+    {
+      "id": "mat1120-3-2-def-ikkediag",
+      "type": "definition",
+      "title": "Ikke-diagonaliserbar (geo < alg)",
+      "content": "$A$ er **ikke** diagonaliserbar dersom minst én egenverdi er **defekt**: $\\dim E_\\lambda<$ (algebraisk multiplisitet). Bevisføringen er å regne $\\dim E_\\lambda$ (antall frie variabler i $A-\\lambda I$) og vise at det er mindre enn multiplisiteten i polynomet. Da når ikke summen av geometriske multiplisiteter opp i $n$."
+    },
+    {
+      "id": "mat1120-3-2-ex3",
+      "type": "example",
+      "title": "Eksempel 3: En matrise som ikke er diagonaliserbar",
+      "problem": "Er $T=\\begin{bmatrix}2&3&-1\\\\0&2&4\\\\0&0&5\\end{bmatrix}$ diagonaliserbar? Vedlegget gir $\\operatorname{rref}(T-2I)=\\begin{bmatrix}0&1&0\\\\0&0&1\\\\0&0&0\\end{bmatrix}$.",
+      "solution": "$T$ er triangulær, så egenverdiene står på diagonalen: $\\lambda=2$ (algebraisk multiplisitet $2$) og $\\lambda=5$ (enkel). Egenverdiene er **ikke** distinkte, så vi må sjekke $\\lambda=2$.\n\nFra vedleggets RREF av $T-2I$ er kolonne 2 og 3 pivotkolonner, og bare $x_1$ er fri — altså **én** fri variabel, så $\\dim E_{2}=1$.\n\nHer er geometrisk multiplisitet $1<2=$ algebraisk multiplisitet: $\\lambda=2$ er **defekt**. Summen av geometriske multiplisiteter er $1+1=2<3=n$, så det finnes ingen egenbasis.\n\n**Konklusjon: $T$ er IKKE diagonaliserbar**, fordi egenrommet $E_{2}$ har dimensjon $1$, som er for lite i forhold til den doble roten $\\lambda=2$."
+    },
+    {
+      "id": "mat1120-3-2-e5",
+      "type": "exercise",
+      "exercise": {
+        "id": "mat1120-3-2-e5",
+        "number": "5",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "En $3\\times3$-matrise $A$ har karakteristisk polynom $(\\lambda-2)^{3}$, og vedlegget viser $\\operatorname{rref}(A-2I)=\\begin{bmatrix}1&-1&0\\\\0&0&1\\\\0&0&0\\end{bmatrix}$. Er $A$ diagonaliserbar? Begrunn ved å vise egenrommets dimensjon.",
+        "solution": "$\\lambda=2$ har algebraisk multiplisitet $3$ (trippelrot). Fra RREF av $A-2I$ er kolonne 1 og 3 pivotkolonner, så bare $x_2$ er fri: $\\dim E_{2}=1$. Da er geo $=1<3=$ alg, så $\\lambda=2$ er **defekt** og $A$ er **ikke** diagonaliserbar. (En diagonaliserbar matrise med bare egenverdien $2$ måtte hatt $\\dim E_{2}=3$, altså vært $2I$.)",
+        "hints": [
+          "Alg mult = 3; tell frie variabler i A−2I for geo mult.",
+          "Geo < alg ⇒ defekt ⇒ ikke diagonaliserbar."
+        ]
+      }
+    },
+    {
+      "id": "mat1120-3-2-e6",
+      "type": "exercise",
+      "exercise": {
+        "id": "mat1120-3-2-e6",
+        "number": "6",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "Avgjør om $B=\\begin{bmatrix}4&1\\\\0&4\\end{bmatrix}$ er diagonaliserbar, og forklar hva som ville vært annerledes hvis det $(1)$-elementet oppe til høyre var $0$ i stedet.",
+        "solution": "$B$ er triangulær med egenverdi $4$ (dobbel). $B-4I=\\begin{bmatrix}0&1\\\\0&0\\end{bmatrix}$ har én pivot (kolonne 2), så bare $x_1$ er fri: $\\dim E_{4}=1<2=$ alg. $B$ er **ikke** diagonaliserbar (defekt egenverdi). Var elementet $0$, ville $B=4I$, der $\\dim E_{4}=2=$ alg — da diagonaliserbar (og allerede diagonal).",
+        "hints": [
+          "Regn dim E₄ = antall frie variabler i B−4I.",
+          "4I er en skalarmatrise: hele planet er egenrom, geo = 2."
+        ]
+      }
+    },
+    {
+      "id": "mat1120-3-2-l4",
+      "type": "text",
+      "content": "## Løkke 4 — Parameteravhengige matriser (~12 min)"
+    },
+    {
+      "id": "mat1120-3-2-l4-teori",
+      "type": "text",
+      "content": "En vanlig eksamensvariant er en matrise $A(\\alpha)$ med en parameter $\\alpha$, med spørsmålet «for hvilke $\\alpha$ er $A$ diagonaliserbar?». Framgangsmåten er den samme: finn egenverdiene (ofte uavhengige av $\\alpha$), identifiser en gjentatt egenverdi, og se hvordan $\\dim E_\\lambda$ avhenger av $\\alpha$. Diagonaliserbar nøyaktig for de $\\alpha$ der geo $=$ alg for alle egenverdier."
+    },
+    {
+      "id": "mat1120-3-2-def-parameter",
+      "type": "definition",
+      "title": "Parameteravhengig diagonaliserbarhet",
+      "content": "For $A(\\alpha)$ finner man de $\\alpha$ der matrisen er diagonaliserbar ved å studere hvordan egenrommenes dimensjoner avhenger av $\\alpha$. Typisk er egenverdiene faste (f.eks. en fast dobbeltrot), mens $\\dim E_\\lambda$ hopper opp for en spesiell $\\alpha$-verdi — nettopp der matrisen blir diagonaliserbar."
+    },
+    {
+      "id": "mat1120-3-2-ex4",
+      "type": "example",
+      "title": "Eksempel 4: For hvilke α er A(α) diagonaliserbar?",
+      "problem": "For hvilke $\\alpha$ er $A(\\alpha)=\\begin{bmatrix}1&\\alpha&0\\\\0&1&0\\\\0&0&3\\end{bmatrix}$ diagonaliserbar?",
+      "solution": "$A(\\alpha)$ er triangulær, så egenverdiene er $\\lambda=1$ (dobbel) og $\\lambda=3$ (enkel), uavhengig av $\\alpha$. $\\lambda=3$ er enkel og alltid grei. Alt henger på $\\lambda=1$:\n$$A(\\alpha)-1\\cdot I=\\begin{bmatrix}0&\\alpha&0\\\\0&0&0\\\\0&0&2\\end{bmatrix}.$$\n**Hvis $\\alpha\\ne0$:** radene $(0,\\alpha,0)$ og $(0,0,2)$ er uavhengige, så $\\operatorname{rang}=2$, og $\\dim E_{1}=3-2=1<2=$ alg. Defekt $\\Rightarrow$ **ikke** diagonaliserbar.\n\n**Hvis $\\alpha=0$:** bare raden $(0,0,2)$ er igjen, $\\operatorname{rang}=1$, så $\\dim E_{1}=3-1=2=$ alg. Da geo $=$ alg for alle egenverdier $\\Rightarrow$ **diagonaliserbar**.\n\n**Konklusjon:** $A(\\alpha)$ er diagonaliserbar **nøyaktig når $\\alpha=0$**."
+    },
+    {
+      "id": "mat1120-3-2-e7",
+      "type": "exercise",
+      "exercise": {
+        "id": "mat1120-3-2-e7",
+        "number": "7",
+        "type": "classic",
+        "difficulty": "vanskelig",
+        "task": "For hvilke $\\beta$ er $A(\\beta)=\\begin{bmatrix}5&0&0\\\\\\beta&5&0\\\\0&0&2\\end{bmatrix}$ diagonaliserbar? Begrunn med egenrommets dimensjon.",
+        "solution": "$A(\\beta)$ er (nedre) triangulær med egenverdier $\\lambda=5$ (dobbel) og $\\lambda=2$ (enkel). Sjekk $\\lambda=5$: $A(\\beta)-5I=\\begin{bmatrix}0&0&0\\\\\\beta&0&0\\\\0&0&-3\\end{bmatrix}$. For $\\beta\\ne0$ er radene $(\\beta,0,0)$ og $(0,0,-3)$ uavhengige, $\\operatorname{rang}=2$, $\\dim E_{5}=1<2$ — defekt, ikke diagonaliserbar. For $\\beta=0$ er $\\operatorname{rang}=1$, $\\dim E_{5}=2=$ alg — diagonaliserbar. **Svar:** diagonaliserbar nøyaktig når $\\beta=0$.",
+        "hints": [
+          "Egenverdiene ligger på diagonalen uansett β; sjekk den doble.",
+          "Tell rangen til A(β)−5I som funksjon av β for å få dim E₅."
+        ]
+      }
+    },
+    {
+      "id": "mat1120-3-2-warn",
+      "type": "warning",
+      "title": "Typiske feil",
+      "content": "- **Diagonaliserbarhet påstått uten multiplisitetssjekk** (dokumentert felle nr. 3): glemmer å vise geo $=$ alg, eller å utnytte «distinkte»/«symmetrisk»/«triangulær». Sensor gir ikke uttelling for en ubegrunnet konklusjon.\n- **$P$ og $D$ ikke matchet søyle for søyle:** egenverdien i posisjon $(j,j)$ av $D$ må høre til egenvektoren i søyle $j$ av $P$.\n- **«Ikke diagonaliserbar» uten bevis:** du må peke ut hvilket egenrom som er for lite (geo $<$ alg), ikke bare påstå det.\n- **Tror triangulær $\\Rightarrow$ diagonaliserbar:** triangulær gir bare egenverdiene; med gjentatte egenverdier må geo $=$ alg fortsatt sjekkes (jf. $T$ i eksempel 3).\n- **Forveksler «distinkte egenverdier» (tilstrekkelig) med et nødvendig krav:** en matrise med gjentatte egenverdier kan godt være diagonaliserbar (eksempel 2).\n- **Bruker $A=PDP^{T}$ her:** det er for **ortogonal** diagonalisering av symmetriske matriser ([Del 6]). I dette kapitlet er $P$ generelt ikke ortogonal, så det er $A=PDP^{-1}$."
+    },
+    {
+      "id": "mat1120-3-2-bb",
+      "type": "text",
+      "content": "## Begrepsbank til eksamen\n\nKjernebegrepene fra kapitlet i eksamensrettet kortform.\n\n*Begrepsbanken er flashcard-/repetisjonsstoff — hopp trygt over ved førstegangslesing; tidsanslaget gjelder kjernestoffet.*"
+    },
+    {
+      "id": "mat1120-3-2-bb-egenbasis",
+      "type": "definition",
+      "title": "Egenbasis",
+      "content": "En basis for $\\mathbb{R}^{n}$ som bare består av egenvektorer for $A$. $A$ er diagonaliserbar $\\iff$ det finnes en egenbasis. I egenbasisen «er» $A$ diagonalmatrisen $D$."
+    },
+    {
+      "id": "mat1120-3-2-bb-similaer",
+      "type": "definition",
+      "title": "Similaritet og diagonalisering",
+      "content": "$A=PDP^{-1}$ betyr at $A$ er **similær** med diagonalmatrisen $D$. Similære matriser har samme egenverdier, spor og determinant. Å diagonalisere er å finne den enkleste (diagonale) representanten i similaritetsklassen."
+    },
+    {
+      "id": "mat1120-3-2-bb-D-potens",
+      "type": "definition",
+      "title": "Hvorfor diagonalisering er nyttig",
+      "content": "Er $A=PDP^{-1}$, blir $A^{k}=PD^{k}P^{-1}$, og $D^{k}$ er bare diagonalelementene opphøyd i $k$. Diagonalisering gjør potenser, matrisefunksjoner og dynamiske systemer enkle ([kap. 3.3](/bok/mat1120/mat1120-3-3))."
+    },
+    {
+      "id": "mat1120-3-2-bb-P-invertibel",
+      "type": "definition",
+      "title": "P må være invertibel",
+      "content": "$P$ er invertibel nøyaktig fordi søylene (egenvektorene) er lineært uavhengige — det er det en egenbasis garanterer. Mangler du uavhengige egenvektorer, får du ikke en invertibel $P$, og $A$ er ikke diagonaliserbar."
+    },
+    {
+      "id": "mat1120-3-2-bb-D-rekkefolge",
+      "type": "definition",
+      "title": "Rekkefølgen i D er fri",
+      "content": "Du kan ordne egenparene i hvilken rekkefølge du vil — $P$ og $D$ blir da bare tilsvarende permutert. Alle valgene gir en gyldig diagonalisering. Det som ikke er fritt, er at søyle $j$ i $P$ og element $(j,j)$ i $D$ må høre sammen."
+    },
+    {
+      "id": "mat1120-3-2-bb-symmetrisk-ortogonal",
+      "type": "definition",
+      "title": "Symmetrisk ⇒ ortogonalt diagonaliserbar",
+      "content": "For symmetriske matriser gjelder mer enn diagonaliserbarhet: man kan velge $P$ **ortogonal** ($P^{-1}=P^{T}$), så $A=PDP^{T}$. Egenrom til ulike egenverdier står da automatisk vinkelrett. Dette er spektralteoremet ([Del 6]); merk $A=PDP^{T}$, ikke $A=PDP^{-1}$, i det tilfellet."
+    },
+    {
+      "id": "mat1120-3-2-bb-distinkt-tilstrekkelig",
+      "type": "definition",
+      "title": "Distinkt er tilstrekkelig, ikke nødvendig",
+      "content": "$n$ distinkte egenverdier garanterer diagonaliserbarhet, men en matrise med gjentatte egenverdier kan godt være diagonaliserbar — hvis hver gjentatt egenverdi har fullt egenrom (geo $=$ alg). Skalarmatrisen $cI$ er ekstremtilfellet."
+    },
+    {
+      "id": "mat1120-3-2-bb-defekt-ikke",
+      "type": "definition",
+      "title": "Defekt egenverdi blokkerer diagonalisering",
+      "content": "Én eneste defekt egenverdi (geo $<$ alg) er nok til at $A$ ikke er diagonaliserbar — da mangler egenbasisen minst én dimensjon. De øvrige egenverdiene hjelper ikke."
+    },
+    {
+      "id": "mat1120-3-2-bb-kun-multiple",
+      "type": "definition",
+      "title": "Bare gjentatte egenverdier må sjekkes",
+      "content": "Enkle egenverdier har alltid geo $=$ alg $=1$. Derfor trenger du bare regne egenrommets dimensjon for egenverdier med algebraisk multiplisitet $\\ge2$. Det sparer mye tid på eksamen."
+    },
+    {
+      "id": "mat1120-3-2-bb-sum-n",
+      "type": "definition",
+      "title": "Summen av geo = n-kriteriet",
+      "content": "$A$ diagonaliserbar $\\iff\\sum_i\\dim E_{\\lambda_i}=n$. Er summen mindre enn $n$, finnes for få uavhengige egenvektorer. Dette er den mest direkte formuleringen av kriteriet."
+    },
+    {
+      "id": "mat1120-3-2-bb-diagonal-selv",
+      "type": "definition",
+      "title": "Diagonal og allerede diagonaliserbar",
+      "content": "En diagonalmatrise er trivielt diagonaliserbar med $P=I$. En triangulær matrise med distinkte diagonalelementer er diagonaliserbar, men $P\\ne I$ generelt (egenvektorene er ikke enhetsvektorene)."
+    },
+    {
+      "id": "mat1120-3-2-bb-PDPinv-vs-PDPt",
+      "type": "definition",
+      "title": "$PDP^{-1}$ vs. $PDP^{T}$",
+      "content": "$A=PDP^{-1}$ er **generell** diagonalisering ($P$ hvilken som helst invertibel egenvektormatrise). $A=PDP^{T}$ krever $P$ **ortogonal** og er forbeholdt symmetriske matriser ([Del 6]). Bland dem ikke: $P^{-1}=P^{T}$ gjelder bare når $P$ er ortogonal."
+    },
+    {
+      "id": "mat1120-3-2-bb-2i-eksempel",
+      "type": "definition",
+      "title": "Skalarmatrise som grensetilfelle",
+      "content": "$cI$ har den ene egenverdien $c$ med algebraisk multiplisitet $n$ og geometrisk multiplisitet $n$ (hele rommet er egenrom). Den er diagonaliserbar (allerede diagonal) selv om egenverdien ikke er distinkt — det tydeligste eksempelet på at «distinkt» ikke er nødvendig."
+    },
+    {
+      "id": "mat1120-3-2-bb-invers-diag",
+      "type": "definition",
+      "title": "Invers av en diagonaliserbar matrise",
+      "content": "Er $A=PDP^{-1}$ invertibel (ingen egenverdi $0$), er $A^{-1}=PD^{-1}P^{-1}$ med $D^{-1}=\\operatorname{diag}(1/\\lambda_i)$ — samme $P$, inverterte egenverdier. Diagonaliserbarhet arves av inversen."
+    },
+    {
+      "id": "mat1120-3-2-bb-ikke-unik",
+      "type": "definition",
+      "title": "Diagonaliseringen er ikke entydig",
+      "content": "Både rekkefølgen på egenparene og skaleringen av hver egenvektor kan velges fritt, så $P$ er ikke entydig. $D$ er entydig opp til permutasjon av diagonalen. Alle valg gir samme $A$."
+    },
+    {
+      "id": "mat1120-3-2-bb-egenrom-basis",
+      "type": "definition",
+      "title": "Søyler i P per egenverdi",
+      "content": "Antall søyler i $P$ som hører til en egenverdi $\\lambda$ er $\\dim E_\\lambda$ — en basis for egenrommet. For en diagonaliserbar matrise blir dette til sammen $n$ søyler (en egenbasis)."
+    },
+    {
+      "id": "mat1120-3-2-bb-verifiser-AP",
+      "type": "definition",
+      "title": "Kontroll via AP = PD",
+      "content": "Slipp å regne $P^{-1}$ for å sjekke: verifiser i stedet $AP=PD$ søyle for søyle. Søyle $j$ gir $A\\mathbf{v}_j=\\lambda_j\\mathbf{v}_j$ — nettopp egenpar-relasjonen. Stemmer alle søylene, er $A=PDP^{-1}$."
+    },
+    {
+      "id": "mat1120-3-2-bb-triangulaer-felle",
+      "type": "definition",
+      "title": "Triangulær er ikke nok alene",
+      "content": "At egenverdiene ligger på diagonalen betyr ikke automatisk diagonaliserbar. Er en diagonalverdi gjentatt, kan matrisen være defekt (jf. $\\begin{bmatrix}4&1\\\\0&4\\end{bmatrix}$). Triangulær gir egenverdiene gratis, men multiplisiteten må fortsatt sjekkes ved gjentak."
+    },
+    {
+      "id": "mat1120-3-2-bb-parameter-metode",
+      "type": "definition",
+      "title": "Parameteroppgavens grep",
+      "content": "I en $A(\\alpha)$-oppgave er egenverdiene ofte faste; det er $\\dim E_\\lambda$ som varierer med $\\alpha$. Finn rangen til $A(\\alpha)-\\lambda I$ som funksjon av $\\alpha$, og let etter den verdien der rangen faller (så $\\dim E_\\lambda$ stiger til alg)."
+    },
+    {
+      "id": "mat1120-3-2-bb-diag-bevart-transp",
+      "type": "definition",
+      "title": "Diagonaliserbarhet og $A^{T}$",
+      "content": "Er $A$ diagonaliserbar, er $A^{T}$ det også (samme egenverdier og multiplisiteter). Symmetriske matriser er et spesialtilfelle der $A=A^{T}$, med den ekstra ortogonalitetsstrukturen."
+    },
+    {
+      "id": "mat1120-3-2-rep",
+      "type": "collapsible",
+      "title": "Repetisjonsoppgaver",
+      "buttonText": "Vis repetisjonsoppgaver",
+      "content": [
+        {
+          "id": "mat1120-3-2-r1",
+          "type": "exercise",
+          "exercise": {
+            "id": "mat1120-3-2-eR1",
+            "number": "R1",
+            "type": "classic",
+            "difficulty": "lett",
+            "task": "Gi kortest mulig begrunnelse for at en $4\\times4$-matrise med egenverdier $1,2,3,4$ er diagonaliserbar.",
+            "solution": "Fire **distinkte** egenverdier for en $4\\times4$-matrise ⇒ diagonaliserbar (distinkt-snarveien): egenvektorene til ulike egenverdier er uavhengige og danner en egenbasis.",
+            "hints": [
+              "Er egenverdiene forskjellige?"
+            ]
+          }
+        },
+        {
+          "id": "mat1120-3-2-r2",
+          "type": "exercise",
+          "exercise": {
+            "id": "mat1120-3-2-eR2",
+            "number": "R2",
+            "type": "classic",
+            "difficulty": "middels",
+            "task": "En $3\\times3$-matrise har karakteristisk polynom $(\\lambda-6)^{2}(\\lambda+1)$ og $\\dim E_{6}=1$. Er den diagonaliserbar?",
+            "solution": "$\\lambda=6$ har alg $=2$ men geo $=\\dim E_{6}=1<2$ — defekt. Altså **ikke** diagonaliserbar (et egenrom er for lite).",
+            "hints": [
+              "Sammenlign geo og alg for den doble egenverdien."
+            ]
+          }
+        },
+        {
+          "id": "mat1120-3-2-r3",
+          "type": "exercise",
+          "exercise": {
+            "id": "mat1120-3-2-eR3",
+            "number": "R3",
+            "type": "classic",
+            "difficulty": "lett",
+            "task": "(Fra kap. 3.1) En matrise $A$ har egenvektorer $(1,0)^{T}$ (for $\\lambda=3$) og $(1,1)^{T}$ (for $\\lambda=5$). Skriv $P$ og $D$ med $A=PDP^{-1}$.",
+            "solution": "$P=\\begin{bmatrix}1&1\\\\0&1\\end{bmatrix},\\ D=\\begin{bmatrix}3&0\\\\0&5\\end{bmatrix}$ (søyle 1 ↔ $\\lambda=3$, søyle 2 ↔ $\\lambda=5$).",
+            "hints": [
+              "Egenvektorer i søylene til P, matchende egenverdier i D."
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": "mat1120-3-2-symbol",
+      "type": "collapsible",
+      "title": "Symbol- og formelliste",
+      "buttonText": "Vis symboler og formler",
+      "content": [
+        {
+          "id": "mat1120-3-2-symbol-tekst",
+          "type": "text",
+          "content": "## Symbol- og formelliste\n\n*Oppslagsverk — alt her forklares underveis i kapitlet.*\n\n| Symbol | Betydning |\n|---|---|\n| $P$ | Egenvektormatrise (uavhengige egenvektorer som søyler) |\n| $D$ | Diagonalmatrise med egenverdiene |\n| $A=PDP^{-1}$ | Diagonalisering (generell) |\n| $A=PDP^{T}$ | Ortogonal diagonalisering (symmetrisk A, Del 6) |\n| $\\dim E_\\lambda$ | Geometrisk multiplisitet |\n| alg. mult. | Algebraisk multiplisitet (rotens multiplisitet) |\n\n**Formler og regler i dette delkapitlet:**\n\n$$A=PDP^{-1},\\qquad AP=PD$$\nDiagonalisering; kontroller søyle for søyle med $A\\mathbf{v}_j=\\lambda_j\\mathbf{v}_j$.\n\n$$A\\text{ diagonaliserbar}\\iff\\sum_i\\dim E_{\\lambda_i}=n\\iff\\text{geo}=\\text{alg for hver }\\lambda$$\nDiagonaliserbarhetskriteriet.\n\n**Snarveier (navngis i føringen):** $n$ distinkte egenverdier $\\Rightarrow$ diagonaliserbar; symmetrisk $\\Rightarrow$ ortogonalt diagonaliserbar; triangulær $\\Rightarrow$ egenverdier på diagonalen (sjekk geo $=$ alg ved gjentak).\n\n**Ikke-diagonaliserbar:** vis $\\dim E_\\lambda<$ alg for en egenverdi (defekt)."
+        }
+      ]
+    }
+  ],
+  "exercises": []
+}

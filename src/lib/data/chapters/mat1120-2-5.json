@@ -1,0 +1,395 @@
+{
+  "id": "mat1120-2-5",
+  "courseId": "mat1120",
+  "chapterNumber": "2.5",
+  "title": "Lineære avbildninger og matriserepresentasjonen [T]_B",
+  "description": "Matrisen [T]_B til en lineær avbildning på et abstrakt rom — særlig derivasjons- og differensialoperatorer T(f)=f′ og S=T²−2T+2I — bygget kolonne for kolonne fra T(bⱼ) uttrykt i B-koordinater.",
+  "estimatedMinutes": 60,
+  "competenceGoals": [
+    "sjekke om en avbildning er lineær og bygge matriserepresentasjonen [T]_B kolonne for kolonne (kolonne j = [T(b_j)]_B)",
+    "bruke sammenhengen [T(x)]_B = [T]_B [x]_B til å regne på abstrakte rom i koordinater",
+    "finne [T]_B for derivasjonsoperatoren T(f)=f′ og for differensialoperatorer S som polynom i T",
+    "forklare hvorfor [T]_B-kolonnene må uttrykkes i B-koordinater før de settes inn"
+  ],
+  "content": [
+    {
+      "id": "mat1120-2-5-tip-eksamensvinkel",
+      "type": "tip",
+      "title": "Eksamensvinkel",
+      "content": "**Matriserepresentasjonen $[T]_{\\mathcal{B}}$ er kjernen i signaturoppgavens andre halvdel** — sjanger H/I, **~85 %** (2018, 2019, 2021, 2022-u, 2024). Nesten hvert eneste sett ber deg finne matrisen til en lineær avbildning på et abstrakt rom.\n\n- Fasitens grep: $[T]_{\\mathcal{B}}=\\big[\\,[T(\\mathbf{b}_1)]_{\\mathcal{B}}\\ \\cdots\\ [T(\\mathbf{b}_n)]_{\\mathcal{B}}\\,\\big]$ — regn $T$ på hver basisvektor, og skriv resultatet i $\\mathcal{B}$-**koordinater** før det settes inn som kolonne.\n- Operatoren er nesten alltid en **derivasjonsoperator** $T(f)=f'$ eller en **differensialoperator** $S=T^2-2T+2I$ (2019 O3c) — da regnes matrisen ved å derivere basisfunksjonene.\n\n**Sensorregel:** kolonnene skal være *koordinatvektorer*, ikke $T(\\mathbf{b}_j)$ selv. Den dokumenterte fellen er å glemme oversettelsen til $\\mathcal{B}$-koordinater. Vis alltid at du gikk veien $T(\\mathbf{b}_j)\\to[T(\\mathbf{b}_j)]_{\\mathcal{B}}$."
+    },
+    {
+      "id": "mat1120-2-5-forkunnskaper",
+      "type": "text",
+      "content": "**Forkunnskaper:** Bygger på [kap. 2.3](/bok/mat1120/mat1120-2-3) (koordinatvektoren $[\\mathbf{x}]_{\\mathcal{B}}$ og koordinatavbildningen) og [kap. 2.4](/bok/mat1120/mat1120-2-4) (overgangsmatrisen — vi gjenbruker idéen «kolonne $j$ er en koordinatvektor»). Vi deriverer polynomer og funksjoner: [Derivasjon](/bok/r2/r2-3-1). At derivasjon er en **lineær** operasjon ($ (f+g)'=f'+g'$, $(cf)'=cf'$) forutsettes fra *(MAT1110 — forkunnskapsemne, ikke bygget ennå; aktiver `/bok/mat1110/<id>`-lenke når den finnes)*."
+    },
+    {
+      "id": "mat1120-2-5-intro",
+      "type": "text",
+      "content": "I kap. 2.3 så vi at en fast basis $\\mathcal{B}$ gjør enhver vektor i et abstrakt rom om til en tallkolonne $[\\mathbf{x}]_{\\mathcal{B}}$ i $\\mathbb{R}^n$. Nå skal vi gjøre det samme med **avbildninger**: en lineær operasjon $T$ på rommet — for eksempel «deriver polynomet» — blir en helt vanlig **matrise** $[T]_{\\mathcal{B}}$ når vi ser den gjennom koordinatbrillene. Da er derivasjon på $\\operatorname{P}_2$ bare matrisemultiplikasjon i $\\mathbb{R}^3$.\n\nDette er den andre halvdelen av MAT1120s signaturoppgave. Vi jobber i tre løkker: **(1)** hva en lineær avbildning er, **(2)** hvordan matrisen $[T]_{\\mathcal{B}}$ bygges kolonne for kolonne, **(3)** derivasjons- og differensialoperatorer, der matrisen virkelig sparer arbeid."
+    },
+    {
+      "id": "mat1120-2-5-lokke1",
+      "type": "text",
+      "content": "## Løkke 1 — Lineære avbildninger (~15 min)"
+    },
+    {
+      "id": "mat1120-2-5-def-lineaer-avbildning",
+      "type": "definition",
+      "title": "Lineær avbildning",
+      "content": "En **lineær avbildning** er en regel $T$ som sender vektorer fra ett vektorrom $V$ til et vektorrom $W$, på en måte som respekterer de to regneoperasjonene addisjon og skalarmultiplikasjon. Med ord: det spiller ingen rolle om du legger sammen (eller skalerer) *før* eller *etter* at $T$ har virket. Formelt, for alle $\\mathbf{u},\\mathbf{v}\\in V$ og alle skalarer $c$:\n\n$$T(\\mathbf{u}+\\mathbf{v})=T(\\mathbf{u})+T(\\mathbf{v}),\\qquad T(c\\mathbf{u})=c\\,T(\\mathbf{u}).$$\n\nEn konsekvens er at $T(\\mathbf{0})=\\mathbf{0}$ alltid. Derivasjon $T(f)=f'$ er lineær; det er nettopp dét som gjør at vi kan representere den med en matrise."
+    },
+    {
+      "id": "mat1120-2-5-def-linearitetssjekk",
+      "type": "definition",
+      "title": "Linearitetssjekken",
+      "content": "For å avgjøre om en gitt regel $T$ er lineær, sjekker du de to betingelsene hver for seg:\n\n1. **Additivitet:** $T(\\mathbf{u}+\\mathbf{v})=T(\\mathbf{u})+T(\\mathbf{v})$.\n2. **Homogenitet:** $T(c\\mathbf{u})=c\\,T(\\mathbf{u})$.\n\nBegge kan slås sammen til én test: $T(c\\mathbf{u}+d\\mathbf{v})=c\\,T(\\mathbf{u})+d\\,T(\\mathbf{v})$. Er én av dem brutt, er $T$ ikke lineær — for eksempel er $T(p)=p^2$ eller $T(p)=p+1$ *ikke* lineære (den siste sender ikke $\\mathbf{0}$ til $\\mathbf{0}$)."
+    },
+    {
+      "id": "mat1120-2-5-ex-linearitet",
+      "type": "example",
+      "title": "Eksempel 1: Sjekk at $T(f)=f'+f''$ er lineær",
+      "problem": "La $T$ virke på $\\operatorname{P}_3$ ved $T(f)=f'+f''$. Vis at $T$ er en lineær avbildning $\\operatorname{P}_3\\to\\operatorname{P}_3$.",
+      "solution": "Vi sjekker den samlede betingelsen. La $f,g\\in\\operatorname{P}_3$ og $c,d$ være skalarer. Fordi derivasjon er lineær, er $(cf+dg)'=cf'+dg'$ og $(cf+dg)''=cf''+dg''$. Da er\n\n$$T(cf+dg)=(cf+dg)'+(cf+dg)''=cf'+dg'+cf''+dg''=c(f'+f'')+d(g'+g'')=c\\,T(f)+d\\,T(g).$$\n\nBåde additivitet ($c=d=1$) og homogenitet ($d=0$) følger av dette. Altså er $T$ lineær. **Bemerkning om rommet:** deriverer vi et polynom av grad $\\le3$ to ganger og legger sammen, får vi igjen et polynom av grad $\\le3$, så $T$ sender virkelig $\\operatorname{P}_3$ inn i $\\operatorname{P}_3$. ✓"
+    },
+    {
+      "id": "mat1120-2-5-1",
+      "type": "exercise",
+      "exercise": {
+        "id": "mat1120-2-5-e1",
+        "number": "1",
+        "type": "classic",
+        "difficulty": "lett",
+        "task": "(Innstegsoppgave — ren gjengivelse.) En avbildning $T:V\\to W$ kalles lineær.\n\n**a)** Hvilke to betingelser må $T$ oppfylle?\n\n**b)** Hva blir alltid $T(\\mathbf{0})$ for en lineær avbildning?",
+        "solution": "**a)** Additivitet $T(\\mathbf{u}+\\mathbf{v})=T(\\mathbf{u})+T(\\mathbf{v})$ og homogenitet $T(c\\mathbf{u})=c\\,T(\\mathbf{u})$, for alle $\\mathbf{u},\\mathbf{v}\\in V$ og alle skalarer $c$.\n\n**b)** $T(\\mathbf{0})=\\mathbf{0}$. (Sett $c=0$ i homogeniteten: $T(\\mathbf{0})=T(0\\cdot\\mathbf{u})=0\\cdot T(\\mathbf{u})=\\mathbf{0}$.)",
+        "hints": [
+          "De to betingelsene handler om å respektere addisjon og skalarmultiplikasjon.",
+          "Bruk homogeniteten med $c=0$."
+        ]
+      }
+    },
+    {
+      "id": "mat1120-2-5-lokke2",
+      "type": "text",
+      "content": "## Løkke 2 — Matriserepresentasjonen $[T]_{\\mathcal{B}}$ (~25 min)"
+    },
+    {
+      "id": "mat1120-2-5-def-matriserep",
+      "type": "definition",
+      "title": "Matriserepresentasjonen $[T]_{\\mathcal{B}}$",
+      "content": "La $T:V\\to V$ være en lineær avbildning på et $n$-dimensjonalt rom med ordnet basis $\\mathcal{B}=\\{\\mathbf{b}_1,\\dots,\\mathbf{b}_n\\}$. **Matrisen til $T$ relativt $\\mathcal{B}$**, skrevet $[T]_{\\mathcal{B}}$, er den $n\\times n$-matrisen som gjør akkurat det $T$ gjør, men i koordinatspråket:\n\n$$[T]_{\\mathcal{B}}=\\big[\\ [T(\\mathbf{b}_1)]_{\\mathcal{B}}\\ \\ [T(\\mathbf{b}_2)]_{\\mathcal{B}}\\ \\cdots\\ [T(\\mathbf{b}_n)]_{\\mathcal{B}}\\ \\big].$$\n\nMed andre ord: kolonne $j$ er koordinatvektoren til $T(\\mathbf{b}_j)$, uttrykt i basisen $\\mathcal{B}$. Idéen er den samme som for overgangsmatrisen i kap. 2.4 — vi finner ut hva avbildningen gjør med hver byggekloss, og skriver svaret i koordinater."
+    },
+    {
+      "id": "mat1120-2-5-def-kolonneoppskrift",
+      "type": "definition",
+      "title": "Kolonneoppskriften (og fellen)",
+      "content": "For å bygge $[T]_{\\mathcal{B}}$ gjør du, for hver $j=1,\\dots,n$, to steg:\n\n1. **Regn ut $T(\\mathbf{b}_j)$** — bruk regelen for $T$ (deriver, gang, osv.).\n2. **Skriv $T(\\mathbf{b}_j)$ i $\\mathcal{B}$-koordinater** — altså finn $[T(\\mathbf{b}_j)]_{\\mathcal{B}}$, og sett den tallkolonnen som kolonne $j$.\n\nSteg 2 er der poengene sitter. Du kan ikke sette selve polynomet/funksjonen $T(\\mathbf{b}_j)$ inn i en matrise — matriser inneholder tall. Å hoppe over oversettelsen til koordinater er den vanligste $[T]_{\\mathcal{B}}$-fellen."
+    },
+    {
+      "id": "mat1120-2-5-thm-virkemaate",
+      "type": "theorem",
+      "title": "$[T]_{\\mathcal{B}}$ virker på koordinatvektorer",
+      "content": "Hele poenget med matrisen er at den lar deg regne $T$ ved matrisemultiplikasjon i $\\mathbb{R}^n$:\n\n$$[T(\\mathbf{x})]_{\\mathcal{B}}=[T]_{\\mathcal{B}}\\,[\\mathbf{x}]_{\\mathcal{B}}\\qquad\\text{for alle }\\mathbf{x}\\in V.$$\n\nAltså: ta koordinatvektoren til $\\mathbf{x}$, gang med $[T]_{\\mathcal{B}}$, og du får koordinatvektoren til $T(\\mathbf{x})$. Det abstrakte problemet (deriver et polynom) er blitt et konkret matriseregnestykke i $\\mathbb{R}^n$. Dette er grunnen til at matriserepresentasjonen er så nyttig."
+    },
+    {
+      "id": "mat1120-2-5-ex-deriv-P2",
+      "type": "example",
+      "title": "Eksempel 2: $[T]_{\\mathcal{B}}$ for derivasjon på $\\operatorname{P}_2$ (sjanger I)",
+      "problem": "La $T:\\operatorname{P}_2\\to\\operatorname{P}_2$ være $T(p)=p'$, og $\\mathcal{B}=\\{1,\\ t,\\ t^2\\}$. Finn $[T]_{\\mathcal{B}}$, og bruk den til å regne $T(3-2t+t^2)$ i koordinater.",
+      "solution": "Følg kolonneoppskriften — deriver hver basisvektor og skriv svaret i $\\mathcal{B}=\\{1,t,t^2\\}$-koordinater.\n\n**$\\mathbf{b}_1=1$:** $T(1)=0$, så $[T(1)]_{\\mathcal{B}}=(0,0,0)$.\n\n**$\\mathbf{b}_2=t$:** $T(t)=1$, så $[T(t)]_{\\mathcal{B}}=(1,0,0)$ (konstanten $1$).\n\n**$\\mathbf{b}_3=t^2$:** $T(t^2)=2t$, så $[T(t^2)]_{\\mathcal{B}}=(0,2,0)$.\n\nSett koordinatvektorene som kolonner:\n\n$$[T]_{\\mathcal{B}}=\\begin{bmatrix}0&1&0\\\\ 0&0&2\\\\ 0&0&0\\end{bmatrix}.$$\n\n**Bruk matrisen:** $3-2t+t^2$ har $[\\mathbf{x}]_{\\mathcal{B}}=(3,-2,1)$. Da er\n$$[T(\\mathbf{x})]_{\\mathcal{B}}=[T]_{\\mathcal{B}}[\\mathbf{x}]_{\\mathcal{B}}=\\begin{bmatrix}0&1&0\\\\ 0&0&2\\\\ 0&0&0\\end{bmatrix}\\begin{bmatrix}3\\\\ -2\\\\ 1\\end{bmatrix}=\\begin{bmatrix}-2\\\\ 2\\\\ 0\\end{bmatrix}.$$\nOversatt tilbake: $T(\\mathbf{x})=-2+2t$. **Kontroll:** $\\frac{d}{dt}(3-2t+t^2)=-2+2t$. ✓"
+    },
+    {
+      "id": "mat1120-2-5-2",
+      "type": "exercise",
+      "exercise": {
+        "id": "mat1120-2-5-e2",
+        "number": "2",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "La $T:\\operatorname{P}_2\\to\\operatorname{P}_2$ være $T(p)=p'+p$ (deriver og legg til polynomet selv), og $\\mathcal{B}=\\{1,\\ t,\\ t^2\\}$.\n\n**a)** Finn $[T]_{\\mathcal{B}}$ ved kolonneoppskriften.\n\n**b)** Bruk matrisen til å finne $T(2-t+t^2)$ i koordinater, og oversett svaret tilbake til et polynom.",
+        "solution": "**a)** Regn $T$ på hver basisvektor og skriv i $\\mathcal{B}$-koordinater:\n\n- $T(1)=0+1=1\\Rightarrow(1,0,0)$.\n- $T(t)=1+t\\Rightarrow(1,1,0)$.\n- $T(t^2)=2t+t^2\\Rightarrow(0,2,1)$.\n\n$$[T]_{\\mathcal{B}}=\\begin{bmatrix}1&1&0\\\\ 0&1&2\\\\ 0&0&1\\end{bmatrix}.$$\n\n**b)** $2-t+t^2$ har koordinater $(2,-1,1)$. Da\n$$[T]_{\\mathcal{B}}\\begin{bmatrix}2\\\\ -1\\\\ 1\\end{bmatrix}=\\begin{bmatrix}2-1+0\\\\ 0-1+2\\\\ 0+0+1\\end{bmatrix}=\\begin{bmatrix}1\\\\ 1\\\\ 1\\end{bmatrix},$$\nså $T(\\mathbf{x})=1+t+t^2$. **Kontroll:** $p'+p=(-1+2t)+(2-t+t^2)=1+t+t^2$. ✓",
+        "hints": [
+          "Kolonne $j$ er $[T(\\mathbf{b}_j)]_{\\mathcal{B}}$: regn $T$ på $1$, $t$, $t^2$ hver for seg.",
+          "For hver basisvektor: deriver og legg til vektoren selv, så les av koeffisientene i rekkefølgen $1,t,t^2$."
+        ]
+      }
+    },
+    {
+      "id": "mat1120-2-5-3",
+      "type": "exercise",
+      "exercise": {
+        "id": "mat1120-2-5-e3",
+        "number": "3",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "La $T:\\operatorname{P}_3\\to\\operatorname{P}_3$ være derivasjonsoperatoren $T(p)=p'$, og $\\mathcal{B}=\\{1,\\ t,\\ t^2,\\ t^3\\}$. Finn $[T]_{\\mathcal{B}}$, og les av matrisen hva $\\dim\\operatorname{Nul}[T]_{\\mathcal{B}}$ er (uten å regne — bare tell frie variabler).",
+        "solution": "Deriver basisvektorene og uttrykk i $\\mathcal{B}$-koordinater:\n\n- $T(1)=0\\Rightarrow(0,0,0,0)$.\n- $T(t)=1\\Rightarrow(1,0,0,0)$.\n- $T(t^2)=2t\\Rightarrow(0,2,0,0)$.\n- $T(t^3)=3t^2\\Rightarrow(0,0,3,0)$.\n\n$$[T]_{\\mathcal{B}}=\\begin{bmatrix}0&1&0&0\\\\ 0&0&2&0\\\\ 0&0&0&3\\\\ 0&0&0&0\\end{bmatrix}.$$\n\nMatrisen har pivoter i kolonne 2, 3 og 4 (verdiene $1,2,3$), så kolonne 1 er den eneste ikke-pivotkolonnen. Det gir **én** fri variabel, altså $\\dim\\operatorname{Nul}[T]_{\\mathcal{B}}=1$. (Det svarer til konstantpolynomene — vi kommer tilbake til dette i [kap. 2.6](/bok/mat1120/mat1120-2-6).)",
+        "hints": [
+          "Deriver $1,t,t^2,t^3$ og skriv hvert svar som en tallkolonne i basisen $\\{1,t,t^2,t^3\\}$.",
+          "Antall frie variabler = antall kolonner uten pivot."
+        ]
+      }
+    },
+    {
+      "id": "mat1120-2-5-lokke3",
+      "type": "text",
+      "content": "## Løkke 3 — Differensialoperatorer som polynom i $T$ (~18 min)"
+    },
+    {
+      "id": "mat1120-2-5-def-derivasjonsoperator",
+      "type": "definition",
+      "title": "Derivasjonsoperatoren",
+      "content": "**Derivasjonsoperatoren** er avbildningen $T(f)=f'$ (deriver funksjonen én gang). På $\\operatorname{P}_n$ senker den graden med 1, og på funksjonsrom som $\\operatorname{Span}\\{\\sin t,\\cos t\\}$ eller $\\operatorname{Span}\\{e^x\\cos x,\\ e^x\\sin x\\}$ holder den seg innenfor rommet. Fordi derivasjon er lineær, har den en matriserepresentasjon $[T]_{\\mathcal{B}}$ — og den er selve arbeidshesten i MAT1120s signaturoppgave."
+    },
+    {
+      "id": "mat1120-2-5-def-differensialoperator",
+      "type": "definition",
+      "title": "Differensialoperator som polynom i $T$",
+      "content": "En **differensialoperator** er et uttrykk bygget av $T$, som $S=T^2-2T+2I$ (der $T^2(f)=f''$, $T(f)=f'$ og $I(f)=f$). Da er $S(f)=f''-2f'+2f$. Det avgjørende: er $S$ det *samme* polynomet i $T$, er $[S]_{\\mathcal{B}}$ det samme polynomet i matrisen $[T]_{\\mathcal{B}}$:\n\n$$[S]_{\\mathcal{B}}=[T]_{\\mathcal{B}}^2-2[T]_{\\mathcal{B}}+2I.$$\n\nDu trenger altså bare å finne $[T]_{\\mathcal{B}}$ én gang; resten er matriseregning. Dette er 2019-oppgavens grep."
+    },
+    {
+      "id": "mat1120-2-5-thm-polynom-i-T",
+      "type": "theorem",
+      "title": "Matriserepresentasjon respekterer regneoperasjonene",
+      "content": "Sammensetning av avbildninger blir matriseprodukt, og summer/skalarer bevares:\n\n$$[S\\circ T]_{\\mathcal{B}}=[S]_{\\mathcal{B}}[T]_{\\mathcal{B}},\\qquad [aS+bT]_{\\mathcal{B}}=a[S]_{\\mathcal{B}}+b[T]_{\\mathcal{B}},\\qquad [I]_{\\mathcal{B}}=I.$$\n\nSpesielt er $[T^2]_{\\mathcal{B}}=[T]_{\\mathcal{B}}^2$. Derfor blir enhver differensialoperator som er et polynom $q(T)$, representert av det samme polynomet $q([T]_{\\mathcal{B}})$ i matrisen."
+    },
+    {
+      "id": "mat1120-2-5-ex-differensialoperator",
+      "type": "example",
+      "title": "Eksempel 3: $S=T^2-2T+2I$ på et løsningsrom (2019-typen)",
+      "problem": "La $V=\\operatorname{Span}\\{u,v\\}$ der $u=e^x\\cos x$ og $v=e^x\\sin x$, med basis $\\mathcal{B}=\\{u,v\\}$. La $T(f)=f'$. Finn $[T]_{\\mathcal{B}}$, og bruk den til å finne $[S]_{\\mathcal{B}}$ for differensialoperatoren $S=T^2-2T+2I$. Tolk resultatet.",
+      "solution": "**Steg 1 — $[T]_{\\mathcal{B}}$.** Deriver basisfunksjonene (produktregel) og uttrykk i $\\mathcal{B}=\\{u,v\\}$:\n\n$$u'=e^x\\cos x-e^x\\sin x=u-v\\ \\Rightarrow\\ [T(u)]_{\\mathcal{B}}=(1,-1),$$\n$$v'=e^x\\sin x+e^x\\cos x=u+v\\ \\Rightarrow\\ [T(v)]_{\\mathcal{B}}=(1,1).$$\n\nAltså $[T]_{\\mathcal{B}}=\\begin{bmatrix}1&1\\\\ -1&1\\end{bmatrix}$.\n\n**Steg 2 — $[S]_{\\mathcal{B}}$.** Bruk $[S]_{\\mathcal{B}}=[T]_{\\mathcal{B}}^2-2[T]_{\\mathcal{B}}+2I$. Først\n$$[T]_{\\mathcal{B}}^2=\\begin{bmatrix}1&1\\\\ -1&1\\end{bmatrix}\\begin{bmatrix}1&1\\\\ -1&1\\end{bmatrix}=\\begin{bmatrix}0&2\\\\ -2&0\\end{bmatrix}.$$\nDa\n$$[S]_{\\mathcal{B}}=\\begin{bmatrix}0&2\\\\ -2&0\\end{bmatrix}-2\\begin{bmatrix}1&1\\\\ -1&1\\end{bmatrix}+2\\begin{bmatrix}1&0\\\\ 0&1\\end{bmatrix}=\\begin{bmatrix}0-2+2&2-2+0\\\\ -2+2+0&0-2+2\\end{bmatrix}=\\begin{bmatrix}0&0\\\\ 0&0\\end{bmatrix}.$$\n\n**Tolkning:** $[S]_{\\mathcal{B}}$ er nullmatrisen, så $S$ er **nulloperatoren** på $V$: $f''-2f'+2f=0$ for hver $f\\in V$. Det stemmer — $e^x\\cos x$ og $e^x\\sin x$ er nettopp løsningene av differensiallikningen $y''-2y'+2y=0$ (karakteristisk likning $r^2-2r+2=0$ med røtter $r=1\\pm i$). Matriseregningen bekreftet at hele $V$ ligger i kjernen til $S$."
+    },
+    {
+      "id": "mat1120-2-5-4",
+      "type": "exercise",
+      "exercise": {
+        "id": "mat1120-2-5-e4",
+        "number": "4",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "La $T:\\operatorname{P}_2\\to\\operatorname{P}_2$ være $T(p)=p'$ med $\\mathcal{B}=\\{1,t,t^2\\}$, slik at $[T]_{\\mathcal{B}}=\\begin{bmatrix}0&1&0\\\\ 0&0&2\\\\ 0&0&0\\end{bmatrix}$ (Eksempel 2). La $S=T^2+T$.\n\n**a)** Finn $[S]_{\\mathcal{B}}$ ved å regne $[T]_{\\mathcal{B}}^2+[T]_{\\mathcal{B}}$.\n\n**b)** Kontroller kolonne 3 av $[S]_{\\mathcal{B}}$ ved å regne $S(t^2)=(t^2)''+(t^2)'$ direkte.",
+        "solution": "**a)** Først $[T]_{\\mathcal{B}}^2$:\n$$\\begin{bmatrix}0&1&0\\\\ 0&0&2\\\\ 0&0&0\\end{bmatrix}^2=\\begin{bmatrix}0&0&2\\\\ 0&0&0\\\\ 0&0&0\\end{bmatrix}.$$\nDa\n$$[S]_{\\mathcal{B}}=[T]_{\\mathcal{B}}^2+[T]_{\\mathcal{B}}=\\begin{bmatrix}0&0&2\\\\ 0&0&0\\\\ 0&0&0\\end{bmatrix}+\\begin{bmatrix}0&1&0\\\\ 0&0&2\\\\ 0&0&0\\end{bmatrix}=\\begin{bmatrix}0&1&2\\\\ 0&0&2\\\\ 0&0&0\\end{bmatrix}.$$\n\n**b)** Direkte: $S(t^2)=(t^2)''+(t^2)'=2+2t$, som i koordinater er $(2,2,0)$ — nøyaktig kolonne 3 av $[S]_{\\mathcal{B}}$. ✓",
+        "hints": [
+          "$[S]_{\\mathcal{B}}=[T]_{\\mathcal{B}}^2+[T]_{\\mathcal{B}}$ — samme polynom i matrisen som i operatoren.",
+          "For (b): $S(t^2)$ betyr andrederivert pluss førstederivert; skriv svaret i $\\{1,t,t^2\\}$-koordinater."
+        ]
+      }
+    },
+    {
+      "id": "mat1120-2-5-def-to-baser",
+      "type": "definition",
+      "title": "Matrisen mellom to baser $[T]_{\\mathcal{C}\\leftarrow\\mathcal{B}}$ (kjennskap)",
+      "content": "Noen ganger vil vi lese *inn* i én basis $\\mathcal{B}$ og *ut* i en annen basis $\\mathcal{C}$. Da er kolonne $j$ i $[T]_{\\mathcal{C}\\leftarrow\\mathcal{B}}$ lik $[T(\\mathbf{b}_j)]_{\\mathcal{C}}$ (regn $T$ på $\\mathcal{B}$-vektor $j$, skriv svaret i $\\mathcal{C}$-koordinater), og\n\n$$[T(\\mathbf{x})]_{\\mathcal{C}}=[T]_{\\mathcal{C}\\leftarrow\\mathcal{B}}\\,[\\mathbf{x}]_{\\mathcal{B}}.$$\n\nNår $\\mathcal{C}=\\mathcal{B}$ er dette akkurat $[T]_{\\mathcal{B}}$. Hvordan $[T]_{\\mathcal{B}}$ og $[T]_{\\mathcal{C}}$ (samme basis inn og ut, men to ulike valg) henger sammen via basisskifte, tar vi i [kap. 2.6](/bok/mat1120/mat1120-2-6)."
+    },
+    {
+      "id": "mat1120-2-5-5",
+      "type": "exercise",
+      "exercise": {
+        "id": "mat1120-2-5-e5",
+        "number": "5",
+        "type": "classic",
+        "difficulty": "vanskelig",
+        "task": "La $V=\\operatorname{Span}\\{\\sin t,\\ \\cos t\\}$ med basis $\\mathcal{B}=\\{\\sin t,\\ \\cos t\\}$, og $T(f)=f'$.\n\n**a)** Finn $[T]_{\\mathcal{B}}$.\n\n**b)** Bruk $[T]_{\\mathcal{B}}$ til å finne $[S]_{\\mathcal{B}}$ for $S=T^2+I$, og tolk resultatet ($S(f)=f''+f$).",
+        "solution": "**a)** Deriver basisfunksjonene og uttrykk i $\\mathcal{B}=\\{\\sin t,\\cos t\\}$:\n\n- $(\\sin t)'=\\cos t=0\\cdot\\sin t+1\\cdot\\cos t\\Rightarrow(0,1)$.\n- $(\\cos t)'=-\\sin t=-1\\cdot\\sin t+0\\cdot\\cos t\\Rightarrow(-1,0)$.\n\n$$[T]_{\\mathcal{B}}=\\begin{bmatrix}0&-1\\\\ 1&0\\end{bmatrix}.$$\n\n**b)** $[T]_{\\mathcal{B}}^2=\\begin{bmatrix}0&-1\\\\ 1&0\\end{bmatrix}^2=\\begin{bmatrix}-1&0\\\\ 0&-1\\end{bmatrix}=-I$. Da\n$$[S]_{\\mathcal{B}}=[T]_{\\mathcal{B}}^2+I=-I+I=\\begin{bmatrix}0&0\\\\ 0&0\\end{bmatrix}.$$\nSå $S$ er nulloperatoren: $f''+f=0$ for hver $f\\in V$ — riktig, siden $\\sin t$ og $\\cos t$ løser $y''+y=0$.",
+        "hints": [
+          "Deriver $\\sin t$ og $\\cos t$, og skriv hvert svar i basisen $\\{\\sin t,\\cos t\\}$ (pass på fortegnet på $(\\cos t)'$).",
+          "$[S]_{\\mathcal{B}}=[T]_{\\mathcal{B}}^2+I$; regn ut $[T]_{\\mathcal{B}}^2$ først."
+        ]
+      }
+    },
+    {
+      "id": "mat1120-2-5-warn-typiske-feil",
+      "type": "warning",
+      "title": "Typiske feil",
+      "content": "- **Kolonnene i feil rom.** Du regner $T(\\mathbf{b}_j)$ riktig, men glemmer å oversette til $\\mathcal{B}$-koordinater før du setter det inn — den dokumenterte $[T]_{\\mathcal{B}}$-fellen. Kolonnene skal være tallkolonner $[T(\\mathbf{b}_j)]_{\\mathcal{B}}$, ikke polynomene/funksjonene selv.\n- **Sjekker ikke linearitet.** Matriserepresentasjonen finnes bare for lineære $T$. Er $T$ ikke lineær (f.eks. $T(p)=p^2$ eller $T(p)=p+1$), finnes ingen $[T]_{\\mathcal{B}}$.\n- **Feil derivasjon av basisfunksjonene.** Særlig fortegn: $(\\cos t)'=-\\sin t$, og produktregelen for $e^x\\cos x$.\n- **Blander rekkefølgen på basisen.** Basisen er *ordnet*; bytter du rekkefølge, bytter kolonnene og radene plass.\n- **Regner $[T]_{\\mathcal{B}}^2$ som elementvis kvadrat.** $[T]_{\\mathcal{B}}^2$ er matriseproduktet $[T]_{\\mathcal{B}}[T]_{\\mathcal{B}}$, ikke hvert element opphøyd i annen."
+    },
+    {
+      "id": "mat1120-2-5-begrepsbank-tekst",
+      "type": "text",
+      "content": "## Begrepsbank til eksamen\n\nMatriserepresentasjonen i kortform — dette apparatet må sitte utenat (intet formelark).\n\n*Begrepsbanken er flashcard-/repetisjonsstoff — den gjentar det du nettopp har lest. Hopp trygt over ved førstegangslesing; tidsanslaget for kapitlet gjelder kjernestoffet.*"
+    },
+    {
+      "id": "mat1120-2-5-bb-lineaer-avbildning",
+      "type": "definition",
+      "title": "Lineær avbildning",
+      "content": "En regel $T:V\\to W$ med $T(\\mathbf{u}+\\mathbf{v})=T\\mathbf{u}+T\\mathbf{v}$ og $T(c\\mathbf{u})=cT\\mathbf{u}$. Respekterer addisjon og skalarmultiplikasjon, og sender alltid $\\mathbf{0}$ til $\\mathbf{0}$. Bare lineære avbildninger har en matriserepresentasjon."
+    },
+    {
+      "id": "mat1120-2-5-bb-linearitetssjekk",
+      "type": "definition",
+      "title": "Linearitetssjekken",
+      "content": "Test $T(c\\mathbf{u}+d\\mathbf{v})=cT(\\mathbf{u})+dT(\\mathbf{v})$ (dekker både additivitet og homogenitet). Brytes den, er $T$ ikke lineær — f.eks. $T(p)=p+1$ (sender ikke $\\mathbf{0}\\to\\mathbf{0}$) eller $T(p)=p^2$."
+    },
+    {
+      "id": "mat1120-2-5-bb-matriserep",
+      "type": "definition",
+      "title": "Matriserepresentasjonen $[T]_{\\mathcal{B}}$",
+      "content": "$[T]_{\\mathcal{B}}=\\big[\\,[T(\\mathbf{b}_1)]_{\\mathcal{B}}\\ \\cdots\\ [T(\\mathbf{b}_n)]_{\\mathcal{B}}\\,\\big]$: den $n\\times n$-matrisen som utfører $T$ i koordinatspråket. Kolonne $j$ er koordinatvektoren til $T$ av basisvektor $j$."
+    },
+    {
+      "id": "mat1120-2-5-bb-kolonneoppskrift",
+      "type": "definition",
+      "title": "Kolonneoppskriften",
+      "content": "For hver basisvektor $\\mathbf{b}_j$: (1) regn ut $T(\\mathbf{b}_j)$, (2) skriv resultatet i $\\mathcal{B}$-koordinater og sett som kolonne $j$. Steg 2 er der poengene sitter — kolonnen er en tallkolonne, ikke $T(\\mathbf{b}_j)$ selv."
+    },
+    {
+      "id": "mat1120-2-5-bb-virkemaate",
+      "type": "definition",
+      "title": "$[T(\\mathbf{x})]_{\\mathcal{B}}=[T]_{\\mathcal{B}}[\\mathbf{x}]_{\\mathcal{B}}$",
+      "content": "Grunnrelasjonen: for å regne $T(\\mathbf{x})$, gang koordinatvektoren $[\\mathbf{x}]_{\\mathcal{B}}$ med matrisen. Abstrakt operasjon → matrisemultiplikasjon i $\\mathbb{R}^n$. Oversett svaret tilbake til slutt."
+    },
+    {
+      "id": "mat1120-2-5-bb-koordinatfellen",
+      "type": "definition",
+      "title": "Koordinatfellen",
+      "content": "Den dokumenterte $[T]_{\\mathcal{B}}$-fellen: å sette $T(\\mathbf{b}_j)$ (polynomet/funksjonen) inn som kolonne uten å oversette til $\\mathcal{B}$-koordinater. Matriser inneholder tall — kolonnen må være $[T(\\mathbf{b}_j)]_{\\mathcal{B}}$."
+    },
+    {
+      "id": "mat1120-2-5-bb-derivasjonsoperator",
+      "type": "definition",
+      "title": "Derivasjonsoperatoren $T(f)=f'$",
+      "content": "Deriverer funksjonen én gang. Lineær, så den har en matrise $[T]_{\\mathcal{B}}$. På $\\operatorname{P}_n$ senker den graden med 1; på funksjonsrom som $\\operatorname{Span}\\{\\sin t,\\cos t\\}$ holder den seg innenfor rommet. Signaturoppgavens arbeidshest."
+    },
+    {
+      "id": "mat1120-2-5-bb-differensialoperator",
+      "type": "definition",
+      "title": "Differensialoperator som polynom i $T$",
+      "content": "$S=q(T)$, f.eks. $S=T^2-2T+2I$ ($S(f)=f''-2f'+2f$). Da er $[S]_{\\mathcal{B}}=q([T]_{\\mathcal{B}})=[T]_{\\mathcal{B}}^2-2[T]_{\\mathcal{B}}+2I$ — samme polynom i matrisen. Finn $[T]_{\\mathcal{B}}$ én gang, regn resten."
+    },
+    {
+      "id": "mat1120-2-5-bb-produktregel",
+      "type": "definition",
+      "title": "$[S\\circ T]_{\\mathcal{B}}=[S]_{\\mathcal{B}}[T]_{\\mathcal{B}}$",
+      "content": "Sammensetning av lineære avbildninger svarer til matriseprodukt (i samme rekkefølge). Spesielt $[T^2]_{\\mathcal{B}}=[T]_{\\mathcal{B}}^2$. Sum og skalar bevares: $[aS+bT]_{\\mathcal{B}}=a[S]_{\\mathcal{B}}+b[T]_{\\mathcal{B}}$."
+    },
+    {
+      "id": "mat1120-2-5-bb-identitet",
+      "type": "definition",
+      "title": "$[I]_{\\mathcal{B}}=I$",
+      "content": "Identitetsavbildningen $I(\\mathbf{x})=\\mathbf{x}$ har identitetsmatrisen som representasjon i enhver basis. Derfor blir $+2I$-leddet i en differensialoperator til $+2I$ i matriseuttrykket."
+    },
+    {
+      "id": "mat1120-2-5-bb-T-kvadrat",
+      "type": "definition",
+      "title": "$[T]_{\\mathcal{B}}^2$ er et matriseprodukt",
+      "content": "$[T]_{\\mathcal{B}}^2=[T]_{\\mathcal{B}}[T]_{\\mathcal{B}}$ (matrisemultiplikasjon), ikke hvert element opphøyd i annen. Svarer til $T^2(f)=f''$ for derivasjonsoperatoren."
+    },
+    {
+      "id": "mat1120-2-5-bb-ordnet-basis",
+      "type": "definition",
+      "title": "Basisen er ordnet",
+      "content": "Rekkefølgen på $\\mathcal{B}$ bestemmer rekkefølgen på både kolonnene (hvilken $\\mathbf{b}_j$) og radene (koordinatplassene). Bytter du rekkefølge, får du en annen — men likedannet — matrise."
+    },
+    {
+      "id": "mat1120-2-5-bb-nulloperator",
+      "type": "definition",
+      "title": "Nulloperator på et løsningsrom",
+      "content": "Er $[S]_{\\mathcal{B}}$ nullmatrisen, er $S$ nulloperatoren: $S(f)=0$ for alle $f$ i rommet. Typisk når rommet er utspent av løsningene av differensiallikningen $S(y)=0$ (f.eks. $y''-2y'+2y=0$ gir $\\operatorname{Span}\\{e^x\\cos x,e^x\\sin x\\}$)."
+    },
+    {
+      "id": "mat1120-2-5-bb-P2-deriv",
+      "type": "definition",
+      "title": "$[T]_{\\mathcal{B}}$ for derivasjon på $\\operatorname{P}_2$",
+      "content": "Med $T(p)=p'$ og $\\mathcal{B}=\\{1,t,t^2\\}$ er $[T]_{\\mathcal{B}}=\\begin{bmatrix}0&1&0\\\\0&0&2\\\\0&0&0\\end{bmatrix}$. Legg merke til at $\\dim\\operatorname{P}_2=3$, at diagonalen er null (grad senkes), og at kolonne 1 mangler pivot (konstantene deriveres til $0$)."
+    },
+    {
+      "id": "mat1120-2-5-bb-cos-sin",
+      "type": "definition",
+      "title": "$[T]_{\\mathcal{B}}$ på $\\operatorname{Span}\\{\\sin t,\\cos t\\}$",
+      "content": "Med $T(f)=f'$ og $\\mathcal{B}=\\{\\sin t,\\cos t\\}$: $(\\sin t)'=\\cos t$, $(\\cos t)'=-\\sin t$, så $[T]_{\\mathcal{B}}=\\begin{bmatrix}0&-1\\\\1&0\\end{bmatrix}$ (en 90°-rotasjon). Fortegnet på $(\\cos t)'$ er den vanlige regnefellen."
+    },
+    {
+      "id": "mat1120-2-5-bb-to-baser",
+      "type": "definition",
+      "title": "$[T]_{\\mathcal{C}\\leftarrow\\mathcal{B}}$",
+      "content": "Matrisen som leser inn i $\\mathcal{B}$ og ut i $\\mathcal{C}$: kolonne $j$ er $[T(\\mathbf{b}_j)]_{\\mathcal{C}}$, og $[T(\\mathbf{x})]_{\\mathcal{C}}=[T]_{\\mathcal{C}\\leftarrow\\mathcal{B}}[\\mathbf{x}]_{\\mathcal{B}}$. Når $\\mathcal{C}=\\mathcal{B}$ får du $[T]_{\\mathcal{B}}$."
+    },
+    {
+      "id": "mat1120-2-5-bb-oversett-tilbake",
+      "type": "definition",
+      "title": "Oversett svaret tilbake",
+      "content": "Etter matriseregningen står svaret i koordinater. Oversett det tilbake til et polynom/en funksjon ved å multiplisere koordinatene med basisvektorene. Et $[T]_{\\mathcal{B}}$-svar som blir stående i $\\mathbb{R}^n$ er ufullstendig."
+    },
+    {
+      "id": "mat1120-2-5-bb-ikke-lineaer",
+      "type": "definition",
+      "title": "Ikke-lineære eksempler",
+      "content": "$T(p)=p^2$, $T(p)=p+1$ og $T(p)=p(0)^2$ er *ikke* lineære — de bryter additivitet eller nulltesten. Slike har ingen matriserepresentasjon. Sjekk linearitet før du forsøker å bygge $[T]_{\\mathcal{B}}$."
+    },
+    {
+      "id": "mat1120-2-5-bb-anvendelse",
+      "type": "definition",
+      "title": "Hvorfor $[T]_{\\mathcal{B}}$ er nyttig",
+      "content": "Med matrisen kan du bruke *hele* $\\mathbb{R}^n$-maskineriet på abstrakte problemer: potenser $[T]_{\\mathcal{B}}^k$ (gjentatt derivasjon), $\\operatorname{Nul}[T]_{\\mathcal{B}}$ (kjernen), invertibilitet (isomorfi). Det er brua fra abstrakt til konkret — utnyttes i [kap. 2.6](/bok/mat1120/mat1120-2-6)."
+    },
+    {
+      "id": "mat1120-2-5-rep",
+      "type": "collapsible",
+      "title": "Repetisjonsoppgaver",
+      "buttonText": "Vis repetisjonsoppgaver",
+      "content": [
+        {
+          "id": "mat1120-2-5-R1",
+          "type": "exercise",
+          "exercise": {
+            "id": "mat1120-2-5-eR1",
+            "number": "R1",
+            "type": "classic",
+            "difficulty": "lett",
+            "task": "(Fra dette kapitlet) Hva står i kolonne $j$ av matrisen $[T]_{\\mathcal{B}}$?",
+            "solution": "Koordinatvektoren $[T(\\mathbf{b}_j)]_{\\mathcal{B}}$ — altså $T$ anvendt på basisvektor nr. $j$, deretter uttrykt i $\\mathcal{B}$-koordinater. En tallkolonne, ikke $T(\\mathbf{b}_j)$ selv.",
+            "hints": [
+              "Kolonne $j$ handler om hva $T$ gjør med $\\mathbf{b}_j$."
+            ]
+          }
+        },
+        {
+          "id": "mat1120-2-5-R2",
+          "type": "exercise",
+          "exercise": {
+            "id": "mat1120-2-5-eR2",
+            "number": "R2",
+            "type": "classic",
+            "difficulty": "middels",
+            "task": "(Fra [kap. 2.3](/bok/mat1120/mat1120-2-3)) La $\\mathcal{B}=\\{1,t,t^2\\}$. Hva er koordinatvektoren til $2t-5t^2$ relativt $\\mathcal{B}$?",
+            "solution": "Les av koeffisientene i rekkefølgen $1,t,t^2$: konstantleddet er $0$, $t$-leddet $2$, $t^2$-leddet $-5$. Altså $[2t-5t^2]_{\\mathcal{B}}=(0,2,-5)$.",
+            "hints": [
+              "I standardbasisen er koordinatene bare koeffisientene."
+            ]
+          }
+        },
+        {
+          "id": "mat1120-2-5-R3",
+          "type": "exercise",
+          "exercise": {
+            "id": "mat1120-2-5-eR3",
+            "number": "R3",
+            "type": "classic",
+            "difficulty": "middels",
+            "task": "(Fra dette kapitlet) Er $T(p)=p'\\cdot p$ (produktet av den deriverte og polynomet) en lineær avbildning på $\\operatorname{P}_2$? Begrunn.",
+            "solution": "Nei. Test homogeniteten: $T(cp)=(cp)'\\cdot(cp)=c p'\\cdot cp=c^2(p'p)=c^2 T(p)$, som ikke er $c\\,T(p)$ for $c\\ne0,1$. Regelen ganger to «kopier» av $p$, så den er kvadratisk, ikke lineær — og har derfor ingen matriserepresentasjon.",
+            "hints": [
+              "Prøv homogeniteten: hva skjer med $T(cp)$?",
+              "Et produkt av to funksjoner som begge avhenger av $p$ blir kvadratisk i $p$."
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": "mat1120-2-5-symbolliste",
+      "type": "collapsible",
+      "title": "Symbol- og formelliste",
+      "buttonText": "Vis symboler og formler",
+      "content": [
+        {
+          "id": "mat1120-2-5-symbolliste-text",
+          "type": "text",
+          "content": "## Symbol- og formelliste\n\n*Oppslagsverk — alt her forklares underveis i kapitlet.*\n\nAlle symboler og formler som brukes i dette delkapitlet (2.5), samlet på ett sted.\n\n| Symbol | Betydning |\n|---|---|\n| $T,\\ S$ | Lineære avbildninger (operatorer) |\n| $T(f)=f'$ | Derivasjonsoperatoren |\n| $S=T^2-2T+2I$ | Differensialoperator (polynom i $T$) |\n| $I$ | Identitetsavbildningen / identitetsmatrisen |\n| $[T]_{\\mathcal{B}}$ | Matriserepresentasjonen av $T$ relativt $\\mathcal{B}$ |\n| $[T(\\mathbf{b}_j)]_{\\mathcal{B}}$ | Koordinatvektoren til $T(\\mathbf{b}_j)$ (kolonne $j$) |\n| $[\\mathbf{x}]_{\\mathcal{B}}$ | Koordinatvektor relativt $\\mathcal{B}$ |\n| $[T]_{\\mathcal{C}\\leftarrow\\mathcal{B}}$ | Matrisen til $T$ som leser inn i $\\mathcal{B}$, ut i $\\mathcal{C}$ |\n| $\\operatorname{Nul}[T]_{\\mathcal{B}}$ | Nullrommet til matrisen (svarer til $\\ker T$) |\n\n**Formler i dette delkapitlet:**\n\n$$[T]_{\\mathcal{B}}=\\big[\\ [T(\\mathbf{b}_1)]_{\\mathcal{B}}\\ \\cdots\\ [T(\\mathbf{b}_n)]_{\\mathcal{B}}\\ \\big]$$\nKonstruksjon: kolonne $j$ er $T(\\mathbf{b}_j)$ uttrykt i $\\mathcal{B}$-koordinater.\n\n$$[T(\\mathbf{x})]_{\\mathcal{B}}=[T]_{\\mathcal{B}}\\,[\\mathbf{x}]_{\\mathcal{B}}$$\nMatrisen virker på koordinatvektorer — abstrakt operasjon blir matrisemultiplikasjon.\n\n$$[S]_{\\mathcal{B}}=[T]_{\\mathcal{B}}^2-2[T]_{\\mathcal{B}}+2I\\qquad(S=T^2-2T+2I)$$\nEt polynom i $T$ representeres av det samme polynomet i $[T]_{\\mathcal{B}}$.\n\n$$[S\\circ T]_{\\mathcal{B}}=[S]_{\\mathcal{B}}[T]_{\\mathcal{B}},\\qquad [aS+bT]_{\\mathcal{B}}=a[S]_{\\mathcal{B}}+b[T]_{\\mathcal{B}}$$\nSammensetning → produkt; sum og skalar bevares."
+        }
+      ]
+    }
+  ],
+  "exercises": []
+}
