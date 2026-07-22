@@ -1,0 +1,120 @@
+{
+  "id": "tma4110-9-prove",
+  "courseId": "tma4110",
+  "chapterNumber": "9.P",
+  "title": "Prøver til del 9: Differensiallikninger av 2. orden",
+  "description": "Fire prøver som dekker hele Del 9: homogene likninger (tre tilfeller), ubestemte koeffisienter, resonans med initialverdi, og en bred ODE-2-simulering med svingningsmodell.",
+  "estimatedMinutes": 160,
+  "competenceGoals": [
+    "løse homogene 2. ordens likninger i alle tre tilfellene med initialverdi",
+    "bruke ubestemte koeffisienter med korrekt ansats og resonanssjekk",
+    "løse inhomogene likninger med resonans og bestemme integrasjonskonstantene til slutt",
+    "gjenkjenne og løse svingningsmodeller med demping og resonans"
+  ],
+  "content": [
+    {
+      "id": "tma4110-9-prove-tip",
+      "type": "tip",
+      "title": "Om prøvene",
+      "content": "**Fire prøver som dekker hele Del 9 — 2. ordens differensiallikninger (sjanger L, ~82 % av settene).**\n\n- **Prøve 1 (9.A, ~35 min):** Homogene likninger — de tre tilfellene (reelle ulike røtter, dobbel rot, komplekse røtter) + initialverdi. Bygger på [kap. 9.1](/bok/tma4110/tma4110-9-1).\n- **Prøve 2 (9.B, ~40 min):** Inhomogene med ubestemte koeffisienter — hver ansats-type (polynom, eksponential, $\\sin/\\cos$). Bygger på [kap. 9.2](/bok/tma4110/tma4110-9-2).\n- **Prøve 3 (9.C, ~40 min):** Inhomogene med **resonans** + initialverdi. Bygger på [kap. 9.2](/bok/tma4110/tma4110-9-2).\n- **Prøve 4 (9.D, ~45 min):** ODE-2-simulering — homogen + inhomogen med resonans + svingningsmodell. Bygger på [kap. 9.1](/bok/tma4110/tma4110-9-1)–[9.4](/bok/tma4110/tma4110-9-4).\n\n**4 prøver à ~35–45 min — kan trygt deles over flere kvelder, én prøve per økt.** Alle oppgaver er **langsvar** (begrunn alle svar), akkurat som på NTNU-eksamen — ingen flervalg. Regn under kode E: ingen hjelpemidler, eksakte svar ($xe^{2x}$, $\\tfrac{t}{10}\\sin 5t$, aldri desimal). Løsningsforslag og en avkryssbar selvdiagnose følger hver prøve."
+    },
+    {
+      "id": "tma4110-9-prove-forkunnskaper",
+      "type": "text",
+      "content": "**Forkunnskaper:** Prøvene forutsetter hele Del 9. Repeter ved behov [kap. 9.1](/bok/tma4110/tma4110-9-1) (karakteristisk likning, de tre homogene tilfellene), [kap. 9.2](/bok/tma4110/tma4110-9-2) (ubestemte koeffisienter, resonansregelen $x^s$), [kap. 9.3](/bok/tma4110/tma4110-9-3) (variasjon av parametere, svingningsmodeller) og [kap. 9.4](/bok/tma4110/tma4110-9-4) (drilloppskriften). Nøkkelen er å kjenne igjen varianten og kjøre fem-stegs-oppskriften: homogen → ansats → resonanssjekk → koeffisienter → IVP til slutt."
+    },
+    {
+      "id": "tma4110-9-prove-p1",
+      "type": "collapsible",
+      "title": "Prøve 1 — Homogene likninger (9.A)",
+      "buttonText": "Vis prøve 1",
+      "content": [
+        {
+          "id": "tma4110-9-prove-p1-opg",
+          "type": "text",
+          "content": "### Prøve 1 — Homogene 2. ordens likninger (~35 min)\n\n**Oppgave 1.** Finn den generelle løsningen av $y''-y'-6y=0$.\n\n**Oppgave 2.** Finn den generelle løsningen av $y''+4y'+4y=0$.\n\n**Oppgave 3.** Løs initialverdiproblemet $y''+2y'+5y=0$ med $y(0)=1$, $y'(0)=-1$.\n\n**Oppgave 4.** Løs initialverdiproblemet $y''-y'-6y=0$ med $y(0)=0$, $y'(0)=5$."
+        },
+        {
+          "id": "tma4110-9-prove-p1-los",
+          "type": "text",
+          "content": "**Løsningsforslag (A-besvarelse)**\n\n**Oppgave 1.** Karakteristisk likning $r^2-r-6=0\\Rightarrow (r-3)(r+2)=0$, røtter $r_1=3,\\ r_2=-2$ (reelle ulike). Etter karakteristisk-likning-metoden:\n$$y=C_1e^{3x}+C_2e^{-2x}.$$\n\n**Oppgave 2.** $r^2+4r+4=(r+2)^2=0$ gir dobbel rot $r=-2$. Dobbel rot krever $x$-faktoren:\n$$y=(C_1+C_2x)e^{-2x}.$$\n\n**Oppgave 3.** $r^2+2r+5=0\\Rightarrow r=\\dfrac{-2\\pm\\sqrt{4-20}}{2}=-1\\pm 2i$ (komplekse). Generell løsning $y=e^{-x}(C_1\\cos 2x+C_2\\sin 2x)$. Initialbetingelser: $y(0)=C_1=1$. Deriver: $y'=-e^{-x}(C_1\\cos 2x+C_2\\sin 2x)+e^{-x}(-2C_1\\sin 2x+2C_2\\cos 2x)$, så $y'(0)=-C_1+2C_2=-1\\Rightarrow -1+2C_2=-1\\Rightarrow C_2=0$. Dermed\n$$y=e^{-x}\\cos 2x.$$\n\n**Oppgave 4.** Fra oppgave 1: $y=C_1e^{3x}+C_2e^{-2x}$. $y(0)=C_1+C_2=0$; $y'=3C_1e^{3x}-2C_2e^{-2x}$, $y'(0)=3C_1-2C_2=5$. Med $C_2=-C_1$: $3C_1+2C_1=5C_1=5\\Rightarrow C_1=1,\\ C_2=-1$. Dermed\n$$y=e^{3x}-e^{-2x}.$$"
+        },
+        {
+          "id": "tma4110-9-prove-p1-diag",
+          "type": "text",
+          "content": "**Selvdiagnose** — kryss av det du fikk til uten å nøle:\n\n- ☐ Oppgave 1: satte opp $r^2-r-6=0$, faktoriserte, valgte reell-ulik-formen.\n- ☐ Oppgave 2: kjente igjen dobbel rot og husket $x$-faktoren.\n- ☐ Oppgave 3: fikk komplekse røtter, brukte $e^{ax}(\\cos,\\sin)$-formen og deriverte riktig med produktregel.\n- ☐ Oppgave 4: bestemte $C_1,C_2$ fra to likninger uten regnefeil."
+        }
+      ]
+    },
+    {
+      "id": "tma4110-9-prove-p2",
+      "type": "collapsible",
+      "title": "Prøve 2 — Ubestemte koeffisienter (9.B)",
+      "buttonText": "Vis prøve 2",
+      "content": [
+        {
+          "id": "tma4110-9-prove-p2-opg",
+          "type": "text",
+          "content": "### Prøve 2 — Ubestemte koeffisienter (~40 min)\n\nIngen av oppgavene har resonans — sjekk det som første steg.\n\n**Oppgave 1.** Finn den generelle løsningen av $y''+y'-2y=x$ (polynom-høyreside).\n\n**Oppgave 2.** Finn den generelle løsningen av $y''-y=e^{2x}$ (eksponential-høyreside).\n\n**Oppgave 3.** Finn den generelle løsningen av $y''+9y=\\cos x$ (trigonometrisk høyreside)."
+        },
+        {
+          "id": "tma4110-9-prove-p2-los",
+          "type": "text",
+          "content": "**Løsningsforslag (A-besvarelse)**\n\n**Oppgave 1.** Homogen: $r^2+r-2=(r-1)(r+2)=0\\Rightarrow y_h=C_1e^{x}+C_2e^{-2x}$. Høyresida er grad-1-polynom, $0$ er ikke rot ⇒ ingen resonans. Ansats $y_p=ax+b$, $y_p'=a$, $y_p''=0$. Innsatt: $0+a-2(ax+b)=x\\Rightarrow -2a\\,x+(a-2b)=x$. Sammenlign: $-2a=1\\Rightarrow a=-\\tfrac12$; $a-2b=0\\Rightarrow b=-\\tfrac14$. Dermed\n$$y=C_1e^{x}+C_2e^{-2x}-\\tfrac12 x-\\tfrac14.$$\n\n**Oppgave 2.** Homogen: $r^2-1=0\\Rightarrow y_h=C_1e^{x}+C_2e^{-x}$. Eksponent $2$ er ikke rot ⇒ ingen resonans. Ansats $y_p=Ae^{2x}$, $y_p''=4Ae^{2x}$. Innsatt: $(4-1)Ae^{2x}=3Ae^{2x}=e^{2x}\\Rightarrow A=\\tfrac13$. Dermed\n$$y=C_1e^{x}+C_2e^{-x}+\\tfrac13 e^{2x}.$$\n\n**Oppgave 3.** Homogen: $r^2+9=0\\Rightarrow y_h=C_1\\cos 3x+C_2\\sin 3x$. Drivfrekvens $1\\ne 3$ ⇒ ingen resonans. Ansats $y_p=A\\cos x+B\\sin x$, $y_p''=-A\\cos x-B\\sin x$. Innsatt: $(-A+9A)\\cos x+(-B+9B)\\sin x=8A\\cos x+8B\\sin x=\\cos x\\Rightarrow A=\\tfrac18,\\ B=0$. Dermed\n$$y=C_1\\cos 3x+C_2\\sin 3x+\\tfrac18\\cos x.$$"
+        },
+        {
+          "id": "tma4110-9-prove-p2-diag",
+          "type": "text",
+          "content": "**Selvdiagnose** — kryss av det du fikk til uten å nøle:\n\n- ☐ Sjekket resonans (eksponent/frekvens mot røttene) FØR jeg valgte ansats.\n- ☐ Oppgave 1: brukte fullt polynom $ax+b$ og sammenlignet koeffisienter.\n- ☐ Oppgave 2: fikk $A=\\tfrac13$ ved innsetting.\n- ☐ Oppgave 3: brukte begge ledd $A\\cos x+B\\sin x$ selv om $g$ bare hadde $\\cos$."
+        }
+      ]
+    },
+    {
+      "id": "tma4110-9-prove-p3",
+      "type": "collapsible",
+      "title": "Prøve 3 — Resonans + IVP (9.C)",
+      "buttonText": "Vis prøve 3",
+      "content": [
+        {
+          "id": "tma4110-9-prove-p3-opg",
+          "type": "text",
+          "content": "### Prøve 3 — Inhomogen med resonans + IVP (~40 min)\n\nAlle tre har resonans — oppdag den, og gang ansatsen med riktig $x^s$.\n\n**Oppgave 1.** Løs $y''-y'-2y=e^{2x}$ med $y(0)=0$, $y'(0)=0$.\n\n**Oppgave 2.** Løs $y''+9y=\\sin 3x$ med $y(0)=0$, $y'(0)=0$.\n\n**Oppgave 3.** Finn en partikulær løsning av $y''+6y'+9y=e^{-3x}$ (dobbel resonans)."
+        },
+        {
+          "id": "tma4110-9-prove-p3-los",
+          "type": "text",
+          "content": "**Løsningsforslag (A-besvarelse)**\n\n**Oppgave 1.** Homogen: $r^2-r-2=(r-2)(r+1)=0\\Rightarrow y_h=C_1e^{2x}+C_2e^{-x}$. Høyresida $e^{2x}$ svarer til roten $r=2$ (enkel) ⇒ **resonans**, $s=1$. Ansats $y_p=Axe^{2x}$. $y_p'=A(1+2x)e^{2x}$, $y_p''=A(4+4x)e^{2x}$. Innsatt: $A[(4+4x)-(1+2x)-2x]e^{2x}=A[3]e^{2x}=e^{2x}\\Rightarrow A=\\tfrac13$, så $y_p=\\tfrac13 xe^{2x}$.\n\nGenerell: $y=C_1e^{2x}+C_2e^{-x}+\\tfrac13 xe^{2x}$. IVP: $y(0)=C_1+C_2=0$. $y'=2C_1e^{2x}-C_2e^{-x}+\\tfrac13 e^{2x}+\\tfrac23 xe^{2x}$, $y'(0)=2C_1-C_2+\\tfrac13=0\\Rightarrow 2C_1-C_2=-\\tfrac13$. Med $C_2=-C_1$: $3C_1=-\\tfrac13\\Rightarrow C_1=-\\tfrac19,\\ C_2=\\tfrac19$. Dermed\n$$y=\\Big(\\tfrac13 x-\\tfrac19\\Big)e^{2x}+\\tfrac19 e^{-x}.$$\n\n**Oppgave 2.** Homogen: $r^2+9=0\\Rightarrow y_h=C_1\\cos 3x+C_2\\sin 3x$. Drivfrekvens $3=$ egenfrekvens ⇒ **resonans**. Ansats ganges med $x$: $y_p=x(A\\cos 3x+B\\sin 3x)$. Innsetting gir $A=-\\tfrac16,\\ B=0$, altså $y_p=-\\tfrac16 x\\cos 3x$.\n\nGenerell: $y=C_1\\cos 3x+C_2\\sin 3x-\\tfrac16 x\\cos 3x$. IVP: $y(0)=C_1=0$. $y'=-3C_1\\sin 3x+3C_2\\cos 3x-\\tfrac16\\cos 3x+\\tfrac12 x\\sin 3x$, $y'(0)=3C_2-\\tfrac16=0\\Rightarrow C_2=\\tfrac1{18}$. Dermed\n$$y=\\tfrac1{18}\\sin 3x-\\tfrac16 x\\cos 3x.$$\n\n**Oppgave 3.** Homogen: $r^2+6r+9=(r+3)^2=0$ gir dobbel rot $r=-3$, $y_h=(C_1+C_2x)e^{-3x}$. Høyresida $e^{-3x}$ svarer til den *doble* roten ⇒ **resonans med $s=2$**. Ansats $y_p=Ax^2e^{-3x}$. Etter to derivasjoner og innsetting overlever bare $2Ae^{-3x}=e^{-3x}\\Rightarrow A=\\tfrac12$. Dermed\n$$y_p=\\tfrac12 x^2e^{-3x}.$$"
+        },
+        {
+          "id": "tma4110-9-prove-p3-diag",
+          "type": "text",
+          "content": "**Selvdiagnose** — kryss av det du fikk til uten å nøle:\n\n- ☐ Oppdaget resonans i alle tre og ganget med riktig $x^s$ (oppgave 3: $x^2$).\n- ☐ Bestemte ansatskoeffisienten før jeg satte inn initialbetingelsene.\n- ☐ Brukte initialbetingelsene på hele $y_h+y_p$, ikke på $y_h$ alene.\n- ☐ Oppgave 3: så at dobbel rot gir $s=2$, ikke $s=1$."
+        }
+      ]
+    },
+    {
+      "id": "tma4110-9-prove-p4",
+      "type": "collapsible",
+      "title": "Prøve 4 — ODE-2-simulering (9.D)",
+      "buttonText": "Vis prøve 4",
+      "content": [
+        {
+          "id": "tma4110-9-prove-p4-opg",
+          "type": "text",
+          "content": "### Prøve 4 — ODE-2-simulering (~45 min)\n\nEt bredt sett som speiler hvordan sjanger L kommer på eksamen: homogen, inhomogen med resonans og en svingningsmodell i samme oppgave.\n\n**Oppgave 1.** Løs initialverdiproblemet $y''-2y'+5y=0$ med $y(0)=2$, $y'(0)=0$.\n\n**Oppgave 2.** Løs $y''-4y=e^{2x}$ med $y(0)=0$, $y'(0)=1$ (merk resonans).\n\n**Oppgave 3 (svingningsmodell).**\n\n**a)** En dempet fri svingning er gitt ved $x''+4x'+20x=0$. Klassifiser dempingen og finn den generelle løsningen.\n\n**b)** En udempet fjær-masse drives ved $x''+25x=\\cos 5t$, $x(0)=0$, $x'(0)=0$. Vis at det er resonans, finn $x(t)$, og beskriv amplitudeutviklingen."
+        },
+        {
+          "id": "tma4110-9-prove-p4-los",
+          "type": "text",
+          "content": "**Løsningsforslag (A-besvarelse)**\n\n**Oppgave 1.** $r^2-2r+5=0\\Rightarrow r=\\dfrac{2\\pm\\sqrt{4-20}}{2}=1\\pm 2i$. Generell løsning $y=e^{x}(C_1\\cos 2x+C_2\\sin 2x)$. $y(0)=C_1=2$. $y'=e^x(C_1\\cos 2x+C_2\\sin 2x)+e^x(-2C_1\\sin 2x+2C_2\\cos 2x)$, $y'(0)=C_1+2C_2=0\\Rightarrow 2+2C_2=0\\Rightarrow C_2=-1$. Dermed\n$$y=e^{x}(2\\cos 2x-\\sin 2x).$$\n\n**Oppgave 2.** Homogen: $r^2-4=0\\Rightarrow r=\\pm 2$, $y_h=C_1e^{2x}+C_2e^{-2x}$. $e^{2x}$ svarer til roten $r=2$ ⇒ **resonans**, $s=1$. Ansats $y_p=Axe^{2x}$: $y_p''=A(4+4x)e^{2x}$, innsatt $A(4+4x)e^{2x}-4Axe^{2x}=4Ae^{2x}=e^{2x}\\Rightarrow A=\\tfrac14$, så $y_p=\\tfrac14 xe^{2x}$.\n\nGenerell: $y=C_1e^{2x}+C_2e^{-2x}+\\tfrac14 xe^{2x}$. IVP: $y(0)=C_1+C_2=0$. $y'=2C_1e^{2x}-2C_2e^{-2x}+\\tfrac14 e^{2x}+\\tfrac12 xe^{2x}$, $y'(0)=2C_1-2C_2+\\tfrac14=1\\Rightarrow C_1-C_2=\\tfrac38$. Med $C_1+C_2=0$: $C_1=\\tfrac3{16},\\ C_2=-\\tfrac3{16}$. Dermed\n$$y=\\Big(\\tfrac14 x+\\tfrac3{16}\\Big)e^{2x}-\\tfrac3{16}e^{-2x}.$$\n\n**Oppgave 3a.** Diskriminanten $c^2-4mk=16-80=-64<0$ ⇒ **underkritisk demping**. $r^2+4r+20=0\\Rightarrow r=-2\\pm 4i$, så kvasifrekvens $\\omega_d=4$ og\n$$x(t)=e^{-2t}(C_1\\cos 4t+C_2\\sin 4t).$$\nEn døende svingning: amplituden dempes av $e^{-2t}$ mens systemet oscillerer med frekvens $4$.\n\n**Oppgave 3b.** Egenfrekvens $\\omega_0=\\sqrt{25}=5$; drivfrekvens $\\omega=5=\\omega_0$ ⇒ **resonans**. Homogen $x_h=C_1\\cos 5t+C_2\\sin 5t$. Resonansformel med $F_0=1,\\ \\omega_0=5$: $x_p=\\dfrac{F_0}{2\\omega_0}t\\sin 5t=\\dfrac{1}{10}t\\sin 5t$. Generell: $x=C_1\\cos 5t+C_2\\sin 5t+\\tfrac{t}{10}\\sin 5t$. $x(0)=C_1=0$; $x'=-5C_1\\sin5t+5C_2\\cos5t+\\tfrac1{10}\\sin5t+\\tfrac{t}{2}\\cos5t$, $x'(0)=5C_2=0\\Rightarrow C_2=0$. Dermed\n$$x(t)=\\frac{t}{10}\\sin 5t.$$\nAmplituden er innhyllet av $\\pm t/10$ og vokser lineært med tiden — resonanskatastrofen."
+        },
+        {
+          "id": "tma4110-9-prove-p4-diag",
+          "type": "text",
+          "content": "**Selvdiagnose** — kryss av det du fikk til uten å nøle:\n\n- ☐ Oppgave 1: komplekse røtter + IVP med korrekt produktregel-derivasjon.\n- ☐ Oppgave 2: oppdaget resonansen ($r=2$ er rot), ganget med $x$, IVP til slutt.\n- ☐ Oppgave 3a: klassifiserte dempingen fra fortegnet til $c^2-4mk$.\n- ☐ Oppgave 3b: sammenlignet drivfrekvens og egenfrekvens, brukte resonansformelen, beskrev at amplituden vokser."
+        }
+      ]
+    }
+  ],
+  "exercises": []
+}

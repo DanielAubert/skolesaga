@@ -1,0 +1,182 @@
+[
+  {
+    "question": "Hva er strukturen til den generelle løsningen av y''+py'+qy=g(x)?",
+    "options": [
+      "y=y_h+y_p, den homogene løsningen pluss én partikulær løsning av den fulle likningen",
+      "y=y_h·y_p, produktet av den homogene og den partikulære løsningen med hver sin konstant",
+      "y=y_h-y_p, differansen der partikulærløsningen trekkes fra den homogene løsningen",
+      "y=y_p alene, siden pådraget g(x) gjør den homogene delen overflødig i inhomogene fall"
+    ],
+    "explanation": "For en inhomogen lineær likning er den generelle løsningen y=y_h+y_p: y_h bærer de to frie konstantene, y_p er én bestemt løsning som matcher pådraget g(x)."
+  },
+  {
+    "question": "Hva er det første steget når du løser en inhomogen likning?",
+    "options": [
+      "Løs den homogene likningen y''+py'+qy=0 for å finne y_h og røttene",
+      "Sett inn initialbetingelsene i pådraget g(x) før noe annet gjøres i oppgaven",
+      "Gjett en partikulær løsning y_p og sjekk om den tilfeldigvis passer med en gang",
+      "Regn ut Wronski-determinanten til de to grunnløsningene i startpunktet x=0"
+    ],
+    "explanation": "Finn alltid y_h først: den inngår i sluttsvaret, og røttene avgjør om ansatsen for y_p har resonans. Uten y_h kan du ikke sjekke resonans."
+  },
+  {
+    "question": "Hva er ideen bak metoden med ubestemte koeffisienter?",
+    "options": [
+      "y_p har samme form som g(x), med ukjente konstanter som bestemmes ved innsetting",
+      "y_p bygges opp av en uendelig rekke ledd som gradvis nærmer seg pådraget g(x)",
+      "y_p finnes ved å integrere pådraget g(x) to ganger og legge til en konstant hver gang",
+      "y_p er alltid lik g(x) selv, siden pådraget per definisjon løser den fulle likningen"
+    ],
+    "explanation": "Ubestemte koeffisienter: velg en ansats med samme form som g (polynom, eksponential, sin/cos) med ukjente konstanter, sett inn i likningen og løs for konstantene."
+  },
+  {
+    "question": "Pådraget er g(x)=e^{3x} og røttene er r=1,2. Hvilken ansats bruker du for y_p?",
+    "options": [
+      "y_p=A e^{3x}, siden α=3 ikke er en rot og det derfor ikke er resonans",
+      "y_p=A x e^{3x}, fordi alle eksponentielle pådrag krever en ekstra x-faktor",
+      "y_p=A e^{3x}+B e^{x}, der man tar med en homogen løsning i ansatsen også",
+      "y_p=A cos 3x+B sin 3x, fordi eksponenten 3 tolkes som en svingefrekvens"
+    ],
+    "explanation": "α=3 er ikke rot (røttene er 1 og 2), så ingen resonans. Standardansatsen y_p=A e^{3x} brukes direkte, og A bestemmes ved innsetting."
+  },
+  {
+    "question": "Hva er resonans i en inhomogen likning?",
+    "options": [
+      "At pådraget g(x) selv er en løsning av den homogene likningen, så standardansatsen finnes i y_h",
+      "At de to røttene i den karakteristiske likningen tilfeldigvis er like store",
+      "At pådraget g(x) vokser raskere enn den homogene løsningen når x øker mot uendelig",
+      "At initialbetingelsene y(0) og y'(0) begge er lik null i det samme startpunktet"
+    ],
+    "explanation": "Resonans betyr at g(x) er en homogen løsning. Da gir standardansatsen 0=g(x), umulig, og ansatsen må ganges med x^s."
+  },
+  {
+    "question": "Hva sier resonansregelen?",
+    "options": [
+      "Kolliderer ansatsen med y_h, gang hele ansatsen med x^s, der s er multiplisiteten til roten",
+      "Kolliderer ansatsen med y_h, dropp den partikulære delen og bruk bare den homogene",
+      "Kolliderer ansatsen med y_h, bytt fortegn på pådraget g(x) og prøv på nytt",
+      "Kolliderer ansatsen med y_h, del ansatsen på x^s for å fjerne den doble løsningen"
+    ],
+    "explanation": "Ved resonans ganges ansatsen med x^s der s er multiplisiteten til den kolliderende roten: s=1 for enkel rot (gang med x), s=2 for dobbel rot (gang med x^2)."
+  },
+  {
+    "question": "Pådraget g(x)=e^{2x} og r=2 er en enkel rot. Hvilken ansats for y_p?",
+    "options": [
+      "y_p=A x e^{2x}, fordi enkel rot gir resonans med multiplisitet s=1",
+      "y_p=A e^{2x}, siden man alltid starter med den enkleste eksponentialansatsen",
+      "y_p=A x^2 e^{2x}, fordi eksponentielle pådrag alltid trenger en x^2-faktor",
+      "y_p=A e^{2x}+B x, der man legger til et lineært ledd for å bryte resonansen"
+    ],
+    "explanation": "α=2 er en enkel rot (s=1), så det er resonans. Standardansatsen A e^{2x} er i y_h; gang med x: y_p=A x e^{2x}."
+  },
+  {
+    "question": "Pådraget g(x)=e^{-3x} og r=-3 er en dobbel rot. Hvilken ansats for y_p?",
+    "options": [
+      "y_p=A x^2 e^{-3x}, fordi dobbel rot gir resonans med multiplisitet s=2",
+      "y_p=A x e^{-3x}, siden én x-faktor alltid er nok til å bryte all resonans",
+      "y_p=A e^{-3x}, fordi den doble roten allerede dekker begge løsningene selv",
+      "y_p=A e^{-3x}+B x e^{-3x}, der man skriver ut begge de homogene leddene"
+    ],
+    "explanation": "α=-3 er dobbel rot (s=2), så både e^{-3x} og x e^{-3x} er i y_h. Gang med x^2: y_p=A x^2 e^{-3x}."
+  },
+  {
+    "question": "Pådraget er g(x)=sin x. Hvilken ansats bruker du (uten resonans)?",
+    "options": [
+      "y_p=A cos x+B sin x, med både cosinus og sinus selv om g bare har sinus",
+      "y_p=B sin x, siden pådraget bare inneholder et sinus-ledd og ikke cosinus",
+      "y_p=A e^{x}, fordi sinus kan skrives om til en eksponentialfunksjon via Euler",
+      "y_p=A x sin x, fordi trigonometriske pådrag alltid krever en x-faktor foran"
+    ],
+    "explanation": "Ansatsen for sin x (eller cos x) må ha BEGGE ledd: A cos x+B sin x. Derivasjon bytter mellom dem, så begge trengs selv om g bare inneholder det ene."
+  },
+  {
+    "question": "Når bestemmer du integrasjonskonstantene C1 og C2 i et initialverdiproblem?",
+    "options": [
+      "Til slutt, etter at hele y=y_h+y_p er satt sammen, ved å sette inn y(x0) og y'(x0)",
+      "Med en gang, rett etter at den homogene løsningen y_h er funnet, før y_p regnes",
+      "Underveis, ett ledd om gangen mens du bygger opp den partikulære løsningen",
+      "Aldri, siden konstantene forsvinner automatisk når pådraget g(x) settes inn"
+    ],
+    "explanation": "Konstantene bestemmes SIST: y_p bidrar også til y(x0) og y'(x0), så du må ha hele y=y_h+y_p klar før du setter inn initialbetingelsene."
+  },
+  {
+    "question": "Hva er superposisjon for et sammensatt pådrag g=g1+g2?",
+    "options": [
+      "Løs for hvert ledd hver for seg og legg sammen: y_p=y_{p1}+y_{p2}",
+      "Velg det største av leddene g1 og g2 og ignorer det minste i ansatsen",
+      "Gang de to partikulærløsningene sammen: y_p=y_{p1}·y_{p2} med felles konstant",
+      "Bytt g1 og g2 med gjennomsnittet deres og løs for ett samlet pådrag"
+    ],
+    "explanation": "Superposisjon: er g=g1+g2, finn y_{p1} for g1 og y_{p2} for g2 hver for seg og legg dem sammen. Hvert pådrag driver sitt eget partikulære svar."
+  },
+  {
+    "question": "Finn en partikulær løsning av y''-3y'+2y=x^2.",
+    "options": [
+      "y_p=(1/2)x^2+(3/2)x+7/4, et fullstendig 2.-gradspolynom med alle ledd med",
+      "y_p=(1/2)x^2, bare det høyeste leddet fordi pådraget kun har grad 2",
+      "y_p=A x^2 der A bestemmes senere, siden lavere ledd ikke påvirker resultatet",
+      "y_p=x^2+x+1, med koeffisienter lik 1 fordi pådraget har koeffisient 1 foran x^2"
+    ],
+    "explanation": "Ansats y_p=Ax^2+Bx+C (fullstendig). Innsetting og koeffisientsammenligning gir A=1/2, B=3/2, C=7/4. Alle lavere ledd må med — derivasjon blander gradene."
+  },
+  {
+    "question": "Hvorfor trengs x-faktoren ved resonans (matematisk)?",
+    "options": [
+      "Standardansatsen løser den homogene likningen og gir 0, så den kan aldri matche pådraget",
+      "Fordi x-faktoren gjør at initialbetingelsene automatisk blir oppfylt i punktet x=0",
+      "Fordi pådraget alltid inneholder en skjult x-faktor som ansatsen må speile",
+      "Fordi den karakteristiske likningen får en ekstra rot når man ganger med x"
+    ],
+    "explanation": "Er α en rot, løser e^{αx} den homogene likningen, så A e^{αx} gir 0≠g. Ganger man med x, gir derivasjonen nye ledd som ikke kanselleres, og A x e^{αx} kan matche g."
+  },
+  {
+    "question": "For hvilke pådrag g(x) svikter metoden med ubestemte koeffisienter?",
+    "options": [
+      "For g som tan x, sec x eller 1/x — der trengs variasjon av parametere i stedet",
+      "For g som er et vanlig polynom, siden polynomansatser ikke kan deriveres pent",
+      "For g=e^{αx}, fordi eksponentialfunksjoner alltid krever en uendelig rekke ledd",
+      "For alle g der pådraget er positivt, siden ansatsen da ikke kan bli negativ nok"
+    ],
+    "explanation": "Ubestemte koeffisienter virker for polynom/eksponential/sin/cos og produkter av disse. For tan x, sec x, 1/x o.l. svikter den, og man må bruke variasjon av parametere (kap. 9.3)."
+  },
+  {
+    "question": "Finn en partikulær løsning av y''+y=sin x (merk: resonans).",
+    "options": [
+      "y_p=-(1/2)x cos x, med x-faktor fordi ±i er røtter i den karakteristiske likningen",
+      "y_p=(1/2)sin x, en standard sinus-ansats uten noen ekstra x-faktor foran",
+      "y_p=A cos x+B sin x uten x, siden pådraget sin x ikke gir resonans her",
+      "y_p=(1/2)x sin x, med x-faktor men på sinus-leddet i stedet for cosinus"
+    ],
+    "explanation": "r^2+1=0 gir r=±i, så sin x er en homogen løsning — resonans (s=1). Ansats x(A cos x+B sin x); innsetting gir A=-1/2, B=0, altså y_p=-(1/2)x cos x."
+  },
+  {
+    "question": "Hva er koeffisientsammenligning?",
+    "options": [
+      "Å samle ledd av samme type etter innsetting og sette koeffisientene på hver side like",
+      "Å sammenligne diskriminanten med koeffisienten q for å avgjøre antall røtter",
+      "Å bytte ut alle koeffisienter i ansatsen med tallet 1 for å forenkle regningen",
+      "Å måle hvor stor den partikulære løsningen er sammenlignet med den homogene"
+    ],
+    "explanation": "Etter innsetting samler du ledd av samme type (x^2, x, cos βx, e^{αx} …). Fordi disse er lineært uavhengige, må koeffisientene matche ledd for ledd — det gir likningene for konstantene."
+  },
+  {
+    "question": "Hva er den dyreste feilen på 2. ordens-oppgaven ifølge sensorveiledningene?",
+    "options": [
+      "Å glemme resonans-multiplikasjonen med x^s når ansatsen kolliderer med y_h",
+      "Å regne den homogene løsningen y_h med feil fortegn på begge konstantene",
+      "Å bruke for mange desimaler i sluttsvaret i stedet for å oppgi eksakte brøker",
+      "Å skrive initialbetingelsene i feil rekkefølge når man setter opp systemet"
+    ],
+    "explanation": "Den dokumenterte fellen er å hoppe over resonans-multiplikasjonen: er g en homogen løsning, må ansatsen ganges med x^s, ellers gir innsetting 0≠g og oppgaven kollapser."
+  },
+  {
+    "question": "Hva er komplementærfunksjonen?",
+    "options": [
+      "Et annet navn på den homogene løsningen y_h i sammenheng med en inhomogen likning",
+      "Navnet på den partikulære løsningen y_p som komplementerer initialbetingelsene",
+      "Summen y_h+y_p når begge delene er ferdig bestemt med konstanter innsatt",
+      "Pådraget g(x) sett fra høyresida, som utfyller venstresidas deriverte ledd"
+    ],
+    "explanation": "Komplementærfunksjonen er den homogene løsningen y_h. Den 'komplementerer' partikulærløsningen i y=y_h+y_p. Navnet dukker opp i sensorføring."
+  }
+]

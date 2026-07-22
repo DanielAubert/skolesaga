@@ -1,0 +1,447 @@
+{
+  "id": "tma4110-9-3",
+  "courseId": "tma4110",
+  "chapterNumber": "9.3",
+  "title": "Variasjon av parametere og svingningsmodeller",
+  "description": "Variasjon av parametere for høyresider ubestemte koeffisienter ikke dekker (Wronski-formelen), og de fysiske svingningsmodellene: fri, dempet og tvungen svingning med resonans i fjær-masse og RLC-krets.",
+  "estimatedMinutes": 50,
+  "competenceGoals": [
+    "bruke variasjon av parametere til å finne en partikulær løsning når ubestemte koeffisienter svikter",
+    "regne ut Wronski-determinanten og bruke den til å vurdere lineær uavhengighet",
+    "sette opp og klassifisere fri, dempet (over-/kritisk/underkritisk) og tvungen svingning fra svingningslikningen",
+    "gjenkjenne resonans i fysisk forstand og finne den voksende resonansløsningen"
+  ],
+  "content": [
+    {
+      "id": "tma4110-9-3-tip-eksamensvinkel",
+      "type": "tip",
+      "title": "Eksamensvinkel",
+      "content": "**2. ordens ODE er en av de faste søylene (~82 % av settene, sjanger L).** Dette kapitlet dekker to sluttbiter av søylen:\n\n- **Variasjon av parametere** er reservemetoden for høyresider $g(x)$ som ubestemte koeffisienter *ikke* takler ($\\tan x$, $\\sec x$, $1/x$). Den er sjeldnere enn ubestemte koeffisienter, men når $g$ ikke er polynom/eksponential/sin/cos, er den eneste vei fram. Prioritet: **kjenne til** — men kunne den om $g$ krever det.\n- **Svingningsmodellene** ($m x''+c x'+k x=F(t)$) er den fysiske innpakningen 2. ordens ODE oftest kommer i: fjær-masse, pendel, RLC-krets. Her testes at du kjenner igjen fri/dempet/tvungen svingning og **resonans i fysisk forstand** (drivfrekvens = egenfrekvens ⇒ amplituden vokser).\n\n**Kode E (ingen hjelpemidler):** Wronski-formelen og variasjon-av-parametere-formelen må sitte utenat, og du må kunne klassifisere dempingen fra fortegnet til $c^2-4mk$ uten kalkulator. Alle svar skal begrunnes, og svarene er eksakte ($\\tfrac14 t\\sin 2t$, aldri desimal)."
+    },
+    {
+      "id": "tma4110-9-3-forkunnskaper",
+      "type": "text",
+      "content": "**Forkunnskaper:** Dette kapitlet bygger direkte på [kap. 9.2](/bok/tma4110/tma4110-9-2) (inhomogene likninger, ubestemte koeffisienter og resonansregelen) og [kap. 9.1](/bok/tma4110/tma4110-9-1) (homogen løsning $y_h$ via karakteristisk likning, de tre tilfellene).\n\nDu bør ha friskt i minne at den generelle løsningen alltid skrives $y=y_h+y_p$, at $y_h$ for $y''+py'+qy=0$ bestemmes av røttene i den karakteristiske likningen $r^2+pr+q=0$, og at resonans oppstår når høyresida «treffer» en homogen løsning. Fra VGS trenger du derivasjon og integrasjon (produktregel, delvis integrasjon) — se [Regningsregler for integrasjon](/bok/s2/s2-3-2) om du vil friske opp."
+    },
+    {
+      "id": "tma4110-9-3-intro",
+      "type": "text",
+      "content": "I [kap. 9.2](/bok/tma4110/tma4110-9-2) løste vi inhomogene likninger $y''+py'+qy=g(x)$ med **ubestemte koeffisienter**: gjett en $y_p$ av samme form som $g$, sett inn, bestem konstantene. Den metoden er rask — men den virker bare når $g$ er polynom, eksponential, $\\sin/\\cos$ eller produkter/summer av disse. Møter du $g(x)=\\tan x$ eller $g(x)=1/x$, finnes ingen endelig gjettform.\n\nDette kapitlet gir deg to ting. **Løkke 1:** *variasjon av parametere* — en formel som løser *enhver* inhomogen 2. ordens likning så lenge du kjenner to homogene løsninger, uansett hvor stygg $g$ er. **Løkke 2:** *svingningsmodellene* — den fysiske konteksten 2. ordens ODE oftest opptrer i, der du skal gjenkjenne fri, dempet og tvungen svingning og forstå resonans som et fysisk fenomen.\n\nHver løkke går **teori → gjennomregnet eksempel → øvingsoppgaver**, så du kan arbeide deg gjennom stoffet bit for bit."
+    },
+    {
+      "id": "tma4110-9-3-lokke1-header",
+      "type": "text",
+      "content": "## Løkke 1 — Variasjon av parametere (~25 min)"
+    },
+    {
+      "id": "tma4110-9-3-vp-motiv",
+      "type": "text",
+      "content": "Anta at du allerede har den homogene løsningen $y_h=C_1y_1+C_2y_2$ til $y''+py'+qy=0$. Idéen bak **variasjon av parametere** er å la konstantene $C_1,C_2$ «variere», altså erstatte dem med ukjente funksjoner $u_1(x)$ og $u_2(x)$, og lete etter en partikulær løsning på formen $y_p=u_1y_1+u_2y_2$. Krever man i tillegg at $u_1'y_1+u_2'y_2=0$, faller alt på plass, og man ender med to formler for $u_1'$ og $u_2'$ — uttrykt ved **Wronski-determinanten**."
+    },
+    {
+      "id": "tma4110-9-3-def-wronski",
+      "type": "definition",
+      "title": "Wronski-determinanten",
+      "content": "**Wronski-determinanten** til to funksjoner $y_1,y_2$ måler om de er lineært uavhengige — den er byggesteinen i variasjon-av-parametere-formelen. Den er determinanten av matrisen med funksjonene på øverste rad og de deriverte under:\n\n$$W(y_1,y_2)=\\begin{vmatrix} y_1 & y_2 \\\\ y_1' & y_2' \\end{vmatrix}=y_1y_2'-y_1'y_2.$$\n\nEr $W\\ne 0$ på et intervall, er $y_1,y_2$ lineært uavhengige der, og de utgjør et fundamentalt løsningssett. For $y_1=\\cos x,\\ y_2=\\sin x$ blir $W=\\cos x\\cdot\\cos x-(-\\sin x)\\sin x=\\cos^2x+\\sin^2x=1$."
+    },
+    {
+      "id": "tma4110-9-3-def-fundamental",
+      "type": "definition",
+      "title": "Fundamentalt løsningssett",
+      "content": "Et **fundamentalt løsningssett** for $y''+py'+qy=0$ er to lineært uavhengige løsninger $y_1,y_2$. Fordi løsningsrommet har dimensjon 2, gir de hele den homogene løsningen som $y_h=C_1y_1+C_2y_2$.\n\nLineær uavhengighet sjekkes med Wronski-determinanten: $y_1,y_2$ er uavhengige på et intervall hvis $W(y_1,y_2)\\ne 0$ der. Eksempler på par: $\\{e^{r_1x},e^{r_2x}\\}$ (reelle ulike røtter), $\\{e^{rx},xe^{rx}\\}$ (dobbel rot), $\\{e^{ax}\\cos bx,\\ e^{ax}\\sin bx\\}$ (komplekse røtter)."
+    },
+    {
+      "id": "tma4110-9-3-def-vp",
+      "type": "definition",
+      "title": "Variasjon av parametere (formelen)",
+      "content": "**Variasjon av parametere** finner en partikulær løsning til $y''+py'+qy=g(x)$ når du kjenner et fundamentalt løsningssett $y_1,y_2$ til den homogene likningen. Metoden virker for *enhver* kontinuerlig $g$ — også der ubestemte koeffisienter svikter. Partikulærløsningen er\n\n$$y_p=-y_1\\int\\frac{y_2\\,g}{W}\\,dx+y_2\\int\\frac{y_1\\,g}{W}\\,dx,$$\n\nder $W=W(y_1,y_2)=y_1y_2'-y_1'y_2$ er Wronski-determinanten. **Merk:** likningen må først skrives på standardform med koeffisient 1 foran $y''$ (del på ledende koeffisient), ellers blir $g$ feil skalert."
+    },
+    {
+      "id": "tma4110-9-3-vp-oppskrift",
+      "type": "text",
+      "content": "**Slik bruker du formelen (5 steg):**\n\n1. Skriv likningen på standardform $y''+py'+qy=g(x)$ (koeffisient 1 foran $y''$).\n2. Finn den homogene løsningen $y_h=C_1y_1+C_2y_2$ (karakteristisk likning, [kap. 9.1](/bok/tma4110/tma4110-9-1)).\n3. Regn ut $W=y_1y_2'-y_1'y_2$.\n4. Sett inn i formelen og regn de to integralene.\n5. Skriv $y=y_h+y_p$. (Ledd i $y_p$ som allerede finnes i $y_h$ kan slås sammen med konstantene.)"
+    },
+    {
+      "id": "tma4110-9-3-ex-vp1",
+      "type": "example",
+      "title": "Eksempel 1: Variasjon av parametere med $g(x)=\\tan x$ (sjanger L)",
+      "problem": "Finn en partikulær løsning av $y''+y=\\tan x$.",
+      "solution": "**Steg 1–2 (homogen):** Karakteristisk likning $r^2+1=0$ gir $r=\\pm i$, så $y_1=\\cos x$, $y_2=\\sin x$ og $y_h=C_1\\cos x+C_2\\sin x$. Ubestemte koeffisienter er ubrukelig her fordi $\\tan x$ ikke har endelig gjettform.\n\n**Steg 3 (Wronski):** $W=\\cos x\\cdot\\cos x-(-\\sin x)\\sin x=\\cos^2x+\\sin^2x=1$.\n\n**Steg 4 (integraler):** Med $g=\\tan x$:\n\n$$u_1=-\\int\\frac{y_2 g}{W}\\,dx=-\\int\\sin x\\tan x\\,dx=-\\int\\frac{\\sin^2x}{\\cos x}\\,dx.$$\n\nSkriv $\\sin^2x=1-\\cos^2x$: $\\displaystyle-\\int\\frac{1-\\cos^2x}{\\cos x}\\,dx=-\\int(\\sec x-\\cos x)\\,dx=-\\ln|\\sec x+\\tan x|+\\sin x.$\n\n$$u_2=\\int\\frac{y_1 g}{W}\\,dx=\\int\\cos x\\tan x\\,dx=\\int\\sin x\\,dx=-\\cos x.$$\n\n**Steg 5:** $y_p=u_1y_1+u_2y_2=(-\\ln|\\sec x+\\tan x|+\\sin x)\\cos x+(-\\cos x)\\sin x$. De to $\\sin x\\cos x$-leddene kanselerer:\n\n$$\\boxed{y_p=-\\cos x\\,\\ln|\\sec x+\\tan x|.}$$\n\n**Kontroll (verbal):** Etter superposisjonsprinsippet er den fullstendige løsningen $y=C_1\\cos x+C_2\\sin x-\\cos x\\ln|\\sec x+\\tan x|$. Deriverer man to ganger og setter inn, gjenskapes $\\tan x$."
+    },
+    {
+      "id": "tma4110-9-3-oppg-1",
+      "type": "exercise",
+      "exercise": {
+        "id": "tma4110-9-3-l1",
+        "number": "1",
+        "type": "classic",
+        "difficulty": "lett",
+        "task": "(Innstegsoppgave — ren utregning.) Regn ut Wronski-determinanten $W(y_1,y_2)$ for paret $y_1=e^{2x}$, $y_2=e^{-x}$ (fundamentalt løsningssett for $y''-y'-2y=0$).",
+        "solution": "$W=y_1y_2'-y_1'y_2$. Her er $y_1'=2e^{2x}$ og $y_2'=-e^{-x}$, så\n\n$$W=e^{2x}\\cdot(-e^{-x})-2e^{2x}\\cdot e^{-x}=-e^{x}-2e^{x}=-3e^{x}.$$\n\nSiden $W=-3e^x\\ne 0$ for alle $x$, er $y_1,y_2$ lineært uavhengige — et gyldig fundamentalt løsningssett.",
+        "hints": [
+          "Wronski-formelen er $W=y_1y_2'-y_1'y_2$; deriver hver funksjon først.",
+          "$\\tfrac{d}{dx}e^{2x}=2e^{2x}$ og $\\tfrac{d}{dx}e^{-x}=-e^{-x}$."
+        ]
+      }
+    },
+    {
+      "id": "tma4110-9-3-oppg-2",
+      "type": "exercise",
+      "exercise": {
+        "id": "tma4110-9-3-m1",
+        "number": "2",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "(Sjanger L — variasjon av parametere.) Finn en partikulær løsning av $y''+y=\\sec x$.",
+        "solution": "**Homogen:** $r^2+1=0\\Rightarrow y_1=\\cos x,\\ y_2=\\sin x$, $W=1$ (som i eksempel 1).\n\n**Integraler** med $g=\\sec x=1/\\cos x$:\n\n$$u_1=-\\int\\sin x\\sec x\\,dx=-\\int\\tan x\\,dx=\\ln|\\cos x|,$$\n$$u_2=\\int\\cos x\\sec x\\,dx=\\int 1\\,dx=x.$$\n\n**Partikulær:** $y_p=u_1\\cos x+u_2\\sin x=\\cos x\\,\\ln|\\cos x|+x\\sin x.$\n\nAltså $\\boxed{y_p=x\\sin x+\\cos x\\,\\ln|\\cos x|}$, og den fullstendige løsningen er $y=C_1\\cos x+C_2\\sin x+x\\sin x+\\cos x\\ln|\\cos x|$.",
+        "hints": [
+          "Homogen løsning og $W$ er de samme som for $y''+y=\\tan x$.",
+          "$\\int\\tan x\\,dx=-\\ln|\\cos x|$, og $\\cos x\\cdot\\sec x=1$."
+        ]
+      }
+    },
+    {
+      "id": "tma4110-9-3-oppg-3",
+      "type": "exercise",
+      "exercise": {
+        "id": "tma4110-9-3-m2",
+        "number": "3",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "(Sjanger L — variasjon av parametere, dobbel rot.) Finn en partikulær løsning av $y''-2y'+y=\\dfrac{e^{x}}{x}$ for $x>0$.",
+        "solution": "**Homogen:** $r^2-2r+1=(r-1)^2=0$ gir dobbel rot $r=1$, så $y_1=e^{x}$, $y_2=xe^{x}$.\n\n**Wronski:** $y_1'=e^x$, $y_2'=e^x+xe^x$. $W=e^x(e^x+xe^x)-e^x\\cdot xe^x=e^{2x}+xe^{2x}-xe^{2x}=e^{2x}.$\n\n**Integraler** med $g=e^x/x$:\n\n$$u_1=-\\int\\frac{y_2 g}{W}\\,dx=-\\int\\frac{xe^x\\cdot e^x/x}{e^{2x}}\\,dx=-\\int 1\\,dx=-x,$$\n$$u_2=\\int\\frac{y_1 g}{W}\\,dx=\\int\\frac{e^x\\cdot e^x/x}{e^{2x}}\\,dx=\\int\\frac{1}{x}\\,dx=\\ln x.$$\n\n**Partikulær:** $y_p=u_1y_1+u_2y_2=-xe^x+xe^x\\ln x=xe^x(\\ln x-1)$. Leddet $-xe^x$ er en homogen løsning og kan absorberes i $C_2$, så vi kan like gjerne skrive\n\n$$\\boxed{y_p=xe^{x}\\ln x.}$$",
+        "hints": [
+          "Dobbel rot $r=1$ gir fundamentalsettet $\\{e^x,\\,xe^x\\}$.",
+          "Både integralene forenkles kraftig fordi $W=e^{2x}$ kanselerer eksponentialene."
+        ]
+      }
+    },
+    {
+      "id": "tma4110-9-3-oppg-4",
+      "type": "exercise",
+      "exercise": {
+        "id": "tma4110-9-3-v1",
+        "number": "4",
+        "type": "classic",
+        "difficulty": "vanskelig",
+        "task": "(Sjanger L på eksamensnivå.) Finn den generelle løsningen av $y''+y=\\csc x=\\dfrac{1}{\\sin x}$ for $0<x<\\pi$.",
+        "solution": "**Homogen:** $y_1=\\cos x,\\ y_2=\\sin x,\\ W=1$.\n\n**Integraler** med $g=1/\\sin x$:\n\n$$u_1=-\\int\\frac{\\sin x\\cdot(1/\\sin x)}{1}\\,dx=-\\int 1\\,dx=-x,$$\n$$u_2=\\int\\frac{\\cos x\\cdot(1/\\sin x)}{1}\\,dx=\\int\\frac{\\cos x}{\\sin x}\\,dx=\\ln|\\sin x|.$$\n\n**Partikulær:** $y_p=u_1\\cos x+u_2\\sin x=-x\\cos x+\\sin x\\,\\ln|\\sin x|$.\n\n**Generell løsning:** superposisjon ($y=y_h+y_p$) gir\n\n$$\\boxed{y=C_1\\cos x+C_2\\sin x-x\\cos x+\\sin x\\,\\ln|\\sin x|.}$$\n\nPå $0<x<\\pi$ er $\\sin x>0$, så $|\\sin x|=\\sin x$; føringen bør nevne intervallet slik at logaritmen er definert.",
+        "hints": [
+          "Bruk $y_1=\\cos x,\\ y_2=\\sin x,\\ W=1$ — de samme som for $\\tan x$ og $\\sec x$.",
+          "$\\int\\frac{\\cos x}{\\sin x}\\,dx=\\ln|\\sin x|$ (substitusjon $u=\\sin x$).",
+          "Skriv til slutt $y=y_h+y_p$ og oppgi intervallet der løsningen gjelder."
+        ]
+      }
+    },
+    {
+      "id": "tma4110-9-3-lokke2-header",
+      "type": "text",
+      "content": "## Løkke 2 — Svingningsmodeller (~25 min)"
+    },
+    {
+      "id": "tma4110-9-3-svinge-anker",
+      "type": "text",
+      "content": "Heng et lodd i en fjær og dra det ned: det svinger opp og ned. Slipper du det i sirup i stedet for luft, dør svingningen fort ut. Dytter du loddet rytmisk i akkurat riktig takt, vokser utslaget dramatisk. Disse tre situasjonene — **fri**, **dempet** og **tvungen** svingning — er nettopp de tre tilfellene av 2. ordens ODE du allerede kan løse, nå kledd i fysikk. Samme likning styrer et lodd i en fjær, en pendel med små utslag og strømmen i en RLC-krets."
+    },
+    {
+      "id": "tma4110-9-3-def-svingelikning",
+      "type": "definition",
+      "title": "Svingningslikningen (fjær-masse)",
+      "content": "En masse $m$ festet i en fjær med stivhet $k$, med dempingskraft proporsjonal med farten (konstant $c$) og en ytre drivkraft $F(t)$, styres av **svingningslikningen**\n\n$$m x''+c x'+k x=F(t).$$\n\nHer er $x(t)$ utslaget fra likevekt, $m x''$ treghetskraften (Newtons 2. lov), $c x'$ dempingen (luftmotstand/friksjon, motvirker farten) og $k x$ fjærkraften (Hookes lov, trekker mot likevekt). Er $F=0$ kalles svingningen **fri**; ellers **tvungen**. Er $c=0$ er den **udempet**."
+    },
+    {
+      "id": "tma4110-9-3-def-fri",
+      "type": "definition",
+      "title": "Fri udempet svingning",
+      "content": "Med $c=0$ og $F=0$ blir svingningslikningen $m x''+k x=0$, eller $x''+\\omega_0^2 x=0$ der $\\omega_0=\\sqrt{k/m}$. Karakteristisk likning $r^2+\\omega_0^2=0$ gir $r=\\pm i\\omega_0$, altså rene komplekse røtter, og løsningen\n\n$$x(t)=C_1\\cos\\omega_0 t+C_2\\sin\\omega_0 t.$$\n\nDette er en **harmonisk svingning**: massen svinger evig med fast frekvens $\\omega_0$ og konstant amplitude, siden ingen demping tar energi ut av systemet."
+    },
+    {
+      "id": "tma4110-9-3-def-egenfrekvens",
+      "type": "definition",
+      "title": "Egenfrekvens (naturlig frekvens)",
+      "content": "**Egenfrekvensen** (naturlig vinkelfrekvens) $\\omega_0=\\sqrt{k/m}$ er frekvensen systemet svinger med når det er fritt og udempet. Den avhenger bare av systemet selv (stiv fjær eller lett masse ⇒ høy $\\omega_0$), ikke av hvordan du setter det i gang.\n\nEgenfrekvensen er nøkkelen til resonans: driver du systemet med en ytre kraft av frekvens $\\omega$ lik $\\omega_0$, treffer du systemets «egen takt» og amplituden vokser. Perioden er $T=2\\pi/\\omega_0$."
+    },
+    {
+      "id": "tma4110-9-3-def-amplitudefase",
+      "type": "definition",
+      "title": "Amplitude-faseform",
+      "content": "En sum $C_1\\cos\\omega_0 t+C_2\\sin\\omega_0 t$ kan skrives som én cosinus med amplitude og faseforskyvning:\n\n$$x(t)=A\\cos(\\omega_0 t-\\varphi),\\qquad A=\\sqrt{C_1^2+C_2^2},\\quad \\tan\\varphi=\\frac{C_2}{C_1}.$$\n\n$A$ er **amplituden** (største utslag) og $\\varphi$ **fasen**. Formen gjør det lett å lese av hvor stort utslaget er og når toppen inntreffer — sensor liker at du oppgir amplituden eksplisitt når oppgaven spør «hvor stort blir utslaget»."
+    },
+    {
+      "id": "tma4110-9-3-ex-fri",
+      "type": "example",
+      "title": "Eksempel 2: Fri udempet svingning og amplitude (sjanger L)",
+      "problem": "Et lodd i en fjær tilfredsstiller $x''+4x=0$ med $x(0)=3$ og $x'(0)=8$. Finn $x(t)$, og skriv svaret på amplitude-faseform.",
+      "solution": "**Egenfrekvens:** $\\omega_0^2=4\\Rightarrow\\omega_0=2$. Generell løsning $x(t)=C_1\\cos 2t+C_2\\sin 2t$.\n\n**Initialbetingelser:** $x(0)=C_1=3$. Deriver: $x'(t)=-2C_1\\sin 2t+2C_2\\cos 2t$, så $x'(0)=2C_2=8\\Rightarrow C_2=4$. Dermed\n\n$$x(t)=3\\cos 2t+4\\sin 2t.$$\n\n**Amplitude-faseform:** $A=\\sqrt{3^2+4^2}=\\sqrt{25}=5$ og $\\tan\\varphi=C_2/C_1=4/3$, så\n\n$$x(t)=5\\cos(2t-\\varphi),\\qquad \\varphi=\\arctan\\tfrac43.$$\n\nLoddet svinger med fast amplitude $5$ og vinkelfrekvens $2$ (periode $T=\\pi$). Ingen demping ⇒ utslaget dør aldri ut."
+    },
+    {
+      "id": "tma4110-9-3-oppg-5",
+      "type": "exercise",
+      "exercise": {
+        "id": "tma4110-9-3-m3",
+        "number": "5",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "(Sjanger L — fri svingning.) En masse $m=1$ i en fjær med $k=9$ svinger fritt og udempet, $x''+9x=0$, med $x(0)=0$, $x'(0)=6$.\n\n**a)** Finn egenfrekvensen $\\omega_0$ og perioden $T$.\n\n**b)** Løs initialverdiproblemet og oppgi amplituden.",
+        "solution": "**a)** $\\omega_0=\\sqrt{k/m}=\\sqrt{9}=3$. Perioden $T=\\dfrac{2\\pi}{\\omega_0}=\\dfrac{2\\pi}{3}$.\n\n**b)** Generell løsning $x(t)=C_1\\cos 3t+C_2\\sin 3t$. $x(0)=C_1=0$. $x'(t)=-3C_1\\sin 3t+3C_2\\cos 3t$, så $x'(0)=3C_2=6\\Rightarrow C_2=2$. Dermed\n\n$$x(t)=2\\sin 3t.$$\n\nAmplituden er $A=\\sqrt{0^2+2^2}=2$.",
+        "hints": [
+          "$\\omega_0=\\sqrt{k/m}$ og $T=2\\pi/\\omega_0$.",
+          "$x(0)=0$ fjerner cosinusleddet; bruk $x'(0)$ til å finne konstanten foran sinus."
+        ]
+      }
+    },
+    {
+      "id": "tma4110-9-3-def-dempet",
+      "type": "definition",
+      "title": "Dempet svingning",
+      "content": "Med demping ($c>0$) men uten drivkraft er likningen $m x''+c x'+k x=0$. Den karakteristiske likningen $mr^2+cr+k=0$ har røtter\n\n$$r=\\frac{-c\\pm\\sqrt{c^2-4mk}}{2m}.$$\n\nFortegnet til diskriminanten $c^2-4mk$ bestemmer hvilket av de tre tilfellene fra [kap. 9.1](/bok/tma4110/tma4110-9-1) som gjelder — og dermed om systemet svinger eller ikke. Uansett tilfelle går løsningen mot $0$ når $t\\to\\infty$ fordi realdelen av røttene er negativ: demping tar energi ut av systemet."
+    },
+    {
+      "id": "tma4110-9-3-def-overkritisk",
+      "type": "definition",
+      "title": "Overkritisk demping (overdamping)",
+      "content": "**Overkritisk demping** oppstår når $c^2-4mk>0$ (sterk demping). Da har $mr^2+cr+k=0$ to reelle, ulike, negative røtter $r_1,r_2$, og\n\n$$x(t)=C_1e^{r_1 t}+C_2e^{r_2 t}.$$\n\nIngen svingning: systemet kryper mot likevekt uten å passere den (høyst én gang). Eksempel: en dør med kraftig lukkemekanisme som glir sakte igjen uten å slå."
+    },
+    {
+      "id": "tma4110-9-3-def-kritisk",
+      "type": "definition",
+      "title": "Kritisk demping",
+      "content": "**Kritisk demping** oppstår når $c^2-4mk=0$ (grensetilfellet). Da har $mr^2+cr+k=0$ en dobbel reell rot $r=-c/2m$, og\n\n$$x(t)=(C_1+C_2 t)e^{rt}.$$\n\nDette er den *raskeste* måten å nå likevekt på uten å svinge — akkurat balansen der systemet er på grensen til å begynne å oscillere. Støtdempere i biler dimensjoneres nær kritisk demping."
+    },
+    {
+      "id": "tma4110-9-3-def-underkritisk",
+      "type": "definition",
+      "title": "Underkritisk demping (svak demping)",
+      "content": "**Underkritisk demping** oppstår når $c^2-4mk<0$ (svak demping). Da er røttene kompleks-konjugerte, $r=-\\dfrac{c}{2m}\\pm i\\omega_d$, og\n\n$$x(t)=e^{-\\frac{c}{2m}t}\\big(C_1\\cos\\omega_d t+C_2\\sin\\omega_d t\\big).$$\n\nSystemet **svinger**, men med en amplitude $e^{-ct/2m}$ som avtar eksponentielt — en døende svingning. Dette er det vanligste virkelige tilfellet (et pendellodd i luft, en gitarstreng)."
+    },
+    {
+      "id": "tma4110-9-3-def-kvasifrekvens",
+      "type": "definition",
+      "title": "Kvasifrekvens (dempet vinkelfrekvens)",
+      "content": "Ved underkritisk demping svinger systemet med **kvasifrekvensen** (dempet vinkelfrekvens)\n\n$$\\omega_d=\\sqrt{\\frac{k}{m}-\\frac{c^2}{4m^2}}=\\frac{\\sqrt{4mk-c^2}}{2m}.$$\n\nDen er alltid *mindre* enn egenfrekvensen $\\omega_0=\\sqrt{k/m}$ — demping bremser svingningen litt. Når $c\\to 0$ nærmer $\\omega_d$ seg $\\omega_0$. Kvasifrekvensen er imaginærdelen av de komplekse røttene."
+    },
+    {
+      "id": "tma4110-9-3-ex-dempet",
+      "type": "example",
+      "title": "Eksempel 3: Klassifisér dempingen (sjanger L)",
+      "problem": "Avgjør for hver likning om svingningen er overkritisk, kritisk eller underkritisk dempet, og skriv den generelle løsningen:\n\n**a)** $x''+5x'+4x=0$\n\n**b)** $x''+4x'+4x=0$\n\n**c)** $x''+2x'+4x=0$",
+      "solution": "Her er $m=1$ i alle tre, så diskriminanten er $c^2-4k$.\n\n**a)** $c^2-4k=25-16=9>0$ ⇒ **overkritisk**. $r^2+5r+4=0\\Rightarrow r=-1,-4$. Løsning $x=C_1e^{-t}+C_2e^{-4t}$. Ingen svingning.\n\n**b)** $c^2-4k=16-16=0$ ⇒ **kritisk**. $r^2+4r+4=(r+2)^2=0\\Rightarrow r=-2$ (dobbel). Løsning $x=(C_1+C_2 t)e^{-2t}$. Raskeste retur uten svingning.\n\n**c)** $c^2-4k=4-16=-12<0$ ⇒ **underkritisk**. $r=\\dfrac{-2\\pm\\sqrt{-12}}{2}=-1\\pm i\\sqrt3$, så kvasifrekvens $\\omega_d=\\sqrt3$ og\n\n$$x(t)=e^{-t}\\big(C_1\\cos\\sqrt3\\,t+C_2\\sin\\sqrt3\\,t\\big).$$\n\nEn døende svingning: utslaget dempes av $e^{-t}$ mens systemet oscillerer med frekvens $\\sqrt3$."
+    },
+    {
+      "id": "tma4110-9-3-oppg-6",
+      "type": "exercise",
+      "exercise": {
+        "id": "tma4110-9-3-m4",
+        "number": "6",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "(Sjanger L — klassifisering.) For $x''+6x'+kx=0$ (masse $m=1$): for hvilke verdier av $k>0$ er svingningen henholdsvis overkritisk, kritisk og underkritisk dempet?",
+        "solution": "Diskriminanten er $c^2-4mk=36-4k$.\n\n- **Overkritisk** ($36-4k>0$): $k<9$.\n- **Kritisk** ($36-4k=0$): $k=9$.\n- **Underkritisk** ($36-4k<0$): $k>9$.\n\nJo stivere fjær (større $k$) i forhold til dempingen, desto lettere svinger systemet. Ved $k=9$ er systemet akkurat på grensen (dobbel rot $r=-3$).",
+        "hints": [
+          "Diskriminanten til $mr^2+cr+k=0$ er $c^2-4mk$; her $36-4k$.",
+          "Positiv diskriminant ⇒ to reelle røtter ⇒ overkritisk; null ⇒ kritisk; negativ ⇒ underkritisk."
+        ]
+      }
+    },
+    {
+      "id": "tma4110-9-3-def-tvungen",
+      "type": "definition",
+      "title": "Tvungen svingning",
+      "content": "**Tvungen svingning** har en ytre periodisk drivkraft, typisk $F(t)=F_0\\cos\\omega t$:\n\n$$m x''+c x'+k x=F_0\\cos\\omega t.$$\n\nDen generelle løsningen er $x=x_h+x_p$. Med demping dør $x_h$ ut (transient), og systemet svinger til slutt med drivfrekvensen $\\omega$ — ikke sin egen $\\omega_0$. Denne varige delen $x_p$ finner du med ubestemte koeffisienter (ansats $A\\cos\\omega t+B\\sin\\omega t$)."
+    },
+    {
+      "id": "tma4110-9-3-def-stasjonaer",
+      "type": "definition",
+      "title": "Stasjonær løsning (steady-state)",
+      "content": "Ved dempet tvungen svingning er den **stasjonære løsningen** partikulærløsningen $x_p=A\\cos\\omega t+B\\sin\\omega t$ — den delen som svinger videre i det lange løp, med drivfrekvensen $\\omega$. Den er uavhengig av startbetingelsene: uansett hvordan du setter systemet i gang, ender det med samme stasjonære svingning."
+    },
+    {
+      "id": "tma4110-9-3-def-transient",
+      "type": "definition",
+      "title": "Transient løsning",
+      "content": "Den **transiente løsningen** er den homogene delen $x_h$ ved dempet tvungen svingning. Fordi dempingen gir negativ realdel i røttene, gjelder $x_h\\to 0$ når $t\\to\\infty$ — den «husker» startbetingelsene, men dør ut. Etter en innsvingningsfase står bare den stasjonære delen igjen. Skillet transient/stasjonær er den fysiske tolkningen av $y=y_h+y_p$."
+    },
+    {
+      "id": "tma4110-9-3-def-resonans",
+      "type": "definition",
+      "title": "Resonans (fysisk)",
+      "content": "**Resonans** oppstår i et *udempet* system ($c=0$) når drivfrekvensen $\\omega$ er lik egenfrekvensen $\\omega_0$. Da «treffer» drivkraften systemets egen takt, og amplituden vokser uten grense. Matematisk er dette nettopp resonanstilfellet fra [kap. 9.2](/bok/tma4110/tma4110-9-2): ansatsen $A\\cos\\omega t+B\\sin\\omega t$ kolliderer med den homogene løsningen, så den må ganges med $t$.\n\nFysisk er resonans både nyttig (radiomottakere, musikkinstrumenter) og farlig (broer og bygninger som svinger seg i stykker). Med demping vokser amplituden ikke ubegrenset, men blir størst når $\\omega\\approx\\omega_0$."
+    },
+    {
+      "id": "tma4110-9-3-def-resonanslosning",
+      "type": "definition",
+      "title": "Resonansløsning (voksende amplitude)",
+      "content": "For det udempede resonanstilfellet $x''+\\omega_0^2 x=F_0\\cos\\omega_0 t$ gir resonansregelen partikulærløsningen\n\n$$x_p=\\frac{F_0}{2\\omega_0}\\,t\\sin\\omega_0 t.$$\n\nFaktoren $t$ foran gjør at utslaget vokser lineært med tiden — svingningen blir stadig kraftigere. Dette er den matematiske signaturen på resonans: en $t$ (eller $t^2$) som ikke kan absorberes i den homogene løsningen."
+    },
+    {
+      "id": "tma4110-9-3-ex-resonans",
+      "type": "example",
+      "title": "Eksempel 4: Resonans i tvungen svingning (sjanger L)",
+      "problem": "En udempet fjær-masse drives i takt med sin egen frekvens: $x''+4x=\\cos 2t$, med $x(0)=0$, $x'(0)=0$. Vis at det er resonans, finn løsningen, og beskriv hvordan amplituden utvikler seg.",
+      "solution": "**Egenfrekvens vs. drivfrekvens:** Homogen del $x''+4x=0$ har $\\omega_0=2$. Drivkraften $\\cos 2t$ har frekvens $\\omega=2=\\omega_0$ ⇒ **resonans**.\n\n**Homogen:** $r^2+4=0\\Rightarrow r=\\pm 2i$, $x_h=C_1\\cos 2t+C_2\\sin 2t$.\n\n**Ansats med resonans:** Fordi $\\cos 2t$ løser den homogene likningen, ganger vi ansatsen med $t$: $x_p=t(A\\cos 2t+B\\sin 2t)$. Innsetting (eller resonansformelen med $F_0=1,\\ \\omega_0=2$) gir $A=0$, $B=\\tfrac14$:\n\n$$x_p=\\frac{1}{2\\cdot 2}\\,t\\sin 2t=\\frac{t}{4}\\sin 2t.$$\n\n**Initialverdiproblem:** $x=C_1\\cos 2t+C_2\\sin 2t+\\tfrac{t}{4}\\sin 2t$. $x(0)=C_1=0$. Deriver: $x'=-2C_1\\sin 2t+2C_2\\cos 2t+\\tfrac14\\sin 2t+\\tfrac{t}{2}\\cos 2t$, så $x'(0)=2C_2=0\\Rightarrow C_2=0$. Dermed\n\n$$\\boxed{x(t)=\\frac{t}{4}\\sin 2t.}$$\n\n**Amplitudeutvikling:** Utslaget er innhyllet av $\\pm t/4$, som vokser lineært med tiden. Svingningen blir stadig kraftigere — den fysiske resonanskatastrofen. (Med litt demping ville amplituden i stedet stabilisert seg på et stort, men endelig, nivå.)"
+    },
+    {
+      "id": "tma4110-9-3-oppg-7",
+      "type": "exercise",
+      "exercise": {
+        "id": "tma4110-9-3-v2",
+        "number": "7",
+        "type": "classic",
+        "difficulty": "vanskelig",
+        "task": "(Sjanger L på eksamensnivå — resonans.) En udempet fjær-masse er gitt ved $x''+9x=6\\cos 3t$ med $x(0)=0$, $x'(0)=0$.\n\n**a)** Forklar hvorfor systemet er i resonans.\n\n**b)** Finn $x(t)$.\n\n**c)** Hva ville endret seg kvalitativt dersom drivfrekvensen i stedet var $\\omega=2$ (altså $6\\cos 2t$)?",
+        "solution": "**a)** Egenfrekvensen er $\\omega_0=\\sqrt9=3$. Drivkraften $6\\cos 3t$ har frekvens $\\omega=3=\\omega_0$, så drivingen treffer systemets egen takt — **resonans**.\n\n**b)** Homogen: $x_h=C_1\\cos 3t+C_2\\sin 3t$. Resonansformel med $F_0=6,\\ \\omega_0=3$: $x_p=\\dfrac{F_0}{2\\omega_0}t\\sin 3t=\\dfrac{6}{6}t\\sin 3t=t\\sin 3t$. Da er $x=C_1\\cos 3t+C_2\\sin 3t+t\\sin 3t$. $x(0)=C_1=0$; $x'=3C_2\\cos 3t+\\sin 3t+3t\\cos 3t$, $x'(0)=3C_2=0\\Rightarrow C_2=0$. Altså\n\n$$x(t)=t\\sin 3t.$$\n\nAmplituden $\\pm t$ vokser ubegrenset.\n\n**c)** Med $\\omega=2\\ne\\omega_0=3$ er det **ingen resonans**. Da virker ubestemte koeffisienter med ansats $A\\cos 2t$ uten $t$-faktor: $x_p=\\dfrac{F_0}{\\omega_0^2-\\omega^2}\\cos 2t=\\dfrac{6}{9-4}\\cos 2t=\\dfrac{6}{5}\\cos 2t$. Løsningen forblir **begrenset** — en sum av to rene svingninger med konstant amplitude, ingen $t$-faktor og ingen vekst.",
+        "hints": [
+          "Resonans krever $\\omega=\\omega_0=\\sqrt{k/m}$; sammenlign drivfrekvens og egenfrekvens.",
+          "Bruk resonansformelen $x_p=\\dfrac{F_0}{2\\omega_0}t\\sin\\omega_0 t$.",
+          "Uten resonans er ansatsen $A\\cos\\omega t$ (ingen $t$-faktor), og $y_p=\\dfrac{F_0}{\\omega_0^2-\\omega^2}\\cos\\omega t$."
+        ]
+      }
+    },
+    {
+      "id": "tma4110-9-3-warn-typiske-feil",
+      "type": "warning",
+      "title": "Typiske feil",
+      "content": "- **Bruke variasjon av parametere der ubestemte koeffisienter holder.** Er $g$ polynom/eksponential/$\\sin/\\cos$, er ubestemte koeffisienter mye raskere. Spar variasjon av parametere til $\\tan x$, $\\sec x$, $1/x$ o.l. (tidssluk ellers).\n- **Glemme standardform før variasjon av parametere.** Formelen krever koeffisient 1 foran $y''$. Har du $2y''+\\dots=h(x)$, del hele likningen på $2$ først, ellers blir $g$ feil skalert.\n- **Feil Wronski-determinant** (bytter fortegn eller deriverer feil). $W=y_1y_2'-y_1'y_2$, ikke $y_1'y_2-y_1y_2'$.\n- **Velge feil dempingstilfelle.** Sjekk fortegnet til $c^2-4mk$: positivt ⇒ overkritisk (ingen svingning), null ⇒ kritisk, negativt ⇒ underkritisk (døende svingning). Ikke gjett ut fra størrelsen på $c$ alene.\n- **Overse resonans i tvungen svingning.** Sammenlign alltid drivfrekvens $\\omega$ med egenfrekvens $\\omega_0=\\sqrt{k/m}$. Er de like (udempet), må ansatsen ganges med $t$, og amplituden vokser.\n- **Blande kvasifrekvens og egenfrekvens.** Ved demping svinger systemet med $\\omega_d=\\sqrt{k/m-c^2/4m^2}<\\omega_0$, ikke med $\\omega_0$."
+    },
+    {
+      "id": "tma4110-9-3-drill-header",
+      "type": "text",
+      "content": "### Blandet øving\n\nOppgavene under blander de to løkkene på eksamensnivå. Ta dem gjerne som en kort avsluttende drill."
+    },
+    {
+      "id": "tma4110-9-3-oppg-8",
+      "type": "exercise",
+      "exercise": {
+        "id": "tma4110-9-3-l2",
+        "number": "8",
+        "type": "classic",
+        "difficulty": "lett",
+        "task": "(Innøving — begrepskobling.) En fri svingning $m x''+c x'+k x=0$ har $m=2$, $c=0$, $k=8$. Er den dempet eller udempet, og hva er egenfrekvensen?",
+        "solution": "Siden $c=0$ er svingningen **udempet** (fri harmonisk). Egenfrekvensen er $\\omega_0=\\sqrt{k/m}=\\sqrt{8/2}=\\sqrt4=2$.",
+        "hints": [
+          "Demping styres av $c$: $c=0$ betyr ingen demping.",
+          "$\\omega_0=\\sqrt{k/m}$."
+        ]
+      }
+    },
+    {
+      "id": "tma4110-9-3-oppg-9",
+      "type": "exercise",
+      "exercise": {
+        "id": "tma4110-9-3-m5",
+        "number": "9",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "(Sjanger L — tvungen, ikke resonans.) Finn den stasjonære løsningen (partikulærløsningen) av den udempede tvungne svingningen $x''+4x=\\cos t$.",
+        "solution": "Egenfrekvens $\\omega_0=2$, drivfrekvens $\\omega=1\\ne 2$ ⇒ ingen resonans. Ansats $x_p=A\\cos t$ (ingen $\\sin$ trengs uten dempingsledd). $x_p''=-A\\cos t$, innsatt: $-A\\cos t+4A\\cos t=3A\\cos t=\\cos t\\Rightarrow A=\\tfrac13$. Altså\n\n$$x_p=\\frac13\\cos t.$$\n\n(Generelt $x_p=\\dfrac{F_0}{\\omega_0^2-\\omega^2}\\cos\\omega t=\\dfrac{1}{4-1}\\cos t$.)",
+        "hints": [
+          "Sjekk først at $\\omega\\ne\\omega_0$ (ingen resonans), så holder ansatsen $A\\cos t$ uten $t$-faktor.",
+          "Sett inn $x_p=A\\cos t$ og løs for $A$."
+        ]
+      }
+    },
+    {
+      "id": "tma4110-9-3-oppg-10",
+      "type": "exercise",
+      "exercise": {
+        "id": "tma4110-9-3-v3",
+        "number": "10",
+        "type": "classic",
+        "difficulty": "vanskelig",
+        "task": "(Sjanger L på eksamensnivå — dempet tvungen.) Finn den generelle løsningen av $x''+2x'+5x=\\cos t$, og forklar hvilken del som er transient og hvilken som er stasjonær.",
+        "solution": "**Homogen:** $r^2+2r+5=0\\Rightarrow r=-1\\pm 2i$ (underkritisk). $x_h=e^{-t}(C_1\\cos 2t+C_2\\sin 2t)$.\n\n**Partikulær** (ubestemte koeffisienter, ansats $x_p=A\\cos t+B\\sin t$): $x_p'=-A\\sin t+B\\cos t$, $x_p''=-A\\cos t-B\\sin t$. Innsatt:\n\n$(-A\\cos t-B\\sin t)+2(-A\\sin t+B\\cos t)+5(A\\cos t+B\\sin t)=\\cos t$.\n\nSamle: $\\cos t$: $-A+2B+5A=4A+2B=1$; $\\sin t$: $-B-2A+5B=4B-2A=0\\Rightarrow B=\\tfrac{A}{2}$. Da $4A+A=5A=1\\Rightarrow A=\\tfrac15,\\ B=\\tfrac1{10}$. Altså $x_p=\\tfrac15\\cos t+\\tfrac1{10}\\sin t$.\n\n**Generell løsning:**\n\n$$x(t)=\\underbrace{e^{-t}(C_1\\cos 2t+C_2\\sin 2t)}_{\\text{transient}}+\\underbrace{\\tfrac15\\cos t+\\tfrac1{10}\\sin t}_{\\text{stasjonær}}.$$\n\n**Tolkning:** Den transiente delen $x_h$ inneholder $e^{-t}$ og dør ut når $t\\to\\infty$ (den husker startbetingelsene). Igjen står den stasjonære delen $x_p$, som svinger evig med drivfrekvensen $\\omega=1$ og er uavhengig av hvordan systemet ble satt i gang.",
+        "hints": [
+          "Homogen del: løs $r^2+2r+5=0$; komplekse røtter gir dempet svingning.",
+          "Ansats $x_p=A\\cos t+B\\sin t$ (dempingsleddet gjør at du trenger både $\\cos$ og $\\sin$).",
+          "Transient = leddet med $e^{-t}$ (dør ut); stasjonær = $x_p$ (blir igjen)."
+        ]
+      }
+    },
+    {
+      "id": "tma4110-9-3-def-rlc",
+      "type": "definition",
+      "title": "RLC-krets (elektrisk analogi)",
+      "content": "En elektrisk **RLC-krets** (motstand $R$, spole $L$, kondensator $C$) styres av nøyaktig samme likning som fjær-massen, med ladningen $Q(t)$ i rollen til utslaget:\n\n$$L Q''+R Q'+\\frac{1}{C}Q=E(t).$$\n\nHer svarer $L$ til massen $m$, motstanden $R$ til dempingen $c$, $1/C$ til fjærstivheten $k$ og spenningskilden $E(t)$ til drivkraften $F(t)$. Egenfrekvensen er $\\omega_0=1/\\sqrt{LC}$. Alt du kan om mekanisk svingning gjelder derfor uendret for kretser — én matematikk, to fysiske drakter."
+    },
+    {
+      "id": "tma4110-9-3-def-periode",
+      "type": "definition",
+      "title": "Periode og frekvens",
+      "content": "For en svingning $x(t)=A\\cos(\\omega t-\\varphi)$ er **vinkelfrekvensen** $\\omega$ (rad per tidsenhet), **perioden** $T=\\dfrac{2\\pi}{\\omega}$ (tid per svingning) og **frekvensen** $f=\\dfrac{1}{T}=\\dfrac{\\omega}{2\\pi}$ (svingninger per tidsenhet). For fri udempet svingning er $\\omega=\\omega_0=\\sqrt{k/m}$; for underkritisk dempet er $\\omega=\\omega_d$."
+    },
+    {
+      "id": "tma4110-9-3-def-dempingsforhold",
+      "type": "definition",
+      "title": "Dempingsforhold",
+      "content": "Skriver man svingningslikningen på normalisert form $x''+2\\zeta\\omega_0 x'+\\omega_0^2 x=0$, er **dempingsforholdet** $\\zeta=\\dfrac{c}{2\\sqrt{mk}}$ et dimensjonsløst mål på dempingen. De tre tilfellene svarer til: $\\zeta>1$ overkritisk, $\\zeta=1$ kritisk, $0<\\zeta<1$ underkritisk. Verdien $\\zeta=1$ er nøyaktig grensen $c^2=4mk$. Dempingsforholdet er en kompakt måte å oppgi «hvor dempet» et system er."
+    },
+    {
+      "id": "tma4110-9-3-rep",
+      "type": "collapsible",
+      "title": "Repetisjonsoppgaver",
+      "buttonText": "Vis repetisjonsoppgaver",
+      "content": [
+        {
+          "id": "tma4110-9-3-oppg-R1",
+          "type": "exercise",
+          "exercise": {
+            "id": "tma4110-9-3-rep-1",
+            "number": "R1",
+            "type": "classic",
+            "difficulty": "lett",
+            "task": "(Fra [kap. 9.1](/bok/tma4110/tma4110-9-1)) Løs den homogene likningen $y''-4y'+13y=0$ med $y(0)=1$, $y'(0)=0$.",
+            "solution": "Karakteristisk likning $r^2-4r+13=0\\Rightarrow r=\\dfrac{4\\pm\\sqrt{16-52}}{2}=2\\pm 3i$. Komplekse røtter ⇒ $y=e^{2x}(C_1\\cos 3x+C_2\\sin 3x)$. $y(0)=C_1=1$. $y'=e^{2x}(2C_1\\cos 3x-3C_1\\sin 3x+2C_2\\sin 3x+3C_2\\cos 3x)$, $y'(0)=2C_1+3C_2=0\\Rightarrow C_2=-\\tfrac23$. Altså $y=e^{2x}\\big(\\cos 3x-\\tfrac23\\sin 3x\\big)$.",
+            "hints": [
+              "Komplekse røtter $a\\pm bi$ gir $y=e^{ax}(C_1\\cos bx+C_2\\sin bx)$."
+            ]
+          }
+        },
+        {
+          "id": "tma4110-9-3-oppg-R2",
+          "type": "exercise",
+          "exercise": {
+            "id": "tma4110-9-3-rep-2",
+            "number": "R2",
+            "type": "classic",
+            "difficulty": "middels",
+            "task": "(Fra [kap. 9.2](/bok/tma4110/tma4110-9-2)) Finn den generelle løsningen av $y''+y=x+\\cos 2x$ med ubestemte koeffisienter.",
+            "solution": "$y_h=C_1\\cos x+C_2\\sin x$. Superposisjon på $g=x+\\cos 2x$: for $x$ prøv $y_{p1}=ax+b$: $0+ax+b=x\\Rightarrow a=1,b=0$, så $y_{p1}=x$. For $\\cos 2x$ (ingen resonans, $\\omega_0=1\\ne2$) prøv $y_{p2}=A\\cos 2x$: $-4A\\cos2x+A\\cos2x=-3A\\cos2x=\\cos2x\\Rightarrow A=-\\tfrac13$. Samlet $y=C_1\\cos x+C_2\\sin x+x-\\tfrac13\\cos 2x$.",
+            "hints": [
+              "Del $g$ i to og løs hver del for seg (superposisjon).",
+              "Sjekk resonans: $\\omega_0=1$ mot drivfrekvens $2$ — ingen kollisjon."
+            ]
+          }
+        },
+        {
+          "id": "tma4110-9-3-oppg-R3",
+          "type": "exercise",
+          "exercise": {
+            "id": "tma4110-9-3-rep-3",
+            "number": "R3",
+            "type": "classic",
+            "difficulty": "middels",
+            "task": "(Fra [kap. 9.1](/bok/tma4110/tma4110-9-1)) Hvilket av de tre homogene tilfellene gjelder for $y''+6y'+9y=0$, og hva er løsningen?",
+            "solution": "$r^2+6r+9=(r+3)^2=0$ gir **dobbel rot** $r=-3$. Da er $y=(C_1+C_2 x)e^{-3x}$ — tilfellet med $x$-faktor.",
+            "hints": [
+              "Regn diskriminanten $p^2-4q$; er den null, er det dobbel rot."
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": "tma4110-9-3-symbolliste",
+      "type": "collapsible",
+      "title": "Symbol- og formelliste",
+      "buttonText": "Vis symboler og formler",
+      "content": [
+        {
+          "id": "tma4110-9-3-symbolliste-text",
+          "type": "text",
+          "content": "## Symbol- og formelliste\n\n*Oppslagsverk — alt her forklares underveis i kapitlet.*\n\nAlle symboler og formler brukt i delkapittel 9.3, samlet på ett sted.\n\n| Symbol | Betydning |\n|---|---|\n| $y_1,y_2$ | Fundamentalt løsningssett (to lineært uavhengige homogene løsninger) |\n| $W(y_1,y_2)$ | Wronski-determinanten $y_1y_2'-y_1'y_2$ |\n| $y_p$ | Partikulær løsning |\n| $y_h$ | Homogen løsning $C_1y_1+C_2y_2$ |\n| $g(x)$ | Høyresida i $y''+py'+qy=g(x)$ |\n| $u_1,u_2$ | Varierende «konstanter» i variasjon av parametere |\n| $m$ | Masse i svingningslikningen |\n| $c$ | Dempingskoeffisient |\n| $k$ | Fjærstivhet (Hookes lov) |\n| $F(t)$ | Ytre drivkraft |\n| $x(t)$ | Utslag fra likevekt |\n| $\\omega_0$ | Egenfrekvens (naturlig vinkelfrekvens) $\\sqrt{k/m}$ |\n| $\\omega$ | Drivfrekvens (frekvensen til $F$) |\n| $\\omega_d$ | Kvasifrekvens (dempet vinkelfrekvens) |\n| $A$ | Amplitude $\\sqrt{C_1^2+C_2^2}$ |\n| $\\varphi$ | Fase (faseforskyvning) |\n| $T$ | Periode $2\\pi/\\omega$ |\n| $f$ | Frekvens $1/T$ |\n| $\\zeta$ | Dempingsforhold $c/(2\\sqrt{mk})$ |\n| $L,R,C,Q,E$ | Spole, motstand, kondensator, ladning, spenning (RLC-krets) |\n\n**Formler i dette delkapitlet:**\n\n$$W(y_1,y_2)=y_1y_2'-y_1'y_2$$\nWronski-determinanten — ulik null ⇒ lineært uavhengige løsninger.\n\n$$y_p=-y_1\\int\\frac{y_2\\,g}{W}\\,dx+y_2\\int\\frac{y_1\\,g}{W}\\,dx$$\nVariasjon av parametere (likningen på standardform, koeffisient 1 foran $y''$).\n\n$$m x''+c x'+k x=F(t)$$\nSvingningslikningen (fjær-masse).\n\n$$\\omega_0=\\sqrt{k/m}$$\nEgenfrekvensen for fri udempet svingning.\n\n$$x(t)=C_1\\cos\\omega_0 t+C_2\\sin\\omega_0 t=A\\cos(\\omega_0 t-\\varphi),\\quad A=\\sqrt{C_1^2+C_2^2}$$\nFri udempet svingning på amplitude-faseform.\n\n$$r=\\frac{-c\\pm\\sqrt{c^2-4mk}}{2m}$$\nRøtter i dempet svingning: fortegnet til $c^2-4mk$ gir over-/kritisk/underkritisk.\n\n$$\\omega_d=\\sqrt{\\frac{k}{m}-\\frac{c^2}{4m^2}}$$\nKvasifrekvens ved underkritisk demping ($<\\omega_0$).\n\n$$x_p=\\frac{F_0}{2\\omega_0}\\,t\\sin\\omega_0 t$$\nResonansløsning (udempet, $\\omega=\\omega_0$): amplituden vokser lineært.\n\n$$x_p=\\frac{F_0}{\\omega_0^2-\\omega^2}\\cos\\omega t$$\nStasjonær løsning ved udempet tvungen svingning uten resonans ($\\omega\\ne\\omega_0$)."
+        }
+      ]
+    }
+  ],
+  "exercises": []
+}

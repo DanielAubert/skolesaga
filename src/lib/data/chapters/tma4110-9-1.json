@@ -1,0 +1,485 @@
+{
+  "id": "tma4110-9-1",
+  "courseId": "tma4110",
+  "chapterNumber": "9.1",
+  "title": "Homogene 2. ordens med konstante koeffisienter: karakteristisk likning",
+  "description": "Homogene y''+py'+qy=0: prøveløsningen y=e^{rx} gir den karakteristiske likningen r^2+pr+q=0, og de tre tilfellene — reelle ulike røtter (C1 e^{r1 x}+C2 e^{r2 x}), dobbel rot ((C1+C2 x)e^{rx}), og kompleks-konjugerte røtter (e^{ax}(C1 cos bx+C2 sin bx) via Eulers formel) — pluss superposisjon, Wronski og initialverdiproblem.",
+  "estimatedMinutes": 55,
+  "competenceGoals": [
+    "sette opp den karakteristiske likningen r^2+pr+q=0 til en homogen 2. ordens likning med konstante koeffisienter",
+    "kjenne igjen de tre tilfellene fra diskriminanten og skrive riktig løsningsform (reelle ulike, dobbel, kompleks-konjugerte røtter)",
+    "bruke Eulers formel til å begrunne den reelle formen e^{ax}(C1 cos bx+C2 sin bx) ved komplekse røtter",
+    "løse initialverdiproblem ved å bestemme de to konstantene C1, C2 fra y(x0) og y'(x0)"
+  ],
+  "content": [
+    {
+      "id": "tma4110-9-1-tip-eksamensvinkel",
+      "type": "tip",
+      "title": "Eksamensvinkel",
+      "content": "**Høyeste prioritet — 2. ordens lineær ODE forekommer i ~82 % av settene (sjanger L).**\n\nDette er en av de faste søylene på TMA4110-eksamen. Den homogene likningen $y''+py'+qy=0$ er *fundamentet*: hele den store 82 %-oppgaven (inhomogen med resonans, kap. 9.2) starter med å løse nettopp denne. Sensor forventer at du kjenner igjen hvilket av de **tre tilfellene** du står i, og skriver riktig løsningsform.\n\nFasitens grep, som må sitte utenat under **kode E** (ingen hjelpemidler): **sett opp den karakteristiske likningen $r^2+pr+q=0$, finn røttene, og velg riktig av de tre løsningsformene.** Alle svar skal begrunnes, og integrasjonskonstantene $C_1,C_2$ navngis.\n\nDe tre formene du må kunne blindt:\n- reelle ulike røtter $r_1\\ne r_2$: $y=C_1e^{r_1x}+C_2e^{r_2x}$;\n- dobbel rot $r$: $y=(C_1+C_2x)e^{rx}$;\n- kompleks-konjugerte $r=a\\pm bi$: $y=e^{ax}(C_1\\cos bx+C_2\\sin bx)$.\n\nSitter de tre, låser du opp både denne oppgaven og resonans-oppgaven i 9.2."
+    },
+    {
+      "id": "tma4110-9-1-forkunnskaper",
+      "type": "text",
+      "content": "**Sist du var her.** Fra [kap. 8.2](/bok/tma4110/tma4110-8-2) tar du med deg strukturen som bærer hele Del 9: den generelle løsningen av en lineær likning er homogen pluss partikulær,\n\n$$y=y_h+y_p.$$\n\nFor en *homogen* likning ($q=0$) er $y_p=0$, så hele løsningen er $y_h$ — og det er den vi bygger her. Fra [kap. 7.2](/bok/tma4110/tma4110-7-2) trenger du **Eulers formel**\n\n$$e^{i\\theta}=\\cos\\theta+i\\sin\\theta,$$\n\nsom er nøkkelen til det tredje tilfellet (kompleks-konjugerte røtter). Andregradslikninger og $abc$-formelen friskes opp i [Andregradslikninger - faktorisering (1T)](/bok/1t/1t-2-2).\n\n**Verktøyet vi bygger i dette kapitlet** er den **karakteristiske likningen**\n\n$$r^2+pr+q=0,$$\n\nen helt vanlig andregradslikning som avgjør hvilken av de tre løsningsformene du skal bruke. Alt annet i kapitlet henger på den."
+    },
+    {
+      "id": "tma4110-9-1-intro",
+      "type": "text",
+      "content": "En **2. ordens** differensiallikning inneholder den *andre*-deriverte $y''$. De dukker opp overalt der akselerasjon møter posisjon: en fjær som svinger, en pendel, en elektrisk krets, en bygningsbjelke som bøyer seg. Vi tar for oss den enkleste, men mest brukte typen — **lineær med konstante koeffisienter**:\n\n$$y''+py'+qy=0,$$\n\nder $p$ og $q$ er tall (ikke funksjoner av $x$). Overraskelsen er hvor lett den løses: én smart gjetning, $y=e^{rx}$, gjør differensiallikningen om til en helt vanlig andregradslikning i $r$.\n\nKapitlet går i fem **læringsløkker** (teori → eksempel → oppgave): (1) prøveløsningen og den karakteristiske likningen, (2) tilfelle med reelle ulike røtter, (3) dobbel rot, (4) kompleks-konjugerte røtter, og (5) initialverdiproblem. Regn med rundt 55 minutter — ta gjerne en pause etter løkke 3."
+    },
+    {
+      "id": "tma4110-9-1-lokke1",
+      "type": "text",
+      "content": "## Løkke 1 — Prøveløsningen og den karakteristiske likningen (~12 min)"
+    },
+    {
+      "id": "tma4110-9-1-def-homogen",
+      "type": "definition",
+      "title": "Homogen lineær 2. ordens likning med konstante koeffisienter",
+      "content": "En likning der den ukjente funksjonen $y$ og dens deriverte $y',y''$ bare opptrer i **første potens**, koeffisientene er **tall**, og høyresida er **null**:\n\n$$y''+py'+qy=0,\\qquad p,q\\in\\mathbb R.$$\n\n\"Homogen\" betyr her at høyresida er $0$ (ingen pådragsledd $g(x)$). \"Lineær\" betyr at $y,y',y''$ ikke ganges med hverandre eller opphøyes. Eksempel: $y''-4y'+13y=0$ ($p=-4$, $q=13$). Til motsetning er $y''+ (y')^2=0$ *ikke* lineær."
+    },
+    {
+      "id": "tma4110-9-1-def-konstante",
+      "type": "definition",
+      "title": "Konstante koeffisienter",
+      "content": "At tallene $p$ og $q$ foran $y'$ og $y$ er **konstanter**, ikke funksjoner av $x$. Nettopp dette gjør at prøveløsningen $y=e^{rx}$ virker og reduserer likningen til en andregradslikning. Har koeffisientene $x$ i seg (f.eks. $y''+xy=0$), faller metoden i dette kapitlet bort."
+    },
+    {
+      "id": "tma4110-9-1-def-proveløsning",
+      "type": "definition",
+      "title": "Prøveløsningen $y=e^{rx}$",
+      "content": "Grepet som løser hele problemet: vi **gjetter** at løsningen har formen $y=e^{rx}$ for et passende tall $r$. Grunnen er at $e^{rx}$ er den eneste funksjonstypen som gjentar seg selv (opp til en faktor) når den deriveres:\n\n$$y=e^{rx}\\ \\Rightarrow\\ y'=re^{rx},\\ \\ y''=r^2e^{rx}.$$\n\nSetter vi dette inn i $y''+py'+qy=0$, faller $e^{rx}$ ut som felles faktor, og bare en likning i $r$ blir igjen."
+    },
+    {
+      "id": "tma4110-9-1-def-karakteristisk",
+      "type": "definition",
+      "title": "Karakteristisk likning",
+      "content": "Andregradslikningen som prøveløsningen $y=e^{rx}$ gir. Setter vi $y=e^{rx}$, $y'=re^{rx}$, $y''=r^2e^{rx}$ inn i $y''+py'+qy=0$, får vi $(r^2+pr+q)e^{rx}=0$. Siden $e^{rx}\\ne0$ alltid, må\n\n$$r^2+pr+q=0.$$\n\nDette er den **karakteristiske likningen**. Røttene $r$ bestemmer løsningen fullstendig. Oversettelsen er mekanisk: $y''\\to r^2$, $y'\\to r$, $y\\to 1$."
+    },
+    {
+      "id": "tma4110-9-1-def-diskriminant",
+      "type": "definition",
+      "title": "Diskriminanten og de tre tilfellene",
+      "content": "Løser du $r^2+pr+q=0$ med $abc$-formelen, $r=\\dfrac{-p\\pm\\sqrt{p^2-4q}}{2}$, avgjør **diskriminanten** $D=p^2-4q$ hvilket tilfelle du er i:\n\n- $D>0$: **to reelle ulike** røtter;\n- $D=0$: **én dobbel** (reell) rot $r=-p/2$;\n- $D<0$: **to kompleks-konjugerte** røtter $r=a\\pm bi$.\n\nHvert tilfelle har sin egen løsningsform. Å kjenne igjen tilfellet er halve oppgaven."
+    },
+    {
+      "id": "tma4110-9-1-ex-oppsett",
+      "type": "example",
+      "title": "Eksempel 1: Fra ODE til karakteristisk likning",
+      "problem": "Sett opp den karakteristiske likningen til $y''-5y'+6y=0$, og finn røttene.",
+      "solution": "Oversett mekanisk $y''\\to r^2$, $y'\\to r$, $y\\to 1$:\n\n$$r^2-5r+6=0.$$\n\nFaktoriser (eller bruk $abc$): $(r-2)(r-3)=0$, så $r_1=2$, $r_2=3$. Diskriminanten $D=(-5)^2-4\\cdot6=25-24=1>0$, altså **to reelle ulike** røtter — tilfelle (i). (Selve løsningsformen kommer i neste løkke.)"
+    },
+    {
+      "id": "tma4110-9-1-oppg-l1",
+      "type": "exercise",
+      "exercise": {
+        "id": "tma4110-9-1-l1",
+        "number": "1",
+        "type": "classic",
+        "difficulty": "lett",
+        "task": "(Innstegsoppgave.) Sett opp den karakteristiske likningen til $y''+7y'+12y=0$ og finn røttene. Hvilket av de tre tilfellene er dette?",
+        "solution": "Karakteristisk likning: $r^2+7r+12=0$. Faktoriser: $(r+3)(r+4)=0$, så $r_1=-3$, $r_2=-4$. Diskriminanten $D=49-48=1>0$ gir **to reelle ulike røtter** — tilfelle (i).",
+        "hints": [
+          "Oversett $y''\\to r^2$, $y'\\to r$, $y\\to 1$.",
+          "Faktoriser $r^2+7r+12$: to tall som ganges til $12$ og summeres til $7$.",
+          "Reelle og ulike røtter ⇒ tilfelle (i)."
+        ]
+      }
+    },
+    {
+      "id": "tma4110-9-1-lokke2",
+      "type": "text",
+      "content": "## Løkke 2 — Tilfelle (i): reelle ulike røtter (~9 min)"
+    },
+    {
+      "id": "tma4110-9-1-def-tilfelle1",
+      "type": "definition",
+      "title": "Tilfelle (i): reelle ulike røtter",
+      "content": "Har den karakteristiske likningen **to reelle ulike** røtter $r_1\\ne r_2$ (altså $D=p^2-4q>0$), er både $e^{r_1x}$ og $e^{r_2x}$ løsninger, og de er lineært uavhengige. Den generelle løsningen er deres kombinasjon:\n\n$$y=C_1e^{r_1x}+C_2e^{r_2x}.$$\n\nHer er $C_1,C_2$ frie konstanter (bestemmes av initialbetingelser). Dette er den vanligste og enkleste formen."
+    },
+    {
+      "id": "tma4110-9-1-def-superposisjon",
+      "type": "definition",
+      "title": "Superposisjonsprinsippet",
+      "content": "For en **homogen lineær** likning gjelder: er $y_1$ og $y_2$ begge løsninger, så er enhver kombinasjon $C_1y_1+C_2y_2$ også en løsning. Dette er **superposisjonsprinsippet**, og det er grunnen til at vi kan legge sammen de to grunnløsningene $e^{r_1x}$ og $e^{r_2x}$ og fortsatt ha en løsning. Prinsippet gjelder KUN for den homogene likningen (høyresida $0$)."
+    },
+    {
+      "id": "tma4110-9-1-ex-reelle",
+      "type": "example",
+      "title": "Eksempel 2: Reelle ulike røtter (sjanger L)",
+      "problem": "Finn den generelle løsningen av $y''-5y'+6y=0$.",
+      "solution": "Fra Eksempel 1 har den karakteristiske likningen $r^2-5r+6=0$ røttene $r_1=2$, $r_2=3$ (reelle og ulike, tilfelle (i)). Da er\n\n$$\\boxed{\\,y=C_1e^{2x}+C_2e^{3x}\\,}.$$\n\n**Kontroll:** med $y=e^{2x}$ er $y''-5y'+6y=(4-10+6)e^{2x}=0$ ✓, og med $y=e^{3x}$ er $(9-15+6)e^{3x}=0$ ✓. Superposisjonsprinsippet gir at summen også løser likningen."
+    },
+    {
+      "id": "tma4110-9-1-oppg-l2",
+      "type": "exercise",
+      "exercise": {
+        "id": "tma4110-9-1-l2",
+        "number": "2",
+        "type": "classic",
+        "difficulty": "lett",
+        "task": "(Sjanger L.) Finn den generelle løsningen av $y''-y'-6y=0$.",
+        "solution": "Karakteristisk likning: $r^2-r-6=0$, altså $(r-3)(r+2)=0$, så $r_1=3$, $r_2=-2$ (reelle ulike). Generell løsning:\n$$y=C_1e^{3x}+C_2e^{-2x}.$$\nKontroll: $e^{3x}$: $(9-3-6)=0$ ✓; $e^{-2x}$: $(4+2-6)=0$ ✓.",
+        "hints": [
+          "Karakteristisk likning $r^2-r-6=0$.",
+          "Faktoriser: to tall med produkt $-6$ og sum $-1$.",
+          "Reelle ulike røtter ⇒ $y=C_1e^{r_1x}+C_2e^{r_2x}$."
+        ]
+      }
+    },
+    {
+      "id": "tma4110-9-1-lokke3",
+      "type": "text",
+      "content": "## Løkke 3 — Tilfelle (ii): dobbel rot (~10 min)"
+    },
+    {
+      "id": "tma4110-9-1-def-tilfelle2",
+      "type": "definition",
+      "title": "Tilfelle (ii): dobbel rot",
+      "content": "Er diskriminanten $D=p^2-4q=0$, har den karakteristiske likningen **én dobbel rot** $r=-\\dfrac{p}{2}$. Da gir prøveløsningen bare *én* funksjon, $e^{rx}$ — men en 2. ordens likning trenger **to** uavhengige løsninger. Den andre er $xe^{rx}$. Den generelle løsningen er\n\n$$y=(C_1+C_2x)e^{rx}.$$\n\nDen ekstra $x$-faktoren er lett å glemme — og er en dokumentert eksamensfelle."
+    },
+    {
+      "id": "tma4110-9-1-def-hvorfor-x",
+      "type": "definition",
+      "title": "Hvorfor $xe^{rx}$ ved dobbel rot",
+      "content": "Ved dobbel rot er $p=-2r$ og $q=r^2$, så likningen er $y''-2ry'+r^2y=0$. Setter du inn $y=xe^{rx}$: $y'=(1+rx)e^{rx}$, $y''=(2r+r^2x)e^{rx}$, og\n\n$$y''-2ry'+r^2y=e^{rx}\\big[(2r+r^2x)-2r(1+rx)+r^2x\\big]=e^{rx}\\cdot 0=0.$$\n\nAltså er $xe^{rx}$ en ekte løsning, uavhengig av $e^{rx}$. (Metoden bak — **reduksjon av orden** — nevnes i begrepsbanken.) Du beviser dette selv i oppgave 8."
+    },
+    {
+      "id": "tma4110-9-1-ex-dobbel",
+      "type": "example",
+      "title": "Eksempel 3: Dobbel rot (sjanger L)",
+      "problem": "Finn den generelle løsningen av $y''-6y'+9y=0$.",
+      "solution": "Karakteristisk likning: $r^2-6r+9=0$, altså $(r-3)^2=0$ — **dobbel rot** $r=3$ (diskriminant $D=36-36=0$, tilfelle (ii)). Da er\n\n$$\\boxed{\\,y=(C_1+C_2x)e^{3x}\\,}.$$\n\n**Kontroll:** for $y=xe^{3x}$ er $y'=(1+3x)e^{3x}$ og $y''=(6+9x)e^{3x}$, så $y''-6y'+9y=e^{3x}[(6+9x)-6(1+3x)+9x]=e^{3x}\\cdot0=0$ ✓. Uten $x$-faktoren ville vi bare hatt én konstant og mistet halve løsningsrommet."
+    },
+    {
+      "id": "tma4110-9-1-oppg-l3",
+      "type": "exercise",
+      "exercise": {
+        "id": "tma4110-9-1-l3",
+        "number": "3",
+        "type": "classic",
+        "difficulty": "lett",
+        "task": "(Sjanger L.) Finn den generelle løsningen av $y''+4y'+4y=0$.",
+        "solution": "Karakteristisk likning: $r^2+4r+4=0$, altså $(r+2)^2=0$ — dobbel rot $r=-2$. Generell løsning:\n$$y=(C_1+C_2x)e^{-2x}.$$\nKontroll ($y=xe^{-2x}$): $y'=(1-2x)e^{-2x}$, $y''=(-4+4x)e^{-2x}$, $y''+4y'+4y=e^{-2x}[(-4+4x)+4(1-2x)+4x]=0$ ✓. Husk $x$-faktoren!",
+        "hints": [
+          "Karakteristisk likning $r^2+4r+4=0$.",
+          "$(r+2)^2=0$ gir dobbel rot — diskriminanten er $0$.",
+          "Dobbel rot $r$ ⇒ $y=(C_1+C_2x)e^{rx}$; ikke glem $x$-leddet."
+        ]
+      }
+    },
+    {
+      "id": "tma4110-9-1-lokke4",
+      "type": "text",
+      "content": "## Løkke 4 — Tilfelle (iii): kompleks-konjugerte røtter (~12 min)\n\n*— naturlig pausepunkt: dette er den tyngste løkka; ta en kort pause før du starter. —*"
+    },
+    {
+      "id": "tma4110-9-1-def-tilfelle3",
+      "type": "definition",
+      "title": "Tilfelle (iii): kompleks-konjugerte røtter",
+      "content": "Er diskriminanten $D=p^2-4q<0$, har den karakteristiske likningen **to kompleks-konjugerte** røtter\n\n$$r=a\\pm bi,\\qquad a=-\\tfrac{p}{2},\\ \\ b=\\tfrac{\\sqrt{4q-p^2}}{2}>0.$$\n\nDen **reelle** generelle løsningen er da\n\n$$y=e^{ax}\\big(C_1\\cos bx+C_2\\sin bx\\big).$$\n\nRealdelen $a$ styrer vekst/demping ($e^{ax}$), og imaginærdelen $b$ styrer svingefrekvensen ($\\cos bx,\\sin bx$)."
+    },
+    {
+      "id": "tma4110-9-1-def-euler-omgjor",
+      "type": "definition",
+      "title": "Fra kompleks til reell løsning (via Eulers formel)",
+      "content": "Hvorfor blir svaret reelt? Røttene $a\\pm bi$ gir de komplekse løsningene $e^{(a\\pm bi)x}=e^{ax}e^{\\pm ibx}$. Eulers formel $e^{i\\theta}=\\cos\\theta+i\\sin\\theta$ gir\n\n$$e^{ax}e^{ibx}=e^{ax}(\\cos bx+i\\sin bx).$$\n\nTar vi real- og imaginærdel hver for seg (begge er reelle løsninger), sitter vi igjen med $e^{ax}\\cos bx$ og $e^{ax}\\sin bx$. Kombinasjonen $e^{ax}(C_1\\cos bx+C_2\\sin bx)$ er den generelle reelle løsningen."
+    },
+    {
+      "id": "tma4110-9-1-ex-kompleks",
+      "type": "example",
+      "title": "Eksempel 4: Kompleks-konjugerte røtter + IVP (sjanger L)",
+      "problem": "Løs $y''-4y'+13y=0$ med $y(0)=1$, $y'(0)=0$.",
+      "solution": "**Karakteristisk likning:** $r^2-4r+13=0$. Diskriminant $D=16-52=-36<0$ ⇒ komplekse røtter. $abc$-formelen:\n$$r=\\frac{4\\pm\\sqrt{-36}}{2}=\\frac{4\\pm 6i}{2}=2\\pm 3i.$$\nAltså $a=2$, $b=3$, og\n$$y=e^{2x}\\big(C_1\\cos 3x+C_2\\sin 3x\\big).$$\n\n**Bruk initialbetingelsene.** $y(0)=1$: $e^{0}(C_1\\cdot1+C_2\\cdot0)=C_1=1$.\n\nDeriver (produktregel): $y'=e^{2x}\\big[2(C_1\\cos3x+C_2\\sin3x)+(-3C_1\\sin3x+3C_2\\cos3x)\\big]$. Ved $x=0$: $y'(0)=2C_1+3C_2=0\\Rightarrow 2\\cdot1+3C_2=0\\Rightarrow C_2=-\\tfrac23$.\n\n$$\\boxed{\\,y=e^{2x}\\Big(\\cos 3x-\\tfrac23\\sin 3x\\Big)\\,}.$$\n\n**Kontroll:** $y(0)=1$ ✓; $y'(0)=2\\cdot1+3\\cdot(-\\tfrac23)=0$ ✓."
+    },
+    {
+      "id": "tma4110-9-1-oppg-l4",
+      "type": "exercise",
+      "exercise": {
+        "id": "tma4110-9-1-l4",
+        "number": "4",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "(Sjanger L.) Finn den generelle løsningen av $y''+2y'+5y=0$.",
+        "solution": "Karakteristisk likning: $r^2+2r+5=0$. Diskriminant $D=4-20=-16<0$. $abc$: $r=\\dfrac{-2\\pm\\sqrt{-16}}{2}=\\dfrac{-2\\pm4i}{2}=-1\\pm2i$. Altså $a=-1$, $b=2$:\n$$y=e^{-x}\\big(C_1\\cos 2x+C_2\\sin 2x\\big).$$\nKontroll: $e^{-x}\\cos2x$ satt inn gir $0$ (real-/imaginærdel av $e^{(-1+2i)x}$).",
+        "hints": [
+          "Karakteristisk likning $r^2+2r+5=0$; regn diskriminanten $D=p^2-4q$.",
+          "$\\sqrt{-16}=4i$; røttene blir $a\\pm bi$.",
+          "Kompleks-konjugerte $a\\pm bi$ ⇒ $y=e^{ax}(C_1\\cos bx+C_2\\sin bx)$."
+        ]
+      }
+    },
+    {
+      "id": "tma4110-9-1-oppg-l5",
+      "type": "exercise",
+      "exercise": {
+        "id": "tma4110-9-1-l5",
+        "number": "5",
+        "type": "classic",
+        "difficulty": "lett",
+        "task": "(Sjanger L.) Finn den generelle løsningen av $y''+9y=0$ (ren svingning).",
+        "solution": "Karakteristisk likning: $r^2+9=0$, altså $r=\\pm3i$. Her er $a=0$, $b=3$:\n$$y=C_1\\cos 3x+C_2\\sin 3x.$$\nDette er en udempet svingning ($a=0$ gir ingen $e^{ax}$-faktor). Kontroll: $(\\cos3x)''+9\\cos3x=-9\\cos3x+9\\cos3x=0$ ✓.",
+        "hints": [
+          "$r^2+9=0$ gir rent imaginære røtter.",
+          "$a=0$ betyr ingen eksponentialfaktor foran.",
+          "$y=C_1\\cos bx+C_2\\sin bx$ med $b=3$."
+        ]
+      }
+    },
+    {
+      "id": "tma4110-9-1-lokke5",
+      "type": "text",
+      "content": "## Løkke 5 — Initialverdiproblem og entydighet (~10 min)"
+    },
+    {
+      "id": "tma4110-9-1-def-superpos-uavhengig",
+      "type": "definition",
+      "title": "Lineær uavhengighet av løsninger",
+      "content": "To løsninger $y_1,y_2$ er **lineært uavhengige** hvis den ene ikke er et konstant multiplum av den andre. Bare da spenner $C_1y_1+C_2y_2$ ut *alle* løsninger. I hvert av de tre tilfellene er grunnløsningene uavhengige: $e^{r_1x},e^{r_2x}$ (ulike $r$), $e^{rx},xe^{rx}$, og $e^{ax}\\cos bx,e^{ax}\\sin bx$."
+    },
+    {
+      "id": "tma4110-9-1-def-wronski",
+      "type": "definition",
+      "title": "Wronski-determinanten",
+      "content": "Et regnestykke som avgjør lineær uavhengighet. For to funksjoner $y_1,y_2$ er\n\n$$W(y_1,y_2)=\\begin{vmatrix} y_1 & y_2\\\\ y_1' & y_2'\\end{vmatrix}=y_1y_2'-y_2y_1'.$$\n\nEr $W\\ne0$ i minst ett punkt, er $y_1,y_2$ lineært uavhengige og danner et fundamentalt løsningssett. For $e^{r_1x},e^{r_2x}$ er $W=(r_2-r_1)e^{(r_1+r_2)x}\\ne0$ når $r_1\\ne r_2$."
+    },
+    {
+      "id": "tma4110-9-1-def-fundamental",
+      "type": "definition",
+      "title": "Fundamentalt løsningssett",
+      "content": "Et par $\\{y_1,y_2\\}$ av **lineært uavhengige** løsninger av $y''+py'+qy=0$. Enhver løsning kan da skrives entydig som $y=C_1y_1+C_2y_2$. De tre løsningsformene i kapitlet er nettopp de tre standard fundamentale løsningssettene."
+    },
+    {
+      "id": "tma4110-9-1-def-generell-dim2",
+      "type": "definition",
+      "title": "Generell løsning og dimensjon 2",
+      "content": "Løsningsmengden til $y''+py'+qy=0$ er et **vektorrom av dimensjon 2**: den spennes ut av *to* uavhengige løsninger, og trenger derfor *to* frie konstanter $C_1,C_2$. Derfor må du alltid ha nøyaktig to konstanter i svaret — én konstant (vanlig felle ved dobbel rot) betyr at du har mistet halve løsningsrommet."
+    },
+    {
+      "id": "tma4110-9-1-def-ivp",
+      "type": "definition",
+      "title": "Initialverdiproblem (2. orden)",
+      "content": "En 2. ordens likning med **to** initialbetingelser i samme punkt, typisk $y(x_0)=y_0$ og $y'(x_0)=y_0'$. Fremgangsmåte: finn **først** den generelle løsningen $y=C_1y_1+C_2y_2$, deriver for å få $y'$, sett så inn begge betingelsene og løs det lineære $2\\times2$-systemet for $C_1,C_2$. To betingelser matcher de to konstantene."
+    },
+    {
+      "id": "tma4110-9-1-def-rvp",
+      "type": "definition",
+      "title": "Randverdiproblem",
+      "content": "En 2. ordens likning med betingelser i **to ulike** punkter, f.eks. $y(0)=0$ og $y(L)=0$. Til forskjell fra et initialverdiproblem kan et randverdiproblem ha **ingen, én eller uendelig mange** løsninger. Metoden er den samme (sett inn i den generelle løsningen), men tolkningen av utfallet skiller seg."
+    },
+    {
+      "id": "tma4110-9-1-ex-ivp",
+      "type": "example",
+      "title": "Eksempel 5: Initialverdiproblem, reelle røtter (sjanger L)",
+      "problem": "Løs $y''-3y'+2y=0$ med $y(0)=0$, $y'(0)=1$.",
+      "solution": "**Karakteristisk likning:** $r^2-3r+2=0$, altså $(r-1)(r-2)=0$, $r_1=1$, $r_2=2$. Generell løsning:\n$$y=C_1e^{x}+C_2e^{2x}.$$\n\n**Initialbetingelsene.** $y(0)=C_1+C_2=0$. Deriver: $y'=C_1e^x+2C_2e^{2x}$, så $y'(0)=C_1+2C_2=1$.\n\nTrekk den første fra den andre: $(C_1+2C_2)-(C_1+C_2)=C_2=1$, og $C_1=-1$.\n\n$$\\boxed{\\,y=-e^{x}+e^{2x}\\,}.$$\n\n**Kontroll:** $y(0)=-1+1=0$ ✓; $y'=-e^x+2e^{2x}$, $y'(0)=-1+2=1$ ✓."
+    },
+    {
+      "id": "tma4110-9-1-oppg-m2",
+      "type": "exercise",
+      "exercise": {
+        "id": "tma4110-9-1-m2",
+        "number": "6",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "(Sjanger L — IVP, dobbel rot.) Løs $y''-2y'+y=0$ med $y(0)=1$, $y'(0)=0$.",
+        "solution": "Karakteristisk likning: $r^2-2r+1=0$, altså $(r-1)^2=0$ — dobbel rot $r=1$. Generell løsning: $y=(C_1+C_2x)e^{x}$.\n\n$y(0)=C_1=1$. Deriver (produktregel): $y'=C_2e^x+(C_1+C_2x)e^x=(C_1+C_2+C_2x)e^x$, så $y'(0)=C_1+C_2=0\\Rightarrow C_2=-1$.\n$$y=(1-x)e^{x}.$$\nKontroll: $y(0)=1$ ✓; $y'=(1-x)e^x-e^x=-xe^x$, $y'(0)=0$ ✓.",
+        "hints": [
+          "Dobbel rot ⇒ $y=(C_1+C_2x)e^{rx}$ med to konstanter.",
+          "$y(0)$ gir $C_1$ direkte.",
+          "Deriv med produktregel før du setter inn $y'(0)$."
+        ]
+      }
+    },
+    {
+      "id": "tma4110-9-1-oppg-m3",
+      "type": "exercise",
+      "exercise": {
+        "id": "tma4110-9-1-m3",
+        "number": "7",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "(Sjanger L — IVP, komplekse røtter.) Løs $y''-6y'+25y=0$ med $y(0)=3$, $y'(0)=1$.",
+        "solution": "Karakteristisk likning: $r^2-6r+25=0$, $D=36-100=-64$. $r=\\dfrac{6\\pm8i}{2}=3\\pm4i$, så $a=3$, $b=4$:\n$$y=e^{3x}(C_1\\cos4x+C_2\\sin4x).$$\n$y(0)=C_1=3$. Deriver: $y'=e^{3x}[3(C_1\\cos4x+C_2\\sin4x)+(-4C_1\\sin4x+4C_2\\cos4x)]$, så $y'(0)=3C_1+4C_2=1\\Rightarrow 9+4C_2=1\\Rightarrow C_2=-2$.\n$$y=e^{3x}(3\\cos4x-2\\sin4x).$$\nKontroll: $y(0)=3$ ✓; $y'(0)=3\\cdot3+4\\cdot(-2)=1$ ✓.",
+        "hints": [
+          "Regn diskriminanten; $\\sqrt{-64}=8i$ gir $r=3\\pm4i$.",
+          "$y(0)$ gir $C_1$; deriver med produktregel for $y'(0)$.",
+          "$y'(0)=aC_1+bC_2$ ved $x=0$ — løs for $C_2$."
+        ]
+      }
+    },
+    {
+      "id": "tma4110-9-1-warn-typiske-feil",
+      "type": "warning",
+      "title": "Typiske feil",
+      "content": "- **Glemmer $x$-faktoren ved dobbel rot.** Ved $D=0$ er svaret $(C_1+C_2x)e^{rx}$, ikke $C_1e^{rx}$. Uten $xe^{rx}$ har du bare halve løsningsrommet (én konstant der det skal være to).\n- **Feil form ved komplekse røtter.** $r=a\\pm bi$ gir $e^{ax}(C_1\\cos bx+C_2\\sin bx)$ — realdelen $a$ inn i eksponenten, imaginærdelen $b$ inn i $\\cos/\\sin$. Ikke skriv $e^{(a+bi)x}$ som endelig (reelt) svar.\n- **Fortegnsfeil i karakteristisk likning.** $y''-4y'+13y=0$ gir $r^2-4r+13=0$ (behold fortegnene på $p,q$).\n- **Bare én konstant.** En 2. ordens likning har alltid **to** frie konstanter $C_1,C_2$ (løsningsrommet har dimensjon 2).\n- **Deriverer feil ved IVP.** Ved komplekse/dobbel-rot-løsninger må du bruke produktregelen når du regner $y'$. Sett aldri inn $y'(0)$ før du har derivert korrekt.\n- **Setter inn initialbetingelsen for tidlig.** Finn den generelle løsningen (med $C_1,C_2$) *først*, bestem konstantene etterpå.\n- **Desimalsvar.** La $\\sqrt{}$, brøker og $e$ stå eksakt (kode E)."
+    },
+    {
+      "id": "tma4110-9-1-drill-tekst",
+      "type": "text",
+      "content": "## Eksamensdrill — de tre tilfellene om hverandre\n\nSamme oppskrift på alle: karakteristisk likning → diskriminant → riktig av tre former → (ev.) initialbetingelser. Nå blandet, så du må selv kjenne igjen tilfellet."
+    },
+    {
+      "id": "tma4110-9-1-oppg-v1",
+      "type": "exercise",
+      "exercise": {
+        "id": "tma4110-9-1-v1",
+        "number": "8",
+        "type": "classic",
+        "difficulty": "vanskelig",
+        "task": "(Sjanger L/N — krevende, «vis at».) Anta at den karakteristiske likningen til $y''+py'+qy=0$ har en **dobbel rot** $r$. Vis at $y=xe^{rx}$ da er en løsning av likningen.",
+        "solution": "Dobbel rot $r$ betyr at $r^2+pr+q=(s-r)^2$ evaluert som polynom i $s$, altså $p=-2r$ og $q=r^2$. Likningen er dermed $y''-2ry'+r^2y=0$.\n\nSett inn $y=xe^{rx}$:\n\n**a)** Deriver: $y'=e^{rx}+rxe^{rx}=(1+rx)e^{rx}$.\n\n**b)** Deriver igjen: $y''=re^{rx}+r(1+rx)e^{rx}=(2r+r^2x)e^{rx}$.\n\n**c)** Sett inn: $y''-2ry'+r^2y=e^{rx}\\big[(2r+r^2x)-2r(1+rx)+r^2x\\big]=e^{rx}\\big[2r+r^2x-2r-2r^2x+r^2x\\big]=e^{rx}\\cdot0=0.$\n\nAltså løser $xe^{rx}$ likningen. Sammen med $e^{rx}$ (også en løsning) og fordi de to er lineært uavhengige, gir dette den generelle løsningen $y=(C_1+C_2x)e^{rx}$. $\\blacksquare$",
+        "hints": [
+          "Dobbel rot ⇒ $p=-2r$ og $q=r^2$; skriv likningen med disse.",
+          "Deriver $y=xe^{rx}$ to ganger (produktregel).",
+          "Sett inn og samle $e^{rx}$ utenfor; vis at klammen blir $0$."
+        ]
+      }
+    },
+    {
+      "id": "tma4110-9-1-oppg-v2",
+      "type": "exercise",
+      "exercise": {
+        "id": "tma4110-9-1-v2",
+        "number": "9",
+        "type": "classic",
+        "difficulty": "vanskelig",
+        "task": "(Sjanger L — kald bank, momentliste-fasit.) Løs randverdiproblemet $y''+y=0$ med $y(0)=0$ og $y(\\pi/2)=2$.",
+        "solution": "Momentliste (A-svar): karakteristisk likning $r^2+1=0$ ⇒ $r=\\pm i$ ⇒ $y=C_1\\cos x+C_2\\sin x$. Rand $y(0)=0$: $C_1=0$. Rand $y(\\pi/2)=2$: $C_1\\cos\\tfrac\\pi2+C_2\\sin\\tfrac\\pi2=C_2=2$. Svar $y=2\\sin x$. (Merk: dette randverdiproblemet har entydig løsning — men bytt $y(\\pi)$ for $y(\\pi/2)$ og systemet blir inkonsistent/uendelig; randproblemer er ikke garantert entydige slik initialproblemer er.)",
+        "hints": [
+          "Ingen mellomsteg gitt med vilje — kald bank.",
+          "$r^2+1=0$ gir ren svingning $C_1\\cos x+C_2\\sin x$.",
+          "Sett inn de to randpunktene; $\\cos\\tfrac\\pi2=0$, $\\sin\\tfrac\\pi2=1$."
+        ]
+      }
+    },
+    {
+      "id": "tma4110-9-1-begrepsbank-tekst",
+      "type": "text",
+      "content": "## Begrepsbank til eksamen\n\nKjernebegrepene fra kapitlet i kortform, klare for repetisjon.\n\n*Begrepsbanken er flashcard-/repetisjonsstoff — hopp trygt over ved førstegangslesing; tidsanslaget for kapitlet gjelder kjernestoffet.*"
+    },
+    {
+      "id": "tma4110-9-1-bb-yh",
+      "type": "definition",
+      "title": "Homogen løsning $y_h$",
+      "content": "Den generelle løsningen av den homogene likningen $y''+py'+qy=0$, med sine to frie konstanter. I Del 9 er dette byggesteinen: den fulle (inhomogene) løsningen i kap. 9.2 er $y=y_h+y_p$, der $y_h$ er nettopp det du lærer å finne her."
+    },
+    {
+      "id": "tma4110-9-1-bb-euler",
+      "type": "definition",
+      "title": "Eulers formel (repetisjon)",
+      "content": "$e^{i\\theta}=\\cos\\theta+i\\sin\\theta$. Broen fra de komplekse røttene $a\\pm bi$ til den reelle løsningsformen: $e^{(a+bi)x}=e^{ax}(\\cos bx+i\\sin bx)$, hvis real- og imaginærdel er de to reelle grunnløsningene $e^{ax}\\cos bx$ og $e^{ax}\\sin bx$."
+    },
+    {
+      "id": "tma4110-9-1-bb-eksistens",
+      "type": "definition",
+      "title": "Eksistens og entydighet (2. orden)",
+      "content": "For $y''+py'+qy=0$ med konstante $p,q$ har initialverdiproblemet $y(x_0)=y_0$, $y'(x_0)=y_0'$ **nøyaktig én** løsning, definert for alle $x$. Derfor bestemmer de to konstantene $C_1,C_2$ løsningen entydig fra to initialbetingelser."
+    },
+    {
+      "id": "tma4110-9-1-bb-losningsrom",
+      "type": "definition",
+      "title": "Løsningsrommet som vektorrom",
+      "content": "Mengden av alle løsninger av $y''+py'+qy=0$ er et **vektorrom av dimensjon 2** (jf. Del 3): summen av to løsninger er en løsning, og et konstant multiplum også. En basis er et fundamentalt løsningssett $\\{y_1,y_2\\}$, og $\\dim=2$ er grunnen til de to konstantene."
+    },
+    {
+      "id": "tma4110-9-1-bb-amplitude",
+      "type": "definition",
+      "title": "Amplitude-faseform (kjennskap)",
+      "content": "En svingende løsning $C_1\\cos bx+C_2\\sin bx$ kan skrives kompakt som $A\\cos(bx-\\varphi)$ med amplitude $A=\\sqrt{C_1^2+C_2^2}$ og fase $\\varphi$ gitt av $\\tan\\varphi=C_2/C_1$. Nyttig når du skal lese av største utslag; behandles nærmere i kap. 9.3."
+    },
+    {
+      "id": "tma4110-9-1-bb-demping",
+      "type": "definition",
+      "title": "Dempet og udempet svingning (kjennskap)",
+      "content": "Ved komplekse røtter $a\\pm bi$ styrer realdelen $a$ oppførselen: $a<0$ gir **dempet** svingning (amplituden $e^{ax}$ dør ut), $a=0$ gir **udempet** (ren $\\cos/\\sin$), $a>0$ gir voksende svingning. Fysisk svarer $a<0$ til friksjon/motstand."
+    },
+    {
+      "id": "tma4110-9-1-bb-egenfrekvens",
+      "type": "definition",
+      "title": "Egenfrekvens (kjennskap)",
+      "content": "Ved rent imaginære røtter $\\pm bi$ (som i $y''+9y=0$ med $b=3$) svinger systemet fritt med **egenfrekvensen** $b$. Denne størrelsen blir avgjørende for resonans i kap. 9.2–9.3: treffer et pådrag egenfrekvensen, vokser utslaget."
+    },
+    {
+      "id": "tma4110-9-1-bb-sjekk",
+      "type": "definition",
+      "title": "Sjekk ved innsetting",
+      "content": "Enhver ODE-løsning kan (og bør) kontrolleres ved å sette den inn i likningen og se at den gir $0$ (homogent). Under kode E er dette din eneste feilsjekk: deriver $y$ to ganger, sett inn i $y''+py'+qy$, og bekreft at alt kanselleres."
+    },
+    {
+      "id": "tma4110-9-1-bb-reduksjon",
+      "type": "definition",
+      "title": "Reduksjon av orden (kjennskap)",
+      "content": "Metoden som *forklarer* hvorfor $xe^{rx}$ dukker opp ved dobbel rot: kjenner du én løsning $y_1$, søk en annen på formen $y_2=u(x)y_1$. For $y_1=e^{rx}$ ved dobbel rot fører dette til $u''=0$, altså $u=x$, og $y_2=xe^{rx}$. Du trenger ikke føre dette på eksamen — bare kjenne til begrunnelsen."
+    },
+    {
+      "id": "tma4110-9-1-rep",
+      "type": "collapsible",
+      "title": "Repetisjonsoppgaver",
+      "buttonText": "Vis repetisjonsoppgaver",
+      "content": [
+        {
+          "id": "tma4110-9-1-rep-o1",
+          "type": "exercise",
+          "exercise": {
+            "id": "tma4110-9-1-rep-1",
+            "number": "R1",
+            "type": "classic",
+            "difficulty": "lett",
+            "task": "(Fra kap. 7.2) Skriv de komplekse røttene $r=2\\pm3i$ — hva er real- og imaginærdelen, og hvilken løsningsform gir de?",
+            "solution": "Realdel $a=2$, imaginærdel $b=3$ (vi tar $b>0$). Løsningsformen er $y=e^{2x}(C_1\\cos3x+C_2\\sin3x)$: $a$ inn i eksponenten, $b$ inn i $\\cos/\\sin$.",
+            "hints": [
+              "$r=a\\pm bi$: $a$ er realdelen, $b$ den positive imaginærdelen."
+            ]
+          }
+        },
+        {
+          "id": "tma4110-9-1-rep-o2",
+          "type": "exercise",
+          "exercise": {
+            "id": "tma4110-9-1-rep-2",
+            "number": "R2",
+            "type": "classic",
+            "difficulty": "lett",
+            "task": "(Fra kap. 8.2 — struktur) Hva betyr det at den generelle løsningen av en lineær likning er $y=y_h+y_p$, og hva er $y_p$ for en homogen likning?",
+            "solution": "$y_h$ er den homogene løsningen (med frie konstanter), $y_p$ er én partikulær løsning av den fulle likningen. For en **homogen** likning ($q=0$) er $y_p=0$, så $y=y_h$ — akkurat det vi finner i kap. 9.1.",
+            "hints": [
+              "Homogen ⇒ høyresida er null ⇒ ingen partikulær del trengs."
+            ]
+          }
+        },
+        {
+          "id": "tma4110-9-1-rep-o3",
+          "type": "exercise",
+          "exercise": {
+            "id": "tma4110-9-1-rep-3",
+            "number": "R3",
+            "type": "classic",
+            "difficulty": "middels",
+            "task": "(Fra 1T — andregradslikning) Løs $r^2-4r+13=0$ og oppgi røttene på formen $a\\pm bi$.",
+            "solution": "$abc$-formel: $r=\\dfrac{4\\pm\\sqrt{16-52}}{2}=\\dfrac{4\\pm\\sqrt{-36}}{2}=\\dfrac{4\\pm6i}{2}=2\\pm3i$. Diskriminanten er negativ, så røttene er komplekst konjugerte.",
+            "hints": [
+              "$D=(-4)^2-4\\cdot13=-36$.",
+              "$\\sqrt{-36}=6i$."
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": "tma4110-9-1-symbolliste",
+      "type": "collapsible",
+      "title": "Symbol- og formelliste",
+      "buttonText": "Vis symboler og formler",
+      "content": [
+        {
+          "id": "tma4110-9-1-symbolliste-text",
+          "type": "text",
+          "content": "## Symbol- og formelliste\n\n*Oppslagsverk — alt her forklares underveis i kapitlet.*\n\nAlle symboler og formler i delkapittel 9.1, samlet.\n\n| Symbol | Betydning |\n|---|---|\n| $y=y(x)$ | Den ukjente funksjonen |\n| $y',\\ y''$ | Første- og andrederiverte |\n| $p,\\ q$ | Konstante koeffisienter i $y''+py'+qy=0$ |\n| $r$ | Rot i den karakteristiske likningen |\n| $D=p^2-4q$ | Diskriminanten (avgjør de tre tilfellene) |\n| $r=a\\pm bi$ | Kompleks-konjugerte røtter ($a$ real-, $b$ imaginærdel) |\n| $C_1,\\ C_2$ | Frie integrasjonskonstanter |\n| $W(y_1,y_2)$ | Wronski-determinanten |\n| $y_h$ | Homogen løsning |\n\n**Formler i dette delkapitlet:**\n\n$$y''+py'+qy=0$$\nHomogen lineær 2. ordens likning med konstante koeffisienter.\n\n$$r^2+pr+q=0$$\nKarakteristisk likning (fra prøveløsningen $y=e^{rx}$).\n\n$$D=p^2-4q$$\nDiskriminanten: $D>0$ reelle ulike, $D=0$ dobbel, $D<0$ komplekse røtter.\n\n$$y=C_1e^{r_1x}+C_2e^{r_2x}\\quad(r_1\\ne r_2\\text{ reelle})$$\nTilfelle (i).\n\n$$y=(C_1+C_2x)e^{rx}\\quad(r\\text{ dobbel})$$\nTilfelle (ii).\n\n$$y=e^{ax}(C_1\\cos bx+C_2\\sin bx)\\quad(r=a\\pm bi)$$\nTilfelle (iii).\n\n$$e^{i\\theta}=\\cos\\theta+i\\sin\\theta$$\nEulers formel (bro til tilfelle (iii)).\n\n$$W(y_1,y_2)=y_1y_2'-y_2y_1'$$\nWronski-determinanten (uavhengighet når $W\\ne0$)."
+        }
+      ]
+    }
+  ],
+  "exercises": []
+}

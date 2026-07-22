@@ -1,0 +1,344 @@
+{
+  "id": "tma4110-9-4",
+  "courseId": "tma4110",
+  "chapterNumber": "9.4",
+  "title": "Drill: 2. ordens differensiallikninger",
+  "description": "ODE-2-repertoaret drillet til automatikk: karakteristisk likning (tre tilfeller), ubestemte koeffisienter med resonanssjekk, initialverdi og svingningsmodell — den 82 %-sikre sjangeren.",
+  "estimatedMinutes": 90,
+  "competenceGoals": [
+    "kjøre løsningsoppskriften for 2. ordens lineære ODE (homogen, ansats, resonanssjekk, koeffisienter, IVP) uten å nøle",
+    "kjenne igjen og løse alle tre homogene tilfellene og hver ansats-type for inhomogene likninger",
+    "oppdage resonans og gange ansatsen med x^s, og alltid bestemme integrasjonskonstantene til slutt",
+    "gjenkjenne og løse svingningsmodeller (fri, dempet, resonans)"
+  ],
+  "content": [
+    {
+      "id": "tma4110-9-4-tip-eksamensvinkel",
+      "type": "tip",
+      "title": "Eksamensvinkel",
+      "content": "**Dette er drillkapitlet for den 82 %-sikre sjangeren (sjanger L — 2. ordens ODE).** Nesten hvert sett har en oppgave her, ofte verdt 10–15 %. Variantene som går igjen:\n\n- **Homogen** $y''+py'+qy=0$ — de tre tilfellene (reelle ulike røtter, dobbel rot, komplekse røtter).\n- **Inhomogen** med ubestemte koeffisienter — én ansats-type per høyreside ($g$ polynom, eksponential, $\\sin/\\cos$).\n- **Resonans** — den dokumenterte fella: ansatsen kolliderer med $y_h$, så den må ganges med $x^s$.\n- **Initialverdiproblem (IVP)** — bestem konstantene, alltid ETTER at $y_p$ er lagt til.\n- **Svingningsmodell** — samme matematikk i fysisk drakt.\n\n**Kode E:** ingen hjelpemidler — de tre homogene formene, ansatstabellen og resonansregelen må sitte utenat. Alle svar begrunnes, svarene er eksakte ($x e^{2x}$, $\\tfrac{t}{8}\\sin 4t$, aldri desimal). Målet med kapitlet er ren automatikk: kjenne igjen varianten og kjøre oppskriften uten å nøle.\n\n**Øktforslag (kapitlet er ~90 min):** ta det gjerne i to økter — homogen + ansats-typene først (~45 min), resonans + IVP + svingning etterpå (~45 min)."
+    },
+    {
+      "id": "tma4110-9-4-forkunnskaper",
+      "type": "text",
+      "content": "**Forkunnskaper:** Dette kapitlet driller stoffet fra hele Del 9: [kap. 9.1](/bok/tma4110/tma4110-9-1) (homogen løsning, de tre tilfellene), [kap. 9.2](/bok/tma4110/tma4110-9-2) (ubestemte koeffisienter og resonans) og [kap. 9.3](/bok/tma4110/tma4110-9-3) (variasjon av parametere og svingningsmodeller).\n\n**Sist du var her — nøkkelformlene du trenger:**\n\n- Karakteristisk likning: $r^2+pr+q=0$. Tre tilfeller: reelle ulike $\\Rightarrow C_1e^{r_1x}+C_2e^{r_2x}$; dobbel rot $r\\Rightarrow (C_1+C_2x)e^{rx}$; komplekse $a\\pm bi\\Rightarrow e^{ax}(C_1\\cos bx+C_2\\sin bx)$.\n- Generell løsning: $y=y_h+y_p$.\n- Resonansregel: gang ansatsen med $x^s$, der $s$ er multiplisiteten til den kolliderende roten.\n- Egenfrekvens: $\\omega_0=\\sqrt{k/m}$; resonans i udempet svingning når drivfrekvens $=\\omega_0$."
+    },
+    {
+      "id": "tma4110-9-4-oppskrift",
+      "type": "text",
+      "content": "## Løsningsoppskriften (algoritmen)\n\nEnhver 2. ordens lineær likning med konstante koeffisienter løses med samme fem steg. Lær rekkefølgen utenat — den fjerner nesten alle fellene.\n\n1. **Homogen løsning $y_h$:** sett opp karakteristisk likning $r^2+pr+q=0$, finn røttene, velg riktig av de tre tilfellene.\n2. **Ansats for $y_p$:** velg form etter høyresida $g(x)$ (polynom → polynom, $e^{\\alpha x}\\to Ae^{\\alpha x}$, $\\cos/\\sin\\beta x\\to A\\cos\\beta x+B\\sin\\beta x$).\n3. **Resonanssjekk:** kolliderer ansatsen med et ledd i $y_h$? Gang hele ansatsen med $x^s$, der $s$ er multiplisiteten til den kolliderende roten (1 for enkel rot, 2 for dobbel).\n4. **Bestem koeffisientene:** sett ansatsen inn i likningen og løs for konstantene.\n5. **Sett sammen og bruk IVP:** skriv $y=y_h+y_p$. FØRST NÅ setter du inn initialbetingelsene og bestemmer $C_1,C_2$.\n\nDen vanligste tabben er å bytte om steg 3 og 5 (hoppe over resonans, eller bestemme $C_1,C_2$ før $y_p$ er lagt til). Oppskriften finnes som huskekort nederst i kapitlet."
+    },
+    {
+      "id": "tma4110-9-4-case",
+      "type": "example",
+      "title": "Gjennomregnet eksamenscase: inhomogen med resonans + IVP (sjanger L)",
+      "problem": "Løs initialverdiproblemet $y''-3y'+2y=e^{2x}$, $y(0)=0$, $y'(0)=1$.",
+      "solution": "Vi følger oppskriften steg for steg. *Margnotatene i kursiv viser hva sensor gir uttelling for.*\n\n**Steg 1 — homogen løsning.** Karakteristisk likning $r^2-3r+2=0\\Rightarrow (r-1)(r-2)=0$, så $r_1=1,\\ r_2=2$ (reelle ulike). Dermed\n$$y_h=C_1e^{x}+C_2e^{2x}.$$\n*(Sensor: riktig faktorisering og riktig av de tre tilfellene — grunnpoenget.)*\n\n**Steg 2 — ansats.** Høyresida er $g=e^{2x}$, som normalt gir ansatsen $Ae^{2x}$.\n\n**Steg 3 — resonanssjekk.** Men $e^{2x}$ er allerede en homogen løsning (roten $r=2$)! Enkel rot ⇒ multiplisitet $s=1$. Gang ansatsen med $x$:\n$$y_p=Axe^{2x}.$$\n*(Sensor: å oppdage resonansen og gange med $x$ er den dokumenterte skillelinjen — glemmer du dette, går hele oppgaven galt.)*\n\n**Steg 4 — bestem $A$.** Deriver: $y_p'=Ae^{2x}+2Axe^{2x}=A(1+2x)e^{2x}$, $y_p''=A(4+4x)e^{2x}$. Sett inn:\n$$A(4+4x)e^{2x}-3A(1+2x)e^{2x}+2Axe^{2x}=e^{2x}.$$\nSamle koeffisientene til $e^{2x}$: $A[(4+4x)-3(1+2x)+2x]=A[4+4x-3-6x+2x]=A[1]=A$. Så $A=1$ og $y_p=xe^{2x}$.\n*(Sensor: $x$-leddene skal kansellere — gjør de ikke det, er ansatsen feil.)*\n\n**Steg 5 — sett sammen og bruk IVP.** Generell løsning:\n$$y=C_1e^{x}+C_2e^{2x}+xe^{2x}.$$\n*Nå* bruker vi initialbetingelsene. $y(0)=C_1+C_2=0$. Deriver: $y'=C_1e^x+2C_2e^{2x}+e^{2x}+2xe^{2x}$, så $y'(0)=C_1+2C_2+1=1\\Rightarrow C_1+2C_2=0$. Trekk fra: $C_2=0$, $C_1=0$. Dermed\n$$\\boxed{y=xe^{2x}.}$$\n*(Sensor: konstantene bestemmes ETTER at $y_p$ er lagt til — gjør du det på $y_h$ alene, blir svaret feil. Verbal konklusjon og innrammet sluttsvar gir full uttelling.)*"
+    },
+    {
+      "id": "tma4110-9-4-drill-header",
+      "type": "text",
+      "content": "## Drilloppgaver\n\nAlle på eksamensnivå, nyskrevne tall. Ett av hvert homogent tilfelle, én per ansats-type, flere med resonans, en svingningsmodell. Kjør oppskriften på hver — kjenn igjen varianten før du regner."
+    },
+    {
+      "id": "tma4110-9-4-oppg-1",
+      "type": "exercise",
+      "exercise": {
+        "id": "tma4110-9-4-e1",
+        "number": "1",
+        "type": "classic",
+        "difficulty": "lett",
+        "task": "(Homogen, reelle ulike røtter.) Finn den generelle løsningen av $y''-5y'+6y=0$.",
+        "solution": "Karakteristisk likning $r^2-5r+6=0\\Rightarrow (r-2)(r-3)=0$, så $r_1=2,\\ r_2=3$ (reelle ulike). Da er\n$$y=C_1e^{2x}+C_2e^{3x}.$$",
+        "hints": [
+          "Sett opp $r^2-5r+6=0$ og faktoriser.",
+          "Reelle ulike røtter gir $y=C_1e^{r_1x}+C_2e^{r_2x}$."
+        ]
+      }
+    },
+    {
+      "id": "tma4110-9-4-oppg-2",
+      "type": "exercise",
+      "exercise": {
+        "id": "tma4110-9-4-e2",
+        "number": "2",
+        "type": "classic",
+        "difficulty": "lett",
+        "task": "(Homogen, dobbel rot.) Finn den generelle løsningen av $y''-6y'+9y=0$.",
+        "solution": "$r^2-6r+9=(r-3)^2=0$ gir dobbel rot $r=3$. Dobbel rot krever $x$-faktoren i det andre leddet:\n$$y=(C_1+C_2x)e^{3x}.$$",
+        "hints": [
+          "Diskriminanten $p^2-4q=36-36=0$ signaliserer dobbel rot.",
+          "Dobbel rot $r$ gir $y=(C_1+C_2x)e^{rx}$ — ikke glem $x$-faktoren."
+        ]
+      }
+    },
+    {
+      "id": "tma4110-9-4-oppg-3",
+      "type": "exercise",
+      "exercise": {
+        "id": "tma4110-9-4-e3",
+        "number": "3",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "(Homogen, komplekse røtter + IVP.) Løs $y''-2y'+10y=0$ med $y(0)=0$, $y'(0)=6$.",
+        "solution": "$r^2-2r+10=0\\Rightarrow r=\\dfrac{2\\pm\\sqrt{4-40}}{2}=1\\pm 3i$. Komplekse røtter $a\\pm bi$ med $a=1,\\ b=3$ gir\n$$y=e^{x}(C_1\\cos 3x+C_2\\sin 3x).$$\n$y(0)=C_1=0$. Deriver: $y'=e^x(C_1\\cos3x+C_2\\sin3x)+e^x(-3C_1\\sin3x+3C_2\\cos3x)$, så $y'(0)=C_1+3C_2=6\\Rightarrow C_2=2$. Dermed\n$$y=2e^{x}\\sin 3x.$$",
+        "hints": [
+          "Bruk andregradsformelen; negativ diskriminant gir komplekse røtter $a\\pm bi$.",
+          "$y=e^{ax}(C_1\\cos bx+C_2\\sin bx)$; bruk $y(0)$ og $y'(0)$ (husk produktregel ved derivasjon)."
+        ]
+      }
+    },
+    {
+      "id": "tma4110-9-4-oppg-4",
+      "type": "exercise",
+      "exercise": {
+        "id": "tma4110-9-4-e4",
+        "number": "4",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "(Homogen, reelle røtter + IVP.) Løs $y''-5y'+6y=0$ med $y(0)=1$, $y'(0)=0$.",
+        "solution": "Fra oppgave 1: $y_h=C_1e^{2x}+C_2e^{3x}$. $y(0)=C_1+C_2=1$. $y'=2C_1e^{2x}+3C_2e^{3x}$, $y'(0)=2C_1+3C_2=0$. Løs: fra første $C_1=1-C_2$, inn i andre: $2(1-C_2)+3C_2=2+C_2=0\\Rightarrow C_2=-2,\\ C_1=3$. Dermed\n$$y=3e^{2x}-2e^{3x}.$$",
+        "hints": [
+          "Bruk den generelle løsningen fra oppgave 1.",
+          "To likninger: $C_1+C_2=1$ og $2C_1+3C_2=0$."
+        ]
+      }
+    },
+    {
+      "id": "tma4110-9-4-oppg-5",
+      "type": "exercise",
+      "exercise": {
+        "id": "tma4110-9-4-e5",
+        "number": "5",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "(Inhomogen, polynom-ansats.) Finn den generelle løsningen av $y''-y=x^2$.",
+        "solution": "**Homogen:** $r^2-1=0\\Rightarrow r=\\pm1$, $y_h=C_1e^{x}+C_2e^{-x}$. **Ansats** (polynom av grad 2): $y_p=ax^2+bx+c$, $y_p''=2a$. Innsatt: $2a-(ax^2+bx+c)=x^2$. Sammenlign: $x^2$: $-a=1\\Rightarrow a=-1$; $x^1$: $-b=0\\Rightarrow b=0$; $x^0$: $2a-c=0\\Rightarrow c=2a=-2$. Så $y_p=-x^2-2$, og\n$$y=C_1e^{x}+C_2e^{-x}-x^2-2.$$",
+        "hints": [
+          "Ingen resonans (0 er ikke rot); ansats = fullt polynom av samme grad som $g$: $ax^2+bx+c$.",
+          "Sett inn og sammenlign koeffisienter potens for potens."
+        ]
+      }
+    },
+    {
+      "id": "tma4110-9-4-oppg-6",
+      "type": "exercise",
+      "exercise": {
+        "id": "tma4110-9-4-e6",
+        "number": "6",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "(Inhomogen, eksponential-ansats.) Finn den generelle løsningen av $y''-3y'+2y=e^{3x}$.",
+        "solution": "**Homogen:** $r^2-3r+2=(r-1)(r-2)=0\\Rightarrow y_h=C_1e^{x}+C_2e^{2x}$. **Resonanssjekk:** $\\alpha=3$ er *ikke* rot ⇒ ingen resonans. **Ansats:** $y_p=Ae^{3x}$, $y_p'=3Ae^{3x}$, $y_p''=9Ae^{3x}$. Innsatt: $(9-9+2)Ae^{3x}=2Ae^{3x}=e^{3x}\\Rightarrow A=\\tfrac12$. Dermed\n$$y=C_1e^{x}+C_2e^{2x}+\\tfrac12 e^{3x}.$$",
+        "hints": [
+          "Sjekk om eksponenten $\\alpha=3$ er rot i karakteristisk likning (den er ikke) — ingen resonans.",
+          "Ansats $Ae^{3x}$; sett inn og løs for $A$."
+        ]
+      }
+    },
+    {
+      "id": "tma4110-9-4-oppg-7",
+      "type": "exercise",
+      "exercise": {
+        "id": "tma4110-9-4-e7",
+        "number": "7",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "(Inhomogen, trigonometrisk ansats.) Finn den generelle løsningen av $y''+4y=\\sin x$.",
+        "solution": "**Homogen:** $r^2+4=0\\Rightarrow r=\\pm2i$, $y_h=C_1\\cos 2x+C_2\\sin 2x$. **Resonanssjekk:** drivfrekvens $1\\ne 2$ ⇒ ingen resonans. **Ansats:** $y_p=A\\cos x+B\\sin x$. $y_p''=-A\\cos x-B\\sin x$. Innsatt: $(-A+4A)\\cos x+(-B+4B)\\sin x=3A\\cos x+3B\\sin x=\\sin x$. Så $A=0,\\ B=\\tfrac13$, og\n$$y=C_1\\cos 2x+C_2\\sin 2x+\\tfrac13\\sin x.$$",
+        "hints": [
+          "Bruk full ansats $A\\cos x+B\\sin x$ (begge ledd, selv om $g$ bare har $\\sin$).",
+          "Sammenlign $\\cos x$- og $\\sin x$-koeffisienter hver for seg."
+        ]
+      }
+    },
+    {
+      "id": "tma4110-9-4-oppg-8",
+      "type": "exercise",
+      "exercise": {
+        "id": "tma4110-9-4-e8",
+        "number": "8",
+        "type": "classic",
+        "difficulty": "vanskelig",
+        "task": "(Inhomogen med RESONANS, eksponential + IVP.) Løs $y''-4y'+3y=e^{x}$ med $y(0)=0$, $y'(0)=0$.",
+        "solution": "**Homogen:** $r^2-4r+3=(r-1)(r-3)=0\\Rightarrow y_h=C_1e^{x}+C_2e^{3x}$. **Resonanssjekk:** $g=e^{x}$ og $r=1$ er enkel rot ⇒ **resonans**, $s=1$. Ansats $y_p=Axe^{x}$. $y_p'=A(1+x)e^x$, $y_p''=A(2+x)e^x$. Innsatt: $A(2+x)e^x-4A(1+x)e^x+3Axe^x=A[(2+x)-4(1+x)+3x]e^x=A[2+x-4-4x+3x]e^x=A[-2]e^x=e^x$. Så $A=-\\tfrac12$, $y_p=-\\tfrac12 xe^{x}$.\n\n**IVP:** $y=C_1e^x+C_2e^{3x}-\\tfrac12 xe^x$. $y(0)=C_1+C_2=0$. $y'=C_1e^x+3C_2e^{3x}-\\tfrac12 e^x-\\tfrac12 xe^x$, $y'(0)=C_1+3C_2-\\tfrac12=0\\Rightarrow C_1+3C_2=\\tfrac12$. Trekk fra: $2C_2=\\tfrac12\\Rightarrow C_2=\\tfrac14,\\ C_1=-\\tfrac14$. Dermed\n$$y=-\\tfrac14 e^{x}+\\tfrac14 e^{3x}-\\tfrac12 xe^{x}.$$",
+        "hints": [
+          "$r=1$ er rot ⇒ resonans; gang ansatsen med $x$: $y_p=Axe^x$.",
+          "Bestem $A$ først; sett så inn $y(0),y'(0)$ i den FULLE løsningen $y_h+y_p$.",
+          "Husk produktregel når du deriverer $-\\tfrac12 xe^x$."
+        ]
+      }
+    },
+    {
+      "id": "tma4110-9-4-oppg-9",
+      "type": "exercise",
+      "exercise": {
+        "id": "tma4110-9-4-e9",
+        "number": "9",
+        "type": "classic",
+        "difficulty": "vanskelig",
+        "task": "(Inhomogen med RESONANS, trigonometrisk + IVP.) Løs $y''+y=\\sin x$ med $y(0)=0$, $y'(0)=1$.",
+        "solution": "**Homogen:** $r^2+1=0\\Rightarrow y_h=C_1\\cos x+C_2\\sin x$. **Resonanssjekk:** drivfrekvens $1$ = egenfrekvens $1$ ⇒ **resonans**. Ansats ganges med $x$: $y_p=x(A\\cos x+B\\sin x)$. Derivasjon og innsetting gir $A=-\\tfrac12,\\ B=0$, altså $y_p=-\\tfrac12 x\\cos x$.\n\n**IVP:** $y=C_1\\cos x+C_2\\sin x-\\tfrac12 x\\cos x$. $y(0)=C_1=0$. $y'=-C_1\\sin x+C_2\\cos x-\\tfrac12\\cos x+\\tfrac12 x\\sin x$, $y'(0)=C_2-\\tfrac12=1\\Rightarrow C_2=\\tfrac32$. Dermed\n$$y=\\tfrac32\\sin x-\\tfrac12 x\\cos x.$$",
+        "hints": [
+          "Drivfrekvens = egenfrekvens ⇒ resonans; ansats $x(A\\cos x+B\\sin x)$.",
+          "Bestem $A,B$ ved innsetting, deretter $C_1,C_2$ fra initialbetingelsene.",
+          "Leddet $-\\tfrac12 x\\cos x$ vokser med $x$ — signaturen på resonans."
+        ]
+      }
+    },
+    {
+      "id": "tma4110-9-4-oppg-10",
+      "type": "exercise",
+      "exercise": {
+        "id": "tma4110-9-4-e10",
+        "number": "10",
+        "type": "classic",
+        "difficulty": "vanskelig",
+        "task": "(Inhomogen med DOBBEL resonans.) Finn en partikulær løsning av $y''-4y'+4y=e^{2x}$.",
+        "solution": "**Homogen:** $r^2-4r+4=(r-2)^2=0$ gir dobbel rot $r=2$, $y_h=(C_1+C_2x)e^{2x}$. **Resonanssjekk:** $g=e^{2x}$ og $r=2$ er *dobbel* rot ⇒ multiplisitet $s=2$. Ansats ganges med $x^2$: $y_p=Ax^2e^{2x}$. Da (etter to derivasjoner og innsetting) står bare $2Ae^{2x}=e^{2x}$ igjen, så $A=\\tfrac12$:\n$$y_p=\\tfrac12 x^2e^{2x}.$$\nAlle ledd uten $x^2$-faktor kansellerer nettopp fordi $r=2$ er dobbel rot.",
+        "hints": [
+          "$r=2$ er DOBBEL rot ⇒ $s=2$; gang ansatsen med $x^2$, ikke bare $x$.",
+          "Ansats $Ax^2e^{2x}$; ved innsetting overlever bare leddet $2Ae^{2x}$."
+        ]
+      }
+    },
+    {
+      "id": "tma4110-9-4-oppg-11",
+      "type": "exercise",
+      "exercise": {
+        "id": "tma4110-9-4-e11",
+        "number": "11",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "(Sammensatt høyreside — superposisjon.) Finn den generelle løsningen av $y''+4y=8x+\\cos x$.",
+        "solution": "**Homogen:** $r^2+4=0\\Rightarrow y_h=C_1\\cos 2x+C_2\\sin 2x$. Del $g$ i to (superposisjon):\n\n*For $8x$:* ansats $y_{p1}=ax+b$, $y_{p1}''=0$, innsatt $4(ax+b)=8x\\Rightarrow a=2,b=0$, så $y_{p1}=2x$.\n\n*For $\\cos x$* (drivfrekvens $1\\ne 2$, ingen resonans): ansats $y_{p2}=A\\cos x+B\\sin x$, $y_{p2}''=-A\\cos x-B\\sin x$, innsatt $3A\\cos x+3B\\sin x=\\cos x\\Rightarrow A=\\tfrac13,B=0$, så $y_{p2}=\\tfrac13\\cos x$.\n\nSamlet: $y_p=2x+\\tfrac13\\cos x$ og\n$$y=C_1\\cos 2x+C_2\\sin 2x+2x+\\tfrac13\\cos x.$$",
+        "hints": [
+          "Superposisjon: løs for $8x$ og for $\\cos x$ hver for seg, legg sammen.",
+          "Sjekk resonans for hvert ledd; her ingen ($0$ og $1$ er ikke røtter, $\\omega_0=2$)."
+        ]
+      }
+    },
+    {
+      "id": "tma4110-9-4-oppg-12",
+      "type": "exercise",
+      "exercise": {
+        "id": "tma4110-9-4-e12",
+        "number": "12",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "(Svingningsmodell — klassifisering + løsning.) En dempet fri svingning er gitt ved $x''+2x'+10x=0$. Avgjør dempingstypen og finn den generelle løsningen.",
+        "solution": "Karakteristisk likning $r^2+2r+10=0\\Rightarrow r=\\dfrac{-2\\pm\\sqrt{4-40}}{2}=-1\\pm 3i$. Diskriminanten $c^2-4mk=4-40=-36<0$ ⇒ **underkritisk demping**. Kvasifrekvens $\\omega_d=3$, og\n$$x(t)=e^{-t}(C_1\\cos 3t+C_2\\sin 3t).$$\nUtslaget svinger med frekvens $3$ mens amplituden dempes av $e^{-t}$ — en døende svingning.",
+        "hints": [
+          "Regn diskriminanten $c^2-4mk$; negativ ⇒ underkritisk (komplekse røtter).",
+          "Løsningsform $e^{at}(C_1\\cos\\omega_d t+C_2\\sin\\omega_d t)$ med $a=$ realdel, $\\omega_d=$ imaginærdel."
+        ]
+      }
+    },
+    {
+      "id": "tma4110-9-4-oppg-13",
+      "type": "exercise",
+      "exercise": {
+        "id": "tma4110-9-4-e13",
+        "number": "13",
+        "type": "classic",
+        "difficulty": "vanskelig",
+        "task": "(Svingningsmodell med RESONANS + IVP.) En udempet fjær-masse drives i takt med egenfrekvensen: $x''+16x=\\cos 4t$, $x(0)=0$, $x'(0)=0$.\n\n**a)** Vis at det er resonans.\n\n**b)** Finn $x(t)$ og beskriv amplitudeutviklingen.",
+        "solution": "**a)** Egenfrekvens $\\omega_0=\\sqrt{16}=4$; drivfrekvens $\\omega=4=\\omega_0$ ⇒ **resonans**.\n\n**b)** Homogen: $x_h=C_1\\cos 4t+C_2\\sin 4t$. Resonansformel med $F_0=1,\\ \\omega_0=4$: $x_p=\\dfrac{F_0}{2\\omega_0}t\\sin 4t=\\dfrac{1}{8}t\\sin 4t$. Generell: $x=C_1\\cos 4t+C_2\\sin 4t+\\tfrac{t}{8}\\sin 4t$. $x(0)=C_1=0$; $x'=-4C_1\\sin4t+4C_2\\cos4t+\\tfrac18\\sin4t+\\tfrac{t}{2}\\cos4t$, $x'(0)=4C_2=0\\Rightarrow C_2=0$. Dermed\n$$x(t)=\\frac{t}{8}\\sin 4t.$$\nAmplituden er innhyllet av $\\pm t/8$ og vokser lineært med tiden — resonanskatastrofen.",
+        "hints": [
+          "Resonans krever drivfrekvens = egenfrekvens $=\\sqrt{k/m}$.",
+          "Resonansformel $x_p=\\dfrac{F_0}{2\\omega_0}t\\sin\\omega_0 t$.",
+          "Sett $x(0),x'(0)$ inn i den fulle løsningen for å finne $C_1,C_2$."
+        ]
+      }
+    },
+    {
+      "id": "tma4110-9-4-oppg-14",
+      "type": "exercise",
+      "exercise": {
+        "id": "tma4110-9-4-e14",
+        "number": "14",
+        "type": "classic",
+        "difficulty": "vanskelig",
+        "task": "(Full IVP, polynom-høyreside.) Løs $y''-y=x^2$ med $y(0)=0$, $y'(0)=0$.",
+        "solution": "Fra oppgave 5: $y=C_1e^{x}+C_2e^{-x}-x^2-2$. $y(0)=C_1+C_2-2=0\\Rightarrow C_1+C_2=2$. $y'=C_1e^x-C_2e^{-x}-2x$, $y'(0)=C_1-C_2=0\\Rightarrow C_1=C_2$. Dermed $C_1=C_2=1$, og\n$$y=e^{x}+e^{-x}-x^2-2.$$\n(Kan også skrives $y=2\\cosh x-x^2-2$.)",
+        "hints": [
+          "Bruk den generelle løsningen fra oppgave 5 og sett inn begge initialbetingelsene.",
+          "To likninger: $C_1+C_2=2$ og $C_1-C_2=0$."
+        ]
+      }
+    },
+    {
+      "id": "tma4110-9-4-warn-typiske-feil",
+      "type": "warning",
+      "title": "Typiske feil",
+      "content": "Hele fellekatalogen fra Del 9, samlet — dette er tabbene under tidspress:\n\n- **Glemt resonans-multiplikasjon.** Sjekk ALLTID om ansatsen kolliderer med $y_h$. Enkel rot ⇒ gang med $x$; dobbel rot ⇒ gang med $x^2$. Dette er den hyppigst dokumenterte fella.\n- **Bestemt $C_1,C_2$ før $y_p$ er lagt til.** Initialbetingelsene skal på HELE $y=y_h+y_p$, aldri på $y_h$ alene.\n- **Feil homogen form.** Dobbel rot uten $x$-faktor; komplekse røtter skrevet som $e^{r_1x}+e^{r_2x}$ i stedet for $e^{ax}(\\cos,\\sin)$.\n- **For kort ansats.** For $\\sin\\beta x$ trengs BÅDE $A\\cos\\beta x$ og $B\\sin\\beta x$; for et grad-2 polynom trengs $ax^2+bx+c$ (alle ledd).\n- **Fortegnsfeil i karakteristisk likning.** $y''-3y'+2y=0$ gir $r^2-3r+2=0$, ikke $r^2+3r+2$.\n- **Derivasjonsfeil ved produkt.** $\\tfrac{d}{dx}(xe^{2x})=e^{2x}+2xe^{2x}$ — bruk produktregelen, ikke bare $2xe^{2x}$."
+    },
+    {
+      "id": "tma4110-9-4-huskekort-intro",
+      "type": "text",
+      "content": "## Huskekort til eksamen\n\nDe åtte kortene under er oppskriften destillert til utenat-form (kode E — intet formelark). De gjentar det du nettopp har drillet.\n\n*Kortene er flashcard-/repetisjonsstoff — hopp trygt over ved førstegangslesing; tidsanslaget for kapitlet gjelder drilloppgavene.*"
+    },
+    {
+      "id": "tma4110-9-4-def-oppskrift",
+      "type": "definition",
+      "title": "ODE-2-oppskriften (5 steg)",
+      "content": "Fem steg for enhver $y''+py'+qy=g(x)$: **(1)** homogen $y_h$ fra karakteristisk likning; **(2)** ansats for $y_p$ etter $g$; **(3)** resonanssjekk — gang med $x^s$ ved kollisjon med $y_h$; **(4)** bestem koeffisientene ved innsetting; **(5)** $y=y_h+y_p$, og FØRST DA initialbetingelsene. Rekkefølgen er hele poenget: resonans i steg 3, IVP helt til slutt."
+    },
+    {
+      "id": "tma4110-9-4-def-tre-tilfeller",
+      "type": "definition",
+      "title": "De tre homogene tilfellene",
+      "content": "Fra røttene i $r^2+pr+q=0$: **reelle ulike** $r_1\\ne r_2\\Rightarrow y_h=C_1e^{r_1x}+C_2e^{r_2x}$; **dobbel rot** $r\\Rightarrow y_h=(C_1+C_2x)e^{rx}$ (husk $x$-faktoren); **komplekse** $r=a\\pm bi\\Rightarrow y_h=e^{ax}(C_1\\cos bx+C_2\\sin bx)$. Diskriminanten $p^2-4q$ avgjør: positiv, null, negativ."
+    },
+    {
+      "id": "tma4110-9-4-def-ansatstabell",
+      "type": "definition",
+      "title": "Ansatstabellen (ubestemte koeffisienter)",
+      "content": "Velg $y_p$-form etter $g$: **polynom** grad $n$ $\\Rightarrow$ fullt polynom grad $n$; **$e^{\\alpha x}$** $\\Rightarrow Ae^{\\alpha x}$; **$\\cos\\beta x$ eller $\\sin\\beta x$** $\\Rightarrow A\\cos\\beta x+B\\sin\\beta x$ (alltid begge ledd); **produkt/sum** $\\Rightarrow$ tilsvarende produkt/sum. Deretter resonanssjekk før du bestemmer koeffisientene."
+    },
+    {
+      "id": "tma4110-9-4-def-resonansregel",
+      "type": "definition",
+      "title": "Resonansregelen ($x^s$)",
+      "content": "Kolliderer standardansatsen med et ledd i $y_h$ (dvs. eksponenten/frekvensen svarer til en rot i karakteristisk likning), ganges HELE ansatsen med $x^s$, der $s$ er multiplisiteten til den kolliderende roten: $s=1$ for enkel rot, $s=2$ for dobbel rot. Uten dette gir ansatsen $0$ og oppgaven kollapser."
+    },
+    {
+      "id": "tma4110-9-4-def-rekkefolge",
+      "type": "definition",
+      "title": "Rekkefølge: $y_p$ før IVP",
+      "content": "Integrasjonskonstantene $C_1,C_2$ bestemmes ALLTID fra den fullstendige løsningen $y=y_h+y_p$, aldri fra $y_h$ alene. Legg til $y_p$ først, deriver hele $y$, og sett så inn $y(x_0)$ og $y'(x_0)$. Å bestemme konstantene for tidlig er en klassisk poengtapper."
+    },
+    {
+      "id": "tma4110-9-4-def-karakteristisk",
+      "type": "definition",
+      "title": "Karakteristisk likning",
+      "content": "Til $y''+py'+qy=0$ hører den karakteristiske likningen $r^2+pr+q=0$ (bytt $y''\\to r^2$, $y'\\to r$, $y\\to1$). Røttene bestemmer den homogene løsningen. Pass på fortegn: $y''-3y'+2y$ gir $r^2-3r+2$, ikke $r^2+3r+2$."
+    },
+    {
+      "id": "tma4110-9-4-def-superposisjon",
+      "type": "definition",
+      "title": "Superposisjon for sammensatt $g$",
+      "content": "Er høyresida en sum $g=g_1+g_2$, finn en partikulærløsning for hver del hver for seg og legg dem sammen: $y_p=y_{p1}+y_{p2}$. Resonanssjekk gjøres per ledd — det ene leddet kan gi resonans uten at det andre gjør det."
+    },
+    {
+      "id": "tma4110-9-4-def-svinge-gjenkjenning",
+      "type": "definition",
+      "title": "Svingningsmodell-gjenkjenning",
+      "content": "En svingningsmodell $mx''+cx'+kx=F(t)$ er samme matematikk i fysisk drakt: $c=0$ ⇒ fri harmonisk med egenfrekvens $\\omega_0=\\sqrt{k/m}$; $c>0,\\ F=0$ ⇒ dempet (fortegnet til $c^2-4mk$ gir over-/kritisk/underkritisk); $F=F_0\\cos\\omega t$ med $\\omega=\\omega_0$ og $c=0$ ⇒ resonans (løsning med $t$-faktor, voksende amplitude)."
+    },
+    {
+      "id": "tma4110-9-4-symbolliste",
+      "type": "collapsible",
+      "title": "Symbol- og formelliste",
+      "buttonText": "Vis symboler og formler",
+      "content": [
+        {
+          "id": "tma4110-9-4-symbolliste-text",
+          "type": "text",
+          "content": "## Symbol- og formelliste\n\n*Oppslagsverk — alt her forklares underveis i kapitlet.*\n\nAlle symboler og formler brukt i delkapittel 9.4, samlet på ett sted.\n\n| Symbol | Betydning |\n|---|---|\n| $y''+py'+qy=g(x)$ | 2. ordens lineær ODE med konstante koeffisienter |\n| $r^2+pr+q=0$ | Karakteristisk likning |\n| $r_1,r_2$ | Røtter i karakteristisk likning |\n| $y_h$ | Homogen løsning |\n| $y_p$ | Partikulær løsning |\n| $g(x)$ | Høyresida (drivleddet) |\n| $s$ | Resonans-multiplisitet ($x^s$-faktor) |\n| $C_1,C_2$ | Integrasjonskonstanter (fra IVP) |\n| $A,B,a,b,c$ | Ubestemte koeffisienter i ansatsen |\n| $m,c,k$ | Masse, demping, fjærstivhet (svingningsmodell) |\n| $\\omega_0$ | Egenfrekvens $\\sqrt{k/m}$ |\n| $\\omega_d$ | Kvasifrekvens (underkritisk demping) |\n| $F_0,\\omega$ | Amplitude og frekvens til drivkraften |\n\n**Formler i dette delkapitlet:**\n\n$$r^2+pr+q=0$$\nKarakteristisk likning; diskriminanten $p^2-4q$ gir de tre tilfellene.\n\n$$y_h=C_1e^{r_1x}+C_2e^{r_2x},\\quad (C_1+C_2x)e^{rx},\\quad e^{ax}(C_1\\cos bx+C_2\\sin bx)$$\nDe tre homogene løsningsformene (reelle ulike / dobbel / komplekse røtter).\n\n$$y=y_h+y_p$$\nGenerell løsning; IVP bestemmes på hele denne.\n\n$$y_p\\to x^s y_p\\ \\text{ved resonans}$$\nResonansregelen: gang med $x^s$, $s=$ multiplisitet til kolliderende rot.\n\n$$\\omega_0=\\sqrt{k/m}$$\nEgenfrekvens; resonans i udempet svingning når drivfrekvens $=\\omega_0$.\n\n$$x_p=\\frac{F_0}{2\\omega_0}\\,t\\sin\\omega_0 t$$\nResonansløsning for udempet svingning: amplituden vokser lineært."
+        }
+      ]
+    }
+  ],
+  "exercises": []
+}

@@ -1,0 +1,531 @@
+{
+  "id": "tma4110-9-2",
+  "courseId": "tma4110",
+  "chapterNumber": "9.2",
+  "title": "Inhomogene likninger: ubestemte koeffisienter og resonans",
+  "description": "Inhomogene y''+py'+qy=g(x): generell løsning y=y_h+y_p, metoden med ubestemte koeffisienter (ansatser for polynom, eksponential og sinus/cosinus), og resonansregelen der ansatsen ganges med x^s når den kolliderer med den homogene løsningen — pluss superposisjon for sammensatt pådrag og initialverdi til slutt.",
+  "estimatedMinutes": 60,
+  "competenceGoals": [
+    "skrive den generelle løsningen av en inhomogen likning som y=y_h+y_p og finne y_h fra den karakteristiske likningen",
+    "velge riktig ansats for y_p etter formen på pådraget g(x) (polynom, eksponential, sinus/cosinus, produkter og summer)",
+    "gjenkjenne resonans og gange ansatsen med x^s der s er multiplisiteten til den kolliderende roten",
+    "bruke superposisjon for sammensatt g og bestemme integrasjonskonstantene fra initialbetingelser til slutt"
+  ],
+  "content": [
+    {
+      "id": "tma4110-9-2-tip-eksamensvinkel",
+      "type": "tip",
+      "title": "Eksamensvinkel",
+      "content": "**Høyeste prioritet — 2. ordens lineær ODE er ~82 % (sjanger L), og resonans er en dokumentert felle.**\n\nDette er den fullstendige 82 %-oppgaven: en **inhomogen** likning $y''+py'+qy=g(x)$ der du skal finne hele løsningen $y=y_h+y_p$. Sensor ser etter to ting: at du løser den homogene delen riktig (kap. 9.1), og at du velger riktig **ansats** for den partikulære delen — inkludert **resonans-multiplikasjonen med $x^s$** når ansatsen kolliderer med den homogene løsningen.\n\nFasitens grep, utenat under **kode E**: **(1) løs den homogene likningen først, (2) velg ansats etter formen på $g(x)$, (3) sjekk resonans — kolliderer ansatsen med $y_h$? gang med $x^s$, (4) sett inn og bestem koeffisientene, (5) $y=y_h+y_p$, deretter initialbetingelser.**\n\nDen aller vanligste feilen som koster karakterer: **å glemme $x$-faktoren ved resonans.** Vi bruker en hel løkke på nettopp det."
+    },
+    {
+      "id": "tma4110-9-2-forkunnskaper",
+      "type": "text",
+      "content": "**Sist du var her (kap. 9.1).** Du kan nå løse den **homogene** likningen $y''+py'+qy=0$: sett opp den karakteristiske likningen\n\n$$r^2+pr+q=0,$$\n\nfinn røttene, og velg riktig av de tre formene — $C_1e^{r_1x}+C_2e^{r_2x}$ (reelle ulike), $(C_1+C_2x)e^{rx}$ (dobbel), eller $e^{ax}(C_1\\cos bx+C_2\\sin bx)$ (komplekse $a\\pm bi$). Denne homogene løsningen $y_h$ er halve svaret her — og den avgjør om du har **resonans**.\n\n**Forkunnskaper.** Alt bygger på [kap. 9.1](/bok/tma4110/tma4110-9-1). Strukturen $y=y_h+y_p$ møtte du først for 1. ordens likninger i [kap. 8.2](/bok/tma4110/tma4110-8-2); nå får $y_h$ **to** frie konstanter i stedet for én. Andregradslikninger friskes opp i [Andregradslikninger - faktorisering (1T)](/bok/1t/1t-2-2)."
+    },
+    {
+      "id": "tma4110-9-2-intro",
+      "type": "text",
+      "content": "Så langt har høyresida vært null. Nå slår vi på et **pådrag** $g(x)$:\n\n$$y''+py'+qy=g(x).$$\n\nFysisk er $g(x)$ en ytre kraft — en motor som rister fjæren, en spenningskilde i kretsen. Løsningen deler seg i to: systemets *egen* oppførsel $y_h$ (fra kap. 9.1) pluss et *drevet* svar $y_p$ som matcher pådraget. Vi finner $y_p$ med **ubestemte koeffisienter**: gjett en form med ukjente konstanter, sett inn, og løs for konstantene.\n\nDen ene tingen som gjør oppgaven vanskelig — og som sensor jakter på — er **resonans**: når pådraget $g(x)$ tilfeldigvis *selv* er en homogen løsning. Da må ansatsen ganges med $x^s$, ellers får du et umulig regnestykke.\n\nKapitlet går i seks løkker: (1) strukturen $y=y_h+y_p$, (2) polynom-ansats, (3) eksponential-ansats, (4) sinus/cosinus-ansats, (5) **resonans** ($x^s$), og (6) superposisjon og initialverdi. Regn med rundt 60 minutter — pausepunkt etter løkke 4."
+    },
+    {
+      "id": "tma4110-9-2-lokke1",
+      "type": "text",
+      "content": "## Løkke 1 — Strukturen y = y_h + y_p (~9 min)"
+    },
+    {
+      "id": "tma4110-9-2-def-inhomogen",
+      "type": "definition",
+      "title": "Inhomogen 2. ordens likning",
+      "content": "Likningen med et pådragsledd (kildeledd) $g(x)\\ne0$ på høyresida:\n\n$$y''+py'+qy=g(x).$$\n\nHøyresida $g(x)$ kalles **pådraget** eller kildeleddet. Til motsetning er den homogene likningen (kap. 9.1) den med $g(x)=0$. Målet er å finne én løsning som matcher $g$, og legge den til den homogene."
+    },
+    {
+      "id": "tma4110-9-2-def-struktur",
+      "type": "definition",
+      "title": "Generell løsning $y=y_h+y_p$",
+      "content": "Den generelle løsningen av en inhomogen lineær likning er den homogene løsningen pluss **én** partikulær løsning:\n\n$$y=y_h+y_p.$$\n\nHer bærer $y_h$ (fra kap. 9.1) begge de frie konstantene $C_1,C_2$, mens $y_p$ er én bestemt løsning **uten** frie konstanter. Grunnen: trekker du to løsninger av den fulle likningen fra hverandre, løser differansen den homogene likningen. Så alle løsninger ligger ett $y_h$ unna hverandre."
+    },
+    {
+      "id": "tma4110-9-2-def-yp",
+      "type": "definition",
+      "title": "Partikulær løsning $y_p$",
+      "content": "*Én* bestemt løsning av den fulle likningen $y''+py'+qy=g(x)$, uten frie konstanter. Den representerer systemets drevne svar på pådraget $g$. Vi finner den med **ubestemte koeffisienter**: gjett en form som ligner $g$, med ukjente tallkonstanter, og bestem konstantene ved innsetting."
+    },
+    {
+      "id": "tma4110-9-2-def-yh-rep",
+      "type": "definition",
+      "title": "Homogen løsning $y_h$ (repetisjon)",
+      "content": "Den generelle løsningen av den tilhørende homogene likningen $y''+py'+qy=0$, med to frie konstanter (kap. 9.1). Den må alltid finnes **først** i en inhomogen oppgave — både fordi den inngår i sluttsvaret, og fordi den avgjør om ansatsen for $y_p$ har **resonans**. Kalles også **komplementærfunksjonen**."
+    },
+    {
+      "id": "tma4110-9-2-ex-struktur",
+      "type": "example",
+      "title": "Eksempel 1: Sett sammen y_h og y_p (sjanger L)",
+      "problem": "Det er oppgitt at $y_p=3$ er en partikulær løsning av $y''+y=3$. Finn den generelle løsningen.",
+      "solution": "Den homogene likningen er $y''+y=0$ med karakteristisk likning $r^2+1=0$, altså $r=\\pm i$ ($a=0$, $b=1$). Da er $y_h=C_1\\cos x+C_2\\sin x$.\n\nGenerell løsning:\n$$\\boxed{\\,y=C_1\\cos x+C_2\\sin x+3\\,}.$$\n\n**Kontroll:** $y''=-C_1\\cos x-C_2\\sin x$, så $y''+y=(-C_1\\cos x-C_2\\sin x)+(C_1\\cos x+C_2\\sin x+3)=3$ ✓. Legg merke til at $y_p=3$ ikke har noen fri konstant — konstantene bor i $y_h$."
+    },
+    {
+      "id": "tma4110-9-2-oppg-l1",
+      "type": "exercise",
+      "exercise": {
+        "id": "tma4110-9-2-l1",
+        "number": "1",
+        "type": "classic",
+        "difficulty": "lett",
+        "task": "(Innstegsoppgave.) Det er oppgitt at $y_p=2$ løser $y''-y'-2y=-4$. Skriv den generelle løsningen. (Hint: den karakteristiske likningen er $r^2-r-2=0$.)",
+        "solution": "Homogen: $r^2-r-2=(r-2)(r+1)=0$, så $r_1=2$, $r_2=-1$, og $y_h=C_1e^{2x}+C_2e^{-x}$. Sjekk $y_p=2$: $y_p''-y_p'-2y_p=0-0-4=-4$ ✓. Generell løsning:\n$$y=C_1e^{2x}+C_2e^{-x}+2.$$",
+        "hints": [
+          "Løs den homogene likningen $r^2-r-2=0$ først.",
+          "Konstanten $y_p=2$ har ingen frie konstanter.",
+          "$y=y_h+y_p$."
+        ]
+      }
+    },
+    {
+      "id": "tma4110-9-2-lokke2",
+      "type": "text",
+      "content": "## Løkke 2 — Ubestemte koeffisienter: polynom-ansats (~10 min)"
+    },
+    {
+      "id": "tma4110-9-2-def-ubestemte",
+      "type": "definition",
+      "title": "Metoden med ubestemte koeffisienter",
+      "content": "En metode for å finne $y_p$ når pådraget $g(x)$ er av en \"pen\" type (polynom, eksponential, sinus/cosinus, eller produkter/summer av disse). Ideen: $y_p$ har **samme form** som $g$, men med ukjente (\"ubestemte\") koeffisienter. Sett ansatsen inn i likningen, sammenlign ledd, og løs for koeffisientene. Virker fordi derivasjon holder deg innenfor samme funksjonsfamilie."
+    },
+    {
+      "id": "tma4110-9-2-def-kildeledd",
+      "type": "definition",
+      "title": "Pådraget (kildeleddet) $g(x)$",
+      "content": "Funksjonen på høyresida som ansatsen skal matche. De tre grunntypene metoden dekker: **polynom** ($g=x^2+1$), **eksponential** ($g=e^{\\alpha x}$) og **svingning** ($g=\\cos\\beta x$ eller $\\sin\\beta x$), samt summer og produkter av disse. For andre typer (som $\\tan x$) trengs variasjon av parametere (kap. 9.3)."
+    },
+    {
+      "id": "tma4110-9-2-def-ansats-poly",
+      "type": "definition",
+      "title": "Ansats for polynom",
+      "content": "Er $g(x)$ et polynom av grad $n$, prøv et **fullstendig** polynom av samme grad:\n\n$$g=x^2\\ \\Rightarrow\\ y_p=Ax^2+Bx+C.$$\n\nTa alltid med alle lavere ledd, også konstantleddet — de deriverte blander gradene. (Unntak: hvis $q=0$ er $r=0$ en rot, og da trengs resonans, se løkke 5.)"
+    },
+    {
+      "id": "tma4110-9-2-ex-poly",
+      "type": "example",
+      "title": "Eksempel 2: Polynom-ansats (sjanger L)",
+      "problem": "Finn en partikulær løsning av $y''-3y'+2y=x^2$.",
+      "solution": "Pådraget er et 2.-gradspolynom, så prøv $y_p=Ax^2+Bx+C$. Da er $y_p'=2Ax+B$ og $y_p''=2A$. Sett inn:\n\n$$2A-3(2Ax+B)+2(Ax^2+Bx+C)=x^2.$$\n\nSamle etter grad:\n$$2A\\,x^2+(-6A+2B)\\,x+(2A-3B+2C)=x^2.$$\n\nSammenlign koeffisienter:\n- $x^2$: $2A=1\\Rightarrow A=\\tfrac12$.\n- $x^1$: $-6A+2B=0\\Rightarrow B=3A=\\tfrac32$.\n- $x^0$: $2A-3B+2C=0\\Rightarrow 1-\\tfrac92+2C=0\\Rightarrow C=\\tfrac74$.\n\n$$\\boxed{\\,y_p=\\tfrac12x^2+\\tfrac32x+\\tfrac74\\,}.$$\n\n**Kontroll:** $y_p''-3y_p'+2y_p=2\\cdot\\tfrac12-3(x+\\tfrac32)+2(\\tfrac12x^2+\\tfrac32x+\\tfrac74)=1-3x-\\tfrac92+x^2+3x+\\tfrac72=x^2$ ✓."
+    },
+    {
+      "id": "tma4110-9-2-oppg-l2",
+      "type": "exercise",
+      "exercise": {
+        "id": "tma4110-9-2-l2",
+        "number": "2",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "(Sjanger L.) Finn en partikulær løsning av $y''-y'-2y=x$. (Røttene er $r=2,-1$.)",
+        "solution": "Pådraget er 1.-gradspolynom, prøv $y_p=Ax+B$. Da $y_p'=A$, $y_p''=0$. Sett inn: $0-A-2(Ax+B)=-2Ax+(-A-2B)=x$. Sammenlign: $-2A=1\\Rightarrow A=-\\tfrac12$; $-A-2B=0\\Rightarrow \\tfrac12-2B=0\\Rightarrow B=\\tfrac14$.\n$$y_p=-\\tfrac12x+\\tfrac14.$$\nKontroll: $y_p''-y_p'-2y_p=0-(-\\tfrac12)-2(-\\tfrac12x+\\tfrac14)=\\tfrac12+x-\\tfrac12=x$ ✓.",
+        "hints": [
+          "Grad 1 pådrag ⇒ ansats $y_p=Ax+B$ (ta med konstantleddet).",
+          "$y_p'=A$, $y_p''=0$.",
+          "Sammenlign $x$-ledd og konstantledd hver for seg."
+        ]
+      }
+    },
+    {
+      "id": "tma4110-9-2-lokke3",
+      "type": "text",
+      "content": "## Løkke 3 — Eksponential-ansats (~9 min)"
+    },
+    {
+      "id": "tma4110-9-2-def-ansats-exp",
+      "type": "definition",
+      "title": "Ansats for eksponential",
+      "content": "Er $g(x)=e^{\\alpha x}$, prøv\n\n$$y_p=Ae^{\\alpha x}.$$\n\nSiden $\\dfrac{d}{dx}e^{\\alpha x}=\\alpha e^{\\alpha x}$, blir innsetting bare et tall ganger $e^{\\alpha x}$, og $A$ løses direkte. **Advarsel:** virker bare hvis $\\alpha$ **ikke** er rot i den karakteristiske likningen — er den det, har du resonans (løkke 5)."
+    },
+    {
+      "id": "tma4110-9-2-ex-exp",
+      "type": "example",
+      "title": "Eksempel 3: Eksponential-ansats, ingen resonans (sjanger L)",
+      "problem": "Finn en partikulær løsning av $y''-3y'+2y=e^{3x}$.",
+      "solution": "Røttene er $r=1,2$ (fra $r^2-3r+2=0$). Pådraget har $\\alpha=3$, som **ikke** er en rot — ingen resonans. Prøv $y_p=Ae^{3x}$: $y_p'=3Ae^{3x}$, $y_p''=9Ae^{3x}$. Sett inn:\n\n$$9Ae^{3x}-3\\cdot3Ae^{3x}+2Ae^{3x}=(9-9+2)Ae^{3x}=2Ae^{3x}=e^{3x}.$$\n\nAltså $2A=1\\Rightarrow A=\\tfrac12$:\n$$\\boxed{\\,y_p=\\tfrac12e^{3x}\\,}.$$\n\n**Kontroll:** $2\\cdot\\tfrac12e^{3x}=e^{3x}$ ✓. (Sjekk alltid at $\\alpha$ ikke er rot *før* du velger denne ansatsen.)"
+    },
+    {
+      "id": "tma4110-9-2-oppg-l3",
+      "type": "exercise",
+      "exercise": {
+        "id": "tma4110-9-2-l3",
+        "number": "3",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "(Sjanger L.) Finn en partikulær løsning av $y''+3y'+2y=e^{x}$. (Røttene er $r=-1,-2$.)",
+        "solution": "$\\alpha=1$ er ikke rot ($r=-1,-2$) — ingen resonans. Prøv $y_p=Ae^{x}$: $y_p'=Ae^x$, $y_p''=Ae^x$. Sett inn: $Ae^x+3Ae^x+2Ae^x=6Ae^x=e^x\\Rightarrow A=\\tfrac16$.\n$$y_p=\\tfrac16e^{x}.$$\nKontroll: $(1+3+2)\\cdot\\tfrac16e^x=e^x$ ✓.",
+        "hints": [
+          "Sjekk at $\\alpha=1$ ikke er rot i $r^2+3r+2=0$.",
+          "Ansats $y_p=Ae^{x}$; her er $y_p'=y_p''=Ae^x$.",
+          "Sett inn og løs $6A=1$."
+        ]
+      }
+    },
+    {
+      "id": "tma4110-9-2-lokke4",
+      "type": "text",
+      "content": "## Løkke 4 — Sinus/cosinus-ansats (~10 min)\n\n*— naturlig pausepunkt: etter denne løkka kommer resonans, kapitlets viktigste del. —*"
+    },
+    {
+      "id": "tma4110-9-2-def-ansats-trig",
+      "type": "definition",
+      "title": "Ansats for sinus/cosinus",
+      "content": "Er $g(x)=\\cos\\beta x$ **eller** $\\sin\\beta x$ (eller en kombinasjon), prøv **begge** ledd:\n\n$$y_p=A\\cos\\beta x+B\\sin\\beta x.$$\n\nDu må ta med *både* $\\cos$ og $\\sin$ selv om $g$ bare har det ene — derivasjon bytter mellom dem, så begge trengs. **Advarsel:** virker bare hvis $\\pm\\beta i$ **ikke** er røtter (ellers resonans, løkke 5)."
+    },
+    {
+      "id": "tma4110-9-2-def-ansats-produkt",
+      "type": "definition",
+      "title": "Ansats for produkter og summer",
+      "content": "Sammensatte pådrag håndteres ledd for ledd: **produkt** $g=e^{\\alpha x}\\cos\\beta x$ gir ansats $e^{\\alpha x}(A\\cos\\beta x+B\\sin\\beta x)$; **produkt** $g=x\\,e^{\\alpha x}$ gir $(Ax+B)e^{\\alpha x}$; en **sum** $g=g_1+g_2$ løses ved superposisjon (løkke 6): finn $y_{p1}$ for $g_1$ og $y_{p2}$ for $g_2$ hver for seg."
+    },
+    {
+      "id": "tma4110-9-2-ex-trig",
+      "type": "example",
+      "title": "Eksempel 4: Sinus-ansats, ingen resonans (sjanger L)",
+      "problem": "Finn en partikulær løsning av $y''-3y'+2y=\\sin x$.",
+      "solution": "Røttene er $r=1,2$ (reelle) — $\\pm i$ er ikke røtter, ingen resonans. Prøv $y_p=A\\cos x+B\\sin x$:\n$$y_p'=-A\\sin x+B\\cos x,\\qquad y_p''=-A\\cos x-B\\sin x.$$\nSett inn:\n$$(-A\\cos x-B\\sin x)-3(-A\\sin x+B\\cos x)+2(A\\cos x+B\\sin x)=\\sin x.$$\nSamle:\n$$(A-3B)\\cos x+(3A+B)\\sin x=\\sin x.$$\nSammenlign: $A-3B=0$ og $3A+B=1$. Fra $A=3B$: $9B+B=1\\Rightarrow B=\\tfrac1{10}$, $A=\\tfrac3{10}$.\n$$\\boxed{\\,y_p=\\tfrac3{10}\\cos x+\\tfrac1{10}\\sin x\\,}.$$\n\n**Kontroll:** setter du inn, kanselleres $\\cos x$-leddene og $\\sin x$-koeffisienten blir $1$ ✓. Merk at ansatsen *måtte* ha $\\cos x$-leddet selv om $g$ bare var $\\sin x$."
+    },
+    {
+      "id": "tma4110-9-2-oppg-l4",
+      "type": "exercise",
+      "exercise": {
+        "id": "tma4110-9-2-l4",
+        "number": "4",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "(Sjanger L.) Finn en partikulær løsning av $y''+4y=\\cos x$. (Røttene er $r=\\pm2i$.)",
+        "solution": "$\\pm i$ er ikke røtter ($r=\\pm2i$) — ingen resonans. Prøv $y_p=A\\cos x+B\\sin x$: $y_p''=-A\\cos x-B\\sin x$. Sett inn: $(-A\\cos x-B\\sin x)+4(A\\cos x+B\\sin x)=3A\\cos x+3B\\sin x=\\cos x$. Sammenlign: $3A=1\\Rightarrow A=\\tfrac13$; $3B=0\\Rightarrow B=0$.\n$$y_p=\\tfrac13\\cos x.$$\nKontroll: $-\\tfrac13\\cos x+\\tfrac43\\cos x=\\cos x$ ✓.",
+        "hints": [
+          "Sjekk at $\\pm i$ ikke er røtter ($r=\\pm2i$).",
+          "Ansats med både $\\cos x$ og $\\sin x$.",
+          "$y_p''+4y_p=3A\\cos x+3B\\sin x$; sammenlign."
+        ]
+      }
+    },
+    {
+      "id": "tma4110-9-2-lokke5",
+      "type": "text",
+      "content": "## Løkke 5 — Resonans: gang ansatsen med x^s (~14 min)\n\n**Dette er kapitlets viktigste løkke.** Den vanligste karakterkoster på 2. ordens-oppgaven er å hoppe over resonans-multiplikasjonen."
+    },
+    {
+      "id": "tma4110-9-2-def-resonans",
+      "type": "definition",
+      "title": "Resonans",
+      "content": "**Resonans** oppstår når pådraget $g(x)$ *selv* er en løsning av den homogene likningen — altså når standardansatsen for $y_p$ allerede finnes i $y_h$. Da gir innsetting $0=g(x)$, som er umulig: ansatsen kan ikke matche pådraget. Løsningen er å **gange ansatsen med $x^s$** (se resonansregelen). Fysisk er dette når et pådrag treffer systemets egenfrekvens og utslaget vokser."
+    },
+    {
+      "id": "tma4110-9-2-def-resonansregel",
+      "type": "definition",
+      "title": "Resonansregelen (multiplikasjon med $x^s$)",
+      "content": "Kolliderer standardansatsen for $y_p$ med et ledd i $y_h$, gang **hele ansatsen med $x^s$**, der\n\n$$s=\\text{multiplisiteten til den kolliderende roten}.$$\n\n- $\\alpha$ (eller $\\pm\\beta i$) er en **enkel** rot ⇒ $s=1$ ⇒ gang med $x$.\n- $\\alpha$ er en **dobbel** rot ⇒ $s=2$ ⇒ gang med $x^2$.\n\nEksempel: $g=e^{2x}$ og $r=2$ enkel rot ⇒ ansats $Axe^{2x}$. Er $r=2$ dobbel ⇒ $Ax^2e^{2x}$. Dette er den ene regelen sensor sjekker aller nøyest."
+    },
+    {
+      "id": "tma4110-9-2-def-multiplisitet",
+      "type": "definition",
+      "title": "Multiplisiteten $s$",
+      "content": "Hvor mange ganger den kolliderende roten opptrer i den karakteristiske likningen. En enkel rot ($r_1\\ne r_2$) har multiplisitet $1$; en dobbel rot har multiplisitet $2$. For et trigonometrisk pådrag $\\cos\\beta x/\\sin\\beta x$ er $s$ multiplisiteten til $\\beta i$ (i praksis $1$, siden $\\pm\\beta i$ bare kan være enkle røtter i en 2. ordens likning med reelle koeffisienter)."
+    },
+    {
+      "id": "tma4110-9-2-def-hvorfor-resonans",
+      "type": "definition",
+      "title": "Hvorfor resonans krever $x^s$",
+      "content": "Er $\\alpha$ en enkel rot, løser $e^{\\alpha x}$ den homogene likningen, så ansatsen $Ae^{\\alpha x}$ gir $0$ ved innsetting — den kan aldri bli $e^{\\alpha x}$. Multipliserer du med $x$, gir derivasjonen nye ledd som ikke kanselleres, og $Axe^{\\alpha x}$ kan matche pådraget. Samme mekanikk som $xe^{rx}$ ved dobbel rot i kap. 9.1: en $x$-faktor per gang formen allerede finnes i $y_h$."
+    },
+    {
+      "id": "tma4110-9-2-ex-res1",
+      "type": "example",
+      "title": "Eksempel 5: Resonans, enkel rot (sjanger L) — flaggskipet",
+      "problem": "Finn den generelle løsningen av $y''-3y'+2y=e^{2x}$, og deretter løsningen med $y(0)=0$, $y'(0)=1$.",
+      "solution": "**Homogen først.** $r^2-3r+2=(r-1)(r-2)=0$, så $r=1,2$ og $y_h=C_1e^{x}+C_2e^{2x}$.\n\n**Resonanssjekk.** Pådraget $e^{2x}$ har $\\alpha=2$, som **er** en rot (enkel, $s=1$). Standardansatsen $Ae^{2x}$ er allerede i $y_h$ — resonans! Gang med $x$: prøv $y_p=Axe^{2x}$.\n\n**Sett inn.** $y_p'=A(1+2x)e^{2x}$, $y_p''=A(4+4x)e^{2x}$. Da\n$$y_p''-3y_p'+2y_p=Ae^{2x}\\big[(4+4x)-3(1+2x)+2x\\big]=Ae^{2x}\\big[1\\big]=Ae^{2x}.$$\nAltså $A=1$, og $y_p=xe^{2x}$. Generell løsning:\n$$y=C_1e^{x}+C_2e^{2x}+xe^{2x}.$$\n\n**Initialbetingelser.** $y(0)=C_1+C_2=0$. Deriver: $y'=C_1e^x+2C_2e^{2x}+(1+2x)e^{2x}$, så $y'(0)=C_1+2C_2+1=1\\Rightarrow C_1+2C_2=0$. Trekk fra: $C_2=0$, $C_1=0$.\n\n$$\\boxed{\\,y=xe^{2x}\\,}.$$\n\n**Kontroll:** $y(0)=0$ ✓; $y'=(1+2x)e^{2x}$, $y'(0)=1$ ✓. Hadde du glemt $x$-faktoren, ville ansatsen $Ae^{2x}$ gitt $0=e^{2x}$ — umulig."
+    },
+    {
+      "id": "tma4110-9-2-oppg-m1",
+      "type": "exercise",
+      "exercise": {
+        "id": "tma4110-9-2-m1",
+        "number": "5",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "(Sjanger L — resonans!) Finn en partikulær løsning av $y''-y'-2y=e^{2x}$. (Røttene er $r=2,-1$.)",
+        "solution": "Resonanssjekk: $\\alpha=2$ **er** en enkel rot ($s=1$) — resonans. Gang med $x$: $y_p=Axe^{2x}$. Da $y_p'=A(1+2x)e^{2x}$, $y_p''=A(4+4x)e^{2x}$. Sett inn:\n$$A e^{2x}[(4+4x)-(1+2x)-2x]=Ae^{2x}[3]=3Ae^{2x}=e^{2x}\\Rightarrow A=\\tfrac13.$$\n$$y_p=\\tfrac13xe^{2x}.$$\nKontroll: klammen blir $4+4x-1-2x-2x=3$ ✓, så $3\\cdot\\tfrac13=1$.",
+        "hints": [
+          "Er $\\alpha=2$ en rot? Ja ⇒ resonans, $s=1$.",
+          "Gang standardansatsen $Ae^{2x}$ med $x$: $y_p=Axe^{2x}$.",
+          "Deriver med produktregel, sett inn, løs $3A=1$."
+        ]
+      }
+    },
+    {
+      "id": "tma4110-9-2-oppg-m2",
+      "type": "exercise",
+      "exercise": {
+        "id": "tma4110-9-2-m2",
+        "number": "6",
+        "type": "classic",
+        "difficulty": "vanskelig",
+        "task": "(Sjanger L — dobbel resonans!) Finn en partikulær løsning av $y''+6y'+9y=e^{-3x}$. (Merk: hvilken multiplisitet har roten?)",
+        "solution": "Homogen: $r^2+6r+9=(r+3)^2=0$ — **dobbel** rot $r=-3$. Pådraget $e^{-3x}$ har $\\alpha=-3$, som er en dobbel rot, så $s=2$. Både $e^{-3x}$ og $xe^{-3x}$ er i $y_h$; gang med $x^2$: $y_p=Ax^2e^{-3x}$.\n\n$y_p'=A(2x-3x^2)e^{-3x}$, $y_p''=A(2-12x+9x^2)e^{-3x}$. Sett inn:\n$$Ae^{-3x}\\big[(2-12x+9x^2)+6(2x-3x^2)+9x^2\\big]=Ae^{-3x}[2]=2Ae^{-3x}=e^{-3x}.$$\nAltså $A=\\tfrac12$: $y_p=\\tfrac12x^2e^{-3x}$.",
+        "hints": [
+          "Dobbel rot $r=-3$ betyr multiplisitet $s=2$.",
+          "Både $e^{-3x}$ og $xe^{-3x}$ finnes i $y_h$ — gang med $x^2$.",
+          "Ansats $y_p=Ax^2e^{-3x}$; klammen kollapser til $2A$."
+        ]
+      }
+    },
+    {
+      "id": "tma4110-9-2-oppg-m3",
+      "type": "exercise",
+      "exercise": {
+        "id": "tma4110-9-2-m3",
+        "number": "7",
+        "type": "classic",
+        "difficulty": "vanskelig",
+        "task": "(Sjanger L — trigonometrisk resonans.) Finn en partikulær løsning av $y''+4y=\\sin 2x$. (Røttene er $r=\\pm2i$.)",
+        "solution": "Resonanssjekk: pådraget $\\sin 2x$ svarer til $\\beta=2$, og $\\pm2i$ **er** røttene ($s=1$) — resonans. Standardansatsen $A\\cos2x+B\\sin2x$ er i $y_h$; gang med $x$: $y_p=x(A\\cos2x+B\\sin2x)$.\n\nDeriver: $y_p'=(A\\cos2x+B\\sin2x)+x(-2A\\sin2x+2B\\cos2x)$, og $y_p''=2(-2A\\sin2x+2B\\cos2x)+x(-4A\\cos2x-4B\\sin2x)$. Da $y_p''+4y_p=2(-2A\\sin2x+2B\\cos2x)=-4A\\sin2x+4B\\cos2x$. Sett $=\\sin2x$: $-4A=1\\Rightarrow A=-\\tfrac14$; $4B=0\\Rightarrow B=0$.\n$$y_p=-\\tfrac14x\\cos2x.$$\nKontroll: $y_p''+4y_p=-4A\\sin2x=\\sin2x$ ✓.",
+        "hints": [
+          "$\\pm2i$ er røttene ⇒ trigonometrisk resonans, $s=1$.",
+          "Gang $A\\cos2x+B\\sin2x$ med $x$.",
+          "Etter innsetting kanselleres $x$-leddene; igjen står $-4A\\sin2x+4B\\cos2x$."
+        ]
+      }
+    },
+    {
+      "id": "tma4110-9-2-lokke6",
+      "type": "text",
+      "content": "## Løkke 6 — Superposisjon og initialverdi (~8 min)"
+    },
+    {
+      "id": "tma4110-9-2-def-superposisjon-g",
+      "type": "definition",
+      "title": "Superposisjon for sammensatt pådrag",
+      "content": "Er pådraget en **sum** $g=g_1+g_2$, finn en partikulær løsning for hvert ledd hver for seg og legg dem sammen:\n\n$$g=g_1+g_2\\ \\Rightarrow\\ y_p=y_{p1}+y_{p2},$$\n\nder $y_{p1}$ løser $\\dots=g_1$ og $y_{p2}$ løser $\\dots=g_2$. Dette er **superposisjonsprinsippet** for den inhomogene likningen: hvert pådrag driver sitt eget svar, og de legger seg sammen."
+    },
+    {
+      "id": "tma4110-9-2-def-ivp-etter",
+      "type": "definition",
+      "title": "Initialverdi bestemmes ETTER $y_p$",
+      "content": "Rekkefølgen er kritisk: finn hele den generelle løsningen $y=y_h+y_p$ **først**, deriver, og sett så inn initialbetingelsene $y(x_0),y'(x_0)$ for å bestemme $C_1,C_2$. Bestemmer du konstantene i $y_h$ før du har lagt til $y_p$, blir de feil — $y_p$ bidrar også til $y(x_0)$ og $y'(x_0)$."
+    },
+    {
+      "id": "tma4110-9-2-ex-superpos",
+      "type": "example",
+      "title": "Eksempel 6: Superposisjon (sjanger L)",
+      "problem": "Finn en partikulær løsning av $y''-3y'+2y=e^{3x}+\\sin x$.",
+      "solution": "Del pådraget: $g_1=e^{3x}$ og $g_2=\\sin x$ (røttene $r=1,2$, ingen resonans for noen).\n\n**For $g_1=e^{3x}$:** fra Eksempel 3 er $y_{p1}=\\tfrac12e^{3x}$.\n\n**For $g_2=\\sin x$:** fra Eksempel 4 er $y_{p2}=\\tfrac3{10}\\cos x+\\tfrac1{10}\\sin x$.\n\nLegg sammen:\n$$\\boxed{\\,y_p=\\tfrac12e^{3x}+\\tfrac3{10}\\cos x+\\tfrac1{10}\\sin x\\,}.$$\n\n**Kontroll:** superposisjon gir at $y_{p1}$ produserer $e^{3x}$ og $y_{p2}$ produserer $\\sin x$, så summen gir $e^{3x}+\\sin x$ ✓. Den fulle løsningen ville vært $y=C_1e^x+C_2e^{2x}+y_p$."
+    },
+    {
+      "id": "tma4110-9-2-oppg-v1",
+      "type": "exercise",
+      "exercise": {
+        "id": "tma4110-9-2-v1",
+        "number": "8",
+        "type": "classic",
+        "difficulty": "vanskelig",
+        "task": "(Sjanger L — superposisjon, krevende.) Finn en partikulær løsning av $y''-3y'+2y=e^{3x}+10\\sin x$.",
+        "solution": "Del: $g_1=e^{3x}$, $g_2=10\\sin x$ (røtter $r=1,2$; ingen resonans).\n\n**a)** $g_1=e^{3x}$: $y_{p1}=Ae^{3x}$ gir $2A=1$, så $y_{p1}=\\tfrac12e^{3x}$.\n\n**b)** $g_2=10\\sin x$: $y_{p2}=A\\cos x+B\\sin x$ gir (fra Eksempel 4, skalert med $10$) $(A-3B)\\cos x+(3A+B)\\sin x=10\\sin x$, altså $A-3B=0$, $3A+B=10$. Løs: $A=3B$, $10B=10\\Rightarrow B=1$, $A=3$. Så $y_{p2}=3\\cos x+\\sin x$.\n\n**c)** Superposisjon: $y_p=\\tfrac12e^{3x}+3\\cos x+\\sin x$. Kontroll: hvert ledd produserer sitt pådrag ✓.",
+        "hints": [
+          "Superposisjon: løs for $e^{3x}$ og $10\\sin x$ hver for seg.",
+          "$e^{3x}$-delen: $2A=1$. Sinus-delen: sett opp $2\\times2$-system i $A,B$.",
+          "Legg de to partikulærløsningene sammen."
+        ]
+      }
+    },
+    {
+      "id": "tma4110-9-2-oppg-v2",
+      "type": "exercise",
+      "exercise": {
+        "id": "tma4110-9-2-v2",
+        "number": "9",
+        "type": "classic",
+        "difficulty": "vanskelig",
+        "task": "(Sjanger L — kald bank, dobbel resonans + IVP. Fasit er momentliste.) Løs $y''-2y'+y=e^{x}$ med $y(0)=1$, $y'(0)=0$.",
+        "solution": "Momentliste (A-svar): homogen $r^2-2r+1=(r-1)^2=0$, dobbel rot $r=1$ ⇒ $y_h=(C_1+C_2x)e^x$. Pådraget $e^x$ har $\\alpha=1=$ dobbel rot ⇒ $s=2$ ⇒ ansats $Ax^2e^x$. Innsetting gir $2Ae^x=e^x\\Rightarrow A=\\tfrac12$, så $y_p=\\tfrac12x^2e^x$. Generell: $y=(C_1+C_2x)e^x+\\tfrac12x^2e^x$. IVP: $y(0)=C_1=1$; $y'=(C_2)e^x+(C_1+C_2x)e^x+(x+\\tfrac12x^2)e^x$, $y'(0)=C_1+C_2=0\\Rightarrow C_2=-1$. Svar: $y=\\big(1-x+\\tfrac12x^2\\big)e^{x}$. Kontroll: $y(0)=1$ ✓, $y'(0)=0$ ✓.",
+        "hints": [
+          "Ingen mellomsteg gitt — kald bank.",
+          "Dobbel rot $r=1$ + pådrag $e^x$ ⇒ $s=2$ ⇒ ansats $Ax^2e^x$.",
+          "Bestem $C_1,C_2$ fra IVP ETTER at $y_p$ er lagt til."
+        ]
+      }
+    },
+    {
+      "id": "tma4110-9-2-warn-typiske-feil",
+      "type": "warning",
+      "title": "Typiske feil",
+      "content": "- **Glemmer resonans-multiplikasjonen med $x$/$x^2$ (den dyreste feilen).** Er $g(x)$ selv en homogen løsning, gir standardansatsen $0=g(x)$ — umulig. Sjekk ALLTID om $\\alpha$ (eller $\\pm\\beta i$) er rot *før* du velger ansats; er den enkel rot, gang med $x$; dobbel rot, gang med $x^2$.\n- **Bestemmer $C_1,C_2$ før $y_p$ er lagt til.** Initialbetingelsene settes inn i hele $y=y_h+y_p$, aldri i $y_h$ alene.\n- **Ufullstendig ansats.** Polynom: ta med alle lavere ledd. Sinus: ta med *både* $\\cos$ og $\\sin$ selv om $g$ bare har det ene.\n- **Feil ansats-type for $g$.** $e^{\\alpha x}\\to Ae^{\\alpha x}$, polynom $\\to$ polynom, $\\cos/\\sin\\to A\\cos+B\\sin$. For $\\tan x$, $1/x$ o.l. duger ikke ubestemte koeffisienter (bruk variasjon av parametere, kap. 9.3).\n- **Regnefeil i innsetting.** Deriver ansatsen nøyaktig (produktregel ved $xe^{\\alpha x}$, $x^2e^{\\alpha x}$), og samle ledd systematisk.\n- **Desimalsvar.** La brøker og $e$ stå eksakt (kode E)."
+    },
+    {
+      "id": "tma4110-9-2-drill-tekst",
+      "type": "text",
+      "content": "## Eksamensdrill — velg ansats og sjekk resonans\n\nSamme fem stegs oppskrift på alle: $y_h$ → ansats etter $g$ → **resonanssjekk** → innsetting → $y=y_h+y_p$. Nå blandet, så resonanssjekken er ditt ansvar."
+    },
+    {
+      "id": "tma4110-9-2-oppg-d1",
+      "type": "exercise",
+      "exercise": {
+        "id": "tma4110-9-2-d1",
+        "number": "10",
+        "type": "classic",
+        "difficulty": "lett",
+        "task": "(Sjanger L.) Finn en partikulær løsning av $y''+y=3$ (konstant pådrag).",
+        "solution": "Konstant $g=3$ er et 0.-gradspolynom; $r=0$ er ikke rot ($r=\\pm i$), ingen resonans. Ansats $y_p=A$ (konstant): $y_p''=0$, så $0+A=3\\Rightarrow A=3$. $y_p=3$. Kontroll: $0+3=3$ ✓.",
+        "hints": [
+          "Konstant pådrag ⇒ konstant ansats $y_p=A$.",
+          "$y_p''=0$, så likningen gir $A=3$."
+        ]
+      }
+    },
+    {
+      "id": "tma4110-9-2-oppg-d2",
+      "type": "exercise",
+      "exercise": {
+        "id": "tma4110-9-2-d2",
+        "number": "11",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "(Sjanger L — full løsning + IVP.) Løs $y''+y=3$ med $y(0)=0$, $y'(0)=0$.",
+        "solution": "Fra oppgave 10 er $y_p=3$, og homogen $y_h=C_1\\cos x+C_2\\sin x$. Generell: $y=C_1\\cos x+C_2\\sin x+3$. IVP: $y(0)=C_1+3=0\\Rightarrow C_1=-3$; $y'=-C_1\\sin x+C_2\\cos x$, $y'(0)=C_2=0$. Svar: $y=3-3\\cos x=3(1-\\cos x)$. Kontroll: $y(0)=0$ ✓, $y'=3\\sin x$, $y'(0)=0$ ✓.",
+        "hints": [
+          "Bruk $y_p=3$ fra forrige oppgave; legg til $y_h$.",
+          "Sett inn IVP i hele $y=y_h+y_p$.",
+          "$y(0)$ gir $C_1$, $y'(0)$ gir $C_2$."
+        ]
+      }
+    },
+    {
+      "id": "tma4110-9-2-begrepsbank-tekst",
+      "type": "text",
+      "content": "## Begrepsbank til eksamen\n\nKjernebegrepene fra kapitlet i kortform, klare for repetisjon.\n\n*Begrepsbanken er flashcard-/repetisjonsstoff — hopp trygt over ved førstegangslesing; tidsanslaget for kapitlet gjelder kjernestoffet.*"
+    },
+    {
+      "id": "tma4110-9-2-bb-ansats-tabell",
+      "type": "definition",
+      "title": "Ansats-tabellen (oppslag)",
+      "content": "Standardansatsene for $y_p$ (før eventuell resonans-$x^s$):\n\n| Pådrag $g(x)$ | Ansats $y_p$ |\n|---|---|\n| Polynom grad $n$ | $A_nx^n+\\dots+A_1x+A_0$ |\n| $e^{\\alpha x}$ | $Ae^{\\alpha x}$ |\n| $\\cos\\beta x$ eller $\\sin\\beta x$ | $A\\cos\\beta x+B\\sin\\beta x$ |\n| $e^{\\alpha x}\\cos\\beta x$ | $e^{\\alpha x}(A\\cos\\beta x+B\\sin\\beta x)$ |\n\nVed resonans ganges hele ansatsen med $x^s$."
+    },
+    {
+      "id": "tma4110-9-2-bb-enkel-resonans",
+      "type": "definition",
+      "title": "Enkel resonans ($s=1$)",
+      "content": "Når pådraget svarer til en **enkel** rot i den karakteristiske likningen: $g=e^{\\alpha x}$ med $\\alpha$ enkel rot, eller $g=\\cos\\beta x/\\sin\\beta x$ med $\\pm\\beta i$ røtter. Da ganges ansatsen med $x^1$: $Axe^{\\alpha x}$, henholdsvis $x(A\\cos\\beta x+B\\sin\\beta x)$."
+    },
+    {
+      "id": "tma4110-9-2-bb-dobbel-resonans",
+      "type": "definition",
+      "title": "Dobbel resonans ($s=2$)",
+      "content": "Når $g=e^{\\alpha x}$ og $\\alpha$ er en **dobbel** rot. Da er både $e^{\\alpha x}$ og $xe^{\\alpha x}$ i $y_h$, så ansatsen må ganges med $x^2$: $y_p=Ax^2e^{\\alpha x}$. Innsetting kollapser til $2Ae^{\\alpha x}$ (for likningen $y''-2\\alpha y'+\\alpha^2 y$)."
+    },
+    {
+      "id": "tma4110-9-2-bb-variasjon",
+      "type": "definition",
+      "title": "Ubestemte koeffisienter vs. variasjon av parametere (kjennskap)",
+      "content": "**Ubestemte koeffisienter** (dette kapitlet) virker når $g$ er polynom/eksponential/sinus/cosinus eller produkter av disse. For andre $g$ (som $\\tan x$, $\\sec x$, $1/x$) svikter metoden, og du trenger **variasjon av parametere** (kap. 9.3), som bruker Wronski-determinanten. Velg alltid ubestemte koeffisienter når $g$ tillater det — det er raskere."
+    },
+    {
+      "id": "tma4110-9-2-bb-komplementaer",
+      "type": "definition",
+      "title": "Komplementærfunksjonen",
+      "content": "Et annet navn på den homogene løsningen $y_h$ i inhomogen sammenheng. Den \"komplementerer\" partikulærløsningen: $y=y_h+y_p$. Bruk gjerne navnet i føringen — sensor kjenner det igjen."
+    },
+    {
+      "id": "tma4110-9-2-bb-entydighet-yp",
+      "type": "definition",
+      "title": "Partikulærløsningens rolle",
+      "content": "$y_p$ er ikke entydig: legger du et hvilket som helst $y_h$-ledd til en partikulær løsning, får du en annen gyldig partikulær løsning. Poenget er at *forskjellen* mellom to fulle løsninger alltid er en homogen løsning. Derfor holder det å finne **én** $y_p$ og samle all frihet i $y_h$."
+    },
+    {
+      "id": "tma4110-9-2-bb-koeffisientsammenligning",
+      "type": "definition",
+      "title": "Koeffisientsammenligning",
+      "content": "Kjernesteget i ubestemte koeffisienter: etter innsetting samler du ledd av samme type ($x^2$, $x$, $\\cos\\beta x$, $e^{\\alpha x}$ …) og setter koeffisientene på hver side **lik hverandre**. To funksjoner som $\\{1,x,x^2\\}$ eller $\\{\\cos\\beta x,\\sin\\beta x\\}$ er lineært uavhengige, så koeffisientene må matche ledd for ledd."
+    },
+    {
+      "id": "tma4110-9-2-bb-fysisk-resonans",
+      "type": "definition",
+      "title": "Fysisk resonans (kjennskap)",
+      "content": "I en svingemodell $my''+ky=F_0\\cos\\omega t$ oppstår resonans når drivfrekvensen $\\omega$ treffer egenfrekvensen $\\sqrt{k/m}$. Da vokser $y_p$ som $t\\cos\\omega t$ (amplituden øker lineært) — den matematiske $x^s$-faktoren er akkurat dette voksende utslaget. Klassisk eksempel: en bro eller et glass som ristes ved sin egenfrekvens. Utdypes i kap. 9.3."
+    },
+    {
+      "id": "tma4110-9-2-bb-prosedyre",
+      "type": "definition",
+      "title": "Rekkefølge i løsningsprosedyren",
+      "content": "Den faste rekkefølgen (utenat, kode E): **(1)** løs homogen $\\to y_h$; **(2)** velg ansats etter $g$; **(3)** resonanssjekk $\\to$ gang med $x^s$ ved kollisjon; **(4)** sett inn, bestem koeffisienter $\\to y_p$; **(5)** $y=y_h+y_p$; **(6)** bruk initialbetingelser sist. Hopp aldri over steg 3, og aldri steg 6 før 5."
+    },
+    {
+      "id": "tma4110-9-2-bb-sjekk",
+      "type": "definition",
+      "title": "Sjekk ved innsetting",
+      "content": "Din eneste feilkontroll under kode E: sett den ferdige $y_p$ inn i $y''+py'+qy$ og bekreft at du får nøyaktig $g(x)$ (ikke $0$ — det ville vært en homogen løsning). Deriver ansatsen nøyaktig, samle ledd, og se at koeffisientene stemmer. Ved resonans er dette spesielt viktig, siden en glemt $x$-faktor gir $0\\ne g$."
+    },
+    {
+      "id": "tma4110-9-2-rep",
+      "type": "collapsible",
+      "title": "Repetisjonsoppgaver",
+      "buttonText": "Vis repetisjonsoppgaver",
+      "content": [
+        {
+          "id": "tma4110-9-2-rep-o1",
+          "type": "exercise",
+          "exercise": {
+            "id": "tma4110-9-2-rep-1",
+            "number": "R1",
+            "type": "classic",
+            "difficulty": "lett",
+            "task": "(Fra kap. 9.1) Finn den homogene løsningen $y_h$ til $y''-3y'+2y=g(x)$ (uansett $g$).",
+            "solution": "Den homogene likningen $y''-3y'+2y=0$ har karakteristisk likning $r^2-3r+2=(r-1)(r-2)=0$, så $r=1,2$ og $y_h=C_1e^{x}+C_2e^{2x}$. Denne trengs uansett hva $g$ er.",
+            "hints": [
+              "Sett $g=0$ og løs den homogene likningen.",
+              "$r^2-3r+2=0$ faktoriseres."
+            ]
+          }
+        },
+        {
+          "id": "tma4110-9-2-rep-o2",
+          "type": "exercise",
+          "exercise": {
+            "id": "tma4110-9-2-rep-2",
+            "number": "R2",
+            "type": "classic",
+            "difficulty": "lett",
+            "task": "(Fra kap. 8.2 — struktur) Hvorfor har den generelle løsningen formen $y=y_h+y_p$?",
+            "solution": "Fordi differansen mellom to løsninger av den fulle likningen alltid løser den homogene likningen (leddet $g$ kanselleres). Så alle løsninger ligger ett homogent ledd unna én fast partikulær løsning $y_p$: $y=y_h+y_p$. Samme struktur som for 1. ordens likninger i kap. 8.2, nå med to konstanter.",
+            "hints": [
+              "Trekk to fulle løsninger fra hverandre og se hva som blir igjen på høyresida."
+            ]
+          }
+        },
+        {
+          "id": "tma4110-9-2-rep-o3",
+          "type": "exercise",
+          "exercise": {
+            "id": "tma4110-9-2-rep-3",
+            "number": "R3",
+            "type": "classic",
+            "difficulty": "middels",
+            "task": "(Fra kap. 9.1 — resonans-forvarsel) Er $e^{2x}$ en løsning av den homogene likningen $y''-3y'+2y=0$? Hva betyr svaret for ansatsen når $g(x)=e^{2x}$?",
+            "solution": "Ja: $r=2$ er rot, så $e^{2x}$ løser den homogene likningen. Da er standardansatsen $Ae^{2x}$ allerede i $y_h$ — resonans. Ansatsen må ganges med $x$: $y_p=Axe^{2x}$.",
+            "hints": [
+              "Sjekk om $\\alpha=2$ er rot i $r^2-3r+2=0$.",
+              "Er pådraget en homogen løsning, har du resonans."
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": "tma4110-9-2-symbolliste",
+      "type": "collapsible",
+      "title": "Symbol- og formelliste",
+      "buttonText": "Vis symboler og formler",
+      "content": [
+        {
+          "id": "tma4110-9-2-symbolliste-text",
+          "type": "text",
+          "content": "## Symbol- og formelliste\n\n*Oppslagsverk — alt her forklares underveis i kapitlet.*\n\nAlle symboler og formler i delkapittel 9.2, samlet.\n\n| Symbol | Betydning |\n|---|---|\n| $y=y(x)$ | Den ukjente funksjonen |\n| $y',\\ y''$ | Første- og andrederiverte |\n| $p,\\ q$ | Konstante koeffisienter |\n| $g(x)$ | Pådraget (kildeleddet) på høyresida |\n| $y_h$ | Homogen løsning (komplementærfunksjon, to konstanter) |\n| $y_p$ | Partikulær løsning (én bestemt, ingen konstant) |\n| $A,B,C,\\dots$ | Ubestemte koeffisienter i ansatsen |\n| $\\alpha$ | Eksponent i pådraget $e^{\\alpha x}$ |\n| $\\beta$ | Frekvens i pådraget $\\cos\\beta x/\\sin\\beta x$ |\n| $s$ | Multiplisitet / resonans-eksponent i $x^s$ |\n| $C_1,C_2$ | Frie konstanter (i $y_h$) |\n\n**Formler i dette delkapitlet:**\n\n$$y''+py'+qy=g(x)$$\nInhomogen lineær 2. ordens likning.\n\n$$y=y_h+y_p$$\nGenerell løsning: homogen pluss partikulær.\n\n**Ansatser (ubestemte koeffisienter):**\n$$g=\\text{polynom}\\ \\Rightarrow\\ y_p=\\text{polynom (samme grad)}$$\n$$g=e^{\\alpha x}\\ \\Rightarrow\\ y_p=Ae^{\\alpha x}$$\n$$g=\\cos\\beta x\\ \\text{el.}\\ \\sin\\beta x\\ \\Rightarrow\\ y_p=A\\cos\\beta x+B\\sin\\beta x$$\n\n**Resonansregelen:**\n$$\\text{ansats kolliderer med }y_h\\ \\Rightarrow\\ \\text{gang med }x^s,\\quad s=\\text{multiplisitet}$$\n($s=1$ enkel rot, $s=2$ dobbel rot.)\n\n**Superposisjon:**\n$$g=g_1+g_2\\ \\Rightarrow\\ y_p=y_{p1}+y_{p2}$$"
+        }
+      ]
+    }
+  ],
+  "exercises": []
+}
