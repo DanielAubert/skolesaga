@@ -1,0 +1,327 @@
+{
+  "id": "tma4110-5-5",
+  "courseId": "tma4110",
+  "chapterNumber": "5.5",
+  "title": "Drill: egenverdi- og diagonaliseringskjeden",
+  "description": "Egenverdi-repertoaret drillet som én kjede: verifiser egenvektor → karakteristisk likning → egenrom → begrunn diagonaliserbarhet med multiplisitet/snarvei → bygg P og D matchet → Aⁿ, Markov-stasjonær og komplekse egenverdier.",
+  "estimatedMinutes": 90,
+  "competenceGoals": [
+    "gjennomføre hele egenverdikjeden under tidspress: verifisere egenvektor, finne egenverdier og egenrom, og bygge P og D matchet søyle for søyle",
+    "begrunne diagonaliserbarhet med en navngitt snarvei eller multiplisitetssjekk, og vise når en matrise ikke er diagonaliserbar",
+    "regne ut Aⁿ via PDⁿP⁻¹, finne stasjonær fordeling for en Markov-matrise og håndtere komplekse egenverdier"
+  ],
+  "content": [
+    {
+      "id": "tma4110-5-5-tip-eksamensvinkel",
+      "type": "tip",
+      "title": "Eksamensvinkel",
+      "content": "**Egenverdi/diagonalisering er den sikreste enkeltsjangeren (~95 %, sjanger G) — den kommer på så godt som hvert sett.** Dette drillkapitlet trener hele kjeden til automatikk, slik at du bruker tiden på regning, ikke på å huske rekkefølgen.\n\n**Varianter som har forekommet:**\n- verifiser en **oppgitt** egenvektor ved innsetting $A\\mathbf v=\\lambda\\mathbf v$;\n- egenverdier fra karakteristisk likning + egenrom fra radreduksjon;\n- **begrunn diagonaliserbarhet** med multiplisitet eller en navngitt snarvei;\n- vis at en matrise **ikke** er diagonaliserbar (for lite egenrom);\n- $A^n=PD^nP^{-1}$ eller polynom $q(A)$ med samme $P$;\n- Markov-matrise: stasjonær fordeling og langtidsgrense;\n- **komplekse** egenverdier (fra 5.4).\n\n**Karakterskilleren:** diagonaliserbarhet **må begrunnes** — «$A$ er diagonaliserbar fordi …», ikke bare påstås. Og $P$ og $D$ skal matches **søyle for søyle**.\n\n*Dette kapitlet er en drilløkt på ~90 min. Ta gjerne den gjennomregnede casen først (~20 min), så oppgavesettet i to bolker med en kort pause imellom.*"
+    },
+    {
+      "id": "tma4110-5-5-losningsoppskrift",
+      "type": "text",
+      "content": "## Løsningsoppskrift — egenverdikjeden\n\nHver oppgave i sjanger G løses med samme faste kjede. Lær den utenat (kode E):\n\n**1. Er en egenvektor oppgitt?** Verifiser ved innsetting: regn $A\\mathbf v$ og sjekk om det er et multiplum $\\lambda\\mathbf v$. Da er $\\lambda$ egenverdien. (Raskere enn karakteristisk likning når $\\mathbf v$ er gitt.)\n\n**2. Egenverdier:** løs karakteristisk likning $\\det(A-\\lambda I)=0$. Faktoriser polynomet; kontroller med $\\operatorname{spor}A=\\sum\\lambda_i$ og $\\det A=\\prod\\lambda_i$.\n\n**3. Egenrom:** for hver egenverdi, $E_\\lambda=\\operatorname{Nul}(A-\\lambda I)$ ved radreduksjon. Noter $\\dim E_\\lambda$ (= geometrisk multiplisitet).\n\n**4. Begrunn diagonaliserbarhet.** Bruk en **navngitt** grunn:\n   - $n$ **forskjellige** egenverdier ⇒ diagonaliserbar;\n   - **symmetrisk** ⇒ (ortogonalt) diagonaliserbar (spektralteoremet);\n   - **triangulær** ⇒ egenverdier avlest på diagonalen;\n   - ellers: sjekk at $\\dim E_\\lambda=$ algebraisk multiplisitet for **hver** egenverdi. Er ett egenrom for lite (geo $<$ alg), er $A$ **ikke** diagonaliserbar.\n\n**5. Bygg svaret:** $P=[\\mathbf v_1\\ \\cdots\\ \\mathbf v_n]$ og $D=\\operatorname{diag}(\\lambda_1,\\dots,\\lambda_n)$ **matchet søyle for søyle**. Trenger du potenser: $A^n=PD^nP^{-1}$. Markov: finn egenvektoren til $\\lambda=1$ og normaliser til stasjonær fordeling.\n\nUnder følger en gjennomregnet case med sensor-margnotater, så et oppgavesett på eksamensnivå."
+    },
+    {
+      "id": "tma4110-5-5-forkunnskaper",
+      "type": "text",
+      "content": "**Forkunnskaper:** Hele Del 5 — egenverdier og egenrom ([kap. 5.1](/bok/tma4110/tma4110-5-1)), diagonaliseringskriteriet ([kap. 5.2](/bok/tma4110/tma4110-5-2)), potenser og Markov ([kap. 5.3](/bok/tma4110/tma4110-5-3)) og komplekse egenverdier ([kap. 5.4](/bok/tma4110/tma4110-5-4)) — pluss determinant ([kap. 2.3](/bok/tma4110/tma4110-2-3)) og nullrom ([kap. 3.3](/bok/tma4110/tma4110-3-3)).\n\n**Sist du var her (nøkkelformler):**\n$$\\det(A-\\lambda I)=0,\\quad E_\\lambda=\\operatorname{Nul}(A-\\lambda I),\\quad A=PDP^{-1},\\quad A^n=PD^nP^{-1}.$$\nDiagonaliserbar $\\Leftrightarrow$ geometrisk multiplisitet $=$ algebraisk multiplisitet for hver egenverdi."
+    },
+    {
+      "id": "tma4110-5-5-case",
+      "type": "example",
+      "title": "Gjennomregnet eksamenscase (med sensor-margnotater)",
+      "problem": "La $A=\\begin{bmatrix}2&0&0\\\\0&2&0\\\\1&0&5\\end{bmatrix}$.\n\n**a)** Finn egenverdiene og egenrommene.\n**b)** Avgjør, med begrunnelse, om $A$ er diagonaliserbar.\n**c)** Finn $P$ og $D$ slik at $A=PDP^{-1}$.\n**d)** Finn et uttrykk for $A^n$.",
+      "solution": "**a) Egenverdier.** $A$ er nedre triangulær, så egenverdiene står på diagonalen: $\\lambda=2$ (algebraisk multiplisitet $2$) og $\\lambda=5$ (multiplisitet $1$).\n> *Sensor: å lese egenverdiene av diagonalen for en triangulær matrise gir uttelling — men si eksplisitt at den er triangulær.*\n\nKontroll: $\\operatorname{spor}A=2+2+5=9=2+2+5$ ✓, $\\det A=2\\cdot2\\cdot5=20=\\prod\\lambda_i$ ✓.\n\n**Egenrom $E_2$:** $A-2I=\\begin{bmatrix}0&0&0\\\\0&0&0\\\\1&0&3\\end{bmatrix}$. Likningen $v_1+3v_3=0$ gir $v_1=-3v_3$, mens $v_2$ er fri. To frie variabler ($v_2,v_3$):\n$$E_2=\\operatorname{Span}\\left\\{\\begin{bmatrix}0\\\\1\\\\0\\end{bmatrix},\\begin{bmatrix}-3\\\\0\\\\1\\end{bmatrix}\\right\\},\\qquad \\dim E_2=2.$$\n\n**Egenrom $E_5$:** $A-5I=\\begin{bmatrix}-3&0&0\\\\0&-3&0\\\\1&0&0\\end{bmatrix}$ gir $v_1=0,\\ v_2=0$, $v_3$ fri:\n$$E_5=\\operatorname{Span}\\left\\{\\begin{bmatrix}0\\\\0\\\\1\\end{bmatrix}\\right\\},\\qquad \\dim E_5=1.$$\n\n**b) Diagonaliserbarhet.** For $\\lambda=2$ er geometrisk multiplisitet $\\dim E_2=2=$ algebraisk multiplisitet. For $\\lambda=5$ er $\\dim E_5=1=$ algebraisk multiplisitet. Geometrisk $=$ algebraisk for **begge**, så etter **diagonaliserbarhetskriteriet** er $A$ diagonaliserbar.\n> *Sensor: her ligger karakterskilleren. «$A$ er diagonaliserbar fordi $\\dim E_2=2$ = algebraisk multiplisitet» gir full uttelling; en påstand uten multiplisitetssjekk gjør ikke.*\n\n**c) $P$ og $D$ matchet søyle for søyle.** Ta egenvektorene i samme rekkefølge som egenverdiene i $D$:\n$$P=\\begin{bmatrix}0&-3&0\\\\1&0&0\\\\0&1&1\\end{bmatrix},\\qquad D=\\begin{bmatrix}2&0&0\\\\0&2&0\\\\0&0&5\\end{bmatrix}.$$\n> *Sensor: kolonne $j$ i $P$ MÅ være en egenvektor for egenverdien i posisjon $(j,j)$ i $D$. Feilmatching er en klassisk poengtapper.*\n\n**d) Potenser.** $A^n=PD^nP^{-1}$ med $D^n=\\operatorname{diag}(2^n,2^n,5^n)$. Regner man ut, blir\n$$A^n=\\begin{bmatrix}2^n&0&0\\\\0&2^n&0\\\\ \\tfrac{5^n-2^n}{3}&0&5^n\\end{bmatrix}.$$\nKontroll ($n=1$): $\\tfrac{5-2}{3}=1$, som gir tilbake $A$ ✓. **Sluttsvar** som over."
+    },
+    {
+      "id": "tma4110-5-5-pool-header",
+      "type": "text",
+      "content": "## Oppgavesett (eksamensnivå, stigende)"
+    },
+    {
+      "id": "tma4110-5-5-oppg-o1",
+      "type": "exercise",
+      "exercise": {
+        "id": "tma4110-5-5-o1",
+        "number": "1",
+        "type": "classic",
+        "difficulty": "lett",
+        "task": "(Innstegsoppgave — verifisering.) Er $\\mathbf v=\\begin{bmatrix}1\\\\1\\end{bmatrix}$ en egenvektor for $A=\\begin{bmatrix}4&1\\\\2&3\\end{bmatrix}$? Finn i så fall egenverdien.",
+        "solution": "Regn $A\\mathbf v=\\begin{bmatrix}4\\cdot1+1\\cdot1\\\\2\\cdot1+3\\cdot1\\end{bmatrix}=\\begin{bmatrix}5\\\\5\\end{bmatrix}=5\\begin{bmatrix}1\\\\1\\end{bmatrix}=5\\mathbf v.$\n\nJa, $\\mathbf v$ er en egenvektor, og egenverdien er $\\lambda=5$.",
+        "hints": [
+          "Sett inn: regn $A\\mathbf v$ og se om resultatet er et multiplum av $\\mathbf v$.",
+          "$A\\mathbf v=\\lambda\\mathbf v$ betyr at $A\\mathbf v$ er $\\lambda$ ganger $\\mathbf v$; les av $\\lambda$."
+        ]
+      }
+    },
+    {
+      "id": "tma4110-5-5-oppg-o2",
+      "type": "exercise",
+      "exercise": {
+        "id": "tma4110-5-5-o2",
+        "number": "2",
+        "type": "classic",
+        "difficulty": "lett",
+        "task": "Finn egenverdiene og egenrommene til $A=\\begin{bmatrix}5&-6\\\\3&-4\\end{bmatrix}$.",
+        "solution": "$\\operatorname{spor}A=1$, $\\det A=5\\cdot(-4)-(-6)\\cdot3=-20+18=-2$. Karakteristisk likning $\\lambda^2-\\lambda-2=0=(\\lambda-2)(\\lambda+1)$, så $\\lambda=2$ og $\\lambda=-1$.\n\n$E_2$: $A-2I=\\begin{bmatrix}3&-6\\\\3&-6\\end{bmatrix}\\Rightarrow v_1=2v_2$, $E_2=\\operatorname{Span}\\{(2,1)\\}$.\n$E_{-1}$: $A+I=\\begin{bmatrix}6&-6\\\\3&-3\\end{bmatrix}\\Rightarrow v_1=v_2$, $E_{-1}=\\operatorname{Span}\\{(1,1)\\}$.",
+        "hints": [
+          "$\\lambda^2-(\\operatorname{spor}A)\\lambda+\\det A=0$; faktoriser.",
+          "Egenrom $=\\operatorname{Nul}(A-\\lambda I)$; radreduser hver $A-\\lambda I$."
+        ]
+      }
+    },
+    {
+      "id": "tma4110-5-5-oppg-o3",
+      "type": "exercise",
+      "exercise": {
+        "id": "tma4110-5-5-o3",
+        "number": "3",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "La $A=\\begin{bmatrix}1&2\\\\2&1\\end{bmatrix}$.\n\n**a)** Er $A$ diagonaliserbar? Begrunn med en navngitt snarvei.\n**b)** Finn $P$ og $D$.",
+        "solution": "**a)** $A$ er **symmetrisk** ($A^T=A$), så etter **spektralteoremet** er den (ortogonalt) diagonaliserbar. (Alternativt: egenverdiene er forskjellige, se under.)\n\n**b)** $\\operatorname{spor}A=2$, $\\det A=1-4=-3$, $\\lambda^2-2\\lambda-3=0=(\\lambda-3)(\\lambda+1)$, så $\\lambda=3,-1$.\n$E_3$: $A-3I=\\begin{bmatrix}-2&2\\\\2&-2\\end{bmatrix}\\Rightarrow v_1=v_2$, $\\mathbf v_1=(1,1)$.\n$E_{-1}$: $A+I=\\begin{bmatrix}2&2\\\\2&2\\end{bmatrix}\\Rightarrow v_1=-v_2$, $\\mathbf v_2=(-1,1)$.\n$$P=\\begin{bmatrix}1&-1\\\\1&1\\end{bmatrix},\\qquad D=\\begin{bmatrix}3&0\\\\0&-1\\end{bmatrix}.$$",
+        "hints": [
+          "Sjekk om $A^T=A$; symmetriske matriser er diagonaliserbare (spektralteoremet).",
+          "Match kolonnene i $P$ med egenverdiene i $D$ i samme rekkefølge."
+        ]
+      }
+    },
+    {
+      "id": "tma4110-5-5-oppg-o4",
+      "type": "exercise",
+      "exercise": {
+        "id": "tma4110-5-5-o4",
+        "number": "4",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "Vis at $A=\\begin{bmatrix}2&1\\\\0&2\\end{bmatrix}$ **ikke** er diagonaliserbar.",
+        "solution": "$A$ er øvre triangulær, så $\\lambda=2$ er eneste egenverdi, med **algebraisk multiplisitet $2$**.\n\nEgenrom: $A-2I=\\begin{bmatrix}0&1\\\\0&0\\end{bmatrix}$. Radredusert har den én pivot, altså én fri variabel, så $\\dim E_2=1$ ($E_2=\\operatorname{Span}\\{(1,0)\\}$).\n\n**Geometrisk multiplisitet $1<2=$ algebraisk multiplisitet.** Diagonaliserbarhetskriteriet er brutt (summen av geometriske multiplisiteter er $1<2=n$), så $A$ er **ikke** diagonaliserbar. $\\blacksquare$",
+        "hints": [
+          "Finn egenverdien (triangulær) og dens algebraiske multiplisitet.",
+          "Regn $\\dim E_2$; er den mindre enn algebraisk multiplisitet, er $A$ ikke diagonaliserbar."
+        ]
+      }
+    },
+    {
+      "id": "tma4110-5-5-oppg-o5",
+      "type": "exercise",
+      "exercise": {
+        "id": "tma4110-5-5-o5",
+        "number": "5",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "La $A=\\begin{bmatrix}2&1\\\\1&2\\end{bmatrix}$ med $\\lambda=1,3$ og egenvektorer $(-1,1)$ og $(1,1)$. Finn et uttrykk for $A^n$.",
+        "solution": "$P=\\begin{bmatrix}-1&1\\\\1&1\\end{bmatrix}$, $D=\\begin{bmatrix}1&0\\\\0&3\\end{bmatrix}$, $P^{-1}=\\tfrac12\\begin{bmatrix}-1&1\\\\1&1\\end{bmatrix}$ (siden $\\det P=-2$).\n\n$$A^n=PD^nP^{-1}=\\begin{bmatrix}-1&1\\\\1&1\\end{bmatrix}\\begin{bmatrix}1&0\\\\0&3^n\\end{bmatrix}\\cdot\\tfrac12\\begin{bmatrix}-1&1\\\\1&1\\end{bmatrix}=\\frac12\\begin{bmatrix}3^n+1&3^n-1\\\\3^n-1&3^n+1\\end{bmatrix}.$$\n\nKontroll ($n=1$): $\\tfrac12\\begin{bmatrix}4&2\\\\2&4\\end{bmatrix}=\\begin{bmatrix}2&1\\\\1&2\\end{bmatrix}=A$ ✓.",
+        "hints": [
+          "$A^n=PD^nP^{-1}$; bare egenverdiene opphøyes ($1^n=1$, $3^n$).",
+          "Bruk $2\\times2$-formelen for $P^{-1}$; $\\det P=-2$."
+        ]
+      }
+    },
+    {
+      "id": "tma4110-5-5-oppg-o6",
+      "type": "exercise",
+      "exercise": {
+        "id": "tma4110-5-5-o6",
+        "number": "6",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "En populasjon flytter mellom by og land hvert år etter overgangsmatrisen $P=\\begin{bmatrix}0{,}9&0{,}2\\\\0{,}1&0{,}8\\end{bmatrix}$ (kolonnene summerer til $1$).\n\n**a)** Vis at $\\lambda=1$ er en egenverdi.\n**b)** Finn den stasjonære fordelingen.",
+        "solution": "**a)** Kolonnesummene er $1$, så $P$ er en **stokastisk (Markov-)matrise**, og en slik har alltid egenverdi $\\lambda=1$. Sjekk: $\\det(P-I)=\\det\\begin{bmatrix}-0{,}1&0{,}2\\\\0{,}1&-0{,}2\\end{bmatrix}=(-0{,}1)(-0{,}2)-(0{,}2)(0{,}1)=0{,}02-0{,}02=0$, så $\\lambda=1$ er egenverdi. ✓\n\n**b)** Egenvektor for $\\lambda=1$: $(P-I)\\mathbf v=\\mathbf 0$ gir $-0{,}1v_1+0{,}2v_2=0\\Rightarrow v_1=2v_2$. Ta $\\mathbf v=(2,1)$. **Stasjonær fordeling** (normaliser så komponentene summerer til $1$): del på $2+1=3$:\n$$\\mathbf q=\\begin{bmatrix}2/3\\\\1/3\\end{bmatrix}.$$\nPå lang sikt bor $2/3$ i by og $1/3$ på land.",
+        "hints": [
+          "Stokastisk matrise (kolonnesum $1$) har alltid egenverdi $1$.",
+          "Finn egenvektoren til $\\lambda=1$ og skaler så komponentene summerer til $1$."
+        ]
+      }
+    },
+    {
+      "id": "tma4110-5-5-oppg-o7",
+      "type": "exercise",
+      "exercise": {
+        "id": "tma4110-5-5-o7",
+        "number": "7",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "La $A=\\begin{bmatrix}3&0&-1\\\\0&2&0\\\\1&0&1\\end{bmatrix}$. Egenverdiene er $2$ (algebraisk multiplisitet $3$). Er $A$ diagonaliserbar?",
+        "solution": "Egenrom $E_2$: $A-2I=\\begin{bmatrix}1&0&-1\\\\0&0&0\\\\1&0&-1\\end{bmatrix}$. Radreduksjon gir én pivotrad $v_1-v_3=0$, så $v_1=v_3$ med $v_2,v_3$ frie: to frie variabler, altså $\\dim E_2=2$.\n\nAlgebraisk multiplisitet er $3$, men geometrisk multiplisitet er $\\dim E_2=2$. Siden $2<3$ (geometrisk $<$ algebraisk), er **diagonaliserbarhetskriteriet brutt**: $A$ er **ikke** diagonaliserbar. $\\blacksquare$",
+        "hints": [
+          "Regn $\\dim E_2=\\operatorname{Nul}(A-2I)$ ved radreduksjon.",
+          "Sammenlign geometrisk multiplisitet ($\\dim E_2$) med algebraisk multiplisitet ($3$)."
+        ]
+      }
+    },
+    {
+      "id": "tma4110-5-5-oppg-o8",
+      "type": "exercise",
+      "exercise": {
+        "id": "tma4110-5-5-o8",
+        "number": "8",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "Finn de komplekse egenverdiene til $A=\\begin{bmatrix}1&-1\\\\1&1\\end{bmatrix}$, og tolk $A$ som skalering + rotasjon.",
+        "solution": "$\\operatorname{spor}A=2$, $\\det A=2$, $\\lambda^2-2\\lambda+2=0$, $\\Delta=4-8=-4<0$: $\\lambda=1\\pm i$.\n\nTa $\\lambda=1+i$: $|\\lambda|=\\sqrt{1+1}=\\sqrt2$ og $\\arg(1+i)=\\tfrac\\pi4$. Så $A$ virker som en **skalering med $\\sqrt2$** og en **rotasjon $45^\\circ$ mot klokka** (matrisen har formen $\\begin{bmatrix}a&-b\\\\ b&a\\end{bmatrix}$ med $a=b=1$).",
+        "hints": [
+          "Sjekk diskriminanten $(\\operatorname{spor}A)^2-4\\det A$; negativ ⇒ komplekse egenverdier.",
+          "Skalering $=|\\lambda|$, rotasjon $=\\arg\\lambda$."
+        ]
+      }
+    },
+    {
+      "id": "tma4110-5-5-oppg-o9",
+      "type": "exercise",
+      "exercise": {
+        "id": "tma4110-5-5-o9",
+        "number": "9",
+        "type": "classic",
+        "difficulty": "vanskelig",
+        "task": "(Eksamensnivå.) La $A=\\begin{bmatrix}4&-2\\\\1&1\\end{bmatrix}$.\n\n**a)** Finn egenverdier og egenrom.\n**b)** Begrunn at $A$ er diagonaliserbar og finn $P,D$.\n**c)** Regn ut $A^n$.",
+        "solution": "**a)** $\\operatorname{spor}A=5$, $\\det A=4\\cdot1-(-2)\\cdot1=6$. $\\lambda^2-5\\lambda+6=0=(\\lambda-2)(\\lambda-3)$, så $\\lambda=2,3$.\n$E_2$: $A-2I=\\begin{bmatrix}2&-2\\\\1&-1\\end{bmatrix}\\Rightarrow v_1=v_2$, $\\mathbf v_1=(1,1)$.\n$E_3$: $A-3I=\\begin{bmatrix}1&-2\\\\1&-2\\end{bmatrix}\\Rightarrow v_1=2v_2$, $\\mathbf v_2=(2,1)$.\n\n**b)** To **forskjellige** egenverdier ($2\\ne3$) ⇒ diagonaliserbar (navngitt snarvei: distinkte egenverdier).\n$$P=\\begin{bmatrix}1&2\\\\1&1\\end{bmatrix},\\quad D=\\begin{bmatrix}2&0\\\\0&3\\end{bmatrix},\\quad P^{-1}=\\frac{1}{-1}\\begin{bmatrix}1&-2\\\\-1&1\\end{bmatrix}=\\begin{bmatrix}-1&2\\\\1&-1\\end{bmatrix}.$$\n\n**c)** $A^n=PD^nP^{-1}=\\begin{bmatrix}1&2\\\\1&1\\end{bmatrix}\\begin{bmatrix}2^n&0\\\\0&3^n\\end{bmatrix}\\begin{bmatrix}-1&2\\\\1&-1\\end{bmatrix}=\\begin{bmatrix}-2^n+2\\cdot3^n&2\\cdot2^n-2\\cdot3^n\\\\-2^n+3^n&2\\cdot2^n-3^n\\end{bmatrix}.$\n\nKontroll ($n=1$): $\\begin{bmatrix}-2+6&4-6\\\\-2+3&4-3\\end{bmatrix}=\\begin{bmatrix}4&-2\\\\1&1\\end{bmatrix}=A$ ✓.",
+        "hints": [
+          "Karakteristisk likning → egenverdier; egenrom ved radreduksjon.",
+          "Distinkte egenverdier ⇒ diagonaliserbar; $A^n=PD^nP^{-1}$ med bare $\\lambda^n$ endret."
+        ]
+      }
+    },
+    {
+      "id": "tma4110-5-5-oppg-o10",
+      "type": "exercise",
+      "exercise": {
+        "id": "tma4110-5-5-o10",
+        "number": "10",
+        "type": "classic",
+        "difficulty": "vanskelig",
+        "task": "(Eksamensnivå.) La $A=\\begin{bmatrix}5&0&0\\\\1&5&0\\\\0&0&3\\end{bmatrix}$.\n\n**a)** Finn egenverdiene med multiplisitet.\n**b)** Avgjør, med begrunnelse, om $A$ er diagonaliserbar.",
+        "solution": "**a)** $A$ er nedre triangulær: egenverdiene er diagonalelementene $\\lambda=5$ (algebraisk multiplisitet $2$) og $\\lambda=3$ (multiplisitet $1$).\n\n**b)** Egenrom $E_5$: $A-5I=\\begin{bmatrix}0&0&0\\\\1&0&0\\\\0&0&-2\\end{bmatrix}$. Pivoter i kolonne 1 og 3, så bare $v_2$ er fri: $\\dim E_5=1$.\n\nAlgebraisk multiplisitet for $\\lambda=5$ er $2$, men geometrisk multiplisitet er $1$. Siden $1<2$, er $A$ **ikke** diagonaliserbar. $\\blacksquare$\n> Merk: $\\lambda=3$ er uproblematisk (enkel egenverdi, geo $=$ alg $=1$) — det er $\\lambda=5$ med for lite egenrom som avgjør.",
+        "hints": [
+          "Triangulær ⇒ egenverdier på diagonalen; tell multiplisitet.",
+          "Sjekk $\\dim E_5$; er den $<2$, faller diagonaliserbarheten."
+        ]
+      }
+    },
+    {
+      "id": "tma4110-5-5-oppg-o11",
+      "type": "exercise",
+      "exercise": {
+        "id": "tma4110-5-5-o11",
+        "number": "11",
+        "type": "classic",
+        "difficulty": "vanskelig",
+        "task": "(Krevende — kald oppgave, momentliste som fasit.) La $A$ være en reell $2\\times2$-matrise med $\\operatorname{spor}A=0$ og $\\det A=1$. Vis at $A$ ikke er diagonaliserbar over $\\mathbb R$, men at $A^4=I$.",
+        "solution": "Momenter som må med:\n- **Egenverdier:** $\\lambda^2-(\\operatorname{spor}A)\\lambda+\\det A=\\lambda^2+1=0$, så $\\lambda=\\pm i$ — et komplekst konjugert par.\n- **Ikke reelt diagonaliserbar:** egenverdiene er ikke-reelle, så det finnes ingen reell basis av egenvektorer; en reell $D$ måtte hatt de komplekse tallene $\\pm i$ på diagonalen, umulig.\n- **$A^4=I$:** over $\\mathbb C$ er $A=PDP^{-1}$ med $D=\\operatorname{diag}(i,-i)$. Da $A^4=PD^4P^{-1}$, og $D^4=\\operatorname{diag}(i^4,(-i)^4)=\\operatorname{diag}(1,1)=I$, så $A^4=PIP^{-1}=I$. $\\blacksquare$\n- **Geometrisk sjekk:** $|\\lambda|=1$ og $\\arg\\lambda=\\pm\\tfrac\\pi2$, så $A$ er en ren rotasjon $\\pm90^\\circ$; fire ganger gir $360^\\circ=$ identiteten.",
+        "hints": []
+      }
+    },
+    {
+      "id": "tma4110-5-5-warn-typiske",
+      "type": "warning",
+      "title": "Typiske feil",
+      "content": "- **Diagonaliserbarhet påstått uten multiplisitetssjekk** — den vanligste poengtapperen. Skriv alltid grunnen: distinkt/symmetrisk/triangulær eller geo $=$ alg.\n- **$P$ og $D$ feilmatchet:** kolonne $j$ i $P$ må høre til egenverdien i posisjon $(j,j)$ i $D$.\n- **Regner $A^n$ direkte** i stedet for via $PD^nP^{-1}$ — nesten alltid en blindvei.\n- **Glemmer en egenverdi** eller dens multiplisitet; sjekk mot $\\operatorname{spor}A=\\sum\\lambda_i$ og $\\det A=\\prod\\lambda_i$.\n- **Feil stasjonær fordeling:** husk å normalisere egenvektoren til $\\lambda=1$ så komponentene summerer til $1$.\n- **Prøver reell diagonalisering** ved komplekse egenverdier — sjekk diskriminanten først.\n- **Desimalsvar** i stedet for eksakt form."
+    },
+    {
+      "id": "tma4110-5-5-bb-intro",
+      "type": "text",
+      "content": "## Formel-minimum for egenverdikjeden\n\nDe faste grepene i kjeden, samlet som repetisjonskort.\n\n*Flashcard-/repetisjonsstoff — hopp trygt over ved førstegangslesing; tidsanslaget gjelder drilloppgavene.*"
+    },
+    {
+      "id": "tma4110-5-5-bb-verifisering",
+      "type": "definition",
+      "title": "Verifisering ved innsetting",
+      "content": "Er en egenvektor $\\mathbf v$ oppgitt, regn $A\\mathbf v$ og sjekk om resultatet er et skalarmultiplum $\\lambda\\mathbf v$. Da er $\\lambda$ egenverdien. Dette er raskere enn karakteristisk likning når vektoren er gitt."
+    },
+    {
+      "id": "tma4110-5-5-bb-karakteristisk",
+      "type": "definition",
+      "title": "Karakteristisk likning",
+      "content": "Egenverdiene er røttene i $\\det(A-\\lambda I)=0$. For $2\\times2$: $\\lambda^2-(\\operatorname{spor}A)\\lambda+\\det A=0$. Kontroller alltid med $\\operatorname{spor}A=\\sum\\lambda_i$ og $\\det A=\\prod\\lambda_i$."
+    },
+    {
+      "id": "tma4110-5-5-bb-egenrom",
+      "type": "definition",
+      "title": "Egenrom $E_\\lambda$",
+      "content": "Egenrommet til $\\lambda$ er $E_\\lambda=\\operatorname{Nul}(A-\\lambda I)$, funnet ved radreduksjon av $A-\\lambda I$. Dimensjonen $\\dim E_\\lambda$ er den **geometriske multiplisiteten** = antall frie variabler."
+    },
+    {
+      "id": "tma4110-5-5-bb-diagkriterium",
+      "type": "definition",
+      "title": "Diagonaliserbarhetskriteriet",
+      "content": "En $n\\times n$-matrise er diagonaliserbar $\\Leftrightarrow$ geometrisk multiplisitet $=$ algebraisk multiplisitet for **hver** egenverdi $\\Leftrightarrow$ summen av $\\dim E_\\lambda$ er $n$. Er ett egenrom for lite (geo $<$ alg), er matrisen ikke diagonaliserbar."
+    },
+    {
+      "id": "tma4110-5-5-bb-snarveier",
+      "type": "definition",
+      "title": "Snarveier til diagonaliserbarhet",
+      "content": "Tre navngitte snarveier som slipper full multiplisitetssjekk: **$n$ forskjellige egenverdier** ⇒ diagonaliserbar; **symmetrisk** ($A^T=A$) ⇒ ortogonalt diagonaliserbar (spektralteoremet); **triangulær** ⇒ egenverdiene avleses på diagonalen."
+    },
+    {
+      "id": "tma4110-5-5-bb-PD",
+      "type": "definition",
+      "title": "Bygg $P$ og $D$ matchet",
+      "content": "$P=[\\mathbf v_1\\ \\cdots\\ \\mathbf v_n]$ (egenvektorer som kolonner) og $D=\\operatorname{diag}(\\lambda_1,\\dots,\\lambda_n)$. Kolonne $j$ i $P$ MÅ høre til egenverdien i posisjon $(j,j)$ i $D$ — matchet søyle for søyle. Da er $A=PDP^{-1}$."
+    },
+    {
+      "id": "tma4110-5-5-bb-An",
+      "type": "definition",
+      "title": "Potenser $A^n=PD^nP^{-1}$",
+      "content": "Når $A=PDP^{-1}$, er $A^n=PD^nP^{-1}$ med $D^n=\\operatorname{diag}(\\lambda_1^n,\\dots,\\lambda_n^n)$ — bare egenverdiene opphøyes, samme $P$. Samme grep gir polynom $q(A)$: hvis $A\\mathbf v=\\lambda\\mathbf v$, er $q(A)\\mathbf v=q(\\lambda)\\mathbf v$."
+    },
+    {
+      "id": "tma4110-5-5-bb-markov",
+      "type": "definition",
+      "title": "Markov: egenverdi 1 og stasjonær fordeling",
+      "content": "En stokastisk (Markov-)matrise (kolonnesum $=1$) har alltid egenverdien $\\lambda=1$. Den **stasjonære fordelingen** er egenvektoren til $\\lambda=1$, normalisert så komponentene summerer til $1$. Ledd med $|\\lambda|<1$ dør ut i $\\lim A^n\\mathbf x$."
+    },
+    {
+      "id": "tma4110-5-5-rep",
+      "type": "collapsible",
+      "title": "Repetisjonsoppgaver",
+      "buttonText": "Vis repetisjonsoppgaver",
+      "content": [
+        {
+          "id": "tma4110-5-5-oppg-rep1",
+          "type": "exercise",
+          "exercise": {
+            "id": "tma4110-5-5-rep1",
+            "number": "R1",
+            "type": "classic",
+            "difficulty": "lett",
+            "task": "(Fra kap. 3.3) Finn $\\dim\\operatorname{Nul}A$ for $A=\\begin{bmatrix}1&0&2\\\\0&1&-1\\end{bmatrix}$.",
+            "solution": "$A$ er allerede i redusert trappeform med pivoter i kolonne 1 og 2. Kolonne 3 er fri, så $\\dim\\operatorname{Nul}A=1$ (én fri variabel).",
+            "hints": [
+              "Antall frie variabler (ikke-pivotkolonner) er $\\dim\\operatorname{Nul}A$."
+            ]
+          }
+        },
+        {
+          "id": "tma4110-5-5-oppg-rep2",
+          "type": "exercise",
+          "exercise": {
+            "id": "tma4110-5-5-rep2",
+            "number": "R2",
+            "type": "classic",
+            "difficulty": "middels",
+            "task": "(Fra kap. 5.2) Egenverdiene til en $3\\times3$-matrise er $4,4,4$ med $\\dim E_4=1$. Diagonaliserbar?",
+            "solution": "**Nei.** Algebraisk multiplisitet for $\\lambda=4$ er $3$, men geometrisk multiplisitet er $\\dim E_4=1<3$. Kriteriet er brutt, så matrisen er ikke diagonaliserbar.",
+            "hints": [
+              "Sammenlign $\\dim E_4$ med den algebraiske multiplisiteten $3$."
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": "tma4110-5-5-symbolliste",
+      "type": "collapsible",
+      "title": "Symbol- og formelliste",
+      "buttonText": "Vis symboler og formler",
+      "content": [
+        {
+          "id": "tma4110-5-5-symbolliste-text",
+          "type": "text",
+          "content": "## Symbol- og formelliste\n\n*Oppslagsverk — alt her forklares underveis i kapitlet.*\n\n| Symbol | Betydning |\n|---|---|\n| $\\det(A-\\lambda I)=0$ | Karakteristisk likning |\n| $E_\\lambda=\\operatorname{Nul}(A-\\lambda I)$ | Egenrom |\n| $\\dim E_\\lambda$ | Geometrisk multiplisitet |\n| $A=PDP^{-1}$ | Diagonalisering |\n| $D=\\operatorname{diag}(\\lambda_1,\\dots)$ | Diagonalmatrise av egenverdier |\n| $A^n=PD^nP^{-1}$ | Potens |\n| $\\mathbf q$ | Stasjonær fordeling (Markov) |\n\n**Formler i dette delkapitlet:**\n\n$$\\det(A-\\lambda I)=0,\\qquad \\operatorname{spor}A=\\sum\\lambda_i,\\qquad \\det A=\\prod\\lambda_i$$\nEgenverdier og kontrollrelasjoner.\n\n$$\\text{diagonaliserbar}\\ \\Leftrightarrow\\ \\dim E_\\lambda=\\text{algebraisk multiplisitet for hver }\\lambda$$\nDiagonaliserbarhetskriteriet.\n\n$$A=PDP^{-1},\\qquad A^n=PD^nP^{-1}$$\nDiagonalisering og potenser ($P$ = egenvektorer, $D$ = egenverdier, matchet).\n\n$$P\\mathbf q=\\mathbf q,\\quad \\textstyle\\sum q_i=1$$\nStasjonær fordeling for en Markov-matrise (egenvektor til $\\lambda=1$)."
+        }
+      ]
+    }
+  ],
+  "exercises": []
+}

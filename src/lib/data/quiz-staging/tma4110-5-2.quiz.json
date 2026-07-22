@@ -1,0 +1,202 @@
+[
+  {
+    "question": "Hva betyr det at $A$ er diagonaliserbar?",
+    "options": [
+      "$A=PDP^{-1}$ med $D$ diagonal og $P$ inverterbar",
+      "At $A$ selv allerede er en diagonalmatrise fra før",
+      "At $\\det A=0$ så $A$ kan radreduseres til diagonal",
+      "At $A$ er symmetrisk med bare reelle egenverdier"
+    ],
+    "explanation": "Diagonaliserbarhet betyr at $A$ kan skrives $A=PDP^{-1}$ med $D$ diagonal og $P$ inverterbar. Det svarer til at $A$ har $n$ lineært uavhengige egenvektorer (en egenbasis)."
+  },
+  {
+    "question": "I $A=PDP^{-1}$, hva inneholder $P$ og $D$?",
+    "options": [
+      "$P$: egenvektorer (kolonner); $D$: egenverdier (diagonal)",
+      "$P$: egenverdier (diagonal); $D$: egenvektorer (kolonner)",
+      "$P$ og $D$ er begge diagonale med de samme egenverdiene",
+      "$P=I$ er identiteten, og $D=A$ etter radreduksjon"
+    ],
+    "explanation": "$D=\\operatorname{diag}(\\lambda_1,\\dots,\\lambda_n)$ og $P=[\\mathbf v_1\\ \\cdots\\ \\mathbf v_n]$ der $\\mathbf v_i$ er egenvektor for $\\lambda_i$, matchet søyle for søyle: egenvektoren i kolonne $i$ hører til egenverdien på plass $i$."
+  },
+  {
+    "question": "Hva sier diagonaliserbarhetskriteriet?",
+    "options": [
+      "Geometrisk = algebraisk multiplisitet for hver egenverdi",
+      "Alle egenverdiene må være strengt positive reelle tall",
+      "Determinanten $\\det A$ må være forskjellig fra null",
+      "Matrisen må være øvre eller nedre triangulær"
+    ],
+    "explanation": "Kriteriet: $A$ er diagonaliserbar nettopp når summen av egenrom-dimensjonene er $n$, ekvivalent at geometrisk = algebraisk multiplisitet for hver egenverdi (nok uavhengige egenvektorer)."
+  },
+  {
+    "question": "En $3\\times3$-matrise har tre forskjellige egenverdier. Er den diagonaliserbar?",
+    "options": [
+      "Ja — $n$ distinkte egenverdier holder alene",
+      "Nei — man må alltid regne ut hvert egenrom",
+      "Bare hvis den i tillegg er symmetrisk",
+      "Bare hvis alle egenverdiene er positive"
+    ],
+    "explanation": "Egenvektorer for ulike egenverdier er lineært uavhengige, så tre distinkte egenverdier gir tre uavhengige egenvektorer — en egenbasis. Snarvei 1 gir diagonaliserbarhet uten mer regning."
+  },
+  {
+    "question": "Hva garanterer spektralteoremet for en symmetrisk matrise?",
+    "options": [
+      "Ortogonalt diagonaliserbar ($A=PDP^{T}$), reelle egenverdier",
+      "Ikke diagonaliserbar med mindre egenverdiene er distinkte",
+      "At matrisen $A$ alltid er inverterbar uansett egenverdier",
+      "Komplekse egenverdier som opptrer parvis i konjugerte par"
+    ],
+    "explanation": "Spektralteoremet: enhver reell symmetrisk matrise er ortogonalt diagonaliserbar, $A=PDP^{T}$ med ortogonal $P$, har bare reelle egenverdier, og er alltid diagonaliserbar uansett multiplisiteter."
+  },
+  {
+    "question": "Hvordan viser du at en matrise IKKE er diagonaliserbar?",
+    "options": [
+      "Pek på en egenverdi der geometrisk $<$ algebraisk",
+      "Vis at determinanten $\\det A$ tilfeldigvis er null",
+      "Vis at matrisen ikke er symmetrisk (spektralteorem)",
+      "Vis at minst én av egenverdiene er et negativt tall"
+    ],
+    "explanation": "Det holder å finne én egenverdi der $\\dim E_\\lambda$ er strengt mindre enn den algebraiske multiplisiteten — da mangler uavhengige egenvektorer. Å bare si «ikke diagonaliserbar» uten å peke på egenrommet gir ikke uttelling."
+  },
+  {
+    "question": "Er $A=\\begin{bmatrix}2&1\\\\0&2\\end{bmatrix}$ diagonaliserbar?",
+    "options": [
+      "Nei — $\\dim E_2=1$ er mindre enn algebraisk $2$",
+      "Ja — den er triangulær med egenverdi på diagonalen",
+      "Ja — egenverdi $2$ har algebraisk multiplisitet $2$",
+      "Nei — fordi determinanten er $4$ og dermed $\\ne0$"
+    ],
+    "explanation": "Egenverdien $2$ har algebraisk multiplisitet $2$, men $A-2I=\\begin{bmatrix}0&1\\\\0&0\\end{bmatrix}$ gir $\\dim E_2=1$. Geometrisk $<$ algebraisk, så matrisen er ikke diagonaliserbar."
+  },
+  {
+    "question": "Hva er en ortogonal matrise $P$?",
+    "options": [
+      "Ortonormale kolonner, $P^{T}P=I$ (så $P^{-1}=P^{T}$)",
+      "En kvadratisk matrise med determinant lik null",
+      "Parvis ortogonale kolonner uten krav om lengde $1$",
+      "En diagonalmatrise med bare $\\pm1$ langs diagonalen"
+    ],
+    "explanation": "En ortogonal matrise har ortonormale kolonner (parvis ortogonale OG lengde $1$), ekvivalent $P^{T}P=I$. Da er $P^{-1}=P^{T}$, som utnyttes i $A=PDP^{T}$."
+  },
+  {
+    "question": "En matrise har egenverdier $2,2,5$ med $\\dim E_2=2$. Diagonaliserbar?",
+    "options": [
+      "Ja — geometrisk er lik algebraisk for begge",
+      "Nei — matrisen har en repetert egenverdi",
+      "Nei — egenverdiene er ikke innbyrdes distinkte",
+      "Kan ikke avgjøres uten å konstruere $P$ først"
+    ],
+    "explanation": "$\\lambda=2$: geometrisk $2$ = algebraisk $2$. $\\lambda=5$: automatisk $1=1$. Summen av dimensjonene er $3=n$, så kriteriet er oppfylt og matrisen er diagonaliserbar — repetert egenverdi hindrer det ikke."
+  },
+  {
+    "question": "$A=\\begin{bmatrix}4&1\\\\2&3\\end{bmatrix}$ har egenverdier $2,5$ med egenvektorer $(1,-2),(1,1)$. Riktig matchet $P,D$?",
+    "options": [
+      "$P=\\begin{bmatrix}1&1\\\\-2&1\\end{bmatrix},\\ D=\\operatorname{diag}(2,5)$",
+      "$P=\\begin{bmatrix}1&1\\\\-2&1\\end{bmatrix},\\ D=\\operatorname{diag}(5,2)$",
+      "$P=\\operatorname{diag}(2,5),\\ D=\\begin{bmatrix}1&1\\\\-2&1\\end{bmatrix}$",
+      "$P=\\begin{bmatrix}1&1\\\\1&1\\end{bmatrix},\\ D=\\operatorname{diag}(2,5)$"
+    ],
+    "explanation": "Med $D=\\operatorname{diag}(2,5)$ må kolonne 1 i $P$ være egenvektoren $(1,-2)$ for $2$ og kolonne 2 være $(1,1)$ for $5$. Bytter du $D$-rekkefølgen uten å bytte $P$-kolonnene, stemmer ikke $A=PDP^{-1}$."
+  },
+  {
+    "question": "Hvorfor gjelder $A=PDP^{-1}$ når kolonnene i $P$ er egenvektorer?",
+    "options": [
+      "Fordi $AP=PD$, og inverterbar $P$ gir $A=PDP^{-1}$",
+      "Fordi $D$ per definisjon alltid er $A$ radredusert",
+      "Fordi likningen $AP=PD$ holder for en vilkårlig $P$",
+      "Fordi $P^{-1}=P^{T}$ gjelder for absolutt alle $P$"
+    ],
+    "explanation": "$AP$ ganger $A$ på hver kolonne: $A\\mathbf v_i=\\lambda_i\\mathbf v_i$, som er kolonne $i$ i $PD$. Så $AP=PD$, og siden egenvektorene er uavhengige er $P$ inverterbar: $A=PDP^{-1}$."
+  },
+  {
+    "question": "For hvilke $\\alpha$ er $A=\\begin{bmatrix}3&\\alpha\\\\0&3\\end{bmatrix}$ diagonaliserbar?",
+    "options": [
+      "Bare for $\\alpha=0$ (ellers $\\dim E_3=1<2$)",
+      "For alle $\\alpha$ (egenverdien $3$ finnes uansett)",
+      "Bare for $\\alpha\\ne0$ (da blir egenverdiene distinkte)",
+      "Bare for $\\alpha=3$ (matrisen blir da symmetrisk)"
+    ],
+    "explanation": "Egenverdien er $3$ (dobbel) uansett $\\alpha$. $A-3I=\\begin{bmatrix}0&\\alpha\\\\0&0\\end{bmatrix}$: for $\\alpha\\ne0$ er $\\dim E_3=1<2$ (ikke diag.), for $\\alpha=0$ er $A=3I$ med $\\dim E_3=2$ (diag.)."
+  },
+  {
+    "question": "Fordelen med $A=PDP^{T}$ over $A=PDP^{-1}$?",
+    "options": [
+      "Du slipper å regne invers, siden $P^{-1}=P^{T}$",
+      "Egenverdiene i $D$ blir automatisk positive tall",
+      "Diagonalen $D$ trenger ikke lenger egenverdiene",
+      "Metoden virker for alle matriser, ikke bare symmetriske"
+    ],
+    "explanation": "For en ortogonal $P$ er $P^{-1}=P^{T}$, så transponering (gratis) erstatter en full inversutregning. Dette gjelder bare når kolonnene er ortonormale, altså for symmetriske $A$ (spektralteoremet)."
+  },
+  {
+    "question": "Er en triangulær matrise alltid diagonaliserbar?",
+    "options": [
+      "Nei — $\\begin{bmatrix}2&1\\\\0&2\\end{bmatrix}$ er et moteksempel",
+      "Ja — egenverdiene står jo rett på diagonalen",
+      "Ja — men bare når hele diagonalen er positiv",
+      "Nei — ingen triangulær matrise er diagonaliserbar"
+    ],
+    "explanation": "Triangularitet gir egenverdiene, men ikke diagonaliserbarhet. Er diagonalelementene distinkte, følger diagonaliserbarhet (snarvei 1); er noen like, må egenrom-dimensjonen sjekkes — og den kan svikte."
+  },
+  {
+    "question": "Hva er $D^k$ når $D=\\operatorname{diag}(\\lambda_1,\\dots,\\lambda_n)$?",
+    "options": [
+      "$\\operatorname{diag}(\\lambda_1^k,\\dots,\\lambda_n^k)$",
+      "$\\operatorname{diag}(k\\lambda_1,\\dots,k\\lambda_n)$",
+      "$\\operatorname{diag}(\\lambda_1,\\dots,\\lambda_n)$ uendret",
+      "En full matrise, må regnes med produkt hver gang"
+    ],
+    "explanation": "For en diagonalmatrise er potensen elementvis: $D^k=\\operatorname{diag}(\\lambda_1^k,\\dots,\\lambda_n^k)$. Dette gjør $A^n=PD^nP^{-1}$ enkelt (kap. 5.3)."
+  },
+  {
+    "question": "Er en diagonaliserbar matrise alltid inverterbar?",
+    "options": [
+      "Nei — den kan godt ha egenverdi $0$ (singulær)",
+      "Ja — siden $P$ er inverterbar, må $A$ også være det",
+      "Ja — alle diagonaliserbare matriser har $\\det\\ne0$",
+      "Nei — ingen diagonaliserbar matrise er inverterbar"
+    ],
+    "explanation": "Diagonaliserbarhet og inverterbarhet er uavhengige. En diagonaliserbar matrise med egenverdi $0$ (f.eks. en projeksjon) er singulær, mens $\\begin{bmatrix}2&1\\\\0&2\\end{bmatrix}$ er inverterbar men ikke diagonaliserbar."
+  },
+  {
+    "question": "En symmetrisk matrise har egenverdier $3,3,7$. Diagonaliserbar?",
+    "options": [
+      "Ja — spektralteoremet garanterer det alltid",
+      "Nei — egenverdien $3$ er repetert",
+      "Bare i tilfellet der $\\dim E_3=1$",
+      "Kan ikke avgjøres uten å regne egenrommene"
+    ],
+    "explanation": "Spektralteoremet garanterer at enhver symmetrisk matrise er (ortogonalt) diagonaliserbar, uansett multiplisiteter. Så $\\dim E_3=2$ er automatisk, og matrisen er diagonaliserbar."
+  },
+  {
+    "question": "Hva menes med at $A$ og $B$ er similære?",
+    "options": [
+      "$B=P^{-1}AP$ for en inverterbar matrise $P$",
+      "At $A$ og $B$ bare har samme størrelse",
+      "At $A$ er den transponerte, altså $A=B^{T}$",
+      "At både $A$ og $B$ er diagonale matriser"
+    ],
+    "explanation": "Similære matriser ($B=P^{-1}AP$) representerer samme avbildning i ulike baser. De deler karakteristisk polynom, egenverdier, spor og determinant. Diagonalisering er tilfellet der $B=D$ er diagonal."
+  },
+  {
+    "question": "Hvorfor kan egenvektorene i $P$ skaleres fritt?",
+    "options": [
+      "Fordi $E_\\lambda$ er et underrom av $\\mathbb R^n$",
+      "Fordi skalering endrer egenverdien i $D$ tilsvarende",
+      "Fordi $\\det P$ er nødt til å være lik $1$",
+      "Fordi bare enhetsvektorer er tillatt i $P$"
+    ],
+    "explanation": "En egenvektor ganget med et tall $\\ne0$ er fortsatt egenvektor for samme egenverdi ($E_\\lambda$ er et underrom). Derfor kan fasiten velge de peneste heltallsvektorene; $D$ endres ikke."
+  },
+  {
+    "question": "En matrise oppfyller $A^2=A$. Hva vet du om diagonaliserbarheten?",
+    "options": [
+      "Alltid diagonaliserbar ($D$ har bare $0$ og $1$)",
+      "Aldri diagonaliserbar, uansett egenverdier",
+      "Bare i tilfellet der $A$ er identitetsmatrisen",
+      "Kan umulig avgjøres ut fra $A^2=A$ alene"
+    ],
+    "explanation": "Idempotente matriser ($A^2=A$) har bare egenverdiene $0$ og $1$ (kap. 5.1), og egenrommene $E_0=\\operatorname{Nul}A$ og $E_1$ fyller opp $\\mathbb R^n$. De er alltid diagonaliserbare — nettopp projeksjoner."
+  }
+]

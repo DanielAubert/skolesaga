@@ -1,0 +1,202 @@
+[
+  {
+    "question": "Hva betyr det at $\\mathbf v$ er en egenvektor for $A$ med egenverdi $\\lambda$?",
+    "options": [
+      "$\\mathbf v\\ne\\mathbf 0$ og $A\\mathbf v=\\lambda\\mathbf v$",
+      "$A\\mathbf v=\\lambda\\mathbf v$, og $\\mathbf v=\\mathbf 0$ er tillatt",
+      "$\\mathbf v$ løser $A\\mathbf v=\\mathbf 0$, og $\\lambda=\\det A$",
+      "$\\mathbf v$ er en kolonne i $A$ ganget med $\\lambda$"
+    ],
+    "explanation": "Egenvektoren må være $\\ne\\mathbf 0$, og $A\\mathbf v=\\lambda\\mathbf v$ betyr at $A$ virker som ren skalering med faktor $\\lambda$ langs $\\mathbf v$. Nullvektoren utelukkes fordi $A\\mathbf 0=\\lambda\\mathbf 0$ ellers ville gjelde for alle $\\lambda$."
+  },
+  {
+    "question": "Hvordan finner du egenverdiene til en matrise $A$?",
+    "options": [
+      "Løs $\\det(A-\\lambda I)=0$",
+      "Løs $\\det(A+\\lambda I)=0$ og snu fortegn",
+      "Regn $\\det A$ og trekk $\\lambda$ fra diagonalen",
+      "Radreduser $A$ og les egenverdiene av pivotene"
+    ],
+    "explanation": "$\\lambda$ er egenverdi nettopp når $A-\\lambda I$ er singulær, altså når $\\det(A-\\lambda I)=0$. Denne likningen kalles den karakteristiske likningen; røttene er egenverdiene."
+  },
+  {
+    "question": "Er $\\begin{bmatrix}1\\\\1\\end{bmatrix}$ egenvektor for $A=\\begin{bmatrix}2&1\\\\1&2\\end{bmatrix}$, og med hvilken egenverdi?",
+    "options": [
+      "Ja, egenverdi $3$",
+      "Ja, egenverdi $2$",
+      "Nei, $A\\mathbf v$ er ikke et multiplum av $\\mathbf v$",
+      "Ja, egenverdi $6$"
+    ],
+    "explanation": "Regn $A\\mathbf v=\\begin{bmatrix}2+1\\\\1+2\\end{bmatrix}=\\begin{bmatrix}3\\\\3\\end{bmatrix}=3\\begin{bmatrix}1\\\\1\\end{bmatrix}$. Svaret er $3$ ganger vektoren, så det er en egenvektor med egenverdi $3$."
+  },
+  {
+    "question": "Hva er egenrommet $E_\\lambda$ til en egenverdi $\\lambda$?",
+    "options": [
+      "$\\operatorname{Nul}(A-\\lambda I)$",
+      "$\\operatorname{Col}(A-\\lambda I)$",
+      "Mengden av egenverdier lik $\\lambda$",
+      "Løsningsmengden til $A\\mathbf x=\\lambda$"
+    ],
+    "explanation": "Egenrommet er $\\{\\mathbf x:A\\mathbf x=\\lambda\\mathbf x\\}=\\operatorname{Nul}(A-\\lambda I)$, et underrom du finner ved å radredusere $A-\\lambda I$. Det inneholder alle egenvektorer til $\\lambda$ samt $\\mathbf 0$."
+  },
+  {
+    "question": "Hva er egenverdiene til $A=\\begin{bmatrix}4&0&0\\\\7&2&0\\\\3&5&2\\end{bmatrix}$?",
+    "options": [
+      "$4,2,2$ (fra diagonalen, triangulær)",
+      "$4,7,3$ (den første kolonnen)",
+      "$4,2$ regnet som bare to egenverdier",
+      "Krever full løsning av et tredjegradspolynom"
+    ],
+    "explanation": "Matrisen er nedre triangulær, så egenverdiene står på diagonalen: $4,2,2$. Egenverdien $2$ opptrer to ganger på diagonalen og har derfor algebraisk multiplisitet $2$."
+  },
+  {
+    "question": "Hva er forskjellen på algebraisk og geometrisk multiplisitet?",
+    "options": [
+      "Algebraisk = rotmultiplisitet; geometrisk = $\\dim E_\\lambda$",
+      "Algebraisk = $\\dim E_\\lambda$; geometrisk = rotmultiplisitet",
+      "Algebraisk = reell del; geometrisk = kompleks del",
+      "De er alltid like, så skillet er uten betydning"
+    ],
+    "explanation": "Algebraisk multiplisitet = rotmultiplisitet i det karakteristiske polynomet; geometrisk multiplisitet = dimensjonen til egenrommet. Det gjelder alltid $1\\le$ geometrisk $\\le$ algebraisk."
+  },
+  {
+    "question": "Hvilken ulikhet gjelder alltid mellom multiplisitetene?",
+    "options": [
+      "$1\\le$ geometrisk $\\le$ algebraisk",
+      "$1\\le$ algebraisk $\\le$ geometrisk",
+      "geometrisk $=$ algebraisk $-1$",
+      "geometrisk $\\ge$ algebraisk alltid"
+    ],
+    "explanation": "En egenverdi har alltid minst én egenvektor (geometrisk $\\ge1$), og geometrisk multiplisitet kan aldri overstige den algebraiske. Er de like for hver egenverdi, er matrisen diagonaliserbar."
+  },
+  {
+    "question": "For $A=\\begin{bmatrix}2&1\\\\0&2\\end{bmatrix}$ er $\\dim E_2=1$ mens algebraisk multiplisitet er $2$. Hva forteller det?",
+    "options": [
+      "At $A$ ikke er diagonaliserbar",
+      "At $A$ er diagonaliserbar",
+      "At $\\lambda=2$ ikke er en ekte egenverdi",
+      "At egenverdien er kompleks"
+    ],
+    "explanation": "Når geometrisk multiplisitet ($\\dim E_2=1$) er strengt mindre enn algebraisk ($2$), mangler egenverdien nok uavhengige egenvektorer, og matrisen er ikke diagonaliserbar (kap. 5.2)."
+  },
+  {
+    "question": "En $3\\times3$-matrise har egenverdier $1,2,4$. Hva er $\\det A$?",
+    "options": [
+      "$8$ (produktet av egenverdiene)",
+      "$7$ (summen av egenverdiene)",
+      "$14$ (dobbelt av summen)",
+      "$1$ (den minste egenverdien)"
+    ],
+    "explanation": "Determinanten er produktet av egenverdiene: $\\det A=1\\cdot2\\cdot4=8$. (Summen $1+2+4=7$ er derimot sporet.)"
+  },
+  {
+    "question": "En $2\\times2$-matrise har $\\operatorname{spor}A=5$ og $\\det A=6$. Hva er egenverdiene?",
+    "options": [
+      "$2$ og $3$",
+      "$5$ og $6$",
+      "$1$ og $6$",
+      "$-2$ og $-3$"
+    ],
+    "explanation": "For 2×2 er den karakteristiske likningen $\\lambda^2-(\\operatorname{spor}A)\\lambda+\\det A=0$, altså $\\lambda^2-5\\lambda+6=0=(\\lambda-2)(\\lambda-3)$. Egenverdiene er $2$ og $3$."
+  },
+  {
+    "question": "Når er $0$ en egenverdi for $A$?",
+    "options": [
+      "Når $A$ er singulær ($\\det A=0$)",
+      "Når $A$ er inverterbar ($\\det A\\ne0$)",
+      "Aldri, siden egenvektorer er $\\ne\\mathbf 0$",
+      "Alltid, siden $A\\mathbf 0=\\mathbf 0$"
+    ],
+    "explanation": "$0$ er egenverdi når $A\\mathbf v=\\mathbf 0$ har en løsning $\\mathbf v\\ne\\mathbf 0$, altså når $\\operatorname{Nul}A\\ne\\{\\mathbf 0\\}$, som er det samme som at $A$ er singulær ($\\det A=0$)."
+  },
+  {
+    "question": "Hvis $A^2=A$, hvilke verdier kan en egenverdi $\\lambda$ ha?",
+    "options": [
+      "$0$ eller $1$",
+      "$1$ eller $-1$",
+      "Hvilken som helst verdi",
+      "Bare $1$"
+    ],
+    "explanation": "Sett inn egenvektoren: $A^2\\mathbf v=\\lambda^2\\mathbf v$, men $A^2=A$ gir $A^2\\mathbf v=A\\mathbf v=\\lambda\\mathbf v$. Dermed $\\lambda^2=\\lambda$, så $\\lambda(\\lambda-1)=0$ og $\\lambda\\in\\{0,1\\}$."
+  },
+  {
+    "question": "Hvis $A\\mathbf v=\\lambda\\mathbf v$, hva er $A^3\\mathbf v$?",
+    "options": [
+      "$\\lambda^3\\mathbf v$",
+      "$3\\lambda\\mathbf v$",
+      "$\\lambda\\mathbf v^3$",
+      "Ikke et multiplum av $\\mathbf v$"
+    ],
+    "explanation": "Gjentatt ganging med $A$: $A^2\\mathbf v=\\lambda^2\\mathbf v$ og $A^3\\mathbf v=\\lambda^3\\mathbf v$. Egenvektoren er den samme; egenverdien blir $\\lambda^k$ for $A^k$."
+  },
+  {
+    "question": "Raskeste måte å sjekke om en OPPGITT vektor $\\mathbf v$ er egenvektor?",
+    "options": [
+      "Regn $A\\mathbf v$ og se om det er et multiplum av $\\mathbf v$",
+      "Løs $\\det(A-\\lambda I)=0$ først",
+      "Radreduser $A$ og let etter $\\mathbf v$ i pivotene",
+      "Regn $\\det A$ og sammenlign med $\\|\\mathbf v\\|$"
+    ],
+    "explanation": "Når $\\mathbf v$ er gitt, er innsetting raskest: er $A\\mathbf v=\\lambda\\mathbf v$ for et tall $\\lambda$, er $\\mathbf v$ egenvektor og $\\lambda$ egenverdien. Du slipper hele den karakteristiske likningen."
+  },
+  {
+    "question": "Egenvektorer for forskjellige egenverdier er alltid …",
+    "options": [
+      "lineært uavhengige",
+      "lineært avhengige",
+      "ortogonale, uansett matrise",
+      "like lange"
+    ],
+    "explanation": "Egenvektorer for ulike egenverdier er alltid lineært uavhengige. Har en $n\\times n$-matrise $n$ forskjellige egenverdier, gir dette $n$ uavhengige egenvektorer — en egenbasis for $\\mathbb R^n$."
+  },
+  {
+    "question": "Hva er egenverdiene til $A=\\begin{bmatrix}1&2\\\\2&1\\end{bmatrix}$?",
+    "options": [
+      "$3$ og $-1$",
+      "$1$ og $2$",
+      "$3$ og $1$",
+      "$2$ og $-2$"
+    ],
+    "explanation": "$\\det(A-\\lambda I)=(1-\\lambda)^2-4=\\lambda^2-2\\lambda-3=(\\lambda-3)(\\lambda+1)$. Egenverdiene er $3$ og $-1$. Kontroll: sum $2=\\operatorname{spor}A$, produkt $-3=\\det A$."
+  },
+  {
+    "question": "Hvorfor kan ikke $\\mathbf 0$ være en egenvektor?",
+    "options": [
+      "Fordi $A\\mathbf 0=\\lambda\\mathbf 0$ ville holdt for enhver $\\lambda$",
+      "Fordi $\\mathbf 0$ ikke ligger i noe nullrom",
+      "Fordi $\\det A$ da måtte være $0$",
+      "Fordi $\\mathbf 0$ alltid gir egenverdi $1$"
+    ],
+    "explanation": "$A\\mathbf 0=\\mathbf 0=\\lambda\\mathbf 0$ er sant for alle $\\lambda$, så hadde $\\mathbf 0$ vært tillatt ville hver eneste $\\lambda$ vært en «egenverdi». Definisjonen krever derfor $\\mathbf v\\ne\\mathbf 0$."
+  },
+  {
+    "question": "Hvordan opptrer komplekse egenverdier for en reell matrise?",
+    "options": [
+      "I konjugerte par $a\\pm bi$",
+      "Alltid enkeltvis, uten partner",
+      "Bare som rent imaginære $\\pm bi$",
+      "Aldri — reelle matriser har reelle egenverdier"
+    ],
+    "explanation": "Det karakteristiske polynomet har reelle koeffisienter, så komplekse røtter opptrer i konjugerte par $a+bi$ og $a-bi$. Rotasjonsmatrisen $\\begin{bmatrix}0&-1\\\\1&0\\end{bmatrix}$ har egenverdier $\\pm i$ (kap. 5.4)."
+  },
+  {
+    "question": "For en triangulær matrise står egenverdiene …",
+    "options": [
+      "rett på diagonalen",
+      "i den første raden",
+      "som summen av hver rad",
+      "først synlige etter full RREF"
+    ],
+    "explanation": "Er $A$ triangulær, er $A-\\lambda I$ også triangulær, og $\\det(A-\\lambda I)=(a_{11}-\\lambda)\\cdots(a_{nn}-\\lambda)$. Røttene — egenverdiene — er nettopp diagonalelementene."
+  },
+  {
+    "question": "En 2×2-matrise med $\\operatorname{spor}A=4$, $\\det A=3$ er påstått å ha egenverdier $2,2$. Hva sier kontrollen?",
+    "options": [
+      "Feil: $2\\cdot2=4\\ne3=\\det A$",
+      "Alt stemmer, siden $2+2=4$",
+      "Egenverdiene må være komplekse",
+      "Matrisen har ingen egenverdier"
+    ],
+    "explanation": "Summen $2+2=4$ stemmer med sporet, men produktet $2\\cdot2=4$ skal være $\\det A=3$. Det gjør det ikke, så egenverdiene er regnet feil (riktig er $\\lambda=1,3$)."
+  }
+]

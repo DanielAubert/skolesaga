@@ -1,0 +1,385 @@
+{
+  "id": "tma4110-5-3",
+  "courseId": "tma4110",
+  "chapterNumber": "5.3",
+  "title": "Potenser Aⁿ, Markov-matriser og langtidsoppførsel",
+  "description": "Potenser Aⁿ=PDⁿP⁻¹, polynom i A (samme P), stokastiske/Markov-matriser og langtidsgrensen lim Aⁿx via egenvektordekomponering — et elegant og gjentatt grep, og bevis-bro for nilpotens.",
+  "estimatedMinutes": 55,
+  "competenceGoals": [
+    "regne potenser $A^n=PD^nP^{-1}$ og polynom $q(A)$ i en diagonaliserbar matrise via egenverdiene ($q(\\lambda)$), i stedet for gjentatt matriseprodukt",
+    "gjenkjenne en stokastisk (Markov-)matrise, begrunne at $\\lambda=1$ er egenverdi, og finne den stasjonære fordelingen ved å normalisere en egenvektor for $\\lambda=1$",
+    "bestemme langtidsgrensen $\\lim A^n\\mathbf x_0$ ved egenvektordekomponering, og føre nilpotensbeviset $A^k=O\\Rightarrow$ alle egenverdier $0$"
+  ],
+  "content": [
+    {
+      "id": "tma4110-5-3-tip-eksamensvinkel",
+      "type": "tip",
+      "title": "Eksamensvinkel",
+      "content": "**Diagonalisering betaler seg her: når du skal regne $A^n$ eller finne hvor et system havner i det lange løp, gjør $A=PDP^{-1}$ det tunge lette.**\n\n- **Potenser $A^n$ (sjanger G)** er en fast del av egenverdi-storoppgaven (~95 %): «finn $A^n$» eller «regn ut $A^{10}$». Sjanger G er egenverdi-/diagonaliseringskoden fra [kap. 5.1](/bok/tma4110/tma4110-5-1)–[5.2](/bok/tma4110/tma4110-5-2).\n- **Markov-matriser** (stokastiske matriser med kolonnesum $1$) dukker opp i rundt **33 %** av settene: finn den stasjonære fordelingen og langtidsgrensen $\\lim A^n\\mathbf x$.\n- **Bevis-varianten (sjanger N):** nilpotens — «vis at hvis $A^k=O$, er alle egenverdier $0$» — er en klassisk siste oppgave, og broen til $(I-A)^{-1}=I+A+A^2+\\cdots$ fra [kap. 2.2](/bok/tma4110/tma4110-2-2).\n\nPrioriteten er **perfekt** for $A^n$, **kunne** for Markov. Sensors nøkkelgrep: regn $A^n=PD^nP^{-1}$ (aldri gang $A$ med seg selv $n$ ganger), og finn langtidsgrensen ved å **dekomponere** startvektoren i egenvektorer. Under kode E må hele prosedyren sitte utenat."
+    },
+    {
+      "id": "tma4110-5-3-forkunnskaper",
+      "type": "text",
+      "content": "**Forkunnskaper:** Dette kapitlet bygger direkte på [kap. 5.2](/bok/tma4110/tma4110-5-2) (diagonalisering $A=PDP^{-1}$) og [kap. 5.1](/bok/tma4110/tma4110-5-1) (egenverdier og egenvektorer). Nilpotens-beviset kobles til invers-triksene i [kap. 2.2](/bok/tma4110/tma4110-2-2)."
+    },
+    {
+      "id": "tma4110-5-3-sist-du-var-her",
+      "type": "text",
+      "content": "**Sist du var her — de to formlene alt hviler på:**\n\n- **Diagonalisering** (kap. 5.2): $A=PDP^{-1}$, der $D=\\operatorname{diag}(\\lambda_1,\\dots,\\lambda_n)$ (egenverdier) og $P$ har egenvektorene som kolonner.\n- **Potens av diagonalmatrise:** $D^n=\\operatorname{diag}(\\lambda_1^n,\\dots,\\lambda_n^n)$ — bare opphøy hvert diagonalelement.\n\nDisse to gir straks $A^n=PD^nP^{-1}$. Resten av kapitlet er anvendelser av nettopp det."
+    },
+    {
+      "id": "tma4110-5-3-motivasjon",
+      "type": "text",
+      "content": "## Hverdagsanker: hvor havner systemet til slutt?\n\nMange systemer utvikler seg i steg: befolkningen flytter mellom by og bygd år for år, en nettside-surfer klikker seg videre, et fysisk system itereres. Hvert steg er en gang med en matrise $A$, så tilstanden etter $n$ steg er $A^n\\mathbf x_0$. To spørsmål melder seg: hva ER $A^n$, og hvor havner $\\mathbf x_0$ når $n\\to\\infty$? Diagonalisering svarer på begge elegant.\n\nVi bygger dette i fire løkker: (1) $A^n=PD^nP^{-1}$ og polynom i $A$; (2) **Markov-matriser** og den stasjonære fordelingen; (3) **langtidsgrensen** via egenvektordekomponering; og (4) **nilpotens** som bevistema ($A^k=O\\Rightarrow$ egenverdier $0$)."
+    },
+    {
+      "id": "tma4110-5-3-lokke1",
+      "type": "text",
+      "content": "## Løkke 1 — Potenser $A^n=PD^nP^{-1}$ og polynom i $A$ (~15 min)"
+    },
+    {
+      "id": "tma4110-5-3-def-potens",
+      "type": "definition",
+      "title": "Potenser $A^n=PD^nP^{-1}$",
+      "content": "Er $A=PDP^{-1}$ diagonaliserbar, blir høye potenser lette. De indre $P^{-1}P$-parene kanselleres:\n$$A^n=(PDP^{-1})^n=PD^{n}P^{-1},$$\nog $D^n=\\operatorname{diag}(\\lambda_1^n,\\dots,\\lambda_n^n)$ regnes elementvis. I stedet for å gange $A$ med seg selv $n$ ganger, opphøyer du tallene på diagonalen og ganger med $P$ og $P^{-1}$ én gang hver. Dette er den store gevinsten ved diagonalisering."
+    },
+    {
+      "id": "tma4110-5-3-ex1",
+      "type": "example",
+      "title": "Eksempel 1: Regn $A^n$ ved diagonalisering",
+      "problem": "For $A=\\begin{bmatrix}4&1\\\\2&3\\end{bmatrix}$ (diagonalisert i kap. 5.2: $\\lambda=2,5$), finn en formel for $A^n$.",
+      "solution": "Fra kap. 5.2: $P=\\begin{bmatrix}1&1\\\\-2&1\\end{bmatrix}$, $D=\\begin{bmatrix}2&0\\\\0&5\\end{bmatrix}$, $P^{-1}=\\tfrac13\\begin{bmatrix}1&-1\\\\2&1\\end{bmatrix}$. Da:\n$$A^n=PD^nP^{-1}=\\begin{bmatrix}1&1\\\\-2&1\\end{bmatrix}\\begin{bmatrix}2^n&0\\\\0&5^n\\end{bmatrix}\\cdot\\tfrac13\\begin{bmatrix}1&-1\\\\2&1\\end{bmatrix}.$$\nGang ut (først $PD^n=\\begin{bmatrix}2^n&5^n\\\\-2\\cdot2^n&5^n\\end{bmatrix}$, så ganges med $\\tfrac13\\begin{bmatrix}1&-1\\\\2&1\\end{bmatrix}$):\n$$A^n=\\frac13\\begin{bmatrix}2^n+2\\cdot5^n & -2^n+5^n\\\\ -2\\cdot2^n+2\\cdot5^n & 2\\cdot2^n+5^n\\end{bmatrix}.$$\n**Kontroll ved $n=2$:** $A^2=\\tfrac13\\begin{bmatrix}4+50&-4+25\\\\-8+50&8+25\\end{bmatrix}=\\tfrac13\\begin{bmatrix}54&21\\\\42&33\\end{bmatrix}=\\begin{bmatrix}18&7\\\\14&11\\end{bmatrix}$. Direkte: $A^2=\\begin{bmatrix}4&1\\\\2&3\\end{bmatrix}^2=\\begin{bmatrix}18&7\\\\14&11\\end{bmatrix}$ $\\checkmark$.\n\n**Svar:** $A^n=\\tfrac13\\begin{bmatrix}2^n+2\\cdot5^n & 5^n-2^n\\\\ 2\\cdot5^n-2^{n+1} & 2^{n+1}+5^n\\end{bmatrix}$."
+    },
+    {
+      "id": "tma4110-5-3-oppg1",
+      "type": "exercise",
+      "exercise": {
+        "id": "tma4110-5-3-oppg1x",
+        "number": "1",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "(Sjanger G — $A^n$.) La $A=\\begin{bmatrix}3&1\\\\0&2\\end{bmatrix}$.\n\n**a)** Diagonaliser $A$ (finn $P,D$).\n\n**b)** Finn en formel for $A^n$, og sjekk mot $A^2$.",
+        "solution": "**a)** $A$ er triangulær, egenverdier $\\lambda=3,2$ (distinkte $\\Rightarrow$ diagonaliserbar). Egenvektorer: $\\lambda=3$: $A-3I=\\begin{bmatrix}0&1\\\\0&-1\\end{bmatrix}\\to y=0$, $\\mathbf v_1=(1,0)$. $\\lambda=2$: $A-2I=\\begin{bmatrix}1&1\\\\0&0\\end{bmatrix}\\to x+y=0$, $\\mathbf v_2=(1,-1)$. Så $P=\\begin{bmatrix}1&1\\\\0&-1\\end{bmatrix}$, $D=\\begin{bmatrix}3&0\\\\0&2\\end{bmatrix}$. ($P^{-1}=\\begin{bmatrix}1&1\\\\0&-1\\end{bmatrix}$, den er sin egen invers her.)\n\n**b)** $A^n=PD^nP^{-1}=\\begin{bmatrix}1&1\\\\0&-1\\end{bmatrix}\\begin{bmatrix}3^n&0\\\\0&2^n\\end{bmatrix}\\begin{bmatrix}1&1\\\\0&-1\\end{bmatrix}=\\begin{bmatrix}3^n&3^n-2^n\\\\0&2^n\\end{bmatrix}$.\n\n**Kontroll $n=2$:** $\\begin{bmatrix}9&9-4\\\\0&4\\end{bmatrix}=\\begin{bmatrix}9&5\\\\0&4\\end{bmatrix}$, og direkte $A^2=\\begin{bmatrix}3&1\\\\0&2\\end{bmatrix}^2=\\begin{bmatrix}9&5\\\\0&4\\end{bmatrix}$ $\\checkmark$.",
+        "hints": [
+          "Egenverdiene til en triangulær matrise står på diagonalen; distinkte $\\Rightarrow$ diagonaliserbar.",
+          "$A^n=PD^nP^{-1}$ med $D^n=\\operatorname{diag}(3^n,2^n)$.",
+          "Sjekk formelen ved å sette $n=2$ og sammenligne med $A\\cdot A$."
+        ]
+      }
+    },
+    {
+      "id": "tma4110-5-3-def-polynom",
+      "type": "definition",
+      "title": "Polynom i $A$: $q(A)\\mathbf v=q(\\lambda)\\mathbf v$",
+      "content": "Hvis $A\\mathbf v=\\lambda\\mathbf v$, så virker ethvert **polynom** $q(A)=c_kA^k+\\dots+c_1A+c_0I$ på egenvektoren ved å sette egenverdien inn i polynomet:\n$$q(A)\\mathbf v=q(\\lambda)\\mathbf v.$$\nSamme egenvektor, egenverdien blir $q(\\lambda)$. For en diagonaliserbar $A$ betyr det $q(A)=P\\,q(D)\\,P^{-1}$ med $q(D)=\\operatorname{diag}(q(\\lambda_1),\\dots,q(\\lambda_n))$ — samme $P$ som for $A$ selv."
+    },
+    {
+      "id": "tma4110-5-3-ex2",
+      "type": "example",
+      "title": "Eksempel 2: Polynom i $A$ og Cayley–Hamilton",
+      "problem": "For $A=\\begin{bmatrix}4&1\\\\2&3\\end{bmatrix}$ (egenverdier $2,5$), regn ut $A^2-7A+10I$ uten å regne matriseproduktet direkte.",
+      "solution": "Egenverdiene $2$ og $5$ er røttene til det karakteristiske polynomet $\\lambda^2-7\\lambda+10=(\\lambda-2)(\\lambda-5)$. La $q(\\lambda)=\\lambda^2-7\\lambda+10$. For hver egenvektor er $q(A)\\mathbf v=q(\\lambda)\\mathbf v$, og\n$$q(2)=4-14+10=0,\\qquad q(5)=25-35+10=0.$$\nBegge egenverdier gir $q(\\lambda)=0$, så $q(A)$ sender begge basis-egenvektorer til $\\mathbf 0$. Siden egenvektorene utspenner $\\mathbb R^2$, er\n$$A^2-7A+10I=O.$$\n**Dette er Cayley–Hamilton-teoremet:** en matrise oppfyller sin egen karakteristiske likning. **Kontroll:** $A^2=\\begin{bmatrix}18&7\\\\14&11\\end{bmatrix}$, $7A=\\begin{bmatrix}28&7\\\\14&21\\end{bmatrix}$, $10I=\\begin{bmatrix}10&0\\\\0&10\\end{bmatrix}$, og $18-28+10=0$, $7-7+0=0$ osv. $\\checkmark$"
+    },
+    {
+      "id": "tma4110-5-3-oppg2",
+      "type": "exercise",
+      "exercise": {
+        "id": "tma4110-5-3-oppg2x",
+        "number": "2",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "(Sjanger G — polynom i $A$.) Egenverdiene til en matrise $A$ er $\\lambda=1$ og $\\lambda=3$, med egenvektorer $\\mathbf v_1$ og $\\mathbf v_2$. Sett $q(\\lambda)=\\lambda^2-2\\lambda$.\n\n**a)** Hva er $q(A)\\mathbf v_1$ og $q(A)\\mathbf v_2$?\n\n**b)** Hva blir egenverdiene til matrisen $B=A^2-2A$?",
+        "solution": "**a)** $q(A)\\mathbf v=q(\\lambda)\\mathbf v$. For $\\lambda=1$: $q(1)=1-2=-1$, så $q(A)\\mathbf v_1=-\\mathbf v_1$. For $\\lambda=3$: $q(3)=9-6=3$, så $q(A)\\mathbf v_2=3\\mathbf v_2$.\n\n**b)** $B=A^2-2A=q(A)$. Fra (a) er $\\mathbf v_1,\\mathbf v_2$ egenvektorer for $B$ med egenverdier $q(1)=-1$ og $q(3)=3$. Egenverdiene til $B$ er altså $-1$ og $3$ (samme egenvektorer som $A$).",
+        "hints": [
+          "Bruk $q(A)\\mathbf v=q(\\lambda)\\mathbf v$: sett egenverdien inn i polynomet.",
+          "$q(1)=1^2-2\\cdot1$ og $q(3)=3^2-2\\cdot3$.",
+          "Egenvektorene til $B=q(A)$ er de samme som for $A$; egenverdiene er $q(\\lambda)$."
+        ]
+      }
+    },
+    {
+      "id": "tma4110-5-3-lokke2",
+      "type": "text",
+      "content": "## Løkke 2 — Markov-matriser og stasjonær fordeling (~14 min)"
+    },
+    {
+      "id": "tma4110-5-3-def-stokastisk",
+      "type": "definition",
+      "title": "Stokastisk (Markov-)matrise",
+      "content": "En **stokastisk matrise** (eller **Markov-matrise**) er en kvadratisk matrise med ikke-negative elementer der **hver kolonne summerer til $1$**. Kolonnene er sannsynlighetsfordelinger: element $(i,j)$ er sannsynligheten for å gå fra tilstand $j$ til tilstand $i$ i ett steg. (Noen bøker bruker radsum $1$ i stedet — hold deg til kolonnesum-konvensjonen her, i tråd med at vi ganger $A\\mathbf x$ med vektoren til høyre.)"
+    },
+    {
+      "id": "tma4110-5-3-def-egenverdi1",
+      "type": "definition",
+      "title": "Egenverdi $1$ for en stokastisk matrise",
+      "content": "Enhver stokastisk matrise har $\\lambda=1$ som egenverdi. Grunnen: når hver kolonne summerer til $1$, har $A^{T}$ radsum $1$, så $A^{T}\\mathbf 1=\\mathbf 1$ (der $\\mathbf 1=(1,\\dots,1)$). Dermed er $1$ egenverdi for $A^{T}$, og $A$ og $A^{T}$ har samme egenverdier (kap. 5.1). Alle øvrige egenverdier har $|\\lambda|\\le1$."
+    },
+    {
+      "id": "tma4110-5-3-def-stasjonaer",
+      "type": "definition",
+      "title": "Stasjonær vektor (stasjonær fordeling)",
+      "content": "En **stasjonær vektor** $\\mathbf q$ for en stokastisk matrise er en egenvektor for $\\lambda=1$ som er en sannsynlighetsfordeling (ikke-negative komponenter som summerer til $1$):\n$$A\\mathbf q=\\mathbf q,\\qquad \\text{komponentene}\\ge0,\\ \\sum q_i=1.$$\nDen finnes ved å løse $(A-I)\\mathbf q=\\mathbf 0$ (altså $E_1=\\operatorname{Nul}(A-I)$) og deretter **normalisere** løsningen så komponentene summerer til $1$. Stasjonærvektoren er fordelingen systemet «hviler» i — den endres ikke av et nytt steg."
+    },
+    {
+      "id": "tma4110-5-3-ex3",
+      "type": "example",
+      "title": "Eksempel 3: Finn den stasjonære fordelingen",
+      "problem": "En befolkning flytter mellom by og bygd hvert år etter Markov-matrisen $A=\\begin{bmatrix}0{,}7&0{,}2\\\\0{,}3&0{,}8\\end{bmatrix}$ (kolonnene: fra by, fra bygd). Finn den stasjonære fordelingen.",
+      "solution": "Skriv med brøk for eksakt svar: $A=\\begin{bmatrix}7/10&1/5\\\\3/10&4/5\\end{bmatrix}$. **Kontroll:** kolonnesummer $7/10+3/10=1$ og $1/5+4/5=1$ $\\checkmark$, så $A$ er stokastisk og har egenverdi $1$.\n\nLøs $(A-I)\\mathbf q=\\mathbf 0$: $A-I=\\begin{bmatrix}-3/10&1/5\\\\3/10&-1/5\\end{bmatrix}$. Første rad gir $-\\tfrac{3}{10}q_1+\\tfrac15 q_2=0$, altså $3q_1=2q_2$, så $q_2=\\tfrac32 q_1$. En egenvektor er $\\begin{bmatrix}2\\\\3\\end{bmatrix}$.\n\n**Normaliser** (komponentsum $2+3=5$): $\\mathbf q=\\tfrac15\\begin{bmatrix}2\\\\3\\end{bmatrix}=\\begin{bmatrix}2/5\\\\3/5\\end{bmatrix}$.\n\n**Kontroll:** $A\\mathbf q=\\begin{bmatrix}7/10\\cdot2/5+1/5\\cdot3/5\\\\3/10\\cdot2/5+4/5\\cdot3/5\\end{bmatrix}=\\begin{bmatrix}2/5\\\\3/5\\end{bmatrix}=\\mathbf q$ $\\checkmark$.\n\n**Svar:** I det lange løp bor $2/5$ (40 %) i by og $3/5$ (60 %) i bygd."
+    },
+    {
+      "id": "tma4110-5-3-oppg3",
+      "type": "exercise",
+      "exercise": {
+        "id": "tma4110-5-3-oppg3x",
+        "number": "3",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "(Sjanger G — Markov.) La $A=\\begin{bmatrix}1/2&1/4\\\\1/2&3/4\\end{bmatrix}$.\n\n**a)** Bekreft at $A$ er stokastisk, og forklar hvorfor $1$ er en egenverdi.\n\n**b)** Finn den stasjonære fordelingen.",
+        "solution": "**a)** Kolonnesummer: $1/2+1/2=1$ og $1/4+3/4=1$, og alle elementer $\\ge0$ — så $A$ er stokastisk. En stokastisk matrise har alltid egenverdi $1$ (radsum $1$ i $A^{T}$ gir $A^{T}\\mathbf 1=\\mathbf 1$, og $A,A^{T}$ deler egenverdier).\n\n**b)** $(A-I)\\mathbf q=\\mathbf 0$: $A-I=\\begin{bmatrix}-1/2&1/4\\\\1/2&-1/4\\end{bmatrix}$. Rad 1: $-\\tfrac12 q_1+\\tfrac14 q_2=0\\Rightarrow q_2=2q_1$. Egenvektor $\\begin{bmatrix}1\\\\2\\end{bmatrix}$; normaliser (sum $3$): $\\mathbf q=\\begin{bmatrix}1/3\\\\2/3\\end{bmatrix}$. Kontroll: $A\\mathbf q=\\begin{bmatrix}1/2\\cdot1/3+1/4\\cdot2/3\\\\1/2\\cdot1/3+3/4\\cdot2/3\\end{bmatrix}=\\begin{bmatrix}1/3\\\\2/3\\end{bmatrix}$ $\\checkmark$.",
+        "hints": [
+          "Stokastisk: alle elementer $\\ge0$ og hver kolonne summerer til $1$.",
+          "Egenvektor for $\\lambda=1$: løs $(A-I)\\mathbf q=\\mathbf 0$.",
+          "Normaliser egenvektoren så komponentene summerer til $1$ (del på summen)."
+        ]
+      }
+    },
+    {
+      "id": "tma4110-5-3-lokke3",
+      "type": "text",
+      "content": "## Løkke 3 — Langtidsoppførsel via egenvektordekomponering (~14 min)"
+    },
+    {
+      "id": "tma4110-5-3-def-langtid",
+      "type": "definition",
+      "title": "Langtidsgrense ved dekomponering",
+      "content": "For å finne $\\lim_{n\\to\\infty}A^n\\mathbf x_0$ **dekomponerer** du startvektoren i egenvektorer, $\\mathbf x_0=c_1\\mathbf v_1+\\dots+c_n\\mathbf v_n$. Da er\n$$A^n\\mathbf x_0=c_1\\lambda_1^n\\mathbf v_1+\\dots+c_n\\lambda_n^n\\mathbf v_n.$$\nHvert ledd vokser eller dør ut etter sin egenverdi: ledd med $|\\lambda|<1$ går mot $\\mathbf 0$, ledd med $\\lambda=1$ overlever uendret, og $|\\lambda|>1$ vokser. For en Markov-matrise (der $\\lambda=1$ er størst) overlever bare $\\lambda=1$-leddet, og grensen er den **stasjonære komponenten** $c_1\\mathbf v_1$."
+    },
+    {
+      "id": "tma4110-5-3-ex4",
+      "type": "example",
+      "title": "Eksempel 4: Hvor havner systemet?",
+      "problem": "Med $A=\\begin{bmatrix}7/10&1/5\\\\3/10&4/5\\end{bmatrix}$ fra Eksempel 3 og startfordeling $\\mathbf x_0=\\begin{bmatrix}1\\\\0\\end{bmatrix}$ (alle i by), finn $\\lim_{n\\to\\infty}A^n\\mathbf x_0$.",
+      "solution": "Egenverdiene er $\\lambda_1=1$ (fra Eksempel 3) og $\\lambda_2$: $\\operatorname{spor}A=7/10+4/5=3/2$, så $\\lambda_2=3/2-1=1/2$. Egenvektorer: $\\mathbf v_1=\\begin{bmatrix}2\\\\3\\end{bmatrix}$ (for $\\lambda=1$), og for $\\lambda=1/2$: $A-\\tfrac12 I=\\begin{bmatrix}1/5&1/5\\\\3/10&3/10\\end{bmatrix}\\to q_1+q_2=0$, så $\\mathbf v_2=\\begin{bmatrix}1\\\\-1\\end{bmatrix}$.\n\n**Dekomponer** $\\mathbf x_0=(1,0)=c_1\\mathbf v_1+c_2\\mathbf v_2$: $2c_1+c_2=1$ og $3c_1-c_2=0\\Rightarrow c_2=3c_1$. Innsatt: $5c_1=1\\Rightarrow c_1=\\tfrac15$, $c_2=\\tfrac35$.\n\n**Grense:** $A^n\\mathbf x_0=c_1\\cdot1^n\\mathbf v_1+c_2\\cdot(1/2)^n\\mathbf v_2$. Leddet med $(1/2)^n\\to0$ dør ut, så\n$$\\lim_{n\\to\\infty}A^n\\mathbf x_0=c_1\\mathbf v_1=\\tfrac15\\begin{bmatrix}2\\\\3\\end{bmatrix}=\\begin{bmatrix}2/5\\\\3/5\\end{bmatrix}.$$\n**Svar:** Uansett at alle startet i by, havner fordelingen på $2/5$ by, $3/5$ bygd — den stasjonære fordelingen. (Startvektoren summerte til $1$, så $c_1\\mathbf v_1$ er nettopp $\\mathbf q$.)"
+    },
+    {
+      "id": "tma4110-5-3-oppg4",
+      "type": "exercise",
+      "exercise": {
+        "id": "tma4110-5-3-oppg4x",
+        "number": "4",
+        "type": "classic",
+        "difficulty": "vanskelig",
+        "task": "(Sjanger G — langtidsgrense.) La $A=\\begin{bmatrix}1/2&1/4\\\\1/2&3/4\\end{bmatrix}$ (fra oppgave 3, stasjonær $(1/3,2/3)$) med $\\mathbf x_0=\\begin{bmatrix}1\\\\0\\end{bmatrix}$. Finn $\\lim_{n\\to\\infty}A^n\\mathbf x_0$ ved dekomponering.",
+        "solution": "Egenverdier: $\\lambda_1=1$; $\\operatorname{spor}A=1/2+3/4=5/4$, så $\\lambda_2=5/4-1=1/4$. Egenvektorer: $\\mathbf v_1=\\begin{bmatrix}1\\\\2\\end{bmatrix}$ (for $1$); for $\\lambda=1/4$: $A-\\tfrac14 I=\\begin{bmatrix}1/4&1/4\\\\1/2&1/2\\end{bmatrix}\\to q_1+q_2=0$, $\\mathbf v_2=\\begin{bmatrix}1\\\\-1\\end{bmatrix}$.\n\nDekomponer $(1,0)=c_1\\mathbf v_1+c_2\\mathbf v_2$: $c_1+c_2=1$, $2c_1-c_2=0\\Rightarrow c_2=2c_1$. Så $3c_1=1$, $c_1=1/3$, $c_2=2/3$.\n\n$A^n\\mathbf x_0=c_1\\cdot1^n\\mathbf v_1+c_2\\cdot(1/4)^n\\mathbf v_2$. Andre ledd $\\to\\mathbf 0$, så\n$$\\lim_{n\\to\\infty}A^n\\mathbf x_0=\\tfrac13\\begin{bmatrix}1\\\\2\\end{bmatrix}=\\begin{bmatrix}1/3\\\\2/3\\end{bmatrix}.$$\nSom ventet lik den stasjonære fordelingen.",
+        "hints": [
+          "Finn begge egenverdier: $\\lambda=1$ og $\\lambda_2=\\operatorname{spor}A-1$; og en egenvektor for hver.",
+          "Skriv $\\mathbf x_0=c_1\\mathbf v_1+c_2\\mathbf v_2$ og løs for $c_1,c_2$.",
+          "Leddet med $|\\lambda|<1$ dør ut når $n\\to\\infty$; grensen er $c_1\\mathbf v_1$."
+        ]
+      }
+    },
+    {
+      "id": "tma4110-5-3-lokke4",
+      "type": "text",
+      "content": "## Løkke 4 — Nilpotens som bevistema (~12 min)"
+    },
+    {
+      "id": "tma4110-5-3-def-nilpotent",
+      "type": "definition",
+      "title": "Nilpotent matrise",
+      "content": "En kvadratisk matrise $A$ er **nilpotent** hvis en potens blir null: $A^k=O$ for et heltall $k\\ge1$. Det minste slike $k$ kalles nilpotensindeksen. Eksempel: $\\begin{bmatrix}0&1\\\\0&0\\end{bmatrix}$ har kvadrat $O$. Nilpotente matriser er alltid singulære og har bare egenverdien $0$ (neste teorem)."
+    },
+    {
+      "id": "tma4110-5-3-th-nilpotent",
+      "type": "theorem",
+      "title": "Bevis-bro: $A^k=O\\Rightarrow$ alle egenverdier $0$",
+      "content": "**Påstand.** Er $A^k=O$ for et $k\\ge1$, er hver egenverdi $\\lambda=0$.\n\n**Bevis.** La $\\lambda$ være en egenverdi med egenvektor $\\mathbf v\\ne\\mathbf 0$: $A\\mathbf v=\\lambda\\mathbf v$. Gjentatt ganging med $A$ gir $A^k\\mathbf v=\\lambda^k\\mathbf v$ (kap. 5.1). Men $A^k=O$, så venstresiden er $\\mathbf 0$:\n$$\\lambda^k\\mathbf v=\\mathbf 0.$$\nSiden $\\mathbf v\\ne\\mathbf 0$, må $\\lambda^k=0$, altså $\\lambda=0$. $\\blacksquare$\n\n**Konsekvenser:** En nilpotent matrise har $\\det A=\\prod\\lambda_i=0$ (singulær), og er aldri diagonaliserbar med mindre $A=O$ (en diagonaliserbar matrise med bare egenverdi $0$ er $P\\,O\\,P^{-1}=O$). Dette er broen til Neumann-triksten $(I-A)^{-1}=I+A+A^2+\\cdots+A^{k-1}$ fra kap. 2.2: fordi $A^k=O$, stopper den geometriske rekken."
+    },
+    {
+      "id": "tma4110-5-3-oppg5",
+      "type": "exercise",
+      "exercise": {
+        "id": "tma4110-5-3-oppg5x",
+        "number": "5",
+        "type": "classic",
+        "difficulty": "vanskelig",
+        "task": "(Sjanger N — bevis.) Anta at $A$ er nilpotent med $A^3=O$.\n\n**a)** Vis at $0$ er den eneste egenverdien.\n\n**b)** Forklar hvorfor $A$ ikke kan være inverterbar.",
+        "solution": "**a) Bevis.** La $\\lambda$ være en egenverdi med egenvektor $\\mathbf v\\ne\\mathbf 0$, så $A\\mathbf v=\\lambda\\mathbf v$. Da $A^3\\mathbf v=\\lambda^3\\mathbf v$. Men $A^3=O$ gir $A^3\\mathbf v=\\mathbf 0$, så $\\lambda^3\\mathbf v=\\mathbf 0$. Siden $\\mathbf v\\ne\\mathbf 0$, er $\\lambda^3=0$, altså $\\lambda=0$. Dermed er $0$ den eneste mulige egenverdien. $\\blacksquare$\n\n**b)** Fra (a) er alle egenverdier $0$, så $\\det A=\\prod\\lambda_i=0$. Ved determinantkriteriet (kap. 2.3) / inverterbarhetssetningen er $A$ da **singulær** — ikke inverterbar. (Alternativt: var $A$ inverterbar, ville $A^3=O$ gitt $A^3(A^{-1})^3=O$, altså $I=O$, umulig.)",
+        "hints": [
+          "For (a): start fra $A\\mathbf v=\\lambda\\mathbf v$, gang gjentatte ganger med $A$ til $A^3\\mathbf v=\\lambda^3\\mathbf v$, og bruk $A^3=O$.",
+          "Siden $\\mathbf v\\ne\\mathbf 0$, følger $\\lambda^3=0$.",
+          "For (b): $\\det A=\\prod\\lambda_i$; alle egenverdier $0$ gir $\\det A=0$, altså singulær."
+        ]
+      }
+    },
+    {
+      "id": "tma4110-5-3-def-cayley",
+      "type": "definition",
+      "title": "Cayley–Hamilton (kjennskap)",
+      "content": "**Cayley–Hamilton-teoremet:** enhver kvadratisk matrise oppfyller sitt eget karakteristiske polynom. Er $p(\\lambda)=\\det(A-\\lambda I)$, så er $p(A)=O$. For 2×2 betyr det $A^2-(\\operatorname{spor}A)A+(\\det A)I=O$. Teoremet lar deg uttrykke høye potenser $A^n$ som lavgrads-polynom i $A$, og gir en alternativ vei til $A^{-1}$. På dette nivået holder det å kjenne til og kunne bruke identiteten for 2×2."
+    },
+    {
+      "id": "tma4110-5-3-warning",
+      "type": "warning",
+      "title": "Typiske feil",
+      "content": "- **Regner $A^n$ direkte** ved å gange $A$ med seg selv $n$ ganger. Bruk $A^n=PD^nP^{-1}$ — det er hele poenget med diagonalisering.\n- **Feil $P$ for $q(A)$.** Polynom i $A$ bruker SAMME $P$ som $A$; bare diagonalen endres til $q(\\lambda_i)$. Ikke diagonaliser på nytt.\n- **Glemmer at $|\\lambda|<1$-ledd dør ut.** I langtidsgrensen overlever bare ledd med $|\\lambda|=1$ (typisk $\\lambda=1$); de andre går mot $\\mathbf 0$. Ikke behold dem i grensen.\n- **Finner ikke egenverdi $1$ for en stokastisk matrise.** Kolonnesum $1$ garanterer $\\lambda=1$ — bruk det som kontroll, og let etter stasjonærvektoren i $\\operatorname{Nul}(A-I)$.\n- **Feil normalisering av stasjonær fordeling.** Egenvektoren må skaleres så komponentene summerer til $1$ (del på komponentsummen), ikke til lengde $1$.\n- **Tror en nilpotent matrise kan være inverterbar.** $A^k=O$ tvinger $\\det A=0$; nilpotente matriser er alltid singulære."
+    },
+    {
+      "id": "tma4110-5-3-begrepsbank-tekst",
+      "type": "text",
+      "content": "## Begrepsbank til eksamen\n\nDe resterende kjernebegrepene i kortform for repetisjon og pugging (kode E — intet formelark).\n\n*Begrepsbanken er flashcard-/repetisjonsstoff — det gjentar det du nettopp har lest. Hopp trygt over ved førstegangslesing; tidsanslaget for kapitlet gjelder kjernestoffet.*"
+    },
+    {
+      "id": "tma4110-5-3-bb-Dn",
+      "type": "definition",
+      "title": "Potens av en diagonalmatrise",
+      "content": "$D=\\operatorname{diag}(\\lambda_1,\\dots,\\lambda_n)$ gir $D^n=\\operatorname{diag}(\\lambda_1^n,\\dots,\\lambda_n^n)$ — bare opphøy hvert diagonalelement. Dette er grunnen til at $A^n=PD^nP^{-1}$ er så billig: alt det tunge skjer på diagonalen."
+    },
+    {
+      "id": "tma4110-5-3-bb-inverspotens",
+      "type": "definition",
+      "title": "Negative potenser",
+      "content": "Er $A=PDP^{-1}$ inverterbar (alle $\\lambda_i\\ne0$), gjelder formelen også for negative potenser: $A^{-n}=PD^{-n}P^{-1}$ med $D^{-n}=\\operatorname{diag}(\\lambda_1^{-n},\\dots,\\lambda_n^{-n})$. Spesielt er $A^{-1}=PD^{-1}P^{-1}$."
+    },
+    {
+      "id": "tma4110-5-3-bb-dominant",
+      "type": "definition",
+      "title": "Dominant egenverdi",
+      "content": "Den egenverdien med størst tallverdi $|\\lambda|$ kalles den **dominante**. I $A^n\\mathbf x_0=\\sum c_i\\lambda_i^n\\mathbf v_i$ er det leddet med den dominante egenverdien som til slutt bestemmer retningen (så lenge $c_i\\ne0$). For Markov-matriser er $\\lambda=1$ dominant, og systemet nærmer seg stasjonærvektoren."
+    },
+    {
+      "id": "tma4110-5-3-bb-doer-ut",
+      "type": "definition",
+      "title": "Ledd med $|\\lambda|<1$ dør ut",
+      "content": "I langtidsgrensen $A^n\\mathbf x_0=\\sum c_i\\lambda_i^n\\mathbf v_i$ går hvert ledd med $|\\lambda_i|<1$ mot $\\mathbf 0$ fordi $\\lambda_i^n\\to0$. Bare ledd med $|\\lambda_i|=1$ (og eventuelt $|\\lambda_i|>1$) overlever. Det er dette som gir en veldefinert grense for Markov-systemer."
+    },
+    {
+      "id": "tma4110-5-3-bb-sannsyn",
+      "type": "definition",
+      "title": "Sannsynlighetsvektor",
+      "content": "En **sannsynlighetsvektor** har ikke-negative komponenter som summerer til $1$. En stokastisk matrise sender enhver sannsynlighetsvektor til en ny sannsynlighetsvektor (kolonnesum $1$ bevarer totalsummen). Den stasjonære fordelingen er den sannsynlighetsvektoren som er fast: $A\\mathbf q=\\mathbf q$."
+    },
+    {
+      "id": "tma4110-5-3-bb-regulaer",
+      "type": "definition",
+      "title": "Regulær Markov-matrise",
+      "content": "En Markov-matrise er **regulær** hvis en potens $A^m$ har bare strengt positive elementer. For en regulær Markov-matrise er $\\lambda=1$ den eneste egenverdien med $|\\lambda|=1$, og $A^n\\mathbf x_0$ konvergerer mot den samme stasjonærvektoren $\\mathbf q$ **uansett** startfordeling $\\mathbf x_0$. Dette forklarer hvorfor «alle veier fører til $\\mathbf q$» i Eksempel 4."
+    },
+    {
+      "id": "tma4110-5-3-bb-spor-An",
+      "type": "definition",
+      "title": "Spor og determinant av $A^n$",
+      "content": "Egenverdiene til $A^n$ er $\\lambda_i^n$, så $\\operatorname{spor}(A^n)=\\sum_i\\lambda_i^n$ og $\\det(A^n)=(\\det A)^n=\\prod_i\\lambda_i^n$. Dette gir en rask kontroll på en $A^n$-formel: sporet av svaret skal være $\\sum\\lambda_i^n$."
+    },
+    {
+      "id": "tma4110-5-3-bb-neumann",
+      "type": "definition",
+      "title": "Neumann-rekken",
+      "content": "Er $A$ nilpotent med $A^k=O$, er $I-A$ inverterbar med en endelig geometrisk rekke som invers: $(I-A)^{-1}=I+A+A^2+\\cdots+A^{k-1}$ (kap. 2.2). Rekken stopper fordi alle høyere potenser er $O$. Nilpotens-teoremet (egenverdier $0$) er den teoretiske forklaringen på at $I-A$ er inverterbar."
+    },
+    {
+      "id": "tma4110-5-3-bb-projeksjon-potens",
+      "type": "definition",
+      "title": "Idempotente matriser: $A^n=A$",
+      "content": "For en idempotent matrise ($A^2=A$, egenverdier $0,1$) er alle potenser like: $A^n=A$ for $n\\ge1$. Diagonalt: $D^n=D$ når diagonalen bare består av $0$ og $1$. Slike matriser er projeksjoner (Del 6) og «setter seg» etter ett steg."
+    },
+    {
+      "id": "tma4110-5-3-bb-konvergensmatrise",
+      "type": "definition",
+      "title": "Når $A^n\\to O$",
+      "content": "En diagonaliserbar matrise oppfyller $A^n\\to O$ (nullmatrisen) nettopp når **alle** egenverdier har $|\\lambda_i|<1$ — da dør hvert ledd $\\lambda_i^n$ ut. Slike matriser kalles konvergente og er sentrale i stabilitet av iterasjoner og differenslikninger."
+    },
+    {
+      "id": "tma4110-5-3-bb-differens",
+      "type": "definition",
+      "title": "Differenslikning $\\mathbf x_{n+1}=A\\mathbf x_n$",
+      "content": "En **differenslikning** (diskret dynamisk system) er $\\mathbf x_{n+1}=A\\mathbf x_n$, med løsning $\\mathbf x_n=A^n\\mathbf x_0$. Egenverdiene styrer oppførselen: $|\\lambda|<1$ gir demping mot $\\mathbf 0$, $\\lambda=1$ gir en stabil komponent, $|\\lambda|>1$ gir vekst. Markov-kjeder er spesialtilfellet der $A$ er stokastisk."
+    },
+    {
+      "id": "tma4110-5-3-bb-samme-P",
+      "type": "definition",
+      "title": "Alle potenser deler egenbasis",
+      "content": "$A, A^2, A^3,\\dots$ og ethvert polynom $q(A)$ har nøyaktig de samme egenvektorene som $A$ — bare egenverdiene endres ($\\lambda\\mapsto\\lambda^n$ eller $\\lambda\\mapsto q(\\lambda)$). Derfor bruker du SAMME $P$ i $A^n=PD^nP^{-1}$ og $q(A)=P\\,q(D)\\,P^{-1}$; du diagonaliserer bare én gang."
+    },
+    {
+      "id": "tma4110-5-3-bb-modulus1",
+      "type": "definition",
+      "title": "Alle egenverdier til en stokastisk matrise har $|\\lambda|\\le1$",
+      "content": "For en stokastisk matrise ligger alle egenverdier i eller på enhetssirkelen: $|\\lambda|\\le1$, med $\\lambda=1$ alltid til stede. Dette er grunnen til at $A^n$ ikke sprenger ut, men konvergerer (for regulære matriser) mot stasjonærfordelingen — ingen egenverdi kan gi vekst."
+    },
+    {
+      "id": "tma4110-5-3-bb-totalbevart",
+      "type": "definition",
+      "title": "Kolonnesum $1$ bevarer totalen",
+      "content": "Ganger du en vektor $\\mathbf x$ med en stokastisk matrise, bevares komponentsummen: $\\sum_i(A\\mathbf x)_i=\\sum_j x_j$ fordi hver kolonne summerer til $1$. En sannsynlighetsfordeling (sum $1$) forblir derfor en sannsynlighetsfordeling gjennom alle steg — nyttig kontroll på Markov-regning. Slik modellerer Markov-kjeder systemer som flytter mellom endelig mange tilstander steg for steg (befolkningsflyt, værmodeller, nettverksmodeller)."
+    },
+    {
+      "id": "tma4110-5-3-rep",
+      "type": "collapsible",
+      "title": "Repetisjonsoppgaver",
+      "buttonText": "Vis repetisjonsoppgaver",
+      "content": [
+        {
+          "id": "tma4110-5-3-rep-1",
+          "type": "exercise",
+          "exercise": {
+            "id": "tma4110-5-3-rep-1x",
+            "number": "R1",
+            "type": "classic",
+            "difficulty": "lett",
+            "task": "(Fra kap. 5.2) La $A=PDP^{-1}$ med $D=\\operatorname{diag}(2,3)$. Hva er $D^4$, og hva blir egenverdiene til $A^4$?",
+            "solution": "$D^4=\\operatorname{diag}(2^4,3^4)=\\operatorname{diag}(16,81)$. Egenverdiene til $A^4$ er $2^4=16$ og $3^4=81$ (samme egenvektorer som $A$).",
+            "hints": [
+              "Potens av diagonalmatrise er elementvis: $D^4=\\operatorname{diag}(2^4,3^4)$."
+            ]
+          }
+        },
+        {
+          "id": "tma4110-5-3-rep-2",
+          "type": "exercise",
+          "exercise": {
+            "id": "tma4110-5-3-rep-2x",
+            "number": "R2",
+            "type": "classic",
+            "difficulty": "lett",
+            "task": "(Fra kap. 5.1) Hvorfor er $\\lambda^k$ egenverdi for $A^k$ når $\\lambda$ er egenverdi for $A$?",
+            "solution": "Fra $A\\mathbf v=\\lambda\\mathbf v$ gir gjentatt ganging med $A$ at $A^k\\mathbf v=\\lambda^k\\mathbf v$ — samme egenvektor, egenverdien opphøyd i $k$.",
+            "hints": [
+              "Gang $A\\mathbf v=\\lambda\\mathbf v$ med $A$ gjentatte ganger."
+            ]
+          }
+        },
+        {
+          "id": "tma4110-5-3-rep-3",
+          "type": "exercise",
+          "exercise": {
+            "id": "tma4110-5-3-rep-3x",
+            "number": "R3",
+            "type": "classic",
+            "difficulty": "middels",
+            "task": "(Fra kap. 5.2) Er en Markov-matrise med to distinkte egenverdier diagonaliserbar?",
+            "solution": "Ja. To distinkte egenverdier for en $2\\times2$-matrise gir diagonaliserbarhet ved snarvei 1 (kap. 5.2) — uavhengig av at den er stokastisk. Det er nettopp dette som lar oss skrive $A^n=PD^nP^{-1}$ og finne langtidsgrensen.",
+            "hints": [
+              "$n$ distinkte egenverdier $\\Rightarrow$ diagonaliserbar (kap. 5.2, snarvei 1)."
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": "tma4110-5-3-symbolliste",
+      "type": "collapsible",
+      "title": "Symbol- og formelliste",
+      "buttonText": "Vis symboler og formler",
+      "content": [
+        {
+          "id": "tma4110-5-3-symbolliste-text",
+          "type": "text",
+          "content": "## Symbol- og formelliste\n\n*Oppslagsverk — alt her forklares underveis i kapitlet.*\n\nAlle symboler og formler brukt i dette delkapitlet (5.3), samlet på ett sted.\n\n| Symbol | Betydning |\n|---|---|\n| $A^n$ | $n$-te potens av $A$ |\n| $D^n$ | $\\operatorname{diag}(\\lambda_1^n,\\dots,\\lambda_n^n)$ |\n| $q(A)$ | Polynom i matrisen $A$ |\n| $\\mathbf q$ | Stasjonær vektor (fordeling) |\n| $\\mathbf x_0$ | Startvektor |\n| $\\mathbf 1$ | Vektoren $(1,1,\\dots,1)$ |\n| $O$ | Nullmatrisen |\n| $c_i$ | Koeffisienter i egenvektordekomponering |\n\n**Formler i dette delkapitlet:**\n\n$$A^n=PD^nP^{-1},\\qquad D^n=\\operatorname{diag}(\\lambda_1^n,\\dots,\\lambda_n^n)$$\nPotenser via diagonalisering.\n\n$$q(A)\\mathbf v=q(\\lambda)\\mathbf v,\\qquad q(A)=P\\,q(D)\\,P^{-1}$$\nPolynom i $A$ — samme egenvektorer, egenverdi $q(\\lambda)$.\n\n$$A\\text{ stokastisk}\\Rightarrow \\text{kolonnesum}=1,\\ \\lambda=1\\text{ egenverdi}$$\nMarkov-matrise.\n\n$$A\\mathbf q=\\mathbf q,\\ \\sum q_i=1,\\ q_i\\ge0$$\nStasjonær fordeling (normalisert egenvektor for $\\lambda=1$).\n\n$$A^n\\mathbf x_0=\\sum_i c_i\\lambda_i^n\\mathbf v_i\\ \\xrightarrow{n\\to\\infty}\\ \\text{ledd med }|\\lambda|<1\\text{ dør ut}$$\nLangtidsgrense via dekomponering.\n\n$$A^k=O\\ \\Rightarrow\\ \\text{alle egenverdier }0$$\nNilpotens (bevis-bro).\n\n$$A^2-(\\operatorname{spor}A)A+(\\det A)I=O$$\nCayley–Hamilton for 2×2 (kjennskap)."
+        }
+      ]
+    }
+  ],
+  "exercises": []
+}

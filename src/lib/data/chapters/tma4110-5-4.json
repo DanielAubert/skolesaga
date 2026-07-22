@@ -1,0 +1,410 @@
+{
+  "id": "tma4110-5-4",
+  "courseId": "tma4110",
+  "chapterNumber": "5.4",
+  "title": "Komplekse egenverdier",
+  "description": "Når karakteristisk likning har komplekse røtter: konjugerte egenverdier og egenvektorer for en reell matrise, den geometriske skalering-rotasjon-tolkningen, og reell vs. kompleks diagonalisering — broen til komplekse tall (Del 7) og ODE-systemer med svingninger (Del 10).",
+  "estimatedMinutes": 50,
+  "competenceGoals": [
+    "finne komplekse egenverdier og egenvektorer til en reell matrise og vite at de opptrer i konjugerte par",
+    "tolke en reell 2×2-matrise med komplekse egenverdier som en skalering med modulus |λ| og en rotasjon med arg λ",
+    "forklare hvorfor reell diagonalisering er umulig ved komplekse egenverdier mens kompleks diagonalisering finnes, og bruke spor og determinant som kontroll"
+  ],
+  "content": [
+    {
+      "id": "tma4110-5-4-tip-eksamensvinkel",
+      "type": "tip",
+      "title": "Eksamensvinkel",
+      "content": "**Komplekse egenverdier er den delen av egenverdioppgaven (~95 %) som dukker opp når karakteristisk likning ikke har reelle røtter.** Det skjer typisk for en $2\\times2$-matrise som *roterer* planet, eller inne i en $3\\times3$ der én reell egenverdi ledsages av et komplekst par.\n\n- Sensor forventer at du **løser karakteristisk likning over $\\mathbb C$**, oppgir egenverdiene som et **konjugert par** $\\lambda=a\\pm bi$, og finner **konjugerte egenvektorer**.\n- For det reelle $2\\times2$-tilfellet skal du kunne **tolke matrisen geometrisk**: en skalering med $|\\lambda|$ og en rotasjon med $\\arg\\lambda$.\n- Dette er også **forkunnskapen** for ODE-systemer med svingende løsninger (Del 10).\n\n**Utenat-krav (kode E):** $abc$-formelen med negativ diskriminant, at komplekse egenverdier for reell matrise kommer parvis, og skalering-/rotasjonstolkningen. Ingen kalkulator — de eksakte kompleks-regningene må sitte."
+    },
+    {
+      "id": "tma4110-5-4-forkunnskaper",
+      "type": "text",
+      "content": "**Forkunnskaper:** Dette kapitlet bygger på egenverdiapparatet fra [kap. 5.1](/bok/tma4110/tma4110-5-1) — karakteristisk likning $\\det(A-\\lambda I)=0$ og egenrom $E_\\lambda=\\operatorname{Nul}(A-\\lambda I)$ — og på polarformen for komplekse tall fra [kap. 7.2](/bok/tma4110/tma4110-7-2): $z=re^{i\\theta}$, modulus $|z|$ og argument $\\arg z$. Komplekse tall dekkes ikke i VGS-bøkene på LK20-nivå; [Del 7](/bok/tma4110/tma4110-7-2) bygger dem fra grunnen.\n\n**Sist du var her (fra 5.1 og 7.2):** egenverdiene er røttene i $\\det(A-\\lambda I)=0$; egenrommet er nullrommet til $A-\\lambda I$. Et komplekst tall $a+bi$ har modulus $\\sqrt{a^2+b^2}$ og argument = vinkelen dets peker danner med den positive realaksen. Nå slipper vi kravet om at røttene skal være reelle."
+    },
+    {
+      "id": "tma4110-5-4-intro",
+      "type": "text",
+      "content": "Frem til nå har vi lett etter *reelle* egenverdier. Men karakteristisk likning er et polynom, og et polynom med reelle koeffisienter kan ha **komplekse røtter**. Da finnes det ingen reell retning som bare strekkes av matrisen — i stedet **roterer** matrisen planet. Tenk på en platespiller eller et hjul som spinner: ingen pil på skiva peker i samme retning etter en kvart omdreining, så det finnes ingen reell egenvektor. Egenverdiene er komplekse nettopp fordi virkningen er en rotasjon.\n\nKapitlet går i fire løkker: (1) komplekse egenverdier opptrer i konjugerte par, (2) hvordan du finner dem og de tilhørende egenvektorene, (3) den geometriske tolkningen skalering + rotasjon, og (4) reell vs. kompleks diagonalisering."
+    },
+    {
+      "id": "tma4110-5-4-l1",
+      "type": "text",
+      "content": "## Løkke 1 — Komplekse egenverdier kommer i konjugerte par (~11 min)"
+    },
+    {
+      "id": "tma4110-5-4-def-konjugertpar",
+      "type": "definition",
+      "title": "Komplekse egenverdier i konjugerte par",
+      "content": "Når du løser karakteristisk likning for en **reell** matrise $A$ og får en kompleks rot $\\lambda=a+bi$ (med $b\\ne0$), så er også dens **konjugat** $\\bar\\lambda=a-bi$ en egenverdi. Komplekse egenverdier for en reell matrise opptrer alltid **parvis** som konjugerte par:\n\n$$\\lambda=a+bi\\quad\\text{og}\\quad\\bar\\lambda=a-bi.$$\n\nGrunnen er at karakteristisk polynom $\\det(A-\\lambda I)$ har **reelle koeffisienter**, og reelle polynomer har komplekse røtter i konjugerte par."
+    },
+    {
+      "id": "tma4110-5-4-def-konjugert-egenvektor",
+      "type": "definition",
+      "title": "Konjugerte egenvektorer",
+      "content": "Hører egenvektoren $\\mathbf v$ til egenverdien $\\lambda=a+bi$, så hører den **konjugerte vektoren** $\\bar{\\mathbf v}$ (konjuger hver komponent) til den konjugerte egenverdien $\\bar\\lambda$:\n\n$$A\\mathbf v=\\lambda\\mathbf v\\quad\\Longrightarrow\\quad A\\bar{\\mathbf v}=\\bar\\lambda\\,\\bar{\\mathbf v}.$$\n\nDu trenger derfor bare å regne ut **ett** egenvektor-par: finn $\\mathbf v$ for $\\lambda$, så er $\\bar{\\mathbf v}$ gratis for $\\bar\\lambda$. Det halverer arbeidet."
+    },
+    {
+      "id": "tma4110-5-4-ex1",
+      "type": "example",
+      "title": "Eksempel 1: Rotasjon med 90°",
+      "problem": "Finn de komplekse egenverdiene og egenvektorene til $A=\\begin{bmatrix}0&-1\\\\1&0\\end{bmatrix}$, som roterer planet $90^\\circ$ mot klokka.",
+      "solution": "**Karakteristisk likning:** $\\det(A-\\lambda I)=\\det\\begin{bmatrix}-\\lambda&-1\\\\1&-\\lambda\\end{bmatrix}=\\lambda^2+1=0$, så $\\lambda=\\pm i$ (et konjugert par, som ventet).\n\n**Egenvektor for $\\lambda=i$:** løs $(A-iI)\\mathbf v=\\mathbf 0$ med $A-iI=\\begin{bmatrix}-i&-1\\\\1&-i\\end{bmatrix}$. Andre rad gir $v_1-i\\,v_2=0$, altså $v_1=i\\,v_2$. Sett $v_2=1$:\n$$\\mathbf v=\\begin{bmatrix}i\\\\1\\end{bmatrix}.$$\n\n**Egenvektor for $\\bar\\lambda=-i$:** ta konjugatet, $\\bar{\\mathbf v}=\\begin{bmatrix}-i\\\\1\\end{bmatrix}$ (gratis).\n\n**Kontroll (spor/determinant):** $\\operatorname{spor}A=0=\\lambda+\\bar\\lambda=i+(-i)$ ✓ og $\\det A=1=\\lambda\\bar\\lambda=i\\cdot(-i)=1$ ✓.\n\n**Konklusjon:** egenverdiene er $\\lambda=i,\\ \\bar\\lambda=-i$ med egenvektorer $\\begin{bmatrix}i\\\\1\\end{bmatrix}$ og $\\begin{bmatrix}-i\\\\1\\end{bmatrix}$. Ingen reell egenvektor finnes — matrisen roterer, den strekker ikke."
+    },
+    {
+      "id": "tma4110-5-4-oppg-l1a",
+      "type": "exercise",
+      "exercise": {
+        "id": "tma4110-5-4-l1a",
+        "number": "1",
+        "type": "classic",
+        "difficulty": "lett",
+        "task": "(Innstegsoppgave.) En reell $2\\times2$-matrise har egenverdi $\\lambda=3+2i$ med egenvektor $\\mathbf v=\\begin{bmatrix}1+i\\\\2\\end{bmatrix}$.\n\n**a)** Hva er den andre egenverdien?\n**b)** Hva er den tilhørende egenvektoren?",
+        "solution": "**a)** Egenverdier for en reell matrise kommer i konjugerte par, så den andre er konjugatet $\\bar\\lambda=3-2i$.\n\n**b)** Den tilhørende egenvektoren er konjugatet $\\bar{\\mathbf v}=\\begin{bmatrix}1-i\\\\2\\end{bmatrix}$ (konjuger hver komponent; $\\overline{1+i}=1-i$, $\\bar2=2$).",
+        "hints": [
+          "Reelle matriser har komplekse egenverdier og egenvektorer parvis — konjuger.",
+          "Konjugatet av $a+bi$ er $a-bi$; konjuger hver komponent i vektoren."
+        ]
+      }
+    },
+    {
+      "id": "tma4110-5-4-l2",
+      "type": "text",
+      "content": "## Løkke 2 — Finne egenverdiene og egenvektorene (~12 min)"
+    },
+    {
+      "id": "tma4110-5-4-def-karakteristisk-C",
+      "type": "definition",
+      "title": "Karakteristisk likning over $\\mathbb C$",
+      "content": "Fremgangsmåten er nøyaktig som i 5.1, men nå tillater vi komplekse røtter. For en $2\\times2$-matrise gir $\\det(A-\\lambda I)=0$ en andregradslikning $\\lambda^2-(\\operatorname{spor}A)\\lambda+\\det A=0$. Løs den med $abc$-formelen:\n\n$$\\lambda=\\frac{\\operatorname{spor}A\\pm\\sqrt{(\\operatorname{spor}A)^2-4\\det A}}{2}.$$\n\nEr **diskriminanten negativ**, blir $\\sqrt{\\text{negativt}}=i\\sqrt{|\\cdot|}$, og du får et konjugert par $\\lambda=a\\pm bi$."
+    },
+    {
+      "id": "tma4110-5-4-def-egenrom-C",
+      "type": "definition",
+      "title": "Komplekst egenrom $E_\\lambda$",
+      "content": "Egenrommet finnes akkurat som før, men regningen skjer over $\\mathbb C$:\n\n$$E_\\lambda=\\operatorname{Nul}(A-\\lambda I).$$\n\nDu radreduserer $A-\\lambda I$ med **kompleks aritmetikk** (husk $i^2=-1$, og at $\\frac1i=-i$). For et enkelt konjugert par er hvert egenrom én-dimensjonalt over $\\mathbb C$, utspent av én egenvektor."
+    },
+    {
+      "id": "tma4110-5-4-ex2",
+      "type": "example",
+      "title": "Eksempel 2: Komplekse egenverdier fra abc-formelen",
+      "problem": "Finn de komplekse egenverdiene og en egenvektor for hver til $A=\\begin{bmatrix}2&-1\\\\1&2\\end{bmatrix}$.",
+      "solution": "**Karakteristisk likning:** $\\operatorname{spor}A=4$, $\\det A=2\\cdot2-(-1)\\cdot1=5$, så\n$$\\lambda^2-4\\lambda+5=0\\quad\\Longrightarrow\\quad \\lambda=\\frac{4\\pm\\sqrt{16-20}}{2}=\\frac{4\\pm\\sqrt{-4}}{2}=\\frac{4\\pm2i}{2}=2\\pm i.$$\nDiskriminanten $-4<0$ gir det konjugerte paret $\\lambda=2+i$, $\\bar\\lambda=2-i$.\n\n**Egenvektor for $\\lambda=2+i$:** $A-(2+i)I=\\begin{bmatrix}-i&-1\\\\1&-i\\end{bmatrix}$. Andre rad: $v_1-i\\,v_2=0\\Rightarrow v_1=i\\,v_2$. Med $v_2=1$:\n$$\\mathbf v=\\begin{bmatrix}i\\\\1\\end{bmatrix}.$$\n\n**Kontroll:** $A\\mathbf v=\\begin{bmatrix}2i-1\\\\ i+2\\end{bmatrix}$ og $(2+i)\\mathbf v=\\begin{bmatrix}(2+i)i\\\\2+i\\end{bmatrix}=\\begin{bmatrix}-1+2i\\\\2+i\\end{bmatrix}$ ✓.\n\n**Egenvektor for $\\bar\\lambda=2-i$:** konjuger, $\\bar{\\mathbf v}=\\begin{bmatrix}-i\\\\1\\end{bmatrix}$.\n\n**Sluttsvar:** $\\lambda=2\\pm i$ med egenvektorer $\\begin{bmatrix}i\\\\1\\end{bmatrix}$ og $\\begin{bmatrix}-i\\\\1\\end{bmatrix}$."
+    },
+    {
+      "id": "tma4110-5-4-oppg-l2a",
+      "type": "exercise",
+      "exercise": {
+        "id": "tma4110-5-4-l2a",
+        "number": "2",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "Finn de komplekse egenverdiene til $A=\\begin{bmatrix}1&-2\\\\1&-1\\end{bmatrix}$, og en egenvektor for den ene.",
+        "solution": "**Egenverdier:** $\\operatorname{spor}A=0$, $\\det A=1\\cdot(-1)-(-2)\\cdot1=-1+2=1$. Karakteristisk likning $\\lambda^2-0\\cdot\\lambda+1=\\lambda^2+1=0$, så $\\lambda=\\pm i$.\n\n**Egenvektor for $\\lambda=i$:** $A-iI=\\begin{bmatrix}1-i&-2\\\\1&-1-i\\end{bmatrix}$. Første rad: $(1-i)v_1-2v_2=0\\Rightarrow v_2=\\tfrac{1-i}{2}v_1$. Med $v_1=2$: $\\mathbf v=\\begin{bmatrix}2\\\\1-i\\end{bmatrix}$.\n\nKontroll: $A\\mathbf v=\\begin{bmatrix}2-2(1-i)\\\\2-(1-i)\\end{bmatrix}=\\begin{bmatrix}2i\\\\1+i\\end{bmatrix}$ og $i\\mathbf v=\\begin{bmatrix}2i\\\\i(1-i)\\end{bmatrix}=\\begin{bmatrix}2i\\\\1+i\\end{bmatrix}$ ✓.\n\n**Konjugert par:** $\\bar\\lambda=-i$ med $\\bar{\\mathbf v}=\\begin{bmatrix}2\\\\1+i\\end{bmatrix}$.",
+        "hints": [
+          "Bruk $\\lambda^2-(\\operatorname{spor}A)\\lambda+\\det A=0$; sjekk diskriminanten.",
+          "For egenvektoren: radreduser $A-iI$ over $\\mathbb C$, og velg $v_1$ slik at brøkene forsvinner."
+        ]
+      }
+    },
+    {
+      "id": "tma4110-5-4-l3",
+      "type": "text",
+      "content": "## Løkke 3 — Geometrisk tolkning: skalering og rotasjon (~13 min)"
+    },
+    {
+      "id": "tma4110-5-4-def-rotmatrise",
+      "type": "definition",
+      "title": "Rotasjons-skaleringsmatrisen $\\begin{bmatrix}a&-b\\\\ b&a\\end{bmatrix}$",
+      "content": "Matrisen på formen\n\n$$C=\\begin{bmatrix}a&-b\\\\ b&a\\end{bmatrix}$$\n\nhar karakteristisk likning $(a-\\lambda)^2+b^2=0$, altså egenverdiene $\\lambda=a\\pm bi$. Denne matrisen er **selve normalformen** for komplekse egenverdier: den virker på planet som en ren skalering kombinert med en rotasjon. Kjenner du igjen dette mønsteret ($a$ på diagonalen, $\\pm b$ over/under), kan du lese av egenverdiene direkte."
+    },
+    {
+      "id": "tma4110-5-4-def-modulus-arg",
+      "type": "definition",
+      "title": "Skalering med $|\\lambda|$ og rotasjon med $\\arg\\lambda$",
+      "content": "Skriv egenverdien $\\lambda=a+bi$ på polarform $\\lambda=re^{i\\varphi}$ med\n\n$$r=|\\lambda|=\\sqrt{a^2+b^2},\\qquad \\varphi=\\arg\\lambda=\\arg(a+bi).$$\n\nDa virker matrisen $C=\\begin{bmatrix}a&-b\\\\ b&a\\end{bmatrix}$ på planet som:\n\n- en **skalering** (strekk/krymp) med faktoren $r=|\\lambda|$, og\n- en **rotasjon** med vinkelen $\\varphi=\\arg\\lambda$ om origo (mot klokka når $b>0$).\n\nEr $|\\lambda|=1$ er det en **ren rotasjon**; er $|\\lambda|>1$ vokser vektorene (spiral utover), og for $|\\lambda|<1$ krymper de (spiral innover)."
+    },
+    {
+      "id": "tma4110-5-4-def-diskriminant",
+      "type": "definition",
+      "title": "Når har en $2\\times2$-matrise komplekse egenverdier?",
+      "content": "Egenverdiene er $\\lambda=\\dfrac{\\operatorname{spor}A\\pm\\sqrt{\\Delta}}{2}$ med **diskriminant**\n\n$$\\Delta=(\\operatorname{spor}A)^2-4\\det A.$$\n\n- $\\Delta>0$: to reelle, forskjellige egenverdier.\n- $\\Delta=0$: én reell dobbel egenverdi.\n- $\\Delta<0$: et konjugert **komplekst** par $a\\pm bi$ (med $b\\ne0$).\n\nSå et raskt blikk på $(\\operatorname{spor}A)^2-4\\det A$ avgjør om du er i det komplekse tilfellet — nyttig når du skal begrunne at reell diagonalisering er umulig."
+    },
+    {
+      "id": "tma4110-5-4-ex3",
+      "type": "example",
+      "title": "Eksempel 3: Skalering ganger rotasjon",
+      "problem": "La $A=\\begin{bmatrix}1&-1\\\\1&1\\end{bmatrix}$. Finn egenverdiene og beskriv virkningen på planet geometrisk.",
+      "solution": "**Egenverdier:** matrisen har formen $\\begin{bmatrix}a&-b\\\\ b&a\\end{bmatrix}$ med $a=1,b=1$, så $\\lambda=1\\pm i$ (sjekk: $\\operatorname{spor}A=2$, $\\det A=2$, $\\lambda^2-2\\lambda+2=0\\Rightarrow\\lambda=1\\pm i$).\n\n**Polarform av $\\lambda=1+i$:** $r=|\\lambda|=\\sqrt{1^2+1^2}=\\sqrt2$ og $\\varphi=\\arg(1+i)=\\tfrac\\pi4$ (1. kvadrant). Altså $\\lambda=\\sqrt2\\,e^{i\\pi/4}$.\n\n**Geometrisk tolkning:** $A$ virker på planet som en **skalering med faktor $\\sqrt2$** og en **rotasjon $45^\\circ$ mot klokka**. En vektor blir altså litt lengre ($\\times\\sqrt2$) og dreid en åttendedels omdreining hver gang $A$ virker — gjentatt bruk gir en spiral utover ($|\\lambda|=\\sqrt2>1$).\n\n**Kontroll:** virkningen på $\\begin{bmatrix}1\\\\0\\end{bmatrix}$ er $\\begin{bmatrix}1\\\\1\\end{bmatrix}$, som har lengde $\\sqrt2$ og vinkel $45^\\circ$ — nøyaktig skalering $\\sqrt2$ og rotasjon $45^\\circ$ ✓."
+    },
+    {
+      "id": "tma4110-5-4-oppg-l3a",
+      "type": "exercise",
+      "exercise": {
+        "id": "tma4110-5-4-l3a",
+        "number": "3",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "La $A=\\begin{bmatrix}0&-2\\\\2&0\\end{bmatrix}$.\n\n**a)** Finn egenverdiene.\n**b)** Beskriv virkningen på planet (skalering og rotasjon).",
+        "solution": "**a)** $\\operatorname{spor}A=0$, $\\det A=0-(-2)(2)=4$. Karakteristisk likning $\\lambda^2+4=0\\Rightarrow\\lambda=\\pm2i$.\n\n**b)** Ta $\\lambda=2i$: $r=|2i|=2$ og $\\arg(2i)=\\tfrac\\pi2$. Matrisen virker som en **skalering med faktor $2$** og en **rotasjon $90^\\circ$ mot klokka**. (Formen $\\begin{bmatrix}a&-b\\\\ b&a\\end{bmatrix}$ med $a=0,b=2$.)",
+        "hints": [
+          "Regn $\\operatorname{spor}A$ og $\\det A$, og sett opp $\\lambda^2-(\\operatorname{spor}A)\\lambda+\\det A=0$.",
+          "Skalering $=|\\lambda|$, rotasjon $=\\arg\\lambda$; her ligger $\\lambda$ på imaginæraksen."
+        ]
+      }
+    },
+    {
+      "id": "tma4110-5-4-l4",
+      "type": "text",
+      "content": "## Løkke 4 — Reell vs. kompleks diagonalisering (~13 min)"
+    },
+    {
+      "id": "tma4110-5-4-def-reell-diag-umulig",
+      "type": "definition",
+      "title": "Reell diagonalisering er umulig ved komplekse egenverdier",
+      "content": "Hvis en reell matrise $A$ har **ikke-reelle** egenverdier, kan den **ikke** diagonaliseres med en reell matrise $P$ og en reell diagonalmatrise $D$. Grunnen: diagonalelementene i $D$ måtte være egenverdiene, som er komplekse — og en diagonal matrise av reelle tall kan aldri ha komplekse tall på diagonalen.\n\nGeometrisk: en rotasjon har ingen reell egenvektor (ingen reell retning holdes fast), så det finnes ingen reell basis av egenvektorer å bygge $P$ av."
+    },
+    {
+      "id": "tma4110-5-4-def-kompleks-diag",
+      "type": "definition",
+      "title": "Kompleks diagonalisering $A=PDP^{-1}$ over $\\mathbb C$",
+      "content": "Over $\\mathbb C$ derimot finnes diagonaliseringen: har $A$ (av størrelse $n\\times n$) $n$ forskjellige komplekse egenverdier, er den **diagonaliserbar over $\\mathbb C$**:\n\n$$A=PDP^{-1},$$\n\nder $P$ har de (komplekse) egenvektorene som kolonner og $D$ har de (komplekse) egenverdiene på diagonalen — matchet søyle for søyle, akkurat som i det reelle tilfellet ([kap. 5.2](/bok/tma4110/tma4110-5-2)). Kriteriet er det samme; bare tallkroppen er utvidet fra $\\mathbb R$ til $\\mathbb C$."
+    },
+    {
+      "id": "tma4110-5-4-def-spor-det",
+      "type": "definition",
+      "title": "Spor og determinant som kontroll",
+      "content": "Kontrollrelasjonene fra 5.1 gjelder også over $\\mathbb C$:\n\n$$\\operatorname{spor}A=\\sum\\lambda_i,\\qquad \\det A=\\prod\\lambda_i.$$\n\nFor et konjugert par $\\lambda=a\\pm bi$ er $\\lambda+\\bar\\lambda=2a$ (reelt) og $\\lambda\\bar\\lambda=a^2+b^2=|\\lambda|^2$ (reelt og positivt). Summen og produktet blir altså reelle — som de må, siden $A$ er reell. Bruk dette som rask kontroll på at du har regnet riktig."
+    },
+    {
+      "id": "tma4110-5-4-ex4",
+      "type": "example",
+      "title": "Eksempel 4: Én reell egenverdi og et komplekst par (3×3)",
+      "problem": "Finn egenverdiene til $A=\\begin{bmatrix}2&0&0\\\\0&1&-1\\\\0&1&1\\end{bmatrix}$, og avgjør om den er reelt/komplekst diagonaliserbar.",
+      "solution": "**Karakteristisk likning:** matrisen er blokk-triangulær. Kofaktorutvikling langs første kolonne gir\n$$\\det(A-\\lambda I)=(2-\\lambda)\\big[(1-\\lambda)^2+1\\big]=0.$$\nSå $\\lambda_1=2$ (reell) og $(1-\\lambda)^2+1=0\\Rightarrow(1-\\lambda)^2=-1\\Rightarrow\\lambda=1\\pm i$.\n\n**Egenverdier:** $\\lambda_1=2,\\ \\lambda_2=1+i,\\ \\lambda_3=1-i$ — tre **forskjellige** egenverdier.\n\n**Egenvektor for $\\lambda_1=2$:** $(A-2I)=\\begin{bmatrix}0&0&0\\\\0&-1&-1\\\\0&1&-1\\end{bmatrix}$ gir $v_2=v_3=0$, $v_1$ fri: $\\mathbf v_1=\\begin{bmatrix}1\\\\0\\\\0\\end{bmatrix}$.\n\n**Egenvektor for $\\lambda_2=1+i$:** $(A-(1+i)I)$ har $(1-i)v_1=0\\Rightarrow v_1=0$, og $-i\\,v_2-v_3=0\\Rightarrow v_3=-i\\,v_2$. Med $v_2=1$: $\\mathbf v_2=\\begin{bmatrix}0\\\\1\\\\-i\\end{bmatrix}$; konjugatet $\\mathbf v_3=\\begin{bmatrix}0\\\\1\\\\i\\end{bmatrix}$ hører til $\\lambda_3$.\n\n**Diagonaliserbarhet:** tre forskjellige egenverdier ⇒ diagonaliserbar. Men fordi to av dem er **komplekse**, er den **ikke reelt** diagonaliserbar — bare **over $\\mathbb C$**, med\n$$P=\\begin{bmatrix}1&0&0\\\\0&1&1\\\\0&-i&i\\end{bmatrix},\\qquad D=\\begin{bmatrix}2&0&0\\\\0&1+i&0\\\\0&0&1-i\\end{bmatrix}.$$\n\n**Kontroll:** $\\operatorname{spor}A=2+1+1=4=2+(1+i)+(1-i)$ ✓; $\\det A=2\\cdot\\big[(1+i)(1-i)\\big]=2\\cdot2=4$ ✓."
+    },
+    {
+      "id": "tma4110-5-4-oppg-l4a",
+      "type": "exercise",
+      "exercise": {
+        "id": "tma4110-5-4-l4a",
+        "number": "4",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "La $A=\\begin{bmatrix}3&-2\\\\4&-1\\end{bmatrix}$.\n\n**a)** Vis at $A$ har komplekse egenverdier og finn dem.\n**b)** Kan $A$ diagonaliseres reelt? Begrunn.",
+        "solution": "**a)** $\\operatorname{spor}A=3+(-1)=2$, $\\det A=3\\cdot(-1)-(-2)\\cdot4=-3+8=5$. Karakteristisk likning $\\lambda^2-2\\lambda+5=0$ har diskriminant $\\Delta=4-20=-16<0$, så egenverdiene er komplekse:\n$$\\lambda=\\frac{2\\pm\\sqrt{-16}}{2}=\\frac{2\\pm4i}{2}=1\\pm2i.$$\n\n**b)** **Nei.** Egenverdiene $1\\pm2i$ er ikke-reelle, og en reell matrise med ikke-reelle egenverdier kan ikke diagonaliseres reelt (diagonalen i $D$ måtte inneholde komplekse tall). Den er derimot diagonaliserbar over $\\mathbb C$, siden de to egenverdiene er forskjellige.",
+        "hints": [
+          "Regn diskriminanten $\\Delta=(\\operatorname{spor}A)^2-4\\det A$; $\\Delta<0$ betyr komplekse egenverdier.",
+          "Reell diagonalisering krever reelle egenverdier på diagonalen i $D$."
+        ]
+      }
+    },
+    {
+      "id": "tma4110-5-4-warn-typiske",
+      "type": "warning",
+      "title": "Typiske feil",
+      "content": "- **Glemmer at komplekse egenverdier kommer parvis:** for en reell matrise må $\\bar\\lambda$ og $\\bar{\\mathbf v}$ også være med. Oppgir du bare $\\lambda=2+i$, mangler halve svaret.\n- **Regnefeil i kompleks aritmetikk:** husk $i^2=-1$, $\\tfrac1i=-i$, og $(a+bi)(a-bi)=a^2+b^2$.\n- **Feil $\\arg$ eller modulus** i skalering-/rotasjonstolkningen: bruk kvadranten (fortegnene til $a$ og $b$), ikke bare $\\tan^{-1}$.\n- **Prøver reell diagonalisering** der bare kompleks finnes — sjekk diskriminanten først, og skriv eksplisitt at reell diagonalisering er umulig.\n- **Desimalsvar:** gi eksakt form ($2\\pm i$, $\\sqrt2\\,e^{i\\pi/4}$), aldri avrundede tall.\n- **Glemmer spor/determinant-kontrollen:** $\\lambda+\\bar\\lambda$ og $\\lambda\\bar\\lambda$ skal begge bli reelle."
+    },
+    {
+      "id": "tma4110-5-4-pool",
+      "type": "text",
+      "content": "### Blandet oppgavesett (stigende vanskegrad)"
+    },
+    {
+      "id": "tma4110-5-4-oppg-p1",
+      "type": "exercise",
+      "exercise": {
+        "id": "tma4110-5-4-p1",
+        "number": "5",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "La $A=\\begin{bmatrix}4&-5\\\\2&-2\\end{bmatrix}$. Finn de komplekse egenverdiene og en egenvektor for den ene. Sjekk svaret mot spor og determinant.",
+        "solution": "$\\operatorname{spor}A=4+(-2)=2$, $\\det A=4\\cdot(-2)-(-5)\\cdot2=-8+10=2$. Karakteristisk likning $\\lambda^2-2\\lambda+2=0$, $\\Delta=4-8=-4<0$:\n$$\\lambda=\\frac{2\\pm2i}{2}=1\\pm i.$$\n\n**Egenvektor for $\\lambda=1+i$:** $A-(1+i)I=\\begin{bmatrix}3-i&-5\\\\2&-3-i\\end{bmatrix}$. Andre rad: $2v_1-(3+i)v_2=0\\Rightarrow v_1=\\tfrac{3+i}{2}v_2$. Med $v_2=2$: $\\mathbf v=\\begin{bmatrix}3+i\\\\2\\end{bmatrix}$.\n\n**Kontroll:** $\\lambda+\\bar\\lambda=2=\\operatorname{spor}A$ ✓; $\\lambda\\bar\\lambda=(1+i)(1-i)=2=\\det A$ ✓.",
+        "hints": [
+          "Sett opp $\\lambda^2-(\\operatorname{spor}A)\\lambda+\\det A=0$ og bruk $abc$-formelen.",
+          "For egenvektoren: bruk den raden med de enkleste tallene, og velg $v_2$ så brøken går opp."
+        ]
+      }
+    },
+    {
+      "id": "tma4110-5-4-oppg-p2",
+      "type": "exercise",
+      "exercise": {
+        "id": "tma4110-5-4-p2",
+        "number": "6",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "La $A=\\begin{bmatrix}0&-1\\\\1&0\\end{bmatrix}$ (rotasjon $90^\\circ$). Bruk kompleks diagonalisering $A=PDP^{-1}$ til å forklare at $A^4=I$.",
+        "solution": "Fra Eksempel 1 er $\\lambda=\\pm i$ med $P=\\begin{bmatrix}i&-i\\\\1&1\\end{bmatrix}$, $D=\\begin{bmatrix}i&0\\\\0&-i\\end{bmatrix}$.\n\nDa er $A^4=PD^4P^{-1}$, og $D^4=\\begin{bmatrix}i^4&0\\\\0&(-i)^4\\end{bmatrix}=\\begin{bmatrix}1&0\\\\0&1\\end{bmatrix}=I$ (siden $i^4=(i^2)^2=(-1)^2=1$). Altså\n$$A^4=PIP^{-1}=PP^{-1}=I.$$\n\n**Geometrisk sjekk:** $A$ roterer $90^\\circ$, så fire ganger gir $360^\\circ$ = identiteten ✓.",
+        "hints": [
+          "$A^n=PD^nP^{-1}$; regn $D^4$ ved å opphøye egenverdiene $\\pm i$ i fjerde.",
+          "$i^4=1$ og $(-i)^4=1$, så $D^4=I$."
+        ]
+      }
+    },
+    {
+      "id": "tma4110-5-4-oppg-p3",
+      "type": "exercise",
+      "exercise": {
+        "id": "tma4110-5-4-p3",
+        "number": "7",
+        "type": "classic",
+        "difficulty": "vanskelig",
+        "task": "(Eksamensnivå.) Vis at matrisen $C=\\begin{bmatrix}a&-b\\\\ b&a\\end{bmatrix}$ med $b\\ne0$ har egenverdier $a\\pm bi$, og forklar hvorfor $C$ virker som en skalering med $\\sqrt{a^2+b^2}$ etterfulgt av en rotasjon.",
+        "solution": "**Egenverdier:** $\\det(C-\\lambda I)=\\det\\begin{bmatrix}a-\\lambda&-b\\\\ b&a-\\lambda\\end{bmatrix}=(a-\\lambda)^2+b^2=0$. Da er $(a-\\lambda)^2=-b^2$, altså $a-\\lambda=\\pm bi$, så\n$$\\lambda=a\\mp bi,\\qquad\\text{dvs. }\\lambda=a\\pm bi.\\qquad\\blacksquare$$\n\n**Geometrisk:** skriv $\\lambda=a+bi=re^{i\\varphi}$ med $r=\\sqrt{a^2+b^2}$, $\\varphi=\\arg(a+bi)$. Da er\n$$C=\\begin{bmatrix}a&-b\\\\ b&a\\end{bmatrix}=r\\begin{bmatrix}\\cos\\varphi&-\\sin\\varphi\\\\ \\sin\\varphi&\\cos\\varphi\\end{bmatrix},$$\nfordi $a=r\\cos\\varphi$ og $b=r\\sin\\varphi$. Den siste matrisen er standard **rotasjonsmatrise** (dreier vinkelen $\\varphi$), og faktoren $r$ foran er en **skalering**. Så $C$ er skalering med $r=\\sqrt{a^2+b^2}$ og rotasjon med $\\varphi$. $\\blacksquare$",
+        "hints": [
+          "Regn $\\det(C-\\lambda I)$ direkte; det gir $(a-\\lambda)^2+b^2$.",
+          "Skriv $a=r\\cos\\varphi$, $b=r\\sin\\varphi$ og kjenn igjen rotasjonsmatrisen $\\begin{bmatrix}\\cos\\varphi&-\\sin\\varphi\\\\\\sin\\varphi&\\cos\\varphi\\end{bmatrix}$."
+        ]
+      }
+    },
+    {
+      "id": "tma4110-5-4-oppg-p4",
+      "type": "exercise",
+      "exercise": {
+        "id": "tma4110-5-4-p4",
+        "number": "8",
+        "type": "classic",
+        "difficulty": "vanskelig",
+        "task": "(Krevende.) La $A$ være en reell $n\\times n$-matrise. Vis at hvis $\\lambda=a+bi$ er en egenverdi med egenvektor $\\mathbf v$, så er $\\bar\\lambda=a-bi$ en egenverdi med egenvektor $\\bar{\\mathbf v}$.",
+        "solution": "**Forutsetning:** $A$ er reell (så $\\bar A=A$), og $A\\mathbf v=\\lambda\\mathbf v$ med $\\mathbf v\\ne\\mathbf 0$.\n\n**Bevis:** konjuger hele likningen $A\\mathbf v=\\lambda\\mathbf v$. Konjugering er komponentvis, og for et produkt gjelder $\\overline{XY}=\\bar X\\,\\bar Y$. Da:\n$$\\overline{A\\mathbf v}=\\overline{\\lambda\\mathbf v}\\quad\\Longrightarrow\\quad \\bar A\\,\\bar{\\mathbf v}=\\bar\\lambda\\,\\bar{\\mathbf v}.$$\nSiden $A$ er reell, er $\\bar A=A$, så\n$$A\\bar{\\mathbf v}=\\bar\\lambda\\,\\bar{\\mathbf v}.$$\nVektoren $\\bar{\\mathbf v}$ er ikke null (konjugering endrer ikke om en vektor er null), så $\\bar{\\mathbf v}$ er en egenvektor for egenverdien $\\bar\\lambda$. $\\blacksquare$\n\n**Merk:** det er nettopp derfor komplekse egenverdier for reelle matriser alltid kommer i konjugerte par — akkurat som komplekse røtter av reelle polynom.",
+        "hints": [
+          "Konjuger begge sider av $A\\mathbf v=\\lambda\\mathbf v$ og bruk at $A$ er reell ($\\bar A=A$).",
+          "$\\overline{A\\mathbf v}=\\bar A\\,\\bar{\\mathbf v}$ fordi konjugering er multiplikativ komponentvis."
+        ]
+      }
+    },
+    {
+      "id": "tma4110-5-4-bb-intro",
+      "type": "text",
+      "content": "## Begrepsbank til eksamen\n\nKjernebegrepene om komplekse egenverdier samlet i kortform.\n\n*Begrepsbanken er flashcard-/repetisjonsstoff — hopp trygt over ved førstegangslesing; tidsanslaget gjelder kjernestoffet.*"
+    },
+    {
+      "id": "tma4110-5-4-bb-fundamentalteorem",
+      "type": "definition",
+      "title": "Algebraens fundamentalteorem",
+      "content": "Et polynom av grad $n$ har nøyaktig $n$ røtter i $\\mathbb C$ (talt med multiplisitet). Derfor har karakteristisk likning $\\det(A-\\lambda I)=0$ for en $n\\times n$-matrise alltid $n$ egenverdier **over $\\mathbb C$**, selv om noen kan være komplekse eller sammenfalle."
+    },
+    {
+      "id": "tma4110-5-4-bb-realmatrise",
+      "type": "definition",
+      "title": "Reell matrise, komplekse røtter",
+      "content": "En reell matrise kan godt ha komplekse egenverdier — det betyr bare at karakteristisk polynom (med reelle koeffisienter) har komplekse røtter. Fordi koeffisientene er reelle, kommer disse røttene i konjugerte par."
+    },
+    {
+      "id": "tma4110-5-4-bb-konjugering",
+      "type": "definition",
+      "title": "Konjugering av egenverdiligningen",
+      "content": "Nøkkeltrikset bak konjugerte par: konjuger $A\\mathbf v=\\lambda\\mathbf v$. Siden $A$ er reell blir det $A\\bar{\\mathbf v}=\\bar\\lambda\\bar{\\mathbf v}$. Konjugering er multiplikativ ($\\overline{zw}=\\bar z\\bar w$) og distributiv, så den «kommuterer» med matrisemultiplikasjon når matrisen er reell."
+    },
+    {
+      "id": "tma4110-5-4-bb-abs-lambda",
+      "type": "definition",
+      "title": "$|\\lambda|$ som skaleringsfaktor",
+      "content": "Modulus $|\\lambda|=\\sqrt{a^2+b^2}$ måler hvor mye matrisen strekker planet per rotasjonssteg. $|\\lambda|>1$: spiral utover (vekst); $|\\lambda|<1$: spiral innover (demping); $|\\lambda|=1$: ren rotasjon på en sirkel."
+    },
+    {
+      "id": "tma4110-5-4-bb-arg-lambda",
+      "type": "definition",
+      "title": "$\\arg\\lambda$ som rotasjonsvinkel",
+      "content": "Argumentet $\\arg\\lambda=\\arg(a+bi)$ er rotasjonsvinkelen per steg. Positiv imaginærdel ($b>0$) gir rotasjon mot klokka; $b<0$ gir med klokka. Bestem vinkelen med riktig kvadrant, ikke bare $\\tan^{-1}(b/a)$."
+    },
+    {
+      "id": "tma4110-5-4-bb-normalform",
+      "type": "definition",
+      "title": "Reell normalform (rotasjon-skalering)",
+      "content": "For en reell $2\\times2$-matrise med egenverdier $a\\pm bi$ finnes en reell basis der matrisen får normalformen $\\begin{bmatrix}a&-b\\\\ b&a\\end{bmatrix}$. Dette er den reelle «erstatningen» for diagonalisering når egenverdiene er komplekse: i stedet for en diagonal $D$ får du en rotasjon-skalering-blokk."
+    },
+    {
+      "id": "tma4110-5-4-bb-spiral",
+      "type": "definition",
+      "title": "Bro til ODE-system: svingninger og spiraler",
+      "content": "Komplekse egenverdier $a\\pm bi$ i et system $\\mathbf x'=A\\mathbf x$ (Del 10) gir **svingende** løsninger: imaginærdelen $b$ styrer svingefrekvensen, og realdelen $a$ styrer om svingningen vokser ($a>0$), dempes ($a<0$) eller er ren ($a=0$). Faseportrettet blir en spiral (eller et senter når $a=0$)."
+    },
+    {
+      "id": "tma4110-5-4-bb-realimag",
+      "type": "definition",
+      "title": "Real- og imaginærdel av egenvektoren",
+      "content": "En kompleks egenvektor $\\mathbf v=\\mathbf p+i\\mathbf q$ splittes i realdel $\\mathbf p=\\operatorname{Re}\\mathbf v$ og imaginærdel $\\mathbf q=\\operatorname{Im}\\mathbf v$. Disse to reelle vektorene utspenner planet der rotasjonen skjer, og gir kolonnene i basisskiftematrisen til den reelle normalformen."
+    },
+    {
+      "id": "tma4110-5-4-bb-egenvektor-fri",
+      "type": "definition",
+      "title": "Egenvektor bestemt opp til (kompleks) skalar",
+      "content": "Som i det reelle tilfellet er en egenvektor bare bestemt opp til en skalarfaktor — men nå kan faktoren være **kompleks**. Derfor kan din egenvektor se ulik ut fra fasitens og likevel være riktig; sjekk ved å se om den ene er et (komplekst) multiplum av den andre, eller sett inn i $A\\mathbf v=\\lambda\\mathbf v$."
+    },
+    {
+      "id": "tma4110-5-4-bb-ren-rotasjon",
+      "type": "definition",
+      "title": "Ren rotasjon vs. skalering + rotasjon",
+      "content": "Er $|\\lambda|=1$ (egenverdiene ligger på enhetssirkelen), er virkningen en **ren rotasjon** — lengder bevares, punktene beveger seg på sirkler. Er $|\\lambda|\\ne1$, kombineres rotasjonen med en skalering, og banene blir spiraler. Sjekk $|\\lambda|=\\sqrt{a^2+b^2}$ for å skille tilfellene."
+    },
+    {
+      "id": "tma4110-5-4-rep",
+      "type": "collapsible",
+      "title": "Repetisjonsoppgaver",
+      "buttonText": "Vis repetisjonsoppgaver",
+      "content": [
+        {
+          "id": "tma4110-5-4-oppg-rep1",
+          "type": "exercise",
+          "exercise": {
+            "id": "tma4110-5-4-rep1",
+            "number": "R1",
+            "type": "classic",
+            "difficulty": "lett",
+            "task": "(Fra kap. 5.1) Finn egenverdiene til $A=\\begin{bmatrix}3&1\\\\0&5\\end{bmatrix}$.",
+            "solution": "$A$ er øvre triangulær, så egenverdiene står på diagonalen: $\\lambda=3$ og $\\lambda=5$ (begge reelle).",
+            "hints": [
+              "For en triangulær matrise leses egenverdiene av diagonalen."
+            ]
+          }
+        },
+        {
+          "id": "tma4110-5-4-oppg-rep2",
+          "type": "exercise",
+          "exercise": {
+            "id": "tma4110-5-4-rep2",
+            "number": "R2",
+            "type": "classic",
+            "difficulty": "middels",
+            "task": "(Fra kap. 7.2) Skriv $\\lambda=1+i\\sqrt3$ på polarform $re^{i\\varphi}$.",
+            "solution": "$r=|\\lambda|=\\sqrt{1+3}=2$; punktet $(1,\\sqrt3)$ ligger i 1. kvadrant med $\\varphi=\\arctan\\sqrt3=\\tfrac\\pi3$. Altså $\\lambda=2e^{i\\pi/3}$.",
+            "hints": [
+              "$r=\\sqrt{a^2+b^2}$; finn vinkelen fra kvadranten, $\\tan\\varphi=\\tfrac{\\sqrt3}{1}$."
+            ]
+          }
+        },
+        {
+          "id": "tma4110-5-4-oppg-rep3",
+          "type": "exercise",
+          "exercise": {
+            "id": "tma4110-5-4-rep3",
+            "number": "R3",
+            "type": "classic",
+            "difficulty": "middels",
+            "task": "(Fra kap. 5.2) En reell $3\\times3$-matrise har egenverdier $2,2,5$ med $\\dim E_2=2$. Er den diagonaliserbar? Begrunn.",
+            "solution": "**Ja.** Diagonaliserbarhetskriteriet krever at geometrisk multiplisitet = algebraisk multiplisitet for hver egenverdi. For $\\lambda=2$ er algebraisk multiplisitet $2$ og $\\dim E_2=2$, så geo $=$ alg. For $\\lambda=5$ (enkel) er geo $=$ alg $=1$ automatisk. Summen av geometriske multiplisiteter er $2+1=3=n$, så $A$ er diagonaliserbar.",
+            "hints": [
+              "Sjekk om $\\dim E_\\lambda$ = algebraisk multiplisitet for hver egenverdi."
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": "tma4110-5-4-symbolliste",
+      "type": "collapsible",
+      "title": "Symbol- og formelliste",
+      "buttonText": "Vis symboler og formler",
+      "content": [
+        {
+          "id": "tma4110-5-4-symbolliste-text",
+          "type": "text",
+          "content": "## Symbol- og formelliste\n\n*Oppslagsverk — alt her forklares underveis i kapitlet.*\n\n| Symbol | Betydning |\n|---|---|\n| $\\lambda=a+bi$ | Kompleks egenverdi |\n| $\\bar\\lambda=a-bi$ | Konjugert egenverdi |\n| $\\mathbf v,\\ \\bar{\\mathbf v}$ | Kompleks egenvektor og dens konjugat |\n| $\\det(A-\\lambda I)=0$ | Karakteristisk likning |\n| $E_\\lambda=\\operatorname{Nul}(A-\\lambda I)$ | Egenrom (over $\\mathbb C$) |\n| $\\|\\lambda\\|=\\sqrt{a^2+b^2}$ | Modulus (skaleringsfaktor) |\n| $\\arg\\lambda$ | Argument (rotasjonsvinkel) |\n| $\\Delta=(\\operatorname{spor}A)^2-4\\det A$ | Diskriminant (2×2) |\n\n**Formler i dette delkapitlet:**\n\n$$A\\mathbf v=\\lambda\\mathbf v\\ \\Rightarrow\\ A\\bar{\\mathbf v}=\\bar\\lambda\\,\\bar{\\mathbf v}$$\nKonjugerte par (reell $A$).\n\n$$\\lambda=\\frac{\\operatorname{spor}A\\pm\\sqrt{(\\operatorname{spor}A)^2-4\\det A}}{2}$$\nEgenverdier til en $2\\times2$-matrise; $\\Delta<0$ gir komplekst par.\n\n$$\\begin{bmatrix}a&-b\\\\ b&a\\end{bmatrix}=r\\begin{bmatrix}\\cos\\varphi&-\\sin\\varphi\\\\ \\sin\\varphi&\\cos\\varphi\\end{bmatrix},\\quad r=\\sqrt{a^2+b^2},\\ \\varphi=\\arg(a+bi)$$\nRotasjons-skaleringsform: skalering $|\\lambda|$, rotasjon $\\arg\\lambda$.\n\n$$\\operatorname{spor}A=\\lambda+\\bar\\lambda=2a,\\qquad \\det A=\\lambda\\bar\\lambda=a^2+b^2$$\nSpor/determinant-kontroll for et konjugert par.\n\n$$A=PDP^{-1}\\ \\text{(over }\\mathbb C\\text{)}$$\nKompleks diagonalisering ved $n$ forskjellige egenverdier."
+        }
+      ]
+    }
+  ],
+  "exercises": []
+}

@@ -1,0 +1,472 @@
+{
+  "id": "tma4110-5-1",
+  "courseId": "tma4110",
+  "chapterNumber": "5.1",
+  "title": "Egenverdier, egenvektorer, karakteristisk likning og egenrom",
+  "description": "Egenverdier og egenvektorer: verifiser en oppgitt egenvektor ved Av=λv, finn egenverdier fra karakteristisk likning det(A−λI)=0, og egenrommet fra Nul(A−λI) ved radreduksjon — pluss algebraisk vs. geometrisk multiplisitet.",
+  "estimatedMinutes": 60,
+  "competenceGoals": [
+    "verifisere en oppgitt egenvektor ved innsetting i $A\\mathbf v=\\lambda\\mathbf v$ og finne egenverdiene fra den karakteristiske likningen $\\det(A-\\lambda I)=0$",
+    "bestemme egenrommet $E_\\lambda=\\operatorname{Nul}(A-\\lambda I)$ ved radreduksjon og skille algebraisk fra geometrisk multiplisitet (geometrisk $\\le$ algebraisk)",
+    "bruke kontrollrelasjonene $\\operatorname{spor}A=\\sum\\lambda_i$ og $\\det A=\\prod\\lambda_i$, og føre korte egenverdibevis av typen $A^2=A\\Rightarrow\\lambda\\in\\{0,1\\}$"
+  ],
+  "content": [
+    {
+      "id": "tma4110-5-1-tip-eksamensvinkel",
+      "type": "tip",
+      "title": "Eksamensvinkel",
+      "content": "**Egenverdier og egenvektorer er selve tyngdepunktet i lineær algebra på dette emnet: en egenverdioppgave dukker opp i rundt 95 % av settene — så godt som hvert eneste år.**\n\n- **Egenverdier/egenvektorer (sjanger G)** er den faste storoppgaven. Sjanger G er bokas kode for oppgaver om egenverdier, egenvektorer, diagonalisering, potenser $A^n$ og Markov-matriser — hele Del 5 lever av denne koden.\n- Typisk deloppgave: *finn egenverdiene* (fra $\\det(A-\\lambda I)=0$), *finn egenrommet* til en av dem (fra $\\operatorname{Nul}(A-\\lambda I)$), eller *verifiser en oppgitt egenvektor* ved innsetting. Dette kapitlet bygger nettopp den ferdigheten; diagonalisering ($A=PDP^{-1}$) kommer i [kap. 5.2](/bok/tma4110/tma4110-5-2).\n- **Bevis-varianten (sjanger N)** er også forankret her: det korte «vis at hvis $A^2=A$, er alle egenverdier $0$ eller $1$» er en klassiker på siste oppgave (~42 % av settene ender med et bevis).\n\nPrioriteten er **perfekt** — dette må sitte helt. Sensor belønner tre grep: **verifiser ved innsetting** når egenvektoren er oppgitt (raskest), **faktoriser det karakteristiske polynomet** riktig (fortegn!), og **kontroller** at summen av egenverdiene er sporet og produktet er determinanten. Under ingen-hjelpemidler-kravet (kode E) regner du den karakteristiske likningen for 2×2 og 3×3 for hånd, så prosedyren må være pugget."
+    },
+    {
+      "id": "tma4110-5-1-forkunnskaper",
+      "type": "text",
+      "content": "**Forkunnskaper:** Dette kapitlet bygger på [kap. 2.3](/bok/tma4110/tma4110-2-3) (determinant — den karakteristiske likningen $\\det(A-\\lambda I)=0$ er en determinant) og [kap. 3.3](/bok/tma4110/tma4110-3-3) (nullrom $\\operatorname{Nul}A$ — egenrommet er $\\operatorname{Nul}(A-\\lambda I)$). Å faktorisere det karakteristiske polynomet hviler på polynomregning fra [Polynomer og polynomdivisjon](/bok/r1/r1-1-1)."
+    },
+    {
+      "id": "tma4110-5-1-sist-du-var-her",
+      "type": "text",
+      "content": "**Sist du var her — de to formlene du trenger med en gang:**\n\n- **Karakteristisk likning** (kap. 2.3, determinant): $\\det(A-\\lambda I)=0$. Her er $I$ identitetsmatrisen; $A-\\lambda I$ betyr «trekk $\\lambda$ fra hvert diagonalelement i $A$». Løsningene $\\lambda$ er egenverdiene.\n- **Nullrom** (kap. 3.3): $\\operatorname{Nul}(A-\\lambda I)$ er alle vektorer $\\mathbf x$ med $(A-\\lambda I)\\mathbf x=\\mathbf 0$ — du finner dem ved å radredusere $A-\\lambda I$ og lese av de frie variablene. Dette nullrommet er egenrommet til $\\lambda$.\n\nHar du disse to i fingrene, er halve kapitlet gjort."
+    },
+    {
+      "id": "tma4110-5-1-motivasjon",
+      "type": "text",
+      "content": "## Hverdagsanker: retningen som overlever\n\nEn matrise $A$ flytter vektorer rundt: den kan rotere, strekke og vrenge $\\mathbb R^n$. Men noen få spesielle retninger **overlever** avbildningen uendret — vektoren blir bare lengre eller kortere (eller snudd), aldri dreid ut av sin egen linje. En slik retning er en **egenvektor**, og strekkfaktoren langs den er en **egenverdi**. Tenk på et roterende hjul: alt beveger seg, men aksen står stille — aksen er «egenretningen».\n\nDette er ikke bare pent: egenverdier styrer hvordan $A^n$ oppfører seg over tid (kap. 5.3), når en matrise kan forenkles til en diagonalmatrise (kap. 5.2), og hvordan svingende systemer løses (Del 10). Vi bygger begrepet i fire løkker: (1) hva egenverdi/egenvektor er, og hvordan du **verifiserer** en oppgitt egenvektor; (2) hvordan du **finner** egenverdiene fra den karakteristiske likningen; (3) hvordan du finner **egenrommet** og skiller algebraisk fra geometrisk multiplisitet; og (4) kontrollrelasjonene og det første **beviset** ($A^2=A\\Rightarrow\\lambda\\in\\{0,1\\}$)."
+    },
+    {
+      "id": "tma4110-5-1-lokke1",
+      "type": "text",
+      "content": "## Løkke 1 — Egenverdi, egenvektor og verifisering ved innsetting (~14 min)"
+    },
+    {
+      "id": "tma4110-5-1-def-egen",
+      "type": "definition",
+      "title": "Egenverdi og egenvektor",
+      "content": "La $A$ være en kvadratisk $n\\times n$-matrise. En vektor $\\mathbf v$ kalles en **egenvektor** for $A$ dersom den er forskjellig fra nullvektoren og $A$ bare strekker den langs sin egen retning — altså finnes et tall $\\lambda$ slik at\n$$A\\mathbf v=\\lambda\\mathbf v,\\qquad \\mathbf v\\ne\\mathbf 0.$$\nTallet $\\lambda$ kalles da en **egenverdi** for $A$, og vi sier at $\\mathbf v$ er en egenvektor **tilhørende** $\\lambda$. Kravet $\\mathbf v\\ne\\mathbf 0$ er vesentlig: $A\\mathbf 0=\\lambda\\mathbf 0$ gjelder for alle $\\lambda$ og ville gjort begrepet meningsløst. Egenverdien $\\lambda$ selv kan derimot godt være $0$."
+    },
+    {
+      "id": "tma4110-5-1-def-verifiser",
+      "type": "definition",
+      "title": "Verifisering ved innsetting",
+      "content": "Er en vektor $\\mathbf v$ **oppgitt** og du skal sjekke om den er egenvektor, er det raskeste å regne $A\\mathbf v$ og se om svaret er et tall ganger $\\mathbf v$:\n$$A\\mathbf v=\\lambda\\mathbf v\\ \\Rightarrow\\ \\mathbf v\\text{ er egenvektor med egenverdi }\\lambda.$$\nBlir $A\\mathbf v$ ikke et multiplum av $\\mathbf v$, er $\\mathbf v$ ingen egenvektor. Dette er mye raskere enn å regne den karakteristiske likningen, og er sensors forventede grep når egenvektoren er gitt."
+    },
+    {
+      "id": "tma4110-5-1-ex1",
+      "type": "example",
+      "title": "Eksempel 1: Verifiser en oppgitt egenvektor",
+      "problem": "La $A=\\begin{bmatrix}3&1\\\\0&2\\end{bmatrix}$. Avgjør om $\\mathbf v_1=\\begin{bmatrix}1\\\\0\\end{bmatrix}$ og $\\mathbf v_2=\\begin{bmatrix}1\\\\-1\\end{bmatrix}$ er egenvektorer, og finn i så fall egenverdien.",
+      "solution": "Vi regner $A\\mathbf v$ for hver og ser om svaret er et multiplum av $\\mathbf v$.\n\n**$\\mathbf v_1$:** $A\\begin{bmatrix}1\\\\0\\end{bmatrix}=\\begin{bmatrix}3\\cdot1+1\\cdot0\\\\0\\cdot1+2\\cdot0\\end{bmatrix}=\\begin{bmatrix}3\\\\0\\end{bmatrix}=3\\begin{bmatrix}1\\\\0\\end{bmatrix}.$ Svaret er $3\\mathbf v_1$, så $\\mathbf v_1$ er egenvektor med **egenverdi $\\lambda=3$**.\n\n**$\\mathbf v_2$:** $A\\begin{bmatrix}1\\\\-1\\end{bmatrix}=\\begin{bmatrix}3\\cdot1+1\\cdot(-1)\\\\0\\cdot1+2\\cdot(-1)\\end{bmatrix}=\\begin{bmatrix}2\\\\-2\\end{bmatrix}=2\\begin{bmatrix}1\\\\-1\\end{bmatrix}.$ Svaret er $2\\mathbf v_2$, så $\\mathbf v_2$ er egenvektor med **egenverdi $\\lambda=2$**.\n\n**Konklusjon:** Begge er egenvektorer, med egenverdier henholdsvis $3$ og $2$. (Legg merke til at $A$ er øvre triangulær, og egenverdiene $3,2$ står nettopp på diagonalen — det kommer vi tilbake til i løkke 4.)"
+    },
+    {
+      "id": "tma4110-5-1-oppg1",
+      "type": "exercise",
+      "exercise": {
+        "id": "tma4110-5-1-oppg1x",
+        "number": "1",
+        "type": "classic",
+        "difficulty": "lett",
+        "task": "(Ren gjengivelse — innsetting.) La $A=\\begin{bmatrix}4&2\\\\1&3\\end{bmatrix}$.\n\n**a)** Vis at $\\mathbf v=\\begin{bmatrix}2\\\\1\\end{bmatrix}$ er en egenvektor, og finn egenverdien.\n\n**b)** Er $\\mathbf w=\\begin{bmatrix}1\\\\-1\\end{bmatrix}$ en egenvektor? Finn i så fall egenverdien.",
+        "solution": "Regn $A\\mathbf v$ og $A\\mathbf w$ og sjekk om svaret er et tall ganger vektoren.\n\n**a)** $A\\begin{bmatrix}2\\\\1\\end{bmatrix}=\\begin{bmatrix}4\\cdot2+2\\cdot1\\\\1\\cdot2+3\\cdot1\\end{bmatrix}=\\begin{bmatrix}10\\\\5\\end{bmatrix}=5\\begin{bmatrix}2\\\\1\\end{bmatrix}.$ Ja, $\\mathbf v$ er egenvektor med **egenverdi $\\lambda=5$**.\n\n**b)** $A\\begin{bmatrix}1\\\\-1\\end{bmatrix}=\\begin{bmatrix}4-2\\\\1-3\\end{bmatrix}=\\begin{bmatrix}2\\\\-2\\end{bmatrix}=2\\begin{bmatrix}1\\\\-1\\end{bmatrix}.$ Ja, $\\mathbf w$ er egenvektor med **egenverdi $\\lambda=2$**.",
+        "hints": [
+          "Regn matrise-ganger-vektor $A\\mathbf v$, og se om resultatet er et konstant multiplum av $\\mathbf v$.",
+          "Er $A\\mathbf v=\\lambda\\mathbf v$, er $\\mathbf v$ egenvektor og $\\lambda$ egenverdien; les av faktoren."
+        ]
+      }
+    },
+    {
+      "id": "tma4110-5-1-lokke2",
+      "type": "text",
+      "content": "## Løkke 2 — Karakteristisk likning: finn egenverdiene (~16 min)"
+    },
+    {
+      "id": "tma4110-5-1-lokke2-intro",
+      "type": "text",
+      "content": "Når egenvektoren **ikke** er oppgitt, må vi finne egenverdiene selv. Trikset er å skrive om $A\\mathbf v=\\lambda\\mathbf v$ til $(A-\\lambda I)\\mathbf v=\\mathbf 0$. Dette homogene systemet har en løsning $\\mathbf v\\ne\\mathbf 0$ nettopp når $A-\\lambda I$ er **singulær**, altså når determinanten er null."
+    },
+    {
+      "id": "tma4110-5-1-def-karlikning",
+      "type": "definition",
+      "title": "Karakteristisk likning $\\det(A-\\lambda I)=0$",
+      "content": "$\\lambda$ er en egenverdi for $A$ nettopp når det homogene systemet $(A-\\lambda I)\\mathbf v=\\mathbf 0$ har en ikke-triviell løsning — det vil si når $A-\\lambda I$ er singulær. Ved determinantkriteriet (kap. 2.3) skjer det nøyaktig når\n$$\\det(A-\\lambda I)=0.$$\nDenne likningen kalles den **karakteristiske likningen**. Her betyr $A-\\lambda I$ at du trekker $\\lambda$ fra hvert diagonalelement i $A$. Å løse den gir alle egenverdiene."
+    },
+    {
+      "id": "tma4110-5-1-def-karpolynom",
+      "type": "definition",
+      "title": "Karakteristisk polynom",
+      "content": "Venstresiden $\\det(A-\\lambda I)$ er et **polynom** i $\\lambda$ av grad $n$ (for en $n\\times n$-matrise), kalt det **karakteristiske polynomet**. Egenverdiene er røttene. For en 2×2-matrise får du et andregradspolynom; for 3×3 et tredjegradspolynom. Nøkkelferdigheten er å **faktorisere** polynomet — hver rot er en egenverdi, og hvor mange ganger en rot opptrer (rotmultiplisiteten) blir viktig senere."
+    },
+    {
+      "id": "tma4110-5-1-def-kar2x2",
+      "type": "definition",
+      "title": "Snarveien for 2×2: spor og determinant",
+      "content": "For en 2×2-matrise kan du skrive den karakteristiske likningen direkte fra sporet og determinanten:\n$$\\lambda^2-(\\operatorname{spor}A)\\,\\lambda+\\det A=0,$$\nder $\\operatorname{spor}A$ er summen av diagonalelementene. Dette sparer tid: regn ut sporet og determinanten, sett inn, og faktoriser andregradslikningen. (Formelen følger av å regne $\\det(A-\\lambda I)$ ut for en generell 2×2-matrise.)"
+    },
+    {
+      "id": "tma4110-5-1-ex2",
+      "type": "example",
+      "title": "Eksempel 2: Egenverdier fra karakteristisk likning (2×2)",
+      "problem": "Finn egenverdiene til $A=\\begin{bmatrix}2&1\\\\1&2\\end{bmatrix}$.",
+      "solution": "**Metode 1 — direkte determinant.** Trekk $\\lambda$ fra diagonalen og regn determinanten:\n$$\\det(A-\\lambda I)=\\det\\begin{bmatrix}2-\\lambda&1\\\\1&2-\\lambda\\end{bmatrix}=(2-\\lambda)^2-1\\cdot1=(2-\\lambda)^2-1.$$\nSett lik null og løs: $(2-\\lambda)^2=1\\Rightarrow 2-\\lambda=\\pm1\\Rightarrow\\lambda=1$ eller $\\lambda=3$.\n\n**Metode 2 — spor/determinant-snarveien (kontroll).** $\\operatorname{spor}A=2+2=4$ og $\\det A=2\\cdot2-1\\cdot1=3$, så\n$$\\lambda^2-4\\lambda+3=0\\ \\Rightarrow\\ (\\lambda-1)(\\lambda-3)=0\\ \\Rightarrow\\ \\lambda=1,\\ 3.$$\n\n**Svar:** Egenverdiene er $\\lambda_1=1$ og $\\lambda_2=3$. **Kontroll:** summen $1+3=4=\\operatorname{spor}A$ og produktet $1\\cdot3=3=\\det A$. $\\checkmark$"
+    },
+    {
+      "id": "tma4110-5-1-oppg2",
+      "type": "exercise",
+      "exercise": {
+        "id": "tma4110-5-1-oppg2x",
+        "number": "2",
+        "type": "classic",
+        "difficulty": "lett",
+        "task": "(Innøving — karakteristisk likning.) Finn egenverdiene til $A=\\begin{bmatrix}1&2\\\\2&1\\end{bmatrix}$ ved den karakteristiske likningen.",
+        "solution": "Trekk $\\lambda$ fra diagonalen og sett determinanten lik null:\n$$\\det(A-\\lambda I)=(1-\\lambda)^2-4=\\lambda^2-2\\lambda-3=(\\lambda-3)(\\lambda+1)=0.$$\nDette gir $\\lambda=3$ eller $\\lambda=-1$.\n\n**Svar:** $\\lambda_1=3$, $\\lambda_2=-1$. Kontroll: sum $3+(-1)=2=\\operatorname{spor}A$, produkt $3\\cdot(-1)=-3=\\det A$. $\\checkmark$",
+        "hints": [
+          "Karakteristisk likning: $\\det(A-\\lambda I)=0$, altså $(1-\\lambda)^2-2\\cdot2=0$.",
+          "Gang ut til $\\lambda^2-2\\lambda-3=0$ og faktoriser.",
+          "Kontroller med sum $=\\operatorname{spor}A$ og produkt $=\\det A$."
+        ]
+      }
+    },
+    {
+      "id": "tma4110-5-1-ex3",
+      "type": "example",
+      "title": "Eksempel 3: Egenverdier til en triangulær 3×3-matrise",
+      "problem": "Finn egenverdiene til $A=\\begin{bmatrix}2&1&0\\\\0&2&0\\\\0&0&3\\end{bmatrix}$.",
+      "solution": "Matrisen er øvre triangulær. Da er $A-\\lambda I$ også triangulær, og determinanten er produktet av diagonalen (kap. 2.3):\n$$\\det(A-\\lambda I)=(2-\\lambda)(2-\\lambda)(3-\\lambda)=(2-\\lambda)^2(3-\\lambda).$$\nRøttene leses rett av: $\\lambda=2$ (fra faktoren $(2-\\lambda)^2$) og $\\lambda=3$.\n\n**Svar:** Egenverdiene er $\\lambda=2$ og $\\lambda=3$. Egenverdien $2$ er en **dobbeltrot** — den opptrer to ganger i faktoriseringen. Det kaller vi at $\\lambda=2$ har algebraisk multiplisitet $2$ (løkke 3). **Kontroll:** sum $2+2+3=7=\\operatorname{spor}A$, produkt $2\\cdot2\\cdot3=12=\\det A$. $\\checkmark$"
+    },
+    {
+      "id": "tma4110-5-1-oppg3",
+      "type": "exercise",
+      "exercise": {
+        "id": "tma4110-5-1-oppg3x",
+        "number": "3",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "(Sjanger G — triangulær.) Finn egenverdiene til $A=\\begin{bmatrix}3&0&0\\\\1&3&0\\\\2&4&5\\end{bmatrix}$, og oppgi multiplisiteten til hver.",
+        "solution": "Matrisen er nedre triangulær, så $\\det(A-\\lambda I)$ er produktet av diagonalen:\n$$\\det(A-\\lambda I)=(3-\\lambda)(3-\\lambda)(5-\\lambda)=(3-\\lambda)^2(5-\\lambda)=0.$$\nEgenverdiene er $\\lambda=3$ (dobbeltrot, algebraisk multiplisitet $2$) og $\\lambda=5$ (enkel rot, multiplisitet $1$).\n\n**Svar:** $\\lambda=3$ med multiplisitet $2$, $\\lambda=5$ med multiplisitet $1$. Kontroll: sum $3+3+5=11=\\operatorname{spor}A$, produkt $3\\cdot3\\cdot5=45=\\det A$. $\\checkmark$",
+        "hints": [
+          "For en triangulær matrise står egenverdiene rett på diagonalen — $A-\\lambda I$ er også triangulær.",
+          "Determinanten er produktet $(3-\\lambda)(3-\\lambda)(5-\\lambda)$; tell hvor mange ganger hver rot opptrer.",
+          "Multiplisiteten er antallet ganger faktoren $(\\lambda_0-\\lambda)$ forekommer."
+        ]
+      }
+    },
+    {
+      "id": "tma4110-5-1-lokke3",
+      "type": "text",
+      "content": "## Løkke 3 — Egenrom, algebraisk og geometrisk multiplisitet (~17 min)"
+    },
+    {
+      "id": "tma4110-5-1-def-egenrom",
+      "type": "definition",
+      "title": "Egenrom $E_\\lambda=\\operatorname{Nul}(A-\\lambda I)$",
+      "content": "Når du har en egenverdi $\\lambda$, er **egenrommet** $E_\\lambda$ mengden av alle egenvektorer tilhørende $\\lambda$, pluss nullvektoren:\n$$E_\\lambda=\\{\\mathbf x:\\ A\\mathbf x=\\lambda\\mathbf x\\}=\\operatorname{Nul}(A-\\lambda I).$$\nDet er altså nullrommet til $A-\\lambda I$, og dermed et **underrom** av $\\mathbb R^n$. Du finner en basis ved å radredusere $A-\\lambda I$ og lese av de spesielle løsningene (kap. 3.3) — nøyaktig som for ethvert nullrom."
+    },
+    {
+      "id": "tma4110-5-1-ex4",
+      "type": "example",
+      "title": "Eksempel 4: Egenrom fra radreduksjon",
+      "problem": "For $A=\\begin{bmatrix}2&1\\\\1&2\\end{bmatrix}$ (egenverdier $1$ og $3$ fra Eksempel 2), finn egenrommene $E_3$ og $E_1$.",
+      "solution": "**$E_3=\\operatorname{Nul}(A-3I)$:** $A-3I=\\begin{bmatrix}-1&1\\\\1&-1\\end{bmatrix}$. Radreduksjon: $R_2\\to R_2+R_1$ gir $\\begin{bmatrix}-1&1\\\\0&0\\end{bmatrix}$, altså likningen $-x+y=0$, så $y=x$. Løsningene er $\\begin{bmatrix}x\\\\x\\end{bmatrix}=x\\begin{bmatrix}1\\\\1\\end{bmatrix}$. Dermed $E_3=\\operatorname{Span}\\left\\{\\begin{bmatrix}1\\\\1\\end{bmatrix}\\right\\}$.\n\n**$E_1=\\operatorname{Nul}(A-I)$:** $A-I=\\begin{bmatrix}1&1\\\\1&1\\end{bmatrix}\\to\\begin{bmatrix}1&1\\\\0&0\\end{bmatrix}$, likningen $x+y=0$, så $y=-x$: $E_1=\\operatorname{Span}\\left\\{\\begin{bmatrix}1\\\\-1\\end{bmatrix}\\right\\}$.\n\n**Kontroll ved innsetting:** $A\\begin{bmatrix}1\\\\1\\end{bmatrix}=\\begin{bmatrix}3\\\\3\\end{bmatrix}=3\\begin{bmatrix}1\\\\1\\end{bmatrix}$ $\\checkmark$ og $A\\begin{bmatrix}1\\\\-1\\end{bmatrix}=\\begin{bmatrix}1\\\\-1\\end{bmatrix}=1\\cdot\\begin{bmatrix}1\\\\-1\\end{bmatrix}$ $\\checkmark$. Begge egenrom har dimensjon $1$."
+    },
+    {
+      "id": "tma4110-5-1-oppg4",
+      "type": "exercise",
+      "exercise": {
+        "id": "tma4110-5-1-oppg4x",
+        "number": "4",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "(Sjanger G — egenverdier og egenrom.) La $A=\\begin{bmatrix}4&1\\\\2&3\\end{bmatrix}$.\n\n**a)** Finn egenverdiene.\n\n**b)** Finn en basis for hvert egenrom.",
+        "solution": "**a)** $\\operatorname{spor}A=7$, $\\det A=4\\cdot3-1\\cdot2=10$, så $\\lambda^2-7\\lambda+10=0\\Rightarrow(\\lambda-2)(\\lambda-5)=0$. Egenverdiene er $\\lambda=2$ og $\\lambda=5$.\n\n**b)** $E_2=\\operatorname{Nul}(A-2I)$: $A-2I=\\begin{bmatrix}2&1\\\\2&1\\end{bmatrix}\\to\\begin{bmatrix}2&1\\\\0&0\\end{bmatrix}$, likningen $2x+y=0\\Rightarrow y=-2x$. Basis: $\\begin{bmatrix}1\\\\-2\\end{bmatrix}$.\n\n$E_5=\\operatorname{Nul}(A-5I)$: $A-5I=\\begin{bmatrix}-1&1\\\\2&-2\\end{bmatrix}\\to\\begin{bmatrix}-1&1\\\\0&0\\end{bmatrix}$, likningen $-x+y=0\\Rightarrow y=x$. Basis: $\\begin{bmatrix}1\\\\1\\end{bmatrix}$.\n\n**Kontroll:** $A\\begin{bmatrix}1\\\\-2\\end{bmatrix}=\\begin{bmatrix}2\\\\-4\\end{bmatrix}=2\\begin{bmatrix}1\\\\-2\\end{bmatrix}$ $\\checkmark$; $A\\begin{bmatrix}1\\\\1\\end{bmatrix}=\\begin{bmatrix}5\\\\5\\end{bmatrix}=5\\begin{bmatrix}1\\\\1\\end{bmatrix}$ $\\checkmark$.",
+        "hints": [
+          "Egenverdier først: $\\lambda^2-(\\operatorname{spor}A)\\lambda+\\det A=0$.",
+          "For hvert egenrom: radreduser $A-\\lambda I$ og løs det homogene systemet.",
+          "Skaler egenvektoren til heltall (f.eks. $y=-2x$ gir $(1,-2)$)."
+        ]
+      }
+    },
+    {
+      "id": "tma4110-5-1-def-algmult",
+      "type": "definition",
+      "title": "Algebraisk multiplisitet",
+      "content": "Den **algebraiske multiplisiteten** til en egenverdi $\\lambda$ er antallet ganger $\\lambda$ opptrer som rot i det karakteristiske polynomet — altså rotmultiplisiteten. For $A$ i Eksempel 3 hadde $\\lambda=2$ algebraisk multiplisitet $2$ (dobbeltrot) og $\\lambda=3$ algebraisk multiplisitet $1$. Summen av de algebraiske multiplisitetene er alltid $n$ (regnet med komplekse røtter)."
+    },
+    {
+      "id": "tma4110-5-1-def-geomult",
+      "type": "definition",
+      "title": "Geometrisk multiplisitet",
+      "content": "Den **geometriske multiplisiteten** til $\\lambda$ er dimensjonen til egenrommet, $\\dim E_\\lambda$ — altså hvor mange lineært uavhengige egenvektorer $\\lambda$ har. Du finner den som antall frie variabler når du radreduserer $A-\\lambda I$. Den geometriske multiplisiteten er minst $1$ (en egenverdi har alltid minst én egenvektor)."
+    },
+    {
+      "id": "tma4110-5-1-th-geo-alg",
+      "type": "theorem",
+      "title": "Geometrisk $\\le$ algebraisk multiplisitet",
+      "content": "For enhver egenverdi $\\lambda$ gjelder\n$$1\\le\\dim E_\\lambda\\ \\le\\ (\\text{algebraisk multiplisitet av }\\lambda).$$\nDen geometriske multiplisiteten kan altså aldri overstige den algebraiske. Er de **like for hver** egenverdi, er matrisen diagonaliserbar (kap. 5.2); er den geometriske **strengt mindre** for minst én egenverdi, er den ikke diagonaliserbar. Dette skillet er selve karakterskilleren i Del 5, så merk deg det godt."
+    },
+    {
+      "id": "tma4110-5-1-ex5",
+      "type": "example",
+      "title": "Eksempel 5: Når geometrisk < algebraisk",
+      "problem": "For $A=\\begin{bmatrix}2&1&0\\\\0&2&0\\\\0&0&3\\end{bmatrix}$ (egenverdier $2,2,3$ fra Eksempel 3), finn egenrommet $E_2$ og sammenlign geometrisk og algebraisk multiplisitet for $\\lambda=2$.",
+      "solution": "$E_2=\\operatorname{Nul}(A-2I)$ der $A-2I=\\begin{bmatrix}0&1&0\\\\0&0&0\\\\0&0&1\\end{bmatrix}$. Radene gir likningene $y=0$ og $z=0$, mens $x$ er fri. Løsningene er $\\begin{bmatrix}x\\\\0\\\\0\\end{bmatrix}=x\\begin{bmatrix}1\\\\0\\\\0\\end{bmatrix}$, så\n$$E_2=\\operatorname{Span}\\left\\{\\begin{bmatrix}1\\\\0\\\\0\\end{bmatrix}\\right\\},\\qquad \\dim E_2=1.$$\n**Sammenligning:** algebraisk multiplisitet av $\\lambda=2$ er $2$ (dobbeltrot), men geometrisk multiplisitet er bare $1$. Altså $\\dim E_2=1<2$ — den geometriske er strengt mindre enn den algebraiske. Konsekvensen (kap. 5.2): $A$ er **ikke diagonaliserbar**, fordi $\\lambda=2$ ikke har nok uavhengige egenvektorer."
+    },
+    {
+      "id": "tma4110-5-1-oppg5",
+      "type": "exercise",
+      "exercise": {
+        "id": "tma4110-5-1-oppg5x",
+        "number": "5",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "(Sjanger G — multiplisitet.) For $A=\\begin{bmatrix}3&0&0\\\\1&3&0\\\\2&4&5\\end{bmatrix}$ (egenverdier $3,3,5$ fra oppgave 3): finn egenrommet $E_3$ og avgjør om geometrisk multiplisitet er lik den algebraiske for $\\lambda=3$.",
+        "solution": "$A-3I=\\begin{bmatrix}0&0&0\\\\1&0&0\\\\2&4&2\\end{bmatrix}$. Rad 2 gir $x=0$; rad 3 gir $2x+4y+2z=0$, altså (med $x=0$) $4y+2z=0\\Rightarrow z=-2y$. Fri variabel: $y$. Løsningene er $\\begin{bmatrix}0\\\\y\\\\-2y\\end{bmatrix}=y\\begin{bmatrix}0\\\\1\\\\-2\\end{bmatrix}$, så\n$$E_3=\\operatorname{Span}\\left\\{\\begin{bmatrix}0\\\\1\\\\-2\\end{bmatrix}\\right\\},\\qquad \\dim E_3=1.$$\nAlgebraisk multiplisitet av $\\lambda=3$ er $2$, men geometrisk er $1$. **Nei** — geometrisk ($1$) $<$ algebraisk ($2$), så $A$ er ikke diagonaliserbar (foregriper kap. 5.2).",
+        "hints": [
+          "Radreduser $A-3I$ og tell frie variabler — det gir $\\dim E_3$ (geometrisk multiplisitet).",
+          "Rad 2 gir $x=0$; sett det inn i rad 3-likningen for å binde $z$ til $y$.",
+          "Sammenlign $\\dim E_3$ med algebraisk multiplisitet $2$."
+        ]
+      }
+    },
+    {
+      "id": "tma4110-5-1-lokke4",
+      "type": "text",
+      "content": "## Løkke 4 — Kontrollrelasjoner, $\\lambda=0$ og det første beviset (~13 min)"
+    },
+    {
+      "id": "tma4110-5-1-def-sporprod",
+      "type": "definition",
+      "title": "Kontrollrelasjonene: spor og determinant",
+      "content": "Egenverdiene henger sammen med to lett-utregnelige tall (kap. 2.3):\n$$\\operatorname{spor}A=\\sum_i\\lambda_i\\ (\\text{sum av diagonalen}),\\qquad \\det A=\\prod_i\\lambda_i\\ (\\text{produkt}).$$\nRegnet med multiplisitet. Dette er din **gratis kontroll**: har du funnet egenverdiene, skal summen bli sporet og produktet bli determinanten. Stemmer det ikke, er det en regnefeil i det karakteristiske polynomet. Bruk den hver gang under kode E."
+    },
+    {
+      "id": "tma4110-5-1-def-lambda0",
+      "type": "definition",
+      "title": "$\\lambda=0$ er egenverdi $\\Leftrightarrow$ $A$ er singulær",
+      "content": "Egenverdien $0$ har en spesiell tolkning: $A\\mathbf v=0\\cdot\\mathbf v=\\mathbf 0$ for en $\\mathbf v\\ne\\mathbf 0$ betyr at $\\mathbf v\\in\\operatorname{Nul}A$. Derfor:\n$$0\\text{ er egenverdi for }A\\ \\Longleftrightarrow\\ \\operatorname{Nul}A\\ne\\{\\mathbf 0\\}\\ \\Longleftrightarrow\\ A\\text{ er singulær }(\\det A=0).$$\nEgenrommet $E_0$ er nettopp $\\operatorname{Nul}A$. Dette er ett av leddene i inverterbarhetssetningen (kap. 2.2): $A$ inverterbar $\\Leftrightarrow$ $0$ er **ikke** egenverdi."
+    },
+    {
+      "id": "tma4110-5-1-def-triangdiag",
+      "type": "definition",
+      "title": "Triangulær matrise: egenverdier på diagonalen",
+      "content": "For en **triangulær** matrise (øvre eller nedre) — og spesielt en diagonalmatrise — står egenverdiene rett på diagonalen. Grunnen: $A-\\lambda I$ er da også triangulær, så $\\det(A-\\lambda I)$ er produktet $(a_{11}-\\lambda)(a_{22}-\\lambda)\\cdots(a_{nn}-\\lambda)$, med røtter $a_{11},\\dots,a_{nn}$. Du slipper altså å regne noe som helst — les diagonalen."
+    },
+    {
+      "id": "tma4110-5-1-th-a2a",
+      "type": "theorem",
+      "title": "Bevis-bro: $A^2=A\\Rightarrow$ egenverdier i $\\{0,1\\}$",
+      "content": "**Påstand.** Hvis $A^2=A$, er hver egenverdi $\\lambda$ enten $0$ eller $1$.\n\n**Bevis.** La $\\lambda$ være en egenverdi med egenvektor $\\mathbf v\\ne\\mathbf 0$, så $A\\mathbf v=\\lambda\\mathbf v$. Gang med $A$ på begge sider: $A^2\\mathbf v=A(\\lambda\\mathbf v)=\\lambda(A\\mathbf v)=\\lambda^2\\mathbf v$. Men $A^2=A$, så $A^2\\mathbf v=A\\mathbf v=\\lambda\\mathbf v$. Dermed\n$$\\lambda^2\\mathbf v=\\lambda\\mathbf v\\ \\Rightarrow\\ (\\lambda^2-\\lambda)\\mathbf v=\\mathbf 0.$$\nSiden $\\mathbf v\\ne\\mathbf 0$, må $\\lambda^2-\\lambda=0$, altså $\\lambda(\\lambda-1)=0$, så $\\lambda=0$ eller $\\lambda=1$. $\\blacksquare$\n\n**Grepet** (som gjentar seg i sjanger N): sett inn egenvektoren, bruk matriselikningen til å få en likning i $\\lambda$ alene, og utnytt $\\mathbf v\\ne\\mathbf 0$. Samme teknikk løser $A^2=I$ ($\\lambda=\\pm1$), $A^k=O$ ($\\lambda=0$, se kap. 5.3) og lignende."
+    },
+    {
+      "id": "tma4110-5-1-oppg6",
+      "type": "exercise",
+      "exercise": {
+        "id": "tma4110-5-1-oppg6x",
+        "number": "6",
+        "type": "classic",
+        "difficulty": "vanskelig",
+        "task": "(Sjanger N — kort bevis.) Anta at $A$ er en kvadratisk matrise med $A^3=A$. Vis at hver egenverdi $\\lambda$ er $0$, $1$ eller $-1$.",
+        "solution": "**Bevis.** La $\\lambda$ være en egenverdi med egenvektor $\\mathbf v\\ne\\mathbf 0$: $A\\mathbf v=\\lambda\\mathbf v$. Ganger vi med $A$ to ganger, får vi $A^3\\mathbf v=\\lambda^3\\mathbf v$ (siden $A^2\\mathbf v=\\lambda^2\\mathbf v$ og $A^3\\mathbf v=A(\\lambda^2\\mathbf v)=\\lambda^3\\mathbf v$). Men $A^3=A$, så $A^3\\mathbf v=A\\mathbf v=\\lambda\\mathbf v$. Dermed\n$$\\lambda^3\\mathbf v=\\lambda\\mathbf v\\ \\Rightarrow\\ (\\lambda^3-\\lambda)\\mathbf v=\\mathbf 0.$$\nDa $\\mathbf v\\ne\\mathbf 0$, må $\\lambda^3-\\lambda=0$, altså $\\lambda(\\lambda-1)(\\lambda+1)=0$. Derfor er $\\lambda\\in\\{0,1,-1\\}$. $\\blacksquare$\n\n**Merk:** beviset viser bare hvilke verdier egenverdiene *kan* ha — ikke at alle tre faktisk opptrer for en gitt $A$.",
+        "hints": [
+          "Start fra $A\\mathbf v=\\lambda\\mathbf v$ med $\\mathbf v\\ne\\mathbf 0$, og gang gjentatte ganger med $A$ for å få $A^3\\mathbf v=\\lambda^3\\mathbf v$.",
+          "Bruk $A^3=A$ til å erstatte venstresiden med $\\lambda\\mathbf v$.",
+          "Du får $(\\lambda^3-\\lambda)\\mathbf v=\\mathbf 0$; siden $\\mathbf v\\ne\\mathbf 0$, faktoriser $\\lambda^3-\\lambda$."
+        ]
+      }
+    },
+    {
+      "id": "tma4110-5-1-oppg7",
+      "type": "exercise",
+      "exercise": {
+        "id": "tma4110-5-1-oppg7x",
+        "number": "7",
+        "type": "classic",
+        "difficulty": "vanskelig",
+        "task": "(Sjanger G/N — kombinert.) La $A=\\begin{bmatrix}5&-2\\\\-2&5\\end{bmatrix}$.\n\n**a)** Finn egenverdiene, og kontroller med spor og determinant.\n\n**b)** Er $0$ en egenverdi? Hva sier det om inverterbarheten til $A$?",
+        "solution": "**a)** $\\operatorname{spor}A=10$, $\\det A=5\\cdot5-(-2)(-2)=25-4=21$. Karakteristisk likning: $\\lambda^2-10\\lambda+21=0\\Rightarrow(\\lambda-3)(\\lambda-7)=0$. Egenverdier $\\lambda=3$ og $\\lambda=7$. Kontroll: $3+7=10=\\operatorname{spor}A$ $\\checkmark$, $3\\cdot7=21=\\det A$ $\\checkmark$.\n\n**b)** Nei — ingen av egenverdiene er $0$ (og $\\det A=21\\ne0$). Ved kriteriet «$0$ egenverdi $\\Leftrightarrow$ singulær» er $A$ derfor **inverterbar**.",
+        "hints": [
+          "Bruk $\\lambda^2-(\\operatorname{spor}A)\\lambda+\\det A=0$ for 2×2, og faktoriser.",
+          "Sjekk sum $=\\operatorname{spor}A$ og produkt $=\\det A$.",
+          "$0$ er egenverdi nettopp når $\\det A=0$; her er $\\det A=21$."
+        ]
+      }
+    },
+    {
+      "id": "tma4110-5-1-warning",
+      "type": "warning",
+      "title": "Typiske feil",
+      "content": "- **Fortegnsfeil i $\\det(A-\\lambda I)$.** Husk å trekke $\\lambda$ fra **hvert** diagonalelement, og pass fortegnene når du ganger ut. Den vanligste kilden til feil egenverdier.\n- **Glemmer en egenverdi (multiplisitet).** En dobbeltrot $(2-\\lambda)^2$ er *én* egenverdi med algebraisk multiplisitet $2$ — men ikke overse den, og ikke tell den som to forskjellige.\n- **Forveksler algebraisk og geometrisk multiplisitet.** Algebraisk = rotmultiplisitet i polynomet; geometrisk = $\\dim E_\\lambda$ (frie variabler i $A-\\lambda I$). Det er alltid geo $\\le$ alg.\n- **Oppgir $\\mathbf 0$ som egenvektor.** Nullvektoren er per definisjon aldri en egenvektor. En egenverdi kan være $0$, men egenvektoren må være $\\ne\\mathbf 0$.\n- **Sjekker ikke mot spor/determinant.** Summen av egenverdiene skal være sporet, produktet determinanten. Hopper du over kontrollen, går regnefeil upåaktet — spesielt under kode E uten kalkulator."
+    },
+    {
+      "id": "tma4110-5-1-begrepsbank-tekst",
+      "type": "text",
+      "content": "## Begrepsbank til eksamen\n\nDe resterende kjernebegrepene samlet i kortform for repetisjon og pugging (kode E — intet formelark).\n\n*Begrepsbanken er flashcard-/repetisjonsstoff — det gjentar det du nettopp har lest. Hopp trygt over ved førstegangslesing; tidsanslaget for kapitlet gjelder kjernestoffet.*"
+    },
+    {
+      "id": "tma4110-5-1-bb-egenvektor-nonzero",
+      "type": "definition",
+      "title": "Egenvektoren må være ulik null",
+      "content": "Per definisjon er $\\mathbf 0$ aldri en egenvektor, selv om $A\\mathbf 0=\\lambda\\mathbf 0$ formelt holder for alle $\\lambda$. Kravet $\\mathbf v\\ne\\mathbf 0$ i $A\\mathbf v=\\lambda\\mathbf v$ er det som gjør egenverdibegrepet meningsfullt. Egenverdien $\\lambda$ kan derimot godt være $0$."
+    },
+    {
+      "id": "tma4110-5-1-bb-egenverdi-null",
+      "type": "definition",
+      "title": "Egenverdien null er tillatt",
+      "content": "$\\lambda=0$ er en fullgod egenverdi: det betyr at $A$ har en ikke-triviell nullvektorretning, $A\\mathbf v=\\mathbf 0$ med $\\mathbf v\\ne\\mathbf 0$. Egenrommet $E_0$ er da $\\operatorname{Nul}A$. Ikke bland sammen «egenverdi $0$» (tillatt) med «egenvektor $\\mathbf 0$» (forbudt)."
+    },
+    {
+      "id": "tma4110-5-1-bb-egen-Ak",
+      "type": "definition",
+      "title": "Egenverdier til $A^k$",
+      "content": "Hvis $A\\mathbf v=\\lambda\\mathbf v$, så $A^k\\mathbf v=\\lambda^k\\mathbf v$ for hvert heltall $k\\ge1$ — samme egenvektor, egenverdien opphøyd i $k$. Bevis ved gjentatt ganging med $A$. Dette er grunnlaget for $A^n=PD^nP^{-1}$ i kap. 5.3."
+    },
+    {
+      "id": "tma4110-5-1-bb-egen-inv",
+      "type": "definition",
+      "title": "Egenverdier til $A^{-1}$",
+      "content": "Er $A$ inverterbar med $A\\mathbf v=\\lambda\\mathbf v$, så er $\\lambda\\ne0$ og $A^{-1}\\mathbf v=\\tfrac{1}{\\lambda}\\mathbf v$ — samme egenvektor, egenverdien invertert. Følger av å gange $A\\mathbf v=\\lambda\\mathbf v$ med $A^{-1}$ og dele på $\\lambda$."
+    },
+    {
+      "id": "tma4110-5-1-bb-egen-shift",
+      "type": "definition",
+      "title": "Egenverdier til $A+cI$",
+      "content": "Å legge til $cI$ forskyver egenverdiene: $A\\mathbf v=\\lambda\\mathbf v$ gir $(A+cI)\\mathbf v=(\\lambda+c)\\mathbf v$ — samme egenvektor, egenverdi $\\lambda+c$. Nyttig triks: egenverdiene til $A-\\lambda_0 I$ er $\\lambda_i-\\lambda_0$, og $\\lambda_0$ er egenverdi for $A$ nettopp når $0$ er egenverdi for $A-\\lambda_0 I$."
+    },
+    {
+      "id": "tma4110-5-1-bb-egen-cA",
+      "type": "definition",
+      "title": "Egenverdier til $cA$",
+      "content": "Skalering av hele matrisen skalerer egenverdiene: $A\\mathbf v=\\lambda\\mathbf v$ gir $(cA)\\mathbf v=(c\\lambda)\\mathbf v$. Egenvektorene er de samme, egenverdiene ganges med $c$."
+    },
+    {
+      "id": "tma4110-5-1-bb-egen-transp",
+      "type": "definition",
+      "title": "$A^T$ har samme egenverdier som $A$",
+      "content": "Egenverdiene er uendret under transponering, fordi $\\det(A^T-\\lambda I)=\\det((A-\\lambda I)^T)=\\det(A-\\lambda I)$ (transponertregelen). Egenvektorene er derimot generelt forskjellige (de kalles venstre-egenvektorer for $A$)."
+    },
+    {
+      "id": "tma4110-5-1-bb-diag-egen",
+      "type": "definition",
+      "title": "Diagonalmatrisens egenverdier",
+      "content": "En diagonalmatrise $D=\\operatorname{diag}(d_1,\\dots,d_n)$ har egenverdiene $d_1,\\dots,d_n$ rett på diagonalen, med standardbasisvektorene $\\mathbf e_i$ som egenvektorer ($D\\mathbf e_i=d_i\\mathbf e_i$). Spesialtilfelle av triangulær-regelen."
+    },
+    {
+      "id": "tma4110-5-1-bb-uavh-egen",
+      "type": "definition",
+      "title": "Egenvektorer for ulike egenverdier er uavhengige",
+      "content": "Egenvektorer som tilhører **forskjellige** egenverdier er alltid lineært uavhengige. Konsekvens: har en $n\\times n$-matrise $n$ forskjellige egenverdier, får du automatisk $n$ uavhengige egenvektorer — en basis for $\\mathbb R^n$ av egenvektorer (bru til diagonalisering, kap. 5.2)."
+    },
+    {
+      "id": "tma4110-5-1-bb-similar",
+      "type": "definition",
+      "title": "Similære matriser har samme egenverdier",
+      "content": "Er $B=P^{-1}AP$ for en inverterbar $P$ (da kalles $A$ og $B$ **similære**), har $A$ og $B$ nøyaktig samme karakteristiske polynom og dermed samme egenverdier med samme multiplisiteter. Dette er hele ideen bak diagonalisering: en diagonaliserbar $A$ er similær med en diagonalmatrise $D$ som bærer egenverdiene."
+    },
+    {
+      "id": "tma4110-5-1-bb-spor-def",
+      "type": "definition",
+      "title": "Sporet til en matrise",
+      "content": "**Sporet** $\\operatorname{spor}A$ (engelsk *trace*) er summen av diagonalelementene, $\\operatorname{spor}A=a_{11}+a_{22}+\\dots+a_{nn}$. Det er lik summen av egenverdiene og brukes som rask kontroll i egenverdi-oppgaver. Nyttig regel: $\\operatorname{spor}(AB)=\\operatorname{spor}(BA)$."
+    },
+    {
+      "id": "tma4110-5-1-bb-kompleks",
+      "type": "definition",
+      "title": "Komplekse egenverdier (forvarsel)",
+      "content": "Ikke alle reelle matriser har reelle egenverdier: det karakteristiske polynomet kan ha komplekse røtter. For en reell matrise opptrer de i **konjugerte par** $\\lambda=a\\pm bi$. Rotasjonsmatrisen $\\begin{bmatrix}0&-1\\\\1&0\\end{bmatrix}$ har for eksempel ingen reell egenvektor. Dette utforskes i kap. 5.4."
+    },
+    {
+      "id": "tma4110-5-1-bb-egenbasis",
+      "type": "definition",
+      "title": "Egenbasis",
+      "content": "En **egenbasis** for $\\mathbb R^n$ er en basis som helt består av egenvektorer for $A$. En slik finnes nettopp når $A$ er diagonaliserbar (kap. 5.2). I en egenbasis blir $A$ maksimalt enkel — den virker som ren skalering langs hver basisretning."
+    },
+    {
+      "id": "tma4110-5-1-bb-egenrom-underrom",
+      "type": "definition",
+      "title": "Egenrommet er et underrom",
+      "content": "$E_\\lambda=\\operatorname{Nul}(A-\\lambda I)$ er alltid et **underrom** av $\\mathbb R^n$: det inneholder $\\mathbf 0$ og er lukket under addisjon og skalering (som ethvert nullrom, kap. 3.3). Derfor er en sum eller et skalarmultiplum av egenvektorer for **samme** $\\lambda$ igjen en egenvektor for $\\lambda$ (så lenge den ikke blir $\\mathbf 0$)."
+    },
+    {
+      "id": "tma4110-5-1-bb-defektiv",
+      "type": "definition",
+      "title": "Defekt (ikke-diagonaliserbar) matrise",
+      "content": "En matrise der geometrisk multiplisitet er strengt mindre enn algebraisk for minst én egenverdi, kalles **defekt** — den mangler egenvektorer og er ikke diagonaliserbar (kap. 5.2). Det minste eksemplet er $\\begin{bmatrix}2&1\\\\0&2\\end{bmatrix}$: egenverdi $2$ med algebraisk multiplisitet $2$, men bare ett-dimensjonalt egenrom."
+    },
+    {
+      "id": "tma4110-5-1-bb-karkoeff",
+      "type": "definition",
+      "title": "Koeffisientene i det karakteristiske polynomet",
+      "content": "For en $n\\times n$-matrise er det karakteristiske polynomet $\\det(A-\\lambda I)=(-1)^n\\lambda^n+\\dots$. To av koeffisientene har direkte tolkning: leddet av grad $n-1$ gir $\\operatorname{spor}A$ (sum av egenverdiene), og konstantleddet gir $\\det A$ (produktet). Derav kontrollrelasjonene."
+    },
+    {
+      "id": "tma4110-5-1-bb-egenverdi1",
+      "type": "definition",
+      "title": "Egenverdi 1 betyr en fast retning",
+      "content": "Er $\\lambda=1$ en egenverdi, finnes en vektor med $A\\mathbf v=\\mathbf v$ — en **fast vektor** som $A$ ikke endrer. Slike faste retninger er kjernen i Markov-matriser og stasjonære fordelinger (kap. 5.3), der egenverdien $1$ alltid er til stede."
+    },
+    {
+      "id": "tma4110-5-1-rep",
+      "type": "collapsible",
+      "title": "Repetisjonsoppgaver",
+      "buttonText": "Vis repetisjonsoppgaver",
+      "content": [
+        {
+          "id": "tma4110-5-1-rep-1",
+          "type": "exercise",
+          "exercise": {
+            "id": "tma4110-5-1-rep-1x",
+            "number": "R1",
+            "type": "classic",
+            "difficulty": "lett",
+            "task": "(Fra kap. 2.3) Regn ut $\\det(A-\\lambda I)$ for $A=\\begin{bmatrix}3&2\\\\0&1\\end{bmatrix}$, og finn røttene.",
+            "solution": "$A-\\lambda I=\\begin{bmatrix}3-\\lambda&2\\\\0&1-\\lambda\\end{bmatrix}$, triangulær, så $\\det=(3-\\lambda)(1-\\lambda)$. Røtter (egenverdier): $\\lambda=3$ og $\\lambda=1$.",
+            "hints": [
+              "Triangulær matrise: determinanten er produktet av diagonalen $(3-\\lambda)(1-\\lambda)$."
+            ]
+          }
+        },
+        {
+          "id": "tma4110-5-1-rep-2",
+          "type": "exercise",
+          "exercise": {
+            "id": "tma4110-5-1-rep-2x",
+            "number": "R2",
+            "type": "classic",
+            "difficulty": "lett",
+            "task": "(Fra kap. 3.3) Finn en basis for $\\operatorname{Nul}B$ der $B=\\begin{bmatrix}1&-1\\\\-1&1\\end{bmatrix}$.",
+            "solution": "Radreduksjon: $\\begin{bmatrix}1&-1\\\\-1&1\\end{bmatrix}\\to\\begin{bmatrix}1&-1\\\\0&0\\end{bmatrix}$, likningen $x-y=0\\Rightarrow x=y$. Basis: $\\begin{bmatrix}1\\\\1\\end{bmatrix}$. (Dette er nettopp $E_\\lambda$ for en egenverdi når $B=A-\\lambda I$.)",
+            "hints": [
+              "Radreduser $B$ og les av den frie variabelen; her gir raden $x=y$."
+            ]
+          }
+        },
+        {
+          "id": "tma4110-5-1-rep-3",
+          "type": "exercise",
+          "exercise": {
+            "id": "tma4110-5-1-rep-3x",
+            "number": "R3",
+            "type": "classic",
+            "difficulty": "middels",
+            "task": "(Fra kap. 2.3) En 3×3-matrise har egenverdier $1,2,4$. Hva er $\\det A$ og $\\operatorname{spor}A$?",
+            "solution": "$\\det A=\\prod\\lambda_i=1\\cdot2\\cdot4=8$ og $\\operatorname{spor}A=\\sum\\lambda_i=1+2+4=7$.",
+            "hints": [
+              "Determinanten er produktet av egenverdiene, sporet er summen."
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": "tma4110-5-1-symbolliste",
+      "type": "collapsible",
+      "title": "Symbol- og formelliste",
+      "buttonText": "Vis symboler og formler",
+      "content": [
+        {
+          "id": "tma4110-5-1-symbolliste-text",
+          "type": "text",
+          "content": "## Symbol- og formelliste\n\n*Oppslagsverk — alt her forklares underveis i kapitlet.*\n\nAlle symboler og formler som brukes i dette delkapitlet (5.1), samlet på ett sted.\n\n| Symbol | Betydning |\n|---|---|\n| $A\\mathbf v=\\lambda\\mathbf v$ | Egenverdilikningen ($\\mathbf v\\ne\\mathbf 0$) |\n| $\\lambda$ | Egenverdi |\n| $\\mathbf v$ | Egenvektor (til $\\lambda$) |\n| $I$ | Identitetsmatrisen |\n| $A-\\lambda I$ | $A$ med $\\lambda$ trukket fra diagonalen |\n| $E_\\lambda$ | Egenrommet til $\\lambda$ |\n| $\\operatorname{Nul}(A-\\lambda I)$ | Nullrommet — lik $E_\\lambda$ |\n| $\\operatorname{spor}A$ | Sporet (sum av diagonalen) |\n| $\\det A$ | Determinanten |\n| alg. mult. | Algebraisk multiplisitet (rotmultiplisitet) |\n| geom. mult. | Geometrisk multiplisitet ($\\dim E_\\lambda$) |\n\n**Formler i dette delkapitlet:**\n\n$$A\\mathbf v=\\lambda\\mathbf v,\\quad \\mathbf v\\ne\\mathbf 0$$\nDefinisjonen av egenverdi og egenvektor.\n\n$$\\det(A-\\lambda I)=0$$\nKarakteristisk likning — løsningene er egenverdiene.\n\n$$\\lambda^2-(\\operatorname{spor}A)\\lambda+\\det A=0$$\nKarakteristisk likning for 2×2 (snarvei via spor og determinant).\n\n$$E_\\lambda=\\operatorname{Nul}(A-\\lambda I)$$\nEgenrommet — finnes ved radreduksjon.\n\n$$1\\le\\dim E_\\lambda\\le(\\text{algebraisk multiplisitet})$$\nGeometrisk $\\le$ algebraisk multiplisitet.\n\n$$\\operatorname{spor}A=\\sum_i\\lambda_i,\\qquad \\det A=\\prod_i\\lambda_i$$\nKontrollrelasjonene — sum og produkt av egenverdiene.\n\n$$0\\text{ egenverdi}\\ \\Longleftrightarrow\\ \\det A=0\\ (A\\text{ singulær})$$\nEgenverdien null og singularitet.\n\n$$A^2=A\\ \\Rightarrow\\ \\lambda\\in\\{0,1\\}$$\nBevis-bro: idempotent matrise har egenverdier $0$ og $1$."
+        }
+      ]
+    }
+  ],
+  "exercises": []
+}

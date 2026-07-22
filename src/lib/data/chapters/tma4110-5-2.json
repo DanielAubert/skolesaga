@@ -1,0 +1,438 @@
+{
+  "id": "tma4110-5-2",
+  "courseId": "tma4110",
+  "chapterNumber": "5.2",
+  "title": "Diagonalisering A=PDP⁻¹ og diagonaliserbarhetskriteriet",
+  "description": "Diagonalisering A=PDP⁻¹ og karakterskilleren: BEGRUNN diagonaliserbarhet med multiplisitet eller en navngitt snarvei (distinkt/symmetrisk/triangulær), og vis ikke-diagonaliserbarhet ved et for lite egenrom.",
+  "estimatedMinutes": 60,
+  "competenceGoals": [
+    "diagonalisere en matrise ved å bygge $P$ (egenvektorer) og $D$ (egenverdier) matchet søyle for søyle, og verifisere med $AP=PD$",
+    "avgjøre og BEGRUNNE diagonaliserbarhet med diagonaliserbarhetskriteriet (geometrisk = algebraisk multiplisitet) eller en navngitt snarvei ($n$ distinkte egenverdier, symmetrisk via spektralteoremet, triangulær)",
+    "vise at en matrise ikke er diagonaliserbar ved å peke på et egenrom der geometrisk $<$ algebraisk multiplisitet, også i parameteravhengige tilfeller"
+  ],
+  "content": [
+    {
+      "id": "tma4110-5-2-tip-eksamensvinkel",
+      "type": "tip",
+      "title": "Eksamensvinkel",
+      "content": "**Diagonalisering er den andre halvdelen av 95 %-egenverdioppgaven — og selve karakterskilleren: sensor vil se at du BEGRUNNER diagonaliserbarheten, ikke bare påstår den.**\n\n- **Diagonalisering (sjanger G)** følger nesten alltid rett etter at egenverdiene er funnet: «avgjør om $A$ er diagonaliserbar; finn i så fall $P$ og $D$». Sjanger G er egenverdi-/diagonaliseringskoden fra [kap. 5.1](/bok/tma4110/tma4110-5-1).\n- Det som skiller toppkarakter fra middels: **å begrunne** svaret. Er egenverdiene distinkte? Er matrisen symmetrisk eller triangulær? Eller må du sammenligne geometrisk og algebraisk multiplisitet for hver egenverdi? En påstand «ja, diagonaliserbar» uten begrunnelse gir ikke full uttelling.\n- For **ikke**-diagonaliserbare matriser må du peke på det konkrete egenrommet som er for lite (geometrisk $<$ algebraisk).\n\nPrioriteten er **perfekt**. Under kode E (ingen hjelpemidler) må du kunne bygge $P$ og $D$ for hånd, **matchet søyle for søyle**, og navngi snarveien (distinkt / symmetrisk / triangulær) eller diagonaliserbarhetskriteriet du bruker."
+    },
+    {
+      "id": "tma4110-5-2-forkunnskaper",
+      "type": "text",
+      "content": "**Forkunnskaper:** Dette kapitlet bygger direkte på [kap. 5.1](/bok/tma4110/tma4110-5-1) (egenverdier, egenvektorer, egenrom, algebraisk og geometrisk multiplisitet). Du trenger også invers matrise fra [kap. 2.2](/bok/tma4110/tma4110-2-2) (vi regner $P^{-1}$) og radreduksjon fra [kap. 1.1](/bok/tma4110/tma4110-1-1)."
+    },
+    {
+      "id": "tma4110-5-2-sist-du-var-her",
+      "type": "text",
+      "content": "**Sist du var her — repeter disse fra kap. 5.1 før du starter:**\n\n- **Egenverdier:** løsningene av $\\det(A-\\lambda I)=0$.\n- **Egenrom:** $E_\\lambda=\\operatorname{Nul}(A-\\lambda I)$, funnet ved radreduksjon; dimensjonen er den **geometriske multiplisiteten**.\n- **Algebraisk multiplisitet:** hvor mange ganger $\\lambda$ er rot i det karakteristiske polynomet.\n- **Nøkkelulikheten:** $1\\le$ geometrisk $\\le$ algebraisk — hele diagonaliserbarheten avgjøres av om det er likhet.\n\nDisse fire er råstoffet; dette kapitlet setter dem sammen til $A=PDP^{-1}$."
+    },
+    {
+      "id": "tma4110-5-2-motivasjon",
+      "type": "text",
+      "content": "## Hverdagsanker: å finne matrisens enkleste form\n\nEn diagonalmatrise er den enkleste matrisen som finnes: den bare skalerer hver koordinat for seg. Å **diagonalisere** $A$ er å finne et koordinatskifte — en egenbasis — der $A$ ser ut som en ren skalering. Da blir tunge regnestykker lette: $A^{100}$, $\\sqrt A$, og løsning av differensiallikningssystemer koker alt ned til å opphøye tall på en diagonal (kap. 5.3, Del 10).\n\nVi bygger dette i fire løkker: (1) hva $A=PDP^{-1}$ betyr, og hvordan du bygger $P$ og $D$; (2) **diagonaliserbarhetskriteriet** som avgjør når det går; (3) tre **snarveier** som gir svaret uten regning (distinkte egenverdier, symmetri, triangulær form); og (4) hvordan du viser at en matrise **ikke** er diagonaliserbar, og parameteravhengige tilfeller."
+    },
+    {
+      "id": "tma4110-5-2-lokke1",
+      "type": "text",
+      "content": "## Løkke 1 — Diagonalisering $A=PDP^{-1}$ (~16 min)"
+    },
+    {
+      "id": "tma4110-5-2-def-diag",
+      "type": "definition",
+      "title": "Diagonalisering $A=PDP^{-1}$",
+      "content": "En $n\\times n$-matrise $A$ er **diagonaliserbar** hvis den kan skrives\n$$A=PDP^{-1},$$\nder $D$ er en **diagonalmatrise** og $P$ er **inverterbar**. Ligningen sier at $A$ er den samme avbildningen som $D$, bare sett i et annet koordinatsystem (kolonnene i $P$). Å diagonalisere en matrise er å finne slike $P$ og $D$."
+    },
+    {
+      "id": "tma4110-5-2-def-PD",
+      "type": "definition",
+      "title": "Hva $P$ og $D$ er — matchet søyle for søyle",
+      "content": "I $A=PDP^{-1}$ er byggeklossene egenverdiene og egenvektorene:\n\n- **$D$** har **egenverdiene** på diagonalen: $D=\\operatorname{diag}(\\lambda_1,\\dots,\\lambda_n)$.\n- **$P$** har **egenvektorene som kolonner**, i **samme rekkefølge**: kolonne $i$ i $P$ er en egenvektor for $\\lambda_i$.\n\nMatchingen søyle for søyle er avgjørende: står $\\lambda_2$ på plass $2$ i $D$, må egenvektoren for $\\lambda_2$ stå i kolonne $2$ i $P$. Bytter du om på den ene uten den andre, blir $PDP^{-1}\\ne A$."
+    },
+    {
+      "id": "tma4110-5-2-th-hvorfor",
+      "type": "theorem",
+      "title": "Hvorfor $AP=PD$",
+      "content": "At kolonnene i $P$ er egenvektorer, er akkurat det som får $A=PDP^{-1}$ til å stemme. Skriv $P=[\\mathbf v_1\\ \\cdots\\ \\mathbf v_n]$. Da er\n$$AP=[A\\mathbf v_1\\ \\cdots\\ A\\mathbf v_n]=[\\lambda_1\\mathbf v_1\\ \\cdots\\ \\lambda_n\\mathbf v_n]=PD.$$\nEr $P$ inverterbar (egenvektorene uavhengige), kan vi gange med $P^{-1}$ fra høyre: $A=PDP^{-1}$. Dette viser samtidig at diagonalisering er mulig **nettopp** når det finnes $n$ lineært uavhengige egenvektorer — en egenbasis."
+    },
+    {
+      "id": "tma4110-5-2-ex1",
+      "type": "example",
+      "title": "Eksempel 1: Diagonaliser en 2×2-matrise",
+      "problem": "Diagonaliser $A=\\begin{bmatrix}4&1\\\\2&3\\end{bmatrix}$: finn $P$ og $D$ med $A=PDP^{-1}$.",
+      "solution": "**Egenverdier** (kap. 5.1): $\\operatorname{spor}A=7$, $\\det A=10$, så $\\lambda^2-7\\lambda+10=(\\lambda-2)(\\lambda-5)=0$, altså $\\lambda=2,5$.\n\n**Egenvektorer:**\n- $\\lambda=2$: $A-2I=\\begin{bmatrix}2&1\\\\2&1\\end{bmatrix}\\to 2x+y=0$, så $\\mathbf v_1=\\begin{bmatrix}1\\\\-2\\end{bmatrix}$.\n- $\\lambda=5$: $A-5I=\\begin{bmatrix}-1&1\\\\2&-2\\end{bmatrix}\\to -x+y=0$, så $\\mathbf v_2=\\begin{bmatrix}1\\\\1\\end{bmatrix}$.\n\n**Bygg $P$ og $D$ matchet:** egenverdien $2$ først, så dens egenvektor i kolonne 1:\n$$P=\\begin{bmatrix}1&1\\\\-2&1\\end{bmatrix},\\qquad D=\\begin{bmatrix}2&0\\\\0&5\\end{bmatrix}.$$\n**Kontroll:** $\\det P=1\\cdot1-1\\cdot(-2)=3\\ne0$ (så $P$ er inverterbar, egenvektorene uavhengige), og $P^{-1}=\\tfrac13\\begin{bmatrix}1&-1\\\\2&1\\end{bmatrix}$. En rask sjekk er $AP=PD$: $A\\mathbf v_1=2\\mathbf v_1$ og $A\\mathbf v_2=5\\mathbf v_2$ $\\checkmark$.\n\n**Svar:** $A=PDP^{-1}$ med $P$ og $D$ som over. (Rekkefølgen er valgfri, men $P$ og $D$ må følges ad: setter du $5$ først i $D$, må $\\mathbf v_2$ først i $P$.)"
+    },
+    {
+      "id": "tma4110-5-2-oppg1",
+      "type": "exercise",
+      "exercise": {
+        "id": "tma4110-5-2-oppg1x",
+        "number": "1",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "(Sjanger G — full diagonalisering.) Diagonaliser den symmetriske matrisen $A=\\begin{bmatrix}3&1\\\\1&3\\end{bmatrix}$: finn $P$ og $D$.",
+        "solution": "**Egenverdier:** $\\operatorname{spor}A=6$, $\\det A=8$, så $\\lambda^2-6\\lambda+8=(\\lambda-2)(\\lambda-4)=0$: $\\lambda=2,4$.\n\n**Egenvektorer:**\n- $\\lambda=2$: $A-2I=\\begin{bmatrix}1&1\\\\1&1\\end{bmatrix}\\to x+y=0$, $\\mathbf v_1=\\begin{bmatrix}1\\\\-1\\end{bmatrix}$.\n- $\\lambda=4$: $A-4I=\\begin{bmatrix}-1&1\\\\1&-1\\end{bmatrix}\\to -x+y=0$, $\\mathbf v_2=\\begin{bmatrix}1\\\\1\\end{bmatrix}$.\n\n**Matchet:** $P=\\begin{bmatrix}1&1\\\\-1&1\\end{bmatrix}$, $D=\\begin{bmatrix}2&0\\\\0&4\\end{bmatrix}$, med $A=PDP^{-1}$. (Merk: egenvektorene er ortogonale, $\\mathbf v_1\\cdot\\mathbf v_2=0$ — det er ingen tilfeldighet for en symmetrisk matrise, se løkke 3.)",
+        "hints": [
+          "Finn egenverdiene fra $\\lambda^2-(\\operatorname{spor}A)\\lambda+\\det A=0$.",
+          "For hver egenverdi: radreduser $A-\\lambda I$ og les av egenvektoren.",
+          "Sett egenverdiene på diagonalen i $D$ og de tilsvarende egenvektorene som kolonner i $P$, i samme rekkefølge."
+        ]
+      }
+    },
+    {
+      "id": "tma4110-5-2-lokke2",
+      "type": "text",
+      "content": "## Løkke 2 — Diagonaliserbarhetskriteriet (~15 min)"
+    },
+    {
+      "id": "tma4110-5-2-def-kriterium",
+      "type": "definition",
+      "title": "Diagonaliserbarhetskriteriet",
+      "content": "En $n\\times n$-matrise $A$ er diagonaliserbar **hvis og bare hvis** den har $n$ lineært uavhengige egenvektorer. Uttrykt i multiplisiteter:\n$$A\\text{ diagonaliserbar}\\ \\Longleftrightarrow\\ \\sum_\\lambda \\dim E_\\lambda=n\\ \\Longleftrightarrow\\ \\text{geometrisk}=\\text{algebraisk for HVER egenverdi}.$$\nDu sjekker altså hver egenverdi: er egenrommet stort nok (dimensjon = algebraisk multiplisitet)? Er svaret ja for alle, er $A$ diagonaliserbar; svikter det for én, er den ikke det. Dette kriteriet er selve kjernen i sjanger G."
+    },
+    {
+      "id": "tma4110-5-2-def-fremgang",
+      "type": "definition",
+      "title": "Fremgangsmåte: er $A$ diagonaliserbar?",
+      "content": "En trygg sjekkliste når ingen snarvei (løkke 3) gjelder:\n\n1. Finn egenverdiene og deres **algebraiske** multiplisiteter fra $\\det(A-\\lambda I)=0$.\n2. For hver egenverdi med algebraisk multiplisitet $>1$: regn ut $\\dim E_\\lambda$ (geometrisk multiplisitet) ved å radredusere $A-\\lambda I$.\n3. Er geometrisk $=$ algebraisk for **alle**, er $A$ diagonaliserbar; ellers ikke.\n\nEgenverdier med algebraisk multiplisitet $1$ trenger du ikke sjekke — der er geometrisk automatisk $1$."
+    },
+    {
+      "id": "tma4110-5-2-ex2",
+      "type": "example",
+      "title": "Eksempel 2: Repetert egenverdi som likevel gir diagonaliserbarhet",
+      "problem": "Er $A=\\begin{bmatrix}5&0&0\\\\0&5&0\\\\2&3&1\\end{bmatrix}$ diagonaliserbar?",
+      "solution": "**Egenverdier:** $A$ er nedre triangulær, så egenverdiene er diagonalen: $\\lambda=5$ (algebraisk multiplisitet $2$) og $\\lambda=1$ (multiplisitet $1$).\n\n**Sjekk $\\lambda=5$** (den eneste med multiplisitet $>1$): $A-5I=\\begin{bmatrix}0&0&0\\\\0&0&0\\\\2&3&-4\\end{bmatrix}$. Bare én ikke-null rad, likningen $2x+3y-4z=0$, altså **to** frie variabler ($y$ og $z$). Dermed $\\dim E_5=2$ = algebraisk multiplisitet.\n\n**Konklusjon:** geometrisk $=$ algebraisk for begge egenverdier ($2=2$ og $1=1$), summen er $2+1=3=n$. Ved diagonaliserbarhetskriteriet er $A$ **diagonaliserbar** — selv om den har en repetert egenverdi. En basis for $E_5$ er f.eks. $\\{(-3,2,0),(2,0,1)\\}$, og $E_1=\\operatorname{Span}\\{(0,0,1)\\}$."
+    },
+    {
+      "id": "tma4110-5-2-oppg2",
+      "type": "exercise",
+      "exercise": {
+        "id": "tma4110-5-2-oppg2x",
+        "number": "2",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "(Sjanger G — kriteriet med gitt data.) Egenverdiene til en $3\\times3$-matrise $A$ er $2,2,5$. Du har regnet at $\\dim E_2=2$. Er $A$ diagonaliserbar? Begrunn.",
+        "solution": "Sjekk geometrisk mot algebraisk for hver egenverdi:\n- $\\lambda=2$: algebraisk multiplisitet $2$, og $\\dim E_2=2$ (oppgitt) — de er like.\n- $\\lambda=5$: algebraisk multiplisitet $1$, så $\\dim E_5=1$ automatisk — like.\n\nSummen av de geometriske multiplisitetene er $2+1=3=n$. Ved **diagonaliserbarhetskriteriet** er $A$ derfor **diagonaliserbar**: den har tre lineært uavhengige egenvektorer, altså en egenbasis for $\\mathbb R^3$.",
+        "hints": [
+          "Diagonaliserbarhetskriteriet: geometrisk = algebraisk for hver egenverdi (ekvivalent: sum av $\\dim E_\\lambda=n$).",
+          "$\\lambda=5$ har algebraisk multiplisitet $1$, så $\\dim E_5=1$ uten videre regning.",
+          "Legg sammen dimensjonene og sammenlign med $n=3$."
+        ]
+      }
+    },
+    {
+      "id": "tma4110-5-2-lokke3",
+      "type": "text",
+      "content": "## Løkke 3 — Tre snarveier: distinkt, symmetrisk, triangulær (~16 min)"
+    },
+    {
+      "id": "tma4110-5-2-lokke3-intro",
+      "type": "text",
+      "content": "Ofte trenger du ikke regne egenrom-dimensjoner i det hele tatt: tre situasjoner garanterer diagonaliserbarhet direkte. Sensor forventer at du **navngir** snarveien du bruker."
+    },
+    {
+      "id": "tma4110-5-2-def-distinkt",
+      "type": "definition",
+      "title": "Snarvei 1: $n$ distinkte egenverdier",
+      "content": "Har en $n\\times n$-matrise $n$ **forskjellige** egenverdier, er den automatisk diagonaliserbar. Grunnen (kap. 5.1): egenvektorer for ulike egenverdier er lineært uavhengige, så $n$ distinkte egenverdier gir $n$ uavhengige egenvektorer — en egenbasis. **NB:** dette er tilstrekkelig, ikke nødvendig — en matrise med repeterte egenverdier kan godt være diagonaliserbar (Eksempel 2)."
+    },
+    {
+      "id": "tma4110-5-2-ex3",
+      "type": "example",
+      "title": "Eksempel 3: Distinkt-snarveien",
+      "problem": "Er $A=\\begin{bmatrix}1&2\\\\0&3\\end{bmatrix}$ diagonaliserbar? Begrunn uten å finne $P$.",
+      "solution": "$A$ er øvre triangulær, så egenverdiene står på diagonalen: $\\lambda=1$ og $\\lambda=3$. De er **forskjellige**, og matrisen er $2\\times2$. Ved snarvei 1 ($n=2$ distinkte egenverdier) er $A$ **diagonaliserbar** — uten at vi trengte å regne ut noe egenrom.\n\n**Svar:** Ja, diagonaliserbar, fordi den har $2$ distinkte egenverdier ($1$ og $3$)."
+    },
+    {
+      "id": "tma4110-5-2-def-spektral",
+      "type": "definition",
+      "title": "Snarvei 2: Spektralteoremet (symmetrisk matrise)",
+      "content": "**Spektralteoremet:** enhver **symmetrisk** reell matrise ($A^T=A$) er **ortogonalt diagonaliserbar**. Det betyr at det finnes en **ortogonal** matrise $P$ (kolonnene er en ortonormal basis av egenvektorer) slik at\n$$A=PDP^{T}.$$\nMerk $P^{T}$ i stedet for $P^{-1}$ — for en ortogonal matrise er $P^{-1}=P^{T}$. Teoremet garanterer dessuten at alle egenverdiene er **reelle**, og at egenvektorer for ulike egenverdier er **ortogonale**. En symmetrisk matrise er alltid diagonaliserbar, uansett multiplisiteter."
+    },
+    {
+      "id": "tma4110-5-2-def-ortogonal",
+      "type": "definition",
+      "title": "Ortogonal matrise",
+      "content": "En kvadratisk matrise $P$ er **ortogonal** hvis kolonnene er en ortonormal mengde, ekvivalent $P^{T}P=I$, altså $P^{-1}=P^{T}$. Da er transponering det samme som invertering — gratis. I spektralteoremet bruker vi dette til å skrive $A=PDP^{T}$ i stedet for $A=PDP^{-1}$, som sparer en full inversutregning."
+    },
+    {
+      "id": "tma4110-5-2-ex4",
+      "type": "example",
+      "title": "Eksempel 4: Ortogonal diagonalisering av en symmetrisk matrise",
+      "problem": "Diagonaliser $A=\\begin{bmatrix}2&1\\\\1&2\\end{bmatrix}$ ortogonalt (finn ortogonal $P$ og $D$ med $A=PDP^{T}$).",
+      "solution": "$A$ er symmetrisk, så spektralteoremet garanterer ortogonal diagonalisering. Fra kap. 5.1: egenverdier $\\lambda=1,3$ med egenvektorer $\\begin{bmatrix}1\\\\-1\\end{bmatrix}$ (for $1$) og $\\begin{bmatrix}1\\\\1\\end{bmatrix}$ (for $3$). De er ortogonale ($1\\cdot1+(-1)\\cdot1=0$) — som teoremet lovet.\n\n**Normaliser** hver til lengde $1$ (del på $\\sqrt2$):\n$$P=\\frac{1}{\\sqrt2}\\begin{bmatrix}1&1\\\\-1&1\\end{bmatrix},\\qquad D=\\begin{bmatrix}1&0\\\\0&3\\end{bmatrix}.$$\nDa er $P$ ortogonal ($P^{T}P=I$), og $A=PDP^{T}$. **Kontroll:** kolonnene har lengde $1$ og er ortogonale $\\checkmark$.\n\n**Svar:** $A=PDP^{T}$ med $P$ og $D$ som over. Poenget med ortogonal diagonalisering: $P^{-1}=P^{T}$, så du slipper å regne en invers."
+    },
+    {
+      "id": "tma4110-5-2-def-triangdiag",
+      "type": "definition",
+      "title": "Snarvei 3: Triangulær matrise",
+      "content": "For en **triangulær** matrise leser du egenverdiene rett av diagonalen (kap. 5.1). Det gir en rask diagnose:\n\n- Er diagonalelementene **alle forskjellige**, gir snarvei 1 diagonaliserbarhet med en gang.\n- Er noen like, må du sjekke geometrisk multiplisitet for de repeterte (triangulær garanterer i seg selv **ikke** diagonaliserbarhet — $\\begin{bmatrix}2&1\\\\0&2\\end{bmatrix}$ er triangulær, men ikke diagonaliserbar)."
+    },
+    {
+      "id": "tma4110-5-2-oppg3",
+      "type": "exercise",
+      "exercise": {
+        "id": "tma4110-5-2-oppg3x",
+        "number": "3",
+        "type": "classic",
+        "difficulty": "lett",
+        "task": "(Ren gjengivelse — snarveiene.) Avgjør om hver matrise er diagonaliserbar, og navngi snarveien:\n\n**a)** $A=\\begin{bmatrix}2&3\\\\0&5\\end{bmatrix}$\n\n**b)** $B=\\begin{bmatrix}4&-1\\\\-1&4\\end{bmatrix}$",
+        "solution": "**a)** $A$ er triangulær med diagonal $2,5$ — to **distinkte** egenverdier for en $2\\times2$-matrise. Ved **snarvei 1 (distinkte egenverdier)** er $A$ diagonaliserbar.\n\n**b)** $B$ er **symmetrisk** ($B^{T}=B$). Ved **spektralteoremet (snarvei 2)** er $B$ (ortogonalt) diagonaliserbar — uansett egenverdier.",
+        "hints": [
+          "Se etter en snarvei før du regner: er egenverdiene distinkte, er matrisen symmetrisk, eller er den triangulær?",
+          "I (a): triangulær med ulike diagonalelementer $\\Rightarrow$ distinkte egenverdier.",
+          "I (b): $B^{T}=B$, så spektralteoremet gjelder."
+        ]
+      }
+    },
+    {
+      "id": "tma4110-5-2-lokke4",
+      "type": "text",
+      "content": "## Løkke 4 — Ikke-diagonaliserbarhet og parametere (~13 min)"
+    },
+    {
+      "id": "tma4110-5-2-def-ikke",
+      "type": "definition",
+      "title": "Ikke-diagonaliserbar: vis et for lite egenrom",
+      "content": "En matrise er **ikke** diagonaliserbar hvis geometrisk multiplisitet er **strengt mindre** enn algebraisk for minst én egenverdi — egenrommet er for lite til å gi nok uavhengige egenvektorer. For å vise det holder det å peke på **én** slik egenverdi: regn ut $\\dim E_\\lambda$ og sammenlign med den algebraiske multiplisiteten. Å bare si «ikke diagonaliserbar» uten å vise hvilket egenrom som svikter, gir ikke uttelling."
+    },
+    {
+      "id": "tma4110-5-2-ex5",
+      "type": "example",
+      "title": "Eksempel 5: Vis at en matrise ikke er diagonaliserbar",
+      "problem": "Er $A=\\begin{bmatrix}2&1\\\\0&2\\end{bmatrix}$ diagonaliserbar?",
+      "solution": "$A$ er triangulær, så egenverdien er $\\lambda=2$ med **algebraisk multiplisitet $2$** (dobbeltrot). Sjekk egenrommet:\n$$A-2I=\\begin{bmatrix}0&1\\\\0&0\\end{bmatrix}\\ \\Rightarrow\\ y=0,\\ x\\text{ fri}\\ \\Rightarrow\\ E_2=\\operatorname{Span}\\left\\{\\begin{bmatrix}1\\\\0\\end{bmatrix}\\right\\}.$$\nDermed $\\dim E_2=1$ (geometrisk multiplisitet), som er **strengt mindre** enn den algebraiske ($2$).\n\n**Svar:** $A$ er **ikke diagonaliserbar**, fordi egenverdien $2$ bare har ett-dimensjonalt egenrom ($\\dim E_2=1<2$). Det finnes ikke to uavhengige egenvektorer, så ingen egenbasis for $\\mathbb R^2$."
+    },
+    {
+      "id": "tma4110-5-2-oppg4",
+      "type": "exercise",
+      "exercise": {
+        "id": "tma4110-5-2-oppg4x",
+        "number": "4",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "(Sjanger G — ikke-diagonaliserbar.) Vis at $A=\\begin{bmatrix}4&1\\\\0&4\\end{bmatrix}$ ikke er diagonaliserbar.",
+        "solution": "$A$ er triangulær, så eneste egenverdi er $\\lambda=4$ med algebraisk multiplisitet $2$. Egenrommet:\n$$A-4I=\\begin{bmatrix}0&1\\\\0&0\\end{bmatrix}\\ \\Rightarrow\\ y=0,\\ x\\text{ fri}\\ \\Rightarrow\\ E_4=\\operatorname{Span}\\left\\{\\begin{bmatrix}1\\\\0\\end{bmatrix}\\right\\},\\quad \\dim E_4=1.$$\nGeometrisk multiplisitet ($1$) $<$ algebraisk ($2$), så ved diagonaliserbarhetskriteriet er $A$ **ikke diagonaliserbar** — den mangler en andre uavhengig egenvektor.",
+        "hints": [
+          "Finn egenverdien (triangulær $\\Rightarrow$ diagonalen) og dens algebraiske multiplisitet.",
+          "Radreduser $A-4I$ og tell frie variabler for å få $\\dim E_4$.",
+          "Er $\\dim E_4<$ algebraisk multiplisitet, er matrisen ikke diagonaliserbar — pek på det for lille egenrommet."
+        ]
+      }
+    },
+    {
+      "id": "tma4110-5-2-def-param",
+      "type": "definition",
+      "title": "Parameteravhengig diagonaliserbarhet",
+      "content": "Noen oppgaver spør: *for hvilke verdier av en parameter er $A$ diagonaliserbar?* Fremgangsmåte: finn egenverdiene som funksjon av parameteren, identifiser når de blir like (repetert), og sjekk kun i de tilfellene om egenrommet er stort nok. Utenfor de kritiske verdiene er egenverdiene distinkte, og snarvei 1 gir diagonaliserbarhet gratis."
+    },
+    {
+      "id": "tma4110-5-2-oppg5",
+      "type": "exercise",
+      "exercise": {
+        "id": "tma4110-5-2-oppg5x",
+        "number": "5",
+        "type": "classic",
+        "difficulty": "vanskelig",
+        "task": "(Sjanger G — parameter.) For hvilke verdier av $\\alpha$ er $A=\\begin{bmatrix}3&\\alpha\\\\0&3\\end{bmatrix}$ diagonaliserbar?",
+        "solution": "$A$ er triangulær, så eneste egenverdi er $\\lambda=3$ med algebraisk multiplisitet $2$, uansett $\\alpha$. Diagonaliserbarhet avgjøres av $\\dim E_3$:\n$$A-3I=\\begin{bmatrix}0&\\alpha\\\\0&0\\end{bmatrix}.$$\n**Tilfelle $\\alpha\\ne0$:** raden $\\alpha y=0$ gir $y=0$, $x$ fri, så $\\dim E_3=1<2$ — **ikke** diagonaliserbar.\n\n**Tilfelle $\\alpha=0$:** da er $A-3I=\\mathbf 0$, hele $\\mathbb R^2$ er egenrom, $\\dim E_3=2$ — diagonaliserbar (faktisk er $A=3I$ allerede diagonal).\n\n**Svar:** $A$ er diagonaliserbar **bare når $\\alpha=0$**. For alle andre $\\alpha$ er egenrommet for lite.",
+        "hints": [
+          "Egenverdien er $3$ (dobbel) uansett $\\alpha$ — triangulær. Diagonaliserbarheten henger på $\\dim E_3$.",
+          "Radreduser $A-3I=\\begin{bmatrix}0&\\alpha\\\\0&0\\end{bmatrix}$ og del i tilfellene $\\alpha\\ne0$ og $\\alpha=0$.",
+          "$\\alpha\\ne0$ gir $\\dim E_3=1<2$; bare $\\alpha=0$ gir $\\dim E_3=2$."
+        ]
+      }
+    },
+    {
+      "id": "tma4110-5-2-oppg6",
+      "type": "exercise",
+      "exercise": {
+        "id": "tma4110-5-2-oppg6x",
+        "number": "6",
+        "type": "classic",
+        "difficulty": "vanskelig",
+        "task": "(Sjanger G/N — kombinert begrunnelse.) La $A=\\begin{bmatrix}1&0&0\\\\0&2&0\\\\0&0&2\\end{bmatrix}$ og $B=\\begin{bmatrix}2&1&0\\\\0&2&0\\\\0&0&1\\end{bmatrix}$. Avgjør for hver om den er diagonaliserbar, med full begrunnelse.",
+        "solution": "**$A$:** Diagonalmatrise — den er allerede på formen $D$, altså $A=IDI^{-1}$ diagonaliserbar (trivielt). Egenverdiene er $1,2,2$; $E_2=\\operatorname{Span}\\{\\mathbf e_2,\\mathbf e_3\\}$ har $\\dim 2=$ algebraisk multiplisitet, så kriteriet er oppfylt. **Diagonaliserbar.**\n\n**$B$:** Triangulær med egenverdier $2$ (algebraisk multiplisitet $2$) og $1$. Sjekk $\\lambda=2$: $B-2I=\\begin{bmatrix}0&1&0\\\\0&0&0\\\\0&0&-1\\end{bmatrix}$. Radene gir $y=0$ og $z=0$, så bare $x$ er fri: $E_2=\\operatorname{Span}\\{(1,0,0)\\}$, $\\dim E_2=1<2$. Geometrisk $<$ algebraisk, så **$B$ er ikke diagonaliserbar**.\n\n**Poeng:** både $A$ og $B$ har egenverdi $2$ med algebraisk multiplisitet $2$, men bare $A$ har et stort nok egenrom. Det er nettopp multiplisitetssjekken som skiller dem.",
+        "hints": [
+          "For $A$: en diagonalmatrise er per definisjon allerede diagonalisert.",
+          "For $B$: triangulær $\\Rightarrow$ egenverdier på diagonalen; $\\lambda=2$ har algebraisk multiplisitet $2$.",
+          "Radreduser $B-2I$ og tell frie variabler — er $\\dim E_2<2$, er $B$ ikke diagonaliserbar."
+        ]
+      }
+    },
+    {
+      "id": "tma4110-5-2-warning",
+      "type": "warning",
+      "title": "Typiske feil",
+      "content": "- **Diagonaliserbarhet påstått uten multiplisitetssjekk.** Den dokumenterte fellen: å skrive «diagonaliserbar» uten begrunnelse. Navngi alltid snarveien (distinkt / symmetrisk / triangulær) eller vis geometrisk $=$ algebraisk for hver egenverdi.\n- **$P$ og $D$ ikke matchet søyle for søyle.** Egenvektoren i kolonne $i$ i $P$ må tilhøre egenverdien på plass $i$ i $D$. Bytt aldri om på den ene uten den andre.\n- **«Ikke diagonaliserbar» uten å vise hvilket egenrom som er for lite.** Pek konkret på egenverdien med $\\dim E_\\lambda<$ algebraisk multiplisitet.\n- **Glemmer symmetrisk/distinkt-snarveien** og regner unødvendig mye. Sjekk alltid først om egenverdiene er distinkte eller matrisen symmetrisk.\n- **Bruker $P^{-1}=P^{T}$ på en ikke-ortogonal $P$.** Det gjelder bare når kolonnene er ortonormale (spektralteoremet), ikke for en vilkårlig egenvektormatrise.\n- **Antar at triangulær $\\Rightarrow$ diagonaliserbar.** Triangulær gir bare egenverdiene gratis; $\\begin{bmatrix}2&1\\\\0&2\\end{bmatrix}$ er triangulær, men ikke diagonaliserbar."
+    },
+    {
+      "id": "tma4110-5-2-begrepsbank-tekst",
+      "type": "text",
+      "content": "## Begrepsbank til eksamen\n\nDe resterende kjernebegrepene i kortform for repetisjon og pugging (kode E — intet formelark).\n\n*Begrepsbanken er flashcard-/repetisjonsstoff — det gjentar det du nettopp har lest. Hopp trygt over ved førstegangslesing; tidsanslaget for kapitlet gjelder kjernestoffet.*"
+    },
+    {
+      "id": "tma4110-5-2-bb-egenbasis",
+      "type": "definition",
+      "title": "Egenbasis $\\Leftrightarrow$ diagonaliserbar",
+      "content": "$A$ er diagonaliserbar nettopp når $\\mathbb R^n$ har en basis av egenvektorer for $A$ (en **egenbasis**). Kolonnene i $P$ ER denne basisen. Mangler matrisen nok uavhengige egenvektorer, finnes ingen egenbasis, og diagonalisering er umulig."
+    },
+    {
+      "id": "tma4110-5-2-bb-symmetrisk-reell",
+      "type": "definition",
+      "title": "Symmetriske matriser har reelle egenverdier",
+      "content": "En del av spektralteoremet: en reell symmetrisk matrise har **bare reelle** egenverdier (aldri komplekse), og er alltid diagonaliserbar. Dette er grunnen til at symmetriske matriser er så snille i anvendelser (kvadratiske former, kovariansmatriser)."
+    },
+    {
+      "id": "tma4110-5-2-bb-ortogonale-egenvektorer",
+      "type": "definition",
+      "title": "Ortogonale egenvektorer for symmetrisk matrise",
+      "content": "For en symmetrisk matrise er egenvektorer som tilhører **forskjellige** egenverdier automatisk ortogonale. Innen ett egenrom (repetert egenverdi) kan du gjøre basisen ortonormal med Gram–Schmidt (Del 6). Slik bygges den ortogonale $P$ i $A=PDP^{T}$."
+    },
+    {
+      "id": "tma4110-5-2-bb-similar",
+      "type": "definition",
+      "title": "Similære matriser",
+      "content": "$A$ og $B$ er **similære** hvis $B=P^{-1}AP$ for en inverterbar $P$. Da har de samme egenverdier, samme karakteristiske polynom, samme spor og determinant. Diagonalisering er spesialtilfellet der $B=D$ er diagonal: $A$ er similær med en diagonalmatrise nettopp når $A$ er diagonaliserbar."
+    },
+    {
+      "id": "tma4110-5-2-bb-AT-diag",
+      "type": "definition",
+      "title": "$A^{T}$ diagonaliserbar hvis $A$ er",
+      "content": "Er $A=PDP^{-1}$, så er $A^{T}=(P^{-1})^{T}D P^{T}=(P^{T})^{-1}D\\,P^{T}$, altså diagonaliserbar med samme $D$. $A$ og $A^{T}$ har uansett samme egenverdier (kap. 5.1); her ser vi at diagonaliserbarhet også arves."
+    },
+    {
+      "id": "tma4110-5-2-bb-entydig",
+      "type": "definition",
+      "title": "Diagonalisering er entydig opp til rekkefølge",
+      "content": "$D$ er entydig bestemt som multimengden av egenverdier — men rekkefølgen på diagonalen er valgfri, så lenge $P$ omordnes tilsvarende. Egenvektorene i $P$ kan dessuten skaleres fritt (en egenvektor ganget med et tall $\\ne0$ er fortsatt en egenvektor). Det finnes altså mange gyldige $(P,D)$-par."
+    },
+    {
+      "id": "tma4110-5-2-bb-diag-formel",
+      "type": "definition",
+      "title": "Diagonalmatrisens rolle",
+      "content": "$D=\\operatorname{diag}(\\lambda_1,\\dots,\\lambda_n)$ er den enkleste representanten for avbildningen: den skalerer $i$-te koordinat med $\\lambda_i$. Regneoperasjoner blir trivielle: $D^k=\\operatorname{diag}(\\lambda_1^k,\\dots,\\lambda_n^k)$, og et polynom $q(D)=\\operatorname{diag}(q(\\lambda_1),\\dots,q(\\lambda_n))$ — grunnlaget for $A^n=PD^nP^{-1}$ i kap. 5.3."
+    },
+    {
+      "id": "tma4110-5-2-bb-distinkt-ikke-nodv",
+      "type": "definition",
+      "title": "Distinkte egenverdier er tilstrekkelig, ikke nødvendig",
+      "content": "$n$ distinkte egenverdier garanterer diagonaliserbarhet, men er ikke et krav: identitetsmatrisen $I$ har bare egenverdien $1$ (repetert $n$ ganger) og er likevel diagonal. Med repeterte egenverdier må du sjekke egenrom-dimensjonene; med distinkte slipper du."
+    },
+    {
+      "id": "tma4110-5-2-bb-projeksjon-idempotent",
+      "type": "definition",
+      "title": "Idempotente og involutive matriser",
+      "content": "Matriser med $A^2=A$ (idempotente, egenverdier $0,1$) og $A^2=I$ (involutive, egenverdier $\\pm1$) er alltid diagonaliserbare — egenrommene fyller opp $\\mathbb R^n$. Idempotente matriser er nettopp projeksjoner (Del 6), og de er alltid diagonaliserbare med $D$ bestående av nuller og ett-tall."
+    },
+    {
+      "id": "tma4110-5-2-bb-cA-diag",
+      "type": "definition",
+      "title": "Diagonalisering bevares under skalering og forskyvning",
+      "content": "Er $A=PDP^{-1}$, så er $cA=P(cD)P^{-1}$ og $A+kI=P(D+kI)P^{-1}$ — samme $P$, justert diagonal. Egenbasisen er den samme; bare egenverdiene skaleres eller forskyves. Nyttig for å diagonalisere sammensatte uttrykk uten nytt arbeid."
+    },
+    {
+      "id": "tma4110-5-2-bb-P-uavh",
+      "type": "definition",
+      "title": "Kolonnene i $P$ må være uavhengige",
+      "content": "$P$ må være **inverterbar**, så egenvektorene du velger som kolonner må være lineært uavhengige. Innen ett egenrom plukker du en basis (uavhengige egenvektorer); på tvers av ulike egenverdier er uavhengigheten automatisk (kap. 5.1). Blir $\\det P=0$, har du valgt avhengige vektorer og $P^{-1}$ finnes ikke."
+    },
+    {
+      "id": "tma4110-5-2-bb-diag-inverterbar",
+      "type": "definition",
+      "title": "Diagonaliserbar sier ingenting om inverterbar",
+      "content": "Diagonaliserbarhet og inverterbarhet er **uavhengige** egenskaper. En diagonaliserbar matrise kan godt ha egenverdi $0$ (da er den singulær), og en inverterbar matrise kan være ikke-diagonaliserbar (som $\\begin{bmatrix}2&1\\\\0&2\\end{bmatrix}$, som er inverterbar men defekt). Ikke bland de to begrepene."
+    },
+    {
+      "id": "tma4110-5-2-bb-jordan",
+      "type": "definition",
+      "title": "Jordanform (kjennskap)",
+      "content": "En ikke-diagonaliserbar matrise kan ikke skrives $PDP^{-1}$, men den nærmeste enkle formen er **Jordanformen** — nesten diagonal, med noen $1$-ere rett over diagonalen i «blokker» for de manglende egenvektorene. På dette nivået holder det å kjenne til at slike matriser finnes; boka krever bare at du kan **avgjøre** diagonaliserbarhet, ikke konstruere Jordanformer."
+    },
+    {
+      "id": "tma4110-5-2-bb-funksjon",
+      "type": "definition",
+      "title": "Funksjoner av en diagonaliserbar matrise",
+      "content": "Er $A=PDP^{-1}$, kan du regne funksjoner av $A$ ved å regne på diagonalen: $A^k=PD^kP^{-1}$, og mer generelt $f(A)=P\\,f(D)\\,P^{-1}$ der $f(D)=\\operatorname{diag}(f(\\lambda_1),\\dots,f(\\lambda_n))$. Dette er hele nytten av diagonalisering, og utnyttes fullt i kap. 5.3 (potenser) og Del 10 (matriseeksponential)."
+    },
+    {
+      "id": "tma4110-5-2-bb-spor-det-invariant",
+      "type": "definition",
+      "title": "Spor og determinant er similaritetsinvariante",
+      "content": "Similære matriser ($B=P^{-1}AP$) har samme spor og determinant, fordi de deler egenverdier: $\\operatorname{spor}=\\sum\\lambda_i$ og $\\det=\\prod\\lambda_i$. Spesielt: er $A=PDP^{-1}$, er $\\operatorname{spor}A=\\operatorname{spor}D$ og $\\det A=\\det D$. Nyttig kontroll på at $P$ og $D$ hører sammen."
+    },
+    {
+      "id": "tma4110-5-2-bb-egenvektor-skalering",
+      "type": "definition",
+      "title": "Egenvektorene i $P$ kan skaleres fritt",
+      "content": "Enhver egenvektor kan ganges med et tall $\\ne0$ og er fortsatt en egenvektor for samme egenverdi ($E_\\lambda$ er et underrom). Derfor kan du velge de peneste heltallsvektorene som kolonner i $P$ — fasiten skalerer typisk til minst mulig heltall. Skaleringen endrer ikke $D$, bare utseendet på $P$."
+    },
+    {
+      "id": "tma4110-5-2-rep",
+      "type": "collapsible",
+      "title": "Repetisjonsoppgaver",
+      "buttonText": "Vis repetisjonsoppgaver",
+      "content": [
+        {
+          "id": "tma4110-5-2-rep-1",
+          "type": "exercise",
+          "exercise": {
+            "id": "tma4110-5-2-rep-1x",
+            "number": "R1",
+            "type": "classic",
+            "difficulty": "lett",
+            "task": "(Fra kap. 5.1) Finn egenverdiene og en egenvektor for hver til $A=\\begin{bmatrix}0&2\\\\2&0\\end{bmatrix}$.",
+            "solution": "$\\operatorname{spor}A=0$, $\\det A=-4$, så $\\lambda^2-4=0\\Rightarrow\\lambda=\\pm2$. $E_2$: $A-2I=\\begin{bmatrix}-2&2\\\\2&-2\\end{bmatrix}\\to x=y$, egenvektor $(1,1)$. $E_{-2}$: $x=-y$, egenvektor $(1,-1)$.",
+            "hints": [
+              "$\\lambda^2-(\\operatorname{spor}A)\\lambda+\\det A=0$; her $\\lambda^2-4=0$."
+            ]
+          }
+        },
+        {
+          "id": "tma4110-5-2-rep-2",
+          "type": "exercise",
+          "exercise": {
+            "id": "tma4110-5-2-rep-2x",
+            "number": "R2",
+            "type": "classic",
+            "difficulty": "lett",
+            "task": "(Fra kap. 2.2) Regn ut $P^{-1}$ for $P=\\begin{bmatrix}1&1\\\\-2&1\\end{bmatrix}$.",
+            "solution": "$\\det P=1\\cdot1-1\\cdot(-2)=3$. 2×2-formelen: $P^{-1}=\\tfrac13\\begin{bmatrix}1&-1\\\\2&1\\end{bmatrix}$.",
+            "hints": [
+              "2×2-invers: $\\tfrac{1}{ad-bc}\\begin{bmatrix}d&-b\\\\-c&a\\end{bmatrix}$."
+            ]
+          }
+        },
+        {
+          "id": "tma4110-5-2-rep-3",
+          "type": "exercise",
+          "exercise": {
+            "id": "tma4110-5-2-rep-3x",
+            "number": "R3",
+            "type": "classic",
+            "difficulty": "middels",
+            "task": "(Fra kap. 5.1) En $3\\times3$-matrise har egenverdi $\\lambda=2$ med algebraisk multiplisitet $2$, og du finner $\\dim E_2=1$. Kan matrisen være diagonaliserbar? (Forskudd på kriteriet.)",
+            "solution": "Nei. Diagonaliserbarhet krever geometrisk $=$ algebraisk for hver egenverdi. Her er $\\dim E_2=1<2$, så kriteriet svikter for $\\lambda=2$, og matrisen er ikke diagonaliserbar — uansett den tredje egenverdien.",
+            "hints": [
+              "Sammenlign geometrisk multiplisitet $\\dim E_2$ med den algebraiske."
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": "tma4110-5-2-symbolliste",
+      "type": "collapsible",
+      "title": "Symbol- og formelliste",
+      "buttonText": "Vis symboler og formler",
+      "content": [
+        {
+          "id": "tma4110-5-2-symbolliste-text",
+          "type": "text",
+          "content": "## Symbol- og formelliste\n\n*Oppslagsverk — alt her forklares underveis i kapitlet.*\n\nAlle symboler og formler brukt i dette delkapitlet (5.2), samlet på ett sted.\n\n| Symbol | Betydning |\n|---|---|\n| $A=PDP^{-1}$ | Diagonalisering |\n| $D$ | Diagonalmatrise med egenverdiene |\n| $P$ | Matrise av egenvektorer (kolonner) |\n| $P^{-1}$ | Inversen til $P$ |\n| $A=PDP^{T}$ | Ortogonal diagonalisering (symmetrisk $A$) |\n| $P^{T}$ | Transponert (= $P^{-1}$ når $P$ ortogonal) |\n| $\\operatorname{diag}(\\lambda_1,\\dots)$ | Diagonalmatrise |\n| $E_\\lambda$ | Egenrommet til $\\lambda$ |\n| $\\dim E_\\lambda$ | Geometrisk multiplisitet |\n\n**Formler i dette delkapitlet:**\n\n$$A=PDP^{-1}$$\nDiagonalisering: $D=$ egenverdier, $P=$ egenvektorer, matchet søyle for søyle.\n\n$$AP=PD$$\nHvorfor det virker: kolonnene i $P$ er egenvektorer.\n\n$$A\\text{ diagonaliserbar}\\Leftrightarrow\\sum_\\lambda\\dim E_\\lambda=n\\Leftrightarrow\\text{geo}=\\text{alg for hver }\\lambda$$\nDiagonaliserbarhetskriteriet.\n\n$$n\\text{ distinkte egenverdier}\\Rightarrow\\text{diagonaliserbar}$$\nSnarvei 1 (tilstrekkelig, ikke nødvendig).\n\n$$A^{T}=A\\Rightarrow A=PDP^{T},\\ P\\text{ ortogonal}$$\nSpektralteoremet (snarvei 2): symmetrisk $\\Rightarrow$ ortogonalt diagonaliserbar, reelle egenverdier.\n\n$$P\\text{ ortogonal}\\Leftrightarrow P^{T}P=I\\Leftrightarrow P^{-1}=P^{T}$$\nOrtogonal matrise.\n\n$$\\text{geometrisk}<\\text{algebraisk for én }\\lambda\\Rightarrow\\text{ikke diagonaliserbar}$$\nIkke-diagonaliserbarhet vises ved et for lite egenrom."
+        }
+      ]
+    }
+  ],
+  "exercises": []
+}
