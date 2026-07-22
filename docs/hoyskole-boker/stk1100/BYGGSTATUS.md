@@ -23,10 +23,14 @@
   opprydding: «bootstrap-verdien»→«bootstrap-anslaget» i 7-prove OG kap. 7-2 (fjernet
   p-verdi-substreng, falsk positiv). Eneste gjenværende «p-verdi» er 0-1 (sanksjonert
   STK1110-avgrensning). Numerisk etterregning av alle prøve-fasiter i Steg 3.
-- **Steg 2** (wiring): ikke startet (krever alle 8 prøvefiler → wire-bok.py).
-- **Steg 3** (verifikator): ikke startet.
-- **Steg 4** (sluttport): ikke startet. Baseline sjekk-bok.py: 505 def, 0 unicode-i-LaTeX,
-  0 forbudt-term; eneste avvik var (verifiser) i 9-1 (nå ryddet) + quiz-kvote (venter wiring).
+- **Steg 2** (wiring): FERDIG. wire-bok.py → COURSE_STK1100 (35 kap = 27 tema + 8 prøver),
+  registry +35 (10862), quiz-data-stk1100.ts = 510 spm, quiz-data.ts + textbook-courses(.ts/-hoyskole.ts)
+  + institusjoner.ts (uio) patchet. quiz-staging/stk1100-* slettet (mellomprodukt).
+  sjekk-bok.py: BOKPORT OK (35 kap, 505 def, 510 quiz). npx tsc --noEmit rent. npm run build grønt.
+- **Steg 3** (verifikator): ikke startet — numerisk etterregning av ALLE prøve-fasiter (8 filer)
+  + notasjons-grep-sjekk gjenstår.
+- **Steg 4** (sluttport): ikke startet. Gjenstår: SVG-opplasting (7 nye) til Storage m/200-verif,
+  studentpanel-sjekk, endelig sjekk-bok + build + prod-curl PORT=3062.
 
 ## Byggerekkefølge (fra skjelettets §6)
 1. Metadata via wire-bok.py (fase 5).
