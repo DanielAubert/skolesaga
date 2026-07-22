@@ -16,8 +16,10 @@
 - **Steg 1** (byggebølge): 27/27 kapittelfiler på disk (0.1–9.4), alle JSON gyldige.
   Quiz 27/27 kapitler (Del 9-quizene 9.1–9.4 gap-fylt av ny byggeleder + LENGDE-TELL
   rebalansert til 23 %). Flashcards 505 (definisjonsblokker) = skjelettkvote eksakt.
-  GJENSTÅR: 8 prøvefiler (Del 1–8, 4 prøver hver) — under bygging.
-  Blokkerende (verifiser)-markør i 9-1 ryddet.
+  Prøvefiler: Del 3 + Del 4 bygget (struktur+SVG validert, 4 SVG-er). Del 1+2 under bygging.
+  GJENSTÅR: prøver Del 5–8. Blokkerende (verifiser)-markør i 9-1 ryddet.
+  NB: API-en er degradert (2 underagenter døde på ECONNRESET) — Del 3-4-agenten rakk
+  å skrive begge filer før den døde; salvaget + validert av byggeleder.
 - **Steg 2** (wiring): ikke startet (krever alle 8 prøvefiler → wire-bok.py).
 - **Steg 3** (verifikator): ikke startet.
 - **Steg 4** (sluttport): ikke startet. Baseline sjekk-bok.py: 505 def, 0 unicode-i-LaTeX,
