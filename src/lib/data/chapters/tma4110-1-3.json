@@ -1,0 +1,324 @@
+{
+  "id": "tma4110-1-3",
+  "courseId": "tma4110",
+  "chapterNumber": "1.3",
+  "title": "Drill: Gauss-eliminasjon og parameteranalyse",
+  "description": "Hele oppgave-1-repertoaret drillet til automatikk: radreduksjon uten regnefeil, løsning på parameterform, og tilfelledeling i parameteravhengige system — grunnteknikken som må sitte før alt annet.",
+  "estimatedMinutes": 85,
+  "competenceGoals": [
+    "løse lineære system raskt og feilfritt ved radreduksjon og klassifisere utfallet fra pivotmønsteret",
+    "skrive uendelige løsningsmengder på korrekt parameterform med partikulær løsning og retningsvektorer",
+    "gjennomføre full tilfelledeling i parameteravhengige system uten å utelate noe tilfelle"
+  ],
+  "content": [
+    {
+      "id": "tma4110-1-3-tip-eksamensvinkel",
+      "type": "tip",
+      "title": "Eksamensvinkel",
+      "content": "**Dette drillkapitlet gjør oppgave-1-teknikken automatisk.**\n\nSjanger A (Gauss og parameteranalyse) er i rundt **78 %** av settene. Variantene som går igjen: (1) løs et konkret system (entydig / uendelig / ingen), (2) skriv løsningen på parameterform, (3) parameteranalyse med tilfelledeling, og (4) homogent system med nullromsretning. Under ingen-hjelpemidler-kravet må radreduksjonen gå raskt og feilfritt — det er ferdighet, ikke forståelse, som testes her.\n\nMålet: bli så trygg at du bruker minst mulig av de fire timene på oppgave 1, og sparer tid til de tyngre søylene. **Kapitlet er langt (~85 min) — del det gjerne over to økter** (se pausepunktet under)."
+    },
+    {
+      "id": "tma4110-1-3-forkunnskaper",
+      "type": "text",
+      "content": "**Forkunnskaper:** Alt her bygger på [kap. 1.1](/bok/tma4110/tma4110-1-1) (radreduksjon, pivoter, frie variabler, homogene system) og [kap. 1.2](/bok/tma4110/tma4110-1-2) (tre utfall, parameterform, parameteranalyse). Dette kapitlet innfører ingen ny teori — det driller teknikken til automatikk. Er du usikker på et steg, slå opp i de to teorikapitlene før du fortsetter."
+    },
+    {
+      "id": "tma4110-1-3-oppskrift",
+      "type": "text",
+      "content": "## Løsningsoppskriften (fem steg)\n\nBruk samme faste prosedyre på hver oppgave 1 — da unngår du å tenke fra bunnen hver gang:\n\n1. **Skriv totalmatrisen** $[A\\mid\\mathbf b]$. Sett inn $0$ der en ukjent mangler.\n2. **Radreduser til redusert trappeform**, kontrollert steg for steg. Bruk pivoten i hver kolonne til å lage nuller både under og over.\n3. **Klassifiser utfallet** fra pivotmønsteret: pivot i høyresidekolonnen ⇒ ingen løsning; pivot i hver variabelkolonne ⇒ entydig; ellers ⇒ uendelig mange.\n4. **Skriv løsningen.** Entydig: les av høyresiden. Uendelig mange: sett frie variabler = parametre og skriv $\\mathbf x_p+t\\mathbf v$.\n5. **Ved parameter:** radreduser symbolsk, finn de kritiske verdiene (der en pivot forsvinner), og **del i alle tilfeller** — det generiske pluss hver kritisk verdi.\n\n**Kontroll:** sett alltid svaret (eller en retningsvektor) inn i minst én av de opprinnelige likningene. Et raskt sjekk fanger de fleste regnefeil."
+    },
+    {
+      "id": "tma4110-1-3-def-oppskrift",
+      "type": "definition",
+      "title": "Oppskriften for oppgave 1",
+      "content": "(1) Skriv totalmatrisen. (2) Radreduser til redusert trappeform. (3) Klassifiser fra pivotmønsteret. (4) Skriv løsningen (parameterform ved frie variabler). (5) Ved parameter: symbolsk radreduksjon → kritiske verdier → full tilfelledeling. Alltid en innsettingskontroll til slutt."
+    },
+    {
+      "id": "tma4110-1-3-def-pivotmonster",
+      "type": "definition",
+      "title": "Pivotmønster → utfall",
+      "content": "Pivot i høyresidekolonnen ⇒ **ingen** løsning. Pivot i hver variabelkolonne (og ingen i høyresiden) ⇒ **entydig**. Konsistent, men minst én variabelkolonne uten pivot ⇒ **uendelig mange**, med én fri variabel per pivotløs variabelkolonne."
+    },
+    {
+      "id": "tma4110-1-3-def-parform-oppskrift",
+      "type": "definition",
+      "title": "Parameterform — oppskrift",
+      "content": "Sett hver fri variabel lik en egen parameter ($t,s,\\dots$). Løs hver pivotvariabel uttrykt ved parametrene fra den reduserte trappeformen. Skriv $\\mathbf x=\\mathbf x_p+t_1\\mathbf v_1+\\dots$, der $\\mathbf x_p$ er verdien når alle parametre er $0$, og $\\mathbf v_j$ er koeffisientvektoren til $t_j$."
+    },
+    {
+      "id": "tma4110-1-3-def-param-oppskrift",
+      "type": "definition",
+      "title": "Parameteranalyse — oppskrift",
+      "content": "Radreduser med bokstaven som en vanlig konstant, uten å dele på uttrykk som kan bli null. Reduser til en nederste rad $(\\text{uttrykk i }a)\\,z=(\\text{uttrykk})$. Kritisk verdi = der uttrykket foran $z$ blir null. Del: generisk ($a$ utenom kritisk) = entydig; ved kritisk verdi avgjør høyresiden ingen vs. uendelig mange."
+    },
+    {
+      "id": "tma4110-1-3-def-homog-snarvei",
+      "type": "definition",
+      "title": "Homogent system — snarvei",
+      "content": "For $A\\mathbf x=\\mathbf 0$ kan du droppe høyresidekolonnen (den forblir $0$) og radredusere bare $A$. Systemet er alltid konsistent; det har ikke-trivielle løsninger nettopp når en variabelkolonne mangler pivot. Svaret er $t_1\\mathbf v_1+\\dots$ uten konstantledd."
+    },
+    {
+      "id": "tma4110-1-3-def-kontroll",
+      "type": "definition",
+      "title": "Innsettingskontroll",
+      "content": "Sett den funne løsningen (eller hver retningsvektor, i det homogene systemet) inn i minst én opprinnelig likning og sjekk at den stemmer. Dette koster sekunder og avslører de fleste fortegns- og regnefeil før de teller på karakteren."
+    },
+    {
+      "id": "tma4110-1-3-def-kritisk-begge",
+      "type": "definition",
+      "title": "Kritisk verdi: sjekk begge utfall",
+      "content": "Ved en kritisk parameterverdi er utfallet **ikke** gitt på forhånd: raden $[\\,0\\ \\cdots\\ 0\\mid c\\,]$ gir *ingen* løsning hvis $c\\ne0$ og *uendelig mange* hvis $c=0$. Regn ut $c$ ved den kritiske verdien før du konkluderer — ikke anta."
+    },
+    {
+      "id": "tma4110-1-3-def-tidsstyring",
+      "type": "definition",
+      "title": "Tidsstyring på oppgave 1",
+      "content": "Med rundt ti likt vektede deloppgaver på fire timer har du i snitt ~24 min per del. Oppgave 1 (Gauss) bør gå raskere enn snittet, siden den er ren mekanikk. Får du et «ustelt» mellomsvar (rare brøker der oppgaven ser pen ut), stopp og let etter en regnefeil — det er nesten alltid årsaken."
+    },
+    {
+      "id": "tma4110-1-3-ex-case",
+      "type": "example",
+      "title": "Gjennomregnet eksamenscase (med sensor-margnotater)",
+      "problem": "Gitt systemet med parameterne $a,b$:\n$$\\begin{cases}x+y+z=6\\\\ x+2y+3z=10\\\\ x+2y+az=b\\end{cases}$$\n**a)** Løs systemet for $a=2,\\ b=10$.\n**b)** For hvilke $a,b$ er systemet konsistent?\n**c)** Skriv den generelle løsningen når $a=3,\\ b=10$.",
+      "solution": "**Felles eliminasjon.** $R_2\\to R_2-R_1$ og $R_3\\to R_3-R_1$, deretter $R_3\\to R_3-R_2$:\n$$\\left[\\begin{array}{ccc|c}1&1&1&6\\\\0&1&2&4\\\\0&0&a-3&b-10\\end{array}\\right].$$\n*(Sensor-margnotat: her gir du deg selv oversikt — nederste rad er $(a-3)z=b-10$, og alt henger på den.)*\n\n**a) $a=2,b=10$:** nederste rad er $(2-3)z=0$, altså $z=0$. Bakover: $y+2\\cdot0=4\\Rightarrow y=4$; $x+4+0=6\\Rightarrow x=2$. **Entydig løsning $(x,y,z)=(2,4,0)$.** Kontroll i likning 3: $2+8+0=10$ ✓.\n*(Margnotat: full uttelling krever at radoperasjonene er synlige og at du markerer sluttsvaret.)*\n\n**b) Konsistens:** Nederste rad er $(a-3)z=b-10$.\n- Hvis $a\\ne3$: pivot i $z$-kolonnen ⇒ **konsistent (entydig)** for enhver $b$.\n- Hvis $a=3$: raden blir $0=b-10$. Konsistent bare hvis $b=10$ (da uendelig mange); for $b\\ne10$ **ingen** løsning.\n\nSystemet er altså konsistent for **alle $a\\ne3$**, og for **$a=3$ kun når $b=10$**.\n*(Margnotat: å nevne begge undertilfellene ved $a=3$ er selve poenget — her ryker delpoeng hvis ett glemmes.)*\n\n**c) $a=3,b=10$:** raden blir $0=0$ ⇒ $z=t$ fri. Fra rad 2: $y=4-2t$. Fra rad 1: $x=6-y-z=6-(4-2t)-t=2+t$. Altså\n$$(x,y,z)=(2,4,0)+t\\,(1,-2,1),\\qquad t\\in\\mathbb R.$$\nKontroll av retningen $(1,-2,1)$ i det homogene systemet: $1-2+1=0$ ✓. *(Margnotat: svar på parameterform — ett punkt alene ville gitt trekk her.)*"
+    },
+    {
+      "id": "tma4110-1-3-blokk-a-tekst",
+      "type": "text",
+      "content": "## Drilloppgaver, bolk 1 — radreduksjon og løsningsutfall (~40 min)\n\nJobb deg gjennom disse med oppskriften. Skriv radoperasjonene, klassifiser, og kontroller svaret."
+    },
+    {
+      "id": "tma4110-1-3-oppg-l1",
+      "type": "exercise",
+      "exercise": {
+        "id": "tma4110-1-3-l1",
+        "number": "1",
+        "type": "classic",
+        "difficulty": "lett",
+        "task": "(Sjanger A — entydig løsning.) Løs $\\begin{cases}x+y+z=6\\\\ 2x-y+z=3\\\\ x+2y-z=2\\end{cases}$",
+        "solution": "Radreduksjon gir $\\left[\\begin{array}{ccc|c}1&0&0&1\\\\0&1&0&2\\\\0&0&1&3\\end{array}\\right]$. Entydig løsning $(1,2,3)$. Kontroll: $1+2+3=6$ ✓.",
+        "hints": [
+          "Bruk pivoten i (1,1) til å nulle ut under seg i begge de andre radene.",
+          "Reduser til redusert trappeform og les av høyresiden."
+        ]
+      }
+    },
+    {
+      "id": "tma4110-1-3-oppg-l2",
+      "type": "exercise",
+      "exercise": {
+        "id": "tma4110-1-3-l2",
+        "number": "2",
+        "type": "classic",
+        "difficulty": "lett",
+        "task": "(Sjanger A — entydig løsning.) Løs $\\begin{cases}-x-3y+z=-5\\\\ 2x-3y+z=-5\\\\ -3x+y-2z=0\\end{cases}$",
+        "solution": "Radreduksjon gir $\\left[\\begin{array}{ccc|c}1&0&0&0\\\\0&1&0&2\\\\0&0&1&1\\end{array}\\right]$. Entydig løsning $(0,2,1)$. Kontroll i likning 1: $-0-6+1=-5$ ✓.",
+        "hints": [
+          "Trekk rad 1 fra rad 2 for å eliminere $x$ raskt.",
+          "Reduser helt til redusert trappeform."
+        ]
+      }
+    },
+    {
+      "id": "tma4110-1-3-oppg-l3",
+      "type": "exercise",
+      "exercise": {
+        "id": "tma4110-1-3-l3",
+        "number": "3",
+        "type": "classic",
+        "difficulty": "lett",
+        "task": "(Sjanger A — entydig løsning.) Løs $\\begin{cases}x-3z=-3\\\\ -2x-3y+z=7\\\\ 3x-2y-z=3\\end{cases}$",
+        "solution": "Radreduksjon gir $\\left[\\begin{array}{ccc|c}1&0&0&0\\\\0&1&0&-2\\\\0&0&1&1\\end{array}\\right]$. Entydig løsning $(0,-2,1)$. Kontroll i likning 2: $-0+6+1=7$ ✓.",
+        "hints": [
+          "Likning 1 mangler $y$; sett inn $0$ i totalmatrisen.",
+          "Bruk pivoten i (1,1) og jobb nedover."
+        ]
+      }
+    },
+    {
+      "id": "tma4110-1-3-oppg-m1",
+      "type": "exercise",
+      "exercise": {
+        "id": "tma4110-1-3-m1",
+        "number": "4",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "(Sjanger A — uendelig mange.) Løs $\\begin{cases}x+y+z=6\\\\ 2x+3y+5z=15\\\\ 3x+4y+6z=21\\end{cases}$ og skriv løsningen på parameterform.",
+        "solution": "Radreduksjon gir $\\left[\\begin{array}{ccc|c}1&0&-2&3\\\\0&1&3&3\\\\0&0&0&0\\end{array}\\right]$. Med $z=t$: $x=3+2t$, $y=3-3t$. Parameterform $(x,y,z)=(3,3,0)+t\\,(2,-3,1)$.",
+        "hints": [
+          "Én nullrad ⇒ én fri variabel; sett $z=t$.",
+          "Skill konstant og retning i hver rad."
+        ]
+      }
+    },
+    {
+      "id": "tma4110-1-3-oppg-m2",
+      "type": "exercise",
+      "exercise": {
+        "id": "tma4110-1-3-m2",
+        "number": "5",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "(Sjanger A — klassifiser.) Avgjør om systemet er konsistent og løs det: $\\begin{cases}x+2y-z=3\\\\ 2x+4y-2z=6\\\\ x+y+z=4\\end{cases}$",
+        "solution": "Radreduksjon gir $\\left[\\begin{array}{ccc|c}1&0&3&5\\\\0&1&-2&-1\\\\0&0&0&0\\end{array}\\right]$. Konsistent (nullrad, ingen motsigelse), én fri variabel. Med $z=t$: $x=5-3t$, $y=-1+2t$, altså $(5,-1,0)+t\\,(-3,2,1)$.",
+        "hints": [
+          "Likning 2 er dobbelt av likning 1 — forventet en nullrad.",
+          "Uendelig mange løsninger; skriv parameterform."
+        ]
+      }
+    },
+    {
+      "id": "tma4110-1-3-oppg-m3",
+      "type": "exercise",
+      "exercise": {
+        "id": "tma4110-1-3-m3",
+        "number": "6",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "(Sjanger A — inkonsistent.) Avgjør om $\\begin{cases}x+2y-z=1\\\\ 2x-y+z=3\\\\ 3x+y+0z=6\\end{cases}$ har løsning.",
+        "solution": "$R_1+R_2$ gir $3x+y=4$, men likning 3 sier $3x+y=6$. Radreduksjon gir en rad $[\\,0\\ 0\\ 0\\mid 1\\,]$. **Inkonsistent — ingen løsning.**",
+        "hints": [
+          "Legg sammen de to første likningene og sammenlign med den tredje.",
+          "En motsigelsesrad betyr ingen løsning."
+        ]
+      }
+    },
+    {
+      "id": "tma4110-1-3-oppg-v1",
+      "type": "exercise",
+      "exercise": {
+        "id": "tma4110-1-3-v1",
+        "number": "7",
+        "type": "classic",
+        "difficulty": "vanskelig",
+        "task": "(Sjanger A — homogent, nullromsretning.) Finn alle løsninger av $\\begin{cases}2x+4y-2z=0\\\\ x+y+z=0\\\\ 3x+5y-z=0\\end{cases}$",
+        "solution": "Radreduser koeffisientmatrisen: $\\left[\\begin{array}{ccc}1&0&3\\\\0&1&-2\\\\0&0&0\\end{array}\\right]$. Med $z=t$: $x=-3t$, $y=2t$. Løsning $t\\,(-3,2,1)$. Kontroll i likning 2: $-3+2+1=0$ ✓.",
+        "hints": [
+          "Homogent: dropp høyresidekolonnen.",
+          "Én fri variabel gir én retningsvektor."
+        ]
+      }
+    },
+    {
+      "id": "tma4110-1-3-pause",
+      "type": "tip",
+      "title": "— naturlig pausepunkt —",
+      "content": "Her har du drillet radreduksjon og de tre utfallene. **Ta gjerne en pause og fortsett med parameteranalysen i neste økt.** Bolk 2 er den tyngste sjangeren (tilfelledeling) — den fortjener et uthvilt hode."
+    },
+    {
+      "id": "tma4110-1-3-blokk-b-tekst",
+      "type": "text",
+      "content": "## Drilloppgaver, bolk 2 — parameteranalyse og kjedede oppgaver (~30 min)\n\nNå kommer den krevende varianten: bokstavparameter og full tilfelledeling. Del alltid i *alle* tilfeller."
+    },
+    {
+      "id": "tma4110-1-3-oppg-m4",
+      "type": "exercise",
+      "exercise": {
+        "id": "tma4110-1-3-m4",
+        "number": "8",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "(Sjanger A — parameteranalyse, to tilfeller.) For hvilke $a$ har systemet ingen, én eller uendelig mange løsninger?\n$$\\begin{cases}x+y+z=2\\\\ x+2y+az=3\\\\ x+ay+z=a\\end{cases}$$",
+        "solution": "Trekk rad 1 fra rad 2 og 3, deretter $R_3\\to R_3-(a-1)R_2$; nederste rad blir $[\\,0\\ 0\\ -(a-1)^2\\mid -1\\,]$, altså $-(a-1)^2z=-1$.\n\n**$a\\ne1$:** pivot i $z$ ⇒ **entydig løsning**.\n**$a=1$:** raden blir $0=-1$ ⇒ **ingen løsning**.\n\nAldri uendelig mange her: entydig for $a\\ne1$, ingen for $a=1$.",
+        "hints": [
+          "Radreduser med $a$ med; ikke del på $(a-1)$.",
+          "Se på nederste rad: når forsvinner pivoten, og er raden da en motsigelse eller en nullrad?"
+        ]
+      }
+    },
+    {
+      "id": "tma4110-1-3-oppg-m5",
+      "type": "exercise",
+      "exercise": {
+        "id": "tma4110-1-3-m5",
+        "number": "9",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "(Sjanger A — parameteranalyse, to parametre.) For hvilke $a,b$ har systemet ingen, én eller uendelig mange løsninger?\n$$\\begin{cases}x+y+z=6\\\\ x+2y+3z=10\\\\ x+2y+az=b\\end{cases}$$",
+        "solution": "Eliminasjon gir nederste rad $(a-3)z=b-10$.\n\n**$a\\ne3$:** **entydig** for enhver $b$.\n**$a=3,\\ b=10$:** $0=0$ ⇒ **uendelig mange**, $(x,y,z)=(2,4,0)+t(1,-2,1)$.\n**$a=3,\\ b\\ne10$:** $0=b-10\\ne0$ ⇒ **ingen løsning**.",
+        "hints": [
+          "Reduser til nederste rad $(a-3)z=b-10$.",
+          "Kritisk verdi $a=3$; der avgjør $b$ mellom ingen og uendelig mange."
+        ]
+      }
+    },
+    {
+      "id": "tma4110-1-3-oppg-v2",
+      "type": "exercise",
+      "exercise": {
+        "id": "tma4110-1-3-v2",
+        "number": "10",
+        "type": "classic",
+        "difficulty": "vanskelig",
+        "task": "(Sjanger A — kjedet oppgave.) Gitt $\\begin{cases}x+2y+z=1\\\\ 2x+5y+3z=4\\\\ x+3y+az=b\\end{cases}$.\n\n**a)** For hvilke $a,b$ er systemet konsistent?\n\n**b)** Skriv den generelle løsningen når $a=2,\\ b=3$.",
+        "solution": "Eliminasjon ($R_2-2R_1$, $R_3-R_1$, så $R_3-R_2$) gir nederste rad $(a-2)z=b-3$.\n\n**a)** Konsistent for **alle $a\\ne2$** (entydig), og for **$a=2$ kun når $b=3$** (da uendelig mange). For $a=2,\\ b\\ne3$: ingen løsning.\n\n**b)** $a=2,b=3$: $z=t$ fri. Rad 2: $y=2-t$. Rad 1: $x=1-2y-z=1-2(2-t)-t=-3+t$. Altså $(x,y,z)=(-3,2,0)+t\\,(1,-1,1)$.",
+        "hints": [
+          "Reduser til nederste rad $(a-2)z=b-3$.",
+          "I det uendelige tilfellet, sett $z=t$ og regn deg oppover."
+        ]
+      }
+    },
+    {
+      "id": "tma4110-1-3-oppg-v3",
+      "type": "exercise",
+      "exercise": {
+        "id": "tma4110-1-3-v3",
+        "number": "11",
+        "type": "classic",
+        "difficulty": "vanskelig",
+        "task": "(Sjanger A — homogent, 4 ukjente.) Finn alle løsninger av $\\begin{cases}x_1-x_2+2x_3-3x_4=0\\\\ 2x_1-2x_2+3x_3-x_4=0\\\\ x_1-x_2+x_3+2x_4=0\\end{cases}$ og oppgi en basis for løsningsmengden.",
+        "solution": "Radreduser koeffisientmatrisen til $\\left[\\begin{array}{cccc}1&-1&0&7\\\\0&0&1&-5\\\\0&0&0&0\\end{array}\\right]$. Pivoter i kolonne 1 og 3 ⇒ $x_2=s$ og $x_4=t$ frie. Da $x_1=s-7t$, $x_3=5t$. Løsning:\n$$(x_1,x_2,x_3,x_4)=s\\,(1,1,0,0)+t\\,(-7,0,5,1).$$\nDe to retningsvektorene $(1,1,0,0)$ og $(-7,0,5,1)$ utgjør en basis for løsningsmengden (to frihetsgrader).",
+        "hints": [
+          "To pivotkolonner ⇒ to frie variabler; sett $x_2=s,\\ x_4=t$.",
+          "Skriv løsningen som en kombinasjon av to retningsvektorer."
+        ]
+      }
+    },
+    {
+      "id": "tma4110-1-3-oppg-v4",
+      "type": "exercise",
+      "exercise": {
+        "id": "tma4110-1-3-v4",
+        "number": "12",
+        "type": "classic",
+        "difficulty": "vanskelig",
+        "task": "(Sjanger A — full parameteranalyse, alle tre utfall.) For hvilke $a$ har systemet ingen, én eller uendelig mange løsninger? Begrunn hvert tilfelle.\n$$\\begin{cases}x+y+az=1\\\\ x+ay+z=1\\\\ ax+y+z=1\\end{cases}$$",
+        "solution": "Koeffisientdeterminanten er $-(a-1)^2(a+2)$, som er null nettopp for $a=1$ og $a=-2$.\n\n**$a\\notin\\{1,-2\\}$:** determinant $\\ne0$ ⇒ **entydig**. Ved symmetri $x=y=z=\\tfrac{1}{a+2}$.\n**$a=1$:** alle likningene blir $x+y+z=1$ ⇒ **uendelig mange**, $(1,0,0)+s(-1,1,0)+t(-1,0,1)$.\n**$a=-2$:** summen av likningene gir $0=3$ ⇒ **ingen løsning**.",
+        "hints": [
+          "Regn ut (eller resonner deg fram til) når koeffisientdeterminanten er null.",
+          "Behandl $a=1$ og $a=-2$ hver for seg — og sjekk om raden blir $0=0$ eller en motsigelse."
+        ]
+      }
+    },
+    {
+      "id": "tma4110-1-3-oppg-v5",
+      "type": "exercise",
+      "exercise": {
+        "id": "tma4110-1-3-v5",
+        "number": "13",
+        "type": "classic",
+        "difficulty": "vanskelig",
+        "task": "(Sjanger A — krevende, uten mellomsteg gitt.) Bestem antall løsninger av $\\begin{cases}x+y+z=3\\\\ x+2y+3z=4\\\\ 2x+3y+az=b\\end{cases}$ for alle $a,b$, og skriv løsningen på parameterform der den er uendelig.",
+        "solution": "Eliminasjon gir nederste rad $(a-4)z=b-7$.\n\n**$a\\ne4$:** **entydig** for enhver $b$.\n**$a=4,\\ b=7$:** **uendelig mange**; med $z=t$: $(x,y,z)=(2,1,0)+t(1,-2,1)$.\n**$a=4,\\ b\\ne7$:** **ingen løsning**.",
+        "hints": [
+          "Reduser til én nederste rad i $z$ med parametre.",
+          "Kritisk verdi $a=4$; sett $z=t$ i det uendelige tilfellet."
+        ]
+      }
+    },
+    {
+      "id": "tma4110-1-3-symbolliste",
+      "type": "collapsible",
+      "title": "Symbol- og formelliste",
+      "buttonText": "Vis symboler og formler",
+      "content": [
+        {
+          "id": "tma4110-1-3-symbolliste-text",
+          "type": "text",
+          "content": "## Symbol- og formelliste\n\n*Oppslagsverk — alt her forklares underveis i kapitlet (og i kap. 1.1–1.2).*\n\n| Symbol | Betydning |\n|---|---|\n| $[A\\mid\\mathbf b]$ | Totalmatrisen |\n| $R_i\\to R_i+kR_j$ | Radoperasjon: legg $k$ ganger rad $j$ til rad $i$ |\n| $z=t,\\ s,t$ | Frie variabler satt til parametre |\n| $\\mathbf x_p$ | Partikulær løsning |\n| $\\mathbf v$ | Retningsvektor (nullromsretning) |\n| $a,b$ | Bokstavparametre |\n| $(a-3),(a-4),(a-1)^2$ | Typiske pivotuttrykk i tilfelledelingen |\n\n**Oppskrift (kort):**\n\n$$[A\\mid\\mathbf b]\\ \\xrightarrow{\\text{radreduksjon}}\\ \\text{RREF}\\ \\Rightarrow\\ \\text{klassifiser}\\ \\Rightarrow\\ \\text{skriv løsning}$$\n\n$$\\text{pivot i høyreside}\\Rightarrow\\text{ingen};\\quad \\text{pivot i alle variabelkol.}\\Rightarrow\\text{entydig};\\quad \\text{fri variabel}\\Rightarrow\\text{uendelig}$$\n\n$$\\mathbf x=\\mathbf x_p+t_1\\mathbf v_1+\\dots+t_k\\mathbf v_k\\quad(\\text{parameterform})$$\n\n**Parameteranalyse:** symbolsk radreduksjon → kritisk verdi der $(\\text{uttrykk i }a)=0$ → del i generisk + hver kritisk verdi → ved kritisk verdi avgjør høyresiden ingen vs. uendelig mange."
+        }
+      ]
+    }
+  ],
+  "exercises": []
+}

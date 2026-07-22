@@ -1,0 +1,403 @@
+{
+  "id": "tma4110-1-2",
+  "courseId": "tma4110",
+  "chapterNumber": "1.2",
+  "title": "Løsningsmengder og parameteravhengige system",
+  "description": "Tre utfall (entydig / ingen / uendelig mange), løsning på parameterform med frie variabler, og den klassiske eksamensvarianten: for hvilke verdier av en parameter a har systemet 0, 1 eller uendelig mange løsninger?",
+  "estimatedMinutes": 55,
+  "competenceGoals": [
+    "klassifisere et lineært system som entydig, uten løsning eller med uendelig mange løsninger ut fra den reduserte trappeformen",
+    "skrive en uendelig løsningsmengde på parameterform som en partikulær løsning pluss nullromsretninger",
+    "analysere et parameteravhengig system ved symbolsk radreduksjon, finne kritiske verdier og dele fullstendig i tilfeller"
+  ],
+  "content": [
+    {
+      "id": "tma4110-1-2-tip-eksamensvinkel",
+      "type": "tip",
+      "title": "Eksamensvinkel",
+      "content": "**Her sitter en av de mest lønnsomme deloppgavene på hele eksamen.**\n\nSjanger A (lineære system) er i rundt **78 %** av settene, og den vanligste krevende varianten er **parameteranalyse**: «for hvilke verdier av $a$ har systemet ingen, én eller uendelig mange løsninger?». Sensor gir full uttelling for at du (1) radreduserer *med bokstaven med*, (2) finner de **kritiske verdiene** der en pivot forsvinner, og (3) **deler i alle tilfeller** — også det du er fristet til å glemme.\n\nDen dyreste fellen i hele analysen er å **glemme et tilfelle**. Kapitlet trener nettopp den todelte disiplinen: å beskrive en løsningsmengde presist, og å dele et parameterproblem i akkurat de tilfellene som finnes — verken flere eller færre."
+    },
+    {
+      "id": "tma4110-1-2-forkunnskaper",
+      "type": "text",
+      "content": "**Forkunnskaper:** Dette kapitlet bygger direkte på [kap. 1.1](/bok/tma4110/tma4110-1-1) — totalmatrise, radreduksjon til redusert trappeform, pivoter og frie variabler. Kan du klassifisere et system fra pivotmønsteret og skrive en løsning på parameterform, er du klar. Vi bruker også homogene system derfra."
+    },
+    {
+      "id": "tma4110-1-2-motivasjon",
+      "type": "text",
+      "content": "## Fra «løs systemet» til «beskriv alle løsningene»\n\nI kap. 1.1 løste vi konkrete system. Nå tar vi to steg videre. Først skiller vi skarpt mellom de **tre utfallene** og lærer å skrive en uendelig løsningsmengde ryddig på parameterform. Deretter setter vi en **bokstav** inn i systemet — en parameter $a$ — og spør: hvordan avhenger antallet løsninger av $a$? Det er den klassiske eksamensvarianten, og den handler om å radredusere symbolsk og passe på hvor en pivot kan forsvinne.\n\nVi bygger stoffet i tre løkker: (1) de tre utfallene og hvordan trappeformen skiller dem, (2) løsning på parameterform, og (3) parameteravhengige system med tilfelledeling."
+    },
+    {
+      "id": "tma4110-1-2-lokke1",
+      "type": "text",
+      "content": "## Løkke 1 — De tre utfallene (~15 min)"
+    },
+    {
+      "id": "tma4110-1-2-def-tre-utfall",
+      "type": "definition",
+      "title": "De tre løsningsutfallene",
+      "content": "Et lineært system har **nøyaktig ett** av tre slag løsningsmengde: **entydig** (én løsning), **ingen** (inkonsistent), eller **uendelig mange**. Det finnes ingen fjerde mulighet — for eksempel kan et lineært system aldri ha nøyaktig to løsninger. Hele klassifiseringen leses av den reduserte trappeformen."
+    },
+    {
+      "id": "tma4110-1-2-def-entydig",
+      "type": "definition",
+      "title": "Entydig løsning — kriteriet",
+      "content": "Systemet er konsistent og har **pivot i hver variabelkolonne** (ingen frie variabler). Da er hver ukjent bundet til en bestemt verdi, og løsningen er ett enkelt punkt. Kort: antall pivoter = antall ukjente, og ingen pivot i høyresidekolonnen."
+    },
+    {
+      "id": "tma4110-1-2-def-ingen",
+      "type": "definition",
+      "title": "Ingen løsning — kriteriet",
+      "content": "Den reduserte trappeformen har en rad $[\\,0\\ \\cdots\\ 0\\mid c\\,]$ med $c\\ne0$, altså en **pivot i høyresidekolonnen**. Det betyr «$0=c$», en motsigelse, og systemet er inkonsistent."
+    },
+    {
+      "id": "tma4110-1-2-def-uendelig",
+      "type": "definition",
+      "title": "Uendelig mange løsninger — kriteriet",
+      "content": "Systemet er konsistent (ingen motsigelsesrad) **og** har minst én variabelkolonne uten pivot, altså minst én **fri variabel**. Hver fri variabel gir én frihetsgrad; løsningsmengden er en linje, et plan eller et høyeredimensjonalt flatt objekt."
+    },
+    {
+      "id": "tma4110-1-2-def-frihetsgrad",
+      "type": "definition",
+      "title": "Frihetsgrad (antall frie variabler)",
+      "content": "Antallet frie variabler i et konsistent system = antall ukjente $-$ antall pivoter. Dette tallet er antall parametre du trenger for å beskrive løsningsmengden: $0$ ⇒ punkt (entydig), $1$ ⇒ linje, $2$ ⇒ plan, og så videre."
+    },
+    {
+      "id": "tma4110-1-2-ex-1",
+      "type": "example",
+      "title": "Eksempel 1: Klassifiser fra trappeformen",
+      "problem": "Tre system i ukjente $x,y,z$ har følgende reduserte trappeformer. Klassifiser hvert:\n(i) $\\left[\\begin{array}{ccc|c}1&0&0&2\\\\0&1&0&5\\\\0&0&1&1\\end{array}\\right]$, (ii) $\\left[\\begin{array}{ccc|c}1&0&2&3\\\\0&1&-1&4\\\\0&0&0&0\\end{array}\\right]$, (iii) $\\left[\\begin{array}{ccc|c}1&2&0&3\\\\0&0&1&5\\\\0&0&0&1\\end{array}\\right]$.",
+      "solution": "**(i)** Pivot i alle tre variabelkolonnene, ingen motsigelsesrad ⇒ **entydig** løsning $(2,5,1)$.\n\n**(ii)** Kolonne 3 har ingen pivot ⇒ $z$ fri, og nederste rad er $0=0$ (ingen motsigelse) ⇒ **uendelig mange** løsninger (en linje).\n\n**(iii)** Nederste rad er $[\\,0\\ 0\\ 0\\mid 1\\,]$, altså $0=1$ ⇒ **ingen** løsning (inkonsistent). Merk: her *ser* det ut som $z$ har en pivot, men motsigelsesraden overstyrer alt — sjekk alltid høyresidekolonnen først."
+    },
+    {
+      "id": "tma4110-1-2-oppg-1",
+      "type": "exercise",
+      "exercise": {
+        "id": "tma4110-1-2-l1",
+        "number": "1",
+        "type": "classic",
+        "difficulty": "lett",
+        "task": "(Ren gjengivelse — klassifiser utfallet.) Et system i $x,y,z$ har redusert trappeform $\\left[\\begin{array}{ccc|c}1&0&-2&4\\\\0&1&3&1\\\\0&0&0&0\\end{array}\\right]$. Hvor mange løsninger har systemet, og hvor mange frie variabler?",
+        "solution": "Kolonne 3 (for $z$) mangler pivot ⇒ **én fri variabel** ($z$). Nederste rad er $0=0$, ingen motsigelse ⇒ systemet er konsistent. Konklusjon: **uendelig mange** løsninger, med én frihetsgrad (en linje).",
+        "hints": [
+          "Tell pivotene og sammenlign med antall ukjente.",
+          "Sjekk om nederste rad er en motsigelse ($0=c$ med $c\\ne0$)."
+        ]
+      }
+    },
+    {
+      "id": "tma4110-1-2-lokke2",
+      "type": "text",
+      "content": "## Løkke 2 — Løsning på parameterform (~15 min)"
+    },
+    {
+      "id": "tma4110-1-2-parform-tekst",
+      "type": "text",
+      "content": "Når det er uendelig mange løsninger, må svaret skrives ryddig. Standardformen splitter løsningen i to biter: **én** bestemt løsning pluss **alle** løsningene av det tilhørende homogene systemet."
+    },
+    {
+      "id": "tma4110-1-2-def-partikulaer",
+      "type": "definition",
+      "title": "Partikulær løsning",
+      "content": "Én bestemt løsning $\\mathbf x_p$ av systemet $A\\mathbf x=\\mathbf b$ — for eksempel den du får ved å sette alle frie variabler lik $0$. Den utgjør «startpunktet» i parameterformen."
+    },
+    {
+      "id": "tma4110-1-2-def-homogen-del",
+      "type": "definition",
+      "title": "Homogen del (nullromsretning)",
+      "content": "Løsningene av det tilhørende **homogene** systemet $A\\mathbf x=\\mathbf 0$. De skrives som lineærkombinasjoner $t_1\\mathbf v_1+\\dots+t_k\\mathbf v_k$ av retningsvektorer $\\mathbf v_j$ — én per fri variabel. Disse vektorene spenner ut $\\operatorname{Nul}A$ (nullrommet, som studeres i Del 3)."
+    },
+    {
+      "id": "tma4110-1-2-def-struktur",
+      "type": "definition",
+      "title": "Strukturen på løsningsmengden",
+      "content": "Løsningsmengden til $A\\mathbf x=\\mathbf b$ (når konsistent) er $\\mathbf x=\\mathbf x_p+(\\text{løsning av }A\\mathbf x=\\mathbf 0)$: en partikulær løsning pluss hele nullrommet. Geometrisk er det nullrommet «flyttet» ut til å gå gjennom $\\mathbf x_p$. Derfor har alle høyresider $\\mathbf b$ som gir konsistens, samme «form» på løsningsmengden."
+    },
+    {
+      "id": "tma4110-1-2-def-parform",
+      "type": "definition",
+      "title": "Parameterform",
+      "content": "Skrivemåten $\\mathbf x=\\mathbf x_p+t_1\\mathbf v_1+\\dots+t_k\\mathbf v_k$, $t_j\\in\\mathbb R$. Antall parametre = antall frie variabler. Dette er den påkrevde formen når det er uendelig mange løsninger — et enkelt punkt er *ikke* et fullstendig svar da."
+    },
+    {
+      "id": "tma4110-1-2-ex-2",
+      "type": "example",
+      "title": "Eksempel 2: Skriv løsningen på parameterform",
+      "problem": "Løs $\\begin{cases}x+y+2z=4\\\\ 2x+3y+z=5\\\\ 3x+4y+3z=9\\end{cases}$ og skriv løsningsmengden som $\\mathbf x_p+t\\mathbf v$.",
+      "solution": "Radreduksjon gir den reduserte trappeformen\n$$\\left[\\begin{array}{ccc|c}1&0&5&7\\\\0&1&-3&-3\\\\0&0&0&0\\end{array}\\right].$$\nKolonne 3 uten pivot ⇒ $z=t$ fri. Radene: $x=7-5t$, $y=-3+3t$. Skill konstant og retning:\n$$(x,y,z)=(7,-3,0)+t\\,(-5,3,1),\\qquad t\\in\\mathbb R.$$\n**Sjekk strukturen:** $\\mathbf x_p=(7,-3,0)$ er en partikulær løsning (sett $t=0$: $7-3+0=4$ ✓), og $\\mathbf v=(-5,3,1)$ løser det homogene systemet ($-5+3+2=0$ ✓). Retningsvektoren $\\mathbf v$ hører altså til $\\operatorname{Nul}A$."
+    },
+    {
+      "id": "tma4110-1-2-oppg-2",
+      "type": "exercise",
+      "exercise": {
+        "id": "tma4110-1-2-l2",
+        "number": "2",
+        "type": "classic",
+        "difficulty": "lett",
+        "task": "(Innøving — fra RREF til parameterform.) Et system i $x,y,z$ har redusert trappeform $\\left[\\begin{array}{ccc|c}1&0&4&2\\\\0&1&-1&3\\\\0&0&0&0\\end{array}\\right]$. Skriv løsningsmengden på parameterform.",
+        "solution": "$z=t$ fri. Radene: $x=2-4t$, $y=3+t$. Parameterform:\n$$(x,y,z)=(2,3,0)+t\\,(-4,1,1),\\qquad t\\in\\mathbb R.$$",
+        "hints": [
+          "Sett den frie variabelen $z=t$.",
+          "Flytt $t$-leddene over på høyre side i hver rad, og skill konstant fra retning."
+        ]
+      }
+    },
+    {
+      "id": "tma4110-1-2-oppg-3",
+      "type": "exercise",
+      "exercise": {
+        "id": "tma4110-1-2-m1",
+        "number": "3",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "(Sjanger A — parameterform.) Løs $\\begin{cases}x+2y+3z=1\\\\ 2x+4y+6z=2\\\\ x+y+z=0\\end{cases}$ og skriv løsningen som $\\mathbf x_p+t\\mathbf v$. Kontroller at $\\mathbf v$ løser det homogene systemet.",
+        "solution": "Radreduksjon gir $\\left[\\begin{array}{ccc|c}1&0&-1&-1\\\\0&1&2&1\\\\0&0&0&0\\end{array}\\right]$. Med $z=t$: $x=-1+t$, $y=1-2t$, altså\n$$(x,y,z)=(-1,1,0)+t\\,(1,-2,1),\\qquad t\\in\\mathbb R.$$\nKontroll av $\\mathbf v=(1,-2,1)$ i det homogene systemet: $1+2(-2)+3(1)=0$ ✓ og $1+(-2)+1=0$ ✓.",
+        "hints": [
+          "Likning 2 er dobbelt av likning 1 og gir en nullrad.",
+          "Sett $\\mathbf v$ inn i hver likning med høyreside $0$ for kontroll."
+        ]
+      }
+    },
+    {
+      "id": "tma4110-1-2-lokke3",
+      "type": "text",
+      "content": "## Løkke 3 — Parameteravhengige system (~20 min)"
+    },
+    {
+      "id": "tma4110-1-2-param-tekst",
+      "type": "text",
+      "content": "Nå erstatter vi et av tallene i systemet med en bokstav $a$. Da avhenger utfallet av $a$. Fremgangsmåten: radreduser med $a$ med som en helt vanlig konstant, men **del aldri på et uttrykk som kan bli $0$** uten å behandle det tilfellet for seg. Finn de **kritiske verdiene** der en pivot forsvinner, og klassifiser hvert tilfelle."
+    },
+    {
+      "id": "tma4110-1-2-def-param-system",
+      "type": "definition",
+      "title": "Parameteravhengig system",
+      "content": "Et lineært system der en eller flere koeffisienter (eller høyresider) er en bokstavparameter, typisk $a$. Antall løsninger avhenger av parameterverdien, og oppgaven er å beskrive utfallet for **alle** verdier."
+    },
+    {
+      "id": "tma4110-1-2-def-symbolsk-radred",
+      "type": "definition",
+      "title": "Symbolsk radreduksjon",
+      "content": "Radreduksjon der en parameter $a$ regnes med som et vanlig tall. Regelen er streng: du kan gange og legge til, men **ikke dele på et uttrykk som inneholder $a$** uten å skille ut verdiene der uttrykket er $0$. Ellers mister du nettopp de kritiske tilfellene."
+    },
+    {
+      "id": "tma4110-1-2-def-kritisk-verdi",
+      "type": "definition",
+      "title": "Kritisk parameterverdi",
+      "content": "En verdi av $a$ der en pivot forsvinner — typisk der et diagonalt uttrykk i trappeformen, som $(a-1)$ eller $(a+2)$, blir $0$. Ved disse verdiene endrer utfallet seg. Utenfor dem oppfører systemet seg «generisk» (som regel entydig)."
+    },
+    {
+      "id": "tma4110-1-2-def-tilfelledeling",
+      "type": "definition",
+      "title": "Tilfelledeling",
+      "content": "Å dele analysen i separate tilfeller etter parameterverdien: ett tilfelle for hver kritisk verdi, pluss det generiske tilfellet ellers. Hvert tilfelle klassifiseres for seg (entydig / ingen / uendelig). **Å hoppe over et tilfelle er den dyreste fellen** i denne oppgavetypen."
+    },
+    {
+      "id": "tma4110-1-2-def-pivotbetingelse",
+      "type": "definition",
+      "title": "Pivotbetingelse",
+      "content": "Betingelsen som avgjør om en posisjon i trappeformen er en ekte pivot. For eksempel: en rad $[\\,0\\ 0\\ (a-1)^2\\mid c\\,]$ har pivot i $z$-kolonnen så lenge $(a-1)^2\\ne0$, altså $a\\ne1$. Ved $a=1$ blir raden $[\\,0\\ 0\\ 0\\mid c\\,]$, og da avgjør $c$ om det er ingen eller uendelig mange løsninger."
+    },
+    {
+      "id": "tma4110-1-2-ex-3",
+      "type": "example",
+      "title": "Eksempel 3: Full parameteranalyse med alle tre utfall",
+      "problem": "For hvilke verdier av $a$ har systemet ingen, én eller uendelig mange løsninger?\n$$\\begin{cases}x+y+az=1\\\\ x+ay+z=1\\\\ ax+y+z=1\\end{cases}$$",
+      "solution": "Radreduser symbolsk. Trekk rad 1 fra rad 2, og $a$ ganger rad 1 fra rad 3, og forenkle. Analysen samler seg om det symmetriske uttrykket $(a-1)$ og $(a+2)$; determinanten til koeffisientmatrisen er $-(a-1)^2(a+2)$. Vi deler i tre tilfeller:\n\n**Tilfelle 1 — $a\\ne1$ og $a\\ne-2$:** determinanten er ulik $0$, så det er pivot i hver variabelkolonne ⇒ **entydig løsning**. Ved symmetri er $x=y=z$, og innsatt i en likning: $(a+2)x=1$, altså\n$$x=y=z=\\frac{1}{a+2}.$$\n\n**Tilfelle 2 — $a=1$:** alle tre likningene blir $x+y+z=1$. Da er det bare én ekte likning, to frie variabler ⇒ **uendelig mange løsninger**:\n$$(x,y,z)=(1,0,0)+s(-1,1,0)+t(-1,0,1),\\qquad s,t\\in\\mathbb R.$$\n\n**Tilfelle 3 — $a=-2$:** radreduksjon gir en motsigelsesrad $[\\,0\\ 0\\ 0\\mid 1\\,]$ ⇒ **ingen løsning**. (Sjekk: summen av de tre likningene gir $0\\cdot(x+y+z)=3$, umulig.)\n\n**Konklusjon:** entydig for $a\\notin\\{1,-2\\}$, uendelig mange for $a=1$, ingen for $a=-2$. Alle tre tilfeller er med — det er nettopp poenget."
+    },
+    {
+      "id": "tma4110-1-2-warning",
+      "type": "warning",
+      "title": "Typiske feil",
+      "content": "- **Glemmer et tilfelle** i parameteranalysen — den mest kostbare fellen. Har uttrykket ditt formen $(a-1)(a+2)$, må *begge* verdiene $a=1$ og $a=-2$ behandles, i tillegg til det generiske.\n- **Deler på en parameter som kan være $0$.** Skriver du «del på $a-1$», har du stilltiende antatt $a\\ne1$ — men $a=1$ er ofte det interessante tilfellet.\n- **Oppgir bare én løsning der det er uendelig mange** — svaret må på parameterform med retningsvektor(er).\n- **Skriver løsningsmengden uten den partikulære delen** eller uten retningsvektoren.\n- **Blander «ingen løsning» og «bare trivialløsning».** Et inkonsistent inhomogent system har *ingen* løsning; et homogent system har alltid minst trivialløsningen.\n- **Antar at kritisk verdi alltid gir uendelig mange** — ved en kritisk verdi kan utfallet være *enten* ingen *eller* uendelig mange, avhengig av høyresiden."
+    },
+    {
+      "id": "tma4110-1-2-oppg-4",
+      "type": "exercise",
+      "exercise": {
+        "id": "tma4110-1-2-m2",
+        "number": "4",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "(Sjanger A — parameteranalyse, to tilfeller.) Bestem for hvilke verdier av $a$ systemet har ingen, én eller uendelig mange løsninger:\n$$\\begin{cases}x+y+z=2\\\\ x+2y+az=3\\\\ x+ay+z=a\\end{cases}$$",
+        "solution": "Trekk rad 1 fra rad 2 og fra rad 3:\n$$\\left[\\begin{array}{ccc|c}1&1&1&2\\\\0&1&a-1&1\\\\0&a-1&0&a-2\\end{array}\\right].$$\nDeretter $R_3\\to R_3-(a-1)R_2$ gir nederste rad $[\\,0\\ 0\\ -(a-1)^2\\mid -1\\,]$, altså $-(a-1)^2z=-1$.\n\n**Tilfelle $a\\ne1$:** $(a-1)^2\\ne0$, pivot i $z$-kolonnen ⇒ **entydig løsning** (med $z=\\tfrac{1}{(a-1)^2}$).\n\n**Tilfelle $a=1$:** nederste rad blir $[\\,0\\ 0\\ 0\\mid -1\\,]$, altså $0=-1$ ⇒ **ingen løsning**.\n\nDette systemet har altså **aldri** uendelig mange løsninger: entydig for $a\\ne1$, ingen for $a=1$. (Et godt eksempel på at man ikke skal *anta* at alle tre utfall opptrer — man må sjekke.)",
+        "hints": [
+          "Radreduser med $a$ med som en vanlig konstant; ikke del på $(a-1)$.",
+          "Se på nederste rad: $-(a-1)^2z=-1$ — når forsvinner pivoten?",
+          "Ved den kritiske verdien: er raden en motsigelse eller en nullrad?"
+        ]
+      }
+    },
+    {
+      "id": "tma4110-1-2-oppg-5",
+      "type": "exercise",
+      "exercise": {
+        "id": "tma4110-1-2-m3",
+        "number": "5",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "(Sjanger A — parameteranalyse med to parametre.) For hvilke verdier av $a$ og $b$ har systemet ingen, én eller uendelig mange løsninger?\n$$\\begin{cases}x+y+z=3\\\\ x+2y+3z=4\\\\ 2x+3y+az=b\\end{cases}$$",
+        "solution": "Trekk fra: $R_2\\to R_2-R_1$, $R_3\\to R_3-2R_1$, deretter $R_3\\to R_3-R_2$:\n$$\\left[\\begin{array}{ccc|c}1&1&1&3\\\\0&1&2&1\\\\0&0&a-4&b-7\\end{array}\\right].$$\nNederste rad: $(a-4)z=b-7$.\n\n**$a\\ne4$ (uansett $b$):** pivot i $z$-kolonnen ⇒ **entydig løsning**.\n\n**$a=4$, $b=7$:** raden blir $0=0$ ⇒ én fri variabel ⇒ **uendelig mange**. Med $z=t$: $(x,y,z)=(2,1,0)+t(1,-2,1)$.\n\n**$a=4$, $b\\ne7$:** raden blir $[\\,0\\ 0\\ 0\\mid b-7\\,]$ med $b-7\\ne0$ ⇒ **ingen løsning**.",
+        "hints": [
+          "Radreduser til nederste rad har formen $(a-4)z=b-7$.",
+          "Den kritiske verdien er $a=4$; der avgjør $b$ mellom ingen og uendelig mange.",
+          "I det uendelige tilfellet: sett $z=t$ og skriv parameterform."
+        ]
+      }
+    },
+    {
+      "id": "tma4110-1-2-oppg-6",
+      "type": "exercise",
+      "exercise": {
+        "id": "tma4110-1-2-v1",
+        "number": "6",
+        "type": "classic",
+        "difficulty": "vanskelig",
+        "task": "(Sjanger A — full analyse + parameterform.) Analyser systemet for alle $a,b$, og skriv løsningen på parameterform i det uendelige tilfellet:\n$$\\begin{cases}x+2y+z=1\\\\ 2x+5y+3z=4\\\\ x+3y+az=b\\end{cases}$$",
+        "solution": "Eliminer: $R_2\\to R_2-2R_1$, $R_3\\to R_3-R_1$, så $R_3\\to R_3-R_2$:\n$$\\left[\\begin{array}{ccc|c}1&2&1&1\\\\0&1&1&2\\\\0&0&a-2&b-3\\end{array}\\right].$$\nNederste rad: $(a-2)z=b-3$.\n\n**$a\\ne2$:** pivot i $z$ ⇒ **entydig løsning** for enhver $b$.\n\n**$a=2$, $b=3$:** raden blir $0=0$ ⇒ **uendelig mange**. Med $z=t$: fra rad 2 er $y=2-t$, fra rad 1 er $x=1-2y-z=1-2(2-t)-t=-3+t$. Altså\n$$(x,y,z)=(-3,2,0)+t\\,(1,-1,1),\\qquad t\\in\\mathbb R.$$\n\n**$a=2$, $b\\ne3$:** raden blir $[\\,0\\ 0\\ 0\\mid b-3\\,]\\ne0$ ⇒ **ingen løsning**.",
+        "hints": [
+          "Eliminer til nederste rad har formen $(a-2)z=b-3$.",
+          "Kritisk verdi $a=2$; der skiller $b=3$ (uendelig) fra $b\\ne3$ (ingen).",
+          "I det uendelige tilfellet: sett $z=t$ og regn deg oppover til $y$ og $x$."
+        ]
+      }
+    },
+    {
+      "id": "tma4110-1-2-geom-tekst",
+      "type": "text",
+      "content": "## Geometrisk bilde og koblingen videre\n\nDet lønner seg å se hva de tre utfallene betyr geometrisk, og hvordan de peker fram mot Del 3."
+    },
+    {
+      "id": "tma4110-1-2-def-geom-2",
+      "type": "definition",
+      "title": "Geometrisk tolkning i to variabler",
+      "content": "Hver likning $ax+by=c$ er en **rett linje** i planet. To linjer skjærer i ett punkt (entydig), er parallelle uten skjæring (ingen løsning), eller er sammenfallende (uendelig mange — samme linje)."
+    },
+    {
+      "id": "tma4110-1-2-def-geom-3",
+      "type": "definition",
+      "title": "Geometrisk tolkning i tre variabler",
+      "content": "Hver likning $ax+by+cz=d$ er et **plan** i rommet. Tre plan kan skjære i ett punkt (entydig), langs en felles linje eller i et felles plan (uendelig mange), eller mangle et felles punkt (ingen løsning). Utfallet er nøyaktig det radreduksjonen forteller."
+    },
+    {
+      "id": "tma4110-1-2-begrepsbank-tekst",
+      "type": "text",
+      "content": "## Begrepsbank til eksamen\n\nHer er de resterende kjernebegrepene, inkludert broene videre til Del 3.\n\n*Begrepsbanken er flashcard-/repetisjonsstoff — det gjentar det du nettopp har lest. Hopp trygt over ved førstegangslesing; tidsanslaget for kapitlet gjelder kjernestoffet.*"
+    },
+    {
+      "id": "tma4110-1-2-bb-nulrom",
+      "type": "definition",
+      "title": "Nullrom $\\operatorname{Nul}A$ (bro til Del 3)",
+      "content": "Løsningsmengden til det homogene systemet $A\\mathbf x=\\mathbf 0$ kalles nullrommet $\\operatorname{Nul}A$. Retningsvektorene i parameterformen er nettopp en beskrivelse av $\\operatorname{Nul}A$. Vi studerer det grundig i Del 3; her holder det å vite at det er «den homogene delen» av løsningen."
+    },
+    {
+      "id": "tma4110-1-2-bb-colrom",
+      "type": "definition",
+      "title": "Løsbarhet og $\\operatorname{Col}A$ (bro til Del 3)",
+      "content": "Systemet $A\\mathbf x=\\mathbf b$ er konsistent **hvis og bare hvis** $\\mathbf b$ kan skrives som en lineærkombinasjon av kolonnene i $A$ — altså $\\mathbf b$ ligger i kolonnerommet $\\operatorname{Col}A$. Denne koblingen utdypes i Del 3; her er den en måte å forstå *hvorfor* noen høyresider gir motsigelse."
+    },
+    {
+      "id": "tma4110-1-2-bb-over-under",
+      "type": "definition",
+      "title": "Over- og underbestemte system",
+      "content": "Et system med **flere likninger enn ukjente** kalles overbestemt (ofte, men ikke alltid, inkonsistent). Ett med **færre likninger enn ukjente** kalles underbestemt (kan aldri ha entydig løsning — enten ingen eller uendelig mange). Antall likninger alene avgjør likevel ikke utfallet; radreduksjonen gjør."
+    },
+    {
+      "id": "tma4110-1-2-bb-dele-felle",
+      "type": "definition",
+      "title": "Fellen: å dele på en parameter",
+      "content": "Når du radreduserer symbolsk og skriver «del rad på $a-1$», antar du taust at $a\\ne1$. Verdien $a=1$ må da behandles *separat*. Dette er kilden til den vanligste feilen i parameteroppgaver: et helt tilfelle forsvinner fordi man delte det bort."
+    },
+    {
+      "id": "tma4110-1-2-bb-konsistensbetingelse",
+      "type": "definition",
+      "title": "Konsistensbetingelse (rad-kriterium)",
+      "content": "Systemet $A\\mathbf x=\\mathbf b$ er konsistent **hvis og bare hvis** høyresidekolonnen ikke er en pivotkolonne — altså ingen rad $[\\,0\\ \\cdots\\ 0\\mid c\\,]$ med $c\\ne0$. Kompakt: $\\operatorname{rang}[A\\mid\\mathbf b]=\\operatorname{rang}A$. Blir rangen større når du tar med høyresiden, er systemet inkonsistent."
+    },
+    {
+      "id": "tma4110-1-2-bb-rangkriterium",
+      "type": "definition",
+      "title": "Rang-kriteriet for utfallet",
+      "content": "For et system med $n$ ukjente: hvis $\\operatorname{rang}[A\\mid\\mathbf b]>\\operatorname{rang}A$ ⇒ **ingen** løsning; hvis $\\operatorname{rang}[A\\mid\\mathbf b]=\\operatorname{rang}A=n$ ⇒ **entydig**; hvis $\\operatorname{rang}[A\\mid\\mathbf b]=\\operatorname{rang}A<n$ ⇒ **uendelig mange** (med $n-\\operatorname{rang}A$ frie variabler). Dette er de tre utfallene uttrykt med rang."
+    },
+    {
+      "id": "tma4110-1-2-bb-generisk",
+      "type": "definition",
+      "title": "Det generiske tilfellet",
+      "content": "I en parameteranalyse er «det generiske tilfellet» verdiene av $a$ *utenom* de kritiske — der ingen pivot forsvinner. Der oppfører systemet seg som det «vanligvis» gjør (som regel entydig løsning). De kritiske verdiene er unntakene du må behandle hver for seg."
+    },
+    {
+      "id": "tma4110-1-2-bb-skille-ingen-triviell",
+      "type": "definition",
+      "title": "Skillet: ingen løsning vs. bare trivialløsning",
+      "content": "«Ingen løsning» gjelder et *inhomogent* system ($\\mathbf b\\ne\\mathbf 0$) som er inkonsistent — løsningsmengden er tom. «Bare trivialløsningen» gjelder et *homogent* system der $\\mathbf x=\\mathbf 0$ er eneste løsning. Et homogent system er aldri tomt; det har alltid minst $\\mathbf 0$. Ikke bland de to."
+    },
+    {
+      "id": "tma4110-1-2-rep",
+      "type": "collapsible",
+      "title": "Repetisjonsoppgaver",
+      "buttonText": "Vis repetisjonsoppgaver",
+      "content": [
+        {
+          "id": "tma4110-1-2-rep-1",
+          "type": "exercise",
+          "exercise": {
+            "id": "tma4110-1-2-rep-o1",
+            "number": "R1",
+            "type": "classic",
+            "difficulty": "lett",
+            "task": "(Fra kap. 1.1) Radreduser $\\left[\\begin{array}{ccc|c}1&2&-1&3\\\\0&1&2&1\\end{array}\\right]$ til redusert trappeform.",
+            "solution": "Bare kolonne 1 trenger en null over pivoten i (2,2): $R_1\\to R_1-2R_2$ gir $\\left[\\begin{array}{ccc|c}1&0&-5&1\\\\0&1&2&1\\end{array}\\right]$. Det er redusert trappeform.",
+            "hints": [
+              "Lag null over pivoten i posisjon (2,2)."
+            ]
+          }
+        },
+        {
+          "id": "tma4110-1-2-rep-2",
+          "type": "exercise",
+          "exercise": {
+            "id": "tma4110-1-2-rep-o2",
+            "number": "R2",
+            "type": "classic",
+            "difficulty": "lett",
+            "task": "(Fra kap. 1.1) Et homogent system i 3 ukjente har 3 pivoter. Hvor mange løsninger?",
+            "solution": "Tre pivoter i tre ukjente ⇒ ingen frie variabler ⇒ bare den **trivielle** løsningen $\\mathbf x=\\mathbf 0$.",
+            "hints": [
+              "Homogent + pivot i hver variabelkolonne."
+            ]
+          }
+        },
+        {
+          "id": "tma4110-1-2-rep-3",
+          "type": "exercise",
+          "exercise": {
+            "id": "tma4110-1-2-rep-o3",
+            "number": "R3",
+            "type": "classic",
+            "difficulty": "middels",
+            "task": "(Fra kap. 1.1) Skriv løsningen av det homogene systemet med redusert trappeform $\\left[\\begin{array}{ccc}1&0&2\\\\0&1&-1\\\\0&0&0\\end{array}\\right]$ på parameterform.",
+            "solution": "$z=t$ fri; $x=-2t$, $y=t$. Løsning: $(x,y,z)=t(-2,1,1)$, $t\\in\\mathbb R$ — en linje gjennom origo. Dette er $\\operatorname{Nul}A$.",
+            "hints": [
+              "Homogen ⇒ ingen konstant, bare retningsvektor(er)."
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": "tma4110-1-2-symbolliste",
+      "type": "collapsible",
+      "title": "Symbol- og formelliste",
+      "buttonText": "Vis symboler og formler",
+      "content": [
+        {
+          "id": "tma4110-1-2-symbolliste-text",
+          "type": "text",
+          "content": "## Symbol- og formelliste\n\n*Oppslagsverk — alt her forklares underveis i kapitlet.*\n\nAlle symboler og skrivemåter som brukes i dette delkapitlet (1.2), samlet på ett sted.\n\n| Symbol | Betydning |\n|---|---|\n| $A\\mathbf x=\\mathbf b$ | Lineært system på matriseform |\n| $A\\mathbf x=\\mathbf 0$ | Tilhørende homogent system |\n| $\\mathbf x_p$ | Partikulær løsning |\n| $\\mathbf v,\\mathbf v_1,\\dots$ | Retningsvektorer (nullromsretninger) |\n| $t,s,t_1,\\dots$ | Parametre (én per fri variabel) |\n| $a,b$ | Bokstavparametre i systemet |\n| $\\operatorname{Nul}A$ | Nullrommet (bro til Del 3) |\n| $\\operatorname{Col}A$ | Kolonnerommet (bro til Del 3) |\n| $(a-1),(a+2)$ | Typiske pivotuttrykk med kritiske verdier |\n\n**Nøkkelfakta i dette delkapitlet:**\n\n$$\\text{entydig}\\ \\Leftrightarrow\\ \\text{pivot i hver variabelkolonne, ingen motsigelsesrad}$$\n\n$$\\text{ingen løsning}\\ \\Leftrightarrow\\ \\text{rad }[\\,0\\ \\cdots\\ 0\\mid c\\,],\\ c\\ne0$$\n\n$$\\text{uendelig mange}\\ \\Leftrightarrow\\ \\text{konsistent med minst én fri variabel}$$\n\n$$\\mathbf x=\\mathbf x_p+t_1\\mathbf v_1+\\dots+t_k\\mathbf v_k$$\nParameterform: partikulær løsning pluss nullromsretningene.\n\n$$\\text{antall frie variabler}=\\text{antall ukjente}-\\text{antall pivoter}$$\n\n**Parameteranalyse — oppskrift:** radreduser symbolsk (ikke del på uttrykk som kan bli $0$) → finn kritiske verdier der en pivot forsvinner → del i tilfeller (hver kritisk verdi + det generiske) → klassifiser hvert tilfelle."
+        }
+      ]
+    }
+  ],
+  "exercises": []
+}

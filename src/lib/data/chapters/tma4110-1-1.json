@@ -1,0 +1,476 @@
+{
+  "id": "tma4110-1-1",
+  "courseId": "tma4110",
+  "chapterNumber": "1.1",
+  "title": "Lineære likningssystem, matriseform og Gauss-eliminasjon",
+  "description": "Motoren under hele faget: skriv et lineært system som totalmatrise, radreduser til (redusert) trappeform ved elementære radoperasjoner, og les av pivoter og frie variabler — grunnteknikken bak kolonnerom, nullrom, egenrom og alt annet.",
+  "estimatedMinutes": 55,
+  "competenceGoals": [
+    "skrive et lineært likningssystem som totalmatrise og radredusere til trappeform og redusert trappeform ved elementære radoperasjoner",
+    "klassifisere løsningsmengden (entydig, ingen eller uendelig mange) ut fra pivotmønsteret og lese av løsningen",
+    "skrive en uendelig løsningsmengde på parameterform og avgjøre om et homogent system har ikke-trivielle løsninger"
+  ],
+  "content": [
+    {
+      "id": "tma4110-1-1-tip-eksamensvinkel",
+      "type": "tip",
+      "title": "Eksamensvinkel",
+      "content": "**Dette er motoren under hele faget — teknikken må sitte i fingrene.**\n\nSelve oppgavesjangeren «løs et lineært system» (sjanger A) forekommer i rundt **78 %** av settene, ofte som oppgave 1 eller som en deloppgave verdt 5–10 %. Men den egentlige verdien er større: **radreduksjon er grunnteknikken bak nesten alt annet** i emnet — kolonnerom, nullrom, egenrom, diagonalisering og minste kvadrater bygger alle på at du kan radredusere en matrise uten regnefeil.\n\nUnder ingen-hjelpemidler-kravet gjør du all radreduksjon **for hånd**. Sensor vil se **radoperasjonene**, ikke bare svaret. Målet med kapitlet: radredusere trygt, kjenne igjen pivotmønsteret, og lese løsningen rett av. Klarer du det, har du fundamentet for resten av boka."
+    },
+    {
+      "id": "tma4110-1-1-forkunnskaper",
+      "type": "text",
+      "content": "**Forkunnskaper:** Dette kapitlet bygger fra grunnen og krever ingen tidligere kapitler i boka. Du bør være trygg på å regne med bokstaver og løse et par likninger med flere ukjente fra videregående (det dekkes ikke som et eget VGS-kapittel her — vi bygger det opp underveis). Vektorbegrepet fra [Vektorer i tre dimensjoner](/bok/r2/r2-5-1) er nyttig når vi skriver løsninger på vektorform. Matriseregning for øvrig modnes i Del 2."
+    },
+    {
+      "id": "tma4110-1-1-motivasjon",
+      "type": "text",
+      "content": "## Hverdagsanker: mange betingelser på én gang\n\nTenk deg at du blander tre safttyper og skal treffe et bestemt volum, en bestemt sukkermengde og en bestemt pris samtidig. Hver betingelse er én likning, og mengdene du kan velge, er de ukjente. Å finne blandingen som oppfyller *alle* betingelsene samtidig, er å løse et **lineært likningssystem**.\n\nHele lineær algebra starter her. Trikset er å skrive systemet som en **tallmatrise** og så bearbeide tallene systematisk — en metode som aldri kjører seg fast, uansett hvor mange likninger og ukjente det er. Vi bygger metoden opp i fire små løkker: (1) skrive systemet som matrise, (2) radoperasjoner og trappeform, (3) Gauss-eliminasjon og avlesning, og (4) homogene system."
+    },
+    {
+      "id": "tma4110-1-1-lokke1",
+      "type": "text",
+      "content": "## Løkke 1 — Fra likningssystem til totalmatrise (~10 min)"
+    },
+    {
+      "id": "tma4110-1-1-def-lin-likning",
+      "type": "definition",
+      "title": "Lineær likning",
+      "content": "En likning der de ukjente bare opptrer i **første potens**, ganget med tall og lagt sammen — ingen kvadrater, produkter av ukjente eller funksjoner som $\\sin$ eller $\\sqrt{\\ }$. Formen er $a_1x_1+a_2x_2+\\dots+a_nx_n=b$, der $a_1,\\dots,a_n$ er kjente koeffisienter og $b$ er høyresiden. For eksempel er $2x+3y-z=5$ lineær, mens $x^2+y=1$ ikke er det."
+    },
+    {
+      "id": "tma4110-1-1-def-lin-system",
+      "type": "definition",
+      "title": "Lineært likningssystem",
+      "content": "En samling av én eller flere lineære likninger i de **samme** ukjente, som skal oppfylles samtidig. Å *løse* systemet betyr å finne alle verdier av de ukjente som gjør hver likning sann på én gang."
+    },
+    {
+      "id": "tma4110-1-1-def-losning",
+      "type": "definition",
+      "title": "Løsning av et system",
+      "content": "En liste med tallverdier $(x_1,\\dots,x_n)$ — én for hver ukjent — som gjør **alle** likningene i systemet sanne samtidig. Vi skriver den ofte som en vektor $\\mathbf x=(x_1,\\dots,x_n)$."
+    },
+    {
+      "id": "tma4110-1-1-def-losningsmengde",
+      "type": "definition",
+      "title": "Løsningsmengde",
+      "content": "Mengden av **alle** løsninger til systemet. Den kan bestå av nøyaktig ett punkt (entydig løsning), være tom (ingen løsning), eller inneholde uendelig mange punkter (en linje, et plan osv.). Å «løse systemet» betyr egentlig å beskrive hele denne mengden."
+    },
+    {
+      "id": "tma4110-1-1-def-konsistent",
+      "type": "definition",
+      "title": "Konsistent system",
+      "content": "Et system som har **minst én** løsning kalles konsistent. Det kan ha nøyaktig én løsning eller uendelig mange — men løsningsmengden er ikke tom."
+    },
+    {
+      "id": "tma4110-1-1-def-inkonsistent",
+      "type": "definition",
+      "title": "Inkonsistent system",
+      "content": "Et system uten noen løsning. Likningene motsier hverandre — for eksempel krever de samtidig at en størrelse er både $0$ og $1$. I radreduksjonen avslører dette seg som en rad $[\\,0\\ \\cdots\\ 0\\mid c\\,]$ med $c\\ne0$, altså «$0=c$»."
+    },
+    {
+      "id": "tma4110-1-1-def-koeffmatrise",
+      "type": "definition",
+      "title": "Koeffisientmatrise",
+      "content": "Tabellen av koeffisientene foran de ukjente, uten høyresidene. For systemet $2x+3y=5,\\ x-y=1$ er koeffisientmatrisen $\\begin{bmatrix}2&3\\\\1&-1\\end{bmatrix}$. Radene svarer til likningene, kolonnene til de ukjente."
+    },
+    {
+      "id": "tma4110-1-1-def-totalmatrise",
+      "type": "definition",
+      "title": "Totalmatrise (utvidet matrise)",
+      "content": "Koeffisientmatrisen utvidet med en kolonne for høyresidene, skilt med en strek: $[A\\mid\\mathbf b]$. For $2x+3y=5,\\ x-y=1$ er totalmatrisen $\\left[\\begin{array}{cc|c}2&3&5\\\\1&-1&1\\end{array}\\right]$. Hele løsemetoden foregår ved å bearbeide denne matrisen."
+    },
+    {
+      "id": "tma4110-1-1-ex-1",
+      "type": "example",
+      "title": "Eksempel 1: Skriv systemet som totalmatrise",
+      "problem": "Skriv systemet $\\begin{cases}x+2y+z=8\\\\ 2x+y-z=1\\\\ 3x-y+2z=7\\end{cases}$ som en totalmatrise, og pek ut koeffisientmatrisen.",
+      "solution": "Hver likning blir én rad; koeffisientene fylles inn kolonne for kolonne (rekkefølgen $x,y,z$), og høyresidene kommer etter streken:\n$$[A\\mid\\mathbf b]=\\left[\\begin{array}{ccc|c}1&2&1&8\\\\2&1&-1&1\\\\3&-1&2&7\\end{array}\\right].$$\nKoeffisientmatrisen er delen til venstre for streken, $A=\\begin{bmatrix}1&2&1\\\\2&1&-1\\\\3&-1&2\\end{bmatrix}$. Pass på tegnene: koeffisienten til $z$ i likning 2 er $-1$, ikke $1$. En manglende ukjent skrives som koeffisient $0$."
+    },
+    {
+      "id": "tma4110-1-1-oppg-1",
+      "type": "exercise",
+      "exercise": {
+        "id": "tma4110-1-1-l1",
+        "number": "1",
+        "type": "classic",
+        "difficulty": "lett",
+        "task": "(Ren gjengivelse — skriv systemet som totalmatrise.) Skriv systemet $\\begin{cases}3x-y+2z=4\\\\ x+z=0\\\\ 2x+4y-z=5\\end{cases}$ som en totalmatrise. Husk å sette inn $0$ der en ukjent mangler.",
+        "solution": "Likning 2 mangler $y$, så koeffisienten til $y$ er $0$:\n$$\\left[\\begin{array}{ccc|c}3&-1&2&4\\\\1&0&1&0\\\\2&4&-1&5\\end{array}\\right].$$",
+        "hints": [
+          "Én rad per likning, kolonnene i rekkefølgen $x,y,z$.",
+          "Der en ukjent ikke står i likningen, er koeffisienten $0$."
+        ]
+      }
+    },
+    {
+      "id": "tma4110-1-1-lokke2",
+      "type": "text",
+      "content": "## Løkke 2 — Radoperasjoner og trappeform (~15 min)"
+    },
+    {
+      "id": "tma4110-1-1-radop-tekst",
+      "type": "text",
+      "content": "Vi løser systemet ved å forenkle totalmatrisen med tre operasjoner som **ikke endrer løsningsmengden**. De tilsvarer helt vanlige grep du gjør med likninger: bytte rekkefølge, gange en likning med et tall, og legge et multiplum av én likning til en annen."
+    },
+    {
+      "id": "tma4110-1-1-def-radop-bytt",
+      "type": "definition",
+      "title": "Radoperasjon 1: ombytting",
+      "content": "Bytt om to rader. Det tilsvarer å skrive likningene i en annen rekkefølge og endrer selvsagt ikke hvilke løsninger systemet har. Skrives $R_i\\leftrightarrow R_j$."
+    },
+    {
+      "id": "tma4110-1-1-def-radop-skaler",
+      "type": "definition",
+      "title": "Radoperasjon 2: skalering",
+      "content": "Gang alle tallene i en rad med et tall $k\\ne0$. Det tilsvarer å gange en likning med $k$ på begge sider. Kravet $k\\ne0$ er viktig: ganger du med $0$, mister du likningen. Skrives $R_i\\to kR_i$."
+    },
+    {
+      "id": "tma4110-1-1-def-radop-adder",
+      "type": "definition",
+      "title": "Radoperasjon 3: addisjon av multiplum",
+      "content": "Legg et multiplum av én rad til en annen rad: $R_i\\to R_i+kR_j$. Dette er arbeidshesten — den lager nuller under en pivot. Fordi vi bare legger til en annen likning (som allerede må være oppfylt), endres ikke løsningsmengden."
+    },
+    {
+      "id": "tma4110-1-1-def-radekvivalent",
+      "type": "definition",
+      "title": "Radekvivalente matriser",
+      "content": "To matriser er radekvivalente hvis den ene kan omdannes til den andre med en følge av elementære radoperasjoner. Nøkkelfakta: **radekvivalente totalmatriser har nøyaktig samme løsningsmengde.** Derfor har vi lov til å radredusere."
+    },
+    {
+      "id": "tma4110-1-1-def-trappeform",
+      "type": "definition",
+      "title": "Trappeform (echelon-form)",
+      "content": "En matrise er på trappeform når (1) alle nullrader står nederst, og (2) det første ikke-null-tallet i hver rad (det **ledende innslaget**) står lenger til høyre enn det ledende innslaget i raden over. Da danner de ledende innslagene en «trapp» nedover mot høyre, og alle tall rett under et ledende innslag er $0$."
+    },
+    {
+      "id": "tma4110-1-1-def-ledende",
+      "type": "definition",
+      "title": "Ledende innslag (pivot-innslag)",
+      "content": "Det første tallet som ikke er $0$ i en rad, når vi leser fra venstre. Posisjonen kalles en **pivotposisjon**. Det er rundt de ledende innslagene hele metoden dreier: vi bruker dem til å lage nuller i resten av kolonnen."
+    },
+    {
+      "id": "tma4110-1-1-def-rref",
+      "type": "definition",
+      "title": "Redusert trappeform (RREF)",
+      "content": "En trappeform der i tillegg (3) hvert ledende innslag er $1$ (et **ledende ener**), og (4) hvert ledende ener er det eneste tallet som ikke er $0$ i sin kolonne — det er også nuller *over* det. En matrise har **nøyaktig én** redusert trappeform, og fra den kan løsningen leses direkte av."
+    },
+    {
+      "id": "tma4110-1-1-ex-2",
+      "type": "example",
+      "title": "Eksempel 2: Radreduser til trappeform",
+      "problem": "Radreduser $\\left[\\begin{array}{ccc|c}1&2&1&8\\\\2&1&-1&1\\\\3&-1&2&7\\end{array}\\right]$ til trappeform. Marker de ledende innslagene.",
+      "solution": "Bruk pivoten i posisjon (1,1) til å nulle ut under seg. Først $R_2\\to R_2-2R_1$ og $R_3\\to R_3-3R_1$:\n$$\\left[\\begin{array}{ccc|c}\\mathbf 1&2&1&8\\\\0&-3&-3&-15\\\\0&-7&-1&-17\\end{array}\\right].$$\nNeste pivot er $-3$ i posisjon (2,2). Nul ut under: $R_3\\to R_3-\\tfrac{7}{3}R_2$ gir $-7-\\tfrac73(-3)=0$ i kolonne 2, og $-1-\\tfrac73(-3)=6$ i kolonne 3, mens høyresiden blir $-17-\\tfrac73(-15)=18$:\n$$\\left[\\begin{array}{ccc|c}\\mathbf 1&2&1&8\\\\0&\\mathbf{-3}&-3&-15\\\\0&0&\\mathbf 6&18\\end{array}\\right].$$\nDette er trappeform: de ledende innslagene $1,-3,6$ danner en trapp, og alt under dem er $0$. (For å regne videre til løsningen fortsetter vi til redusert trappeform — se løkke 3.)"
+    },
+    {
+      "id": "tma4110-1-1-oppg-2",
+      "type": "exercise",
+      "exercise": {
+        "id": "tma4110-1-1-l2",
+        "number": "2",
+        "type": "classic",
+        "difficulty": "lett",
+        "task": "(Innøving — trappeform.) Ta matrisen $\\left[\\begin{array}{cc|c}2&4&6\\\\3&1&4\\end{array}\\right]$.\n\n**a)** Gjør pivoten i (1,1) om til et ledende ener.\n\n**b)** Nul deretter ut tallet under, og skriv operasjonen du bruker.",
+        "solution": "**a)** Skaler rad 1: $R_1\\to\\tfrac12R_1$ gir $\\left[\\begin{array}{cc|c}1&2&3\\\\3&1&4\\end{array}\\right]$.\n\n**b)** Nul ut under pivoten: $R_2\\to R_2-3R_1$ gir $\\left[\\begin{array}{cc|c}1&2&3\\\\0&-5&-5\\end{array}\\right]$. Nå står det en $0$ i posisjon (2,1), og matrisen er på trappeform.",
+        "hints": [
+          "Del rad 1 på 2 for å få et ledende ener.",
+          "Trekk 3 ganger den nye rad 1 fra rad 2."
+        ]
+      }
+    },
+    {
+      "id": "tma4110-1-1-lokke3",
+      "type": "text",
+      "content": "## Løkke 3 — Gauss-eliminasjon, pivoter og avlesning (~20 min)"
+    },
+    {
+      "id": "tma4110-1-1-def-pivotpos",
+      "type": "definition",
+      "title": "Pivotposisjon",
+      "content": "En plass i matrisen der det står et ledende innslag i en (hvilken som helst) trappeform. Antallet pivotposisjoner er fast for en gitt matrise, uansett hvordan du radreduserer."
+    },
+    {
+      "id": "tma4110-1-1-def-pivotkol",
+      "type": "definition",
+      "title": "Pivotkolonne",
+      "content": "En kolonne som inneholder en pivotposisjon. De ukjente som svarer til pivotkolonner (blant variabelkolonnene), er de **bundne** ukjente — de bestemmes av de frie."
+    },
+    {
+      "id": "tma4110-1-1-def-pivotvar",
+      "type": "definition",
+      "title": "Pivotvariabel (ledende variabel)",
+      "content": "En ukjent hvis kolonne er en pivotkolonne. Hver pivotvariabel uttrykkes entydig ved de frie variablene når vi leser av den reduserte trappeformen."
+    },
+    {
+      "id": "tma4110-1-1-def-frivar",
+      "type": "definition",
+      "title": "Fri variabel",
+      "content": "En ukjent hvis kolonne **ikke** er en pivotkolonne. En fri variabel kan settes til hva som helst — vi gir den gjerne et parameternavn som $t$ eller $s$ — og de andre variablene følger av den. **Ingen fri variabel** betyr entydig løsning; **minst én** fri variabel (i et konsistent system) betyr uendelig mange løsninger."
+    },
+    {
+      "id": "tma4110-1-1-def-gauss",
+      "type": "definition",
+      "title": "Gauss-eliminasjon",
+      "content": "Metoden som radreduserer en matrise til trappeform ved å gå **forover**: bruk hver pivot til å lage nuller under seg, kolonne for kolonne fra venstre. Deretter kan man lese av løsningen ved **bakoversubstitusjon** (nederste likning først)."
+    },
+    {
+      "id": "tma4110-1-1-def-gauss-jordan",
+      "type": "definition",
+      "title": "Gauss–Jordan-eliminasjon",
+      "content": "Fortsettelsen av Gauss-eliminasjon helt til **redusert** trappeform: skaler hver pivot til $1$ og lag nuller også *over* pivotene. Da står løsningen ferdig avlest i høyresidekolonnen, uten bakoversubstitusjon. Dette er metoden boka bruker som standard."
+    },
+    {
+      "id": "tma4110-1-1-ex-3",
+      "type": "example",
+      "title": "Eksempel 3: Full løsning med entydig svar",
+      "problem": "Løs $\\begin{cases}x+y+z=6\\\\ 2x-y+z=3\\\\ x+2y-z=2\\end{cases}$ ved Gauss–Jordan. Oppgi pivotene og eventuelle frie variabler.",
+      "solution": "Totalmatrise og eliminasjon under pivoten i (1,1) med $R_2\\to R_2-2R_1,\\ R_3\\to R_3-R_1$:\n$$\\left[\\begin{array}{ccc|c}1&1&1&6\\\\2&-1&1&3\\\\1&2&-1&2\\end{array}\\right]\\to\\left[\\begin{array}{ccc|c}1&1&1&6\\\\0&-3&-1&-9\\\\0&1&-2&-4\\end{array}\\right].$$\nBytt $R_2\\leftrightarrow R_3$ for en penere pivot, så $R_3\\to R_3+3R_2$:\n$$\\to\\left[\\begin{array}{ccc|c}1&1&1&6\\\\0&1&-2&-4\\\\0&0&-7&-21\\end{array}\\right].$$\nSkaler $R_3\\to-\\tfrac17R_3$ (gir $z=3$), og eliminer oppover:\n$$\\to\\left[\\begin{array}{ccc|c}1&0&0&1\\\\0&1&0&2\\\\0&0&1&3\\end{array}\\right].$$\n**Pivoter** i alle tre variabelkolonnene ⇒ **ingen frie variabler** ⇒ **entydig løsning**: $x=1,\\ y=2,\\ z=3$. Kontroll i første likning: $1+2+3=6$. ✓"
+    },
+    {
+      "id": "tma4110-1-1-oppg-3",
+      "type": "exercise",
+      "exercise": {
+        "id": "tma4110-1-1-l3",
+        "number": "3",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "(Sjanger A — løs et system, entydig svar.) Løs $\\begin{cases}x+2y+z=8\\\\ 2x+y-z=1\\\\ 3x-y+2z=7\\end{cases}$ ved radreduksjon, og oppgi pivotene og eventuelle frie variabler.",
+        "solution": "Radreduksjon av totalmatrisen $\\left[\\begin{array}{ccc|c}1&2&1&8\\\\2&1&-1&1\\\\3&-1&2&7\\end{array}\\right]$ (bruk $R_2-2R_1,\\ R_3-3R_1$, deretter videre til redusert trappeform) gir\n$$\\left[\\begin{array}{ccc|c}1&0&0&1\\\\0&1&0&2\\\\0&0&1&3\\end{array}\\right].$$\nPivoter i alle tre variabelkolonnene, **ingen frie variabler**, entydig løsning $x=1,\\ y=2,\\ z=3$. Kontroll: $1+2\\cdot2+3=8$. ✓",
+        "hints": [
+          "Skriv totalmatrisen og bruk pivoten i (1,1) til å nulle ut under seg.",
+          "Reduser helt til redusert trappeform, så står svaret i høyresidekolonnen.",
+          "Tre pivoter i tre variabelkolonner betyr entydig løsning."
+        ]
+      }
+    },
+    {
+      "id": "tma4110-1-1-ex-4",
+      "type": "example",
+      "title": "Eksempel 4: Uendelig mange løsninger — parameterform",
+      "problem": "Løs $\\begin{cases}x+y-z=2\\\\ 2x-y+z=1\\\\ x-2y+2z=-1\\end{cases}$ og beskriv hele løsningsmengden.",
+      "solution": "Radreduksjon gir den reduserte trappeformen\n$$\\left[\\begin{array}{ccc|c}1&0&0&1\\\\0&1&-1&1\\\\0&0&0&0\\end{array}\\right].$$\nKolonne 3 (for $z$) har **ingen** pivot, så $z$ er en **fri variabel**; sett $z=t$. Radene gir $x=1$ og $y-z=1$, altså $y=1+t$. Løsningen på **parameterform**:\n$$(x,y,z)=(1,\\,1+t,\\,t)=(1,1,0)+t\\,(0,1,1),\\qquad t\\in\\mathbb R.$$\nDette er en **rett linje** i rommet. Nullraden nederst er ingen motsigelse (den sier $0=0$), så systemet er konsistent med uendelig mange løsninger."
+    },
+    {
+      "id": "tma4110-1-1-oppg-4",
+      "type": "exercise",
+      "exercise": {
+        "id": "tma4110-1-1-m1",
+        "number": "4",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "(Sjanger A — uendelig mange løsninger.) Løs $\\begin{cases}x+2y+3z=1\\\\ 2x+4y+6z=2\\\\ x+y+z=0\\end{cases}$ og skriv løsningsmengden på parameterform $\\mathbf x=\\mathbf x_p+t\\mathbf v$.",
+        "solution": "Radreduksjon gir\n$$\\left[\\begin{array}{ccc|c}1&0&-1&-1\\\\0&1&2&1\\\\0&0&0&0\\end{array}\\right].$$\nKolonne 3 har ingen pivot ⇒ $z=t$ fri. Da er $x=-1+t$ og $y=1-2t$. Parameterform:\n$$(x,y,z)=(-1,1,0)+t\\,(1,-2,1),\\qquad t\\in\\mathbb R.$$\nEn linje gjennom $(-1,1,0)$ med retningsvektor $(1,-2,1)$.",
+        "hints": [
+          "Legg merke til at likning 2 er dobbelt av likning 1 — den gir en nullrad.",
+          "Kolonnen uten pivot svarer til den frie variabelen; sett den lik $t$.",
+          "Skill ut det konstante leddet og retningsvektoren."
+        ]
+      }
+    },
+    {
+      "id": "tma4110-1-1-ex-5",
+      "type": "example",
+      "title": "Eksempel 5: Inkonsistent system",
+      "problem": "Avgjør om $\\begin{cases}x+2y-z=1\\\\ 2x-y+z=3\\\\ 3x+y+0z=6\\end{cases}$ har noen løsning.",
+      "solution": "Legg merke til at likning 1 pluss likning 2 gir $3x+y+0z=4$. Men likning 3 sier $3x+y+0z=6$. Samme venstreside kan ikke være både $4$ og $6$. Radreduksjon bekrefter det med en rad $[\\,0\\ 0\\ 0\\mid 1\\,]$, altså «$0=1$» — en **motsigelse**. Systemet er **inkonsistent** og har **ingen løsning**. Sensor-tips: en pivot i selve høyresidekolonnen er kjennetegnet på et inkonsistent system."
+    },
+    {
+      "id": "tma4110-1-1-oppg-5",
+      "type": "exercise",
+      "exercise": {
+        "id": "tma4110-1-1-m2",
+        "number": "5",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "(Sjanger A — klassifiser utfallet.) Radreduser og avgjør om systemet er konsistent: $\\begin{cases}x+2y+z=3\\\\ 2x+4y+2z=5\\end{cases}$",
+        "solution": "Radoperasjonen $R_2\\to R_2-2R_1$ gir $\\left[\\begin{array}{ccc|c}1&2&1&3\\\\0&0&0&-1\\end{array}\\right]$. Nederste rad sier $0=-1$, en motsigelse. Systemet er **inkonsistent** — ingen løsning. (Venstresidene er proporsjonale, men høyresidene passer ikke: $2\\cdot3=6\\ne5$.)",
+        "hints": [
+          "Trekk 2 ganger rad 1 fra rad 2.",
+          "En rad $[\\,0\\ 0\\ 0\\mid c\\,]$ med $c\\ne0$ betyr ingen løsning."
+        ]
+      }
+    },
+    {
+      "id": "tma4110-1-1-lokke4",
+      "type": "text",
+      "content": "## Løkke 4 — Homogene system (~10 min)"
+    },
+    {
+      "id": "tma4110-1-1-def-homogent",
+      "type": "definition",
+      "title": "Homogent system",
+      "content": "Et system der alle høyresidene er $0$: $A\\mathbf x=\\mathbf 0$. Et slikt system er **alltid konsistent**, for $\\mathbf x=\\mathbf 0$ er alltid en løsning. Spørsmålet er derfor aldri *om* det har løsning, men om det har *flere enn den ene*."
+    },
+    {
+      "id": "tma4110-1-1-def-triviell",
+      "type": "definition",
+      "title": "Triviell løsning",
+      "content": "Løsningen $\\mathbf x=\\mathbf 0$ (alle ukjente lik $0$) til et homogent system. Den finnes alltid, og alene er den ikke interessant."
+    },
+    {
+      "id": "tma4110-1-1-def-ikketriviell",
+      "type": "definition",
+      "title": "Ikke-triviell løsning",
+      "content": "En løsning av $A\\mathbf x=\\mathbf 0$ som ikke er $\\mathbf 0$. Nøkkelregel: et homogent system har ikke-trivielle løsninger **hvis og bare hvis det finnes minst én fri variabel**, altså når en variabelkolonne mangler pivot. Med flere ukjente enn likninger er det garantert."
+    },
+    {
+      "id": "tma4110-1-1-ex-6",
+      "type": "example",
+      "title": "Eksempel 6: Homogent system med fri variabel",
+      "problem": "Finn alle løsninger av $\\begin{cases}x+2y-z=0\\\\ 2x+y+z=0\\\\ x-y+2z=0\\end{cases}$",
+      "solution": "For et homogent system holder det å radredusere koeffisientmatrisen (høyresidekolonnen forblir $0$). Vi får\n$$\\left[\\begin{array}{ccc}1&0&1\\\\0&1&-1\\\\0&0&0\\end{array}\\right].$$\nKolonne 3 har ingen pivot ⇒ $z=t$ fri. Da $x=-t$ og $y=t$, altså\n$$(x,y,z)=t\\,(-1,1,1),\\qquad t\\in\\mathbb R.$$\nEn hel linje gjennom origo av løsninger — så systemet har **ikke-trivielle** løsninger. Retningsvektoren $(-1,1,1)$ er en løsning du kan sette inn og sjekke: $-1+2-1=0$. ✓ (Denne løsningsmengden er nettopp $\\operatorname{Nul}A$, som vi møter igjen i Del 3.)"
+    },
+    {
+      "id": "tma4110-1-1-oppg-6",
+      "type": "exercise",
+      "exercise": {
+        "id": "tma4110-1-1-v1",
+        "number": "6",
+        "type": "classic",
+        "difficulty": "vanskelig",
+        "task": "(Sjanger A — homogent system.) Finn alle løsninger av $\\begin{cases}2x+4y-2z=0\\\\ x+y+z=0\\\\ 3x+5y-z=0\\end{cases}$ og skriv løsningsmengden med en retningsvektor.",
+        "solution": "Radreduksjon av koeffisientmatrisen gir\n$$\\left[\\begin{array}{ccc}1&0&3\\\\0&1&-2\\\\0&0&0\\end{array}\\right].$$\nKolonne 3 uten pivot ⇒ $z=t$ fri. Da $x=-3t$ og $y=2t$:\n$$(x,y,z)=t\\,(-3,2,1),\\qquad t\\in\\mathbb R.$$\nSystemet har ikke-trivielle løsninger (én fri variabel). Kontroll i likning 2: $-3+2+1=0$. ✓",
+        "hints": [
+          "Homogent system: du kan droppe høyresidekolonnen og radredusere koeffisientmatrisen.",
+          "Kolonnen uten pivot gir den frie variabelen; sett $z=t$.",
+          "Uttrykk $x$ og $y$ ved $t$ og faktoriser ut $t$."
+        ]
+      }
+    },
+    {
+      "id": "tma4110-1-1-warning",
+      "type": "warning",
+      "title": "Typiske feil",
+      "content": "- **Regnefeil i radoperasjonene**, særlig fortegn når du legger til et negativt multiplum. Kontroller hvert steg.\n- **Stopper på trappeform** og leser av feil: skal du lese løsningen direkte, må du helt til *redusert* trappeform (ledende enere, nuller også over).\n- **Forveksler trappeform og redusert trappeform.** Trappeform er nok for å telle pivoter; avlesning krever redusert form.\n- **Behandler et inkonsistent system som løsbart** — overser raden $[\\,0\\ \\cdots\\ 0\\mid c\\,]$ med $c\\ne0$.\n- **Teller pivoter feil** og konkluderer galt om entydig/uendelig løsning. Én pivot i hver variabelkolonne = entydig; en variabelkolonne uten pivot = fri variabel.\n- **Skalerer med $0$** eller glemmer å oppgi de frie variablene i svaret."
+    },
+    {
+      "id": "tma4110-1-1-oppg-7",
+      "type": "exercise",
+      "exercise": {
+        "id": "tma4110-1-1-m3",
+        "number": "7",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "(Sjanger A.) Løs $\\begin{cases}x+3y+3z=2\\\\ -x-y+2z=0\\\\ -3x+3y+z=6\\end{cases}$",
+        "solution": "Radreduksjon gir den reduserte trappeformen $\\left[\\begin{array}{ccc|c}1&0&0&-1\\\\0&1&0&1\\\\0&0&1&0\\end{array}\\right]$. Tre pivoter, ingen frie variabler ⇒ entydig løsning $x=-1,\\ y=1,\\ z=0$. Kontroll i likning 1: $-1+3\\cdot1+3\\cdot0=2$. ✓",
+        "hints": [
+          "Bruk pivoten i (1,1) til å nulle ut under seg i begge de andre radene.",
+          "Reduser til redusert trappeform og les av høyresiden."
+        ]
+      }
+    },
+    {
+      "id": "tma4110-1-1-oppg-8",
+      "type": "exercise",
+      "exercise": {
+        "id": "tma4110-1-1-v2",
+        "number": "8",
+        "type": "classic",
+        "difficulty": "vanskelig",
+        "task": "(Sjanger A — full klassifisering.) Et system har den reduserte trappeformen $\\left[\\begin{array}{cccc|c}1&0&2&0&3\\\\0&1&-1&0&2\\\\0&0&0&1&5\\end{array}\\right]$ i de ukjente $x_1,x_2,x_3,x_4$.\n\n**a)** Hvilke variabler er pivotvariabler, og hvilke er frie?\n\n**b)** Skriv den generelle løsningen på parameterform.",
+        "solution": "**a)** Pivoter står i kolonne 1, 2 og 4 ⇒ pivotvariabler $x_1,x_2,x_4$. Kolonne 3 har ingen pivot ⇒ $x_3$ er **fri**; sett $x_3=t$.\n\n**b)** Radene gir $x_1=3-2t$, $x_2=2+t$, $x_4=5$, mens $x_3=t$. På parameterform:\n$$(x_1,x_2,x_3,x_4)=(3,2,0,5)+t\\,(-2,1,1,0),\\qquad t\\in\\mathbb R.$$\nÉn fri variabel ⇒ uendelig mange løsninger (en linje i $\\mathbb R^4$).",
+        "hints": [
+          "Pivotkolonner er de med en ledende ener; resten svarer til frie variabler.",
+          "Flytt den frie variabelen over på høyre side i hver rad og les av."
+        ]
+      }
+    },
+    {
+      "id": "tma4110-1-1-begrepsbank-tekst",
+      "type": "text",
+      "content": "## Begrepsbank til eksamen\n\nHer er de resterende kjernebegrepene samlet i kortform for repetisjon.\n\n*Begrepsbanken er flashcard-/repetisjonsstoff — det gjentar det du nettopp har lest. Hopp trygt over ved førstegangslesing; tidsanslaget for kapitlet gjelder kjernestoffet.*"
+    },
+    {
+      "id": "tma4110-1-1-bb-parameterform",
+      "type": "definition",
+      "title": "Parameterform (parametrisering)",
+      "content": "Å skrive en uendelig løsningsmengde som $\\mathbf x=\\mathbf x_p+t_1\\mathbf v_1+\\dots+t_k\\mathbf v_k$, der $\\mathbf x_p$ er én bestemt (partikulær) løsning og hver $\\mathbf v_j$ hører til en fri variabel $t_j$. Antall parametre = antall frie variabler. Dette er den påkrevde formen for et svar med uendelig mange løsninger."
+    },
+    {
+      "id": "tma4110-1-1-bb-rang",
+      "type": "definition",
+      "title": "Rang (antall pivoter)",
+      "content": "Rangen $\\operatorname{rang}A$ er antallet pivotposisjoner i matrisen $A$ — like mange som det er ledende innslag i en trappeform. Den teller hvor mange «ekte» uavhengige likninger systemet har. Rangen bruker vi tungt fra Del 3 og utover; her holder det å vite at den er antall pivoter."
+    },
+    {
+      "id": "tma4110-1-1-bb-bakover",
+      "type": "definition",
+      "title": "Bakoversubstitusjon",
+      "content": "Etter Gauss-eliminasjon til trappeform kan man finne de ukjente ved å løse nederste likning først (den har færrest ukjente) og sette resultatet oppover, én rad om gangen. Alternativet er å gå helt til redusert trappeform (Gauss–Jordan), som boka foretrekker."
+    },
+    {
+      "id": "tma4110-1-1-bb-tre-utfall",
+      "type": "definition",
+      "title": "De tre utfallene",
+      "content": "Et lineært system har nøyaktig én av tre typer løsningsmengde: **entydig** (én løsning — pivot i hver variabelkolonne), **ingen** (inkonsistent — pivot i høyresidekolonnen), eller **uendelig mange** (konsistent med minst én fri variabel). Ingen fjerde mulighet finnes."
+    },
+    {
+      "id": "tma4110-1-1-rep",
+      "type": "collapsible",
+      "title": "Repetisjonsoppgaver",
+      "buttonText": "Vis repetisjonsoppgaver",
+      "content": [
+        {
+          "id": "tma4110-1-1-rep-1",
+          "type": "exercise",
+          "exercise": {
+            "id": "tma4110-1-1-rep-o1",
+            "number": "R1",
+            "type": "classic",
+            "difficulty": "lett",
+            "task": "Skriv systemet $2x-y=3,\\ x+4y=5$ som en totalmatrise og radreduser til løsning.",
+            "solution": "$\\left[\\begin{array}{cc|c}2&-1&3\\\\1&4&5\\end{array}\\right]$. Bytt radene, så $R_2\\to R_2-2R_1$: $\\left[\\begin{array}{cc|c}1&4&5\\\\0&-9&-7\\end{array}\\right]$. Da $y=\\tfrac79$ og $x=5-4\\cdot\\tfrac79=\\tfrac{17}{9}$. Løsning $\\left(\\tfrac{17}{9},\\tfrac79\\right)$.",
+            "hints": [
+              "Bytt gjerne radene så pivoten i (1,1) blir $1$."
+            ]
+          }
+        },
+        {
+          "id": "tma4110-1-1-rep-2",
+          "type": "exercise",
+          "exercise": {
+            "id": "tma4110-1-1-rep-o2",
+            "number": "R2",
+            "type": "classic",
+            "difficulty": "lett",
+            "task": "Hvor mange løsninger har et konsistent system i tre ukjente med nøyaktig to pivoter?",
+            "solution": "Tre ukjente og to pivoter betyr at én variabelkolonne mangler pivot — altså **én fri variabel**. Systemet har derfor **uendelig mange** løsninger (en linje).",
+            "hints": [
+              "Antall frie variabler = antall variabler minus antall pivoter."
+            ]
+          }
+        },
+        {
+          "id": "tma4110-1-1-rep-3",
+          "type": "exercise",
+          "exercise": {
+            "id": "tma4110-1-1-rep-o3",
+            "number": "R3",
+            "type": "classic",
+            "difficulty": "middels",
+            "task": "Uten å regne ferdig: hva kan du si om løsningene av et homogent system med 3 likninger og 4 ukjente?",
+            "solution": "Med 4 ukjente og bare 3 likninger er det høyst 3 pivoter, så minst én variabelkolonne mangler pivot ⇒ minst én fri variabel. Et homogent system er alltid konsistent, så det har **uendelig mange (ikke-trivielle) løsninger**. Regel: flere ukjente enn likninger i et homogent system ⇒ alltid ikke-trivielle løsninger.",
+            "hints": [
+              "Antall pivoter er høyst antall rader.",
+              "Homogent system er alltid konsistent."
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": "tma4110-1-1-symbolliste",
+      "type": "collapsible",
+      "title": "Symbol- og formelliste",
+      "buttonText": "Vis symboler og formler",
+      "content": [
+        {
+          "id": "tma4110-1-1-symbolliste-text",
+          "type": "text",
+          "content": "## Symbol- og formelliste\n\n*Oppslagsverk — alt her forklares underveis i kapitlet.*\n\nAlle symboler og skrivemåter som brukes i dette delkapitlet (1.1), samlet på ett sted.\n\n| Symbol | Betydning |\n|---|---|\n| $x_1,x_2,\\dots$ eller $x,y,z$ | De ukjente i systemet |\n| $A$ | Koeffisientmatrisen |\n| $\\mathbf b$ | Høyresidevektoren |\n| $[A\\mid\\mathbf b]$ | Totalmatrisen (koeffisienter + høyreside) |\n| $A\\mathbf x=\\mathbf 0$ | Et homogent system |\n| $\\mathbf x$ | Løsningsvektoren $(x_1,\\dots,x_n)$ |\n| $\\mathbf 0$ | Nullvektoren (triviell løsning) |\n| $R_i\\leftrightarrow R_j$ | Radoperasjon: bytt rad $i$ og $j$ |\n| $R_i\\to kR_i$ | Radoperasjon: skaler rad $i$ med $k\\ne0$ |\n| $R_i\\to R_i+kR_j$ | Radoperasjon: legg $k$ ganger rad $j$ til rad $i$ |\n| $\\operatorname{rang}A$ | Rangen — antall pivoter |\n| $t,s$ | Parametre for frie variabler |\n| $\\mathbf x_p$ | En partikulær løsning |\n| $\\mathbf v$ | Retningsvektor i parameterformen |\n\n**Nøkkelfakta i dette delkapitlet:**\n\n$$[\\,0\\ \\cdots\\ 0\\mid c\\,],\\ c\\ne0\\ \\Rightarrow\\ \\text{ingen løsning}$$\nEn slik rad i redusert trappeform betyr at systemet er inkonsistent.\n\n$$\\text{pivot i hver variabelkolonne}\\ \\Rightarrow\\ \\text{entydig løsning}$$\n\n$$\\text{en variabelkolonne uten pivot}\\ \\Rightarrow\\ \\text{fri variabel}\\ \\Rightarrow\\ \\text{uendelig mange (om konsistent)}$$\n\n$$\\mathbf x=\\mathbf x_p+t_1\\mathbf v_1+\\dots+t_k\\mathbf v_k$$\nParameterform: partikulær løsning pluss én retningsvektor per fri variabel.\n\n$$A\\mathbf x=\\mathbf 0\\ \\text{har ikke-triviell løsning}\\ \\Leftrightarrow\\ \\text{minst én fri variabel.}$$"
+        }
+      ]
+    }
+  ],
+  "exercises": []
+}

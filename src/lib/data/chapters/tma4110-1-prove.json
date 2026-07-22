@@ -1,0 +1,119 @@
+{
+  "id": "tma4110-1-prove",
+  "courseId": "tma4110",
+  "chapterNumber": "1.P",
+  "title": "Prøver til del 1: Lineære likningssystem og Gauss",
+  "description": "Fire prøver til Del 1 (kap. 1.1–1.3): radreduksjon og avlesning, tre løsningsutfall og parameterform, parameteranalyse med full tilfelledeling, og en kjedet oppgave-simulering — med fullstendige løsningsforslag og selvdiagnose.",
+  "estimatedMinutes": 160,
+  "competenceGoals": [
+    "løse lineære system ved radreduksjon og klassifisere utfallet under prøvebetingelser",
+    "gjennomføre full parameteranalyse med tilfelledeling og skrive parameterform",
+    "kjede sammen Gauss, parameteranalyse og homogent system slik en full eksamensoppgave krever"
+  ],
+  "content": [
+    {
+      "id": "tma4110-1-prove-tip",
+      "type": "tip",
+      "title": "Prøver til del 1 — Lineære likningssystem og Gauss",
+      "content": "**Fire prøver som dekker hele Del 1** (kap. 1.1–1.3): radreduksjon og avlesning (1.A), tre løsningsutfall og parameterform (1.B), parameteranalyse med full tilfelledeling (1.C), og en kjedet oppgave-simulering (1.D).\n\n**4 prøver à ~35–45 min.** Du kan trygt dele dem over flere kvelder — ta gjerne én prøve per økt. Alt er **langsvar med full begrunnelse** (ingen flervalg, som på en normalårs-eksamen): vis radoperasjonene, oppgi pivoter og frie variabler, og skriv uendelige løsningsmengder på parameterform. Kalibrert mot ingen hjelpemidler — regn for hånd og gi eksakte svar.\n\nEtter hver fasit står en **selvdiagnose-sjekkliste** — kryss av det du fikk til, så ser du hva du bør repetere."
+    },
+    {
+      "id": "tma4110-1-prove-forkunnskaper",
+      "type": "text",
+      "content": "**Forkunnskaper:** Prøvene forutsetter [kap. 1.1](/bok/tma4110/tma4110-1-1) (radreduksjon, pivoter, homogene system), [kap. 1.2](/bok/tma4110/tma4110-1-2) (tre utfall, parameterform, parameteranalyse) og drillen i [kap. 1.3](/bok/tma4110/tma4110-1-3). Ingen nye metoder — dette er eksamenstrening på Del 1."
+    },
+    {
+      "id": "tma4110-1-prove-prove-1a",
+      "type": "collapsible",
+      "title": "Prøve 1.A — Radreduksjon og avlesning (~35 min)",
+      "buttonText": "Vis prøve 1",
+      "content": [
+        {
+          "id": "tma4110-1-prove-1a-oppg",
+          "type": "text",
+          "content": "### Prøve 1.A (kap. 1.1, sjanger A · ~35 min)\n\n**Oppgave 1 (entydig system).** Løs ved Gauss–Jordan, og oppgi pivotene og eventuelle frie variabler:\n$$\\begin{cases}x+3y-z=4\\\\ 2x+5y+z=3\\\\ x+4y-3z=9\\end{cases}$$\n\n**Oppgave 2 (homogent system).** Finn alle løsninger av det homogene systemet, og oppgi en retningsvektor:\n$$\\begin{cases}x+2y-z=0\\\\ 2x+3y+z=0\\\\ 3x+5y+0z=0\\end{cases}$$"
+        },
+        {
+          "id": "tma4110-1-prove-1a-fasit",
+          "type": "text",
+          "content": "### Fasit 1.A\n\n**Oppgave 1.** Totalmatrise og eliminasjon ($R_2\\to R_2-2R_1$, $R_3\\to R_3-R_1$):\n$$\\left[\\begin{array}{ccc|c}1&3&-1&4\\\\2&5&1&3\\\\1&4&-3&9\\end{array}\\right]\\to\\left[\\begin{array}{ccc|c}1&3&-1&4\\\\0&-1&3&-5\\\\0&1&-2&5\\end{array}\\right].$$\n$R_3\\to R_3+R_2$, deretter $R_2\\to -R_2$ og eliminasjon oppover gir den reduserte trappeformen\n$$\\left[\\begin{array}{ccc|c}1&0&0&-11\\\\0&1&0&5\\\\0&0&1&0\\end{array}\\right].$$\nPivoter i alle tre variabelkolonnene, **ingen frie variabler** ⇒ entydig løsning $\\boxed{(x,y,z)=(-11,5,0)}$. Kontroll i likning 1: $-11+15-0=4$ ✓.\n\n**Oppgave 2.** Homogent: radreduser koeffisientmatrisen:\n$$\\left[\\begin{array}{ccc}1&2&-1\\\\2&3&1\\\\3&5&0\\end{array}\\right]\\to\\left[\\begin{array}{ccc}1&0&5\\\\0&1&-3\\\\0&0&0\\end{array}\\right].$$\nKolonne 3 uten pivot ⇒ $z=t$ fri. Da $x=-5t$, $y=3t$, altså\n$$(x,y,z)=t\\,(-5,3,1),\\qquad t\\in\\mathbb R.$$\nEn retningsvektor er $(-5,3,1)$. Kontroll i likning 2: $-10+9+1=0$ ✓."
+        },
+        {
+          "id": "tma4110-1-prove-1a-selvdiagnose",
+          "type": "text",
+          "content": "### Selvdiagnose 1.A\n\n- ☐ Jeg skrev totalmatrisen riktig, med $0$ der en ukjent manglet.\n- ☐ Jeg radreduserte helt til redusert trappeform uten regnefeil.\n- ☐ Jeg leste av entydig løsning og markerte sluttsvaret.\n- ☐ Jeg droppet høyresidekolonnen i det homogene systemet og fant en retningsvektor.\n- ☐ Jeg gjorde en innsettingskontroll på begge oppgavene.\n\nFikk du hakk på alle fem, sitter grunnteknikken fra kap. 1.1. Manglende hakk ⇒ repeter det aktuelle steget i [kap. 1.1](/bok/tma4110/tma4110-1-1)."
+        }
+      ]
+    },
+    {
+      "id": "tma4110-1-prove-prove-1b",
+      "type": "collapsible",
+      "title": "Prøve 1.B — Tre løsningsutfall og parameterform (~40 min)",
+      "buttonText": "Vis prøve 2",
+      "content": [
+        {
+          "id": "tma4110-1-prove-1b-oppg",
+          "type": "text",
+          "content": "### Prøve 1.B (kap. 1.2, sjanger A · ~40 min)\n\n**Oppgave 1 (klassifisering).** Tre system i $x,y,z$ har følgende reduserte trappeformer. Klassifiser hvert (entydig / ingen / uendelig mange), og oppgi antall frie variabler:\n\n**a)** $\\left[\\begin{array}{ccc|c}1&0&0&2\\\\0&1&0&-1\\\\0&0&1&4\\end{array}\\right]$\n\n**b)** $\\left[\\begin{array}{ccc|c}1&2&0&5\\\\0&0&1&3\\\\0&0&0&0\\end{array}\\right]$\n\n**c)** $\\left[\\begin{array}{ccc|c}1&0&3&1\\\\0&1&-2&2\\\\0&0&0&1\\end{array}\\right]$\n\n**Oppgave 2 (parameterform).** Løs systemet og skriv løsningen på parameterform $\\mathbf x_p+t\\mathbf v$; kontroller at $\\mathbf v$ løser det homogene systemet:\n$$\\begin{cases}x+y+2z=4\\\\ 2x+3y+z=5\\\\ 3x+4y+3z=9\\end{cases}$$"
+        },
+        {
+          "id": "tma4110-1-prove-1b-fasit",
+          "type": "text",
+          "content": "### Fasit 1.B\n\n**Oppgave 1.**\n**a)** Pivot i alle tre variabelkolonnene, ingen motsigelsesrad ⇒ **entydig løsning** $(2,-1,4)$, **0 frie variabler**.\n**b)** Kolonne 2 mangler pivot ⇒ $y$ fri; nederste rad $0=0$ ⇒ **uendelig mange**, **1 fri variabel**.\n**c)** Nederste rad $[\\,0\\ 0\\ 0\\mid 1\\,]$, altså $0=1$ ⇒ **ingen løsning** (inkonsistent). (La deg ikke lure av pivotene over — motsigelsesraden overstyrer.)\n\n**Oppgave 2.** Radreduksjon gir\n$$\\left[\\begin{array}{ccc|c}1&0&5&7\\\\0&1&-3&-3\\\\0&0&0&0\\end{array}\\right].$$\n$z=t$ fri ⇒ $x=7-5t$, $y=-3+3t$. Parameterform:\n$$(x,y,z)=(7,-3,0)+t\\,(-5,3,1),\\qquad t\\in\\mathbb R.$$\nKontroll: $\\mathbf x_p=(7,-3,0)$ løser systemet ($7-3+0=4$ ✓), og $\\mathbf v=(-5,3,1)$ løser det homogene ($-5+3+2\\cdot1=0$ ✓)."
+        },
+        {
+          "id": "tma4110-1-prove-1b-selvdiagnose",
+          "type": "text",
+          "content": "### Selvdiagnose 1.B\n\n- ☐ Jeg sjekket høyresidekolonnen først og fanget motsigelsesraden i (c).\n- ☐ Jeg talte frie variabler riktig i hvert tilfelle.\n- ☐ Jeg satte den frie variabelen lik $t$ og skrev korrekt parameterform.\n- ☐ Jeg skilte partikulær løsning fra retningsvektor.\n- ☐ Jeg kontrollerte at retningsvektoren løser det homogene systemet.\n\nMangler du hakk på klassifiseringen, repeter «de tre utfallene» i [kap. 1.2](/bok/tma4110/tma4110-1-2)."
+        }
+      ]
+    },
+    {
+      "id": "tma4110-1-prove-prove-1c",
+      "type": "collapsible",
+      "title": "Prøve 1.C — Parameteranalyse med full tilfelledeling (~40 min)",
+      "buttonText": "Vis prøve 3",
+      "content": [
+        {
+          "id": "tma4110-1-prove-1c-oppg",
+          "type": "text",
+          "content": "### Prøve 1.C (kap. 1.2, sjanger A · ~40 min)\n\n**Oppgave 1.** Bestem for hvilke verdier av $a$ og $b$ systemet har ingen, én eller uendelig mange løsninger. Skriv løsningen på parameterform i det uendelige tilfellet:\n$$\\begin{cases}x+y+z=1\\\\ x+2y+4z=3\\\\ x+3y+az=b\\end{cases}$$\n\n**Oppgave 2.** Samme spørsmål for systemet:\n$$\\begin{cases}x+y+z=2\\\\ x+2y+3z=1\\\\ 2x+3y+az=b\\end{cases}$$"
+        },
+        {
+          "id": "tma4110-1-prove-1c-fasit",
+          "type": "text",
+          "content": "### Fasit 1.C\n\n**Oppgave 1.** Eliminer: $R_2\\to R_2-R_1$, $R_3\\to R_3-R_1$, deretter $R_3\\to R_3-2R_2$:\n$$\\left[\\begin{array}{ccc|c}1&1&1&1\\\\0&1&3&2\\\\0&0&a-7&b-5\\end{array}\\right].$$\nNederste rad: $(a-7)z=b-5$.\n- **$a\\ne7$ (enhver $b$):** pivot i $z$ ⇒ **entydig løsning**.\n- **$a=7,\\ b=5$:** raden blir $0=0$ ⇒ **uendelig mange**. Med $z=t$: fra rad 2 $y=2-3t$, fra rad 1 $x=1-y-z=1-(2-3t)-t=-1+2t$. Altså $(x,y,z)=(-1,2,0)+t\\,(2,-3,1)$.\n- **$a=7,\\ b\\ne5$:** raden blir $0=b-5\\ne0$ ⇒ **ingen løsning**.\n\n**Oppgave 2.** Eliminer: $R_2\\to R_2-R_1$, $R_3\\to R_3-2R_1$, deretter $R_3\\to R_3-R_2$:\n$$\\left[\\begin{array}{ccc|c}1&1&1&2\\\\0&1&2&-1\\\\0&0&a-4&b-3\\end{array}\\right].$$\nNederste rad: $(a-4)z=b-3$.\n- **$a\\ne4$ (enhver $b$):** **entydig løsning**.\n- **$a=4,\\ b=3$:** $0=0$ ⇒ **uendelig mange**. Med $z=t$: $y=-1-2t$, $x=2-y-z=2-(-1-2t)-t=3+t$. Altså $(x,y,z)=(3,-1,0)+t\\,(1,-2,1)$.\n- **$a=4,\\ b\\ne3$:** **ingen løsning**.\n\nMerk at begge oppgavene har **alle tre utfall** — det er nettopp derfor tilfelledelingen må være fullstendig."
+        },
+        {
+          "id": "tma4110-1-prove-1c-selvdiagnose",
+          "type": "text",
+          "content": "### Selvdiagnose 1.C\n\n- ☐ Jeg radreduserte symbolsk uten å dele på et uttrykk som kunne bli null.\n- ☐ Jeg reduserte til en nederste rad på formen $(\\text{uttrykk i }a)\\,z=(\\text{uttrykk i }b)$.\n- ☐ Jeg fant den kritiske verdien der pivoten forsvinner.\n- ☐ Jeg delte i alle tre tilfeller og sjekket høyresiden ved den kritiske verdien.\n- ☐ Jeg skrev parameterform i det uendelige tilfellet.\n\nGlemte du et tilfelle, er det den dyreste fellen — repeter «parameteravhengige system» i [kap. 1.2](/bok/tma4110/tma4110-1-2) og drillen i [kap. 1.3](/bok/tma4110/tma4110-1-3)."
+        }
+      ]
+    },
+    {
+      "id": "tma4110-1-prove-prove-1d",
+      "type": "collapsible",
+      "title": "Prøve 1.D — Oppgave-simulering (kjedet) (~45 min)",
+      "buttonText": "Vis prøve 4",
+      "content": [
+        {
+          "id": "tma4110-1-prove-1d-oppg",
+          "type": "text",
+          "content": "### Prøve 1.D (kap. 1.1–1.3, sjanger A · ~45 min)\n\nDenne oppgaven kjeder sammen radreduksjon, parameteranalyse og homogent system — slik en full oppgave 1 på eksamen ofte ser ut. Betrakt systemet med parametrene $a,b$:\n$$\\begin{cases}x+2y+z=4\\\\ 2x+5y+3z=11\\\\ x+3y+az=b\\end{cases}$$\n\n**a)** Løs systemet for $a=1,\\ b=6$. Oppgi pivotene.\n\n**b)** For hvilke $a,b$ er systemet konsistent? Del i alle tilfeller.\n\n**c)** Skriv den generelle løsningen når $a=2,\\ b=7$, på parameterform.\n\n**d)** Finn alle løsninger av det tilhørende homogene systemet når $a=2$, og forklar sammenhengen med svaret i (c)."
+        },
+        {
+          "id": "tma4110-1-prove-1d-fasit",
+          "type": "text",
+          "content": "### Fasit 1.D\n\n**Felles eliminasjon.** $R_2\\to R_2-2R_1$, $R_3\\to R_3-R_1$, deretter $R_3\\to R_3-R_2$:\n$$\\left[\\begin{array}{ccc|c}1&2&1&4\\\\0&1&1&3\\\\0&0&a-2&b-7\\end{array}\\right].$$\nNederste rad: $(a-2)z=b-7$.\n\n**a) $a=1,\\ b=6$:** nederste rad $(1-2)z=6-7$, altså $-z=-1\\Rightarrow z=1$. Bakover: $y+z=3\\Rightarrow y=2$; $x+2y+z=4\\Rightarrow x=4-4-1=-1$. Pivoter i alle tre variabelkolonnene ⇒ **entydig løsning $(x,y,z)=(-1,2,1)$**. Kontroll i likning 2: $-2+10+3=11$ ✓.\n\n**b) Konsistens:**\n- **$a\\ne2$ (enhver $b$):** pivot i $z$ ⇒ konsistent (entydig).\n- **$a=2,\\ b=7$:** raden blir $0=0$ ⇒ konsistent (uendelig mange).\n- **$a=2,\\ b\\ne7$:** raden blir $0=b-7\\ne0$ ⇒ **ingen løsning**.\n\nSystemet er altså konsistent for **alle $a\\ne2$**, og for **$a=2$ kun når $b=7$**.\n\n**c) $a=2,\\ b=7$:** $z=t$ fri. Rad 2: $y=3-t$. Rad 1: $x=4-2y-z=4-2(3-t)-t=-2+t$. Altså\n$$(x,y,z)=(-2,3,0)+t\\,(1,-1,1),\\qquad t\\in\\mathbb R.$$\n\n**d) Homogent system ($a=2$):** samme eliminasjon med nuller på høyresiden gir nederste rad $0=0$, $z=t$ fri, $y=-t$, $x=t$:\n$$(x,y,z)=t\\,(1,-1,1),\\qquad t\\in\\mathbb R.$$\n**Sammenheng:** løsningen i (c) er en partikulær løsning $(-2,3,0)$ pluss hele det homogene systemets løsning $t(1,-1,1)$. Det illustrerer strukturen $\\mathbf x=\\mathbf x_p+(\\text{løsning av }A\\mathbf x=\\mathbf 0)$: retningsvektoren i (c) er nettopp nullromsretningen fra (d)."
+        },
+        {
+          "id": "tma4110-1-prove-1d-selvdiagnose",
+          "type": "text",
+          "content": "### Selvdiagnose 1.D\n\n- ☐ Jeg gjorde den felles eliminasjonen og fikk nederste rad $(a-2)z=b-7$.\n- ☐ Jeg løste det konkrete tilfellet i (a) og markerte sluttsvaret.\n- ☐ Jeg delte konsistensspørsmålet i alle tilfeller, inkludert begge under $a=2$.\n- ☐ Jeg skrev parameterform i (c) med korrekt partikulær løsning og retning.\n- ☐ Jeg så at retningsvektoren i (c) er den samme som det homogene systemets løsning i (d).\n\nKlarte du hele kjeden, er du godt rustet til oppgave 1 på eksamen. Skulle noe glippe, gå tilbake til drillen i [kap. 1.3](/bok/tma4110/tma4110-1-3)."
+        }
+      ]
+    }
+  ],
+  "exercises": []
+}
