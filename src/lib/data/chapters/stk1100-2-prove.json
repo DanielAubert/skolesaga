@@ -1,0 +1,340 @@
+{
+  "id": "stk1100-2-prove",
+  "courseId": "stk1100",
+  "chapterNumber": "2.P",
+  "title": "Prøver til del 2: Kontinuerlige fordelinger og gamma-apparatet",
+  "description": "Fire nyskrevne temaprøver som dekker CDF, median og momenter, eksponensial i begge parametriseringer med minneløshet, gamma-/kjikvadrat-identitetene og en full sjanger C-oppgave — med fullstendige løsningsforslag. Fire prøver à 30–45 min, kan tas som separate økter.",
+  "estimatedMinutes": 145,
+  "competenceGoals": [
+    "kunne gå fra en oppgitt tetthet til CDF, median og momenter på eksamensnivå",
+    "kunne bruke eksponensialfordelingen i begge parametriseringer og utlede minneløsheten",
+    "kunne bruke gamma-/kjikvadrat-identitetene, gammaintegralet og momentformelen aktivt"
+  ],
+  "content": [
+    {
+      "id": "stk1100-2-prove-tip",
+      "type": "tip",
+      "title": "Om prøvene til Del 2",
+      "content": "**Fire prøver à ~30–45 min.** Prøvene dekker hele Del 2 — kontinuerlige fordelinger (CDF, median, momenter), eksponensialfordelingen i begge parametriseringer med minneløshet, og gamma-/kjikvadratapparatet med $\\Gamma$- og $E(V^r)$-regning.\n\n| Prøve | Tema | Tid |\n|---|---|---|\n| 2.A | CDF, median og momenter for en oppgitt tetthet | 35 min |\n| 2.B | Eksponensial i begge parametriseringer + minneløshet | 30 min |\n| 2.C | Gamma-/kjikvadrat-identiteter og $\\Gamma$-/$E(V^r)$-regning | 35 min |\n| 2.D | Full egendefinert/eksotisk-tetthet-oppgave (sjanger C, eksamensnivå) | 45 min |\n\n**Sensorregel for hele delen:** medianen løses fra $F(m) = \\tfrac12$ (aldri fra tettheten), $F$ skrives stykkevis, og for eksponensial må du lese oppgavens egen parametrisering (rate $\\lambda$ eller forventning $\\mu$) hver gang. Hver prøve har ett flervalgsspørsmål (merket **Flervalg**) — kryss av ett alternativ før du sjekker fasit. Løs prøven først, sjekk deretter mot fasit og selvdiagnosen.\n\n**Prøvene kan trygt deles over flere kvelder — én prøve per økt.** Milepælen er å fullføre settet, ikke å ta alt på én gang."
+    },
+    {
+      "id": "stk1100-2-prove-forkunnskaper",
+      "type": "text",
+      "content": "**Forkunnskaper:** Disse prøvene forutsetter at du har jobbet gjennom hele Del 2 — kontinuerlige fordelinger med tetthet, CDF, median og eksponensial ([kap. 2.1](/bok/stk1100/stk1100-2-1)), gammafordelingen, kjikvadrat og $\\Gamma$-verktøyet ([kap. 2.2](/bok/stk1100/stk1100-2-2)) og drillen i den egendefinerte/«eksotiske» tettheten ([kap. 2.3](/bok/stk1100/stk1100-2-3)). Du bør også ha forventning og varians fra [kap. 1.2](/bok/stk1100/stk1100-1-2) i fingrene. Trenger du å friske opp integrasjonen bak momentene, se [R2 2.4 Bestemt integral](/bok/r2/r2-2-4), [R2 2.2 Ubestemt integral](/bok/r2/r2-2-2) og [R2 3.2 Delvis integrasjon](/bok/r2/r2-3-2)."
+    },
+    {
+      "id": "stk1100-2-prove-intro",
+      "type": "text",
+      "content": "Del 2 er standardtreningen i kontinuerlig sannsynlighet: fra en oppgitt tetthet til normeringskonstant, fordelingsfunksjon, median, momenter — og videre til gamma-/kjikvadratapparatet som bærer hele estimerings-kjeden senere i boka. Prøvene under er nyskrevne og på eksamensnivå. Regn nøyaktig (ikke på øyemål i median-algebraen), skriv $F$ stykkevis, og bruk selvdiagnosen til å se hva du bør repetere."
+    },
+    {
+      "id": "stk1100-2-prove-a",
+      "type": "collapsible",
+      "title": "Prøve 2.A — CDF, median og momenter (35 min)",
+      "buttonText": "Vis prøve 2.A",
+      "content": [
+        {
+          "id": "stk1100-2-prove-a-ex1",
+          "type": "exercise",
+          "exercise": {
+            "id": "stk1100-2-prove-a-ex1",
+            "number": "1",
+            "type": "classic",
+            "difficulty": "middels",
+            "task": "**Fra tetthet til CDF, median og momenter.** En variabel har tetthet $f(x) = c\\,x^2$ for $0 \\le x \\le 3$ og $f(x) = 0$ ellers.\n\n**a)** Bestem normeringskonstanten $c$.\n\n**b)** Finn den stykkevise fordelingsfunksjonen $F(x)$ og medianen.\n\n**c)** Finn $E(X)$, $E(X^2)$ og $\\text{Var}(X)$.",
+            "solution": "**a)** $\\int_0^3 c\\,x^2\\,dx = c\\big[\\tfrac{x^3}{3}\\big]_0^3 = c \\cdot 9 = 1$, så $c = \\tfrac19$.\n\n**b)** På støtten: $F(x) = \\int_0^x \\tfrac19 t^2\\,dt = \\tfrac{x^3}{27}$. Stykkevis:\n$$F(x) = \\begin{cases} 0, & x < 0 \\\\ x^3/27, & 0 \\le x \\le 3 \\\\ 1, & x > 3 \\end{cases}$$\nSjekk: $F(3) = 27/27 = 1$. Median: $\\tfrac{m^3}{27} = \\tfrac12 \\Rightarrow m^3 = 13{,}5 \\Rightarrow m = 13{,}5^{1/3} \\approx 2{,}381$.\n\n**c)** $$E(X) = \\int_0^3 x\\cdot\\tfrac19 x^2\\,dx = \\tfrac19\\big[\\tfrac{x^4}{4}\\big]_0^3 = \\tfrac19\\cdot\\tfrac{81}{4} = 2{,}25.$$\n$$E(X^2) = \\int_0^3 x^2\\cdot\\tfrac19 x^2\\,dx = \\tfrac19\\big[\\tfrac{x^5}{5}\\big]_0^3 = \\tfrac19\\cdot\\tfrac{243}{5} = 5{,}4.$$\n$$\\text{Var}(X) = 5{,}4 - 2{,}25^2 = 5{,}4 - 5{,}0625 = 0{,}3375.$$",
+            "hints": [
+              "Normer med $\\int_0^3 c x^2\\,dx = 1$.",
+              "$F$ fås ved å integrere fra 0; median løser $F(m) = \\tfrac12$ (potenslikning).",
+              "$E(X) = \\int x f\\,dx$, $E(X^2) = \\int x^2 f\\,dx$, $\\text{Var} = E(X^2) - [E(X)]^2$."
+            ]
+          }
+        },
+        {
+          "id": "stk1100-2-prove-a-ex2",
+          "type": "exercise",
+          "exercise": {
+            "id": "stk1100-2-prove-a-ex2",
+            "number": "2",
+            "type": "classic",
+            "difficulty": "middels",
+            "task": "**Lineær (trekantet) tetthet.** En ventetid har tetthet $f(x) = c(2 - x)$ for $0 \\le x \\le 2$ og 0 ellers.\n\n**a)** Bestem $c$.\n\n**b)** Finn $F(x)$ på støtten og medianen.\n\n**c)** Finn $E(X)$.",
+            "solution": "**a)** $\\int_0^2 c(2 - x)\\,dx = c\\big[2x - \\tfrac{x^2}{2}\\big]_0^2 = c(4 - 2) = 2c = 1$, så $c = \\tfrac12$.\n\n**b)** $F(x) = \\int_0^x \\tfrac12(2 - t)\\,dt = \\tfrac12\\big(2x - \\tfrac{x^2}{2}\\big) = x - \\tfrac{x^2}{4}$ på $[0,2]$ (og $F = 0$ under, $1$ over; sjekk $F(2) = 2 - 1 = 1$). Median: $m - \\tfrac{m^2}{4} = \\tfrac12$. Gang med 4: $m^2 - 4m + 2 = 0$, så $m = \\tfrac{4 - \\sqrt{8}}{2} = 2 - \\sqrt2 \\approx 0{,}586$ (roten i $[0,2]$).\n\n**c)** $$E(X) = \\int_0^2 x\\cdot\\tfrac12(2 - x)\\,dx = \\tfrac12\\int_0^2 (2x - x^2)\\,dx = \\tfrac12\\big[x^2 - \\tfrac{x^3}{3}\\big]_0^2 = \\tfrac12\\big(4 - \\tfrac83\\big) = \\tfrac12\\cdot\\tfrac43 = \\tfrac23 \\approx 0{,}667.$$",
+            "hints": [
+              "Normer over $[0,2]$; $\\int_0^2 (2-x)\\,dx = 2$.",
+              "Median gir en andregradslikning $m^2 - 4m + 2 = 0$ — velg roten i $[0,2]$.",
+              "$E(X) = \\int_0^2 x f(x)\\,dx$."
+            ]
+          }
+        },
+        {
+          "id": "stk1100-2-prove-a-ex3",
+          "type": "exercise",
+          "exercise": {
+            "id": "stk1100-2-prove-a-ex3",
+            "number": "3",
+            "type": "classic",
+            "difficulty": "vanskelig",
+            "task": "**Kvantiler og betinget sannsynlighet.** En konsentrasjon har tetthet $f(x) = 3x^2$ for $0 \\le x \\le 1$ og 0 ellers.\n\n**a)** Finn $F(x)$, medianen og 90-persentilen.\n\n**b)** Finn den betingede sannsynligheten $P(X > 0{,}5 \\mid X > 0{,}25)$.",
+            "solution": "**a)** $F(x) = \\int_0^x 3t^2\\,dt = x^3$ på $[0,1]$. Median: $m^3 = \\tfrac12 \\Rightarrow m = (\\tfrac12)^{1/3} \\approx 0{,}794$. 90-persentil: $x_{0{,}9}^3 = 0{,}9 \\Rightarrow x_{0{,}9} = 0{,}9^{1/3} \\approx 0{,}965$.\n\n**b)** Siden $\\{X > 0{,}5\\}$ ligger inni $\\{X > 0{,}25\\}$:\n$$P(X > 0{,}5 \\mid X > 0{,}25) = \\frac{P(X > 0{,}5)}{P(X > 0{,}25)} = \\frac{1 - F(0{,}5)}{1 - F(0{,}25)} = \\frac{1 - 0{,}125}{1 - 0{,}015625} = \\frac{0{,}875}{0{,}984375} \\approx 0{,}889.$$",
+            "hints": [
+              "$F(x) = x^3$; median og persentil løser $F = p$.",
+              "$P(X > x) = 1 - F(x)$.",
+              "$\\{X>0{,}5\\}\\subset\\{X>0{,}25\\}$, så telleren er bare $P(X > 0{,}5)$."
+            ]
+          }
+        },
+        {
+          "id": "stk1100-2-prove-a-fv",
+          "type": "exercise",
+          "exercise": {
+            "id": "stk1100-2-prove-a-fv",
+            "number": "4",
+            "type": "classic",
+            "difficulty": "lett",
+            "task": "**Flervalg.** En kontinuerlig variabel har fordelingsfunksjon $F(x) = x^2$ på $[0,1]$. Medianen er:\n\nA) $0{,}5$\nB) $1/\\sqrt2 \\approx 0{,}707$\nC) $0{,}25$\nD) $0{,}354$",
+            "solution": "**Riktig: B) $1/\\sqrt2 \\approx 0{,}707$.** Medianen løser $F(m) = \\tfrac12$, altså $m^2 = \\tfrac12$, som gir $m = 1/\\sqrt2 \\approx 0{,}707$. A er selve sannsynligheten $\\tfrac12$ (ikke $m$), C og D kommer av å sette $f(m) = \\tfrac12$ eller andre feilgrep. Medianen bestemmes av $F$, ikke av tettheten.",
+            "hints": [
+              "Løs $F(m) = \\tfrac12$, ikke $f(m) = \\tfrac12$."
+            ]
+          }
+        },
+        {
+          "id": "stk1100-2-prove-a-diag",
+          "type": "text",
+          "content": "**Selvdiagnose — Prøve 2.A.** Kryss av det du fikk til uten å slå opp:\n\n- ☐ Jeg fant normeringskonstanten før jeg regnet videre.\n- ☐ Jeg skrev $F$ stykkevis med 0 under støtten og 1 over.\n- ☐ Jeg løste $F(m) = \\tfrac12$ (ikke $f(m) = \\tfrac12$) for medianen.\n- ☐ Jeg regnet $E(X)$ og $E(X^2)$ som separate integraler og brukte regneformelen.\n- ☐ Jeg brukte $P(X > x) = 1 - F(x)$ i den betingede sannsynligheten."
+        }
+      ]
+    },
+    {
+      "id": "stk1100-2-prove-b",
+      "type": "collapsible",
+      "title": "Prøve 2.B — Eksponensial i begge parametriseringer og minneløshet (30 min)",
+      "buttonText": "Vis prøve 2.B",
+      "content": [
+        {
+          "id": "stk1100-2-prove-b-ex1",
+          "type": "exercise",
+          "exercise": {
+            "id": "stk1100-2-prove-b-ex1",
+            "number": "1",
+            "type": "classic",
+            "difficulty": "middels",
+            "task": "**Eksponensial i rateform.** Tiden mellom to ankomster til en ladestasjon er eksponensialfordelt med rate $\\lambda = 0{,}4$ per minutt (**rateform**: $f(x) = \\lambda e^{-\\lambda x}$).\n\n**a)** Skriv opp $f$, $F$ og forventet tid mellom ankomster.\n\n**b)** Finn medianen og $P(X > 5)$.",
+            "solution": "**a)** Rateform: $f(x) = 0{,}4\\,e^{-0{,}4x}$, $F(x) = 1 - e^{-0{,}4x}$ for $x \\ge 0$, og $E(X) = 1/\\lambda = 1/0{,}4 = 2{,}5$ minutter.\n\n**b)** Median: $F(m) = \\tfrac12 \\Rightarrow e^{-0{,}4m} = \\tfrac12 \\Rightarrow m = \\tfrac{\\ln 2}{0{,}4} \\approx 1{,}733$ minutter. Hale: $P(X > 5) = e^{-0{,}4\\cdot 5} = e^{-2} \\approx 0{,}135$.",
+            "hints": [
+              "Rateform: $E = 1/\\lambda$, hale $P(X > x) = e^{-\\lambda x}$.",
+              "Median: løs $e^{-\\lambda m} = \\tfrac12$, altså $m = \\ln 2/\\lambda$."
+            ]
+          }
+        },
+        {
+          "id": "stk1100-2-prove-b-ex2",
+          "type": "exercise",
+          "exercise": {
+            "id": "stk1100-2-prove-b-ex2",
+            "number": "2",
+            "type": "classic",
+            "difficulty": "middels",
+            "task": "**Eksponensial i forventningsform.** Levetiden til et LED-panel er eksponensialfordelt med forventning $\\mu = 40\\,000$ timer (**forventningsform**: $f(x) = \\tfrac1\\mu e^{-x/\\mu}$).\n\n**a)** Skriv opp $f$ og $F$.\n\n**b)** Finn medianlevetiden og $P(X > 50\\,000)$.",
+            "solution": "**a)** Forventningsform med $\\mu = 40\\,000$: $f(x) = \\tfrac{1}{40000}e^{-x/40000}$, $F(x) = 1 - e^{-x/40000}$ for $x \\ge 0$. (Her er $E(X) = \\mu = 40\\,000$ timer.)\n\n**b)** Median: $e^{-m/\\mu} = \\tfrac12 \\Rightarrow m = \\mu\\ln 2 = 40\\,000 \\cdot 0{,}6931 \\approx 27\\,726$ timer — mindre enn forventningen (høyreskjev). Hale: $P(X > 50\\,000) = e^{-50000/40000} = e^{-1{,}25} \\approx 0{,}287$.",
+            "hints": [
+              "Forventningsform: $E = \\mu$, median $= \\mu\\ln 2$, hale $e^{-x/\\mu}$.",
+              "$P(X > 50\\,000) = e^{-50000/40000}$."
+            ]
+          }
+        },
+        {
+          "id": "stk1100-2-prove-b-ex3",
+          "type": "exercise",
+          "exercise": {
+            "id": "stk1100-2-prove-b-ex3",
+            "number": "3",
+            "type": "classic",
+            "difficulty": "vanskelig",
+            "task": "**Minneløsheten.** Tiden $X$ (timer) til en pumpe må resettes er eksponensialfordelt med rate $\\lambda = 0{,}02$ per time (**rateform**).\n\n**a)** Finn $P(X > 60)$.\n\n**b)** Pumpen har alt gått i 40 timer uten reset. Finn sannsynligheten for at den går minst 60 timer til, og forklar hvorfor du ikke trenger de 40 timene i regnestykket.\n\n**c)** Vis eksplisitt at $P(X > 100 \\mid X > 40) = P(X > 60)$.",
+            "solution": "**a)** $P(X > 60) = e^{-0{,}02\\cdot 60} = e^{-1{,}2} \\approx 0{,}301$.\n\n**b)** Ved minneløsheten er $P(X > 40 + 60 \\mid X > 40) = P(X > 60) = e^{-1{,}2} \\approx 0{,}301$. De 40 timene faller ut fordi eksponensialfordelingen er minneløs — raten er konstant, så en pumpe som alt har gått 40 timer er like «ny» som en fersk.\n\n**c)** Med halen $P(X > x) = e^{-\\lambda x}$:\n$$P(X > 100 \\mid X > 40) = \\frac{P(X > 100)}{P(X > 40)} = \\frac{e^{-0{,}02\\cdot 100}}{e^{-0{,}02\\cdot 40}} = e^{-0{,}02(100 - 40)} = e^{-1{,}2} = P(X > 60).$$\nAlderen 40 forsvinner helt i eksponenten — det er nettopp minneløsheten.",
+            "hints": [
+              "Rateform hale: $P(X > x) = e^{-\\lambda x}$.",
+              "Minneløshet: $P(X > t + s \\mid X > t) = P(X > s)$.",
+              "I c) forkortes $e^{-\\lambda\\cdot 40}$ bort og etterlater $e^{-\\lambda\\cdot 60}$."
+            ]
+          }
+        },
+        {
+          "id": "stk1100-2-prove-b-fv",
+          "type": "exercise",
+          "exercise": {
+            "id": "stk1100-2-prove-b-fv",
+            "number": "4",
+            "type": "classic",
+            "difficulty": "lett",
+            "task": "**Flervalg.** En eksponensialfordeling er gitt i **rateform** $f(x) = \\lambda e^{-\\lambda x}$ med $\\lambda = 0{,}25$. Forventningen $E(X)$ er:\n\nA) $0{,}25$\nB) $0{,}0625$\nC) $0{,}693$\nD) $4$",
+            "solution": "**Riktig: D) $4$.** I rateform er $E(X) = 1/\\lambda = 1/0{,}25 = 4$. A gjengir raten selv, B er $\\lambda^2$, C er $\\ln 2$ (relatert til medianen, ikke forventningen). Nettopp fordi eksponensial skrives i to parametriseringer, må du sjekke om oppgaven oppgir rate ($\\lambda$) eller forventning ($\\mu$) — her er det rate.",
+            "hints": [
+              "Rateform: $E(X) = 1/\\lambda$."
+            ]
+          }
+        },
+        {
+          "id": "stk1100-2-prove-b-diag",
+          "type": "text",
+          "content": "**Selvdiagnose — Prøve 2.B.** Kryss av det du fikk til uten å slå opp:\n\n- ☐ Jeg leste hvilken parametrisering hver oppgave brukte (rate $\\lambda$ eller forventning $\\mu$).\n- ☐ Jeg brukte $E = 1/\\lambda$ i rateform og $E = \\mu$ i forventningsform.\n- ☐ Jeg fant medianen ved $m = \\ln 2/\\lambda$ (eller $\\mu\\ln 2$), ikke $\\mu$.\n- ☐ Jeg regnet halen som $P(X > x) = e^{-\\lambda x}$ (eller $e^{-x/\\mu}$).\n- ☐ Jeg lot alderen falle ut i minneløshetsregningen."
+        }
+      ]
+    },
+    {
+      "id": "stk1100-2-prove-c",
+      "type": "collapsible",
+      "title": "Prøve 2.C — Gamma, kjikvadrat og Γ-verktøyet (35 min)",
+      "buttonText": "Vis prøve 2.C",
+      "content": [
+        {
+          "id": "stk1100-2-prove-c-ex1",
+          "type": "exercise",
+          "exercise": {
+            "id": "stk1100-2-prove-c-ex1",
+            "number": "1",
+            "type": "classic",
+            "difficulty": "middels",
+            "task": "**Gammafunksjonen og gammaintegralet.** Bruk regnereglene $\\Gamma(1) = 1$, $\\Gamma(\\tfrac12) = \\sqrt\\pi$, $\\Gamma(\\alpha+1) = \\alpha\\Gamma(\\alpha)$, $\\Gamma(a) = (a-1)!$ og gammaintegralet $\\int_0^\\infty x^{a-1}e^{-x/b}\\,dx = b^a\\Gamma(a)$.\n\n**a)** Finn $\\Gamma(6)$ og $\\Gamma(\\tfrac52)$ (sistnevnte uttrykt ved $\\sqrt\\pi$).\n\n**b)** Regn ut $\\int_0^\\infty x^4 e^{-x/2}\\,dx$.",
+            "solution": "**a)** $\\Gamma(6) = 5! = 120$. $\\Gamma(\\tfrac52) = \\tfrac32\\,\\Gamma(\\tfrac32) = \\tfrac32\\cdot\\tfrac12\\,\\Gamma(\\tfrac12) = \\tfrac34\\sqrt\\pi \\approx 1{,}329$.\n\n**b)** Skriv integranden på standardform $x^{a-1}e^{-x/b}$: $a - 1 = 4 \\Rightarrow a = 5$, og $b = 2$. Da:\n$$\\int_0^\\infty x^4 e^{-x/2}\\,dx = b^a\\Gamma(a) = 2^5\\,\\Gamma(5) = 32 \\cdot 4! = 32 \\cdot 24 = 768.$$",
+            "hints": [
+              "Heltall: $\\Gamma(a) = (a-1)!$. Halvtall: trapp ned til $\\Gamma(\\tfrac12) = \\sqrt\\pi$.",
+              "Les av $a$ (potens $+1$) og $b$ (fra $e^{-x/b}$) i gammaintegralet."
+            ]
+          }
+        },
+        {
+          "id": "stk1100-2-prove-c-ex2",
+          "type": "exercise",
+          "exercise": {
+            "id": "stk1100-2-prove-c-ex2",
+            "number": "2",
+            "type": "classic",
+            "difficulty": "middels",
+            "task": "**Gammafordeling og kjikvadrat-identiteten.** La $V \\sim \\text{gamma}(4, 3)$ med skalaparameter $\\beta = 3$.\n\n**a)** Skriv opp tettheten og finn $E(V)$ og $\\text{Var}(V)$.\n\n**b)** En annen variabel er $\\chi^2_8$-fordelt. Skriv den som en gammafordeling og finn forventning og varians.",
+            "solution": "**a)** Med $\\alpha = 4$, $\\beta = 3$ og $\\Gamma(4) = 3! = 6$:\n$$f(v) = \\frac{1}{\\beta^\\alpha\\Gamma(\\alpha)}v^{\\alpha-1}e^{-v/\\beta} = \\frac{1}{3^4\\cdot 6}v^{3}e^{-v/3} = \\frac{v^3 e^{-v/3}}{486}, \\quad v > 0.$$\n$E(V) = \\alpha\\beta = 4\\cdot 3 = 12$, $\\text{Var}(V) = \\alpha\\beta^2 = 4\\cdot 9 = 36$.\n\n**b)** Identiteten $\\chi^2_n = \\text{gamma}(n/2, 2)$ gir $\\chi^2_8 = \\text{gamma}(4, 2)$. Da $E = \\alpha\\beta = 4\\cdot 2 = 8$ (lik antall frihetsgrader) og $\\text{Var} = \\alpha\\beta^2 = 4\\cdot 4 = 16 = 2n$.",
+            "hints": [
+              "Sett $\\alpha, \\beta$ inn i tetthetsformelen; $\\Gamma(4) = 6$.",
+              "$\\chi^2_n = \\text{gamma}(n/2, 2)$, så $\\chi^2_8 = \\text{gamma}(4,2)$; $E = n$, $\\text{Var} = 2n$."
+            ]
+          }
+        },
+        {
+          "id": "stk1100-2-prove-c-ex3",
+          "type": "exercise",
+          "exercise": {
+            "id": "stk1100-2-prove-c-ex3",
+            "number": "3",
+            "type": "classic",
+            "difficulty": "vanskelig",
+            "task": "**Momentformelen, skjevhet og sum av gamma.** La $V \\sim \\text{gamma}(5, 2)$ (skala $\\beta = 2$). Bruk momentformelen $E(V^r) = \\beta^r\\dfrac{\\Gamma(\\alpha+r)}{\\Gamma(\\alpha)}$ for $r > -\\alpha$.\n\n**a)** Finn $E(V^2)$ og bekreft at $\\text{Var}(V) = 20$.\n\n**b)** Finn $E(\\sqrt V)$ og sammenlign med $\\sqrt{E(V)}$. Hva forteller det om $\\sqrt V$ som estimator?\n\n**c)** La $V_1, V_2, V_3$ være uavhengige, hver $\\text{gamma}(5, 2)$. Hvilken fordeling har summen $S = V_1 + V_2 + V_3$?",
+            "solution": "**a)** $E(V^2) = \\beta^2\\dfrac{\\Gamma(\\alpha+2)}{\\Gamma(\\alpha)} = 2^2\\dfrac{\\Gamma(7)}{\\Gamma(5)} = 4\\cdot\\dfrac{720}{24} = 4\\cdot 30 = 120$. Med $E(V) = \\alpha\\beta = 10$: $\\text{Var}(V) = 120 - 10^2 = 20$ (og $= \\alpha\\beta^2 = 5\\cdot 4 = 20$). ✓\n\n**b)** $E(\\sqrt V) = E(V^{1/2}) = \\beta^{1/2}\\dfrac{\\Gamma(\\alpha+\\tfrac12)}{\\Gamma(\\alpha)} = \\sqrt2\\cdot\\dfrac{\\Gamma(5{,}5)}{\\Gamma(5)}$. Her er $\\Gamma(5) = 24$ og $\\Gamma(5{,}5) = \\tfrac92\\cdot\\tfrac72\\cdot\\tfrac52\\cdot\\tfrac32\\cdot\\tfrac12\\sqrt\\pi \\approx 52{,}343$, så\n$$E(\\sqrt V) = 1{,}4142\\cdot\\frac{52{,}343}{24} \\approx 3{,}084.$$\nTil sammenligning: $\\sqrt{E(V)} = \\sqrt{10} \\approx 3{,}162$. Siden $E(\\sqrt V) \\approx 3{,}084 < 3{,}162 = \\sqrt{E(V)}$, underestimerer $\\sqrt V$ systematisk — kvadratroten er ikke forventningsrett for $\\sqrt{E(V)}$ (skjevhet, fordi rot er en konkav funksjon).\n\n**c)** Alle tre har felles skala $\\beta = 2$, så formparametrene legges sammen: $S \\sim \\text{gamma}(15, 2)$, med $E(S) = 15\\cdot 2 = 30$ og $\\text{Var}(S) = 15\\cdot 4 = 60$.",
+            "hints": [
+              "Sett $r = 2$ og $r = \\tfrac12$ i momentformelen; $\\Gamma(7) = 720$, $\\Gamma(5) = 24$.",
+              "$\\Gamma(5{,}5)$ trappes ned til $\\Gamma(\\tfrac12) = \\sqrt\\pi$ med rekursjonen.",
+              "Sum av uavhengige gamma med felles skala: legg sammen formparametrene, behold skalaen."
+            ]
+          }
+        },
+        {
+          "id": "stk1100-2-prove-c-fv",
+          "type": "exercise",
+          "exercise": {
+            "id": "stk1100-2-prove-c-fv",
+            "number": "4",
+            "type": "classic",
+            "difficulty": "lett",
+            "task": "**Flervalg.** Kjikvadrat med 10 frihetsgrader, skrevet som en gammafordeling med skalaparameter, er:\n\nA) $\\text{gamma}(5, 2)$\nB) $\\text{gamma}(10, 2)$\nC) $\\text{gamma}(5, 1)$\nD) $\\text{gamma}(2, 5)$",
+            "solution": "**Riktig: A) $\\text{gamma}(5, 2)$.** Identiteten er $\\chi^2_n = \\text{gamma}(n/2, 2)$, så $\\chi^2_{10} = \\text{gamma}(5, 2)$ (form $10/2 = 5$, skala $2$). Kontroll: $E = \\alpha\\beta = 5\\cdot 2 = 10 = n$. B bruker $n$ som form i stedet for $n/2$, C har feil skala, D bytter om form og skala.",
+            "hints": [
+              "$\\chi^2_n = \\text{gamma}(n/2, 2)$; sjekk at $E = \\alpha\\beta = n$."
+            ]
+          }
+        },
+        {
+          "id": "stk1100-2-prove-c-diag",
+          "type": "text",
+          "content": "**Selvdiagnose — Prøve 2.C.** Kryss av det du fikk til uten å slå opp:\n\n- ☐ Jeg trappet gammafunksjonen ned til $\\Gamma(1)$ eller $\\Gamma(\\tfrac12) = \\sqrt\\pi$.\n- ☐ Jeg leste av $a$ og $b$ riktig i gammaintegralet $b^a\\Gamma(a)$.\n- ☐ Jeg brukte $\\chi^2_n = \\text{gamma}(n/2, 2)$ med riktig form og skala.\n- ☐ Jeg brukte momentformelen $E(V^r) = \\beta^r\\Gamma(\\alpha+r)/\\Gamma(\\alpha)$, ikke roten av forventningen.\n- ☐ Jeg husket at sum av gamma krever felles skala."
+        }
+      ]
+    },
+    {
+      "id": "stk1100-2-prove-d",
+      "type": "collapsible",
+      "title": "Prøve 2.D — Full egendefinert/eksotisk tetthet (sjanger C, eksamensnivå, 45 min)",
+      "buttonText": "Vis prøve 2.D",
+      "content": [
+        {
+          "id": "stk1100-2-prove-d-ex1",
+          "type": "exercise",
+          "exercise": {
+            "id": "stk1100-2-prove-d-ex1",
+            "number": "1",
+            "type": "classic",
+            "difficulty": "vanskelig",
+            "task": "**Full sjanger C — Weibull-fordelt bruddstyrke (eksamensnivå).** Bruddstyrken $X$ (i GPa) til en karbonfiber er Weibull-fordelt med tetthet\n$$f(x) = \\frac{\\alpha}{\\beta}\\left(\\frac{x}{\\beta}\\right)^{\\alpha-1}e^{-(x/\\beta)^\\alpha}, \\qquad x \\ge 0,$$\nmed formparameter $\\alpha = 2$ og skalaparameter $\\beta = 5$ (GPa).\n\n**a)** Vis at $F(x) = 1 - e^{-(x/\\beta)^\\alpha}$, og bekreft at $f$ er en gyldig tetthet.\n\n**b)** Finn medianstyrken.\n\n**c)** Finn $P(X > 6)$ og den betingede $P(X > 8 \\mid X > 4)$. Er fordelingen minneløs?",
+            "solution": "**a)** Substituér $u = (t/\\beta)^\\alpha$, $du = \\tfrac{\\alpha}{\\beta}(t/\\beta)^{\\alpha-1}\\,dt$:\n$$F(x) = \\int_0^x \\frac{\\alpha}{\\beta}\\Big(\\frac{t}{\\beta}\\Big)^{\\alpha-1}e^{-(t/\\beta)^\\alpha}\\,dt = \\int_0^{(x/\\beta)^\\alpha} e^{-u}\\,du = 1 - e^{-(x/\\beta)^\\alpha}.$$\nAt $F(0) = 0$ og $F(\\infty) = 1$ (og $f \\ge 0$) bekrefter at tettheten er gyldig. Med $\\alpha = 2$, $\\beta = 5$: $F(x) = 1 - e^{-(x/5)^2}$.\n\n**b)** $F(m) = \\tfrac12 \\Rightarrow (m/5)^2 = \\ln 2 \\Rightarrow m = 5\\sqrt{\\ln 2} \\approx 5\\cdot 0{,}8326 = 4{,}163$ GPa.\n\n**c)** $P(X > 6) = e^{-(6/5)^2} = e^{-1{,}44} \\approx 0{,}237$. Betinget:\n$$P(X > 8 \\mid X > 4) = \\frac{e^{-(8/5)^2}}{e^{-(4/5)^2}} = \\frac{e^{-2{,}56}}{e^{-0{,}64}} = e^{-1{,}92} \\approx 0{,}147.$$\nDette er **ikke** lik $P(X > 4) = e^{-0{,}64} \\approx 0{,}527$, så fordelingen er **ikke minneløs** — for $\\alpha \\ne 1$ har Weibull en rate som endrer seg med alderen (her øker feilraten, altså slitasje). Bare $\\alpha = 1$ (eksponensial) er minneløs.",
+            "hints": [
+              "Substituér $u = (t/\\beta)^\\alpha$ i integralet for $F$.",
+              "Median: $(m/\\beta)^\\alpha = \\ln 2$.",
+              "Betinget: $P(X > 8 \\mid X > 4) = P(X > 8)/P(X > 4)$ — sammenlign med $P(X > 4)$ for å avgjøre minneløshet."
+            ]
+          }
+        },
+        {
+          "id": "stk1100-2-prove-d-ex2",
+          "type": "exercise",
+          "exercise": {
+            "id": "stk1100-2-prove-d-ex2",
+            "number": "2",
+            "type": "classic",
+            "difficulty": "vanskelig",
+            "task": "**Samme fordeling — transformasjon til gamma/kjikvadrat og forventning.** Fortsatt Weibull med $F(x) = 1 - e^{-(x/\\beta)^\\alpha}$, $\\alpha = 2$, $\\beta = 5$.\n\n**a)** Vis at $Z = (X/\\beta)^\\alpha$ er eksponensialfordelt med forventning 1 (rateform, rate 1), og at $2Z \\sim \\chi^2_2$.\n\n**b)** Bruk substitusjon og gammafunksjonen til å vise at $E(X) = \\beta\\,\\Gamma\\!\\left(1 + \\tfrac1\\alpha\\right)$, og regn ut tallverdien. Er $E(X)$ større eller mindre enn medianen?",
+            "solution": "**a)** For $z \\ge 0$ (CDF-metoden):\n$$P(Z \\le z) = P\\big((X/\\beta)^\\alpha \\le z\\big) = P\\big(X \\le \\beta z^{1/\\alpha}\\big) = 1 - e^{-((\\beta z^{1/\\alpha})/\\beta)^\\alpha} = 1 - e^{-z}.$$\nDet er fordelingsfunksjonen til en eksponensial i rateform med rate 1, altså forventning 1. Videre: $P(2Z \\le w) = P(Z \\le w/2) = 1 - e^{-w/2}$, som er CDF-en til $\\text{gamma}(1, 2) = \\chi^2_2$. Altså $2Z = 2(X/\\beta)^\\alpha \\sim \\chi^2_2$.\n\n**b)** $E(X) = \\int_0^\\infty x\\,\\tfrac{\\alpha}{\\beta}(x/\\beta)^{\\alpha-1}e^{-(x/\\beta)^\\alpha}\\,dx$. Substituér $u = (x/\\beta)^\\alpha$, altså $x = \\beta u^{1/\\alpha}$ og $du = \\tfrac{\\alpha}{\\beta}(x/\\beta)^{\\alpha-1}dx$:\n$$E(X) = \\int_0^\\infty \\beta u^{1/\\alpha} e^{-u}\\,du = \\beta\\int_0^\\infty u^{(1 + 1/\\alpha) - 1}e^{-u}\\,du = \\beta\\,\\Gamma\\!\\left(1 + \\tfrac1\\alpha\\right).$$\nMed $\\alpha = 2$, $\\beta = 5$: $E(X) = 5\\,\\Gamma(\\tfrac32) = 5\\cdot\\tfrac12\\sqrt\\pi = \\tfrac52\\sqrt\\pi \\approx 4{,}431$ GPa. Det er **større** enn medianen ($\\approx 4{,}163$), som forventet for en høyreskjev fordeling.",
+            "hints": [
+              "CDF-metoden: $P(Z \\le z) = P(X \\le \\beta z^{1/\\alpha})$, sett inn $F$; potensen kanselleres.",
+              "$\\text{gamma}(1,2) = \\chi^2_2$ har CDF $1 - e^{-w/2}$.",
+              "Substituér $u = (x/\\beta)^\\alpha$ i forventningsintegralet — det blir gammafunksjonen $\\Gamma(1 + 1/\\alpha)$; $\\Gamma(\\tfrac32) = \\tfrac12\\sqrt\\pi$."
+            ]
+          }
+        },
+        {
+          "id": "stk1100-2-prove-d-fv",
+          "type": "exercise",
+          "exercise": {
+            "id": "stk1100-2-prove-d-fv",
+            "number": "3",
+            "type": "classic",
+            "difficulty": "lett",
+            "task": "**Flervalg.** For en Pareto-fordeling med $F(x) = 1 - (k/x)^\\theta$, $x \\ge k$, er medianen:\n\nA) $k$\nB) $k\\cdot 2^{\\theta}$\nC) $k\\cdot 2^{1/\\theta}$\nD) $2k$",
+            "solution": "**Riktig: C) $k\\cdot 2^{1/\\theta}$.** Løs $F(m) = \\tfrac12$: $1 - (k/m)^\\theta = \\tfrac12 \\Rightarrow (k/m)^\\theta = \\tfrac12 \\Rightarrow k/m = 2^{-1/\\theta} \\Rightarrow m = k\\cdot 2^{1/\\theta}$. A er nedre grense (der $F = 0$), B og D er potens-/faktorforvekslinger. Merk at eksponenten er $1/\\theta$, ikke $\\theta$.",
+            "hints": [
+              "Løs $(k/m)^\\theta = \\tfrac12$ for $m$; ta $\\theta$-te rot."
+            ]
+          }
+        },
+        {
+          "id": "stk1100-2-prove-d-diag",
+          "type": "text",
+          "content": "**Selvdiagnose — Prøve 2.D.** Kryss av det du fikk til uten å slå opp:\n\n- ☐ Jeg utledet $F$ ved substitusjon og skrev den stykkevis.\n- ☐ Jeg løste median-likningen $(m/\\beta)^\\alpha = \\ln 2$ nøyaktig.\n- ☐ Jeg avgjorde minneløshet ved å sammenligne den betingede sannsynligheten med $P(X > s)$.\n- ☐ Jeg brukte CDF-metoden til å transformere Weibull til eksponensial/$\\chi^2_2$.\n- ☐ Jeg kjente igjen forventningsintegralet som gammafunksjonen $\\Gamma(1 + 1/\\alpha)$.\n- ☐ Jeg lot ikke det uvante fordelingsnavnet skremme — jeg kjørte oppskriften."
+        }
+      ]
+    },
+    {
+      "id": "stk1100-2-prove-symbolliste",
+      "type": "collapsible",
+      "title": "Symbol- og formelliste",
+      "buttonText": "Vis symboler og formler",
+      "content": [
+        {
+          "id": "stk1100-2-prove-symbolliste-text",
+          "type": "text",
+          "content": "*Oppslagsverk — alt her forklares underveis.*\n\nAlle symboler og formler prøvene bruker, samlet på ett sted.\n\n| Symbol | Betydning |\n|---|---|\n| $f(x)$ | Sannsynlighetstetthet (ikke en sannsynlighet) |\n| $F(x)$ | Fordelingsfunksjon, $P(X \\le x)$ |\n| $P(X > x)$ | Halen, $1 - F(x)$ |\n| $c$ | Normeringskonstant ($\\int f = 1$) |\n| $m$ | Median ($F(m) = \\tfrac12$); $x_p$ er $p$-kvantilen |\n| $E(X), E(X^2)$ | Forventning og andre moment |\n| $\\text{Var}(X)$ | Varians; $\\text{SD}(X) = \\sqrt{\\text{Var}(X)}$ |\n| $\\lambda$ | Rate i eksponensial (rateform) |\n| $\\mu$ | Forventning i eksponensial (forventningsform) |\n| $\\Gamma(\\alpha)$ | Gammafunksjonen |\n| $\\alpha, \\beta$ | Form- og skalaparameter i gammafordelingen |\n| $\\chi^2_n$ | Kjikvadrat med $n$ frihetsgrader $= \\text{gamma}(n/2, 2)$ |\n| $\\theta, k$ | Pareto form- og minsteverdiparameter |\n\n**Formler prøvene bruker:**\n\n$$F(x) = \\int_{-\\infty}^{x} f(t)\\,dt, \\qquad F'(x) = f(x), \\qquad F(m) = \\tfrac12 \\ \\text{(median)}$$\n\n$$E(X) = \\int x f(x)\\,dx, \\qquad \\text{Var}(X) = E(X^2) - [E(X)]^2$$\n\n$$\\text{Eksponensial (rate)}:\\ f = \\lambda e^{-\\lambda x},\\ F = 1 - e^{-\\lambda x},\\ E = 1/\\lambda,\\ m = \\tfrac{\\ln 2}{\\lambda}$$\n\n$$\\text{Eksponensial (forventning)}:\\ f = \\tfrac1\\mu e^{-x/\\mu},\\ E = \\mu,\\ m = \\mu\\ln 2$$\n\n$$P(X > s + t \\mid X > t) = P(X > s) \\quad \\text{(minneløshet — kun eksponensial)}$$\n\n$$\\Gamma(1) = 1, \\quad \\Gamma(\\tfrac12) = \\sqrt\\pi, \\quad \\Gamma(\\alpha+1) = \\alpha\\Gamma(\\alpha), \\quad \\Gamma(a) = (a-1)!$$\n\n$$\\int_0^\\infty x^{a-1}e^{-x/b}\\,dx = b^a\\,\\Gamma(a)$$\n\n$$\\text{gamma}(\\alpha,\\beta):\\ f = \\tfrac{1}{\\beta^\\alpha\\Gamma(\\alpha)}x^{\\alpha-1}e^{-x/\\beta},\\ E = \\alpha\\beta,\\ \\text{Var} = \\alpha\\beta^2$$\n\n$$E(V^r) = \\beta^r\\frac{\\Gamma(\\alpha+r)}{\\Gamma(\\alpha)}\\ (r > -\\alpha), \\qquad \\chi^2_n = \\text{gamma}\\!\\left(\\tfrac{n}{2}, 2\\right)$$\n\n$$\\sum_i \\text{gamma}(\\alpha_i, \\beta) = \\text{gamma}\\!\\left(\\textstyle\\sum_i \\alpha_i, \\beta\\right) \\quad \\text{(felles skala)}$$\n\n$$\\text{Weibull}:\\ F = 1 - e^{-(x/\\beta)^\\alpha},\\ m = \\beta(\\ln 2)^{1/\\alpha}; \\qquad \\text{Pareto}:\\ F = 1 - (k/x)^\\theta,\\ m = k\\,2^{1/\\theta}$$"
+        }
+      ]
+    }
+  ],
+  "exercises": []
+}
