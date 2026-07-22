@@ -27,8 +27,12 @@
   registry +35 (10862), quiz-data-stk1100.ts = 510 spm, quiz-data.ts + textbook-courses(.ts/-hoyskole.ts)
   + institusjoner.ts (uio) patchet. quiz-staging/stk1100-* slettet (mellomprodukt).
   sjekk-bok.py: BOKPORT OK (35 kap, 505 def, 510 quiz). npx tsc --noEmit rent. npm run build grønt.
-- **Steg 3** (verifikator): ikke startet — numerisk etterregning av ALLE prøve-fasiter (8 filer)
-  + notasjons-grep-sjekk gjenstår.
+- **Steg 3** (verifikator): FERDIG — 0 AVVIK. Numerisk etterregnet med python3/scipy:
+  Del 1–4-prøver (underagent, ~120 tall), Del 5/6/7-prøver (byggeleder, inkl. kjørt seeded
+  Python: 7.C bootstrap-SE 0.375/0.235, 7.C2 1.203, 7.D dekning 0.951/0.893 n=8 & 0.951/0.931
+  n=25 — alle eksakt), Del 8-prøve (forfatter-selvsjekk), øvingseksamener 9.2–9.4 (byggeleder:
+  Bayes 0.0241, KI-endepunkter, 9.3 dekning 0.958/0.916 seed 2020, 9.4 regresjon b1=2.03/b0=-0.03,
+  b0-KI [-4.14,4.08]). Alle χ²/gamma-kvantiler verifisert mot scipy. Ingen fasit-feil funnet.
 - **Steg 4** (sluttport): ikke startet. Gjenstår: SVG-opplasting (7 nye) til Storage m/200-verif,
   studentpanel-sjekk, endelig sjekk-bok + build + prod-curl PORT=3062.
 
