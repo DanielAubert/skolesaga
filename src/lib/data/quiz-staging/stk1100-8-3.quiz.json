@@ -1,0 +1,152 @@
+[
+  {
+    "question": "Hva er minste kvadraters estimator for stigningstallet i modellen med konstantledd?",
+    "options": [
+      "$\\hat\\beta_1=\\frac{\\sum(x_i-\\bar x)(Y_i-\\bar Y)}{\\sum(x_i-\\bar x)^2}$",
+      "$\\hat\\beta_1=\\frac{\\sum(x_i-\\bar x)^2}{\\sum(x_i-\\bar x)(Y_i-\\bar Y)}$",
+      "$\\hat\\beta_1=\\frac{\\sum x_iY_i}{\\sum Y_i^2}$",
+      "$\\hat\\beta_1=\\frac{\\sum(Y_i-\\bar Y)^2}{\\sum(x_i-\\bar x)^2}$"
+    ],
+    "explanation": "Telleren er samvariasjonen $\\sum(x_i-\\bar x)(Y_i-\\bar Y)$, nevneren spredningen i $x$, $\\sum(x_i-\\bar x)^2$. En vanlig felle er å snu teller og nevner."
+  },
+  {
+    "question": "Hva er minste kvadraters estimator for stigningstallet i modellen UTEN konstantledd, $Y_i=\\gamma_1 x_i+\\varepsilon_i$?",
+    "options": [
+      "$\\hat\\gamma_1=\\frac{\\sum x_iY_i}{\\sum x_i^2}$",
+      "$\\hat\\gamma_1=\\frac{\\sum x_iY_i}{\\sum Y_i^2}$",
+      "$\\hat\\gamma_1=\\frac{\\sum(x_i-\\bar x)Y_i}{\\sum x_i^2}$",
+      "$\\hat\\gamma_1=\\frac{\\sum x_i^2}{\\sum x_iY_i}$"
+    ],
+    "explanation": "Uten konstantledd er $\\hat\\gamma_1=\\sum x_iY_i/\\sum x_i^2$ — rå $x$- og $Y$-verdier, ikke avvik fra gjennomsnittet, fordi linjen er tvunget gjennom origo."
+  },
+  {
+    "question": "Hva er skjæringspunktestimatoren $\\hat\\beta_0$?",
+    "options": [
+      "$\\bar Y-\\hat\\beta_1\\bar x$",
+      "$\\bar Y+\\hat\\beta_1\\bar x$",
+      "$\\bar x-\\hat\\beta_1\\bar Y$",
+      "$\\hat\\beta_1\\bar x-\\bar Y$"
+    ],
+    "explanation": "$\\hat\\beta_0=\\bar Y-\\hat\\beta_1\\bar x$, som følger av at regresjonslinjen alltid går gjennom tyngdepunktet $(\\bar x,\\bar Y)$."
+  },
+  {
+    "question": "Hva er variansen til stigningsestimatoren $\\hat\\beta_1$?",
+    "options": [
+      "$\\sigma^2/\\sum(x_i-\\bar x)^2$",
+      "$\\sigma^2\\sum(x_i-\\bar x)^2$",
+      "$\\sigma^2/n$",
+      "$\\sigma^2/\\sum x_i^2$"
+    ],
+    "explanation": "$\\text{Var}(\\hat\\beta_1)=\\sigma^2/S_{xx}$ der $S_{xx}=\\sum(x_i-\\bar x)^2$. Stor spredning i $x$ gir mindre varians og mer presist estimat."
+  },
+  {
+    "question": "I regresjonsmodellen $Y_i=\\beta_0+\\beta_1 x_i+\\varepsilon_i$, hva er stokastisk?",
+    "options": [
+      "$Y_i$ via feilen $\\varepsilon_i$; $x_i$-ene er faste tall",
+      "Både $x_i$ og $Y_i$ er stokastiske størrelser",
+      "Bare $x_i$ er stokastisk, ikke responsen $Y_i$",
+      "Parametrene $\\beta_0$ og $\\beta_1$ er stokastiske"
+    ],
+    "explanation": "Forklaringsvariablene $x_i$ er faste (kontrollerte) tall; det er responsen $Y_i$ som er stokastisk gjennom den tilfeldige feilen $\\varepsilon_i$."
+  },
+  {
+    "question": "En regresjon har $\\bar x=3$, $\\bar Y=7$, $S_{xx}=10$ og $S_{xY}=20$. Hva er $\\hat\\beta_1$ og $\\hat\\beta_0$?",
+    "options": [
+      "$\\hat\\beta_1=2$, $\\hat\\beta_0=1$",
+      "$\\hat\\beta_1=0{,}5$, $\\hat\\beta_0=5{,}5$",
+      "$\\hat\\beta_1=2$, $\\hat\\beta_0=13$",
+      "$\\hat\\beta_1=20$, $\\hat\\beta_0=-53$"
+    ],
+    "explanation": "$\\hat\\beta_1=S_{xY}/S_{xx}=20/10=2$; $\\hat\\beta_0=\\bar Y-\\hat\\beta_1\\bar x=7-2\\cdot 3=1$."
+  },
+  {
+    "question": "Hvorfor er $\\text{Var}(\\hat\\gamma_1)\\le\\text{Var}(\\hat\\beta_1)$?",
+    "options": [
+      "Fordi $\\sum x_i^2=\\sum(x_i-\\bar x)^2+n\\bar x^2\\ge\\sum(x_i-\\bar x)^2$",
+      "Fordi $\\hat\\gamma_1$ alltid er en forventningsrett estimator",
+      "Fordi origo-modellen inneholder flere parametre å estimere",
+      "Fordi $\\sum x_i^2$ alltid er mindre enn spredningen $S_{xx}$"
+    ],
+    "explanation": "Nevneren $\\sum x_i^2$ er minst like stor som $S_{xx}$ (identiteten $\\sum x_i^2=S_{xx}+n\\bar x^2$), så $\\sigma^2/\\sum x_i^2\\le\\sigma^2/S_{xx}$."
+  },
+  {
+    "question": "Når er $\\text{Var}(\\hat\\gamma_1)=\\text{Var}(\\hat\\beta_1)$ (likhet)?",
+    "options": [
+      "Når $\\bar x=0$",
+      "Når $\\sigma^2=0$",
+      "Når $n=1$",
+      "Aldri"
+    ],
+    "explanation": "Likhet inntreffer når $n\\bar x^2=0$, altså $\\bar x=0$; da er $\\sum x_i^2=S_{xx}$. For $\\bar x\\ne 0$ er ulikheten streng."
+  },
+  {
+    "question": "Hvordan brukes et konfidensintervall til å velge mellom modell med og uten konstantledd?",
+    "options": [
+      "Inneholder KI for $\\hat\\beta_0$ verdien $0$, kan origo-modellen forsvares",
+      "Inneholder KI for $\\hat\\beta_1$ verdien $0$, droppes konstantleddet",
+      "Er KI for $\\hat\\beta_1$ bredt, velges origo-modellen",
+      "Er $\\hat\\beta_0>\\hat\\beta_1$, droppes konstantleddet"
+    ],
+    "explanation": "Legger man et KI rundt skjæringspunktet $\\hat\\beta_0$ og det dekker $0$, er data forenlige med $\\beta_0=0$, og origo-modellen kan forsvares."
+  },
+  {
+    "question": "En origo-regresjon har $\\sum x_iY_i=120$ og $\\sum x_i^2=80$. Hva er $\\hat\\gamma_1$?",
+    "options": [
+      "$1{,}5$",
+      "$0{,}67$",
+      "$40$",
+      "$200$"
+    ],
+    "explanation": "$\\hat\\gamma_1=\\sum x_iY_i/\\sum x_i^2=120/80=1{,}5$."
+  },
+  {
+    "question": "Hva innebærer bias-varians-avveiningen ved å droppe konstantleddet?",
+    "options": [
+      "Lavere varians, men risiko for skjevhet hvis $\\beta_0\\ne 0$",
+      "Alltid bedre presisjon uten noen som helst ulemper",
+      "Høyere varians, men til gjengjeld alltid forventningsrett",
+      "Ingen endring i verken varians eller mulig skjevhet"
+    ],
+    "explanation": "Origo-modellen har mindre varians, men blir skjev om $\\beta_0\\ne 0$. Gevinsten er reell bare når skjevheten er neglisjerbar."
+  },
+  {
+    "question": "Hvorfor er $\\hat\\gamma_1=\\sum x_iY_i/\\sum x_i^2$ forventningsrett i origo-modellen?",
+    "options": [
+      "Fordi $E(Y_i)=\\gamma_1 x_i$ gir $E(\\hat\\gamma_1)=\\gamma_1$ direkte",
+      "Fordi feilene alltid summerer til $\\sum\\varepsilon_i=0$",
+      "Fordi $x_i$-ene behandles som stokastiske størrelser",
+      "Fordi variansen er lik $\\sigma^2/\\sum x_i^2$ nøyaktig"
+    ],
+    "explanation": "Med $E(Y_i)=\\gamma_1 x_i$ blir $E(\\hat\\gamma_1)=\\frac{\\sum x_i\\gamma_1 x_i}{\\sum x_i^2}=\\gamma_1$ — forventningsrett når origo-modellen stemmer."
+  },
+  {
+    "question": "Et $95\\ \\%$-KI for $\\beta_1$ er $(1{,}69,\\ 2{,}31)$. Hva forteller det?",
+    "options": [
+      "Det er en klar positiv sammenheng; intervallet dekker ikke $0$",
+      "Sammenhengen kan godt være null, siden intervallet er smalt",
+      "Skjæringspunktet $\\beta_0$ må da være nøyaktig null",
+      "Modellen bør få konstantleddet fjernet fra likningen"
+    ],
+    "explanation": "Intervallet ligger helt over $0$, så en positiv sammenheng mellom $x$ og $Y$ støttes klart."
+  },
+  {
+    "question": "Hvilket av følgende hører IKKE til STK1100-varianten av enkel lineær regresjon?",
+    "options": [
+      "Residualplott og prediksjonsintervall",
+      "Minste kvadraters estimator",
+      "Forventning og varians til $\\hat\\beta_1$",
+      "Konfidensintervall via $z_{\\alpha/2}$"
+    ],
+    "explanation": "Residualplott og prediksjonsintervall tilhører NTNU-/STK1110-varianten. STK1100 stopper ved LS-estimatorene, deres $E$/$\\text{Var}$ og et KI."
+  },
+  {
+    "question": "For binormale data — hva svarer regresjonens feilvarians $\\sigma^2$ til?",
+    "options": [
+      "Den betingede variansen $\\sigma_2^2(1-\\rho^2)$",
+      "Den marginale variansen $\\sigma_2^2$ til $Y$",
+      "Kovariansen $\\text{Cov}(X,Y)$ mellom dem",
+      "Korrelasjonskoeffisienten $\\rho$ i seg selv"
+    ],
+    "explanation": "Regresjonsmodellen er binormalens betingede fordeling: stigningstallet svarer til $\\rho\\sigma_2/\\sigma_1$ og feilvariansen til den betingede variansen $\\sigma_2^2(1-\\rho^2)$."
+  }
+]

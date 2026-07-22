@@ -1,0 +1,152 @@
+[
+  {
+    "question": "Hvilken konstant $\\theta$ minimerer forventet kvadratisk avvik $E[(\\theta-X)^2]$?",
+    "options": [
+      "Forventningen $E(X)$",
+      "Medianen til $X$",
+      "Variansen $\\text{Var}(X)$",
+      "Modusen til $X$"
+    ],
+    "explanation": "Ved variansdekomponeringen er $E[(\\theta-X)^2]=(\\theta-\\mu)^2+\\text{Var}(X)$, som minimeres ved $\\theta=\\mu=E(X)$."
+  },
+  {
+    "question": "Hva blir minsteverdien av $E[(\\theta-X)^2]$ når $\\theta$ velges optimalt?",
+    "options": [
+      "$\\text{Var}(X)$",
+      "$0$",
+      "$E(X)$",
+      "$[E(X)]^2$"
+    ],
+    "explanation": "Ved $\\theta=\\mu$ nulles $(\\theta-\\mu)^2$ ut, og igjen står $\\text{Var}(X)$ — forventningen kan ikke gjette bedre enn variabelens egen spredning tillater."
+  },
+  {
+    "question": "I variansdekomponeringen $E[(\\theta-X)^2]=(\\theta-\\mu)^2-2(\\theta-\\mu)E(X-\\mu)+E[(X-\\mu)^2]$, hvorfor forsvinner det midterste leddet?",
+    "options": [
+      "Fordi $E(X-\\mu)=0$",
+      "Fordi $(\\theta-\\mu)=0$ alltid",
+      "Fordi $\\text{Var}(X)=0$",
+      "Fordi $E(X)=0$ alltid"
+    ],
+    "explanation": "En variabel svinger symmetrisk rundt sin egen forventning, så $E(X-\\mu)=E(X)-\\mu=0$, og hele krysseleddet blir null."
+  },
+  {
+    "question": "Hvilken funksjon av $X$ minimerer forventet kvadratisk prediksjonsfeil $E[(Y-g(X))^2]$?",
+    "options": [
+      "Den betingede forventningen $E(Y\\mid X=x)$",
+      "Den marginale forventningen $E(Y)$ alene",
+      "Kovariansen $\\text{Cov}(X,Y)$ mellom dem",
+      "Korrelasjonskoeffisienten $\\rho$ alene"
+    ],
+    "explanation": "Beste prediksjon under kvadratisk tap er regresjonsfunksjonen $g(x)=E(Y\\mid X=x)$; den minimerer forventet kvadratisk prediksjonsfeil."
+  },
+  {
+    "question": "$(X,Y)$ er standardisert binormal med $\\rho=0{,}4$. Hva er beste prediksjon av $Y$ når $X=5$?",
+    "options": [
+      "$2$",
+      "$5$",
+      "$0{,}4$",
+      "$0$"
+    ],
+    "explanation": "I standardisert binormal er beste prediksjon $E(Y\\mid X=x_0)=\\rho x_0=0{,}4\\cdot 5=2$."
+  },
+  {
+    "question": "$(X,Y)$ er binormal med $\\mu_2=50$, $\\sigma_1=4$, $\\sigma_2=10$, $\\rho=0{,}7$, $\\mu_1=20$. Hva er $E(Y\\mid X=24)$?",
+    "options": [
+      "$57$",
+      "$50$",
+      "$60{,}5$",
+      "$54$"
+    ],
+    "explanation": "$E(Y\\mid X=24)=50+0{,}7\\cdot\\frac{10}{4}\\cdot(24-20)=50+0{,}7\\cdot 2{,}5\\cdot 4=50+7=57$."
+  },
+  {
+    "question": "Hva blir det optimale konstante gjettet dersom vi bytter kvadratisk tap med absoluttverditap $E|\\theta-X|$?",
+    "options": [
+      "Medianen til $X$",
+      "Forventningen $E(X)$",
+      "Variansen $\\text{Var}(X)$",
+      "Standardavviket"
+    ],
+    "explanation": "Under absoluttverditap er medianen det optimale punktestimatet. Valget av tapsfunksjon avgjør hvilket sentralmål som er best."
+  },
+  {
+    "question": "$(X,Y)$ er binormal med $\\sigma_2=10$ og $\\rho=0{,}6$. Hva er forventet kvadratisk prediksjonsfeil når vi predikerer $Y$ fra $X$?",
+    "options": [
+      "$64$",
+      "$100$",
+      "$36$",
+      "$40$"
+    ],
+    "explanation": "Prediksjonsfeilen er den betingede variansen $\\sigma_2^2(1-\\rho^2)=100\\cdot(1-0{,}36)=64$."
+  },
+  {
+    "question": "Hva er forskjellen på $E(Y\\mid X=x)$ og $E(Y)$?",
+    "options": [
+      "$E(Y\\mid X=x)$ avhenger av observert $x$; $E(Y)$ er snittet over alt",
+      "De er alltid nøyaktig like hverandre uansett fordeling",
+      "Det er $E(Y)$ som avhenger av $x$, ikke $E(Y\\mid X=x)$",
+      "$E(Y\\mid X=x)$ er alltid strengt større enn $E(Y)$"
+    ],
+    "explanation": "Den betingede forventningen bruker informasjon om $X$ og varierer med $x$; den marginale er et fast tall. De sammenfaller bare når $X$ og $Y$ er uavhengige."
+  },
+  {
+    "question": "Hva skjer med beste prediksjon av $Y$ når $X$ og $Y$ er uavhengige (binormal, $\\rho=0$)?",
+    "options": [
+      "Den blir $E(Y)$ for alle $x$; observasjonen hjelper ikke",
+      "Den blir lik den observerte verdien $x$ selv",
+      "Den blir $0$ uansett hva marginalforventningen er",
+      "Den kan da ikke beregnes i det hele tatt"
+    ],
+    "explanation": "Ved $\\rho=0$ er $E(Y\\mid X=x)=\\mu_2=E(Y)$ for alle $x$: uavhengighet betyr at $X$ ikke gir informasjon om $Y$."
+  },
+  {
+    "question": "Hvor stor andel av variansen i $Y$ «forklares» av $X$ i en binormal?",
+    "options": [
+      "$\\rho^2$",
+      "$\\rho$",
+      "$1-\\rho$",
+      "$\\sigma_2^2$"
+    ],
+    "explanation": "Prediksjonsfeilen faller fra $\\sigma_2^2$ til $\\sigma_2^2(1-\\rho^2)$, en reduksjon på andelen $\\rho^2$."
+  },
+  {
+    "question": "En variabel har $E(X)=8$, $\\text{Var}(X)=5$. Hva er $E[(\\theta-X)^2]$ når vi gjetter $\\theta=11$?",
+    "options": [
+      "$14$",
+      "$9$",
+      "$5$",
+      "$3$"
+    ],
+    "explanation": "$E[(\\theta-X)^2]=(\\theta-\\mu)^2+\\text{Var}(X)=(11-8)^2+5=9+5=14$."
+  },
+  {
+    "question": "Hvorfor er den beste prediksjonen i en binormal lineær i $x$?",
+    "options": [
+      "Fordi $E(Y\\mid X=x)$ i en binormal er en rett linje i $x$",
+      "Fordi all statistisk prediksjon alltid er lineær i $x$",
+      "Fordi kovariansen mellom $X$ og $Y$ alltid er null",
+      "Fordi den betingede variansen er konstant i $x$"
+    ],
+    "explanation": "Beste prediksjon er $E(Y\\mid X=x)$. For binormalen er denne $\\mu_2+\\rho\\frac{\\sigma_2}{\\sigma_1}(x-\\mu_1)$, altså lineær; for andre fordelinger kan regresjonsfunksjonen være krum."
+  },
+  {
+    "question": "Hva menes med at forventningen er «beste» prediksjon?",
+    "options": [
+      "Best i betydningen minst forventet kvadratisk avvik",
+      "Best i betydningen alltid nærmest den sanne verdien",
+      "Best fordi den alltid er lik medianen",
+      "Best fordi den har minst varians blant alle estimatorer"
+    ],
+    "explanation": "«Best» er relativt til kvadratisk tap: forventningen minimerer $E[(\\theta-X)^2]$. Med et annet tap ville et annet gjett vært optimalt."
+  },
+  {
+    "question": "$(X,Y)$ er standardisert binormal med $\\rho=0{,}5$. Hvor mye reduseres prediksjonsfeilen ved å observere $X$, sammenlignet med å gjette uten data?",
+    "options": [
+      "Fra $1$ til $0{,}75$",
+      "Fra $1$ til $0{,}5$",
+      "Fra $1$ til $0{,}25$",
+      "Ingen reduksjon"
+    ],
+    "explanation": "Uten data er feilen $\\text{Var}(Y)=1$; med data er den $1-\\rho^2=1-0{,}25=0{,}75$. Reduksjonen er andelen $\\rho^2=0{,}25$."
+  }
+]
