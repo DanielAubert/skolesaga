@@ -1,0 +1,162 @@
+[
+  {
+    "question": "Projeksjonsformelen $\\hat{\\mathbf{y}}=\\sum_i\\frac{\\langle\\mathbf{y},\\mathbf{v}_i\\rangle}{\\langle\\mathbf{v}_i,\\mathbf{v}_i\\rangle}\\mathbf{v}_i$ forutsetter at basisen $\\{\\mathbf{v}_i\\}$ for $W$ er:",
+    "options": [
+      "ortogonal ($\\langle\\mathbf{v}_i,\\mathbf{v}_j\\rangle=0$ når $i\\ne j$)",
+      "ortonormal, altså med lengde nøyaktig $1$ på hver vektor",
+      "satt sammen utelukkende av egenvektorer for en matrise $A$",
+      "en basis som utspenner hele det omsluttende vektorrommet"
+    ],
+    "explanation": "Formelen er utledet under parvis ortogonalitet. Ortonormalitet er strengere enn nødvendig (da faller bare nevnerne bort), og egenvektorer/utspenning av hele rommet er irrelevant. Er den utleverte basisen ikke ortogonal, må Gram-Schmidt kjøres først (felle nr. 4)."
+  },
+  {
+    "question": "Med $\\hat{\\mathbf{y}}=\\operatorname{proj}_W\\mathbf{y}$ er avstanden fra $\\mathbf{y}$ til underrommet $W$ lik:",
+    "options": [
+      "$\\|\\mathbf{y}-\\hat{\\mathbf{y}}\\|$",
+      "$\\|\\hat{\\mathbf{y}}\\|$",
+      "$\\|\\mathbf{y}\\|-\\|\\hat{\\mathbf{y}}\\|$",
+      "$\\|\\mathbf{y}+\\hat{\\mathbf{y}}\\|$"
+    ],
+    "explanation": "Avstanden er normen av residualet $\\mathbf{z}=\\mathbf{y}-\\hat{\\mathbf{y}}$, ikke normen av projeksjonen. Å regne $\\|\\hat{\\mathbf{y}}\\|$ er en klassisk felle; differansen av normer og $\\|\\mathbf{y}+\\hat{\\mathbf{y}}\\|$ er heller ikke avstander."
+  },
+  {
+    "question": "Du skal projisere, men den utleverte basisen for $W$ er ikke ortogonal. Hva gjør du først?",
+    "options": [
+      "kjører Gram-Schmidt til en ortogonal basis for $W$",
+      "normaliserer hver basisvektor til lengde $1$",
+      "bytter til standardprikkproduktet uansett hva som er oppgitt",
+      "setter basisen rett inn i projeksjonsformelen likevel"
+    ],
+    "explanation": "Projeksjonsformelen krever en ortogonal basis, så Gram-Schmidt er forsteget (felle nr. 4). Normalisering alene gir ikke ortogonalitet, og indreproduktet skal alltid være det oppgitte."
+  },
+  {
+    "question": "For en matrise $A$ (standardprikkprodukt) er $(\\operatorname{Col}A)^{\\perp}$ lik:",
+    "options": [
+      "$\\operatorname{Nul}(A^{T})$",
+      "$\\operatorname{Nul}(A)$",
+      "$\\operatorname{Col}(A^{T})$",
+      "$\\operatorname{Row}(A)$"
+    ],
+    "explanation": "En vektor er ortogonal på alle kolonnene i $A$ nettopp når $A^{T}\\mathbf{z}=\\mathbf{0}$, altså $(\\operatorname{Col}A)^{\\perp}=\\operatorname{Nul}(A^{T})$. $\\operatorname{Nul}(A)=(\\operatorname{Row}A)^{\\perp}$, mens $\\operatorname{Col}(A^{T})=\\operatorname{Row}A$ er komplementet, ikke lik det."
+  },
+  {
+    "question": "Dimensjonsrelasjonen for et underrom $W$ og komplementet $W^{\\perp}$ sier at $\\dim W+\\dim W^{\\perp}$ er lik:",
+    "options": [
+      "dimensjonen til hele det omsluttende rommet",
+      "rangen til den tilhørende matrisen $A$",
+      "antallet vektorer i den oppgitte $W$-basisen",
+      "alltid nøyaktig det dobbelte av $\\dim W$"
+    ],
+    "explanation": "$\\dim W+\\dim W^{\\perp}=\\dim(\\text{hele rommet})$ - de to fyller ut rommet uten overlapp. Rangen er bare $\\dim W$, og $2\\dim W$ stemmer bare i det spesielle tilfellet $\\dim W=\\dim W^{\\perp}$."
+  },
+  {
+    "question": "Normallikningene for en minste kvadraters løsning $\\hat{\\mathbf{x}}$ av $C\\mathbf{x}=\\mathbf{b}$ er:",
+    "options": [
+      "$C^{T}C\\,\\hat{\\mathbf{x}}=C^{T}\\mathbf{b}$",
+      "$CC^{T}\\,\\hat{\\mathbf{x}}=C^{T}\\mathbf{b}$",
+      "$C^{T}C\\,\\hat{\\mathbf{x}}=C\\mathbf{b}$",
+      "$C\\,\\hat{\\mathbf{x}}=C^{T}\\mathbf{b}$"
+    ],
+    "explanation": "Multipliser $C\\mathbf{x}=\\mathbf{b}$ med $C^{T}$: $C^{T}C\\hat{\\mathbf{x}}=C^{T}\\mathbf{b}$, et lite kvadratisk system. $CC^{T}$ har feil form, og $C\\mathbf{b}$/høyresidene i de andre passer ikke dimensjonene."
+  },
+  {
+    "question": "For $W=\\operatorname{Col}C$ er projeksjonen $\\operatorname{proj}_W\\mathbf{b}$ lik (der $\\hat{\\mathbf{x}}$ løser normallikningene):",
+    "options": [
+      "$C\\hat{\\mathbf{x}}$",
+      "$\\hat{\\mathbf{x}}$",
+      "$C^{T}\\mathbf{b}$",
+      "$\\mathbf{b}-C\\hat{\\mathbf{x}}$"
+    ],
+    "explanation": "Koblingen er $\\operatorname{proj}_W\\mathbf{b}=C\\hat{\\mathbf{x}}$ - minste kvadrater og projeksjon er samme sak. $\\hat{\\mathbf{x}}$ er koordinatvektoren (ikke projeksjonen), og $\\mathbf{b}-C\\hat{\\mathbf{x}}$ er residualet $\\mathbf{z}$."
+  },
+  {
+    "question": "$C$ har ikke full kolonnerang (rangdefekt). Minste kvadraters løsning er da:",
+    "options": [
+      "affin: en partikulær løsning pluss $\\operatorname{Nul}C$",
+      "entydig, fordi matrisen $C^{T}C$ da alltid er invertibel",
+      "ikke-eksisterende, siden systemet blir inkonsistent",
+      "alltid nøyaktig lik nullvektoren $\\mathbf{0}$ i rommet"
+    ],
+    "explanation": "Ved rangdefekt er $C^{T}C$ ikke invertibel, og løsningsmengden er $\\hat{\\mathbf{x}}_p+\\operatorname{Nul}C$ (felle nr. 5). Normallikningene er alltid konsistente, så en løsning finnes - den er bare ikke entydig."
+  },
+  {
+    "question": "Selv når $\\hat{\\mathbf{x}}$ er affin (rangdefekt), er $C\\hat{\\mathbf{x}}=\\operatorname{proj}_W\\mathbf{b}$:",
+    "options": [
+      "den samme for alle løsningene i mengden",
+      "forskjellig for hvert valg av løsning",
+      "bare definert for den korteste løsningen",
+      "lik $\\mathbf{b}$ når $C$ er rangdefekt"
+    ],
+    "explanation": "To affine løsninger skiller seg med en $\\mathbf{n}\\in\\operatorname{Nul}C$, og $C(\\hat{\\mathbf{x}}_p+\\mathbf{n})=C\\hat{\\mathbf{x}}_p$ siden $C\\mathbf{n}=\\mathbf{0}$. Projeksjonen er derfor entydig, selv om $\\hat{\\mathbf{x}}$ ikke er det."
+  },
+  {
+    "question": "I et vektet indreprodukt $\\langle\\mathbf{x},\\mathbf{y}\\rangle=\\sum_i w_ix_iy_i$: hvilket indreprodukt bruker du i nevneren $\\langle\\mathbf{v}_i,\\mathbf{v}_i\\rangle$ i projeksjonen?",
+    "options": [
+      "det oppgitte vektede indreproduktet",
+      "standardprikkproduktet $\\sum_i x_iy_i$",
+      "den vanlige euklidske lengden i kvadrat",
+      "et integral $\\int p(t)q(t)\\,dt$ over rommet"
+    ],
+    "explanation": "Alle skalarprodukt, normer og Gram-Schmidt-ledd regnes med det oppgitte indreproduktet - også nevnerne (felle nr. 1). Å falle tilbake på standardprikkproduktet ett sted ødelegger hele projeksjonen."
+  },
+  {
+    "question": "Ved en minste kvadraters løsning står residualet $\\mathbf{z}=\\mathbf{b}-C\\hat{\\mathbf{x}}$:",
+    "options": [
+      "vinkelrett på $\\operatorname{Col}C$",
+      "parallelt med $\\operatorname{Col}C$",
+      "vinkelrett på $\\operatorname{Nul}C$",
+      "inne i $\\operatorname{Col}C$"
+    ],
+    "explanation": "Selve betingelsen $C^{T}(\\mathbf{b}-C\\hat{\\mathbf{x}})=\\mathbf{0}$ betyr at residualet er ortogonalt på hver kolonne i $C$, altså på hele $\\operatorname{Col}C$. Det ligger i $(\\operatorname{Col}C)^{\\perp}$, ikke i eller parallelt med $\\operatorname{Col}C$."
+  },
+  {
+    "question": "For en linje $W=\\operatorname{Span}\\{\\mathbf{v}\\}$ er projeksjonen av $\\mathbf{y}$ ned på $W$:",
+    "options": [
+      "$\\frac{\\langle\\mathbf{y},\\mathbf{v}\\rangle}{\\langle\\mathbf{v},\\mathbf{v}\\rangle}\\mathbf{v}$",
+      "$\\langle\\mathbf{y},\\mathbf{v}\\rangle\\,\\mathbf{v}$",
+      "$\\frac{\\langle\\mathbf{y},\\mathbf{v}\\rangle}{\\|\\mathbf{y}\\|}\\mathbf{v}$",
+      "$\\frac{\\langle\\mathbf{v},\\mathbf{v}\\rangle}{\\langle\\mathbf{y},\\mathbf{v}\\rangle}\\mathbf{v}$"
+    ],
+    "explanation": "Projeksjon på en linje er ett Fourier-ledd med nevner $\\langle\\mathbf{v},\\mathbf{v}\\rangle$. Å droppe nevneren, dele på $\\|\\mathbf{y}\\|$ eller snu brøken gir feil skalering."
+  },
+  {
+    "question": "Minste kvadraters løsning av $C\\mathbf{x}=\\mathbf{b}$ er entydig hvis og bare hvis:",
+    "options": [
+      "$C$ har full kolonnerang (uavhengige kolonner)",
+      "matrisen $C$ er kvadratisk",
+      "$\\mathbf{b}$ ligger i kolonnerommet $\\operatorname{Col}C$",
+      "$C$ har full radrang (uavhengige rader)"
+    ],
+    "explanation": "Entydighet er ekvivalent med at $C^{T}C$ er invertibel, som skjer nettopp ved full kolonnerang. At $\\mathbf{b}\\in\\operatorname{Col}C$ gjør systemet konsistent (ikke om entydig), og radrang/kvadratform er ikke kriteriet."
+  },
+  {
+    "question": "I dekomposisjonen $\\mathbf{y}=\\hat{\\mathbf{y}}+\\mathbf{z}$ (der $\\hat{\\mathbf{y}}=\\operatorname{proj}_W\\mathbf{y}$) ligger komponentene hvor?",
+    "options": [
+      "$\\hat{\\mathbf{y}}$ i $W$ og $\\mathbf{z}$ i $W^{\\perp}$",
+      "$\\hat{\\mathbf{y}}$ i $W^{\\perp}$ og $\\mathbf{z}$ i $W$",
+      "både $\\hat{\\mathbf{y}}$ og $\\mathbf{z}$ i $W$",
+      "både $\\hat{\\mathbf{y}}$ og $\\mathbf{z}$ i $W^{\\perp}$"
+    ],
+    "explanation": "Projeksjonen $\\hat{\\mathbf{y}}$ er komponenten i $W$, og resten $\\mathbf{z}=\\mathbf{y}-\\hat{\\mathbf{y}}$ står vinkelrett på $W$, altså i $W^{\\perp}$. Oppdelingen er entydig."
+  },
+  {
+    "question": "Gitt $\\operatorname{proj}_W\\mathbf{b}=C\\hat{\\mathbf{x}}=(1,3,5,7)$ og $\\mathbf{b}=(2,1,6,7)$. Avstanden $d(\\mathbf{b},W)$ er:",
+    "options": [
+      "$\\sqrt6$",
+      "$\\sqrt{84}$",
+      "$\\sqrt{90}$",
+      "$6$"
+    ],
+    "explanation": "Residualet er $\\mathbf{z}=\\mathbf{b}-C\\hat{\\mathbf{x}}=(1,-2,1,0)$, så $d=\\|\\mathbf{z}\\|=\\sqrt{1+4+1}=\\sqrt6$. $\\sqrt{84}=\\|C\\hat{\\mathbf{x}}\\|$ og $\\sqrt{90}=\\|\\mathbf{b}\\|$ er felle-svarene som forveksler avstanden med en av normene."
+  },
+  {
+    "question": "Med indreproduktet $\\langle p,q\\rangle=\\int_{-1}^1 p(t)q(t)\\,dt$ er $\\{1,t\\}$ en ortogonal basis for $\\operatorname{Span}\\{1,t\\}$ fordi:",
+    "options": [
+      "$\\int_{-1}^1 t\\,dt=0$",
+      "$1$ og $t$ har forskjellig grad",
+      "$\\int_{-1}^1 t^2\\,dt=\\tfrac23$",
+      "de er lineært uavhengige polynomer"
+    ],
+    "explanation": "Ortogonalitet betyr $\\langle 1,t\\rangle=\\int_{-1}^1 t\\,dt=0$, som holder fordi $t$ er odde over det symmetriske intervallet. Ulik grad og lineær uavhengighet garanterer ikke ortogonalitet, og $\\int t^2\\,dt$ er nevneren $\\langle t,t\\rangle$, ikke ortogonalitetssjekken."
+  }
+]
