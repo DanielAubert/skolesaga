@@ -1,6 +1,6 @@
 # BYGGSTATUS — STK1100 (oppdateres ved hver commit)
 
-**Sist oppdatert:** 22. juli 2026, etter Steg 0.
+**Sist oppdatert:** 22. juli 2026, etter Steg 4 (sluttport) — FERDIG.
 
 ## Kvoter (skjelettet, autoritativt)
 - 27 kapitler (1 eksamenskart + 22 tema hvorav 5 drill + 4 eksamenstrening) + 8 prøvekapitler (Del 1–8).
@@ -33,8 +33,25 @@
   n=25 — alle eksakt), Del 8-prøve (forfatter-selvsjekk), øvingseksamener 9.2–9.4 (byggeleder:
   Bayes 0.0241, KI-endepunkter, 9.3 dekning 0.958/0.916 seed 2020, 9.4 regresjon b1=2.03/b0=-0.03,
   b0-KI [-4.14,4.08]). Alle χ²/gamma-kvantiler verifisert mot scipy. Ingen fasit-feil funnet.
-- **Steg 4** (sluttport): ikke startet. Gjenstår: SVG-opplasting (7 nye) til Storage m/200-verif,
-  studentpanel-sjekk, endelig sjekk-bok + build + prod-curl PORT=3062.
+- **Steg 4** (sluttport): FERDIG.
+  - `sjekk-bok.py stk1100` → «BOKPORT OK — 35 kapittelfiler | 505 definisjoner | 510 quiz»,
+    0 merknader (den ene rådgivende — karaktersjargong «A-kandidat-markør» i første blokk
+    i 6-1 — fikset med skala-forklaring + lenke til kap. 0.1).
+  - `npx tsc --noEmit` exit 0. `npm run build` exit 0 (grønn).
+  - SVG-opplasting: **13** SVG-er på disk (ikke 7 som anslått — prøve-SVG-ene kom til i
+    steg 1/3). Kirurgisk opplasting (kun stk1100-mappa, upsert) til bucket `media`:
+    «Ferdig: 13 opplastet, 0 feilet». Alle 13 Storage-URL-er curl-verifisert **200**
+    (før opplasting ga alle 400).
+  - Studentpanel (2-1, 6-1, 8-2 + 4-prove lest kritisk): læringsløkker inline OK,
+    innstegsoppgave (lett) tidlig, hint1 = formel/første grep (ingen konklusjonsrøping),
+    ☐-selvdiagnose etter hver prøvefasit, flervalg stokket (1-prove C/B/D/A,
+    2-prove B/D/A/C, 5.C b/c/a/d), alle kapitler >45 min har pausepunkt/tid-per-løkke,
+    kap-lenker 390/390 peker på eksisterende filer, quiz-lengdesjekk ✅ (eneste-lengst 29 %).
+    Ingen større funn.
+  - Prod-curl PORT=3062: /bok/stk1100 + 0-1 + 2-1 + 6-1 + 4-prove + 9-2 alle **200**
+    med kapitteltittel gjenfunnet i HTML (inkl. SVG-referansen i 4-prove). Server stoppet.
+    (NB: en stale next-server fra 20. juli okkuperte 3062 og ble drept først.)
+  - **BOKA ER KLAR FOR MERGE.**
 
 ## Byggerekkefølge (fra skjelettets §6)
 1. Metadata via wire-bok.py (fase 5).
