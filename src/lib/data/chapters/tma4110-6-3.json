@@ -1,0 +1,422 @@
+{
+  "id": "tma4110-6-3",
+  "courseId": "tma4110",
+  "chapterNumber": "6.3",
+  "title": "Ortogonal projeksjon og ortogonalt komplement",
+  "description": "Ortogonal projeksjon proj_W y på et underrom, dekomposisjonen y=ŷ+z, ortogonalt komplement W⊥ og korteste-avstand-egenskapen — kjernen i minste kvadrater.",
+  "estimatedMinutes": 55,
+  "competenceGoals": [
+    "regne ortogonal projeksjon på en linje og på et underrom med en ortogonal basis, og finne dekomposisjonen y = ŷ + z",
+    "finne avstanden fra en vektor til et underrom via beste tilnærmingssetningen",
+    "beskrive ortogonalt komplement W⊥, bruke dim W + dim W⊥ = n og identiteten (Col A)⊥ = Nul Aᵀ"
+  ],
+  "content": [
+    {
+      "id": "tma4110-6-3-tip-eksamensvinkel",
+      "type": "tip",
+      "title": "Eksamensvinkel",
+      "content": "**Ortogonal projeksjon er den direkte fortsettelsen av Gram–Schmidt (sjanger H, ~80 %) og selve broen til minste kvadrater.**\n\n- «Finn $\\operatorname{proj}_W\\mathbf y$, dekomposisjonen $\\mathbf y=\\hat{\\mathbf y}+\\mathbf z$ og avstanden fra $\\mathbf y$ til $W$» er en klassisk deloppgave, ofte kjedet rett etter en Gram–Schmidt-oppgave på samme rom.\n- **Nøkkelen sensor ser etter:** projeksjonsformelen krever en *ortogonal* basis. Er basisen ikke ortogonal, må du kjøre Gram–Schmidt ([kap. 6.2](/bok/tma4110/tma4110-6-2)) først — å bruke formelen på en skjev basis er en dokumentert felle.\n- Avstanden er $\\|\\mathbf z\\|=\\|\\mathbf y-\\hat{\\mathbf y}\\|$ — glem ikke kvadratrota.\n\nSjanger H = *indreprodukt / ortogonalitet / Gram–Schmidt / projeksjon* (etikett fra [kap. 0.1](/bok/tma4110/tma4110-0-1)). Under kode E må projeksjonsformelen sitte utenat. Tidsanslag = lesetid; gang med ca. 1,5 ved håndregning."
+    },
+    {
+      "id": "tma4110-6-3-forkunnskaper",
+      "type": "text",
+      "content": "**Forkunnskaper:** Dette kapitlet bygger direkte på ortogonale basiser og Gram–Schmidt fra [kap. 6.2](/bok/tma4110/tma4110-6-2), og på norm, avstand og ortogonalitet fra [kap. 6.1](/bok/tma4110/tma4110-6-1). Projeksjonsleddet $\\frac{\\langle\\mathbf y,\\mathbf v\\rangle}{\\langle\\mathbf v,\\mathbf v\\rangle}\\mathbf v$ er den samme byggeklossen som i Gram–Schmidt. Kan du ortogonalisere en basis og regne norm, er du klar."
+    },
+    {
+      "id": "tma4110-6-3-motivasjon",
+      "type": "text",
+      "content": "## Hva er nærmeste punkt i et underrom?\n\nGitt en vektor $\\mathbf y$ og et underrom $W$: hvilket punkt i $W$ ligger *nærmest* $\\mathbf y$? Svaret er den **ortogonale projeksjonen** $\\operatorname{proj}_W\\mathbf y$ — «skyggen» av $\\mathbf y$ rett ned på $W$. Differansen $\\mathbf z=\\mathbf y-\\operatorname{proj}_W\\mathbf y$ står vinkelrett på hele $W$, og lengden $\\|\\mathbf z\\|$ er avstanden fra $\\mathbf y$ til $W$.\n\nDette er hele idéen bak minste kvadraters metode (neste kapittel): når et ligningssystem ikke har løsning, projiserer vi ned på det som *er* oppnåelig. Vi bygger i fem løkker: (1) projeksjon på en linje, (2) projeksjon på et underrom og dekomposisjonen, (3) beste tilnærming og avstand, (4) ortogonalt komplement, (5) en kjedet oppgave der basisen må ortogonaliseres først."
+    },
+    {
+      "id": "tma4110-6-3-lokke1",
+      "type": "text",
+      "content": "## Løkke 1 — Ortogonal projeksjon på en linje (~9 min)"
+    },
+    {
+      "id": "tma4110-6-3-def-proj-linje",
+      "type": "definition",
+      "title": "Ortogonal projeksjon på en linje",
+      "content": "Projeksjonen av $\\mathbf y$ på linja utspent av $\\mathbf v\\ne\\mathbf 0$ er\n$$\\operatorname{proj}_{\\mathbf v}\\mathbf y=\\frac{\\langle\\mathbf y,\\mathbf v\\rangle}{\\langle\\mathbf v,\\mathbf v\\rangle}\\,\\mathbf v.$$\nDet er «skyggen» av $\\mathbf y$ langs retningen $\\mathbf v$. Differansen $\\mathbf y-\\operatorname{proj}_{\\mathbf v}\\mathbf y$ står vinkelrett på $\\mathbf v$ — dette er nøyaktig projeksjonsleddet fra Gram–Schmidt."
+    },
+    {
+      "id": "tma4110-6-3-ex1",
+      "type": "example",
+      "title": "Eksempel 1: Projeksjon på en linje",
+      "problem": "Finn projeksjonen av $\\mathbf y=(5,0)$ på linja utspent av $\\mathbf v=(3,4)$, og avstanden fra $\\mathbf y$ til linja.",
+      "solution": "$\\langle\\mathbf y,\\mathbf v\\rangle=5\\cdot3+0\\cdot4=15$ og $\\langle\\mathbf v,\\mathbf v\\rangle=9+16=25$, så\n$$\\operatorname{proj}_{\\mathbf v}\\mathbf y=\\frac{15}{25}(3,4)=\\frac35(3,4)=\\left(\\tfrac95,\\tfrac{12}{5}\\right).$$\nFeilvektoren: $\\mathbf z=\\mathbf y-\\operatorname{proj}_{\\mathbf v}\\mathbf y=\\left(5-\\tfrac95,\\ -\\tfrac{12}{5}\\right)=\\left(\\tfrac{16}{5},-\\tfrac{12}{5}\\right)$. Avstanden:\n$$\\|\\mathbf z\\|=\\sqrt{\\tfrac{256}{25}+\\tfrac{144}{25}}=\\sqrt{\\tfrac{400}{25}}=\\sqrt{16}=4.$$\nKontroll: $\\langle\\mathbf z,\\mathbf v\\rangle=\\tfrac{16}{5}\\cdot3-\\tfrac{12}{5}\\cdot4=\\tfrac{48-48}{5}=0$ ✓ — $\\mathbf z$ står vinkelrett på linja."
+    },
+    {
+      "id": "tma4110-6-3-e1",
+      "type": "exercise",
+      "exercise": {
+        "id": "tma4110-6-3-e1",
+        "number": "1",
+        "type": "classic",
+        "difficulty": "lett",
+        "task": "(Innøving.) Finn projeksjonen av $\\mathbf y=(0,5)$ på linja utspent av $\\mathbf v=(1,2)$.",
+        "solution": "$\\langle\\mathbf y,\\mathbf v\\rangle=0+10=10$, $\\langle\\mathbf v,\\mathbf v\\rangle=1+4=5$, så $\\operatorname{proj}_{\\mathbf v}\\mathbf y=\\tfrac{10}{5}(1,2)=2(1,2)=(2,4)$. Kontroll: $\\mathbf y-\\operatorname{proj}=(0-2,5-4)=(-2,1)$, og $\\langle(-2,1),(1,2)\\rangle=-2+2=0$ ✓.",
+        "hints": [
+          "Bruk $\\operatorname{proj}_{\\mathbf v}\\mathbf y=\\frac{\\langle\\mathbf y,\\mathbf v\\rangle}{\\langle\\mathbf v,\\mathbf v\\rangle}\\mathbf v$.",
+          "Regn teller $\\langle\\mathbf y,\\mathbf v\\rangle$ og nevner $\\langle\\mathbf v,\\mathbf v\\rangle$ hver for seg."
+        ]
+      }
+    },
+    {
+      "id": "tma4110-6-3-lokke2",
+      "type": "text",
+      "content": "## Løkke 2 — Projeksjon på et underrom og dekomposisjonen (~13 min)"
+    },
+    {
+      "id": "tma4110-6-3-def-proj-underrom",
+      "type": "definition",
+      "title": "Ortogonal projeksjon på et underrom",
+      "content": "La $\\{\\mathbf v_1,\\dots,\\mathbf v_k\\}$ være en **ortogonal** basis for underrommet $W$. Projeksjonen av $\\mathbf y$ på $W$ er summen av projeksjonene på hver basisvektor:\n$$\\operatorname{proj}_W\\mathbf y=\\sum_{i=1}^{k}\\frac{\\langle\\mathbf y,\\mathbf v_i\\rangle}{\\langle\\mathbf v_i,\\mathbf v_i\\rangle}\\,\\mathbf v_i.$$\nFormelen krever at basisen er ortogonal — ellers gjelder den ikke. Er basisen skjev, kjør Gram–Schmidt ([kap. 6.2](/bok/tma4110/tma4110-6-2)) først."
+    },
+    {
+      "id": "tma4110-6-3-def-dekomposisjon",
+      "type": "definition",
+      "title": "Ortogonal dekomposisjon",
+      "content": "Enhver $\\mathbf y$ kan skrives entydig som\n$$\\mathbf y=\\hat{\\mathbf y}+\\mathbf z,\\qquad \\hat{\\mathbf y}=\\operatorname{proj}_W\\mathbf y\\in W,\\quad \\mathbf z=\\mathbf y-\\hat{\\mathbf y}\\in W^{\\perp}.$$\nHer er $\\hat{\\mathbf y}$ komponenten *i* $W$ og $\\mathbf z$ komponenten *vinkelrett på* $W$. Delingen er **entydig**: det finnes bare én måte å splitte $\\mathbf y$ i en $W$-del og en $W^{\\perp}$-del."
+    },
+    {
+      "id": "tma4110-6-3-ex2",
+      "type": "example",
+      "title": "Eksempel 2 (eksamensnivå): Projeksjon og dekomposisjon",
+      "problem": "La $W=\\operatorname{Span}\\{(1,1,0),(1,-1,0)\\}$. Finn $\\operatorname{proj}_W\\mathbf y$ for $\\mathbf y=(2,3,4)$, og dekomposisjonen $\\mathbf y=\\hat{\\mathbf y}+\\mathbf z$.",
+      "solution": "Basisen er ortogonal: $\\langle(1,1,0),(1,-1,0)\\rangle=1-1+0=0$ ✓ — formelen kan brukes direkte. Med $\\mathbf v_1=(1,1,0)$, $\\mathbf v_2=(1,-1,0)$ (begge $\\langle\\mathbf v_i,\\mathbf v_i\\rangle=2$):\n$$\\frac{\\langle\\mathbf y,\\mathbf v_1\\rangle}{2}=\\frac{2+3}{2}=\\frac52,\\qquad \\frac{\\langle\\mathbf y,\\mathbf v_2\\rangle}{2}=\\frac{2-3}{2}=-\\frac12.$$\n$$\\hat{\\mathbf y}=\\operatorname{proj}_W\\mathbf y=\\tfrac52(1,1,0)-\\tfrac12(1,-1,0)=\\left(\\tfrac52-\\tfrac12,\\ \\tfrac52+\\tfrac12,\\ 0\\right)=(2,3,0).$$\nDa er $\\mathbf z=\\mathbf y-\\hat{\\mathbf y}=(2,3,4)-(2,3,0)=(0,0,4)$. Kontroll: $\\mathbf z$ er ortogonal på begge basisvektorene ($\\langle(0,0,4),(1,1,0)\\rangle=0$, likeså for den andre) ✓. Altså $\\hat{\\mathbf y}=(2,3,0)\\in W$ og $\\mathbf z=(0,0,4)\\in W^{\\perp}$."
+    },
+    {
+      "id": "tma4110-6-3-e2",
+      "type": "exercise",
+      "exercise": {
+        "id": "tma4110-6-3-e2",
+        "number": "2",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "(Sjanger H.) Med $W=\\operatorname{Span}\\{(1,1,0),(1,-1,0)\\}$: finn dekomposisjonen $\\mathbf y=\\hat{\\mathbf y}+\\mathbf z$ for $\\mathbf y=(4,0,2)$.",
+        "solution": "Ortogonal basis, begge $\\langle\\mathbf v_i,\\mathbf v_i\\rangle=2$. Koeffisienter: $\\frac{4+0}{2}=2$ og $\\frac{4-0}{2}=2$. Så\n$$\\hat{\\mathbf y}=2(1,1,0)+2(1,-1,0)=(4,0,0),\\qquad \\mathbf z=(4,0,2)-(4,0,0)=(0,0,2).$$\nKontroll: $\\mathbf z=(0,0,2)$ er ortogonal på begge basisvektorene ✓.",
+        "hints": [
+          "Basisen er allerede ortogonal — bruk projeksjonsformelen ledd for ledd.",
+          "$\\hat{\\mathbf y}=\\operatorname{proj}_W\\mathbf y$, og $\\mathbf z=\\mathbf y-\\hat{\\mathbf y}$."
+        ]
+      }
+    },
+    {
+      "id": "tma4110-6-3-lokke3",
+      "type": "text",
+      "content": "## Løkke 3 — Beste tilnærming og avstand (~9 min)"
+    },
+    {
+      "id": "tma4110-6-3-thm-beste",
+      "type": "theorem",
+      "title": "Beste tilnærmingssetning",
+      "content": "For et underrom $W$ og en vektor $\\mathbf y$ er $\\hat{\\mathbf y}=\\operatorname{proj}_W\\mathbf y$ det punktet i $W$ som ligger **nærmest** $\\mathbf y$:\n$$\\|\\mathbf y-\\hat{\\mathbf y}\\|<\\|\\mathbf y-\\mathbf w\\|\\quad\\text{for alle }\\mathbf w\\in W,\\ \\mathbf w\\ne\\hat{\\mathbf y}.$$\n*Hvorfor:* for ethvert $\\mathbf w\\in W$ er $\\mathbf y-\\mathbf w=(\\mathbf y-\\hat{\\mathbf y})+(\\hat{\\mathbf y}-\\mathbf w)$, der $\\mathbf y-\\hat{\\mathbf y}=\\mathbf z\\in W^{\\perp}$ og $\\hat{\\mathbf y}-\\mathbf w\\in W$ er ortogonale. Pytagoras gir $\\|\\mathbf y-\\mathbf w\\|^2=\\|\\mathbf z\\|^2+\\|\\hat{\\mathbf y}-\\mathbf w\\|^2\\ge\\|\\mathbf z\\|^2$, med likhet bare når $\\mathbf w=\\hat{\\mathbf y}$."
+    },
+    {
+      "id": "tma4110-6-3-def-avstand-underrom",
+      "type": "definition",
+      "title": "Avstand fra punkt til underrom",
+      "content": "Avstanden fra $\\mathbf y$ til underrommet $W$ er lengden av feilvektoren:\n$$\\operatorname{dist}(\\mathbf y,W)=\\|\\mathbf y-\\operatorname{proj}_W\\mathbf y\\|=\\|\\mathbf z\\|.$$\nDet er den korteste avstanden fra $\\mathbf y$ til noe punkt i $W$ (nettopp fordi $\\hat{\\mathbf y}$ er nærmest). Glem aldri kvadratrota: avstanden er $\\|\\mathbf z\\|$, ikke $\\|\\mathbf z\\|^2$."
+    },
+    {
+      "id": "tma4110-6-3-ex3",
+      "type": "example",
+      "title": "Eksempel 3: Avstand til underrommet",
+      "problem": "Bruk dekomposisjonen fra eksempel 2 ($\\mathbf y=(2,3,4)$, $W=\\operatorname{Span}\\{(1,1,0),(1,-1,0)\\}$) til å finne avstanden fra $\\mathbf y$ til $W$.",
+      "solution": "Der fant vi $\\mathbf z=(0,0,4)$, så\n$$\\operatorname{dist}(\\mathbf y,W)=\\|\\mathbf z\\|=\\|(0,0,4)\\|=\\sqrt{0+0+16}=4.$$\n$W$ er $xy$-planet, og $\\mathbf y=(2,3,4)$ ligger $4$ enheter over det — helt som geometrien tilsier. Ethvert *annet* punkt i $W$ ville ligget lengre unna $\\mathbf y$ (beste tilnærmingssetningen)."
+    },
+    {
+      "id": "tma4110-6-3-e3",
+      "type": "exercise",
+      "exercise": {
+        "id": "tma4110-6-3-e3",
+        "number": "3",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "(Sjanger H.) La $W=\\operatorname{Span}\\{(2,1)\\}$ i $\\mathbb R^2$. Finn dekomposisjonen $\\mathbf y=\\hat{\\mathbf y}+\\mathbf z$ for $\\mathbf y=(4,3)$, og avstanden fra $\\mathbf y$ til $W$.",
+        "solution": "$\\langle\\mathbf y,\\mathbf v\\rangle=4\\cdot2+3\\cdot1=11$, $\\langle\\mathbf v,\\mathbf v\\rangle=4+1=5$, så\n$$\\hat{\\mathbf y}=\\frac{11}{5}(2,1)=\\left(\\tfrac{22}{5},\\tfrac{11}{5}\\right),\\qquad \\mathbf z=\\left(4-\\tfrac{22}{5},\\ 3-\\tfrac{11}{5}\\right)=\\left(-\\tfrac25,\\tfrac45\\right).$$\nAvstand: $\\|\\mathbf z\\|=\\sqrt{\\tfrac{4}{25}+\\tfrac{16}{25}}=\\sqrt{\\tfrac{20}{25}}=\\dfrac{2\\sqrt5}{5}.$ Kontroll: $\\langle\\mathbf z,\\mathbf v\\rangle=-\\tfrac45+\\tfrac45=0$ ✓.",
+        "hints": [
+          "$W$ er en linje — bruk projeksjonsformelen på $\\mathbf v=(2,1)$.",
+          "$\\mathbf z=\\mathbf y-\\hat{\\mathbf y}$, og avstanden er $\\|\\mathbf z\\|$ (husk kvadratrota)."
+        ]
+      }
+    },
+    {
+      "id": "tma4110-6-3-lokke4",
+      "type": "text",
+      "content": "## Løkke 4 — Ortogonalt komplement (~11 min)"
+    },
+    {
+      "id": "tma4110-6-3-def-komplement",
+      "type": "definition",
+      "title": "Ortogonalt komplement",
+      "content": "Det **ortogonale komplementet** $W^{\\perp}$ («W-perp») til et underrom $W$ er mengden av alle vektorer som er ortogonale på *hele* $W$:\n$$W^{\\perp}=\\{\\mathbf z:\\ \\langle\\mathbf z,\\mathbf w\\rangle=0\\text{ for alle }\\mathbf w\\in W\\}.$$\nDet holder å sjekke ortogonalitet mot en basis for $W$. $W^{\\perp}$ er selv et underrom, og $\\mathbf z$-delen i dekomposisjonen ligger nettopp her."
+    },
+    {
+      "id": "tma4110-6-3-def-dim",
+      "type": "definition",
+      "title": "Dimensjonsformelen for komplement",
+      "content": "For et underrom $W$ av $\\mathbb R^n$ gjelder\n$$\\dim W+\\dim W^{\\perp}=n.$$\nDe to komplementene fyller sammen hele rommet uten overlapp ($W\\cap W^{\\perp}=\\{\\mathbf 0\\}$). F.eks. har en linje ($\\dim1$) i $\\mathbb R^3$ et plan ($\\dim2$) som komplement."
+    },
+    {
+      "id": "tma4110-6-3-def-colA-perp",
+      "type": "definition",
+      "title": "$(\\operatorname{Col}A)^{\\perp}=\\operatorname{Nul}A^{T}$",
+      "content": "En sentral sammenheng: det ortogonale komplementet til kolonnerommet er nullrommet til den transponerte,\n$$(\\operatorname{Col}A)^{\\perp}=\\operatorname{Nul}A^{T}.$$\n*Hvorfor:* $\\mathbf z\\perp\\operatorname{Col}A$ betyr at $\\mathbf z$ er ortogonal på hver kolonne i $A$, altså $A^{T}\\mathbf z=\\mathbf 0$. Denne identiteten er selve broen til normallikningene i minste kvadraters metode."
+    },
+    {
+      "id": "tma4110-6-3-ex4",
+      "type": "example",
+      "title": "Eksempel 4: Ortogonalt komplement til en linje",
+      "problem": "Finn $W^{\\perp}$ når $W=\\operatorname{Span}\\{(1,1,1)\\}$ i $\\mathbb R^3$, og bekreft dimensjonsformelen.",
+      "solution": "$W^{\\perp}$ er alle $(x,y,z)$ med $\\langle(x,y,z),(1,1,1)\\rangle=0$, altså planet\n$$x+y+z=0.$$\nDette er et $2$-dimensjonalt underrom med basis f.eks. $\\{(1,-1,0),(1,0,-1)\\}$ (begge oppfyller likningen). Dimensjonsformelen: $\\dim W+\\dim W^{\\perp}=1+2=3=n$ ✓."
+    },
+    {
+      "id": "tma4110-6-3-e4",
+      "type": "exercise",
+      "exercise": {
+        "id": "tma4110-6-3-e4",
+        "number": "4",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "(Sjanger H.) Finn en basis for $W^{\\perp}$ når $W=\\operatorname{Span}\\{(1,0,1)\\}$ i $\\mathbb R^3$, og oppgi $\\dim W^{\\perp}$.",
+        "solution": "$W^{\\perp}$ er alle $(x,y,z)$ med $\\langle(x,y,z),(1,0,1)\\rangle=x+z=0$, dvs. $z=-x$ ($y$ fri). Generell vektor: $(x,y,-x)=x(1,0,-1)+y(0,1,0)$. En basis er $\\{(1,0,-1),(0,1,0)\\}$, så $\\dim W^{\\perp}=2$ (og $1+2=3$ ✓).",
+        "hints": [
+          "$W^{\\perp}$ er løsningene av $\\langle(x,y,z),(1,0,1)\\rangle=0$ — én likning.",
+          "Skriv løsningsmengden på parameterform og les av basisvektorene."
+        ]
+      }
+    },
+    {
+      "id": "tma4110-6-3-lokke5",
+      "type": "text",
+      "content": "## Løkke 5 — Kjedet oppgave: ortogonaliser først (~13 min)"
+    },
+    {
+      "id": "tma4110-6-3-intro-kjedet",
+      "type": "text",
+      "content": "På eksamen er $W$ ofte oppgitt med en basis som *ikke* er ortogonal. Da må du kjøre Gram–Schmidt ([kap. 6.2](/bok/tma4110/tma4110-6-2)) **før** du bruker projeksjonsformelen — å hoppe over dette er den vanligste feilen. Den ortogonale projeksjonen $\\operatorname{proj}_W\\mathbf y$ er den samme uansett hvilken ortogonal basis du bruker for $W$."
+    },
+    {
+      "id": "tma4110-6-3-ex5",
+      "type": "example",
+      "title": "Eksempel 5 (eksamensnivå): Gram–Schmidt så projeksjon",
+      "problem": "La $W=\\operatorname{Span}\\{(1,1,1),(1,2,0)\\}$. Finn $\\operatorname{proj}_W\\mathbf y$ og avstanden fra $\\mathbf y=(2,0,0)$ til $W$.",
+      "solution": "**Sjekk basis:** $\\langle(1,1,1),(1,2,0)\\rangle=1+2+0=3\\ne0$ — basisen er *ikke* ortogonal. Kjør Gram–Schmidt:\n$$\\mathbf v_1=(1,1,1),\\quad \\mathbf v_2=(1,2,0)-\\tfrac33(1,1,1)=(0,1,-1).$$\nNå er $\\{\\mathbf v_1,\\mathbf v_2\\}$ ortogonal ($\\langle\\mathbf v_1,\\mathbf v_2\\rangle=0$), med $\\langle\\mathbf v_1,\\mathbf v_1\\rangle=3$, $\\langle\\mathbf v_2,\\mathbf v_2\\rangle=2$.\n\n**Projiser:** $\\langle\\mathbf y,\\mathbf v_1\\rangle=2+0+0=2$ og $\\langle\\mathbf y,\\mathbf v_2\\rangle=0+0-0=0$, så\n$$\\operatorname{proj}_W\\mathbf y=\\tfrac23(1,1,1)+\\tfrac02(0,1,-1)=\\left(\\tfrac23,\\tfrac23,\\tfrac23\\right).$$\n**Avstand:** $\\mathbf z=(2,0,0)-\\left(\\tfrac23,\\tfrac23,\\tfrac23\\right)=\\left(\\tfrac43,-\\tfrac23,-\\tfrac23\\right)$, så\n$$\\|\\mathbf z\\|=\\sqrt{\\tfrac{16}{9}+\\tfrac49+\\tfrac49}=\\sqrt{\\tfrac{24}{9}}=\\frac{2\\sqrt6}{3}.$$\nKontroll: $\\langle\\mathbf z,\\mathbf v_1\\rangle=\\tfrac43-\\tfrac23-\\tfrac23=0$ og $\\langle\\mathbf z,\\mathbf v_2\\rangle=-\\tfrac23+\\tfrac23=0$ ✓."
+    },
+    {
+      "id": "tma4110-6-3-e5",
+      "type": "exercise",
+      "exercise": {
+        "id": "tma4110-6-3-e5",
+        "number": "5",
+        "type": "classic",
+        "difficulty": "vanskelig",
+        "task": "(Eksamensklone, sjanger H.) La $W=\\operatorname{Span}\\{(1,2,2),(2,-2,1)\\}$. Finn $\\operatorname{proj}_W(1,0,0)$ og avstanden fra $(1,0,0)$ til $W$.",
+        "solution": "**Sjekk basis:** $\\langle(1,2,2),(2,-2,1)\\rangle=2-4+2=0$ — basisen er allerede ortogonal, ingen Gram–Schmidt nødvendig. Normkvadrater: $\\langle(1,2,2),(1,2,2)\\rangle=9$, $\\langle(2,-2,1),(2,-2,1)\\rangle=9$.\n\n**Projiser** $\\mathbf y=(1,0,0)$: $\\langle\\mathbf y,\\mathbf v_1\\rangle=1$, $\\langle\\mathbf y,\\mathbf v_2\\rangle=2$, så\n$$\\operatorname{proj}_W\\mathbf y=\\tfrac19(1,2,2)+\\tfrac29(2,-2,1)=\\left(\\tfrac{1+4}{9},\\tfrac{2-4}{9},\\tfrac{2+2}{9}\\right)=\\left(\\tfrac59,-\\tfrac29,\\tfrac49\\right).$$\n**Avstand:** $\\mathbf z=(1,0,0)-\\left(\\tfrac59,-\\tfrac29,\\tfrac49\\right)=\\left(\\tfrac49,\\tfrac29,-\\tfrac49\\right)$, så\n$$\\|\\mathbf z\\|=\\sqrt{\\tfrac{16+4+16}{81}}=\\sqrt{\\tfrac{36}{81}}=\\sqrt{\\tfrac49}=\\frac23.$$\nKontroll: $\\langle\\mathbf z,\\mathbf v_1\\rangle=\\tfrac49+\\tfrac49-\\tfrac89=0$ ✓.",
+        "hints": [
+          "Sjekk *først* om basisen er ortogonal ($\\langle\\mathbf v_1,\\mathbf v_2\\rangle=0$?) — her er den, så du slipper Gram–Schmidt.",
+          "Bruk projeksjonsformelen $\\operatorname{proj}_W\\mathbf y=\\sum\\frac{\\langle\\mathbf y,\\mathbf v_i\\rangle}{\\langle\\mathbf v_i,\\mathbf v_i\\rangle}\\mathbf v_i$.",
+          "Avstanden er $\\|\\mathbf y-\\operatorname{proj}_W\\mathbf y\\|$."
+        ]
+      }
+    },
+    {
+      "id": "tma4110-6-3-e6",
+      "type": "exercise",
+      "exercise": {
+        "id": "tma4110-6-3-e6",
+        "number": "6",
+        "type": "classic",
+        "difficulty": "vanskelig",
+        "task": "(Eksamensklone, sjanger H/N.) La $A$ ha kolonnene $(1,1,0)$ og $(0,1,1)$. Finn en basis for $(\\operatorname{Col}A)^{\\perp}$, og bekreft at den er ortogonal på begge kolonnene.",
+        "solution": "Bruk $(\\operatorname{Col}A)^{\\perp}=\\operatorname{Nul}A^{T}$. Her er $A^{T}=\\begin{bmatrix}1&1&0\\\\0&1&1\\end{bmatrix}$, og $\\operatorname{Nul}A^{T}$ løser\n$$x_1+x_2=0,\\qquad x_2+x_3=0.$$\nMed $x_2=t$ fri: $x_1=-t$, $x_3=-t$, så $\\mathbf z=t(-1,1,-1)$. En basis for $(\\operatorname{Col}A)^{\\perp}$ er $\\{(-1,1,-1)\\}$ (eller $(1,-1,1)$). Kontroll: $\\langle(1,-1,1),(1,1,0)\\rangle=1-1+0=0$ og $\\langle(1,-1,1),(0,1,1)\\rangle=0-1+1=0$ ✓. Siden $\\dim\\operatorname{Col}A=2$, er $\\dim(\\operatorname{Col}A)^{\\perp}=3-2=1$ ✓.",
+        "hints": [
+          "Bruk identiteten $(\\operatorname{Col}A)^{\\perp}=\\operatorname{Nul}A^{T}$ — sett opp $A^{T}\\mathbf z=\\mathbf 0$.",
+          "Radreduser $A^{T}$ og løs det homogene systemet på parameterform.",
+          "Sjekk til slutt at basisvektoren er ortogonal på begge kolonnene i $A$."
+        ]
+      }
+    },
+    {
+      "id": "tma4110-6-3-warn",
+      "type": "warning",
+      "title": "Typiske feil",
+      "content": "- **Bruker projeksjonsformelen uten ortogonal basis** — formelen $\\operatorname{proj}_W\\mathbf y=\\sum\\frac{\\langle\\mathbf y,\\mathbf v_i\\rangle}{\\langle\\mathbf v_i,\\mathbf v_i\\rangle}\\mathbf v_i$ gjelder *kun* når $\\{\\mathbf v_i\\}$ er ortogonal. Sjekk alltid, og kjør Gram–Schmidt først hvis ikke.\n- **Glemmer å dele på $\\langle\\mathbf v_i,\\mathbf v_i\\rangle$** — nevneren er normkvadratet, ikke $1$ (med mindre basisen er ortonormal).\n- **Glemmer kvadratrota i avstanden** — $\\operatorname{dist}(\\mathbf y,W)=\\|\\mathbf z\\|$, ikke $\\|\\mathbf z\\|^2$.\n- **Forveksler $\\hat{\\mathbf y}$ og $\\mathbf z$** — $\\hat{\\mathbf y}=\\operatorname{proj}_W\\mathbf y\\in W$ er komponenten *i* $W$; $\\mathbf z=\\mathbf y-\\hat{\\mathbf y}\\in W^{\\perp}$ er den vinkelrette resten.\n- **Sjekker ortogonalt komplement mot bare én vektor når $W$ har flere basisvektorer** — $\\mathbf z\\in W^{\\perp}$ må være ortogonal på *alle* basisvektorene for $W$.\n- **Glemmer at $\\operatorname{proj}_W\\mathbf y$ er uavhengig av valgt ortogonal basis** — to ulike ortogonale basiser for samme $W$ gir samme projeksjon; bruk ikke det som «kontroll» på at noe er galt."
+    },
+    {
+      "id": "tma4110-6-3-begrepsbank",
+      "type": "text",
+      "content": "## Begrepsbank til eksamen\n\nKjernebegrepene fra kapitlet samlet i kortform for pugging (kode E — intet formelark).\n\n*Begrepsbanken er flashcard-/repetisjonsstoff — det gjentar det du nettopp har lest. Hopp trygt over ved førstegangslesing; tidsanslaget for kapitlet gjelder kjernestoffet.*"
+    },
+    {
+      "id": "tma4110-6-3-bb-yhat-z",
+      "type": "definition",
+      "title": "$\\hat{\\mathbf y}\\in W$, $\\mathbf z\\in W^{\\perp}$",
+      "content": "I dekomposisjonen $\\mathbf y=\\hat{\\mathbf y}+\\mathbf z$ ligger $\\hat{\\mathbf y}=\\operatorname{proj}_W\\mathbf y$ i $W$ og $\\mathbf z=\\mathbf y-\\hat{\\mathbf y}$ i $W^{\\perp}$. Én kontroll som alltid virker: $\\mathbf z$ skal være ortogonal på hver basisvektor for $W$."
+    },
+    {
+      "id": "tma4110-6-3-bb-entydig",
+      "type": "definition",
+      "title": "Entydig dekomposisjon",
+      "content": "Splittingen $\\mathbf y=\\hat{\\mathbf y}+\\mathbf z$ med $\\hat{\\mathbf y}\\in W$, $\\mathbf z\\in W^{\\perp}$ er entydig — det finnes bare én slik oppdeling. Dette gjør projeksjonen veldefinert, uavhengig av hvilken ortogonal basis du regner med."
+    },
+    {
+      "id": "tma4110-6-3-bb-perp-underrom",
+      "type": "definition",
+      "title": "$W^{\\perp}$ er et underrom",
+      "content": "Det ortogonale komplementet $W^{\\perp}$ er selv et underrom: det inneholder $\\mathbf 0$, og er lukket under addisjon og skalering (summen av to vektorer ortogonale på $W$ er igjen ortogonal på $W$)."
+    },
+    {
+      "id": "tma4110-6-3-bb-perp-perp",
+      "type": "definition",
+      "title": "$(W^{\\perp})^{\\perp}=W$",
+      "content": "Å ta komplementet to ganger gir rommet tilbake: $(W^{\\perp})^{\\perp}=W$. $W$ og $W^{\\perp}$ er gjensidige komplementer i $\\mathbb R^n$."
+    },
+    {
+      "id": "tma4110-6-3-bb-snitt-null",
+      "type": "definition",
+      "title": "$W\\cap W^{\\perp}=\\{\\mathbf 0\\}$",
+      "content": "Den eneste vektoren som ligger både i $W$ og i $W^{\\perp}$ er nullvektoren: en vektor ortogonal på seg selv har $\\langle\\mathbf v,\\mathbf v\\rangle=0$, altså $\\mathbf v=\\mathbf 0$. Derfor overlapper de to komplementene ikke."
+    },
+    {
+      "id": "tma4110-6-3-bb-krever-ortogonal",
+      "type": "definition",
+      "title": "Projeksjon krever ortogonal basis",
+      "content": "Projeksjonsformelen $\\sum\\frac{\\langle\\mathbf y,\\mathbf v_i\\rangle}{\\langle\\mathbf v_i,\\mathbf v_i\\rangle}\\mathbf v_i$ er *bare* gyldig for en ortogonal basis. Er basisen skjev, gir formelen feil svar — ortogonaliser med Gram–Schmidt først."
+    },
+    {
+      "id": "tma4110-6-3-bb-idempotent",
+      "type": "definition",
+      "title": "Projeksjon er lineær og idempotent",
+      "content": "Avbildningen $\\mathbf y\\mapsto\\operatorname{proj}_W\\mathbf y$ er lineær, og å projisere to ganger endrer ingenting: $\\operatorname{proj}_W(\\operatorname{proj}_W\\mathbf y)=\\operatorname{proj}_W\\mathbf y$. Som matrise $P$ betyr det $P^2=P$ (idempotent)."
+    },
+    {
+      "id": "tma4110-6-3-bb-i-W",
+      "type": "definition",
+      "title": "Projeksjon av noe som allerede ligger i $W$",
+      "content": "Hvis $\\mathbf y\\in W$, er $\\operatorname{proj}_W\\mathbf y=\\mathbf y$ (avstanden er $0$). Hvis $\\mathbf y\\in W^{\\perp}$, er $\\operatorname{proj}_W\\mathbf y=\\mathbf 0$. Projeksjonen «plukker ut» $W$-delen av vektoren."
+    },
+    {
+      "id": "tma4110-6-3-bb-feilvektor",
+      "type": "definition",
+      "title": "Feilvektoren $\\mathbf z$",
+      "content": "$\\mathbf z=\\mathbf y-\\operatorname{proj}_W\\mathbf y$ kalles feil- eller residualvektoren. Den står vinkelrett på hele $W$ og har lengde lik avstanden fra $\\mathbf y$ til $W$. I minste kvadrater er den residualet som minimeres."
+    },
+    {
+      "id": "tma4110-6-3-bb-avstand",
+      "type": "definition",
+      "title": "Avstand = lengden av feilvektoren",
+      "content": "$\\operatorname{dist}(\\mathbf y,W)=\\|\\mathbf z\\|=\\|\\mathbf y-\\operatorname{proj}_W\\mathbf y\\|$. Dette er den *korteste* avstanden fra $\\mathbf y$ til $W$ (beste tilnærmingssetningen) — ethvert annet punkt i $W$ ligger lengre unna."
+    },
+    {
+      "id": "tma4110-6-3-bb-rowA-perp",
+      "type": "definition",
+      "title": "$(\\operatorname{Row}A)^{\\perp}=\\operatorname{Nul}A$",
+      "content": "Sammen med $(\\operatorname{Col}A)^{\\perp}=\\operatorname{Nul}A^{T}$ har vi at radrommet og nullrommet er ortogonale komplementer: $(\\operatorname{Row}A)^{\\perp}=\\operatorname{Nul}A$. Løsningene av $A\\mathbf x=\\mathbf 0$ står vinkelrett på alle radene i $A$."
+    },
+    {
+      "id": "tma4110-6-3-bb-projmatrise",
+      "type": "definition",
+      "title": "Projeksjonsmatrise (ortonormal basis)",
+      "content": "Har $W$ en ortonormal basis samlet som kolonner i $U$, er $\\operatorname{proj}_W\\mathbf y=UU^{T}\\mathbf y$. Matrisen $P=UU^{T}$ er symmetrisk og idempotent. (Kjennskap — praktisk når basisen allerede er ortonormal.)"
+    },
+    {
+      "id": "tma4110-6-3-bb-skalar-vektor",
+      "type": "definition",
+      "title": "Skalar- vs. vektorprojeksjon",
+      "content": "$\\frac{\\langle\\mathbf y,\\mathbf v\\rangle}{\\|\\mathbf v\\|}$ er **skalarprojeksjonen** (et tall — komponenten langs $\\mathbf v$), mens $\\frac{\\langle\\mathbf y,\\mathbf v\\rangle}{\\langle\\mathbf v,\\mathbf v\\rangle}\\mathbf v$ er **vektorprojeksjonen** (selve skyggevektoren). Ikke bland de to nevnerne $\\|\\mathbf v\\|$ og $\\langle\\mathbf v,\\mathbf v\\rangle$."
+    },
+    {
+      "id": "tma4110-6-3-bb-ortonormal-proj",
+      "type": "definition",
+      "title": "Projeksjon med ortonormal basis",
+      "content": "Er basisen ortonormal ($\\langle\\mathbf u_i,\\mathbf u_i\\rangle=1$), forenkles formelen til $\\operatorname{proj}_W\\mathbf y=\\sum_i\\langle\\mathbf y,\\mathbf u_i\\rangle\\,\\mathbf u_i$ — ingen nevnere. Derfor lønner det seg noen ganger å normalisere først."
+    },
+    {
+      "id": "tma4110-6-3-bb-beste",
+      "type": "definition",
+      "title": "Beste tilnærming",
+      "content": "$\\operatorname{proj}_W\\mathbf y$ er punktet i $W$ som minimerer avstanden til $\\mathbf y$. Denne minimeringsegenskapen er hele grunnen til at projeksjon brukes til å «løse» ligningssystem som egentlig ikke har løsning."
+    },
+    {
+      "id": "tma4110-6-3-bb-finn-perp",
+      "type": "definition",
+      "title": "Slik finner du $W^{\\perp}$",
+      "content": "Skriv basisvektorene for $W$ som *rader* i en matrise $B$ og løs det homogene systemet $B\\mathbf z=\\mathbf 0$: løsningsrommet er $W^{\\perp}$. Det er nettopp $\\operatorname{Nul}B$, og siden radene utspenner $W$ blir $(\\operatorname{Row}B)^{\\perp}=\\operatorname{Nul}B=W^{\\perp}$."
+    },
+    {
+      "id": "tma4110-6-3-bb-bro-mk",
+      "type": "definition",
+      "title": "Bro til minste kvadrater",
+      "content": "Når $A\\mathbf x=\\mathbf b$ ikke har løsning (overbestemt), er det beste vi kan gjøre å projisere $\\mathbf b$ ned på $\\operatorname{Col}A$: den nærmeste oppnåelige høyresiden er $\\hat{\\mathbf b}=\\operatorname{proj}_{\\operatorname{Col}A}\\mathbf b$, og $A\\hat{\\mathbf x}=\\hat{\\mathbf b}$. Nettopp dette leder til normallikningene i minste kvadraters metode (neste kapittel)."
+    },
+    {
+      "id": "tma4110-6-3-rep",
+      "type": "collapsible",
+      "title": "Repetisjonsoppgaver",
+      "buttonText": "Vis repetisjonsoppgaver",
+      "content": [
+        {
+          "id": "tma4110-6-3-rep-1",
+          "type": "exercise",
+          "exercise": {
+            "id": "tma4110-6-3-rep-1",
+            "number": "R1",
+            "type": "classic",
+            "difficulty": "lett",
+            "task": "(Fra [kap. 6.2](/bok/tma4110/tma4110-6-2)) Er $\\{(1,1,0),(1,-1,0)\\}$ en ortogonal mengde?",
+            "solution": "$\\langle(1,1,0),(1,-1,0)\\rangle=1-1+0=0$, så **ja**, den er ortogonal.",
+            "hints": [
+              "Regn prikkproduktet av de to vektorene."
+            ]
+          }
+        },
+        {
+          "id": "tma4110-6-3-rep-2",
+          "type": "exercise",
+          "exercise": {
+            "id": "tma4110-6-3-rep-2",
+            "number": "R2",
+            "type": "classic",
+            "difficulty": "middels",
+            "task": "(Fra [kap. 6.2](/bok/tma4110/tma4110-6-2)) Gram–Schmidt på $\\{(1,0),(1,1)\\}$.",
+            "solution": "$\\mathbf v_1=(1,0)$, $\\langle\\mathbf v_1,\\mathbf v_1\\rangle=1$. $\\langle(1,1),\\mathbf v_1\\rangle=1$, så $\\mathbf v_2=(1,1)-\\tfrac11(1,0)=(0,1)$. Ortogonal basis: $\\{(1,0),(0,1)\\}$.",
+            "hints": [
+              "$\\mathbf v_2=\\mathbf a_2-\\frac{\\langle\\mathbf a_2,\\mathbf v_1\\rangle}{\\langle\\mathbf v_1,\\mathbf v_1\\rangle}\\mathbf v_1$."
+            ]
+          }
+        },
+        {
+          "id": "tma4110-6-3-rep-3",
+          "type": "exercise",
+          "exercise": {
+            "id": "tma4110-6-3-rep-3",
+            "number": "R3",
+            "type": "classic",
+            "difficulty": "lett",
+            "task": "(Fra [kap. 6.1](/bok/tma4110/tma4110-6-1)) Regn ut avstanden mellom $(1,2,2)$ og $(1,2,-2)$.",
+            "solution": "Differansen er $(0,0,4)$, så avstanden er $\\|(0,0,4)\\|=\\sqrt{16}=4.$",
+            "hints": [
+              "Avstand $=\\|\\mathbf u-\\mathbf v\\|$."
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": "tma4110-6-3-symbolliste",
+      "type": "collapsible",
+      "title": "Symbol- og formelliste",
+      "buttonText": "Vis symboler og formler",
+      "content": [
+        {
+          "id": "tma4110-6-3-symbolliste-text",
+          "type": "text",
+          "content": "## Symbol- og formelliste\n\n*Oppslagsverk — alt her forklares underveis i kapitlet.*\n\nAlle symboler og skrivemåter i dette delkapitlet (6.3), samlet.\n\n| Symbol | Betydning |\n|---|---|\n| $\\operatorname{proj}_W\\mathbf y$ | Ortogonal projeksjon av $\\mathbf y$ på underrommet $W$ |\n| $\\hat{\\mathbf y}$ | $=\\operatorname{proj}_W\\mathbf y$, komponenten i $W$ |\n| $\\mathbf z$ | Feilvektoren $\\mathbf y-\\hat{\\mathbf y}\\in W^{\\perp}$ |\n| $W^{\\perp}$ | Ortogonalt komplement til $W$ |\n| $\\operatorname{dist}(\\mathbf y,W)$ | Avstand fra $\\mathbf y$ til $W$ |\n| $\\operatorname{Col}A,\\ \\operatorname{Nul}A^{T}$ | Kolonnerom / nullrom til transponert |\n| $P=UU^{T}$ | Projeksjonsmatrise (ortonormal basis) |\n\n**Formler i dette delkapitlet:**\n\n$$\\operatorname{proj}_{\\mathbf v}\\mathbf y=\\frac{\\langle\\mathbf y,\\mathbf v\\rangle}{\\langle\\mathbf v,\\mathbf v\\rangle}\\mathbf v\\qquad(\\text{projeksjon på en linje})$$\n\n$$\\operatorname{proj}_W\\mathbf y=\\sum_{i=1}^{k}\\frac{\\langle\\mathbf y,\\mathbf v_i\\rangle}{\\langle\\mathbf v_i,\\mathbf v_i\\rangle}\\mathbf v_i\\qquad(\\text{ortogonal basis }\\{\\mathbf v_i\\})$$\n\n$$\\mathbf y=\\hat{\\mathbf y}+\\mathbf z,\\quad \\hat{\\mathbf y}\\in W,\\ \\mathbf z\\in W^{\\perp}\\qquad(\\text{ortogonal dekomposisjon})$$\n\n$$\\operatorname{dist}(\\mathbf y,W)=\\|\\mathbf z\\|=\\|\\mathbf y-\\operatorname{proj}_W\\mathbf y\\|$$\n\n$$\\dim W+\\dim W^{\\perp}=n,\\qquad (\\operatorname{Col}A)^{\\perp}=\\operatorname{Nul}A^{T}$$\n\n**Huskeregel:** sjekk at basisen er ortogonal *før* du bruker projeksjonsformelen; ellers Gram–Schmidt først. Avstanden er lengden av $\\mathbf z$ — med kvadratrot."
+        }
+      ]
+    }
+  ],
+  "exercises": []
+}

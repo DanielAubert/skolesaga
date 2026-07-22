@@ -1,0 +1,422 @@
+{
+  "id": "tma4110-6-1",
+  "courseId": "tma4110",
+  "chapterNumber": "6.1",
+  "title": "Indreprodukt, norm og ortogonalitet",
+  "description": "Prikkproduktet i ℝⁿ og indreprodukt som abstrakt begrep, norm, avstand, ortogonalitet og de nyttige ulikhetene — grunnlaget for Gram–Schmidt og projeksjon, med en advarsel om ikke-standard indreprodukt.",
+  "estimatedMinutes": 55,
+  "competenceGoals": [
+    "regne prikkprodukt, norm, avstand og vinkel i ℝⁿ, og avgjøre om to vektorer er ortogonale",
+    "bruke et oppgitt indreprodukt (standard, vektet eller integral på polynomrom) i stedet for en standardrefleks",
+    "anvende Pytagoras' setning, Cauchy–Schwarz og trekantulikheten på indreproduktrom"
+  ],
+  "content": [
+    {
+      "id": "tma4110-6-1-tip-eksamensvinkel",
+      "type": "tip",
+      "title": "Eksamensvinkel",
+      "content": "**Indreprodukt og ortogonalitet er grunnmuren under 80 %-søylen (sjanger H: Gram–Schmidt og projeksjon).**\n\n- Selve indreprodukt-oppgavene er sjelden hele hovedoppgaven, men *hvert* Gram–Schmidt- og projeksjonsoppgave (~80 % av settene) hviler på at du regner prikkprodukt, normer og ortogonalitet riktig. Dette kapitlet er verktøykassen.\n- **Sensor forventer at du bruker det oppgitte indreproduktet.** Er indreproduktet et integral $\\int_a^b p q\\,dt$ eller et vektet $\\sum w_i x_i y_i$, teller *ikke* det vanlige prikkproduktet — dette er en dokumentert felle.\n\nSjanger H betyr *indreprodukt / ortogonalitet / Gram–Schmidt / projeksjon* — bokstaven er bare en etikett fra sjangerkatalogen i [kap. 0.1](/bok/tma4110/tma4110-0-1). Under **kode E** (ingen hjelpemidler — se [kap. 0.1](/bok/tma4110/tma4110-0-1)) må normformelen, ortogonalitetsbetingelsen og Pytagoras sitte utenat. Tidsbudsjettet under er lesetid; gang med ca. 1,5 når du regner for hånd."
+    },
+    {
+      "id": "tma4110-6-1-forkunnskaper",
+      "type": "text",
+      "content": "**Forkunnskaper:** Dette kapitlet bygger på lineær uavhengighet, span og basis fra [kap. 3.2](/bok/tma4110/tma4110-3-2) (vi ortogonaliserer basiser senere) og på prikkproduktet fra VGS, [Skalarproduktet](/bok/r2/r2-5-3). Møter du et **integral-indreprodukt** på polynomer, trenger du bestemt integral fra [Ubestemt integral](/bok/r2/r2-2-2) og litt integrasjon. Kan du regne $\\mathbf u\\cdot\\mathbf v=\\sum u_iv_i$ og integrere et polynom, er du klar."
+    },
+    {
+      "id": "tma4110-6-1-motivasjon",
+      "type": "text",
+      "content": "## Hvorfor et indreprodukt?\n\nI $\\mathbb R^2$ og $\\mathbb R^3$ har vi et **prikkprodukt** som måler *lengde*, *avstand* og *vinkel* — geometrien i rommet. Et **indreprodukt** er den samme idéen løftet til et hvilket som helst vektorrom: en regel som tar to vektorer og gir et tall, slik at vi kan snakke om lengde og vinkel også for polynomer og funksjoner.\n\nHele ortogonalitetsdelen (Gram–Schmidt, projeksjon, minste kvadrater) hviler på dette ene begrepet. Vi bygger i fem løkker: (1) prikkproduktet i $\\mathbb R^n$, (2) indreprodukt som abstrakt begrep, (3) norm og avstand, (4) ortogonalitet og Pytagoras, (5) vinkel og de nyttige ulikhetene."
+    },
+    {
+      "id": "tma4110-6-1-lokke1",
+      "type": "text",
+      "content": "## Løkke 1 — Prikkproduktet i $\\mathbb R^n$ (~10 min)"
+    },
+    {
+      "id": "tma4110-6-1-def-prikkprodukt",
+      "type": "definition",
+      "title": "Prikkprodukt i $\\mathbb R^n$",
+      "content": "**Prikkproduktet** (skalarproduktet) av to vektorer $\\mathbf u=(u_1,\\dots,u_n)$ og $\\mathbf v=(v_1,\\dots,v_n)$ er tallet du får ved å gange komponentvis og summere:\n$$\\mathbf u\\cdot\\mathbf v=u_1v_1+u_2v_2+\\dots+u_nv_n=\\sum_{i=1}^n u_iv_i.$$\nResultatet er en **skalar** (et reelt tall), ikke en vektor. Skrevet som matriseprodukt er $\\mathbf u\\cdot\\mathbf v=\\mathbf u^{T}\\mathbf v$."
+    },
+    {
+      "id": "tma4110-6-1-ex1",
+      "type": "example",
+      "title": "Eksempel 1: Prikkprodukt og lengde",
+      "problem": "La $\\mathbf u=(1,2,2)$ og $\\mathbf v=(2,0,1)$. Regn ut $\\mathbf u\\cdot\\mathbf v$ og $\\mathbf u\\cdot\\mathbf u$.",
+      "solution": "Komponentvis: $\\mathbf u\\cdot\\mathbf v=1\\cdot2+2\\cdot0+2\\cdot1=2+0+2=4.$\n\nOg $\\mathbf u\\cdot\\mathbf u=1^2+2^2+2^2=1+4+4=9.$ Legg merke til at $\\mathbf u\\cdot\\mathbf u$ er summen av kvadratene — det blir lengden i annen (neste løkke)."
+    },
+    {
+      "id": "tma4110-6-1-e1",
+      "type": "exercise",
+      "exercise": {
+        "id": "tma4110-6-1-e1",
+        "number": "1",
+        "type": "classic",
+        "difficulty": "lett",
+        "task": "(Innøving.) La $\\mathbf u=(3,-4)$. Regn ut $\\mathbf u\\cdot\\mathbf u$.",
+        "solution": "$\\mathbf u\\cdot\\mathbf u=3^2+(-4)^2=9+16=25.$ (Dette er lengden av $\\mathbf u$ i annen — se løkke 3.)",
+        "hints": [
+          "Gang hver komponent med seg selv og legg sammen.",
+          "$3^2+(-4)^2$."
+        ]
+      }
+    },
+    {
+      "id": "tma4110-6-1-lokke2",
+      "type": "text",
+      "content": "## Løkke 2 — Indreprodukt som abstrakt begrep (~12 min)"
+    },
+    {
+      "id": "tma4110-6-1-def-indreprodukt",
+      "type": "definition",
+      "title": "Indreprodukt (aksiomene)",
+      "content": "Et **indreprodukt** på et reelt vektorrom $V$ er en regel $\\langle\\mathbf u,\\mathbf v\\rangle$ som til to vektorer gir et reelt tall, og som oppfyller tre krav for alle $\\mathbf u,\\mathbf v,\\mathbf w\\in V$ og skalarer $c$:\n\n1. **Symmetri:** $\\langle\\mathbf u,\\mathbf v\\rangle=\\langle\\mathbf v,\\mathbf u\\rangle$.\n2. **Linearitet:** $\\langle c\\mathbf u+\\mathbf w,\\mathbf v\\rangle=c\\langle\\mathbf u,\\mathbf v\\rangle+\\langle\\mathbf w,\\mathbf v\\rangle$.\n3. **Positiv definitthet:** $\\langle\\mathbf v,\\mathbf v\\rangle\\ge0$, med likhet **bare** når $\\mathbf v=\\mathbf 0$.\n\nDet vanlige prikkproduktet er *ett* indreprodukt på $\\mathbb R^n$ — men langt fra det eneste."
+    },
+    {
+      "id": "tma4110-6-1-def-vektet",
+      "type": "definition",
+      "title": "Vektet indreprodukt",
+      "content": "Et **vektet indreprodukt** på $\\mathbb R^n$ vekter komponentene med positive tall $w_1,\\dots,w_n>0$:\n$$\\langle\\mathbf x,\\mathbf y\\rangle=w_1x_1y_1+w_2x_2y_2+\\dots+w_nx_ny_n.$$\nVektene må være **positive** for at aksiom 3 skal holde. Setter du alle $w_i=1$, får du tilbake det vanlige prikkproduktet. Merk: to vektorer kan være ortogonale i det vektede indreproduktet uten å være det i det vanlige."
+    },
+    {
+      "id": "tma4110-6-1-def-integral",
+      "type": "definition",
+      "title": "Integral-indreprodukt på polynomrom",
+      "content": "På polynomrommet $\\operatorname{P}_n$ (eller kontinuerlige funksjoner på $[a,b]$) er\n$$\\langle p,q\\rangle=\\int_a^b p(t)\\,q(t)\\,dt$$\net indreprodukt: symmetrisk, lineært i første argument, og $\\langle p,p\\rangle=\\int_a^b p(t)^2\\,dt\\ge0$ med likhet bare for nullpolynomet. Her betyr «lengde» og «ortogonalitet» noe helt annet enn komponentregning — alt måles med **integralet**. Intervallet $[a,b]$ er en del av indreproduktet: samme polynomer kan være ortogonale på $[-1,1]$ men ikke på $[0,1]$."
+    },
+    {
+      "id": "tma4110-6-1-ex2",
+      "type": "example",
+      "title": "Eksempel 2: Regning i integral-indreproduktet",
+      "problem": "Bruk $\\langle p,q\\rangle=\\int_{-1}^{1}p(t)q(t)\\,dt$ på $\\operatorname{P}_2$. Regn ut $\\langle 1,1\\rangle$, $\\langle 1,t\\rangle$ og $\\langle t,t\\rangle$.",
+      "solution": "Vi setter inn polynomene og integrerer:\n$$\\langle 1,1\\rangle=\\int_{-1}^{1}1\\,dt=\\big[t\\big]_{-1}^{1}=1-(-1)=2.$$\n$$\\langle 1,t\\rangle=\\int_{-1}^{1}t\\,dt=\\Big[\\tfrac{t^2}{2}\\Big]_{-1}^{1}=\\tfrac12-\\tfrac12=0.$$\n$$\\langle t,t\\rangle=\\int_{-1}^{1}t^2\\,dt=\\Big[\\tfrac{t^3}{3}\\Big]_{-1}^{1}=\\tfrac13-\\big(-\\tfrac13\\big)=\\tfrac23.$$\nAt $\\langle 1,t\\rangle=0$ betyr at polynomene $1$ og $t$ er **ortogonale** på $[-1,1]$ — et faktum vi bruker i Gram–Schmidt i [kap. 6.2](/bok/tma4110/tma4110-6-2)."
+    },
+    {
+      "id": "tma4110-6-1-e2",
+      "type": "exercise",
+      "exercise": {
+        "id": "tma4110-6-1-e2",
+        "number": "2",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "(Sjanger H — ikke-standard indreprodukt.) Bruk $\\langle p,q\\rangle=\\int_{0}^{1}p(t)q(t)\\,dt$. Regn ut $\\langle 1,t\\rangle$, og avgjør om $1$ og $t$ er ortogonale på $[0,1]$.",
+        "solution": "$$\\langle 1,t\\rangle=\\int_{0}^{1}t\\,dt=\\Big[\\tfrac{t^2}{2}\\Big]_{0}^{1}=\\tfrac12-0=\\tfrac12\\ne0.$$\nSiden $\\langle 1,t\\rangle=\\tfrac12\\ne0$ er $1$ og $t$ **ikke** ortogonale på $[0,1]$. Sammenlign med eksempel 2: på $[-1,1]$ var de ortogonale. Intervallet er en del av indreproduktet — alltid bruk det oppgitte.",
+        "hints": [
+          "Sett inn i $\\langle p,q\\rangle=\\int_0^1 p(t)q(t)\\,dt$ med $p=1$, $q=t$.",
+          "Ortogonale betyr $\\langle 1,t\\rangle=0$ — sjekk om integralet blir null."
+        ]
+      }
+    },
+    {
+      "id": "tma4110-6-1-lokke3",
+      "type": "text",
+      "content": "## Løkke 3 — Norm og avstand (~10 min)"
+    },
+    {
+      "id": "tma4110-6-1-def-norm",
+      "type": "definition",
+      "title": "Norm (lengde)",
+      "content": "**Normen** (lengden) til en vektor er kvadratrota av indreproduktet med seg selv:\n$$\\|\\mathbf v\\|=\\sqrt{\\langle\\mathbf v,\\mathbf v\\rangle}.$$\nI $\\mathbb R^n$ med prikkprodukt gir det Pythagoras: $\\|\\mathbf v\\|=\\sqrt{v_1^2+\\dots+v_n^2}$. Fordi aksiom 3 sikrer $\\langle\\mathbf v,\\mathbf v\\rangle\\ge0$, er kvadratrota alltid definert, og $\\|\\mathbf v\\|=0$ **bare** når $\\mathbf v=\\mathbf 0$. Merk sammenhengen $\\|\\mathbf v\\|^2=\\langle\\mathbf v,\\mathbf v\\rangle$ — den fjerner kvadratrota i regning."
+    },
+    {
+      "id": "tma4110-6-1-def-enhetsvektor",
+      "type": "definition",
+      "title": "Enhetsvektor og normalisering",
+      "content": "En **enhetsvektor** er en vektor med norm $1$. Enhver vektor $\\mathbf v\\ne\\mathbf 0$ kan **normaliseres** til en enhetsvektor i samme retning ved å dele på lengden:\n$$\\mathbf u=\\frac{1}{\\|\\mathbf v\\|}\\,\\mathbf v,\\qquad \\|\\mathbf u\\|=1.$$\nDette bruker vi når vi lager en *ortonormal* basis i [kap. 6.2](/bok/tma4110/tma4110-6-2)."
+    },
+    {
+      "id": "tma4110-6-1-def-avstand",
+      "type": "definition",
+      "title": "Avstand mellom vektorer",
+      "content": "**Avstanden** mellom $\\mathbf u$ og $\\mathbf v$ er normen til differansen:\n$$\\operatorname{dist}(\\mathbf u,\\mathbf v)=\\|\\mathbf u-\\mathbf v\\|.$$\nDet er den vanlige avstanden i $\\mathbb R^n$, og gir mening i ethvert indreproduktrom. Avstanden er symmetrisk ($\\|\\mathbf u-\\mathbf v\\|=\\|\\mathbf v-\\mathbf u\\|$) og null bare når $\\mathbf u=\\mathbf v$. Avstand fra et punkt til et helt underrom kommer i [kap. 6.3](/bok/tma4110/tma4110-6-3)."
+    },
+    {
+      "id": "tma4110-6-1-ex3",
+      "type": "example",
+      "title": "Eksempel 3: Norm og avstand",
+      "problem": "Regn ut $\\|(2,-1,2)\\|$ og avstanden mellom $\\mathbf u=(1,2,2)$ og $\\mathbf v=(3,1,0)$ (vanlig prikkprodukt).",
+      "solution": "**Norm:** $\\|(2,-1,2)\\|=\\sqrt{2^2+(-1)^2+2^2}=\\sqrt{4+1+4}=\\sqrt9=3.$\n\n**Avstand:** $\\mathbf u-\\mathbf v=(1-3,\\,2-1,\\,2-0)=(-2,1,2)$, så\n$$\\operatorname{dist}(\\mathbf u,\\mathbf v)=\\|(-2,1,2)\\|=\\sqrt{4+1+4}=\\sqrt9=3.$$\nSvaret er eksakt ($3$) — under kode E skal alt komme ut rent. Et urent mellomsvar er ofte et signal om regnefeil."
+    },
+    {
+      "id": "tma4110-6-1-e3",
+      "type": "exercise",
+      "exercise": {
+        "id": "tma4110-6-1-e3",
+        "number": "3",
+        "type": "classic",
+        "difficulty": "lett",
+        "task": "(Innøving.) Regn ut $\\|(1,2,2)\\|$ og normaliser vektoren til en enhetsvektor.",
+        "solution": "$\\|(1,2,2)\\|=\\sqrt{1+4+4}=\\sqrt9=3.$ Normalisert: $\\mathbf u=\\tfrac13(1,2,2)=\\left(\\tfrac13,\\tfrac23,\\tfrac23\\right)$. Kontroll: $\\|\\mathbf u\\|=\\tfrac13\\|(1,2,2)\\|=\\tfrac13\\cdot3=1$ ✓.",
+        "hints": [
+          "Normen er $\\sqrt{1^2+2^2+2^2}$.",
+          "Del vektoren på sin egen norm for å normalisere."
+        ]
+      }
+    },
+    {
+      "id": "tma4110-6-1-lokke4",
+      "type": "text",
+      "content": "## Løkke 4 — Ortogonalitet og Pytagoras (~12 min)"
+    },
+    {
+      "id": "tma4110-6-1-def-ortogonalitet",
+      "type": "definition",
+      "title": "Ortogonalitet",
+      "content": "To vektorer $\\mathbf u$ og $\\mathbf v$ er **ortogonale** (står vinkelrett på hverandre) dersom indreproduktet deres er null:\n$$\\mathbf u\\perp\\mathbf v\\quad\\Longleftrightarrow\\quad\\langle\\mathbf u,\\mathbf v\\rangle=0.$$\nI $\\mathbb R^2$ og $\\mathbb R^3$ svarer dette til den geometriske rett vinkelen. Nullvektoren er ortogonal på **alt** ($\\langle\\mathbf 0,\\mathbf v\\rangle=0$). Ortogonalitet avhenger av indreproduktet: bruk alltid det oppgitte."
+    },
+    {
+      "id": "tma4110-6-1-def-pytagoras",
+      "type": "definition",
+      "title": "Pytagoras' setning",
+      "content": "Er $\\mathbf u$ og $\\mathbf v$ ortogonale, gjelder **Pytagoras**:\n$$\\|\\mathbf u+\\mathbf v\\|^2=\\|\\mathbf u\\|^2+\\|\\mathbf v\\|^2.$$\nDet følger direkte av regning: $\\|\\mathbf u+\\mathbf v\\|^2=\\langle\\mathbf u+\\mathbf v,\\mathbf u+\\mathbf v\\rangle=\\|\\mathbf u\\|^2+2\\langle\\mathbf u,\\mathbf v\\rangle+\\|\\mathbf v\\|^2$, og kryssleddet $2\\langle\\mathbf u,\\mathbf v\\rangle$ faller bort nettopp når $\\mathbf u\\perp\\mathbf v$. Dette er kjernen bak ortogonal dekomposisjon (kap. 6.3)."
+    },
+    {
+      "id": "tma4110-6-1-ex4",
+      "type": "example",
+      "title": "Eksempel 4: Ortogonal vektor og Pytagoras",
+      "problem": "La $\\mathbf u=(1,2,2)$. (a) Vis at $\\mathbf v=(2,3,-4)$ er ortogonal på $\\mathbf u$. (b) Bekreft Pytagoras for $\\mathbf u$ og $\\mathbf v$.",
+      "solution": "**(a)** $\\langle\\mathbf u,\\mathbf v\\rangle=1\\cdot2+2\\cdot3+2\\cdot(-4)=2+6-8=0$, så $\\mathbf u\\perp\\mathbf v$.\n\n**(b)** $\\|\\mathbf u\\|^2=1+4+4=9$ og $\\|\\mathbf v\\|^2=4+9+16=29$, så høyresiden er $9+29=38$. Venstresiden: $\\mathbf u+\\mathbf v=(3,5,-2)$, og $\\|\\mathbf u+\\mathbf v\\|^2=9+25+4=38$. De stemmer: $38=38$ ✓ — akkurat som Pytagoras krever."
+    },
+    {
+      "id": "tma4110-6-1-e4",
+      "type": "exercise",
+      "exercise": {
+        "id": "tma4110-6-1-e4",
+        "number": "4",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "(Sjanger H.) To vektorer er ortogonale med $\\|\\mathbf u\\|=3$ og $\\|\\mathbf v\\|=4$. Hva er $\\|\\mathbf u+\\mathbf v\\|$? Og er $(1,2,-1)$ og $(3,-1,1)$ ortogonale?",
+        "solution": "Fordi $\\mathbf u\\perp\\mathbf v$ gir Pytagoras $\\|\\mathbf u+\\mathbf v\\|^2=\\|\\mathbf u\\|^2+\\|\\mathbf v\\|^2=9+16=25$, så $\\|\\mathbf u+\\mathbf v\\|=5.$\n\nOrtogonalitet: $\\langle(1,2,-1),(3,-1,1)\\rangle=3-2-1=0$, så **ja**, de er ortogonale.",
+        "hints": [
+          "Ortogonale ⇒ bruk $\\|\\mathbf u+\\mathbf v\\|^2=\\|\\mathbf u\\|^2+\\|\\mathbf v\\|^2$.",
+          "For del to: regn prikkproduktet og sjekk om det er $0$."
+        ]
+      }
+    },
+    {
+      "id": "tma4110-6-1-lokke5",
+      "type": "text",
+      "content": "## Løkke 5 — Vinkel og de nyttige ulikhetene (~11 min)"
+    },
+    {
+      "id": "tma4110-6-1-def-vinkel",
+      "type": "definition",
+      "title": "Vinkel mellom vektorer",
+      "content": "**Vinkelen** $\\theta$ mellom to vektorer $\\ne\\mathbf 0$ er definert ved\n$$\\cos\\theta=\\frac{\\langle\\mathbf u,\\mathbf v\\rangle}{\\|\\mathbf u\\|\\,\\|\\mathbf v\\|},\\qquad 0\\le\\theta\\le\\pi.$$\nSpesialtilfeller: $\\cos\\theta=0$ ($\\theta=90^\\circ$) er ortogonalitet; $\\cos\\theta=1$ betyr samme retning. Formelen gir alltid en gyldig cosinusverdi i $[-1,1]$ — det garanteres av Cauchy–Schwarz."
+    },
+    {
+      "id": "tma4110-6-1-def-cauchy-schwarz",
+      "type": "definition",
+      "title": "Cauchy–Schwarz-ulikheten",
+      "content": "For alle vektorer i et indreproduktrom gjelder **Cauchy–Schwarz**:\n$$|\\langle\\mathbf u,\\mathbf v\\rangle|\\le\\|\\mathbf u\\|\\,\\|\\mathbf v\\|,$$\nmed likhet nøyaktig når $\\mathbf u$ og $\\mathbf v$ er parallelle. Det er nettopp denne ulikheten som sikrer at brøken i vinkelformelen ligger mellom $-1$ og $1$, slik at $\\theta$ finnes. (Kjennskapsnivå — du skal kjenne påstanden, ikke nødvendigvis bevise den.)"
+    },
+    {
+      "id": "tma4110-6-1-def-trekant",
+      "type": "definition",
+      "title": "Trekantulikheten",
+      "content": "**Trekantulikheten** sier at en «omvei» aldri er kortere enn den direkte veien:\n$$\\|\\mathbf u+\\mathbf v\\|\\le\\|\\mathbf u\\|+\\|\\mathbf v\\|.$$\nDen følger av Cauchy–Schwarz. Geometrisk: lengden av én side i en trekant er høyst summen av de to andre. (Kjennskapsnivå.)"
+    },
+    {
+      "id": "tma4110-6-1-ex5",
+      "type": "example",
+      "title": "Eksempel 5 (eksamensnivå): Vinkel og ortogonal vektor",
+      "problem": "I $\\mathbb R^3$: finn vinkelen mellom $\\mathbf u=(1,0,1)$ og $\\mathbf v=(1,1,0)$, og finn en vektor ortogonal på både $\\mathbf a=(1,2,2)$ og $\\mathbf b=(2,0,1)$.",
+      "solution": "**Vinkel:** $\\langle\\mathbf u,\\mathbf v\\rangle=1\\cdot1+0\\cdot1+1\\cdot0=1$, $\\|\\mathbf u\\|=\\sqrt2$, $\\|\\mathbf v\\|=\\sqrt2$, så\n$$\\cos\\theta=\\frac{1}{\\sqrt2\\cdot\\sqrt2}=\\frac12\\ \\Rightarrow\\ \\theta=\\frac{\\pi}{3}\\ (60^\\circ).$$\n**Ortogonal vektor:** en vektor $\\mathbf w=(x,y,z)$ ortogonal på begge må løse $\\langle\\mathbf a,\\mathbf w\\rangle=0$ og $\\langle\\mathbf b,\\mathbf w\\rangle=0$:\n$$x+2y+2z=0,\\qquad 2x+z=0.$$\nFra den andre: $z=-2x$. Sett inn i den første: $x+2y-4x=0\\Rightarrow 2y=3x\\Rightarrow y=\\tfrac32 x$. Velg $x=2$: $y=3$, $z=-4$, altså $\\mathbf w=(2,3,-4)$. Kontroll: $\\langle\\mathbf a,\\mathbf w\\rangle=2+6-8=0$ og $\\langle\\mathbf b,\\mathbf w\\rangle=4+0-4=0$ ✓. (Dette er kryssproduktet $\\mathbf a\\times\\mathbf b$.)"
+    },
+    {
+      "id": "tma4110-6-1-e5",
+      "type": "exercise",
+      "exercise": {
+        "id": "tma4110-6-1-e5",
+        "number": "5",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "(Sjanger H.) Bruk det vektede indreproduktet $\\langle\\mathbf x,\\mathbf y\\rangle=x_1y_1+2x_2y_2+3x_3y_3$. (a) Regn $\\|(1,1,1)\\|$. (b) Finn $k$ slik at $(1,1,k)$ og $(1,-1,1)$ er ortogonale.",
+        "solution": "**(a)** $\\langle(1,1,1),(1,1,1)\\rangle=1\\cdot1+2\\cdot1+3\\cdot1=6$, så $\\|(1,1,1)\\|=\\sqrt6.$\n\n**(b)** $\\langle(1,1,k),(1,-1,1)\\rangle=1\\cdot1+2\\cdot1\\cdot(-1)+3\\cdot k\\cdot1=1-2+3k=3k-1$. Sett $=0$: $k=\\tfrac13$. Merk at i det *vanlige* prikkproduktet ville svaret blitt et annet — bruk alltid det oppgitte indreproduktet.",
+        "hints": [
+          "Sett inn i $\\langle\\mathbf x,\\mathbf y\\rangle=x_1y_1+2x_2y_2+3x_3y_3$ — ikke det vanlige prikkproduktet.",
+          "For (b): sett det vektede indreproduktet lik $0$ og løs for $k$."
+        ]
+      }
+    },
+    {
+      "id": "tma4110-6-1-e6",
+      "type": "exercise",
+      "exercise": {
+        "id": "tma4110-6-1-e6",
+        "number": "6",
+        "type": "classic",
+        "difficulty": "vanskelig",
+        "task": "(Eksamensklone, sjanger H.) I $\\mathbb R^3$ med vanlig prikkprodukt: finn den eksakte vinkelen mellom $\\mathbf u=(1,2,2)$ og $\\mathbf v=(2,0,1)$, og en enhetsvektor ortogonal på begge.",
+        "solution": "**Vinkel:** $\\langle\\mathbf u,\\mathbf v\\rangle=1\\cdot2+2\\cdot0+2\\cdot1=4$, $\\|\\mathbf u\\|=3$, $\\|\\mathbf v\\|=\\sqrt5$. Da\n$$\\cos\\theta=\\frac{4}{3\\sqrt5}=\\frac{4\\sqrt5}{15},\\qquad \\theta=\\arccos\\frac{4\\sqrt5}{15}.$$\nSvaret gis eksakt som en $\\arccos$-verdi — det er ingen «pen» vinkel her, og det er helt greit.\n\n**Ortogonal enhetsvektor:** løs $x+2y+2z=0$ og $2x+z=0$ som i eksempel 5: en løsning er $\\mathbf w=(2,3,-4)$. Normaliser: $\\|\\mathbf w\\|=\\sqrt{4+9+16}=\\sqrt{29}$, så enhetsvektoren er $\\dfrac{1}{\\sqrt{29}}(2,3,-4)$. (Motsatt fortegn er også et gyldig svar.)",
+        "hints": [
+          "Vinkelen: $\\cos\\theta=\\dfrac{\\langle\\mathbf u,\\mathbf v\\rangle}{\\|\\mathbf u\\|\\,\\|\\mathbf v\\|}$ — la svaret stå som $\\arccos$ hvis det ikke blir en standardvinkel.",
+          "Ortogonal vektor: løs de to likningene $\\langle\\mathbf u,\\mathbf w\\rangle=0$, $\\langle\\mathbf v,\\mathbf w\\rangle=0$.",
+          "Til slutt: del den ortogonale vektoren på sin norm for å få en enhetsvektor."
+        ]
+      }
+    },
+    {
+      "id": "tma4110-6-1-warn",
+      "type": "warning",
+      "title": "Typiske feil",
+      "content": "- **Bruker vanlig prikkprodukt der oppgaven har oppgitt et annet indreprodukt** (vektet eller integral). Dette er den mest dokumenterte fellen — *alle* skalarprodukt, normer og ortogonalitetssjekker skal gjøres i det oppgitte indreproduktet.\n- **Glemmer kvadratrota i normen** — $\\|\\mathbf v\\|=\\sqrt{\\langle\\mathbf v,\\mathbf v\\rangle}$, ikke $\\langle\\mathbf v,\\mathbf v\\rangle$.\n- **Regnefeil i integral-indreproduktet** — feil grenser eller glemt at intervallet er en del av indreproduktet ($[-1,1]$ og $[0,1]$ gir ulike svar).\n- **Feil vinkelformel** — deler ikke på *begge* normene, eller glemmer at $\\cos\\theta$ (ikke $\\theta$) er brøken.\n- **Tror ortogonalitet er en egenskap ved vektorene alene** — den avhenger av indreproduktet: to vektorer kan være ortogonale i ett indreprodukt og ikke i et annet.\n- **Bruker negativ vekt** i et «vektet indreprodukt» — vektene må være positive, ellers er det ikke et indreprodukt (aksiom 3 brytes)."
+    },
+    {
+      "id": "tma4110-6-1-begrepsbank",
+      "type": "text",
+      "content": "## Begrepsbank til eksamen\n\nKjernebegrepene fra kapitlet samlet i kortform for pugging (kode E — intet formelark).\n\n*Begrepsbanken er flashcard-/repetisjonsstoff — det gjentar det du nettopp har lest. Hopp trygt over ved førstegangslesing; tidsanslaget for kapitlet gjelder kjernestoffet.*"
+    },
+    {
+      "id": "tma4110-6-1-bb-symmetri",
+      "type": "definition",
+      "title": "Symmetriaksiomet",
+      "content": "Et indreprodukt er **symmetrisk**: $\\langle\\mathbf u,\\mathbf v\\rangle=\\langle\\mathbf v,\\mathbf u\\rangle$. Rekkefølgen på argumentene spiller ingen rolle. Kombinert med linearitet i første argument gir dette at indreproduktet også er lineært i det andre argumentet (bilineært)."
+    },
+    {
+      "id": "tma4110-6-1-bb-linearitet",
+      "type": "definition",
+      "title": "Linearitet (bilinearitet)",
+      "content": "Indreproduktet er **lineært** i hvert argument: $\\langle c\\mathbf u+\\mathbf w,\\mathbf v\\rangle=c\\langle\\mathbf u,\\mathbf v\\rangle+\\langle\\mathbf w,\\mathbf v\\rangle$, og tilsvarende i det andre (via symmetri). Dette er grunnen til at du kan «gange ut» uttrykk som $\\langle\\mathbf u+\\mathbf v,\\mathbf u+\\mathbf v\\rangle=\\|\\mathbf u\\|^2+2\\langle\\mathbf u,\\mathbf v\\rangle+\\|\\mathbf v\\|^2$."
+    },
+    {
+      "id": "tma4110-6-1-bb-posdef",
+      "type": "definition",
+      "title": "Positiv definitthet",
+      "content": "$\\langle\\mathbf v,\\mathbf v\\rangle\\ge0$ for alle $\\mathbf v$, med likhet **bare** når $\\mathbf v=\\mathbf 0$. Dette aksiomet er det som gir normen mening: $\\|\\mathbf v\\|=\\sqrt{\\langle\\mathbf v,\\mathbf v\\rangle}$ er alltid et reelt, ikke-negativt tall, og null bare for nullvektoren."
+    },
+    {
+      "id": "tma4110-6-1-bb-normkvadrat",
+      "type": "definition",
+      "title": "Norm i annen",
+      "content": "Sammenhengen $\\|\\mathbf v\\|^2=\\langle\\mathbf v,\\mathbf v\\rangle$ brukes hele tiden for å bli kvitt kvadratrøtter i regning. F.eks. $\\|\\mathbf u-\\mathbf v\\|^2=\\|\\mathbf u\\|^2-2\\langle\\mathbf u,\\mathbf v\\rangle+\\|\\mathbf v\\|^2$."
+    },
+    {
+      "id": "tma4110-6-1-bb-skalarnorm",
+      "type": "definition",
+      "title": "Norm av skalarmultiplum",
+      "content": "For en skalar $c$ gjelder $\\|c\\mathbf v\\|=|c|\\,\\|\\mathbf v\\|$. Tallverdien $|c|$ (ikke $c$ selv) fordi lengde alltid er ikke-negativ. Dette er nøkkelen i normalisering: $\\left\\|\\tfrac{1}{\\|\\mathbf v\\|}\\mathbf v\\right\\|=\\tfrac{1}{\\|\\mathbf v\\|}\\|\\mathbf v\\|=1$."
+    },
+    {
+      "id": "tma4110-6-1-bb-matriseform",
+      "type": "definition",
+      "title": "Prikkprodukt som matriseprodukt",
+      "content": "I $\\mathbb R^n$ er $\\mathbf u\\cdot\\mathbf v=\\mathbf u^{T}\\mathbf v$ (rad ganger kolonne). Denne skrivemåten er nyttig i bevis: f.eks. blir $\\langle A\\mathbf x,\\mathbf y\\rangle=(A\\mathbf x)^{T}\\mathbf y=\\mathbf x^{T}A^{T}\\mathbf y=\\langle\\mathbf x,A^{T}\\mathbf y\\rangle$ — grunnlaget for $A^{T}A$-triks senere."
+    },
+    {
+      "id": "tma4110-6-1-bb-standard-ett",
+      "type": "definition",
+      "title": "Standard prikkprodukt = ett indreprodukt",
+      "content": "Det vanlige prikkproduktet $\\sum u_iv_i$ er *ett* eksempel på et indreprodukt — det du får med alle vekter lik $1$. Vektede og integral-indreprodukt er like gyldige. Konklusjon: bruk alltid indreproduktet oppgaven oppgir, aldri en «standardrefleks»."
+    },
+    {
+      "id": "tma4110-6-1-bb-null-ortogonal",
+      "type": "definition",
+      "title": "Nullvektoren er ortogonal på alt",
+      "content": "$\\langle\\mathbf 0,\\mathbf v\\rangle=0$ for enhver $\\mathbf v$, så nullvektoren står vinkelrett på alle vektorer. Den er også den eneste vektoren som er ortogonal på seg selv ($\\langle\\mathbf v,\\mathbf v\\rangle=0\\Rightarrow\\mathbf v=\\mathbf 0$)."
+    },
+    {
+      "id": "tma4110-6-1-bb-avstand-metrikk",
+      "type": "definition",
+      "title": "Avstand: egenskaper",
+      "content": "Avstanden $\\operatorname{dist}(\\mathbf u,\\mathbf v)=\\|\\mathbf u-\\mathbf v\\|$ er (i) ikke-negativ og null bare når $\\mathbf u=\\mathbf v$, (ii) symmetrisk, og (iii) oppfyller trekantulikheten $\\operatorname{dist}(\\mathbf u,\\mathbf w)\\le\\operatorname{dist}(\\mathbf u,\\mathbf v)+\\operatorname{dist}(\\mathbf v,\\mathbf w)$. Den oppfører seg som «vanlig avstand»."
+    },
+    {
+      "id": "tma4110-6-1-bb-parallellogram",
+      "type": "definition",
+      "title": "Parallellogramloven",
+      "content": "For alle $\\mathbf u,\\mathbf v$ i et indreproduktrom: $\\|\\mathbf u+\\mathbf v\\|^2+\\|\\mathbf u-\\mathbf v\\|^2=2\\|\\mathbf u\\|^2+2\\|\\mathbf v\\|^2$. Den følger ved å gange ut begge normkvadratene og se at kryssleddene $\\pm2\\langle\\mathbf u,\\mathbf v\\rangle$ kansellerer."
+    },
+    {
+      "id": "tma4110-6-1-bb-cos-tolkning",
+      "type": "definition",
+      "title": "Cosinus måler retningslikhet",
+      "content": "$\\cos\\theta=\\dfrac{\\langle\\mathbf u,\\mathbf v\\rangle}{\\|\\mathbf u\\|\\|\\mathbf v\\|}$ er $+1$ ved samme retning, $0$ ved ortogonalitet og $-1$ ved motsatt retning. Fortegnet til indreproduktet forteller altså om vektorene peker «samme vei» ($>0$) eller «motsatt vei» ($<0$)."
+    },
+    {
+      "id": "tma4110-6-1-bb-skalarprojeksjon",
+      "type": "definition",
+      "title": "Skalarprojeksjon (bro til 6.3)",
+      "content": "Komponenten av $\\mathbf u$ langs en retning $\\mathbf v\\ne\\mathbf 0$ er $\\dfrac{\\langle\\mathbf u,\\mathbf v\\rangle}{\\|\\mathbf v\\|}$ (skalar), og selve projeksjonsvektoren er $\\dfrac{\\langle\\mathbf u,\\mathbf v\\rangle}{\\langle\\mathbf v,\\mathbf v\\rangle}\\mathbf v$. Dette er byggeklossen i Gram–Schmidt ([kap. 6.2](/bok/tma4110/tma4110-6-2)) og ortogonal projeksjon ([kap. 6.3](/bok/tma4110/tma4110-6-3))."
+    },
+    {
+      "id": "tma4110-6-1-bb-ortonormal",
+      "type": "definition",
+      "title": "Ortonormal (forsmak på 6.2)",
+      "content": "En mengde vektorer er **ortonormal** hvis de er parvis ortogonale *og* hver har norm $1$: $\\langle\\mathbf u_i,\\mathbf u_j\\rangle=\\delta_{ij}$ (Kronecker-delta: $1$ hvis $i=j$, ellers $0$). Ortonormale basiser gjør koordinatregning svært enkel — mer i [kap. 6.2](/bok/tma4110/tma4110-6-2)."
+    },
+    {
+      "id": "tma4110-6-1-bb-kryssprodukt",
+      "type": "definition",
+      "title": "Kryssprodukt gir ortogonal vektor (ℝ³)",
+      "content": "I $\\mathbb R^3$ er kryssproduktet $\\mathbf a\\times\\mathbf b$ automatisk ortogonalt på både $\\mathbf a$ og $\\mathbf b$. Det er en rask måte å finne en vektor vinkelrett på to gitte vektorer på — nyttig når en oppgave ber om «en vektor ortogonal på begge». (Kjennskap fra R2.)"
+    },
+    {
+      "id": "tma4110-6-1-rep",
+      "type": "collapsible",
+      "title": "Repetisjonsoppgaver",
+      "buttonText": "Vis repetisjonsoppgaver",
+      "content": [
+        {
+          "id": "tma4110-6-1-rep-1",
+          "type": "exercise",
+          "exercise": {
+            "id": "tma4110-6-1-rep-1",
+            "number": "R1",
+            "type": "classic",
+            "difficulty": "lett",
+            "task": "(Fra [kap. 3.2](/bok/tma4110/tma4110-3-2)) Er $(1,2)$ og $(2,4)$ lineært uavhengige i $\\mathbb R^2$?",
+            "solution": "Nei — $(2,4)=2(1,2)$, så de er parallelle og dermed lineært avhengige.",
+            "hints": [
+              "Er den ene et multiplum av den andre?"
+            ]
+          }
+        },
+        {
+          "id": "tma4110-6-1-rep-2",
+          "type": "exercise",
+          "exercise": {
+            "id": "tma4110-6-1-rep-2",
+            "number": "R2",
+            "type": "classic",
+            "difficulty": "lett",
+            "task": "(Fra [Skalarproduktet](/bok/r2/r2-5-3)) Hva betyr geometrisk at prikkproduktet av to vektorer er $0$?",
+            "solution": "At vektorene står vinkelrett på hverandre (er ortogonale).",
+            "hints": [
+              "Tenk på cosinusformelen for prikkproduktet."
+            ]
+          }
+        },
+        {
+          "id": "tma4110-6-1-rep-3",
+          "type": "exercise",
+          "exercise": {
+            "id": "tma4110-6-1-rep-3",
+            "number": "R3",
+            "type": "classic",
+            "difficulty": "middels",
+            "task": "(Fra [Ubestemt integral](/bok/r2/r2-2-2)) Regn ut $\\int_{-1}^{1}t^2\\,dt$.",
+            "solution": "$\\int_{-1}^{1}t^2\\,dt=\\Big[\\tfrac{t^3}{3}\\Big]_{-1}^{1}=\\tfrac13-\\big(-\\tfrac13\\big)=\\tfrac23.$",
+            "hints": [
+              "Antideriverte av $t^2$ er $\\tfrac{t^3}{3}$; sett inn grensene."
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": "tma4110-6-1-symbolliste",
+      "type": "collapsible",
+      "title": "Symbol- og formelliste",
+      "buttonText": "Vis symboler og formler",
+      "content": [
+        {
+          "id": "tma4110-6-1-symbolliste-text",
+          "type": "text",
+          "content": "## Symbol- og formelliste\n\n*Oppslagsverk — alt her forklares underveis i kapitlet.*\n\nAlle symboler og skrivemåter i dette delkapitlet (6.1), samlet.\n\n| Symbol | Betydning |\n|---|---|\n| $\\mathbf u\\cdot\\mathbf v$ | Prikkprodukt (skalarprodukt) i $\\mathbb R^n$ |\n| $\\langle\\mathbf u,\\mathbf v\\rangle$ | Indreprodukt (generelt) |\n| $\\|\\mathbf v\\|$ | Norm (lengde) av $\\mathbf v$ |\n| $\\operatorname{dist}(\\mathbf u,\\mathbf v)$ | Avstand $=\\|\\mathbf u-\\mathbf v\\|$ |\n| $\\mathbf u\\perp\\mathbf v$ | $\\mathbf u$ og $\\mathbf v$ er ortogonale |\n| $\\theta$ | Vinkel mellom to vektorer |\n| $\\delta_{ij}$ | Kronecker-delta ($1$ hvis $i=j$, ellers $0$) |\n| $\\int_a^b p\\,q\\,dt$ | Integral-indreprodukt på funksjons-/polynomrom |\n\n**Formler i dette delkapitlet:**\n\n$$\\mathbf u\\cdot\\mathbf v=\\sum_{i=1}^n u_iv_i=\\mathbf u^{T}\\mathbf v\\qquad(\\text{prikkprodukt})$$\n\n$$\\|\\mathbf v\\|=\\sqrt{\\langle\\mathbf v,\\mathbf v\\rangle},\\qquad \\|\\mathbf v\\|^2=\\langle\\mathbf v,\\mathbf v\\rangle$$\n\n$$\\mathbf u\\perp\\mathbf v\\ \\Longleftrightarrow\\ \\langle\\mathbf u,\\mathbf v\\rangle=0$$\n\n$$\\|\\mathbf u+\\mathbf v\\|^2=\\|\\mathbf u\\|^2+\\|\\mathbf v\\|^2\\quad(\\text{Pytagoras, når }\\mathbf u\\perp\\mathbf v)$$\n\n$$\\cos\\theta=\\frac{\\langle\\mathbf u,\\mathbf v\\rangle}{\\|\\mathbf u\\|\\,\\|\\mathbf v\\|}\\qquad(\\text{vinkel})$$\n\n$$|\\langle\\mathbf u,\\mathbf v\\rangle|\\le\\|\\mathbf u\\|\\,\\|\\mathbf v\\|\\quad(\\text{Cauchy–Schwarz}),\\qquad \\|\\mathbf u+\\mathbf v\\|\\le\\|\\mathbf u\\|+\\|\\mathbf v\\|\\quad(\\text{trekantulikheten})$$\n\n**Tre indreprodukter å kjenne igjen:** standard $\\sum u_iv_i$ · vektet $\\sum w_ix_iy_i$ ($w_i>0$) · integral $\\int_a^b p\\,q\\,dt$. Bruk alltid det oppgaven oppgir."
+        }
+      ]
+    }
+  ],
+  "exercises": []
+}

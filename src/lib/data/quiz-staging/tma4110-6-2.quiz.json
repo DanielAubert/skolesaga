@@ -1,0 +1,182 @@
+[
+  {
+    "question": "Hva kjennetegner en ortogonal mengde $\\{\\mathbf v_1,\\dots,\\mathbf v_k\\}$?",
+    "options": [
+      "Vektorene er parvis ortogonale: $\\langle\\mathbf v_i,\\mathbf v_j\\rangle=0$ for $i\\ne j$",
+      "Alle vektorene har norm $1$",
+      "Vektorene er parallelle",
+      "Summen av vektorene er $\\mathbf 0$"
+    ],
+    "explanation": "En ortogonal mengde består av vektorer $\\ne\\mathbf 0$ som er parvis ortogonale."
+  },
+  {
+    "question": "Hva er den første vektoren i Gram–Schmidt-prosessen?",
+    "options": [
+      "$\\mathbf v_1=\\mathbf a_1$ (uendret)",
+      "$\\mathbf v_1=\\mathbf a_1/\\|\\mathbf a_1\\|$",
+      "$\\mathbf v_1=\\mathbf 0$",
+      "$\\mathbf v_1=\\mathbf a_1-\\mathbf a_2$"
+    ],
+    "explanation": "Gram–Schmidt beholder den første vektoren uendret: $\\mathbf v_1=\\mathbf a_1$."
+  },
+  {
+    "question": "Hva er det generelle Gram–Schmidt-steget for $\\mathbf v_k$?",
+    "options": [
+      "$\\mathbf a_k-\\sum_{i<k}\\frac{\\langle\\mathbf a_k,\\mathbf v_i\\rangle}{\\langle\\mathbf v_i,\\mathbf v_i\\rangle}\\mathbf v_i$",
+      "$\\mathbf a_k+\\sum_{i<k}\\frac{\\langle\\mathbf a_k,\\mathbf v_i\\rangle}{\\langle\\mathbf v_i,\\mathbf v_i\\rangle}\\mathbf v_i$",
+      "$\\mathbf a_k-\\sum_{i<k}\\langle\\mathbf a_k,\\mathbf v_i\\rangle\\mathbf v_i$",
+      "$\\mathbf a_k-\\sum_{i<k}\\frac{\\langle\\mathbf v_i,\\mathbf v_i\\rangle}{\\langle\\mathbf a_k,\\mathbf v_i\\rangle}\\mathbf v_i$"
+    ],
+    "explanation": "Du trekker fra $\\mathbf a_k$ dens projeksjon på hver allerede ortogonalisert $\\mathbf v_i$; nevneren $\\langle\\mathbf v_i,\\mathbf v_i\\rangle$ må være med."
+  },
+  {
+    "question": "En ortogonal mengde av vektorer $\\ne\\mathbf 0$ er:",
+    "options": [
+      "Alltid lineært uavhengig",
+      "Alltid lineært avhengig",
+      "Alltid ortonormal",
+      "Aldri en basis"
+    ],
+    "explanation": "Tar man indreprodukt med $\\mathbf v_i$ i en relasjon $\\sum c_j\\mathbf v_j=\\mathbf 0$, faller alt bort unntatt $c_i$, så alle $c_i=0$."
+  },
+  {
+    "question": "Hva er koordinaten (Fourier-koeffisienten) $c_i$ til $\\mathbf y$ i en ortogonal basis?",
+    "options": [
+      "$c_i=\\dfrac{\\langle\\mathbf y,\\mathbf v_i\\rangle}{\\langle\\mathbf v_i,\\mathbf v_i\\rangle}$",
+      "$c_i=\\langle\\mathbf y,\\mathbf v_i\\rangle\\cdot\\langle\\mathbf v_i,\\mathbf v_i\\rangle$",
+      "$c_i=\\dfrac{\\langle\\mathbf v_i,\\mathbf v_i\\rangle}{\\langle\\mathbf y,\\mathbf v_i\\rangle}$",
+      "$c_i=\\langle\\mathbf y,\\mathbf v_i\\rangle$ alltid"
+    ],
+    "explanation": "For en ortogonal basis regnes hver koordinat med Fourier-formelen; nevneren er $\\langle\\mathbf v_i,\\mathbf v_i\\rangle$ (blir $1$ bare hvis basisen er ortonormal)."
+  },
+  {
+    "question": "Hvorfor lønner det seg med heltalls-oppskalering underveis i Gram–Schmidt?",
+    "options": [
+      "Det holder regningen fri for brøker uten å endre ortogonaliteten",
+      "Det gjør vektorene til enhetsvektorer",
+      "Det er nødvendig for at svaret skal bli riktig",
+      "Det endrer spennet til et større rom"
+    ],
+    "explanation": "Å gange en $\\mathbf v_i$ med et positivt tall bevarer både retning og ortogonalitet, og fjerner brøker (viktig under kode E)."
+  },
+  {
+    "question": "Når normaliserer du vektorene i Gram–Schmidt?",
+    "options": [
+      "Til slutt, etter at alle er ortogonalisert",
+      "Før du starter prosessen",
+      "Etter hvert eneste steg",
+      "Aldri — normalisering er forbudt"
+    ],
+    "explanation": "Normaliser først når den ortogonale basisen er ferdig; underveis gir det bare unødvendige kvadratrøtter."
+  },
+  {
+    "question": "Gram–Schmidt på $\\{(1,1,1),(1,2,0)\\}$ gir $\\mathbf v_2=$?",
+    "options": [
+      "$(0,1,-1)$",
+      "$(1,2,0)$",
+      "$(2,3,1)$",
+      "$(1,1,1)$"
+    ],
+    "explanation": "$\\mathbf v_2=(1,2,0)-\\tfrac33(1,1,1)=(1,2,0)-(1,1,1)=(0,1,-1)$."
+  },
+  {
+    "question": "Hva menes med at en basis er ortonormal?",
+    "options": [
+      "Parvis ortogonal og hver vektor har norm $1$: $\\langle\\mathbf u_i,\\mathbf u_j\\rangle=\\delta_{ij}$",
+      "Bare at vektorene har norm $1$",
+      "Bare at vektorene er parvis ortogonale",
+      "At determinanten er $1$"
+    ],
+    "explanation": "Ortonormal = ortogonal + normalisert, kompakt uttrykt med Kronecker-delta $\\delta_{ij}$."
+  },
+  {
+    "question": "En oppgave ber om Gram–Schmidt i indreproduktet $\\langle p,q\\rangle=\\int_{-1}^1 pq\\,dt$. Hvordan regner du indreproduktene?",
+    "options": [
+      "Som integraler over $[-1,1]$",
+      "Komponentvis som prikkprodukt",
+      "Ved å telle antall ledd",
+      "Ved å derivere polynomene"
+    ],
+    "explanation": "I et integral-indreprodukt regnes alle $\\langle\\cdot,\\cdot\\rangle$ som integraler — ikke komponentvis."
+  },
+  {
+    "question": "Gram–Schmidt på $\\{1,t,t^2\\}$ med $\\langle p,q\\rangle=\\int_{-1}^1 pq\\,dt$ gir $v_3=$?",
+    "options": [
+      "$t^2-\\tfrac13$",
+      "$t^2$",
+      "$t^2-1$",
+      "$t^2-\\tfrac23$"
+    ],
+    "explanation": "$v_3=t^2-\\frac{\\langle t^2,1\\rangle}{\\langle 1,1\\rangle}\\cdot1=t^2-\\frac{2/3}{2}=t^2-\\tfrac13$ (Legendre-polynom)."
+  },
+  {
+    "question": "Hva bevarer Gram–Schmidt underveis?",
+    "options": [
+      "Spennet: $\\operatorname{Span}\\{\\mathbf v_1,\\dots,\\mathbf v_m\\}=\\operatorname{Span}\\{\\mathbf a_1,\\dots,\\mathbf a_m\\}$",
+      "Lengden til hver vektor",
+      "Vinklene mellom startvektorene",
+      "Antall komponenter lik null"
+    ],
+    "explanation": "For hver $m$ utspenner de ortogonaliserte vektorene nøyaktig samme rom som startvektorene."
+  },
+  {
+    "question": "Hva er en ortogonal matrise $Q$?",
+    "options": [
+      "En matrise med ortonormale kolonner, slik at $Q^{T}Q=I$",
+      "En matrise med bare nuller utenfor diagonalen",
+      "En matrise med determinant $0$",
+      "En matrise der alle kolonner er like"
+    ],
+    "explanation": "Ortogonal matrise: kolonnene er en ortonormal mengde, ekvivalent $Q^{T}Q=I$ (så $Q^{-1}=Q^{T}$)."
+  },
+  {
+    "question": "Hva er en typisk feil i Gram–Schmidt-steget?",
+    "options": [
+      "Å bruke $\\mathbf a$-vektorene i stedet for de ortogonaliserte $\\mathbf v$-ene i senere steg",
+      "Å normalisere helt til slutt",
+      "Å starte med $\\mathbf v_1=\\mathbf a_1$",
+      "Å regne $\\langle\\mathbf a_k,\\mathbf v_i\\rangle$"
+    ],
+    "explanation": "I steg $k$ skal du projisere på de allerede ortogonaliserte $\\mathbf v_i$, ikke på de opprinnelige $\\mathbf a$-ene."
+  },
+  {
+    "question": "For en ortonormal basis forenkles koordinatformelen til:",
+    "options": [
+      "$c_i=\\langle\\mathbf y,\\mathbf u_i\\rangle$",
+      "$c_i=\\dfrac{\\langle\\mathbf y,\\mathbf u_i\\rangle}{2}$",
+      "$c_i=\\|\\mathbf u_i\\|$",
+      "$c_i=\\langle\\mathbf u_i,\\mathbf u_i\\rangle$"
+    ],
+    "explanation": "Nevneren $\\langle\\mathbf u_i,\\mathbf u_i\\rangle=1$, så koordinaten er bare indreproduktet $\\langle\\mathbf y,\\mathbf u_i\\rangle$."
+  },
+  {
+    "question": "Hva blir $\\mathbf v_k$ hvis startvektoren $\\mathbf a_k$ ligger i spennet av de foregående?",
+    "options": [
+      "$\\mathbf v_k=\\mathbf 0$ (vektoren var avhengig og kastes)",
+      "$\\mathbf v_k=\\mathbf a_k$ uendret",
+      "$\\mathbf v_k$ blir en enhetsvektor",
+      "Prosessen stopper helt opp"
+    ],
+    "explanation": "Er $\\mathbf a_k$ avhengig av de foregående, trekkes den helt bort og $\\mathbf v_k=\\mathbf 0$; da forkaster man den."
+  },
+  {
+    "question": "Normaliser $(2,-1,2)$ til en enhetsvektor.",
+    "options": [
+      "$\\tfrac13(2,-1,2)$",
+      "$\\tfrac19(2,-1,2)$",
+      "$(2,-1,2)$",
+      "$\\tfrac12(2,-1,2)$"
+    ],
+    "explanation": "$\\|(2,-1,2)\\|=\\sqrt{4+1+4}=3$, så enhetsvektoren er $\\tfrac13(2,-1,2)$."
+  },
+  {
+    "question": "Hva gjør en ortogonal matrise $Q$ med lengder?",
+    "options": [
+      "Bevarer dem: $\\|Q\\mathbf x\\|=\\|\\mathbf x\\|$",
+      "Dobler dem: $\\|Q\\mathbf x\\|=2\\|\\mathbf x\\|$",
+      "Setter dem til $1$",
+      "Halverer dem"
+    ],
+    "explanation": "Ortogonale matriser bevarer norm og indreprodukt — geometrisk er de rotasjoner eller speilinger."
+  }
+]
