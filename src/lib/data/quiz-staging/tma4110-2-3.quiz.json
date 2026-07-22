@@ -1,0 +1,182 @@
+[
+  {
+    "question": "Hva er $\\det\\begin{bmatrix}3&4\\\\1&2\\end{bmatrix}$?",
+    "options": [
+      "$2$, siden $\\det=ad-bc=3\\cdot2-4\\cdot1=6-4$",
+      "$10$, siden $\\det=ad+bc=3\\cdot2+4\\cdot1=6+4$",
+      "$-2$, siden $\\det=bc-ad=4\\cdot1-3\\cdot2=4-6$",
+      "$11$, siden $\\det=3\\cdot2+1\\cdot5$ regnet langs diagonalen"
+    ],
+    "explanation": "2×2-determinanten er $ad-bc$: hoveddiagonalproduktet $3\\cdot2=6$ minus antidiagonalproduktet $4\\cdot1=4$, altså $2$."
+  },
+  {
+    "question": "En matrise $A$ har $\\det A=0$. Hva følger av determinantkriteriet?",
+    "options": [
+      "$A$ er singulær, altså ikke inverterbar, og $A\\mathbf x=\\mathbf 0$ har ikke-trivielle løsninger",
+      "$A$ er inverterbar, og $A\\mathbf x=\\mathbf b$ har entydig løsning for hver $\\mathbf b$",
+      "$A$ må være nullmatrisen, siden bare $O$ har determinant $0$",
+      "$A$ er symmetrisk, siden determinanten forsvinner nettopp for symmetriske matriser"
+    ],
+    "explanation": "$\\det A=0$ er kriteriet for at $A$ er singulær: ikke inverterbar, $\\operatorname{rang}A<n$, og $A\\mathbf x=\\mathbf 0$ har ikke-trivielle løsninger."
+  },
+  {
+    "question": "Hva er kofaktorens fortegn $(-1)^{i+j}$ for posisjon $(2,3)$?",
+    "options": [
+      "$-1$, siden $i+j=2+3=5$ er et oddetall",
+      "$+1$, siden $i+j=2+3=5$ regnes som partall i mønsteret",
+      "$-1$, siden alle kofaktorer utenfor diagonalen har fortegn minus",
+      "$+1$, siden kofaktorer i tredje kolonne alltid har fortegn pluss"
+    ],
+    "explanation": "Fortegnet er $(-1)^{i+j}$. Med $i=2,j=3$ er $i+j=5$, et oddetall, så fortegnet er $-1$ (sjakkbrettmønsteret gir minus i posisjon $(2,3)$)."
+  },
+  {
+    "question": "Du skal kofaktorutvikle en 4×4-determinant. Hvilken rad eller kolonne bør du velge?",
+    "options": [
+      "Den med flest nuller, siden hvert nullelement dreper sitt ledd og sparer en kofaktor",
+      "Alltid første rad, siden kofaktorutvikling per definisjon starter øverst til venstre",
+      "Den med størst tall, siden store tall gir mest nøyaktig determinant",
+      "Diagonalen, siden determinanten uansett bare avhenger av diagonalelementene"
+    ],
+    "explanation": "Svaret blir det samme uansett hvilken rad/kolonne du velger, så velg den med flest nuller: et element $0$ gir et ledd $0$, som du slipper å regne ut."
+  },
+  {
+    "question": "Hva skjer med determinanten når du bytter om to rader i en matrise?",
+    "options": [
+      "Den skifter fortegn (ganges med $-1$)",
+      "Den ganges med $2$, siden to rader er involvert i byttet",
+      "Den forblir uendret, siden radbytte bare omorganiserer de samme tallene",
+      "Den blir $0$, siden et radbytte ødelegger triangulærformen"
+    ],
+    "explanation": "Å bytte to rader ganger determinanten med $-1$. Teller du antall radbytter, får du riktig fortegn til slutt."
+  },
+  {
+    "question": "Hva skjer med determinanten når du adderer et multiplum av én rad til en annen?",
+    "options": [
+      "Den er uendret, så dette er den foretrukne operasjonen ved radreduksjon",
+      "Den ganges med multiplumet $k$ du la til, akkurat som ved radskalering",
+      "Den skifter fortegn, på samme måte som når du bytter om to rader",
+      "Den blir produktet av de to involverte radenes tilsvarende elementer"
+    ],
+    "explanation": "Operasjonen «adder multiplum av en rad til en annen» lar determinanten være uendret. Det er nettopp derfor du kan bruke den fritt til å lage nuller ved radreduksjon."
+  },
+  {
+    "question": "For en $n\\times n$-matrise med $\\det A=5$, hva er $\\det(cA)$?",
+    "options": [
+      "$c^{n}\\cdot 5$, siden hver av de $n$ radene skaleres med $c$",
+      "$c\\cdot 5$, siden skalering ganger determinanten med samme faktor $c$",
+      "$5$, siden skalering av hele matrisen ikke endrer determinanten",
+      "$n\\cdot c\\cdot 5$, siden det er $n$ rader som hver bidrar med $c$"
+    ],
+    "explanation": "Å gange hele matrisen med $c$ skalerer alle $n$ radene med $c$, og hver radskalering ganger determinanten med $c$ — til sammen $c^{n}$. Så $\\det(cA)=c^{n}\\det A$."
+  },
+  {
+    "question": "Hvilken sammenheng gjelder for determinanten av et produkt?",
+    "options": [
+      "$\\det(AB)=\\det A\\cdot\\det B$ (produktregelen)",
+      "$\\det(AB)=\\det A+\\det B$, akkurat som for sporet",
+      "$\\det(AB)=\\det B\\cdot\\det A^{-1}$ når rekkefølgen snus",
+      "$\\det(AB)$ er ikke definert med mindre $A=B$"
+    ],
+    "explanation": "Produktregelen sier $\\det(AB)=\\det A\\cdot\\det B$. Det finnes derimot ingen tilsvarende sum-regel: $\\det(A+B)\\ne\\det A+\\det B$ generelt."
+  },
+  {
+    "question": "Hva er sammenhengen mellom $\\det A^{T}$ og $\\det A$?",
+    "options": [
+      "$\\det A^{T}=\\det A$ — transponering endrer ikke determinanten",
+      "$\\det A^{T}=-\\det A$ — transponering skifter fortegn som et radbytte",
+      "$\\det A^{T}=1/\\det A$ — transponering virker som en invers på determinanten",
+      "$\\det A^{T}=(\\det A)^{2}$ — transponering kvadrerer determinanten"
+    ],
+    "explanation": "$\\det A^{T}=\\det A$. En konsekvens er at kofaktorutvikling langs en kolonne gir samme svar som langs en rad."
+  },
+  {
+    "question": "Er $A$ inverterbar, hva er $\\det(A^{-1})$?",
+    "options": [
+      "$\\dfrac{1}{\\det A}$, siden $\\det A\\cdot\\det(A^{-1})=\\det I=1$",
+      "$-\\det A$, siden invers virker som et fortegnsskifte",
+      "$\\det A$, siden invertering ikke endrer determinanten",
+      "$(\\det A)^{2}$, siden $A^{-1}$ ganges med $A$ i definisjonen"
+    ],
+    "explanation": "Fra $AA^{-1}=I$ gir produktregelen $\\det A\\cdot\\det(A^{-1})=\\det I=1$, så $\\det(A^{-1})=1/\\det A$."
+  },
+  {
+    "question": "Hva er determinanten til en triangulær matrise?",
+    "options": [
+      "Produktet av diagonalelementene $a_{11}a_{22}\\cdots a_{nn}$",
+      "Summen av diagonalelementene $a_{11}+a_{22}+\\cdots+a_{nn}$",
+      "Produktet av alle elementene over diagonalen",
+      "Alltid $0$, siden en triangulær matrise har nuller på den ene siden"
+    ],
+    "explanation": "For en øvre eller nedre triangulær matrise er determinanten produktet av diagonalelementene. Dette er grunnen til at vi radreduserer til triangulær form."
+  },
+  {
+    "question": "En $3\\times3$-matrise har $\\det A=4$. Hva er $\\det(2A)$?",
+    "options": [
+      "$32$, siden $\\det(2A)=2^{3}\\det A=8\\cdot4$",
+      "$8$, siden $\\det(2A)=2\\cdot\\det A=2\\cdot4$",
+      "$16$, siden $\\det(2A)=2^{2}\\det A=4\\cdot4$",
+      "$4$, siden skalering av hele matrisen ikke endrer determinanten"
+    ],
+    "explanation": "For en $3\\times3$-matrise ($n=3$) er $\\det(2A)=2^{3}\\det A=8\\cdot4=32$. Potensen er formatet $n=3$, ikke $1$."
+  },
+  {
+    "question": "Hvilket uttrykk gir løsningen $x_i$ i Cramers regel for $A\\mathbf x=\\mathbf b$?",
+    "options": [
+      "$x_i=\\dfrac{\\det A_i(\\mathbf b)}{\\det A}$, der $A_i(\\mathbf b)$ er $A$ med kolonne $i$ byttet ut med $\\mathbf b$",
+      "$x_i=\\dfrac{\\det A}{\\det A_i(\\mathbf b)}$, der $A_i(\\mathbf b)$ er $A$ med kolonne $i$ byttet ut med $\\mathbf b$",
+      "$x_i=\\det A_i(\\mathbf b)\\cdot\\det A$, der $A_i(\\mathbf b)$ er $A$ med rad $i$ byttet ut med $\\mathbf b$",
+      "$x_i=\\det A-\\det A_i(\\mathbf b)$, der $A_i(\\mathbf b)$ er $A$ med rad $i$ byttet ut med $\\mathbf b$"
+    ],
+    "explanation": "Cramers regel er $x_i=\\det A_i(\\mathbf b)/\\det A$, der telleren er $A$ med kolonne $i$ erstattet av $\\mathbf b$. Den krever $\\det A\\ne0$."
+  },
+  {
+    "question": "Hva er sammenhengen mellom $\\det A$ og egenverdiene $\\lambda_1,\\dots,\\lambda_n$?",
+    "options": [
+      "$\\det A=\\lambda_1\\lambda_2\\cdots\\lambda_n$ — determinanten er produktet av egenverdiene",
+      "$\\det A=\\lambda_1+\\lambda_2+\\cdots+\\lambda_n$ — determinanten er summen av egenverdiene",
+      "$\\det A=\\max_i\\lambda_i$ — determinanten er den største egenverdien",
+      "$\\det A$ og egenverdiene henger ikke sammen på noen fast måte"
+    ],
+    "explanation": "Determinanten er produktet av egenverdiene, $\\det A=\\prod\\lambda_i$ (mens sporet er summen). Derfor er $\\det A=0$ nettopp når $0$ er en egenverdi."
+  },
+  {
+    "question": "Hvorfor kan du IKKE bruke regelen $\\det(A+B)=\\det A+\\det B$?",
+    "options": [
+      "Fordi den er usann — det finnes ingen sum-regel for determinanter",
+      "Fordi den bare gjelder når $A$ og $B$ er triangulære",
+      "Fordi den bare gjelder når $\\det A=\\det B$",
+      "Fordi den bare gjelder for $2\\times2$-matriser, ikke større"
+    ],
+    "explanation": "Det finnes ingen sum-regel: $\\det(A+B)\\ne\\det A+\\det B$ generelt. (Produktregelen $\\det(AB)=\\det A\\det B$ gjelder derimot alltid.)"
+  },
+  {
+    "question": "Hva er determinanten til en matrise med to like rader?",
+    "options": [
+      "$0$, siden radbytte gir $\\det A=-\\det A$, som tvinger $\\det A=0$",
+      "$1$, siden like rader gjør matrisen til en identitetslignende form",
+      "Produktet av de to like radenes elementer",
+      "Uendelig, siden matrisen ikke kan radreduseres til triangulær form"
+    ],
+    "explanation": "Bytter du de to like radene, skal determinanten skifte fortegn, men matrisen er uendret. Da må $\\det A=-\\det A$, altså $\\det A=0$."
+  },
+  {
+    "question": "Hvorfor foretrekkes radreduksjon fremfor blind kofaktorutvikling for en 5×5-determinant?",
+    "options": [
+      "Fordi radreduksjon til triangulær form gir determinanten som produkt av diagonalen med få steg",
+      "Fordi kofaktorutvikling gir systematisk feil svar for matriser som er større enn 3×3",
+      "Fordi radreduksjon alltid gir determinanten $0$, som er langt raskere å skrive ned",
+      "Fordi kofaktorutvikling per definisjon bare er tillatt for symmetriske matriser"
+    ],
+    "explanation": "Blind kofaktorutvikling av en 5×5 forgrener seg til svært mange små determinanter. Radreduksjon (med kontroll på fortegn/skalering) gir triangulær form, og determinanten leses av som produktet av diagonalen."
+  },
+  {
+    "question": "En $4\\times4$-matrise reduseres ved radoperasjoner (kun «adder multiplum») til øvre triangulær form med diagonal $(2,1,3,-1)$. Hva er $\\det A$?",
+    "options": [
+      "$-6$, siden determinanten er produktet $2\\cdot1\\cdot3\\cdot(-1)$ av triangulær-diagonalen",
+      "$5$, siden determinanten er summen $2+1+3+(-1)$ av triangulær-diagonalen",
+      "$6$, siden fortegnet på diagonalelementene ikke skal regnes med i produktet",
+      "$0$, siden en negativ verdi på diagonalen gjør matrisen singulær og $\\det=0$"
+    ],
+    "explanation": "Operasjonen «adder multiplum av en rad» endrer ikke determinanten, så $\\det A$ er produktet av triangulær-diagonalen: $2\\cdot1\\cdot3\\cdot(-1)=-6$. (Negativ verdi er helt greit; $\\ne0$, så matrisen er inverterbar.)"
+  }
+]

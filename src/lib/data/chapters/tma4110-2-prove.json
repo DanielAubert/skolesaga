@@ -1,0 +1,119 @@
+{
+  "id": "tma4110-2-prove",
+  "courseId": "tma4110",
+  "chapterNumber": "2.P",
+  "title": "Prøver til del 2: Matriser, determinant og invers",
+  "description": "Fire prøver til Del 2 (kap. 2.1–2.3): matrisealgebra og transponert-regler, invers via Gauss–Jordan og 2×2-formelen, determinant/inverterbarhet/Cramer, og et inverterbarhetssetning-tverrsnitt — med fullstendige løsningsforslag og selvdiagnose.",
+  "estimatedMinutes": 155,
+  "competenceGoals": [
+    "regne sikkert med matriser (produkt, transponert, invers) og navngi regnereglene under prøvebetingelser",
+    "regne determinanter ved kofaktorutvikling og radreduksjon og avgjøre inverterbarhet",
+    "koble determinant, rang, nullrom og invers gjennom inverterbarhetssetningen slik en full eksamensoppgave krever"
+  ],
+  "content": [
+    {
+      "id": "tma4110-2-prove-tip",
+      "type": "tip",
+      "title": "Prøver til del 2 — Matriser, determinant og invers",
+      "content": "**Fire prøver som dekker hele Del 2** (kap. 2.1–2.3): matrisealgebra og transponert-regler (2.A), invers via Gauss–Jordan og 2×2-formelen (2.B), determinant, inverterbarhet og Cramer (2.C), og et inverterbarhetssetning-tverrsnitt som kobler determinant, rang, nullrom og invers (2.D).\n\n**4 prøver à ~35–40 min.** Du kan trygt dele dem over flere kvelder — ta gjerne én prøve per økt. Alt er **langsvar med full begrunnelse** (ingen flervalg, som på en normalårs-eksamen): vis mellomregningen, navngi regelen eller setningen du bruker (særlig $(AB)^{T}=B^{T}A^{T}$ og inverterbarhetssetningen), og gi **eksakte** svar. Kalibrert mot ingen hjelpemidler — regn for hånd.\n\nEtter hver fasit står en **selvdiagnose-sjekkliste** — kryss av det du fikk til, så ser du hva du bør repetere."
+    },
+    {
+      "id": "tma4110-2-prove-forkunnskaper",
+      "type": "text",
+      "content": "**Forkunnskaper:** Prøvene forutsetter [kap. 2.1](/bok/tma4110/tma4110-2-1) (matriseprodukt, transponert, $A^{T}A$ symmetrisk), [kap. 2.2](/bok/tma4110/tma4110-2-2) (invers, Gauss–Jordan, regneregler, inverterbarhetssetningen) og [kap. 2.3](/bok/tma4110/tma4110-2-3) (determinant, kofaktorutvikling, radreduksjon, Cramer). Radreduksjon fra [kap. 1.1](/bok/tma4110/tma4110-1-1) er grunnteknikken. Ingen nye metoder — dette er eksamenstrening på Del 2."
+    },
+    {
+      "id": "tma4110-2-prove-prove-2a",
+      "type": "collapsible",
+      "title": "Prøve 2.A — Matrisealgebra og transponert-regler (~35 min)",
+      "buttonText": "Vis prøve 1",
+      "content": [
+        {
+          "id": "tma4110-2-prove-2a-oppg",
+          "type": "text",
+          "content": "### Prøve 2.A (kap. 2.1, sjanger B · ~35 min)\n\n**Oppgave 1 (regning).** La $A=\\begin{bmatrix}1&2\\\\3&-1\\end{bmatrix}$ og $B=\\begin{bmatrix}0&1\\\\2&4\\end{bmatrix}$.\n\n**a)** Regn ut $2A-B$.\n\n**b)** Regn ut matriseproduktet $AB$.\n\n**Oppgave 2 (transponert-regelen).** La $A=\\begin{bmatrix}1&2&3\\\\0&1&-1\\end{bmatrix}$ og $B=\\begin{bmatrix}2&0\\\\1&1\\\\0&3\\end{bmatrix}$. Regn ut $(AB)^{T}$ og $B^{T}A^{T}$, og bekreft at de er like. Forklar i én setning hvorfor rekkefølgen måtte snus.\n\n**Oppgave 3 (bevis, sjanger N).** Vis at $A^{T}A$ er symmetrisk for enhver matrise $A$. Illustrer med $A=\\begin{bmatrix}1&2\\\\3&-1\\\\0&4\\end{bmatrix}$ ved å regne ut $A^{T}A$ eksplisitt."
+        },
+        {
+          "id": "tma4110-2-prove-2a-fasit",
+          "type": "text",
+          "content": "### Fasit 2.A\n\n**Oppgave 1.**\n**a)** $2A=\\begin{bmatrix}2&4\\\\6&-2\\end{bmatrix}$, så $2A-B=\\begin{bmatrix}2-0&4-1\\\\6-2&-2-4\\end{bmatrix}=\\boxed{\\begin{bmatrix}2&3\\\\4&-6\\end{bmatrix}}$.\n\n**b)** Rad-gang-kolonne: $AB=\\begin{bmatrix}1\\cdot0+2\\cdot2&1\\cdot1+2\\cdot4\\\\3\\cdot0+(-1)\\cdot2&3\\cdot1+(-1)\\cdot4\\end{bmatrix}=\\boxed{\\begin{bmatrix}4&9\\\\-2&-1\\end{bmatrix}}$.\n\n**Oppgave 2.** Først $AB=\\begin{bmatrix}1\\cdot2+2\\cdot1+3\\cdot0&1\\cdot0+2\\cdot1+3\\cdot3\\\\0\\cdot2+1\\cdot1+(-1)\\cdot0&0\\cdot0+1\\cdot1+(-1)\\cdot3\\end{bmatrix}=\\begin{bmatrix}4&11\\\\1&-2\\end{bmatrix}$, så\n$$(AB)^{T}=\\begin{bmatrix}4&1\\\\11&-2\\end{bmatrix}.$$\nHøyresiden: $B^{T}=\\begin{bmatrix}2&1&0\\\\0&1&3\\end{bmatrix}$, $A^{T}=\\begin{bmatrix}1&0\\\\2&1\\\\3&-1\\end{bmatrix}$, og\n$$B^{T}A^{T}=\\begin{bmatrix}2\\cdot1+1\\cdot2+0\\cdot3&2\\cdot0+1\\cdot1+0\\cdot(-1)\\\\0\\cdot1+1\\cdot2+3\\cdot3&0\\cdot0+1\\cdot1+3\\cdot(-1)\\end{bmatrix}=\\begin{bmatrix}4&1\\\\11&-2\\end{bmatrix}=(AB)^{T}.\\ \\checkmark$$\nRekkefølgen måtte snus fordi formatene ellers ikke passer: $A^{T}B^{T}$ ville vært et $3\\times3$-produkt, ikke $2\\times2$ — regelen er $(AB)^{T}=B^{T}A^{T}$.\n\n**Oppgave 3.** **Bevis.** En matrise $M$ er symmetrisk nettopp når $M^{T}=M$. Sett $M=A^{T}A$ og bruk produktregelen $(XY)^{T}=Y^{T}X^{T}$ med $X=A^{T}$, $Y=A$:\n$$(A^{T}A)^{T}=A^{T}(A^{T})^{T}=A^{T}A,$$\nder siste likhet bruker $(A^{T})^{T}=A$. Altså er $A^{T}A$ lik sin egen transponerte, så den er symmetrisk — uansett hvilken $A$ vi starter med. $\\blacksquare$\n\n**Kontroll med tallene:** $A^{T}A=\\begin{bmatrix}1&3&0\\\\2&-1&4\\end{bmatrix}\\begin{bmatrix}1&2\\\\3&-1\\\\0&4\\end{bmatrix}=\\begin{bmatrix}10&-1\\\\-1&21\\end{bmatrix}$, som er symmetrisk ($-1$ på begge sider av diagonalen). $\\checkmark$"
+        },
+        {
+          "id": "tma4110-2-prove-2a-selvdiagnose",
+          "type": "text",
+          "content": "### Selvdiagnose 2.A\n\n- ☐ Jeg regnet $2A-B$ element for element med riktig format.\n- ☐ Jeg brukte rad-gang-kolonne korrekt i $AB$ (ikke elementvis).\n- ☐ Jeg bekreftet $(AB)^{T}=B^{T}A^{T}$ og forklarte rekkefølgesnuingen.\n- ☐ I beviset navnga jeg reglene $(AB)^{T}=B^{T}A^{T}$ og $(A^{T})^{T}=A$.\n- ☐ Jeg så at beviset gjelder generelt, og at tallkontrollen bare er en illustrasjon.\n\nMangler du hakk på transponert-regelen, repeter [kap. 2.1](/bok/tma4110/tma4110-2-1) — den regelen er bevis-gull i resten av emnet."
+        }
+      ]
+    },
+    {
+      "id": "tma4110-2-prove-prove-2b",
+      "type": "collapsible",
+      "title": "Prøve 2.B — Invers via Gauss–Jordan og 2×2-formelen (~40 min)",
+      "buttonText": "Vis prøve 2",
+      "content": [
+        {
+          "id": "tma4110-2-prove-2b-oppg",
+          "type": "text",
+          "content": "### Prøve 2.B (kap. 2.2, sjanger B · ~40 min)\n\n**Oppgave 1 (2×2-formelen).** Finn inversen til $A=\\begin{bmatrix}3&5\\\\1&2\\end{bmatrix}$, og kontroller ved å regne $AA^{-1}$.\n\n**Oppgave 2 (Gauss–Jordan).** Bruk Gauss–Jordan-metoden $[A\\mid I]\\to[I\\mid A^{-1}]$ til å finne inversen av\n$$A=\\begin{bmatrix}1&1&1\\\\0&1&2\\\\1&2&4\\end{bmatrix}.$$\n\n**Oppgave 3 (regneregler + løs likning).** La $A=\\begin{bmatrix}2&5\\\\1&3\\end{bmatrix}$ og $\\mathbf b=\\begin{bmatrix}3\\\\1\\end{bmatrix}$.\n\n**a)** Finn $A^{-1}$ med 2×2-formelen.\n\n**b)** Løs $A\\mathbf x=\\mathbf b$ ved $\\mathbf x=A^{-1}\\mathbf b$.\n\n**c)** Er $B$ en inverterbar $2\\times2$-matrise, hva er $(AB)^{-1}$ uttrykt ved $A^{-1}$ og $B^{-1}$? Begrunn rekkefølgen."
+        },
+        {
+          "id": "tma4110-2-prove-2b-fasit",
+          "type": "text",
+          "content": "### Fasit 2.B\n\n**Oppgave 1.** $\\det A=3\\cdot2-5\\cdot1=1\\ne0$, så $A$ er inverterbar. Bytt diagonalen, skift fortegn på de andre, del på $\\det A=1$:\n$$A^{-1}=\\frac{1}{1}\\begin{bmatrix}2&-5\\\\-1&3\\end{bmatrix}=\\boxed{\\begin{bmatrix}2&-5\\\\-1&3\\end{bmatrix}}.$$\nKontroll: $AA^{-1}=\\begin{bmatrix}3&5\\\\1&2\\end{bmatrix}\\begin{bmatrix}2&-5\\\\-1&3\\end{bmatrix}=\\begin{bmatrix}6-5&-15+15\\\\2-2&-5+6\\end{bmatrix}=\\begin{bmatrix}1&0\\\\0&1\\end{bmatrix}=I.\\ \\checkmark$\n\n**Oppgave 2.** Radreduser $[A\\mid I]$:\n$$\\left[\\begin{array}{ccc|ccc}1&1&1&1&0&0\\\\0&1&2&0&1&0\\\\1&2&4&0&0&1\\end{array}\\right]\\xrightarrow{R_3-R_1}\\left[\\begin{array}{ccc|ccc}1&1&1&1&0&0\\\\0&1&2&0&1&0\\\\0&1&3&-1&0&1\\end{array}\\right].$$\n$R_3\\to R_3-R_2$, så $R_1\\to R_1-R_2$:\n$$\\left[\\begin{array}{ccc|ccc}1&0&-1&1&-1&0\\\\0&1&2&0&1&0\\\\0&0&1&-1&-1&1\\end{array}\\right].$$\n$R_1\\to R_1+R_3$ og $R_2\\to R_2-2R_3$:\n$$\\left[\\begin{array}{ccc|ccc}1&0&0&0&-2&1\\\\0&1&0&2&3&-2\\\\0&0&1&-1&-1&1\\end{array}\\right]\\ \\Rightarrow\\ A^{-1}=\\boxed{\\begin{bmatrix}0&-2&1\\\\2&3&-2\\\\-1&-1&1\\end{bmatrix}}.$$\nKontroll (rad 1 av $AA^{-1}$): $(1,1,1)$ mot kolonnene gir $(0+2-1,\\,-2+3-1,\\,1-2+1)=(1,0,0)$. $\\checkmark$\n\n**Oppgave 3.**\n**a)** $\\det A=2\\cdot3-5\\cdot1=1$, så $A^{-1}=\\begin{bmatrix}3&-5\\\\-1&2\\end{bmatrix}$.\n\n**b)** $\\mathbf x=A^{-1}\\mathbf b=\\begin{bmatrix}3&-5\\\\-1&2\\end{bmatrix}\\begin{bmatrix}3\\\\1\\end{bmatrix}=\\begin{bmatrix}9-5\\\\-3+2\\end{bmatrix}=\\boxed{\\begin{bmatrix}4\\\\-1\\end{bmatrix}}$. Kontroll: $2\\cdot4+5\\cdot(-1)=3$ og $1\\cdot4+3\\cdot(-1)=1$. $\\checkmark$\n\n**c)** $(AB)^{-1}=B^{-1}A^{-1}$ — rekkefølgen snus. Grunn: for å angre «først $B$, så $A$» må du angre i motsatt rekkefølge, «først $A^{-1}$, så $B^{-1}$». Kontroll: $(AB)(B^{-1}A^{-1})=A(BB^{-1})A^{-1}=AIA^{-1}=I$."
+        },
+        {
+          "id": "tma4110-2-prove-2b-selvdiagnose",
+          "type": "text",
+          "content": "### Selvdiagnose 2.B\n\n- ☐ Jeg sjekket $\\det A\\ne0$ før jeg brukte 2×2-formelen.\n- ☐ Jeg brukte 2×2-oppskriften riktig: bytt diagonal, skift fortegn, del på determinanten.\n- ☐ Jeg radreduserte hele $[A\\mid I]$ (også høyresiden) til $[I\\mid A^{-1}]$.\n- ☐ Jeg løste $A\\mathbf x=\\mathbf b$ som $\\mathbf x=A^{-1}\\mathbf b$ og kontrollerte.\n- ☐ Jeg husket rekkefølgesnuingen $(AB)^{-1}=B^{-1}A^{-1}$.\n\nGlapp Gauss–Jordan, øv mer i [kap. 2.2](/bok/tma4110/tma4110-2-2) — under ingen hjelpemidler må metoden sitte i fingrene."
+        }
+      ]
+    },
+    {
+      "id": "tma4110-2-prove-prove-2c",
+      "type": "collapsible",
+      "title": "Prøve 2.C — Determinant, inverterbarhet og Cramer (~40 min)",
+      "buttonText": "Vis prøve 3",
+      "content": [
+        {
+          "id": "tma4110-2-prove-2c-oppg",
+          "type": "text",
+          "content": "### Prøve 2.C (kap. 2.3, sjanger C · ~40 min)\n\n**Oppgave 1 (kofaktorutvikling).** Regn ut $\\det\\begin{bmatrix}2&0&1\\\\3&1&2\\\\1&0&4\\end{bmatrix}$ ved å utvikle langs den raden eller kolonnen som gir minst arbeid.\n\n**Oppgave 2 (radreduksjon + inverterbarhet).** Regn ut $\\det\\begin{bmatrix}1&2&1&0\\\\0&3&1&2\\\\2&4&3&1\\\\0&0&2&1\\end{bmatrix}$ ved radreduksjon, og avgjør om matrisen er inverterbar.\n\n**Oppgave 3 (Cramers regel).** Løs systemet med Cramers regel:\n$$\\begin{cases}2x+y-z=1\\\\ x+3y+2z=13\\\\ 3x-y+z=4\\end{cases}$$"
+        },
+        {
+          "id": "tma4110-2-prove-2c-fasit",
+          "type": "text",
+          "content": "### Fasit 2.C\n\n**Oppgave 1.** Kolonne 2 er $(0,1,0)$ — to nuller, så utvikl langs den. Bare det midterste leddet overlever, fortegn $(-1)^{2+2}=+$:\n$$\\det A=1\\cdot(+1)\\begin{vmatrix}2&1\\\\1&4\\end{vmatrix}=1\\cdot(2\\cdot4-1\\cdot1)=1\\cdot7=\\boxed{7}.$$\n\n**Oppgave 2.** Radreduser til øvre triangulær form med operasjoner som ikke endrer determinanten.\n$R_3\\to R_3-2R_1$ gir $R_3=(2,4,3,1)-2(1,2,1,0)=(0,0,1,1)$:\n$$\\begin{vmatrix}1&2&1&0\\\\0&3&1&2\\\\0&0&1&1\\\\0&0&2&1\\end{vmatrix}.$$\n$R_4\\to R_4-2R_3$ gir $R_4=(0,0,2,1)-2(0,0,1,1)=(0,0,0,-1)$:\n$$\\begin{vmatrix}1&2&1&0\\\\0&3&1&2\\\\0&0&1&1\\\\0&0&0&-1\\end{vmatrix}=1\\cdot3\\cdot1\\cdot(-1)=\\boxed{-3}.$$\nSiden $\\det A=-3\\ne0$, er matrisen **inverterbar** (determinantkriteriet).\n\n**Oppgave 3.** Koeffisientmatrise $A=\\begin{bmatrix}2&1&-1\\\\1&3&2\\\\3&-1&1\\end{bmatrix}$, $\\mathbf b=\\begin{bmatrix}1\\\\13\\\\4\\end{bmatrix}$. Nevneren:\n$$\\det A=2\\begin{vmatrix}3&2\\\\-1&1\\end{vmatrix}-1\\begin{vmatrix}1&2\\\\3&1\\end{vmatrix}+(-1)\\begin{vmatrix}1&3\\\\3&-1\\end{vmatrix}=2\\cdot5-1\\cdot(-5)-1\\cdot(-10)=10+5+10=25\\ (\\ne0).$$\nErstatt kolonne $i$ med $\\mathbf b$:\n$$x=\\frac{\\begin{vmatrix}1&1&-1\\\\13&3&2\\\\4&-1&1\\end{vmatrix}}{25}=\\frac{25}{25}=1,\\quad y=\\frac{\\begin{vmatrix}2&1&-1\\\\1&13&2\\\\3&4&1\\end{vmatrix}}{25}=\\frac{50}{25}=2,\\quad z=\\frac{\\begin{vmatrix}2&1&1\\\\1&3&13\\\\3&-1&4\\end{vmatrix}}{25}=\\frac{75}{25}=3.$$\n**Svar:** $(x,y,z)=(1,2,3)$. Kontroll i likning 1: $2\\cdot1+2-3=1$ ✓."
+        },
+        {
+          "id": "tma4110-2-prove-2c-selvdiagnose",
+          "type": "text",
+          "content": "### Selvdiagnose 2.C\n\n- ☐ Jeg valgte raden/kolonnen med flest nuller ved kofaktorutvikling.\n- ☐ Jeg fikk fortegnet $(-1)^{i+j}$ riktig.\n- ☐ Jeg radreduserte 4×4-en til triangulær form uten å endre determinanten (kun «adder multiplum»).\n- ☐ Jeg leste determinanten som produkt av diagonalen og konkluderte om inverterbarhet.\n- ☐ I Cramer regnet jeg nevneren $\\det A$ først og sjekket $\\ne0$ før jeg delte.\n\nBlandet du feil determinant, sjekk fortegnene i kofaktormønsteret — repeter [kap. 2.3](/bok/tma4110/tma4110-2-3)."
+        }
+      ]
+    },
+    {
+      "id": "tma4110-2-prove-prove-2d",
+      "type": "collapsible",
+      "title": "Prøve 2.D — Inverterbarhetssetning-tverrsnitt (~40 min)",
+      "buttonText": "Vis prøve 4",
+      "content": [
+        {
+          "id": "tma4110-2-prove-2d-oppg",
+          "type": "text",
+          "content": "### Prøve 2.D (kap. 2.1–2.3, sjanger B + C · ~40 min)\n\nDenne prøven kobler sammen determinant, rang, nullrom og invers — nettopp det inverterbarhetssetningen (kap. 2.2) binder i én kjede.\n\n**Oppgave 1 (oversett mellom utsagnene).** La $A=\\begin{bmatrix}1&2&3\\\\2&5&7\\\\3&7&10\\end{bmatrix}$.\n\n**a)** Regn ut $\\det A$.\n\n**b)** Er $A$ inverterbar? Hva er da rangen sammenliknet med $3$, og hva kan du si om $\\operatorname{Nul}A$ og om løsningene av $A\\mathbf x=\\mathbf 0$? Navngi setningen du bruker.\n\n**Oppgave 2 (parameter).** For hvilke verdier av $t$ er $A=\\begin{bmatrix}t&1&0\\\\1&t&1\\\\0&1&t\\end{bmatrix}$ inverterbar? Regn ut $\\det A$ som funksjon av $t$, og oppgi de eksakte verdiene der $A$ er singulær.\n\n**Oppgave 3 (kort bevis, sjanger N).** Anta at $A$ og $B$ er $n\\times n$-matriser med $\\det(AB)=0$. Vis at minst én av $A$ og $B$ er singulær. (Hint: bruk produktregelen.)"
+        },
+        {
+          "id": "tma4110-2-prove-2d-fasit",
+          "type": "text",
+          "content": "### Fasit 2.D\n\n**Oppgave 1.**\n**a)** Utvikl langs rad 1:\n$$\\det A=1\\begin{vmatrix}5&7\\\\7&10\\end{vmatrix}-2\\begin{vmatrix}2&7\\\\3&10\\end{vmatrix}+3\\begin{vmatrix}2&5\\\\3&7\\end{vmatrix}=1(50-49)-2(20-21)+3(14-15)=1+2-3=\\boxed{0}.$$\n\n**b)** Siden $\\det A=0$, er $A$ **ikke inverterbar** (singulær) — ved **inverterbarhetssetningen** er da alle de ekvivalente utsagnene usanne: $\\operatorname{rang}A<3$ (minst én kolonne mangler pivot), $\\operatorname{Nul}A\\ne\\{\\mathbf 0\\}$, og $A\\mathbf x=\\mathbf 0$ har **ikke-trivielle løsninger**. (Faktisk er rad $3=$ rad $1+$ rad $2$, så radene er lineært avhengige — i tråd med $\\det A=0$.)\n\n**Oppgave 2.** Utvikl langs første kolonne (eller rad 1):\n$$\\det A=t\\begin{vmatrix}t&1\\\\1&t\\end{vmatrix}-1\\begin{vmatrix}1&1\\\\0&t\\end{vmatrix}+0=t(t^{2}-1)-1\\cdot(t-0)=t^{3}-t-t=t^{3}-2t=t(t^{2}-2).$$\nMatrisen er inverterbar nettopp når $\\det A\\ne0$, altså når $t(t^{2}-2)\\ne0$. Den er **singulær** for de eksakte verdiene\n$$t=0,\\qquad t=\\sqrt{2},\\qquad t=-\\sqrt{2},$$\nog **inverterbar for alle andre** $t$. (Eksakte svar — $\\sqrt2$, ingen desimal.)\n\n**Oppgave 3.** **Bevis.** Anta $\\det(AB)=0$. Produktregelen (kap. 2.3) gir\n$$\\det(AB)=\\det A\\cdot\\det B.$$\nEt produkt av to tall er $0$ bare hvis minst én av faktorene er $0$, så $\\det A=0$ eller $\\det B=0$. Ved determinantkriteriet (inverterbarhetssetningen) betyr det at $A$ er singulær eller $B$ er singulær — altså er minst én av dem ikke inverterbar. $\\blacksquare$\n\n**Sensor-merknad:** kjernen i uttellingen er å navngi *produktregelen* og *determinantkriteriet*, og å bruke at et reelt produkt er null bare når en faktor er null."
+        },
+        {
+          "id": "tma4110-2-prove-2d-selvdiagnose",
+          "type": "text",
+          "content": "### Selvdiagnose 2.D\n\n- ☐ Jeg regnet $\\det A$ riktig i oppgave 1 og konkluderte $\\det A=0$.\n- ☐ Jeg oversatte $\\det A=0$ til rang, $\\operatorname{Nul}A$ og løsbarhet, og **navnga** inverterbarhetssetningen.\n- ☐ Jeg fant $\\det A$ som funksjon av $t$ og løste $\\det A=0$ med eksakte verdier ($\\pm\\sqrt2$).\n- ☐ I beviset brukte jeg produktregelen $\\det(AB)=\\det A\\det B$.\n- ☐ Jeg begrunnet at et produkt er null bare når en faktor er null, og koblet til determinantkriteriet.\n\nDette tverrsnittet er selve poenget med Del 2: ett tall ($\\det A$) styrer invers, rang og nullrom samtidig. Sitter koblingene løst, repeter inverterbarhetssetningen i [kap. 2.2](/bok/tma4110/tma4110-2-2) og [kap. 2.3](/bok/tma4110/tma4110-2-3)."
+        }
+      ]
+    }
+  ],
+  "exercises": []
+}

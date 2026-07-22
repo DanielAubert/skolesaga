@@ -1,0 +1,437 @@
+{
+  "id": "tma4110-2-3",
+  "courseId": "tma4110",
+  "chapterNumber": "2.3",
+  "title": "Determinanter, kofaktorutvikling og Cramers regel",
+  "description": "Determinanten regnet ved kofaktorutvikling og radreduksjon, egenskapene (produktregel, transponert, radoperasjoners virkning), koblingen det A ≠ 0 ⇔ inverterbar, og Cramers regel — pluss det A = ∏λᵢ som bro til egenverdier.",
+  "estimatedMinutes": 55,
+  "competenceGoals": [
+    "regne ut determinanten til en 2×2- og 3×3-matrise ved kofaktorutvikling (velge rad/kolonne med flest nuller) og til større matriser ved radreduksjon til triangulær form",
+    "bruke determinantreglene $\\det(AB)=\\det A\\det B$, $\\det A^{T}=\\det A$, $\\det(cA)=c^{n}\\det A$ og radoperasjonenes virkning på determinanten",
+    "avgjøre inverterbarhet fra $\\det A\\ne0$, løse system med Cramers regel, og bruke $\\det A=\\prod\\lambda_i$ som bro til egenverdiene"
+  ],
+  "content": [
+    {
+      "id": "tma4110-2-3-tip-eksamensvinkel",
+      "type": "tip",
+      "title": "Eksamensvinkel",
+      "content": "**Determinanten er både et regnestykke og en bryter: ett tall som avgjør om en matrise er inverterbar.**\n\n- **Determinant og inverterbarhet (sjanger C)** dukker opp i rundt **45 %** av settene: regn ut en determinant, eller bruk $\\det A\\ne0$ til å avgjøre om $A$ er inverterbar. (Sjanger C er bokas kode for oppgaver om determinant, kofaktor, inverterbarhet og Cramer.)\n- Determinanten er også **motoren i egenverdi-oppgavene** (sjanger G, 95 %): den karakteristiske likningen $\\det(A-\\lambda I)=0$ i Del 5 er en determinant. Behersker du determinanten godt her, sparer du tid der.\n\nPrioriteten er **kunne**, men verktøyet brukes overalt. Det viktigste grepet sensor belønner: **velg rad eller kolonne med flest nuller** ved kofaktorutvikling, og **radreduser store determinanter** i stedet for å kofaktorutvikle blindt. Under ingen-hjelpemidler-kravet (kode E) regner du alt for hånd, så både kofaktormønsteret $(-1)^{i+j}$ og radoperasjonenes virkning må sitte utenat."
+    },
+    {
+      "id": "tma4110-2-3-forkunnskaper",
+      "type": "text",
+      "content": "**Forkunnskaper:** Dette kapitlet bygger på [kap. 2.2](/bok/tma4110/tma4110-2-2) (invers og inverterbarhetssetningen — determinantkriteriet $\\det A\\ne0$ er ett av leddene der) og [kap. 2.1](/bok/tma4110/tma4110-2-1) (matriseprodukt og transponert, som vi trenger i produkt- og transponertregelen). Radreduksjon fra [kap. 1.1](/bok/tma4110/tma4110-1-1) er grunnteknikken for store determinanter. Determinanten møtte du på VGS-nivå som areal og volum utspent av vektorer i [Areal og volum med vektorer](/bok/r2/r2-5-5); her bygger vi den fulle teorien for $n\\times n$."
+    },
+    {
+      "id": "tma4110-2-3-motivasjon",
+      "type": "text",
+      "content": "## Hverdagsanker: ett tall som sier ja eller nei\n\nTenk deg en bryter som svarer på ett spørsmål om en kvadratisk matrise: *kan den inverteres, eller ikke?* **Determinanten** $\\det A$ er nettopp en slik bryter — ett tall regnet ut fra elementene, der $\\det A\\ne0$ betyr «ja, inverterbar» og $\\det A=0$ betyr «nei, singulær». Geometrisk måler det samme tallet hvor mye avbildningen $\\mathbf x\\mapsto A\\mathbf x$ strekker areal (2×2) eller volum (3×3): er strekkfaktoren $0$, klemmes rommet flatt, og avbildningen kan ikke reverseres.\n\nVi bygger determinanten i tre løkker: (1) hvordan den regnes ut — 2×2, 3×3 og kofaktorutvikling langs den smarteste raden; (2) egenskapene som gjør store determinanter overkommelige — radoperasjonenes virkning, produktregelen og transponertregelen; og (3) de to store koblingene — $\\det A\\ne0\\Leftrightarrow$ inverterbar (med Cramers regel som bonus) og $\\det A=\\prod\\lambda_i$, broen til egenverdiene i Del 5."
+    },
+    {
+      "id": "tma4110-2-3-lokke1",
+      "type": "text",
+      "content": "## Løkke 1 — Utregning: 2×2, 3×3 og kofaktorutvikling (~19 min)"
+    },
+    {
+      "id": "tma4110-2-3-det2x2",
+      "type": "definition",
+      "title": "Determinant til en 2×2-matrise",
+      "content": "**Determinanten** er ett tall du regner ut fra en kvadratisk matrise. For $A=\\begin{bmatrix}a&b\\\\c&d\\end{bmatrix}$ er det\n$$\\det A=\\begin{vmatrix}a&b\\\\c&d\\end{vmatrix}=ad-bc,$$\naltså «hoveddiagonalproduktet minus antidiagonalproduktet». De rette strekene $\\lvert\\ \\rvert$ (i stedet for klammer) betyr «determinanten av». Dette tallet avgjør inverterbarhet: $A$ er inverterbar nettopp når $\\det A\\ne0$."
+    },
+    {
+      "id": "tma4110-2-3-minor",
+      "type": "definition",
+      "title": "Minor",
+      "content": "For en $n\\times n$-matrise $A$ er **minoren** $M_{ij}$ determinanten til den mindre matrisen du får ved å **stryke rad $i$ og kolonne $j$**. For en 3×3-matrise er hver minor altså en 2×2-determinant. Minorene er byggeklossene i kofaktorutvikling."
+    },
+    {
+      "id": "tma4110-2-3-kofaktor",
+      "type": "definition",
+      "title": "Kofaktor",
+      "content": "**Kofaktoren** $C_{ij}$ er minoren med et fortegn foran:\n$$C_{ij}=(-1)^{i+j}M_{ij}.$$\nFortegnet $(-1)^{i+j}$ følger et sjakkbrettmønster som starter med $+$ øverst til venstre:\n$$\\begin{bmatrix}+&-&+\\\\-&+&-\\\\+&-&+\\end{bmatrix}.$$\nEr $i+j$ et partall, er fortegnet $+$; er det oddetall, er det $-$. Å telle dette fortegnet feil er den vanligste kilden til feil determinant."
+    },
+    {
+      "id": "tma4110-2-3-kofaktorutvikling",
+      "type": "definition",
+      "title": "Kofaktorutvikling langs en rad eller kolonne",
+      "content": "Determinanten regnes ut ved å **utvikle langs en valgt rad eller kolonne**: gang hvert element med sin kofaktor og summer. Langs rad $i$:\n$$\\det A=a_{i1}C_{i1}+a_{i2}C_{i2}+\\dots+a_{in}C_{in}.$$\nDu står fritt til å velge hvilken rad eller kolonne du utvikler langs — svaret blir det samme. **Velg alltid raden eller kolonnen med flest nuller**: et element som er $0$ dreper hele leddet sitt, så du slipper å regne den kofaktoren."
+    },
+    {
+      "id": "tma4110-2-3-det3x3",
+      "type": "definition",
+      "title": "Determinant til en 3×3-matrise",
+      "content": "For en 3×3-matrise utvikler vi typisk langs første rad:\n$$\\det\\begin{bmatrix}a_{11}&a_{12}&a_{13}\\\\a_{21}&a_{22}&a_{23}\\\\a_{31}&a_{32}&a_{33}\\end{bmatrix}=a_{11}\\,C_{11}+a_{12}\\,C_{12}+a_{13}\\,C_{13},$$\nder $C_{11}=+\\begin{vmatrix}a_{22}&a_{23}\\\\a_{32}&a_{33}\\end{vmatrix}$, $C_{12}=-\\begin{vmatrix}a_{21}&a_{23}\\\\a_{31}&a_{33}\\end{vmatrix}$, $C_{13}=+\\begin{vmatrix}a_{21}&a_{22}\\\\a_{31}&a_{32}\\end{vmatrix}$. Merk fortegnsrekken $+,-,+$ langs raden. Hver kofaktor er en 2×2-determinant du kan regne med $ad-bc$."
+    },
+    {
+      "id": "tma4110-2-3-ex-1",
+      "type": "example",
+      "title": "Eksempel 1: 3×3-determinant ved kofaktorutvikling",
+      "problem": "Regn ut $\\det A$ for $A=\\begin{bmatrix}2&-1&3\\\\1&0&2\\\\4&1&-2\\end{bmatrix}$ ved kofaktorutvikling langs første rad.",
+      "solution": "Fortegnsrekken langs rad 1 er $+,-,+$:\n$$\\det A=2\\cdot(+1)\\begin{vmatrix}0&2\\\\1&-2\\end{vmatrix}+(-1)\\cdot(-1)\\begin{vmatrix}1&2\\\\4&-2\\end{vmatrix}+3\\cdot(+1)\\begin{vmatrix}1&0\\\\4&1\\end{vmatrix}.$$\nDe tre 2×2-determinantene:\n$$\\begin{vmatrix}0&2\\\\1&-2\\end{vmatrix}=0\\cdot(-2)-2\\cdot1=-2,\\quad\\begin{vmatrix}1&2\\\\4&-2\\end{vmatrix}=-2-8=-10,\\quad\\begin{vmatrix}1&0\\\\4&1\\end{vmatrix}=1-0=1.$$\nSett inn (pass på det doble fortegnet i andre ledd, $(-1)\\cdot(-1)=+1$):\n$$\\det A=2(-2)+1\\cdot(-10)+3\\cdot1=-4-10+3=-11.$$\n**Svar:** $\\det A=-11$. Siden $\\det A\\ne0$, er $A$ inverterbar."
+    },
+    {
+      "id": "tma4110-2-3-oppg-1",
+      "type": "exercise",
+      "exercise": {
+        "id": "tma4110-2-3-l1",
+        "number": "1",
+        "type": "classic",
+        "difficulty": "lett",
+        "task": "(Ren gjengivelse — 2×2-determinanten.) Regn ut determinanten:\n\n**a)** $\\begin{vmatrix}3&5\\\\2&4\\end{vmatrix}$\n\n**b)** $\\begin{vmatrix}6&3\\\\4&2\\end{vmatrix}$",
+        "solution": "Bruk $ad-bc$.\n\n**a)** $3\\cdot4-5\\cdot2=12-10=2$.\n\n**b)** $6\\cdot2-3\\cdot4=12-12=0$. (Her er $\\det=0$, så denne matrisen er **singulær** — rad 2 er $\\tfrac23$ av rad 1.)",
+        "hints": [
+          "Determinanten til en 2×2-matrise er $ad-bc$: hoveddiagonalen minus antidiagonalen.",
+          "Er svaret $0$, er matrisen singulær (ikke inverterbar)."
+        ]
+      }
+    },
+    {
+      "id": "tma4110-2-3-oppg-2",
+      "type": "exercise",
+      "exercise": {
+        "id": "tma4110-2-3-l2",
+        "number": "2",
+        "type": "classic",
+        "difficulty": "lett",
+        "task": "(Innøving — kofaktorutvikling.) Regn ut $\\det\\begin{bmatrix}1&2&-1\\\\0&3&4\\\\0&1&2\\end{bmatrix}$. Utvikle langs den kolonnen som har flest nuller.",
+        "solution": "Kolonne 1 er $(1,0,0)$ — to nuller, så bare det øverste leddet overlever. Fortegnet er $(-1)^{1+1}=+$:\n$$\\det A=1\\cdot(+1)\\begin{vmatrix}3&4\\\\1&2\\end{vmatrix}=1\\cdot(3\\cdot2-4\\cdot1)=1\\cdot2=2.$$\n**Svar:** $\\det A=2$.",
+        "hints": [
+          "Kolonne 1 har to nuller — utvikl langs den, så faller to av tre ledd bort.",
+          "Det gjenværende leddet er $a_{11}\\cdot C_{11}=1\\cdot(+1)\\cdot\\det\\begin{bmatrix}3&4\\\\1&2\\end{bmatrix}$."
+        ]
+      }
+    },
+    {
+      "id": "tma4110-2-3-oppg-3",
+      "type": "exercise",
+      "exercise": {
+        "id": "tma4110-2-3-m1",
+        "number": "3",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "(Sjanger C — velg smart rad/kolonne.) Regn ut $\\det\\begin{bmatrix}4&0&0\\\\7&2&5\\\\3&0&1\\end{bmatrix}$ ved å velge den raden eller kolonnen som gir minst arbeid.",
+        "solution": "Kolonne 2 er $(0,2,0)$ — to nuller, så det er den letteste å utvikle langs. Bare det midterste leddet overlever, med fortegn $(-1)^{2+2}=+$:\n$$\\det A=2\\cdot(+1)\\begin{vmatrix}4&0\\\\3&1\\end{vmatrix}=2\\cdot(4\\cdot1-0\\cdot3)=2\\cdot4=8.$$\n**Svar:** $\\det A=8$. (Rad 1, som også har to nuller, gir samme svar: $4\\cdot\\begin{vmatrix}2&5\\\\0&1\\end{vmatrix}=4\\cdot2=8$.)",
+        "hints": [
+          "Let etter raden eller kolonnen med flest nuller — her har kolonne 2 (og rad 1) to nuller hver.",
+          "Utvikler du langs kolonne 2, er eneste ledd $a_{22}\\cdot C_{22}=2\\cdot(+1)\\cdot\\det\\begin{bmatrix}4&0\\\\3&1\\end{bmatrix}$."
+        ]
+      }
+    },
+    {
+      "id": "tma4110-2-3-lokke2",
+      "type": "text",
+      "content": "## Løkke 2 — Egenskaper: radreduksjon, produkt og transponert (~19 min)"
+    },
+    {
+      "id": "tma4110-2-3-radop-intro",
+      "type": "text",
+      "content": "Store determinanter regnes ikke ut ved blind kofaktorutvikling — en 4×4 ville da kreve fire 3×3-er, altså tolv 2×2-er. I stedet **radreduserer** vi til triangulær form og leser av determinanten som produktet av diagonalen. Nøkkelen er å vite hvordan hver radoperasjon påvirker determinanten."
+    },
+    {
+      "id": "tma4110-2-3-radop",
+      "type": "definition",
+      "title": "Radoperasjoners virkning på determinanten",
+      "content": "De tre elementære radoperasjonene gjør følgende med determinanten:\n\n1. **Bytt to rader** $\\Rightarrow$ determinanten **skifter fortegn** (ganges med $-1$).\n2. **Skaler en rad med** $k$ $\\Rightarrow$ determinanten **ganges med** $k$.\n3. **Adder et multiplum av en rad til en annen** $\\Rightarrow$ determinanten er **uendret**.\n\nOperasjon 3 er den viktige: den lar deg lage nuller *gratis*, uten å endre svaret. Radbytter må du telle (hvert bytte gir en faktor $-1$), og skalering må du kompensere for. Alle tre reglene gjelder tilsvarende for kolonneoperasjoner."
+    },
+    {
+      "id": "tma4110-2-3-triangular",
+      "type": "definition",
+      "title": "Determinant av en triangulær matrise",
+      "content": "For en **triangulær** matrise (øvre eller nedre) er determinanten simpelthen **produktet av diagonalelementene**:\n$$\\det A=a_{11}a_{22}\\cdots a_{nn}.$$\nDette er grunnen til at radreduksjon virker: reduser $A$ til triangulær form (med kontroll på fortegn og skaleringer underveis), gang diagonalen, og juster. Spesielt: har en triangulær matrise en $0$ på diagonalen, er $\\det A=0$."
+    },
+    {
+      "id": "tma4110-2-3-ex-2",
+      "type": "example",
+      "title": "Eksempel 2: 4×4-determinant ved radreduksjon",
+      "problem": "Regn ut $\\det A$ for $A=\\begin{bmatrix}1&3&1&2\\\\0&2&1&1\\\\2&6&3&5\\\\0&0&1&3\\end{bmatrix}$, og avgjør om $A$ er inverterbar.",
+      "solution": "Vi radreduserer til triangulær form med operasjoner som **ikke** endrer determinanten (adder multiplum av en rad til en annen).\n\n$R_3\\to R_3-2R_1$ (dette gjør $R_3=(2,6,3,5)-2(1,3,1,2)=(0,0,1,1)$):\n$$\\begin{vmatrix}1&3&1&2\\\\0&2&1&1\\\\0&0&1&1\\\\0&0&1&3\\end{vmatrix}.$$\n$R_4\\to R_4-R_3$ (gjør $R_4=(0,0,1,3)-(0,0,1,1)=(0,0,0,2)$):\n$$\\begin{vmatrix}1&3&1&2\\\\0&2&1&1\\\\0&0&1&1\\\\0&0&0&2\\end{vmatrix}.$$\nMatrisen er nå øvre triangulær, og ingen av operasjonene endret determinanten. Determinanten er produktet av diagonalen:\n$$\\det A=1\\cdot2\\cdot1\\cdot2=4.$$\n**Svar:** $\\det A=4$. Siden $\\det A\\ne0$, er $A$ **inverterbar** (determinantkriteriet). Merk hvor mye raskere dette går enn å kofaktorutvikle en full 4×4."
+    },
+    {
+      "id": "tma4110-2-3-egenskaper-intro",
+      "type": "text",
+      "content": "Neste løkkebit er de fire egenskapene som lar deg regne med determinanter uten å regne dem ut: produktregelen, transponertregelen, invers og skalering."
+    },
+    {
+      "id": "tma4110-2-3-produkt",
+      "type": "definition",
+      "title": "Produktregelen $\\det(AB)=\\det A\\det B$",
+      "content": "For to kvadratiske matriser av samme størrelse er determinanten til produktet lik produktet av determinantene:\n$$\\det(AB)=\\det A\\cdot\\det B.$$\nDette er en av de mest brukte determinantreglene i bevis. Merk kontrasten til addisjon: det finnes **ingen** slik regel for $\\det(A+B)$ — generelt er $\\det(A+B)\\ne\\det A+\\det B$."
+    },
+    {
+      "id": "tma4110-2-3-transp",
+      "type": "definition",
+      "title": "Transponertregelen $\\det A^{T}=\\det A$",
+      "content": "Transponering endrer ikke determinanten:\n$$\\det A^{T}=\\det A.$$\nDerfor spiller det ingen rolle om du utvikler langs en rad eller en kolonne — kolonnene i $A$ er radene i $A^{T}$. Praktisk konsekvens: alt du kan gjøre med rader (radoperasjoner, lete etter nuller), kan du like gjerne gjøre med kolonner."
+    },
+    {
+      "id": "tma4110-2-3-invers",
+      "type": "definition",
+      "title": "Determinanten av inversen",
+      "content": "Er $A$ inverterbar, er\n$$\\det(A^{-1})=\\frac{1}{\\det A}.$$\nDette følger av produktregelen: $\\det A\\cdot\\det(A^{-1})=\\det(AA^{-1})=\\det I=1$, så $\\det(A^{-1})$ må være $1/\\det A$. Legg samtidig merke til at $\\det I=1$ for identitetsmatrisen (triangulær med bare 1-ere på diagonalen)."
+    },
+    {
+      "id": "tma4110-2-3-cA",
+      "type": "definition",
+      "title": "Determinanten av $cA$",
+      "content": "Å skalere **hele** matrisen med et tall $c$ skalerer determinanten med $c$ opphøyd i formatet:\n$$\\det(cA)=c^{\\,n}\\det A\\qquad(A\\text{ er }n\\times n).$$\nGrunnen: å gange $cA$ betyr å skalere **hver av de $n$ radene** med $c$, og hver radskalering ganger determinanten med $c$ (radoperasjon 2) — til sammen $c^n$. En vanlig felle er å tro $\\det(cA)=c\\det A$; potensen $n$ er lett å glemme."
+    },
+    {
+      "id": "tma4110-2-3-ex-3",
+      "type": "example",
+      "title": "Eksempel 3: Regn med determinantreglene",
+      "problem": "La $A$ og $B$ være $3\\times3$-matriser med $\\det A=5$ og $\\det B=-2$. Regn ut (a) $\\det(AB)$, (b) $\\det(A^{T})$, (c) $\\det(A^{-1})$, (d) $\\det(2A)$.",
+      "solution": "Vi bruker reglene direkte, uten å kjenne matrisene.\n\n**(a)** Produktregelen: $\\det(AB)=\\det A\\cdot\\det B=5\\cdot(-2)=-10$.\n\n**(b)** Transponertregelen: $\\det(A^{T})=\\det A=5$.\n\n**(c)** Invers: $\\det(A^{-1})=\\dfrac{1}{\\det A}=\\dfrac{1}{5}$.\n\n**(d)** Skalering med $n=3$: $\\det(2A)=2^{3}\\det A=8\\cdot5=40$. (Ikke $2\\cdot5=10$ — hele matrisen skaleres, så faktoren er $2^3$.)"
+    },
+    {
+      "id": "tma4110-2-3-oppg-4",
+      "type": "exercise",
+      "exercise": {
+        "id": "tma4110-2-3-m2",
+        "number": "4",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "(Sjanger C — determinantreglene.) La $A$ være en $4\\times4$-matrise med $\\det A=3$.\n\n**a)** Hva er $\\det(A^{2})$?\n\n**b)** Hva er $\\det(3A)$?\n\n**c)** Hva er $\\det(A^{-1})$?",
+        "solution": "**a)** $A^{2}=AA$, så produktregelen gir $\\det(A^{2})=\\det A\\cdot\\det A=3\\cdot3=9$.\n\n**b)** Formatet er $n=4$, så $\\det(3A)=3^{4}\\det A=81\\cdot3=243$.\n\n**c)** $\\det(A^{-1})=\\dfrac{1}{\\det A}=\\dfrac{1}{3}$.",
+        "hints": [
+          "Produktregelen $\\det(AB)=\\det A\\det B$ dekker (a); skaleringsregelen $\\det(cA)=c^n\\det A$ dekker (b).",
+          "I (b) er $n=4$, så faktoren er $3^4$, ikke $3$.",
+          "I (c): $\\det A\\cdot\\det(A^{-1})=\\det I=1$."
+        ]
+      }
+    },
+    {
+      "id": "tma4110-2-3-oppg-5",
+      "type": "exercise",
+      "exercise": {
+        "id": "tma4110-2-3-v1",
+        "number": "5",
+        "type": "classic",
+        "difficulty": "vanskelig",
+        "task": "(Sjanger C — 4×4 ved radreduksjon.) Regn ut $\\det\\begin{bmatrix}2&1&0&3\\\\0&1&1&1\\\\4&2&1&7\\\\0&0&2&1\\end{bmatrix}$ ved radreduksjon, og avgjør om matrisen er inverterbar.",
+        "solution": "Vi lager nuller under diagonalen med operasjoner som ikke endrer determinanten.\n\n$R_3\\to R_3-2R_1$ gir $R_3=(4,2,1,7)-2(2,1,0,3)=(0,0,1,1)$:\n$$\\begin{vmatrix}2&1&0&3\\\\0&1&1&1\\\\0&0&1&1\\\\0&0&2&1\\end{vmatrix}.$$\n$R_4\\to R_4-2R_3$ gir $R_4=(0,0,2,1)-2(0,0,1,1)=(0,0,0,-1)$:\n$$\\begin{vmatrix}2&1&0&3\\\\0&1&1&1\\\\0&0&1&1\\\\0&0&0&-1\\end{vmatrix}.$$\nØvre triangulær, ingen fortegns- eller skaleringsjustering nødvendig. Determinanten er produktet av diagonalen:\n$$\\det A=2\\cdot1\\cdot1\\cdot(-1)=-2.$$\n**Svar:** $\\det A=-2\\ne0$, så matrisen er **inverterbar** (determinantkriteriet).",
+        "hints": [
+          "Radreduser til øvre triangulær form; bruk bare «adder multiplum av en rad» — det endrer ikke determinanten.",
+          "$R_3-2R_1$ nuller ut kolonne 1 i rad 3; deretter $R_4-2R_3$ nuller kolonne 3 i rad 4.",
+          "Determinanten er produktet av diagonalelementene i triangulærformen; $\\ne0$ betyr inverterbar."
+        ]
+      }
+    },
+    {
+      "id": "tma4110-2-3-lokke3",
+      "type": "text",
+      "content": "## Løkke 3 — Inverterbarhet, Cramers regel og broen til egenverdier (~17 min)"
+    },
+    {
+      "id": "tma4110-2-3-kriterium",
+      "type": "definition",
+      "title": "Determinantkriteriet for inverterbarhet",
+      "content": "Determinanten avgjør inverterbarhet, og er ett av leddene i inverterbarhetssetningen (kap. 2.2):\n$$A\\text{ inverterbar}\\ \\Longleftrightarrow\\ \\det A\\ne0.$$\nEr $\\det A=0$, er $A$ **singulær**: da har $A\\mathbf x=\\mathbf 0$ ikke-trivielle løsninger, $\\operatorname{rang}A<n$, og kolonnene er lineært avhengige. Å regne ut determinanten er derfor ofte den raskeste måten å avgjøre inverterbarhet på — spesielt for 2×2 og 3×3."
+    },
+    {
+      "id": "tma4110-2-3-ex-4",
+      "type": "example",
+      "title": "Eksempel 4: Inverterbarhet via determinanten",
+      "problem": "For hvilke verdier av $t$ er $A=\\begin{bmatrix}t&2\\\\3&t\\end{bmatrix}$ inverterbar?",
+      "solution": "Vi regner determinanten og krever at den er ulik null:\n$$\\det A=t\\cdot t-2\\cdot3=t^{2}-6.$$\nMatrisen er inverterbar nettopp når $\\det A\\ne0$, altså når $t^{2}-6\\ne0$, det vil si $t\\ne\\pm\\sqrt{6}$.\n\n**Svar:** $A$ er inverterbar for alle $t$ unntatt $t=\\sqrt{6}$ og $t=-\\sqrt{6}$, hvor $A$ er singulær. (Eksakt svar — ingen desimaltilnærming av $\\sqrt6$.)"
+    },
+    {
+      "id": "tma4110-2-3-cramer",
+      "type": "definition",
+      "title": "Cramers regel",
+      "content": "For et system $A\\mathbf x=\\mathbf b$ med **inverterbar** $n\\times n$-matrise $A$ gir Cramers regel hver ukjente som en brøk av to determinanter:\n$$x_i=\\frac{\\det A_i(\\mathbf b)}{\\det A},$$\nder $A_i(\\mathbf b)$ er $A$ med **kolonne $i$ erstattet av høyresiden** $\\mathbf b$. Regelen er mest praktisk for 2×2- og 3×3-system; for større system er radreduksjon raskere. Den krever $\\det A\\ne0$ (ellers er systemet ikke entydig løsbart)."
+    },
+    {
+      "id": "tma4110-2-3-ex-5",
+      "type": "example",
+      "title": "Eksempel 5: Cramers regel på et 2×2-system",
+      "problem": "Løs $\\begin{cases}x+2y=4\\\\3x-y=5\\end{cases}$ med Cramers regel.",
+      "solution": "Koeffisientmatrisen og høyresiden er $A=\\begin{bmatrix}1&2\\\\3&-1\\end{bmatrix}$, $\\mathbf b=\\begin{bmatrix}4\\\\5\\end{bmatrix}$. Nevneren er\n$$\\det A=1\\cdot(-1)-2\\cdot3=-7\\ (\\ne0),$$\nså systemet har entydig løsning. Erstatt kolonne 1 med $\\mathbf b$ for $x$, og kolonne 2 med $\\mathbf b$ for $y$:\n$$x=\\frac{\\begin{vmatrix}4&2\\\\5&-1\\end{vmatrix}}{-7}=\\frac{-4-10}{-7}=\\frac{-14}{-7}=2,\\qquad y=\\frac{\\begin{vmatrix}1&4\\\\3&5\\end{vmatrix}}{-7}=\\frac{5-12}{-7}=\\frac{-7}{-7}=1.$$\n**Svar:** $(x,y)=(2,1)$. **Kontroll:** $1\\cdot2+2\\cdot1=4$ og $3\\cdot2-1\\cdot1=5$. $\\checkmark$"
+    },
+    {
+      "id": "tma4110-2-3-oppg-6",
+      "type": "exercise",
+      "exercise": {
+        "id": "tma4110-2-3-m3",
+        "number": "6",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "(Sjanger C — Cramers regel.) Løs $\\begin{cases}2x+3y=7\\\\x-y=1\\end{cases}$ med Cramers regel.",
+        "solution": "$A=\\begin{bmatrix}2&3\\\\1&-1\\end{bmatrix}$, $\\mathbf b=\\begin{bmatrix}7\\\\1\\end{bmatrix}$. Nevneren er $\\det A=2\\cdot(-1)-3\\cdot1=-5\\ne0$. Da\n$$x=\\frac{\\begin{vmatrix}7&3\\\\1&-1\\end{vmatrix}}{-5}=\\frac{-7-3}{-5}=\\frac{-10}{-5}=2,\\qquad y=\\frac{\\begin{vmatrix}2&7\\\\1&1\\end{vmatrix}}{-5}=\\frac{2-7}{-5}=\\frac{-5}{-5}=1.$$\n**Svar:** $(x,y)=(2,1)$. Kontroll: $2\\cdot2+3\\cdot1=7$ og $2-1=1$. $\\checkmark$",
+        "hints": [
+          "Nevneren i alle brøkene er $\\det A$. Regn den først og sjekk at den er $\\ne0$.",
+          "For $x$: bytt kolonne 1 med $\\mathbf b$. For $y$: bytt kolonne 2 med $\\mathbf b$.",
+          "Del hver teller på $\\det A$."
+        ]
+      }
+    },
+    {
+      "id": "tma4110-2-3-eigbro",
+      "type": "definition",
+      "title": "Determinant og spor som egenverdiprodukt og -sum",
+      "content": "Determinanten og sporet henger sammen med **egenverdiene** $\\lambda_1,\\dots,\\lambda_n$ (Del 5):\n$$\\det A=\\prod_{i}\\lambda_i=\\lambda_1\\lambda_2\\cdots\\lambda_n,\\qquad \\operatorname{spor}A=\\sum_i\\lambda_i.$$\nDeterminanten er altså produktet av egenverdiene, og sporet (summen av diagonalelementene) er summen. To umiddelbare konsekvenser: $\\det A=0$ nettopp når $0$ er en egenverdi (jf. inverterbarhetssetningen), og for en triangulær matrise står egenverdiene rett på diagonalen. Dette er broen til den karakteristiske likningen $\\det(A-\\lambda I)=0$."
+    },
+    {
+      "id": "tma4110-2-3-ex-6",
+      "type": "example",
+      "title": "Eksempel 6: Determinant og spor som egenverdi-produkt/-sum",
+      "problem": "Matrisen $A=\\begin{bmatrix}3&1\\\\2&2\\end{bmatrix}$ har egenverdier $\\lambda_1=1$ og $\\lambda_2=4$ (dette regner du selv ut i Del 5). Bekreft at $\\det A=\\lambda_1\\lambda_2$ og $\\operatorname{spor}A=\\lambda_1+\\lambda_2$.",
+      "solution": "Determinanten direkte: $\\det A=3\\cdot2-1\\cdot2=6-2=4$. Produktet av egenverdiene: $\\lambda_1\\lambda_2=1\\cdot4=4$. De stemmer: $\\det A=4=\\lambda_1\\lambda_2$. $\\checkmark$\n\nSporet (sum av diagonalen): $\\operatorname{spor}A=3+2=5$. Summen av egenverdiene: $\\lambda_1+\\lambda_2=1+4=5$. De stemmer: $\\operatorname{spor}A=5=\\lambda_1+\\lambda_2$. $\\checkmark$\n\nDette gir en gratis kontroll i egenverdi-oppgaver: har du regnet ut egenverdiene, skal produktet bli $\\det A$ og summen bli sporet — ellers er det en regnefeil et sted."
+    },
+    {
+      "id": "tma4110-2-3-oppg-7",
+      "type": "exercise",
+      "exercise": {
+        "id": "tma4110-2-3-v2",
+        "number": "7",
+        "type": "classic",
+        "difficulty": "vanskelig",
+        "task": "(Sjanger N — kort bevis.) Anta at $A$ er en **skjevsymmetrisk** $n\\times n$-matrise, altså $A^{T}=-A$, og at $n$ er et **oddetall**. Vis at $\\det A=0$ (så $A$ er singulær).",
+        "solution": "**Bevis.** Vi bruker to determinantregler fra dette kapitlet: transponertregelen $\\det A^{T}=\\det A$ og skaleringsregelen $\\det(cA)=c^{n}\\det A$.\n\nStart fra forutsetningen $A^{T}=-A$ og ta determinanten på begge sider:\n$$\\det(A^{T})=\\det(-A).$$\nVenstresiden er $\\det A^{T}=\\det A$ (transponertregelen). Høyresiden er $\\det(-A)=\\det((-1)A)=(-1)^{n}\\det A$ (skaleringsregelen med $c=-1$). Siden $n$ er odde, er $(-1)^{n}=-1$, så\n$$\\det A=-\\det A\\ \\Longrightarrow\\ 2\\det A=0\\ \\Longrightarrow\\ \\det A=0.$$\nDermed er $\\det A=0$, og $A$ er singulær ved determinantkriteriet. $\\blacksquare$\n\n**Merk:** forutsetningen om at $n$ er odde er avgjørende — for **partall** $n$ er $(-1)^{n}=1$, og argumentet gir bare $\\det A=\\det A$, som ikke sier noe. (Skjevsymmetriske matriser av partallsstørrelse kan godt ha $\\det A\\ne0$.)",
+        "hints": [
+          "En matrise $M$ er skjevsymmetrisk hviss $M^{T}=-M$. Ta $\\det$ på begge sider av forutsetningen.",
+          "Bruk $\\det A^{T}=\\det A$ på venstre side og $\\det(cA)=c^n\\det A$ (med $c=-1$) på høyre side.",
+          "Med $n$ odde blir $(-1)^n=-1$, så du får $\\det A=-\\det A$."
+        ]
+      }
+    },
+    {
+      "id": "tma4110-2-3-warning",
+      "type": "warning",
+      "title": "Typiske feil",
+      "content": "- **Fortegnsfeil i kofaktormønsteret $(-1)^{i+j}$.** Sjakkbrettet starter med $+$ øverst til venstre. Teller du fortegnet feil, blir hele determinanten feil.\n- **Glemmer at radbytte skifter fortegn.** Hvert bytte av to rader ganger determinanten med $-1$. Teller du byttene feil, får du feil fortegn.\n- **Tror $\\det(A+B)=\\det A+\\det B$.** Dette er **galt** — det finnes ingen sum-regel for determinanter. (Produktregelen $\\det(AB)=\\det A\\det B$ gjelder derimot.)\n- **Tror $\\det(cA)=c\\det A$.** For en $n\\times n$-matrise er det $\\det(cA)=c^{n}\\det A$ — potensen $n$ er lett å glemme.\n- **Kofaktorutvikler en stor determinant uten å redusere først.** For 4×4 og større: radreduser til triangulær form og gang diagonalen. Blind kofaktorutvikling koster mye mer tid.\n- **Bruker Cramers regel når $\\det A=0$.** Da er nevneren null og systemet ikke entydig løsbart — Cramer gjelder bare for inverterbar $A$."
+    },
+    {
+      "id": "tma4110-2-3-begrepsbank-tekst",
+      "type": "text",
+      "content": "## Begrepsbank til eksamen\n\nHer er de resterende kjernebegrepene samlet i kortform for repetisjon og pugging (kode E — intet formelark).\n\n*Begrepsbanken er flashcard-/repetisjonsstoff — det gjentar det du nettopp har lest. Hopp trygt over ved førstegangslesing; tidsanslaget for kapitlet gjelder kjernestoffet.*"
+    },
+    {
+      "id": "tma4110-2-3-bb-geometrisk",
+      "type": "definition",
+      "title": "Determinant som areal og volum",
+      "content": "Geometrisk måler determinanten hvor mye avbildningen $\\mathbf x\\mapsto A\\mathbf x$ strekker areal eller volum. For en 2×2-matrise er $|\\det A|$ arealet av parallellogrammet utspent av de to kolonnevektorene; for 3×3 er $|\\det A|$ volumet av parallellepipedet utspent av de tre kolonnene (jf. [Areal og volum med vektorer](/bok/r2/r2-5-5)). Er determinanten $0$, klemmes figuren flat (kolonnene er lineært avhengige), og avbildningen kan ikke reverseres."
+    },
+    {
+      "id": "tma4110-2-3-bb-detI",
+      "type": "definition",
+      "title": "Determinanten av identitetsmatrisen",
+      "content": "$\\det I=1$ for identitetsmatrisen av enhver størrelse, siden $I$ er triangulær med bare 1-ere på diagonalen ($1\\cdot1\\cdots1=1$). Dette er grunnsteinen bak $\\det(A^{-1})=1/\\det A$: fra $AA^{-1}=I$ gir produktregelen $\\det A\\cdot\\det(A^{-1})=\\det I=1$."
+    },
+    {
+      "id": "tma4110-2-3-bb-diag",
+      "type": "definition",
+      "title": "Determinanten av en diagonalmatrise",
+      "content": "En diagonalmatrise $D=\\operatorname{diag}(d_1,\\dots,d_n)$ har $\\det D=d_1d_2\\cdots d_n$ — produktet av diagonalelementene, som for enhver triangulær matrise. $D$ er inverterbar nettopp når alle $d_i\\ne0$, i tråd med determinantkriteriet."
+    },
+    {
+      "id": "tma4110-2-3-bb-nullrad",
+      "type": "definition",
+      "title": "Nullrad eller nullkolonne gir determinant null",
+      "content": "Har en matrise en **hel rad** (eller kolonne) med bare nuller, er $\\det A=0$. Grunnen er lett å se med kofaktorutvikling langs nettopp den raden: hvert ledd har en faktor $0$, så summen blir $0$. En matrise med nullrad er derfor alltid singulær."
+    },
+    {
+      "id": "tma4110-2-3-bb-likerader",
+      "type": "definition",
+      "title": "To like rader gir determinant null",
+      "content": "Har en matrise **to like rader** (eller to like kolonner), er $\\det A=0$. Bytter du de to like radene, skal determinanten skifte fortegn (radbytte-regelen), men matrisen er uendret — så $\\det A=-\\det A$, som tvinger $\\det A=0$. Mer generelt: er radene (eller kolonnene) lineært avhengige, er determinanten $0$."
+    },
+    {
+      "id": "tma4110-2-3-bb-detpotens",
+      "type": "definition",
+      "title": "Determinanten av en potens",
+      "content": "For en kvadratisk matrise gir produktregelen gjentatt at $\\det(A^{k})=(\\det A)^{k}$ for alle heltall $k\\ge1$. Er $A$ inverterbar, gjelder det også for negative potenser: $\\det(A^{-k})=(\\det A)^{-k}$. Spesialtilfellet $\\det(A^2)=(\\det A)^2$ brukes ofte i bevis."
+    },
+    {
+      "id": "tma4110-2-3-bb-sarrus",
+      "type": "definition",
+      "title": "Sarrus' regel for 3×3",
+      "content": "**Sarrus' regel** er en huskeregel for 3×3-determinanter: summen av de tre «nedadgående» diagonalproduktene minus de tre «oppadgående»:\n$$\\det A=a_{11}a_{22}a_{33}+a_{12}a_{23}a_{31}+a_{13}a_{21}a_{32}-a_{13}a_{22}a_{31}-a_{11}a_{23}a_{32}-a_{12}a_{21}a_{33}.$$\nDen gir samme svar som kofaktorutvikling, men **virker bare for 3×3** (ikke 4×4 og oppover) — der må du bruke kofaktor eller radreduksjon."
+    },
+    {
+      "id": "tma4110-2-3-bb-kolonneop",
+      "type": "definition",
+      "title": "Kolonneoperasjoner og determinanten",
+      "content": "Fordi $\\det A^{T}=\\det A$, virker **kolonneoperasjoner** på determinanten akkurat som radoperasjoner: kolonnebytte skifter fortegn, kolonneskalering ganger med faktoren, og å addere et multiplum av en kolonne til en annen lar determinanten være uendret. Du kan altså lete etter nuller i både rader og kolonner."
+    },
+    {
+      "id": "tma4110-2-3-bb-adjungert",
+      "type": "definition",
+      "title": "Kofaktormatrise og adjungert (kjennskap)",
+      "content": "**Kofaktormatrisen** er matrisen av alle kofaktorene $C_{ij}$. Dens transponerte kalles den **adjungerte** $\\operatorname{adj}A$, og gir en lukket formel for inversen: $A^{-1}=\\tfrac{1}{\\det A}\\operatorname{adj}A$. For 2×2 er dette nettopp «bytt diagonalen, skift fortegn»-formelen fra kap. 2.2. På dette nivået holder det å kjenne til sammenhengen; for hånd er Gauss–Jordan raskere for $3\\times3$ og større."
+    },
+    {
+      "id": "tma4110-2-3-bb-lindep",
+      "type": "definition",
+      "title": "Determinant og lineær avhengighet",
+      "content": "Kolonnene (eller radene) i en kvadratisk matrise er **lineært uavhengige** nettopp når $\\det A\\ne0$, og **lineært avhengige** nettopp når $\\det A=0$. Dette knytter determinanten til basis-begrepet (Del 3): $\\det A\\ne0$ betyr at kolonnene danner en basis for $\\mathbb R^n$, som er nok ett ledd i inverterbarhetssetningen."
+    },
+    {
+      "id": "tma4110-2-3-rep",
+      "type": "collapsible",
+      "title": "Repetisjonsoppgaver",
+      "buttonText": "Vis repetisjonsoppgaver",
+      "content": [
+        {
+          "id": "tma4110-2-3-rep-1",
+          "type": "exercise",
+          "exercise": {
+            "id": "tma4110-2-3-rep-o1",
+            "number": "R1",
+            "type": "classic",
+            "difficulty": "lett",
+            "task": "(Fra kap. 2.2) Avgjør om $A=\\begin{bmatrix}5&2\\\\3&1\\end{bmatrix}$ er inverterbar ved å regne determinanten.",
+            "solution": "$\\det A=5\\cdot1-2\\cdot3=5-6=-1\\ne0$, så $A$ er **inverterbar** (determinantkriteriet).",
+            "hints": [
+              "Regn $ad-bc$; er den $\\ne0$, er matrisen inverterbar."
+            ]
+          }
+        },
+        {
+          "id": "tma4110-2-3-rep-2",
+          "type": "exercise",
+          "exercise": {
+            "id": "tma4110-2-3-rep-o2",
+            "number": "R2",
+            "type": "classic",
+            "difficulty": "lett",
+            "task": "(Fra kap. 2.1) Hva blir $\\det A^{T}$ uttrykt ved $\\det A$, og hvorfor spiller det ingen rolle om du kofaktorutvikler langs en rad eller en kolonne?",
+            "solution": "$\\det A^{T}=\\det A$ (transponering endrer ikke determinanten). Kolonnene i $A$ er nettopp radene i $A^{T}$, så utvikling langs en kolonne i $A$ er det samme som utvikling langs en rad i $A^{T}$ — og gir samme tall.",
+            "hints": [
+              "Transponertregelen sier at determinanten er uendret under transponering."
+            ]
+          }
+        },
+        {
+          "id": "tma4110-2-3-rep-3",
+          "type": "exercise",
+          "exercise": {
+            "id": "tma4110-2-3-rep-o3",
+            "number": "R3",
+            "type": "classic",
+            "difficulty": "middels",
+            "task": "(Fra kap. 2.2) En $3\\times3$-matrise $A$ har $\\det A=0$. Bruk inverterbarhetssetningen til å si hva du vet om (a) løsningene av $A\\mathbf x=\\mathbf 0$ og (b) rangen.",
+            "solution": "$\\det A=0$ betyr at $A$ er singulær, så alle de ekvivalente utsagnene i inverterbarhetssetningen er usanne.\n\n**(a)** $A\\mathbf x=\\mathbf 0$ har **ikke-trivielle løsninger** ($\\operatorname{Nul}A\\ne\\{\\mathbf 0\\}$).\n\n**(b)** $\\operatorname{rang}A<3$ (minst én kolonne mangler pivot).",
+            "hints": [
+              "$\\det A=0$ er negasjonen av «inverterbar» i inverterbarhetssetningen.",
+              "Singulær $\\Leftrightarrow$ ikke-triviell null $\\Leftrightarrow$ rang $<n$."
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": "tma4110-2-3-symbolliste",
+      "type": "collapsible",
+      "title": "Symbol- og formelliste",
+      "buttonText": "Vis symboler og formler",
+      "content": [
+        {
+          "id": "tma4110-2-3-symbolliste-text",
+          "type": "text",
+          "content": "## Symbol- og formelliste\n\n*Oppslagsverk — alt her forklares underveis i kapitlet.*\n\nAlle symboler og formler som brukes i dette delkapitlet (2.3), samlet på ett sted.\n\n| Symbol | Betydning |\n|---|---|\n| $\\det A$, $\\lvert A\\rvert$ | Determinanten til $A$ |\n| $\\begin{vmatrix}a&b\\\\c&d\\end{vmatrix}$ | Determinant skrevet med rette streker |\n| $M_{ij}$ | Minor — determinanten når rad $i$ og kolonne $j$ strykes |\n| $C_{ij}$ | Kofaktor, $C_{ij}=(-1)^{i+j}M_{ij}$ |\n| $A_i(\\mathbf b)$ | $A$ med kolonne $i$ erstattet av $\\mathbf b$ (Cramer) |\n| $\\operatorname{spor}A$ | Sporet — sum av diagonalelementene |\n| $\\lambda_i$ | Egenverdiene til $A$ (Del 5) |\n| $\\operatorname{adj}A$ | Adjungert (transponert kofaktormatrise) |\n\n**Formler i dette delkapitlet:**\n\n$$\\det\\begin{bmatrix}a&b\\\\c&d\\end{bmatrix}=ad-bc$$\n2×2-determinanten.\n\n$$\\det A=a_{i1}C_{i1}+\\dots+a_{in}C_{in},\\qquad C_{ij}=(-1)^{i+j}M_{ij}$$\nKofaktorutvikling langs rad $i$ — velg raden/kolonnen med flest nuller.\n\n$$\\text{radbytte}\\Rightarrow\\times(-1),\\quad \\text{skaler rad med }k\\Rightarrow\\times k,\\quad \\text{adder multiplum}\\Rightarrow\\text{uendret}$$\nRadoperasjonenes virkning på determinanten.\n\n$$\\det(AB)=\\det A\\det B,\\quad \\det A^{T}=\\det A,\\quad \\det(A^{-1})=\\tfrac{1}{\\det A},\\quad \\det(cA)=c^{n}\\det A$$\nRegnereglene. Merk: ingen sum-regel — $\\det(A+B)\\ne\\det A+\\det B$.\n\n$$A\\text{ triangulær}\\ \\Rightarrow\\ \\det A=a_{11}a_{22}\\cdots a_{nn}$$\nDeterminant av triangulær matrise = produkt av diagonalen.\n\n$$A\\text{ inverterbar}\\ \\Longleftrightarrow\\ \\det A\\ne0$$\nDeterminantkriteriet (del av inverterbarhetssetningen).\n\n$$x_i=\\frac{\\det A_i(\\mathbf b)}{\\det A}$$\nCramers regel (krever $\\det A\\ne0$).\n\n$$\\det A=\\prod_i\\lambda_i,\\qquad \\operatorname{spor}A=\\sum_i\\lambda_i$$\nDeterminant = produkt av egenverdiene, spor = sum — bro til Del 5."
+        }
+      ]
+    }
+  ],
+  "exercises": []
+}
