@@ -1,0 +1,409 @@
+{
+  "id": "stk1100-7-2",
+  "courseId": "stk1100",
+  "chapterNumber": "7.2",
+  "title": "Bootstrap for standardfeil og simulert dekning",
+  "description": "Estimér standardfeilen du ikke kan regne — parametrisk og ikke-parametrisk bootstrap — bruk Monte Carlo på sannsynligheter, og simuler dekningsgraden til et konfidensintervall.",
+  "estimatedMinutes": 60,
+  "competenceGoals": [
+    "beskrive og kode bootstrap-algoritmen presist og estimere standardfeilen som empirisk standardavvik med ddof=1",
+    "skille mellom ikke-parametrisk bootstrap (trekk med tilbakelegging fra data) og parametrisk bootstrap (trekk fra tilpasset fordeling) og velge riktig",
+    "bruke Monte Carlo til å estimere en sannsynlighet som forventet indikator, med standardfeil som avtar som 1 over kvadratroten av antall trekk",
+    "simulere dekningsgraden til et konfidensintervall og forklare hvorfor et eksakt pivotal-intervall treffer nominelt mens Wald underdekker for liten n"
+  ],
+  "content": [
+    {
+      "id": "stk1100-7-2-tip-eksamensvinkel",
+      "type": "tip",
+      "title": "Eksamensvinkel",
+      "content": "**Bootstrap er ikke et nytt fenomen på UiO slik det er ved NTNU — det har vært fast inventar i et helt tiår.** Kan du algoritmen og koden, plukker du opp poeng de fleste går glipp av.\n\n- **Bootstrap for standardfeil (sjanger I)**: ikke-parametrisk allerede i V2015 og V2016; parametrisk i V2019 og V2021; full kjørbar Python-kode fra V2020.\n- **Simulert dekningsgrad** (eksakt pivotal-KI mot Wald-KI) i V2024 — den bygger direkte på dekningstallene fra [kap. 6.2](/bok/stk1100/stk1100-6-2).\n- «Sjanger I» = *simulering, bootstrap og Python* (samme kode som i [kap. 7.1](/bok/stk1100/stk1100-7-1)).\n- **Sensorkrav 10:** bootstrap-algoritmen skal beskrives *presist* og koden være kjørbar med `ddof=1`. All kode her er faktisk kjørt.\n\nPrioritet: **kunne** (nivå 2). Sammen med [kap. 7.1](/bok/stk1100/stk1100-7-1) er dette det som skiller en A fra en B når den analytiske standardfeilen er vanskelig eller umulig å regne ut for hånd."
+    },
+    {
+      "id": "stk1100-7-2-forkunnskaper",
+      "type": "text",
+      "content": "**Forkunnskaper:** Bygger på **[kap. 7.1](/bok/stk1100/stk1100-7-1)** (simulering, `np.random.uniform`, vektorisering, `ddof=1`) og **[kap. 5.1](/bok/stk1100/stk1100-5-1)** (standardfeil). Dekningsdelen henter inn det eksakte pivotal-KI-et fra **[kap. 6.2](/bok/stk1100/stk1100-6-2)** og den analytiske standardfeilen fra kjeden i **[kap. 6.3](/bok/stk1100/stk1100-6-3)**.\n\n**Sist du var her — det du må ha friskt:**\n\n1. **Standardfeilen** til en estimator er standardavviket til estimatoren: $\\text{SE}(\\hat\\theta) = \\sqrt{\\text{Var}(\\hat\\theta)}$ (fra [kap. 5.1](/bok/stk1100/stk1100-5-1)). Den forteller hvor mye estimatet ville variert fra utvalg til utvalg.\n2. **`ddof=1`** i `np.std`/`np.var` gir den forventningsrette empiriske variansen (divisor $n-1$) — vi bruker den til å regne ut bootstrap-SE-en.\n3. **Eksakt pivotal-KI for eksponensial** (forventning $\\mu$, fra [kap. 6.2](/bok/stk1100/stk1100-6-2)): siden $2n\\bar X/\\mu \\sim \\chi^2_{2n}$, er et $95\\%$-KI $\\left[\\dfrac{2n\\bar X}{\\chi^2_{2n,\\,0{,}025}},\\ \\dfrac{2n\\bar X}{\\chi^2_{2n,\\,0{,}975}}\\right]$, der $\\chi^2_{2n,\\,0{,}025}$ og $\\chi^2_{2n,\\,0{,}975}$ er øvre- og nedre-halekvantilene. Dette bruker vi i dekningsstudien til slutt."
+    },
+    {
+      "id": "stk1100-7-2-intro",
+      "type": "text",
+      "content": "Iblant har du en estimator $\\hat\\theta$ der du enkelt kan regne ut estimatet, men der den *analytiske* standardfeilen er stygg eller umulig å utlede — for eksempel medianen, eller en komplisert funksjon av flere parametre. Bootstrap løser dette ved en enkel idé: **lat som utvalget ditt er hele befolkningen, trekk mange nye «utvalg», og se hvor mye estimatoren spriker.** Spredningen i disse gjentatte estimatene *er* standardfeilen.\n\nVi møter to varianter (ikke-parametrisk og parametrisk), pluss det nært beslektede **Monte Carlo**-prinsippet: en sannsynlighet er en forventet indikator, så den estimeres med et gjennomsnitt. Til slutt setter vi alt sammen i en **dekningsstudie** som viser *hvorfor* et eksakt KI treffer 95 % mens et Wald-KI bommer for liten $n$ — mekanismen bak tallene i [kap. 6.2](/bok/stk1100/stk1100-6-2).\n\nFire læringsløkker à ~13 min — ta en pause etter løkke 2."
+    },
+    {
+      "id": "stk1100-7-2-l1-head",
+      "type": "text",
+      "content": "## Løkke 1 — Ikke-parametrisk bootstrap (~14 min)"
+    },
+    {
+      "id": "stk1100-7-2-l1-tekst",
+      "type": "text",
+      "content": "**Bootstrap-algoritmen (presist):** For $b = 1, 2, \\ldots, B$:\n\n1. Trekk et nytt «utvalg» $x^*_1, \\ldots, x^*_n$ av samme størrelse $n$ som dataene.\n2. Regn ut estimatoren på nytt: $\\hat\\theta^*_b = \\text{estimator}(x^*_1, \\ldots, x^*_n)$.\n\nTil slutt: **estimer standardfeilen som det empiriske standardavviket til de $B$ verdiene:**\n\n$$\\widehat{\\text{SE}}(\\hat\\theta) = \\sqrt{\\frac{1}{B-1}\\sum_{b=1}^{B}\\big(\\hat\\theta^*_b - \\bar{\\hat\\theta^*}\\big)^2} = \\texttt{np.std(theta\\_b, ddof=1)}.$$\n\n**Ikke-parametrisk** bootstrap trekker de nye utvalgene **med tilbakelegging fra selve dataene** (`np.random.choice(data, size=n, replace=True)`). Vi antar altså ingen bestemt fordeling — dataene får «tale for seg selv». Nøkkelen er `replace=True`: uten tilbakelegging ville hvert trekk bare vært en omstokking av de samme tallene, og all variasjon forsvant.\n\n**Merk skillet $B$ mot $n$:** $n$ er utvalgsstørrelsen (fast, gitt av dataene); $B$ er hvor mange bootstrap-trekk vi gjør (vi velger den selv, typisk 1 000–10 000). Flere $B$ gir bare et mer presist SE-estimat — det endrer ikke $n$."
+    },
+    {
+      "id": "stk1100-7-2-ex1",
+      "type": "example",
+      "title": "Eksempel 1: Ikke-parametrisk bootstrap-SE for medianen",
+      "problem": "Ti målte konsentrasjoner (mg/l) er $2{,}1,\\ 5{,}4,\\ 1{,}2,\\ 8{,}9,\\ 3{,}3,\\ 6{,}7,\\ 0{,}8,\\ 4{,}5,\\ 12{,}1,\\ 2{,}9$. Du vil estimere standardfeilen til medianen — men det finnes ingen enkel formel. Bruk ikke-parametrisk bootstrap med $B = 10000$.",
+      "solution": "Medianen har ingen pen analytisk standardfeil, så bootstrap er det naturlige verktøyet. Vi trekker med tilbakelegging fra de ti tallene, regner medianen på nytt hver gang, og tar standardavviket:\n\n```python\nimport numpy as np\n\ndata = np.array([2.1, 5.4, 1.2, 8.9, 3.3, 6.7, 0.8, 4.5, 12.1, 2.9])\nn = len(data)\n\nnp.random.seed(0)\nB = 10000\ntheta_b = np.empty(B)\nfor b in range(B):\n    xb = np.random.choice(data, size=n, replace=True)   # med tilbakelegging!\n    theta_b[b] = np.median(xb)\n\nprint(np.median(data), np.std(theta_b, ddof=1))\n# 3.9  1.3634...\n```\n\nMedianen i de opprinnelige dataene er $3{,}9$, og bootstrap-standardfeilen er $\\approx 1{,}36$. Tolkning: hadde vi samlet inn nye datasett av samme størrelse, ville medianestimatet typisk variert med rundt $1{,}4$ mg/l. \n\n*Kritisk detalj:* `replace=True` og `ddof=1`. Fjerner du `replace=True`, blir hvert `xb` bare en omstokking av de samme ti tallene, medianen er (nesten) konstant, og SE-en kollapser feilaktig mot 0."
+    },
+    {
+      "id": "stk1100-7-2-ex-l1a",
+      "type": "exercise",
+      "exercise": {
+        "id": "stk1100-7-2-o1",
+        "number": "1",
+        "type": "classic",
+        "difficulty": "lett",
+        "task": "(Innsteg.) Beskriv i ord de tre stegene i ikke-parametrisk bootstrap for å estimere standardfeilen til en estimator $\\hat\\theta$, og si eksplisitt hvordan de nye utvalgene trekkes.",
+        "solution": "**Steg 1:** For $b = 1, \\ldots, B$, trekk et nytt utvalg av størrelse $n$ **med tilbakelegging fra de opprinnelige dataene**.\n\n**Steg 2:** Regn estimatoren på det nye utvalget: $\\hat\\theta^*_b$.\n\n**Steg 3:** Estimer standardfeilen som det empiriske standardavviket til de $B$ verdiene $\\hat\\theta^*_1, \\ldots, \\hat\\theta^*_B$ (med `ddof=1`, altså divisor $B-1$).\n\nDet avgjørende er «med tilbakelegging» — samme observasjon kan trekkes flere ganger, og det er nettopp det som skaper variasjonen bootstrap måler.",
+        "hints": [
+          "Tre steg: trekk nytt utvalg, regn estimatoren på nytt, ta standardavviket av de $B$ verdiene.",
+          "Hvordan trekkes utvalget i den *ikke-parametriske* varianten — fra dataene eller fra en fordeling?"
+        ]
+      }
+    },
+    {
+      "id": "stk1100-7-2-ex-l1b",
+      "type": "exercise",
+      "exercise": {
+        "id": "stk1100-7-2-o2",
+        "number": "2",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "En student skriver denne bootstrap-koden for SE-en til gjennomsnittet, men får en mistenkelig liten verdi:\n\n```python\ntheta_b = np.empty(B)\nfor b in range(B):\n    xb = np.random.choice(data, size=n, replace=False)\n    theta_b[b] = np.mean(xb)\nse = np.std(theta_b, ddof=1)\n```\n\n**a)** Hva er feilen, og hvorfor blir SE-en (nesten) 0?\n\n**b)** Rett koden.",
+        "solution": "**a)** Feilen er `replace=False`. Uten tilbakelegging trekker `np.random.choice(data, size=n, replace=False)` alle $n$ elementene fra `data` (som har lengde $n$) — altså bare en *omstokking* av de samme tallene. Gjennomsnittet av en omstokking er identisk med gjennomsnittet av dataene, så alle `theta_b` blir like og `np.std` gir (nesten) 0. Bootstrap måler variasjon, og den forsvinner helt uten tilbakelegging.\n\n**b)** Bytt til `replace=True`:\n\n```python\ntheta_b = np.empty(B)\nfor b in range(B):\n    xb = np.random.choice(data, size=n, replace=True)\n    theta_b[b] = np.mean(xb)\nse = np.std(theta_b, ddof=1)\n```",
+        "hints": [
+          "Hva gjør `replace=False` når `size` er lik lengden på `data`?",
+          "En omstokking av tallene har samme gjennomsnitt som originalen — så hva blir spredningen?"
+        ]
+      }
+    },
+    {
+      "id": "stk1100-7-2-l2-head",
+      "type": "text",
+      "content": "## Løkke 2 — Parametrisk bootstrap (~14 min)\n\n*— naturlig pausepunkt etter denne løkka —*"
+    },
+    {
+      "id": "stk1100-7-2-l2-tekst",
+      "type": "text",
+      "content": "**Parametrisk bootstrap** bruker samme algoritme, men trekker de nye utvalgene **fra den tilpassede fordelingen** — med parameterestimatet $\\hat\\theta$ satt inn — i stedet for fra dataene direkte. Har du grunn til å tro at dataene er (for eksempel) eksponensialfordelte, tilpasser du fordelingen ($\\hat\\mu = \\bar x$), og trekker nye utvalg fra eksponensial$(\\hat\\mu)$ med inversjonsmetoden fra [kap. 7.1](/bok/stk1100/stk1100-7-1).\n\n| | Trekker nye utvalg fra … |\n|---|---|\n| **Ikke-parametrisk** | dataene, med tilbakelegging |\n| **Parametrisk** | den tilpassede fordelingen (med $\\hat\\theta$ satt inn) |\n\n**Når velge hva?** Parametrisk bootstrap er mer presis *hvis* fordelingsantakelsen er riktig (den utnytter modellen); ikke-parametrisk er tryggere når du er usikker på fordelingen. Begge gir SE-en som `np.std(theta_b, ddof=1)`."
+    },
+    {
+      "id": "stk1100-7-2-ex2",
+      "type": "example",
+      "title": "Eksempel 2: Parametrisk bootstrap for eksponensialmodellen",
+      "problem": "De ti målingene fra eksempel 1 antas nå eksponensialfordelte med forventning $\\mu$ (forventnings-parametrisering, $f(x) = \\frac{1}{\\mu}e^{-x/\\mu}$). Estimatoren er $\\hat\\mu = \\bar X$. Bruk parametrisk bootstrap ($B = 10000$) til å estimere standardfeilen til $\\hat\\mu$, og sammenlign med den analytiske $\\text{SE}(\\bar X) = \\mu/\\sqrt{n}$.",
+      "solution": "Vi tilpasser modellen ($\\hat\\mu = \\bar x$), trekker nye eksponensiale utvalg fra eksponensial$(\\hat\\mu)$ med inversjonsformelen $-\\hat\\mu\\ln(1-u)$, og regner $\\bar X$ på nytt:\n\n```python\nimport numpy as np\n\ndata = np.array([2.1, 5.4, 1.2, 8.9, 3.3, 6.7, 0.8, 4.5, 12.1, 2.9])\nn = len(data)\nmuhat = np.mean(data)\n\nnp.random.seed(0)\nB = 10000\ntheta_b = np.empty(B)\nfor b in range(B):\n    xb = -muhat * np.log(1 - np.random.uniform(size=n))   # fra tilpasset eksp(muhat)\n    theta_b[b] = np.mean(xb)\n\nprint(muhat, np.std(theta_b, ddof=1), muhat / np.sqrt(n))\n# 4.79  1.5072...  1.5147...\n```\n\nEstimatet er $\\hat\\mu = 4{,}79$. Parametrisk bootstrap-SE er $\\approx 1{,}51$, og den analytiske $\\hat\\mu/\\sqrt{n} = 4{,}79/\\sqrt{10} \\approx 1{,}515$. De to stemmer nesten perfekt — som de skal, siden vi bootstrapper fra nøyaktig den modellen den analytiske formelen forutsetter. Her *kan* vi regne SE-en analytisk; poenget er at bootstrap gir samme svar og fungerer også når den analytiske formelen mangler."
+    },
+    {
+      "id": "stk1100-7-2-ex-l2a",
+      "type": "exercise",
+      "exercise": {
+        "id": "stk1100-7-2-o3",
+        "number": "3",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "Forklar forskjellen på ikke-parametrisk og parametrisk bootstrap i én setning hver, og gi ett argument for når du ville foretrukket den *ikke-parametriske* varianten.",
+        "solution": "**Ikke-parametrisk:** de nye utvalgene trekkes med tilbakelegging fra selve dataene, uten noen fordelingsantakelse.\n\n**Parametrisk:** de nye utvalgene trekkes fra en tilpasset fordeling med parameterestimatet satt inn.\n\n**Når ikke-parametrisk:** når du er usikker på om fordelingsantakelsen holder. Parametrisk bootstrap arver feilen hvis modellen er gal (du simulerer under feil fordeling); ikke-parametrisk lar dataene tale for seg selv og er dermed mer robust mot feilspesifisert modell.",
+        "hints": [
+          "Skillet ligger i *hvor* de nye utvalgene trekkes fra.",
+          "Hva skjer med parametrisk bootstrap hvis fordelingsantakelsen er feil?"
+        ]
+      }
+    },
+    {
+      "id": "stk1100-7-2-ex-l2b",
+      "type": "exercise",
+      "exercise": {
+        "id": "stk1100-7-2-o4",
+        "number": "4",
+        "type": "classic",
+        "difficulty": "vanskelig",
+        "task": "Levetider antas eksponensialfordelte med forventning $\\mu$, og du vil estimere standardfeilen til estimatoren $\\hat\\theta = \\hat\\mu \\ln 2$ (et estimat av **medianen**, siden medianen er $\\mu\\ln 2$). Du har $n = 8$ observasjoner med gjennomsnitt $\\bar x = 6{,}0$.\n\n**a)** Skriv parametrisk bootstrap-kode ($B = 10000$) som estimerer $\\text{SE}(\\hat\\theta)$.\n\n**b)** Den analytiske SE-en er $\\ln 2 \\cdot \\mu/\\sqrt{n}$. Hva bør bootstrap-verdien ligge nær?",
+        "solution": "**a)** Vi trekker eksponensiale utvalg fra eksponensial$(\\hat\\mu)$ med $\\hat\\mu = 6{,}0$, og regner $\\hat\\theta^* = \\bar x^* \\ln 2$ i hvert:\n\n```python\nimport numpy as np\n\nmuhat = 6.0\nn = 8\nnp.random.seed(1)\nB = 10000\ntheta_b = np.empty(B)\nfor b in range(B):\n    xb = -muhat * np.log(1 - np.random.uniform(size=n))\n    theta_b[b] = np.mean(xb) * np.log(2)\n\nprint(np.std(theta_b, ddof=1), np.log(2) * muhat / np.sqrt(n))\n# 1.4653...  1.4704...\n```\n\n**b)** Analytisk: $\\ln 2 \\cdot \\mu/\\sqrt{n} = 0{,}693 \\cdot 6{,}0/\\sqrt{8} \\approx 1{,}47$. Bootstrap-verdien ($\\approx 1{,}47$) ligger nær — de skal stemme fordi $\\hat\\theta = \\bar X\\ln 2$ bare er $\\bar X$ skalert med konstanten $\\ln 2$, og $\\text{SE}$ skalerer med samme konstant.",
+        "hints": [
+          "Trekk fra eksponensial$(\\hat\\mu)$ med $-\\hat\\mu\\ln(1-u)$, og regn $\\bar x^* \\cdot \\ln 2$ i hvert trekk.",
+          "$\\text{SE}(c\\hat\\mu) = c\\,\\text{SE}(\\hat\\mu)$ for en konstant $c = \\ln 2$.",
+          "Bruk `np.std(theta_b, ddof=1)` til slutt."
+        ]
+      }
+    },
+    {
+      "id": "stk1100-7-2-l3-head",
+      "type": "text",
+      "content": "## Løkke 3 — Monte Carlo som inferensverktøy (~14 min)"
+    },
+    {
+      "id": "stk1100-7-2-l3-tekst",
+      "type": "text",
+      "content": "Bak all simulering ligger ett prinsipp: **en sannsynlighet er en forventet indikator.** Hvis $I$ er 1 når en hendelse inntreffer og 0 ellers, er $P(\\text{hendelse}) = E(I)$. Og en forventning estimeres med et gjennomsnitt. Derfor:\n\n$$\\widehat{P(\\text{hendelse})} = \\frac{1}{B}\\sum_{b=1}^{B} I_b = \\texttt{np.mean(betingelse)}.$$\n\nDette **Monte Carlo-estimatet** har fine egenskaper:\n\n- Det er **forventningsrett**: $E\\big[\\widehat P\\big] = p$ (gjennomsnittet av forventningsrette indikatorer).\n- Variansen er $\\dfrac{p(1-p)}{B}$ (indikatorene er uavhengige med varians $p(1-p)$).\n- Derfor er **standardfeilen** $\\sqrt{p(1-p)/B}$, som avtar som $1/\\sqrt B$. Vil du halvere usikkerheten, må du **firedoble** $B$.\n\nMerk igjen: presisjonen styres av $B$ (antall trekk), ikke av $n$."
+    },
+    {
+      "id": "stk1100-7-2-ex3",
+      "type": "example",
+      "title": "Eksempel 3: Monte Carlo-estimat av en halesannsynlighet",
+      "problem": "En komponent har eksponensialfordelt levetid med forventning $\\mu = 5$ år. Estimer $P(X > 8)$ med Monte Carlo ($B = 10^6$), oppgi Monte Carlo-standardfeilen, og sammenlign med den eksakte verdien.",
+      "solution": "Vi trekker $10^6$ eksponensiale levetider og tar gjennomsnittet av indikatoren `x > 8`:\n\n```python\nimport numpy as np\n\nnp.random.seed(0)\nB = 10**6\nx = -5 * np.log(1 - np.random.uniform(size=B))\np = np.mean(x > 8)\nprint(p, np.sqrt(p * (1 - p) / B))\n# 0.20242...  0.000402...\n```\n\nMonte Carlo-estimatet er $\\widehat P \\approx 0{,}2024$ med standardfeil $\\approx 0{,}0004$. Eksakt: $P(X > 8) = e^{-8/5} = e^{-1{,}6} \\approx 0{,}2019$. Estimatet ligger godt innenfor et par standardfeil av sannheten. \n\nLa merke til $1/\\sqrt B$-loven: med $B = 10^6$ er SE-en på fjerde desimal. Ville vi ned til $0{,}0002$, måtte $B$ opp til $4\\cdot 10^6$."
+    },
+    {
+      "id": "stk1100-7-2-ex-l3a",
+      "type": "exercise",
+      "exercise": {
+        "id": "stk1100-7-2-o5",
+        "number": "5",
+        "type": "classic",
+        "difficulty": "lett",
+        "task": "Et Monte Carlo-estimat av en sannsynlighet $p$ bygger på $B = 10000$ uavhengige trekk. Estimatet blir $\\widehat p = 0{,}30$.\n\n**a)** Hva er Monte Carlo-standardfeilen?\n\n**b)** Omtrent hvor stor må $B$ være for å halvere denne standardfeilen?",
+        "solution": "**a)** $\\text{SE} = \\sqrt{p(1-p)/B} = \\sqrt{0{,}30\\cdot 0{,}70/10000} = \\sqrt{0{,}21/10000} = \\sqrt{0{,}000021} \\approx 0{,}0046$.\n\n**b)** Standardfeilen avtar som $1/\\sqrt B$, så for å halvere den må $B$ firedobles: $B \\approx 40000$.",
+        "hints": [
+          "Bruk formelen $\\text{SE} = \\sqrt{p(1-p)/B}$ med $p = 0{,}30$.",
+          "SE $\\propto 1/\\sqrt B$: hvilken faktor på $B$ gir halv SE?"
+        ]
+      }
+    },
+    {
+      "id": "stk1100-7-2-ex-l3b",
+      "type": "exercise",
+      "exercise": {
+        "id": "stk1100-7-2-o6",
+        "number": "6",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "(Kodelesing.) Forklar hva denne koden estimerer, og hvorfor `np.mean` av en betingelse gir en sannsynlighet:\n\n```python\nimport numpy as np\nfrom scipy import stats\nnp.random.seed(0)\ny = stats.norm.rvs(10, 2, size=10**6)\nprint(np.mean((y > 8) & (y < 12)))\n```",
+        "solution": "Koden trekker $10^6$ tall fra $N(\\mu, \\sigma^2)$ med $\\mu = 10$ og standardavvik $\\sigma = 2$ (annet argument er standardavviket). Betingelsen `(y > 8) & (y < 12)` er en indikatorvektor som er `True` når $8 < y < 12$, altså innenfor $\\pm 1$ standardavvik fra forventningen. `np.mean` av indikatoren er andelen `True` — et estimat av $P(8 < Y < 12)$.\n\nDet gir en sannsynlighet fordi en sannsynlighet *er* en forventet indikator: $P(8 < Y < 12) = E[I]$, og gjennomsnittet av indikatorene estimerer denne forventningen. (Fasit: for normal er $P(\\mu-\\sigma < Y < \\mu+\\sigma) \\approx 0{,}68$.)",
+        "hints": [
+          "Hva er $\\mu$ og $\\sigma$ her — husk at annet argument til `stats.norm.rvs` er standardavviket.",
+          "`(y > 8) & (y < 12)` er en 1/0-vektor; hva blir gjennomsnittet av den?",
+          "$8$ og $12$ er $\\mu \\pm \\sigma$."
+        ]
+      }
+    },
+    {
+      "id": "stk1100-7-2-l4-head",
+      "type": "text",
+      "content": "## Løkke 4 — Simulert dekningsgrad: eksakt mot Wald (~14 min)"
+    },
+    {
+      "id": "stk1100-7-2-l4-tekst",
+      "type": "text",
+      "content": "Et $95\\%$-konfidensintervall skal, over mange gjentatte utvalg, dekke den sanne parameteren $95\\%$ av gangene. **Simulert dekningsgrad** sjekker om det stemmer:\n\n1. Generer mange datasett fra en fordeling med *kjent* sann parameter.\n2. Bygg KI-et i hvert datasett.\n3. Tell andelen KI-er som faktisk dekker den sanne parameteren.\n\nDette er mekanismen bak dekningstallene fra [kap. 6.2](/bok/stk1100/stk1100-6-2): det **eksakte pivotal-KI-et** treffer $95\\%$ (fordi $2n\\bar X/\\mu \\sim \\chi^2_{2n}$ er en eksakt pivotal), mens **Wald-KI-et** $\\bar X \\pm 1{,}96\\,\\text{SE}$ underdekker for liten $n$ — fordi $\\bar X$ for eksponensiale data er høyreskjevt, ikke symmetrisk normalfordelt slik Wald antar.\n\n«Dekker»-indikatoren er bare `lo <= mu <= hi`, og dekningsgraden er `np.mean` av den — igjen: en sannsynlighet er en forventet indikator."
+    },
+    {
+      "id": "stk1100-7-2-ex4",
+      "type": "example",
+      "title": "Eksempel 4: Dekningsstudie for eksponensialmodellen, n = 10",
+      "problem": "For eksponensialfordelte data med forventning $\\mu = 5$ og $n = 10$: simuler dekningsgraden til (i) det eksakte pivotal-KI-et og (ii) Wald-KI-et $\\bar X \\pm 1{,}96\\,\\bar X/\\sqrt{n}$, over $M = 20000$ datasett. Forklar forskjellen.",
+      "solution": "Vi lager $20000$ datasett fra eksponensial$(\\mu=5)$, bygger begge KI-ene i hvert, og teller andelen som dekker $\\mu = 5$:\n\n```python\nimport numpy as np\nfrom scipy import stats\n\nnp.random.seed(0)\nn, mu, M = 10, 5.0, 20000\ndekk_eksakt = 0\ndekk_wald = 0\nfor _ in range(M):\n    x = -mu * np.log(1 - np.random.uniform(size=n))\n    xbar = np.mean(x)\n    # eksakt pivotal:  2*n*xbar/mu ~ chi^2_{2n}\n    lo = 2*n*xbar / stats.chi2.ppf(0.975, 2*n)\n    hi = 2*n*xbar / stats.chi2.ppf(0.025, 2*n)\n    if lo <= mu <= hi:\n        dekk_eksakt += 1\n    # Wald:  xbar +/- 1.96 * SE, med SE = xbar/sqrt(n)\n    se = xbar / np.sqrt(n)\n    if xbar - 1.96*se <= mu <= xbar + 1.96*se:\n        dekk_wald += 1\n\nprint(dekk_eksakt/M, dekk_wald/M)\n# 0.9508  0.9015\n```\n\n**Resultat:** det eksakte KI-et dekker $\\approx 95{,}1\\%$ — praktisk talt nominelt $95\\%$, som det skal siden pivotalen $2n\\bar X/\\mu \\sim \\chi^2_{2n}$ er eksakt uansett $\\mu$ og $n$. Wald-KI-et dekker bare $\\approx 90{,}2\\%$ — det **underdekker** klart.\n\n**Hvorfor?** Wald antar at $\\bar X$ er tilnærmet normalfordelt og symmetrisk rundt $\\mu$. For $n = 10$ eksponensiale observasjoner er $\\bar X$ fortsatt merkbart høyreskjevt, så det symmetriske $\\pm 1{,}96\\,\\text{SE}$-intervallet bommer oftere enn de lovede $5\\%$. Dette er nøyaktig asymmetrien [kap. 6.2](/bok/stk1100/stk1100-6-2) tallfestet (der ca. $95{,}9\\%$ mot $91{,}1\\%$ for den oppgavens oppsett) — samme mekanisme, små forskjeller skyldes ulikt antall gjentak og tilfeldig frø. Konklusjonen er den samme: for liten $n$ er det eksakte pivotal-KI-et å foretrekke."
+    },
+    {
+      "id": "stk1100-7-2-ex-l4a",
+      "type": "exercise",
+      "exercise": {
+        "id": "stk1100-7-2-o7",
+        "number": "7",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "I dekningskoden over står linjen\n\n```python\nlo = 2*n*xbar / stats.chi2.ppf(0.975, 2*n)\nhi = 2*n*xbar / stats.chi2.ppf(0.025, 2*n)\n```\n\n**a)** Forklar hvorfor den *nedre* grensen `lo` bruker den *øvre* kvantilen `chi2.ppf(0.975, 2n)`.\n\n**b)** Hvor mange frihetsgrader har kjikvadratfordelingen her, og hvorfor?",
+        "solution": "**a)** Pivotalen er $Q = 2n\\bar X/\\mu \\sim \\chi^2_{2n}$. Fra $\\chi^2_{2n,\\text{nedre}} \\le Q \\le \\chi^2_{2n,\\text{øvre}}$ løser vi for $\\mu$: siden $\\mu = 2n\\bar X/Q$ og $Q$ står i **nevneren**, snus rekkefølgen — stor $Q$ (øvre kvantil) gir liten $\\mu$ (nedre grense), og motsatt. Derfor bruker `lo` den øvre kvantilen `chi2.ppf(0.975, 2n)`.\n\n**b)** $2n$ frihetsgrader. For eksponensialfordelingen er pivotalen $2n\\bar X/\\mu$ nettopp $\\chi^2_{2n}$-fordelt (en sum av $n$ eksponensiale gir gamma, og $2/\\mu$ ganger den blir $\\chi^2_{2n} = $ gamma$(n, 2)$). Med $n = 10$ blir det $\\chi^2_{20}$.",
+        "hints": [
+          "Løs $\\chi^2_{\\text{nedre}} \\le 2n\\bar X/\\mu \\le \\chi^2_{\\text{øvre}}$ for $\\mu$ — hva skjer når den ukjente står i nevneren?",
+          "Eksponensialens pivotal er alltid $\\chi^2_{2n}$ (ikke $\\chi^2_n$ eller $\\chi^2_{n-1}$)."
+        ]
+      }
+    },
+    {
+      "id": "stk1100-7-2-ex-l4b",
+      "type": "exercise",
+      "exercise": {
+        "id": "stk1100-7-2-o8",
+        "number": "8",
+        "type": "classic",
+        "difficulty": "vanskelig",
+        "task": "Du skal undersøke hvordan Wald-KI-ets underdekning avhenger av utvalgsstørrelsen for eksponensiale data.\n\n**a)** Beskriv hvordan du ville endre dekningskoden for å studere $n = 10, 30, 100$ i stedet for bare $n = 10$.\n\n**b)** Hva forventer du skjer med Wald-dekningen når $n$ vokser, og hvorfor? Hva skjer med den eksakte dekningen?",
+        "solution": "**a)** Legg en løkke rundt eksperimentet over $n$-verdiene, og rapporter dekningen for hver:\n\n```python\nimport numpy as np\nfrom scipy import stats\n\nfor n in [10, 30, 100]:\n    np.random.seed(0)\n    mu, M = 5.0, 20000\n    de = dw = 0\n    for _ in range(M):\n        x = -mu * np.log(1 - np.random.uniform(size=n))\n        xbar = np.mean(x)\n        lo = 2*n*xbar / stats.chi2.ppf(0.975, 2*n)\n        hi = 2*n*xbar / stats.chi2.ppf(0.025, 2*n)\n        de += (lo <= mu <= hi)\n        se = xbar / np.sqrt(n)\n        dw += (xbar - 1.96*se <= mu <= xbar + 1.96*se)\n    print(n, de/M, dw/M)\n# 10 0.9508 0.9015\n# 30 0.9498 0.9365\n# 100 0.9501 0.9450\n```\n\n**b)** Wald-dekningen **stiger mot $95\\%$** når $n$ vokser: sentralgrensesetningen gjør at $\\bar X$ blir stadig mer symmetrisk og normalfordelt, så den symmetriske Wald-antakelsen blir stadig bedre. Den eksakte dekningen ligger på $\\approx 95\\%$ **for alle $n$** — den bygger på en eksakt pivotal og trenger ingen normaltilnærming.",
+        "hints": [
+          "Pakk hele eksperimentet inn i en `for n in [10, 30, 100]`-løkke og skriv ut dekningen per $n$.",
+          "Hva sier sentralgrensesetningen om formen på $\\bar X$ når $n$ vokser?",
+          "Den eksakte pivotalen $2n\\bar X/\\mu \\sim \\chi^2_{2n}$ gjelder uansett $n$ — så hva skjer med dens dekning?"
+        ]
+      }
+    },
+    {
+      "id": "stk1100-7-2-warn-typiske",
+      "type": "warning",
+      "title": "Typiske feil",
+      "content": "- **Glemme `ddof=1`** i bootstrap-SE-en. `np.std(theta_b, ddof=1)` deler på $B-1$ og gir standardfeilen; uten `ddof=1` deles det på $B$.\n- **Beskrive bootstrap upresist.** Si eksplisitt at ikke-parametrisk bootstrap trekker **med tilbakelegging fra dataene**, og at parametrisk bootstrap trekker **fra den tilpassede fordelingen** (med $\\hat\\theta$ satt inn). En beskrivelse uten dette taper poeng (sensorkrav 10).\n- **Forveksle $B$ og $n$.** $B$ = antall bootstrap-/Monte Carlo-trekk (styrer presisjonen, avtar som $1/\\sqrt B$); $n$ = utvalgsstørrelsen (fast, gitt av dataene). Flere $B$ gjør ikke datasettet ditt større.\n- **`replace=False` i ikke-parametrisk bootstrap.** Uten tilbakelegging blir hvert «utvalg» en ren omstokking, og SE-en kollapser mot 0.\n- **Simulere dekning under feil fordeling.** Skal du studere dekningen til et KI, må datasettene genereres fra den fordelingen KI-et forutsetter — ellers måler du noe annet."
+    },
+    {
+      "id": "stk1100-7-2-begrepsbank-intro",
+      "type": "text",
+      "content": "### Begrepsbank\n\n*Flashcard-/repetisjonsstoff — hopp trygt over ved førstegangslesing; tidsanslaget gjelder kjernestoffet. Kortene samler algoritmene og idiomene til rask repetisjon.*"
+    },
+    {
+      "id": "stk1100-7-2-def-01",
+      "type": "definition",
+      "title": "Bootstrap (idéen)",
+      "content": "Å estimere usikkerheten til en estimator ved å trekke mange nye «utvalg», regne estimatoren på nytt hver gang, og måle spredningen. Man later som utvalget er hele befolkningen. Brukes særlig når den analytiske standardfeilen er vanskelig eller umulig."
+    },
+    {
+      "id": "stk1100-7-2-def-02",
+      "type": "definition",
+      "title": "Ikke-parametrisk bootstrap",
+      "content": "Bootstrap der de nye utvalgene trekkes **med tilbakelegging fra selve dataene**, uten noen fordelingsantakelse. Dataene «taler for seg selv». I kode: `np.random.choice(data, size=n, replace=True)`."
+    },
+    {
+      "id": "stk1100-7-2-def-03",
+      "type": "definition",
+      "title": "Parametrisk bootstrap",
+      "content": "Bootstrap der de nye utvalgene trekkes **fra en tilpasset fordeling** med parameterestimatet $\\hat\\theta$ satt inn. Mer presis når fordelingsantakelsen er riktig; arver feilen hvis modellen er gal."
+    },
+    {
+      "id": "stk1100-7-2-def-04",
+      "type": "definition",
+      "title": "`np.random.choice(..., replace=True)`",
+      "content": "Trekker med tilbakelegging fra et array — motoren i ikke-parametrisk bootstrap. `replace=True` er avgjørende: uten den blir trekket bare en omstokking og all variasjon forsvinner."
+    },
+    {
+      "id": "stk1100-7-2-def-05",
+      "type": "definition",
+      "title": "Bootstrap-standardfeil",
+      "content": "Standardfeilen estimert som det empiriske standardavviket til de $B$ bootstrap-estimatene: `np.std(theta_b, ddof=1)`. Divisor $B-1$ (altså `ddof=1`)."
+    },
+    {
+      "id": "stk1100-7-2-def-06",
+      "type": "definition",
+      "title": "Bootstrap-algoritmen",
+      "content": "For $b = 1, \\ldots, B$: trekk nytt utvalg, regn $\\hat\\theta^*_b$; til slutt SE $=$ standardavviket til de $B$ verdiene. I kode: `for _ in range(B): xb = ...; theta_b.append(estimator(xb))` deretter `np.std(theta_b, ddof=1)`."
+    },
+    {
+      "id": "stk1100-7-2-def-07",
+      "type": "definition",
+      "title": "$B$ mot $n$",
+      "content": "$B$ = antall bootstrap-/Monte Carlo-trekk (velges selv, styrer presisjonen). $n$ = utvalgsstørrelsen (fast, gitt av dataene). Å øke $B$ gir et mer presist SE-estimat, men gjør ikke datasettet større."
+    },
+    {
+      "id": "stk1100-7-2-def-08",
+      "type": "definition",
+      "title": "Estimatoren regnes på nytt",
+      "content": "Kjernen i bootstrap: i hvert trekk anvendes den *samme* estimatoren (median, gjennomsnitt, $\\hat\\mu\\ln 2$ …) på det nye utvalget. Variasjonen i disse gjenberegningene er det bootstrap måler."
+    },
+    {
+      "id": "stk1100-7-2-def-09",
+      "type": "definition",
+      "title": "Monte Carlo-prinsippet",
+      "content": "En sannsynlighet er en forventet indikator: $P(\\text{hendelse}) = E(I)$, der $I$ er 1 om hendelsen inntreffer. Derfor kan enhver sannsynlighet estimeres med et gjennomsnitt av indikatorer."
+    },
+    {
+      "id": "stk1100-7-2-def-10",
+      "type": "definition",
+      "title": "Monte Carlo-estimat",
+      "content": "Estimatet `np.mean(betingelse)` av en sannsynlighet — andelen av $B$ trekk som oppfyller betingelsen. Eksempel: `np.mean(x > 8)` estimerer $P(X > 8)$."
+    },
+    {
+      "id": "stk1100-7-2-def-11",
+      "type": "definition",
+      "title": "Forventningsrett MC-estimat",
+      "content": "Monte Carlo-estimatet av en sannsynlighet er forventningsrett: $E[\\widehat P] = p$, fordi det er gjennomsnittet av forventningsrette indikatorer med forventning $p$."
+    },
+    {
+      "id": "stk1100-7-2-def-12",
+      "type": "definition",
+      "title": "Monte Carlo-varians",
+      "content": "Variansen til MC-estimatet er $p(1-p)/B$ (uavhengige indikatorer, hver med varians $p(1-p)$). Standardfeilen er $\\sqrt{p(1-p)/B}$."
+    },
+    {
+      "id": "stk1100-7-2-def-13",
+      "type": "definition",
+      "title": "$1/\\sqrt B$-presisjon",
+      "content": "Monte Carlo-standardfeilen avtar proporsjonalt med $1/\\sqrt B$. For å halvere usikkerheten må antall trekk $B$ firedobles."
+    },
+    {
+      "id": "stk1100-7-2-def-14",
+      "type": "definition",
+      "title": "Standardfeil (repetisjon)",
+      "content": "Standardavviket til en estimator: $\\text{SE}(\\hat\\theta) = \\sqrt{\\text{Var}(\\hat\\theta)}$ (fra [kap. 5.1](/bok/stk1100/stk1100-5-1)). Bootstrap gir et numerisk estimat av denne når den analytiske er utilgjengelig."
+    },
+    {
+      "id": "stk1100-7-2-def-15",
+      "type": "definition",
+      "title": "Simulert dekningsgrad",
+      "content": "Metode for å sjekke et KI: generer mange datasett med kjent sann parameter, bygg KI-et i hvert, og tell andelen som dekker parameteren. Andelen bør ligge nær den nominelle graden (f.eks. 95 %)."
+    },
+    {
+      "id": "stk1100-7-2-def-16",
+      "type": "definition",
+      "title": "Dekker-indikatoren",
+      "content": "For hvert simulerte datasett: `lo <= param <= hi` — 1 om KI-et dekker den sanne parameteren, 0 ellers. Dekningsgraden er `np.mean` av disse indikatorene over alle datasettene."
+    },
+    {
+      "id": "stk1100-7-2-def-17",
+      "type": "definition",
+      "title": "Eksakt pivotal-KI dekker nominelt",
+      "content": "Et KI bygget på en eksakt pivotal (som $2n\\bar X/\\mu \\sim \\chi^2_{2n}$ for eksponensial) dekker den sanne parameteren nøyaktig $95\\%$ av gangene, uansett $n$ (kobling [kap. 6.2](/bok/stk1100/stk1100-6-2))."
+    },
+    {
+      "id": "stk1100-7-2-def-18",
+      "type": "definition",
+      "title": "Wald-KI underdekker",
+      "content": "Wald-KI-et $\\bar X \\pm 1{,}96\\,\\text{SE}$ antar at $\\bar X$ er symmetrisk normalfordelt. For liten $n$ og skjeve data (eksponensial) underdekker det — færre enn $95\\%$ av intervallene dekker sannheten. Nærmer seg $95\\%$ når $n$ vokser (sentralgrensesetningen)."
+    },
+    {
+      "id": "stk1100-7-2-def-19",
+      "type": "definition",
+      "title": "Parametrisk vs. ikke-parametrisk — valget",
+      "content": "Velg parametrisk når du stoler på fordelingsmodellen (mer presis, utnytter modellen); velg ikke-parametrisk når du er usikker på fordelingen (mer robust mot feilspesifikasjon)."
+    },
+    {
+      "id": "stk1100-7-2-def-20",
+      "type": "definition",
+      "title": "`ddof=1` i bootstrap-SE",
+      "content": "Bootstrap-SE-en regnes med `np.std(theta_b, ddof=1)` — divisor $B-1$ gir det forventningsrette standardavviksestimatet av bootstrap-fordelingen (samme grunn som i [kap. 5.1](/bok/stk1100/stk1100-5-1))."
+    },
+    {
+      "id": "stk1100-7-2-rep-oppg",
+      "type": "collapsible",
+      "title": "Repetisjonsoppgaver",
+      "buttonText": "Vis repetisjonsoppgaver",
+      "content": [
+        {
+          "id": "stk1100-7-2-rep-1",
+          "type": "text",
+          "content": "Korte oppgaver fra forkunnskapskapitlene ([kap. 7.1](/bok/stk1100/stk1100-7-1), [kap. 5.1](/bok/stk1100/stk1100-5-1)). Fasit rett under hver."
+        },
+        {
+          "id": "stk1100-7-2-rep-2",
+          "type": "text",
+          "content": "**R1 (fra 7.1).** Skriv én linje som trekker $n$ eksponensiale tall med forventning $\\mu$ ved inversjonsmetoden.\n\n*Fasit:* `x = -mu * np.log(1 - np.random.uniform(size=n))`."
+        },
+        {
+          "id": "stk1100-7-2-rep-3",
+          "type": "text",
+          "content": "**R2 (fra 7.1).** Hva estimerer `np.mean(x > a)`, og hvorfor?\n\n*Fasit:* $P(X > a)$. `x > a` er en 1/0-indikatorvektor, og gjennomsnittet er andelen som er sanne — et estimat av sannsynligheten (en sannsynlighet er en forventet indikator)."
+        },
+        {
+          "id": "stk1100-7-2-rep-4",
+          "type": "text",
+          "content": "**R3 (fra 5.1).** Hva er standardfeilen til $\\bar X$ uttrykt ved $\\sigma$ og $n$?\n\n*Fasit:* $\\text{SE}(\\bar X) = \\sigma/\\sqrt{n}$, siden $\\text{Var}(\\bar X) = \\sigma^2/n$."
+        },
+        {
+          "id": "stk1100-7-2-rep-5",
+          "type": "text",
+          "content": "**R4 (fra 5.1).** Hvorfor bruker vi `ddof=1` når vi estimerer en varians eller standardfeil fra data?\n\n*Fasit:* Divisor $n-1$ (i stedet for $n$) gir en forventningsrett estimator av variansen; med divisor $n$ blir estimatet systematisk litt for lite."
+        }
+      ]
+    },
+    {
+      "id": "stk1100-7-2-symbolliste",
+      "type": "collapsible",
+      "title": "Symbol- og formelliste",
+      "buttonText": "Vis symboler og formler",
+      "content": [
+        {
+          "id": "stk1100-7-2-sym-innhold",
+          "type": "text",
+          "content": "*Oppslagsverk — alt her forklares underveis i kapitlet.*\n\n| Symbol | Betydning |\n|---|---|\n| $\\hat\\theta$ | Estimator / estimat (generelt) |\n| $\\hat\\theta^*_b$ | Bootstrap-estimatet i trekk nummer $b$ |\n| $B$ | Antall bootstrap-/Monte Carlo-trekk |\n| $n$ | Utvalgsstørrelsen (antall observasjoner) |\n| $M$ | Antall simulerte datasett i en dekningsstudie |\n| $\\bar X$ | Utvalgsgjennomsnittet |\n| $\\hat\\mu$ | Estimatet av forventningen ($=\\bar x$ for eksponensial) |\n| $\\text{SE}(\\hat\\theta)$ | Standardfeilen, $\\sqrt{\\text{Var}(\\hat\\theta)}$ |\n| $I$ | Indikatorvariabel (1 om hendelsen inntreffer, 0 ellers) |\n| $p$ | Sannsynligheten som estimeres i Monte Carlo |\n| $\\chi^2_{2n,\\alpha}$ | Øvre-halekvantil i kjikvadrat med $2n$ frihetsgrader |\n| `ddof=1` | Divisor $B-1$ (eller $n-1$) i empirisk standardavvik |\n\n**Formler i dette kapitlet:**\n\n$$\\textbf{Bootstrap-SE: } \\widehat{\\text{SE}}(\\hat\\theta) = \\sqrt{\\frac{1}{B-1}\\sum_{b=1}^{B}\\big(\\hat\\theta^*_b - \\bar{\\hat\\theta^*}\\big)^2} = \\texttt{np.std(theta\\_b, ddof=1)}$$\n\n$$\\textbf{Monte Carlo: } \\widehat{P(\\text{hendelse})} = \\frac1B\\sum_{b=1}^B I_b = \\texttt{np.mean(betingelse)}$$\n\n$$E\\big[\\widehat P\\big] = p, \\qquad \\text{Var}\\big[\\widehat P\\big] = \\frac{p(1-p)}{B}, \\qquad \\text{SE}\\big[\\widehat P\\big] = \\sqrt{\\frac{p(1-p)}{B}} \\propto \\frac{1}{\\sqrt B}$$\n\n$$\\textbf{Eksakt KI (eksponensial): } \\left[\\frac{2n\\bar X}{\\chi^2_{2n,\\,0{,}025}},\\ \\frac{2n\\bar X}{\\chi^2_{2n,\\,0{,}975}}\\right] \\qquad \\textbf{Wald: } \\bar X \\pm 1{,}96\\,\\frac{\\bar X}{\\sqrt n}$$"
+        }
+      ]
+    }
+  ],
+  "exercises": []
+}

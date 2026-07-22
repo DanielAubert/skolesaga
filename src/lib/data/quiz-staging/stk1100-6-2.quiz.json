@@ -1,0 +1,202 @@
+[
+  {
+    "question": "Hvilke tre forutsetninger må med i en presis formulering av sentralgrenseteoremet?",
+    "options": [
+      "Observasjonene er uavhengige, identisk fordelte, og har endelig varians",
+      "Observasjonene er normalfordelte, uavhengige og har kjent forventning",
+      "Observasjonene er identisk fordelte, symmetriske og har stor forventning",
+      "Observasjonene er uavhengige, kontinuerlige og har kjent varians"
+    ],
+    "explanation": "CLT krever iid-observasjoner med endelig varians; alle tre stikkordene må nevnes."
+  },
+  {
+    "question": "Ifølge CLT, hvilken størrelse blir tilnærmet $N(0,1)$ for stor $n$?",
+    "options": [
+      "Den standardiserte $(\\bar X - \\mu)/(\\sigma/\\sqrt n)$",
+      "Gjennomsnittet $\\bar X$ selv, uten standardisering",
+      "Den usentrerte summen $\\sum X_i$ av observasjonene",
+      "Den halvstandardiserte $(\\bar X - \\mu)/\\sigma$"
+    ],
+    "explanation": "Det er den standardiserte størrelsen som blir $N(0,1)$; $\\bar X$ selv blir $N(\\mu,\\sigma^2/n)$."
+  },
+  {
+    "question": "Hvordan ser det CLT-baserte Wald-konfidensintervallet for en parameter $\\theta$ ut?",
+    "options": [
+      "$\\hat\\theta \\pm z_{\\alpha/2}\\cdot\\widehat{\\text{SE}}$",
+      "$\\hat\\theta \\pm \\chi^2_{n,\\alpha/2}\\cdot\\widehat{\\text{SE}}$",
+      "$[2\\sum x_i/\\chi^2_{2n,\\alpha/2},\\ 2\\sum x_i/\\chi^2_{2n,1-\\alpha/2}]$",
+      "$\\hat\\theta \\pm t_{n-1,\\alpha/2}\\cdot\\widehat{\\text{SE}}$"
+    ],
+    "explanation": "Wald-intervallet legger et symmetrisk normalintervall $z_{\\alpha/2}\\widehat{\\text{SE}}$ rundt estimatet."
+  },
+  {
+    "question": "I V2024-studien (eksponensiell, nominelt 95 %, $n=10$) dekket eksakt 95,9 % og Wald 91,1 %. Hva forteller det?",
+    "options": [
+      "Wald underdekker ved lav $n$, mens det eksakte treffer nivået sitt",
+      "Wald er riktigere fordi det er det smaleste av de to intervallene",
+      "Eksakt er altfor bredt og overdekker sann parameter med vilje",
+      "Begge intervallene er ubrukelige for denne lille $n$-en"
+    ],
+    "explanation": "Eksakt har dekning $\\approx 95\\%$ per konstruksjon; Wald dekker sjeldnere enn tilsiktet (underdekning)."
+  },
+  {
+    "question": "Hva skjer med dekningsforskjellen mellom eksakt og Wald når $n$ øker fra 10 til 100?",
+    "options": [
+      "Den forsvinner — begge intervallene nærmer seg ca. 94 %",
+      "Den øker — Wald-intervallet blir stadig mer upålitelig",
+      "Wald blir det klart beste fordi det er det smaleste",
+      "Eksakt slutter å dekke sitt tilsiktede 95 %-nivå"
+    ],
+    "explanation": "For stor $n$ blir CLT-tilnærmingen god, og begge intervallene dekker omtrent likt."
+  },
+  {
+    "question": "Er et smalere Wald-intervall som underdekker å foretrekke framfor det eksakte?",
+    "options": [
+      "Nei — det gir falsk presisjon; bredden må matche faktisk dekning",
+      "Ja — et smalere konfidensintervall er alltid å foretrekke",
+      "Ja, så lenge punktestimatet ligger midt i intervallet",
+      "Nei, fordi Wald-intervaller alltid blir asymmetriske"
+    ],
+    "explanation": "Et underdekkende intervall undervurderer usikkerheten; smalt er ikke det samme som riktig."
+  },
+  {
+    "question": "For eksponensiell forventning er $\\text{SE}(\\hat\\mu) = \\mu/\\sqrt n$. Hva estimeres den med?",
+    "options": [
+      "$\\widehat{\\text{SE}} = \\bar X/\\sqrt n$",
+      "$\\widehat{\\text{SE}} = \\sqrt{\\bar X}/n$",
+      "$\\widehat{\\text{SE}} = \\bar X/n$",
+      "$\\widehat{\\text{SE}} = \\sqrt n/\\bar X$"
+    ],
+    "explanation": "Sett $\\hat\\mu=\\bar X$ inn for $\\mu$: $\\widehat{\\text{SE}} = \\bar X/\\sqrt n$."
+  },
+  {
+    "question": "Hvorfor er Wald-intervallet upålitelig for eksponensiale data ved lav $n$?",
+    "options": [
+      "Fordi standardfeilen $\\mu/\\sqrt n$ selv avhenger av den ukjente parameteren",
+      "Fordi eksponensialfordelingen ikke har en endelig forventning i det hele tatt",
+      "Fordi $z$-kvantilene er ukjente og må estimeres for lave $n$",
+      "Fordi gjennomsnittet $\\bar X$ ikke kan regnes ut for små utvalg"
+    ],
+    "explanation": "Når SE avhenger av parameteren, fanger ikke normaltilnærmingen skjevheten ved lav $n$."
+  },
+  {
+    "question": "Wald-intervallet er $6{,}4 \\pm 1{,}96\\cdot 1{,}28$. Hva blir det?",
+    "options": [
+      "$[3{,}89,\\ 8{,}91]$",
+      "$[8{,}91,\\ 3{,}89]$",
+      "$[5{,}12,\\ 7{,}68]$",
+      "$[4{,}48,\\ 9{,}89]$"
+    ],
+    "explanation": "$1{,}96\\cdot 1{,}28 = 2{,}51$, så $6{,}4 \\pm 2{,}51 = [3{,}89,\\ 8{,}91]$."
+  },
+  {
+    "question": "Hva er forskjellen på **konfidensgrad** og **dekningsgrad**?",
+    "options": [
+      "Konfidensgrad er nivået vi sikter mot; dekningsgrad er den faktiske treffandelen",
+      "De er per definisjon alltid identiske for et hvilket som helst intervall",
+      "Konfidensgrad gjelder dataene, mens dekningsgrad gjelder selve parameteren",
+      "Dekningsgraden er per konstruksjon alltid høyere enn konfidensgraden"
+    ],
+    "explanation": "For eksakte intervaller er de like; for tilnærmede (Wald) kan dekningen være lavere ved lav $n$."
+  },
+  {
+    "question": "Hvordan skal Wald-intervallet presenteres på eksamen når en eksakt pivot finnes?",
+    "options": [
+      "Som et alternativ, mens det eksakte intervallet meldes som hovedsvar",
+      "Som det klart beste svaret nettopp for et lite utvalg",
+      "Som eneste svar, ettersom det er enklest å regne ut",
+      "Uten å nevne det eksakte pivotal-intervallet i det hele tatt"
+    ],
+    "explanation": "Sensor (V2024) vil ha eksakt som hovedsvar; Wald er et alternativ, aldri «best» for liten $n$."
+  },
+  {
+    "question": "Er Wald-intervallet symmetrisk eller asymmetrisk om punktestimatet $\\hat\\theta$?",
+    "options": [
+      "Symmetrisk, siden det er $\\hat\\theta \\pm z_{\\alpha/2}\\widehat{\\text{SE}}$",
+      "Asymmetrisk, akkurat som det eksakte pivotal-intervallet",
+      "Alltid tydelig forskjøvet oppover mot høyre hale",
+      "Det avhenger av hvor mange frihetsgrader pivoten har"
+    ],
+    "explanation": "$\\pm$-formen gjør Wald symmetrisk; det eksakte $\\chi^2$-intervallet er derimot asymmetrisk."
+  },
+  {
+    "question": "En maskin fyller poser: $\\mu=500$ g, $\\sigma=20$ g, $n=100$. Hva er standardfeilen til $\\bar X$?",
+    "options": [
+      "$2$ g",
+      "$20$ g",
+      "$0{,}2$ g",
+      "$200$ g"
+    ],
+    "explanation": "$\\text{SE}(\\bar X)=\\sigma/\\sqrt n = 20/\\sqrt{100} = 2$ g."
+  },
+  {
+    "question": "Hva bør du gjøre før du bruker et CLT/Wald-intervall på $n=6$ tydelig skjeve data?",
+    "options": [
+      "Ta forbehold om at $n$ er for liten, og foretrekk eksakt der en pivot finnes",
+      "Bruke Wald-intervallet uansett, ettersom det er det enkleste alternativet",
+      "Doble antall $z$-kvantiler for å kompensere for skjevheten",
+      "Bytte datasettet ut med et som er tilnærmet symmetrisk fordelt"
+    ],
+    "explanation": "CLT krever stor $n$; ved liten skjev $n$ er eksakt pivotal-KI (uten normaltilnærming) bedre."
+  },
+  {
+    "question": "Hvorfor er $\\bar X$ selv bare tilnærmet $N(\\mu, \\sigma^2/n)$ og ikke $N(0,1)$?",
+    "options": [
+      "Fordi $\\bar X$ har forventning $\\mu$ og varians $\\sigma^2/n$, ikke 0 og 1",
+      "Fordi gjennomsnittet $\\bar X$ i praksis aldri er tilnærmet normalfordelt",
+      "Fordi standardavviket $\\sigma$ i utgangspunktet er en ukjent størrelse",
+      "Fordi utvalgsstørrelsen $n$ per definisjon alltid er endelig"
+    ],
+    "explanation": "Standardisering flytter $\\bar X$ til forventning 0 og varians 1; usentrert er det $N(\\mu,\\sigma^2/n)$."
+  },
+  {
+    "question": "Et eksakt 95 %-KI er $[4{,}48,\\ 9{,}89]$ (asymmetrisk) og Wald er $[3{,}89,\\ 8{,}91]$ (symmetrisk om 6,4). Hva er korrekt?",
+    "options": [
+      "Wald strekker seg feilaktig lengre ned og kortere opp enn den korrekte formen",
+      "Wald er riktigere ettersom det er pent sentrert rundt punktestimatet 6,4",
+      "Det eksakte intervallet må være feil siden det ikke er symmetrisk",
+      "De to intervallene er praktisk talt identiske og gir samme svar"
+    ],
+    "explanation": "Den korrekte formen (eksakt) er forskjøvet oppover; Wald-symmetrien bommer på skjevheten."
+  },
+  {
+    "question": "Hva er $z_{0{,}025}$, kvantilen brukt i et 95 % Wald-intervall?",
+    "options": [
+      "$1{,}96$",
+      "$1{,}645$",
+      "$2{,}576$",
+      "$1{,}00$"
+    ],
+    "explanation": "For 95 % er $\\alpha/2=0{,}025$ og $z_{0{,}025}=1{,}96$ (øvre haleareal)."
+  },
+  {
+    "question": "Hvordan måles dekningsgraden til et konfidensintervall i praksis?",
+    "options": [
+      "Ved å trekke data med kjent $\\theta$, bygge intervallet, telle treff og gjenta",
+      "Ved å lese den ferdig oppgitte dekningsgraden av i formelsamlingen",
+      "Ved å regne ut den tilsiktede $1-\\alpha$ analytisk for hvert datasett",
+      "Ved å måle bredden på ett enkelt utregnet konfidensintervall"
+    ],
+    "explanation": "En dekningssimulering trekker mange datasett med kjent sann $\\theta$ og teller andelen intervaller som dekker den."
+  },
+  {
+    "question": "Hva er den underliggende grunnen til at Wald-intervallet kan legges rundt en ML-estimator?",
+    "options": [
+      "ML-estimatoren er tilnærmet normalfordelt om sann parameter for stor $n$",
+      "ML-estimatoren er alltid helt nøyaktig normalfordelt uansett $n$",
+      "ML-estimatoren er per definisjon alltid en forventningsrett estimator",
+      "ML-estimatoren har alltid varians nøyaktig lik 1 for enhver modell"
+    ],
+    "explanation": "For stor $n$ er $\\hat\\theta$ tilnærmet $N(\\theta,\\text{Var}(\\hat\\theta))$, som følge av CLT."
+  },
+  {
+    "question": "En student melder Wald-intervallet som «det beste» for $n=8$ eksponensiale data. Hva er galt?",
+    "options": [
+      "Ved lav $n$ underdekker Wald, så det eksakte pivotal-intervallet foretrekkes",
+      "Ingenting — Wald-intervallet er alltid det beste valget for lave $n$",
+      "Wald-intervallet finnes ikke for eksponensialfordelte observasjoner",
+      "Wald-intervallet krever at utvalgsstørrelsen $n$ er et partall"
+    ],
+    "explanation": "Wald hviler på CLT som svikter ved lav $n$; eksakt har korrekt dekning og skal foretrekkes."
+  }
+]

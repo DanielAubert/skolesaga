@@ -1,0 +1,202 @@
+[
+  {
+    "question": "Hva sier inversjonsmetoden?",
+    "options": [
+      "Er $U$ uniform på $(0,1)$, har $X = F^{-1}(U)$ fordelingsfunksjon $F$",
+      "Er $U$ uniform på $(0,1)$, har $X = F(U)$ fordelingsfunksjon $F$",
+      "Er $U$ uniform på $(0,1)$, har $X = f^{-1}(U)$ fordelingsfunksjon $F$",
+      "Er $U$ uniform på $(0,1)$, har $X = F^{-1}(U)$ tetthet lik $U$"
+    ],
+    "explanation": "Setter du et uniformt tall inn i den inverse fordelingsfunksjonen, får du en realisasjon fra fordelingen med fordelingsfunksjon $F$."
+  },
+  {
+    "question": "Hvilken funksjon inverterer du i inversjonsmetoden?",
+    "options": [
+      "Fordelingsfunksjonen $F$ — du løser $F(x) = u$ for $x$",
+      "Tettheten $f$ — du løser $f(x) = u$ for $x$",
+      "Den deriverte $F'$ — du løser $F'(x) = u$ for $x$",
+      "Forventningen $E(X)$ — du løser $E(X) = u$ for $x$"
+    ],
+    "explanation": "Metoden bruker fordelingsfunksjonen. Å invertere tettheten $f$ i stedet er en klassisk feil."
+  },
+  {
+    "question": "Inversjonsformelen for eksponensial med forventning $\\mu$ ($F(x) = 1 - e^{-x/\\mu}$) er:",
+    "options": [
+      "$x = -\\mu\\ln(1-u)$",
+      "$x = -\\mu\\ln(u)$ og aldri noe annet",
+      "$x = \\mu\\ln(1-u)$",
+      "$x = -\\frac{1}{\\mu}\\ln(1-u)$"
+    ],
+    "explanation": "Løser du $1 - e^{-x/\\mu} = u$, får du $x = -\\mu\\ln(1-u)$. (Med $1-U$ uniform gir $-\\mu\\ln u$ samme fordeling, men grunnformelen bruker $1-u$.)"
+  },
+  {
+    "question": "Inversjonsformelen for Pareto ($F(x) = 1 - (k/x)^{\\theta}$, $x>k$) er:",
+    "options": [
+      "$x = k(1-u)^{-1/\\theta}$",
+      "$x = k(1-u)^{1/\\theta}$",
+      "$x = k(1-u)^{-\\theta}$",
+      "$x = \\theta(1-u)^{-1/k}$"
+    ],
+    "explanation": "Løs $1 - (k/x)^{\\theta} = u$: $(k/x)^{\\theta} = 1-u$, så $x = k(1-u)^{-1/\\theta}$."
+  },
+  {
+    "question": "I `stats.norm.rvs(mu, sigma, size=n)` er annet argument:",
+    "options": [
+      "standardavviket $\\sigma$",
+      "variansen $\\sigma^2$",
+      "presisjonen $1/\\sigma^2$",
+      "halve variansen $\\sigma^2/2$"
+    ],
+    "explanation": "`scale` er standardavviket. Har du variansen, ta kvadratroten først — å sende variansen er en vanlig felle."
+  },
+  {
+    "question": "Du skal trekke fra $N(\\mu, \\sigma^2)$ med varians $\\sigma^2 = 9$. Riktig kall er:",
+    "options": [
+      "`stats.norm.rvs(mu, 3, size=n)`",
+      "`stats.norm.rvs(mu, 9, size=n)`",
+      "`stats.norm.rvs(mu, 81, size=n)`",
+      "`stats.norm.rvs(mu, 4.5, size=n)`"
+    ],
+    "explanation": "Standardavviket er $\\sqrt{9} = 3$, og det er standardavviket funksjonen vil ha som annet argument."
+  },
+  {
+    "question": "Hva estimerer `np.mean(x > 2)` når `x` er en vektor av realisasjoner?",
+    "options": [
+      "$P(X > 2)$ — andelen realisasjoner over 2",
+      "$E(X)$ blant realisasjonene over 2",
+      "antallet realisasjoner over 2",
+      "variansen til realisasjonene over 2"
+    ],
+    "explanation": "`x > 2` er en 1/0-indikatorvektor, og gjennomsnittet er andelen sanne — et estimat av sannsynligheten $P(X > 2)$."
+  },
+  {
+    "question": "Hvorfor bruker vi `ddof=1` i `np.var(x, ddof=1)`?",
+    "options": [
+      "Divisor $n-1$ gir en forventningsrett estimator av variansen",
+      "Divisor $n-1$ gir alltid en større og dermed sikrere varians",
+      "Det gjør at variansen deles på $n$ i stedet for $n-1$",
+      "Det er nødvendig for at koden i det hele tatt skal kjøre"
+    ],
+    "explanation": "`ddof=1` betyr divisor $n-1$, som gir den forventningsrette empiriske variansen (kobling kap. 5.1)."
+  },
+  {
+    "question": "Hva er fordelen med vektorisert kode som `-mu*np.log(1-u)` framfor en `for`-løkke?",
+    "options": [
+      "Kortere og raskere, og resultatet er et array klart for `np.mean` osv.",
+      "Den gir mer nøyaktige tilfeldige tall enn en løkke gjør",
+      "Den er nødvendig fordi `np.log` ikke virker på enkeltverdier",
+      "Den bruker en helt annen og bedre tilfeldighetskilde"
+    ],
+    "explanation": "Vektorisering behandler hele arrayet elementvis på én gang — kortere, raskere og lett å sende videre til `np.mean`/`np.var`."
+  },
+  {
+    "question": "En snutt gjør `x = -5*np.log(1-u)` og deretter `print(np.mean(x))`. Hva trekkes det fra, og hva estimeres?",
+    "options": [
+      "Eksponensial med forventning 5; estimerer $E(X) = 5$",
+      "Eksponensial med rate 5; estimerer $E(X) = 1/5$",
+      "Normalfordeling med forventning 5; estimerer $E(X)$",
+      "Uniform på $(0,5)$; estimerer medianen"
+    ],
+    "explanation": "`-5*np.log(1-u)` er $-\\mu\\ln(1-u)$ med $\\mu = 5$ (forventnings-form), og `np.mean(x)` estimerer $E(X) = \\mu = 5$."
+  },
+  {
+    "question": "Inversjonsformelen for Rayleigh ($F(x) = 1 - e^{-x^2/(2\\sigma^2)}$) er:",
+    "options": [
+      "$x = \\sigma\\sqrt{-2\\ln(1-u)}$",
+      "$x = \\sigma\\sqrt{2\\ln(1-u)}$",
+      "$x = \\sigma\\,(-2\\ln(1-u))$",
+      "$x = \\sqrt{-2\\sigma\\ln(1-u)}$"
+    ],
+    "explanation": "Løs for $x^2 = -2\\sigma^2\\ln(1-u)$ og ta positiv rot: $x = \\sigma\\sqrt{-2\\ln(1-u)}$."
+  },
+  {
+    "question": "Inversjonsformelen for Weibull ($F(x) = 1 - e^{-(x/\\beta)^{\\alpha}}$) er:",
+    "options": [
+      "$x = \\beta(-\\ln(1-u))^{1/\\alpha}$",
+      "$x = \\beta(-\\ln(1-u))^{\\alpha}$",
+      "$x = \\alpha(-\\ln(1-u))^{1/\\beta}$",
+      "$x = \\beta(\\ln(1-u))^{1/\\alpha}$"
+    ],
+    "explanation": "$(x/\\beta)^{\\alpha} = -\\ln(1-u)$ gir $x = \\beta(-\\ln(1-u))^{1/\\alpha}$; $\\alpha = 1$ gir eksponensial."
+  },
+  {
+    "question": "Hvorfor gir `np.random.uniform(size=n)` det riktige råstoffet til inversjonsmetoden?",
+    "options": [
+      "Fordi $U$ er uniform på $(0,1)$, og $F(x)$ tar nettopp verdier i $(0,1)$",
+      "Fordi uniforme tall i grensen alltid nærmer seg en normalfordeling ved sentralgrensesetningen",
+      "Fordi $U$ er uniform på hele tallinjen $(-\\infty,\\infty)$",
+      "Fordi `size=n` sørger for at tallene blir avhengige"
+    ],
+    "explanation": "Beviset bruker $P(U \\le c) = c$ for $c \\in (0,1)$, og $F(x)$ ligger nettopp der — derfor $P(F^{-1}(U)\\le x) = F(x)$."
+  },
+  {
+    "question": "Hva er galt hvis `stats.norm.rvs(100, 25, size=n)` var ment for varians $25$?",
+    "options": [
+      "$25$ blir tolket som standardavvik, så spredningen blir 5 ganger for stor",
+      "$25$ blir tolket som forventning, så senteret havner feil",
+      "Ingenting er galt, for `stats.norm.rvs` tar nettopp variansen som sitt andre argument",
+      "$25$ blir tolket som antall trekk i stedet for spredningen"
+    ],
+    "explanation": "Annet argument er standardavviket. Med varians $25$ er $\\sigma = 5$; sender du $25$, får du spredning 5 ganger for stor."
+  },
+  {
+    "question": "Er $U$ uniform på $(0,1)$. Hva gjelder for $1 - U$?",
+    "options": [
+      "$1 - U$ er også uniform på $(0,1)$",
+      "$1 - U$ er uniform på $(-1,0)$",
+      "$1 - U$ er eksponensialfordelt",
+      "$1 - U$ er alltid lik $U$"
+    ],
+    "explanation": "$1-U$ er også uniform på $(0,1)$; derfor gir både $-\\mu\\ln(1-u)$ og $-\\mu\\ln(u)$ korrekte eksponensiale tall."
+  },
+  {
+    "question": "Hva estimerer `np.var(x, ddof=1)` når `x` er en vektor av realisasjoner?",
+    "options": [
+      "Variansen $\\text{Var}(X)$ i fordelingen realisasjonene kommer fra",
+      "Forventningen $E(X)$ i den fordelingen som realisasjonene opprinnelig er trukket fra",
+      "Standardavviket $\\sqrt{\\text{Var}(X)}$",
+      "Sannsynligheten $P(X > 0)$"
+    ],
+    "explanation": "Den empiriske variansen med divisor $n-1$ estimerer fordelingens varians $\\text{Var}(X)$."
+  },
+  {
+    "question": "Hvorfor skal du skaffe $F$ (ikke $f$) før du bruker inversjonsmetoden?",
+    "options": [
+      "Fordi metoden inverterer $F$; du løser $F(x) = u$",
+      "Fordi $f$ ikke finnes for kontinuerlige fordelinger",
+      "Fordi $f$ alltid er lik $F$ for uniforme tall",
+      "Fordi $F$ ikke kan integreres, men $f$ kan"
+    ],
+    "explanation": "Inversjonsmetoden løser $F(x) = u$. Har du bare $f$, må du integrere til $F$ først."
+  },
+  {
+    "question": "Funksjonsmønsteret `def simuler(n): u = np.random.uniform(size=n); return -mu*np.log(1-u)` returnerer:",
+    "options": [
+      "et array med $n$ eksponensiale realisasjoner (forventning $\\mu$)",
+      "et enkelt tall som er lik gjennomsnittet av de $n$ trukne uniforme tallene på $(0,1)$",
+      "et array med $n$ uniforme tall på $(0,1)$",
+      "sannsynligheten $P(X > \\mu)$"
+    ],
+    "explanation": "Mønsteret trekker $n$ uniforme og transformerer vektorisert med inversjonsformelen — resultatet er $n$ eksponensiale realisasjoner."
+  },
+  {
+    "question": "En snutt gjør `x = 1*(1-u)**(-1/4)` og `print(np.mean(x > 2))`. Hva estimeres?",
+    "options": [
+      "$P(X > 2)$ for Pareto med $k=1$, $\\theta=4$, altså $2^{-4} = 0{,}0625$",
+      "$E(X)$ for Pareto med $k=1$, $\\theta=4$",
+      "$P(X > 2)$ for en eksponensialfordeling med forventning lik 2, altså tilnærmet $e^{-1}$",
+      "medianen til Pareto-fordelingen"
+    ],
+    "explanation": "`1*(1-u)**(-1/4)` er Pareto ($k=1,\\theta=4$), og `np.mean(x>2)` estimerer $P(X>2) = (1/2)^4 = 0{,}0625$."
+  },
+  {
+    "question": "Hvorfor er det viktig at simuleringskoden faktisk kjører før innlevering?",
+    "options": [
+      "Delvis eller ikke-kjørbar kode gir bare delvis uttelling (sensorkrav 10)",
+      "Koden trenger strengt tatt ikke å kjøre så lenge selve idéen og framgangsmåten er riktig beskrevet",
+      "Sensor kjører aldri koden, bare leser den overfladisk",
+      "Kjørbar kode gir automatisk full score uansett resultat"
+    ],
+    "explanation": "Fra V2020 forventes full, kjørbar Python-kode; delvis kode gir bare delvis uttelling. Test alltid snutten."
+  }
+]
