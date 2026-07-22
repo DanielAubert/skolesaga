@@ -1,0 +1,423 @@
+{
+  "id": "tma4110-2-1",
+  "courseId": "tma4110",
+  "chapterNumber": "2.1",
+  "title": "Matrisealgebra: multiplikasjon, transponert og spesielle matriser",
+  "description": "Matrisealgebraen faget hviler på: addisjon, skalering, matriseprodukt (rad-gang-kolonne), transponert, og de spesielle matrisene (identitet, symmetrisk, diagonal, triangulær) — med regnereglene som brukes i bevis senere.",
+  "estimatedMinutes": 50,
+  "competenceGoals": [
+    "regne med matriser: addisjon, skalarmultiplikasjon og matriseprodukt (rad-gang-kolonne), med riktig håndtering av format",
+    "bruke regnereglene for transponert, særlig $(AB)^{T}=B^{T}A^{T}$, presist i utregninger og bevis",
+    "gjenkjenne identitets-, diagonal-, triangulære, symmetriske og skjevsymmetriske matriser og vise at $A^{T}A$ er symmetrisk"
+  ],
+  "content": [
+    {
+      "id": "tma4110-2-1-tip-eksamensvinkel",
+      "type": "tip",
+      "title": "Eksamensvinkel",
+      "content": "**Matrisealgebraen er verktøykassen resten av faget hviler på — og et fast innslag i bevis.**\n\n- **Ren matriseregning (sjanger B — multiplikasjon, transponert, potenser)** dukker opp i rundt **36 %** av settene, ofte som en kort deloppgave verdt 3–8 %.\n- Enda viktigere: regnereglene $(AB)^{T}=B^{T}A^{T}$, $A(BC)=(AB)C$ og at $A^{T}A$ er symmetrisk er **motoren i mange bevisoppgaver (sjanger N)** — den typen «vis at …» som nesten hvert sett avslutter med. (Sjanger B og N er kodene bokas Del 0 gir for henholdsvis «matriseregning» og «bevis/abstrakt oppgave».)\n\nPrioriteten er **kunne** (du skal beherske mekanikken sikkert), men transponert-regelen og $A^{T}A$-trikset er *bevis-gull* du får bruk for helt til slutt i emnet. Under ingen-hjelpemidler-kravet regner du alt for hånd, så rad-gang-kolonne må sitte i fingrene."
+    },
+    {
+      "id": "tma4110-2-1-forkunnskaper",
+      "type": "text",
+      "content": "**Forkunnskaper:** Dette kapitlet bygger på [kap. 1.1](/bok/tma4110/tma4110-1-1) — der møtte du matriser som totalmatriser og radoperasjoner. Her bygger vi selve *regningen* med matriser fra grunnen, så du trenger ikke mer enn trygg bokstavregning fra videregående. Vektorbegrepet fra [Vektorer i tre dimensjoner](/bok/r2/r2-5-1) er nyttig, siden en kolonnevektor bare er en matrise med én kolonne. Utfyllende matriseregning modnes videre i dette forkunnskapsemnet *(NTNU-forkunnskapsemne, ikke bygget ennå; aktiver lenke når den finnes)*."
+    },
+    {
+      "id": "tma4110-2-1-motivasjon",
+      "type": "text",
+      "content": "## Hverdagsanker: en tabell som kan regnes med\n\nTenk deg et regneark der radene er butikker og kolonnene er varer, og hver celle er et antall solgt. Det er en **matrise** — en rektangulær tabell av tall. Poenget med lineær algebra er at slike tabeller ikke bare *lagrer* tall, de kan **regnes med**: legges sammen, skaleres og ganges på en måte som svarer til å sette sammen mange lineære sammenhenger på én gang.\n\nAlt du gjør senere i faget — radreduksjon, egenverdier, projeksjoner — er matriseregning i bunn. Vi bygger den opp i tre løkker: (1) addisjon, skalering og det viktige matriseproduktet, (2) transponering og regnereglene, og (3) de spesielle matrisene og resultatet $A^{T}A$ som går igjen i bevis."
+    },
+    {
+      "id": "tma4110-2-1-lokke1",
+      "type": "text",
+      "content": "## Løkke 1 — Addisjon, skalering og matriseprodukt (~18 min)"
+    },
+    {
+      "id": "tma4110-2-1-def-matrise",
+      "type": "definition",
+      "title": "Matrise",
+      "content": "En **matrise** er en rektangulær tabell av tall, ordnet i rader og kolonner. En matrise med $m$ rader og $n$ kolonner kalles en $m\\times n$-matrise, og $m\\times n$ er dens **format** (dimensjon). Tallet i rad $i$ og kolonne $j$ skrives $a_{ij}$ og kalles et **element**. For eksempel er $A=\\begin{bmatrix}2&-1&0\\\\3&5&4\\end{bmatrix}$ en $2\\times3$-matrise med $a_{13}=0$ og $a_{21}=3$."
+    },
+    {
+      "id": "tma4110-2-1-def-addisjon",
+      "type": "definition",
+      "title": "Matriseaddisjon",
+      "content": "To matriser av **samme format** legges sammen **element for element**: $(A+B)_{ij}=a_{ij}+b_{ij}$. Har $A$ og $B$ ulikt format, er $A+B$ **ikke definert**. Addisjonen er kommutativ og assosiativ, akkurat som for tall, fordi den skjer i hver celle for seg."
+    },
+    {
+      "id": "tma4110-2-1-def-skalering",
+      "type": "definition",
+      "title": "Skalarmultiplikasjon (skalering)",
+      "content": "Å gange en matrise med et tall $c$ (en **skalar**) betyr å gange **hvert element** med $c$: $(cA)_{ij}=c\\,a_{ij}$. Dette skalerer hele tabellen samtidig og endrer aldri formatet. Kombinasjonen $3A-2B$ betyr derfor «skaler $A$ med 3, skaler $B$ med 2, og trekk fra element for element»."
+    },
+    {
+      "id": "tma4110-2-1-ex-1",
+      "type": "example",
+      "title": "Eksempel 1: Addisjon og skalering",
+      "problem": "La $A=\\begin{bmatrix}2&-1\\\\0&3\\end{bmatrix}$ og $B=\\begin{bmatrix}1&4\\\\-2&5\\end{bmatrix}$. Regn ut $A+B$, $2A$ og $3A-2B$.",
+      "solution": "Alt skjer element for element.\n\n$$A+B=\\begin{bmatrix}2+1&-1+4\\\\0-2&3+5\\end{bmatrix}=\\begin{bmatrix}3&3\\\\-2&8\\end{bmatrix}.$$\n\n$$2A=\\begin{bmatrix}4&-2\\\\0&6\\end{bmatrix}.$$\n\nFor $3A-2B$ skalerer vi hver matrise først og trekker fra:\n$$3A-2B=\\begin{bmatrix}6&-3\\\\0&9\\end{bmatrix}-\\begin{bmatrix}2&8\\\\-4&10\\end{bmatrix}=\\begin{bmatrix}4&-11\\\\4&-1\\end{bmatrix}.$$"
+    },
+    {
+      "id": "tma4110-2-1-oppg-1",
+      "type": "exercise",
+      "exercise": {
+        "id": "tma4110-2-1-l1",
+        "number": "1",
+        "type": "classic",
+        "difficulty": "lett",
+        "task": "(Ren gjengivelse — regn element for element.) La $A=\\begin{bmatrix}3&-2&1\\\\0&4&-1\\end{bmatrix}$ og $B=\\begin{bmatrix}1&0&2\\\\-2&3&1\\end{bmatrix}$.\n\n**a)** Regn ut $A+B$.\n\n**b)** Regn ut $2A$.",
+        "solution": "**a)** Element for element: $A+B=\\begin{bmatrix}4&-2&3\\\\-2&7&0\\end{bmatrix}$.\n\n**b)** Gang hvert element med 2: $2A=\\begin{bmatrix}6&-4&2\\\\0&8&-2\\end{bmatrix}$.",
+        "hints": [
+          "Både $A$ og $B$ har format $2\\times3$, så addisjonen er definert.",
+          "Skalering ganger hvert element med tallet — formatet er uendret."
+        ]
+      }
+    },
+    {
+      "id": "tma4110-2-1-def-produkt",
+      "type": "definition",
+      "title": "Matriseprodukt",
+      "content": "Produktet $AB$ er definert **bare når** antall kolonner i $A$ er lik antall rader i $B$: er $A$ av format $m\\times n$ og $B$ av format $n\\times p$, så er $AB$ av format $m\\times p$. De «indre» tallene ($n$) må matche og «forsvinner»; de «ytre» ($m$ og $p$) blir formatet til produktet. Multiplikasjonen er altså **ikke** elementvis — den følger rad-gang-kolonne-regelen under."
+    },
+    {
+      "id": "tma4110-2-1-def-radgangkolonne",
+      "type": "definition",
+      "title": "Rad-gang-kolonne-regelen",
+      "content": "Elementet i rad $i$, kolonne $j$ av produktet $AB$ fås ved å ta **rad $i$ i $A$** mot **kolonne $j$ i $B$**, gange parvis og summere:\n$$(AB)_{ij}=a_{i1}b_{1j}+a_{i2}b_{2j}+\\dots+a_{in}b_{nj}.$$\nDu legger rad $i$ «på tvers» av kolonne $j$: første tall mot første, andre mot andre, og så videre, og legger sammen. Hvert element i produktet krever én slik rad-mot-kolonne-summe."
+    },
+    {
+      "id": "tma4110-2-1-produkt-intuisjon",
+      "type": "text",
+      "content": "**Intuisjon:** hvorfor denne rare regelen? Fordi et matriseprodukt svarer til å **sette sammen to lineære sammenhenger**. Hvis $B$ omdanner $\\mathbf x$ til $B\\mathbf x$, og $A$ omdanner videre til $A(B\\mathbf x)$, så er den samlede omdanningen nettopp $(AB)\\mathbf x$. Rad-gang-kolonne er akkurat det regnestykket som får sammensetningen til å stemme — derfor er produktet definert slik, og ikke elementvis."
+    },
+    {
+      "id": "tma4110-2-1-ex-2",
+      "type": "example",
+      "title": "Eksempel 2: Et matriseprodukt",
+      "problem": "La $A=\\begin{bmatrix}1&2&3\\\\0&-1&4\\end{bmatrix}$ ($2\\times3$) og $B=\\begin{bmatrix}2&0\\\\1&-1\\\\3&2\\end{bmatrix}$ ($3\\times2$). Regn ut $AB$.",
+      "solution": "De indre tallene stemmer ($3=3$), så $AB$ er definert og får format $2\\times2$. Vi tar hver rad i $A$ mot hver kolonne i $B$:\n\n- $(1,1)$: $1\\cdot2+2\\cdot1+3\\cdot3=2+2+9=13$\n- $(1,2)$: $1\\cdot0+2\\cdot(-1)+3\\cdot2=0-2+6=4$\n- $(2,1)$: $0\\cdot2+(-1)\\cdot1+4\\cdot3=0-1+12=11$\n- $(2,2)$: $0\\cdot0+(-1)(-1)+4\\cdot2=0+1+8=9$\n\n$$AB=\\begin{bmatrix}13&4\\\\11&9\\end{bmatrix}.$$\nMerk at $BA$ derimot ville fått format $3\\times3$ — allerede formatene viser at $AB\\ne BA$ her."
+    },
+    {
+      "id": "tma4110-2-1-oppg-2",
+      "type": "exercise",
+      "exercise": {
+        "id": "tma4110-2-1-l2",
+        "number": "2",
+        "type": "classic",
+        "difficulty": "lett",
+        "task": "(Innøving — ett matriseprodukt.) Regn ut $PQ$ når $P=\\begin{bmatrix}2&1\\\\-1&3\\end{bmatrix}$ og $Q=\\begin{bmatrix}0&4\\\\2&-1\\end{bmatrix}$.",
+        "solution": "Begge er $2\\times2$, så $PQ$ er $2\\times2$. Rad mot kolonne:\n- $(1,1)$: $2\\cdot0+1\\cdot2=2$; $(1,2)$: $2\\cdot4+1\\cdot(-1)=7$\n- $(2,1)$: $-1\\cdot0+3\\cdot2=6$; $(2,2)$: $-1\\cdot4+3\\cdot(-1)=-7$\n\n$$PQ=\\begin{bmatrix}2&7\\\\6&-7\\end{bmatrix}.$$",
+        "hints": [
+          "Formatet blir $2\\times2$; hvert element er en rad-mot-kolonne-summe.",
+          "Første element: rad 1 i $P$ mot kolonne 1 i $Q$, altså $2\\cdot0+1\\cdot2$."
+        ]
+      }
+    },
+    {
+      "id": "tma4110-2-1-def-ikkekommutativ",
+      "type": "definition",
+      "title": "Ikke-kommutativitet",
+      "content": "Matrisemultiplikasjon er **ikke kommutativ**: i sin alminnelighet er $AB\\ne BA$. Noen ganger er ett av produktene ikke engang definert (format passer ikke), og selv når begge er kvadratiske og like store, gir de vanligvis ulike svar. **Rekkefølgen betyr alt** — dette er kilden til mange feil i bevis, der du ikke har lov til å bytte om faktorene."
+    },
+    {
+      "id": "tma4110-2-1-def-regneregler",
+      "type": "definition",
+      "title": "Regneregler for matriseregning",
+      "content": "Når formatene passer, gjelder: **assosiativ lov** $A(BC)=(AB)C$; **distributive lover** $A(B+C)=AB+AC$ og $(A+B)C=AC+BC$; skalar flyttes fritt $c(AB)=(cA)B=A(cB)$; og **identiteten** $IA=A=AI$. Det som *ikke* gjelder, er kommutativitet ($AB\\ne BA$) og forkorting ($AB=AC$ gir ikke $B=C$ uten videre)."
+    },
+    {
+      "id": "tma4110-2-1-ex-3",
+      "type": "example",
+      "title": "Eksempel 3: $AB\\ne BA$",
+      "problem": "Vis med et konkret eksempel at matrisemultiplikasjon ikke er kommutativ. Bruk $A=\\begin{bmatrix}1&1\\\\0&1\\end{bmatrix}$ og $B=\\begin{bmatrix}1&0\\\\1&1\\end{bmatrix}$.",
+      "solution": "Begge produktene er $2\\times2$. Vi regner ut begge:\n$$AB=\\begin{bmatrix}1&1\\\\0&1\\end{bmatrix}\\begin{bmatrix}1&0\\\\1&1\\end{bmatrix}=\\begin{bmatrix}2&1\\\\1&1\\end{bmatrix},\\qquad BA=\\begin{bmatrix}1&0\\\\1&1\\end{bmatrix}\\begin{bmatrix}1&1\\\\0&1\\end{bmatrix}=\\begin{bmatrix}1&1\\\\1&2\\end{bmatrix}.$$\nSiden $\\begin{bmatrix}2&1\\\\1&1\\end{bmatrix}\\ne\\begin{bmatrix}1&1\\\\1&2\\end{bmatrix}$, er $AB\\ne BA$. Ett eneste moteksempel er nok til å avkrefte at multiplikasjonen skulle være kommutativ."
+    },
+    {
+      "id": "tma4110-2-1-oppg-3",
+      "type": "exercise",
+      "exercise": {
+        "id": "tma4110-2-1-m1",
+        "number": "3",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "(Sjanger B — vis ikke-kommutativitet.) La $A=\\begin{bmatrix}2&0\\\\1&-1\\end{bmatrix}$ og $B=\\begin{bmatrix}1&3\\\\2&0\\end{bmatrix}$. Regn ut både $AB$ og $BA$, og avgjør om de er like.",
+        "solution": "$$AB=\\begin{bmatrix}2&6\\\\-1&3\\end{bmatrix},\\qquad BA=\\begin{bmatrix}5&-3\\\\4&0\\end{bmatrix}.$$\nUtregning: $(AB)_{11}=2\\cdot1+0\\cdot2=2$, $(AB)_{12}=2\\cdot3+0\\cdot0=6$, $(AB)_{21}=1\\cdot1+(-1)\\cdot2=-1$, $(AB)_{22}=1\\cdot3+(-1)\\cdot0=3$; tilsvarende for $BA$. $AB\\ne BA$ — produktene er forskjellige, som vanlig for matriser.",
+        "hints": [
+          "Regn ut hvert produkt for seg med rad-gang-kolonne; ikke anta at de blir like.",
+          "Sammenlign de fire elementene ett for ett — én ulikhet er nok."
+        ]
+      }
+    },
+    {
+      "id": "tma4110-2-1-def-potens",
+      "type": "definition",
+      "title": "Matrisepotens",
+      "content": "For en **kvadratisk** matrise $A$ er potensen $A^k$ produktet av $A$ med seg selv $k$ ganger: $A^2=AA$, $A^3=AAA$, og $A^0=I$. Fordi det er *matriseprodukt*, er $A^2$ **ikke** det samme som å kvadrere hvert element. Bare kvadratiske matriser kan opphøyes i potens, siden formatet må passe for å gange $A$ med seg selv."
+    },
+    {
+      "id": "tma4110-2-1-lokke2",
+      "type": "text",
+      "content": "## Løkke 2 — Transponert og regnereglene (~15 min)"
+    },
+    {
+      "id": "tma4110-2-1-def-transponert",
+      "type": "definition",
+      "title": "Transponert matrise",
+      "content": "Den **transponerte** $A^{T}$ fås ved å **speile** matrisen om hoveddiagonalen: rad $i$ blir kolonne $i$. Element $a_{ij}$ havner i posisjon $(j,i)$, så $(A^{T})_{ij}=a_{ji}$. Er $A$ av format $m\\times n$, er $A^{T}$ av format $n\\times m$. For eksempel er $\\begin{bmatrix}1&2&3\\\\4&5&6\\end{bmatrix}^{T}=\\begin{bmatrix}1&4\\\\2&5\\\\3&6\\end{bmatrix}$."
+    },
+    {
+      "id": "tma4110-2-1-def-transp-regler",
+      "type": "definition",
+      "title": "Regneregler for transponert",
+      "content": "Transponering følger reglene $(A+B)^{T}=A^{T}+B^{T}$, $(cA)^{T}=cA^{T}$, $(A^{T})^{T}=A$, og — den viktigste — $(AB)^{T}=B^{T}A^{T}$: transponering av et produkt **snur rekkefølgen** på faktorene. Rekkefølgesnuingen er lett å glemme og er en dokumentert felle; den er samtidig nøkkelen i mange bevis."
+    },
+    {
+      "id": "tma4110-2-1-ex-4",
+      "type": "example",
+      "title": "Eksempel 4: $(AB)^{T}=B^{T}A^{T}$",
+      "problem": "Bekreft $(AB)^{T}=B^{T}A^{T}$ for $A=\\begin{bmatrix}1&2&3\\\\0&-1&4\\end{bmatrix}$ og $B=\\begin{bmatrix}2&0\\\\1&-1\\\\3&2\\end{bmatrix}$ fra Eksempel 2.",
+      "solution": "Vi fant $AB=\\begin{bmatrix}13&4\\\\11&9\\end{bmatrix}$, så venstresiden er\n$$(AB)^{T}=\\begin{bmatrix}13&11\\\\4&9\\end{bmatrix}.$$\nHøyresiden: $B^{T}=\\begin{bmatrix}2&1&3\\\\0&-1&2\\end{bmatrix}$ ($2\\times3$) og $A^{T}=\\begin{bmatrix}1&0\\\\2&-1\\\\3&4\\end{bmatrix}$ ($3\\times2$), så $B^{T}A^{T}$ er $2\\times2$:\n- $(1,1)$: $2\\cdot1+1\\cdot2+3\\cdot3=13$; $(1,2)$: $2\\cdot0+1\\cdot(-1)+3\\cdot4=11$\n- $(2,1)$: $0\\cdot1+(-1)\\cdot2+2\\cdot3=4$; $(2,2)$: $0\\cdot0+(-1)(-1)+2\\cdot4=9$\n\n$$B^{T}A^{T}=\\begin{bmatrix}13&11\\\\4&9\\end{bmatrix}=(AB)^{T}.\\ \\checkmark$$\nLegg merke til at rekkefølgen måtte snus: $A^{T}B^{T}$ ville vært et $3\\times3$-produkt, ikke $2\\times2$."
+    },
+    {
+      "id": "tma4110-2-1-oppg-4",
+      "type": "exercise",
+      "exercise": {
+        "id": "tma4110-2-1-m2",
+        "number": "4",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "(Sjanger B — transponert-regelen.) La $A=\\begin{bmatrix}1&2\\\\3&0\\end{bmatrix}$ og $B=\\begin{bmatrix}0&1\\\\2&-1\\end{bmatrix}$.\n\n**a)** Regn ut $AB$ og deretter $(AB)^{T}$.\n\n**b)** Regn ut $B^{T}A^{T}$ og bekreft at det er lik svaret i **a)**.",
+        "solution": "**a)** $AB=\\begin{bmatrix}1\\cdot0+2\\cdot2&1\\cdot1+2\\cdot(-1)\\\\3\\cdot0+0\\cdot2&3\\cdot1+0\\cdot(-1)\\end{bmatrix}=\\begin{bmatrix}4&-1\\\\0&3\\end{bmatrix}$, så $(AB)^{T}=\\begin{bmatrix}4&0\\\\-1&3\\end{bmatrix}$.\n\n**b)** $B^{T}=\\begin{bmatrix}0&2\\\\1&-1\\end{bmatrix}$, $A^{T}=\\begin{bmatrix}1&3\\\\2&0\\end{bmatrix}$, og $B^{T}A^{T}=\\begin{bmatrix}0\\cdot1+2\\cdot2&0\\cdot3+2\\cdot0\\\\1\\cdot1+(-1)\\cdot2&1\\cdot3+(-1)\\cdot0\\end{bmatrix}=\\begin{bmatrix}4&0\\\\-1&3\\end{bmatrix}$. Dette er lik $(AB)^{T}$. $\\checkmark$",
+        "hints": [
+          "Regn $AB$ først, transponer så ved å speile om diagonalen.",
+          "Husk rekkefølgesnuingen: det er $B^{T}A^{T}$, ikke $A^{T}B^{T}$."
+        ]
+      }
+    },
+    {
+      "id": "tma4110-2-1-lokke3",
+      "type": "text",
+      "content": "## Løkke 3 — Spesielle matriser og $A^{T}A$ (~17 min)"
+    },
+    {
+      "id": "tma4110-2-1-def-identitet",
+      "type": "definition",
+      "title": "Identitetsmatrise",
+      "content": "**Identitetsmatrisen** $I_n$ (ofte bare $I$) er den kvadratiske $n\\times n$-matrisen med $1$-ere på hoveddiagonalen og $0$ ellers. Den virker som «tallet 1» for matriser: $IA=A$ og $AI=A$ når formatene passer. For eksempel $I_3=\\begin{bmatrix}1&0&0\\\\0&1&0\\\\0&0&1\\end{bmatrix}$."
+    },
+    {
+      "id": "tma4110-2-1-def-diagonal",
+      "type": "definition",
+      "title": "Diagonalmatrise",
+      "content": "En **diagonalmatrise** er en kvadratisk matrise der alle elementer utenfor hoveddiagonalen er $0$; bare $a_{11},a_{22},\\dots,a_{nn}$ kan være ulik null. Diagonalmatriser er enkle å regne med: produktet av to diagonalmatriser fås ved å gange diagonalene elementvis, og $D^k$ fås ved å opphøye hver diagonaloppføring i $k$. Identitetsmatrisen er et spesialtilfelle."
+    },
+    {
+      "id": "tma4110-2-1-def-triangular",
+      "type": "definition",
+      "title": "Triangulær matrise",
+      "content": "En kvadratisk matrise er **øvre triangulær** hvis alle elementer *under* hoveddiagonalen er $0$, og **nedre triangulær** hvis alle elementer *over* diagonalen er $0$. Triangulære matriser er sentrale fordi determinanten deres er produktet av diagonalelementene (kap. 2.3), og fordi radreduksjon nettopp sikter mot triangulær form."
+    },
+    {
+      "id": "tma4110-2-1-def-symmetrisk",
+      "type": "definition",
+      "title": "Symmetrisk matrise",
+      "content": "En kvadratisk matrise er **symmetrisk** hvis den er lik sin egen transponerte: $A^{T}=A$, altså $a_{ij}=a_{ji}$ for alle $i,j$. Da er matrisen speilsymmetrisk om hoveddiagonalen. Symmetriske matriser har spesielt fine egenskaper senere i faget (de er alltid diagonaliserbare — spektralteoremet i Del 6)."
+    },
+    {
+      "id": "tma4110-2-1-ex-5",
+      "type": "example",
+      "title": "Eksempel 5: Gjenkjenn matrisetypene",
+      "problem": "Klassifiser hver matrise: $A=\\begin{bmatrix}2&0&0\\\\0&-3&0\\\\0&0&5\\end{bmatrix}$, $B=\\begin{bmatrix}1&4&-2\\\\0&3&7\\\\0&0&6\\end{bmatrix}$, $C=\\begin{bmatrix}1&5&-2\\\\5&0&3\\\\-2&3&4\\end{bmatrix}$.",
+      "solution": "**$A$** har bare nuller utenfor diagonalen — den er **diagonal** (og dermed også både øvre og nedre triangulær og symmetrisk).\n\n**$B$** har bare nuller *under* diagonalen — den er **øvre triangulær**. Den er ikke symmetrisk (f.eks. $b_{12}=4\\ne0=b_{21}$).\n\n**$C$** oppfyller $c_{ij}=c_{ji}$ (speilet om diagonalen: $5,-2,3$ går igjen på begge sider) — den er **symmetrisk**, altså $C^{T}=C$."
+    },
+    {
+      "id": "tma4110-2-1-oppg-5",
+      "type": "exercise",
+      "exercise": {
+        "id": "tma4110-2-1-m3",
+        "number": "5",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "(Sjanger B — gjenkjenning.) Avgjør for hver matrise om den er diagonal, (øvre/nedre) triangulær, symmetrisk — eller flere av delene:\n\n**a)** $\\begin{bmatrix}3&0\\\\-1&2\\end{bmatrix}$\n\n**b)** $\\begin{bmatrix}0&2&-1\\\\2&5&0\\\\-1&0&3\\end{bmatrix}$\n\n**c)** $\\begin{bmatrix}7&0\\\\0&7\\end{bmatrix}$",
+        "solution": "**a)** Nuller over diagonalen ($a_{12}=0$), men $-1$ under $\\Rightarrow$ **nedre triangulær**. Ikke symmetrisk ($-1\\ne0$), ikke diagonal.\n\n**b)** $b_{ij}=b_{ji}$ (parene $2,-1,0$ går igjen speilet) $\\Rightarrow$ **symmetrisk**. Ikke triangulær eller diagonal (den har ikke-null både over og under).\n\n**c)** Bare diagonalelementer, begge lik $7$ $\\Rightarrow$ **diagonal** (faktisk $7I$). En diagonalmatrise er samtidig øvre og nedre triangulær og symmetrisk.",
+        "hints": [
+          "Se på hvor nullene ligger i forhold til hoveddiagonalen.",
+          "Symmetrisk betyr $a_{ij}=a_{ji}$; diagonal betyr null overalt utenom diagonalen."
+        ]
+      }
+    },
+    {
+      "id": "tma4110-2-1-ata-tekst",
+      "type": "text",
+      "content": "### Resultatet $A^{T}A$ er alltid symmetrisk\n\nEtt resultat er verdt å legge merke til nå, fordi det dukker opp både i minste kvadrater (Del 6) og i bevisoppgaver: **for enhver matrise $A$ er $A^{T}A$ symmetrisk.** Legg merke til at $A^{T}A$ alltid er definert og kvadratisk: er $A$ av format $m\\times n$, er $A^{T}$ av format $n\\times m$, så $A^{T}A$ blir $n\\times n$. Argumentet bruker bare to regneregler du nettopp har møtt — transponering av et produkt (som snur rekkefølgen) og $(A^{T})^{T}=A$."
+    },
+    {
+      "id": "tma4110-2-1-ex-6",
+      "type": "example",
+      "title": "Eksempel 6: Bevis at $A^{T}A$ er symmetrisk (sjanger N)",
+      "problem": "Vis at $A^{T}A$ er symmetrisk for enhver matrise $A$. Illustrer med $A=\\begin{bmatrix}1&2\\\\3&-1\\\\0&4\\end{bmatrix}$.",
+      "solution": "**Bevis.** En matrise $M$ er symmetrisk nettopp når $M^{T}=M$. Vi setter $M=A^{T}A$ og regner ut den transponerte, med regelen $(XY)^{T}=Y^{T}X^{T}$ anvendt på produktet $X=A^{T},\\,Y=A$:\n$$(A^{T}A)^{T}=A^{T}\\,(A^{T})^{T}.$$\nEtter regelen $(A^{T})^{T}=A$ blir dette\n$$(A^{T}A)^{T}=A^{T}A.$$\nAltså er $A^{T}A$ lik sin egen transponerte, så den er symmetrisk. Dette gjelder uansett hvilken $A$ vi starter med — beviset brukte ingen egenskaper ved tallene i $A$. $\\blacksquare$\n\n**Kontroll med tallene:** $A^{T}A=\\begin{bmatrix}1&3&0\\\\2&-1&4\\end{bmatrix}\\begin{bmatrix}1&2\\\\3&-1\\\\0&4\\end{bmatrix}=\\begin{bmatrix}10&-1\\\\-1&21\\end{bmatrix}$, som er symmetrisk ($-1$ på begge sider av diagonalen). $\\checkmark$\n\n**Sensor-merknad:** navngi at du bruker regelen $(AB)^{T}=B^{T}A^{T}$ og $(A^{T})^{T}=A$ — det er der uttellingen ligger, ikke i tallkontrollen."
+    },
+    {
+      "id": "tma4110-2-1-oppg-6",
+      "type": "exercise",
+      "exercise": {
+        "id": "tma4110-2-1-v1",
+        "number": "6",
+        "type": "classic",
+        "difficulty": "vanskelig",
+        "task": "(Sjanger N — kort bevis.) La $A$ være en vilkårlig kvadratisk matrise. Vis at $A+A^{T}$ er symmetrisk.",
+        "solution": "**Bevis.** Vi skal vise $(A+A^{T})^{T}=A+A^{T}$. Bruk at transponering fordeler seg over sum, $(X+Y)^{T}=X^{T}+Y^{T}$, og at $(A^{T})^{T}=A$:\n$$(A+A^{T})^{T}=A^{T}+(A^{T})^{T}=A^{T}+A=A+A^{T},$$\nder siste likhet er fordi matriseaddisjon er kommutativ. Altså er $A+A^{T}$ lik sin egen transponerte og dermed symmetrisk. $\\blacksquare$",
+        "hints": [
+          "En matrise $M$ er symmetrisk hviss $M^{T}=M$; sett $M=A+A^{T}$ og regn ut $M^{T}$.",
+          "Bruk $(X+Y)^{T}=X^{T}+Y^{T}$ og $(A^{T})^{T}=A$.",
+          "Til slutt: matriseaddisjon er kommutativ, så $A^{T}+A=A+A^{T}$."
+        ]
+      }
+    },
+    {
+      "id": "tma4110-2-1-oppg-7",
+      "type": "exercise",
+      "exercise": {
+        "id": "tma4110-2-1-v2",
+        "number": "7",
+        "type": "classic",
+        "difficulty": "vanskelig",
+        "task": "(Sjanger N — bevis med forutsetning.) Anta at $A$ er en **symmetrisk** matrise (altså $A^{T}=A$). Vis at $A^{2}$ da også er symmetrisk.",
+        "solution": "**Bevis.** Vi skal vise $(A^{2})^{T}=A^{2}$. Skriv $A^{2}=AA$ og bruk produktregelen for transponering:\n$$(A^{2})^{T}=(AA)^{T}=A^{T}A^{T}.$$\nNå bruker vi **forutsetningen** $A^{T}=A$ på begge faktorene:\n$$A^{T}A^{T}=A\\,A=A^{2}.$$\nAltså $(A^{2})^{T}=A^{2}$, så $A^{2}$ er symmetrisk. $\\blacksquare$\n\n**Merk** hvor forutsetningen kommer inn: uten $A^{T}=A$ ville vi bare fått $(A^{2})^{T}=A^{T}A^{T}$, som ikke generelt er $A^{2}$. Å navngi at og hvor forutsetningen brukes, er poenget sensor ser etter.",
+        "hints": [
+          "Skriv $A^2=AA$ og transponer produktet — husk rekkefølgesnuingen.",
+          "Bruk forutsetningen $A^{T}=A$ til å erstatte hver $A^{T}$ med $A$.",
+          "Pek eksplisitt på hvor forutsetningen om symmetri brukes."
+        ]
+      }
+    },
+    {
+      "id": "tma4110-2-1-warning",
+      "type": "warning",
+      "title": "Typiske feil",
+      "content": "- **Antar $AB=BA$.** Matrisemultiplikasjon er ikke kommutativ. I bevis får du aldri bytte om faktorene uten begrunnelse.\n- **Glemmer rekkefølgesnuingen i $(AB)^{T}=B^{T}A^{T}$.** Å skrive $(AB)^{T}=A^{T}B^{T}$ er feil (og ofte ikke engang definert).\n- **Dimensjonsfeil i produktet.** $AB$ krever at kolonnetallet i $A$ er lik radtallet i $B$. Sjekk formatene *før* du regner.\n- **Forveksler $A^{2}$ med elementvis kvadrering.** $A^{2}=AA$ er et matriseprodukt, ikke «kvadrer hvert element».\n- **Legger sammen matriser av ulikt format.** Addisjon er bare definert for like formater.\n- **Tror en øvre triangulær matrise er symmetrisk.** Symmetri krever $a_{ij}=a_{ji}$; en ekte triangulær matrise har nuller på bare den ene siden."
+    },
+    {
+      "id": "tma4110-2-1-begrepsbank-tekst",
+      "type": "text",
+      "content": "## Begrepsbank til eksamen\n\nHer er de resterende kjernebegrepene samlet i kortform for repetisjon og pugging (kode E — intet formelark).\n\n*Begrepsbanken er flashcard-/repetisjonsstoff — det gjentar det du nettopp har lest. Hopp trygt over ved førstegangslesing; tidsanslaget for kapitlet gjelder kjernestoffet.*"
+    },
+    {
+      "id": "tma4110-2-1-bb-kvadratisk",
+      "type": "definition",
+      "title": "Kvadratisk matrise",
+      "content": "En matrise med **like mange rader som kolonner**, altså format $n\\times n$. Bare kvadratiske matriser kan opphøyes i potens ($A^k$), ha invers (kap. 2.2) og determinant (kap. 2.3), og bare de kan være diagonale, triangulære eller symmetriske."
+    },
+    {
+      "id": "tma4110-2-1-bb-nullmatrise",
+      "type": "definition",
+      "title": "Nullmatrise",
+      "content": "Matrisen $O$ (eller $\\mathbf 0$) der **alle** elementer er $0$. Den virker som «tallet 0»: $A+O=A$ og $AO=O$, $OA=O$ (når formatene passer). Merk at $AB=O$ **ikke** betyr at $A=O$ eller $B=O$ — to matriser ulik null kan gi nullproduktet."
+    },
+    {
+      "id": "tma4110-2-1-bb-radkolonnevektor",
+      "type": "definition",
+      "title": "Radvektor og kolonnevektor",
+      "content": "En **kolonnevektor** er en $n\\times1$-matrise (én kolonne), og en **radvektor** er en $1\\times n$-matrise (én rad). Vektorene i $\\mathbb R^n$ oppfattes som kolonnevektorer i lineær algebra, og transponering bytter mellom rad- og kolonneform: $\\mathbf v^{T}$ er en radvektor om $\\mathbf v$ er en kolonnevektor."
+    },
+    {
+      "id": "tma4110-2-1-bb-skjevsymmetrisk",
+      "type": "definition",
+      "title": "Skjevsymmetrisk matrise",
+      "content": "En kvadratisk matrise med $A^{T}=-A$, altså $a_{ij}=-a_{ji}$. Da må diagonalelementene være $0$ (siden $a_{ii}=-a_{ii}$). Enhver kvadratisk matrise kan skrives som en sum av en symmetrisk del $\\tfrac12(A+A^{T})$ og en skjevsymmetrisk del $\\tfrac12(A-A^{T})$."
+    },
+    {
+      "id": "tma4110-2-1-bb-matriselikhet",
+      "type": "definition",
+      "title": "Matriselikhet",
+      "content": "To matriser er **like** hvis de har **samme format** og alle tilsvarende elementer er like: $A=B$ betyr $a_{ij}=b_{ij}$ for alle $i,j$. En matriselikning som $AX=B$ krever derfor at formatene henger sammen, og løses element for element eller med invers (kap. 2.2)."
+    },
+    {
+      "id": "tma4110-2-1-bb-ata",
+      "type": "definition",
+      "title": "$A^{T}A$ og $AA^{T}$ er symmetriske",
+      "content": "For **enhver** matrise $A$ er både $A^{T}A$ og $AA^{T}$ symmetriske, fordi $(A^{T}A)^{T}=A^{T}(A^{T})^{T}=A^{T}A$ (og tilsvarende for $AA^{T}$). Er $A$ av format $m\\times n$, er $A^{T}A$ av format $n\\times n$ og $AA^{T}$ av format $m\\times m$. Dette resultatet er selve broen til normallikningene i minste kvadrater (Del 6)."
+    },
+    {
+      "id": "tma4110-2-1-bb-spor",
+      "type": "definition",
+      "title": "Spor (trace)",
+      "content": "**Sporet** $\\operatorname{spor}A$ (engelsk *trace*) til en kvadratisk matrise er summen av diagonalelementene: $\\operatorname{spor}A=a_{11}+a_{22}+\\dots+a_{nn}$. Det har den nyttige egenskapen $\\operatorname{spor}(AB)=\\operatorname{spor}(BA)$ selv når $AB\\ne BA$, og senere skal vi se at $\\operatorname{spor}A=\\sum\\lambda_i$ er summen av egenverdiene (Del 5)."
+    },
+    {
+      "id": "tma4110-2-1-bb-blokkmatrise",
+      "type": "definition",
+      "title": "Blokkmatrise",
+      "content": "En matrise delt inn i **blokker** (delmatriser) ved tenkte vannrette og loddrette streker. Passer blokkstørrelsene sammen, kan man gange blokkmatriser «som om blokkene var tall», med rad-gang-kolonne på blokknivå. Nyttig for å forenkle store produkter; på dette nivået holder det å kjenne til begrepet."
+    },
+    {
+      "id": "tma4110-2-1-rep",
+      "type": "collapsible",
+      "title": "Repetisjonsoppgaver",
+      "buttonText": "Vis repetisjonsoppgaver",
+      "content": [
+        {
+          "id": "tma4110-2-1-rep-1",
+          "type": "exercise",
+          "exercise": {
+            "id": "tma4110-2-1-rep-o1",
+            "number": "R1",
+            "type": "classic",
+            "difficulty": "lett",
+            "task": "(Fra kap. 1.1) Skriv systemet $2x+3y=5,\\ x-y=1$ som en totalmatrise, og pek ut koeffisientmatrisen.",
+            "solution": "Totalmatrisen er $\\left[\\begin{array}{cc|c}2&3&5\\\\1&-1&1\\end{array}\\right]$, og koeffisientmatrisen (delen til venstre for streken) er $\\begin{bmatrix}2&3\\\\1&-1\\end{bmatrix}$.",
+            "hints": [
+              "Én rad per likning; høyresidene kommer etter streken."
+            ]
+          }
+        },
+        {
+          "id": "tma4110-2-1-rep-2",
+          "type": "exercise",
+          "exercise": {
+            "id": "tma4110-2-1-rep-o2",
+            "number": "R2",
+            "type": "classic",
+            "difficulty": "lett",
+            "task": "(Fra kap. 1.1) Hva er formatet (dimensjonen) til en koeffisientmatrise som hører til et system med 3 likninger og 4 ukjente?",
+            "solution": "Én rad per likning og én kolonne per ukjent gir format $3\\times4$ (3 rader, 4 kolonner).",
+            "hints": [
+              "Rader teller likninger, kolonner teller ukjente."
+            ]
+          }
+        },
+        {
+          "id": "tma4110-2-1-rep-3",
+          "type": "exercise",
+          "exercise": {
+            "id": "tma4110-2-1-rep-o3",
+            "number": "R3",
+            "type": "classic",
+            "difficulty": "middels",
+            "task": "(Fra kap. 1.1) Et homogent system $A\\mathbf x=\\mathbf 0$ har koeffisientmatrise av format $2\\times3$. Kan det ha ikke-trivielle løsninger? Begrunn.",
+            "solution": "Ja. Med 3 ukjente og bare 2 rader er det høyst 2 pivoter, så minst én variabelkolonne mangler pivot $\\Rightarrow$ minst én fri variabel. Et homogent system er alltid konsistent, så det får uendelig mange (ikke-trivielle) løsninger.",
+            "hints": [
+              "Antall pivoter er høyst antall rader.",
+              "Fri variabel i et homogent system gir ikke-trivielle løsninger."
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": "tma4110-2-1-symbolliste",
+      "type": "collapsible",
+      "title": "Symbol- og formelliste",
+      "buttonText": "Vis symboler og formler",
+      "content": [
+        {
+          "id": "tma4110-2-1-symbolliste-text",
+          "type": "text",
+          "content": "## Symbol- og formelliste\n\n*Oppslagsverk — alt her forklares underveis i kapitlet.*\n\nAlle symboler og skrivemåter som brukes i dette delkapitlet (2.1), samlet på ett sted.\n\n| Symbol | Betydning |\n|---|---|\n| $A,B,C$ | Matriser |\n| $a_{ij}$ | Elementet i rad $i$, kolonne $j$ |\n| $m\\times n$ | Format: $m$ rader, $n$ kolonner |\n| $A+B$ | Matriseaddisjon (element for element) |\n| $cA$ | Skalarmultiplikasjon (gang hvert element med $c$) |\n| $AB$ | Matriseprodukt (rad-gang-kolonne) |\n| $A^{k}$ | Matrisepotens, $A$ ganget med seg selv $k$ ganger |\n| $A^{T}$ | Transponert (speiling om hoveddiagonalen) |\n| $I,\\ I_n$ | Identitetsmatrisen |\n| $O,\\ \\mathbf 0$ | Nullmatrisen |\n| $\\operatorname{spor}A$ | Sporet — sum av diagonalelementene |\n| $A^{T}=A$ | Symmetrisk matrise |\n| $A^{T}=-A$ | Skjevsymmetrisk matrise |\n\n**Regneregler i dette delkapitlet:**\n\n$$(AB)_{ij}=a_{i1}b_{1j}+\\dots+a_{in}b_{nj}$$\nRad-gang-kolonne: rad $i$ i $A$ mot kolonne $j$ i $B$.\n\n$$A(BC)=(AB)C,\\qquad A(B+C)=AB+AC,\\qquad IA=A=AI$$\nAssosiativ og distributiv lov, og identiteten.\n\n$$AB\\ne BA\\ \\text{(generelt)}$$\nMatrisemultiplikasjon er ikke kommutativ.\n\n$$(A+B)^{T}=A^{T}+B^{T},\\qquad (cA)^{T}=cA^{T},\\qquad (A^{T})^{T}=A$$\n\n$$(AB)^{T}=B^{T}A^{T}$$\nTransponering av et produkt snur rekkefølgen på faktorene.\n\n$$(A^{T}A)^{T}=A^{T}A$$\n$A^{T}A$ (og $AA^{T}$) er alltid symmetrisk — bro til minste kvadrater (Del 6)."
+        }
+      ]
+    }
+  ],
+  "exercises": []
+}

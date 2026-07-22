@@ -1,0 +1,402 @@
+{
+  "id": "tma4110-2-2",
+  "courseId": "tma4110",
+  "chapterNumber": "2.2",
+  "title": "Invers matrise: Gauss–Jordan, 2×2-formelen og inverterbarhetssetningen",
+  "description": "Den inverse matrisen: 2×2-formelen, Gauss–Jordan-metoden [A | I] → [I | A⁻¹], regnereglene (AB)⁻¹=B⁻¹A⁻¹, og den store inverterbarhetssetningen som knytter sammen invers, determinant, rang, Nul og løsbarhet.",
+  "estimatedMinutes": 55,
+  "competenceGoals": [
+    "regne ut inversen til en matrise med 2×2-formelen og med Gauss–Jordan-metoden, og avgjøre om en matrise er inverterbar",
+    "bruke regnereglene $(AB)^{-1}=B^{-1}A^{-1}$ og $(A^{T})^{-1}=(A^{-1})^{T}$ og løse $A\\mathbf x=\\mathbf b$ via inversen",
+    "navngi og bruke inverterbarhetssetningen, og føre bevis med Neumann-trikset for nilpotente matriser"
+  ],
+  "content": [
+    {
+      "id": "tma4110-2-2-tip-eksamensvinkel",
+      "type": "tip",
+      "title": "Eksamensvinkel",
+      "content": "**Den inverse matrisen er både en regneteknikk og en tenkemåte — og inverterbarhetssetningen er bevis-gull.**\n\n- **Invers og inverterbarhet (sjanger B/C)** dukker opp i rundt **45 %** av settene: regn ut en invers, eller avgjør om en matrise er inverterbar.\n- **Inverterbarhetssetningen** — den lange ekvivalenskjeden som binder sammen invers, determinant, rang, nullrom og løsbarhet — er nøkkelen i mange bevisoppgaver (sjanger N). To faste bevistemaer bygger direkte på dette kapitlet: $A^3=O\\Rightarrow(I-A)^{-1}=I+A+A^2$ og «$A$ inverterbar $\\Leftrightarrow$ $A^{T}A$ inverterbar». (Sjanger B/C/N er bokas koder for henholdsvis matriseregning, determinant/inverterbarhet og bevis.)\n\nPrioriteten er **kunne**, men *navngi inverterbarhetssetningen* når du bruker den — det er der sensor gir uttelling. Under ingen-hjelpemidler-kravet regner du Gauss–Jordan for hånd, så metoden må sitte."
+    },
+    {
+      "id": "tma4110-2-2-forkunnskaper",
+      "type": "text",
+      "content": "**Forkunnskaper:** Dette kapitlet bygger på [kap. 2.1](/bok/tma4110/tma4110-2-1) (matriseprodukt, identitet, transponert) og [kap. 1.1](/bok/tma4110/tma4110-1-1) (radreduksjon til redusert trappeform — motoren i Gauss–Jordan-metoden for invers). Determinanten møter du i sin fulle bredde i [kap. 2.3](/bok/tma4110/tma4110-2-3); her trenger vi bare 2×2-determinanten $ad-bc$, som vi definerer underveis."
+    },
+    {
+      "id": "tma4110-2-2-motivasjon",
+      "type": "text",
+      "content": "## Hverdagsanker: å gjøre om igjen\n\nFor tallet $5$ finnes et «motstykke» $\\tfrac15$ slik at $5\\cdot\\tfrac15=1$ — det lar oss løse $5x=b$ ved å gange med $\\tfrac15$. Den **inverse matrisen** $A^{-1}$ spiller nøyaktig samme rolle for matriser: den «gjør om igjen» det $A$ gjorde, slik at $A^{-1}A=I$. Da kan matriselikningen $A\\mathbf x=\\mathbf b$ løses ved å gange med $A^{-1}$.\n\nMen ikke alle matriser har invers — akkurat som $0$ ikke har noe $\\tfrac10$. Kapitlet handler om når inversen finnes, hvordan du regner den ut, og hvordan den ene egenskapen «inverterbar» henger sammen med determinant, rang og løsbarhet gjennom **inverterbarhetssetningen**. Vi bygger det i tre løkker: (1) 2×2-formelen, (2) Gauss–Jordan for større matriser og regnereglene, og (3) inverterbarhetssetningen og bevisbruk."
+    },
+    {
+      "id": "tma4110-2-2-lokke1",
+      "type": "text",
+      "content": "## Løkke 1 — Invers og 2×2-formelen (~17 min)"
+    },
+    {
+      "id": "tma4110-2-2-def-invers",
+      "type": "definition",
+      "title": "Invers matrise",
+      "content": "Den **inverse** til en kvadratisk matrise $A$ er en matrise $A^{-1}$ (av samme format) slik at\n$$AA^{-1}=A^{-1}A=I.$$\nDen «nøytraliserer» $A$: ganger du $A$ med $A^{-1}$ (fra begge sider), får du identitetsmatrisen. Inversen er **entydig** når den finnes. Merk at bare kvadratiske matriser kan ha invers i denne forstand."
+    },
+    {
+      "id": "tma4110-2-2-def-inverterbar",
+      "type": "definition",
+      "title": "Inverterbar matrise",
+      "content": "En kvadratisk matrise kalles **inverterbar** (eller *regulær* / *ikke-singulær*) hvis den har en invers $A^{-1}$. Å avgjøre om en matrise er inverterbar er et av de vanligste eksamensspørsmålene — og svaret henger sammen med determinant, rang og løsbarhet via inverterbarhetssetningen (løkke 3)."
+    },
+    {
+      "id": "tma4110-2-2-def-singular",
+      "type": "definition",
+      "title": "Singulær matrise",
+      "content": "En kvadratisk matrise som **ikke** har invers kalles **singulær** (ikke-inverterbar). En matrise er singulær nøyaktig når determinanten er $0$ — likeverdig med at radreduksjon gir en nullrad, at rangen er mindre enn $n$, eller at $A\\mathbf x=\\mathbf 0$ har ikke-trivielle løsninger."
+    },
+    {
+      "id": "tma4110-2-2-def-det2x2",
+      "type": "definition",
+      "title": "Determinant til en 2×2-matrise",
+      "content": "For $A=\\begin{bmatrix}a&b\\\\c&d\\end{bmatrix}$ er **determinanten** tallet\n$$\\det A=ad-bc.$$\nDet er «hoveddiagonalproduktet minus antidiagonalproduktet». Determinanten avgjør inverterbarhet: $A$ er inverterbar nettopp når $\\det A\\ne0$. (Den fulle teorien for større determinanter kommer i [kap. 2.3](/bok/tma4110/tma4110-2-3).)"
+    },
+    {
+      "id": "tma4110-2-2-def-2x2formel",
+      "type": "definition",
+      "title": "2×2-inversformelen",
+      "content": "For $A=\\begin{bmatrix}a&b\\\\c&d\\end{bmatrix}$ med $\\det A=ad-bc\\ne0$ er\n$$A^{-1}=\\frac{1}{ad-bc}\\begin{bmatrix}d&-b\\\\-c&a\\end{bmatrix}.$$\nOppskriften: **bytt** de to diagonalelementene ($a$ og $d$), **skift fortegn** på de to andre ($b$ og $c$), og **del på determinanten**. Er $ad-bc=0$, finnes ingen invers — da er $A$ singulær."
+    },
+    {
+      "id": "tma4110-2-2-ex-1",
+      "type": "example",
+      "title": "Eksempel 1: Invers av en 2×2-matrise",
+      "problem": "Finn $A^{-1}$ for $A=\\begin{bmatrix}2&5\\\\1&3\\end{bmatrix}$, og kontroller.",
+      "solution": "Determinanten er $\\det A=2\\cdot3-5\\cdot1=6-5=1$. Siden $\\det A=1\\ne0$, er $A$ inverterbar. Formelen gir (bytt $2$ og $3$, skift fortegn på $5$ og $1$, del på $1$):\n$$A^{-1}=\\frac{1}{1}\\begin{bmatrix}3&-5\\\\-1&2\\end{bmatrix}=\\begin{bmatrix}3&-5\\\\-1&2\\end{bmatrix}.$$\n**Kontroll:** $AA^{-1}=\\begin{bmatrix}2&5\\\\1&3\\end{bmatrix}\\begin{bmatrix}3&-5\\\\-1&2\\end{bmatrix}=\\begin{bmatrix}6-5&-10+10\\\\3-3&-5+6\\end{bmatrix}=\\begin{bmatrix}1&0\\\\0&1\\end{bmatrix}=I.\\ \\checkmark$"
+    },
+    {
+      "id": "tma4110-2-2-oppg-1",
+      "type": "exercise",
+      "exercise": {
+        "id": "tma4110-2-2-l1",
+        "number": "1",
+        "type": "classic",
+        "difficulty": "lett",
+        "task": "(Innøving — 2×2-formelen.) Finn inversen til $A=\\begin{bmatrix}4&3\\\\1&1\\end{bmatrix}$.",
+        "solution": "$\\det A=4\\cdot1-3\\cdot1=1\\ne0$, så $A$ er inverterbar. Bytt diagonalen, skift fortegn på de andre, del på $1$:\n$$A^{-1}=\\frac{1}{1}\\begin{bmatrix}1&-3\\\\-1&4\\end{bmatrix}=\\begin{bmatrix}1&-3\\\\-1&4\\end{bmatrix}.$$\nKontroll: $\\begin{bmatrix}4&3\\\\1&1\\end{bmatrix}\\begin{bmatrix}1&-3\\\\-1&4\\end{bmatrix}=\\begin{bmatrix}1&0\\\\0&1\\end{bmatrix}$. $\\checkmark$",
+        "hints": [
+          "Regn først $\\det A=ad-bc$; er den null, finnes ingen invers.",
+          "Bytt $a$ og $d$, skift fortegn på $b$ og $c$, og del på determinanten."
+        ]
+      }
+    },
+    {
+      "id": "tma4110-2-2-ex-2",
+      "type": "example",
+      "title": "Eksempel 2: En singulær matrise",
+      "problem": "Er $A=\\begin{bmatrix}2&4\\\\1&2\\end{bmatrix}$ inverterbar?",
+      "solution": "Determinanten er $\\det A=2\\cdot2-4\\cdot1=4-4=0$. Siden $\\det A=0$, er $A$ **singulær** — den har ingen invers. (Legg merke til at rad 2 er halvparten av rad 1: radene er lineært avhengige, så radreduksjon gir en nullrad, i tråd med at rangen er $1<2$.)"
+    },
+    {
+      "id": "tma4110-2-2-oppg-2",
+      "type": "exercise",
+      "exercise": {
+        "id": "tma4110-2-2-l2",
+        "number": "2",
+        "type": "classic",
+        "difficulty": "lett",
+        "task": "(Innøving — avgjør inverterbarhet.) Avgjør for hver matrise om den er inverterbar ved å regne determinanten:\n\n**a)** $\\begin{bmatrix}3&6\\\\2&4\\end{bmatrix}$\n\n**b)** $\\begin{bmatrix}5&2\\\\3&1\\end{bmatrix}$",
+        "solution": "**a)** $\\det=3\\cdot4-6\\cdot2=12-12=0$ $\\Rightarrow$ **singulær** (ingen invers).\n\n**b)** $\\det=5\\cdot1-2\\cdot3=5-6=-1\\ne0$ $\\Rightarrow$ **inverterbar**.",
+        "hints": [
+          "Regn $ad-bc$ for hver.",
+          "$\\det=0$ betyr singulær; $\\det\\ne0$ betyr inverterbar."
+        ]
+      }
+    },
+    {
+      "id": "tma4110-2-2-lokke2",
+      "type": "text",
+      "content": "## Løkke 2 — Gauss–Jordan og regnereglene (~20 min)"
+    },
+    {
+      "id": "tma4110-2-2-def-gaussjordan",
+      "type": "definition",
+      "title": "Gauss–Jordan-metoden for invers",
+      "content": "For en $n\\times n$-matrise $A$ finner du inversen ved å radredusere den **utvidede** matrisen $[A\\mid I]$ til redusert trappeform. Klarer du å få $A$-delen til å bli $I$, står inversen igjen på høyre side:\n$$[A\\mid I]\\ \\longrightarrow\\ [I\\mid A^{-1}].$$\nFår du i stedet en nullrad på venstresiden underveis, er $A$ **singulær** og har ingen invers. Metoden virker for enhver størrelse og er standardverktøyet under ingen-hjelpemidler-kravet."
+    },
+    {
+      "id": "tma4110-2-2-ex-3",
+      "type": "example",
+      "title": "Eksempel 3: 3×3-invers med Gauss–Jordan",
+      "problem": "Finn $A^{-1}$ for $A=\\begin{bmatrix}1&0&1\\\\0&2&1\\\\1&1&1\\end{bmatrix}$.",
+      "solution": "Vi radreduserer $[A\\mid I]$:\n$$\\left[\\begin{array}{ccc|ccc}1&0&1&1&0&0\\\\0&2&1&0&1&0\\\\1&1&1&0&0&1\\end{array}\\right].$$\n$R_3\\to R_3-R_1$:\n$$\\left[\\begin{array}{ccc|ccc}1&0&1&1&0&0\\\\0&2&1&0&1&0\\\\0&1&0&-1&0&1\\end{array}\\right].$$\nBytt $R_2\\leftrightarrow R_3$ for et rent pivot-$1$, deretter $R_3\\to R_3-2R_2$:\n$$\\left[\\begin{array}{ccc|ccc}1&0&1&1&0&0\\\\0&1&0&-1&0&1\\\\0&0&1&2&1&-2\\end{array}\\right].$$\nTil slutt $R_1\\to R_1-R_3$ (kolonne 3 nulles over pivoten):\n$$\\left[\\begin{array}{ccc|ccc}1&0&0&-1&-1&2\\\\0&1&0&-1&0&1\\\\0&0&1&2&1&-2\\end{array}\\right].$$\nVenstresiden er $I$, så\n$$A^{-1}=\\begin{bmatrix}-1&-1&2\\\\-1&0&1\\\\2&1&-2\\end{bmatrix}.$$\n**Kontroll (rad 1 av $AA^{-1}$):** $\\begin{bmatrix}1&0&1\\end{bmatrix}$ mot kolonnene gir $(-1+2,\\,-1+1,\\,2-2)=(1,0,0)$. $\\checkmark$"
+    },
+    {
+      "id": "tma4110-2-2-oppg-3",
+      "type": "exercise",
+      "exercise": {
+        "id": "tma4110-2-2-m1",
+        "number": "3",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "(Sjanger B — 3×3-invers.) Bruk Gauss–Jordan til å finne inversen av $A=\\begin{bmatrix}2&1&1\\\\1&3&2\\\\1&0&0\\end{bmatrix}$.",
+        "solution": "Radreduksjon av $[A\\mid I]$ (en ryddig vei: bruk rad 3 som første pivotrad, siden den er enklest) fører til redusert trappeform med\n$$A^{-1}=\\begin{bmatrix}0&0&1\\\\-2&1&3\\\\3&-1&-5\\end{bmatrix}.$$\n**Kontroll (rad 3 av $AA^{-1}$):** rad $3$ i $A$ er $\\begin{bmatrix}1&0&0\\end{bmatrix}$, som plukker ut rad $1$ i $A^{-1}$, altså $(0,0,1)$ — riktig tredje rad i $I$. En full kontroll av $AA^{-1}=I$ bekrefter svaret. $\\checkmark$",
+        "hints": [
+          "Sett opp $[A\\mid I]$ og radreduser til $[I\\mid A^{-1}]$.",
+          "Rad 3 ($1,0,0$) er enklest — bruk den tidlig for å slippe brøker.",
+          "Kontroller ved å gange $A$ med svaret; produktet skal bli $I$."
+        ]
+      }
+    },
+    {
+      "id": "tma4110-2-2-def-produktinvers",
+      "type": "definition",
+      "title": "Regneregelen $(AB)^{-1}=B^{-1}A^{-1}$",
+      "content": "Er $A$ og $B$ begge inverterbare (og like store), er produktet $AB$ inverterbart, og\n$$(AB)^{-1}=B^{-1}A^{-1}.$$\nRekkefølgen **snus** — akkurat som for transponert. Intuisjon: for å angre «først $B$, så $A$» må du angre i motsatt rekkefølge, «først $A^{-1}$, så $B^{-1}$». Kontroll: $(AB)(B^{-1}A^{-1})=A(BB^{-1})A^{-1}=AIA^{-1}=I$."
+    },
+    {
+      "id": "tma4110-2-2-def-transpinvers",
+      "type": "definition",
+      "title": "Regneregelen $(A^{T})^{-1}=(A^{-1})^{T}$",
+      "content": "Er $A$ inverterbar, er også $A^{T}$ inverterbar, og de to operasjonene «transponer» og «inverter» kan byttes om:\n$$(A^{T})^{-1}=(A^{-1})^{T}.$$\nDette følger av $(AB)^{T}=B^{T}A^{T}$: transponer $AA^{-1}=I$ og få $(A^{-1})^{T}A^{T}=I$, som nettopp sier at $(A^{-1})^{T}$ er inversen til $A^{T}$."
+    },
+    {
+      "id": "tma4110-2-2-ex-4",
+      "type": "example",
+      "title": "Eksempel 4: $(AB)^{-1}=B^{-1}A^{-1}$",
+      "problem": "La $A=\\begin{bmatrix}1&2\\\\0&1\\end{bmatrix}$ og $B=\\begin{bmatrix}3&0\\\\1&1\\end{bmatrix}$. Bekreft $(AB)^{-1}=B^{-1}A^{-1}$.",
+      "solution": "Først $AB=\\begin{bmatrix}1&2\\\\0&1\\end{bmatrix}\\begin{bmatrix}3&0\\\\1&1\\end{bmatrix}=\\begin{bmatrix}5&2\\\\1&1\\end{bmatrix}$, med $\\det(AB)=5-2=3$, så\n$$(AB)^{-1}=\\tfrac13\\begin{bmatrix}1&-2\\\\-1&5\\end{bmatrix}=\\begin{bmatrix}\\tfrac13&-\\tfrac23\\\\-\\tfrac13&\\tfrac53\\end{bmatrix}.$$\nNå den andre veien: $A^{-1}=\\begin{bmatrix}1&-2\\\\0&1\\end{bmatrix}$ og $B^{-1}=\\tfrac13\\begin{bmatrix}1&0\\\\-1&3\\end{bmatrix}=\\begin{bmatrix}\\tfrac13&0\\\\-\\tfrac13&1\\end{bmatrix}$. Da er\n$$B^{-1}A^{-1}=\\begin{bmatrix}\\tfrac13&0\\\\-\\tfrac13&1\\end{bmatrix}\\begin{bmatrix}1&-2\\\\0&1\\end{bmatrix}=\\begin{bmatrix}\\tfrac13&-\\tfrac23\\\\-\\tfrac13&\\tfrac53\\end{bmatrix}=(AB)^{-1}.\\ \\checkmark$$\nMerk at $A^{-1}B^{-1}$ (feil rekkefølge) ville gitt noe annet."
+    },
+    {
+      "id": "tma4110-2-2-oppg-4",
+      "type": "exercise",
+      "exercise": {
+        "id": "tma4110-2-2-m2",
+        "number": "4",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "(Sjanger B — løs en matriselikning med invers.) Bruk $A^{-1}$ til å løse $A\\mathbf x=\\mathbf b$ når $A=\\begin{bmatrix}2&5\\\\1&3\\end{bmatrix}$ og $\\mathbf b=\\begin{bmatrix}4\\\\1\\end{bmatrix}$.",
+        "solution": "Fra Eksempel 1 er $A^{-1}=\\begin{bmatrix}3&-5\\\\-1&2\\end{bmatrix}$ (siden $\\det A=1$). Da er\n$$\\mathbf x=A^{-1}\\mathbf b=\\begin{bmatrix}3&-5\\\\-1&2\\end{bmatrix}\\begin{bmatrix}4\\\\1\\end{bmatrix}=\\begin{bmatrix}12-5\\\\-4+2\\end{bmatrix}=\\begin{bmatrix}7\\\\-2\\end{bmatrix}.$$\nKontroll: $2\\cdot7+5\\cdot(-2)=4$ og $1\\cdot7+3\\cdot(-2)=1$. $\\checkmark$",
+        "hints": [
+          "Multipliser likningen $A\\mathbf x=\\mathbf b$ med $A^{-1}$ fra venstre: $\\mathbf x=A^{-1}\\mathbf b$.",
+          "Regn $A^{-1}$ med 2×2-formelen først, deretter matrise-gang-vektor."
+        ]
+      }
+    },
+    {
+      "id": "tma4110-2-2-lokke3",
+      "type": "text",
+      "content": "## Løkke 3 — Inverterbarhetssetningen og bevisbruk (~18 min)"
+    },
+    {
+      "id": "tma4110-2-2-def-inverterbarhetssetningen",
+      "type": "definition",
+      "title": "Inverterbarhetssetningen",
+      "content": "For en kvadratisk $n\\times n$-matrise $A$ er følgende utsagn **ekvivalente** — enten er alle sanne, eller så er alle usanne:\n\n1. $A$ er inverterbar.\n2. $\\det A\\ne0$.\n3. $\\operatorname{rang}A=n$ (pivot i hver kolonne; radreduksjon gir $I$).\n4. $\\operatorname{Nul}A=\\{\\mathbf 0\\}$ ($A\\mathbf x=\\mathbf 0$ har bare den trivielle løsningen).\n5. Kolonnene i $A$ er lineært uavhengige og danner en basis for $\\mathbb R^n$.\n6. $A\\mathbf x=\\mathbf b$ har en entydig løsning for **hver** $\\mathbf b$.\n7. $0$ er ikke en egenverdi for $A$ (bro til Del 5).\n\nDette er den **lange ekvivalenskjeden**. Poenget er å kunne «oversette» fritt mellom utsagnene i et bevis — og **navngi setningen** når du gjør det."
+    },
+    {
+      "id": "tma4110-2-2-ex-5",
+      "type": "example",
+      "title": "Eksempel 5: Bruk av inverterbarhetssetningen",
+      "problem": "En $3\\times3$-matrise $A$ har $\\operatorname{Nul}A=\\{\\mathbf 0\\}$. Hva kan du si om (a) løsbarheten av $A\\mathbf x=\\mathbf b$, og (b) determinanten?",
+      "solution": "Utsagnet $\\operatorname{Nul}A=\\{\\mathbf 0\\}$ er punkt 4 i inverterbarhetssetningen. Er ett av de ekvivalente utsagnene sant, er alle sanne.\n\n**(a)** Fra punkt 6 følger at $A\\mathbf x=\\mathbf b$ har en **entydig løsning for hver** $\\mathbf b$.\n\n**(b)** Fra punkt 2 følger at $\\det A\\ne0$.\n\n**Sensor-merknad:** slik oversetter du ett utsagn til de andre — og du sier eksplisitt at du bruker *inverterbarhetssetningen*. Det er den navngivningen som gir uttelling."
+    },
+    {
+      "id": "tma4110-2-2-oppg-5",
+      "type": "exercise",
+      "exercise": {
+        "id": "tma4110-2-2-m3",
+        "number": "5",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "(Sjanger C — inverterbarhetssetningen.) En $n\\times n$-matrise $A$ har $\\det A=0$.\n\n**a)** Er $A$ inverterbar?\n\n**b)** Har $A\\mathbf x=\\mathbf 0$ bare den trivielle løsningen, eller finnes ikke-trivielle løsninger?\n\n**c)** Hva er rangen sammenliknet med $n$?",
+        "solution": "$\\det A=0$ er negasjonen av punkt 2 i inverterbarhetssetningen, så **ingen** av de ekvivalente utsagnene holder.\n\n**a)** Nei — $A$ er **singulær** (ikke inverterbar).\n\n**b)** Siden $\\operatorname{Nul}A\\ne\\{\\mathbf 0\\}$, har $A\\mathbf x=\\mathbf 0$ **ikke-trivielle løsninger**.\n\n**c)** $\\operatorname{rang}A<n$ (minst én kolonne mangler pivot).\n\nAlle tre svarene er samme faktum sett fra ulike vinkler — det er nettopp det inverterbarhetssetningen sier.",
+        "hints": [
+          "$\\det A=0$ betyr at inverterbarhetssetningens utsagn alle er usanne.",
+          "Singulær $\\Leftrightarrow$ ikke-triviell null $\\Leftrightarrow$ rang $<n$."
+        ]
+      }
+    },
+    {
+      "id": "tma4110-2-2-def-nilpotent",
+      "type": "definition",
+      "title": "Nilpotent matrise",
+      "content": "En kvadratisk matrise $A$ er **nilpotent** hvis en potens av den er nullmatrisen: $A^{k}=O$ for et heltall $k\\ge1$. For eksempel er $A=\\begin{bmatrix}0&5\\\\0&0\\end{bmatrix}$ nilpotent siden $A^{2}=O$. Nilpotente matriser er alltid singulære, men $I-A$ er da alltid inverterbar (Neumann-trikset under)."
+    },
+    {
+      "id": "tma4110-2-2-def-neumann",
+      "type": "definition",
+      "title": "Neumann-trikset",
+      "content": "Hvis $A$ er nilpotent med $A^{k}=O$, er $I-A$ inverterbar, og inversen er den endelige summen\n$$(I-A)^{-1}=I+A+A^{2}+\\dots+A^{k-1}.$$\nDette er «den geometriske rekken for matriser», avkortet fordi de høyere potensene er null. Beviset er å gange ut $(I-A)(I+A+\\dots+A^{k-1})$ og se at alt unntatt $I$ kanselleres (teleskopsum). Et fast bevistema (sjanger N) er tilfellet $A^{3}=O$."
+    },
+    {
+      "id": "tma4110-2-2-ex-6",
+      "type": "example",
+      "title": "Eksempel 6: $A^{3}=O\\Rightarrow(I-A)^{-1}=I+A+A^{2}$ (sjanger N)",
+      "problem": "Anta at $A^{3}=O$. Vis at $I-A$ er inverterbar med $(I-A)^{-1}=I+A+A^{2}$. Illustrer med $A=\\begin{bmatrix}0&1&2\\\\0&0&3\\\\0&0&0\\end{bmatrix}$.",
+      "solution": "**Bevis.** Vi viser direkte at $I+A+A^{2}$ er inversen ved å gange sammen. Bruk distributiv lov og $A^{3}=O$:\n$$(I-A)(I+A+A^{2})=I+A+A^{2}-A-A^{2}-A^{3}=I-A^{3}=I-O=I.$$\nLedd for ledd kansellerer $+A$ mot $-A$ og $+A^{2}$ mot $-A^{2}$; igjen står $I-A^{3}=I$. Samme utregning den andre veien gir $(I+A+A^{2})(I-A)=I$. Altså er $I-A$ inverterbar med\n$$(I-A)^{-1}=I+A+A^{2}.\\qquad\\blacksquare$$\n\n**Kontroll med tallene:** her er $A^{2}=\\begin{bmatrix}0&0&3\\\\0&0&0\\\\0&0&0\\end{bmatrix}$ og $A^{3}=O$. Da er $I+A+A^{2}=\\begin{bmatrix}1&1&5\\\\0&1&3\\\\0&0&1\\end{bmatrix}$. Og $I-A=\\begin{bmatrix}1&-1&-2\\\\0&1&-3\\\\0&0&1\\end{bmatrix}$; ved Gauss–Jordan (eller ved å gange sammen) finner vi at inversen nettopp er $\\begin{bmatrix}1&1&5\\\\0&1&3\\\\0&0&1\\end{bmatrix}$. $\\checkmark$\n\n**Sensor-merknad:** kjernen i uttellingen er å *gange ut og bruke $A^{3}=O$* — ikke tallkontrollen. Navngi gjerne at dette er den avkortede geometriske rekken (Neumann-trikset)."
+    },
+    {
+      "id": "tma4110-2-2-oppg-6",
+      "type": "exercise",
+      "exercise": {
+        "id": "tma4110-2-2-v1",
+        "number": "6",
+        "type": "classic",
+        "difficulty": "vanskelig",
+        "task": "(Sjanger N — Neumann-trikset.) Anta at $A^{2}=O$. Vis at $I-A$ er inverterbar, og finn et uttrykk for $(I-A)^{-1}$.",
+        "solution": "**Bevis.** Vi gjetter på $(I-A)^{-1}=I+A$ (den avkortede geometriske rekken, siden $A^{2}=O$) og verifiserer. Gang ut med distributiv lov og $A^{2}=O$:\n$$(I-A)(I+A)=I+A-A-A^{2}=I-A^{2}=I-O=I.$$\nDen andre veien gir tilsvarende $(I+A)(I-A)=I$. Altså er $I-A$ inverterbar, og\n$$(I-A)^{-1}=I+A.\\qquad\\blacksquare$$",
+        "hints": [
+          "Etterlign Neumann-trikset: prøv $(I-A)^{-1}=I+A$ og verifiser ved å gange sammen.",
+          "Gang ut $(I-A)(I+A)$ og bruk forutsetningen $A^{2}=O$.",
+          "Husk å sjekke begge veier ($(I-A)(I+A)$ og $(I+A)(I-A)$)."
+        ]
+      }
+    },
+    {
+      "id": "tma4110-2-2-oppg-7",
+      "type": "exercise",
+      "exercise": {
+        "id": "tma4110-2-2-v2",
+        "number": "7",
+        "type": "classic",
+        "difficulty": "vanskelig",
+        "task": "(Sjanger N — invers og transponert.) Anta at $A$ er inverterbar. Vis at $A^{T}$ også er inverterbar, og at $(A^{T})^{-1}=(A^{-1})^{T}$.",
+        "solution": "**Bevis.** Vi starter fra $AA^{-1}=I$ og transponerer begge sider. Med produktregelen $(XY)^{T}=Y^{T}X^{T}$ og $I^{T}=I$:\n$$(AA^{-1})^{T}=I^{T}\\ \\Longrightarrow\\ (A^{-1})^{T}A^{T}=I.$$\nPå samme måte gir $A^{-1}A=I$ transponert at $A^{T}(A^{-1})^{T}=I$. De to likningene sier nettopp at $(A^{-1})^{T}$ er en invers til $A^{T}$ (fra begge sider). Altså er $A^{T}$ inverterbar, og siden inversen er entydig,\n$$(A^{T})^{-1}=(A^{-1})^{T}.\\qquad\\blacksquare$$",
+        "hints": [
+          "Start fra $AA^{-1}=I$ og transponer hele likningen.",
+          "Bruk $(XY)^{T}=Y^{T}X^{T}$ — rekkefølgen snur, så $(A^{-1})^{T}A^{T}=I$.",
+          "En matrise som ganger $A^{T}$ til $I$ fra begge sider ER inversen (entydig)."
+        ]
+      }
+    },
+    {
+      "id": "tma4110-2-2-warning",
+      "type": "warning",
+      "title": "Typiske feil",
+      "content": "- **Glemmer $ad-bc\\ne0$-kravet** i 2×2-formelen. Er determinanten null, finnes ingen invers — matrisen er singulær.\n- **Feil rekkefølge i $(AB)^{-1}$.** Det er $B^{-1}A^{-1}$, ikke $A^{-1}B^{-1}$. Rekkefølgen snus.\n- **Radreduserer $[A\\mid I]$ feil.** Enhver radoperasjon må gjøres på HELE raden, også høyresiden. Én glemt operasjon på $I$-delen ødelegger svaret.\n- **Bruker inverterbarhetssetningen uten å navngi den.** Sensor vil se at du vet hvilket resultat du påberoper deg.\n- **Antar at invers finnes uten å sjekke.** Kontroller $\\det A\\ne0$ (eller at radreduksjon gir $I$) før du «deler på $A$».\n- **Tror $(A+B)^{-1}=A^{-1}+B^{-1}$.** Dette er galt — det finnes ingen enkel regel for inversen til en sum."
+    },
+    {
+      "id": "tma4110-2-2-begrepsbank-tekst",
+      "type": "text",
+      "content": "## Begrepsbank til eksamen\n\nHer er de resterende kjernebegrepene samlet i kortform for repetisjon og pugging (kode E — intet formelark).\n\n*Begrepsbanken er flashcard-/repetisjonsstoff — det gjentar det du nettopp har lest. Hopp trygt over ved førstegangslesing; tidsanslaget for kapitlet gjelder kjernestoffet.*"
+    },
+    {
+      "id": "tma4110-2-2-bb-entydig",
+      "type": "definition",
+      "title": "Entydighet av inversen",
+      "content": "Hvis en matrise har en invers, har den **bare én**. Antar man to inverser $B$ og $C$ (begge med $AB=BA=I$ og $AC=CA=I$), gir $B=BI=B(AC)=(BA)C=IC=C$. Derfor snakker vi om *den* inverse $A^{-1}$, og en matrise som ganger $A$ til $I$ fra begge sider MÅ være $A^{-1}$."
+    },
+    {
+      "id": "tma4110-2-2-bb-invinv",
+      "type": "definition",
+      "title": "Reglene $(A^{-1})^{-1}=A$ og $(cA)^{-1}$",
+      "content": "Å invertere to ganger fører tilbake: $(A^{-1})^{-1}=A$. For en skalar $c\\ne0$ er $(cA)^{-1}=\\tfrac1c A^{-1}$. Disse følger direkte av definisjonen $AA^{-1}=I$: for eksempel gir $(cA)\\big(\\tfrac1c A^{-1}\\big)=c\\cdot\\tfrac1c\\,AA^{-1}=I$."
+    },
+    {
+      "id": "tma4110-2-2-bb-diaginvers",
+      "type": "definition",
+      "title": "Invers av en diagonalmatrise",
+      "content": "En diagonalmatrise $D=\\operatorname{diag}(d_1,\\dots,d_n)$ er inverterbar nøyaktig når **alle** diagonalelementene er ulik null, og da er $D^{-1}=\\operatorname{diag}\\!\\big(\\tfrac1{d_1},\\dots,\\tfrac1{d_n}\\big)$ — bare inverter hvert diagonaltall. Er ett diagonaltall $0$, er $D$ singulær."
+    },
+    {
+      "id": "tma4110-2-2-bb-flerfaktor",
+      "type": "definition",
+      "title": "Invers av et produkt av flere faktorer",
+      "content": "Regelen $(AB)^{-1}=B^{-1}A^{-1}$ utvides til flere faktorer ved å snu hele rekkefølgen: $(ABC)^{-1}=C^{-1}B^{-1}A^{-1}$. Alle faktorene må være inverterbare. Det er samme mønster som for transponert av et produkt."
+    },
+    {
+      "id": "tma4110-2-2-bb-potensinvers",
+      "type": "definition",
+      "title": "Invers av en potens",
+      "content": "Er $A$ inverterbar, er $A^{k}$ inverterbar for alle $k\\ge1$, med $(A^{k})^{-1}=(A^{-1})^{k}$. Man kan da definere negative potenser: $A^{-k}:=(A^{-1})^{k}$. Regnereglene for potenser ($A^{s}A^{t}=A^{s+t}$) gjelder da for alle heltall $s,t$."
+    },
+    {
+      "id": "tma4110-2-2-bb-elementaermatrise",
+      "type": "definition",
+      "title": "Elementærmatrise",
+      "content": "En **elementærmatrise** er en matrise du får ved å utføre én elementær radoperasjon på $I$. Å multiplisere $A$ fra venstre med en elementærmatrise utfører nettopp den radoperasjonen på $A$. Elementærmatriser er alltid inverterbare (radoperasjoner kan reverseres), og de forklarer *hvorfor* Gauss–Jordan-metoden gir inversen. På dette nivået holder det å kjenne til begrepet."
+    },
+    {
+      "id": "tma4110-2-2-bb-venstrehoyre",
+      "type": "definition",
+      "title": "Venstre- og høyreinvers",
+      "content": "For en **kvadratisk** matrise er det nok å finne én ensidig invers: hvis $BA=I$, så er automatisk også $AB=I$, og $B=A^{-1}$ (dette følger av inverterbarhetssetningen). For ikke-kvadratiske matriser finnes derimot ensidige inverser som ikke er tosidige — men slike matriser har ingen invers i vanlig forstand."
+    },
+    {
+      "id": "tma4110-2-2-bb-inversvektorer",
+      "type": "definition",
+      "title": "Inverterbar og lineær uavhengighet",
+      "content": "$A$ (kvadratisk, $n\\times n$) er inverterbar nøyaktig når kolonnene er **lineært uavhengige** og dermed danner en **basis** for $\\mathbb R^n$ (punkt 5 i inverterbarhetssetningen). Ekvivalent: radene danner en basis. Dette knytter invers-begrepet til basis/dimensjon-teorien i Del 3, og til at $0$ ikke er egenverdi (Del 5)."
+    },
+    {
+      "id": "tma4110-2-2-bb-losbarhet",
+      "type": "definition",
+      "title": "Invers og entydig løsbarhet",
+      "content": "Er $A$ inverterbar, har $A\\mathbf x=\\mathbf b$ **én entydig løsning** $\\mathbf x=A^{-1}\\mathbf b$ for **hver** høyreside $\\mathbf b$ (punkt 6 i inverterbarhetssetningen). Er $A$ singulær, har systemet enten ingen eller uendelig mange løsninger — aldri nøyaktig én. Invers-eksistens er altså det samme som «alltid entydig løsbart»."
+    },
+    {
+      "id": "tma4110-2-2-rep",
+      "type": "collapsible",
+      "title": "Repetisjonsoppgaver",
+      "buttonText": "Vis repetisjonsoppgaver",
+      "content": [
+        {
+          "id": "tma4110-2-2-rep-1",
+          "type": "exercise",
+          "exercise": {
+            "id": "tma4110-2-2-rep-o1",
+            "number": "R1",
+            "type": "classic",
+            "difficulty": "lett",
+            "task": "(Fra kap. 2.1) Regn ut produktet $AB$ når $A=\\begin{bmatrix}1&2\\\\0&1\\end{bmatrix}$ og $B=\\begin{bmatrix}3&-1\\\\2&4\\end{bmatrix}$.",
+            "solution": "$AB=\\begin{bmatrix}1\\cdot3+2\\cdot2&1\\cdot(-1)+2\\cdot4\\\\0\\cdot3+1\\cdot2&0\\cdot(-1)+1\\cdot4\\end{bmatrix}=\\begin{bmatrix}7&7\\\\2&4\\end{bmatrix}.$",
+            "hints": [
+              "Rad-gang-kolonne på hvert av de fire elementene."
+            ]
+          }
+        },
+        {
+          "id": "tma4110-2-2-rep-2",
+          "type": "exercise",
+          "exercise": {
+            "id": "tma4110-2-2-rep-o2",
+            "number": "R2",
+            "type": "classic",
+            "difficulty": "lett",
+            "task": "(Fra kap. 2.1) Hva er $(AB)^{T}$ uttrykt ved $A^{T}$ og $B^{T}$?",
+            "solution": "$(AB)^{T}=B^{T}A^{T}$ — transponering av et produkt snur rekkefølgen på faktorene. Samme mønster gjelder for invers: $(AB)^{-1}=B^{-1}A^{-1}$.",
+            "hints": [
+              "Rekkefølgen snur, akkurat som for invers."
+            ]
+          }
+        },
+        {
+          "id": "tma4110-2-2-rep-3",
+          "type": "exercise",
+          "exercise": {
+            "id": "tma4110-2-2-rep-o3",
+            "number": "R3",
+            "type": "classic",
+            "difficulty": "middels",
+            "task": "(Fra kap. 1.1) Løs $A\\mathbf x=\\mathbf b$ ved radreduksjon når $A=\\begin{bmatrix}1&2\\\\3&4\\end{bmatrix}$ og $\\mathbf b=\\begin{bmatrix}5\\\\6\\end{bmatrix}$.",
+            "solution": "Radreduksjon av $\\left[\\begin{array}{cc|c}1&2&5\\\\3&4&6\\end{array}\\right]$: $R_2\\to R_2-3R_1$ gir $\\left[\\begin{array}{cc|c}1&2&5\\\\0&-2&-9\\end{array}\\right]$, så $y=\\tfrac92$ og $x=5-2\\cdot\\tfrac92=-4$. Løsning $(x,y)=(-4,\\tfrac92)$. (Kryssjekk: $\\det A=-2\\ne0$, så løsningen er entydig — inverterbarhetssetningen.)",
+            "hints": [
+              "Radreduser totalmatrisen, eller bruk at $\\det A\\ne0$ gir entydig løsning.",
+              "Bakoversubstitusjon: finn $y$ nederst, sett inn oppover."
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": "tma4110-2-2-symbolliste",
+      "type": "collapsible",
+      "title": "Symbol- og formelliste",
+      "buttonText": "Vis symboler og formler",
+      "content": [
+        {
+          "id": "tma4110-2-2-symbolliste-text",
+          "type": "text",
+          "content": "## Symbol- og formelliste\n\n*Oppslagsverk — alt her forklares underveis i kapitlet.*\n\nAlle symboler og formler som brukes i dette delkapitlet (2.2), samlet på ett sted.\n\n| Symbol | Betydning |\n|---|---|\n| $A^{-1}$ | Den inverse matrisen til $A$ |\n| $I$ | Identitetsmatrisen |\n| $\\det A$ | Determinanten (for 2×2: $ad-bc$) |\n| $[A\\mid I]$ | Utvidet matrise brukt i Gauss–Jordan for invers |\n| $\\operatorname{rang}A$ | Rangen — antall pivoter |\n| $\\operatorname{Nul}A$ | Nullrommet — løsningene av $A\\mathbf x=\\mathbf 0$ |\n| $A^{k}=O$ | Nilpotent matrise (en potens er null) |\n| $\\lambda$ | Egenverdi (nevnt i inverterbarhetssetningen, Del 5) |\n\n**Formler i dette delkapitlet:**\n\n$$AA^{-1}=A^{-1}A=I$$\nDefinisjonen av inversen.\n\n$$A^{-1}=\\frac{1}{ad-bc}\\begin{bmatrix}d&-b\\\\-c&a\\end{bmatrix}\\quad(ad-bc\\ne0)$$\n2×2-inversformelen: bytt diagonalen, skift fortegn, del på determinanten.\n\n$$[A\\mid I]\\ \\longrightarrow\\ [I\\mid A^{-1}]$$\nGauss–Jordan-metoden for invers.\n\n$$(AB)^{-1}=B^{-1}A^{-1},\\qquad (A^{T})^{-1}=(A^{-1})^{T},\\qquad (A^{-1})^{-1}=A$$\nRegnereglene — rekkefølgen snur i produktet.\n\n$$A\\text{ inverterbar}\\ \\Leftrightarrow\\ \\det A\\ne0\\ \\Leftrightarrow\\ \\operatorname{rang}A=n\\ \\Leftrightarrow\\ \\operatorname{Nul}A=\\{\\mathbf 0\\}\\ \\Leftrightarrow\\ 0\\text{ ikke egenverdi}$$\nInverterbarhetssetningen (den lange ekvivalenskjeden).\n\n$$(I-A)^{-1}=I+A+A^{2}+\\dots+A^{k-1}\\quad(A^{k}=O)$$\nNeumann-trikset for nilpotente matriser."
+        }
+      ]
+    }
+  ],
+  "exercises": []
+}
