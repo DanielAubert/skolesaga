@@ -1,0 +1,382 @@
+{
+  "id": "tma4110-4-2",
+  "courseId": "tma4110",
+  "chapterNumber": "4.2",
+  "title": "Kjerne, bilde og matriserepresentasjon i baser",
+  "description": "Kjerne (ker T = Nul A) og bilde (im T = Col A), injektiv/surjektiv via rang, dimensjonsteoremet for transformasjoner, og matriserepresentasjonen [T]_B på abstrakte rom — særlig derivasjonsoperatoren T(p)=p′ på Pₙ.",
+  "estimatedMinutes": 55,
+  "competenceGoals": [
+    "finne ker T = Nul[T] og im T = Col[T] fra standardmatrisen og oppgi basis og dimensjon",
+    "avgjøre om T er injektiv og/eller surjektiv via rang, og bruke dimensjonsteoremet (rang + nullitet)",
+    "bygge matriserepresentasjonen [T]_B kolonne for kolonne for en operator på Pₙ (særlig T(p)=p′) og oversette ker T tilbake til polynomer"
+  ],
+  "content": [
+    {
+      "id": "tma4110-4-2-tip-eksamensvinkel",
+      "type": "tip",
+      "title": "Eksamensvinkel",
+      "content": "**Kjerne, bilde og matriserepresentasjon (sjanger F, ~$38\\,\\%$) er transformasjonenes møte med Del 3** — ofte koblet direkte til abstrakt vektorrom og basis.\n\n- **Kjerne og bilde** er ikke noe nytt å regne: $\\ker T=\\operatorname{Nul}[T]$ og $\\operatorname{im}T=\\operatorname{Col}[T]$. Du radreduserer standardmatrisen akkurat som i [kap. 3.3](/bok/tma4110/tma4110-3-3).\n- **Dimensjonsteoremet** $\\dim\\ker T+\\dim\\operatorname{im}T=\\dim V$ (rang + nullitet) er sensorens favorittkontroll — navngi det.\n- **Matriserepresentasjonen** $[T]_{\\mathcal B}$ på et abstrakt rom, særlig **derivasjonsoperatoren** $T(p)=p'$ på $\\operatorname{P}_n$, er den klassiske eksamensvarianten.\n\nMålet: du skal kunne (1) finne $\\ker T$ og $\\operatorname{im}T$ fra standardmatrisen, (2) avgjøre injektiv/surjektiv via rang, og (3) bygge $[T]_{\\mathcal B}$ kolonne for kolonne og oversette svaret **tilbake til polynomer**."
+    },
+    {
+      "id": "tma4110-4-2-forkunnskaper",
+      "type": "text",
+      "content": "**Forkunnskaper:** Dette kapitlet bygger rett på standardmatrisen fra [kap. 4.1](/bok/tma4110/tma4110-4-1) og på $\\operatorname{Col}A$/$\\operatorname{Nul}A$/rang fra radreduksjon i [kap. 3.3](/bok/tma4110/tma4110-3-3) — kjerne og bilde er nettopp disse to underrommene. Matriserepresentasjonen $[T]_{\\mathcal B}$ hviler på koordinater og basisskifte fra [kap. 3.4](/bok/tma4110/tma4110-3-4). For derivasjonsoperatoren trenger du å derivere polynomer, se [Derivasjon](/bok/r2/r2-2-1).\n\n**Sist du var her (nøkkelformler):**\n- $\\operatorname{Nul}A=\\{\\mathbf x:A\\mathbf x=\\mathbf 0\\}$ (spesielle løsninger, én per fri variabel).\n- $\\operatorname{Col}A=$ utspennet av kolonnene; basis = de **opprinnelige** pivotkolonnene.\n- Koordinatvektor: $[\\mathbf x]_{\\mathcal B}$ = koeffisientene i $\\mathbf x=\\sum c_i\\mathbf b_i$."
+    },
+    {
+      "id": "tma4110-4-2-motivasjon",
+      "type": "text",
+      "content": "## Hvorfor kjerne og bilde?\n\nTo spørsmål avgjør hva en lineær avbildning $T$ egentlig gjør: **Hva forsvinner?** og **Hva kan komme ut?** Vektorene som sendes til $\\mathbf 0$ utgjør **kjernen** — den måler hvor mye informasjon $T$ mister. Vektorene som faktisk oppnås utgjør **bildet** — det måler hvor stort «utfallsrommet» er. Sammen forteller de om $T$ er én-til-én, om den treffer alt, og henger sammen gjennom **dimensjonsteoremet**.\n\nDet fine er at begge er gamle kjenninger: kjerne = $\\operatorname{Nul}[T]$, bilde = $\\operatorname{Col}[T]$. Kapitlet har tre løkker: (1) kjerne og bilde, (2) injektiv/surjektiv og dimensjonsteoremet, og (3) matriserepresentasjonen $[T]_{\\mathcal B}$ på abstrakte rom."
+    },
+    {
+      "id": "tma4110-4-2-lokke1",
+      "type": "text",
+      "content": "## Løkke 1 — Kjerne og bilde (~18 min)"
+    },
+    {
+      "id": "tma4110-4-2-def-kjerne",
+      "type": "definition",
+      "title": "Kjerne $\\ker T$",
+      "content": "**Kjernen** til en lineær transformasjon $T:V\\to W$ er mengden av alle vektorer som avbildes på nullvektoren:\n$$\\ker T=\\{\\mathbf x\\in V:\\ T(\\mathbf x)=\\mathbf 0\\}.$$\nDen sier hva $T$ «visker ut». Kjernen er alltid et **underrom** av domenet $V$: den inneholder $\\mathbf 0$ (siden $T(\\mathbf 0)=\\mathbf 0$), og er lukket under addisjon og skalering fordi $T$ er lineær."
+    },
+    {
+      "id": "tma4110-4-2-def-bilde",
+      "type": "definition",
+      "title": "Bilde $\\operatorname{im}T$ (range)",
+      "content": "**Bildet** (eng. *range*) til $T:V\\to W$ er mengden av alle vektorer som faktisk oppnås:\n$$\\operatorname{im}T=\\{T(\\mathbf x):\\ \\mathbf x\\in V\\}\\subseteq W.$$\nDet er «alt som kan komme ut av maskinen». Bildet er alltid et **underrom** av kodomenet $W$. Kjernen bor altså i domenet, bildet i kodomenet — ikke bland dem."
+    },
+    {
+      "id": "tma4110-4-2-def-via-std",
+      "type": "definition",
+      "title": "Kjerne og bilde via standardmatrisen",
+      "content": "For $T:\\mathbb R^n\\to\\mathbb R^m$ med standardmatrise $A=[T]$ er de to underrommene identiske med matriseunderrommene fra [kap. 3.3](/bok/tma4110/tma4110-3-3):\n$$\\ker T=\\operatorname{Nul}A,\\qquad \\operatorname{im}T=\\operatorname{Col}A.$$\nDerfor er hele regningen kjent: radreduser $A$, les $\\operatorname{Nul}A$ fra de frie variablene (spesielle løsninger) og $\\operatorname{Col}A$-basis fra de **opprinnelige** pivotkolonnene. Ingen ny teknikk — bare nye navn på gamle underrom."
+    },
+    {
+      "id": "tma4110-4-2-ex1",
+      "type": "example",
+      "title": "Eksempel 1: Kjerne og bilde fra standardmatrisen",
+      "problem": "La $T:\\mathbb R^3\\to\\mathbb R^3$ ha standardmatrise $A=\\begin{bmatrix}1&2&1\\\\2&4&3\\\\1&2&2\\end{bmatrix}$. Finn en basis for $\\ker T$ og for $\\operatorname{im}T$, og oppgi dimensjonene.",
+      "solution": "Radreduser $A$: $R_2\\to R_2-2R_1=(0,0,1)$, $R_3\\to R_3-R_1=(0,0,1)$, så $R_3\\to R_3-R_2=0$ og $R_1\\to R_1-R_2$:\n$$\\text{RREF}=\\begin{bmatrix}1&2&0\\\\0&0&1\\\\0&0&0\\end{bmatrix}.$$\nPivoter i kolonne $1,3$, fri variabel $x_2$.\n\n**Kjerne** $=\\operatorname{Nul}A$: radene gir $x_1=-2x_2$, $x_3=0$. Spesiell løsning $(-2,1,0)$. Så $\\ker T=\\operatorname{Span}\\{(-2,1,0)\\}$, $\\dim\\ker T=1$.\n\n**Bilde** $=\\operatorname{Col}A$: basis = de **opprinnelige** pivotkolonnene $1,3$: $\\{(1,2,1),\\ (1,3,2)\\}$, $\\dim\\operatorname{im}T=2$.\n\n**Kontroll (dimensjonsteoremet):** $\\dim\\ker T+\\dim\\operatorname{im}T=1+2=3=\\dim\\mathbb R^3$ ✓."
+    },
+    {
+      "id": "tma4110-4-2-e1",
+      "type": "exercise",
+      "exercise": {
+        "id": "tma4110-4-2-e1",
+        "number": "1",
+        "type": "classic",
+        "difficulty": "lett",
+        "task": "(Ren gjengivelse.) La $T:\\mathbb R^2\\to\\mathbb R^2$ ha standardmatrise $A=\\begin{bmatrix}1&0\\\\0&0\\end{bmatrix}$ (projeksjon på $x$-aksen). Beskriv $\\ker T$ og $\\operatorname{im}T$ i ord.",
+        "solution": "$\\ker T=\\operatorname{Nul}A$: $A\\mathbf x=\\mathbf 0$ betyr $x_1=0$, mens $x_2$ er fri. Så $\\ker T=\\operatorname{Span}\\{(0,1)\\}$ — hele $y$-aksen viskes ut. $\\operatorname{im}T=\\operatorname{Col}A=\\operatorname{Span}\\{(1,0)\\}$ — bildet er $x$-aksen. Alle vektorer projiseres ned på $x$-aksen, og $y$-aksen forsvinner til $\\mathbf 0$.",
+        "hints": [
+          "$\\ker T=\\operatorname{Nul}A$ (hva sendes til $\\mathbf 0$), $\\operatorname{im}T=\\operatorname{Col}A$ (hva kommer ut).",
+          "Projeksjon på $x$-aksen nuller $y$-komponenten."
+        ]
+      }
+    },
+    {
+      "id": "tma4110-4-2-e2",
+      "type": "exercise",
+      "exercise": {
+        "id": "tma4110-4-2-e2",
+        "number": "2",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "(Sjanger F — kjerne og bilde.) La $T:\\mathbb R^3\\to\\mathbb R^3$ ha standardmatrise $A=\\begin{bmatrix}1&1&2\\\\2&1&3\\\\3&2&5\\end{bmatrix}$. Finn en basis for $\\ker T$ og $\\operatorname{im}T$, og kontroller dimensjonsteoremet.",
+        "solution": "Radreduser: $R_2\\to R_2-2R_1=(0,-1,-1)$, $R_3\\to R_3-3R_1=(0,-1,-1)$, så $R_3\\to R_3-R_2=0$; skaler $R_2$ til $(0,1,1)$ og $R_1\\to R_1-R_2$:\n$$\\text{RREF}=\\begin{bmatrix}1&0&1\\\\0&1&1\\\\0&0&0\\end{bmatrix}.$$\nPivoter i kolonne $1,2$, fri $x_3$. **Kjerne:** $x_1=-x_3$, $x_2=-x_3$, spesiell løsning $(-1,-1,1)$, så $\\ker T=\\operatorname{Span}\\{(-1,-1,1)\\}$, $\\dim=1$. **Bilde:** opprinnelige pivotkolonner $1,2$: $\\{(1,2,3),(1,1,2)\\}$, $\\dim=2$. **Dimensjonsteoremet:** $1+2=3$ ✓.",
+        "hints": [
+          "$\\ker T=\\operatorname{Nul}A$ fra de frie variablene; $\\operatorname{im}T=\\operatorname{Col}A$ fra opprinnelige pivotkolonner.",
+          "Radreduser til RREF og les av pivoter og frie variabler.",
+          "Kontroller med dimensjonsteoremet: $\\operatorname{rang}A+\\dim\\operatorname{Nul}A=n$."
+        ]
+      }
+    },
+    {
+      "id": "tma4110-4-2-lokke2",
+      "type": "text",
+      "content": "## Løkke 2 — Injektiv, surjektiv og dimensjonsteoremet (~19 min)"
+    },
+    {
+      "id": "tma4110-4-2-def-injektiv",
+      "type": "definition",
+      "title": "Injektiv (én-til-én)",
+      "content": "$T$ er **injektiv** (én-til-én) hvis ingen to ulike vektorer får samme bilde: $T(\\mathbf u)=T(\\mathbf v)\\Rightarrow\\mathbf u=\\mathbf v$. For lineære avbildninger er dette ekvivalent med et enkelt kriterium:\n$$T\\text{ injektiv}\\ \\Longleftrightarrow\\ \\ker T=\\{\\mathbf 0\\}.$$\nDvs. bare nullvektoren viskes ut. Grunnen: er $T(\\mathbf u)=T(\\mathbf v)$, gir linearitet $T(\\mathbf u-\\mathbf v)=\\mathbf 0$, så $\\mathbf u-\\mathbf v\\in\\ker T$; er kjernen triviell, må $\\mathbf u=\\mathbf v$."
+    },
+    {
+      "id": "tma4110-4-2-def-surjektiv",
+      "type": "definition",
+      "title": "Surjektiv (på)",
+      "content": "$T:V\\to W$ er **surjektiv** (på) hvis alt i kodomenet oppnås, altså $\\operatorname{im}T=W$. For $T:\\mathbb R^n\\to\\mathbb R^m$ betyr det\n$$T\\text{ surjektiv}\\ \\Longleftrightarrow\\ \\operatorname{rang}A=m\\ (\\dim\\operatorname{Col}A=\\dim W).$$\nBildet må fylle hele kodomenet. En $T$ som er både injektiv og surjektiv kalles **bijektiv** — da er den en isomorfi og har en invers."
+    },
+    {
+      "id": "tma4110-4-2-thm-dimteorem",
+      "type": "theorem",
+      "title": "Dimensjonsteoremet for transformasjoner (rang + nullitet)",
+      "content": "For en lineær $T:V\\to W$ med $\\dim V=n$ gjelder\n$$\\underbrace{\\dim\\ker T}_{\\text{nullitet}}+\\underbrace{\\dim\\operatorname{im}T}_{\\text{rang}}=\\dim V=n.$$\nMed standardmatrise $A=[T]$ er dette nøyaktig $\\dim\\operatorname{Nul}A+\\operatorname{rang}A=n$ fra [kap. 3.3](/bok/tma4110/tma4110-3-3). **Bruk:** kjenner du domenets dimensjon og én av rang/nullitet, får du den andre gratis — og du kan lese av injektiv/surjektiv uten mer regning. Navngi teoremet i besvarelsen; sensor forventer det."
+    },
+    {
+      "id": "tma4110-4-2-ex2",
+      "type": "example",
+      "title": "Eksempel 2: Injektiv eller surjektiv?",
+      "problem": "Avgjør om $T:\\mathbb R^2\\to\\mathbb R^3$ med standardmatrise $A=\\begin{bmatrix}1&0\\\\2&1\\\\0&1\\end{bmatrix}$ er injektiv og/eller surjektiv.",
+      "solution": "Radreduser: $R_2\\to R_2-2R_1=(0,1)$, deretter $R_3\\to R_3-R_2=(0,0)$:\n$$\\text{RREF}=\\begin{bmatrix}1&0\\\\0&1\\\\0&0\\end{bmatrix}.$$\nBegge kolonner har pivot ⇒ $\\operatorname{rang}A=2$, ingen frie variabler.\n\n**Injektiv?** $\\dim\\operatorname{Nul}A=0$, så $\\ker T=\\{\\mathbf 0\\}$ — **ja, injektiv**.\n\n**Surjektiv?** Kodomenet er $\\mathbb R^3$ ($m=3$), men $\\operatorname{rang}A=2<3$ — **nei, ikke surjektiv**. Bildet er et $2$-dimensjonalt plan i $\\mathbb R^3$.\n\n**Dimensjonsteoremet** bekrefter: $\\dim\\ker T+\\dim\\operatorname{im}T=0+2=2=\\dim\\mathbb R^2$ ✓. (En avbildning fra et *mindre* rom til et *større* kan aldri være surjektiv.)"
+    },
+    {
+      "id": "tma4110-4-2-e3",
+      "type": "exercise",
+      "exercise": {
+        "id": "tma4110-4-2-e3",
+        "number": "3",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "(Sjanger F — injektiv/surjektiv.) La $T:\\mathbb R^3\\to\\mathbb R^2$ ha standardmatrise $A=\\begin{bmatrix}1&0&1\\\\0&1&1\\end{bmatrix}$. Avgjør om $T$ er injektiv og/eller surjektiv, og bruk dimensjonsteoremet.",
+        "solution": "$A$ er allerede i RREF med pivoter i kolonne $1,2$, så $\\operatorname{rang}A=2$ og $x_3$ er fri. **Surjektiv?** $\\operatorname{rang}A=2=m$ (kodomenet er $\\mathbb R^2$) ⇒ **ja, surjektiv**. **Injektiv?** Én fri variabel gir $\\dim\\operatorname{Nul}A=1\\ne0$, så $\\ker T=\\operatorname{Span}\\{(-1,-1,1)\\}\\ne\\{\\mathbf 0\\}$ ⇒ **nei, ikke injektiv**. **Dimensjonsteoremet:** $\\dim\\ker T+\\dim\\operatorname{im}T=1+2=3=\\dim\\mathbb R^3$ ✓. (En avbildning fra et større til et mindre rom kan aldri være injektiv.)",
+        "hints": [
+          "Surjektiv ⇔ $\\operatorname{rang}A=m$; injektiv ⇔ $\\ker T=\\{\\mathbf 0\\}$ (ingen frie variabler).",
+          "Les rang og frie variabler fra RREF.",
+          "Kontroller med dimensjonsteoremet $\\dim\\ker T+\\operatorname{rang}A=n$."
+        ]
+      }
+    },
+    {
+      "id": "tma4110-4-2-e4",
+      "type": "exercise",
+      "exercise": {
+        "id": "tma4110-4-2-e4",
+        "number": "4",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "(Sjanger F — dimensjonsteoremet som verktøy.) En lineær $T:\\mathbb R^5\\to\\mathbb R^3$ har $\\dim\\operatorname{im}T=3$. Er $T$ surjektiv? Injektiv? Finn $\\dim\\ker T$.",
+        "solution": "$T$ er **surjektiv**: $\\dim\\operatorname{im}T=3=\\dim\\mathbb R^3$, så bildet fyller kodomenet. Ved **dimensjonsteoremet** er $\\dim\\ker T=\\dim V-\\dim\\operatorname{im}T=5-3=2$. Siden $\\dim\\ker T=2\\ne0$, er $T$ **ikke injektiv**. (En avbildning fra $\\mathbb R^5$ til $\\mathbb R^3$ må viske ut minst $2$ dimensjoner — den kan aldri være injektiv.)",
+        "hints": [
+          "Bruk dimensjonsteoremet: $\\dim\\ker T=\\dim V-\\dim\\operatorname{im}T$.",
+          "Surjektiv ⇔ $\\dim\\operatorname{im}T=\\dim$ kodomene; injektiv ⇔ $\\dim\\ker T=0$."
+        ]
+      }
+    },
+    {
+      "id": "tma4110-4-2-lokke3",
+      "type": "text",
+      "content": "## Løkke 3 — Matriserepresentasjon $[T]_{\\mathcal B}$ og derivasjonsoperatoren (~18 min)"
+    },
+    {
+      "id": "tma4110-4-2-def-matriserep",
+      "type": "definition",
+      "title": "Matriserepresentasjon $[T]_{\\mathcal B}$",
+      "content": "På et abstrakt rom (polynomer, matriser) finnes ingen «standardmatrise» direkte — men velger du en ordnet basis $\\mathcal B$, kan $T:V\\to V$ representeres av en vanlig matrise som virker på **koordinatvektorer**:\n$$[T\\mathbf x]_{\\mathcal B}=[T]_{\\mathcal B}\\,[\\mathbf x]_{\\mathcal B}.$$\nMatrisen $[T]_{\\mathcal B}$ oversetter altså problemet til vanlig $\\mathbb R^n$-regning: ta koordinater inn, gang med $[T]_{\\mathcal B}$, få koordinatene til bildet ut. Slik blir en operator på polynomer til en tallmatrise."
+    },
+    {
+      "id": "tma4110-4-2-def-kolonner-TB",
+      "type": "definition",
+      "title": "Kolonnene i $[T]_{\\mathcal B}$",
+      "content": "Kolonne $j$ i $[T]_{\\mathcal B}$ er $\\mathcal B$-koordinatene til bildet av den $j$-te basisvektoren:\n$$[T]_{\\mathcal B}=\\big[\\,[T(\\mathbf b_1)]_{\\mathcal B}\\ \\ [T(\\mathbf b_2)]_{\\mathcal B}\\ \\ \\cdots\\ \\ [T(\\mathbf b_n)]_{\\mathcal B}\\,\\big].$$\nOppskriften: (1) avbild hver basisvektor $\\mathbf b_j$, (2) uttrykk resultatet **i basisen $\\mathcal B$** (finn koordinatene), (3) sett koordinatene inn som kolonne $j$. Den store fellen er å glemme steg (2) — kolonnene må være i $\\mathcal B$-koordinater, ikke råverdiene."
+    },
+    {
+      "id": "tma4110-4-2-def-derivasjon",
+      "type": "definition",
+      "title": "Derivasjonsoperatoren $T(p)=p'$",
+      "content": "På polynomrommet $\\operatorname{P}_n$ er **derivasjon** en lineær operator: $T(p)=p'$, med $T(p+q)=p'+q'$ og $T(cp)=cp'$. Den senker graden med $1$. Med standardbasisen $\\mathcal B=\\{1,t,t^2,\\dots,t^n\\}$ deriveres byggeklossene enkelt: $T(1)=0$, $T(t)=1$, $T(t^2)=2t$, $T(t^3)=3t^2,\\dots$ — nettopp det du trenger for å bygge $[T]_{\\mathcal B}$ kolonne for kolonne."
+    },
+    {
+      "id": "tma4110-4-2-ex3",
+      "type": "example",
+      "title": "Eksempel 3: Derivasjonsoperatoren på $\\operatorname{P}_2$",
+      "problem": "La $T:\\operatorname{P}_2\\to\\operatorname{P}_2$, $T(p)=p'$, med basis $\\mathcal B=\\{1,t,t^2\\}$. Finn $[T]_{\\mathcal B}$, $\\ker T$ og $\\operatorname{im}T$.",
+      "solution": "**Bygg $[T]_{\\mathcal B}$ kolonne for kolonne.** Deriver hver basisvektor og les koordinatene relativt $\\{1,t,t^2\\}$:\n$$T(1)=0\\Rightarrow[0]_{\\mathcal B}=(0,0,0),\\quad T(t)=1\\Rightarrow[1]_{\\mathcal B}=(1,0,0),\\quad T(t^2)=2t\\Rightarrow[2t]_{\\mathcal B}=(0,2,0).$$\nStabl som kolonner:\n$$[T]_{\\mathcal B}=\\begin{bmatrix}0&1&0\\\\0&0&2\\\\0&0&0\\end{bmatrix}.$$\n\n**Kjerne.** $\\operatorname{Nul}[T]_{\\mathcal B}$: $[T]_{\\mathcal B}\\mathbf c=\\mathbf 0$ gir $c_2=0$, $c_3=0$, mens $c_1$ er fri — spesiell løsning $(1,0,0)$. Oversett **tilbake til polynom**: koordinaten $(1,0,0)$ er polynomet $1$. Så $\\ker T=\\operatorname{Span}\\{1\\}$ = **konstantpolynomene** (de med $p'=0$), $\\dim\\ker T=1$.\n\n**Bilde.** $\\operatorname{Col}[T]_{\\mathcal B}$: pivotkolonner $2,3$ gir koordinatbasis $(1,0,0),(0,2,0)$, altså polynomene $1$ og $2t$. Så $\\operatorname{im}T=\\operatorname{Span}\\{1,t\\}=\\operatorname{P}_1$ (alle polynomer av grad $\\le1$), $\\dim\\operatorname{im}T=2$.\n\n**Dimensjonsteoremet:** $\\dim\\ker T+\\dim\\operatorname{im}T=1+2=3=\\dim\\operatorname{P}_2$ ✓. Merk siste steg: svaret er gitt som **polynomer**, ikke som koordinatvektorer i $\\mathbb R^3$."
+    },
+    {
+      "id": "tma4110-4-2-e5",
+      "type": "exercise",
+      "exercise": {
+        "id": "tma4110-4-2-e5",
+        "number": "5",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "(Sjanger F — $[T]_{\\mathcal B}$.) La $T:\\operatorname{P}_2\\to\\operatorname{P}_2$ være gitt ved $T(p)=p'+p$ (derivert pluss polynomet selv), med $\\mathcal B=\\{1,t,t^2\\}$. Finn $[T]_{\\mathcal B}$.",
+        "solution": "Avbild hver basisvektor og uttrykk i $\\mathcal B$:\n$$T(1)=0+1=1\\Rightarrow(1,0,0),$$\n$$T(t)=1+t\\Rightarrow(1,1,0),$$\n$$T(t^2)=2t+t^2\\Rightarrow(0,2,1).$$\nStabl som kolonner:\n$$[T]_{\\mathcal B}=\\begin{bmatrix}1&1&0\\\\0&1&2\\\\0&0&1\\end{bmatrix}.$$\nMatrisen er øvre triangulær med enere på diagonalen ($\\det=1$), så $T$ er inverterbar — $\\ker T=\\{\\mathbf 0\\}$ og $\\operatorname{im}T=\\operatorname{P}_2$.",
+        "hints": [
+          "Kolonne $j$ = $[T(\\mathbf b_j)]_{\\mathcal B}$: avbild $\\mathbf b_j$, uttrykk i $\\{1,t,t^2\\}$.",
+          "$T(t^2)=\\tfrac{d}{dt}(t^2)+t^2=2t+t^2$; les koordinatene $(0,2,1)$."
+        ]
+      }
+    },
+    {
+      "id": "tma4110-4-2-e6",
+      "type": "exercise",
+      "exercise": {
+        "id": "tma4110-4-2-e6",
+        "number": "6",
+        "type": "classic",
+        "difficulty": "vanskelig",
+        "task": "(Sjanger F på eksamensnivå.) La $T:\\operatorname{P}_3\\to\\operatorname{P}_3$, $T(p)=p'$, med $\\mathcal B=\\{1,t,t^2,t^3\\}$.\n\n**a)** Finn $[T]_{\\mathcal B}$.\n\n**b)** Finn $\\ker T$ og $\\operatorname{im}T$ som polynomrom, og oppgi dimensjonene.\n\n**c)** Er $T$ injektiv? Surjektiv? Bruk dimensjonsteoremet.",
+        "solution": "**a)** Deriver basisvektorene: $T(1)=0$, $T(t)=1$, $T(t^2)=2t$, $T(t^3)=3t^2$. Koordinater relativt $\\{1,t,t^2,t^3\\}$:\n$$[T]_{\\mathcal B}=\\begin{bmatrix}0&1&0&0\\\\0&0&2&0\\\\0&0&0&3\\\\0&0&0&0\\end{bmatrix}.$$\n\n**b)** $\\operatorname{Nul}[T]_{\\mathcal B}$: $c_2=c_3=c_4=0$, $c_1$ fri, spesiell løsning $(1,0,0,0)$ = polynomet $1$. Så $\\ker T=\\operatorname{Span}\\{1\\}$ = **konstantene**, $\\dim\\ker T=1$. Pivotkolonner $2,3,4$ gir $\\operatorname{im}T=\\operatorname{Span}\\{1,t,t^2\\}=\\operatorname{P}_2$, $\\dim\\operatorname{im}T=3$.\n\n**c)** $\\ker T=\\operatorname{Span}\\{1\\}\\ne\\{\\mathbf 0\\}$, så $T$ er **ikke injektiv**. $\\operatorname{im}T=\\operatorname{P}_2\\ne\\operatorname{P}_3$, så $T$ er **ikke surjektiv**. **Dimensjonsteoremet:** $\\dim\\ker T+\\dim\\operatorname{im}T=1+3=4=\\dim\\operatorname{P}_3$ ✓. (Derivasjon visker ut konstanten og treffer aldri et grad-$3$-ledd — derfor verken injektiv eller surjektiv.)",
+        "hints": [
+          "Deriver hver $t^k$ og les koordinatene relativt $\\{1,t,t^2,t^3\\}$ inn som kolonner.",
+          "$\\ker T$ = løsning av $[T]_{\\mathcal B}\\mathbf c=\\mathbf 0$, oversatt tilbake til polynom; $\\operatorname{im}T$ fra pivotkolonnene.",
+          "Injektiv ⇔ $\\ker T=\\{\\mathbf 0\\}$; surjektiv ⇔ $\\operatorname{im}T=\\operatorname{P}_3$; sjekk med dimensjonsteoremet."
+        ]
+      }
+    },
+    {
+      "id": "tma4110-4-2-warn",
+      "type": "warning",
+      "title": "Typiske feil",
+      "content": "- **Kolonnene i $[T]_{\\mathcal B}$ ikke i $\\mathcal B$-koordinater.** Kolonne $j$ skal være $[T(\\mathbf b_j)]_{\\mathcal B}$, altså koordinatene, ikke råverdien $T(\\mathbf b_j)$. Glemmer du å oversette, blir matrisen feil.\n- **Forveksler injektiv og surjektiv.** Injektiv handler om kjernen ($\\ker T=\\{\\mathbf 0\\}$, ingenting viskes ut); surjektiv om bildet ($\\operatorname{im}T=$ hele kodomenet, rang $=m$). Kjernen bor i domenet, bildet i kodomenet.\n- **Glemmer dimensjonsteoremet.** $\\dim\\ker T+\\dim\\operatorname{im}T=\\dim V$ er gratis kontroll *og* poenggiver — navngi det.\n- **Oversetter ikke $\\ker T$ tilbake til funksjoner.** Har du regnet i koordinater, må sluttsvaret tilbake til polynom/matrise-form. Å la $\\ker T$ stå som en vektor i $\\mathbb R^n$ er et halvferdig svar.\n- **Blander $\\operatorname{Col}$-basis fra RREF.** Som i [kap. 3.3](/bok/tma4110/tma4110-3-3): $\\operatorname{im}T$-basis hentes fra de **opprinnelige** pivotkolonnene, ikke fra RREF-kolonnene."
+    },
+    {
+      "id": "tma4110-4-2-begrepsbank",
+      "type": "text",
+      "content": "## Begrepsbank til eksamen\n\nKjernebegrepene om kjerne, bilde og matriserepresentasjon, samlet for pugging (kode E).\n\n*Begrepsbanken er flashcard-/repetisjonsstoff — det gjentar det du nettopp har lest. Hopp trygt over ved førstegangslesing; tidsanslaget for kapitlet gjelder kjernestoffet.*"
+    },
+    {
+      "id": "tma4110-4-2-bb-kjerne-underrom",
+      "type": "definition",
+      "title": "Kjernen er et underrom",
+      "content": "$\\ker T=\\{\\mathbf x:T(\\mathbf x)=\\mathbf 0\\}$ er alltid et underrom av **domenet**: den inneholder $\\mathbf 0$, og er lukket under addisjon og skalering fordi $T$ er lineær ($T(\\mathbf u+\\mathbf v)=\\mathbf 0+\\mathbf 0=\\mathbf 0$). Med standardmatrise er $\\ker T=\\operatorname{Nul}[T]$."
+    },
+    {
+      "id": "tma4110-4-2-bb-bilde-underrom",
+      "type": "definition",
+      "title": "Bildet er et underrom",
+      "content": "$\\operatorname{im}T=\\{T(\\mathbf x):\\mathbf x\\in V\\}$ er alltid et underrom av **kodomenet**. Med standardmatrise er $\\operatorname{im}T=\\operatorname{Col}[T]$, og en basis hentes fra de opprinnelige pivotkolonnene. $\\dim\\operatorname{im}T=\\operatorname{rang}[T]$."
+    },
+    {
+      "id": "tma4110-4-2-bb-injektiv-krit",
+      "type": "definition",
+      "title": "Injektiv ⇔ $\\ker T=\\{\\mathbf 0\\}$",
+      "content": "For en lineær $T$ er injektiv (én-til-én) ekvivalent med triviell kjerne: $\\ker T=\\{\\mathbf 0\\}$. Med standardmatrise: ingen frie variabler, altså $\\operatorname{Nul}[T]=\\{\\mathbf 0\\}$ og alle kolonner har pivot. En avbildning fra et større til et mindre rom kan aldri være injektiv."
+    },
+    {
+      "id": "tma4110-4-2-bb-surjektiv-krit",
+      "type": "definition",
+      "title": "Surjektiv ⇔ rang = dim kodomene",
+      "content": "$T:\\mathbb R^n\\to\\mathbb R^m$ er surjektiv (på) hviss $\\operatorname{im}T=\\mathbb R^m$, dvs. $\\operatorname{rang}[T]=m$ (pivot i hver rad). En avbildning fra et mindre til et større rom kan aldri være surjektiv."
+    },
+    {
+      "id": "tma4110-4-2-bb-bijektiv",
+      "type": "definition",
+      "title": "Bijektiv / isomorfi",
+      "content": "$T$ er **bijektiv** når den er både injektiv og surjektiv; da er den en **isomorfi** og har en invers $T^{-1}$. For $T:V\\to V$ (samme dimensjon) er injektiv, surjektiv og bijektiv ekvivalente — det ene medfører de andre via dimensjonsteoremet."
+    },
+    {
+      "id": "tma4110-4-2-bb-rang-nullitet",
+      "type": "definition",
+      "title": "Rang og nullitet til $T$",
+      "content": "**Rangen** til $T$ er $\\dim\\operatorname{im}T$; **nulliteten** er $\\dim\\ker T$. Dimensjonsteoremet knytter dem: $\\text{nullitet}+\\text{rang}=\\dim V$. Med standardmatrise: nullitet = antall frie variabler, rang = antall pivoter."
+    },
+    {
+      "id": "tma4110-4-2-bb-dimteorem",
+      "type": "definition",
+      "title": "Dimensjonsteoremet (rang + nullitet)",
+      "content": "$\\dim\\ker T+\\dim\\operatorname{im}T=\\dim V$. Kjenner du domenets dimensjon og én av de to, får du den andre gratis. Teoremet er identisk med $\\dim\\operatorname{Nul}A+\\operatorname{rang}A=n$ for standardmatrisen — navngi det i eksamensbesvarelsen."
+    },
+    {
+      "id": "tma4110-4-2-bb-matriserep-relasjon",
+      "type": "definition",
+      "title": "$[T\\mathbf x]_{\\mathcal B}=[T]_{\\mathcal B}[\\mathbf x]_{\\mathcal B}$",
+      "content": "Matriserepresentasjonen virker på koordinatvektorer: for å finne bildet av $\\mathbf x$, ta koordinatene $[\\mathbf x]_{\\mathcal B}$, gang med $[T]_{\\mathcal B}$, og du får $[T\\mathbf x]_{\\mathcal B}$. Oversett så tilbake til original form. Dette gjør en operator på polynomer til vanlig matriseregning."
+    },
+    {
+      "id": "tma4110-4-2-bb-kolonner-TB",
+      "type": "definition",
+      "title": "Kolonnene i $[T]_{\\mathcal B}$ (i $\\mathcal B$-koordinater)",
+      "content": "Kolonne $j$ er $[T(\\mathbf b_j)]_{\\mathcal B}$ — avbild basisvektor $\\mathbf b_j$, uttrykk resultatet i basisen $\\mathcal B$, sett koordinatene inn. Den vanligste fellen er å glemme å oversette til $\\mathcal B$-koordinater."
+    },
+    {
+      "id": "tma4110-4-2-bb-ker-derivasjon",
+      "type": "definition",
+      "title": "Kjernen til derivasjon = konstantene",
+      "content": "For $T(p)=p'$ på $\\operatorname{P}_n$ er $\\ker T$ polynomene med $p'=0$, altså **konstantpolynomene** $\\operatorname{Span}\\{1\\}$, $\\dim\\ker T=1$. Derfor er derivasjon aldri injektiv på $\\operatorname{P}_n$ — konstantleddet viskes alltid ut."
+    },
+    {
+      "id": "tma4110-4-2-bb-im-derivasjon",
+      "type": "definition",
+      "title": "Bildet til derivasjon på $\\operatorname{P}_n$",
+      "content": "$T(p)=p'$ senker graden med $1$, så $\\operatorname{im}T=\\operatorname{P}_{n-1}$ (alle polynomer av grad $\\le n-1$), $\\dim\\operatorname{im}T=n$. Derivasjon treffer aldri et grad-$n$-ledd, så den er ikke surjektiv på $\\operatorname{P}_n$. Kontroll: $\\dim\\ker T+\\dim\\operatorname{im}T=1+n=n+1=\\dim\\operatorname{P}_n$."
+    },
+    {
+      "id": "tma4110-4-2-bb-oversette-tilbake",
+      "type": "definition",
+      "title": "Oversette $\\ker T$ tilbake til polynomer",
+      "content": "Har du regnet $\\operatorname{Nul}[T]_{\\mathcal B}$ og fått en koordinatvektor $(c_1,\\dots,c_n)$, er det tilhørende objektet polynomet $c_1\\mathbf b_1+\\dots+c_n\\mathbf b_n$. Sensor vil ha $\\ker T$ og $\\operatorname{im}T$ uttrykt som **funksjoner/polynomer**, ikke som koordinatlister i $\\mathbb R^n$."
+    },
+    {
+      "id": "tma4110-4-2-bb-formkrav",
+      "type": "definition",
+      "title": "Formkrav: $n$ mot $m$ for $T:\\mathbb R^n\\to\\mathbb R^m$",
+      "content": "Dimensjonene setter grenser: er $n>m$ (større til mindre), kan $T$ **aldri** være injektiv ($\\dim\\ker T\\ge n-m>0$). Er $n<m$ (mindre til større), kan $T$ **aldri** være surjektiv ($\\operatorname{rang}\\le n<m$). Bare når $n=m$ kan $T$ være bijektiv — og da er injektiv, surjektiv og bijektiv ekvivalente."
+    },
+    {
+      "id": "tma4110-4-2-bb-ker-entydig",
+      "type": "definition",
+      "title": "Kjernen og entydig løsning",
+      "content": "Løsningsmengden til $T(\\mathbf x)=\\mathbf b$ (om den er ikke-tom) er $\\mathbf x_p+\\ker T$: én partikulær løsning pluss hele kjernen. Er $\\ker T=\\{\\mathbf 0\\}$ (injektiv), er løsningen entydig. Kjernen måler altså «hvor mye frihet» en løsning har."
+    },
+    {
+      "id": "tma4110-4-2-rep",
+      "type": "collapsible",
+      "title": "Repetisjonsoppgaver",
+      "buttonText": "Vis repetisjonsoppgaver",
+      "content": [
+        {
+          "id": "tma4110-4-2-rep-1",
+          "type": "exercise",
+          "exercise": {
+            "id": "tma4110-4-2-rep-1",
+            "number": "R1",
+            "type": "classic",
+            "difficulty": "lett",
+            "task": "(Fra kap. 3.3) For $A=\\begin{bmatrix}1&2&0\\\\0&0&1\\end{bmatrix}$ (RREF): finn en basis for $\\operatorname{Nul}A$.",
+            "solution": "Pivoter i kolonne $1,3$, fri $x_2$. Radene gir $x_1=-2x_2$, $x_3=0$. Spesiell løsning $(-2,1,0)$, så $\\operatorname{Nul}A=\\operatorname{Span}\\{(-2,1,0)\\}$. (Dette er nettopp en kjerne $\\ker T$ når $A=[T]$.)",
+            "hints": [
+              "Fri variabel $x_2$; sett $x_2=1$ og løs for pivotvariablene."
+            ]
+          }
+        },
+        {
+          "id": "tma4110-4-2-rep-2",
+          "type": "exercise",
+          "exercise": {
+            "id": "tma4110-4-2-rep-2",
+            "number": "R2",
+            "type": "classic",
+            "difficulty": "lett",
+            "task": "(Fra kap. 4.1) Hva er standardmatrisen til $T(x,y)=(2x-y,\\ x+3y)$?",
+            "solution": "Kolonnene er $T(\\mathbf e_1)=T(1,0)=(2,1)$ og $T(\\mathbf e_2)=T(0,1)=(-1,3)$, så $[T]=\\begin{bmatrix}2&-1\\\\1&3\\end{bmatrix}$. Med denne er $\\ker T=\\operatorname{Nul}[T]$ og $\\operatorname{im}T=\\operatorname{Col}[T]$.",
+            "hints": [
+              "Kolonne $j$ = $T(\\mathbf e_j)$."
+            ]
+          }
+        },
+        {
+          "id": "tma4110-4-2-rep-3",
+          "type": "exercise",
+          "exercise": {
+            "id": "tma4110-4-2-rep-3",
+            "number": "R3",
+            "type": "classic",
+            "difficulty": "middels",
+            "task": "(Fra kap. 3.4) Skriv koordinatvektoren til $p(t)=2-t+3t^2$ relativt $\\{1,t,t^2\\}$, og forklar hvorfor du trenger koordinater for å bygge $[T]_{\\mathcal B}$.",
+            "solution": "$[p]_{\\mathcal B}=(2,-1,3)$ (koeffisientene i rekkefølge). For å bygge $[T]_{\\mathcal B}$ må hver kolonne være $[T(\\mathbf b_j)]_{\\mathcal B}$ — altså bildet uttrykt som en koordinatvektor. Uten oversettelsen til koordinater kan en operator på polynomer ikke skrives som en tallmatrise.",
+            "hints": [
+              "Relativt standardbasisen er koordinatene koeffisientene i rekkefølge $1,t,t^2$."
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": "tma4110-4-2-symbolliste",
+      "type": "collapsible",
+      "title": "Symbol- og formelliste",
+      "buttonText": "Vis symboler og formler",
+      "content": [
+        {
+          "id": "tma4110-4-2-symbolliste-text",
+          "type": "text",
+          "content": "## Symbol- og formelliste\n\n*Oppslagsverk — alt her forklares underveis i kapitlet.*\n\nAlle symboler og skrivemåter i dette delkapitlet (4.2), samlet.\n\n| Symbol | Betydning |\n|---|---|\n| $\\ker T$ | Kjernen: vektorer med $T(\\mathbf x)=\\mathbf 0$ (underrom av domenet) |\n| $\\operatorname{im}T$ | Bildet (range): alt som oppnås (underrom av kodomenet) |\n| $\\operatorname{Nul}A,\\operatorname{Col}A$ | Nullrom og kolonnerom til standardmatrisen $A=[T]$ |\n| $\\operatorname{rang}A$ | Rangen = $\\dim\\operatorname{im}T$ (antall pivoter) |\n| $[T]_{\\mathcal B}$ | Matriserepresentasjonen til $T$ i basisen $\\mathcal B$ |\n| $[\\mathbf x]_{\\mathcal B}$ | Koordinatvektoren til $\\mathbf x$ relativt $\\mathcal B$ |\n| $\\operatorname{P}_n$ | Polynomer av grad $\\le n$ (dimensjon $n+1$) |\n| $T(p)=p'$ | Derivasjonsoperatoren |\n\n**Formler i dette delkapitlet:**\n\n$$\\ker T=\\operatorname{Nul}[T],\\qquad \\operatorname{im}T=\\operatorname{Col}[T]$$\n\n$$T\\text{ injektiv}\\ \\Leftrightarrow\\ \\ker T=\\{\\mathbf 0\\},\\qquad T\\text{ surjektiv}\\ \\Leftrightarrow\\ \\operatorname{rang}[T]=\\dim(\\text{kodomene})$$\n\n$$\\dim\\ker T+\\dim\\operatorname{im}T=\\dim V\\qquad(\\text{dimensjonsteoremet: nullitet}+\\text{rang})$$\n\n$$[T\\mathbf x]_{\\mathcal B}=[T]_{\\mathcal B}\\,[\\mathbf x]_{\\mathcal B},\\qquad [T]_{\\mathcal B}=\\big[\\,[T(\\mathbf b_1)]_{\\mathcal B}\\ \\cdots\\ [T(\\mathbf b_n)]_{\\mathcal B}\\,\\big]$$\n\n$$\\text{derivasjon på }\\operatorname{P}_n:\\quad \\ker T=\\operatorname{Span}\\{1\\}\\ (\\text{konstantene}),\\quad \\operatorname{im}T=\\operatorname{P}_{n-1}$$"
+        }
+      ]
+    }
+  ],
+  "exercises": []
+}

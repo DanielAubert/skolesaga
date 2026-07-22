@@ -1,0 +1,162 @@
+[
+  {
+    "question": "Hva er kjernen $\\ker T$ til en lineær transformasjon $T:V\\to W$?",
+    "options": [
+      "Mengden av alle vektorer $\\mathbf x$ i domenet med $T(\\mathbf x)=\\mathbf 0$, et underrom av $V$",
+      "Mengden av alle vektorer $T(\\mathbf x)$ som faktisk oppnås, et underrom av kodomenet $W$",
+      "Mengden av alle egenvektorer til $T$ med egenverdi lik tallet null i rommet",
+      "Mengden av alle vektorer $\\mathbf x$ i $V$ som avbildes på seg selv, altså $T(\\mathbf x)=\\mathbf x$"
+    ],
+    "explanation": "Kjernen består av vektorene som viskes ut til $\\mathbf 0$; den er et underrom av domenet $V$."
+  },
+  {
+    "question": "Hva er bildet $\\operatorname{im}T$ (range) til $T:V\\to W$?",
+    "options": [
+      "Mengden $\\{T(\\mathbf x):\\mathbf x\\in V\\}$ av alt som oppnås, et underrom av kodomenet $W$",
+      "Mengden av alle vektorer i domenet $V$ som $T$ sender til nullvektoren $\\mathbf 0$",
+      "Mengden av alle basisvektorer i kodomenet $W$ som har lengde nøyaktig lik $1$",
+      "Mengden av alle skalarer $c$ slik at $T(c\\mathbf x)=\\mathbf 0$ for en eller annen vektor"
+    ],
+    "explanation": "Bildet er alt som faktisk kommer ut av $T$; det er et underrom av kodomenet $W$."
+  },
+  {
+    "question": "Hvordan finner du $\\ker T$ og $\\operatorname{im}T$ fra standardmatrisen $A=[T]$?",
+    "options": [
+      "$\\ker T=\\operatorname{Nul}A$ og $\\operatorname{im}T=\\operatorname{Col}A$ — samme underrom som i kap. 3.3",
+      "$\\ker T=\\operatorname{Col}A$ og $\\operatorname{im}T=\\operatorname{Nul}A$ — de to underrommene byttet om",
+      "$\\ker T=\\operatorname{Row}A$ og $\\operatorname{im}T=\\operatorname{Nul}A^{T}$ via de transponerte rommene",
+      "$\\ker T$ og $\\operatorname{im}T$ leses direkte av diagonalen i standardmatrisen $A$"
+    ],
+    "explanation": "Kjerne = nullrom, bilde = kolonnerom. Hele regningen er kjent radreduksjon av $A$."
+  },
+  {
+    "question": "Når er en lineær transformasjon $T$ injektiv (én-til-én)?",
+    "options": [
+      "Nøyaktig når $\\ker T=\\{\\mathbf 0\\}$ — bare nullvektoren viskes ut",
+      "Nøyaktig når bildet $\\operatorname{im}T$ fyller hele kodomenet $W$ helt opp",
+      "Nøyaktig når standardmatrisen $A$ er kvadratisk, uansett determinantens verdi",
+      "Nøyaktig når $T$ sender minst én vektor til nullvektoren i kodomenet"
+    ],
+    "explanation": "For lineære $T$ er injektiv ekvivalent med triviell kjerne: $T(\\mathbf u)=T(\\mathbf v)\\Rightarrow T(\\mathbf u-\\mathbf v)=\\mathbf 0\\Rightarrow \\mathbf u=\\mathbf v$."
+  },
+  {
+    "question": "Når er $T:\\mathbb R^n\\to\\mathbb R^m$ surjektiv (på)?",
+    "options": [
+      "Nøyaktig når $\\operatorname{rang}A=m$, så bildet fyller hele $\\mathbb R^m$",
+      "Nøyaktig når $\\operatorname{rang}A=n$, så domenet er utnyttet fullt ut",
+      "Nøyaktig når kjernen $\\ker T$ bare inneholder nullvektoren alene",
+      "Nøyaktig når standardmatrisen $A$ har like mange rader som kolonner"
+    ],
+    "explanation": "Surjektiv betyr $\\operatorname{im}T=\\mathbb R^m$, altså at kolonnerommet har full dimensjon $m$: $\\operatorname{rang}A=m$."
+  },
+  {
+    "question": "Hva sier dimensjonsteoremet for en lineær $T:V\\to W$?",
+    "options": [
+      "$\\dim\\ker T+\\dim\\operatorname{im}T=\\dim V$ (nullitet pluss rang lik domenets dimensjon)",
+      "$\\dim\\ker T+\\dim\\operatorname{im}T=\\dim W$ (nullitet pluss rang lik kodomenets dimensjon)",
+      "$\\dim\\ker T\\cdot\\dim\\operatorname{im}T=\\dim V$ (produktet av de to gir domenets dimensjon)",
+      "$\\dim\\ker T=\\dim\\operatorname{im}T$ alltid (kjerne og bilde har samme dimensjon)"
+    ],
+    "explanation": "Nullitet + rang = dimensjonen til domenet $V$; identisk med $\\dim\\operatorname{Nul}A+\\operatorname{rang}A=n$."
+  },
+  {
+    "question": "$T:\\mathbb R^2\\to\\mathbb R^3$ har $\\operatorname{rang}[T]=2$. Er $T$ surjektiv?",
+    "options": [
+      "Nei — $\\operatorname{rang}=2<3=\\dim\\mathbb R^3$, så bildet fyller ikke hele kodomenet",
+      "Ja — rangen er lik antallet kolonner i standardmatrisen, og det betyr jo at $T$ har full rang",
+      "Ja — enhver injektiv lineær avbildning er automatisk også surjektiv, helt per definisjon",
+      "Nei — men det skyldes utelukkende at standardmatrisen ikke er en kvadratisk matrise her"
+    ],
+    "explanation": "Kodomenet er $\\mathbb R^3$ ($m=3$), men rangen er bare $2$. En avbildning fra et mindre til et større rom kan aldri være surjektiv."
+  },
+  {
+    "question": "En lineær $T:\\mathbb R^5\\to\\mathbb R^3$ har $\\dim\\operatorname{im}T=3$. Hva er $\\dim\\ker T$?",
+    "options": [
+      "$2$, ved dimensjonsteoremet $\\dim\\ker T=5-3$",
+      "$3$, siden $\\dim\\ker T$ alltid er lik rangen til avbildningen",
+      "$0$, siden bildet fyller kodomenet og $T$ dermed er injektiv",
+      "$5$, siden domenet $\\mathbb R^5$ har dimensjon $5$ i utgangspunktet"
+    ],
+    "explanation": "Dimensjonsteoremet: $\\dim\\ker T=\\dim V-\\dim\\operatorname{im}T=5-3=2$."
+  },
+  {
+    "question": "Hva er kolonne $j$ i matriserepresentasjonen $[T]_{\\mathcal B}$?",
+    "options": [
+      "$\\mathcal B$-koordinatene til bildet av den $j$-te basisvektoren, altså $[T(\\mathbf b_j)]_{\\mathcal B}$",
+      "Selve bildet $T(\\mathbf b_j)$ satt inn uendret, uten å oversette til $\\mathcal B$-koordinater",
+      "$\\mathcal B$-koordinatene til den $j$-te basisvektoren $\\mathbf b_j$ selv, altså $[\\mathbf b_j]_{\\mathcal B}$",
+      "Den $j$-te standardbasisvektoren $\\mathbf e_j$ i kodomenet, uavhengig av basisen $\\mathcal B$"
+    ],
+    "explanation": "Kolonne $j$ er $[T(\\mathbf b_j)]_{\\mathcal B}$: avbild basisvektor $\\mathbf b_j$, uttrykk resultatet i $\\mathcal B$, sett koordinatene inn."
+  },
+  {
+    "question": "For $T(p)=p'$ på $\\operatorname{P}_2$ med $\\mathcal B=\\{1,t,t^2\\}$, hva er $[T]_{\\mathcal B}$?",
+    "options": [
+      "$\\begin{bmatrix}0&1&0\\\\0&0&2\\\\0&0&0\\end{bmatrix}$",
+      "$\\begin{bmatrix}0&0&0\\\\1&0&0\\\\0&2&0\\end{bmatrix}$",
+      "$\\begin{bmatrix}1&0&0\\\\0&2&0\\\\0&0&3\\end{bmatrix}$",
+      "$\\begin{bmatrix}0&1&2\\\\0&0&0\\\\0&0&0\\end{bmatrix}$"
+    ],
+    "explanation": "$T(1)=0\\to(0,0,0)$, $T(t)=1\\to(1,0,0)$, $T(t^2)=2t\\to(0,2,0)$, satt inn som kolonner."
+  },
+  {
+    "question": "Hva er kjernen til derivasjonsoperatoren $T(p)=p'$ på $\\operatorname{P}_n$?",
+    "options": [
+      "Konstantpolynomene $\\operatorname{Span}\\{1\\}$ — de eneste med $p'=0$, så $\\dim\\ker T=1$",
+      "Hele $\\operatorname{P}_n$, siden derivasjon sender ethvert polynom til nullpolynomet",
+      "Bare nullpolynomet $\\{\\mathbf 0\\}$, så derivasjon er injektiv på $\\operatorname{P}_n$",
+      "Polynomene av grad nøyaktig $n$, altså de med ledende ledd $a_nt^n$ ulik null"
+    ],
+    "explanation": "$p'=0$ betyr at $p$ er konstant; kjernen er $\\operatorname{Span}\\{1\\}$, dimensjon $1$. Derfor er derivasjon aldri injektiv på $\\operatorname{P}_n$."
+  },
+  {
+    "question": "Hva er bildet til derivasjonsoperatoren $T(p)=p'$ på $\\operatorname{P}_3$?",
+    "options": [
+      "$\\operatorname{P}_2$ (polynomer av grad $\\le 2$), $\\dim\\operatorname{im}T=3$",
+      "$\\operatorname{P}_3$ (hele rommet), så $T$ er surjektiv på $\\operatorname{P}_3$",
+      "Konstantpolynomene $\\operatorname{Span}\\{1\\}$, altså dimensjon $1$",
+      "$\\operatorname{P}_4$ (polynomer av grad $\\le 4$), $\\dim\\operatorname{im}T=5$"
+    ],
+    "explanation": "Derivasjon senker graden med $1$, så bildet er $\\operatorname{P}_2$; den treffer aldri et grad-$3$-ledd og er ikke surjektiv."
+  },
+  {
+    "question": "Hvorfor kan en lineær $T:\\mathbb R^4\\to\\mathbb R^2$ aldri være injektiv?",
+    "options": [
+      "Fordi $\\dim\\ker T=4-\\operatorname{rang}[T]\\ge 4-2=2>0$ ved dimensjonsteoremet",
+      "Fordi standardmatrisen $[T]$ da alltid har determinant lik tallet null",
+      "Fordi kodomenet $\\mathbb R^2$ inneholder for få vektorer til å treffe alle",
+      "Fordi rangen til $T$ alltid er lik $4$ når domenet er $\\mathbb R^4$"
+    ],
+    "explanation": "Rangen er høyst $2$, så nulliteten er minst $4-2=2>0$: kjernen er ikke-triviell. Større-til-mindre kan aldri være injektiv."
+  },
+  {
+    "question": "Du har regnet $\\operatorname{Nul}[T]_{\\mathcal B}=\\operatorname{Span}\\{(1,0,0)\\}$ for $T(p)=p'$ på $\\operatorname{P}_2$ med $\\mathcal B=\\{1,t,t^2\\}$. Hva er $\\ker T$ som polynomrom?",
+    "options": [
+      "Konstantpolynomene $\\operatorname{Span}\\{1\\}$, siden koordinaten $(1,0,0)$ svarer til polynomet $1$",
+      "Førstegradspolynomene $\\operatorname{Span}\\{t\\}$, siden koordinaten $(1,0,0)$ svarer til leddet $t$ i rommet",
+      "Hele $\\operatorname{P}_2$, ettersom nullrommet inneholder minst én ikke-triviell koordinatvektor",
+      "Andregradspolynomene $\\operatorname{Span}\\{t^2\\}$, siden koordinaten $(1,0,0)$ peker på leddet $t^2$"
+    ],
+    "explanation": "Koordinatvektoren $(1,0,0)$ relativt $\\{1,t,t^2\\}$ er polynomet $1$, så $\\ker T$ er konstantene. Husk å oversette tilbake til polynom."
+  },
+  {
+    "question": "En avbildning $T:V\\to V$ på samme rom er injektiv. Hva følger?",
+    "options": [
+      "$T$ er også surjektiv, altså bijektiv — de tre er ekvivalente når domene og kodomene har samme dimensjon",
+      "$T$ kan likevel godt være ikke-surjektiv, ettersom injektiv og surjektiv er to helt uavhengige egenskaper",
+      "$T$ må da nødvendigvis ha en ikke-triviell kjerne som består av flere vektorer enn bare nullvektoren",
+      "$T$ har nødvendigvis en determinant lik tallet null i sin matriserepresentasjon $[T]_{\\mathcal B}$"
+    ],
+    "explanation": "Med $\\dim V=\\dim W$ gir dimensjonsteoremet at $\\dim\\ker T=0$ tvinger $\\dim\\operatorname{im}T=\\dim V$, så injektiv, surjektiv og bijektiv er ekvivalente."
+  },
+  {
+    "question": "Hva er den vanligste fellen når du bygger $[T]_{\\mathcal B}$?",
+    "options": [
+      "Å sette inn råverdien $T(\\mathbf b_j)$ i stedet for dens $\\mathcal B$-koordinater $[T(\\mathbf b_j)]_{\\mathcal B}$",
+      "Å regne ut determinanten til hver enkelt basisvektor før man i det hele tatt setter opp matrisen",
+      "Å bruke altfor få desimaler i mellomregningen slik at presisjonen i sluttsvaret dermed går tapt",
+      "Å skrive koordinatvektorene som liggende rader i stedet for som stående kolonnevektorer i matrisen"
+    ],
+    "explanation": "Kolonnene MÅ være i $\\mathcal B$-koordinater; glemmer du å oversette bildet til koordinater, blir hele matrisen feil."
+  }
+]

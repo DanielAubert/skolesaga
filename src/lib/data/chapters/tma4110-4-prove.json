@@ -1,0 +1,119 @@
+{
+  "id": "tma4110-4-prove",
+  "courseId": "tma4110",
+  "chapterNumber": "4.P",
+  "title": "Prøver til del 4: Lineære transformasjoner",
+  "description": "Fire prøver til Del 4 (kap. 4.1–4.2): linearitetssjekk + standardmatrise + geometrisk avbildning, kjerne/bilde + injektiv/surjektiv + dimensjonsteorem, [T]_B for derivasjonsoperatoren T(p)=p′ med ker T til polynomer, og et kjedet transformasjons-tverrsnitt — med fullstendige løsningsforslag og selvdiagnose.",
+  "estimatedMinutes": 155,
+  "competenceGoals": [
+    "sjekke linearitet, bygge standardmatrisen og komponere geometriske avbildninger under prøvebetingelser",
+    "finne kjerne og bilde fra standardmatrisen, avgjøre injektiv/surjektiv og navngi dimensjonsteoremet som kontroll",
+    "bygge [T]_B for T(p)=p′ og kjede sammen komposisjon, kjerne og bilde slik en full eksamensoppgave krever"
+  ],
+  "content": [
+    {
+      "id": "tma4110-4-prove-tip",
+      "type": "tip",
+      "title": "Prøver til del 4 — Lineære transformasjoner",
+      "content": "**Fire prøver som dekker hele Del 4** (kap. 4.1–4.2): linearitetssjekk + standardmatrise + geometrisk avbildning (4.A), kjerne/bilde + injektiv/surjektiv + dimensjonsteorem (4.B), $[T]_{\\mathcal B}$ for $T(p)=p'$ + $\\ker T$ til polynomer (4.C), og et transformasjons-tverrsnitt med komposisjon + kjerne/bilde kjedet (4.D).\n\n**4 prøver à ~35–40 min.** Du kan trygt dele dem over flere kvelder — ta gjerne én prøve per økt. Alt er **langsvar med full begrunnelse** (ingen flervalg, som på en normalårs-eksamen): sjekk linearitet med de to betingelsene, bygg standardmatrisen kolonne for kolonne fra $T(\\mathbf e_j)$, navngi **dimensjonsteoremet** ($\\dim\\ker T+\\dim\\operatorname{im}T=\\dim V$), og oversett $\\ker T$ **tilbake til polynomer**. Kalibrert mot ingen hjelpemidler (kode E) — regn for hånd og gi eksakte svar.\n\nEtter hver fasit står en **selvdiagnose-sjekkliste** — kryss av det du fikk til, så ser du hva du bør repetere."
+    },
+    {
+      "id": "tma4110-4-prove-forkunnskaper",
+      "type": "text",
+      "content": "**Forkunnskaper:** Prøvene forutsetter [kap. 4.1](/bok/tma4110/tma4110-4-1) (lineære transformasjoner, standardmatrisen $A=[T]$, geometriske avbildninger, komposisjon = matriseprodukt) og [kap. 4.2](/bok/tma4110/tma4110-4-2) (kjerne, bilde, injektiv/surjektiv, dimensjonsteoremet, matriserepresentasjonen $[T]_{\\mathcal B}$). Regnemotoren — radreduksjon, $\\operatorname{Col}/\\operatorname{Nul}$-basis og koordinater — er fra [kap. 3.3](/bok/tma4110/tma4110-3-3) og [kap. 3.4](/bok/tma4110/tma4110-3-4). Ingen nye metoder; dette er eksamenstrening på Del 4."
+    },
+    {
+      "id": "tma4110-4-prove-prove-4a",
+      "type": "collapsible",
+      "title": "Prøve 4.A — Linearitet, standardmatrise og geometrisk avbildning (~35 min)",
+      "buttonText": "Vis prøve 1",
+      "content": [
+        {
+          "id": "tma4110-4-prove-4a-oppg",
+          "type": "text",
+          "content": "### Prøve 4.A (kap. 4.1, sjanger F · ~35 min)\n\n**Oppgave 1 (linearitet + standardmatrise).** La $T:\\mathbb R^2\\to\\mathbb R^2$ være gitt ved $T(x,y)=(x+y,\\ x-2y)$. Vis at $T$ er lineær, og finn standardmatrisen $[T]$.\n\n**Oppgave 2 (er den lineær?).** Avgjør om $S:\\mathbb R^2\\to\\mathbb R^2$ gitt ved $S(x,y)=(x+y,\\ xy)$ er lineær. Begrunn.\n\n**Oppgave 3 (geometrisk avbildning).** La en figur roteres $90^\\circ$ **med** klokka og speiles så om linjen $y=x$.\n\n**a)** Finn standardmatrisen til rotasjonen og til speilingen hver for seg.\n\n**b)** Finn standardmatrisen til den sammensatte avbildningen «først rotasjon, så speiling», og beskriv den geometrisk.\n\n**c)** Bruk den sammensatte matrisen på $(2,1)$."
+        },
+        {
+          "id": "tma4110-4-prove-4a-fasit",
+          "type": "text",
+          "content": "### Fasit 4.A\n\n**Oppgave 1.** La $\\mathbf u=(x_1,y_1)$, $\\mathbf v=(x_2,y_2)$.\n**(1) Addisjon:** $T(\\mathbf u+\\mathbf v)=\\big((x_1+x_2)+(y_1+y_2),\\ (x_1+x_2)-2(y_1+y_2)\\big)=T(\\mathbf u)+T(\\mathbf v)$ ✓.\n**(2) Skalering:** $T(c\\mathbf u)=(cx_1+cy_1,\\ cx_1-2cy_1)=c\\,T(\\mathbf u)$ ✓.\nBegge betingelsene holder, så $T$ er **lineær**. Standardmatrisen: $T(\\mathbf e_1)=T(1,0)=(1,1)$, $T(\\mathbf e_2)=T(0,1)=(1,-2)$, så\n$$[T]=\\begin{bmatrix}1&1\\\\1&-2\\end{bmatrix}.$$\n\n**Oppgave 2.** $S$ er **ikke lineær**. Test skalering: $S(2\\cdot(1,1))=S(2,2)=(4,\\ 4)$, men $2\\,S(1,1)=2(2,\\ 1)=(4,\\ 2)$ — ulike. Produktleddet $xy$ er ikke-lineært (det er kvadratisk i skalering). Alternativt: $S(c\\mathbf u)$ har $(cx)(cy)=c^2xy\\ne c\\cdot xy$ for $c\\ne0,1$.\n\n**Oppgave 3.**\n**a)** Rotasjon $90^\\circ$ med klokka er $\\theta=-90^\\circ$: $\\cos(-90^\\circ)=0$, $\\sin(-90^\\circ)=-1$, så $[R]=\\begin{bmatrix}0&1\\\\-1&0\\end{bmatrix}$. Speiling om $y=x$: $[F]=\\begin{bmatrix}0&1\\\\1&0\\end{bmatrix}$.\n\n**b)** «Først $R$, så $F$» er $F\\circ R$ med matrise $[F][R]$:\n$$[F][R]=\\begin{bmatrix}0&1\\\\1&0\\end{bmatrix}\\begin{bmatrix}0&1\\\\-1&0\\end{bmatrix}=\\begin{bmatrix}-1&0\\\\0&1\\end{bmatrix}.$$\nDette er **speiling om $y$-aksen** (snur $x$, holder $y$).\n\n**c)** $\\begin{bmatrix}-1&0\\\\0&1\\end{bmatrix}\\begin{bmatrix}2\\\\1\\end{bmatrix}=\\begin{bmatrix}-2\\\\1\\end{bmatrix}$. Kontroll steg for steg: $R(2,1)=(1,-2)$ (rotasjonen), $F(1,-2)=(-2,1)$ (speiling om $y=x$) ✓."
+        },
+        {
+          "id": "tma4110-4-prove-4a-selvdiagnose",
+          "type": "text",
+          "content": "### Selvdiagnose 4.A\n\n- ☐ Jeg viste begge linearitetsbetingelsene eksplisitt i oppgave 1.\n- ☐ Jeg bygde $[T]$ fra $T(\\mathbf e_1)$ og $T(\\mathbf e_2)$ som kolonner.\n- ☐ Jeg avviste $S$ med et konkret moteksempel på skalering (ikke bare «$xy$ ser rart ut»).\n- ☐ Jeg brukte $\\theta=-90^\\circ$ for rotasjon med klokka og fikk riktige fortegn.\n- ☐ Jeg komponerte i riktig rekkefølge ($[F][R]$, sist utført først) og kontrollerte steg for steg.\n\nGlapp komposisjonsrekkefølgen, repeter «komposisjon = matriseprodukt» i [kap. 4.1](/bok/tma4110/tma4110-4-1)."
+        }
+      ]
+    },
+    {
+      "id": "tma4110-4-prove-prove-4b",
+      "type": "collapsible",
+      "title": "Prøve 4.B — Kjerne, bilde og dimensjonsteoremet (~40 min)",
+      "buttonText": "Vis prøve 2",
+      "content": [
+        {
+          "id": "tma4110-4-prove-4b-oppg",
+          "type": "text",
+          "content": "### Prøve 4.B (kap. 4.2, sjanger F · ~40 min)\n\n**Oppgave 1.** La $T:\\mathbb R^3\\to\\mathbb R^3$ ha standardmatrise $A=\\begin{bmatrix}1&1&2\\\\2&1&3\\\\3&2&5\\end{bmatrix}$. Finn en basis for $\\ker T$ og for $\\operatorname{im}T$, oppgi dimensjonene, og kontroller dimensjonsteoremet. Er $T$ injektiv? Surjektiv?\n\n**Oppgave 2.** La $T:\\mathbb R^2\\to\\mathbb R^3$ ha standardmatrise $B=\\begin{bmatrix}1&2\\\\0&1\\\\1&1\\end{bmatrix}$. Avgjør om $T$ er injektiv og/eller surjektiv, og begrunn med rang og dimensjonsteoremet."
+        },
+        {
+          "id": "tma4110-4-prove-4b-fasit",
+          "type": "text",
+          "content": "### Fasit 4.B\n\n**Oppgave 1.** Radreduser $A$: $R_2\\to R_2-2R_1=(0,-1,-1)$, $R_3\\to R_3-3R_1=(0,-1,-1)$, så $R_3\\to R_3-R_2=0$; skaler $R_2\\to(0,1,1)$ og $R_1\\to R_1-R_2$:\n$$\\text{RREF}=\\begin{bmatrix}1&0&1\\\\0&1&1\\\\0&0&0\\end{bmatrix}.$$\nPivoter i kolonne $1,2$, fri $x_3$.\n\n**Kjerne** $=\\operatorname{Nul}A$: $x_1=-x_3$, $x_2=-x_3$, spesiell løsning $(-1,-1,1)$. $\\ker T=\\operatorname{Span}\\{(-1,-1,1)\\}$, $\\dim\\ker T=1$.\n**Bilde** $=\\operatorname{Col}A$: opprinnelige pivotkolonner $1,2$: $\\{(1,2,3),\\ (1,1,2)\\}$, $\\dim\\operatorname{im}T=2$.\n**Dimensjonsteoremet:** $\\dim\\ker T+\\dim\\operatorname{im}T=1+2=3=\\dim\\mathbb R^3$ ✓.\n$\\ker T\\ne\\{\\mathbf 0\\}$ ⇒ **ikke injektiv**; $\\operatorname{rang}A=2<3$ ⇒ **ikke surjektiv**.\n\n**Oppgave 2.** Radreduser $B$: $R_3\\to R_3-R_1=(0,-1)$, så $R_3\\to R_3+R_2=(0,0)$:\n$$\\text{RREF}=\\begin{bmatrix}1&0\\\\0&1\\\\0&0\\end{bmatrix}.$$\nBegge kolonner har pivot ⇒ $\\operatorname{rang}B=2$, ingen frie variabler. **Injektiv?** $\\dim\\operatorname{Nul}B=0$, $\\ker T=\\{\\mathbf 0\\}$ ⇒ **ja, injektiv**. **Surjektiv?** Kodomenet er $\\mathbb R^3$ ($m=3$), men $\\operatorname{rang}B=2<3$ ⇒ **nei, ikke surjektiv**. **Dimensjonsteoremet:** $0+2=2=\\dim\\mathbb R^2$ ✓. (Fra et mindre til et større rom kan $T$ aldri være surjektiv.)"
+        },
+        {
+          "id": "tma4110-4-prove-4b-selvdiagnose",
+          "type": "text",
+          "content": "### Selvdiagnose 4.B\n\n- ☐ Jeg radreduserte til RREF uten fortegnsfeil.\n- ☐ Jeg hentet $\\operatorname{im}T$-basis fra de **opprinnelige** pivotkolonnene, ikke fra RREF.\n- ☐ Jeg fant $\\ker T$-basis fra de spesielle løsningene (én per fri variabel).\n- ☐ Jeg navnga dimensjonsteoremet og brukte det som kontroll i begge oppgaver.\n- ☐ Jeg avgjorde injektiv via kjernen og surjektiv via rang mot kodomenets dimensjon.\n\nBlandet du kjerne og bilde, repeter «kjerne og bilde via standardmatrisen» i [kap. 4.2](/bok/tma4110/tma4110-4-2)."
+        }
+      ]
+    },
+    {
+      "id": "tma4110-4-prove-prove-4c",
+      "type": "collapsible",
+      "title": "Prøve 4.C — Matriserepresentasjon av T(p)=p′ og kjerne til polynomer (~40 min)",
+      "buttonText": "Vis prøve 3",
+      "content": [
+        {
+          "id": "tma4110-4-prove-4c-oppg",
+          "type": "text",
+          "content": "### Prøve 4.C (kap. 4.2, sjanger F · ~40 min)\n\nLa $T:\\operatorname{P}_3\\to\\operatorname{P}_3$ være derivasjonsoperatoren $T(p)=p'$, med basis $\\mathcal B=\\{1,t,t^2,t^3\\}$.\n\n**a)** Finn matriserepresentasjonen $[T]_{\\mathcal B}$.\n\n**b)** Finn $\\ker T$ og $\\operatorname{im}T$, uttrykt som **polynomrom**, og oppgi dimensjonene.\n\n**c)** Er $T$ injektiv? Surjektiv? Begrunn med dimensjonsteoremet.\n\n**d)** Bruk $[T]_{\\mathcal B}$ til å regne $T(p)$ for $p(t)=2-t+3t^2-t^3$ via koordinater, og oversett svaret tilbake til et polynom."
+        },
+        {
+          "id": "tma4110-4-prove-4c-fasit",
+          "type": "text",
+          "content": "### Fasit 4.C\n\n**a)** Deriver hver basisvektor og les koordinatene relativt $\\{1,t,t^2,t^3\\}$: $T(1)=0\\to(0,0,0,0)$, $T(t)=1\\to(1,0,0,0)$, $T(t^2)=2t\\to(0,2,0,0)$, $T(t^3)=3t^2\\to(0,0,3,0)$. Stabl som kolonner:\n$$[T]_{\\mathcal B}=\\begin{bmatrix}0&1&0&0\\\\0&0&2&0\\\\0&0&0&3\\\\0&0&0&0\\end{bmatrix}.$$\n\n**b)** **Kjerne:** $\\operatorname{Nul}[T]_{\\mathcal B}$ gir $c_2=c_3=c_4=0$, $c_1$ fri, spesiell løsning $(1,0,0,0)$ = polynomet $1$. Så $\\ker T=\\operatorname{Span}\\{1\\}$ = **konstantpolynomene** (de med $p'=0$), $\\dim\\ker T=1$. **Bilde:** pivotkolonner $2,3,4$ gir koordinatbasis $(1,0,0,0),(0,2,0,0),(0,0,3,0)$, altså polynomene $1,\\ 2t,\\ 3t^2$. Så $\\operatorname{im}T=\\operatorname{Span}\\{1,t,t^2\\}=\\operatorname{P}_2$, $\\dim\\operatorname{im}T=3$.\n\n**c)** $\\ker T=\\operatorname{Span}\\{1\\}\\ne\\{\\mathbf 0\\}$ ⇒ **ikke injektiv**. $\\operatorname{im}T=\\operatorname{P}_2\\ne\\operatorname{P}_3$ ⇒ **ikke surjektiv**. **Dimensjonsteoremet:** $\\dim\\ker T+\\dim\\operatorname{im}T=1+3=4=\\dim\\operatorname{P}_3$ ✓.\n\n**d)** $[p]_{\\mathcal B}=(2,-1,3,-1)$. Gang:\n$$[T]_{\\mathcal B}\\begin{bmatrix}2\\\\-1\\\\3\\\\-1\\end{bmatrix}=\\begin{bmatrix}1\\cdot(-1)\\\\2\\cdot3\\\\3\\cdot(-1)\\\\0\\end{bmatrix}=\\begin{bmatrix}-1\\\\6\\\\-3\\\\0\\end{bmatrix}.$$\nOversett tilbake: koordinaten $(-1,6,-3,0)$ er polynomet $-1+6t-3t^2$. Kontroll ved direkte derivasjon: $\\tfrac{d}{dt}(2-t+3t^2-t^3)=-1+6t-3t^2$ ✓."
+        },
+        {
+          "id": "tma4110-4-prove-4c-selvdiagnose",
+          "type": "text",
+          "content": "### Selvdiagnose 4.C\n\n- ☐ Jeg bygde $[T]_{\\mathcal B}$ kolonne for kolonne fra $[T(\\mathbf b_j)]_{\\mathcal B}$ (i $\\mathcal B$-koordinater).\n- ☐ Jeg oversatte $\\ker T$ **tilbake til polynom** (konstantene), ikke bare en koordinatvektor.\n- ☐ Jeg uttrykte $\\operatorname{im}T$ som polynomrommet $\\operatorname{P}_2$.\n- ☐ Jeg navnga dimensjonsteoremet og konkluderte injektiv/surjektiv riktig.\n- ☐ I (d) regnet jeg via koordinater og kontrollerte mot direkte derivasjon.\n\nLot du $\\ker T$ stå i $\\mathbb R^4$, repeter «oversette $\\ker T$ tilbake til polynomer» i [kap. 4.2](/bok/tma4110/tma4110-4-2)."
+        }
+      ]
+    },
+    {
+      "id": "tma4110-4-prove-prove-4d",
+      "type": "collapsible",
+      "title": "Prøve 4.D — Transformasjons-tverrsnitt (kjedet) (~40 min)",
+      "buttonText": "Vis prøve 4",
+      "content": [
+        {
+          "id": "tma4110-4-prove-4d-oppg",
+          "type": "text",
+          "content": "### Prøve 4.D (kap. 4.1–4.2, sjanger F · ~40 min)\n\nDenne oppgaven kjeder sammen standardmatrise, komposisjon, kjerne og bilde — slik en full transformasjonsoppgave på eksamen ofte ser ut.\n\n**a)** La $S:\\mathbb R^2\\to\\mathbb R^2$ være rotasjon $90^\\circ$ mot klokka og $T:\\mathbb R^2\\to\\mathbb R^2$ speiling om $x$-aksen. Finn standardmatrisen til $T\\circ S$ («først $S$, så $T$»), og bruk den på $(1,3)$.\n\n**b)** La $U:\\mathbb R^3\\to\\mathbb R^3$ ha standardmatrise $C=\\begin{bmatrix}1&-1&0\\\\2&-2&0\\\\0&0&1\\end{bmatrix}$. Finn en basis for $\\ker U$ og for $\\operatorname{im}U$, og oppgi rang og nullitet.\n\n**c)** Bruk dimensjonsteoremet til å kontrollere svaret i (b), og avgjør om $U$ er injektiv og/eller surjektiv. Forklar hva nullromsvektoren forteller om kolonnene i $C$."
+        },
+        {
+          "id": "tma4110-4-prove-4d-fasit",
+          "type": "text",
+          "content": "### Fasit 4.D\n\n**a)** $[S]=\\begin{bmatrix}0&-1\\\\1&0\\end{bmatrix}$ (rotasjon $90^\\circ$ mot klokka), $[T]=\\begin{bmatrix}1&0\\\\0&-1\\end{bmatrix}$ (speiling om $x$-aksen). «Først $S$, så $T$» er $T\\circ S$ med matrise $[T][S]$:\n$$[T\\circ S]=\\begin{bmatrix}1&0\\\\0&-1\\end{bmatrix}\\begin{bmatrix}0&-1\\\\1&0\\end{bmatrix}=\\begin{bmatrix}0&-1\\\\-1&0\\end{bmatrix}.$$\nBruk på $(1,3)$: $\\begin{bmatrix}0&-1\\\\-1&0\\end{bmatrix}\\begin{bmatrix}1\\\\3\\end{bmatrix}=\\begin{bmatrix}-3\\\\-1\\end{bmatrix}$. Kontroll: $S(1,3)=(-3,1)$, $T(-3,1)=(-3,-1)$ ✓. (Matrisen er speiling om linjen $y=-x$.)\n\n**b)** Radreduser $C$: $R_2\\to R_2-2R_1=(0,0,0)$; bytt så nullraden ned:\n$$\\text{RREF}=\\begin{bmatrix}1&-1&0\\\\0&0&1\\\\0&0&0\\end{bmatrix}.$$\nPivoter i kolonne $1,3$, fri $x_2$. **Kjerne:** $x_1=x_2$, $x_3=0$, spesiell løsning $(1,1,0)$. $\\ker U=\\operatorname{Span}\\{(1,1,0)\\}$, nullitet $=1$. **Bilde:** opprinnelige pivotkolonner $1,3$: $\\{(1,2,0),\\ (0,0,1)\\}$, rang $=2$.\n\n**c)** **Dimensjonsteoremet:** nullitet + rang $=1+2=3=\\dim\\mathbb R^3$ ✓. $\\ker U\\ne\\{\\mathbf 0\\}$ ⇒ **ikke injektiv**; $\\operatorname{rang}U=2<3$ ⇒ **ikke surjektiv**. Nullromsvektoren $(1,1,0)$ betyr $1\\cdot(\\text{kol }1)+1\\cdot(\\text{kol }2)+0\\cdot(\\text{kol }3)=\\mathbf 0$, altså at kolonne $1$ og kolonne $2$ er avhengige (her $\\text{kol }2=-\\text{kol }1$): $(-1,-2,0)=-(1,2,0)$. Derfor gir bare to kolonner uavhengig bidrag, og $\\operatorname{rang}U=2$."
+        },
+        {
+          "id": "tma4110-4-prove-4d-selvdiagnose",
+          "type": "text",
+          "content": "### Selvdiagnose 4.D\n\n- ☐ Jeg komponerte i riktig rekkefølge ($[T][S]$) og kontrollerte steg for steg.\n- ☐ Jeg radreduserte $C$ og leste $\\ker U$-basis fra den frie variabelen.\n- ☐ Jeg hentet $\\operatorname{im}U$-basis fra de opprinnelige pivotkolonnene.\n- ☐ Jeg kontrollerte med dimensjonsteoremet (nullitet + rang $=n$) og avgjorde injektiv/surjektiv.\n- ☐ Jeg koblet nullromsvektoren til en avhengighet mellom kolonnene i $C$.\n\nKlarte du hele kjeden, sitter Del 4. Skulle noe glippe, gå tilbake til teorikapitlet det gjelder ([kap. 4.1](/bok/tma4110/tma4110-4-1) for komposisjon, [kap. 4.2](/bok/tma4110/tma4110-4-2) for kjerne/bilde)."
+        }
+      ]
+    }
+  ],
+  "exercises": []
+}

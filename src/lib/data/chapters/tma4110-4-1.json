@@ -1,0 +1,416 @@
+{
+  "id": "tma4110-4-1",
+  "courseId": "tma4110",
+  "chapterNumber": "4.1",
+  "title": "Lineære transformasjoner og standardmatrisen",
+  "description": "Lineære transformasjoner T: ℝⁿ→ℝᵐ, linearitetssjekken, standardmatrisen A=[T(e₁) … T(eₙ)], og de geometriske avbildningene i planet (rotasjon, speiling, projeksjon, skalering) med komposisjon som matriseprodukt.",
+  "estimatedMinutes": 50,
+  "competenceGoals": [
+    "avgjøre om en avbildning T er lineær ved å sjekke de to betingelsene (addisjon og skalering)",
+    "bygge standardmatrisen A=[T] kolonne for kolonne fra T(eⱼ) og regne T(x)=Ax",
+    "sette opp standardmatrisene for rotasjon, speiling, projeksjon og skalering, og komponere dem i riktig rekkefølge via matriseprodukt"
+  ],
+  "content": [
+    {
+      "id": "tma4110-4-1-tip-eksamensvinkel",
+      "type": "tip",
+      "title": "Eksamensvinkel",
+      "content": "**Lineære transformasjoner (sjanger F) er en «kunne»-del av settet — den dukker opp i om lag $38\\,\\%$ av eksamenssettene**, ofte koblet til abstrakt vektorrom fra Del 3.\n\n- **Standardmatrisen** $A=[T]$ er kjernegrepet: du bygger matrisen **kolonne for kolonne** fra bildene $T(\\mathbf e_1),\\dots,T(\\mathbf e_n)$, og så er $T(\\mathbf x)=A\\mathbf x$ vanlig matriseregning.\n- **Geometriske avbildninger** i planet (rotasjon, speiling, projeksjon, skalering) og **komposisjon** av dem via matriseprodukt er den vanligste konkrete varianten.\n\nMålet: du skal sikkert kunne (1) **sjekke linearitet** med de to betingelsene, (2) skrive opp standardmatrisen, og (3) komponere avbildninger i **riktig rekkefølge** (matriseprodukt er ikke-kommutativt). Under kode E — ingen hjelpemidler — gjøres alt for hånd, og de geometriske standardmatrisene sitter utenat."
+    },
+    {
+      "id": "tma4110-4-1-forkunnskaper",
+      "type": "text",
+      "content": "**Forkunnskaper:** Dette kapitlet bygger på matriseproduktet fra [kap. 2.1](/bok/tma4110/tma4110-2-1) (særlig $A\\mathbf x$ som en lineærkombinasjon av kolonnene, og produkt av to matriser) og på koordinater fra [kap. 3.4](/bok/tma4110/tma4110-3-4) (broen til abstrakte rom, som vi tar videre i [kap. 4.2](/bok/tma4110/tma4110-4-2)). Trigonometrien bak rotasjonsmatrisen ($\\cos,\\sin$ i enhetssirkelen) finner du i [Trigonometriske funksjoner](/bok/r2/r2-3-1). Kan du regne ut $A\\mathbf x$ og et matriseprodukt $AB$, har du regnemotoren."
+    },
+    {
+      "id": "tma4110-4-1-motivasjon",
+      "type": "text",
+      "content": "## Hvorfor lineære transformasjoner?\n\nEn **transformasjon** er bare en regel som tar inn en vektor og gir ut en vektor — tenk på en maskin som roterer, strekker eller speiler pilene i planet. De **lineære** transformasjonene er de «snille» maskinene: de respekterer addisjon og skalering, og nettopp derfor kan hele regelen pakkes inn i én matrise. Å rotere en figur $90^\\circ$, projisere en skygge ned på bakken eller speile et bilde er alt sammen multiplikasjon med en fast matrise.\n\nKapitlet har tre løkker: (1) **linearitetstesten** — når er en avbildning lineær, (2) **standardmatrisen** $A=[T]$ som fanger hele avbildningen, og (3) de **geometriske avbildningene** i planet og hvordan de settes sammen."
+    },
+    {
+      "id": "tma4110-4-1-lokke1",
+      "type": "text",
+      "content": "## Løkke 1 — Når er en avbildning lineær? (~15 min)"
+    },
+    {
+      "id": "tma4110-4-1-def-transformasjon",
+      "type": "definition",
+      "title": "Transformasjon, domene og kodomene",
+      "content": "En **transformasjon** (eller avbildning) $T:\\mathbb R^n\\to\\mathbb R^m$ er en regel som til hver vektor $\\mathbf x$ i **domenet** $\\mathbb R^n$ tilordner nøyaktig én vektor $T(\\mathbf x)$ i **kodomenet** $\\mathbb R^m$. Vektoren $T(\\mathbf x)$ kalles **bildet** av $\\mathbf x$. Du kjenner ideen fra vanlige funksjoner $f(x)$ — forskjellen er bare at inn- og utdata nå er vektorer."
+    },
+    {
+      "id": "tma4110-4-1-def-linear",
+      "type": "definition",
+      "title": "Lineær transformasjon",
+      "content": "En transformasjon $T:\\mathbb R^n\\to\\mathbb R^m$ er **lineær** dersom den respekterer de to regneoperasjonene i et vektorrom. Det betyr at to betingelser holder for alle vektorer $\\mathbf u,\\mathbf v$ og alle skalarer $c$:\n$$\\textbf{(1)}\\quad T(\\mathbf u+\\mathbf v)=T(\\mathbf u)+T(\\mathbf v),\\qquad\\textbf{(2)}\\quad T(c\\mathbf u)=c\\,T(\\mathbf u).$$\nI ord: det spiller ingen rolle om du **først** legger sammen (eller skalerer) og **så** avbilder, eller motsatt. De to kravene kan slås sammen til ett: $T(c\\mathbf u+d\\mathbf v)=c\\,T(\\mathbf u)+d\\,T(\\mathbf v)$ — «$T$ tar lineærkombinasjoner til lineærkombinasjoner»."
+    },
+    {
+      "id": "tma4110-4-1-def-konsekvens",
+      "type": "definition",
+      "title": "Konsekvenser av linearitet",
+      "content": "Er $T$ lineær, følger to nyttige fakta direkte av betingelsene:\n\n- **$T(\\mathbf 0)=\\mathbf 0$** (sett $c=0$ i betingelse (2)). Er $T(\\mathbf 0)\\ne\\mathbf 0$, kan $T$ *umulig* være lineær — en rask forkastningstest.\n- **$T$ bevarer lineærkombinasjoner:** $T(c_1\\mathbf v_1+\\dots+c_k\\mathbf v_k)=c_1T(\\mathbf v_1)+\\dots+c_kT(\\mathbf v_k)$.\n\nDet andre punktet er selve grunnen til at én matrise holder: kjenner du $T$ på basisvektorene, kjenner du $T$ overalt."
+    },
+    {
+      "id": "tma4110-4-1-ex1",
+      "type": "example",
+      "title": "Eksempel 1: En lineær avbildning",
+      "problem": "Er $T:\\mathbb R^2\\to\\mathbb R^2$ gitt ved $T(x,y)=(2x-y,\\ x+3y)$ lineær? Vis det med de to betingelsene.",
+      "solution": "Vi sjekker betingelsene direkte. La $\\mathbf u=(x_1,y_1)$ og $\\mathbf v=(x_2,y_2)$.\n\n**(1) Addisjon:** $\\mathbf u+\\mathbf v=(x_1+x_2,\\ y_1+y_2)$, så\n$$T(\\mathbf u+\\mathbf v)=\\big(2(x_1+x_2)-(y_1+y_2),\\ (x_1+x_2)+3(y_1+y_2)\\big).$$\nDette er nøyaktig $T(\\mathbf u)+T(\\mathbf v)=(2x_1-y_1,\\ x_1+3y_1)+(2x_2-y_2,\\ x_2+3y_2)$ ✓.\n\n**(2) Skalering:** $T(c\\mathbf u)=(2cx_1-cy_1,\\ cx_1+3cy_1)=c(2x_1-y_1,\\ x_1+3y_1)=c\\,T(\\mathbf u)$ ✓.\n\nBegge betingelsene holder, så $T$ er **lineær**. (Legg merke til at hver komponent er en *førstegrads* kombinasjon av $x$ og $y$ uten konstantledd — det er signaturen til en lineær avbildning.)"
+    },
+    {
+      "id": "tma4110-4-1-e1",
+      "type": "exercise",
+      "exercise": {
+        "id": "tma4110-4-1-e1",
+        "number": "1",
+        "type": "classic",
+        "difficulty": "lett",
+        "task": "(Ren gjengivelse — bruk linearitet.) $T:\\mathbb R^2\\to\\mathbb R^2$ er lineær, og $T(\\mathbf u)=(1,2)$, $T(\\mathbf v)=(3,-1)$. Finn $T(2\\mathbf u-\\mathbf v)$.",
+        "solution": "Linearitet bevarer lineærkombinasjoner, så\n$$T(2\\mathbf u-\\mathbf v)=2\\,T(\\mathbf u)-T(\\mathbf v)=2(1,2)-(3,-1)=(2,4)-(3,-1)=(-1,5).$$\nSvar: $T(2\\mathbf u-\\mathbf v)=(-1,5)$. Du trenger altså ikke selve regelen for $T$ — linearitet lar deg regne rett på bildene.",
+        "hints": [
+          "Bruk at $T(c\\mathbf u+d\\mathbf v)=c\\,T(\\mathbf u)+d\\,T(\\mathbf v)$.",
+          "Sett $c=2$, $d=-1$ og regn komponentvis."
+        ]
+      }
+    },
+    {
+      "id": "tma4110-4-1-ex2",
+      "type": "example",
+      "title": "Eksempel 2: En avbildning som IKKE er lineær",
+      "problem": "Er $T:\\mathbb R^2\\to\\mathbb R^2$ gitt ved $T(x,y)=(x+1,\\ 2y)$ lineær?",
+      "solution": "Bruk forkastningstesten først: $T(\\mathbf 0)=T(0,0)=(0+1,\\ 0)=(1,0)\\ne(0,0)$. En lineær avbildning må sende $\\mathbf 0$ til $\\mathbf 0$, så $T$ er **ikke lineær**.\n\nProblemet er konstantleddet $+1$: det gjør $T$ til en *forskyvning* (affin avbildning), ikke en lineær. En rask kontroll på betingelse (2) bekrefter: $T(2\\cdot(1,0))=T(2,0)=(3,0)$, men $2\\,T(1,0)=2(2,0)=(4,0)$ — ulike, så (2) svikter."
+    },
+    {
+      "id": "tma4110-4-1-e2",
+      "type": "exercise",
+      "exercise": {
+        "id": "tma4110-4-1-e2",
+        "number": "2",
+        "type": "classic",
+        "difficulty": "lett",
+        "task": "(Innøving — forkastningstest.) Avgjør om $T:\\mathbb R^2\\to\\mathbb R$ gitt ved $T(x,y)=x^2+y$ er lineær.",
+        "solution": "Sjekk skalering: $T(2,0)=2^2+0=4$, men $2\\,T(1,0)=2\\cdot(1^2+0)=2$. Siden $T(2\\cdot(1,0))\\ne 2\\,T(1,0)$, svikter betingelse (2), og $T$ er **ikke lineær**. (Kvadratleddet $x^2$ er ikke-lineært; en lineær avbildning har bare førstegradsledd.)",
+        "hints": [
+          "Test betingelse (2): sammenlign $T(c\\mathbf u)$ med $c\\,T(\\mathbf u)$ for en konkret $c$.",
+          "Prøv $c=2$ og $\\mathbf u=(1,0)$ — kvadratet avslører problemet."
+        ]
+      }
+    },
+    {
+      "id": "tma4110-4-1-lokke2",
+      "type": "text",
+      "content": "## Løkke 2 — Standardmatrisen $A=[T]$ (~17 min)"
+    },
+    {
+      "id": "tma4110-4-1-thm-standardmatrise",
+      "type": "theorem",
+      "title": "Standardmatrisen til en lineær transformasjon",
+      "content": "La $T:\\mathbb R^n\\to\\mathbb R^m$ være lineær. Da finnes **nøyaktig én** matrise $A$ (av størrelse $m\\times n$) slik at\n$$T(\\mathbf x)=A\\mathbf x\\qquad\\text{for alle }\\mathbf x\\in\\mathbb R^n.$$\nMatrisen er **standardmatrisen** til $T$, skrevet $A=[T]$, og kolonnene er bildene av standardbasisvektorene:\n$$[T]=\\big[\\,T(\\mathbf e_1)\\ \\ T(\\mathbf e_2)\\ \\ \\cdots\\ \\ T(\\mathbf e_n)\\,\\big].$$\n**Hvorfor:** skriv $\\mathbf x=x_1\\mathbf e_1+\\dots+x_n\\mathbf e_n$. Linearitet gir $T(\\mathbf x)=x_1T(\\mathbf e_1)+\\dots+x_nT(\\mathbf e_n)$, som er nettopp matrise-vektor-produktet av $[\\,T(\\mathbf e_1)\\cdots T(\\mathbf e_n)\\,]$ med $\\mathbf x$."
+    },
+    {
+      "id": "tma4110-4-1-def-kolonneregel",
+      "type": "definition",
+      "title": "Kolonneregelen: bygg $[T]$ kolonne for kolonne",
+      "content": "Oppskriften er kort: **avbild hver standardbasisvektor, og sett resultatet inn som en kolonne.**\n\n1. Regn ut $T(\\mathbf e_1),\\ T(\\mathbf e_2),\\dots,T(\\mathbf e_n)$ (i $\\mathbb R^2$ er $\\mathbf e_1=(1,0)$, $\\mathbf e_2=(0,1)$).\n2. Skriv dem som kolonner i rekkefølge: kolonne $j$ er $T(\\mathbf e_j)$.\n\nRekkefølgen er avgjørende — bytter du om to kolonner, får du en annen avbildning. Dette er den vanligste fellen i sjanger F."
+    },
+    {
+      "id": "tma4110-4-1-def-matrise-gir-linear",
+      "type": "definition",
+      "title": "Hver matrise gir en lineær transformasjon",
+      "content": "Sammenhengen går begge veier. Til enhver $m\\times n$-matrise $A$ hører transformasjonen $T(\\mathbf x)=A\\mathbf x$, og den er **alltid lineær**: matrisealgebraen gir $A(\\mathbf u+\\mathbf v)=A\\mathbf u+A\\mathbf v$ og $A(c\\mathbf u)=cA\\mathbf u$. Altså: **lineære transformasjoner $\\mathbb R^n\\to\\mathbb R^m$ og $m\\times n$-matriser er to sider av samme sak.** Å studere $T$ er å studere $[T]$."
+    },
+    {
+      "id": "tma4110-4-1-ex3",
+      "type": "example",
+      "title": "Eksempel 3: Finn standardmatrisen fra formelen",
+      "problem": "Finn standardmatrisen til $T:\\mathbb R^2\\to\\mathbb R^3$ gitt ved $T(x,y)=(x+2y,\\ 3x,\\ x-y)$, og bruk den på $\\mathbf x=(1,1)$.",
+      "solution": "Avbild standardbasisvektorene:\n$$T(\\mathbf e_1)=T(1,0)=(1,\\ 3,\\ 1),\\qquad T(\\mathbf e_2)=T(0,1)=(2,\\ 0,\\ -1).$$\nSett dem som kolonner:\n$$[T]=\\begin{bmatrix}1&2\\\\3&0\\\\1&-1\\end{bmatrix}.$$\nKontroll ved $\\mathbf x=(1,1)$:\n$$[T]\\begin{bmatrix}1\\\\1\\end{bmatrix}=\\begin{bmatrix}1+2\\\\3+0\\\\1-1\\end{bmatrix}=\\begin{bmatrix}3\\\\3\\\\0\\end{bmatrix},$$\nog direkte $T(1,1)=(1+2,\\ 3,\\ 1-1)=(3,3,0)$ ✓. Matrisen gjengir avbildningen."
+    },
+    {
+      "id": "tma4110-4-1-e3",
+      "type": "exercise",
+      "exercise": {
+        "id": "tma4110-4-1-e3",
+        "number": "3",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "(Sjanger F — standardmatrise.) Finn standardmatrisen til $T:\\mathbb R^3\\to\\mathbb R^2$ gitt ved $T(x,y,z)=(2x-z,\\ y+z)$, og bruk den på $(1,2,-1)$.",
+        "solution": "Avbild standardbasisvektorene i $\\mathbb R^3$:\n$$T(\\mathbf e_1)=T(1,0,0)=(2,0),\\quad T(\\mathbf e_2)=T(0,1,0)=(0,1),\\quad T(\\mathbf e_3)=T(0,0,1)=(-1,1).$$\nStandardmatrisen er\n$$[T]=\\begin{bmatrix}2&0&-1\\\\0&1&1\\end{bmatrix}.$$\nBruk på $(1,2,-1)$: $[T](1,2,-1)=(2\\cdot1-(-1),\\ 2+(-1))=(3,1)$. Kontroll: $T(1,2,-1)=(2-(-1),\\ 2+(-1))=(3,1)$ ✓.",
+        "hints": [
+          "Kolonne $j$ i $[T]$ er $T(\\mathbf e_j)$; her er $\\mathbf e_1,\\mathbf e_2,\\mathbf e_3$ standardbasisen i $\\mathbb R^3$.",
+          "Matrisen blir $2\\times3$ fordi $T:\\mathbb R^3\\to\\mathbb R^2$."
+        ]
+      }
+    },
+    {
+      "id": "tma4110-4-1-e4",
+      "type": "exercise",
+      "exercise": {
+        "id": "tma4110-4-1-e4",
+        "number": "4",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "(Sjanger F — bygg $T$ fra bildene.) En lineær $T:\\mathbb R^2\\to\\mathbb R^2$ oppfyller $T(1,0)=(3,-1)$ og $T(0,1)=(2,4)$. Finn $[T]$ og en formel for $T(x,y)$.",
+        "solution": "Kolonnene i $[T]$ er nettopp de oppgitte bildene:\n$$[T]=\\begin{bmatrix}3&2\\\\-1&4\\end{bmatrix}.$$\nFormelen får du ved $T(x,y)=[T]\\begin{bmatrix}x\\\\y\\end{bmatrix}=(3x+2y,\\ -x+4y)$. Kontroll: $T(1,0)=(3,-1)$ ✓ og $T(0,1)=(2,4)$ ✓.",
+        "hints": [
+          "Kolonne $1$ er $T(\\mathbf e_1)=T(1,0)$, kolonne $2$ er $T(\\mathbf e_2)=T(0,1)$.",
+          "Formelen er $[T]\\begin{bmatrix}x\\\\y\\end{bmatrix}$ — gang ut."
+        ]
+      }
+    },
+    {
+      "id": "tma4110-4-1-lokke3",
+      "type": "text",
+      "content": "## Løkke 3 — Geometriske avbildninger i planet (~18 min)"
+    },
+    {
+      "id": "tma4110-4-1-def-rotasjon",
+      "type": "definition",
+      "title": "Rotasjonsmatrisen",
+      "content": "Rotasjon om origo med vinkelen $\\theta$ **mot klokka** har standardmatrisen\n$$R_\\theta=\\begin{bmatrix}\\cos\\theta&-\\sin\\theta\\\\\\sin\\theta&\\cos\\theta\\end{bmatrix}.$$\nDu finner den med kolonneregelen: $\\mathbf e_1=(1,0)$ roteres til $(\\cos\\theta,\\sin\\theta)$ (første kolonne), og $\\mathbf e_2=(0,1)$ roteres til $(-\\sin\\theta,\\cos\\theta)$ (andre kolonne). Rotasjon **med klokka** får du ved å bytte fortegn på $\\theta$: $\\sin$ skifter fortegn, $\\cos$ står."
+    },
+    {
+      "id": "tma4110-4-1-ex4",
+      "type": "example",
+      "title": "Eksempel 4: Rotasjon $90^\\circ$ mot klokka",
+      "problem": "Finn standardmatrisen til rotasjon $90^\\circ$ mot klokka, og bruk den på $(2,1)$.",
+      "solution": "Med $\\theta=90^\\circ$ er $\\cos90^\\circ=0$ og $\\sin90^\\circ=1$, så\n$$R_{90^\\circ}=\\begin{bmatrix}0&-1\\\\1&0\\end{bmatrix}.$$\nBruk på $(2,1)$:\n$$R_{90^\\circ}\\begin{bmatrix}2\\\\1\\end{bmatrix}=\\begin{bmatrix}0\\cdot2-1\\cdot1\\\\1\\cdot2+0\\cdot1\\end{bmatrix}=\\begin{bmatrix}-1\\\\2\\end{bmatrix}.$$\nSvaret $(-1,2)$ stemmer geometrisk: en $90^\\circ$-dreining mot klokka sender pilen fra fjerde/første kvadrant opp mot andre kvadrant."
+    },
+    {
+      "id": "tma4110-4-1-e5",
+      "type": "exercise",
+      "exercise": {
+        "id": "tma4110-4-1-e5",
+        "number": "5",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "(Sjanger F — rotasjon.) Finn standardmatrisen til rotasjon $60^\\circ$ mot klokka, og bruk den på $(2,0)$. Gi eksakte svar.",
+        "solution": "Med $\\theta=60^\\circ$: $\\cos60^\\circ=\\tfrac12$, $\\sin60^\\circ=\\tfrac{\\sqrt3}{2}$, så\n$$R_{60^\\circ}=\\begin{bmatrix}\\tfrac12&-\\tfrac{\\sqrt3}{2}\\\\[2pt]\\tfrac{\\sqrt3}{2}&\\tfrac12\\end{bmatrix}.$$\nBruk på $(2,0)$: $R_{60^\\circ}(2,0)=\\big(\\tfrac12\\cdot2,\\ \\tfrac{\\sqrt3}{2}\\cdot2\\big)=(1,\\ \\sqrt3)$. (Punktet $(2,0)$ ligger på $x$-aksen i avstand $2$ fra origo; etter $60^\\circ$-dreining er det $(2\\cos60^\\circ,\\ 2\\sin60^\\circ)=(1,\\sqrt3)$, fortsatt i avstand $2$.)",
+        "hints": [
+          "Sett $\\theta=60^\\circ$ inn i $R_\\theta=\\begin{bmatrix}\\cos\\theta&-\\sin\\theta\\\\\\sin\\theta&\\cos\\theta\\end{bmatrix}$.",
+          "Bruk eksakte verdier $\\cos60^\\circ=\\tfrac12$, $\\sin60^\\circ=\\tfrac{\\sqrt3}{2}$ — ingen desimaler under kode E."
+        ]
+      }
+    },
+    {
+      "id": "tma4110-4-1-def-speiling",
+      "type": "definition",
+      "title": "Speilingsmatriser i planet",
+      "content": "Speiling (refleksjon) om en linje gjennom origo er lineær. De tre du må kunne utenat:\n$$\\text{om }x\\text{-aksen: }\\begin{bmatrix}1&0\\\\0&-1\\end{bmatrix},\\quad\\text{om }y\\text{-aksen: }\\begin{bmatrix}-1&0\\\\0&1\\end{bmatrix},\\quad\\text{om linjen }y=x:\\ \\begin{bmatrix}0&1\\\\1&0\\end{bmatrix}.$$\nHver kolonne er bildet av en standardbasisvektor: speiler du $\\mathbf e_1=(1,0)$ om $x$-aksen, står den i ro $(1,0)$; speiler du $\\mathbf e_2=(0,1)$, snus den til $(0,-1)$ — derav første matrise."
+    },
+    {
+      "id": "tma4110-4-1-def-projeksjon",
+      "type": "definition",
+      "title": "Ortogonal projeksjon på en akse eller linje",
+      "content": "**Ortogonal projeksjon** kaster «skyggen» av en vektor rett ned på en linje. På aksene:\n$$\\text{på }x\\text{-aksen: }\\begin{bmatrix}1&0\\\\0&0\\end{bmatrix},\\qquad\\text{på }y\\text{-aksen: }\\begin{bmatrix}0&0\\\\0&1\\end{bmatrix}.$$\nProjeksjon på linjen $y=x$ har matrisen $\\tfrac12\\begin{bmatrix}1&1\\\\1&1\\end{bmatrix}$. Projeksjoner **mister informasjon** (flere vektorer får samme skygge), i motsetning til rotasjon og speiling som er reversible."
+    },
+    {
+      "id": "tma4110-4-1-def-skalering",
+      "type": "definition",
+      "title": "Skaleringsmatrisen",
+      "content": "**Skalering** med faktor $k$ strekker (eller krymper) alle vektorer likt og har matrisen $kI=\\begin{bmatrix}k&0\\\\0&k\\end{bmatrix}$. Ulik skalering langs aksene får du med $\\begin{bmatrix}a&0\\\\0&b\\end{bmatrix}$ (faktor $a$ i $x$-retning, $b$ i $y$-retning). Med $k>1$ forstørres figuren, med $0<k<1$ krympes den, og med $k=-1$ får du punktspeiling gjennom origo."
+    },
+    {
+      "id": "tma4110-4-1-thm-komposisjon",
+      "type": "theorem",
+      "title": "Komposisjon = matriseprodukt",
+      "content": "Utfører du **først** $S$ og **så** $T$, er den sammensatte avbildningen $T\\circ S$ (les «$T$ etter $S$»), og standardmatrisen er **produktet**:\n$$[T\\circ S]=[T]\\,[S].$$\nMerk rekkefølgen: matrisen for den avbildningen som utføres **sist**, står **først** (til venstre) — akkurat som i $T(S(\\mathbf x))=[T]\\big([S]\\mathbf x\\big)$. Fordi matriseproduktet **ikke er kommutativt** ($[T][S]\\ne[S][T]$ i sin alminnelighet), gir «rotér så speil» og «speil så rotér» ulike resultater."
+    },
+    {
+      "id": "tma4110-4-1-ex5",
+      "type": "example",
+      "title": "Eksempel 5: Rotér $90^\\circ$ mot klokka, deretter speil om $x$-aksen",
+      "problem": "En figur roteres først $90^\\circ$ mot klokka og speiles så om $x$-aksen. Finn standardmatrisen til den sammensatte avbildningen, og bruk den på $(2,1)$.",
+      "solution": "La $S$ = rotasjon $90^\\circ$ og $T$ = speiling om $x$-aksen. Vi utfører $S$ først, så $T$, altså $T\\circ S$ med matrise $[T][S]$:\n$$[S]=\\begin{bmatrix}0&-1\\\\1&0\\end{bmatrix},\\qquad [T]=\\begin{bmatrix}1&0\\\\0&-1\\end{bmatrix}.$$\n$$[T\\circ S]=[T][S]=\\begin{bmatrix}1&0\\\\0&-1\\end{bmatrix}\\begin{bmatrix}0&-1\\\\1&0\\end{bmatrix}=\\begin{bmatrix}0&-1\\\\-1&0\\end{bmatrix}.$$\nBruk på $(2,1)$: $[T\\circ S](2,1)=(0\\cdot2-1\\cdot1,\\ -1\\cdot2+0\\cdot1)=(-1,-2)$.\n\n**Kontroll steg for steg:** $S(2,1)=(-1,2)$ (rotasjonen), og $T(-1,2)=(-1,-2)$ (speilingen snur $y$-koordinaten) ✓. Merk at rekkefølgen teller: hadde vi speilet først og rotert etterpå, ble matrisen $[S][T]=\\begin{bmatrix}0&1\\\\1&0\\end{bmatrix}$ — en annen avbildning."
+    },
+    {
+      "id": "tma4110-4-1-e6",
+      "type": "exercise",
+      "exercise": {
+        "id": "tma4110-4-1-e6",
+        "number": "6",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "(Sjanger F — komposisjon.) La $S$ være rotasjon $90^\\circ$ mot klokka og $T$ ortogonal projeksjon på $x$-aksen. Finn standardmatrisen til «først $S$, så $T$», og bruk den på $(3,4)$.",
+        "solution": "$[S]=\\begin{bmatrix}0&-1\\\\1&0\\end{bmatrix}$, $[T]=\\begin{bmatrix}1&0\\\\0&0\\end{bmatrix}$. «Først $S$, så $T$» er $T\\circ S$ med matrise\n$$[T][S]=\\begin{bmatrix}1&0\\\\0&0\\end{bmatrix}\\begin{bmatrix}0&-1\\\\1&0\\end{bmatrix}=\\begin{bmatrix}0&-1\\\\0&0\\end{bmatrix}.$$\nBruk på $(3,4)$: $\\begin{bmatrix}0&-1\\\\0&0\\end{bmatrix}(3,4)=(-4,\\ 0)$. Kontroll: $S(3,4)=(-4,3)$, og projeksjon på $x$-aksen gir $(-4,0)$ ✓. (Projeksjonen nuller ut $y$-komponenten — derfor er andre rad null.)",
+        "hints": [
+          "Matrisen for den avbildningen som utføres sist ($T$) står først: $[T][S]$.",
+          "Regn matriseproduktet, gang så på $(3,4)$."
+        ]
+      }
+    },
+    {
+      "id": "tma4110-4-1-e7",
+      "type": "exercise",
+      "exercise": {
+        "id": "tma4110-4-1-e7",
+        "number": "7",
+        "type": "classic",
+        "difficulty": "vanskelig",
+        "task": "(Sjanger F på eksamensnivå.) La $T:\\mathbb R^2\\to\\mathbb R^2$ være rotasjon $90^\\circ$ mot klokka fulgt av speiling om linjen $y=x$.\n\n**a)** Finn standardmatrisen $[T]$.\n\n**b)** Beskriv $T$ geometrisk som én enkelt avbildning.\n\n**c)** Bruk $[T]$ på $(1,0)$ og $(0,1)$, og forklar hva du ser.",
+        "solution": "**a)** La $R$ = rotasjon $90^\\circ$, $F$ = speiling om $y=x$. Vi utfører $R$ først, så $F$: $[T]=[F][R]$.\n$$[R]=\\begin{bmatrix}0&-1\\\\1&0\\end{bmatrix},\\quad[F]=\\begin{bmatrix}0&1\\\\1&0\\end{bmatrix},\\quad[T]=\\begin{bmatrix}0&1\\\\1&0\\end{bmatrix}\\begin{bmatrix}0&-1\\\\1&0\\end{bmatrix}=\\begin{bmatrix}1&0\\\\0&-1\\end{bmatrix}.$$\n\n**b)** Matrisen $\\begin{bmatrix}1&0\\\\0&-1\\end{bmatrix}$ er nettopp **speiling om $x$-aksen**. Så «rotér $90^\\circ$ mot klokka, deretter speil om $y=x$» er samlet sett bare en speiling om $x$-aksen.\n\n**c)** $[T](1,0)=(1,0)$ og $[T](0,1)=(0,-1)$. Punktene på $x$-aksen står i ro, mens $y$-koordinaten snur — akkurat det en speiling om $x$-aksen gjør. Kontroll bekrefter (b).",
+        "hints": [
+          "Utfør rotasjonen først: $[T]=[F][R]$ med $F$ = speiling om $y=x$.",
+          "Regn matriseproduktet; kjenn igjen resultatmatrisen blant standardavbildningene.",
+          "I (c): en avbildning som holder $\\mathbf e_1$ fast og snur $\\mathbf e_2$ er speiling om $x$-aksen."
+        ]
+      }
+    },
+    {
+      "id": "tma4110-4-1-warn",
+      "type": "warning",
+      "title": "Typiske feil",
+      "content": "- **Hopper over linearitetssjekken.** Du kan bare bruke «standardmatrise»-oppskriften på en *lineær* avbildning. Sjekk alltid $T(\\mathbf 0)=\\mathbf 0$ først — konstantledd avslører en ikke-lineær (affin) avbildning.\n- **Feil kolonner i $[T]$.** Kolonne $j$ er $T(\\mathbf e_j)$, i riktig rekkefølge. Bytter du om kolonnene, får du en annen avbildning.\n- **Feil rekkefølge i komposisjon.** «Først $S$, så $T$» er $[T][S]$ — matrisen for den *siste* avbildningen står *først*. Matriseprodukt er ikke-kommutativt: $[T][S]\\ne[S][T]$.\n- **Forveksler rotasjon og speiling.** Rotasjon $R_\\theta$ har $\\det=+1$ (bevarer orientering); speiling har $\\det=-1$ (snur orientering). Sjekk fortegnene i matrisen.\n- **Feil fortegn i rotasjonsmatrisen.** Mot klokka: $-\\sin\\theta$ oppe til høyre, $+\\sin\\theta$ nede til venstre. Med klokka: bytt fortegn på begge $\\sin$-leddene."
+    },
+    {
+      "id": "tma4110-4-1-begrepsbank",
+      "type": "text",
+      "content": "## Begrepsbank til eksamen\n\nKjernebegrepene om lineære transformasjoner og standardmatriser, samlet for pugging (kode E).\n\n*Begrepsbanken er flashcard-/repetisjonsstoff — det gjentar det du nettopp har lest. Hopp trygt over ved førstegangslesing; tidsanslaget for kapitlet gjelder kjernestoffet.*"
+    },
+    {
+      "id": "tma4110-4-1-bb-linearitetstest",
+      "type": "definition",
+      "title": "Linearitetstesten (to betingelser)",
+      "content": "$T$ er lineær hviss $T(\\mathbf u+\\mathbf v)=T(\\mathbf u)+T(\\mathbf v)$ **og** $T(c\\mathbf u)=c\\,T(\\mathbf u)$ for alle $\\mathbf u,\\mathbf v,c$. Ekvivalent: $T(c\\mathbf u+d\\mathbf v)=c\\,T(\\mathbf u)+d\\,T(\\mathbf v)$. Praktisk sjekk: er hver utkomponent en førstegradskombinasjon av inn-variablene **uten konstantledd**, er $T$ lineær."
+    },
+    {
+      "id": "tma4110-4-1-bb-null-test",
+      "type": "definition",
+      "title": "Forkastningstesten $T(\\mathbf 0)=\\mathbf 0$",
+      "content": "Enhver lineær avbildning oppfyller $T(\\mathbf 0)=\\mathbf 0$. Er $T(\\mathbf 0)\\ne\\mathbf 0$, er $T$ **ikke** lineær — den raskeste forkastningen. NB: $T(\\mathbf 0)=\\mathbf 0$ er nødvendig, men ikke tilstrekkelig (f.eks. $T(x,y)=x^2$ har $T(\\mathbf 0)=0$, men er ikke lineær)."
+    },
+    {
+      "id": "tma4110-4-1-bb-kolonner-T",
+      "type": "definition",
+      "title": "Kolonnene i $[T]$",
+      "content": "Kolonne $j$ i standardmatrisen er bildet av den $j$-te standardbasisvektoren: $[T]=[\\,T(\\mathbf e_1)\\ \\cdots\\ T(\\mathbf e_n)\\,]$. En $T:\\mathbb R^n\\to\\mathbb R^m$ gir en $m\\times n$-matrise ($m$ rader = kodomenets dimensjon, $n$ kolonner = domenets)."
+    },
+    {
+      "id": "tma4110-4-1-bb-matrise-linear",
+      "type": "definition",
+      "title": "$T(\\mathbf x)=A\\mathbf x$ — matrise ⇔ lineær",
+      "content": "Hver matrise $A$ definerer en lineær $T(\\mathbf x)=A\\mathbf x$, og hver lineær $T$ har en entydig matrise $A=[T]$. Lineære transformasjoner og matriser er samme objekt i to språkdrakter — å komponere avbildninger svarer til å multiplisere matriser."
+    },
+    {
+      "id": "tma4110-4-1-bb-rotasjon",
+      "type": "definition",
+      "title": "Rotasjon mot vs. med klokka",
+      "content": "Mot klokka med vinkel $\\theta$: $R_\\theta=\\begin{bmatrix}\\cos\\theta&-\\sin\\theta\\\\\\sin\\theta&\\cos\\theta\\end{bmatrix}$. Med klokka: bruk $-\\theta$, altså $\\begin{bmatrix}\\cos\\theta&\\sin\\theta\\\\-\\sin\\theta&\\cos\\theta\\end{bmatrix}$ (bare $\\sin$-leddene skifter fortegn). Alltid $\\det R_\\theta=\\cos^2\\theta+\\sin^2\\theta=1$."
+    },
+    {
+      "id": "tma4110-4-1-bb-speiling",
+      "type": "definition",
+      "title": "Speiling om $x$-aksen, $y$-aksen og $y=x$",
+      "content": "$x$-aksen: $\\begin{bmatrix}1&0\\\\0&-1\\end{bmatrix}$ (snur $y$). $y$-aksen: $\\begin{bmatrix}-1&0\\\\0&1\\end{bmatrix}$ (snur $x$). Linjen $y=x$: $\\begin{bmatrix}0&1\\\\1&0\\end{bmatrix}$ (bytter $x$ og $y$). Alle har $\\det=-1$: speiling snur orientering."
+    },
+    {
+      "id": "tma4110-4-1-bb-projeksjon-idem",
+      "type": "definition",
+      "title": "Projeksjon er idempotent",
+      "content": "Ortogonal projeksjon $P$ oppfyller $P^2=P$: projiserer du en skygge og projiserer igjen, skjer ingenting nytt. Projeksjon på $x$-aksen: $\\begin{bmatrix}1&0\\\\0&0\\end{bmatrix}$; på $y=x$: $\\tfrac12\\begin{bmatrix}1&1\\\\1&1\\end{bmatrix}$. Projeksjoner er ikke reversible ($\\det=0$)."
+    },
+    {
+      "id": "tma4110-4-1-bb-skalering",
+      "type": "definition",
+      "title": "Skalering og punktspeiling",
+      "content": "Skalering med faktor $k$: $kI=\\begin{bmatrix}k&0\\\\0&k\\end{bmatrix}$ ($k>1$ forstørrer, $0<k<1$ krymper). Ulik skalering langs aksene: $\\begin{bmatrix}a&0\\\\0&b\\end{bmatrix}$. Med $k=-1$: punktspeiling om origo, $\\begin{bmatrix}-1&0\\\\0&-1\\end{bmatrix}$."
+    },
+    {
+      "id": "tma4110-4-1-bb-skjaer",
+      "type": "definition",
+      "title": "Skjærtransformasjon (shear)",
+      "content": "En **skjæring** forskyver punkter parallelt med en akse proporsjonalt med den andre koordinaten, f.eks. $\\begin{bmatrix}1&k\\\\0&1\\end{bmatrix}$ (horisontal skjæring: $(x,y)\\mapsto(x+ky,\\ y)$). Den er lineær, har $\\det=1$ (bevarer areal), men er verken rotasjon eller speiling."
+    },
+    {
+      "id": "tma4110-4-1-bb-komposisjon",
+      "type": "definition",
+      "title": "Sammensetning er ikke-kommutativ",
+      "content": "«Først $S$, så $T$» er $T\\circ S$ med matrise $[T][S]$ — den sist utførte avbildningen står først. Siden matriseprodukt ikke er kommutativt, gir $[T][S]$ og $[S][T]$ vanligvis ulike avbildninger («rotér så speil» $\\ne$ «speil så rotér»)."
+    },
+    {
+      "id": "tma4110-4-1-bb-identitet-null",
+      "type": "definition",
+      "title": "Identitets- og nullavbildningen",
+      "content": "**Identiteten** $I(\\mathbf x)=\\mathbf x$ har standardmatrise $I$ (enhetsmatrisen) og lar alt stå i ro. **Nullavbildningen** $T(\\mathbf x)=\\mathbf 0$ har nullmatrisen som standardmatrise og sender alt til $\\mathbf 0$. Begge er lineære — de er ytterpunktene."
+    },
+    {
+      "id": "tma4110-4-1-bb-invers",
+      "type": "definition",
+      "title": "Invers transformasjon",
+      "content": "Er $[T]$ inverterbar (kvadratisk med $\\det\\ne0$), finnes en **invers avbildning** $T^{-1}$ med $[T^{-1}]=[T]^{-1}$ som «angrer» $T$. Rotasjon og speiling er reversible ($\\det=\\pm1$); projeksjon er det ikke ($\\det=0$ — informasjon går tapt)."
+    },
+    {
+      "id": "tma4110-4-1-bb-bildelinje",
+      "type": "definition",
+      "title": "Bildet av en rett linje",
+      "content": "En lineær $T$ sender rette linjer gjennom origo til rette linjer (eller til $\\{\\mathbf 0\\}$) og bevarer paralellitet. En linje $\\{\\mathbf p+t\\mathbf d\\}$ avbildes til $\\{T(\\mathbf p)+t\\,T(\\mathbf d)\\}$ — rett, med retningsvektor $T(\\mathbf d)$. Derfor tar lineære avbildninger rutenett til (skjeve) rutenett."
+    },
+    {
+      "id": "tma4110-4-1-rep",
+      "type": "collapsible",
+      "title": "Repetisjonsoppgaver",
+      "buttonText": "Vis repetisjonsoppgaver",
+      "content": [
+        {
+          "id": "tma4110-4-1-rep-1",
+          "type": "exercise",
+          "exercise": {
+            "id": "tma4110-4-1-rep-1",
+            "number": "R1",
+            "type": "classic",
+            "difficulty": "lett",
+            "task": "(Fra kap. 2.1) Regn ut matriseproduktet $\\begin{bmatrix}1&0\\\\0&-1\\end{bmatrix}\\begin{bmatrix}0&-1\\\\1&0\\end{bmatrix}$.",
+            "solution": "Rad for kolonne: øverste rad $(1,0)$ mot kolonnene gir $(0,-1)$; nederste rad $(0,-1)$ mot kolonnene gir $(-1,0)$. Altså $\\begin{bmatrix}0&-1\\\\-1&0\\end{bmatrix}$. (Dette er nettopp «rotér $90^\\circ$, så speil om $x$-aksen» fra kapitlet.)",
+            "hints": [
+              "Rad $i$ ganges med kolonne $j$: $(AB)_{ij}=\\sum_k a_{ik}b_{kj}$."
+            ]
+          }
+        },
+        {
+          "id": "tma4110-4-1-rep-2",
+          "type": "exercise",
+          "exercise": {
+            "id": "tma4110-4-1-rep-2",
+            "number": "R2",
+            "type": "classic",
+            "difficulty": "lett",
+            "task": "(Fra kap. 2.1) Skriv $A\\mathbf x$ for $A=\\begin{bmatrix}2&-1\\\\3&4\\end{bmatrix}$, $\\mathbf x=(1,1)$ som en lineærkombinasjon av kolonnene i $A$.",
+            "solution": "$A\\mathbf x=1\\cdot\\begin{bmatrix}2\\\\3\\end{bmatrix}+1\\cdot\\begin{bmatrix}-1\\\\4\\end{bmatrix}=\\begin{bmatrix}1\\\\7\\end{bmatrix}$. Matrise-vektor-produkt er en vektet sum av kolonnene — nettopp grunnen til at $[T]$ har $T(\\mathbf e_j)$ som kolonner.",
+            "hints": [
+              "$A\\mathbf x=x_1(\\text{kol }1)+x_2(\\text{kol }2)$."
+            ]
+          }
+        },
+        {
+          "id": "tma4110-4-1-rep-3",
+          "type": "exercise",
+          "exercise": {
+            "id": "tma4110-4-1-rep-3",
+            "number": "R3",
+            "type": "classic",
+            "difficulty": "middels",
+            "task": "(Fra kap. 3.4) Standardbasisen for $\\mathbb R^2$ er $\\{\\mathbf e_1,\\mathbf e_2\\}$. Hvorfor holder det å kjenne $T(\\mathbf e_1)$ og $T(\\mathbf e_2)$ for å kjenne en lineær $T$ overalt?",
+            "solution": "Enhver $\\mathbf x=(x,y)=x\\mathbf e_1+y\\mathbf e_2$. Linearitet gir $T(\\mathbf x)=xT(\\mathbf e_1)+yT(\\mathbf e_2)$ — bildet er bestemt av de to kjente vektorene. Derfor fanger standardmatrisen $[\\,T(\\mathbf e_1)\\ T(\\mathbf e_2)\\,]$ hele avbildningen.",
+            "hints": [
+              "Skriv $\\mathbf x$ i standardbasisen og bruk at $T$ bevarer lineærkombinasjoner."
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": "tma4110-4-1-symbolliste",
+      "type": "collapsible",
+      "title": "Symbol- og formelliste",
+      "buttonText": "Vis symboler og formler",
+      "content": [
+        {
+          "id": "tma4110-4-1-symbolliste-text",
+          "type": "text",
+          "content": "## Symbol- og formelliste\n\n*Oppslagsverk — alt her forklares underveis i kapitlet.*\n\nAlle symboler og skrivemåter i dette delkapitlet (4.1), samlet.\n\n| Symbol | Betydning |\n|---|---|\n| $T:\\mathbb R^n\\to\\mathbb R^m$ | Transformasjon fra domenet $\\mathbb R^n$ til kodomenet $\\mathbb R^m$ |\n| $T(\\mathbf x)$ | Bildet av $\\mathbf x$ under $T$ |\n| $\\mathbf e_1,\\dots,\\mathbf e_n$ | Standardbasisvektorene ($\\mathbf e_1=(1,0)$, $\\mathbf e_2=(0,1)$ i $\\mathbb R^2$) |\n| $A=[T]$ | Standardmatrisen til $T$ |\n| $R_\\theta$ | Rotasjonsmatrisen (vinkel $\\theta$ mot klokka) |\n| $T\\circ S$ | «$T$ etter $S$» — først $S$, så $T$ |\n| $[T]^{-1}$ | Standardmatrisen til den inverse avbildningen $T^{-1}$ |\n| $\\det$ | Determinant ($+1$ rotasjon, $-1$ speiling, $0$ projeksjon) |\n\n**Formler i dette delkapitlet:**\n\n$$T(c\\mathbf u+d\\mathbf v)=c\\,T(\\mathbf u)+d\\,T(\\mathbf v)\\qquad(\\text{linearitet})$$\n\n$$[T]=\\big[\\,T(\\mathbf e_1)\\ \\ T(\\mathbf e_2)\\ \\ \\cdots\\ \\ T(\\mathbf e_n)\\,\\big],\\qquad T(\\mathbf x)=[T]\\,\\mathbf x$$\n\n$$R_\\theta=\\begin{bmatrix}\\cos\\theta&-\\sin\\theta\\\\\\sin\\theta&\\cos\\theta\\end{bmatrix}\\qquad(\\text{rotasjon mot klokka})$$\n\n$$\\text{speiling }x\\text{-akse: }\\begin{bmatrix}1&0\\\\0&-1\\end{bmatrix},\\quad y=x:\\ \\begin{bmatrix}0&1\\\\1&0\\end{bmatrix},\\quad\\text{proj. }x\\text{-akse: }\\begin{bmatrix}1&0\\\\0&0\\end{bmatrix}$$\n\n$$[T\\circ S]=[T]\\,[S]\\qquad(\\text{komposisjon = matriseprodukt, sist utført først})$$"
+        }
+      ]
+    }
+  ],
+  "exercises": []
+}
