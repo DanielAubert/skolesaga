@@ -1,0 +1,252 @@
+[
+  {
+    "question": "Hva skiller en *estimator* fra et *estimat*?",
+    "options": [
+      "Estimatoren er regelen $\\hat\\Theta$ (tilfeldig), estimatet er tallet den gir",
+      "Estimatoren er tallet, mens estimatet er regelen som produserer det",
+      "Estimatoren er alltid forventningsrett, mens estimatet alltid er systematisk skjevt",
+      "Estimatoren brukes i store utvalg, mens estimatet brukes i små og usikre utvalg"
+    ],
+    "explanation": "En estimator er en funksjon av de tilfeldige $X_i$ og dermed selv en tilfeldig variabel ($\\hat\\Theta$, stor bokstav); estimatet ($\\hat\\theta$, liten bokstav) er det faste tallet den gir på ett datasett."
+  },
+  {
+    "question": "Hvorfor er uttrykket «variansen til estimatet $\\bar x = 4{,}9$» en kategorifeil?",
+    "options": [
+      "Et estimat er ett fast tall uten varians; kun estimatoren $\\bar X$ har varians",
+      "Variansen kan bare regnes ut når verdien er større enn tallet 1",
+      "Estimatet har alltid varians nøyaktig lik null per definisjon",
+      "Variansen finnes bare for estimater som ligger over gjennomsnittet"
+    ],
+    "explanation": "$\\bar x = 4{,}9$ er ett observert tall, ikke tilfeldig, så det har ingen varians. Det er estimatoren $\\bar X$ (stor bokstav) som er en tilfeldig variabel med varians. Å blande dem straffes av sensor."
+  },
+  {
+    "question": "Når er en estimator $\\hat\\Theta$ forventningsrett for $\\theta$?",
+    "options": [
+      "Når $E(\\hat\\Theta)=\\theta$ for alle mulige verdier av $\\theta$",
+      "Når $\\text{Var}(\\hat\\Theta)=\\theta$ for alle mulige verdier av $\\theta$",
+      "Når $\\hat\\Theta$ gir samme tall uansett hvilket utvalg vi trekker",
+      "Når $\\hat\\Theta$ nærmer seg $\\theta$ etter hvert som utvalget vokser"
+    ],
+    "explanation": "Forventningsretthet betyr at forventningen treffer parameteren eksakt: $E(\\hat\\Theta)=\\theta$. Det siste alternativet beskriver konsistens, ikke forventningsretthet."
+  },
+  {
+    "question": "Hvordan defineres skjevheten $b(\\hat\\Theta)$ til en estimator?",
+    "options": [
+      "$b(\\hat\\Theta)=E(\\hat\\Theta)-\\theta$, det systematiske avviket fra parameteren",
+      "$b(\\hat\\Theta)=\\theta-\\text{Var}(\\hat\\Theta)$, avviket målt mot variansen",
+      "$b(\\hat\\Theta)=E(\\hat\\Theta)-\\bar X$, avviket fra utvalgsgjennomsnittet",
+      "$b(\\hat\\Theta)=\\text{Var}(\\hat\\Theta)-\\theta$, spredningen minus parameteren"
+    ],
+    "explanation": "Skjevheten er $b(\\hat\\Theta)=E(\\hat\\Theta)-\\theta$. Er den 0, er estimatoren forventningsrett; positiv betyr systematisk for høyt, negativ for lavt."
+  },
+  {
+    "question": "En vektet sum $\\sum w_i X_i$ av uavhengige $X_i$ med $E(X_i)=\\mu$ er forventningsrett for $\\mu$ nettopp når:",
+    "options": [
+      "vektene summerer til 1, altså $\\sum w_i = 1$",
+      "alle vektene er like store, altså $w_i = 1/n$",
+      "vektene summerer til 0, altså $\\sum w_i = 0$",
+      "kvadratene av vektene summerer til 1, altså $\\sum w_i^2 = 1$"
+    ],
+    "explanation": "$E(\\sum w_i X_i)=\\mu\\sum w_i$, som er lik $\\mu$ nettopp når $\\sum w_i=1$. Like vekter er ett spesialtilfelle, men ikke nødvendig for forventningsretthet."
+  },
+  {
+    "question": "Hvorfor har utvalgsvariansen $S^2$ divisor $n-1$ og ikke $n$?",
+    "options": [
+      "Avvikene måles fra $\\bar X$, ikke fra $\\mu$, så divisor $n-1$ gjør $S^2$ forventningsrett",
+      "Divisor $n-1$ gjør regnestykket enklere fordi leddet med $\\bar X$ da faller helt bort",
+      "Divisor $n-1$ gir alltid mindre varians enn divisor $n$ ville gjort på de samme dataene",
+      "Divisor $n-1$ kreves fordi $S^2$ ellers kunne blitt et negativt tall for små utvalg"
+    ],
+    "explanation": "Fordi avvikssummen $\\sum(X_i-\\bar X)^2$ har $n-1$ frihetsgrader (avvik fra $\\bar X$, ikke $\\mu$), gir divisor $n-1$ nettopp $E(S^2)=\\sigma^2$ — altså forventningsrett."
+  },
+  {
+    "question": "ML-variansestimatoren $\\hat\\sigma^2=\\frac1n\\sum(X_i-\\bar X)^2$ har $E(\\hat\\sigma^2)=\\frac{n-1}{n}\\sigma^2$. Hva blir skjevheten?",
+    "options": [
+      "$b=-\\sigma^2/n$, altså bommer den systematisk litt for lavt",
+      "$b=+\\sigma^2/n$, altså bommer den systematisk litt for høyt",
+      "$b=0$, altså er den forventningsrett akkurat som $S^2$",
+      "$b=-\\sigma^2/(n-1)$, altså bommer den kraftig for lavt"
+    ],
+    "explanation": "$b=\\frac{n-1}{n}\\sigma^2-\\sigma^2=-\\frac{\\sigma^2}{n}<0$, så ML-estimatoren undervurderer $\\sigma^2$; bommen krymper som $1/n$."
+  },
+  {
+    "question": "En estimator har $E(\\hat\\theta)=\\frac{n}{n+2}\\theta$. Hvilken konstant $c$ gjør $c\\hat\\theta$ forventningsrett?",
+    "options": [
+      "$c=\\dfrac{n+2}{n}$, slik at $c\\cdot E(\\hat\\theta)=\\theta$",
+      "$c=\\dfrac{n}{n+2}$, slik at skjevheten dobles bort",
+      "$c=\\dfrac{n+2}{n^2}$, slik at variansen minimeres",
+      "$c=\\dfrac{2}{n+2}$, slik at skjevheten trekkes fra"
+    ],
+    "explanation": "Vi vil ha $c\\cdot\\frac{n}{n+2}\\theta=\\theta$, som gir $c=\\frac{n+2}{n}$. Å korrigere en skjev estimator er å gange med den inverse konstanten foran $\\theta$."
+  },
+  {
+    "question": "Hva er variansen til utvalgsgjennomsnittet $\\bar X$ når $X_i$ er uavhengige med varians $\\sigma^2$?",
+    "options": [
+      "$\\text{Var}(\\bar X)=\\sigma^2/n$, som krymper når utvalget vokser",
+      "$\\text{Var}(\\bar X)=\\sigma^2$, uavhengig av utvalgsstørrelsen",
+      "$\\text{Var}(\\bar X)=\\sigma^2/\\sqrt{n}$, som krymper sakte i $n$",
+      "$\\text{Var}(\\bar X)=n\\sigma^2$, som vokser når utvalget vokser"
+    ],
+    "explanation": "$\\text{Var}(\\bar X)=\\frac{1}{n^2}\\sum\\text{Var}(X_i)=\\frac{n\\sigma^2}{n^2}=\\frac{\\sigma^2}{n}$. Det er $\\sigma/\\sqrt n$ som er standardfeilen, ikke variansen."
+  },
+  {
+    "question": "Blant to *forventningsrette* estimatorer for samme parameter kalles den beste den mest effisiente. Hva kjennetegner den?",
+    "options": [
+      "Den har minst varians av de to",
+      "Den har størst varians av de to",
+      "Den har størst skjevhet av de to",
+      "Den har flest observasjoner utelatt"
+    ],
+    "explanation": "Når begge er forventningsrette, er den med minst varians den mest effisiente — den utnytter dataene best og gir mest presise anslag."
+  },
+  {
+    "question": "$\\bar X$ og $\\hat\\mu_2=\\frac12(X_1+X_2)$ er begge forventningsrette for $\\mu$ ($n\\ge3$). Hvilken foretrekkes, og hvorfor?",
+    "options": [
+      "$\\bar X$, fordi $\\sigma^2/n<\\sigma^2/2$ — den har minst varians",
+      "$\\hat\\mu_2$, fordi den bruker færre observasjoner og er enklere",
+      "$\\hat\\mu_2$, fordi $\\sigma^2/2<\\sigma^2/n$ for enhver $n$",
+      "Det er likegyldig, fordi begge er forventningsrette"
+    ],
+    "explanation": "$\\text{Var}(\\bar X)=\\sigma^2/n$ og $\\text{Var}(\\hat\\mu_2)=\\sigma^2/2$. For $n>2$ er $\\bar X$ mest effisient — den bruker all informasjonen, mens $\\hat\\mu_2$ kaster bort $n-2$ observasjoner."
+  },
+  {
+    "question": "Når skal to estimatorer sammenlignes på MSE i stedet for på varians alene?",
+    "options": [
+      "Når minst én av dem er skjev",
+      "Når begge er forventningsrette",
+      "Når begge har nøyaktig samme varians",
+      "Når utvalget er større enn 30 observasjoner"
+    ],
+    "explanation": "Varians-sammenligning er bare gyldig når begge er forventningsrette. Er minst én skjev, må du bruke MSE $=\\text{Var}+b^2$, som veier både spredning og systematisk bom."
+  },
+  {
+    "question": "Hvordan dekomponeres middels kvadratisk feil (MSE)?",
+    "options": [
+      "$\\text{MSE}=\\text{Var}(\\hat\\Theta)+b(\\hat\\Theta)^2$ — varians pluss skjevhet i annen",
+      "$\\text{MSE}=\\text{Var}(\\hat\\Theta)+b(\\hat\\Theta)$ — varians pluss skjevhet",
+      "$\\text{MSE}=\\text{Var}(\\hat\\Theta)-b(\\hat\\Theta)^2$ — varians minus skjevhet i annen",
+      "$\\text{MSE}=\\text{Var}(\\hat\\Theta)\\cdot b(\\hat\\Theta)^2$ — varians gange skjevhet i annen"
+    ],
+    "explanation": "$\\text{MSE}(\\hat\\Theta)=\\text{Var}(\\hat\\Theta)+b(\\hat\\Theta)^2$. Skjevheten inngår i *annen* — ikke som ledd uten kvadrat. For en forventningsrett estimator ($b=0$) er MSE lik variansen."
+  },
+  {
+    "question": "$\\hat\\theta_A$ er forventningsrett med varians 9; $\\hat\\theta_B$ har skjevhet 2 og varians 4. Hvem har minst MSE?",
+    "options": [
+      "$\\hat\\theta_B$: $\\text{MSE}=4+2^2=8<9=\\text{MSE}(\\hat\\theta_A)$",
+      "$\\hat\\theta_A$: $\\text{MSE}=9<4=\\text{MSE}(\\hat\\theta_B)$, siden $B$ er skjev",
+      "$\\hat\\theta_B$: $\\text{MSE}=4$, fordi skjevheten ikke teller med",
+      "De er like: begge har $\\text{MSE}$ nøyaktig lik $8$"
+    ],
+    "explanation": "$\\text{MSE}(\\hat\\theta_A)=9+0=9$ og $\\text{MSE}(\\hat\\theta_B)=4+4=8$. Den litt skjeve $\\hat\\theta_B$ har minst samlet feil — varians alene ($4$ mot $9$) ville villedet."
+  },
+  {
+    "question": "Hvorfor er det feil å velge den konstante estimatoren $\\hat\\theta\\equiv 0$ selv om den har varians 0?",
+    "options": [
+      "Den er sterkt skjev, så MSE $=b^2$ blir stor selv om variansen er 0",
+      "Den har egentlig uendelig stor varians, ikke 0",
+      "Konstante estimatorer er alltid forventningsrette og dermed helt uinteressante i praksis",
+      "Variansen er 0 bare når parameteren $\\theta$ helt tilfeldigvis er nøyaktig lik 0"
+    ],
+    "explanation": "En estimator som alltid gir 0 spriker ikke (varians 0), men bommer systematisk med $b=-\\theta$. MSE $=0+\\theta^2$ blir stor — nettopp derfor kreves MSE, ikke varians, når skjevheten er ulik."
+  },
+  {
+    "question": "Hva betyr at estimatorfølgen $\\hat\\Theta_n$ konvergerer i sannsynlighet mot $\\theta$?",
+    "options": [
+      "$P(|\\hat\\Theta_n-\\theta|\\ge\\varepsilon)\\to 0$ når $n\\to\\infty$, for enhver $\\varepsilon>0$",
+      "$E(\\hat\\Theta_n)=\\theta$ for enhver fast utvalgsstørrelse $n$",
+      "$\\hat\\Theta_n$ gir nøyaktig $\\theta$ når $n$ er større enn en grense",
+      "Variansen $\\text{Var}(\\hat\\Theta_n)$ er konstant lik $\\theta$ uansett hvor stort utvalget blir"
+    ],
+    "explanation": "Konvergens i sannsynlighet betyr at sannsynligheten for å bomme mer enn en vilkårlig liten $\\varepsilon$ dør ut når utvalget vokser. Det andre alternativet er forventningsretthet, ikke konvergens."
+  },
+  {
+    "question": "Hva sier Tsjebysjeffs ulikhet for en variabel $Y$ med endelig varians?",
+    "options": [
+      "$P(|Y-E(Y)|\\ge\\varepsilon)\\le \\text{Var}(Y)/\\varepsilon^2$",
+      "$P(|Y-E(Y)|\\ge\\varepsilon)\\ge \\text{Var}(Y)/\\varepsilon^2$",
+      "$P(|Y-E(Y)|\\ge\\varepsilon)= \\text{Var}(Y)\\cdot\\varepsilon^2$",
+      "$P(|Y-E(Y)|\\ge\\varepsilon)\\le \\varepsilon^2/\\text{Var}(Y)$"
+    ],
+    "explanation": "Tsjebysjeff binder bomsannsynligheten oppover av $\\text{Var}(Y)/\\varepsilon^2$. Jo mindre varians, desto mindre sjanse for stort avvik — broen fra «varians mot 0» til konsistens."
+  },
+  {
+    "question": "Hva er den vanlige eksamensbegrunnelsen for at en estimator $\\hat\\Theta_n$ er konsistent?",
+    "options": [
+      "$\\text{MSE}(\\hat\\Theta_n)\\to 0$, så Tsjebysjeff gir $\\hat\\Theta_n\\xrightarrow{P}\\theta$",
+      "$\\text{MSE}(\\hat\\Theta_n)$ er konstant, så avviket forsvinner helt av seg selv når $n$ vokser",
+      "$E(\\hat\\Theta_n)=\\theta$ alene, uten noe krav til variansen",
+      "$\\text{Var}(\\hat\\Theta_n)$ vokser, slik at fordelingen brer seg ut"
+    ],
+    "explanation": "Er $\\text{MSE}=\\text{Var}+b^2\\to 0$, gir Tsjebysjeff $P(|\\hat\\Theta_n-\\theta|\\ge\\varepsilon)\\le\\text{MSE}/\\varepsilon^2\\to 0$. Forventningsretthet alene holder ikke — variansen må også gå mot 0."
+  },
+  {
+    "question": "Er en forventningsrett estimator automatisk konsistent?",
+    "options": [
+      "Nei — variansen må også gå mot 0 når $n\\to\\infty$",
+      "Ja — forventningsretthet medfører alltid konsistens",
+      "Ja — så lenge skjevheten er nøyaktig lik 0",
+      "Nei — en forventningsrett estimator er aldri konsistent"
+    ],
+    "explanation": "Forventningsretthet gir riktig senter, men sier ingenting om spredningen. Estimatoren $\\hat\\mu=X_1$ er forventningsrett, men variansen $\\sigma^2$ krymper ikke — den er ikke konsistent. Kravet er $\\text{Var}\\to 0$."
+  },
+  {
+    "question": "Hva betyr at en estimator er *asymptotisk* forventningsrett?",
+    "options": [
+      "Skjevheten går mot 0 når $n\\to\\infty$: $b(\\hat\\Theta_n)\\to 0$",
+      "Skjevheten er nøyaktig 0 for enhver fast $n$",
+      "Variansen går mot 0 når $n\\to\\infty$, uansett skjevhet",
+      "Estimatoren treffer $\\theta$ eksakt for store nok $n$"
+    ],
+    "explanation": "Asymptotisk forventningsrett betyr at skjevheten forsvinner i grensen. Det er et svakere krav enn forventningsrett, men nok (sammen med $\\text{Var}\\to 0$) for konsistens."
+  },
+  {
+    "question": "To uavhengige, forventningsrette estimatorer har varianser $\\sigma_1^2$ og $\\sigma_2^2$. Hvilken vekt $w$ i $w\\hat\\theta_1+(1-w)\\hat\\theta_2$ gir minst varians?",
+    "options": [
+      "$w=\\dfrac{\\sigma_2^2}{\\sigma_1^2+\\sigma_2^2}$ — omvendt proporsjonalt med variansene",
+      "$w=\\dfrac{\\sigma_1^2}{\\sigma_1^2+\\sigma_2^2}$ — proporsjonalt med egen varians",
+      "$w=\\dfrac12$ — alltid lik vekting av de to",
+      "$w=\\dfrac{\\sigma_1^2}{\\sigma_2^2}$ — forholdet mellom variansene"
+    ],
+    "explanation": "Invers-varians-vekting: den mest presise estimatoren (minst varians) får størst vekt, $w=\\sigma_2^2/(\\sigma_1^2+\\sigma_2^2)$. Kombinasjonen slår alltid begge de opprinnelige."
+  },
+  {
+    "question": "Hva er standardfeilen $se(\\hat\\Theta)$ til en estimator?",
+    "options": [
+      "$se(\\hat\\Theta)=\\sqrt{\\text{Var}(\\hat\\Theta)}$ — estimatorens standardavvik",
+      "$se(\\hat\\Theta)=\\text{Var}(\\hat\\Theta)$ — estimatorens varians",
+      "$se(\\hat\\Theta)=\\text{Var}(\\hat\\Theta)^2$ — variansen i annen",
+      "$se(\\hat\\Theta)=E(\\hat\\Theta)-\\theta$ — estimatorens skjevhet"
+    ],
+    "explanation": "Standardfeilen er kvadratroten av variansen, altså estimatorens standardavvik. For $\\bar X$ er $se(\\bar X)=\\sigma/\\sqrt n$; med $\\sigma$ ukjent settes $S$ inn."
+  },
+  {
+    "question": "Hva uttrykker den relative effisiensen $\\text{Var}(\\hat\\Theta_2)/\\text{Var}(\\hat\\Theta_1)$ mellom to forventningsrette estimatorer?",
+    "options": [
+      "Er forholdet $>1$, er $\\hat\\Theta_1$ mest effisient",
+      "Er forholdet $>1$, er $\\hat\\Theta_2$ mest effisient",
+      "Forholdet måler den samlede skjevheten til de to",
+      "Forholdet er alltid lik 1 for forventningsrette estimatorer"
+    ],
+    "explanation": "Er $\\text{Var}(\\hat\\Theta_2)>\\text{Var}(\\hat\\Theta_1)$ (forhold $>1$), spriker $\\hat\\Theta_2$ mer — altså er $\\hat\\Theta_1$ mest effisient. Tallet viser hvor mye informasjon den dårligere estimatoren kaster bort."
+  },
+  {
+    "question": "Hvordan vises at $\\bar X$ er konsistent for $\\mu$ (loven om store tall)?",
+    "options": [
+      "$\\bar X$ er forventningsrett og $\\text{Var}(\\bar X)=\\sigma^2/n\\to 0$, så Tsjebysjeff gir resten",
+      "$\\bar X$ er skjev, men skjevheten vokser slik at avviket jevnes ut",
+      "$\\text{Var}(\\bar X)=\\sigma^2$ er konstant, og det alene er nok til å sikre konsistens uansett utvalgsstørrelse",
+      "$\\bar X$ treffer $\\mu$ eksakt for enhver endelig utvalgsstørrelse"
+    ],
+    "explanation": "$E(\\bar X)=\\mu$ (skjevhet 0) og $\\text{Var}(\\bar X)=\\sigma^2/n\\to 0$, så $\\text{MSE}\\to 0$ og Tsjebysjeff gir $\\bar X\\xrightarrow{P}\\mu$. Dette er loven om store tall utledet via Tsjebysjeff."
+  },
+  {
+    "question": "Hva blir MSE for en *forventningsrett* estimator?",
+    "options": [
+      "$\\text{MSE}=\\text{Var}(\\hat\\Theta)$, siden skjevheten er 0",
+      "$\\text{MSE}=b(\\hat\\Theta)^2$, siden variansen faller bort",
+      "$\\text{MSE}=0$, siden estimatoren treffer eksakt",
+      "$\\text{MSE}=\\text{Var}(\\hat\\Theta)+\\theta^2$, med parameteren i annen"
+    ],
+    "explanation": "Med $b=0$ reduseres $\\text{MSE}=\\text{Var}+b^2$ til bare variansen. Derfor er varians-sammenligning gyldig nettopp når begge estimatorene er forventningsrette."
+  }
+]

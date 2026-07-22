@@ -1,0 +1,302 @@
+[
+  {
+    "question": "Hva er grunnideen bak momentmetoden med én ukjent parameter?",
+    "options": [
+      "Sett teoretisk moment lik empirisk: $E(X)=\\bar X$, og løs for parameteren",
+      "Maksimer likelihood-funksjonen $L(\\theta)$ og løs $s(\\hat\\theta)=0$",
+      "Minimer summen av kvadrerte avvik mellom data og modell",
+      "Sett andrederiverte lik null og løs den resulterende ligningen"
+    ],
+    "explanation": "Momentmetoden setter det teoretiske momentet $E(X)$ (en funksjon av parameteren) lik det empiriske $\\bar X$ og løser. Det andre alternativet beskriver ML, det tredje minste kvadrater."
+  },
+  {
+    "question": "Hva er det $k$-te *teoretiske* momentet?",
+    "options": [
+      "Forventningen $E(X^k)$ — en funksjon av den ukjente parameteren",
+      "Gjennomsnittet $\\frac1n\\sum X_i^k$ regnet ut av dataene",
+      "Den $k$-te deriverte av log-likelihood-funksjonen",
+      "Variansen til den $k$-te observasjonen i utvalget"
+    ],
+    "explanation": "Det $k$-te teoretiske momentet er $E(X^k)$, lest ut av fordelingen. Gjennomsnittet $\\frac1n\\sum X_i^k$ er det tilhørende *empiriske* momentet."
+  },
+  {
+    "question": "Hva er det første *empiriske* momentet?",
+    "options": [
+      "Utvalgsgjennomsnittet $\\bar X=\\frac1n\\sum X_i$",
+      "Forventningen $E(X)$ uttrykt ved parameteren",
+      "Utvalgsvariansen $S^2$ med divisor $n-1$",
+      "Summen $\\sum X_i^2$ av kvadrerte observasjoner"
+    ],
+    "explanation": "Det første empiriske momentet er $\\bar X$. Momentmetoden setter dette lik det første teoretiske momentet $E(X)$."
+  },
+  {
+    "question": "For Poisson$(\\lambda)$ er $E(X)=\\lambda$. Hva blir momentestimatoren?",
+    "options": [
+      "$\\hat\\lambda=\\bar X$, siden momentligningen gir $\\lambda=\\bar X$",
+      "$\\hat\\lambda=1/\\bar X$, siden $\\lambda$ er en rate",
+      "$\\hat\\lambda=\\bar X/2$, siden $E(X)=2\\lambda$",
+      "$\\hat\\lambda=S^2$, siden variansen i Poisson også er lik raten $\\lambda$"
+    ],
+    "explanation": "Momentligningen $E(X)=\\bar X$ blir $\\lambda=\\bar X$, så $\\hat\\lambda=\\bar X$. For Poisson sammenfaller dette med ML-estimatoren."
+  },
+  {
+    "question": "Levetider er eksponentialfordelte med $E(X)=1/\\lambda$. Hva blir momentestimatoren for $\\lambda$?",
+    "options": [
+      "$\\hat\\lambda=1/\\bar X$, ved å invertere $1/\\lambda=\\bar X$",
+      "$\\hat\\lambda=\\bar X$, ved å sette $\\lambda=\\bar X$ direkte",
+      "$\\hat\\lambda=\\bar X/n$, ved å dele på utvalgsstørrelsen",
+      "$\\hat\\lambda=1/S^2$, ved å bruke utvalgsvariansen"
+    ],
+    "explanation": "Momentligningen $1/\\lambda=\\bar X$ inverteres til $\\hat\\lambda=1/\\bar X$. Samme som ML-estimatoren for eksponentialfordelingen."
+  },
+  {
+    "question": "En fordeling har $E(X)=2\\theta$. Hva blir momentestimatoren for $\\theta$?",
+    "options": [
+      "$\\hat\\theta=\\bar X/2$, ved å løse $2\\theta=\\bar X$",
+      "$\\hat\\theta=2\\bar X$, ved å gange gjennomsnittet med 2",
+      "$\\hat\\theta=\\bar X$, siden konstanten 2 faller bort",
+      "$\\hat\\theta=\\bar X^2$, ved å kvadrere gjennomsnittet"
+    ],
+    "explanation": "Momentligningen $2\\theta=\\bar X$ løses til $\\hat\\theta=\\bar X/2$. Man inverterer funksjonen $g(\\theta)=2\\theta$."
+  },
+  {
+    "question": "Hvordan defineres likelihood-funksjonen $L(\\theta)$ for uavhengige data?",
+    "options": [
+      "$L(\\theta)=\\prod_{i=1}^n f(x_i;\\theta)$ — produktet av tetthetene",
+      "$L(\\theta)=\\sum_{i=1}^n f(x_i;\\theta)$ — summen av tetthetene",
+      "$L(\\theta)=\\prod_{i=1}^n \\log f(x_i;\\theta)$ — produktet av log-tetthetene",
+      "$L(\\theta)=\\frac1n\\sum_{i=1}^n f(x_i;\\theta)$ — gjennomsnittet av tetthetene"
+    ],
+    "explanation": "Uavhengighet gjør simultantettheten til et produkt: $L(\\theta)=\\prod f(x_i;\\theta)$. Uten uavhengighet gjelder ikke produktformen."
+  },
+  {
+    "question": "Hva gjør logaritmen med likelihood-funksjonen?",
+    "options": [
+      "Gjør produktet om til en sum: $\\ell(\\theta)=\\sum\\log f(x_i;\\theta)$",
+      "Gjør summen om til et produkt av log-ledd",
+      "Flytter toppunktet til en annen parameterverdi",
+      "Fjerner behovet for å bekrefte at punktet er et maksimum"
+    ],
+    "explanation": "$\\ell(\\theta)=\\log L(\\theta)=\\sum\\log f(x_i;\\theta)$ — produkt blir sum, langt lettere å derivere. Logaritmen er strengt voksende, så toppunktet flytter seg ikke."
+  },
+  {
+    "question": "Hvorfor tar vi logaritmen *før* vi deriverer, i stedet for å derivere $L(\\theta)$ direkte?",
+    "options": [
+      "Log gjør produkt til sum; å derivere produktet direkte drukner deg i produktregelen",
+      "Log flytter toppunktet til et sted som er lettere å regne ut",
+      "Log er nødvendig fordi $L(\\theta)$ ellers ville blitt negativ for enkelte parameterverdier",
+      "Log fjerner kravet om å sjekke andrederiverte til slutt"
+    ],
+    "explanation": "Å derivere et produkt av $n$ faktorer krever produktregelen gjentatte ganger. Logaritmen gjør det til en sum, som deriveres ledd for ledd — og toppunktet er uendret siden log er strengt voksende."
+  },
+  {
+    "question": "Hva er scorefunksjonen $s(\\theta)$?",
+    "options": [
+      "Den deriverte av log-likelihood: $s(\\theta)=\\ell'(\\theta)$",
+      "Den andrederiverte av log-likelihood: $s(\\theta)=\\ell''(\\theta)$",
+      "Log-likelihood selv: $s(\\theta)=\\ell(\\theta)$",
+      "Likelihood-funksjonen selv: $s(\\theta)=L(\\theta)$"
+    ],
+    "explanation": "Scoren er $s(\\theta)=\\ell'(\\theta)$. Toppen av $\\ell$ ligger der scoren er null; scoren er også byggesteinen for Fisher-informasjonen."
+  },
+  {
+    "question": "Hva gir løsningen av likelihoodligningen $s(\\hat\\theta)=0$?",
+    "options": [
+      "Et stasjonærpunkt — kandidaten til ML-estimator, som må bekreftes å være et maksimum",
+      "Garantert det globale maksimumet, helt uten behov for noen videre sjekk av krumningen",
+      "Alltid et minimum av log-likelihood-funksjonen",
+      "Momentestimatoren, som alltid er ulik ML-estimatoren"
+    ],
+    "explanation": "$s(\\hat\\theta)=0$ gir bare et stasjonærpunkt (kan være maks, min eller vendepunkt). Du må bekrefte at det er et maksimum med $\\ell''(\\hat\\theta)<0$."
+  },
+  {
+    "question": "Hva er det obligatoriske siste trinnet i ML-kjeden?",
+    "options": [
+      "Bekreft maksimum ved at $\\ell''(\\hat\\theta)<0$",
+      "Bekreft at $\\ell''(\\hat\\theta)>0$, altså positiv krumning",
+      "Bekreft at scoren $s(\\hat\\theta)>0$ i punktet",
+      "Bekreft at estimatoren er forventningsrett"
+    ],
+    "explanation": "Andrederiverttesten $\\ell''(\\hat\\theta)<0$ viser at $\\ell$ buer nedover — altså et toppunkt. Dette trinnet glemmes oftest og straffes hardt av sensor."
+  },
+  {
+    "question": "Hvilket trinn i ML-utledningen glemmes oftest og gir mest trekk?",
+    "options": [
+      "Maksimumsbekreftelsen $\\ell''(\\hat\\theta)<0$",
+      "Å sette opp likelihood-funksjonen $L(\\theta)$",
+      "Å ta logaritmen av likelihooden",
+      "Å regne ut det empiriske gjennomsnittet $\\bar X$"
+    ],
+    "explanation": "Uten trinn 5, andrederiverttesten, er ML-utledningen ufullstendig — dette er den vanligste trekkbelastningen i estimeringsoppgaven."
+  },
+  {
+    "question": "Hva er riktig rekkefølge på de fem trinnene i ML-kjeden?",
+    "options": [
+      "$L \\to \\ell \\to$ score $\\to$ løs $s(\\hat\\theta)=0 \\to$ bekreft $\\ell''<0$",
+      "$\\ell \\to L \\to$ score $\\to$ bekreft $\\ell''<0 \\to$ løs $s(\\hat\\theta)=0$",
+      "score $\\to L \\to \\ell \\to$ løs $s(\\hat\\theta)=0 \\to$ bekreft $\\ell''<0$",
+      "$L \\to$ score $\\to \\ell \\to$ bekreft $\\ell''<0 \\to$ løs $s(\\hat\\theta)=0$"
+    ],
+    "explanation": "Kjeden er: sett opp $L$, ta log til $\\ell$, deriver til score $s$, løs $s(\\hat\\theta)=0$, bekreft $\\ell''(\\hat\\theta)<0$. Log kommer alltid før derivasjon."
+  },
+  {
+    "question": "Hva blir ML-estimatoren for $\\lambda$ i Poisson$(\\lambda)$?",
+    "options": [
+      "$\\hat\\lambda_{ML}=\\bar X$, samme som momentestimatoren",
+      "$\\hat\\lambda_{ML}=1/\\bar X$, den inverse av gjennomsnittet",
+      "$\\hat\\lambda_{ML}=\\sum X_i^2/n$, det andre momentet",
+      "$\\hat\\lambda_{ML}=\\max_i X_i$, den største observasjonen"
+    ],
+    "explanation": "Scoren $s(\\lambda)=-n+\\sum x_i/\\lambda=0$ gir $\\hat\\lambda=\\bar X$, og $\\ell''=-\\sum x_i/\\lambda^2<0$ bekrefter maksimum. Moment og ML sammenfaller for Poisson."
+  },
+  {
+    "question": "For Bernoulli$(p)$ med $f(x;p)=p^x(1-p)^{1-x}$ — hva blir ML-estimatoren for $p$?",
+    "options": [
+      "$\\hat p=\\bar X$, andelen enere i utvalget",
+      "$\\hat p=1/\\bar X$, den inverse av gjennomsnittet",
+      "$\\hat p=1-\\bar X$, andelen nuller i utvalget",
+      "$\\hat p=\\bar X/n$, gjennomsnittet delt på $n$"
+    ],
+    "explanation": "Scoren $\\frac{\\sum x_i}{p}-\\frac{n-\\sum x_i}{1-p}=0$ gir $\\hat p=\\sum x_i/n=\\bar X$, og $\\ell''<0$ bekrefter maksimum. ML- og momentestimator er begge $\\bar X$."
+  },
+  {
+    "question": "For eksponentialfordelingen $f(x;\\lambda)=\\lambda e^{-\\lambda x}$ — hva blir ML-estimatoren for $\\lambda$?",
+    "options": [
+      "$\\hat\\lambda=1/\\bar X$, fra $\\ell'(\\lambda)=n/\\lambda-\\sum x_i=0$",
+      "$\\hat\\lambda=\\bar X$, fra $\\ell'(\\lambda)=n\\lambda-\\sum x_i=0$",
+      "$\\hat\\lambda=\\sum x_i/n^2$, fra det andre momentet",
+      "$\\hat\\lambda=\\max_i x_i$, siden støtten avhenger av $\\lambda$"
+    ],
+    "explanation": "$\\ell(\\lambda)=n\\log\\lambda-\\lambda\\sum x_i$ gir $s(\\lambda)=n/\\lambda-\\sum x_i=0$, altså $\\hat\\lambda=n/\\sum x_i=1/\\bar X$. $\\ell''=-n/\\lambda^2<0$ bekrefter maksimum."
+  },
+  {
+    "question": "For $N(\\mu,\\sigma^2)$ blir ML-estimatoren $\\hat\\sigma^2=\\frac1n\\sum(X_i-\\bar X)^2$. Hva er viktig å merke seg?",
+    "options": [
+      "Den deler på $n$ og er derfor skjev; forventningsrett er $S^2$ med $n-1$",
+      "Den deler på $n-1$ og er derfor forventningsrett akkurat som $S^2$",
+      "Den er alltid lik $S^2$ uansett hvordan divisoren velges",
+      "Den er forventningsrett fordi ML garanterer forventningsretthet"
+    ],
+    "explanation": "ML-variansen deler på $n$ og er skjev med $b=-\\sigma^2/n$. ML gir ikke automatisk forventningsrette estimatorer — den forventningsrette varianten er $S^2$ (divisor $n-1$)."
+  },
+  {
+    "question": "Hva sier invariansprinsippet om ML-estimatoren for en omregnet parameter $\\psi=g(\\theta)$?",
+    "options": [
+      "$\\hat\\psi=g(\\hat\\theta)$ — sett ML-estimatoren rett inn i funksjonen",
+      "$\\hat\\psi=g^{-1}(\\hat\\theta)$ — bruk den inverse funksjonen",
+      "$\\hat\\psi=g(\\bar X)$ — bruk gjennomsnittet uansett modell",
+      "$\\hat\\psi$ krever en helt ny ML-kjede fra bunnen av"
+    ],
+    "explanation": "Invariansprinsippet: er $\\hat\\theta$ ML for $\\theta$, er $\\hat\\psi=g(\\hat\\theta)$ ML for $\\psi=g(\\theta)$. Ingen ny derivasjon — bare sett inn."
+  },
+  {
+    "question": "For Poisson med $\\hat\\lambda=\\bar X$ — hva blir ML-estimatoren for $\\psi=P(X=0)=e^{-\\lambda}$?",
+    "options": [
+      "$\\hat\\psi=e^{-\\bar X}$, ved å sette $\\hat\\lambda=\\bar X$ inn i $e^{-\\lambda}$",
+      "$\\hat\\psi=e^{-1/\\bar X}$, ved å bruke den inverse raten",
+      "$\\hat\\psi=1-e^{-\\bar X}$, sannsynligheten for minst én",
+      "$\\hat\\psi=\\bar X e^{-\\bar X}$, sannsynligheten for nøyaktig én hendelse per enhet"
+    ],
+    "explanation": "Invariansprinsippet gir $\\hat\\psi=g(\\hat\\lambda)=e^{-\\bar X}$. Man setter ML-estimatoren rett inn i funksjonen $g(\\lambda)=e^{-\\lambda}$."
+  },
+  {
+    "question": "Gir momentmetoden og ML alltid samme estimator?",
+    "options": [
+      "Nei — de sammenfaller i noen modeller (Poisson), men skiller lag i andre (Rayleigh)",
+      "Ja — de gir alltid nøyaktig samme estimator uansett hvilken fordeling dataene har",
+      "Nei — de gir alltid forskjellige estimatorer, aldri like",
+      "Ja — så lenge fordelingen bare har én ukjent parameter"
+    ],
+    "explanation": "For Poisson, Bernoulli og eksponential sammenfaller de (begge $\\bar X$ eller $1/\\bar X$), men det er ikke en generell regel — Rayleigh er standardeksempelet der de skiller lag."
+  },
+  {
+    "question": "For Rayleigh er $E(X)=\\theta\\sqrt{\\pi/2}$ og ML gir $\\hat\\theta_{ML}=\\sqrt{\\sum X_i^2/(2n)}$. Hvorfor skiller moment og ML lag her?",
+    "options": [
+      "Momentestimatoren bruker det første momentet, mens ML svarer til det andre",
+      "Momentestimatoren bruker det andre momentet, mens ML bruker det første",
+      "ML glemmer å bekrefte maksimum, så resultatet blir feil",
+      "Momentmetoden er egentlig minste kvadrater i forkledning"
+    ],
+    "explanation": "Momentestimatoren $\\bar X\\sqrt{2/\\pi}$ matcher $E(X)$ (første moment), mens ML-uttrykket svarer til $E(X^2)=2\\theta^2$ (andre moment). Ulike momenter gir ulike estimatorer."
+  },
+  {
+    "question": "For Poisson$(\\lambda)$ — hvordan forholder momentestimatoren og ML-estimatoren seg?",
+    "options": [
+      "Begge blir $\\bar X$ — de sammenfaller",
+      "Moment gir $\\bar X$, ML gir $1/\\bar X$ — de skiller lag",
+      "Moment gir $1/\\bar X$, ML gir $\\bar X$ — de skiller lag",
+      "Begge blir $\\max_i X_i$ — de sammenfaller på randen"
+    ],
+    "explanation": "For Poisson gir både momentmetoden og ML $\\bar X$. Denne «alt blir $\\bar X$»-strukturen er grunnen til at Poisson er den hyppigste modellen i Oppgave 1."
+  },
+  {
+    "question": "For uniform på $[0,\\theta]$ er $L(\\theta)=\\theta^{-n}$ (når $\\theta\\ge\\max_i x_i$). Hva blir ML-estimatoren?",
+    "options": [
+      "$\\hat\\theta=\\max_i X_i$ — maksimum ligger på randen, siden scoren aldri blir null",
+      "$\\hat\\theta=\\bar X$ — fra den vanlige likelihoodligningen $s(\\hat\\theta)=0$",
+      "$\\hat\\theta=2\\bar X$ — samme som momentestimatoren",
+      "$\\hat\\theta=\\min_i X_i$ — den minste observasjonen"
+    ],
+    "explanation": "$\\ell(\\theta)=-n\\log\\theta$ er avtakende, så $s(\\theta)=-n/\\theta$ blir aldri null. Likelihooden maksimeres ved minste tillatte $\\theta$, som er $\\max_i X_i$. Sjekk alltid definisjonsområdet."
+  },
+  {
+    "question": "Hvorfor virker ikke den vanlige score-metoden for uniform på $[0,\\theta]$?",
+    "options": [
+      "Støtten $0\\le x\\le\\theta$ avhenger av $\\theta$, så maksimum ligger på randen",
+      "Likelihooden er ikke deriverbar noe sted i det tillatte parameterområdet for $\\theta$",
+      "Log-likelihood er konstant, så scoren er null overalt",
+      "Andrederiverte blir positiv, så punktet er et minimum"
+    ],
+    "explanation": "Når støtten flytter seg med $\\theta$, brytes regularitetsbetingelsene. $\\ell$ er strengt avtakende og scoren aldri null — maksimum ligger på randen ($\\max_i X_i$)."
+  },
+  {
+    "question": "Hva skjer med konstantledd i $\\ell(\\theta)$ som ikke inneholder $\\theta$ (f.eks. $-\\log(\\prod x_i!)$ i Poisson)?",
+    "options": [
+      "De forsvinner ved derivasjon og påvirker ikke estimatoren",
+      "De må beholdes fordi de endrer plasseringen av maksimum",
+      "De gjør likelihooden negativ og må trekkes fra",
+      "De inngår i skjevheten til den ferdige estimatoren"
+    ],
+    "explanation": "Ledd uten $\\theta$ har derivert 0 og påvirker ikke $s(\\theta)$ eller estimatoren. De kan droppes tidlig for å forenkle regningen."
+  },
+  {
+    "question": "Har en fordeling to ukjente parametre, hvordan brukes momentmetoden?",
+    "options": [
+      "Løs de to første momentligningene simultant: $E(X)=\\bar X$ og $E(X^2)=\\frac1n\\sum X_i^2$",
+      "Løs bare den første momentligningen $E(X)=\\bar X$ for begge",
+      "Maksimer likelihooden med hensyn på begge parametrene samtidig ved å sette score lik null",
+      "Bruk det tredje og fjerde momentet for de to parametrene"
+    ],
+    "explanation": "Med to ukjente trengs to ligninger: første og andre moment settes lik sine empiriske motstykker og løses simultant. I normalmodellen gir det $\\hat\\mu=\\bar X$ og $\\hat\\sigma^2=\\frac1n\\sum(X_i-\\bar X)^2$."
+  },
+  {
+    "question": "Hva er forskjellen på momentmetoden og minste kvadrater?",
+    "options": [
+      "Momentmetoden matcher momenter; minste kvadrater minimerer kvadrerte avvik",
+      "Momentmetoden minimerer kvadrerte avvik; minste kvadrater matcher momenter",
+      "De er to ulike navn på nøyaktig samme metode",
+      "Momentmetoden maksimerer likelihood; minste kvadrater tar logaritmen"
+    ],
+    "explanation": "Momentmetoden setter teoretiske momenter lik empiriske; minste kvadrater (Del 3) minimerer $\\sum(\\text{observert}-\\text{modell})^2$. Å forveksle dem er en klassisk feil."
+  },
+  {
+    "question": "Hva betyr det geometrisk at $\\ell''(\\hat\\theta)<0$ i ML-punktet?",
+    "options": [
+      "Log-likelihood-kurven buer nedover i punktet — altså et toppunkt",
+      "Log-likelihood-kurven buer oppover i punktet — altså et bunnpunkt",
+      "Log-likelihood-kurven er rett i punktet — altså et vendepunkt",
+      "Scoren vokser i punktet, så estimatoren blir skjev"
+    ],
+    "explanation": "Negativ andrederivert betyr at $\\ell$ krummer nedover, som kjennetegner et maksimum. Er $\\ell''>0$ er det et bunnpunkt, er $\\ell''=0$ kan det være et vendepunkt."
+  },
+  {
+    "question": "Hva er den observerte informasjonen, og hvordan henger den sammen med maksimumsbekreftelsen?",
+    "options": [
+      "$-\\ell''(\\hat\\theta)$; at den er positiv er nettopp kravet $\\ell''(\\hat\\theta)<0$",
+      "$+\\ell''(\\hat\\theta)$; at den er negativ i selve punktet bekrefter et lokalt maksimum",
+      "$\\ell'(\\hat\\theta)$; at den er null bekrefter et maksimum",
+      "$L(\\hat\\theta)$; at den er stor bekrefter et maksimum"
+    ],
+    "explanation": "Observert informasjon er $-\\ell''(\\hat\\theta)$. At den er positiv er det samme som $\\ell''(\\hat\\theta)<0$ — altså maksimumsbekreftelsen. Forventningen av $-\\ell''$ er Fisher-informasjonen."
+  }
+]

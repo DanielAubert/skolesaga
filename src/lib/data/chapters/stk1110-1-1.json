@@ -1,0 +1,587 @@
+{
+  "id": "stk1110-1-1",
+  "courseId": "stk1110",
+  "chapterNumber": "1.1",
+  "title": "Estimatorers egenskaper: forventningsretthet, varians, MSE og konsistens",
+  "description": "Hva gjør en estimator god — forventningsretthet, varians, skjevhet, MSE og konsistens — og hvordan to estimatorer sammenlignes og den beste velges.",
+  "estimatedMinutes": 55,
+  "competenceGoals": [
+    "skille estimator (stokastisk) fra estimat (tall) og vise forventningsretthet fullstendig",
+    "regne ut variansen til en estimator og sammenligne to forventningsrette estimatorer på effisiens",
+    "bruke MSE = varians + skjevhet i annen til å sammenligne estimatorer når minst én er skjev",
+    "vise konsistens via Tsjebysjeffs ulikhet (MSE mot 0)"
+  ],
+  "content": [
+    {
+      "id": "stk1110-1-1-tip",
+      "type": "tip",
+      "title": "Eksamensvinkel",
+      "content": "**Dette er halve Oppgave 1 på hver eneste eksamen.** Forventningsretthet og varians for en estimator dukker opp i **omtrent 20 av 22 sett (91 %)** — nesten alltid som deloppgaver i estimeringsoppgaven (oppgave 1).\n\n- **Sjanger B** (estimator-egenskaper) er arbeidshesten her: vis at en estimator er forventningsrett, regn ut variansen, sammenlign to estimatorer. *Sjanger* betyr bare «oppgavetype» — boka gir hver type en bokstav (A–P) så du kjenner den igjen; B er «egenskaper ved estimatorer».\n- **Estimator-sammenligning på varians** i cirka 30 % av settene (moment mot ML, eller to andre kandidater).\n- **Konsistens via Tsjebysjeff** i cirka 18 % (typisk et siste deltrinn).\n\n**Sensorens hardeste krav her:** skill *estimator* (stor bokstav $\\hat\\Theta$ — en tilfeldig størrelse) fra *estimat* (liten $\\hat\\theta$ — ett tall). Å blande dem er den vanligste trekkbelastningen. Vis dessuten forventningsretthet og varians **fullstendig** — hopp aldri over et ledd. Prioritet: **må sitte perfekt.**"
+    },
+    {
+      "id": "stk1110-1-1-forkunnskaper",
+      "type": "text",
+      "content": "**Forkunnskaper:** Dette kapitlet bygger på regnereglene for forventning og varians fra **[kap. 0.2](/bok/stk1110/stk1110-0-2)** — særlig $E(aX+bY)=aE(X)+bE(Y)$, $\\text{Var}(aX)=a^2\\text{Var}(X)$ og $\\text{Var}(\\bar X)=\\sigma^2/n$ — og på kjennskap til kjikvadratfordelingen ($\\chi^2$) derfra. Estimator-begrepet er innført i STK1100 kap. 5.1 *Estimatorer og egenskaper* (→ stk1100-5-1) *(klartekst — STK1100 er ikke bygget ennå)*.\n\nDu trenger trygg derivasjon og enkel algebra; vil du friske opp, se [R1 4.1 Derivasjonsregler](/bok/r1/r1-4-1). Alt det statistiske forklares her."
+    },
+    {
+      "id": "stk1110-1-1-motiv",
+      "type": "text",
+      "content": "Når du har et datasett, vil du gjette verdien av en ukjent parameter — forventet levetid, en sannsynlighet, en varians. Regelen du bruker for å regne gjettet ut av dataene, kalles en **estimator**. Men hvordan vet du at én regel er bedre enn en annen?\n\nDette kapitlet gir de fire målestokkene sensor bruker: **forventningsretthet** (treffer estimatoren i snitt riktig?), **varians** (hvor mye spriker den?), **MSE** (hvordan veies bom mot spredning når estimatoren er skjev?) og **konsistens** (nærmer den seg sannheten når utvalget vokser?). Med dem kan du sammenligne to estimatorer og *begrunne* valget — nettopp det oppgave 1 spør om.\n\nKapitlet er bygget som fire **læringsløkker**: hver går teori → gjennomregnet eksempel → øvingsoppgave, så du arbeider deg gjennom stoffet bit for bit."
+    },
+    {
+      "id": "stk1110-1-1-l1",
+      "type": "text",
+      "content": "## Løkke 1 — Estimator, estimat og forventningsretthet (~14 min)"
+    },
+    {
+      "id": "stk1110-1-1-l1-intro",
+      "type": "text",
+      "content": "Det aller første sensor ser etter, er om du holder to ting fra hverandre: **regelen** (en tilfeldig variabel, fordi den avhenger av det tilfeldige utvalget) og **tallet** den gir på ett konkret datasett. Vi bruker store bokstaver for det tilfeldige og små for tallet — konsekvent gjennom hele boka."
+    },
+    {
+      "id": "stk1110-1-1-def-estimator",
+      "type": "definition",
+      "title": "Estimator",
+      "content": "En **estimator** er en regel — en funksjon av de tilfeldige observasjonene $X_1,\\dots,X_n$ — som vi bruker for å anslå en ukjent parameter $\\theta$. Fordi den er en funksjon av tilfeldige variabler, er estimatoren **selv en tilfeldig variabel** med sin egen fordeling, forventning og varians. Vi skriver den med hatt og stor bokstav: $\\hat\\Theta$ (eller $\\hat\\theta$ når konteksten er klar). Eksempel: $\\bar X=\\frac1n\\sum_{i=1}^n X_i$ er en estimator for forventningen $\\mu$."
+    },
+    {
+      "id": "stk1110-1-1-def-estimat",
+      "type": "definition",
+      "title": "Estimat",
+      "content": "Et **estimat** er *tallet* estimatoren gir når du setter inn de faktisk observerte verdiene $x_1,\\dots,x_n$. Det er ikke tilfeldig — det er ett fast tall. Skrivemåte med små bokstaver: $\\hat\\theta=\\bar x$. **Merk skillet:** $\\bar X$ (estimator) har en varians; $\\bar x=4{,}9$ (estimat) er bare et tall. Å si «variansen til estimatet» er en kategorifeil sensor straffer."
+    },
+    {
+      "id": "stk1110-1-1-def-punkt",
+      "type": "definition",
+      "title": "Punktestimator",
+      "content": "En **punktestimator** gir ett enkelt tallanslag for parameteren (i motsetning til et *intervall*estimat, som gir et helt intervall — det kommer i Del 2). Alle estimatorene i dette kapitlet er punktestimatorer."
+    },
+    {
+      "id": "stk1110-1-1-l1-forv",
+      "type": "text",
+      "content": "En god estimator bør **treffe riktig i gjennomsnitt** over mange tenkte gjentakelser av forsøket. Det er nettopp det forventningsretthet måler."
+    },
+    {
+      "id": "stk1110-1-1-def-forv",
+      "type": "definition",
+      "title": "Forventningsretthet (forventningsrett estimator)",
+      "content": "En estimator $\\hat\\Theta$ er **forventningsrett** (engelsk: *unbiased*) for $\\theta$ dersom forventningen treffer parameteren eksakt:\n\n$$E(\\hat\\Theta)=\\theta \\quad \\text{for alle mulige verdier av } \\theta.$$\n\nTolkning: gjentar du forsøket uendelig mange ganger, blir gjennomsnittet av estimatene lik den sanne verdien. Estimatoren bommer ikke *systematisk* — den kan spre seg, men sentreres riktig."
+    },
+    {
+      "id": "stk1110-1-1-def-skjev",
+      "type": "definition",
+      "title": "Skjevhet (bias)",
+      "content": "**Skjevheten** til en estimator er det systematiske avviket mellom forventningen og parameteren:\n\n$$b(\\hat\\Theta)=E(\\hat\\Theta)-\\theta.$$\n\nEr $b(\\hat\\Theta)=0$, er estimatoren forventningsrett. Positiv skjevhet betyr at estimatoren i snitt ligger for høyt, negativ for lavt. Når en oppgave ber om en *forventningsrett* estimator, skal du **kvantifisere** skjevheten og **korrigere** den (gange med en passende konstant)."
+    },
+    {
+      "id": "stk1110-1-1-ex1",
+      "type": "example",
+      "title": "Eksempel 1: Utvalgsgjennomsnittet er forventningsrett (sjanger B)",
+      "problem": "La $X_1,\\dots,X_n$ være uavhengige med $E(X_i)=\\mu$. Vis at $\\bar X=\\frac1n\\sum X_i$ er en forventningsrett estimator for $\\mu$.",
+      "solution": "Vi bruker at forventning er lineær:\n\n$$E(\\bar X)=E\\!\\left(\\frac1n\\sum_{i=1}^n X_i\\right)=\\frac1n\\sum_{i=1}^n E(X_i)=\\frac1n\\cdot n\\mu=\\mu.$$\n\nSiden $E(\\bar X)=\\mu$ for enhver $\\mu$, er $\\bar X$ forventningsrett. Skjevheten er $b(\\bar X)=\\mu-\\mu=0$.\n\n**Merk språket:** $\\bar X$ (stor bokstav) er estimatoren vi tar forventningen av; ett konkret tallsvar $\\bar x$ ville vært estimatet."
+    },
+    {
+      "id": "stk1110-1-1-oppg1",
+      "type": "exercise",
+      "exercise": {
+        "id": "stk1110-1-1-oppg1-e",
+        "number": "1",
+        "type": "classic",
+        "difficulty": "lett",
+        "task": "La $X_1,\\dots,X_n$ være uavhengige med $E(X_i)=\\mu$. Betrakt estimatoren $\\hat\\mu=\\tfrac13 X_1+\\tfrac13 X_2+\\tfrac13 X_3$ (bare de tre første, likt vektet).\n\n**a)** Er $\\hat\\mu$ forventningsrett for $\\mu$?\n\n**b)** Hva blir skjevheten hvis du i stedet bruker $\\tilde\\mu=\\tfrac12 X_1+\\tfrac12 X_2$?",
+        "solution": "**a)** $E(\\hat\\mu)=\\tfrac13 E(X_1)+\\tfrac13 E(X_2)+\\tfrac13 E(X_3)=\\tfrac13\\mu\\cdot 3=\\mu$. Ja, forventningsrett (skjevhet 0). Vektene summerer til 1, som er nøkkelen.\n\n**b)** $E(\\tilde\\mu)=\\tfrac12\\mu+\\tfrac12\\mu=\\mu$, så $b(\\tilde\\mu)=0$ — også forventningsrett. Enhver vektet sum $\\sum w_iX_i$ med $\\sum w_i=1$ er forventningsrett for $\\mu$; det er *variansen* som skiller dem (løkke 2).",
+        "hints": [
+          "Bruk at $E(\\sum w_iX_i)=\\sum w_iE(X_i)$.",
+          "Sjekk om vektene summerer til 1."
+        ]
+      }
+    },
+    {
+      "id": "stk1110-1-1-l1-utl",
+      "type": "text",
+      "content": "Ikke alle naturlige estimatorer er forventningsrette. Det viktigste eksempelet er **variansestimatoren med divisor $n$** — den bommer systematisk litt for lavt.\n\n**Intuisjon:** når du måler spredning rundt $\\bar X$ i stedet for rundt den ukjente $\\mu$, undervurderer du spredningen litt, fordi $\\bar X$ ligger nærmere dine egne data enn $\\mu$ gjør. Derfor deler vi på $n-1$, ikke $n$."
+    },
+    {
+      "id": "stk1110-1-1-def-s2",
+      "type": "definition",
+      "title": "Utvalgsvariansen $S^2$",
+      "content": "**Utvalgsvariansen** er den forventningsrette estimatoren for variansen $\\sigma^2$:\n\n$$S^2=\\frac{1}{n-1}\\sum_{i=1}^n (X_i-\\bar X)^2, \\qquad E(S^2)=\\sigma^2.$$\n\nDivisoren er $n-1$ (ikke $n$) nettopp for å nøytralisere at avvikene måles fra $\\bar X$ og ikke fra den ukjente $\\mu$. Tallet $n-1$ kalles **frihetsgrader** og går igjen i hele Del 2."
+    },
+    {
+      "id": "stk1110-1-1-ex2",
+      "type": "example",
+      "title": "Eksempel 2: ML-variansestimatoren er skjev (sjanger B)",
+      "problem": "La $X_1,\\dots,X_n$ være uavhengige med varians $\\sigma^2$. Betrakt $\\hat\\sigma^2=\\frac1n\\sum_{i=1}^n (X_i-\\bar X)^2$ (divisor $n$ — dette er ML-estimatoren fra kap. 1.2). Finn skjevheten og angi en forventningsrett korreksjon.",
+      "solution": "Vi bruker et resultat verdt å kunne: $E\\!\\left[\\sum (X_i-\\bar X)^2\\right]=(n-1)\\sigma^2$ (avvikssummen har $n-1$ frihetsgrader). Da er\n\n$$E(\\hat\\sigma^2)=\\frac1n\\,E\\!\\left[\\sum (X_i-\\bar X)^2\\right]=\\frac1n(n-1)\\sigma^2=\\frac{n-1}{n}\\,\\sigma^2.$$\n\nSkjevheten blir\n\n$$b(\\hat\\sigma^2)=\\frac{n-1}{n}\\sigma^2-\\sigma^2=-\\frac{\\sigma^2}{n}<0,$$\n\nså ML-estimatoren bommer systematisk **for lavt**, og bommen krymper som $1/n$. Den forventningsrette korreksjonen er å gange med $\\frac{n}{n-1}$:\n\n$$\\frac{n}{n-1}\\hat\\sigma^2=\\frac{1}{n-1}\\sum (X_i-\\bar X)^2=S^2, \\qquad E(S^2)=\\sigma^2.$$\n\nTallsjekk ($n=6,\\ \\sigma^2=4$): $E(\\hat\\sigma^2)=\\tfrac56\\cdot4\\approx3{,}33$, skjevhet $-4/6\\approx-0{,}67$."
+    },
+    {
+      "id": "stk1110-1-1-oppg2",
+      "type": "exercise",
+      "exercise": {
+        "id": "stk1110-1-1-oppg2-e",
+        "number": "2",
+        "type": "classic",
+        "difficulty": "lett",
+        "task": "En estimator $\\hat\\theta$ har $E(\\hat\\theta)=\\frac{n}{n+2}\\theta$.\n\n**a)** Finn skjevheten $b(\\hat\\theta)$.\n\n**b)** Finn en konstant $c$ slik at $c\\hat\\theta$ er forventningsrett for $\\theta$.",
+        "solution": "**a)** $b(\\hat\\theta)=\\dfrac{n}{n+2}\\theta-\\theta=-\\dfrac{2}{n+2}\\theta<0$ (bommer for lavt).\n\n**b)** Vi vil ha $E(c\\hat\\theta)=c\\cdot\\dfrac{n}{n+2}\\theta=\\theta$, som gir $c=\\dfrac{n+2}{n}$. Da er $\\dfrac{n+2}{n}\\hat\\theta$ forventningsrett.",
+        "hints": [
+          "Skjevhet = forventning minus parameter.",
+          "Velg $c$ slik at $c\\cdot E(\\hat\\theta)=\\theta$."
+        ]
+      }
+    },
+    {
+      "id": "stk1110-1-1-l2",
+      "type": "text",
+      "content": "## Løkke 2 — Varians, standardfeil og effisiens (~14 min)"
+    },
+    {
+      "id": "stk1110-1-1-l2-intro",
+      "type": "text",
+      "content": "To forventningsrette estimatorer treffer begge riktig i snitt — men den ene kan sprike langt mer enn den andre fra gang til gang. Målestokken for spriket er **variansen**, og den avgjør hvilken estimator du bør foretrekke."
+    },
+    {
+      "id": "stk1110-1-1-def-var",
+      "type": "definition",
+      "title": "Varians til en estimator",
+      "content": "**Variansen** $\\text{Var}(\\hat\\Theta)=E\\!\\left[(\\hat\\Theta-E(\\hat\\Theta))^2\\right]$ måler hvor mye estimatoren spriker rundt sin egen forventning fra utvalg til utvalg. Liten varians betyr en presis, stabil estimator. For utvalgsgjennomsnittet er $\\text{Var}(\\bar X)=\\sigma^2/n$ — den krymper når utvalget vokser."
+    },
+    {
+      "id": "stk1110-1-1-def-se",
+      "type": "definition",
+      "title": "Standardfeil ($se$)",
+      "content": "**Standardfeilen** er standardavviket til estimatoren: $se(\\hat\\Theta)=\\sqrt{\\text{Var}(\\hat\\Theta)}$. Den har samme enhet som parameteren og brukes direkte i konfidensintervall (Del 2). For $\\bar X$ er $se(\\bar X)=\\sigma/\\sqrt n$; er $\\sigma$ ukjent, settes $S$ inn og gir den *estimerte* standardfeilen $S/\\sqrt n$."
+    },
+    {
+      "id": "stk1110-1-1-def-eff",
+      "type": "definition",
+      "title": "Effisiens (mest effisiente estimator)",
+      "content": "Blant to eller flere **forventningsrette** estimatorer for samme parameter kalles den med **minst varians** den mest **effisiente**. Effisiens = presisjon: den effisiente estimatoren utnytter dataene best. Å velge den mest effisiente er standardsvaret på «hvilken estimator foretrekker du, og hvorfor?»."
+    },
+    {
+      "id": "stk1110-1-1-def-samvar",
+      "type": "definition",
+      "title": "Estimator-sammenligning på varians",
+      "content": "Er to estimatorer **begge forventningsrette** for $\\theta$, velger du den med **minst varians** (den mest effisiente). Dette er den korrekte sammenligningen *bare* når begge er forventningsrette; er den ene skjev, må du bruke MSE i stedet (løkke 3)."
+    },
+    {
+      "id": "stk1110-1-1-l2-utl",
+      "type": "text",
+      "content": "La oss se hvorfor $\\bar X$ er en god idé, ved å sammenligne estimatorer som bruker ulikt antall observasjoner.\n\n**Intuisjon:** jo flere uavhengige observasjoner du midler over, desto mer utjevnes tilfeldighetene — variansen synker som $1/n$. En estimator som bare bruker noen få observasjoner, kaster bort informasjon."
+    },
+    {
+      "id": "stk1110-1-1-ex3",
+      "type": "example",
+      "title": "Eksempel 3: To forventningsrette estimatorer — hvilken vinner? (sjanger B)",
+      "problem": "La $X_1,\\dots,X_n$ ($n\\ge3$) være uavhengige med $E(X_i)=\\mu$, $\\text{Var}(X_i)=\\sigma^2$. Sammenlign $\\bar X=\\frac1n\\sum X_i$ med $\\hat\\mu_2=\\frac12(X_1+X_2)$. Begge er forventningsrette (løkke 1). Hvilken foretrekker du?",
+      "solution": "Vi regner variansene med reglene fra kap. 0.2 ($\\text{Var}(aX)=a^2\\text{Var}(X)$, varianser adderer for uavhengige):\n\n$$\\text{Var}(\\bar X)=\\frac{\\sigma^2}{n}, \\qquad \\text{Var}(\\hat\\mu_2)=\\tfrac14\\sigma^2+\\tfrac14\\sigma^2=\\frac{\\sigma^2}{2}.$$\n\nFor $n>2$ er $\\sigma^2/n<\\sigma^2/2$, så $\\bar X$ har minst varians og er mest effisient. **Konklusjon:** foretrekk $\\bar X$ — den bruker all informasjonen, mens $\\hat\\mu_2$ kaster bort $n-2$ observasjoner.\n\nTallsjekk ($n=6$): $\\text{Var}(\\bar X)=\\sigma^2/6$ mot $\\sigma^2/2$ — $\\bar X$ har tre ganger mindre varians."
+    },
+    {
+      "id": "stk1110-1-1-oppg3",
+      "type": "exercise",
+      "exercise": {
+        "id": "stk1110-1-1-oppg3-e",
+        "number": "3",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "$X_1,\\dots,X_n$ er uavhengige med forventning $\\mu$ og varians $\\sigma^2$. Betrakt de to forventningsrette estimatorene $\\bar X$ og $\\hat\\mu_3=\\tfrac14 X_1+\\tfrac34 X_2$.\n\n**a)** Vis at $\\hat\\mu_3$ er forventningsrett.\n\n**b)** Regn ut $\\text{Var}(\\hat\\mu_3)$ og avgjør med begrunnelse hvilken av $\\bar X$ og $\\hat\\mu_3$ du foretrekker for $n=5$.",
+        "solution": "**a)** $E(\\hat\\mu_3)=\\tfrac14\\mu+\\tfrac34\\mu=\\mu$ (vektene summerer til 1), altså forventningsrett.\n\n**b)** $\\text{Var}(\\hat\\mu_3)=\\left(\\tfrac14\\right)^2\\sigma^2+\\left(\\tfrac34\\right)^2\\sigma^2=\\left(\\tfrac{1}{16}+\\tfrac{9}{16}\\right)\\sigma^2=\\tfrac{10}{16}\\sigma^2=0{,}625\\,\\sigma^2$. For $n=5$ er $\\text{Var}(\\bar X)=\\sigma^2/5=0{,}2\\,\\sigma^2<0{,}625\\,\\sigma^2$. Foretrekk $\\bar X$ — mer effisient. (Ulike vekter øker variansen; likevekting $1/n$ er best.)",
+        "hints": [
+          "For uavhengige: $\\text{Var}(aX_1+bX_2)=a^2\\sigma^2+b^2\\sigma^2$.",
+          "Sammenlign med $\\text{Var}(\\bar X)=\\sigma^2/n$."
+        ]
+      }
+    },
+    {
+      "id": "stk1110-1-1-def-invvar",
+      "type": "definition",
+      "title": "Invers-varians-vekting",
+      "content": "Skal du kombinere to *uavhengige, forventningsrette* estimatorer $\\hat\\theta_1,\\hat\\theta_2$ med varianser $\\sigma_1^2,\\sigma_2^2$ til én forventningsrett estimator $w\\hat\\theta_1+(1-w)\\hat\\theta_2$, oppnås **minst varians** ved å vekte omvendt proporsjonalt med variansene: $w=\\dfrac{\\sigma_2^2}{\\sigma_1^2+\\sigma_2^2}$. Den mest presise estimatoren får størst vekt."
+    },
+    {
+      "id": "stk1110-1-1-ex4",
+      "type": "example",
+      "title": "Eksempel 4: Optimal kombinasjon av to estimatorer (sjanger B)",
+      "problem": "To laboratorier måler samme størrelse $\\theta$ uavhengig og forventningsrett: $\\hat\\theta_1$ med $\\text{Var}(\\hat\\theta_1)=2$ og $\\hat\\theta_2$ med $\\text{Var}(\\hat\\theta_2)=5$ (samme enhet). Finn vekten $w$ i $\\hat\\theta=w\\hat\\theta_1+(1-w)\\hat\\theta_2$ som gir minst varians, og angi den minste variansen.",
+      "solution": "Kombinasjonen er forventningsrett for enhver $w$ (fordi $w+(1-w)=1$). Variansen er\n\n$$\\text{Var}(\\hat\\theta)=w^2\\cdot 2+(1-w)^2\\cdot 5.$$\n\nDeriver og sett lik null: $\\frac{d}{dw}=4w-10(1-w)=14w-10=0\\Rightarrow w=\\tfrac{10}{14}=\\tfrac57\\approx0{,}714$. Dette stemmer med invers-varians-formelen $w=\\dfrac{5}{2+5}=\\dfrac57$. Minste varians:\n\n$$\\text{Var}(\\hat\\theta)=\\left(\\tfrac57\\right)^2\\!\\cdot2+\\left(\\tfrac27\\right)^2\\!\\cdot5=\\tfrac{50}{49}+\\tfrac{20}{49}=\\tfrac{70}{49}=\\tfrac{10}{7}\\approx1{,}43.$$\n\nLegg merke til at $1{,}43$ er mindre enn begge de opprinnelige variansene ($2$ og $5$) — å kombinere lønner seg alltid."
+    },
+    {
+      "id": "stk1110-1-1-oppg4",
+      "type": "exercise",
+      "exercise": {
+        "id": "stk1110-1-1-oppg4-e",
+        "number": "4",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "To uavhengige, forventningsrette estimatorer for $\\theta$ har $\\text{Var}(\\hat\\theta_1)=3$ og $\\text{Var}(\\hat\\theta_2)=6$. Finn den vekten $w$ i $\\hat\\theta=w\\hat\\theta_1+(1-w)\\hat\\theta_2$ som minimerer variansen, og regn ut den minste variansen.",
+        "solution": "Invers-varians-vekting: $w=\\dfrac{\\sigma_2^2}{\\sigma_1^2+\\sigma_2^2}=\\dfrac{6}{3+6}=\\dfrac23$. Minste varians: $\\text{Var}(\\hat\\theta)=\\left(\\tfrac23\\right)^2\\cdot3+\\left(\\tfrac13\\right)^2\\cdot6=\\tfrac{4}{9}\\cdot3+\\tfrac19\\cdot6=\\tfrac{12}{9}+\\tfrac{6}{9}=\\tfrac{18}{9}=2$. Merk at $2<3<6$ — kombinasjonen slår begge.",
+        "hints": [
+          "Vekt omvendt proporsjonalt med variansene: $w=\\sigma_2^2/(\\sigma_1^2+\\sigma_2^2)$.",
+          "Sett vekten inn i $w^2\\sigma_1^2+(1-w)^2\\sigma_2^2$."
+        ]
+      }
+    },
+    {
+      "id": "stk1110-1-1-l3",
+      "type": "text",
+      "content": "## Løkke 3 — MSE når estimatoren er skjev (~13 min)"
+    },
+    {
+      "id": "stk1110-1-1-l3-intro",
+      "type": "text",
+      "content": "Sammenligning på varians alene forutsetter at *begge* estimatorene er forventningsrette. Men noen ganger er en litt skjev estimator faktisk bedre — fordi den spriker mye mindre. For å veie bom mot spredning i ett tall bruker vi **middels kvadratisk feil (MSE)**."
+    },
+    {
+      "id": "stk1110-1-1-def-mse",
+      "type": "definition",
+      "title": "Middels kvadratisk feil (MSE)",
+      "content": "**Middels kvadratisk feil** er forventet kvadrert avstand mellom estimatoren og parameteren:\n\n$$\\text{MSE}(\\hat\\Theta)=E\\!\\left[(\\hat\\Theta-\\theta)^2\\right].$$\n\nDen straffer både spredning og systematisk bom, og er det riktige sammenligningsmålet når estimatorene *ikke* begge er forventningsrette. Mindre MSE er bedre."
+    },
+    {
+      "id": "stk1110-1-1-def-mse-dekomp",
+      "type": "definition",
+      "title": "Skjevhet–varians-dekomponeringen",
+      "content": "MSE splittes alltid i varians pluss skjevhet i annen:\n\n$$\\text{MSE}(\\hat\\Theta)=\\text{Var}(\\hat\\Theta)+b(\\hat\\Theta)^2.$$\n\nFor en forventningsrett estimator ($b=0$) er $\\text{MSE}=\\text{Var}$. Formelen viser **avveiingen**: en liten skjevhet kan lønne seg hvis den kjøper en stor variansreduksjon. Utledning: $E[(\\hat\\Theta-\\theta)^2]=E[(\\hat\\Theta-E\\hat\\Theta)^2]+(E\\hat\\Theta-\\theta)^2$, der krysstoget forsvinner fordi $E[\\hat\\Theta-E\\hat\\Theta]=0$."
+    },
+    {
+      "id": "stk1110-1-1-def-sam-mse",
+      "type": "definition",
+      "title": "Estimator-sammenligning på MSE",
+      "content": "Når minst én estimator er **skjev**, sammenlignes de på **MSE**, ikke varians: velg den med minst $\\text{Var}+b^2$. Å sammenligne en skjev og en forventningsrett estimator *på varians alene* er en klassisk feil — variansen ser da lav ut nettopp fordi estimatoren jukser mot en gal verdi."
+    },
+    {
+      "id": "stk1110-1-1-warn-mse",
+      "type": "warning",
+      "title": "Felle: varians-sammenligning ved ulik skjevhet",
+      "content": "Har de to estimatorene **ulik skjevhet**, er det *feil* å velge den med minst varians. En sterkt skjev estimator (for eksempel den konstante $\\hat\\theta\\equiv 0$) har varians 0, men er ubrukelig. Bruk **MSE** = $\\text{Var}+b^2$ når minst én estimator er skjev — det er sensorkravet."
+    },
+    {
+      "id": "stk1110-1-1-l3-utl",
+      "type": "text",
+      "content": "Et slående eksempel: blant alle estimatorer på formen $c\\sum(X_i-\\bar X)^2$ for normalvariansen $\\sigma^2$ er verken $S^2$ (divisor $n-1$) eller ML-estimatoren (divisor $n$) den med minst MSE — det er en *enda mer* skjev estimator.\n\n**Intuisjon:** ved å krympe estimatoren litt ekstra (mindre $c$) ofrer du litt forventningsretthet, men kutter variansen mer enn skjevheten koster. MSE-optimum ligger derfor ved en bevisst skjev estimator."
+    },
+    {
+      "id": "stk1110-1-1-ex5",
+      "type": "example",
+      "title": "Eksempel 5: Skjev estimator med minst MSE (sjanger B, eksamensnivå)",
+      "problem": "La $X_1,\\dots,X_n$ være uavhengige $N(\\mu,\\sigma^2)$ og $W=\\sum_{i=1}^n(X_i-\\bar X)^2$. Fra formelsamlingen: $W/\\sigma^2\\sim\\chi^2_{n-1}$, så $E(W)=(n-1)\\sigma^2$ og $\\text{Var}(W)=2(n-1)\\sigma^4$ (en $\\chi^2$ med $k$ frihetsgrader har varians $2k$). Blant estimatorene $\\hat\\sigma^2_c=cW$, finn $c$ som minimerer MSE, og sammenlign med $S^2$ og ML-estimatoren for $n=6$, $\\sigma^2=4$.",
+      "solution": "Skjevhet og varians for $\\hat\\sigma^2_c=cW$:\n\n$$b(c)=E(cW)-\\sigma^2=[c(n-1)-1]\\sigma^2, \\qquad \\text{Var}(cW)=c^2\\cdot 2(n-1)\\sigma^4.$$\n\nMSE (i enheter av $\\sigma^4$), med $k=n-1$:\n\n$$\\text{MSE}(c)/\\sigma^4=2k\\,c^2+(ck-1)^2.$$\n\nDeriver med hensyn på $c$ og sett lik null: $4kc+2k(ck-1)=0\\Rightarrow 2c+ck-1=0\\Rightarrow c=\\dfrac{1}{k+2}=\\dfrac{1}{n+1}$.\n\nSå den MSE-optimale estimatoren er $\\dfrac{1}{n+1}\\sum(X_i-\\bar X)^2$ — **skjev** (den deler på $n+1$). For $n=6$, $\\sigma^2=4$ (altså $\\sigma^4=16$):\n\n| Estimator | $c$ | MSE |\n|---|---|---|\n| $S^2$ (forventningsrett) | $1/5$ | $6{,}40$ |\n| ML ($1/n$) | $1/6$ | $4{,}89$ |\n| MSE-optimal ($1/(n+1)$) | $1/7$ | $4{,}57$ |\n\nDen forventningsrette $S^2$ har *størst* MSE av de tre; den bevisst skjeve $1/(n+1)$-estimatoren har minst. **Poeng:** forventningsretthet er ikke alltid det samme som «best» — MSE avgjør."
+    },
+    {
+      "id": "stk1110-1-1-oppg5",
+      "type": "exercise",
+      "exercise": {
+        "id": "stk1110-1-1-oppg5-e",
+        "number": "5",
+        "type": "classic",
+        "difficulty": "vanskelig",
+        "task": "To estimatorer for $\\theta$: $\\hat\\theta_A$ er forventningsrett med $\\text{Var}(\\hat\\theta_A)=9$; $\\hat\\theta_B$ har skjevhet $b(\\hat\\theta_B)=2$ og $\\text{Var}(\\hat\\theta_B)=4$.\n\n**a)** Regn ut MSE for begge.\n\n**b)** Hvilken foretrekker du, og hvorfor er varians-sammenligning her misvisende?",
+        "solution": "**a)** $\\text{MSE}(\\hat\\theta_A)=\\text{Var}+b^2=9+0=9$. $\\text{MSE}(\\hat\\theta_B)=4+2^2=4+4=8$.\n\n**b)** $\\hat\\theta_B$ har minst MSE ($8<9$), så jeg foretrekker $\\hat\\theta_B$ — den litt skjeve estimatoren er samlet sett mer presis. Varians-sammenligning alene ($4$ mot $9$) overdriver dessuten fordelen og ignorerer at $\\hat\\theta_B$ bommer systematisk med 2; bare når begge er forventningsrette er varians det riktige målet. Her, med ulik skjevhet, er MSE eneste gyldige sammenligning.",
+        "hints": [
+          "MSE = varians + skjevhet$^2$.",
+          "Én av estimatorene er skjev — da er varians alene ikke nok."
+        ]
+      }
+    },
+    {
+      "id": "stk1110-1-1-l4",
+      "type": "text",
+      "content": "## Løkke 4 — Konsistens (~14 min)"
+    },
+    {
+      "id": "stk1110-1-1-l4-intro",
+      "type": "text",
+      "content": "Den siste egenskapen handler om hva som skjer når utvalget vokser: en god estimator bør **nærme seg sannheten** når $n\\to\\infty$. Dette er konsistens, og standardverktøyet for å vise det er Tsjebysjeffs ulikhet."
+    },
+    {
+      "id": "stk1110-1-1-def-konvp",
+      "type": "definition",
+      "title": "Konvergens i sannsynlighet",
+      "content": "En følge estimatorer $\\hat\\Theta_n$ **konvergerer i sannsynlighet** mot $\\theta$, skrevet $\\hat\\Theta_n\\xrightarrow{P}\\theta$, dersom for enhver toleranse $\\varepsilon>0$:\n\n$$P\\!\\left(|\\hat\\Theta_n-\\theta|\\ge\\varepsilon\\right)\\to 0 \\quad \\text{når } n\\to\\infty.$$\n\nMed andre ord: sannsynligheten for å bomme mer enn en vilkårlig liten $\\varepsilon$ dør ut når utvalget vokser."
+    },
+    {
+      "id": "stk1110-1-1-def-tsjeby",
+      "type": "definition",
+      "title": "Tsjebysjeffs ulikhet",
+      "content": "For en tilfeldig variabel $Y$ med endelig varians og enhver $\\varepsilon>0$:\n\n$$P\\!\\left(|Y-E(Y)|\\ge\\varepsilon\\right)\\le\\frac{\\text{Var}(Y)}{\\varepsilon^2}.$$\n\nUlikheten binder sannsynligheten for et stort avvik til variansen — jo mindre varians, desto mindre sjanse for å bomme mye. Det er broen fra «variansen går mot 0» til «estimatoren treffer»."
+    },
+    {
+      "id": "stk1110-1-1-def-konsis",
+      "type": "definition",
+      "title": "Konsistens",
+      "content": "En estimator $\\hat\\Theta_n$ er **konsistent** for $\\theta$ dersom $\\hat\\Theta_n\\xrightarrow{P}\\theta$ når $n\\to\\infty$. **Tommelfingerregel (den du bruker på eksamen):** er estimatoren forventningsrett (eller asymptotisk forventningsrett) *og* $\\text{Var}(\\hat\\Theta_n)\\to0$, så er den konsistent. Da går nemlig $\\text{MSE}\\to0$, og Tsjebysjeff gir resten."
+    },
+    {
+      "id": "stk1110-1-1-l4-utl",
+      "type": "text",
+      "content": "**Utledningen sensor vil se** (bruk Tsjebysjeff på $\\hat\\Theta_n$ målt mot $\\theta$ via MSE):\n\n$$P\\!\\left(|\\hat\\Theta_n-\\theta|\\ge\\varepsilon\\right)\\le\\frac{E[(\\hat\\Theta_n-\\theta)^2]}{\\varepsilon^2}=\\frac{\\text{MSE}(\\hat\\Theta_n)}{\\varepsilon^2}=\\frac{\\text{Var}(\\hat\\Theta_n)+b(\\hat\\Theta_n)^2}{\\varepsilon^2}.$$\n\n**Intuisjon:** høyresiden er en øvre grense for bomsannsynligheten. Går både variansen og skjevheten mot 0, går hele brøken mot 0 for enhver fast $\\varepsilon$ — altså konsistens. Dette er den korte, komplette begrunnelsen. (Den generelle formen av Tsjebysjeff-ulikheten med $E(Y)$ erstattet av $\\theta$ og $\\text{Var}$ erstattet av MSE holder fordi $E[(\\hat\\Theta_n-\\theta)^2]$ per definisjon er MSE.)"
+    },
+    {
+      "id": "stk1110-1-1-ex6",
+      "type": "example",
+      "title": "Eksempel 6: Utvalgsgjennomsnittet er konsistent (sjanger B)",
+      "problem": "La $X_1,\\dots,X_n$ være uavhengige med $E(X_i)=\\mu$ og $\\text{Var}(X_i)=\\sigma^2<\\infty$. Vis at $\\bar X$ er en konsistent estimator for $\\mu$.",
+      "solution": "To ting: $\\bar X$ er forventningsrett ($E(\\bar X)=\\mu$, skjevhet 0), og $\\text{Var}(\\bar X)=\\sigma^2/n\\to0$ når $n\\to\\infty$. Dermed er $\\text{MSE}(\\bar X)=\\sigma^2/n+0\\to0$. Tsjebysjeff gir da for enhver $\\varepsilon>0$:\n\n$$P\\!\\left(|\\bar X-\\mu|\\ge\\varepsilon\\right)\\le\\frac{\\sigma^2/n}{\\varepsilon^2}\\to 0.$$\n\nAltså $\\bar X\\xrightarrow{P}\\mu$ — $\\bar X$ er konsistent. (Dette er selve loven om store tall, utledet via Tsjebysjeff.)"
+    },
+    {
+      "id": "stk1110-1-1-oppg6",
+      "type": "exercise",
+      "exercise": {
+        "id": "stk1110-1-1-oppg6-e",
+        "number": "6",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "En estimator $\\hat\\theta_n$ har $E(\\hat\\theta_n)=\\theta+\\dfrac{3}{n}$ og $\\text{Var}(\\hat\\theta_n)=\\dfrac{5}{n}$.\n\n**a)** Er $\\hat\\theta_n$ forventningsrett? Er den asymptotisk forventningsrett?\n\n**b)** Vis at $\\hat\\theta_n$ er konsistent.",
+        "solution": "**a)** Skjevheten er $b(\\hat\\theta_n)=\\dfrac3n\\ne0$, så den er **ikke** forventningsrett. Men $b(\\hat\\theta_n)=3/n\\to0$, så den er **asymptotisk forventningsrett**.\n\n**b)** $\\text{MSE}=\\text{Var}+b^2=\\dfrac5n+\\dfrac{9}{n^2}\\to0$ når $n\\to\\infty$. Tsjebysjeff: $P(|\\hat\\theta_n-\\theta|\\ge\\varepsilon)\\le\\dfrac{5/n+9/n^2}{\\varepsilon^2}\\to0$. Altså konsistent.",
+        "hints": [
+          "Skjevhet = $E(\\hat\\theta_n)-\\theta$; sjekk om den er 0 og om den går mot 0.",
+          "Bruk at MSE $\\to0$ gir konsistens via Tsjebysjeff."
+        ]
+      }
+    },
+    {
+      "id": "stk1110-1-1-warn",
+      "type": "warning",
+      "title": "Typiske feil (fra løsningsforslagene)",
+      "content": "- **Blande estimator og estimat.** $\\hat\\Theta$ (stor bokstav) er en tilfeldig variabel med varians; $\\hat\\theta$ (tall) er ett estimat. «Variansen til estimatet» er meningsløst — sensor trekker.\n- **Glemme å kvantifisere/korrigere skjevhet** når oppgaven ber om en *forventningsrett* estimator. Regn ut $b(\\hat\\Theta)$ og gang med korreksjonsfaktoren.\n- **Sammenligne estimatorer på varians når de har ulik skjevhet.** Bruk MSE $=\\text{Var}+b^2$.\n- **Ufullstendig variansutledning.** Vis alle ledd: $\\text{Var}(\\sum w_iX_i)=\\sum w_i^2\\sigma^2$ (uavhengige) — ikke bare skriv svaret.\n- **Divisor $n$ mot $n-1$.** $\\frac1n\\sum(X_i-\\bar X)^2$ er skjev; $S^2$ med $n-1$ er forventningsrett."
+    },
+    {
+      "id": "stk1110-1-1-drill",
+      "type": "text",
+      "content": "## Blandet drill (sjanger B, stigende)"
+    },
+    {
+      "id": "stk1110-1-1-d1",
+      "type": "exercise",
+      "exercise": {
+        "id": "stk1110-1-1-d1-e",
+        "number": "7",
+        "type": "classic",
+        "difficulty": "lett",
+        "task": "Forklar med én setning hver forskjellen på: **a)** estimator og estimat; **b)** forventningsrett og konsistent.",
+        "solution": "**a)** En *estimator* er regelen (en tilfeldig variabel, $\\hat\\Theta$); et *estimat* er tallet regelen gir på ett datasett ($\\hat\\theta$).\n\n**b)** *Forventningsrett* betyr at estimatoren i snitt treffer riktig for enhver $n$ ($E(\\hat\\Theta)=\\theta$); *konsistent* betyr at den nærmer seg $\\theta$ i sannsynlighet når $n\\to\\infty$. En estimator kan være skjev for endelig $n$ men likevel konsistent.",
+        "hints": [
+          "Tenk «regel» mot «tall» i (a).",
+          "(b): den ene gjelder for fast $n$, den andre i grensen $n\\to\\infty$."
+        ]
+      }
+    },
+    {
+      "id": "stk1110-1-1-d2",
+      "type": "exercise",
+      "exercise": {
+        "id": "stk1110-1-1-d2-e",
+        "number": "8",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "$X_1,\\dots,X_n$ er uavhengige med $E(X_i)=\\theta$ og $\\text{Var}(X_i)=\\theta^2$ (variansen avhenger av $\\theta$). Betrakt $\\bar X$.\n\n**a)** Vis at $\\bar X$ er forventningsrett for $\\theta$.\n\n**b)** Finn $\\text{Var}(\\bar X)$ og vis at $\\bar X$ er konsistent.",
+        "solution": "**a)** $E(\\bar X)=\\theta$ (lineæritet), forventningsrett.\n\n**b)** $\\text{Var}(\\bar X)=\\dfrac{\\text{Var}(X_i)}{n}=\\dfrac{\\theta^2}{n}\\to0$ når $n\\to\\infty$. Siden $\\bar X$ er forventningsrett og variansen går mot 0, er $\\text{MSE}=\\theta^2/n\\to0$, og Tsjebysjeff gir $\\bar X\\xrightarrow{P}\\theta$. Konsistent.",
+        "hints": [
+          "$\\text{Var}(\\bar X)=\\text{Var}(X_i)/n$ selv når variansen avhenger av $\\theta$.",
+          "Forventningsrett + varians mot 0 gir konsistens."
+        ]
+      }
+    },
+    {
+      "id": "stk1110-1-1-d3",
+      "type": "exercise",
+      "exercise": {
+        "id": "stk1110-1-1-d3-e",
+        "number": "9",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "En forventningsrett estimator $\\hat\\theta_1$ har varians $\\sigma^2/n$. En konkurrent $\\hat\\theta_2=\\frac{n}{n+1}\\hat\\theta_1$ krymper den litt.\n\n**a)** Finn skjevheten til $\\hat\\theta_2$.\n\n**b)** Uttrykk $\\text{MSE}(\\hat\\theta_2)$ ved $\\sigma^2,n,\\theta$.",
+        "solution": "**a)** $E(\\hat\\theta_2)=\\dfrac{n}{n+1}E(\\hat\\theta_1)=\\dfrac{n}{n+1}\\theta$, så $b(\\hat\\theta_2)=\\dfrac{n}{n+1}\\theta-\\theta=-\\dfrac{\\theta}{n+1}$.\n\n**b)** $\\text{Var}(\\hat\\theta_2)=\\left(\\dfrac{n}{n+1}\\right)^2\\dfrac{\\sigma^2}{n}=\\dfrac{n\\sigma^2}{(n+1)^2}$. Dermed $\\text{MSE}(\\hat\\theta_2)=\\dfrac{n\\sigma^2}{(n+1)^2}+\\dfrac{\\theta^2}{(n+1)^2}=\\dfrac{n\\sigma^2+\\theta^2}{(n+1)^2}$.",
+        "hints": [
+          "$\\text{Var}(a\\hat\\theta_1)=a^2\\text{Var}(\\hat\\theta_1)$.",
+          "Sett varians og skjevhet$^2$ sammen på felles nevner."
+        ]
+      }
+    },
+    {
+      "id": "stk1110-1-1-d4",
+      "type": "exercise",
+      "exercise": {
+        "id": "stk1110-1-1-d4-e",
+        "number": "10",
+        "type": "classic",
+        "difficulty": "vanskelig",
+        "task": "(Kald oppgave — momentliste som fasit.) $X_1,\\dots,X_n$ er uavhengige $N(\\mu,\\sigma^2)$. Sammenlign ML-variansestimatoren $\\hat\\sigma^2=\\frac1n\\sum(X_i-\\bar X)^2$ og $S^2=\\frac{1}{n-1}\\sum(X_i-\\bar X)^2$ som estimatorer for $\\sigma^2$: forventningsrett/skjev, og hvem har minst MSE? Bruk $\\text{Var}(W)=2(n-1)\\sigma^4$ der $W=\\sum(X_i-\\bar X)^2$.",
+        "solution": "Momentliste for full uttelling:\n- $E(S^2)=\\sigma^2$: $S^2$ **forventningsrett**. $E(\\hat\\sigma^2)=\\frac{n-1}{n}\\sigma^2$: $\\hat\\sigma^2$ **skjev**, $b=-\\sigma^2/n$.\n- $S^2=\\frac{1}{n-1}W$, $\\text{Var}(S^2)=\\frac{2(n-1)\\sigma^4}{(n-1)^2}=\\frac{2\\sigma^4}{n-1}$; MSE$(S^2)=\\frac{2\\sigma^4}{n-1}$.\n- $\\hat\\sigma^2=\\frac1n W$, $\\text{Var}(\\hat\\sigma^2)=\\frac{2(n-1)\\sigma^4}{n^2}$; MSE$(\\hat\\sigma^2)=\\frac{2(n-1)\\sigma^4}{n^2}+\\frac{\\sigma^4}{n^2}=\\frac{(2n-1)\\sigma^4}{n^2}$.\n- Sammenlign: $\\frac{2n-1}{n^2}$ mot $\\frac{2}{n-1}$. For alle $n\\ge2$ er $\\frac{2n-1}{n^2}<\\frac{2}{n-1}$, så **ML-estimatoren har minst MSE** til tross for skjevheten. (Enda mindre MSE ved divisor $n+1$, jf. eksempel 5.)",
+        "hints": []
+      }
+    },
+    {
+      "id": "stk1110-1-1-bank",
+      "type": "text",
+      "content": "## Begrepsbank"
+    },
+    {
+      "id": "stk1110-1-1-bank-note",
+      "type": "text",
+      "content": "*Flashcard-/repetisjonsstoff — hopp trygt over ved førstegangslesing; tidsanslaget gjelder kjernestoffet.* Korte, navngitte definisjoner du kan pugge til eksamen."
+    },
+    {
+      "id": "stk1110-1-1-bank-xbar",
+      "type": "definition",
+      "title": "Utvalgsgjennomsnittet $\\bar X$",
+      "content": "$\\bar X=\\frac1n\\sum_{i=1}^n X_i$ — den forventningsrette, konsistente og mest effisiente estimatoren for forventningen $\\mu$ når vektene skal summere til 1. Grunnbyggesteinen i nesten all inferens."
+    },
+    {
+      "id": "stk1110-1-1-bank-mlvar",
+      "type": "definition",
+      "title": "ML-variansestimatoren (divisor $n$)",
+      "content": "$\\hat\\sigma^2=\\frac1n\\sum(X_i-\\bar X)^2$ — maximum-likelihood-estimatoren for $\\sigma^2$ (kap. 1.2). Skjev med $b=-\\sigma^2/n$, men konsistent og med mindre MSE enn $S^2$ i normalmodellen."
+    },
+    {
+      "id": "stk1110-1-1-bank-korr",
+      "type": "definition",
+      "title": "Skjevhetskorreksjon",
+      "content": "Å gange en skjev estimator med en konstant som fjerner skjevheten. Har $\\hat\\Theta$ forventning $k\\theta$, er $\\frac1k\\hat\\Theta$ forventningsrett. Eksempel: $S^2=\\frac{n}{n-1}\\hat\\sigma^2$."
+    },
+    {
+      "id": "stk1110-1-1-bank-asymp",
+      "type": "definition",
+      "title": "Asymptotisk forventningsrett",
+      "content": "En estimator er asymptotisk forventningsrett dersom skjevheten går mot 0 når $n\\to\\infty$: $b(\\hat\\Theta_n)\\to0$. Svakere krav enn forventningsrett, men nok (sammen med $\\text{Var}\\to0$) for konsistens."
+    },
+    {
+      "id": "stk1110-1-1-bank-samp",
+      "type": "definition",
+      "title": "Utvalgsfordeling (samplingfordeling)",
+      "content": "Fordelingen til en estimator over alle mulige utvalg av størrelse $n$. Estimatorens forventning og varians er forventning og varians i *denne* fordelingen — ikke i datafordelingen."
+    },
+    {
+      "id": "stk1110-1-1-bank-releff",
+      "type": "definition",
+      "title": "Relativ effisiens",
+      "content": "Forholdet mellom variansene til to forventningsrette estimatorer, $\\text{Var}(\\hat\\Theta_2)/\\text{Var}(\\hat\\Theta_1)$. Er forholdet $>1$, er $\\hat\\Theta_1$ mer effisient. Et tall på hvor mye informasjon den dårligere estimatoren kaster bort."
+    },
+    {
+      "id": "stk1110-1-1-bank-mvue",
+      "type": "definition",
+      "title": "Minimum-varians forventningsrett estimator (MVUE)",
+      "content": "Den forventningsrette estimatoren med aller minst varians blant *alle* forventningsrette. ML-estimatoren når ofte denne grensen i store utvalg. Nedre grense for variansen gis av Cramér–Rao (kap. 1.3). *(Prioritet: kjenne til.)*"
+    },
+    {
+      "id": "stk1110-1-1-bank-presisjon",
+      "type": "definition",
+      "title": "Presisjon",
+      "content": "Den inverse variansen $1/\\text{Var}(\\hat\\Theta)$. Høy presisjon = liten varians. Invers-varians-vekting er å vekte hver estimator med sin presisjon."
+    },
+    {
+      "id": "stk1110-1-1-bank-estfeil",
+      "type": "definition",
+      "title": "Estimeringsfeil",
+      "content": "Differansen $\\hat\\Theta-\\theta$ mellom estimator og sann parameter — selv en tilfeldig variabel med forventning $b(\\hat\\Theta)$ og varians $\\text{Var}(\\hat\\Theta)$. MSE er forventet kvadrert estimeringsfeil."
+    },
+    {
+      "id": "stk1110-1-1-bank-cr",
+      "type": "definition",
+      "title": "Nedre variansgrense (Cramér–Rao)",
+      "content": "Ingen forventningsrett estimator kan ha mindre varians enn $1/(nI(\\theta))$, der $I(\\theta)$ er Fisher-informasjonen (kap. 1.3). Setter en teoretisk bunn for hvor presis en forventningsrett estimator kan være. *(Prioritet: kjenne til — utdypes i kap. 1.3.)*"
+    },
+    {
+      "id": "stk1110-1-1-bank-konv",
+      "type": "definition",
+      "title": "Konvensjon: stor mot liten bokstav",
+      "content": "Gjennom hele boka: **store bokstaver** ($X$, $\\bar X$, $\\hat\\Theta$, $S^2$) er tilfeldige variabler; **små bokstaver** ($x$, $\\bar x$, $\\hat\\theta$) er observerte tall. Denne konvensjonen er selve skillet estimator/estimat og et fast sensorpoeng."
+    },
+    {
+      "id": "stk1110-1-1-bank-lsn",
+      "type": "definition",
+      "title": "Loven om store tall (via konsistens)",
+      "content": "At $\\bar X\\xrightarrow{P}\\mu$ når $n\\to\\infty$ — utvalgsgjennomsnittet konvergerer mot forventningen. I denne boka utledes den som et spesialtilfelle av konsistens via Tsjebysjeff (eksempel 6)."
+    },
+    {
+      "id": "stk1110-1-1-bank-rimelig",
+      "type": "definition",
+      "title": "Rimelighetskrav til estimat",
+      "content": "Et estimat skal ligge i parameterens gyldige område (en varians $\\ge0$, en sannsynlighet i $[0,1]$). Ligger estimatet utenfor, er noe galt — en billig, men effektiv selvsjekk sensor forventer."
+    },
+    {
+      "id": "stk1110-1-1-symbol",
+      "type": "collapsible",
+      "title": "Symbol- og formelliste",
+      "buttonText": "Vis symboler og formler",
+      "content": [
+        {
+          "id": "stk1110-1-1-symbol-t",
+          "type": "text",
+          "content": "## Symbol- og formelliste\n\n*Oppslagsverk — alt her forklares underveis i kapitlet.*\n\n| Symbol | Betydning |\n|---|---|\n| $\\theta$ | Ukjent parameter vi vil anslå |\n| $\\hat\\Theta,\\ \\hat\\theta$ | Estimator (stor, tilfeldig) / estimat (liten, tall) |\n| $X_1,\\dots,X_n$ | Tilfeldige observasjoner (utvalg) |\n| $x_1,\\dots,x_n$ | Observerte tallverdier |\n| $\\bar X,\\ \\bar x$ | Utvalgsgjennomsnitt (estimator / estimat) |\n| $\\mu$ | Forventning, $E(X_i)$ |\n| $\\sigma^2$ | Varians, $\\text{Var}(X_i)$ |\n| $S^2$ | Utvalgsvariansen (divisor $n-1$) |\n| $b(\\hat\\Theta)$ | Skjevhet, $E(\\hat\\Theta)-\\theta$ |\n| $\\text{Var}(\\hat\\Theta)$ | Variansen til estimatoren |\n| $se(\\hat\\Theta)$ | Standardfeil, $\\sqrt{\\text{Var}(\\hat\\Theta)}$ |\n| $\\text{MSE}(\\hat\\Theta)$ | Middels kvadratisk feil |\n| $\\xrightarrow{P}$ | Konvergens i sannsynlighet |\n| $\\varepsilon$ | Vilkårlig liten toleranse i konsistens |\n| $n-1$ | Frihetsgrader for avvikssummen |\n| $\\chi^2_{n-1}$ | Kjikvadratfordeling med $n-1$ frihetsgrader |\n| $W$ | $\\sum(X_i-\\bar X)^2$, avvikskvadratsummen |\n| $w,\\ w_i$ | Vekter i en vektet estimator |\n| $I(\\theta)$ | Fisher-informasjon (nevnt, kap. 1.3) |\n\n**Formler i dette delkapitlet:**\n\n$$E(\\hat\\Theta)=\\theta \\quad(\\text{forventningsrett})$$\nEstimatoren treffer parameteren i snitt.\n\n$$b(\\hat\\Theta)=E(\\hat\\Theta)-\\theta$$\nSkjevheten — systematisk bom.\n\n$$\\text{Var}(\\hat\\Theta)=E\\!\\left[(\\hat\\Theta-E\\hat\\Theta)^2\\right]$$\nSpredningen til estimatoren.\n\n$$\\text{MSE}(\\hat\\Theta)=\\text{Var}(\\hat\\Theta)+b(\\hat\\Theta)^2$$\nSamlet feil = spredning + bom i annen.\n\n$$\\text{Var}(\\bar X)=\\frac{\\sigma^2}{n},\\qquad S^2=\\frac{1}{n-1}\\sum(X_i-\\bar X)^2$$\nVarians til gjennomsnittet; forventningsrett variansestimator.\n\n$$P(|Y-E(Y)|\\ge\\varepsilon)\\le\\frac{\\text{Var}(Y)}{\\varepsilon^2}$$\nTsjebysjeffs ulikhet — grunnlaget for konsistens.\n\n$$\\hat\\Theta_n\\xrightarrow{P}\\theta \\ \\Leftarrow\\ \\text{MSE}(\\hat\\Theta_n)\\to0$$\nKonsistens følger av at MSE går mot 0.\n\n$$w=\\frac{\\sigma_2^2}{\\sigma_1^2+\\sigma_2^2}$$\nInvers-varians-vekt for optimal kombinasjon av to estimatorer."
+        }
+      ]
+    },
+    {
+      "id": "stk1110-1-1-rep",
+      "type": "collapsible",
+      "title": "Repetisjonsoppgaver",
+      "buttonText": "Vis repetisjonsoppgaver",
+      "content": [
+        {
+          "id": "stk1110-1-1-rep1",
+          "type": "exercise",
+          "exercise": {
+            "id": "stk1110-1-1-rep1e",
+            "number": "R1",
+            "type": "classic",
+            "difficulty": "lett",
+            "task": "(Fra kap. 0.2) $X$ og $Y$ er uavhengige med $\\text{Var}(X)=3$, $\\text{Var}(Y)=8$. Regn ut $\\text{Var}(2X-Y)$.",
+            "solution": "For uavhengige variabler: $\\text{Var}(2X-Y)=2^2\\text{Var}(X)+(-1)^2\\text{Var}(Y)=4\\cdot3+8=20$. (Kovariansleddet er 0 fordi de er uavhengige.)",
+            "hints": [
+              "$\\text{Var}(aX+bY)=a^2\\text{Var}(X)+b^2\\text{Var}(Y)$ for uavhengige."
+            ]
+          }
+        },
+        {
+          "id": "stk1110-1-1-rep2",
+          "type": "exercise",
+          "exercise": {
+            "id": "stk1110-1-1-rep2e",
+            "number": "R2",
+            "type": "classic",
+            "difficulty": "lett",
+            "task": "(Fra kap. 0.2) $X_1,\\dots,X_n$ er uavhengige med varians $\\sigma^2$. Vis at $\\text{Var}(\\bar X)=\\sigma^2/n$.",
+            "solution": "$\\text{Var}(\\bar X)=\\text{Var}\\!\\left(\\frac1n\\sum X_i\\right)=\\frac{1}{n^2}\\sum\\text{Var}(X_i)=\\frac{1}{n^2}\\cdot n\\sigma^2=\\frac{\\sigma^2}{n}$. Uavhengigheten gjør at variansene bare adderer.",
+            "hints": [
+              "Dra $1/n$ ut som $1/n^2$, og bruk at variansene adderer for uavhengige."
+            ]
+          }
+        },
+        {
+          "id": "stk1110-1-1-rep3",
+          "type": "exercise",
+          "exercise": {
+            "id": "stk1110-1-1-rep3e",
+            "number": "R3",
+            "type": "classic",
+            "difficulty": "middels",
+            "task": "(Fra kap. 0.2) $X_i$ er uavhengige Poisson$(\\lambda)$ med $E(X_i)=\\text{Var}(X_i)=\\lambda$. Finn $E(\\bar X)$ og $\\text{Var}(\\bar X)$.",
+            "solution": "$E(\\bar X)=\\lambda$ (lineæritet) og $\\text{Var}(\\bar X)=\\lambda/n$. Så $\\bar X$ er en forventningsrett estimator for $\\lambda$ med varians som krymper i $n$ — altså også konsistent.",
+            "hints": [
+              "Poisson har $E=\\text{Var}=\\lambda$.",
+              "Bruk $\\text{Var}(\\bar X)=\\text{Var}(X_i)/n$."
+            ]
+          }
+        },
+        {
+          "id": "stk1110-1-1-rep4",
+          "type": "exercise",
+          "exercise": {
+            "id": "stk1110-1-1-rep4e",
+            "number": "R4",
+            "type": "classic",
+            "difficulty": "middels",
+            "task": "(Fra kap. 0.2) La $Y\\sim\\chi^2_k$. Oppgi $E(Y)$ og $\\text{Var}(Y)$, og bruk dem til å finne $E$ og $\\text{Var}$ av $\\frac1k Y$.",
+            "solution": "For en kjikvadrat: $E(Y)=k$, $\\text{Var}(Y)=2k$. Da er $E(\\frac1kY)=1$ og $\\text{Var}(\\frac1kY)=\\frac{1}{k^2}\\cdot2k=\\frac{2}{k}$. (Dette er nøkkelen bak variansen til $S^2$.)",
+            "hints": [
+              "$\\chi^2_k$ har forventning $k$ og varians $2k$.",
+              "$\\text{Var}(aY)=a^2\\text{Var}(Y)$."
+            ]
+          }
+        }
+      ]
+    }
+  ],
+  "exercises": []
+}
