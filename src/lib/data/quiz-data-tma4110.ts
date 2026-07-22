@@ -2864,7 +2864,7 @@ const quizData_tma4110: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Løsningene av $z^3=8i$ er ...",
-      options: ["$\\sqrt3+i,\\ -\\sqrt3+i,\\ -2i$", "$2,\\ 2i,\\ -2i$", "$2i,\\ -2i,\\ 2$", "$\\sqrt3-i,\\ -\\sqrt3-i,\\ 2i$"],
+      options: ["$\\sqrt3+i,\\ -\\sqrt3+i,\\ -2i$", "$2,\\ 2i,\\ -2i$", "$2,\\ -2,\\ 2i$", "$\\sqrt3-i,\\ -\\sqrt3-i,\\ 2i$"],
       explanation: "$8i=8e^{i\\pi/2}$, modulus $2$, argumentene $\\tfrac\\pi6,\\tfrac{5\\pi}6,\\tfrac{3\\pi}2$.",
     },
     {
