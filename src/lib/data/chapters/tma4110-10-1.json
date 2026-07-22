@@ -1,0 +1,397 @@
+{
+  "id": "tma4110-10-1",
+  "courseId": "tma4110",
+  "chapterNumber": "10.1",
+  "title": "Systemet x'=Ax løst via egenverdier og egenvektorer",
+  "description": "Lineære ODE-systemer x'=Ax med reelle distinkte egenverdier: grunnløsningen e^{λt}v, generell løsning som Σ c_i e^{λ_i t} v_i, begynnelsesverdi som gir et lineært system for konstantene, koblingen til diagonalisering A=PDP⁻¹ fra Del 5, omforming av én 2. ordens likning til et system, og fundamentalmatrise.",
+  "estimatedMinutes": 55,
+  "competenceGoals": [
+    "skrive et koblet system av lineære differensiallikninger på matriseform x'=Ax og forklare koblingen til diagonalisering",
+    "finne egenverdier og egenvektorer til A og sette opp den generelle løsningen Σ c_i e^{λ_i t} v_i ved reelle distinkte egenverdier",
+    "løse et begynnelsesverdiproblem ved å bestemme konstantene fra det lineære systemet x(0)=x_0",
+    "omforme en 2. ordens likning til et 2×2-system via tilstandsvektoren (y, y')"
+  ],
+  "content": [
+    {
+      "id": "tma4110-10-1-tip-eksamensvinkel",
+      "type": "tip",
+      "title": "Eksamensvinkel",
+      "content": "**Prioritet: kunne — systemet $\\mathbf x'=A\\mathbf x$ løst via egenverdier forekommer i ~45 % av settene (sjanger M).**\n\nDette er den nye søylen i moderne TMA4110-sett. Med **sjanger M** mener vi *systemoppgaven*: du får et system av koblede differensiallikninger skrevet som $\\mathbf x'=A\\mathbf x$, og skal finne løsningen $\\mathbf x(t)$. «Kunne» betyr her at dette er stoff du bør beherske trygt, men som ikke er en av de aller tyngst vektede søylene (som 2. ordens ODE på ~82 %).\n\nFasitens grep, som må sitte utenat under **kode E** (ingen hjelpemidler, intet formelark): **finn egenverdiene og egenvektorene til $A$, skriv $\\mathbf x(t)=c_1e^{\\lambda_1 t}\\mathbf v_1+\\cdots+c_ne^{\\lambda_n t}\\mathbf v_n$, og bestem $c_i$ fra begynnelsesverdien $\\mathbf x(0)$.**\n\nHele apparatet bygger på egenverdier og diagonalisering fra Del 5 — dette kapitlet er ODE-anvendelsen av det du allerede kan. Alle svar skal begrunnes, og konstantene $c_1,\\dots,c_n$ navngis.\n\nSitter oppskriften, låser du opp både denne oppgaven og den komplekse varianten i [kap. 10.2](/bok/tma4110/tma4110-10-2)."
+    },
+    {
+      "id": "tma4110-10-1-forkunnskaper",
+      "type": "text",
+      "content": "**Sist du var her.** Fra [kap. 5.2](/bok/tma4110/tma4110-5-2) tar du med deg **diagonalisering**: en $n\\times n$-matrise $A$ med $n$ lineært uavhengige egenvektorer kan skrives\n\n$$A=PDP^{-1},$$\n\nder $P$ har egenvektorene som søyler og $D$ er diagonal med egenverdiene. Egenverdiene finner du fra den **karakteristiske likningen** $\\det(A-\\lambda I)=0$, og egenvektorene ved radreduksjon av $A-\\lambda I$.\n\nFra [kap. 9.1](/bok/tma4110/tma4110-9-1) tar du med deg **strukturen** i en lineær ODE: løsningsmengden er et vektorrom, og den generelle løsningen er en kombinasjon av lineært uavhengige grunnløsninger med frie konstanter. Der var funksjonen skalar; her blir den en **vektor** $\\mathbf x(t)$.\n\n**Verktøyet vi bygger i dette kapitlet** er én enkelt idé: for et system oppfører $e^{\\lambda t}\\mathbf v$ seg som $e^{rx}$ gjorde for én likning — det er systemets grunnløsning når $\\lambda$ er egenverdi og $\\mathbf v$ egenvektor. Alt annet henger på den."
+    },
+    {
+      "id": "tma4110-10-1-intro",
+      "type": "text",
+      "content": "Til nå har vi løst **én** differensiallikning om gangen. Men naturen kobler ting sammen: to bestander som spiser hverandre, to tanker som utveksler væske, to fjærer koblet med et ledd. Da får du et **system**:\n\n$$x_1'=a_{11}x_1+a_{12}x_2,\\qquad x_2'=a_{21}x_1+a_{22}x_2,$$\n\nder hver funksjon deriveres og avhenger av *begge*. Samler vi $x_1,x_2$ i en vektor $\\mathbf x$ og tallene i en matrise $A$, blir alt kompakt:\n\n$$\\mathbf x'=A\\mathbf x.$$\n\nGrepet som løser dette er akkurat egenverdiene fra Del 5: en egenvektor $\\mathbf v$ peker i en retning der matrisen bare *skalerer*, og langs den retningen oppfører systemet seg som én enkel likning $x'=\\lambda x$ med løsning $e^{\\lambda t}$.\n\nKapitlet går i fem **læringsløkker** (teori → eksempel → oppgave): (1) systemet og koblingen til diagonalisering, (2) generell løsning ved reelle distinkte egenverdier, (3) begynnelsesverdiproblem, (4) omforming av én 2. ordens likning til et system, og (5) uavhengighet og fundamentalmatrise. Regn med rundt 55 minutter — ta gjerne en pause etter løkke 3."
+    },
+    {
+      "id": "tma4110-10-1-lokke1",
+      "type": "text",
+      "content": "## Løkke 1 — Systemet $\\mathbf x'=A\\mathbf x$ og koblingen til diagonalisering (~12 min)"
+    },
+    {
+      "id": "tma4110-10-1-def-system",
+      "type": "definition",
+      "title": "System av lineære differensiallikninger $\\mathbf x'=A\\mathbf x$",
+      "content": "Et sett koblede 1. ordens likninger der de deriverte er lineære kombinasjoner av de ukjente funksjonene, samlet på matriseform:\n\n$$\\mathbf x'=A\\mathbf x,\\qquad \\mathbf x(t)=\\begin{bmatrix}x_1(t)\\\\ \\vdots\\\\ x_n(t)\\end{bmatrix},\\ \\ A\\in\\mathbb R^{n\\times n}.$$\n\nHer er $\\mathbf x'$ vektoren av de deriverte $(x_1',\\dots,x_n')$, og $A$ er en konstant **koeffisientmatrise**. «Homogent» betyr at høyresida ikke har noe ekstra pådragsledd. Eksempel: $x_1'=x_1+2x_2,\\ x_2'=2x_1+x_2$ svarer til $A=\\begin{bmatrix}1&2\\\\2&1\\end{bmatrix}$."
+    },
+    {
+      "id": "tma4110-10-1-def-losning",
+      "type": "definition",
+      "title": "Løsning av et system",
+      "content": "En **vektorfunksjon** $\\mathbf x(t)$ som oppfyller $\\mathbf x'(t)=A\\mathbf x(t)$ for alle $t$. Til forskjell fra én likning er svaret her et sett funksjoner $x_1(t),\\dots,x_n(t)$ som beveger seg sammen. Du kontrollerer en foreslått løsning ved å derivere hver komponent og sjekke at $\\mathbf x'=A\\mathbf x$ stemmer komponentvis."
+    },
+    {
+      "id": "tma4110-10-1-def-kobling",
+      "type": "definition",
+      "title": "Koblingen til diagonalisering",
+      "content": "Hvorfor virker egenverdier her? Er $A=PDP^{-1}$ diagonaliserbar, bytt variabel med $\\mathbf x=P\\mathbf y$. Da blir\n\n$$\\mathbf x'=A\\mathbf x\\ \\Longleftrightarrow\\ P\\mathbf y'=PDP^{-1}P\\mathbf y\\ \\Longleftrightarrow\\ \\mathbf y'=D\\mathbf y.$$\n\nMen $D$ er diagonal, så $\\mathbf y'=D\\mathbf y$ er **avkoblet**: $y_1'=\\lambda_1 y_1,\\ \\dots,\\ y_n'=\\lambda_n y_n$, hver med løsning $y_i=c_ie^{\\lambda_i t}$. Egenvektorbasen «retter ut» systemet slik at komponentene ikke lenger snakker sammen."
+    },
+    {
+      "id": "tma4110-10-1-def-avkobling",
+      "type": "definition",
+      "title": "Substitusjonen $\\mathbf x=P\\mathbf y$ (avkobling)",
+      "content": "Selve variabelbyttet som gjør systemet avkoblet. Setter du $\\mathbf y=(c_1e^{\\lambda_1 t},\\dots,c_ne^{\\lambda_n t})$ tilbake gjennom $\\mathbf x=P\\mathbf y$, og husker at søyle $i$ i $P$ er egenvektoren $\\mathbf v_i$, får du\n\n$$\\mathbf x=P\\mathbf y=c_1e^{\\lambda_1 t}\\mathbf v_1+\\cdots+c_ne^{\\lambda_n t}\\mathbf v_n.$$\n\nDette er grunnen til at hver grunnløsning har formen $e^{\\lambda_i t}\\mathbf v_i$ — en egenverdi i eksponenten, dens egenvektor som retning. Du trenger sjelden å regne $P^{-1}$; poenget er innsikten i *hvorfor* løsningen ser slik ut."
+    },
+    {
+      "id": "tma4110-10-1-ex-decouple",
+      "type": "example",
+      "title": "Eksempel 1: Avkobling gjør systemet til to enkle likninger",
+      "problem": "Vis at det diagonale systemet $x_1'=2x_1,\\ x_2'=-3x_2$ (altså $A=\\begin{bmatrix}2&0\\\\0&-3\\end{bmatrix}$) løses komponent for komponent, og skriv løsningen på formen $\\sum c_ie^{\\lambda_i t}\\mathbf v_i$.",
+      "solution": "Fordi $A$ er diagonal, er systemet allerede avkoblet: den første likningen $x_1'=2x_1$ har løsning $x_1=c_1e^{2t}$, og den andre $x_2'=-3x_2$ har løsning $x_2=c_2e^{-3t}$. Samlet:\n\n$$\\mathbf x=\\begin{bmatrix}c_1e^{2t}\\\\ c_2e^{-3t}\\end{bmatrix}=c_1e^{2t}\\begin{bmatrix}1\\\\0\\end{bmatrix}+c_2e^{-3t}\\begin{bmatrix}0\\\\1\\end{bmatrix}.$$\n\nEgenverdiene er $\\lambda_1=2,\\ \\lambda_2=-3$ (diagonalen), og egenvektorene er standardvektorene $\\mathbf v_1=(1,0),\\ \\mathbf v_2=(0,1)$. Hele poenget med metoden er at *enhver* diagonaliserbar $A$ kan bringes hit ved egenvektorbasen."
+    },
+    {
+      "id": "tma4110-10-1-oppg-l1",
+      "type": "exercise",
+      "exercise": {
+        "id": "tma4110-10-1-l1",
+        "number": "1",
+        "type": "classic",
+        "difficulty": "lett",
+        "task": "(Innstegsoppgave.) Skriv det diagonale systemet $x_1'=5x_1,\\ x_2'=-x_2$ på formen $\\mathbf x'=A\\mathbf x$, og finn den generelle løsningen.",
+        "solution": "Koeffisientmatrisen er $A=\\begin{bmatrix}5&0\\\\0&-1\\end{bmatrix}$. Systemet er avkoblet: $x_1=c_1e^{5t}$ og $x_2=c_2e^{-t}$, altså\n\n$$\\mathbf x=c_1e^{5t}\\begin{bmatrix}1\\\\0\\end{bmatrix}+c_2e^{-t}\\begin{bmatrix}0\\\\1\\end{bmatrix}.$$\n\nEgenverdiene $5,-1$ står på diagonalen, egenvektorene er $(1,0)$ og $(0,1)$.",
+        "hints": [
+          "Koeffisientene foran $x_1,x_2$ i hver likning er radene i $A$.",
+          "En diagonal matrise gir avkoblede likninger $x_i'=\\lambda_i x_i$.",
+          "Hver løses som $x_i=c_ie^{\\lambda_i t}$."
+        ]
+      }
+    },
+    {
+      "id": "tma4110-10-1-lokke2",
+      "type": "text",
+      "content": "## Løkke 2 — Generell løsning ved reelle distinkte egenverdier (~12 min)"
+    },
+    {
+      "id": "tma4110-10-1-def-grunnlosning",
+      "type": "definition",
+      "title": "Grunnløsningen $e^{\\lambda t}\\mathbf v$",
+      "content": "Byggesteinen i alt: er $\\lambda$ en egenverdi til $A$ med egenvektor $\\mathbf v$, så er\n\n$$\\mathbf x(t)=e^{\\lambda t}\\mathbf v$$\n\nen løsning av $\\mathbf x'=A\\mathbf x$. Sjekk: $\\mathbf x'=\\lambda e^{\\lambda t}\\mathbf v$ og $A\\mathbf x=e^{\\lambda t}A\\mathbf v=e^{\\lambda t}\\lambda\\mathbf v$ — like. Faktoren $e^{\\lambda t}$ er en skalar (tallfunksjon) som strekker den *faste* retningen $\\mathbf v$. Dette er systemets motstykke til $e^{rx}$ i kap. 9.1."
+    },
+    {
+      "id": "tma4110-10-1-def-generell",
+      "type": "definition",
+      "title": "Generell løsning (reelle distinkte egenverdier)",
+      "content": "Har $A$ (en $n\\times n$-matrise) $n$ **reelle og ulike** egenverdier $\\lambda_1,\\dots,\\lambda_n$ med egenvektorer $\\mathbf v_1,\\dots,\\mathbf v_n$, er den generelle løsningen kombinasjonen av grunnløsningene:\n\n$$\\mathbf x(t)=c_1e^{\\lambda_1 t}\\mathbf v_1+c_2e^{\\lambda_2 t}\\mathbf v_2+\\cdots+c_ne^{\\lambda_n t}\\mathbf v_n.$$\n\nDistinkte egenverdier garanterer at egenvektorene er lineært uavhengige (kap. 5.2), så disse $n$ grunnløsningene spenner ut *alle* løsninger. Konstantene $c_1,\\dots,c_n$ er frie til en begynnelsesverdi fastsetter dem."
+    },
+    {
+      "id": "tma4110-10-1-def-superposisjon",
+      "type": "definition",
+      "title": "Superposisjonsprinsippet (system)",
+      "content": "For det homogene systemet $\\mathbf x'=A\\mathbf x$ gjelder: er $\\mathbf x_1$ og $\\mathbf x_2$ begge løsninger, så er enhver kombinasjon $c_1\\mathbf x_1+c_2\\mathbf x_2$ også en løsning. Dette er grunnen til at vi kan legge grunnløsningene $e^{\\lambda_i t}\\mathbf v_i$ sammen. Prinsippet gjelder fordi $A$ er lineær: $A(c_1\\mathbf x_1+c_2\\mathbf x_2)=c_1A\\mathbf x_1+c_2A\\mathbf x_2$."
+    },
+    {
+      "id": "tma4110-10-1-ex-generell",
+      "type": "example",
+      "title": "Eksempel 2: Reelle distinkte egenverdier (sjanger M)",
+      "problem": "Finn den generelle løsningen av $\\mathbf x'=A\\mathbf x$ med $A=\\begin{bmatrix}1&2\\\\2&1\\end{bmatrix}$.",
+      "solution": "**Egenverdier.** $\\det(A-\\lambda I)=\\det\\begin{bmatrix}1-\\lambda&2\\\\2&1-\\lambda\\end{bmatrix}=(1-\\lambda)^2-4=\\lambda^2-2\\lambda-3=(\\lambda-3)(\\lambda+1)$. Røtter $\\lambda_1=3,\\ \\lambda_2=-1$ (reelle, ulike).\n\n**Egenvektorer.** For $\\lambda_1=3$: $A-3I=\\begin{bmatrix}-2&2\\\\2&-2\\end{bmatrix}$, radredusert $\\begin{bmatrix}1&-1\\\\0&0\\end{bmatrix}$, så $v_1=v_2$ og $\\mathbf v_1=\\begin{bmatrix}1\\\\1\\end{bmatrix}$. For $\\lambda_2=-1$: $A+I=\\begin{bmatrix}2&2\\\\2&2\\end{bmatrix}\\to\\begin{bmatrix}1&1\\\\0&0\\end{bmatrix}$, så $v_1=-v_2$ og $\\mathbf v_2=\\begin{bmatrix}1\\\\-1\\end{bmatrix}$.\n\n**Generell løsning:**\n\n$$\\boxed{\\ \\mathbf x(t)=c_1e^{3t}\\begin{bmatrix}1\\\\1\\end{bmatrix}+c_2e^{-t}\\begin{bmatrix}1\\\\-1\\end{bmatrix}\\ }$$\n\n**Kontroll:** $e^{3t}(1,1)$: derivert $3e^{3t}(1,1)$, og $A e^{3t}(1,1)=e^{3t}(1\\cdot1+2\\cdot1,\\ 2\\cdot1+1\\cdot1)=e^{3t}(3,3)=3e^{3t}(1,1)$ ✓. Merk at $\\mathbf v$ må finnes ved **radreduksjon**, ikke gjettes."
+    },
+    {
+      "id": "tma4110-10-1-oppg-l2",
+      "type": "exercise",
+      "exercise": {
+        "id": "tma4110-10-1-l2",
+        "number": "2",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "(Sjanger M.) Finn den generelle løsningen av $\\mathbf x'=A\\mathbf x$ med $A=\\begin{bmatrix}1&3\\\\3&1\\end{bmatrix}$.",
+        "solution": "**Egenverdier:** $\\det(A-\\lambda I)=(1-\\lambda)^2-9=\\lambda^2-2\\lambda-8=(\\lambda-4)(\\lambda+2)$, så $\\lambda_1=4,\\ \\lambda_2=-2$.\n\n**Egenvektorer:** $\\lambda=4$: $\\begin{bmatrix}-3&3\\\\3&-3\\end{bmatrix}\\to v_1=v_2$, $\\mathbf v_1=(1,1)$. $\\lambda=-2$: $\\begin{bmatrix}3&3\\\\3&3\\end{bmatrix}\\to v_1=-v_2$, $\\mathbf v_2=(1,-1)$.\n\n$$\\mathbf x(t)=c_1e^{4t}\\begin{bmatrix}1\\\\1\\end{bmatrix}+c_2e^{-2t}\\begin{bmatrix}1\\\\-1\\end{bmatrix}.$$\n\nKontroll: $A(1,1)=(4,4)=4(1,1)$ ✓; $A(1,-1)=(-2,2)=-2(1,-1)$ ✓.",
+        "hints": [
+          "$\\det(A-\\lambda I)=(1-\\lambda)^2-9$; løs andregradslikningen.",
+          "For hver $\\lambda$ radreduser $A-\\lambda I$ og les av egenvektoren.",
+          "Sett sammen $c_1e^{\\lambda_1 t}\\mathbf v_1+c_2e^{\\lambda_2 t}\\mathbf v_2$."
+        ]
+      }
+    },
+    {
+      "id": "tma4110-10-1-oppg-l2b",
+      "type": "exercise",
+      "exercise": {
+        "id": "tma4110-10-1-l2b",
+        "number": "3",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "(Sjanger M — usymmetrisk matrise.) Finn den generelle løsningen av $\\mathbf x'=A\\mathbf x$ med $A=\\begin{bmatrix}4&-2\\\\1&1\\end{bmatrix}$.",
+        "solution": "**Egenverdier:** $\\det(A-\\lambda I)=(4-\\lambda)(1-\\lambda)-(-2)(1)=\\lambda^2-5\\lambda+6=(\\lambda-2)(\\lambda-3)$, så $\\lambda_1=2,\\ \\lambda_2=3$.\n\n**Egenvektorer:** $\\lambda=2$: $\\begin{bmatrix}2&-2\\\\1&-1\\end{bmatrix}\\to v_1=v_2$, $\\mathbf v_1=(1,1)$. $\\lambda=3$: $\\begin{bmatrix}1&-2\\\\1&-2\\end{bmatrix}\\to v_1=2v_2$, $\\mathbf v_2=(2,1)$.\n\n$$\\mathbf x(t)=c_1e^{2t}\\begin{bmatrix}1\\\\1\\end{bmatrix}+c_2e^{3t}\\begin{bmatrix}2\\\\1\\end{bmatrix}.$$\n\nKontroll: $A(2,1)=(8-2,\\ 2+1)=(6,3)=3(2,1)$ ✓.",
+        "hints": [
+          "$\\det(A-\\lambda I)=\\lambda^2-(\\operatorname{tr}A)\\lambda+\\det A=\\lambda^2-5\\lambda+6$.",
+          "Egenvektoren er ikke gitt av symmetri her — radreduser $A-\\lambda I$.",
+          "For $\\lambda=3$ gir raden $v_1-2v_2=0$, altså $\\mathbf v=(2,1)$."
+        ]
+      }
+    },
+    {
+      "id": "tma4110-10-1-lokke3",
+      "type": "text",
+      "content": "## Løkke 3 — Begynnelsesverdiproblem: bestem $c_i$ fra $\\mathbf x(0)$ (~10 min)"
+    },
+    {
+      "id": "tma4110-10-1-def-ivp",
+      "type": "definition",
+      "title": "Begynnelsesverdiproblem for system",
+      "content": "Et system $\\mathbf x'=A\\mathbf x$ med en gitt **startvektor** $\\mathbf x(0)=\\mathbf x_0$. Fremgangsmåte: finn **først** den generelle løsningen $\\mathbf x(t)=\\sum c_ie^{\\lambda_i t}\\mathbf v_i$, sett så $t=0$ (der $e^{\\lambda_i\\cdot0}=1$) og løs det lineære systemet for konstantene. Startvektoren i $\\mathbb R^n$ gir nøyaktig $n$ likninger til de $n$ konstantene, med entydig løsning."
+    },
+    {
+      "id": "tma4110-10-1-def-ci-system",
+      "type": "definition",
+      "title": "$c_i$-systemet fra $\\mathbf x(0)$",
+      "content": "Ved $t=0$ blir alle eksponentialene $1$, så\n\n$$\\mathbf x(0)=c_1\\mathbf v_1+\\cdots+c_n\\mathbf v_n=\\mathbf x_0.$$\n\nDette er et helt vanlig lineært likningssystem: egenvektorene er søylene i en matrise $P$, og du løser $P\\mathbf c=\\mathbf x_0$ for $\\mathbf c=(c_1,\\dots,c_n)$. Fordi egenvektorene er uavhengige, er $P$ inverterbar og løsningen entydig. **Merk:** eksponentialfaktorene forsvinner ved $t=0$ — glem dem ikke når $\\mathbf x(0)$ ikke er i $t=0$."
+    },
+    {
+      "id": "tma4110-10-1-ex-ivp",
+      "type": "example",
+      "title": "Eksempel 3: Begynnelsesverdiproblem (sjanger M) — flaggskipet",
+      "problem": "Løs $\\mathbf x'=\\begin{bmatrix}1&2\\\\2&1\\end{bmatrix}\\mathbf x$ med $\\mathbf x(0)=\\begin{bmatrix}3\\\\1\\end{bmatrix}$.",
+      "solution": "**Generell løsning** (fra Eksempel 2):\n\n$$\\mathbf x(t)=c_1e^{3t}\\begin{bmatrix}1\\\\1\\end{bmatrix}+c_2e^{-t}\\begin{bmatrix}1\\\\-1\\end{bmatrix}.$$\n\n**Sett inn $\\mathbf x(0)$.** Ved $t=0$: $c_1\\begin{bmatrix}1\\\\1\\end{bmatrix}+c_2\\begin{bmatrix}1\\\\-1\\end{bmatrix}=\\begin{bmatrix}3\\\\1\\end{bmatrix}$, altså\n\n$$c_1+c_2=3,\\qquad c_1-c_2=1.$$\n\nLegg sammen: $2c_1=4\\Rightarrow c_1=2$, og $c_2=1$.\n\n$$\\boxed{\\ \\mathbf x(t)=2e^{3t}\\begin{bmatrix}1\\\\1\\end{bmatrix}+e^{-t}\\begin{bmatrix}1\\\\-1\\end{bmatrix}=\\begin{bmatrix}2e^{3t}+e^{-t}\\\\ 2e^{3t}-e^{-t}\\end{bmatrix}\\ }$$\n\n**Kontroll:** $\\mathbf x(0)=(2+1,\\ 2-1)=(3,1)$ ✓. Legg merke til rekkefølgen: generell løsning *først*, så konstantene."
+    },
+    {
+      "id": "tma4110-10-1-oppg-m1",
+      "type": "exercise",
+      "exercise": {
+        "id": "tma4110-10-1-m1",
+        "number": "4",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "(Sjanger M — begynnelsesverdi.) Løs $\\mathbf x'=\\begin{bmatrix}1&3\\\\3&1\\end{bmatrix}\\mathbf x$ med $\\mathbf x(0)=\\begin{bmatrix}2\\\\4\\end{bmatrix}$.",
+        "solution": "Fra oppgave 2 er $\\mathbf x(t)=c_1e^{4t}(1,1)+c_2e^{-2t}(1,-1)$. Ved $t=0$: $c_1+c_2=2$ og $c_1-c_2=4$. Legg sammen: $2c_1=6\\Rightarrow c_1=3$, $c_2=-1$.\n\n$$\\mathbf x(t)=3e^{4t}\\begin{bmatrix}1\\\\1\\end{bmatrix}-e^{-2t}\\begin{bmatrix}1\\\\-1\\end{bmatrix}=\\begin{bmatrix}3e^{4t}-e^{-2t}\\\\ 3e^{4t}+e^{-2t}\\end{bmatrix}.$$\n\nKontroll: $\\mathbf x(0)=(3-1,\\ 3+1)=(2,4)$ ✓.",
+        "hints": [
+          "Bruk den generelle løsningen fra oppgave 2.",
+          "Ved $t=0$ blir eksponentialene $1$: løs $c_1\\mathbf v_1+c_2\\mathbf v_2=\\mathbf x_0$.",
+          "To likninger $c_1+c_2=2,\\ c_1-c_2=4$."
+        ]
+      }
+    },
+    {
+      "id": "tma4110-10-1-lokke4",
+      "type": "text",
+      "content": "## Løkke 4 — Omforming av én 2. ordens likning til et system (~11 min)\n\n*— broen tilbake til Del 9: samme likning, ny drakt. —*"
+    },
+    {
+      "id": "tma4110-10-1-def-omforming",
+      "type": "definition",
+      "title": "Omforming av 2. ordens likning til system",
+      "content": "Enhver 2. ordens likning $y''+py'+qy=0$ kan skrives som et $2\\times2$-system ved å innføre den deriverte som ny variabel. Sett $x_1=y$ og $x_2=y'$. Da er $x_1'=y'=x_2$, og $x_2'=y''=-qy-py'=-qx_1-px_2$. På matriseform:\n\n$$\\begin{bmatrix}x_1\\\\x_2\\end{bmatrix}'=\\begin{bmatrix}0&1\\\\-q&-p\\end{bmatrix}\\begin{bmatrix}x_1\\\\x_2\\end{bmatrix}.$$\n\nDen nederste raden inneholder $-q,-p$ fra likningen. Systemets egenverdier er nøyaktig røttene til den karakteristiske likningen $r^2+pr+q=0$ — de to metodene er samme matematikk."
+    },
+    {
+      "id": "tma4110-10-1-def-companion",
+      "type": "definition",
+      "title": "Tilstandsvektor og følgematrise",
+      "content": "**Tilstandsvektoren** $\\mathbf x=(y,y')$ samler funksjonen og dens derivert. Matrisen $\\begin{bmatrix}0&1\\\\-q&-p\\end{bmatrix}$ som omformingen gir, kalles **følgematrisen** (companion-matrisen) til likningen. Dens karakteristiske polynom er $\\lambda^2+p\\lambda+q$ — identisk med likningens karakteristiske likning. Slik ser du at 2. ordens-teorien i Del 9 er et spesialtilfelle av system-teorien her."
+    },
+    {
+      "id": "tma4110-10-1-ex-omforming",
+      "type": "example",
+      "title": "Eksempel 4: Fra 2. ordens likning til system (sjanger M)",
+      "problem": "Skriv $y''-5y'+6y=0$ som et system $\\mathbf x'=A\\mathbf x$, løs systemet, og hent tilbake $y(t)$.",
+      "solution": "**Omform.** Sett $x_1=y,\\ x_2=y'$. Da $x_1'=x_2$ og $x_2'=y''=5y'-6y=-6x_1+5x_2$, altså\n\n$$A=\\begin{bmatrix}0&1\\\\-6&5\\end{bmatrix}.$$\n\n**Egenverdier:** $\\det(A-\\lambda I)=(-\\lambda)(5-\\lambda)-1\\cdot(-6)=\\lambda^2-5\\lambda+6=(\\lambda-2)(\\lambda-3)$, så $\\lambda=2,3$ — nettopp røttene til $r^2-5r+6=0$.\n\n**Egenvektorer:** for en følgematrise er egenvektoren alltid $(1,\\lambda)$: $\\lambda=2\\Rightarrow(1,2)$, $\\lambda=3\\Rightarrow(1,3)$. (Sjekk $\\lambda=2$: $A-2I=\\begin{bmatrix}-2&1\\\\-6&3\\end{bmatrix}\\to -2v_1+v_2=0$, $\\mathbf v=(1,2)$ ✓.)\n\n$$\\mathbf x(t)=c_1e^{2t}\\begin{bmatrix}1\\\\2\\end{bmatrix}+c_2e^{3t}\\begin{bmatrix}1\\\\3\\end{bmatrix}.$$\n\n**Hent $y$:** $y=x_1=c_1e^{2t}+c_2e^{3t}$ — akkurat den formen du fikk direkte i [kap. 9.1](/bok/tma4110/tma4110-9-1). Den andre komponenten $x_2=y'=2c_1e^{2t}+3c_2e^{3t}$ er som forventet den deriverte."
+    },
+    {
+      "id": "tma4110-10-1-oppg-l4",
+      "type": "exercise",
+      "exercise": {
+        "id": "tma4110-10-1-l4",
+        "number": "5",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "(Sjanger M — omforming.) Skriv $y''-y'-6y=0$ som et system $\\mathbf x'=A\\mathbf x$ med $x_1=y,\\ x_2=y'$, og finn egenverdiene. Hva blir $y(t)$?",
+        "solution": "$x_1'=x_2$, $x_2'=y''=y'+6y=6x_1+x_2$, altså $A=\\begin{bmatrix}0&1\\\\6&1\\end{bmatrix}$.\n\nEgenverdier: $\\det(A-\\lambda I)=(-\\lambda)(1-\\lambda)-6=\\lambda^2-\\lambda-6=(\\lambda-3)(\\lambda+2)$, så $\\lambda=3,-2$. Egenvektorer $(1,\\lambda)$: $(1,3)$ og $(1,-2)$.\n\n$$\\mathbf x(t)=c_1e^{3t}\\begin{bmatrix}1\\\\3\\end{bmatrix}+c_2e^{-2t}\\begin{bmatrix}1\\\\-2\\end{bmatrix},\\qquad y=x_1=c_1e^{3t}+c_2e^{-2t}.$$",
+        "hints": [
+          "$x_1=y,\\ x_2=y'$ gir $x_1'=x_2$ og $x_2'=y''$.",
+          "Uttrykk $y''=y'+6y$ i $x_1,x_2$ for nederste rad.",
+          "Følgematrisens egenvektor er $(1,\\lambda)$."
+        ]
+      }
+    },
+    {
+      "id": "tma4110-10-1-lokke5",
+      "type": "text",
+      "content": "## Løkke 5 — Uavhengighet og fundamentalmatrise (~10 min)"
+    },
+    {
+      "id": "tma4110-10-1-def-fundamentalt",
+      "type": "definition",
+      "title": "Lineær uavhengighet og fundamentalt løsningssett",
+      "content": "Et sett $\\{\\mathbf x_1,\\dots,\\mathbf x_n\\}$ av løsninger er et **fundamentalt løsningssett** hvis de er lineært uavhengige — da kan enhver løsning skrives entydig som $\\mathbf x=c_1\\mathbf x_1+\\cdots+c_n\\mathbf x_n$. For grunnløsningene $e^{\\lambda_i t}\\mathbf v_i$ arves uavhengigheten fra egenvektorene: distinkte egenverdier gir uavhengige $\\mathbf v_i$, altså et fundamentalt sett. Dette er systemets versjon av «to uavhengige løsninger» fra kap. 9.1."
+    },
+    {
+      "id": "tma4110-10-1-def-fundamentalmatrise",
+      "type": "definition",
+      "title": "Fundamentalmatrise (kjennskap)",
+      "content": "Samler du grunnløsningene som **søyler** i en matrise, får du en **fundamentalmatrise** $\\Psi(t)=[\\,\\mathbf x_1(t)\\ \\cdots\\ \\mathbf x_n(t)\\,]$. For $A=\\begin{bmatrix}1&2\\\\2&1\\end{bmatrix}$ er\n\n$$\\Psi(t)=\\begin{bmatrix}e^{3t}&e^{-t}\\\\ e^{3t}&-e^{-t}\\end{bmatrix}.$$\n\nDa er $\\mathbf x(t)=\\Psi(t)\\mathbf c$, og begynnelsesverdien løses kompakt som $\\mathbf c=\\Psi(0)^{-1}\\mathbf x_0$. Du trenger bare **kjenne til** navnet og at søylene er grunnløsninger — den fulle teorien (matriseeksponential) ligger utenfor kode E-pensum her."
+    },
+    {
+      "id": "tma4110-10-1-def-sjekk",
+      "type": "definition",
+      "title": "Sjekk ved innsetting (system)",
+      "content": "Din eneste feilkontroll under kode E: sett en foreslått $\\mathbf x(t)$ inn og bekreft $\\mathbf x'=A\\mathbf x$ **komponentvis**. For en grunnløsning $e^{\\lambda t}\\mathbf v$ er dette raskt: venstresida er $\\lambda e^{\\lambda t}\\mathbf v$, høyresida $e^{\\lambda t}A\\mathbf v$, og de er like nettopp når $A\\mathbf v=\\lambda\\mathbf v$. Sjekk alltid minst én egenvektor: $A\\mathbf v=\\lambda\\mathbf v$."
+    },
+    {
+      "id": "tma4110-10-1-oppg-v1",
+      "type": "exercise",
+      "exercise": {
+        "id": "tma4110-10-1-v1",
+        "number": "6",
+        "type": "classic",
+        "difficulty": "vanskelig",
+        "task": "(Sjanger M/N — krevende, «vis at».) La $\\lambda$ være egenverdi til $A$ med egenvektor $\\mathbf v$. Vis direkte fra $\\mathbf x'=A\\mathbf x$ at $\\mathbf x(t)=e^{\\lambda t}\\mathbf v$ er en løsning, og forklar hvorfor to slike grunnløsninger med ulike egenverdier er lineært uavhengige.",
+        "solution": "**a)** Deriver: siden $\\mathbf v$ er en konstant vektor, er $\\mathbf x'(t)=\\dfrac{d}{dt}\\big(e^{\\lambda t}\\big)\\mathbf v=\\lambda e^{\\lambda t}\\mathbf v$.\n\n**b)** Regn høyresida: $A\\mathbf x=A\\big(e^{\\lambda t}\\mathbf v\\big)=e^{\\lambda t}(A\\mathbf v)=e^{\\lambda t}(\\lambda\\mathbf v)=\\lambda e^{\\lambda t}\\mathbf v$, der vi brukte at $\\mathbf v$ er egenvektor ($A\\mathbf v=\\lambda\\mathbf v$).\n\n**c)** De to sidene er like, så $\\mathbf x'=A\\mathbf x$ holder for alle $t$: $e^{\\lambda t}\\mathbf v$ er en løsning. $\\blacksquare$\n\n**Uavhengighet:** to grunnløsninger $e^{\\lambda_1 t}\\mathbf v_1$ og $e^{\\lambda_2 t}\\mathbf v_2$ med $\\lambda_1\\ne\\lambda_2$ er uavhengige fordi egenvektorer til *ulike* egenverdier er lineært uavhengige (kap. 5.1). Ved $t=0$ reduseres en avhengighet $a_1e^{\\lambda_1 t}\\mathbf v_1+a_2e^{\\lambda_2 t}\\mathbf v_2=\\mathbf 0$ til $a_1\\mathbf v_1+a_2\\mathbf v_2=\\mathbf 0$, som tvinger $a_1=a_2=0$.",
+        "hints": [
+          "Deriver $e^{\\lambda t}\\mathbf v$ som skalar $\\times$ konstant vektor.",
+          "Bruk egenvektorlikningen $A\\mathbf v=\\lambda\\mathbf v$ på høyresida.",
+          "For uavhengighet: egenvektorer til ulike egenverdier er uavhengige (kap. 5.1)."
+        ]
+      }
+    },
+    {
+      "id": "tma4110-10-1-warn-typiske-feil",
+      "type": "warning",
+      "title": "Typiske feil",
+      "content": "- **Feil egenvektorer.** Bruk **radreduksjon** av $A-\\lambda I$; ikke gjett. En liten fortegnsfeil i $\\mathbf v$ ødelegger hele løsningen.\n- **Glemmer $e^{\\lambda t}$-faktoren.** Hver grunnløsning er $e^{\\lambda_i t}\\mathbf v_i$ — egenvektoren *alene* er ikke en løsning (den er ikke tidsavhengig).\n- **Blander egenverdi og egenvektor.** Egenverdien $\\lambda$ står i **eksponenten**; egenvektoren $\\mathbf v$ er **retningen**. Ikke sett egenverdien inn som vektor.\n- **Feil oppsett av $c_i$-systemet.** Ved $t=0$ blir alle $e^{\\lambda_i\\cdot0}=1$; løs $c_1\\mathbf v_1+\\cdots+c_n\\mathbf v_n=\\mathbf x_0$. Glemmer du at eksponentialene forsvinner ved $t=0$, får du feil system.\n- **Bestemmer $c_i$ før den generelle løsningen er komplett.** Finn *alle* grunnløsninger først, deretter konstantene.\n- **Desimalsvar.** La $e^{\\lambda t}$, brøker og heltall stå eksakt (kode E)."
+    },
+    {
+      "id": "tma4110-10-1-begrepsbank-tekst",
+      "type": "text",
+      "content": "## Begrepsbank til eksamen\n\nKjernebegrepene fra kapitlet i kortform, klare for repetisjon.\n\n*Begrepsbanken er flashcard-/repetisjonsstoff — hopp trygt over ved førstegangslesing; tidsanslaget for kapitlet gjelder kjernestoffet.*"
+    },
+    {
+      "id": "tma4110-10-1-bb-egenverdi",
+      "type": "definition",
+      "title": "Egenverdi og egenvektor (repetisjon)",
+      "content": "En **egenvektor** $\\mathbf v\\ne\\mathbf0$ til $A$ oppfyller $A\\mathbf v=\\lambda\\mathbf v$ for et tall $\\lambda$, **egenverdien**. Geometrisk peker $\\mathbf v$ i en retning der $A$ bare skalerer (med faktor $\\lambda$). Dette er den ene ingrediensen system-løsningen bygger på; finnes ved $\\det(A-\\lambda I)=0$ og radreduksjon (kap. 5.1)."
+    },
+    {
+      "id": "tma4110-10-1-bb-karakteristisk",
+      "type": "definition",
+      "title": "Karakteristisk likning $\\det(A-\\lambda I)=0$ (repetisjon)",
+      "content": "Likningen som gir egenverdiene. For $2\\times2$ er den $\\lambda^2-(\\operatorname{tr}A)\\lambda+\\det A=0$, der $\\operatorname{tr}A$ er sporet (sum av diagonalen). Røttene er egenverdiene $\\lambda_1,\\lambda_2$. Er de reelle og ulike, er du i dette kapitlets tilfelle; er de komplekse, går du til [kap. 10.2](/bok/tma4110/tma4110-10-2)."
+    },
+    {
+      "id": "tma4110-10-1-bb-egenrom",
+      "type": "definition",
+      "title": "Egenrom (repetisjon)",
+      "content": "Mengden av alle egenvektorer til en gitt egenverdi $\\lambda$ (pluss nullvektoren): $E_\\lambda=\\operatorname{Nul}(A-\\lambda I)$. Ved distinkte egenverdier er hvert egenrom 1-dimensjonalt, så én egenvektor per egenverdi holder. Dimensjonen (geometrisk multiplisitet) avgjør om $A$ er diagonaliserbar (kap. 5.2)."
+    },
+    {
+      "id": "tma4110-10-1-bb-diag-avkobling",
+      "type": "definition",
+      "title": "Diagonaliserbarhet gir avkobling",
+      "content": "At $A=PDP^{-1}$ er diagonaliserbar er *hele* grunnen til at metoden virker: substitusjonen $\\mathbf x=P\\mathbf y$ gjør systemet til $\\mathbf y'=D\\mathbf y$, som er avkoblet i uavhengige likninger $y_i'=\\lambda_iy_i$. Distinkte egenverdier garanterer diagonaliserbarhet; er $A$ *ikke* diagonaliserbar, trengs generaliserte egenvektorer (utenfor pensum her)."
+    },
+    {
+      "id": "tma4110-10-1-bb-dimensjon",
+      "type": "definition",
+      "title": "Løsningsrommets dimensjon",
+      "content": "Løsningsmengden til $\\mathbf x'=A\\mathbf x$ (med $A\\in\\mathbb R^{n\\times n}$) er et vektorrom av dimensjon $n$: den spennes ut av $n$ uavhengige grunnløsninger og trenger $n$ frie konstanter $c_1,\\dots,c_n$. Derfor gir en startvektor i $\\mathbb R^n$ akkurat nok informasjon til å låse løsningen entydig."
+    },
+    {
+      "id": "tma4110-10-1-bb-matriseeksp",
+      "type": "definition",
+      "title": "Matriseeksponential $e^{At}$ (kjennskap)",
+      "content": "En kompakt skrivemåte: løsningen av $\\mathbf x'=A\\mathbf x,\\ \\mathbf x(0)=\\mathbf x_0$ kan skrives $\\mathbf x(t)=e^{At}\\mathbf x_0$, der $e^{At}$ defineres av samme rekke som den vanlige eksponentialfunksjonen. For diagonaliserbar $A$ er $e^{At}=Pe^{Dt}P^{-1}$ med $e^{Dt}=\\operatorname{diag}(e^{\\lambda_1 t},\\dots)$. Du trenger bare kjenne til navnet — egenverdimetoden er den praktiske veien under kode E."
+    },
+    {
+      "id": "tma4110-10-1-bb-likevekt",
+      "type": "definition",
+      "title": "Likevektspunkt $\\mathbf x=\\mathbf 0$ (kjennskap)",
+      "content": "Punktet der $\\mathbf x'=\\mathbf 0$, altså der systemet står stille. For $\\mathbf x'=A\\mathbf x$ (med $A$ inverterbar) er origo $\\mathbf x=\\mathbf0$ det eneste likevektspunktet. Hvordan løsningene oppfører seg *nær* origo — trekkes inn, støtes ut, spiraler — er temaet for klassifisering i [kap. 10.2](/bok/tma4110/tma4110-10-2)."
+    },
+    {
+      "id": "tma4110-10-1-bb-fasebane",
+      "type": "definition",
+      "title": "Fasebane / trajektorie (kjennskap)",
+      "content": "Kurven som løsningen $\\mathbf x(t)$ tegner i $x_1x_2$-planet når $t$ løper. Ved reelle egenverdier er banene rette linjer (langs egenvektorene) og kombinasjoner av dem. Samlingen av alle baner kalles **faseportrettet** og visualiserer systemets oppførsel; det studeres systematisk i [kap. 10.2](/bok/tma4110/tma4110-10-2)."
+    },
+    {
+      "id": "tma4110-10-1-rep",
+      "type": "collapsible",
+      "title": "Repetisjonsoppgaver",
+      "buttonText": "Vis repetisjonsoppgaver",
+      "content": [
+        {
+          "id": "tma4110-10-1-rep-o1",
+          "type": "exercise",
+          "exercise": {
+            "id": "tma4110-10-1-rep-1",
+            "number": "R1",
+            "type": "classic",
+            "difficulty": "lett",
+            "task": "(Fra kap. 5.1) Finn egenverdiene og en egenvektor for hver, til $A=\\begin{bmatrix}2&0\\\\0&-3\\end{bmatrix}$.",
+            "solution": "En diagonal matrise har egenverdiene på diagonalen: $\\lambda_1=2$ med $\\mathbf v_1=(1,0)$, $\\lambda_2=-3$ med $\\mathbf v_2=(0,1)$.",
+            "hints": [
+              "For en diagonal matrise står egenverdiene på diagonalen, egenvektorene er standardvektorene."
+            ]
+          }
+        },
+        {
+          "id": "tma4110-10-1-rep-o2",
+          "type": "exercise",
+          "exercise": {
+            "id": "tma4110-10-1-rep-2",
+            "number": "R2",
+            "type": "classic",
+            "difficulty": "middels",
+            "task": "(Fra kap. 5.2) Er $A=\\begin{bmatrix}1&2\\\\2&1\\end{bmatrix}$ diagonaliserbar? Begrunn.",
+            "solution": "Ja. $A$ er symmetrisk og har to distinkte egenverdier ($3$ og $-1$). Enten grunn holder: distinkte egenverdier gir uavhengige egenvektorer, så $A=PDP^{-1}$. (Symmetriske matriser er alltid diagonaliserbare, jf. spektralteoremet.)",
+            "hints": [
+              "Distinkte egenverdier ⇒ diagonaliserbar; symmetri ⇒ diagonaliserbar."
+            ]
+          }
+        },
+        {
+          "id": "tma4110-10-1-rep-o3",
+          "type": "exercise",
+          "exercise": {
+            "id": "tma4110-10-1-rep-3",
+            "number": "R3",
+            "type": "classic",
+            "difficulty": "lett",
+            "task": "(Fra kap. 9.1 — struktur) Hvorfor har den generelle løsningen av et $2\\times2$-system to frie konstanter?",
+            "solution": "Fordi løsningsrommet har dimensjon 2: to uavhengige grunnløsninger $e^{\\lambda_1 t}\\mathbf v_1,\\ e^{\\lambda_2 t}\\mathbf v_2$ spenner det ut, og hver bidrar med én fri konstant. Samme grunn som en 2. ordens likning har to konstanter.",
+            "hints": [
+              "Dimensjonen til løsningsrommet er lik antallet uavhengige grunnløsninger."
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": "tma4110-10-1-symbolliste",
+      "type": "collapsible",
+      "title": "Symbol- og formelliste",
+      "buttonText": "Vis symboler og formler",
+      "content": [
+        {
+          "id": "tma4110-10-1-symbolliste-text",
+          "type": "text",
+          "content": "## Symbol- og formelliste\n\n*Oppslagsverk — alt her forklares underveis i kapitlet.*\n\nAlle symboler og formler i delkapittel 10.1, samlet.\n\n| Symbol | Betydning |\n|---|---|\n| $\\mathbf x(t)$ | Vektor av ukjente funksjoner $(x_1,\\dots,x_n)$ |\n| $\\mathbf x'$ | Vektor av deriverte $(x_1',\\dots,x_n')$ |\n| $A$ | Konstant koeffisientmatrise ($n\\times n$) |\n| $\\lambda_i$ | Egenverdi nr. $i$ til $A$ |\n| $\\mathbf v_i$ | Egenvektor til $\\lambda_i$ |\n| $c_1,\\dots,c_n$ | Frie konstanter |\n| $\\mathbf x_0=\\mathbf x(0)$ | Startvektor (begynnelsesverdi) |\n| $A=PDP^{-1}$ | Diagonalisering ($P$ = egenvektorer, $D$ = egenverdier) |\n| $\\Psi(t)$ | Fundamentalmatrise (grunnløsninger som søyler) |\n| $\\operatorname{tr}A$ | Sporet (sum av diagonalen) |\n\n**Formler i dette delkapitlet:**\n\n$$\\mathbf x'=A\\mathbf x$$\nHomogent lineært system av 1. orden.\n\n$$\\det(A-\\lambda I)=0$$\nKarakteristisk likning — gir egenverdiene.\n\n$$\\mathbf x(t)=e^{\\lambda t}\\mathbf v\\quad(A\\mathbf v=\\lambda\\mathbf v)$$\nGrunnløsning fra egenverdi/egenvektor.\n\n$$\\mathbf x(t)=c_1e^{\\lambda_1 t}\\mathbf v_1+\\cdots+c_ne^{\\lambda_n t}\\mathbf v_n$$\nGenerell løsning (reelle distinkte egenverdier).\n\n$$c_1\\mathbf v_1+\\cdots+c_n\\mathbf v_n=\\mathbf x_0$$\nSystemet for konstantene fra $\\mathbf x(0)=\\mathbf x_0$.\n\n$$A=\\begin{bmatrix}0&1\\\\-q&-p\\end{bmatrix}$$\nFølgematrise ved omforming av $y''+py'+qy=0$ (med $x_1=y,\\ x_2=y'$)."
+        }
+      ]
+    }
+  ],
+  "exercises": []
+}

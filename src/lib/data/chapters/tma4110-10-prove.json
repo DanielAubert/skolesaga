@@ -1,0 +1,120 @@
+{
+  "id": "tma4110-10-prove",
+  "courseId": "tma4110",
+  "chapterNumber": "10.P",
+  "title": "Prøver til del 10: Systemer av differensiallikninger",
+  "description": "Fire prøver som dekker hele Del 10: reelle egenverdier med begynnelsesverdi, komplekse egenverdier med klassifisering, ren klassifisering av likevekt (node/sadel/senter/spiral), og en bred system-simulering med omforming fra en 2. ordens likning.",
+  "estimatedMinutes": 155,
+  "competenceGoals": [
+    "løse systemer x'=Ax med reelle egenverdier og begynnelsesverdi",
+    "løse systemer med komplekse egenverdier via real- og imaginærdel",
+    "klassifisere likevektspunkt som node, sadel, senter eller spiral med stabilitet",
+    "omforme en 2. ordens likning til et system og løse det"
+  ],
+  "content": [
+    {
+      "id": "tma4110-10-prove-tip",
+      "type": "tip",
+      "title": "Om prøvene",
+      "content": "**Fire prøver som dekker hele Del 10 — systemer av differensiallikninger (sjanger M, ~45 % av settene).** Med **sjanger M** menes systemoppgaven $\\mathbf x'=A\\mathbf x$: løs et koblet system og klassifiser eventuelt likevekten.\n\n- **Prøve 1 (10.A, ~40 min):** Reelle egenverdier + begynnelsesverdi. Bygger på [kap. 10.1](/bok/tma4110/tma4110-10-1).\n- **Prøve 2 (10.B, ~40 min):** Komplekse egenverdier + klassifisering. Bygger på [kap. 10.2](/bok/tma4110/tma4110-10-2).\n- **Prøve 3 (10.C, ~35 min):** Klassifisering av likevekt (node/sadel/senter/spiral). Bygger på [kap. 10.2](/bok/tma4110/tma4110-10-2).\n- **Prøve 4 (10.D, ~40 min):** System-simulering — reelt + komplekst + omforming fra 2. ordens likning. Bygger på [kap. 10.1](/bok/tma4110/tma4110-10-1)–[10.3](/bok/tma4110/tma4110-10-3).\n\n**4 prøver à ~35–40 min — kan trygt deles over flere kvelder, én prøve per økt.** Alle oppgaver er **langsvar** (begrunn alle svar), som på NTNU-eksamen — ingen flervalg. Regn under kode E: ingen hjelpemidler, eksakte svar ($e^{3t}$, $\\cos2t$, aldri desimal). Løsningsforslag og en avkryssbar selvdiagnose følger hver prøve."
+    },
+    {
+      "id": "tma4110-10-prove-forkunnskaper",
+      "type": "text",
+      "content": "**Forkunnskaper:** Prøvene forutsetter hele Del 10. Repeter ved behov [kap. 10.1](/bok/tma4110/tma4110-10-1) (grunnløsning $e^{\\lambda t}\\mathbf v$, generell løsning, begynnelsesverdi, omforming fra 2. orden), [kap. 10.2](/bok/tma4110/tma4110-10-2) (komplekse egenverdier, real/imaginærdel, klassifisering) og drilloppskriften i [kap. 10.3](/bok/tma4110/tma4110-10-3). Egenverdier/diagonalisering ligger i [kap. 5.2](/bok/tma4110/tma4110-5-2)–[5.4](/bok/tma4110/tma4110-5-4), Eulers formel i [kap. 7.2](/bok/tma4110/tma4110-7-2). Nøkkelen er å kjenne igjen tilfellet (reelt/komplekst) og kjøre oppskriften: egenverdier → grunnløsninger → begynnelsesverdi → klassifisering."
+    },
+    {
+      "id": "tma4110-10-prove-p1",
+      "type": "collapsible",
+      "title": "Prøve 1 — Reelle egenverdier + begynnelsesverdi (10.A)",
+      "buttonText": "Vis prøve 1",
+      "content": [
+        {
+          "id": "tma4110-10-prove-p1-opg",
+          "type": "text",
+          "content": "### Prøve 1 — Reelle egenverdier + begynnelsesverdi (~40 min)\n\n**Oppgave 1.** Finn den generelle løsningen av $\\mathbf x'=\\begin{bmatrix}1&3\\\\3&1\\end{bmatrix}\\mathbf x$.\n\n**Oppgave 2.** Løs begynnelsesverdiproblemet $\\mathbf x'=\\begin{bmatrix}2&0\\\\0&-3\\end{bmatrix}\\mathbf x$, $\\mathbf x(0)=\\begin{bmatrix}1\\\\2\\end{bmatrix}$.\n\n**Oppgave 3.** Løs $\\mathbf x'=\\begin{bmatrix}1&2\\\\2&1\\end{bmatrix}\\mathbf x$ med $\\mathbf x(0)=\\begin{bmatrix}3\\\\1\\end{bmatrix}$.\n\n**Oppgave 4.** Løs $\\mathbf x'=\\begin{bmatrix}4&-2\\\\1&1\\end{bmatrix}\\mathbf x$ med $\\mathbf x(0)=\\begin{bmatrix}3\\\\2\\end{bmatrix}$."
+        },
+        {
+          "id": "tma4110-10-prove-p1-los",
+          "type": "text",
+          "content": "**Løsningsforslag (A-besvarelse)**\n\n**Oppgave 1.** $\\det(A-\\lambda I)=(1-\\lambda)^2-9=\\lambda^2-2\\lambda-8=(\\lambda-4)(\\lambda+2)$, så $\\lambda=4,-2$. Egenvektorer: $\\lambda=4\\Rightarrow(1,1)$, $\\lambda=-2\\Rightarrow(1,-1)$.\n$$\\mathbf x(t)=c_1e^{4t}\\begin{bmatrix}1\\\\1\\end{bmatrix}+c_2e^{-2t}\\begin{bmatrix}1\\\\-1\\end{bmatrix}.$$\n\n**Oppgave 2.** Diagonal ⇒ $\\lambda=2,-3$, egenvektorer $(1,0),(0,1)$. Generell $\\mathbf x=c_1e^{2t}(1,0)+c_2e^{-3t}(0,1)$. Ved $t=0$: $(c_1,c_2)=(1,2)$. Dermed\n$$\\mathbf x(t)=\\begin{bmatrix}e^{2t}\\\\ 2e^{-3t}\\end{bmatrix}.$$\n\n**Oppgave 3.** $\\lambda=3,-1$ (fra $\\lambda^2-2\\lambda-3$); egenvektorer $(1,1),(1,-1)$. Generell $\\mathbf x=c_1e^{3t}(1,1)+c_2e^{-t}(1,-1)$. Ved $t=0$: $c_1+c_2=3,\\ c_1-c_2=1\\Rightarrow c_1=2,\\ c_2=1$. Dermed\n$$\\mathbf x(t)=2e^{3t}\\begin{bmatrix}1\\\\1\\end{bmatrix}+e^{-t}\\begin{bmatrix}1\\\\-1\\end{bmatrix}.$$\n\n**Oppgave 4.** $\\lambda^2-5\\lambda+6=0\\Rightarrow\\lambda=2,3$; egenvektorer $(1,1),(2,1)$. Generell $\\mathbf x=c_1e^{2t}(1,1)+c_2e^{3t}(2,1)$. Ved $t=0$: $c_1+2c_2=3,\\ c_1+c_2=2\\Rightarrow c_2=1,\\ c_1=1$. Dermed\n$$\\mathbf x(t)=e^{2t}\\begin{bmatrix}1\\\\1\\end{bmatrix}+e^{3t}\\begin{bmatrix}2\\\\1\\end{bmatrix}.$$"
+        },
+        {
+          "id": "tma4110-10-prove-p1-diag",
+          "type": "text",
+          "content": "**Selvdiagnose** — kryss av det du fikk til uten å nøle:\n\n- ☐ Oppgave 1: fant egenverdiene fra $\\det(A-\\lambda I)$ og egenvektorene ved radreduksjon.\n- ☐ Oppgave 2: så at en diagonal matrise gir avkoblede likninger.\n- ☐ Oppgave 3: satte $t=0$ (eksponentialene ble $1$) og løste for $c_1,c_2$.\n- ☐ Oppgave 4: håndterte den usymmetriske matrisen og fikk egenvektoren $(2,1)$ riktig."
+        }
+      ]
+    },
+    {
+      "id": "tma4110-10-prove-p2",
+      "type": "collapsible",
+      "title": "Prøve 2 — Komplekse egenverdier + klassifisering (10.B)",
+      "buttonText": "Vis prøve 2",
+      "content": [
+        {
+          "id": "tma4110-10-prove-p2-opg",
+          "type": "text",
+          "content": "### Prøve 2 — Komplekse egenverdier + klassifisering (~40 min)\n\n**Oppgave 1.** Finn den generelle reelle løsningen av $\\mathbf x'=\\begin{bmatrix}0&-2\\\\2&0\\end{bmatrix}\\mathbf x$, og klassifiser likevektspunktet.\n\n**Oppgave 2.** Finn den generelle reelle løsningen av $\\mathbf x'=\\begin{bmatrix}-1&-2\\\\2&-1\\end{bmatrix}\\mathbf x$, og klassifiser likevektspunktet med stabilitet.\n\n**Oppgave 3.** Løs $\\mathbf x'=\\begin{bmatrix}2&-3\\\\3&2\\end{bmatrix}\\mathbf x$ med $\\mathbf x(0)=\\begin{bmatrix}1\\\\0\\end{bmatrix}$, og klassifiser likevekten."
+        },
+        {
+          "id": "tma4110-10-prove-p2-los",
+          "type": "text",
+          "content": "**Løsningsforslag (A-besvarelse)**\n\n**Oppgave 1.** $\\lambda^2+4=0\\Rightarrow\\lambda=\\pm2i$ ($a=0,b=2$). Egenvektor ($\\lambda=2i$): $-2i\\,w_1-2w_2=0\\Rightarrow\\mathbf w=(1,-i)$. $e^{2it}(1,-i)$ gir $\\operatorname{Re}=(\\cos2t,\\sin2t)$, $\\operatorname{Im}=(\\sin2t,-\\cos2t)$:\n$$\\mathbf x(t)=c_1\\begin{bmatrix}\\cos2t\\\\ \\sin2t\\end{bmatrix}+c_2\\begin{bmatrix}\\sin2t\\\\ -\\cos2t\\end{bmatrix}.$$\n$a=0$ ⇒ **senter** (marginalt stabil), lukkede baner.\n\n**Oppgave 2.** $(-1-\\lambda)^2+4=0\\Rightarrow\\lambda=-1\\pm2i$ ($a=-1,b=2$). Egenvektor $(1,-i)$. $e^{(-1+2i)t}(1,-i)$ gir\n$$\\mathbf x(t)=e^{-t}\\left(c_1\\begin{bmatrix}\\cos2t\\\\ \\sin2t\\end{bmatrix}+c_2\\begin{bmatrix}\\sin2t\\\\ -\\cos2t\\end{bmatrix}\\right).$$\n$a=-1<0$ ⇒ **asymptotisk stabil spiral**.\n\n**Oppgave 3.** $(2-\\lambda)^2+9=0\\Rightarrow\\lambda=2\\pm3i$ ($a=2,b=3$). Egenvektor $(1,-i)$. Generell $\\mathbf x=e^{2t}\\big(c_1(\\cos3t,\\sin3t)+c_2(\\sin3t,-\\cos3t)\\big)$. Ved $t=0$: $c_1(1,0)+c_2(0,-1)=(1,0)\\Rightarrow c_1=1,\\ c_2=0$. Dermed\n$$\\mathbf x(t)=e^{2t}\\begin{bmatrix}\\cos3t\\\\ \\sin3t\\end{bmatrix}.$$\n$a=2>0$ ⇒ **ustabil spiral**."
+        },
+        {
+          "id": "tma4110-10-prove-p2-diag",
+          "type": "text",
+          "content": "**Selvdiagnose** — kryss av det du fikk til uten å nøle:\n\n- ☐ Brukte kun én egenverdi ($a+bi$) og hentet real/imaginærdel — ikke begge konjugerte.\n- ☐ Oppgave 1: kjente igjen rent imaginære egenverdier ⇒ senter.\n- ☐ Oppgave 2: leste stabilitet av fortegnet på realdelen ($a=-1$ ⇒ stabil).\n- ☐ Oppgave 3: bestemte konstantene fra $\\mathbf x(0)$ og klassifiserte som ustabil spiral."
+        }
+      ]
+    },
+    {
+      "id": "tma4110-10-prove-p3",
+      "type": "collapsible",
+      "title": "Prøve 3 — Klassifisering av likevekt (10.C)",
+      "buttonText": "Vis prøve 3",
+      "content": [
+        {
+          "id": "tma4110-10-prove-p3-opg",
+          "type": "text",
+          "content": "### Prøve 3 — Klassifisering av likevekt (~35 min)\n\nFor hvert system: finn egenverdiene, klassifiser likevektspunktet $\\mathbf x=\\mathbf0$ (node/sadel/senter/spiral), og angi stabilitet.\n\n**Oppgave 1.** $A=\\begin{bmatrix}3&0\\\\0&1\\end{bmatrix}$.\n\n**Oppgave 2.** $A=\\begin{bmatrix}-2&0\\\\0&-3\\end{bmatrix}$.\n\n**Oppgave 3.** $A=\\begin{bmatrix}1&2\\\\2&1\\end{bmatrix}$.\n\n**Oppgave 4.** $A=\\begin{bmatrix}0&-2\\\\2&0\\end{bmatrix}$.\n\n**Oppgave 5.** $A=\\begin{bmatrix}-1&-2\\\\2&-1\\end{bmatrix}$.\n\n**Oppgave 6.** $A=\\begin{bmatrix}1&-2\\\\2&1\\end{bmatrix}$."
+        },
+        {
+          "id": "tma4110-10-prove-p3-los",
+          "type": "text",
+          "content": "**Løsningsforslag (A-besvarelse)**\n\n**Oppgave 1.** $\\lambda=3,1$ — reelle, begge positive ⇒ **ustabil node**.\n\n**Oppgave 2.** $\\lambda=-2,-3$ — reelle, begge negative ⇒ **stabil node** (asymptotisk stabil).\n\n**Oppgave 3.** $\\lambda^2-2\\lambda-3=0\\Rightarrow\\lambda=3,-1$ — reelle, motsatt fortegn ⇒ **sadelpunkt** (ustabil).\n\n**Oppgave 4.** $\\lambda^2+4=0\\Rightarrow\\lambda=\\pm2i$ — rent imaginære ⇒ **senter** (marginalt stabil).\n\n**Oppgave 5.** $(-1-\\lambda)^2+4=0\\Rightarrow\\lambda=-1\\pm2i$, $a=-1<0$ ⇒ **stabil spiral** (asymptotisk stabil).\n\n**Oppgave 6.** $(1-\\lambda)^2+4=0\\Rightarrow\\lambda=1\\pm2i$, $a=1>0$ ⇒ **ustabil spiral**.\n\n*Legg merke til:* du trenger bare egenverdiene, ikke selve løsningen — fortegn og type følger direkte fra dem."
+        },
+        {
+          "id": "tma4110-10-prove-p3-diag",
+          "type": "text",
+          "content": "**Selvdiagnose** — kryss av det du fikk til uten å nøle:\n\n- ☐ Regnet egenverdiene raskt via $\\lambda^2-(\\operatorname{tr}A)\\lambda+\\det A$.\n- ☐ Skilte node (samme fortegn) fra sadel (motsatt fortegn).\n- ☐ Kjente igjen senter (rent imaginære) mot spiral (kompleks med $a\\ne0$).\n- ☐ Anga stabilitet konsekvent fra fortegnet på realdelen."
+        }
+      ]
+    },
+    {
+      "id": "tma4110-10-prove-p4",
+      "type": "collapsible",
+      "title": "Prøve 4 — System-simulering (10.D)",
+      "buttonText": "Vis prøve 4",
+      "content": [
+        {
+          "id": "tma4110-10-prove-p4-opg",
+          "type": "text",
+          "content": "### Prøve 4 — System-simulering (~40 min)\n\nEt bredt sett som speiler hvordan sjanger M kommer på eksamen: reelt tilfelle, komplekst tilfelle og omforming fra en 2. ordens likning i samme oppgave.\n\n**Oppgave 1.** Løs $\\mathbf x'=\\begin{bmatrix}1&3\\\\3&1\\end{bmatrix}\\mathbf x$ med $\\mathbf x(0)=\\begin{bmatrix}2\\\\4\\end{bmatrix}$.\n\n**Oppgave 2.** Løs $\\mathbf x'=\\begin{bmatrix}0&-2\\\\2&0\\end{bmatrix}\\mathbf x$ med $\\mathbf x(0)=\\begin{bmatrix}2\\\\0\\end{bmatrix}$, og klassifiser likevekten.\n\n**Oppgave 3 (omforming).**\n\n**a)** Skriv $y''-y'-6y=0$ som et system $\\mathbf x'=A\\mathbf x$ med $x_1=y,\\ x_2=y'$.\n\n**b)** Løs systemet og hent tilbake $y(t)$.\n\n**c)** Klassifiser likevektspunktet til systemet."
+        },
+        {
+          "id": "tma4110-10-prove-p4-los",
+          "type": "text",
+          "content": "**Løsningsforslag (A-besvarelse)**\n\n**Oppgave 1.** $\\lambda=4,-2$; egenvektorer $(1,1),(1,-1)$. Generell $\\mathbf x=c_1e^{4t}(1,1)+c_2e^{-2t}(1,-1)$. Ved $t=0$: $c_1+c_2=2,\\ c_1-c_2=4\\Rightarrow c_1=3,\\ c_2=-1$. Dermed\n$$\\mathbf x(t)=3e^{4t}\\begin{bmatrix}1\\\\1\\end{bmatrix}-e^{-2t}\\begin{bmatrix}1\\\\-1\\end{bmatrix}.$$\n\n**Oppgave 2.** $\\lambda=\\pm2i$; egenvektor $(1,-i)$ gir $\\operatorname{Re}=(\\cos2t,\\sin2t)$, $\\operatorname{Im}=(\\sin2t,-\\cos2t)$. Generell $\\mathbf x=c_1(\\cos2t,\\sin2t)+c_2(\\sin2t,-\\cos2t)$. Ved $t=0$: $c_1(1,0)+c_2(0,-1)=(2,0)\\Rightarrow c_1=2,\\ c_2=0$. Dermed\n$$\\mathbf x(t)=\\begin{bmatrix}2\\cos2t\\\\ 2\\sin2t\\end{bmatrix}.$$\n$a=0$ ⇒ **senter**; banen er en sirkel med radius $2$.\n\n**Oppgave 3a.** $x_1=y,\\ x_2=y'$: $x_1'=x_2$ og $x_2'=y''=y'+6y=6x_1+x_2$, altså\n$$A=\\begin{bmatrix}0&1\\\\6&1\\end{bmatrix}.$$\n\n**3b.** $\\det(A-\\lambda I)=\\lambda^2-\\lambda-6=(\\lambda-3)(\\lambda+2)$, så $\\lambda=3,-2$. Følgematrisens egenvektorer er $(1,\\lambda)$: $(1,3),(1,-2)$. Generell $\\mathbf x=c_1e^{3t}(1,3)+c_2e^{-2t}(1,-2)$, og\n$$y=x_1=c_1e^{3t}+c_2e^{-2t}.$$\n\n**3c.** Egenverdiene $3$ og $-2$ er reelle med **motsatt** fortegn ⇒ **sadelpunkt** (ustabil)."
+        },
+        {
+          "id": "tma4110-10-prove-p4-diag",
+          "type": "text",
+          "content": "**Selvdiagnose** — kryss av det du fikk til uten å nøle:\n\n- ☐ Oppgave 1: reelt begynnelsesverdiproblem med korrekte konstanter.\n- ☐ Oppgave 2: komplekst tilfelle, fikk $\\mathbf x(0)=(2,0)$ og kjente igjen senteret.\n- ☐ Oppgave 3a: satte opp følgematrisen $\\begin{bmatrix}0&1\\\\6&1\\end{bmatrix}$ riktig fra likningen.\n- ☐ Oppgave 3b–c: hentet $y=x_1$ og klassifiserte som sadel fra egenverdiene $3,-2$."
+        }
+      ]
+    }
+  ],
+  "exercises": []
+}

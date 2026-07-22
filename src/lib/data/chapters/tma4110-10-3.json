@@ -1,0 +1,305 @@
+{
+  "id": "tma4110-10-3",
+  "courseId": "tma4110",
+  "chapterNumber": "10.3",
+  "title": "Drill: systemer av differensiallikninger",
+  "description": "ODE-system-repertoaret drillet til automatikk: egenverdier/egenvektorer → generell løsning → begynnelsesverdi → komplekst tilfelle med real/imaginærdel → klassifisering av likevekt → omforming fra 2. ordens likning. Ett gjennomregnet system-case (reelt + komplekst) med margnotater, deretter elleve blandede eksamensoppgaver.",
+  "estimatedMinutes": 80,
+  "competenceGoals": [
+    "kjenne igjen om et system har reelle eller komplekse egenverdier og kjøre riktig løsningsoppskrift",
+    "løse begynnelsesverdiproblem for både reelt og komplekst tilfelle med eksakte svar",
+    "klassifisere likevektspunktet (node/sadel/senter/spiral) og angi stabilitet fra egenverdiene",
+    "omforme en 2. ordens likning til et system og hente tilbake y(t)"
+  ],
+  "content": [
+    {
+      "id": "tma4110-10-3-tip-eksamensvinkel",
+      "type": "tip",
+      "title": "Eksamensvinkel",
+      "content": "**Drill av hele systemsjangeren (sjanger M, ~45 %) — reelt og komplekst tilfelle om hverandre.**\n\nMed **sjanger M** menes systemoppgaven $\\mathbf x'=A\\mathbf x$. Her drilles hele repertoaret fra [kap. 10.1](/bok/tma4110/tma4110-10-1)–[10.2](/bok/tma4110/tma4110-10-2) til det går av seg selv: egenverdier/egenvektorer → generell løsning → begynnelsesverdi → komplekst tilfelle → klassifisering → omforming fra 2. ordens likning.\n\nÉn oppskrift dekker alt: **(1)** finn egenverdiene fra $\\det(A-\\lambda I)=0$; **(2)** reelle ⇒ $\\sum c_ie^{\\lambda_i t}\\mathbf v_i$, komplekse ⇒ real/imaginærdel av $e^{\\lambda t}\\mathbf w$; **(3)** begynnelsesverdi gir konstantene; **(4)** klassifiser likevekten fra egenverdiene.\n\nNå kommer variantene blandet, så du selv må kjenne igjen tilfellet — akkurat som på eksamen. Alt regnes under **kode E**: eksakte svar, ingen hjelpemidler."
+    },
+    {
+      "id": "tma4110-10-3-forkunnskaper",
+      "type": "text",
+      "content": "**Forkunnskaper.** Dette er et rent treningskapittel og forutsetter [kap. 10.1](/bok/tma4110/tma4110-10-1) (reelle egenverdier, generell løsning, begynnelsesverdi, omforming fra 2. orden) og [kap. 10.2](/bok/tma4110/tma4110-10-2) (komplekse egenverdier, real/imaginærdel, klassifisering). Repeter egenverdier og diagonalisering fra [kap. 5.2](/bok/tma4110/tma4110-5-2)–[5.4](/bok/tma4110/tma4110-5-4) og Eulers formel fra [kap. 7.2](/bok/tma4110/tma4110-7-2) ved behov. Ingen ny teori — bare oppskriften kjørt igjen og igjen.\n\nRegn med rundt 80 minutter for hele settet; det kan trygt deles over flere økter."
+    },
+    {
+      "id": "tma4110-10-3-oppskrift",
+      "type": "definition",
+      "title": "Løsningsoppskriften for et system (algoritme)",
+      "content": "Den faste rekkefølgen, utenat under kode E:\n\n1. **Egenverdier:** løs $\\det(A-\\lambda I)=0$ (for $2\\times2$: $\\lambda^2-(\\operatorname{tr}A)\\lambda+\\det A=0$).\n2. **Velg spor:** reelle distinkte ⇒ finn egenvektorer $\\mathbf v_i$; komplekse $a\\pm bi$ ⇒ finn egenvektor $\\mathbf w$ til $a+bi$.\n3. **Grunnløsninger:** reelle ⇒ $e^{\\lambda_i t}\\mathbf v_i$; komplekse ⇒ $\\operatorname{Re}\\,e^{\\lambda t}\\mathbf w$ og $\\operatorname{Im}\\,e^{\\lambda t}\\mathbf w$.\n4. **Generell løsning:** kombiner med $c_1,c_2$.\n5. **Begynnelsesverdi:** sett $t=0$ og løs for konstantene.\n6. **Klassifiser** likevekten hvis oppgaven ber om det.\n\nAlltid egenvektorer ved **radreduksjon**, aldri gjetning."
+    },
+    {
+      "id": "tma4110-10-3-case-tekst",
+      "type": "text",
+      "content": "## Gjennomregnet system-case (reelt + komplekst)\n\nEtt eksempel som binder sammen begge tilfellene, med margnotater der uttelling vinnes eller tapes."
+    },
+    {
+      "id": "tma4110-10-3-case-reelt",
+      "type": "example",
+      "title": "Case, del 1: Reelt tilfelle med begynnelsesverdi (sjanger M)",
+      "problem": "Løs $\\mathbf x'=\\begin{bmatrix}4&-2\\\\1&1\\end{bmatrix}\\mathbf x$ med $\\mathbf x(0)=\\begin{bmatrix}3\\\\2\\end{bmatrix}$.",
+      "solution": "**Egenverdier.** $\\det(A-\\lambda I)=\\lambda^2-5\\lambda+6=(\\lambda-2)(\\lambda-3)$, så $\\lambda=2,3$. *(Margnotat: bruk $\\lambda^2-(\\operatorname{tr}A)\\lambda+\\det A$ — spor $5$, det $6$ — som rask sjekk.)*\n\n**Egenvektorer.** $\\lambda=2$: $\\begin{bmatrix}2&-2\\\\1&-1\\end{bmatrix}\\to v_1=v_2$, $\\mathbf v_1=(1,1)$. $\\lambda=3$: $\\begin{bmatrix}1&-2\\\\1&-2\\end{bmatrix}\\to v_1=2v_2$, $\\mathbf v_2=(2,1)$. *(Margnotat: radreduser — ikke gjett; feil egenvektor rører hele svaret.)*\n\n**Generell løsning.** $\\mathbf x=c_1e^{2t}(1,1)+c_2e^{3t}(2,1)$.\n\n**Begynnelsesverdi.** Ved $t=0$: $c_1(1,1)+c_2(2,1)=(3,2)$, altså $c_1+2c_2=3$ og $c_1+c_2=2$. Trekk fra: $c_2=1$, $c_1=1$. *(Margnotat: eksponentialene er $1$ ved $t=0$ — glem dem ikke.)*\n\n$$\\boxed{\\ \\mathbf x(t)=e^{2t}\\begin{bmatrix}1\\\\1\\end{bmatrix}+e^{3t}\\begin{bmatrix}2\\\\1\\end{bmatrix}\\ }$$\n\nKontroll: $\\mathbf x(0)=(1+2,\\ 1+1)=(3,2)$ ✓."
+    },
+    {
+      "id": "tma4110-10-3-case-kompleks",
+      "type": "example",
+      "title": "Case, del 2: Komplekst tilfelle + klassifisering (sjanger M)",
+      "problem": "Løs $\\mathbf x'=\\begin{bmatrix}-1&-2\\\\2&-1\\end{bmatrix}\\mathbf x$, og klassifiser likevektspunktet.",
+      "solution": "**Egenverdier.** $(-1-\\lambda)^2+4=0\\Rightarrow\\lambda=-1\\pm2i$ ($a=-1,\\ b=2$). *(Margnotat: negativ diskriminant ⇒ komplekst tilfelle — bytt til real/imaginærdel-sporet.)*\n\n**Egenvektor** ($\\lambda=-1+2i$): $\\begin{bmatrix}-2i&-2\\\\2&-2i\\end{bmatrix}\\to -2i\\,w_1-2w_2=0\\Rightarrow w_2=-i\\,w_1$, $\\mathbf w=(1,-i)$.\n\n**Grunnløsning.** $e^{(-1+2i)t}(1,-i)=e^{-t}(\\cos2t+i\\sin2t)(1,-i)$. *(Margnotat: bruk kun $\\lambda=-1+2i$ — ikke begge konjugerte.)* Real- og imaginærdel:\n\n$$\\operatorname{Re}=e^{-t}\\begin{bmatrix}\\cos2t\\\\ \\sin2t\\end{bmatrix},\\qquad \\operatorname{Im}=e^{-t}\\begin{bmatrix}\\sin2t\\\\ -\\cos2t\\end{bmatrix}.$$\n\n**Generell løsning.**\n\n$$\\mathbf x(t)=e^{-t}\\left(c_1\\begin{bmatrix}\\cos2t\\\\ \\sin2t\\end{bmatrix}+c_2\\begin{bmatrix}\\sin2t\\\\ -\\cos2t\\end{bmatrix}\\right).$$\n\n**Klassifisering.** Komplekse egenverdier med $a=-1<0$ ⇒ **asymptotisk stabil spiral**. *(Margnotat: stabilitet fra fortegnet på realdelen — ett tegn bærer konklusjonen.)*"
+    },
+    {
+      "id": "tma4110-10-3-drill-tekst",
+      "type": "text",
+      "content": "## Drilloppgaver — reelt og komplekst blandet\n\nKjenn igjen tilfellet selv (reelt/komplekst), kjør oppskriften, og klassifiser der det spørres."
+    },
+    {
+      "id": "tma4110-10-3-d1",
+      "type": "exercise",
+      "exercise": {
+        "id": "tma4110-10-3-d1",
+        "number": "1",
+        "type": "classic",
+        "difficulty": "lett",
+        "task": "(Innstegsoppgave — reelt, diagonalt.) Finn den generelle løsningen av $\\mathbf x'=\\begin{bmatrix}2&0\\\\0&-3\\end{bmatrix}\\mathbf x$.",
+        "solution": "Diagonal ⇒ egenverdier $2,-3$ med egenvektorer $(1,0),(0,1)$:\n$$\\mathbf x=c_1e^{2t}\\begin{bmatrix}1\\\\0\\end{bmatrix}+c_2e^{-3t}\\begin{bmatrix}0\\\\1\\end{bmatrix}.$$",
+        "hints": [
+          "En diagonal matrise gir avkoblede likninger $x_i'=\\lambda_i x_i$."
+        ]
+      }
+    },
+    {
+      "id": "tma4110-10-3-d2",
+      "type": "exercise",
+      "exercise": {
+        "id": "tma4110-10-3-d2",
+        "number": "2",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "(Reelt.) Finn den generelle løsningen av $\\mathbf x'=\\begin{bmatrix}3&1\\\\0&2\\end{bmatrix}\\mathbf x$.",
+        "solution": "Triangulær ⇒ egenverdier på diagonalen: $\\lambda=3,2$. $\\lambda=3$: $\\begin{bmatrix}0&1\\\\0&-1\\end{bmatrix}\\to v_2=0$, $\\mathbf v_1=(1,0)$. $\\lambda=2$: $\\begin{bmatrix}1&1\\\\0&0\\end{bmatrix}\\to v_1=-v_2$, $\\mathbf v_2=(1,-1)$.\n$$\\mathbf x=c_1e^{3t}\\begin{bmatrix}1\\\\0\\end{bmatrix}+c_2e^{2t}\\begin{bmatrix}1\\\\-1\\end{bmatrix}.$$",
+        "hints": [
+          "Triangulær matrise: egenverdiene står på diagonalen.",
+          "Radreduser $A-\\lambda I$ for hver egenvektor."
+        ]
+      }
+    },
+    {
+      "id": "tma4110-10-3-d3",
+      "type": "exercise",
+      "exercise": {
+        "id": "tma4110-10-3-d3",
+        "number": "3",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "(Reelt — begynnelsesverdi.) Løs $\\mathbf x'=\\begin{bmatrix}1&3\\\\3&1\\end{bmatrix}\\mathbf x$ med $\\mathbf x(0)=\\begin{bmatrix}2\\\\4\\end{bmatrix}$.",
+        "solution": "Egenverdier $\\lambda=4,-2$; egenvektorer $(1,1),(1,-1)$. Generell $\\mathbf x=c_1e^{4t}(1,1)+c_2e^{-2t}(1,-1)$. Ved $t=0$: $c_1+c_2=2,\\ c_1-c_2=4\\Rightarrow c_1=3,\\ c_2=-1$.\n$$\\mathbf x(t)=3e^{4t}\\begin{bmatrix}1\\\\1\\end{bmatrix}-e^{-2t}\\begin{bmatrix}1\\\\-1\\end{bmatrix}.$$\nKontroll: $\\mathbf x(0)=(3-1,\\ 3+1)=(2,4)$ ✓.",
+        "hints": [
+          "$\\lambda^2-2\\lambda-8=0$ gir $\\lambda=4,-2$.",
+          "Sett $t=0$ og løs $c_1+c_2=2,\\ c_1-c_2=4$."
+        ]
+      }
+    },
+    {
+      "id": "tma4110-10-3-d4",
+      "type": "exercise",
+      "exercise": {
+        "id": "tma4110-10-3-d4",
+        "number": "4",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "(Komplekst — senter.) Finn den generelle reelle løsningen av $\\mathbf x'=\\begin{bmatrix}0&-4\\\\1&0\\end{bmatrix}\\mathbf x$, og klassifiser likevekten.",
+        "solution": "Egenverdier: $\\det(A-\\lambda I)=\\lambda^2+4=0\\Rightarrow\\lambda=\\pm2i$ ($a=0,b=2$). Egenvektor ($\\lambda=2i$): $\\begin{bmatrix}-2i&-4\\\\1&-2i\\end{bmatrix}$; nederste rad $w_1=2i\\,w_2$, velg $w_2=1$: $\\mathbf w=(2i,1)$. Grunnløsning $e^{2it}(2i,1)=(\\cos2t+i\\sin2t)(2i,1)$:\n$$\\operatorname{Re}=\\begin{bmatrix}-2\\sin2t\\\\ \\cos2t\\end{bmatrix},\\qquad \\operatorname{Im}=\\begin{bmatrix}2\\cos2t\\\\ \\sin2t\\end{bmatrix}.$$\n$$\\mathbf x=c_1\\begin{bmatrix}-2\\sin2t\\\\ \\cos2t\\end{bmatrix}+c_2\\begin{bmatrix}2\\cos2t\\\\ \\sin2t\\end{bmatrix}.$$\n$a=0$ ⇒ **senter** (marginalt stabil).",
+        "hints": [
+          "$\\lambda^2+4=0$; egenvektor fra nederste rad: $w_1=2i\\,w_2$.",
+          "Gang $(2i,1)$ inn i $\\cos2t+i\\sin2t$ og husk $i^2=-1$.",
+          "Rent imaginære egenverdier ⇒ senter."
+        ]
+      }
+    },
+    {
+      "id": "tma4110-10-3-d5",
+      "type": "exercise",
+      "exercise": {
+        "id": "tma4110-10-3-d5",
+        "number": "5",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "(Komplekst — spiral.) Finn den generelle reelle løsningen av $\\mathbf x'=\\begin{bmatrix}2&-3\\\\3&2\\end{bmatrix}\\mathbf x$, og klassifiser likevekten.",
+        "solution": "Egenverdier: $(2-\\lambda)^2+9=0\\Rightarrow\\lambda=2\\pm3i$ ($a=2,b=3$). Egenvektor ($\\lambda=2+3i$): $\\begin{bmatrix}-3i&-3\\\\3&-3i\\end{bmatrix}\\to w_2=-i\\,w_1$, $\\mathbf w=(1,-i)$. Grunnløsning $e^{2t}(\\cos3t+i\\sin3t)(1,-i)$:\n$$\\mathbf x=e^{2t}\\left(c_1\\begin{bmatrix}\\cos3t\\\\ \\sin3t\\end{bmatrix}+c_2\\begin{bmatrix}\\sin3t\\\\ -\\cos3t\\end{bmatrix}\\right).$$\n$a=2>0$ ⇒ **ustabil spiral**.",
+        "hints": [
+          "$(2-\\lambda)^2+9=0$ gir $\\lambda=2\\pm3i$.",
+          "Egenvektor $(1,-i)$; real/imaginærdel gir de to reelle løsningene.",
+          "$a=2>0$ ⇒ ustabil."
+        ]
+      }
+    },
+    {
+      "id": "tma4110-10-3-d6",
+      "type": "exercise",
+      "exercise": {
+        "id": "tma4110-10-3-d6",
+        "number": "6",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "(Komplekst — begynnelsesverdi.) Løs $\\mathbf x'=\\begin{bmatrix}-1&-2\\\\2&-1\\end{bmatrix}\\mathbf x$ med $\\mathbf x(0)=\\begin{bmatrix}1\\\\0\\end{bmatrix}$.",
+        "solution": "Fra caset over: $\\lambda=-1\\pm2i$, $\\mathbf x=e^{-t}\\big(c_1(\\cos2t,\\sin2t)+c_2(\\sin2t,-\\cos2t)\\big)$. Ved $t=0$: $c_1(1,0)+c_2(0,-1)=(1,0)\\Rightarrow c_1=1,\\ c_2=0$.\n$$\\mathbf x(t)=e^{-t}\\begin{bmatrix}\\cos2t\\\\ \\sin2t\\end{bmatrix}.$$\nKontroll: $\\mathbf x(0)=(1,0)$ ✓ (stabil spiral inn mot origo).",
+        "hints": [
+          "Bruk den generelle løsningen fra system-caset.",
+          "Ved $t=0$: $\\cos0=1,\\sin0=0$, så $(c_1,-c_2)=(1,0)$."
+        ]
+      }
+    },
+    {
+      "id": "tma4110-10-3-d7",
+      "type": "exercise",
+      "exercise": {
+        "id": "tma4110-10-3-d7",
+        "number": "7",
+        "type": "classic",
+        "difficulty": "lett",
+        "task": "(Klassifisering — ren avlesning.) Klassifiser likevektspunktet $\\mathbf x=\\mathbf0$ og angi stabilitet for hver: (a) $\\begin{bmatrix}-2&0\\\\0&-5\\end{bmatrix}$, (b) $\\begin{bmatrix}2&1\\\\2&3\\end{bmatrix}$, (c) $\\begin{bmatrix}0&-1\\\\1&0\\end{bmatrix}$, (d) $\\begin{bmatrix}-1&-4\\\\1&-1\\end{bmatrix}$.",
+        "solution": "**a)** $\\lambda=-2,-5$ — reelle, begge negative ⇒ **stabil node**.\n**b)** $\\lambda^2-5\\lambda+4=(\\lambda-1)(\\lambda-4)$, $\\lambda=1,4$ — reelle, begge positive ⇒ **ustabil node**.\n**c)** $\\lambda^2+1=0\\Rightarrow\\lambda=\\pm i$ — rent imaginære ⇒ **senter** (marginal).\n**d)** $(-1-\\lambda)^2+4=0\\Rightarrow\\lambda=-1\\pm2i$, $a=-1<0$ ⇒ **stabil spiral**.",
+        "hints": [
+          "Reelle samme fortegn ⇒ node; motsatt ⇒ sadel; rent imaginære ⇒ senter; komplekse $a\\ne0$ ⇒ spiral.",
+          "Stabilitet: se på fortegnet til realdelen."
+        ]
+      }
+    },
+    {
+      "id": "tma4110-10-3-d8",
+      "type": "exercise",
+      "exercise": {
+        "id": "tma4110-10-3-d8",
+        "number": "8",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "(Omforming fra 2. orden.) Skriv $y''+4y=0$ som et system $\\mathbf x'=A\\mathbf x$ med $x_1=y,\\ x_2=y'$, løs systemet, og hent $y(t)$.",
+        "solution": "$x_1'=x_2$, $x_2'=y''=-4y=-4x_1$, så $A=\\begin{bmatrix}0&1\\\\-4&0\\end{bmatrix}$. Egenverdier $\\lambda^2+4=0\\Rightarrow\\lambda=\\pm2i$. Egenvektor ($\\lambda=2i$): $\\begin{bmatrix}-2i&1\\\\-4&-2i\\end{bmatrix}\\to w_2=2i\\,w_1$, $\\mathbf w=(1,2i)$. Grunnløsning $e^{2it}(1,2i)$:\n$$\\operatorname{Re}=\\begin{bmatrix}\\cos2t\\\\ -2\\sin2t\\end{bmatrix},\\quad \\operatorname{Im}=\\begin{bmatrix}\\sin2t\\\\ 2\\cos2t\\end{bmatrix}.$$\nSå $y=x_1=c_1\\cos2t+c_2\\sin2t$ — den kjente løsningen av $y''+4y=0$. (Andre komponent $x_2=y'$ stemmer: $-2c_1\\sin2t+2c_2\\cos2t$.)",
+        "hints": [
+          "$x_1=y,\\ x_2=y'$ gir $x_2'=y''=-4x_1$.",
+          "Følgematrisen $\\begin{bmatrix}0&1\\\\-4&0\\end{bmatrix}$ har egenverdier $\\pm2i$.",
+          "$y=x_1$ blir $c_1\\cos2t+c_2\\sin2t$."
+        ]
+      }
+    },
+    {
+      "id": "tma4110-10-3-d9",
+      "type": "exercise",
+      "exercise": {
+        "id": "tma4110-10-3-d9",
+        "number": "9",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "(Omforming fra 2. orden — reelle røtter.) Skriv $y''-y'-6y=0$ som et system, finn egenverdiene og $y(t)$.",
+        "solution": "$x_1=y,\\ x_2=y'$: $x_1'=x_2$, $x_2'=y''=y'+6y=6x_1+x_2$, så $A=\\begin{bmatrix}0&1\\\\6&1\\end{bmatrix}$. Egenverdier $\\lambda^2-\\lambda-6=(\\lambda-3)(\\lambda+2)$, $\\lambda=3,-2$. Egenvektorer $(1,\\lambda)$: $(1,3),(1,-2)$.\n$$\\mathbf x=c_1e^{3t}\\begin{bmatrix}1\\\\3\\end{bmatrix}+c_2e^{-2t}\\begin{bmatrix}1\\\\-2\\end{bmatrix},\\qquad y=c_1e^{3t}+c_2e^{-2t}.$$",
+        "hints": [
+          "Nederste rad: $y''=y'+6y=6x_1+x_2$.",
+          "Følgematrisens egenvektor er $(1,\\lambda)$.",
+          "$y=x_1$."
+        ]
+      }
+    },
+    {
+      "id": "tma4110-10-3-d10",
+      "type": "exercise",
+      "exercise": {
+        "id": "tma4110-10-3-d10",
+        "number": "10",
+        "type": "classic",
+        "difficulty": "vanskelig",
+        "task": "(Sjanger M — full oppgave, krevende.) For $\\mathbf x'=\\begin{bmatrix}1&2\\\\2&1\\end{bmatrix}\\mathbf x$: (a) finn den generelle løsningen, (b) klassifiser likevekten, (c) beskriv hva som skjer med $\\mathbf x(t)$ når $t\\to\\infty$ for en typisk startvektor.",
+        "solution": "**a)** Egenverdier $\\lambda=3,-1$; egenvektorer $(1,1),(1,-1)$:\n$$\\mathbf x=c_1e^{3t}\\begin{bmatrix}1\\\\1\\end{bmatrix}+c_2e^{-t}\\begin{bmatrix}1\\\\-1\\end{bmatrix}.$$\n\n**b)** Reelle egenverdier med **motsatt** fortegn ($3>0>-1$) ⇒ **sadelpunkt** (ustabil).\n\n**c)** Leddet $e^{-t}(1,-1)\\to\\mathbf0$, mens $e^{3t}(1,1)\\to\\infty$. For en typisk start ($c_1\\ne0$) domineres bevegelsen av $e^{3t}(1,1)$: løsningen vokser og retter seg inn langs egenvektoren $(1,1)$. Bare start eksakt langs $(1,-1)$ (dvs. $c_1=0$) trekkes inn mot origo.",
+        "hints": [
+          "Egenverdier $3,-1$ ⇒ hva slags likevekt gir motsatt fortegn?",
+          "Se på hvilket ledd som vokser og hvilket som dør ut når $t\\to\\infty$.",
+          "Den positive egenverdien $3$ styrer langtidsatferden."
+        ]
+      }
+    },
+    {
+      "id": "tma4110-10-3-d11",
+      "type": "exercise",
+      "exercise": {
+        "id": "tma4110-10-3-d11",
+        "number": "11",
+        "type": "classic",
+        "difficulty": "vanskelig",
+        "task": "(Kald bank — momentliste-fasit, ingen mellomsteg gitt.) Løs $\\mathbf x'=\\begin{bmatrix}4&-2\\\\1&1\\end{bmatrix}\\mathbf x$ med $\\mathbf x(0)=\\begin{bmatrix}3\\\\2\\end{bmatrix}$, og klassifiser likevekten.",
+        "solution": "Momentliste (A-svar): $\\lambda^2-5\\lambda+6=0\\Rightarrow\\lambda=2,3$; egenvektorer $(1,1),(2,1)$; generell $\\mathbf x=c_1e^{2t}(1,1)+c_2e^{3t}(2,1)$; $\\mathbf x(0)=(3,2)$ gir $c_1+2c_2=3,\\ c_1+c_2=2\\Rightarrow c_1=c_2=1$; svar $\\mathbf x=e^{2t}(1,1)+e^{3t}(2,1)$. Klassifisering: reelle egenverdier begge positive ⇒ **ustabil node**.",
+        "hints": [
+          "Ingen mellomsteg gitt med vilje — kald bank.",
+          "Egenverdier fra spor $5$, det $6$.",
+          "Begge egenverdier positive ⇒ ustabil node."
+        ]
+      }
+    },
+    {
+      "id": "tma4110-10-3-warn-typiske-feil",
+      "type": "warning",
+      "title": "Typiske feil",
+      "content": "- **Feil real/imaginærdel.** Gang egenvektoren *nøye* inn i $\\cos bt+i\\sin bt$ og hold styr på $i^2=-1$. En byttet real/imaginærdel gir feil (men ofte «nesten riktig») svar.\n- **Bruker begge konjugerte egenverdier.** Bare $\\lambda=a+bi$ og dens egenvektor trengs; real/imaginærdel gir begge reelle løsninger.\n- **Feil klassifisering.** Reelle samme fortegn = node, motsatt = sadel, rent imaginære = senter, komplekse $a\\ne0$ = spiral. Stabilitet fra fortegn på realdel.\n- **Regnefeil i egenvektorer.** Radreduser $A-\\lambda I$; ikke gjett. Sjekk alltid $A\\mathbf v=\\lambda\\mathbf v$.\n- **Glemmer $e^{\\lambda t}$-faktoren eller eksponentialene ved $t=0$.** Hver grunnløsning har sin eksponential; ved $t=0$ blir de $1$.\n- **Desimalsvar.** Eksakte $\\cos,\\sin,e,\\ $brøker (kode E)."
+    },
+    {
+      "id": "tma4110-10-3-begrepsbank-tekst",
+      "type": "text",
+      "content": "## Begrepsbank til eksamen\n\nOppskriftsstegene i kortform, klare for repetisjon.\n\n*Begrepsbanken er flashcard-/repetisjonsstoff — hopp trygt over ved førstegangslesing; tidsanslaget for kapitlet gjelder kjernestoffet.*"
+    },
+    {
+      "id": "tma4110-10-3-bb-reelt",
+      "type": "definition",
+      "title": "Reelt tilfelle: grunnløsning",
+      "content": "Ved reelle distinkte egenverdier er hver grunnløsning $e^{\\lambda_i t}\\mathbf v_i$, og den generelle løsningen er $\\mathbf x=\\sum c_ie^{\\lambda_i t}\\mathbf v_i$. Egenverdien i eksponenten, egenvektoren som retning. Konstantene bestemmes fra $\\mathbf x(0)$."
+    },
+    {
+      "id": "tma4110-10-3-bb-komplekst",
+      "type": "definition",
+      "title": "Komplekst tilfelle: real/imaginærdel",
+      "content": "Ved komplekse egenverdier $a\\pm bi$: bruk kun $\\lambda=a+bi$ med egenvektor $\\mathbf w$, dann $e^{\\lambda t}\\mathbf w=e^{at}(\\cos bt+i\\sin bt)\\mathbf w$, og la $\\operatorname{Re}$ og $\\operatorname{Im}$ være de to reelle grunnløsningene. Generell løsning $\\mathbf x=c_1\\operatorname{Re}+c_2\\operatorname{Im}$."
+    },
+    {
+      "id": "tma4110-10-3-bb-ivp",
+      "type": "definition",
+      "title": "Begynnelsesverdi: $c_i$-systemet",
+      "content": "Sett $t=0$ i den generelle løsningen. Eksponentialene blir $1$, og du står igjen med et lineært system $c_1\\mathbf v_1+c_2\\mathbf v_2=\\mathbf x_0$ (reelt) eller tilsvarende med real/imaginær-vektorene ved $t=0$. Løs for $c_1,c_2$ — alltid **etter** at den generelle løsningen er komplett."
+    },
+    {
+      "id": "tma4110-10-3-bb-klassifisering",
+      "type": "definition",
+      "title": "Klassifiseringstabellen",
+      "content": "Fra egenverdiene alene: **reelle samme fortegn** = node (stabil hvis $<0$, ustabil hvis $>0$); **reelle motsatt fortegn** = sadel (ustabil); **rent imaginære** $\\pm bi$ = senter (marginal); **komplekse** $a\\pm bi,\\ a\\ne0$ = spiral (stabil hvis $a<0$). Én tabell dekker alle $2\\times2$-tilfeller."
+    },
+    {
+      "id": "tma4110-10-3-bb-omforming",
+      "type": "definition",
+      "title": "Omforming fra 2. ordens likning",
+      "content": "$y''+py'+qy=0$ blir systemet $\\mathbf x'=A\\mathbf x$ med $\\mathbf x=(y,y')$ og følgematrise $A=\\begin{bmatrix}0&1\\\\-q&-p\\end{bmatrix}$. Systemets egenverdier er røttene til $r^2+pr+q=0$, og $y=x_1$ i sluttsvaret. Broen mellom Del 9 og Del 10."
+    },
+    {
+      "id": "tma4110-10-3-bb-stabilitet",
+      "type": "definition",
+      "title": "Stabilitet fra realdelen",
+      "content": "Origo er **asymptotisk stabil** hvis alle egenverdier har negativ realdel, **ustabil** hvis noen har positiv realdel, og **marginalt stabil** ved rent imaginære egenverdier. Kortsjekk: se på fortegnet til $\\operatorname{Re}\\lambda$ (for reelle egenverdier er dette bare fortegnet til $\\lambda$)."
+    },
+    {
+      "id": "tma4110-10-3-bb-kontroll",
+      "type": "definition",
+      "title": "Kontroll ved innsetting",
+      "content": "Din eneste feilsjekk under kode E: verifiser $A\\mathbf v=\\lambda\\mathbf v$ for hver egenvektor, og at $\\mathbf x(0)$ treffer startvektoren. For en komplett løsning kan du sette $\\mathbf x(t)$ inn og bekrefte $\\mathbf x'=A\\mathbf x$ komponentvis. Billig forsikring mot fortegns- og egenvektorfeil."
+    },
+    {
+      "id": "tma4110-10-3-symbolliste",
+      "type": "collapsible",
+      "title": "Symbol- og formelliste",
+      "buttonText": "Vis symboler og formler",
+      "content": [
+        {
+          "id": "tma4110-10-3-symbolliste-text",
+          "type": "text",
+          "content": "## Symbol- og formelliste\n\n*Oppslagsverk — alt her forklares underveis i kapitlet.*\n\nAlle symboler og formler i delkapittel 10.3, samlet.\n\n| Symbol | Betydning |\n|---|---|\n| $\\mathbf x'=A\\mathbf x$ | Systemet som løses |\n| $\\lambda_i,\\ \\mathbf v_i$ | Reell egenverdi og egenvektor |\n| $\\lambda=a\\pm bi,\\ \\mathbf w$ | Komplekst egenverdipar og egenvektor |\n| $c_1,c_2$ | Frie konstanter (fra $\\mathbf x(0)$) |\n| $\\operatorname{tr}A,\\ \\det A$ | Spor og determinant ($2\\times2$-egenverdier) |\n| $\\mathbf x=(y,y')$ | Tilstandsvektor ved omforming |\n\n**Oppskrift og formler:**\n\n$$\\det(A-\\lambda I)=0\\ \\Rightarrow\\ \\lambda^2-(\\operatorname{tr}A)\\lambda+\\det A=0$$\n\n$$\\text{reelt:}\\ \\ \\mathbf x=\\sum c_ie^{\\lambda_i t}\\mathbf v_i$$\n\n$$\\text{komplekst:}\\ \\ \\mathbf x=c_1\\operatorname{Re}\\big(e^{\\lambda t}\\mathbf w\\big)+c_2\\operatorname{Im}\\big(e^{\\lambda t}\\mathbf w\\big)$$\n\n$$\\text{begynnelsesverdi:}\\ \\ \\mathbf x(0)=\\mathbf x_0\\ \\text{gir lineært system for }c_i$$\n\n$$\\text{omforming:}\\ \\ y''+py'+qy=0\\ \\to\\ A=\\begin{bmatrix}0&1\\\\-q&-p\\end{bmatrix}$$\n\n**Klassifisering:** node (reelle samme fortegn) · sadel (motsatt) · senter (rent imaginære) · spiral (komplekse, $a\\ne0$); stabil $\\Leftrightarrow\\operatorname{Re}\\lambda<0$."
+        }
+      ]
+    }
+  ],
+  "exercises": []
+}

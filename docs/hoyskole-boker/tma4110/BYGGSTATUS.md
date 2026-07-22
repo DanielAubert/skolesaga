@@ -8,7 +8,7 @@ Branch: `bok/tma4110` (worktree). Arketype: regnefag. Institusjon: NTNU (slug `n
 
 ## Faser
 - [x] Steg 0 — Forutsetninger: config-filer, fagprofil, kildegrunnlag.
-- [~] Steg 1 — Byggebølge: Del 0–9 KOMPLETT (quiz 9-3/9-4 lagt til, LENGDE-TELL-fikset). Del 10 + Del 11 under bygging (2 underagenter).
+- [~] Steg 1 — Byggebølge: Del 0–10 KOMPLETT. Del 11 under bygging (1 underagent).
 - [ ] Steg 2 — Wiring (wire-bok.py)
 - [ ] Steg 3 — Verifikatorbølge (etterregn alle fasiter numerisk)
 - [ ] Steg 4 — Sluttport (sjekk-bok + studentpanel + SVG-opplasting + tsc + build + prod-curl)

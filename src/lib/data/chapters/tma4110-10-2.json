@@ -1,0 +1,349 @@
+{
+  "id": "tma4110-10-2",
+  "courseId": "tma4110",
+  "chapterNumber": "10.2",
+  "title": "Komplekse egenverdier og faseportrett",
+  "description": "ODE-systemer x'=Ax med kompleks-konjugerte egenverdier λ=a±bi: fra én kompleks grunnløsning hentes to reelle via real- og imaginærdel (Eulers formel gir e^{at}(cos bt, sin bt)-faktorer), demping og stabilitet fra fortegnet på realdelen, og klassifisering av likevektspunktet — node (reelle samme fortegn), sadel (motsatt), senter (rent imaginære) og spiral (kompleks realdel).",
+  "estimatedMinutes": 55,
+  "competenceGoals": [
+    "løse et system x'=Ax med komplekse egenverdier ved å bruke real- og imaginærdel av én kompleks grunnløsning",
+    "skrive den reelle generelle løsningen på formen e^{at}(cos bt, sin bt) og bestemme konstantene fra en begynnelsesverdi",
+    "klassifisere likevektspunktet som node, sadel, senter eller spiral ut fra egenverdienes type og fortegn",
+    "avgjøre stabilitet fra fortegnet på realdelen av egenverdiene"
+  ],
+  "content": [
+    {
+      "id": "tma4110-10-2-tip-eksamensvinkel",
+      "type": "tip",
+      "title": "Eksamensvinkel",
+      "content": "**Prioritet: kunne — den komplekse varianten av systemoppgaven (sjanger M, del av ~45 %).**\n\nNår koeffisientmatrisen $A$ har **komplekse** egenverdier $\\lambda=a\\pm bi$, svinger løsningen. Dette er samme systemoppgave som i [kap. 10.1](/bok/tma4110/tma4110-10-1), men med et ekstra grep: fra *én* kompleks grunnløsning henter du *to* reelle ved å ta real- og imaginærdel.\n\nFasitens grep, som må sitte utenat under **kode E**: **bruk kun den ene egenverdien $\\lambda=a+bi$ og dens egenvektor, skriv $e^{\\lambda t}\\mathbf w$, og trekk ut real- og imaginærdel — det gir to reelle grunnløsninger med faktorene $e^{at}\\cos bt$ og $e^{at}\\sin bt$.** Deretter kan du klassifisere likevektspunktet.\n\nDen andre halvdelen av kapitlet er **klassifisering**: fra egenverdiene leser du av om origo er en node, en sadel, et senter eller en spiral, og om den er stabil. Dette er billige poeng når egenverdiene først er funnet.\n\nDe to vanligste fellene: å bruke *begge* konjugerte egenverdier i stedet for real/imaginærdel av én, og å konkludere feil om stabilitet. Vi bruker en egen løkke på hver."
+    },
+    {
+      "id": "tma4110-10-2-forkunnskaper",
+      "type": "text",
+      "content": "**Sist du var her (kap. 10.1).** Du kan nå løse $\\mathbf x'=A\\mathbf x$ når egenverdiene er **reelle og ulike**: finn $\\lambda_i,\\mathbf v_i$, skriv $\\mathbf x=\\sum c_ie^{\\lambda_i t}\\mathbf v_i$, og bestem konstantene fra $\\mathbf x(0)$. Grunnløsningen $e^{\\lambda t}\\mathbf v$ er den samme byggesteinen her — bare med kompleks $\\lambda$.\n\n**Forkunnskaper.** Alt bygger på [kap. 10.1](/bok/tma4110/tma4110-10-1). Fra [kap. 5.4](/bok/tma4110/tma4110-5-4) tar du med at komplekse egenverdier alltid kommer i **konjugerte par** $a\\pm bi$, og at egenvektorene også er komplekse. Fra [kap. 7.2](/bok/tma4110/tma4110-7-2) trenger du **Eulers formel**\n\n$$e^{i\\theta}=\\cos\\theta+i\\sin\\theta,$$\n\nsom er nøkkelen til å omgjøre en kompleks eksponential til reelle $\\cos$/$\\sin$. Svingningsmodellene i [kap. 9.3](/bok/tma4110/tma4110-9-3) er den skalare varianten av det samme."
+    },
+    {
+      "id": "tma4110-10-2-intro",
+      "type": "text",
+      "content": "Noen systemer roterer. To arter der den ene jager den andre, en pendel, en LC-krets — de svinger fram og tilbake i stedet for bare å vokse eller dø. Matematisk gir det seg til kjenne ved at koeffisientmatrisen $A$ har **komplekse** egenverdier\n\n$$\\lambda=a\\pm bi.$$\n\nRealdelen $a$ styrer om svingningen dempes eller vokser; imaginærdelen $b$ styrer hvor fort den svinger. Vi kunne regnet med komplekse tall hele veien, men svaret skal være reelt — så vi bruker Eulers formel til å plukke ut to reelle grunnløsninger fra én kompleks.\n\nAndre halvdel handler om det store bildet: uten å løse likningen kan vi lese av **hvordan** banene ser ut nær origo — spiraler inn, spiraler ut, lukkede sirkler, sadel — ut fra egenverdiene alene. Det kalles **klassifisering av likevektspunktet**.\n\nKapitlet går i tre læringsløkker: (1) fra kompleks til to reelle løsninger, (2) demping, stabilitet og begynnelsesverdi, og (3) faseportrett og klassifisering. Regn med rundt 55 minutter — ta gjerne en pause etter løkke 2."
+    },
+    {
+      "id": "tma4110-10-2-lokke1",
+      "type": "text",
+      "content": "## Løkke 1 — Fra én kompleks løsning til to reelle (~14 min)"
+    },
+    {
+      "id": "tma4110-10-2-def-kompleks-egenverdi",
+      "type": "definition",
+      "title": "Komplekse egenverdier i et system",
+      "content": "Har den karakteristiske likningen $\\det(A-\\lambda I)=0$ **negativ diskriminant**, kommer egenverdiene som et konjugert par\n\n$$\\lambda=a\\pm bi,\\qquad a,b\\in\\mathbb R,\\ b>0.$$\n\nFor en reell $2\\times2$-matrise er dette tilfellet når $(\\operatorname{tr}A)^2<4\\det A$. Egenvektorene blir da også komplekse og konjugerte. Vi trenger bare **den ene** egenverdien $a+bi$ og dens egenvektor for å bygge hele den reelle løsningen."
+    },
+    {
+      "id": "tma4110-10-2-def-kompleks-grunnlosning",
+      "type": "definition",
+      "title": "Kompleks grunnløsning $e^{\\lambda t}\\mathbf w$",
+      "content": "Akkurat som i det reelle tilfellet er $\\mathbf z(t)=e^{\\lambda t}\\mathbf w$ en (kompleks) løsning når $A\\mathbf w=\\lambda\\mathbf w$, nå med $\\lambda=a+bi$ og kompleks egenvektor $\\mathbf w$. Denne $\\mathbf z(t)$ er kompleksverdig og ikke svaret i seg selv — men **real- og imaginærdelen** er hver for seg reelle løsninger. Skriv $e^{(a+bi)t}=e^{at}e^{ibt}=e^{at}(\\cos bt+i\\sin bt)$ og gang inn $\\mathbf w$."
+    },
+    {
+      "id": "tma4110-10-2-def-real-imag",
+      "type": "definition",
+      "title": "Real- og imaginærdel gir to reelle løsninger",
+      "content": "Er $\\mathbf z(t)=\\mathbf u(t)+i\\,\\mathbf w(t)$ en kompleks løsning av det reelle systemet $\\mathbf x'=A\\mathbf x$, så løser **både** realdelen $\\mathbf u(t)=\\operatorname{Re}\\mathbf z$ og imaginærdelen $\\mathbf w(t)=\\operatorname{Im}\\mathbf z$ systemet — og de er lineært uavhengige. Grunnen: $\\mathbf z'=A\\mathbf z$ splittes i reell og imaginær del ($A$ er reell), som gir $\\mathbf u'=A\\mathbf u$ og $\\mathbf w'=A\\mathbf w$. Den generelle reelle løsningen er $\\mathbf x=c_1\\mathbf u+c_2\\mathbf w$."
+    },
+    {
+      "id": "tma4110-10-2-def-euler",
+      "type": "definition",
+      "title": "Eulers formel (repetisjon)",
+      "content": "$e^{i\\theta}=\\cos\\theta+i\\sin\\theta$. Broen fra kompleks eksponential til reelle svingninger: $e^{(a+bi)t}=e^{at}(\\cos bt+i\\sin bt)$. Realdelen $a$ havner i den voksende/dempende faktoren $e^{at}$, imaginærdelen $b$ i svingefrekvensen $\\cos bt,\\sin bt$. Dette er nøyaktig samme mekanikk som ga den reelle formen ved komplekse røtter i [kap. 9.1](/bok/tma4110/tma4110-9-1)."
+    },
+    {
+      "id": "tma4110-10-2-def-generell-kompleks",
+      "type": "definition",
+      "title": "Generell reell løsning ved komplekse egenverdier",
+      "content": "Med $\\lambda=a\\pm bi$ har den generelle reelle løsningen formen\n\n$$\\mathbf x(t)=e^{at}\\big(c_1\\,\\mathbf p(t)+c_2\\,\\mathbf q(t)\\big),$$\n\nder $\\mathbf p(t)$ og $\\mathbf q(t)$ er real- og imaginærdelen av $e^{ibt}\\mathbf w$ (vektorer bygget av $\\cos bt$ og $\\sin bt$). I praksis: regn ut $e^{(a+bi)t}\\mathbf w$, samle real- og imaginærdel, og la $c_1,c_2$ være de to frie konstantene. Faktoren $e^{at}$ er felles for begge."
+    },
+    {
+      "id": "tma4110-10-2-ex-center",
+      "type": "example",
+      "title": "Eksempel 1: Rent imaginære egenverdier — senter (sjanger M)",
+      "problem": "Løs $\\mathbf x'=\\begin{bmatrix}0&-2\\\\2&0\\end{bmatrix}\\mathbf x$.",
+      "solution": "**Egenverdier.** $\\det(A-\\lambda I)=\\lambda^2+4=0\\Rightarrow\\lambda=\\pm2i$ (her $a=0,\\ b=2$).\n\n**Egenvektor for $\\lambda=2i$.** $A-2iI=\\begin{bmatrix}-2i&-2\\\\2&-2i\\end{bmatrix}$. Øverste rad: $-2i\\,w_1-2w_2=0\\Rightarrow w_2=-i\\,w_1$. Velg $\\mathbf w=\\begin{bmatrix}1\\\\-i\\end{bmatrix}$.\n\n**Kompleks grunnløsning.** $\\mathbf z(t)=e^{2it}\\begin{bmatrix}1\\\\-i\\end{bmatrix}=(\\cos2t+i\\sin2t)\\begin{bmatrix}1\\\\-i\\end{bmatrix}$. Gang inn:\n\n$$\\mathbf z=\\begin{bmatrix}\\cos2t+i\\sin2t\\\\ -i(\\cos2t+i\\sin2t)\\end{bmatrix}=\\begin{bmatrix}\\cos2t+i\\sin2t\\\\ \\sin2t-i\\cos2t\\end{bmatrix}.$$\n\n**Real- og imaginærdel:**\n\n$$\\mathbf u=\\operatorname{Re}\\mathbf z=\\begin{bmatrix}\\cos2t\\\\ \\sin2t\\end{bmatrix},\\qquad \\mathbf w(t)=\\operatorname{Im}\\mathbf z=\\begin{bmatrix}\\sin2t\\\\ -\\cos2t\\end{bmatrix}.$$\n\n**Generell reell løsning:**\n\n$$\\boxed{\\ \\mathbf x(t)=c_1\\begin{bmatrix}\\cos2t\\\\ \\sin2t\\end{bmatrix}+c_2\\begin{bmatrix}\\sin2t\\\\ -\\cos2t\\end{bmatrix}\\ }$$\n\n**Kontroll:** $\\mathbf x=(\\cos2t,\\sin2t)$: derivert $(-2\\sin2t,2\\cos2t)$, og $A\\mathbf x=(-2\\sin2t,\\ 2\\cos2t)$ ✓. Siden $a=0$ er banene lukkede sirkler — et **senter** (mer i løkke 3)."
+    },
+    {
+      "id": "tma4110-10-2-oppg-l1",
+      "type": "exercise",
+      "exercise": {
+        "id": "tma4110-10-2-l1",
+        "number": "1",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "(Sjanger M — komplekse egenverdier.) Finn den generelle reelle løsningen av $\\mathbf x'=\\begin{bmatrix}2&-3\\\\3&2\\end{bmatrix}\\mathbf x$.",
+        "solution": "**Egenverdier:** $\\det(A-\\lambda I)=(2-\\lambda)^2+9=0\\Rightarrow(2-\\lambda)^2=-9\\Rightarrow\\lambda=2\\pm3i$ ($a=2,\\ b=3$).\n\n**Egenvektor for $\\lambda=2+3i$:** $A-\\lambda I=\\begin{bmatrix}-3i&-3\\\\3&-3i\\end{bmatrix}$; øverste rad $-3i\\,w_1-3w_2=0\\Rightarrow w_2=-i\\,w_1$, så $\\mathbf w=(1,-i)$.\n\n**Grunnløsning:** $e^{(2+3i)t}(1,-i)=e^{2t}(\\cos3t+i\\sin3t)(1,-i)$. Real- og imaginærdel (som i Eksempel 1, med $2t\\to3t$):\n\n$$\\mathbf u=e^{2t}\\begin{bmatrix}\\cos3t\\\\ \\sin3t\\end{bmatrix},\\qquad \\mathbf w(t)=e^{2t}\\begin{bmatrix}\\sin3t\\\\ -\\cos3t\\end{bmatrix}.$$\n\n$$\\mathbf x(t)=e^{2t}\\left(c_1\\begin{bmatrix}\\cos3t\\\\ \\sin3t\\end{bmatrix}+c_2\\begin{bmatrix}\\sin3t\\\\ -\\cos3t\\end{bmatrix}\\right).$$\n\nKontroll: $\\mathbf x=e^{2t}(\\cos3t,\\sin3t)$ gir $\\mathbf x'-A\\mathbf x=\\mathbf0$ ✓.",
+        "hints": [
+          "$(2-\\lambda)^2+9=0$ gir $\\lambda=2\\pm3i$.",
+          "Egenvektor fra øverste rad i $A-\\lambda I$: $\\mathbf w=(1,-i)$.",
+          "$e^{(2+3i)t}=e^{2t}(\\cos3t+i\\sin3t)$; samle real- og imaginærdel."
+        ]
+      }
+    },
+    {
+      "id": "tma4110-10-2-lokke2",
+      "type": "text",
+      "content": "## Løkke 2 — Demping, stabilitet og begynnelsesverdi (~13 min)"
+    },
+    {
+      "id": "tma4110-10-2-def-stabilitet-realdel",
+      "type": "definition",
+      "title": "Realdelen styrer demping og stabilitet",
+      "content": "Faktoren $e^{at}$ avgjør alt om langtidsatferden ved komplekse egenverdier $a\\pm bi$:\n\n- $a<0$: amplituden $e^{at}\\to0$ — svingningen **dempes**, løsningen trekkes inn mot origo (**asymptotisk stabil**);\n- $a=0$: konstant amplitude — **udempet** svingning, lukkede baner (**marginalt stabil**, et senter);\n- $a>0$: amplituden $e^{at}\\to\\infty$ — svingningen **vokser**, løsningen støtes ut (**ustabil**).\n\nImaginærdelen $b$ endrer bare svingehastigheten, ikke stabiliteten. Ett fortegn — $a$ — bærer hele konklusjonen."
+    },
+    {
+      "id": "tma4110-10-2-ex-spiral",
+      "type": "example",
+      "title": "Eksempel 2: Dempet spiral med begynnelsesverdi (sjanger M)",
+      "problem": "Løs $\\mathbf x'=\\begin{bmatrix}-1&-2\\\\2&-1\\end{bmatrix}\\mathbf x$ med $\\mathbf x(0)=\\begin{bmatrix}1\\\\0\\end{bmatrix}$, og avgjør stabiliteten.",
+      "solution": "**Egenverdier:** $\\det(A-\\lambda I)=(-1-\\lambda)^2+4=0\\Rightarrow\\lambda=-1\\pm2i$ ($a=-1,\\ b=2$).\n\n**Egenvektor for $\\lambda=-1+2i$:** $A-\\lambda I=\\begin{bmatrix}-2i&-2\\\\2&-2i\\end{bmatrix}$; $-2i\\,w_1-2w_2=0\\Rightarrow w_2=-i\\,w_1$, $\\mathbf w=(1,-i)$.\n\n**Grunnløsning:** $e^{(-1+2i)t}(1,-i)=e^{-t}(\\cos2t+i\\sin2t)(1,-i)$, med real- og imaginærdel\n\n$$\\mathbf u=e^{-t}\\begin{bmatrix}\\cos2t\\\\ \\sin2t\\end{bmatrix},\\qquad \\mathbf w(t)=e^{-t}\\begin{bmatrix}\\sin2t\\\\ -\\cos2t\\end{bmatrix}.$$\n\n**Generell:** $\\mathbf x=e^{-t}\\big(c_1(\\cos2t,\\sin2t)+c_2(\\sin2t,-\\cos2t)\\big)$.\n\n**Begynnelsesverdi.** Ved $t=0$: $c_1(1,0)+c_2(0,-1)=(c_1,-c_2)=(1,0)\\Rightarrow c_1=1,\\ c_2=0$.\n\n$$\\boxed{\\ \\mathbf x(t)=e^{-t}\\begin{bmatrix}\\cos2t\\\\ \\sin2t\\end{bmatrix}\\ }$$\n\n**Stabilitet:** $a=-1<0$, så løsningen spiraler inn mot origo — **asymptotisk stabil spiral**. Kontroll: $\\mathbf x(0)=(1,0)$ ✓."
+    },
+    {
+      "id": "tma4110-10-2-oppg-l2",
+      "type": "exercise",
+      "exercise": {
+        "id": "tma4110-10-2-l2",
+        "number": "2",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "(Sjanger M — begynnelsesverdi + stabilitet.) Løs $\\mathbf x'=\\begin{bmatrix}1&-2\\\\2&1\\end{bmatrix}\\mathbf x$ med $\\mathbf x(0)=\\begin{bmatrix}1\\\\0\\end{bmatrix}$, og avgjør stabiliteten.",
+        "solution": "**Egenverdier:** $(1-\\lambda)^2+4=0\\Rightarrow\\lambda=1\\pm2i$ ($a=1,\\ b=2$). **Egenvektor** ($\\lambda=1+2i$): $\\begin{bmatrix}-2i&-2\\\\2&-2i\\end{bmatrix}\\Rightarrow\\mathbf w=(1,-i)$.\n\nGrunnløsning $e^{(1+2i)t}(1,-i)$ gir $\\mathbf u=e^{t}(\\cos2t,\\sin2t)$, $\\mathbf w(t)=e^{t}(\\sin2t,-\\cos2t)$, så\n\n$$\\mathbf x=e^{t}\\big(c_1(\\cos2t,\\sin2t)+c_2(\\sin2t,-\\cos2t)\\big).$$\n\nVed $t=0$: $(c_1,-c_2)=(1,0)\\Rightarrow c_1=1,\\ c_2=0$, altså\n\n$$\\mathbf x(t)=e^{t}\\begin{bmatrix}\\cos2t\\\\ \\sin2t\\end{bmatrix}.$$\n\nStabilitet: $a=1>0$ ⇒ amplituden vokser ⇒ **ustabil spiral**.",
+        "hints": [
+          "$(1-\\lambda)^2+4=0$ gir $\\lambda=1\\pm2i$; egenvektor $(1,-i)$.",
+          "Real/imaginærdel som i Eksempel 2, men med $e^{t}$ i stedet for $e^{-t}$.",
+          "Fortegnet på $a=1>0$ avgjør: ustabil."
+        ]
+      }
+    },
+    {
+      "id": "tma4110-10-2-lokke3",
+      "type": "text",
+      "content": "## Løkke 3 — Faseportrett og klassifisering av likevekt (~15 min)\n\n*— naturlig pausepunkt før du starter: dette er den mest visuelle løkka. —*\n\nNå snur vi problemet: uten å løse likningen vil vi lese av *typen* likevekt fra egenverdiene alene. Fire mønstre dekker alt for et $2\\times2$-system."
+    },
+    {
+      "id": "tma4110-10-2-def-faseportrett",
+      "type": "definition",
+      "title": "Faseportrett",
+      "content": "Bildet av løsningskurvene (fasebanene) til $\\mathbf x'=A\\mathbf x$ tegnet i $x_1x_2$-planet, med pilretning etter voksende $t$. Hver startvektor gir én bane; samlingen viser systemets kvalitative oppførsel. Du trenger ikke tegne nøyaktig — poenget på eksamen er å **navngi** mønsteret (node/sadel/senter/spiral) og angi stabilitet ut fra egenverdiene."
+    },
+    {
+      "id": "tma4110-10-2-def-likevekt",
+      "type": "definition",
+      "title": "Likevektspunkt (kritisk punkt)",
+      "content": "Et punkt der $\\mathbf x'=\\mathbf0$, altså der systemet står stille. For $\\mathbf x'=A\\mathbf x$ med inverterbar $A$ er origo $\\mathbf x=\\mathbf0$ det eneste likevektspunktet. Klassifiseringen beskriver hvordan nærliggende baner oppfører seg: trekkes de inn (stabil), støtes de ut (ustabil), eller går de i ring (marginal)."
+    },
+    {
+      "id": "tma4110-10-2-def-node",
+      "type": "definition",
+      "title": "Node (knutepunkt)",
+      "content": "Oppstår ved **to reelle egenverdier med samme fortegn**. Banene går inn mot (eller ut fra) origo uten å svinge, langs egenvektorretningene.\n\n- Begge $\\lambda<0$: **stabil node** — alt trekkes inn mot origo.\n- Begge $\\lambda>0$: **ustabil node** — alt støtes ut fra origo.\n\nEksempel: $A=\\begin{bmatrix}3&0\\\\0&1\\end{bmatrix}$ ($\\lambda=3,1>0$) er en ustabil node."
+    },
+    {
+      "id": "tma4110-10-2-def-sadel",
+      "type": "definition",
+      "title": "Sadelpunkt",
+      "content": "Oppstår ved **to reelle egenverdier med motsatt fortegn** ($\\lambda_1<0<\\lambda_2$). Langs egenvektoren til den negative egenverdien trekkes baner inn; langs den positive støtes de ut. Resultatet er en «sadel»-form, og punktet er **alltid ustabilt** (nesten alle baner ender med å forlate origo). Eksempel: $A=\\begin{bmatrix}1&2\\\\2&1\\end{bmatrix}$ med $\\lambda=3,-1$."
+    },
+    {
+      "id": "tma4110-10-2-def-senter",
+      "type": "definition",
+      "title": "Senter",
+      "content": "Oppstår ved **rent imaginære egenverdier** $\\lambda=\\pm bi$ (altså $a=0$). Banene er lukkede kurver (ellipser/sirkler) rundt origo — systemet svinger med konstant amplitude og kommer tilbake til utgangspunktet. Et senter er **marginalt stabilt**: verken inn eller ut. Eksempel: $A=\\begin{bmatrix}0&-2\\\\2&0\\end{bmatrix}$ med $\\lambda=\\pm2i$."
+    },
+    {
+      "id": "tma4110-10-2-def-spiral",
+      "type": "definition",
+      "title": "Spiral (fokus)",
+      "content": "Oppstår ved **komplekse egenverdier med reell del ulik null** $\\lambda=a\\pm bi,\\ a\\ne0$. Banene spiraler rundt origo mens de nærmer seg eller fjerner seg.\n\n- $a<0$: **stabil spiral** — spiraler inn mot origo.\n- $a>0$: **ustabil spiral** — spiraler ut fra origo.\n\nSvingningen kommer fra $b$, inn/ut-driften fra $a$. Eksempel: $\\lambda=-1\\pm2i$ gir en stabil spiral."
+    },
+    {
+      "id": "tma4110-10-2-def-stabilitet",
+      "type": "definition",
+      "title": "Stabilitet (asymptotisk, marginal, ustabil)",
+      "content": "En samlebetegnelse på langtidsatferden ved origo:\n\n- **Asymptotisk stabil:** alle løsninger $\\to\\mathbf0$ når $t\\to\\infty$ (alle egenverdier har $\\operatorname{Re}\\lambda<0$) — stabil node eller stabil spiral.\n- **Ustabil:** minst én egenverdi har $\\operatorname{Re}\\lambda>0$ — ustabil node, ustabil spiral eller sadel.\n- **Marginalt stabil:** rent imaginære egenverdier ($\\operatorname{Re}\\lambda=0$) — senter (baner blir værende, men går ikke mot $\\mathbf0$).\n\nKortversjonen: se på **fortegnet til realdelene**."
+    },
+    {
+      "id": "tma4110-10-2-ex-klassifisering",
+      "type": "example",
+      "title": "Eksempel 3: Klassifiser fire likevektspunkter (sjanger M)",
+      "problem": "Klassifiser likevektspunktet $\\mathbf x=\\mathbf0$ for hvert system, og angi stabilitet: (a) $A=\\begin{bmatrix}-2&0\\\\0&-3\\end{bmatrix}$, (b) $A=\\begin{bmatrix}1&2\\\\2&1\\end{bmatrix}$, (c) $A=\\begin{bmatrix}0&-2\\\\2&0\\end{bmatrix}$, (d) $A=\\begin{bmatrix}-1&-2\\\\2&-1\\end{bmatrix}$.",
+      "solution": "Regn egenverdiene og les av mønsteret:\n\n**a)** Diagonal: $\\lambda=-2,-3$ — to reelle, samme (negative) fortegn ⇒ **stabil node** (asymptotisk stabil).\n\n**b)** $\\lambda^2-2\\lambda-3=0\\Rightarrow\\lambda=3,-1$ — reelle, motsatt fortegn ⇒ **sadelpunkt** (ustabil).\n\n**c)** $\\lambda^2+4=0\\Rightarrow\\lambda=\\pm2i$ — rent imaginære ⇒ **senter** (marginalt stabil).\n\n**d)** $(-1-\\lambda)^2+4=0\\Rightarrow\\lambda=-1\\pm2i$ — komplekse med $a=-1<0$ ⇒ **stabil spiral** (asymptotisk stabil).\n\nMerk metoden: du trenger bare egenverdiene, ikke selve løsningen. Fortegn og type følger direkte."
+    },
+    {
+      "id": "tma4110-10-2-oppg-l3",
+      "type": "exercise",
+      "exercise": {
+        "id": "tma4110-10-2-l3",
+        "number": "3",
+        "type": "classic",
+        "difficulty": "lett",
+        "task": "(Innstegsoppgave — ren avlesning.) Klassifiser likevektspunktet og angi stabilitet: (a) $A=\\begin{bmatrix}3&0\\\\0&1\\end{bmatrix}$, (b) $A=\\begin{bmatrix}1&-2\\\\2&1\\end{bmatrix}$.",
+        "solution": "**a)** $\\lambda=3,1$ — to reelle, begge positive ⇒ **ustabil node**.\n\n**b)** $(1-\\lambda)^2+4=0\\Rightarrow\\lambda=1\\pm2i$, $a=1>0$ ⇒ **ustabil spiral**.",
+        "hints": [
+          "To reelle egenverdier med samme fortegn ⇒ node; fortegnet gir stabiliteten.",
+          "Komplekse egenverdier ⇒ spiral (eller senter hvis $a=0$)."
+        ]
+      }
+    },
+    {
+      "id": "tma4110-10-2-oppg-l3b",
+      "type": "exercise",
+      "exercise": {
+        "id": "tma4110-10-2-l3b",
+        "number": "4",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "(Sjanger M — klassifisering.) Klassifiser likevektspunktet $\\mathbf x=\\mathbf0$ for $A=\\begin{bmatrix}2&1\\\\1&2\\end{bmatrix}$ og for $A=\\begin{bmatrix}0&-4\\\\1&0\\end{bmatrix}$.",
+        "solution": "**Første:** $\\det(A-\\lambda I)=(2-\\lambda)^2-1=\\lambda^2-4\\lambda+3=(\\lambda-1)(\\lambda-3)$, så $\\lambda=1,3$ — to reelle, begge positive ⇒ **ustabil node**.\n\n**Andre:** $\\det(A-\\lambda I)=\\lambda^2+4=0\\Rightarrow\\lambda=\\pm2i$ — rent imaginære ⇒ **senter** (marginalt stabil).",
+        "hints": [
+          "Regn $\\lambda^2-(\\operatorname{tr}A)\\lambda+\\det A=0$ for hver.",
+          "Reelle samme fortegn ⇒ node; rent imaginære ⇒ senter."
+        ]
+      }
+    },
+    {
+      "id": "tma4110-10-2-oppg-v1",
+      "type": "exercise",
+      "exercise": {
+        "id": "tma4110-10-2-v1",
+        "number": "5",
+        "type": "classic",
+        "difficulty": "vanskelig",
+        "task": "(Sjanger M/N — krevende.) La $A$ være en reell $2\\times2$-matrise med $\\det A>0$ og $\\operatorname{tr}A=0$. Vis at likevektspunktet $\\mathbf x=\\mathbf0$ er et senter.",
+        "solution": "Egenverdiene løser $\\lambda^2-(\\operatorname{tr}A)\\lambda+\\det A=0$. Med $\\operatorname{tr}A=0$ blir dette\n\n$$\\lambda^2+\\det A=0\\ \\Rightarrow\\ \\lambda^2=-\\det A.$$\n\n**a)** Siden $\\det A>0$ er $-\\det A<0$, så $\\lambda^2$ er negativ ⇒ egenverdiene er **rent imaginære**: $\\lambda=\\pm i\\sqrt{\\det A}$.\n\n**b)** Rent imaginære egenverdier ($a=0$) betyr at faktoren $e^{at}=e^{0}=1$ er konstant: løsningene svinger med uendret amplitude og lager lukkede baner.\n\n**c)** Per definisjon er et likevektspunkt med rent imaginære egenverdier et **senter** (marginalt stabilt). $\\blacksquare$\n\n(Merk: dette er kanten mot instabilitet — minste positive spor ville gjort det til en ustabil spiral.)",
+        "hints": [
+          "Bruk $\\lambda^2-(\\operatorname{tr}A)\\lambda+\\det A=0$ med $\\operatorname{tr}A=0$.",
+          "Vis at $\\lambda^2=-\\det A<0$, altså rent imaginære egenverdier.",
+          "Rent imaginære egenverdier ⇒ senter (realdel $0$)."
+        ]
+      }
+    },
+    {
+      "id": "tma4110-10-2-warn-typiske-feil",
+      "type": "warning",
+      "title": "Typiske feil",
+      "content": "- **Bruker begge konjugerte egenverdier.** Bruk **kun én** ($\\lambda=a+bi$) og dens egenvektor; real- og imaginærdel gir de to reelle løsningene. Tar du med både $a+bi$ og $a-bi$ som separate løsninger, dobbelteller du.\n- **Lar svaret være komplekst.** Sluttsvaret skal være reelt: bruk Eulers formel og plukk ut $\\operatorname{Re}$ og $\\operatorname{Im}$. Ikke lever $e^{(a+bi)t}\\mathbf w$ som endelig svar.\n- **Feil klassifisering.** Reelle *samme* fortegn = node, *motsatt* fortegn = sadel, *rent imaginære* = senter, *komplekse med $a\\ne0$* = spiral. Bland ikke node og spiral.\n- **Feil stabilitetskonklusjon.** Stabilitet leses av **fortegnet på realdelen** ($\\operatorname{Re}\\lambda<0$ stabil). En sadel er alltid ustabil selv om den ene egenverdien er negativ.\n- **Regnefeil i kompleks aritmetikk.** Pass på $i^2=-1$ når du ganger egenvektoren inn i $\\cos bt+i\\sin bt$.\n- **Desimalsvar.** La $\\cos,\\sin,e^{at}$ og heltall/brøker stå eksakt (kode E)."
+    },
+    {
+      "id": "tma4110-10-2-begrepsbank-tekst",
+      "type": "text",
+      "content": "## Begrepsbank til eksamen\n\nKjernebegrepene fra kapitlet i kortform, klare for repetisjon.\n\n*Begrepsbanken er flashcard-/repetisjonsstoff — hopp trygt over ved førstegangslesing; tidsanslaget for kapitlet gjelder kjernestoffet.*"
+    },
+    {
+      "id": "tma4110-10-2-bb-konjugert-par",
+      "type": "definition",
+      "title": "Konjugerte egenverdipar (repetisjon)",
+      "content": "For en reell matrise kommer komplekse egenverdier alltid i par $a\\pm bi$, og egenvektorene er komplekst konjugerte $\\mathbf w$ og $\\overline{\\mathbf w}$ (kap. 5.4). Derfor holder det å regne med den ene: den andre gir ingen ny reell informasjon. Dette er grunnen til at real/imaginærdel-trikset er tilstrekkelig."
+    },
+    {
+      "id": "tma4110-10-2-bb-bruk-en",
+      "type": "definition",
+      "title": "Bruk kun én av de konjugerte",
+      "content": "Standardgrepet: velg $\\lambda=a+bi$ (den med positiv imaginærdel), finn dens egenvektor $\\mathbf w$, dann $e^{\\lambda t}\\mathbf w$, og trekk ut real- og imaginærdel. De to reelle vektorfunksjonene du får, spenner ut hele det (2-dimensjonale) reelle løsningsrommet. Den konjugerte $a-bi$ gir bare de samme to reelle løsningene om igjen."
+    },
+    {
+      "id": "tma4110-10-2-bb-kvasifrekvens",
+      "type": "definition",
+      "title": "Kvasifrekvens og demping (kobling til 9.3)",
+      "content": "Ved $\\lambda=a\\pm bi$ er $b$ **kvasifrekvensen** (hvor fort systemet svinger) og $a$ **dempingsraten**. Dette er nøyaktig den dempede svingningen fra [kap. 9.3](/bok/tma4110/tma4110-9-3): en 2. ordens svingemodell $y''+cy'+ky=0$ omformet til system har komplekse egenverdier med samme $a,b$. Systemspråket og ODE-språket beskriver samme fenomen."
+    },
+    {
+      "id": "tma4110-10-2-bb-stabil-ustabil-node",
+      "type": "definition",
+      "title": "Stabil vs. ustabil node",
+      "content": "En node (to reelle egenverdier, samme fortegn) er **stabil** når begge $\\lambda<0$ (alle baner inn mot origo) og **ustabil** når begge $\\lambda>0$ (alle baner ut). Retningen langs den «raskeste» egenvektoren (størst $|\\lambda|$) dominerer bevegelsen. Ingen svingning — banene bøyer, men roterer ikke rundt origo."
+    },
+    {
+      "id": "tma4110-10-2-bb-stabil-ustabil-spiral",
+      "type": "definition",
+      "title": "Stabil vs. ustabil spiral",
+      "content": "En spiral (komplekse egenverdier, $a\\ne0$) er **stabil** når $a<0$ (spiraler inn) og **ustabil** når $a>0$ (spiraler ut). Omløpsretningen (med/mot klokka) bestemmes av fortegnene i $A$, men påvirker ikke stabiliteten — kun realdelen $a$ gjør det. Grensetilfellet $a=0$ er senteret."
+    },
+    {
+      "id": "tma4110-10-2-bb-spor-det",
+      "type": "definition",
+      "title": "Spor–determinant-kriteriet (kjennskap)",
+      "content": "For $2\\times2$ kan typen leses direkte av spor $\\tau=\\operatorname{tr}A$ og determinant $\\Delta=\\det A$: $\\det A<0$ ⇒ sadel; $\\det A>0$ med $\\tau^2>4\\Delta$ ⇒ node (stabil hvis $\\tau<0$); $\\tau^2<4\\Delta$ ⇒ spiral (stabil hvis $\\tau<0$); $\\tau=0,\\ \\Delta>0$ ⇒ senter. Nyttig hurtigsjekk, men på eksamen holder det å regne egenverdiene."
+    },
+    {
+      "id": "tma4110-10-2-bb-degenerert",
+      "type": "definition",
+      "title": "Degenerert node (dobbel reell egenverdi) (kjennskap)",
+      "content": "Har $A$ én **dobbel** reell egenverdi ($\\tau^2=4\\Delta$), er origo en **degenerert (uekte) node** — grensetilfellet mellom node og spiral. Løsningen kan da inneholde et $te^{\\lambda t}$-ledd (generalisert egenvektor) hvis egenrommet er 1-dimensjonalt. Dette ligger på kanten av pensum; hovedtilfellene er de fire i løkke 3."
+    },
+    {
+      "id": "tma4110-10-2-rep",
+      "type": "collapsible",
+      "title": "Repetisjonsoppgaver",
+      "buttonText": "Vis repetisjonsoppgaver",
+      "content": [
+        {
+          "id": "tma4110-10-2-rep-o1",
+          "type": "exercise",
+          "exercise": {
+            "id": "tma4110-10-2-rep-1",
+            "number": "R1",
+            "type": "classic",
+            "difficulty": "lett",
+            "task": "(Fra kap. 7.2) Skriv $e^{(2+3i)t}$ på reell form ved Eulers formel.",
+            "solution": "$e^{(2+3i)t}=e^{2t}e^{3it}=e^{2t}(\\cos3t+i\\sin3t)$. Realdel $e^{2t}\\cos3t$, imaginærdel $e^{2t}\\sin3t$.",
+            "hints": [
+              "$e^{(a+bi)t}=e^{at}\\cdot e^{ibt}$; bruk $e^{i\\theta}=\\cos\\theta+i\\sin\\theta$."
+            ]
+          }
+        },
+        {
+          "id": "tma4110-10-2-rep-o2",
+          "type": "exercise",
+          "exercise": {
+            "id": "tma4110-10-2-rep-2",
+            "number": "R2",
+            "type": "classic",
+            "difficulty": "middels",
+            "task": "(Fra kap. 5.4) Finn egenverdiene til $A=\\begin{bmatrix}0&-2\\\\2&0\\end{bmatrix}$ og bekreft at de er komplekst konjugerte.",
+            "solution": "$\\det(A-\\lambda I)=\\lambda^2+4=0\\Rightarrow\\lambda=\\pm2i$. De er hverandres konjugerte ($2i$ og $-2i$), som forventet for en reell matrise.",
+            "hints": [
+              "$\\det(A-\\lambda I)=\\lambda^2-(\\operatorname{tr}A)\\lambda+\\det A$; her $\\operatorname{tr}A=0,\\ \\det A=4$."
+            ]
+          }
+        },
+        {
+          "id": "tma4110-10-2-rep-o3",
+          "type": "exercise",
+          "exercise": {
+            "id": "tma4110-10-2-rep-3",
+            "number": "R3",
+            "type": "classic",
+            "difficulty": "lett",
+            "task": "(Fra kap. 10.1 — struktur) Hva er den eneste forskjellen i oppskriften mellom reelle og komplekse egenverdier?",
+            "solution": "Ved reelle distinkte egenverdier bruker du grunnløsningene $e^{\\lambda_i t}\\mathbf v_i$ direkte. Ved komplekse tar du én kompleks grunnløsning $e^{\\lambda t}\\mathbf w$ og henter to reelle ved real- og imaginærdel. Alt annet — finn egenverdier/egenvektorer, sett opp generell løsning, bruk $\\mathbf x(0)$ — er likt.",
+            "hints": [
+              "Tenk på hva du gjør ekstra når egenverdien er kompleks."
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": "tma4110-10-2-symbolliste",
+      "type": "collapsible",
+      "title": "Symbol- og formelliste",
+      "buttonText": "Vis symboler og formler",
+      "content": [
+        {
+          "id": "tma4110-10-2-symbolliste-text",
+          "type": "text",
+          "content": "## Symbol- og formelliste\n\n*Oppslagsverk — alt her forklares underveis i kapitlet.*\n\nAlle symboler og formler i delkapittel 10.2, samlet.\n\n| Symbol | Betydning |\n|---|---|\n| $\\lambda=a\\pm bi$ | Komplekst egenverdipar ($a$ realdel, $b>0$ imaginærdel) |\n| $\\mathbf w$ | Kompleks egenvektor til $\\lambda=a+bi$ |\n| $\\mathbf z(t)$ | Kompleks grunnløsning $e^{\\lambda t}\\mathbf w$ |\n| $\\operatorname{Re},\\ \\operatorname{Im}$ | Real- og imaginærdel |\n| $a$ | Dempingsrate (styrer stabilitet) |\n| $b$ | Kvasifrekvens (svingehastighet) |\n| $\\tau=\\operatorname{tr}A$ | Sporet |\n| $\\Delta=\\det A$ | Determinanten |\n| $\\mathbf x=\\mathbf0$ | Likevektspunkt (origo) |\n\n**Formler i dette delkapitlet:**\n\n$$e^{(a+bi)t}=e^{at}(\\cos bt+i\\sin bt)$$\nEulers formel — bro til reell form.\n\n$$\\mathbf z(t)=e^{\\lambda t}\\mathbf w,\\quad \\mathbf x=c_1\\operatorname{Re}\\mathbf z+c_2\\operatorname{Im}\\mathbf z$$\nFra én kompleks grunnløsning til to reelle.\n\n$$\\lambda^2-(\\operatorname{tr}A)\\lambda+\\det A=0$$\nKarakteristisk likning ($2\\times2$).\n\n**Klassifisering (fra egenverdiene):**\n\n$$\\text{reelle, samme fortegn}\\Rightarrow\\text{node}\\quad(\\lambda<0\\text{ stabil},\\ \\lambda>0\\text{ ustabil})$$\n$$\\text{reelle, motsatt fortegn}\\Rightarrow\\text{sadel (ustabil)}$$\n$$\\text{rent imaginære }(\\pm bi)\\Rightarrow\\text{senter (marginal)}$$\n$$\\text{komplekse }a\\pm bi,\\ a\\ne0\\Rightarrow\\text{spiral}\\quad(a<0\\text{ stabil},\\ a>0\\text{ ustabil})$$\n\n**Stabilitet:** asymptotisk stabil $\\Leftrightarrow$ alle $\\operatorname{Re}\\lambda<0$."
+        }
+      ]
+    }
+  ],
+  "exercises": []
+}
