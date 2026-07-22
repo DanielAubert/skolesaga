@@ -71,9 +71,15 @@ deloppgave som A-besvarelse, med `tip`-notat om tidsbudsjett (~24 min/deloppgave
 og hvor føringspoengene sitter. Miks per sett: se skjelettets §4-tabell.
 
 ## Kryssbok-lenker (KUN til kapitler som finnes på dette treet)
-- **MAT1110** (forkunnskapsemnet) er IKKE bygget → skriv som klartekst med
-  aktiveringsmarkør: *(MAT1110 — forkunnskapsemne, ikke bygget ennå; aktiver
-  `/bok/mat1110/<id>`-lenke når den finnes)*. ALDRI en død `/bok/mat1110/…`-lenke.
+- **MAT1110** (forkunnskapsemnet) ER NÅ BYGGET og live på treet (40 kapitler,
+  registrert i `textbook-courses-hoyskole.ts`) → lenk NORMALT, kun til reelle
+  kapitler. Aktiveringsmarkør-placeholderen er utfaset (rettet 22. juli). Mål:
+  radreduksjon/trappeform → `/bok/mat1110/mat1110-1-1`; nullrom/søylerom/rang →
+  `mat1110-1-2`; invers matrise → `mat1110-1-3`; lineæravbildninger →
+  `mat1110-1-4`; egenverdier → `mat1110-6-1`; diagonalisering → `mat1110-6-2`.
+  For emner MAT1110 IKKE dekker (indreproduktrom/Cauchy–Schwarz): skriv «MAT1110»
+  som ren tekst UTEN lenke — ALDRI fabrikker en lenke til et kapittel som ikke
+  dekker emnet.
 - Bygde bøker lenkes normalt (verifiserte mål på dette treet):
   `[…](/bok/bi-okonomi/bi-okonomi-9-3)` (Gauss/likningssystem),
   `[…](/bok/bi-okonomi/bi-okonomi-2-1)` (lineære likninger),
