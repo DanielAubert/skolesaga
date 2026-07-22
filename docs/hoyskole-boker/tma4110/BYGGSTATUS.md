@@ -19,6 +19,9 @@ Branch: `bok/tma4110` (worktree). Arketype: regnefag. Institusjon: NTNU (slug `n
 - Quiz-staging: 0–9 unntatt **9-3, 9-4** (bygges). Del 10/11 gjenstår.
 
 ## Logg
+- (Overtakelse 22. juli, forts.) Kjørte sjekk-bok.py på Del 0–9: rettet 4 strukturavvik —
+  fjernet leftover `*(verifiser)*`-markør i 0-1, la til «Typiske feil»-warning i drillkapitlene
+  1-3, 3-5, 6-5 (feilkatalog per tema). Gjenstår kun KVOTE (quiz wires i steg 2) + Del 10/11.
 - (Overtakelse 22. juli) Ny byggeleder. Validerte alt ukommittert (Del 9: 5 kap + 2 quiz — alle gyldig JSON).
   Del 9b-agenten leverte 9.3/9.4/prøve komplett. Fullførte Fourier→koordinatkoeffisient-renamet
   i 6-2 quiz (forrige leder rakk kun kapitlet). 0-1 sin Fourier-omtale er korrekt scoping
