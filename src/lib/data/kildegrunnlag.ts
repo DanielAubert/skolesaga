@@ -383,6 +383,52 @@ const KILDEGRUNNLAG: Record<string, Kildegrunnlag> = {
     ],
     analysedato: 'juli 2026',
   },
+
+  tma4110: {
+    courseId: 'tma4110',
+    institusjon: 'Norges teknisk-naturvitenskapelige universitet (NTNU) — Institutt for matematiske fag',
+    sammendrag:
+      'Boka er kalibrert mot eksamensarkivet for TMA4110/TMA4115 «Matematikk 3»: rundt 55 karakteriserte sett fra 2004 til 2025, der settene fra 2017–2025 er lest oppgave for oppgave sammen med de offisielle løsningsforslagene. Temafrekvens, oppgavesjangre og sensorkulturen (4 timer, ~10 likt vektede deloppgaver, «alle svar skal begrunnes», siste oppgave = bevis) speiler arkivet direkte. Boka dekker den klassiske kjernen — lineær algebra, elementære komplekse tall og differensiallikninger.',
+    eksamenssett: [
+      {
+        tittel: 'Sett lest oppgave for oppgave med løsningsforslag (2017–2025)',
+        detalj:
+          'Ordinære vår- og høstsett for TMA4110 og tvillingkoden TMA4115, med offisielle løsningsforslag (bl.a. H2024, H2023, H2019, H2021, V2025, kont-2025, V2024, V2022). Disse definerer notasjonskrav (Lays Col/Nul/rang, PDP⁻¹), føringsstandarden og hva et fullt begrunnet svar inneholder.',
+      },
+      {
+        tittel: '~30 eldre sett skumlest for tema- og sjangerfrekvens (2004–2016)',
+        detalj:
+          'Brukt til den langsiktige temafrekvensen (komplekse tall 95 %, egenverdier/diagonalisering 95 %, Col/Nul/basis/rang 89 %, abstrakt vektorrom 82 %, 2. ordens ODE 82 %, Gram–Schmidt 80 %, Gauss 78 %). Frekvensene for denne perioden er nedre anslag.',
+      },
+    ],
+    sensorveiledninger: [
+      {
+        tittel: 'Offisielle løsningsforslag (ikke egne sensorveiledninger)',
+        detalj:
+          'Arkivet inneholder offisielle løsningsforslag til de fleste sett 2017–2025 — de definerer mellomregnings-standarden, teoremnavning og hva som gir full uttelling. Egne separate sensorveiledninger finnes ikke i arkivet, og boka påberoper seg ingen.',
+      },
+    ],
+    andreKilder: [
+      {
+        tittel: 'NTNUs emnebeskrivelse og semesterplan',
+        detalj:
+          'Omskrevet sammendrag av emnesiden og semesterplanen (læringsmål, vurderingsform, hjelpemiddelkode). Brukt til å dokumentere kodeforbeholdet: NTNU-reformen har spredt denne klassiske kjernen på nye emnekoder (TMA4101/TMA4106/TMA4111 m.fl.), og hjelpemiddelkoden er skjerpet fra C til E.',
+      },
+      {
+        tittel: 'Innholdsforbilder mat1110 (UiO) og tma4135 (NTNU)',
+        detalj:
+          'Brukt til å kalibrere føringsstandard og NTNU-sensorkultur for de tilstøtende temaene. Selve pensuminnholdet i denne boka er hentet fra TMA4110/TMA4115-arkivet.',
+      },
+    ],
+    forbehold: [
+      'Arkivet har ikke egne offisielle sensorveiledninger — sensorlogikken er utledet av de offisielle løsningsforslagene og oppgaveformuleringene.',
+      'KODEFORBEHOLD: arkivet er merket TMA4110/TMA4115, men NTNU-reformen har fordelt dette stoffet på nye emnekoder. Studenten må selv verifisere hvilken kode som eier stoffet i inneværende semester — matematikken er identisk uansett kodeetikett.',
+      'Hjelpemidler skiftet fra kode C (enkel kalkulator) i arkivet til kode E (ingen) i reformkodene. Boka er kalibrert mot det strengere kravet E.',
+      'Pandemiårene (2020–2021, deler av 2022) avvek med hjemme-eksamen og flervalgsdeler; boka kalibreres mot normalårsmalen uten flervalg.',
+      'Alle oppgaver, tall, matriser og kontekster i boka er nyskrevne. Arkivet er brukt som mønster (temavekting, sjangre, notasjons- og føringsstandard) — aldri ordrett.',
+    ],
+    analysedato: 'juli 2026',
+  },
 };
 
 export function getKildegrunnlag(courseId: string): Kildegrunnlag | null {
