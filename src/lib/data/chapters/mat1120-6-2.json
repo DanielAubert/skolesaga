@@ -1,0 +1,395 @@
+{
+  "id": "mat1120-6-2",
+  "courseId": "mat1120",
+  "chapterNumber": "6.2",
+  "title": "Kvadratiske former: symmetrisering og definitthet",
+  "description": "Kvadratiske former Q(x)=xᵀAx med symmetrisk A: symmetriseringen (kryssledd delt på 2), klassifisering av definitthet via egenverditegn (positiv/negativ definit, indefinit, semidefinit), og bevisdelen posdef ⇒ invertibel og B⁻¹ posdef via spektral dekomposisjon, med ulikheten Q ≤ λmax‖x‖².",
+  "estimatedMinutes": 55,
+  "competenceGoals": [
+    "skrive en kvadratisk form Q(x)=xᵀAx med symmetrisk A og dele kryssleddet på 2",
+    "klassifisere definitthet (positiv/negativ definit, indefinit, semidefinit) ut fra egenverditegnene",
+    "bevise at en positiv definit matrise er invertibel og har positiv definit invers via spektral dekomposisjon",
+    "bruke ulikheten λmin‖x‖² ≤ xᵀAx ≤ λmax‖x‖² for en symmetrisk matrise"
+  ],
+  "content": [
+    {
+      "id": "mat1120-6-2-tip",
+      "type": "tip",
+      "title": "Eksamensvinkel",
+      "content": "**Kvadratiske former er sjanger G — ~70 % av settene** (2018 O3, 2020 O4a), en fast karakterskiller i oppgave 4. Prioritet: **kunne**. To ferdigheter testes nesten alltid:\n\n- **Symmetriseringen:** å skrive $Q(\\mathbf{x})=\\mathbf{x}^{T}A\\mathbf{x}$ med **symmetrisk** $A$. Kryssleddskoeffisienten **deles på 2** inn i $a_{ij}=a_{ji}$ — den mest dokumenterte fellen i temaet (nr. 8).\n- **Klassifisering:** positiv/negativ definit, indefinit eller semidefinit — avgjort **utelukkende av egenverditegnene**, ikke av diagonalen.\n\nBevisdelen (posdef $\\Rightarrow$ invertibel, $B^{-1}$ posdef, 2020 O4c) løses via **spektral dekomposisjon** fra [kap. 6.1](/bok/mat1120/mat1120-6-1). Egenverdiene leses av vedlegget."
+    },
+    {
+      "id": "mat1120-6-2-forkunnskaper",
+      "type": "text",
+      "content": "**Forkunnskaper:** [kap. 6.1](/bok/mat1120/mat1120-6-1) (symmetrisk matrise, spektralteoremet, $A=PDP^{T}$ og egenverdier — hele klassifiseringen bygger på egenverditegnene). Egenverdibegrepet fra [kap. 3.1](/bok/mat1120/mat1120-3-1); norm og skalarprodukt fra [kap. 4.1](/bok/mat1120/mat1120-4-1). Matriseprodukt og transponering forutsettes fra *(MAT1110 — forkunnskapsemne, ikke bygget ennå; aktiver `/bok/mat1110/<id>`-lenke når den finnes)*."
+    },
+    {
+      "id": "mat1120-6-2-intro",
+      "type": "text",
+      "content": "En **kvadratisk form** er et andregradsuttrykk uten førstegradsledd, som $2x_1^2+3x_2^2+4x_1x_2$. Slike uttrykk skrives kompakt som $Q(\\mathbf{x})=\\mathbf{x}^{T}A\\mathbf{x}$ med en **symmetrisk** matrise $A$, og da forteller egenverdiene til $A$ alt om formens *fortegnsoppførsel*: er $Q$ alltid positiv, alltid negativ, eller skifter den fortegn?\n\nKapitlet går i tre løkker:\n\n1. **Skrive $Q$ på matriseform** med symmetrisk $A$ — og dele kryssleddet på 2.\n2. **Klassifisere definittheten** via egenverditegnene.\n3. **Bevisdelen:** posdef $\\Rightarrow$ invertibel og $B^{-1}$ posdef, pluss ulikheten $Q(\\mathbf{x})\\le\\lambda_{\\max}\\lVert\\mathbf{x}\\rVert^2$ (bro til [kap. 6.3](/bok/mat1120/mat1120-6-3))."
+    },
+    {
+      "id": "mat1120-6-2-l1",
+      "type": "text",
+      "content": "## Løkke 1 — Q(x)=xᵀAx og symmetriseringen: del kryssleddet på 2 (~16 min)"
+    },
+    {
+      "id": "mat1120-6-2-l1-teori",
+      "type": "text",
+      "content": "Skriv ut $\\mathbf{x}^{T}A\\mathbf{x}$ for en $2\\times2$-matrise $A=\\begin{bmatrix}a&b\\\\c&d\\end{bmatrix}$:\n$$\\mathbf{x}^{T}A\\mathbf{x}=a x_1^2+(b+c)x_1x_2+d x_2^2.$$\nBare **summen** $b+c$ av de to utenfor-diagonalelementene teller. Derfor kan vi alltid velge dem like — $b=c$ — uten å endre $Q$: vi **symmetriserer**. Regelen: har $Q$ et kryssledd $k\\,x_ix_j$, settes $a_{ij}=a_{ji}=\\dfrac{k}{2}$. Diagonalen $a_{ii}$ er koeffisienten foran $x_i^2$ (udelt).\n\nHvorfor bry seg? Fordi hele teorien — egenverdier, klassifisering, hovedakser — krever at $A$ er symmetrisk. Legger du hele $k$ i $a_{ij}$ og $0$ i $a_{ji}$, blir $A$ usymmetrisk og alt som følger, galt."
+    },
+    {
+      "id": "mat1120-6-2-def-kvform",
+      "type": "definition",
+      "title": "Kvadratisk form",
+      "content": "En **kvadratisk form** på $\\mathbb{R}^{n}$ er en funksjon $Q(\\mathbf{x})=\\mathbf{x}^{T}A\\mathbf{x}$ der $A$ er en symmetrisk $n\\times n$-matrise. Skrevet ut er $Q(\\mathbf{x})=\\sum_i a_{ii}x_i^2+\\sum_{i<j}2a_{ij}x_ix_j$ — et andregradsuttrykk uten konstant- eller førstegradsledd. Hver kvadratisk form svarer til nøyaktig én symmetrisk $A$."
+    },
+    {
+      "id": "mat1120-6-2-def-symmetrisering",
+      "type": "definition",
+      "title": "Symmetrisering (kryssledd delt på 2)",
+      "content": "For å finne den symmetriske matrisen $A$ til en kvadratisk form: sett koeffisienten foran $x_i^2$ som diagonalelement $a_{ii}$, og **del** koeffisienten foran hvert kryssledd $x_ix_j$ likt mellom $a_{ij}$ og $a_{ji}$: $a_{ij}=a_{ji}=\\tfrac12(\\text{kryssleddskoeffisient})$. Da blir $A=A^{T}$ og $Q(\\mathbf{x})=\\mathbf{x}^{T}A\\mathbf{x}$."
+    },
+    {
+      "id": "mat1120-6-2-ex1",
+      "type": "example",
+      "title": "Eksempel 1: Skriv en kvadratisk form på matriseform",
+      "problem": "Skriv $Q(x_1,x_2,x_3)=4x_1^2+4x_2^2+4x_3^2-4x_1x_2-4x_1x_3+4x_2x_3$ på formen $\\mathbf{x}^{T}A\\mathbf{x}$ med symmetrisk $A$.",
+      "solution": "**Diagonalen** er koeffisientene foran kvadratene: $a_{11}=a_{22}=a_{33}=4$.\n\n**Kryssleddene deles på 2:**\n- $-4x_1x_2\\Rightarrow a_{12}=a_{21}=-2$,\n- $-4x_1x_3\\Rightarrow a_{13}=a_{31}=-2$,\n- $+4x_2x_3\\Rightarrow a_{23}=a_{32}=2$.\n\nAltså\n$$A=\\begin{bmatrix}4&-2&-2\\\\-2&4&2\\\\-2&2&4\\end{bmatrix},$$\nsom er symmetrisk. **Kontroll** (regn $\\mathbf{x}^{T}A\\mathbf{x}$ tilbake): diagonalen gir $4x_1^2+4x_2^2+4x_3^2$, og hvert par $a_{ij},a_{ji}$ gir $2a_{ij}x_ix_j$, dvs. $-4x_1x_2-4x_1x_3+4x_2x_3$ ✓. **Konklusjon:** $Q(\\mathbf{x})=\\mathbf{x}^{T}A\\mathbf{x}$ med $A$ som over. (Dette er samme $A$ som i eksempel 3 i [kap. 6.1](/bok/mat1120/mat1120-6-1) — egenverdiene $2,2,8$ blir brukt i løkke 2.)"
+    },
+    {
+      "id": "mat1120-6-2-e1",
+      "type": "exercise",
+      "exercise": {
+        "id": "mat1120-6-2-e1",
+        "number": "1",
+        "type": "classic",
+        "difficulty": "lett",
+        "task": "Skriv $Q(x_1,x_2)=3x_1^2+3x_2^2+2x_1x_2$ på formen $\\mathbf{x}^{T}A\\mathbf{x}$ med symmetrisk $A$.",
+        "solution": "Diagonal: $a_{11}=a_{22}=3$. Kryssledd $2x_1x_2$ deles på 2: $a_{12}=a_{21}=1$. Altså\n$$A=\\begin{bmatrix}3&1\\\\1&3\\end{bmatrix}.$$\nKontroll: $\\mathbf{x}^{T}A\\mathbf{x}=3x_1^2+2\\cdot1\\cdot x_1x_2+3x_2^2$ ✓.",
+        "hints": [
+          "Diagonalelementene er koeffisientene foran $x_1^2$ og $x_2^2$.",
+          "Kryssleddet $2x_1x_2$ gir $a_{12}=a_{21}=2/2=1$."
+        ]
+      }
+    },
+    {
+      "id": "mat1120-6-2-e2",
+      "type": "exercise",
+      "exercise": {
+        "id": "mat1120-6-2-e2",
+        "number": "2",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "En student skriver $Q(x_1,x_2)=x_1^2+x_2^2+6x_1x_2$ som $\\mathbf{x}^{T}A\\mathbf{x}$ med $A=\\begin{bmatrix}1&6\\\\0&1\\end{bmatrix}$. Forklar hvorfor dette er feil, og gi riktig $A$.",
+        "solution": "Matrisen er **usymmetrisk** ($a_{12}=6\\ne0=a_{21}$), og selve regnestykket $\\mathbf{x}^{T}A\\mathbf{x}$ gir riktignok $x_1^2+6x_1x_2+x_2^2$ — men hele teorien (egenverdier, klassifisering) krever *symmetrisk* $A$. Feilen er at kryssleddet ikke er **delt på 2**. Riktig:\n$$A=\\begin{bmatrix}1&3\\\\3&1\\end{bmatrix},\\qquad a_{12}=a_{21}=\\tfrac{6}{2}=3.$$\nMed denne (symmetriske) $A$ er $\\mathbf{x}^{T}A\\mathbf{x}=x_1^2+2\\cdot3\\cdot x_1x_2+x_2^2=x_1^2+6x_1x_2+x_2^2$ ✓, og egenverdiene $4,-2$ kan brukes til klassifisering.",
+        "hints": [
+          "Er $A$ symmetrisk? Sammenlign $a_{12}$ og $a_{21}$.",
+          "Del kryssleddskoeffisienten $6$ likt: $a_{12}=a_{21}=3$."
+        ]
+      }
+    },
+    {
+      "id": "mat1120-6-2-l2",
+      "type": "text",
+      "content": "## Løkke 2 — Klassifisering av definitthet via egenverditegnene (~18 min)"
+    },
+    {
+      "id": "mat1120-6-2-l2-teori",
+      "type": "text",
+      "content": "Sett $\\mathbf{x}=P\\mathbf{y}$ med den ortogonale $P$ fra spektralteoremet ([kap. 6.1](/bok/mat1120/mat1120-6-1)). Da blir\n$$Q(\\mathbf{x})=\\mathbf{x}^{T}A\\mathbf{x}=(P\\mathbf{y})^{T}A(P\\mathbf{y})=\\mathbf{y}^{T}(P^{T}AP)\\mathbf{y}=\\mathbf{y}^{T}D\\mathbf{y}=\\lambda_1y_1^2+\\dots+\\lambda_ny_n^2.$$\nI de nye koordinatene er $Q$ en ren sum av kvadrater vektet med **egenverdiene**. Derfor styrer egenverditegnene alt:\n\n- alle $\\lambda_i>0$ $\\Rightarrow$ $Q>0$ for alle $\\mathbf{x}\\ne\\mathbf{0}$: **positiv definit**;\n- alle $\\lambda_i<0$ $\\Rightarrow$ **negativ definit**;\n- både positive og negative $\\lambda_i$ $\\Rightarrow$ **indefinit** (skifter fortegn);\n- alle $\\ge0$ (med minst én $=0$) $\\Rightarrow$ **positiv semidefinit**; tilsvarende negativ semidefinit.\n\n**Ikke** les fortegnene av diagonalen til $A$ — bare egenverdiene teller."
+    },
+    {
+      "id": "mat1120-6-2-def-posdef",
+      "type": "definition",
+      "title": "Positiv definit",
+      "content": "En kvadratisk form $Q(\\mathbf{x})=\\mathbf{x}^{T}A\\mathbf{x}$ (og matrisen $A$) er **positiv definit** dersom $Q(\\mathbf{x})>0$ for alle $\\mathbf{x}\\ne\\mathbf{0}$. Kriteriet: **alle egenverdier til $A$ er $>0$**. Da har $Q$ et strengt minimum i origo."
+    },
+    {
+      "id": "mat1120-6-2-def-negdef",
+      "type": "definition",
+      "title": "Negativ definit",
+      "content": "$Q$ (og $A$) er **negativ definit** dersom $Q(\\mathbf{x})<0$ for alle $\\mathbf{x}\\ne\\mathbf{0}$, ekvivalent **alle egenverdier $<0$**. Da er $-A$ positiv definit. $Q$ har et strengt maksimum i origo."
+    },
+    {
+      "id": "mat1120-6-2-def-indef",
+      "type": "definition",
+      "title": "Indefinit",
+      "content": "$Q$ (og $A$) er **indefinit** dersom $Q$ tar både positive og negative verdier, ekvivalent at $A$ har **både en positiv og en negativ egenverdi**. Origo er et sadelpunkt. Dette svarer geometrisk til en hyperbel/hyperboloide ([kap. 6.3](/bok/mat1120/mat1120-6-3))."
+    },
+    {
+      "id": "mat1120-6-2-def-semidef",
+      "type": "definition",
+      "title": "Semidefinit",
+      "content": "$Q$ (og $A$) er **positiv semidefinit** dersom $Q(\\mathbf{x})\\ge0$ for alle $\\mathbf{x}$ og $Q(\\mathbf{x})=0$ for noen $\\mathbf{x}\\ne\\mathbf{0}$ — ekvivalent **alle egenverdier $\\ge0$ med minst én $=0$**. Tilsvarende er **negativ semidefinit** ekvivalent med alle egenverdier $\\le0$ med minst én $=0$. En egenverdi $0$ er skillet mot ekte definitthet."
+    },
+    {
+      "id": "mat1120-6-2-ex2",
+      "type": "example",
+      "title": "Eksempel 2: Klassifiser tre kvadratiske former",
+      "problem": "Klassifiser definittheten:\n\n**a)** $Q_a=\\mathbf{x}^{T}A_a\\mathbf{x}$ med $A_a=\\begin{bmatrix}3&1\\\\1&3\\end{bmatrix}$ (fra vedlegget: egenverdier $2,4$).\n\n**b)** $Q_b=\\mathbf{x}^{T}A_b\\mathbf{x}$ med $A_b=\\begin{bmatrix}1&3\\\\3&1\\end{bmatrix}$ (egenverdier $4,-2$).\n\n**c)** $Q_c=\\mathbf{x}^{T}A_c\\mathbf{x}$ med $A_c=\\begin{bmatrix}4&-2\\\\-2&1\\end{bmatrix}$ (egenverdier $0,5$).",
+      "solution": "**a)** Egenverdiene $2,4$ er **begge $>0$** $\\Rightarrow$ $A_a$ er **positiv definit** ($Q_a>0$ for $\\mathbf{x}\\ne\\mathbf{0}$).\n\n**b)** Egenverdiene $4$ og $-2$ har **motsatt fortegn** $\\Rightarrow$ **indefinit** ($Q_b$ skifter fortegn — f.eks. $Q_b(1,1)=1+6+1=8>0$, $Q_b(1,-1)=1-6+1=-4<0$).\n\n**c)** Egenverdiene $0$ og $5$: alle $\\ge0$ og én er $0$ $\\Rightarrow$ **positiv semidefinit**. Merk: $Q_c=4x_1^2-4x_1x_2+x_2^2=(2x_1-x_2)^2\\ge0$, med $=0$ langs linja $x_2=2x_1$. **Konklusjon:** definit avgjøres av egenverditegnene, ikke av diagonalen (i **c)** er diagonalen $4,1>0$, men formen er bare semidefinit)."
+    },
+    {
+      "id": "mat1120-6-2-e3",
+      "type": "exercise",
+      "exercise": {
+        "id": "mat1120-6-2-e3",
+        "number": "3",
+        "type": "classic",
+        "difficulty": "lett",
+        "task": "En symmetrisk $3\\times3$-matrise har egenverdier $2,2,8$ (fra vedlegget). Klassifiser den tilhørende kvadratiske formen.",
+        "solution": "Alle tre egenverdiene ($2,2,8$) er $>0$, så formen er **positiv definit** ($Q(\\mathbf{x})>0$ for alle $\\mathbf{x}\\ne\\mathbf{0}$). (Dette er matrisen fra eksempel 1.)",
+        "hints": [
+          "Klassifisering avgjøres kun av egenverditegnene.",
+          "Alle egenverdier $>0$ ⇒ positiv definit."
+        ]
+      }
+    },
+    {
+      "id": "mat1120-6-2-e4",
+      "type": "exercise",
+      "exercise": {
+        "id": "mat1120-6-2-e4",
+        "number": "4",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "Klassifiser kvadratiske former med disse egenverdiene, og angi hva origo er (minimum/maksimum/sadelpunkt):\n\n**a)** $-1,-3,-6$\n\n**b)** $0,0,4$\n\n**c)** $-2,1,5$",
+        "solution": "**a)** Alle $<0$ ⇒ **negativ definit**; origo er et strengt **maksimum**.\n\n**b)** Alle $\\ge0$ med to nuller ⇒ **positiv semidefinit**; origo er et (ikke strengt) **minimum** — $Q=0$ på et helt underrom (egenrommet til $\\lambda=0$).\n\n**c)** Blandet fortegn ($-2<0<1,5$) ⇒ **indefinit**; origo er et **sadelpunkt**.",
+        "hints": [
+          "Tell fortegnene: alle +, alle −, eller blandet?",
+          "En egenverdi 0 ⇒ semidefinit (ikke ekte definit); blandet fortegn ⇒ sadelpunkt."
+        ]
+      }
+    },
+    {
+      "id": "mat1120-6-2-l3",
+      "type": "text",
+      "content": "## Løkke 3 — Bevisdelen: posdef ⇒ invertibel og B⁻¹ posdef (~14 min)"
+    },
+    {
+      "id": "mat1120-6-2-l3-teori",
+      "type": "text",
+      "content": "Definittheten via egenverdier gir korte, navngitte **bevis** — en typisk L-innbakt deloppgave. To standardpåstander (2020 O4c):\n\n1. **Positiv definit $\\Rightarrow$ invertibel.** Alle egenverdier er $>0$, spesielt er ingen $0$, så $\\det B=\\prod\\lambda_i\\ne0$ og $B$ er invertibel.\n2. **$B$ posdef $\\Rightarrow$ $B^{-1}$ posdef.** Fra spektral dekomposisjon $B=PDP^{T}$ er $B^{-1}=PD^{-1}P^{T}$, og $D^{-1}$ har diagonalen $1/\\lambda_i>0$. Samme ortogonale $P$, positive egenverdier $\\Rightarrow$ $B^{-1}$ symmetrisk med bare positive egenverdier $\\Rightarrow$ posdef.\n\nEn nyttig ulikhet i samme familie (bro til [kap. 6.3](/bok/mat1120/mat1120-6-3)): for symmetrisk $A$ er\n$$Q(\\mathbf{x})=\\mathbf{x}^{T}A\\mathbf{x}\\le\\lambda_{\\max}\\lVert\\mathbf{x}\\rVert^2,$$\nfordi $Q=\\sum\\lambda_iy_i^2\\le\\lambda_{\\max}\\sum y_i^2=\\lambda_{\\max}\\lVert\\mathbf{y}\\rVert^2=\\lambda_{\\max}\\lVert\\mathbf{x}\\rVert^2$ (siden $\\lVert\\mathbf{x}\\rVert=\\lVert P\\mathbf{y}\\rVert=\\lVert\\mathbf{y}\\rVert$)."
+    },
+    {
+      "id": "mat1120-6-2-thm-posdef",
+      "type": "theorem",
+      "title": "Positiv definit: nøkkelegenskaper",
+      "content": "La $B$ være symmetrisk. Da:\n\n- $B$ posdef $\\iff$ alle egenverdier $>0$;\n- $B$ posdef $\\Rightarrow$ $B$ invertibel ($\\det B=\\prod\\lambda_i>0$);\n- $B$ posdef $\\Rightarrow$ $B^{-1}$ posdef (egenverdiene $1/\\lambda_i>0$, samme egenvektorer);\n- for symmetrisk $A$: $\\lambda_{\\min}\\lVert\\mathbf{x}\\rVert^2\\le\\mathbf{x}^{T}A\\mathbf{x}\\le\\lambda_{\\max}\\lVert\\mathbf{x}\\rVert^2$."
+    },
+    {
+      "id": "mat1120-6-2-ex3",
+      "type": "example",
+      "title": "Eksempel 3: Bevis at en posdef matrise har posdef invers",
+      "problem": "La $B$ være en symmetrisk, positiv definit matrise. Bevis at $B$ er invertibel og at $B^{-1}$ også er positiv definit.",
+      "solution": "**Forutsetning:** $B=B^{T}$ og alle egenverdier $\\lambda_i>0$ (posdef). Ved spektralteoremet ([kap. 6.1](/bok/mat1120/mat1120-6-1)) er $B=PDP^{T}$ med ortogonal $P$ og $D=\\operatorname{diag}(\\lambda_1,\\dots,\\lambda_n)$, alle $\\lambda_i>0$.\n\n**Invertibel:** $\\det B=\\det(PDP^{T})=\\det D=\\prod_i\\lambda_i>0\\ne0$, så $B$ er invertibel.\n\n**$B^{-1}$ posdef:** siden $P$ er ortogonal ($P^{-1}=P^{T}$),\n$$B^{-1}=(PDP^{T})^{-1}=(P^{T})^{-1}D^{-1}P^{-1}=PD^{-1}P^{T},$$\nmed $D^{-1}=\\operatorname{diag}(1/\\lambda_1,\\dots,1/\\lambda_n)$. Dette er en ortogonal diagonalisering av $B^{-1}$, så $B^{-1}$ er symmetrisk, og egenverdiene er $1/\\lambda_i$. Fordi hver $\\lambda_i>0$, er hver $1/\\lambda_i>0$, altså er **alle egenverdier til $B^{-1}$ positive** $\\Rightarrow$ $B^{-1}$ er positiv definit. $\\blacksquare$\n\n**Merk føringen:** vi navnga spektralteoremet, sjekket forutsetningen ($B=B^{T}$, $\\lambda_i>0$), og konkluderte via egenverditegnene — nettopp det sensor krever i en L-oppgave."
+    },
+    {
+      "id": "mat1120-6-2-e5",
+      "type": "exercise",
+      "exercise": {
+        "id": "mat1120-6-2-e5",
+        "number": "5",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "La $A$ være symmetrisk med egenverdier $1,3,4$. Vis at $\\mathbf{x}^{T}A\\mathbf{x}\\le4\\lVert\\mathbf{x}\\rVert^2$ for alle $\\mathbf{x}$, og angi når likhet inntreffer.",
+        "solution": "Med $\\mathbf{x}=P\\mathbf{y}$ (ortogonal $P$) er $\\mathbf{x}^{T}A\\mathbf{x}=y_1^2+3y_2^2+4y_3^2$ og $\\lVert\\mathbf{x}\\rVert^2=\\lVert\\mathbf{y}\\rVert^2=y_1^2+y_2^2+y_3^2$. Da\n$$y_1^2+3y_2^2+4y_3^2\\le4(y_1^2+y_2^2+y_3^2)=4\\lVert\\mathbf{x}\\rVert^2,$$\nsiden hver koeffisient er $\\le4=\\lambda_{\\max}$. **Likhet** krever $y_1=y_2=0$ (der koeffisienten er $<4$), altså at $\\mathbf{x}$ er en egenvektor for $\\lambda_{\\max}=4$.",
+        "hints": [
+          "Bruk variabelskiftet $\\mathbf{x}=P\\mathbf{y}$ så $Q=\\sum\\lambda_iy_i^2$.",
+          "Erstatt hver $\\lambda_i$ med den største, $\\lambda_{\\max}=4$; likhet krever at bare $y_3$ er ulik 0."
+        ]
+      }
+    },
+    {
+      "id": "mat1120-6-2-e6",
+      "type": "exercise",
+      "exercise": {
+        "id": "mat1120-6-2-e6",
+        "number": "6",
+        "type": "classic",
+        "difficulty": "vanskelig",
+        "task": "La $C$ være en vilkårlig $m\\times n$-matrise. Vis at $A=C^{T}C$ er symmetrisk og positiv **semi**definit, og at $A$ er positiv definit hvis og bare hvis $\\operatorname{Nul}C=\\{\\mathbf{0}\\}$ (søylene i $C$ er uavhengige).",
+        "solution": "**Symmetrisk:** $A^{T}=(C^{T}C)^{T}=C^{T}(C^{T})^{T}=C^{T}C=A$.\n\n**Positiv semidefinit:** for enhver $\\mathbf{x}$ er $\\mathbf{x}^{T}A\\mathbf{x}=\\mathbf{x}^{T}C^{T}C\\mathbf{x}=(C\\mathbf{x})^{T}(C\\mathbf{x})=\\lVert C\\mathbf{x}\\rVert^2\\ge0$. Altså $Q(\\mathbf{x})\\ge0$ for alle $\\mathbf{x}$ — posdef eller semidef.\n\n**Skillet:** $Q(\\mathbf{x})=\\lVert C\\mathbf{x}\\rVert^2=0\\iff C\\mathbf{x}=\\mathbf{0}\\iff\\mathbf{x}\\in\\operatorname{Nul}C$. Så $Q(\\mathbf{x})>0$ for alle $\\mathbf{x}\\ne\\mathbf{0}$ (posdef) $\\iff$ eneste løsning av $C\\mathbf{x}=\\mathbf{0}$ er $\\mathbf{x}=\\mathbf{0}$ $\\iff\\operatorname{Nul}C=\\{\\mathbf{0}\\}$ (uavhengige søyler). Ellers er $A$ bare positiv semidefinit. $\\blacksquare$ *(Dette er grunnlaget for normallikningene i minste kvadrater, [kap. 5.2](/bok/mat1120/mat1120-5-2).)*",
+        "hints": [
+          "Skriv $\\mathbf{x}^{T}C^{T}C\\mathbf{x}$ som $\\lVert C\\mathbf{x}\\rVert^2$.",
+          "$\\lVert C\\mathbf{x}\\rVert^2=0\\iff C\\mathbf{x}=\\mathbf{0}$; koble til $\\operatorname{Nul}C$."
+        ]
+      }
+    },
+    {
+      "id": "mat1120-6-2-warn",
+      "type": "warning",
+      "title": "Typiske feil",
+      "content": "- **Feil symmetrisering** (dokumentert felle nr. 8): hele kryssleddskoeffisienten legges i $a_{ij}$ i stedet for å **dele på 2**. Da blir $A$ usymmetrisk, og egenverdiene (og klassifiseringen) feil. Regel: $a_{ij}=a_{ji}=\\tfrac12\\cdot$koeffisient.\n- **Klassifisering fra diagonalen** i stedet for egenverdiene: en matrise med positiv diagonal kan være indefinit eller bare semidefinit (eksempel 2c). Bruk alltid egenverditegnene.\n- **Forveksler semidefinit og definit:** en egenverdi $=0$ betyr *semi*definit, ikke definit. Sjekk om noen egenverdi er $0$.\n- **Glemmer forutsetningssjekk i bevis:** posdef-argumentene krever $B=B^{T}$ først. Nevn symmetrien før du bruker spektralteoremet.\n- **Regner egenverdier for hånd** for store $A$ i stedet for å lese dem av vedlegget."
+    },
+    {
+      "id": "mat1120-6-2-bb",
+      "type": "text",
+      "content": "## Begrepsbank til eksamen\n\nKjernebegrepene fra kapitlet i eksamensrettet kortform.\n\n*Begrepsbanken er flashcard-/repetisjonsstoff — hopp trygt over ved førstegangslesing; tidsanslaget gjelder kjernestoffet.*"
+    },
+    {
+      "id": "mat1120-6-2-bb-Q-matriseform",
+      "type": "definition",
+      "title": "Q = xᵀAx",
+      "content": "Enhver kvadratisk form skrives $\\mathbf{x}^{T}A\\mathbf{x}$ med **symmetrisk** $A$, og symmetrisk $A$ er entydig bestemt av formen. Matriseformen er inngangen til egenverdianalysen av $Q$."
+    },
+    {
+      "id": "mat1120-6-2-bb-symm-halv",
+      "type": "definition",
+      "title": "Kryssledd delt på 2",
+      "content": "Koeffisienten $k$ foran $x_ix_j$ fordeles: $a_{ij}=a_{ji}=k/2$. Diagonalen $a_{ii}$ er koeffisienten foran $x_i^2$ (udelt). Dette er den mest kostbare fellen — glemt halvering gir usymmetrisk $A$."
+    },
+    {
+      "id": "mat1120-6-2-bb-posdef",
+      "type": "definition",
+      "title": "Positiv definit",
+      "content": "$Q(\\mathbf{x})>0$ for alle $\\mathbf{x}\\ne\\mathbf{0}$ ⇔ alle egenverdier $>0$. Origo er et strengt minimum. Geometrisk: en ellipse/ellipsoide."
+    },
+    {
+      "id": "mat1120-6-2-bb-negdef",
+      "type": "definition",
+      "title": "Negativ definit",
+      "content": "$Q(\\mathbf{x})<0$ for alle $\\mathbf{x}\\ne\\mathbf{0}$ ⇔ alle egenverdier $<0$. Da er $-A$ posdef, og origo er et strengt maksimum."
+    },
+    {
+      "id": "mat1120-6-2-bb-indef",
+      "type": "definition",
+      "title": "Indefinit",
+      "content": "$Q$ tar både positive og negative verdier ⇔ $A$ har både en positiv og en negativ egenverdi. Origo er et sadelpunkt; geometrisk en hyperbel/hyperboloide."
+    },
+    {
+      "id": "mat1120-6-2-bb-semidef",
+      "type": "definition",
+      "title": "Semidefinit",
+      "content": "Alle egenverdier har samme (svake) fortegn, men minst én er $0$: positiv semidefinit ($\\ge0$) eller negativ semidefinit ($\\le0$). $Q=0$ på egenrommet til $\\lambda=0$."
+    },
+    {
+      "id": "mat1120-6-2-bb-egenverdi-styrer",
+      "type": "definition",
+      "title": "Egenverditegnene avgjør alt",
+      "content": "Etter $\\mathbf{x}=P\\mathbf{y}$ er $Q=\\lambda_1y_1^2+\\dots+\\lambda_ny_n^2$. Klassifiseringen leses direkte av fortegnene på $\\lambda_i$ — aldri av diagonalen til $A$."
+    },
+    {
+      "id": "mat1120-6-2-bb-diag-lurer",
+      "type": "definition",
+      "title": "Diagonalen lurer deg",
+      "content": "Positiv diagonal betyr ikke posdef: $\\begin{bmatrix}4&-2\\\\-2&1\\end{bmatrix}$ har diagonal $4,1>0$ men egenverdier $0,5$ (semidefinit). Bare egenverdiene teller."
+    },
+    {
+      "id": "mat1120-6-2-bb-posdef-invertibel",
+      "type": "definition",
+      "title": "Posdef ⇒ invertibel",
+      "content": "Alle egenverdier $>0$ ⇒ ingen er $0$ ⇒ $\\det B=\\prod\\lambda_i>0\\ne0$ ⇒ $B$ invertibel. En posdef matrise er alltid invertibel."
+    },
+    {
+      "id": "mat1120-6-2-bb-invers-posdef",
+      "type": "definition",
+      "title": "B posdef ⇒ B⁻¹ posdef",
+      "content": "Fra $B=PDP^{T}$ er $B^{-1}=PD^{-1}P^{T}$ med egenverdier $1/\\lambda_i>0$, samme ortogonale $P$. Altså er $B^{-1}$ symmetrisk med positive egenverdier — posdef."
+    },
+    {
+      "id": "mat1120-6-2-bb-CtC",
+      "type": "definition",
+      "title": "CᵀC er posdef eller semidef",
+      "content": "$C^{T}C$ er alltid symmetrisk og posdef (siden $\\mathbf{x}^{T}C^{T}C\\mathbf{x}=\\lVert C\\mathbf{x}\\rVert^2\\ge0$). Den er positiv **definit** ⇔ $\\operatorname{Nul}C=\\{\\mathbf{0}\\}$ (uavhengige søyler) — grunnlaget for minste kvadrater."
+    },
+    {
+      "id": "mat1120-6-2-bb-ulikhet",
+      "type": "definition",
+      "title": "Q ≤ λmax‖x‖²",
+      "content": "For symmetrisk $A$: $\\lambda_{\\min}\\lVert\\mathbf{x}\\rVert^2\\le\\mathbf{x}^{T}A\\mathbf{x}\\le\\lambda_{\\max}\\lVert\\mathbf{x}\\rVert^2$. Følger av $Q=\\sum\\lambda_iy_i^2$ ved å erstatte hver $\\lambda_i$ med største/minste. Bro til Rayleigh."
+    },
+    {
+      "id": "mat1120-6-2-bb-variabelskifte",
+      "type": "definition",
+      "title": "Variabelskiftet x = Py",
+      "content": "Med ortogonal $P$ fra spektralteoremet blir $Q=\\mathbf{y}^{T}D\\mathbf{y}=\\sum\\lambda_iy_i^2$ — ingen kryssledd. Dette er hovedaksetransformasjonen som brukes for både klassifisering og kjeglesnitt."
+    },
+    {
+      "id": "mat1120-6-2-bb-2x2-krit",
+      "type": "definition",
+      "title": "2×2-snarvei (determinantkriterium)",
+      "content": "For symmetrisk $2\\times2$ $A$: posdef ⇔ $a_{11}>0$ og $\\det A>0$; negdef ⇔ $a_{11}<0$ og $\\det A>0$; $\\det A<0$ ⇒ indefinit. (Følger av spor $=\\lambda_1+\\lambda_2$ og $\\det=\\lambda_1\\lambda_2$.)"
+    },
+    {
+      "id": "mat1120-6-2-bb-bevis-foring",
+      "type": "definition",
+      "title": "Føring i posdef-bevis",
+      "content": "Rekkefølgen sensor vil se: (1) nevn $B=B^{T}$; (2) bruk spektralteoremet $B=PDP^{T}$; (3) argumenter med egenverditegnene ($\\lambda_i>0$, $1/\\lambda_i>0$). Forutsetningssjekken er ikke valgfri."
+    },
+    {
+      "id": "mat1120-6-2-bb-kjeglesnitt-bro",
+      "type": "definition",
+      "title": "Bro til kjeglesnitt",
+      "content": "Klassifiseringen forutsier kurveformen $Q=c$: posdef ⇒ ellipse, indefinit ⇒ hyperbel, semidefinit (én $\\lambda=0$) ⇒ parabel/degenerert. Detaljene i [kap. 6.3](/bok/mat1120/mat1120-6-3)."
+    },
+    {
+      "id": "mat1120-6-2-rep",
+      "type": "collapsible",
+      "title": "Repetisjonsoppgaver",
+      "buttonText": "Vis repetisjonsoppgaver",
+      "content": [
+        {
+          "id": "mat1120-6-2-r1",
+          "type": "exercise",
+          "exercise": {
+            "id": "mat1120-6-2-r1",
+            "number": "R1",
+            "type": "classic",
+            "difficulty": "lett",
+            "task": "Finn den symmetriske matrisen til $Q(x_1,x_2)=5x_1^2+2x_2^2-8x_1x_2$.",
+            "solution": "Diagonal $5,2$; kryssledd $-8x_1x_2\\Rightarrow a_{12}=a_{21}=-4$. $A=\\begin{bmatrix}5&-4\\\\-4&2\\end{bmatrix}$.",
+            "hints": [
+              "Del kryssleddskoeffisienten $-8$ på 2."
+            ]
+          }
+        },
+        {
+          "id": "mat1120-6-2-r2",
+          "type": "exercise",
+          "exercise": {
+            "id": "mat1120-6-2-r2",
+            "number": "R2",
+            "type": "classic",
+            "difficulty": "lett",
+            "task": "En symmetrisk matrise har egenverdier $-1,-4,-9$. Klassifiser formen.",
+            "solution": "Alle egenverdier $<0$ ⇒ **negativ definit**; origo er et strengt maksimum.",
+            "hints": [
+              "Se på fortegnene til alle egenverdiene."
+            ]
+          }
+        },
+        {
+          "id": "mat1120-6-2-r3",
+          "type": "exercise",
+          "exercise": {
+            "id": "mat1120-6-2-r3",
+            "number": "R3",
+            "type": "classic",
+            "difficulty": "middels",
+            "task": "Er $A=\\begin{bmatrix}2&0\\\\0&-3\\end{bmatrix}$ definit? Klassifiser.",
+            "solution": "Egenverdiene står på diagonalen (diagonal matrise): $2$ og $-3$, altså blandet fortegn ⇒ **indefinit** (sadelpunkt). $Q=2x_1^2-3x_2^2$ skifter fortegn.",
+            "hints": [
+              "For en diagonalmatrise er egenverdiene diagonalelementene."
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": "mat1120-6-2-symbol",
+      "type": "collapsible",
+      "title": "Symbol- og formelliste",
+      "buttonText": "Vis symboler og formler",
+      "content": [
+        {
+          "id": "mat1120-6-2-symbol-tekst",
+          "type": "text",
+          "content": "## Symbol- og formelliste\n\n*Oppslagsverk — alt her forklares underveis i kapitlet.*\n\n| Symbol | Betydning |\n|---|---|\n| $Q(\\mathbf{x})=\\mathbf{x}^{T}A\\mathbf{x}$ | Kvadratisk form (symmetrisk $A$) |\n| $a_{ij}=a_{ji}=\\tfrac12 k$ | Symmetrisering av kryssledd $k\\,x_ix_j$ |\n| posdef / negdef | Positiv/negativ definit |\n| indefinit | Blandet fortegn på egenverdiene |\n| semidefinit | Én egenverdi $=0$, resten samme fortegn |\n| $\\lambda_{\\max},\\lambda_{\\min}$ | Største/minste egenverdi |\n\n**Formler og regler i dette delkapitlet:**\n\n$$Q(\\mathbf{x})=\\mathbf{x}^{T}A\\mathbf{x}=\\lambda_1y_1^2+\\dots+\\lambda_ny_n^2\\quad(\\mathbf{x}=P\\mathbf{y})$$\nHovedaksetransformasjon — klassifisering leses av egenverditegnene.\n\n**Klassifisering:** alle $\\lambda_i>0$ ⇒ posdef; alle $<0$ ⇒ negdef; blandet ⇒ indefinit; alle $\\ge0$ (én $=0$) ⇒ pos. semidefinit.\n\n$$B\\text{ posdef}\\Rightarrow B\\text{ invertibel},\\ B^{-1}\\text{ posdef};\\qquad \\lambda_{\\min}\\lVert\\mathbf{x}\\rVert^2\\le\\mathbf{x}^{T}A\\mathbf{x}\\le\\lambda_{\\max}\\lVert\\mathbf{x}\\rVert^2$$\nBevis via spektral dekomposisjon $B=PDP^{T}$."
+        }
+      ]
+    }
+  ],
+  "exercises": []
+}
