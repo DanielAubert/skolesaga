@@ -189,6 +189,7 @@ import quizData_econ1210 from './quiz-data-econ1210';
 import quizData_mat1100 from './quiz-data-mat1100';
 import quizData_tma4245 from './quiz-data-tma4245';
 import quizData_mat1110 from './quiz-data-mat1110';
+import quizData_mat1120 from './quiz-data-mat1120';
 
 // Merged quiz data from all subject files
 export const quizData: Record<string, QuizQuestion[]> = {
@@ -346,6 +347,7 @@ export const quizData: Record<string, QuizQuestion[]> = {
   ...quizData_mat1100,
   ...quizData_tma4245,
   ...quizData_mat1110,
+  ...quizData_mat1120,
 };
 
 /**

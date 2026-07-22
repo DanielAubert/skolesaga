@@ -9,10 +9,14 @@ Ny byggeleder overtok 22. juli (forrige leder døde på API-feil).
 
 ## Faser
 - [x] Steg 0 — kontrakt/fagprofil/BOKCONFIG/BYGGSTATUS
-- [~] Steg 1 — byggebølge: Del 0–6 + prøve 1–6 FERDIG+committet. Del 7 + Del 8 GJENSTÅR.
-- [ ] Steg 2 — wiring (wire-bok.py + kildegrunnlag + institusjoner)
-- [ ] Steg 3 — verifikatorbølge (numerisk etterregning)
-- [ ] Steg 4 — sluttport (sjekk-bok + studentpanel + SVG + tsc + build + prod-curl)
+- [x] Steg 1 — byggebølge: HELE boka (Del 0–8, 40 kap + 33 quiz) FERDIG+committet.
+- [x] Steg 2 — wiring: wire-bok.py kjørt (COURSE_MAT1120 40 kap, registry +40,
+      quiz-data-mat1120.ts 539 spm, 644 def, institusjoner uio) + kildegrunnlag
+      (sannferdig: 7 løsningsforslag H2018–H2024). sjekk-bok BOKPORT OK. tsc rent,
+      npm run build grønn.
+- [~] Steg 3 — verifikatorbølge (numerisk etterregning) — PÅGÅR
+- [~] Steg 4 — sluttport: sjekk-bok ✓, tsc ✓, build ✓. GJENSTÅR: SVG-opplasting
+      Storage + prod-curl PORT=3061.
 
 ## Byggebølge-batcher (maks 2 samtidige agenter)
 | Batch | Kapitler | Status |
