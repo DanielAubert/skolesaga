@@ -1,0 +1,396 @@
+{
+  "id": "mat1120-4-2",
+  "courseId": "mat1120",
+  "chapterNumber": "4.2",
+  "title": "Ortogonale mengder og Gram–Schmidt",
+  "description": "Gram–Schmidt-prosessen som gjør en hvilken som helst basis om til en ortogonal (eller ortonormal) basis — i standard OG ikke-standard indreprodukt, med heltalls-oppskalering underveis slik fasiten gjør.",
+  "estimatedMinutes": 55,
+  "competenceGoals": [
+    "avgjøre om en mengde er ortogonal og regne koordinater (Fourier-koeffisienter) i en ortogonal basis",
+    "utføre Gram–Schmidt-prosessen i standardprikkproduktet med heltalls-oppskalering og normalisere til en ortonormal basis",
+    "utføre Gram–Schmidt i et ikke-standard indreprodukt (vektet, integral, evaluering) med riktig norm",
+    "unngå å bruke de opprinnelige a-vektorene eller feil norm i senere steg av prosessen"
+  ],
+  "content": [
+    {
+      "id": "mat1120-4-2-tip-eksamensvinkel",
+      "type": "tip",
+      "title": "Eksamensvinkel",
+      "content": "**Gram–Schmidt er blant de aller sikreste poengene i faget.** En ortogonal (eller ortonormal) basis er etterspurt i **praktisk talt hvert sett** (sjanger B, ~100 %), enten alene eller som forsteg til ortogonal projeksjon og minste kvadrater i Del 5.\n\n- Oppgaven gir deg en basis $\\{\\mathbf{a}_1,\\dots\\}$ (ofte $\\operatorname{Col}A$-kolonnene fra oppgave 1) og ber om en **ortogonal basis** — av og til med krav om **ortonormalisering**.\n- I ca. **7 av 10 sett** foregår det i et **ikke-standard indreprodukt** (integral på $\\operatorname{P}_n$ i 2024, evaluering i 2020/2022). Da regnes hvert eneste ledd i prosessen med det oppgitte indreproduktet.\n\n**Fasitens grep du skal kopiere:** $\\mathbf{v}_1=\\mathbf{a}_1$, deretter trekk fra projeksjonene på de *allerede ortogonaliserte* $\\mathbf{v}_i$-ene, og **skalér opp til heltall** underveis for penere regning. Normalisér til slutt bare hvis oppgaven ber om en *ortonormal* basis — med den *oppgitte* normen.\n\n**Sensorregel:** vis hvert projeksjonsledd. Et korrekt sluttresultat uten mellomregning gir lite uttelling, og en avsluttende sjekk $\\langle\\mathbf{v}_i,\\mathbf{v}_j\\rangle=0$ er billig forsikring."
+    },
+    {
+      "id": "mat1120-4-2-forkunnskaper",
+      "type": "text",
+      "content": "**Forkunnskaper:** Dette kapitlet bygger direkte på indreprodukt, norm og ortogonalitet fra [kap. 4.1](/bok/mat1120/mat1120-4-1) — særlig at *alt* regnes i det oppgitte indreproduktet. Du bør også kjenne $\\operatorname{Col}A$-basis fra [kap. 1.2](/bok/mat1120/mat1120-1-2), siden Gram–Schmidt ofte tar imot nettopp den. Standardprikkproduktet og vektorprojeksjon på VGS-nivå finner du i [Skalarprodukt](/bok/r1/r1-6-3). Selve Gram–Schmidt-prosessen forutsettes ikke fra før — vi bygger den fra grunnen her."
+    },
+    {
+      "id": "mat1120-4-2-intro",
+      "type": "text",
+      "content": "En **ortogonal basis** er en basis der vektorene står vinkelrett på hverandre. Slike baser er gull verdt: koordinater blir en enkel formel i stedet for et likningssystem, og projeksjon (Del 5) blir triviell. Problemet er at en oppgitt basis sjelden er ortogonal. **Gram–Schmidt-prosessen** løser dette — den tar en hvilken som helst basis og bygger om til en ortogonal en, vektor for vektor, uten å endre spennet.\n\nIdeen er enkel: behold den første vektoren, og for hver ny vektor **trekk fra den delen som peker langs de allerede ortogonaliserte** — det som blir igjen står vinkelrett på alt før. Alt måles i det indreproduktet oppgaven har gitt.\n\nVi jobber i tre løkker: **(1)** ortogonale og ortonormale mengder, og hvorfor koordinater blir enkle; **(2)** Gram–Schmidt i $\\mathbb{R}^n$ med standardprikkproduktet, inkludert heltalls-oppskalering og normalisering; **(3)** Gram–Schmidt i et ikke-standard indreprodukt. Hver løkke går teori → eksempel → oppgave."
+    },
+    {
+      "id": "mat1120-4-2-lokke1",
+      "type": "text",
+      "content": "## Løkke 1 — Ortogonale og ortonormale mengder (~18 min)"
+    },
+    {
+      "id": "mat1120-4-2-def-ortogonal-mengde",
+      "type": "definition",
+      "title": "Ortogonal mengde",
+      "content": "En mengde vektorer $\\{\\mathbf{v}_1,\\dots,\\mathbf{v}_k\\}$ (ingen av dem null) er **ortogonal** dersom de er *parvis ortogonale*:\n\n$$\\langle\\mathbf{v}_i,\\mathbf{v}_j\\rangle=0\\quad\\text{for alle } i\\ne j.$$\n\nAltså: hver vektor står vinkelrett på hver av de andre, målt i det oppgitte indreproduktet. Man sjekker en ortogonal mengde ved å regne alle par $\\langle\\mathbf{v}_i,\\mathbf{v}_j\\rangle$ og se at de er $0$."
+    },
+    {
+      "id": "mat1120-4-2-thm-uavhengig",
+      "type": "theorem",
+      "title": "Ortogonal mengde er lineært uavhengig",
+      "content": "Enhver ortogonal mengde av vektorer forskjellige fra $\\mathbf{0}$ er **lineært uavhengig**.\n\n*Hvorfor:* anta $c_1\\mathbf{v}_1+\\dots+c_k\\mathbf{v}_k=\\mathbf{0}$. Ta indreproduktet med $\\mathbf{v}_i$ på begge sider. Alle kryssledd $\\langle\\mathbf{v}_j,\\mathbf{v}_i\\rangle$ ($j\\ne i$) er $0$, så bare $c_i\\langle\\mathbf{v}_i,\\mathbf{v}_i\\rangle=0$ står igjen. Siden $\\mathbf{v}_i\\ne\\mathbf{0}$ er $\\langle\\mathbf{v}_i,\\mathbf{v}_i\\rangle>0$, altså $c_i=0$. Dette gjelder hver $i$, så alle koeffisienter er null.\n\n**Konsekvens:** en ortogonal mengde med $\\dim V$ vektorer er automatisk en **basis** — du slipper å sjekke uavhengighet separat."
+    },
+    {
+      "id": "mat1120-4-2-def-ortogonal-basis",
+      "type": "definition",
+      "title": "Ortogonal og ortonormal basis",
+      "content": "En **ortogonal basis** for et rom $V$ er en basis som samtidig er en ortogonal mengde. Er hver basisvektor i tillegg en **enhetsvektor** ($\\|\\mathbf{u}_i\\|=1$), kalles den en **ortonormal basis**:\n\n$$\\langle\\mathbf{u}_i,\\mathbf{u}_j\\rangle=\\delta_{ij}=\\begin{cases}1 & i=j\\\\ 0 & i\\ne j.\\end{cases}$$\n\nEn ortonormal basis er det ideelle koordinatsystemet: vektorene står vinkelrett *og* har lengde $1$. Man kommer dit i to steg — først ortogonal (Gram–Schmidt), så normalisér hver vektor."
+    },
+    {
+      "id": "mat1120-4-2-def-fourier",
+      "type": "definition",
+      "title": "Koordinater i en ortogonal basis",
+      "content": "Har du en **ortogonal basis** $\\{\\mathbf{v}_1,\\dots,\\mathbf{v}_k\\}$ for $W$, kan enhver $\\mathbf{y}\\in W$ skrives med en **formel** i stedet for et likningssystem:\n\n$$\\mathbf{y}=\\sum_{i=1}^{k}\\frac{\\langle\\mathbf{y},\\mathbf{v}_i\\rangle}{\\langle\\mathbf{v}_i,\\mathbf{v}_i\\rangle}\\,\\mathbf{v}_i.$$\n\nTallene $c_i=\\dfrac{\\langle\\mathbf{y},\\mathbf{v}_i\\rangle}{\\langle\\mathbf{v}_i,\\mathbf{v}_i\\rangle}$ kalles **Fourier-koeffisientene** til $\\mathbf{y}$. Dette er hele grunnen til at ortogonale baser er verdt bryet — hver koordinat regnes for seg, uavhengig av de andre. (I en ortonormal basis er nevneren $1$, så $c_i=\\langle\\mathbf{y},\\mathbf{u}_i\\rangle$.)"
+    },
+    {
+      "id": "mat1120-4-2-ex-sjekk",
+      "type": "example",
+      "title": "Eksempel 1: Sjekk at en mengde er ortogonal",
+      "problem": "Er $\\{\\mathbf{v}_1,\\mathbf{v}_2,\\mathbf{v}_3\\}=\\{(1,1,1),(-2,1,1),(0,-1,1)\\}$ en ortogonal basis for $\\mathbb{R}^3$ (standardprikkproduktet)?",
+      "solution": "Vi regner de tre parene.\n\n$\\langle\\mathbf{v}_1,\\mathbf{v}_2\\rangle=(1)(-2)+(1)(1)+(1)(1)=-2+1+1=0.$ ✓\n\n$\\langle\\mathbf{v}_1,\\mathbf{v}_3\\rangle=(1)(0)+(1)(-1)+(1)(1)=0-1+1=0.$ ✓\n\n$\\langle\\mathbf{v}_2,\\mathbf{v}_3\\rangle=(-2)(0)+(1)(-1)+(1)(1)=0-1+1=0.$ ✓\n\nAlle par er $0$, så mengden er **ortogonal**. Tre parvis ortogonale vektorer $\\ne\\mathbf{0}$ er lineært uavhengige (teoremet over), og tre uavhengige vektorer i $\\mathbb{R}^3$ er en basis. Altså er $\\{\\mathbf{v}_1,\\mathbf{v}_2,\\mathbf{v}_3\\}$ en **ortogonal basis** for $\\mathbb{R}^3$."
+    },
+    {
+      "id": "mat1120-4-2-e1",
+      "type": "exercise",
+      "exercise": {
+        "id": "mat1120-4-2-ex1",
+        "number": "1",
+        "type": "classic",
+        "difficulty": "lett",
+        "task": "(Innstegsoppgave — ren gjengivelse.) Hva menes med en **ortogonal mengde**, og hva er i tillegg kravet for at en ortogonal basis skal være **ortonormal**?",
+        "solution": "En **ortogonal mengde** er en samling vektorer $\\ne\\mathbf{0}$ som er parvis ortogonale: $\\langle\\mathbf{v}_i,\\mathbf{v}_j\\rangle=0$ for alle $i\\ne j$.\n\nEn ortogonal basis er **ortonormal** hvis hver vektor i tillegg har norm $1$: $\\|\\mathbf{u}_i\\|=1$, altså $\\langle\\mathbf{u}_i,\\mathbf{u}_j\\rangle=\\delta_{ij}$.",
+        "hints": [
+          "Ortogonal = parvis vinkelrett; ortonormal legger til et lengdekrav.",
+          "Enhetsvektor betyr norm $1$."
+        ]
+      }
+    },
+    {
+      "id": "mat1120-4-2-ex-fourier",
+      "type": "example",
+      "title": "Eksempel 2: Koordinater i en ortogonal basis",
+      "problem": "Med den ortogonale basisen $\\{\\mathbf{v}_1,\\mathbf{v}_2,\\mathbf{v}_3\\}=\\{(1,1,1),(-2,1,1),(0,-1,1)\\}$ for $\\mathbb{R}^3$: skriv $\\mathbf{y}=(3,0,0)$ som en lineærkombinasjon av basisvektorene ved koordinatformelen.",
+      "solution": "Fourier-koeffisientene er $c_i=\\dfrac{\\langle\\mathbf{y},\\mathbf{v}_i\\rangle}{\\langle\\mathbf{v}_i,\\mathbf{v}_i\\rangle}$.\n\n$c_1=\\dfrac{\\langle(3,0,0),(1,1,1)\\rangle}{\\langle(1,1,1),(1,1,1)\\rangle}=\\dfrac{3}{3}=1.$\n\n$c_2=\\dfrac{\\langle(3,0,0),(-2,1,1)\\rangle}{\\langle(-2,1,1),(-2,1,1)\\rangle}=\\dfrac{-6}{6}=-1.$\n\n$c_3=\\dfrac{\\langle(3,0,0),(0,-1,1)\\rangle}{\\langle(0,-1,1),(0,-1,1)\\rangle}=\\dfrac{0}{2}=0.$\n\nAltså $\\mathbf{y}=1\\cdot\\mathbf{v}_1-1\\cdot\\mathbf{v}_2+0\\cdot\\mathbf{v}_3$. Kontroll: $\\mathbf{v}_1-\\mathbf{v}_2=(1,1,1)-(-2,1,1)=(3,0,0)=\\mathbf{y}.$ ✓ Ingen likningssystem — bare tre uavhengige brøker."
+    },
+    {
+      "id": "mat1120-4-2-e2",
+      "type": "exercise",
+      "exercise": {
+        "id": "mat1120-4-2-ex2",
+        "number": "2",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "Med den ortogonale basisen $\\{(1,1,1),(-2,1,1),(0,-1,1)\\}$ for $\\mathbb{R}^3$ (standardprikkprodukt): finn koordinatene (Fourier-koeffisientene) til $\\mathbf{y}=(0,3,3)$.",
+        "solution": "$\\langle\\mathbf{v}_i,\\mathbf{v}_i\\rangle$ er $3,6,2$ (som i eksempelet). Tellerne:\n\n$\\langle(0,3,3),(1,1,1)\\rangle=0+3+3=6\\ \\Rightarrow\\ c_1=\\tfrac{6}{3}=2.$\n\n$\\langle(0,3,3),(-2,1,1)\\rangle=0+3+3=6\\ \\Rightarrow\\ c_2=\\tfrac{6}{6}=1.$\n\n$\\langle(0,3,3),(0,-1,1)\\rangle=0-3+3=0\\ \\Rightarrow\\ c_3=\\tfrac{0}{2}=0.$\n\nAltså $\\mathbf{y}=2\\mathbf{v}_1+\\mathbf{v}_2$. Kontroll: $2(1,1,1)+(-2,1,1)=(0,3,3).$ ✓",
+        "hints": [
+          "Bruk $c_i=\\langle\\mathbf{y},\\mathbf{v}_i\\rangle/\\langle\\mathbf{v}_i,\\mathbf{v}_i\\rangle$; nevnerne er $3,6,2$.",
+          "Regn hver teller $\\langle\\mathbf{y},\\mathbf{v}_i\\rangle$ for seg."
+        ]
+      }
+    },
+    {
+      "id": "mat1120-4-2-lokke2",
+      "type": "text",
+      "content": "## Løkke 2 — Gram–Schmidt i $\\mathbb{R}^n$ (~22 min)"
+    },
+    {
+      "id": "mat1120-4-2-def-gs",
+      "type": "definition",
+      "title": "Gram–Schmidt-prosessen",
+      "content": "Gitt en basis $\\{\\mathbf{a}_1,\\dots,\\mathbf{a}_k\\}$ lager **Gram–Schmidt-prosessen** en ortogonal basis $\\{\\mathbf{v}_1,\\dots,\\mathbf{v}_k\\}$ for det samme rommet, steg for steg:\n\n$$\\mathbf{v}_1=\\mathbf{a}_1,\\qquad \\mathbf{v}_k=\\mathbf{a}_k-\\sum_{i=1}^{k-1}\\frac{\\langle\\mathbf{a}_k,\\mathbf{v}_i\\rangle}{\\langle\\mathbf{v}_i,\\mathbf{v}_i\\rangle}\\,\\mathbf{v}_i.$$\n\nI ord: behold $\\mathbf{a}_1$. For hver neste $\\mathbf{a}_k$, **trekk fra projeksjonen på hver av de allerede ortogonaliserte $\\mathbf{v}_i$-ene** — brøken $\\frac{\\langle\\mathbf{a}_k,\\mathbf{v}_i\\rangle}{\\langle\\mathbf{v}_i,\\mathbf{v}_i\\rangle}$ er nettopp «hvor mye av $\\mathbf{a}_k$ som peker langs $\\mathbf{v}_i$». Det som blir igjen står vinkelrett på alt før. **Viktig:** bruk de nye $\\mathbf{v}_i$-ene i summen, aldri de opprinnelige $\\mathbf{a}_i$-ene."
+    },
+    {
+      "id": "mat1120-4-2-def-heltall",
+      "type": "definition",
+      "title": "Heltalls-oppskalering",
+      "content": "Etter hvert steg kan $\\mathbf{v}_k$ få stygge brøker. Siden en ortogonal basis fortsatt er ortogonal om du **skalerer en vektor** med et tall $\\ne0$, kan du gange $\\mathbf{v}_k$ opp til en penere (gjerne heltallig) vektor før du går videre. Fasitene gjør dette rutinemessig — det holder regningen ren. Retningen (og dermed ortogonaliteten) er upåvirket; bare lengden endres, og den fikser normaliseringen til slutt."
+    },
+    {
+      "id": "mat1120-4-2-ex-gs-std",
+      "type": "example",
+      "title": "Eksempel 3: Gram–Schmidt i $\\mathbb{R}^3$",
+      "problem": "Bruk Gram–Schmidt på basisen $\\mathbf{a}_1=(1,1,1)$, $\\mathbf{a}_2=(0,1,1)$, $\\mathbf{a}_3=(0,0,1)$ (standardprikkprodukt) til en ortogonal basis for $\\mathbb{R}^3$.",
+      "solution": "**Steg 1:** $\\mathbf{v}_1=\\mathbf{a}_1=(1,1,1)$, med $\\langle\\mathbf{v}_1,\\mathbf{v}_1\\rangle=3$.\n\n**Steg 2:** $\\langle\\mathbf{a}_2,\\mathbf{v}_1\\rangle=0+1+1=2$, så\n$$\\mathbf{v}_2=\\mathbf{a}_2-\\tfrac{2}{3}\\mathbf{v}_1=(0,1,1)-\\tfrac23(1,1,1)=\\left(-\\tfrac23,\\tfrac13,\\tfrac13\\right).$$\nSkalér opp med $3$: $\\mathbf{v}_2=(-2,1,1)$, med $\\langle\\mathbf{v}_2,\\mathbf{v}_2\\rangle=6$.\n\n**Steg 3:** $\\langle\\mathbf{a}_3,\\mathbf{v}_1\\rangle=1$ og $\\langle\\mathbf{a}_3,\\mathbf{v}_2\\rangle=1$, så\n$$\\mathbf{v}_3=\\mathbf{a}_3-\\tfrac{1}{3}\\mathbf{v}_1-\\tfrac{1}{6}\\mathbf{v}_2=(0,0,1)-\\tfrac13(1,1,1)-\\tfrac16(-2,1,1)=\\left(0,-\\tfrac12,\\tfrac12\\right).$$\nSkalér opp med $2$: $\\mathbf{v}_3=(0,-1,1)$.\n\n**Ortogonal basis:** $\\{(1,1,1),(-2,1,1),(0,-1,1)\\}$. Kontroll: alle tre par gir $0$ (se Eksempel 1). ✓ **Merk:** i steg 3 brukte vi den *oppskalerte* $\\mathbf{v}_2=(-2,1,1)$ — da blir nevneren $6$, ikke $\\tfrac23$."
+    },
+    {
+      "id": "mat1120-4-2-e3",
+      "type": "exercise",
+      "exercise": {
+        "id": "mat1120-4-2-ex3",
+        "number": "3",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "Bruk Gram–Schmidt på $\\mathbf{a}_1=(1,0,1)$, $\\mathbf{a}_2=(1,1,0)$ (standardprikkprodukt) til en ortogonal basis for underrommet $\\operatorname{Span}\\{\\mathbf{a}_1,\\mathbf{a}_2\\}$. Skalér til heltall.",
+        "solution": "**Steg 1:** $\\mathbf{v}_1=\\mathbf{a}_1=(1,0,1)$, $\\langle\\mathbf{v}_1,\\mathbf{v}_1\\rangle=2$.\n\n**Steg 2:** $\\langle\\mathbf{a}_2,\\mathbf{v}_1\\rangle=1+0+0=1$, så\n$$\\mathbf{v}_2=(1,1,0)-\\tfrac12(1,0,1)=\\left(\\tfrac12,1,-\\tfrac12\\right).$$\nSkalér opp med $2$: $\\mathbf{v}_2=(1,2,-1)$.\n\n**Ortogonal basis:** $\\{(1,0,1),(1,2,-1)\\}$. Kontroll: $\\langle(1,0,1),(1,2,-1)\\rangle=1+0-1=0.$ ✓",
+        "hints": [
+          "$\\mathbf{v}_1=\\mathbf{a}_1$; regn $\\langle\\mathbf{a}_2,\\mathbf{v}_1\\rangle$ og $\\langle\\mathbf{v}_1,\\mathbf{v}_1\\rangle$.",
+          "Trekk fra $\\frac{\\langle\\mathbf{a}_2,\\mathbf{v}_1\\rangle}{\\langle\\mathbf{v}_1,\\mathbf{v}_1\\rangle}\\mathbf{v}_1$ og skalér opp med $2$."
+        ]
+      }
+    },
+    {
+      "id": "mat1120-4-2-def-normalisering",
+      "type": "definition",
+      "title": "Normalisering til ortonormal basis",
+      "content": "Har du en ortogonal basis $\\{\\mathbf{v}_1,\\dots,\\mathbf{v}_k\\}$, får du en **ortonormal** basis ved å dele hver vektor på sin egen norm:\n\n$$\\mathbf{u}_i=\\frac{1}{\\|\\mathbf{v}_i\\|}\\,\\mathbf{v}_i,\\qquad \\|\\mathbf{v}_i\\|=\\sqrt{\\langle\\mathbf{v}_i,\\mathbf{v}_i\\rangle}.$$\n\nBruk den **oppgitte** normen. Etter heltalls-oppskalering blir normene ofte $\\sqrt{\\text{heltall}}$, og enhetsvektorene får formen $\\tfrac{1}{\\sqrt m}\\mathbf{v}_i$ — la svaret stå eksakt slik, aldri som desimaltilnærming."
+    },
+    {
+      "id": "mat1120-4-2-ex-normalisering",
+      "type": "example",
+      "title": "Eksempel 4: Normalisering",
+      "problem": "Normalisér den ortogonale basisen $\\{(1,1,1),(-2,1,1),(0,-1,1)\\}$ (standardprikkprodukt) til en ortonormal basis.",
+      "solution": "Regn normene:\n$$\\|(1,1,1)\\|=\\sqrt3,\\quad \\|(-2,1,1)\\|=\\sqrt{4+1+1}=\\sqrt6,\\quad \\|(0,-1,1)\\|=\\sqrt{0+1+1}=\\sqrt2.$$\nDel hver vektor på sin norm:\n$$\\mathbf{u}_1=\\tfrac{1}{\\sqrt3}(1,1,1),\\quad \\mathbf{u}_2=\\tfrac{1}{\\sqrt6}(-2,1,1),\\quad \\mathbf{u}_3=\\tfrac{1}{\\sqrt2}(0,-1,1).$$\nDette er en **ortonormal basis** for $\\mathbb{R}^3$. **Eksakt svar** — la $\\tfrac{1}{\\sqrt3}$ osv. stå; ikke skriv $0{,}577$."
+    },
+    {
+      "id": "mat1120-4-2-e4",
+      "type": "exercise",
+      "exercise": {
+        "id": "mat1120-4-2-ex4",
+        "number": "4",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "Normalisér den ortogonale basisen $\\{(1,0,1),(1,2,-1)\\}$ (standardprikkprodukt) til en ortonormal basis for underrommet den utspenner.",
+        "solution": "$\\|(1,0,1)\\|=\\sqrt{1+0+1}=\\sqrt2$ og $\\|(1,2,-1)\\|=\\sqrt{1+4+1}=\\sqrt6$. Del hver på sin norm:\n$$\\mathbf{u}_1=\\tfrac{1}{\\sqrt2}(1,0,1),\\qquad \\mathbf{u}_2=\\tfrac{1}{\\sqrt6}(1,2,-1).$$\nEksakt svar — behold rottegnene.",
+        "hints": [
+          "Del hver vektor på sin egen norm $\\sqrt{\\langle\\mathbf{v}_i,\\mathbf{v}_i\\rangle}$.",
+          "Normene her er $\\sqrt2$ og $\\sqrt6$."
+        ]
+      }
+    },
+    {
+      "id": "mat1120-4-2-lokke3",
+      "type": "text",
+      "content": "## Løkke 3 — Gram–Schmidt i et ikke-standard indreprodukt (~15 min)"
+    },
+    {
+      "id": "mat1120-4-2-warn-ikkestandard",
+      "type": "warning",
+      "title": "Ikke-standard indreprodukt i Gram–Schmidt",
+      "content": "Når indreproduktet er **vektet, integral eller evaluering**, gjelder samme Gram–Schmidt-formel — men *hvert* $\\langle\\cdot,\\cdot\\rangle$ i den regnes med det oppgitte indreproduktet:\n\n- Tellerne $\\langle\\mathbf{a}_k,\\mathbf{v}_i\\rangle$ og nevnerne $\\langle\\mathbf{v}_i,\\mathbf{v}_i\\rangle$ er *ikke* standardprikkprodukt.\n- **Normen ved normalisering** er $\\sqrt{\\langle\\mathbf{v}_i,\\mathbf{v}_i\\rangle}$ i det oppgitte indreproduktet — dette er stedet feilen oftest sniker seg inn.\n\nÅ falle tilbake på standardprikkproduktet ett sted i prosessen ødelegger hele den ortogonale basisen. Skriv gjerne opp «indreprodukt: integral på $[-1,1]$» øverst og hold deg til det."
+    },
+    {
+      "id": "mat1120-4-2-ex-gs-int",
+      "type": "example",
+      "title": "Eksempel 5: Gram–Schmidt i integralindreprodukt",
+      "problem": "På $\\operatorname{P}_2$ med $\\langle p,q\\rangle=\\int_{-1}^1 pq\\,dt$: bruk Gram–Schmidt på standardbasisen $\\{1,t,t^2\\}$ til en ortogonal basis.",
+      "solution": "Alle indreprodukt er integraler over $[-1,1]$.\n\n**Steg 1:** $v_1=1$, med $\\langle 1,1\\rangle=\\int_{-1}^1 1\\,dt=2$.\n\n**Steg 2:** $\\langle t,1\\rangle=\\int_{-1}^1 t\\,dt=0$, så\n$$v_2=t-\\tfrac{0}{2}\\cdot 1=t.$$\n($t$ er allerede ortogonal på $1$ — oddefunksjon over symmetrisk intervall.) $\\langle t,t\\rangle=\\int_{-1}^1 t^2\\,dt=\\tfrac23.$\n\n**Steg 3:** $\\langle t^2,1\\rangle=\\int_{-1}^1 t^2\\,dt=\\tfrac23$ og $\\langle t^2,t\\rangle=\\int_{-1}^1 t^3\\,dt=0$, så\n$$v_3=t^2-\\frac{2/3}{2}\\cdot 1-\\frac{0}{2/3}\\cdot t=t^2-\\tfrac13.$$\nSkalér opp med $3$: $v_3=3t^2-1$.\n\n**Ortogonal basis:** $\\{1,\\ t,\\ 3t^2-1\\}$. Kontroll: $\\langle 1,3t^2-1\\rangle=\\int_{-1}^1(3t^2-1)\\,dt=[t^3-t]_{-1}^1=0$ og $\\langle t,3t^2-1\\rangle=0$ (odde). ✓ (Dette er de tre første **Legendre-polynomene** opp til skalering.)"
+    },
+    {
+      "id": "mat1120-4-2-e5",
+      "type": "exercise",
+      "exercise": {
+        "id": "mat1120-4-2-ex5",
+        "number": "5",
+        "type": "classic",
+        "difficulty": "vanskelig",
+        "task": "På $\\operatorname{P}_1$ med integralindreproduktet $\\langle p,q\\rangle=\\int_{0}^{1} pq\\,dt$: bruk Gram–Schmidt på $\\{1,t\\}$ til en ortogonal basis, og normalisér deretter $1$ til en enhetsvektor.\n\n*Merk at intervallet her er $[0,1]$, ikke $[-1,1]$ — regn alle integraler over $[0,1]$.*",
+        "solution": "Alle indreprodukt er integraler over $[0,1]$.\n\n**Steg 1:** $v_1=1$, med $\\langle 1,1\\rangle=\\int_0^1 1\\,dt=1$.\n\n**Steg 2:** $\\langle t,1\\rangle=\\int_0^1 t\\,dt=\\tfrac12$, så\n$$v_2=t-\\frac{1/2}{1}\\cdot 1=t-\\tfrac12.$$\nSkalér opp med $2$: $v_2=2t-1$.\n\n**Ortogonal basis:** $\\{1,\\ 2t-1\\}$. Kontroll: $\\langle 1,2t-1\\rangle=\\int_0^1(2t-1)\\,dt=[t^2-t]_0^1=0.$ ✓\n\n**Normalisering av $1$:** $\\|1\\|=\\sqrt{\\langle 1,1\\rangle}=\\sqrt1=1$, så $1$ er allerede en enhetsvektor på $[0,1]$. (På $[-1,1]$ ville $\\|1\\|=\\sqrt2$ — intervallet avgjør.)",
+        "hints": [
+          "Bruk integral over $[0,1]$ i hvert ledd; $\\langle 1,1\\rangle=1$ og $\\langle t,1\\rangle=\\tfrac12$.",
+          "$v_2=t-\\frac{\\langle t,1\\rangle}{\\langle 1,1\\rangle}\\cdot 1$, skalér til heltall; normen av $1$ er $\\sqrt{\\int_0^1 1\\,dt}$."
+        ]
+      }
+    },
+    {
+      "id": "mat1120-4-2-warn-typiske-feil",
+      "type": "warning",
+      "title": "Typiske feil",
+      "content": "- **Standardprikkproduktet i et ikke-standard indreprodukt.** Felle nr. 1: hvert $\\langle\\cdot,\\cdot\\rangle$ i Gram–Schmidt — tellere, nevnere og normen ved normalisering — skal bruke det oppgitte indreproduktet.\n- **Bruker $\\mathbf{a}_i$ i stedet for $\\mathbf{v}_i$ i senere steg.** Projeksjonene trekkes fra de *allerede ortogonaliserte* $\\mathbf{v}_i$-ene, ikke de opprinnelige $\\mathbf{a}_i$-ene.\n- **Glemmer å dele på $\\langle\\mathbf{v}_i,\\mathbf{v}_i\\rangle$.** Projeksjonsleddet er $\\frac{\\langle\\mathbf{a}_k,\\mathbf{v}_i\\rangle}{\\langle\\mathbf{v}_i,\\mathbf{v}_i\\rangle}\\mathbf{v}_i$ — nevneren er lett å hoppe over.\n- **Feil norm ved normalisering.** Del på $\\sqrt{\\langle\\mathbf{v}_i,\\mathbf{v}_i\\rangle}$ i det oppgitte indreproduktet, ikke standardnormen.\n- **Regnefeil pga. manglende oppskalering.** Skalér til heltall underveis; det reduserer brøkregningen dramatisk. Sluttresultatet er en ortogonal basis uansett skalering.\n- **Desimaltilnærming.** La $\\tfrac{1}{\\sqrt6}$, $3t^2-1$ osv. stå eksakt."
+    },
+    {
+      "id": "mat1120-4-2-begrepsbank-tekst",
+      "type": "text",
+      "content": "## Begrepsbank til eksamen\n\nKjernebegrepene fra kapitlet i eksamensrettet kortform — apparatet bak sjanger B (Gram–Schmidt og ortogonal basis).\n\n*Begrepsbanken er flashcard-/repetisjonsstoff — den gjentar det du nettopp har lest. Hopp trygt over ved førstegangslesing; tidsanslaget for kapitlet gjelder kjernestoffet.*"
+    },
+    {
+      "id": "mat1120-4-2-bb-1",
+      "type": "definition",
+      "title": "Parvis ortogonal",
+      "content": "At hvert par ulike vektorer i en mengde er ortogonalt: $\\langle\\mathbf{v}_i,\\mathbf{v}_j\\rangle=0$ for $i\\ne j$. Dette er akkurat kravet til en ortogonal mengde — man sjekker alle parene."
+    },
+    {
+      "id": "mat1120-4-2-bb-2",
+      "type": "definition",
+      "title": "Kronecker-delta $\\delta_{ij}$",
+      "content": "Symbolet $\\delta_{ij}$ er $1$ når $i=j$ og $0$ ellers. En ortonormal basis oppsummeres kompakt som $\\langle\\mathbf{u}_i,\\mathbf{u}_j\\rangle=\\delta_{ij}$ — vinkelrett *og* enhetslengde i én formel."
+    },
+    {
+      "id": "mat1120-4-2-bb-3",
+      "type": "definition",
+      "title": "Fourier-koeffisient",
+      "content": "Tallet $c_i=\\dfrac{\\langle\\mathbf{y},\\mathbf{v}_i\\rangle}{\\langle\\mathbf{v}_i,\\mathbf{v}_i\\rangle}$ — koordinaten til $\\mathbf{y}$ langs $\\mathbf{v}_i$ i en ortogonal basis. Regnes uavhengig av de andre koordinatene, uten likningssystem."
+    },
+    {
+      "id": "mat1120-4-2-bb-4",
+      "type": "definition",
+      "title": "Projeksjonsledd",
+      "content": "Uttrykket $\\dfrac{\\langle\\mathbf{a}_k,\\mathbf{v}_i\\rangle}{\\langle\\mathbf{v}_i,\\mathbf{v}_i\\rangle}\\mathbf{v}_i$ som trekkes fra i Gram–Schmidt: «den delen av $\\mathbf{a}_k$ som peker langs $\\mathbf{v}_i$». Å fjerne alle slike ledd gir en rest vinkelrett på det som er ortogonalisert."
+    },
+    {
+      "id": "mat1120-4-2-bb-5",
+      "type": "definition",
+      "title": "Startsteget $\\mathbf{v}_1=\\mathbf{a}_1$",
+      "content": "Gram–Schmidt beholder den første vektoren uendret. Alle senere vektorer bygges relativt til den. Bytter du rekkefølge på $\\mathbf{a}_i$-ene, får du en annen (men like gyldig) ortogonal basis."
+    },
+    {
+      "id": "mat1120-4-2-bb-6",
+      "type": "definition",
+      "title": "Bruk $\\mathbf{v}_i$, ikke $\\mathbf{a}_i$",
+      "content": "I projeksjonsleddene brukes de *allerede ortogonaliserte* $\\mathbf{v}_i$-ene. Å bruke de opprinnelige $\\mathbf{a}_i$-ene er en klassisk feil som ødelegger ortogonaliteten fra steg 3 og utover."
+    },
+    {
+      "id": "mat1120-4-2-bb-7",
+      "type": "definition",
+      "title": "Nevneren $\\langle\\mathbf{v}_i,\\mathbf{v}_i\\rangle$",
+      "content": "Kvadratet av normen til $\\mathbf{v}_i$, som står i nevneren i hvert projeksjonsledd. Skalerer du $\\mathbf{v}_i$ opp til heltall, endres denne nevneren tilsvarende — bruk alltid den gjeldende (oppskalerte) $\\mathbf{v}_i$."
+    },
+    {
+      "id": "mat1120-4-2-bb-8",
+      "type": "definition",
+      "title": "Skalering bevarer ortogonalitet",
+      "content": "Å gange en vektor i en ortogonal mengde med et tall $\\ne0$ endrer bare lengden, ikke retningen — mengden forblir ortogonal. Dette er hjemmelen for heltalls-oppskalering underveis i Gram–Schmidt."
+    },
+    {
+      "id": "mat1120-4-2-bb-9",
+      "type": "definition",
+      "title": "Ortogonal projeksjon på én vektor",
+      "content": "$\\operatorname{proj}_{\\mathbf{v}}\\mathbf{a}=\\dfrac{\\langle\\mathbf{a},\\mathbf{v}\\rangle}{\\langle\\mathbf{v},\\mathbf{v}\\rangle}\\mathbf{v}$ — skyggen av $\\mathbf{a}$ langs $\\mathbf{v}$. Gram–Schmidt trekker fra én slik projeksjon per allerede ortogonalisert vektor. Utvides til projeksjon på et helt underrom i Del 5."
+    },
+    {
+      "id": "mat1120-4-2-bb-10",
+      "type": "definition",
+      "title": "Gram–Schmidt bevarer span",
+      "content": "Etter hvert steg er $\\operatorname{Span}\\{\\mathbf{v}_1,\\dots,\\mathbf{v}_k\\}=\\operatorname{Span}\\{\\mathbf{a}_1,\\dots,\\mathbf{a}_k\\}$. Prosessen bytter altså ut basisen uten å endre rommet — den ortogonale basisen utspenner nøyaktig det samme underrommet."
+    },
+    {
+      "id": "mat1120-4-2-bb-11",
+      "type": "definition",
+      "title": "Ortogonal basis for et underrom",
+      "content": "Gram–Schmidt kan kjøres på en basis for et *underrom* $W$ (f.eks. $\\operatorname{Col}A$-kolonnene), og gir en ortogonal basis for $W$ — ikke for hele rommet rundt. Antall vektorer er $\\dim W$."
+    },
+    {
+      "id": "mat1120-4-2-bb-12",
+      "type": "definition",
+      "title": "Ortonormal vs. ortogonal",
+      "content": "En ortogonal basis har vinkelrette vektorer; en ortonormal har i tillegg lengde $1$. Mange oppgaver ber bare om ortogonal — normalisér kun når «ortonormal» eller «enhetsvektorer» står eksplisitt."
+    },
+    {
+      "id": "mat1120-4-2-bb-13",
+      "type": "definition",
+      "title": "Legendre-polynomer",
+      "content": "De ortogonale polynomene $1,\\,t,\\,3t^2-1,\\dots$ Gram–Schmidt gir på $\\{1,t,t^2,\\dots\\}$ i integralindreproduktet over $[-1,1]$. Et konkret eksempel på at «ortogonal basis» også gjelder polynomer."
+    },
+    {
+      "id": "mat1120-4-2-bb-14",
+      "type": "definition",
+      "title": "Koordinater blir en formel",
+      "content": "Hovedgevinsten ved en ortogonal basis: koordinatene til enhver vektor er Fourier-koeffisientene, regnet enkeltvis. Uten ortogonalitet må man løse et lineært likningssystem for de samme koordinatene."
+    },
+    {
+      "id": "mat1120-4-2-bb-15",
+      "type": "definition",
+      "title": "Ortogonal matrise (forvarsel)",
+      "content": "En kvadratisk matrise $U$ med *ortonormale kolonner* oppfyller $U^{T}U=I$. Slike matrikser bygges nettopp av en ortonormal basis (Gram–Schmidt + normalisering) og blir sentrale i ortogonal diagonalisering (Del 6)."
+    },
+    {
+      "id": "mat1120-4-2-bb-16",
+      "type": "definition",
+      "title": "Sjekk til slutt",
+      "content": "Billig forsikring: etter Gram–Schmidt, regn $\\langle\\mathbf{v}_i,\\mathbf{v}_j\\rangle$ for $i\\ne j$ og bekreft at de er $0$ i det oppgitte indreproduktet. Fanger opp regnefeil før de forplanter seg videre i oppgaven."
+    },
+    {
+      "id": "mat1120-4-2-bb-17",
+      "type": "definition",
+      "title": "Rekkefølgen på a-vektorene",
+      "content": "Gram–Schmidt beholder $\\mathbf{a}_1$ og bygger resten relativt til den, så ulik rekkefølge på inn-vektorene gir ulike ortogonale baser — alle gyldige for samme rom. Ofte lønner det seg å starte med den «peneste» vektoren for enklest regning."
+    },
+    {
+      "id": "mat1120-4-2-bb-18",
+      "type": "definition",
+      "title": "Enhetsvektor i det oppgitte indreproduktet",
+      "content": "En vektor med norm $1$ målt i det aktuelle indreproduktet. Samme polynom kan være en enhetsvektor i ett indreprodukt og ha norm $\\sqrt2$ i et annet — derfor må normaliseringen alltid bruke den oppgitte normen, ikke standardnormen."
+    },
+    {
+      "id": "mat1120-4-2-rep",
+      "type": "collapsible",
+      "title": "Repetisjonsoppgaver",
+      "buttonText": "Vis repetisjonsoppgaver",
+      "content": [
+        {
+          "id": "mat1120-4-2-R1",
+          "type": "exercise",
+          "exercise": {
+            "id": "mat1120-4-2-eR1",
+            "number": "R1",
+            "type": "classic",
+            "difficulty": "lett",
+            "task": "(Fra [kap. 4.1](/bok/mat1120/mat1120-4-1)) Hvordan regner du normen $\\|\\mathbf{v}\\|$ i et indreproduktrom, og hva betyr $\\langle\\mathbf{u},\\mathbf{v}\\rangle=0$?",
+            "solution": "$\\|\\mathbf{v}\\|=\\sqrt{\\langle\\mathbf{v},\\mathbf{v}\\rangle}$ i det oppgitte indreproduktet. $\\langle\\mathbf{u},\\mathbf{v}\\rangle=0$ betyr at $\\mathbf{u}$ og $\\mathbf{v}$ er ortogonale.",
+            "hints": [
+              "Norm = rota av indreproduktet med seg selv."
+            ]
+          }
+        },
+        {
+          "id": "mat1120-4-2-R2",
+          "type": "exercise",
+          "exercise": {
+            "id": "mat1120-4-2-eR2",
+            "number": "R2",
+            "type": "classic",
+            "difficulty": "middels",
+            "task": "(Fra [kap. 4.1](/bok/mat1120/mat1120-4-1)) På $\\operatorname{P}_2$ med $\\langle p,q\\rangle=\\int_{-1}^1 pq\\,dt$: regn $\\langle t,t\\rangle$ og $\\langle 1,t\\rangle$. Er $1$ og $t$ ortogonale?",
+            "solution": "$\\langle t,t\\rangle=\\int_{-1}^1 t^2\\,dt=\\tfrac23$ og $\\langle 1,t\\rangle=\\int_{-1}^1 t\\,dt=0$. Siden $\\langle 1,t\\rangle=0$, er $1$ og $t$ ortogonale på $[-1,1]$.",
+            "hints": [
+              "Integrer $t^2$ og $t$ over $[-1,1]$; $t$ er odde."
+            ]
+          }
+        },
+        {
+          "id": "mat1120-4-2-R3",
+          "type": "exercise",
+          "exercise": {
+            "id": "mat1120-4-2-eR3",
+            "number": "R3",
+            "type": "classic",
+            "difficulty": "middels",
+            "task": "(Fra [kap. 1.2](/bok/mat1120/mat1120-1-2)) Forklar kort hvorfor Gram–Schmidt ofte tar imot nettopp $\\operatorname{Col}A$-basisen, og hva den ortogonale basisen da utspenner.",
+            "solution": "$\\operatorname{Col}A$-basisen (de opprinnelige pivotkolonnene i $A$) er en basis for kolonnerommet $\\operatorname{Col}A$. Kjører du Gram–Schmidt på den, får du en *ortogonal* basis for det *samme* underrommet $\\operatorname{Col}A$ — nyttig som forsteg til ortogonal projeksjon (Del 5).",
+            "hints": [
+              "Gram–Schmidt bevarer spennet; her er spennet $\\operatorname{Col}A$."
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": "mat1120-4-2-symbolliste",
+      "type": "collapsible",
+      "title": "Symbol- og formelliste",
+      "buttonText": "Vis symboler og formler",
+      "content": [
+        {
+          "id": "mat1120-4-2-symbolliste-text",
+          "type": "text",
+          "content": "## Symbol- og formelliste\n\n*Oppslagsverk — alt her forklares underveis i kapitlet.*\n\nAlle symboler og formler som brukes i dette delkapitlet (4.2), samlet på ett sted.\n\n| Symbol | Betydning |\n|---|---|\n| $\\mathbf{a}_1,\\dots,\\mathbf{a}_k$ | Den opprinnelige (ikke-ortogonale) basisen |\n| $\\mathbf{v}_1,\\dots,\\mathbf{v}_k$ | Den ortogonale basisen fra Gram–Schmidt |\n| $\\mathbf{u}_1,\\dots,\\mathbf{u}_k$ | Den ortonormale basisen (normaliserte $\\mathbf{v}_i$) |\n| $\\langle\\mathbf{v}_i,\\mathbf{v}_i\\rangle$ | Kvadrert norm $=\\|\\mathbf{v}_i\\|^2$ (nevneren) |\n| $c_i$ | Fourier-koeffisient (koordinat i ortogonal basis) |\n| $\\delta_{ij}$ | $1$ om $i=j$, ellers $0$ |\n| $\\operatorname{proj}_{\\mathbf{v}}\\mathbf{a}$ | Ortogonal projeksjon av $\\mathbf{a}$ på $\\mathbf{v}$ |\n\n**Formler i dette delkapitlet:**\n\n$$\\mathbf{v}_1=\\mathbf{a}_1,\\qquad \\mathbf{v}_k=\\mathbf{a}_k-\\sum_{i=1}^{k-1}\\frac{\\langle\\mathbf{a}_k,\\mathbf{v}_i\\rangle}{\\langle\\mathbf{v}_i,\\mathbf{v}_i\\rangle}\\,\\mathbf{v}_i$$\nGram–Schmidt-prosessen — bruk de allerede ortogonaliserte $\\mathbf{v}_i$-ene.\n\n$$\\mathbf{u}_i=\\frac{1}{\\|\\mathbf{v}_i\\|}\\mathbf{v}_i,\\qquad \\|\\mathbf{v}_i\\|=\\sqrt{\\langle\\mathbf{v}_i,\\mathbf{v}_i\\rangle}$$\nNormalisering til ortonormal basis — med den oppgitte normen.\n\n$$\\mathbf{y}=\\sum_i \\frac{\\langle\\mathbf{y},\\mathbf{v}_i\\rangle}{\\langle\\mathbf{v}_i,\\mathbf{v}_i\\rangle}\\mathbf{v}_i$$\nKoordinater (Fourier-koeffisienter) i en ortogonal basis.\n\n$$\\langle\\mathbf{v}_i,\\mathbf{v}_j\\rangle=0\\ (i\\ne j),\\qquad \\langle\\mathbf{u}_i,\\mathbf{u}_j\\rangle=\\delta_{ij}$$\nOrtogonal og ortonormal mengde."
+        }
+      ]
+    }
+  ],
+  "exercises": []
+}

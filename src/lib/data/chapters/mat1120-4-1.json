@@ -1,0 +1,425 @@
+{
+  "id": "mat1120-4-1",
+  "courseId": "mat1120",
+  "chapterNumber": "4.1",
+  "title": "Indreprodukt: standard, vektet, integral og evaluering",
+  "description": "Indreprodukt som abstrakt begrep og de fire eksamenstypene — standard prikkprodukt, vektet, integral og evaluering — med den viktigste advarselen i faget: bruk ALLTID det oppgitte indreproduktet, også i norm og ortogonalitet.",
+  "estimatedMinutes": 60,
+  "competenceGoals": [
+    "kjenne de fire aksiomene for et indreprodukt og definere norm, avstand og ortogonalitet ut fra det oppgitte indreproduktet",
+    "regne med de fire eksamenstypene — standard, vektet, integral og evaluering — og se at norm og ortogonalitet skifter med indreproduktet",
+    "avgjøre ortogonalitet og bestemme ukjente slik at to vektorer blir ortogonale i et gitt indreprodukt",
+    "kjenne igjen og navngi Cauchy–Schwarz og trekantulikheten"
+  ],
+  "content": [
+    {
+      "id": "mat1120-4-1-tip-eksamensvinkel",
+      "type": "tip",
+      "title": "Eksamensvinkel",
+      "content": "**Dette kapitlet åpner MAT1120s geometriske apparat** — indreproduktet er verktøyet som gir mening til lengde, vinkel og ortogonalitet, og det bærer hele Del 4 og Del 5.\n\n- **Indreprodukt og ortogonalitet (sjanger B)** ligger under **hvert eneste sett** i arkivet (7 av 7), fordi Gram–Schmidt og ortogonal projeksjon bygger direkte på det.\n- **Ikke-standard indreprodukt** (vektet, integral, evaluering) dukker opp i ca. **7 av 10 sett** ($\\langle\\mathbf{x},\\mathbf{y}\\rangle=2x_1y_1+2x_2y_2+x_3y_3$ i 2018/2019, $\\langle p,q\\rangle=\\int_{-2}^0 pq\\,dt$ i 2024, evaluering $\\langle p,q\\rangle=\\sum p(t_i)q(t_i)$ i 2020/2022). Dette er **karakterskilleren**.\n\n**Den ene setningen du må ta med deg:** når oppgaven oppgir et indreprodukt, regnes **alt** — hvert skalarprodukt, hver norm, hver ortogonalitetssjekk, og normen i normaliseringen — med *det* indreproduktet. Å falle tilbake på standardprikkproduktet er den dyreste og vanligste feilen i faget.\n\n**Sensorregel:** et svar som «$\\mathbf{u}$ og $\\mathbf{v}$ er ortogonale» må vise regnestykket $\\langle\\mathbf{u},\\mathbf{v}\\rangle=0$ i *riktig* indreprodukt. Riktig konklusjon med feil indreprodukt gir null uttelling."
+    },
+    {
+      "id": "mat1120-4-1-forkunnskaper",
+      "type": "text",
+      "content": "**Forkunnskaper:** Dette kapitlet bygger på abstrakte vektorrom — særlig polynomrommet $\\operatorname{P}_n$ og funksjonsrom — fra [kap. 2.1](/bok/mat1120/mat1120-2-1). Du bør kjenne standardbasisen $\\{1,t,\\dots,t^n\\}$ og at $\\dim\\operatorname{P}_n=n+1$.\n\nDet vanlige **prikkproduktet** i $\\mathbb{R}^n$ (og vinkel/lengde fra det) finner du i [Skalarprodukt](/bok/r1/r1-6-3). Integralindreproduktet krever at du kan regne bestemte integraler av polynomer — se [Integralregning](/bok/r2/r2-4-1). Selve begrepet indreproduktrom og Cauchy–Schwarz forutsettes på innføringsnivå fra *(MAT1110 — forkunnskapsemne, ikke bygget ennå; aktiver `/bok/mat1110/<id>`-lenke når den finnes)*, men vi bygger alt vi trenger her fra grunnen."
+    },
+    {
+      "id": "mat1120-4-1-intro",
+      "type": "text",
+      "content": "I $\\mathbb{R}^n$ ga prikkproduktet $\\mathbf{u}\\cdot\\mathbf{v}=u_1v_1+\\dots+u_nv_n$ oss lengde ($\\|\\mathbf{u}\\|=\\sqrt{\\mathbf{u}\\cdot\\mathbf{u}}$), vinkel og — viktigst — **ortogonalitet** ($\\mathbf{u}\\cdot\\mathbf{v}=0$). Men prikkproduktet er bare *ett* eksempel på en mer generell konstruksjon: et **indreprodukt**. Så snart vi har et indreprodukt på et rom, får vi lengde, avstand og ortogonalitet gratis — også på polynomer og funksjoner, der «lengde» ellers ikke ville betydd noe.\n\nDet er nettopp derfor MAT1120 bryr seg: signaturoppgaven lever i $\\operatorname{P}_n$ eller et funksjonsrom, og eksamen utstyrer det med et indreprodukt som *ikke* er prikkproduktet — et **vektet**, et **integral**- eller et **evaluerings**-indreprodukt. All geometri (ortogonal basis i kap. 4.2, projeksjon i Del 5) regnes da med akkurat det.\n\nVi jobber i tre løkker: **(1)** hva et indreprodukt er (de fire aksiomene) og hvordan norm og ortogonalitet defineres ut fra det; **(2)** de fire eksamenstypene — standard, vektet, integral, evaluering; **(3)** avstand, Cauchy–Schwarz og trekantulikheten. Hver løkke går teori → eksempel → oppgave."
+    },
+    {
+      "id": "mat1120-4-1-lokke1",
+      "type": "text",
+      "content": "## Løkke 1 — Indreproduktet, normen og ortogonalitet (~22 min)"
+    },
+    {
+      "id": "mat1120-4-1-def-indreprodukt",
+      "type": "definition",
+      "title": "Indreprodukt",
+      "content": "Et **indreprodukt** på et reelt vektorrom $V$ er en regel som til hvert par vektorer $\\mathbf{u},\\mathbf{v}$ knytter et *tall* $\\langle\\mathbf{u},\\mathbf{v}\\rangle$ — en slags «generalisert prikkprodukt» — slik at fire krav (aksiomer) holder for alle $\\mathbf{u},\\mathbf{v},\\mathbf{w}\\in V$ og alle skalarer $c$:\n\n$$\\textbf{(1) Symmetri:}\\quad \\langle\\mathbf{u},\\mathbf{v}\\rangle=\\langle\\mathbf{v},\\mathbf{u}\\rangle$$\n$$\\textbf{(2) Additivitet:}\\quad \\langle\\mathbf{u}+\\mathbf{v},\\mathbf{w}\\rangle=\\langle\\mathbf{u},\\mathbf{w}\\rangle+\\langle\\mathbf{v},\\mathbf{w}\\rangle$$\n$$\\textbf{(3) Homogenitet:}\\quad \\langle c\\mathbf{u},\\mathbf{v}\\rangle=c\\langle\\mathbf{u},\\mathbf{v}\\rangle$$\n$$\\textbf{(4) Positiv definitthet:}\\quad \\langle\\mathbf{v},\\mathbf{v}\\rangle\\ge 0,\\ \\text{med }=0\\ \\text{bare når}\\ \\mathbf{v}=\\mathbf{0}$$\n\nI ord: indreproduktet er **symmetrisk**, det er **lineært i første argument** (aksiom 2 og 3 sammen — og ved symmetri også i andre), og $\\langle\\mathbf{v},\\mathbf{v}\\rangle$ er alltid $\\ge 0$ og treffer $0$ kun for nullvektoren. Det siste er det som lar oss definere en *lengde*."
+    },
+    {
+      "id": "mat1120-4-1-def-indreproduktrom",
+      "type": "definition",
+      "title": "Indreproduktrom",
+      "content": "Et **indreproduktrom** er et vektorrom $V$ utstyrt med et bestemt indreprodukt $\\langle\\cdot,\\cdot\\rangle$. Samme underliggende rom kan bæres av *flere* ulike indreprodukt — og da får det ulik geometri. Det er hele poenget i MAT1120: $\\operatorname{P}_2$ med et integralindreprodukt og $\\operatorname{P}_2$ med et evalueringsindreprodukt er to forskjellige indreproduktrom, med forskjellige «ortogonale» polynomer."
+    },
+    {
+      "id": "mat1120-4-1-def-norm",
+      "type": "definition",
+      "title": "Norm (lengde) i indreproduktet",
+      "content": "**Normen** (lengden) til en vektor $\\mathbf{v}$ måles alltid *inne i* det aktuelle indreproduktet:\n\n$$\\|\\mathbf{v}\\|=\\sqrt{\\langle\\mathbf{v},\\mathbf{v}\\rangle}.$$\n\nPositiv definitthet (aksiom 4) garanterer at tallet under rottegnet ikke er negativt, så $\\|\\mathbf{v}\\|$ er veldefinert, og $\\|\\mathbf{v}\\|=0$ bare for $\\mathbf{v}=\\mathbf{0}$. **Merk:** bytter du indreprodukt, endrer normen seg. Det finnes ingen «egentlig» lengde uavhengig av indreproduktet."
+    },
+    {
+      "id": "mat1120-4-1-def-ortogonalitet",
+      "type": "definition",
+      "title": "Ortogonalitet",
+      "content": "To vektorer $\\mathbf{u}$ og $\\mathbf{v}$ er **ortogonale** (står «vinkelrett») dersom\n\n$$\\langle\\mathbf{u},\\mathbf{v}\\rangle=0.$$\n\nDette er *definisjonen* av ortogonalitet i et indreproduktrom — det er ingen tegning, bare tallet $0$. Derfor avhenger ortogonalitet av hvilket indreprodukt du bruker: $1$ og $t$ kan være ortogonale i ett indreprodukt og ikke i et annet. Å avgjøre ortogonalitet er å regne ut ett tall og sjekke om det er $0$."
+    },
+    {
+      "id": "mat1120-4-1-ex-std",
+      "type": "example",
+      "title": "Eksempel 1: Standardprikkproduktet som indreprodukt",
+      "problem": "I $\\mathbb{R}^3$ med det vanlige prikkproduktet $\\langle\\mathbf{u},\\mathbf{v}\\rangle=\\mathbf{u}\\cdot\\mathbf{v}=u_1v_1+u_2v_2+u_3v_3$: regn $\\langle\\mathbf{u},\\mathbf{v}\\rangle$ for $\\mathbf{u}=(1,2,-1)$ og $\\mathbf{v}=(3,0,2)$, finn $\\|\\mathbf{u}\\|$, og avgjør om $\\mathbf{u}$ og $\\mathbf{v}$ er ortogonale.",
+      "solution": "Vi bruker prikkproduktet i hvert ledd.\n\n$$\\langle\\mathbf{u},\\mathbf{v}\\rangle=1\\cdot 3+2\\cdot 0+(-1)\\cdot 2=3+0-2=1.$$\n\nSiden $\\langle\\mathbf{u},\\mathbf{v}\\rangle=1\\ne 0$, er $\\mathbf{u}$ og $\\mathbf{v}$ **ikke** ortogonale.\n\nNormen:\n$$\\|\\mathbf{u}\\|=\\sqrt{\\langle\\mathbf{u},\\mathbf{u}\\rangle}=\\sqrt{1^2+2^2+(-1)^2}=\\sqrt{6}.$$\n\n**Eksakt svar:** $\\langle\\mathbf{u},\\mathbf{v}\\rangle=1$, $\\|\\mathbf{u}\\|=\\sqrt 6$, ikke ortogonale. (Prikkproduktet oppfyller alle fire aksiomene — det er standardeksemplet på et indreprodukt.)"
+    },
+    {
+      "id": "mat1120-4-1-e1",
+      "type": "exercise",
+      "exercise": {
+        "id": "mat1120-4-1-ex1",
+        "number": "1",
+        "type": "classic",
+        "difficulty": "lett",
+        "task": "(Innstegsoppgave — ren gjengivelse.) Skriv opp de **fire aksiomene** et indreprodukt $\\langle\\cdot,\\cdot\\rangle$ må oppfylle, og oppgi hvordan **normen** $\\|\\mathbf{v}\\|$ og **ortogonalitet** defineres ut fra indreproduktet.",
+        "solution": "**Aksiomer:**\n\n**(1)** Symmetri: $\\langle\\mathbf{u},\\mathbf{v}\\rangle=\\langle\\mathbf{v},\\mathbf{u}\\rangle$.\n\n**(2)** Additivitet: $\\langle\\mathbf{u}+\\mathbf{v},\\mathbf{w}\\rangle=\\langle\\mathbf{u},\\mathbf{w}\\rangle+\\langle\\mathbf{v},\\mathbf{w}\\rangle$.\n\n**(3)** Homogenitet: $\\langle c\\mathbf{u},\\mathbf{v}\\rangle=c\\langle\\mathbf{u},\\mathbf{v}\\rangle$.\n\n**(4)** Positiv definitthet: $\\langle\\mathbf{v},\\mathbf{v}\\rangle\\ge 0$, med likhet bare for $\\mathbf{v}=\\mathbf{0}$.\n\n**Norm:** $\\|\\mathbf{v}\\|=\\sqrt{\\langle\\mathbf{v},\\mathbf{v}\\rangle}$. **Ortogonalitet:** $\\mathbf{u}\\perp\\mathbf{v}$ betyr $\\langle\\mathbf{u},\\mathbf{v}\\rangle=0$.",
+        "hints": [
+          "Symmetri, to linearitetskrav i første argument, og et positivitetskrav.",
+          "Normen er rota av indreproduktet med seg selv; ortogonalitet er at indreproduktet er null."
+        ]
+      }
+    },
+    {
+      "id": "mat1120-4-1-lokke2",
+      "type": "text",
+      "content": "## Løkke 2 — De fire eksamenstypene (~24 min)"
+    },
+    {
+      "id": "mat1120-4-1-lokke2-tekst",
+      "type": "text",
+      "content": "Eksamen henter fra **fire** indreprodukt. Ett er standardprikkproduktet; de tre andre er «ikke-standard» og er der karakterene skilles. Poenget med hver av dem er å definere et *tall* $\\langle\\mathbf{u},\\mathbf{v}\\rangle$ ut fra vektorene — og så bruke *nettopp det tallet* til alt annet."
+    },
+    {
+      "id": "mat1120-4-1-def-std",
+      "type": "definition",
+      "title": "Standardprikkproduktet i $\\mathbb{R}^n$",
+      "content": "På $\\mathbb{R}^n$ er **standardindreproduktet** det vanlige prikkproduktet:\n\n$$\\langle\\mathbf{x},\\mathbf{y}\\rangle=\\mathbf{x}\\cdot\\mathbf{y}=x_1y_1+x_2y_2+\\dots+x_ny_n.$$\n\nDette er «standard». Hvis en oppgave i $\\mathbb{R}^n$ ikke sier noe annet, er det dette du bruker. Men les alltid oppgaveteksten: står det et annet indreprodukt, gjelder det i stedet."
+    },
+    {
+      "id": "mat1120-4-1-def-vektet",
+      "type": "definition",
+      "title": "Vektet indreprodukt",
+      "content": "Et **vektet indreprodukt** på $\\mathbb{R}^n$ ganger hvert ledd med en positiv **vekt** $w_i>0$:\n\n$$\\langle\\mathbf{x},\\mathbf{y}\\rangle=w_1x_1y_1+w_2x_2y_2+\\dots+w_nx_ny_n,\\qquad w_i>0.$$\n\nVektene «teller opp» noen koordinater tyngre enn andre. Kravet $w_i>0$ sikrer aksiom 4 (positiv definitthet): $\\langle\\mathbf{x},\\mathbf{x}\\rangle=\\sum w_ix_i^2\\ge 0$ og $=0$ bare når alle $x_i=0$. Et typisk eksamenseksempel er $\\langle\\mathbf{x},\\mathbf{y}\\rangle=2x_1y_1+2x_2y_2+x_3y_3$ (vektene $2,2,1$)."
+    },
+    {
+      "id": "mat1120-4-1-ex-vektet",
+      "type": "example",
+      "title": "Eksempel 2: Vektet indreprodukt (sjanger B)",
+      "problem": "På $\\mathbb{R}^3$ med $\\langle\\mathbf{x},\\mathbf{y}\\rangle=2x_1y_1+2x_2y_2+x_3y_3$: for $\\mathbf{x}=(1,1,2)$ og $\\mathbf{y}=(2,-1,1)$, regn $\\langle\\mathbf{x},\\mathbf{y}\\rangle$ og $\\|\\mathbf{x}\\|$. Er $\\mathbf{a}=(1,0,-1)$ og $\\mathbf{b}=(1,1,2)$ ortogonale i dette indreproduktet?",
+      "solution": "Vi bruker vektene $2,2,1$ i **hvert** ledd.\n\n$$\\langle\\mathbf{x},\\mathbf{y}\\rangle=2(1)(2)+2(1)(-1)+(2)(1)=4-2+2=4.$$\n\nNormen (samme vekter under):\n$$\\|\\mathbf{x}\\|=\\sqrt{\\langle\\mathbf{x},\\mathbf{x}\\rangle}=\\sqrt{2(1)^2+2(1)^2+(2)^2}=\\sqrt{2+2+4}=\\sqrt 8=2\\sqrt 2.$$\n\nOrtogonalitet for $\\mathbf{a},\\mathbf{b}$:\n$$\\langle\\mathbf{a},\\mathbf{b}\\rangle=2(1)(1)+2(0)(1)+(-1)(2)=2+0-2=0.$$\nSiden $\\langle\\mathbf{a},\\mathbf{b}\\rangle=0$, er $\\mathbf{a}$ og $\\mathbf{b}$ **ortogonale** i det vektede indreproduktet. **Merk:** i standardprikkproduktet ville $\\mathbf{a}\\cdot\\mathbf{b}=1+0-2=-1\\ne 0$ — svaret hadde blitt feil. Vektene avgjør."
+    },
+    {
+      "id": "mat1120-4-1-e2",
+      "type": "exercise",
+      "exercise": {
+        "id": "mat1120-4-1-ex2",
+        "number": "2",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "På $\\mathbb{R}^3$ med det vektede indreproduktet $\\langle\\mathbf{x},\\mathbf{y}\\rangle=2x_1y_1+2x_2y_2+x_3y_3$:\n\n**a)** Regn $\\langle\\mathbf{u},\\mathbf{v}\\rangle$ og $\\|\\mathbf{v}\\|$ for $\\mathbf{u}=(2,1,0)$ og $\\mathbf{v}=(0,1,3)$.\n\n**b)** Bestem tallet $k$ slik at $(1,1,k)$ blir ortogonal på $(2,-1,1)$ i dette indreproduktet.",
+        "solution": "**a)** Med vektene $2,2,1$:\n$$\\langle\\mathbf{u},\\mathbf{v}\\rangle=2(2)(0)+2(1)(1)+(0)(3)=0+2+0=2.$$\n$$\\|\\mathbf{v}\\|=\\sqrt{2(0)^2+2(1)^2+(3)^2}=\\sqrt{0+2+9}=\\sqrt{11}.$$\n\n**b)** Kravet er $\\langle(1,1,k),(2,-1,1)\\rangle=0$:\n$$2(1)(2)+2(1)(-1)+(k)(1)=4-2+k=2+k=0\\ \\Rightarrow\\ k=-2.$$\nAltså $k=-2$. (Kontroll: $(1,1,-2)$ mot $(2,-1,1)$ gir $4-2-2=0$. ✓)",
+        "hints": [
+          "Bruk vektene $2,2,1$ i hvert ledd — også i normen.",
+          "For b): sett opp $\\langle(1,1,k),(2,-1,1)\\rangle=0$ og løs for $k$."
+        ]
+      }
+    },
+    {
+      "id": "mat1120-4-1-def-integral",
+      "type": "definition",
+      "title": "Integralindreprodukt",
+      "content": "På polynomrommet $\\operatorname{P}_n$ (eller et funksjonsrom) er et **integralindreprodukt** definert ved et bestemt integral over et intervall $[a,b]$:\n\n$$\\langle p,q\\rangle=\\int_a^b p(t)\\,q(t)\\,dt.$$\n\nHer er «vektorene» polynomer/funksjoner, og indreproduktet av to av dem er *arealet under* produktkurven. Det oppfyller aksiomene (symmetri og linearitet fra integralet; positiv definitthet fordi $\\int_a^b p(t)^2\\,dt>0$ når $p\\ne 0$). Intervallet er en del av definisjonen: $\\int_{-1}^1$ og $\\int_{-2}^0$ gir *forskjellige* indreprodukt."
+    },
+    {
+      "id": "mat1120-4-1-ex-integral",
+      "type": "example",
+      "title": "Eksempel 3: Integralindreprodukt på $\\operatorname{P}_2$",
+      "problem": "På $\\operatorname{P}_2$ med $\\langle p,q\\rangle=\\int_{-1}^1 p(t)q(t)\\,dt$: regn $\\langle 1,t^2\\rangle$ og $\\|t\\|$, og avgjør om $1$ og $t$ er ortogonale.",
+      "solution": "Vi setter inn i integralet.\n\n$$\\langle 1,t^2\\rangle=\\int_{-1}^1 1\\cdot t^2\\,dt=\\Big[\\tfrac{t^3}{3}\\Big]_{-1}^1=\\tfrac13-\\left(-\\tfrac13\\right)=\\tfrac{2}{3}.$$\n\nNormen til $t$:\n$$\\|t\\|=\\sqrt{\\langle t,t\\rangle}=\\sqrt{\\int_{-1}^1 t^2\\,dt}=\\sqrt{\\tfrac{2}{3}}=\\frac{\\sqrt 6}{3}.$$\n\nOrtogonalitet av $1$ og $t$:\n$$\\langle 1,t\\rangle=\\int_{-1}^1 t\\,dt=\\Big[\\tfrac{t^2}{2}\\Big]_{-1}^1=\\tfrac12-\\tfrac12=0.$$\nSiden $\\langle 1,t\\rangle=0$, er $1$ og $t$ **ortogonale** på $[-1,1]$. (Integranden $t$ er en oddefunksjon over et symmetrisk intervall — derfor $0$. Det er et nyttig sjekk-triks.) **Eksakt svar:** $\\tfrac23$, $\\tfrac{\\sqrt6}{3}$, ortogonale."
+    },
+    {
+      "id": "mat1120-4-1-e3",
+      "type": "exercise",
+      "exercise": {
+        "id": "mat1120-4-1-ex3",
+        "number": "3",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "På $\\operatorname{P}_2$ med $\\langle p,q\\rangle=\\int_{-1}^1 p(t)q(t)\\,dt$:\n\n**a)** Regn $\\langle 1+t,\\,1-t\\rangle$ og $\\|1+t\\|$.\n\n**b)** Bestem tallet $a$ slik at $1$ og $t^2+a$ blir ortogonale.",
+        "solution": "**a)** $\\langle 1+t,1-t\\rangle=\\int_{-1}^1 (1+t)(1-t)\\,dt=\\int_{-1}^1 (1-t^2)\\,dt=\\Big[t-\\tfrac{t^3}{3}\\Big]_{-1}^1=\\left(1-\\tfrac13\\right)-\\left(-1+\\tfrac13\\right)=\\tfrac{4}{3}.$\n\n$\\|1+t\\|=\\sqrt{\\int_{-1}^1 (1+t)^2\\,dt}=\\sqrt{\\int_{-1}^1 (1+2t+t^2)\\,dt}=\\sqrt{\\Big[t+t^2+\\tfrac{t^3}{3}\\Big]_{-1}^1}=\\sqrt{\\tfrac{8}{3}}=\\dfrac{2\\sqrt 6}{3}.$\n\n**b)** Kravet $\\langle 1,t^2+a\\rangle=0$: $\\displaystyle\\int_{-1}^1 (t^2+a)\\,dt=\\tfrac23+2a=0\\ \\Rightarrow\\ a=-\\tfrac13.$ Altså er $1$ og $t^2-\\tfrac13$ ortogonale (dette polynomet dukker opp igjen i Gram–Schmidt, kap. 4.2).",
+        "hints": [
+          "Multipliser ut integranden før du integrerer; bruk symmetri ($\\int_{-1}^1 t\\,dt=0$) der du kan.",
+          "For b): $\\int_{-1}^1(t^2+a)\\,dt=\\tfrac23+2a$; sett $=0$."
+        ]
+      }
+    },
+    {
+      "id": "mat1120-4-1-def-evaluering",
+      "type": "definition",
+      "title": "Evalueringsindreprodukt",
+      "content": "Et **evalueringsindreprodukt** på $\\operatorname{P}_n$ velger $n+1$ (eller flere) punkter $t_0,t_1,\\dots$ og summerer produktet av polynomverdiene i punktene:\n\n$$\\langle p,q\\rangle=p(t_0)q(t_0)+p(t_1)q(t_1)+\\dots=\\sum_i p(t_i)q(t_i).$$\n\nHer «prøver» vi polynomene i noen faste punkter. Det er et indreprodukt så lenge antallet punkter er **minst** $n+1$ — da tvinger $\\langle p,p\\rangle=\\sum p(t_i)^2=0$ polynomet (av grad $\\le n$) til å ha for mange røtter, altså $p=0$ (positiv definitthet). Med for få punkter er det *ikke* et indreprodukt. Eksamen bruker typisk 3 punkter på $\\operatorname{P}_2$."
+    },
+    {
+      "id": "mat1120-4-1-ex-eval",
+      "type": "example",
+      "title": "Eksempel 4: Evalueringsindreprodukt på $\\operatorname{P}_2$",
+      "problem": "På $\\operatorname{P}_2$ med $\\langle p,q\\rangle=p(-1)q(-1)+p(0)q(0)+p(1)q(1)$ (punktene $-1,0,1$): regn $\\|t\\|$ og $\\langle 1,t\\rangle$. Er $1$ og $t$ ortogonale?",
+      "solution": "Vi setter inn de tre punktene.\n\n$$\\langle t,t\\rangle=(-1)^2+0^2+1^2=1+0+1=2\\ \\Rightarrow\\ \\|t\\|=\\sqrt 2.$$\n$$\\langle 1,t\\rangle=1\\cdot(-1)+1\\cdot 0+1\\cdot 1=-1+0+1=0.$$\n\nSiden $\\langle 1,t\\rangle=0$, er $1$ og $t$ **ortogonale** også i dette evalueringsindreproduktet. **Eksakt svar:** $\\|t\\|=\\sqrt 2$, ortogonale. (Legg merke til at $\\|t\\|=\\sqrt2$ her, men $\\tfrac{\\sqrt6}{3}$ i integralindreproduktet fra Eksempel 3 — samme polynom, ulik lengde, fordi indreproduktet er ulikt.)"
+    },
+    {
+      "id": "mat1120-4-1-e4",
+      "type": "exercise",
+      "exercise": {
+        "id": "mat1120-4-1-ex4",
+        "number": "4",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "På $\\operatorname{P}_2$ med evalueringsindreproduktet $\\langle p,q\\rangle=p(0)q(0)+p(1)q(1)+p(2)q(2)$ (punktene $0,1,2$):\n\n**a)** Regn $\\|1\\|$ og $\\langle t,\\,t-1\\rangle$.\n\n**b)** Bestem tallet $c$ slik at $t$ og $t-c$ blir ortogonale.",
+        "solution": "**a)** $\\|1\\|=\\sqrt{\\langle 1,1\\rangle}=\\sqrt{1^2+1^2+1^2}=\\sqrt 3.$\n\n$\\langle t,t-1\\rangle=0\\cdot(0-1)+1\\cdot(1-1)+2\\cdot(2-1)=0+0+2=2.$\n\n**b)** $\\langle t,t-c\\rangle=0\\cdot(0-c)+1\\cdot(1-c)+2\\cdot(2-c)=(1-c)+(4-2c)=5-3c$. Sett $=0$: $c=\\tfrac{5}{3}$. Altså er $t$ og $t-\\tfrac{5}{3}$ ortogonale i dette evalueringsindreproduktet.",
+        "hints": [
+          "Sett inn punktene $0,1,2$ i hvert polynom og summér produktene.",
+          "For b): $\\langle t,t-c\\rangle=5-3c$; sett $=0$ og løs for $c$."
+        ]
+      }
+    },
+    {
+      "id": "mat1120-4-1-warn-oppgitt",
+      "type": "warning",
+      "title": "Bruk ALLTID det oppgitte indreproduktet",
+      "content": "Dette er den **viktigste advarselen i hele faget** og gjelder gjennom Del 4 og Del 5:\n\n- Når oppgaven oppgir et indreprodukt (vektet, integral eller evaluering), skal **hvert** skalarprodukt du regner bruke akkurat den definisjonen — ikke bare noen av dem.\n- **Normen** $\\|\\mathbf{v}\\|=\\sqrt{\\langle\\mathbf{v},\\mathbf{v}\\rangle}$ regnes med det *samme* indreproduktet. Dette gjelder også normen når du normaliserer i Gram–Schmidt (kap. 4.2) — den vanligste stedet feilen sniker seg inn.\n- **Ortogonalitet** $\\langle\\mathbf{u},\\mathbf{v}\\rangle=0$ avgjøres i det oppgitte indreproduktet. To vektorer kan være ortogonale i ett og ikke i et annet.\n\nÅ regne med standardprikkproduktet der oppgaven har oppgitt noe annet gir *systematisk* feil svar på alt som følger — og er den enkeltfeilen som koster flest poeng på MAT1120-eksamen."
+    },
+    {
+      "id": "mat1120-4-1-lokke3",
+      "type": "text",
+      "content": "## Løkke 3 — Avstand, Cauchy–Schwarz og trekantulikheten (~14 min)"
+    },
+    {
+      "id": "mat1120-4-1-def-avstand",
+      "type": "definition",
+      "title": "Avstand",
+      "content": "**Avstanden** mellom to vektorer $\\mathbf{u}$ og $\\mathbf{v}$ i et indreproduktrom er lengden av differansen:\n\n$$\\operatorname{dist}(\\mathbf{u},\\mathbf{v})=\\|\\mathbf{u}-\\mathbf{v}\\|=\\sqrt{\\langle\\mathbf{u}-\\mathbf{v},\\,\\mathbf{u}-\\mathbf{v}\\rangle}.$$\n\nAvstand er altså også målt i det oppgitte indreproduktet. I Del 5 blir «avstanden fra en vektor til et underrom» selve minste-kvadraters-ideen."
+    },
+    {
+      "id": "mat1120-4-1-thm-cs",
+      "type": "theorem",
+      "title": "Cauchy–Schwarz og trekantulikheten",
+      "content": "For alle vektorer $\\mathbf{u},\\mathbf{v}$ i et indreproduktrom gjelder:\n\n$$\\textbf{Cauchy–Schwarz:}\\quad |\\langle\\mathbf{u},\\mathbf{v}\\rangle|\\le \\|\\mathbf{u}\\|\\,\\|\\mathbf{v}\\|$$\n$$\\textbf{Trekantulikheten:}\\quad \\|\\mathbf{u}+\\mathbf{v}\\|\\le \\|\\mathbf{u}\\|+\\|\\mathbf{v}\\|$$\n\nCauchy–Schwarz sier at «skalarproduktet aldri overgår produktet av lengdene» — det er dette som lar oss definere en **vinkel** $\\theta$ via $\\cos\\theta=\\dfrac{\\langle\\mathbf{u},\\mathbf{v}\\rangle}{\\|\\mathbf{u}\\|\\,\\|\\mathbf{v}\\|}$, siden brøken da alltid ligger i $[-1,1]$. Trekantulikheten er den vante regelen om at «en sидe er kortere enn de to andre til sammen». Begge holder i *ethvert* indreprodukt. På MAT1120 trengs de mest til å *kjenne igjen* og navngi; sjelden til lange bevis."
+    },
+    {
+      "id": "mat1120-4-1-ex-avstand",
+      "type": "example",
+      "title": "Eksempel 5: Avstand i integralindreproduktet",
+      "problem": "På $\\operatorname{P}_2$ med $\\langle p,q\\rangle=\\int_{-1}^1 pq\\,dt$: finn avstanden mellom $p=1$ og $q=t$.",
+      "solution": "Avstanden er normen av differansen $p-q=1-t$:\n$$\\operatorname{dist}(1,t)=\\|1-t\\|=\\sqrt{\\int_{-1}^1 (1-t)^2\\,dt}.$$\nRegn integralet: $\\int_{-1}^1 (1-2t+t^2)\\,dt=\\Big[t-t^2+\\tfrac{t^3}{3}\\Big]_{-1}^1=\\left(1-1+\\tfrac13\\right)-\\left(-1-1-\\tfrac13\\right)=\\tfrac13+\\tfrac73=\\tfrac{8}{3}.$\n\nAltså $\\operatorname{dist}(1,t)=\\sqrt{\\tfrac{8}{3}}=\\dfrac{2\\sqrt 6}{3}$. **Eksakt svar:** $\\dfrac{2\\sqrt6}{3}$. (Samme tall som $\\|1+t\\|$ i oppgave 3a — tilfeldig sammenfall fordi $1-t$ og $1+t$ har samme norm på det symmetriske intervallet.)"
+    },
+    {
+      "id": "mat1120-4-1-e5",
+      "type": "exercise",
+      "exercise": {
+        "id": "mat1120-4-1-ex5",
+        "number": "5",
+        "type": "classic",
+        "difficulty": "vanskelig",
+        "task": "På $\\mathbb{R}^3$ med det vektede indreproduktet $\\langle\\mathbf{x},\\mathbf{y}\\rangle=2x_1y_1+2x_2y_2+x_3y_3$:\n\n**a)** Finn avstanden $\\operatorname{dist}(\\mathbf{u},\\mathbf{v})$ mellom $\\mathbf{u}=(1,2,1)$ og $\\mathbf{v}=(1,1,3)$.\n\n**b)** Bekreft Cauchy–Schwarz-ulikheten $|\\langle\\mathbf{u},\\mathbf{v}\\rangle|\\le\\|\\mathbf{u}\\|\\,\\|\\mathbf{v}\\|$ for de samme to vektorene ved å regne ut begge sider (du trenger ikke bevise ulikheten, bare kontrollere den).",
+        "solution": "**a)** $\\mathbf{u}-\\mathbf{v}=(0,1,-2)$, så\n$$\\operatorname{dist}(\\mathbf{u},\\mathbf{v})=\\|(0,1,-2)\\|=\\sqrt{2(0)^2+2(1)^2+(-2)^2}=\\sqrt{0+2+4}=\\sqrt 6.$$\n\n**b)** Venstre side: $\\langle\\mathbf{u},\\mathbf{v}\\rangle=2(1)(1)+2(2)(1)+(1)(3)=2+4+3=9$, så $|\\langle\\mathbf{u},\\mathbf{v}\\rangle|=9$.\n\nHøyre side: $\\|\\mathbf{u}\\|=\\sqrt{2+8+1}=\\sqrt{11}$ og $\\|\\mathbf{v}\\|=\\sqrt{2+2+9}=\\sqrt{13}$, så $\\|\\mathbf{u}\\|\\,\\|\\mathbf{v}\\|=\\sqrt{143}$.\n\nSiden $9=\\sqrt{81}\\le\\sqrt{143}$, holder Cauchy–Schwarz. ✓ (Likhet ville krevd at $\\mathbf{u},\\mathbf{v}$ var parallelle; her er $81<143$.)",
+        "hints": [
+          "For a): regn $\\mathbf{u}-\\mathbf{v}$ først, deretter normen i det vektede indreproduktet.",
+          "For b): venstre side er $|\\langle\\mathbf{u},\\mathbf{v}\\rangle|$; høyre er produktet av de to (vektede) normene. Sammenlign $9$ med $\\sqrt{143}$."
+        ]
+      }
+    },
+    {
+      "id": "mat1120-4-1-warn-typiske-feil",
+      "type": "warning",
+      "title": "Typiske feil",
+      "content": "- **Standardprikkproduktet i et ikke-standard indreprodukt.** MAT1120-felle nr. 1: oppgaven oppgir vektet/integral/evaluering, men du regner $\\mathbf{u}\\cdot\\mathbf{v}$. Alt som følger blir feil. Les alltid: *hvilket* indreprodukt?\n- **Feil norm ved normalisering.** Normen skal regnes i det oppgitte indreproduktet — også i Gram–Schmidt (kap. 4.2). $\\|t\\|$ er $\\tfrac{\\sqrt6}{3}$ i ett indreprodukt og $\\sqrt2$ i et annet.\n- **Glemmer at intervallet/punktene er en del av definisjonen.** $\\int_{-1}^1$ og $\\int_{-2}^0$ gir ulike indreprodukt; ulike evalueringspunkter likeså.\n- **Regnefeil i integralet eller summen.** Multipliser ut integranden før integrasjon; bruk symmetri ($\\int_{-a}^a$ av oddefunksjon $=0$) som kontroll.\n- **Glemmer positiv definitthet-kravet.** Vekter må være $>0$, og et evalueringsindreprodukt trenger nok punkter ($\\ge n+1$ på $\\operatorname{P}_n$) for å være et ekte indreprodukt."
+    },
+    {
+      "id": "mat1120-4-1-begrepsbank-tekst",
+      "type": "text",
+      "content": "## Begrepsbank til eksamen\n\nKjernebegrepene fra kapitlet i eksamensrettet kortform — apparatet du må kunne navngi når du regner med indreprodukt (det er intet formelark på eksamen).\n\n*Begrepsbanken er flashcard-/repetisjonsstoff — den gjentar det du nettopp har lest. Hopp trygt over ved førstegangslesing; tidsanslaget for kapitlet gjelder kjernestoffet.*"
+    },
+    {
+      "id": "mat1120-4-1-bb-1",
+      "type": "definition",
+      "title": "Symmetriaksiomet",
+      "content": "Aksiom 1: $\\langle\\mathbf{u},\\mathbf{v}\\rangle=\\langle\\mathbf{v},\\mathbf{u}\\rangle$. Rekkefølgen på argumentene spiller ingen rolle. Fordi indreproduktet er lineært i *første* argument, gjør symmetrien at det også er lineært i andre argument."
+    },
+    {
+      "id": "mat1120-4-1-bb-2",
+      "type": "definition",
+      "title": "Linearitet i første argument",
+      "content": "Aksiom 2 og 3 sammen: $\\langle c\\mathbf{u}+d\\mathbf{v},\\mathbf{w}\\rangle=c\\langle\\mathbf{u},\\mathbf{w}\\rangle+d\\langle\\mathbf{v},\\mathbf{w}\\rangle$. Indreproduktet «fordeler seg» over summer og trekker ut skalarer i det første argumentet — helt som prikkproduktet."
+    },
+    {
+      "id": "mat1120-4-1-bb-3",
+      "type": "definition",
+      "title": "Positiv definitthet",
+      "content": "Aksiom 4: $\\langle\\mathbf{v},\\mathbf{v}\\rangle\\ge 0$ for alle $\\mathbf{v}$, med likhet bare når $\\mathbf{v}=\\mathbf{0}$. Dette er kravet som gjør $\\|\\mathbf{v}\\|=\\sqrt{\\langle\\mathbf{v},\\mathbf{v}\\rangle}$ meningsfull (aldri rot av et negativt tall)."
+    },
+    {
+      "id": "mat1120-4-1-bb-4",
+      "type": "definition",
+      "title": "Bilinearitet",
+      "content": "At indreproduktet er lineært i *begge* argumenter (følger av linearitet i første + symmetri). Derfor kan du multiplisere ut $\\langle a\\mathbf{u}+b\\mathbf{v},\\,c\\mathbf{w}+d\\mathbf{z}\\rangle$ ledd for ledd som en vanlig parentes."
+    },
+    {
+      "id": "mat1120-4-1-bb-5",
+      "type": "definition",
+      "title": "Vekt",
+      "content": "Tallet $w_i>0$ i et vektet indreprodukt $\\langle\\mathbf{x},\\mathbf{y}\\rangle=\\sum w_ix_iy_i$. Vekten bestemmer hvor «tungt» koordinat $i$ teller. Alle vekter må være strengt positive for at aksiom 4 skal holde."
+    },
+    {
+      "id": "mat1120-4-1-bb-6",
+      "type": "definition",
+      "title": "Kravet $w_i>0$",
+      "content": "Vektene i et vektet indreprodukt må være strengt positive. Ellers svikter positiv definitthet: en null- eller negativ vekt lar en vektor $\\ne\\mathbf{0}$ få $\\langle\\mathbf{x},\\mathbf{x}\\rangle\\le 0$, og «lengden» blir meningsløs."
+    },
+    {
+      "id": "mat1120-4-1-bb-7",
+      "type": "definition",
+      "title": "Enhetsvektor",
+      "content": "En vektor med norm $1$: $\\|\\mathbf{u}\\|=1$, altså $\\langle\\mathbf{u},\\mathbf{u}\\rangle=1$. «Enhet» måles i det oppgitte indreproduktet — en vektor kan ha norm $1$ i ett indreprodukt og en annen norm i et annet."
+    },
+    {
+      "id": "mat1120-4-1-bb-8",
+      "type": "definition",
+      "title": "Normalisering",
+      "content": "Å skalere en vektor $\\mathbf{v}\\ne\\mathbf{0}$ til en enhetsvektor: $\\mathbf{u}=\\dfrac{1}{\\|\\mathbf{v}\\|}\\mathbf{v}$. Bruk den *oppgitte* normen. Dette er siste steg mot en ortonormal basis i kap. 4.2."
+    },
+    {
+      "id": "mat1120-4-1-bb-9",
+      "type": "definition",
+      "title": "Cauchy–Schwarz-ulikheten",
+      "content": "$|\\langle\\mathbf{u},\\mathbf{v}\\rangle|\\le\\|\\mathbf{u}\\|\\,\\|\\mathbf{v}\\|$, med likhet bare når $\\mathbf{u},\\mathbf{v}$ er parallelle. Gjelder i ethvert indreprodukt og gjør at $\\cos\\theta=\\frac{\\langle\\mathbf{u},\\mathbf{v}\\rangle}{\\|\\mathbf{u}\\|\\|\\mathbf{v}\\|}$ alltid ligger i $[-1,1]$."
+    },
+    {
+      "id": "mat1120-4-1-bb-10",
+      "type": "definition",
+      "title": "Trekantulikheten",
+      "content": "$\\|\\mathbf{u}+\\mathbf{v}\\|\\le\\|\\mathbf{u}\\|+\\|\\mathbf{v}\\|$. «En vei rett fram er aldri lengre enn en omvei.» En konsekvens av Cauchy–Schwarz, og holder i ethvert indreproduktrom."
+    },
+    {
+      "id": "mat1120-4-1-bb-11",
+      "type": "definition",
+      "title": "Vinkel mellom vektorer",
+      "content": "Vinkelen $\\theta$ mellom $\\mathbf{u}$ og $\\mathbf{v}$ er gitt ved $\\cos\\theta=\\dfrac{\\langle\\mathbf{u},\\mathbf{v}\\rangle}{\\|\\mathbf{u}\\|\\,\\|\\mathbf{v}\\|}$. Ortogonalitet ($\\langle\\mathbf{u},\\mathbf{v}\\rangle=0$) svarer til $\\theta=90^\\circ$. Vinkelen avhenger av indreproduktet."
+    },
+    {
+      "id": "mat1120-4-1-bb-12",
+      "type": "definition",
+      "title": "Ortogonal mengde",
+      "content": "En mengde vektorer som er parvis ortogonale: $\\langle\\mathbf{v}_i,\\mathbf{v}_j\\rangle=0$ for alle $i\\ne j$. En slik mengde (uten nullvektorer) er alltid lineært uavhengig — grunnlaget for ortogonale baser i kap. 4.2."
+    },
+    {
+      "id": "mat1120-4-1-bb-13",
+      "type": "definition",
+      "title": "Pythagoras i indreproduktrom",
+      "content": "Hvis $\\mathbf{u}\\perp\\mathbf{v}$, så er $\\|\\mathbf{u}+\\mathbf{v}\\|^2=\\|\\mathbf{u}\\|^2+\\|\\mathbf{v}\\|^2$. Den vante Pythagoras-setningen, men i ethvert indreprodukt — den holder nettopp fordi kryssleddet $2\\langle\\mathbf{u},\\mathbf{v}\\rangle$ forsvinner når vektorene er ortogonale."
+    },
+    {
+      "id": "mat1120-4-1-bb-14",
+      "type": "definition",
+      "title": "Evalueringspunkter",
+      "content": "Punktene $t_0,t_1,\\dots$ i et evalueringsindreprodukt $\\langle p,q\\rangle=\\sum p(t_i)q(t_i)$. Polynomene «prøves» i disse punktene. Ulike punkter gir ulike indreprodukt, akkurat som ulike vekter."
+    },
+    {
+      "id": "mat1120-4-1-bb-15",
+      "type": "definition",
+      "title": "Nok evalueringspunkter",
+      "content": "For at et evalueringsindreprodukt skal være et *ekte* indreprodukt på $\\operatorname{P}_n$, må det være minst $n+1$ punkter. Med færre finnes et polynom $\\ne 0$ av grad $\\le n$ som er null i alle punktene, og positiv definitthet svikter."
+    },
+    {
+      "id": "mat1120-4-1-bb-16",
+      "type": "definition",
+      "title": "Kvadrert norm",
+      "content": "$\\|\\mathbf{v}\\|^2=\\langle\\mathbf{v},\\mathbf{v}\\rangle$. Ofte lettere å regne med enn normen selv (unngår rottegnet til slutt). I Gram–Schmidt dukker $\\langle\\mathbf{v}_i,\\mathbf{v}_i\\rangle=\\|\\mathbf{v}_i\\|^2$ opp i hver nevner."
+    },
+    {
+      "id": "mat1120-4-1-bb-17",
+      "type": "definition",
+      "title": "Ortonormal mengde",
+      "content": "En ortogonal mengde der hver vektor i tillegg har norm $1$: $\\langle\\mathbf{u}_i,\\mathbf{u}_j\\rangle=\\delta_{ij}$ (dvs. $0$ for $i\\ne j$ og $1$ for $i=j$). Det ideelle koordinatsystemet — utvikles i kap. 4.2."
+    },
+    {
+      "id": "mat1120-4-1-bb-18",
+      "type": "definition",
+      "title": "Standardnorm-fellen",
+      "content": "Å regne $\\|\\mathbf{v}\\|=\\sqrt{v_1^2+\\dots+v_n^2}$ når indreproduktet er vektet/integral/evaluering. Normen må *alltid* regnes som $\\sqrt{\\langle\\mathbf{v},\\mathbf{v}\\rangle}$ i det oppgitte indreproduktet — dette er den dyreste tabben i faget."
+    },
+    {
+      "id": "mat1120-4-1-bb-19",
+      "type": "definition",
+      "title": "Indreprodukt på $\\operatorname{P}_n$",
+      "content": "På polynomrommet finnes ikke ett «riktig» indreprodukt; eksamen oppgir enten et integral $\\int_a^b pq\\,dt$ eller en evalueringssum $\\sum p(t_i)q(t_i)$. Begge gjør $\\operatorname{P}_n$ til et indreproduktrom med lengde og ortogonalitet."
+    },
+    {
+      "id": "mat1120-4-1-rep",
+      "type": "collapsible",
+      "title": "Repetisjonsoppgaver",
+      "buttonText": "Vis repetisjonsoppgaver",
+      "content": [
+        {
+          "id": "mat1120-4-1-R1",
+          "type": "exercise",
+          "exercise": {
+            "id": "mat1120-4-1-eR1",
+            "number": "R1",
+            "type": "classic",
+            "difficulty": "lett",
+            "task": "(Fra [kap. 2.1](/bok/mat1120/mat1120-2-1)) Hva er standardbasisen for $\\operatorname{P}_2$, og hva er $\\dim\\operatorname{P}_2$?",
+            "solution": "Standardbasisen er $\\{1,t,t^2\\}$, og $\\dim\\operatorname{P}_2=2+1=3$. (Konstantleddet $1=t^0$ teller med.)",
+            "hints": [
+              "Dimensjonen er graden pluss én."
+            ]
+          }
+        },
+        {
+          "id": "mat1120-4-1-R2",
+          "type": "exercise",
+          "exercise": {
+            "id": "mat1120-4-1-eR2",
+            "number": "R2",
+            "type": "classic",
+            "difficulty": "lett",
+            "task": "(Fra [kap. 1.1](/bok/mat1120/mat1120-1-1)) Regn det vanlige prikkproduktet $\\mathbf{u}\\cdot\\mathbf{v}$ for $\\mathbf{u}=(2,-1,3)$ og $\\mathbf{v}=(1,4,0)$, og avgjør om de er ortogonale (i standardprikkproduktet).",
+            "solution": "$\\mathbf{u}\\cdot\\mathbf{v}=2\\cdot1+(-1)\\cdot4+3\\cdot0=2-4+0=-2$. Siden $-2\\ne 0$, er de **ikke** ortogonale.",
+            "hints": [
+              "Summér produktene koordinat for koordinat."
+            ]
+          }
+        },
+        {
+          "id": "mat1120-4-1-R3",
+          "type": "exercise",
+          "exercise": {
+            "id": "mat1120-4-1-eR3",
+            "number": "R3",
+            "type": "classic",
+            "difficulty": "middels",
+            "task": "(Fra [kap. 2.1](/bok/mat1120/mat1120-2-1)) Forklar kort hvorfor et evalueringsindreprodukt $\\langle p,q\\rangle=\\sum p(t_i)q(t_i)$ er *symmetrisk* og *lineært i første argument* — uten regning, bare med aksiomene.",
+            "solution": "Symmetri: $p(t_i)q(t_i)=q(t_i)p(t_i)$ for hvert $i$, så $\\langle p,q\\rangle=\\langle q,p\\rangle$. Linearitet i første argument: $(cp+dr)(t_i)=c\\,p(t_i)+d\\,r(t_i)$, og summen fordeler seg, så $\\langle cp+dr,q\\rangle=c\\langle p,q\\rangle+d\\langle r,q\\rangle$. (Positiv definitthet krever i tillegg nok punkter — se begrepsbanken.)",
+            "hints": [
+              "Symmetri følger av at tallmultiplikasjon er kommutativ i hvert ledd; linearitet av at $(cp)(t_i)=c\\,p(t_i)$."
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": "mat1120-4-1-symbolliste",
+      "type": "collapsible",
+      "title": "Symbol- og formelliste",
+      "buttonText": "Vis symboler og formler",
+      "content": [
+        {
+          "id": "mat1120-4-1-symbolliste-text",
+          "type": "text",
+          "content": "## Symbol- og formelliste\n\n*Oppslagsverk — alt her forklares underveis i kapitlet.*\n\nAlle symboler og formler som brukes i dette delkapitlet (4.1), samlet på ett sted.\n\n| Symbol | Betydning |\n|---|---|\n| $\\langle\\mathbf{u},\\mathbf{v}\\rangle$ | Indreproduktet av $\\mathbf{u}$ og $\\mathbf{v}$ (et tall) |\n| $\\mathbf{u}\\cdot\\mathbf{v}$ | Standardprikkproduktet i $\\mathbb{R}^n$ |\n| $\\|\\mathbf{v}\\|$ | Normen (lengden) $=\\sqrt{\\langle\\mathbf{v},\\mathbf{v}\\rangle}$ |\n| $\\mathbf{u}\\perp\\mathbf{v}$ | $\\mathbf{u}$ og $\\mathbf{v}$ er ortogonale ($\\langle\\mathbf{u},\\mathbf{v}\\rangle=0$) |\n| $\\operatorname{dist}(\\mathbf{u},\\mathbf{v})$ | Avstanden $=\\|\\mathbf{u}-\\mathbf{v}\\|$ |\n| $w_i$ | Vekt ($>0$) i et vektet indreprodukt |\n| $\\int_a^b p\\,q\\,dt$ | Integralindreprodukt på $[a,b]$ |\n| $\\sum_i p(t_i)q(t_i)$ | Evalueringsindreprodukt i punktene $t_i$ |\n| $\\theta$ | Vinkelen mellom to vektorer |\n| $\\delta_{ij}$ | $1$ om $i=j$, ellers $0$ (ortonormal) |\n\n**Formler i dette delkapitlet:**\n\n$$\\langle\\mathbf{x},\\mathbf{y}\\rangle=\\sum_i w_ix_iy_i\\ (w_i>0),\\qquad \\langle p,q\\rangle=\\int_a^b p\\,q\\,dt,\\qquad \\langle p,q\\rangle=\\sum_i p(t_i)q(t_i)$$\nDe tre ikke-standard indreproduktene — vektet, integral, evaluering.\n\n$$\\|\\mathbf{v}\\|=\\sqrt{\\langle\\mathbf{v},\\mathbf{v}\\rangle},\\qquad \\operatorname{dist}(\\mathbf{u},\\mathbf{v})=\\|\\mathbf{u}-\\mathbf{v}\\|$$\nNorm og avstand — alltid i det oppgitte indreproduktet.\n\n$$|\\langle\\mathbf{u},\\mathbf{v}\\rangle|\\le\\|\\mathbf{u}\\|\\,\\|\\mathbf{v}\\|,\\qquad \\|\\mathbf{u}+\\mathbf{v}\\|\\le\\|\\mathbf{u}\\|+\\|\\mathbf{v}\\|$$\nCauchy–Schwarz og trekantulikheten.\n\n$$\\mathbf{u}\\perp\\mathbf{v}\\ \\Rightarrow\\ \\|\\mathbf{u}+\\mathbf{v}\\|^2=\\|\\mathbf{u}\\|^2+\\|\\mathbf{v}\\|^2$$\nPythagoras i et indreproduktrom."
+        }
+      ]
+    }
+  ],
+  "exercises": []
+}

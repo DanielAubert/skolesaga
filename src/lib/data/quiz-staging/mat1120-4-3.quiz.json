@@ -1,0 +1,162 @@
+[
+  {
+    "question": "Hva er aller første steg når du skal Gram–Schmidt-e en basis?",
+    "options": [
+      "Å avgjøre hvilket indreprodukt oppgaven har oppgitt, og holde deg til det",
+      "Å normalisere alle inn-vektorene til lengde $1$ ved hjelp av standardnormen aller først",
+      "Å regne determinanten av matrisen med vektorene som kolonner",
+      "Å ordne vektorene etter synkende standardnorm før du begynner"
+    ],
+    "explanation": "Steg 0 er å identifisere indreproduktet — det styrer alle senere ledd. Normalisering skjer eventuelt til slutt; determinant og sortering er ikke en del av prosessen."
+  },
+  {
+    "question": "På $\\operatorname{P}_2$ med $\\langle p,q\\rangle=\\int_0^1 pq\\,dt$ gir Gram–Schmidt på $\\{1,t,t^2\\}$ hvilken ortogonal basis?",
+    "options": [
+      "$\\{1,\\,2t-1,\\,6t^2-6t+1\\}$",
+      "$\\{1,\\,t,\\,3t^2-1\\}$, som på intervallet $[-1,1]$",
+      "$\\{1,\\,t-1,\\,t^2-2t\\}$",
+      "$\\{1,\\,t,\\,t^2\\}$, standardbasisen er allerede ortogonal"
+    ],
+    "explanation": "På $[0,1]$ får man $1$, $2t-1$, $6t^2-6t+1$ (skiftede Legendre). $3t^2-1$ hører til $[-1,1]$; de to siste er gale — standardbasisen er ikke ortogonal ($\\langle 1,t\\rangle=\\tfrac12\\ne0$)."
+  },
+  {
+    "question": "I et vektet indreprodukt $\\langle\\mathbf{x},\\mathbf{y}\\rangle=2x_1y_1+2x_2y_2+x_3y_3$: hva er nevneren $\\langle\\mathbf{v}_1,\\mathbf{v}_1\\rangle$ for $\\mathbf{v}_1=(1,1,0)$?",
+    "options": [
+      "$4$, siden $2(1)+2(1)+1(0)=4$",
+      "$2$, siden $1^2+1^2+0^2=2$ i standardnormen",
+      "$\\sqrt2$, som er standardnormen av vektoren",
+      "$8$, siden vektene dobles i kvadratet"
+    ],
+    "explanation": "Med vekter $2,2,1$: $\\langle(1,1,0),(1,1,0)\\rangle=2+2+0=4$. $2$ er standardkvadratnormen (feil her); $\\sqrt2$ er selve standardnormen; $8$ er en regnefeil."
+  },
+  {
+    "question": "Hvorfor lønner det seg å skalere $\\mathbf{v}_k$ opp til heltall underveis?",
+    "options": [
+      "Fordi ortogonaliteten er bevart under skalering, og regningen blir renere",
+      "Fordi bare heltallsvektorer kan inngå i en ortogonal basis",
+      "Fordi selve normaliseringen krever at koordinatene er hele tall for i det hele tatt å fungere",
+      "Fordi indreproduktet ellers kan bli negativt"
+    ],
+    "explanation": "Skalering med et tall $\\ne0$ endrer ikke retning eller ortogonalitet, bare lengde — så man ganger opp for penere regning. Ortogonale baser trenger ikke heltall, normalisering krever det ikke, og indreproduktet blir ikke negativt av brøker."
+  },
+  {
+    "question": "I steg 3 har du skalert $\\mathbf{v}_2$ opp med $3$. Hvilken nevner bruker du i projeksjonen på $\\mathbf{v}_2$?",
+    "options": [
+      "$\\langle\\mathbf{v}_2,\\mathbf{v}_2\\rangle$ for den oppskalerte $\\mathbf{v}_2$",
+      "Den gamle nevneren fra før oppskaleringen",
+      "Alltid $1$, siden $\\mathbf{v}_2$ nå er en heltallig vektor etter oppskaleringen i forrige steg",
+      "Gjennomsnittet av gammel og ny nevner"
+    ],
+    "explanation": "Etter oppskalering er $\\langle\\mathbf{v}_2,\\mathbf{v}_2\\rangle$ endret ($9$ ganger så stor), og du må bruke den nye verdien konsekvent. Å beholde den gamle, sette $1$ eller ta et gjennomsnitt gir feil projeksjon."
+  },
+  {
+    "question": "Du normaliserer en ortogonal basis funnet i et integralindreprodukt på $[-1,1]$. Hvilken norm gjelder?",
+    "options": [
+      "Integralnormen $\\sqrt{\\int_{-1}^1 v^2\\,dt}$ i det oppgitte indreproduktet",
+      "Standardnormen av polynomets koeffisientvektor, siden den alltid er raskest å regne ut",
+      "Normen $1$, siden ortogonale vektorer alt har enhetslengde",
+      "Gjennomsnittet av integral- og standardnormen"
+    ],
+    "explanation": "Normaliseringen bruker samme indreprodukt som resten — her integralet. Standardnormen av koeffisientene er nettopp fellen; ortogonale vektorer har ikke automatisk lengde $1$; gjennomsnittsnormen finnes ikke."
+  },
+  {
+    "question": "Gram–Schmidt på $\\{1,t,t^2\\}$ i to ulike indreprodukt gir $3t^2-1$ (integral på $[-1,1]$) og $3t^2-2$ (evaluering i $-1,0,1$). Hva forteller det?",
+    "options": [
+      "At ortogonaliteten avhenger av indreproduktet, ikke bare av polynomene",
+      "At en av de to utregningene må inneholde en regnefeil",
+      "At evalueringsindreproduktet i dette tilfellet ikke er et gyldig indreprodukt i det hele tatt",
+      "At de to svarene egentlig er like etter forenkling"
+    ],
+    "explanation": "Ulikt indreprodukt gir ulike ortogonale polynomer — begge er korrekte. Ingen regnefeil, begge er gyldige indreprodukt, og $3t^2-1\\ne 3t^2-2$."
+  },
+  {
+    "question": "På $\\mathbb{R}^2$ (standard): Gram–Schmidt på $\\mathbf{a}_1=(3,1)$, $\\mathbf{a}_2=(2,2)$ gir hvilken $\\mathbf{v}_2$ (oppskalert)?",
+    "options": [
+      "$(-1,3)$",
+      "$(2,2)$, siden $\\mathbf{a}_2$ allerede står vinkelrett på $\\mathbf{a}_1$",
+      "$(1,3)$, projeksjonen trukket fra feil vei",
+      "$(-2,6)$ uforkortet, som ikke kan reduseres"
+    ],
+    "explanation": "$\\mathbf{v}_2=(2,2)-\\tfrac{8}{10}(3,1)=(-\\tfrac25,\\tfrac65)$, oppskalert og forkortet $(-1,3)$. $\\mathbf{a}_2$ er ikke ortogonal på $\\mathbf{a}_1$; $(1,3)$ har feil fortegn; $(-2,6)$ forkortes til $(-1,3)$."
+  },
+  {
+    "question": "I evalueringsindreproduktet med punktene $-1,0,1$: hvorfor blir $v_2=t$ direkte fra $\\{1,t,\\dots\\}$?",
+    "options": [
+      "Fordi $\\langle t,1\\rangle=(-1)+0+1=0$, så $t$ er alt ortogonal på $1$",
+      "Fordi $t$ alltid er ortogonal på alle konstanter i absolutt ethvert indreprodukt",
+      "Fordi $\\langle t,t\\rangle=2$ gjør projeksjonen null",
+      "Fordi punktet $0$ nuller ut hele projeksjonen"
+    ],
+    "explanation": "$\\langle t,1\\rangle=(-1)(1)+(0)(1)+(1)(1)=0$ på grunn av de symmetriske punktene, så projeksjonsleddet forsvinner. $t$ er ikke ortogonal på $1$ i alle indreprodukt (jf. punktene $0,1,2$); $\\langle t,t\\rangle$ er nevneren, ikke grunnen."
+  },
+  {
+    "question": "Hva er den vanligste feilen ved Gram–Schmidt under tidspress på eksamen?",
+    "options": [
+      "Å regne ett eller flere ledd med standardprikkproduktet i et ikke-standard indreprodukt",
+      "Å skalere vektorene opp til heltall altfor tidlig i prosessen, før projeksjonene er trukket fra",
+      "Å starte med $\\mathbf{v}_1=\\mathbf{a}_1$ uten å normalisere først",
+      "Å skrive svaret som en eksakt brøk i stedet for desimaltall"
+    ],
+    "explanation": "Standard-prikkprodukt-fellen er den dyreste. Heltalls-oppskalering og $\\mathbf{v}_1=\\mathbf{a}_1$ er riktig, og eksakte brøker er nettopp det som kreves, ikke desimaler."
+  },
+  {
+    "question": "På $\\mathbb{R}^3$ med vekter $1,2,1$: Gram–Schmidt på $(1,0,1),(0,1,1)$ gir $\\mathbf{v}_2$ (oppskalert) lik...",
+    "options": [
+      "$(-1,2,1)$",
+      "$(0,1,1)$, som allerede er vektet ortogonal på $\\mathbf{v}_1$",
+      "$(-1,1,1)$, som i standardprikkproduktet",
+      "$(1,2,-1)$ med byttet fortegn"
+    ],
+    "explanation": "$\\langle(0,1,1),(1,0,1)\\rangle=1$ og $\\langle(1,0,1),(1,0,1)\\rangle=2$ (vektet), så $\\mathbf{v}_2=(0,1,1)-\\tfrac12(1,0,1)=(-\\tfrac12,1,\\tfrac12)\\to(-1,2,1)$. De andre ignorerer vekten $2$ eller har feil fortegn."
+  },
+  {
+    "question": "Hvorfor bør du regne $\\langle\\mathbf{v}_i,\\mathbf{v}_j\\rangle$ for $i\\ne j$ helt til slutt?",
+    "options": [
+      "Det er en billig sjekk som fanger regnefeil før de forplanter seg videre",
+      "Det er strengt nødvendig for at basisen i det hele tatt skal kunne kalles ortogonal",
+      "Det gjør vektorene ortonormale uten videre normalisering",
+      "Det kreves for å oppgi dimensjonen til rommet"
+    ],
+    "explanation": "Sluttsjekken er ren forsikring — den bekrefter at ingen regnefeil har sneket seg inn. Basisen er ortogonal uansett om du sjekker; sjekken gir verken enhetslengde eller dimensjon."
+  },
+  {
+    "question": "På $\\operatorname{P}_2$ med evaluering i $0,1,2$: hvorfor må du regne alle projeksjonsledd (ingen forsvinner)?",
+    "options": [
+      "Fordi punktene ikke er symmetriske om null, så ingen skalarprodukt blir automatisk null",
+      "Fordi et evalueringsindreprodukt aldri kan ha ortogonale polynomer blant standardmonomene",
+      "Fordi $\\operatorname{P}_2$ har for høy dimensjon til snarveier",
+      "Fordi integralet over punktene ikke konvergerer"
+    ],
+    "explanation": "Med usymmetriske punkter ($0,1,2$) er $\\langle t,1\\rangle=3\\ne0$, så oddefunksjon-snarveien fra $[-1,1]$ finnes ikke. De andre påstandene er gale — dimensjon og «integral over punkter» er urelatert."
+  },
+  {
+    "question": "Du skal normalisere $(1,-1,4)$ i det vektede indreproduktet $2x_1y_1+2x_2y_2+x_3y_3$. Hva er normen?",
+    "options": [
+      "$2\\sqrt5$, siden $2(1)+2(1)+1(16)=20$",
+      "$\\sqrt{18}$, siden $1+1+16=18$ i standardnormen",
+      "$\\sqrt{20}$ som ikke kan forenkles videre",
+      "$20$, siden man ikke tar kvadratrot i vektede rom"
+    ],
+    "explanation": "$\\|(1,-1,4)\\|^2=2(1)^2+2(-1)^2+1(4)^2=2+2+16=20$, så normen er $\\sqrt{20}=2\\sqrt5$. $\\sqrt{18}$ er standardnormen (fellen); $\\sqrt{20}$ forenkles til $2\\sqrt5$; man tar alltid kvadratrot."
+  },
+  {
+    "question": "Etter Gram–Schmidt får du $v_3=t^2-\\tfrac13$. Hvorfor skalerer fasiten det til $3t^2-1$?",
+    "options": [
+      "For å få heltallskoeffisienter — retningen og ortogonaliteten er uendret",
+      "Fordi $t^2-\\tfrac13$ egentlig ikke er ortogonal, mens den oppskalerte $3t^2-1$ derimot er det",
+      "Fordi normalisering krever at ledende koeffisient er $3$",
+      "Fordi $3t^2-1$ har norm $1$ i indreproduktet"
+    ],
+    "explanation": "Å gange med $3$ fjerner brøken uten å endre retning eller ortogonalitet. Begge er ortogonale (samme retning); normalisering krever ikke ledende koeffisient $3$; $3t^2-1$ er ikke en enhetsvektor."
+  },
+  {
+    "question": "Gram–Schmidt tar imot $\\operatorname{Col}A$-basisen fra oppgave 1. Hva er den ortogonale basisen nyttig til videre?",
+    "options": [
+      "Ortogonal projeksjon og minste kvadrater på $\\operatorname{Col}A$ i Del 5",
+      "Å finne egenverdiene til matrisen $A$ direkte uten karakteristisk likning",
+      "Å regne determinanten til $A$ raskere",
+      "Å avgjøre om $A$ er diagonaliserbar"
+    ],
+    "explanation": "En ortogonal basis for $\\operatorname{Col}A$ er forsteget til ortogonal projeksjon og minste kvadrater (Del 5). Egenverdier, determinant og diagonaliserbarhet hører til andre deler av faget."
+  }
+]

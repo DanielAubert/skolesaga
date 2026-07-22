@@ -1,0 +1,346 @@
+{
+  "id": "mat1120-4-3",
+  "courseId": "mat1120",
+  "chapterNumber": "4.3",
+  "title": "Drill: Gram–Schmidt i standard og ikke-standard indreprodukt",
+  "description": "Gram–Schmidt drillet i alle fire indreprodukt-typene — særlig integral og evaluering på polynomrom — så refleksen «hvilket indreprodukt er oppgitt?» sitter før projeksjonsdelen i Del 5.",
+  "estimatedMinutes": 85,
+  "competenceGoals": [
+    "identifisere hvilket indreprodukt en oppgave gir, og bruke det konsekvent gjennom hele Gram–Schmidt",
+    "utføre Gram–Schmidt med heltalls-oppskalering i standard, vektet, integral- og evalueringsindreprodukt",
+    "normalisere til ortonormal basis med den oppgitte normen, ikke standardnormen",
+    "verifisere ortogonaliteten til slutt og gjenkjenne standard-prikkprodukt-fellen under tidspress"
+  ],
+  "content": [
+    {
+      "id": "mat1120-4-3-tip-eksamensvinkel",
+      "type": "tip",
+      "title": "Eksamensvinkel",
+      "content": "**Dette er drillkapitlet for Gram–Schmidt** — sjangeren som er i praktisk talt hvert sett (~100 %). Målet er å gjøre den *ene refleksen* automatisk: **«hvilket indreprodukt er oppgitt?»** — før du regner et eneste ledd.\n\n- I ca. **7 av 10 sett** er indreproduktet ikke-standard (integral på $\\operatorname{P}_n$, vektet eller evaluering). Da regnes hver teller, hver nevner og normen i normaliseringen med det oppgitte indreproduktet.\n- Etter denne drillen skal du kunne kjøre prosessen i alle fire typene uten å nøle — det er forsteget til ortogonal projeksjon og minste kvadrater i Del 5.\n\n**Slik bruker du kapitlet:** les løsningsoppskriften og det sensor-kommenterte caset, og regn deg deretter gjennom de 12 oppgavene. De er lagt opp etter stigende vanskegrad og dekker $\\mathbb{R}^n$ (standard og vektet), integral på $\\operatorname{P}_n$, evaluering og normalisering. **~85 min — del gjerne over to økter (oppgave 1–6, så 7–12).**"
+    },
+    {
+      "id": "mat1120-4-3-forkunnskaper",
+      "type": "text",
+      "content": "**Forkunnskaper:** hele Del 4 så langt — indreprodukt-typene fra [kap. 4.1](/bok/mat1120/mat1120-4-1) og Gram–Schmidt-prosessen med normalisering fra [kap. 4.2](/bok/mat1120/mat1120-4-2). Integralene regnes med teknikker fra [Integralregning](/bok/r2/r2-4-1). Ingen ny teori innføres her — dette er ren drill på det du allerede har sett."
+    },
+    {
+      "id": "mat1120-4-3-oppskrift",
+      "type": "text",
+      "content": "## Løsningsoppskrift — Gram–Schmidt i fire indreprodukt\n\nSamme fire steg uansett rom og indreprodukt:\n\n**Steg 0 — Identifiser indreproduktet.** Les oppgaven: standard prikkprodukt, vektet ($\\sum w_ix_iy_i$), integral ($\\int_a^b pq\\,dt$) eller evaluering ($\\sum p(t_i)q(t_i)$)? Skriv det opp øverst. *Alt* som følger bruker denne definisjonen.\n\n**Steg 1 — Start.** $\\mathbf{v}_1=\\mathbf{a}_1$. Regn $\\langle\\mathbf{v}_1,\\mathbf{v}_1\\rangle$ (trengs som nevner).\n\n**Steg 2 — Trekk fra projeksjonene.** For hver ny $\\mathbf{a}_k$: $\\ \\mathbf{v}_k=\\mathbf{a}_k-\\sum_{i<k}\\dfrac{\\langle\\mathbf{a}_k,\\mathbf{v}_i\\rangle}{\\langle\\mathbf{v}_i,\\mathbf{v}_i\\rangle}\\mathbf{v}_i$ — med de *allerede ortogonaliserte* $\\mathbf{v}_i$-ene. **Skalér opp til heltall** før du går videre.\n\n**Steg 3 — Normalisér (bare hvis bedt om ortonormal).** $\\mathbf{u}_i=\\dfrac{1}{\\|\\mathbf{v}_i\\|}\\mathbf{v}_i$ med den **oppgitte** normen $\\|\\mathbf{v}_i\\|=\\sqrt{\\langle\\mathbf{v}_i,\\mathbf{v}_i\\rangle}$. La svaret stå eksakt.\n\n**Steg 4 — Sjekk.** Regn $\\langle\\mathbf{v}_i,\\mathbf{v}_j\\rangle$ for $i\\ne j$ og bekreft $=0$."
+    },
+    {
+      "id": "mat1120-4-3-regel-1",
+      "type": "definition",
+      "title": "Regel 1 — Identifiser indreproduktet først",
+      "content": "Før du regner noe, avgjør hvilken av de fire typene oppgaven bruker: standard, vektet ($\\sum w_ix_iy_i$), integral ($\\int_a^b pq\\,dt$) eller evaluering ($\\sum p(t_i)q(t_i)$). Denne ene avgjørelsen styrer *alt* — tellere, nevnere og norm. Skriv den opp øverst."
+    },
+    {
+      "id": "mat1120-4-3-regel-2",
+      "type": "definition",
+      "title": "Regel 2 — Standard-prikkprodukt-fellen",
+      "content": "Den vanligste og dyreste feilen: å regne $\\mathbf{u}\\cdot\\mathbf{v}$ når oppgaven har oppgitt et annet indreprodukt. Ett standardprikkprodukt sneket inn i tellere, nevnere eller normen gir en basis som *ikke* er ortogonal i det riktige indreproduktet."
+    },
+    {
+      "id": "mat1120-4-3-regel-3",
+      "type": "definition",
+      "title": "Regel 3 — $\\mathbf{v}_1=\\mathbf{a}_1$",
+      "content": "Første vektor beholdes uendret. Regn med én gang $\\langle\\mathbf{v}_1,\\mathbf{v}_1\\rangle$ i det oppgitte indreproduktet — den blir nevner i alle senere projeksjonsledd. Velg gjerne den «peneste» vektoren som $\\mathbf{a}_1$."
+    },
+    {
+      "id": "mat1120-4-3-regel-4",
+      "type": "definition",
+      "title": "Regel 4 — Bruk $\\mathbf{v}_i$, ikke $\\mathbf{a}_i$",
+      "content": "Projeksjonene i steg $k$ trekkes fra de allerede ortogonaliserte $\\mathbf{v}_1,\\dots,\\mathbf{v}_{k-1}$ — aldri de opprinnelige $\\mathbf{a}_i$-ene. Feilen viser seg først i steg 3 og gir en $\\mathbf{v}_3$ som ikke er ortogonal på $\\mathbf{v}_2$."
+    },
+    {
+      "id": "mat1120-4-3-regel-5",
+      "type": "definition",
+      "title": "Regel 5 — Heltalls-oppskalering",
+      "content": "Etter hvert steg: gang $\\mathbf{v}_k$ opp med et tall $\\ne0$ så koordinatene (eller koeffisientene) blir hele tall. Retningen og ortogonaliteten er upåvirket, og resten av regningen blir dramatisk renere. Husk å bruke den oppskalerte $\\mathbf{v}_k$ i neste nevner."
+    },
+    {
+      "id": "mat1120-4-3-regel-6",
+      "type": "definition",
+      "title": "Regel 6 — Normalisér med den oppgitte normen",
+      "content": "Kreves bare når oppgaven ber om en *ortonormal* basis eller *enhetsvektorer*. Del hver $\\mathbf{v}_i$ på $\\|\\mathbf{v}_i\\|=\\sqrt{\\langle\\mathbf{v}_i,\\mathbf{v}_i\\rangle}$ i det oppgitte indreproduktet. På $\\operatorname{P}_2$ med et integral er $\\|1\\|$ typisk *ikke* $1$."
+    },
+    {
+      "id": "mat1120-4-3-regel-7",
+      "type": "definition",
+      "title": "Regel 7 — Regn integraler og summer nøyaktig",
+      "content": "I integralindreproduktet: multipliser ut $p\\,q$ før du integrerer, og bruk symmetri ($\\int_{-a}^a$ av en oddefunksjon $=0$) som kontroll. I evalueringsindreproduktet: sett inn hvert punkt i begge polynomene og summér produktene. Eksakte brøker hele veien."
+    },
+    {
+      "id": "mat1120-4-3-regel-8",
+      "type": "definition",
+      "title": "Regel 8 — Sjekk ortogonaliteten til slutt",
+      "content": "Billig forsikring før du går videre til projeksjon/minste kvadrater: regn $\\langle\\mathbf{v}_i,\\mathbf{v}_j\\rangle$ for hvert par $i\\ne j$ i det oppgitte indreproduktet og bekreft at de er $0$. Fanger en regnefeil før den forplanter seg til Del 5."
+    },
+    {
+      "id": "mat1120-4-3-case",
+      "type": "example",
+      "title": "Gjennomregnet case (sensor-kommentert): Gram–Schmidt i integralindreprodukt",
+      "problem": "På $\\operatorname{P}_2$ med $\\langle p,q\\rangle=\\int_{-2}^{0} p(t)q(t)\\,dt$: bruk Gram–Schmidt på standardbasisen $\\{1,t,t^2\\}$ til en ortogonal basis for $\\operatorname{P}_2$.",
+      "solution": "**Steg 0 — indreproduktet:** integral over $[-2,0]$. Alle skalarprodukt under er $\\int_{-2}^0(\\cdots)\\,dt$. *(Sensornotat: å skrive dette opp eksplisitt er det som skiller de som ikke faller i standard-prikkprodukt-fellen.)*\n\n**Steg 1:** $v_1=1$. $\\langle 1,1\\rangle=\\int_{-2}^0 1\\,dt=2$.\n\n**Steg 2 (for $t$):** $\\langle t,1\\rangle=\\int_{-2}^0 t\\,dt=\\big[\\tfrac{t^2}{2}\\big]_{-2}^0=0-2=-2$. Da er\n$$v_2=t-\\frac{-2}{2}\\cdot 1=t+1.$$\nKontroll: $\\langle t+1,1\\rangle=\\int_{-2}^0(t+1)\\,dt=\\big[\\tfrac{t^2}{2}+t\\big]_{-2}^0=0-(2-2)=0.$ ✓ Vi trenger $\\langle v_2,v_2\\rangle=\\int_{-2}^0(t+1)^2\\,dt=\\tfrac23$.\n\n**Steg 2 (for $t^2$):** $\\langle t^2,1\\rangle=\\int_{-2}^0 t^2\\,dt=\\big[\\tfrac{t^3}{3}\\big]_{-2}^0=0-(-\\tfrac83)=\\tfrac83$, og $\\langle t^2,v_2\\rangle=\\int_{-2}^0 t^2(t+1)\\,dt=\\big[\\tfrac{t^4}{4}+\\tfrac{t^3}{3}\\big]_{-2}^0=0-\\big(4-\\tfrac83\\big)=-\\tfrac43$. Da er\n$$v_3=t^2-\\frac{8/3}{2}\\cdot 1-\\frac{-4/3}{2/3}\\cdot(t+1)=t^2-\\tfrac43+2(t+1)=t^2+2t+\\tfrac23.$$\n*(Sensornotat: her brukes den allerede ortogonaliserte $v_2=t+1$, ikke $t$ — Regel 4. Nevneren $\\tfrac23$ er $\\langle v_2,v_2\\rangle$, ikke $\\langle t,t\\rangle$.)* Skalér opp med $3$:\n$$v_3=3t^2+6t+2.$$\n\n**Ortogonal basis:** $\\{\\,1,\\ t+1,\\ 3t^2+6t+2\\,\\}$.\n\n**Steg 4 — sjekk:** $\\langle 1,3t^2+6t+2\\rangle=\\int_{-2}^0(3t^2+6t+2)\\,dt=\\big[t^3+3t^2+2t\\big]_{-2}^0=0-(-8+12-4)=0$ ✓, og $\\langle t+1,3t^2+6t+2\\rangle=0$ (regn tilsvarende). **Eksakt svar** — heltallskoeffisienter, ingen desimaler. *(Sensornotat: full uttelling krever at hvert projeksjonsledd vises; sluttbasisen alene gir lite.)*"
+    },
+    {
+      "id": "mat1120-4-3-drilltekst",
+      "type": "text",
+      "content": "## Drilloppgaver\n\nStigende vanskegrad. Identifiser indreproduktet før hvert regnestykke. Fasit etter føringsstandarden med eksakte svar."
+    },
+    {
+      "id": "mat1120-4-3-e1",
+      "type": "exercise",
+      "exercise": {
+        "id": "mat1120-4-3-ex1",
+        "number": "1",
+        "type": "classic",
+        "difficulty": "lett",
+        "task": "(Innsteg.) For hvert scenario, oppgi hvilket indreprodukt du skal bruke:\n\n**a)** «På $\\mathbb{R}^3$ med $\\langle\\mathbf{x},\\mathbf{y}\\rangle=3x_1y_1+x_2y_2+2x_3y_3$ …»\n\n**b)** «På $\\operatorname{P}_2$ med $\\langle p,q\\rangle=\\int_0^2 pq\\,dt$ …»\n\n**c)** «På $\\operatorname{P}_2$ med $\\langle p,q\\rangle=p(0)q(0)+p(1)q(1)+p(2)q(2)$ …»",
+        "solution": "**a)** Et **vektet** indreprodukt på $\\mathbb{R}^3$ med vekter $w=(3,1,2)$.\n\n**b)** Et **integral**indreprodukt på $\\operatorname{P}_2$ over intervallet $[0,2]$.\n\n**c)** Et **evaluerings**indreprodukt på $\\operatorname{P}_2$ i punktene $0,1,2$.\n\n(Poenget: alt du regner videre — tellere, nevnere og norm — bruker denne definisjonen, aldri standardprikkproduktet.)",
+        "hints": [
+          "Se etter vekter $w_i$, et integraltegn, eller en sum av polynomverdier i punkter.",
+          "Standard prikkprodukt gjelder bare når ingen annen definisjon er oppgitt."
+        ]
+      }
+    },
+    {
+      "id": "mat1120-4-3-e2",
+      "type": "exercise",
+      "exercise": {
+        "id": "mat1120-4-3-ex2",
+        "number": "2",
+        "type": "classic",
+        "difficulty": "lett",
+        "task": "På $\\mathbb{R}^2$ med **standard**prikkprodukt: bruk Gram–Schmidt på $\\mathbf{a}_1=(3,1)$, $\\mathbf{a}_2=(2,2)$ til en ortogonal basis. Skalér til heltall.",
+        "solution": "**Steg 1:** $\\mathbf{v}_1=(3,1)$, $\\langle\\mathbf{v}_1,\\mathbf{v}_1\\rangle=9+1=10$.\n\n**Steg 2:** $\\langle\\mathbf{a}_2,\\mathbf{v}_1\\rangle=6+2=8$, så\n$$\\mathbf{v}_2=(2,2)-\\tfrac{8}{10}(3,1)=\\left(2-\\tfrac{12}{5},\\,2-\\tfrac45\\right)=\\left(-\\tfrac25,\\tfrac65\\right).$$\nSkalér opp med $5$ og forkort: $\\mathbf{v}_2=(-1,3)$.\n\n**Ortogonal basis:** $\\{(3,1),(-1,3)\\}$. Kontroll: $\\langle(3,1),(-1,3)\\rangle=-3+3=0.$ ✓",
+        "hints": [
+          "$\\mathbf{v}_1=\\mathbf{a}_1$; regn $\\langle\\mathbf{a}_2,\\mathbf{v}_1\\rangle$ og $\\langle\\mathbf{v}_1,\\mathbf{v}_1\\rangle$.",
+          "Trekk fra $\\tfrac{8}{10}\\mathbf{v}_1$ og skalér opp med $5$."
+        ]
+      }
+    },
+    {
+      "id": "mat1120-4-3-e3",
+      "type": "exercise",
+      "exercise": {
+        "id": "mat1120-4-3-ex3",
+        "number": "3",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "På $\\mathbb{R}^3$ med **standard**prikkprodukt: bruk Gram–Schmidt på $\\mathbf{a}_1=(1,1,0)$, $\\mathbf{a}_2=(1,0,1)$, $\\mathbf{a}_3=(0,1,1)$ til en ortogonal basis. Skalér til heltall.",
+        "solution": "**Steg 1:** $\\mathbf{v}_1=(1,1,0)$, $\\langle\\mathbf{v}_1,\\mathbf{v}_1\\rangle=2$.\n\n**Steg 2:** $\\langle\\mathbf{a}_2,\\mathbf{v}_1\\rangle=1$, så $\\mathbf{v}_2=(1,0,1)-\\tfrac12(1,1,0)=\\left(\\tfrac12,-\\tfrac12,1\\right)$. Skalér med $2$: $\\mathbf{v}_2=(1,-1,2)$, $\\langle\\mathbf{v}_2,\\mathbf{v}_2\\rangle=6$.\n\n**Steg 3:** $\\langle\\mathbf{a}_3,\\mathbf{v}_1\\rangle=1$ og $\\langle\\mathbf{a}_3,\\mathbf{v}_2\\rangle=-1+2=1$, så\n$$\\mathbf{v}_3=(0,1,1)-\\tfrac12(1,1,0)-\\tfrac16(1,-1,2)=\\left(-\\tfrac12-\\tfrac16,\\ \\tfrac12+\\tfrac16,\\ 1-\\tfrac13\\right)=\\left(-\\tfrac23,\\tfrac23,\\tfrac23\\right).$$\nSkalér med $\\tfrac32$: $\\mathbf{v}_3=(-1,1,1)$.\n\n**Ortogonal basis:** $\\{(1,1,0),(1,-1,2),(-1,1,1)\\}$. Kontroll: alle par $=0$. ✓",
+        "hints": [
+          "Bruk den oppskalerte $\\mathbf{v}_2=(1,-1,2)$ i steg 3, med nevner $6$.",
+          "$\\mathbf{v}_3=\\mathbf{a}_3-\\tfrac12\\mathbf{v}_1-\\tfrac16\\mathbf{v}_2$; skalér til heltall til slutt."
+        ]
+      }
+    },
+    {
+      "id": "mat1120-4-3-sig3",
+      "type": "tip",
+      "title": "Hva oppgaven tester",
+      "content": "Full trestegs Gram–Schmidt i $\\mathbb{R}^3$ med heltalls-oppskalering — kjernen i sjanger B. Merk at steg 3 bruker de ferdig ortogonaliserte $\\mathbf{v}_1,\\mathbf{v}_2$ (Regel 4)."
+    },
+    {
+      "id": "mat1120-4-3-e4",
+      "type": "exercise",
+      "exercise": {
+        "id": "mat1120-4-3-ex4",
+        "number": "4",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "På $\\mathbb{R}^3$ med det **vektede** indreproduktet $\\langle\\mathbf{x},\\mathbf{y}\\rangle=2x_1y_1+2x_2y_2+x_3y_3$: bruk Gram–Schmidt på $\\mathbf{a}_1=(1,1,0)$, $\\mathbf{a}_2=(1,0,2)$ til en ortogonal basis. Skalér til heltall.",
+        "solution": "**Steg 0:** vekter $2,2,1$ i hvert ledd.\n\n**Steg 1:** $\\mathbf{v}_1=(1,1,0)$, $\\langle\\mathbf{v}_1,\\mathbf{v}_1\\rangle=2(1)+2(1)+1(0)=4$.\n\n**Steg 2:** $\\langle\\mathbf{a}_2,\\mathbf{v}_1\\rangle=2(1)(1)+2(0)(1)+1(2)(0)=2$, så\n$$\\mathbf{v}_2=(1,0,2)-\\tfrac{2}{4}(1,1,0)=\\left(\\tfrac12,-\\tfrac12,2\\right).$$\nSkalér med $2$: $\\mathbf{v}_2=(1,-1,4)$. Kontroll (vektet): $\\langle(1,1,0),(1,-1,4)\\rangle=2(1)+2(-1)+1(0)=0.$ ✓\n\n**Ortogonal basis:** $\\{(1,1,0),(1,-1,4)\\}$ i det vektede indreproduktet.",
+        "hints": [
+          "Bruk vektene $2,2,1$ i *alle* skalarprodukt, også nevneren $\\langle\\mathbf{v}_1,\\mathbf{v}_1\\rangle=4$.",
+          "I standardprikkproduktet ville $\\mathbf{v}_2$ blitt en annen vektor — sjekk ortogonaliteten vektet."
+        ]
+      }
+    },
+    {
+      "id": "mat1120-4-3-sig4",
+      "type": "tip",
+      "title": "Hva oppgaven tester",
+      "content": "Gram–Schmidt i et vektet indreprodukt. Fellen: å bruke $\\langle\\mathbf{v}_1,\\mathbf{v}_1\\rangle=2$ (standard) i stedet for $4$ (vektet). Vektene må inn overalt."
+    },
+    {
+      "id": "mat1120-4-3-e5",
+      "type": "exercise",
+      "exercise": {
+        "id": "mat1120-4-3-ex5",
+        "number": "5",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "På $\\operatorname{P}_1$ med **integral**indreproduktet $\\langle p,q\\rangle=\\int_0^1 pq\\,dt$: bruk Gram–Schmidt på $\\{1,t\\}$ til en ortogonal basis. Skalér til heltallskoeffisienter.",
+        "solution": "**Steg 0:** integral over $[0,1]$.\n\n**Steg 1:** $v_1=1$, $\\langle 1,1\\rangle=\\int_0^1 1\\,dt=1$.\n\n**Steg 2:** $\\langle t,1\\rangle=\\int_0^1 t\\,dt=\\tfrac12$, så\n$$v_2=t-\\frac{1/2}{1}\\cdot 1=t-\\tfrac12.$$\nSkalér med $2$: $v_2=2t-1$.\n\n**Ortogonal basis:** $\\{1,\\ 2t-1\\}$. Kontroll: $\\langle 1,2t-1\\rangle=\\int_0^1(2t-1)\\,dt=[t^2-t]_0^1=0.$ ✓",
+        "hints": [
+          "$\\langle 1,1\\rangle=\\int_0^1 1\\,dt$ og $\\langle t,1\\rangle=\\int_0^1 t\\,dt$.",
+          "$v_2=t-\\frac{\\langle t,1\\rangle}{\\langle 1,1\\rangle}\\cdot1$, skalér til heltall."
+        ]
+      }
+    },
+    {
+      "id": "mat1120-4-3-e6",
+      "type": "exercise",
+      "exercise": {
+        "id": "mat1120-4-3-ex6",
+        "number": "6",
+        "type": "classic",
+        "difficulty": "vanskelig",
+        "task": "På $\\operatorname{P}_2$ med **integral**indreproduktet $\\langle p,q\\rangle=\\int_0^1 pq\\,dt$: bruk Gram–Schmidt på $\\{1,t,t^2\\}$ til en ortogonal basis for $\\operatorname{P}_2$. Skalér til heltallskoeffisienter.",
+        "solution": "**Steg 0:** integral over $[0,1]$.\n\n**Steg 1:** $v_1=1$, $\\langle 1,1\\rangle=1$.\n\n**Steg 2 ($t$):** $\\langle t,1\\rangle=\\tfrac12$, så $v_2=t-\\tfrac12$; skalér med $2$: $v_2=2t-1$. Nevner videre: $\\langle 2t-1,2t-1\\rangle=\\int_0^1(2t-1)^2\\,dt=\\tfrac13$.\n\n**Steg 3 ($t^2$):** $\\langle t^2,1\\rangle=\\int_0^1 t^2\\,dt=\\tfrac13$ og $\\langle t^2,2t-1\\rangle=\\int_0^1(2t^3-t^2)\\,dt=\\tfrac12-\\tfrac13=\\tfrac16$. Da\n$$v_3=t^2-\\frac{1/3}{1}\\cdot 1-\\frac{1/6}{1/3}(2t-1)=t^2-\\tfrac13-\\tfrac12(2t-1)=t^2-t+\\tfrac16.$$\nSkalér med $6$: $v_3=6t^2-6t+1$.\n\n**Ortogonal basis:** $\\{1,\\ 2t-1,\\ 6t^2-6t+1\\}$. Kontroll: $\\langle 1,6t^2-6t+1\\rangle=\\int_0^1(6t^2-6t+1)\\,dt=[2t^3-3t^2+t]_0^1=0$ ✓, og $\\langle 2t-1,6t^2-6t+1\\rangle=0$. (Dette er de skiftede Legendre-polynomene på $[0,1]$.)",
+        "hints": [
+          "Bruk den oppskalerte $v_2=2t-1$ i steg 3, med nevner $\\langle 2t-1,2t-1\\rangle=\\tfrac13$.",
+          "$v_3=t^2-\\langle t^2,1\\rangle\\cdot 1-\\frac{\\langle t^2,2t-1\\rangle}{1/3}(2t-1)$; multipliser ut integrandene."
+        ]
+      }
+    },
+    {
+      "id": "mat1120-4-3-sig6",
+      "type": "tip",
+      "title": "Hva oppgaven tester",
+      "content": "Full trestegs Gram–Schmidt i et integralindreprodukt — den vanskeligste ikke-standard-varianten. Nevneren i steg 3 er $\\langle v_2,v_2\\rangle=\\tfrac13$, ikke $\\langle t,t\\rangle$."
+    },
+    {
+      "id": "mat1120-4-3-e7",
+      "type": "exercise",
+      "exercise": {
+        "id": "mat1120-4-3-ex7",
+        "number": "7",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "På $\\operatorname{P}_2$ med **evaluerings**indreproduktet $\\langle p,q\\rangle=p(-1)q(-1)+p(0)q(0)+p(1)q(1)$: bruk Gram–Schmidt på $\\{1,t,t^2\\}$ til en ortogonal basis. Skalér til heltallskoeffisienter.",
+        "solution": "**Steg 0:** evaluering i punktene $-1,0,1$.\n\n**Steg 1:** $v_1=1$, $\\langle 1,1\\rangle=1+1+1=3$.\n\n**Steg 2 ($t$):** $\\langle t,1\\rangle=(-1)+0+1=0$, så $v_2=t$ (allerede ortogonal på $1$). $\\langle t,t\\rangle=1+0+1=2$.\n\n**Steg 3 ($t^2$):** $\\langle t^2,1\\rangle=1+0+1=2$ og $\\langle t^2,t\\rangle=(1)(-1)+0+(1)(1)=0$, så\n$$v_3=t^2-\\tfrac{2}{3}\\cdot 1-\\tfrac{0}{2}\\cdot t=t^2-\\tfrac23.$$\nSkalér med $3$: $v_3=3t^2-2$.\n\n**Ortogonal basis:** $\\{1,\\ t,\\ 3t^2-2\\}$. Kontroll: $\\langle 1,3t^2-2\\rangle=(3-2)+(-2)+(3-2)=1-2+1=0.$ ✓ (Merk: her ble $v_3=3t^2-2$, mens integralet på $[-1,1]$ ga $3t^2-1$ — *ulike* indreprodukt, ulike ortogonale polynomer.)",
+        "hints": [
+          "Sett inn punktene $-1,0,1$ i hvert polynom og summér produktene.",
+          "$\\langle t,1\\rangle=0$, så $v_2=t$; deretter $v_3=t^2-\\frac{\\langle t^2,1\\rangle}{3}\\cdot1$."
+        ]
+      }
+    },
+    {
+      "id": "mat1120-4-3-sig7",
+      "type": "tip",
+      "title": "Hva oppgaven tester",
+      "content": "Gram–Schmidt i et evalueringsindreprodukt. Poenget er kontrasten til integralet: samme startbasis, men $v_3=3t^2-2$ her mot $3t^2-1$ i integralet — indreproduktet avgjør."
+    },
+    {
+      "id": "mat1120-4-3-e8",
+      "type": "exercise",
+      "exercise": {
+        "id": "mat1120-4-3-ex8",
+        "number": "8",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "Normalisér den ortogonale basisen $\\{(1,1,0),(1,-1,4)\\}$ til en **ortonormal** basis i det **vektede** indreproduktet $\\langle\\mathbf{x},\\mathbf{y}\\rangle=2x_1y_1+2x_2y_2+x_3y_3$ (samme basis som oppgave 4).",
+        "solution": "Regn de vektede normene.\n\n$\\|(1,1,0)\\|^2=2(1)+2(1)+1(0)=4\\ \\Rightarrow\\ \\|(1,1,0)\\|=2.$\n\n$\\|(1,-1,4)\\|^2=2(1)+2(1)+1(16)=20\\ \\Rightarrow\\ \\|(1,-1,4)\\|=2\\sqrt5.$\n\nDel hver vektor på sin (vektede) norm:\n$$\\mathbf{u}_1=\\tfrac12(1,1,0),\\qquad \\mathbf{u}_2=\\tfrac{1}{2\\sqrt5}(1,-1,4).$$\nEksakt svar — behold rottegnet. (Fellen: å bruke standardnormen $\\sqrt2$ og $\\sqrt{18}$ i stedet.)",
+        "hints": [
+          "Normen er $\\sqrt{\\langle\\mathbf{v},\\mathbf{v}\\rangle}$ i det *vektede* indreproduktet, ikke standardnormen.",
+          "$\\|(1,-1,4)\\|^2=2(1)^2+2(-1)^2+1(4)^2$."
+        ]
+      }
+    },
+    {
+      "id": "mat1120-4-3-sig8",
+      "type": "tip",
+      "title": "Hva oppgaven tester",
+      "content": "Normalisering i et ikke-standard indreprodukt — nettopp stedet standardnorm-fellen slår til (Regel 6). Den vektede normen av $(1,-1,4)$ er $2\\sqrt5$, ikke $\\sqrt{18}$."
+    },
+    {
+      "id": "mat1120-4-3-e9",
+      "type": "exercise",
+      "exercise": {
+        "id": "mat1120-4-3-ex9",
+        "number": "9",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "På $\\operatorname{P}_1$ med **integral**indreproduktet $\\langle p,q\\rangle=\\int_{-1}^1 pq\\,dt$: du vet fra kap. 4.2 at $\\{1,t\\}$ allerede er en ortogonal basis. Normalisér den til en ortonormal basis.",
+        "solution": "Regn normene over $[-1,1]$.\n\n$\\|1\\|=\\sqrt{\\int_{-1}^1 1\\,dt}=\\sqrt2.$\n\n$\\|t\\|=\\sqrt{\\int_{-1}^1 t^2\\,dt}=\\sqrt{\\tfrac23}=\\tfrac{\\sqrt6}{3}.$\n\nDel hver på sin norm:\n$$u_1=\\tfrac{1}{\\sqrt2},\\qquad u_2=\\frac{t}{\\sqrt{2/3}}=\\sqrt{\\tfrac32}\\,t=\\tfrac{\\sqrt6}{2}\\,t.$$\nOrtonormal basis: $\\left\\{\\tfrac{1}{\\sqrt2},\\ \\tfrac{\\sqrt6}{2}t\\right\\}$. Eksakt svar. (Merk at konstanten $1$ *ikke* har norm $1$ på $[-1,1]$ — den har norm $\\sqrt2$.)",
+        "hints": [
+          "$\\|1\\|=\\sqrt{\\int_{-1}^1 1\\,dt}$ og $\\|t\\|=\\sqrt{\\int_{-1}^1 t^2\\,dt}$.",
+          "$u_2=t/\\|t\\|$; forenkle $1/\\sqrt{2/3}=\\sqrt{3/2}=\\tfrac{\\sqrt6}{2}$."
+        ]
+      }
+    },
+    {
+      "id": "mat1120-4-3-e10",
+      "type": "exercise",
+      "exercise": {
+        "id": "mat1120-4-3-ex10",
+        "number": "10",
+        "type": "classic",
+        "difficulty": "vanskelig",
+        "task": "På $\\mathbb{R}^3$ med det **vektede** indreproduktet $\\langle\\mathbf{x},\\mathbf{y}\\rangle=x_1y_1+2x_2y_2+x_3y_3$: bruk Gram–Schmidt på $\\mathbf{a}_1=(1,0,1)$, $\\mathbf{a}_2=(0,1,1)$ til en ortogonal basis, og normalisér deretter.",
+        "solution": "**Steg 0:** vekter $1,2,1$.\n\n**Steg 1:** $\\mathbf{v}_1=(1,0,1)$, $\\langle\\mathbf{v}_1,\\mathbf{v}_1\\rangle=1(1)+2(0)+1(1)=2$.\n\n**Steg 2:** $\\langle\\mathbf{a}_2,\\mathbf{v}_1\\rangle=1(0)(1)+2(1)(0)+1(1)(1)=1$, så\n$$\\mathbf{v}_2=(0,1,1)-\\tfrac12(1,0,1)=\\left(-\\tfrac12,1,\\tfrac12\\right).$$\nSkalér med $2$: $\\mathbf{v}_2=(-1,2,1)$. Kontroll (vektet): $\\langle(1,0,1),(-1,2,1)\\rangle=1(-1)+2(0)+1(1)=0.$ ✓\n\n**Normalisering:** $\\|\\mathbf{v}_1\\|=\\sqrt2$; $\\|\\mathbf{v}_2\\|^2=1(1)+2(4)+1(1)=10$, så $\\|\\mathbf{v}_2\\|=\\sqrt{10}$.\n$$\\mathbf{u}_1=\\tfrac{1}{\\sqrt2}(1,0,1),\\qquad \\mathbf{u}_2=\\tfrac{1}{\\sqrt{10}}(-1,2,1).$$\nEksakt svar i det vektede indreproduktet.",
+        "hints": [
+          "Vektene $1,2,1$ inn i alle skalarprodukt; nevneren $\\langle\\mathbf{v}_1,\\mathbf{v}_1\\rangle=2$.",
+          "$\\|\\mathbf{v}_2\\|^2=1(-1)^2+2(2)^2+1(1)^2=10$ — ikke standardnormen $\\sqrt6$."
+        ]
+      }
+    },
+    {
+      "id": "mat1120-4-3-sig10",
+      "type": "tip",
+      "title": "Hva oppgaven tester",
+      "content": "Gram–Schmidt + normalisering i ett, i et vektet indreprodukt. To steder standardnorm-fellen kan slå til: nevneren i steg 2 og normen i normaliseringen."
+    },
+    {
+      "id": "mat1120-4-3-e11",
+      "type": "exercise",
+      "exercise": {
+        "id": "mat1120-4-3-ex11",
+        "number": "11",
+        "type": "classic",
+        "difficulty": "lett",
+        "task": "Kort begrepssjekk: du har en ortogonal basis $\\{v_1,v_2\\}$ funnet i et **integral**indreprodukt på $[-2,0]$. Oppgaven ber om en *ortonormal* basis. Hvilken norm bruker du, og hva er ett vanlig feilgrep?",
+        "solution": "Du bruker **integral**normen $\\|v_i\\|=\\sqrt{\\langle v_i,v_i\\rangle}=\\sqrt{\\int_{-2}^0 v_i^2\\,dt}$ — samme indreprodukt som resten av oppgaven. Det vanlige feilgrepet er å bruke **standardnormen** (kvadratsummen av koeffisientene), som gir feil enhetsvektorer. Del hver $v_i$ på sin integralnorm og la svaret stå eksakt.",
+        "hints": [
+          "Normen i normaliseringen skal være den *oppgitte* (her: integral over $[-2,0]$).",
+          "Standardnormen på koeffisientene er nettopp fellen."
+        ]
+      }
+    },
+    {
+      "id": "mat1120-4-3-e12",
+      "type": "exercise",
+      "exercise": {
+        "id": "mat1120-4-3-ex12",
+        "number": "12",
+        "type": "classic",
+        "difficulty": "vanskelig",
+        "task": "På $\\operatorname{P}_2$ med **evaluerings**indreproduktet $\\langle p,q\\rangle=p(0)q(0)+p(1)q(1)+p(2)q(2)$: bruk Gram–Schmidt på $\\{1,t,t^2\\}$ til en ortogonal basis, og verifiser ortogonaliteten av $v_1$ og $v_3$ eksplisitt.",
+        "solution": "**Steg 0:** evaluering i $0,1,2$.\n\n**Steg 1:** $v_1=1$, $\\langle 1,1\\rangle=1+1+1=3$.\n\n**Steg 2 ($t$):** $\\langle t,1\\rangle=0+1+2=3$, så $v_2=t-\\tfrac33\\cdot1=t-1$. $\\langle t-1,t-1\\rangle=(-1)^2+0^2+1^2=2$.\n\n**Steg 3 ($t^2$):** $\\langle t^2,1\\rangle=0+1+4=5$ og $\\langle t^2,t-1\\rangle=0\\cdot(-1)+1\\cdot0+4\\cdot1=4$, så\n$$v_3=t^2-\\tfrac53\\cdot 1-\\tfrac{4}{2}(t-1)=t^2-\\tfrac53-2t+2=t^2-2t+\\tfrac13.$$\nSkalér med $3$: $v_3=3t^2-6t+1$.\n\n**Ortogonal basis:** $\\{1,\\ t-1,\\ 3t^2-6t+1\\}$.\n\n**Verifisering $v_1\\perp v_3$:** $\\langle 1,3t^2-6t+1\\rangle=(3\\cdot0-0+1)+(3-6+1)+(12-12+1)=1+(-2)+1=0.$ ✓",
+        "hints": [
+          "Sett inn $0,1,2$; $\\langle t,1\\rangle=3$ gir $v_2=t-1$ med nevner $\\langle v_2,v_2\\rangle=2$.",
+          "$v_3=t^2-\\tfrac53\\cdot1-\\tfrac42(t-1)$; skalér med $3$ og sjekk i de tre punktene."
+        ]
+      }
+    },
+    {
+      "id": "mat1120-4-3-sig12",
+      "type": "tip",
+      "title": "Hva oppgaven tester",
+      "content": "Den mest krevende evalueringsvarianten: ingen ledd forsvinner av symmetri (punktene $0,1,2$ er ikke symmetriske), så alle projeksjonsledd må regnes. Verifiseringen i punktene er sensor-forsikringen (Regel 8)."
+    },
+    {
+      "id": "mat1120-4-3-warn-typiske-feil",
+      "type": "warning",
+      "title": "Typiske feil under tidspress",
+      "content": "- **Standard-prikkprodukt-fellen.** Under tidspress glir hånden tilbake til $\\mathbf{u}\\cdot\\mathbf{v}$. Skriv indreproduktet øverst og hold deg til det i *hvert* ledd.\n- **Feil norm ved normalisering.** Del på $\\sqrt{\\langle\\mathbf{v}_i,\\mathbf{v}_i\\rangle}$ i det oppgitte indreproduktet — ikke standardnormen av koeffisientene.\n- **$\\mathbf{a}_i$ i stedet for $\\mathbf{v}_i$.** Projeksjonene trekkes fra de allerede ortogonaliserte vektorene. Feilen dukker først opp i steg 3.\n- **Glemt nevner eller feil nevner etter oppskalering.** Etter at $\\mathbf{v}_2$ er skalert opp, er $\\langle\\mathbf{v}_2,\\mathbf{v}_2\\rangle$ endret — bruk den nye verdien.\n- **Regnefeil i integralet/summen.** Multipliser ut før integrasjon; sett inn alle punktene i evalueringen; bruk sluttsjekken $\\langle\\mathbf{v}_i,\\mathbf{v}_j\\rangle=0$.\n- **Desimaltilnærming.** La $3t^2-1$, $\\tfrac{1}{2\\sqrt5}$, $\\tfrac{\\sqrt6}{2}$ osv. stå eksakt."
+    },
+    {
+      "id": "mat1120-4-3-symbolliste",
+      "type": "collapsible",
+      "title": "Symbol- og formelliste",
+      "buttonText": "Vis symboler og formler",
+      "content": [
+        {
+          "id": "mat1120-4-3-symbolliste-text",
+          "type": "text",
+          "content": "## Symbol- og formelliste\n\n*Oppslagsverk — alt her forklares underveis i kapitlet.*\n\nAlle symboler og formler som brukes i dette drillkapitlet (4.3), samlet på ett sted.\n\n| Symbol | Betydning |\n|---|---|\n| $\\langle\\cdot,\\cdot\\rangle$ | Det **oppgitte** indreproduktet (standard/vektet/integral/evaluering) |\n| $\\mathbf{a}_i$ | Opprinnelig basisvektor |\n| $\\mathbf{v}_i$ | Ortogonalisert vektor |\n| $\\mathbf{u}_i$ | Normalisert (ortonormal) vektor |\n| $\\langle\\mathbf{v}_i,\\mathbf{v}_i\\rangle$ | Kvadrert norm (nevner i projeksjonsledd) |\n| $w_i$ | Vekt i et vektet indreprodukt |\n| $t_i$ | Evalueringspunkt |\n\n**Formler i dette delkapitlet:**\n\n$$\\mathbf{v}_1=\\mathbf{a}_1,\\qquad \\mathbf{v}_k=\\mathbf{a}_k-\\sum_{i<k}\\frac{\\langle\\mathbf{a}_k,\\mathbf{v}_i\\rangle}{\\langle\\mathbf{v}_i,\\mathbf{v}_i\\rangle}\\mathbf{v}_i,\\qquad \\mathbf{u}_i=\\frac{\\mathbf{v}_i}{\\|\\mathbf{v}_i\\|}$$\nGram–Schmidt og normalisering — alt i det oppgitte indreproduktet.\n\n$$\\langle\\mathbf{x},\\mathbf{y}\\rangle=\\sum_i w_ix_iy_i,\\qquad \\langle p,q\\rangle=\\int_a^b p\\,q\\,dt,\\qquad \\langle p,q\\rangle=\\sum_i p(t_i)q(t_i)$$\nDe tre ikke-standard indreproduktene som drilles.\n\n$$\\langle\\mathbf{v}_i,\\mathbf{v}_j\\rangle=0\\ (i\\ne j)$$\nSluttsjekken: ortogonalitet i det oppgitte indreproduktet."
+        }
+      ]
+    }
+  ],
+  "exercises": []
+}
