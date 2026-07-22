@@ -735,7 +735,7 @@ const quizData_mat1120: Record<string, QuizQuestion[]> = {
     },
     {
       question: "La E = {1, t} og B = {2+t, 1+t}. Hva er P_{E←B}?",
-      options: ["[[2,1],[1,1]]", "[[2,1],[1,1]] transponert til [[2,1],[1,1]]ᵀ", "[[1,1],[2,1]]", "[[2,1],[1,2]]"],
+      options: ["[[2,1],[1,1]]", "[[1,-1],[-1,2]]", "[[1,1],[2,1]]", "[[2,1],[1,2]]"],
       explanation: "Fra standardbasis er P_{E←B} bare B-vektorene som kolonner i standardkoordinater: 2+t=(2,1), 1+t=(1,1).",
     },
     {
@@ -1546,7 +1546,7 @@ const quizData_mat1120: Record<string, QuizQuestion[]> = {
     },
     {
       question: "På $\\mathbb{R}^3$ med $\\langle\\mathbf{x},\\mathbf{y}\\rangle=2x_1y_1+2x_2y_2+x_3y_3$: hva er $\\|(1,1,2)\\|$?",
-      options: ["$2\\sqrt2$, siden $2+2+4=8$", "$\\sqrt6$, siden $1+1+4=6$ i standardnormen", "$\\sqrt{10}$, siden $2\\cdot1+2\\cdot1+2\\cdot2=8$... nei $10$", "$4$, siden vektene summerer til $5$ ganger noe"],
+      options: ["$2\\sqrt2$, siden $2+2+4=8$", "$\\sqrt6$, siden $1+1+4=6$ i standardnormen", "$\\sqrt{10}$, siden $2+2+3\\cdot2=10$ med vekt $3$ på siste ledd", "$4$, siden vektene summerer til $5$ ganger noe"],
       explanation: "$\\langle(1,1,2),(1,1,2)\\rangle=2(1)+2(1)+1(4)=8$, så normen er $\\sqrt8=2\\sqrt2$. $\\sqrt6$ er standardnormen (feil her); de to andre er regnefeil på vektene.",
     },
     {

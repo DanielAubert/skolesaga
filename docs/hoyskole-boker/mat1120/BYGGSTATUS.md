@@ -27,8 +27,8 @@ Ny byggeleder overtok 22. juli (forrige leder døde på API-feil).
 | D | 4.1–4.3, prøve-4 | FERDIG+committet |
 | E | 5.1–5.3, prøve-5 | FERDIG+committet |
 | F | 6.1–6.4, prøve-6 (+4 SVG) | FERDIG+committet (overtakelse 22. juli) |
-| G | 7.1–7.3, prøve-7 | **GJENSTÅR — bygges nå** |
-| H | 8.1–8.4 (føring + 3 øvingseks) | **GJENSTÅR — bygges nå** |
+| G | 7.1–7.3, prøve-7 (+Householder-SVG) | FERDIG+committet (f674bc9c) |
+| H | 8.1–8.4 (føring + 3 øvingseks, +kjeglesnitt-SVG) | FERDIG+committet (d31ce9ed) |
 
 ## Overtakelseskorreksjoner (22. juli)
 - mat1110 er nå LIVE → alle 24 placeholder-markører gjort til ekte lenker (Del 0–6);
@@ -37,10 +37,22 @@ Ny byggeleder overtok 22. juli (forrige leder døde på API-feil).
   den ene i 5-1 bb-22 var rettet av forrige leder (84f5e533).
 
 ## Filer på disk (mat1120)
-- chapters: 32 / 40 (mangler 7-1,7-2,7-3,7-prove,8-1,8-2,8-3,8-4)
-- quiz-staging: 26 (mangler Del 7+8)
-- SVG: 4 (Del 6)
+- chapters: 40 / 40 (alle wiret i COURSE_MAT1120)
+- quiz: 539 spm i quiz-data-mat1120.ts (alle 33 nøkler + prøver)
+- SVG: 6 (4 i Del 6 + 7-3 Householder + 8-4 kjeglesnitt)
+
+## Steg 3 — verifikatorbølge (startet 22. juli, ny byggeleder)
+Numerisk etterregning (python3/numpy/sympy) av alle fasiter del for del:
+| Del | Status | Avvik funnet/rettet |
+|---|---|---|
+| 0+1 | FERDIG (alle fasiter etterregnet eksakt m/sympy) | 0 avvik; quiz 0-1…1-4 OK (prøvekap. har bevisst ingen quiz-nøkkel) |
+| 2 | FERDIG (122 sympy-sjekker: koordinater/basisskifte/[T]_B/Wronski, kryssverifisert) | 0 fasitavvik; quiz 2-1…2-7 OK; 1 defekt distraktor rettet (2-4 P_{E←B}: «transponert»-alternativ var lik fasit pga. symmetri → byttet til inversmatrisen) |
+| 3 | FERDIG (112 sympy-kontroller: charpoly/egenrom/PDP⁻¹/A^k symbolsk) | 0 avvik; quiz 74 spm OK. Merknad: poly(A)-omtale i 3-1/3-4 bruker monisk konvensjon, def-blokk det(A−λI) — samme røtter, latt stå |
+| 4 | FERDIG (169 sjekker: indreprodukt/GS/normer, alle mellomverdier) | 1 tekstavvik rettet (4-1-thm-cs kyrilliske tegn); quiz 54 spm OK, 1 distraktor-tenkenotis ryddet (4-1 norm-spm) |
+| 5 | venter | – |
+| 6 | venter | – |
+| 7 | venter | – |
+| 8 | venter | – |
 
 ## Gjenstår
-- Del 7 (SVD/dynamikk/bevis) + Del 8 (føring + 3 øvingseksamener), inkl. quiz.
-- Steg 2 wiring, Steg 3 verifikator, Steg 4 sluttport.
+- Steg 3 verifikator (pågår), Steg 4 sluttport (SVG-opplasting Storage + prod-curl PORT=3061).
