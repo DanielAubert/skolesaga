@@ -1,0 +1,327 @@
+{
+  "id": "tma4110-3-5",
+  "courseId": "tma4110",
+  "chapterNumber": "3.5",
+  "title": "Drill: underrom, basis, dimensjon og rang",
+  "description": "Hele vektorrom-repertoaret drillet: underrom via tre betingelser, basisbevis med dimensjonsargument, Col/Nul/rang fra RREF, koordinater og basisskifte — den 82–89 %-tunge kjernen til automatikk.",
+  "estimatedMinutes": 90,
+  "competenceGoals": [
+    "verifisere underrom via de tre betingelsene og finne basis og dimensjon, også i Pₙ og matriserom",
+    "lese Col A-basis (opprinnelige kolonner), Nul A-basis (spesielle løsninger) og rang fra RREF med dimensjonsteoremet som kontroll",
+    "regne koordinater og basisskifte med riktig retning under prøvebetingelser"
+  ],
+  "content": [
+    {
+      "id": "tma4110-3-5-tip-eksamensvinkel",
+      "type": "tip",
+      "title": "Eksamensvinkel",
+      "content": "**Dette drillkapitlet gjør hele Del 3 til automatikk.** Vektorrom-stoffet er to av de tyngste søylene: abstrakt underrom/basis/dimensjon (sjanger D, ~82 %) og $\\operatorname{Col}/\\operatorname{Nul}$/rang fra radreduksjon (sjanger E, ~89 %). Nesten hvert sett har minst én oppgave av hver.\n\nVariantene som går igjen:\n- **Underrom-verifisering** — vis de tre betingelsene, ofte i $\\operatorname{P}_n$ eller et matriserom, og finn dimensjonen.\n- **Basisbevis** — uavhengighet **+ dimensjonsargument** (sensor krever begge delene, eller riktig antall + én av dem).\n- **$\\operatorname{Col}/\\operatorname{Nul}$-avlesning** — basis for begge, rang, og dimensjonsteoremet som kontroll.\n- **Koordinater og basisskifte** — i riktig retning.\n\nMålet: bli så trygg at disse går raskt, så du sparer tid til komplekse tall, egenverdier og ODE. **Kapitlet er langt (~90 min) — del det gjerne over to økter** (se pausepunktet)."
+    },
+    {
+      "id": "tma4110-3-5-forkunnskaper",
+      "type": "text",
+      "content": "**Forkunnskaper:** Alt her bygger på [kap. 3.1](/bok/tma4110/tma4110-3-1) (vektorrom, underrom via tre betingelser, $\\operatorname{P}_n$/matriserom), [kap. 3.2](/bok/tma4110/tma4110-3-2) (uavhengighet, basis, dimensjonsargument), [kap. 3.3](/bok/tma4110/tma4110-3-3) ($\\operatorname{Col}/\\operatorname{Nul}$/rang/dimensjonsteorem) og [kap. 3.4](/bok/tma4110/tma4110-3-4) (koordinater, basisskifte). Ingen ny teori — dette driller sjangrene D og E til automatikk. Er du usikker på et steg, slå opp i teorikapitlet før du fortsetter."
+    },
+    {
+      "id": "tma4110-3-5-oppskrift",
+      "type": "text",
+      "content": "## Løsningsoppskriften (fire sjangre, faste grep)\n\nBruk samme faste prosedyre per sjanger — da slipper du å tenke fra bunnen hver gang:\n\n1. **Underrom?** Sjekk de **tre betingelsene**: (a) $\\mathbf 0\\in W$; (b) lukket under addisjon ($\\mathbf u,\\mathbf v\\in W\\Rightarrow\\mathbf u+\\mathbf v\\in W$); (c) lukket under skalar ($c\\mathbf u\\in W$). Alle tre må vises. Finn så en basis og tell dimensjonen.\n2. **Basis?** Vis **lineær uavhengighet** *og* **utspenning** — eller, når antallet er nøyaktig $\\dim V$, uavhengighet + **dimensjonsargumentet**. Navngi argumentet.\n3. **$\\operatorname{Col}/\\operatorname{Nul}$/rang?** Radreduser én gang. $\\operatorname{Col}$-basis = **opprinnelige** pivotkolonner i $A$; $\\operatorname{Nul}$-basis = spesielle løsninger (én per fri variabel); $\\operatorname{rang}A$ = antall pivoter. **Kontroller** med dimensjonsteoremet $\\operatorname{rang}A+\\dim\\operatorname{Nul}A=n$.\n4. **Koordinater/basisskifte?** $[\\mathbf x]_{\\mathcal B}$ = løs kombinasjonen; $P_{\\mathcal C\\leftarrow\\mathcal B}$ har $\\mathcal B$-vektorene i $\\mathcal C$-koordinater som kolonner, retning «$\\mathcal C$ ut $\\leftarrow$ $\\mathcal B$ inn».\n\n**Kontroll:** sett alltid et delsvar tilbake i den opprinnelige betingelsen/likningen. I abstrakt rom: oversett til koordinater, regn i $\\mathbb R^n$, oversett tilbake."
+    },
+    {
+      "id": "tma4110-3-5-def-underrom",
+      "type": "definition",
+      "title": "Underrom — de tre betingelsene (oppskrift)",
+      "content": "For at $W\\subseteq V$ skal være et underrom må **alle tre** holde: (1) $\\mathbf 0\\in W$; (2) $\\mathbf u,\\mathbf v\\in W\\Rightarrow\\mathbf u+\\mathbf v\\in W$; (3) $c\\in\\mathbb R,\\ \\mathbf u\\in W\\Rightarrow c\\mathbf u\\in W$. Vis dem i rekkefølge. Å hoppe over én — ofte $\\mathbf 0\\in W$ — er den dokumenterte fellen. Er én betingelse brutt (typisk $\\{p:p(0)=1\\}$, som mangler $\\mathbf 0$), er $W$ *ikke* et underrom, og du gir et moteksempel."
+    },
+    {
+      "id": "tma4110-3-5-def-underrom-abstrakt",
+      "type": "definition",
+      "title": "Underrom i $\\operatorname{P}_n$ og matriserom (grep)",
+      "content": "Betingelser som «$p(1)=0$», «$\\operatorname{spor}A=0$» eller «$A^{T}=A$» er **lineære** og homogene, og definerer derfor underrom. Grepet: skriv et generelt element med parametre, samle de frie parametrene, og les basisen av. F.eks. gir $\\operatorname{spor}A=0$ i $M_2$ at $d=-a$, med $a,b,c$ frie — tre basisretninger, $\\dim=3$."
+    },
+    {
+      "id": "tma4110-3-5-def-basis",
+      "type": "definition",
+      "title": "Basis — uavhengighet + dimensjonsargument (oppskrift)",
+      "content": "En basis er **uavhengig** *og* **utspennende**. Snarveien: er antallet vektorer nøyaktig $\\dim V$, holder det å vise *én* av delene — **dimensjonsargumentet** («$n$ uavhengige vektorer i et $n$-dim rom er en basis»). I abstrakt rom: oversett til koordinater relativt en kjent basis og sjekk uavhengighet med radreduksjon/determinant. Navngi argumentet i besvarelsen."
+    },
+    {
+      "id": "tma4110-3-5-def-dimargument",
+      "type": "definition",
+      "title": "Dimensjonsargumentet (når snarveien gjelder)",
+      "content": "Snarveien gjelder **kun** når antallet vektorer er *nøyaktig* $\\dim V$. Med for få vektorer kan de ikke utspenne; med for mange er de avhengige. Har du riktig antall, er «uavhengig» og «utspenner» ekvivalente — vis den som er lettest (som regel uavhengighet via determinant)."
+    },
+    {
+      "id": "tma4110-3-5-def-colnul",
+      "type": "definition",
+      "title": "$\\operatorname{Col}/\\operatorname{Nul}$/rang fra RREF (oppskrift)",
+      "content": "Radreduser $A$ **én gang**. $\\operatorname{rang}A$ = antall pivoter. $\\operatorname{Col}A$-basis = de **opprinnelige** kolonnene i $A$ som har pivot (ikke RREF-kolonnene). $\\operatorname{Nul}A$-basis = spesielle løsninger, én per fri variabel (sett den frie $=1$, resten $=0$, les de bundne). Kontroll: $\\operatorname{rang}A+\\dim\\operatorname{Nul}A=n$."
+    },
+    {
+      "id": "tma4110-3-5-def-colfelle",
+      "type": "definition",
+      "title": "$\\operatorname{Col}A$-fellen (original, ikke RREF)",
+      "content": "Den mest testede detaljen i hele delen: basis for $\\operatorname{Col}A$ er de **opprinnelige** pivotkolonnene i $A$ — radreduksjon avslører *hvilke* kolonner, men endrer kolonnerommet. RREF-kolonnene (som $(1,0,0)$, $(0,1,0)$) er **feil** svar. For $\\operatorname{Row}A$ er derimot RREF-radene riktige."
+    },
+    {
+      "id": "tma4110-3-5-def-koordinater",
+      "type": "definition",
+      "title": "Koordinater og basisskifte (oppskrift)",
+      "content": "$[\\mathbf x]_{\\mathcal B}$: løs $\\mathbf x=\\sum c_i\\mathbf b_i$ (radreduksjon i $\\mathbb R^n$, koeffisientsammenligning i $\\operatorname{P}_n$). $P_{\\mathcal C\\leftarrow\\mathcal B}$: kolonne $j$ = $[\\mathbf b_j]_{\\mathcal C}$, og $[\\mathbf x]_{\\mathcal C}=P_{\\mathcal C\\leftarrow\\mathcal B}[\\mathbf x]_{\\mathcal B}$. Motsatt vei: $P_{\\mathcal B\\leftarrow\\mathcal C}=(P_{\\mathcal C\\leftarrow\\mathcal B})^{-1}$. **Retning** er sjekkpunktet: $\\mathcal B$ inn, $\\mathcal C$ ut."
+    },
+    {
+      "id": "tma4110-3-5-def-kontroll",
+      "type": "definition",
+      "title": "Kontrollgrepene (fang feil før de teller)",
+      "content": "Tre gratis kontroller: (1) dimensjonsteoremet $\\operatorname{rang}A+\\dim\\operatorname{Nul}A=n$ etter $\\operatorname{Col}/\\operatorname{Nul}$; (2) sett hver $\\operatorname{Nul}$-basisvektor inn i $A\\mathbf x=\\mathbf 0$; (3) sett koordinatsvaret tilbake i kombinasjonen. Under kode E og tidspress er disse kontrollene det som skiller full uttelling fra en regnefeil-sluttet oppgave."
+    },
+    {
+      "id": "tma4110-3-5-ex-case",
+      "type": "example",
+      "title": "Gjennomregnet vektorrom-case (med sensor-margnotater)",
+      "problem": "**Del A.** For $A=\\begin{bmatrix}1&2&0&1\\\\2&4&1&3\\\\1&2&1&2\\end{bmatrix}$: finn en basis for $\\operatorname{Col}A$ og $\\operatorname{Nul}A$, oppgi $\\operatorname{rang}A$, og kontroller dimensjonsteoremet.\n\n**Del B.** Vis at $W=\\{A\\in M_2:\\operatorname{spor}A=0\\}$ er et underrom av $M_2$, og finn en basis og dimensjonen.",
+      "solution": "**Del A — radreduser.** $R_2\\to R_2-2R_1=(0,0,1,1)$; $R_3\\to R_3-R_1=(0,0,1,1)$; $R_3\\to R_3-R_2=0$. Trappeform, og siden $R_1$ allerede har $0$ i kolonne $3$, er dette RREF:\n$$\\begin{bmatrix}1&2&0&1\\\\0&0&1&1\\\\0&0&0&0\\end{bmatrix}.$$\n*(Margnotat: pivoter i kolonne $1$ og $3$ — noter dem før du gjør noe annet.)*\n\n**Rang:** to pivoter ⇒ $\\operatorname{rang}A=2$.\n\n**$\\operatorname{Col}A$-basis** = de **opprinnelige** kolonnene $1$ og $3$ i $A$: $\\left\\{(1,2,1),\\ (0,1,1)\\right\\}$.\n*(Margnotat: her ryker delpoeng hvis du skriver RREF-kolonnene $(1,0,0),(0,1,0)$ — det er den klassiske fellen.)*\n\n**$\\operatorname{Nul}A$-basis:** frie variabler $x_2,x_4$. Radene gir $x_1=-2x_2-x_4$, $x_3=-x_4$. Spesielle løsninger: $x_2=1,x_4=0\\Rightarrow(-2,1,0,0)$; $x_2=0,x_4=1\\Rightarrow(-1,0,-1,1)$. Basis $\\left\\{(-2,1,0,0),\\ (-1,0,-1,1)\\right\\}$, $\\dim\\operatorname{Nul}A=2$.\n\n**Kontroll (dimensjonsteoremet):** $\\operatorname{rang}A+\\dim\\operatorname{Nul}A=2+2=4=n$ ✓.\n*(Margnotat: å skrive denne kontrollinjen eksplisitt gir uttelling — den viser at du kjenner teoremet ved navn.)*\n\n**Del B — underrom.** Skriv $A=\\begin{bmatrix}a&b\\\\c&d\\end{bmatrix}$; $\\operatorname{spor}A=a+d$. \n**(1) $\\mathbf 0\\in W$:** nullmatrisen har spor $0$ ✓. **(2) Addisjon:** har $A,B$ spor $0$, er $\\operatorname{spor}(A+B)=\\operatorname{spor}A+\\operatorname{spor}B=0$ ✓. **(3) Skalar:** $\\operatorname{spor}(cA)=c\\operatorname{spor}A=0$ ✓. Alle tre holder, så $W$ er et **underrom**.\n*(Margnotat: alle tre betingelsene må stå — å hoppe over $\\mathbf 0\\in W$ er den dokumenterte fellen.)*\n\n**Basis og dimensjon:** $\\operatorname{spor}A=0$ betyr $d=-a$, med $a,b,c$ frie:\n$$A=a\\begin{bmatrix}1&0\\\\0&-1\\end{bmatrix}+b\\begin{bmatrix}0&1\\\\0&0\\end{bmatrix}+c\\begin{bmatrix}0&0\\\\1&0\\end{bmatrix}.$$\nDe tre matrisene er uavhengige (hver har et $1$-tall i sin egen posisjon) og utspenner $W$, så de er en basis og $\\dim W=3$."
+    },
+    {
+      "id": "tma4110-3-5-bolk1-tekst",
+      "type": "text",
+      "content": "## Drilloppgaver, bolk 1 — underrom, basis og dimensjon (sjanger D, ~40 min)\n\nJobb gjennom disse med oppskriften. Vis alle tre betingelsene i underrom-oppgaver, og navngi dimensjonsargumentet i basis-oppgaver."
+    },
+    {
+      "id": "tma4110-3-5-o1",
+      "type": "exercise",
+      "exercise": {
+        "id": "tma4110-3-5-o1",
+        "number": "1",
+        "type": "classic",
+        "difficulty": "lett",
+        "task": "(Sjanger D — underrom i $\\operatorname{P}_2$.) Vis at $W=\\{p\\in\\operatorname{P}_2:p(0)=0\\}$ er et underrom, og finn en basis og dimensjonen.",
+        "solution": "Skriv $p=a+bt+ct^2$; da er $p(0)=a$. Betingelsen $p(0)=0$ betyr $a=0$.\n\n**Tre betingelser:** (1) nullpolynomet har $p(0)=0$ ✓. (2) Har $p,q$ verdien $0$ i $0$, er $(p+q)(0)=p(0)+q(0)=0$ ✓. (3) $(cp)(0)=c\\,p(0)=0$ ✓. Så $W$ er et underrom.\n\n**Basis:** elementene er $bt+ct^2=b\\,t+c\\,t^2$, med $b,c$ frie. Basis $\\{t,\\ t^2\\}$, uavhengige (ulik grad), så $\\dim W=2$.",
+        "hints": [
+          "Skriv $p=a+bt+ct^2$ og oversett $p(0)=0$ til en betingelse på koeffisientene.",
+          "De frie koeffisientene gir basisretningene."
+        ]
+      }
+    },
+    {
+      "id": "tma4110-3-5-o2",
+      "type": "exercise",
+      "exercise": {
+        "id": "tma4110-3-5-o2",
+        "number": "2",
+        "type": "classic",
+        "difficulty": "lett",
+        "task": "(Sjanger D — ikke et underrom.) Er $W=\\{p\\in\\operatorname{P}_2:p(0)=1\\}$ et underrom av $\\operatorname{P}_2$? Begrunn.",
+        "solution": "Nei. Nullpolynomet har $p(0)=0\\ne1$, så $\\mathbf 0\\notin W$ — første betingelse brutt. (Dessuten er $W$ ikke lukket: hvis $p(0)=q(0)=1$, er $(p+q)(0)=2\\ne1$.) Et moteksempel på $\\mathbf 0\\in W$ er nok til å konkludere: **$W$ er ikke et underrom.**",
+        "hints": [
+          "Sjekk den enkleste betingelsen først: er $\\mathbf 0\\in W$?",
+          "Et enkelt moteksempel er nok til å avvise underrom."
+        ]
+      }
+    },
+    {
+      "id": "tma4110-3-5-o3",
+      "type": "exercise",
+      "exercise": {
+        "id": "tma4110-3-5-o3",
+        "number": "3",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "(Sjanger D — underrom i matriserom.) Vis at $W=\\{A\\in M_2:\\operatorname{spor}A=0\\}$ er et underrom av $M_2$, og finn en basis og dimensjonen.",
+        "solution": "Med $A=\\begin{bmatrix}a&b\\\\c&d\\end{bmatrix}$ er $\\operatorname{spor}A=a+d$. **(1)** Nullmatrisen har spor $0$ ✓. **(2)** $\\operatorname{spor}(A+B)=\\operatorname{spor}A+\\operatorname{spor}B=0$ ✓. **(3)** $\\operatorname{spor}(cA)=c\\operatorname{spor}A=0$ ✓. Underrom.\n\nBetingelsen $a+d=0$ gir $d=-a$, med $a,b,c$ frie. Basis:\n$$\\left\\{\\begin{bmatrix}1&0\\\\0&-1\\end{bmatrix},\\begin{bmatrix}0&1\\\\0&0\\end{bmatrix},\\begin{bmatrix}0&0\\\\1&0\\end{bmatrix}\\right\\},\\qquad \\dim W=3.$$",
+        "hints": [
+          "$\\operatorname{spor}$ er lineær: $\\operatorname{spor}(A+B)=\\operatorname{spor}A+\\operatorname{spor}B$.",
+          "Løs $a+d=0$ og la de frie parametrene $a,b,c$ gi basisretningene."
+        ]
+      }
+    },
+    {
+      "id": "tma4110-3-5-o4",
+      "type": "exercise",
+      "exercise": {
+        "id": "tma4110-3-5-o4",
+        "number": "4",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "(Sjanger D — basis via dimensjonsargument.) Avgjør om $\\{1+t^2,\\ t+t^2,\\ 1+t\\}$ er en basis for $\\operatorname{P}_2$.",
+        "solution": "Tre polynomer i det $3$-dimensjonale $\\operatorname{P}_2$ — bruk dimensjonsargumentet og sjekk uavhengighet. Koordinater relativt $\\{1,t,t^2\\}$: $(1,0,1),(0,1,1),(1,1,0)$. Determinanten av koordinatmatrisen:\n$$\\det\\begin{bmatrix}1&0&1\\\\0&1&1\\\\1&1&0\\end{bmatrix}=1(0-1)-0+1(0-1)=-2\\ne0.$$\nUavhengige koordinatvektorer ⇒ uavhengige polynomer. Tre uavhengige vektorer i et $3$-dim rom er en **basis** (dimensjonsargumentet).",
+        "hints": [
+          "Antallet ($3$) stemmer med $\\dim\\operatorname{P}_2$ — sjekk bare uavhengighet.",
+          "Oversett til koordinatvektorer og regn determinanten."
+        ]
+      }
+    },
+    {
+      "id": "tma4110-3-5-o5",
+      "type": "exercise",
+      "exercise": {
+        "id": "tma4110-3-5-o5",
+        "number": "5",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "(Sjanger D — koordinater i $\\mathbb R^3$.) La $\\mathcal B=\\{(1,1,0),(0,1,1),(1,0,1)\\}$, en basis for $\\mathbb R^3$. Finn $[(2,3,1)]_{\\mathcal B}$.",
+        "solution": "Løs $c_1(1,1,0)+c_2(0,1,1)+c_3(1,0,1)=(2,3,1)$, altså\n$$c_1+c_3=2,\\quad c_1+c_2=3,\\quad c_2+c_3=1.$$\nTrekk den tredje fra den andre: $c_1-c_3=2$; sammen med $c_1+c_3=2$ gir det $c_1=2,\\ c_3=0$, og da $c_2=1$. Så $[(2,3,1)]_{\\mathcal B}=(2,1,0)$. Kontroll: $2(1,1,0)+1(0,1,1)+0(1,0,1)=(2,3,1)$ ✓.",
+        "hints": [
+          "Sett opp systemet $c_1\\mathbf b_1+c_2\\mathbf b_2+c_3\\mathbf b_3=(2,3,1)$.",
+          "Kombiner likningene for å eliminere én ukjent."
+        ]
+      }
+    },
+    {
+      "id": "tma4110-3-5-o6",
+      "type": "exercise",
+      "exercise": {
+        "id": "tma4110-3-5-o6",
+        "number": "6",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "(Sjanger D/F — basisskifte i $\\operatorname{P}_2$.) La $\\mathcal B=\\{1,t,t^2\\}$ og $\\mathcal C=\\{1,\\ 1+t,\\ 1+t^2\\}$. Finn $P_{\\mathcal C\\leftarrow\\mathcal B}$ og bruk den til å finne $[\\,2-t+3t^2\\,]_{\\mathcal C}$.",
+        "solution": "Uttrykk hver $\\mathcal B$-vektor i $\\mathcal C=\\{c_1=1,\\ c_2=1+t,\\ c_3=1+t^2\\}$: $b_1=1=c_1\\Rightarrow(1,0,0)$; $b_2=t=c_2-c_1\\Rightarrow(-1,1,0)$; $b_3=t^2=c_3-c_1\\Rightarrow(-1,0,1)$. Så\n$$P_{\\mathcal C\\leftarrow\\mathcal B}=\\begin{bmatrix}1&-1&-1\\\\0&1&0\\\\0&0&1\\end{bmatrix}.$$\n$[\\,2-t+3t^2\\,]_{\\mathcal B}=(2,-1,3)$, så $[\\mathbf x]_{\\mathcal C}=P_{\\mathcal C\\leftarrow\\mathcal B}(2,-1,3)=(2+1-3,\\,-1,\\,3)=(0,-1,3)$. Kontroll: $0\\cdot1-1(1+t)+3(1+t^2)=2-t+3t^2$ ✓.",
+        "hints": [
+          "Kolonne $j$ = den $j$-te $\\mathcal B$-vektoren uttrykt i $\\mathcal C$.",
+          "Gang matrisen på $[\\mathbf x]_{\\mathcal B}=(2,-1,3)$."
+        ]
+      }
+    },
+    {
+      "id": "tma4110-3-5-pause",
+      "type": "tip",
+      "title": "— naturlig pausepunkt —",
+      "content": "Her har du drillet underrom, basis, koordinater og basisskifte (sjanger D). **Ta gjerne en pause og fortsett med $\\operatorname{Col}/\\operatorname{Nul}$-avlesningen (sjanger E) i neste økt.** Bolk 2 er ren radreduksjon — det lønner seg med et uthvilt hode så du unngår fortegnsfeil."
+    },
+    {
+      "id": "tma4110-3-5-bolk2-tekst",
+      "type": "text",
+      "content": "## Drilloppgaver, bolk 2 — Col, Nul, rang og kjedede oppgaver (sjanger E + D/E, ~40 min)\n\nRadreduser hver matrise én gang og les av alt. Husk: $\\operatorname{Col}$-basis fra **originalkolonnene**, og bruk dimensjonsteoremet som kontroll."
+    },
+    {
+      "id": "tma4110-3-5-o7",
+      "type": "exercise",
+      "exercise": {
+        "id": "tma4110-3-5-o7",
+        "number": "7",
+        "type": "classic",
+        "difficulty": "lett",
+        "task": "(Sjanger E — avlesning fra RREF.) En matrise $A$ har RREF $\\begin{bmatrix}1&2&0&3\\\\0&0&1&-1\\\\0&0&0&0\\end{bmatrix}$. Oppgi $\\operatorname{rang}A$, hvilke kolonner en $\\operatorname{Col}A$-basis hentes fra, og $\\dim\\operatorname{Nul}A$.",
+        "solution": "Pivoter i kolonne $1$ og $3$ ⇒ $\\operatorname{rang}A=2$. En $\\operatorname{Col}A$-basis hentes fra de **opprinnelige** kolonnene $1$ og $3$ i $A$ (ikke RREF-kolonnene). Frie variabler $x_2,x_4$ ⇒ $\\dim\\operatorname{Nul}A=2$. Kontroll: $2+2=4=n$ ✓.",
+        "hints": [
+          "Rang = antall pivoter; frie kolonner = nullitet.",
+          "$\\operatorname{Col}$-basis fra originalkolonnene med pivotindeks."
+        ]
+      }
+    },
+    {
+      "id": "tma4110-3-5-o8",
+      "type": "exercise",
+      "exercise": {
+        "id": "tma4110-3-5-o8",
+        "number": "8",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "(Sjanger E — full avlesning.) For $A=\\begin{bmatrix}1&3&1&4\\\\2&6&1&7\\\\1&3&2&5\\end{bmatrix}$: finn basis for $\\operatorname{Col}A$ og $\\operatorname{Nul}A$, oppgi $\\operatorname{rang}A$, og kontroller dimensjonsteoremet.",
+        "solution": "**Radreduser.** $R_2\\to R_2-2R_1=(0,0,-1,-1)$; $R_3\\to R_3-R_1=(0,0,1,1)$; $R_3\\to R_3+R_2=0$; skaler $R_2\\to -R_2=(0,0,1,1)$; $R_1\\to R_1-R_2$:\n$$\\text{RREF}=\\begin{bmatrix}1&3&0&3\\\\0&0&1&1\\\\0&0&0&0\\end{bmatrix}.$$\n**Pivoter** i kolonne $1,3$ ⇒ $\\operatorname{rang}A=2$. **$\\operatorname{Col}A$-basis** = opprinnelige kolonner $1,3$: $\\{(1,2,1),(1,1,2)\\}$.\n\n**Frie:** $x_2,x_4$. Radene: $x_1=-3x_2-3x_4$, $x_3=-x_4$. Spesielle løsninger: $(-3,1,0,0)$ og $(-3,0,-1,1)$. **$\\operatorname{Nul}A$-basis** $\\{(-3,1,0,0),(-3,0,-1,1)\\}$, $\\dim\\operatorname{Nul}A=2$.\n\n**Kontroll:** $\\operatorname{rang}A+\\dim\\operatorname{Nul}A=2+2=4=n$ ✓.",
+        "hints": [
+          "Radreduser til RREF og noter pivotkolonnene.",
+          "$\\operatorname{Col}$-basis fra originalkolonner $1,3$; $\\operatorname{Nul}$-basis fra spesielle løsninger.",
+          "Sjekk at rang + nullitet $=4$."
+        ]
+      }
+    },
+    {
+      "id": "tma4110-3-5-o9",
+      "type": "exercise",
+      "exercise": {
+        "id": "tma4110-3-5-o9",
+        "number": "9",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "(Sjanger E — Col-fellen.) For $A=\\begin{bmatrix}1&0&1&2\\\\0&1&1&1\\\\1&1&2&3\\end{bmatrix}$: finn basis for $\\operatorname{Col}A$ og $\\operatorname{Nul}A$, og oppgi rangen. Vær nøye med hvilke kolonner $\\operatorname{Col}A$-basisen hentes fra.",
+        "solution": "**Radreduser.** $R_3\\to R_3-R_1=(0,1,1,1)$, så $R_3\\to R_3-R_2=0$:\n$$\\text{RREF}=\\begin{bmatrix}1&0&1&2\\\\0&1&1&1\\\\0&0&0&0\\end{bmatrix}.$$\nPivoter i kolonne $1,2$ ⇒ $\\operatorname{rang}A=2$. **$\\operatorname{Col}A$-basis** = **opprinnelige** kolonner $1,2$: $\\{(1,0,1),(0,1,1)\\}$ — *ikke* RREF-kolonnene.\n\n**Frie:** $x_3,x_4$. Radene: $x_1=-x_3-2x_4$, $x_2=-x_3-x_4$. Spesielle løsninger: $(-1,-1,1,0)$ og $(-2,-1,0,1)$. **$\\operatorname{Nul}A$-basis** $\\{(-1,-1,1,0),(-2,-1,0,1)\\}$. Kontroll: $2+2=4=n$ ✓.",
+        "hints": [
+          "Radreduser og noter pivotindeksene.",
+          "Plukk de opprinnelige kolonnene $1,2$ i $A$ — den klassiske fellen er å ta RREF-kolonnene."
+        ]
+      }
+    },
+    {
+      "id": "tma4110-3-5-o10",
+      "type": "exercise",
+      "exercise": {
+        "id": "tma4110-3-5-o10",
+        "number": "10",
+        "type": "classic",
+        "difficulty": "vanskelig",
+        "task": "(Sjanger E på eksamensnivå.) For $A=\\begin{bmatrix}1&-1&2\\\\2&-2&5\\\\3&-3&7\\end{bmatrix}$: finn basis for $\\operatorname{Col}A$ og $\\operatorname{Nul}A$, oppgi $\\operatorname{rang}A$, og kontroller dimensjonsteoremet.",
+        "solution": "**Radreduser.** $R_2\\to R_2-2R_1=(0,0,1)$; $R_3\\to R_3-3R_1=(0,0,1)$; $R_3\\to R_3-R_2=0$; $R_1\\to R_1-2R_2$:\n$$\\text{RREF}=\\begin{bmatrix}1&-1&0\\\\0&0&1\\\\0&0&0\\end{bmatrix}.$$\n**Pivoter** i kolonne $1,3$ ⇒ $\\operatorname{rang}A=2$. **$\\operatorname{Col}A$-basis** = opprinnelige kolonner $1,3$: $\\{(1,2,3),(2,5,7)\\}$.\n\n**Fri:** $x_2$. Radene: $x_1=x_2$, $x_3=0$. Spesiell løsning $(1,1,0)$. **$\\operatorname{Nul}A$-basis** $\\{(1,1,0)\\}$, $\\dim\\operatorname{Nul}A=1$.\n\n**Kontroll:** $\\operatorname{rang}A+\\dim\\operatorname{Nul}A=2+1=3=n$ ✓. (Merk: kolonne $2$ er $-1$ ganger kolonne $1$ — derav avhengigheten.)",
+        "hints": [
+          "Radreduser; kolonne $2$ er et multiplum av kolonne $1$.",
+          "$\\operatorname{Col}$-basis fra originalkolonner $1,3$; én fri variabel gir én $\\operatorname{Nul}$-basisvektor."
+        ]
+      }
+    },
+    {
+      "id": "tma4110-3-5-o11",
+      "type": "exercise",
+      "exercise": {
+        "id": "tma4110-3-5-o11",
+        "number": "11",
+        "type": "classic",
+        "difficulty": "vanskelig",
+        "task": "(Sjanger D — underrom i $\\operatorname{P}_3$.) Vis at $W=\\{p\\in\\operatorname{P}_3:p(1)=0\\}$ er et underrom av $\\operatorname{P}_3$, og finn en basis og dimensjonen.",
+        "solution": "**Tre betingelser:** (1) nullpolynomet har $p(1)=0$ ✓. (2) $(p+q)(1)=p(1)+q(1)=0$ ✓. (3) $(cp)(1)=c\\,p(1)=0$ ✓. Så $W$ er et underrom (betingelsen $p(1)=0$ er lineær og homogen).\n\n**Basis:** $p(1)=0$ betyr at $t=1$ er et nullpunkt, altså $p(t)=(t-1)q(t)$ med $q\\in\\operatorname{P}_2$. Et enklere grep: polynomene $t-1,\\ t^2-1,\\ t^3-1$ ligger alle i $W$ (verdi $0$ i $t=1$), er uavhengige (koordinatvektorene $(-1,1,0,0),(-1,0,1,0),(-1,0,0,1)$ relativt $\\{1,t,t^2,t^3\\}$ har pivot i hver kolonne), og enhver $p\\in W$ er en kombinasjon av dem. Basis $\\{t-1,\\ t^2-1,\\ t^3-1\\}$, $\\dim W=3$.\n\n(Kontroll av dimensjon: $W$ er kjernen til den lineære «evaluer i $1$»-avbildningen $\\operatorname{P}_3\\to\\mathbb R$, som er surjektiv, så $\\dim W=\\dim\\operatorname{P}_3-1=4-1=3$ ✓.)",
+        "hints": [
+          "Betingelsen $p(1)=0$ er lineær — sjekk de tre betingelsene raskt.",
+          "Prøv byggeklossene $t-1,\\ t^2-1,\\ t^3-1$; alle har verdi $0$ i $t=1$.",
+          "Tell dimensjonen: én lineær betingelse på $\\operatorname{P}_3$ (dim $4$) gir dim $3$."
+        ]
+      }
+    },
+    {
+      "id": "tma4110-3-5-o12",
+      "type": "exercise",
+      "exercise": {
+        "id": "tma4110-3-5-o12",
+        "number": "12",
+        "type": "classic",
+        "difficulty": "vanskelig",
+        "task": "(Sjanger D + E kjedet — abstrakt underrom → basis → koordinater.) La $W=\\{A\\in M_2:A^{T}=A\\}$ (symmetriske $2\\times2$-matriser).\n\n**a)** Vis at $W$ er et underrom, og finn en basis $\\mathcal B$ og $\\dim W$.\n\n**b)** Finn koordinatvektoren $[M]_{\\mathcal B}$ til $M=\\begin{bmatrix}2&3\\\\3&-1\\end{bmatrix}$ relativt basisen din.",
+        "solution": "**a)** For $A=\\begin{bmatrix}a&b\\\\c&d\\end{bmatrix}$ betyr $A^{T}=A$ at $b=c$. **(1)** Nullmatrisen er symmetrisk ✓. **(2)** $(A+B)^{T}=A^{T}+B^{T}=A+B$ ✓. **(3)** $(cA)^{T}=cA^{T}=cA$ ✓. Underrom. Med $b=c$ er $a,b,d$ frie:\n$$A=a\\begin{bmatrix}1&0\\\\0&0\\end{bmatrix}+b\\begin{bmatrix}0&1\\\\1&0\\end{bmatrix}+d\\begin{bmatrix}0&0\\\\0&1\\end{bmatrix}.$$\nBasis $\\mathcal B=\\left\\{\\begin{bmatrix}1&0\\\\0&0\\end{bmatrix},\\begin{bmatrix}0&1\\\\1&0\\end{bmatrix},\\begin{bmatrix}0&0\\\\0&1\\end{bmatrix}\\right\\}$, $\\dim W=3$.\n\n**b)** $M=\\begin{bmatrix}2&3\\\\3&-1\\end{bmatrix}$ har $a=2,\\ b=c=3,\\ d=-1$, så\n$$M=2\\begin{bmatrix}1&0\\\\0&0\\end{bmatrix}+3\\begin{bmatrix}0&1\\\\1&0\\end{bmatrix}+(-1)\\begin{bmatrix}0&0\\\\0&1\\end{bmatrix},\\qquad [M]_{\\mathcal B}=\\begin{bmatrix}2\\\\3\\\\-1\\end{bmatrix}.$$\nKontroll: kombinasjonen gir tilbake $M$ ✓.",
+        "hints": [
+          "$A^{T}=A$ oversetter til betingelsen $b=c$ på elementene.",
+          "De frie parametrene $a,b,d$ gir de tre basismatrisene.",
+          "Koordinatene er koeffisientene $(a,b,d)$ når $M$ skrives i basisen."
+        ]
+      }
+    },
+    {
+      "id": "tma4110-3-5-o13",
+      "type": "exercise",
+      "exercise": {
+        "id": "tma4110-3-5-o13",
+        "number": "13",
+        "type": "classic",
+        "difficulty": "vanskelig",
+        "task": "(Sjanger E — løsbarhet via $\\operatorname{Col}A$.) La $A=\\begin{bmatrix}1&2&0&1\\\\2&4&1&3\\\\1&2&1&2\\end{bmatrix}$ (samme som i casen, $\\operatorname{Col}A$-basis $\\{(1,2,1),(0,1,1)\\}$). Avgjør om $\\mathbf b=(1,3,2)$ ligger i $\\operatorname{Col}A$, og hva det betyr for $A\\mathbf x=\\mathbf b$.",
+        "solution": "Sjekk om $\\mathbf b=(1,3,2)$ er en kombinasjon av basisvektorene: $s(1,2,1)+t(0,1,1)=(1,3,2)$. Komponentvis: $s=1$; $2s+t=3\\Rightarrow t=1$; kontroll tredje: $s+t=1+1=2$ ✓. Alle stemmer, så $\\mathbf b=1\\cdot(1,2,1)+1\\cdot(0,1,1)$. **Ja**, $\\mathbf b\\in\\operatorname{Col}A$, så $A\\mathbf x=\\mathbf b$ er **løsbart** (konsistent).",
+        "hints": [
+          "$\\mathbf b\\in\\operatorname{Col}A$ ⇔ $\\mathbf b$ er en kombinasjon av en $\\operatorname{Col}A$-basis.",
+          "Sett opp $s(1,2,1)+t(0,1,1)=\\mathbf b$ og sjekk konsistens."
+        ]
+      }
+    },
+    {
+      "id": "tma4110-3-5-symbolliste",
+      "type": "collapsible",
+      "title": "Symbol- og formelliste",
+      "buttonText": "Vis symboler og formler",
+      "content": [
+        {
+          "id": "tma4110-3-5-symbolliste-text",
+          "type": "text",
+          "content": "## Symbol- og formelliste\n\n*Oppslagsverk — alt her forklares underveis i kapitlet (og i kap. 3.1–3.4).*\n\n| Symbol | Betydning |\n|---|---|\n| $W\\subseteq V$ | Et underrom av $V$ |\n| $\\operatorname{P}_n$ | Polynomer av grad $\\le n$ ($\\dim=n+1$) |\n| $M_2$ | $2\\times2$-matriser ($\\dim=4$) |\n| $\\operatorname{spor}A$ | Sporet (sum av diagonalen) |\n| $A^{T}$ | Transponert; $A^{T}=A$ = symmetrisk |\n| $\\operatorname{Col}A,\\operatorname{Nul}A$ | Kolonnerom / nullrom |\n| $\\operatorname{rang}A$ | Antall pivoter $=\\dim\\operatorname{Col}A$ |\n| $[\\mathbf x]_{\\mathcal B}$ | Koordinatvektor relativt $\\mathcal B$ |\n| $P_{\\mathcal C\\leftarrow\\mathcal B}$ | Basisskiftematrise ($\\mathcal B$ inn, $\\mathcal C$ ut) |\n\n**Oppskrift (kort):**\n\n$$\\text{underrom?}\\ \\Rightarrow\\ \\mathbf 0\\in W,\\ \\text{lukket under }+,\\ \\text{lukket under skalar}$$\n\n$$\\text{basis?}\\ \\Rightarrow\\ \\text{uavhengig + utspenner};\\ \\text{riktig antall}\\Rightarrow\\text{dimensjonsargumentet}$$\n\n$$\\text{basis for }\\operatorname{Col}A=\\text{OPPRINNELIGE pivotkolonner};\\quad \\text{basis for }\\operatorname{Nul}A=\\text{spesielle løsninger}$$\n\n$$\\operatorname{rang}A+\\dim\\operatorname{Nul}A=n\\quad(\\text{kontroll})$$\n\n$$[\\mathbf x]_{\\mathcal C}=P_{\\mathcal C\\leftarrow\\mathcal B}[\\mathbf x]_{\\mathcal B},\\qquad P_{\\mathcal B\\leftarrow\\mathcal C}=(P_{\\mathcal C\\leftarrow\\mathcal B})^{-1}$$"
+        }
+      ]
+    }
+  ],
+  "exercises": []
+}

@@ -1,0 +1,381 @@
+{
+  "id": "tma4110-3-4",
+  "courseId": "tma4110",
+  "chapterNumber": "3.4",
+  "title": "Koordinater relativt en basis og basisskifte",
+  "description": "Koordinatvektoren [x]_B relativt en basis, koordinatavbildningen som isomorfi til ℝⁿ, og basisskiftematrisen P_{C←B} som gjør abstrakte problemer (polynomer) til vanlig matriseregning.",
+  "estimatedMinutes": 55,
+  "competenceGoals": [
+    "finne koordinatvektoren [x]_B til en vektor relativt en ordnet basis, i ℝⁿ og i abstrakte rom som Pₙ",
+    "bruke koordinatavbildningen som isomorfi til å avgjøre uavhengighet, span og dimensjon i ℝⁿ",
+    "sette opp basisskiftematrisen P_{C←B} med riktig retning og bruke inversen P_{B←C} = (P_{C←B})⁻¹"
+  ],
+  "content": [
+    {
+      "id": "tma4110-3-4-tip-eksamensvinkel",
+      "type": "tip",
+      "title": "Eksamensvinkel",
+      "content": "**Koordinater er verktøyet som gjør abstrakt algebra til vanlig kolonneregning — en del av 82 %-søylen (sjanger D/F).**\n\n- **Koordinatvektoren $[\\mathbf x]_{\\mathcal B}$** lar deg oversette et polynom eller en matrise til en vanlig vektor i $\\mathbb R^n$, regne der, og oversette svaret tilbake. Nesten hver abstrakt basis-/uavhengighetsoppgave løses slik.\n- **Basisskiftematrisen $P_{\\mathcal C\\leftarrow\\mathcal B}$** dukker opp i lineærtransformasjon-oppgaver: «skriv koordinatene relativt en annen basis». Den vanligste fellen er **feil retning** — å forveksle $P_{\\mathcal C\\leftarrow\\mathcal B}$ med inversen.\n\nMålet: du skal sikkert kunne (1) finne $[\\mathbf x]_{\\mathcal B}$ ved å løse et lineært system, (2) bygge $P_{\\mathcal C\\leftarrow\\mathcal B}$ kolonne for kolonne, og (3) holde styr på retningen. Under kode E gjøres alt for hånd — koordinatregning er ren radreduksjon."
+    },
+    {
+      "id": "tma4110-3-4-forkunnskaper",
+      "type": "text",
+      "content": "**Forkunnskaper:** Dette kapitlet bygger på basis og dimensjon fra [kap. 3.2](/bok/tma4110/tma4110-3-2) (særlig entydig fremstilling i en basis) og på $\\operatorname{Col}A$/$\\operatorname{Nul}A$/rang fra radreduksjon i [kap. 3.3](/bok/tma4110/tma4110-3-3). Selve regnemotoren er radreduksjon av et lineært system fra [kap. 1.1](/bok/tma4110/tma4110-1-1). Kan du finne koeffisientene i en lineærkombinasjon ved å løse et system, har du kjernen."
+    },
+    {
+      "id": "tma4110-3-4-motivasjon",
+      "type": "text",
+      "content": "## Hvorfor koordinater?\n\nEt punkt på et kart trenger ikke være «tall» i seg selv — men så snart du legger ned et rutenett, får hvert punkt to tall: kolonne og rad. Koordinater gjør det samme for et hvilket som helst vektorrom: velger du en basis, får hver vektor en entydig liste med tall relativt den basisen. Da kan et polynom som $3-2t+t^2$ behandles som den helt vanlige vektoren $(3,-2,1)$ — og alt du kan i $\\mathbb R^n$ virker plutselig i polynomrommet.\n\nKapitlet har tre løkker: (1) koordinatvektoren $[\\mathbf x]_{\\mathcal B}$, (2) koordinatavbildningen som en «oversetter» til $\\mathbb R^n$, og (3) basisskiftematrisen som oversetter mellom to baser."
+    },
+    {
+      "id": "tma4110-3-4-lokke1",
+      "type": "text",
+      "content": "## Løkke 1 — Koordinatvektoren (~18 min)"
+    },
+    {
+      "id": "tma4110-3-4-def-koordinatvektor",
+      "type": "definition",
+      "title": "Koordinatvektor $[\\mathbf x]_{\\mathcal B}$",
+      "content": "La $\\mathcal B=\\{\\mathbf b_1,\\dots,\\mathbf b_n\\}$ være en **ordnet** basis for $V$. Fordi en basis gir en entydig fremstilling, kan enhver $\\mathbf x\\in V$ skrives på nøyaktig én måte som\n$$\\mathbf x=c_1\\mathbf b_1+c_2\\mathbf b_2+\\dots+c_n\\mathbf b_n.$$\n**Koordinatvektoren** til $\\mathbf x$ relativt $\\mathcal B$ er listen av disse koeffisientene:\n$$[\\mathbf x]_{\\mathcal B}=\\begin{bmatrix}c_1\\\\c_2\\\\\\vdots\\\\c_n\\end{bmatrix}\\in\\mathbb R^n.$$\nDen forteller «hvor mye av hver basisvektor» du trenger. Rekkefølgen følger basisens rekkefølge — derfor må basisen være ordnet."
+    },
+    {
+      "id": "tma4110-3-4-def-entydig",
+      "type": "definition",
+      "title": "Entydigheten av koordinatene",
+      "content": "Koordinatvektoren er **veldefinert** nettopp fordi $\\mathcal B$ er en basis: uavhengigheten gjør at $\\mathbf x=c_1\\mathbf b_1+\\dots+c_n\\mathbf b_n$ har bare ett sett koeffisienter. Hadde to ulike sett gitt samme $\\mathbf x$, ville differansen vært en ikke-triviell relasjon mellom basisvektorene — umulig for en uavhengig mengde. Derfor gir hver vektor nøyaktig én koordinatvektor, og omvendt."
+    },
+    {
+      "id": "tma4110-3-4-ex1",
+      "type": "example",
+      "title": "Eksempel 1: Koordinater relativt standardbasisen for $\\operatorname{P}_2$",
+      "problem": "La $\\mathcal B=\\{1,t,t^2\\}$ (standardbasisen for $\\operatorname{P}_2$). Finn $[\\,5-3t+2t^2\\,]_{\\mathcal B}$.",
+      "solution": "Skriv polynomet som en kombinasjon av basisvektorene: $5-3t+2t^2=5\\cdot1+(-3)\\cdot t+2\\cdot t^2$. Koeffisientene er $5,-3,2$, så\n$$[\\,5-3t+2t^2\\,]_{\\mathcal B}=\\begin{bmatrix}5\\\\-3\\\\2\\end{bmatrix}.$$\nRelativt standardbasisen er koordinatene rett og slett koeffisientene — les dem av i rekkefølgen $1,t,t^2$."
+    },
+    {
+      "id": "tma4110-3-4-e1",
+      "type": "exercise",
+      "exercise": {
+        "id": "tma4110-3-4-e1",
+        "number": "1",
+        "type": "classic",
+        "difficulty": "lett",
+        "task": "(Ren gjengivelse.) La $\\mathcal B=\\{1,t,t^2,t^3\\}$ i $\\operatorname{P}_3$. Finn $[\\,2-t+4t^3\\,]_{\\mathcal B}$.",
+        "solution": "Koeffisientene i rekkefølgen $1,t,t^2,t^3$ er $2,-1,0,4$ (ingen $t^2$-ledd, så $0$). Altså $[\\,2-t+4t^3\\,]_{\\mathcal B}=(2,-1,0,4)$. Relativt standardbasisen er koordinatene bare koeffisientene — men husk $0$ for leddet som mangler.",
+        "hints": [
+          "Relativt $\\{1,t,t^2,t^3\\}$ er koordinatene koeffisientene.",
+          "Sett inn $0$ for potensen som ikke forekommer."
+        ]
+      }
+    },
+    {
+      "id": "tma4110-3-4-def-koord-Rn",
+      "type": "definition",
+      "title": "Koordinater relativt en ikke-standard basis (løs et system)",
+      "content": "Er basisen $\\mathcal B$ ikke standardbasisen, må du **regne**. I $\\mathbb R^n$: sett basisvektorene som kolonner i en matrise $B=[\\mathbf b_1\\ \\cdots\\ \\mathbf b_n]$; da er $[\\mathbf x]_{\\mathcal B}$ løsningen av\n$$B\\,[\\mathbf x]_{\\mathcal B}=\\mathbf x.$$\nDette er bare det lineære systemet «skriv $\\mathbf x$ som en kombinasjon av basisvektorene», løst med radreduksjon. I et abstrakt rom (polynomer, matriser) gjør du det samme via koeffisientsammenligning."
+    },
+    {
+      "id": "tma4110-3-4-ex2",
+      "type": "example",
+      "title": "Eksempel 2: Koordinater relativt en skrå basis i $\\mathbb R^2$",
+      "problem": "La $\\mathcal B=\\{(1,1),(1,-1)\\}$, en basis for $\\mathbb R^2$. Finn $[(4,2)]_{\\mathcal B}$.",
+      "solution": "Vi søker $c_1,c_2$ med $c_1(1,1)+c_2(1,-1)=(4,2)$. Komponentvis:\n$$c_1+c_2=4,\\qquad c_1-c_2=2.$$\nAdder: $2c_1=6\\Rightarrow c_1=3$; da $c_2=1$. Så\n$$[(4,2)]_{\\mathcal B}=\\begin{bmatrix}3\\\\1\\end{bmatrix}.$$\nKontroll: $3(1,1)+1(1,-1)=(4,2)$ ✓. Merk at koordinatene $(3,1)$ er *andre tall* enn komponentene $(4,2)$ — koordinater avhenger av basisen."
+    },
+    {
+      "id": "tma4110-3-4-e2",
+      "type": "exercise",
+      "exercise": {
+        "id": "tma4110-3-4-e2",
+        "number": "2",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "(Sjanger D — koordinater i $\\mathbb R^2$.) La $\\mathcal B=\\{(3,1),(2,1)\\}$. Finn $[(7,3)]_{\\mathcal B}$.",
+        "solution": "Løs $c_1(3,1)+c_2(2,1)=(7,3)$: $3c_1+2c_2=7$ og $c_1+c_2=3$. Fra den andre $c_1=3-c_2$; sett inn: $3(3-c_2)+2c_2=7\\Rightarrow 9-c_2=7\\Rightarrow c_2=2$, så $c_1=1$. Altså $[(7,3)]_{\\mathcal B}=(1,2)$. Kontroll: $1(3,1)+2(2,1)=(7,3)$ ✓.",
+        "hints": [
+          "Sett opp systemet $c_1(3,1)+c_2(2,1)=(7,3)$.",
+          "Løs de to likningene $3c_1+2c_2=7$, $c_1+c_2=3$."
+        ]
+      }
+    },
+    {
+      "id": "tma4110-3-4-e3",
+      "type": "exercise",
+      "exercise": {
+        "id": "tma4110-3-4-e3",
+        "number": "3",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "(Sjanger D — koordinater i $\\operatorname{P}_2$.) La $\\mathcal B=\\{1,\\ 1+t,\\ 1+t+t^2\\}$, en basis for $\\operatorname{P}_2$. Finn $[\\,2+3t-t^2\\,]_{\\mathcal B}$.",
+        "solution": "Vi søker $c_1,c_2,c_3$ med $c_1\\cdot1+c_2(1+t)+c_3(1+t+t^2)=2+3t-t^2$. Sammenlign koeffisienter:\n\n**$t^2$:** $c_3=-1$.\n**$t$:** $c_2+c_3=3\\Rightarrow c_2=4$.\n**konstant:** $c_1+c_2+c_3=2\\Rightarrow c_1=2-4-(-1)=-1$.\n\nAltså $[\\,2+3t-t^2\\,]_{\\mathcal B}=(-1,4,-1)$. Kontroll: $-1+4(1+t)-(1+t+t^2)=-1+4+4t-1-t-t^2=2+3t-t^2$ ✓. (Sammenlign gjerne fra høyeste potens og nedover — da faller koeffisientene ut én etter én.)",
+        "hints": [
+          "Sett $c_1\\cdot1+c_2(1+t)+c_3(1+t+t^2)$ lik polynomet.",
+          "Sammenlign koeffisienter fra $t^2$ og nedover — $c_3$ leses av først."
+        ]
+      }
+    },
+    {
+      "id": "tma4110-3-4-lokke2",
+      "type": "text",
+      "content": "## Løkke 2 — Koordinatavbildningen som isomorfi (~17 min)"
+    },
+    {
+      "id": "tma4110-3-4-def-koordavbildning",
+      "type": "definition",
+      "title": "Koordinatavbildningen $\\mathbf x\\mapsto[\\mathbf x]_{\\mathcal B}$",
+      "content": "Fest en basis $\\mathcal B$ for et $n$-dimensjonalt rom $V$. Regelen som sender hver vektor til sin koordinatvektor,\n$$T:V\\to\\mathbb R^n,\\qquad T(\\mathbf x)=[\\mathbf x]_{\\mathcal B},$$\nkalles **koordinatavbildningen**. Den er lineær ($[\\mathbf x+\\mathbf y]_{\\mathcal B}=[\\mathbf x]_{\\mathcal B}+[\\mathbf y]_{\\mathcal B}$ og $[c\\mathbf x]_{\\mathcal B}=c[\\mathbf x]_{\\mathcal B}$) og én-til-én på hele $\\mathbb R^n$. En slik lineær, inverterbar avbildning kalles en **isomorfi**: $V$ og $\\mathbb R^n$ er «samme rom i forkledning»."
+    },
+    {
+      "id": "tma4110-3-4-def-speiling",
+      "type": "definition",
+      "title": "Struktur speiles i $\\mathbb R^n$",
+      "content": "Fordi koordinatavbildningen er en isomorfi, oversettes alle de grunnleggende spørsmålene i $V$ til det samme spørsmålet om koordinatvektorene i $\\mathbb R^n$:\n\n- $\\mathbf w_1,\\dots,\\mathbf w_k$ er **lineært uavhengige i $V$** $\\Leftrightarrow$ koordinatvektorene $[\\mathbf w_1]_{\\mathcal B},\\dots$ er uavhengige i $\\mathbb R^n$.\n- De **utspenner $V$** $\\Leftrightarrow$ koordinatvektorene utspenner $\\mathbb R^n$.\n- En mengde er en **basis for $V$** $\\Leftrightarrow$ koordinatvektorene er en basis for $\\mathbb R^n$.\n\nDette er grunnen til at polynom- og matrisespørsmål avgjøres med radreduksjon: oversett til koordinater og regn i $\\mathbb R^n$."
+    },
+    {
+      "id": "tma4110-3-4-ex3",
+      "type": "example",
+      "title": "Eksempel 3: Uavhengighet av polynomer via koordinater",
+      "problem": "Er $\\{1+t^2,\\ t+t^2,\\ 1+t\\}$ lineært uavhengige i $\\operatorname{P}_2$? Bruk koordinatavbildningen.",
+      "solution": "Oversett hvert polynom til koordinater relativt standardbasisen $\\{1,t,t^2\\}$:\n$$[1+t^2]=\\begin{bmatrix}1\\\\0\\\\1\\end{bmatrix},\\quad [t+t^2]=\\begin{bmatrix}0\\\\1\\\\1\\end{bmatrix},\\quad [1+t]=\\begin{bmatrix}1\\\\1\\\\0\\end{bmatrix}.$$\nSett dem som kolonner og regn determinanten:\n$$\\det\\begin{bmatrix}1&0&1\\\\0&1&1\\\\1&1&0\\end{bmatrix}=1(1\\cdot0-1\\cdot1)-0+1(0\\cdot1-1\\cdot1)=-1-1=-2\\ne0.$$\nKoordinatvektorene er uavhengige i $\\mathbb R^3$, så polynomene er **lineært uavhengige** i $\\operatorname{P}_2$ (isomorfi speiler uavhengighet). Tre uavhengige vektorer i det $3$-dimensjonale $\\operatorname{P}_2$ er dessuten en basis (dimensjonsargumentet)."
+    },
+    {
+      "id": "tma4110-3-4-e4",
+      "type": "exercise",
+      "exercise": {
+        "id": "tma4110-3-4-e4",
+        "number": "4",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "(Sjanger D — koordinater avgjør basis.) Avgjør ved hjelp av koordinatavbildningen om $\\{1+t,\\ 2+t^2,\\ t+t^2\\}$ er en basis for $\\operatorname{P}_2$.",
+        "solution": "Koordinater relativt $\\{1,t,t^2\\}$: $[1+t]=(1,1,0)$, $[2+t^2]=(2,0,1)$, $[t+t^2]=(0,1,1)$. Determinanten av koordinatmatrisen (vektorene som kolonner):\n$$\\det\\begin{bmatrix}1&2&0\\\\1&0&1\\\\0&1&1\\end{bmatrix}=1(0-1)-2(1-0)+0=-1-2=-3\\ne0.$$\nUavhengige koordinatvektorer ⇒ uavhengige polynomer. Tre uavhengige vektorer i det $3$-dimensjonale $\\operatorname{P}_2$ er en **basis** (dimensjonsargumentet).",
+        "hints": [
+          "Oversett hvert polynom til sin koordinatvektor relativt $\\{1,t,t^2\\}$.",
+          "Uavhengige koordinatvektorer i $\\mathbb R^3$ ⇔ basis (dimensjonsargumentet)."
+        ]
+      }
+    },
+    {
+      "id": "tma4110-3-4-lokke3",
+      "type": "text",
+      "content": "## Løkke 3 — Basisskiftematrisen $P_{\\mathcal C\\leftarrow\\mathcal B}$ (~20 min)"
+    },
+    {
+      "id": "tma4110-3-4-def-basisskifte",
+      "type": "definition",
+      "title": "Basisskiftematrisen $P_{\\mathcal C\\leftarrow\\mathcal B}$",
+      "content": "Har du to baser $\\mathcal B$ og $\\mathcal C$ for samme rom, vil du kunne oversette koordinater fra den ene til den andre. **Basisskiftematrisen** $P_{\\mathcal C\\leftarrow\\mathcal B}$ er matrisen som gjør nettopp det:\n$$[\\mathbf x]_{\\mathcal C}=P_{\\mathcal C\\leftarrow\\mathcal B}\\,[\\mathbf x]_{\\mathcal B}.$$\nLes pilen som «fra $\\mathcal B$ til $\\mathcal C$»: den tar inn $\\mathcal B$-koordinater og gir ut $\\mathcal C$-koordinater. Retningen på pilen er alt — bytt den, og du får inversen."
+    },
+    {
+      "id": "tma4110-3-4-def-kolonner",
+      "type": "definition",
+      "title": "Kolonnene i $P_{\\mathcal C\\leftarrow\\mathcal B}$",
+      "content": "Kolonne $j$ i $P_{\\mathcal C\\leftarrow\\mathcal B}$ er **$\\mathcal C$-koordinatene til den $j$-te $\\mathcal B$-basisvektoren**:\n$$P_{\\mathcal C\\leftarrow\\mathcal B}=\\big[\\,[\\mathbf b_1]_{\\mathcal C}\\ \\ [\\mathbf b_2]_{\\mathcal C}\\ \\ \\cdots\\ \\ [\\mathbf b_n]_{\\mathcal C}\\,\\big].$$\nDu uttrykker altså hver gamle basisvektor ($\\mathcal B$) i den nye basisen ($\\mathcal C$) og stabler koordinatene som kolonner. Fyller du kolonnene med *vektorene selv* i stedet for koordinatene, er det feil — det er en klassisk felle."
+    },
+    {
+      "id": "tma4110-3-4-def-retning",
+      "type": "definition",
+      "title": "Retning og invers $P_{\\mathcal B\\leftarrow\\mathcal C}=(P_{\\mathcal C\\leftarrow\\mathcal B})^{-1}$",
+      "content": "Skifter du den andre veien, bruker du den **inverse** matrisen:\n$$P_{\\mathcal B\\leftarrow\\mathcal C}=\\big(P_{\\mathcal C\\leftarrow\\mathcal B}\\big)^{-1}.$$\nBasisskiftematriser er alltid inverterbare (begge baser gir en isomorfi), og de to skiftene opphever hverandre: $P_{\\mathcal B\\leftarrow\\mathcal C}\\,P_{\\mathcal C\\leftarrow\\mathcal B}=I$. **Sjekkpunkt:** når du er ferdig, kontroller retningen på ett kjent eksempel — sett $[\\mathbf b_1]_{\\mathcal B}=\\mathbf e_1$ inn og se at du får $[\\mathbf b_1]_{\\mathcal C}$."
+    },
+    {
+      "id": "tma4110-3-4-ex4",
+      "type": "example",
+      "title": "Eksempel 4: Koordinater og basisskifte i $\\operatorname{P}_2$",
+      "problem": "La $\\mathcal B=\\{1,t,t^2\\}$ og $\\mathcal C=\\{1,\\ 1+t,\\ 1+t+t^2\\}$ i $\\operatorname{P}_2$. Finn $[\\,3-2t+t^2\\,]_{\\mathcal B}$ og basisskiftematrisen $P_{\\mathcal C\\leftarrow\\mathcal B}$. Bruk den til å finne $[\\,3-2t+t^2\\,]_{\\mathcal C}$.",
+      "solution": "**Koordinater relativt $\\mathcal B$** (standardbasisen): $[\\,3-2t+t^2\\,]_{\\mathcal B}=(3,-2,1)$.\n\n**Bygg $P_{\\mathcal C\\leftarrow\\mathcal B}$.** Kolonnene er $\\mathcal B$-vektorene uttrykt i $\\mathcal C$. Skriv $\\mathcal C=\\{c_1=1,\\ c_2=1+t,\\ c_3=1+t+t^2\\}$:\n$$b_1=1=c_1\\Rightarrow[b_1]_{\\mathcal C}=(1,0,0),$$\n$$b_2=t=(1+t)-1=c_2-c_1\\Rightarrow[b_2]_{\\mathcal C}=(-1,1,0),$$\n$$b_3=t^2=(1+t+t^2)-(1+t)=c_3-c_2\\Rightarrow[b_3]_{\\mathcal C}=(0,-1,1).$$\nStabl som kolonner:\n$$P_{\\mathcal C\\leftarrow\\mathcal B}=\\begin{bmatrix}1&-1&0\\\\0&1&-1\\\\0&0&1\\end{bmatrix}.$$\n\n**Bruk den:** $[\\mathbf x]_{\\mathcal C}=P_{\\mathcal C\\leftarrow\\mathcal B}[\\mathbf x]_{\\mathcal B}=\\begin{bmatrix}1&-1&0\\\\0&1&-1\\\\0&0&1\\end{bmatrix}\\begin{bmatrix}3\\\\-2\\\\1\\end{bmatrix}=\\begin{bmatrix}5\\\\-3\\\\1\\end{bmatrix}.$\n\n**Kontroll:** $5c_1-3c_2+1c_3=5-3(1+t)+(1+t+t^2)=3-2t+t^2$ ✓. Retningen stemmer: matrisen tok $\\mathcal B$-koordinater inn og ga $\\mathcal C$-koordinater ut."
+    },
+    {
+      "id": "tma4110-3-4-e5",
+      "type": "exercise",
+      "exercise": {
+        "id": "tma4110-3-4-e5",
+        "number": "5",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "(Sjanger F — basisskifte i $\\mathbb R^2$.) La $\\mathcal B=\\{(1,2),(1,3)\\}$ og la $\\mathcal C$ være standardbasisen $\\{(1,0),(0,1)\\}$ for $\\mathbb R^2$. Finn $P_{\\mathcal C\\leftarrow\\mathcal B}$ og $P_{\\mathcal B\\leftarrow\\mathcal C}$.",
+        "solution": "Kolonnene i $P_{\\mathcal C\\leftarrow\\mathcal B}$ er $\\mathcal B$-vektorene uttrykt i standardbasisen $\\mathcal C$ — men koordinatene relativt standardbasisen er bare komponentene, så\n$$P_{\\mathcal C\\leftarrow\\mathcal B}=\\begin{bmatrix}1&1\\\\2&3\\end{bmatrix}.$$\nDen motsatte veien er inversen. Med $\\det=1\\cdot3-1\\cdot2=1$:\n$$P_{\\mathcal B\\leftarrow\\mathcal C}=\\big(P_{\\mathcal C\\leftarrow\\mathcal B}\\big)^{-1}=\\frac{1}{1}\\begin{bmatrix}3&-1\\\\-2&1\\end{bmatrix}=\\begin{bmatrix}3&-1\\\\-2&1\\end{bmatrix}.$$\nKontroll: produktet er $I$. (Når $\\mathcal C$ er standardbasisen, er $P_{\\mathcal C\\leftarrow\\mathcal B}$ ganske enkelt matrisen med $\\mathcal B$-vektorene som kolonner.)",
+        "hints": [
+          "Når $\\mathcal C$ er standardbasisen, er kolonnene i $P_{\\mathcal C\\leftarrow\\mathcal B}$ bare $\\mathcal B$-vektorene.",
+          "Motsatt retning = invers matrise; bruk $2\\times2$-formelen."
+        ]
+      }
+    },
+    {
+      "id": "tma4110-3-4-e6",
+      "type": "exercise",
+      "exercise": {
+        "id": "tma4110-3-4-e6",
+        "number": "6",
+        "type": "classic",
+        "difficulty": "vanskelig",
+        "task": "(Sjanger D/F på eksamensnivå.) La $\\mathcal B=\\{1,t,t^2\\}$ og $\\mathcal C=\\{1,\\ 1+t,\\ 1+t^2\\}$ i $\\operatorname{P}_2$.\n\n**a)** Finn $P_{\\mathcal C\\leftarrow\\mathcal B}$.\n\n**b)** Bruk den til å finne $[\\,2-t+3t^2\\,]_{\\mathcal C}$.\n\n**c)** Kontroller svaret ved å regne ut kombinasjonen i $\\mathcal C$.",
+        "solution": "**a)** Uttrykk hver $\\mathcal B$-vektor i $\\mathcal C=\\{c_1=1,\\ c_2=1+t,\\ c_3=1+t^2\\}$:\n$$b_1=1=c_1\\Rightarrow(1,0,0),$$\n$$b_2=t=(1+t)-1=c_2-c_1\\Rightarrow(-1,1,0),$$\n$$b_3=t^2=(1+t^2)-1=c_3-c_1\\Rightarrow(-1,0,1).$$\nSå\n$$P_{\\mathcal C\\leftarrow\\mathcal B}=\\begin{bmatrix}1&-1&-1\\\\0&1&0\\\\0&0&1\\end{bmatrix}.$$\n\n**b)** $[\\,2-t+3t^2\\,]_{\\mathcal B}=(2,-1,3)$, så\n$$[\\mathbf x]_{\\mathcal C}=\\begin{bmatrix}1&-1&-1\\\\0&1&0\\\\0&0&1\\end{bmatrix}\\begin{bmatrix}2\\\\-1\\\\3\\end{bmatrix}=\\begin{bmatrix}2-(-1)-3\\\\-1\\\\3\\end{bmatrix}=\\begin{bmatrix}0\\\\-1\\\\3\\end{bmatrix}.$$\n\n**c)** Kontroll: $0\\cdot1+(-1)(1+t)+3(1+t^2)=-1-t+3+3t^2=2-t+3t^2$ ✓.",
+        "hints": [
+          "Kolonne $j$ = den $j$-te $\\mathcal B$-vektoren uttrykt i $\\mathcal C$.",
+          "$[\\mathbf x]_{\\mathcal B}=(2,-1,3)$; gang matrisen på denne.",
+          "Kontroller ved å sette $\\mathcal C$-koordinatene inn i kombinasjonen $c_1\\mathbf c_1+c_2\\mathbf c_2+c_3\\mathbf c_3$."
+        ]
+      }
+    },
+    {
+      "id": "tma4110-3-4-warn",
+      "type": "warning",
+      "title": "Typiske feil",
+      "content": "- **Feil rekkefølge på koordinatene** — basisen er *ordnet*, så $[\\mathbf x]_{\\mathcal B}$ må følge samme rekkefølge som $\\mathcal B$. Bytter du om to basisvektorer, bytter koordinatene også plass.\n- **Feil retning på $P_{\\mathcal C\\leftarrow\\mathcal B}$** — den vanligste fellen. $P_{\\mathcal C\\leftarrow\\mathcal B}$ tar $\\mathcal B$-koordinater *inn* og gir $\\mathcal C$-koordinater *ut*. Vil du motsatt vei, bruk inversen.\n- **Kolonnene fylt med vektorene i stedet for koordinatene** — kolonne $j$ skal være $[\\mathbf b_j]_{\\mathcal C}$, ikke $\\mathbf b_j$ selv.\n- **Regner i $V$ når koordinater ville forenklet** — abstrakte spørsmål (uavhengighet av polynomer, basis) blir vanlig $\\mathbb R^n$-regning så snart du oversetter til koordinater.\n- **Glemmer å oversette svaret tilbake** — har du regnet i koordinater, må sluttsvaret ofte tilbake til polynom/matrise-form."
+    },
+    {
+      "id": "tma4110-3-4-begrepsbank",
+      "type": "text",
+      "content": "## Begrepsbank til eksamen\n\nKjernebegrepene om koordinater og basisskifte, samlet for pugging (kode E).\n\n*Begrepsbanken er flashcard-/repetisjonsstoff — det gjentar det du nettopp har lest. Hopp trygt over ved førstegangslesing; tidsanslaget for kapitlet gjelder kjernestoffet.*"
+    },
+    {
+      "id": "tma4110-3-4-bb-koord-std",
+      "type": "definition",
+      "title": "Koordinater relativt standardbasisen",
+      "content": "Relativt standardbasisen $\\{\\mathbf e_1,\\dots,\\mathbf e_n\\}$ for $\\mathbb R^n$ er $[\\mathbf x]_{\\mathcal E}=\\mathbf x$ — koordinatene *er* komponentene. Relativt $\\{1,t,\\dots,t^n\\}$ for $\\operatorname{P}_n$ er koordinatene til $a_0+a_1t+\\dots+a_nt^n$ nettopp $(a_0,a_1,\\dots,a_n)$. Standardbasisen er den eneste der du kan lese av koordinatene uten å regne."
+    },
+    {
+      "id": "tma4110-3-4-bb-koord-Pn",
+      "type": "definition",
+      "title": "Koordinater i $\\operatorname{P}_n$",
+      "content": "For et polynom relativt en ikke-standard basis $\\mathcal B$ av $\\operatorname{P}_n$: sett en generell kombinasjon $c_0\\mathbf b_0+\\dots+c_n\\mathbf b_n$ lik polynomet og **sammenlign koeffisienter** potens for potens. Det gir et lineært system i $c_i$-ene — løsningen er $[\\,p\\,]_{\\mathcal B}$. Ofte raskest fra høyeste potens og nedover."
+    },
+    {
+      "id": "tma4110-3-4-bb-koord-matrise",
+      "type": "definition",
+      "title": "Koordinater i et matriserom",
+      "content": "I $M_{2\\times2}$ (dimensjon $4$) med standardbasisen $\\{E_{11},E_{12},E_{21},E_{22}\\}$ er koordinatvektoren til $\\begin{bmatrix}a&b\\\\c&d\\end{bmatrix}$ rett og slett $(a,b,c,d)$. Slik blir matrisespørsmål til $\\mathbb R^4$-spørsmål: uavhengighet, span og basis avgjøres på koordinatvektorene."
+    },
+    {
+      "id": "tma4110-3-4-bb-isomorfi",
+      "type": "definition",
+      "title": "Isomorfi (begrepet)",
+      "content": "En **isomorfi** er en lineær avbildning som er både injektiv og surjektiv — den parer opp vektorene i to rom perfekt og bevarer all lineær struktur. Koordinatavbildningen $V\\to\\mathbb R^n$ er en isomorfi når $\\dim V=n$. Derfor er ethvert $n$-dimensjonalt reelt vektorrom «i praksis» $\\mathbb R^n$."
+    },
+    {
+      "id": "tma4110-3-4-bb-linearitet",
+      "type": "definition",
+      "title": "Koordinatavbildningen er lineær",
+      "content": "Koordinater respekterer addisjon og skalering: $[\\mathbf x+\\mathbf y]_{\\mathcal B}=[\\mathbf x]_{\\mathcal B}+[\\mathbf y]_{\\mathcal B}$ og $[c\\mathbf x]_{\\mathcal B}=c[\\mathbf x]_{\\mathcal B}$. Derfor blir en lineærkombinasjon i $V$ til den *samme* lineærkombinasjonen av koordinatvektorene i $\\mathbb R^n$ — nøkkelen til at regning kan flyttes over."
+    },
+    {
+      "id": "tma4110-3-4-bb-uavh-speiles",
+      "type": "definition",
+      "title": "Uavhengighet speiles i koordinater",
+      "content": "Vektorer i $V$ er lineært uavhengige **hvis og bare hvis** koordinatvektorene deres (relativt en fast basis) er uavhengige i $\\mathbb R^n$. Praktisk: for å teste uavhengighet av polynomer eller matriser, oversett til koordinatvektorer, sett dem som kolonner og radreduser (eller regn determinanten)."
+    },
+    {
+      "id": "tma4110-3-4-bb-dim-speiles",
+      "type": "definition",
+      "title": "Dimensjon via koordinatavbildningen",
+      "content": "Et underrom $W\\subseteq V$ har samme dimensjon som bildet av koordinatvektorene i $\\mathbb R^n$. Derfor kan du finne $\\dim W$ ved å oversette et utspennende sett til koordinater og telle pivotene — akkurat som for $\\operatorname{Col}A$ i [kap. 3.3](/bok/tma4110/tma4110-3-3)."
+    },
+    {
+      "id": "tma4110-3-4-bb-P-inverse",
+      "type": "definition",
+      "title": "$P_{\\mathcal C\\leftarrow\\mathcal B}$ og $P_{\\mathcal B\\leftarrow\\mathcal C}$ er inverse",
+      "content": "De to skiftene opphever hverandre: $P_{\\mathcal B\\leftarrow\\mathcal C}\\,P_{\\mathcal C\\leftarrow\\mathcal B}=I$, altså $P_{\\mathcal B\\leftarrow\\mathcal C}=(P_{\\mathcal C\\leftarrow\\mathcal B})^{-1}$. Basisskiftematriser er derfor alltid inverterbare. Trenger du bare den ene veien, kan du enten bygge den direkte eller invertere den du har."
+    },
+    {
+      "id": "tma4110-3-4-bb-P-std",
+      "type": "definition",
+      "title": "$P_{\\mathcal C\\leftarrow\\mathcal B}$ i $\\mathbb R^n$ via $[\\,C\\mid B\\,]$",
+      "content": "I $\\mathbb R^n$: sett $\\mathcal B$-vektorene som kolonner i $B$ og $\\mathcal C$-vektorene i $C$. Da er $P_{\\mathcal C\\leftarrow\\mathcal B}=C^{-1}B$, som du finner ved å radredusere $[\\,C\\mid B\\,]\\to[\\,I\\mid P_{\\mathcal C\\leftarrow\\mathcal B}\\,]$. Er $\\mathcal C$ standardbasisen, er $C=I$ og $P_{\\mathcal C\\leftarrow\\mathcal B}=B$."
+    },
+    {
+      "id": "tma4110-3-4-bb-retningssjekk",
+      "type": "definition",
+      "title": "Retningssjekk (huskeregel)",
+      "content": "Les indeksen $\\mathcal C\\leftarrow\\mathcal B$ som «ut $\\leftarrow$ inn»: matrisen tar $\\mathcal B$-koordinater inn og gir $\\mathcal C$-koordinater ut, jf. $[\\mathbf x]_{\\mathcal C}=P_{\\mathcal C\\leftarrow\\mathcal B}[\\mathbf x]_{\\mathcal B}$. Pilene «kanselleres» som brøker: $P_{\\mathcal D\\leftarrow\\mathcal C}P_{\\mathcal C\\leftarrow\\mathcal B}=P_{\\mathcal D\\leftarrow\\mathcal B}$."
+    },
+    {
+      "id": "tma4110-3-4-bb-abstrakt-til-Rn",
+      "type": "definition",
+      "title": "Basisskifte gjør abstrakt til $\\mathbb R^n$-regning",
+      "content": "Kombinasjonen av koordinater og basisskifte er den store nytten: et spørsmål om polynomer i to ulike baser blir til matrise-vektor-produkt i $\\mathbb R^n$. Oversett til koordinater, gang med $P_{\\mathcal C\\leftarrow\\mathcal B}$, og oversett svaret tilbake."
+    },
+    {
+      "id": "tma4110-3-4-bb-entydig",
+      "type": "definition",
+      "title": "Entydig fremstilling ⇒ veldefinerte koordinater",
+      "content": "At $\\mathcal B$ er en basis (uavhengig + utspenner) gir hver vektor nøyaktig én fremstilling $\\mathbf x=\\sum c_i\\mathbf b_i$. Uten uavhengighet ville koeffisientene ikke vært entydige, og «koordinater» ville ikke gitt mening. Utspenning sikrer at *alle* vektorer får koordinater."
+    },
+    {
+      "id": "tma4110-3-4-bb-ordnet",
+      "type": "definition",
+      "title": "Ordnet basis (rekkefølge teller)",
+      "content": "Til koordinater trenger vi en **ordnet** basis: rekkefølgen på basisvektorene bestemmer rekkefølgen på koordinatene. $\\{1,t,t^2\\}$ og $\\{t^2,t,1\\}$ er samme mengde, men gir speilvendte koordinatvektorer. Oppgir en oppgave en basis i en bestemt rekkefølge, hold den."
+    },
+    {
+      "id": "tma4110-3-4-bb-oversette-tilbake",
+      "type": "definition",
+      "title": "Oversette svaret tilbake",
+      "content": "Har du regnet i koordinater og fått en koordinatvektor $(c_1,\\dots,c_n)$, er det tilhørende objektet $c_1\\mathbf b_1+\\dots+c_n\\mathbf b_n$. For polynomer: bygg polynomet fra basisen. Sensor vil ofte ha svaret i original form (polynom/matrise), ikke bare som koordinatliste — husk siste oversettelse."
+    },
+    {
+      "id": "tma4110-3-4-rep",
+      "type": "collapsible",
+      "title": "Repetisjonsoppgaver",
+      "buttonText": "Vis repetisjonsoppgaver",
+      "content": [
+        {
+          "id": "tma4110-3-4-rep-1",
+          "type": "exercise",
+          "exercise": {
+            "id": "tma4110-3-4-eR1",
+            "number": "R1",
+            "type": "classic",
+            "difficulty": "lett",
+            "task": "(Fra kap. 3.2) Hvorfor gir en basis entydige koordinater — hva ville gått galt uten uavhengighet?",
+            "solution": "En basis er uavhengig, så $\\mathbf x=\\sum c_i\\mathbf b_i$ har bare ett sett koeffisienter. Uten uavhengighet finnes en ikke-triviell relasjon $\\sum d_i\\mathbf b_i=\\mathbf 0$, og da kan du legge den til og få en *annen* fremstilling av samme $\\mathbf x$ — koordinatene ville ikke vært entydige.",
+            "hints": [
+              "Tenk på hva en ikke-triviell relasjon mellom basisvektorene ville gjort med fremstillingen."
+            ]
+          }
+        },
+        {
+          "id": "tma4110-3-4-rep-2",
+          "type": "exercise",
+          "exercise": {
+            "id": "tma4110-3-4-eR2",
+            "number": "R2",
+            "type": "classic",
+            "difficulty": "lett",
+            "task": "(Fra kap. 2.2) Regn ut inversen av $\\begin{bmatrix}1&1\\\\2&3\\end{bmatrix}$ med $2\\times2$-formelen.",
+            "solution": "$\\det=1\\cdot3-1\\cdot2=1$. Formelen $A^{-1}=\\frac{1}{ad-bc}\\begin{bmatrix}d&-b\\\\-c&a\\end{bmatrix}$ gir $\\begin{bmatrix}3&-1\\\\-2&1\\end{bmatrix}$. (Dette er nettopp et $P_{\\mathcal B\\leftarrow\\mathcal C}$ fra basisskifte.)",
+            "hints": [
+              "$2\\times2$-formelen: bytt diagonalen, skift fortegn på de andre, del på $\\det$."
+            ]
+          }
+        },
+        {
+          "id": "tma4110-3-4-rep-3",
+          "type": "exercise",
+          "exercise": {
+            "id": "tma4110-3-4-eR3",
+            "number": "R3",
+            "type": "classic",
+            "difficulty": "middels",
+            "task": "(Fra kap. 3.3) Koordinatvektorene til tre polynomer er kolonnene i en $3\\times3$-matrise med $\\det=0$. Kan polynomene være en basis for $\\operatorname{P}_2$?",
+            "solution": "Nei. $\\det=0$ betyr at koordinatvektorene er lineært avhengige i $\\mathbb R^3$, og isomorfien speiler dette: da er polynomene avhengige i $\\operatorname{P}_2$. En avhengig mengde kan aldri være en basis.",
+            "hints": [
+              "$\\det=0$ ⇔ avhengige kolonner; isomorfien overfører avhengighet til polynomene."
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": "tma4110-3-4-symbolliste",
+      "type": "collapsible",
+      "title": "Symbol- og formelliste",
+      "buttonText": "Vis symboler og formler",
+      "content": [
+        {
+          "id": "tma4110-3-4-symbolliste-text",
+          "type": "text",
+          "content": "## Symbol- og formelliste\n\n*Oppslagsverk — alt her forklares underveis i kapitlet.*\n\nAlle symboler og skrivemåter i dette delkapitlet (3.4), samlet.\n\n| Symbol | Betydning |\n|---|---|\n| $\\mathcal B,\\mathcal C$ | Ordnede baser for et vektorrom |\n| $\\mathbf b_1,\\dots,\\mathbf b_n$ | Basisvektorene i $\\mathcal B$ |\n| $[\\mathbf x]_{\\mathcal B}$ | Koordinatvektoren til $\\mathbf x$ relativt $\\mathcal B$ |\n| $c_1,\\dots,c_n$ | Koordinatene (koeffisientene i basisfremstillingen) |\n| $\\mathbf e_1,\\dots,\\mathbf e_n$ | Standardbasisvektorene i $\\mathbb R^n$ |\n| $P_{\\mathcal C\\leftarrow\\mathcal B}$ | Basisskiftematrisen fra $\\mathcal B$ til $\\mathcal C$ |\n| $P_{\\mathcal B\\leftarrow\\mathcal C}$ | Motsatt skifte $=(P_{\\mathcal C\\leftarrow\\mathcal B})^{-1}$ |\n| $B,C$ | Matriser med basisvektorene som kolonner |\n\n**Nøkkelfakta i dette delkapitlet:**\n\n$$\\mathbf x=c_1\\mathbf b_1+\\dots+c_n\\mathbf b_n\\quad\\Longleftrightarrow\\quad[\\mathbf x]_{\\mathcal B}=(c_1,\\dots,c_n)$$\n\n$$[\\mathbf x]_{\\mathcal C}=P_{\\mathcal C\\leftarrow\\mathcal B}\\,[\\mathbf x]_{\\mathcal B}\\qquad(\\text{retning: }\\mathcal B\\text{ inn},\\ \\mathcal C\\text{ ut})$$\n\n$$P_{\\mathcal C\\leftarrow\\mathcal B}=\\big[\\,[\\mathbf b_1]_{\\mathcal C}\\ \\cdots\\ [\\mathbf b_n]_{\\mathcal C}\\,\\big]\\qquad(\\text{kolonner = }\\mathcal B\\text{-vektorer i }\\mathcal C\\text{-koordinater})$$\n\n$$P_{\\mathcal B\\leftarrow\\mathcal C}=\\big(P_{\\mathcal C\\leftarrow\\mathcal B}\\big)^{-1}$$\n\n$$\\text{i }\\mathbb R^n:\\quad[\\,C\\mid B\\,]\\ \\xrightarrow{\\text{radreduksjon}}\\ [\\,I\\mid P_{\\mathcal C\\leftarrow\\mathcal B}\\,],\\quad P_{\\mathcal C\\leftarrow\\mathcal B}=C^{-1}B$$\n\n**Isomorfi:** koordinatavbildningen $V\\to\\mathbb R^n$ bevarer uavhengighet, span og dimensjon — abstrakte spørsmål avgjøres i $\\mathbb R^n$."
+        }
+      ]
+    }
+  ],
+  "exercises": []
+}

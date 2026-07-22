@@ -1,0 +1,119 @@
+{
+  "id": "tma4110-3-prove",
+  "courseId": "tma4110",
+  "chapterNumber": "3.P",
+  "title": "Prøver til del 3: Vektorrom, basis og dimensjon",
+  "description": "Fire prøver til Del 3 (kap. 3.1–3.5): underrom i Pₙ/matriser med dimensjon, lineær uavhengighet og basis med dimensjonsargument, Col/Nul-basis og rang fra RREF, og en kjedet vektorrom-simulering — med fullstendige løsningsforslag og selvdiagnose.",
+  "estimatedMinutes": 165,
+  "competenceGoals": [
+    "verifisere underrom og finne basis og dimensjon i abstrakte rom under prøvebetingelser",
+    "avgjøre uavhengighet og basis med dimensjonsargumentet, og lese Col/Nul/rang fra RREF med dimensjonsteoremet som kontroll",
+    "kjede sammen abstrakt underrom, basis og koordinater slik en full eksamensoppgave krever"
+  ],
+  "content": [
+    {
+      "id": "tma4110-3-prove-tip",
+      "type": "tip",
+      "title": "Prøver til del 3 — Vektorrom, basis og dimensjon",
+      "content": "**Fire prøver som dekker hele Del 3** (kap. 3.1–3.5): underrom i $\\operatorname{P}_n$/matriser + dimensjon (3.A), lineær uavhengighet + basis med dimensjonsargument (3.B), $\\operatorname{Col}/\\operatorname{Nul}$-basis + rang + dimensjonsteorem fra RREF (3.C), og en kjedet vektorrom-simulering (3.D).\n\n**4 prøver à ~40–45 min.** Du kan trygt dele dem over flere kvelder — ta gjerne én prøve per økt. Alt er **langsvar med full begrunnelse** (ingen flervalg, som på en normalårs-eksamen): vis alle tre underromsbetingelsene, navngi dimensjonsargumentet og dimensjonsteoremet, og hent $\\operatorname{Col}A$-basis fra de **opprinnelige** kolonnene. Kalibrert mot ingen hjelpemidler — regn for hånd og gi eksakte svar.\n\nEtter hver fasit står en **selvdiagnose-sjekkliste** — kryss av det du fikk til, så ser du hva du bør repetere."
+    },
+    {
+      "id": "tma4110-3-prove-forkunnskaper",
+      "type": "text",
+      "content": "**Forkunnskaper:** Prøvene forutsetter [kap. 3.1](/bok/tma4110/tma4110-3-1) (vektorrom, underrom, $\\operatorname{P}_n$/matriserom), [kap. 3.2](/bok/tma4110/tma4110-3-2) (uavhengighet, basis, dimensjonsargument), [kap. 3.3](/bok/tma4110/tma4110-3-3) ($\\operatorname{Col}/\\operatorname{Nul}$/rang/dimensjonsteorem), [kap. 3.4](/bok/tma4110/tma4110-3-4) (koordinater, basisskifte) og drillen i [kap. 3.5](/bok/tma4110/tma4110-3-5). Ingen nye metoder — dette er eksamenstrening på Del 3."
+    },
+    {
+      "id": "tma4110-3-prove-prove-3a",
+      "type": "collapsible",
+      "title": "Prøve 3.A — Underrom og dimensjon (~40 min)",
+      "buttonText": "Vis prøve 1",
+      "content": [
+        {
+          "id": "tma4110-3-prove-3a-oppg",
+          "type": "text",
+          "content": "### Prøve 3.A (kap. 3.1, sjanger D · ~40 min)\n\n**Oppgave 1 (underrom i $\\operatorname{P}_3$).** La $W=\\{p\\in\\operatorname{P}_3:p(2)=0\\}$. Vis at $W$ er et underrom av $\\operatorname{P}_3$, og finn en basis og dimensjonen.\n\n**Oppgave 2 (er det et underrom?).** Avgjør om $U=\\{A\\in M_2:\\det A=0\\}$ er et underrom av $M_2$. Begrunn svaret — gi et moteksempel hvis det ikke er det."
+        },
+        {
+          "id": "tma4110-3-prove-3a-fasit",
+          "type": "text",
+          "content": "### Fasit 3.A\n\n**Oppgave 1.** Betingelsen $p(2)=0$ er lineær og homogen.\n**(1) $\\mathbf 0\\in W$:** nullpolynomet har $p(2)=0$ ✓.\n**(2) Addisjon:** har $p,q$ verdien $0$ i $t=2$, er $(p+q)(2)=p(2)+q(2)=0$ ✓.\n**(3) Skalar:** $(cp)(2)=c\\,p(2)=0$ ✓.\nAlle tre holder, så $W$ er et **underrom**.\n\n**Basis og dimensjon:** $p(2)=0$ betyr at $t=2$ er et nullpunkt. Byggeklossene $t-2,\\ t^2-4,\\ t^3-8$ ligger alle i $W$ (hver har verdi $0$ i $t=2$), er lineært uavhengige (koordinatvektorene $(-2,1,0,0),(-4,0,1,0),(-8,0,0,1)$ relativt $\\{1,t,t^2,t^3\\}$ har pivot i hver kolonne), og enhver $p\\in W$ er en kombinasjon av dem. Basis $\\{t-2,\\ t^2-4,\\ t^3-8\\}$, $\\boxed{\\dim W=3}$. (Kontroll: én lineær betingelse på $\\operatorname{P}_3$ (dim $4$) gir dim $4-1=3$ ✓.)\n\n**Oppgave 2.** $U$ inneholder $\\mathbf 0$ (nullmatrisen har $\\det=0$), men er **ikke lukket under addisjon**. Moteksempel:\n$$A=\\begin{bmatrix}1&0\\\\0&0\\end{bmatrix},\\quad B=\\begin{bmatrix}0&0\\\\0&1\\end{bmatrix},\\qquad \\det A=\\det B=0,$$\nmen $A+B=\\begin{bmatrix}1&0\\\\0&1\\end{bmatrix}$ har $\\det=1\\ne0$, så $A+B\\notin U$. Dermed er **$U$ ikke et underrom**. (Determinanten er ikke lineær, så en $\\det$-betingelse gir sjelden et underrom.)"
+        },
+        {
+          "id": "tma4110-3-prove-3a-selvdiagnose",
+          "type": "text",
+          "content": "### Selvdiagnose 3.A\n\n- ☐ Jeg viste alle tre underromsbetingelsene eksplisitt, inkludert $\\mathbf 0\\in W$.\n- ☐ Jeg fant byggeklosser som faktisk ligger i $W$ og sjekket at de er uavhengige.\n- ☐ Jeg oppga dimensjonen og kontrollerte den mot «én lineær betingelse senker dim med $1$».\n- ☐ I oppgave 2 sjekket jeg lukkethet, ikke bare $\\mathbf 0\\in U$.\n- ☐ Jeg ga et konkret moteksempel for å avvise underrom.\n\nMangler du hakk på betingelsene, repeter «de tre betingelsene» i [kap. 3.1](/bok/tma4110/tma4110-3-1)."
+        }
+      ]
+    },
+    {
+      "id": "tma4110-3-prove-prove-3b",
+      "type": "collapsible",
+      "title": "Prøve 3.B — Uavhengighet og basis med dimensjonsargument (~40 min)",
+      "buttonText": "Vis prøve 2",
+      "content": [
+        {
+          "id": "tma4110-3-prove-3b-oppg",
+          "type": "text",
+          "content": "### Prøve 3.B (kap. 3.2, sjanger D · ~40 min)\n\n**Oppgave 1 (basis i $\\operatorname{P}_2$).** Avgjør om $\\{1+t,\\ 1-t,\\ t^2\\}$ er en basis for $\\operatorname{P}_2$. Bruk dimensjonsargumentet, og forklar hvorfor du ikke trenger å sjekke både uavhengighet og utspenning.\n\n**Oppgave 2 (basis i $\\mathbb R^3$).** Avgjør om $\\{(1,2,3),(2,3,4),(3,4,5)\\}$ er en basis for $\\mathbb R^3$. Er den ikke det, finn en ikke-triviell relasjon mellom vektorene."
+        },
+        {
+          "id": "tma4110-3-prove-3b-fasit",
+          "type": "text",
+          "content": "### Fasit 3.B\n\n**Oppgave 1.** $\\operatorname{P}_2$ har dimensjon $3$, og vi har $3$ polynomer — antallet stemmer, så **dimensjonsargumentet** gjelder: det holder å vise lineær uavhengighet (da utspenner de automatisk). Koordinater relativt $\\{1,t,t^2\\}$: $[1+t]=(1,1,0)$, $[1-t]=(1,-1,0)$, $[t^2]=(0,0,1)$. Determinanten av koordinatmatrisen:\n$$\\det\\begin{bmatrix}1&1&0\\\\1&-1&0\\\\0&0&1\\end{bmatrix}=1\\cdot\\big((-1)(1)-0\\big)-1\\cdot(1\\cdot1-0)+0=-1-1=-2\\ne0.$$\nUavhengige koordinatvektorer ⇒ uavhengige polynomer. Tre uavhengige vektorer i det $3$-dimensjonale $\\operatorname{P}_2$ er en **basis** (dimensjonsargumentet). Vi slipper å sjekke utspenning fordi riktig antall + uavhengighet medfører den.\n\n**Oppgave 2.** Sett vektorene som kolonner og regn determinanten:\n$$\\det\\begin{bmatrix}1&2&3\\\\2&3&4\\\\3&4&5\\end{bmatrix}=0$$\n(radene vokser med samme steg: rad $2-$rad $1=$ rad $3-$rad $2=(1,1,1)$, så radene er avhengige). Determinanten er $0$ ⇒ vektorene er **lineært avhengige**, og de er **ikke en basis**. En ikke-triviell relasjon: $(1,2,3)-2(2,3,4)+(3,4,5)=(0,0,0)$, altså koeffisienter $(1,-2,1)$. Kontroll: $1-4+3=0$, $2-6+4=0$, $3-8+5=0$ ✓."
+        },
+        {
+          "id": "tma4110-3-prove-3b-selvdiagnose",
+          "type": "text",
+          "content": "### Selvdiagnose 3.B\n\n- ☐ Jeg talte vektorene mot dimensjonen og brukte dimensjonsargumentet der antallet stemte.\n- ☐ Jeg oversatte polynomene til koordinatvektorer før jeg regnet.\n- ☐ Jeg regnet determinanten (eller pivotmønsteret) riktig og konkluderte om uavhengighet.\n- ☐ Jeg fant en konkret ikke-triviell relasjon i oppgave 2, ikke bare «$\\det=0$».\n- ☐ Jeg forklarte hvorfor bare én av de to basis-egenskapene måtte sjekkes.\n\nMangler du hakk på dimensjonsargumentet, repeter «basis og dimensjonsargumentet» i [kap. 3.2](/bok/tma4110/tma4110-3-2)."
+        }
+      ]
+    },
+    {
+      "id": "tma4110-3-prove-prove-3c",
+      "type": "collapsible",
+      "title": "Prøve 3.C — Col/Nul-basis, rang og dimensjonsteorem (~40 min)",
+      "buttonText": "Vis prøve 3",
+      "content": [
+        {
+          "id": "tma4110-3-prove-3c-oppg",
+          "type": "text",
+          "content": "### Prøve 3.C (kap. 3.3, sjanger E · ~40 min)\n\n**Oppgave 1.** For $A=\\begin{bmatrix}1&2&1&3\\\\2&4&3&7\\\\1&2&2&4\\end{bmatrix}$: finn en basis for $\\operatorname{Col}A$ og for $\\operatorname{Nul}A$, oppgi $\\operatorname{rang}A$, og kontroller dimensjonsteoremet.\n\n**Oppgave 2.** For $B=\\begin{bmatrix}1&1&0&2\\\\2&2&1&5\\\\0&0&1&1\\end{bmatrix}$: finn en basis for $\\operatorname{Col}B$ og for $\\operatorname{Nul}B$, og oppgi $\\operatorname{rang}B$ og $\\dim\\operatorname{Nul}B$."
+        },
+        {
+          "id": "tma4110-3-prove-3c-fasit",
+          "type": "text",
+          "content": "### Fasit 3.C\n\n**Oppgave 1.** Radreduser: $R_2\\to R_2-2R_1=(0,0,1,1)$; $R_3\\to R_3-R_1=(0,0,1,1)$; $R_3\\to R_3-R_2=0$; $R_1\\to R_1-R_2$:\n$$\\text{RREF}=\\begin{bmatrix}1&2&0&2\\\\0&0&1&1\\\\0&0&0&0\\end{bmatrix}.$$\nPivoter i kolonne $1,3$ ⇒ $\\operatorname{rang}A=2$. **$\\operatorname{Col}A$-basis** = **opprinnelige** kolonner $1,3$: $\\{(1,2,1),(1,3,2)\\}$.\n\nFrie: $x_2,x_4$. Radene: $x_1=-2x_2-2x_4$, $x_3=-x_4$. Spesielle løsninger: $(-2,1,0,0)$ og $(-2,0,-1,1)$. **$\\operatorname{Nul}A$-basis** $\\{(-2,1,0,0),(-2,0,-1,1)\\}$, $\\dim\\operatorname{Nul}A=2$.\n\n**Kontroll (dimensjonsteoremet):** $\\operatorname{rang}A+\\dim\\operatorname{Nul}A=2+2=4=n$ ✓.\n\n**Oppgave 2.** Radreduser: $R_2\\to R_2-2R_1=(0,0,1,1)$, så $R_2\\to R_2-R_3=(0,0,0,0)$; bytt så nullraden ned:\n$$\\text{RREF}=\\begin{bmatrix}1&1&0&2\\\\0&0&1&1\\\\0&0&0&0\\end{bmatrix}.$$\nPivoter i kolonne $1,3$ ⇒ $\\operatorname{rang}B=2$. **$\\operatorname{Col}B$-basis** = opprinnelige kolonner $1,3$: $\\{(1,2,0),(0,1,1)\\}$.\n\nFrie: $x_2,x_4$. Radene: $x_1=-x_2-2x_4$, $x_3=-x_4$. Spesielle løsninger: $(-1,1,0,0)$ og $(-2,0,-1,1)$. **$\\operatorname{Nul}B$-basis** $\\{(-1,1,0,0),(-2,0,-1,1)\\}$, $\\dim\\operatorname{Nul}B=2$. Kontroll: $2+2=4=n$ ✓."
+        },
+        {
+          "id": "tma4110-3-prove-3c-selvdiagnose",
+          "type": "text",
+          "content": "### Selvdiagnose 3.C\n\n- ☐ Jeg radreduserte til RREF uten fortegnsfeil.\n- ☐ Jeg hentet $\\operatorname{Col}$-basis fra de **opprinnelige** kolonnene i $A$/$B$, ikke fra RREF.\n- ☐ Jeg fant de spesielle løsningene (én per fri variabel) som $\\operatorname{Nul}$-basis.\n- ☐ Jeg oppga rangen som antall pivoter.\n- ☐ Jeg kontrollerte $\\operatorname{rang}+\\dim\\operatorname{Nul}=n$ i begge oppgavene.\n\nTok du RREF-kolonnene som $\\operatorname{Col}$-basis, er det den dyreste fellen — repeter «basis for $\\operatorname{Col}A$» i [kap. 3.3](/bok/tma4110/tma4110-3-3)."
+        }
+      ]
+    },
+    {
+      "id": "tma4110-3-prove-prove-3d",
+      "type": "collapsible",
+      "title": "Prøve 3.D — Vektorrom-simulering (kjedet) (~45 min)",
+      "buttonText": "Vis prøve 4",
+      "content": [
+        {
+          "id": "tma4110-3-prove-3d-oppg",
+          "type": "text",
+          "content": "### Prøve 3.D (kap. 3.1–3.5, sjanger D + E · ~45 min)\n\nDenne oppgaven kjeder sammen underrom, basis, koordinater og et $\\operatorname{Col}/\\operatorname{Nul}$-argument — slik en full vektorrom-oppgave på eksamen ofte ser ut. La\n$$W=\\{p\\in\\operatorname{P}_2:p(1)=0\\}.$$\n\n**a)** Vis at $W$ er et underrom av $\\operatorname{P}_2$, og finn en basis $\\mathcal B$ og $\\dim W$.\n\n**b)** Vis at $p(t)=t^2+t-2$ ligger i $W$, og finn koordinatvektoren $[p]_{\\mathcal B}$.\n\n**c)** La $A$ være matrisen hvis kolonner er koordinatvektorene (relativt $\\{1,t,t^2\\}$) til de tre polynomene $t-1,\\ t^2-1,\\ t^2+t-2$:\n$$A=\\begin{bmatrix}-1&-1&-2\\\\1&0&1\\\\0&1&1\\end{bmatrix}.$$\nFinn $\\operatorname{rang}A$ og en basis for $\\operatorname{Nul}A$, og forklar hva nullromsvektoren forteller om de tre polynomene."
+        },
+        {
+          "id": "tma4110-3-prove-3d-fasit",
+          "type": "text",
+          "content": "### Fasit 3.D\n\n**a)** Betingelsen $p(1)=0$ er lineær og homogen. **(1)** nullpolynomet har $p(1)=0$ ✓; **(2)** $(p+q)(1)=p(1)+q(1)=0$ ✓; **(3)** $(cp)(1)=c\\,p(1)=0$ ✓. Så $W$ er et **underrom**. Byggeklossene $t-1$ og $t^2-1$ ligger i $W$ (verdi $0$ i $t=1$), er uavhengige (ulik grad / koordinatvektorene $(-1,1,0),(-1,0,1)$ er uavhengige), og enhver $p\\in W$ er en kombinasjon av dem. Basis $\\mathcal B=\\{t-1,\\ t^2-1\\}$, $\\boxed{\\dim W=2}$ (én lineær betingelse på $\\operatorname{P}_2$).\n\n**b)** $p(1)=1^2+1-2=0$ ✓, så $p\\in W$. Finn $c_1,c_2$ med $c_1(t-1)+c_2(t^2-1)=t^2+t-2$. Venstresiden er $c_2t^2+c_1t-(c_1+c_2)$. Sammenlign:\n$$t^2:\\ c_2=1,\\qquad t:\\ c_1=1,\\qquad \\text{konstant}:\\ -(c_1+c_2)=-2\\ \\checkmark.$$\nSå $[p]_{\\mathcal B}=\\begin{bmatrix}1\\\\1\\end{bmatrix}$. Kontroll: $1(t-1)+1(t^2-1)=t^2+t-2$ ✓.\n\n**c)** Radreduser $A$: $R_2\\to R_2+R_1=(0,-1,-1)$; bruk så pivotene. RREF:\n$$\\begin{bmatrix}1&0&1\\\\0&1&1\\\\0&0&0\\end{bmatrix}.$$\nPivoter i kolonne $1,2$ ⇒ $\\operatorname{rang}A=2$. Fri variabel $x_3$; radene gir $x_1=-x_3$, $x_2=-x_3$. Spesiell løsning $(-1,-1,1)$. **$\\operatorname{Nul}A$-basis** $\\{(-1,-1,1)\\}$.\n\n**Tolkning:** nullromsvektoren $(-1,-1,1)$ betyr $-1\\cdot(\\text{kol }1)-1\\cdot(\\text{kol }2)+1\\cdot(\\text{kol }3)=\\mathbf 0$, altså at det tredje polynomet er summen av de to første:\n$$t^2+t-2=(t-1)+(t^2-1).$$\nDet er nøyaktig koordinatrelasjonen fra (b): $[p]_{\\mathcal B}=(1,1)$. Kolonne $3$ er avhengig av de to første — derfor er $\\operatorname{rang}A=2$, og de to basispolynomene i (a) er nok til å beskrive $p$."
+        },
+        {
+          "id": "tma4110-3-prove-3d-selvdiagnose",
+          "type": "text",
+          "content": "### Selvdiagnose 3.D\n\n- ☐ Jeg viste de tre underromsbetingelsene og fant en basis med riktig dimensjon i (a).\n- ☐ Jeg sjekket $p(1)=0$ før jeg konkluderte at $p\\in W$.\n- ☐ Jeg fant koordinatvektoren ved koeffisientsammenligning i (b).\n- ☐ Jeg radreduserte $A$ og leste rang og $\\operatorname{Nul}$-basis riktig i (c).\n- ☐ Jeg koblet nullromsvektoren til koordinatrelasjonen mellom polynomene.\n\nKlarte du hele kjeden, sitter Del 3. Skulle noe glippe, gå tilbake til drillen i [kap. 3.5](/bok/tma4110/tma4110-3-5) og teorikapitlet det gjelder."
+        }
+      ]
+    }
+  ],
+  "exercises": []
+}
