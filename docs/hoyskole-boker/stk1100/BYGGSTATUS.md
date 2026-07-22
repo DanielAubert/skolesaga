@@ -13,10 +13,15 @@
   - `docs/hoyskole-boker/stk1100/BOKCONFIG.json` (uio, prøvedeler 1–8, sectionNames).
   - `src/lib/data/fagprofil/stk1100.json` (fantes ferdig — validert, 8 sensornøkler/8 typiske feil).
   - `python3 scripts/hoyskolebok/sjekk-skjelett.py stk1100` → KVALITETSPORT OK.
-- **Steg 1** (byggebølge): IKKE STARTET. 0/27 kapittelfiler + 0/8 prøver på disk.
-- **Steg 2** (wiring): ikke startet.
+- **Steg 1** (byggebølge): 27/27 kapittelfiler på disk (0.1–9.4), alle JSON gyldige.
+  Quiz 27/27 kapitler (Del 9-quizene 9.1–9.4 gap-fylt av ny byggeleder + LENGDE-TELL
+  rebalansert til 23 %). Flashcards 505 (definisjonsblokker) = skjelettkvote eksakt.
+  GJENSTÅR: 8 prøvefiler (Del 1–8, 4 prøver hver) — under bygging.
+  Blokkerende (verifiser)-markør i 9-1 ryddet.
+- **Steg 2** (wiring): ikke startet (krever alle 8 prøvefiler → wire-bok.py).
 - **Steg 3** (verifikator): ikke startet.
-- **Steg 4** (sluttport): ikke startet.
+- **Steg 4** (sluttport): ikke startet. Baseline sjekk-bok.py: 505 def, 0 unicode-i-LaTeX,
+  0 forbudt-term; eneste avvik var (verifiser) i 9-1 (nå ryddet) + quiz-kvote (venter wiring).
 
 ## Byggerekkefølge (fra skjelettets §6)
 1. Metadata via wire-bok.py (fase 5).

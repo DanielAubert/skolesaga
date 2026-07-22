@@ -1,0 +1,52 @@
+[
+  {
+    "question": "Et 95 %-intervall for en andel $p$ bygger på normaltilnærming. Når er den forsvarlig?",
+    "options": [
+      "Når både $m\\hat p$ og $m(1-\\hat p)$ er minst rundt 10",
+      "Når $m$ er et partall større enn 100",
+      "Når andelen $\\hat p$ er nøyaktig $0{,}5$",
+      "Når variansen $p(1-p)$ er kjent på forhånd i populasjonen"
+    ],
+    "explanation": "Tommelfingerregelen $m\\hat p\\ge 10$ og $m(1-\\hat p)\\ge 10$ sikrer god CLT-tilnærming. Ved svært få suksesser trengs et eksakt intervall."
+  },
+  {
+    "question": "For en lognormalfordeling der $\\ln X\\sim N(\\mu,\\sigma^2)$, hva er medianen?",
+    "options": [
+      "$e^\\mu$, fordi $F(m)=\\tfrac12$ gir $\\ln m=\\mu$",
+      "$\\mu$, forventningen på log-skala",
+      "$e^{\\mu+\\sigma^2/2}$, som er forventningen til $X$",
+      "$e^{\\sigma}$, bestemt av spredningen alene"
+    ],
+    "explanation": "Medianen løser $F(m)=\\tfrac12$; siden $\\ln X$ har median $\\mu$, er $\\ln m=\\mu$ og $m=e^\\mu$. Forventningen $e^{\\mu+\\sigma^2/2}$ er noe annet."
+  },
+  {
+    "question": "I dekningsstudien: hvilket kvantil hører til det eksakte intervallets NEDRE grense?",
+    "options": [
+      "Det øvre kvantilet $\\chi^2_{2n,0{,}025}$, fordi pivoten inverteres",
+      "Det nedre kvantilet $\\chi^2_{2n,0{,}975}$, samme side som grensen",
+      "Standardnormalens $z_{0{,}025}$, som i Wald",
+      "Medianen $\\chi^2_{2n,0{,}5}$ i begge grenser"
+    ],
+    "explanation": "Nedre grense $2\\sum x_i/\\chi^2_{2n,0{,}025}$ bruker det øvre kvantilet — endepunktene bytter plass når ulikheten inverteres (feil 13)."
+  },
+  {
+    "question": "KI-et for konstantleddet $\\beta_0$ er $[-4{,}14,\\ 4{,}08]$ og inneholder 0. Hva tilsier det?",
+    "options": [
+      "At konstantleddet kan droppes — modellen $Y=\\gamma x$ er forsvarlig",
+      "At hele regresjonsmodellen er ugyldig fordi $\\beta_0$-estimatet ble negativt",
+      "At helningen $\\beta_1$ også må være null",
+      "At variansen $\\sigma^2$ er feil estimert"
+    ],
+    "explanation": "Når KI-et for $\\beta_0$ dekker 0, er konstantleddet ikke signifikant, og den enklere modellen uten konstantledd kan velges."
+  },
+  {
+    "question": "Hvorfor kan modellen uten konstantledd foretrekkes selv om den fulle modellen er riktig?",
+    "options": [
+      "Den gir lavere varians for helningen mot en mulig liten skjevhet",
+      "Den gir alltid et større konstantledd enn nødvendig",
+      "Den fjerner helt behovet for å kjenne feilvariansen $\\sigma^2$ på forhånd",
+      "Den gjør at $x$-verdiene kan behandles som stokastiske"
+    ],
+    "explanation": "$\\text{Var}(\\hat\\gamma)=\\sigma^2/\\sum x_i^2 < \\sigma^2/S_{xx}=\\text{Var}(\\hat\\beta_1)$. Bias–varians: lavere varians mot mulig skjevhet — velg enklere når skjevheten er liten."
+  }
+]

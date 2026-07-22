@@ -1,0 +1,52 @@
+[
+  {
+    "question": "I diagnoseoppgaven er bare cirka 80 % av de positive faktisk syke, tross en meget god test. Hva er hovedgrunnen?",
+    "options": [
+      "Lav prevalens gjør at falske positive teller mye i nevneren",
+      "Sensitiviteten på 96 % er for lav til pålitelige tester",
+      "De to testrundene er avhengige av hverandre",
+      "Spesifisiteten er beregnet på feil populasjon"
+    ],
+    "explanation": "Med bare 2 % syke gir 0,5 % falske positive et betydelig antall relativt til de sanne positive, så $P(\\text{syk}\\mid+)$ blir moderat selv med god test."
+  },
+  {
+    "question": "For $f(x,y)=c(x+2y)$ på enhetskvadratet, hva er normeringskonstanten?",
+    "options": [
+      "$c=\\tfrac23$, siden $\\iint(x+2y)=\\tfrac32$",
+      "$c=1$, siden tettheten allerede integrerer til 1",
+      "$c=\\tfrac32$, det inverse av integralet",
+      "$c=\\tfrac13$, fra integralet over trekanten"
+    ],
+    "explanation": "$\\int_0^1\\int_0^1(x+2y)\\,dy\\,dx=\\tfrac32$, så $c=1/\\tfrac32=\\tfrac23$ for at tettheten skal integrere til 1."
+  },
+  {
+    "question": "Hva blir $P(Y\\ge X)$ for tettheten $f(x,y)=\\tfrac23(x+2y)$ på enhetskvadratet?",
+    "options": [
+      "$5/9$, integrert over trekanten der $y\\ge x$",
+      "$1/2$, siden diagonalen deler kvadratet likt",
+      "$4/9$, arealet under diagonalen $y=x$",
+      "$2/3$, lik normeringskonstanten $c$"
+    ],
+    "explanation": "$P(Y\\ge X)=\\tfrac23\\int_0^1\\int_x^1(x+2y)\\,dy\\,dx=5/9$. Det er ikke $1/2$, fordi tettheten ikke er symmetrisk i $x$ og $y$."
+  },
+  {
+    "question": "For Weibull-ML $\\hat\\beta=(\\tfrac1n\\sum X_i^\\alpha)^{1/\\alpha}$ med kjent $\\alpha$: hvorfor er estimatoren skjev?",
+    "options": [
+      "Fordi $E[V^{1/\\alpha}]\\ne (E[V])^{1/\\alpha}$ — en $\\Gamma$-faktor mangler",
+      "Fordi $\\sum X_i^\\alpha$ ikke er gammafordelt",
+      "Fordi maximum likelihood-metoden i endelige utvalg systematisk gir skjeve estimatorer",
+      "Fordi variansen til $\\hat\\beta$ er uendelig for små $n$"
+    ],
+    "explanation": "$\\hat\\beta$ er en potens av en gamma-størrelse; siden $E[V^{1/\\alpha}]\\ne(E[V])^{1/\\alpha}$, oppstår en $\\Gamma$-faktor $c\\ne1$ som må korrigeres bort."
+  },
+  {
+    "question": "Hva kjennetegner parametrisk bootstrap for standardfeilen til $\\hat\\theta$?",
+    "options": [
+      "Man trekker nye utvalg fra den tilpassede fordelingen med $\\hat\\theta$",
+      "Man trekker nye utvalg med tilbakelegging direkte fra de observerte dataene",
+      "Man deriverer likelihooden numerisk i estimatet",
+      "Man løser pivotalligningen for $\\theta$ analytisk"
+    ],
+    "explanation": "Parametrisk bootstrap simulerer fra modellen med $\\hat\\theta$ innsatt. Å trekke med tilbakelegging fra dataene er den ikke-parametriske varianten."
+  }
+]

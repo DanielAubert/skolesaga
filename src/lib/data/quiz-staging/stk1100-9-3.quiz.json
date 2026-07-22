@@ -1,0 +1,52 @@
+[
+  {
+    "question": "Hva er den momentgenererende funksjonen til en Poisson-variabel med forventning $m$, og for hvilke $t$?",
+    "options": [
+      "$M(t)=e^{m(e^t-1)}$ for alle $t$",
+      "$M(t)=(1-mt)^{-1}$ for $t<1/m$",
+      "$M(t)=e^{mt}$ for alle $t$",
+      "$M(t)=e^{m(e^t-1)}$ kun for $t<0$"
+    ],
+    "explanation": "Summering av $e^{tk}e^{-m}m^k/k!$ gir $e^{m(e^t-1)}$, konvergent for alle $t$. Da er $E=M'(0)=m$ og $\\text{Var}=M''(0)-m^2=m$."
+  },
+  {
+    "question": "Hvorfor foretrekkes det eksakte $\\chi^2$-intervallet framfor Wald for en eksponensialforventning når $n=10$?",
+    "options": [
+      "Wald undervurderer dekningen fordi $\\bar X$ er skjev ved liten $n$",
+      "Wald krever at variansen er kjent på forhånd",
+      "Det eksakte intervallet er alltid smalere enn Wald",
+      "Wald kan bare brukes for normalfordelte data"
+    ],
+    "explanation": "For liten $n$ er $\\bar X$ for skjev til CLT; Wald blir for smalt og dekker under 95 %. Det eksakte bygger på pivotens sanne fordeling."
+  },
+  {
+    "question": "En dekningsstudie for eksponensial-KI med $n=10$ gir hvilke tall (nominelt 95 %)?",
+    "options": [
+      "Eksakt cirka 95,8 %, Wald cirka 91,6 %",
+      "Eksakt cirka 91,6 %, Wald cirka 95,8 %",
+      "Begge cirka 95 %, ingen forskjell",
+      "Eksakt cirka 99 %, Wald cirka 80 %"
+    ],
+    "explanation": "Det eksakte treffer nær nominelt nivå (~95,8 %), Wald undervurderer (~91,6 %). Ved $n=100$ blir begge nær 95 %."
+  },
+  {
+    "question": "For $X,Y$ iid eksponensial(1) og $(U,V)=(X+Y,\\,X/(X+Y))$: hva er $|J|$ og simultantettheten?",
+    "options": [
+      "$|J|=u$ og $f_{U,V}(u,v)=u\\,e^{-u}$ for $u>0,\\ 0<v<1$",
+      "$|J|=1$ og $f_{U,V}(u,v)=e^{-u}$ for $u>0,\\ 0<v<1$",
+      "$|J|=v$ og $f_{U,V}(u,v)=v\\,e^{-u}$ for $u>0,\\ 0<v<1$",
+      "$|J|=u^2$ og $f_{U,V}(u,v)=u^2 e^{-u}$ for $u>0,\\ 0<v<1$"
+    ],
+    "explanation": "Med $X=UV,\\ Y=U(1-V)$ blir determinanten $-u$, så $|J|=u$, og $f_{U,V}=e^{-u}\\cdot u$. Den faktoriserer, så $U$ og $V$ er uavhengige."
+  },
+  {
+    "question": "Med $(U,V)=(X+Y,X/(X+Y))$ for iid eksponensial(1), hva er $E(X\\mid U=u)$?",
+    "options": [
+      "$u/2$, siden $X=UV$ med $V\\sim$ uniform$(0,1)$ uavhengig av $U$",
+      "$u$, siden den betingede forventningen alltid er lik hele totalen $U$",
+      "$u^2/12$, som er den betingede variansen",
+      "$1$, den ubetingede forventningen $E(X)$"
+    ],
+    "explanation": "$V\\sim$ uniform$(0,1)$ er uavhengig av $U$, så $E(X\\mid U=u)=u\\,E(V)=u/2$. Den betingede variansen er $u^2/12$."
+  }
+]
