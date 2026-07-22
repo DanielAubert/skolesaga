@@ -1,0 +1,152 @@
+{
+  "id": "mat1120-3-prove",
+  "courseId": "mat1120",
+  "chapterNumber": "3.P",
+  "title": "Prøver til del 3: Egenverdier og diagonalisering",
+  "description": "Fire temaprøver til Del 3: egenvektor-verifisering, egenrom og multiplisitet (kap. 3.1), diagonalisering A=PDP⁻¹ med begrunnelse (kap. 3.2), ikke-diagonaliserbarhet og Aᵏ/q(A) med samme P (kap. 3.2–3.3), og en full oppgave 2-simulering med egenverdikjeden kjedet på én matrise (kap. 3.1–3.4). Full fasit etter føringsstandarden, med vedlegg og selvdiagnose.",
+  "estimatedMinutes": 155,
+  "competenceGoals": [
+    "kunne verifisere en oppgitt egenvektor ved innsetting og lese egenverdier og egenrom av et vedlegg (poly/eig/RREF)",
+    "kunne avgjøre og begrunne diagonaliserbarhet med multiplisitet (geo=alg) eller en navngitt snarvei, og vise ikke-diagonaliserbarhet ved geo<alg",
+    "kunne bygge P og D matchet søyle for søyle og regne Aᵏ=PDᵏP⁻¹ og q(A)=Pq(D)P⁻¹ med samme P",
+    "kunne føre en fullstendig oppgave 2-besvarelse med vedleggssitering og eksakte svar"
+  ],
+  "content": [
+    {
+      "id": "mat1120-3-prove-tip",
+      "type": "tip",
+      "title": "Om prøvene til Del 3",
+      "content": "Disse fire prøvene dekker hele **Del 3 — Egenverdier og diagonalisering** og trener sjanger D + E: egenverdier, diagonalisering $A=PDP^{-1}$ og $A^{k}/q(A)$ — den faste **oppgave 2** som er med i praktisk talt hvert eksamenssett (~100 %). Alt av egenverdier og egenrom **leses av et vedlegg** ($\\operatorname{poly}$/`eig`/RREF) — du regner aldri karakteristisk polynom eller radreduserer store $A-\\lambda I$ for hånd.\n\n- **Prøve 1 — Egenvektor-verifisering, egenrom og multiplisitet ([kap. 3.1](/bok/mat1120/mat1120-3-1)):** verifiser en oppgitt egenvektor ved innsetting $A\\mathbf{v}=\\lambda\\mathbf{v}$, les egenverdiene av vedlegget og finn egenrom, algebraisk vs. geometrisk multiplisitet. ~35 min.\n- **Prøve 2 — Diagonalisering $A=PDP^{-1}$ + begrunnelse ([kap. 3.2](/bok/mat1120/mat1120-3-2)):** bygg $P$ og $D$ matchet, og **begrunn** diagonaliserbarhet med multiplisitet eller en navngitt snarvei. ~40 min.\n- **Prøve 3 — Ikke-diagonaliserbar + $A^{k}/q(A)$ ([kap. 3.2](/bok/mat1120/mat1120-3-2)–[3.3](/bok/mat1120/mat1120-3-3)):** vis at et egenrom er for lite (geo $<$ alg), og regn potenser/polynom i $A$ med **samme** $P$. ~35 min.\n- **Prøve 4 — Oppgave 2-simulering ([kap. 3.1](/bok/mat1120/mat1120-3-1)–[3.4](/bok/mat1120/mat1120-3-4)):** hele egenverdikjeden — verifiser $\\to$ egenrom $\\to$ begrunn $\\to$ $P/D$ $\\to$ $A^{k}$ — kjedet på **én** gjenbrukt matrise. ~45 min.\n\n**4 prøver à ~35–45 min, kan trygt deles over flere kvelder — én prøve per økt.** Milepælen er å fullføre settet, ikke å ta alt på én gang.\n\n**Merk formatet:** MAT1120-eksamen har **ingen flervalg** — alt er fullt begrunnet langsvar. Her har likevel **Prøve 1** en liten flervalgsdel til rask begrepssjekk (flervalget bor *inne i* Prøve 1); kryss av og kontroller mot fasiten. De øvrige oppgavene skal føres som en fullstendig besvarelse: **sitér vedlegget** («Fra vedlegget ser vi at …»), **begrunn** hver diagonaliserbarhets-konklusjon med multiplisitet eller en navngitt snarvei, match $P$ og $D$ søyle for søyle, og avslutt med en verbal konklusjon og eksakte svar. Etter hver fasit står en avkryssbar selvdiagnose."
+    },
+    {
+      "id": "mat1120-3-prove-forkunnskaper",
+      "type": "text",
+      "content": "**Forkunnskaper:** hele Del 3 — [kap. 3.1](/bok/mat1120/mat1120-3-1) (egenverdier, egenvektorer, egenrom $E_\\lambda=\\operatorname{Nul}(A-\\lambda I)$, algebraisk vs. geometrisk multiplisitet), [kap. 3.2](/bok/mat1120/mat1120-3-2) (diagonalisering $A=PDP^{-1}$, diagonaliserbarhetskriteriet og snarveiene distinkt/symmetrisk/triangulær), [kap. 3.3](/bok/mat1120/mat1120-3-3) ($A^{k}=PD^{k}P^{-1}$ og $q(A)=Pq(D)P^{-1}$ med samme $P$) og drillen i [kap. 3.4](/bok/mat1120/mat1120-3-4). Nullrom/basis-begrepet er fra [kap. 1.2](/bok/mat1120/mat1120-1-2). Matriseinvers, matriseprodukt og grunnleggende egenverdibegrep forutsettes fra *(MAT1110 — forkunnskapsemne, ikke bygget ennå; aktiver `/bok/mat1110/<id>`-lenke når den finnes)*; komplekse tall fra [Komplekse tall](/bok/r2/r2-2-1). Ta prøvene uten hjelpemidler utover vedlegget, slik eksamen er lagt opp."
+    },
+    {
+      "id": "mat1120-3-prove-p1",
+      "type": "collapsible",
+      "title": "Prøve 1",
+      "buttonText": "Vis prøve 1",
+      "content": [
+        {
+          "id": "mat1120-3-prove-p1-oppg",
+          "type": "text",
+          "content": "**Sjanger:** egenvektor-verifisering, egenrom og multiplisitet (D). **Anbefalt tid:** ca. 35 minutter.\n\nVedlegget gir for\n$$A=\\begin{bmatrix}-1&-3&3\\\\-3&-1&3\\\\-3&-3&5\\end{bmatrix}$$\ndet karakteristiske polynomet $\\operatorname{poly}(A):\\ \\det(A-\\lambda I)=-(\\lambda-2)^{2}(\\lambda+1)$, og de reduserte trappeformene\n$$\\operatorname{rref}(A-2I)=\\begin{bmatrix}1&1&-1\\\\0&0&0\\\\0&0&0\\end{bmatrix},\\qquad \\operatorname{rref}(A+I)=\\begin{bmatrix}1&0&-1\\\\0&1&-1\\\\0&0&0\\end{bmatrix}.$$\n\n**Flervalg (kryss av, sjekk mot fasit):**\n\n1. Kravet til at $\\mathbf{v}$ er en egenvektor for $A$ med egenverdi $\\lambda$ er (a) at $\\mathbf{v}$ er en enhetsvektor (b) at $\\mathbf{v}\\ne\\mathbf{0}$ og $A\\mathbf{v}=\\lambda\\mathbf{v}$ (c) at $\\mathbf{v}$ ligger i $\\operatorname{Col}A$ (d) at $A\\mathbf{v}=\\mathbf{0}$.\n2. Den **geometriske** multiplisiteten til $\\lambda$ er (a) $\\dim\\operatorname{Nul}(A-\\lambda I)$ (b) $\\lambda$-rotens multiplisitet i det karakteristiske polynomet (c) antallet distinkte egenverdier (d) $\\operatorname{spor}A/\\lambda$.\n3. For **enhver** egenverdi gjelder relasjonen (a) geo $>$ alg (b) geo $=$ alg alltid (c) geo $\\le$ alg (d) geo $=n$.\n4. $\\lambda=0$ er en egenverdi for $A$ nøyaktig når (a) $A$ er symmetrisk (b) $\\operatorname{spor}A=0$ (c) $A$ er triangulær (d) $A$ er singulær ($\\det A=0$).\n\n**Skriveoppgaver:**\n\n**a)** Verifiser ved **innsetting** at $\\mathbf{v}=(1,1,1)^{T}$ er en egenvektor for $A$, og oppgi egenverdien.\n\n**b)** Bruk vedlegget til å oppgi alle egenverdiene med deres **algebraiske** multiplisitet, og finn en basis for egenrommet $E_{2}=\\operatorname{Nul}(A-2I)$. Hva er den geometriske multiplisiteten til $\\lambda=2$?\n\n**c)** Kontroller egenverdiene mot $\\operatorname{spor}A$ og $\\det A$, og avgjør ut fra egenverdiene om $A$ er invertibel."
+        },
+        {
+          "id": "mat1120-3-prove-p1-fasit",
+          "type": "collapsible",
+          "title": "Fasit — Prøve 1",
+          "buttonText": "Vis fasit",
+          "content": [
+            {
+              "id": "mat1120-3-prove-p1-fasit-tekst",
+              "type": "text",
+              "content": "**Flervalg — riktige svar:** 1b · 2a · 3c · 4d. *(1 poeng hver.)*\n\n*Om 2b: rotens multiplisitet er den **algebraiske** multiplisiteten. Om 3b: likhet gjelder ikke alltid — en defekt egenverdi har geo $<$ alg (se Prøve 3). Om 4b/4c: sporet og triangularitet sier ikke om $0$ er egenverdi; $0$ er egenverdi $\\iff A\\mathbf{x}=\\mathbf{0}$ har ikke-triviell løsning $\\iff \\det A=0$.*\n\n**a)** Ett matrise–vektor-produkt:\n$$A\\mathbf{v}=\\begin{bmatrix}-1&-3&3\\\\-3&-1&3\\\\-3&-3&5\\end{bmatrix}\\begin{bmatrix}1\\\\1\\\\1\\end{bmatrix}=\\begin{bmatrix}-1-3+3\\\\-3-1+3\\\\-3-3+5\\end{bmatrix}=\\begin{bmatrix}-1\\\\-1\\\\-1\\end{bmatrix}=-1\\cdot\\begin{bmatrix}1\\\\1\\\\1\\end{bmatrix}.$$\nSiden $A\\mathbf{v}=-1\\cdot\\mathbf{v}$ og $\\mathbf{v}\\ne\\mathbf{0}$, er $\\mathbf{v}$ en egenvektor med **egenverdi $\\lambda=-1$**. *(Verifisering ved innsetting — ikke via polynomet, slik føringsstandarden foretrekker når $\\mathbf{v}$ er gitt.)*\n\n**b)** Fra vedleggets $\\operatorname{poly}(A)=-(\\lambda-2)^{2}(\\lambda+1)$ er egenverdiene\n$$\\lambda=2\\ (\\text{algebraisk multiplisitet }2),\\qquad \\lambda=-1\\ (\\text{algebraisk multiplisitet }1).$$\nEgenrommet $E_{2}$ leses av $\\operatorname{rref}(A-2I)=\\begin{bmatrix}1&1&-1\\\\0&0&0\\\\0&0&0\\end{bmatrix}$: én pivot (kolonne 1), frie variabler $x_2,x_3$, og likningen $x_1=-x_2+x_3$. Spesielle løsninger:\n\n- $x_2=1,\\ x_3=0$: $(-1,1,0)^{T}$.\n- $x_2=0,\\ x_3=1$: $(1,0,1)^{T}$.\n\nBasis for $E_{2}$: $\\{(-1,1,0)^{T},\\ (1,0,1)^{T}\\}$, så $\\dim E_{2}=2$. Den **geometriske** multiplisiteten til $\\lambda=2$ er altså $2$ — lik den algebraiske. (Merk $\\text{geo}\\le\\text{alg}$: her er de like.)\n\n**c)** **Spor:** $\\operatorname{spor}A=-1+(-1)+5=3$, og summen av egenverdiene (med multiplisitet) er $2+2+(-1)=3$. ✓ **Determinant:** $\\det A=2\\cdot2\\cdot(-1)=-4=\\prod\\lambda_i$. ✓ Ingen egenverdi er $0$ (og $\\det A=-4\\ne0$), så **$A$ er invertibel**. **Eksakt svar** — egenverdier $2$ (dobbel) og $-1$, $\\dim E_{2}=2$."
+            },
+            {
+              "id": "mat1120-3-prove-p1-diag",
+              "type": "text",
+              "content": "**Selvdiagnose — kryss av ($\\square$):**\n\n- ☐ Jeg verifiserte den oppgitte egenvektoren ved innsetting $A\\mathbf{v}=\\lambda\\mathbf{v}$, ikke via polynomet.\n- ☐ Jeg leste egenverdiene og deres algebraiske multiplisitet rett av vedleggets $\\operatorname{poly}$.\n- ☐ Jeg fant $E_{2}$ som spesielle løsninger fra vedleggets RREF (én per fri variabel) og oppga $\\dim E_{2}$ (geometrisk multiplisitet).\n- ☐ Jeg skilte algebraisk multiplisitet (rot i polynomet) fra geometrisk multiplisitet ($\\dim E_\\lambda$), og husket $\\text{geo}\\le\\text{alg}$.\n- ☐ Jeg kontrollerte med $\\sum\\lambda=\\operatorname{spor}A$ og $\\prod\\lambda=\\det A$ og avgjorde invertibilitet ($\\lambda=0$?)."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "mat1120-3-prove-p2",
+      "type": "collapsible",
+      "title": "Prøve 2",
+      "buttonText": "Vis prøve 2",
+      "content": [
+        {
+          "id": "mat1120-3-prove-p2-oppg",
+          "type": "text",
+          "content": "**Sjanger:** diagonalisering $A=PDP^{-1}$ med begrunnelse (D). **Anbefalt tid:** ca. 40 minutter. Før som en fullstendig besvarelse.\n\n**Oppgave 1.** Vedlegget gir for\n$$A=\\begin{bmatrix}1&-2&2\\\\2&5&-2\\\\2&2&1\\end{bmatrix}$$\ndet karakteristiske polynomet $\\det(A-\\lambda I)=-(\\lambda-3)^{2}(\\lambda-1)$ og\n$$\\operatorname{rref}(A-3I)=\\begin{bmatrix}1&1&-1\\\\0&0&0\\\\0&0&0\\end{bmatrix},\\qquad \\operatorname{rref}(A-I)=\\begin{bmatrix}1&0&1\\\\0&1&-1\\\\0&0&0\\end{bmatrix}.$$\n\n**a)** Avgjør om $A$ er diagonaliserbar, og **begrunn** med multiplisitet (ingen snarvei gjelder her).\n\n**b)** Finn $P$ og $D$ med $A=PDP^{-1}$, matchet søyle for søyle.\n\n**Oppgave 2 (snarveier).** Avgjør om hver matrise er diagonaliserbar med **kortest mulig** begrunnelse — uten å regne ut egenrom:\n\n**c)** $B=\\begin{bmatrix}2&7&-3\\\\0&5&4\\\\0&0&-1\\end{bmatrix}$.\n**d)** $C=\\begin{bmatrix}4&1&2\\\\1&4&2\\\\2&2&5\\end{bmatrix}$."
+        },
+        {
+          "id": "mat1120-3-prove-p2-fasit",
+          "type": "collapsible",
+          "title": "Fasit — Prøve 2",
+          "buttonText": "Vis fasit",
+          "content": [
+            {
+              "id": "mat1120-3-prove-p2-fasit-tekst",
+              "type": "text",
+              "content": "**a)** Fra vedlegget ($\\operatorname{poly}$) er egenverdiene $\\lambda=3$ (algebraisk multiplisitet $2$) og $\\lambda=1$ (enkel). Her holder **ingen snarvei**: egenverdiene er ikke distinkte, $A$ er ikke symmetrisk og ikke triangulær. Vi bruker **diagonaliserbarhetskriteriet** og sjekker den gjentatte egenverdien.\n\n$\\lambda=3$: $\\operatorname{rref}(A-3I)$ har **én** pivot, altså to frie variabler, så $\\dim E_{3}=2=$ algebraisk multiplisitet.\n\n$\\lambda=1$: enkel, så geo $=$ alg $=1$ automatisk.\n\nSummen av geometriske multiplisiteter er $2+1=3=n$. **Konklusjon: $A$ er diagonaliserbar** (geo $=$ alg for hver egenverdi).\n\n**b)** Egenrommene fra vedleggets RREF-er:\n\n- $E_{3}$: $x_1=-x_2+x_3$, frie $x_2,x_3$ $\\Rightarrow$ $(-1,1,0)^{T}$ og $(1,0,1)^{T}$.\n- $E_{1}$: $x_1=-x_3,\\ x_2=x_3$ $\\Rightarrow$ $(-1,1,1)^{T}$.\n\nMatchet søyle for søyle (rekkefølge $3,3,1$):\n$$P=\\begin{bmatrix}-1&1&-1\\\\1&0&1\\\\0&1&1\\end{bmatrix},\\qquad D=\\begin{bmatrix}3&0&0\\\\0&3&0\\\\0&0&1\\end{bmatrix}.$$\nSøyle 1 og 2 er egenvektorer for $\\lambda=3$, søyle 3 for $\\lambda=1$ — og $D$ har $3,3,1$ i **samme** rekkefølge. **Kontroll** ($AP=PD$, søyle 1): $A(-1,1,0)^{T}=(-3,3,0)^{T}=3(-1,1,0)^{T}$ ✓. (Andre rekkefølger på egenparene gir andre, like gyldige $P,D$.)\n\n**c)** $B$ er **triangulær**, så egenverdiene står på diagonalen: $2,5,-1$. De er **tre distinkte** verdier for en $3\\times3$-matrise $\\Rightarrow$ diagonaliserbar (distinkt-snarveien). Ingen egenromsregning nødvendig.\n\n**d)** $C$ er **symmetrisk** ($C=C^{T}$), så $C$ er alltid — til og med ortogonalt — diagonaliserbar ved **spektralteoremet** ([Del 6]). Vi trenger ikke engang finne egenverdiene. **Eksakt svar** — $A$ og begge kontrollmatrisene er diagonaliserbare, hver med sin navngitte begrunnelse."
+            },
+            {
+              "id": "mat1120-3-prove-p2-diag",
+              "type": "text",
+              "content": "**Selvdiagnose — kryss av ($\\square$):**\n\n- ☐ Jeg begrunnet diagonaliserbarheten til $A$ med multiplisitet (geo $=$ alg), ikke bare påstod den.\n- ☐ Jeg fant egenrommene fra vedleggets RREF-er og bygde $P$ av egenvektorene, $D$ av egenverdiene.\n- ☐ Jeg matchet $P$ og $D$ søyle for søyle og kontrollerte minst én søyle med $A\\mathbf{v}=\\lambda\\mathbf{v}$.\n- ☐ Jeg brukte **triangulær + distinkt**-snarveien på $B$ og **symmetrisk**-snarveien (spektralteoremet) på $C$ — uten å regne egenrom.\n- ☐ Jeg navnga snarveien i hvert tilfelle i stedet for en ubegrunnet konklusjon."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "mat1120-3-prove-p3",
+      "type": "collapsible",
+      "title": "Prøve 3",
+      "buttonText": "Vis prøve 3",
+      "content": [
+        {
+          "id": "mat1120-3-prove-p3-oppg",
+          "type": "text",
+          "content": "**Sjanger:** ikke-diagonaliserbarhet + potens/polynom i $A$ (D + E). **Anbefalt tid:** ca. 35 minutter.\n\n**Oppgave 1.** Vedlegget gir for\n$$B=\\begin{bmatrix}2&3&-1\\\\1&4&-1\\\\-2&3&3\\end{bmatrix}$$\npolynomet $\\det(B-\\lambda I)=-(\\lambda-4)^{2}(\\lambda-1)$ og $\\operatorname{rref}(B-4I)=\\begin{bmatrix}1&0&-1\\\\0&1&-1\\\\0&0&0\\end{bmatrix}$.\n\n**a)** Avgjør om $B$ er diagonaliserbar. Begrunn ved å vise egenrommets dimensjon.\n\n**Oppgave 2.** For\n$$A=\\begin{bmatrix}4&-3&-2\\\\2&-1&-2\\\\3&-3&-1\\end{bmatrix}$$\ngir vedlegget $\\operatorname{poly}(A):\\ \\det(A-\\lambda I)=-(\\lambda^{3}-2\\lambda^{2}-\\lambda+2)$ og egenvektorene $(1,1,1)^{T}$ (for $\\lambda=-1$), $(1,1,0)^{T}$ (for $\\lambda=1$) og $(1,0,1)^{T}$ (for $\\lambda=2$).\n\n**b)** Faktoriser polynomet, bekreft at $A$ er diagonaliserbar, og finn et lukket uttrykk for $A^{k}$ (ved $(-1)^{k}$ og $2^{k}$).\n\n**c)** La $q(x)=x^{2}-x-2$ og sett $M=q(A)=A^{2}-A-2I$. Bruk **samme** $P$ som for $A$ til å skrive en diagonalisering av $M$, og avgjør om $M$ er invertibel."
+        },
+        {
+          "id": "mat1120-3-prove-p3-fasit",
+          "type": "collapsible",
+          "title": "Fasit — Prøve 3",
+          "buttonText": "Vis fasit",
+          "content": [
+            {
+              "id": "mat1120-3-prove-p3-fasit-tekst",
+              "type": "text",
+              "content": "**a)** Fra vedlegget er egenverdiene $\\lambda=4$ (algebraisk multiplisitet $2$) og $\\lambda=1$ (enkel). Sjekk den gjentatte: $\\operatorname{rref}(B-4I)$ har **to** pivoter (kolonne 1 og 2), bare $x_3$ fri, så $\\dim E_{4}=1$. Da er geometrisk multiplisitet $1<2=$ algebraisk multiplisitet — $\\lambda=4$ er **defekt**. Summen av geometriske multiplisiteter er $1+1=2<3=n$, så det finnes ingen egenbasis.\n\n**Konklusjon: $B$ er IKKE diagonaliserbar**, fordi egenrommet $E_{4}$ har dimensjon $1$, som er for lite i forhold til den doble roten $\\lambda=4$.\n\n**b)** $\\lambda=-1$ er rot: $(-1)^{3}-2(-1)^{2}-(-1)+2=-1-2+1+2=0$. Polynomdivisjon gir\n$$\\lambda^{3}-2\\lambda^{2}-\\lambda+2=(\\lambda+1)(\\lambda-1)(\\lambda-2).$$\nEgenverdiene $-1,1,2$ er **tre distinkte** verdier for en $3\\times3$-matrise $\\Rightarrow$ $A$ er diagonaliserbar (distinkt-snarveien). Med de oppgitte egenvektorene som søyler (rekkefølge $-1,1,2$):\n$$P=\\begin{bmatrix}1&1&1\\\\1&1&0\\\\1&0&1\\end{bmatrix},\\quad D=\\begin{bmatrix}-1&0&0\\\\0&1&0\\\\0&0&2\\end{bmatrix},\\quad P^{-1}=\\begin{bmatrix}-1&1&1\\\\1&0&-1\\\\1&-1&0\\end{bmatrix}.$$\nDa er $A^{k}=PD^{k}P^{-1}$ med $D^{k}=\\operatorname{diag}((-1)^{k},1,2^{k})$, som ganget ut gir\n$$A^{k}=\\begin{bmatrix}2^{k}-(-1)^{k}+1&(-1)^{k}-2^{k}&(-1)^{k}-1\\\\1-(-1)^{k}&(-1)^{k}&(-1)^{k}-1\\\\2^{k}-(-1)^{k}&(-1)^{k}-2^{k}&(-1)^{k}\\end{bmatrix}.$$\nKontroll $k=1$ gir tilbake $A$ (f.eks. øvre venstre $2-(-1)+1=4$) ✓.\n\n**c)** Hvis $A\\mathbf{v}=\\lambda\\mathbf{v}$, er $q(A)\\mathbf{v}=q(\\lambda)\\mathbf{v}$, så $M=q(A)$ deler egenvektorer med $A$ og diagonaliseres med **samme** $P$. Egenverdiene er $q(\\lambda)$:\n$$q(-1)=1+1-2=0,\\quad q(1)=1-1-2=-2,\\quad q(2)=4-2-2=0.$$\nAltså $M=P\\operatorname{diag}(0,-2,0)P^{-1}$. To av egenverdiene er $0$, så $M$ er **ikke invertibel** ($\\det M=0\\cdot(-2)\\cdot0=0$). *(Naturlig, siden $q(x)=x^{2}-x-2=(x-2)(x+1)$ har nettopp $2$ og $-1$ som røtter — begge egenverdier for $A$.)* Regnet ut er $M=\\begin{bmatrix}-2&0&2\\\\-2&0&2\\\\0&0&0\\end{bmatrix}$. **Eksakt svar** — $A^{k}$ som over, $M$ ikke invertibel."
+            },
+            {
+              "id": "mat1120-3-prove-p3-diag",
+              "type": "text",
+              "content": "**Selvdiagnose — kryss av ($\\square$):**\n\n- ☐ Jeg viste at $B$ ikke er diagonaliserbar ved å peke ut et **for lite** egenrom (geo $<$ alg), ikke bare påstå det.\n- ☐ Jeg faktoriserte $\\operatorname{poly}(A)$ (prøvde heltallsrøtter) og begrunnet diagonaliserbarhet med en navngitt snarvei.\n- ☐ Jeg regnet $A^{k}=PD^{k}P^{-1}$ (ikke ved gjentatt multiplikasjon) og kontrollerte mot $A$ for $k=1$.\n- ☐ Jeg brukte at $q(A)$ har egenverdier $q(\\lambda)$ og **samme** $P$ som $A$.\n- ☐ Jeg avgjorde invertibiliteten til $q(A)$ ved å sjekke om noen $q(\\lambda)=0$."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "mat1120-3-prove-p4",
+      "type": "collapsible",
+      "title": "Prøve 4",
+      "buttonText": "Vis prøve 4",
+      "content": [
+        {
+          "id": "mat1120-3-prove-p4-oppg",
+          "type": "text",
+          "content": "**Sjanger:** oppgave 2-simulering, egenverdikjeden på **én** matrise (D + E). **Anbefalt tid:** ca. 45 minutter. Før dette som en fullstendig eksamensbesvarelse.\n\n**Oppgave 2 (10 p).** La\n$$A=\\begin{bmatrix}3&-4&4\\\\2&-3&4\\\\2&-4&5\\end{bmatrix}.$$\nVedlegget gir $\\det(A-\\lambda I)=-(\\lambda-1)^{2}(\\lambda-3)$ og\n$$\\operatorname{rref}(A-I)=\\begin{bmatrix}1&-2&2\\\\0&0&0\\\\0&0&0\\end{bmatrix},\\qquad \\operatorname{rref}(A-3I)=\\begin{bmatrix}1&0&-1\\\\0&1&-1\\\\0&0&0\\end{bmatrix}.$$\n\n**a)** Verifiser ved **innsetting** at $\\mathbf{v}=(1,1,1)^{T}$ er en egenvektor for $A$, og oppgi egenverdien.\n\n**b)** Oppgi alle egenverdiene med algebraisk multiplisitet, finn egenrommene $E_{1}$ og $E_{3}$, og **avgjør med begrunnelse** om $A$ er diagonaliserbar.\n\n**c)** Finn $P$ og $D$ med $A=PDP^{-1}$, matchet søyle for søyle.\n\n**d)** Finn et lukket uttrykk for $A^{k}$ uttrykt ved $3^{k}$, og kontroller det for $k=1$."
+        },
+        {
+          "id": "mat1120-3-prove-p4-fasit",
+          "type": "collapsible",
+          "title": "Fasit — Prøve 4",
+          "buttonText": "Vis fasit",
+          "content": [
+            {
+              "id": "mat1120-3-prove-p4-fasit-tekst",
+              "type": "text",
+              "content": "**a)** Innsetting:\n$$A\\mathbf{v}=\\begin{bmatrix}3&-4&4\\\\2&-3&4\\\\2&-4&5\\end{bmatrix}\\begin{bmatrix}1\\\\1\\\\1\\end{bmatrix}=\\begin{bmatrix}3-4+4\\\\2-3+4\\\\2-4+5\\end{bmatrix}=\\begin{bmatrix}3\\\\3\\\\3\\end{bmatrix}=3\\begin{bmatrix}1\\\\1\\\\1\\end{bmatrix}.$$\nSiden $A\\mathbf{v}=3\\mathbf{v}$ og $\\mathbf{v}\\ne\\mathbf{0}$, er $\\mathbf{v}$ en egenvektor med **egenverdi $\\lambda=3$**.\n\n**b)** Fra vedlegget er egenverdiene $\\lambda=1$ (algebraisk multiplisitet $2$) og $\\lambda=3$ (enkel). Egenrommene fra RREF-ene:\n\n- $E_{1}$: $\\operatorname{rref}(A-I)$ har én pivot, likningen $x_1=2x_2-2x_3$, frie $x_2,x_3$. Spesielle løsninger $(2,1,0)^{T}$ ($x_2=1$) og $(-2,0,1)^{T}$ ($x_3=1$), så $\\dim E_{1}=2$.\n- $E_{3}$: $x_1=x_3,\\ x_2=x_3$, spesiell løsning $(1,1,1)^{T}$ (stemmer med a)), så $\\dim E_{3}=1$.\n\nIngen snarvei gjelder ($A$ verken symmetrisk, triangulær eller med distinkte egenverdier), så vi bruker **kriteriet**: $\\lambda=1$ har geo $=2=$ alg, og $\\lambda=3$ er enkel (geo $=$ alg $=1$). Summen av geometriske multiplisiteter er $2+1=3=n$, så **$A$ er diagonaliserbar**.\n\n*Kontroll:* $\\operatorname{spor}A=3+(-3)+5=5=1+1+3$ ✓ og $\\det A=1\\cdot1\\cdot3=3$ ✓.\n\n**c)** Matchet søyle for søyle (rekkefølge $1,1,3$):\n$$P=\\begin{bmatrix}2&-2&1\\\\1&0&1\\\\0&1&1\\end{bmatrix},\\qquad D=\\begin{bmatrix}1&0&0\\\\0&1&0\\\\0&0&3\\end{bmatrix}.$$\nSøyle 1 og 2 er egenvektorer for $\\lambda=1$, søyle 3 for $\\lambda=3$ — $D$ har $1,1,3$ i samme rekkefølge. Her er $P^{-1}=\\begin{bmatrix}-1&3&-2\\\\-1&2&-1\\\\1&-2&2\\end{bmatrix}$.\n\n**d)** Siden $\\lambda=1$ er dobbel, er $D^{k}=\\operatorname{diag}(1,1,3^{k})$, og $A^{k}=PD^{k}P^{-1}$ (samme $P$ som i c)):\n$$A^{k}=\\begin{bmatrix}3^{k}&2-2\\cdot3^{k}&2\\cdot3^{k}-2\\\\3^{k}-1&3-2\\cdot3^{k}&2\\cdot3^{k}-2\\\\3^{k}-1&2-2\\cdot3^{k}&2\\cdot3^{k}-1\\end{bmatrix}.$$\n**Kontroll $k=1$:** $3^{1}=3$, $2-2\\cdot3=-4$, $2\\cdot3-2=4$, $3-1=2$, $3-6=-3$, $6-1=5$ — gir tilbake $A$ ✓.\n\n**Konklusjon:** $A$ er diagonaliserbar med $P,D$ som over (begrunnet med multiplisitet), og $A^{k}=PD^{k}P^{-1}$ som angitt. **Eksakt svar** — egenverdier $1$ (dobbel), $3$; $A^{k}$ i lukket form."
+            },
+            {
+              "id": "mat1120-3-prove-p4-diag",
+              "type": "text",
+              "content": "**Selvdiagnose — kryss av ($\\square$):**\n\n- ☐ Jeg verifiserte den oppgitte egenvektoren ved innsetting og leste resten av vedlegget i stedet for å radredusere for hånd.\n- ☐ Jeg fant $E_{1}$ og $E_{3}$ som spesielle løsninger fra RREF-ene og oppga dimensjonene.\n- ☐ Jeg **begrunnet** diagonaliserbarheten med multiplisitet (geo $=$ alg), ikke bare påstod den, og kontrollerte med spor/determinant.\n- ☐ Jeg bygde $P$ og $D$ matchet søyle for søyle (to søyler for $\\lambda=1$, én for $\\lambda=3$).\n- ☐ Jeg regnet $A^{k}=PD^{k}P^{-1}$ med samme $P$ og kontrollerte for $k=1$.\n- ☐ Jeg avsluttet med en verbal konklusjon og eksakte svar."
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "exercises": []
+}
