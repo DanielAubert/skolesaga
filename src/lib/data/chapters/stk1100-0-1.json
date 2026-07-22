@@ -1,0 +1,250 @@
+{
+  "id": "stk1100-0-1",
+  "courseId": "stk1100",
+  "chapterNumber": "0.1",
+  "title": "Eksamenskartet: slik testes STK1100",
+  "description": "Eksamensformen, temafrekvensene, sjangerkatalogen A–L og lesestrategien som styrer hele boka — og hva som bevisst er utelatt.",
+  "estimatedMinutes": 30,
+  "competenceGoals": [
+    "kunne beskrive STK1100-eksamenens form: fire timer, tre til fire fortellingsoppgaver, kalkulator og formelsamling",
+    "kunne prioritere lesingen etter hvilke temaer som går igjen i eksamensarkivet",
+    "kunne kjenne igjen den gjennomgående oppgavekjeden fra fordeling til konfidensintervall",
+    "kunne sette opp et realistisk tidsbudsjett for en firetimers eksamen"
+  ],
+  "content": [
+    {
+      "id": "stk1100-0-1-intro",
+      "type": "text",
+      "content": "Et kart hjelper ikke fordi det viser hver stein i terrenget, men fordi det viser hvor du skal gå — og hvor du *ikke* trenger å gå. Dette kapitlet er kartet over STK1100-eksamen. Det svarer på tre spørsmål før du åpner en eneste oppgave: **Hvordan ser eksamen ut? Hva blir du testet i — og hvor ofte? Hvordan bruker du tiden din best?**\n\nSTK1100 (Sannsynlighetsregning og statistisk modellering ved UiO) har en påfallende forutsigbar eksamen. Siden 2015 gjentar den samme fortellingen seg i praktisk talt hvert sett: du får en fordeling, lager en estimator, undersøker egenskapene dens, transformerer til en kjent fordeling, og bygger et konfidensintervall. Kjenner du den kjeden — og de tre–fire teknikkene rundt den — har du dekket 60–70 % av poengene. Denne boka er bygget rundt nettopp den kjeden, og dette kapitlet viser deg hvor hvert kapittel hører hjemme.\n\nBruk 30 minutter her nå, og kom tilbake når du planlegger lesingen. Alt du leser her, blir konkret i kapitlene som følger — ingenting av det tunge maskineriet forventes forstått ennå."
+    },
+    {
+      "id": "stk1100-0-1-orientering",
+      "type": "tip",
+      "title": "Slik leser du denne boka",
+      "content": "**Karakterskalaen (A–F).** Norsk høyere utdanning bruker bokstavkarakterer: **A** (fremragende), **B** (meget god), **C** (god), **D** (nokså god), **E** (tilstrekkelig / så vidt bestått) og **F** (ikke bestått). **C er en god og vanlig karakter** — den er selve *midtpunktet* på skalaen og det de fleste får. Boka peker underveis på hva som ligger på bestått-nivå, hva som løfter deg til C–B, og hva som skiller ut A-besvarelsen, slik at du kan sikte der du vil.\n\n**Sjangerkodene (A–L).** Eksamensoppgavene er ikke tilfeldige — de faller i tolv gjenkjennelige typer, som vi merker med bokstaver A til L. Her er hele lista i klarspråk (du møter hver av dem grundig senere):\n\n- **A — Bayes-oppgaven:** regn deg fram til en sannsynlighet «baklengs» (f.eks. sannsynlighet for sykdom gitt en positiv test).\n- **B — diskret-fordelingsoppgaven:** velg riktig teljemodell (Poisson, binomisk, geometrisk) og finn forventning og varians.\n- **C — den egendefinerte tettheten:** du får en «oppskrift» på en kontinuerlig fordeling og skal regne ut sannsynligheter, median og momenter.\n- **D — simultantettheten:** to variable samtidig — finn marginaler, sjekk uavhengighet og regn sannsynlighet for et område.\n- **E — transformasjonen:** finn fordelingen til noe utregnet fra en tilfeldig variabel (f.eks. $Y = X^2$).\n- **F — momentgenererende funksjon (MGF):** et regneverktøy som gir forventning og varians, og som avslører fordelingen til en sum.\n- **G — estimerings- og KI-oppgaven:** *kjerneoppgaven* — anslå en ukjent parameter fra data og bygg et konfidensintervall (KI) rundt anslaget.\n- **H — eksakt mot tilnærmet KI:** sammenlign to måter å lage konfidensintervall på og vurder hvilken som er best.\n- **I — simulering og bootstrap:** bruk Python til å trekke tilfeldige tall og anslå usikkerhet numerisk.\n- **J — Jacobi-transformasjonen:** som E, men for to variable samtidig.\n- **K — enkel lineær regresjon:** tilpass en rett linje til data.\n- **L — betinget forventning og prediksjon:** gjett den beste verdien på én variabel når du kjenner en annen.\n\n**Feilkatalogen.** De samme tabbene går igjen år etter år. Boka samler dem i én **Feilkatalog med 13 typiske feil**, og hvert kapittel advarer mot de feilene som hører til nettopp der. Se etter «Typiske feil»-boksene.\n\n**De tunge symbolene.** Du kommer til å se symboler som $\\chi^2_{2n}$ (kjikvadratfordelingen), $\\Gamma(\\alpha)$ (gammafunksjonen), $\\hat\\theta$ (en estimator) og $\\Phi$ (standardnormalfordelingen). **Du trenger ikke forstå $\\chi^2_{2n}$ eller $\\Gamma(\\alpha)$ ennå — de forklares grundig der de brukes.** Symbolene er nevnt her bare så du kjenner dem igjen når de dukker opp. En full oppslagsliste ligger nederst i hvert kapittel."
+    },
+    {
+      "id": "stk1100-0-1-eksamensform",
+      "type": "text",
+      "content": "## Slik ser eksamen ut\n\n**Formen er stabil.** STK1100 avsluttes med en **skriftlig skoleeksamen på fire timer** (vanligvis 09:00–13:00). Tillatte hjelpemidler er **godkjent kalkulator og «Formelsamling for STK1100/STK1110»**. Eksamen gis bokstavkarakter A–F. Emnet vurderes samlet: en **midtveiseksamen teller 1/3** (flervalg — ligger ikke i oppgavearkivet vårt) og den **avsluttende skoleeksamenen teller 2/3**. Det er den avsluttende dette kartet gjelder.\n\n**Oppgavene er få og store.** Settet består av **tre til fire store fortellingsoppgaver**, hver med 3–7 deloppgaver (a, b, c, …) i samme kontekst. **Det finnes ingen kortsvars- eller flervalgsdel** på selve skoleeksamen — den korte formen ligger i midtveiseksamenen. Du skriver altså sammenhengende utledninger, ikke enkeltsvar.\n\n**To ting å merke seg.** Under koronaåret (V2020) var eksamen digital hjemmeeksamen, og da kom **kjørbar Python-kode** for fullt inn i fasiten — den formen henger igjen. Og i V2024 var formelsamlingen begrenset til STK1100 alene; da la settet selv ved de hjelperesultatene som trengtes (normalkvantiltabell og gammaintegralet). Poenget: **eksamen tester bruk og utledning, ikke pugging** — det viktige verktøyet er alltid på pulten.\n\n> **Hvor tallene i dette kapitlet kommer fra.** Frekvensene og sjangrene bygger på UiOs STK1100-arkiv: **10 avsluttende skoleeksamener 2015–2024**, hvorav **7 er lest grundig med offisielle løsningsforslag (2018–2024)** og 3 (2015–2017) er lest på oppgavenivå uten løsningsforslag. Løsningsforslagene er skrevet av faglærer og viser hva en fullgod besvarelse skal inneholde. (Det finnes ingen egne sensorveiledninger i arkivet — «sensorens krav» nedenfor er destillert fra disse faglærer-løsningsforslagene.) Alle oppgaver og tall i boka er nyskrevne."
+    },
+    {
+      "id": "stk1100-0-1-firedeling",
+      "type": "text",
+      "content": "## Den typiske firedelingen\n\nSettene er slående stabile i hva de tre–fire oppgavene dekker. Kjenner du mønsteret, vet du omtrent hva som venter:\n\n1. **Sannsynlighet / diskret modell** — enten en Bayes-/totalsannsynlighetsoppgave, eller en diskret fordeling (Poisson, geometrisk) med forventning og varians, ofte via MGF.\n2. **Kontinuerlig fordeling / simultantetthet** — en egendefinert eller «navngitt» tetthet: marginaler, uavhengighetssjekk, kumulativ fordeling, median, forventning og varians, ofte med en transformasjon.\n3. **Estimering + konfidensintervall — den tunge.** Kjernen i hele emnet: fra fordeling til estimator til egenskaper til en gamma/kjikvadrat-pivot til et eksakt konfidensintervall, ofte med bootstrap for standardfeilen.\n4. **Transformasjon / simultanfordeling / regresjon** — en Jacobi-transformasjon av $(X,Y)$, binormalfordelingen, eller (fra 2022) enkel lineær regresjon, og/eller et simulerings-/Python-innslag.\n\nOppgave 3 er nesten alltid den tyngste og mest poenggivende. Legg planen din deretter."
+    },
+    {
+      "id": "stk1100-0-1-frekvenstabell",
+      "type": "text",
+      "content": "## Temafrekvens: hva blir testet, og hvor ofte\n\nTabellen viser hvor mange av de 10 settene (2015–2024) hvert tema forekommer i — «gjenganger-scoren». Bruk den som prioriteringsliste: øverst er det du *må* beherske, nederst det du bare bør kjenne til.\n\n| Tema | Gjenganger-score |\n|---|---|\n| Forventning/varians/standardfeil, regneregler for lineærkombinasjoner | **10/10 = 100 %** |\n| Konfidensintervall (pivotal + CLT-tilnærmet + bootstrap-SE) | **10/10 = 100 %** |\n| Punktestimering (ML / moment / annen estimator, forventningsretthet, varians) | **9/10 = 90 %** |\n| Transformasjon (CDF-metode, Jacobi, MGF-identifikasjon) | **9/10 = 90 %** |\n| Median/kvantil ved å løse $F(m) = p$ | **9/10 = 90 %** |\n| Simultanfordeling (marginaler, uavhengighet, betinget tetthet) | **8/10 = 80 %** |\n| Normalfordeling (standardisering, binormal, lognormal) | **8/10 = 80 %** |\n| Gammafordeling / kjikvadrat (inkl. $\\chi^2_n =$ gamma$(n/2,2)$) | **7/10 = 70 %** |\n| Eksakt pivotal-KI via gamma/$\\chi^2$ (signaturferdigheten) | **7/10 = 70 %** |\n| Betinget sannsynlighet / total sannsynlighet / Bayes | **7/10 = 70 %** |\n| Momentgenererende funksjon | **~6–7/10 ≈ 65 %** |\n| «Navngitt eksotisk» kontinuerlig fordeling | **6/10 = 60 %** |\n| Simulering / bootstrap / Python | **6/10 = 60 %** |\n| Eksponensialfordeling (inkl. minneløshet) | **5/10 = 50 %** |\n| Sentralgrenseteoremet (til tilnærmet KI) | **4/10 = 40 %** |\n| Poisson / Poisson-prosess | **3/10 = 30 %** |\n| Binomisk fordeling | **3/10 = 30 %** |\n| Betinget forventning / prediksjon / MSE | **3/10 = 30 %** |\n| Kovarians / korrelasjon | **2/10 = 20 %** |\n| Enkel lineær regresjon | **2/10 = 20 %** (men begge de to siste settene) |\n| Geometrisk / negativ binomisk | **1/10 = 10 %** |\n| **Hypotesetesting, kombinatorikk, ordningsvariable** | **0/10 = 0 %** (se avgrensningen under) |\n\nDe tre øverste blokkene — forventning/varians, konfidensintervall og estimering — er ikke enkelttemaer, men verktøy du bruker i nesten *hver* oppgave. Derfor er de gull verdt."
+    },
+    {
+      "id": "stk1100-0-1-kjeden",
+      "type": "text",
+      "content": "## Kjeden som ryggrad\n\nHvis du bare skal lære én ting av dette kartet, er det denne: STK1100-eksamen har **én lang fortelling som gjentas nesten hvert år**, og den bærer 60–70 % av poengene. Kjeden går slik:\n\n$$\\text{fordeling} \\;\\to\\; \\text{estimator} \\;\\to\\; \\text{forventningsretthet/varians} \\;\\to\\; \\text{transformasjon til gamma/}\\chi^2 \\;\\to\\; \\text{eksakt pivotal-KI} \\;(+\\ \\text{CLT-KI}) \\;\\to\\; \\text{bootstrap-SE}$$\n\nLedd for ledd betyr det:\n\n- **Fordeling:** oppgaven gir deg en modell for dataene (ofte en «eksotisk» kontinuerlig fordeling med en ukjent parameter).\n- **Estimator:** du bygger en regel — som regel *maximum likelihood* ($\\hat\\theta$) — for å anslå parameteren fra $n$ observasjoner.\n- **Forventningsretthet/varians:** du sjekker om estimatoren treffer riktig i snitt ($E(\\hat\\theta) = \\theta$), og hvor mye den varierer.\n- **Transformasjon til gamma/$\\chi^2$:** du finner en størrelse (en *pivot*) som har en kjent fordeling — typisk $\\chi^2_{2n}$ eller gamma.\n- **Eksakt pivotal-KI:** du snører kvantiler rundt pivoten og løser ut et konfidensintervall for parameteren.\n- **CLT-KI og bootstrap-SE:** som alternativ / tillegg lager du et tilnærmet intervall (sentralgrenseteoremet) og anslår standardfeilen ved simulering.\n\nBoka bygger denne kjeden ledd for ledd: du møter leddene i [kap. 5.2](/bok/stk1100/stk1100-5-2) og [kap. 5.1](/bok/stk1100/stk1100-5-1) (estimator + egenskaper), [kap. 4.3](/bok/stk1100/stk1100-4-3) (transformasjon til gamma/$\\chi^2$), [kap. 6.1](/bok/stk1100/stk1100-6-1) (eksakt KI) og [kap. 6.2](/bok/stk1100/stk1100-6-2) / [kap. 7.2](/bok/stk1100/stk1100-7-2) (CLT-KI og bootstrap). Et eget *drillspor* — [kap. 4.3](/bok/stk1100/stk1100-4-3) → [kap. 5.3](/bok/stk1100/stk1100-5-3) → [kap. 6.3](/bok/stk1100/stk1100-6-3) — setter hele kjeden sammen under ett."
+    },
+    {
+      "id": "stk1100-0-1-sensorkrav",
+      "type": "text",
+      "content": "## Sensorens elleve krav\n\nLøsningsforslagene (faglærers) er konsise og utledningsdrevne: vis regnekjeden kompakt, ikke lange ord. De samme elleve kravene går igjen. Ta dem som en sjekkliste for hver besvarelse:\n\n1. **Definer variable og hendelser eksplisitt før du regner** («La $X$ = antall …, da er $X \\sim \\ldots$»). Uten definert modell regnes svaret som ufullstendig.\n2. **Uavhengighet bevises ved faktorisering, ikke intuisjon:** vis $f(x,y) = f_X(x)f_Y(y)$ for *alle* $(x,y)$ — også der begge er 0. Ett moteksempel er nok til å motbevise.\n3. **Tegn integrasjonsområdet** for dobbeltintegral — feil grenser er den vanligste tabben her.\n4. **MGF-utledninger skal ha konvergenskravet med** ($t$ innenfor et intervall), og $E$/Var hentes som $M'(0)$ og $M''(0)$.\n5. **Maximum likelihood med alle trinn:** $L(\\theta) \\to \\ell(\\theta) \\to$ derivér $\\to$ løs.\n6. **Forventningsretthet og varians vises fullstendig;** skjevhet skal *kvantifiseres* og korrigeres når det bes om det. Skill konsekvent mellom **estimator** (stor bokstav, tilfeldig) og **estimat** (et tall).\n7. **Eksakt pivotal-KI foretrekkes framfor Wald** når standardfeilen avhenger av parameteren; et **asymmetrisk** eksakt intervall er riktig, ikke en feil.\n8. **Sentralgrenseteoremet nevnes eksplisitt** når du bruker normaltilnærming.\n9. **Transformasjoner gjennomføres med metode** (CDF-metoden, Jacobi eller MGF), ikke ved å gjette tettheten.\n10. **Bootstrap-algoritmen beskrives presist,** og Python-koden skal være kjørbar og bruke `ddof=1` der empirisk varians/standardfeil kreves.\n11. **Tallsvar oppgis med enhet og tolkning,** med mellomregning og oppgitte kvantiler/persentiler."
+    },
+    {
+      "id": "stk1100-0-1-karakterskiller",
+      "type": "text",
+      "content": "## Hva skiller karakterene?\n\nOppgavestrukturen forteller hvor karaktergrensene ligger:\n\n- **Bestått (E–D):** du behersker **åpningsdelene** — Bayes-regning, standardisering, enkle sannsynligheter, marginaltettheter og median.\n- **God (C–B):** du klarer i tillegg **ML-utledningen**, viser **forventningsretthet og varians**, og setter opp **et standard konfidensintervall**. Husk: **C er en god og vanlig karakter** — dette nivået er fullt oppnåelig med jevn øving.\n- **Fremragende (A):** du mestrer de **eksakte pivotal-utledningene** og **gamma/$\\chi^2$-identifikasjonene**, **transformasjonsbevisene** (Jacobi, MGF), **skjevhetskorreksjon via $\\Gamma$-funksjonen**, og **simulering/bootstrap med korrekt Python-kode**.\n\nLegg merke til at hele sprikene fra C til A ligger i estimerings-kjeden og transformasjonsapparatet — nettopp det denne boka drillser mest."
+    },
+    {
+      "id": "stk1100-0-1-avgrensning",
+      "type": "text",
+      "content": "## Det som bevisst er utelatt (avgrensningen mot STK1110)\n\nSTK1100 er UiOs *modellerings*-emne. Tre temaer som mange forbinder med statistikk, er **helt fraværende på STK1100-skoleeksamen (0 av 10 sett)** og hører hjemme i oppfølgeremnet **STK1110 (statistisk inferens)**:\n\n- **Hypotesetesting** (nullhypoteser, p-verdier, teststyrke).\n- **Kombinatorikk** som telleoppgave (uordnede/ordnede utvalg).\n- **Ordningsvariable** (fordelingen til minimum/maksimum, serie- og parallellsystemer).\n\nOgså klassisk deskriptiv/grafisk statistikk (boksplott, histogram, Q-Q-plott) er fraværende — kun tolkning av *simulerte* fordelinger forekommer (Del 7). **Inferens-kjeden i STK1100 ender ved konfidensintervallet — aldri ved en test.**\n\nDette er den skarpeste kontrasten til NTNUs søsteremne TMA4245, som har full hypotesetesting. **Bruk derfor ikke tid på disse temaene til STK1100.** Dette er eneste gang boka nevner dem — møter du dem senere i studiet, er det i STK1110."
+    },
+    {
+      "id": "stk1100-0-1-metafeil",
+      "type": "warning",
+      "title": "Typiske feil i planleggingen",
+      "content": "Før du åpner et eneste regnestykke, unngå disse strategifellene — de koster flere karakterer enn regnefeil gjør:\n\n- **Pugge formler som allerede ligger i formelsamlingen.** Fordelingskatalogen med forventning, varians og MGF er på pulten. Tiden brukes bedre på å *velge* riktig fordeling og *utlede* det som ikke står der (ML, pivotaler, transformasjoner, bootstrap).\n- **Øve kun på sannsynlighetsdelen og møte veggen på estimerings-kjeden.** Del 1 føles trygg, men gir bare oppgave-1-poeng. Den tunge oppgave 3 (estimering + KI) bærer mest — den *må* trenes.\n- **Hoppe over simulering og Python** fordi det «ser programmerings-tungt ut». Det er en 60 %-gjenganger siden 2015, og koden er kort og idiomatisk. Del 7 gjør deg trygg.\n- **Forberede hypotesetesting.** Det er feil emne (STK1110) og gir null igjen på STK1100-eksamen."
+    },
+    {
+      "id": "stk1100-0-1-litetid",
+      "type": "tip",
+      "title": "Lite tid?",
+      "content": "Har du bare noen dager igjen, les strategisk. **Prioriter kjeden og de tre teknikkene rundt den — hopp over det som gir få poeng.**\n\n**Hurtigrute på 3–5 dager:**\n\n- **Dag 1:** Dette kartet ([kap. 0.1](/bok/stk1100/stk1100-0-1)) + estimerings-kjeden i overblikk: ML ([kap. 5.2](/bok/stk1100/stk1100-5-2)), estimatoregenskaper ([kap. 5.1](/bok/stk1100/stk1100-5-1)) og estimator-drillen ([kap. 5.3](/bok/stk1100/stk1100-5-3)).\n- **Dag 2:** Transformasjon — teknikkene ([kap. 4.2](/bok/stk1100/stk1100-4-2)) og drillen til gamma/$\\chi^2$ ([kap. 4.3](/bok/stk1100/stk1100-4-3)) — og gamma-apparatet ([kap. 2.2](/bok/stk1100/stk1100-2-2)).\n- **Dag 3:** Konfidensintervall: eksakt pivotal ([kap. 6.1](/bok/stk1100/stk1100-6-1)) og ryggrad-drillen ([kap. 6.3](/bok/stk1100/stk1100-6-3)); pluss simultantetthet ([kap. 3.1](/bok/stk1100/stk1100-3-1)) og median/CDF ([kap. 2.1](/bok/stk1100/stk1100-2-1)).\n- **Dag 4:** Sjangerguiden ([kap. 9.1](/bok/stk1100/stk1100-9-1)) + én hel øvingseksamen ([kap. 9.2](/bok/stk1100/stk1100-9-2)) under tidspress.\n- **Dag 5 (om du har den):** Bayes ([kap. 1.1](/bok/stk1100/stk1100-1-1)) og MGF ([kap. 4.1](/bok/stk1100/stk1100-4-1)), så en øvingseksamen til ([kap. 9.3](/bok/stk1100/stk1100-9-3)) og repetisjon av dine svake punkter.\n\n> **Om tidsanslagene i boka.** Minuttene på hvert kapittel (f.eks. «30 min» her) er **lesetid** — tiden det tar å lese og forstå teksten. Regner du oppgavene for hånd med papir og penn, **gang med omtrent 1,5**. En kapitteløkt på 60 leseminutter blir da nærmere 90 minutter i praksis. Planlegg med det."
+    },
+    {
+      "id": "stk1100-0-1-deltidsrute",
+      "type": "text",
+      "content": "## Studieløp: to ruter\n\nBoka har ni deler (0–9). Anbefalt progresjon følger den faglige avhengigheten: **Del 0 → 1 → 2 → 3 → 4 (broen) → 5 → 6 (kjeden bygges og drilles) → 7 → 8**, med prøver underveis og de tre øvingseksamenene helt til slutt.\n\n**10-ukers deltidsrute** (en jevn semesterplan ved siden av annet):\n\n| Uke | Innhold | Prøver / trening |\n|---|---|---|\n| 1 | Del 0 (kartet) + Del 1 (sannsynlighet, forventning/varians, diskrete modeller) | Prøver til Del 1 |\n| 2 | Del 2 (kontinuerlige fordelinger + gamma-apparatet + sjanger C-drill) | Prøver til Del 2 |\n| 3 | Del 3 (simultantetthet + uavhengighet-drill) | Prøver til Del 3 |\n| 4 | Del 4 (MGF, transformasjon, drill til gamma/$\\chi^2$ — **broen**) | Prøver til Del 4 |\n| 5 | Del 5 (estimatoregenskaper, ML, estimator-drill) | Prøver til Del 5 |\n| 6 | Del 6 (eksakt pivotal-KI, CLT/Wald, **ryggrad-drillen**) | Prøver til Del 6 |\n| 7 | Del 7 (simulering, bootstrap, Python) | Prøver til Del 7 |\n| 8 | Del 8 (kovarians/binormal, betinget forventning, regresjon) | Prøver til Del 8 |\n| 9 | Øvingseksamen 1 og 2 ([kap. 9.2](/bok/stk1100/stk1100-9-2), [kap. 9.3](/bok/stk1100/stk1100-9-3)) på tid | Full 4-timers simulering |\n| 10 | Øvingseksamen 3 ([kap. 9.4](/bok/stk1100/stk1100-9-4)) + repetisjon av svake punkter | Feilkatalogen gjennomgått |\n\n**3-ukers intensivrute** (konsentrert innspurt):\n\n- **Uke 1 — fundamentet:** Del 0–3 (sannsynlighet, kontinuerlige fordelinger, gamma, simultantetthet).\n- **Uke 2 — broen og kjeden (hovedvekt):** Del 4–6 (transformasjon → estimering → konfidensintervall). Dette er der poengene sitter — bruk mest tid her.\n- **Uke 3 — trening:** Del 7–8 kort, deretter alle tre øvingseksamenene under tidspress, med kalkulator og formelsamling framme og Python-oppgavene faktisk kjørt.\n\nLegg øvingseksamenene sist i begge rutene: de gjenbruker *alt* og avdekker hvor du fortsatt vakler."
+    },
+    {
+      "id": "stk1100-0-1-lesemye",
+      "type": "tip",
+      "title": "Lese mye, skrive lite",
+      "content": "STK1100-fasiten er **konsis**: den viser regnekjeden kompakt, ikke lange verbale forklaringer. Trén derfor på å *lese mye og skrive lite*.\n\n- **Les oppgaveteksten to ganger.** Halvparten av tabbene kommer av å regne på feil parametrisering, feil fordeling eller feil grenser. Oppgaven definerer alltid sin egen modell — les den.\n- **Skriv utledningen, ikke essayet.** Sensor vil se «La $X \\sim \\ldots$», så ligningene, så svaret med tolkning. To–tre presise setninger per resonnement holder; mer gir ikke mer uttelling.\n- **Ett unntak der ord teller:** når oppgaven ber om en *begrunnelse* (hvorfor et fortegn, hvorfor eksakt framfor Wald, hvorfor en modell foretrekkes). Da skal du faktisk skrive drøftelsen ut — kort og presist.\n\nKort sagt: bruk lesetiden på å forstå fordelingen og parametriseringen riktig, og skrivetiden på en ryddig, kompakt regnekjede."
+    },
+    {
+      "id": "stk1100-0-1-formelminimum",
+      "type": "collapsible",
+      "title": "Formel-minimum: det som IKKE står brukbart i formelsamlingen",
+      "buttonText": "Vis formel-minimum",
+      "content": [
+        {
+          "id": "stk1100-0-1-formelminimum-intro",
+          "type": "text",
+          "content": "Formelsamlingen for STK1100/STK1110 har fordelingskatalogen, gammafunksjonens egenskaper og kvantiltabellene. Men noen få ting bruker du i nesten hver oppgave uten at de står i *brukbar* form der — disse må sitte i hodet (eller på et eget notatark til øving). Her er minimumslista, hver med én linje om hva den gjør. **Resten kan du slå opp i formelsamlingen for STK1100/STK1110.**"
+        },
+        {
+          "id": "stk1100-0-1-formelminimum-liste",
+          "type": "text",
+          "content": "**Momentregneregler for lineærkombinasjoner** — verktøyet i praktisk talt hver oppgave (forventning er lineær; variansen får et kovariansledd):\n$$E(aX + bY) = aE(X) + bE(Y), \\qquad \\text{Var}(aX + bY) = a^2\\text{Var}(X) + b^2\\text{Var}(Y) + 2ab\\,\\text{Cov}(X,Y)$$\nResten (fordelingenes egne $E$/Var) slår du opp i formelsamlingen for STK1100/STK1110.\n\n**ML-ritualet** — oppskriften på maximum-likelihood-estimatoren (skriv likelihood, ta logaritme, derivér, løs):\n$$L(\\theta) \\;\\to\\; \\ell(\\theta) = \\ln L(\\theta) \\;\\to\\; \\ell'(\\theta) = 0 \\;\\to\\; \\hat\\theta$$\nResten (hva likelihood-funksjonen blir for hver fordeling) følger av tettheten i formelsamlingen for STK1100/STK1110.\n\n**Standardpivotalene** — størrelsene med kjent fordeling som gir eksakte konfidensintervall (les hvilken som gjelder — frihetsgradene er ulike!):\n$$\\frac{2n\\hat\\mu}{\\mu} \\sim \\chi^2_{2n} \\ \\ (\\text{eksponensial, forventning } \\mu), \\qquad \\frac{n\\hat\\sigma^2}{\\sigma^2} \\sim \\chi^2_{n} \\ \\ (\\text{normal, kjent } \\mu)$$\nResten (kvantilene $\\chi^2_{\\nu,\\alpha}$) slår du opp i formelsamlingen for STK1100/STK1110.\n\n**Gammaintegralet** — snarveien til momenter og normeringskonstanter (ofte oppgitt i settet, men tren bruken):\n$$\\int_0^\\infty x^{a-1} e^{-x/b}\\,dx = b^a\\,\\Gamma(a)$$\nResten (verdier av $\\Gamma$) står i formelsamlingen for STK1100/STK1110.\n\n**E(Vʳ)-formelen** — gir momenter av potenser/røtter, nøkkelen til skjevhetskorreksjon for $V \\sim$ gamma$(\\alpha,\\beta)$:\n$$E(V^r) = \\beta^r\\,\\frac{\\Gamma(\\alpha + r)}{\\Gamma(\\alpha)}, \\qquad r > -\\alpha$$\nResten (gammafunksjonens regneregler) slår du opp i formelsamlingen for STK1100/STK1110."
+        }
+      ]
+    },
+    {
+      "id": "stk1100-0-1-sjangerkort",
+      "type": "text",
+      "content": "## Sjangerkortet A–L (én side)\n\nEtt kort med alle tolv oppgavetypene: hva den ber om, hvor ofte den kommer, og det *første grepet* du gjør. Klipp det ut og ha det ved siden av deg når du øver.\n\n| Kode | Sjanger | Frekvens | Første grep |\n|---|---|---|---|\n| **A** | Bayes / total sannsynlighet | 70 % | Definer hendelsene med symboler; sett opp $P(B) = \\sum_i P(B\\mid A_i)P(A_i)$. |\n| **B** | Diskret fordeling (Poisson/binomisk/geometrisk) | 30 % hver | Oversett situasjonen til riktig modell; skriv «La $X \\sim \\ldots$» med parametre. |\n| **C** | Egendefinert / «eksotisk» tetthet | 60 % | Normer ($\\int f = 1$); utled så $F$; median ved $F(m) = p$; momenter ved integrasjon. |\n| **D** | Simultantetthet | 80 % | Tegn støtten; finn marginaler ved å integrere ut; sjekk uavhengighet ved faktorisering. |\n| **E** | Transformasjon $Y = g(X)$ | 90 % | CDF-metoden: $F_Y(y) = P(g(X) \\le y)$, derivér til slutt. |\n| **F** | Momentgenererende funksjon | 65 % | $M_X(t) = E(e^{tX})$ med konvergenskrav; $E = M'(0)$, $E(X^2) = M''(0)$. |\n| **G** | Estimering + eksakt pivotal-KI *(kjernen)* | 90 %/70 % | ML: $L \\to \\ell \\to$ derivér $\\to \\hat\\theta$; deretter finn en gamma/$\\chi^2$-pivot. |\n| **H** | Eksakt-pivot vs. Wald/CLT | 40 %+ | Bygg begge intervallene; sammenlign dekningen (eksakt er best ved lav $n$). |\n| **I** | Simulering / bootstrap / Python | 60 % | Beskriv algoritmen presist; trekk $B$ utvalg; SE $=$ empirisk SD (`ddof=1`). |\n| **J** | Jacobi-transformasjon av $(X,Y)$ | 30 % | Invers transformasjon + $\\lvert J\\rvert$; integrer ut for marginalen (tegn området). |\n| **K** | Enkel lineær regresjon | 20 % | Minimer $\\sum (y_i - \\hat y_i)^2$: derivér, sett $= 0$, løs for helningen. |\n| **L** | Betinget forventning / prediksjon / MSE | 30 % | Beste gjett på $Y$ gitt $X = x_0$ er $E(Y \\mid X = x_0)$; regn den betingede forventningen. |\n\nKjenner du kortet igjen i oppgaveteksten, vet du hvilken del av boka som gir deg oppskriften — og du har allerede tatt riktig førstesteg."
+    },
+    {
+      "id": "stk1100-0-1-oppg-1",
+      "type": "exercise",
+      "exercise": {
+        "id": "stk1100-0-1-o1",
+        "number": "1",
+        "type": "classic",
+        "difficulty": "lett",
+        "task": "Et STK1100-sett har **4 oppgaver à 25 poeng** og varer **240 minutter**. Oppgave 3 er den store estimerings-kjeden (fordeling → estimator → egenskaper → pivot → eksakt KI).\n\n**a)** Sett opp et fornuftig tidsbudsjett i minutter per oppgave.\n**b)** I hvilken rekkefølge ville du løst oppgavene, og hvorfor?\n**c)** Hva gjør du hvis du står fast på ett enkelt delpunkt i oppgave 3?",
+        "solution": "**a)** Med 240 minutter og fire likevektede oppgaver er utgangspunktet **60 minutter per oppgave**. Men oppgave 3 er tyngst, så flytt litt tid dit og sett av en buffer til slutt: for eksempel 50 + 50 + 75 + 55 minutter, med de siste ~10 minuttene som kontroll-/reservetid. Det viktige er å ha et tak per oppgave, ikke de eksakte tallene.\n\n**b)** Ta **de trygge poengene først**. Start med den oppgaven du kjenner deg sikrest på (ofte Bayes/sannsynlighet, oppgave 1) for å komme i gang og sikre bestått-delene. Ta så oppgave 3 mens du er skjerpet — den bærer mest og krever mest hode. Avslutt med de to øvrige. Rekkefølgen på arket trenger ikke være løsningsrekkefølgen.\n\n**c)** **Ikke grav deg fast.** Skriv ned det du vet (definer modellen, sett opp likelihood/pivoten), marker delpunktet, og gå videre til neste deloppgave — de senere delpunktene kan ofte løses selv om du hoppet over ett. Kom tilbake med frisk buffer-tid til slutt. Et halvferdig delpunkt gir ofte delpoeng; en tom oppgave 4 gir null.",
+        "hints": [
+          "Del først den totale tiden likt på antall oppgaver (240/4), og juster deretter for at oppgave 3 er tyngst.",
+          "Tenk «trygge poeng først»: hvilken sjanger føler du deg sikrest på, og når på eksamen er hodet skarpest?",
+          "Et sensorprinsipp: delpoeng for en påbegynt utledning slår null for en oppgave du aldri rakk."
+        ]
+      }
+    },
+    {
+      "id": "stk1100-0-1-oppg-2",
+      "type": "exercise",
+      "exercise": {
+        "id": "stk1100-0-1-o2",
+        "number": "2",
+        "type": "classic",
+        "difficulty": "lett",
+        "task": "Du har **fem dager** igjen til eksamen og har lest lite. Ut fra temafrekvens-tabellen og kjeden som ryggrad: hvilke tre–fire temaer prioriterer du høyest, og hvilke lar du ligge? Begrunn kort.",
+        "solution": "**Høyeste prioritet** (de bærer 60–70 % av poengene og går igjen nesten hvert år):\n\n1. **Estimerings-kjeden** — ML-estimator, forventningsretthet/varians, gamma/$\\chi^2$-pivot og eksakt KI (Del 5–6). Dette *er* den tunge oppgave 3.\n2. **Transformasjonsteknikkene** (CDF-metoden, Jacobi, MGF), 90 % — «broen» til pivotalene (Del 4).\n3. **Simultantetthet** (marginaler, uavhengighet, område-sannsynlighet), 80 % (Del 3).\n4. **Gamma/$\\chi^2$-apparatet og median/CDF**, som resten hviler på (Del 2).\n\n**La ligge / lav prioritet:** kovarians/korrelasjon (20 %), regresjon (20 %), betinget forventning (30 %) og binormal (Del 8) — de differensierer A, men gir få poeng når tiden er knapp. **Og bruk ikke ett minutt** på hypotesetesting, kombinatorikk eller ordningsvariable — de er ikke på STK1100-eksamen.\n\nBegrunnelsen er enkel: prioriter der frekvensen *og* poengvekten er høyest, ikke der du føler deg mest komfortabel.",
+        "hints": [
+          "Sorter temaene etter gjenganger-scoren i frekvenstabellen, og legg ekstra vekt på det som inngår i kjeden.",
+          "Husk at forventning/varians og konfidensintervall er verktøy som brukes i nesten hver oppgave, ikke isolerte temaer.",
+          "Sjekk avgrensningen mot STK1110 for hva du kan stryke helt fra planen."
+        ]
+      }
+    },
+    {
+      "id": "stk1100-0-1-oppg-3",
+      "type": "exercise",
+      "exercise": {
+        "id": "stk1100-0-1-o3",
+        "number": "3",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "En oppgave lyder omtrent slik: «Levetiden til en komponent har tettheten $f(x) = \\frac{1}{\\mu}e^{-x/\\mu}$ for $x > 0$. Finn den kumulative fordelingen og medianen, og vis at $2n\\hat\\mu/\\mu$ er kjikvadratfordelt.»\n\n**a)** Hvilke sjangerkoder (A–L) kjenner du igjen her?\n**b)** Hvilke deler av boka forbereder deg på hver av dem?\n**c)** Hvorfor er det verdt å merke seg *hvilken parametrisering* av eksponensialfordelingen oppgaven bruker?",
+        "solution": "**a)** To sjangre møtes: **C** (egendefinert/kontinuerlig tetthet — normering, $F$, median) og **G** (estimering + eksakt pivotal-KI — her via pivoten $2n\\hat\\mu/\\mu$). Transformasjonssteget som gir pivoten, hører også til **E**.\n\n**b)** Sjanger C forberedes i [kap. 2.1](/bok/stk1100/stk1100-2-1) (tetthet, CDF, median) og drilles i [kap. 2.3](/bok/stk1100/stk1100-2-3). Sjanger G bygges i [kap. 5.2](/bok/stk1100/stk1100-5-2) (ML) og [kap. 6.1](/bok/stk1100/stk1100-6-1) (eksakt KI), med transformasjonen til $\\chi^2$ i [kap. 4.2](/bok/stk1100/stk1100-4-2)–[kap. 4.3](/bok/stk1100/stk1100-4-3). Hele kjeden settes sammen i drillen [kap. 6.3](/bok/stk1100/stk1100-6-3).\n\n**c)** Fordi eksponensialfordelingen opptrer i **to parametriseringer**: med **forventning** $\\mu$ (her: $f(x) = \\frac{1}{\\mu}e^{-x/\\mu}$, $E(X) = \\mu$) og med **rate** $\\lambda$ ($f(x) = \\lambda e^{-\\lambda x}$, $E(X) = 1/\\lambda$). Blander du dem, får du feil estimator, feil forventning og feil pivot. Her *står forventningsformen*, så $\\hat\\mu = \\bar X$ og pivoten er $2n\\hat\\mu/\\mu \\sim \\chi^2_{2n}$. Å lese oppgavens egen definisjon hver gang er et gjennomgående poeng i boka.",
+        "hints": [
+          "Se etter to ting oppgaven ber om: å arbeide med en oppgitt tetthet, OG å bygge et konfidensintervall via en pivot.",
+          "Bruk sjangerkortet A–L: hvilken kode passer «tetthet → F → median», og hvilken passer «estimator → pivot → KI»?",
+          "Sammenlign de to skrivemåtene for eksponensialtettheten — hva er annerledes med parameteren foran og i eksponenten?"
+        ]
+      }
+    },
+    {
+      "id": "stk1100-0-1-oppg-4",
+      "type": "exercise",
+      "exercise": {
+        "id": "stk1100-0-1-o4",
+        "number": "4",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "En leseplan er satt opp slik: 60 % av tiden på sannsynlighetsdelen (Del 1), grundig øving på hypotesetesting, og resten «hvis det blir tid». Pek på minst to svakheter ved planen, og foreslå en bedre fordeling.",
+        "solution": "**Svakhet 1 — overvekt på lavtvekt-stoff.** Del 1 (Bayes, forventning/varians, diskrete modeller) er viktig som fundament, men gir på eksamen mest oppgave-1-poeng. Å bruke 60 % av tiden her betyr at den tunge oppgave 3 (estimering + KI), som bærer 60–70 % av poengene, får for lite trening.\n\n**Svakhet 2 — trening på feil emne.** Hypotesetesting er **ikke** på STK1100-eksamen (0/10 sett) — det ligger i STK1110. All tid på det er bortkastet for STK1100.\n\n**Svakhet 3 — «hvis det blir tid» er ingen plan.** Transformasjon (90 %), simultantetthet (80 %) og gamma/$\\chi^2$ (70 %) er høyfrekvente og må ha fast plass, ikke restetid.\n\n**Bedre fordeling:** legg tyngdepunktet på **kjeden og broen** — omtrent halvparten av tiden på Del 4–6 (transformasjon, estimering, konfidensintervall), rundt en fjerdedel på Del 2–3 (kontinuerlige/simultane fordelinger), og resten fordelt på Del 1, Del 7 (simulering/Python) og litt Del 8. Stryk hypotesetesting helt.",
+        "hints": [
+          "Sammenlign hvor mye tid planen bruker på hvert tema med temaets gjenganger-score OG poengvekt.",
+          "Sjekk avgrensningen mot STK1110: er alt i planen faktisk på STK1100-eksamen?",
+          "Tenk på hvor de fleste poengene ligger (kjeden), og la tidsbruken speile det."
+        ]
+      }
+    },
+    {
+      "id": "stk1100-0-1-def-kjeden",
+      "type": "definition",
+      "title": "Estimerings-kjeden (bokas ryggrad)",
+      "content": "Den gjennomgående oppgavekjeden som bærer 60–70 % av poengene på STK1100-eksamen, og som praktisk talt hvert sett bygger på. I ord: du får en fordeling, lager en estimator, sjekker egenskapene, transformerer til en kjent fordeling, og bygger et konfidensintervall. I symboler:\n\n$$\\text{fordeling} \\to \\hat\\theta \\to E(\\hat\\theta)/\\text{Var}(\\hat\\theta) \\to \\text{gamma/}\\chi^2\\text{-pivot} \\to \\text{eksakt KI} \\to \\text{CLT-KI / bootstrap-SE}$$\n\nÅ beherske hele denne kjeden som én sammenhengende ferdighet er emnets viktigste mål."
+    },
+    {
+      "id": "stk1100-0-1-def-fortellingsoppgave",
+      "type": "definition",
+      "title": "Fortellingsoppgaven",
+      "content": "Oppgaveformen på STK1100-skoleeksamen: **tre til fire store oppgaver**, hver med 3–7 deloppgaver (a, b, c, …) i én sammenhengende kontekst (for eksempel levetider, konsentrasjoner eller diagnosetester). Det finnes **ingen kortsvars- eller flervalgsdel**. Du skriver altså sammenhengende utledninger der senere deloppgaver ofte bygger på tidligere — kommer du i gang, får du gjerne flere delpoeng i samme oppgave."
+    },
+    {
+      "id": "stk1100-0-1-def-lesenivaa",
+      "type": "definition",
+      "title": "De tre lesenivåene: perfekt, kunne, kjenne",
+      "content": "Bokas prioriteringssystem, utledet av temafrekvensene. **Perfekt** (høyeste prioritet): stoffet som bærer flest poeng og går igjen nesten hvert år — estimerings-kjeden, transformasjon/MGF, simultantetthet, gamma/$\\chi^2$, median/CDF, Bayes og momentregnereglene. **Kunne** (avgjør C mot B): simulering/bootstrap, eksotiske fordelinger, diskret modellvalg, eksakt-vs-Wald og sentralgrenseteoremet. **Kjenne** (differensierer A): regresjon, binormal, betinget forventning/MSE og kovarians. Bruk nivåene til å fordele lesetiden."
+    },
+    {
+      "id": "stk1100-0-1-def-pivotal",
+      "type": "definition",
+      "title": "Eksakt pivotal-KI (signaturferdigheten)",
+      "content": "Emnets kjennemerke, i 7 av 10 sett. En **pivot** er en størrelse bygget av data og parameter som har en *kjent* fordeling uavhengig av parameteren — typisk gamma eller kjikvadrat. Ved å sette kvantiler rundt pivoten og løse ulikheten for parameteren får du et **eksakt** konfidensintervall, for eksempel via\n\n$$\\frac{2n\\hat\\mu}{\\mu} \\sim \\chi^2_{2n}.$$\n\nEt slikt intervall er ofte **asymmetrisk** — det er riktig, ikke en feil — og foretrekkes framfor et tilnærmet Wald-intervall når standardfeilen avhenger av parameteren."
+    },
+    {
+      "id": "stk1100-0-1-def-formelsamling",
+      "type": "definition",
+      "title": "Formelsamlingen — oppslag, ikke pugg",
+      "content": "«Formelsamling for STK1100/STK1110» er alltid tillatt og inneholder fordelingskatalogen (tetthet, forventning, varians, MGF), gammafunksjonens egenskaper og kvantiltabellene ($\\Phi$, $z_\\alpha$, $\\chi^2$, gamma). Fordi den ligger på pulten, tester eksamen **ikke** pugging. Treningen din skal ligge på å *velge* riktig fordeling og pivot, *bruke* tabellene med riktige persentiler og frihetsgrader, og *utlede* det som ikke står der: ML, pivotaler, transformasjoner og bootstrap."
+    },
+    {
+      "id": "stk1100-0-1-def-karakterskala",
+      "type": "definition",
+      "title": "Karakterskalaen A–F",
+      "content": "Norsk høyere utdanning bruker bokstavkarakterer: **A** fremragende, **B** meget god, **C** god, **D** nokså god, **E** tilstrekkelig (så vidt bestått), **F** ikke bestått. **C er en god og vanlig karakter** — midtpunktet på skalaen, som de fleste får. På STK1100 ligger bestått-nivået i åpningsdelene (Bayes, standardisering, median), C–B i ML og et standard KI, og A i de eksakte pivotal-utledningene og transformasjonsbevisene."
+    },
+    {
+      "id": "stk1100-0-1-def-feilkatalog",
+      "type": "definition",
+      "title": "Feilkatalogen (13 typiske feil)",
+      "content": "Bokas samlede register over de 13 tabbene som løsningsforslagene år etter år bygger feller rundt — for eksempel å påstå uavhengighet uten å sjekke faktoriseringen, sette feil grenser i et dobbeltintegral fordi området ikke er tegnet, blande de to parametriseringene av eksponensialfordelingen, eller glemme `ddof=1` i bootstrap-koden. Hvert kapittel har en «Typiske feil»-boks som forebygger nettopp de feilene som hører til der. Å kjenne katalogen er billig forsikring mot poengtap."
+    },
+    {
+      "id": "stk1100-0-1-def-frekvens",
+      "type": "definition",
+      "title": "Gjenganger-score (temafrekvens)",
+      "content": "Målet boka bruker for å prioritere: **andelen av de 10 settene (2015–2024) der et tema forekommer** som minst én deloppgave. En score på 90 % betyr at temaet var i 9 av 10 sett. De høyeste scorene — forventning/varians og konfidensintervall (begge 100 %), punktestimering og transformasjon (begge 90 %) — markerer det du må beherske best. De laveste (kovarians 20 %, regresjon 20 %) er A-differensiatorer du prioriterer sist."
+    },
+    {
+      "id": "stk1100-0-1-def-sjangerkatalog",
+      "type": "definition",
+      "title": "Sjangerkatalogen A–L",
+      "content": "De tolv gjenkjennelige oppgavetypene som STK1100-oppgavene faller i, merket A til L: **A** Bayes, **B** diskret fordeling, **C** egendefinert tetthet, **D** simultantetthet, **E** transformasjon, **F** momentgenererende funksjon, **G** estimering + eksakt KI (kjernen), **H** eksakt-vs-Wald, **I** simulering/bootstrap, **J** Jacobi-transformasjon, **K** regresjon, **L** betinget forventning. Kjenner du sjangeren igjen i oppgaveteksten, vet du hvilken del av boka som gir deg løsningsoppskriften."
+    },
+    {
+      "id": "stk1100-0-1-def-stk1110",
+      "type": "definition",
+      "title": "Avgrensningen mot STK1110",
+      "content": "Grensen som definerer STK1100s egenart: **hypotesetesting, kombinatorikk og ordningsvariable er fraværende (0 av 10 sett)** og hører hjemme i oppfølgeremnet STK1110. Også klassisk deskriptiv/grafisk statistikk er borte. Inferens-kjeden i STK1100 **ender ved konfidensintervallet — aldri ved en test eller teststyrke**. Praktisk konsekvens: bruk ikke lesetid på disse temaene til STK1100-eksamen."
+    },
+    {
+      "id": "stk1100-0-1-symbolliste",
+      "type": "collapsible",
+      "title": "Symbol- og formelliste",
+      "buttonText": "Vis symboler og formler",
+      "content": [
+        {
+          "id": "stk1100-0-1-symbolliste-tekst",
+          "type": "text",
+          "content": "Oppslagsverk — alt her forklares underveis i kapitlet.\n\n| Symbol | Betydning |\n|---|---|\n| $X$ | Stokastisk (tilfeldig) variabel — stor bokstav |\n| $x$ | En observert verdi av $X$ — liten bokstav |\n| $\\bar{X}$ | Utvalgsgjennomsnittet |\n| $\\theta$ | En ukjent parameter i en modell |\n| $\\hat\\theta$ | En estimator for $\\theta$ (stor bokstav = tilfeldig); et *estimat* er tallet den gir |\n| $\\mu$ | Forventningsverdi (her: forventet levetid i eksponensialeksemplet) |\n| $\\sigma^2$ | Varians (annet argument i $N(\\mu,\\sigma^2)$) |\n| $E(X)$, $\\text{Var}(X)$ | Forventning og varians til $X$ |\n| $\\text{Cov}(X,Y)$ | Kovariansen mellom $X$ og $Y$ |\n| $F(x)$ | Fordelingsfunksjonen, $F(x) = P(X \\le x)$ |\n| $f(x)$, $f(x,y)$ | Tetthet (én variabel) og simultantetthet (to variable) |\n| $\\Phi$ | Fordelingsfunksjonen til standardnormalfordelingen |\n| $z_\\alpha$, $\\chi^2_{\\nu,\\alpha}$ | Kvantiler med øvre haleareal $\\alpha$ |\n| $\\chi^2_{2n}$ | Kjikvadratfordelingen med $2n$ frihetsgrader |\n| $\\Gamma(\\alpha)$ | Gammafunksjonen |\n| gamma$(\\alpha,\\beta)$ | Gammafordelingen med form $\\alpha$ og skala $\\beta$ |\n| MGF, $M_X(t)$ | Momentgenererende funksjon, $M_X(t) = E(e^{tX})$ |\n| pivot | Størrelse av data og parameter med kjent fordeling, brukt til eksakt KI |\n| KI | Konfidensintervall |\n| $\\lambda$ | Rate (i eksponensial-/Poisson-parametriseringen) |\n\n**Formler i dette kapitlet:**\n\n$$E(aX + bY) = aE(X) + bE(Y)$$\nForventningen er lineær: forventningen til en sum er summen av forventningene, vektet med koeffisientene.\n\n$$\\text{Var}(aX + bY) = a^2\\text{Var}(X) + b^2\\text{Var}(Y) + 2ab\\,\\text{Cov}(X,Y)$$\nVariansen til en lineærkombinasjon — merk kvadratene på koeffisientene og kovariansleddet (som er 0 når $X$ og $Y$ er uavhengige).\n\n$$L(\\theta) \\to \\ell(\\theta) = \\ln L(\\theta) \\to \\ell'(\\theta) = 0 \\to \\hat\\theta$$\nML-ritualet: skriv likelihood, ta logaritme, derivér og løs for å finne maximum-likelihood-estimatoren.\n\n$$\\frac{2n\\hat\\mu}{\\mu} \\sim \\chi^2_{2n}$$\nStandardpivoten for eksponensialfordelingen (forventningsparametrisering): brukes til å bygge et eksakt konfidensintervall for $\\mu$.\n\n$$\\int_0^\\infty x^{a-1} e^{-x/b}\\,dx = b^a\\,\\Gamma(a)$$\nGammaintegralet — snarveien til momenter og normeringskonstanter.\n\n$$E(V^r) = \\beta^r\\,\\frac{\\Gamma(\\alpha + r)}{\\Gamma(\\alpha)}, \\quad r > -\\alpha \\quad (V \\sim \\text{gamma}(\\alpha,\\beta))$$\nMomentet av en potens/rot av en gammavariabel — nøkkelen til skjevhetskorreksjon."
+        }
+      ]
+    }
+  ],
+  "exercises": []
+}

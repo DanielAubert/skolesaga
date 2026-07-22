@@ -1,0 +1,489 @@
+{
+  "id": "stk1100-1-3",
+  "courseId": "stk1100",
+  "chapterNumber": "1.3",
+  "title": "Diskrete fordelinger og Poisson-prosessen",
+  "description": "Fra situasjonsbeskrivelse til riktig diskret modell — binomisk, Poisson-prosess, geometrisk, negativ binomisk — og estimatoren som ofte følger.",
+  "estimatedMinutes": 60,
+  "competenceGoals": [
+    "velge riktig diskret fordeling ut fra situasjonen og begrunne modellvalget",
+    "regne med binomisk fordeling og bruke forventning og varians",
+    "sette opp en Poisson-prosess med forutsetninger og rateskalering, og regne sannsynligheter",
+    "bruke komplementgrepet for minst én hendelse og løse for hvor stort et intervall må være",
+    "gjenkjenne og regne med geometrisk og negativ binomisk fordeling"
+  ],
+  "content": [
+    {
+      "id": "stk1100-1-3-tip-eksamensvinkel",
+      "type": "tip",
+      "title": "Eksamensvinkel",
+      "content": "**Diskret modellvalg (sjanger B — å velge riktig diskret fordeling og regne med den) er en gjenganger:** Poisson eller Poisson-prosess i 3 av 10 avsluttende skoleeksamener (E.coli i drikkevann V2024, seldyrtelling V2022, fødsler som Poisson-prosess V2019), binomisk i 3 av 10 (V2016, V2020, V2024), og geometrisk/negativ binomisk i 1 av 10 (V2021). Ofte kombineres modellen med en estimator og en standardfeil, eller med forventning/varians utledet via momentgenererende funksjon (kobling til kap. 4.1).\n\nPrioritet: selve **modellvalget** har høyeste prioritet (det må sitte), mens den tekniske regningen er «kunne»-nivå. Sensor krever at du **begrunner** modellen: «La $X$ = antall …, da er $X \\sim \\ldots$» med parametre, og at prosessforutsetningene nevnes der de brukes.\n\n> Punktsannsynlighetene med $E$ og Var for binomisk, Poisson og geometrisk står i formelsamlingen — tren oppslaget. Modellvalget og begrunnelsen må du gjøre selv."
+    },
+    {
+      "id": "stk1100-1-3-forkunnskaper",
+      "type": "text",
+      "content": "**Forkunnskaper:** Dette kapitlet bruker forventning og varians fra [kap. 1.2](/bok/stk1100/stk1100-1-2) — særlig $E(X)$, $\\text{Var}(X)$ og at forventningen er lineær. Diskrete fordelinger fra videregående er nyttig bakgrunn: [S1 6.1 Diskrete sannsynlighetsfordelinger](/bok/s1/s1-6-1).\n\nDu bør være komfortabel med potensregning og eksponentialfunksjonen $e^{-x}$ (Poisson-sannsynlighetene inneholder $e^{-\\lambda}$). Fagord som rate, intensitet og Poisson-prosess forklares der de innføres."
+    },
+    {
+      "id": "stk1100-1-3-intro",
+      "type": "text",
+      "content": "Halve jobben på en sannsynlighetsoppgave er å velge **riktig modell**. Situasjonen beskrives i ord — «antall bakterier i en vannprøve», «antall forsøk til første napp», «antall defekte i en kontroll av 20 enheter» — og du skal kjenne igjen hvilken diskret fordeling som passer, sette den opp med parametre, og regne. Dette kapitlet gir deg en **modellvalgs-tabell** og trener gjenkjenningen.\n\nKapitlet er fire **læringsløkker**: binomisk (fast antall forsøk), Poisson og Poisson-prosessen (hendelser i tid/rom), komplementgrepet $P(X \\ge 1)$, og til slutt geometrisk/negativ binomisk (venting til suksess). Hver løkke går teori → eksempel → øvingsoppgaver.\n\n> Dette er et 60-minutters kapittel — litt lengre enn de forrige. Ta gjerne løkke 1–2 i én økt og løkke 3–4 i en annen; pausepunkter er markert.\n\n> **Forvarsel:** to resultater nevnes her og fullføres senere — at forventning og varians kan utledes elegant med momentgenererende funksjon, og at «sum av uavhengige Poisson er Poisson», begge i [kap. 4.1](/bok/stk1100/stk1100-4-1); og at ventetiden mellom Poisson-hendelser er eksponensialfordelt, i [kap. 2.1](/bok/stk1100/stk1100-2-1)."
+    },
+    {
+      "id": "stk1100-1-3-modellvalg-tabell",
+      "type": "text",
+      "content": "### Modellvalgs-tabellen\n\nDette er kapitlets viktigste verktøy. Les situasjonen, finn raden, sett opp modellen:\n\n| Situasjon | Modell | Teller |\n|---|---|---|\n| Fast antall $n$ uavhengige forsøk, samme suksesssannsynlighet $p$ | binomisk$(n, p)$ | antall suksesser |\n| Hendelser i tid eller rom, konstant rate, uavhengige intervaller | Poisson$(\\lambda t)$ | antall hendelser i intervallet |\n| Uavhengige forsøk til **første** suksess | geometrisk$(p)$ | antall forsøk |\n| Uavhengige forsøk til **$k$-te** suksess | negativ binomisk$(k, p)$ | antall forsøk |\n\nNøkkelspørsmålet som skiller binomisk fra Poisson: **er antall forsøk fast på forhånd?** Er det det (vi kontrollerer nøyaktig 20 enheter), er det binomisk. Teller vi i stedet hendelser som skjer «fritt» i et intervall (bakterier i vann, kunder i en kø), er det Poisson."
+    },
+    {
+      "id": "stk1100-1-3-l1-head",
+      "type": "text",
+      "content": "## Løkke 1 — Binomisk fordeling (~13 min)"
+    },
+    {
+      "id": "stk1100-1-3-l1-teori",
+      "type": "text",
+      "content": "Den binomiske modellen gjelder når vi gjentar det **samme forsøket et fast antall ganger**, uavhengig, med samme suksesssannsynlighet hver gang — og teller suksessene. Hvert enkeltforsøk med to utfall (suksess/ikke suksess) kalles et **Bernoulli-forsøk**."
+    },
+    {
+      "id": "stk1100-1-3-def-bernoulli",
+      "type": "definition",
+      "title": "Bernoulli-forsøk",
+      "content": "Ett enkelt forsøk med nøyaktig to utfall, «suksess» (sannsynlighet $p$) og «ikke suksess» (sannsynlighet $1 - p$). Indikatorvariabelen $X$, som er 1 ved suksess og 0 ellers, har $E(X) = p$ og $\\text{Var}(X) = p(1 - p)$. Den binomiske fordelingen er summen av $n$ uavhengige Bernoulli-forsøk."
+    },
+    {
+      "id": "stk1100-1-3-def-binomisk",
+      "type": "definition",
+      "title": "Binomisk fordeling",
+      "content": "Antall suksesser $X$ i $n$ uavhengige Bernoulli-forsøk, alle med samme suksesssannsynlighet $p$. Vi skriver $X \\sim \\text{bin}(n, p)$, og\n\n$$P(X = k) = \\binom{n}{k} p^k (1 - p)^{n-k}, \\qquad k = 0, 1, \\ldots, n.$$\n\nForutsetningene som må være oppfylt (og begrunnes): (1) fast antall forsøk $n$, (2) forsøkene er uavhengige, (3) samme $p$ i hvert forsøk. Faktoren $\\binom{n}{k}$ teller på hvor mange måter de $k$ suksessene kan plasseres."
+    },
+    {
+      "id": "stk1100-1-3-def-binomisk-ev",
+      "type": "definition",
+      "title": "Forventning og varians, binomisk",
+      "content": "For $X \\sim \\text{bin}(n, p)$:\n\n$$E(X) = np, \\qquad \\text{Var}(X) = np(1 - p).$$\n\nDisse følger av at $X$ er en sum av $n$ uavhengige Bernoulli-variable (forventning $p$, varians $p(1-p)$ hver), og at forventning og varians av en sum av uavhengige variable er summen av forventningene/variansene ([kap. 1.2](/bok/stk1100/stk1100-1-2)). Begge står i formelsamlingen."
+    },
+    {
+      "id": "stk1100-1-3-ex-l1",
+      "type": "example",
+      "title": "Eksempel 1: Binomisk kvalitetskontroll",
+      "problem": "En maskin lager enheter der 5 % er defekte, uavhengig av hverandre. Vi kontrollerer 20 tilfeldige enheter. La $X$ = antall defekte. Angi modellen, og finn $E(X)$, $\\text{Var}(X)$ og $P(X \\ge 1)$.",
+      "solution": "**Modell:** Fast antall forsøk ($n = 20$), uavhengige, samme defektsannsynlighet ($p = 0{,}05$) — altså $X \\sim \\text{bin}(20;\\, 0{,}05)$.\n\n$$E(X) = np = 20 \\cdot 0{,}05 = 1{,}0, \\qquad \\text{Var}(X) = np(1-p) = 20 \\cdot 0{,}05 \\cdot 0{,}95 = 0{,}95.$$\n\n**Minst én defekt** via komplementet:\n$$P(X \\ge 1) = 1 - P(X = 0) = 1 - (0{,}95)^{20} = 1 - 0{,}3585 = 0{,}6415.$$\n\nSå i snitt 1 defekt per kontroll, og ca. 64 % sjanse for minst én."
+    },
+    {
+      "id": "stk1100-1-3-oppg-l1a",
+      "type": "exercise",
+      "exercise": {
+        "id": "stk1100-1-3-oppg-l1a-e",
+        "number": "1",
+        "type": "classic",
+        "difficulty": "lett",
+        "task": "En bestemt behandling virker på 30 % av pasientene, uavhengig. Ti pasienter behandles. La $X$ = antall som blir bra.\n\n**a)** Hvilken fordeling har $X$? Skriv den med parametre.\n\n**b)** Finn $E(X)$ og $\\text{Var}(X)$.\n\n**c)** Finn $P(X = 2)$.",
+        "solution": "**a)** Fast antall forsøk, uavhengige, samme suksesssannsynlighet: $X \\sim \\text{bin}(10;\\, 0{,}3)$.\n\n**b)** $E(X) = 10 \\cdot 0{,}3 = 3{,}0$; $\\text{Var}(X) = 10 \\cdot 0{,}3 \\cdot 0{,}7 = 2{,}1$.\n\n**c)** $P(X = 2) = \\binom{10}{2}(0{,}3)^2(0{,}7)^8 = 45 \\cdot 0{,}09 \\cdot 0{,}05765 \\approx 0{,}2335$.",
+        "hints": [
+          "$X \\sim \\text{bin}(n, p)$ når antall forsøk er fast; her $n = 10$, $p = 0{,}3$.",
+          "$E(X) = np$, $\\text{Var}(X) = np(1-p)$.",
+          "$P(X = k) = \\binom{n}{k}p^k(1-p)^{n-k}$ med $k = 2$."
+        ]
+      }
+    },
+    {
+      "id": "stk1100-1-3-oppg-l1b",
+      "type": "exercise",
+      "exercise": {
+        "id": "stk1100-1-3-oppg-l1b-e",
+        "number": "2",
+        "type": "classic",
+        "difficulty": "lett",
+        "task": "Et komponentparti har 10 % defekte, uavhengig. Vi tar ut 15 komponenter. La $X$ = antall defekte.\n\n**a)** Finn sannsynligheten for at ingen er defekte.\n\n**b)** Finn sannsynligheten for at minst én er defekt.",
+        "solution": "$X \\sim \\text{bin}(15;\\, 0{,}10)$.\n\n**a)** $P(X = 0) = (0{,}90)^{15} \\approx 0{,}2059$.\n\n**b)** $P(X \\ge 1) = 1 - P(X = 0) = 1 - 0{,}2059 = 0{,}7941$.",
+        "hints": [
+          "$P(X = 0) = (1-p)^n$.",
+          "Bruk komplementet: $P(X \\ge 1) = 1 - P(X = 0)$."
+        ]
+      }
+    },
+    {
+      "id": "stk1100-1-3-l2-head",
+      "type": "text",
+      "content": "## Løkke 2 — Poisson-fordelingen og Poisson-prosessen (~16 min)"
+    },
+    {
+      "id": "stk1100-1-3-l2-teori",
+      "type": "text",
+      "content": "Når vi teller hendelser som skjer «fritt» i tid eller rom — bakterier i en vannmengde, kunder i et tidsvindu, feil på en kabelstrekning — er antallet ofte **Poisson-fordelt**. Modellen har én parameter, forventet antall, og springer ut av en underliggende **Poisson-prosess** med en konstant rate."
+    },
+    {
+      "id": "stk1100-1-3-def-poisson",
+      "type": "definition",
+      "title": "Poisson-fordeling",
+      "content": "En diskret fordeling for et antall $X$ av hendelser, med én parameter $\\mu > 0$ (det forventede antallet). Vi skriver $X \\sim \\text{Poisson}(\\mu)$, og\n\n$$P(X = k) = \\frac{\\mu^k e^{-\\mu}}{k!}, \\qquad k = 0, 1, 2, \\ldots$$\n\nEn særegen egenskap: **forventning og varians er like**, $E(X) = \\text{Var}(X) = \\mu$. Verdiene er ubegrensede oppover ($k$ kan bli hvor stor som helst), til forskjell fra binomisk der $k \\le n$."
+    },
+    {
+      "id": "stk1100-1-3-def-poisson-prosess",
+      "type": "definition",
+      "title": "Poisson-prosess",
+      "content": "En modell for hendelser spredt utover tid eller rom med en konstant **rate** (intensitet) $\\lambda$ — forventet antall hendelser per enhet tid/lengde/areal/volum. Antall hendelser i et intervall av størrelse $t$ er da Poisson-fordelt med forventning $\\lambda t$:\n\n$$X \\sim \\text{Poisson}(\\lambda t).$$\n\nRaten $\\lambda$ skaleres altså med intervallets størrelse — dobler du intervallet, dobler du forventet antall. Bokstaven $\\lambda$ reserveres for slike rater."
+    },
+    {
+      "id": "stk1100-1-3-def-poisson-forutsetninger",
+      "type": "definition",
+      "title": "Forutsetningene for en Poisson-prosess",
+      "content": "Tre betingelser må være rimelige for at antall hendelser skal være Poisson-fordelt:\n\n1. **Uavhengige intervaller:** antall hendelser i disjunkte (ikke-overlappende) intervaller er uavhengige.\n2. **Konstant rate:** den forventede hyppigheten $\\lambda$ er den samme overalt (ingen opphopning i tid/rom).\n3. **Ikke samtidige hendelser:** to hendelser skjer ikke i nøyaktig samme punkt/øyeblikk.\n\nSensor krever at disse nevnes når du begrunner en Poisson-modell — de er ofte tema for en egen deloppgave."
+    },
+    {
+      "id": "stk1100-1-3-def-rateskalering",
+      "type": "definition",
+      "title": "Rateskalering $\\lambda t$",
+      "content": "Kjernen i all Poisson-prosessregning: forventet antall i et intervall er raten ganger intervallstørrelsen,\n\n$$\\mu = \\lambda t.$$\n\nEr raten $\\lambda = 0{,}8$ bakterier per liter, er forventet antall i $3$ liter $\\mu = 0{,}8 \\cdot 3 = 2{,}4$. **Den vanligste feilen er å glemme denne skaleringen** og regne med $\\lambda$ i stedet for $\\lambda t$. Pass på at rate og intervall har samme enhet."
+    },
+    {
+      "id": "stk1100-1-3-ex-l2",
+      "type": "example",
+      "title": "Eksempel 2: Bakterier i drikkevann (Poisson-prosess)",
+      "problem": "Antall bakterier i drikkevann følger en Poisson-prosess med rate $\\lambda = 0{,}8$ bakterier per liter. Vi tar en prøve på $3$ liter. La $X$ = antall bakterier i prøven.\n\n(a) Angi forutsetningene og modellen. (b) Finn $E(X)$ og $\\text{Var}(X)$. (c) Finn $P(X = 2)$ og $P(X \\ge 1)$.",
+      "solution": "**(a)** Forutsetninger: bakterier fordeler seg uavhengig i disjunkte vannmengder, med konstant tetthet (rate), og to bakterier opptar ikke nøyaktig samme punkt. Da er antallet i $t = 3$ liter Poisson-fordelt med forventning $\\lambda t$:\n$$X \\sim \\text{Poisson}(\\lambda t) = \\text{Poisson}(0{,}8 \\cdot 3) = \\text{Poisson}(2{,}4).$$\n\n**(b)** For Poisson er forventning og varians like: $E(X) = \\text{Var}(X) = 2{,}4$.\n\n**(c)** $P(X = 2) = \\dfrac{2{,}4^2 e^{-2{,}4}}{2!} = \\dfrac{5{,}76 \\cdot 0{,}0907}{2} \\approx 0{,}2613$.\n$$P(X \\ge 1) = 1 - P(X = 0) = 1 - e^{-2{,}4} = 1 - 0{,}0907 = 0{,}9093.$$"
+    },
+    {
+      "id": "stk1100-1-3-oppg-l2a",
+      "type": "exercise",
+      "exercise": {
+        "id": "stk1100-1-3-oppg-l2a-e",
+        "number": "3",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "Antall seldyr i en havbunnsprøve følger en Poisson-prosess med rate $0{,}4$ dyr per kvadratmeter. En ramme dekker $5$ kvadratmeter. La $X$ = antall seldyr i rammen.\n\n**a)** Finn forventet antall $E(X)$ og angi modellen.\n\n**b)** Finn $P(X = 2)$.\n\n**c)** Finn $P(X \\le 1)$.",
+        "solution": "**a)** $\\mu = \\lambda t = 0{,}4 \\cdot 5 = 2{,}0$, så $X \\sim \\text{Poisson}(2)$ og $E(X) = 2{,}0$ (og $\\text{Var}(X) = 2{,}0$).\n\n**b)** $P(X = 2) = \\dfrac{2^2 e^{-2}}{2!} = \\dfrac{4 \\cdot 0{,}1353}{2} \\approx 0{,}2707$.\n\n**c)** $P(X \\le 1) = P(X = 0) + P(X = 1) = e^{-2} + 2 e^{-2} = 3 e^{-2} \\approx 3 \\cdot 0{,}1353 = 0{,}4060$.",
+        "hints": [
+          "Skaler raten til intervallet: $\\mu = \\lambda t = 0{,}4 \\cdot 5$.",
+          "$P(X = k) = \\mu^k e^{-\\mu}/k!$.",
+          "$P(X \\le 1) = P(X=0) + P(X=1)$."
+        ]
+      }
+    },
+    {
+      "id": "stk1100-1-3-oppg-l2b",
+      "type": "exercise",
+      "exercise": {
+        "id": "stk1100-1-3-oppg-l2b-e",
+        "number": "4",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "En sentralbord får henvendelser etter en Poisson-prosess med rate $3$ per time.\n\n**a)** Hva er forventet antall henvendelser i et kvarter (15 minutter)? Angi modellen for antallet $X$ i et kvarter.\n\n**b)** Finn sannsynligheten for ingen henvendelser i kvarteret.\n\n**c)** En kollega sier at siden raten er 3 per time, er $E(X) = 3$ også for kvarteret. Hva er feil?",
+        "solution": "**a)** Et kvarter er $t = 0{,}25$ timer, så $\\mu = \\lambda t = 3 \\cdot 0{,}25 = 0{,}75$, og $X \\sim \\text{Poisson}(0{,}75)$.\n\n**b)** $P(X = 0) = e^{-0{,}75} \\approx 0{,}4724$.\n\n**c)** Feilen er å bruke raten $\\lambda$ direkte uten å skalere til intervallet. Forventet antall avhenger av intervallstørrelsen: for et kvarter er det $\\lambda t = 0{,}75$, ikke 3. Tallet 3 gjelder en hel time.",
+        "hints": [
+          "Gjør rate og intervall til samme enhet: 15 min $= 0{,}25$ time.",
+          "$\\mu = \\lambda t$.",
+          "$P(X=0) = e^{-\\mu}$."
+        ]
+      }
+    },
+    {
+      "id": "stk1100-1-3-l3-head",
+      "type": "text",
+      "content": "## Løkke 3 — Komplementgrepet og «hvor stor prøve trengs» (~13 min)"
+    },
+    {
+      "id": "stk1100-1-3-l3-teori",
+      "type": "text",
+      "content": "To grep dukker opp igjen og igjen i modelloppgavene. Det første: sannsynligheten for **minst én** hendelse regnes alltid via komplementet, fordi «ingen» er ett enkelt ledd mens «minst én» er en uendelig (eller lang) sum. Det andre: å **løse for intervallstørrelsen** — «hvor stor prøve trengs for at vi nesten sikkert fanger minst én hendelse?»"
+    },
+    {
+      "id": "stk1100-1-3-def-komplementgrepet",
+      "type": "definition",
+      "title": "Komplementgrepet $P(X \\ge 1)$",
+      "content": "Sannsynligheten for minst én hendelse er enklest via komplementet «ingen hendelse»:\n\n$$P(X \\ge 1) = 1 - P(X = 0).$$\n\nFor Poisson$(\\mu)$ er $P(X = 0) = e^{-\\mu}$, så $P(X \\ge 1) = 1 - e^{-\\mu}$. For binomisk er $P(X = 0) = (1-p)^n$. Grepet sparer deg for å summere mange ledd, og er et fast innslag i sjanger B."
+    },
+    {
+      "id": "stk1100-1-3-def-lose-for-t",
+      "type": "definition",
+      "title": "Å løse for intervallstørrelsen",
+      "content": "Ofte spørres det: hvor stort må intervallet $t$ (eller prøven) være for at $P(X \\ge 1)$ skal overstige en gitt terskel $p_0$? Vi setter opp ulikheten og løser for $t$:\n\n$$1 - e^{-\\lambda t} > p_0 \\;\\Longleftrightarrow\\; e^{-\\lambda t} < 1 - p_0 \\;\\Longleftrightarrow\\; t > \\frac{-\\ln(1 - p_0)}{\\lambda}.$$\n\nHusk å snu ulikhetstegnet når du tar logaritmen av begge sider (logaritmen av et tall $< 1$ er negativ, og vi deler på det negative $-\\lambda$)."
+    },
+    {
+      "id": "stk1100-1-3-ex-l3",
+      "type": "example",
+      "title": "Eksempel 3: Hvor stor vannprøve trengs?",
+      "problem": "Bakteriene i Eksempel 2 har rate $\\lambda = 0{,}8$ per liter. Hvor stor må vannprøven $t$ (i liter) være for at sannsynligheten for å finne minst én bakterie skal overstige $0{,}9975$?",
+      "solution": "La $X$ = antall bakterier i en prøve på $t$ liter, $X \\sim \\text{Poisson}(0{,}8\\,t)$. Vi vil ha $P(X \\ge 1) > 0{,}9975$:\n\n$$1 - e^{-0{,}8\\,t} > 0{,}9975 \\;\\Longleftrightarrow\\; e^{-0{,}8\\,t} < 0{,}0025.$$\n\nTa naturlig logaritme på begge sider (snu tegnet ved deling på det negative $-0{,}8$):\n$$-0{,}8\\,t < \\ln(0{,}0025) = -5{,}991 \\;\\Longleftrightarrow\\; t > \\frac{5{,}991}{0{,}8} \\approx 7{,}49.$$\n\nProven må være større enn ca. **7,49 liter**. Kontroll: med $t = 7{,}49$ er $\\mu = 0{,}8 \\cdot 7{,}49 = 5{,}99$ og $1 - e^{-5{,}99} \\approx 0{,}9975$, som stemmer."
+    },
+    {
+      "id": "stk1100-1-3-oppg-l3",
+      "type": "exercise",
+      "exercise": {
+        "id": "stk1100-1-3-oppg-l3-e",
+        "number": "5",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "E.coli i en vannkilde følger en Poisson-prosess med rate $\\lambda = 0{,}5$ per liter.\n\n**a)** Finn sannsynligheten for minst én E.coli i en prøve på $2$ liter.\n\n**b)** Hvor stor må prøven være for at sannsynligheten for minst én E.coli skal overstige $0{,}99$?",
+        "solution": "**a)** For $t = 2$: $\\mu = 0{,}5 \\cdot 2 = 1$, og $X \\sim \\text{Poisson}(1)$.\n$$P(X \\ge 1) = 1 - e^{-1} \\approx 1 - 0{,}3679 = 0{,}6321.$$\n\n**b)** Vi vil ha $1 - e^{-0{,}5 t} > 0{,}99$, altså $e^{-0{,}5 t} < 0{,}01$:\n$$-0{,}5 t < \\ln(0{,}01) = -4{,}605 \\;\\Longleftrightarrow\\; t > \\frac{4{,}605}{0{,}5} = 9{,}21.$$\nProven må være større enn ca. **9,21 liter**.",
+        "hints": [
+          "$P(X \\ge 1) = 1 - e^{-\\mu}$ med $\\mu = \\lambda t$.",
+          "Sett opp $1 - e^{-0{,}5t} > 0{,}99$ og løs for $t$; snu tegnet ved logaritmen.",
+          "$t > -\\ln(1 - p_0)/\\lambda$."
+        ]
+      }
+    },
+    {
+      "id": "stk1100-1-3-l4-head",
+      "type": "text",
+      "content": "## Løkke 4 — Venting til suksess: geometrisk og negativ binomisk (~12 min)"
+    },
+    {
+      "id": "stk1100-1-3-l4-teori",
+      "type": "text",
+      "content": "De to siste modellene teller **hvor lenge vi må vente**. Gjentar vi uavhengige forsøk med suksesssannsynlighet $p$ og teller forsøk til vi lykkes, er antallet geometrisk fordelt (første suksess) eller negativ binomisk (den $k$-te suksessen)."
+    },
+    {
+      "id": "stk1100-1-3-def-geometrisk",
+      "type": "definition",
+      "title": "Geometrisk fordeling",
+      "content": "Antall uavhengige forsøk $X$ til og med det første som gir suksess (suksesssannsynlighet $p$ per forsøk):\n\n$$P(X = k) = (1 - p)^{k-1}\\,p, \\qquad k = 1, 2, 3, \\ldots$$\n\nVi må mislykkes $k - 1$ ganger og så lykkes. Forventning og varians:\n\n$$E(X) = \\frac{1}{p}, \\qquad \\text{Var}(X) = \\frac{1 - p}{p^2}.$$\n\n(Merk: noen bøker teller antall *mislykkede* forsøk før første suksess; da starter $k$ på 0. Les alltid oppgavens egen definisjon.)"
+    },
+    {
+      "id": "stk1100-1-3-def-negbinom",
+      "type": "definition",
+      "title": "Negativ binomisk fordeling",
+      "content": "Antall uavhengige forsøk $X$ til og med den **$k$-te** suksessen (suksesssannsynlighet $p$):\n\n$$P(X = n) = \\binom{n-1}{k-1} p^k (1 - p)^{n-k}, \\qquad n = k, k+1, \\ldots$$\n\nDe første $n - 1$ forsøkene må gi nøyaktig $k - 1$ suksesser (derav $\\binom{n-1}{k-1}$), og det $n$-te er den siste suksessen. Forventning $E(X) = k/p$. Geometrisk er spesialtilfellet $k = 1$."
+    },
+    {
+      "id": "stk1100-1-3-ex-l4",
+      "type": "example",
+      "title": "Eksempel 4: Venting til første napp",
+      "problem": "En fisker får napp med sannsynlighet $p = 0{,}25$ per kast, uavhengig av tidligere kast. La $X$ = antall kast til og med det første nappet.\n\n(a) Angi modellen og finn $E(X)$. (b) Finn $P(X = 4)$. (c) Finn sannsynligheten for napp innen de tre første kastene.",
+      "solution": "**(a)** Uavhengige forsøk til første suksess: $X \\sim \\text{geometrisk}(0{,}25)$, med $E(X) = 1/p = 1/0{,}25 = 4$ kast.\n\n**(b)** $P(X = 4) = (0{,}75)^3 \\cdot 0{,}25 = 0{,}4219 \\cdot 0{,}25 \\approx 0{,}1055$.\n\n**(c)** «Innen tre kast» er $P(X \\le 3) = 1 - P(X > 3) = 1 - (0{,}75)^3 = 1 - 0{,}4219 = 0{,}5781$. (Å ikke ha napp de tre første betyr tre mislykkede kast.)"
+    },
+    {
+      "id": "stk1100-1-3-oppg-l4",
+      "type": "exercise",
+      "exercise": {
+        "id": "stk1100-1-3-oppg-l4-e",
+        "number": "6",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "En kvalitetsinspektør tester enheter én etter én; hver er defekt med sannsynlighet $0{,}25$, uavhengig. Hun leter etter defekte enheter.\n\n**a)** La $X$ = antall enheter testet til og med den første defekte. Angi modellen og finn $E(X)$.\n\n**b)** La $Y$ = antall enheter testet til og med den **andre** defekte. Finn $P(Y = 6)$.",
+        "solution": "**a)** $X \\sim \\text{geometrisk}(0{,}25)$, $E(X) = 1/0{,}25 = 4$ enheter.\n\n**b)** $Y \\sim \\text{negativ binomisk}(k = 2,\\, p = 0{,}25)$. Den andre defekte er nummer 6, så blant de fem første må det være nøyaktig én defekt:\n$$P(Y = 6) = \\binom{5}{1}(0{,}25)^2(0{,}75)^4 = 5 \\cdot 0{,}0625 \\cdot 0{,}3164 \\approx 0{,}0989.$$",
+        "hints": [
+          "Første suksess: geometrisk, $E(X) = 1/p$.",
+          "$k$-te suksess: negativ binomisk, $P(Y = n) = \\binom{n-1}{k-1}p^k(1-p)^{n-k}$.",
+          "For $P(Y=6)$: $n = 6$, $k = 2$, så $\\binom{5}{1}$."
+        ]
+      }
+    },
+    {
+      "id": "stk1100-1-3-oppg-blandet",
+      "type": "exercise",
+      "exercise": {
+        "id": "stk1100-1-3-oppg-blandet-e",
+        "number": "7",
+        "type": "classic",
+        "difficulty": "vanskelig",
+        "task": "Ved et fødeavdeling ankommer fødsler etter en Poisson-prosess med rate $\\lambda = 1{,}5$ per døgn.\n\n**a)** Angi og begrunn modellen for antall fødsler $X$ i et døgn, og finn $E(X)$ og $\\text{Var}(X)$.\n\n**b)** Finn sannsynligheten for minst to fødsler i et døgn.\n\n**c)** Antall fødsler i to ulike døgn er $X_1$ og $X_2$ (uavhengige). Hva er fordelingen til totalen $X_1 + X_2$? (Bruk resultatet «sum av uavhengige Poisson er Poisson», som utledes i [kap. 4.1](/bok/stk1100/stk1100-4-1).)",
+        "solution": "**a)** Fødsler i disjunkte tidsrom er rimelig uavhengige, med tilnærmet konstant rate og ikke to i samme øyeblikk, så $X \\sim \\text{Poisson}(\\lambda t) = \\text{Poisson}(1{,}5)$ for ett døgn ($t = 1$). Da er $E(X) = \\text{Var}(X) = 1{,}5$.\n\n**b)** $P(X \\ge 2) = 1 - P(X = 0) - P(X = 1) = 1 - e^{-1{,}5} - 1{,}5\\,e^{-1{,}5} = 1 - 2{,}5\\,e^{-1{,}5}$. Med $e^{-1{,}5} \\approx 0{,}2231$: $1 - 2{,}5 \\cdot 0{,}2231 = 1 - 0{,}5578 = 0{,}4422$.\n\n**c)** Summen av to uavhengige Poisson-variable med forventninger $1{,}5$ og $1{,}5$ er Poisson med forventning $1{,}5 + 1{,}5 = 3$: $X_1 + X_2 \\sim \\text{Poisson}(3)$. (Rateskaleringen sier det samme: to døgn gir $\\lambda t = 1{,}5 \\cdot 2 = 3$.)",
+        "hints": [
+          "$X \\sim \\text{Poisson}(\\lambda t)$; for ett døgn er $t = 1$.",
+          "$P(X \\ge 2) = 1 - P(X=0) - P(X=1)$.",
+          "Sum av uavhengige Poisson: forventningene legges sammen."
+        ]
+      }
+    },
+    {
+      "id": "stk1100-1-3-oppg-modellvalg",
+      "type": "exercise",
+      "exercise": {
+        "id": "stk1100-1-3-oppg-modellvalg-e",
+        "number": "8",
+        "type": "classic",
+        "difficulty": "vanskelig",
+        "task": "For hver situasjon: velg riktig diskret modell med parametre og begrunn kort.\n\n**a)** Antall trafikkuhell i et veikryss i løpet av en måned, der uhell skjer uavhengig med en jevn hyppighet på 2 per måned.\n\n**b)** Antall riktige på en flervalgsprøve med 12 spørsmål der man gjetter tilfeldig blant 4 svaralternativer.\n\n**c)** Antall kast med en terning til og med det første sekseren kommer.",
+        "solution": "**a)** Hendelser i tid, uavhengige, konstant rate: **Poisson**$(\\mu = 2)$ for én måned. Forventet antall er $\\lambda t = 2 \\cdot 1 = 2$.\n\n**b)** Fast antall forsøk (12 spørsmål), uavhengige, samme suksesssannsynlighet $p = 1/4$: **binomisk**$(12;\\, 0{,}25)$. Forventet antall riktige $= 12 \\cdot 0{,}25 = 3$.\n\n**c)** Uavhengige forsøk til første suksess med $p = 1/6$: **geometrisk**$(1/6)$. Forventet antall kast $= 1/p = 6$.",
+        "hints": [
+          "Spør: er antall forsøk fast (binomisk) eller teller vi hendelser i et intervall (Poisson)?",
+          "Venting til første suksess peker mot geometrisk.",
+          "Begrunn alltid modellvalget — sensor krever det."
+        ]
+      }
+    },
+    {
+      "id": "stk1100-1-3-warn-typiske-feil",
+      "type": "warning",
+      "title": "Typiske feil",
+      "content": "- **Velge binomisk der antall forsøk ikke er fast.** Teller du hendelser i et intervall (bakterier, kunder, uhell) uten et forhåndsbestemt antall forsøk, er det Poisson, ikke binomisk.\n- **Glemme å skalere raten til intervallet.** Forventet antall er $\\lambda t$, ikke $\\lambda$. En rate på 3 per time gir $\\mu = 0{,}75$ for et kvarter — pass på at rate og intervall har samme enhet.\n- **Lese en kumulativ tabell som punktsannsynlighet.** $P(X \\le k)$ er noe annet enn $P(X = k)$; sjekk hva tabellen (eller kalkulatoren) gir.\n- **Ikke begrunne modellvalget.** «$X \\sim \\text{Poisson}(2{,}4)$» uten et ord om forutsetningene gir sensortrekk. Nevn uavhengige intervaller, konstant rate, ikke samtidige hendelser.\n- **Regne $P(X \\ge 1)$ som en lang sum.** Bruk komplementet $1 - P(X = 0)$ — nesten alltid raskere og mindre feilutsatt."
+    },
+    {
+      "id": "stk1100-1-3-begrepsbank-notis",
+      "type": "text",
+      "content": "### Begrepsbank\n\n*Flashcard-/repetisjonsstoff — hopp trygt over ved førstegangslesing; tidsanslaget på 60 minutter gjelder kjernestoffet over. Begrepene under er allerede brukt i kapitlet og samles her for repetisjon.*"
+    },
+    {
+      "id": "stk1100-1-3-bb-modellvalg",
+      "type": "definition",
+      "title": "Modellvalg — nøkkelspørsmålet",
+      "content": "Å velge riktig diskret fordeling starter med ett spørsmål: **er antall forsøk fast på forhånd?**\n\n- Ja, og vi teller suksesser → binomisk$(n, p)$.\n- Nei, vi teller hendelser i et intervall → Poisson$(\\lambda t)$.\n- Vi teller forsøk til en suksess kommer → geometrisk (første) eller negativ binomisk ($k$-te).\n\nBegrunn alltid valget med forutsetningene; det er selve modellvalget som gir mest uttelling."
+    },
+    {
+      "id": "stk1100-1-3-bb-punktsannsynlighet-binom",
+      "type": "definition",
+      "title": "Binomisk punktsannsynlighet",
+      "content": "$$P(X = k) = \\binom{n}{k}p^k(1-p)^{n-k}, \\qquad k = 0, \\ldots, n.$$\n\n$\\binom{n}{k}$ teller antall måter å plassere $k$ suksesser på blant $n$ forsøk; $p^k(1-p)^{n-k}$ er sannsynligheten for én bestemt slik rekkefølge. Står i formelsamlingen — tren oppslaget."
+    },
+    {
+      "id": "stk1100-1-3-bb-punktsannsynlighet-poisson",
+      "type": "definition",
+      "title": "Poisson punktsannsynlighet",
+      "content": "$$P(X = k) = \\frac{\\mu^k e^{-\\mu}}{k!}, \\qquad k = 0, 1, 2, \\ldots$$\n\nEn god kontroll: $P(X = 0) = e^{-\\mu}$, og sannsynlighetene summerer til 1 fordi $\\sum_k \\mu^k/k! = e^{\\mu}$. Står i formelsamlingen."
+    },
+    {
+      "id": "stk1100-1-3-bb-poisson-ev",
+      "type": "definition",
+      "title": "Forventning og varians, Poisson",
+      "content": "For $X \\sim \\text{Poisson}(\\mu)$ er forventning og varians **like**:\n\n$$E(X) = \\text{Var}(X) = \\mu.$$\n\nAt gjennomsnitt og spredning sammenfaller er et kjennetegn på Poisson-data; er den empiriske variansen mye større enn gjennomsnittet, passer ofte ikke Poisson-modellen. Utledes elegant med momentgenererende funksjon i [kap. 4.1](/bok/stk1100/stk1100-4-1)."
+    },
+    {
+      "id": "stk1100-1-3-bb-geometrisk-ev",
+      "type": "definition",
+      "title": "Forventning og varians, geometrisk",
+      "content": "For $X \\sim \\text{geometrisk}(p)$ (antall forsøk til første suksess):\n\n$$E(X) = \\frac{1}{p}, \\qquad \\text{Var}(X) = \\frac{1 - p}{p^2}.$$\n\nJo mindre suksesssannsynlighet, desto lengre venter vi i snitt — $E(X) = 1/p$ vokser når $p$ synker. Med $p = 0{,}25$ er forventet ventetid 4 forsøk."
+    },
+    {
+      "id": "stk1100-1-3-bb-sum-poisson",
+      "type": "definition",
+      "title": "Sum av uavhengige Poisson",
+      "content": "Summen av uavhengige Poisson-variable er igjen Poisson, med forventningene lagt sammen:\n\n$$X_1 \\sim \\text{Poisson}(\\mu_1), \\; X_2 \\sim \\text{Poisson}(\\mu_2) \\text{ uavh.} \\;\\Rightarrow\\; X_1 + X_2 \\sim \\text{Poisson}(\\mu_1 + \\mu_2).$$\n\nDette stemmer med rateskaleringen (slår du sammen to intervaller, legges forventningene sammen). Bevises via momentgenererende funksjon i [kap. 4.1](/bok/stk1100/stk1100-4-1)."
+    },
+    {
+      "id": "stk1100-1-3-bb-poisson-tilnaerming",
+      "type": "definition",
+      "title": "Poisson-tilnærming til binomisk",
+      "content": "Når $n$ er stor og $p$ liten (mange forsøk, sjelden suksess), er binomisk$(n, p)$ tilnærmet Poisson med $\\mu = np$:\n\n$$\\text{bin}(n, p) \\approx \\text{Poisson}(np) \\quad (n \\text{ stor, } p \\text{ liten}).$$\n\nDette forklarer hvorfor sjeldne hendelser i mange «forsøk» (defekter, mutasjoner) ofte modelleres som Poisson."
+    },
+    {
+      "id": "stk1100-1-3-bb-poisson-ventetid",
+      "type": "definition",
+      "title": "Poisson-prosessens ventetid",
+      "content": "I en Poisson-prosess med rate $\\lambda$ er **tiden mellom hendelser** (og tiden til første hendelse) eksponensialfordelt med forventning $1/\\lambda$. Antall hendelser (diskret, Poisson) og ventetid mellom dem (kontinuerlig, eksponensial) er to sider av samme prosess. Ventetiden behandles i [kap. 2.1](/bok/stk1100/stk1100-2-1); der vises eksponensialfordelingen i begge parametriseringer (rate $\\lambda$ og forventning $\\mu = 1/\\lambda$)."
+    },
+    {
+      "id": "stk1100-1-3-bb-uavhengige-forsok",
+      "type": "definition",
+      "title": "Uavhengige forsøk og konstant $p$",
+      "content": "Både den binomiske og den geometriske modellen krever at forsøkene er **uavhengige** (utfallet av ett påvirker ikke de andre) og har **samme suksesssannsynlighet** $p$ i hvert forsøk. Brytes én av disse — for eksempel trekking uten tilbakelegging fra en liten beholdning, der $p$ endrer seg — passer ikke modellen, og man må resonnere med betinget sannsynlighet i stedet."
+    },
+    {
+      "id": "stk1100-1-3-bb-rate-enhet",
+      "type": "definition",
+      "title": "Rate og enhet",
+      "content": "Raten $\\lambda$ i en Poisson-prosess har alltid en **enhet**: hendelser per tid, per lengde, per areal eller per volum. Regnestykket $\\mu = \\lambda t$ krever at $t$ måles i samme enhet som raten er per. Første steg i enhver Poisson-oppgave er å gjøre rate og intervall enhetskompatible (f.eks. gjøre om 15 minutter til $0{,}25$ time når raten er per time)."
+    },
+    {
+      "id": "stk1100-1-3-bb-indikator",
+      "type": "definition",
+      "title": "Indikatorvariabel",
+      "content": "En variabel $I$ som er 1 hvis en hendelse skjer og 0 ellers. Da er $E(I) = P(\\text{hendelsen}) = p$ og $\\text{Var}(I) = p(1 - p)$. Indikatorvariabler er byggeklossen bak binomisk fordeling (en sum av $n$ uavhengige indikatorer) og et nyttig triks: forventet antall hendelser finnes ved å summere sannsynlighetene $\\sum_i p_i$, også når indikatorene ikke er uavhengige."
+    },
+    {
+      "id": "stk1100-1-3-bb-kumulativ",
+      "type": "definition",
+      "title": "Kumulativ sannsynlighet, diskret",
+      "content": "Fordelingsfunksjonen for en diskret variabel summerer punktsannsynligheter opp til og med $k$:\n\n$$F(k) = P(X \\le k) = \\sum_{j=0}^{k} P(X = j).$$\n\nMange tabeller og kalkulatorer gir nettopp $P(X \\le k)$. Pass på skillet: $P(X \\le k)$, $P(X < k) = P(X \\le k-1)$ og $P(X = k)$ er tre forskjellige størrelser. $P(X \\ge k) = 1 - P(X \\le k-1)$."
+    },
+    {
+      "id": "stk1100-1-3-bb-negbinom-ev",
+      "type": "definition",
+      "title": "Forventning og varians, negativ binomisk",
+      "content": "For $X \\sim \\text{negativ binomisk}(k, p)$ (antall forsøk til den $k$-te suksessen):\n\n$$E(X) = \\frac{k}{p}, \\qquad \\text{Var}(X) = \\frac{k(1 - p)}{p^2}.$$\n\nDette er $k$ ganger de geometriske verdiene, fordi ventetiden til $k$-te suksess er summen av $k$ uavhengige geometriske ventetider (én for hver suksess). Geometrisk er tilfellet $k = 1$."
+    },
+    {
+      "id": "stk1100-1-3-bb-estimator-forsmak",
+      "type": "definition",
+      "title": "Estimator for raten (forvarsel til Del 5)",
+      "content": "Modelloppgaver følges ofte av spørsmålet «anslå parameteren». Teller vi $x$ hendelser i et intervall $t$, er et naturlig anslag for raten $\\hat{\\lambda} = x/t$ (observert antall delt på intervall). Den store bokstaven $\\hat{\\Lambda} = X/t$ er selve estimatoren (stokastisk), mens $\\hat{\\lambda} = x/t$ er estimatet (tallet). Dette skillet, og hvordan man vurderer et slikt anslag (forventningsretthet, standardfeil), er tema for Del 5 (punktestimering) — ta det med som et forvarsel om at modellvalget her er første ledd i en lengre kjede."
+    },
+    {
+      "id": "stk1100-1-3-rep-collapsible",
+      "type": "collapsible",
+      "title": "Repetisjonsoppgaver",
+      "buttonText": "Vis repetisjonsoppgaver",
+      "content": [
+        {
+          "id": "stk1100-1-3-rep-intro",
+          "type": "text",
+          "content": "Korte oppgaver fra forkunnskapene ([kap. 1.2](/bok/stk1100/stk1100-1-2), [S1 6.1](/bok/s1/s1-6-1))."
+        },
+        {
+          "id": "stk1100-1-3-rep-1",
+          "type": "exercise",
+          "exercise": {
+            "id": "stk1100-1-3-rep-1-e",
+            "number": "R1",
+            "type": "classic",
+            "difficulty": "lett",
+            "task": "En binomisk variabel har $n = 8$ og $p = 0{,}5$. Finn $E(X)$ og $\\text{Var}(X)$.",
+            "solution": "$E(X) = np = 8 \\cdot 0{,}5 = 4$. $\\text{Var}(X) = np(1-p) = 8 \\cdot 0{,}5 \\cdot 0{,}5 = 2$.",
+            "hints": [
+              "$E(X) = np$, $\\text{Var}(X) = np(1-p)$."
+            ]
+          }
+        },
+        {
+          "id": "stk1100-1-3-rep-2",
+          "type": "exercise",
+          "exercise": {
+            "id": "stk1100-1-3-rep-2-e",
+            "number": "R2",
+            "type": "classic",
+            "difficulty": "lett",
+            "task": "$X$ er summen av to uavhengige variable med $E(X_1) = 2$, $E(X_2) = 5$, $\\text{Var}(X_1) = 1$, $\\text{Var}(X_2) = 3$. Finn $E(X)$ og $\\text{Var}(X)$.",
+            "solution": "$E(X) = E(X_1) + E(X_2) = 2 + 5 = 7$. Siden variablene er uavhengige (kovarians 0): $\\text{Var}(X) = 1 + 3 = 4$.",
+            "hints": [
+              "Forventning er alltid additiv; varians er additiv ved uavhengighet."
+            ]
+          }
+        },
+        {
+          "id": "stk1100-1-3-rep-3",
+          "type": "exercise",
+          "exercise": {
+            "id": "stk1100-1-3-rep-3-e",
+            "number": "R3",
+            "type": "classic",
+            "difficulty": "lett",
+            "task": "Regn ut $\\binom{5}{2}$ og $\\binom{6}{0}$.",
+            "solution": "$\\binom{5}{2} = \\dfrac{5!}{2!\\,3!} = \\dfrac{5 \\cdot 4}{2} = 10$. $\\binom{6}{0} = 1$ (det er én måte å velge ingen på).",
+            "hints": [
+              "$\\binom{n}{k} = \\dfrac{n!}{k!(n-k)!}$; og $\\binom{n}{0} = 1$."
+            ]
+          }
+        },
+        {
+          "id": "stk1100-1-3-rep-4",
+          "type": "exercise",
+          "exercise": {
+            "id": "stk1100-1-3-rep-4-e",
+            "number": "R4",
+            "type": "classic",
+            "difficulty": "lett",
+            "task": "En variabel har $E(X) = 3$. Finn $E(2X + 1)$.",
+            "solution": "$E(2X + 1) = 2E(X) + 1 = 2 \\cdot 3 + 1 = 7$ (linearitet av forventning).",
+            "hints": [
+              "$E(aX + b) = aE(X) + b$."
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": "stk1100-1-3-sym-collapsible",
+      "type": "collapsible",
+      "title": "Symbol- og formelliste",
+      "buttonText": "Vis symboler og formler",
+      "content": [
+        {
+          "id": "stk1100-1-3-sym-intro",
+          "type": "text",
+          "content": "*Oppslagsverk — alt her forklares underveis i kapitlet.*\n\nAlle symboler og formler brukt i kapittel 1.3, samlet på ett sted.\n\n| Symbol | Betydning |\n|---|---|\n| $X$ | Antallet vi teller (stokastisk variabel) |\n| $n$ | Fast antall forsøk (binomisk) |\n| $p$ | Suksesssannsynlighet per forsøk |\n| $k$ | En bestemt telleverdi |\n| $\\binom{n}{k}$ | Binomialkoeffisient — antall måter å velge $k$ av $n$ |\n| $\\lambda$ | Rate/intensitet i en Poisson-prosess (per tid/rom) |\n| $t$ | Intervallstørrelse (tid, lengde, areal, volum) |\n| $\\mu$ | Forventet antall; for Poisson $\\mu = \\lambda t$ |\n| $e^{-\\mu}$ | $P(X = 0)$ for Poisson$(\\mu)$ |\n| $\\text{bin}(n,p)$ | Binomisk fordeling |\n| $\\text{Poisson}(\\mu)$ | Poisson-fordeling |\n\n**Formler i dette kapitlet:**\n\n$$P(X = k) = \\binom{n}{k}p^k(1-p)^{n-k}, \\quad E(X) = np, \\quad \\text{Var}(X) = np(1-p) \\quad \\text{(binomisk)}$$\n\n$$P(X = k) = \\frac{\\mu^k e^{-\\mu}}{k!}, \\quad E(X) = \\text{Var}(X) = \\mu, \\quad \\mu = \\lambda t \\quad \\text{(Poisson)}$$\n\n$$P(X = k) = (1-p)^{k-1}p, \\quad E(X) = \\frac{1}{p}, \\quad \\text{Var}(X) = \\frac{1-p}{p^2} \\quad \\text{(geometrisk)}$$\n\n$$P(X = n) = \\binom{n-1}{k-1}p^k(1-p)^{n-k} \\quad \\text{(negativ binomisk, $k$-te suksess)}$$\n\n$$P(X \\ge 1) = 1 - P(X = 0), \\qquad t > \\frac{-\\ln(1 - p_0)}{\\lambda} \\quad \\text{(løs for intervall)}$$"
+        }
+      ]
+    }
+  ],
+  "exercises": []
+}
