@@ -20,6 +20,13 @@ Branch: `bok/tma4110` (worktree). Arketype: regnefag. Institusjon: NTNU (slug `n
 - Quiz-staging: 0–9 unntatt **9-3, 9-4** (bygges). Del 10/11 gjenstår.
 
 ## Logg
+- (22. juli, steg 3-oppstart) Committet estetikk-fikser: (1) 4 filer fra forrige økt
+  (10-2, 10-3, 6-1, 7-prove — deloppgaver egne linjer, sjangerkode ut av
+  competenceGoals, commit 1fd5f69e); (2) fullt sveip over alle 52 filer etter
+  inline «(a) … (b) …» — 5 nye funn rettet i 10-2, 2-2, 2-3 (×2), 6-1
+  (deloppgaver til `**a)**` på egne linjer + normaliserte `**(a)**`→`**a)**`,
+  commit 037c4398). Verifikatorbølge (steg 3) startet: 5 parallelle agenter
+  etterregner Del 0–2, 3–4, 5–6, 7–8, 9–11 numerisk (sympy/numpy).
 - (Overtakelse 22. juli, forts.) Kjørte sjekk-bok.py på Del 0–9: rettet 4 strukturavvik —
   fjernet leftover `*(verifiser)*`-markør i 0-1, la til «Typiske feil»-warning i drillkapitlene
   1-3, 3-5, 6-5 (feilkatalog per tema). Gjenstår kun KVOTE (quiz wires i steg 2) + Del 10/11.
