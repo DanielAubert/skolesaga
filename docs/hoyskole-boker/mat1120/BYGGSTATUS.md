@@ -16,9 +16,9 @@ Branch: `bok/mat1120` (worktree). Oppdateres ved HVER commit.
 ## Byggebølge-batcher (maks 2 samtidige agenter)
 | Batch | Kapitler | Status |
 |---|---|---|
-| A | 0.1, 1.1–1.4, prøve-1 | ikke startet |
-| B1 | 2.1–2.4, prøve-2 | ikke startet |
-| B2 | 2.5–2.7 | ikke startet |
+| A | 0.1, 1.1–1.4, prøve-1 | 1.1–1.4 FERDIG+committet; 0.1+prøve-1 pågår (resumet etter ECONNRESET) |
+| B1 | 2.1–2.4 | FERDIG+committet (krasjet 2x på API, resumet) |
+| B2 | 2.5–2.7 + prøve-2 | ikke startet |
 | C | 3.1–3.4, prøve-3 | ikke startet |
 | D | 4.1–4.3, prøve-4 | ikke startet |
 | E | 5.1–5.3, prøve-5 | ikke startet |

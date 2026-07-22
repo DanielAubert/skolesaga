@@ -1,0 +1,152 @@
+{
+  "id": "mat1120-1-prove",
+  "courseId": "mat1120",
+  "chapterNumber": "1.P",
+  "title": "Prøver til del 1: Fundamentale underrom fra RREF",
+  "description": "Fire temaprøver til Del 1: vedleggslesning (kap. 1.1), Col A/Nul A-basis, rang og dimensjonsteoremet (kap. 1.2), Row A, lineærkombinasjoner og AB = O-konstruksjon (kap. 1.3), og en full oppgave 1-simulering med b i Col A kjedet på én matrise (kap. 1.1–1.4). Full fasit etter føringsstandarden, med vedlegg og selvdiagnose.",
+  "estimatedMinutes": 155,
+  "competenceGoals": [
+    "kunne lese pivotkolonner, frie variabler og avhengighetsrelasjoner rett av et vedlegg (RREF)",
+    "kunne finne basis for Col A (fra original), Nul A og Row A, oppgi rang og kontrollere med dimensjonsteoremet",
+    "kunne skrive kolonner som lineærkombinasjoner, konstruere B med AB = O og avgjøre om b ligger i Col A",
+    "kunne føre en fullstendig oppgave 1-besvarelse med vedleggssitering og eksakte svar"
+  ],
+  "content": [
+    {
+      "id": "mat1120-1-prove-tip",
+      "type": "tip",
+      "title": "Om prøvene til Del 1",
+      "content": "Disse fire prøvene dekker hele **Del 1 — Fundamentale underrom fra RREF** og trener sjanger A: den faste **oppgave 1** som er med i praktisk talt hvert eksamenssett (~100 %). Alt leses av et **vedlegg** (RREF-utskrift) — du radreduserer aldri store matriser for hånd.\n\n- **Prøve 1 — Vedleggslesning ([kap. 1.1](/bok/mat1120/mat1120-1-1)):** pivotkolonner, frie variabler og avhengighetsrelasjoner lest av RREF. ~35 min.\n- **Prøve 2 — $\\operatorname{Col}A$, $\\operatorname{Nul}A$, rang og dimensjonsteoremet ([kap. 1.2](/bok/mat1120/mat1120-1-2)):** den mest gjentatte deloppgaven i faget. ~40 min.\n- **Prøve 3 — $\\operatorname{Row}A$, lineærkombinasjoner og $AB=O$-konstruksjon ([kap. 1.3](/bok/mat1120/mat1120-1-3)):** radrommet og konstruksjonsvarianten. ~35 min.\n- **Prøve 4 — Oppgave 1-simulering ([kap. 1.1](/bok/mat1120/mat1120-1-1)–[1.4](/bok/mat1120/mat1120-1-4)):** $\\operatorname{Col}/\\operatorname{Nul}$/rang + $\\mathbf{b}\\in\\operatorname{Col}A$ kjedet på **én** matrise. ~45 min.\n\n**4 prøver à ~35–45 min, kan trygt deles over flere kvelder — én prøve per økt.** Milepælen er å fullføre settet, ikke å ta alt på én gang.\n\n**Merk formatet:** MAT1120-eksamen har **ingen flervalg** — alt er fullt begrunnet langsvar. Her har likevel **Prøve 1** en liten flervalgsdel til rask begrepssjekk (flervalget bor *inne i* Prøve 1); kryss av og kontroller mot fasiten. De øvrige oppgavene skal føres som en fullstendig besvarelse: **sitér vedlegget** («Fra vedlegget ser vi at RREF er …»), hent $\\operatorname{Col}A$-basis fra **original**-matrisen, og avslutt med en verbal konklusjon og eksakte svar. Etter hver fasit står en avkryssbar selvdiagnose."
+    },
+    {
+      "id": "mat1120-1-prove-forkunnskaper",
+      "type": "text",
+      "content": "**Forkunnskaper:** hele Del 1 — [kap. 1.1](/bok/mat1120/mat1120-1-1) (RREF, pivoter, frie variabler, avhengighetsrelasjoner), [kap. 1.2](/bok/mat1120/mat1120-1-2) ($\\operatorname{Col}A$/$\\operatorname{Nul}A$-basis, rang, dimensjonsteoremet), [kap. 1.3](/bok/mat1120/mat1120-1-3) ($\\operatorname{Row}A$, lineærkombinasjoner, $AB=O$) og drillen i [kap. 1.4](/bok/mat1120/mat1120-1-4). Radreduksjon og matriseføring forutsettes fra *(MAT1110 — forkunnskapsemne, ikke bygget ennå; aktiver `/bok/mat1110/<id>`-lenke når den finnes)*; en innføring finnes i [Lineære likningssystem og Gauss-eliminasjon](/bok/bi-okonomi/bi-okonomi-9-3). Ta prøvene uten hjelpemidler utover vedlegget, slik eksamen er lagt opp."
+    },
+    {
+      "id": "mat1120-1-prove-p1",
+      "type": "collapsible",
+      "title": "Prøve 1",
+      "buttonText": "Vis prøve 1",
+      "content": [
+        {
+          "id": "mat1120-1-prove-p1-oppg",
+          "type": "text",
+          "content": "**Sjanger:** vedleggslesning (A). **Anbefalt tid:** ca. 35 minutter.\n\nVedlegget gir for en $4\\times5$-matrise $A$:\n$$A=\\begin{bmatrix}1&0&2&1&4\\\\2&1&3&0&2\\\\-1&1&-3&2&5\\\\0&2&-2&-1&-3\\end{bmatrix},\\qquad \\operatorname{rref}(A)=\\begin{bmatrix}1&0&2&0&1\\\\0&1&-1&0&0\\\\0&0&0&1&3\\\\0&0&0&0&0\\end{bmatrix}.$$\n\n**Flervalg (kryss av, sjekk mot fasit):**\n\n1. Hvilke kolonner i $A$ er pivotkolonner? (a) 1, 2 og 3 (b) 3 og 5 (c) 1, 2 og 4 (d) alle fem.\n2. Hvor mange frie variabler har det homogene systemet $A\\mathbf{x}=\\mathbf{0}$? (a) 2 (b) 3 (c) 1 (d) 0.\n3. Avhengighetsrelasjonen for kolonne 3, lest av RREF, er (a) $\\mathbf{a}_3=\\mathbf{a}_1+\\mathbf{a}_2$ (b) $\\mathbf{a}_3=2\\mathbf{a}_1+\\mathbf{a}_2$ (c) $\\mathbf{a}_3=\\mathbf{a}_1-2\\mathbf{a}_2$ (d) $\\mathbf{a}_3=2\\mathbf{a}_1-\\mathbf{a}_2$.\n4. Avhengighetsrelasjonene lest av RREF gjelder (a) bare i RREF-matrisen $R$ (b) både i $A$ og i $R$ (samme kolonnerelasjoner) (c) bare i $A$ (d) verken i $A$ eller $R$.\n\n**Skriveoppgaver:**\n\n**a)** Angi pivotkolonnene og de frie variablene ut fra vedlegget, og forklar kort forskjellen på en *pivotposisjon* og en *pivotkolonne*.\n\n**b)** Skriv kolonne 5 i $A$ som en lineærkombinasjon av de øvrige kolonnene, og begrunn hvorfor relasjonen også gjelder i $A$ (ikke bare i $R$).\n\n**c)** Skriv ned de to spesielle løsningene (basis for $\\operatorname{Nul}A$) — én per fri variabel."
+        },
+        {
+          "id": "mat1120-1-prove-p1-fasit",
+          "type": "collapsible",
+          "title": "Fasit — Prøve 1",
+          "buttonText": "Vis fasit",
+          "content": [
+            {
+              "id": "mat1120-1-prove-p1-fasit-tekst",
+              "type": "text",
+              "content": "Fra vedlegget ser vi at RREF er\n$$\\operatorname{rref}(A)=\\begin{bmatrix}1&0&2&0&1\\\\0&1&-1&0&0\\\\0&0&0&1&3\\\\0&0&0&0&0\\end{bmatrix}.$$\nDe ledende enerne står i rad 1/kolonne 1, rad 2/kolonne 2 og rad 3/kolonne 4, så **pivotkolonnene er 1, 2 og 4** og de **frie variablene er $x_3$ og $x_5$** (ikke-pivotkolonnene).\n\n**Flervalg — riktige svar:** 1c · 2a · 3d · 4b. *(1 poeng hver.)*\n\n*Om felle 3b/3c: koeffisientene leses direkte av RREF-kolonne 3, som er $(2,-1,0)$ mot pivotradene, altså $\\mathbf{a}_3=2\\mathbf{a}_1-\\mathbf{a}_2$. Om 4a: relasjonene gjelder i $A$ fordi radreduksjon bevarer kolonnerelasjoner.*\n\n**a)** Pivotkolonner: **1, 2, 4**. Frie variabler: **$x_3$ og $x_5$**. En **pivotposisjon** er en enkelt plass $(\\text{rad},\\text{kolonne})$ i matrisen der en ledende ener står; en **pivotkolonne** er hele kolonnen som inneholder en pivotposisjon. RREF har tre pivotposisjoner, én i hver av kolonnene 1, 2 og 4.\n\n**b)** RREF-kolonne 5 er $(1,0,3)$ mot pivotradene (kolonnene 1, 2, 4), så\n$$\\mathbf{a}_5=1\\cdot\\mathbf{a}_1+0\\cdot\\mathbf{a}_2+3\\cdot\\mathbf{a}_4=\\mathbf{a}_1+3\\mathbf{a}_4.$$\nKontroll i $A$: $\\mathbf{a}_1+3\\mathbf{a}_4=\\begin{bmatrix}1\\\\2\\\\-1\\\\0\\end{bmatrix}+3\\begin{bmatrix}1\\\\0\\\\2\\\\-1\\end{bmatrix}=\\begin{bmatrix}4\\\\2\\\\5\\\\-3\\end{bmatrix}=\\mathbf{a}_5.$ ✓ Relasjonen gjelder i $A$ og ikke bare i $R$ fordi radreduksjon bevarer nøyaktig løsningsmengden til $A\\mathbf{x}=\\mathbf{0}$; en kolonnerelasjon i $R$ er derfor den samme relasjonen mellom de opprinnelige kolonnene i $A$.\n\n**c)** RREF-likningene er $x_1=-2x_3-x_5$, $x_2=x_3$, $x_4=-3x_5$. Spesielle løsninger:\n\n- $x_3=1,\\ x_5=0$: $\\mathbf{u}_1=(-2,1,1,0,0)^T$.\n- $x_3=0,\\ x_5=1$: $\\mathbf{u}_2=(-1,0,0,-3,1)^T$.\n\nBasis for $\\operatorname{Nul}A$: $\\{\\mathbf{u}_1,\\mathbf{u}_2\\}$. **Eksakt svar** — to spesielle løsninger, én per fri variabel."
+            },
+            {
+              "id": "mat1120-1-prove-p1-diag",
+              "type": "text",
+              "content": "**Selvdiagnose — kryss av ($\\square$):**\n\n- ☐ Jeg leste pivotkolonnene og de frie variablene rett av vedleggets RREF, uten å radredusere selv.\n- ☐ Jeg skilte pivotposisjon (én plass) fra pivotkolonne (hele kolonnen).\n- ☐ Jeg leste avhengighetsrelasjonen av RREF-koeffisientene og kontrollerte den i den opprinnelige matrisen $A$.\n- ☐ Jeg begrunnet at kolonnerelasjonene gjelder i $A$, ikke bare i $R$.\n- ☐ Jeg satte opp én spesiell løsning per fri variabel (fri variabel $=1$, resten $=0$)."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "mat1120-1-prove-p2",
+      "type": "collapsible",
+      "title": "Prøve 2",
+      "buttonText": "Vis prøve 2",
+      "content": [
+        {
+          "id": "mat1120-1-prove-p2-oppg",
+          "type": "text",
+          "content": "**Sjanger:** $\\operatorname{Col}/\\operatorname{Nul}$-basis, rang og dimensjonsteorem (A). **Anbefalt tid:** ca. 40 minutter.\n\nVedlegget gir for en $4\\times6$-matrise $A$:\n$$A=\\begin{bmatrix}1&2&3&0&2&2\\\\-1&1&0&1&-3&2\\\\2&-1&1&3&1&2\\\\0&1&1&2&-2&3\\end{bmatrix},\\qquad \\operatorname{rref}(A)=\\begin{bmatrix}1&0&1&0&2&0\\\\0&1&1&0&0&1\\\\0&0&0&1&-1&1\\\\0&0&0&0&0&0\\end{bmatrix}.$$\n\n**a)** Finn en basis for $\\operatorname{Col}A$ bestående av kolonner i $A$, og oppgi $\\dim\\operatorname{Col}A$.\n\n**b)** Finn en basis for $\\operatorname{Nul}A$.\n\n**c)** Oppgi $\\operatorname{rang}A$ og kontroller med dimensjonsteoremet. I hvilket rom lever $\\operatorname{Col}A$, og er $\\operatorname{Col}A=\\mathbb{R}^4$?"
+        },
+        {
+          "id": "mat1120-1-prove-p2-fasit",
+          "type": "collapsible",
+          "title": "Fasit — Prøve 2",
+          "buttonText": "Vis fasit",
+          "content": [
+            {
+              "id": "mat1120-1-prove-p2-fasit-tekst",
+              "type": "text",
+              "content": "Fra vedlegget ser vi at RREF er\n$$\\operatorname{rref}(A)=\\begin{bmatrix}1&0&1&0&2&0\\\\0&1&1&0&0&1\\\\0&0&0&1&-1&1\\\\0&0&0&0&0&0\\end{bmatrix}.$$\nPivotkolonnene er **1, 2 og 4**; de frie variablene er $x_3,x_5,x_6$.\n\n**a)** Basis for $\\operatorname{Col}A$ er de **opprinnelige** kolonnene 1, 2 og 4 i $A$ (ikke RREF-kolonnene):\n$$\\Big\\{\\begin{bmatrix}1\\\\-1\\\\2\\\\0\\end{bmatrix},\\ \\begin{bmatrix}2\\\\1\\\\-1\\\\1\\end{bmatrix},\\ \\begin{bmatrix}0\\\\1\\\\3\\\\2\\end{bmatrix}\\Big\\},\\qquad \\dim\\operatorname{Col}A=3.$$\n*(Å hente kolonnene fra RREF i stedet ville gitt feil rom — den klassiske MAT1120-fellen.)*\n\n**b)** RREF-likningene er $x_1=-x_3-2x_5$, $x_2=-x_3-x_6$, $x_4=x_5-x_6$. Spesielle løsninger:\n\n- $x_3=1$: $(-1,-1,1,0,0,0)^T$.\n- $x_5=1$: $(-2,0,0,1,1,0)^T$.\n- $x_6=1$: $(0,-1,0,-1,0,1)^T$.\n\nBasis for $\\operatorname{Nul}A$: $\\{(-1,-1,1,0,0,0)^T,\\ (-2,0,0,1,1,0)^T,\\ (0,-1,0,-1,0,1)^T\\}$, og $\\dim\\operatorname{Nul}A=3$.\n\n**c)** $\\operatorname{rang}A=3$ (tre pivoter). **Dimensjonsteoremet:** $\\operatorname{rang}A+\\dim\\operatorname{Nul}A=3+3=6=$ antall søyler. ✓ Kolonnene i $A$ har 4 komponenter, så $\\operatorname{Col}A\\subseteq\\mathbb{R}^4$. Siden $\\dim\\operatorname{Col}A=3<4$ er $\\operatorname{Col}A\\ne\\mathbb{R}^4$ (ikke full radrang) — det finnes $\\mathbf{b}\\in\\mathbb{R}^4$ som ikke ligger i $\\operatorname{Col}A$."
+            },
+            {
+              "id": "mat1120-1-prove-p2-diag",
+              "type": "text",
+              "content": "**Selvdiagnose — kryss av ($\\square$):**\n\n- ☐ Jeg tok $\\operatorname{Col}A$-basisen fra de opprinnelige pivotkolonnene i $A$, ikke fra RREF.\n- ☐ Jeg fant én spesiell løsning per fri variabel til $\\operatorname{Nul}A$-basisen.\n- ☐ Jeg oppga $\\operatorname{rang}A=$ antall pivoter og kontrollerte med dimensjonsteoremet.\n- ☐ Jeg plasserte $\\operatorname{Col}A$ i riktig rom ($\\mathbb{R}^m$, $m=$ antall rader) og avgjorde om det er hele rommet.\n- ☐ Jeg skilte dimensjon (et tall) fra basis (vektorene)."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "mat1120-1-prove-p3",
+      "type": "collapsible",
+      "title": "Prøve 3",
+      "buttonText": "Vis prøve 3",
+      "content": [
+        {
+          "id": "mat1120-1-prove-p3-oppg",
+          "type": "text",
+          "content": "**Sjanger:** $\\operatorname{Row}A$, lineærkombinasjoner og $AB=O$-konstruksjon (A). **Anbefalt tid:** ca. 35 minutter.\n\nVedlegget gir for en $4\\times5$-matrise $A$:\n$$A=\\begin{bmatrix}1&2&0&1&-1\\\\2&4&1&3&0\\\\1&2&-1&0&-3\\\\-1&-2&2&1&5\\end{bmatrix},\\qquad \\operatorname{rref}(A)=\\begin{bmatrix}1&2&0&1&-1\\\\0&0&1&1&2\\\\0&0&0&0&0\\\\0&0&0&0&0\\end{bmatrix}.$$\n\n**a)** Finn en basis for $\\operatorname{Row}A$ og en basis for $\\operatorname{Col}A$. Hva er felles for antallet vektorer i de to basene?\n\n**b)** Skriv kolonne 2, 4 og 5 i $A$ som lineærkombinasjoner av $\\operatorname{Col}A$-basisen.\n\n**c)** Konstruer en $5\\times2$-matrise $B\\ne O$ med $AB=O$, og forklar hvor kolonnene i $B$ hentes fra."
+        },
+        {
+          "id": "mat1120-1-prove-p3-fasit",
+          "type": "collapsible",
+          "title": "Fasit — Prøve 3",
+          "buttonText": "Vis fasit",
+          "content": [
+            {
+              "id": "mat1120-1-prove-p3-fasit-tekst",
+              "type": "text",
+              "content": "Fra vedlegget ser vi at RREF er\n$$\\operatorname{rref}(A)=\\begin{bmatrix}1&2&0&1&-1\\\\0&0&1&1&2\\\\0&0&0&0&0\\\\0&0&0&0&0\\end{bmatrix}.$$\nPivotkolonnene er **1 og 3**; de frie variablene er $x_2,x_4,x_5$.\n\n**a)** Basis for $\\operatorname{Row}A$ er de **ikke-null-radene i RREF** (radrommet bevares av radreduksjon):\n$$\\{(1,2,0,1,-1),\\ (0,0,1,1,2)\\}.$$\nBasis for $\\operatorname{Col}A$ er de **opprinnelige** kolonnene 1 og 3 i $A$:\n$$\\Big\\{\\begin{bmatrix}1\\\\2\\\\1\\\\-1\\end{bmatrix},\\ \\begin{bmatrix}0\\\\1\\\\-1\\\\2\\end{bmatrix}\\Big\\}.$$\nBegge basene har **2 vektorer**: $\\dim\\operatorname{Row}A=\\dim\\operatorname{Col}A=\\operatorname{rang}A=2$.\n\n**b)** Koeffisientene leses av RREF-kolonnene mot pivotradene:\n\n- Kolonne 2 er $(2,0)$, så $\\mathbf{a}_2=2\\mathbf{a}_1$. Kontroll: $2\\begin{bmatrix}1\\\\2\\\\1\\\\-1\\end{bmatrix}=\\begin{bmatrix}2\\\\4\\\\2\\\\-2\\end{bmatrix}=\\mathbf{a}_2.$ ✓\n- Kolonne 4 er $(1,1)$, så $\\mathbf{a}_4=\\mathbf{a}_1+\\mathbf{a}_3=\\begin{bmatrix}1\\\\3\\\\0\\\\1\\end{bmatrix}.$ ✓\n- Kolonne 5 er $(-1,2)$, så $\\mathbf{a}_5=-\\mathbf{a}_1+2\\mathbf{a}_3=\\begin{bmatrix}-1\\\\0\\\\-3\\\\5\\end{bmatrix}.$ ✓\n\n**c)** Kolonnene i $B$ skal ligge i $\\operatorname{Nul}A$, for da er $AB=O$ (hver kolonne $\\mathbf{b}_j$ oppfyller $A\\mathbf{b}_j=\\mathbf{0}$). RREF-likningene $x_1=-2x_2-x_4+x_5$, $x_3=-x_4-2x_5$ gir spesielle løsninger, f.eks. $(-2,1,0,0,0)^T$ (fra $x_2=1$) og $(-1,0,-1,1,0)^T$ (fra $x_4=1$). Sett dem som kolonner:\n$$B=\\begin{bmatrix}-2&-1\\\\1&0\\\\0&-1\\\\0&1\\\\0&0\\end{bmatrix}.$$\nDa er $AB=O$ (en $4\\times2$-nullmatrise), $B\\ne O$, og $\\operatorname{rang}B=2$ (de to nullromsvektorene er uavhengige). At $AB=O$ med $B\\ne O$ er mulig fordi $\\operatorname{Nul}A\\ne\\{\\mathbf{0}\\}$."
+            },
+            {
+              "id": "mat1120-1-prove-p3-diag",
+              "type": "text",
+              "content": "**Selvdiagnose — kryss av ($\\square$):**\n\n- ☐ Jeg tok $\\operatorname{Row}A$-basisen fra ikke-null-radene i RREF, men $\\operatorname{Col}A$-basisen fra de opprinnelige kolonnene i $A$.\n- ☐ Jeg forklarte hvorfor rader og kolonner behandles ulikt (radrommet bevares, kolonnerommet ikke).\n- ☐ Jeg leste koeffisientene i lineærkombinasjonene rett av RREF og kontrollerte i $A$.\n- ☐ Jeg hentet kolonnene i $B$ fra $\\operatorname{Nul}A$ og fikk $AB=O$ med $B\\ne O$.\n- ☐ Jeg oppga eksakte heltallsbaser og sjekket $\\dim\\operatorname{Row}A=\\dim\\operatorname{Col}A=\\operatorname{rang}A$."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "mat1120-1-prove-p4",
+      "type": "collapsible",
+      "title": "Prøve 4",
+      "buttonText": "Vis prøve 4",
+      "content": [
+        {
+          "id": "mat1120-1-prove-p4-oppg",
+          "type": "text",
+          "content": "**Sjanger:** oppgave 1-simulering, alt kjedet på én matrise (A). **Anbefalt tid:** ca. 45 minutter. Før dette som en fullstendig eksamensbesvarelse.\n\nVedlegget gir for en $4\\times5$-matrise $A$:\n$$A=\\begin{bmatrix}1&0&1&1&1\\\\0&1&1&-1&3\\\\1&-1&0&2&-2\\\\2&1&0&1&2\\end{bmatrix},\\qquad \\operatorname{rref}(A)=\\begin{bmatrix}1&0&0&1&0\\\\0&1&0&-1&2\\\\0&0&1&0&1\\\\0&0&0&0&0\\end{bmatrix}.$$\nVedlegget gir dessuten RREF av de utvidede matrisene $[\\,A\\mid\\mathbf{b}_1\\,]$ og $[\\,A\\mid\\mathbf{b}_2\\,]$ for $\\mathbf{b}_1=(3,2,1,2)^T$ og $\\mathbf{b}_2=(1,1,1,0)^T$:\n$$\\operatorname{rref}[\\,A\\mid\\mathbf{b}_1\\,]=\\begin{bmatrix}1&0&0&1&0&1\\\\0&1&0&-1&2&0\\\\0&0&1&0&1&2\\\\0&0&0&0&0&0\\end{bmatrix},\\qquad \\operatorname{rref}[\\,A\\mid\\mathbf{b}_2\\,]=\\begin{bmatrix}1&0&0&1&0&0\\\\0&1&0&-1&2&0\\\\0&0&1&0&1&0\\\\0&0&0&0&0&1\\end{bmatrix}.$$\n\n**a)** Finn en basis for $\\operatorname{Col}A$ og en for $\\operatorname{Nul}A$. Oppgi $\\operatorname{rang}A$ og kontroller med dimensjonsteoremet.\n\n**b)** Avgjør for hver av $\\mathbf{b}_1$ og $\\mathbf{b}_2$ om den ligger i $\\operatorname{Col}A$, og begrunn med vedlegget.\n\n**c)** For den av $\\mathbf{b}_1,\\mathbf{b}_2$ som ligger i $\\operatorname{Col}A$: gi en konkret $\\mathbf{x}$ med $A\\mathbf{x}=\\mathbf{b}$."
+        },
+        {
+          "id": "mat1120-1-prove-p4-fasit",
+          "type": "collapsible",
+          "title": "Fasit — Prøve 4",
+          "buttonText": "Vis fasit",
+          "content": [
+            {
+              "id": "mat1120-1-prove-p4-fasit-tekst",
+              "type": "text",
+              "content": "Fra vedlegget ser vi at RREF av $A$ er\n$$\\operatorname{rref}(A)=\\begin{bmatrix}1&0&0&1&0\\\\0&1&0&-1&2\\\\0&0&1&0&1\\\\0&0&0&0&0\\end{bmatrix}.$$\nPivotkolonnene er **1, 2 og 3**; de frie variablene er $x_4$ og $x_5$.\n\n**a)** Basis for $\\operatorname{Col}A$ er de opprinnelige kolonnene 1, 2 og 3 i $A$:\n$$\\Big\\{\\begin{bmatrix}1\\\\0\\\\1\\\\2\\end{bmatrix},\\ \\begin{bmatrix}0\\\\1\\\\-1\\\\1\\end{bmatrix},\\ \\begin{bmatrix}1\\\\1\\\\0\\\\0\\end{bmatrix}\\Big\\}.$$\nRREF-likningene er $x_1=-x_4$, $x_2=x_4-2x_5$, $x_3=-x_5$. Spesielle løsninger:\n\n- $x_4=1$: $(-1,1,0,1,0)^T$.\n- $x_5=1$: $(0,-2,-1,0,1)^T$.\n\nBasis for $\\operatorname{Nul}A$: $\\{(-1,1,0,1,0)^T,\\ (0,-2,-1,0,1)^T\\}$. $\\operatorname{rang}A=3$. **Dimensjonsteoremet:** $\\operatorname{rang}A+\\dim\\operatorname{Nul}A=3+2=5=$ antall søyler. ✓\n\n**b)** Løsbarheten leses av høyresidekolonnen i de utvidede RREF-ene:\n\n- For $\\mathbf{b}_1$: $\\operatorname{rref}[\\,A\\mid\\mathbf{b}_1\\,]$ har **ingen pivot i høyresidekolonnen** (den er $(1,0,2,0)^T$), så systemet er konsistent og $\\operatorname{rang}[\\,A\\mid\\mathbf{b}_1\\,]=\\operatorname{rang}A=3$. Altså **$\\mathbf{b}_1\\in\\operatorname{Col}A$**.\n- For $\\mathbf{b}_2$: $\\operatorname{rref}[\\,A\\mid\\mathbf{b}_2\\,]$ har en **pivot i høyresidekolonnen** (siste rad gir likningen $0=1$), så systemet er inkonsistent og $\\operatorname{rang}[\\,A\\mid\\mathbf{b}_2\\,]=4>3=\\operatorname{rang}A$. Altså **$\\mathbf{b}_2\\notin\\operatorname{Col}A$**.\n\n**c)** For $\\mathbf{b}_1$ leser vi løsningen av $\\operatorname{rref}[\\,A\\mid\\mathbf{b}_1\\,]$ med de frie variablene $x_4=x_5=0$: høyresidekolonnen $(1,0,2,0)^T$ gir $x_1=1$, $x_2=0$, $x_3=2$, altså\n$$\\mathbf{x}=(1,0,2,0,0)^T.$$\nKontroll: $\\mathbf{a}_1+2\\mathbf{a}_3=\\begin{bmatrix}1\\\\0\\\\1\\\\2\\end{bmatrix}+2\\begin{bmatrix}1\\\\1\\\\0\\\\0\\end{bmatrix}=\\begin{bmatrix}3\\\\2\\\\1\\\\2\\end{bmatrix}=\\mathbf{b}_1.$ ✓ **Eksakt svar** — en konkret løsning; hele løsningsmengden er $\\mathbf{x}+\\operatorname{Nul}A$."
+            },
+            {
+              "id": "mat1120-1-prove-p4-diag",
+              "type": "text",
+              "content": "**Selvdiagnose — kryss av ($\\square$):**\n\n- ☐ Jeg siterte vedlegget i stedet for å radredusere for hånd.\n- ☐ Jeg tok $\\operatorname{Col}A$-basisen fra de opprinnelige pivotkolonnene i $A$.\n- ☐ Jeg kontrollerte rang og nullitet med dimensjonsteoremet.\n- ☐ Jeg avgjorde $\\mathbf{b}\\in\\operatorname{Col}A$ ved å se på pivot i høyresidekolonnen i den utvidede RREF-en.\n- ☐ Jeg leste en konkret løsning $\\mathbf{x}$ av den utvidede RREF-en og kontrollerte $A\\mathbf{x}=\\mathbf{b}$.\n- ☐ Jeg avsluttet med en verbal konklusjon og eksakte svar."
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "exercises": []
+}

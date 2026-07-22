@@ -1,0 +1,263 @@
+{
+  "id": "mat1120-0-1",
+  "courseId": "mat1120",
+  "chapterNumber": "0.1",
+  "title": "Eksamenskartet: 10 deloppgaver à 10 p, vedlegget og fem faste søyler",
+  "description": "Slik testes MAT1120: den stabile 4-timers eksamenen med ti deloppgaver à 10 p, det avgjørende vedlegget, de fem faste søylene, sensorreglene og lesestrategien som styrer hele boka.",
+  "estimatedMinutes": 40,
+  "competenceGoals": [
+    "gjøre rede for hvordan MAT1120 vurderes: en 4-timers skriftlig skoleeksamen med ti likt vektede deloppgaver og et vedlegg som gjør den tyngste regningen",
+    "prioritere lesingen etter de fem temaene som treffer så godt som hvert eneste eksamenssett",
+    "planlegge en eksamensoppgave slik at samme matrise eller underrom gjenbrukes mellom deloppgaver",
+    "kjenne igjen sensorens faste krav om at alle svar skal begrunnes og oppgis eksakt"
+  ],
+  "content": [
+    {
+      "id": "mat1120-0-1-slik-leser-du",
+      "type": "text",
+      "content": "## Slik leser du denne boka\n\nVelkommen til MAT1120 — Universitetet i Oslos teoritunge andrekurs i lineær algebra. Denne boka har ett mål: å gjøre deg trygg på **akkurat det som testes til eksamen**, i akkurat den rekkefølgen du trenger det. Dette aller første kapitlet er kartet. Her ser du hvordan eksamen er skrudd sammen, hvilke fem temaer som går igjen hvert eneste år, hva sensor faktisk belønner, og hvordan du bør legge opp lesingen. Bruk det som en oversikt du kan komme tilbake til underveis.\n\n**Formatet er usedvanlig forutsigbart.** Eksamen er en **skriftlig skoleeksamen på 4 timer** med karakterskala **A–F**. Den består av **ti deloppgaver som teller helt likt — ti poeng på hver** — samlet i fire til fem nummererte hovedoppgaver med bokstavdeler (1a, 1b, 2a …). Det er **ingen flervalgsoppgaver**: alt er langsvar der du må begrunne det du gjør. To obligatoriske innleveringer må være godkjent for at du skal få gå opp.\n\n**Om karakterer:** A–F, der A er høyest og E er laveste ståkarakter. **C er en god og helt vanlig karakter** — den er selve tyngdepunktet i et normalt kull, ikke et nederlag. Målet med denne boka er å løfte deg trygt gjennom det som gir ståkarakter, og så gi deg verktøyene til å strekke deg oppover derfra. Du trenger ikke sikte på feilfritt for å lykkes.\n\n**Om lærebokas oppbygning:** hvert temakapittel er bygget som små løkker av **teori → gjennomregnet eksempel → øvingsoppgave**, så du får prøvd deg med én gang. Etter temaene kommer egne drillkapitler, temaprøver og til slutt tre komplette øvingseksamener under tidspress. De vanligste feilene studenter gjør, er samlet i et eget **feilregister** (i studieguiden og som «Typiske feil»-bokser i hvert kapittel) — les dem, for de er billige poeng å ikke miste.\n\n> **Ikke la symbolene skremme deg.** Utover i boka møter du skrivemåter som $[T]_{\\mathcal{B}}$, $P_{\\mathcal{C}\\leftarrow\\mathcal{B}}$ og $A=U\\Sigma V^{T}$. **Du trenger ikke forstå dem ennå** — hvert symbol forklares grundig, i ord først, akkurat der det tas i bruk. Kartet her navngir dem bare så du vet at de kommer."
+    },
+    {
+      "id": "mat1120-0-1-kildenote",
+      "type": "text",
+      "content": "### Hvor tallene i denne boka kommer fra\n\nNår boka sier at et tema dukker opp i «7 av 7 sett» eller «~70 %», er det **telte tall**, ikke synsing. Grunnlaget er **sju fullstendige eksamenssett med tilhørende offisielle løsningsforslag fra høsten 2018 til høsten 2024** (H2018, H2019, H2020, H2021, H2022, den utsatte H2022 og H2024), lest i sin helhet sammen med oppgavesettene og vedleggene. Frekvensene, sjangrene og sensorkravene i denne boka er destillert derfra.\n\nTo forbehold å ta med seg: H2020 var **hjemmeeksamen** (pandemi-avvik), men innhold og struktur var uendret; og **vedleggsformatet skiftet** fra Matlab-utskrift til rene trappeform-ark i H2024 (samme funksjon — se under). Sjekk alltid det nyeste tilgjengelige settet for å bekrefte at formatet står ved lag."
+    },
+    {
+      "id": "mat1120-0-1-format-intro",
+      "type": "text",
+      "content": "## Det stabile formatet og vedlegget\n\nTo ting definerer MAT1120-eksamen, og begge er gode nyheter for deg som forbereder deg: **formatet er nesten identisk fra år til år**, og **den tyngste regnejobben er tatt bort ved et vedlegg**. Vi tar dem i tur."
+    },
+    {
+      "id": "mat1120-0-1-def-format",
+      "type": "definition",
+      "title": "Eksamensformatet",
+      "content": "MAT1120 vurderes med **én skriftlig skoleeksamen på 4 timer**, karakterskala **A–F**, som teller 100 % (to obligatoriske innleveringer må være godkjent for å gå opp).\n\nSettet har **ti deloppgaver som teller likt — 10 poeng hver** — fordelt på fire til fem nummererte hovedoppgaver med bokstavdeler. Det er **ingen flervalg**; alt er fullt begrunnet langsvar. Fordi hver deloppgave er verdt like mye, lønner det seg å sikre de sikre poengene bredt heller enn å bruke all tida på én tung del."
+    },
+    {
+      "id": "mat1120-0-1-def-vedlegg",
+      "type": "definition",
+      "title": "Vedlegget",
+      "content": "Eksamen har formelt **ingen hjelpemidler**, men hvert sett kommer med et **vedlegg** som gjør den rå regningen for deg. Fram til og med H2022 var det en **Matlab-utskrift** ($\\operatorname{rref}$ for redusert trappeform, $\\operatorname{poly}$ for karakteristisk polynom, $\\operatorname{eig}$ for egenverdier og egenvektorer); fra H2024 er det et eget **ark med ferdige reduserte trappeformer** — samme funksjon, uten Matlab-innpakningen.\n\nDin jobb er å **lese resultatene ut av vedlegget og sitere det** («Fra vedlegget ser vi at RREF er …»), ikke å radredusere store matriser for hånd. Det flytter belastningen fra regning til argumentasjon."
+    },
+    {
+      "id": "mat1120-0-1-vedleggsstrategi",
+      "type": "text",
+      "content": "### Slik leser du et vedlegg\n\nTenk på vedlegget som en kalkulator som allerede har trykket på knappene. Det du skal hente ut:\n\n- **Fra en redusert trappeform ($\\operatorname{rref}$-utskrift eller RREF-ark):** hvilke kolonner som har **pivot** (ledende ener), hvilke som er **frie**, og hvilke tall som står over pivotene — de gir deg basis for $\\operatorname{Col}A$ og $\\operatorname{Nul}A$, rangen og avhengighetsrelasjonene.\n- **Fra $\\operatorname{poly}(A)$:** det **karakteristiske polynomet**, som du faktoriserer for å finne egenverdiene.\n- **Fra $\\operatorname{eig}(A)$ eller $[V\\ D]=\\operatorname{eig}(A)$:** **egenverdiene** (i $D$) og tilhørende **egenvektorer** (i $V$), ofte allerede ortonormale for symmetriske matriser.\n\n**Hvorfor du ikke skal radredusere for hånd:** å redusere en $4\\times5$-matrise manuelt tar flere minutter og er en klassisk feilkilde — og du får ingen ekstra poeng for det, siden vedlegget uansett gir svaret. Sensor forventer at du **bruker** vedlegget. Små kontroller for hånd ($2\\times2$, verifisere at $A\\mathbf{v}=\\lambda\\mathbf{v}$) er derimot helt greit og ofte lurt."
+    },
+    {
+      "id": "mat1120-0-1-oppg-1",
+      "type": "exercise",
+      "exercise": {
+        "id": "mat1120-0-1-refl-1",
+        "number": "1",
+        "type": "classic",
+        "difficulty": "lett",
+        "task": "(Refleksjon om oppgavestrategi — ingen regning.) Den første store hovedoppgaven bruker ofte **samme matrise $A$** gjennom flere deler: først basis for $\\operatorname{Col}A$ og $\\operatorname{Nul}A$, så en ortogonal basis, så en projeksjon eller minste kvadraters løsning. Vedlegget gir deg RREF-en av $A$ (og gjerne av $A^{T}A$). Hvordan planlegger du hele hovedoppgaven for å slippe å gjøre samme jobb to ganger?",
+        "solution": "Les vedlegget **én gang, grundig**, før du begynner å skrive. Noter deg pivotkolonnene, de frie variablene og rangen — de bærer *hele* hovedoppgaven:\n\n**a)** Basis-delen leser du rett av: $\\operatorname{Col}A$-basis = de opprinnelige pivotkolonnene i $A$, $\\operatorname{Nul}A$-basis = spesielle løsninger fra de frie variablene.\n\n**b)** Den ortogonale basisen bygger du med Gram–Schmidt **på de samme kolonnene** du nettopp valgte — ikke på et nytt sett vektorer.\n\n**c)** Projeksjonen/minste kvadrater bruker den ortogonale basisen fra (b), eller normallikningene med den lille RREF-en av $A^{T}A$ som også ligger i vedlegget.\n\nPoenget: samme avlesning gjenbrukes tre ganger. Ser du kjedingen med én gang, sparer du tid og unngår å regne motstridende svar i ulike deler.",
+        "hints": [
+          "Hva kan du lese ut av RREF-en som brukes i mer enn én deloppgave?",
+          "Tenk på rekkefølgen basis → ortogonal basis → projeksjon som ett spor, ikke tre løsrevne oppgaver."
+        ]
+      }
+    },
+    {
+      "id": "mat1120-0-1-soyler-intro",
+      "type": "text",
+      "content": "## De fem faste søylene\n\nDet nest viktigste kartet: **hva som faktisk kommer**. Bredden er nesten identisk fra år til år. Fem temaer treffer så godt som hvert eneste sett — de er ryggraden i faget, og de er der du sikrer flest poeng."
+    },
+    {
+      "id": "mat1120-0-1-def-soyler",
+      "type": "definition",
+      "title": "De fem faste søylene",
+      "content": "Fem temaer dukker opp i praktisk talt **hvert eneste eksamenssett** (~100 %), og bør sitte som ryggmargsrefleks:\n\n1. **Basis og rang fra en trappeform** — $\\operatorname{Col}A$, $\\operatorname{Nul}A$, rang lest av vedlegget.\n2. **Egenverdier og diagonalisering** — finne egenverdier, begrunne diagonaliserbarhet, skrive $A=PDP^{-1}$.\n3. **Abstrakt vektorrom** — et rom av polynomer eller funksjoner med koordinater og en operatormatrise. MAT1120s signaturoppgave.\n4. **Gram–Schmidt** — bygge en ortogonal (eller ortonormal) basis.\n5. **Ortogonal projeksjon og minste kvadrater** — projisere en vektor ned i et underrom.\n\nFordi hvert sett dekker hele denne bredden, slår **bredde dybde-i-ett-tema**: sørg for at alle fem sitter før du fordyper deg i randtemaene."
+    },
+    {
+      "id": "mat1120-0-1-frekvenstabell",
+      "type": "text",
+      "content": "### Temafrekvens-tabellen\n\nHer er hele temainventaret med hvor ofte det er testet som egen deloppgave, telt over de sju settene (H2018–H2024). Bruk kolonnen «Andel» til å prioritere.\n\n| Tema | Andel av settene | Nivå |\n|---|---|---|\n| Basis/rang for $\\operatorname{Col}A$/$\\operatorname{Nul}A$ fra trappeform | ~100 % (7/7) | Kjerne |\n| Egenverdier, egenvektorer, diagonalisering $A=PDP^{-1}$ | ~100 % (7/7) | Kjerne |\n| Abstrakt vektorrom ($\\operatorname{P}_n$/funksjonsrom) + koordinater | ~100 % (7/7) | Kjerne |\n| Gram–Schmidt / ortogonal basis | ~100 % (7/7) | Kjerne |\n| Ortogonal projeksjon $\\operatorname{proj}_W$ / minste kvadrater | ~100 % (7/7) | Kjerne |\n| Matriserepresentasjon $[T]_{\\mathcal{B}}$ av en avbildning | ~85 % | Kjerne |\n| Ikke-standard indreprodukt (vektet/integral/evaluering) | ~70 % | Karakterskiller |\n| Kvadratiske former, Rayleigh-maks, kjeglesnitt | ~70 % | Karakterskiller |\n| Basisskifte / overgangsmatrise $P_{\\mathcal{C}\\leftarrow\\mathcal{B}}$ | ~60 % | Kjerne |\n| Symmetriske matriser / spektralteorem $A=PDP^{T}$ | ~55 % | Karakterskiller |\n| $W^{\\perp}$ / avstand til underrom / ortogonal dekomposisjon | ~55 % | Karakterskiller |\n| Kort teori-/bevisoppgave | ~50 % | Karakterskiller |\n| $A^{k}$ via $PD^{k}P^{-1}$ eller polynom i $A$ | ~40 % | Bredde |\n| Diff.likningssystem $\\mathbf{x}'=A\\mathbf{x}$ | ~35 % | Bredde |\n| SVD / singulærverdidekomposisjon | ~30 % | Bredde |\n| Diskret dynamikk $\\mathbf{x}_{k+1}=A\\mathbf{x}_k$, Householder, $\\operatorname{Row}A$ | ~15 % hver | Bredde |\n\nLegg merke til mønsteret: de fem øverste er så godt som garantert, mens karakterskillerne (~55–70 %) er der du henter poengene som løfter deg fra ståkarakter og oppover."
+    },
+    {
+      "id": "mat1120-0-1-ikke-testet-tekst",
+      "type": "text",
+      "content": "### Det som IKKE testes som eget tema\n\nLike nyttig som å vite hva som kommer, er å vite hva du **ikke** trenger å bruke tid på. MAT1120 forutsetter en hel del fra forkunnskapsemnet — *(MAT1110 — forkunnskapsemne, ikke bygget ennå; aktiver `/bok/mat1110/<id>`-lenke når den finnes)* — og tester det ikke som egne deloppgaver."
+    },
+    {
+      "id": "mat1120-0-1-def-ikke-testet",
+      "type": "definition",
+      "title": "Det som ikke testes i MAT1120",
+      "content": "I motsetning til mange innføringskurs tester MAT1120 **ikke** disse som egne temaer — de forutsettes kjent fra MAT1100/MAT1110:\n\n- **Determinantregler** og ren determinantutregning som eget tema.\n- **Matriseinvers-mekanikk** (regne $[A\\,|\\,I]\\to[I\\,|\\,A^{-1}]$ for hånd).\n- **Cramers regel.**\n- **Parameteranalyse** av når et likningssystem har løsning.\n\nDeterminant brukes bare som **verktøy** (invertibel $\\Leftrightarrow \\det\\ne0$; $\\det A=\\prod\\lambda_i$). Den frigjorte tida går til det abstrakte vektorrommet, ikke-standard indreprodukt, spektralteori og SVD. En innføring i det forutsatte finnes i [Lineære likningssystem og Gauss-eliminasjon](/bok/bi-okonomi/bi-okonomi-9-3)."
+    },
+    {
+      "id": "mat1120-0-1-sjanger-intro",
+      "type": "text",
+      "content": "## Sjekklista: oppgavetypene A–L\n\nGjennom boka bruker vi en kort merkelapp — en **bokstav fra A til L** — på hver oppgavetype, så du raskt kjenner igjen hva en deloppgave egentlig ber om. Her møter du dem alle for første gang, forklart i klarspråk. Du behøver ikke pugge bokstavene; de er bare en praktisk sjekkliste for å se at du har dekket hele bredden. De viktigste får et eget kort under, resten er samlet i en oversikt."
+    },
+    {
+      "id": "mat1120-0-1-def-sjanger-a",
+      "type": "definition",
+      "title": "Sjanger A — basis og rang fra trappeform",
+      "content": "Den faste **oppgave 1** (~100 %). Du får en matrise $A$ og dens reduserte trappeform i vedlegget, og skal finne:\n\n- **basis for $\\operatorname{Col}A$** = de opprinnelige pivotkolonnene i $A$ (ikke de reduserte);\n- **basis for $\\operatorname{Nul}A$** = spesielle løsninger, én per fri variabel;\n- **rang** = antall pivoter, med dimensjonsteoremet $\\operatorname{rang}A+\\dim\\operatorname{Nul}A=n$ som kontroll;\n- gjerne ikke-pivotkolonnene skrevet som **lineærkombinasjoner** via relasjonene i trappeformen.\n\nDette er de billigste sikre poengene på hele settet."
+    },
+    {
+      "id": "mat1120-0-1-def-sjanger-d",
+      "type": "definition",
+      "title": "Sjanger D — egenverdier og diagonalisering",
+      "content": "Egenverdier, egenvektorer og diagonaliserbarhet (~100 %). Du finner egenverdiene fra det karakteristiske polynomet (i vedlegget) eller verifiserer en oppgitt egenvektor ved rett innsetting $A\\mathbf{v}=\\lambda\\mathbf{v}$.\n\n**Diagonaliserbar** betyr at $A=PDP^{-1}$ med egenvektorene som søyler i $P$ og egenverdiene på diagonalen i $D$. Avgjørelsen om diagonaliserbarhet skal alltid **begrunnes** — enten med at hvert egenroms dimensjon er lik multiplisiteten, eller med en snarvei (symmetrisk, $n$ distinkte egenverdier, eller triangulær). Beslektet: $A^{k}=PD^{k}P^{-1}$ og polynom i $A$."
+    },
+    {
+      "id": "mat1120-0-1-def-sjanger-h",
+      "type": "definition",
+      "title": "Sjanger H — abstrakt vektorrom (signaturoppgaven)",
+      "content": "MAT1120s **signaturoppgave** (~100 %) og den skarpeste forskjellen fra enklere kurs: én hovedoppgave foregår i et vektorrom som *ikke* er $\\mathbb{R}^n$ — et rom av **polynomer** ($\\operatorname{P}_n$) eller **funksjoner** (for eksempel $\\operatorname{Span}\\{\\sin t,\\cos t\\}$).\n\nDu skal typisk: vise at en delmengde er et **underrom** (tre betingelser), vise at noe er en **basis**, regne i **koordinatvektorer** $[\\,\\mathbf{v}\\,]_{\\mathcal{B}}$, finne matrisen $[T]_{\\mathcal{B}}$ til en **derivasjonsoperator**, og oversette $\\ker T$ tilbake til funksjoner. Sikker håndtering av dette er det tydeligste kjennetegnet på toppsjiktet."
+    },
+    {
+      "id": "mat1120-0-1-def-sjanger-bc",
+      "type": "definition",
+      "title": "Sjanger B og C — Gram–Schmidt, projeksjon og minste kvadrater",
+      "content": "**B (ortogonalitet, ~100 %):** bygg en ortogonal basis med **Gram–Schmidt**, og bruk den til **ortogonal projeksjon** $\\operatorname{proj}_W\\mathbf{y}$ ned i et underrom. Avstanden fra $\\mathbf{y}$ til $W$ er $\\|\\mathbf{y}-\\hat{\\mathbf{y}}\\|$.\n\n**C (minste kvadrater, ~100 %):** løs $C^{T}C\\hat{\\mathbf{x}}=C^{T}\\mathbf{b}$ (**normallikningene**), eller bruk projeksjonssnarveien $\\operatorname{proj}_W\\mathbf{b}=C\\hat{\\mathbf{x}}$. Ved rangdefekt er løsningen **affin** (partikulær $+\\ \\operatorname{Nul}C$). Merk: projeksjonsformelen krever at basisen er **ortogonal** — Gram–Schmidt må kjøres først."
+    },
+    {
+      "id": "mat1120-0-1-sjanger-resten",
+      "type": "text",
+      "content": "### De øvrige sjangrene i kortform\n\n- **E — $A^{k}$ og polynom i $A$** (~40 %): $A^{k}=PD^{k}P^{-1}$; et polynom $q(A)$ har egenverdier $q(\\lambda)$ og deler egenvektorer med $A$ (samme $P$).\n- **F — symmetriske matriser og spektralteorem** (~55 %): en symmetrisk $A$ er **ortogonalt diagonaliserbar**, $A=PDP^{T}$ med **ortonormale** egenvektorer i $P$.\n- **G — kvadratiske former** (~70 %): $Q(\\mathbf{x})=\\mathbf{x}^{T}A\\mathbf{x}$; klassifiser definitthet fra egenverditegn, finn Rayleigh-maks $\\max\\{Q:\\|\\mathbf{x}\\|=1\\}=\\lambda_{\\max}$, eller klassifiser et **kjeglesnitt** ved variabelskiftet $\\mathbf{x}=P\\mathbf{y}$.\n- **I — lineære avbildninger og basisskifte** (~85 %/~60 %): matrisen $[T]_{\\mathcal{B}}$, og skiftet $[T]_{\\mathcal{C}}=P_{\\mathcal{C}\\leftarrow\\mathcal{B}}[T]_{\\mathcal{B}}P_{\\mathcal{B}\\leftarrow\\mathcal{C}}$; $T$ er en isomorfi når $[T]_{\\mathcal{B}}$ er invertibel.\n- **J — dynamiske systemer** (~35 %/~15 %): den kontinuerlige $\\mathbf{x}'=A\\mathbf{x}$ og den diskrete $\\mathbf{x}_{k+1}=A\\mathbf{x}_k$, begge løst via egenvektorbasis.\n- **K — SVD** (~30 %): $A=U\\Sigma V^{T}$ med synkende singulærverdier $\\sigma_i=\\sqrt{\\lambda_i}$; $\\max\\{\\|A\\mathbf{x}\\|:\\|\\mathbf{x}\\|=1\\}=\\sigma_1$.\n- **L — kort bevis** (~50 %): et stramt, navngitt bevis, ofte om Householder-refleksjon, positiv definitthet eller isomorfi.\n\nBruk lista som avkryssing: har du øvd på A, D, H, B/C og minst noen av karakterskillerne, har du dekket ryggraden."
+    },
+    {
+      "id": "mat1120-0-1-oppg-2",
+      "type": "exercise",
+      "exercise": {
+        "id": "mat1120-0-1-refl-2",
+        "number": "2",
+        "type": "classic",
+        "difficulty": "lett",
+        "task": "(Refleksjon om prioritering — ingen regning.) Du har fire timer og ti deloppgaver som teller helt likt, men du rekker erfaringsmessig ikke å perfeksjonere alt. Hvilke temaer sikrer du **først**, og hvorfor er det en dårlig idé å lese pensum «fra perm til perm» i jevnt tempo?",
+        "solution": "**Sikre først de fem faste søylene:** basis/rang fra trappeform, egenverdier/diagonalisering, det abstrakte vektorrommet, Gram–Schmidt og ortogonal projeksjon/minste kvadrater. De treffer ~100 % av settene, så poengene der er nesten garantert tilgjengelige.\n\n**Hvorfor ikke lese lineært:** når alle ti deloppgavene teller likt, er det samlede *poengutbyttet per lesetime* som avgjør — ikke å ha lest alt like grundig. Et randtema som SVD (~30 %) eller diskret dynamikk (~15 %) gir i snitt langt færre forventede poeng per time enn en fast søyle. Leser du jevnt, bruker du like mye tid på det sjeldne som på det sikre. Prioritér bredde i kjernen først; strekk deg mot karakterskillerne og randtemaene når kjernen sitter.\n\nEn særlig felle: å **undervurdere det abstrakte vektorrommet** fordi det føles uvant. Det er 100 % sikkert og verdt en hel hovedoppgave.",
+        "hints": [
+          "Tenk «forventede poeng per lesetime», ikke «har jeg vært innom alt».",
+          "Hvilke fem temaer er praktisk talt garantert på settet?"
+        ]
+      }
+    },
+    {
+      "id": "mat1120-0-1-indreprodukt-intro",
+      "type": "text",
+      "content": "## Den skarpeste fellen: ikke-standard indreprodukt\n\nÉn feil er dyrere og vanligere enn alle andre på MAT1120, og den er verdt å bli advart mot allerede nå."
+    },
+    {
+      "id": "mat1120-0-1-def-indreprodukt",
+      "type": "definition",
+      "title": "Ikke-standard indreprodukt — den skarpeste fellen",
+      "content": "I omtrent **70 %** av settene bytter en oppgave ut det vanlige prikkproduktet med et annet **indreprodukt** — et vektet ($\\langle\\mathbf{x},\\mathbf{y}\\rangle=\\sum w_i x_i y_i$), et integral ($\\langle p,q\\rangle=\\int_a^b p(t)q(t)\\,dt$) eller et evaluerings-indreprodukt ($\\langle p,q\\rangle=\\sum p(t_i)q(t_i)$).\n\nRegelen er ufravikelig: **alle** skalarprodukt, normer og ortogonalitetssjekker i den oppgaven skal da regnes med den **oppgitte** definisjonen — også normen når du normaliserer i Gram–Schmidt. Å skli tilbake til standardprikkproduktet er den vanligste og mest kostbare MAT1120-fellen. Del 4–5 driller nettopp dette."
+    },
+    {
+      "id": "mat1120-0-1-oppg-3",
+      "type": "exercise",
+      "exercise": {
+        "id": "mat1120-0-1-refl-3",
+        "number": "3",
+        "type": "classic",
+        "difficulty": "lett",
+        "task": "(Refleksjon om indreprodukt — ingen regning.) Tenk deg at en hovedoppgave om et polynomrom oppgir indreproduktet $\\langle p,q\\rangle=\\int_{-2}^{0} p(t)q(t)\\,dt$ og ber deg finne en ortonormal basis for et underrom. Hva må du passe på i **alle** skalarprodukt oppgaven bruker?",
+        "solution": "Alt skal regnes med det **oppgitte integralet** — ikke med koeffisient-prikkproduktet du er vant til fra $\\mathbb{R}^n$. Konkret:\n\n- Hver gang du regner $\\langle p,q\\rangle$ i Gram–Schmidt, er det $\\int_{-2}^{0} p(t)q(t)\\,dt$ du regner.\n- **Normen** ved normalisering er $\\|p\\|=\\sqrt{\\langle p,p\\rangle}=\\sqrt{\\int_{-2}^{0} p(t)^2\\,dt}$ — også her integralet, ikke kvadratsummen av koeffisientene.\n- Ortogonalitet betyr at *integralet* er null, ikke at koeffisientvektorene er ortogonale i vanlig forstand.\n\nFellen er å bruke det oppgitte produktet på det første skalarproduktet, men så gli tilbake til standardproduktet ved normaliseringen. Hold den oppgitte definisjonen konsekvent gjennom **hele** oppgaven.",
+        "hints": [
+          "Hvilken definisjon av $\\langle p,q\\rangle$ gjelder — den oppgitte eller den du er vant til?",
+          "Husk at også normen (til normaliseringen) må bruke det samme integralet."
+        ]
+      }
+    },
+    {
+      "id": "mat1120-0-1-sensor-intro",
+      "type": "text",
+      "content": "## Sensorreglene\n\nDe sju løsningsforslagene forteller tydelig hva sensor belønner. Tre regler går igjen på hvert sett, og de er verdt å internalisere før du regner en eneste oppgave."
+    },
+    {
+      "id": "mat1120-0-1-def-begrunn",
+      "type": "definition",
+      "title": "Begrunn alle svar (sensorens hovedregel)",
+      "content": "Standardinstruksen er trykt på hvert sett, nesten ordrett fra år til år: **«du må begrunne alle svar, og vise nok mellomregning til at argumentene lett kan følges.»**\n\nKonsekvensen: et riktig sluttsvar **uten føring** gir lite eller ingen uttelling. Du skal navngi teoremet der argumentet bæres (spektralteoremet, dimensjonsteoremet, ortogonal dekomposisjon), vise mellomregningen ledd for ledd, og avslutte med en verbal konklusjonssetning. Svarene skal være **eksakte** ($\\sqrt2$, $\\tfrac{1}{\\sqrt5}$, brøker), aldri desimaltilnærminger — pene tall er garantert av vedlegget, så et urent svar signaliserer en regnefeil."
+    },
+    {
+      "id": "mat1120-0-1-def-multiplisitet",
+      "type": "definition",
+      "title": "Diagonaliserbarhet begrunnes med multiplisitet",
+      "content": "Å påstå at en matrise «er diagonaliserbar» uten argument gir ikke uttelling. Sensor vil se **én** av disse begrunnelsene:\n\n- hvert egenroms **dimensjon = egenverdiens algebraiske multiplisitet** (hovedkriteriet), eller\n- en navngitt snarvei: **$n$ distinkte egenverdier** $\\Rightarrow$ diagonaliserbar; **symmetrisk** $\\Rightarrow$ ortogonalt diagonaliserbar (spektralteoremet); **triangulær** $\\Rightarrow$ egenverdiene står på diagonalen.\n\nFor **ikke**-diagonaliserbar viser du eksplisitt at et egenrom er **for lite** (geometrisk multiplisitet $<$ algebraisk)."
+    },
+    {
+      "id": "mat1120-0-1-def-colbasis",
+      "type": "definition",
+      "title": "Basis for Col A leses fra originalmatrisen",
+      "content": "En klassisk og kostbar feil: å oppgi de **reduserte** pivotkolonnene fra trappeformen som basis for $\\operatorname{Col}A$. Det er galt.\n\n**Riktig:** basis for $\\operatorname{Col}A$ er de **opprinnelige** pivotkolonnene i $A$ — trappeformen forteller deg bare *hvilke* kolonnenummer som er pivotkolonner, men vektorene du oppgir, hentes fra $A$ selv. (Radrommet $\\operatorname{Row}A$ er derimot uendret av radreduksjon, så der bruker du radene i trappeformen.) Avhengighetsrelasjonene mellom kolonnene leses av trappeformen og gjelder like fullt i $A$."
+    },
+    {
+      "id": "mat1120-0-1-karakterskiller",
+      "type": "text",
+      "content": "### Hva som skiller karakternivåene\n\nDe offisielle løsningsforslagene tegner et ganske klart bilde av hva som ligger på hvert nivå:\n\n- **Ståsjiktet** henter poeng på **mekanikken**: lese $\\operatorname{Col}/\\operatorname{Nul}$-basis fra trappeformen, verifisere en oppgitt egenvektor, sette opp normallikningene, kjøre Gram–Schmidt i standardprikkproduktet.\n- **Midtsjiktet (rundt C)** behersker i tillegg: korrekt diagonalisering med $P/D$ matchet søyle for søyle, ortogonal diagonalisering av symmetriske matriser, klassifisering av kvadratiske former, affin minste kvadraters løsning ved rangdefekt, og $[T]_{\\mathcal{B}}$ for en derivasjonsoperator.\n- **Toppsjiktet** kjennetegnes av sikker håndtering av **abstrakte vektorrom** (underroms- og basisbevis, $\\ker T$ oversatt tilbake til funksjoner), **ikke-standard indreprodukt** brukt konsekvent, komplett SVD, Rayleigh/kjeglesnitt, og korte **bevis** ført stramt med forutsetningssjekk.\n\nMerk hvor lavt terskelen for ståkarakter faktisk ligger: det meste er ren mekanikk du kan drille. Karakterskillerne oppover er få og navngitte — du vet nøyaktig hva du strekker deg mot."
+    },
+    {
+      "id": "mat1120-0-1-warn-typiske-feil",
+      "type": "warning",
+      "title": "Typiske feil",
+      "content": "Metafeilene som koster mest på MAT1120 — samlet her, og forebygd kapittel for kapittel senere:\n\n- **Radredusere store matriser for hånd** i stedet for å bruke vedlegget. Tidssluk og unødvendig feilkilde.\n- **Lese pensum lineært** uten å prioritere de fem faste søylene, så tida renner ut før kjernen sitter.\n- **Undervurdere det abstrakte vektorrommet** — signaturoppgaven, 100 % sikker, verdt en hel hovedoppgave.\n- **Påstå diagonaliserbarhet uten multiplisitetssjekk** (eller uten en navngitt snarvei).\n- **Bruke standardprikkproduktet** der oppgaven har oppgitt et vektet, integral- eller evaluerings-indreprodukt.\n- **Oppgi de reduserte pivotkolonnene** som $\\operatorname{Col}A$-basis i stedet for de opprinnelige kolonnene i $A$.\n- **Svare uten begrunnelse** — særlig på «avgjør om …»-oppgaver, der hele poenget er argumentet."
+    },
+    {
+      "id": "mat1120-0-1-oppg-4",
+      "type": "exercise",
+      "exercise": {
+        "id": "mat1120-0-1-refl-4",
+        "number": "4",
+        "type": "classic",
+        "difficulty": "lett",
+        "task": "(Refleksjon om pugging — ingen regning.) MAT1120 har **intet formelark** — det eneste utdelte er vedlegget, som bare gjør regningen. Alt teoriapparatet må sitte utenat. Lag en kort puggeplan: hvilke teoremer og formler bør du kunne **navngi og bruke** uten oppslag, og hvordan øver du dem inn?",
+        "solution": "**Hva som må sitte (kjernen du navngir i føringen):**\n\n- Dimensjonsteoremet $\\operatorname{rang}A+\\dim\\operatorname{Nul}A=n$.\n- Gram–Schmidt-formelen og ortogonal projeksjon $\\operatorname{proj}_W\\mathbf{y}$.\n- Normallikningene $C^{T}C\\hat{\\mathbf{x}}=C^{T}\\mathbf{b}$.\n- Diagonalisering $A=PDP^{-1}$ og diagonaliserbarhetskriteriet (multiplisitet + snarveier).\n- Spektralteoremet $A=PDP^{T}$ for symmetriske matriser.\n- SVD $A=U\\Sigma V^{T}$ med $\\sigma_i=\\sqrt{\\lambda_i}$.\n\n**Hvordan øve det inn:** ikke pugg formlene isolert, men **navngi teoremet hver gang du løser en oppgave** — «her bruker jeg spektralteoremet fordi $A$ er symmetrisk». Da knyttes navnet til situasjonen der det brukes. Lag flashcards av teoremnavn $\\to$ forutsetning $\\to$ konklusjon, og bruk den samlede formeloversikten i dette kapitlet som pugge-ark fram til eksamen. Det viktigste er at du kjenner igjen *når* hvert teorem gjelder, ikke bare hvordan det ser ut.",
+        "hints": [
+          "Start med de formlene som bærer de fem faste søylene.",
+          "Knytt teoremnavnet til oppgavesituasjonen — pugg ikke løsrevne formler."
+        ]
+      }
+    },
+    {
+      "id": "mat1120-0-1-leseplan",
+      "type": "text",
+      "content": "## Leseplanen: slik er boka bygget\n\nRekkefølgen i boka følger faglig avhengighet, og den er samtidig en leseplan:\n\n- **Del 1 — Fundamentale underrom fra trappeform** er *inngangen*: her lærer du arbeidsmåten (les vedlegget, ikke radreduser) og den faste oppgave 1.\n- **Del 2 — Abstrakte vektorrom og $[T]_{\\mathcal{B}}$** er *tyngdepunktet* og bokas største del. Dette er signaturoppgaven — bruk mest tid her.\n- **Del 3 — Egenverdier og diagonalisering** hviler på underromsspråket fra Del 1–2.\n- **Del 4–5 — Indreprodukt, ortogonalitet og projeksjon/minste kvadrater** bygger den geometriske delen, inkludert ikke-standard indreprodukt.\n- **Del 6–7 — Symmetriske matriser/kvadratiske former og SVD/dynamikk/bevis** er karakterskillerne og topp-poengene.\n- **Del 8 — Eksamenstrening**: føringsstandarden og tre komplette øvingseksamener under tidspress.\n\n**Prognose for neste ordinære sett** (4 timer, ti deloppgaver à 10 p, vedlegg, fire–fem hovedoppgaver): **O1** basis/rang fra trappeform $\\to$ Gram–Schmidt $\\to$ projeksjon/minste kvadrater, kjedet på samme matrise; **O2** egenverdier/diagonaliserbarhet, evt. symmetrisk $\\to$ ortogonal diagonalisering; **O3** abstrakt vektorrom med koordinater og $[T]_{\\mathcal{B}}$, ofte med et ikke-standard indreprodukt; **O4** symmetrisk matrise $\\to$ kvadratisk form eller SVD; **O5 (eller innbakt del)** kort bevis eller en anvendelse ($\\mathbf{x}'=A\\mathbf{x}$/diskret dynamikk). Usikkerheten er liten — hovedvariabelen er *hvilket* abstrakt rom og *hvilket* indreprodukt som velges."
+    },
+    {
+      "id": "mat1120-0-1-formel-minimum",
+      "type": "collapsible",
+      "title": "Formlene du må kunne utenat — og resten kan du slå opp",
+      "buttonText": "Vis formel-minimum",
+      "content": [
+        {
+          "id": "mat1120-0-1-formel-minimum-text",
+          "type": "text",
+          "content": "Siden det ikke finnes noe formelark, er dette regnefagets samlede oppslagskort: de få formlene og teoremene du **må** kunne navngi og bruke uten hjelp. Resten kan du slå opp her i boka. Hver linje har én setning om hva formelen brukes til.\n\n$$\\operatorname{rang}A+\\dim\\operatorname{Nul}A=n$$\n**Dimensjonsteoremet** — kontroll på at basis-avlesningen fra trappeformen stemmer.\n\n$$\\mathbf{v}_k=\\mathbf{a}_k-\\sum_{i<k}\\frac{\\langle\\mathbf{a}_k,\\mathbf{v}_i\\rangle}{\\langle\\mathbf{v}_i,\\mathbf{v}_i\\rangle}\\,\\mathbf{v}_i$$\n**Gram–Schmidt** — lager en ortogonal basis av en vilkårlig basis (bruk oppgavens indreprodukt).\n\n$$\\operatorname{proj}_W\\mathbf{y}=\\sum_i\\frac{\\langle\\mathbf{y},\\mathbf{v}_i\\rangle}{\\langle\\mathbf{v}_i,\\mathbf{v}_i\\rangle}\\,\\mathbf{v}_i$$\n**Ortogonal projeksjon** — krever en ortogonal basis $\\{\\mathbf{v}_i\\}$ for $W$; avstanden til $W$ er $\\|\\mathbf{y}-\\hat{\\mathbf{y}}\\|$.\n\n$$C^{T}C\\hat{\\mathbf{x}}=C^{T}\\mathbf{b}$$\n**Normallikningene** — gir minste kvadraters løsning; affin ved rangdefekt.\n\n$$A=PDP^{-1},\\qquad A^{k}=PD^{k}P^{-1}$$\n**Diagonalisering** — egenvektorer som søyler i $P$, egenverdier på diagonalen i $D$, matchet søyle for søyle.\n\n$$\\det(A-\\lambda I)=0$$\n**Karakteristisk likning** — gir egenverdiene (polynomet ligger i vedlegget).\n\n$$A=PDP^{T}\\quad(P^{T}P=I,\\ A\\text{ symmetrisk})$$\n**Spektralteoremet** — symmetriske matriser er ortogonalt diagonaliserbare med ortonormale egenvektorer.\n\n$$A=U\\Sigma V^{T},\\qquad \\sigma_i=\\sqrt{\\lambda_i}$$\n**SVD** — $V$ fra egenvektorene til $A^{T}A$, singulærverdiene synkende i $\\Sigma$; $\\max\\|A\\mathbf{x}\\|=\\sigma_1$.\n\nKjenner du disse åtte navngitt og vet *når* de gjelder, har du oppslagsverket som bærer hele eksamen."
+        }
+      ]
+    },
+    {
+      "id": "mat1120-0-1-lite-tid",
+      "type": "collapsible",
+      "title": "Lite tid? Hurtigrute og ukeplaner",
+      "buttonText": "Vis hurtigrute og ukeplaner",
+      "content": [
+        {
+          "id": "mat1120-0-1-lite-tid-text",
+          "type": "text",
+          "content": "Alle tidsanslag i boka er **lesetid** for kjernestoffet. Skal du også regne oppgavene for hånd (som du bør), gang med omtrent **1,5**. Total lesetid for hele boka er anslått til rundt 43 timer; med håndregning ligger den reelle innsatsen høyere.\n\n**Hurtigrute (3–5 dager før eksamen — berge de sikre poengene):**\n\n1. **Dag 1:** Del 1 (basis/rang fra trappeform) + start Del 2 (abstrakt vektorrom). Dette er to av de fem faste søylene.\n2. **Dag 2:** Fullfør Del 2 (koordinater, $[T]_{\\mathcal{B}}$) — signaturoppgaven, ikke hopp over den.\n3. **Dag 3:** Del 3 (egenverdier/diagonalisering) + Del 4 (Gram–Schmidt).\n4. **Dag 4:** Del 5 (projeksjon/minste kvadrater) + les advarselen om ikke-standard indreprodukt nøye.\n5. **Dag 5:** Én komplett øvingseksamen (Del 8) under tidspress, med vedlegg. Rett mot løsningsforslaget og se hvor føringspoengene sitter.\n\nMed bare tre dager: dag 1 = Del 1 + 2, dag 2 = Del 3 + 4 + 5, dag 3 = én øvingseksamen. Prioritér de fem faste søylene; hopp over randtemaene (SVD, diskret dynamikk) hvis tida er knapp.\n\n**Deltidsrute (10–12 uker — jevnt løp ved siden av annet):**\n\n- **Uke 1–2:** Del 0–1 (arbeidsmåten og de fundamentale underrommene).\n- **Uke 3–5:** Del 2 (abstrakte vektorrom) — tyngdepunktet, bruk god tid.\n- **Uke 6–7:** Del 3 (egenverdier/diagonalisering).\n- **Uke 8–9:** Del 4–5 (ortogonalitet, projeksjon, minste kvadrater, ikke-standard indreprodukt).\n- **Uke 10–11:** Del 6–7 (karakterskillere og topp-poeng) + temaprøvene.\n- **Uke 12:** Del 8 — føringsstandarden og de tre øvingseksamenene under tidspress.\n\nEr du usikker på forkunnskapene (radreduksjon, matrisealgebra, determinant), sett av litt tid **før** uke 1 til å repetere dem — de forutsettes, men læres ikke fra grunnen her.\n\n> **Lese mye, regne mye.** Det er lett å tro at man kan et regnefag når man *leser* en løsning og nikker gjenkjennende. Men lineær algebra sitter først når du **selv** har ført argumentet — navngitt teoremet, matchet $P$ og $D$, holdt indreproduktet konsekvent. Les mye, ja, men **regn minst like mye**: gjør oppgavene med penn før du ser fasiten, og skriv ut hele føringen. Det er der forståelsen og eksamenspoengene faktisk bygges."
+        }
+      ]
+    },
+    {
+      "id": "mat1120-0-1-symbolliste",
+      "type": "collapsible",
+      "title": "Symbol- og formelliste",
+      "buttonText": "Vis symboler og formler",
+      "content": [
+        {
+          "id": "mat1120-0-1-symbolliste-text",
+          "type": "text",
+          "content": "## Symbol- og formelliste\n\n*Oppslagsverk — alt her forklares underveis i kapitlet.*\n\nAlle symbolene og formlene som nevnes i dette kartkapitlet, samlet på ett sted. Selve regningen bak dem kommer i de aktuelle temakapitlene.\n\n| Symbol | Betydning |\n|---|---|\n| $A$ | En (reell) matrise |\n| $\\operatorname{Col}A$ | Kolonnerommet til $A$ (spennet av søylene) |\n| $\\operatorname{Nul}A$ | Nullrommet til $A$ ($\\{\\mathbf{x}:A\\mathbf{x}=\\mathbf{0}\\}$) |\n| $\\operatorname{Row}A$ | Radrommet til $A$ (spennet av radene) |\n| $\\operatorname{rang}A$ | Rangen — antall pivoter = $\\dim\\operatorname{Col}A$ |\n| $\\operatorname{Span}\\{\\dots\\}$ | Spennet — alle lineærkombinasjoner av vektorene |\n| $[\\,\\mathbf{x}\\,]_{\\mathcal{B}}$ | Koordinatvektoren til $\\mathbf{x}$ i basisen $\\mathcal{B}$ |\n| $[T]_{\\mathcal{B}}$ | Matriserepresentasjonen av avbildningen $T$ i basisen $\\mathcal{B}$ |\n| $P_{\\mathcal{C}\\leftarrow\\mathcal{B}}$ | Overgangsmatrisen fra $\\mathcal{B}$ til $\\mathcal{C}$ |\n| $\\langle\\mathbf{u},\\mathbf{v}\\rangle$ | Indreprodukt (standard, vektet, integral eller evaluering) |\n| $\\operatorname{proj}_W\\mathbf{y}$ | Ortogonal projeksjon av $\\mathbf{y}$ ned i underrommet $W$ |\n| $W^{\\perp}$ | Ortogonalkomplementet til $W$ |\n| $\\lambda$ | En egenverdi |\n| $\\sigma_i$ | En singulærverdi ($\\sigma_i=\\sqrt{\\lambda_i}$) |\n| $\\operatorname{P}_n$ | Rommet av polynomer av grad $\\le n$ |\n| $\\ker T$ | Kjernen til avbildningen $T$ |\n\n**Formler nevnt i dette kapitlet:**\n\n$$\\operatorname{rang}A+\\dim\\operatorname{Nul}A=n$$\nDimensjonsteoremet (rang–nullitet), kontroll på basis-avlesning.\n\n$$\\operatorname{proj}_W\\mathbf{y}=\\sum_i\\frac{\\langle\\mathbf{y},\\mathbf{v}_i\\rangle}{\\langle\\mathbf{v}_i,\\mathbf{v}_i\\rangle}\\,\\mathbf{v}_i$$\nOrtogonal projeksjon (krever ortogonal basis for $W$).\n\n$$C^{T}C\\hat{\\mathbf{x}}=C^{T}\\mathbf{b}$$\nNormallikningene for minste kvadrater.\n\n$$A=PDP^{-1},\\qquad A^{k}=PD^{k}P^{-1}$$\nDiagonalisering og potenser av en diagonaliserbar matrise.\n\n$$\\det(A-\\lambda I)=0$$\nKarakteristisk likning — gir egenverdiene.\n\n$$A=PDP^{T}\\quad(P^{T}P=I)$$\nOrtogonal diagonalisering av en symmetrisk matrise (spektralteoremet).\n\n$$Q(\\mathbf{x})=\\mathbf{x}^{T}A\\mathbf{x}$$\nKvadratisk form med symmetrisk $A$.\n\n$$[T]_{\\mathcal{C}}=P_{\\mathcal{C}\\leftarrow\\mathcal{B}}\\,[T]_{\\mathcal{B}}\\,P_{\\mathcal{B}\\leftarrow\\mathcal{C}}$$\nBasisskifte for matriserepresentasjonen.\n\n$$A=U\\Sigma V^{T},\\qquad \\sigma_i=\\sqrt{\\lambda_i}$$\nSingulærverdidekomposisjon (SVD), singulærverdiene synkende i $\\Sigma$."
+        }
+      ]
+    }
+  ],
+  "exercises": []
+}
