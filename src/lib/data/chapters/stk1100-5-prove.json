@@ -1,0 +1,259 @@
+{
+  "id": "stk1100-5-prove",
+  "courseId": "stk1100",
+  "chapterNumber": "5.P",
+  "title": "Prøver til del 5: Punktestimering",
+  "description": "Fire temaprøver som dekker forventningsretthet, varians og skjevhet, ML-utledning for standard- og eksotiske fordelinger, momentmetoden med estimator-sammenligning, og en full estimeringsoppgave med skjevhetskorreksjon via gammafunksjonen — med fullstendige løsningsforslag og selvdiagnose. Fire prøver à 35–45 min, kan tas som separate økter.",
+  "estimatedMinutes": 155,
+  "competenceGoals": [
+    "kunne avgjøre forventningsretthet, regne varians og standardfeil, og kvantifisere og korrigere skjevhet",
+    "kunne utlede maximum-likelihood-estimatoren med alle trinn for både standardfordelinger og eksotiske fordelinger",
+    "kunne bruke momentmetoden og sammenligne to estimatorer med begrunnet valg",
+    "kunne løse en full estimeringsoppgave med skjevhetskorreksjon via gammafunksjonen på eksamensnivå"
+  ],
+  "content": [
+    {
+      "id": "stk1100-5-prove-tip",
+      "type": "tip",
+      "title": "Om prøvene til Del 5",
+      "content": "**Fire prøver til Del 5** som dekker punktestimeringen — kjedens første halvdel (sjanger G, «estimering»), som er i ~90 % av settene.\n\n| Prøve | Tema | Tid |\n|---|---|---|\n| 5.A | Forventningsretthet, varians og skjevhet | ~35 min |\n| 5.B | ML-utledning: standard + eksotisk fordeling | ~40 min |\n| 5.C | Momentmetode og estimator-sammenligning | ~35 min |\n| 5.D | Full estimeringsoppgave med skjevhetskorreksjon (eksamensnivå) | ~45 min |\n\n**Flervalgsoppgaven bor i prøve 5.C** (ett riktig alternativ per punkt).\n\n**Prøvene kan trygt deles over flere kvelder — én prøve per økt.** Løs hver prøve *før* du åpner fasiten, og bruk selvdiagnose-listen etterpå til å se hva du bør repetere. Husk sensorkravene i denne delen: skill **estimator** (stokastisk regel, stor bokstav) fra **estimat** (tall), *regn ut* forventningsrettheten (ikke bare påstå den), og **kvantifiser** skjevheten der oppgaven ber om en forventningsrett estimator."
+    },
+    {
+      "id": "stk1100-5-prove-forkunnskaper",
+      "type": "text",
+      "content": "**Forkunnskaper:** Disse prøvene forutsetter hele Del 5 — estimator-egenskapene forventningsretthet, varians og skjevhet ([kap. 5.1](/bok/stk1100/stk1100-5-1)) og maximum likelihood og momentmetoden ([kap. 5.2](/bok/stk1100/stk1100-5-2)), samt skjevhetskorreksjons-drillen ([kap. 5.3](/bok/stk1100/stk1100-5-3)). Under ligger momentregnereglene fra [kap. 1.2](/bok/stk1100/stk1100-1-2), gamma-/Γ-verktøyet og E(Vʳ)-formelen fra [kap. 2.2](/bok/stk1100/stk1100-2-2), og eksponensialfordelingen i begge parametriseringer fra [kap. 2.1](/bok/stk1100/stk1100-2-1). Du deriverer log-likelihooden, så [R1 4.1 Derivasjonsregler](/bok/r1/r1-4-1) er verktøyet i ML-utledningene."
+    },
+    {
+      "id": "stk1100-5-prove-intro",
+      "type": "text",
+      "content": "Punktestimeringen er første halvdel av eksamens store fortelling: fra en fordeling med en ukjent parameter skal du *utlede* en estimator (som regel med maximum likelihood), *sjekke* om den treffer i snitt, *kvantifisere* variansen og *korrigere* eventuell skjevhet. De fire prøvene trener nettopp disse leddene — fra enkeltferdigheter (5.A–5.C) til en full estimeringshalvdel på eksamensnivå (5.D), der skjevhetskorreksjonen via gammafunksjonen er A-differensiatoren. Eksponensialfordelingen dukker opp i begge parametriseringer; les alltid oppgavens egen definisjon."
+    },
+    {
+      "id": "stk1100-5-prove-p1",
+      "type": "collapsible",
+      "title": "Prøve 5.A — Forventningsretthet, varians og skjevhet (~35 min)",
+      "buttonText": "Vis prøve 5.A",
+      "content": [
+        {
+          "id": "stk1100-5-prove-p1-ex1",
+          "type": "exercise",
+          "exercise": {
+            "id": "stk1100-5-prove-p1-ex1",
+            "number": "1",
+            "type": "classic",
+            "difficulty": "lett",
+            "task": "**Skjev estimator med kjent faktor.** En automatisk partikkelteller anslår en skalaparameter $\\theta$ med en estimator $\\hat\\theta$ som det er kjent oppfyller $E(\\hat\\theta) = \\dfrac{n-1}{n+1}\\,\\theta$.\n\n**a)** Finn skjevheten $\\text{bias}(\\hat\\theta)$.\n**b)** Lag en forventningsrett estimator basert på $\\hat\\theta$.",
+            "solution": "**a)** $\\text{bias}(\\hat\\theta) = E(\\hat\\theta) - \\theta = \\dfrac{n-1}{n+1}\\theta - \\theta = \\left(\\dfrac{n-1}{n+1} - 1\\right)\\theta = -\\dfrac{2}{n+1}\\,\\theta.$\n\nSkjevheten er negativ, så $\\hat\\theta$ **underestimerer** $\\theta$ systematisk.\n\n**b)** Vi har $E(\\hat\\theta) = c\\,\\theta$ med den *kjente* faktoren $c = \\dfrac{n-1}{n+1}$ (den avhenger bare av $n$). Da er $\\hat\\theta/c$ forventningsrett:\n\n$$\\tilde\\theta = \\frac{n+1}{n-1}\\,\\hat\\theta, \\qquad E(\\tilde\\theta) = \\frac{n+1}{n-1}\\cdot\\frac{n-1}{n+1}\\theta = \\theta.$$",
+            "hints": [
+              "Skjevhet $= E(\\hat\\theta) - \\theta$; sett inn og faktoriser ut $\\theta$.",
+              "Del estimatoren på faktoren $c = (n-1)/(n+1)$ for å nulle ut skjevheten."
+            ]
+          }
+        },
+        {
+          "id": "stk1100-5-prove-p1-ex2",
+          "type": "exercise",
+          "exercise": {
+            "id": "stk1100-5-prove-p1-ex2",
+            "number": "2",
+            "type": "classic",
+            "difficulty": "middels",
+            "task": "**Varians, standardfeil og valg.** Konsentrasjonen av et sporstoff har standardavvik $\\sigma = 12$ mg/l. Et laboratorium gjør $n = 16$ uavhengige målinger $X_1,\\dots,X_{16}$ med forventning $\\mu$.\n\n**a)** Finn $\\text{Var}(\\bar X)$ og standardfeilen $\\text{SE}(\\bar X)$.\n**b)** En kollega foreslår i stedet $\\hat\\mu_2 = \\tfrac12(X_1 + X_2)$. Vis at både $\\bar X$ og $\\hat\\mu_2$ er forventningsrette, finn $\\text{Var}(\\hat\\mu_2)$, og avgjør hvilken som bør brukes.\n**c)** Hvor mange målinger trengs for at $\\text{SE}(\\bar X)$ skal bli 1 mg/l?",
+            "solution": "**a)** $\\text{Var}(\\bar X) = \\dfrac{\\sigma^2}{n} = \\dfrac{12^2}{16} = \\dfrac{144}{16} = 9\\ (\\text{mg/l})^2$, så $\\text{SE}(\\bar X) = \\sqrt 9 = 3$ mg/l.\n\n**b)** $E(\\bar X) = \\mu$ og $E(\\hat\\mu_2) = \\tfrac12(E(X_1) + E(X_2)) = \\tfrac12(\\mu + \\mu) = \\mu$ — begge forventningsrette. Med uavhengige $X_1, X_2$:\n$$\\text{Var}(\\hat\\mu_2) = \\tfrac14(\\text{Var}(X_1) + \\text{Var}(X_2)) = \\tfrac14(\\sigma^2 + \\sigma^2) = \\tfrac{\\sigma^2}{2} = \\tfrac{144}{2} = 72.$$\nSiden $9 < 72$ har $\\bar X$ klart lavest varians og bør velges — den utnytter alle 16 observasjonene, mens $\\hat\\mu_2$ bruker bare to.\n\n**c)** Sett $\\text{SE}(\\bar X) = \\sigma/\\sqrt n = 1$: $\\sqrt n = \\sigma = 12$, altså $n = 144$ målinger.",
+            "hints": [
+              "$\\text{Var}(\\bar X) = \\sigma^2/n$ og $\\text{SE} = \\sigma/\\sqrt n$.",
+              "For $\\hat\\mu_2$: uavhengige ledd, så $\\text{Var} = \\tfrac14(\\sigma^2+\\sigma^2)$. I c): løs $\\sigma/\\sqrt n = 1$."
+            ]
+          }
+        },
+        {
+          "id": "stk1100-5-prove-p1-ex3",
+          "type": "exercise",
+          "exercise": {
+            "id": "stk1100-5-prove-p1-ex3",
+            "number": "3",
+            "type": "classic",
+            "difficulty": "vanskelig",
+            "task": "**Rot av en forventningsrett størrelse (Γ-faktoren).** En størrelse $V$ er gammafordelt med formparameter $\\alpha = 3$ og skalaparameter $\\beta = 2$, slik at $E(V) = \\alpha\\beta = 6$.\n\n**a)** Avgjør *uten* regning om $\\sqrt V$ er forventningsrett for $\\sqrt{E(V)} = \\sqrt 6$, og forklar hvorfor.\n**b)** Bruk E(Vʳ)-formelen til å regne $E(\\sqrt V)$ nøyaktig og sammenlign med $\\sqrt 6$. Bruk $\\Gamma(3) = 2$ og $\\Gamma(3{,}5) = 3{,}3234$.\n**c)** Hvilken faktor må du dele $\\sqrt V$ på for å få en forventningsrett estimator for $\\sqrt 6$?",
+            "solution": "**a)** Nei. Kvadratrot er en **konkav** funksjon, og for konkave funksjoner gjelder $E[\\sqrt V] < \\sqrt{E[V]}$. Rota underestimerer altså systematisk — forventningsretthet av $V$ arves ikke av $\\sqrt V$.\n\n**b)** E(Vʳ)-formelen med $r = \\tfrac12$: $E(\\sqrt V) = \\beta^{1/2}\\,\\dfrac{\\Gamma(\\alpha + \\tfrac12)}{\\Gamma(\\alpha)} = \\sqrt 2\\cdot\\dfrac{\\Gamma(3{,}5)}{\\Gamma(3)} = 1{,}41421\\cdot\\dfrac{3{,}3234}{2} = 1{,}41421\\cdot 1{,}66170 = 2{,}3500.$\n\nTil sammenligning $\\sqrt 6 = 2{,}4495$. Vi ser $E(\\sqrt V) = 2{,}350 < 2{,}449$ — rota bommer nedover, som forventet (ca. 4 % underestimering).\n\n**c)** $E(\\sqrt V) = c\\,\\sqrt 6$ med $c = \\dfrac{E(\\sqrt V)}{\\sqrt 6} = \\dfrac{2{,}3500}{2{,}4495} = 0{,}9594$. Deler vi $\\sqrt V$ på $0{,}9594$, blir estimatoren forventningsrett for $\\sqrt 6$. (Faktoren kan også skrives $c = \\Gamma(\\alpha+\\tfrac12)/(\\sqrt\\alpha\\,\\Gamma(\\alpha)) = 1{,}66170/\\sqrt 3$.)",
+            "hints": [
+              "Kvadratrot er konkav: $E[\\sqrt V] < \\sqrt{E V}$.",
+              "$E(V^r) = \\beta^r\\,\\Gamma(\\alpha+r)/\\Gamma(\\alpha)$ med $r = \\tfrac12$; korreksjonsfaktoren er $E(\\sqrt V)/\\sqrt 6$."
+            ]
+          }
+        },
+        {
+          "id": "stk1100-5-prove-p1-selvdiag",
+          "type": "text",
+          "content": "### Selvdiagnose 5.A\n\nKryss av det du klarte uten å slå opp:\n\n- ☐ Jeg fant skjevheten som $E(\\hat\\theta) - \\theta$ og korrigerte ved å dele på den kjente faktoren.\n- ☐ Jeg regnet $\\text{Var}(\\bar X) = \\sigma^2/n$ og $\\text{SE} = \\sigma/\\sqrt n$, og valgte estimator på lavest varians.\n- ☐ Jeg forklarte at $E[\\sqrt V] < \\sqrt{E V}$ fordi rot er konkav.\n- ☐ Jeg brukte E(Vʳ)-formelen med $r=\\tfrac12$ og fant korreksjonsfaktoren.\n\nManglet du noe? Repeter [kap. 5.1](/bok/stk1100/stk1100-5-1), løkke 1–4."
+        }
+      ]
+    },
+    {
+      "id": "stk1100-5-prove-p2",
+      "type": "collapsible",
+      "title": "Prøve 5.B — ML-utledning: standard og eksotisk fordeling (~40 min)",
+      "buttonText": "Vis prøve 5.B",
+      "content": [
+        {
+          "id": "stk1100-5-prove-p2-ex1",
+          "type": "exercise",
+          "exercise": {
+            "id": "stk1100-5-prove-p2-ex1",
+            "number": "1",
+            "type": "classic",
+            "difficulty": "middels",
+            "task": "**ML for eksponensial i rateform.** Tiden mellom radioaktive nedslag i en detektor er iid eksponensialfordelt i **rateform** $f(x;\\lambda) = \\lambda e^{-\\lambda x}$, $x > 0$, med ukjent rate $\\lambda$.\n\n**a)** Utled ML-estimatoren $\\hat\\lambda$ med alle fire trinn (likelihood, log-likelihood, derivér, løs).\n**b)** Åtte målinger gir $\\sum x_i = 40$ sekunder. Finn ML-*estimatet* for $\\lambda$, og forklar hvorfor dette er et estimat og ikke en estimator.",
+            "solution": "**a)**\n**1. Likelihood** (produkt over alle $n$):\n$$L(\\lambda) = \\prod_{i=1}^n \\lambda e^{-\\lambda x_i} = \\lambda^n e^{-\\lambda\\sum x_i}.$$\n**2. Log-likelihood:** $\\ell(\\lambda) = n\\ln\\lambda - \\lambda\\sum x_i.$\n**3. Derivér og sett lik 0:** $\\ell'(\\lambda) = \\dfrac{n}{\\lambda} - \\sum x_i = 0.$\n**4. Løs:** $\\dfrac{n}{\\lambda} = \\sum x_i \\Rightarrow \\hat\\lambda = \\dfrac{n}{\\sum x_i} = \\dfrac{1}{\\bar X}.$\n\n**b)** Med $n = 8$ og $\\sum x_i = 40$: $\\hat\\lambda = 8/40 = 0{,}20$ per sekund. Dette er et **estimat** (ett tall) fordi vi satte inn *konkrete* observerte verdier. Estimatoren $\\hat\\lambda = n/\\sum X_i$ (med stokastiske $X_i$) er derimot en regel — en stokastisk variabel. Skillet er sensorkrav 6.",
+            "hints": [
+              "Likelihood = produkt av tetthetene; samle $\\lambda^n$ og adder eksponentene.",
+              "Deriver $n\\ln\\lambda - \\lambda\\sum x_i$; konkrete tall inn gir et estimat."
+            ]
+          }
+        },
+        {
+          "id": "stk1100-5-prove-p2-ex2",
+          "type": "exercise",
+          "exercise": {
+            "id": "stk1100-5-prove-p2-ex2",
+            "number": "2",
+            "type": "classic",
+            "difficulty": "middels",
+            "task": "**ML for gamma med kjent form.** Bruddstyrken til $n$ fiberprøver er iid gammafordelt med **kjent** formparameter $\\alpha = 5$ og ukjent skala $\\beta$: $f(x;\\beta) = \\dfrac{x^{4}e^{-x/\\beta}}{\\beta^{5}\\,\\Gamma(5)}$, $x > 0$.\n\n**a)** Utled $\\hat\\beta$.\n**b)** Vis at $\\hat\\beta$ er forventningsrett for $\\beta$, og finn $\\text{Var}(\\hat\\beta)$ uttrykt ved $\\beta$ og $n$.",
+            "solution": "**a)** $\\ell(\\beta) = 4\\sum\\ln x_i - \\dfrac{\\sum x_i}{\\beta} - 5n\\ln\\beta - n\\ln\\Gamma(5)$. Bare de to midtre leddene har $\\beta$:\n$$\\ell'(\\beta) = \\dfrac{\\sum x_i}{\\beta^2} - \\dfrac{5n}{\\beta} = 0 \\ \\Rightarrow\\ \\dfrac{\\sum x_i}{\\beta} = 5n \\ \\Rightarrow\\ \\hat\\beta = \\dfrac{\\sum x_i}{5n} = \\dfrac{\\bar X}{5} = \\dfrac{\\bar X}{\\alpha}.$$\n\n**b)** Forventningsrett: $E(\\hat\\beta) = \\dfrac{E(\\bar X)}{5} = \\dfrac{\\alpha\\beta}{5} = \\dfrac{5\\beta}{5} = \\beta$ (bruker $E(X_i) = \\alpha\\beta$). Varians: med $\\text{Var}(X_i) = \\alpha\\beta^2$,\n$$\\text{Var}(\\hat\\beta) = \\dfrac{1}{\\alpha^2}\\,\\text{Var}(\\bar X) = \\dfrac{1}{\\alpha^2}\\cdot\\dfrac{\\alpha\\beta^2}{n} = \\dfrac{\\beta^2}{n\\alpha} = \\dfrac{\\beta^2}{5n}.$$",
+            "hints": [
+              "Ledd uten $\\beta$ (som $n\\ln\\Gamma(5)$) forsvinner i derivasjonen; $\\hat\\beta = \\bar X/\\alpha$.",
+              "$E(X_i)=\\alpha\\beta$ og $\\text{Var}(X_i)=\\alpha\\beta^2$; $\\text{Var}(\\bar X)=\\text{Var}(X_i)/n$."
+            ]
+          }
+        },
+        {
+          "id": "stk1100-5-prove-p2-ex3",
+          "type": "exercise",
+          "exercise": {
+            "id": "stk1100-5-prove-p2-ex3",
+            "number": "3",
+            "type": "classic",
+            "difficulty": "vanskelig",
+            "task": "**ML for Weibull med kjent form (eksotisk).** Levetidene $x_1,\\dots,x_n$ til et materiale er iid Weibull med **kjent** formparameter $\\alpha = 3$ og ukjent skala $\\beta$:\n$$f(x;\\beta) = \\frac{3x^{2}}{\\beta^{3}}\\,e^{-(x/\\beta)^{3}}, \\qquad x \\ge 0.$$\n\n**a)** Utled ML-estimatoren $\\hat\\beta$.\n**b)** Seks prøver gir $\\sum x_i^{3} = 96$. Finn ML-estimatet for $\\beta$.",
+            "solution": "**a)**\n**Likelihood:** $L(\\beta) = \\prod_{i=1}^n \\dfrac{3x_i^{2}}{\\beta^{3}}e^{-(x_i/\\beta)^{3}} = \\dfrac{3^n\\left(\\prod x_i^2\\right)}{\\beta^{3n}}\\,e^{-\\beta^{-3}\\sum x_i^{3}}$ (siden $(x_i/\\beta)^3 = x_i^3/\\beta^3$).\n**Log:** $\\ell(\\beta) = n\\ln 3 + 2\\sum\\ln x_i - 3n\\ln\\beta - \\beta^{-3}\\sum x_i^{3}.$\n**Derivér:** $\\ell'(\\beta) = -\\dfrac{3n}{\\beta} + 3\\beta^{-4}\\sum x_i^{3} = 0$. Multipliser med $\\beta^4/3$: $-n\\beta^{3} + \\sum x_i^{3} = 0.$\n**Løs:** $\\beta^{3} = \\dfrac{1}{n}\\sum x_i^{3} \\Rightarrow \\hat\\beta = \\left(\\dfrac{1}{n}\\sum_{i=1}^n x_i^{3}\\right)^{1/3}.$ (Generelt $\\hat\\beta = (\\tfrac1n\\sum x_i^\\alpha)^{1/\\alpha}$.)\n\n**b)** Med $n = 6$, $\\sum x_i^3 = 96$: $\\hat\\beta = \\left(\\dfrac{96}{6}\\right)^{1/3} = 16^{1/3} = 2{,}5198.$",
+            "hints": [
+              "Skriv $(x/\\beta)^3 = x^3/\\beta^3$, så eksponenten blir $-\\beta^{-3}\\sum x_i^3$.",
+              "Derivér $-3n\\ln\\beta - \\beta^{-3}\\sum x_i^3$; løs for $\\beta^3$ og ta tredjerota."
+            ]
+          }
+        },
+        {
+          "id": "stk1100-5-prove-p2-selvdiag",
+          "type": "text",
+          "content": "### Selvdiagnose 5.B\n\n- ☐ Jeg skrev likelihooden som et **produkt over alle** $n$ observasjonene.\n- ☐ Jeg tok logaritmen (produkt → sum) *før* jeg deriverte.\n- ☐ Jeg løste $\\ell'(\\theta) = 0$ fullstendig for $\\hat\\theta$ i alle tre tilfellene.\n- ☐ Jeg holdt eksponensialens rateform ($\\hat\\lambda = 1/\\bar X$) fra hverandre og skilte estimat fra estimator.\n- ☐ Jeg klarte potens-ritualet for Weibull, $\\hat\\beta = (\\tfrac1n\\sum x_i^\\alpha)^{1/\\alpha}$.\n\nManglet du noe? Repeter [kap. 5.2](/bok/stk1100/stk1100-5-2), løkke 1–4."
+        }
+      ]
+    },
+    {
+      "id": "stk1100-5-prove-p3",
+      "type": "collapsible",
+      "title": "Prøve 5.C — Momentmetode og estimator-sammenligning (~35 min)",
+      "buttonText": "Vis prøve 5.C",
+      "content": [
+        {
+          "id": "stk1100-5-prove-p3-ex1",
+          "type": "exercise",
+          "exercise": {
+            "id": "stk1100-5-prove-p3-ex1",
+            "number": "1",
+            "type": "classic",
+            "difficulty": "middels",
+            "task": "**Momentmetoden for en stigende tetthet.** En normalisert slitasjemåling har tetthet $f(x;\\theta) = \\dfrac{2x}{\\theta^{2}}$ for $0 < x < \\theta$, og 0 ellers (ukjent $\\theta$).\n\n**a)** Vis at $E(X) = \\tfrac23\\theta$.\n**b)** Finn momentestimatoren $\\hat\\theta_{\\text{mom}}$ for $\\theta$.\n**c)** Er $\\hat\\theta_{\\text{mom}}$ forventningsrett for $\\theta$?",
+            "solution": "**a)** $E(X) = \\displaystyle\\int_0^\\theta x\\cdot\\frac{2x}{\\theta^2}\\,dx = \\frac{2}{\\theta^2}\\int_0^\\theta x^2\\,dx = \\frac{2}{\\theta^2}\\cdot\\frac{\\theta^3}{3} = \\frac{2\\theta}{3}.$\n\n**b)** Momentmetoden setter teoretisk forventning lik empirisk: $\\dfrac{2\\theta}{3} = \\bar X \\Rightarrow \\hat\\theta_{\\text{mom}} = \\dfrac{3\\bar X}{2}.$\n\n**c)** $E(\\hat\\theta_{\\text{mom}}) = \\dfrac{3}{2}E(\\bar X) = \\dfrac{3}{2}E(X) = \\dfrac{3}{2}\\cdot\\dfrac{2\\theta}{3} = \\theta.$ Ja — $\\hat\\theta_{\\text{mom}}$ er **forventningsrett** for $\\theta$.",
+            "hints": [
+              "$E(X) = \\int_0^\\theta x f(x)\\,dx$; $\\int_0^\\theta x^2\\,dx = \\theta^3/3$.",
+              "Sett $E(X) = \\bar X$ og løs for $\\theta$; sjekk forventningsretthet ved å ta $E$."
+            ]
+          }
+        },
+        {
+          "id": "stk1100-5-prove-p3-ex2",
+          "type": "exercise",
+          "exercise": {
+            "id": "stk1100-5-prove-p3-ex2",
+            "number": "2",
+            "type": "classic",
+            "difficulty": "vanskelig",
+            "task": "**Sammenlign to forventningsrette estimatorer.** For iid $X_1,\\dots,X_4$ med forventning $\\mu$ og varians $\\sigma^2$ foreslås $\\hat\\mu_1 = \\bar X$ og den vektede $\\hat\\mu_2 = 0{,}4X_1 + 0{,}3X_2 + 0{,}2X_3 + 0{,}1X_4$.\n\n**a)** Vis at begge er forventningsrette.\n**b)** Finn variansen til hver og avgjør hvilken som bør brukes.",
+            "solution": "**a)** $E(\\bar X) = \\mu$. For $\\hat\\mu_2$ summerer vektene til $0{,}4+0{,}3+0{,}2+0{,}1 = 1$, så $E(\\hat\\mu_2) = (\\sum a_i)\\mu = 1\\cdot\\mu = \\mu$. Begge forventningsrette (en lineærkombinasjon er forventningsrett nettopp når vektene summerer til 1).\n\n**b)** Med uavhengige ledd er $\\text{Var}(\\sum a_i X_i) = \\sigma^2\\sum a_i^2$. For $\\bar X$ ($a_i = \\tfrac14$): $\\sum a_i^2 = 4\\cdot(0{,}25)^2 = 0{,}25$, så $\\text{Var}(\\bar X) = 0{,}25\\,\\sigma^2 = \\sigma^2/4$. For $\\hat\\mu_2$: $\\sum a_i^2 = 0{,}16 + 0{,}09 + 0{,}04 + 0{,}01 = 0{,}30$, så $\\text{Var}(\\hat\\mu_2) = 0{,}30\\,\\sigma^2$. Siden $0{,}25 < 0{,}30$ har $\\bar X$ lavest varians og bør velges. (Generelt gir *like* vekter $1/n$ lavest varians blant forventningsrette lineærkombinasjoner.)",
+            "hints": [
+              "Forventningsrett lineærkombinasjon $\\Leftrightarrow$ vektene summerer til 1.",
+              "$\\text{Var}(\\sum a_i X_i) = \\sigma^2\\sum a_i^2$; sammenlign $\\sum a_i^2$ for de to."
+            ]
+          }
+        },
+        {
+          "id": "stk1100-5-prove-p3-ex3",
+          "type": "exercise",
+          "exercise": {
+            "id": "stk1100-5-prove-p3-ex3",
+            "number": "3",
+            "type": "classic",
+            "difficulty": "middels",
+            "task": "**Flervalg.** Velg det ene riktige alternativet for hvert punkt.\n\n**a)** Er ML-estimatoren alltid forventningsrett?\n(a) Ja, det følger av definisjonen på ML  (b) Nei, mange ML-estimatorer er skjeve  (c) Ja, for store $n$  (d) Bare for normalfordelingen\n\n**b)** Gir momentmetoden og ML alltid samme svar?\n(a) Ja, alltid  (b) Bare for eksotiske fordelinger  (c) Nei, de kan skille lag (f.eks. Pareto og Rayleigh)  (d) Nei, ML gir alltid størst estimat\n\n**c)** Invariansprinsippet sier at ML-estimatoren for $g(\\theta)$ er:\n(a) $g(\\hat\\theta)$  (b) $\\hat\\theta$  (c) $E[g(\\hat\\theta)]$  (d) $g(E[\\hat\\theta])$\n\n**d)** Bevarer invariansprinsippet forventningsretthet?\n(a) Ja, alltid  (b) Ja, for voksende $g$  (c) Bare for lineære $g$  (d) Nei — rot/potens av en forventningsrett estimator er skjev",
+            "solution": "**a) (b)** ML-estimatoren er *ikke* automatisk forventningsrett — mange er skjeve (ML-variansen med $n$ i nevner, Pareto-$\\hat\\theta$, Weibull-$\\hat\\beta$). Forventningsretthet må regnes ut.\n\n**b) (c)** ML og momentmetoden sammenfaller ofte (eksponensial, Poisson, gamma med kjent form), men kan skille lag — Pareto og Rayleigh er typiske eksempler.\n\n**c) (a)** Invariansprinsippet: $\\widehat{g(\\theta)} = g(\\hat\\theta)$.\n\n**d) (d)** Invarians bevarer *ikke* forventningsretthet: å ta rot eller potens av en forventningsrett estimator innfører skjevhet ($E[\\sqrt V] \\ne \\sqrt{E V}$).\n\n*(Riktige bokstaver: b, c, a, d — stokket.)*",
+            "hints": [
+              "Skill definisjonen på ML (maksimerer likelihooden) fra egenskapen forventningsretthet.",
+              "Invarians gjelder ML-*punktet*, men bevarer ikke forventningsrettheten."
+            ]
+          }
+        },
+        {
+          "id": "stk1100-5-prove-p3-selvdiag",
+          "type": "text",
+          "content": "### Selvdiagnose 5.C\n\n- ☐ Jeg regnet $E(X)$ ved integrasjon og satte $E(X) = \\bar X$ i momentmetoden.\n- ☐ Jeg sjekket forventningsrettheten til momentestimatoren ved å ta $E$.\n- ☐ Jeg brukte at forventningsrett lineærkombinasjon $\\Leftrightarrow$ vekter summerer til 1.\n- ☐ Jeg sammenlignet varians via $\\sum a_i^2$ og valgte estimatoren med lavest.\n- ☐ Jeg husket at ML ikke er automatisk forventningsrett, og at invarians ikke bevarer det.\n\nManglet du noe? Repeter [kap. 5.2](/bok/stk1100/stk1100-5-2), løkke 5, og [kap. 5.1](/bok/stk1100/stk1100-5-1), løkke 5."
+        }
+      ]
+    },
+    {
+      "id": "stk1100-5-prove-p4",
+      "type": "collapsible",
+      "title": "Prøve 5.D — Full estimeringsoppgave med skjevhetskorreksjon (eksamensnivå, ~45 min)",
+      "buttonText": "Vis prøve 5.D",
+      "content": [
+        {
+          "id": "stk1100-5-prove-p4-ex1",
+          "type": "exercise",
+          "exercise": {
+            "id": "stk1100-5-prove-p4-ex1",
+            "number": "1",
+            "type": "classic",
+            "difficulty": "vanskelig",
+            "task": "**Full estimeringshalvdel (eksamensnivå).** Bruddstyrken $X_1,\\dots,X_n$ til $n$ karbonfibre antas iid Weibull med **kjent** formparameter $\\alpha = 2$ og ukjent skala $\\beta$:\n$$f(x;\\beta) = \\frac{2x}{\\beta^{2}}\\,e^{-(x/\\beta)^{2}}, \\qquad x \\ge 0.$$\n\n**a)** Utled ML-estimatoren $\\hat\\beta$.\n**b)** Vis at $V = \\sum_{i=1}^n (X_i/\\beta)^{2} \\sim \\text{gamma}(n,1)$, og skriv $\\hat\\beta$ som $\\beta\\,(V/n)^{1/2}$.\n**c)** Vis at $\\hat\\beta$ er **skjev** for $\\beta$, og finn en forventningsrett korreksjon. Regn ut korreksjonsfaktoren for $n = 5$ (bruk $\\Gamma(5) = 24$ og $\\Gamma(5{,}5) = 52{,}3428$).\n**d)** Fem fibre gir $\\sum x_i^{2} = 45$. Finn ML-estimatet for $\\beta$ og det skjevhetskorrigerte estimatet.",
+            "solution": "**a)** $\\ell(\\beta) = n\\ln 2 + \\sum\\ln x_i - 2n\\ln\\beta - \\beta^{-2}\\sum x_i^{2}$. Derivér: $\\ell'(\\beta) = -\\dfrac{2n}{\\beta} + 2\\beta^{-3}\\sum x_i^{2} = 0$. Multipliser med $\\beta^3/2$: $-n\\beta^{2} + \\sum x_i^{2} = 0$, så\n$$\\hat\\beta = \\left(\\frac{1}{n}\\sum_{i=1}^n x_i^{2}\\right)^{1/2}.$$\n\n**b)** For Weibull med form $\\alpha = 2$ er hver $(X_i/\\beta)^{2}$ eksponensialfordelt med forventning 1, altså $\\text{gamma}(1,1)$ (fra transformasjonen i [kap. 4.3](/bok/stk1100/stk1100-4-3)). Summen av $n$ uavhengige $\\text{gamma}(1,1)$ med felles skala er $\\text{gamma}(n,1)$, så $V = \\sum (X_i/\\beta)^{2} \\sim \\text{gamma}(n,1)$. Videre er $\\hat\\beta^{2} = \\tfrac1n\\sum X_i^{2} = \\tfrac{\\beta^2}{n}\\sum (X_i/\\beta)^2 = \\tfrac{\\beta^2}{n}V$, altså $\\hat\\beta = \\beta\\,(V/n)^{1/2}$.\n\n**c)** Med E(Vʳ)-formelen for $V \\sim \\text{gamma}(n,1)$ (skala 1): $E(V^{1/2}) = \\dfrac{\\Gamma(n + \\tfrac12)}{\\Gamma(n)}$. Da\n$$E(\\hat\\beta) = \\beta\\,n^{-1/2}E(V^{1/2}) = \\beta\\,\\underbrace{n^{-1/2}\\frac{\\Gamma(n+\\tfrac12)}{\\Gamma(n)}}_{c_n}.$$\nEn kontroll viser $c_n < 1$, så $E(\\hat\\beta) = c_n\\,\\beta < \\beta$: $\\hat\\beta$ er **skjev** og underestimerer. Fordi $c_n$ er kjent (avhenger bare av $n$), er $\\tilde\\beta = \\hat\\beta/c_n$ forventningsrett.\n\nFor $n = 5$: $c_5 = 5^{-1/2}\\dfrac{\\Gamma(5{,}5)}{\\Gamma(5)} = 0{,}44721\\cdot\\dfrac{52{,}3428}{24} = 0{,}44721\\cdot 2{,}18095 = 0{,}97535.$\n\n**d)** $\\sum x_i^2 = 45$, $n = 5$: $\\hat\\beta = \\sqrt{45/5} = \\sqrt 9 = 3$. Skjevhetskorrigert: $\\tilde\\beta = \\hat\\beta/c_5 = 3/0{,}97535 = 3{,}076.$ (Estimatet er nesten 3 % for lavt uten korreksjon.)",
+            "hints": [
+              "a) Derivér $-2n\\ln\\beta - \\beta^{-2}\\sum x_i^2$ og løs for $\\beta^2$.",
+              "b) $(X_i/\\beta)^\\alpha$ er eksponensial(1) $=\\text{gamma}(1,1)$; summen blir $\\text{gamma}(n,1)$.",
+              "c) $E(V^{1/2}) = \\Gamma(n+\\tfrac12)/\\Gamma(n)$ for $\\text{gamma}(n,1)$; korreksjonen er $\\hat\\beta/c_n$."
+            ]
+          }
+        },
+        {
+          "id": "stk1100-5-prove-p4-selvdiag",
+          "type": "text",
+          "content": "### Selvdiagnose 5.D\n\n- ☐ Jeg utledet potens-ML-estimatoren $\\hat\\beta = (\\tfrac1n\\sum x_i^2)^{1/2}$ med alle trinn.\n- ☐ Jeg viste at $\\sum(X_i/\\beta)^2 \\sim \\text{gamma}(n,1)$ og skrev $\\hat\\beta = \\beta(V/n)^{1/2}$.\n- ☐ Jeg brukte E(Vʳ)-formelen til å vise skjevheten $E(\\hat\\beta) = c_n\\beta$ og korrigerte med $\\hat\\beta/c_n$.\n- ☐ Jeg regnet $c_5 = 0{,}9753$ med Γ-verdiene og fant både ML-estimatet (3) og det korrigerte (3,08).\n\nManglet du noe? Repeter [kap. 5.3](/bok/stk1100/stk1100-5-3) og skjevhetskorreksjonen i [kap. 5.1](/bok/stk1100/stk1100-5-1), løkke 4."
+        }
+      ]
+    },
+    {
+      "id": "stk1100-5-prove-symbolliste",
+      "type": "collapsible",
+      "title": "Symbol- og formelliste",
+      "buttonText": "Vis symboler og formler",
+      "content": [
+        {
+          "id": "stk1100-5-prove-sym-text",
+          "type": "text",
+          "content": "## Symbol- og formelliste\n\n*Oppslagsverk — alt her forklares underveis.*\n\n| Symbol | Betydning |\n|---|---|\n| $\\theta$ | Ukjent parameter (generelt) |\n| $\\hat\\theta$ | Estimator (stokastisk regel, stor bokstav + hatt) |\n| $\\tilde\\theta$ | Skjevhetskorrigert estimator |\n| $X_1,\\dots,X_n$ | Iid observasjoner (stokastiske) |\n| $\\bar X$ | Utvalgsgjennomsnittet, $\\tfrac1n\\sum X_i$ |\n| $\\text{bias}(\\hat\\theta)$ | Skjevheten, $E(\\hat\\theta) - \\theta$ |\n| $\\text{SE}(\\hat\\theta)$ | Standardfeilen, $\\sqrt{\\text{Var}(\\hat\\theta)}$ |\n| $L(\\theta),\\ \\ell(\\theta)$ | Likelihood og log-likelihood |\n| $\\lambda,\\ \\mu$ | Rate / forventning (eksponensial rate- hhv. forventningsform) |\n| $\\alpha,\\ \\beta$ | Form- og skalaparameter (gamma, Weibull) |\n| $\\Gamma$ | Gammafunksjonen |\n| $c_n$ | Skjevhetskorreksjonsfaktor (Γ-forhold) |\n\n**Formler i disse prøvene:**\n\n$$E(\\hat\\theta) = \\theta\\ \\text{(forventningsrett)}, \\qquad \\text{bias}(\\hat\\theta) = E(\\hat\\theta) - \\theta$$\n\n$$\\text{Var}(\\bar X) = \\frac{\\sigma^2}{n}, \\qquad \\text{SE}(\\bar X) = \\frac{\\sigma}{\\sqrt n}, \\qquad \\text{Var}\\!\\Big(\\sum a_i X_i\\Big) = \\sigma^2\\sum a_i^2\\ (\\text{uavh.})$$\n\n$$E(\\hat\\theta) = c\\,\\theta\\ (c\\ \\text{kjent}) \\ \\Rightarrow\\ E(\\hat\\theta/c) = \\theta \\quad \\text{(skjevhetskorreksjon)}$$\n\n$$L(\\theta) = \\prod_{i=1}^n f(x_i;\\theta), \\qquad \\ell(\\theta) = \\sum_{i=1}^n \\ln f(x_i;\\theta), \\qquad \\ell'(\\hat\\theta) = 0$$\n\n$$\\text{Eksp. rate: } \\hat\\lambda = 1/\\bar X;\\quad \\text{Gamma (kjent }\\alpha): \\hat\\beta = \\bar X/\\alpha;\\quad \\text{Weibull (kjent }\\alpha): \\hat\\beta = \\Big(\\tfrac1n\\textstyle\\sum X_i^\\alpha\\Big)^{1/\\alpha}$$\n\n$$E(V^r) = \\beta^r\\frac{\\Gamma(\\alpha+r)}{\\Gamma(\\alpha)}\\ (V\\sim\\text{gamma}(\\alpha,\\beta)); \\qquad E[\\sqrt V] < \\sqrt{E[V]}$$\n\n$$\\text{Momentmetoden: } E(X) = \\bar X; \\qquad \\text{Invarians: } \\widehat{g(\\theta)} = g(\\hat\\theta)$$"
+        }
+      ]
+    }
+  ],
+  "exercises": []
+}

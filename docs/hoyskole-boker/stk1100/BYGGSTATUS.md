@@ -16,12 +16,13 @@
 - **Steg 1** (byggebølge): 27/27 kapittelfiler på disk (0.1–9.4), alle JSON gyldige.
   Quiz 27/27 kapitler (Del 9-quizene 9.1–9.4 gap-fylt av ny byggeleder + LENGDE-TELL
   rebalansert til 23 %). Flashcards 505 (definisjonsblokker) = skjelettkvote eksakt.
-  Prøvefiler: Del 1–4 + Del 7 bygget+struktur-validert (5 SVG-er). Del 5+6 under bygging, Del 8 relanseres.
-  GJENSTÅR: prøver Del 8 (+ Del 5-6 fra kjørende agent). Blokkerende (verifiser)-markør i 9-1 ryddet.
-  NB: API-en er degradert (4 underagenter døde på ECONNRESET) — alle rakk å skrive
-  filene til disk før død; salvaget + struktur-validert av byggeleder. 7-prove: reword
-  «bootstrap-verdien»→«bootstrap-anslaget» (fjernet p-verdi-substreng, falsk positiv).
-  Numerisk etterregning av alle prøve-fasiter gjøres samlet i Steg 3-verifikatorbølgen.
+  Prøvefiler: Del 1–7 bygget+struktur-validert (6 SVG-er). Del 8 under bygging.
+  GJENSTÅR: prøve Del 8. Blokkerende (verifiser)-markør i 9-1 ryddet.
+  NB: API-en er degradert (5 underagenter døde på ECONNRESET) — alle rakk å skrive
+  filene til disk før død; salvaget + struktur-validert av byggeleder. Substreng-
+  opprydding: «bootstrap-verdien»→«bootstrap-anslaget» i 7-prove OG kap. 7-2 (fjernet
+  p-verdi-substreng, falsk positiv). Eneste gjenværende «p-verdi» er 0-1 (sanksjonert
+  STK1110-avgrensning). Numerisk etterregning av alle prøve-fasiter i Steg 3.
 - **Steg 2** (wiring): ikke startet (krever alle 8 prøvefiler → wire-bok.py).
 - **Steg 3** (verifikator): ikke startet.
 - **Steg 4** (sluttport): ikke startet. Baseline sjekk-bok.py: 505 def, 0 unicode-i-LaTeX,
