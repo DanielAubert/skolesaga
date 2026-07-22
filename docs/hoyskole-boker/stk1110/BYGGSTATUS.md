@@ -21,10 +21,12 @@ Byggeplan: `docs/hoyskole-boker/BYGGEPLAN-MAL.md` (steg 0→4).
 |---|---|---|
 | 0 | 0.1, 0.2 | ✅ committet (def 10/25, quiz 10/15) |
 | 1 | 1.1–1.4 | ✅ committet (def 30/35/30/25, quiz 25/30/30/20) |
-| 1 | 1.5 drill + 1-prove | 🔨 agent kjører |
-| 2 | 2.1–2.3 | 🔨 agent kjører |
-| 2 | 2.4–2.7 (+ 2-prove) | ⏳ ikke startet |
-| 3 | 3.1–3.7 (+ 3-prove) | ⏳ ikke startet |
+| 1 | 1.5 drill + 1-prove | ✅ committet 99024a8c (def 15, quiz 25) |
+| 2 | 2.1–2.3 | ✅ committet 999c2d94 (def 30/30/30, quiz 30/30/25) |
+| 2 | 2.4–2.6 | ✅ committet 7409d9b7 (def 20/15/15, quiz 15/15/15) |
+| 2 | 2.7 + 2-prove | ✅ committet (def 15, quiz 25; salvage-verifisert) |
+| 3 | 3.1–3.2 | ✅ committet (def 30/25, quiz 30/25; salvage-verifisert) |
+| 3 | 3.3–3.7 (+ 3-prove) | ⏳ ikke startet |
 | 4 | 4.1–4.4 | ⏳ ikke startet |
 
 Figurer: 9 SVG ✅ committet (b8bbe40e), lastes opp i Steg 4.

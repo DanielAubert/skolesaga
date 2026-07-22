@@ -1,0 +1,302 @@
+[
+  {
+    "question": "Hva er minste kvadraters estimator for stigningstallet?",
+    "options": [
+      "$\\hat\\beta_1=\\dfrac{\\sum(x_i-\\bar x)(Y_i-\\bar Y)}{\\sum(x_i-\\bar x)^2}=\\dfrac{S_{xy}}{S_{xx}}$",
+      "$\\hat\\beta_1=\\dfrac{\\sum(x_i-\\bar x)^2}{\\sum(x_i-\\bar x)(Y_i-\\bar Y)}=\\dfrac{S_{xx}}{S_{xy}}$",
+      "$\\hat\\beta_1=\\dfrac{\\sum(Y_i-\\bar Y)^2}{\\sum(x_i-\\bar x)^2}=\\dfrac{S_{yy}}{S_{xx}}$",
+      "$\\hat\\beta_1=\\dfrac{\\sum x_iY_i}{\\sum x_i^2}$ uten sentrering om $\\bar x$"
+    ],
+    "explanation": "Stigningstallet er samvariasjonen $S_{xy}$ delt på spredningen i $x$, $S_{xx}$."
+  },
+  {
+    "question": "Hvor mange frihetsgrader har feilvariansen $S^2$ i enkel lineær regresjon med $n$ observasjoner?",
+    "options": [
+      "$n-2$, fordi to parametere ($\\beta_0$ og $\\beta_1$) er estimert",
+      "$n-1$, fordi bare senteret $\\bar Y$ er estimert, ikke stigningstallet",
+      "$n$, fordi ingen frihetsgrader bindes i regresjon",
+      "$n-3$, fordi også $\\sigma^2$ teller som en estimert parameter"
+    ],
+    "explanation": "To parametere ($\\beta_0,\\beta_1$) estimeres, så $S^2=\\text{SSE}/(n-2)$. Å skrive $n-1$ er den klassiske df-feilen."
+  },
+  {
+    "question": "$\\hat\\beta_0=\\bar Y-\\hat\\beta_1\\bar x$ følger direkte av at:",
+    "options": [
+      "regresjonslinja alltid går gjennom tyngdepunktet $(\\bar x,\\bar Y)$",
+      "residualene $e_i$ per konstruksjon alltid er positive størrelser",
+      "stigningstallet $\\hat\\beta_1$ er forventningsrett",
+      "forklaringsvariablene $x_i$ er normalfordelte"
+    ],
+    "explanation": "Den første normalligningen sier $\\bar Y=\\hat\\beta_0+\\hat\\beta_1\\bar x$, altså at linja treffer $(\\bar x,\\bar Y)$."
+  },
+  {
+    "question": "Variansen er $V(\\hat\\beta_1)=\\sigma^2/S_{xx}$. Hva betyr dette for presisjonen?",
+    "options": [
+      "Mer spredte $x$-verdier (stor $S_{xx}$) gir mer presist stigningstall",
+      "Mer spredte $x$-verdier (stor $S_{xx}$) gir mindre presist stigningstall",
+      "Presisjonen avhenger overhodet ikke av hvordan $x$-verdiene ligger",
+      "Variansen blir eksakt null så snart utvalgsstørrelsen $n$ er partall"
+    ],
+    "explanation": "Stor $S_{xx}$ i nevneren gjør $V(\\hat\\beta_1)$ liten — spre $x$-verdiene for presisjon."
+  },
+  {
+    "question": "I enkel lineær regresjon er determinasjonskoeffisienten $R^2$ lik:",
+    "options": [
+      "kvadratet av korrelasjonen mellom $x$ og $y$, altså $r^2$",
+      "korrelasjonskoeffisienten $r$ selv, altså uten å kvadrere den først",
+      "stigningstallet $\\hat\\beta_1$ ganget med $\\bar x$",
+      "differansen $1-r$ mellom én og korrelasjonen"
+    ],
+    "explanation": "$R^2=r^2$ i enkel regresjon. Å forveksle $R^2$ med $r$ (glemme kvadratet) er en hyppig feil."
+  },
+  {
+    "question": "En regresjon av vekt på høyde (voksne, 150-195 cm) gir $\\hat\\beta_0=-90$ kg. Hvordan tolkes dette?",
+    "options": [
+      "Som et regneteknisk skjæringspunkt — $x=0$ cm er urealistisk, uten reell tolkning",
+      "Som forventet vekt for en tenkt person med en høyde på nøyaktig 0 cm",
+      "Som et sikkert tegn på at hele modellen er feil og bør forkastes",
+      "Som den observerte gjennomsnittsvekten blant personene i utvalget"
+    ],
+    "explanation": "$x=0$ ligger langt utenfor dataområdet; $\\hat\\beta_0$ er da bare der linja skjærer aksen, ikke en meningsfull forventet vekt."
+  },
+  {
+    "question": "Testobservatoren for $H_0:\\beta_1=\\beta_1^0$ er:",
+    "options": [
+      "$T=\\dfrac{\\hat\\beta_1-\\beta_1^0}{se(\\hat\\beta_1)}$, som er $t_{n-2}$-fordelt under $H_0$",
+      "$T=\\dfrac{\\hat\\beta_1-\\beta_1^0}{se(\\hat\\beta_1)}$, som er $t_{n-1}$-fordelt under $H_0$",
+      "$Z=\\dfrac{\\hat\\beta_1-\\beta_1^0}{se(\\hat\\beta_1)}$, som alltid er $N(0,1)$-fordelt",
+      "$T=\\dfrac{\\hat\\beta_1-\\beta_1^0}{S_{xx}}$, som er $t_{n-2}$-fordelt under $H_0$"
+    ],
+    "explanation": "Observatoren er (estimator − nullverdi)/standardfeil, t-fordelt med $n-2$ frihetsgrader."
+  },
+  {
+    "question": "Hvorfor bruker inferensen for $\\beta_1$ t-fordelingen og ikke normalfordelingen?",
+    "options": [
+      "Fordi $\\sigma$ er ukjent og erstattet med den stokastiske estimatoren $S$",
+      "Fordi selve estimatoren $\\hat\\beta_1$ i dette tilfellet ikke er normalfordelt",
+      "Fordi forklaringsvariablene $x_i$ er trukket tilfeldig",
+      "Fordi $R^2$ per definisjon alltid er mindre enn 1"
+    ],
+    "explanation": "Estimert $\\sigma$ (via $S$) gir t-fordeling med $n-2$ frihetsgrader, akkurat som i ett-utvalgstesten."
+  },
+  {
+    "question": "Et 95 %-KI for $\\beta_1$ er $[1{,}63,\\ 2{,}68]$. Hva sier dualiteten om $H_0:\\beta_1=0$ tosidig på 5 %-nivå?",
+    "options": [
+      "$H_0$ forkastes, fordi verdien 0 ligger utenfor intervallet",
+      "$H_0$ beholdes, fordi verdien 0 ligger utenfor intervallet",
+      "$H_0$ beholdes, fordi hele intervallet består av positive tall",
+      "Dualiteten mellom test og KI kan ikke brukes i regresjon"
+    ],
+    "explanation": "Forkast $H_0:\\beta_1=\\beta_1^0$ hviss $\\beta_1^0$ ligger utenfor KI-et; 0 er utenfor $[1{,}63,\\ 2{,}68]$."
+  },
+  {
+    "question": "Minste kvadrater minimerer:",
+    "options": [
+      "$\\sum(y_i-\\hat\\beta_0-\\hat\\beta_1 x_i)^2$, summen av kvadrerte loddrette avstander",
+      "$\\sum|y_i-\\hat\\beta_0-\\hat\\beta_1 x_i|$, altså summen av de absolutte loddrette avvikene",
+      "$\\sum(x_i-\\bar x)^2$, den totale spredningen i forklaringsvariabelen",
+      "summen av de vinkelrette (ortogonale) avstandene fra punktene til linja"
+    ],
+    "explanation": "LS minimerer summen av kvadrerte residualer (loddrette avvik), ikke absoluttavvik eller vinkelrett avstand."
+  },
+  {
+    "question": "For $\\hat\\beta_1=2{,}15$ og $se(\\hat\\beta_1)=0{,}23$ med $n=10$: hva er t-observatoren for $H_0:\\beta_1=0$?",
+    "options": [
+      "$T=2{,}15/0{,}23\\approx 9{,}3$, med $n-2=8$ frihetsgrader",
+      "$T=2{,}15/0{,}23\\approx 9{,}3$, med $n-1=9$ frihetsgrader",
+      "$T=0{,}23/2{,}15\\approx 0{,}11$, med $n-2=8$ frihetsgrader",
+      "$T=2{,}15\\cdot 0{,}23\\approx 0{,}49$, med $n=10$ frihetsgrader"
+    ],
+    "explanation": "$T=\\hat\\beta_1/se$, og enkel regresjon har $n-2=8$ frihetsgrader."
+  },
+  {
+    "question": "Hva er standardfeilen $se(\\hat\\beta_1)$?",
+    "options": [
+      "$S/\\sqrt{S_{xx}}$, der $S=\\sqrt{\\text{SSE}/(n-2)}$ estimerer $\\sigma$",
+      "$S/\\sqrt{n}$, som er standardfeilen til det vanlige utvalgsgjennomsnittet $\\bar X$",
+      "$\\sigma^2/S_{xx}$, altså selve variansen til $\\hat\\beta_1$",
+      "$S\\cdot\\sqrt{S_{xx}}$, produktet av $S$ og roten av $S_{xx}$"
+    ],
+    "explanation": "$se(\\hat\\beta_1)=\\sqrt{V(\\hat\\beta_1)}$ med $\\sigma$ erstattet av $S$: $S/\\sqrt{S_{xx}}$."
+  },
+  {
+    "question": "Egenskapen $E(\\hat\\beta_1)=\\beta_1$ betyr at estimatoren er:",
+    "options": [
+      "forventningsrett — den treffer riktig verdi i snitt over gjentatte utvalg",
+      "konsistent, men ikke uten videre forventningsrett i endelige, små utvalg",
+      "alltid nøyaktig lik den sanne $\\beta_1$ i hvert enkelt datasett",
+      "normalfordelt rundt et senter som avviker litt fra $\\beta_1$"
+    ],
+    "explanation": "Forventningsrett betyr $E(\\hat\\theta)=\\theta$; det handler om gjennomsnittet over utvalg, ikke det enkelte estimatet."
+  },
+  {
+    "question": "Uttrykket $\\text{SSE}=\\sum(y_i-\\hat y_i)^2$ måler:",
+    "options": [
+      "variasjonen i $y$ som linja IKKE forklarer (residualvariasjon)",
+      "den totale variasjonen i $y$ rundt sitt eget gjennomsnitt",
+      "den delen av variasjonen i $y$ som linja nettopp forklarer",
+      "spredningen i forklaringsvariabelens $x$-verdier rundt $\\bar x$"
+    ],
+    "explanation": "SSE er summen av kvadrerte residualer — den uforklarte delen. $R^2=1-\\text{SSE}/\\text{SST}$."
+  },
+  {
+    "question": "Under normalfordelte feilledd gjelder at minste kvadrater:",
+    "options": [
+      "gir nøyaktig de samme estimatorene som maximum likelihood",
+      "alltid gir et høyere $R^2$ enn maximum likelihood ville gjort",
+      "er en helt annen metode uten noen kobling til likelihood",
+      "bare gir gyldige estimatorer i tilfellet der $\\beta_0=0$"
+    ],
+    "explanation": "Log-likelihooden inneholder $-\\frac{1}{2\\sigma^2}\\sum(y_i-\\beta_0-\\beta_1x_i)^2$, så å maksimere $\\ell$ er å minimere residualkvadratsummen."
+  },
+  {
+    "question": "$R^2=0{,}64$ i en enkel regresjon med $\\hat\\beta_1>0$. Hva er korrelasjonen mellom $x$ og $y$?",
+    "options": [
+      "$r=\\sqrt{0{,}64}=0{,}80$, positiv fordi $\\hat\\beta_1>0$",
+      "$r=0{,}64$, siden $R^2$ og $r$ er samme størrelse",
+      "$r=0{,}64^2=0{,}41$, altså $R^2$ kvadrert",
+      "$r=1-0{,}64=0{,}36$, komplementet til $R^2$"
+    ],
+    "explanation": "$r=\\sqrt{R^2}=\\sqrt{0{,}64}=0{,}80$, med samme fortegn som $\\hat\\beta_1$."
+  },
+  {
+    "question": "Ekstrapolering i regresjon betyr å:",
+    "options": [
+      "bruke linja for $x$-verdier utenfor det området dataene dekker",
+      "legge til nok en forklaringsvariabel i den eksisterende modellen",
+      "fjerne mistenkelige uteliggere før man tilpasser linja på nytt",
+      "regne determinasjonskoeffisienten $R^2$ på nytt for et delutvalg"
+    ],
+    "explanation": "Modellen er bare understøttet i dataområdet; utenfor kan sammenhengen bryte sammen."
+  },
+  {
+    "question": "I regresjon uten konstantledd ($Y_i=\\gamma x_i+\\varepsilon_i$) er estimatoren:",
+    "options": [
+      "$\\hat\\gamma=\\dfrac{\\sum x_iY_i}{\\sum x_i^2}$, med summer uten sentrering",
+      "$\\hat\\gamma=\\dfrac{\\sum(x_i-\\bar x)(Y_i-\\bar Y)}{\\sum(x_i-\\bar x)^2}$, sentrert om $\\bar x$",
+      "$\\hat\\gamma=\\bar Y/\\bar x$, forholdet mellom gjennomsnittene",
+      "$\\hat\\gamma=\\dfrac{\\sum x_i^2}{\\sum x_iY_i}$, den inverse formen"
+    ],
+    "explanation": "Uten konstantledd minimeres $\\sum(y_i-\\gamma x_i)^2$, som gir $\\hat\\gamma=\\sum x_iy_i/\\sum x_i^2$ (ikke sentrert)."
+  },
+  {
+    "question": "Hvilken størrelse er den forklarte delen i dekomponeringen $\\text{SST}=\\text{SSR}+\\text{SSE}$?",
+    "options": [
+      "SSR $=\\sum(\\hat y_i-\\bar y)^2$, avstanden fra tilpassede verdier til $\\bar y$",
+      "SSE $=\\sum(y_i-\\hat y_i)^2$, avstanden fra hvert punkt ned til regresjonslinja",
+      "SST $=\\sum(y_i-\\bar y)^2$, den totale variasjonen i responsen",
+      "$S_{xx}=\\sum(x_i-\\bar x)^2$, spredningen i forklaringsvariabelen"
+    ],
+    "explanation": "SSR (forklart) er avstanden fra tilpassede verdier til $\\bar y$; SSE er den uforklarte residualdelen."
+  },
+  {
+    "question": "Modellantakelsen om konstant feilvarians $V(\\varepsilon_i)=\\sigma^2$ for alle $x_i$ kalles:",
+    "options": [
+      "homoskedastisitet (lik spredning uansett $x$-verdi)",
+      "heteroskedastisitet (spredning som øker eller avtar med $x$)",
+      "multikollinearitet (sterk samvariasjon mellom prediktorer)",
+      "autokorrelasjon (avhengighet mellom påfølgende feilledd)"
+    ],
+    "explanation": "Homoskedastisitet = lik varians for alle $x_i$. Brytes den, er standardfeilene upålitelige."
+  },
+  {
+    "question": "For $\\bar x=30$, $\\bar y=52$, $S_{xx}=1000$, $S_{xy}=720$: hva er $\\hat\\beta_0$?",
+    "options": [
+      "$\\hat\\beta_0=52-0{,}72\\cdot 30=30{,}4$",
+      "$\\hat\\beta_0=720/1000=0{,}72$",
+      "$\\hat\\beta_0=52$, altså $\\bar y$ direkte",
+      "$\\hat\\beta_0=0{,}72\\cdot 30=21{,}6$"
+    ],
+    "explanation": "$\\hat\\beta_1=720/1000=0{,}72$; $\\hat\\beta_0=52-0{,}72\\cdot 30=52-21{,}6=30{,}4$."
+  },
+  {
+    "question": "Hva sier den andre normalligningen $\\sum x_iy_i=\\hat\\beta_0\\sum x_i+\\hat\\beta_1\\sum x_i^2$ geometrisk?",
+    "options": [
+      "At residualene er ukorrelert med $x$ — ingen lineær trend igjen å hente",
+      "At hver enkelt av residualene $e_i$ er nøyaktig lik null samtidig",
+      "At determinasjonskoeffisienten $R^2$ er lik 1",
+      "At regresjonslinja er helt vannrett med $\\hat\\beta_1=0$"
+    ],
+    "explanation": "Den følger av $\\sum x_i e_i=0$: residualene har ingen lineær sammenheng med $x$ igjen."
+  },
+  {
+    "question": "$\\hat\\beta_1=\\sum c_iY_i$ med $c_i=(x_i-\\bar x)/S_{xx}$. Hvilke egenskaper gir $E(\\hat\\beta_1)=\\beta_1$?",
+    "options": [
+      "$\\sum c_i=0$ og $\\sum c_ix_i=1$",
+      "$\\sum c_i=1$ og $\\sum c_ix_i=0$",
+      "$\\sum c_i^2=1$ og $\\sum c_i=1$",
+      "$\\sum c_i=n$ og $\\sum c_ix_i=n$"
+    ],
+    "explanation": "$E(\\hat\\beta_1)=\\beta_0\\sum c_i+\\beta_1\\sum c_ix_i=\\beta_0\\cdot 0+\\beta_1\\cdot 1=\\beta_1$."
+  },
+  {
+    "question": "Uttrykket $\\hat\\beta_1=\\sum c_iY_i$ (funksjon av stokastiske $Y_i$) er en:",
+    "options": [
+      "estimator — en stokastisk variabel med forventning og varians",
+      "et estimat — et fast tall regnet ut fra ett datasett",
+      "parameter — en fast, ukjent egenskap ved populasjonen",
+      "residual — avviket mellom observert og tilpasset verdi"
+    ],
+    "explanation": "$\\hat\\beta_1$ er en funksjon av de stokastiske $Y_i$, altså en estimator; tallverdien fra data er et estimat."
+  },
+  {
+    "question": "Et 95 %-KI for stigningstallet $\\beta_1$ konstrueres som:",
+    "options": [
+      "$\\hat\\beta_1\\pm t_{n-2,\\,0{,}025}\\,se(\\hat\\beta_1)$",
+      "$\\hat\\beta_1\\pm t_{n-1,\\,0{,}025}\\,se(\\hat\\beta_1)$",
+      "$\\hat\\beta_1\\pm z_{0{,}05}\\,se(\\hat\\beta_1)$",
+      "$\\hat\\beta_1\\pm t_{n-2,\\,0{,}05}\\,se(\\hat\\beta_1)$"
+    ],
+    "explanation": "Tosidig 95 % gir $\\alpha/2=0{,}025$ i hver hale, med $n-2$ frihetsgrader."
+  },
+  {
+    "question": "$R^2=0{,}30$ i en regresjon. Hva er en korrekt tolkning?",
+    "options": [
+      "30 % av variasjonen i $y$ forklares av forklaringsvariabelen $x$",
+      "korrelasjonen mellom $x$ og $y$ er nøyaktig lik 0,30",
+      "30 % av observasjonene ligger nøyaktig på regresjonslinja",
+      "stigningstallet $\\hat\\beta_1$ har verdien 0,30 i denne modellen"
+    ],
+    "explanation": "$R^2$ er andelen forklart variasjon; korrelasjonen er $\\sqrt{0{,}30}\\approx 0{,}55$."
+  },
+  {
+    "question": "Hvorfor deler vi på $n-2$ (ikke $n$) i $S^2=\\text{SSE}/(n-2)$?",
+    "options": [
+      "To parametere ($\\beta_0,\\beta_1$) er estimert, så $n-2$ gir forventningsrett $S^2$",
+      "Fordi det å dividere med $n-2$ alltid gir et litt mindre tallresultat enn med $n$",
+      "Det er en ren konvensjon uten noe egentlig matematisk grunnlag",
+      "Fordi noen av residualene $e_i$ typisk er negative størrelser"
+    ],
+    "explanation": "Med $n$ ville $S^2$ vært skjevt for $\\sigma^2$; $n-2$ korrigerer for de to estimerte parameterne."
+  },
+  {
+    "question": "En A-besvarelse tolker $\\hat\\beta_1=2{,}15$ (poeng per studietime) slik:",
+    "options": [
+      "«Én ekstra studietime svarer til om lag 2,15 flere forventede poeng.»",
+      "«Forklaringsvariabelen $x$ og responsen $y$ har en korrelasjon på 2,15.»",
+      "«Ved 0 studietimer er den forventede poengsummen lik 2,15.»",
+      "«2,15 % av variasjonen forklares av antall studietimer.»"
+    ],
+    "explanation": "$\\hat\\beta_1$ er forventet endring i $y$ per enhet $x$, tolket i kontekst med enhet."
+  },
+  {
+    "question": "Hva er $se(\\hat\\beta_1)$ når $S=4{,}13$ og $S_{xx}=330$?",
+    "options": [
+      "$4{,}13/\\sqrt{330}\\approx 0{,}227$",
+      "$4{,}13/330\\approx 0{,}0125$",
+      "$\\sqrt{4{,}13/330}\\approx 0{,}112$",
+      "$4{,}13\\cdot\\sqrt{330}\\approx 75{,}0$"
+    ],
+    "explanation": "$se(\\hat\\beta_1)=S/\\sqrt{S_{xx}}=4{,}13/18{,}17\\approx 0{,}227$."
+  },
+  {
+    "question": "Feilleddet $\\varepsilon_i$ i regresjonsmodellen representerer:",
+    "options": [
+      "alt i $Y_i$ som den rette linja ikke fanger — støy og utelatte faktorer",
+      "den systematiske, ikke-tilfeldige delen $\\beta_0+\\beta_1x_i$ av responsen $Y_i$",
+      "residualen $e_i=y_i-\\hat y_i$, altså nøyaktig det samme",
+      "stigningstallet $\\beta_1$ i den underliggende modellen"
+    ],
+    "explanation": "$\\varepsilon_i$ er det uobserverbare tilfeldige avviket; residualen $e_i$ er dets empiriske motstykke etter tilpasning."
+  }
+]

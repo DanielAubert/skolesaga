@@ -1,0 +1,396 @@
+{
+  "id": "stk1110-3-2",
+  "courseId": "stk1110",
+  "chapterNumber": "3.2",
+  "title": "Å lese R-utskrift (lm-sammendraget)",
+  "description": "Hver kolonne og linje i et lm-sammendrag: Estimate, Std. Error, t value, Pr(>|t|), Residual standard error, Multiple/Adjusted R-squared og F-statistic — hva de betyr og hvordan de brukes til inferens uten a regne alt selv.",
+  "estimatedMinutes": 45,
+  "competenceGoals": [
+    "kjenne igjen og tolke hver kolonne i Coefficients-tabellen (Estimate, Std. Error, t value, Pr(>|t|))",
+    "hente residualspredning, frihetsgrader, R-kvadrat og justert R-kvadrat fra utskriften",
+    "bygge konfidensintervall og lese signifikans direkte fra sammendraget",
+    "tolke en ikke-signifikant koeffisient betinget pa de ovrige variablene"
+  ],
+  "content": [
+    {
+      "id": "stk1110-3-2-tip",
+      "type": "tip",
+      "title": "Eksamensvinkel",
+      "content": "**Sensor-nøkkelferdigheten i regresjonssøylen.** Å lese og tolke en R-utskrift (`summary`-sammendraget av en regresjon) forekommer i **omtrent 15 av 22 sett (68 %)** — nesten alltid som del av Oppgave 3. Dette er den motsatte ferdigheten av forgjengeremnet STK1100, som drillet Python-koding: **her skriver du ingen kode — du tolker en ferdig utskrift.**\n\n- Du skal kjenne igjen hver kolonne: `Estimate`, `Std. Error`, `t value`, `Pr(>|t|)`.\n- Du skal hente $\\hat\\sigma$ og frihetsgradene fra «Residual standard error»-linja.\n- Du skal bygge et konfidensintervall fra `Estimate` $\\pm t\\cdot$ `Std. Error`, og lese signifikans fra `Pr(>|t|)`.\n\n**Sensorkrav (§4.10):** vit nøyaktig hvilken kolonne som er hva, og at en ikke-signifikant koeffisient *ikke* betyr «uviktig» — testen er betinget på de øvrige variablene. Prioritet: **må sitte perfekt.**\n\n*Tidsbruk:* ~45 min. Ingen tunge utledninger — dette er ren utskriftslesing, men presisjonen teller."
+    },
+    {
+      "id": "stk1110-3-2-forkunnskaper",
+      "type": "text",
+      "content": "**Forkunnskaper:** Alt i utskriften er størrelser fra **[kap. 3.1](/bok/stk1110/stk1110-3-1)**: `Estimate` er $\\hat\\beta_j$, `Std. Error` er $se(\\hat\\beta_j)$, `t value` er observatoren $\\hat\\beta_j/se(\\hat\\beta_j)$, og «Residual standard error» er $S=\\sqrt{\\text{SSE}/(n-k-1)}$. t-testen og konfidensintervallet er de samme som i kap. 3.1 og hviler på t-fordelingen fra [kap. 2.1–2.2](/bok/stk1110/stk1110-2-1).\n\nMultippel regresjon (flere prediktorer, «Adjusted R-squared», frihetsgraden $n-k-1$) tas fullt ut i **[kap. 3.3](/bok/stk1110/stk1110-3-3)** — her trenger du bare å lese tallene av."
+    },
+    {
+      "id": "stk1110-3-2-motiv",
+      "type": "text",
+      "content": "På eksamen får du sjelden rådata og en kalkulator til en full regresjon — du får en **R-utskrift** og skal tolke den. Utskriften er en kompakt tabell som inneholder alt du trenger: koeffisientene, standardfeilene deres, t-verdiene, P-verdiene, spredningen rundt modellen, frihetsgradene, $R^2$ og en samlet F-test.\n\nMålet med kapitlet er at du kan peke på hvert tall og si nøyaktig hva det er og hva det brukes til — og at du unngår de tre klassiske lesefeilene: forveksle `Std. Error` med `t value`, mistolke `Pr(>|t|)`, og tro at en ikke-signifikant koeffisient er uviktig.\n\nVi går gjennom utskriften linje for linje, med tre fullstendige eksempler (enkel + to multiple)."
+    },
+    {
+      "id": "stk1110-3-2-l1",
+      "type": "text",
+      "content": "## Løkke 1 — Coefficients-tabellen (~15 min)"
+    },
+    {
+      "id": "stk1110-3-2-def-summary",
+      "type": "definition",
+      "title": "lm-sammendraget (summary)",
+      "content": "**R-utskriften vi tolker er `summary`-sammendraget av en tilpasset regresjon.** Den har tre deler: (1) en **Coefficients-tabell** med én rad per koeffisient og fire kolonner (`Estimate`, `Std. Error`, `t value`, `Pr(>|t|)`), (2) en linje med **Residual standard error** og frihetsgrader, og (3) en linje med **Multiple/Adjusted R-squared** og en **F-statistic**. Vi leser tallene av — vi skriver ingen kode."
+    },
+    {
+      "id": "stk1110-3-2-def-coef",
+      "type": "definition",
+      "title": "Coefficients-tabellen",
+      "content": "**Hjertet i utskriften: én rad per koeffisient i modellen.** Første rad er `(Intercept)` ($\\hat\\beta_0$), deretter én rad per forklaringsvariabel ($\\hat\\beta_1,\\hat\\beta_2,\\dots$). De fire kolonnene er, i rekkefølge: estimatet, standardfeilen, t-verdien og den tosidige P-verdien for at nettopp den koeffisienten er null."
+    },
+    {
+      "id": "stk1110-3-2-def-estimate",
+      "type": "definition",
+      "title": "Estimate-kolonnen",
+      "content": "**`Estimate` er punktestimatet $\\hat\\beta_j$** — den tilpassede koeffisienten. For `(Intercept)` er det $\\hat\\beta_0$ (skjæringen); for en forklaringsvariabel er det stigningstallet, dvs. forventet endring i responsen per enhet av den variabelen (med de øvrige holdt konstant, i multippel regresjon). Dette er tallet du tolker i kontekst."
+    },
+    {
+      "id": "stk1110-3-2-def-stderr",
+      "type": "definition",
+      "title": "Std. Error-kolonnen",
+      "content": "**`Std. Error` er standardfeilen $se(\\hat\\beta_j)$** — den estimerte spredningen til koeffisienten. Den forteller hvor presist koeffisienten er bestemt, og den er byggeklossen i både t-verdien (kolonnen ved siden av) og konfidensintervallet ($\\hat\\beta_j\\pm t\\cdot se$). **Ikke forveksle denne kolonnen med `t value`** — det er den vanligste lesefeilen (§5.14)."
+    },
+    {
+      "id": "stk1110-3-2-def-tvalue",
+      "type": "definition",
+      "title": "t value-kolonnen",
+      "content": "**`t value` er testobservatoren for $H_0:\\beta_j=0$:**\n$$\\texttt{t value}=\\frac{\\texttt{Estimate}}{\\texttt{Std. Error}}=\\frac{\\hat\\beta_j}{se(\\hat\\beta_j)}.$$\nDen er $t_{n-k-1}$-fordelt under $H_0$. Du kan alltid **verifisere kolonnen selv** ved å dele `Estimate` på `Std. Error` — en rask kryssjekk sensor liker å se."
+    },
+    {
+      "id": "stk1110-3-2-def-pr",
+      "type": "definition",
+      "title": "Pr(>|t|)-kolonnen (P-verdien)",
+      "content": "**`Pr(>|t|)` er den tosidige P-verdien for $H_0:\\beta_j=0$** — sannsynligheten under $H_0$ for et minst like ekstremt utfall som det observerte. Liten P-verdi ($<\\alpha$) betyr at koeffisienten er signifikant forskjellig fra null. Stjernene bak (`***`, `**`, `*`) er signifikanskoder. **`Pr(>|t|)` er IKKE «sannsynligheten for at $\\beta_j=0$»** — hypotesen er ikke stokastisk (§5.14)."
+    },
+    {
+      "id": "stk1110-3-2-def-signif",
+      "type": "definition",
+      "title": "Signifikanskodene (stjernene)",
+      "content": "**Symbolene bak P-verdien markerer signifikansnivået:** `***` betyr $P<0{,}001$, `**` betyr $P<0{,}01$, `*` betyr $P<0{,}05$, `.` betyr $P<0{,}1$, og blank betyr $P\\ge 0{,}1$. De er en rask visuell guide, men du bør alltid lese selve P-verdien og sammenligne med det nivået oppgaven ber om (ofte 5 %)."
+    },
+    {
+      "id": "stk1110-3-2-ex1",
+      "type": "example",
+      "title": "Eksempel 1: Enkel regresjon fra utskrift (sjanger H)",
+      "problem": "En regresjon av eksamenspoeng ($y$) på antall studietimer ($x$) for $n=10$ studenter gir sammendraget under. Bruk $t_{8,\\,0{,}025}=2{,}306$.\n\n```\nCoefficients:\n             Estimate  Std. Error  t value  Pr(>|t|)\n(Intercept)   44.8000      2.8230   15.870  2.49e-07 ***\nstudietimer    2.1545      0.2275    9.471  1.27e-05 ***\n---\nResidual standard error: 4.133 on 8 degrees of freedom\nMultiple R-squared:  0.9181,   Adjusted R-squared:  0.9079\nF-statistic: 89.70 on 1 and 8 DF,  p-value: 1.27e-05\n```\n\n**a)** Angi $\\hat\\beta_1$ (studietimer-effekten) og standardfeilen.\n**b)** Verifiser `t value` for studietimer.\n**c)** Er stigningstallet signifikant på 5 %-nivå?\n**d)** Gi et 95 %-KI for $\\beta_1$.\n**e)** Hva er $\\hat\\sigma$, og hvor mange frihetsgrader?",
+      "solution": "**a)** $\\hat\\beta_1=2{,}1545$ (poeng per studietime), $se(\\hat\\beta_1)=0{,}2275$.\n\n**b)** `t value` $=\\hat\\beta_1/se=2{,}1545/0{,}2275=9{,}47$ — stemmer med utskriften.\n\n**c)** Ja. `Pr(>|t|)` $=1{,}27\\cdot 10^{-5}<0{,}05$ (og $|t|=9{,}47>2{,}306$), så $\\beta_1$ er klart signifikant forskjellig fra 0.\n\n**d)** KI $=\\hat\\beta_1\\pm t_{8,\\,0{,}025}\\,se=2{,}1545\\pm 2{,}306\\cdot 0{,}2275=2{,}1545\\pm 0{,}525=[1{,}63,\\ 2{,}68]$.\n\n**e)** $\\hat\\sigma=$ «Residual standard error» $=4{,}133$, på $n-2=8$ frihetsgrader (leses rett av linja)."
+    },
+    {
+      "id": "stk1110-3-2-oppg1",
+      "type": "exercise",
+      "exercise": {
+        "id": "stk1110-3-2-oppg1-e",
+        "number": "1",
+        "type": "classic",
+        "difficulty": "lett",
+        "task": "Bruk utskriften i eksempel 1.\n\n**a)** Hva er den estimerte skjæringen $\\hat\\beta_0$, og hva er standardfeilen?\n**b)** Regn ut `t value` for `(Intercept)` og sjekk mot utskriften.",
+        "solution": "**a)** $\\hat\\beta_0=44{,}80$ med $se(\\hat\\beta_0)=2{,}823$.\n\n**b)** `t value` $=44{,}80/2{,}823=15{,}87$ — stemmer med utskriften. (P-verdien $2{,}49\\cdot 10^{-7}$ er langt under 0,05, men skjæringen tolkes med varsomhet siden $x=0$ ligger utenfor dataområdet.)",
+        "hints": [
+          "`Estimate`-kolonnen for `(Intercept)`-raden gir $\\hat\\beta_0$.",
+          "`t value` = `Estimate` delt på `Std. Error`."
+        ]
+      }
+    },
+    {
+      "id": "stk1110-3-2-l2",
+      "type": "text",
+      "content": "## Løkke 2 — Residual SE, R² og F-statistikken (~15 min)"
+    },
+    {
+      "id": "stk1110-3-2-def-rse",
+      "type": "definition",
+      "title": "Residual standard error",
+      "content": "**«Residual standard error» er $\\hat\\sigma=S$** — den estimerte spredningen til feilleddene:\n$$\\hat\\sigma=\\sqrt{\\frac{\\text{SSE}}{n-k-1}}.$$\nLinja oppgir også «on $\\ldots$ degrees of freedom», som er $n-k-1$ ($k$ = antall forklaringsvariabler). Fra denne linja henter du både $\\hat\\sigma$ og frihetsgraden du trenger til t-kvantilen i et konfidensintervall."
+    },
+    {
+      "id": "stk1110-3-2-def-df",
+      "type": "definition",
+      "title": "Frihetsgradene i utskriften",
+      "content": "**«on $d$ degrees of freedom» oppgir residualfrihetsgraden $d=n-k-1$.** For enkel regresjon ($k=1$) er $d=n-2$; for multippel med $k$ prediktorer er $d=n-k-1$. Du kan lese antall observasjoner baklengs: $n=d+k+1$. Bruk *nøyaktig denne* frihetsgraden når du slår opp t-kvantilen til et KI (§4.6)."
+    },
+    {
+      "id": "stk1110-3-2-def-multr2",
+      "type": "definition",
+      "title": "Multiple R-squared",
+      "content": "**«Multiple R-squared» er $R^2=1-\\text{SSE}/\\text{SST}$** — andelen av variasjonen i responsen som modellen forklarer. I enkel regresjon er den kvadratet av korrelasjonen mellom $x$ og $y$. Den **øker (eller står stille) hver gang** en variabel legges til, så den egner seg *ikke* til å sammenligne modeller med ulikt antall prediktorer — bruk «Adjusted R-squared» til det."
+    },
+    {
+      "id": "stk1110-3-2-def-adjr2",
+      "type": "definition",
+      "title": "Adjusted R-squared",
+      "content": "**«Adjusted R-squared» er den justerte $R^2$-en**, som straffer for antall prediktorer:\n$$R^2_{\\text{just}}=1-\\frac{\\text{SSE}/(n-k-1)}{\\text{SST}/(n-1)}.$$\nDen kan **synke** hvis en tilføyd variabel ikke forklarer nok. Derfor er det denne — ikke «Multiple R-squared» — du bruker til å velge mellom modeller (mer i kap. 3.3)."
+    },
+    {
+      "id": "stk1110-3-2-def-fstat",
+      "type": "definition",
+      "title": "F-statistic (samlet test)",
+      "content": "**«F-statistic» tester om modellen som helhet forklarer noe:** $H_0:\\beta_1=\\cdots=\\beta_k=0$ (alle helninger null) mot at minst én er ulik null. Linja oppgir «$F$ on $k$ and $n-k-1$ DF» og en samlet `p-value`. Liten samlet P-verdi betyr at minst én prediktor bidrar. I enkel regresjon er $F=(\\texttt{t value})^2$ for stigningstallet, og den samlede P-verdien er lik `Pr(>|t|)` for stigningstallet."
+    },
+    {
+      "id": "stk1110-3-2-ex2",
+      "type": "example",
+      "title": "Eksempel 2: Multippel regresjon fra utskrift (sjanger I)",
+      "problem": "Boligpris ($y$, i 1000 kr) er regressert på areal ($x_1$, m²) og alder ($x_2$, år) for $n=12$ boliger. Bruk $t_{9,\\,0{,}025}=2{,}262$.\n\n```\nCoefficients:\n             Estimate  Std. Error  t value  Pr(>|t|)\n(Intercept)  480.136     102.198     4.698  0.00112 ** \nareal         22.305       0.863    25.833  9.4e-10 ***\nalder         -8.058       1.672    -4.818  0.00095 ***\n---\nResidual standard error: 35.34 on 9 degrees of freedom\nMultiple R-squared:  0.9974,   Adjusted R-squared:  0.9968\nF-statistic: 1735 on 2 and 9 DF,  p-value: 2.3e-12\n```\n\n**a)** Tolk koeffisienten for areal i kontekst.\n**b)** Er alder signifikant på 5 %-nivå?\n**c)** Gi et 95 %-KI for areal-koeffisienten.\n**d)** Hvor mange frihetsgrader har residualene, og hva er $n$?\n**e)** Hva sier F-statistikken?",
+      "solution": "**a)** $\\hat\\beta_1=22{,}305$: med alder holdt konstant er én ekstra m² assosiert med om lag 22 300 kr høyere forventet pris.\n\n**b)** Ja. For alder er `Pr(>|t|)` $=0{,}00095<0{,}05$ (og $|t|=4{,}818>2{,}262$), så alder er signifikant. $\\hat\\beta_2=-8{,}058$: med areal holdt konstant faller forventet pris ca. 8 000 kr per år eldre.\n\n**c)** KI $=22{,}305\\pm 2{,}262\\cdot 0{,}863=22{,}305\\pm 1{,}952=[20{,}35,\\ 24{,}26]$.\n\n**d)** Residualene har $n-k-1=9$ frihetsgrader med $k=2$ prediktorer, så $n=9+2+1=12$.\n\n**e)** $F=1735$ på 2 og 9 frihetsgrader med samlet P-verdi $\\approx 2{,}3\\cdot 10^{-12}$: modellen som helhet forklarer klart mer enn ren tilfeldighet — minst én av areal/alder bidrar."
+    },
+    {
+      "id": "stk1110-3-2-oppg2",
+      "type": "exercise",
+      "exercise": {
+        "id": "stk1110-3-2-oppg2-e",
+        "number": "2",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "Bruk den multiple utskriften i eksempel 2.\n\n**a)** Verifiser `t value` for alder ($=$ `Estimate`/`Std. Error`).\n**b)** Hva er $\\hat\\sigma$?\n**c)** Hvorfor er «Adjusted R-squared» (0,9968) litt lavere enn «Multiple R-squared» (0,9974)?",
+        "solution": "**a)** `t value` $=-8{,}058/1{,}672=-4{,}82$ — stemmer.\n\n**b)** $\\hat\\sigma=$ «Residual standard error» $=35{,}34$ (i 1000 kr), på 9 frihetsgrader.\n\n**c)** Justert $R^2$ straffer for antall prediktorer: $R^2_{\\text{just}}=1-\\frac{\\text{SSE}/(n-k-1)}{\\text{SST}/(n-1)}=1-(1-0{,}9974)\\cdot\\frac{11}{9}=0{,}9968$. Den ligger alltid $\\le$ «Multiple R-squared», og forskjellen vokser med antall variabler.",
+        "hints": [
+          "`t value` = `Estimate` delt på `Std. Error`, med fortegn.",
+          "Justert $R^2=1-(1-R^2)\\frac{n-1}{n-k-1}$ med $n=12$, $k=2$."
+        ]
+      }
+    },
+    {
+      "id": "stk1110-3-2-l3",
+      "type": "text",
+      "content": "## Løkke 3 — Bruk utskriften: KI, signifikans og betinget tolkning (~15 min)"
+    },
+    {
+      "id": "stk1110-3-2-def-kifra",
+      "type": "definition",
+      "title": "Konfidensintervall fra utskriften",
+      "content": "**Et $(1-\\alpha)$-KI for en koeffisient bygges rett fra to kolonner:**\n$$\\texttt{Estimate}\\pm t_{n-k-1,\\,\\alpha/2}\\cdot\\texttt{Std. Error}.$$\nDu henter `Estimate` og `Std. Error` fra koeffisientraden, og frihetsgraden $n-k-1$ fra «Residual standard error»-linja. Kvantilen $t_{n-k-1,\\,\\alpha/2}$ slås opp i formelsamlingen (eller er oppgitt)."
+    },
+    {
+      "id": "stk1110-3-2-def-signfra",
+      "type": "definition",
+      "title": "Signifikans fra Pr(>|t|)",
+      "content": "**En koeffisient er signifikant på nivå $\\alpha$ hvis `Pr(>|t|)` $<\\alpha$.** Tilsvarende: hvis $0$ ligger utenfor det $(1-\\alpha)$-KI-et (dualiteten). For 5 %-nivå betyr `Pr(>|t|)` $<0{,}05$ at variabelen har en påvisbar effekt gitt de øvrige i modellen."
+    },
+    {
+      "id": "stk1110-3-2-def-betinget",
+      "type": "definition",
+      "title": "Betinget tolkning (ikke-signifikant ≠ uviktig)",
+      "content": "**Hver P-verdi i utskriften er betinget på de øvrige variablene i modellen.** En stor `Pr(>|t|)` betyr «denne variabelen bidrar ikke *utover* det de andre allerede fanger» — ikke at variabelen er uviktig i seg selv. Legges en korrelert variabel til eller fjernes, kan både estimatet og P-verdien endre seg. Å lese en ikke-signifikant koeffisient som «uviktig» uten dette forbeholdet er en klassisk feil (§5.14)."
+    },
+    {
+      "id": "stk1110-3-2-ex3",
+      "type": "example",
+      "title": "Eksempel 3: En ikke-signifikant koeffisient (betinget tolkning)",
+      "problem": "En respons $y$ er regressert på $x_1$ og $x_2$ for $n=12$ enheter. Utskriften er:\n\n```\nCoefficients:\n             Estimate  Std. Error  t value  Pr(>|t|)\n(Intercept)   19.829       5.285    3.752   0.00460 ** \nx1             3.500       0.460    7.602   3.3e-05 ***\nx2            -0.411       0.489   -0.840   0.42300    \n---\nResidual standard error: 4.486 on 9 degrees of freedom\nMultiple R-squared:  0.9168,   Adjusted R-squared:  0.8984\nF-statistic: 49.6 on 2 and 9 DF,  p-value: 1.4e-05\n```\n\n**a)** Er $x_2$ signifikant på 5 %-nivå?\n**b)** Kan vi konkludere at $x_2$ er «uviktig» for $y$?\n**c)** Hva forteller den samlede F-testen?",
+      "solution": "**a)** Nei. For $x_2$ er `Pr(>|t|)` $=0{,}423>0{,}05$ (og $|t|=0{,}84$ er langt under en kritisk verdi rundt 2,26). Vi kan ikke forkaste $H_0:\\beta_2=0$.\n\n**b)** Ikke uten forbehold. P-verdien er betinget på at $x_1$ allerede er i modellen. Den sier at $x_2$ ikke bidrar *utover* det $x_1$ fanger — ofte fordi $x_1$ og $x_2$ er korrelerte. $x_2$ kan godt henge sammen med $y$ alene; testen gjelder tilleggseffekten gitt $x_1$.\n\n**c)** $F=49{,}6$ på 2 og 9 frihetsgrader, samlet P-verdi $1{,}4\\cdot 10^{-5}$: modellen som helhet forklarer klart noe — drevet av den sterkt signifikante $x_1$ (`***`), ikke av $x_2$."
+    },
+    {
+      "id": "stk1110-3-2-oppg3",
+      "type": "exercise",
+      "exercise": {
+        "id": "stk1110-3-2-oppg3-e",
+        "number": "3",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "Bruk utskriften i eksempel 3. $t_{9,\\,0{,}025}=2{,}262$.\n\n**a)** Gi et 95 %-KI for koeffisienten til $x_1$.\n**b)** Bruk dualiteten til å bekrefte at $x_1$ er signifikant, men $x_2$ ikke er det.",
+        "solution": "**a)** KI for $x_1$: $3{,}500\\pm 2{,}262\\cdot 0{,}460=3{,}500\\pm 1{,}040=[2{,}46,\\ 4{,}54]$.\n\n**b)** For $x_1$ ligger $0$ utenfor $[2{,}46,\\ 4{,}54]$ $\\Rightarrow$ signifikant (samsvarer med `Pr(>|t|)` $=3{,}3\\cdot 10^{-5}$). For $x_2$: KI $=-0{,}411\\pm 2{,}262\\cdot 0{,}489=[-1{,}52,\\ 0{,}70]$, som inneholder $0$ $\\Rightarrow$ ikke signifikant (samsvarer med `Pr(>|t|)` $=0{,}423$).",
+        "hints": [
+          "KI = `Estimate` $\\pm t_{9,\\,0{,}025}\\cdot$ `Std. Error`.",
+          "Dualiteten: signifikant hviss 0 ligger utenfor KI-et."
+        ]
+      }
+    },
+    {
+      "id": "stk1110-3-2-oppg4",
+      "type": "exercise",
+      "exercise": {
+        "id": "stk1110-3-2-oppg4-e",
+        "number": "4",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "En medstudent ser på utskriften i eksempel 2 og sier: «`Pr(>|t|)` for areal er $9{,}4\\cdot 10^{-10}$, altså er det bare 0,00000009 % sannsynlig at areal-koeffisienten er null.»\n\n**a)** Hva er galt med formuleringen?\n**b)** Gi den korrekte tolkningen av P-verdien.",
+        "solution": "**a)** Feil: `Pr(>|t|)` er ikke «sannsynligheten for at $\\beta_1=0$». Koeffisienten $\\beta_1$ er et fast (ukjent) tall, ikke en stokastisk størrelse man kan gi en sannsynlighet.\n\n**b)** Korrekt: «Hvis $\\beta_1=0$ (areal har ingen effekt gitt alder), er sannsynligheten $9{,}4\\cdot 10^{-10}$ for å få en t-verdi minst like ekstrem som den observerte.» Den lille P-verdien gjør $H_0:\\beta_1=0$ svært lite forenlig med dataene.",
+        "hints": [
+          "Er $\\beta_1$ en stokastisk hendelse eller et fast ukjent tall?",
+          "P-verdien beregnes ALLTID under antakelsen $H_0$ (her $\\beta_1=0$)."
+        ]
+      }
+    },
+    {
+      "id": "stk1110-3-2-oppg5",
+      "type": "exercise",
+      "exercise": {
+        "id": "stk1110-3-2-oppg5-e",
+        "number": "5",
+        "type": "classic",
+        "difficulty": "vanskelig",
+        "task": "(Delvis utfylt utskrift.) I en enkel regresjon ($n=15$) er `Estimate` for stigningstallet $0{,}84$ og `Std. Error` $0{,}30$. `t value` og `Pr(>|t|)` er visket bort.\n\n**a)** Regn ut `t value`.\n**b)** Med $t_{13,\\,0{,}025}=2{,}160$: er stigningstallet signifikant på 5 %-nivå?\n**c)** Gi et 95 %-KI for stigningstallet.",
+        "solution": "**a)** `t value` $=0{,}84/0{,}30=2{,}80$ (frihetsgrad $n-2=13$).\n\n**b)** $|t|=2{,}80>2{,}160$, så ja — signifikant på 5 %-nivå (P-verdi mellom 0,01 og 0,025).\n\n**c)** KI $=0{,}84\\pm 2{,}160\\cdot 0{,}30=0{,}84\\pm 0{,}648=[0{,}19,\\ 1{,}49]$. Null ligger utenfor, i tråd med signifikansen.",
+        "hints": [
+          "`t value` = `Estimate`/`Std. Error`; frihetsgrad $n-2=13$.",
+          "Sammenlign $|t|$ med $t_{13,\\,0{,}025}$ og bygg KI $=\\hat\\beta_1\\pm t\\cdot se$."
+        ]
+      }
+    },
+    {
+      "id": "stk1110-3-2-warn",
+      "type": "warning",
+      "title": "Typiske feil (fra løsningsforslagene)",
+      "content": "- **Forveksle `Std. Error`-kolonnen med `t value`.** Standardfeilen er spredningen; t-verdien er `Estimate`/`Std. Error`. Kryssjekk alltid ved å dele selv.\n- **Lese `Pr(>|t|)` som «sannsynligheten for at $\\beta_j=0$».** P-verdien beregnes UNDER $H_0:\\beta_j=0$ og måler hvor ekstreme dataene er — ikke sannsynligheten for hypotesen (§5.14).\n- **Tolke en ikke-signifikant koeffisient som «uviktig» uten forbehold.** P-verdien er betinget på de øvrige variablene; en korrelert variabel kan skjule effekten.\n- **Hente feil frihetsgrad til KI-et.** Bruk $n-k-1$ fra «Residual standard error»-linja, ikke $n-1$.\n- **Bruke «Multiple R-squared» til modellvalg.** Den øker alltid; bruk «Adjusted R-squared».\n- **Glemme å tolke koeffisienten i kontekst** (med enhet og «de andre holdt konstant» i multippel regresjon)."
+    },
+    {
+      "id": "stk1110-3-2-bank",
+      "type": "text",
+      "content": "## Begrepsbank"
+    },
+    {
+      "id": "stk1110-3-2-bank-note",
+      "type": "text",
+      "content": "*Flashcard-/repetisjonsstoff — hopp trygt over ved førstegangslesing; tidsanslaget gjelder kjernestoffet.* Korte, navngitte definisjoner for eksamensrepetisjon."
+    },
+    {
+      "id": "stk1110-3-2-bank-intercept",
+      "type": "definition",
+      "title": "(Intercept)-raden",
+      "content": "Første rad i Coefficients-tabellen, med estimatet for konstantleddet $\\hat\\beta_0$. Tolkes som forventet respons når alle forklaringsvariabler er null — meningsfullt bare hvis det punktet ligger i/nær dataområdet."
+    },
+    {
+      "id": "stk1110-3-2-bank-verifiser",
+      "type": "definition",
+      "title": "Verifisere t value-kolonnen",
+      "content": "En rask kryssjekk: `t value` skal være `Estimate` delt på `Std. Error`. Stemmer det ikke, har du lest feil kolonne. Sensor liker å se denne kontrollen."
+    },
+    {
+      "id": "stk1110-3-2-bank-hentesigma",
+      "type": "definition",
+      "title": "Hente σ̂ fra utskriften",
+      "content": "$\\hat\\sigma$ leses direkte som «Residual standard error»-tallet; frihetsgraden $n-k-1$ står på samme linje («on $\\ldots$ degrees of freedom»). Begge trengs til KI og prediksjon."
+    },
+    {
+      "id": "stk1110-3-2-bank-fmott",
+      "type": "definition",
+      "title": "F-test mot t-test",
+      "content": "t-testene i Coefficients-tabellen tester én koeffisient om gangen; F-statistikken tester alle helningene samlet ($H_0:\\beta_1=\\cdots=\\beta_k=0$). I enkel regresjon er $F=(\\texttt{t value})^2$ og de gir samme P-verdi."
+    },
+    {
+      "id": "stk1110-3-2-bank-residualer",
+      "type": "definition",
+      "title": "Residualene i utskriften",
+      "content": "`summary` viser ofte en «Residuals»-oppsummering (min, 1Q, median, 3Q, max) over toppen. Grovt symmetriske residualer med median nær 0 er et første tegn på at modellantakelsene holder; detaljert sjekk gjøres med residualplott (kap. 3.4)."
+    },
+    {
+      "id": "stk1110-3-2-bank-antallk",
+      "type": "definition",
+      "title": "Antall prediktorer k fra df",
+      "content": "Residualfrihetsgraden er $n-k-1$. Kjenner du $n$, er $k=n-1-\\text{df}$; kjenner du $k$, er $n=\\text{df}+k+1$. Nyttig når oppgaven ikke oppgir $n$ eksplisitt."
+    },
+    {
+      "id": "stk1110-3-2-bank-samletp",
+      "type": "definition",
+      "title": "Samlet P-verdi (F-linja)",
+      "content": "P-verdien på F-statistic-linja hører til den samlede testen $H_0:$ alle helninger $=0$. Liten samlet P-verdi betyr at modellen forklarer mer enn tilfeldig — men sier ikke hvilke enkeltvariabler som bidrar (det gjør t-testene)."
+    },
+    {
+      "id": "stk1110-3-2-bank-forvekslse",
+      "type": "definition",
+      "title": "Feil: Std. Error tatt for t value",
+      "content": "Den hyppigste lesefeilen. `Std. Error` er en spredning (samme enhet som koeffisienten); `t value` er et enhetsløst forhold ofte $>2$ ved signifikans. Del `Estimate` på `Std. Error` for å skille dem."
+    },
+    {
+      "id": "stk1110-3-2-bank-pmistolk",
+      "type": "definition",
+      "title": "P-verdi-mistolkning (utskrift)",
+      "content": "`Pr(>|t|)` er IKKE sannsynligheten for at koeffisienten er null. Den er sannsynligheten under $H_0:\\beta_j=0$ for en minst like ekstrem t-verdi. Koeffisienten er fast, ikke stokastisk."
+    },
+    {
+      "id": "stk1110-3-2-bank-kolonnerekke",
+      "type": "definition",
+      "title": "Kolonnerekkefølgen",
+      "content": "Fra venstre: `Estimate` ($\\hat\\beta_j$) → `Std. Error` ($se$) → `t value` ($\\hat\\beta_j/se$) → `Pr(>|t|)` (tosidig P-verdi). Å huske rekkefølgen hindrer kolonneforveksling."
+    },
+    {
+      "id": "stk1110-3-2-symbol",
+      "type": "collapsible",
+      "title": "Symbol- og formelliste",
+      "buttonText": "Vis symboler og formler",
+      "content": [
+        {
+          "id": "stk1110-3-2-symbol-t",
+          "type": "text",
+          "content": "## Symbol- og formelliste\n\n*Oppslagsverk — alt her forklares underveis i kapitlet.*\n\n| Symbol / kolonne | Betydning |\n|---|---|\n| `Estimate` | Koeffisientestimatet $\\hat\\beta_j$ |\n| `Std. Error` | Standardfeilen $se(\\hat\\beta_j)$ |\n| `t value` | Observatoren $\\hat\\beta_j/se(\\hat\\beta_j)$ |\n| `Pr(>|t|)` | Tosidig P-verdi for $H_0:\\beta_j=0$ |\n| Residual standard error | $\\hat\\sigma=\\sqrt{\\text{SSE}/(n-k-1)}$ |\n| degrees of freedom | Residualfrihetsgrad $n-k-1$ |\n| Multiple R-squared | $R^2=1-\\text{SSE}/\\text{SST}$ |\n| Adjusted R-squared | Justert $R^2$ (straffer for $k$) |\n| F-statistic | Samlet test $H_0:\\beta_1=\\cdots=\\beta_k=0$ |\n| $k$ | Antall forklaringsvariabler |\n\n**Formler i dette delkapitlet:**\n\n$$\\texttt{t value}=\\frac{\\texttt{Estimate}}{\\texttt{Std. Error}}=\\frac{\\hat\\beta_j}{se(\\hat\\beta_j)}$$\nt-verdien er estimatet delt på standardfeilen.\n\n$$\\text{KI: }\\ \\texttt{Estimate}\\pm t_{n-k-1,\\,\\alpha/2}\\cdot\\texttt{Std. Error}$$\nKonfidensintervall rett fra utskriften.\n\n$$\\hat\\sigma=\\sqrt{\\frac{\\text{SSE}}{n-k-1}},\\qquad R^2_{\\text{just}}=1-\\frac{\\text{SSE}/(n-k-1)}{\\text{SST}/(n-1)}$$\nResidualspredning og justert $R^2$ (til modellvalg)."
+        }
+      ]
+    },
+    {
+      "id": "stk1110-3-2-rep",
+      "type": "collapsible",
+      "title": "Repetisjonsoppgaver",
+      "buttonText": "Vis repetisjonsoppgaver",
+      "content": [
+        {
+          "id": "stk1110-3-2-rep1",
+          "type": "exercise",
+          "exercise": {
+            "id": "stk1110-3-2-rep1e",
+            "number": "R1",
+            "type": "classic",
+            "difficulty": "lett",
+            "task": "(Fra kap. 3.1) Hvilken formel gir standardfeilen til stigningstallet i enkel regresjon, og hvor i utskriften finner du den?",
+            "solution": "$se(\\hat\\beta_1)=S/\\sqrt{S_{xx}}$. I utskriften er den `Std. Error`-kolonnen på stigningstallets rad; $S=$ «Residual standard error».",
+            "hints": [
+              "Standardfeilen er én av de fire kolonnene i Coefficients-tabellen."
+            ]
+          }
+        },
+        {
+          "id": "stk1110-3-2-rep2",
+          "type": "exercise",
+          "exercise": {
+            "id": "stk1110-3-2-rep2e",
+            "number": "R2",
+            "type": "classic",
+            "difficulty": "lett",
+            "task": "(Fra kap. 2.2) Definer P-verdien verbalt korrekt, og forklar hvorfor `Pr(>|t|)` ikke er «sannsynligheten for at $\\beta_j=0$».",
+            "solution": "P-verdien er sannsynligheten under $H_0$ for et minst like ekstremt utfall som det observerte. $\\beta_j$ er et fast ukjent tall, ikke stokastisk, så det gir ikke mening å snakke om «sannsynligheten for at $\\beta_j=0$».",
+            "hints": [
+              "P-verdien beregnes alltid UNDER $H_0$."
+            ]
+          }
+        },
+        {
+          "id": "stk1110-3-2-rep3",
+          "type": "exercise",
+          "exercise": {
+            "id": "stk1110-3-2-rep3e",
+            "number": "R3",
+            "type": "classic",
+            "difficulty": "middels",
+            "task": "(Fra kap. 3.1) I enkel regresjon, hvordan henger F-statistikken sammen med `t value` for stigningstallet?",
+            "solution": "$F=(\\texttt{t value})^2$ i enkel regresjon, og den samlede F-P-verdien er lik `Pr(>|t|)` for stigningstallet — samme test sett fra to sider.",
+            "hints": [
+              "Tenk på forholdet mellom en $t$-fordeling med $\\nu$ df og en $F_{1,\\nu}$."
+            ]
+          }
+        },
+        {
+          "id": "stk1110-3-2-rep4",
+          "type": "exercise",
+          "exercise": {
+            "id": "stk1110-3-2-rep4e",
+            "number": "R4",
+            "type": "classic",
+            "difficulty": "middels",
+            "task": "(Fra kap. 3.1) Et 95 %-KI for et stigningstall er $[0{,}19,\\ 1{,}49]$. Er stigningstallet signifikant forskjellig fra 0 på 5 %-nivå? Begrunn med dualiteten.",
+            "solution": "Ja: 0 ligger utenfor $[0{,}19,\\ 1{,}49]$, så tosidig test på 5 %-nivå forkaster $H_0:\\beta_1=0$ (dualiteten mellom KI og test).",
+            "hints": [
+              "Sjekk om 0 er innenfor eller utenfor intervallet."
+            ]
+          }
+        }
+      ]
+    }
+  ],
+  "exercises": []
+}

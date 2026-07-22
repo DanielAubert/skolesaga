@@ -1,0 +1,252 @@
+[
+  {
+    "question": "Hva står i `Estimate`-kolonnen i en R-utskrift?",
+    "options": [
+      "Punktestimatet $\\hat\\beta_j$ for koeffisienten på den raden",
+      "Standardfeilen $se(\\hat\\beta_j)$ til koeffisienten på raden",
+      "Testobservatoren $\\hat\\beta_j/se(\\hat\\beta_j)$ for raden",
+      "Den tosidige P-verdien for $H_0:\\beta_j=0$ på raden"
+    ],
+    "explanation": "`Estimate` er selve den tilpassede koeffisienten $\\hat\\beta_j$."
+  },
+  {
+    "question": "Hvordan regner du ut `t value` fra de andre kolonnene?",
+    "options": [
+      "`t value` $=$ `Estimate` delt på `Std. Error`",
+      "`t value` $=$ `Std. Error` delt på `Estimate`",
+      "`t value` $=$ `Estimate` ganget med `Std. Error`",
+      "`t value` $=$ `Estimate` delt på `Pr(>|t|)`"
+    ],
+    "explanation": "$\\texttt{t value}=\\hat\\beta_j/se(\\hat\\beta_j)=$ `Estimate`/`Std. Error` — en fin kryssjekk."
+  },
+  {
+    "question": "Hva er `Pr(>|t|)` i Coefficients-tabellen?",
+    "options": [
+      "Den tosidige P-verdien for $H_0:\\beta_j=0$",
+      "Sannsynligheten for at koeffisienten $\\beta_j$ er lik null",
+      "Sannsynligheten for at modellen som helhet er riktig",
+      "Andelen forklart variasjon knyttet til den variabelen"
+    ],
+    "explanation": "`Pr(>|t|)` er P-verdien for at nettopp den koeffisienten er null, IKKE sannsynligheten for at $\\beta_j=0$."
+  },
+  {
+    "question": "«Residual standard error: 4,133 on 8 degrees of freedom» forteller deg at:",
+    "options": [
+      "$\\hat\\sigma=4{,}133$, og residualfrihetsgraden er $n-k-1=8$",
+      "$R^2=4{,}133$, og modellen har 8 forklaringsvariabler",
+      "korrelasjonen er 4,133 basert på 8 observasjoner totalt",
+      "F-statistikken er 4,133 på 8 frihetsgrader i telleren"
+    ],
+    "explanation": "«Residual standard error» er $\\hat\\sigma=\\sqrt{\\text{SSE}/(n-k-1)}$; linja gir også frihetsgraden."
+  },
+  {
+    "question": "Hvorfor bruker du `Adjusted R-squared` (ikke `Multiple R-squared`) til å sammenligne modeller?",
+    "options": [
+      "Fordi `Multiple R-squared` øker uansett når en variabel legges til",
+      "Fordi `Adjusted R-squared` alltid er større og dermed mer optimistisk",
+      "Fordi `Multiple R-squared` bare gjelder for enkel regresjon",
+      "Fordi `Adjusted R-squared` måler korrelasjonen mellom prediktorene"
+    ],
+    "explanation": "`Multiple R-squared` kan aldri synke ved flere variabler; den justerte straffer for antall prediktorer."
+  },
+  {
+    "question": "Et 95 %-KI for en koeffisient bygges fra utskriften som:",
+    "options": [
+      "`Estimate` $\\pm t_{n-k-1,\\,0{,}025}\\cdot$ `Std. Error`",
+      "`Estimate` $\\pm t_{n-1,\\,0{,}025}\\cdot$ `Std. Error`",
+      "`Estimate` $\\pm z_{0{,}05}\\cdot$ `Std. Error`",
+      "`Estimate` $\\pm t_{n-k-1,\\,0{,}05}\\cdot$ `t value`"
+    ],
+    "explanation": "KI = estimat $\\pm$ t-kvantil $\\times$ standardfeil, med frihetsgrad $n-k-1$ fra Residual-linja."
+  },
+  {
+    "question": "En koeffisient har `Pr(>|t|)` $=0{,}42$. Hva kan du konkludere på 5 %-nivå?",
+    "options": [
+      "Koeffisienten er ikke signifikant — vi kan ikke forkaste at den er null gitt de øvrige",
+      "Koeffisienten er signifikant — en P-verdi på 0,42 betyr at variabelen forklarer 42 % av variasjonen i responsen",
+      "Variabelen er helt uviktig for responsen uansett modell",
+      "Det er 42 % sannsynlig at koeffisienten er nøyaktig null"
+    ],
+    "explanation": "$0{,}42>0{,}05$, så $H_0:\\beta_j=0$ beholdes; ikke-signifikant betyr ikke automatisk «uviktig»."
+  },
+  {
+    "question": "Hva tester F-statistikken nederst i utskriften?",
+    "options": [
+      "$H_0:$ alle helninger $\\beta_1=\\cdots=\\beta_k=0$ samtidig (samlet test)",
+      "$H_0:$ konstantleddet $\\beta_0$ er lik null",
+      "$H_0:$ residualene er normalfordelte",
+      "$H_0:$ den første forklaringsvariabelen $\\beta_1$ er lik null alene (enkeltvis koeffisienttest)"
+    ],
+    "explanation": "F-statistikken tester om modellen som helhet forklarer noe — alle helninger null mot minst én ulik null."
+  },
+  {
+    "question": "For `Estimate` $=22{,}305$ og `Std. Error` $=0{,}863`: hva er `t value`?",
+    "options": [
+      "$22{,}305/0{,}863\\approx 25{,}8$",
+      "$0{,}863/22{,}305\\approx 0{,}039$",
+      "$22{,}305\\cdot 0{,}863\\approx 19{,}2$",
+      "$22{,}305-0{,}863\\approx 21{,}4$"
+    ],
+    "explanation": "`t value` = `Estimate`/`Std. Error` $=22{,}305/0{,}863\\approx 25{,}8$."
+  },
+  {
+    "question": "I `(Intercept)`-raden er `Estimate` lik:",
+    "options": [
+      "konstantleddet $\\hat\\beta_0$ — forventet respons når alle prediktorer er null",
+      "stigningstallet $\\hat\\beta_1$ — forventet endring i responsen per enhet økning i variabelen",
+      "residualspredningen $\\hat\\sigma$ for modellen",
+      "determinasjonskoeffisienten $R^2$ for tilpasningen"
+    ],
+    "explanation": "`(Intercept)`-raden gir $\\hat\\beta_0$, tolket som respons ved null i alle prediktorer (om realistisk)."
+  },
+  {
+    "question": "Den vanligste lesefeilen i R-utskrift er å:",
+    "options": [
+      "forveksle `Std. Error`-kolonnen med `t value`-kolonnen",
+      "lese `Estimate` som antall observasjoner i utvalget",
+      "tro at `Multiple R-squared` er residualspredningen",
+      "regne F-statistikken som gjennomsnittet av t-verdiene"
+    ],
+    "explanation": "`Std. Error` (en spredning) forveksles ofte med `t value` (et forhold); del `Estimate`/`Std. Error` for å skille dem."
+  },
+  {
+    "question": "«on 9 degrees of freedom» i en multippel regresjon med $k=2$ prediktorer betyr at:",
+    "options": [
+      "$n-k-1=9$, altså $n=9+2+1=12$ observasjoner",
+      "$n-1=9$, altså $n=10$ observasjoner totalt",
+      "det er 9 forklaringsvariabler i modellen",
+      "$R^2$ bygger på 9 frihetsgrader i nevneren"
+    ],
+    "explanation": "Residualfrihetsgraden er $n-k-1$; med $k=2$ gir $9$ at $n=12$."
+  },
+  {
+    "question": "Signifikanskoden `***` bak en P-verdi betyr:",
+    "options": [
+      "$P<0{,}001$",
+      "$P<0{,}05$",
+      "$P<0{,}1$",
+      "$P\\ge 0{,}1$"
+    ],
+    "explanation": "`***` markerer $P<0{,}001$; `**` er $<0{,}01$, `*` er $<0{,}05$."
+  },
+  {
+    "question": "En koeffisient er ikke-signifikant i en multippel regresjon. Hva er den riktige tolkningen?",
+    "options": [
+      "Variabelen bidrar ikke utover det de øvrige variablene allerede fanger",
+      "Variabelen har garantert ingen sammenheng med responsen i det hele tatt",
+      "Modellen som helhet må forkastes fordi én koeffisient er null",
+      "Estimatet er nøyaktig null og kan fjernes uten videre vurdering"
+    ],
+    "explanation": "P-verdien er betinget på de øvrige; en korrelert variabel kan skjule effekten (§5.14)."
+  },
+  {
+    "question": "Hvordan henter du residualspredningen $\\hat\\sigma$ fra utskriften?",
+    "options": [
+      "Den er selve tallet i «Residual standard error»-linja",
+      "Den er kvadratroten av `Multiple R-squared`",
+      "Den er `Std. Error` for `(Intercept)`-raden",
+      "Den er F-statistikken delt på antall frihetsgrader"
+    ],
+    "explanation": "$\\hat\\sigma$ leses direkte som «Residual standard error»; frihetsgraden $n-k-1$ står på samme linje."
+  },
+  {
+    "question": "I enkel regresjon er sammenhengen mellom F-statistikken og t-verdien for stigningstallet:",
+    "options": [
+      "$F=(\\texttt{t value})^2$, og de gir samme P-verdi",
+      "$F=\\texttt{t value}$, altså nøyaktig samme tall",
+      "$F=2\\cdot\\texttt{t value}$ på grunn av tosidigheten",
+      "$F$ og t har ingen fast sammenheng i enkel regresjon"
+    ],
+    "explanation": "Med én prediktor er $F=(\\texttt{t value})^2$ og den samlede P-verdien lik `Pr(>|t|)` for stigningstallet."
+  },
+  {
+    "question": "En medstudent sier: «`Pr(>|t|)` = 0,001 betyr at det er 0,1 % sjanse for at $\\beta_1=0$.» Hva er feil?",
+    "options": [
+      "$\\beta_1$ er et fast ukjent tall — P-verdien er sannsynligheten under $H_0$ for et ekstremt utfall",
+      "Ingenting; det er en helt korrekt tolkning av P-verdien",
+      "Feilen er at 0,001 skulle vært lest som 0,1 og ikke 0,1 %",
+      "Feilen er at P-verdien alltid må ganges med antall koeffisienter i modellen før den kan sammenlignes med nivået"
+    ],
+    "explanation": "Koeffisienten er ikke stokastisk; P-verdien er beregnet UNDER $H_0:\\beta_1=0$, ikke sannsynligheten for den."
+  },
+  {
+    "question": "`Multiple R-squared` i utskriften er:",
+    "options": [
+      "$R^2=1-\\text{SSE}/\\text{SST}$, andelen forklart variasjon",
+      "korrelasjonen $r$ mellom respons og prediktor",
+      "residualspredningen $\\hat\\sigma$ i modellen",
+      "den justerte $R^2$-en, som straffer for antall prediktorer i modellen"
+    ],
+    "explanation": "«Multiple R-squared» er $R^2$; den justerte varianten står i egen kolonne ved siden av."
+  },
+  {
+    "question": "Hvorfor er `Adjusted R-squared` (0,9968) litt lavere enn `Multiple R-squared` (0,9974)?",
+    "options": [
+      "Fordi den justerte straffer for antall prediktorer via faktoren $\\frac{n-1}{n-k-1}$",
+      "Fordi den justerte alltid runder nedover til nærmeste hundredel",
+      "Fordi den justerte bare teller de signifikante variablene",
+      "Fordi den justerte måler korrelasjonen mellom respons og prediktorer i stedet for andelen forklart variasjon"
+    ],
+    "explanation": "$R^2_{\\text{just}}=1-(1-R^2)\\frac{n-1}{n-k-1}\\le R^2$; forskjellen vokser med antall prediktorer."
+  },
+  {
+    "question": "For å bygge et KI fra utskriften trenger du frihetsgraden. Hvor er den?",
+    "options": [
+      "På «Residual standard error»-linja: «on $\\ldots$ degrees of freedom» ($=n-k-1$)",
+      "I `t value`-kolonnen på stigningstallets rad, der estimatet er delt på standardfeilen",
+      "I `Multiple R-squared`-tallet ganget med $n$",
+      "På F-statistic-linja, som teller-frihetsgraden $k$"
+    ],
+    "explanation": "Residualfrihetsgraden $n-k-1$ (til t-kvantilen) står på «Residual standard error»-linja."
+  },
+  {
+    "question": "Den samlede P-verdien på F-statistic-linja forteller om:",
+    "options": [
+      "hvorvidt minst én av forklaringsvariablene bidrar (modellen forklarer noe)",
+      "hvilken enkelt variabel som er den viktigste i modellen",
+      "om residualene tilfredsstiller normalitetsantakelsen i alle de tre standard residualplottene",
+      "om `(Intercept)` er signifikant forskjellig fra null"
+    ],
+    "explanation": "F-P-verdien gjelder $H_0:$ alle helninger null; liten P-verdi betyr at minst én prediktor bidrar."
+  },
+  {
+    "question": "Boligeksempelet: `Estimate` for areal er 22,305 (1000 kr per m², alder holdt konstant). Riktig tolkning:",
+    "options": [
+      "«Med alder holdt konstant er én ekstra m² assosiert med ca. 22 300 kr høyere forventet pris.»",
+      "«Når arealet øker med én m², øker den faktiske prisen på enhver bolig i utvalget med nøyaktig 22 300 kr.»",
+      "«Korrelasjonen mellom areal og pris er 22,305 i datasettet.»",
+      "«En bolig på 0 m² har en forventet pris på 22 300 kr.»"
+    ],
+    "explanation": "En koeffisient i multippel regresjon er endring per enhet med de øvrige holdt konstant, tolket med enhet."
+  },
+  {
+    "question": "Hvorfor inneholder STK1110-utskriftene ingen kjørbar kode?",
+    "options": [
+      "Fordi ferdigheten som testes er å LESE og tolke sammendraget, ikke å skrive kode",
+      "Fordi R ikke kan produsere regresjonssammendrag uten spesialpakker som ikke inngår i pensum",
+      "Fordi koden alltid oppgis muntlig av sensor under eksamen",
+      "Fordi utskriften bare gjelder når man bruker Python i stedet for R"
+    ],
+    "explanation": "STK1110 tolker ferdige utskrifter (68 % av settene); kodeskriving var STK1100s domene."
+  },
+  {
+    "question": "En koeffisient har $t=0{,}84$ og et 95 %-KI $[-1{,}52,\\ 0{,}70]$. Hva sier dualiteten?",
+    "options": [
+      "Ikke signifikant på 5 %-nivå, fordi 0 ligger inne i intervallet",
+      "Signifikant på 5 %-nivå, fordi intervallet inneholder negative tall",
+      "Signifikant, fordi t-verdien er positiv og under 1",
+      "Dualiteten gjelder ikke for koeffisienter i multippel regresjon"
+    ],
+    "explanation": "0 ligger inne i KI-et, så $H_0:\\beta_j=0$ beholdes — i tråd med den lave t-verdien."
+  },
+  {
+    "question": "Hva er den korrekte rekkefølgen på kolonnene i Coefficients-tabellen?",
+    "options": [
+      "`Estimate`, `Std. Error`, `t value`, `Pr(>|t|)`",
+      "`Std. Error`, `Estimate`, `Pr(>|t|)`, `t value`",
+      "`t value`, `Estimate`, `Std. Error`, `Pr(>|t|)`",
+      "`Estimate`, `t value`, `Std. Error`, `Pr(>|t|)`"
+    ],
+    "explanation": "Fra venstre: estimat, standardfeil, t-verdi (estimat/se), tosidig P-verdi. Å huske rekkefølgen hindrer forveksling."
+  }
+]
