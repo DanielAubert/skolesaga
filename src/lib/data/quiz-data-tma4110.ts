@@ -900,7 +900,7 @@ const quizData_tma4110: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva er $(I-A)^{-1}$ når $A^{3}=O$ (Neumann-trikset)?",
-      options: ["$I+A+A^{2}$", "$I-A+A^{2}$", "$I+A+A^{2}+A^{3}$", "$I-A-A^{2}$"],
+      options: ["$I+A+A^{2}$", "$I-A+A^{2}$", "$I+2A+3A^{2}$", "$I-A-A^{2}$"],
       explanation: "For nilpotent $A$ med $A^3=O$ er $(I-A)^{-1}=I+A+A^2$ — den avkortede geometriske rekken.",
     },
     {
@@ -957,7 +957,7 @@ const quizData_tma4110: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva er kofaktorens fortegn $(-1)^{i+j}$ for posisjon $(2,3)$?",
-      options: ["$-1$, siden $i+j=2+3=5$ er et oddetall", "$+1$, siden $i+j=2+3=5$ regnes som partall i mønsteret", "$-1$, siden alle kofaktorer utenfor diagonalen har fortegn minus", "$+1$, siden kofaktorer i tredje kolonne alltid har fortegn pluss"],
+      options: ["$-1$, siden $i+j=2+3=5$ er et oddetall", "$+1$, siden $i+j=2+3=5$ regnes som partall i mønsteret", "$+1$, siden radnummeret $i=2$ er et partall og det avgjør fortegnet alene", "$+1$, siden kofaktorer i tredje kolonne alltid har fortegn pluss"],
       explanation: "Fortegnet er $(-1)^{i+j}$. Med $i=2,j=3$ er $i+j=5$, et oddetall, så fortegnet er $-1$ (sjakkbrettmønsteret gir minus i posisjon $(2,3)$).",
     },
     {
