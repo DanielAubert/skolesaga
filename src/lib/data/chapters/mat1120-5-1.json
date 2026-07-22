@@ -1,0 +1,411 @@
+{
+  "id": "mat1120-5-1",
+  "courseId": "mat1120",
+  "chapterNumber": "5.1",
+  "title": "Ortogonal projeksjon, dekomposisjon, W⊥ og avstand",
+  "description": "Ortogonal projeksjon proj_W y på et underrom med ortogonal basis, dekomposisjonsteoremet y=ŷ+z, ortogonalkomplementet W⊥ og avstanden ‖y−ŷ‖ til underrommet — hele projeksjonsapparatet, også i ikke-standard indreprodukt.",
+  "estimatedMinutes": 55,
+  "competenceGoals": [
+    "finne ortogonalkomplementet W⊥ og bruke identiteten (Col A)⊥ = Nul(Aᵀ)",
+    "regne ortogonal projeksjon proj_W y med en ortogonal basis (Gram–Schmidt først om nødvendig) og skrive dekomposisjonen y = ŷ + z",
+    "finne avstanden fra en vektor til et underrom som ‖y − ŷ‖ = ‖z‖, også i ikke-standard indreprodukt",
+    "unngå projeksjon uten ortogonal basis og feilberegning av avstand som ‖ŷ‖"
+  ],
+  "content": [
+    {
+      "id": "mat1120-5-1-tip",
+      "type": "tip",
+      "title": "Eksamensvinkel",
+      "content": "**Ortogonal projeksjon er en av de fem faste søylene** (sjanger B, ~100 %) og henger nesten alltid sammen med Gram–Schmidt fra [kap. 4.2](/bok/mat1120/mat1120-4-2) og minste kvadrater i [kap. 5.2](/bok/mat1120/mat1120-5-2) — ofte kjedet på **samme matrise** som oppgave 1.\n\n- **Projeksjon** ($\\operatorname{proj}_W\\mathbf{y}$) er med i praktisk talt hvert sett. **$W^{\\perp}$ og avstand** dukker opp i drøyt halvparten (~55 %: 2018, 2020, 2022-u, 2024).\n- I ca. 7 av 10 sett foregår det i et **ikke-standard indreprodukt** — da regnes hvert eneste ledd med det oppgitte indreproduktet.\n\n**Fasitens grep du skal kopiere:** skaff en **ortogonal basis først** (Gram–Schmidt), bruk deretter $\\operatorname{proj}_W\\mathbf{y}=\\sum\\frac{\\langle\\mathbf{y},\\mathbf{v}_i\\rangle}{\\langle\\mathbf{v}_i,\\mathbf{v}_i\\rangle}\\mathbf{v}_i$, splitt $\\mathbf{y}=\\hat{\\mathbf{y}}+\\mathbf{z}$, og les avstanden som $\\|\\mathbf{z}\\|=\\|\\mathbf{y}-\\hat{\\mathbf{y}}\\|$ — **aldri** $\\|\\hat{\\mathbf{y}}\\|$.\n\n**Sensorregel:** vis hvert Fourier-ledd og avslutt med en verbal setning. En sjekk $\\langle\\mathbf{z},\\mathbf{v}_i\\rangle=0$ er billig forsikring."
+    },
+    {
+      "id": "mat1120-5-1-forkunnskaper",
+      "type": "text",
+      "content": "**Forkunnskaper:** Dette kapitlet bygger direkte på ortogonal basis og Gram–Schmidt fra [kap. 4.2](/bok/mat1120/mat1120-4-2) — projeksjonsformelen *krever* en ortogonal basis, så Gram–Schmidt er ofte forsteget. Du trenger også $\\operatorname{Nul}A$ og $\\operatorname{Col}A$ fra [kap. 1.2](/bok/mat1120/mat1120-1-2), siden ortogonalkomplementet til et kolonnerom er et nullrom. Indreprodukt, norm og ortogonalitet (også i ikke-standard indreprodukt) er fra [kap. 4.1](/bok/mat1120/mat1120-4-1); vektorprojeksjon på VGS-nivå finner du i [Skalarprodukt](/bok/r1/r1-6-3). Selve projeksjonsapparatet bygges fra grunnen her."
+    },
+    {
+      "id": "mat1120-5-1-intro",
+      "type": "text",
+      "content": "En **ortogonal projeksjon** svarer på et helt konkret spørsmål: *hvilket punkt i underrommet $W$ ligger nærmest en gitt vektor $\\mathbf{y}$?* Svaret $\\hat{\\mathbf{y}}=\\operatorname{proj}_W\\mathbf{y}$ er skyggen av $\\mathbf{y}$ rett ned på $W$, og resten $\\mathbf{z}=\\mathbf{y}-\\hat{\\mathbf{y}}$ står vinkelrett på hele $W$. Denne oppdelingen — $\\mathbf{y}=\\hat{\\mathbf{y}}+\\mathbf{z}$ — er motoren bak både avstandsberegning og minste kvadrater i neste kapittel.\n\nVi jobber i tre løkker: **(1)** ortogonalkomplementet $W^{\\perp}$ og den viktige identiteten $(\\operatorname{Col}A)^{\\perp}=\\operatorname{Nul}(A^{T})$; **(2)** selve projeksjonen og dekomposisjonsteoremet $\\mathbf{y}=\\hat{\\mathbf{y}}+\\mathbf{z}$; **(3)** avstand til et underrom og projeksjon i ikke-standard indreprodukt. Hver løkke går teori → eksempel → oppgave.\n\n*Tidsanslaget (~55 min) gjelder kjernestoffet — begrepsbanken til slutt er repetisjon du kan hoppe over ved førstegangslesing.*"
+    },
+    {
+      "id": "mat1120-5-1-lokke1",
+      "type": "text",
+      "content": "## Løkke 1 — Ortogonalkomplementet $W^{\\perp}$ (~15 min)"
+    },
+    {
+      "id": "mat1120-5-1-def-wperp",
+      "type": "definition",
+      "title": "Ortogonalkomplement $W^{\\perp}$",
+      "content": "La $W$ være et underrom av et indreproduktrom. **Ortogonalkomplementet** $W^{\\perp}$ (leses «$W$ perp») er mengden av alle vektorer som står vinkelrett på *hele* $W$:\n\n$$W^{\\perp}=\\{\\mathbf{z}:\\langle\\mathbf{z},\\mathbf{w}\\rangle=0\\ \\text{for alle }\\mathbf{w}\\in W\\}.$$\n\nI ord: $\\mathbf{z}$ ligger i $W^{\\perp}$ dersom den er ortogonal på hver eneste vektor i $W$. Det holder faktisk å sjekke ortogonalitet mot en **basis** for $W$ — er $\\mathbf{z}$ vinkelrett på hver basisvektor, er den vinkelrett på hele $W$. $W^{\\perp}$ er selv et underrom, og $\\dim W+\\dim W^{\\perp}=\\dim(\\text{hele rommet})$."
+    },
+    {
+      "id": "mat1120-5-1-thm-colperp",
+      "type": "theorem",
+      "title": "$(\\operatorname{Col}A)^{\\perp}=\\operatorname{Nul}(A^{T})$",
+      "content": "For en matrise $A$ gjelder (i standardprikkproduktet):\n\n$$(\\operatorname{Col}A)^{\\perp}=\\operatorname{Nul}(A^{T}),\\qquad (\\operatorname{Row}A)^{\\perp}=\\operatorname{Nul}(A).$$\n\n*Hvorfor:* en vektor $\\mathbf{z}$ er ortogonal på alle kolonnene i $A$ nøyaktig når $A^{T}\\mathbf{z}=\\mathbf{0}$ (hver komponent i $A^{T}\\mathbf{z}$ er prikkproduktet av en kolonne med $\\mathbf{z}$). Å være ortogonal på kolonnene er det samme som å være ortogonal på hele $\\operatorname{Col}A$. Dette gir en **snarvei**: en basis for $W^{\\perp}=(\\operatorname{Col}A)^{\\perp}$ finner du som $\\operatorname{Nul}(A^{T})$ — samme vedleggsteknikk som i [kap. 1.2](/bok/mat1120/mat1120-1-2), bare på $A^{T}$."
+    },
+    {
+      "id": "mat1120-5-1-ex-wperp",
+      "type": "example",
+      "title": "Eksempel 1: Basis for $W^{\\perp}$",
+      "problem": "La $W=\\operatorname{Col}A$ med $A=\\begin{bmatrix}1&1\\\\1&-1\\\\0&1\\\\0&1\\end{bmatrix}$, altså $W=\\operatorname{Span}\\{(1,1,0,0),(1,-1,1,1)\\}$ i $\\mathbb{R}^4$ (standardprikkprodukt). Finn en basis for $W^{\\perp}$.",
+      "solution": "Etter teoremet er $W^{\\perp}=(\\operatorname{Col}A)^{\\perp}=\\operatorname{Nul}(A^{T})$. Vi løser $A^{T}\\mathbf{z}=\\mathbf{0}$:\n\n$$A^{T}=\\begin{bmatrix}1&1&0&0\\\\1&-1&1&1\\end{bmatrix}.$$\n\nRadreduksjon (liten $2\\times4$, gjøres for hånd) gir $z_1=-z_3-z_4$ og (fra rad 1 minus rad 2) $z_2=z_3+z_4$... nærmere bestemt løser vi:\n\n$$z_1+z_2=0,\\qquad z_1-z_2+z_3+z_4=0.$$\n\nFra første likning $z_2=-z_1$; innsatt i andre: $2z_1+z_3+z_4=0$, så $z_1=-\\tfrac12(z_3+z_4)$. Med $z_3,z_4$ frie får vi (skalert til heltall) de to spesielle løsningene\n\n$$\\mathbf{n}_1=(-1,1,2,0),\\qquad \\mathbf{n}_2=(-1,1,0,2).$$\n\nBasis for $W^{\\perp}$: $\\{(-1,1,2,0),(-1,1,0,2)\\}$. **Kontroll:** $\\langle\\mathbf{n}_1,(1,1,0,0)\\rangle=-1+1=0$ og $\\langle\\mathbf{n}_1,(1,-1,1,1)\\rangle=-1-1+2+0=0$ ✓ (tilsvarende for $\\mathbf{n}_2$). Legg merke til $\\dim W+\\dim W^{\\perp}=2+2=4=\\dim\\mathbb{R}^4$. ✓"
+    },
+    {
+      "id": "mat1120-5-1-x1",
+      "type": "exercise",
+      "exercise": {
+        "id": "mat1120-5-1-x1-e",
+        "number": "1",
+        "type": "classic",
+        "difficulty": "lett",
+        "task": "(Innstegsoppgave — ren gjengivelse.) Forklar med ord hva ortogonalkomplementet $W^{\\perp}$ er, og hva dimensjonsrelasjonen mellom $W$ og $W^{\\perp}$ sier når rommet er $\\mathbb{R}^n$.",
+        "solution": "$W^{\\perp}$ er mengden av alle vektorer som står vinkelrett på **hele** $W$ — altså på hver vektor i $W$ (det holder å sjekke mot en basis for $W$). Formelt $W^{\\perp}=\\{\\mathbf{z}:\\langle\\mathbf{z},\\mathbf{w}\\rangle=0\\ \\forall\\mathbf{w}\\in W\\}$.\n\nDimensjonsrelasjonen sier $\\dim W+\\dim W^{\\perp}=n$: til sammen fyller de to underrommene ut hele $\\mathbb{R}^n$, uten overlapp utover nullvektoren.",
+        "hints": [
+          "Ortogonal på hele $W$ = ortogonal på hver basisvektor i $W$.",
+          "Dimensjonene til $W$ og $W^{\\perp}$ summerer til dimensjonen av hele rommet."
+        ]
+      }
+    },
+    {
+      "id": "mat1120-5-1-x2",
+      "type": "exercise",
+      "exercise": {
+        "id": "mat1120-5-1-x2-e",
+        "number": "2",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "La $W=\\operatorname{Span}\\{(1,0,1,0),(0,1,1,0)\\}$ i $\\mathbb{R}^4$ (standardprikkprodukt). Finn en basis for $W^{\\perp}$ ved å bruke $(\\operatorname{Col}A)^{\\perp}=\\operatorname{Nul}(A^{T})$.",
+        "solution": "Sett vektorene som kolonner i $A$, så $A^{T}=\\begin{bmatrix}1&0&1&0\\\\0&1&1&0\\end{bmatrix}$. Likningene $A^{T}\\mathbf{z}=\\mathbf{0}$ er $z_1+z_3=0$ og $z_2+z_3=0$, altså $z_1=-z_3$, $z_2=-z_3$, med $z_3,z_4$ frie. Spesielle løsninger:\n\n**a)** $z_3=1,z_4=0$: $(-1,-1,1,0)$.\n**b)** $z_3=0,z_4=1$: $(0,0,0,1)$.\n\nBasis for $W^{\\perp}$: $\\{(-1,-1,1,0),(0,0,0,1)\\}$. Kontroll: begge er ortogonale på $(1,0,1,0)$ og $(0,1,1,0)$. ✓",
+        "hints": [
+          "$W^{\\perp}=\\operatorname{Nul}(A^{T})$ der kolonnene i $A$ utspenner $W$.",
+          "Skriv opp $A^{T}\\mathbf{z}=\\mathbf{0}$ og les spesielle løsninger — én per fri variabel."
+        ]
+      }
+    },
+    {
+      "id": "mat1120-5-1-lokke2",
+      "type": "text",
+      "content": "## Løkke 2 — Ortogonal projeksjon og dekomposisjonsteoremet (~25 min)"
+    },
+    {
+      "id": "mat1120-5-1-warn-ortobasis",
+      "type": "warning",
+      "title": "Ortogonal basis FØR projeksjon",
+      "content": "Projeksjonsformelen under **forutsetter at $\\{\\mathbf{v}_1,\\dots,\\mathbf{v}_k\\}$ er en ortogonal basis** for $W$. Får du utlevert en vilkårlig basis (typisk $\\operatorname{Col}A$-kolonnene), må du **kjøre Gram–Schmidt først** (se [kap. 4.2](/bok/mat1120/mat1120-4-2)). Å sette ikke-ortogonale vektorer rett inn i formelen gir feil svar — dette er felle nr. 4 i faget. Og i et **ikke-standard indreprodukt** regnes hvert $\\langle\\cdot,\\cdot\\rangle$ med den oppgitte definisjonen, også i Gram–Schmidt-steget."
+    },
+    {
+      "id": "mat1120-5-1-def-proj",
+      "type": "definition",
+      "title": "Ortogonal projeksjon $\\operatorname{proj}_W\\mathbf{y}$",
+      "content": "La $\\{\\mathbf{v}_1,\\dots,\\mathbf{v}_k\\}$ være en **ortogonal** basis for underrommet $W$. Den **ortogonale projeksjonen** av $\\mathbf{y}$ ned på $W$ er summen av Fourier-leddene:\n\n$$\\hat{\\mathbf{y}}=\\operatorname{proj}_W\\mathbf{y}=\\sum_{i=1}^{k}\\frac{\\langle\\mathbf{y},\\mathbf{v}_i\\rangle}{\\langle\\mathbf{v}_i,\\mathbf{v}_i\\rangle}\\,\\mathbf{v}_i.$$\n\nI ord: for hver ortogonale retning $\\mathbf{v}_i$ regner du «hvor mye av $\\mathbf{y}$ som peker langs $\\mathbf{v}_i$» og legger sammen. Resultatet $\\hat{\\mathbf{y}}$ ligger i $W$ og er uavhengig av *hvilken* ortogonal basis du bruker. (Er basisen ortonormal, faller nevnerne bort: $\\hat{\\mathbf{y}}=\\sum\\langle\\mathbf{y},\\mathbf{u}_i\\rangle\\mathbf{u}_i$.)"
+    },
+    {
+      "id": "mat1120-5-1-thm-dekomp",
+      "type": "theorem",
+      "title": "Dekomposisjonsteoremet $\\mathbf{y}=\\hat{\\mathbf{y}}+\\mathbf{z}$",
+      "content": "For ethvert underrom $W$ og enhver vektor $\\mathbf{y}$ finnes en **entydig** oppdeling\n\n$$\\mathbf{y}=\\hat{\\mathbf{y}}+\\mathbf{z},\\qquad \\hat{\\mathbf{y}}=\\operatorname{proj}_W\\mathbf{y}\\in W,\\quad \\mathbf{z}=\\mathbf{y}-\\hat{\\mathbf{y}}\\in W^{\\perp}.$$\n\nProjeksjonen $\\hat{\\mathbf{y}}$ er komponenten *i* $W$, og resten $\\mathbf{z}$ er komponenten *vinkelrett på* $W$. At $\\mathbf{z}\\in W^{\\perp}$ er ingen tilfeldighet: Fourier-leddene er nettopp konstruert slik at det som blir igjen står vinkelrett på hver $\\mathbf{v}_i$, altså på hele $W$. Entydigheten betyr at uansett hvordan du regner, får du samme $\\hat{\\mathbf{y}}$ og samme $\\mathbf{z}$."
+    },
+    {
+      "id": "mat1120-5-1-thm-beste",
+      "type": "theorem",
+      "title": "Beste tilnærming",
+      "content": "Projeksjonen $\\hat{\\mathbf{y}}=\\operatorname{proj}_W\\mathbf{y}$ er det **punktet i $W$ som ligger nærmest** $\\mathbf{y}$: for enhver annen $\\mathbf{w}\\in W$ er\n\n$$\\|\\mathbf{y}-\\hat{\\mathbf{y}}\\|<\\|\\mathbf{y}-\\mathbf{w}\\|.$$\n\nDette er hele grunnen til at projeksjon er kjernen i minste kvadrater ([kap. 5.2](/bok/mat1120/mat1120-5-2)): når $\\mathbf{y}$ ikke ligger i $W$, er $\\hat{\\mathbf{y}}$ den beste tilnærmingen vi kan få *innenfor* $W$."
+    },
+    {
+      "id": "mat1120-5-1-ex-proj",
+      "type": "example",
+      "title": "Eksempel 2: Projeksjon med ortogonal basis",
+      "problem": "I $\\mathbb{R}^4$ (standardprikkprodukt): projiser $\\mathbf{y}=(1,1,4,4)$ ned på $W=\\operatorname{Span}\\{\\mathbf{v}_1,\\mathbf{v}_2\\}$ med $\\mathbf{v}_1=(1,1,0,0)$, $\\mathbf{v}_2=(1,-1,1,1)$. Skriv dekomposisjonen $\\mathbf{y}=\\hat{\\mathbf{y}}+\\mathbf{z}$.",
+      "solution": "**Sjekk først at basisen er ortogonal:** $\\langle\\mathbf{v}_1,\\mathbf{v}_2\\rangle=1-1+0+0=0.$ ✓ Da kan vi bruke projeksjonsformelen direkte.\n\nFourier-koeffisientene:\n$$c_1=\\frac{\\langle\\mathbf{y},\\mathbf{v}_1\\rangle}{\\langle\\mathbf{v}_1,\\mathbf{v}_1\\rangle}=\\frac{1+1+0+0}{1+1+0+0}=\\frac{2}{2}=1,$$\n$$c_2=\\frac{\\langle\\mathbf{y},\\mathbf{v}_2\\rangle}{\\langle\\mathbf{v}_2,\\mathbf{v}_2\\rangle}=\\frac{1-1+4+4}{1+1+1+1}=\\frac{8}{4}=2.$$\n\nProjeksjonen:\n$$\\hat{\\mathbf{y}}=1\\cdot(1,1,0,0)+2\\cdot(1,-1,1,1)=(3,-1,2,2).$$\n\nResten:\n$$\\mathbf{z}=\\mathbf{y}-\\hat{\\mathbf{y}}=(1,1,4,4)-(3,-1,2,2)=(-2,2,2,2).$$\n\n**Dekomposisjon:** $(1,1,4,4)=\\underbrace{(3,-1,2,2)}_{\\in W}+\\underbrace{(-2,2,2,2)}_{\\in W^{\\perp}}$. **Kontroll:** $\\langle\\mathbf{z},\\mathbf{v}_1\\rangle=-2+2=0$ og $\\langle\\mathbf{z},\\mathbf{v}_2\\rangle=-2-2+2+2=0.$ ✓ $\\mathbf{z}$ står vinkelrett på $W$."
+    },
+    {
+      "id": "mat1120-5-1-x3",
+      "type": "exercise",
+      "exercise": {
+        "id": "mat1120-5-1-x3-e",
+        "number": "3",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "I $\\mathbb{R}^3$ (standardprikkprodukt): projiser $\\mathbf{y}=(6,0,0)$ ned på $W=\\operatorname{Span}\\{\\mathbf{u}_1,\\mathbf{u}_2\\}$ med $\\mathbf{u}_1=(1,1,1)$, $\\mathbf{u}_2=(1,-2,1)$. Oppgi dekomposisjonen $\\mathbf{y}=\\hat{\\mathbf{y}}+\\mathbf{z}$.",
+        "solution": "Basisen er ortogonal: $\\langle\\mathbf{u}_1,\\mathbf{u}_2\\rangle=1-2+1=0.$ ✓\n\n$c_1=\\dfrac{\\langle(6,0,0),(1,1,1)\\rangle}{\\langle(1,1,1),(1,1,1)\\rangle}=\\dfrac{6}{3}=2$ og $c_2=\\dfrac{\\langle(6,0,0),(1,-2,1)\\rangle}{\\langle(1,-2,1),(1,-2,1)\\rangle}=\\dfrac{6}{6}=1.$\n\n$\\hat{\\mathbf{y}}=2(1,1,1)+1(1,-2,1)=(3,0,3).$\n\n$\\mathbf{z}=(6,0,0)-(3,0,3)=(3,0,-3).$\n\n**Dekomposisjon:** $(6,0,0)=(3,0,3)+(3,0,-3)$. Kontroll: $\\langle\\mathbf{z},\\mathbf{u}_1\\rangle=3+0-3=0$, $\\langle\\mathbf{z},\\mathbf{u}_2\\rangle=3-0-3=0.$ ✓",
+        "hints": [
+          "Sjekk ortogonalitet, så bruk $c_i=\\langle\\mathbf{y},\\mathbf{u}_i\\rangle/\\langle\\mathbf{u}_i,\\mathbf{u}_i\\rangle$; nevnerne er $3$ og $6$.",
+          "$\\hat{\\mathbf{y}}=c_1\\mathbf{u}_1+c_2\\mathbf{u}_2$, og $\\mathbf{z}=\\mathbf{y}-\\hat{\\mathbf{y}}$."
+        ]
+      }
+    },
+    {
+      "id": "mat1120-5-1-ex-gsproj",
+      "type": "example",
+      "title": "Eksempel 3: Gram–Schmidt FØRST, så projiser",
+      "problem": "I $\\mathbb{R}^3$: projiser $\\mathbf{b}=(2,2,3)$ ned på $W=\\operatorname{Span}\\{\\mathbf{a}_1,\\mathbf{a}_2\\}$ med $\\mathbf{a}_1=(1,1,0)$, $\\mathbf{a}_2=(1,0,1)$ (standardprikkprodukt).",
+      "solution": "**Advarsel:** $\\langle\\mathbf{a}_1,\\mathbf{a}_2\\rangle=1+0+0=1\\ne0$ — basisen er *ikke* ortogonal. Vi må kjøre **Gram–Schmidt først** (kan ikke sette $\\mathbf{a}_i$ rett inn i projeksjonsformelen).\n\n**Gram–Schmidt:** $\\mathbf{v}_1=\\mathbf{a}_1=(1,1,0)$, $\\langle\\mathbf{v}_1,\\mathbf{v}_1\\rangle=2$.\n$$\\mathbf{v}_2=\\mathbf{a}_2-\\frac{\\langle\\mathbf{a}_2,\\mathbf{v}_1\\rangle}{\\langle\\mathbf{v}_1,\\mathbf{v}_1\\rangle}\\mathbf{v}_1=(1,0,1)-\\tfrac12(1,1,0)=\\left(\\tfrac12,-\\tfrac12,1\\right).$$\nSkalér opp med $2$: $\\mathbf{v}_2=(1,-1,2)$, $\\langle\\mathbf{v}_2,\\mathbf{v}_2\\rangle=6$.\n\n**Projeksjon** (nå med ortogonal basis $\\{\\mathbf{v}_1,\\mathbf{v}_2\\}$):\n$$c_1=\\frac{\\langle(2,2,3),(1,1,0)\\rangle}{2}=\\frac{4}{2}=2,\\qquad c_2=\\frac{\\langle(2,2,3),(1,-1,2)\\rangle}{6}=\\frac{2-2+6}{6}=1.$$\n$$\\hat{\\mathbf{b}}=2(1,1,0)+1(1,-1,2)=(3,1,2).$$\n$\\mathbf{z}=(2,2,3)-(3,1,2)=(-1,1,1)$. Kontroll: $\\langle\\mathbf{z},\\mathbf{v}_1\\rangle=-1+1=0$, $\\langle\\mathbf{z},\\mathbf{v}_2\\rangle=-1-1+2=0.$ ✓ **Merk:** hadde vi brukt $\\mathbf{a}_1,\\mathbf{a}_2$ direkte (uten Gram–Schmidt), ville svaret blitt feil."
+    },
+    {
+      "id": "mat1120-5-1-x4",
+      "type": "exercise",
+      "exercise": {
+        "id": "mat1120-5-1-x4-e",
+        "number": "4",
+        "type": "classic",
+        "difficulty": "vanskelig",
+        "task": "I $\\mathbb{R}^3$: projiser $\\mathbf{b}=(3,3,0)$ ned på linjen $W=\\operatorname{Span}\\{(1,2,2)\\}$, og finn resten $\\mathbf{z}$. (En linje har allerede en «ortogonal basis» — én vektor.)",
+        "solution": "Med én basisvektor $\\mathbf{v}=(1,2,2)$ er projeksjonen ett Fourier-ledd:\n$$\\hat{\\mathbf{b}}=\\frac{\\langle(3,3,0),(1,2,2)\\rangle}{\\langle(1,2,2),(1,2,2)\\rangle}(1,2,2)=\\frac{3+6+0}{1+4+4}(1,2,2)=\\frac{9}{9}(1,2,2)=(1,2,2).$$\n$\\mathbf{z}=(3,3,0)-(1,2,2)=(2,1,-2)$. Kontroll: $\\langle\\mathbf{z},\\mathbf{v}\\rangle=2+2-4=0.$ ✓",
+        "hints": [
+          "Projeksjon på én vektor er ett Fourier-ledd: $\\frac{\\langle\\mathbf{b},\\mathbf{v}\\rangle}{\\langle\\mathbf{v},\\mathbf{v}\\rangle}\\mathbf{v}$.",
+          "$\\langle\\mathbf{v},\\mathbf{v}\\rangle=9$; regn telleren og forkort."
+        ]
+      }
+    },
+    {
+      "id": "mat1120-5-1-lokke3",
+      "type": "text",
+      "content": "## Løkke 3 — Avstand til et underrom og ikke-standard indreprodukt (~15 min)"
+    },
+    {
+      "id": "mat1120-5-1-def-avstand",
+      "type": "definition",
+      "title": "Avstand til et underrom",
+      "content": "**Avstanden** fra en vektor $\\mathbf{y}$ til et underrom $W$ er lengden av resten $\\mathbf{z}$:\n\n$$d(\\mathbf{y},W)=\\|\\mathbf{y}-\\hat{\\mathbf{y}}\\|=\\|\\mathbf{z}\\|=\\sqrt{\\langle\\mathbf{z},\\mathbf{z}\\rangle}.$$\n\nSiden $\\hat{\\mathbf{y}}$ er punktet i $W$ nærmest $\\mathbf{y}$ (beste tilnærming), er dette den *korteste* avstanden fra $\\mathbf{y}$ til noe punkt i $W$. **Merk:** avstanden er $\\|\\mathbf{y}-\\hat{\\mathbf{y}}\\|$, altså normen av $\\mathbf{z}$ — **ikke** $\\|\\hat{\\mathbf{y}}\\|$. Å regne $\\|\\hat{\\mathbf{y}}\\|$ er en klassisk felle. Normen regnes alltid i det oppgitte indreproduktet."
+    },
+    {
+      "id": "mat1120-5-1-ex-avstand",
+      "type": "example",
+      "title": "Eksempel 4: Avstand og $W^{\\perp}$-basis",
+      "problem": "For $\\mathbf{y}=(1,1,4,4)$ og $W=\\operatorname{Span}\\{(1,1,0,0),(1,-1,1,1)\\}$ fra Eksempel 2: finn avstanden $d(\\mathbf{y},W)$ og en basis for $W^{\\perp}$ som inneholder $\\mathbf{z}$.",
+      "solution": "Fra Eksempel 2 er $\\mathbf{z}=\\mathbf{y}-\\hat{\\mathbf{y}}=(-2,2,2,2)$.\n\n**Avstand:**\n$$d(\\mathbf{y},W)=\\|\\mathbf{z}\\|=\\sqrt{(-2)^2+2^2+2^2+2^2}=\\sqrt{4+4+4+4}=\\sqrt{16}=4.$$\n\n**$W^{\\perp}$-basis:** $\\mathbf{z}=(-2,2,2,2)$ ligger i $W^{\\perp}$ (den er ortogonal på $W$). Men $\\dim W^{\\perp}=4-2=2$, så $\\mathbf{z}$ alene er ikke nok — vi trenger to vektorer. Fra Eksempel 1 er $W^{\\perp}=\\operatorname{Span}\\{(-1,1,2,0),(-1,1,0,2)\\}$, og $\\mathbf{z}=(-2,2,2,2)=(-1,1,2,0)+(-1,1,0,2)$ ligger i dette spennet. En basis for $W^{\\perp}$ er altså $\\{(-1,1,2,0),(-1,1,0,2)\\}$.\n\n**Merk fellen:** $\\|\\hat{\\mathbf{y}}\\|=\\sqrt{9+1+4+4}=\\sqrt{18}$ er *ikke* avstanden — avstanden er $\\|\\mathbf{z}\\|=4$."
+    },
+    {
+      "id": "mat1120-5-1-warn-ikkestandard",
+      "type": "warning",
+      "title": "Projeksjon i ikke-standard indreprodukt",
+      "content": "Hele projeksjonsapparatet gjelder uendret i et **vektet, integral- eller evalueringsindreprodukt** — men *hvert* $\\langle\\cdot,\\cdot\\rangle$ regnes med den oppgitte definisjonen:\n\n- Fourier-koeffisientene $\\frac{\\langle\\mathbf{y},\\mathbf{v}_i\\rangle}{\\langle\\mathbf{v}_i,\\mathbf{v}_i\\rangle}$ bruker det oppgitte indreproduktet i både teller og nevner.\n- Avstanden $\\|\\mathbf{z}\\|=\\sqrt{\\langle\\mathbf{z},\\mathbf{z}\\rangle}$ bruker den oppgitte normen.\n- Gram–Schmidt-forsteget (hvis basisen ikke er ortogonal) bruker samme indreprodukt.\n\nÅ falle tilbake på standardprikkproduktet ett sted ødelegger hele projeksjonen. Dette er felle nr. 1 i faget (~70 % av settene har ikke-standard indreprodukt)."
+    },
+    {
+      "id": "mat1120-5-1-ex-integral",
+      "type": "example",
+      "title": "Eksempel 5: Projeksjon i integralindreprodukt",
+      "problem": "På $\\operatorname{P}_2$ med $\\langle p,q\\rangle=\\int_{-1}^1 p(t)q(t)\\,dt$: finn den ortogonale projeksjonen av $y=t^2$ ned på $W=\\operatorname{Span}\\{1,t\\}$, og avstanden fra $t^2$ til $W$.",
+      "solution": "Basisen $\\{1,t\\}$ er ortogonal i dette indreproduktet: $\\langle 1,t\\rangle=\\int_{-1}^1 t\\,dt=0.$ ✓ (Alle indreprodukt er integraler over $[-1,1]$.)\n\n**Nevnere:** $\\langle 1,1\\rangle=\\int_{-1}^1 1\\,dt=2$ og $\\langle t,t\\rangle=\\int_{-1}^1 t^2\\,dt=\\tfrac23.$\n\n**Tellere:** $\\langle t^2,1\\rangle=\\int_{-1}^1 t^2\\,dt=\\tfrac23$ og $\\langle t^2,t\\rangle=\\int_{-1}^1 t^3\\,dt=0.$\n\n**Projeksjon:**\n$$\\hat{y}=\\frac{2/3}{2}\\cdot 1+\\frac{0}{2/3}\\cdot t=\\tfrac13.$$\n\n**Rest:** $z=t^2-\\tfrac13$. **Avstand:**\n$$\\langle z,z\\rangle=\\int_{-1}^1\\left(t^2-\\tfrac13\\right)^2 dt=\\int_{-1}^1\\left(t^4-\\tfrac23 t^2+\\tfrac19\\right)dt=\\tfrac25-\\tfrac23\\cdot\\tfrac23+\\tfrac19\\cdot2=\\tfrac25-\\tfrac49+\\tfrac29=\\tfrac{8}{45}.$$\nAvstand $=\\sqrt{8/45}=\\dfrac{2\\sqrt{10}}{15}$ (eksakt). Legg merke til at projeksjonen $\\tfrac13$ er «den konstante-pluss-lineære» delen av $t^2$ målt med integralindreproduktet."
+    },
+    {
+      "id": "mat1120-5-1-x5",
+      "type": "exercise",
+      "exercise": {
+        "id": "mat1120-5-1-x5-e",
+        "number": "5",
+        "type": "classic",
+        "difficulty": "vanskelig",
+        "task": "På $\\operatorname{P}_2$ med $\\langle p,q\\rangle=\\int_{-1}^1 pq\\,dt$: projiser $y=t^2+t$ ned på $W=\\operatorname{Span}\\{1,t\\}$. (Hint: bruk lineariteten — du kjenner allerede projeksjonen av $t^2$ og av $t$.)",
+        "solution": "Projeksjon er lineær, så $\\operatorname{proj}_W(t^2+t)=\\operatorname{proj}_W(t^2)+\\operatorname{proj}_W(t)$.\n\nFra Eksempel 5 er $\\operatorname{proj}_W(t^2)=\\tfrac13$. Og $t\\in W$, så $\\operatorname{proj}_W(t)=t$.\n\nAltså $\\hat{y}=\\tfrac13+t$. Rest: $z=(t^2+t)-(\\tfrac13+t)=t^2-\\tfrac13$ — samme rest som for $t^2$ alene, fordi den lineære delen $t$ allerede lå i $W$.",
+        "hints": [
+          "Projeksjon er lineær: $\\operatorname{proj}_W(p+q)=\\operatorname{proj}_W p+\\operatorname{proj}_W q$.",
+          "$t$ ligger allerede i $W$, så $\\operatorname{proj}_W t=t$; bruk projeksjonen av $t^2$ fra Eksempel 5."
+        ]
+      }
+    },
+    {
+      "id": "mat1120-5-1-warn-typiske",
+      "type": "warning",
+      "title": "Typiske feil",
+      "content": "- **Projeksjon uten ortogonal basis** (felle nr. 4). Projeksjonsformelen gjelder *bare* for en ortogonal basis — kjør Gram–Schmidt først hvis den utleverte basisen ikke er ortogonal.\n- **Avstand regnet som $\\|\\hat{\\mathbf{y}}\\|$.** Avstanden til $W$ er $\\|\\mathbf{y}-\\hat{\\mathbf{y}}\\|=\\|\\mathbf{z}\\|$, ikke normen av projeksjonen.\n- **Feil indreprodukt** (felle nr. 1). I ikke-standard indreprodukt regnes *alle* $\\langle\\cdot,\\cdot\\rangle$ — Fourier-ledd, norm og Gram–Schmidt — med den oppgitte definisjonen.\n- **Glemmer nevneren $\\langle\\mathbf{v}_i,\\mathbf{v}_i\\rangle$.** Hvert Fourier-ledd er $\\frac{\\langle\\mathbf{y},\\mathbf{v}_i\\rangle}{\\langle\\mathbf{v}_i,\\mathbf{v}_i\\rangle}\\mathbf{v}_i$ — nevneren er $1$ bare for ortonormale baser.\n- **Forveksler $\\hat{\\mathbf{y}}$ og $\\mathbf{z}$.** $\\hat{\\mathbf{y}}\\in W$ er projeksjonen; $\\mathbf{z}\\in W^{\\perp}$ er resten. Kontroller med $\\langle\\mathbf{z},\\mathbf{v}_i\\rangle=0$.\n- **$W^{\\perp}$ underdimensjonert.** Oppgir bare $\\{\\mathbf{z}\\}$ når $\\dim W^{\\perp}>1$; bruk $\\dim W+\\dim W^{\\perp}=\\dim(\\text{rom})$ og $\\operatorname{Nul}(A^{T})$.\n- **Desimaltilnærming.** La $\\sqrt3$, $\\tfrac{2\\sqrt{10}}{15}$ osv. stå eksakt."
+    },
+    {
+      "id": "mat1120-5-1-bb-tekst",
+      "type": "text",
+      "content": "## Begrepsbank til eksamen\n\nKjernebegrepene fra kapitlet i eksamensrettet kortform — projeksjonsapparatet bak sjanger B.\n\n*Begrepsbanken er flashcard-/repetisjonsstoff — den gjentar det du nettopp har lest. Hopp trygt over ved førstegangslesing; tidsanslaget for kapitlet gjelder kjernestoffet.*"
+    },
+    {
+      "id": "mat1120-5-1-bb-1",
+      "type": "definition",
+      "title": "Ortogonal projeksjon",
+      "content": "$\\hat{\\mathbf{y}}=\\operatorname{proj}_W\\mathbf{y}=\\sum_i\\frac{\\langle\\mathbf{y},\\mathbf{v}_i\\rangle}{\\langle\\mathbf{v}_i,\\mathbf{v}_i\\rangle}\\mathbf{v}_i$ — skyggen av $\\mathbf{y}$ rett ned på $W$. Krever en **ortogonal** basis $\\{\\mathbf{v}_i\\}$ for $W$."
+    },
+    {
+      "id": "mat1120-5-1-bb-2",
+      "type": "definition",
+      "title": "Fourier-ledd",
+      "content": "Enkeltleddet $\\frac{\\langle\\mathbf{y},\\mathbf{v}_i\\rangle}{\\langle\\mathbf{v}_i,\\mathbf{v}_i\\rangle}\\mathbf{v}_i$ i projeksjonssummen — «den delen av $\\mathbf{y}$ som peker langs $\\mathbf{v}_i$». Regnes uavhengig av de andre leddene."
+    },
+    {
+      "id": "mat1120-5-1-bb-3",
+      "type": "definition",
+      "title": "Dekomposisjon $\\mathbf{y}=\\hat{\\mathbf{y}}+\\mathbf{z}$",
+      "content": "Entydig oppdeling der $\\hat{\\mathbf{y}}\\in W$ er projeksjonen og $\\mathbf{z}=\\mathbf{y}-\\hat{\\mathbf{y}}\\in W^{\\perp}$ er resten vinkelrett på $W$."
+    },
+    {
+      "id": "mat1120-5-1-bb-4",
+      "type": "definition",
+      "title": "Restvektor $\\mathbf{z}$",
+      "content": "Komponenten $\\mathbf{z}=\\mathbf{y}-\\hat{\\mathbf{y}}$ som ligger i $W^{\\perp}$. Lengden $\\|\\mathbf{z}\\|$ er avstanden fra $\\mathbf{y}$ til $W$. Sjekk alltid $\\langle\\mathbf{z},\\mathbf{v}_i\\rangle=0$."
+    },
+    {
+      "id": "mat1120-5-1-bb-5",
+      "type": "definition",
+      "title": "Beste tilnærming",
+      "content": "$\\hat{\\mathbf{y}}$ er punktet i $W$ nærmest $\\mathbf{y}$: $\\|\\mathbf{y}-\\hat{\\mathbf{y}}\\|\\le\\|\\mathbf{y}-\\mathbf{w}\\|$ for alle $\\mathbf{w}\\in W$. Grunnlaget for minste kvadrater."
+    },
+    {
+      "id": "mat1120-5-1-bb-6",
+      "type": "definition",
+      "title": "Avstand til underrom",
+      "content": "$d(\\mathbf{y},W)=\\|\\mathbf{y}-\\hat{\\mathbf{y}}\\|=\\|\\mathbf{z}\\|$ — normen av resten, **ikke** $\\|\\hat{\\mathbf{y}}\\|$."
+    },
+    {
+      "id": "mat1120-5-1-bb-7",
+      "type": "definition",
+      "title": "Ortogonalkomplement $W^{\\perp}$",
+      "content": "Alle vektorer vinkelrett på hele $W$: $\\{\\mathbf{z}:\\langle\\mathbf{z},\\mathbf{w}\\rangle=0\\ \\forall\\mathbf{w}\\in W\\}$. Selv et underrom."
+    },
+    {
+      "id": "mat1120-5-1-bb-8",
+      "type": "definition",
+      "title": "Dimensjonsrelasjon",
+      "content": "$\\dim W+\\dim W^{\\perp}=\\dim(\\text{hele rommet})$. Brukes til å vite hvor mange vektorer $W^{\\perp}$-basisen skal ha."
+    },
+    {
+      "id": "mat1120-5-1-bb-9",
+      "type": "definition",
+      "title": "$(\\operatorname{Col}A)^{\\perp}=\\operatorname{Nul}(A^{T})$",
+      "content": "En basis for komplementet til et kolonnerom er nullrommet til den transponerte — samme vedleggsteknikk som i kap. 1.2, brukt på $A^{T}$."
+    },
+    {
+      "id": "mat1120-5-1-bb-10",
+      "type": "definition",
+      "title": "$(\\operatorname{Row}A)^{\\perp}=\\operatorname{Nul}(A)$",
+      "content": "Radrommets komplement er nullrommet til $A$ selv. Følger av at $A\\mathbf{x}=\\mathbf{0}$ betyr $\\mathbf{x}$ ortogonal på hver rad."
+    },
+    {
+      "id": "mat1120-5-1-bb-11",
+      "type": "definition",
+      "title": "Ortogonal basis kreves",
+      "content": "Projeksjonsformelen forutsetter parvis ortogonale $\\mathbf{v}_i$. Er basisen ikke ortogonal, kjør Gram–Schmidt (kap. 4.2) først — ellers blir svaret feil."
+    },
+    {
+      "id": "mat1120-5-1-bb-12",
+      "type": "definition",
+      "title": "Uavhengig av basisvalg",
+      "content": "$\\operatorname{proj}_W\\mathbf{y}$ er den samme uansett hvilken ortogonal basis for $W$ du bruker — projeksjonen avhenger bare av $W$ og indreproduktet."
+    },
+    {
+      "id": "mat1120-5-1-bb-13",
+      "type": "definition",
+      "title": "Ortonormal forenkling",
+      "content": "Er basisen ortonormal ($\\|\\mathbf{v}_i\\|=1$), faller nevnerne bort: $\\hat{\\mathbf{y}}=\\sum\\langle\\mathbf{y},\\mathbf{u}_i\\rangle\\mathbf{u}_i$."
+    },
+    {
+      "id": "mat1120-5-1-bb-14",
+      "type": "definition",
+      "title": "Projeksjon på én linje",
+      "content": "På $W=\\operatorname{Span}\\{\\mathbf{v}\\}$ er $\\hat{\\mathbf{y}}=\\frac{\\langle\\mathbf{y},\\mathbf{v}\\rangle}{\\langle\\mathbf{v},\\mathbf{v}\\rangle}\\mathbf{v}$ — ett Fourier-ledd. Grunntilfellet Gram–Schmidt bygger på."
+    },
+    {
+      "id": "mat1120-5-1-bb-15",
+      "type": "definition",
+      "title": "Projeksjon er lineær",
+      "content": "$\\operatorname{proj}_W(\\mathbf{y}_1+\\mathbf{y}_2)=\\operatorname{proj}_W\\mathbf{y}_1+\\operatorname{proj}_W\\mathbf{y}_2$ og $\\operatorname{proj}_W(c\\mathbf{y})=c\\operatorname{proj}_W\\mathbf{y}$. Nyttig snarvei i polynomrom."
+    },
+    {
+      "id": "mat1120-5-1-bb-16",
+      "type": "definition",
+      "title": "Ligger $\\mathbf{y}$ allerede i $W$?",
+      "content": "Da er $\\hat{\\mathbf{y}}=\\mathbf{y}$, $\\mathbf{z}=\\mathbf{0}$ og avstanden $0$. En del av $\\mathbf{y}$ som allerede ligger i $W$ projiseres på seg selv."
+    },
+    {
+      "id": "mat1120-5-1-bb-17",
+      "type": "definition",
+      "title": "Ikke-standard indreprodukt",
+      "content": "Vektet/integral/evaluering: hvert $\\langle\\cdot,\\cdot\\rangle$ i projeksjon, norm og Gram–Schmidt bruker den oppgitte definisjonen. Felle nr. 1."
+    },
+    {
+      "id": "mat1120-5-1-bb-18",
+      "type": "definition",
+      "title": "Avstand i integralindreprodukt",
+      "content": "$d(y,W)=\\sqrt{\\int_a^b z(t)^2\\,dt}$ der $z=y-\\hat{y}$ — normen er selve integralet, ikke en vektorlengde."
+    },
+    {
+      "id": "mat1120-5-1-bb-19",
+      "type": "definition",
+      "title": "Kontrollsjekk $\\langle\\mathbf{z},\\mathbf{v}_i\\rangle=0$",
+      "content": "Billig verifisering: regner du resten $\\mathbf{z}$ og finner at den er ortogonal på hver basisvektor, er projeksjonen sannsynligvis riktig."
+    },
+    {
+      "id": "mat1120-5-1-bb-20",
+      "type": "definition",
+      "title": "$W^{\\perp}$-basis inneholder $\\mathbf{z}$",
+      "content": "$\\mathbf{z}\\in W^{\\perp}$, men er $\\dim W^{\\perp}>1$ trengs flere vektorer — suppler via $\\operatorname{Nul}(A^{T})$."
+    },
+    {
+      "id": "mat1120-5-1-bb-21",
+      "type": "definition",
+      "title": "Projeksjonsmatrise (forvarsel)",
+      "content": "For en ortonormal basis $U$ er $\\hat{\\mathbf{y}}=UU^{T}\\mathbf{y}$; matrisen $UU^{T}$ projiserer ned på $\\operatorname{Col}U=W$. Bro til minste kvadrater og SVD."
+    },
+    {
+      "id": "mat1120-5-1-bb-22",
+      "type": "definition",
+      "title": "Sjekk ortogonalitet før du starter",
+      "content": "Før projeksjonsformelen brukes: regn $\\langle\\mathbf{v}_i,\\mathbf{v}_j\\rangle$ for \\ne j$ i det oppgitte indreproduktet. Er de /bin/zsh$, er basisen ortogonal og formelen gyldig; ellers må Gram–Schmidt kjøres først."
+    },
+    {
+      "id": "mat1120-5-1-bb-23",
+      "type": "definition",
+      "title": "Pytagoras for projeksjon",
+      "content": "Siden $\\hat{\\mathbf{y}}\\perp\\mathbf{z}$ gjelder $\\|\\mathbf{y}\\|^2=\\|\\hat{\\mathbf{y}}\\|^2+\\|\\mathbf{z}\\|^2$. En rask kontroll på at dekomposisjonen $\\mathbf{y}=\\hat{\\mathbf{y}}+\\mathbf{z}$ er riktig regnet."
+    },
+    {
+      "id": "mat1120-5-1-rep",
+      "type": "collapsible",
+      "title": "Repetisjonsoppgaver",
+      "buttonText": "Vis repetisjonsoppgaver",
+      "content": [
+        {
+          "id": "mat1120-5-1-R1",
+          "type": "exercise",
+          "exercise": {
+            "id": "mat1120-5-1-R1e",
+            "number": "R1",
+            "type": "classic",
+            "difficulty": "lett",
+            "task": "(Fra [kap. 4.2](/bok/mat1120/mat1120-4-2)) Hvorfor må en basis være ortogonal før du bruker projeksjonsformelen, og hva gjør du hvis den ikke er det?",
+            "solution": "Fourier-formelen $\\sum\\frac{\\langle\\mathbf{y},\\mathbf{v}_i\\rangle}{\\langle\\mathbf{v}_i,\\mathbf{v}_i\\rangle}\\mathbf{v}_i$ er utledet under antakelsen om at $\\mathbf{v}_i$-ene er parvis ortogonale; ellers blir leddene «overlappende» og summen feil. Er basisen ikke ortogonal, kjører du **Gram–Schmidt** først for å få en ortogonal basis for det samme underrommet.",
+            "hints": [
+              "Formelen forutsetter parvis ortogonalitet; Gram–Schmidt lager den."
+            ]
+          }
+        },
+        {
+          "id": "mat1120-5-1-R2",
+          "type": "exercise",
+          "exercise": {
+            "id": "mat1120-5-1-R2e",
+            "number": "R2",
+            "type": "classic",
+            "difficulty": "middels",
+            "task": "(Fra [kap. 1.2](/bok/mat1120/mat1120-1-2)) La $A$ ha $\\operatorname{rang}A=2$ og $4$ rader. Hva er $\\dim\\operatorname{Col}A$ og $\\dim(\\operatorname{Col}A)^{\\perp}$?",
+            "solution": "$\\dim\\operatorname{Col}A=\\operatorname{rang}A=2$. Kolonnene lever i $\\mathbb{R}^4$, så $\\dim(\\operatorname{Col}A)^{\\perp}=4-2=2$ (og $(\\operatorname{Col}A)^{\\perp}=\\operatorname{Nul}(A^{T})$).",
+            "hints": [
+              "$\\dim\\operatorname{Col}A=\\operatorname{rang}$; komplementet fyller ut resten av $\\mathbb{R}^4$."
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": "mat1120-5-1-symbol",
+      "type": "collapsible",
+      "title": "Symbol- og formelliste",
+      "buttonText": "Vis symboler og formler",
+      "content": [
+        {
+          "id": "mat1120-5-1-symbol-text",
+          "type": "text",
+          "content": "## Symbol- og formelliste\n\n*Oppslagsverk — alt her forklares underveis i kapitlet.*\n\nAlle symboler og formler som brukes i dette delkapitlet (5.1), samlet på ett sted.\n\n| Symbol | Betydning |\n|---|---|\n| $W$ | Underrommet vi projiserer ned på |\n| $W^{\\perp}$ | Ortogonalkomplementet — alt vinkelrett på $W$ |\n| $\\hat{\\mathbf{y}}=\\operatorname{proj}_W\\mathbf{y}$ | Ortogonal projeksjon av $\\mathbf{y}$ på $W$ |\n| $\\mathbf{z}=\\mathbf{y}-\\hat{\\mathbf{y}}$ | Restvektoren, ligger i $W^{\\perp}$ |\n| $\\langle\\cdot,\\cdot\\rangle$ | Det oppgitte indreproduktet |\n| $\\|\\mathbf{z}\\|$ | Norm $=\\sqrt{\\langle\\mathbf{z},\\mathbf{z}\\rangle}$ (avstand til $W$) |\n| $\\operatorname{Nul}(A^{T})$ | $=(\\operatorname{Col}A)^{\\perp}$ |\n\n**Formler i dette delkapitlet:**\n\n$$\\hat{\\mathbf{y}}=\\operatorname{proj}_W\\mathbf{y}=\\sum_{i=1}^{k}\\frac{\\langle\\mathbf{y},\\mathbf{v}_i\\rangle}{\\langle\\mathbf{v}_i,\\mathbf{v}_i\\rangle}\\mathbf{v}_i$$\nOrtogonal projeksjon (krever ortogonal basis $\\{\\mathbf{v}_i\\}$).\n\n$$\\mathbf{y}=\\hat{\\mathbf{y}}+\\mathbf{z},\\qquad \\hat{\\mathbf{y}}\\in W,\\ \\mathbf{z}\\in W^{\\perp}$$\nDekomposisjonsteoremet (entydig).\n\n$$d(\\mathbf{y},W)=\\|\\mathbf{y}-\\hat{\\mathbf{y}}\\|=\\|\\mathbf{z}\\|$$\nAvstand til underrommet — normen av resten.\n\n$$(\\operatorname{Col}A)^{\\perp}=\\operatorname{Nul}(A^{T}),\\qquad \\dim W+\\dim W^{\\perp}=\\dim(\\text{rom})$$\nOrtogonalkomplement og dimensjonsrelasjon."
+        }
+      ]
+    }
+  ],
+  "exercises": []
+}
