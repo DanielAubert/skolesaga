@@ -1,0 +1,405 @@
+{
+  "id": "mat1120-6-3",
+  "courseId": "mat1120",
+  "chapterNumber": "6.3",
+  "title": "Rayleigh-maksimering og kjeglesnitt",
+  "description": "Rayleigh-kvotienten: max{xᵀAx : ‖x‖=1}=λmax oppnådd i egenvektoren til λmax (Teorem 6/7 §7.3), og kjeglesnitt: det ortogonale variabelskiftet x=Py fjerner kryssleddet så du leser av og skisserer ellipse, hyperbel eller parabel i hovedaksene y₁,y₂.",
+  "estimatedMinutes": 55,
+  "competenceGoals": [
+    "bruke Rayleigh (Teorem 6/7 §7.3) til å finne max og min av xᵀAx på enhetssfæren og hvor de nås",
+    "fjerne kryssleddet i en kvadratisk form med det ortogonale variabelskiftet x=Py",
+    "klassifisere en kurve xᵀAx=c som ellipse, hyperbel eller parabel ut fra egenverditegnene",
+    "skissere ellipse og hyperbel i hovedaksene med riktige halvakser og asymptoter"
+  ],
+  "content": [
+    {
+      "id": "mat1120-6-3-tip",
+      "type": "tip",
+      "title": "Eksamensvinkel",
+      "content": "**Rayleigh og kjeglesnitt er toppsjiktet av sjanger G** — del av de ~70 % (Rayleigh 2022 O3; kjeglesnitt 2024 O4b; ulikhet 2021 O2c). Prioritet: **kunne**. To grep gir uttelling:\n\n- **Rayleigh:** $\\max\\{\\mathbf{x}^{T}A\\mathbf{x}:\\lVert\\mathbf{x}\\rVert=1\\}=\\lambda_{\\max}$, oppnådd i **egenvektoren** til $\\lambda_{\\max}$; $\\min=\\lambda_{\\min}$. Navngi **Teorem 6/7 §7.3**.\n- **Kjeglesnitt:** variabelskiftet $\\mathbf{x}=P\\mathbf{y}$ (ortogonal $P$ fra spektralteoremet) **fjerner kryssleddet**, og egenverditegnene avgjør ellipse/hyperbel/parabel. Ber oppgaven om å *skissere*, skal figuren tegnes i **hovedaksene** $y_1,y_2$.\n\nAlt hviler på den ortogonale $P$ fra [kap. 6.1](/bok/mat1120/mat1120-6-1) og klassifiseringen fra [kap. 6.2](/bok/mat1120/mat1120-6-2)."
+    },
+    {
+      "id": "mat1120-6-3-forkunnskaper",
+      "type": "text",
+      "content": "**Forkunnskaper:**\n\n- [Kap. 6.1](/bok/mat1120/mat1120-6-1) — ortogonal diagonalisering $A=PDP^{T}$, ortonormale egenvektorer\n- [Kap. 6.2](/bok/mat1120/mat1120-6-2) — kvadratisk form, symmetrisering, definitthet\n- [Kap. 4.1](/bok/mat1120/mat1120-4-1) — norm og enhetsvektorer\n- [Kjeglesnitt](/bok/r2/r2-5-6) — VGS-kjennskap til ellipse og hyperbel\n- [Matriseprodukt (MAT1110)](/bok/mat1110/mat1110-1-3) — matriseprodukt"
+    },
+    {
+      "id": "mat1120-6-3-sist",
+      "type": "text",
+      "content": "## Sist du var her\n\nTo verktøy fra Del 6 bæres rett inn her:\n\n- **Hovedaksetransformasjonen** ([kap. 6.2](/bok/mat1120/mat1120-6-2)): med ortogonal $P$ og $\\mathbf{x}=P\\mathbf{y}$ blir $\\mathbf{x}^{T}A\\mathbf{x}=\\lambda_1y_1^2+\\dots+\\lambda_ny_n^2$.\n- **Normbevaring** ([kap. 6.1](/bok/mat1120/mat1120-6-1)): $\\lVert\\mathbf{x}\\rVert=\\lVert P\\mathbf{y}\\rVert=\\lVert\\mathbf{y}\\rVert$, så «enhetssfæren» $\\lVert\\mathbf{x}\\rVert=1$ svarer til $\\lVert\\mathbf{y}\\rVert=1$.\n\nRayleigh og kjeglesnitt er to anvendelser av nøyaktig disse to fakta."
+    },
+    {
+      "id": "mat1120-6-3-intro",
+      "type": "text",
+      "content": "En symmetrisk matrise gir to geometriske spørsmål som er faste karakterskillere:\n\n1. **Rayleigh** — hvor stor kan $\\mathbf{x}^{T}A\\mathbf{x}$ bli når $\\mathbf{x}$ holdes på enhetssfæren $\\lVert\\mathbf{x}\\rVert=1$? Svar: største egenverdi.\n2. **Kjeglesnitt** — hvilken kurve er $\\mathbf{x}^{T}A\\mathbf{x}=c$? Etter et variabelskifte som fjerner kryssleddet leser du av ellipse, hyperbel eller parabel.\n\nKapitlet går i tre løkker:\n\n1. **Rayleigh-kvotienten** og Teorem 6/7 §7.3.\n2. **Variabelskiftet $\\mathbf{x}=P\\mathbf{y}$** og kjeglesnitt-klassifisering.\n3. **Skisse i hovedaksene** — ellipse, hyperbel, og det degenererte parabel-tilfellet."
+    },
+    {
+      "id": "mat1120-6-3-l1",
+      "type": "text",
+      "content": "## Løkke 1 — Rayleigh-kvotienten: max på enhetssfæren er λmax (~18 min)"
+    },
+    {
+      "id": "mat1120-6-3-l1-teori",
+      "type": "text",
+      "content": "For en symmetrisk $A$ spør vi: hvor store og små verdier tar $Q(\\mathbf{x})=\\mathbf{x}^{T}A\\mathbf{x}$ når vi begrenser oss til **enhetsvektorer** $\\lVert\\mathbf{x}\\rVert=1$? Bruk hovedaksetransformasjonen $\\mathbf{x}=P\\mathbf{y}$ (ordne $\\lambda_1\\ge\\lambda_2\\ge\\dots\\ge\\lambda_n$):\n$$Q=\\lambda_1y_1^2+\\dots+\\lambda_ny_n^2,\\qquad \\lVert\\mathbf{y}\\rVert=\\lVert\\mathbf{x}\\rVert=1.$$\nSiden $\\sum y_i^2=1$ er $Q$ et **vektet gjennomsnitt** av egenverdiene, med vekter $y_i^2\\ge0$. Da:\n$$\\lambda_{\\min}\\le Q\\le\\lambda_{\\max}.$$\nMaksimum $\\lambda_{\\max}$ nås ved å legge all vekt på den største egenverdien ($y_1=1$, resten $0$), altså $\\mathbf{y}=\\mathbf{e}_1$ som gir $\\mathbf{x}=P\\mathbf{e}_1=\\mathbf{u}_1$, **egenvektoren til $\\lambda_{\\max}$**. Dette er **Teorem 6 §7.3**. Begrenser du i tillegg til $\\mathbf{x}\\perp\\mathbf{u}_1$, blir maksimum $\\lambda_2$ (nest største), oppnådd i $\\mathbf{u}_2$ — **Teorem 7 §7.3**."
+    },
+    {
+      "id": "mat1120-6-3-def-rayleigh",
+      "type": "definition",
+      "title": "Rayleigh-kvotienten",
+      "content": "For en symmetrisk $A$ og $\\mathbf{x}\\ne\\mathbf{0}$ er **Rayleigh-kvotienten** $R(\\mathbf{x})=\\dfrac{\\mathbf{x}^{T}A\\mathbf{x}}{\\mathbf{x}^{T}\\mathbf{x}}$. På enhetssfæren ($\\mathbf{x}^{T}\\mathbf{x}=1$) er $R(\\mathbf{x})=\\mathbf{x}^{T}A\\mathbf{x}$. Kvotienten ligger alltid mellom $\\lambda_{\\min}$ og $\\lambda_{\\max}$."
+    },
+    {
+      "id": "mat1120-6-3-thm-rayleigh",
+      "type": "theorem",
+      "title": "Rayleigh (Teorem 6 og 7 §7.3)",
+      "content": "La $A$ være symmetrisk med egenverdier $\\lambda_1\\ge\\lambda_2\\ge\\dots\\ge\\lambda_n$ og ortonormale egenvektorer $\\mathbf{u}_1,\\dots,\\mathbf{u}_n$. Da:\n\n- $\\displaystyle\\max_{\\lVert\\mathbf{x}\\rVert=1}\\mathbf{x}^{T}A\\mathbf{x}=\\lambda_1$, oppnådd i $\\mathbf{x}=\\mathbf{u}_1$;\n- $\\displaystyle\\min_{\\lVert\\mathbf{x}\\rVert=1}\\mathbf{x}^{T}A\\mathbf{x}=\\lambda_n$, oppnådd i $\\mathbf{x}=\\mathbf{u}_n$;\n- $\\displaystyle\\max_{\\lVert\\mathbf{x}\\rVert=1,\\ \\mathbf{x}\\perp\\mathbf{u}_1}\\mathbf{x}^{T}A\\mathbf{x}=\\lambda_2$, oppnådd i $\\mathbf{x}=\\mathbf{u}_2$ (Teorem 7)."
+    },
+    {
+      "id": "mat1120-6-3-ex1",
+      "type": "example",
+      "title": "Eksempel 1: Rayleigh-maksimum og -minimum",
+      "problem": "La $A=\\begin{bmatrix}3&1\\\\1&3\\end{bmatrix}$ (fra vedlegget: egenverdier $4$ med egenvektor $(1,1)^{T}$ og $2$ med egenvektor $(1,-1)^{T}$). Finn $\\max$ og $\\min$ av $Q(\\mathbf{x})=\\mathbf{x}^{T}A\\mathbf{x}$ over $\\lVert\\mathbf{x}\\rVert=1$, og oppgi hvor de nås.",
+      "solution": "$A$ er symmetrisk med egenverdier $\\lambda_{\\max}=4$ og $\\lambda_{\\min}=2$. Ved **Rayleigh (Teorem 6 §7.3)**:\n$$\\max_{\\lVert\\mathbf{x}\\rVert=1}Q=\\lambda_{\\max}=4,\\qquad \\min_{\\lVert\\mathbf{x}\\rVert=1}Q=\\lambda_{\\min}=2.$$\nMaksimum nås i den **normaliserte** egenvektoren til $\\lambda=4$: $\\mathbf{u}_1=\\tfrac{1}{\\sqrt2}(1,1)^{T}$. Minimum nås i $\\mathbf{u}_2=\\tfrac{1}{\\sqrt2}(1,-1)^{T}$.\n\n**Kontroll:** $Q(\\mathbf{u}_1)=\\mathbf{u}_1^{T}A\\mathbf{u}_1=\\tfrac12(1,1)\\begin{bmatrix}3&1\\\\1&3\\end{bmatrix}(1,1)^{T}=\\tfrac12(1,1)(4,4)^{T}=\\tfrac12\\cdot8=4$ ✓. **Konklusjon:** $\\max=4$ (i $\\tfrac{1}{\\sqrt2}(1,1)^{T}$), $\\min=2$ (i $\\tfrac{1}{\\sqrt2}(1,-1)^{T}$) — eksakte verdier."
+    },
+    {
+      "id": "mat1120-6-3-e1",
+      "type": "exercise",
+      "exercise": {
+        "id": "mat1120-6-3-e1",
+        "number": "1",
+        "type": "classic",
+        "difficulty": "lett",
+        "task": "En symmetrisk $3\\times3$-matrise $A$ har egenverdier $2,2,8$ (fra vedlegget). Hva er $\\max$ og $\\min$ av $\\mathbf{x}^{T}A\\mathbf{x}$ over $\\lVert\\mathbf{x}\\rVert=1$?",
+        "solution": "Ved Rayleigh er $\\max=\\lambda_{\\max}=8$ og $\\min=\\lambda_{\\min}=2$. Maksimum nås i (den normaliserte) egenvektoren til $\\lambda=8$; minimum nås for enhver enhetsvektor i egenrommet til $\\lambda=2$.",
+        "hints": [
+          "Rayleigh-maks er den største egenverdien.",
+          "Både 2-ene er minst, så minimum er 2 (oppnådd i hele egenrommet $E_2$)."
+        ]
+      }
+    },
+    {
+      "id": "mat1120-6-3-e2",
+      "type": "exercise",
+      "exercise": {
+        "id": "mat1120-6-3-e2",
+        "number": "2",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "La $A$ være symmetrisk med egenverdier $\\lambda_1=9>\\lambda_2=5>\\lambda_3=1$ og ortonormale egenvektorer $\\mathbf{u}_1,\\mathbf{u}_2,\\mathbf{u}_3$.\n\n**a)** Hva er $\\max\\{\\mathbf{x}^{T}A\\mathbf{x}:\\lVert\\mathbf{x}\\rVert=1\\}$?\n\n**b)** Hva er maksimum hvis vi i tillegg krever $\\mathbf{x}\\perp\\mathbf{u}_1$?",
+        "solution": "**a)** $\\max=\\lambda_1=9$, oppnådd i $\\mathbf{x}=\\mathbf{u}_1$ (Teorem 6 §7.3).\n\n**b)** Med bibetingelsen $\\mathbf{x}\\perp\\mathbf{u}_1$ fjernes den største retningen, og maksimum blir **nest største** egenverdi: $\\lambda_2=5$, oppnådd i $\\mathbf{x}=\\mathbf{u}_2$ (Teorem 7 §7.3).",
+        "hints": [
+          "Uten bibetingelse: største egenverdi.",
+          "Med $\\mathbf{x}\\perp\\mathbf{u}_1$ faller $y_1$ bort, så maksimum blir $\\lambda_2$."
+        ]
+      }
+    },
+    {
+      "id": "mat1120-6-3-l2",
+      "type": "text",
+      "content": "## Løkke 2 — Variabelskiftet x=Py og kjeglesnitt-klassifisering (~18 min)"
+    },
+    {
+      "id": "mat1120-6-3-l2-teori",
+      "type": "text",
+      "content": "En kurve $\\mathbf{x}^{T}A\\mathbf{x}=c$ i planet (med $A$ symmetrisk $2\\times2$) har som regel et kryssledd, så aksene er «vridd». Sett $\\mathbf{x}=P\\mathbf{y}$ med ortogonal $P$ fra spektralteoremet — en **rotasjon/refleksjon** til nye akser $y_1,y_2$ langs egenvektorene (**hovedaksene**). Da forsvinner kryssleddet:\n$$\\mathbf{x}^{T}A\\mathbf{x}=\\lambda_1y_1^2+\\lambda_2y_2^2=c.$$\nNå leses **kurvetypen** rett av egenverditegnene (for $c>0$):\n\n- **begge $\\lambda_i>0$** (posdef): **ellipse** $\\dfrac{y_1^2}{c/\\lambda_1}+\\dfrac{y_2^2}{c/\\lambda_2}=1$;\n- **motsatt fortegn** (indefinit): **hyperbel**;\n- **én $\\lambda_i=0$** (semidefinit): **parabel** eller degenerert (par av linjer/tom).\n\nHovedaksene peker langs egenvektorene til $A$; halvaksene bestemmes av $c/\\lambda_i$."
+    },
+    {
+      "id": "mat1120-6-3-def-hovedakse",
+      "type": "definition",
+      "title": "Hovedaksesetningen (variabelskifte x=Py)",
+      "content": "For en kvadratisk form $\\mathbf{x}^{T}A\\mathbf{x}$ med symmetrisk $A$ finnes et **ortogonalt** variabelskifte $\\mathbf{x}=P\\mathbf{y}$ (søylene i $P$ er ortonormale egenvektorer) som fjerner alle kryssledd: $\\mathbf{x}^{T}A\\mathbf{x}=\\lambda_1y_1^2+\\dots+\\lambda_ny_n^2$. De nye koordinataksene $y_i$ kalles **hovedaksene** og peker langs egenvektorene til $A$."
+    },
+    {
+      "id": "mat1120-6-3-def-kjeglesnitt",
+      "type": "definition",
+      "title": "Kjeglesnitt-klassifisering",
+      "content": "For kurven $\\mathbf{x}^{T}A\\mathbf{x}=c$ ($c>0$, $A$ symmetrisk $2\\times2$) med egenverdier $\\lambda_1,\\lambda_2$: **ellipse** hvis begge $\\lambda_i>0$ (posdef); **hyperbel** hvis $\\lambda_1,\\lambda_2$ har motsatt fortegn (indefinit); **parabel/degenerert** hvis én $\\lambda_i=0$ (semidefinit). Fortegnsprofilen fra [kap. 6.2](/bok/mat1120/mat1120-6-2) forutsier altså kurveformen."
+    },
+    {
+      "id": "mat1120-6-3-ex2",
+      "type": "example",
+      "title": "Eksempel 2: Klassifiser en kurve ved variabelskifte",
+      "problem": "Avgjør ved et variabelskifte som fjerner kryssleddet hvilken kurve $2x_1^2+2x_1x_2+2x_2^2=3$ er.",
+      "solution": "**Matriseform.** Kryssleddet $2x_1x_2$ deles på 2: $a_{12}=a_{21}=1$, så $A=\\begin{bmatrix}2&1\\\\1&2\\end{bmatrix}$. Fra vedlegget er egenverdiene $\\lambda_1=3$ (egenvektor $(1,1)^{T}$) og $\\lambda_2=1$ (egenvektor $(1,-1)^{T}$).\n\n**Variabelskifte.** Normalisér: $\\mathbf{u}_1=\\tfrac{1}{\\sqrt2}(1,1)^{T}$ for $\\lambda=1$? — nei, ordne slik at $D$ matcher. Vi setter $P=\\big[\\,\\tfrac{1}{\\sqrt2}(1,-1)^{T}\\ \\ \\tfrac{1}{\\sqrt2}(1,1)^{T}\\,\\big]$ (søyle 1 ↔ $\\lambda=1$, søyle 2 ↔ $\\lambda=3$). Med $\\mathbf{x}=P\\mathbf{y}$:\n$$2x_1^2+2x_1x_2+2x_2^2=1\\cdot y_1^2+3\\cdot y_2^2=3.$$\n\n**Klassifisering.** Begge egenverdiene er positive (posdef) $\\Rightarrow$ **ellipse**. Delt på $3$:\n$$\\frac{y_1^2}{3}+\\frac{y_2^2}{1}=1,$$\nmed halvakser $\\sqrt3$ langs $y_1$ og $1$ langs $y_2$. **Konklusjon:** kurven er en ellipse; se skissen i hovedaksene under."
+    },
+    {
+      "id": "mat1120-6-3-e3",
+      "type": "exercise",
+      "exercise": {
+        "id": "mat1120-6-3-e3",
+        "number": "3",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "Klassifiser (uten å skissere) kurvene ut fra egenverdiene til den symmetriske matrisen:\n\n**a)** egenverdier $5,2$\n\n**b)** egenverdier $3,-4$\n\n**c)** egenverdier $0,6$",
+        "solution": "**a)** Begge $>0$ (posdef) ⇒ **ellipse**.\n\n**b)** Motsatt fortegn (indefinit) ⇒ **hyperbel**.\n\n**c)** Én egenverdi $=0$ (semidefinit) ⇒ **parabel/degenerert** (avhengig av de øvrige leddene).",
+        "hints": [
+          "Se på fortegnene til egenverdiene, som i definitthetsklassifiseringen.",
+          "Samme fortegn ⇒ ellipse, blandet ⇒ hyperbel, én null ⇒ parabel/degenerert."
+        ]
+      }
+    },
+    {
+      "id": "mat1120-6-3-l3",
+      "type": "text",
+      "content": "## Løkke 3 — Skisse i hovedaksene: ellipse, hyperbel og det degenererte tilfellet (~14 min)"
+    },
+    {
+      "id": "mat1120-6-3-l3-teori",
+      "type": "text",
+      "content": "Når oppgaven ber om en **skisse**, tegner du kurven i **hovedaksene** $y_1,y_2$ (langs egenvektorene), ikke i de opprinnelige $x_1,x_2$-aksene. Framgangsmåte:\n\n**a)** Skriv den reduserte formen $\\lambda_1y_1^2+\\lambda_2y_2^2=c$.\n\n**b)** For en **ellipse** ($\\tfrac{y_1^2}{a^2}+\\tfrac{y_2^2}{b^2}=1$): tegn en oval med halvakser $a=\\sqrt{c/\\lambda_1}$ langs $y_1$ og $b=\\sqrt{c/\\lambda_2}$ langs $y_2$.\n\n**c)** For en **hyperbel** ($\\tfrac{y_1^2}{a^2}-\\tfrac{y_2^2}{b^2}=1$): to grener som åpner langs $y_1$, med asymptoter $y_2=\\pm\\tfrac{b}{a}y_1$.\n\n**d)** Er én $\\lambda_i=0$, degenererer annengradsdelen; med et lineærledd blir det en **parabel**, ellers et par linjer eller den tomme mengden."
+    },
+    {
+      "id": "mat1120-6-3-ex3",
+      "type": "example",
+      "title": "Eksempel 3: Skisser en ellipse i hovedaksene",
+      "problem": "Skisser kurven fra eksempel 2, $2x_1^2+2x_1x_2+2x_2^2=3$, i hovedaksene.",
+      "solution": "Fra eksempel 2 er den reduserte formen $\\dfrac{y_1^2}{3}+\\dfrac{y_2^2}{1}=1$: en **ellipse** med halvakse $\\sqrt3\\approx1{,}7$ langs $y_1$ og $1$ langs $y_2$. Hovedaksene $y_1,y_2$ peker langs egenvektorene $(1,-1)^{T}$ og $(1,1)^{T}$ (i det opprinnelige planet en $45^{\\circ}$-vridning). Skissen i hovedaksene:"
+    },
+    {
+      "id": "mat1120-6-3-ex3-fig",
+      "type": "image",
+      "src": "/images/textbook/mat1120/mat1120-6-3-ellipse.svg",
+      "alt": "Koordinatsystem med hovedaksene y-en og y-to. En ellipse sentrert i origo strekker seg til y-en er lik pluss/minus kvadratroten av tre langs den vannrette y-en-aksen og til y-to er lik pluss/minus én langs den loddrette y-to-aksen.",
+      "caption": "Ellipsen $\\tfrac{y_1^2}{3}+\\tfrac{y_2^2}{1}=1$ fra eksempel 2, tegnet i hovedaksene. Halvaksen er $\\sqrt3$ langs $y_1$ (minste egenverdi $\\lambda=1$ gir lengste akse — formen er «flatest» der) og $1$ langs $y_2$."
+    },
+    {
+      "id": "mat1120-6-3-ex4",
+      "type": "example",
+      "title": "Eksempel 4: Klassifiser og skisser en hyperbel",
+      "problem": "Avgjør hvilken kurve $x_1^2+6x_1x_2+x_2^2=8$ er, og skisser den i hovedaksene.",
+      "solution": "**Matriseform.** Kryssledd $6x_1x_2$ deles på 2: $a_{12}=a_{21}=3$, så $A=\\begin{bmatrix}1&3\\\\3&1\\end{bmatrix}$. Fra vedlegget er egenverdiene $\\lambda_1=4$ (egenvektor $(1,1)^{T}$) og $\\lambda_2=-2$ (egenvektor $(1,-1)^{T}$).\n\n**Variabelskifte** $\\mathbf{x}=P\\mathbf{y}$ (søyle 1 ↔ $\\lambda=4$, søyle 2 ↔ $\\lambda=-2$):\n$$x_1^2+6x_1x_2+x_2^2=4y_1^2-2y_2^2=8.$$\n\n**Klassifisering.** Motsatt fortegn (indefinit) $\\Rightarrow$ **hyperbel**. Delt på $8$:\n$$\\frac{y_1^2}{2}-\\frac{y_2^2}{4}=1,$$\nsom åpner langs $y_1$ (der koeffisienten er positiv), med toppunkter i $y_1=\\pm\\sqrt2$ og asymptoter $y_2=\\pm\\sqrt2\\,y_1$. Skissen i hovedaksene:"
+    },
+    {
+      "id": "mat1120-6-3-ex4-fig",
+      "type": "image",
+      "src": "/images/textbook/mat1120/mat1120-6-3-hyperbel.svg",
+      "alt": "Koordinatsystem med hovedaksene y-en og y-to. To hyperbelgrener åpner mot venstre og høyre langs den vannrette y-en-aksen, med toppunkter i y-en lik pluss/minus kvadratroten av to. To stiplede asymptotelinjer gjennom origo har stigningstall pluss og minus kvadratroten av to.",
+      "caption": "Hyperbelen $\\tfrac{y_1^2}{2}-\\tfrac{y_2^2}{4}=1$ fra eksempel 4, i hovedaksene. Den positive egenverdien ($\\lambda=4$, langs $y_1$) gir aksen grenene åpner om; den negative ($\\lambda=-2$) gir «hyperbelretningen». Stiplede linjer er asymptotene $y_2=\\pm\\sqrt2\\,y_1$."
+    },
+    {
+      "id": "mat1120-6-3-e4",
+      "type": "exercise",
+      "exercise": {
+        "id": "mat1120-6-3-e4",
+        "number": "4",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "Kurven $\\mathbf{x}^{T}A\\mathbf{x}=1$ har symmetrisk $A$ med egenverdier $\\tfrac14$ og $1$.\n\n**a)** Klassifiser kurven.\n\n**b)** Skriv den reduserte formen $\\lambda_1y_1^2+\\lambda_2y_2^2=1$ på standardform og oppgi halvaksene.",
+        "solution": "**a)** Begge egenverdiene positive ⇒ **ellipse**.\n\n**b)** $\\tfrac14 y_1^2+1\\cdot y_2^2=1$, altså $\\dfrac{y_1^2}{4}+\\dfrac{y_2^2}{1}=1$. Halvakser: $2$ langs $y_1$ og $1$ langs $y_2$ (halvaksen er $\\sqrt{1/\\lambda_i}$ — minst egenverdi gir lengst akse).",
+        "hints": [
+          "Positive egenverdier ⇒ ellipse.",
+          "Standardform: del gjennom slik at høyresiden blir 1; halvaksen langs $y_i$ er $\\sqrt{1/\\lambda_i}$."
+        ]
+      }
+    },
+    {
+      "id": "mat1120-6-3-e5",
+      "type": "exercise",
+      "exercise": {
+        "id": "mat1120-6-3-e5",
+        "number": "5",
+        "type": "classic",
+        "difficulty": "vanskelig",
+        "task": "La $A$ være symmetrisk med egenverdier $5$ og $0$ og tilhørende ortonormale egenvektorer $\\mathbf{u}_1$ (for $5$) og $\\mathbf{u}_2$ (for $0$). Betrakt $Q(\\mathbf{x})=\\mathbf{x}^{T}A\\mathbf{x}$.\n\n**a)** Klassifiser definittheten til $Q$.\n\n**b)** Beskriv nivåmengden $Q(\\mathbf{x})=5$ i hovedaksene, og forklar hvorfor det ikke er en ellipse.",
+        "solution": "**a)** Egenverdier $5\\ge0$ og $0$: alle $\\ge0$ med én $=0$ ⇒ **positiv semidefinit**.\n\n**b)** I hovedaksene er $Q=5y_1^2+0\\cdot y_2^2=5y_1^2$, så $Q=5$ gir $5y_1^2=5$, altså $y_1=\\pm1$ — **to parallelle linjer** $y_1=1$ og $y_1=-1$ (uansett $y_2$). Det er ikke en ellipse fordi den ene egenverdien er $0$: formen er «flat» langs $\\mathbf{u}_2$, så kurven lukker seg ikke. Dette er det degenererte (semidefinite) tilfellet.",
+        "hints": [
+          "Én egenverdi 0 ⇒ semidefinit.",
+          "Sett inn i $\\lambda_1y_1^2+\\lambda_2y_2^2$; med $\\lambda_2=0$ forsvinner $y_2$ helt."
+        ]
+      }
+    },
+    {
+      "id": "mat1120-6-3-warn",
+      "type": "warning",
+      "title": "Typiske feil",
+      "content": "- **Glemmer $\\lVert\\mathbf{x}\\rVert=1$-betingelsen i Rayleigh:** uten den er $\\mathbf{x}^{T}A\\mathbf{x}$ ubegrenset. Maksimum $=\\lambda_{\\max}$ gjelder *på enhetssfæren* (eller som Rayleigh-**kvotient**).\n- **Oppgir feil egenvektor for maksimum:** maks nås i egenvektoren til $\\lambda_{\\max}$, ikke til $\\lambda_{\\min}$. Normalisér den.\n- **Ikke-normalisert $P$ i variabelskiftet:** $\\mathbf{x}=P\\mathbf{y}$ må ha *ortogonal* $P$ ($P^{T}P=I$), ellers stemmer verken $\\lVert\\mathbf{x}\\rVert=\\lVert\\mathbf{y}\\rVert$ eller den reduserte formen.\n- **Feil kjeglesnitt-klasse fra fortegnene:** samme fortegn ⇒ ellipse, blandet ⇒ hyperbel, én null ⇒ parabel/degenerert. Ikke gjett fra koeffisientene i $x$-form.\n- **Skisserer i originalaksene** i stedet for hovedaksene $y_1,y_2$: aksene er dreid langs egenvektorene. Tegn i $y$-koordinatene.\n- **Bytter om halvaksene:** halvaksen langs $y_i$ er $\\sqrt{c/\\lambda_i}$ — *minste* egenverdi gir *lengste* akse."
+    },
+    {
+      "id": "mat1120-6-3-bb",
+      "type": "text",
+      "content": "## Begrepsbank til eksamen\n\nKjernebegrepene fra kapitlet i eksamensrettet kortform.\n\n*Begrepsbanken er flashcard-/repetisjonsstoff — hopp trygt over ved førstegangslesing; tidsanslaget gjelder kjernestoffet.*"
+    },
+    {
+      "id": "mat1120-6-3-bb-rayleigh-kvot",
+      "type": "definition",
+      "title": "Rayleigh-kvotienten",
+      "content": "$R(\\mathbf{x})=\\dfrac{\\mathbf{x}^{T}A\\mathbf{x}}{\\mathbf{x}^{T}\\mathbf{x}}$ for symmetrisk $A$. På enhetssfæren er $R=\\mathbf{x}^{T}A\\mathbf{x}$, og alltid $\\lambda_{\\min}\\le R\\le\\lambda_{\\max}$."
+    },
+    {
+      "id": "mat1120-6-3-bb-max-lammax",
+      "type": "definition",
+      "title": "Maks er største egenverdi",
+      "content": "$\\max_{\\lVert\\mathbf{x}\\rVert=1}\\mathbf{x}^{T}A\\mathbf{x}=\\lambda_{\\max}$, oppnådd i egenvektoren $\\mathbf{u}_1$ til $\\lambda_{\\max}$ (Teorem 6 §7.3). Tilsvarende $\\min=\\lambda_{\\min}$ i $\\mathbf{u}_n$."
+    },
+    {
+      "id": "mat1120-6-3-bb-teorem7",
+      "type": "definition",
+      "title": "Nest største med bibetingelse",
+      "content": "Krever du i tillegg $\\mathbf{x}\\perp\\mathbf{u}_1$, blir maksimum $\\lambda_2$ (nest største egenverdi), oppnådd i $\\mathbf{u}_2$ — Teorem 7 §7.3. Hver ortogonalitetsbetingelse «skreller vekk» én egenverdi."
+    },
+    {
+      "id": "mat1120-6-3-bb-vektet-gj",
+      "type": "definition",
+      "title": "Q som vektet gjennomsnitt",
+      "content": "Med $\\mathbf{x}=P\\mathbf{y}$, $\\lVert\\mathbf{y}\\rVert=1$ er $\\mathbf{x}^{T}A\\mathbf{x}=\\sum\\lambda_iy_i^2$ med vekter $y_i^2\\ge0$, $\\sum y_i^2=1$ — et vektet snitt av egenverdiene, derfor mellom $\\lambda_{\\min}$ og $\\lambda_{\\max}$."
+    },
+    {
+      "id": "mat1120-6-3-bb-enhet-krav",
+      "type": "definition",
+      "title": "Enhetsbetingelsen er avgjørende",
+      "content": "Uten $\\lVert\\mathbf{x}\\rVert=1$ er $\\mathbf{x}^{T}A\\mathbf{x}$ ubegrenset (skalér $\\mathbf{x}$). Rayleigh-utsagnene gjelder på enhetssfæren eller for kvotienten $R(\\mathbf{x})$."
+    },
+    {
+      "id": "mat1120-6-3-bb-hovedakse",
+      "type": "definition",
+      "title": "Hovedaksetransformasjonen",
+      "content": "$\\mathbf{x}=P\\mathbf{y}$ med ortogonal $P$ fjerner kryssleddene: $\\mathbf{x}^{T}A\\mathbf{x}=\\sum\\lambda_iy_i^2$. Hovedaksene $y_i$ peker langs egenvektorene til $A$."
+    },
+    {
+      "id": "mat1120-6-3-bb-fjern-kryss",
+      "type": "definition",
+      "title": "Hvorfor kryssleddet forsvinner",
+      "content": "$P^{T}AP=D$ er diagonal (spektralteoremet), så $\\mathbf{y}^{T}D\\mathbf{y}$ har ingen $y_iy_j$-ledd. Kryssleddet i $x$-koordinatene skyldes bare at aksene var «vridd» i forhold til egenvektorene."
+    },
+    {
+      "id": "mat1120-6-3-bb-ellipse",
+      "type": "definition",
+      "title": "Ellipse-kriteriet",
+      "content": "$\\mathbf{x}^{T}A\\mathbf{x}=c>0$ er en ellipse ⇔ begge egenverdier $>0$ (posdef). Standardform $\\tfrac{y_1^2}{c/\\lambda_1}+\\tfrac{y_2^2}{c/\\lambda_2}=1$, halvakser $\\sqrt{c/\\lambda_i}$."
+    },
+    {
+      "id": "mat1120-6-3-bb-hyperbel",
+      "type": "definition",
+      "title": "Hyperbel-kriteriet",
+      "content": "$\\mathbf{x}^{T}A\\mathbf{x}=c$ er en hyperbel ⇔ egenverdiene har motsatt fortegn (indefinit). Grenene åpner langs aksen med *samme* fortegn som $c$; asymptotene har stigning bestemt av $\\sqrt{|\\lambda_1/\\lambda_2|}$."
+    },
+    {
+      "id": "mat1120-6-3-bb-parabel",
+      "type": "definition",
+      "title": "Parabel/degenerert",
+      "content": "Er én egenverdi $0$ (semidefinit), degenererer annengradsdelen: med et lineærledd blir kurven en parabel, ellers to (parallelle) linjer eller den tomme mengden. Kurven «lukker seg ikke»."
+    },
+    {
+      "id": "mat1120-6-3-bb-halvakse",
+      "type": "definition",
+      "title": "Halvaksene",
+      "content": "Halvaksen langs $y_i$ er $\\sqrt{c/\\lambda_i}$: *minste* egenverdi gir *lengste* akse (formen er «flatest» der). Vanlig å bytte disse om — pass på."
+    },
+    {
+      "id": "mat1120-6-3-bb-hovedretning",
+      "type": "definition",
+      "title": "Hovedaksenes retning",
+      "content": "De nye aksene $y_1,y_2$ ligger langs egenvektorene $\\mathbf{u}_1,\\mathbf{u}_2$. For en $2\\times2$ symmetrisk med kryssledd er dette en rotasjon (ofte $45^{\\circ}$ når diagonalen er lik)."
+    },
+    {
+      "id": "mat1120-6-3-bb-skisse-hovedakse",
+      "type": "definition",
+      "title": "Skissér i hovedaksene",
+      "content": "Tegn alltid kurven i $y_1,y_2$-systemet (langs egenvektorene), ikke i $x_1,x_2$. Merk aksene $y_1,y_2$ og oppgi halvakser/toppunkter og eventuelle asymptoter."
+    },
+    {
+      "id": "mat1120-6-3-bb-ulikhet-igjen",
+      "type": "definition",
+      "title": "Rayleigh og ulikheten Q ≤ λmax‖x‖²",
+      "content": "Ulikheten $\\mathbf{x}^{T}A\\mathbf{x}\\le\\lambda_{\\max}\\lVert\\mathbf{x}\\rVert^2$ ([kap. 6.2](/bok/mat1120/mat1120-6-2)) er Rayleigh skrevet uten enhetsbetingelse; likhet i egenvektoren til $\\lambda_{\\max}$."
+    },
+    {
+      "id": "mat1120-6-3-bb-posdef-ellipse",
+      "type": "definition",
+      "title": "Definitthet forutsier kurven",
+      "content": "Posdef ⇒ ellipse, negdef ⇒ ellipse (av $-Q=c$), indefinit ⇒ hyperbel, semidefinit ⇒ degenerert. Klassifiseringen fra [kap. 6.2](/bok/mat1120/mat1120-6-2) og kjeglesnittet er to sider av samme sak."
+    },
+    {
+      "id": "mat1120-6-3-bb-normbevaring-kjegle",
+      "type": "definition",
+      "title": "Normbevaring i variabelskiftet",
+      "content": "Fordi $P$ er ortogonal er $\\lVert\\mathbf{x}\\rVert=\\lVert\\mathbf{y}\\rVert$; enhetssfæren og avstander bevares. Derfor gir $y$-bildet den *sanne* formen og størrelsen på kurven, bare rotert tilbake."
+    },
+    {
+      "id": "mat1120-6-3-bb-toppunkt",
+      "type": "definition",
+      "title": "Toppunkter og asymptoter",
+      "content": "Hyperbelen $\\tfrac{y_1^2}{a^2}-\\tfrac{y_2^2}{b^2}=1$ har toppunkter $(\\pm a,0)$ i $y$-planet og asymptoter $y_2=\\pm\\tfrac{b}{a}y_1$. Oppgi disse i en skisse."
+    },
+    {
+      "id": "mat1120-6-3-bb-teoremnavn",
+      "type": "definition",
+      "title": "Navngi teoremet",
+      "content": "På eksamen gir det uttelling å skrive «ved Rayleigh (Teorem 6 §7.3)» framfor bare å oppgi svaret. Teoremnavning er en del av føringsstandarden i sjanger G."
+    },
+    {
+      "id": "mat1120-6-3-bb-redusert-form",
+      "type": "definition",
+      "title": "Fra kurve til standardform",
+      "content": "Metoden i tre steg: (1) symmetrisér $A$; (2) $\\mathbf{x}=P\\mathbf{y}$ gir $\\lambda_1y_1^2+\\lambda_2y_2^2=c$; (3) del på $c$ for standardform og les av type og halvakser."
+    },
+    {
+      "id": "mat1120-6-3-rep",
+      "type": "collapsible",
+      "title": "Repetisjonsoppgaver",
+      "buttonText": "Vis repetisjonsoppgaver",
+      "content": [
+        {
+          "id": "mat1120-6-3-r1",
+          "type": "exercise",
+          "exercise": {
+            "id": "mat1120-6-3-r1",
+            "number": "R1",
+            "type": "classic",
+            "difficulty": "lett",
+            "task": "En symmetrisk matrise har egenverdier $7,3,1$. Hva er $\\max_{\\lVert\\mathbf{x}\\rVert=1}\\mathbf{x}^{T}A\\mathbf{x}$?",
+            "solution": "$\\max=\\lambda_{\\max}=7$, oppnådd i egenvektoren til $7$.",
+            "hints": [
+              "Rayleigh-maks er største egenverdi."
+            ]
+          }
+        },
+        {
+          "id": "mat1120-6-3-r2",
+          "type": "exercise",
+          "exercise": {
+            "id": "mat1120-6-3-r2",
+            "number": "R2",
+            "type": "classic",
+            "difficulty": "lett",
+            "task": "Egenverdiene til den symmetriske matrisen bak $\\mathbf{x}^{T}A\\mathbf{x}=1$ er $2$ og $-5$. Ellipse eller hyperbel?",
+            "solution": "Motsatt fortegn ⇒ **hyperbel**.",
+            "hints": [
+              "Blandet fortegn på egenverdiene?"
+            ]
+          }
+        },
+        {
+          "id": "mat1120-6-3-r3",
+          "type": "exercise",
+          "exercise": {
+            "id": "mat1120-6-3-r3",
+            "number": "R3",
+            "type": "classic",
+            "difficulty": "middels",
+            "task": "Skriv $9y_1^2+4y_2^2=36$ på standardform og oppgi halvaksene.",
+            "solution": "Del på $36$: $\\dfrac{y_1^2}{4}+\\dfrac{y_2^2}{9}=1$. Halvakser $2$ langs $y_1$ og $3$ langs $y_2$ — en ellipse.",
+            "hints": [
+              "Del gjennom med høyresiden så den blir 1."
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": "mat1120-6-3-symbol",
+      "type": "collapsible",
+      "title": "Symbol- og formelliste",
+      "buttonText": "Vis symboler og formler",
+      "content": [
+        {
+          "id": "mat1120-6-3-symbol-tekst",
+          "type": "text",
+          "content": "## Symbol- og formelliste\n\n*Oppslagsverk — alt her forklares underveis i kapitlet.*\n\n| Symbol | Betydning |\n|---|---|\n| $R(\\mathbf{x})=\\tfrac{\\mathbf{x}^{T}A\\mathbf{x}}{\\mathbf{x}^{T}\\mathbf{x}}$ | Rayleigh-kvotienten |\n| $\\lambda_{\\max},\\lambda_{\\min}$ | Største/minste egenverdi |\n| $\\mathbf{x}=P\\mathbf{y}$ | Ortogonalt variabelskifte (hovedakser) |\n| $y_1,y_2$ | Hovedaksekoordinater (langs egenvektorene) |\n| $\\tfrac{y_1^2}{a^2}+\\tfrac{y_2^2}{b^2}=1$ | Ellipse (standardform) |\n| $\\tfrac{y_1^2}{a^2}-\\tfrac{y_2^2}{b^2}=1$ | Hyperbel (standardform) |\n\n**Formler og resultater i dette delkapitlet:**\n\n$$\\max_{\\lVert\\mathbf{x}\\rVert=1}\\mathbf{x}^{T}A\\mathbf{x}=\\lambda_{\\max}\\ (\\text{i }\\mathbf{u}_1),\\qquad \\min=\\lambda_{\\min}\\ (\\text{i }\\mathbf{u}_n)$$\nRayleigh, Teorem 6 §7.3; med $\\mathbf{x}\\perp\\mathbf{u}_1$ blir maks $=\\lambda_2$ (Teorem 7).\n\n$$\\mathbf{x}^{T}A\\mathbf{x}=\\lambda_1y_1^2+\\lambda_2y_2^2=c\\quad(\\mathbf{x}=P\\mathbf{y})$$\nHovedaksesetningen. **Klassifisering:** begge $\\lambda>0$ ⇒ ellipse; blandet ⇒ hyperbel; én $\\lambda=0$ ⇒ parabel/degenerert. Halvakse langs $y_i$: $\\sqrt{c/\\lambda_i}$."
+        }
+      ]
+    }
+  ],
+  "exercises": []
+}

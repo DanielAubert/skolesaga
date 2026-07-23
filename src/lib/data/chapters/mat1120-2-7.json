@@ -1,0 +1,310 @@
+{
+  "id": "mat1120-2-7",
+  "courseId": "mat1120",
+  "chapterNumber": "2.7",
+  "title": "Drill: signaturoppgaven — abstrakt vektorrom + [T]_B",
+  "description": "Hele signaturoppgaven drillet: underrom + basis i Pₙ/funksjonsrom → koordinater → overgangsmatrise → [T]_B for en derivasjonsoperator → ker T oversatt tilbake — den ene hovedoppgaven som skiller MAT1120 fra et førstekurs.",
+  "estimatedMinutes": 95,
+  "competenceGoals": [
+    "føre en komplett signaturoppgave: underrom → basis → koordinater → overgangsmatrise → [T]_B → ker T",
+    "velge riktig verktøy for hvert delpunkt og gjenbruke samme rom gjennom en hel oppgave",
+    "oversette kjerne og egenvektorer tilbake til polynomer/funksjoner",
+    "unngå fellekatalogen fra kap. 2.1–2.6 under tidspress"
+  ],
+  "content": [
+    {
+      "id": "mat1120-2-7-tip-eksamensvinkel",
+      "type": "tip",
+      "title": "Eksamensvinkel",
+      "content": "**Dette er MAT1120s signaturoppgave — én hovedoppgave i et ikke-$\\mathbb{R}^n$-rom er med i praktisk talt hvert sett (~100 %).** Sjanger H + I samlet. Den skiller MAT1120 fra et førstekurs, og den skiller toppsjiktet fra midtsjiktet.\n\nVariantkatalogen er stabil: **polynomrom** ($\\operatorname{P}_2$/$\\operatorname{P}_3$, ofte med et underrom $W$ definert ved en betingelse som $p(-1)=0$) eller **funksjonsrom** ($\\operatorname{Span}\\{1,e^x\\cos x,e^x\\sin x\\}$, $\\operatorname{Span}\\{\\sin t,\\cos t\\}$). Delpunktene er kjedet: underroms-/basisbevis → koordinater → $P_{\\mathcal{C}\\leftarrow\\mathcal{B}}$ → $[T]_{\\mathcal{B}}$ for $T(f)=f'$ eller en differensialoperator → $\\ker T$ oversatt til funksjoner.\n\n**Toppsjikt-poengene sitter fire steder:** (1) alle tre underroms-betingelsene, (2) dimensjonsargumentet i basisbeviset, (3) koordinater *før* du bygger matrisen, (4) tilbakeoversettelsen av $\\ker T$. Mister du ett av disse, faller du fra topp til midt."
+    },
+    {
+      "id": "mat1120-2-7-forkunnskaper",
+      "type": "text",
+      "content": "**Forkunnskaper:** hele Del 2.\n\n- [Kap. 2.1](/bok/mat1120/mat1120-2-1) — underrom, $\\operatorname{P}_n$/funksjonsrom\n- [Kap. 2.2](/bok/mat1120/mat1120-2-2) — basis + dimensjonsargument\n- [Kap. 2.3](/bok/mat1120/mat1120-2-3) — koordinater\n- [Kap. 2.4](/bok/mat1120/mat1120-2-4) — overgangsmatrisen $P_{\\mathcal{C}\\leftarrow\\mathcal{B}}$\n- [Kap. 2.5](/bok/mat1120/mat1120-2-5) — matriserepresentasjonen $[T]_{\\mathcal{B}}$\n- [Kap. 2.6](/bok/mat1120/mat1120-2-6) — basisskifte, isomorfi, kjerne\n\nTa oppgavene som en eksamen: alt langsvar med full begrunnelse, eksakte svar, ingen desimaltilnærming."
+    },
+    {
+      "id": "mat1120-2-7-oppskrift",
+      "type": "text",
+      "content": "## Løsningsoppskrift — signaturoppgaven steg for steg\n\nNesten hver signaturoppgave følger denne kjeden. Kjenn den igjen, og du vet alltid hva neste delpunkt vil spørre om.\n\n**Steg 1 — Vis at $W$ er et underrom** (hvis et underrom er oppgitt). Sjekk de **tre betingelsene**: (i) $\\mathbf{0}\\in W$, (ii) lukket under addisjon, (iii) lukket under skalarmultiplikasjon. Hopp ikke over noen. (Er rommet gitt som et $\\operatorname{Span}$, er det automatisk et underrom — si det.)\n\n**Steg 2 — Vis at $\\mathcal{B}$ er en basis.** To ting: **lineær uavhengighet** (sett lineærkombinasjon $=0$, sammenlign koeffisienter / evaluer / Wronski) **og** et **dimensjonsargument** ($k$ uavhengige vektorer i et $k$-dimensjonalt rom er automatisk en basis).\n\n**Steg 3 — Gå til koordinater** relativt en fast basis. Nå er alt tallregning i $\\mathbb{R}^n$.\n\n**Steg 4 — Bygg matrisen.** Enten overgangsmatrisen $P_{\\mathcal{C}\\leftarrow\\mathcal{B}}$ (kolonne $j=[\\mathbf{b}_j]_{\\mathcal{C}}$, riktig retning) eller operatormatrisen $[T]_{\\mathcal{B}}$ (kolonne $j=[T(\\mathbf{b}_j)]_{\\mathcal{B}}$ — i $\\mathcal{B}$-koordinater!).\n\n**Steg 5 — Svar på isomorfi / $\\ker T$.** $T$ isomorfi ⇔ $[T]_{\\mathcal{B}}$ invertibel. For $\\ker T$: finn $\\operatorname{Nul}[T]_{\\mathcal{B}}$ og **oversett tilbake til polynomer/funksjoner**. Avslutt med en verbal konklusjon og eksakt svar."
+    },
+    {
+      "id": "mat1120-2-7-case",
+      "type": "example",
+      "title": "Sensor-kommentert case: funksjonsrom fra ende til annen (O3-typen)",
+      "problem": "La $V=\\operatorname{Span}\\{u,v\\}$ der $u=e^x\\cos x$ og $v=e^x\\sin x$, og la $T:V\\to V$ være $T(f)=f'$.\n\n**a)** Begrunn at $V$ er et underrom av $C^\\infty(\\mathbb{R})$, og at $\\mathcal{B}=\\{u,v\\}$ er en basis for $V$.\n\n**b)** Finn $[T]_{\\mathcal{B}}$.\n\n**c)** Er $T$ en isomorfi? Finn $\\ker T$.\n\n**d)** Finn $[S]_{\\mathcal{B}}$ for $S=T^2-2T+2I$, og tolk resultatet.",
+      "solution": "**a) Underrom + basis.** $V$ er definert som $\\operatorname{Span}\\{u,v\\}$, og et span av vektorer i $C^\\infty(\\mathbb{R})$ er alltid et underrom (det inneholder $\\mathbf{0}$ og er lukket under addisjon og skalarmultiplikasjon). *(Sensornote: si dette eksplisitt — «et span er per definisjon et underrom» — så er steg 1 kvittert.)*\n\nFor at $\\mathcal{B}=\\{u,v\\}$ skal være en basis, må $u,v$ være **lineært uavhengige** (de utspenner $V$ per definisjon). Anta $c_1u+c_2v=0$ som funksjon. Wronski-determinanten er\n$$W(u,v)=\\det\\begin{bmatrix}u&v\\\\ u'&v'\\end{bmatrix}=\\det\\begin{bmatrix}e^x\\cos x&e^x\\sin x\\\\ e^x(\\cos x-\\sin x)&e^x(\\sin x+\\cos x)\\end{bmatrix}=e^{2x}\\ne0.$$\nSiden Wronski-determinanten ikke er identisk null, er $u,v$ uavhengige. **Dimensjonsargument:** to uavhengige vektorer som utspenner $V$ er en basis, og $\\dim V=2$. ✓ *(Sensornote: uavhengighet + at de utspenner = basis; her er utspenningen gratis fra definisjonen.)*\n\n**b) $[T]_{\\mathcal{B}}$.** Deriver basisfunksjonene (produktregel) og uttrykk i $\\mathcal{B}=\\{u,v\\}$:\n$$u'=e^x\\cos x-e^x\\sin x=u-v\\ \\Rightarrow\\ [T(u)]_{\\mathcal{B}}=(1,-1),$$\n$$v'=e^x\\sin x+e^x\\cos x=u+v\\ \\Rightarrow\\ [T(v)]_{\\mathcal{B}}=(1,1).$$\nAltså $[T]_{\\mathcal{B}}=\\begin{bmatrix}1&1\\\\ -1&1\\end{bmatrix}$. *(Sensornote: kolonnene er koordinatvektorer i $\\mathcal{B}$ — ikke $u',v'$ selv. Dette er hovedfellen.)*\n\n**c) Isomorfi og kjerne.** $\\det[T]_{\\mathcal{B}}=1\\cdot1-1\\cdot(-1)=2\\ne0$, så $[T]_{\\mathcal{B}}$ er invertibel. Etter isomorfi-kriteriet er $T$ **en isomorfi**, og $\\ker T=\\{\\mathbf{0}\\}$ (bare nullfunksjonen). *(Verbal konklusjon kreves: «$T$ er en isomorfi fordi matrisen er invertibel».)*\n\n**d) Differensialoperatoren $S$.** Bruk $[S]_{\\mathcal{B}}=[T]_{\\mathcal{B}}^2-2[T]_{\\mathcal{B}}+2I$. Først\n$$[T]_{\\mathcal{B}}^2=\\begin{bmatrix}1&1\\\\ -1&1\\end{bmatrix}\\begin{bmatrix}1&1\\\\ -1&1\\end{bmatrix}=\\begin{bmatrix}0&2\\\\ -2&0\\end{bmatrix}.$$\nDa\n$$[S]_{\\mathcal{B}}=\\begin{bmatrix}0&2\\\\ -2&0\\end{bmatrix}-2\\begin{bmatrix}1&1\\\\ -1&1\\end{bmatrix}+2\\begin{bmatrix}1&0\\\\ 0&1\\end{bmatrix}=\\begin{bmatrix}0&0\\\\ 0&0\\end{bmatrix}.$$\n**Tolkning:** $[S]_{\\mathcal{B}}=O$, så $S$ er nulloperatoren på $V$: $f''-2f'+2f=0$ for hver $f\\in V$. Det stemmer — $u=e^x\\cos x$ og $v=e^x\\sin x$ er nettopp løsningene av $y''-2y'+2y=0$ (karakteristisk likning $r^2-2r+2=0$, røtter $r=1\\pm i$). *(Sensornote: koblingen til differensiallikningen er toppsjikt-observasjonen som gir full uttelling.)*"
+    },
+    {
+      "id": "mat1120-2-7-1",
+      "type": "exercise",
+      "exercise": {
+        "id": "mat1120-2-7-e1",
+        "number": "1",
+        "type": "classic",
+        "difficulty": "lett",
+        "task": "Vis at $W=\\{p\\in\\operatorname{P}_2:p(0)=0\\}$ er et underrom av $\\operatorname{P}_2$, og finn en basis.",
+        "solution": "**Underrom (tre betingelser):** (i) nullpolynomet har $p(0)=0$, så $\\mathbf{0}\\in W$. (ii) Er $p(0)=0$ og $q(0)=0$, så $(p+q)(0)=p(0)+q(0)=0$, så $p+q\\in W$. (iii) Er $p(0)=0$, så $(cp)(0)=c\\,p(0)=0$, så $cp\\in W$. Altså er $W$ et underrom.\n\n**Basis:** $p(0)=0$ betyr konstantleddet er null, så $p=at+bt^2$. Da er $W=\\operatorname{Span}\\{t,\\ t^2\\}$, og $\\{t,t^2\\}$ er uavhengige. Basis: $\\{t,\\ t^2\\}$, $\\dim W=2$.",
+        "hints": [
+          "Sjekk de tre underroms-betingelsene: 0 ∈ W, lukket under + og under skalarmultiplikasjon.",
+          "p(0)=0 fjerner konstantleddet — hva er da igjen?"
+        ]
+      }
+    },
+    {
+      "id": "mat1120-2-7-2",
+      "type": "exercise",
+      "exercise": {
+        "id": "mat1120-2-7-e2",
+        "number": "2",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "Vis at $\\mathcal{B}=\\{1,\\ 1+t,\\ 1+2t+t^2\\}$ er en basis for $\\operatorname{P}_2$.",
+        "solution": "Uttrykk hver vektor i standardkoordinater $\\{1,t,t^2\\}$: $1=(1,0,0)$, $1+t=(1,1,0)$, $1+2t+t^2=(1,2,1)$. Sett som kolonner:\n$$M=\\begin{bmatrix}1&1&1\\\\ 0&1&2\\\\ 0&0&1\\end{bmatrix}.$$\nMatrisen er øvre triangulær med diagonal $1,1,1$, så $\\det M=1\\ne0$. Kolonnene (koordinatvektorene) er dermed lineært uavhengige, altså er $\\{1,1+t,1+2t+t^2\\}$ uavhengige i $\\operatorname{P}_2$. **Dimensjonsargument:** tre uavhengige vektorer i det 3-dimensjonale rommet $\\operatorname{P}_2$ er automatisk en basis. ✓",
+        "hints": [
+          "Skriv koordinatvektorene i standardbasisen og sett dem som kolonner i en matrise.",
+          "Uavhengighet ⇔ det ≠ 0; avslutt med dimensjonsargumentet (3 uavhengige i et 3-dim rom)."
+        ]
+      }
+    },
+    {
+      "id": "mat1120-2-7-3",
+      "type": "exercise",
+      "exercise": {
+        "id": "mat1120-2-7-e3",
+        "number": "3",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "La $\\mathcal{C}=\\{1,\\ 1+t,\\ 1+t+t^2\\}$ i $\\operatorname{P}_2$. Finn koordinatvektoren $[3+t-t^2]_{\\mathcal{C}}$.",
+        "solution": "Skriv $3+t-t^2=a\\cdot1+b(1+t)+c(1+t+t^2)$ og sammenlign koeffisienter:\n\n- $t^2$: $c=-1$.\n- $t$: $b+c=1\\Rightarrow b=2$.\n- konstant: $a+b+c=3\\Rightarrow a=2$.\n\nAltså $[3+t-t^2]_{\\mathcal{C}}=(2,2,-1)$. **Kontroll:** $2\\cdot1+2(1+t)-1(1+t+t^2)=2+2+2t-1-t-t^2=3+t-t^2$. ✓",
+        "hints": [
+          "Sett polynomet lik en lineærkombinasjon av C-vektorene og sammenlign koeffisienter.",
+          "Start med t²-leddet (bare den siste C-vektoren bidrar der)."
+        ]
+      }
+    },
+    {
+      "id": "mat1120-2-7-4",
+      "type": "exercise",
+      "exercise": {
+        "id": "mat1120-2-7-e4",
+        "number": "4",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "La $\\mathcal{B}=\\{1,t,t^2\\}$ og $\\mathcal{C}=\\{1,\\ 1+t,\\ 1+t+t^2\\}$ i $\\operatorname{P}_2$.\n\n**a)** Finn $P_{\\mathcal{B}\\leftarrow\\mathcal{C}}$ (direkte).\n\n**b)** Finn $P_{\\mathcal{C}\\leftarrow\\mathcal{B}}$.",
+        "solution": "**a)** $\\mathcal{C}$-vektorene er allerede gitt i $\\mathcal{B}=\\{1,t,t^2\\}$-koordinater: $1=(1,0,0)$, $1+t=(1,1,0)$, $1+t+t^2=(1,1,1)$. Som kolonner:\n$$P_{\\mathcal{B}\\leftarrow\\mathcal{C}}=\\begin{bmatrix}1&1&1\\\\ 0&1&1\\\\ 0&0&1\\end{bmatrix}.$$\n\n**b)** $P_{\\mathcal{C}\\leftarrow\\mathcal{B}}=(P_{\\mathcal{B}\\leftarrow\\mathcal{C}})^{-1}$. Radreduksjon (eller baklengs innsetting) gir\n$$P_{\\mathcal{C}\\leftarrow\\mathcal{B}}=\\begin{bmatrix}1&-1&0\\\\ 0&1&-1\\\\ 0&0&1\\end{bmatrix}.$$\n**Kontroll:** produktet $P_{\\mathcal{C}\\leftarrow\\mathcal{B}}P_{\\mathcal{B}\\leftarrow\\mathcal{C}}=I$. ✓",
+        "hints": [
+          "For (a): C-vektorene er oppgitt i B-koordinater, så les dem rett av som kolonner.",
+          "For (b): inverter — eller bygg direkte ved å uttrykke B-vektorene i C."
+        ]
+      }
+    },
+    {
+      "id": "mat1120-2-7-5",
+      "type": "exercise",
+      "exercise": {
+        "id": "mat1120-2-7-e5",
+        "number": "5",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "La $T:\\operatorname{P}_3\\to\\operatorname{P}_3$ være $T(p)=p'$ med $\\mathcal{B}=\\{1,t,t^2,t^3\\}$. Finn $[T]_{\\mathcal{B}}$, og bruk den til å regne $T(2t^3-t^2+5)$ i koordinater.",
+        "solution": "Deriver basisvektorene og skriv i $\\mathcal{B}$-koordinater: $T(1)=0\\to(0,0,0,0)$, $T(t)=1\\to(1,0,0,0)$, $T(t^2)=2t\\to(0,2,0,0)$, $T(t^3)=3t^2\\to(0,0,3,0)$. Så\n$$[T]_{\\mathcal{B}}=\\begin{bmatrix}0&1&0&0\\\\ 0&0&2&0\\\\ 0&0&0&3\\\\ 0&0&0&0\\end{bmatrix}.$$\n$2t^3-t^2+5$ har koordinater $(5,0,-1,2)$. Da\n$$[T]_{\\mathcal{B}}\\begin{bmatrix}5\\\\0\\\\-1\\\\2\\end{bmatrix}=\\begin{bmatrix}0\\\\ -2\\\\ 6\\\\ 0\\end{bmatrix},$$\nsom oversatt tilbake er $-2t+6t^2$. **Kontroll:** $\\frac{d}{dt}(2t^3-t^2+5)=6t^2-2t$. ✓",
+        "hints": [
+          "Kolonne j er [T(b_j)]_B: deriver 1, t, t², t³.",
+          "Skriv polynomet i koordinater (5,0,−1,2) og gang med matrisen; oversett svaret tilbake."
+        ]
+      }
+    },
+    {
+      "id": "mat1120-2-7-6",
+      "type": "exercise",
+      "exercise": {
+        "id": "mat1120-2-7-e6",
+        "number": "6",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "La $T(p)=p'$ på $\\operatorname{P}_2$ med $[T]_{\\mathcal{B}}=\\begin{bmatrix}0&1&0\\\\ 0&0&2\\\\ 0&0&0\\end{bmatrix}$ ($\\mathcal{B}=\\{1,t,t^2\\}$). Finn $[S]_{\\mathcal{B}}$ for differensialoperatoren $S=T^2+2T$.",
+        "solution": "$[S]_{\\mathcal{B}}=[T]_{\\mathcal{B}}^2+2[T]_{\\mathcal{B}}$. Først\n$$[T]_{\\mathcal{B}}^2=\\begin{bmatrix}0&0&2\\\\ 0&0&0\\\\ 0&0&0\\end{bmatrix}.$$\nDa\n$$[S]_{\\mathcal{B}}=\\begin{bmatrix}0&0&2\\\\ 0&0&0\\\\ 0&0&0\\end{bmatrix}+2\\begin{bmatrix}0&1&0\\\\ 0&0&2\\\\ 0&0&0\\end{bmatrix}=\\begin{bmatrix}0&2&2\\\\ 0&0&4\\\\ 0&0&0\\end{bmatrix}.$$\n**Kontroll (kolonne 3):** $S(t^2)=(t^2)''+2(t^2)'=2+4t\\to(2,4,0)$. ✓",
+        "hints": [
+          "Samme polynom i matrisen: [S]_B = [T]_B² + 2[T]_B.",
+          "Kontroller én kolonne direkte, f.eks. S(t²) = (t²)″ + 2(t²)′."
+        ]
+      }
+    },
+    {
+      "id": "mat1120-2-7-7",
+      "type": "exercise",
+      "exercise": {
+        "id": "mat1120-2-7-e7",
+        "number": "7",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "La $V=\\operatorname{Span}\\{\\sin t,\\ \\cos t\\}$ med basis $\\mathcal{B}=\\{\\sin t,\\cos t\\}$, og $T(f)=f'$.\n\n**a)** Finn $[T]_{\\mathcal{B}}$.\n\n**b)** Avgjør om $T$ er en isomorfi.",
+        "solution": "**a)** $(\\sin t)'=\\cos t=(0,1)$ og $(\\cos t)'=-\\sin t=(-1,0)$ i $\\mathcal{B}=\\{\\sin t,\\cos t\\}$. Så\n$$[T]_{\\mathcal{B}}=\\begin{bmatrix}0&-1\\\\ 1&0\\end{bmatrix}.$$\n\n**b)** $\\det[T]_{\\mathcal{B}}=0\\cdot0-(-1)\\cdot1=1\\ne0$, så matrisen er invertibel. Etter isomorfi-kriteriet er $T$ **en isomorfi** (og $\\ker T=\\{\\mathbf{0}\\}$).",
+        "hints": [
+          "Deriver sin t og cos t; pass på fortegnet på (cos t)′ = −sin t.",
+          "Isomorfi ⇔ det[T]_B ≠ 0."
+        ]
+      }
+    },
+    {
+      "id": "mat1120-2-7-8",
+      "type": "exercise",
+      "exercise": {
+        "id": "mat1120-2-7-e8",
+        "number": "8",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "La $T(f)=f''$ på $\\operatorname{P}_3$, $\\mathcal{B}=\\{1,t,t^2,t^3\\}$, med $[T]_{\\mathcal{B}}=\\begin{bmatrix}0&0&2&0\\\\ 0&0&0&6\\\\ 0&0&0&0\\\\ 0&0&0&0\\end{bmatrix}$. Finn $\\ker T$ som en mengde polynomer.",
+        "solution": "Løs $[T]_{\\mathcal{B}}\\mathbf{c}=\\mathbf{0}$: radene gir $2c_3=0$ og $6c_4=0$, altså $c_3=c_4=0$, mens $c_1,c_2$ er frie. Basis for $\\operatorname{Nul}[T]_{\\mathcal{B}}$: $(1,0,0,0)$ og $(0,1,0,0)$. **Oversett tilbake:** disse svarer til polynomene $1$ og $t$. Altså\n$$\\ker T=\\operatorname{Span}\\{1,\\ t\\}=\\{\\text{polynomer av grad}\\le1\\}.$$\nRiktig, siden $p''=0$ nettopp for de lineære polynomene.",
+        "hints": [
+          "Finn de frie variablene i Nul[T]_B (én spesiell løsning per fri variabel).",
+          "Oversett hver koordinatvektor tilbake til et polynom — svaret skal være polynomer, ikke tallkolonner."
+        ]
+      }
+    },
+    {
+      "id": "mat1120-2-7-9",
+      "type": "exercise",
+      "exercise": {
+        "id": "mat1120-2-7-e9",
+        "number": "9",
+        "type": "classic",
+        "difficulty": "vanskelig",
+        "task": "**(Kjedet signaturoppgave.)** La $T:\\operatorname{P}_2\\to\\operatorname{P}_2$ være $T(p)=p'+p$, $\\mathcal{B}=\\{1,t,t^2\\}$.\n\n**a)** Finn $[T]_{\\mathcal{B}}$.\n\n**b)** Er $T$ en isomorfi?\n\n**c)** Løs $T(p)=1+t$ ved hjelp av matrisen, og oppgi $p$ som et polynom.",
+        "solution": "**a)** $T(1)=1\\to(1,0,0)$, $T(t)=1+t\\to(1,1,0)$, $T(t^2)=2t+t^2\\to(0,2,1)$. Så\n$$[T]_{\\mathcal{B}}=\\begin{bmatrix}1&1&0\\\\ 0&1&2\\\\ 0&0&1\\end{bmatrix}.$$\n\n**b)** Triangulær med diagonal $1,1,1$, så $\\det[T]_{\\mathcal{B}}=1\\ne0$. $T$ er **en isomorfi**.\n\n**c)** $1+t$ har koordinater $(1,1,0)$. Løs $[T]_{\\mathcal{B}}[\\,p\\,]_{\\mathcal{B}}=(1,1,0)$. Baklengs innsetting: nederste rad $c_3=0$; midterste $c_2+2c_3=1\\Rightarrow c_2=1$; øverste $c_1+c_2=1\\Rightarrow c_1=0$. Så $[p]_{\\mathcal{B}}=(0,1,0)$, altså $p=t$. **Kontroll:** $T(t)=t'+t=1+t$. ✓",
+        "hints": [
+          "Kolonne j er [T(b_j)]_B for T(p)=p′+p.",
+          "For (c): løs det triangulære systemet [T]_B [p]_B = (1,1,0) ved baklengs innsetting, og oversett tilbake."
+        ]
+      }
+    },
+    {
+      "id": "mat1120-2-7-10",
+      "type": "exercise",
+      "exercise": {
+        "id": "mat1120-2-7-e10",
+        "number": "10",
+        "type": "classic",
+        "difficulty": "vanskelig",
+        "task": "**(Underrom med betingelse.)** La $W=\\{p\\in\\operatorname{P}_3:p(1)=0\\}$.\n\n**a)** Vis at $W$ er et underrom av $\\operatorname{P}_3$.\n\n**b)** Vis at $\\mathcal{B}=\\{t-1,\\ t^2-1,\\ t^3-1\\}$ er en basis for $W$.",
+        "solution": "**a)** (i) Nullpolynomet har $p(1)=0$, så $\\mathbf{0}\\in W$. (ii) Er $p(1)=q(1)=0$, så $(p+q)(1)=0$. (iii) Er $p(1)=0$, så $(cp)(1)=c\\,p(1)=0$. Alle tre betingelsene holder, så $W$ er et underrom. *(Merk: $\\{p:p(1)=1\\}$ ville derimot ikke vært det — inneholder ikke $\\mathbf{0}$.)*\n\n**b)** Hver vektor ligger i $W$: $(t-1)$, $(t^2-1)$, $(t^3-1)$ er alle $0$ i $t=1$. **Uavhengighet:** anta $a(t-1)+b(t^2-1)+c(t^3-1)=0$. Ledende ledd $ct^3+bt^2+at-(a+b+c)=0$ gir $a=b=c=0$ (koeffisientsammenligning). **Dimensjonsargument:** $\\dim W=3$ (betingelsen $p(1)=0$ er én lineær binding på det 4-dimensjonale $\\operatorname{P}_3$, så $\\dim W=4-1=3$). Tre uavhengige vektorer i $W$ er dermed en basis. ✓",
+        "hints": [
+          "For (a): sjekk de tre betingelsene med at p(1) = 0.",
+          "For (b): vis at hver vektor er i W (evaluer i t=1), vis uavhengighet ved koeffisientsammenligning, og bruk at dim W = 3."
+        ]
+      }
+    },
+    {
+      "id": "mat1120-2-7-11",
+      "type": "exercise",
+      "exercise": {
+        "id": "mat1120-2-7-e11",
+        "number": "11",
+        "type": "classic",
+        "difficulty": "vanskelig",
+        "task": "**(krevende — full funksjonsromskjede.)** La $V=\\operatorname{Span}\\{1,\\ \\cos t,\\ \\sin t\\}$ med basis $\\mathcal{B}=\\{1,\\cos t,\\sin t\\}$, og $T(f)=f'$.\n\n**a)** Finn $[T]_{\\mathcal{B}}$.\n\n**b)** Er $T$ en isomorfi?\n\n**c)** Finn $\\ker T$ som en mengde funksjoner, og forklar resultatet.",
+        "solution": "**a)** Deriver og uttrykk i $\\mathcal{B}=\\{1,\\cos t,\\sin t\\}$: $(1)'=0\\to(0,0,0)$; $(\\cos t)'=-\\sin t\\to(0,0,-1)$; $(\\sin t)'=\\cos t\\to(0,1,0)$. Så\n$$[T]_{\\mathcal{B}}=\\begin{bmatrix}0&0&0\\\\ 0&0&1\\\\ 0&-1&0\\end{bmatrix}.$$\n\n**b)** Første kolonne er null, så $\\det[T]_{\\mathcal{B}}=0$ — matrisen er **ikke** invertibel, og $T$ er **ikke** en isomorfi.\n\n**c)** Løs $[T]_{\\mathcal{B}}\\mathbf{c}=\\mathbf{0}$: radene gir $c_3=0$ og $-c_2=0$, mens $c_1$ er fri. $\\operatorname{Nul}[T]_{\\mathcal{B}}=\\operatorname{Span}\\{(1,0,0)\\}$, oversatt tilbake funksjonen $1$. Altså\n$$\\ker T=\\operatorname{Span}\\{1\\}=\\{\\text{konstantfunksjonene}\\}.$$\nForklaring: de eneste funksjonene i $V$ med derivert lik null er konstantene.",
+        "hints": [
+          "Deriver 1, cos t, sin t; pass på (cos t)′ = −sin t.",
+          "En nullkolonne gir det = 0 og en fri variabel. Oversett den frie retningen tilbake til en funksjon."
+        ]
+      }
+    },
+    {
+      "id": "mat1120-2-7-12",
+      "type": "exercise",
+      "exercise": {
+        "id": "mat1120-2-7-e12",
+        "number": "12",
+        "type": "classic",
+        "difficulty": "vanskelig",
+        "task": "**(krevende — basisskifte.)** La $T(p)=p'$ på $\\operatorname{P}_2$ med $[T]_{\\mathcal{B}}=\\begin{bmatrix}0&1&0\\\\ 0&0&2\\\\ 0&0&0\\end{bmatrix}$ ($\\mathcal{B}=\\{1,t,t^2\\}$). La $\\mathcal{C}=\\{1,\\ 1+t,\\ 1+t+t^2\\}$, med $P_{\\mathcal{C}\\leftarrow\\mathcal{B}}=\\begin{bmatrix}1&-1&0\\\\ 0&1&-1\\\\ 0&0&1\\end{bmatrix}$ og $P_{\\mathcal{B}\\leftarrow\\mathcal{C}}=\\begin{bmatrix}1&1&1\\\\ 0&1&1\\\\ 0&0&1\\end{bmatrix}$. Finn $[T]_{\\mathcal{C}}$, og bekreft at egenverdiene er uendret.",
+        "solution": "$[T]_{\\mathcal{C}}=P_{\\mathcal{C}\\leftarrow\\mathcal{B}}[T]_{\\mathcal{B}}P_{\\mathcal{B}\\leftarrow\\mathcal{C}}$. Regn innenfra:\n$$[T]_{\\mathcal{B}}P_{\\mathcal{B}\\leftarrow\\mathcal{C}}=\\begin{bmatrix}0&1&0\\\\ 0&0&2\\\\ 0&0&0\\end{bmatrix}\\begin{bmatrix}1&1&1\\\\ 0&1&1\\\\ 0&0&1\\end{bmatrix}=\\begin{bmatrix}0&1&1\\\\ 0&0&2\\\\ 0&0&0\\end{bmatrix},$$\n$$[T]_{\\mathcal{C}}=\\begin{bmatrix}1&-1&0\\\\ 0&1&-1\\\\ 0&0&1\\end{bmatrix}\\begin{bmatrix}0&1&1\\\\ 0&0&2\\\\ 0&0&0\\end{bmatrix}=\\begin{bmatrix}0&1&-1\\\\ 0&0&2\\\\ 0&0&0\\end{bmatrix}.$$\n**Egenverdier:** både $[T]_{\\mathcal{B}}$ og $[T]_{\\mathcal{C}}$ er øvre triangulære med bare nuller på diagonalen, så begge har egenverdien $0$ med algebraisk multiplisitet 3. Uendret, som de skal være — egenverdiene er basisuavhengige. ✓",
+        "hints": [
+          "Regn [T]_B P_{B←C} først, deretter P_{C←B} ganget på fra venstre.",
+          "Egenverdiene til en triangulær matrise står på diagonalen; sammenlign de to matrisene."
+        ]
+      }
+    },
+    {
+      "id": "mat1120-2-7-signalboks",
+      "type": "tip",
+      "title": "Hva denne drillen tester",
+      "content": "Oppgavene over dekker hele signaturoppgavens kjede: **underrom med betingelse** (1, 10), **basisbevis med dimensjonsargument** (2, 10), **koordinater** (3), **overgangsmatrise begge retninger** (4), **$[T]_{\\mathcal{B}}$ for derivasjons-/differensialoperator** (5, 6), **funksjonsrom + isomorfi** (7, 11), **$\\ker T$ oversatt til funksjoner** (8, 11), **kjedet isomorfi + løs $T(p)=g$** (9), og **basisskifte** (12). Kan du disse tolv sikkert, er du trygg på den 100 %-sikre hovedoppgaven. Sjekk spesielt at du aldri lot $\\ker T$ bli stående i $\\mathbb{R}^n$, og at hvert basisbevis hadde dimensjonsargumentet med."
+    },
+    {
+      "id": "mat1120-2-7-begrepsbank-tekst",
+      "type": "text",
+      "content": "## Begrepsbank til eksamen\n\nSignaturoppgavens kjede i kortform.\n\n*Begrepsbanken er flashcard-/repetisjonsstoff — den gjentar oppskriften du nettopp har drillet. Hopp trygt over ved førstegangslesing; tidsanslaget for kapitlet gjelder oppgaveregningen.*"
+    },
+    {
+      "id": "mat1120-2-7-typiske-feil",
+      "type": "warning",
+      "title": "Typiske feil i signaturoppgaven",
+      "content": "Fellene som koster mest i denne drillen:\n\n**a)** Bruker de **reduserte** kolonnene fra RREF som basis for $\\operatorname{Col}A$ i stedet for de **opprinnelige** pivotkolonnene i $A$.\n**b)** Fyller $P_{\\mathcal{C}\\leftarrow\\mathcal{B}}$ i **feil retning** — søylene skal være $\\mathcal{B}$-vektorenes $\\mathcal{C}$-koordinater.\n**c)** Lar svaret på $\\ker T$ stå som en koordinatvektor i stedet for å **oversette tilbake til polynomer/funksjoner**.\n**d)** Regner med **standard prikkprodukt** der oppgaven har oppgitt et annet indreprodukt.\n**e)** Påstår at en avbildning er en isomorfi uten å vise at $[T]_{\\mathcal{B}}$ er **invertibel**."
+    },
+    {
+      "id": "mat1120-2-7-bb-kjeden",
+      "type": "definition",
+      "title": "Signaturoppgavens kjede",
+      "content": "Underrom (tre betingelser) → basis (uavhengighet + dimensjonsargument) → koordinater → matrise ($P_{\\mathcal{C}\\leftarrow\\mathcal{B}}$ eller $[T]_{\\mathcal{B}}$) → isomorfi/$\\ker T$ oversatt tilbake. Delpunktene er kjedet på samme rom; gjenbruk sparer tid."
+    },
+    {
+      "id": "mat1120-2-7-bb-tre-betingelser",
+      "type": "definition",
+      "title": "Underroms-testen",
+      "content": "Tre betingelser: (i) $\\mathbf{0}\\in W$, (ii) lukket under addisjon, (iii) lukket under skalarmultiplikasjon. Hopp aldri over en. Et $\\operatorname{Span}$ er automatisk et underrom."
+    },
+    {
+      "id": "mat1120-2-7-bb-basisbevis",
+      "type": "definition",
+      "title": "Basisbeviset (todelt)",
+      "content": "Vis lineær uavhengighet OG bruk et dimensjonsargument: $k$ uavhengige vektorer i et $k$-dimensjonalt rom er automatisk en basis. Uten dimensjonsargumentet faller du fra topp til midt."
+    },
+    {
+      "id": "mat1120-2-7-bb-TB-kolonner",
+      "type": "definition",
+      "title": "$[T]_{\\mathcal{B}}$-kolonnene",
+      "content": "Kolonne $j$ er $[T(\\mathbf{b}_j)]_{\\mathcal{B}}$ — regn $T$ på basisvektor $j$, og skriv resultatet i $\\mathcal{B}$-koordinater før du setter det inn. Hovedfellen er å glemme koordinatoversettelsen."
+    },
+    {
+      "id": "mat1120-2-7-bb-retning",
+      "type": "definition",
+      "title": "Riktig retning på $P_{\\mathcal{C}\\leftarrow\\mathcal{B}}$",
+      "content": "$P_{\\mathcal{C}\\leftarrow\\mathcal{B}}$ («$\\mathcal{C}$ fra $\\mathcal{B}$») tar $\\mathcal{B}$-koordinater inn og gir $\\mathcal{C}$ ut; kolonne $j$ er $[\\mathbf{b}_j]_{\\mathcal{C}}$. Motsatt vei er inversen. Kontroller retningen med ett talleksempel."
+    },
+    {
+      "id": "mat1120-2-7-bb-isomorfi",
+      "type": "definition",
+      "title": "Isomorfi-sjekken",
+      "content": "$T$ isomorfi ⇔ $[T]_{\\mathcal{B}}$ invertibel ($\\det\\ne0$) ⇔ $\\ker T=\\{\\mathbf{0}\\}$. Påstå aldri isomorfi uten å regne determinanten eller rangen."
+    },
+    {
+      "id": "mat1120-2-7-bb-ker-oversett",
+      "type": "definition",
+      "title": "Oversett $\\ker T$ tilbake",
+      "content": "Finn $\\operatorname{Nul}[T]_{\\mathcal{B}}$ (koordinatvektorer), og gjør hver til et polynom/en funksjon $c_1\\mathbf{b}_1+\\dots+c_n\\mathbf{b}_n$. La aldri $\\ker T$ bli stående i $\\mathbb{R}^n$ — det er et tapt toppsjikt-poeng."
+    },
+    {
+      "id": "mat1120-2-7-bb-diff-nulloperator",
+      "type": "definition",
+      "title": "Differensialoperator = polynom i $[T]_{\\mathcal{B}}$",
+      "content": "$S=q(T)$ gir $[S]_{\\mathcal{B}}=q([T]_{\\mathcal{B}})$. Blir $[S]_{\\mathcal{B}}=O$, er $S$ nulloperatoren og hele rommet ligger i $\\ker S$ — typisk når rommet utspennes av løsningene av $S(y)=0$."
+    },
+    {
+      "id": "mat1120-2-7-symbolliste",
+      "type": "collapsible",
+      "title": "Symbol- og formelliste",
+      "buttonText": "Vis symboler og formler",
+      "content": [
+        {
+          "id": "mat1120-2-7-symbolliste-text",
+          "type": "text",
+          "content": "## Symbol- og formelliste\n\n*Oppslagsverk — alt her forklares underveis i Del 2 og drilles i dette kapitlet.*\n\nDe sentrale symbolene og formlene for signaturoppgaven, samlet på ett sted.\n\n| Symbol | Betydning |\n|---|---|\n| $\\operatorname{P}_n$ | Polynomer av grad $\\le n$ ($\\dim=n+1$) |\n| $W$ | Underrom (ofte definert ved en betingelse) |\n| $[\\mathbf{x}]_{\\mathcal{B}}$ | Koordinatvektor relativt $\\mathcal{B}$ |\n| $P_{\\mathcal{C}\\leftarrow\\mathcal{B}}$ | Overgangsmatrise «$\\mathcal{C}$ fra $\\mathcal{B}$» |\n| $[T]_{\\mathcal{B}}$ | Matriserepresentasjonen av $T$ |\n| $\\ker T,\\ \\operatorname{im}T$ | Kjerne og bilde av $T$ |\n| $S=T^2-2T+2I$ | Differensialoperator |\n\n**Formler i dette delkapitlet:**\n\n$$[T]_{\\mathcal{B}}=\\big[\\ [T(\\mathbf{b}_1)]_{\\mathcal{B}}\\ \\cdots\\ [T(\\mathbf{b}_n)]_{\\mathcal{B}}\\ \\big]$$\nKolonne $j$ er $T(\\mathbf{b}_j)$ i $\\mathcal{B}$-koordinater.\n\n$$[T]_{\\mathcal{C}}=P_{\\mathcal{C}\\leftarrow\\mathcal{B}}[T]_{\\mathcal{B}}P_{\\mathcal{B}\\leftarrow\\mathcal{C}}$$\nBasisskifte for operatormatrisen.\n\n$$T\\text{ isomorfi}\\ \\Longleftrightarrow\\ [T]_{\\mathcal{B}}\\text{ invertibel}\\ \\Longleftrightarrow\\ \\ker T=\\{\\mathbf{0}\\}$$\nIsomorfi-kriteriet.\n\n$$\\ker T\\cong\\operatorname{Nul}[T]_{\\mathcal{B}}\\ \\text{(oversett tilbake til funksjoner)}$$\nKjernen finnes som matrisens nullrom."
+        }
+      ]
+    }
+  ],
+  "exercises": []
+}

@@ -1,0 +1,365 @@
+{
+  "id": "mat1120-2-4",
+  "courseId": "mat1120",
+  "chapterNumber": "2.4",
+  "title": "Basisskifte og overgangsmatrisen P_{C←B}",
+  "description": "Overgangsmatrisen P_{C←B} som oversetter B-koordinater til C-koordinater: hvordan den bygges (C-uttrykk av B-vektorene), riktig retning («C fra B»), og inversen P_{B←C} = (P_{C←B})⁻¹.",
+  "estimatedMinutes": 55,
+  "competenceGoals": [
+    "bygge overgangsmatrisen P_{C←B} ved å uttrykke B-vektorene i C-koordinater som kolonner",
+    "bruke og forklare retningen «C fra B»: matrisen tar B-koordinater inn og gir C-koordinater ut",
+    "finne inversen P_{B←C} = (P_{C←B})⁻¹ og bruke den til å oversette motsatt vei",
+    "kontrollere retningen på overgangsmatrisen med et konkret talleksempel"
+  ],
+  "content": [
+    {
+      "id": "mat1120-2-4-tip-eksamensvinkel",
+      "type": "tip",
+      "title": "Eksamensvinkel",
+      "content": "**Overgangsmatrisen $P_{\\mathcal{C}\\leftarrow\\mathcal{B}}$ oversetter koordinater fra én basis til en annen** — sjanger I, **~60 %** (2018, 2019, 2020, 2024), også i $\\operatorname{P}_n$/funksjonsrom.\n\n- Fasitens grep: bygg $P_{\\mathcal{C}\\leftarrow\\mathcal{B}}$ ved å uttrykke $\\mathcal{B}$-vektorene i $\\mathcal{C}$-koordinater (kolonnene), og finn inversen $P_{\\mathcal{B}\\leftarrow\\mathcal{C}}=(P_{\\mathcal{C}\\leftarrow\\mathcal{B}})^{-1}$ ved $[M\\,|\\,I]\\to[I\\,|\\,M^{-1}]$.\n- **Karakterskillet her er retningen.** Notasjonen $P_{\\mathcal{C}\\leftarrow\\mathcal{B}}$ leses «$\\mathcal{C}$ *fra* $\\mathcal{B}$»: den tar en $\\mathcal{B}$-koordinatvektor inn og gir en $\\mathcal{C}$-koordinatvektor ut. Å forveksle den med inversen er den vanligste feilen — og et dyrt trekk.\n\n**Sensorregel:** kontroller alltid retningen med ett konkret talleksempel — oversett en vektor du kjenner koordinatene til begge veier, og se at $P_{\\mathcal{C}\\leftarrow\\mathcal{B}}[\\mathbf{x}]_{\\mathcal{B}}=[\\mathbf{x}]_{\\mathcal{C}}$ faktisk stemmer."
+    },
+    {
+      "id": "mat1120-2-4-forkunnskaper",
+      "type": "text",
+      "content": "**Forkunnskaper:**\n\n- [Kap. 2.3](/bok/mat1120/mat1120-2-3) — koordinatvektoren $[\\mathbf{x}]_{\\mathcal{B}}$ og koordinatavbildningen; at *samme* vektor har ulik koordinatvektor i ulike baser, er nettopp forskjellen $P_{\\mathcal{C}\\leftarrow\\mathcal{B}}$ regner ut\n- [Invers matrise og radreduksjon (MAT1110)](/bok/mat1110/mat1110-1-3) — vi inverterer en liten matrise via $[M\\,|\\,I]\\to[I\\,|\\,M^{-1}]$\n- [Lineære likningssystem og Gauss-eliminasjon](/bok/bi-okonomi/bi-okonomi-9-3) — innføring i likningssystem/Gauss"
+    },
+    {
+      "id": "mat1120-2-4-intro",
+      "type": "text",
+      "content": "I kap. 2.3 så vi at samme polynom $3-2t+t^2$ har koordinatvektor $(3,-2,1)$ i standardbasisen, men $(5,-3,1)$ i en annen basis. Spørsmålet nå er: finnes det en fast **matrise** som gjør om den ene koordinatvektoren til den andre, for *alle* vektorer på én gang? Ja — det er **overgangsmatrisen** (basisskiftematrisen) $P_{\\mathcal{C}\\leftarrow\\mathcal{B}}$.\n\nPoenget er at koordinatbytte er en lineær operasjon, så det kan pakkes i én matrise. Den avgjørende disiplinen er å holde styr på **retningen**: hvilken basis går inn, og hvilken kommer ut. Vi jobber i tre løkker: **(1)** definisjon, konstruksjon og retning, **(2)** inversen den andre veien, **(3)** standardbasis og funksjonsrom."
+    },
+    {
+      "id": "mat1120-2-4-lokke1",
+      "type": "text",
+      "content": "## Løkke 1 — Overgangsmatrisen og retningen (~20 min)"
+    },
+    {
+      "id": "mat1120-2-4-def-overgangsmatrise",
+      "type": "definition",
+      "title": "Overgangsmatrisen $P_{\\mathcal{C}\\leftarrow\\mathcal{B}}$",
+      "content": "La $\\mathcal{B}$ og $\\mathcal{C}$ være to ordnede baser for samme $n$-dimensjonale rom $V$. **Overgangsmatrisen** $P_{\\mathcal{C}\\leftarrow\\mathcal{B}}$ er den $n\\times n$-matrisen som oversetter $\\mathcal{B}$-koordinater til $\\mathcal{C}$-koordinater:\n\n$$[\\mathbf{x}]_{\\mathcal{C}}=P_{\\mathcal{C}\\leftarrow\\mathcal{B}}\\,[\\mathbf{x}]_{\\mathcal{B}}\\qquad\\text{for alle }\\mathbf{x}\\in V.$$\n\nDen samme vektoren $\\mathbf{x}$ endrer seg *ikke* — bare tallene vi beskriver den med skifter når vi bytter basis. $P_{\\mathcal{C}\\leftarrow\\mathcal{B}}$ er ordboka mellom de to koordinatspråkene."
+    },
+    {
+      "id": "mat1120-2-4-def-retning",
+      "type": "definition",
+      "title": "Retningen «$\\mathcal{C}$ fra $\\mathcal{B}$»",
+      "content": "Notasjonen $P_{\\mathcal{C}\\leftarrow\\mathcal{B}}$ leses **«$\\mathcal{C}$ fra $\\mathcal{B}$»**, og pilen $\\leftarrow$ viser gangretningen: matrisen tar en $\\mathcal{B}$-koordinatvektor **inn** (til høyre) og gir en $\\mathcal{C}$-koordinatvektor **ut** (til venstre). Tenk på det som «$\\text{ut}\\leftarrow\\text{inn}$». Denne lesemåten er hele nøkkelen til å unngå retningsfellen."
+    },
+    {
+      "id": "mat1120-2-4-def-konstruksjon",
+      "type": "definition",
+      "title": "Konstruksjon: kolonne $j$ er $[\\mathbf{b}_j]_{\\mathcal{C}}$",
+      "content": "Overgangsmatrisen bygges kolonne for kolonne: **kolonne $j$ i $P_{\\mathcal{C}\\leftarrow\\mathcal{B}}$ er koordinatvektoren til $\\mathbf{B}$-vektor nr. $j$, uttrykt i $\\mathcal{C}$-koordinater:**\n\n$$P_{\\mathcal{C}\\leftarrow\\mathcal{B}}=\\big[\\ [\\mathbf{b}_1]_{\\mathcal{C}}\\ \\ [\\mathbf{b}_2]_{\\mathcal{C}}\\ \\cdots\\ [\\mathbf{b}_n]_{\\mathcal{C}}\\ \\big].$$\n\nAltså: for å bygge «$\\mathcal{C}$ fra $\\mathcal{B}$» må du uttrykke hver $\\mathcal{B}$-vektor i den *nye* basisen $\\mathcal{C}$. Kolonnene er **koordinatvektorer** (tallkolonner), ikke basisvektorene selv."
+    },
+    {
+      "id": "mat1120-2-4-ex-bygg",
+      "type": "example",
+      "title": "Eksempel 1: Bygge $P_{\\mathcal{C}\\leftarrow\\mathcal{B}}$ i $\\operatorname{P}_2$ (sjanger I)",
+      "problem": "La $\\mathcal{B}=\\{1,\\ t,\\ t^2\\}$ (standardbasisen) og $\\mathcal{C}=\\{t^2,\\ t^2+t,\\ t^2+t+1\\}$ i $\\operatorname{P}_2$. Finn overgangsmatrisen $P_{\\mathcal{C}\\leftarrow\\mathcal{B}}$.",
+      "solution": "Vi trenger hver $\\mathcal{B}$-vektor uttrykt i $\\mathcal{C}$-koordinater. Skriv $p=a\\,t^2+b(t^2+t)+c(t^2+t+1)$ og sammenlign koeffisienter (konstant: $c$; $t$: $b+c$; $t^2$: $a+b+c$).\n\n**$\\mathbf{b}_1=1$:** $c=1$, $b+c=0\\Rightarrow b=-1$, $a+b+c=0\\Rightarrow a=0$. Så $[1]_{\\mathcal{C}}=(0,-1,1)$.\n\n**$\\mathbf{b}_2=t$:** $c=0$, $b+c=1\\Rightarrow b=1$, $a+b+c=0\\Rightarrow a=-1$. Så $[t]_{\\mathcal{C}}=(-1,1,0)$.\n\n**$\\mathbf{b}_3=t^2$:** $c=0$, $b+c=0\\Rightarrow b=0$, $a+b+c=1\\Rightarrow a=1$. Så $[t^2]_{\\mathcal{C}}=(1,0,0)$.\n\nSett koordinatvektorene som kolonner:\n\n$$P_{\\mathcal{C}\\leftarrow\\mathcal{B}}=\\begin{bmatrix}0&-1&1\\\\ -1&1&0\\\\ 1&0&0\\end{bmatrix}.$$\n\nLegg merke til at vi uttrykte $\\mathcal{B}$-vektorene i $\\mathcal{C}$ — det er det «$\\mathcal{C}$ fra $\\mathcal{B}$» krever."
+    },
+    {
+      "id": "mat1120-2-4-1",
+      "type": "exercise",
+      "exercise": {
+        "id": "mat1120-2-4-e1",
+        "number": "1",
+        "type": "classic",
+        "difficulty": "lett",
+        "task": "(Innstegsoppgave — ren gjengivelse.) Overgangsmatrisen $P_{\\mathcal{C}\\leftarrow\\mathcal{B}}$ oppfyller $[\\mathbf{x}]_{\\mathcal{C}}=P_{\\mathcal{C}\\leftarrow\\mathcal{B}}[\\mathbf{x}]_{\\mathcal{B}}$.\n\n**a)** Hvilken basis' koordinater tar matrisen *inn*, og hvilken gir den *ut*?\n\n**b)** Hva står i kolonne $j$ av $P_{\\mathcal{C}\\leftarrow\\mathcal{B}}$?",
+        "solution": "**a)** Den tar $\\mathcal{B}$-koordinater **inn** (til høyre) og gir $\\mathcal{C}$-koordinater **ut** — «$\\mathcal{C}$ fra $\\mathcal{B}$».\n\n**b)** Kolonne $j$ er $[\\mathbf{b}_j]_{\\mathcal{C}}$ — den $j$-te $\\mathcal{B}$-vektoren uttrykt i $\\mathcal{C}$-koordinater.",
+        "hints": [
+          "Les pilen: $P_{\\mathcal{C}\\leftarrow\\mathcal{B}}$ = «ut $\\leftarrow$ inn».",
+          "Kolonnene er koordinatvektorer av $\\mathcal{B}$-vektorene, tatt i den nye basisen $\\mathcal{C}$."
+        ]
+      }
+    },
+    {
+      "id": "mat1120-2-4-2",
+      "type": "exercise",
+      "exercise": {
+        "id": "mat1120-2-4-e2",
+        "number": "2",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "La $\\mathcal{B}=\\{1,\\ t,\\ t^2\\}$ og $\\mathcal{C}=\\{1,\\ 1+t,\\ 1+t+t^2\\}$ i $\\operatorname{P}_2$. Finn $P_{\\mathcal{C}\\leftarrow\\mathcal{B}}$ ved å uttrykke hver $\\mathcal{B}$-vektor i $\\mathcal{C}$-koordinater.",
+        "solution": "Skriv $p=c_1\\cdot 1+c_2(1+t)+c_3(1+t+t^2)$ (konstant: $c_1+c_2+c_3$; $t$: $c_2+c_3$; $t^2$: $c_3$).\n\n**$1$:** $c_3=0$, $c_2+c_3=0\\Rightarrow c_2=0$, $c_1+c_2+c_3=1\\Rightarrow c_1=1$. $[1]_{\\mathcal{C}}=(1,0,0)$.\n\n**$t$:** $c_3=0$, $c_2+c_3=1\\Rightarrow c_2=1$, $c_1+c_2+c_3=0\\Rightarrow c_1=-1$. $[t]_{\\mathcal{C}}=(-1,1,0)$.\n\n**$t^2$:** $c_3=1$, $c_2+c_3=0\\Rightarrow c_2=-1$, $c_1+c_2+c_3=0\\Rightarrow c_1=0$. $[t^2]_{\\mathcal{C}}=(0,-1,1)$.\n\nKolonnevis:\n$$P_{\\mathcal{C}\\leftarrow\\mathcal{B}}=\\begin{bmatrix}1&-1&0\\\\ 0&1&-1\\\\ 0&0&1\\end{bmatrix}.$$",
+        "hints": [
+          "Uttrykk $1$, $t$ og $t^2$ hver for seg som lineærkombinasjon av $\\mathcal{C}$-vektorene.",
+          "Sammenlign koeffisienter baklengs (start med $t^2$-leddet), og sett koordinatvektorene som kolonner."
+        ]
+      }
+    },
+    {
+      "id": "mat1120-2-4-lokke2",
+      "type": "text",
+      "content": "## Løkke 2 — Den andre veien: inversen $P_{\\mathcal{B}\\leftarrow\\mathcal{C}}$ (~18 min)"
+    },
+    {
+      "id": "mat1120-2-4-thm-invers",
+      "type": "theorem",
+      "title": "Inversen går motsatt vei",
+      "content": "Overgangsmatrisen er alltid invertibel, og inversen bytter retning:\n\n$$P_{\\mathcal{B}\\leftarrow\\mathcal{C}}=\\big(P_{\\mathcal{C}\\leftarrow\\mathcal{B}}\\big)^{-1}.$$\n\nDet stemmer med ordbok-bildet: hvis $P_{\\mathcal{C}\\leftarrow\\mathcal{B}}$ oversetter fra $\\mathcal{B}$ til $\\mathcal{C}$, oversetter inversen tilbake fra $\\mathcal{C}$ til $\\mathcal{B}$. Sammensetter du dem, kommer du tilbake der du startet: $P_{\\mathcal{B}\\leftarrow\\mathcal{C}}\\,P_{\\mathcal{C}\\leftarrow\\mathcal{B}}=I$."
+    },
+    {
+      "id": "mat1120-2-4-def-invers-metode",
+      "type": "definition",
+      "title": "Inversen via $[M\\,|\\,I]\\to[I\\,|\\,M^{-1}]$",
+      "content": "For å finne $P_{\\mathcal{B}\\leftarrow\\mathcal{C}}=(P_{\\mathcal{C}\\leftarrow\\mathcal{B}})^{-1}$ radreduserer du $[\\,P_{\\mathcal{C}\\leftarrow\\mathcal{B}}\\,|\\,I\\,]$ til $[\\,I\\,|\\,M^{-1}\\,]$; da står inversen til høyre. **Alternativt** (ofte raskere): bygg $P_{\\mathcal{B}\\leftarrow\\mathcal{C}}$ direkte fra definisjonen — kolonne $j$ er $[\\mathbf{c}_j]_{\\mathcal{B}}$, altså $\\mathcal{C}$-vektorene uttrykt i $\\mathcal{B}$-koordinater. På eksamen kan inversen også leses av vedlegget."
+    },
+    {
+      "id": "mat1120-2-4-ex-invers",
+      "type": "example",
+      "title": "Eksempel 2: Inversen og retningskontroll",
+      "problem": "Fortsett Eksempel 1: $\\mathcal{B}=\\{1,t,t^2\\}$, $\\mathcal{C}=\\{t^2,\\ t^2+t,\\ t^2+t+1\\}$, med $P_{\\mathcal{C}\\leftarrow\\mathcal{B}}=\\begin{bmatrix}0&-1&1\\\\ -1&1&0\\\\ 1&0&0\\end{bmatrix}$. Finn $P_{\\mathcal{B}\\leftarrow\\mathcal{C}}$, og kontroller retningen på $\\mathbf{x}=t^2+t$.",
+      "solution": "**Bygg inversen direkte** (raskest her): kolonne $j$ er $[\\mathbf{c}_j]_{\\mathcal{B}}$, altså $\\mathcal{C}$-vektorene i standardkoordinater. De leses rett av: $t^2=(0,0,1)$, $t^2+t=(0,1,1)$, $t^2+t+1=(1,1,1)$. Så\n\n$$P_{\\mathcal{B}\\leftarrow\\mathcal{C}}=\\begin{bmatrix}0&0&1\\\\ 0&1&1\\\\ 1&1&1\\end{bmatrix}.$$\n\n**Sjekk at det er inversen:** $P_{\\mathcal{C}\\leftarrow\\mathcal{B}}\\,P_{\\mathcal{B}\\leftarrow\\mathcal{C}}=I$ (regn etter — produktet blir identitetsmatrisen). ✓\n\n**Retningskontroll på $\\mathbf{x}=t^2+t$:** I standardbasisen er $[\\mathbf{x}]_{\\mathcal{B}}=(0,1,1)$. Da skal $[\\mathbf{x}]_{\\mathcal{C}}=P_{\\mathcal{C}\\leftarrow\\mathcal{B}}[\\mathbf{x}]_{\\mathcal{B}}$:\n\n$$\\begin{bmatrix}0&-1&1\\\\ -1&1&0\\\\ 1&0&0\\end{bmatrix}\\begin{bmatrix}0\\\\1\\\\1\\end{bmatrix}=\\begin{bmatrix}0\\cdot0-1\\cdot1+1\\cdot1\\\\ -1\\cdot0+1\\cdot1+0\\cdot1\\\\ 1\\cdot0+0+0\\end{bmatrix}=\\begin{bmatrix}0\\\\1\\\\0\\end{bmatrix}.$$\n\nStemmer det? $\\mathbf{x}=t^2+t=1\\cdot(t^2+t)$, altså er $\\mathbf{c}_2$ alene, så $[\\mathbf{x}]_{\\mathcal{C}}=(0,1,0)$. ✓ Retningen er riktig: $P_{\\mathcal{C}\\leftarrow\\mathcal{B}}$ tok en $\\mathcal{B}$-koordinatvektor inn og ga en $\\mathcal{C}$-koordinatvektor ut."
+    },
+    {
+      "id": "mat1120-2-4-3",
+      "type": "exercise",
+      "exercise": {
+        "id": "mat1120-2-4-e3",
+        "number": "3",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "For $\\mathcal{B}=\\{1,t,t^2\\}$, $\\mathcal{C}=\\{1,\\ 1+t,\\ 1+t+t^2\\}$ fant du i oppgave 2 at $P_{\\mathcal{C}\\leftarrow\\mathcal{B}}=\\begin{bmatrix}1&-1&0\\\\ 0&1&-1\\\\ 0&0&1\\end{bmatrix}$.\n\n**a)** Finn $P_{\\mathcal{B}\\leftarrow\\mathcal{C}}$ direkte (uttrykk $\\mathcal{C}$-vektorene i $\\mathcal{B}$-koordinater).\n\n**b)** Kontroller at $P_{\\mathcal{B}\\leftarrow\\mathcal{C}}=(P_{\\mathcal{C}\\leftarrow\\mathcal{B}})^{-1}$ ved å regne produktet.",
+        "solution": "**a)** $\\mathcal{C}$-vektorene i standardkoordinater: $1=(1,0,0)$, $1+t=(1,1,0)$, $1+t+t^2=(1,1,1)$. Som kolonner:\n$$P_{\\mathcal{B}\\leftarrow\\mathcal{C}}=\\begin{bmatrix}1&1&1\\\\ 0&1&1\\\\ 0&0&1\\end{bmatrix}.$$\n\n**b)** Produkt:\n$$\\begin{bmatrix}1&-1&0\\\\ 0&1&-1\\\\ 0&0&1\\end{bmatrix}\\begin{bmatrix}1&1&1\\\\ 0&1&1\\\\ 0&0&1\\end{bmatrix}=\\begin{bmatrix}1&0&0\\\\ 0&1&0\\\\ 0&0&1\\end{bmatrix}=I.$$\nAltså er de hverandres inverser. ✓",
+        "hints": [
+          "$\\mathcal{C}$-vektorene er allerede gitt i $\\mathcal{B}=\\{1,t,t^2\\}$-koordinater — les dem rett av.",
+          "Regn matriseproduktet $P_{\\mathcal{C}\\leftarrow\\mathcal{B}}P_{\\mathcal{B}\\leftarrow\\mathcal{C}}$ og sjekk at du får $I$."
+        ]
+      }
+    },
+    {
+      "id": "mat1120-2-4-lokke3",
+      "type": "text",
+      "content": "## Løkke 3 — Standardbasis og funksjonsrom (~15 min)"
+    },
+    {
+      "id": "mat1120-2-4-def-standardbasis-spesial",
+      "type": "definition",
+      "title": "Spesialtilfellet: overgang fra standardbasis",
+      "content": "Er $\\mathcal{B}$ en generell basis og $\\mathcal{E}$ **standardbasisen**, er overgangsmatrisen «fra $\\mathcal{B}$ til $\\mathcal{E}$» spesielt lett: $P_{\\mathcal{E}\\leftarrow\\mathcal{B}}$ har $\\mathcal{B}$-**vektorene som kolonner** (skrevet i standardkoordinater), fordi $[\\mathbf{b}_j]_{\\mathcal{E}}$ nettopp er $\\mathbf{b}_j$ selv. Da får du den motsatte veien ved å invertere: $P_{\\mathcal{B}\\leftarrow\\mathcal{E}}=(P_{\\mathcal{E}\\leftarrow\\mathcal{B}})^{-1}$."
+    },
+    {
+      "id": "mat1120-2-4-def-to-baser-std",
+      "type": "definition",
+      "title": "Begge baser gitt i standardkoordinater",
+      "content": "Er både $\\mathcal{B}$ og $\\mathcal{C}$ oppgitt i standardkoordinater (som polynomer/tallkolonner), la $P_B$ og $P_C$ være matrisene med $\\mathcal{B}$- og $\\mathcal{C}$-vektorene som kolonner. Fra $[\\mathbf{x}]_{\\mathcal{E}}=P_B[\\mathbf{x}]_{\\mathcal{B}}=P_C[\\mathbf{x}]_{\\mathcal{C}}$ følger\n\n$$P_{\\mathcal{C}\\leftarrow\\mathcal{B}}=P_C^{-1}P_B.$$\n\nDette er den mekaniske oppskriften når begge baser er kjent i standardbasisen — praktisk å radredusere $[P_C\\,|\\,P_B]\\to[I\\,|\\,P_{\\mathcal{C}\\leftarrow\\mathcal{B}}]$."
+    },
+    {
+      "id": "mat1120-2-4-ex-funksjonsrom",
+      "type": "example",
+      "title": "Eksempel 3: Basisskifte i et funksjonsrom",
+      "problem": "La $V=\\operatorname{Span}\\{\\cos t,\\ \\sin t\\}$ med baser $\\mathcal{B}=\\{\\cos t,\\ \\sin t\\}$ og $\\mathcal{C}=\\{\\cos t+\\sin t,\\ \\cos t-\\sin t\\}$. Finn $P_{\\mathcal{C}\\leftarrow\\mathcal{B}}$ og $P_{\\mathcal{B}\\leftarrow\\mathcal{C}}$.",
+      "solution": "**$P_{\\mathcal{C}\\leftarrow\\mathcal{B}}$** — uttrykk $\\mathcal{B}$-vektorene i $\\mathcal{C}$. Skriv $\\cos t=a(\\cos t+\\sin t)+b(\\cos t-\\sin t)=(a+b)\\cos t+(a-b)\\sin t$, så $a+b=1$, $a-b=0\\Rightarrow a=b=\\tfrac12$. Altså $[\\cos t]_{\\mathcal{C}}=(\\tfrac12,\\tfrac12)$. Tilsvarende $\\sin t$: $a+b=0$, $a-b=1\\Rightarrow a=\\tfrac12,\\ b=-\\tfrac12$, så $[\\sin t]_{\\mathcal{C}}=(\\tfrac12,-\\tfrac12)$. Kolonnevis:\n\n$$P_{\\mathcal{C}\\leftarrow\\mathcal{B}}=\\begin{bmatrix}\\tfrac12&\\tfrac12\\\\[2pt] \\tfrac12&-\\tfrac12\\end{bmatrix}.$$\n\n**$P_{\\mathcal{B}\\leftarrow\\mathcal{C}}$** — her er $\\mathcal{C}$-vektorene allerede gitt i $\\mathcal{B}=\\{\\cos t,\\sin t\\}$-koordinater: $\\cos t+\\sin t=(1,1)$, $\\cos t-\\sin t=(1,-1)$. Så\n\n$$P_{\\mathcal{B}\\leftarrow\\mathcal{C}}=\\begin{bmatrix}1&1\\\\ 1&-1\\end{bmatrix}.$$\n\n**Kontroll:** $P_{\\mathcal{C}\\leftarrow\\mathcal{B}}\\,P_{\\mathcal{B}\\leftarrow\\mathcal{C}}=\\begin{bmatrix}\\tfrac12&\\tfrac12\\\\ \\tfrac12&-\\tfrac12\\end{bmatrix}\\begin{bmatrix}1&1\\\\ 1&-1\\end{bmatrix}=\\begin{bmatrix}1&0\\\\ 0&1\\end{bmatrix}=I$. ✓"
+    },
+    {
+      "id": "mat1120-2-4-4",
+      "type": "exercise",
+      "exercise": {
+        "id": "mat1120-2-4-e4",
+        "number": "4",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "La $\\mathcal{E}=\\{1,\\ t\\}$ (standardbasis) og $\\mathcal{B}=\\{2+t,\\ 1+t\\}$ i $\\operatorname{P}_1$.\n\n**a)** Finn $P_{\\mathcal{E}\\leftarrow\\mathcal{B}}$.\n\n**b)** Bruk den til å finne $[\\,\\mathbf{x}\\,]_{\\mathcal{E}}$ når $[\\mathbf{x}]_{\\mathcal{B}}=(3,-1)$, og bekreft ved å regne ut vektoren direkte.",
+        "solution": "**a)** Fra standardbasis er $P_{\\mathcal{E}\\leftarrow\\mathcal{B}}$ bare $\\mathcal{B}$-vektorene som kolonner (i standardkoordinater): $2+t=(2,1)$, $1+t=(1,1)$. Så\n$$P_{\\mathcal{E}\\leftarrow\\mathcal{B}}=\\begin{bmatrix}2&1\\\\ 1&1\\end{bmatrix}.$$\n\n**b)** $[\\mathbf{x}]_{\\mathcal{E}}=P_{\\mathcal{E}\\leftarrow\\mathcal{B}}[\\mathbf{x}]_{\\mathcal{B}}=\\begin{bmatrix}2&1\\\\ 1&1\\end{bmatrix}\\begin{bmatrix}3\\\\ -1\\end{bmatrix}=\\begin{bmatrix}2\\cdot3+1\\cdot(-1)\\\\ 1\\cdot3+1\\cdot(-1)\\end{bmatrix}=\\begin{bmatrix}5\\\\ 2\\end{bmatrix}.$$\nAltså $\\mathbf{x}=5+2t$ i standardkoordinater. **Direkte kontroll:** $[\\mathbf{x}]_{\\mathcal{B}}=(3,-1)$ betyr $\\mathbf{x}=3(2+t)-1(1+t)=6+3t-1-t=5+2t$. ✓",
+        "hints": [
+          "Fra standardbasis er overgangsmatrisen bare $\\mathcal{B}$-vektorene stilt opp som kolonner.",
+          "For (b): gang matrisen med koordinatvektoren, og sjekk mot $3(2+t)-1(1+t)$."
+        ]
+      }
+    },
+    {
+      "id": "mat1120-2-4-5",
+      "type": "exercise",
+      "exercise": {
+        "id": "mat1120-2-4-e5",
+        "number": "5",
+        "type": "classic",
+        "difficulty": "vanskelig",
+        "task": "La $\\mathcal{B}=\\{1,\\ t,\\ t^2\\}$ og $\\mathcal{C}=\\{t^2,\\ t^2+t,\\ t^2+t+1\\}$ i $\\operatorname{P}_2$, med $P_{\\mathcal{C}\\leftarrow\\mathcal{B}}=\\begin{bmatrix}0&-1&1\\\\ -1&1&0\\\\ 1&0&0\\end{bmatrix}$ (Eksempel 1). Polynomet $\\mathbf{x}=3-2t+t^2$ har $[\\mathbf{x}]_{\\mathcal{B}}=(3,-2,1)$.\n\n**a)** Finn $[\\mathbf{x}]_{\\mathcal{C}}$ med overgangsmatrisen.\n\n**b)** Kontroller svaret ved å skrive $\\mathbf{x}$ direkte som en lineærkombinasjon av $\\mathcal{C}$-vektorene.",
+        "solution": "**a)** $[\\mathbf{x}]_{\\mathcal{C}}=P_{\\mathcal{C}\\leftarrow\\mathcal{B}}[\\mathbf{x}]_{\\mathcal{B}}$:\n$$\\begin{bmatrix}0&-1&1\\\\ -1&1&0\\\\ 1&0&0\\end{bmatrix}\\begin{bmatrix}3\\\\ -2\\\\ 1\\end{bmatrix}=\\begin{bmatrix}0\\cdot3-1\\cdot(-2)+1\\cdot1\\\\ -1\\cdot3+1\\cdot(-2)+0\\\\ 1\\cdot3+0+0\\end{bmatrix}=\\begin{bmatrix}3\\\\ -5\\\\ 3\\end{bmatrix}.$$\nSå $[\\mathbf{x}]_{\\mathcal{C}}=(3,-5,3)$.\n\n**b)** Kontroll: $3\\,(t^2)-5\\,(t^2+t)+3\\,(t^2+t+1)=(3-5+3)t^2+(-5+3)t+3=t^2-2t+3=3-2t+t^2$. ✓ Retningen stemmer — $P_{\\mathcal{C}\\leftarrow\\mathcal{B}}$ ga oss $\\mathcal{C}$-koordinatene ut.",
+        "hints": [
+          "Gang $P_{\\mathcal{C}\\leftarrow\\mathcal{B}}$ med $\\mathcal{B}$-koordinatvektoren $(3,-2,1)$.",
+          "For kontrollen: sett $\\mathcal{C}$-koordinatene $(3,-5,3)$ inn som koeffisienter foran $t^2$, $t^2+t$, $t^2+t+1$ og forenkle."
+        ]
+      }
+    },
+    {
+      "id": "mat1120-2-4-warn-typiske-feil",
+      "type": "warning",
+      "title": "Typiske feil",
+      "content": "- **Feil retning** — den dyreste feilen. $P_{\\mathcal{C}\\leftarrow\\mathcal{B}}$ («$\\mathcal{C}$ fra $\\mathcal{B}$») tar $\\mathcal{B}$-koordinater inn og gir $\\mathcal{C}$ ut. Forveksler du den med inversen $P_{\\mathcal{B}\\leftarrow\\mathcal{C}}$, blir alt speilvendt. **Kontroller alltid med ett talleksempel.**\n- **Kolonnene fylt med feil basis.** For $P_{\\mathcal{C}\\leftarrow\\mathcal{B}}$ er kolonne $j$ lik $[\\mathbf{b}_j]_{\\mathcal{C}}$ — $\\mathcal{B}$-vektorene uttrykt i $\\mathcal{C}$. Ikke omvendt.\n- **Setter basisvektorene selv (ikke koordinatene) inn som kolonner.** Kolonnene skal være *koordinatvektorer* (tallkolonner), ikke polynomene/funksjonene.\n- **Glemmer at $P_{\\mathcal{B}\\leftarrow\\mathcal{C}}=(P_{\\mathcal{C}\\leftarrow\\mathcal{B}})^{-1}$.** De to veiene er hverandres inverser — regn den ene og inverter, eller bygg den andre direkte.\n- **Blander $P_C^{-1}P_B$-oppskriften.** Når begge baser er gitt i standardkoordinater er $P_{\\mathcal{C}\\leftarrow\\mathcal{B}}=P_C^{-1}P_B$ (ikke $P_B^{-1}P_C$)."
+    },
+    {
+      "id": "mat1120-2-4-begrepsbank-tekst",
+      "type": "text",
+      "content": "## Begrepsbank til eksamen\n\nBasisskifte-apparatet i kortform — retningen er det du må ha automatisert (intet formelark).\n\n*Begrepsbanken er flashcard-/repetisjonsstoff — den gjentar det du nettopp har lest. Hopp trygt over ved førstegangslesing; tidsanslaget for kapitlet gjelder kjernestoffet.*"
+    },
+    {
+      "id": "mat1120-2-4-bb-basisskifte",
+      "type": "definition",
+      "title": "Basisskifte",
+      "content": "Å bytte fra å beskrive vektorer i én basis $\\mathcal{B}$ til å beskrive dem i en annen basis $\\mathcal{C}$. Selve vektorene er de samme; bare koordinatene endres, og overgangsmatrisen $P_{\\mathcal{C}\\leftarrow\\mathcal{B}}$ regner ut endringen for alle vektorer på én gang."
+    },
+    {
+      "id": "mat1120-2-4-bb-grunnrelasjon",
+      "type": "definition",
+      "title": "Grunnrelasjonen",
+      "content": "$[\\mathbf{x}]_{\\mathcal{C}}=P_{\\mathcal{C}\\leftarrow\\mathcal{B}}\\,[\\mathbf{x}]_{\\mathcal{B}}$. Denne likheten definerer overgangsmatrisen og fastsetter retningen: $\\mathcal{B}$ inn, $\\mathcal{C}$ ut."
+    },
+    {
+      "id": "mat1120-2-4-bb-kolonner-koordinater",
+      "type": "definition",
+      "title": "Kolonnene er koordinater",
+      "content": "Kolonne $j$ i $P_{\\mathcal{C}\\leftarrow\\mathcal{B}}$ er koordinatvektoren $[\\mathbf{b}_j]_{\\mathcal{C}}$ — en tallkolonne, ikke basisvektoren $\\mathbf{b}_j$ selv. En hyppig felle er å sette inn selve polynomene/funksjonene."
+    },
+    {
+      "id": "mat1120-2-4-bb-retningsfelle",
+      "type": "definition",
+      "title": "Retningsfellen",
+      "content": "Å forveksle $P_{\\mathcal{C}\\leftarrow\\mathcal{B}}$ med inversen $P_{\\mathcal{B}\\leftarrow\\mathcal{C}}$ er den vanligste feilen i sjanger I. Motgift: les pilen «ut $\\leftarrow$ inn», og verifiser med ett konkret talleksempel."
+    },
+    {
+      "id": "mat1120-2-4-bb-invers-vei",
+      "type": "definition",
+      "title": "Inversen bytter vei",
+      "content": "$P_{\\mathcal{B}\\leftarrow\\mathcal{C}}=(P_{\\mathcal{C}\\leftarrow\\mathcal{B}})^{-1}$. Oversetter den ene fra $\\mathcal{B}$ til $\\mathcal{C}$, oversetter inversen tilbake. Produktet er identitetsmatrisen $I$."
+    },
+    {
+      "id": "mat1120-2-4-bb-invers-radred",
+      "type": "definition",
+      "title": "Invers via $[M|I]$",
+      "content": "Radreduser $[\\,P_{\\mathcal{C}\\leftarrow\\mathcal{B}}\\,|\\,I\\,]$ til $[\\,I\\,|\\,M^{-1}\\,]$ for å finne inversen. På eksamen kan inversen også leses av vedlegget i stedet for å regnes for hånd."
+    },
+    {
+      "id": "mat1120-2-4-bb-fra-standard",
+      "type": "definition",
+      "title": "Overgang fra standardbasis",
+      "content": "$P_{\\mathcal{E}\\leftarrow\\mathcal{B}}$ har $\\mathcal{B}$-vektorene som kolonner (i standardkoordinater), fordi $[\\mathbf{b}_j]_{\\mathcal{E}}=\\mathbf{b}_j$. Den letteste overgangsmatrisen å skrive opp; motsatt vei fås ved å invertere."
+    },
+    {
+      "id": "mat1120-2-4-bb-PC-inv-PB",
+      "type": "definition",
+      "title": "$P_{\\mathcal{C}\\leftarrow\\mathcal{B}}=P_C^{-1}P_B$",
+      "content": "Er begge baser gitt i standardkoordinater med matrisene $P_B,P_C$ (vektorene som kolonner), er $P_{\\mathcal{C}\\leftarrow\\mathcal{B}}=P_C^{-1}P_B$. Praktisk å radredusere $[P_C\\,|\\,P_B]\\to[I\\,|\\,P_{\\mathcal{C}\\leftarrow\\mathcal{B}}]$."
+    },
+    {
+      "id": "mat1120-2-4-bb-alltid-invertibel",
+      "type": "definition",
+      "title": "Overgangsmatrisen er alltid invertibel",
+      "content": "Fordi begge baser utspenner samme rom, er $P_{\\mathcal{C}\\leftarrow\\mathcal{B}}$ alltid invertibel ($\\det\\neq 0$). Ellers kunne ikke oversettelsen reverseres. En overgangsmatrise kan derfor aldri være singulær."
+    },
+    {
+      "id": "mat1120-2-4-bb-identitet-BB",
+      "type": "definition",
+      "title": "Overgang til seg selv er $I$",
+      "content": "$P_{\\mathcal{B}\\leftarrow\\mathcal{B}}=I$: å « bytte» fra en basis til seg selv endrer ingen koordinater. Nyttig kontroll — og forklarer hvorfor $P_{\\mathcal{B}\\leftarrow\\mathcal{C}}P_{\\mathcal{C}\\leftarrow\\mathcal{B}}=P_{\\mathcal{B}\\leftarrow\\mathcal{B}}=I$."
+    },
+    {
+      "id": "mat1120-2-4-bb-sammensetning",
+      "type": "definition",
+      "title": "Sammensetning av basisskifter",
+      "content": "Overgangsmatriser kjedes som funksjoner: $P_{\\mathcal{D}\\leftarrow\\mathcal{C}}\\,P_{\\mathcal{C}\\leftarrow\\mathcal{B}}=P_{\\mathcal{D}\\leftarrow\\mathcal{B}}$. De indre basisene $\\mathcal{C}$ «kanselleres», akkurat som pilene tilsier."
+    },
+    {
+      "id": "mat1120-2-4-bb-vektor-uendret",
+      "type": "definition",
+      "title": "Vektoren endres ikke",
+      "content": "Ved basisskifte er det bare *beskrivelsen* (koordinatene) som endres — vektoren $\\mathbf{x}$ i $V$ er den samme. $P_{\\mathcal{C}\\leftarrow\\mathcal{B}}$ oversetter tall, ikke vektorer."
+    },
+    {
+      "id": "mat1120-2-4-bb-retningskontroll",
+      "type": "definition",
+      "title": "Retningskontroll med talleksempel",
+      "content": "Standard kvalitetssikring: velg en vektor du kjenner koordinatene til i begge baser, og sjekk at $P_{\\mathcal{C}\\leftarrow\\mathcal{B}}[\\mathbf{x}]_{\\mathcal{B}}$ faktisk gir $[\\mathbf{x}]_{\\mathcal{C}}$. Fanger retningsfellen før den koster poeng."
+    },
+    {
+      "id": "mat1120-2-4-bb-overgang-Pn",
+      "type": "definition",
+      "title": "Overgang i $\\operatorname{P}_n$ og funksjonsrom",
+      "content": "Basisskifte virker likt i abstrakte rom: uttrykk $\\mathcal{B}$-polynomene/-funksjonene i $\\mathcal{C}$ og sett koordinatvektorene som kolonner. Eksamen bruker dette i $\\operatorname{P}_2/\\operatorname{P}_3$ (2019, 2024) og i funksjonsrom."
+    },
+    {
+      "id": "mat1120-2-4-bb-lese-CfraB",
+      "type": "definition",
+      "title": "Lese notasjonen $P_{\\mathcal{C}\\leftarrow\\mathcal{B}}$",
+      "content": "Pilen $\\leftarrow$ peker mot resultatet: $P_{\\mathcal{C}\\leftarrow\\mathcal{B}}$ er «$\\mathcal{C}$ *fra* $\\mathcal{B}$» = «ut $\\leftarrow$ inn». Basisen til høyre for pilen ($\\mathcal{B}$) er den koordinatvektoren *inn* er skrevet i; basisen til venstre ($\\mathcal{C}$) er den *ut* er skrevet i."
+    },
+    {
+      "id": "mat1120-2-4-bb-2x2-invers",
+      "type": "definition",
+      "title": "Invers av en $2\\times2$-matrise",
+      "content": "$\\begin{bmatrix}a&b\\\\ c&d\\end{bmatrix}^{-1}=\\frac{1}{ad-bc}\\begin{bmatrix}d&-b\\\\ -c&a\\end{bmatrix}$, forutsatt $ad-bc\\neq0$. Den raske formelen for å snu en $2\\times2$-overgangsmatrise (fra $P_{\\mathcal{C}\\leftarrow\\mathcal{B}}$ til $P_{\\mathcal{B}\\leftarrow\\mathcal{C}}$)."
+    },
+    {
+      "id": "mat1120-2-4-rep",
+      "type": "collapsible",
+      "title": "Repetisjonsoppgaver",
+      "buttonText": "Vis repetisjonsoppgaver",
+      "content": [
+        {
+          "id": "mat1120-2-4-R1",
+          "type": "exercise",
+          "exercise": {
+            "id": "mat1120-2-4-eR1",
+            "number": "R1",
+            "type": "classic",
+            "difficulty": "lett",
+            "task": "(Fra [kap. 2.3](/bok/mat1120/mat1120-2-3)) Hvorfor har samme polynom ulik koordinatvektor i to forskjellige baser?",
+            "solution": "Koordinatvektoren er koeffisientene *relativt en bestemt basis*. Bytter man basis, endres hvilke byggeklosser vektoren skrives med, og dermed koeffisientene — selv om polynomet er det samme. Det er nettopp denne forskjellen overgangsmatrisen regner ut.",
+            "hints": [
+              "Koordinater er basisavhengige."
+            ]
+          }
+        },
+        {
+          "id": "mat1120-2-4-R2",
+          "type": "exercise",
+          "exercise": {
+            "id": "mat1120-2-4-eR2",
+            "number": "R2",
+            "type": "classic",
+            "difficulty": "middels",
+            "task": "(Fra dette kapitlet) La $P_{\\mathcal{C}\\leftarrow\\mathcal{B}}=\\begin{bmatrix}1&1\\\\ 1&-1\\end{bmatrix}$. Hva er $[\\mathbf{x}]_{\\mathcal{C}}$ når $[\\mathbf{x}]_{\\mathcal{B}}=(2,3)$?",
+            "solution": "$[\\mathbf{x}]_{\\mathcal{C}}=P_{\\mathcal{C}\\leftarrow\\mathcal{B}}[\\mathbf{x}]_{\\mathcal{B}}=\\begin{bmatrix}1&1\\\\ 1&-1\\end{bmatrix}\\begin{bmatrix}2\\\\3\\end{bmatrix}=\\begin{bmatrix}5\\\\ -1\\end{bmatrix}$. Matrisen tar $\\mathcal{B}$-koordinater inn og gir $\\mathcal{C}$-koordinater ut.",
+            "hints": [
+              "Gang matrisen med koordinatvektoren — riktig vei er $\\mathcal{B}$ inn, $\\mathcal{C}$ ut."
+            ]
+          }
+        },
+        {
+          "id": "mat1120-2-4-R3",
+          "type": "exercise",
+          "exercise": {
+            "id": "mat1120-2-4-eR3",
+            "number": "R3",
+            "type": "classic",
+            "difficulty": "middels",
+            "task": "(Fra dette kapitlet) Hvis $P_{\\mathcal{C}\\leftarrow\\mathcal{B}}=\\begin{bmatrix}2&1\\\\ 1&1\\end{bmatrix}$, hva er $P_{\\mathcal{B}\\leftarrow\\mathcal{C}}$?",
+            "solution": "$P_{\\mathcal{B}\\leftarrow\\mathcal{C}}=(P_{\\mathcal{C}\\leftarrow\\mathcal{B}})^{-1}$. For en $2\\times2$-matrise: $\\begin{bmatrix}2&1\\\\ 1&1\\end{bmatrix}^{-1}=\\frac{1}{2\\cdot1-1\\cdot1}\\begin{bmatrix}1&-1\\\\ -1&2\\end{bmatrix}=\\begin{bmatrix}1&-1\\\\ -1&2\\end{bmatrix}$ (determinant $=1$).",
+            "hints": [
+              "Inversen går motsatt vei.",
+              "For $2\\times2$: $\\frac{1}{\\det}\\begin{bmatrix}d&-b\\\\ -c&a\\end{bmatrix}$."
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": "mat1120-2-4-symbolliste",
+      "type": "collapsible",
+      "title": "Symbol- og formelliste",
+      "buttonText": "Vis symboler og formler",
+      "content": [
+        {
+          "id": "mat1120-2-4-symbolliste-text",
+          "type": "text",
+          "content": "## Symbol- og formelliste\n\n*Oppslagsverk — alt her forklares underveis i kapitlet.*\n\nAlle symboler og formler som brukes i dette delkapitlet (2.4), samlet på ett sted.\n\n| Symbol | Betydning |\n|---|---|\n| $\\mathcal{B},\\ \\mathcal{C},\\ \\mathcal{E}$ | Ordnede baser ($\\mathcal{E}$ = standardbasis) |\n| $P_{\\mathcal{C}\\leftarrow\\mathcal{B}}$ | Overgangsmatrise «$\\mathcal{C}$ fra $\\mathcal{B}$» |\n| $P_{\\mathcal{B}\\leftarrow\\mathcal{C}}$ | Overgangsmatrise motsatt vei ($=$ inversen) |\n| $[\\mathbf{x}]_{\\mathcal{B}}$ | Koordinatvektor relativt $\\mathcal{B}$ |\n| $[\\mathbf{b}_j]_{\\mathcal{C}}$ | Koordinatvektor til $\\mathbf{b}_j$ i $\\mathcal{C}$ (kolonne $j$) |\n| $M^{-1}$ | Invers matrise |\n| $P_B,\\ P_C$ | Basisvektorene som kolonner (standardkoordinater) |\n| $I$ | Identitetsmatrisen |\n\n**Formler i dette delkapitlet:**\n\n$$[\\mathbf{x}]_{\\mathcal{C}}=P_{\\mathcal{C}\\leftarrow\\mathcal{B}}\\,[\\mathbf{x}]_{\\mathcal{B}}$$\nGrunnrelasjonen — $\\mathcal{B}$-koordinater inn, $\\mathcal{C}$-koordinater ut («$\\mathcal{C}$ fra $\\mathcal{B}$»).\n\n$$P_{\\mathcal{C}\\leftarrow\\mathcal{B}}=\\big[\\ [\\mathbf{b}_1]_{\\mathcal{C}}\\ \\cdots\\ [\\mathbf{b}_n]_{\\mathcal{C}}\\ \\big]$$\nKonstruksjon: kolonne $j$ er $\\mathcal{B}$-vektor $j$ uttrykt i $\\mathcal{C}$-koordinater.\n\n$$P_{\\mathcal{B}\\leftarrow\\mathcal{C}}=\\big(P_{\\mathcal{C}\\leftarrow\\mathcal{B}}\\big)^{-1}$$\nInversen går motsatt vei; produktet er $I$.\n\n$$P_{\\mathcal{C}\\leftarrow\\mathcal{B}}=P_C^{-1}P_B$$\nNår begge baser er gitt i standardkoordinater (radreduser $[P_C\\,|\\,P_B]\\to[I\\,|\\,P_{\\mathcal{C}\\leftarrow\\mathcal{B}}]$).\n\n$$P_{\\mathcal{D}\\leftarrow\\mathcal{C}}\\,P_{\\mathcal{C}\\leftarrow\\mathcal{B}}=P_{\\mathcal{D}\\leftarrow\\mathcal{B}}$$\nSammensetning — de indre basisene kanselleres."
+        }
+      ]
+    }
+  ],
+  "exercises": []
+}

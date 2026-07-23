@@ -1,0 +1,386 @@
+{
+  "id": "mat1120-5-2",
+  "courseId": "mat1120",
+  "chapterNumber": "5.2",
+  "title": "Minste kvadrater: normallikninger, projeksjonssnarvei og affin løsning",
+  "description": "Minste kvadraters løsning av Cx=b på to belønnede måter — normallikningene CᵀCx̂=Cᵀb og projeksjonssnarveien p=proj_W b ⇒ Cx=p — pluss det avgjørende poenget: ved rangdefekt er løsningen affin (partikulær + Nul C).",
+  "estimatedMinutes": 60,
+  "competenceGoals": [
+    "sette opp og løse normallikningene CᵀCx̂=Cᵀb ved å lese den lille RREF-en fra vedlegget",
+    "bruke koblingen proj_W b = Cx̂ og projeksjonssnarveien som alternativ vei",
+    "avgjøre om løsningen er entydig (full kolonnerang) eller affin (rangdefekt = partikulær + Nul C)",
+    "tilpasse en rett linje til data ved minste kvadrater og finne avstanden til kolonnerommet"
+  ],
+  "content": [
+    {
+      "id": "mat1120-5-2-tip",
+      "type": "tip",
+      "title": "Eksamensvinkel",
+      "content": "**Minste kvadrater er en fast søyle** (sjanger C, ~100 %) og henger tett sammen med projeksjon fra [kap. 5.1](/bok/mat1120/mat1120-5-1) — ofte *samme* oppgave, kjedet på samme matrise.\n\n- Fasiten har **to belønnede veier**: (i) **normallikningene** $C^{T}C\\hat{\\mathbf{x}}=C^{T}\\mathbf{b}$ (2019, 2020, 2022, 2024), der du leser den lille RREF-en fra vedlegget; eller (ii) **projeksjonssnarveien** $\\operatorname{proj}_W\\mathbf{b}=C\\hat{\\mathbf{x}}$ (2018, gjenbrukt 2024).\n- **Den skarpeste fellen** (nr. 5): når $C$ **ikke** har full kolonnerang, er løsningen **affin** — partikulær $+\\operatorname{Nul}C$, ikke ett entydig svar.\n\n**Fasitens grep du skal kopiere:** sett opp $C^{T}C$ og $C^{T}\\mathbf{b}$, sitér vedleggets RREF av det $2\\times2$- eller $3\\times3$-systemet, og skriv løsningen — entydig hvis $C$ har full kolonnerang, ellers affin. Koblingen $\\operatorname{proj}_W\\mathbf{b}=C\\hat{\\mathbf{x}}$ gir en gratis kontroll og en vei til projeksjonen.\n\n**Sensorregel:** begrunn hvilken vei du velger, og si eksplisitt om løsningen er entydig eller affin."
+    },
+    {
+      "id": "mat1120-5-2-forkunnskaper",
+      "type": "text",
+      "content": "**Forkunnskaper:**\n\n- [Kap. 5.1](/bok/mat1120/mat1120-5-1) — ortogonal projeksjon og dekomposisjonen $\\mathbf{y}=\\hat{\\mathbf{y}}+\\mathbf{z}$; minste kvadrater *er* projeksjon i forkledning\n- [Kap. 1.2](/bok/mat1120/mat1120-1-2) — $\\operatorname{Nul}C$ og full kolonnerang; den affine løsningen ved rangdefekt er partikulær $+\\operatorname{Nul}C$\n- [Kap. 1.1](/bok/mat1120/mat1120-1-1) — å lese en liten RREF av normallikningene fra vedlegget er samme teknikk\n- [Matriseregning og transponering (MAT1110)](/bok/mat1110/mat1110-1-3) — grunnleggende matrisemultiplikasjon og transponering"
+    },
+    {
+      "id": "mat1120-5-2-intro",
+      "type": "text",
+      "content": "Noen ganger har likningssystemet $C\\mathbf{x}=\\mathbf{b}$ **ingen løsning** — $\\mathbf{b}$ ligger ikke i $\\operatorname{Col}C$. I stedet for å gi opp spør vi: *hvilken $\\hat{\\mathbf{x}}$ gjør $C\\hat{\\mathbf{x}}$ så nær $\\mathbf{b}$ som mulig?* Det er **minste kvadraters problem**, og svaret er nettopp projeksjon: $C\\hat{\\mathbf{x}}$ skal være $\\operatorname{proj}_W\\mathbf{b}$ der $W=\\operatorname{Col}C$.\n\nVi jobber i tre løkker: **(1)** minste kvadraters problem og **normallikningene** $C^{T}C\\hat{\\mathbf{x}}=C^{T}\\mathbf{b}$; **(2)** **projeksjonssnarveien** og koblingen $\\operatorname{proj}_W\\mathbf{b}=C\\hat{\\mathbf{x}}$; **(3)** entydighet vs. **affin** løsning ved rangdefekt, og datatilpasning. Hver løkke går teori → eksempel → oppgave.\n\n*Tidsanslaget (~60 min) gjelder kjernestoffet — begrepsbanken til slutt er repetisjon.*"
+    },
+    {
+      "id": "mat1120-5-2-lokke1",
+      "type": "text",
+      "content": "## Løkke 1 — Minste kvadraters problem og normallikningene (~24 min)"
+    },
+    {
+      "id": "mat1120-5-2-def-problem",
+      "type": "definition",
+      "title": "Minste kvadraters problem",
+      "content": "Gitt en matrise $C$ og en vektor $\\mathbf{b}$ (der $C\\mathbf{x}=\\mathbf{b}$ kanskje ikke har løsning) er en **minste kvadraters løsning** en vektor $\\hat{\\mathbf{x}}$ som gjør residualet minst mulig:\n\n$$\\hat{\\mathbf{x}}\\ \\text{minimerer}\\ \\|\\mathbf{b}-C\\mathbf{x}\\|.$$\n\nI ord: vi finner den $\\hat{\\mathbf{x}}$ slik at $C\\hat{\\mathbf{x}}$ er den vektoren i $\\operatorname{Col}C$ som ligger nærmest $\\mathbf{b}$. Navnet «minste kvadrater» kommer av at $\\|\\mathbf{b}-C\\mathbf{x}\\|^2$ er en sum av kvadrater som minimeres. **Residualet** er $\\mathbf{b}-C\\hat{\\mathbf{x}}$."
+    },
+    {
+      "id": "mat1120-5-2-thm-normal",
+      "type": "theorem",
+      "title": "Normallikningene",
+      "content": "En vektor $\\hat{\\mathbf{x}}$ er en minste kvadraters løsning av $C\\mathbf{x}=\\mathbf{b}$ **hvis og bare hvis** den løser **normallikningene**\n\n$$C^{T}C\\,\\hat{\\mathbf{x}}=C^{T}\\mathbf{b}.$$\n\n*Hvorfor:* $C\\hat{\\mathbf{x}}$ er nærmest $\\mathbf{b}$ nettopp når residualet $\\mathbf{b}-C\\hat{\\mathbf{x}}$ står vinkelrett på $\\operatorname{Col}C$ (beste tilnærming, [kap. 5.1](/bok/mat1120/mat1120-5-1)). Å være ortogonal på alle kolonnene i $C$ betyr $C^{T}(\\mathbf{b}-C\\hat{\\mathbf{x}})=\\mathbf{0}$, som omordnet er $C^{T}C\\hat{\\mathbf{x}}=C^{T}\\mathbf{b}$. Dette er alltid et **konsistent** (løsbart) system, og det er lite: bare $n\\times n$ der $n$ er antall kolonner i $C$ — les RREF-en av det fra vedlegget."
+    },
+    {
+      "id": "mat1120-5-2-ex-normal",
+      "type": "example",
+      "title": "Eksempel 1: Minste kvadrater via normallikningene",
+      "problem": "Finn minste kvadraters løsning av $C\\mathbf{x}=\\mathbf{b}$ med\n$$C=\\begin{bmatrix}1&1\\\\1&2\\\\1&3\\\\1&4\\end{bmatrix},\\qquad \\mathbf{b}=\\begin{bmatrix}3\\\\2\\\\3\\\\6\\end{bmatrix}.$$\nVedlegget gir $\\operatorname{rref}\\big[\\,C^{T}C\\mid C^{T}\\mathbf{b}\\,\\big]=\\begin{bmatrix}1&0&1\\\\0&1&1\\end{bmatrix}.$",
+      "solution": "**Sett opp normallikningene.** Regn de små produktene for hånd:\n$$C^{T}C=\\begin{bmatrix}4&10\\\\10&30\\end{bmatrix},\\qquad C^{T}\\mathbf{b}=\\begin{bmatrix}14\\\\40\\end{bmatrix}.$$\n(Første komponent i $C^{T}\\mathbf{b}$ er $3+2+3+6=14$; andre er $1\\cdot3+2\\cdot2+3\\cdot3+4\\cdot6=3+4+9+24=40$.)\n\n**Løs systemet.** Fra vedleggets RREF ser vi at\n$$\\operatorname{rref}\\begin{bmatrix}4&10&14\\\\10&30&40\\end{bmatrix}=\\begin{bmatrix}1&0&1\\\\0&1&1\\end{bmatrix}\\ \\Rightarrow\\ \\hat{\\mathbf{x}}=\\begin{bmatrix}1\\\\1\\end{bmatrix}.$$\n\n**Kontroll og residual.** $C\\hat{\\mathbf{x}}=(2,3,4,5)$, så residualet er\n$$\\mathbf{b}-C\\hat{\\mathbf{x}}=(3,2,3,6)-(2,3,4,5)=(1,-1,-1,1).$$\nDette står vinkelrett på begge kolonnene i $C$: $\\langle(1,-1,-1,1),(1,1,1,1)\\rangle=0$ og $\\langle(1,-1,-1,1),(1,2,3,4)\\rangle=1-2-3+4=0.$ ✓ **Eksakt svar:** $\\hat{\\mathbf{x}}=(1,1)$."
+    },
+    {
+      "id": "mat1120-5-2-x1",
+      "type": "exercise",
+      "exercise": {
+        "id": "mat1120-5-2-x1-e",
+        "number": "1",
+        "type": "classic",
+        "difficulty": "lett",
+        "task": "(Innstegsoppgave — ren gjengivelse.) Skriv opp normallikningene for minste kvadraters problem $C\\mathbf{x}=\\mathbf{b}$, og forklar med ett ord hva løsningen $\\hat{\\mathbf{x}}$ gjør.",
+        "solution": "Normallikningene er\n$$C^{T}C\\,\\hat{\\mathbf{x}}=C^{T}\\mathbf{b}.$$\nLøsningen $\\hat{\\mathbf{x}}$ **minimerer** $\\|\\mathbf{b}-C\\mathbf{x}\\|$ — den gjør $C\\hat{\\mathbf{x}}$ så nær $\\mathbf{b}$ som mulig (residualet minst mulig).",
+        "hints": [
+          "Multipliser $C\\mathbf{x}=\\mathbf{b}$ med $C^{T}$ fra venstre.",
+          "$\\hat{\\mathbf{x}}$ gjør residualet $\\mathbf{b}-C\\hat{\\mathbf{x}}$ minst — altså minimerer avstanden."
+        ]
+      }
+    },
+    {
+      "id": "mat1120-5-2-x2",
+      "type": "exercise",
+      "exercise": {
+        "id": "mat1120-5-2-x2-e",
+        "number": "2",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "Finn minste kvadraters løsning av $C\\mathbf{x}=\\mathbf{b}$ med $C=\\begin{bmatrix}1&0\\\\1&1\\\\1&2\\\\1&3\\end{bmatrix}$, $\\mathbf{b}=\\begin{bmatrix}2\\\\1\\\\6\\\\7\\end{bmatrix}$. Vedlegget gir $\\operatorname{rref}\\big[\\,C^{T}C\\mid C^{T}\\mathbf{b}\\,\\big]=\\begin{bmatrix}1&0&1\\\\0&1&2\\end{bmatrix}$.",
+        "solution": "**Normallikninger:** $C^{T}C=\\begin{bmatrix}4&6\\\\6&14\\end{bmatrix}$ og $C^{T}\\mathbf{b}=\\begin{bmatrix}16\\\\34\\end{bmatrix}$ (første: $2+1+6+7=16$; andre: $0\\cdot2+1\\cdot1+2\\cdot6+3\\cdot7=1+12+21=34$).\n\nFra vedleggets RREF: $\\hat{\\mathbf{x}}=(1,2)$.\n\n**Kontroll:** $C\\hat{\\mathbf{x}}=(1,3,5,7)$, residual $\\mathbf{b}-C\\hat{\\mathbf{x}}=(1,-2,1,0)$, som er ortogonalt på begge kolonnene. ✓ Eksakt svar $\\hat{\\mathbf{x}}=(1,2)$.",
+        "hints": [
+          "$C^{T}C=\\begin{bmatrix}4&6\\\\6&14\\end{bmatrix}$; regn $C^{T}\\mathbf{b}$ komponentvis.",
+          "Les $\\hat{\\mathbf{x}}$ direkte av vedleggets RREF; kontroller residualet mot kolonnene."
+        ]
+      }
+    },
+    {
+      "id": "mat1120-5-2-lokke2",
+      "type": "text",
+      "content": "## Løkke 2 — Projeksjonssnarveien og koblingen $\\operatorname{proj}_W\\mathbf{b}=C\\hat{\\mathbf{x}}$ (~18 min)"
+    },
+    {
+      "id": "mat1120-5-2-thm-kobling",
+      "type": "theorem",
+      "title": "Koblingen $\\operatorname{proj}_W\\mathbf{b}=C\\hat{\\mathbf{x}}$",
+      "content": "La $W=\\operatorname{Col}C$. For enhver minste kvadraters løsning $\\hat{\\mathbf{x}}$ gjelder\n\n$$C\\hat{\\mathbf{x}}=\\operatorname{proj}_W\\mathbf{b}.$$\n\nMed andre ord: $C\\hat{\\mathbf{x}}$ er *nettopp* projeksjonen av $\\mathbf{b}$ ned på kolonnerommet. Dette gir **to veier** til samme mål:\n\n- **Normallikninger:** løs $C^{T}C\\hat{\\mathbf{x}}=C^{T}\\mathbf{b}$, deretter er $\\operatorname{proj}_W\\mathbf{b}=C\\hat{\\mathbf{x}}$.\n- **Projeksjonssnarvei:** finn en ortogonal basis for $W$ (Gram–Schmidt), regn $\\mathbf{p}=\\operatorname{proj}_W\\mathbf{b}$ direkte, og løs det *konsistente* systemet $C\\mathbf{x}=\\mathbf{p}$.\n\nBegge gir samme $C\\hat{\\mathbf{x}}$, og residualet $\\mathbf{b}-C\\hat{\\mathbf{x}}=\\mathbf{z}$ er restvektoren fra dekomposisjonen. Har du allerede projisert (fra en tidligere deloppgave), er snarveien gratis."
+    },
+    {
+      "id": "mat1120-5-2-ex-snarvei",
+      "type": "example",
+      "title": "Eksempel 2: Projeksjonssnarveien",
+      "problem": "For $C$ og $\\mathbf{b}$ fra Eksempel 1: bruk projeksjonssnarveien til å bestemme $\\operatorname{proj}_W\\mathbf{b}$ der $W=\\operatorname{Col}C$, og kontroller mot $C\\hat{\\mathbf{x}}$.",
+      "solution": "**Ortogonal basis for $W=\\operatorname{Col}C$.** Kolonnene $\\mathbf{c}_1=(1,1,1,1)$, $\\mathbf{c}_2=(1,2,3,4)$ er ikke ortogonale ($\\langle\\mathbf{c}_1,\\mathbf{c}_2\\rangle=10\\ne0$), så Gram–Schmidt:\n$$\\mathbf{w}_1=(1,1,1,1),\\quad \\mathbf{w}_2=\\mathbf{c}_2-\\tfrac{10}{4}\\mathbf{w}_1=\\left(-\\tfrac32,-\\tfrac12,\\tfrac12,\\tfrac32\\right)\\xrightarrow{\\times2}(-3,-1,1,3).$$\n\n**Projeksjon** av $\\mathbf{b}=(3,2,3,6)$:\n$$c_1=\\frac{\\langle\\mathbf{b},\\mathbf{w}_1\\rangle}{4}=\\frac{14}{4}=\\frac72,\\quad c_2=\\frac{\\langle\\mathbf{b},\\mathbf{w}_2\\rangle}{20}=\\frac{-9-2+3+18}{20}=\\frac{10}{20}=\\frac12.$$\n$$\\mathbf{p}=\\tfrac72(1,1,1,1)+\\tfrac12(-3,-1,1,3)=(2,3,4,5).$$\n\n**Kontroll:** $C\\hat{\\mathbf{x}}=(2,3,4,5)$ (fra Eksempel 1) $=\\mathbf{p}$. ✓ Koblingen $\\operatorname{proj}_W\\mathbf{b}=C\\hat{\\mathbf{x}}$ stemmer. Merk at snarveien og normallikningene gir *nøyaktig* samme punkt i $\\operatorname{Col}C$."
+    },
+    {
+      "id": "mat1120-5-2-x3",
+      "type": "exercise",
+      "exercise": {
+        "id": "mat1120-5-2-x3-e",
+        "number": "3",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "For $C=\\begin{bmatrix}1&1\\\\1&2\\\\1&3\\\\1&4\\end{bmatrix}$ og $\\mathbf{b}=(3,2,3,6)$ er $\\hat{\\mathbf{x}}=(1,1)$ (fra Eksempel 1). Bruk koblingen $\\operatorname{proj}_W\\mathbf{b}=C\\hat{\\mathbf{x}}$ til å finne både projeksjonen og avstanden fra $\\mathbf{b}$ til $W=\\operatorname{Col}C$.",
+        "solution": "**Projeksjon:** $\\operatorname{proj}_W\\mathbf{b}=C\\hat{\\mathbf{x}}=C(1,1)^T=(2,3,4,5)$.\n\n**Avstand:** residualet er $\\mathbf{z}=\\mathbf{b}-C\\hat{\\mathbf{x}}=(3,2,3,6)-(2,3,4,5)=(1,-1,-1,1)$, så\n$$d(\\mathbf{b},W)=\\|\\mathbf{z}\\|=\\sqrt{1+1+1+1}=\\sqrt4=2.$$\nEksakt svar: projeksjon $(2,3,4,5)$, avstand $2$.",
+        "hints": [
+          "$\\operatorname{proj}_W\\mathbf{b}=C\\hat{\\mathbf{x}}$ — bare gang $C$ med $\\hat{\\mathbf{x}}$.",
+          "Avstanden er normen av residualet $\\mathbf{b}-C\\hat{\\mathbf{x}}$."
+        ]
+      }
+    },
+    {
+      "id": "mat1120-5-2-lokke3",
+      "type": "text",
+      "content": "## Løkke 3 — Entydighet, affin løsning ved rangdefekt og datatilpasning (~18 min)"
+    },
+    {
+      "id": "mat1120-5-2-thm-entydig",
+      "type": "theorem",
+      "title": "Entydighet ⇔ full kolonnerang",
+      "content": "Minste kvadraters løsning er **entydig hvis og bare hvis $C$ har full kolonnerang** (lineært uavhengige kolonner). Da er $C^{T}C$ invertibel, og\n\n$$\\hat{\\mathbf{x}}=(C^{T}C)^{-1}C^{T}\\mathbf{b}\\quad(\\text{entydig}).$$\n\nHar $C$ derimot **ikke** full kolonnerang (avhengige kolonner, $\\operatorname{Nul}C\\ne\\{\\mathbf{0}\\}$), er $C^{T}C$ **ikke** invertibel, og løsningsmengden er **affin**."
+    },
+    {
+      "id": "mat1120-5-2-def-affin",
+      "type": "definition",
+      "title": "Affin løsning ved rangdefekt",
+      "content": "Når $C$ ikke har full kolonnerang, har normallikningene $C^{T}C\\hat{\\mathbf{x}}=C^{T}\\mathbf{b}$ **uendelig mange** løsninger. Løsningsmengden er **affin**:\n\n$$\\hat{\\mathbf{x}}=\\hat{\\mathbf{x}}_p+\\operatorname{Nul}C,$$\n\naltså én partikulær løsning $\\hat{\\mathbf{x}}_p$ pluss hele nullrommet til $C$ (én fri parameter per avhengig kolonne). Dette er felle nr. 5: å oppgi ett svar som om det var entydig. **Merk:** selv om $\\hat{\\mathbf{x}}$ ikke er entydig, er $C\\hat{\\mathbf{x}}=\\operatorname{proj}_W\\mathbf{b}$ *det samme* for alle løsningene — projeksjonen er alltid entydig."
+    },
+    {
+      "id": "mat1120-5-2-ex-affin",
+      "type": "example",
+      "title": "Eksempel 3: Affin løsning (rangdefekt)",
+      "problem": "Finn alle minste kvadraters løsninger av $C\\mathbf{x}=\\mathbf{b}$ med\n$$C=\\begin{bmatrix}1&1&2\\\\1&0&1\\\\0&1&1\\\\1&1&2\\end{bmatrix},\\qquad \\mathbf{b}=\\begin{bmatrix}3\\\\0\\\\0\\\\2\\end{bmatrix},$$\nder tredje kolonne er summen av de to første. Vedlegget gir $\\operatorname{rref}\\big[\\,C^{T}C\\mid C^{T}\\mathbf{b}\\,\\big]=\\begin{bmatrix}1&0&1&1\\\\0&1&1&1\\\\0&0&0&0\\end{bmatrix}.$",
+      "solution": "**Full kolonnerang?** Nei: $\\mathbf{c}_3=\\mathbf{c}_1+\\mathbf{c}_2$, så kolonnene er avhengige og $\\operatorname{rang}C=2<3$. Da er $C^{T}C$ ikke invertibel — vent en **affin** løsning.\n\n**Normallikninger.** $C^{T}C=\\begin{bmatrix}3&2&5\\\\2&3&5\\\\5&5&10\\end{bmatrix}$, $C^{T}\\mathbf{b}=\\begin{bmatrix}5\\\\5\\\\10\\end{bmatrix}$. Fra vedleggets RREF ser vi pivot i kolonne 1 og 2, fri variabel $x_3$:\n$$x_1=1-x_3,\\quad x_2=1-x_3.$$\n\n**Affin løsningsmengde.** Med $x_3=s$:\n$$\\hat{\\mathbf{x}}=\\begin{bmatrix}1\\\\1\\\\0\\end{bmatrix}+s\\begin{bmatrix}-1\\\\-1\\\\1\\end{bmatrix},\\quad s\\in\\mathbb{R}.$$\nDen partikulære er $\\hat{\\mathbf{x}}_p=(1,1,0)$, og $\\operatorname{Nul}C=\\operatorname{Span}\\{(-1,-1,1)\\}$ (fordi $\\mathbf{c}_1+\\mathbf{c}_2-\\mathbf{c}_3=\\mathbf{0}$). **Konklusjon:** løsningen er *ikke* entydig — den er affin. Men $C\\hat{\\mathbf{x}}_p=(2,1,1,2)=\\operatorname{proj}_W\\mathbf{b}$ er den samme for alle $s$."
+    },
+    {
+      "id": "mat1120-5-2-x4",
+      "type": "exercise",
+      "exercise": {
+        "id": "mat1120-5-2-x4-e",
+        "number": "4",
+        "type": "classic",
+        "difficulty": "vanskelig",
+        "task": "For $C$ og $\\mathbf{b}$ i Eksempel 3: bestem $\\operatorname{proj}_W\\mathbf{b}$ ($W=\\operatorname{Col}C$) og avstanden $d(\\mathbf{b},W)$ ved hjelp av én av de affine løsningene. Forklar hvorfor svaret er uavhengig av hvilken løsning du velger.",
+        "solution": "Velg den enkleste, $\\hat{\\mathbf{x}}_p=(1,1,0)$:\n$$\\operatorname{proj}_W\\mathbf{b}=C\\hat{\\mathbf{x}}_p=1\\cdot\\mathbf{c}_1+1\\cdot\\mathbf{c}_2+0\\cdot\\mathbf{c}_3=(2,1,1,2).$$\nResidual $\\mathbf{z}=\\mathbf{b}-\\operatorname{proj}_W\\mathbf{b}=(3,0,0,2)-(2,1,1,2)=(1,-1,-1,0)$, så\n$$d(\\mathbf{b},W)=\\|\\mathbf{z}\\|=\\sqrt{1+1+1+0}=\\sqrt3.$$\n**Uavhengighet:** to affine løsninger skiller seg med en vektor i $\\operatorname{Nul}C$, og $C(\\hat{\\mathbf{x}}_p+\\mathbf{n})=C\\hat{\\mathbf{x}}_p+C\\mathbf{n}=C\\hat{\\mathbf{x}}_p$ siden $C\\mathbf{n}=\\mathbf{0}$. Projeksjonen — og dermed avstanden — er derfor den samme uansett valg.",
+        "hints": [
+          "$\\operatorname{proj}_W\\mathbf{b}=C\\hat{\\mathbf{x}}$ for hvilken som helst løsning; velg $(1,1,0)$.",
+          "$C\\mathbf{n}=\\mathbf{0}$ for $\\mathbf{n}\\in\\operatorname{Nul}C$, så alle løsninger gir samme $C\\hat{\\mathbf{x}}$."
+        ]
+      }
+    },
+    {
+      "id": "mat1120-5-2-def-datatilpasning",
+      "type": "definition",
+      "title": "Datatilpasning (rett linje)",
+      "content": "Å tilpasse en rett linje $y=\\beta_0+\\beta_1t$ til datapunkter $(t_i,y_i)$ er et minste kvadraters problem. Sett\n\n$$C=\\begin{bmatrix}1&t_1\\\\ \\vdots&\\vdots\\\\1&t_m\\end{bmatrix},\\quad \\mathbf{x}=\\begin{bmatrix}\\beta_0\\\\\\beta_1\\end{bmatrix},\\quad \\mathbf{b}=\\begin{bmatrix}y_1\\\\\\vdots\\\\y_m\\end{bmatrix}.$$\n\nNormallikningene $C^{T}C\\hat{\\mathbf{x}}=C^{T}\\mathbf{b}$ gir da den «beste» linjen (minst sum av kvadrerte avvik). Så lenge minst to $t_i$ er ulike, har $C$ full kolonnerang og linjen er entydig. Eksempel 1 var nettopp en slik linjetilpasning: $y=1+t$."
+    },
+    {
+      "id": "mat1120-5-2-x5",
+      "type": "exercise",
+      "exercise": {
+        "id": "mat1120-5-2-x5-e",
+        "number": "5",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "Tilpass en rett linje $y=\\beta_0+\\beta_1 t$ til punktene $(1,3),(2,2),(3,3),(4,6)$ ved minste kvadrater. (Dette er $C,\\mathbf{b}$ fra Eksempel 1.) Skriv ned linjen.",
+        "solution": "Med $C=\\begin{bmatrix}1&1\\\\1&2\\\\1&3\\\\1&4\\end{bmatrix}$ og $\\mathbf{b}=(3,2,3,6)$ ga Eksempel 1 $\\hat{\\mathbf{x}}=(\\beta_0,\\beta_1)=(1,1)$. Linjen er\n$$y=1+t.$$\nDen minimerer summen av kvadrerte vertikale avvik $\\sum(y_i-(1+t_i))^2$; avvikene er residualet $(1,-1,-1,1)$.",
+        "hints": [
+          "Sett opp $C$ med en 1-kolonne og en $t$-kolonne; $\\mathbf{b}$ er $y$-verdiene.",
+          "Løsningen $\\hat{\\mathbf{x}}=(\\beta_0,\\beta_1)$ er linjens konstantledd og stigningstall."
+        ]
+      }
+    },
+    {
+      "id": "mat1120-5-2-warn-typiske",
+      "type": "warning",
+      "title": "Typiske feil",
+      "content": "- **Løsning behandlet som entydig ved rangdefekt** (felle nr. 5). Har $C$ ikke full kolonnerang, er løsningen **affin** = partikulær $+\\operatorname{Nul}C$ — sjekk alltid kolonnerangen.\n- **Feil oppsett av $C^{T}C$ eller $C^{T}\\mathbf{b}$.** $C^{T}C$ er kvadratisk ($n\\times n$, $n=$ antall kolonner); dobbeltsjekk dimensjonene og de små produktene.\n- **Glemmer koblingen $\\operatorname{proj}_W\\mathbf{b}=C\\hat{\\mathbf{x}}$.** Har du $\\hat{\\mathbf{x}}$, får du projeksjonen gratis ved $C\\hat{\\mathbf{x}}$ — og motsatt.\n- **Radreduserer normallikningene for hånd.** Det lille systemet leses av vedlegget; ikke bruk tid på håndregning av store RREF-er.\n- **Avstand som $\\|C\\hat{\\mathbf{x}}\\|$.** Avstanden er $\\|\\mathbf{b}-C\\hat{\\mathbf{x}}\\|$ (residualets norm), ikke normen av projeksjonen.\n- **Desimaltilnærming.** La $\\sqrt3$, brøker osv. stå eksakt."
+    },
+    {
+      "id": "mat1120-5-2-bb-tekst",
+      "type": "text",
+      "content": "## Begrepsbank til eksamen\n\nKjernebegrepene fra kapitlet i eksamensrettet kortform — apparatet bak sjanger C (minste kvadrater).\n\n*Begrepsbanken er flashcard-/repetisjonsstoff — den gjentar det du nettopp har lest. Hopp trygt over ved førstegangslesing; tidsanslaget for kapitlet gjelder kjernestoffet.*"
+    },
+    {
+      "id": "mat1120-5-2-bb-1",
+      "type": "definition",
+      "title": "Minste kvadraters løsning",
+      "content": "En $\\hat{\\mathbf{x}}$ som minimerer $\\|\\mathbf{b}-C\\mathbf{x}\\|$ — gjør $C\\hat{\\mathbf{x}}$ nærmest $\\mathbf{b}$ i $\\operatorname{Col}C$. Brukes når $C\\mathbf{x}=\\mathbf{b}$ ikke har eksakt løsning."
+    },
+    {
+      "id": "mat1120-5-2-bb-2",
+      "type": "definition",
+      "title": "Normallikningene",
+      "content": "$C^{T}C\\hat{\\mathbf{x}}=C^{T}\\mathbf{b}$ — alltid konsistent. Fås ved å multiplisere $C\\mathbf{x}=\\mathbf{b}$ med $C^{T}$, eller av at residualet skal være ortogonalt på $\\operatorname{Col}C$."
+    },
+    {
+      "id": "mat1120-5-2-bb-3",
+      "type": "definition",
+      "title": "Residual",
+      "content": "Vektoren $\\mathbf{b}-C\\hat{\\mathbf{x}}$. Ved en minste kvadraters løsning står den vinkelrett på $\\operatorname{Col}C$, og dens norm er avstanden $d(\\mathbf{b},\\operatorname{Col}C)$."
+    },
+    {
+      "id": "mat1120-5-2-bb-4",
+      "type": "definition",
+      "title": "$C^{T}C$",
+      "content": "Kvadratisk $n\\times n$-matrise ($n=$ antall kolonner i $C$). Invertibel nøyaktig når $C$ har full kolonnerang; da er $\\hat{\\mathbf{x}}=(C^{T}C)^{-1}C^{T}\\mathbf{b}$."
+    },
+    {
+      "id": "mat1120-5-2-bb-5",
+      "type": "definition",
+      "title": "$C^{T}\\mathbf{b}$",
+      "content": "Høyresiden i normallikningene. Komponent $i$ er prikkproduktet av kolonne $i$ i $C$ med $\\mathbf{b}$."
+    },
+    {
+      "id": "mat1120-5-2-bb-6",
+      "type": "definition",
+      "title": "Koblingen $\\operatorname{proj}_W\\mathbf{b}=C\\hat{\\mathbf{x}}$",
+      "content": "For $W=\\operatorname{Col}C$ er $C\\hat{\\mathbf{x}}$ nettopp projeksjonen av $\\mathbf{b}$ ned i kolonnerommet — samme for alle minste kvadraters løsninger."
+    },
+    {
+      "id": "mat1120-5-2-bb-7",
+      "type": "definition",
+      "title": "Projeksjonssnarvei",
+      "content": "Regn $\\mathbf{p}=\\operatorname{proj}_W\\mathbf{b}$ direkte (Gram–Schmidt + Fourier), og løs det konsistente $C\\mathbf{x}=\\mathbf{p}$. Alternativ til normallikningene."
+    },
+    {
+      "id": "mat1120-5-2-bb-8",
+      "type": "definition",
+      "title": "To belønnede veier",
+      "content": "Normallikninger eller projeksjonssnarvei — begge gir samme $C\\hat{\\mathbf{x}}$. Velg den som utnytter det du allerede har regnet (f.eks. en tidligere projeksjon)."
+    },
+    {
+      "id": "mat1120-5-2-bb-9",
+      "type": "definition",
+      "title": "Full kolonnerang",
+      "content": "Kolonnene i $C$ er lineært uavhengige ($\\operatorname{Nul}C=\\{\\mathbf{0}\\}$). Da er $C^{T}C$ invertibel og løsningen entydig."
+    },
+    {
+      "id": "mat1120-5-2-bb-10",
+      "type": "definition",
+      "title": "Rangdefekt",
+      "content": "Kolonnene i $C$ er avhengige ($\\operatorname{Nul}C\\ne\\{\\mathbf{0}\\}$). Da er $C^{T}C$ ikke invertibel og løsningen affin."
+    },
+    {
+      "id": "mat1120-5-2-bb-11",
+      "type": "definition",
+      "title": "Affin løsningsmengde",
+      "content": "$\\hat{\\mathbf{x}}=\\hat{\\mathbf{x}}_p+\\operatorname{Nul}C$ — én partikulær løsning pluss hele nullrommet. Oppstår ved rangdefekt (felle nr. 5)."
+    },
+    {
+      "id": "mat1120-5-2-bb-12",
+      "type": "definition",
+      "title": "Projeksjonen er alltid entydig",
+      "content": "Selv når $\\hat{\\mathbf{x}}$ er affin, er $C\\hat{\\mathbf{x}}=\\operatorname{proj}_W\\mathbf{b}$ det samme for alle løsninger, fordi $C\\mathbf{n}=\\mathbf{0}$ for $\\mathbf{n}\\in\\operatorname{Nul}C$."
+    },
+    {
+      "id": "mat1120-5-2-bb-13",
+      "type": "definition",
+      "title": "Residual $\\perp\\operatorname{Col}C$",
+      "content": "Betingelsen $C^{T}(\\mathbf{b}-C\\hat{\\mathbf{x}})=\\mathbf{0}$ er selve grunnen til normallikningene — residualet er ortogonalt på hver kolonne."
+    },
+    {
+      "id": "mat1120-5-2-bb-14",
+      "type": "definition",
+      "title": "Avstand ved minste kvadrater",
+      "content": "$d(\\mathbf{b},\\operatorname{Col}C)=\\|\\mathbf{b}-C\\hat{\\mathbf{x}}\\|$ — residualets norm, ikke $\\|C\\hat{\\mathbf{x}}\\|$."
+    },
+    {
+      "id": "mat1120-5-2-bb-15",
+      "type": "definition",
+      "title": "Les RREF fra vedlegget",
+      "content": "Normallikningene danner et lite $n\\times n$-system; RREF leses av Matlab-utskriften eller RREF-arket, ikke radredusert for hånd."
+    },
+    {
+      "id": "mat1120-5-2-bb-16",
+      "type": "definition",
+      "title": "Datatilpasning (linje)",
+      "content": "$y=\\beta_0+\\beta_1t$ til punkter $(t_i,y_i)$: $C$ har 1-kolonne og $t$-kolonne, $\\mathbf{b}$ er $y$-verdiene. Entydig når $t_i$-ene ikke alle er like."
+    },
+    {
+      "id": "mat1120-5-2-bb-17",
+      "type": "definition",
+      "title": "Datatilpasning (kurve)",
+      "content": "Samme prinsipp for $y=\\beta_0+\\beta_1t+\\beta_2t^2$: legg til en $t^2$-kolonne i $C$. Fortsatt lineært i $\\beta$-ene, så normallikningene gjelder."
+    },
+    {
+      "id": "mat1120-5-2-bb-18",
+      "type": "definition",
+      "title": "Sum av kvadrater",
+      "content": "«Minste kvadrater» minimerer $\\|\\mathbf{b}-C\\mathbf{x}\\|^2=\\sum(b_i-(C\\mathbf{x})_i)^2$ — summen av kvadrerte residualer."
+    },
+    {
+      "id": "mat1120-5-2-bb-19",
+      "type": "definition",
+      "title": "Minste kvadrater = projeksjon",
+      "content": "Å løse $C\\hat{\\mathbf{x}}=\\operatorname{proj}_W\\mathbf{b}$ er hele ideen: den beste tilnærmingen i $\\operatorname{Col}C$ er projeksjonen av $\\mathbf{b}$."
+    },
+    {
+      "id": "mat1120-5-2-bb-20",
+      "type": "definition",
+      "title": "Begrunn valg og entydighet",
+      "content": "Sensor vil se hvilken vei du velger og en eksplisitt setning om løsningen er entydig (full kolonnerang) eller affin (rangdefekt)."
+    },
+    {
+      "id": "mat1120-5-2-bb-21",
+      "type": "definition",
+      "title": "$C^{T}C$ er symmetrisk og positiv semidefinit",
+      "content": "Uansett $C$ er $C^{T}C$ symmetrisk, og $\\mathbf{x}^{T}C^{T}C\\mathbf{x}=\\|C\\mathbf{x}\\|^2\\ge0$. Den er positiv definit (dermed invertibel) nøyaktig når $C$ har full kolonnerang."
+    },
+    {
+      "id": "mat1120-5-2-bb-22",
+      "type": "definition",
+      "title": "Overbestemt system",
+      "content": "Flere likninger enn ukjente (flere rader enn kolonner i $C$) har som regel ingen eksakt løsning — minste kvadrater gir den beste tilnærmingen i stedet."
+    },
+    {
+      "id": "mat1120-5-2-bb-23",
+      "type": "definition",
+      "title": "Velg partikulær løsning",
+      "content": "Ved rangdefekt oppgir du gjerne den enkleste partikulære løsningen (frie variabler $=0$) og legger til $\\operatorname{Nul}C$. Alle valg gir samme $C\\hat{\\mathbf{x}}=\\operatorname{proj}_W\\mathbf{b}$."
+    },
+    {
+      "id": "mat1120-5-2-rep",
+      "type": "collapsible",
+      "title": "Repetisjonsoppgaver",
+      "buttonText": "Vis repetisjonsoppgaver",
+      "content": [
+        {
+          "id": "mat1120-5-2-R1",
+          "type": "exercise",
+          "exercise": {
+            "id": "mat1120-5-2-R1e",
+            "number": "R1",
+            "type": "classic",
+            "difficulty": "lett",
+            "task": "(Fra [kap. 5.1](/bok/mat1120/mat1120-5-1)) Hva er avstanden fra $\\mathbf{b}$ til $W$ uttrykt ved projeksjonen $\\hat{\\mathbf{b}}=\\operatorname{proj}_W\\mathbf{b}$?",
+            "solution": "$d(\\mathbf{b},W)=\\|\\mathbf{b}-\\hat{\\mathbf{b}}\\|$ — normen av residualet (restvektoren $\\mathbf{z}$), ikke $\\|\\hat{\\mathbf{b}}\\|$.",
+            "hints": [
+              "Avstand = norm av $\\mathbf{b}-\\hat{\\mathbf{b}}$."
+            ]
+          }
+        },
+        {
+          "id": "mat1120-5-2-R2",
+          "type": "exercise",
+          "exercise": {
+            "id": "mat1120-5-2-R2e",
+            "number": "R2",
+            "type": "classic",
+            "difficulty": "middels",
+            "task": "(Fra [kap. 1.2](/bok/mat1120/mat1120-1-2)) $C$ er $4\\times3$ med $\\operatorname{rang}C=2$. Er minste kvadraters løsning entydig? Hva er $\\dim\\operatorname{Nul}C$?",
+            "solution": "Ikke entydig: $\\operatorname{rang}C=2<3$, så kolonnene er avhengige og $C$ mangler full kolonnerang. $\\dim\\operatorname{Nul}C=3-2=1$, så løsningen er affin med én fri parameter.",
+            "hints": [
+              "Entydig ⇔ full kolonnerang ⇔ $\\operatorname{rang}C=$ antall kolonner.",
+              "$\\dim\\operatorname{Nul}C=$ antall kolonner $-\\operatorname{rang}C$."
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": "mat1120-5-2-symbol",
+      "type": "collapsible",
+      "title": "Symbol- og formelliste",
+      "buttonText": "Vis symboler og formler",
+      "content": [
+        {
+          "id": "mat1120-5-2-symbol-text",
+          "type": "text",
+          "content": "## Symbol- og formelliste\n\n*Oppslagsverk — alt her forklares underveis i kapitlet.*\n\nAlle symboler og formler som brukes i dette delkapitlet (5.2), samlet på ett sted.\n\n| Symbol | Betydning |\n|---|---|\n| $C$ | Koeffisientmatrisen i $C\\mathbf{x}=\\mathbf{b}$ |\n| $\\hat{\\mathbf{x}}$ | Minste kvadraters løsning |\n| $C^{T}C$ | $n\\times n$-matrisen i normallikningene |\n| $C^{T}\\mathbf{b}$ | Høyresiden i normallikningene |\n| $W=\\operatorname{Col}C$ | Kolonnerommet vi projiserer på |\n| $\\mathbf{b}-C\\hat{\\mathbf{x}}$ | Residualet (rest, $\\in W^{\\perp}$) |\n| $\\operatorname{Nul}C$ | Nullrommet — retningen i den affine løsningen |\n\n**Formler i dette delkapitlet:**\n\n$$C^{T}C\\,\\hat{\\mathbf{x}}=C^{T}\\mathbf{b}$$\nNormallikningene — alltid konsistente.\n\n$$\\operatorname{proj}_W\\mathbf{b}=C\\hat{\\mathbf{x}},\\qquad W=\\operatorname{Col}C$$\nKoblingen mellom minste kvadrater og projeksjon.\n\n$$\\hat{\\mathbf{x}}=(C^{T}C)^{-1}C^{T}\\mathbf{b}\\quad(\\text{full kolonnerang})$$\nEntydig løsning når $C^{T}C$ er invertibel.\n\n$$\\hat{\\mathbf{x}}=\\hat{\\mathbf{x}}_p+\\operatorname{Nul}C\\quad(\\text{rangdefekt})$$\nAffin løsningsmengde ved avhengige kolonner.\n\n$$d(\\mathbf{b},W)=\\|\\mathbf{b}-C\\hat{\\mathbf{x}}\\|$$\nAvstanden = residualets norm."
+        }
+      ]
+    }
+  ],
+  "exercises": []
+}

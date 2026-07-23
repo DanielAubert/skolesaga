@@ -1,0 +1,313 @@
+{
+  "id": "mat1120-6-4",
+  "courseId": "mat1120",
+  "chapterNumber": "6.4",
+  "title": "Drill: symmetrisk-kjeden — ortogonal diagonalisering → kvadratisk form → Rayleigh/kjeglesnitt",
+  "description": "Karakterskiller-kjeden i oppgave 4 drillet til automatikk: symmetrisk A → ortogonal diagonalisering A=PDPᵀ (normalisering + Gram–Schmidt i egenrom) → kvadratisk form Q=xᵀAx → definitthet, Rayleigh-maks og kjeglesnitt via x=Py, alt fra samme matrise med vedleggets egenverdier. Løsningsoppskrift, sensor-kommentert case og 12 oppgaver på eksamensnivå.",
+  "estimatedMinutes": 85,
+  "competenceGoals": [
+    "kjøre hele symmetrisk-kjeden: ortogonal diagonalisering, kvadratisk form, definitthet, Rayleigh og kjeglesnitt på samme matrise",
+    "unngå de fem faste fellene: normalisering, Gram–Schmidt i egenrom, kryssledd/2, egenverditegn, riktig egenvektor for Rayleigh-maks",
+    "føre en fullstendig oppgave 4-besvarelse med vedleggssitering, teoremnavning og eksakte svar"
+  ],
+  "content": [
+    {
+      "id": "mat1120-6-4-tip",
+      "type": "tip",
+      "title": "Eksamensvinkel",
+      "content": "**Dette er karakterskiller-kjeden i oppgave 4.** En symmetrisk $A$ (fra vedlegget) samler ofte **tre** tema i én hovedoppgave: ortogonal diagonalisering (F) → kvadratisk form/definitthet → Rayleigh eller kjeglesnitt (G). Til sammen ~55–70 % av settene. Prioritet: **kunne**.\n\nHer drilles hele kjeden til automatikk. Poengene sitter i de samme fem stedene hver gang: **normalisér** egenvektorene, **Gram–Schmidt** i et egenrom med multiplisitet, **kryssledd delt på 2**, **egenverditegn** for definitthet, og **$\\lambda_{\\max}$ i riktig egenvektor** for Rayleigh. Alt av egenverdier/vektorer leses av vedlegget."
+    },
+    {
+      "id": "mat1120-6-4-forkunnskaper",
+      "type": "text",
+      "content": "**Forkunnskaper:**\n\n- [Kap. 6.1](/bok/mat1120/mat1120-6-1) — symmetriske matriser og spektralteoremet, ortogonal diagonalisering $A=PDP^{T}$\n- [Kap. 6.2](/bok/mat1120/mat1120-6-2) — kvadratiske former, symmetrisering og definitthet\n- [Kap. 6.3](/bok/mat1120/mat1120-6-3) — Rayleigh-maksimering og kjeglesnitt\n\nHer kjedes de sammen slik en hovedoppgave gjør det."
+    },
+    {
+      "id": "mat1120-6-4-sist",
+      "type": "text",
+      "content": "## Sist du var her — kjeden på ett kort\n\n| Steg | Verktøy | Formel/regel |\n|---|---|---|\n| 1 | Symmetri ⇒ ortogonalt diagonaliserbar | $A=A^{T}\\Rightarrow A=PDP^{T}$, $P^{T}P=I$ ([6.1](/bok/mat1120/mat1120-6-1)) |\n| 2 | Normalisér + Gram–Schmidt i egenrom | $\\mathbf{u}=\\tfrac{1}{\\lVert\\mathbf{v}\\rVert}\\mathbf{v}$; $\\mathbf{w}_2=\\mathbf{v}_2-\\tfrac{\\mathbf{v}_2\\cdot\\mathbf{v}_1}{\\mathbf{v}_1\\cdot\\mathbf{v}_1}\\mathbf{v}_1$ |\n| 3 | Kvadratisk form | $Q=\\mathbf{x}^{T}A\\mathbf{x}$, kryssledd $k$ ⇒ $a_{ij}=k/2$ ([6.2](/bok/mat1120/mat1120-6-2)) |\n| 4 | Definitthet | egenverditegn: alle $>0$ posdef, blandet indefinit, én $0$ semidef |\n| 5 | Rayleigh / kjeglesnitt | $\\max_{\\lVert\\mathbf{x}\\rVert=1}Q=\\lambda_{\\max}$; $\\mathbf{x}=P\\mathbf{y}$ ⇒ $\\sum\\lambda_iy_i^2$ ([6.3](/bok/mat1120/mat1120-6-3)) |"
+    },
+    {
+      "id": "mat1120-6-4-oppskrift",
+      "type": "text",
+      "content": "## Løsningsoppskrift — symmetrisk-kjeden\n\nMøter du en symmetrisk $A$ i oppgave 4, kjør denne rekkefølgen:\n\n**1. Er $A$ symmetrisk?** Sjekk $A=A^{T}$, og navngi **spektralteoremet**: $A$ er ortogonalt diagonaliserbar, $A=PDP^{T}$.\n\n**2. Egenverdier/vektorer fra vedlegget** (`[V D]=eig`/`poly`+RREF). **Normalisér** hver egenvektor. Har en egenverdi multiplisitet $\\ge2$: sjekk om vedleggets basis for egenrommet er ortogonal; er den ikke det, kjør **Gram–Schmidt** *innen* egenrommet. Bygg ortogonal $P$ (søyler = ortonormale egenvektorer) og diagonal $D$, matchet søyle for søyle. **Kontroll:** $P^{T}P=I$.\n\n**3. Kvadratisk form.** Skal $Q$ leses av et uttrykk: **symmetrisér** (kryssledd delt på 2). Skal $Q$ **klassifiseres**: bruk **egenverditegnene** (ikke diagonalen).\n\n**4. Rayleigh.** $\\max_{\\lVert\\mathbf{x}\\rVert=1}Q=\\lambda_{\\max}$ (i egenvektoren til $\\lambda_{\\max}$), $\\min=\\lambda_{\\min}$. Navngi Teorem 6/7 §7.3.\n\n**5. Kjeglesnitt.** $\\mathbf{x}=P\\mathbf{y}$ fjerner kryssleddet; les av ellipse/hyperbel/parabel fra fortegnene og skissér i hovedaksene $y_1,y_2$.\n\nAlt føres med **eksakte** svar ($\\sqrt2$, $\\tfrac{1}{\\sqrt6}$, brøker) og en verbal konklusjon."
+    },
+    {
+      "id": "mat1120-6-4-case",
+      "type": "example",
+      "title": "Gjennomregnet case: oppgave 4-kjeden med sensor-kommentarer",
+      "problem": "La $A=\\begin{bmatrix}5&2&-2\\\\2&5&-2\\\\-2&-2&5\\end{bmatrix}$. Vedlegget gir egenverdiene $\\lambda=3$ (dobbel) med egenrom utspent av $(-1,1,0)^{T}$ og $(1,0,1)^{T}$, og $\\lambda=9$ (enkel) med egenvektor $(-1,-1,1)^{T}$.\n\n**a)** Begrunn at $A$ er ortogonalt diagonaliserbar, og finn ortogonal $P$ og diagonal $D$ med $A=PDP^{T}$.\n\n**b)** La $Q(\\mathbf{x})=\\mathbf{x}^{T}A\\mathbf{x}$. Skriv $Q$ ut i koordinater og klassifiser definittheten.\n\n**c)** Finn $\\max$ og $\\min$ av $Q$ over $\\lVert\\mathbf{x}\\rVert=1$, og oppgi hvor de nås.",
+      "solution": "**a)** $A=A^{T}$, så ved **spektralteoremet** er $A$ ortogonalt diagonaliserbar. *(**Sensor:** navngi teoremet — dette er begrunnelsen, ikke bare en påstand.)*\n\nEgenvektoren $(-1,-1,1)^{T}$ for $\\lambda=9$ er ortogonal på hele $E_3$ (ulike egenverdier). Inne i $E_3$ er $(-1,1,0)\\cdot(1,0,1)=-1\\ne0$, så vi **Gram–Schmidt**er:\n$$\\mathbf{w}_1=(-1,1,0)^{T},\\quad \\mathbf{w}_2=(1,0,1)^{T}-\\frac{-1}{2}(-1,1,0)^{T}=\\tfrac12(1,1,2)^{T}\\sim(1,1,2)^{T}.$$\n*(**Sensor:** her sitter halvparten av poengene — glemt Gram–Schmidt gir en $P$ som ikke er ortogonal.)* Kontroll: $(-1,1,0)\\cdot(1,1,2)=0$ ✓.\n\n**Normalisér** ($\\lVert(-1,1,0)\\rVert=\\sqrt2$, $\\lVert(1,1,2)\\rVert=\\sqrt6$, $\\lVert(-1,-1,1)\\rVert=\\sqrt3$):\n$$P=\\begin{bmatrix}-\\tfrac{1}{\\sqrt2}&\\tfrac{1}{\\sqrt6}&-\\tfrac{1}{\\sqrt3}\\\\[2pt]\\tfrac{1}{\\sqrt2}&\\tfrac{1}{\\sqrt6}&-\\tfrac{1}{\\sqrt3}\\\\[2pt]0&\\tfrac{2}{\\sqrt6}&\\tfrac{1}{\\sqrt3}\\end{bmatrix},\\qquad D=\\begin{bmatrix}3&0&0\\\\0&3&0\\\\0&0&9\\end{bmatrix}.$$\n*(**Sensor:** $P^{T}P=I$ og søyle $j$ i $P$ ↔ element $(j,j)$ i $D$ — kontrollér begge.)* Da er $A=PDP^{T}$.\n\n**b)** Diagonalen $5,5,5$ og kryssledd (delt på 2): $a_{12}=2\\Rightarrow 4x_1x_2$, $a_{13}=-2\\Rightarrow -4x_1x_3$, $a_{23}=-2\\Rightarrow -4x_2x_3$:\n$$Q(\\mathbf{x})=5x_1^2+5x_2^2+5x_3^2+4x_1x_2-4x_1x_3-4x_2x_3.$$\nEgenverdiene $3,3,9$ er **alle $>0$** $\\Rightarrow$ $Q$ er **positiv definit**. *(**Sensor:** klassifiser fra egenverditegnene, ikke fra diagonalen $5,5,5$.)*\n\n**c)** Ved **Rayleigh (Teorem 6 §7.3)**: $\\max_{\\lVert\\mathbf{x}\\rVert=1}Q=\\lambda_{\\max}=9$, oppnådd i den normaliserte egenvektoren $\\tfrac{1}{\\sqrt3}(-1,-1,1)^{T}$; $\\min=\\lambda_{\\min}=3$, oppnådd for enhver enhetsvektor i $E_3$. **Konklusjon:** $A=PDP^{T}$ som i a), $Q$ posdef, $\\max=9$, $\\min=3$ — eksakte verdier."
+    },
+    {
+      "id": "mat1120-6-4-case-signal",
+      "type": "tip",
+      "title": "Hva casen trener",
+      "content": "Legg merke til at **samme matrise** bar hele oppgaven: egenverdiene fra a) ga både definittheten i b) og Rayleigh-verdiene i c). Å se den koblingen sparer tid og er selve poenget med oppgave 4. Fellene ligger fast: (1) glemt Gram–Schmidt i $E_3$; (2) klassifisering fra diagonalen; (3) feil egenvektor for maksimum. Oppgavene under driller hvert ledd hver for seg og deretter kjedet."
+    },
+    {
+      "id": "mat1120-6-4-drill-head",
+      "type": "text",
+      "content": "## Drilloppgaver\n\nGjør dem gjerne over flere økter. De stiger i vanskegrad og dekker hvert ledd i kjeden; de siste kjeder alt sammen slik oppgave 4 gjør."
+    },
+    {
+      "id": "mat1120-6-4-e1",
+      "type": "exercise",
+      "exercise": {
+        "id": "mat1120-6-4-e1",
+        "number": "1",
+        "type": "classic",
+        "difficulty": "lett",
+        "task": "Avgjør uten regning om matrisen er ortogonalt diagonaliserbar, og oppgi begrunnelsen: **a)** $\\begin{bmatrix}7&-1\\\\-1&4\\end{bmatrix}$ **b)** $\\begin{bmatrix}2&5\\\\-5&2\\end{bmatrix}$.",
+        "solution": "**a)** Symmetrisk ($a_{12}=a_{21}=-1$) ⇒ ortogonalt diagonaliserbar (spektralteoremet).\n\n**b)** Ikke symmetrisk ($a_{12}=5\\ne-5=a_{21}$) ⇒ spektralteoremet gjelder ikke (egenverdiene er faktisk komplekse).",
+        "hints": [
+          "Sjekk om $A=A^{T}$.",
+          "Bare symmetriske matriser er ortogonalt diagonaliserbare."
+        ]
+      }
+    },
+    {
+      "id": "mat1120-6-4-e2",
+      "type": "exercise",
+      "exercise": {
+        "id": "mat1120-6-4-e2",
+        "number": "2",
+        "type": "classic",
+        "difficulty": "lett",
+        "task": "Skriv $Q(x_1,x_2)=4x_1^2+7x_2^2-10x_1x_2$ som $\\mathbf{x}^{T}A\\mathbf{x}$ med symmetrisk $A$.",
+        "solution": "Diagonal $4,7$; kryssledd $-10x_1x_2\\Rightarrow a_{12}=a_{21}=-5$. Altså $A=\\begin{bmatrix}4&-5\\\\-5&7\\end{bmatrix}$.",
+        "hints": [
+          "Del kryssleddskoeffisienten $-10$ på 2."
+        ]
+      }
+    },
+    {
+      "id": "mat1120-6-4-e3",
+      "type": "exercise",
+      "exercise": {
+        "id": "mat1120-6-4-e3",
+        "number": "3",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "Ortogonaldiagonaliser $A=\\begin{bmatrix}1&2\\\\2&1\\end{bmatrix}$. Vedlegget: egenverdi $3$ med egenvektor $(1,1)^{T}$, egenverdi $-1$ med egenvektor $(1,-1)^{T}$.",
+        "solution": "Symmetrisk ⇒ spektralteoremet. Distinkte egenverdier, så egenvektorene er ortogonale ($(1,1)\\cdot(1,-1)=0$); normalisér (begge lengde $\\sqrt2$):\n$$P=\\frac{1}{\\sqrt2}\\begin{bmatrix}1&1\\\\1&-1\\end{bmatrix},\\qquad D=\\begin{bmatrix}3&0\\\\0&-1\\end{bmatrix}.$$\nKontroll $P^{T}P=I$ ✓. Da $A=PDP^{T}$.",
+        "hints": [
+          "Distinkte egenverdier ⇒ bare normaliser.",
+          "Del hver egenvektor på $\\sqrt2$."
+        ]
+      }
+    },
+    {
+      "id": "mat1120-6-4-e4",
+      "type": "exercise",
+      "exercise": {
+        "id": "mat1120-6-4-e4",
+        "number": "4",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "En symmetrisk $A$ har egenverdi $6$ (dobbel) med egenrom utspent av $(1,1,0)^{T}$ og $(1,0,-1)^{T}$, og egenverdi $-3$ med egenvektor $(1,-1,1)^{T}$. Finn to ortonormale egenvektorer i $E_6$ ved Gram–Schmidt.",
+        "solution": "$(1,1,0)\\cdot(1,0,-1)=1\\ne0$, så Gram–Schmidt trengs.\n$$\\mathbf{w}_1=(1,1,0)^{T},\\quad \\mathbf{w}_2=(1,0,-1)^{T}-\\tfrac{1}{2}(1,1,0)^{T}=\\tfrac12(1,-1,-2)^{T}\\sim(1,-1,-2)^{T}.$$\nKontroll: $(1,1,0)\\cdot(1,-1,-2)=0$ ✓. Normalisér ($\\sqrt2$, $\\sqrt6$):\n$$\\mathbf{u}_1=\\tfrac{1}{\\sqrt2}(1,1,0)^{T},\\qquad \\mathbf{u}_2=\\tfrac{1}{\\sqrt6}(1,-1,-2)^{T}.$$",
+        "hints": [
+          "Regn skalarproduktet av de to $E_6$-vektorene.",
+          "Gram–Schmidt: $\\mathbf{w}_2=\\mathbf{v}_2-\\tfrac{\\mathbf{v}_2\\cdot\\mathbf{v}_1}{\\mathbf{v}_1\\cdot\\mathbf{v}_1}\\mathbf{v}_1$, deretter normaliser."
+        ]
+      }
+    },
+    {
+      "id": "mat1120-6-4-e5",
+      "type": "exercise",
+      "exercise": {
+        "id": "mat1120-6-4-e5",
+        "number": "5",
+        "type": "classic",
+        "difficulty": "lett",
+        "task": "Klassifiser definittheten når den symmetriske matrisen har egenverdier: **a)** $3,7,2$ **b)** $-1,-5,-2$ **c)** $-4,0,6$ **d)** $0,0,3$.",
+        "solution": "**a)** Alle $>0$ ⇒ **positiv definit**.\n\n**b)** Alle $<0$ ⇒ **negativ definit**.\n\n**c)** Blandet fortegn ⇒ **indefinit**.\n\n**d)** Alle $\\ge0$, to nuller ⇒ **positiv semidefinit**.",
+        "hints": [
+          "Tell fortegnene på egenverdiene.",
+          "En egenverdi 0 ⇒ semidefinit; blandet fortegn ⇒ indefinit."
+        ]
+      }
+    },
+    {
+      "id": "mat1120-6-4-e6",
+      "type": "exercise",
+      "exercise": {
+        "id": "mat1120-6-4-e6",
+        "number": "6",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "La $A$ være symmetrisk med egenverdier $3,3,9$ (case-matrisen). Finn $\\max$ og $\\min$ av $\\mathbf{x}^{T}A\\mathbf{x}$ over $\\lVert\\mathbf{x}\\rVert=1$, og angi om formen er definit.",
+        "solution": "Ved Rayleigh er $\\max=\\lambda_{\\max}=9$ og $\\min=\\lambda_{\\min}=3$. Alle egenverdiene er $>0$, så $Q$ er **positiv definit** (og $\\min>0$ bekrefter at $Q>0$ på hele enhetssfæren).",
+        "hints": [
+          "Rayleigh-maks/min er største/minste egenverdi.",
+          "Alle egenverdier $>0$ ⇒ posdef."
+        ]
+      }
+    },
+    {
+      "id": "mat1120-6-4-e7",
+      "type": "exercise",
+      "exercise": {
+        "id": "mat1120-6-4-e7",
+        "number": "7",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "Avgjør hvilken kurve $\\mathbf{x}^{T}A\\mathbf{x}=8$ er når $A=\\begin{bmatrix}3&1\\\\1&3\\end{bmatrix}$ (vedlegg: egenverdier $4$ med $(1,1)^{T}$, $2$ med $(1,-1)^{T}$), og **skisser** den i hovedaksene.",
+        "solution": "Symmetrisér er allerede gjort ($A$ gitt). Egenverdiene $2,4$ er begge $>0$ (posdef) ⇒ **ellipse**. Variabelskifte $\\mathbf{x}=P\\mathbf{y}$ (søyle 1 ↔ $\\lambda=2$ via $(1,-1)^{T}$, søyle 2 ↔ $\\lambda=4$ via $(1,1)^{T}$):\n$$3x_1^2+2x_1x_2+3x_2^2=2y_1^2+4y_2^2=8\\ \\Rightarrow\\ \\frac{y_1^2}{4}+\\frac{y_2^2}{2}=1.$$\nHalvakser $2$ langs $y_1$ og $\\sqrt2$ langs $y_2$. Skisse i hovedaksene:",
+        "hints": [
+          "Egenverditegn ⇒ kurvetype; begge positive ⇒ ellipse.",
+          "Del $2y_1^2+4y_2^2=8$ på 8 for standardform; halvaksen langs $y_i$ er $\\sqrt{c/\\lambda_i}$ med $c=8$."
+        ]
+      }
+    },
+    {
+      "id": "mat1120-6-4-e7-fig",
+      "type": "image",
+      "src": "/images/textbook/mat1120/mat1120-6-4-ellipse.svg",
+      "alt": "Koordinatsystem med hovedaksene y-en og y-to. En ellipse sentrert i origo når til y-en lik pluss/minus 2 langs den vannrette y-en-aksen og til y-to lik pluss/minus kvadratroten av to langs den loddrette y-to-aksen.",
+      "caption": "Ellipsen $\\tfrac{y_1^2}{4}+\\tfrac{y_2^2}{2}=1$ fra oppgave 7, tegnet i hovedaksene. Halvaksen er $2$ langs $y_1$ (minste egenverdi $\\lambda=2$ gir lengste akse) og $\\sqrt2$ langs $y_2$."
+    },
+    {
+      "id": "mat1120-6-4-e8",
+      "type": "exercise",
+      "exercise": {
+        "id": "mat1120-6-4-e8",
+        "number": "8",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "En student ortogonaldiagonaliserer en symmetrisk $A$ med dobbel egenverdi og skriver $P$ med søylene $(1,1,0)^{T}$, $(1,0,1)^{T}$ (uortogonaliserte $E$-vektorer) og $\\tfrac{1}{\\sqrt3}(1,-1,-1)^{T}$. Hva er galt, og hva må gjøres?",
+        "solution": "De to første søylene er egenvektorer i samme egenrom, men **ikke ortogonale** ($(1,1,0)\\cdot(1,0,1)=1\\ne0$) og heller ikke normaliserte. Da er $P^{T}P\\ne I$, så $P$ er ikke ortogonal og $A\\ne PDP^{T}$. Retting: kjør **Gram–Schmidt** på $(1,1,0),(1,0,1)$ → $(1,1,0)$ og $(1,-1,2)$, og **normalisér** alle tre søyler. (Den tredje søylen var allerede riktig normalisert.)",
+        "hints": [
+          "Sjekk $P^{T}P$: er søylene ortonormale?",
+          "To egenvektorer i samme egenrom må gjøres ortogonale (Gram–Schmidt) og normaliseres."
+        ]
+      }
+    },
+    {
+      "id": "mat1120-6-4-e9",
+      "type": "exercise",
+      "exercise": {
+        "id": "mat1120-6-4-e9",
+        "number": "9",
+        "type": "classic",
+        "difficulty": "vanskelig",
+        "task": "La $A$ være symmetrisk med egenverdier $1,4$ (fra vedlegg), $2\\times2$, egenvektorer $(2,1)^{T}$ for $\\lambda=4$ og $(1,-2)^{T}$ for $\\lambda=1$.\n\n**a)** Finn ortogonal $P$ og $D$ med $A=PDP^{T}$.\n\n**b)** Klassifiser $Q=\\mathbf{x}^{T}A\\mathbf{x}$ og oppgi $\\max_{\\lVert\\mathbf{x}\\rVert=1}Q$.\n\n**c)** Hvilken kurve er $Q=4$?",
+        "solution": "**a)** Distinkte egenverdier ⇒ egenvektorene ortogonale ($(2,1)\\cdot(1,-2)=0$); begge lengde $\\sqrt5$. Matchet (rekkefølge $4,1$):\n$$P=\\frac{1}{\\sqrt5}\\begin{bmatrix}2&1\\\\1&-2\\end{bmatrix},\\qquad D=\\begin{bmatrix}4&0\\\\0&1\\end{bmatrix}.$$\n**b)** Begge egenverdiene $>0$ ⇒ **positiv definit**; $\\max_{\\lVert\\mathbf{x}\\rVert=1}Q=\\lambda_{\\max}=4$ (i $\\tfrac{1}{\\sqrt5}(2,1)^{T}$).\n\n**c)** Posdef ⇒ **ellipse**. I hovedaksene $4y_1^2+y_2^2=4\\Rightarrow \\dfrac{y_1^2}{1}+\\dfrac{y_2^2}{4}=1$ — halvakser $1$ (langs $y_1$) og $2$ (langs $y_2$).",
+        "hints": [
+          "Normaliser egenvektorene (lengde $\\sqrt5$) og match $P$ med $D$.",
+          "Posdef ⇒ ellipse; Rayleigh-maks er største egenverdi."
+        ]
+      }
+    },
+    {
+      "id": "mat1120-6-4-e10",
+      "type": "exercise",
+      "exercise": {
+        "id": "mat1120-6-4-e10",
+        "number": "10",
+        "type": "classic",
+        "difficulty": "vanskelig",
+        "task": "La $B$ være symmetrisk og positiv definit med egenverdier $2,5,10$.\n\n**a)** Vis at $B$ er invertibel og finn egenverdiene til $B^{-1}$.\n\n**b)** Bruk Rayleigh på $B^{-1}$ til å finne $\\max_{\\lVert\\mathbf{x}\\rVert=1}\\mathbf{x}^{T}B^{-1}\\mathbf{x}$.",
+        "solution": "**a)** Alle egenverdier $>0$ ⇒ $\\det B=2\\cdot5\\cdot10=100\\ne0$, så $B$ invertibel. Fra $B=PDP^{T}$ er $B^{-1}=PD^{-1}P^{T}$ med egenverdier $\\tfrac12,\\tfrac15,\\tfrac{1}{10}$ (samme egenvektorer). Alle $>0$, så $B^{-1}$ er også posdef.\n\n**b)** Rayleigh på $B^{-1}$: $\\max=\\lambda_{\\max}(B^{-1})=\\tfrac12$, oppnådd i egenvektoren til den **minste** egenverdien til $B$ (nemlig $2$, siden $1/\\lambda$ er størst når $\\lambda$ er minst).",
+        "hints": [
+          "Egenverdiene til $B^{-1}$ er $1/\\lambda_i$.",
+          "Rayleigh-maks for $B^{-1}$ er den største av $1/\\lambda_i$ = $1/\\lambda_{\\min}(B)$."
+        ]
+      }
+    },
+    {
+      "id": "mat1120-6-4-e11",
+      "type": "exercise",
+      "exercise": {
+        "id": "mat1120-6-4-e11",
+        "number": "11",
+        "type": "classic",
+        "difficulty": "vanskelig",
+        "task": "Full oppgave 4-simulering. La $A=\\begin{bmatrix}5&2&-2\\\\2&5&-2\\\\-2&-2&5\\end{bmatrix}$ (case-matrisen, egenverdier $3,3,9$).\n\n**a)** Skriv den kvadratiske formen $Q=\\mathbf{x}^{T}A\\mathbf{x}$ ut i koordinater.\n\n**b)** Bruk et ortogonalt variabelskifte til å skrive $Q$ uten kryssledd, og klassifiser $Q$.\n\n**c)** Finn $\\max$ og $\\min$ av $Q$ over $\\lVert\\mathbf{x}\\rVert=1$.",
+        "solution": "**a)** Diagonal $5,5,5$, kryssledd delt på 2 (her ganges tilbake): $a_{12}=2,a_{13}=-2,a_{23}=-2$:\n$$Q=5x_1^2+5x_2^2+5x_3^2+4x_1x_2-4x_1x_3-4x_2x_3.$$\n**b)** Med ortogonal $P$ fra casen og $\\mathbf{x}=P\\mathbf{y}$: $Q=3y_1^2+3y_2^2+9y_3^2$ (ingen kryssledd). Alle koeffisienter $>0$ ⇒ **positiv definit**.\n\n**c)** Rayleigh: $\\max=9$ (i egenvektoren til $\\lambda=9$), $\\min=3$ (i $E_3$). Alt kjedet på **samme** $A$ — egenverdiene $3,3,9$ bar både b) og c).",
+        "hints": [
+          "Symmetriser tilbake: $a_{ij}$ gir $2a_{ij}x_ix_j$.",
+          "I hovedaksene er $Q=\\sum\\lambda_iy_i^2$; egenverditegn ⇒ definitthet, egenverdi-ytterpunkt ⇒ Rayleigh."
+        ]
+      }
+    },
+    {
+      "id": "mat1120-6-4-e12",
+      "type": "exercise",
+      "exercise": {
+        "id": "mat1120-6-4-e12",
+        "number": "12",
+        "type": "classic",
+        "difficulty": "vanskelig",
+        "task": "(krevende) La $A$ være symmetrisk $2\\times2$ med $\\mathbf{x}^{T}A\\mathbf{x}=x_1^2-2\\sqrt3\\,x_1x_2-x_2^2$. Vedlegget gir egenverdier $\\pm2$ med egenvektorer $(\\sqrt3,-1)^{T}$ (for $2$) og $(1,\\sqrt3)^{T}$ (for $-2$). Klassifiser kurven $\\mathbf{x}^{T}A\\mathbf{x}=4$ og oppgi den reduserte formen.",
+        "solution": "Symmetrisering: diagonal $1,-1$; kryssledd $-2\\sqrt3\\Rightarrow a_{12}=a_{21}=-\\sqrt3$, så $A=\\begin{bmatrix}1&-\\sqrt3\\\\-\\sqrt3&-1\\end{bmatrix}$. Egenverdiene $2,-2$ har **motsatt fortegn** (indefinit) ⇒ **hyperbel**. Med $\\mathbf{x}=P\\mathbf{y}$ (ortonormale egenvektorer, begge lengde 2):\n$$x_1^2-2\\sqrt3\\,x_1x_2-x_2^2=2y_1^2-2y_2^2=4\\ \\Rightarrow\\ \\frac{y_1^2}{2}-\\frac{y_2^2}{2}=1.$$\nEn likesidet hyperbel som åpner langs $y_1$, med toppunkter $y_1=\\pm\\sqrt2$ og asymptoter $y_2=\\pm y_1$.",
+        "hints": [
+          "Symmetriser: kryssledd $-2\\sqrt3$ gir $a_{12}=-\\sqrt3$.",
+          "Motsatt fortegn på egenverdiene ⇒ hyperbel; del $2y_1^2-2y_2^2=4$ på 4."
+        ]
+      }
+    },
+    {
+      "id": "mat1120-6-4-warn",
+      "type": "warning",
+      "title": "Typiske feil i kjeden",
+      "content": "- **Ikke-normaliserte egenvektorer** ⇒ $P$ ikke ortogonal ⇒ $A\\ne PDP^{T}$.\n- **Gram–Schmidt glemt i et egenrom med multiplisitet** ⇒ søylene ikke ortogonale (sjekk skalarproduktet av vedleggets $E$-basis).\n- **Kryssledd ikke delt på 2** ⇒ feil (usymmetrisk) $A$ og feil egenverdier.\n- **Klassifisering fra diagonalen** i stedet for egenverditegnene.\n- **Feil egenvektor for Rayleigh-maks** (bruker $\\lambda_{\\min}$) eller glemt $\\lVert\\mathbf{x}\\rVert=1$.\n- **Skisserer i originalaksene** i stedet for hovedaksene $y_1,y_2$.\n- **Regner egenverdier for hånd** i stedet for å lese vedlegget."
+    },
+    {
+      "id": "mat1120-6-4-bb",
+      "type": "text",
+      "content": "## Begrepsbank til drillen\n\n*Flashcard-/repetisjonsstoff — hopp trygt over ved førstegangslesing.*"
+    },
+    {
+      "id": "mat1120-6-4-bb-kjeden",
+      "type": "definition",
+      "title": "Symmetrisk-kjeden",
+      "content": "Fast oppgave 4-struktur: symmetrisk $A$ → ortogonal diagonalisering $A=PDP^{T}$ → kvadratisk form → definitthet/Rayleigh/kjeglesnitt, alt på **samme** matrise fra vedlegget. Å se gjenbruken sparer tid."
+    },
+    {
+      "id": "mat1120-6-4-bb-fem-poeng",
+      "type": "definition",
+      "title": "De fem poengstedene",
+      "content": "Poengene sitter fast: (1) normalisér; (2) Gram–Schmidt i egenrom; (3) kryssledd/2; (4) egenverditegn for definitthet; (5) $\\lambda_{\\max}$ i riktig egenvektor for Rayleigh."
+    },
+    {
+      "id": "mat1120-6-4-bb-kontroll-PtP",
+      "type": "definition",
+      "title": "Kontroll PᵀP = I",
+      "content": "Etter at $P$ er bygd: regn $P^{T}P$ og sjekk at det blir $I$. Denne ene kontrollen fanger både glemt normalisering og glemt Gram–Schmidt — de to vanligste feilene i kjeden."
+    },
+    {
+      "id": "mat1120-6-4-bb-gjenbruk",
+      "type": "definition",
+      "title": "Delpunktgjenbruk",
+      "content": "Egenverdiene som gir $P,D$ i første deloppgave, gir også definittheten og Rayleigh-verdiene i de neste. Regn dem én gang, bruk dem hele veien."
+    },
+    {
+      "id": "mat1120-6-4-bb-eksakt",
+      "type": "definition",
+      "title": "Eksakte svar",
+      "content": "Svar med $\\sqrt2$, $\\tfrac{1}{\\sqrt6}$, brøker og heltall — aldri desimaltilnærming. Et urent svar signaliserer regnefeil eller feil vedleggsavlesning."
+    },
+    {
+      "id": "mat1120-6-4-bb-navngi",
+      "type": "definition",
+      "title": "Navngi teoremene",
+      "content": "Skriv «ved spektralteoremet», «ved Rayleigh (Teorem 6 §7.3)». Teoremnavning er en del av føringsstandarden og premieres i sensuren."
+    },
+    {
+      "id": "mat1120-6-4-symbol",
+      "type": "collapsible",
+      "title": "Symbol- og formelliste",
+      "buttonText": "Vis symboler og formler",
+      "content": [
+        {
+          "id": "mat1120-6-4-symbol-tekst",
+          "type": "text",
+          "content": "## Symbol- og formelliste\n\n*Oppslagsverk — alt her forklares underveis i drillen.*\n\n| Symbol | Betydning |\n|---|---|\n| $A=PDP^{T}$ | Ortogonal diagonalisering (symmetrisk $A$) |\n| $P^{T}P=I$ | Ortogonalitetskontroll |\n| $Q=\\mathbf{x}^{T}A\\mathbf{x}$ | Kvadratisk form |\n| $a_{ij}=k/2$ | Symmetrisering av kryssledd $k\\,x_ix_j$ |\n| $\\lambda_{\\max},\\lambda_{\\min}$ | Rayleigh-maks/min på enhetssfæren |\n| $\\mathbf{x}=P\\mathbf{y}$ | Hovedaksetransformasjon (kjeglesnitt) |\n\n**Kjeden i én linje:** $A=A^{T}$ ⇒ (normalisér + Gram–Schmidt) ⇒ $A=PDP^{T}$ ⇒ $Q=\\sum\\lambda_iy_i^2$ ⇒ {definitthet fra fortegn, $\\max/\\min=\\lambda_{\\max}/\\lambda_{\\min}$, ellipse/hyperbel/parabel fra fortegn}."
+        }
+      ]
+    }
+  ],
+  "exercises": []
+}

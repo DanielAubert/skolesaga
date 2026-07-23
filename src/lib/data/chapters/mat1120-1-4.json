@@ -1,0 +1,304 @@
+{
+  "id": "mat1120-1-4",
+  "courseId": "mat1120",
+  "chapterNumber": "1.4",
+  "title": "Drill: oppgave 1-kjeden — Col/Nul/basis/rang fra vedlegg",
+  "description": "Hele oppgave 1-repertoaret drillet til automatikk: fra én vedleggs-RREF høster du Col/Nul-basis (riktig kilde), rang, dimensjonsteorem-kontroll, lineærkombinasjoner, løsbarhet og AB = O-konstruksjon — med korrekt vedleggssitering hele veien.",
+  "estimatedMinutes": 85,
+  "competenceGoals": [
+    "kjøre løsningsoppskriften for oppgave 1-typen (Col/Nul/Row-basis fra RREF): sitere vedlegget og lese Col/Nul/Row-basis, rang og lineærkombinasjoner riktig",
+    "avgjøre om b ligger i Col A og konstruere en matrise B med AB = O fra nullrommet",
+    "kontrollere svar med dimensjonsteoremet og føre en A-besvarelse med verbal konklusjon og eksakte svar"
+  ],
+  "content": [
+    {
+      "id": "mat1120-1-4-tip",
+      "type": "tip",
+      "title": "Eksamensvinkel",
+      "content": "**Dette kapitlet drilles oppgave 1 til automatikk.** Sjanger A ($\\operatorname{Col}/\\operatorname{Nul}/\\operatorname{Row}$-basis, rang, lineærkombinasjoner, $\\mathbf{b}\\in\\operatorname{Col}A$, $AB=O$) er den faste oppgave 1 i ~100 % av settene, ofte kjedet på **én matrise** gjennom flere deler. Målet er at hele repertoaret sitter så du bruker minst mulig tid på oppgave 1 og sparer tid til de tunge oppgavene.\n\n- Alt leses av vedlegget. **Aldri** manuell radreduksjon av store matriser.\n- Sensor gir føringspoeng for å **sitere vedlegget** og for **riktig $\\operatorname{Col}A$-basis fra original** — de to stedene folk taper poeng.\n- Regn ~10–20 min på en typisk oppgave 1 på selve eksamen.\n\nUnder følger løsningsoppskriften, en fullt gjennomregnet og sensor-kommentert oppgave 1-case, og en stigende oppgavebank. Forkunnskaper: [kap. 1.1](/bok/mat1120/mat1120-1-1)–[1.3](/bok/mat1120/mat1120-1-3)."
+    },
+    {
+      "id": "mat1120-1-4-oppskrift",
+      "type": "text",
+      "content": "## Løsningsoppskrift — oppgave 1 steg for steg\n\nMøter du en sjanger A-oppgave, kjør denne algoritmen:\n\n1. **Les vedleggets RREF** — radreduser aldri selv. Skriv «Fra vedlegget ($\\operatorname{rref}$) ser vi at RREF er …».\n2. **Marker pivotkolonner og frie variabler** direkte i RREF.\n3. **Les av det oppgaven ber om:**\n   - $\\operatorname{Col}A$-basis $=$ de **opprinnelige** pivotkolonnene i $A$ (ikke RREF-kolonnene).\n   - $\\operatorname{Nul}A$-basis $=$ spesielle løsninger (én fri variabel $=1$, resten $0$).\n   - $\\operatorname{Row}A$-basis $=$ ikke-null-radene i RREF.\n   - $\\operatorname{rang}A=$ antall pivoter.\n   - Lineærkombinasjoner: koeffisientene i ikke-pivotkolonnene i RREF.\n   - $\\mathbf{b}\\in\\operatorname{Col}A$? Les RREF av $[\\,A\\mid\\mathbf{b}\\,]$: pivot i høyresiden $\\Rightarrow$ nei.\n   - $AB=O$: kolonner i $B$ hentes fra $\\operatorname{Nul}A$.\n4. **Konkluder med navngitt kriterium** og bruk **dimensjonsteoremet** ($\\operatorname{rang}A+\\dim\\operatorname{Nul}A=n$) som kontroll. Skriv en verbal konklusjonssetning."
+    },
+    {
+      "id": "mat1120-1-4-m-sitering",
+      "type": "definition",
+      "title": "Vedleggssitering (føringspoeng)",
+      "content": "Start hvert sjanger A-svar med «Fra vedlegget ($\\operatorname{rref}$) ser vi at RREF er …». Sensor gir uttelling for å bruke og *referere* vedlegget; manuell radreduksjon av en $\\ge3\\times4$-matrise gir ikke poeng og koster tid."
+    },
+    {
+      "id": "mat1120-1-4-m-colregel",
+      "type": "definition",
+      "title": "Col A-regelen (drill)",
+      "content": "Basis for $\\operatorname{Col}A=$ de **opprinnelige** kolonnene i $A$ på pivotplassene — aldri RREF-kolonnene. Dette er det ene stedet flest taper poeng på oppgave 1."
+    },
+    {
+      "id": "mat1120-1-4-m-nulregel",
+      "type": "definition",
+      "title": "Nul A-regelen (drill)",
+      "content": "Basis for $\\operatorname{Nul}A=$ spesielle løsninger: sett én fri variabel $=1$, resten $=0$, les de bundne av RREF-likningene. Én basisvektor per fri variabel."
+    },
+    {
+      "id": "mat1120-1-4-m-rowregel",
+      "type": "definition",
+      "title": "Row A-regelen (drill)",
+      "content": "Basis for $\\operatorname{Row}A=$ de ikke-null-radene i RREF (brukes direkte). $\\dim\\operatorname{Row}A=\\dim\\operatorname{Col}A=\\operatorname{rang}A$."
+    },
+    {
+      "id": "mat1120-1-4-m-dimkontroll",
+      "type": "definition",
+      "title": "Dimensjonsteorem-kontrollen",
+      "content": "Etter at du har funnet $\\operatorname{Col}$- og $\\operatorname{Nul}$-basis: sjekk $\\operatorname{rang}A+\\dim\\operatorname{Nul}A=n$ (antall søyler). Stemmer ikke summen, er det en tellefeil et sted."
+    },
+    {
+      "id": "mat1120-1-4-m-btest",
+      "type": "definition",
+      "title": "b ∈ Col A-testen",
+      "content": "$A\\mathbf{x}=\\mathbf{b}$ konsistent $\\iff\\mathbf{b}\\in\\operatorname{Col}A\\iff\\operatorname{rang}[\\,A\\mid\\mathbf{b}\\,]=\\operatorname{rang}A$. Les RREF av totalmatrisen: en pivot i høyresidekolonnen betyr inkonsistent (da ligger $\\mathbf{b}$ utenfor $\\operatorname{Col}A$)."
+    },
+    {
+      "id": "mat1120-1-4-case",
+      "type": "example",
+      "title": "Gjennomregnet oppgave 1-case (sensor-kommentert)",
+      "problem": "La\n$$A=\\begin{bmatrix}1&-1&2&0&3\\\\2&-2&3&1&4\\\\1&-1&1&1&1\\\\0&0&1&-1&2\\end{bmatrix}.$$\nVedlegget gir $\\operatorname{rref}(A)=\\begin{bmatrix}1&-1&0&2&-1\\\\0&0&1&-1&2\\\\0&0&0&0&0\\\\0&0&0&0&0\\end{bmatrix}$.\n\n**a)** Finn en basis for $\\operatorname{Col}A$ og en for $\\operatorname{Nul}A$. Oppgi $\\operatorname{rang}A$ og kontroller med dimensjonsteoremet.\n\n**b)** Skriv kolonne 4 i $A$ som en lineærkombinasjon av $\\operatorname{Col}A$-basisen.\n\n**c)** Ligger $\\mathbf{b}=(-1,-1,0,-1)^T$ i $\\operatorname{Col}A$?",
+      "solution": "Fra vedlegget ($\\operatorname{rref}$) ser vi at pivotkolonnene er **1 og 3**, og de frie variablene er $x_2,x_4,x_5$. *[Sensornotat: her siteres vedlegget — føringspoeng.]*\n\n**a)** **$\\operatorname{Col}A$-basis** $=$ de opprinnelige kolonnene 1 og 3 i $A$:\n$$\\Big\\{(1,2,1,0)^T,\\ (2,3,1,1)^T\\Big\\}.$$\n*[Sensornotat: basis fra ORIGINAL $A$, ikke RREF — det andre føringspoenget.]*\n\n**$\\operatorname{Nul}A$-basis:** RREF-likningene er $x_1=x_2-2x_4+x_5$ og $x_3=x_4-2x_5$. Spesielle løsninger:\n- $x_2=1$: $(1,1,0,0,0)^T$\n- $x_4=1$: $(-2,0,1,1,0)^T$\n- $x_5=1$: $(1,0,-2,0,1)^T$\n\n$\\operatorname{rang}A=2$ (to pivoter). **Dimensjonsteoremet:** $\\operatorname{rang}A+\\dim\\operatorname{Nul}A=2+3=5=$ antall søyler. ✓\n\n**b)** Kolonne 4 i RREF er $(2,-1)$ mot pivotradene, så $\\mathbf{a}_4=2\\,\\mathbf{a}_1-\\mathbf{a}_3$. Kontroll i $A$: $2(1,2,1,0)^T-(2,3,1,1)^T=(0,1,1,-1)^T=\\mathbf{a}_4$. ✓\n\n**c)** Vi sjekker $\\mathbf{b}$. Legg merke til at $\\mathbf{b}=\\mathbf{a}_1-\\mathbf{a}_3=(1,2,1,0)^T-(2,3,1,1)^T=(-1,-1,0,-1)^T$. Altså er $\\mathbf{b}$ en lineærkombinasjon av $\\operatorname{Col}A$-basisen, så **$\\mathbf{b}\\in\\operatorname{Col}A$** (med $\\mathbf{x}=(1,0,-1,0,0)^T$ som én løsning). Ekvivalent: $\\operatorname{rang}[\\,A\\mid\\mathbf{b}\\,]=\\operatorname{rang}A=2$.\n\n*[Sensornotat: verbal konklusjonssetning og eksakte svar — full uttelling.]*"
+    },
+    {
+      "id": "mat1120-1-4-bank-tekst",
+      "type": "text",
+      "content": "## Oppgavebank — stigende vanskelighet\n\nOppgavene bygger på den samme metoden. Har du gjort casen over, har du sett alt du trenger. Signalbokser om hva hver oppgave tester står **etter** løsningen."
+    },
+    {
+      "id": "mat1120-1-4-e1",
+      "type": "exercise",
+      "exercise": {
+        "id": "mat1120-1-4-e1",
+        "number": "1",
+        "type": "classic",
+        "difficulty": "lett",
+        "task": "Vedlegget gir $\\operatorname{rref}(A)=\\begin{bmatrix}1&0&2\\\\0&1&-1\\\\0&0&0\\end{bmatrix}$ for $A=\\begin{bmatrix}1&1&1\\\\0&1&-1\\\\2&1&3\\end{bmatrix}$. Oppgi $\\operatorname{rang}A$ og $\\dim\\operatorname{Nul}A$.",
+        "solution": "To pivoter, så $\\operatorname{rang}A=2$. Dimensjonsteoremet: $\\dim\\operatorname{Nul}A=3-2=1$.\n\n*Tester: rang og nullitet fra vedlegget.*",
+        "hints": [
+          "Rang = antall pivoter.",
+          "dim Nul A = n − rang."
+        ]
+      }
+    },
+    {
+      "id": "mat1120-1-4-e2",
+      "type": "exercise",
+      "exercise": {
+        "id": "mat1120-1-4-e2",
+        "number": "2",
+        "type": "classic",
+        "difficulty": "lett",
+        "task": "Med samme $A$ som i oppgave 1: finn en basis for $\\operatorname{Col}A$.",
+        "solution": "Pivotkolonner 1 og 2. Basis = de opprinnelige kolonnene 1 og 2 i $A$: $\\{(1,0,2)^T,\\ (1,1,1)^T\\}$.\n\n*Tester: Col A-basis fra original (ikke RREF).*",
+        "hints": [
+          "Hvilke kolonner er pivotkolonner?",
+          "Ta vektorene fra A, ikke fra RREF."
+        ]
+      }
+    },
+    {
+      "id": "mat1120-1-4-e3",
+      "type": "exercise",
+      "exercise": {
+        "id": "mat1120-1-4-e3",
+        "number": "3",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "For $A=\\begin{bmatrix}1&-2&1&0&3\\\\2&-4&3&1&8\\\\0&0&1&1&2\\end{bmatrix}$ gir vedlegget $\\operatorname{rref}(A)=\\begin{bmatrix}1&-2&0&-1&1\\\\0&0&1&1&2\\\\0&0&0&0&0\\end{bmatrix}$.\n\n**a)** Finn basis for $\\operatorname{Col}A$ og $\\operatorname{Nul}A$.\n\n**b)** Oppgi $\\operatorname{rang}A$ og kontroller med dimensjonsteoremet.",
+        "solution": "**a)** Pivotkolonner 1 og 3. $\\operatorname{Col}A$-basis $=\\{(1,2,0)^T,\\ (1,3,1)^T\\}$. Frie variabler $x_2,x_4,x_5$; likninger $x_1=2x_2+x_4-x_5$, $x_3=-x_4-2x_5$. $\\operatorname{Nul}A$-basis: $(2,1,0,0,0)^T,\\ (1,0,-1,1,0)^T,\\ (-1,0,-2,0,1)^T$.\n\n**b)** $\\operatorname{rang}A=2$; $2+3=5=$ antall søyler. ✓\n\n*Tester: full Col/Nul/rang-avlesning med kontroll.*",
+        "hints": [
+          "Col fra original pivotkolonner; Nul fra spesielle løsninger.",
+          "Kontroller med rang A + dim Nul A = 5."
+        ]
+      }
+    },
+    {
+      "id": "mat1120-1-4-e4",
+      "type": "exercise",
+      "exercise": {
+        "id": "mat1120-1-4-e4",
+        "number": "4",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "Med matrisen fra oppgave 3: skriv kolonne 4 og 5 i $A$ som lineærkombinasjoner av $\\operatorname{Col}A$-basisen $\\mathbf{a}_1,\\mathbf{a}_3$.",
+        "solution": "Koeffisientene fra RREF (mot pivotradene 1 og 2): kolonne 4 er $(-1,1)$, kolonne 5 er $(1,2)$.\n\n$\\mathbf{a}_4=-\\mathbf{a}_1+\\mathbf{a}_3$ og $\\mathbf{a}_5=\\mathbf{a}_1+2\\,\\mathbf{a}_3$.\n\n*Tester: eksplisitte lineærkombinasjoner fra vedlegget.*",
+        "hints": [
+          "Les ikke-pivotkolonnene i RREF mot pivotradene.",
+          "Rad 1 ↔ a₁, rad 2 ↔ a₃."
+        ]
+      }
+    },
+    {
+      "id": "mat1120-1-4-e5",
+      "type": "exercise",
+      "exercise": {
+        "id": "mat1120-1-4-e5",
+        "number": "5",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "For $A=\\begin{bmatrix}1&2&0&3&1\\\\0&0&1&-2&4\\\\2&4&1&4&6\\\\1&2&1&1&5\\end{bmatrix}$ gir vedlegget $\\operatorname{rref}(A)=\\begin{bmatrix}1&2&0&3&1\\\\0&0&1&-2&4\\\\0&0&0&0&0\\\\0&0&0&0&0\\end{bmatrix}$. Finn en basis for $\\operatorname{Row}A$ og for $\\operatorname{Col}A$.",
+        "solution": "$\\operatorname{Row}A$-basis $=$ ikke-null-radene i RREF: $\\{(1,2,0,3,1),\\ (0,0,1,-2,4)\\}$.\n\n$\\operatorname{Col}A$-basis $=$ opprinnelige pivotkolonner 1 og 3 i $A$: $\\{(1,0,2,1)^T,\\ (0,1,1,1)^T\\}$.\n\n*Tester: kontrasten Row (fra RREF) vs. Col (fra original).*",
+        "hints": [
+          "Row A: bruk RREF-radene direkte.",
+          "Col A: ta kolonnene fra A."
+        ]
+      }
+    },
+    {
+      "id": "mat1120-1-4-e6",
+      "type": "exercise",
+      "exercise": {
+        "id": "mat1120-1-4-e6",
+        "number": "6",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "For matrisen $A$ i den gjennomregnede casen (den $4\\times5$): ligger $\\mathbf{b}=(0,0,0,1)^T$ i $\\operatorname{Col}A$? Vedlegget viser at $\\operatorname{rref}[\\,A\\mid\\mathbf{b}\\,]$ har en pivot i den siste kolonnen.",
+        "solution": "En pivot i høyresidekolonnen betyr at totalmatrisen har en rad $(0\\ 0\\ 0\\ 0\\ 0\\mid1)$, altså likningen $0=1$ — inkonsistent. Derfor er $\\mathbf{b}\\notin\\operatorname{Col}A$: $\\operatorname{rang}[\\,A\\mid\\mathbf{b}\\,]=3>2=\\operatorname{rang}A$.\n\n*Tester: b ∈ Col A-testen (negativt tilfelle).*",
+        "hints": [
+          "Pivot i høyresiden ⇒ inkonsistent.",
+          "Sammenlign rang[A|b] med rang A."
+        ]
+      }
+    },
+    {
+      "id": "mat1120-1-4-e7",
+      "type": "exercise",
+      "exercise": {
+        "id": "mat1120-1-4-e7",
+        "number": "7",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "La $A=\\begin{bmatrix}1&2&-1&3\\\\2&4&-1&7\\\\-1&-2&0&-4\\end{bmatrix}$ med $\\operatorname{rref}(A)=\\begin{bmatrix}1&2&0&4\\\\0&0&1&1\\\\0&0&0&0\\end{bmatrix}$. Konstruer en $4\\times2$-matrise $B\\ne O$ med $AB=O$.",
+        "solution": "Kolonnene i $B$ må ligge i $\\operatorname{Nul}A$. Frie variabler $x_2,x_4$; likninger $x_1=-2x_2-4x_4$, $x_3=-x_4$. Spesielle løsninger: $(-2,1,0,0)^T$ og $(-4,0,-1,1)^T$. Sett dem som kolonner:\n$$B=\\begin{bmatrix}-2&-4\\\\1&0\\\\0&-1\\\\0&1\\end{bmatrix}.$$\nDa er $AB=O$ og $\\operatorname{rang}B=2$.\n\n*Tester: AB = O-konstruksjonen fra Nul A.*",
+        "hints": [
+          "Kolonnene i B ligger i Nul A.",
+          "Bruk de spesielle løsningene som kolonner."
+        ]
+      }
+    },
+    {
+      "id": "mat1120-1-4-e8",
+      "type": "exercise",
+      "exercise": {
+        "id": "mat1120-1-4-e8",
+        "number": "8",
+        "type": "classic",
+        "difficulty": "lett",
+        "task": "En $4\\times6$-matrise $A$ har $\\operatorname{rang}A=3$. Hva er $\\dim\\operatorname{Nul}A$ og $\\dim\\operatorname{Col}A$?",
+        "solution": "$\\dim\\operatorname{Nul}A=6-3=3$ (dimensjonsteoremet) og $\\dim\\operatorname{Col}A=\\operatorname{rang}A=3$.\n\n*Tester: dimensjonsteoremet uten å skrive ut basen.*",
+        "hints": [
+          "n = 6 kolonner.",
+          "dim Col A = rang A."
+        ]
+      }
+    },
+    {
+      "id": "mat1120-1-4-e9",
+      "type": "exercise",
+      "exercise": {
+        "id": "mat1120-1-4-e9",
+        "number": "9",
+        "type": "classic",
+        "difficulty": "vanskelig",
+        "task": "En kjedet oppgave på $A=\\begin{bmatrix}1&-1&2&0&3\\\\2&-2&3&1&4\\\\1&-1&1&1&1\\\\0&0&1&-1&2\\end{bmatrix}$ (samme som casen).\n\n**a)** Er kolonnene i $A$ lineært uavhengige? Begrunn.\n\n**b)** Angi to lineært uavhengige vektorer i $\\operatorname{Col}A$ som du siden kan bruke som utgangspunkt for en Gram–Schmidt-prosess (Del 4).\n\n**c)** Hvor mange vektorer vil en ortogonal basis for $\\operatorname{Col}A$ inneholde?",
+        "solution": "**a)** Nei. $\\operatorname{rang}A=2<5$, så det er frie variabler — kolonnene er lineært **avhengige**.\n\n**b)** $\\operatorname{Col}A$-basisen $(1,2,1,0)^T$ og $(2,3,1,1)^T$ (de opprinnelige pivotkolonnene). Disse er uavhengige og utspenner $\\operatorname{Col}A$.\n\n**c)** Like mange som $\\dim\\operatorname{Col}A=\\operatorname{rang}A=2$. En ortogonal basis endrer ikke dimensjonen, bare gjør vektorene innbyrdes ortogonale.\n\n*Tester: kobling framover — samme matrise gjenbrukes til Del 4 (Gram–Schmidt).*",
+        "hints": [
+          "Uavhengige ⇔ ingen frie variabler.",
+          "Gram–Schmidt starter fra en basis for underrommet.",
+          "Ortogonalisering endrer ikke antall basisvektorer."
+        ]
+      }
+    },
+    {
+      "id": "mat1120-1-4-e10",
+      "type": "exercise",
+      "exercise": {
+        "id": "mat1120-1-4-e10",
+        "number": "10",
+        "type": "classic",
+        "difficulty": "vanskelig",
+        "task": "En $3\\times5$-matrise $A$ har $\\operatorname{rang}A=3$.\n\n**a)** Er $A\\mathbf{x}=\\mathbf{b}$ løsbar for enhver $\\mathbf{b}\\in\\mathbb{R}^3$? Begrunn.\n\n**b)** Hva er den største rangen et $B$ kan ha dersom $AB=O$, og hvilke dimensjoner må $B$ ha?",
+        "solution": "**a)** Ja. $\\operatorname{rang}A=3=$ antall rader, altså full radrang, så $\\operatorname{Col}A=\\mathbb{R}^3$. Da ligger enhver $\\mathbf{b}\\in\\mathbb{R}^3$ i $\\operatorname{Col}A$, og systemet er løsbart for alle $\\mathbf{b}$.\n\n**b)** $\\dim\\operatorname{Nul}A=5-3=2$, så kolonnene i $B$ (som må ligge i $\\operatorname{Nul}A$) gir høyst $\\operatorname{rang}B=2$. $B$ må ha $5$ rader (for at $AB$ skal være definert), altså $B$ er $5\\times p$.\n\n*Tester: full radrang + AB = O-grense samlet.*",
+        "hints": [
+          "Full radrang (rang = antall rader) ⇒ løsbar for alle b.",
+          "rang B ≤ dim Nul A; antall rader i B = antall kolonner i A."
+        ]
+      }
+    },
+    {
+      "id": "mat1120-1-4-e11",
+      "type": "exercise",
+      "exercise": {
+        "id": "mat1120-1-4-e11",
+        "number": "11",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "En student oppgir at basis for $\\operatorname{Col}A$ er de tre standardvektorene $\\mathbf{e}_1,\\mathbf{e}_2,\\mathbf{e}_3$ fordi RREF hadde pivoter i kolonne 1, 2 og 3. Forklar hva som er galt og hvordan det rettes.",
+        "solution": "Feilen er å bruke **RREF-kolonnene** (som ofte er standardvektorer) i stedet for de opprinnelige kolonnene i $A$. RREF-kolonnene $\\mathbf{e}_1,\\mathbf{e}_2,\\mathbf{e}_3$ utspenner et annet rom enn $\\operatorname{Col}A$ (radreduksjon endrer kolonnerommet). **Rettelse:** RREF forteller *hvilke* kolonner (1, 2, 3), og basisen er de tilsvarende **opprinnelige** kolonnene 1, 2, 3 i $A$.\n\n*Tester: den klassiske Col A-fellen forklart.*",
+        "hints": [
+          "Hva bevarer radreduksjon — radrommet eller kolonnerommet?",
+          "RREF gir hvilke kolonner; A gir vektorene."
+        ]
+      }
+    },
+    {
+      "id": "mat1120-1-4-e12",
+      "type": "exercise",
+      "exercise": {
+        "id": "mat1120-1-4-e12",
+        "number": "12",
+        "type": "classic",
+        "difficulty": "vanskelig",
+        "task": "For $A=\\begin{bmatrix}2&1&3&4\\\\4&2&7&9\\\\-2&-1&-1&-1\\end{bmatrix}$ gir vedlegget $\\operatorname{rref}(A)=\\begin{bmatrix}1&\\tfrac12&0&0\\\\0&0&1&0\\\\0&0&0&1\\end{bmatrix}$.\n\n**a)** Finn $\\operatorname{rang}A$ og en basis for $\\operatorname{Col}A$.\n\n**b)** Finn en basis for $\\operatorname{Nul}A$.\n\n**c)** Er $A\\mathbf{x}=\\mathbf{b}$ løsbar for enhver $\\mathbf{b}\\in\\mathbb{R}^3$?",
+        "solution": "**a)** Tre pivoter (kolonne 1, 3, 4), så $\\operatorname{rang}A=3$. $\\operatorname{Col}A$-basis $=$ de opprinnelige kolonnene 1, 3, 4: $\\{(2,4,-2)^T,\\ (3,7,-1)^T,\\ (4,9,-1)^T\\}$.\n\n**b)** Én fri variabel $x_2$; likningen $x_1=-\\tfrac12 x_2$ (og $x_3=x_4=0$). Spesiell løsning ($x_2=2$ for pene tall): $(-1,2,0,0)^T$. Basis for $\\operatorname{Nul}A$: $\\{(-1,2,0,0)^T\\}$, $\\dim\\operatorname{Nul}A=1$. Kontroll: $3+1=4$. ✓\n\n**c)** Ja: $\\operatorname{rang}A=3=$ antall rader (full radrang), så $\\operatorname{Col}A=\\mathbb{R}^3$ og systemet er løsbart for enhver $\\mathbf{b}$.\n\n*Tester: brøk i RREF + full radrang.*",
+        "hints": [
+          "Tre pivoter i en 3-radersmatrise betyr full radrang.",
+          "For pene Nul-tall, velg fri variabel = 2 for å bli kvitt brøken."
+        ]
+      }
+    },
+    {
+      "id": "mat1120-1-4-e13",
+      "type": "exercise",
+      "exercise": {
+        "id": "mat1120-1-4-e13",
+        "number": "13",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "En matrise $A$ er $4\\times4$ og har $\\operatorname{Nul}A=\\{\\mathbf{0}\\}$.\n\n**a)** Hva er $\\operatorname{rang}A$?\n\n**b)** Er $A$ invertibel?\n\n**c)** Finnes det $B\\ne O$ med $AB=O$?",
+        "solution": "**a)** $\\dim\\operatorname{Nul}A=0$, så dimensjonsteoremet gir $\\operatorname{rang}A=4-0=4$.\n\n**b)** Ja. En kvadratisk $4\\times4$-matrise med $\\operatorname{rang}A=4$ (full rang, $\\operatorname{Nul}A=\\{\\mathbf{0}\\}$) er invertibel.\n\n**c)** Nei. $AB=O$ krever kolonnene i $B$ i $\\operatorname{Nul}A=\\{\\mathbf{0}\\}$, så $B=O$ er eneste mulighet.\n\n*Tester: koblingen invertibel ⇔ trivielt nullrom ⇔ ingen ikke-triviell B.*",
+        "hints": [
+          "Bruk dimensjonsteoremet med dim Nul A = 0.",
+          "Full rang + kvadratisk ⇒ invertibel.",
+          "AB = O krever kolonner i Nul A."
+        ]
+      }
+    },
+    {
+      "id": "mat1120-1-4-warn",
+      "type": "warning",
+      "title": "Typiske feil (drill)",
+      "content": "- **$\\operatorname{Col}A$-basis fra RREF** i stedet for original — det hyppigste poengtapet på oppgave 1.\n- **Radreduserer på nytt** i stedet for å sitere vedlegget.\n- **Forveksler $\\operatorname{Nul}A$ (frie variabler) og $\\operatorname{Col}A$ (pivoter).**\n- **Glemmer dimensjonsteoremet** som sluttkontroll.\n- **Uteblitt konklusjonssetning / desimalsvar:** skriv en verbal konklusjon og hold svarene eksakte (heltall/brøk)."
+    },
+    {
+      "id": "mat1120-1-4-symbol",
+      "type": "collapsible",
+      "title": "Symbol- og formelliste",
+      "buttonText": "Vis symboler og formler",
+      "content": [
+        {
+          "id": "mat1120-1-4-symbol-tekst",
+          "type": "text",
+          "content": "## Symbol- og formelliste\n\n*Oppslagsverk — alt her forklares underveis i kapitlet og i [kap. 1.1](/bok/mat1120/mat1120-1-1)–[1.3](/bok/mat1120/mat1120-1-3).*\n\n| Symbol | Betydning |\n|---|---|\n| $\\operatorname{Col}A,\\ \\operatorname{Nul}A,\\ \\operatorname{Row}A$ | Kolonnerom, nullrom, radrom |\n| $\\operatorname{rang}A$ | Antall pivoter $=\\dim\\operatorname{Col}A$ |\n| $[\\,A\\mid\\mathbf{b}\\,]$ | Totalmatrise (løsbarhetssjekk) |\n| $AB=O$ | Kolonnene i $B$ ligger i $\\operatorname{Nul}A$ |\n\n**Formler / regler i dette delkapitlet:**\n\n$$\\operatorname{rang}A+\\dim\\operatorname{Nul}A=n$$\nDimensjonsteoremet — sluttkontroll på oppgave 1.\n\n$$\\mathbf{b}\\in\\operatorname{Col}A\\iff\\operatorname{rang}[\\,A\\mid\\mathbf{b}\\,]=\\operatorname{rang}A$$\nLøsbarhetstesten.\n\n**Basisregler:** $\\operatorname{Col}A$ fra **originale** pivotkolonner; $\\operatorname{Nul}A$ fra spesielle løsninger; $\\operatorname{Row}A$ fra ikke-null-radene i RREF."
+        }
+      ]
+    }
+  ],
+  "exercises": []
+}

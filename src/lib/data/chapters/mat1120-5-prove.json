@@ -1,0 +1,152 @@
+{
+  "id": "mat1120-5-prove",
+  "courseId": "mat1120",
+  "chapterNumber": "5.P",
+  "title": "Prøver til del 5: Ortogonal projeksjon og minste kvadrater",
+  "description": "Fire temaprøver til Del 5: ortogonal projeksjon med dekomposisjon y=ŷ+z, avstand og W⊥ (kap. 5.1), minste kvadrater via normallikninger med koblingen proj_W b=Cx̂ (kap. 5.2), minste kvadrater ved rangdefekt med affin løsning og projeksjonssnarvei (kap. 5.2), og en oppgave 1-hale-simulering der projeksjon og minste kvadrater kjedes på samme matrise (kap. 5.1–5.3). Full fasit etter føringsstandarden, med vedlegg og selvdiagnose.",
+  "estimatedMinutes": 160,
+  "competenceGoals": [
+    "kunne skaffe en ortogonal basis (Gram–Schmidt), projisere, skrive dekomposisjonen y=ŷ+z, regne avstand ‖z‖ og finne en basis for W⊥",
+    "kunne sette opp normallikningene CᵀCx̂=Cᵀb, lese løsningen fra vedlegget og bruke koblingen proj_W b=Cx̂",
+    "kunne avgjøre entydig vs. affin løsning ved rangdefekt (partikulær + Nul C) og bruke projeksjonssnarveien",
+    "kunne føre en fullstendig oppgave 1-hale-besvarelse kjedet på én matrise med vedleggssitering og eksakte svar"
+  ],
+  "content": [
+    {
+      "id": "mat1120-5-prove-tip",
+      "type": "tip",
+      "title": "Om prøvene til Del 5",
+      "content": "Disse fire prøvene dekker hele **Del 5 — Ortogonal projeksjon og minste kvadrater** og trener sjanger B + C: ortogonal projeksjon, dekomposisjon, avstand, $W^{\\perp}$ og minste kvadrater — den faste **oppgave 1-halen** som praktisk talt hvert eksamenssett kjeder på samme matrise (~100 %). Projeksjonsformelen krever en **ortogonal basis** (Gram–Schmidt først), og normallikningene leses av et **vedlegg** ($\\operatorname{rref}[\\,C^{T}C\\mid C^{T}\\mathbf{b}\\,]$) — du radreduserer aldri normallikningene for hånd.\n\n- **Prøve 1 — Projeksjon, dekomposisjon, avstand og $W^{\\perp}$ ([kap. 5.1](/bok/mat1120/mat1120-5-1)):** ortogonal basis (Gram–Schmidt), $\\operatorname{proj}_W\\mathbf{y}$, dekomposisjonen $\\mathbf{y}=\\hat{\\mathbf{y}}+\\mathbf{z}$, avstand $\\|\\mathbf{z}\\|$ og en basis for $W^{\\perp}=\\operatorname{Nul}(A^{T})$. ~35 min.\n- **Prøve 2 — Minste kvadrater via normallikningene ([kap. 5.2](/bok/mat1120/mat1120-5-2)):** sett opp $C^{T}C\\hat{\\mathbf{x}}=C^{T}\\mathbf{b}$, les $\\hat{\\mathbf{x}}$ fra vedlegget, og bruk koblingen $\\operatorname{proj}_W\\mathbf{b}=C\\hat{\\mathbf{x}}$. ~40 min.\n- **Prøve 3 — Minste kvadrater ved rangdefekt ([kap. 5.2](/bok/mat1120/mat1120-5-2)):** avgjør entydig vs. **affin** løsning (partikulær $+\\operatorname{Nul}C$) og bruk projeksjonssnarveien. ~40 min.\n- **Prøve 4 — Oppgave 1-hale-simulering ([kap. 5.1](/bok/mat1120/mat1120-5-1)–[5.3](/bok/mat1120/mat1120-5-3)):** hele halen — ortogonal basis $\\to$ projeksjon $\\to$ minste kvadrater $\\to$ avstand $\\to$ $W^{\\perp}$ — kjedet på **én** gjenbrukt matrise. ~45 min.\n\n**4 prøver à ~35–45 min, kan trygt deles over flere kvelder — én prøve per økt.** Milepælen er å fullføre settet, ikke å ta alt på én gang.\n\n**Merk formatet:** MAT1120-eksamen har **ingen flervalg** — alt er fullt begrunnet langsvar. Her åpner likevel **hver prøve** med en liten flervalgsdel til rask begrepssjekk (flervalget bor *inne i* hver prøve, rett før skriveoppgavene); kryss av og kontroller mot fasiten. Skriveoppgavene skal føres som en fullstendig besvarelse: **sitér vedlegget** («Fra vedlegget ser vi at …»), skaff **ortogonal basis før projeksjon**, si eksplisitt om en minste kvadraters løsning er **entydig** (full kolonnerang) eller **affin** (rangdefekt), regn avstand som residualets norm $\\|\\mathbf{z}\\|$, og avslutt med en verbal konklusjon og eksakte svar. Etter hver fasit står en avkryssbar selvdiagnose."
+    },
+    {
+      "id": "mat1120-5-prove-forkunnskaper",
+      "type": "text",
+      "content": "**Forkunnskaper:** hele Del 5.\n\n- [Kap. 5.1](/bok/mat1120/mat1120-5-1) — ortogonal projeksjon $\\operatorname{proj}_W\\mathbf{y}$, dekomposisjonsteoremet $\\mathbf{y}=\\hat{\\mathbf{y}}+\\mathbf{z}$, avstand $\\|\\mathbf{z}\\|$, ortogonalkomplementet $W^{\\perp}$ og $(\\operatorname{Col}A)^{\\perp}=\\operatorname{Nul}(A^{T})$\n- [Kap. 5.2](/bok/mat1120/mat1120-5-2) — normallikningene $C^{T}C\\hat{\\mathbf{x}}=C^{T}\\mathbf{b}$, koblingen $\\operatorname{proj}_W\\mathbf{b}=C\\hat{\\mathbf{x}}$, entydig vs. affin løsning\n- [Kap. 5.3](/bok/mat1120/mat1120-5-3) — drill\n- [Kap. 4.2](/bok/mat1120/mat1120-4-2) — Gram–Schmidt og ortogonal basis\n- [Kap. 1.2](/bok/mat1120/mat1120-1-2) — nullrom/kolonnerom\n- [Matriseprodukt og transponering (MAT1110)](/bok/mat1110/mat1110-1-3) — matriseprodukt og transponering\n\nTa prøvene uten hjelpemidler utover vedlegget, slik eksamen er lagt opp."
+    },
+    {
+      "id": "mat1120-5-prove-p1",
+      "type": "collapsible",
+      "title": "Prøve 1",
+      "buttonText": "Vis prøve 1",
+      "content": [
+        {
+          "id": "mat1120-5-prove-p1-oppg",
+          "type": "text",
+          "content": "**Sjanger:** ortogonal projeksjon, dekomposisjon, avstand og $W^{\\perp}$ (B). **Anbefalt tid:** ca. 35 minutter. Standardprikkprodukt i hele oppgaven.\n\nLa $W=\\operatorname{Col}A$ i $\\mathbb{R}^4$ med\n$$A=\\begin{bmatrix}1&1\\\\1&3\\\\1&1\\\\1&3\\end{bmatrix},\\qquad \\mathbf{y}=\\begin{bmatrix}4\\\\4\\\\2\\\\6\\end{bmatrix}.$$\nAltså $W=\\operatorname{Span}\\{\\mathbf{a}_1,\\mathbf{a}_2\\}$ med $\\mathbf{a}_1=(1,1,1,1)$ og $\\mathbf{a}_2=(1,3,1,3)$.\n\n**Flervalg (kryss av, sjekk mot fasit):**\n\n1. Avstanden fra $\\mathbf{y}$ til $W$ er (a) $\\|\\hat{\\mathbf{y}}\\|$ (b) $\\|\\mathbf{y}-\\hat{\\mathbf{y}}\\|$ (c) $\\|\\mathbf{y}\\|$ (d) $\\|\\mathbf{y}+\\hat{\\mathbf{y}}\\|$.\n2. Projeksjonsformelen $\\sum\\frac{\\langle\\mathbf{y},\\mathbf{v}_i\\rangle}{\\langle\\mathbf{v}_i,\\mathbf{v}_i\\rangle}\\mathbf{v}_i$ forutsetter at basisen $\\{\\mathbf{v}_i\\}$ er (a) ortogonal (b) ortonormal (c) lineært avhengig (d) en enhetsbasis.\n3. $(\\operatorname{Col}A)^{\\perp}$ er lik (a) $\\operatorname{Col}(A^{T})$ (b) $\\operatorname{Nul}(A)$ (c) $\\operatorname{Nul}(A^{T})$ (d) $\\operatorname{Row}(A)$.\n\n**Skriveoppgaver:**\n\n**a)** Vis at $\\mathbf{a}_1,\\mathbf{a}_2$ ikke er ortogonale, og finn en ortogonal basis for $W$ ved Gram–Schmidt.\n**b)** Projiser $\\mathbf{y}$ ned på $W$ og skriv dekomposisjonen $\\mathbf{y}=\\hat{\\mathbf{y}}+\\mathbf{z}$. Kontroller at $\\mathbf{z}$ står vinkelrett på begge basisvektorene.\n**c)** Finn avstanden $d(\\mathbf{y},W)$, og oppgi en basis for $W^{\\perp}$ (av riktig dimensjon)."
+        },
+        {
+          "id": "mat1120-5-prove-p1-fasit",
+          "type": "collapsible",
+          "title": "Fasit — Prøve 1",
+          "buttonText": "Vis fasit",
+          "content": [
+            {
+              "id": "mat1120-5-prove-p1-fasit-tekst",
+              "type": "text",
+              "content": "**Flervalg — riktige svar:** 1b · 2a · 3c. *(1 poeng hver.)*\n\n*Om 1a: $\\|\\hat{\\mathbf{y}}\\|$ er normen av projeksjonen, ikke avstanden. Om 2b: ortonormalitet er strengere enn nødvendig — da faller bare nevnerne bort. Om 3b: $\\operatorname{Nul}(A)=(\\operatorname{Row}A)^{\\perp}$, ikke komplementet til kolonnerommet.*\n\n**a)** $\\langle\\mathbf{a}_1,\\mathbf{a}_2\\rangle=1+3+1+3=8\\ne0$, så basisen er **ikke** ortogonal — Gram–Schmidt er nødvendig (felle nr. 4). Med $\\langle\\mathbf{a}_1,\\mathbf{a}_1\\rangle=4$:\n$$\\mathbf{v}_1=(1,1,1,1),\\qquad \\mathbf{v}_2=\\mathbf{a}_2-\\frac{8}{4}\\mathbf{v}_1=(1,3,1,3)-2(1,1,1,1)=(-1,1,-1,1).$$\nOrtogonal basis for $W$: $\\{(1,1,1,1),\\,(-1,1,-1,1)\\}$, med $\\langle\\mathbf{v}_1,\\mathbf{v}_1\\rangle=4$ og $\\langle\\mathbf{v}_2,\\mathbf{v}_2\\rangle=4$.\n\n**b)** Fourier-koeffisientene for $\\mathbf{y}=(4,4,2,6)$:\n$$c_1=\\frac{\\langle\\mathbf{y},\\mathbf{v}_1\\rangle}{4}=\\frac{4+4+2+6}{4}=\\frac{16}{4}=4,\\qquad c_2=\\frac{\\langle\\mathbf{y},\\mathbf{v}_2\\rangle}{4}=\\frac{-4+4-2+6}{4}=\\frac{4}{4}=1.$$\n$$\\hat{\\mathbf{y}}=4(1,1,1,1)+1(-1,1,-1,1)=(3,5,3,5),\\qquad \\mathbf{z}=\\mathbf{y}-\\hat{\\mathbf{y}}=(1,-1,-1,1).$$\n**Dekomposisjon:** $(4,4,2,6)=\\underbrace{(3,5,3,5)}_{\\in W}+\\underbrace{(1,-1,-1,1)}_{\\in W^{\\perp}}$. **Kontroll:** $\\langle\\mathbf{z},\\mathbf{v}_1\\rangle=1-1-1+1=0$ og $\\langle\\mathbf{z},\\mathbf{v}_2\\rangle=-1-1+1+1=0.$ ✓\n\n**c)** **Avstand:** $d(\\mathbf{y},W)=\\|\\mathbf{z}\\|=\\sqrt{1+1+1+1}=\\sqrt4=2$ — residualets norm, ikke $\\|\\hat{\\mathbf{y}}\\|$. **$W^{\\perp}$-basis:** $W^{\\perp}=(\\operatorname{Col}A)^{\\perp}=\\operatorname{Nul}(A^{T})$. Løs $A^{T}\\mathbf{n}=\\mathbf{0}$ med $A^{T}=\\begin{bmatrix}1&1&1&1\\\\1&3&1&3\\end{bmatrix}$: $n_1+n_2+n_3+n_4=0$ og $n_1+3n_2+n_3+3n_4=0$. Differansen gir $n_2=-n_4$, og da $n_1=-n_3$. Med $n_3,n_4$ frie:\n$$\\mathbf{n}_1=(-1,0,1,0),\\qquad \\mathbf{n}_2=(0,-1,0,1).$$\nBasis for $W^{\\perp}$: $\\{(-1,0,1,0),(0,-1,0,1)\\}$ med $\\dim W^{\\perp}=4-2=2$. (Resten $\\mathbf{z}=(1,-1,-1,1)=-\\mathbf{n}_1+\\mathbf{n}_2$ ligger i dette spennet.) **Eksakt svar** — $\\hat{\\mathbf{y}}=(3,5,3,5)$, avstand $2$."
+            },
+            {
+              "id": "mat1120-5-prove-p1-diag",
+              "type": "text",
+              "content": "**Selvdiagnose — kryss av ($\\square$):**\n\n- ☐ Jeg sjekket $\\langle\\mathbf{a}_1,\\mathbf{a}_2\\rangle$ og kjørte Gram–Schmidt fordi basisen ikke var ortogonal (felle nr. 4).\n- ☐ Jeg brukte projeksjonsformelen med den **ortogonale** basisen og skrev dekomposisjonen $\\mathbf{y}=\\hat{\\mathbf{y}}+\\mathbf{z}$.\n- ☐ Jeg kontrollerte $\\langle\\mathbf{z},\\mathbf{v}_i\\rangle=0$ for begge basisvektorene.\n- ☐ Jeg regnet avstanden som $\\|\\mathbf{z}\\|$ (residualets norm), ikke $\\|\\hat{\\mathbf{y}}\\|$.\n- ☐ Jeg fant $W^{\\perp}$ via $\\operatorname{Nul}(A^{T})$ med riktig dimensjon ($\\dim W+\\dim W^{\\perp}=4$), ikke bare restvektoren $\\mathbf{z}$."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "mat1120-5-prove-p2",
+      "type": "collapsible",
+      "title": "Prøve 2",
+      "buttonText": "Vis prøve 2",
+      "content": [
+        {
+          "id": "mat1120-5-prove-p2-oppg",
+          "type": "text",
+          "content": "**Sjanger:** minste kvadrater via normallikninger + koblingen $\\operatorname{proj}_W\\mathbf{b}=C\\hat{\\mathbf{x}}$ (C). **Anbefalt tid:** ca. 40 minutter. Før som en fullstendig besvarelse.\n\n**Oppgave 1 (10 p).** La\n$$C=\\begin{bmatrix}1&1\\\\1&2\\\\1&3\\\\1&4\\end{bmatrix},\\qquad \\mathbf{b}=\\begin{bmatrix}5\\\\5\\\\7\\\\11\\end{bmatrix},\\qquad W=\\operatorname{Col}C.$$\nVedlegget gir $\\operatorname{rref}\\big[\\,C^{T}C\\mid C^{T}\\mathbf{b}\\,\\big]=\\begin{bmatrix}1&0&2\\\\0&1&2\\end{bmatrix}.$\n\n**Flervalg (kryss av, sjekk mot fasit):**\n\n1. Normallikningene for minste kvadrater er (a) $C\\hat{\\mathbf{x}}=\\mathbf{b}$ (b) $C^{T}C\\hat{\\mathbf{x}}=C^{T}\\mathbf{b}$ (c) $CC^{T}\\hat{\\mathbf{x}}=C^{T}\\mathbf{b}$ (d) $C^{T}\\hat{\\mathbf{x}}=\\mathbf{b}$.\n2. For $W=\\operatorname{Col}C$ er $\\operatorname{proj}_W\\mathbf{b}$ lik (a) $C\\hat{\\mathbf{x}}$ (b) $\\hat{\\mathbf{x}}$ (c) $C^{T}\\mathbf{b}$ (d) $\\mathbf{b}-C\\hat{\\mathbf{x}}$.\n3. Residualet $\\mathbf{b}-C\\hat{\\mathbf{x}}$ ved en løsning står (a) i $\\operatorname{Col}C$ (b) parallelt med $\\operatorname{Col}C$ (c) vinkelrett på $\\operatorname{Nul}C$ (d) vinkelrett på $\\operatorname{Col}C$.\n\n**Skriveoppgaver:**\n\n**a)** Sett opp normallikningene $C^{T}C\\hat{\\mathbf{x}}=C^{T}\\mathbf{b}$ (regn $C^{T}C$ og $C^{T}\\mathbf{b}$), og finn $\\hat{\\mathbf{x}}$ fra vedlegget. Er løsningen entydig? Begrunn.\n**b)** Bruk koblingen $\\operatorname{proj}_W\\mathbf{b}=C\\hat{\\mathbf{x}}$ til å oppgi projeksjonen av $\\mathbf{b}$ på $W$.\n**c)** Finn avstanden $d(\\mathbf{b},W)$ fra $\\mathbf{b}$ til kolonnerommet."
+        },
+        {
+          "id": "mat1120-5-prove-p2-fasit",
+          "type": "collapsible",
+          "title": "Fasit — Prøve 2",
+          "buttonText": "Vis fasit",
+          "content": [
+            {
+              "id": "mat1120-5-prove-p2-fasit-tekst",
+              "type": "text",
+              "content": "**Flervalg — riktige svar:** 1b · 2a · 3d. *(1 poeng hver.)*\n\n*Om 1c: $CC^{T}$ har feil form (den er $4\\times4$). Om 2d: $\\mathbf{b}-C\\hat{\\mathbf{x}}$ er residualet $\\mathbf{z}$. Om 3a/3b: residualet ligger i $(\\operatorname{Col}C)^{\\perp}$, ikke i eller parallelt med $\\operatorname{Col}C$.*\n\n**a)** De små produktene for hånd:\n$$C^{T}C=\\begin{bmatrix}4&10\\\\10&30\\end{bmatrix},\\qquad C^{T}\\mathbf{b}=\\begin{bmatrix}5+5+7+11\\\\1\\cdot5+2\\cdot5+3\\cdot7+4\\cdot11\\end{bmatrix}=\\begin{bmatrix}28\\\\80\\end{bmatrix}.$$\nFra vedlegget $\\operatorname{rref}\\begin{bmatrix}4&10&28\\\\10&30&80\\end{bmatrix}=\\begin{bmatrix}1&0&2\\\\0&1&2\\end{bmatrix}$, så $\\hat{\\mathbf{x}}=(2,2)$. Kolonnene i $C$ er lineært uavhengige (full kolonnerang, $C^{T}C$ invertibel), så løsningen er **entydig**.\n\n**b)** Koblingen gir projeksjonen direkte:\n$$\\operatorname{proj}_W\\mathbf{b}=C\\hat{\\mathbf{x}}=2(1,1,1,1)+2(1,2,3,4)=(4,6,8,10).$$\n*(Dette er linjen $y=2+2t$ evaluert i $t=1,2,3,4$ — en minste kvadraters linjetilpasning til punktene $(1,5),(2,5),(3,7),(4,11)$.)*\n\n**c)** Residualet $\\mathbf{z}=\\mathbf{b}-C\\hat{\\mathbf{x}}=(5,5,7,11)-(4,6,8,10)=(1,-1,-1,1)$, som er ortogonalt på begge kolonnene ($\\langle\\mathbf{z},(1,1,1,1)\\rangle=0$, $\\langle\\mathbf{z},(1,2,3,4)\\rangle=1-2-3+4=0$). ✓\n$$d(\\mathbf{b},W)=\\|\\mathbf{z}\\|=\\sqrt{1+1+1+1}=2.$$\n**Konklusjon:** entydig $\\hat{\\mathbf{x}}=(2,2)$, projeksjon $(4,6,8,10)$, avstand $2$. **Eksakt svar.**"
+            },
+            {
+              "id": "mat1120-5-prove-p2-diag",
+              "type": "text",
+              "content": "**Selvdiagnose — kryss av ($\\square$):**\n\n- ☐ Jeg satte opp $C^{T}C$ og $C^{T}\\mathbf{b}$ komponentvis og leste $\\hat{\\mathbf{x}}$ av vedlegget (ikke radredusert for hånd).\n- ☐ Jeg avgjorde eksplisitt at løsningen er **entydig** fordi $C$ har full kolonnerang.\n- ☐ Jeg brukte koblingen $\\operatorname{proj}_W\\mathbf{b}=C\\hat{\\mathbf{x}}$ i stedet for å projisere på nytt.\n- ☐ Jeg regnet avstanden som $\\|\\mathbf{b}-C\\hat{\\mathbf{x}}\\|$ (residualets norm), ikke $\\|C\\hat{\\mathbf{x}}\\|$.\n- ☐ Jeg kontrollerte at residualet står vinkelrett på begge kolonnene i $C$."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "mat1120-5-prove-p3",
+      "type": "collapsible",
+      "title": "Prøve 3",
+      "buttonText": "Vis prøve 3",
+      "content": [
+        {
+          "id": "mat1120-5-prove-p3-oppg",
+          "type": "text",
+          "content": "**Sjanger:** minste kvadrater ved rangdefekt — affin løsning + projeksjonssnarvei (C). **Anbefalt tid:** ca. 40 minutter. Før som en fullstendig besvarelse.\n\n**Oppgave 1 (10 p).** La\n$$C=\\begin{bmatrix}1&0&1\\\\1&1&2\\\\1&2&3\\\\1&3&4\\end{bmatrix},\\qquad \\mathbf{b}=\\begin{bmatrix}2\\\\1\\\\6\\\\7\\end{bmatrix},\\qquad W=\\operatorname{Col}C.$$\nMerk at tredje kolonne er summen av de to første ($\\mathbf{c}_3=\\mathbf{c}_1+\\mathbf{c}_2$). Vedlegget gir\n$$\\operatorname{rref}\\big[\\,C^{T}C\\mid C^{T}\\mathbf{b}\\,\\big]=\\begin{bmatrix}1&0&1&1\\\\0&1&1&2\\\\0&0&0&0\\end{bmatrix}.$$\n\n**Flervalg (kryss av, sjekk mot fasit):**\n\n1. Når $C$ har rangdefekt, er minste kvadraters løsning (a) entydig (b) affin: partikulær $+\\operatorname{Nul}C$ (c) ikke-eksisterende (d) alltid $\\mathbf{0}$.\n2. Selv ved rangdefekt er $C\\hat{\\mathbf{x}}=\\operatorname{proj}_W\\mathbf{b}$ (a) forskjellig per løsning (b) udefinert (c) den samme for alle løsninger (d) lik $\\mathbf{b}$.\n3. Løsningen er entydig hvis og bare hvis (a) $C$ har full kolonnerang (b) $C$ er kvadratisk (c) $\\mathbf{b}\\in\\operatorname{Col}C$ (d) $C$ har full radrang.\n\n**Skriveoppgaver:**\n\n**a)** Avgjør om $C$ har full kolonnerang, og oppgi **alle** minste kvadraters løsninger $\\hat{\\mathbf{x}}$ (les partikulær løsning av vedlegget og legg til $\\operatorname{Nul}C$).\n**b)** Bruk projeksjonssnarveien: velg én løsning og oppgi $\\operatorname{proj}_W\\mathbf{b}=C\\hat{\\mathbf{x}}$. Forklar hvorfor svaret er uavhengig av hvilken løsning du valgte.\n**c)** Finn avstanden $d(\\mathbf{b},W)$."
+        },
+        {
+          "id": "mat1120-5-prove-p3-fasit",
+          "type": "collapsible",
+          "title": "Fasit — Prøve 3",
+          "buttonText": "Vis fasit",
+          "content": [
+            {
+              "id": "mat1120-5-prove-p3-fasit-tekst",
+              "type": "text",
+              "content": "**Flervalg — riktige svar:** 1b · 2c · 3a. *(1 poeng hver.)*\n\n*Om 1a: rangdefekt gjør $C^{T}C$ ikke-invertibel, så løsningen er ikke entydig. Om 2a: $C\\hat{\\mathbf{x}}$ er den samme for alle affine løsninger fordi $C\\mathbf{n}=\\mathbf{0}$ for $\\mathbf{n}\\in\\operatorname{Nul}C$. Om 3c: $\\mathbf{b}\\in\\operatorname{Col}C$ handler om konsistens, ikke entydighet.*\n\n**a)** Kolonnene er avhengige ($\\mathbf{c}_3=\\mathbf{c}_1+\\mathbf{c}_2$), så $\\operatorname{rang}C=2<3$ — **ikke** full kolonnerang, og $C^{T}C$ er ikke invertibel. Vent en **affin** løsning (felle nr. 5). Fra vedleggets RREF er det pivot i kolonne 1 og 2 og fri variabel $x_3$:\n$$x_1=1-x_3,\\qquad x_2=2-x_3.$$\nMed $x_3=s$:\n$$\\hat{\\mathbf{x}}=\\begin{bmatrix}1\\\\2\\\\0\\end{bmatrix}+s\\begin{bmatrix}-1\\\\-1\\\\1\\end{bmatrix},\\quad s\\in\\mathbb{R},$$\nder $\\operatorname{Nul}C=\\operatorname{Span}\\{(-1,-1,1)\\}$ (fordi $\\mathbf{c}_1+\\mathbf{c}_2-\\mathbf{c}_3=\\mathbf{0}$). Løsningen er **affin**, ikke entydig.\n\n**b)** Velg den enkleste partikulære $\\hat{\\mathbf{x}}_p=(1,2,0)$:\n$$\\operatorname{proj}_W\\mathbf{b}=C\\hat{\\mathbf{x}}_p=1\\cdot\\mathbf{c}_1+2\\cdot\\mathbf{c}_2=(1,1,1,1)+2(0,1,2,3)=(1,3,5,7).$$\n**Uavhengighet:** to affine løsninger skiller seg med en $\\mathbf{n}\\in\\operatorname{Nul}C$, og $C(\\hat{\\mathbf{x}}_p+\\mathbf{n})=C\\hat{\\mathbf{x}}_p+C\\mathbf{n}=C\\hat{\\mathbf{x}}_p$ siden $C\\mathbf{n}=\\mathbf{0}$. Projeksjonen er derfor entydig uansett valg.\n\n**c)** Residualet $\\mathbf{z}=\\mathbf{b}-\\operatorname{proj}_W\\mathbf{b}=(2,1,6,7)-(1,3,5,7)=(1,-2,1,0)$, så\n$$d(\\mathbf{b},W)=\\|\\mathbf{z}\\|=\\sqrt{1+4+1+0}=\\sqrt6.$$\n**Konklusjon:** affin løsning $\\hat{\\mathbf{x}}=(1,2,0)+s(-1,-1,1)$, entydig projeksjon $(1,3,5,7)$, avstand $\\sqrt6$. **Eksakt svar.**"
+            },
+            {
+              "id": "mat1120-5-prove-p3-diag",
+              "type": "text",
+              "content": "**Selvdiagnose — kryss av ($\\square$):**\n\n- ☐ Jeg sjekket kolonnerangen og konkluderte at $C$ har **rangdefekt** ($\\operatorname{rang}C=2<3$).\n- ☐ Jeg oppga **alle** løsninger som partikulær $+\\operatorname{Nul}C$ (affin), ikke ett entydig svar (felle nr. 5).\n- ☐ Jeg leste partikulær løsning av vedlegget og fant $\\operatorname{Nul}C$-retningen fra kolonneavhengigheten.\n- ☐ Jeg brukte $\\operatorname{proj}_W\\mathbf{b}=C\\hat{\\mathbf{x}}$ og forklarte hvorfor den er uavhengig av valgt løsning.\n- ☐ Jeg regnet avstanden som residualets norm $\\|\\mathbf{b}-C\\hat{\\mathbf{x}}\\|=\\sqrt6$ og lot svaret stå eksakt."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "mat1120-5-prove-p4",
+      "type": "collapsible",
+      "title": "Prøve 4",
+      "buttonText": "Vis prøve 4",
+      "content": [
+        {
+          "id": "mat1120-5-prove-p4-oppg",
+          "type": "text",
+          "content": "**Sjanger:** oppgave 1-hale-simulering — projeksjon + minste kvadrater kjedet på **én** matrise (B + C). **Anbefalt tid:** ca. 45 minutter. Før dette som en fullstendig eksamensbesvarelse.\n\n**Oppgave 1 (10 p).** La\n$$C=\\begin{bmatrix}1&0\\\\1&1\\\\1&2\\\\1&3\\end{bmatrix},\\qquad \\mathbf{b}=\\begin{bmatrix}3\\\\0\\\\5\\\\8\\end{bmatrix},\\qquad W=\\operatorname{Col}C.$$\nVedlegget gir $\\operatorname{rref}\\big[\\,C^{T}C\\mid C^{T}\\mathbf{b}\\,\\big]=\\begin{bmatrix}1&0&1\\\\0&1&2\\end{bmatrix}.$\n\n**Flervalg (kryss av, sjekk mot fasit):**\n\n1. Er den utleverte basisen for $W$ ikke ortogonal, må du først (a) normalisere hver vektor (b) kjøre Gram–Schmidt (c) bruke basisen direkte (d) bytte indreprodukt.\n2. $\\dim W+\\dim W^{\\perp}$ er lik (a) dimensjonen til hele rommet (b) $\\operatorname{rang}A$ (c) antall $W$-basisvektorer (d) $2\\dim W$ alltid.\n3. Avstanden $d(\\mathbf{b},W)$ er (a) $\\|C\\hat{\\mathbf{x}}\\|$ (b) $\\|\\mathbf{b}\\|$ (c) $\\|\\mathbf{b}-C\\hat{\\mathbf{x}}\\|$ (d) $\\|\\hat{\\mathbf{x}}\\|$.\n\n**Skriveoppgaver:**\n\n**a)** Finn en ortogonal basis for $W=\\operatorname{Col}C$ (kolonnene er ikke ortogonale — Gram–Schmidt).\n**b)** Projiser $\\mathbf{b}$ ned på $W$, skriv dekomposisjonen $\\mathbf{b}=\\hat{\\mathbf{b}}+\\mathbf{z}$, og finn avstanden $d(\\mathbf{b},W)$.\n**c)** Finn minste kvadraters løsning $\\hat{\\mathbf{x}}$ via normallikningene (les vedlegget), og kontroller koblingen $C\\hat{\\mathbf{x}}=\\operatorname{proj}_W\\mathbf{b}$.\n**d)** Oppgi en basis for $W^{\\perp}$ (av riktig dimensjon)."
+        },
+        {
+          "id": "mat1120-5-prove-p4-fasit",
+          "type": "collapsible",
+          "title": "Fasit — Prøve 4",
+          "buttonText": "Vis fasit",
+          "content": [
+            {
+              "id": "mat1120-5-prove-p4-fasit-tekst",
+              "type": "text",
+              "content": "**Flervalg — riktige svar:** 1b · 2a · 3c. *(1 poeng hver.)*\n\n*Om 1a: normalisering alene gir ikke ortogonalitet. Om 2d: $2\\dim W$ stemmer bare når $\\dim W=\\dim W^{\\perp}$. Om 3a/3d: $\\|C\\hat{\\mathbf{x}}\\|$ og $\\|\\hat{\\mathbf{x}}\\|$ er ikke avstanden — den er residualets norm.*\n\n**a)** Kolonnene $\\mathbf{c}_1=(1,1,1,1)$, $\\mathbf{c}_2=(0,1,2,3)$ har $\\langle\\mathbf{c}_1,\\mathbf{c}_2\\rangle=6\\ne0$ — ikke ortogonale. Gram–Schmidt (med $\\langle\\mathbf{c}_1,\\mathbf{c}_1\\rangle=4$):\n$$\\mathbf{v}_1=(1,1,1,1),\\quad \\mathbf{v}_2=\\mathbf{c}_2-\\frac{6}{4}\\mathbf{v}_1=\\left(-\\tfrac32,-\\tfrac12,\\tfrac12,\\tfrac32\\right)\\xrightarrow{\\times2}(-3,-1,1,3).$$\nOrtogonal basis: $\\{(1,1,1,1),(-3,-1,1,3)\\}$, med $\\langle\\mathbf{v}_1,\\mathbf{v}_1\\rangle=4$, $\\langle\\mathbf{v}_2,\\mathbf{v}_2\\rangle=20$.\n\n**b)** Fourier-koeffisienter for $\\mathbf{b}=(3,0,5,8)$:\n$$c_1=\\frac{\\langle\\mathbf{b},\\mathbf{v}_1\\rangle}{4}=\\frac{3+0+5+8}{4}=\\frac{16}{4}=4,\\qquad c_2=\\frac{\\langle\\mathbf{b},\\mathbf{v}_2\\rangle}{20}=\\frac{-9+0+5+24}{20}=\\frac{20}{20}=1.$$\n$$\\hat{\\mathbf{b}}=4(1,1,1,1)+1(-3,-1,1,3)=(1,3,5,7),\\qquad \\mathbf{z}=\\mathbf{b}-\\hat{\\mathbf{b}}=(2,-3,0,1).$$\n**Dekomposisjon:** $(3,0,5,8)=\\underbrace{(1,3,5,7)}_{\\in W}+\\underbrace{(2,-3,0,1)}_{\\in W^{\\perp}}$. **Avstand:** $d(\\mathbf{b},W)=\\|\\mathbf{z}\\|=\\sqrt{4+9+0+1}=\\sqrt{14}$.\n\n**c)** Normallikningene: $C^{T}C=\\begin{bmatrix}4&6\\\\6&14\\end{bmatrix}$, $C^{T}\\mathbf{b}=\\begin{bmatrix}16\\\\34\\end{bmatrix}$ (andre komponent $0\\cdot3+1\\cdot0+2\\cdot5+3\\cdot8=34$). Fra vedlegget $\\hat{\\mathbf{x}}=(1,2)$ (full kolonnerang $\\Rightarrow$ entydig). **Kobling:** $C\\hat{\\mathbf{x}}=1(1,1,1,1)+2(0,1,2,3)=(1,3,5,7)=\\hat{\\mathbf{b}}.$ ✓ Projeksjon og minste kvadrater gir samme punkt.\n\n**d)** $\\dim W^{\\perp}=4-2=2$, så $\\mathbf{z}$ alene er ikke nok. Løs $C^{T}\\mathbf{n}=\\mathbf{0}$ med $C^{T}=\\begin{bmatrix}1&1&1&1\\\\0&1&2&3\\end{bmatrix}$: $n_2=-2n_3-3n_4$ og $n_1=n_3+2n_4$. Med $n_3,n_4$ frie:\n$$\\mathbf{n}_1=(1,-2,1,0),\\qquad \\mathbf{n}_2=(2,-3,0,1).$$\nBasis for $W^{\\perp}$: $\\{(1,-2,1,0),(2,-3,0,1)\\}$ (og $\\mathbf{z}=(2,-3,0,1)=\\mathbf{n}_2$). **Konklusjon:** ortogonal basis $\\{(1,1,1,1),(-3,-1,1,3)\\}$, projeksjon $(1,3,5,7)$, avstand $\\sqrt{14}$, $\\hat{\\mathbf{x}}=(1,2)$ (entydig). **Eksakt svar.**"
+            },
+            {
+              "id": "mat1120-5-prove-p4-diag",
+              "type": "text",
+              "content": "**Selvdiagnose — kryss av ($\\square$):**\n\n- ☐ Jeg fant en **ortogonal** basis for $W$ ved Gram–Schmidt før jeg projiserte (felle nr. 4).\n- ☐ Jeg skrev dekomposisjonen $\\mathbf{b}=\\hat{\\mathbf{b}}+\\mathbf{z}$ og regnet avstanden som $\\|\\mathbf{z}\\|=\\sqrt{14}$.\n- ☐ Jeg leste $\\hat{\\mathbf{x}}$ av vedlegget og avgjorde at løsningen er entydig (full kolonnerang).\n- ☐ Jeg kontrollerte koblingen $C\\hat{\\mathbf{x}}=\\operatorname{proj}_W\\mathbf{b}$ — samme punkt fra begge veier.\n- ☐ Jeg fant $W^{\\perp}$ via $\\operatorname{Nul}(C^{T})$ med riktig dimensjon ($2$), ikke bare restvektoren.\n- ☐ Jeg avsluttet med en verbal konklusjon og eksakte svar."
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "exercises": []
+}

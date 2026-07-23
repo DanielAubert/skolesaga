@@ -1,0 +1,441 @@
+{
+  "id": "mat1120-6-1",
+  "courseId": "mat1120",
+  "chapterNumber": "6.1",
+  "title": "Symmetriske matriser og spektralteoremet: ortogonal diagonalisering A=PDPᵀ",
+  "description": "Spektralteoremet: en symmetrisk matrise A=Aᵀ er ortogonalt diagonaliserbar A=PDPᵀ med ortonormale egenvektorer. Metoden: les egenverdier av vedlegget, normalisér, og kjør Gram–Schmidt INNEN et egenrom med multiplisitet — pluss spektral dekomposisjon og ortogonale matriser som bro til Del 7.",
+  "estimatedMinutes": 60,
+  "competenceGoals": [
+    "begrunne med spektralteoremet at en symmetrisk matrise er ortogonalt diagonaliserbar A=PDPᵀ",
+    "bygge en ortogonal P (PᵀP=I) ved å normalisere egenvektorene og kjøre Gram–Schmidt innen et egenrom med multiplisitet",
+    "skrive den spektrale dekomposisjonen A=Σλᵢuᵢuᵢᵀ og bruke at ortogonale matriser er normbevarende",
+    "skille A=PDPᵀ (ortogonal, symmetrisk A) fra den generelle A=PDP⁻¹"
+  ],
+  "content": [
+    {
+      "id": "mat1120-6-1-tip",
+      "type": "tip",
+      "title": "Eksamensvinkel",
+      "content": "**Symmetriske matriser er karakterskilleren i egenverdi-/ortogonalitetsoppgaven.** Sjanger F — spektralteoremet og ortogonal diagonalisering $A=PDP^{T}$ — er med i **~55 %** av settene (2019 O2a, 2021 O2b, 2024; posdef-varianten 2020). Prioritet: **kunne** (nivå 2, løfter deg fra bestått mot toppkarakter).\n\n- Ser du at $A=A^{T}$, har du en **gratis, navngitt begrunnelse**: spektralteoremet gir at $A$ er *ortogonalt* diagonaliserbar. Sensor vil se teoremet navngitt.\n- Det som skiller B fra A her er **ortonormaliteten**: $P$ skal ha ortonormale søyler ($P^{T}P=I$), ikke bare uavhengige. Det betyr **normalisér** hver egenvektor — og kjør **Gram–Schmidt innen et egenrom** med multiplisitet.\n- Bruk $A=PDP^{T}$ (Lays konvensjon), **ikke** $A=PDP^{-1}$: for en ortogonal $P$ er $P^{-1}=P^{T}$, så du slipper å regne invers.\n\nEgenverdier og egenvektorer leses fortsatt av vedlegget (`[V D]=eig`) — du regner dem ikke for hånd."
+    },
+    {
+      "id": "mat1120-6-1-forkunnskaper",
+      "type": "text",
+      "content": "**Forkunnskaper:**\n\n- [Kap. 3.2](/bok/mat1120/mat1120-3-2) — diagonalisering $A=PDP^{-1}$ og diagonaliserbarhetskriteriet; hele metoden bygges videre her\n- [Kap. 4.2](/bok/mat1120/mat1120-4-2) — Gram–Schmidt og ortonormal basis, verktøyet vi bruker inne i et egenrom\n- [Kap. 3.1](/bok/mat1120/mat1120-3-1) — egenverdier, egenvektorer og egenrom $E_\\lambda=\\operatorname{Nul}(A-\\lambda I)$\n- [Kap. 4.1](/bok/mat1120/mat1120-4-1) — norm og skalarprodukt i $\\mathbb{R}^{n}$\n- [Matriseregning og transponering (MAT1110)](/bok/mat1110/mat1110-1-3) — matriseprodukt og transponering"
+    },
+    {
+      "id": "mat1120-6-1-sist",
+      "type": "text",
+      "content": "## Sist du var her\n\nDette kapitlet står på tre resultater du bør ha friskt i minne:\n\n- **Diagonalisering** ([kap. 3.2](/bok/mat1120/mat1120-3-2)): $A=PDP^{-1}$ der søylene i $P$ er uavhengige egenvektorer og $D$ har egenverdiene, matchet søyle for søyle.\n- **Gram–Schmidt** ([kap. 4.2](/bok/mat1120/mat1120-4-2)): gjør en basis $\\{\\mathbf{v}_1,\\mathbf{v}_2\\}$ ortogonal ved $\\mathbf{w}_2=\\mathbf{v}_2-\\dfrac{\\mathbf{v}_2\\cdot\\mathbf{v}_1}{\\mathbf{v}_1\\cdot\\mathbf{v}_1}\\mathbf{v}_1$.\n- **Normalisering:** en vektor $\\mathbf{v}\\ne\\mathbf{0}$ gjøres til enhetsvektor ved $\\mathbf{u}=\\dfrac{1}{\\lVert\\mathbf{v}\\rVert}\\mathbf{v}$.\n\nSpektralteoremet setter disse sammen: symmetri gir en *ortonormal* egenbasis, og $P$ blir ortogonal."
+    },
+    {
+      "id": "mat1120-6-1-intro",
+      "type": "text",
+      "content": "En **symmetrisk** matrise ($A=A^{T}$) er ikke en hvilken som helst diagonaliserbar matrise — den har en ekstra, sterk struktur: du kan velge egenvektorene slik at de står **vinkelrett på hverandre og har lengde 1**. Da blir egenvektormatrisen $P$ *ortogonal*, og diagonaliseringen får den pene formen $A=PDP^{T}$. Dette er **spektralteoremet**, ett av de mest brukte resultatene i hele faget.\n\nKapitlet går i fire løkker:\n\n1. Hva **symmetri** gir: spektralteoremet og hvorfor egenrom står vinkelrett.\n2. **Metoden** når egenverdiene er distinkte: normalisér, bygg ortogonal $P$.\n3. **Gram–Schmidt innen et egenrom** når en egenverdi er gjentatt.\n4. **Spektral dekomposisjon** og ortogonale matriser (bro til [kap. 7.3](/bok/mat1120/mat1120-7-3))."
+    },
+    {
+      "id": "mat1120-6-1-l1",
+      "type": "text",
+      "content": "## Løkke 1 — Symmetri, spektralteoremet og ortogonale egenrom (~16 min)"
+    },
+    {
+      "id": "mat1120-6-1-l1-teori",
+      "type": "text",
+      "content": "En matrise er **symmetrisk** hvis den er lik sin egen transponerte: speiler du den om hoveddiagonalen, får du samme matrise. For slike matriser gjelder tre ting som ingen generell diagonaliserbar matrise kan love:\n\n1. Alle egenverdiene er **reelle** (ingen komplekse par).\n2. Egenvektorer som hører til **ulike** egenverdier er automatisk **ortogonale** — de står vinkelrett uten at du gjør noe.\n3. Det finnes alltid en **ortonormal basis** av egenvektorer, så $A$ er *ortogonalt* diagonaliserbar.\n\nDet er punkt 3 som gir formen $A=PDP^{T}$."
+    },
+    {
+      "id": "mat1120-6-1-def-sym",
+      "type": "definition",
+      "title": "Symmetrisk matrise",
+      "content": "En kvadratisk matrise $A$ er **symmetrisk** dersom den er lik sin transponerte: $A=A^{T}$, altså $a_{ij}=a_{ji}$ for alle $i,j$. Speilingen om hoveddiagonalen endrer den ikke. Eksempel: $\\begin{bmatrix}4&-2\\\\-2&1\\end{bmatrix}$ er symmetrisk; $\\begin{bmatrix}1&2\\\\0&1\\end{bmatrix}$ er ikke."
+    },
+    {
+      "id": "mat1120-6-1-thm-spektral",
+      "type": "theorem",
+      "title": "Spektralteoremet (symmetriske matriser)",
+      "content": "La $A$ være en reell $n\\times n$-matrise med $A=A^{T}$. Da gjelder:\n\n- alle egenverdiene til $A$ er **reelle**;\n- egenvektorer til **ulike** egenverdier er ortogonale;\n- $A$ er **ortogonalt diagonaliserbar**: det finnes en ortogonal matrise $P$ ($P^{T}P=I$) og en diagonalmatrise $D$ slik at\n$$A=PDP^{T}.$$\nSøylene i $P$ er en **ortonormal** basis av egenvektorer, og $D$ har de tilhørende egenverdiene på diagonalen. Omvendt er enhver ortogonalt diagonaliserbar matrise symmetrisk."
+    },
+    {
+      "id": "mat1120-6-1-def-ortdiag",
+      "type": "definition",
+      "title": "Ortogonal diagonalisering $A=PDP^{T}$",
+      "content": "Å diagonalisere $A$ **ortogonalt** er å skrive $A=PDP^{T}$ der $D$ er diagonal og $P$ er **ortogonal** — søylene i $P$ er ortonormale egenvektorer ($P^{T}P=I$, altså $P^{-1}=P^{T}$). Forskjellen fra den generelle diagonaliseringen $A=PDP^{-1}$ er nettopp at $P$ her er ortogonal, så inversen er bare transponeringen. Bare symmetriske matriser kan diagonaliseres ortogonalt."
+    },
+    {
+      "id": "mat1120-6-1-ex1",
+      "type": "example",
+      "title": "Eksempel 1: Egenrom til ulike egenverdier står vinkelrett",
+      "problem": "La $A=\\begin{bmatrix}2&1\\\\1&2\\end{bmatrix}$. Fra vedlegget er egenverdiene $1$ og $3$, med egenvektorer $(1,-1)^{T}$ (for $\\lambda=1$) og $(1,1)^{T}$ (for $\\lambda=3$). Vis at egenvektorene er ortogonale, og forklar hvorfor det måtte være slik.",
+      "solution": "$A$ er symmetrisk ($A=A^{T}$), og egenverdiene $1\\ne3$ er **ulike**. Spektralteoremet garanterer da at egenvektorene er ortogonale. Vi kontrollerer med skalarproduktet:\n$$(1,-1)\\cdot(1,1)=1\\cdot1+(-1)\\cdot1=0.$$\nDe står altså vinkelrett — som teoremet lovet. **Merk:** dette er en *gratis* ortogonalitet; for en usymmetrisk matrise ville egenvektorene generelt ikke stått vinkelrett. Konklusjon: egenvektorene er ortogonale fordi $A$ er symmetrisk og egenverdiene distinkte."
+    },
+    {
+      "id": "mat1120-6-1-e1",
+      "type": "exercise",
+      "exercise": {
+        "id": "mat1120-6-1-e1",
+        "number": "1",
+        "type": "classic",
+        "difficulty": "lett",
+        "task": "Avgjør om hver matrise er symmetrisk, og dermed om spektralteoremet gir at den er ortogonalt diagonaliserbar:\n\n**a)** $\\begin{bmatrix}5&-2\\\\-2&0\\end{bmatrix}$\n\n**b)** $\\begin{bmatrix}3&1\\\\-1&3\\end{bmatrix}$\n\n**c)** $\\begin{bmatrix}1&4&0\\\\4&2&5\\\\0&5&7\\end{bmatrix}$",
+        "solution": "**a)** $a_{12}=-2=a_{21}$: symmetrisk. Spektralteoremet ⇒ ortogonalt diagonaliserbar.\n\n**b)** $a_{12}=1$ men $a_{21}=-1$: **ikke** symmetrisk. Spektralteoremet gjelder ikke (matrisen er faktisk ikke engang reelt diagonaliserbar — egenverdiene er komplekse).\n\n**c)** Alle speilpar er like ($a_{12}=a_{21}=4$, $a_{23}=a_{32}=5$, $a_{13}=a_{31}=0$): symmetrisk ⇒ ortogonalt diagonaliserbar.",
+        "hints": [
+          "Sammenlign $a_{ij}$ med $a_{ji}$ for hvert par utenfor diagonalen.",
+          "Symmetrisk betyr $A=A^{T}$; da — og bare da — gir spektralteoremet ortogonal diagonaliserbarhet."
+        ]
+      }
+    },
+    {
+      "id": "mat1120-6-1-l2",
+      "type": "text",
+      "content": "## Løkke 2 — Metoden ved distinkte egenverdier: normalisér og bygg ortogonal P (~16 min)"
+    },
+    {
+      "id": "mat1120-6-1-l2-teori",
+      "type": "text",
+      "content": "Når de $n$ egenverdiene er **distinkte**, er egenvektorene allerede ortogonale (løkke 1). Da mangler bare ett steg for å få en *ortogonal* $P$: å gjøre hver egenvektor til en **enhetsvektor** ved å dele på lengden. Metoden i tre steg:\n\n**a)** Les egenverdier og egenvektorer av vedlegget.\n\n**b)** **Normalisér** hver egenvektor: $\\mathbf{u}_i=\\dfrac{1}{\\lVert\\mathbf{v}_i\\rVert}\\mathbf{v}_i$.\n\n**c)** Sett de ortonormale $\\mathbf{u}_i$ som søyler i $P$ og egenverdiene i $D$, matchet søyle for søyle. Da er $A=PDP^{T}$.\n\nGlemmer du normaliseringen, har $P$ ortogonale, men ikke ortonormale, søyler — da er $P$ ingen ortogonal matrise, $P^{T}P\\ne I$, og $A=PDP^{T}$ blir feil."
+    },
+    {
+      "id": "mat1120-6-1-def-norm",
+      "type": "definition",
+      "title": "Normalisering av en egenvektor",
+      "content": "En egenvektor kan skaleres fritt uten å slutte å være egenvektor. For å få en **enhetsvektor** (lengde 1) deler du på normen: $\\mathbf{u}=\\dfrac{1}{\\lVert\\mathbf{v}\\rVert}\\mathbf{v}$, der $\\lVert\\mathbf{v}\\rVert=\\sqrt{\\mathbf{v}\\cdot\\mathbf{v}}$. Dette er det som gjør søylene i $P$ *ortonormale* i stedet for bare ortogonale, og dermed $P$ ortogonal."
+    },
+    {
+      "id": "mat1120-6-1-ex2",
+      "type": "example",
+      "title": "Eksempel 2: Ortogonal diagonalisering med distinkte egenverdier",
+      "problem": "Ortogonaldiagonaliser $A=\\begin{bmatrix}5&2\\\\2&2\\end{bmatrix}$. Fra vedlegget ($\\texttt{[V D]=eig}$) er egenverdiene $\\lambda=6$ med egenvektor $(2,1)^{T}$ og $\\lambda=1$ med egenvektor $(1,-2)^{T}$.",
+      "solution": "$A$ er symmetrisk, og egenverdiene $6\\ne1$ er distinkte, så egenvektorene er automatisk ortogonale — vi kontrollerer: $(2,1)\\cdot(1,-2)=2-2=0$ ✓.\n\n**Normalisér.** Begge har lengde $\\lVert(2,1)\\rVert=\\sqrt{4+1}=\\sqrt5$ og $\\lVert(1,-2)\\rVert=\\sqrt5$:\n$$\\mathbf{u}_1=\\tfrac{1}{\\sqrt5}\\begin{bmatrix}2\\\\1\\end{bmatrix},\\qquad \\mathbf{u}_2=\\tfrac{1}{\\sqrt5}\\begin{bmatrix}1\\\\-2\\end{bmatrix}.$$\n\n**Bygg $P$ og $D$** matchet søyle for søyle (rekkefølge $6,1$):\n$$P=\\frac{1}{\\sqrt5}\\begin{bmatrix}2&1\\\\1&-2\\end{bmatrix},\\qquad D=\\begin{bmatrix}6&0\\\\0&1\\end{bmatrix}.$$\n\n**Kontroll** at $P$ er ortogonal: $P^{T}P=\\tfrac{1}{5}\\begin{bmatrix}2&1\\\\1&-2\\end{bmatrix}\\begin{bmatrix}2&1\\\\1&-2\\end{bmatrix}=\\tfrac{1}{5}\\begin{bmatrix}5&0\\\\0&5\\end{bmatrix}=I$ ✓. **Konklusjon:** $A=PDP^{T}$ med $P,D$ som over — eksakte verdier med $\\tfrac{1}{\\sqrt5}$, ingen desimaler."
+    },
+    {
+      "id": "mat1120-6-1-e2",
+      "type": "exercise",
+      "exercise": {
+        "id": "mat1120-6-1-e2",
+        "number": "2",
+        "type": "classic",
+        "difficulty": "lett",
+        "task": "En symmetrisk $2\\times2$-matrise $A$ har egenverdi $4$ med egenvektor $(3,4)^{T}$ og egenverdi $-1$ med egenvektor $(4,-3)^{T}$. Skriv opp en ortogonal $P$ og diagonal $D$ med $A=PDP^{T}$.",
+        "solution": "Egenverdiene er distinkte, og $(3,4)\\cdot(4,-3)=12-12=0$, så egenvektorene er ortogonale. Begge har lengde $\\sqrt{9+16}=5$. Normalisert:\n$$P=\\frac{1}{5}\\begin{bmatrix}3&4\\\\4&-3\\end{bmatrix},\\qquad D=\\begin{bmatrix}4&0\\\\0&-1\\end{bmatrix}.$$\nSøyle 1 ↔ $\\lambda=4$, søyle 2 ↔ $\\lambda=-1$. Kontroll: $P^{T}P=\\tfrac{1}{25}\\begin{bmatrix}25&0\\\\0&25\\end{bmatrix}=I$ ✓.",
+        "hints": [
+          "Egenvektorene er ortogonale (distinkte egenverdier) — du trenger bare normalisere.",
+          "Del hver egenvektor på lengden sin ($5$) og sett dem som søyler i $P$."
+        ]
+      }
+    },
+    {
+      "id": "mat1120-6-1-e3",
+      "type": "exercise",
+      "exercise": {
+        "id": "mat1120-6-1-e3",
+        "number": "3",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "En student ortogonaldiagonaliserer $A=\\begin{bmatrix}5&2\\\\2&2\\end{bmatrix}$ (eksempel 2) og skriver $P=\\begin{bmatrix}2&1\\\\1&-2\\end{bmatrix}$, $D=\\begin{bmatrix}6&0\\\\0&1\\end{bmatrix}$, altså **uten** å normalisere. Vis at $A\\ne PDP^{T}$ med denne $P$, og forklar feilen.",
+        "solution": "Med den unormaliserte $P$ er søylene ortogonale men har lengde $\\sqrt5$, ikke $1$. Da er $P^{T}P=\\begin{bmatrix}5&0\\\\0&5\\end{bmatrix}=5I\\ne I$, så $P$ er ikke ortogonal og $P^{T}\\ne P^{-1}$. Regner vi ut:\n$$PDP^{T}=\\begin{bmatrix}2&1\\\\1&-2\\end{bmatrix}\\begin{bmatrix}6&0\\\\0&1\\end{bmatrix}\\begin{bmatrix}2&1\\\\1&-2\\end{bmatrix}=\\begin{bmatrix}12&1\\\\6&-2\\end{bmatrix}\\begin{bmatrix}2&1\\\\1&-2\\end{bmatrix}=\\begin{bmatrix}25&10\\\\10&10\\end{bmatrix}=5A\\ne A.$$\nFeilen er den manglende **normaliseringen**: $A=PDP^{T}$ krever ortogonal $P$. Den riktige er $P=\\tfrac{1}{\\sqrt5}\\begin{bmatrix}2&1\\\\1&-2\\end{bmatrix}$ (eksempel 2). *(Med den generelle $A=PDP^{-1}$ ville den unormaliserte $P$ vært gyldig — men da må du regne $P^{-1}$, ikke $P^{T}$.)*",
+        "hints": [
+          "Sjekk $P^{T}P$: er den lik $I$?",
+          "Uten normalisering blir $P^{T}P=5I$, så $P^{T}$ er ikke inversen — $PDP^{T}$ blir $5A$."
+        ]
+      }
+    },
+    {
+      "id": "mat1120-6-1-l3",
+      "type": "text",
+      "content": "## Løkke 3 — Gram–Schmidt innen et egenrom med multiplisitet (~18 min)"
+    },
+    {
+      "id": "mat1120-6-1-l3-teori",
+      "type": "text",
+      "content": "Har en egenverdi **algebraisk multiplisitet $\\ge2$**, gir vedlegget deg en basis for egenrommet — men de vektorene er som regel **ikke** ortogonale på hverandre (selv om de står vinkelrett på egenrom til *andre* egenverdier). Da mangler du ortonormalitet *inne i* egenrommet, og løsningen er å kjøre **Gram–Schmidt** på nettopp den basisen, og deretter normalisere.\n\nFramgangsmåte for et to-dimensjonalt egenrom med basis $\\{\\mathbf{v}_1,\\mathbf{v}_2\\}$:\n\n**a)** $\\mathbf{w}_1=\\mathbf{v}_1$.\n\n**b)** $\\mathbf{w}_2=\\mathbf{v}_2-\\dfrac{\\mathbf{v}_2\\cdot\\mathbf{v}_1}{\\mathbf{v}_1\\cdot\\mathbf{v}_1}\\mathbf{v}_1$ (trekk ut komponenten langs $\\mathbf{w}_1$).\n\n**c)** Normalisér $\\mathbf{w}_1,\\mathbf{w}_2$. Egenvektorer fra **andre** egenrom er allerede ortogonale på disse (spektralteoremet), så bare normalisér dem."
+    },
+    {
+      "id": "mat1120-6-1-def-gs-egenrom",
+      "type": "definition",
+      "title": "Gram–Schmidt innen et egenrom",
+      "content": "Når en egenverdi har et egenrom av dimensjon $\\ge2$, kan vedleggets egenvektorer i dette rommet være ikke-ortogonale. Kjør **Gram–Schmidt** på dem for å få en ortogonal basis *for egenrommet*, og normalisér. Resultatet er fortsatt egenvektorer (enhver lineærkombinasjon av egenvektorer med samme $\\lambda$ er en egenvektor for $\\lambda$), så $P$ blir ortogonal og $D$ uendret. Egenrom til *andre* egenverdier trenger du ikke ortogonalisere mot — de er automatisk vinkelrette."
+    },
+    {
+      "id": "mat1120-6-1-ex3",
+      "type": "example",
+      "title": "Eksempel 3: Ortogonal diagonalisering med en dobbel egenverdi",
+      "problem": "Ortogonaldiagonaliser $A=\\begin{bmatrix}4&-2&-2\\\\-2&4&2\\\\-2&2&4\\end{bmatrix}$. Vedlegget gir egenverdiene $\\lambda=2$ (dobbel) med egenrom utspent av $(1,1,0)^{T}$ og $(1,0,1)^{T}$, og $\\lambda=8$ (enkel) med egenvektor $(-1,1,1)^{T}$.",
+      "solution": "$A$ er symmetrisk, så spektralteoremet gir en ortonormal egenbasis. Egenvektoren for $\\lambda=8$ er allerede ortogonal på hele $E_2$ (ulike egenverdier). Problemet er *inne i* $E_2$: $(1,1,0)\\cdot(1,0,1)=1\\ne0$, så de to må ortogonaliseres.\n\n**Gram–Schmidt i $E_2$.** Sett $\\mathbf{v}_1=(1,1,0)^{T}$, $\\mathbf{v}_2=(1,0,1)^{T}$:\n$$\\mathbf{w}_1=(1,1,0)^{T},\\qquad \\mathbf{w}_2=(1,0,1)^{T}-\\frac{(1,0,1)\\cdot(1,1,0)}{(1,1,0)\\cdot(1,1,0)}(1,1,0)^{T}=(1,0,1)^{T}-\\tfrac{1}{2}(1,1,0)^{T}=\\tfrac{1}{2}(1,-1,2)^{T}.$$\nVi kan skalere bort $\\tfrac12$ og bruke $(1,-1,2)^{T}$. Kontroll: $(1,1,0)\\cdot(1,-1,2)=0$ ✓.\n\n**Normalisér.** $\\lVert(1,1,0)\\rVert=\\sqrt2$, $\\lVert(1,-1,2)\\rVert=\\sqrt6$, $\\lVert(-1,1,1)\\rVert=\\sqrt3$:\n$$\\mathbf{u}_1=\\tfrac{1}{\\sqrt2}(1,1,0)^{T},\\quad \\mathbf{u}_2=\\tfrac{1}{\\sqrt6}(1,-1,2)^{T},\\quad \\mathbf{u}_3=\\tfrac{1}{\\sqrt3}(-1,1,1)^{T}.$$\n\n**Bygg $P,D$** (rekkefølge $2,2,8$):\n$$P=\\begin{bmatrix}\\tfrac{1}{\\sqrt2}&\\tfrac{1}{\\sqrt6}&-\\tfrac{1}{\\sqrt3}\\\\[2pt]\\tfrac{1}{\\sqrt2}&-\\tfrac{1}{\\sqrt6}&\\tfrac{1}{\\sqrt3}\\\\[2pt]0&\\tfrac{2}{\\sqrt6}&\\tfrac{1}{\\sqrt3}\\end{bmatrix},\\qquad D=\\begin{bmatrix}2&0&0\\\\0&2&0\\\\0&0&8\\end{bmatrix}.$$\nSøylene er ortonormale ($P^{T}P=I$), så $A=PDP^{T}$. **Konklusjon:** $A$ er ortogonalt diagonalisert; det avgjørende grepet var Gram–Schmidt *inne i* det doble egenrommet $E_2$."
+    },
+    {
+      "id": "mat1120-6-1-e4",
+      "type": "exercise",
+      "exercise": {
+        "id": "mat1120-6-1-e4",
+        "number": "4",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "En symmetrisk $3\\times3$-matrise $A$ har egenverdi $\\lambda=5$ (dobbel) med egenrom utspent av $(1,1,1)^{T}$ og $(1,1,-2)^{T}$, og egenverdi $\\lambda=-1$ med egenvektor $(1,-1,0)^{T}$.\n\n**a)** Sjekk at de to basisvektorene i $E_5$ tilfeldigvis allerede er ortogonale.\n\n**b)** Skriv opp en ortogonal $P$ og diagonal $D$ med $A=PDP^{T}$.",
+        "solution": "**a)** $(1,1,1)\\cdot(1,1,-2)=1+1-2=0$ — de er allerede ortogonale, så her trengs **ingen** Gram–Schmidt, bare normalisering. (Sjekk alltid; av og til slipper man steget.)\n\n**b)** Lengder: $\\lVert(1,1,1)\\rVert=\\sqrt3$, $\\lVert(1,1,-2)\\rVert=\\sqrt6$, $\\lVert(1,-1,0)\\rVert=\\sqrt2$. Egenvektoren for $-1$ er ortogonal på $E_5$ (ulike egenverdier — kontroll: $(1,-1,0)\\cdot(1,1,1)=0$, $(1,-1,0)\\cdot(1,1,-2)=0$ ✓). Da:\n$$P=\\begin{bmatrix}\\tfrac{1}{\\sqrt3}&\\tfrac{1}{\\sqrt6}&\\tfrac{1}{\\sqrt2}\\\\[2pt]\\tfrac{1}{\\sqrt3}&\\tfrac{1}{\\sqrt6}&-\\tfrac{1}{\\sqrt2}\\\\[2pt]\\tfrac{1}{\\sqrt3}&-\\tfrac{2}{\\sqrt6}&0\\end{bmatrix},\\quad D=\\begin{bmatrix}5&0&0\\\\0&5&0\\\\0&0&-1\\end{bmatrix}.$$",
+        "hints": [
+          "Regn skalarproduktet av de to $E_5$-vektorene før du starter Gram–Schmidt.",
+          "Er de allerede ortogonale, hopp rett til normalisering (del på $\\sqrt3$, $\\sqrt6$, $\\sqrt2$)."
+        ]
+      }
+    },
+    {
+      "id": "mat1120-6-1-e5",
+      "type": "exercise",
+      "exercise": {
+        "id": "mat1120-6-1-e5",
+        "number": "5",
+        "type": "classic",
+        "difficulty": "vanskelig",
+        "task": "En symmetrisk $A$ har egenverdi $\\lambda=3$ (dobbel) med egenrom utspent av $\\mathbf{v}_1=(1,0,1)^{T}$ og $\\mathbf{v}_2=(0,1,1)^{T}$. Bruk Gram–Schmidt til å finne to **ortonormale** egenvektorer i $E_3$.",
+        "solution": "$\\mathbf{v}_1\\cdot\\mathbf{v}_2=0+0+1=1\\ne0$, så Gram–Schmidt trengs.\n$$\\mathbf{w}_1=(1,0,1)^{T},\\qquad \\mathbf{w}_2=(0,1,1)^{T}-\\frac{1}{2}(1,0,1)^{T}=\\tfrac{1}{2}(-1,2,1)^{T}.$$\nBruk $(-1,2,1)^{T}$ (skalering er lov). Kontroll: $(1,0,1)\\cdot(-1,2,1)=-1+0+1=0$ ✓. Normalisér: $\\lVert(1,0,1)\\rVert=\\sqrt2$, $\\lVert(-1,2,1)\\rVert=\\sqrt6$:\n$$\\mathbf{u}_1=\\tfrac{1}{\\sqrt2}(1,0,1)^{T},\\qquad \\mathbf{u}_2=\\tfrac{1}{\\sqrt6}(-1,2,1)^{T}.$$\nBegge er egenvektorer for $\\lambda=3$ (lineærkombinasjoner innen $E_3$) og er ortonormale.",
+        "hints": [
+          "Regn $\\mathbf{v}_2\\cdot\\mathbf{v}_1$ og $\\mathbf{v}_1\\cdot\\mathbf{v}_1$; sett inn i Gram–Schmidt-formelen.",
+          "En lineærkombinasjon av egenvektorer med samme $\\lambda$ er igjen en egenvektor for $\\lambda$ — så Gram–Schmidt ødelegger ikke egenskapen."
+        ]
+      }
+    },
+    {
+      "id": "mat1120-6-1-l4",
+      "type": "text",
+      "content": "## Løkke 4 — Spektral dekomposisjon og ortogonale matriser (~10 min)"
+    },
+    {
+      "id": "mat1120-6-1-l4-teori",
+      "type": "text",
+      "content": "Skriver du ut $A=PDP^{T}$ søyle for søyle, får du $A$ som en **vektet sum av projeksjoner**:\n$$A=\\lambda_1\\mathbf{u}_1\\mathbf{u}_1^{T}+\\lambda_2\\mathbf{u}_2\\mathbf{u}_2^{T}+\\dots+\\lambda_n\\mathbf{u}_n\\mathbf{u}_n^{T},$$\nder hver $\\mathbf{u}_i\\mathbf{u}_i^{T}$ er den ortogonale projeksjonen ned på linjen langs $\\mathbf{u}_i$. Dette kalles **spektral dekomposisjon** og er svært nyttig i bevis (bl.a. posdef i [kap. 6.2](/bok/mat1120/mat1120-6-2) og ulikheter i [kap. 6.3](/bok/mat1120/mat1120-6-3)).\n\nMatrisen $P$ selv er en **ortogonal matrise**: $P^{T}P=I$. Slike matriser bevarer lengder og vinkler ($\\lVert P\\mathbf{x}\\rVert=\\lVert\\mathbf{x}\\rVert$) og har $\\det P=\\pm1$ (rotasjon eller refleksjon). Dette blir sentralt i [kap. 7.3](/bok/mat1120/mat1120-7-3) (Householder)."
+    },
+    {
+      "id": "mat1120-6-1-def-spektral-dek",
+      "type": "definition",
+      "title": "Spektral dekomposisjon",
+      "content": "For en symmetrisk $A=PDP^{T}$ med ortonormale egenvektorer $\\mathbf{u}_i$ og egenverdier $\\lambda_i$ er $A=\\sum_{i=1}^{n}\\lambda_i\\mathbf{u}_i\\mathbf{u}_i^{T}$. Hver $\\mathbf{u}_i\\mathbf{u}_i^{T}$ er en $n\\times n$-matrise av rang 1 — projeksjonen ned på linjen langs $\\mathbf{u}_i$ — og de summeres med egenverdiene som vekter. Kalles også spektraloppløsningen av $A$."
+    },
+    {
+      "id": "mat1120-6-1-def-ortmatrise",
+      "type": "definition",
+      "title": "Ortogonal matrise",
+      "content": "En kvadratisk matrise $P$ er **ortogonal** dersom søylene er ortonormale, ekvivalent $P^{T}P=I$, altså $P^{-1}=P^{T}$. Slike matriser er **normbevarende**: $\\lVert P\\mathbf{x}\\rVert=\\lVert\\mathbf{x}\\rVert$ for alle $\\mathbf{x}$, og de bevarer skalarprodukt. Determinanten er $\\det P=\\pm1$ ($+1$ rotasjon, $-1$ refleksjon)."
+    },
+    {
+      "id": "mat1120-6-1-ex4",
+      "type": "example",
+      "title": "Eksempel 4: Spektral dekomposisjon av en 2×2-matrise",
+      "problem": "Skriv $A=\\begin{bmatrix}2&1\\\\1&2\\end{bmatrix}$ som en spektral dekomposisjon. (Fra løkke 1: $\\lambda=3$ med $\\mathbf{u}_1=\\tfrac{1}{\\sqrt2}(1,1)^{T}$, $\\lambda=1$ med $\\mathbf{u}_2=\\tfrac{1}{\\sqrt2}(1,-1)^{T}$.)",
+      "solution": "Med de ortonormale egenvektorene:\n$$\\mathbf{u}_1\\mathbf{u}_1^{T}=\\tfrac{1}{2}\\begin{bmatrix}1\\\\1\\end{bmatrix}\\begin{bmatrix}1&1\\end{bmatrix}=\\tfrac{1}{2}\\begin{bmatrix}1&1\\\\1&1\\end{bmatrix},\\qquad \\mathbf{u}_2\\mathbf{u}_2^{T}=\\tfrac{1}{2}\\begin{bmatrix}1&-1\\\\-1&1\\end{bmatrix}.$$\nDa er\n$$A=3\\cdot\\tfrac{1}{2}\\begin{bmatrix}1&1\\\\1&1\\end{bmatrix}+1\\cdot\\tfrac{1}{2}\\begin{bmatrix}1&-1\\\\-1&1\\end{bmatrix}=\\begin{bmatrix}\\tfrac32&\\tfrac32\\\\\\tfrac32&\\tfrac32\\end{bmatrix}+\\begin{bmatrix}\\tfrac12&-\\tfrac12\\\\-\\tfrac12&\\tfrac12\\end{bmatrix}=\\begin{bmatrix}2&1\\\\1&2\\end{bmatrix}=A.$$ ✓\n**Konklusjon:** $A=3\\,\\mathbf{u}_1\\mathbf{u}_1^{T}+1\\,\\mathbf{u}_2\\mathbf{u}_2^{T}$ — egenverdiene som vekter på rang-1-projeksjonene."
+    },
+    {
+      "id": "mat1120-6-1-e6",
+      "type": "exercise",
+      "exercise": {
+        "id": "mat1120-6-1-e6",
+        "number": "6",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "La $P=\\dfrac{1}{\\sqrt5}\\begin{bmatrix}2&1\\\\1&-2\\end{bmatrix}$.\n\n**a)** Vis at $P$ er ortogonal.\n\n**b)** Regn $\\lVert P\\mathbf{x}\\rVert$ for $\\mathbf{x}=(\\sqrt5,0)^{T}$ og bekreft normbevaring.",
+        "solution": "**a)** $P^{T}P=\\tfrac{1}{5}\\begin{bmatrix}2&1\\\\1&-2\\end{bmatrix}\\begin{bmatrix}2&1\\\\1&-2\\end{bmatrix}=\\tfrac{1}{5}\\begin{bmatrix}5&0\\\\0&5\\end{bmatrix}=I$. Søylene er ortonormale, så $P$ er ortogonal.\n\n**b)** $P\\mathbf{x}=\\tfrac{1}{\\sqrt5}\\begin{bmatrix}2&1\\\\1&-2\\end{bmatrix}\\begin{bmatrix}\\sqrt5\\\\0\\end{bmatrix}=\\tfrac{1}{\\sqrt5}\\begin{bmatrix}2\\sqrt5\\\\\\sqrt5\\end{bmatrix}=\\begin{bmatrix}2\\\\1\\end{bmatrix}$, med $\\lVert P\\mathbf{x}\\rVert=\\sqrt{4+1}=\\sqrt5$. Og $\\lVert\\mathbf{x}\\rVert=\\sqrt5$ — normen er bevart ✓.",
+        "hints": [
+          "Ortogonal ⇔ $P^{T}P=I$.",
+          "Regn $P\\mathbf{x}$ og deretter lengden; den skal være lik $\\lVert\\mathbf{x}\\rVert$."
+        ]
+      }
+    },
+    {
+      "id": "mat1120-6-1-warn",
+      "type": "warning",
+      "title": "Typiske feil",
+      "content": "- **Ikke-normaliserte egenvektorer i $P$** (dokumentert felle nr. 6): da er $P$ ikke ortogonal, $P^{T}P\\ne I$, og $A=PDP^{T}$ blir galt. Del alltid hver egenvektor på lengden.\n- **Glemmer Gram–Schmidt inne i et egenrom med multiplisitet:** vedleggets to basisvektorer for en dobbel egenverdi er ofte ikke ortogonale på hverandre. Sjekk skalarproduktet, og ortogonalisér ved behov.\n- **Bruker $A=PDP^{-1}$ i stedet for $A=PDP^{T}$:** for symmetriske matriser med ortonormal $P$ er $P^{-1}=P^{T}$ — skriv $PDP^{T}$, ikke $PDP^{-1}$, og regn aldri en unødvendig invers.\n- **Ortogonaliserer på tvers av egenrom:** egenvektorer til *ulike* egenverdier er allerede ortogonale (spektralteoremet). Gram–Schmidt gjøres bare *innen* et egenrom.\n- **Regner egenverdier/egenvektorer for hånd** i stedet for å lese dem av vedlegget (`[V D]=eig`)."
+    },
+    {
+      "id": "mat1120-6-1-bb",
+      "type": "text",
+      "content": "## Begrepsbank til eksamen\n\nKjernebegrepene fra kapitlet i eksamensrettet kortform.\n\n*Begrepsbanken er flashcard-/repetisjonsstoff — hopp trygt over ved førstegangslesing; tidsanslaget gjelder kjernestoffet.*"
+    },
+    {
+      "id": "mat1120-6-1-bb-spektral-kort",
+      "type": "definition",
+      "title": "Spektralteoremet i én setning",
+      "content": "Reell symmetrisk matrise ⇒ reelle egenverdier, ortogonale egenrom, og en ortonormal egenbasis, altså $A=PDP^{T}$ med $P$ ortogonal. Symmetri er den sterkeste snarveien til diagonaliserbarhet i faget."
+    },
+    {
+      "id": "mat1120-6-1-bb-reelle",
+      "type": "definition",
+      "title": "Symmetrisk ⇒ reelle egenverdier",
+      "content": "En reell symmetrisk matrise har bare reelle egenverdier — aldri komplekse par. Derfor slipper man komplekse tall i F-oppgaver, i motsetning til generelle matriser der komplekse egenverdier kan dukke opp."
+    },
+    {
+      "id": "mat1120-6-1-bb-ortrom",
+      "type": "definition",
+      "title": "Egenrom til ulike egenverdier er ortogonale",
+      "content": "For symmetrisk $A$ står $E_{\\lambda}$ og $E_{\\mu}$ vinkelrett når $\\lambda\\ne\\mu$: er $A\\mathbf{u}=\\lambda\\mathbf{u}$ og $A\\mathbf{v}=\\mu\\mathbf{v}$, gir $\\lambda(\\mathbf{u}\\cdot\\mathbf{v})=(A\\mathbf{u})\\cdot\\mathbf{v}=\\mathbf{u}\\cdot(A\\mathbf{v})=\\mu(\\mathbf{u}\\cdot\\mathbf{v})$, så $(\\lambda-\\mu)(\\mathbf{u}\\cdot\\mathbf{v})=0$ og $\\mathbf{u}\\cdot\\mathbf{v}=0$."
+    },
+    {
+      "id": "mat1120-6-1-bb-hvorfor-norm",
+      "type": "definition",
+      "title": "Hvorfor normalisere",
+      "content": "$P$ skal være *ortogonal*, ikke bare ha ortogonale søyler. En ortogonal matrise har søyler av lengde 1. Derfor deler du hver egenvektor på normen; ellers blir $P^{T}P=cI\\ne I$ og $A=PDP^{T}$ feil."
+    },
+    {
+      "id": "mat1120-6-1-bb-Pinv-Pt",
+      "type": "definition",
+      "title": "Ortogonal $P$: $P^{-1}=P^{T}$",
+      "content": "Når $P$ er ortogonal, er inversen bare transponeringen. Det er hele grunnen til at symmetriske matriser får den enkle formen $A=PDP^{T}$ — man slipper å regne matriseinvers."
+    },
+    {
+      "id": "mat1120-6-1-bb-PDPt-vs-PDPinv",
+      "type": "definition",
+      "title": "$A=PDP^{T}$ vs. $A=PDP^{-1}$",
+      "content": "$A=PDP^{-1}$ er generell diagonalisering ($P$ hvilken som helst invertibel egenvektormatrise). $A=PDP^{T}$ krever $P$ ortogonal og er forbeholdt symmetriske matriser. Bland dem ikke: $P^{-1}=P^{T}$ gjelder bare når $P$ er ortogonal."
+    },
+    {
+      "id": "mat1120-6-1-bb-mult-gs",
+      "type": "definition",
+      "title": "Multiplisitet krever Gram–Schmidt",
+      "content": "En enkel egenverdi gir én egenvektor du bare normaliserer. En egenverdi med multiplisitet $\\ge2$ gir et egenrom der vedleggets basis kan være ikke-ortogonal — der kjører du Gram–Schmidt, så normaliserer."
+    },
+    {
+      "id": "mat1120-6-1-bb-gs-bevarer",
+      "type": "definition",
+      "title": "Gram–Schmidt bevarer egenskapen",
+      "content": "Enhver lineærkombinasjon av egenvektorer med samme $\\lambda$ er igjen en egenvektor for $\\lambda$. Derfor er Gram–Schmidt-vektorene inne i et egenrom fortsatt egenvektorer, og $D$ endres ikke."
+    },
+    {
+      "id": "mat1120-6-1-bb-sym-alltid-diag",
+      "type": "definition",
+      "title": "Symmetrisk ⇒ alltid diagonaliserbar",
+      "content": "En symmetrisk matrise er alltid diagonaliserbar — hver egenverdi har fullt egenrom (geo $=$ alg), garantert av spektralteoremet. Du trenger aldri sjekke multiplisitet for å avgjøre *om* den er diagonaliserbar; bare for å bygge $P$."
+    },
+    {
+      "id": "mat1120-6-1-bb-sjekk-ortogonal",
+      "type": "definition",
+      "title": "Kontroll: er $P$ ortogonal?",
+      "content": "Rask sjekk: regn $P^{T}P$ og se om du får $I$. Ekvivalent: er alle søyler enhetsvektorer og innbyrdes ortogonale? Denne kontrollen fanger både glemt normalisering og glemt Gram–Schmidt."
+    },
+    {
+      "id": "mat1120-6-1-bb-spektral-dek",
+      "type": "definition",
+      "title": "Spektral dekomposisjon",
+      "content": "$A=\\sum_i\\lambda_i\\mathbf{u}_i\\mathbf{u}_i^{T}$: symmetrisk $A$ som vektet sum av rang-1-projeksjoner langs de ortonormale egenvektorene. Brukes i bevis for definitthet og ulikheter (Del 6.2–6.3)."
+    },
+    {
+      "id": "mat1120-6-1-bb-projeksjon-uut",
+      "type": "definition",
+      "title": "Rang-1-leddet $\\mathbf{u}\\mathbf{u}^{T}$",
+      "content": "For en enhetsvektor $\\mathbf{u}$ er $\\mathbf{u}\\mathbf{u}^{T}$ projeksjonsmatrisen ned på linjen langs $\\mathbf{u}$: $(\\mathbf{u}\\mathbf{u}^{T})\\mathbf{x}=(\\mathbf{u}\\cdot\\mathbf{x})\\mathbf{u}$. Den er symmetrisk, har rang 1 og egenverdier $1,0,\\dots,0$."
+    },
+    {
+      "id": "mat1120-6-1-bb-ortmatrise",
+      "type": "definition",
+      "title": "Ortogonal matrise",
+      "content": "$P^{T}P=I$ ⇔ ortonormale søyler ⇔ $P^{-1}=P^{T}$. Slike matriser bevarer lengder og vinkler. Advarsel om navnet: en «ortogonal matrise» har *orto**normale*** søyler, ikke bare ortogonale."
+    },
+    {
+      "id": "mat1120-6-1-bb-normbevaring",
+      "type": "definition",
+      "title": "Normbevaring",
+      "content": "En ortogonal $P$ oppfyller $\\lVert P\\mathbf{x}\\rVert=\\lVert\\mathbf{x}\\rVert$ for alle $\\mathbf{x}$, fordi $\\lVert P\\mathbf{x}\\rVert^2=(P\\mathbf{x})^{T}(P\\mathbf{x})=\\mathbf{x}^{T}P^{T}P\\mathbf{x}=\\mathbf{x}^{T}\\mathbf{x}=\\lVert\\mathbf{x}\\rVert^2$. Geometrisk: en stiv bevegelse (rotasjon/refleksjon)."
+    },
+    {
+      "id": "mat1120-6-1-bb-det-pm1",
+      "type": "definition",
+      "title": "$\\det P=\\pm1$ for ortogonal $P$",
+      "content": "Fra $P^{T}P=I$ er $(\\det P)^2=\\det(P^{T})\\det(P)=\\det I=1$, så $\\det P=\\pm1$. $+1$ svarer til en rotasjon, $-1$ til en refleksjon. Egenverdien(e) har absoluttverdi 1."
+    },
+    {
+      "id": "mat1120-6-1-bb-symmetri-transp",
+      "type": "definition",
+      "title": "Ortogonalt diagonaliserbar ⇔ symmetrisk",
+      "content": "Ikke bare gir symmetri ortogonal diagonalisering — det motsatte gjelder også: er $A=PDP^{T}$ med ortogonal $P$, så er $A^{T}=(PDP^{T})^{T}=PDP^{T}=A$, altså symmetrisk. De to egenskapene er ekvivalente."
+    },
+    {
+      "id": "mat1120-6-1-bb-bro-Q",
+      "type": "definition",
+      "title": "Bro til kvadratiske former",
+      "content": "Spektralteoremet er motoren bak neste kapittel: variabelskiftet $\\mathbf{x}=P\\mathbf{y}$ med ortogonal $P$ gjør en kvadratisk form $Q=\\mathbf{x}^{T}A\\mathbf{x}$ om til $\\lambda_1y_1^2+\\dots+\\lambda_ny_n^2$ uten kryssledd ([kap. 6.2](/bok/mat1120/mat1120-6-2)–[6.3](/bok/mat1120/mat1120-6-3))."
+    },
+    {
+      "id": "mat1120-6-1-bb-eig-vedlegg",
+      "type": "definition",
+      "title": "Vedlegget `[V D]=eig`",
+      "content": "Matlab-utskriften `[V D]=eig(A)` gir egenvektorer som søyler i $V$ og egenverdiene i $D$. For symmetrisk $A$ leverer den allerede ortonormale søyler — men på eksamen får du ofte ikke-normaliserte egenvektorer og må normalisere/Gram–Schmidt selv."
+    },
+    {
+      "id": "mat1120-6-1-bb-diag-selv-ort",
+      "type": "definition",
+      "title": "Diagonalmatrise er ortogonalt diagonaliserbar",
+      "content": "En diagonalmatrise er symmetrisk og trivielt $A=IDI^{T}$ med $P=I$; standardbasisen er en ortonormal egenbasis. Alle diagonale (og skalar-) matriser er ekstremtilfeller av spektralteoremet."
+    },
+    {
+      "id": "mat1120-6-1-bb-felle-Pt",
+      "type": "definition",
+      "title": "Vanligste F-feil oppsummert",
+      "content": "De to feilene som koster mest: (1) glemt normalisering ⇒ $P$ ikke ortogonal; (2) glemt Gram–Schmidt i et egenrom med multiplisitet ⇒ søylene ikke ortogonale. Begge gir $P^{T}P\\ne I$ og dermed $A\\ne PDP^{T}$."
+    },
+    {
+      "id": "mat1120-6-1-rep",
+      "type": "collapsible",
+      "title": "Repetisjonsoppgaver",
+      "buttonText": "Vis repetisjonsoppgaver",
+      "content": [
+        {
+          "id": "mat1120-6-1-r1",
+          "type": "exercise",
+          "exercise": {
+            "id": "mat1120-6-1-r1",
+            "number": "R1",
+            "type": "classic",
+            "difficulty": "lett",
+            "task": "En symmetrisk $2\\times2$-matrise har egenverdier $7$ og $2$. Er egenvektorene automatisk ortogonale? Begrunn.",
+            "solution": "Ja. For en symmetrisk matrise er egenvektorer til **ulike** egenverdier ($7\\ne2$) automatisk ortogonale (spektralteoremet). Man trenger bare normalisere dem for å få en ortogonal $P$.",
+            "hints": [
+              "Er egenverdiene like eller ulike?"
+            ]
+          }
+        },
+        {
+          "id": "mat1120-6-1-r2",
+          "type": "exercise",
+          "exercise": {
+            "id": "mat1120-6-1-r2",
+            "number": "R2",
+            "type": "classic",
+            "difficulty": "middels",
+            "task": "Gjør egenvektoren $(3,-4)^{T}$ til en enhetsvektor.",
+            "solution": "$\\lVert(3,-4)\\rVert=\\sqrt{9+16}=5$, så enhetsvektoren er $\\tfrac{1}{5}(3,-4)^{T}=(\\tfrac35,-\\tfrac45)^{T}$.",
+            "hints": [
+              "Del på lengden $\\sqrt{3^2+(-4)^2}$."
+            ]
+          }
+        },
+        {
+          "id": "mat1120-6-1-r3",
+          "type": "exercise",
+          "exercise": {
+            "id": "mat1120-6-1-r3",
+            "number": "R3",
+            "type": "classic",
+            "difficulty": "middels",
+            "task": "To egenvektorer i samme egenrom er $(1,1,0)^{T}$ og $(1,-1,0)^{T}$. Trengs Gram–Schmidt?",
+            "solution": "$(1,1,0)\\cdot(1,-1,0)=1-1+0=0$ — de er allerede ortogonale, så Gram–Schmidt trengs **ikke**; bare normalisér (begge har lengde $\\sqrt2$).",
+            "hints": [
+              "Sjekk skalarproduktet først."
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": "mat1120-6-1-symbol",
+      "type": "collapsible",
+      "title": "Symbol- og formelliste",
+      "buttonText": "Vis symboler og formler",
+      "content": [
+        {
+          "id": "mat1120-6-1-symbol-tekst",
+          "type": "text",
+          "content": "## Symbol- og formelliste\n\n*Oppslagsverk — alt her forklares underveis i kapitlet.*\n\n| Symbol | Betydning |\n|---|---|\n| $A=A^{T}$ | Symmetrisk matrise |\n| $A=PDP^{T}$ | Ortogonal diagonalisering (symmetrisk $A$) |\n| $P^{T}P=I$ | $P$ er ortogonal ($P^{-1}=P^{T}$) |\n| $\\mathbf{u}=\\tfrac{1}{\\lVert\\mathbf{v}\\rVert}\\mathbf{v}$ | Normalisering |\n| $\\mathbf{w}_2=\\mathbf{v}_2-\\tfrac{\\mathbf{v}_2\\cdot\\mathbf{v}_1}{\\mathbf{v}_1\\cdot\\mathbf{v}_1}\\mathbf{v}_1$ | Gram–Schmidt-steget |\n| $E_\\lambda$ | Egenrom $\\operatorname{Nul}(A-\\lambda I)$ |\n| $\\lVert P\\mathbf{x}\\rVert$ | Norm etter ortogonal avbildning |\n\n**Formler og resultater i dette delkapitlet:**\n\n$$A=A^{T}\\ \\Rightarrow\\ A=PDP^{T},\\quad P^{T}P=I$$\nSpektralteoremet: symmetrisk ⇒ ortogonalt diagonaliserbar med ortonormal egenbasis.\n\n$$A=\\lambda_1\\mathbf{u}_1\\mathbf{u}_1^{T}+\\dots+\\lambda_n\\mathbf{u}_n\\mathbf{u}_n^{T}$$\nSpektral dekomposisjon (rang-1-projeksjoner vektet med egenverdiene).\n\n$$\\lVert P\\mathbf{x}\\rVert=\\lVert\\mathbf{x}\\rVert,\\qquad \\det P=\\pm1$$\nOrtogonale matriser er normbevarende.\n\n**Metode (ortogonal diagonalisering):** (1) les egenverdier/vektorer av vedlegget; (2) normalisér; (3) Gram–Schmidt *innen* et egenrom med multiplisitet; (4) bygg ortogonal $P$ og diagonal $D$, matchet søyle for søyle ⇒ $A=PDP^{T}$."
+        }
+      ]
+    }
+  ],
+  "exercises": []
+}
