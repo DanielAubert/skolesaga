@@ -1,0 +1,102 @@
+[
+ {
+  "question": "For $X_1,\\dots,X_n$ uavhengige eksponensial med forventning $\\theta$: hvilken fordeling har pivoten $2\\sum X_i/\\theta$?",
+  "options": [
+   "$\\chi^2_{2n}$ — gamma$(n,\\theta)$ skalert med $2/\\theta$ gir gamma$(n,2)$",
+   "$\\chi^2_{n}$ — én frihetsgrad per observasjon i summen",
+   "$\\chi^2_{n-1}$ — én frihetsgrad går tapt fordi parameteren $\\theta$ må estimeres fra dataene",
+   "$\\chi^2_{2n-1}$ — dobling av observasjonene minus én estimert parameter"
+  ],
+  "explanation": "$\\sum X_i\\sim\\text{gamma}(n,\\theta)$, og $\\chi^2_\\nu=\\text{gamma}(\\nu/2,2)$; skaleringen gir $\\nu/2=n$, altså $2n$ frihetsgrader."
+ },
+ {
+  "question": "Det eksakte KI-et for $\\theta$ fra kjikvadrat-pivoten er ikke symmetrisk om $\\hat\\theta$. Hva betyr det?",
+  "options": [
+   "Ingenting galt — et eksakt intervall fra en skjev pivot er asymmetrisk",
+   "Det er en regnefeil, siden konfidensintervaller alltid skal være symmetriske om estimatet",
+   "Det må symmetriseres ved å ta gjennomsnittet av de to grensene",
+   "Konfidensnivået er feil og må justeres ned til under 95 prosent"
+  ],
+  "explanation": "Kjikvadratfordelingen er skjev, og pivot-intervallet arver skjevheten. Symmetri gjelder bare når pivoten er (tilnærmet) normal."
+ },
+ {
+  "question": "Hva gjør en størrelse til en pivot?",
+  "options": [
+   "Den avhenger av både data og parameter, men fordelingen dens er fri for parameteren",
+   "Den avhenger bare av dataene og inneholder ikke parameteren i det hele tatt",
+   "Den er forventningsrett og har minst mulig varians blant alle estimatorer",
+   "Den er normalfordelt uansett hvilken modell dataene kommer fra"
+  ],
+  "explanation": "Pivotens fordeling er kjent og parameterfri — derfor kan kvantiler settes rundt den og ulikheten løses for parameteren."
+ },
+ {
+  "question": "I KI-utledningen fra pivoten $2\\sum X_i/\\theta$ havner den *store* kvantilen $\\chi^2_{2n,\\,\\alpha/2}$ i nevneren til den *nedre* grensen. Hvorfor?",
+  "options": [
+   "$\\theta$ står i nevneren i pivoten, så ulikhetene snur når det løses for $\\theta$",
+   "Kvantilene sorteres alltid slik at det minste tallet havner i den øverste grensen av intervallet",
+   "Den store kvantilen har størst usikkerhet og hører derfor til nedre hale",
+   "Det er en konvensjon uten matematisk innhold, valgt for lesbarhet"
+  ],
+  "explanation": "Fra $a<2\\sum X_i/\\theta<b$ følger $2\\sum X_i/b<\\theta<2\\sum X_i/a$ — divisjon med $\\theta>0$ og løsning snur plasseringen av kvantilene."
+ },
+ {
+  "question": "Samme ni prøvestykker måles med to metoder. Hvordan testes «samme forventning» korrekt?",
+  "options": [
+   "t-test på de ni differansene $d_i$ med $n-1=8$ frihetsgrader (ett-utvalgs oppsett)",
+   "To-utvalgs t-test med pooled varians og $9+9-2=16$ frihetsgrader",
+   "z-test med kjent varians, siden begge metodene måler samme størrelse",
+   "F-test for variansforholdet mellom de to måleseriene"
+  ],
+  "explanation": "Målingene på samme prøvestykke er avhengige — paringen utnyttes ved å redusere til differanser og kjøre ett-utvalgs t-test med df $=n-1$."
+ },
+ {
+  "question": "Hvorfor brukes pooled andel $\\hat p$ i standardfeilen når to andeler testes mot $H_0:p_1=p_2$?",
+  "options": [
+   "Under $H_0$ er andelene samme ukjente $p$, som best estimeres med alle data samlet",
+   "Pooling gir alltid mindre standardfeil og dermed en sterkere test",
+   "Pooling korrigerer for at de to utvalgene har ulik størrelse",
+   "Pooling er nødvendig for at differansen mellom andelene skal bli nøyaktig normalfordelt"
+  ],
+  "explanation": "Standardfeilen beregnes under $H_0$, og der finnes bare én andel $p$ — fellesestimatet $\\hat p=(x_1+x_2)/(n_1+n_2)$ er det riktige."
+ },
+ {
+  "question": "Hva er forskjellen på KI for forventet respons og prediksjonsintervall ved samme $x_0$?",
+  "options": [
+   "PI har et ekstra støyledd («$1+$» under roten) for den nye observasjonen og er bredere",
+   "KI er bredere fordi en forventning er vanskeligere å anslå enn en enkelt ny observasjon",
+   "De er like brede når $x_0$ ligger nøyaktig i gjennomsnittet $\\bar x$",
+   "PI bruker z-kvantiler mens KI bruker t-kvantiler, ellers er de identiske"
+  ],
+  "explanation": "KI fanger usikkerheten i linja; PI legger til den individuelle støyen $\\varepsilon_0$. Derfor «$1+$»-leddet — og PI er alltid bredere."
+ },
+ {
+  "question": "Hva skjer med de to intervallene ved $x_0$ når $n\\to\\infty$ (med samme $x$-spredning)?",
+  "options": [
+   "KI-bredden går mot null, mens PI-bredden er nedad begrenset av støyleddet $\\sigma$",
+   "Begge intervallene krymper mot null når linja blir kjent eksakt",
+   "PI-bredden går mot null først, siden enkeltobservasjoner er lettest å treffe",
+   "Begge stabiliserer seg til slutt på samme bredde, som bestemmes av residualvariansen alene"
+  ],
+  "explanation": "Linjeusikkerheten forsvinner med mye data, men en ny observasjon spres fortsatt med $\\sigma$ — «$1+$»-leddet forsvinner aldri."
+ },
+ {
+  "question": "Data dekker luftfuktighet 30–70 %. Hva er hovedproblemet med å predikere tørketid ved 90 %?",
+  "options": [
+   "Ingen data støtter at sammenhengen fortsatt er lineær utenfor 30–70",
+   "Prediksjonsintervallet blir smalere enn i dataområdet og virker for sikkert",
+   "t-fordelingen gjelder ikke lenger og må byttes ut med normalfordelingen",
+   "Regresjonen må regnes på nytt uten konstantledd før den kan brukes"
+  ],
+  "explanation": "Ekstrapolering hviler på en modellform ingen data har testet; i tillegg vokser intervallbredden når avstanden til $\\bar x$ øker — men det største problemet er ukjent modellgyldighet."
+ },
+ {
+  "question": "QQ-plottet av differansene avviker klart fra referanselinja. Hvilket alternativ er naturlig for parvise data, og hva tester det?",
+  "options": [
+   "Wilcoxons fortegnsrangtest — at differansefordelingens senter (median) er null",
+   "To-utvalgs t-test med pooled varians — at de to uavhengige gruppene har samme forventning",
+   "F-test for variansforhold — at de to metodene har samme presisjon",
+   "Kjikvadrattest for uavhengighet — at metode og prøvestykke er uavhengige"
+  ],
+  "explanation": "Signed-rank-testen bruker fortegn og ranger av differansene og krever bare symmetri, ikke normalitet; den tester om senteret i differansefordelingen er 0."
+ }
+]

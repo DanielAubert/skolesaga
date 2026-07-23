@@ -27,7 +27,9 @@ Byggeplan: `docs/hoyskole-boker/BYGGEPLAN-MAL.md` (steg 0→4).
 | 2 | 2.7 + 2-prove | ✅ committet (def 15, quiz 25; salvage-verifisert) |
 | 3 | 3.1–3.2 | ✅ committet (def 30/25, quiz 30/25; salvage-verifisert) |
 | 3 | 3.3–3.7 + 3-prove | ✅ committet (def 30/20/20/15/15, quiz 30/20/20/10/25) |
-| 4 | 4.1–4.4 | 🔨 agent kjører |
+| 4 | 4.1–4.4 | ✅ committet (def 25/0/0/0, quiz 15/10/10/10; alle tall scipy-verifisert) |
+
+**Steg 1 KOMPLETT:** 25 kap + 3 prøvekap. Kvoter: quiz 515/515, flashcards 505/505 ✓
 
 Figurer: 9 SVG ✅ committet (b8bbe40e), lastes opp i Steg 4.
 

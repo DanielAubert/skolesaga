@@ -1,0 +1,361 @@
+{
+  "id": "stk1110-4-1",
+  "courseId": "stk1110",
+  "chapterNumber": "4.1",
+  "title": "Sjangerguiden A–P og den kjededelte tredelingens anatomi",
+  "description": "Hele sjangerkatalogen A–P samlet, med hvordan de 2–3 kjededelte storoppgavene bygges (a–f-kjeden), tidsbudsjett og hva sensor belønner ved hvert trinn.",
+  "estimatedMinutes": 40,
+  "competenceGoals": [
+    "kunne gjenkjenne hvilken oppgavesjanger hvert deltrinn i en kjededelt storoppgave tilhører, og velge fasitmetoden",
+    "kunne disponere 4 timer på 2–3 kjededelte storoppgaver med et realistisk tidsbudsjett",
+    "kunne bygge hvert delsvar etter mønsteret modell → utledning → riktig fordeling og frihetsgrader → tolkning i ord → kryssjekk",
+    "kunne bruke oppgitte mellomresultater til å sikre delpoeng videre i kjeden når ett trinn stopper"
+  ],
+  "content": [
+    {
+      "id": "stk1110-4-1-tip",
+      "type": "tip",
+      "title": "Eksamensvinkel",
+      "content": "**Dette kapitlet er kartet over selve eksamensdagen.** Eksamen i STK1110 er en 4-timers skriftlig prøve med **2–3 store oppgaver**, der hver oppgave er en *kjede* av 4–7 deloppgaver (a, b, c, …) rundt én felles kontekst. Boka deler alt som faktisk spørres om i **16 gjenkjennbare oppgavesjangre, merket med bokstavene A–P** — hver av dem får sin egen definisjon nedenfor, med frekvens, typisk plassering, fasitmetode og det vanligste trekket.\\n\\nIngenting her er nytt fagstoff: alt er dekket i del 1–3. Det nye er **blikket**: å se på et deltrinn og umiddelbart vite *hvilken* sjanger det er, *hvilken* metode fasiten forventer, og *hvor lang tid* det fortjener. De tre drillkapitlene ([kap. 1.5](/bok/stk1110/stk1110-1-5), [kap. 2.7](/bok/stk1110/stk1110-2-7) og [kap. 3.7](/bok/stk1110/stk1110-3-7)) trente kjedene hver for seg — her settes de sammen til eksamensstrategi, før du løsner på øvingseksamenene, med [kap. 4.2](/bok/stk1110/stk1110-4-2) først."
+    },
+    {
+      "id": "stk1110-4-1-forkunnskaper",
+      "type": "text",
+      "content": "**Forkunnskaper:** Kapitlet er ren syntese — hvert punkt under sier hvor stoffet er gjennomarbeidet, og hva du trenger derfra:\n\n- [kap. 1.5](/bok/stk1110/stk1110-1-5) — **estimeringskjeden i sju trinn** (modell → moment/ML med bekreftet maksimum → forventningsretthet → varians → Fisher-informasjon → Wald-KI); hele estimeringssøylen under bygger på denne drillen.\n- [kap. 2.7](/bok/stk1110/stk1110-2-7) — **det komplette test-ritualet** ($H_0/H_a$ → observator med fordeling → nivå-utledning → tallfesting → konklusjon i ord) og P-verdi-definisjonen; test- og KI-søylen.\n- [kap. 3.7](/bok/stk1110/stk1110-3-7) — **regresjonsoppgaven fra R-utskrift** som a–f-kjede; regresjonssøylen.\n- [kap. 0.1](/bok/stk1110/stk1110-0-1) — **eksamensformen og frekvenstabellen**; alle frekvensanslag nedenfor («≈N % av settene») bygger på de 22 settene 2004–2025 derfra.\n- Enkeltsjangre: Bayes fra [kap. 1.4](/bok/stk1110/stk1110-1-4), styrke fra [kap. 2.4](/bok/stk1110/stk1110-2-4), eksakt pivot fra [kap. 2.5](/bok/stk1110/stk1110-2-5), ANOVA og ikke-parametrikk fra [kap. 2.6](/bok/stk1110/stk1110-2-6), prediksjon fra [kap. 3.5](/bok/stk1110/stk1110-3-5), logistisk regresjon fra [kap. 3.6](/bok/stk1110/stk1110-3-6)."
+    },
+    {
+      "id": "stk1110-4-1-motiv",
+      "type": "text",
+      "content": "## Storoppgavens anatomi\n\nÅpner du et vilkårlig eksamenssett, ser du samme mønster: **oppgave 1 er estimering, oppgave 2 er hypotesetesting og konfidensintervall, oppgave 3 — den tyngste — er lineær regresjon med R-utskrift.** Denne tredelingen har ligget fast gjennom hele perioden 2004–2025. Noen år slås to søyler sammen til én oppgave (da blir det 2 storoppgaver), men søylene selv består.\n\nHver storoppgave er *kjededelt*: deltrinn a) etablerer modellen, b)–d) bygger videre på svarene foran, e)–f) topper med et tolknings- eller spesialistpunkt. Det viktigste strategiske faktumet er at **kjeden er konstruert for å tåle hull**: et blankt deltrinn sperrer nesten aldri resten, fordi senere trinn kan løses med et *oppgitt* mellomresultat. Begrepene under er verktøykassen for å utnytte dette."
+    },
+    {
+      "id": "stk1110-4-1-def-soyler",
+      "type": "definition",
+      "title": "De tre søylene",
+      "content": "De tre likevektede temablokkene som til sammen utgjør eksamen: **estimeringsteori** (del 1), **hypotesetesting + konfidensintervall** (del 2) og **lineær regresjon** (del 3). Hver søyle bærer normalt sin egen storoppgave, og regresjonssøylen er gjennomgående den mest omfangsrike. Skal du prioritere lesing, må alle tre sitte — å kunne to av tre koster deg i praksis en hel storoppgave."
+    },
+    {
+      "id": "stk1110-4-1-def-kjede",
+      "type": "definition",
+      "title": "Den kjededelte storoppgaven (a–f-kjeden)",
+      "content": "Eksamensoppgavens faste form: én kontekst (et datasett, en fordeling, en R-utskrift) med **4–7 deloppgaver a), b), c), …** der tidlige svar gjenbrukes i senere trinn. Kjeden starter lett (definer modellen, finn en enkel estimator) og stiger mot spesialistpunkter (Fisher-informasjon, dualitet, prediksjonsintervall). Fordi trinnene henger sammen, belønnes du for å skrive *alle* ledd — og fordi de er punktsatt hver for seg, taper du ikke resten om ett trinn ryker."
+    },
+    {
+      "id": "stk1110-4-1-def-oppgitt",
+      "type": "definition",
+      "title": "Oppgitt mellomresultat",
+      "content": "En verdi eller formel oppgaveteksten gir deg nettopp for at kjeden ikke skal bryte sammen: «du kan bruke at $E(X)=\\theta\\sqrt{\\pi/2}$», «du kan anta resultatet fra punkt (b)». Stopper du på et trinn, tar du det oppgitte resultatet og regner videre som om trinnet var løst — det gir full uttelling på alle senere trinn. Å grave seg fast i ett deltrinn i stedet for å bruke det oppgitte er en av de dyreste strategifeilene."
+    },
+    {
+      "id": "stk1110-4-1-def-delpoeng",
+      "type": "definition",
+      "title": "Delpoeng",
+      "content": "Poengene settes **per deltrinn og per ledd i utledningen**, ikke per sluttsvar. En ML-utledning med riktig kjede $L\\to\\ell\\to s\\to$ løs, men med en regnefeil i siste linje, henter det meste av uttellingen; et riktig sluttsvar uten utledning henter lite. Konsekvensen: skriv alle trinn kompakt, og hopp aldri over «selvfølgeligheter» som å definere modellen eller bekrefte maksimum."
+    },
+    {
+      "id": "stk1110-4-1-s1",
+      "type": "text",
+      "content": "## Søyle 1 — estimering (den faste Oppgave 1)\n\nSjekklisten for estimeringssøylen har fire sjangre. Møter du Oppgave 1, skanner du deltrinnene og setter bokstav på hvert: nesten alltid åpner den med moment/ML (sjanger A, definert under), fortsetter med forventningsretthet og varians (B), og topper med Fisher-informasjon → Wald-intervall (C) eller — i nyere sett — et Bayes-punkt (L)."
+    },
+    {
+      "id": "stk1110-4-1-def-a",
+      "type": "definition",
+      "title": "Sjanger A — moment- og ML-utledning",
+      "content": "Deltrinnet der du utleder punktestimatoren for parameteren i en oppgitt (ofte «eksotisk») fordeling. **Frekvens:** ML i ≈82 % av settene, momentestimator i ≈50 %. **Plassering:** åpningen av Oppgave 1. **Fasitmetoden:** moment — sett $E(X)=\\bar X$ og løs; ML — hele kjeden $L(\\theta)\\to\\ell(\\theta)\\to s(\\theta)=\\ell'(\\theta)\\to$ løs $s(\\hat\\theta)=0\\to$ **bekreft** $\\ell''(\\hat\\theta)<0$. **Vanligste trekk:** maksimumsbekreftelsen droppes, eller momentligningen settes opp med feil moment."
+    },
+    {
+      "id": "stk1110-4-1-def-b",
+      "type": "definition",
+      "title": "Sjanger B — forventningsretthet, varians og sammenligning",
+      "content": "Deltrinnet der estimatorens kvalitet vurderes: vis $E(\\hat\\theta)=\\theta$ (eller kvantifiser og korriger skjevheten), utled $\\text{Var}(\\hat\\theta)$, og sammenlign eventuelt to estimatorer. **Frekvens:** ≈91 % av settene. **Plassering:** midten av Oppgave 1, rett etter A-trinnet. **Fasitmetoden:** regnereglene for $E$ og Var på lineærkombinasjoner; sammenligning på varians når begge er forventningsrette, ellers på MSE. **Vanligste trekk:** blande estimator (stor bokstav, stokastisk) med estimat (tall), og påstå forventningsretthet uten regning."
+    },
+    {
+      "id": "stk1110-4-1-def-c",
+      "type": "definition",
+      "title": "Sjanger C — Fisher-informasjon og Wald-intervall",
+      "content": "Spesialistpunktet i estimeringskjeden: regn $I(\\theta)=-E[\\partial^2\\log f/\\partial\\theta^2]$, angi ML-estimatorens tilnærmede fordeling $N(\\theta,\\,1/(nI(\\theta)))$, og bygg Wald-intervallet $\\hat\\theta\\pm z_{\\alpha/2}\\,se(\\hat\\theta)$. **Frekvens:** ≈45 % av settene, stigende siden 2016. **Plassering:** slutten av Oppgave 1. **Fasitmetoden:** nevn ML-asymptotikken eksplisitt og koble variansen til $1/(nI(\\theta))$; Cramér–Rao ved effisiens-spørsmål. **Vanligste trekk:** t-kvantil der Wald skal ha $z$, eller normalform påstått uten å nevne asymptotikken."
+    },
+    {
+      "id": "stk1110-4-1-def-l",
+      "type": "definition",
+      "title": "Sjanger L — Bayesiansk inferens",
+      "content": "Rotasjonspunktet der en apriorifordeling er oppgitt og du skal finne aposteriori og Bayes-estimatoren. **Frekvens:** ≈9 % av settene, men nytt fast innslag siden 2022 — regn med det. **Plassering:** sistepunktet i Oppgave 1. **Fasitmetoden:** $\\pi(\\theta\\mid x)\\propto\\pi(\\theta)L(\\theta)$ — *samle eksponentene* og les av fordelingsfamilien (Poisson→gamma er gjengangeren); Bayes-estimatoren er aposteriori-forventningen, og for store $n$ ligger den nær ML-estimatet. **Vanligste trekk:** påstå konjugering uten å samle eksponentene og faktisk gjenkjenne familien."
+    },
+    {
+      "id": "stk1110-4-1-s2",
+      "type": "text",
+      "content": "## Søyle 2 — test og konfidensintervall (Oppgave 2)\n\nTest- og KI-søylen har flest sjangre, men én kjerne: **ritualet** (sjanger E under) er obligatorisk uansett hvilken test det gjelder. Rundt kjernen roterer to-utvalg/parvis/andeler (G), styrke (F), eksakt pivot (N), ANOVA (M) og ikke-parametrikk (O)."
+    },
+    {
+      "id": "stk1110-4-1-def-d",
+      "type": "definition",
+      "title": "Sjanger D — konfidensintervall",
+      "content": "Deltrinnet der et intervall for parameteren skal konstrueres — det aller hyppigste enkelttemaet. **Frekvens:** ≈95 % av settene. **Plassering:** Oppgave 2, ofte også som Wald-punkt i Oppgave 1 og koeffisient-KI i Oppgave 3. **Fasitmetoden:** velg riktig type: $t$-intervall $\\bar X\\pm t_{n-1,\\alpha/2}S/\\sqrt n$ (normaldata, ukjent $\\sigma$), Wald $\\hat\\theta\\pm z_{\\alpha/2}se(\\hat\\theta)$ (ML-asymptotikk), andels-, differanse- eller $\\chi^2$-intervall etter situasjon. **Vanligste trekk:** $z$ der det skal være $t$, og feil frihetsgrader."
+    },
+    {
+      "id": "stk1110-4-1-def-e",
+      "type": "definition",
+      "title": "Sjanger E — testritualet (full pakke)",
+      "content": "Hypotesetesten som sensor vil se *komplett*, i fem faste trinn: (1) $H_0/H_a$ med begrunnet retning, (2) testobservator med fordeling under $H_0$, (3) **utledning av at nivået blir $\\alpha$**, (4) tallfesting med kvantil/P-verdi, (5) konklusjon i ord i kontekst. **Frekvens:** ≈91 % av settene. **Plassering:** kjernen i Oppgave 2. **Fasitmetoden:** hele ritualet hver gang — også når testen er «standard»; P-verdien defineres verbalt (sannsynligheten under $H_0$ for et minst like ekstremt utfall). **Vanligste trekk:** hoppe over nivå-utledningen fordi «det bare er å sette inn i formelen»."
+    },
+    {
+      "id": "stk1110-4-1-def-f",
+      "type": "definition",
+      "title": "Sjanger F — styrke og dimensjonering",
+      "content": "Deltrinnet som spør «hvor stor må $n$ være?» eller «hva er sannsynligheten for å oppdage avviket?». **Frekvens:** ≈23 % av settene. **Plassering:** sistepunktet i Oppgave 2. **Fasitmetoden:** styrken $1-\\beta$ regnes via normalfordelingen med forkastningsgrensen uttrykt i kvantiler; ved dimensjonering løses ulikheten for $n$ og svaret **rundes opp**. **Vanligste trekk:** blande $\\alpha$- og $\\beta$-kvantilene, eller runde $n$ ned."
+    },
+    {
+      "id": "stk1110-4-1-def-g",
+      "type": "definition",
+      "title": "Sjanger G — to utvalg, parvise data og andeler",
+      "content": "Sammenligningstrinnet: to grupper, før/etter-målinger eller to andeler. **Frekvens:** to-utvalg ≈36 %, andeler ≈23 %, parvis ≈9 % av settene. **Plassering:** Oppgave 2. **Fasitmetoden:** to uavhengige utvalg — pooled $S_p^2=[(m-1)S_1^2+(n-1)S_2^2]/(m+n-2)$ og $t_{m+n-2}$; **parvise data — reduser til differansene $D_i$ og kjør ett-utvalgsanalyse**; andeler — $z$-test med pooled $\\hat p$ under $H_0$. **Vanligste trekk:** behandle parrede data som to uavhengige utvalg, og glemme $m+n-2$."
+    },
+    {
+      "id": "stk1110-4-1-def-m",
+      "type": "definition",
+      "title": "Sjanger M — enveis ANOVA",
+      "content": "Rotasjonspunktet med tre eller flere grupper: test $H_0:\\mu_1=\\dots=\\mu_k$ med F-testen, ofte fra en R-utskrift. **Frekvens:** ≈9 % av settene (2020- og 2021-settene). **Plassering:** Oppgave 2, gjerne koblet til dummy-regresjon i Oppgave 3. **Fasitmetoden:** modellen $X_{ij}=\\mu_i+\\varepsilon_{ij}$, F-observatoren med riktige frihetsgrader, P-verdi fra utskrift; gruppekontraster som t-tester. **Vanligste trekk:** tolke «F-testen forkaster» som at *alle* grupper er forskjellige — den sier bare at *minst én* skiller seg."
+    },
+    {
+      "id": "stk1110-4-1-def-n",
+      "type": "definition",
+      "title": "Sjanger N — eksakt pivot",
+      "content": "Spesialistpunktet der du *utleder* fordelingen til en pivotstørrelse i stedet for å bruke normaltilnærming — typisk vise at $2\\sum X_i/\\theta\\sim\\chi^2_{2n}$ med transformasjonsformelen, og bygge et eksakt (asymmetrisk) intervall eller en eksakt ensidig test på den. **Frekvens:** ≈18 % av settene. **Plassering:** slutten av Oppgave 1 eller 2 — et A-differensieringspunkt. **Fasitmetoden:** transformasjon/CDF-metoden → gjenkjenn gamma/$\\chi^2$ → snu ulikheten om $\\theta$. **Vanligste trekk:** feil frihetsgrader ($\\chi^2_{2n}$, ikke $\\chi^2_n$), og å «rette» det asymmetriske intervallet til et symmetrisk."
+    },
+    {
+      "id": "stk1110-4-1-def-o",
+      "type": "definition",
+      "title": "Sjanger O — ikke-parametrikk og bootstrap",
+      "content": "Reservetrinnet når normalantakelsen svikter: bootstrap-persentilintervall fra den empiriske fordelingsfunksjonen, eller en rangtest (Wilcoxon-typen) i stedet for t-testen når QQ-plottet avviker. **Frekvens:** ≈9 % av settene. **Plassering:** sistepunkt i Oppgave 2, ofte som drøfting. **Fasitmetoden:** forklar *prinsippet* (trekking med tilbakelegging / ranger i stedet for verdier) og *hvorfor* det velges — svakere antakelser, gjerne litt svakere konklusjon. **Vanligste trekk:** avfeie rangtesten som «unøyaktig» i stedet for å koble den til brutt normalantakelse."
+    },
+    {
+      "id": "stk1110-4-1-s3",
+      "type": "text",
+      "content": "## Søyle 3 — regresjon (den tunge Oppgave 3)\n\nRegresjonsoppgaven er settets lengste og bærer flest delpunkter — å underprioritere den er den klassiske måten å tape en karakter på. Kjeden går nesten alltid: modell og tolkning (H), utvidelse til flere variabler (I), diagnostikk (J), prediksjon (K), med logistisk regresjon (P) som sjeldent rotasjonsinnslag."
+    },
+    {
+      "id": "stk1110-4-1-def-h",
+      "type": "definition",
+      "title": "Sjanger H — enkel lineær regresjon",
+      "content": "Grunntrinnet i Oppgave 3: modellen $Y_i=\\beta_0+\\beta_1x_i+\\varepsilon_i$, minste kvadrater, og inferens for stigningstallet fra R-utskrift. **Frekvens:** ≈91 % av settene — alltid en hel storoppgave. **Plassering:** åpningen av Oppgave 3. **Fasitmetoden:** tolk $\\hat\\beta_0$ og $\\hat\\beta_1$ *i kontekst*; $T=(\\hat\\beta_1-\\beta_1^0)/se(\\hat\\beta_1)\\sim t_{n-2}$; KI $\\hat\\beta_1\\pm t_{n-2,\\alpha/2}\\,se$. **Vanligste trekk:** $n-1$ frihetsgrader der det skal være $n-2$, og tolkning av konstantleddet ved $x=0$ når $x=0$ er urealistisk."
+    },
+    {
+      "id": "stk1110-4-1-def-i",
+      "type": "definition",
+      "title": "Sjanger I — multippel regresjon og modellvalg",
+      "content": "Utvidelsestrinnet: flere forklaringsvariabler, matriseform $Y=X\\beta+\\varepsilon$ med $\\hat\\beta=(X^TX)^{-1}X^TY$, og valg mellom modeller. **Frekvens:** ≈50 % av settene. **Plassering:** midten av Oppgave 3. **Fasitmetoden:** bruk **justert $R^2$** til modellvalg (vanlig $R^2$ øker alltid når en variabel legges til); forklar **konfundering** når en koeffisient endrer seg fra enkel til multippel modell; hver koeffisient tolkes *med de andre variablene holdt konstant*, og frihetsgradene er $n-k-1$. **Vanligste trekk:** modellvalg på vanlig $R^2$, og koeffisient tolket som «hele effekten»."
+    },
+    {
+      "id": "stk1110-4-1-def-j",
+      "type": "definition",
+      "title": "Sjanger J — modelldiagnostikk",
+      "content": "Kontrolltrinnet: vurder modellantakelsene fra de tre standardplottene. **Frekvens:** ≈41 % av settene. **Plassering:** nest sist i Oppgave 3. **Fasitmetoden:** les *mønstre* — residualer mot tilpassede (kurvatur → ikke-linearitet), scale–location (trend → ikke-konstant varians), QQ-plott (avvik fra linja → ikke-normalitet); på matrisenivå hatmatrisen $H=X(X^TX)^{-1}X^T$ og standardiserte residualer. **Vanligste trekk:** svare «plottene ser greie ut» uten å navngi mønster og konsekvens."
+    },
+    {
+      "id": "stk1110-4-1-def-k",
+      "type": "definition",
+      "title": "Sjanger K — prediksjonsintervall mot KI for forventet respons",
+      "content": "Prediksjonstrinnet: intervall for en *ny enkeltobservasjon* i $x_0$ (prediksjonsintervall, med «$1+$» under rota) mot intervall for *forventningen* $E(Y\\mid x_0)$ (uten). **Frekvens:** ≈18 % av settene. **Plassering:** slutten av Oppgave 3. **Fasitmetoden:** prediksjonsintervallet er alltid bredest fordi det også bærer støyleddets varians $\\sigma^2$; advar mot **ekstrapolering** utenfor dataområdet. **Vanligste trekk:** forveksle de to intervallene, og predikere langt utenfor dataområdet uten forbehold."
+    },
+    {
+      "id": "stk1110-4-1-def-p",
+      "type": "definition",
+      "title": "Sjanger P — logistisk regresjon",
+      "content": "Kjenne til-trinnet for binær respons: $P(Y=1\\mid x)=e^{\\beta_0+\\beta_1x}/(1+e^{\\beta_0+\\beta_1x})$. **Frekvens:** ≈5 % av settene (kjerneferdighet i emnebeskrivelsen, sjelden tungt testet). **Plassering:** sistepunkt i Oppgave 3 de årene den dukker opp. **Fasitmetoden:** med dummy-koding $x\\in\\{0,1\\}$ svarer $\\beta_1=0$ til lik sannsynlighet i to grupper — en to-gruppe-sammenligning kan altså skrives som logistisk regresjon. **Vanligste trekk:** tolke $\\beta_1$ som endring i sannsynlighet i stedet for i log-odds."
+    },
+    {
+      "id": "stk1110-4-1-anatomi",
+      "type": "text",
+      "content": "## Anatomien til en full besvarelse\n\nLøsningsforslagene 2015–2025 er påfallende like i formen, uansett tema. De beste besvarelsene følger samme fem-trinns mønster på *hvert* deltrinn, og de tre siste begrepene under gjør mønsteret, ritualet og kontrollgrepet eksplisitt. Merk hvor lite som er «inspirasjon» og hvor mye som er fast liturgi: sensor leter etter ledd, og leddene er de samme hvert år."
+    },
+    {
+      "id": "stk1110-4-1-def-anatomi",
+      "type": "definition",
+      "title": "Toppbesvarelsens anatomi (fem trinn)",
+      "content": "Malen de sterkeste besvarelsene følger på hvert deltrinn: (1) **definer modellen** («La $X_1,\\dots,X_n$ være uavhengige med …») før noe regnes, (2) **vis alle utledningstrinn** kompakt — ingen hopp, (3) **angi riktig fordeling med riktige frihetsgrader** for hver observator, (4) **tolk svaret i ord og kontekst** — et tall uten setning er et halvt svar, (5) **kryssjekk** mot dualitet eller rimelighet. Konsis regnekjede slår lang prosa: fasitene er utledningsdrevne, ikke essayistiske."
+    },
+    {
+      "id": "stk1110-4-1-def-ritual",
+      "type": "definition",
+      "title": "Sensorkrav-ritualet",
+      "content": "Destillatet av kravene som går igjen i løsningsforslagene: definert modell; komplette ML-kjeder med bekreftet maksimum; forventningsretthet og varians vist fullt ut; asymptotikk nevnt eksplisitt ved normaltilnærming; testens fem trinn inkludert nivå-utledning; riktig fordeling og frihetsgrader ($n-1$, $m+n-2$, $n-2$, $n-k-1$); eksakt pivot foran Wald når standardavviket avhenger av parameteren; kontekst-tolkning i regresjon; mønster-tolkede residualplott; presis lesing av R-utskrift; og tallsvar med riktig kvantil og enhet. Sjekklista gjelder hvert eneste deltrinn."
+    },
+    {
+      "id": "stk1110-4-1-def-kryssjekk",
+      "type": "definition",
+      "title": "Kryssjekk og dualitet",
+      "content": "Kontrollgrepet som koster ett minutt og redder hele deltrinn: sjekk at svaret henger sammen med noe du alt vet. Viktigst er **KI↔test-dualiteten** — $\\theta_0$ ligger utenfor det tosidige $(1-\\alpha)$-intervallet nøyaktig når den tosidige testen på nivå $\\alpha$ forkaster $H_0:\\theta=\\theta_0$. Andre kryssjekker: er variansen positiv, ligger estimatet i parameterrommet, er prediksjonsintervallet bredere enn konfidensintervallet, har intervallet rimelig enhet og størrelsesorden?"
+    },
+    {
+      "id": "stk1110-4-1-tid",
+      "type": "text",
+      "content": "## Tidsbudsjettet — 4 timer, 2–3 kjeder\n\n240 minutter på 2–3 storoppgaver gir **80–120 minutter per kjede**. Det høres romslig ut, men en full ML-utledning pluss Fisher-regning spiser fort 40 minutter alene. Budsjettet må derfor legges *før* du begynner å regne, og de to siste begrepene i kapitlet er selve styringsverktøyet: et konkret minutt-oppsett, og regelen om hvilke punkter som alltid tas først."
+    },
+    {
+      "id": "stk1110-4-1-def-tid",
+      "type": "definition",
+      "title": "Tidsbudsjettet for 4-timerseksamen",
+      "content": "Standardoppsettet ved tre storoppgaver: **~75 min til estimeringsoppgaven, ~65 min til test/KI-oppgaven, ~85 min til regresjonsoppgaven, ~15 min til sluttkontroll** — juster etter antall deltrinn, og gi regresjonen aldri mindre enn en tredjedel. Ved to storoppgaver: ~110 min hver + 20 min kontroll. Sett klokkeslett for når du *skal* bytte oppgave, og bytt når tiden er ute — et halvløst sistepunkt i én kjede er billigere enn en urørt storoppgave."
+    },
+    {
+      "id": "stk1110-4-1-def-sikre",
+      "type": "definition",
+      "title": "Sikre-punkter-strategien",
+      "content": "Rekkefølgeregelen innenfor og mellom kjedene: **ta de tidlige, sikre punktene i alle oppgavene først** — definere modell, momentestimator, standard t-intervall, lese av R-utskrift — før du bruker tid på spesialistpunktene (Fisher, eksakt pivot, Bayes, hatmatrise). Stopper et trinn: noter hvor du sto, bruk **oppgitt mellomresultat** og fortsett kjeden; kom tilbake i sluttkontrollen. Strategien konverterer tid direkte til delpoeng i stedet for å la dem ligge urørt bakerst."
+    },
+    {
+      "id": "stk1110-4-1-oppg1",
+      "type": "exercise",
+      "exercise": {
+        "id": "stk1110-4-1-oppg1-e",
+        "number": "1",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "**Klassifiser en estimeringskjede.** En eksamensoppgave lyder (forkortet): «Levetidene $X_1,\\dots,X_n$ er eksponentialfordelte med forventning $\\theta$.\n\n**a)** Finn momentestimatoren for $\\theta$.\n**b)** Utled ML-estimatoren og vis at du har funnet et maksimum.\n**c)** Vis at estimatoren er forventningsrett og finn variansen.\n**d)** Finn Fisher-informasjonen og angi den tilnærmede fordelingen til ML-estimatoren.\n**e)** Konstruer et tilnærmet 95 % konfidensintervall for $\\theta$.\n**f)** Med apriorifordeling gamma for $1/\\theta$: finn aposteriorifordelingen og Bayes-estimatoren.»\n\nSett sjangerbokstav på hvert deltrinn, og foreslå et tidsbudsjett når hele oppgaven skal ta 80 minutter.",
+        "solution": "**Klassifisering:** **a)** sjanger A (momentdelen). **b)** sjanger A (ML-delen, med maksimumsbekreftelse). **c)** sjanger B. **d)** sjanger C. **e)** sjanger C/D — Wald-intervall bygget på asymptotikken fra (d). **f)** sjanger L.\n\n**Tidsbudsjett (80 min):** a) ~5 min, b) ~15 min, c) ~15 min, d) ~15 min, e) ~10 min, f) ~15 min, pluss ~5 min kryssjekk. De sikre punktene er a) og e) gitt (d) — merk at e) kan tas med *oppgitt* mellomresultat selv om (d) skulle stoppe, siden Wald-formen bare trenger $I(\\theta)$ innsatt.",
+        "hints": [
+          "Gå trinn for trinn: hva er *handlingen* i deltrinnet — utlede estimator, vurdere kvalitet, regne informasjon, bygge intervall eller oppdatere apriori?",
+          "Deltrinn e) bruker resultatet fra d) — hvilken sjangerkombinasjon er det, og hva gjør du hvis d) stopper?",
+          "Fordel 80 min slik at de tunge utledningstrinnene (b–d) får mest, men ikke alt."
+        ]
+      }
+    },
+    {
+      "id": "stk1110-4-1-oppg2",
+      "type": "exercise",
+      "exercise": {
+        "id": "stk1110-4-1-oppg2-e",
+        "number": "2",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "**Klassifiser en test/KI-kjede.** En oppgave gir blodtrykksmålinger for de samme 15 pasientene *før og etter* en behandling:\n\n**a)** Forklar hvorfor dataene bør analyseres som differanser $D_i$, og definer modellen.\n**b)** Formuler hypoteser for om behandlingen senker blodtrykket, og begrunn retningen.\n**c)** Angi testobservatoren med fordeling under $H_0$, og utled at testen får nivå 5 %.\n**d)** Gjennomfør testen, definer P-verdien og konkluder i ord.\n**e)** Konstruer et 95 % konfidensintervall for forventet endring og koble det til testen.\n**f)** Hvor mange pasienter trengs i en ny studie for at en reell senkning på 4 mmHg skal oppdages med sannsynlighet 0,9?\n\nSett sjangerbokstav på hvert deltrinn. Hvilket deltrinn er oppgavens vanligste felle, og hvorfor?",
+        "solution": "**Klassifisering:** **a)** sjanger G — parvise data reduseres til $D_i$ og behandles som ett utvalg. **b)–d)** sjanger E — testritualets fem trinn fordelt over tre deltrinn (hypoteser med retning; observator $\\bar D/(S_D/\\sqrt n)\\sim t_{14}$ under $H_0$ med nivå-utledning; tallfesting, P-verdi og konklusjon). **e)** sjanger D, med kryssjekk-dualiteten som kobling til testen. **f)** sjanger F.\n\n**Fellen er a):** å behandle før- og etter-målingene som to *uavhengige* utvalg med $m+n-2=28$ frihetsgrader. Målingene er parret (samme pasient), så riktig analyse er ett utvalg av differanser med $n-1=14$ frihetsgrader — feil valg her forplanter seg gjennom hele kjeden.",
+        "hints": [
+          "Se på datastrukturen i a): to målinger på *samme* pasient — hvilken sjanger håndterer det?",
+          "b), c) og d) er til sammen ett fast rituale — hvilken sjanger består av nøyaktig de fem trinnene?",
+          "Fellen ligger i valget mellom «to utvalg» og «ett utvalg av differanser» — hva blir frihetsgradene i hvert tilfelle?"
+        ]
+      }
+    },
+    {
+      "id": "stk1110-4-1-oppg3",
+      "type": "exercise",
+      "exercise": {
+        "id": "stk1110-4-1-oppg3-e",
+        "number": "3",
+        "type": "classic",
+        "difficulty": "vanskelig",
+        "task": "**Klassifiser regresjonskjeden — og legg slagplan.** Oppgave 3 i et sett har seks deltrinn om boligpriser ($y$) mot areal ($x_1$) og alder ($x_2$), med to R-utskrifter:\n\n**a)** Tolk konstantledd og stigningstall i den enkle modellen.\n**b)** Test om arealeffekten er signifikant og angi et 95 % konfidensintervall.\n**c)** Forklar hvorfor arealkoeffisienten endrer seg når alder inkluderes.\n**d)** Velg modell ut fra utskriftene og begrunn valget.\n**e)** Vurder modellantakelsene ut fra tre beskrevne residualplott.\n**f)** Angi et 95 % prediksjonsintervall for prisen på en konkret bolig, og kommenter gyldigheten når boligen er større enn alle i datasettet.\n\nDu har 85 minutter. Sett sjangerbokstav på hvert deltrinn, angi hvilke punkter du tar først, og forklar hva du gjør hvis c) stopper helt.",
+        "solution": "**Klassifisering:** **a)** H (tolkning i kontekst). **b)** H (t-test med $t_{n-2}$ og KI for $\\beta_1$). **c)** I (konfundering). **d)** I (modellvalg med justert $R^2$). **e)** J (diagnostikk — mønstre, ikke «ser greit ut»). **f)** K (prediksjonsintervall + ekstrapoleringsforbehold).\n\n**Slagplan (85 min):** de sikre punktene er a), b) og d) — ren avlesning og standardinferens fra utskriftene (~10 + 15 + 10 min). Deretter f) (~15 min, formelbruk), e) (~15 min, mønstertolkning), og c) til slutt (~15 min — forklaringspunktet som krever mest presisjon), pluss ~5 min kryssjekk.\n\n**Hvis c) stopper:** skriv den ene setningen du er sikker på (koeffisientene er forskjellige fordi $x_2$ samvarierer med $x_1$), og gå videre — d), e) og f) bruker ikke svaret fra c). Ingen senere deltrinn sperres, så et tynt c) koster bare c) sine delpoeng.",
+        "hints": [
+          "To deltrinn hører til den enkle modellen, to til den multiple — finn dem først.",
+          "«Sikre punkter» er der fasitmetoden er ren avlesning eller standardformel — hvilke tre er det her?",
+          "Sjekk avhengighetene: bruker d), e) eller f) noe fra c)? Det avgjør hva et blankt c) faktisk koster."
+        ]
+      }
+    },
+    {
+      "id": "stk1110-4-1-warn",
+      "type": "warning",
+      "title": "Typiske feil (fra løsningsforslagene)",
+      "content": "- **Grave seg fast i ett deltrinn** i stedet for å bruke oppgitt mellomresultat og hente de sikre delpoengene videre i kjeden — den dyreste strategifeilen.\n- **Ikke gjenkjenne sjangeren** i et deltrinn, og dermed velge feil fasitmetode (typisk: Wald-intervall der oppgaven legger opp til eksakt pivot, eller to-utvalgsanalyse på parvise data).\n- **Underprioritere regresjonsoppgaven.** Den bærer flest delpunkter, og står den urørt de siste 20 minuttene, er løpet kjørt — gi den minst en tredjedel av tiden.\n- **Hoppe over «selvfølgelighetene»** — modelldefinisjon, maksimumsbekreftelse, nivå-utledning — som alle er selvstendige delpoeng i fasitene."
+    },
+    {
+      "id": "stk1110-4-1-symbol",
+      "type": "collapsible",
+      "title": "Symbol- og formelliste",
+      "buttonText": "Vis symboler og formler",
+      "content": [
+        {
+          "id": "stk1110-4-1-symbol-t",
+          "type": "text",
+          "content": "## Symbol- og formelliste\n\n*Oppslagsverk — alt her forklares underveis i kapitlet.*\n\n| Symbol | Betydning |\n|---|---|\n| A | Sjanger: moment-/ML-utledning (med bekreftet maksimum) |\n| B | Sjanger: forventningsretthet, varians, sammenligning |\n| C | Sjanger: Fisher-informasjon og Wald-intervall |\n| D | Sjanger: konfidensintervall |\n| E | Sjanger: testritualet (full pakke) |\n| F | Sjanger: styrke og dimensjonering |\n| G | Sjanger: to utvalg, parvise data, andeler |\n| H | Sjanger: enkel lineær regresjon |\n| I | Sjanger: multippel regresjon og modellvalg |\n| J | Sjanger: modelldiagnostikk |\n| K | Sjanger: prediksjonsintervall mot KI for forventet respons |\n| L | Sjanger: Bayesiansk inferens |\n| M | Sjanger: enveis ANOVA |\n| N | Sjanger: eksakt pivot |\n| O | Sjanger: ikke-parametrikk og bootstrap |\n| P | Sjanger: logistisk regresjon |\n| $t_{\\nu,\\alpha}$ | Øvre $\\alpha$-kvantil i $t_\\nu$: $P(T>t_{\\nu,\\alpha})=\\alpha$ |\n| $S_p^2$ | Pooled utvalgsvarians (to utvalg) |\n| $I(\\theta)$ | Fisher-informasjonen i én observasjon |\n\n**Formler i dette delkapitlet:**\n\n$$n-1,\\qquad m+n-2,\\qquad n-2,\\qquad n-k-1$$\nFrihetsgrads-firkløveret: ett utvalg ($t$-intervall/test), pooled to-utvalg, enkel regresjon, multippel regresjon med $k$ prediktorer.\n\n$$\\theta_0 \\notin \\big[\\hat\\theta \\pm t_{\\nu,\\alpha/2}\\,se(\\hat\\theta)\\big] \\iff \\text{tosidig test på nivå } \\alpha \\text{ forkaster } H_0:\\theta=\\theta_0$$\nKI↔test-dualiteten — kryssjekken som binder sjangrene D og E sammen.\n\n$$\\underbrace{\\text{modell}}_{1} \\to \\underbrace{\\text{utledning}}_{2} \\to \\underbrace{\\text{fordeling/df}}_{3} \\to \\underbrace{\\text{tolkning}}_{4} \\to \\underbrace{\\text{kryssjekk}}_{5}$$\nToppbesvarelsens fem trinn — brukes på hvert deltrinn i kjeden."
+        }
+      ]
+    },
+    {
+      "id": "stk1110-4-1-rep",
+      "type": "collapsible",
+      "title": "Repetisjonsoppgaver",
+      "buttonText": "Vis repetisjonsoppgaver",
+      "content": [
+        {
+          "id": "stk1110-4-1-rep1",
+          "type": "exercise",
+          "exercise": {
+            "id": "stk1110-4-1-rep1e",
+            "number": "R1",
+            "type": "classic",
+            "difficulty": "lett",
+            "task": "(Fra [kap. 1.5](/bok/stk1110/stk1110-1-5)) Skriv opp estimeringskjedens sju trinn fra modell til rullerende sluttpunkt.",
+            "solution": "Modell → moment-/ML-estimator (med bekreftet maksimum $\\ell''<0$) → forventningsretthet → varians → Fisher-informasjon med asymptotisk fordeling → Wald-KI → rullerende sluttpunkt (Bayes, Cramér–Rao, sammenligning eller invarians).",
+            "hints": [
+              "Start med «definer modellen» og slutt med det rullerende sluttpunktet."
+            ]
+          }
+        },
+        {
+          "id": "stk1110-4-1-rep2",
+          "type": "exercise",
+          "exercise": {
+            "id": "stk1110-4-1-rep2e",
+            "number": "R2",
+            "type": "classic",
+            "difficulty": "lett",
+            "task": "(Fra [kap. 2.7](/bok/stk1110/stk1110-2-7)) List testritualets fem trinn, og gi den verbale definisjonen av P-verdien.",
+            "solution": "(1) $H_0/H_a$ med begrunnet retning, (2) testobservator med fordeling under $H_0$, (3) utledning av at nivået blir $\\alpha$, (4) tallfesting, (5) konklusjon i ord i kontekst. P-verdien er sannsynligheten, beregnet under $H_0$, for å observere en testobservator minst like ekstrem som den observerte.",
+            "hints": [
+              "Trinn 3 er det som oftest glemmes — nivå-utledningen."
+            ]
+          }
+        },
+        {
+          "id": "stk1110-4-1-rep3",
+          "type": "exercise",
+          "exercise": {
+            "id": "stk1110-4-1-rep3e",
+            "number": "R3",
+            "type": "classic",
+            "difficulty": "lett",
+            "task": "(Fra [kap. 2.3](/bok/stk1110/stk1110-2-3)/[kap. 2.7](/bok/stk1110/stk1110-2-7)) To uavhengige utvalg har $m=8$ og $n=13$ observasjoner. Hvilke frihetsgrader får den pooled to-utvalgs t-testen? Og hva blir frihetsgradene hvis de 8 første i stedet er før-målinger av 8 personer med 8 etter-målinger?",
+            "solution": "Pooled to-utvalg: $m+n-2=8+13-2=19$ frihetsgrader. Parvise data (8 par): differansene $D_i$ analyseres som ett utvalg, $n-1=7$ frihetsgrader.",
+            "hints": [
+              "Uavhengige utvalg gir $m+n-2$; parvise data reduseres til ett utvalg av differanser."
+            ]
+          }
+        },
+        {
+          "id": "stk1110-4-1-rep4",
+          "type": "exercise",
+          "exercise": {
+            "id": "stk1110-4-1-rep4e",
+            "number": "R4",
+            "type": "classic",
+            "difficulty": "lett",
+            "task": "(Fra [kap. 3.7](/bok/stk1110/stk1110-3-7)) En R-utskrift for enkel regresjon med $n=10$ gir `Estimate` $=2{,}1545$ og `Std. Error` $=0{,}2275$ for stigningstallet. Angi et 95 % konfidensintervall for $\\beta_1$ når $t_{8,\\,0{,}025}=2{,}306$.",
+            "solution": "Frihetsgrader $n-2=8$. KI: $2{,}1545\\pm 2{,}306\\cdot 0{,}2275=2{,}1545\\pm 0{,}525=[1{,}63,\\ 2{,}68]$.",
+            "hints": [
+              "Enkel regresjon har $n-2$ frihetsgrader; intervallet er Estimate $\\pm\\ t\\cdot$ Std. Error."
+            ]
+          }
+        },
+        {
+          "id": "stk1110-4-1-rep5",
+          "type": "exercise",
+          "exercise": {
+            "id": "stk1110-4-1-rep5e",
+            "number": "R5",
+            "type": "classic",
+            "difficulty": "lett",
+            "task": "(Fra [kap. 3.5](/bok/stk1110/stk1110-3-5)/[kap. 3.7](/bok/stk1110/stk1110-3-7)) Hva er forskjellen på konfidensintervallet for forventet respons og prediksjonsintervallet i $x_0$, og hvilket er bredest?",
+            "solution": "Konfidensintervallet fanger usikkerheten i den estimerte regresjonslinja i $x_0$; prediksjonsintervallet gjelder en *ny enkeltobservasjon* og bærer i tillegg støyleddets varians — derfor «$1+$» under rota. Prediksjonsintervallet er alltid bredest.",
+            "hints": [
+              "Se på hva som står under kvadratrota i de to formlene — hvilken har et ekstra 1-tall?"
+            ]
+          }
+        }
+      ]
+    }
+  ],
+  "exercises": []
+}

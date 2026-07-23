@@ -1,0 +1,102 @@
+[
+ {
+  "question": "Med gamma$(\\alpha,\\beta)$-apriori (skala) og $n$ Poisson-observasjoner med sum $s$: hva er aposteriorifordelingen for $\\lambda$?",
+  "options": [
+   "gamma$(\\alpha+s,\\ \\beta/(1+n\\beta))$ — form øker med datasummen, skala krymper",
+   "gamma$(\\alpha+s,\\ \\beta)$ — datasummen oppdaterer formen, mens skalaparameteren står urørt",
+   "gamma$(\\alpha+n,\\ \\beta/(1+\\beta s))$ — form øker med antall observasjoner",
+   "$N(\\bar x,\\ \\bar x/n)$ — aposteriori blir normal når likelihooden er Poisson"
+  ],
+  "explanation": "Samling av eksponentene gir $\\lambda^{(\\alpha+s)-1}e^{-\\lambda(1/\\beta+n)}$ — gamma-kjernen med $\\alpha'=\\alpha+s$ og $\\beta'=\\beta/(1+n\\beta)$."
+ },
+ {
+  "question": "Hva er Bayes-estimatoren (under kvadratisk tap) i STK1110?",
+  "options": [
+   "Forventningen i aposteriorifordelingen",
+   "Toppunktet (modus) i aposteriorifordelingen",
+   "Forventningen i apriorifordelingen",
+   "Maksimumspunktet til likelihoodfunksjonen"
+  ],
+  "explanation": "Bayes-estimatoren er $E(\\theta\\mid x)$ — aposteriori forventning. Modus er et annet estimat (MAP), og likelihood-maksimum er ML."
+ },
+ {
+  "question": "I Poisson–gamma-oppsettet er $\\hat\\lambda_{\\text{Bayes}}=w\\bar x+(1-w)\\alpha\\beta$ med $w=n\\beta/(1+n\\beta)$. Hva skjer når $n$ vokser?",
+  "options": [
+   "$w\\to 1$, og Bayes-estimatoren nærmer seg ML-estimatoren $\\bar x$",
+   "$w\\to 0$, slik at apriori-forventningen til slutt dominerer helt over dataene",
+   "$w\\to 1/2$, så data og apriori teller til slutt nøyaktig likt",
+   "$w$ er konstant i $n$ — vekten bestemmes bare av apriorien"
+  ],
+  "explanation": "Med mye data dominerer likelihooden: $w=n\\beta/(1+n\\beta)\\to 1$, og Bayes smelter sammen med ML."
+ },
+ {
+  "question": "Hva innebærer «kjernetrikset» når du skal vise konjugering?",
+  "options": [
+   "Samle potensene av $\\theta$ og leddene i eksponenten, og kjenne igjen fordelingens kjerne",
+   "Regne ut normeringskonstanten eksplisitt ved å integrere produktet av apriori og likelihood",
+   "Derivere aposteriorifordelingen og sette den deriverte lik null",
+   "Erstatte likelihooden med normaltilnærmingen sin før du ganger med apriori"
+  ],
+  "explanation": "Konjugering vises ved å skrive $\\pi(\\theta)L(\\theta)$ som $\\theta^{a}e^{-b\\theta}$-form og lese av parametrene — integrasjon er unødvendig."
+ },
+ {
+  "question": "I enveis ANOVA med $k$ grupper og $N$ observasjoner totalt: hvilken fordeling har $F=\\text{MSB}/\\text{MSW}$ under $H_0$?",
+  "options": [
+   "$F_{k-1,\\,N-k}$ — frihetsgradene mellom grupper i telleren, innen grupper i nevneren",
+   "$F_{k,\\,N-1}$ — antall grupper i telleren, totalt antall minus én i nevneren",
+   "$F_{N-k,\\,k-1}$ — innengruppe-df i telleren, mellomgruppe-df i nevneren",
+   "$t_{N-k}$ — forholdet er t-fordelt fordi det bygger på pooled varians"
+  ],
+  "explanation": "SSB har $k-1$ frihetsgrader og SSW har $N-k$; under $H_0$ er MSB/MSW $\\sim F_{k-1,N-k}$."
+ },
+ {
+  "question": "I dummy-regresjonen for enveis ANOVA (én gruppe som referanse): hva estimerer koeffisienten til en dummy?",
+  "options": [
+   "Differansen mellom gruppens forventning og referansegruppens forventning",
+   "Gruppens egen forventning, helt uavhengig av hvilken gruppe som er valgt som referanse",
+   "Gruppens andel av den totale kvadratsummen i ANOVA-tabellen",
+   "Den felles støyvariansen målt innenfor akkurat den gruppen"
+  ],
+  "explanation": "Konstantleddet er referansegruppens forventning; hver dummy-koeffisient er en gruppedifferanse mot referansen — derfor er dummy-t-tester kontraster."
+ },
+ {
+  "question": "En enveis ANOVA gir P-verdi 0,0002. Hva kan du konkludere?",
+  "options": [
+   "Minst én gruppeforventning skiller seg fra de andre — men ikke hvilken",
+   "Alle gruppene i forsøket har innbyrdes forskjellige forventninger på 5 %-nivå",
+   "Den største gruppen er signifikant forskjellig fra den minste",
+   "Sannsynligheten for at alle gruppene er like er 0,0002"
+  ],
+  "explanation": "$H_a$ sier bare at ikke alle $\\mu_i$ er like. Hvilke grupper som skiller seg krever oppfølgende kontraster; P-verdien er heller ikke en sannsynlighet for hypotesen."
+ },
+ {
+  "question": "Hvorfor brukes justert $R^2$ — ikke Multiple R-squared — til å sammenligne modeller med ulikt antall prediktorer?",
+  "options": [
+   "$R^2$ kan aldri synke når en variabel legges til; justert $R^2$ straffer parametertallet",
+   "$R^2$ kan bare beregnes i modeller som har nøyaktig én prediktor",
+   "Justert $R^2$ er alltid størst i modellen med flest prediktorer, noe som gjør valget entydig",
+   "$R^2$ måler bare tilpasningen til konstantleddet, ikke til helningene"
+  ],
+  "explanation": "SSE synker mekanisk for hver ny variabel, så $R^2$ premierer alltid størst modell. Justert $R^2$ kan synke når tilskuddet er støy."
+ },
+ {
+  "question": "En koeffisient endrer seg markant når en korrelert kovariat legges til modellen. Hva er riktig tolkning?",
+  "options": [
+   "Koeffisienten i den lille modellen fanget også en del av kovariatens effekt (konfundering)",
+   "Den lille modellen var rett og slett feilregnet, og bare den store modellens tall kan brukes",
+   "Endringen beviser at prediktoren har en kausal effekt på responsen",
+   "Kovariaten må fjernes igjen, siden den destabiliserer estimatene"
+  ],
+  "explanation": "Med en utelatt, korrelert variabel «arver» prediktoren dens effekt. Begge modeller er riktige svar på hver sin spørsmålsstilling — og ingen av dem beviser kausalitet."
+ },
+ {
+  "question": "Når er minste kvadraters estimator $\\hat\\beta=(X^TX)^{-1}X^TY$ entydig?",
+  "options": [
+   "Når $X$ har full kolonnerang, slik at matrisen $X^TX$ er inverterbar",
+   "Når alle prediktorene er ukorrelerte med responsen $Y$",
+   "Når $n$ er større enn 30, slik at sentralgrenseteoremet gjelder",
+   "Når residualene er eksakt normalfordelte med konstant varians"
+  ],
+  "explanation": "Entydighet er et rent lineær-algebra-krav: ingen kolonne i $X$ kan være en lineærkombinasjon av de andre. Normalitet og utvalgsstørrelse angår inferensen, ikke entydigheten."
+ }
+]
