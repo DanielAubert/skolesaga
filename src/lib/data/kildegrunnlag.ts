@@ -383,6 +383,50 @@ const KILDEGRUNNLAG: Record<string, Kildegrunnlag> = {
     ],
     analysedato: 'juli 2026',
   },
+
+  stk1110: {
+    courseId: 'stk1110',
+    institusjon: 'Universitetet i Oslo (UiO) — Matematisk institutt',
+    sammendrag:
+      'Boka er kalibrert mot STK1110s eksamensarkiv ved UiO: 22 avsluttende skoleeksamener fra 2004 til 2025 (emnet undervises hver høst — alle sett er høsteksamener) med 19 offisielle løsningsforslag 2007–2025. Analysen er kvantitativ (temafrekvens per deloppgave over alle 22 sett), og bokas tre søyler — estimeringsteori, hypotesetesting/konfidensintervall og lineær regresjon — speiler den faste tredelingen arkivet dokumenterer.',
+    eksamenssett: [
+      {
+        tittel: '11 sett lest grundig med løsningsforslag (H2015–H2025)',
+        detalj:
+          'Oppgaver og løsningsforslag lest oppgave for oppgave — disse definerer sjangerkatalogen A–P, den kjededelte oppgavemalen og sensorkravene boka drilles mot.',
+      },
+      {
+        tittel: '8 sett skumlest med løsningsforslag (H2007–H2014)',
+        detalj: 'Brukt til tema- og sjangerregistrering i frekvenstabellene, ikke til detaljkalibrering.',
+      },
+      {
+        tittel: '3 eldre sett (H2004–H2006)',
+        detalj:
+          'H2005 og H2006 er lest på oppgavenivå (uten løsningsforslag i arkivet). H2004 forelå kun som skannet bilde og er registrert med lav vekt.',
+      },
+    ],
+    sensorveiledninger: [
+      {
+        tittel: '19 offisielle løsningsforslag (2007–2025) — ikke sensorveiledninger i egentlig forstand',
+        detalj:
+          'Arkivet har løsningsforslag, ikke egne sensorveiledninger. Forslagene 2015–2025 er lest grundig — de er utledningsdrevne og konsise og definerer standarden boka lærer bort: full ML-kjede med bekreftet maksimum, komplett testrituale med nivå-utledning, riktige frihetsgrader og presis tolkning av R-utskrift.',
+      },
+    ],
+    andreKilder: [
+      {
+        tittel: 'UiOs emnebeskrivelse for STK1110',
+        detalj:
+          'Omskrevet sammendrag av emnesiden (læringsmål, eksamensform, hjelpemidler). Emnet er verifisert aktivt (undervises hver høst, t.o.m. høst 2026, per juli 2026).',
+      },
+    ],
+    forbehold: [
+      'Arkivet har ikke offisielle sensorveiledninger — sensorlogikken er utledet av løsningsforslagene (2007–2025) og oppgaveformuleringene.',
+      'Løsningsforslag mangler for H2004–H2006, og H2004-settet forelå kun som skannet bilde uten maskinlesbar tekst.',
+      'Løsningsforslaget for 2015 har «STK1100» i toppteksten, men innholdet er utvetydig STK1110-inferens — antatt trykkfeil; analysen bygger på faktisk innhold.',
+      'Alle oppgaver, tall og kontekster i boka er nyskrevne. Arkivet er brukt som mønster (sjangre, temavekting, sensorkrav) — aldri ordrett.',
+    ],
+    analysedato: 'juli 2026',
+  },
 };
 
 export function getKildegrunnlag(courseId: string): Kildegrunnlag | null {
