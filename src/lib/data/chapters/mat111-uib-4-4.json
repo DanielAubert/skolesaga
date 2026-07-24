@@ -1,0 +1,457 @@
+{
+  "id": "mat111-uib-4-4",
+  "courseId": "mat111-uib",
+  "chapterNumber": "4.4",
+  "title": "Induksjon på n-te derivert",
+  "description": "Full induksjonsstruktur på formelen for den n-te deriverte av en logaritme- eller potensfunksjon — lavfrekvent, men billig å drille og gjenoppstått H2018.",
+  "estimatedMinutes": 45,
+  "competenceGoals": [
+    "kunne føre et komplett induksjonsbevis med basissteg, induksjonshypotese, induksjonstrinn og konklusjon",
+    "kunne gjette en formel for den n-te deriverte fra f', f'' og f''', og verifisere basissteget mot direkte regning",
+    "kunne bokføre fortegnsveksling, kjernefaktor, fakultet og nevnerpotens riktig i induksjonstrinnet",
+    "kunne bruke samme induksjonsmal på delsummer og rekursive følger som forberedelse til uendelige rekker"
+  ],
+  "content": [
+    {
+      "id": "mat111-uib-4-4-tip",
+      "type": "tip",
+      "title": "Eksamensvinkel",
+      "content": "**Induksjon på $n$-te derivert: lavfrekvent, men billig — hele oppgaven er én innøvd mal.**\n\n- **Sjanger N (induksjonsbevis for en $f^{(n)}$-formel)** står i **6 av 34 arkiverte sett** (2003–2020, kildenote i Del 0) — lav frekvens, men H2018 viser at sjangeren gjenoppstår etter mange års pause. *Sjanger N* er bokstavkoden for denne oppgavetypen i katalogen fra Del 0.\n- Oppgaven er nesten alltid den samme: bevis en oppgitt (eller selvgjettet) formel for den $n$-te deriverte av en funksjon av typen $\\ln(2x+1)$, $\\dfrac{1}{(1+x)^2}$ eller $\\ln x$ — basissteg, induksjonshypotese, induksjonstrinn med eksplisitt derivasjon, konklusjon. Strukturen ER poengene: et riktig svar uten full struktur taper der et strukturert svar vinner.\n- Prioritet: **kjenne** — du skal kjenne malen godt nok til å gjennomføre den feilfritt, men den fortjener ikke drilltimene til sjanger E eller G. Kost/nytte er utmerket: ca. 45 minutter her dekker hele sjangeren.\n- Formlene du beviser her er nøyaktig dem Taylor-maskineriet i [kap. 4.3](/bok/mat111-uib/mat111-uib-4-3) trenger for $f^{(n)}(a)$ — og induksjonsteknikken gjenoppstår for følger og delsummer i Del 7."
+    },
+    {
+      "id": "mat111-uib-4-4-fork",
+      "type": "text",
+      "content": "**Forkunnskaper.**\n\n- [kap. 3.1](/bok/mat111-uib/mat111-uib-3-1) — notasjonen $f^{(n)}$ for den $n$-te deriverte, og trygg derivasjon av potens- og logaritmeuttrykk.\n- [kap. 4.3](/bok/mat111-uib/mat111-uib-4-3) — Taylorkoeffisientene $f^{(k)}(a)/k!$: det er dit $f^{(n)}$-formlene dine skal leveres.\n- **[Induksjon](/bok/r1/r1-9-2)** — induksjonsprinsippet slik du møtte det i R1: basissteg og induksjonstrinn for tallformler.\n- **[Induksjonsbevis](/bok/r2/r2-1-6)** — R2-føringen av et komplett induksjonsbevis; den malen gjenbrukes her ordrett, bare med derivasjon i trinnet.\n\n**Sist du var her — de to derivasjonsreglene alt hviler på:**\n$$\\frac{d}{dx}\\,\\ln u = \\frac{u'}{u}, \\qquad \\frac{d}{dx}\\,u^{p} = p\\,u^{p-1}\\,u' \\quad (\\text{kjerneregelen i begge}).$$"
+    },
+    {
+      "id": "mat111-uib-4-4-motiv",
+      "type": "text",
+      "content": "Deriverer du $\\ln(3x+2)$ fire–fem ganger, ser du fort et mønster: samme byggeklosser hver gang — et fortegn som veksler, en fakultet som vokser, en potens i nevneren som klatrer. Men «jeg ser mønsteret» er ikke matematikk; det er en *gjetning*. Spørsmålet eksamen stiller er: hvordan BEVISER du at mønsteret holder for alle $n$ — også $n = 47$, som ingen orker å regne direkte?\n\nSvaret er **induksjon**, matematikkens dominoprinsipp: vis at den første brikken faller (basissteget), og at hver brikke som faller feller den neste (induksjonstrinnet) — da faller alle. For $f^{(n)}$-formler er trinnet alltid det samme håndgrepet: *deriver den antatte formelen én gang til*, og kjenn igjen strukturen med $n+1$ overalt der det sto $n$.\n\nKapitlet har fire læringsløkker: (1) induksjonsprinsippet og malen (≈ 10 min), (2) logaritme-typen — kapitlets kjerne (≈ 15 min), (3) potens-typen $1/(x+b)^p$ og $\\ln x$ (≈ 12 min), (4) delsum- og følgeinduksjon som foregriper Del 7 (≈ 8 min)."
+    },
+    {
+      "id": "mat111-uib-4-4-l1",
+      "type": "text",
+      "content": "## Induksjonsprinsippet og malen\n\n*Læringsløkke 1 av 4 — ca. 10 min.*"
+    },
+    {
+      "id": "mat111-uib-4-4-def-prinsipp",
+      "type": "definition",
+      "title": "Induksjonsprinsippet",
+      "content": "Induksjon er bevismetoden for påstander som skal gjelde for alle hele tall $n \\ge 1$: vis at påstanden holder for $n = 1$, og at *hvis* den holder for et vilkårlig $n$, *så* holder den for $n+1$. Da holder den for alle $n \\ge 1$ — som dominobrikker der den første faller og hver brikke feller den neste. Formelt: er $P(1)$ sann og $P(n) \\Rightarrow P(n+1)$ for alle $n \\ge 1$, så er $P(n)$ sann for alle $n \\ge 1$."
+    },
+    {
+      "id": "mat111-uib-4-4-def-pn",
+      "type": "definition",
+      "title": "Utsagnet $P(n)$",
+      "content": "Bokstaven $P(n)$ står for selve påstanden med tallet $n$ satt inn — for oss typisk «formelen for $f^{(n)}(x)$ stemmer». Å skrive ned $P(n)$ presist FØR beviset starter er halve jobben: da vet du nøyaktig hva basissteget skal sjekke og hva trinnet skal levere."
+    },
+    {
+      "id": "mat111-uib-4-4-def-basis",
+      "type": "definition",
+      "title": "Basissteget",
+      "content": "Bevisets første leveranse: sjekk påstanden direkte for startverdien (som regel $n = 1$). For $f^{(n)}$-formler betyr det å **regne ut $f'(x)$ for hånd** og kontrollere at formelen gir det samme med $n = 1$ innsatt — begge sider vises. Et basissteg som bare *siterer* formelen, er ikke verifisert."
+    },
+    {
+      "id": "mat111-uib-4-4-def-hyp",
+      "type": "definition",
+      "title": "Induksjonshypotesen",
+      "content": "Antakelsen «formelen holder for et vilkårlig, fast $n$» — skrevet helt ut, med formelen synlig. Hypotesen er ikke juks: du antar $P(n)$ kun for å vise at $P(n+1)$ *følger*. I konklusjonen skal hypotesen være nevnt eksplisitt — «anta at … da er …» — ellers er føringen ufullstendig."
+    },
+    {
+      "id": "mat111-uib-4-4-def-trinn",
+      "type": "definition",
+      "title": "Induksjonstrinnet (for $f^{(n)}$-formler)",
+      "content": "Bevisets motor: utled $P(n+1)$ fra $P(n)$. For $f^{(n)}$-formler er trinnet alltid samme håndgrep: siden $f^{(n+1)} = \\big(f^{(n)}\\big)'$, **deriver den antatte formelen én gang** (potens- og kjerneregel), rydd, og kjenn igjen formelens struktur med $n+1$ i stedet for $n$. Et trinn uten faktisk derivasjon — «og slik fortsetter det» — er sjangerens mest dokumenterte hull."
+    },
+    {
+      "id": "mat111-uib-4-4-l1-intuisjon",
+      "type": "text",
+      "content": "**Intuisjon:** tenk dominorekke. Basissteget dytter den første brikken; trinnet er garantien for at brikke $n$ alltid feller brikke $n+1$. Mangler ett av de to, faller ingenting: uten basissteg har du en rekke som aldri startes; uten trinn har du en enslig brikke. Og legg merke til at trinnet beviser en *implikasjon* — det er derfor det er lov å «anta» hypotesen.\n\nFør vi går løs på logaritme-typen: én gjennomkjøring av malen på det enklest tenkelige eksemplet, der alt mønsterarbeid er trivielt og bare strukturen står igjen."
+    },
+    {
+      "id": "mat111-uib-4-4-ex1",
+      "type": "example",
+      "title": "Eksempel 1: malen i sin enkleste form",
+      "problem": "Vis ved induksjon at $\\dfrac{d^n}{dx^n}\\,e^{-3x} = (-3)^n e^{-3x}$ for alle $n \\ge 1$.",
+      "solution": "**Påstanden** $P(n)$: $f^{(n)}(x) = (-3)^n e^{-3x}$, der $f(x) = e^{-3x}$.\n\n**Basissteg ($n=1$).** Direkte regning (kjerneregelen): $f'(x) = e^{-3x}\\cdot(-3) = -3e^{-3x}$. Formelen med $n=1$: $(-3)^1 e^{-3x} = -3e^{-3x}$. Samme uttrykk — $P(1)$ er verifisert. ✓\n\n**Induksjonshypotese.** Anta at for et vilkårlig $n \\ge 1$ er\n$$f^{(n)}(x) = (-3)^n e^{-3x}.$$\n\n**Induksjonstrinn.** Da er, ved å derivere hypotesen én gang,\n$$f^{(n+1)}(x) = \\frac{d}{dx}\\Big[(-3)^n e^{-3x}\\Big] = (-3)^n \\cdot e^{-3x}\\cdot(-3) = (-3)^{n+1} e^{-3x},$$\nsom er nøyaktig påstanden for $n+1$. ✓\n\n**Konklusjon.** Ved induksjonsprinsippet gjelder $f^{(n)}(x) = (-3)^n e^{-3x}$ for alle $n \\ge 1$. $\\blacksquare$"
+    },
+    {
+      "id": "mat111-uib-4-4-o1",
+      "type": "exercise",
+      "exercise": {
+        "id": "mat111-uib-4-4-o1-x",
+        "number": "1",
+        "type": "classic",
+        "difficulty": "lett",
+        "task": "Vis ved induksjon at $\\dfrac{d^n}{dx^n}\\,e^{x/2} = \\Big(\\dfrac12\\Big)^{n} e^{x/2}$ for alle $n \\ge 1$.",
+        "solution": "**Basissteg ($n=1$):** direkte regning gir $\\frac{d}{dx}e^{x/2} = \\frac12 e^{x/2}$ (kjerneregelen), og formelen med $n=1$ gir $\\big(\\frac12\\big)^1 e^{x/2} = \\frac12 e^{x/2}$ — samme uttrykk. ✓\n\n**Hypotese:** anta $f^{(n)}(x) = \\big(\\frac12\\big)^n e^{x/2}$ for et vilkårlig $n \\ge 1$.\n\n**Trinn:** deriver hypotesen: $f^{(n+1)}(x) = \\big(\\frac12\\big)^n \\cdot \\frac12 e^{x/2} = \\big(\\frac12\\big)^{n+1} e^{x/2}$ — påstanden for $n+1$. ✓\n\n**Konklusjon:** ved induksjonsprinsippet gjelder formelen for alle $n \\ge 1$. $\\blacksquare$",
+        "hints": [
+          "Skriv de fire overskriftene først: basissteg, hypotese, trinn, konklusjon.",
+          "Hver derivasjon av $e^{x/2}$ produserer én faktor $\\frac12$ (kjerneregelen).",
+          "I trinnet: deriver hypotesens høyreside og samle potensen til $\\big(\\frac12\\big)^{n+1}$."
+        ]
+      }
+    },
+    {
+      "id": "mat111-uib-4-4-l2",
+      "type": "text",
+      "content": "## Logaritme-typen: gjett fra $f', f'', f'''$ — bevis med induksjon\n\n*Læringsløkke 2 av 4 — ca. 15 min.*\n\nEksamensvarianten oppgir ofte formelen. Men når den ikke gjør det — «finn og bevis en formel for $f^{(n)}$» — trenger du gjettefasen først."
+    },
+    {
+      "id": "mat111-uib-4-4-def-gjett",
+      "type": "definition",
+      "title": "Gjett-og-verifiser-mønsteret",
+      "content": "Arbeidsgangen når formelen ikke er oppgitt: regn $f'$, $f''$ og $f'''$ for hånd, still dem opp under hverandre, og les av hvordan hver byggekloss endrer seg fra linje til linje — fortegnet, konstanten, fakulteten, potensen i nevneren. Skriv gjetningen som en formel i $n$, og sjekk den mot ALLE tre linjene før beviset starter. Gjetningen er stillas; induksjonen er bygget."
+    },
+    {
+      "id": "mat111-uib-4-4-def-fortegn",
+      "type": "definition",
+      "title": "Fortegnsvekslingen $(-1)^{n-1}$",
+      "content": "Faktoren som bokfører at annenhver derivert er positiv og negativ. Startet rekka positivt i $n=1$ (som for $\\ln$-typene, der $f' > 0$), er faktoren $(-1)^{n-1}$; startet den negativt, er den $(-1)^n$. Sjekk alltid mot $n = 1$: $(-1)^0 = 1$ (positiv start), $(-1)^1 = -1$ (negativ start) — å velge feil variant her er sjangerens vanligste fortegnsfeil."
+    },
+    {
+      "id": "mat111-uib-4-4-def-fakultet",
+      "type": "definition",
+      "title": "Fakultetsfaktoren $(n-1)!$",
+      "content": "Når nevnerpotensen i $f^{(n)}$ er $n$ (som for $\\ln(ax+b)$-typen), henter hver ny derivasjon ned eksponenten $n$ — og produserer fakulteten *ett hakk bak*: $1, 1, 2, 6, 24, \\dots$, altså $(n-1)!$. Test mot de tre første linjene: $0! = 1$, $1! = 1$, $2! = 2$. Skriver du $n!$ der det skal stå $(n-1)!$, avslører basissteget det — hvis du faktisk sjekker det."
+    },
+    {
+      "id": "mat111-uib-4-4-def-kjerne",
+      "type": "definition",
+      "title": "Kjernefaktoren $a^n$",
+      "content": "Deriverer du noe med indre funksjon $ax+b$, spytter kjerneregelen ut én faktor $a$ per derivasjon — etter $n$ derivasjoner: $a^n$. For $\\ln(3x+2)$ er det $3^n$, for $\\ln(1+2x)$ er det $2^n$. Glemmes kjernefaktoren i trinnet, kollapser hele bokføringen — den er en av de tre tellerne (fortegn, kjernekonstant, fakultet) som ALLE skal oppdateres fra $n$ til $n+1$."
+    },
+    {
+      "id": "mat111-uib-4-4-ex2",
+      "type": "example",
+      "title": "Eksempel 2 (eksamensnivå): $f^{(n)}$ for $\\ln(3x+2)$",
+      "problem": "La $f(x) = \\ln(3x+2)$ for $x > -\\tfrac23$.\n\n**a)** Regn ut $f'$, $f''$ og $f'''$, og sett opp en formel for $f^{(n)}(x)$, $n \\ge 1$.\n\n**b)** Bevis formelen ved induksjon.",
+      "solution": "**a) Gjettefasen.** Kjerneregelen ($u = 3x+2$, $u' = 3$):\n$$f'(x) = \\frac{3}{3x+2}, \\qquad f''(x) = -\\frac{9}{(3x+2)^2}, \\qquad f'''(x) = \\frac{54}{(3x+2)^3}.$$\n*(Kontrollregning av $f'''$: $f'' = -9(3x+2)^{-2}$, så $f''' = -9\\cdot(-2)(3x+2)^{-3}\\cdot 3 = 54(3x+2)^{-3}$.)*\n\nLes av byggeklossene linje for linje: fortegnet veksler med positiv start → $(-1)^{n-1}$; konstanten er $3, 9 = 3^2, 54 = 3^3 \\cdot 2$ → kjernefaktor $3^n$ og fakultet $1, 1, 2 = (n-1)!$; nevnerpotensen er $n$. Gjetning:\n$$f^{(n)}(x) = \\frac{(-1)^{n-1}\\,3^n\\,(n-1)!}{(3x+2)^n}, \\qquad n \\ge 1.$$\nSjekk mot alle tre linjene: $n=1$: $\\frac{3^1\\cdot 0!}{3x+2} = \\frac{3}{3x+2}$ ✓; $n=2$: $\\frac{-3^2\\cdot 1!}{(3x+2)^2}$ ✓; $n=3$: $\\frac{3^3\\cdot 2!}{(3x+2)^3} = \\frac{54}{(3x+2)^3}$ ✓.\n\n**b) Induksjonsbeviset.**\n\n**Basissteg ($n=1$).** Direkte regning ga $f'(x) = \\frac{3}{3x+2}$; formelen med $n=1$ gir $\\frac{(-1)^0\\,3^1\\,0!}{(3x+2)^1} = \\frac{3}{3x+2}$. Samme uttrykk. ✓\n\n**Induksjonshypotese.** Anta at for et vilkårlig $n \\ge 1$ er\n$$f^{(n)}(x) = (-1)^{n-1}\\,3^n\\,(n-1)!\\,(3x+2)^{-n}.$$\n\n**Induksjonstrinn.** Deriver hypotesen (potensregel + kjerneregel, indre derivert $3$):\n$$f^{(n+1)}(x) = (-1)^{n-1}\\,3^n\\,(n-1)!\\cdot(-n)(3x+2)^{-n-1}\\cdot 3.$$\nRydd faktor for faktor: $(-1)^{n-1}\\cdot(-1) = (-1)^n$; $\\;3^n \\cdot 3 = 3^{n+1}$; $\\;(n-1)!\\cdot n = n!$. Altså\n$$f^{(n+1)}(x) = \\frac{(-1)^{n}\\,3^{n+1}\\,n!}{(3x+2)^{n+1}},$$\nsom er nøyaktig formelen med $n+1$ i stedet for $n$ (fortegn $(-1)^{(n+1)-1}$, kjernefaktor $3^{n+1}$, fakultet $((n+1)-1)! = n!$, nevnerpotens $n+1$). ✓\n\n**Konklusjon.** Ved induksjonsprinsippet gjelder formelen for alle $n \\ge 1$. $\\blacksquare$"
+    },
+    {
+      "id": "mat111-uib-4-4-l2-merk",
+      "type": "text",
+      "content": "**Intuisjon:** trinnet er ren bokføring når du vet hva du ser etter. Derivasjonen produserer nøyaktig tre oppdateringer — ett nytt fortegn (fra $-n$), én ny kjernefaktor (fra den indre deriverte) og én ny faktor til fakulteten (n-en som hentes ned) — pluss at nevnerpotensen stiger med én. Skriv ryddelinjen «$(-1)^{n-1}(-1) = (-1)^n$, $3^n\\cdot 3 = 3^{n+1}$, $(n-1)!\\,n = n!$» eksplisitt: det er den sensor leter etter."
+    },
+    {
+      "id": "mat111-uib-4-4-o2",
+      "type": "exercise",
+      "exercise": {
+        "id": "mat111-uib-4-4-o2-x",
+        "number": "2",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "La $f(x) = \\ln(1-x)$ for $x < 1$.\n\n**a)** Regn ut $f'$, $f''$ og $f'''$, og forklar hvorfor mønsteret her IKKE har vekslende fortegn.\n\n**b)** Sett opp en formel for $f^{(n)}(x)$ og bevis den ved induksjon.",
+        "solution": "**a)** Kjerneregelen med indre derivert $-1$:\n$$f'(x) = \\frac{-1}{1-x}, \\qquad f''(x) = -\\frac{1}{(1-x)^2}, \\qquad f'''(x) = -\\frac{2}{(1-x)^3}.$$\n*(Kontroll av $f''$: $f' = -(1-x)^{-1}$, så $f'' = -\\big[-(1-x)^{-2}\\cdot(-1)\\big] = -(1-x)^{-2}$.)*\n\nAlle tre er negative: hver derivasjon gir ett minusfortegn fra potensregelen ($-n$) og ett fra den indre deriverte ($-1$) — to nye minuser per linje opphever hverandre, så fortegnet står fast på minus.\n\n**b) Formelen:** $f^{(n)}(x) = -\\dfrac{(n-1)!}{(1-x)^n}$ for $n \\ge 1$.\n\n**Basissteg ($n=1$):** direkte regning ga $f' = \\frac{-1}{1-x}$; formelen gir $-\\frac{0!}{(1-x)^1} = \\frac{-1}{1-x}$. ✓\n\n**Hypotese:** anta $f^{(n)}(x) = -(n-1)!\\,(1-x)^{-n}$ for et vilkårlig $n \\ge 1$.\n\n**Trinn:** deriver hypotesen (kjerneregel, indre derivert $-1$):\n$$f^{(n+1)}(x) = -(n-1)!\\cdot(-n)(1-x)^{-n-1}\\cdot(-1) = -\\frac{n!}{(1-x)^{n+1}},$$\nsiden $(-n)\\cdot(-1) = n$ og $(n-1)!\\,n = n!$ — formelen med $n+1$. ✓\n\n**Konklusjon:** ved induksjonsprinsippet gjelder formelen for alle $n \\ge 1$. $\\blacksquare$",
+        "hints": [
+          "Regn $f', f'', f'''$ med kjerneregelen — den indre deriverte er $-1$ hver gang.",
+          "To nye minusfortegn per derivasjon (potensregelens $-n$ og den indre $-1$) opphever hverandre.",
+          "I trinnet: rydd $(-n)\\cdot(-1) = n$ og $(n-1)!\\,n = n!$ eksplisitt."
+        ]
+      }
+    },
+    {
+      "id": "mat111-uib-4-4-l3",
+      "type": "text",
+      "content": "## Potens-typen $\\dfrac{1}{(x+b)^p}$ og klassikeren $\\ln x$\n\n*Læringsløkke 3 av 4 — ca. 12 min.*"
+    },
+    {
+      "id": "mat111-uib-4-4-def-potens",
+      "type": "definition",
+      "title": "Potens-typen (nevnerpotensen klatrer fra startnivået)",
+      "content": "For $f(x) = (x+b)^{-p}$ starter nevnerpotensen på $p$ og klatrer med én per derivasjon: $f^{(n)}$ har nevnerpotens $p+n$. Fakulteten arver tilsvarende forsprang — for $p=2$ hentes faktorene $2, 3, 4, \\dots$ ned, som gir $(n+1)!$, ikke $n!$. Moral: fakultets- og potensmønsteret avhenger av STARTNIVÅET; les det av $f', f'', f'''$, aldri av en huskeregel."
+    },
+    {
+      "id": "mat111-uib-4-4-def-lnx",
+      "type": "definition",
+      "title": "$\\ln x$-formelen (kortform)",
+      "content": "Sjangerens klassiker: $\\dfrac{d^n}{dx^n}\\,\\ln x = \\dfrac{(-1)^{n-1}\\,(n-1)!}{x^n}$ for $n \\ge 1$. Alle tre byggeklossene i renskåret form: fortegnsveksling med positiv start, fakultet ett hakk bak, nevnerpotens lik $n$ — og ingen kjernefaktor, siden den indre deriverte er $1$. Verdt å kunne utenat som fasitsjekk for hele familien."
+    },
+    {
+      "id": "mat111-uib-4-4-ex3",
+      "type": "example",
+      "title": "Eksempel 3: $f^{(n)}$ for $\\dfrac{1}{(2+x)^2}$",
+      "problem": "La $g(x) = \\dfrac{1}{(2+x)^2}$ for $x > -2$. Finn og bevis en formel for $g^{(n)}(x)$, $n \\ge 1$.",
+      "solution": "**Gjettefasen.** $g(x) = (2+x)^{-2}$ (indre derivert $1$ — ingen kjernefaktor):\n$$g'(x) = -2(2+x)^{-3}, \\qquad g''(x) = 6(2+x)^{-4}, \\qquad g'''(x) = -24(2+x)^{-5}.$$\nKonstantene $2, 6, 24$ er $2!, 3!, 4!$ — fakulteten ligger her ett hakk FORAN ($(n+1)!$), fordi startpotensen er $2$; fortegnet veksler med negativ start → $(-1)^n$; nevnerpotensen er $n+2$. Gjetning:\n$$g^{(n)}(x) = \\frac{(-1)^{n}\\,(n+1)!}{(2+x)^{n+2}}, \\qquad n \\ge 1.$$\nSjekk: $n=1$: $\\frac{-2!}{(2+x)^3} = -2(2+x)^{-3}$ ✓; $n=2$: $\\frac{3!}{(2+x)^4}$ ✓; $n=3$: $\\frac{-4!}{(2+x)^5}$ ✓.\n\n**Basissteg ($n=1$).** Direkte regning: $g'(x) = -2(2+x)^{-3}$; formelen: $\\frac{(-1)^1\\,2!}{(2+x)^3} = -2(2+x)^{-3}$. ✓\n\n**Induksjonshypotese.** Anta $g^{(n)}(x) = (-1)^n\\,(n+1)!\\,(2+x)^{-(n+2)}$ for et vilkårlig $n \\ge 1$.\n\n**Induksjonstrinn.** Deriver hypotesen:\n$$g^{(n+1)}(x) = (-1)^n\\,(n+1)!\\cdot\\big(-(n+2)\\big)(2+x)^{-(n+3)} = \\frac{(-1)^{n+1}\\,(n+2)!}{(2+x)^{(n+1)+2}},$$\nsiden $(-1)^n\\cdot(-1) = (-1)^{n+1}$ og $(n+1)!\\,(n+2) = (n+2)!$ — formelen med $n+1$. ✓\n\n**Konklusjon.** Ved induksjonsprinsippet gjelder formelen for alle $n \\ge 1$. $\\blacksquare$"
+    },
+    {
+      "id": "mat111-uib-4-4-o3",
+      "type": "exercise",
+      "exercise": {
+        "id": "mat111-uib-4-4-o3-x",
+        "number": "3",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "La $h(x) = \\dfrac{1}{x}$ for $x \\neq 0$. Finn og bevis ved induksjon en formel for $h^{(n)}(x)$, $n \\ge 1$.",
+        "solution": "**Gjettefasen:** $h = x^{-1}$: $h' = -x^{-2}$, $h'' = 2x^{-3}$, $h''' = -6x^{-4}$. Konstantene $1, 2, 6$ er $n!$; fortegnet veksler med negativ start; nevnerpotensen er $n+1$:\n$$h^{(n)}(x) = \\frac{(-1)^n\\,n!}{x^{n+1}}, \\qquad n \\ge 1.$$\n\n**Basissteg ($n=1$):** direkte: $h'(x) = -x^{-2}$; formelen: $\\frac{(-1)^1\\,1!}{x^2} = -x^{-2}$. ✓\n\n**Hypotese:** anta $h^{(n)}(x) = (-1)^n\\,n!\\,x^{-(n+1)}$ for et vilkårlig $n \\ge 1$.\n\n**Trinn:** deriver hypotesen: $h^{(n+1)}(x) = (-1)^n\\,n!\\cdot\\big(-(n+1)\\big)x^{-(n+2)} = \\frac{(-1)^{n+1}\\,(n+1)!}{x^{(n+1)+1}}$ — formelen med $n+1$. ✓\n\n**Konklusjon:** ved induksjonsprinsippet gjelder formelen for alle $n \\ge 1$. $\\blacksquare$ *(Kryss-sjekk: $h = (\\ln x)'$, så $h^{(n)} = (\\ln x)^{(n+1)}$ — sett $n+1$ inn i $\\ln x$-formelen og få det samme.)*",
+        "hints": [
+          "Regn $h', h'', h'''$ og les av fortegn, konstant og nevnerpotens.",
+          "Startpotensen er $1$, så fakulteten blir $n!$ og nevnerpotensen $n+1$.",
+          "Kryss-sjekk gjetningen mot $\\ln x$-formelen: $h = (\\ln x)'$."
+        ]
+      }
+    },
+    {
+      "id": "mat111-uib-4-4-l4",
+      "type": "text",
+      "content": "## Samme mal, andre påstander: delsummer og rekursive følger\n\n*Læringsløkke 4 av 4 — ca. 8 min.*\n\nEldre sett brukte induksjon også på tallformler og rekursive følger — og i Del 7 (uendelige rekker) gjenoppstår nøyaktig denne teknikken for delsummer og monotoni-/skrankeargumenter. Malen er identisk; bare trinnets håndgrep bytter fra «deriver hypotesen» til «legg til neste ledd» eller «bruk rekursjonen»."
+    },
+    {
+      "id": "mat111-uib-4-4-def-delsum",
+      "type": "definition",
+      "title": "Delsum- og følgeinduksjon (Del 7-kobling)",
+      "content": "Samme firetrinnsmal på andre påstander: for en **delsumformel** ($1 + 3 + \\dots + (2n-1) = n^2$-typen) er trinnet å legge til ledd nummer $n+1$ på begge sider og rydde; for en **rekursiv følge** ($a_{n+1}$ gitt ved $a_n$) er trinnet å bruke rekursjonsformelen på hypotesen — typisk for å vise en skranke ($a_n < 2$ for alle $n$) eller monotoni. Dette er verktøyet Del 7 bygger konvergensargumenter med."
+    },
+    {
+      "id": "mat111-uib-4-4-ex4",
+      "type": "example",
+      "title": "Eksempel 4: delsumformel med induksjon",
+      "problem": "Vis ved induksjon at $1 + 3 + 5 + \\dots + (2n-1) = n^2$ for alle $n \\ge 1$.",
+      "solution": "**Basissteg ($n=1$).** Venstresiden er bare første ledd, $1$; høyresiden er $1^2 = 1$. ✓\n\n**Induksjonshypotese.** Anta $1 + 3 + \\dots + (2n-1) = n^2$ for et vilkårlig $n \\ge 1$.\n\n**Induksjonstrinn.** Legg til neste oddetall, $2(n+1)-1 = 2n+1$, på begge sider:\n$$1 + 3 + \\dots + (2n-1) + (2n+1) \\overset{\\text{hyp.}}{=} n^2 + 2n + 1 = (n+1)^2,$$\nsom er påstanden for $n+1$ (første kvadratsetning). ✓\n\n**Konklusjon.** Ved induksjonsprinsippet gjelder formelen for alle $n \\ge 1$. $\\blacksquare$"
+    },
+    {
+      "id": "mat111-uib-4-4-o4",
+      "type": "exercise",
+      "exercise": {
+        "id": "mat111-uib-4-4-o4-x",
+        "number": "4",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "Følgen $(a_n)$ er gitt ved $a_1 = 1$ og $a_{n+1} = \\sqrt{2 + a_n}$.\n\nVis ved induksjon at $a_n < 2$ for alle $n \\ge 1$. *(Numerisk hint på mønsteret: $a_2 = \\sqrt3 \\approx 1{,}73$, $a_3 \\approx 1{,}93$, $a_4 \\approx 1{,}98$ — følgen kryper mot $2$ nedenfra.)*",
+        "solution": "**Basissteg ($n=1$):** $a_1 = 1 < 2$. ✓\n\n**Hypotese:** anta $a_n < 2$ for et vilkårlig $n \\ge 1$.\n\n**Trinn:** bruk rekursjonen på hypotesen. Av $a_n < 2$ følger $2 + a_n < 4$, og siden kvadratroten er strengt voksende:\n$$a_{n+1} = \\sqrt{2+a_n} < \\sqrt4 = 2.$$\nAltså gjelder skranken også for $n+1$. ✓\n\n**Konklusjon:** ved induksjonsprinsippet er $a_n < 2$ for alle $n \\ge 1$. $\\blacksquare$ *(I Del 7 kombineres akkurat slike skranke- og monotoniargumenter til konvergensbevis for rekursive følger.)*",
+        "hints": [
+          "Basissteget er én ulikhet: $a_1 = 1 < 2$.",
+          "I trinnet: mat hypotesen $a_n < 2$ inn i rekursjonsformelen.",
+          "$\\sqrt{\\;\\cdot\\;}$ er strengt voksende — ulikheter overlever rotuttrekk."
+        ]
+      }
+    },
+    {
+      "id": "mat111-uib-4-4-warn",
+      "type": "warning",
+      "title": "Typiske feil",
+      "content": "1. **Basissteget ikke verifisert mot direkte regning.** «Formelen gir $f'$» uten at $f'$ faktisk er regnet ut for hånd, er ingen verifikasjon — begge sider skal vises.\n2. **Induksjonstrinnet «hoppet over».** «Mønsteret fortsetter åpenbart» er ikke et trinn: hypotesen skal faktisk DERIVERES, med ryddelinjen synlig.\n3. **Fortegns- og fakultetsbokføring.** $(-1)^{n-1}$ mot $(-1)^n$ (sjekk $n=1$!), $(n-1)!$ mot $n!$ mot $(n+1)!$ (avhenger av startpotensen!), og glemt kjernefaktor $a$ i trinnet — de tre klassiske slurvene.\n4. **Konkludere uten å nevne induksjonshypotesen.** Føringen skal vise HVOR hypotesen brukes («deriver den antatte formelen …») og avslutte med at induksjonsprinsippet gir påstanden for alle $n \\ge 1$.\n5. **«Bevise» med $n = 1, 2, 3$.** Tre verifiserte tilfeller er gjettefase, ikke bevis — uten trinnet er formelen udokumentert for $n = 4$ og oppover."
+    },
+    {
+      "id": "mat111-uib-4-4-pool",
+      "type": "text",
+      "content": "## Flere øvingsoppgaver\n\nDrill på hele malen: gjett, verifiser basissteget, gjennomfør trinnet — på alle tre funksjonstypene."
+    },
+    {
+      "id": "mat111-uib-4-4-d1",
+      "type": "exercise",
+      "exercise": {
+        "id": "mat111-uib-4-4-d1-x",
+        "number": "5",
+        "type": "classic",
+        "difficulty": "lett",
+        "task": "Finn en formel for $\\dfrac{d^n}{dx^n}\\,e^{4x}$, og bevis den ved induksjon.",
+        "solution": "**Gjetning:** hver derivasjon gir en faktor $4$: $f^{(n)}(x) = 4^n e^{4x}$.\n\n**Basissteg ($n=1$):** direkte: $\\frac{d}{dx}e^{4x} = 4e^{4x}$; formelen: $4^1 e^{4x}$. ✓\n\n**Hypotese:** anta $f^{(n)}(x) = 4^n e^{4x}$ for et vilkårlig $n \\ge 1$.\n\n**Trinn:** $f^{(n+1)}(x) = \\frac{d}{dx}\\big[4^n e^{4x}\\big] = 4^n\\cdot 4e^{4x} = 4^{n+1}e^{4x}$ — formelen med $n+1$. ✓\n\n**Konklusjon:** ved induksjonsprinsippet gjelder formelen for alle $n \\ge 1$. $\\blacksquare$",
+        "hints": [
+          "Kjerneregelen gir én faktor $4$ per derivasjon.",
+          "Malen har fire faste overskrifter — bruk dem."
+        ]
+      }
+    },
+    {
+      "id": "mat111-uib-4-4-d2",
+      "type": "exercise",
+      "exercise": {
+        "id": "mat111-uib-4-4-d2-x",
+        "number": "6",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "La $f(x) = \\dfrac{1}{3x+1}$ for $x > -\\tfrac13$. Finn og bevis ved induksjon en formel for $f^{(n)}(x)$, $n \\ge 1$.",
+        "solution": "**Gjettefasen:** $f = (3x+1)^{-1}$: $f' = -3(3x+1)^{-2}$, $f'' = 18(3x+1)^{-3}$, $f''' = -162(3x+1)^{-4}$. Konstantene $3, 18 = 3^2\\cdot 2, 162 = 3^3\\cdot 6$ gir kjernefaktor $3^n$ og fakultet $n!$; fortegnet veksler med negativ start; nevnerpotensen er $n+1$:\n$$f^{(n)}(x) = \\frac{(-1)^n\\,3^n\\,n!}{(3x+1)^{n+1}}, \\qquad n \\ge 1.$$\n\n**Basissteg ($n=1$):** direkte: $f' = -3(3x+1)^{-2}$; formelen: $\\frac{(-1)^1 3^1 1!}{(3x+1)^2} = -3(3x+1)^{-2}$. ✓\n\n**Hypotese:** anta $f^{(n)}(x) = (-1)^n 3^n n!\\,(3x+1)^{-(n+1)}$ for et vilkårlig $n \\ge 1$.\n\n**Trinn:** deriver hypotesen (kjernefaktor $3$!):\n$$f^{(n+1)}(x) = (-1)^n 3^n n!\\cdot\\big(-(n+1)\\big)(3x+1)^{-(n+2)}\\cdot 3 = \\frac{(-1)^{n+1}\\,3^{n+1}\\,(n+1)!}{(3x+1)^{(n+1)+1}}.$$\nRyddelinjen: $(-1)^n(-1) = (-1)^{n+1}$, $3^n\\cdot 3 = 3^{n+1}$, $n!\\,(n+1) = (n+1)!$ — formelen med $n+1$. ✓\n\n**Konklusjon:** ved induksjonsprinsippet gjelder formelen for alle $n \\ge 1$. $\\blacksquare$",
+        "hints": [
+          "Regn $f', f'', f'''$ og faktoriser konstantene i kjernefaktor × fakultet: $18 = 3^2 \\cdot 2!$.",
+          "Startpotensen er $1$: fakulteten blir $n!$, nevnerpotensen $n+1$.",
+          "Trinnet har TRE oppdateringer: fortegn, kjernefaktor og fakultet — pluss potenshoppet."
+        ]
+      }
+    },
+    {
+      "id": "mat111-uib-4-4-d3",
+      "type": "exercise",
+      "exercise": {
+        "id": "mat111-uib-4-4-d3-x",
+        "number": "7",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "La $f(x) = x\\,e^{x}$. Regn ut $f'$, $f''$ og $f'''$, gjett en formel for $f^{(n)}(x)$, og bevis den ved induksjon.",
+        "solution": "**Gjettefasen** (produktregelen): $f' = e^x + xe^x = (x+1)e^x$; $f'' = e^x + (x+1)e^x = (x+2)e^x$; $f''' = (x+3)e^x$. Gjetning:\n$$f^{(n)}(x) = (x+n)\\,e^x, \\qquad n \\ge 1.$$\n\n**Basissteg ($n=1$):** direkte regning ga $f' = (x+1)e^x$; formelen med $n=1$ gir det samme. ✓\n\n**Hypotese:** anta $f^{(n)}(x) = (x+n)e^x$ for et vilkårlig $n \\ge 1$.\n\n**Trinn:** deriver hypotesen med produktregelen:\n$$f^{(n+1)}(x) = 1\\cdot e^x + (x+n)\\,e^x = \\big(x + (n+1)\\big)e^x$$\n— formelen med $n+1$. ✓\n\n**Konklusjon:** ved induksjonsprinsippet gjelder $f^{(n)}(x) = (x+n)e^x$ for alle $n \\ge 1$. $\\blacksquare$ *(Merk: her er mønsteret additivt, ikke multiplikativt — ingen fakultet, fordi produktregelens førsteledd bare bidrar med konstanten $1$ per derivasjon.)*",
+        "hints": [
+          "Produktregelen på $(x+n)e^x$: derivert av førstefaktor er $1$.",
+          "Mønsteret er additivt — sammenlign med hvorfor logaritme-typen får fakultet.",
+          "Basissteget: regn $f'$ helt ut med produktregelen først."
+        ]
+      }
+    },
+    {
+      "id": "mat111-uib-4-4-d4",
+      "type": "exercise",
+      "exercise": {
+        "id": "mat111-uib-4-4-d4-x",
+        "number": "8",
+        "type": "classic",
+        "difficulty": "vanskelig",
+        "task": "Følgen fra oppgave 4: $a_1 = 1$, $a_{n+1} = \\sqrt{2+a_n}$.\n\nVis ved induksjon at følgen er strengt voksende, altså at $a_{n+1} > a_n$ for alle $n \\ge 1$.",
+        "solution": "**Basissteg ($n=1$):** $a_2 = \\sqrt{2+1} = \\sqrt3 \\approx 1{,}732 > 1 = a_1$. ✓\n\n**Hypotese:** anta $a_{n+1} > a_n$ for et vilkårlig $n \\ge 1$.\n\n**Trinn:** av hypotesen følger $2 + a_{n+1} > 2 + a_n$, og siden kvadratroten er strengt voksende:\n$$a_{n+2} = \\sqrt{2+a_{n+1}} > \\sqrt{2+a_n} = a_{n+1}.$$\nPåstanden gjelder altså for $n+1$. ✓\n\n**Konklusjon:** ved induksjonsprinsippet er $a_{n+1} > a_n$ for alle $n \\ge 1$ — følgen er strengt voksende. $\\blacksquare$ *(Sammen med skranken $a_n < 2$ fra oppgave 4 er dette nøyaktig paret Del 7 bruker: voksende + begrenset oppad — da konvergerer følgen (kompletthetsprinsippet), her mot $2$.)*",
+        "hints": [
+          "Her er PÅSTANDEN en ulikhet mellom to naboledd — skriv $P(n)$: $a_{n+1} > a_n$.",
+          "I trinnet: legg $2$ til på begge sider av hypotesen og ta kvadratrot.",
+          "Roten bevarer ulikheter fordi den er strengt voksende — si det eksplisitt."
+        ]
+      }
+    },
+    {
+      "id": "mat111-uib-4-4-d5",
+      "type": "exercise",
+      "exercise": {
+        "id": "mat111-uib-4-4-d5-x",
+        "number": "9",
+        "type": "classic",
+        "difficulty": "vanskelig",
+        "task": "(Krevende.) La $f(x) = \\ln(2x+3)$ for $x > -\\tfrac32$.\n\n**a)** Finn og bevis ved induksjon en formel for $f^{(n)}(x)$, $n \\ge 1$.\n\n**b)** Bruk formelen til å vise at Taylorkoeffisientene til $f$ om $a = -1$ er $\\dfrac{f^{(n)}(-1)}{n!} = \\dfrac{(-1)^{n-1}\\,2^n}{n}$, og kontroller svaret for $n = 1, 2, 3$ mot direkte regning.",
+        "solution": "**a) Gjettefasen:** $f' = \\frac{2}{2x+3}$, $f'' = -\\frac{4}{(2x+3)^2}$, $f''' = \\frac{16}{(2x+3)^3}$. Samme struktur som eksempel 2, med kjernefaktor $2^n$:\n$$f^{(n)}(x) = \\frac{(-1)^{n-1}\\,2^n\\,(n-1)!}{(2x+3)^n}, \\qquad n \\ge 1.$$\n**Basissteg ($n=1$):** direkte: $f' = \\frac{2}{2x+3}$; formelen: $\\frac{(-1)^0 2^1 0!}{(2x+3)^1} = \\frac{2}{2x+3}$. ✓\n\n**Hypotese:** anta $f^{(n)}(x) = (-1)^{n-1} 2^n (n-1)!\\,(2x+3)^{-n}$ for et vilkårlig $n \\ge 1$.\n\n**Trinn:** deriver hypotesen: $f^{(n+1)}(x) = (-1)^{n-1} 2^n (n-1)!\\cdot(-n)(2x+3)^{-n-1}\\cdot 2 = \\frac{(-1)^n\\,2^{n+1}\\,n!}{(2x+3)^{n+1}}$ — formelen med $n+1$. ✓ **Konklusjon:** induksjonsprinsippet gir formelen for alle $n \\ge 1$. $\\blacksquare$\n\n**b)** I $x = -1$ er $2x+3 = 1$, så nevneren forsvinner: $f^{(n)}(-1) = (-1)^{n-1}\\,2^n\\,(n-1)!$. Taylorkoeffisienten ([kap. 4.3](/bok/mat111-uib/mat111-uib-4-3)) blir\n$$\\frac{f^{(n)}(-1)}{n!} = \\frac{(-1)^{n-1}\\,2^n\\,(n-1)!}{n!} = \\frac{(-1)^{n-1}\\,2^n}{n},$$\nsiden $\\frac{(n-1)!}{n!} = \\frac1n$.\n\n**Kontroll:** $n=1$: $\\frac{2^1}{1} = 2$, og direkte $f'(-1) = \\frac{2}{1} = 2 = c_1\\cdot 1!$ ✓; $n=2$: $-\\frac{4}{2} = -2$, og $\\frac{f''(-1)}{2!} = \\frac{-4}{2} = -2$ ✓; $n=3$: $\\frac{8}{3}$, og $\\frac{f'''(-1)}{3!} = \\frac{16}{6} = \\frac83$ ✓. — Slik mater sjanger N direkte inn i Taylor-sjangeren: formelen for ALLE deriverte gir polynomkoeffisienter av vilkårlig grad.",
+        "hints": [
+          "a) Følg eksempel 2 med kjernefaktor $2$ i stedet for $3$.",
+          "b) Velg $a = -1$ nettopp fordi $2x+3 = 1$ der — nevneren blir triviell.",
+          "$\\frac{(n-1)!}{n!}$ forkortes til $\\frac1n$ — det er hele forenklingen."
+        ]
+      }
+    },
+    {
+      "id": "mat111-uib-4-4-bb-tekst",
+      "type": "text",
+      "content": "## Begrepsbank til eksamen\n\nSjanger N-malen i kortform.\n\n*Begrepsbanken gjentar det du nettopp har lest — hopp trygt over ved førstegangslesing.*"
+    },
+    {
+      "id": "mat111-uib-4-4-bb-mal",
+      "type": "definition",
+      "title": "Induksjonsbeviset i fire linjer (kortform)",
+      "content": "(1) **Basissteg:** regn $f'$ direkte, sammenlign med formelen for $n=1$. (2) **Hypotese:** «anta formelen for et vilkårlig $n \\ge 1$» — skrevet helt ut. (3) **Trinn:** deriver hypotesen, rydd, kjenn igjen $n+1$-strukturen. (4) **Konklusjon:** «ved induksjonsprinsippet gjelder formelen for alle $n \\ge 1$»."
+    },
+    {
+      "id": "mat111-uib-4-4-bb-sjekk",
+      "type": "definition",
+      "title": "Firepunktssjekken for $f^{(n)}$-formler",
+      "content": "Enhver gjetning og ethvert trinn kontrolleres mot fire bokføringsposter: **fortegnet** ($(-1)^{n-1}$ eller $(-1)^n$ — test $n=1$), **kjernefaktoren** ($a^n$ fra indre derivert $a$), **fakulteten** ($(n-1)!$, $n!$ eller $(n+1)!$ — avhenger av startpotensen) og **nevnerpotensen** (stiger med én per derivasjon)."
+    },
+    {
+      "id": "mat111-uib-4-4-bb-tretyper",
+      "type": "definition",
+      "title": "De tre funksjonstypene (kortform)",
+      "content": "$\\ln(ax+b)$: $\\;f^{(n)} = \\frac{(-1)^{n-1} a^n (n-1)!}{(ax+b)^n}$. $\\quad\\ln x$: spesialtilfellet $a=1, b=0$. $\\quad (x+b)^{-p}$: nevnerpotens $p+n$ og fakultet med forsprang (for $p=1$: $\\frac{(-1)^n n!}{(x+b)^{n+1}}$; for $p=2$: $\\frac{(-1)^n (n+1)!}{(x+b)^{n+2}}$). Gjett aldri fra huskeregelen alene — verifiser mot $f', f'', f'''$."
+    },
+    {
+      "id": "mat111-uib-4-4-bb-hvorfor",
+      "type": "definition",
+      "title": "Hvorfor tre verifiserte tilfeller ikke er et bevis",
+      "content": "$n = 1, 2, 3$ sjekker tre dominobrikker enkeltvis; induksjonstrinnet er garantien for at HVER brikke feller den neste — uendelig mange tilfeller i ett argument. Gjettefasen finner formelen; bare trinnet beviser den."
+    },
+    {
+      "id": "mat111-uib-4-4-bb-del7",
+      "type": "definition",
+      "title": "Videre til Del 7 (kortform)",
+      "content": "Samme firetrinnsmal med annet trinn-håndgrep: delsummer (legg til neste ledd), rekursive følger (bruk rekursjonen på hypotesen — skranke $a_n < M$ og monotoni $a_{n+1} > a_n$). Voksende + begrenset oppad ⇒ konvergent (kompletthetsprinsippet) — Del 7s standardargument."
+    },
+    {
+      "id": "mat111-uib-4-4-rep",
+      "type": "collapsible",
+      "title": "Repetisjonsoppgaver",
+      "buttonText": "Vis repetisjonsoppgaver",
+      "content": [
+        {
+          "id": "mat111-uib-4-4-r1",
+          "type": "exercise",
+          "exercise": {
+            "id": "mat111-uib-4-4-r1-x",
+            "number": "R1",
+            "type": "classic",
+            "difficulty": "lett",
+            "task": "(Fra R1 4.3) Deriver $f(x) = \\ln(5x+2)$.",
+            "solution": "Kjerneregelen med $u = 5x+2$: $f'(x) = \\dfrac{5}{5x+2}$.",
+            "hints": [
+              "$\\frac{d}{dx}\\ln u = u'/u$."
+            ]
+          }
+        },
+        {
+          "id": "mat111-uib-4-4-r2",
+          "type": "exercise",
+          "exercise": {
+            "id": "mat111-uib-4-4-r2-x",
+            "number": "R2",
+            "type": "classic",
+            "difficulty": "lett",
+            "task": "(Fra R1 4.1/4.3) Deriver $g(x) = (2+x)^{-3}$.",
+            "solution": "Potens- og kjerneregel (indre derivert $1$): $g'(x) = -3(2+x)^{-4}$.",
+            "hints": [
+              "Potensregelen gjelder også negative eksponenter."
+            ]
+          }
+        },
+        {
+          "id": "mat111-uib-4-4-r3",
+          "type": "exercise",
+          "exercise": {
+            "id": "mat111-uib-4-4-r3-x",
+            "number": "R3",
+            "type": "classic",
+            "difficulty": "lett",
+            "task": "(Fra R1 9.2) Vis ved induksjon at $1 + 2 + \\dots + n = \\dfrac{n(n+1)}{2}$ for alle $n \\ge 1$.",
+            "solution": "**Basissteg:** $n=1$: venstre $= 1$, høyre $= \\frac{1\\cdot2}{2} = 1$. ✓ **Hypotese:** anta formelen for et vilkårlig $n$. **Trinn:** legg til $n+1$: $\\frac{n(n+1)}{2} + (n+1) = (n+1)\\big(\\frac n2 + 1\\big) = \\frac{(n+1)(n+2)}{2}$ — formelen med $n+1$. ✓ **Konklusjon:** induksjonsprinsippet gir formelen for alle $n \\ge 1$.",
+            "hints": [
+              "Trinnet: legg til neste ledd på begge sider og faktoriser ut $(n+1)$."
+            ]
+          }
+        },
+        {
+          "id": "mat111-uib-4-4-r4",
+          "type": "exercise",
+          "exercise": {
+            "id": "mat111-uib-4-4-r4-x",
+            "number": "R4",
+            "type": "classic",
+            "difficulty": "lett",
+            "task": "(Fra kap. 4.3) Hva er koeffisienten foran $(x-a)^n$ i Taylorpolynomet — og hva trenger du for å regne den ut for stor $n$?",
+            "solution": "Koeffisienten er $\\dfrac{f^{(n)}(a)}{n!}$. For stor $n$ trenger du en FORMEL for $f^{(n)}$ — nøyaktig det sjanger N-bevisene leverer.",
+            "hints": [
+              "Se definisjonen av $P_n$ i kap. 4.3."
+            ]
+          }
+        },
+        {
+          "id": "mat111-uib-4-4-r5",
+          "type": "exercise",
+          "exercise": {
+            "id": "mat111-uib-4-4-r5-x",
+            "number": "R5",
+            "type": "classic",
+            "difficulty": "lett",
+            "task": "(Regnetrim) Regn ut $4!$, $\\dfrac{5!}{4!}$ og $\\dfrac{(n-1)!\\cdot n}{n!}$.",
+            "solution": "$4! = 24$; $\\dfrac{5!}{4!} = 5$; $(n-1)!\\cdot n = n!$, så $\\dfrac{(n-1)!\\cdot n}{n!} = 1$.",
+            "hints": [
+              "$n! = n\\cdot(n-1)!$ — identiteten hele ryddearbeidet bygger på."
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": "mat111-uib-4-4-symbol",
+      "type": "collapsible",
+      "title": "Symbol- og formelliste",
+      "buttonText": "Vis symboler og formler",
+      "content": [
+        {
+          "id": "mat111-uib-4-4-symbol-t",
+          "type": "text",
+          "content": "## Symbol- og formelliste\n\n*Oppslagsverk — alt her forklares underveis i kapitlet.*\n\nAlle symboler og formler som brukes i dette delkapitlet (4.4), samlet på ett sted.\n\n| Symbol | Betydning |\n|---|---|\n| $f^{(n)}$ | Den $n$-te deriverte av $f$ |\n| $P(n)$ | Påstanden med tallet $n$ innsatt (det som skal bevises for alle $n$) |\n| $(-1)^{n-1},\\ (-1)^n$ | Fortegnsveksling med positiv hhv. negativ start ($n=1$-testen skiller dem) |\n| $a^n$ | Kjernefaktoren etter $n$ derivasjoner av indre funksjon $ax+b$ |\n| $(n-1)!,\\ n!,\\ (n+1)!$ | Fakultetsfaktoren — hvilken avhenger av startpotensen |\n| $a_{n+1} = \\sqrt{2+a_n}$ | Rekursiv følge (trinnet bruker rekursjonen på hypotesen) |\n\n**Formler i dette delkapitlet:**\n\n$$\\frac{d^n}{dx^n}\\,\\ln(ax+b) = \\frac{(-1)^{n-1}\\,a^n\\,(n-1)!}{(ax+b)^n} \\quad (n \\ge 1;\\ \\ln x \\text{ er } a=1, b=0)$$\n\n$$\\frac{d^n}{dx^n}\\,\\frac{1}{x} = \\frac{(-1)^n\\,n!}{x^{n+1}}, \\qquad \\frac{d^n}{dx^n}\\,\\frac{1}{(x+b)^2} = \\frac{(-1)^n\\,(n+1)!}{(x+b)^{n+2}}$$\n\n$$P(1) \\text{ sann og } \\big(P(n) \\Rightarrow P(n+1)\\big) \\text{ for alle } n \\ \\Longrightarrow\\ P(n) \\text{ sann for alle } n \\ge 1 \\quad (\\text{induksjonsprinsippet})$$\n\n**Malen:** basissteg (regn $f'$ direkte) → hypotese (skriv formelen helt ut) → trinn (deriver hypotesen, rydd fortegn/kjernefaktor/fakultet) → konklusjon (navngi induksjonsprinsippet)."
+        }
+      ]
+    }
+  ],
+  "exercises": []
+}

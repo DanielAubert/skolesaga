@@ -1,0 +1,486 @@
+{
+  "id": "mat111-uib-2-3",
+  "courseId": "mat111-uib",
+  "chapterNumber": "2.3",
+  "title": "Kontinuitet: skjæringssetningen og ekstremalverdisetningen",
+  "description": "Kontinuitet på intervaller og de to eksistenssetningene — grunnlaget for eksistens+entydighet-kjeden i Del 4 og for kontinuerlig utvidelse.",
+  "estimatedMinutes": 50,
+  "competenceGoals": [
+    "avgjøre kontinuitet i et punkt og i skjøtepunkter ved å regne ensidige grenser hver for seg",
+    "føre et eksistensbevis med skjæringssetningen: omform til f(x)=0, vis fortegnsskifte, nevn kontinuitet, navngi setningen",
+    "bruke ekstremalverdisetningen riktig — kun på lukket, begrenset intervall",
+    "bestemme c i en kontinuerlig utvidelse og koble grensen eksplisitt til f(a)"
+  ],
+  "content": [
+    {
+      "id": "mat111-uib-2-3-tip",
+      "type": "tip",
+      "title": "Eksamensvinkel",
+      "content": "**Kontinuitet er fundamentet under to store oppgavetyper.**\n\n- **Eksistensbevis (sjanger F)** — å vise at en likning har en løsning — hviler på **skjæringssetningen**, og finnes i 17 av 34 sett, deriblant **7 av de 9 siste**. Å *navngi* setningen og nevne kontinuiteten er selve føringskravet.\n- **Kontinuerlig utvidelse** (bestem $c$ som «fyller hullet») er en fast del av signaturoppgaven (sjanger E, kap. 3.1–3.2). Føringskravet: regn grensen *og* **koble den eksplisitt til $f(a)$** — å bare regne grensen gir trekk.\n- **Ekstremalverdisetningen** brukes «uten regning» i drøfting (kap. 3.5) til å begrunne at globale ekstremalverdier finnes. Kravet er nøyaktig: kontinuerlig på et *lukket, begrenset* intervall.\n- **Prioritet:** *kunne*. Dette kapitlet er teoritungt, men teoremene er få og faste — lær navnene og betingelsene presist."
+    },
+    {
+      "id": "mat111-uib-2-3-fork",
+      "type": "text",
+      "content": "**Forkunnskaper.** Dette kapitlet bygger på grensebegrepet fra **kap. 2.1** (grenser) og regneteknikken fra **kap. 2.2** (du bruker L'Hôpital/skvis i de kontinuerlige utvidelsene). Det intuitive kontinuitetsbildet — «grafen kan tegnes uten å løfte blyanten» — er fra **[Kontinuitet (R1 3.2)](/bok/r1/r1-3-2)**. Her gjør vi det presist og kobler det til eksistenssetningene.\n\n**Sist du var her:** en funksjon er kontinuerlig i et punkt hvis grafen henger sammen der — ingen sprang, hull eller uendelige hopp. Nå fester vi dette til grensedefinisjonen: $\\lim_{x\\to a}f(x)=f(a)$."
+    },
+    {
+      "id": "mat111-uib-2-3-motiv",
+      "type": "text",
+      "content": "Kontinuitet er kravet om at grensen og funksjonsverdien faller sammen: $\\lim_{x\\to a}f(x)=f(a)$. Det høres teknisk ut, men det er nettopp denne egenskapen som gjør at grafen ikke har sprang — og det er sprangfriheten som lar oss slutte at en funksjon *må* treffe en verdi underveis (skjæringssetningen) og *må* nå en største og minste verdi på et lukket intervall (ekstremalverdisetningen).\n\nDisse to eksistenssetningene er verktøyene bak «vis at likningen har en løsning» og «vis at funksjonen har et maksimum» — oppgaver der du ikke kan *finne* svaret, bare bevise at det finnes. Fire læringsløkker: (1) kontinuitet i punkt og på intervall, (2) skjæringssetningen, (3) ekstremalverdisetningen, (4) kontinuerlig utvidelse koblet til $f(a)$."
+    },
+    {
+      "id": "mat111-uib-2-3-l1",
+      "type": "text",
+      "content": "## Løkke 1 — Kontinuitet i punkt og på intervall (~12 min)"
+    },
+    {
+      "id": "mat111-uib-2-3-def-kont-punkt",
+      "type": "definition",
+      "title": "Kontinuitet i et punkt",
+      "content": "En funksjon $f$ er **kontinuerlig i $a$** dersom grensen finnes og er lik funksjonsverdien:\n$$\\lim_{x\\to a}f(x) = f(a).$$\nDette krever tre ting samtidig: (i) $f(a)$ er definert, (ii) $\\lim_{x\\to a}f(x)$ finnes, (iii) de to er like. Svikter ett av dem, er $f$ diskontinuerlig i $a$."
+    },
+    {
+      "id": "mat111-uib-2-3-def-kont-intervall",
+      "type": "definition",
+      "title": "Kontinuitet på et intervall",
+      "content": "$f$ er **kontinuerlig på et intervall** dersom den er kontinuerlig i hvert indre punkt, og ensidig kontinuerlig i endepunktene som hører med. På $[a,b]$ betyr det: kontinuerlig i alle indre $x$, høyrekontinuerlig i $a$ og venstrekontinuerlig i $b$. «Kontinuerlig på $[a,b]$» er forutsetningen i begge eksistenssetningene."
+    },
+    {
+      "id": "mat111-uib-2-3-def-ensidig-kont",
+      "type": "definition",
+      "title": "Ensidig kontinuitet",
+      "content": "$f$ er **høyrekontinuerlig** i $a$ hvis $\\lim_{x\\to a^+}f(x)=f(a)$, og **venstrekontinuerlig** hvis $\\lim_{x\\to a^-}f(x)=f(a)$. $f$ er kontinuerlig i $a$ hviss den er både høyre- og venstrekontinuerlig. I skjøtepunkter (der funksjonen er definert stykkevis) må hver side regnes for seg."
+    },
+    {
+      "id": "mat111-uib-2-3-def-kombinasjoner",
+      "type": "definition",
+      "title": "Kontinuitet av kombinasjoner",
+      "content": "Sum, differanse, produkt og kvotient (der nevner $\\neq0$) av kontinuerlige funksjoner er kontinuerlige, og det samme er **sammensetninger**: er $g$ kontinuerlig i $a$ og $f$ kontinuerlig i $g(a)$, så er $f\\circ g$ kontinuerlig i $a$. Følgen: polynomer, $\\sin$, $\\cos$, $e^x$, $\\ln x$ (på sitt område) og alt bygget av disse er kontinuerlige der de er definert — så du kan sette inn direkte."
+    },
+    {
+      "id": "mat111-uib-2-3-ex1",
+      "type": "example",
+      "title": "Eksempel 1: kontinuitet i et skjøtepunkt",
+      "problem": "For hvilken verdi av $a$ er $f$ kontinuerlig i $x=1$, når $f(x)=x^2+1$ for $x\\le1$ og $f(x)=ax+2$ for $x>1$?",
+      "solution": "**Regn de to ensidige grensene og funksjonsverdien i skjøten.**\n- Venstre ($x\\to1^-$, bruk $x^2+1$): $\\lim_{x\\to1^-}f(x)=1^2+1=2$. Dette er også $f(1)=2$.\n- Høyre ($x\\to1^+$, bruk $ax+2$): $\\lim_{x\\to1^+}f(x)=a\\cdot1+2=a+2$.\n\n**Kontinuitetskravet** er at de tre faller sammen: $a+2 = 2$, altså $\\boxed{a=0}$.\n\nMed $a=0$ er høyresiden $f(x)=2$, og grensene fra begge sider er $2=f(1)$ — kontinuerlig. *(Merk: her regnes hver side hver for seg; det er selve poenget i skjøtepunkter.)*"
+    },
+    {
+      "id": "mat111-uib-2-3-o1",
+      "type": "exercise",
+      "exercise": {
+        "id": "mat111-uib-2-3-o1-x",
+        "number": "1",
+        "type": "classic",
+        "difficulty": "lett",
+        "task": "For hvilken $b$ er $f$ kontinuerlig i $x=2$, når $f(x)=3x-1$ for $x<2$ og $f(x)=x^2+b$ for $x\\ge2$?",
+        "solution": "Venstre: $\\lim_{x\\to2^-}(3x-1)=5$. Høyre = $f(2)$: $2^2+b=4+b$. Kontinuitet krever $4+b=5$, så $b=1$.",
+        "hints": [
+          "Regn venstregrense (bruk $3x-1$) og $f(2)$ (bruk $x^2+b$).",
+          "Sett de to like og løs for $b$."
+        ]
+      }
+    },
+    {
+      "id": "mat111-uib-2-3-o2",
+      "type": "exercise",
+      "exercise": {
+        "id": "mat111-uib-2-3-o2-x",
+        "number": "2",
+        "type": "classic",
+        "difficulty": "lett",
+        "task": "Er $f(x)=\\dfrac{x^2-1}{x-1}$ kontinuerlig i $x=1$? Begrunn.",
+        "solution": "Nei — $f(1)$ er ikke definert (nevner $0$), så kravet (i) svikter. Grensen finnes riktignok: $\\frac{(x-1)(x+1)}{x-1}=x+1\\to2$. Funksjonen har et «hull» i $x=1$ og er *diskontinuerlig* der, men kan gjøres kontinuerlig ved å definere $f(1)=2$ (kontinuerlig utvidelse, løkke 4).",
+        "hints": [
+          "Sjekk om $f(1)$ er definert.",
+          "Grensen finnes, men funksjonsverdien mangler."
+        ]
+      }
+    },
+    {
+      "id": "mat111-uib-2-3-l2",
+      "type": "text",
+      "content": "## Løkke 2 — Skjæringssetningen (~15 min)"
+    },
+    {
+      "id": "mat111-uib-2-3-def-ivt",
+      "type": "theorem",
+      "title": "Skjæringssetningen (mellomverdisetningen)",
+      "content": "Er $f$ **kontinuerlig på $[a,b]$** og $y_0$ et tall mellom $f(a)$ og $f(b)$, så finnes minst én $c\\in(a,b)$ med $f(c)=y_0$. Spesialtilfellet vi bruker mest: har $f(a)$ og $f(b)$ **motsatt fortegn**, finnes minst én $c$ med $f(c)=0$ — altså en løsning av likningen $f(x)=0$ i $(a,b)$.\n\nEn kontinuerlig graf som starter under og ender over $x$-aksen *må* krysse den. Setningen gir **eksistens**, ikke verdien av $c$."
+    },
+    {
+      "id": "mat111-uib-2-3-def-ivt-mal",
+      "type": "definition",
+      "title": "Bevismalen for eksistens (skjæringssetningen)",
+      "content": "Standardføringen for «vis at likningen har en løsning i $[a,b]$»: (1) **omform** til $f(x)=0$ ved å flytte alt til én side; (2) **regn** $f(a)$ og $f(b)$ (grove overslag på fortegn holder) og pek på motsatt fortegn; (3) **nevn kontinuiteten** — $f$ er kontinuerlig på $[a,b]$ (polynom/eksp./osv.); (4) **navngi setningen** og konkluder: etter skjæringssetningen finnes $c\\in(a,b)$ med $f(c)=0$. Alle fire ledd kreves for full pott."
+    },
+    {
+      "id": "mat111-uib-2-3-ex2",
+      "type": "example",
+      "title": "Eksempel 2: eksistens av løsning",
+      "problem": "Vis at likningen $x^5 = 3 - 2x$ har minst én løsning i $[0,2]$.",
+      "solution": "**Steg 1 — omform til $f(x)=0$.** Sett $f(x)=x^5+2x-3$; da er $f(x)=0$ ekvivalent med $x^5=3-2x$.\n\n**Steg 2 — fortegn i endepunktene.**\n$$f(0)=0+0-3=-3<0,\\qquad f(2)=32+4-3=33>0.$$\nMotsatt fortegn.\n\n**Steg 3 — kontinuitet.** $f$ er et polynom, altså kontinuerlig på hele $[0,2]$.\n\n**Steg 4 — navngi og konkluder.** Etter **skjæringssetningen** finnes minst én $c\\in(0,2)$ med $f(c)=0$, altså en løsning av $x^5=3-2x$. $\\qquad\\blacksquare$\n\n*(Vil man ha «nøyaktig én»: $f'(x)=5x^4+2>0$ for alle $x$, så $f$ er strengt voksende og treffer $0$ bare én gang — foregriper Del 4.)*"
+    },
+    {
+      "id": "mat111-uib-2-3-o3",
+      "type": "exercise",
+      "exercise": {
+        "id": "mat111-uib-2-3-o3-x",
+        "number": "3",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "Vis at $x^5+x=1$ har minst én løsning i $[0,1]$.",
+        "solution": "Sett $f(x)=x^5+x-1$ (polynom, kontinuerlig). $f(0)=-1<0$, $f(1)=1+1-1=1>0$ — motsatt fortegn. Etter skjæringssetningen finnes $c\\in(0,1)$ med $f(c)=0$, altså en løsning av $x^5+x=1$.",
+        "hints": [
+          "Flytt alt til én side: $f(x)=x^5+x-1$.",
+          "Sjekk fortegn i $0$ og $1$, nevn kontinuitet, navngi setningen."
+        ]
+      }
+    },
+    {
+      "id": "mat111-uib-2-3-o4",
+      "type": "exercise",
+      "exercise": {
+        "id": "mat111-uib-2-3-o4-x",
+        "number": "4",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "Vis at $\\cos x = x$ har en løsning i $[0,1]$. (Radianer.)",
+        "solution": "Sett $f(x)=\\cos x - x$ (kontinuerlig; $\\cos$ og $x$ er kontinuerlige). $f(0)=\\cos0-0=1>0$, $f(1)=\\cos1-1\\approx0{,}540-1=-0{,}460<0$ — motsatt fortegn. Etter skjæringssetningen finnes $c\\in(0,1)$ med $f(c)=0$, altså $\\cos c=c$.",
+        "hints": [
+          "$f(x)=\\cos x-x$; regn fortegn i $0$ og $1$.",
+          "$\\cos1\\approx0{,}54$, så $f(1)<0$."
+        ]
+      }
+    },
+    {
+      "id": "mat111-uib-2-3-l3",
+      "type": "text",
+      "content": "## Løkke 3 — Ekstremalverdisetningen (~10 min)"
+    },
+    {
+      "id": "mat111-uib-2-3-def-evt",
+      "type": "theorem",
+      "title": "Ekstremalverdisetningen (Max–Min)",
+      "content": "Er $f$ **kontinuerlig på et lukket, begrenset intervall $[a,b]$**, så antar $f$ både en **største** og en **minste** verdi på $[a,b]$: det finnes $x_{\\max},x_{\\min}\\in[a,b]$ med $f(x_{\\min})\\le f(x)\\le f(x_{\\max})$ for alle $x\\in[a,b]$.\n\nBegge forutsetningene er nødvendige: på et **åpent** intervall $(0,1)$ kan $f(x)=x$ ikke nå noe maksimum, og på et **ubegrenset** intervall kan $f(x)=x$ vokse uten grense. Setningen sier *at* ekstremalverdiene finnes — ikke hvor. Den brukes «uten regning» i drøfting (kap. 3.5) til å begrunne eksistensen."
+    },
+    {
+      "id": "mat111-uib-2-3-ex3",
+      "type": "example",
+      "title": "Eksempel 3: når gjelder ekstremalverdisetningen?",
+      "problem": "Avgjør for hver funksjon om ekstremalverdisetningen garanterer både største og minste verdi: (a) $f(x)=x^3-x$ på $[-2,2]$; (b) $g(x)=\\frac1x$ på $(0,1]$; (c) $h(x)=x^2$ på $[0,\\infty)$.",
+      "solution": "**(a)** $f$ er et polynom (kontinuerlig) og intervallet $[-2,2]$ er lukket og begrenset. Ekstremalverdisetningen garanterer **både** største og minste verdi. ✔\n\n**(b)** Intervallet $(0,1]$ er *ikke lukket* i venstre ende, og $g(x)=\\frac1x\\to\\infty$ når $x\\to0^+$. Ingen største verdi finnes — setningens forutsetning er brutt. ✘\n\n**(c)** Intervallet $[0,\\infty)$ er *ubegrenset*, og $h(x)=x^2\\to\\infty$. Ingen største verdi — forutsetningen (begrenset) er brutt. (Minste verdi $0$ finnes, men setningen garanterer ikke begge.) ✘"
+    },
+    {
+      "id": "mat111-uib-2-3-o5",
+      "type": "exercise",
+      "exercise": {
+        "id": "mat111-uib-2-3-o5-x",
+        "number": "5",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "Garanterer ekstremalverdisetningen både største og minste verdi for $f(x)=\\frac{1}{x-2}$ på $[3,5]$? Begrunn.",
+        "solution": "Ja. På $[3,5]$ er nevneren $x-2\\in[1,3]$, aldri $0$, så $f$ er kontinuerlig der. Intervallet $[3,5]$ er lukket og begrenset. Da garanterer ekstremalverdisetningen både en største og en minste verdi. (Merk: hadde intervallet inneholdt $x=2$, ville $f$ vært diskontinuerlig og setningen ikke gjeldt.)",
+        "hints": [
+          "Er $f$ kontinuerlig på hele $[3,5]$? Sjekk nevneren.",
+          "Lukket + begrenset + kontinuerlig ⇒ begge ekstremalverdier finnes."
+        ]
+      }
+    },
+    {
+      "id": "mat111-uib-2-3-l4",
+      "type": "text",
+      "content": "## Løkke 4 — Kontinuerlig utvidelse (koble til $f(a)$) (~13 min)"
+    },
+    {
+      "id": "mat111-uib-2-3-def-utvidelse",
+      "type": "definition",
+      "title": "Kontinuerlig utvidelse",
+      "content": "Er $f$ definert nær $a$ men ikke i $a$ (et «hull»), og grensen $\\lim_{x\\to a}f(x)=L$ finnes, kan vi **utvide $f$ kontinuerlig** ved å definere $f(a)=L$. Verdien $c=L$ er den *eneste* som gjør $f$ kontinuerlig i $a$. Føringskravet: regn grensen *og* skriv eksplisitt at $c=f(a)=L$ — koblingen til $f(a)$ er poenget, ikke bare tallet."
+    },
+    {
+      "id": "mat111-uib-2-3-ex4",
+      "type": "example",
+      "title": "Eksempel 4: bestem c som fyller hullet",
+      "problem": "Bestem $c$ slik at $f$ blir kontinuerlig i $x=0$, når $f(x)=\\dfrac{\\sin 2x}{x}$ for $x\\neq0$ og $f(0)=c$.",
+      "solution": "**Regn grensen** (formen $[0/0]$). Skriv om til standardgrensen:\n$$\\lim_{x\\to0}\\frac{\\sin 2x}{x} = \\lim_{x\\to0}2\\cdot\\frac{\\sin 2x}{2x} = 2\\cdot 1 = 2.$$\n(Alternativt L'Hôpital: $\\frac{2\\cos2x}{1}\\to2$.)\n\n**Koble til $f(0)$.** For at $f$ skal være kontinuerlig i $0$ må $f(0)=\\lim_{x\\to0}f(x)$, altså\n$$c = f(0) = 2.$$\nMed $c=2$ er $\\lim_{x\\to0}f(x)=2=f(0)$ — kontinuerlig. Svar: $\\boxed{c=2}$.\n\n*(Å bare skrive «grensen er $2$» uten å slå fast $c=f(0)=2$ gir trekk — koblingen er føringskravet.)*"
+    },
+    {
+      "id": "mat111-uib-2-3-o6",
+      "type": "exercise",
+      "exercise": {
+        "id": "mat111-uib-2-3-o6-x",
+        "number": "6",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "Bestem $c$ slik at $f(x)=\\dfrac{x^2-9}{x-3}$ for $x\\neq3$, $f(3)=c$, blir kontinuerlig i $x=3$.",
+        "solution": "Grensen: $\\frac{(x-3)(x+3)}{x-3}=x+3\\to6$ når $x\\to3$. Kontinuitet krever $c=f(3)=\\lim_{x\\to3}f(x)=6$. Svar: $c=6$.",
+        "hints": [
+          "Forkort brøken: $\\frac{x^2-9}{x-3}=x+3$ for $x\\neq3$.",
+          "Sett $c=f(3)$ lik grensen $6$."
+        ]
+      }
+    },
+    {
+      "id": "mat111-uib-2-3-o7",
+      "type": "exercise",
+      "exercise": {
+        "id": "mat111-uib-2-3-o7-x",
+        "number": "7",
+        "type": "classic",
+        "difficulty": "vanskelig",
+        "task": "Bestem $c$ slik at $f(x)=\\dfrac{e^{x}-1}{x}$ for $x\\neq0$, $f(0)=c$, blir kontinuerlig i $x=0$.",
+        "solution": "Grensen er standardgrensen $\\lim_{x\\to0}\\frac{e^x-1}{x}=1$ (formen $[0/0]$; L'Hôpital: $\\frac{e^x}{1}\\to1$). Kontinuitet krever $c=f(0)=1$. Svar: $c=1$. (Koblingen: $\\lim_{x\\to0}f(x)=1=f(0)$.)",
+        "hints": [
+          "$\\frac{e^x-1}{x}\\to1$ (standardgrense fra kap. 2.2).",
+          "$c=f(0)=$ grensen."
+        ]
+      }
+    },
+    {
+      "id": "mat111-uib-2-3-o8",
+      "type": "exercise",
+      "exercise": {
+        "id": "mat111-uib-2-3-o8-x",
+        "number": "8",
+        "type": "classic",
+        "difficulty": "vanskelig",
+        "task": "Kan $f(x)=\\dfrac{|x|}{x}$ ($x\\neq0$) utvides kontinuerlig i $x=0$? Begrunn med ensidige grenser.",
+        "solution": "Nei. Høyre: $\\lim_{x\\to0^+}\\frac{|x|}{x}=\\frac{x}{x}=1$. Venstre: $\\lim_{x\\to0^-}\\frac{|x|}{x}=\\frac{-x}{x}=-1$. De ensidige grensene er ulike ($1\\neq-1$), så grensen $\\lim_{x\\to0}f(x)$ finnes ikke. Uten grense finnes ingen $c$ som fyller hullet — funksjonen har et *sprang*, ikke et hull.",
+        "hints": [
+          "Regn høyre- og venstregrense hver for seg.",
+          "Ulike ensidige grenser ⇒ ingen grense ⇒ ingen kontinuerlig utvidelse."
+        ]
+      }
+    },
+    {
+      "id": "mat111-uib-2-3-warn",
+      "type": "warning",
+      "title": "Typiske feil",
+      "content": "- **Glemme å nevne kontinuiteten før skjæringssetningen.** Setningen forutsetter kontinuerlig $f$; uten den setningen kan du ikke slutte at grafen krysser. Skriv «$f$ er kontinuerlig på $[a,b]$».\n- **Ikke navngi setningen.** «Fortegnsskifte, altså finnes en rot» uten å referere til *skjæringssetningen* er ufullstendig føring.\n- **Kontinuitet «vist» uten kobling til $f(a)$.** I kontinuerlig utvidelse må du slå fast $c=f(a)=L$, ikke bare regne grensen $L$. Koblingen er føringskravet (sensormerknad).\n- **Ekstremalverdisetningen på åpent/ubegrenset intervall.** Den gjelder *bare* på lukket, begrenset intervall. På $(0,1)$ eller $[0,\\infty)$ garanterer den ingenting.\n- **Sjekke bare én side i et skjøtepunkt.** Kontinuitet i skjøten krever at *begge* ensidige grenser og $f$-verdien er like — regn hver side.\n- **Blande «grensen finnes» med «funksjonen er kontinuerlig».** Grensen kan finnes uten kontinuitet (hull); kontinuitet krever i tillegg at $f(a)$ finnes og er lik grensen."
+    },
+    {
+      "id": "mat111-uib-2-3-pool",
+      "type": "text",
+      "content": "## Flere øvingsoppgaver"
+    },
+    {
+      "id": "mat111-uib-2-3-o9",
+      "type": "exercise",
+      "exercise": {
+        "id": "mat111-uib-2-3-o9-x",
+        "number": "9",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "Vis at $x^3 - 6x + 2 = 0$ har minst tre løsninger. (Hint: sjekk fortegn i flere punkter.)",
+        "solution": "$f(x)=x^3-6x+2$ er et polynom (kontinuerlig). Fortegn: $f(-3)=-27+18+2=-7<0$, $f(0)=2>0$, $f(1)=1-6+2=-3<0$, $f(3)=27-18+2=11>0$. Tre fortegnsskifter: på $(-3,0)$, $(0,1)$ og $(1,3)$. Etter skjæringssetningen finnes en rot i hvert av de tre intervallene — altså minst tre løsninger.",
+        "hints": [
+          "Regn $f$ i flere punkter og let etter fortegnsskifter.",
+          "Hvert fortegnsskifte gir én rot ved skjæringssetningen."
+        ]
+      }
+    },
+    {
+      "id": "mat111-uib-2-3-o10",
+      "type": "exercise",
+      "exercise": {
+        "id": "mat111-uib-2-3-o10-x",
+        "number": "10",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "Bestem $c$ slik at $f(x)=\\dfrac{1-\\cos x}{x}$ for $x\\neq0$, $f(0)=c$, blir kontinuerlig i $0$.",
+        "solution": "Grensen: $\\frac{1-\\cos x}{x}=x\\cdot\\frac{1-\\cos x}{x^2}\\to 0\\cdot\\frac12=0$ (bruker standardgrensen $\\frac{1-\\cos x}{x^2}\\to\\frac12$). Alternativt L'Hôpital: $\\frac{\\sin x}{1}\\to0$. Kontinuitet krever $c=f(0)=0$. Svar: $c=0$.",
+        "hints": [
+          "Skriv $\\frac{1-\\cos x}{x}=x\\cdot\\frac{1-\\cos x}{x^2}$ eller bruk L'Hôpital.",
+          "$c=f(0)=$ grensen."
+        ]
+      }
+    },
+    {
+      "id": "mat111-uib-2-3-o11",
+      "type": "exercise",
+      "exercise": {
+        "id": "mat111-uib-2-3-o11-x",
+        "number": "11",
+        "type": "classic",
+        "difficulty": "vanskelig",
+        "task": "Vis at et polynom av oddegrad, $p(x)=x^3+ax^2+bx+c$, alltid har minst én reell rot.",
+        "solution": "$p$ er kontinuerlig (polynom). For store $x$ dominerer $x^3$: $\\lim_{x\\to+\\infty}p(x)=+\\infty$ og $\\lim_{x\\to-\\infty}p(x)=-\\infty$. Altså finnes et stort $M$ med $p(M)>0$ og et lite $-N$ med $p(-N)<0$ — motsatt fortegn. Etter skjæringssetningen finnes $c\\in(-N,M)$ med $p(c)=0$. (Argumentet gjelder ethvert oddegradspolynom.)",
+        "hints": [
+          "Bruk oppførselen for $x\\to\\pm\\infty$ til å finne to punkter med motsatt fortegn.",
+          "Oddegrad: $x^3$-leddet gir $+\\infty$ og $-\\infty$ i hver ende."
+        ]
+      }
+    },
+    {
+      "id": "mat111-uib-2-3-bb-tekst",
+      "type": "text",
+      "content": "## Begrepsbank til eksamen\n\nKjernebegrepene i kortform. *Repetisjons- og flashcard-stoff — hopp trygt over ved førstegangslesing.*"
+    },
+    {
+      "id": "mat111-uib-2-3-bb-diskont",
+      "type": "definition",
+      "title": "Diskontinuitet (typer)",
+      "content": "En funksjon er **diskontinuerlig** i $a$ hvis $\\lim_{x\\to a}f(x)=f(a)$ svikter. Tre typer: **hull** (grensen finnes, men $f(a)$ mangler/avviker — kan fikses ved utvidelse), **sprang** (venstre- og høyregrense ulike — kan *ikke* fikses), og **pol** (funksjonen $\\to\\pm\\infty$)."
+    },
+    {
+      "id": "mat111-uib-2-3-bb-rot",
+      "type": "definition",
+      "title": "Rot / nullpunkt",
+      "content": "En **rot** (eller et nullpunkt) for $f$ er et tall $c$ med $f(c)=0$. Å «løse $g(x)=h(x)$» tilsvarer å finne en rot for $f=g-h$. Skjæringssetningen brukes nettopp til å bevise at slike røtter finnes, uten å regne dem ut."
+    },
+    {
+      "id": "mat111-uib-2-3-bb-fortegnsskifte",
+      "type": "definition",
+      "title": "Fortegnsskifte",
+      "content": "At $f(a)$ og $f(b)$ har **motsatt fortegn** ($f(a)f(b)<0$). For en kontinuerlig $f$ garanterer et fortegnsskifte en rot mellom $a$ og $b$ (skjæringssetningen). Grove overslag på fortegnet holder — du trenger ikke eksakte verdier."
+    },
+    {
+      "id": "mat111-uib-2-3-bb-lukket",
+      "type": "definition",
+      "title": "Lukket, begrenset intervall",
+      "content": "$[a,b]$ med endelige $a,b$ og begge endepunkter med: «lukket» = tar med endepunktene, «begrenset» = endelig lengde. Dette er den nøyaktige forutsetningen i ekstremalverdisetningen. $(a,b)$ (åpent) og $[a,\\infty)$ (ubegrenset) oppfyller den ikke."
+    },
+    {
+      "id": "mat111-uib-2-3-bb-global",
+      "type": "definition",
+      "title": "Global ekstremalverdi",
+      "content": "Den **største** (globalt maksimum) eller **minste** (globalt minimum) verdien $f$ antar på hele definisjonsområdet — i motsetning til et lokalt ekstremum, som bare er størst/minst i en liten omegn. Ekstremalverdisetningen garanterer globale ekstremalverdier på lukket, begrenset intervall; drøftingen (kap. 3.5) finner *hvor*."
+    },
+    {
+      "id": "mat111-uib-2-3-bb-mellomverdi",
+      "type": "definition",
+      "title": "Mellomverdi",
+      "content": "Et tall $y_0$ som ligger *mellom* $f(a)$ og $f(b)$. Skjæringssetningen (mellomverdisetningen) sier at en kontinuerlig $f$ antar *enhver* mellomverdi minst én gang på $[a,b]$ — spesialtilfellet $y_0=0$ gir eksistens av en rot ved fortegnsskifte."
+    },
+    {
+      "id": "mat111-uib-2-3-bb-elementaere",
+      "type": "definition",
+      "title": "Elementære funksjoner er kontinuerlige",
+      "content": "Polynomer, rasjonale funksjoner, $\\sin$, $\\cos$, $\\tan$, $e^x$, $\\ln x$, $\\sqrt{x}$ og potensfunksjoner er kontinuerlige overalt der de er definert. Alt bygget av disse med $+,-,\\times,\\div$ og sammensetning arver kontinuiteten. Praktisk følge: du kan sette inn direkte med mindre innsetting gir en ubestemt form eller et udefinert punkt."
+    },
+    {
+      "id": "mat111-uib-2-3-bb-hull",
+      "type": "definition",
+      "title": "Fjernbar diskontinuitet (hull)",
+      "content": "En diskontinuitet der grensen $\\lim_{x\\to a}f(x)=L$ finnes, men $f(a)$ mangler eller avviker fra $L$. Den er **fjernbar**: definér $f(a)=L$ og funksjonen blir kontinuerlig (kontinuerlig utvidelse). Typisk fra en brøk som forkortes, som $\\frac{x^2-9}{x-3}$ i $x=3$."
+    },
+    {
+      "id": "mat111-uib-2-3-bb-sprang",
+      "type": "definition",
+      "title": "Sprangdiskontinuitet",
+      "content": "En diskontinuitet der venstre- og høyregrense begge finnes, men er *ulike*: $\\lim_{x\\to a^-}f\\neq\\lim_{x\\to a^+}f$. Grafen «hopper». En sprangdiskontinuitet er **ikke fjernbar** — ingen enkeltverdi $f(a)$ kan lukke et sprang. Eksempel: $\\frac{|x|}{x}$ i $x=0$ (hopper fra $-1$ til $1$)."
+    },
+    {
+      "id": "mat111-uib-2-3-bb-entydig",
+      "type": "definition",
+      "title": "Entydig løsning (eksistens + monotoni)",
+      "content": "For å vise at en likning har *nøyaktig én* løsning kombineres to argumenter: skjæringssetningen gir **eksistens** (fortegnsskifte), og strengt monotoni ($f'$ med fast fortegn) gir **entydighet** — en strengt voksende/avtagende funksjon treffer hver verdi høyst én gang. De to er atskilte leveranser (utdypes i Del 4)."
+    },
+    {
+      "id": "mat111-uib-2-3-bb-bolzano",
+      "type": "definition",
+      "title": "Nullpunktsetningen (Bolzano)",
+      "content": "Spesialtilfellet av skjæringssetningen vi bruker mest: er $f$ kontinuerlig på $[a,b]$ med $f(a)$ og $f(b)$ av motsatt fortegn, finnes minst én $c\\in(a,b)$ med $f(c)=0$. Det er dette som gjør et fortegnsskifte til et eksistensbevis for en rot."
+    },
+    {
+      "id": "mat111-uib-2-3-bb-sammensetning",
+      "type": "definition",
+      "title": "Kontinuitet av sammensetning $f\\circ g$",
+      "content": "Er $g$ kontinuerlig i $a$ og $f$ kontinuerlig i $g(a)$, så er den sammensatte $f(g(x))$ kontinuerlig i $a$. Derfor er f.eks. $e^{\\sin x}$ og $\\ln(1+x^2)$ kontinuerlige — bygget av kontinuerlige byggeklosser. Grunnlaget for å sette inn direkte i sammensatte uttrykk."
+    },
+    {
+      "id": "mat111-uib-2-3-bb-pol",
+      "type": "definition",
+      "title": "Uendelig diskontinuitet (pol)",
+      "content": "En diskontinuitet der funksjonen vokser uten grense nær $a$: $\\lim_{x\\to a}f(x)=\\pm\\infty$. Grensen finnes ikke som et endelig tall, så diskontinuiteten er verken fjernbar eller et endelig sprang. Typisk fra en nevner som blir $0$ uten at telleren gjør det, som $\\frac1{x-2}$ i $x=2$."
+    },
+    {
+      "id": "mat111-uib-2-3-bb-def-mengde",
+      "type": "definition",
+      "title": "Definisjonsmengde",
+      "content": "Mengden av $x$-verdier funksjonen er definert for. Kontinuitet vurderes bare der funksjonen er definert: $\\ln x$ er kontinuerlig på sin definisjonsmengde $(0,\\infty)$, ikke i $x\\le0$ (der den ikke finnes). Å sjekke definisjonsmengden er første steg før man påstår kontinuitet på et intervall."
+    },
+    {
+      "id": "mat111-uib-2-3-rep",
+      "type": "collapsible",
+      "title": "Repetisjonsoppgaver",
+      "buttonText": "Vis repetisjonsoppgaver",
+      "content": [
+        {
+          "id": "mat111-uib-2-3-r1",
+          "type": "exercise",
+          "exercise": {
+            "id": "mat111-uib-2-3-r1-x",
+            "number": "R1",
+            "type": "classic",
+            "difficulty": "lett",
+            "task": "(Fra kap. 2.2) Beregn $\\lim_{x\\to0}\\frac{\\sin 5x}{x}$.",
+            "solution": "$\\frac{\\sin5x}{x}=5\\cdot\\frac{\\sin5x}{5x}\\to5\\cdot1=5$. (Denne typen grense er nettopp det du regner i kontinuerlige utvidelser.)",
+            "hints": [
+              "Skriv om til $\\frac{\\sin(5x)}{5x}$."
+            ]
+          }
+        },
+        {
+          "id": "mat111-uib-2-3-r2",
+          "type": "exercise",
+          "exercise": {
+            "id": "mat111-uib-2-3-r2-x",
+            "number": "R2",
+            "type": "classic",
+            "difficulty": "lett",
+            "task": "(Fra 1T/R1) Faktoriser og forkort $\\frac{x^2-9}{x-3}$ for $x\\neq3$.",
+            "solution": "$\\frac{x^2-9}{x-3}=\\frac{(x-3)(x+3)}{x-3}=x+3$ for $x\\neq3$. Grensen i $x=3$ er da $6$ — verdien som fyller hullet.",
+            "hints": [
+              "$x^2-9=(x-3)(x+3)$."
+            ]
+          }
+        },
+        {
+          "id": "mat111-uib-2-3-r3",
+          "type": "exercise",
+          "exercise": {
+            "id": "mat111-uib-2-3-r3-x",
+            "number": "R3",
+            "type": "classic",
+            "difficulty": "middels",
+            "task": "(Fra kap. 2.1) Forklar hvorfor $\\lim_{x\\to a}p(x)=p(a)$ for et polynom $p$ — og hva det har med kontinuitet å gjøre.",
+            "solution": "Grensesetningene gir $\\lim_{x\\to a}p(x)=p(a)$ (bygget fra $\\lim x=a$, $\\lim k=k$). At grensen er lik funksjonsverdien er nøyaktig definisjonen av kontinuitet — så alle polynomer er kontinuerlige overalt.",
+            "hints": [
+              "Grensen av et polynom = innsatt verdi; det ER kontinuitetskravet."
+            ]
+          }
+        },
+        {
+          "id": "mat111-uib-2-3-r4",
+          "type": "exercise",
+          "exercise": {
+            "id": "mat111-uib-2-3-r4-x",
+            "number": "R4",
+            "type": "classic",
+            "difficulty": "lett",
+            "task": "(Fra R1 3.2) Er $f(x) = \\dfrac{x^2 - 1}{x - 1}$ kontinuerlig i $x = 1$? Hva om vi i tillegg definerer $f(1) = 2$?",
+            "solution": "Slik den står er $f$ ikke engang definert i $x = 1$, så den er ikke kontinuerlig der. Men $\\dfrac{x^2-1}{x-1} = x + 1$ for $x \\neq 1$, så $\\lim_{x\\to1} f(x) = 2$; definerer vi $f(1) = 2$, blir grensen lik funksjonsverdien, og $f$ er kontinuerlig i $1$. Dette er nettopp en kontinuerlig utvidelse.",
+            "hints": [
+              "Forkort brøken og sammenlign grensen med den nye funksjonsverdien."
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": "mat111-uib-2-3-symbol",
+      "type": "collapsible",
+      "title": "Symbol- og formelliste",
+      "buttonText": "Vis symboler og formler",
+      "content": [
+        {
+          "id": "mat111-uib-2-3-symbol-txt",
+          "type": "text",
+          "content": "## Symbol- og formelliste\n\n*Oppslagsverk — alt her forklares underveis i kapitlet.*\n\nSymboler og formler brukt i delkapittel 2.3.\n\n| Symbol / uttrykk | Betydning |\n|---|---|\n| $\\lim_{x\\to a}f(x)=f(a)$ | Kontinuitet i $a$ (grense = funksjonsverdi) |\n| $\\lim_{x\\to a^\\pm}f(x)$ | Ensidig grense (høyre/venstre) — brukes i skjøtepunkter |\n| $[a,b]$ | Lukket, begrenset intervall (forutsetning i eksistenssetningene) |\n| $f(a)f(b)<0$ | Fortegnsskifte — motsatt fortegn i endepunktene |\n| $c$ (i utvidelse) | Verdien $f(a)=\\lim_{x\\to a}f(x)$ som fyller hullet |\n| $x_{\\max},x_{\\min}$ | Punktene der globalt maks/min antas |\n\n**Setninger og maler:**\n\n**Skjæringssetningen (mellomverdisetningen):** $f$ kontinuerlig på $[a,b]$, $y_0$ mellom $f(a)$ og $f(b)$ $\\Rightarrow$ $\\exists c\\in(a,b):\\ f(c)=y_0$. Fortegnsskifte $\\Rightarrow$ rot.\n\n*Bevismal (eksistens):* omform til $f(x)=0$ $\\to$ fortegn i $a,b$ $\\to$ nevn kontinuitet $\\to$ navngi setningen $\\to$ konkluder.\n\n**Ekstremalverdisetningen (Max–Min):** $f$ kontinuerlig på *lukket, begrenset* $[a,b]$ $\\Rightarrow$ $f$ antar både største og minste verdi på $[a,b]$.\n\n**Kontinuerlig utvidelse:** grensen $\\lim_{x\\to a}f(x)=L$ finnes $\\Rightarrow$ $f$ blir kontinuerlig i $a$ ved $f(a)=c=L$."
+        }
+      ]
+    }
+  ],
+  "exercises": []
+}

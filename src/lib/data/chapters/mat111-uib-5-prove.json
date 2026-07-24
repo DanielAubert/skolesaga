@@ -1,0 +1,353 @@
+{
+  "id": "mat111-uib-5-prove",
+  "courseId": "mat111-uib",
+  "chapterNumber": "5.P",
+  "title": "Prøver til del 5: Integrasjon",
+  "description": "Fire prøver som dekker hele Del 5 — substitusjon og delvis med føringsbokser, delbrøk/polynomdivisjon/trig-substitusjon, uegentlige integraler med lim-føring og konvergensavgjørelser, og volum + numerikk + fundamentalteoremet med variable grenser. Med fasit etter føringsstandarden og selvdiagnose.",
+  "estimatedMinutes": 185,
+  "competenceGoals": [
+    "kunne løse eksamensintegraler med full åpen bok-føring: boks, dokumentert valg og markert sluttsvar",
+    "kunne føre uegentlige integraler med eksplisitt lim og avgjøre konvergens med navngitte p-integraler",
+    "kunne sette opp omdreiningsvolum med begrunnet metodevalg og dimensjonere trapes/Simpson kvantitativt"
+  ],
+  "content": [
+    {
+      "id": "mat111-uib-5-prove-tip",
+      "type": "tip",
+      "title": "Om prøvene til Del 5",
+      "content": "Fire prøver som dekker hele Del 5 (integrasjon) — arkivets desidert tyngste del, med teknikk-sjangeren i 33 av 34 sett. Til sammen **4 prøver à ~45–50 min, kan trygt deles over flere kvelder — én prøve per økt**. Husk delens føringskrav: substitusjonsboks med nye grenser, dokumentert $u/v'$-valg, eksplisitt $\\lim$ i uegentlige integraler, og metodebegrunnelse i volumoppgaver — i åpen bok-formatet er føringen selve prestasjonen. Full fasit ligger som utvidbare løsninger; **avkryssbar selvdiagnose** avslutter hver prøve.\n\n| Prøve | Tema (kap.) | Tid |\n|---|---|---|\n| 5.A | Substitusjon og delvis med føringsbokser — inkl. ensom transcendent og syklisk (5.2) | ~45 min |\n| 5.B | Delbrøk, polynomdivisjon og trig-substitusjon (5.3–5.4) | ~45 min |\n| 5.C | Uegentlige integraler — direkte med lim + konvergensavgjørelser (5.5) | ~45 min |\n| 5.D | Volum med metodevalg + trapes/Simpson-dimensjonering + fundamentalteoremet med variable grenser (5.1, 5.6–5.7) | ~50 min |"
+    },
+    {
+      "id": "mat111-uib-5-prove-fork",
+      "type": "text",
+      "content": "**Forkunnskaper** — hele Del 5, punkt for punkt:\n\n- [kap. 5.1](/bok/mat111-uib/mat111-uib-5-1) — analysens fundamentalteorem og derivasjon av integraler med variable grenser (kjerneregel-leddet i begge grenser)\n- [kap. 5.2](/bok/mat111-uib/mat111-uib-5-2) — substitusjonsboksen med nye grenser, dokumentert $u/v'$-valg (LIATE), ensomme funksjoner mot 1, sykliske integraler («løs for $I$»)\n- [kap. 5.3](/bok/mat111-uib/mat111-uib-5-3) — delbrøkoppspalting (alle nevnertyper), polynomdivisjon først, fullført kvadrat → arctan-ledd, trig-substitusjon\n- [kap. 5.4](/bok/mat111-uib/mat111-uib-5-4) — teknikkvalg-beslutningstreet og kjeding av teknikker\n- [kap. 5.5](/bok/mat111-uib/mat111-uib-5-5) — lim-føringen, $p$-integralene, sammenligningskriteriet med begge premisser, splittekravet\n- [kap. 5.6](/bok/mat111-uib/mat111-uib-5-6) — skiver/ringer vs. sylinderskall, metodevalg etter akse, «Alternativt:»-føringen\n- [kap. 5.7](/bok/mat111-uib/mat111-uib-5-7) — trapes- og Simpson-formlene, $K$-jakt og dimensjonering av $n$\n\nLøs uten fasit først; sjekk deretter føringen ledd for ledd — det er føringen som gir poengene."
+    },
+    {
+      "id": "mat111-uib-5-prove-prove1",
+      "type": "collapsible",
+      "title": "Prøve 1 — Substitusjon og delvis med føringsbokser (5.A, ~45 min)",
+      "buttonText": "Vis prøve 1",
+      "content": [
+        {
+          "id": "mat111-uib-5-prove-p1-intro",
+          "type": "text",
+          "content": "**Prøve 5.A.** Fire oppgaver, ~45 min. Føringsbokser i alle: substitusjonsboks med nye grenser, og en linje som dokumenterer $u/v'$-valget."
+        },
+        {
+          "id": "mat111-uib-5-prove-p1o1-w",
+          "type": "exercise",
+          "exercise": {
+            "id": "mat111-uib-5-prove-p1o1",
+            "number": "1",
+            "type": "classic",
+            "difficulty": "lett",
+            "task": "Beregn $\\displaystyle\\int_0^2 x^2\\sqrt{x^3+1}\\,dx$ med grunnleggende teknikker — vis all utregning.",
+            "solution": "Faktoren $x^2$ er (opp til konstant) den deriverte av $x^3+1$ — substitusjon:\n\n$$\\boxed{\\,u=x^3+1,\\quad du=3x^2\\,dx\\;\\Rightarrow\\;x^2\\,dx=\\tfrac13\\,du,\\quad x=0\\Rightarrow u=1,\\quad x=2\\Rightarrow u=9\\,}$$\n\n$$\\int_0^2 x^2\\sqrt{x^3+1}\\,dx = \\frac13\\int_1^9 \\sqrt{u}\\,du = \\frac13\\Big[\\frac{2}{3}u^{3/2}\\Big]_1^9 = \\frac29\\big(27-1\\big) = \\frac{52}{9}.$$\n\n**Sluttsvar:** $\\dfrac{52}{9}$. $\\blacksquare$",
+            "hints": [
+              "Kjernen er $x^3+1$ — boks med nye grenser.",
+              "$9^{3/2}=27$."
+            ]
+          }
+        },
+        {
+          "id": "mat111-uib-5-prove-p1o2-w",
+          "type": "exercise",
+          "exercise": {
+            "id": "mat111-uib-5-prove-p1o2",
+            "number": "2",
+            "type": "classic",
+            "difficulty": "middels",
+            "task": "Beregn $\\displaystyle\\int_0^{\\pi} x\\sin(2x)\\,dx$ med dokumentert $u/v'$-valg.",
+            "solution": "Produkt av polynom og trigonometrisk faktor — delvis integrasjon. **Valg (LIATE):** $u=x$ deriveres (algebraisk før trigonometrisk), $v'=\\sin(2x)$ antideriveres til $v=-\\tfrac12\\cos(2x)$:\n\n$$\\int_0^\\pi x\\sin(2x)\\,dx = \\Big[-\\frac{x}{2}\\cos(2x)\\Big]_0^\\pi + \\frac12\\int_0^\\pi \\cos(2x)\\,dx = -\\frac{\\pi}{2}\\cos(2\\pi) + 0 + \\frac12\\Big[\\frac{\\sin(2x)}{2}\\Big]_0^\\pi.$$\n\nMed $\\cos(2\\pi)=1$ og $\\sin(2\\pi)=\\sin 0=0$:\n\n$$= -\\frac{\\pi}{2} + 0 = -\\frac{\\pi}{2}.$$\n\n(Negativt er rimelig: $\\sin 2x$ er negativ på $(\\tfrac{\\pi}{2},\\pi)$, der vekten $x$ er størst.)\n\n**Sluttsvar:** $-\\dfrac{\\pi}{2}$. $\\blacksquare$",
+            "hints": [
+              "LIATE: polynomet deriveres, $\\sin(2x)$ antideriveres — husk $\\tfrac12$-faktoren.",
+              "Pass fortegnene: $-\\int v\\,u'\\,dx$ med $v=-\\tfrac12\\cos 2x$ gir $+\\tfrac12\\int\\cos 2x\\,dx$."
+            ]
+          }
+        },
+        {
+          "id": "mat111-uib-5-prove-p1o3-w",
+          "type": "exercise",
+          "exercise": {
+            "id": "mat111-uib-5-prove-p1o3",
+            "number": "3",
+            "type": "classic",
+            "difficulty": "middels",
+            "task": "Beregn $\\displaystyle\\int_0^{\\sqrt 3} \\arctan x\\,dx$.",
+            "solution": "$\\arctan x$ står alene — en «ensom» transcendent, som integreres delvis **mot 1**. **Valg:** $u=\\arctan x$ deriveres, $v'=1$ antideriveres:\n\n$$\\int_0^{\\sqrt3}\\arctan x\\,dx = \\Big[x\\arctan x\\Big]_0^{\\sqrt3} - \\int_0^{\\sqrt3}\\frac{x}{1+x^2}\\,dx.$$\n\nFørste ledd: $\\sqrt3\\arctan\\sqrt3 = \\sqrt3\\cdot\\frac{\\pi}{3}$. Resten er $\\ln$-mønsteret ($2x$ i telleren er nevnerens deriverte):\n\n$$\\int_0^{\\sqrt3}\\frac{x}{1+x^2}\\,dx = \\frac12\\Big[\\ln(1+x^2)\\Big]_0^{\\sqrt3} = \\frac12\\ln 4 = \\ln 2.$$\n\n$$\\int_0^{\\sqrt3}\\arctan x\\,dx = \\frac{\\pi\\sqrt3}{3} - \\ln 2.$$\n\n**Sluttsvar:** $\\dfrac{\\pi\\sqrt3}{3} - \\ln 2\\ (\\approx 1{,}121)$. $\\blacksquare$",
+            "hints": [
+              "Mot 1-trikset: $v'=1$, så $\\arctan$ blir derivert i stedet for integrert.",
+              "Restintegralet er $\\ln$-mønsteret: $\\int\\frac{x}{1+x^2}dx = \\tfrac12\\ln(1+x^2)$."
+            ]
+          }
+        },
+        {
+          "id": "mat111-uib-5-prove-p1o4-w",
+          "type": "exercise",
+          "exercise": {
+            "id": "mat111-uib-5-prove-p1o4",
+            "number": "4",
+            "type": "classic",
+            "difficulty": "vanskelig",
+            "task": "Beregn $\\displaystyle\\int e^{2x}\\sin x\\,dx$ med «løs for integralet»-grepet.",
+            "solution": "Kall integralet $I$. Delvis to ganger med **samme strategi** (eksponentialen antideriveres begge ganger):\n\n**Runde 1:** $u=\\sin x$, $v'=e^{2x}$, $v=\\tfrac12 e^{2x}$:\n\n$$I = \\frac12 e^{2x}\\sin x - \\frac12\\int e^{2x}\\cos x\\,dx.$$\n\n**Runde 2** (på restintegralet): $u=\\cos x$, $v'=e^{2x}$:\n\n$$\\int e^{2x}\\cos x\\,dx = \\frac12 e^{2x}\\cos x + \\frac12\\int e^{2x}\\sin x\\,dx = \\frac12 e^{2x}\\cos x + \\frac12 I.$$\n\n**Sett sammen og løs for $I$:**\n\n$$I = \\frac12 e^{2x}\\sin x - \\frac14 e^{2x}\\cos x - \\frac14 I \\;\\Rightarrow\\; \\frac54 I = \\frac{e^{2x}}{4}\\big(2\\sin x - \\cos x\\big) \\;\\Rightarrow\\; I = \\frac{e^{2x}(2\\sin x - \\cos x)}{5} + C.$$\n\n**Kontroll ved derivasjon:** $\\frac{d}{dx}\\Big[\\frac{e^{2x}(2\\sin x-\\cos x)}{5}\\Big] = \\frac{e^{2x}}{5}\\big(2(2\\sin x-\\cos x) + 2\\cos x + \\sin x\\big) = \\frac{e^{2x}}{5}\\cdot 5\\sin x = e^{2x}\\sin x$ ✓.\n\n**Sluttsvar:** $\\displaystyle\\int e^{2x}\\sin x\\,dx = \\frac{e^{2x}(2\\sin x - \\cos x)}{5} + C$. $\\blacksquare$",
+            "hints": [
+              "Navngi integralet $I$, og hold samme rollefordeling i begge rundene — ellers ender du med $I=I$.",
+              "Etter runde 2 står $I$ på begge sider — flytt over og del."
+            ]
+          }
+        },
+        {
+          "id": "mat111-uib-5-prove-chk-p1",
+          "type": "text",
+          "content": "**Selvdiagnose — kryss av det du fikk til uten å slå opp:**\n\n- ☐ Førte substitusjonsboks med $u$, $du$ og NYE grenser i oppgave 1\n- ☐ Skrev valglinjen for $u/v'$ (LIATE) før regningen i oppgave 2 og 3\n- ☐ Holdt fortegnene gjennom $-\\int u'v\\,dx$ med negativ $v$\n- ☐ Brukte mot 1-trikset på den ensomme $\\arctan$\n- ☐ Holdt samme strategi i begge rundene av det sykliske integralet og løste for $I$\n- ☐ Avsluttet med markert sluttsvar (og kontrollderivasjon i oppgave 4)"
+        }
+      ]
+    },
+    {
+      "id": "mat111-uib-5-prove-prove2",
+      "type": "collapsible",
+      "title": "Prøve 2 — Delbrøk, polynomdivisjon og trig-substitusjon (5.B, ~45 min)",
+      "buttonText": "Vis prøve 2",
+      "content": [
+        {
+          "id": "mat111-uib-5-prove-p2-intro",
+          "type": "text",
+          "content": "**Prøve 5.B.** Fire oppgaver, ~45 min. Sjekk tellergrad mot nevnergrad FØR delbrøk, og dokumentér verdimengden ved trig-substitusjon."
+        },
+        {
+          "id": "mat111-uib-5-prove-p2o1-w",
+          "type": "exercise",
+          "exercise": {
+            "id": "mat111-uib-5-prove-p2o1",
+            "number": "1",
+            "type": "classic",
+            "difficulty": "middels",
+            "task": "Beregn $\\displaystyle\\int_2^3 \\frac{x^3+x}{x-1}\\,dx$ — vis all utregning.",
+            "solution": "Tellergraden (3) er større enn nevnergraden (1) — **polynomdivisjon først**:\n\n$$(x^3+x) : (x-1) = x^2+x+2, \\ \\text{rest } 2, \\qquad\\text{altså}\\qquad \\frac{x^3+x}{x-1} = x^2+x+2+\\frac{2}{x-1}.$$\n\n(Kontroll: $(x^2+x+2)(x-1)+2 = x^3-x^2+x^2-x+2x-2+2 = x^3+x$ ✓.)\n\n$$\\int_2^3\\frac{x^3+x}{x-1}\\,dx = \\Big[\\frac{x^3}{3}+\\frac{x^2}{2}+2x+2\\ln|x-1|\\Big]_2^3 = \\Big(9+\\frac92+6+2\\ln 2\\Big)-\\Big(\\frac83+2+4+0\\Big) = \\frac{65}{6}+2\\ln 2.$$\n\n**Sluttsvar:** $\\dfrac{65}{6}+2\\ln 2\\ (\\approx 12{,}22)$. $\\blacksquare$",
+            "hints": [
+              "Grad 3 over grad 1: divider først — delbrøk er for ekte brøker.",
+              "Resten blir $\\frac{2}{x-1}$, som gir $2\\ln|x-1|$."
+            ]
+          }
+        },
+        {
+          "id": "mat111-uib-5-prove-p2o2-w",
+          "type": "exercise",
+          "exercise": {
+            "id": "mat111-uib-5-prove-p2o2",
+            "number": "2",
+            "type": "classic",
+            "difficulty": "middels",
+            "task": "Beregn $\\displaystyle\\int_0^2 \\frac{3x+5}{(x+2)^2}\\,dx$.",
+            "solution": "Gjentatt lineær faktor — oppspalting med begge potensene:\n\n$$\\frac{3x+5}{(x+2)^2} = \\frac{A}{x+2}+\\frac{B}{(x+2)^2} \\;\\Rightarrow\\; 3x+5 = A(x+2)+B.$$\n\n$x=-2$: $-1 = B$. Koeffisienten til $x$: $A=3$. Altså\n\n$$\\int_0^2\\frac{3x+5}{(x+2)^2}\\,dx = \\int_0^2\\Big(\\frac{3}{x+2}-\\frac{1}{(x+2)^2}\\Big)dx = \\Big[3\\ln|x+2|+\\frac{1}{x+2}\\Big]_0^2 = \\Big(3\\ln4+\\frac14\\Big)-\\Big(3\\ln2+\\frac12\\Big).$$\n\nMed $\\ln 4 = 2\\ln 2$:\n\n$$= 3\\ln 2 - \\frac14.$$\n\n**Sluttsvar:** $3\\ln 2 - \\dfrac14\\ (\\approx 1{,}83)$. $\\blacksquare$",
+            "hints": [
+              "Gjentatt faktor krever BEGGE leddene $\\frac{A}{x+2}$ og $\\frac{B}{(x+2)^2}$.",
+              "$\\int(x+2)^{-2}dx = -(x+2)^{-1}$ — pass fortegnet."
+            ]
+          }
+        },
+        {
+          "id": "mat111-uib-5-prove-p2o3-w",
+          "type": "exercise",
+          "exercise": {
+            "id": "mat111-uib-5-prove-p2o3",
+            "number": "3",
+            "type": "classic",
+            "difficulty": "vanskelig",
+            "task": "Beregn $\\displaystyle\\int_{-3}^{-1} \\frac{2x+7}{x^2+6x+13}\\,dx$.",
+            "solution": "Nevneren har diskriminant $36-52<0$ — **irreduserbar kvadratisk faktor**. Fullfør kvadratet:\n\n$$x^2+6x+13 = (x+3)^2+4.$$\n\nSplitt telleren i «nevnerens deriverte»-del og konstant-del: nevnerens deriverte er $2x+6$, så\n\n$$2x+7 = (2x+6)+1 \\;\\Rightarrow\\; \\int\\frac{2x+7}{x^2+6x+13}\\,dx = \\underbrace{\\int\\frac{2x+6}{x^2+6x+13}\\,dx}_{\\ln\\text{-del}} + \\underbrace{\\int\\frac{dx}{(x+3)^2+4}}_{\\arctan\\text{-del}}.$$\n\n$\\ln$-delen: $\\ln\\big(x^2+6x+13\\big)$ (nevneren er alltid positiv). Arctan-delen med $a=2$: $\\frac12\\arctan\\frac{x+3}{2}$. Innsetting fra $-3$ til $-1$:\n\n$$\\Big[\\ln(x^2+6x+13)\\Big]_{-3}^{-1} = \\ln 8-\\ln 4 = \\ln 2, \\qquad \\Big[\\frac12\\arctan\\frac{x+3}{2}\\Big]_{-3}^{-1} = \\frac12\\arctan 1 - 0 = \\frac{\\pi}{8}.$$\n\n**Sluttsvar:** $\\ln 2 + \\dfrac{\\pi}{8}\\ (\\approx 1{,}086)$. $\\blacksquare$",
+            "hints": [
+              "Fullfør kvadratet i nevneren, og skriv telleren som (nevnerens deriverte) + konstant.",
+              "$\\int\\frac{dx}{u^2+a^2} = \\frac1a\\arctan\\frac ua$; her er $u=x+3$, $a=2$."
+            ]
+          }
+        },
+        {
+          "id": "mat111-uib-5-prove-p2o4-w",
+          "type": "exercise",
+          "exercise": {
+            "id": "mat111-uib-5-prove-p2o4",
+            "number": "4",
+            "type": "classic",
+            "difficulty": "vanskelig",
+            "task": "Beregn $\\displaystyle\\int_0^{3/2} \\frac{x^2}{\\sqrt{9-x^2}}\\,dx$ med trigonometrisk substitusjon.",
+            "solution": "Rotuttrykket $\\sqrt{9-x^2}$ peker på $x = 3\\sin\\theta$, med $\\theta\\in[-\\tfrac\\pi2,\\tfrac\\pi2]$ så $\\cos\\theta\\ge 0$:\n\n$$\\boxed{\\,x=3\\sin\\theta,\\quad dx=3\\cos\\theta\\,d\\theta,\\quad \\sqrt{9-x^2}=3\\cos\\theta,\\quad x=0\\Rightarrow\\theta=0,\\quad x=\\tfrac32\\Rightarrow\\theta=\\tfrac{\\pi}{6}\\,}$$\n\n$$\\int_0^{3/2}\\frac{x^2}{\\sqrt{9-x^2}}\\,dx = \\int_0^{\\pi/6}\\frac{9\\sin^2\\theta}{3\\cos\\theta}\\cdot 3\\cos\\theta\\,d\\theta = 9\\int_0^{\\pi/6}\\sin^2\\theta\\,d\\theta.$$\n\nHalvvinkelformelen $\\sin^2\\theta = \\frac{1-\\cos 2\\theta}{2}$:\n\n$$= \\frac92\\Big[\\theta - \\frac{\\sin 2\\theta}{2}\\Big]_0^{\\pi/6} = \\frac92\\Big(\\frac{\\pi}{6} - \\frac{\\sin(\\pi/3)}{2}\\Big) = \\frac92\\cdot\\frac{\\pi}{6} - \\frac92\\cdot\\frac{\\sqrt3}{4} = \\frac{3\\pi}{4} - \\frac{9\\sqrt3}{8}.$$\n\n**Sluttsvar:** $\\dfrac{3\\pi}{4} - \\dfrac{9\\sqrt3}{8}\\ (\\approx 0{,}408)$. $\\blacksquare$",
+            "hints": [
+              "$\\sqrt{a^2-x^2}$-form: $x=a\\sin\\theta$ med $\\theta\\in[-\\frac\\pi2,\\frac\\pi2]$ (dokumentér verdimengden).",
+              "Etter forkortingen står $9\\int\\sin^2\\theta\\,d\\theta$ — halvvinkelformelen tar resten."
+            ]
+          }
+        },
+        {
+          "id": "mat111-uib-5-prove-chk-p2",
+          "type": "text",
+          "content": "**Selvdiagnose — kryss av det du fikk til uten å slå opp:**\n\n- ☐ Sjekket tellergrad mot nevnergrad og dividerte FØR delbrøk i oppgave 1\n- ☐ Satte opp begge leddene for den gjentatte faktoren i oppgave 2\n- ☐ Fullførte kvadratet og splittet telleren i $\\ln$-del + arctan-del i oppgave 3\n- ☐ Dokumenterte verdimengden $\\theta\\in[-\\frac\\pi2,\\frac\\pi2]$ og byttet grensene i oppgave 4\n- ☐ Kontrollerte delresultater (divisjonskontroll, innsetting)"
+        }
+      ]
+    },
+    {
+      "id": "mat111-uib-5-prove-prove3",
+      "type": "collapsible",
+      "title": "Prøve 3 — Uegentlige integraler (5.C, ~45 min)",
+      "buttonText": "Vis prøve 3",
+      "content": [
+        {
+          "id": "mat111-uib-5-prove-p3-intro",
+          "type": "text",
+          "content": "**Prøve 5.C.** Fire oppgaver, ~45 min. Eksplisitt $\\lim$ i all føring; i konvergensavgjørelser skal både ikke-negativitet og det navngitte sammenligningsintegralet stå."
+        },
+        {
+          "id": "mat111-uib-5-prove-p3o1-w",
+          "type": "exercise",
+          "exercise": {
+            "id": "mat111-uib-5-prove-p3o1",
+            "number": "1",
+            "type": "classic",
+            "difficulty": "middels",
+            "task": "Beregn $\\displaystyle\\int_0^\\infty \\frac{dx}{(x+2)(x+4)}$, eller vis at det divergerer.",
+            "solution": "Integranden er kontinuerlig på $[0,\\infty)$ — bare øvre grense er uegentlig. **Delbrøk:**\n\n$$\\frac{1}{(x+2)(x+4)} = \\frac{A}{x+2}+\\frac{B}{x+4}: \\quad 1 = A(x+4)+B(x+2);\\ x=-2\\Rightarrow A=\\tfrac12,\\ x=-4\\Rightarrow B=-\\tfrac12.$$\n\n$$\\int_0^b \\frac{dx}{(x+2)(x+4)} = \\frac12\\Big[\\ln\\frac{x+2}{x+4}\\Big]_0^b = \\frac12\\Big(\\ln\\frac{b+2}{b+4} - \\ln\\frac24\\Big).$$\n\n**Lim-føringen:** når $b\\to\\infty$ går $\\frac{b+2}{b+4}\\to 1$, så $\\ln\\frac{b+2}{b+4}\\to 0$:\n\n$$\\int_0^\\infty\\frac{dx}{(x+2)(x+4)} = \\lim_{b\\to\\infty}\\frac12\\Big(\\ln\\frac{b+2}{b+4}\\Big) + \\frac12\\ln 2 = \\frac12\\ln 2.$$\n\nIntegralet konvergerer. (Viktig detalj: $\\ln$-leddene må *samles til én brøk* før grensen — hver for seg går de mot $\\infty$.)\n\n**Sluttsvar:** $\\dfrac{\\ln 2}{2}\\ (\\approx 0{,}347)$. $\\blacksquare$",
+            "hints": [
+              "Delbrøk først; samle de to $\\ln$-leddene til $\\ln\\frac{x+2}{x+4}$ FØR du tar grensen.",
+              "$\\frac{b+2}{b+4}\\to 1$ og $\\ln 1 = 0$."
+            ]
+          }
+        },
+        {
+          "id": "mat111-uib-5-prove-p3o2-w",
+          "type": "exercise",
+          "exercise": {
+            "id": "mat111-uib-5-prove-p3o2",
+            "number": "2",
+            "type": "classic",
+            "difficulty": "middels",
+            "task": "Avgjør om $\\displaystyle\\int_1^\\infty \\frac{3+\\cos x}{x\\sqrt x}\\,dx$ konvergerer. Navngi sammenligningsintegralet.",
+            "solution": "Merk $x\\sqrt x = x^{3/2}$. Sammenligningskriteriet i tre ledd:\n\n**1. Ikke-negativitet:** $|\\cos x|\\le 1$ gir $3+\\cos x\\ge 2>0$ — integranden er positiv på $[1,\\infty)$.\n\n**2. Majorant:** av samme ulikhet er $3+\\cos x\\le 4$, så\n\n$$0\\le\\frac{3+\\cos x}{x^{3/2}}\\le\\frac{4}{x^{3/2}}.$$\n\n**3. Navngitt majorant:** $\\int_1^\\infty\\frac{4}{x^{3/2}}\\,dx$ er ($4$ ganger) $p$-integralet ved uendelig med $p=\\tfrac32>1$ — det konvergerer (verdi $8$).\n\nEtter sammenligningskriteriet **konvergerer** integralet. $\\blacksquare$",
+            "hints": [
+              "Skriv om nevneren: $x\\sqrt x = x^{3/2}$.",
+              "Alle tre leddene skal med: ikke-negativitet, ulikhet, navngitt konvergent $p$-integral."
+            ]
+          }
+        },
+        {
+          "id": "mat111-uib-5-prove-p3o3-w",
+          "type": "exercise",
+          "exercise": {
+            "id": "mat111-uib-5-prove-p3o3",
+            "number": "3",
+            "type": "classic",
+            "difficulty": "vanskelig",
+            "task": "Avgjør om $\\displaystyle\\int_0^1 \\frac{dx}{x+x^2}$ konvergerer. Navngi sammenligningsintegralet.",
+            "solution": "Uegentlig i $0$ (nevneren $\\to 0$). Mistanke: nær null oppfører $\\frac{1}{x+x^2}$ seg som $\\frac1x$ — divergens. Da trengs en divergent **minorant**:\n\n**1. Ikke-negativitet:** for $0<x\\le 1$ er $x+x^2>0$, så integranden er positiv.\n\n**2. Minorant:** på $(0,1]$ er $x^2\\le x$, så $x+x^2\\le 2x$ og dermed\n\n$$\\frac{1}{x+x^2}\\ \\ge\\ \\frac{1}{2x}\\ \\ge 0.$$\n\n**3. Navngitt minorant:** $\\int_0^1\\frac{dx}{2x}$ er ($\\tfrac12$ ganger) $p$-integralet ved null med $p=1$ — det divergerer ($\\ln t\\to-\\infty$ når $t\\to 0^+$).\n\nEtter sammenligningskriteriets divergensversjon **divergerer** integralet. $\\blacksquare$",
+            "hints": [
+              "Nær null dominerer $x$ over $x^2$ — sammenlign med $\\frac1x$-familien.",
+              "Divergens krever et divergent GULV under integranden: forstørr nevneren ($x+x^2\\le 2x$)."
+            ]
+          }
+        },
+        {
+          "id": "mat111-uib-5-prove-p3o4-w",
+          "type": "exercise",
+          "exercise": {
+            "id": "mat111-uib-5-prove-p3o4",
+            "number": "4",
+            "type": "classic",
+            "difficulty": "vanskelig",
+            "task": "En medstudent regner $\\displaystyle\\int_{-1}^{1}\\frac{dx}{x^2} = \\Big[-\\frac1x\\Big]_{-1}^{1} = -1-1 = -2$. Forklar feilen, og avgjør integralets skjebne med korrekt føring.",
+            "solution": "**Feilen:** integranden er udefinert i $x=0$, som ligger *inne* i $[-1,1]$ — fundamentalteoremet kan ikke brukes tvers over en singularitet. (Svaret avslører seg selv: $\\frac{1}{x^2}>0$, men «integralet» ble negativt.)\n\n**Korrekt føring — splitt i singulariteten:**\n\n$$\\int_{-1}^{1}\\frac{dx}{x^2} = \\int_{-1}^{0}\\frac{dx}{x^2} + \\int_{0}^{1}\\frac{dx}{x^2},$$\n\nog begge delene må konvergere. Test høyre del med ensidig grense:\n\n$$\\int_0^1\\frac{dx}{x^2} = \\lim_{t\\to 0^+}\\Big[-\\frac1x\\Big]_t^1 = \\lim_{t\\to 0^+}\\Big(\\frac1t - 1\\Big) = \\infty$$\n\n— dette er $p$-integralet ved null med $p=2\\ge 1$: divergent. Én divergent del er nok:\n\n**Sluttsvar:** integralet **divergerer**; regnestykket $-2$ er ugyldig fordi singulariteten i $x=0$ ble oversett. $\\blacksquare$",
+            "hints": [
+              "Sjekk hele intervallet for punkter der integranden er udefinert FØR du integrerer.",
+              "Ved indre singularitet: splitt, og la én divergent del avgjøre."
+            ]
+          }
+        },
+        {
+          "id": "mat111-uib-5-prove-chk-p3",
+          "type": "text",
+          "content": "**Selvdiagnose — kryss av det du fikk til uten å slå opp:**\n\n- ☐ Skrev eksplisitt $\\lim_{b\\to\\infty}$ / $\\lim_{t\\to 0^+}$ i all føring — aldri «satte inn $\\infty$»\n- ☐ Samlet $\\ln$-leddene til én brøk før grensen i oppgave 1\n- ☐ Uttalte BEGGE premissene (ikke-negativitet + navngitt majorant/minorant) i oppgave 2 og 3\n- ☐ Valgte majorant for konvergens og minorant for divergens — ikke omvendt\n- ☐ Fant den indre singulariteten i oppgave 4 og splittet før grenseføring"
+        }
+      ]
+    },
+    {
+      "id": "mat111-uib-5-prove-prove4",
+      "type": "collapsible",
+      "title": "Prøve 4 — Volum og numerikk (5.D, ~50 min)",
+      "buttonText": "Vis prøve 4",
+      "content": [
+        {
+          "id": "mat111-uib-5-prove-p4-intro",
+          "type": "text",
+          "content": "**Prøve 5.D.** Tre oppgaver, ~50 min. Volumoppgaven honorerer begge metodene — før gjerne begge; numerikkoppgaven krever full dimensjoneringsmal."
+        },
+        {
+          "id": "mat111-uib-5-prove-p4o1-w",
+          "type": "exercise",
+          "exercise": {
+            "id": "mat111-uib-5-prove-p4o1",
+            "number": "1",
+            "type": "classic",
+            "difficulty": "middels",
+            "task": "Området avgrenset av $y=\\sqrt x$, $y=0$ og $x=4$ dreies om **$y$-aksen**. Finn volumet — begge metoder honoreres, velg minst én og begrunn valget.",
+            "solution": "**Skisse/metodevalg:** aksen er $y$-aksen; området er gitt ved $y=\\sqrt x$ i $x$ — skallmetoden bruker dette direkte (ingen invertering).\n\n**Sylinderskall** (radius $x$, høyde $\\sqrt x$, $0\\le x\\le 4$):\n\n$$V = 2\\pi\\int_0^4 x\\sqrt x\\,dx = 2\\pi\\int_0^4 x^{3/2}\\,dx = 2\\pi\\Big[\\frac{2}{5}x^{5/2}\\Big]_0^4 = \\frac{4\\pi}{5}\\cdot 32 = \\frac{128\\pi}{5}.$$\n\n**Alternativt (ringmetoden i $y$):** for $0\\le y\\le 2$ er ytre radius $R=4$ (linja $x=4$) og indre radius $r=y^2$ (grafen løst for $x$):\n\n$$V = \\pi\\int_0^2\\big(16 - y^4\\big)\\,dy = \\pi\\Big[16y - \\frac{y^5}{5}\\Big]_0^2 = \\pi\\Big(32-\\frac{32}{5}\\Big) = \\frac{128\\pi}{5}. \\checkmark$$\n\nSamme svar med begge metodene — innebygd kontroll.\n\n**Sluttsvar:** $V = \\dfrac{128\\pi}{5}\\ (\\approx 80{,}4)$. $\\blacksquare$",
+            "hints": [
+              "Skall slipper å invertere $y=\\sqrt x$; ring krever $x=y^2$ og ytre radius 4.",
+              "$x\\cdot\\sqrt x = x^{3/2}$, og $4^{5/2}=32$."
+            ]
+          }
+        },
+        {
+          "id": "mat111-uib-5-prove-p4o2-w",
+          "type": "exercise",
+          "exercise": {
+            "id": "mat111-uib-5-prove-p4o2",
+            "number": "2",
+            "type": "classic",
+            "difficulty": "vanskelig",
+            "task": "For $\\displaystyle\\int_1^3\\frac{dx}{x}$: **a)** beregn $T_4$ med verditabell; **b)** oppgi feilskranken for $T_4$; **c)** hvor mange delintervaller trenger trapesmetoden for garantert feil høyst $0{,}01$ — og hvor mange trenger Simpson?",
+            "solution": "**a)** $h=\\frac{3-1}{4}=0{,}5$; noder og vekter:\n\n| $x_i$ | $1$ | $1{,}5$ | $2$ | $2{,}5$ | $3$ |\n|---|---|---|---|---|---|\n| $1/x_i$ | $1{,}0000$ | $0{,}6667$ | $0{,}5000$ | $0{,}4000$ | $0{,}3333$ |\n| vekt | 1 | 2 | 2 | 2 | 1 |\n\n$$T_4 = \\frac{0{,}5}{2}\\Big[1 + 2(0{,}6667+0{,}5+0{,}4) + 0{,}3333\\Big] = 0{,}25\\cdot 4{,}4667 \\approx 1{,}1167.$$\n\n(Eksakt: $\\ln 3 \\approx 1{,}0986$ — trapes ligger over, som konveksiteten tilsier.)\n\n**b)** $f''(x) = 2/x^3$ er avtagende på $[1,3]$, så $K=2$ (i $x=1$):\n\n$$|E_T| \\le \\frac{K(b-a)^3}{12n^2} = \\frac{2\\cdot 8}{12\\cdot 16} = \\frac{1}{12}\\approx 0{,}083.$$\n\n**c) Trapes:** $\\dfrac{2\\cdot 8}{12n^2}\\le 0{,}01 \\Rightarrow n^2\\ge \\dfrac{16}{0{,}12}\\approx 133{,}3 \\Rightarrow n\\ge 11{,}6$ — rund opp: $n=12$.\n\n**Simpson:** $f^{(4)}(x)=24/x^5$, avtagende, $K=24$; $(b-a)^5=32$:\n\n$$\\frac{24\\cdot 32}{180n^4}\\le 0{,}01 \\;\\Rightarrow\\; n^4\\ge \\frac{768}{1{,}8}\\approx 426{,}7 \\;\\Rightarrow\\; n\\ge 4{,}55$$\n\n— rund opp til **partall**: $n=6$.\n\n**Sluttsvar:** $T_4\\approx 1{,}117$; skranke $\\frac1{12}$; trapes trenger $n=12$, Simpson $n=6$. $\\blacksquare$",
+            "hints": [
+              "Husk $(b-a)^3 = 8$ og $(b-a)^5 = 32$ — intervallet har lengde 2.",
+              "$K$ begrunnes med monotoni: $2/x^3$ og $24/x^5$ er avtagende, maksimum i $x=1$.",
+              "Simpson: $4{,}55$ rundes opp til nærmeste PARTALL."
+            ]
+          }
+        },
+        {
+          "id": "mat111-uib-5-prove-p4o3-w",
+          "type": "exercise",
+          "exercise": {
+            "id": "mat111-uib-5-prove-p4o3",
+            "number": "3",
+            "type": "classic",
+            "difficulty": "vanskelig",
+            "task": "La $\\displaystyle g(x) = \\int_{x}^{x^2} e^{-t^2}\\,dt$. Finn $g'(x)$, og beregn $g'(1)$.",
+            "solution": "Integranden har ingen elementær antiderivert — men $g'$ krever bare fundamentalteoremet med variable grenser. Skriv med et fast mellomledd $a$:\n\n$$g(x) = \\int_a^{x^2} e^{-t^2}\\,dt - \\int_a^{x} e^{-t^2}\\,dt.$$\n\nAnalysens fundamentalteorem + kjerneregelen på øvre grense $x^2$ (indre derivert $2x$), og direkte på grensen $x$:\n\n$$g'(x) = e^{-(x^2)^2}\\cdot 2x - e^{-x^2}\\cdot 1 = 2x\\,e^{-x^4} - e^{-x^2}.$$\n\n**I $x=1$:**\n\n$$g'(1) = 2e^{-1} - e^{-1} = e^{-1}.$$\n\n(Rimelighet: $g(1)=\\int_1^1 = 0$, og for $x$ like over 1 vokser øvre grense dobbelt så fort som nedre — positiv derivert stemmer.)\n\n**Sluttsvar:** $g'(x) = 2x\\,e^{-x^4} - e^{-x^2}$; $g'(1) = e^{-1}\\ (\\approx 0{,}368)$. $\\blacksquare$",
+            "hints": [
+              "Splitt i to integraler fra et fast punkt $a$ — da er begge på fundamentalteorem-form.",
+              "Kjerneregelen på grensen $x^2$: sett inn $t=x^2$ i integranden og gang med $2x$."
+            ]
+          }
+        },
+        {
+          "id": "mat111-uib-5-prove-chk-p4",
+          "type": "text",
+          "content": "**Selvdiagnose — kryss av det du fikk til uten å slå opp:**\n\n- ☐ Valgte metode etter aksen og begrunnet valget (og førte gjerne «Alternativt:»)\n- ☐ Fikk samme volum med begge metodene i oppgave 1\n- ☐ Brukte riktige vekter og fikk vektsum $2n$ i trapes-tabellen\n- ☐ Begrunnet $K$ med monotoni og tok med $(b-a)^3$ hhv. $(b-a)^5$\n- ☐ Rundet $n$ opp — og opp til partall for Simpson\n- ☐ Brukte kjerneregelen på BEGGE de variable grensene i oppgave 3"
+        }
+      ]
+    },
+    {
+      "id": "mat111-uib-5-prove-symbol",
+      "type": "collapsible",
+      "title": "Symbol- og formelliste",
+      "buttonText": "Vis symboler og formler",
+      "content": [
+        {
+          "id": "mat111-uib-5-prove-symbol-t",
+          "type": "text",
+          "content": "## Symbol- og formelliste (Del 5)\n\n| Formel | Bruk |\n|---|---|\n| $\\boxed{u,\\ du,\\ \\text{nye grenser}}$ | substitusjonsboksen — føringskravet i sjanger B |\n| $\\int u\\,v'\\,dx = uv - \\int u'v\\,dx$ | delvis integrasjon med dokumentert valg (LIATE) |\n| polynomdivisjon når tellergrad $\\ge$ nevnergrad | før delbrøk |\n| $\\int\\frac{dx}{u^2+a^2} = \\frac1a\\arctan\\frac ua$ | arctan-leddet etter fullført kvadrat |\n| $x=a\\sin\\theta$, $\\theta\\in[-\\frac\\pi2,\\frac\\pi2]$ | trig-substitusjon for $\\sqrt{a^2-x^2}$ |\n| $\\int_a^\\infty = \\lim_{b\\to\\infty}\\int_a^b$ | lim-føringen i uegentlige integraler |\n| $\\int_1^\\infty x^{-p}$: konv. $\\iff p>1$; $\\int_0^1 x^{-p}$: konv. $\\iff p<1$ | $p$-integralene som navngitte målestokker |\n| $0\\le f\\le g$, $\\int g<\\infty$ $\\Rightarrow$ $\\int f$ konv. | sammenligningskriteriet — begge premisser uttales |\n| $V=\\pi\\int R^2\\,dx$, $V=\\pi\\int(R^2-r^2)\\,dx$, $V=2\\pi\\int x\\,h(x)\\,dx$ | skiver, ringer, skall — velg etter akse |\n| $|E_T|\\le\\frac{K(b-a)^3}{12n^2}$, $|E_S|\\le\\frac{K(b-a)^5}{180n^4}$ | feilskrankene; løs for $n$, rund opp (partall for Simpson) |\n| $\\frac{d}{dx}\\int_{u(x)}^{v(x)} f(t)\\,dt = f(v)v' - f(u)u'$ | fundamentalteoremet med variable grenser |"
+        }
+      ]
+    }
+  ],
+  "exercises": []
+}

@@ -1,0 +1,483 @@
+{
+  "id": "mat111-uib-5-6",
+  "courseId": "mat111-uib",
+  "chapterNumber": "5.6",
+  "title": "Omdreiningsvolum og areal (skive og skall)",
+  "description": "Riktig metodevalg etter rotasjonsakse — skiver/ringer eller sylinderskall — med integralet løst ved dokumentert teknikk, areal som kontrast, uegentlige varianter og V(h)-utledningen som forbereder Torricelli.",
+  "estimatedMinutes": 55,
+  "competenceGoals": [
+    "kunne velge riktig volummetode (skiver/ringer eller sylinderskall) etter rotasjonsaksen og begrunne valget",
+    "kunne sette opp og beregne omdreiningsvolum med dokumentert integrasjonsteknikk, også uegentlige varianter",
+    "kunne skille areal mellom kurver fra volum og svare på det oppgaven faktisk spør om",
+    "kunne utlede V(h) for en beholder med gitt profil og verifisere V'(h)=A(h)"
+  ],
+  "content": [
+    {
+      "id": "mat111-uib-5-6-tip",
+      "type": "tip",
+      "title": "Eksamensvinkel",
+      "content": "**Omdreiningsvolum er MAT111s nest hyppigste integralsjanger — og en leseforståelsessjanger.**\n\n- **Sjanger H — omdreiningsvolum** (bokas merkelapp fra Del 0 for «finn volumet når området dreies om …») står i **23 av 34 arkiverte sett (68 %)**. Selve integralet løses alltid med teknikkene fra kap. 5.2–5.3 — sjangeren tester *oppsettet*.\n- **Klassisk felle (H2016-settet):** kandidater roterte om feil akse, leverte *arealet* der det ble spurt om *volumet*, eller skrev av et lærebokeksempel som lignet — uten å svare på det oppgaven faktisk spurte om. Les oppgaven to ganger: hvilket område, hvilken akse, areal eller volum?\n- **Metodevalget honoreres begge veier:** løsningsforslagene fører regelmessig både skive-/ringmetoden og sylinderskall som likeverdige («Alternativt:»). Velg den som gir det enkleste integralet — og nevn gjerne den andre.\n- Utledningsvarianten $V(h)$ for en beholder er første ledd i **Torricelli-kjeden** som fullføres i [kap. 6.3](/bok/mat111-uib/mat111-uib-6-3).\n- Prioritet: **perfekt** — sjangeren er stor, standardisert og gir full uttelling for ryddig føring."
+    },
+    {
+      "id": "mat111-uib-5-6-fork",
+      "type": "text",
+      "content": "**Forkunnskaper.** Integralene som dukker opp krever teknikkene fra [kap. 5.2](/bok/mat111-uib/mat111-uib-5-2) (substitusjon, delvis — $\\int x\\ln x\\,dx$ og $\\int xe^{-x^2}dx$ er gjengangere) og [kap. 5.3](/bok/mat111-uib/mat111-uib-5-3); uegentlige varianter bruker lim-føringen fra [kap. 5.5](/bok/mat111-uib/mat111-uib-5-5). Grunnidéen kjenner du fra R2: **[Volum av omdreiningslegemer](/bok/r2/r2-3-6)** og **[Areal mellom kurver](/bok/r2/r2-2-7)**.\n\n**Sist du var her** — R2-formlene dette kapitlet utvider:\n\n$$V = \\pi\\int_a^b f(x)^2\\,dx \\qquad\\text{og}\\qquad A = \\int_a^b\\big(\\text{øvre} - \\text{nedre}\\big)\\,dx.$$"
+    },
+    {
+      "id": "mat111-uib-5-6-motiv",
+      "type": "text",
+      "content": "Drei et plant område rundt en akse, og det feier ut et tredimensjonalt legeme — en vase, en trakt, et horn. Volumet finner du ved å skjære legemet i tynne biter og summere: skjærer du *vinkelrett på aksen*, blir bitene **skiver** (eller ringer, hvis det er hull); skjærer du *parallelt med aksen*, blir de **sylinderskall**. Samme legeme, to formler — og eksamensoppgaven avgjøres ofte av at du velger den som gir det enkleste integralet.\n\nDet er her de to forrige kapitlenes teknikker begynner å jobbe: integranden blir gjerne $x\\ln x$, $xe^{-x^2}$ eller en rasjonal funksjon, og i uegentlige varianter strekker legemet seg mot uendelig.\n\nFire læringsløkker: (1) skiver og ringer, (2) sylinderskall og metodevalget, (3) areal som kontrast og uegentlige volum, (4) $V(h)$-utledningen som forbereder Torricelli. Kapitlet er regntungt — ta pauser mellom løkkene."
+    },
+    {
+      "id": "mat111-uib-5-6-l1",
+      "type": "text",
+      "content": "## Løkke 1 — Skiver og ringer (~15 min)"
+    },
+    {
+      "id": "mat111-uib-5-6-def-legeme",
+      "type": "definition",
+      "title": "Omdreiningslegeme",
+      "content": "Et **omdreiningslegeme** oppstår når et plant område dreies $360^\\circ$ om en rett linje — **rotasjonsaksen**. Hvert punkt i området tegner en sirkel rundt aksen; sammen fyller sirklene et romlegeme. Første arbeidssteg i enhver oppgave: skisser området og merk av aksen."
+    },
+    {
+      "id": "mat111-uib-5-6-def-arbeidsgang",
+      "type": "definition",
+      "title": "Arbeidsgangen i en volumoppgave",
+      "content": "Fast rekkefølge, uansett metode: (1) **skisser** området og merk rotasjonsaksen; (2) finn **skjæringspunkter**/grenser; (3) **velg metode** etter aksen og begrunn valget kort; (4) uttrykk **radier eller høyde** som avstander til aksen; (5) sett opp integralet og løs det med **dokumentert teknikk**; (6) konkluder med **enhet** der oppgaven har en. Punkt 1 er ikke pynt — nesten alle aksefeil skjer uten skisse."
+    },
+    {
+      "id": "mat111-uib-5-6-def-radius",
+      "type": "definition",
+      "title": "Radien er avstanden til aksen",
+      "content": "Alt i volumformlene måles *fra rotasjonsaksen*: radien i et tverrsnitt er avstanden fra aksen ut til randen av området. Dreies området under $y=f(x)$ om $x$-aksen, er radien $f(x)$; dreies det om en annen linje, må du justere («avstand», ikke «funksjonsverdi»)."
+    },
+    {
+      "id": "mat111-uib-5-6-def-skive",
+      "type": "definition",
+      "title": "Skivemetoden",
+      "content": "Skjær legemet vinkelrett på aksen. Hver bit er en tynn sirkulær **skive** med radius $R(x)$ og tykkelse $dx$, altså volum $\\pi R(x)^2\\,dx$. Summert:\n\n$$V = \\pi\\int_a^b R(x)^2\\,dx,$$\n\nder $R(x)$ er avstanden fra aksen til områdets ytterkant. Metoden passer når tverrsnittet vinkelrett på aksen er en hel sirkel med kjent radius."
+    },
+    {
+      "id": "mat111-uib-5-6-def-ring",
+      "type": "definition",
+      "title": "Ringmetoden (skive med hull)",
+      "content": "Har området en «luftlomme» mot aksen, blir tverrsnittet en **ring**: ytre radius $R(x)$, indre radius $r(x)$. Ringens areal er $\\pi R^2 - \\pi r^2$, så\n\n$$V = \\pi\\int_a^b \\big[R(x)^2 - r(x)^2\\big]\\,dx.$$\n\nVanlig felle: $\\big[R-r\\big]^2$ er IKKE det samme som $R^2-r^2$ — kvadrér radiene hver for seg."
+    },
+    {
+      "id": "mat111-uib-5-6-eks1",
+      "type": "example",
+      "title": "Eksempel 1: ren skive",
+      "problem": "Området under $y=\\sqrt{x}$ for $0\\le x\\le 4$ dreies om $x$-aksen. Finn volumet.",
+      "solution": "Tverrsnittet i posisjon $x$, vinkelrett på $x$-aksen, er en hel sirkel med radius $R(x)=\\sqrt x$ (avstanden fra aksen opp til grafen). Skivemetoden:\n\n$$V = \\pi\\int_0^4 (\\sqrt x)^2\\,dx = \\pi\\int_0^4 x\\,dx = \\pi\\Big[\\frac{x^2}{2}\\Big]_0^4 = \\pi\\cdot 8.$$\n\n**Sluttsvar:** $V = 8\\pi$ (volumenheter). $\\blacksquare$"
+    },
+    {
+      "id": "mat111-uib-5-6-eks2",
+      "type": "example",
+      "title": "Eksempel 2: ring — området mellom to grafer",
+      "problem": "Området mellom $y=x$ og $y=x^2$ dreies om $x$-aksen. Finn volumet.",
+      "solution": "**Området:** grafene skjærer hverandre der $x=x^2$, altså $x=0$ og $x=1$; på $[0,1]$ ligger $y=x$ øverst (test $x=\\tfrac12$: $\\tfrac12 > \\tfrac14$).\n\n**Tverrsnittet** vinkelrett på $x$-aksen er en ring: ytre radius $R(x)=x$ (opp til øverste graf), indre radius $r(x)=x^2$. Ringmetoden:\n\n$$V = \\pi\\int_0^1\\big[x^2 - x^4\\big]\\,dx = \\pi\\Big[\\frac{x^3}{3}-\\frac{x^5}{5}\\Big]_0^1 = \\pi\\Big(\\frac13-\\frac15\\Big) = \\frac{2\\pi}{15}.$$\n\n**Sluttsvar:** $V = \\dfrac{2\\pi}{15}$. $\\blacksquare$"
+    },
+    {
+      "id": "mat111-uib-5-6-o1",
+      "type": "exercise",
+      "exercise": {
+        "id": "mat111-uib-5-6-o1-x",
+        "number": "1",
+        "type": "classic",
+        "difficulty": "lett",
+        "task": "Området under $y=2x$ for $0\\le x\\le 3$ dreies om $x$-aksen. Finn volumet med skivemetoden (du får en kjegle — sjekk gjerne mot kjegleformelen).",
+        "solution": "Radius: $R(x)=2x$. Skivemetoden:\n\n$$V = \\pi\\int_0^3 (2x)^2\\,dx = 4\\pi\\int_0^3 x^2\\,dx = 4\\pi\\Big[\\frac{x^3}{3}\\Big]_0^3 = 4\\pi\\cdot 9 = 36\\pi.$$\n\n**Kontroll** mot kjegleformelen $V=\\tfrac13\\pi r^2 h$ med $r=6$, $h=3$: $\\tfrac13\\pi\\cdot 36\\cdot 3 = 36\\pi$ ✓.\n\n**Sluttsvar:** $36\\pi$. $\\blacksquare$",
+        "hints": [
+          "Radien i posisjon $x$ er funksjonsverdien $2x$.",
+          "$(2x)^2 = 4x^2$ — kvadrér hele radien."
+        ]
+      }
+    },
+    {
+      "id": "mat111-uib-5-6-o2",
+      "type": "exercise",
+      "exercise": {
+        "id": "mat111-uib-5-6-o2-x",
+        "number": "2",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "Området mellom $y=2x$ og $y=x^2$ dreies om $x$-aksen. Finn volumet.",
+        "solution": "**Skjæringspunkter:** $2x=x^2$ gir $x=0$ og $x=2$; på $[0,2]$ ligger $y=2x$ øverst ($x=1$: $2>1$).\n\n**Ring:** $R(x)=2x$, $r(x)=x^2$:\n\n$$V = \\pi\\int_0^2\\big[(2x)^2-(x^2)^2\\big]\\,dx = \\pi\\int_0^2\\big[4x^2 - x^4\\big]\\,dx = \\pi\\Big[\\frac{4x^3}{3}-\\frac{x^5}{5}\\Big]_0^2 = \\pi\\Big(\\frac{32}{3}-\\frac{32}{5}\\Big) = \\frac{64\\pi}{15}.$$\n\n**Sluttsvar:** $V=\\dfrac{64\\pi}{15}$. $\\blacksquare$",
+        "hints": [
+          "Finn skjæringspunktene først: $2x=x^2$.",
+          "Ytre radius er den øverste grafen: $R=2x$, $r=x^2$ — kvadrér hver for seg."
+        ]
+      }
+    },
+    {
+      "id": "mat111-uib-5-6-l2",
+      "type": "text",
+      "content": "## Løkke 2 — Sylinderskall og metodevalget (~15 min)"
+    },
+    {
+      "id": "mat111-uib-5-6-def-skall",
+      "type": "definition",
+      "title": "Sylinderskallmetoden",
+      "content": "Skjær legemet *parallelt* med aksen i stedet: en tynn loddrett stripe i avstand $x$ fra $y$-aksen feier ut et **sylinderskall** — et tynt rør med radius $x$, høyde $h(x)$ og tykkelse $dx$. Rullet ut er skallet en plate med volum $2\\pi x\\cdot h(x)\\cdot dx$ (omkrets × høyde × tykkelse). Summert, for rotasjon om $y$-aksen:\n\n$$V = 2\\pi\\int_a^b x\\,h(x)\\,dx.$$"
+    },
+    {
+      "id": "mat111-uib-5-6-def-skallradius",
+      "type": "definition",
+      "title": "Skallets radius og høyde",
+      "content": "I skallformelen er $x$ **radien** (stripens avstand til rotasjonsaksen) og $h(x)$ **høyden** (stripens lengde, typisk øvre minus nedre graf i posisjon $x$). Glemmer du faktoren $2\\pi x$ — omkretsen — regner du areal, ikke volum. Det er sjangerens hyppigste skallfeil."
+    },
+    {
+      "id": "mat111-uib-5-6-def-metodevalg",
+      "type": "definition",
+      "title": "Metodevalg etter akse (beslutningsregelen)",
+      "content": "Velg metode etter hvilken variabel som beskriver området enklest, sett opp mot aksen:\n\n- **Skiver/ringer**: du integrerer *langs* rotasjonsaksen — krever at radiene er lette å uttrykke i den variabelen.\n- **Skall**: du integrerer langs den *andre* aksen — krever at høyden er lett å uttrykke.\n\nPraktisk test: er området gitt som $y=f(x)$ og aksen er $y$-aksen, slipper skallmetoden deg unna å invertere $f$; skivemetoden krever $x=f^{-1}(y)$. Velg det som gir det enkleste integralet."
+    },
+    {
+      "id": "mat111-uib-5-6-def-alternativt",
+      "type": "definition",
+      "title": "«Alternativt:»-føringen",
+      "content": "Når begge metodene er farbare, fører løsningsforslagene gjerne begge — hovedveien først, så «**Alternativt:**» med den andre. Det er god eksamensskikk: begge honoreres fullt, og samsvaret mellom de to svarene er en innebygd kontroll. Gjør det til vane i egne besvarelser når du har tid."
+    },
+    {
+      "id": "mat111-uib-5-6-def-skiveromy",
+      "type": "definition",
+      "title": "Skiver om $y$-aksen: $x=g(y)$",
+      "content": "Skivemetoden virker selvsagt også om $y$-aksen — da integrerer du i $y$, og radien er $x$-avstanden: $V = \\pi\\int_c^d g(y)^2\\,dy$ der $x=g(y)$ er randen uttrykt ved $y$. Prisen er at du må løse $y=f(x)$ for $x$; det er nettopp den prisen skallmetoden ofte lar deg slippe."
+    },
+    {
+      "id": "mat111-uib-5-6-eks3",
+      "type": "example",
+      "title": "Eksempel 3: skall med substitusjon",
+      "problem": "Området under $y=e^{-x^2}$ for $0\\le x\\le 1$ dreies om $y$-aksen. Finn volumet.",
+      "solution": "**Metodevalg:** aksen er $y$-aksen, og $y=e^{-x^2}$ lar seg ikke pent invertere til $x=g(y)$ uten å dele opp — men skallmetoden bruker $f(x)$ direkte. Skall: radius $x$, høyde $h(x)=e^{-x^2}$:\n\n$$V = 2\\pi\\int_0^1 x\\,e^{-x^2}\\,dx.$$\n\n$$\\boxed{\\,u=-x^2,\\quad du=-2x\\,dx\\;\\Rightarrow\\; x\\,dx = -\\tfrac12\\,du,\\quad x=0\\Rightarrow u=0,\\quad x=1\\Rightarrow u=-1\\,}$$\n\n$$V = 2\\pi\\cdot\\Big(-\\frac12\\Big)\\int_0^{-1} e^u\\,du = \\pi\\int_{-1}^0 e^u\\,du = \\pi\\big[e^u\\big]_{-1}^0 = \\pi\\big(1-e^{-1}\\big).$$\n\n**Sluttsvar:** $V = \\pi\\big(1-\\tfrac1e\\big)\\ (\\approx 1{,}986)$. $\\blacksquare$"
+    },
+    {
+      "id": "mat111-uib-5-6-eks4",
+      "type": "example",
+      "title": "Eksempel 4 (eksamensnivå): begge metoder — «Alternativt:»",
+      "problem": "Området avgrenset av $y=\\ln x$, $y=0$ og $x=e$ dreies om $y$-aksen. Finn volumet — løs integralet med grunnleggende teknikker.",
+      "solution": "**Området:** under $y=\\ln x$ fra $x=1$ (der $\\ln x=0$) til $x=e$, over $y=0$.\n\n**Skallmetoden** (integrerer i $x$, bruker $\\ln x$ direkte): radius $x$, høyde $\\ln x$:\n\n$$V = 2\\pi\\int_1^e x\\ln x\\,dx.$$\n\nDelvis integrasjon med dokumentert valg — $u=\\ln x$ deriveres (LIATE: logaritmen først), $v'=x$ antideriveres:\n\n$$\\int_1^e x\\ln x\\,dx = \\Big[\\frac{x^2}{2}\\ln x\\Big]_1^e - \\int_1^e \\frac{x^2}{2}\\cdot\\frac1x\\,dx = \\frac{e^2}{2} - \\Big[\\frac{x^2}{4}\\Big]_1^e = \\frac{e^2}{2}-\\frac{e^2}{4}+\\frac14 = \\frac{e^2+1}{4}.$$\n\n$$V = 2\\pi\\cdot\\frac{e^2+1}{4} = \\frac{\\pi(e^2+1)}{2}.$$\n\n**Alternativt:** ringmetoden i $y$: for $0\\le y\\le 1$ er ytre radius $R=e$ (linja $x=e$) og indre radius $r=e^y$ (grafen løst for $x$):\n\n$$V = \\pi\\int_0^1\\big(e^2 - e^{2y}\\big)\\,dy = \\pi\\Big[e^2 y - \\frac{e^{2y}}{2}\\Big]_0^1 = \\pi\\Big(e^2-\\frac{e^2}{2}+\\frac12\\Big) = \\frac{\\pi(e^2+1)}{2}. \\checkmark$$\n\nSamme svar — innebygd kontroll.\n\n**Sluttsvar:** $V = \\dfrac{\\pi(e^2+1)}{2}\\ (\\approx 13{,}2)$. $\\blacksquare$"
+    },
+    {
+      "id": "mat111-uib-5-6-o3",
+      "type": "exercise",
+      "exercise": {
+        "id": "mat111-uib-5-6-o3-x",
+        "number": "3",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "Området mellom $y=2x$ og $y=x^2$ (fra oppgave 2) dreies nå om $y$-aksen. Finn volumet med skallmetoden, og kontroller med ringmetoden.",
+        "solution": "**Skall** (radius $x$, høyde $= $ øvre minus nedre $= 2x - x^2$, $0\\le x\\le 2$):\n\n$$V = 2\\pi\\int_0^2 x\\big(2x-x^2\\big)\\,dx = 2\\pi\\int_0^2\\big(2x^2 - x^3\\big)\\,dx = 2\\pi\\Big[\\frac{2x^3}{3}-\\frac{x^4}{4}\\Big]_0^2 = 2\\pi\\Big(\\frac{16}{3}-4\\Big) = \\frac{8\\pi}{3}.$$\n\n**Alternativt (ring i $y$):** for $0\\le y\\le 4$ er ytre rand parabelen $x=\\sqrt y$ og indre rand linja $x=\\tfrac y2$:\n\n$$V = \\pi\\int_0^4\\Big(y - \\frac{y^2}{4}\\Big)\\,dy = \\pi\\Big[\\frac{y^2}{2}-\\frac{y^3}{12}\\Big]_0^4 = \\pi\\Big(8-\\frac{16}{3}\\Big) = \\frac{8\\pi}{3}. \\checkmark$$\n\n**Sluttsvar:** $V=\\dfrac{8\\pi}{3}$. $\\blacksquare$",
+        "hints": [
+          "Skallhøyden i posisjon $x$ er avstanden mellom grafene: $2x-x^2$.",
+          "Til kontrollen: løs begge randene for $x$ ($x=\\sqrt y$ og $x=y/2$) — hvem ligger ytterst?"
+        ]
+      }
+    },
+    {
+      "id": "mat111-uib-5-6-l3",
+      "type": "text",
+      "content": "## Løkke 3 — Areal som kontrast, og uegentlige volum (~12 min)"
+    },
+    {
+      "id": "mat111-uib-5-6-def-areal",
+      "type": "definition",
+      "title": "Areal mellom kurver",
+      "content": "Arealet av området mellom en øvre og en nedre graf er\n\n$$A = \\int_a^b\\big(\\text{øvre}(x) - \\text{nedre}(x)\\big)\\,dx$$\n\n— ingen $\\pi$, ingen kvadrering, ingen akse. Arealet er en egenskap ved det *plane* området; volumet oppstår først når området dreies."
+    },
+    {
+      "id": "mat111-uib-5-6-def-arealkontrast",
+      "type": "definition",
+      "title": "Areal er ikke volum (kontrastregelen)",
+      "content": "H2016-fella: oppgaven spør om volum, besvarelsen leverer areal (eller omvendt). Sjekkpunkt før du regner: står det «areal» eller «volum» — og har uttrykket ditt riktig kjennetegn? Volumformlene bærer alltid en faktor $\\pi$ (skiver: $\\pi R^2$) eller $2\\pi$ (skall); arealformelen har ingen. Enheter: areal i (lengde)$^2$, volum i (lengde)$^3$."
+    },
+    {
+      "id": "mat111-uib-5-6-def-uegentligvolum",
+      "type": "definition",
+      "title": "Uegentlig omdreiningsvolum",
+      "content": "Strekker området seg mot uendelig (eller mot en singularitet), blir volumintegralet uegentlig og føres med [kap. 5.5](/bok/mat111-uib/mat111-uib-5-5)-standarden: eksplisitt $\\lim$, og konvergensspørsmålet tas på alvor — legemet kan ha endelig volum selv om det er uendelig langt, og p-integralene avgjør når."
+    },
+    {
+      "id": "mat111-uib-5-6-eks5",
+      "type": "example",
+      "title": "Eksempel 5: samme område, to spørsmål",
+      "problem": "For området mellom $y=x$ og $y=x^2$: finn **arealet** av området, og forklar hvorfor svaret ikke er $\\frac{2\\pi}{15}$ (volumet fra eksempel 2).",
+      "solution": "**Arealet:** øvre graf er $y=x$, nedre er $y=x^2$ på $[0,1]$:\n\n$$A = \\int_0^1\\big(x - x^2\\big)\\,dx = \\Big[\\frac{x^2}{2}-\\frac{x^3}{3}\\Big]_0^1 = \\frac12-\\frac13 = \\frac16.$$\n\n**Kontrasten:** $\\frac16$ måler det *plane* området (enhet: lengde$^2$); $\\frac{2\\pi}{15}$ måler *romlegemet* som oppstår ved rotasjon om $x$-aksen (enhet: lengde$^3$). Formlene ser beslektede ut — $\\int(x-x^2)dx$ mot $\\pi\\int(x^2-x^4)dx$ — men differansen kvadreres aldri i arealet, og radiene trekkes aldri fra hverandre før kvadrering i volumet. Les alltid hva oppgaven spør om.\n\n**Sluttsvar:** $A=\\dfrac16$. $\\blacksquare$"
+    },
+    {
+      "id": "mat111-uib-5-6-eks6",
+      "type": "example",
+      "title": "Eksempel 6: Gabriels horn — endelig volum av uendelig legeme",
+      "problem": "Området under $y=\\dfrac1x$ for $x\\ge 1$ dreies om $x$-aksen. Vis at legemet («Gabriels horn») har endelig volum, og finn det. Hva skjer med $y=\\dfrac{1}{\\sqrt x}$ i stedet?",
+      "solution": "**Hornet:** skiver med radius $\\frac1x$ gir det uegentlige integralet\n\n$$V = \\pi\\int_1^\\infty \\frac{dx}{x^2} = \\pi\\lim_{b\\to\\infty}\\Big[-\\frac1x\\Big]_1^b = \\pi\\lim_{b\\to\\infty}\\Big(1-\\frac1b\\Big) = \\pi.$$\n\nDette er $p$-integralet ved uendelig med $p=2>1$ — konvergent. Et uendelig langt horn med volum nøyaktig $\\pi$.\n\n**Varianten $y=\\frac{1}{\\sqrt x}$:** skiveradius $\\frac{1}{\\sqrt x}$ gir\n\n$$V = \\pi\\int_1^\\infty\\frac{dx}{x},$$\n\n$p$-integralet med $p=1$ — **divergerer**. Kvadreringen er hele forskjellen: $\\big(\\tfrac1x\\big)^2 = \\tfrac{1}{x^2}$ faller fort nok, $\\big(\\tfrac{1}{\\sqrt x}\\big)^2=\\tfrac1x$ gjør det ikke. $\\blacksquare$"
+    },
+    {
+      "id": "mat111-uib-5-6-o4",
+      "type": "exercise",
+      "exercise": {
+        "id": "mat111-uib-5-6-o4-x",
+        "number": "4",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "Området under $y=e^{-2x}$ for $x\\ge 0$ dreies om $x$-aksen. Finn volumet med lim-føring.",
+        "solution": "Skiver med radius $e^{-2x}$:\n\n$$V = \\pi\\int_0^\\infty e^{-4x}\\,dx = \\pi\\lim_{b\\to\\infty}\\Big[-\\frac14 e^{-4x}\\Big]_0^b = \\pi\\lim_{b\\to\\infty}\\Big(\\frac14 - \\frac14 e^{-4b}\\Big) = \\frac{\\pi}{4},$$\n\nsiden $e^{-4b}\\to 0$. Integralet konvergerer — legemet har endelig volum.\n\n**Sluttsvar:** $V=\\dfrac{\\pi}{4}$. $\\blacksquare$",
+        "hints": [
+          "Kvadratet av radien: $(e^{-2x})^2 = e^{-4x}$.",
+          "Uegentlig integral — $\\lim_{b\\to\\infty}$ skal stå i føringen."
+        ]
+      }
+    },
+    {
+      "id": "mat111-uib-5-6-l4",
+      "type": "text",
+      "content": "## Løkke 4 — $V(h)$: volumet som funksjon av fyllingshøyden (~13 min)"
+    },
+    {
+      "id": "mat111-uib-5-6-def-vh",
+      "type": "definition",
+      "title": "$V(h)$ — beholdervolum opp til høyde $h$",
+      "content": "For en beholder formet som et omdreiningslegeme om en loddrett akse er $V(h)$ volumet av innholdet når væsken står i høyde $h$. Med skiver i høyderetningen: har beholderen indre radius $x=g(y)$ i høyde $y$, er\n\n$$V(h) = \\pi\\int_0^h g(y)^2\\,dy.$$\n\nMerk at $h$ står i *grensen*: $V$ er en funksjon av fyllingshøyden, ikke et tall."
+    },
+    {
+      "id": "mat111-uib-5-6-def-ah",
+      "type": "definition",
+      "title": "Tverrsnittsarealet $A(h)$",
+      "content": "Væskespeilet i høyde $h$ er en sirkel med radius $g(h)$, altså areal\n\n$$A(h) = \\pi\\,g(h)^2$$\n\n— nøyaktig integranden i $V(h)$, evaluert i øvre grense. Det er ingen tilfeldighet, men fundamentalteoremet i arbeid."
+    },
+    {
+      "id": "mat111-uib-5-6-def-dvdh",
+      "type": "definition",
+      "title": "$V'(h) = A(h)$ — Torricelli-forvarselet",
+      "content": "Deriverer du $V(h) = \\pi\\int_0^h g(y)^2\\,dy$ med analysens fundamentalteorem, får du\n\n$$\\frac{dV}{dh} = \\pi\\,g(h)^2 = A(h):$$\n\nvolumet vokser med væskespeilets areal. I [kap. 6.3](/bok/mat111-uib/mat111-uib-6-3) kombineres dette med kjerneregelen $\\frac{dV}{dt} = A(h)\\frac{dh}{dt}$ og en tappelov til Torricelli-oppgaven — eksamens store kjedeoppgave. $V(h)$-utledningen her er kjedens første ledd."
+    },
+    {
+      "id": "mat111-uib-5-6-eks7",
+      "type": "example",
+      "title": "Eksempel 7: parabolsk bolle",
+      "problem": "En bolle har form som området $y=x^2$ (for $x\\ge0$) dreid om $y$-aksen. Utled $V(h)$, volumet av vann når det står i høyde $h$, og verifiser at $V'(h)$ er vannspeilets areal.",
+      "solution": "**Indre radius i høyde $y$:** på randen er $y=x^2$, så $x^2 = y$ — vi trenger faktisk bare $g(y)^2 = y$. Skiver i høyderetningen:\n\n$$V(h) = \\pi\\int_0^h x^2\\,dy = \\pi\\int_0^h y\\,dy = \\pi\\Big[\\frac{y^2}{2}\\Big]_0^h = \\frac{\\pi h^2}{2}.$$\n\n**Verifikasjon:** $V'(h) = \\pi h$. Vannspeilet i høyde $h$ er en sirkel med radius $x=\\sqrt h$, areal $A(h) = \\pi(\\sqrt h)^2 = \\pi h$ ✓ — som fundamentalteoremet lover.\n\n**Sluttsvar:** $V(h) = \\dfrac{\\pi h^2}{2}$, med $V'(h)=A(h)=\\pi h$. $\\blacksquare$"
+    },
+    {
+      "id": "mat111-uib-5-6-o5",
+      "type": "exercise",
+      "exercise": {
+        "id": "mat111-uib-5-6-o5-x",
+        "number": "5",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "En kjegleformet tank har form som linja $y=2x$ ($x\\ge 0$) dreid om $y$-aksen (spissen ned). Utled $V(h)$ og bekreft $V'(h)=A(h)$.",
+        "solution": "**Indre radius i høyde $y$:** randen er $y=2x$, så $x=\\frac y2$ og $g(y)^2 = \\frac{y^2}{4}$:\n\n$$V(h) = \\pi\\int_0^h \\frac{y^2}{4}\\,dy = \\frac{\\pi}{4}\\Big[\\frac{y^3}{3}\\Big]_0^h = \\frac{\\pi h^3}{12}.$$\n\n**Kontroll:** $V'(h) = \\frac{\\pi h^2}{4}$, og vannspeilet har radius $\\frac h2$, areal $\\pi\\big(\\frac h2\\big)^2 = \\frac{\\pi h^2}{4}$ ✓. (Kjegleformelen $\\tfrac13\\pi r^2 h$ med $r=\\tfrac h2$ gir også $\\tfrac{\\pi h^3}{12}$ ✓.)\n\n**Sluttsvar:** $V(h)=\\dfrac{\\pi h^3}{12}$. $\\blacksquare$",
+        "hints": [
+          "Løs randen for $x$: radius i høyde $y$ er $y/2$.",
+          "$h$ skal stå i integralgrensen — svaret er en funksjon av $h$."
+        ]
+      }
+    },
+    {
+      "id": "mat111-uib-5-6-warn",
+      "type": "warning",
+      "title": "Typiske feil",
+      "content": "- **Feil akse.** Området er gitt ved $y=f(x)$, og hodet velger $x$-aksen på autopilot — mens oppgaven sier $y$-aksen (H2016-fella). Merk aksen på skissen før du velger formel.\n- **Areal levert som volum** (eller omvendt). Sjekk kjennetegnet: volum har $\\pi$ eller $2\\pi$; areal har ingen. Og les spørsmålet én gang til.\n- **Glemt $2\\pi x$-faktor i skall.** $2\\pi\\int h(x)\\,dx$ uten radiusfaktoren er ikke et volum. Omkrets × høyde × tykkelse.\n- **$\\big[R-r\\big]^2$ i stedet for $R^2 - r^2$.** Ringens areal er differansen av to sirkler — kvadrér radiene hver for seg.\n- **Avskrift av lærebokeksempel.** Et eksempel som *ligner* svarer ikke på *din* oppgave — H2016-fasitten trekker eksplisitt for dette. Sett opp radiene fra din skisse.\n- **Tungt metodevalg.** Å invertere $f$ for å tvinge gjennom skiver, når skall bruker $f(x)$ direkte, koster tid og feil. Ta metodevalget bevisst — og nevn gjerne alternativet."
+    },
+    {
+      "id": "mat111-uib-5-6-drillh",
+      "type": "text",
+      "content": "## Drilloppgaver\n\nStigende vanskegrad — skisse, aksevalg og metodebegrunnelse i alle."
+    },
+    {
+      "id": "mat111-uib-5-6-d1",
+      "type": "exercise",
+      "exercise": {
+        "id": "mat111-uib-5-6-d1-x",
+        "number": "6",
+        "type": "classic",
+        "difficulty": "lett",
+        "task": "Området under $y=\\sqrt{x+1}$ for $0\\le x\\le 3$ dreies om $x$-aksen. Finn volumet.",
+        "solution": "Skiver med radius $\\sqrt{x+1}$:\n\n$$V = \\pi\\int_0^3 (x+1)\\,dx = \\pi\\Big[\\frac{x^2}{2}+x\\Big]_0^3 = \\pi\\Big(\\frac92+3\\Big) = \\frac{15\\pi}{2}.$$\n\n**Sluttsvar:** $\\dfrac{15\\pi}{2}$. $\\blacksquare$",
+        "hints": [
+          "$R(x)^2 = x+1$ — kvadratet fjerner roten."
+        ]
+      }
+    },
+    {
+      "id": "mat111-uib-5-6-d2",
+      "type": "exercise",
+      "exercise": {
+        "id": "mat111-uib-5-6-d2-x",
+        "number": "7",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "Området mellom $y=\\sqrt x$ og $y=x$ dreies om $x$-aksen. Finn volumet.",
+        "solution": "Skjæring: $\\sqrt x = x$ gir $x=0$ og $x=1$; på $[0,1]$ ligger $\\sqrt x$ øverst ($x=\\tfrac14$: $\\tfrac12>\\tfrac14$). Ring med $R=\\sqrt x$, $r=x$:\n\n$$V = \\pi\\int_0^1\\big(x - x^2\\big)\\,dx = \\pi\\Big[\\frac{x^2}{2}-\\frac{x^3}{3}\\Big]_0^1 = \\frac{\\pi}{6}.$$\n\n**Sluttsvar:** $\\dfrac{\\pi}{6}$. $\\blacksquare$",
+        "hints": [
+          "Hvem ligger øverst på $[0,1]$ — $\\sqrt x$ eller $x$? Test $x=\\tfrac14$.",
+          "$R^2 - r^2 = x - x^2$."
+        ]
+      }
+    },
+    {
+      "id": "mat111-uib-5-6-d3",
+      "type": "exercise",
+      "exercise": {
+        "id": "mat111-uib-5-6-d3-x",
+        "number": "8",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "Området under $y=\\dfrac{1}{1+x^4}$ for $0\\le x\\le 1$ dreies om $y$-aksen. Finn volumet. (Hint: skall + substitusjon.)",
+        "solution": "Skall (radius $x$, høyde $\\frac{1}{1+x^4}$):\n\n$$V = 2\\pi\\int_0^1 \\frac{x}{1+x^4}\\,dx.$$\n\n$$\\boxed{\\,u=x^2,\\quad du=2x\\,dx\\;\\Rightarrow\\;x\\,dx=\\tfrac12 du,\\quad x=0\\Rightarrow u=0,\\quad x=1\\Rightarrow u=1\\,}$$\n\n$$V = 2\\pi\\cdot\\frac12\\int_0^1\\frac{du}{1+u^2} = \\pi\\big[\\arctan u\\big]_0^1 = \\pi\\cdot\\frac{\\pi}{4} = \\frac{\\pi^2}{4}.$$\n\n**Sluttsvar:** $\\dfrac{\\pi^2}{4}$. $\\blacksquare$",
+        "hints": [
+          "Aksen er $y$-aksen og $f$ lar seg ikke pent invertere — skall.",
+          "Kjernen $u=x^2$ gjør nevneren til $1+u^2$ — arctan-form."
+        ]
+      }
+    },
+    {
+      "id": "mat111-uib-5-6-d4",
+      "type": "exercise",
+      "exercise": {
+        "id": "mat111-uib-5-6-d4-x",
+        "number": "9",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "Finn **arealet** av området mellom $y=x^2$ og $y=2x$. (Kontrastoppgave — ikke volum!)",
+        "solution": "Skjæring i $x=0$ og $x=2$; $2x$ ligger øverst:\n\n$$A = \\int_0^2\\big(2x - x^2\\big)\\,dx = \\Big[x^2 - \\frac{x^3}{3}\\Big]_0^2 = 4-\\frac83 = \\frac43.$$\n\nIngen $\\pi$, ingen kvadrering — dette er det plane arealet, i kontrast til volumene $\\frac{64\\pi}{15}$ (om $x$-aksen, oppgave 2) og $\\frac{8\\pi}{3}$ (om $y$-aksen, oppgave 3) av samme område.\n\n**Sluttsvar:** $A=\\dfrac43$. $\\blacksquare$",
+        "hints": [
+          "Øvre minus nedre graf, rett i integralet — ingen rotasjon."
+        ]
+      }
+    },
+    {
+      "id": "mat111-uib-5-6-d5",
+      "type": "exercise",
+      "exercise": {
+        "id": "mat111-uib-5-6-d5-x",
+        "number": "10",
+        "type": "classic",
+        "difficulty": "vanskelig",
+        "task": "Området under $y=x^{-3/4}$ for $x\\ge 1$ dreies om $x$-aksen. Avgjør om volumet er endelig, og finn det i så fall. Hva med arealet under grafen selv?",
+        "solution": "**Volumet:** skiveradius $x^{-3/4}$, kvadrert $x^{-3/2}$:\n\n$$V = \\pi\\int_1^\\infty x^{-3/2}\\,dx = \\pi\\lim_{b\\to\\infty}\\Big[-\\frac{2}{\\sqrt x}\\Big]_1^b = \\pi\\lim_{b\\to\\infty}\\Big(2-\\frac{2}{\\sqrt b}\\Big) = 2\\pi.$$\n\n$p$-integral med $p=\\tfrac32>1$ — konvergerer. **Volumet er $2\\pi$.**\n\n**Arealet under grafen:** $\\int_1^\\infty x^{-3/4}\\,dx$ er $p$-integralet med $p=\\tfrac34\\le 1$ — **divergerer**. Legemet har altså endelig volum, men det plane området under grafen har uendelig areal: kvadreringen i skiveformelen løfter $p$ fra $\\tfrac34$ til $\\tfrac32$, over konvergensgrensen. $\\blacksquare$",
+        "hints": [
+          "Kvadrer radien: $(x^{-3/4})^2 = x^{-3/2}$ — hvilken $p$ gir det?",
+          "Sammenlign $p=\\tfrac32$ (volum) og $p=\\tfrac34$ (areal) mot grensen $p>1$."
+        ]
+      }
+    },
+    {
+      "id": "mat111-uib-5-6-d6",
+      "type": "exercise",
+      "exercise": {
+        "id": "mat111-uib-5-6-d6-x",
+        "number": "11",
+        "type": "classic",
+        "difficulty": "vanskelig",
+        "task": "Området under $y=\\dfrac{1}{\\sqrt{1+x^2}}$ for $0\\le x\\le 1$ dreies om $x$-aksen. Finn volumet.",
+        "solution": "Skiver med radius $\\frac{1}{\\sqrt{1+x^2}}$, kvadrert $\\frac{1}{1+x^2}$:\n\n$$V = \\pi\\int_0^1\\frac{dx}{1+x^2} = \\pi\\big[\\arctan x\\big]_0^1 = \\pi\\cdot\\frac{\\pi}{4} = \\frac{\\pi^2}{4}.$$\n\nRoten forsvinner i kvadreringen og etterlater ren arctan-form — et typisk eksempel på at volumoppsettet *forenkler* integranden.\n\n**Sluttsvar:** $\\dfrac{\\pi^2}{4}$. $\\blacksquare$",
+        "hints": [
+          "$R(x)^2 = \\frac{1}{1+x^2}$ — grunnformen til arctan."
+        ]
+      }
+    },
+    {
+      "id": "mat111-uib-5-6-rep",
+      "type": "collapsible",
+      "title": "Repetisjonsoppgaver",
+      "buttonText": "Vis repetisjonsoppgaver",
+      "content": [
+        {
+          "id": "mat111-uib-5-6-rep-intro",
+          "type": "text",
+          "content": "Korte oppgaver fra forkunnskapskapitlene — R2-formlene og integrasjonsteknikkene som bærer volumregningen."
+        },
+        {
+          "id": "mat111-uib-5-6-r1",
+          "type": "exercise",
+          "exercise": {
+            "id": "mat111-uib-5-6-r1-x",
+            "number": "R1",
+            "type": "classic",
+            "difficulty": "lett",
+            "task": "(Fra R2 3.6) Området under $y=x$ for $0\\le x\\le 2$ dreies om $x$-aksen. Finn volumet.",
+            "solution": "$V=\\pi\\int_0^2 x^2\\,dx = \\pi\\cdot\\frac83 = \\frac{8\\pi}{3}$. (Kjegle: $\\tfrac13\\pi\\cdot 4\\cdot 2=\\tfrac{8\\pi}{3}$ ✓.) $\\blacksquare$",
+            "hints": [
+              "$V=\\pi\\int f(x)^2 dx$."
+            ]
+          }
+        },
+        {
+          "id": "mat111-uib-5-6-r2",
+          "type": "exercise",
+          "exercise": {
+            "id": "mat111-uib-5-6-r2-x",
+            "number": "R2",
+            "type": "classic",
+            "difficulty": "lett",
+            "task": "(Fra R2 2.7) Finn arealet mellom $y=1$ og $y=x^2$.",
+            "solution": "Skjæring i $x=\\pm1$: $A=\\int_{-1}^1(1-x^2)\\,dx = \\big[x-\\tfrac{x^3}{3}\\big]_{-1}^1 = \\tfrac23-(-\\tfrac23)=\\tfrac43$. $\\blacksquare$",
+            "hints": [
+              "Øvre graf er $y=1$; utnytt gjerne symmetrien."
+            ]
+          }
+        },
+        {
+          "id": "mat111-uib-5-6-r3",
+          "type": "exercise",
+          "exercise": {
+            "id": "mat111-uib-5-6-r3-x",
+            "number": "R3",
+            "type": "classic",
+            "difficulty": "lett",
+            "task": "(Fra [kap. 5.2](/bok/mat111-uib/mat111-uib-5-2)) Beregn $\\displaystyle\\int x\\,e^{x}\\,dx$.",
+            "solution": "Delvis: $u=x$ deriveres, $v'=e^x$ antideriveres: $xe^x - \\int e^x dx = (x-1)e^x + C$. $\\blacksquare$",
+            "hints": [
+              "LIATE: polynomet deriveres."
+            ]
+          }
+        },
+        {
+          "id": "mat111-uib-5-6-r4",
+          "type": "exercise",
+          "exercise": {
+            "id": "mat111-uib-5-6-r4-x",
+            "number": "R4",
+            "type": "classic",
+            "difficulty": "lett",
+            "task": "(Fra [kap. 5.3](/bok/mat111-uib/mat111-uib-5-3)) Beregn $\\displaystyle\\int \\frac{dx}{4+x^2}$.",
+            "solution": "Arctan-formen med $a=2$: $\\frac12\\arctan\\frac x2 + C$. $\\blacksquare$",
+            "hints": [
+              "$\\int\\frac{dx}{x^2+a^2} = \\frac1a\\arctan\\frac xa + C$."
+            ]
+          }
+        },
+        {
+          "id": "mat111-uib-5-6-r5",
+          "type": "exercise",
+          "exercise": {
+            "id": "mat111-uib-5-6-r5-x",
+            "number": "R5",
+            "type": "classic",
+            "difficulty": "lett",
+            "task": "(Fra [kap. 5.2](/bok/mat111-uib/mat111-uib-5-2)) Beregn $\\displaystyle\\int x\\ln x\\,dx$.",
+            "solution": "Delvis med $u=\\ln x$, $v'=x$: $\\frac{x^2}{2}\\ln x - \\int\\frac{x}{2}dx = \\frac{x^2}{2}\\ln x - \\frac{x^2}{4} + C$. $\\blacksquare$",
+            "hints": [
+              "Logaritmen deriveres (LIATE)."
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": "mat111-uib-5-6-symbol",
+      "type": "collapsible",
+      "title": "Symbol- og formelliste",
+      "buttonText": "Vis symboler og formler",
+      "content": [
+        {
+          "id": "mat111-uib-5-6-symbol-txt",
+          "type": "text",
+          "content": "## Symbol- og formelliste\n\n*Oppslagsverk — alt her forklares underveis i kapitlet.*\n\n| Symbol | Betydning |\n|---|---|\n| $R(x)$, $r(x)$ | Ytre og indre radius i skive-/ringmetoden (avstand til aksen) |\n| $h(x)$ | Skallets høyde (øvre minus nedre graf i posisjon $x$) |\n| $2\\pi x$ | Skallets omkrets — radiusfaktoren som gjør stripen til volum |\n| $x=g(y)$ | Randen løst for $x$ — trengs for skiver om $y$-aksen |\n| $V(h)$ | Beholdervolum som funksjon av fyllingshøyden |\n| $A(h)$ | Væskespeilets areal i høyde $h$ |\n| $\\blacksquare$ | Løsningen er ferdig |\n\n**Formler i dette delkapitlet:**\n\n$$V = \\pi\\int_a^b R(x)^2\\,dx$$\n*Skivemetoden — tverrsnitt vinkelrett på aksen.*\n\n$$V = \\pi\\int_a^b \\big[R(x)^2 - r(x)^2\\big]\\,dx$$\n*Ringmetoden — kvadrér radiene hver for seg.*\n\n$$V = 2\\pi\\int_a^b x\\,h(x)\\,dx$$\n*Sylinderskall om $y$-aksen — omkrets × høyde × tykkelse.*\n\n$$A = \\int_a^b\\big(\\text{øvre}-\\text{nedre}\\big)\\,dx$$\n*Areal mellom kurver — ingen $\\pi$: kontrasten til volum.*\n\n$$V(h) = \\pi\\int_0^h g(y)^2\\,dy, \\qquad V'(h) = \\pi\\,g(h)^2 = A(h)$$\n*Beholderprofilen og fundamentalteoremet — første ledd i Torricelli-kjeden (kap. 6.3).*"
+        }
+      ]
+    }
+  ],
+  "exercises": []
+}

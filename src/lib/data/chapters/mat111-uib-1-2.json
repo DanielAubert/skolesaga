@@ -1,0 +1,420 @@
+{
+  "id": "mat111-uib-1-2",
+  "courseId": "mat111-uib",
+  "chapterNumber": "1.2",
+  "title": "de Moivre: potenser og n-te røtter",
+  "description": "Høye potenser med vinkelreduksjon og alle n-te røtter av $z^n=c$ — den faste andre og tredje deloppgaven i åpningen.",
+  "estimatedMinutes": 50,
+  "competenceGoals": [
+    "bruke de Moivres formel til å regne høye potenser $z^n$ med korrekt vinkelreduksjon mod $2\\pi$",
+    "finne alle $n$ løsninger av $z^n=w$ med $2k\\pi$-leddet og prinsipalroten først",
+    "forstå at røttene ligger jevnt fordelt på en sirkel, og bruke enhetsrøttene",
+    "løse bikvadratiske likninger ved substitusjon og finne kvadratrøtter av komplekse tall"
+  ],
+  "content": [
+    {
+      "id": "mat111-uib-1-2-tip",
+      "type": "tip",
+      "title": "Eksamensvinkel",
+      "content": "**de Moivre er settets andre og tredje åpningspoeng — rett etter normalform/polarform i kap. 1.1.**\n\n- **Sjanger C** fortsetter her: en høy potens $z^n$ (med vinkelreduksjon mod $2\\pi$) og *alle* $n$-te røtter av $z^n=w$ er faste gjengangere i åpningsblokken.\n- Nøkkelen er å bytte til polarform først: potenser og røtter som er stygge på normalform, blir tre linjer på polarform.\n- **Åpen bok måler føring:** ved røtter skal du vise $2k\\pi$-lista og at du får *nøyaktig* $n$ røtter jevnt fordelt på en sirkel — ikke bare én.\n\n**Mål:** ta høye potenser med vinkelreduksjon, og finne alle $n$-te røtter med prinsipalroten først — trygt og i tempo."
+    },
+    {
+      "id": "mat111-uib-1-2-fork",
+      "type": "text",
+      "content": "**Forkunnskaper.** Dette kapitlet bygger direkte på [kap. 1.1](/bok/mat111-uib/mat111-uib-1-1) (polarform $z=re^{i\\theta}$ begge veier, argument, modulus). I tillegg trenger du de eksakte trigonometriske verdiene for standardvinklene: [Trigonometriske formler](/bok/r2/r2-4-6) og [Enhetssirkelen](/bok/r2/r2-4-2). Ellers ingen nye forkunnskaper."
+    },
+    {
+      "id": "mat111-uib-1-2-motiv",
+      "type": "text",
+      "content": "På normalform er $(\\sqrt3+i)^6$ en marerittregning, og «finn alle løsninger av $z^3=27i$» ser ugjennomtrengelig ut. På **polarform** blir begge trivielle: potens betyr «gang argumentet», rot betyr «del argumentet og fordel jevnt på en sirkel». Verktøyet er **de Moivres formel**.\n\nVi jobber i tre løkker: **(1)** potenser med vinkelreduksjon, **(2)** alle $n$-te røtter av $z^n=w$, **(3)** enhetsrøtter og bikvadratiske likninger. Hver løkke går **teori → eksempel → oppgave**."
+    },
+    {
+      "id": "mat111-uib-1-2-l1",
+      "type": "text",
+      "content": "## Løkke 1 — de Moivre: høye potenser (~16 min)"
+    },
+    {
+      "id": "mat111-uib-1-2-def-demoivre",
+      "type": "definition",
+      "title": "de Moivres formel (eksponentialform)",
+      "content": "For $z=re^{i\\theta}$ og ethvert heltall $n$:\n\n$$z^n=\\big(re^{i\\theta}\\big)^n=r^n\\,e^{in\\theta}.$$\n\nModulusen opphøyes ($r\\mapsto r^n$), argumentet multipliseres ($\\theta\\mapsto n\\theta$). Dette følger av at argumentene adderes ved multiplikasjon (kap. 1.1)."
+    },
+    {
+      "id": "mat111-uib-1-2-def-demoivre-trig",
+      "type": "definition",
+      "title": "de Moivres formel (trig-form)",
+      "content": "Med Eulers formel er de Moivre ekvivalent med\n\n$$(\\cos\\theta+i\\sin\\theta)^n=\\cos(n\\theta)+i\\sin(n\\theta).$$\n\nDenne formen brukes til å utlede trigonometriske identiteter (se kap. 1.2, løkke 3)."
+    },
+    {
+      "id": "mat111-uib-1-2-def-potens-oppskrift",
+      "type": "definition",
+      "title": "Oppskrift for høye potenser",
+      "content": "For å regne $z^n$:\n1. Skriv $z=re^{i\\theta}$ (polarform, kvadrantkontroll).\n2. Bruk de Moivre: $z^n=r^n e^{in\\theta}$.\n3. **Reduser vinkelen** $n\\theta$ modulo $2\\pi$ til hovedintervallet.\n4. Skriv ut til normalform hvis oppgaven ber om det."
+    },
+    {
+      "id": "mat111-uib-1-2-def-vinkelred",
+      "type": "definition",
+      "title": "Vinkelreduksjon mod $2\\pi$",
+      "content": "Siden $e^{i\\theta}$ har periode $2\\pi$, er $e^{i\\varphi}=e^{i(\\varphi-2\\pi m)}$ for ethvert heltall $m$. Ved høye potenser blir $n\\theta$ ofte stor — trekk fra hele multipler av $2\\pi$ til vinkelen ligger i $(-\\pi,\\pi]$ (eller $[0,2\\pi)$). Uten reduksjon får du et uleselig argument."
+    },
+    {
+      "id": "mat111-uib-1-2-def-negpotens",
+      "type": "definition",
+      "title": "Negative potenser",
+      "content": "de Moivre gjelder også for $n<0$: $z^{-n}=r^{-n}e^{-in\\theta}=\\dfrac{1}{r^n}e^{-in\\theta}$. Spesielt er $z^{-1}=\\tfrac1r e^{-i\\theta}$ — modulus inverteres, argument speiles."
+    },
+    {
+      "id": "mat111-uib-1-2-ex1",
+      "type": "example",
+      "title": "Eksempel 1: Høy potens",
+      "problem": "Regn ut $(\\sqrt3+i)^6$ på normalform.",
+      "solution": "**Polarform:** $\\sqrt3+i$ ligger i første kvadrant, $r=\\sqrt{3+1}=2$, $\\theta=\\arctan\\tfrac{1}{\\sqrt3}=\\tfrac{\\pi}{6}$. Altså $\\sqrt3+i=2e^{i\\pi/6}$.\n\n**de Moivre:** $(\\sqrt3+i)^6=2^6 e^{i\\cdot 6\\cdot\\pi/6}=64\\,e^{i\\pi}.$\n\n**Reduser og skriv ut:** $e^{i\\pi}=\\cos\\pi+i\\sin\\pi=-1$, så\n\n$$(\\sqrt3+i)^6=64\\cdot(-1)=\\boxed{-64}.$$"
+    },
+    {
+      "id": "mat111-uib-1-2-o1-w",
+      "type": "exercise",
+      "exercise": {
+        "id": "mat111-uib-1-2-o1",
+        "number": "1",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "Regn ut $(1+i)^{12}$ på normalform.",
+        "solution": "Polarform: $1+i=\\sqrt2\\,e^{i\\pi/4}$. de Moivre: $(1+i)^{12}=(\\sqrt2)^{12}e^{i\\cdot12\\pi/4}=2^6 e^{i3\\pi}=64\\,e^{i3\\pi}$. Reduser: $3\\pi\\equiv\\pi$, så $e^{i3\\pi}=-1$. Altså $(1+i)^{12}=\\boxed{-64}$.",
+        "hints": [
+          "$1+i=\\sqrt2\\,e^{i\\pi/4}$ og $(\\sqrt2)^{12}=2^6=64$.",
+          "$e^{i3\\pi}=e^{i\\pi}=-1$ etter reduksjon mod $2\\pi$."
+        ]
+      }
+    },
+    {
+      "id": "mat111-uib-1-2-o2-w",
+      "type": "exercise",
+      "exercise": {
+        "id": "mat111-uib-1-2-o2",
+        "number": "2",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "Regn ut $(-1+i)^{6}$ på normalform.",
+        "solution": "$-1+i$ ligger i andre kvadrant: $r=\\sqrt2$, $\\theta=\\tfrac{3\\pi}{4}$, så $-1+i=\\sqrt2\\,e^{i3\\pi/4}$. de Moivre: $(-1+i)^6=(\\sqrt2)^6 e^{i\\cdot18\\pi/4}=8\\,e^{i9\\pi/2}$. Reduser: $\\tfrac{9\\pi}{2}-4\\pi=\\tfrac{\\pi}{2}$, så $e^{i9\\pi/2}=e^{i\\pi/2}=i$. Altså $(-1+i)^6=\\boxed{8i}$.",
+        "hints": [
+          "Andre kvadrant gir $\\theta=3\\pi/4$; $(\\sqrt2)^6=8$.",
+          "$\\tfrac{9\\pi}{2}$ reduseres ved å trekke fra $4\\pi=\\tfrac{8\\pi}{2}$, igjen $\\tfrac{\\pi}{2}$."
+        ]
+      }
+    },
+    {
+      "id": "mat111-uib-1-2-o3-w",
+      "type": "exercise",
+      "exercise": {
+        "id": "mat111-uib-1-2-o3",
+        "number": "3",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "Regn ut $(\\sqrt2-\\sqrt2\\,i)^4$ på normalform.",
+        "solution": "$\\sqrt2-\\sqrt2\\,i$ ligger i fjerde kvadrant: $r=\\sqrt{2+2}=2$, $\\theta=-\\tfrac{\\pi}{4}$. de Moivre: $(2e^{-i\\pi/4})^4=2^4 e^{-i\\pi}=16\\,e^{-i\\pi}=16\\cdot(-1)=\\boxed{-16}$.",
+        "hints": [
+          "$r=\\sqrt{(\\sqrt2)^2+(\\sqrt2)^2}=2$, $\\theta=-\\pi/4$.",
+          "$e^{-i\\pi}=-1$."
+        ]
+      }
+    },
+    {
+      "id": "mat111-uib-1-2-l2",
+      "type": "text",
+      "content": "## Løkke 2 — Alle $n$-te røtter av $z^n=w$ (~20 min)"
+    },
+    {
+      "id": "mat111-uib-1-2-def-rot",
+      "type": "definition",
+      "title": "$n$-te rot: definisjon",
+      "content": "En **$n$-te rot** av $w$ er et tall $z$ med $z^n=w$. For $w\\ne 0$ har likningen $z^n=w$ **nøyaktig $n$ forskjellige komplekse løsninger** (algebraens fundamentalteorem, kap. 1.3). Å «finne en rot» er ikke nok — oppgaven ber om alle $n$."
+    },
+    {
+      "id": "mat111-uib-1-2-def-rot-formel",
+      "type": "definition",
+      "title": "Rotformelen (modulus og argument)",
+      "content": "Skriv $w=Re^{i\\varphi}$. De $n$ røttene av $z^n=w$ er\n\n$$z_k=R^{1/n}\\,e^{\\,i(\\varphi+2k\\pi)/n},\\qquad k=0,1,\\dots,n-1.$$\n\nAlle har samme modulus $R^{1/n}$ (den reelle $n$-te roten av $R$), mens argumentet er $(\\varphi+2k\\pi)/n$. **$2k\\pi$-leddet er det som gir alle røttene** — glemmer du det, får du bare én."
+    },
+    {
+      "id": "mat111-uib-1-2-def-modulus-rot",
+      "type": "definition",
+      "title": "Modulusen til røttene $R^{1/n}$",
+      "content": "Alle $n$ røttene har **samme** modulus $R^{1/n}$, den *reelle* positive $n$-te roten av $R=|w|$. En vanlig feil er å skrive $R/n$ i stedet — det er $R^{1/n}$ (for $R=16,\\ n=4$: $16^{1/4}=2$, ikke $4$)."
+    },
+    {
+      "id": "mat111-uib-1-2-def-antall",
+      "type": "definition",
+      "title": "Nøyaktig $n$ distinkte røtter",
+      "content": "For $k=0,1,\\dots,n-1$ gir formelen $n$ *forskjellige* argumenter (de skiller seg med multipler av $\\tfrac{2\\pi}{n}<2\\pi$). Fra $k=n$ gjentar de seg. Derfor er det nøyaktig $n$ røtter — verken flere eller færre."
+    },
+    {
+      "id": "mat111-uib-1-2-def-omega",
+      "type": "definition",
+      "title": "Røttene som rotasjon av prinsipalroten",
+      "content": "Alle røttene fås ved å rotere prinsipalroten gjentatte ganger med vinkelen $\\tfrac{2\\pi}{n}$: $z_k=z_0\\,\\omega^k$ der $\\omega=e^{i2\\pi/n}$. Å finne én rot og gange med enhetsrøttene er ofte raskere enn å regne hver for seg."
+    },
+    {
+      "id": "mat111-uib-1-2-def-prinsipalrot",
+      "type": "definition",
+      "title": "Prinsipalroten",
+      "content": "Roten for $k=0$, altså $z_0=R^{1/n}e^{i\\varphi/n}$, kalles **prinsipalroten**. De øvrige fås ved å legge til $\\tfrac{2\\pi}{n}$ på argumentet gjentatte ganger — start i prinsipalroten og gå rundt."
+    },
+    {
+      "id": "mat111-uib-1-2-def-geometri",
+      "type": "definition",
+      "title": "Geometrisk fordeling av røttene",
+      "content": "De $n$ røttene ligger **jevnt fordelt på en sirkel** med sentrum i origo og radius $R^{1/n}$, med konstant vinkelavstand $\\tfrac{2\\pi}{n}$. De danner hjørnene i en regulær $n$-kant. Denne bildeforståelsen gjør at du kan skissere og kontrollere svaret."
+    },
+    {
+      "id": "mat111-uib-1-2-ex2",
+      "type": "example",
+      "title": "Eksempel 2: Fjerderøtter",
+      "problem": "Finn alle løsninger av $z^4=-16$, og skriv dem på normalform.",
+      "solution": "**Polarform av høyresiden:** $-16=16\\,e^{i\\pi}$, så $R=16$, $\\varphi=\\pi$.\n\n**Modulus til røttene:** $R^{1/4}=16^{1/4}=2$.\n\n**Argumentene:** $\\dfrac{\\pi+2k\\pi}{4}$ for $k=0,1,2,3$, altså $\\tfrac{\\pi}{4},\\tfrac{3\\pi}{4},\\tfrac{5\\pi}{4},\\tfrac{7\\pi}{4}$.\n\n**Røttene** (radius $2$, ut til normalform via $\\cos/\\sin$):\n\n$$z_0=2e^{i\\pi/4}=\\sqrt2+\\sqrt2\\,i,\\quad z_1=2e^{i3\\pi/4}=-\\sqrt2+\\sqrt2\\,i,$$\n$$z_2=2e^{i5\\pi/4}=-\\sqrt2-\\sqrt2\\,i,\\quad z_3=2e^{i7\\pi/4}=\\sqrt2-\\sqrt2\\,i.$$\n\nDe fire ligger jevnt fordelt (vinkelavstand $\\tfrac{\\pi}{2}$) på sirkelen med radius $2$ — hjørnene i et kvadrat. Kontroll: $z_0^4=(2e^{i\\pi/4})^4=16e^{i\\pi}=-16$ ✓."
+    },
+    {
+      "id": "mat111-uib-1-2-o4-w",
+      "type": "exercise",
+      "exercise": {
+        "id": "mat111-uib-1-2-o4",
+        "number": "4",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "Finn alle løsninger av $z^3=27i$, og skriv dem på normalform.",
+        "solution": "$27i=27\\,e^{i\\pi/2}$, så $R^{1/3}=3$ og argumentene er $\\dfrac{\\pi/2+2k\\pi}{3}$ for $k=0,1,2$: $\\tfrac{\\pi}{6},\\tfrac{5\\pi}{6},\\tfrac{3\\pi}{2}$.\n\n$$z_0=3e^{i\\pi/6}=\\tfrac{3\\sqrt3}{2}+\\tfrac32 i,\\quad z_1=3e^{i5\\pi/6}=-\\tfrac{3\\sqrt3}{2}+\\tfrac32 i,\\quad z_2=3e^{i3\\pi/2}=-3i.$$",
+        "hints": [
+          "$27i=27e^{i\\pi/2}$; modulus til røttene er $27^{1/3}=3$.",
+          "Argumentene: $(\\pi/2+2k\\pi)/3$ for $k=0,1,2$ — husk $2k\\pi$-leddet."
+        ]
+      }
+    },
+    {
+      "id": "mat111-uib-1-2-o5-w",
+      "type": "exercise",
+      "exercise": {
+        "id": "mat111-uib-1-2-o5",
+        "number": "5",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "Finn alle løsninger av $z^3=-27$, og skriv dem på normalform.",
+        "solution": "$-27=27\\,e^{i\\pi}$, så $R^{1/3}=3$ og argumentene er $\\dfrac{\\pi+2k\\pi}{3}$: $\\tfrac{\\pi}{3},\\pi,\\tfrac{5\\pi}{3}$.\n\n$$z_0=3e^{i\\pi/3}=\\tfrac32+\\tfrac{3\\sqrt3}{2}i,\\quad z_1=3e^{i\\pi}=-3,\\quad z_2=3e^{i5\\pi/3}=\\tfrac32-\\tfrac{3\\sqrt3}{2}i.$$\n\nMerk at $z_1=-3$ er den reelle roten (kubikkroten av $-27$).",
+        "hints": [
+          "$-27=27e^{i\\pi}$.",
+          "Én av røttene er reell — den ligger på den negative reelle aksen."
+        ]
+      }
+    },
+    {
+      "id": "mat111-uib-1-2-def-kvadratrot-polar",
+      "type": "definition",
+      "title": "Kvadratrot via polarform",
+      "content": "Alternativ til normalform-metoden: skriv $w=Re^{i\\varphi}$; da er de to kvadratrøttene $\\pm\\sqrt{R}\\,e^{i\\varphi/2}$. De skiller seg med $\\pi$ i argument (motsatte punkter på sirkelen). Bruk polarform når $w$ er gitt polart, normalform-metoden når $w=a+bi$."
+    },
+    {
+      "id": "mat111-uib-1-2-def-kvadratrot",
+      "type": "definition",
+      "title": "Kvadratrot av et komplekst tall",
+      "content": "Spesialtilfellet $n=2$: $z^2=w$ har **to** røtter som er hverandres motsatte, $\\pm z_0$. Du kan finne dem på polarform, eller på normalform: sett $z=a+bi$, løs $a^2-b^2=\\operatorname{Re}(w)$ og $2ab=\\operatorname{Im}(w)$ sammen med $a^2+b^2=|w|$."
+    },
+    {
+      "id": "mat111-uib-1-2-ex3",
+      "type": "example",
+      "title": "Eksempel 3: Kvadratrot på normalform",
+      "problem": "Finn begge kvadratrøttene av $3+4i$.",
+      "solution": "Sett $z=a+bi$ med $z^2=3+4i$. Da er $a^2-b^2=3$ og $2ab=4$. I tillegg gir modulus $a^2+b^2=|3+4i|=\\sqrt{9+16}=5$.\n\nLegg sammen $a^2-b^2=3$ og $a^2+b^2=5$: $2a^2=8\\Rightarrow a^2=4\\Rightarrow a=\\pm2$. Trekk fra: $2b^2=2\\Rightarrow b^2=1\\Rightarrow b=\\pm1$. Betingelsen $2ab=4>0$ krever likt fortegn, så\n\n$$z=\\boxed{\\,2+i\\ \\text{ eller }\\ -2-i\\,}.$$\n\nKontroll: $(2+i)^2=4+4i+i^2=3+4i$ ✓."
+    },
+    {
+      "id": "mat111-uib-1-2-l3",
+      "type": "text",
+      "content": "## Løkke 3 — Enhetsrøtter, bikvadratiske likninger og trig-identiteter (~14 min)"
+    },
+    {
+      "id": "mat111-uib-1-2-def-enhetsrot",
+      "type": "definition",
+      "title": "$n$-te enhetsrøtter",
+      "content": "Løsningene av $z^n=1$ kalles de **$n$-te enhetsrøttene**:\n\n$$z_k=e^{\\,i\\,2k\\pi/n},\\qquad k=0,\\dots,n-1.$$\n\nDe ligger jevnt fordelt på enhetssirkelen, med $z_0=1$ som en av dem. For eksempel er de sjette enhetsrøttene $e^{ik\\pi/3}$, $k=0,\\dots,5$."
+    },
+    {
+      "id": "mat111-uib-1-2-def-primitiv",
+      "type": "definition",
+      "title": "Primitiv enhetsrot $\\omega$",
+      "content": "Skriv $\\omega=e^{i2\\pi/n}$. Da er alle $n$-te enhetsrøtter potenser av $\\omega$: $1,\\omega,\\omega^2,\\dots,\\omega^{n-1}$. Generelt er røttene til $z^n=w$ prinsipalroten $z_0$ ganget med enhetsrøttene: $z_k=z_0\\,\\omega^k$."
+    },
+    {
+      "id": "mat111-uib-1-2-def-sum",
+      "type": "definition",
+      "title": "Sum av enhetsrøttene",
+      "content": "For $n\\ge 2$ er summen av alle $n$-te enhetsrøtter $0$: $\\;1+\\omega+\\omega^2+\\dots+\\omega^{n-1}=0$. (Geometrisk rekke med sum $\\tfrac{\\omega^n-1}{\\omega-1}=0$ siden $\\omega^n=1$.) Nyttig kontroll."
+    },
+    {
+      "id": "mat111-uib-1-2-def-konjugerte",
+      "type": "definition",
+      "title": "Konjugerte røtter for reelt $w$",
+      "content": "Er $w$ reelt, kommer de ikke-reelle $n$-te røttene i **konjugatpar**: med $z$ er også $\\bar z$ en rot. For odde $n$ finnes dessuten nøyaktig én reell rot; for like $n$ ingen (hvis $w<0$) eller to (hvis $w>0$). Dette kobler direkte til faktoriseringen i kap. 1.3."
+    },
+    {
+      "id": "mat111-uib-1-2-def-faktkobling",
+      "type": "definition",
+      "title": "Kobling: faktorisering av $z^n-w$",
+      "content": "Røttene $z_0,\\dots,z_{n-1}$ gir den fullstendige faktoriseringen over $\\mathbb{C}$: $z^n-w=(z-z_0)(z-z_1)\\cdots(z-z_{n-1})$. Dette er utgangspunktet for reell faktorisering i kap. 1.3, der konjugatpar slås sammen til reelle kvadratiske faktorer."
+    },
+    {
+      "id": "mat111-uib-1-2-def-bikvadratisk",
+      "type": "definition",
+      "title": "Bikvadratisk likning",
+      "content": "En likning på formen $z^4+pz^2+q=0$ løses ved substitusjonen $u=z^2$: løs andregradslikningen $u^2+pu+q=0$ for $u$, og ta deretter kvadratrot: $z=\\pm\\sqrt{u}$ for hver $u$-verdi. Det gir de fire løsningene."
+    },
+    {
+      "id": "mat111-uib-1-2-ex4",
+      "type": "example",
+      "title": "Eksempel 4: Bikvadratisk likning",
+      "problem": "Løs $z^4+3z^2-4=0$.",
+      "solution": "Sett $u=z^2$: $u^2+3u-4=0\\Rightarrow (u+4)(u-1)=0$, så $u=-4$ eller $u=1$.\n\n**$u=1$:** $z^2=1\\Rightarrow z=\\pm1$.\n\n**$u=-4$:** $z^2=-4\\Rightarrow z=\\pm\\sqrt{-4}=\\pm2i$.\n\nDe fire løsningene er $\\boxed{z=1,\\ -1,\\ 2i,\\ -2i}$. Kontroll ($z=2i$): $(2i)^4+3(2i)^2-4=16-12-4=0$ ✓."
+    },
+    {
+      "id": "mat111-uib-1-2-def-trigid",
+      "type": "definition",
+      "title": "de Moivre for trig-identiteter",
+      "content": "Ved å gange ut $(\\cos\\theta+i\\sin\\theta)^n$ og sammenligne real- og imaginærdel med $\\cos n\\theta+i\\sin n\\theta$, får du identiteter for $\\cos n\\theta$ og $\\sin n\\theta$. For $n=3$ gir realdelen $\\cos 3\\theta=4\\cos^3\\theta-3\\cos\\theta$."
+    },
+    {
+      "id": "mat111-uib-1-2-def-sinid",
+      "type": "definition",
+      "title": "$\\sin n\\theta$ fra imaginærdelen",
+      "content": "Tar du i stedet **imaginærdelen** i $(\\cos\\theta+i\\sin\\theta)^n=\\cos n\\theta+i\\sin n\\theta$, får du en identitet for $\\sin n\\theta$. For $n=3$: $\\sin 3\\theta=3\\sin\\theta-4\\sin^3\\theta$ (etter innsetting av $\\cos^2\\theta=1-\\sin^2\\theta$)."
+    },
+    {
+      "id": "mat111-uib-1-2-o6-w",
+      "type": "exercise",
+      "exercise": {
+        "id": "mat111-uib-1-2-o6",
+        "number": "6",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "Finn alle sjette enhetsrøtter (løsningene av $z^6=1$), og angi dem på polarform.",
+        "solution": "$z^6=1=e^{i0}$ gir $z_k=e^{i2k\\pi/6}=e^{ik\\pi/3}$ for $k=0,\\dots,5$: argumentene er $0,\\tfrac{\\pi}{3},\\tfrac{2\\pi}{3},\\pi,\\tfrac{4\\pi}{3},\\tfrac{5\\pi}{3}$, alle med modulus $1$. På normalform: $1,\\ \\tfrac12+\\tfrac{\\sqrt3}{2}i,\\ -\\tfrac12+\\tfrac{\\sqrt3}{2}i,\\ -1,\\ -\\tfrac12-\\tfrac{\\sqrt3}{2}i,\\ \\tfrac12-\\tfrac{\\sqrt3}{2}i$. Summen er $0$ (kontroll).",
+        "hints": [
+          "$1=e^{i0}$; røttene er $e^{ik\\pi/3}$ jevnt rundt enhetssirkelen.",
+          "Vinkelavstanden er $2\\pi/6=\\pi/3$; sjekk at summen blir $0$."
+        ]
+      }
+    },
+    {
+      "id": "mat111-uib-1-2-o7-w",
+      "type": "exercise",
+      "exercise": {
+        "id": "mat111-uib-1-2-o7",
+        "number": "7",
+        "type": "classic",
+        "difficulty": "vanskelig",
+        "task": "Bruk de Moivre til å vise at $\\cos 3\\theta=4\\cos^3\\theta-3\\cos\\theta$.",
+        "solution": "de Moivre: $\\cos3\\theta+i\\sin3\\theta=(\\cos\\theta+i\\sin\\theta)^3$. Gang ut høyresiden:\n\n$$(\\cos\\theta+i\\sin\\theta)^3=\\cos^3\\theta+3i\\cos^2\\theta\\sin\\theta+3i^2\\cos\\theta\\sin^2\\theta+i^3\\sin^3\\theta.$$\n\nRealdel: $\\cos^3\\theta-3\\cos\\theta\\sin^2\\theta$. Sett inn $\\sin^2\\theta=1-\\cos^2\\theta$: $\\cos^3\\theta-3\\cos\\theta(1-\\cos^2\\theta)=\\cos^3\\theta-3\\cos\\theta+3\\cos^3\\theta=4\\cos^3\\theta-3\\cos\\theta$. Sammenlign realdel med venstresiden: $\\cos3\\theta=4\\cos^3\\theta-3\\cos\\theta$. ∎",
+        "hints": [
+          "Skriv $\\cos3\\theta+i\\sin3\\theta=(\\cos\\theta+i\\sin\\theta)^3$ og gang ut.",
+          "Ta realdelen og bruk $\\sin^2\\theta=1-\\cos^2\\theta$."
+        ]
+      }
+    },
+    {
+      "id": "mat111-uib-1-2-warn",
+      "type": "warning",
+      "title": "Typiske feil (de Moivre og røtter)",
+      "content": "- **Glemme $2k\\pi$-leddet** i rotformelen — da finner du bare *én* rot i stedet for alle $n$.\n- **Glemme å redusere vinkelen** ved høye potenser: $n\\theta$ må trekkes ned mod $2\\pi$.\n- **Ta $n$-te rot av modulus feil**: $R^{1/n}$ er den reelle $n$-te roten av $R=|w|$, ikke $R/n$.\n- **Dele argumentet uten $2k\\pi$ først**: skriv $(\\varphi+2k\\pi)/n$, ikke $\\varphi/n+2k\\pi$.\n- **Levere polarform** når normalform er etterspurt."
+    },
+    {
+      "id": "mat111-uib-1-2-rep",
+      "type": "collapsible",
+      "title": "Repetisjonsoppgaver",
+      "buttonText": "Vis repetisjonsoppgaver",
+      "content": [
+        {
+          "id": "mat111-uib-1-2-r1",
+          "type": "exercise",
+          "exercise": {
+            "id": "mat111-uib-1-2-r1-x",
+            "number": "R1",
+            "type": "classic",
+            "difficulty": "lett",
+            "task": "(Fra R2 4.6) Skriv opp de eksakte verdiene av $\\cos\\dfrac{\\pi}{6}$, $\\sin\\dfrac{\\pi}{6}$ og $\\tan\\dfrac{\\pi}{4}$.",
+            "solution": "$\\cos\\dfrac{\\pi}{6} = \\dfrac{\\sqrt{3}}{2}$, $\\sin\\dfrac{\\pi}{6} = \\dfrac{1}{2}$ og $\\tan\\dfrac{\\pi}{4} = 1$. Disse standardverdiene brukes hver gang en rot skal skrives ut på normalform.",
+            "hints": [
+              "Bruk 30-60-90- og 45-45-90-trekantene."
+            ]
+          }
+        },
+        {
+          "id": "mat111-uib-1-2-r2",
+          "type": "exercise",
+          "exercise": {
+            "id": "mat111-uib-1-2-r2-x",
+            "number": "R2",
+            "type": "classic",
+            "difficulty": "lett",
+            "task": "(Fra R2 4.1) Reduser vinkelen $\\dfrac{17\\pi}{6}$ modulo $2\\pi$.",
+            "solution": "$\\dfrac{17\\pi}{6} - 2\\pi = \\dfrac{17\\pi - 12\\pi}{6} = \\dfrac{5\\pi}{6}$, som ligger i $[0, 2\\pi)$. Altså er $\\dfrac{17\\pi}{6} \\equiv \\dfrac{5\\pi}{6} \\pmod{2\\pi}$ — samme reduksjon som etter en de Moivre-potens.",
+            "hints": [
+              "Trekk fra $2\\pi = \\tfrac{12\\pi}{6}$ til vinkelen havner i $[0,2\\pi)$."
+            ]
+          }
+        },
+        {
+          "id": "mat111-uib-1-2-r3",
+          "type": "exercise",
+          "exercise": {
+            "id": "mat111-uib-1-2-r3-x",
+            "number": "R3",
+            "type": "classic",
+            "difficulty": "lett",
+            "task": "(Fra kap. 1.1) Skriv $z = 1 + i$ på polarform.",
+            "solution": "Punktet $(1,1)$ ligger i første kvadrant. $r = \\sqrt{1^2+1^2} = \\sqrt{2}$ og $\\theta = \\arctan(1/1) = \\dfrac{\\pi}{4}$ (første kvadrant, så arctan kan brukes direkte). Dermed $z = \\sqrt{2}\\,e^{i\\pi/4}$.",
+            "hints": [
+              "Tegn punktet først; $r=\\sqrt{a^2+b^2}$."
+            ]
+          }
+        },
+        {
+          "id": "mat111-uib-1-2-r4",
+          "type": "exercise",
+          "exercise": {
+            "id": "mat111-uib-1-2-r4-x",
+            "number": "R4",
+            "type": "classic",
+            "difficulty": "lett",
+            "task": "(Fra R2 4.2) Finn $\\cos\\dfrac{5\\pi}{6}$ og $\\sin\\dfrac{5\\pi}{6}$ eksakt.",
+            "solution": "$\\dfrac{5\\pi}{6}$ ligger i andre kvadrant med referansevinkel $\\dfrac{\\pi}{6}$: $\\cos\\dfrac{5\\pi}{6} = -\\dfrac{\\sqrt{3}}{2}$ og $\\sin\\dfrac{5\\pi}{6} = \\dfrac{1}{2}$.",
+            "hints": [
+              "Referansevinkelen er $\\pi - 5\\pi/6 = \\pi/6$."
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": "mat111-uib-1-2-oppsummering",
+      "type": "collapsible",
+      "title": "Oppsummering",
+      "buttonText": "Vis oppsummering",
+      "content": [
+        {
+          "id": "mat111-uib-1-2-rep-t",
+          "type": "text",
+          "content": "## Kort oppsummering\n\n1. **Potens:** $z^n=r^n e^{in\\theta}$ — opphøy modulus, gang argument, **reduser mod $2\\pi$**.\n2. **Røtter:** $z^n=w$ har nøyaktig $n$ løsninger $R^{1/n}e^{i(\\varphi+2k\\pi)/n}$, jevnt fordelt på en sirkel; start i prinsipalroten.\n3. **Enhetsrøtter:** $z^n=1$ gir $e^{i2k\\pi/n}$; øvrige røtter er prinsipalroten ganget med disse.\n4. **Bikvadratisk:** substituer $u=z^2$, løs andregradslikningen, ta kvadratrot.\n\nNeste kapittel (1.3) bruker røttene til å faktorisere polynomer over $\\mathbb{C}$ og $\\mathbb{R}$."
+        }
+      ]
+    },
+    {
+      "id": "mat111-uib-1-2-symbol",
+      "type": "collapsible",
+      "title": "Symbol- og formelliste",
+      "buttonText": "Vis symboler og formler",
+      "content": [
+        {
+          "id": "mat111-uib-1-2-symbol-t",
+          "type": "text",
+          "content": "## Symbol- og formelliste\n\n| Formel | Betydning |\n|---|---|\n| $z^n=r^n e^{in\\theta}$ | de Moivre (eksponentialform) |\n| $(\\cos\\theta+i\\sin\\theta)^n=\\cos n\\theta+i\\sin n\\theta$ | de Moivre (trig-form) |\n| $z_k=R^{1/n}e^{i(\\varphi+2k\\pi)/n}$ | de $n$ røttene av $z^n=w=Re^{i\\varphi}$, $k=0,\\dots,n-1$ |\n| $z_0=R^{1/n}e^{i\\varphi/n}$ | prinsipalroten |\n| $\\tfrac{2\\pi}{n}$ | vinkelavstand mellom nabo­røtter (regulær $n$-kant) |\n| $z_k=e^{i2k\\pi/n}$ | $n$-te enhetsrøtter ($z^n=1$) |\n| $\\omega=e^{i2\\pi/n}$ | primitiv enhetsrot; $z_k=z_0\\omega^k$ |\n| $1+\\omega+\\dots+\\omega^{n-1}=0$ | sum av enhetsrøtter ($n\\ge 2$) |\n\n**Oppskrift potens:** polarform → $r^n e^{in\\theta}$ → reduser $n\\theta$ mod $2\\pi$ → normalform.\n**Oppskrift røtter:** $w=Re^{i\\varphi}$ → radius $R^{1/n}$ → argumenter $(\\varphi+2k\\pi)/n$ → prinsipalrot først → skriv ut."
+        }
+      ]
+    }
+  ],
+  "exercises": []
+}

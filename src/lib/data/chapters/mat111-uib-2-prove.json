@@ -1,0 +1,321 @@
+{
+  "id": "mat111-uib-2-prove",
+  "courseId": "mat111-uib",
+  "chapterNumber": "2.P",
+  "title": "Prøver til del 2: Grenser, kontinuitet og ε-δ",
+  "description": "Fire prøver som dekker hele Del 2 — ε-δ-bevis med malen, grenseteknikk for alle ubestemte former, kontinuitet med skjæringssetningen og kontinuerlig utvidelse, og en blandet prøve med føringskrav. Med fasit etter føringsstandarden og selvdiagnose.",
+  "estimatedMinutes": 155,
+  "competenceGoals": [
+    "gjennomføre ε-δ-bevis etter malen faktoriser → avgrens → $\\delta=\\min$ → verifiser",
+    "klassifisere ubestemte former og velge riktig grenseteknikk i tempo",
+    "føre skjæringssetnings-argumenter og kontinuerlige utvidelser med kobling til $f(a)$"
+  ],
+  "content": [
+    {
+      "id": "mat111-uib-2-prove-tip",
+      "type": "tip",
+      "title": "Om prøvene til Del 2",
+      "content": "Fire prøver som dekker hele Del 2 (grenser, kontinuitet og ε-δ): ε-δ-malen, grenseteknikk, kontinuitetsteori, og en blandet prøve. Til sammen **~35–45 min hver** — **kan trygt deles over flere kvelder, én prøve per økt**. Husk at ε-δ ved MAT111 er «gratisoppgave med føringskrav»: poengene sitter i malen (faktoriser → avgrens → $\\delta=\\min$ → verifiser), ikke i svaret. Full fasit ligger som utvidbare løsninger; **avkryssbar selvdiagnose** avslutter hver prøve.\n\n| Prøve | Tema (kap.) | Tid |\n|---|---|---|\n| 2.A | ε-δ-bevis + R-ε-variant (2.1) | ~35 min |\n| 2.B | Grenseteknikk — alle ubestemte former (2.2) | ~35 min |\n| 2.C | Kontinuitet: skjæringssetning + utvidelse (2.3) | ~40 min |\n| 2.D | Blandet med føringskrav (2.1–2.4) | ~45 min |"
+    },
+    {
+      "id": "mat111-uib-2-prove-fork",
+      "type": "text",
+      "content": "**Forkunnskaper.** Hele Del 2: [kap. 2.1](/bok/mat111-uib/mat111-uib-2-1) (ε-δ-malen), [kap. 2.2](/bok/mat111-uib/mat111-uib-2-2) (grenseteknikk og ubestemte former) og [kap. 2.3](/bok/mat111-uib/mat111-uib-2-3) (kontinuitet og eksistenssetningene). Har du gjort drillen i [kap. 2.4](/bok/mat111-uib/mat111-uib-2-4), er du klar. Løs først uten fasit; sjekk deretter føringen mot malen — det er føringen som gir poengene."
+    },
+    {
+      "id": "mat111-uib-2-prove-p1",
+      "type": "collapsible",
+      "title": "Prøve 1 — ε-δ-bevis med malen + R-ε (2.A, ~35 min)",
+      "buttonText": "Vis prøve 1",
+      "content": [
+        {
+          "id": "mat111-uib-2-prove-p1-intro",
+          "type": "text",
+          "content": "**Prøve 2.A.** Tre oppgaver, ~35 min. Skriv definisjonen først i hvert bevis, og avslutt alltid med å verifisere implikasjonen."
+        },
+        {
+          "id": "mat111-uib-2-prove-p1o1-w",
+          "type": "exercise",
+          "exercise": {
+            "id": "mat111-uib-2-prove-p1o1",
+            "number": "1",
+            "type": "classic",
+            "difficulty": "lett",
+            "task": "Bruk den formelle definisjonen av grenseverdi til å vise at $2x-1\\to 5$ når $x\\to 3$.",
+            "solution": "**Definisjonen:** for hver $\\varepsilon>0$ skal det finnes $\\delta>0$ slik at $0<|x-3|<\\delta \\Rightarrow |(2x-1)-5|<\\varepsilon$.\n\n**Faktoriser:** $|(2x-1)-5| = |2x-6| = 2|x-3|$.\n\nHer er det ingen restfaktor å avgrense (lineært uttrykk), så **velg** $\\delta = \\varepsilon/2$.\n\n**Verifiser:** anta $0<|x-3|<\\delta = \\varepsilon/2$. Da er $|(2x-1)-5| = 2|x-3| < 2\\cdot\\dfrac{\\varepsilon}{2} = \\varepsilon$. ✓\n\n**Konklusjon:** definisjonens krav er oppfylt, så $\\lim_{x\\to3}(2x-1)=5$. $\\blacksquare$",
+            "hints": [
+              "Skriv definisjonen med $a=3$, $L=5$ først.",
+              "$|2x-6|=2|x-3|$ — lineært, så $\\delta=\\varepsilon/2$ holder uten $\\min$-grep."
+            ]
+          }
+        },
+        {
+          "id": "mat111-uib-2-prove-p1o2-w",
+          "type": "exercise",
+          "exercise": {
+            "id": "mat111-uib-2-prove-p1o2",
+            "number": "2",
+            "type": "classic",
+            "difficulty": "middels",
+            "task": "Bruk den formelle definisjonen til å vise at $x^2+3x\\to 10$ når $x\\to 2$.",
+            "solution": "**Definisjonen:** for hver $\\varepsilon>0$ trengs $\\delta>0$ slik at $0<|x-2|<\\delta \\Rightarrow |x^2+3x-10|<\\varepsilon$.\n\n**Faktoriser:** $x^2+3x-10 = (x-2)(x+5)$, så $|x^2+3x-10| = |x-2|\\,|x+5|$.\n\n**Avgrens restfaktoren:** kontrollkrav $|x-2|<1$ gir $1<x<3$, og dermed $6<x+5<8$, så $|x+5|<8$. Skranken er $K=8$.\n\n**Velg** $\\delta = \\min\\{1,\\ \\varepsilon/8\\}$.\n\n**Verifiser:** anta $0<|x-2|<\\delta$. Da er både $|x-2|<1$ (så $|x+5|<8$) og $|x-2|<\\varepsilon/8$, altså\n$$|x^2+3x-10| = |x-2|\\,|x+5| < \\frac{\\varepsilon}{8}\\cdot 8 = \\varepsilon.\\ ✓$$\n\n**Konklusjon:** $\\lim_{x\\to2}(x^2+3x)=10$. $\\blacksquare$ (Andre gyldige $\\delta$-valg godtas også — f.eks. en grovere skranke med $|x-2|<\\tfrac12$.)",
+            "hints": [
+              "Faktoriser $x^2+3x-10=(x-2)(x+5)$.",
+              "Kontrollkravet $|x-2|<1$ gir $|x+5|<8$; velg $\\delta=\\min\\{1,\\varepsilon/8\\}$."
+            ]
+          }
+        },
+        {
+          "id": "mat111-uib-2-prove-p1o3-w",
+          "type": "exercise",
+          "exercise": {
+            "id": "mat111-uib-2-prove-p1o3",
+            "number": "3",
+            "type": "classic",
+            "difficulty": "vanskelig",
+            "task": "Bruk definisjonen av grenseverdi mot uendelig ($R$-$\\varepsilon$-varianten) til å vise at $\\dfrac{3x-2}{x}\\to 3$ når $x\\to\\infty$.",
+            "solution": "**Definisjonen ($R$-$\\varepsilon$):** for hver $\\varepsilon>0$ skal det finnes $R=R(\\varepsilon)$ slik at $x>R \\Rightarrow \\left|\\dfrac{3x-2}{x}-3\\right|<\\varepsilon$.\n\n**Forenkle avstanden:** $\\left|\\dfrac{3x-2}{x}-3\\right| = \\left|\\dfrac{3x-2-3x}{x}\\right| = \\dfrac{2}{|x|} = \\dfrac{2}{x}$ for $x>0$.\n\n**Velg $R$:** $\\dfrac{2}{x}<\\varepsilon \\iff x>\\dfrac{2}{\\varepsilon}$. Velg derfor $R = \\dfrac{2}{\\varepsilon}$ (positiv, så $x>R$ gir også $x>0$).\n\n**Verifiser:** anta $x>R=\\dfrac{2}{\\varepsilon}$. Da er $\\left|\\dfrac{3x-2}{x}-3\\right| = \\dfrac{2}{x} < \\dfrac{2}{2/\\varepsilon} = \\varepsilon$. ✓\n\n**Konklusjon:** $\\lim_{x\\to\\infty}\\dfrac{3x-2}{x}=3$. $\\blacksquare$",
+            "hints": [
+              "Trekk sammen: $\\frac{3x-2}{x}-3=-\\frac{2}{x}$.",
+              "Løs $2/x<\\varepsilon$ for $x$ — det gir $R(\\varepsilon)$."
+            ]
+          }
+        },
+        {
+          "id": "mat111-uib-2-prove-chk-p1",
+          "type": "text",
+          "content": "**Selvdiagnose — kryss av det du fikk til uten å slå opp:**\n\n- ☐ Skrev definisjonen (kvantorene i riktig rekkefølge) før regningen\n- ☐ Faktoriserte ut $|x-a|$ i oppgave 2\n- ☐ Avgrenset restfaktoren med kontrollkravet $|x-2|<1$ og fant $K=8$\n- ☐ Valgte $\\delta=\\min\\{1,\\varepsilon/8\\}$ og **verifiserte implikasjonen**\n- ☐ Fant $R=2/\\varepsilon$ i $R$-$\\varepsilon$-varianten og verifiserte"
+        }
+      ]
+    },
+    {
+      "id": "mat111-uib-2-prove-p2",
+      "type": "collapsible",
+      "title": "Prøve 2 — Grenseteknikk: alle ubestemte former (2.B, ~35 min)",
+      "buttonText": "Vis prøve 2",
+      "content": [
+        {
+          "id": "mat111-uib-2-prove-p2-intro",
+          "type": "text",
+          "content": "**Prøve 2.B.** Fire grenser, ~35 min. Føringskrav: **identifiser og marker formen** ($[0/0]$, $[\\infty/\\infty]$, $1^\\infty$, …) FØR du velger våpen."
+        },
+        {
+          "id": "mat111-uib-2-prove-p2o1-w",
+          "type": "exercise",
+          "exercise": {
+            "id": "mat111-uib-2-prove-p2o1",
+            "number": "1",
+            "type": "classic",
+            "difficulty": "lett",
+            "task": "Beregn $\\displaystyle\\lim_{x\\to 0}\\frac{e^{2x}-1}{\\sin 3x}$ med full føring.",
+            "solution": "**Formsjekk:** teller $e^{0}-1=0$ og nevner $\\sin 0=0$ — formen er $[0/0]$, og teller og nevner er deriverbare nær $0$, så L'Hôpital kan brukes.\n\n$$\\lim_{x\\to 0}\\frac{e^{2x}-1}{\\sin 3x} \\overset{[0/0]}{=} \\lim_{x\\to 0}\\frac{2e^{2x}}{3\\cos 3x} = \\frac{2\\cdot 1}{3\\cdot 1} = \\frac{2}{3}.$$\n\nSiste uttrykk er en bestemt form (innsetting gir $\\tfrac23$), så vi stopper der.\n\n**Svar:** $\\boxed{2/3}$. *Alternativt:* standardgrensene $\\frac{e^{2x}-1}{2x}\\to1$ og $\\frac{\\sin 3x}{3x}\\to1$ gir $\\frac{2x}{3x}=\\frac23$ direkte.",
+            "hints": [
+              "Sett inn $x=0$: begge går mot $0$ — marker $[0/0]$.",
+              "Deriver teller og nevner hver for seg — én runde holder."
+            ]
+          }
+        },
+        {
+          "id": "mat111-uib-2-prove-p2o2-w",
+          "type": "exercise",
+          "exercise": {
+            "id": "mat111-uib-2-prove-p2o2",
+            "number": "2",
+            "type": "classic",
+            "difficulty": "middels",
+            "task": "Beregn $\\displaystyle\\lim_{x\\to\\infty}\\left(\\sqrt{x^2+6x}-x\\right)$ med full føring.",
+            "solution": "**Formsjekk:** begge ledd går mot $\\infty$ — formen er $[\\infty-\\infty]$. L'Hôpital kan ikke brukes direkte på en differanse; vi bruker **konjugattrikset**:\n\n$$\\sqrt{x^2+6x}-x = \\frac{(\\sqrt{x^2+6x}-x)(\\sqrt{x^2+6x}+x)}{\\sqrt{x^2+6x}+x} = \\frac{x^2+6x-x^2}{\\sqrt{x^2+6x}+x} = \\frac{6x}{\\sqrt{x^2+6x}+x}.$$\n\nDel teller og nevner på $x$ (positivt når $x\\to\\infty$, så $x=\\sqrt{x^2}$):\n$$\\frac{6}{\\sqrt{1+6/x}+1} \\longrightarrow \\frac{6}{\\sqrt{1+0}+1} = \\frac{6}{2} = 3.$$\n\n**Svar:** $\\boxed{3}$.",
+            "hints": [
+              "$[\\infty-\\infty]$: gang og del med den konjugerte $\\sqrt{x^2+6x}+x$.",
+              "Del på $x$ og bruk $\\sqrt{1+6/x}\\to1$."
+            ]
+          }
+        },
+        {
+          "id": "mat111-uib-2-prove-p2o3-w",
+          "type": "exercise",
+          "exercise": {
+            "id": "mat111-uib-2-prove-p2o3",
+            "number": "3",
+            "type": "classic",
+            "difficulty": "middels",
+            "task": "Beregn $\\displaystyle\\lim_{x\\to 0^+}(1+5x)^{1/x}$ med full føring.",
+            "solution": "**Formsjekk:** basis $1+5x\\to 1$ og eksponent $1/x\\to\\infty$ — formen er $1^\\infty$ (ubestemt). **Logaritmetriks:** sett $y=(1+5x)^{1/x}$; da er\n$$\\ln y = \\frac{\\ln(1+5x)}{x}.$$\n\n**Ny formsjekk:** teller $\\ln 1=0$, nevner $0$ — formen er $[0/0]$, L'Hôpital:\n$$\\lim_{x\\to0^+}\\frac{\\ln(1+5x)}{x} \\overset{[0/0]}{=} \\lim_{x\\to0^+}\\frac{5/(1+5x)}{1} = 5.$$\n\n**Eksponentier tilbake:** $\\lim y = e^{\\lim \\ln y} = e^{5}$ (kontinuiteten til $e^{(\\cdot)}$).\n\n**Svar:** $\\boxed{e^5}$. Vanligste feil er å stoppe på $5$ — husk at $5$ er grensen for $\\ln y$, ikke for $y$.",
+            "hints": [
+              "$1^\\infty$: ta logaritmen først.",
+              "Etter L'Hôpital: husk å eksponentiere tilbake, $y=e^{\\ln y}$."
+            ]
+          }
+        },
+        {
+          "id": "mat111-uib-2-prove-p2o4-w",
+          "type": "exercise",
+          "exercise": {
+            "id": "mat111-uib-2-prove-p2o4",
+            "number": "4",
+            "type": "classic",
+            "difficulty": "vanskelig",
+            "task": "Beregn $\\displaystyle\\lim_{x\\to 0^+}\\sqrt{x}\\,\\ln x$ med full føring.",
+            "solution": "**Formsjekk:** $\\sqrt{x}\\to 0$ og $\\ln x\\to-\\infty$ — formen er $[0\\cdot\\infty]$. Flytt potensen i nevneren for å få en brøk:\n$$\\sqrt{x}\\,\\ln x = \\frac{\\ln x}{x^{-1/2}}.$$\n\n**Ny formsjekk:** teller $\\to-\\infty$, nevner $\\to\\infty$ — formen er $[\\infty/\\infty]$, L'Hôpital:\n$$\\lim_{x\\to0^+}\\frac{\\ln x}{x^{-1/2}} \\overset{[\\infty/\\infty]}{=} \\lim_{x\\to0^+}\\frac{1/x}{-\\tfrac12 x^{-3/2}} = \\lim_{x\\to0^+}\\left(-2x^{1/2}\\right) = 0.$$\n\n**Svar:** $\\boxed{0}$. (Generelt: potenser slår logaritmer — $x^p\\ln x\\to 0$ for hver $p>0$.)\n\n*Merk føringen:* å skrive $\\frac{\\sqrt x}{1/\\ln x}$ i stedet gir en styggere derivert — velg omskrivingen som gjør L'Hôpital-brøken enklest.",
+            "hints": [
+              "$[0\\cdot\\infty]$: skriv om til $\\dfrac{\\ln x}{x^{-1/2}}$.",
+              "Etter L'Hôpital: forenkle $\\dfrac{1/x}{-x^{-3/2}/2}=-2\\sqrt{x}$."
+            ]
+          }
+        },
+        {
+          "id": "mat111-uib-2-prove-chk-p2",
+          "type": "text",
+          "content": "**Selvdiagnose — kryss av det du fikk til uten å slå opp:**\n\n- ☐ Markerte formen ($[0/0]$ osv.) FØR hver L'Hôpital-bruk\n- ☐ Brukte konjugattrikset (ikke L'Hôpital) på $[\\infty-\\infty]$\n- ☐ Tok logaritmen på $1^\\infty$-formen og **eksponentierte tilbake**\n- ☐ Skrev om $[0\\cdot\\infty]$ til brøk med potensen i nevneren\n- ☐ Stoppet L'Hôpital da formen ble bestemt"
+        }
+      ]
+    },
+    {
+      "id": "mat111-uib-2-prove-p3",
+      "type": "collapsible",
+      "title": "Prøve 3 — Kontinuitet: eksistens og utvidelse (2.C, ~40 min)",
+      "buttonText": "Vis prøve 3",
+      "content": [
+        {
+          "id": "mat111-uib-2-prove-p3-intro",
+          "type": "text",
+          "content": "**Prøve 2.C.** Tre oppgaver, ~40 min. Navngi setningene du bruker, og koble alltid en kontinuerlig utvidelse eksplisitt til $f(a)$."
+        },
+        {
+          "id": "mat111-uib-2-prove-p3o1-w",
+          "type": "exercise",
+          "exercise": {
+            "id": "mat111-uib-2-prove-p3o1",
+            "number": "1",
+            "type": "classic",
+            "difficulty": "middels",
+            "task": "**(a)** Vis at likningen $x^3+4x=2$ har minst én løsning i $[0,1]$.\n\n**(b)** Vis at løsningen er den eneste på hele $\\mathbb{R}$.",
+            "solution": "**(a) Eksistens.** Sett $f(x)=x^3+4x-2$. $f$ er et polynom og dermed **kontinuerlig** på $[0,1]$. Fortegnsskifte: $f(0)=-2<0$ og $f(1)=1+4-2=3>0$. Etter **skjæringssetningen** (mellomverdisetningen) finnes minst én $c\\in(0,1)$ med $f(c)=0$, dvs. $c^3+4c=2$. $\\blacksquare$\n\n**(b) Entydighet.** $f'(x)=3x^2+4\\ge 4>0$ for alle $x$, så $f$ er **strengt voksende** på $\\mathbb{R}$. En strengt voksende funksjon tar hver verdi høyst én gang, så $f$ har høyst ett nullpunkt. Sammen med (a): **nøyaktig én** løsning. $\\blacksquare$\n\n*Merk:* (a) og (b) er to separate leveranser — eksistens (skjæringssetningen) og entydighet (monotoni) føres hver for seg.",
+            "hints": [
+              "(a): sett alt på formen $f(x)=0$, sjekk fortegn i $0$ og $1$, og NAVNGI setningen.",
+              "(b): vis at $f'>0$ overalt — da kan ikke $f$ ha to nullpunkter."
+            ]
+          }
+        },
+        {
+          "id": "mat111-uib-2-prove-p3o2-w",
+          "type": "exercise",
+          "exercise": {
+            "id": "mat111-uib-2-prove-p3o2",
+            "number": "2",
+            "type": "classic",
+            "difficulty": "middels",
+            "task": "Funksjonen $f$ er gitt ved $f(x)=\\dfrac{1-\\cos x}{x^2}$ for $x\\neq 0$ og $f(0)=c$. Bestem $c$ slik at $f$ blir kontinuerlig i $0$.",
+            "solution": "**Grensen:** innsetting gir $[0/0]$ (både $1-\\cos x$ og $x^2$ går mot $0$; begge deriverbare), så L'Hôpital:\n$$\\lim_{x\\to0}\\frac{1-\\cos x}{x^2} \\overset{[0/0]}{=} \\lim_{x\\to0}\\frac{\\sin x}{2x}.$$\nFortsatt $[0/0]$ — marker på nytt og bruk enten standardgrensen $\\frac{\\sin x}{x}\\to1$ eller L'Hôpital igjen:\n$$\\lim_{x\\to0}\\frac{\\sin x}{2x} = \\frac12\\lim_{x\\to0}\\frac{\\sin x}{x} = \\frac12.$$\n\n**Koblingen til $f(0)$:** kontinuitet i $0$ betyr $\\lim_{x\\to0}f(x) = f(0)$, altså må $c = \\dfrac12$.\n\n**Svar:** $\\boxed{c=\\tfrac12}$. Å regne grensen uten å koble den til $f(0)$ gir trekk — det er selve koblingen som ER kontinuitetsargumentet.",
+            "hints": [
+              "Regn $\\lim_{x\\to0}\\frac{1-\\cos x}{x^2}$ — marker $[0/0]$ først.",
+              "Kontinuitet i $0$: sett $c$ lik grensen, og SI det: $c=f(0)=\\lim f$."
+            ]
+          }
+        },
+        {
+          "id": "mat111-uib-2-prove-p3o3-w",
+          "type": "exercise",
+          "exercise": {
+            "id": "mat111-uib-2-prove-p3o3",
+            "number": "3",
+            "type": "classic",
+            "difficulty": "vanskelig",
+            "task": "Funksjonen $g$ er gitt ved\n$$g(x)=\\begin{cases} x^2+a, & x<1 \\\\ 3x-1, & x\\ge 1. \\end{cases}$$\n\n**(a)** Bestem $a$ slik at $g$ blir kontinuerlig i $x=1$.\n\n**(b)** Med denne $a$-verdien: er $g$ kontinuerlig på hele $\\mathbb{R}$? Begrunn kort.",
+            "solution": "**(a) Skjøtepunktet — hver side for seg.**\n\nVenstregrense: $\\lim_{x\\to1^-}g(x) = 1^2+a = 1+a$.\nHøyregrense og funksjonsverdi: $\\lim_{x\\to1^+}g(x) = 3\\cdot1-1 = 2 = g(1)$.\n\nKontinuitet i $1$ krever at begge ensidige grenser er like $g(1)$:\n$$1+a = 2 \\iff a = 1.$$\n\n**Svar (a):** $\\boxed{a=1}$.\n\n**(b)** For $x<1$ er $g(x)=x^2+1$ et polynom (kontinuerlig); for $x>1$ er $g(x)=3x-1$ et polynom (kontinuerlig); og i skjøtepunktet $x=1$ er $g$ kontinuerlig etter (a). Altså er $g$ kontinuerlig på hele $\\mathbb{R}$. ✓",
+            "hints": [
+              "Regn venstre- og høyregrensen i $x=1$ hver for seg.",
+              "Sett dem lik hverandre (og lik $g(1)$) og løs for $a$."
+            ]
+          }
+        },
+        {
+          "id": "mat111-uib-2-prove-chk-p3",
+          "type": "text",
+          "content": "**Selvdiagnose — kryss av det du fikk til uten å slå opp:**\n\n- ☐ Nevnte kontinuitet og **navnga skjæringssetningen** før konklusjonen\n- ☐ Førte eksistens og entydighet som to atskilte steg\n- ☐ Brukte monotoni ($f'>0$) som entydighetsargument\n- ☐ Koblet grensen eksplisitt til $f(0)$ i utvidelsen ($c=\\lim f$)\n- ☐ Regnet begge ensidige grenser i skjøtepunktet hver for seg"
+        }
+      ]
+    },
+    {
+      "id": "mat111-uib-2-prove-p4",
+      "type": "collapsible",
+      "title": "Prøve 4 — Blandet med føringskrav (2.D, ~45 min)",
+      "buttonText": "Vis prøve 4",
+      "content": [
+        {
+          "id": "mat111-uib-2-prove-p4-intro",
+          "type": "text",
+          "content": "**Prøve 2.D — blandet.** Tre oppgaver, ~45 min. Dette speiler midtdelen av et MAT111-sett: én ε-δ, én kontinuerlig utvidelse og ett tempo-sett med tre grenser. Føringen teller i alle."
+        },
+        {
+          "id": "mat111-uib-2-prove-p4o1-w",
+          "type": "exercise",
+          "exercise": {
+            "id": "mat111-uib-2-prove-p4o1",
+            "number": "1",
+            "type": "classic",
+            "difficulty": "middels",
+            "task": "Bruk den formelle definisjonen til å vise at $x^2+2x\\to 3$ når $x\\to 1$, og angi et konkret $\\delta$ som duger for $\\varepsilon = 0{,}2$.",
+            "solution": "**Definisjonen:** for hver $\\varepsilon>0$ trengs $\\delta>0$ slik at $0<|x-1|<\\delta \\Rightarrow |x^2+2x-3|<\\varepsilon$.\n\n**Faktoriser:** $x^2+2x-3 = (x-1)(x+3)$, så $|x^2+2x-3| = |x-1|\\,|x+3|$.\n\n**Avgrens:** kontrollkrav $|x-1|<1$ gir $0<x<2$, så $3<x+3<5$ og $|x+3|<5$; skranke $K=5$.\n\n**Velg** $\\delta=\\min\\{1,\\ \\varepsilon/5\\}$.\n\n**Verifiser:** anta $0<|x-1|<\\delta$; da er $|x+3|<5$ og $|x-1|<\\varepsilon/5$, så $|x^2+2x-3| < \\frac{\\varepsilon}{5}\\cdot 5 = \\varepsilon$. ✓ $\\blacksquare$\n\n**Konkret $\\delta$ for $\\varepsilon=0{,}2$:** $\\delta = \\min\\{1,\\ 0{,}2/5\\} = \\boxed{0{,}04}$ (hvert mindre positivt tall duger også).",
+            "hints": [
+              "$x^2+2x-3=(x-1)(x+3)$.",
+              "$|x-1|<1$ gir $|x+3|<5$; sett inn $\\varepsilon=0{,}2$ i $\\min\\{1,\\varepsilon/5\\}$."
+            ]
+          }
+        },
+        {
+          "id": "mat111-uib-2-prove-p4o2-w",
+          "type": "exercise",
+          "exercise": {
+            "id": "mat111-uib-2-prove-p4o2",
+            "number": "2",
+            "type": "classic",
+            "difficulty": "lett",
+            "task": "Funksjonen $f$ er gitt ved $f(x)=\\dfrac{\\sin 4x}{x}$ for $x\\neq0$. Kan $f$ utvides kontinuerlig til $x=0$? Bestem i så fall verdien $f(0)$.",
+            "solution": "**Grensen:** med standardgrensen $\\dfrac{\\sin u}{u}\\to 1$ (sett $u=4x$, $u\\to0$):\n$$\\lim_{x\\to0}\\frac{\\sin 4x}{x} = \\lim_{x\\to0} 4\\cdot\\frac{\\sin 4x}{4x} = 4\\cdot 1 = 4.$$\n\n**Koblingen:** grensen finnes (og er endelig), så $f$ kan utvides kontinuerlig ved å sette $f(0)$ **lik grensen**: $f(0) = \\lim_{x\\to0}f(x) = 4$.\n\n**Svar:** ja — $\\boxed{f(0)=4}$. *Alternativt:* L'Hôpital på $[0/0]$: $\\frac{4\\cos 4x}{1}\\to 4$.",
+            "hints": [
+              "Skriv $\\frac{\\sin 4x}{x}=4\\cdot\\frac{\\sin 4x}{4x}$.",
+              "Utvidelsen er kontinuerlig nettopp når $f(0)$ settes lik grensen — si det eksplisitt."
+            ]
+          }
+        },
+        {
+          "id": "mat111-uib-2-prove-p4o3-w",
+          "type": "exercise",
+          "exercise": {
+            "id": "mat111-uib-2-prove-p4o3",
+            "number": "3",
+            "type": "classic",
+            "difficulty": "vanskelig",
+            "task": "Beregn grensene i tempo, med formen markert der den er ubestemt:\n\n**a)** $\\displaystyle\\lim_{x\\to 2}\\frac{x^2-4}{x^2-x-2}$\n\n**b)** $\\displaystyle\\lim_{x\\to\\infty} x\\left(e^{1/x}-1\\right)$\n\n**c)** $\\displaystyle\\lim_{x\\to 0^+} x^x$",
+            "solution": "**a)** Innsetting gir $[0/0]$. Faktoriser i stedet for L'Hôpital:\n$$\\frac{x^2-4}{x^2-x-2} = \\frac{(x-2)(x+2)}{(x-2)(x+1)} = \\frac{x+2}{x+1} \\longrightarrow \\frac{4}{3} \\quad (x\\to2).$$\n**Svar:** $\\boxed{4/3}$.\n\n**b)** Formen er $[\\infty\\cdot 0]$. Substituér $t=1/x$ ($t\\to0^+$):\n$$x\\left(e^{1/x}-1\\right) = \\frac{e^{t}-1}{t} \\overset{[0/0]}{\\longrightarrow} 1$$\n(standardgrensen for $e^t$, eller L'Hôpital: $\\frac{e^t}{1}\\to1$). **Svar:** $\\boxed{1}$.\n\n**c)** Formen er $0^0$. Logaritmetriks: $x^x = e^{x\\ln x}$, og $x\\ln x$ er $[0\\cdot\\infty]$:\n$$\\lim_{x\\to0^+}x\\ln x = \\lim_{x\\to0^+}\\frac{\\ln x}{1/x} \\overset{[\\infty/\\infty]}{=} \\lim_{x\\to0^+}\\frac{1/x}{-1/x^2} = \\lim_{x\\to0^+}(-x) = 0,$$\nså $x^x = e^{x\\ln x}\\to e^0 = \\boxed{1}$.",
+            "hints": [
+              "a) Faktoriser teller og nevner — felles faktor $(x-2)$.",
+              "b) Sett $t=1/x$ og kjenn igjen standardgrensen.",
+              "c) $x^x=e^{x\\ln x}$; regn eksponentens grense først."
+            ]
+          }
+        },
+        {
+          "id": "mat111-uib-2-prove-chk-p4",
+          "type": "text",
+          "content": "**Selvdiagnose — kryss av det du fikk til uten å slå opp:**\n\n- ☐ Fullførte hele ε-δ-malen og regnet ut $\\delta=0{,}04$ for $\\varepsilon=0{,}2$\n- ☐ Satte $f(0)$ lik grensen (og sa det) i utvidelsen\n- ☐ Valgte faktorisering fremfor L'Hôpital i a) der det var raskere\n- ☐ Substituerte $t=1/x$ i b) og markerte $[0/0]$\n- ☐ Skrev $x^x=e^{x\\ln x}$ og eksponentierte tilbake i c)"
+        }
+      ]
+    },
+    {
+      "id": "mat111-uib-2-prove-symbol",
+      "type": "collapsible",
+      "title": "Symbol- og formelliste",
+      "buttonText": "Vis symboler og formler",
+      "content": [
+        {
+          "id": "mat111-uib-2-prove-symbol-t",
+          "type": "text",
+          "content": "## Symbol- og formelliste (Del 2)\n\n| Formel | Bruk |\n|---|---|\n| $\\forall\\varepsilon>0\\ \\exists\\delta>0:\\ 0<|x-a|<\\delta\\Rightarrow|f(x)-L|<\\varepsilon$ | ε-δ-definisjonen |\n| $\\delta=\\min\\{1,\\ \\varepsilon/K\\}$ | δ-valget etter avgrensing med skranke $K$ |\n| $x>R(\\varepsilon)\\Rightarrow|f(x)-L|<\\varepsilon$ | $R$-$\\varepsilon$-varianten mot $\\infty$ |\n| $[0/0]$, $[\\infty/\\infty]$, $[\\infty-\\infty]$, $1^\\infty$, $0\\cdot\\infty$, $0^0$ | de ubestemte formene (markeres FØR L'Hôpital) |\n| $\\dfrac{\\sin x}{x}\\to1$, $\\dfrac{e^x-1}{x}\\to1$, $x\\ln x\\to0$ | standardgrenser |\n| $\\ln x \\ll x^p \\ll e^x$ ($x\\to\\infty$) | veksthierarkiet |\n| $f$ kontinuerlig i $a$: $\\lim_{x\\to a}f(x)=f(a)$ | kontinuitetsdefinisjonen |\n| fortegnsskifte + kontinuitet ⇒ nullpunkt | skjæringssetningen (mellomverdisetningen) |\n\nAlt forklares i delens teorikapitler [kap. 2.1](/bok/mat111-uib/mat111-uib-2-1)–[kap. 2.4](/bok/mat111-uib/mat111-uib-2-4)."
+        }
+      ]
+    }
+  ],
+  "exercises": []
+}

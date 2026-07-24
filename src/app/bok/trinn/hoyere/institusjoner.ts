@@ -53,6 +53,16 @@ export const INSTITUSJONER: Institusjon[] = [
     ],
   },
   {
+    slug: 'uib',
+    name: 'UiB',
+    fullName: 'Universitetet i Bergen',
+    icon: '⛰️',
+    color: 'from-cyan-700 to-blue-800',
+    subjects: [
+      { courseId: 'mat111-uib', name: 'MAT111 Grunnkurs i matematikk I', icon: '📐', color: 'from-slate-500 to-slate-700' },
+    ],
+  },
+  {
     slug: 'ntnu',
     name: 'NTNU',
     fullName: 'Norges teknisk-naturvitenskapelige universitet',

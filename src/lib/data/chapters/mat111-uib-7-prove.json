@@ -1,0 +1,316 @@
+{
+  "id": "mat111-uib-7-prove",
+  "courseId": "mat111-uib",
+  "chapterNumber": "7.P",
+  "title": "Prøver til del 7: Uendelige rekker",
+  "description": "Fire prøver som dekker hele Del 7 — konvergenstester med formsjekk, p-rekker og integraltesten mot parallellen i kap. 5.5, potensrekker med endepunktssjekk, og Taylorrekker med restleddsargument og tallnærming. Med fasit etter føringsstandarden og selvdiagnose.",
+  "estimatedMinutes": 125,
+  "competenceGoals": [
+    "kunne velge, navngi og gjennomføre riktig konvergenstest med forutsetningene sjekket",
+    "kunne bruke integraltesten med lim-føring og forklare parallellen mellom rekker og uegentlige integraler",
+    "kunne bestemme konvergensradius og -intervall med begge endepunktene undersøkt separat",
+    "kunne gjennomføre et R_n → 0-argument og levere tallnærminger med garantert feilskranke"
+  ],
+  "content": [
+    {
+      "id": "mat111-uib-7-prove-tip",
+      "type": "tip",
+      "title": "Om prøvene til Del 7",
+      "content": "Fire prøver som dekker hele Del 7 (uendelige rekker). Til sammen **4 prøver à ~30–35 min, kan trygt deles over flere kvelder — én prøve per økt**.\n\n**Ærlighetsforbeholdet (gjelder alle fire prøvene):** uendelige rekker har **0 forekomster i eksamensarkivet etter 2005** og var ute av pensumlistene 2006–2019, men står i **gjeldende emnebeskrivelse (2026)**. Prøvene er derfor kalibrert mot de gamle 2003–2005-sjangrene som mal — **sjekk selv første tilgjengelige sett etter 2020** og juster prioriteten deretter. Tren Del 5–6-prøvene først hvis tiden er knapp; prioriteten her er **kjenne**.\n\nDelens tre føringskrav: **testen navngis og forutsetningene sjekkes**, forholdstest-grensen $L=1$ konkluderes ALDRI, og **endepunktene i konvergensintervall undersøkes separat**. Full fasit ligger som utvidbare løsninger; **avkryssbar selvdiagnose** avslutter hver prøve.\n\n| Prøve | Tema (kap.) | Tid |\n|---|---|---|\n| 7.A | Konvergenstester — tre rekker, tre tester (7.1) | ~30 min |\n| 7.B | $p$-rekker og integraltesten — parallellen rekke/uegentlig integral (7.1 + 5.5) | ~30 min |\n| 7.C | Potensrekker — konvergensradius og -intervall med endepunktssjekk (7.2) | ~30 min |\n| 7.D | Taylorrekker — standardrekke + $R_n\\to 0$ + tallnærming (7.2 + 4.3) | ~35 min |"
+    },
+    {
+      "id": "mat111-uib-7-prove-fork",
+      "type": "text",
+      "content": "**Forkunnskaper** — punktvis, med det du trenger fra hver kilde:\n\n- **[kap. 7.1](/bok/mat111-uib/mat111-uib-7-1)** — hele testverktøykassen: $n$-te-ledd-testen, geometrisk rekke, $p$-rekker, forholdstesten, integraltesten, grensesammenligning, Leibniz og absolutt/betinget konvergens (prøve 7.A og 7.B).\n- **[kap. 7.2](/bok/mat111-uib/mat111-uib-7-2)** — konvergensradius og -intervall, Taylorrekker med restleddskriteriet, standardrekkene og tallnærming (prøve 7.C og 7.D).\n- **[kap. 5.5](/bok/mat111-uib/mat111-uib-5-5)** — uegentlige integraler med $\\lim$-føring og $p$-integralene; integraltesten i prøve 7.B gjenbruker dem direkte.\n- **[kap. 4.3](/bok/mat111-uib/mat111-uib-4-3)** — Lagrange-restleddet og skrankedisiplinen; prøve 7.D er restleddsargumentet «med $n$ som løper».\n\nLøs uten fasit først; sjekk deretter føringen ledd for ledd — det er føringen som gir poengene."
+    },
+    {
+      "id": "mat111-uib-7-prove-p1",
+      "type": "collapsible",
+      "title": "Prøve 1 — Konvergenstester: tre rekker, tre tester (7.A, ~30 min)",
+      "buttonText": "Vis prøve 1",
+      "content": [
+        {
+          "id": "mat111-uib-7-prove-p1-intro",
+          "type": "text",
+          "content": "**Prøve 7.A.** Tre rekker, tre ulike tester, ~30 min. Føringskrav i hver oppgave: **formsjekk** (hvorfor akkurat denne testen?), testen **navngitt**, forutsetningene sjekket, konklusjon."
+        },
+        {
+          "id": "mat111-uib-7-prove-p1o1-w",
+          "type": "exercise",
+          "exercise": {
+            "id": "mat111-uib-7-prove-p1o1",
+            "number": "1",
+            "type": "classic",
+            "difficulty": "lett",
+            "task": "Avgjør om $\\displaystyle\\sum_{n=1}^\\infty \\frac{n^2}{2^n}$ konvergerer. Navngi testen og begrunn valget med rekkens form.",
+            "solution": "**Formsjekk:** leddene inneholder potensen $2^n$ — potens-/fakultetsstruktur peker mot **forholdstesten**.\n\n**Forholdet:**\n\n$$\\left|\\frac{a_{n+1}}{a_n}\\right| = \\frac{(n+1)^2}{2^{n+1}}\\cdot\\frac{2^n}{n^2} = \\frac12\\Big(\\frac{n+1}{n}\\Big)^2 = \\frac12\\Big(1+\\frac1n\\Big)^2 \\longrightarrow \\frac12 \\quad (n\\to\\infty).$$\n\n**Konklusjon:** $L = \\dfrac12 < 1$, så etter **forholdstesten konvergerer** rekken. (Polynomfaktoren $n^2$ taper mot den geometriske faktoren $2^n$ — samme lærdom som i [kap. 7.1](/bok/mat111-uib/mat111-uib-7-1).) $\\blacksquare$",
+            "hints": [
+              "Hvilket formsignal gir $2^n$ i nevneren?",
+              "$\\frac{2^n}{2^{n+1}} = \\frac12$; resten av forholdet går mot $1$."
+            ]
+          }
+        },
+        {
+          "id": "mat111-uib-7-prove-p1o2-w",
+          "type": "exercise",
+          "exercise": {
+            "id": "mat111-uib-7-prove-p1o2",
+            "number": "2",
+            "type": "classic",
+            "difficulty": "middels",
+            "task": "Avgjør om $\\displaystyle\\sum_{n=1}^\\infty \\frac{2n+1}{n^2+4}$ konvergerer. Navngi testen og sammenligningsrekken.",
+            "solution": "**Formsjekk:** rasjonalt uttrykk — dominerende ledd er $\\dfrac{2n}{n^2} = \\dfrac2n$, så kandidaten er **grensesammenligningstesten** mot **den harmoniske rekken $\\sum\\frac1n$** (divergent $p$-rekke, $p=1$).\n\n**Førstefilter:** leddene går mot null ($\\frac{2n+1}{n^2+4}\\to 0$), så $n$-te-ledd-testen feller ingenting — det er *raten* som må undersøkes.\n\n**Grensen:**\n\n$$\\frac{a_n}{b_n} = \\frac{2n+1}{n^2+4}\\cdot n = \\frac{2n^2+n}{n^2+4} = \\frac{2+1/n}{1+4/n^2} \\longrightarrow 2 \\in (0,\\infty).$$\n\n**Konklusjon:** etter **grensesammenligningstesten** deler rekken skjebne med den harmoniske rekken, som divergerer — rekken **divergerer**. $\\blacksquare$",
+            "hints": [
+              "Plukk dominerende ledd i teller og nevner — det gir sammenligningsrekken $b_n$.",
+              "Grensen $a_n/b_n$ skal regnes eksplisitt og være et endelig, positivt tall.",
+              "Sammenligningsrekken skal navngis MED status (divergent $p$-rekke med $p=1$)."
+            ]
+          }
+        },
+        {
+          "id": "mat111-uib-7-prove-p1o3-w",
+          "type": "exercise",
+          "exercise": {
+            "id": "mat111-uib-7-prove-p1o3",
+            "number": "3",
+            "type": "classic",
+            "difficulty": "vanskelig",
+            "task": "Avgjør om $\\displaystyle\\sum_{n=2}^\\infty \\frac{1}{n(\\ln n)^3}$ konvergerer. Navngi testen, sjekk forutsetningene og før integralet med $\\lim$-notasjon.",
+            "solution": "**Formsjekk:** $\\ln$-uttrykk uten potens-/fakultetsstruktur, men $f(x) = \\dfrac{1}{x(\\ln x)^3}$ lar seg integrere (substitusjon) — **integraltesten**.\n\n**Forutsetninger** på $[2,\\infty)$: $f$ er **positiv** ✓ (begge faktorene positive for $x\\ge 2$), **kontinuerlig** ✓, og **avtakende** ✓ (både $x$ og $(\\ln x)^3$ vokser, så nevneren vokser).\n\n**Integralet med lim-føring** (substitusjon $u=\\ln x$, $du = dx/x$; nye grenser $x=2\\mapsto u=\\ln 2$, $x=R\\mapsto u=\\ln R$):\n\n$$\\int_2^\\infty \\frac{dx}{x(\\ln x)^3} = \\lim_{R\\to\\infty}\\int_{\\ln 2}^{\\ln R}\\frac{du}{u^3} = \\lim_{R\\to\\infty}\\left[-\\frac{1}{2u^2}\\right]_{\\ln 2}^{\\ln R} = \\lim_{R\\to\\infty}\\left(\\frac{1}{2(\\ln 2)^2} - \\frac{1}{2(\\ln R)^2}\\right) = \\frac{1}{2(\\ln 2)^2}.$$\n\nIntegralet konvergerer (verdien er $\\approx 1{,}04$), så etter **integraltesten konvergerer** rekken.\n\n**Merk:** verdien $\\frac{1}{2(\\ln 2)^2}$ er integralets verdi, **ikke** rekkens sum — testen gir bare konvergens/divergens. $\\blacksquare$",
+            "hints": [
+              "Substitusjonen $u=\\ln x$ gjør integranden til $u^{-3}$ — husk nye grenser.",
+              "Alle tre forutsetningene (positiv, kontinuerlig, avtakende) skal nevnes.",
+              "«Sett inn $\\infty$» underkjennes — skriv $\\lim_{R\\to\\infty}$ hele veien."
+            ]
+          }
+        },
+        {
+          "id": "mat111-uib-7-prove-chk-p1",
+          "type": "text",
+          "content": "**Selvdiagnose — kryss av det du fikk til uten å slå opp:**\n\n- ☐ Gjorde formsjekk FØR testvalg i alle tre oppgavene (potens → forhold, rasjonal → sammenligning, $\\ln$/integrerbar → integral)\n- ☐ Navnga testen i hver konklusjon\n- ☐ Navnga sammenligningsrekken med status og regnet grensen $a_n/b_n$ eksplisitt\n- ☐ Sjekket integraltestens tre forutsetninger eksplisitt\n- ☐ Førte det uegentlige integralet med $\\lim$-notasjon og nye substitusjonsgrenser\n- ☐ Skilte integralets verdi fra rekkens sum"
+        }
+      ]
+    },
+    {
+      "id": "mat111-uib-7-prove-p2",
+      "type": "collapsible",
+      "title": "Prøve 2 — p-rekker og integraltesten (7.B, ~30 min)",
+      "buttonText": "Vis prøve 2",
+      "content": [
+        {
+          "id": "mat111-uib-7-prove-p2-intro",
+          "type": "text",
+          "content": "**Prøve 7.B.** Tre oppgaver om parallellen mellom rekker og uegentlige integraler ([kap. 5.5](/bok/mat111-uib/mat111-uib-5-5)), ~30 min. Alle integraler føres med $\\lim$-notasjon."
+        },
+        {
+          "id": "mat111-uib-7-prove-p2o1-w",
+          "type": "exercise",
+          "exercise": {
+            "id": "mat111-uib-7-prove-p2o1",
+            "number": "1",
+            "type": "classic",
+            "difficulty": "middels",
+            "task": "Bruk integraltesten til å bevise $p$-rekke-kriteriet: $\\displaystyle\\sum_{n=1}^\\infty\\frac{1}{n^p}$ konvergerer hvis og bare hvis $p>1$. (Du kan regne med $p>0$, slik at forutsetningene for testen er oppfylt; kommenter til slutt hvorfor $p\\le 0$ er uproblematisk.)",
+            "solution": "**Forutsetninger:** for $p>0$ er $f(x) = x^{-p}$ positiv, kontinuerlig og avtakende på $[1,\\infty)$ — integraltesten kan brukes, og rekken deler skjebne med $\\displaystyle\\int_1^\\infty\\frac{dx}{x^p}$.\n\n**Tilfellet $p\\neq 1$** (med lim-føring):\n\n$$\\int_1^\\infty x^{-p}\\,dx = \\lim_{R\\to\\infty}\\left[\\frac{x^{1-p}}{1-p}\\right]_1^R = \\lim_{R\\to\\infty}\\frac{R^{1-p}-1}{1-p}.$$\n\nGrensen er endelig nøyaktig når $R^{1-p}\\to 0$, altså når $1-p<0$, dvs. **$p>1$** (verdi $\\frac{1}{p-1}$); for $p<1$ vokser $R^{1-p}$ over alle grenser og integralet divergerer.\n\n**Tilfellet $p=1$:**\n\n$$\\int_1^\\infty\\frac{dx}{x} = \\lim_{R\\to\\infty}\\big[\\ln x\\big]_1^R = \\lim_{R\\to\\infty}\\ln R = \\infty$$\n\n— divergens.\n\n**Konklusjon:** integralet — og dermed rekken, etter **integraltesten** — konvergerer hvis og bare hvis $p>1$. For $p\\le 0$ går ikke leddene $1/n^p$ mot null, så rekken divergerer allerede etter $n$-te-ledd-testen; kriteriet gjelder altså for alle $p$. $\\blacksquare$",
+            "hints": [
+              "Del i tilfellene $p\\neq 1$ (potensregelen) og $p=1$ ($\\ln$) — samme regning som $p$-integralene i kap. 5.5.",
+              "Endeligheten avgjøres av fortegnet til eksponenten $1-p$.",
+              "For $p\\le 0$: hva skjer med leddene $1/n^p$ når $n\\to\\infty$?"
+            ]
+          }
+        },
+        {
+          "id": "mat111-uib-7-prove-p2o2-w",
+          "type": "exercise",
+          "exercise": {
+            "id": "mat111-uib-7-prove-p2o2",
+            "number": "2",
+            "type": "classic",
+            "difficulty": "middels",
+            "task": "Avgjør konvergens for de to nesten like rekkene, med full integraltest-føring:\n\n**a)** $\\displaystyle\\sum_{n=2}^\\infty \\frac{1}{n\\ln n}$\n\n**b)** $\\displaystyle\\sum_{n=2}^\\infty \\frac{1}{n(\\ln n)^2}$\n\nForklar til slutt hva paret illustrerer om $p$-grensen «i $\\ln$-etasjen».",
+            "solution": "**Forutsetninger (felles):** begge integrandene $\\frac{1}{x(\\ln x)^k}$ ($k=1,2$) er positive, kontinuerlige og avtakende på $[2,\\infty)$ — integraltesten gjelder. Substitusjonen $u=\\ln x$, $du=dx/x$ (nye grenser $\\ln 2$ og $\\ln R$) brukes i begge.\n\n**a)**\n\n$$\\int_2^\\infty\\frac{dx}{x\\ln x} = \\lim_{R\\to\\infty}\\big[\\ln u\\big]_{\\ln 2}^{\\ln R} = \\lim_{R\\to\\infty}\\big(\\ln\\ln R - \\ln\\ln 2\\big) = \\infty$$\n\n— integralet divergerer, så rekken **divergerer** etter integraltesten.\n\n**b)**\n\n$$\\int_2^\\infty\\frac{dx}{x(\\ln x)^2} = \\lim_{R\\to\\infty}\\left[-\\frac1u\\right]_{\\ln 2}^{\\ln R} = \\lim_{R\\to\\infty}\\left(\\frac{1}{\\ln 2}-\\frac{1}{\\ln R}\\right) = \\frac{1}{\\ln 2}$$\n\n— integralet konvergerer, så rekken **konvergerer** etter integraltesten (og integralverdien $\\frac{1}{\\ln 2}\\approx 1{,}44$ er ikke rekkens sum).\n\n**Paret illustrerer:** i «$\\ln$-etasjen» går det et skille ved eksponent $1$ på $\\ln$-faktoren, nøyaktig som $p$-grensen for $p$-rekkene — eksponent $1$ faller utenfor ($\\ln\\ln R\\to\\infty$, sakte men sikkert), alt over $1$ innenfor. Grensesammenligning mot $\\sum\\frac1n$ er tannløs her (grensen blir $0$) — bare integraltesten skiller tvillingene. $\\blacksquare$",
+            "hints": [
+              "Samme substitusjon $u=\\ln x$ i begge — bare eksponenten på $u$ skiller dem.",
+              "$\\int u^{-1}du = \\ln u$; $\\int u^{-2}du = -u^{-1}$.",
+              "Sammenlign med $p$-rekkene: hvor går skillet, og hvilken side faller eksponent 1 på?"
+            ]
+          }
+        },
+        {
+          "id": "mat111-uib-7-prove-p2o3-w",
+          "type": "exercise",
+          "exercise": {
+            "id": "mat111-uib-7-prove-p2o3",
+            "number": "3",
+            "type": "classic",
+            "difficulty": "vanskelig",
+            "task": "Avgjør om $\\displaystyle\\sum_{n=1}^\\infty n\\,e^{-n^2}$ konvergerer, med integraltesten. Forutsetningen om avtakende integrand er ikke opplagt her — vis den med en derivertsjekk.",
+            "solution": "**Formsjekk:** $f(x) = xe^{-x^2}$ er lett å integrere (substitusjon $u=x^2$) — integraltesten.\n\n**Forutsetninger på $[1,\\infty)$:** $f$ er **positiv** ✓ og **kontinuerlig** ✓. **Avtakende:** deriver:\n\n$$f'(x) = e^{-x^2} + x\\cdot(-2x)e^{-x^2} = e^{-x^2}\\big(1 - 2x^2\\big) < 0 \\quad\\text{for } x \\ge 1$$\n\n(faktoren $e^{-x^2}$ er positiv, og $1-2x^2 \\le -1 < 0$ når $x\\ge 1$) ✓. Alle tre forutsetningene er dokumentert.\n\n**Integralet med lim-føring** (substitusjon $u = x^2$, $du = 2x\\,dx$; nye grenser $x=1\\mapsto u=1$, $x=R\\mapsto u=R^2$):\n\n$$\\int_1^\\infty xe^{-x^2}dx = \\lim_{R\\to\\infty}\\int_1^{R^2}\\frac{e^{-u}}{2}\\,du = \\lim_{R\\to\\infty}\\left[-\\frac{e^{-u}}{2}\\right]_1^{R^2} = \\lim_{R\\to\\infty}\\left(\\frac{e^{-1}}{2} - \\frac{e^{-R^2}}{2}\\right) = \\frac{1}{2e}.$$\n\nIntegralet konvergerer (verdien $\\approx 0{,}18$), så etter **integraltesten konvergerer** rekken. $\\blacksquare$\n\n*Alternativt:* forholdstesten fungerer også — $\\left|\\frac{a_{n+1}}{a_n}\\right| = \\frac{n+1}{n}e^{-(2n+1)} \\to 0 < 1$. Begge føringer honoreres; poenget i denne oppgaven er at avtakende-sjekken IKKE kan hoppes over når du velger integralveien ($f$ vokser faktisk på $[0, 1/\\sqrt2]$ — det er randen $x\\ge 1$ som redder forutsetningen).",
+            "hints": [
+              "Produktregelen på $xe^{-x^2}$ — faktoriser ut $e^{-x^2}$.",
+              "Substitusjonen $u=x^2$ gjør integralet elementært; husk nye grenser.",
+              "Merk at $f$ vokser nær null — derfor må avtakende-sjekken forankres i intervallet $[1,\\infty)$."
+            ]
+          }
+        },
+        {
+          "id": "mat111-uib-7-prove-chk-p2",
+          "type": "text",
+          "content": "**Selvdiagnose — kryss av det du fikk til uten å slå opp:**\n\n- ☐ Delte $p$-beviset i tilfellene $p\\neq 1$ og $p=1$, med lim-føring i begge\n- ☐ Koblet endeligheten til fortegnet på eksponenten $1-p$\n- ☐ Skilte $\\ln$-tvillingene med integraltesten og forklarte parallellen til $p$-grensen\n- ☐ Viste avtakende-forutsetningen med derivertsjekk der den ikke var opplagt\n- ☐ Byttet grenser konsekvent ved substitusjon i uegentlige integraler\n- ☐ Holdt integralverdi og rekkesum fra hverandre i alle oppgavene"
+        }
+      ]
+    },
+    {
+      "id": "mat111-uib-7-prove-p3",
+      "type": "collapsible",
+      "title": "Prøve 3 — Potensrekker: radius og intervall (7.C, ~30 min)",
+      "buttonText": "Vis prøve 3",
+      "content": [
+        {
+          "id": "mat111-uib-7-prove-p3-intro",
+          "type": "text",
+          "content": "**Prøve 7.C.** Tre potensrekke-oppgaver, ~30 min. Føringskrav: radius fra forholdstesten, deretter **to separate endepunktsundersøkelser med navngitte tester** — og hold radius (tall) og intervall (mengde) fra hverandre."
+        },
+        {
+          "id": "mat111-uib-7-prove-p3o1-w",
+          "type": "exercise",
+          "exercise": {
+            "id": "mat111-uib-7-prove-p3o1",
+            "number": "1",
+            "type": "classic",
+            "difficulty": "middels",
+            "task": "Finn konvergensradius og konvergensintervall for $\\displaystyle\\sum_{n=1}^\\infty \\frac{(x-2)^n}{n\\,4^n}$.",
+            "solution": "**Forholdstesten:**\n\n$$L(x) = \\lim_{n\\to\\infty}\\left|\\frac{(x-2)^{n+1}}{(n+1)4^{n+1}}\\cdot\\frac{n\\,4^n}{(x-2)^n}\\right| = \\frac{|x-2|}{4}\\cdot\\lim_{n\\to\\infty}\\frac{n}{n+1} = \\frac{|x-2|}{4}.$$\n\n$L<1$ gir $|x-2|<4$: **$R=4$**, sentrum $2$, kandidatintervall fra $-2$ til $6$.\n\n**Endepunktene** (forholdstesten er uavgjort der, $L=1$):\n\n- $x=6$: $\\displaystyle\\sum\\frac{4^n}{n\\,4^n} = \\sum\\frac1n$ — harmonisk rekke, **divergerer** ($p$-rekke-kriteriet, $p=1$).\n- $x=-2$: $\\displaystyle\\sum\\frac{(-4)^n}{n\\,4^n} = \\sum\\frac{(-1)^n}{n}$ — alternerende harmonisk; $b_n=\\frac1n$ er positiv, avtakende, mot null, så rekken **konvergerer** etter **Leibniz' kriterium** (betinget — absoluttrekken er den harmoniske).\n\n**Konklusjon:** $R = 4$ og konvergensintervallet er $[-2,\\ 6)$. $\\blacksquare$",
+            "hints": [
+              "Forholdet gir $\\frac{|x-2|}{4}$ — radien leses av kravet $L<1$.",
+              "Sett inn $x=6$ og $x=-2$ hver for seg; $4^n$-faktorene forkortes.",
+              "Navngi testen i hvert endepunkt — det er der føringspoengene sitter."
+            ]
+          }
+        },
+        {
+          "id": "mat111-uib-7-prove-p3o2-w",
+          "type": "exercise",
+          "exercise": {
+            "id": "mat111-uib-7-prove-p3o2",
+            "number": "2",
+            "type": "classic",
+            "difficulty": "middels",
+            "task": "Finn konvergensradius og konvergensintervall for $\\displaystyle\\sum_{n=1}^\\infty \\frac{(x-3)^n}{n^2\\,5^n}$.",
+            "solution": "**Forholdstesten:**\n\n$$L(x) = \\left|\\frac{(x-3)^{n+1}}{(n+1)^2 5^{n+1}}\\cdot\\frac{n^2 5^n}{(x-3)^n}\\right| = \\frac{|x-3|}{5}\\Big(\\frac{n}{n+1}\\Big)^2 \\longrightarrow \\frac{|x-3|}{5}.$$\n\n$L<1$ gir $|x-3|<5$: **$R=5$**, sentrum $3$, kandidatintervall fra $-2$ til $8$.\n\n**Endepunktene:**\n\n- $x=8$: $\\displaystyle\\sum\\frac{5^n}{n^2 5^n} = \\sum\\frac{1}{n^2}$ — **konvergerer** ($p$-rekke-kriteriet, $p=2>1$).\n- $x=-2$: $\\displaystyle\\sum\\frac{(-1)^n}{n^2}$ — absoluttrekken er $\\sum\\frac{1}{n^2}$ (konvergent $p$-rekke), så rekken **konvergerer absolutt**.\n\n**Konklusjon:** $R = 5$ og konvergensintervallet er $[-2,\\ 8]$ — begge endepunktene med, fordi $n^2$-dempingen er sterk nok til å redde begge randene (kontrast til $n$-dempingen i oppgave 1). $\\blacksquare$",
+            "hints": [
+              "$\\big(\\frac{n}{n+1}\\big)^2\\to 1$; koeffisientgrensen er $\\frac15$.",
+              "I endepunktene oppstår $\\pm$-varianter av $\\sum 1/n^2$.",
+              "Absolutt konvergens i det ene endepunktet kan begrunnes via absoluttrekken — én linje."
+            ]
+          }
+        },
+        {
+          "id": "mat111-uib-7-prove-p3o3-w",
+          "type": "exercise",
+          "exercise": {
+            "id": "mat111-uib-7-prove-p3o3",
+            "number": "3",
+            "type": "classic",
+            "difficulty": "vanskelig",
+            "task": "Finn konvergensradien til hver rekke, og angi konvergensintervallet:\n\n**a)** $\\displaystyle\\sum_{n=0}^\\infty \\frac{(2x)^n}{n!}$\n\n**b)** $\\displaystyle\\sum_{n=0}^\\infty n!\\,(x-1)^n$",
+            "solution": "**a) Forholdstesten:**\n\n$$\\left|\\frac{(2x)^{n+1}}{(n+1)!}\\cdot\\frac{n!}{(2x)^n}\\right| = \\frac{2|x|}{n+1} \\longrightarrow 0 \\quad\\text{for alle } x.$$\n\n$L=0<1$ uansett $x$: **$R=\\infty$**, og konvergensintervallet er hele tallinjen $(-\\infty,\\infty)$ — ingen endepunkter å sjekke. (Rekken er for øvrig $e^{2x}$-rekken: sett $2x$ inn i standardrekken for $e^x$.)\n\n**b) Forholdstesten:**\n\n$$\\left|\\frac{(n+1)!\\,(x-1)^{n+1}}{n!\\,(x-1)^n}\\right| = (n+1)|x-1| \\longrightarrow \\infty \\quad\\text{for alle } x\\neq 1.$$\n\nTesten gir divergens overalt utenfor sentrum: **$R=0$**, og «intervallet» er det ene punktet $\\{1\\}$ (der alle ledd unntatt $n=0$-leddet er null).\n\n**Konklusjon:** a) $R=\\infty$, intervall $(-\\infty,\\infty)$; b) $R=0$, konvergens bare i $x=1$. De to er ytterpunktene i de tre konvergensmønstrene fra [kap. 7.2](/bok/mat111-uib/mat111-uib-7-2) — fakulteten i nevneren redder alt, i telleren ødelegger den alt. $\\blacksquare$",
+            "hints": [
+              "$\\frac{(n+1)!}{n!} = n+1$ — i hver sin retning i a) og b).",
+              "$L=0$ for alle $x$ betyr hva for radien? Og $L=\\infty$ for alle $x\\neq$ sentrum?",
+              "Husk at enhver potensrekke konvergerer i sitt eget sentrum."
+            ]
+          }
+        },
+        {
+          "id": "mat111-uib-7-prove-chk-p3",
+          "type": "text",
+          "content": "**Selvdiagnose — kryss av det du fikk til uten å slå opp:**\n\n- ☐ Regnet forholdstest-grensen med $|x-a|$-faktoren skilt ut\n- ☐ Leste radien av kravet $L<1$ — og holdt radius (tall) og intervall (mengde) fra hverandre\n- ☐ Undersøkte begge endepunktene separat, med navngitt test for hvert\n- ☐ Gjenkjente den alternerende harmoniske rekken i et endepunkt (Leibniz, betinget)\n- ☐ Håndterte ytterpunktene $R=\\infty$ og $R=0$ og visste hva «intervallet» er i hvert tilfelle"
+        }
+      ]
+    },
+    {
+      "id": "mat111-uib-7-prove-p4",
+      "type": "collapsible",
+      "title": "Prøve 4 — Taylorrekker: standardrekke, restledd og tallnærming (7.D, ~35 min)",
+      "buttonText": "Vis prøve 4",
+      "content": [
+        {
+          "id": "mat111-uib-7-prove-p4-intro",
+          "type": "text",
+          "content": "**Prøve 7.D.** Tre oppgaver, ~35 min: standardrekke med $R_n\\to 0$-argument, tallnærming med feilskranke, og dimensjonering av antall ledd. Restleddsdisiplinen fra [kap. 4.3](/bok/mat111-uib/mat111-uib-4-3) gjelder: skranken skal begrunnes, ikke bare påstås."
+        },
+        {
+          "id": "mat111-uib-7-prove-p4o1-w",
+          "type": "exercise",
+          "exercise": {
+            "id": "mat111-uib-7-prove-p4o1",
+            "number": "1",
+            "type": "classic",
+            "difficulty": "middels",
+            "task": "Skriv opp Maclaurinrekken til $f(x) = \\cos x$, og vis med Lagrange-restleddet at rekken konvergerer mot $\\cos x$ for alle $x$.",
+            "solution": "**Rekken.** De deriverte sykler $\\cos x \\to -\\sin x \\to -\\cos x \\to \\sin x \\to \\cos x$, så verdiene i $0$ er $1, 0, -1, 0, 1, \\ldots$ — bare de jevne potensene overlever:\n\n$$\\cos x \\ \\text{har Maclaurinrekken}\\ \\sum_{k=0}^\\infty\\frac{(-1)^k x^{2k}}{(2k)!} = 1 - \\frac{x^2}{2!} + \\frac{x^4}{4!} - \\cdots$$\n\n**Restleddsargumentet.** Fiksér $x$. Alle deriverte av $\\cos$ er $\\pm\\cos$ eller $\\pm\\sin$, så **begrensetheten uttales**: $|f^{(n+1)}(c)|\\le 1$ for alle $c$. Lagrange-restleddet gir dermed\n\n$$|R_n(x)| = \\left|\\frac{f^{(n+1)}(c)}{(n+1)!}x^{n+1}\\right| \\le \\frac{|x|^{n+1}}{(n+1)!} \\longrightarrow 0 \\quad (n\\to\\infty),$$\n\nsiden fakulteten i nevneren til slutt vokser raskere enn potensen i telleren, for hvert fast $x$.\n\n**Konklusjon:** $R_n(x)\\to 0$ for alle $x$, så etter **restleddskriteriet** er $\\cos x = \\sum_{k=0}^\\infty\\frac{(-1)^kx^{2k}}{(2k)!}$ for alle $x$. $\\blacksquare$\n\n*Føringens tre ledd:* restleddet skrevet opp — skranken $|f^{(n+1)}(c)|\\le 1$ uttalt — grensen $\\frac{|x|^{n+1}}{(n+1)!}\\to 0$ begrunnet. Å skrive likheten uten dette argumentet er sjangerens hovedfeil.",
+            "hints": [
+              "Regn derivertsyklusen i $0$ — mønsteret har periode 4, og annenhver verdi er null.",
+              "Hvor store kan $\\pm\\sin$ og $\\pm\\cos$ bli? Skranken er uavhengig av både $c$ og $x$.",
+              "Avslutt med fakultet-mot-potens-grensen for fast $x$."
+            ]
+          }
+        },
+        {
+          "id": "mat111-uib-7-prove-p4o2-w",
+          "type": "exercise",
+          "exercise": {
+            "id": "mat111-uib-7-prove-p4o2",
+            "number": "2",
+            "type": "classic",
+            "difficulty": "middels",
+            "task": "Bruk standardrekken for $\\ln(1+x)$ til å tilnærme $\\ln(1{,}1)$ med to ledd. Tallfest feilen med Leibniz-skranken, avgjør fortegnet på feilen, og angi et intervall som garantert inneholder $\\ln(1{,}1)$.",
+            "solution": "**Innsetting.** $x = 0{,}1$ ligger i gyldighetsområdet $(-1,1]$:\n\n$$\\ln(1{,}1) = 0{,}1 - \\frac{0{,}1^2}{2} + \\frac{0{,}1^3}{3} - \\cdots$$\n\n**Delsummen av to ledd:**\n\n$$S_2 = 0{,}1 - 0{,}005 = 0{,}095.$$\n\n**Feilskranken.** Rekken er alternerende med avtakende ledd, så Leibniz-skranken fra [kap. 7.1](/bok/mat111-uib/mat111-uib-7-1) gjelder:\n\n$$|\\ln(1{,}1) - S_2| \\le b_3 = \\frac{0{,}1^3}{3} = \\frac{0{,}001}{3} \\approx 0{,}00033.$$\n\n**Fortegnet:** første utelatte ledd er positivt ($+x^3/3$), så $S_2$ er et **underestimat** — den sanne verdien ligger over.\n\n**Konklusjon:** $\\ln(1{,}1)$ ligger garantert i intervallet\n\n$$[S_2,\\ S_2 + b_3] = [0{,}0950,\\ 0{,}0954],$$\n\naltså $\\ln(1{,}1) = 0{,}095$ med feil høyst $0{,}00034$, og delsummen er for liten. *(Kontroll: $\\ln(1{,}1) = 0{,}09531\\ldots$ ✓ — i intervallet, tett på øvre ende.)* $\\blacksquare$",
+            "hints": [
+              "To ledd betyr $x - x^2/2$.",
+              "Skranken er det første UTELATTE leddet: $x^3/3$.",
+              "Fortegnet på det utelatte leddet avgjør over/under — og gir intervallet i én bestemt retning."
+            ]
+          }
+        },
+        {
+          "id": "mat111-uib-7-prove-p4o3-w",
+          "type": "exercise",
+          "exercise": {
+            "id": "mat111-uib-7-prove-p4o3",
+            "number": "3",
+            "type": "classic",
+            "difficulty": "vanskelig",
+            "task": "Tallet $\\dfrac1e$ skal tilnærmes med delsummer av standardrekken for $e^x$ i $x=-1$.\n\n**a)** Hvor mange ledd trengs for at feilen garantert er høyst $10^{-3}$? Begrunn med Leibniz-skranken.\n\n**b)** Regn ut delsummen med dette antallet ledd, og kontroller at feilkravet er oppfylt.",
+            "solution": "**a) Dimensjonering.** Innsetting av $x=-1$ gir den alternerende rekken\n\n$$\\frac1e = 1 - 1 + \\frac{1}{2!} - \\frac{1}{3!} + \\frac{1}{4!} - \\cdots = \\sum_{n=0}^\\infty\\frac{(-1)^n}{n!},$$\n\nmed avtakende ledd $b_n = \\frac{1}{n!}$ (fra $n\\ge 1$) — Leibniz-skranken gjelder: etter leddene til og med $n=N$ er feilen høyst $b_{N+1} = \\frac{1}{(N+1)!}$. Kravet:\n\n$$\\frac{1}{(N+1)!} \\le 10^{-3} \\iff (N+1)! \\ge 1000.$$\n\nFakultetene: $6! = 720 < 1000$ og $7! = 5040 \\ge 1000$ — så $N+1 = 7$, altså $N = 6$: **leddene til og med $n=6$, dvs. sju ledd**, er nok (feilskranke $\\frac{1}{5040}\\approx 2{,}0\\cdot 10^{-4}$). Med bare seks ledd er garantien $\\frac{1}{720}\\approx 1{,}4\\cdot 10^{-3}$ — ikke godt nok.\n\n**b) Delsummen:**\n\n$$S_6 = 1 - 1 + \\frac12 - \\frac16 + \\frac{1}{24} - \\frac{1}{120} + \\frac{1}{720} = \\frac{265}{720} \\approx 0{,}36806.$$\n\n**Kontroll:** $\\frac1e = 0{,}36788\\ldots$, så den faktiske feilen er $|0{,}36806 - 0{,}36788| \\approx 1{,}8\\cdot 10^{-4} \\le \\frac{1}{5040} \\approx 2{,}0\\cdot 10^{-4}$ ✓ — kravet $10^{-3}$ er oppfylt med god margin.\n\n**Konklusjon:** sju ledd ($n = 0$ til $6$) garanterer feil under $10^{-3}$; delsummen er $\\dfrac1e \\approx 0{,}368$. *(Dimensjoneringslogikken — «finn $N$ for gitt feilgrense» — er samme leveranse som i feilformlene for numerisk integrasjon: skranken brukes AKTIVT, ikke bare siteres.)* $\\blacksquare$",
+            "hints": [
+              "Skriv rekken for $e^{-1}$ og identifiser $b_{N+1}$ — det første utelatte leddet.",
+              "Snu kravet til $(N+1)!\\ge 1000$ og let i fakultetstabellen: $6! = 720$, $7! = 5040$.",
+              "I b): regn med brøker (fellesnevner 720) og sammenlign med $1/e$ til slutt."
+            ]
+          }
+        },
+        {
+          "id": "mat111-uib-7-prove-chk-p4",
+          "type": "text",
+          "content": "**Selvdiagnose — kryss av det du fikk til uten å slå opp:**\n\n- ☐ Regnet derivertsyklusen og fikk bare jevne potenser i $\\cos$-rekken\n- ☐ Uttalte begrensetheten $|f^{(n+1)}(c)|\\le 1$ eksplisitt i restleddsargumentet\n- ☐ Begrunnet $\\frac{|x|^{n+1}}{(n+1)!}\\to 0$ for fast $x$ — ikke bare påsto det\n- ☐ Brukte Leibniz-skranken (første utelatte ledd) og avgjorde fortegnet på feilen\n- ☐ Leverte et garantert intervall, ikke bare et tilnærmingstall\n- ☐ Dimensjonerte antall ledd fra feilkravet ($(N+1)!\\ge 1000$) og kontrollerte svaret"
+        }
+      ]
+    },
+    {
+      "id": "mat111-uib-7-prove-symbol",
+      "type": "collapsible",
+      "title": "Symbol- og formelliste",
+      "buttonText": "Vis symboler og formler",
+      "content": [
+        {
+          "id": "mat111-uib-7-prove-symbol-t",
+          "type": "text",
+          "content": "## Symbol- og formelliste (Del 7)\n\n| Formel | Bruk |\n|---|---|\n| $L = \\lim\\big|\\frac{a_{n+1}}{a_n}\\big|$: $<1$ konv., $>1$ div., $=1$ uavgjort | forholdstesten — aldri konkludér ved $L=1$ |\n| $\\sum\\frac{1}{n^p}$ konv. $\\iff p>1$ | $p$-rekke-kriteriet (bevist i prøve 7.B) |\n| $f$ positiv, kontinuerlig, avtakende: $\\sum f(n) \\sim \\int^\\infty f\\,dx$ | integraltesten, med $\\lim$-føring |\n| $\\lim\\frac{a_n}{b_n} = c\\in(0,\\infty)$ | grensesammenligning — navngi $\\sum b_n$ |\n| $b_n\\searrow 0 \\Rightarrow \\sum(-1)^{n+1}b_n$ konv.; $|S-S_N|\\le b_{N+1}$ | Leibniz + feilskranken |\n| $L(x) = |x-a|\\cdot\\lim\\big|\\frac{a_{n+1}}{a_n}\\big| < 1$ | konvergensradius; endepunktene sjekkes separat |\n| $R_n(x)\\to 0 \\Rightarrow f(x) = \\sum\\frac{f^{(k)}(a)}{k!}(x-a)^k$ | restleddskriteriet |\n| $e^x = \\sum\\frac{x^n}{n!}$, $\\sin x = \\sum\\frac{(-1)^kx^{2k+1}}{(2k+1)!}$, $\\cos x = \\sum\\frac{(-1)^kx^{2k}}{(2k)!}$ | standardrekkene (alle $x$) |\n| $\\ln(1+x) = \\sum\\frac{(-1)^{n+1}x^n}{n}$ $(-1<x\\le 1)$; $\\frac{1}{1-x}=\\sum x^n$ $(|x|<1)$ | standardrekkene (endelig radius) |\n\nAlt forklares i delens kapitler [kap. 7.1](/bok/mat111-uib/mat111-uib-7-1)–[kap. 7.2](/bok/mat111-uib/mat111-uib-7-2)."
+        }
+      ]
+    }
+  ],
+  "exercises": []
+}

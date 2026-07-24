@@ -302,6 +302,46 @@ const KILDEGRUNNLAG: Record<string, Kildegrunnlag> = {
     analysedato: 'juli 2026',
   },
 
+  'mat111-uib': {
+    courseId: 'mat111-uib',
+    institusjon: 'Universitetet i Bergen (UiB) — Matematisk institutt',
+    sammendrag:
+      'Boka er kalibrert mot MAT111s eksamensarkiv ved UiB: 34 lesbare ordinære eksamenssett med løsningsforslag fra 2003 til 2020 (to fulle sett per år — vår og høst, med samme temaprofil), samt 5 midtsemesterprøver 2003–2005 og 14 pensumlister. Temafrekvens, oppgavesjangre (A–N), åpen bok-føringsstandarden og settets faste dramaturgi (åpning med komplekse tall, avslutning med anvendt differensiallikning) speiler hva arkivet faktisk tester.',
+    eksamenssett: [
+      {
+        tittel: '34 sett med løsningsforslag (2003–2020)',
+        detalj:
+          'Samtlige årganger 2003–2020, vår + høst. Oppgavesettene fra de siste ~8 årene (2013–2020) er lest grundig oppgave for oppgave; eldre sett er lest for form- og temaregistrering. Løsningsforslagene for alle 34 sett er lest, de mest detaljerte (H2016–H2019, med eksplisitte merknadsavsnitt om hva som ga trekk og full pott) tettest.',
+      },
+      {
+        tittel: '5 midtsemesterprøver (2003–2005)',
+        detalj:
+          'Kun brukt til formhistorikk — ordningen opphørte etter 2005; MAT111 vurderes siden med én avsluttende 5-timers skoleeksamen (åpen bok) som teller 100 %.',
+      },
+    ],
+    sensorveiledninger: [
+      {
+        tittel: 'Løsningsforslag for alle 34 sett — ikke sensorveiledninger i egentlig forstand',
+        detalj:
+          'Arkivet har løsningsforslag/fasiter, ikke egne sensorveiledninger. Fasitene H2016–H2019 inneholder eksplisitte merknadsavsnitt om fasitpraksis (hva som ga trekk/full pott) — de definerer føringsstandarden boka lærer bort: teoremnavning, føringsbokser, eksplisitt lim-notasjon og «vis utregningen, ikke slå opp».',
+      },
+    ],
+    andreKilder: [
+      {
+        tittel: '14 pensumlister (2003–2019) og UiBs emnebeskrivelse (2026)',
+        detalj:
+          'Pensumlistene daterer pensumskiftene (uendelige rekker og flervariabelt stoff ut ~2006; stabil Adams & Essex-liste 2006–2019). Emnebeskrivelsen av 2026 er omskrevet sammendrag og begrunner at uendelige rekker dekkes som pensumpliktig stoff tross manglende arkivbelegg.',
+      },
+    ],
+    forbehold: [
+      'Arkivet stopper i 2020, og H2020-fasiten er bildebasert og ulesbar — H2020 er analysens eneste hull. Sett fra 2021 og senere er ikke lest; frekvensprognosene tar dette forbeholdet eksplisitt.',
+      'Uendelige rekker har 0 arkivforekomster etter 2005, men står i emnebeskrivelsen av 2026 — de dekkes som pensumpliktig stoff med ærlig merket eksamensvinkel.',
+      'Fasiten V2005 er delvis OCR-korrupt; katalogiseringen av det settet er rekonstruert fra formlene.',
+      'Alle oppgaver, tall og kontekster i boka er nyskrevne. Arkivet er brukt som mønster (sjangre, temavekting, føringskrav) — aldri ordrett. Adams & Essex refereres, aldri siteres i lengde.',
+    ],
+    analysedato: 'juli 2026',
+  },
+
   tma4245: {
     courseId: 'tma4245',
     institusjon: 'Norges teknisk-naturvitenskapelige universitet (NTNU) — Institutt for matematiske fag',

@@ -1,0 +1,455 @@
+{
+  "id": "mat111-uib-6-2",
+  "courseId": "mat111-uib",
+  "chapterNumber": "6.2",
+  "title": "Lineære førsteordens differensiallikninger",
+  "description": "Integrerende faktor som standardmetode — med gjenkjenningen (μy)' = μq som føringskrav, resonans-tilfellet, og variasjon av parameter som likeverdig alternativ.",
+  "estimatedMinutes": 50,
+  "competenceGoals": [
+    "kunne bringe en lineær førsteordens likning på standardform og lese av koeffisientfunksjonen med riktig fortegn",
+    "kunne løse initialverdiproblemer med integrerende faktor, inkludert den eksplisitte gjenkjenningen av venstresiden som en produktderivert",
+    "kunne gjennomføre variasjon av parameter som alternativ metode og vite at begge føringer honoreres",
+    "kunne avgjøre om en likning er separabel, lineær eller begge deler, og velge hensiktsmessig metode"
+  ],
+  "content": [
+    {
+      "id": "mat111-uib-6-2-tip",
+      "type": "tip",
+      "title": "Eksamensvinkel",
+      "content": "**Lineære førsteordens likninger er det andre beinet i avslutningsoppgaven (sjanger A, 97 %-blokken).**\n\n- Når avslutningsoppgavens likning ikke er separabel, er den så godt som alltid **lineær**: $y' + p(x)y = q(x)$. Standardvåpenet er **integrerende faktor** $\\mu(x)=e^{\\int p\\,dx}$ — og løsningsforslagene fører gjerne **variasjon av parameter** som likeverdig alternativ («Alternativt:»). Kan du begge, kan du velge den som gir minst regning.\n- Poengene sitter i tre gjenkjennelige ledd: riktig $\\mu$ (fortegn og koeffisient i $\\int p\\,dx$!), **gjenkjenningen $(\\mu y)' = \\mu q$** uttalt eksplisitt, og konstanten bestemt **etter** at $y$ er isolert.\n- Temaet har **høyeste prioritet**: sammen med [kap. 6.1](/bok/mat111-uib/mat111-uib-6-1) dekker det løsningsteknikken i nesten hvert eneste sett — og [kap. 6.3](/bok/mat111-uib/mat111-uib-6-3) setter teknikken inn i de anvendte kontekstene (saltvannstanker og avkjøling er typisk lineære).\n- Blandingsspørsmålet «separabel eller lineær?» er en egen liten ferdighet — noen likninger er begge deler, og da honoreres begge veier. Egen løkke om det nederst."
+    },
+    {
+      "id": "mat111-uib-6-2-fork",
+      "type": "text",
+      "content": "**Forkunnskaper.** Du trenger føringsmalen og konstant-løsningsdisiplinen fra **[kap. 6.1](/bok/mat111-uib/mat111-uib-6-1)**, og integrasjonsteknikkene fra Del 5 (spesielt antideriverte av standardfunksjoner). Møter du lineære differensiallikninger for første gang, gir **[Lineære differensiallikninger (S2 2.3)](/bok/s2/s2-2-3)** en roligere førstegjennomgang.\n\n**Sist du var her — to regler du bruker hele tiden i dag:**\n\n$$\\frac{d}{dx}\\big(u\\,v\\big) = u'v + uv' \\qquad \\text{(produktregelen — baklengs!)}, \\qquad e^{a+b} = e^a e^b,\\quad \\frac{d}{dx}e^{G(x)} = G'(x)e^{G(x)}.$$"
+    },
+    {
+      "id": "mat111-uib-6-2-motiv",
+      "type": "text",
+      "content": "Likningen $y' + 2y = e^{-x}$ er ikke separabel — høyresiden og venstresiden lar seg ikke faktorisere i en ren $x$-del og en ren $y$-del. Men den har en annen struktur: $y$ og $y'$ opptrer *lineært*, hver med sin kjente koeffisient.\n\nTrikset som løser alle slike likninger er nesten frekt: gang hele likningen med en smart valgt faktor $\\mu(x)$, slik at venstresiden **blir den deriverte av produktet $\\mu y$**. Da kollapser likningen til $(\\mu y)' = \\mu q$ — og å løse den er ren integrasjon.\n\nKapitlet har tre læringsløkker: (1) standardformen og den integrerende faktoren, (2) variable koeffisienter og resonans-tilfellet, med variasjon av parameter som alternativ metode, og (3) valget «separabel eller lineær?». Beregnet tid ~50 min — ta pause mellom løkkene."
+    },
+    {
+      "id": "mat111-uib-6-2-l1",
+      "type": "text",
+      "content": "## Løkke 1 — Standardform og integrerende faktor (~20 min)"
+    },
+    {
+      "id": "mat111-uib-6-2-def-linear",
+      "type": "definition",
+      "title": "Lineær førsteordens differensiallikning",
+      "content": "En førsteordens likning er **lineær** dersom den kan skrives\n\n$$y' + p(x)\\,y = q(x),$$\n\nder $p$ og $q$ er kjente funksjoner av $x$ alene. Den ukjente $y$ og dens deriverte opptrer bare i første potens og aldri i produkt med hverandre — derav navnet. $y' + 2y = e^{-x}$ er lineær; $y' = y^2$ er det ikke (men den er separabel)."
+    },
+    {
+      "id": "mat111-uib-6-2-def-standardform",
+      "type": "definition",
+      "title": "Standardformen",
+      "content": "**Standardformen** er $y' + p(x)y = q(x)$ med koeffisient $1$ foran $y'$. Alt starter her: en likning som $x y' + 2y = 4x^2$ må først deles på $x$ (for $x\\neq 0$) til $y' + \\frac{2}{x}y = 4x$ — *før* du leser av $p$. Å lese av $p$ fra en likning som ikke er på standardform er en klassisk kilde til feil integrerende faktor."
+    },
+    {
+      "id": "mat111-uib-6-2-def-pq",
+      "type": "definition",
+      "title": "Koeffisientfunksjonen $p$ og høyresiden $q$",
+      "content": "I standardformen $y' + p(x)y = q(x)$ er $p(x)$ **koeffisientfunksjonen** (den som styrer den integrerende faktoren) og $q(x)$ **høyresiden** (kilde-/pådragsleddet). Merk fortegnskonvensjonen: i $y' - 3y = x$ er $p(x) = -3$, ikke $3$ — leddet skal stå på formen $+\\,p(x)y$."
+    },
+    {
+      "id": "mat111-uib-6-2-def-homogen",
+      "type": "definition",
+      "title": "Homogen og inhomogen likning",
+      "content": "Likningen er **homogen** når $q \\equiv 0$ (altså $y'+p(x)y=0$) og **inhomogen** ellers. Den homogene likningen er alltid separabel og har løsningen $y_h = Ce^{-\\int p\\,dx}$. Den brukes som byggekloss i variasjon av parameter (løkke 2) og i strukturen «generell løsning = homogen løsning + én partikulær løsning»."
+    },
+    {
+      "id": "mat111-uib-6-2-def-mu",
+      "type": "definition",
+      "title": "Integrerende faktor",
+      "content": "Den **integrerende faktoren** til $y' + p(x)y = q(x)$ er funksjonen\n\n$$\\mu(x) = e^{\\int p\\,dx}$$\n\n(én antiderivert holder — integrasjonskonstanten i eksponenten kan sløyfes, den gir bare en felles faktor). Navnet sier hva den gjør: ganger du likningen med $\\mu$, blir venstresiden *integrerbar* som én derivert."
+    },
+    {
+      "id": "mat111-uib-6-2-thm-mu",
+      "type": "theorem",
+      "title": "Gjenkjenningen $(\\mu y)' = \\mu q$",
+      "content": "Med $\\mu = e^{\\int p\\,dx}$ er $\\mu' = p\\,\\mu$ (kjerneregelen). Gang standardformen med $\\mu$:\n\n$$\\mu y' + \\mu p\\,y = \\mu q \\quad\\Longleftrightarrow\\quad \\mu y' + \\mu' y = \\mu q \\quad\\Longleftrightarrow\\quad (\\mu y)' = \\mu q.$$\n\n*Intuisjon:* $\\mu$ er skreddersydd slik at venstresiden blir nøyaktig produktregelen for $\\mu y$ — lest baklengs. Derfra er alt integrasjon:\n\n$$\\mu y = \\int \\mu q\\,dx + C \\qquad\\Longrightarrow\\qquad y = \\frac{1}{\\mu}\\left(\\int\\mu q\\,dx + C\\right).$$\n\n**Føringskravet:** skriv linjen «$(\\mu y)' = \\mu q$» eksplisitt — det er selve gjenkjenningen løsningsforslagene ser etter, ikke bare sluttformelen."
+    },
+    {
+      "id": "mat111-uib-6-2-ex1",
+      "type": "example",
+      "title": "Eksempel 1: Konstant koeffisient med full føring",
+      "problem": "Løs initialverdiproblemet $y' + 3y = 6$, $\\quad y(0)=1$.",
+      "solution": "**Steg 1 — standardform og $p$, $q$.** Likningen er allerede på standardform med $p(x)=3$ og $q(x)=6$.\n\n**Steg 2 — integrerende faktor.**\n$$\\mu(x) = e^{\\int 3\\,dx} = e^{3x}.$$\n\n**Steg 3 — gang gjennom og kjenn igjen.** $e^{3x}y' + 3e^{3x}y = 6e^{3x}$, altså\n\n$$(e^{3x}y)' = 6e^{3x}.$$\n\n**Steg 4 — integrer.** $e^{3x}y = \\displaystyle\\int 6e^{3x}\\,dx = 2e^{3x} + C.$\n\n**Steg 5 — løs for $y$, så konstanten.** $y = 2 + Ce^{-3x}$. Initialbetingelsen: $y(0) = 2 + C = 1$, så $C=-1$.\n\n$$\\boxed{\\,y = 2 - e^{-3x}.\\,}$$\n\n**Kontroll:** $y' = 3e^{-3x}$ og $3y = 6 - 3e^{-3x}$; summen er $6$ ✓, og $y(0)=1$ ✓. (Tolkningsblikk: løsningen glir mot likevektsnivået $y=2$ når $x$ vokser — typisk for $q$ konstant.)"
+    },
+    {
+      "id": "mat111-uib-6-2-o1",
+      "type": "exercise",
+      "exercise": {
+        "id": "mat111-uib-6-2-o1-x",
+        "number": "1",
+        "type": "classic",
+        "difficulty": "lett",
+        "task": "Løs initialverdiproblemet $y' + y = 2$, $\\quad y(0)=0$.",
+        "solution": "$p=1$, $q=2$; $\\mu = e^{x}$. Gang gjennom: $(e^{x}y)' = 2e^{x}$. Integrer: $e^{x}y = 2e^{x} + C$, så $y = 2 + Ce^{-x}$. Konstanten: $y(0)=2+C=0 \\Rightarrow C=-2$. **Svar:** $y = 2 - 2e^{-x}$. *Kontroll:* $y' = 2e^{-x}$, $y' + y = 2e^{-x} + 2 - 2e^{-x} = 2$ ✓.",
+        "hints": [
+          "$\\mu = e^{\\int 1\\,dx} = e^x$.",
+          "Skriv gjenkjenningslinjen $(e^x y)' = 2e^x$ før du integrerer."
+        ]
+      }
+    },
+    {
+      "id": "mat111-uib-6-2-o2",
+      "type": "exercise",
+      "exercise": {
+        "id": "mat111-uib-6-2-o2-x",
+        "number": "2",
+        "type": "classic",
+        "difficulty": "lett",
+        "task": "Løs initialverdiproblemet $y' + 2y = 4$, $\\quad y(0)=3$.",
+        "solution": "$p=2$, $q=4$; $\\mu = e^{2x}$. $(e^{2x}y)' = 4e^{2x}$, så $e^{2x}y = 2e^{2x}+C$ og $y = 2 + Ce^{-2x}$. $y(0)=2+C=3 \\Rightarrow C=1$. **Svar:** $y = 2 + e^{-2x}$. *Kontroll:* $y' = -2e^{-2x}$; $y'+2y = -2e^{-2x} + 4 + 2e^{-2x} = 4$ ✓. (Her starter løsningen *over* likevekten $y=2$ og synker mot den.)",
+        "hints": [
+          "Samme mal som eksempel 1 — bare andre tall.",
+          "Konstanten bestemmes ETTER at $y$ er isolert: $y = 2 + Ce^{-2x}$ først."
+        ]
+      }
+    },
+    {
+      "id": "mat111-uib-6-2-l2",
+      "type": "text",
+      "content": "## Løkke 2 — Variable koeffisienter, resonans og variasjon av parameter (~20 min)"
+    },
+    {
+      "id": "mat111-uib-6-2-l2-intro",
+      "type": "text",
+      "content": "Med $p$ avhengig av $x$ endres ingenting i malen — men to nye ting krever presisjon: likningen må **på standardform først** (del på koeffisienten foran $y'$), og $\\int p\\,dx$ må regnes riktig (her kommer $\\ln$-uttrykk ofte inn, og $e^{\\ln x} = x$ forenkler $\\mu$). *Intuisjon:* $\\mu$ er fortsatt bare den funksjonen som gjør venstresiden til $(\\mu y)'$ — sjekk gjerne med produktregelen at det stemmer før du integrerer."
+    },
+    {
+      "id": "mat111-uib-6-2-ex2",
+      "type": "example",
+      "title": "Eksempel 2: Variabel koeffisient",
+      "problem": "Løs initialverdiproblemet $y' + \\dfrac{1}{x}\\,y = x^2$ for $x>0$, $\\quad y(1)=1$.",
+      "solution": "**Standardform:** allerede klar; $p(x) = \\dfrac1x$, $q(x)=x^2$.\n\n**Integrerende faktor:** $\\displaystyle\\int \\frac{dx}{x} = \\ln x$ (for $x>0$), så\n\n$$\\mu(x) = e^{\\ln x} = x.$$\n\n**Gang gjennom og kjenn igjen:** $x y' + y = x^3$, altså $(x y)' = x^3$. (Sjekk med produktregelen: $(xy)' = y + xy'$ ✓.)\n\n**Integrer:** $x y = \\dfrac{x^4}{4} + C$.\n\n**Løs for $y$, så konstanten:** $y = \\dfrac{x^3}{4} + \\dfrac{C}{x}$. $y(1) = \\dfrac14 + C = 1 \\Rightarrow C = \\dfrac34$.\n\n$$\\boxed{\\,y = \\frac{x^3}{4} + \\frac{3}{4x}, \\qquad x>0.\\,}$$\n\n**Kontroll:** $y' = \\dfrac{3x^2}{4} - \\dfrac{3}{4x^2}$ og $\\dfrac{y}{x} = \\dfrac{x^2}{4} + \\dfrac{3}{4x^2}$; summen er $x^2$ ✓, og $y(1)=1$ ✓."
+    },
+    {
+      "id": "mat111-uib-6-2-o3",
+      "type": "exercise",
+      "exercise": {
+        "id": "mat111-uib-6-2-o3-x",
+        "number": "3",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "Løs initialverdiproblemet $x\\,y' + 2y = 4x^2$ for $x>0$, $\\quad y(1)=2$.",
+        "solution": "**Standardform først** (del på $x$): $y' + \\dfrac{2}{x}y = 4x$; $p = \\dfrac2x$, $q = 4x$.\n\n**Integrerende faktor:** $\\int \\frac{2}{x}dx = 2\\ln x$, så $\\mu = e^{2\\ln x} = x^2$.\n\n**Gjenkjenning:** $(x^2 y)' = 4x^3$. **Integrer:** $x^2 y = x^4 + C$.\n\n**Løs for $y$:** $y = x^2 + \\dfrac{C}{x^2}$; $y(1) = 1 + C = 2 \\Rightarrow C=1$.\n\n**Svar:** $y = x^2 + \\dfrac{1}{x^2}$ for $x>0$. *Kontroll:* $y' = 2x - \\dfrac{2}{x^3}$; $x y' + 2y = 2x^2 - \\dfrac{2}{x^2} + 2x^2 + \\dfrac{2}{x^2} = 4x^2$ ✓.",
+        "hints": [
+          "Ikke les av $p$ før likningen er delt på $x$.",
+          "$e^{2\\ln x} = (e^{\\ln x})^2 = x^2$.",
+          "Kontrollér gjenkjenningen: $(x^2y)' = x^2y' + 2xy$ — stemmer det med venstresiden ganget med $x$?"
+        ]
+      }
+    },
+    {
+      "id": "mat111-uib-6-2-def-resonans",
+      "type": "definition",
+      "title": "Resonans-tilfellet ($q$ på samme form som den homogene løsningen)",
+      "content": "Når høyresiden $q$ er proporsjonal med den homogene løsningen $e^{-\\int p\\,dx}$ — som i $y' + 2y = e^{-2x}$ — blir $\\mu q$ **konstant**, og integralet gir et ledd med en faktor $x$: løsningen inneholder $xe^{-2x}$. Ingen ny teknikk trengs (malen håndterer det automatisk), men formen på svaret overrasker mange: forvent et $x$-ledd når $q$ «matcher» den homogene løsningen."
+    },
+    {
+      "id": "mat111-uib-6-2-def-vardef",
+      "type": "definition",
+      "title": "Variasjon av parameter",
+      "content": "Alternativ metode med samme resultat: løs først den homogene likningen, $y_h = Ce^{-\\int p\\,dx}$, og **la konstanten variere** — sett $y = u(x)\\,e^{-\\int p\\,dx}$ med ukjent funksjon $u$. Innsetting i likningen får $p$-leddene til å kansellere og etterlater $u' = q\\,e^{\\int p\\,dx} = \\mu q$, så $u = \\int \\mu q\\,dx + C$. Metoden er likeverdig med integrerende faktor og honoreres på lik linje; i løsningsforslag markeres den gjerne med «Alternativt:»."
+    },
+    {
+      "id": "mat111-uib-6-2-ex3",
+      "type": "example",
+      "title": "Eksempel 3: Resonans — med variasjon av parameter som alternativ",
+      "problem": "Løs initialverdiproblemet $y' + 2y = e^{-2x}$, $\\quad y(0)=3$.",
+      "solution": "**Med integrerende faktor.** $p=2$, $q=e^{-2x}$; $\\mu = e^{2x}$. Gang gjennom:\n\n$$(e^{2x}y)' = e^{2x}\\,e^{-2x} = 1.$$\n\nHøyresiden ble konstant — det er resonans-signalet. Integrer: $e^{2x}y = x + C$, så $y = (x+C)e^{-2x}$. Konstanten: $y(0)=C=3$.\n\n$$\\boxed{\\,y = (x+3)e^{-2x}.\\,}$$\n\n**Kontroll:** $y' = e^{-2x} - 2(x+3)e^{-2x}$, så $y' + 2y = e^{-2x} - 2(x+3)e^{-2x} + 2(x+3)e^{-2x} = e^{-2x}$ ✓; $y(0)=3$ ✓.\n\n**Alternativt (variasjon av parameter):** homogen løsning $y_h = Ce^{-2x}$. Sett $y = u(x)e^{-2x}$; da er $y' = u'e^{-2x} - 2ue^{-2x}$, og innsetting gir\n\n$$u'e^{-2x} - 2ue^{-2x} + 2ue^{-2x} = e^{-2x} \\;\\Longrightarrow\\; u' = 1 \\;\\Longrightarrow\\; u = x + C.$$\n\nSamme svar: $y = (x+C)e^{-2x}$, $C=3$. Begge føringer gir full uttelling — velg den du regner tryggest."
+    },
+    {
+      "id": "mat111-uib-6-2-o4",
+      "type": "exercise",
+      "exercise": {
+        "id": "mat111-uib-6-2-o4-x",
+        "number": "4",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "Løs initialverdiproblemet $y' + 2xy = x$, $\\quad y(0)=0$. (Merk at $p$ avhenger av $x$, men likningen er også separabel — løs den her med integrerende faktor.)",
+        "solution": "$p = 2x$, $q = x$; $\\mu = e^{\\int 2x\\,dx} = e^{x^2}$.\n\n**Gjenkjenning:** $(e^{x^2}y)' = xe^{x^2}$. **Integrer** (substitusjon $u=x^2$, $du=2x\\,dx$): $e^{x^2}y = \\dfrac12 e^{x^2} + C$.\n\n**Løs for $y$:** $y = \\dfrac12 + Ce^{-x^2}$; $y(0) = \\dfrac12 + C = 0 \\Rightarrow C = -\\dfrac12$.\n\n**Svar:** $y = \\dfrac{1}{2}\\big(1 - e^{-x^2}\\big)$. *Kontroll:* $y' = xe^{-x^2}$; $y' + 2xy = xe^{-x^2} + x - xe^{-x^2} = x$ ✓.",
+        "hints": [
+          "$\\int 2x\\,dx = x^2$, så $\\mu = e^{x^2}$.",
+          "$\\int xe^{x^2}dx$ tas med substitusjonen $u=x^2$."
+        ]
+      }
+    },
+    {
+      "id": "mat111-uib-6-2-l3",
+      "type": "text",
+      "content": "## Løkke 3 — Separabel eller lineær? (~10 min)"
+    },
+    {
+      "id": "mat111-uib-6-2-def-valg",
+      "type": "definition",
+      "title": "Separabel-eller-lineær-sjekken",
+      "content": "To spørsmål avgjør metodevalget for $y'=f(x,y)$: (i) Kan høyresiden faktoriseres som $g(x)h(y)$? Da er likningen **separabel** ([kap. 6.1](/bok/mat111-uib/mat111-uib-6-1)). (ii) Kan den ordnes til $y' + p(x)y = q(x)$? Da er den **lineær**. Likninger på formen $y' = a(x)y + b(x)$ med *konstant* forhold mellom leddene — f.eks. $y' = 2-y$ — er **begge deler**, og da er begge løsningsveier gyldige og honoreres likt."
+    },
+    {
+      "id": "mat111-uib-6-2-ex4",
+      "type": "example",
+      "title": "Eksempel 4: Én likning, to gyldige veier",
+      "problem": "Løs initialverdiproblemet $y' = 2 - y$, $\\quad y(0)=0$, både som separabel og som lineær likning.",
+      "solution": "**Vei 1 — separabel.** Konstante løsninger: $h(y)=2-y=0$ gir $y\\equiv 2$; avvises siden $y(0)=0\\neq 2$. Separér: $\\dfrac{dy}{2-y} = dx$. Integrer: $-\\ln|2-y| = x + C$. For vår løsning er $y<2$ nær start (og den kan ikke krysse $y\\equiv 2$), så $|2-y| = 2-y$: $\\ln(2-y) = -x - C$, altså $2-y = Ae^{-x}$. Initialbetingelsen: $2-0 = A = 2$.\n\n$$y = 2 - 2e^{-x}.$$\n\n**Vei 2 — lineær.** Standardform: $y' + y = 2$; $\\mu = e^x$; $(e^x y)' = 2e^x$; $e^x y = 2e^x + C$; $y = 2 + Ce^{-x}$; $y(0)=0$ gir $C=-2$ — samme svar.\n\n**Kontroll:** $y' = 2e^{-x}$ og $2-y = 2e^{-x}$ ✓.\n\n*Fasitpraksis:* begge føringer får full uttelling; forslagene viser gjerne begge og merker den andre «Alternativt:». Velg den som gir deg minst integrasjonsstrev — og merk at den separable veien *krever* konstant-løsnings-setningen, mens den lineære slipper."
+    },
+    {
+      "id": "mat111-uib-6-2-warn",
+      "type": "warning",
+      "title": "Typiske feil",
+      "content": "- **Feil integrerende faktor.** Fortegn eller koeffisient mistes i $\\int p\\,dx$: for $y' - 3y = x$ er $\\mu = e^{-3x}$, ikke $e^{3x}$. Og $p$ kan ikke leses av før likningen er på **standardform** (delt på koeffisienten foran $y'$).\n- **Glemme å gange HELE likningen med $\\mu$.** Høyresiden skal også ganges — ellers stemmer ikke $(\\mu y)' = \\mu q$.\n- **Ikke kjenne igjen $(\\mu y)'$.** Uten gjenkjenningslinjen blir venstresiden stående som to ledd, og mange integrerer dem hver for seg — feil. Skriv $(\\mu y)' = \\mu q$ eksplisitt; det er også der føringspoenget sitter.\n- **Konstanten bestemt før $y$ er isolert.** Å sette inn initialbetingelsen i $\\mu y = \\int \\mu q\\,dx + C$ er mulig, men feilutsatt (husk $\\mu(x_0)\\neq 1$ generelt!); standardføringen isolerer $y$ først.\n- **Integrasjonskonstanten glemt i $\\int \\mu q\\,dx$** — da forsvinner hele løsningsfamilien, og initialbetingelsen «passer ikke». Én $C$, plassert idet du integrerer."
+    },
+    {
+      "id": "mat111-uib-6-2-pool",
+      "type": "text",
+      "content": "## Flere øvingsoppgaver\n\nStigende drill. Skriv gjenkjenningslinjen $(\\mu y)' = \\mu q$ i hver oppgave."
+    },
+    {
+      "id": "mat111-uib-6-2-o5",
+      "type": "exercise",
+      "exercise": {
+        "id": "mat111-uib-6-2-o5-x",
+        "number": "5",
+        "type": "classic",
+        "difficulty": "lett",
+        "task": "Finn den integrerende faktoren til hver likning (ikke løs dem):\n\n**a)** $y' - 4y = e^{x}$\n\n**b)** $y' + \\dfrac{3}{x}y = 1$ (for $x>0$)\n\n**c)** $2y' + 6y = x$",
+        "solution": "**a)** $p=-4$: $\\mu = e^{-4x}$ (fortegnet følger med!).\n\n**b)** $p=\\dfrac3x$: $\\int\\frac3x dx = 3\\ln x$, så $\\mu = e^{3\\ln x} = x^3$.\n\n**c)** Standardform først: $y' + 3y = \\dfrac{x}{2}$, så $p=3$ og $\\mu = e^{3x}$ — ikke $e^{6x}$.",
+        "hints": [
+          "$\\mu = e^{\\int p\\,dx}$ — men $p$ leses av standardformen.",
+          "I c): del på $2$ før du leser av $p$."
+        ]
+      }
+    },
+    {
+      "id": "mat111-uib-6-2-o6",
+      "type": "exercise",
+      "exercise": {
+        "id": "mat111-uib-6-2-o6-x",
+        "number": "6",
+        "type": "classic",
+        "difficulty": "lett",
+        "task": "Løs initialverdiproblemet $y' + 5y = 10$, $\\quad y(0)=0$.",
+        "solution": "$\\mu = e^{5x}$; $(e^{5x}y)' = 10e^{5x}$; $e^{5x}y = 2e^{5x} + C$; $y = 2 + Ce^{-5x}$; $y(0)=0$ gir $C=-2$. **Svar:** $y = 2 - 2e^{-5x}$. *Kontroll:* $y' = 10e^{-5x}$; $y' + 5y = 10e^{-5x} + 10 - 10e^{-5x} = 10$ ✓. (Likevekten $y=2$ nås raskere enn i oppgave 1 — koeffisienten $5$ er «fjæra» som drar løsningen inn.)",
+        "hints": [
+          "Samme mal som eksempel 1.",
+          "$\\int 10e^{5x}dx = 2e^{5x} + C$."
+        ]
+      }
+    },
+    {
+      "id": "mat111-uib-6-2-o7",
+      "type": "exercise",
+      "exercise": {
+        "id": "mat111-uib-6-2-o7-x",
+        "number": "7",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "Løs initialverdiproblemet $y' + 3x^2\\,y = x^2$, $\\quad y(0)=1$.",
+        "solution": "$p = 3x^2$, $q = x^2$; $\\mu = e^{\\int 3x^2 dx} = e^{x^3}$.\n\n**Gjenkjenning:** $(e^{x^3}y)' = x^2 e^{x^3}$. **Integrer** (substitusjon $u = x^3$, $du = 3x^2\\,dx$): $e^{x^3}y = \\dfrac13 e^{x^3} + C$.\n\n**Løs for $y$:** $y = \\dfrac13 + Ce^{-x^3}$; $y(0) = \\dfrac13 + C = 1 \\Rightarrow C = \\dfrac23$.\n\n**Svar:** $y = \\dfrac{1}{3} + \\dfrac{2}{3}e^{-x^3}$. *Kontroll:* $y' = -2x^2 e^{-x^3}$; $y' + 3x^2 y = -2x^2e^{-x^3} + x^2 + 2x^2e^{-x^3} = x^2$ ✓.\n\n*Merk:* likningen er også separabel ($y' = x^2(1-3y)$) — den veien krever setningen om den konstante løsningen $y\\equiv\\frac13$ (avvises mot $y(0)=1$) og gir samme svar. Begge honoreres.",
+        "hints": [
+          "$\\int 3x^2\\,dx = x^3$.",
+          "Integralet $\\int x^2e^{x^3}dx$ tas med $u=x^3$."
+        ]
+      }
+    },
+    {
+      "id": "mat111-uib-6-2-o8",
+      "type": "exercise",
+      "exercise": {
+        "id": "mat111-uib-6-2-o8-x",
+        "number": "8",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "Løs initialverdiproblemet $y' + y = \\sin x$, $\\quad y(0)=0$. Du kan bruke at $\\displaystyle\\int e^{x}\\sin x\\,dx = \\frac{e^{x}(\\sin x - \\cos x)}{2} + C$ (utledet med delvis integrasjon to ganger i [kap. 5.2](/bok/mat111-uib/mat111-uib-5-2)).",
+        "solution": "$\\mu = e^{x}$; $(e^x y)' = e^x\\sin x$. Integrer med den oppgitte formelen:\n\n$$e^x y = \\frac{e^x(\\sin x - \\cos x)}{2} + C.$$\n\n**Løs for $y$:** $y = \\dfrac{\\sin x - \\cos x}{2} + Ce^{-x}$. $y(0) = \\dfrac{0-1}{2} + C = 0 \\Rightarrow C = \\dfrac12$.\n\n**Svar:** $y = \\dfrac{\\sin x - \\cos x}{2} + \\dfrac{1}{2}e^{-x}$. *Kontroll:* $y' = \\dfrac{\\cos x + \\sin x}{2} - \\dfrac12 e^{-x}$; $y' + y = \\dfrac{\\cos x + \\sin x + \\sin x - \\cos x}{2} + 0 = \\sin x$ ✓, $y(0)=0$ ✓. (Langtidsoppførsel: $e^{-x}$-leddet dør ut, og løsningen svinger i takt med pådraget — forskjøvet en kvart periode.)",
+        "hints": [
+          "$\\mu = e^x$; bruk den oppgitte antideriverte direkte.",
+          "Konstanten: $\\sin 0 = 0$, $\\cos 0 = 1$."
+        ]
+      }
+    },
+    {
+      "id": "mat111-uib-6-2-o9",
+      "type": "exercise",
+      "exercise": {
+        "id": "mat111-uib-6-2-o9-x",
+        "number": "9",
+        "type": "classic",
+        "difficulty": "vanskelig",
+        "task": "Løs initialverdiproblemet $y' + y\\tan x = \\cos x$ for $|x| < \\dfrac{\\pi}{2}$, $\\quad y(0)=0$.",
+        "solution": "$p = \\tan x$: $\\displaystyle\\int\\tan x\\,dx = -\\ln|\\cos x| = -\\ln(\\cos x)$ for $|x|<\\tfrac\\pi2$ (der er $\\cos x > 0$). Altså\n\n$$\\mu = e^{-\\ln(\\cos x)} = \\frac{1}{\\cos x}.$$\n\n**Gjenkjenning:** $\\Big(\\dfrac{y}{\\cos x}\\Big)' = \\dfrac{\\cos x}{\\cos x} = 1.$ (Sjekk: $\\big(\\frac{y}{\\cos x}\\big)' = \\frac{y'\\cos x + y\\sin x}{\\cos^2 x} = \\frac{1}{\\cos x}\\big(y' + y\\tan x\\big)$ ✓.)\n\n**Integrer:** $\\dfrac{y}{\\cos x} = x + C$.\n\n**Løs for $y$:** $y = (x + C)\\cos x$; $y(0) = C = 0$.\n\n**Svar:** $y = x\\cos x$ for $|x|<\\dfrac\\pi2$. *Kontroll:* $y' = \\cos x - x\\sin x$; $y\\tan x = x\\cos x\\tan x = x\\sin x$; summen er $\\cos x$ ✓.",
+        "hints": [
+          "$\\int \\tan x\\,dx = -\\ln|\\cos x|$ — pass fortegnet.",
+          "$e^{-\\ln(\\cos x)} = \\frac{1}{\\cos x}$.",
+          "Resonans-signal: $\\mu q$ blir konstant, så vent et $x$-ledd i svaret."
+        ]
+      }
+    },
+    {
+      "id": "mat111-uib-6-2-o10",
+      "type": "exercise",
+      "exercise": {
+        "id": "mat111-uib-6-2-o10-x",
+        "number": "10",
+        "type": "classic",
+        "difficulty": "vanskelig",
+        "task": "Løs initialverdiproblemet $y' - \\dfrac{2}{x}\\,y = x^3$ for $x>0$, $\\quad y(1)=\\dfrac12$, med integrerende faktor — og gjennomfør deretter variasjon av parameter som alternativ kontroll.",
+        "solution": "**Integrerende faktor.** $p = -\\dfrac2x$: $\\int p\\,dx = -2\\ln x$, så $\\mu = e^{-2\\ln x} = x^{-2}$.\n\n**Gjenkjenning:** $\\big(x^{-2}y\\big)' = x^{-2}\\cdot x^3 = x.$ **Integrer:** $x^{-2}y = \\dfrac{x^2}{2} + C$.\n\n**Løs for $y$:** $y = \\dfrac{x^4}{2} + Cx^2$; $y(1) = \\dfrac12 + C = \\dfrac12 \\Rightarrow C = 0$.\n\n**Svar:** $y = \\dfrac{x^4}{2}$ for $x>0$. *Kontroll:* $y' = 2x^3$; $y' - \\dfrac2x y = 2x^3 - \\dfrac{2}{x}\\cdot\\dfrac{x^4}{2} = 2x^3 - x^3 = x^3$ ✓.\n\n**Alternativt (variasjon av parameter):** homogen: $y' = \\dfrac2x y$ er separabel med løsning $y_h = Cx^2$. Sett $y = u(x)x^2$: $y' = u'x^2 + 2ux$, og innsetting gir $u'x^2 + 2ux - 2ux = x^3$, altså $u' = x$ og $u = \\dfrac{x^2}{2}+C$. Samme svar: $y = \\dfrac{x^4}{2} + Cx^2$ med $C=0$. ✓",
+        "hints": [
+          "$\\mu = e^{-2\\ln x} = x^{-2}$ — det negative fortegnet i $p$ følger med inn.",
+          "I variasjonen: leddene med $u$ uten derivert skal kansellere — det er kontrollen på at $y_h$ var riktig.",
+          "$y(1)=\\frac12$ gjør faktisk $C=0$ — ikke alle konstanter er spennende."
+        ]
+      }
+    },
+    {
+      "id": "mat111-uib-6-2-bb-tekst",
+      "type": "text",
+      "content": "## Begrepsbank til eksamen\n\nKortform av begrepsapparatet — repetisjons- og flashcard-stoff. Hopp trygt over ved førstegangslesing."
+    },
+    {
+      "id": "mat111-uib-6-2-bb-homlos",
+      "type": "definition",
+      "title": "Homogenløsningen $y_h$",
+      "content": "Løsningen av den tilhørende homogene likningen $y'+p(x)y=0$: $y_h = Ce^{-\\int p\\,dx}$. Den beskriver systemets «egendynamikk» uten pådrag, bærer integrasjonskonstanten i den generelle løsningen, og er utgangspunktet for variasjon av parameter."
+    },
+    {
+      "id": "mat111-uib-6-2-bb-partlos",
+      "type": "definition",
+      "title": "Partikulærløsning $y_p$",
+      "content": "Én enkelt løsning av den inhomogene likningen, uansett hvilken. I $y = 2 + Ce^{-3x}$ (eksempel 1) er $y_p = 2$ en partikulærløsning (likevekten). Merk skillet fra «partikulær løsning av initialverdiproblemet» i [kap. 6.1](/bok/mat111-uib/mat111-uib-6-1) — her betyr det en byggekloss i strukturen under."
+    },
+    {
+      "id": "mat111-uib-6-2-bb-struktur",
+      "type": "definition",
+      "title": "Strukturen generell løsning $= y_p + y_h$",
+      "content": "Enhver løsning av $y'+py=q$ kan skrives som én fast partikulærløsning pluss en homogenløsning: $y = y_p + Ce^{-\\int p\\,dx}$. Det er derfor svarene alltid har formen «noe bestemt $+\\ C\\cdot$noe eksponentielt». Differansen mellom to løsninger av samme likning er alltid en homogenløsning."
+    },
+    {
+      "id": "mat111-uib-6-2-bb-antider",
+      "type": "definition",
+      "title": "Valget av antiderivert i $\\int p\\,dx$",
+      "content": "I $\\mu = e^{\\int p\\,dx}$ kan du velge én hvilken som helst antiderivert — en annen konstant gir bare $\\mu$ ganget med et fast tall, som forkortes bort i $(\\mu y)' = \\mu q$. Konvensjon: velg den enkleste (konstant $0$)."
+    },
+    {
+      "id": "mat111-uib-6-2-bb-eksp",
+      "type": "definition",
+      "title": "Forenklingene $e^{a\\ln x} = x^a$",
+      "content": "Ved variable koeffisienter blir $\\int p\\,dx$ ofte et $\\ln$-uttrykk, og $\\mu$ forenkles med $e^{a\\ln x} = x^a$: $e^{2\\ln x} = x^2$, $e^{-\\ln(\\cos x)} = 1/\\cos x$. Uforenklet $\\mu$ gjør neste steg unødig stygt — forenkle før du ganger gjennom."
+    },
+    {
+      "id": "mat111-uib-6-2-bb-likevekt",
+      "type": "definition",
+      "title": "Likevektsløsningen $q/p$ (konstante koeffisienter)",
+      "content": "For $y' + py = q$ med konstante $p>0$ og $q$ er $y\\equiv q/p$ en konstant løsning, og alle andre løsninger glir mot den: $y = \\frac{q}{p} + Ce^{-px}$. Tolkningsspråk for anvendelser: «nivået stabiliserer seg mot $q/p$» ([kap. 6.3](/bok/mat111-uib/mat111-uib-6-3))."
+    },
+    {
+      "id": "mat111-uib-6-2-bb-tidskonst",
+      "type": "definition",
+      "title": "Tidskonstanten $1/p$",
+      "content": "I $y = \\frac{q}{p} + Ce^{-px}$ styrer $p$ hvor raskt eksponentialleddet dør: etter tiden $1/p$ er avviket fra likevekten redusert med faktoren $e^{-1}\\approx 0{,}37$. Stor $p$ = rask innsvingning — sammenlign oppgave 1 ($p=1$) og oppgave 6 ($p=5$)."
+    },
+    {
+      "id": "mat111-uib-6-2-bb-forsteordre",
+      "type": "definition",
+      "title": "Hvorfor «førsteordens» er hele pensum her",
+      "content": "MAT111 tester bare likninger med $y'$ som høyeste deriverte. Andreordens likninger ($y''$-ledd, f.eks. svingelikninger) hører til oppfølgeremnene. Ser du en $y''$, er du utenfor sjanger A — sjekk at du har lest oppgaven riktig."
+    },
+    {
+      "id": "mat111-uib-6-2-bb-gjenkjenning",
+      "type": "definition",
+      "title": "Gjenkjenningslinjen",
+      "content": "Linjen «$(\\mu y)' = \\mu q$» i føringen — punktet der venstresiden $\\mu y' + \\mu p y$ kjennes igjen som produktderiverten av $\\mu y$. Den skal skrives eksplisitt: det er dette leddet som viser at du forstår hvorfor metoden virker, og det er her løsningsforslagene legger føringspoenget."
+    },
+    {
+      "id": "mat111-uib-6-2-bb-paadrag",
+      "type": "definition",
+      "title": "Pådraget (kildeleddet) $q(x)$",
+      "content": "Tolkningsnavnet på høyresiden: $q$ er det som «mates inn» i systemet utenfra — salt inn i tanken, varme inn i rommet, kraft på båten. Homogen likning ($q\\equiv 0$) beskriver systemet overlatt til seg selv; løsningens $q$-avhengige del beskriver svaret på pådraget. Språket brukes direkte i tolkningssetningene i [kap. 6.3](/bok/mat111-uib/mat111-uib-6-3)."
+    },
+    {
+      "id": "mat111-uib-6-2-rep",
+      "type": "collapsible",
+      "title": "Repetisjonsoppgaver",
+      "buttonText": "Vis repetisjonsoppgaver",
+      "content": [
+        {
+          "id": "mat111-uib-6-2-r1",
+          "type": "exercise",
+          "exercise": {
+            "id": "mat111-uib-6-2-r1-x",
+            "number": "R1",
+            "type": "classic",
+            "difficulty": "lett",
+            "task": "(Fra [kap. 6.1](/bok/mat111-uib/mat111-uib-6-1)) Løs $y' = -2y$, $y(0)=5$ — og forklar hvorfor dette samtidig er homogenløsningen til $y' + 2y = q(x)$ for enhver $q$.",
+            "solution": "Konstant løsning $y\\equiv 0$ avvises mot $y(0)=5$; separasjon gir $\\ln|y| = -2x + C$, så $y = 5e^{-2x}$. Den homogene likningen til $y'+2y=q$ er nettopp $y'+2y=0 \\iff y'=-2y$, så $y_h = Ce^{-2x}$ — samme funksjon med fri konstant.",
+            "hints": [
+              "Dette er $y'=ky$ med $k=-2$."
+            ]
+          }
+        },
+        {
+          "id": "mat111-uib-6-2-r2",
+          "type": "exercise",
+          "exercise": {
+            "id": "mat111-uib-6-2-r2-x",
+            "number": "R2",
+            "type": "classic",
+            "difficulty": "lett",
+            "task": "(Fra [kap. 5.2](/bok/mat111-uib/mat111-uib-5-2)) Beregn $\\displaystyle\\int xe^{x^2}\\,dx$.",
+            "solution": "Substitusjon $u = x^2$, $du = 2x\\,dx$: $\\int xe^{x^2}dx = \\frac12\\int e^u du = \\frac12 e^{x^2} + C$. (Integralet fra oppgave 4.)",
+            "hints": [
+              "$u = x^2$ — halvparten av $du$ står i integralet."
+            ]
+          }
+        },
+        {
+          "id": "mat111-uib-6-2-r3",
+          "type": "exercise",
+          "exercise": {
+            "id": "mat111-uib-6-2-r3-x",
+            "number": "R3",
+            "type": "classic",
+            "difficulty": "lett",
+            "task": "Deriver $f(x) = x^2\\,y(x)$ med produktregelen, og forklar hva svaret har med integrerende faktor å gjøre.",
+            "solution": "$f' = 2xy + x^2y'$. Dette er nøyaktig venstresiden i $y' + \\frac{2}{x}y = q$ ganget med $x^2$: $x^2y' + 2xy = x^2\\big(y' + \\frac2x y\\big)$. Gjenkjenningen $(\\mu y)' = \\mu q$ ER produktregelen lest baklengs med $\\mu = x^2$.",
+            "hints": [
+              "Sammenlign $x^2 y' + 2xy$ med $x^2(y' + \\frac{2}{x}y)$."
+            ]
+          }
+        },
+        {
+          "id": "mat111-uib-6-2-r4",
+          "type": "exercise",
+          "exercise": {
+            "id": "mat111-uib-6-2-r4-x",
+            "number": "R4",
+            "type": "classic",
+            "difficulty": "middels",
+            "task": "(Fra [Lineære differensiallikninger (S2 2.3)](/bok/s2/s2-2-3)) Skriv $3y' - 6y = 12x$ på standardform, og oppgi $p$, $q$ og $\\mu$.",
+            "solution": "Del på $3$: $y' - 2y = 4x$. Da er $p(x) = -2$, $q(x) = 4x$ og $\\mu = e^{\\int(-2)dx} = e^{-2x}$. To feller i én oppgave: koeffisienten $3$ må bort før avlesning, og fortegnet i $p=-2$ følger med inn i $\\mu$.",
+            "hints": [
+              "Standardform = koeffisient $1$ foran $y'$."
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": "mat111-uib-6-2-symbol",
+      "type": "collapsible",
+      "title": "Symbol- og formelliste",
+      "buttonText": "Vis symboler og formler",
+      "content": [
+        {
+          "id": "mat111-uib-6-2-symbol-txt",
+          "type": "text",
+          "content": "## Symbol- og formelliste\n\n*Oppslagsverk — alt her forklares underveis i kapitlet.*\n\n| Symbol | Betydning |\n|---|---|\n| $y' + p(x)y = q(x)$ | Lineær førsteordens likning på standardform |\n| $p(x)$ | Koeffisientfunksjonen (styrer $\\mu$; fortegnet følger med) |\n| $q(x)$ | Høyresiden/pådraget; $q\\equiv 0$ gir homogen likning |\n| $\\mu(x)$ | Integrerende faktor |\n| $y_h$, $y_p$ | Homogenløsning og partikulærløsning |\n| $u(x)$ | Den varierte «konstanten» i variasjon av parameter |\n\n**Formler i dette delkapitlet:**\n\n$$\\mu(x) = e^{\\int p\\,dx}$$\nDen integrerende faktoren — regnet fra standardformen, med fortegn.\n\n$$(\\mu y)' = \\mu q \\qquad\\Longrightarrow\\qquad y = \\frac{1}{\\mu}\\left(\\int \\mu q\\,dx + C\\right)$$\nGjenkjenningslinjen og løsningsformelen; gjenkjenningen skrives eksplisitt.\n\n$$y_h = Ce^{-\\int p\\,dx}, \\qquad y = u(x)\\,e^{-\\int p\\,dx} \\;\\Rightarrow\\; u' = \\mu q$$\nHomogenløsningen og variasjon av parameter («Alternativt:»).\n\n$$y' + py = q \\ \\ (p,q \\text{ konst.}) \\qquad\\Longrightarrow\\qquad y = \\frac{q}{p} + Ce^{-px}$$\nKonstant-koeffisient-tilfellet: likevekt $q/p$, tidskonstant $1/p$."
+        }
+      ]
+    }
+  ],
+  "exercises": []
+}

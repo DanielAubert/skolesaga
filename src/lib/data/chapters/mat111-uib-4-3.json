@@ -1,0 +1,547 @@
+{
+  "id": "mat111-uib-4-3",
+  "courseId": "mat111-uib",
+  "chapterNumber": "4.3",
+  "title": "Taylorpolynom med Lagrange-restledd og feilinnkapsling",
+  "description": "Taylorpolynom til tallnærming pluss aktiv restleddsanalyse: skranker → intervall → fortegn på feilen. En hovedsjanger ved UiB.",
+  "estimatedMinutes": 65,
+  "competenceGoals": [
+    "kunne bygge Taylorpolynomet P_n om et pent punkt med ryddig derivertetabell og riktige fakultetsnevnere",
+    "kunne bruke Lagrange-restleddet aktivt: skranker for f^(n+1) → tallintervall som fanger sann verdi → fortegn på feilen",
+    "kunne levere skarpest mulig skranke, og håndtere variantene med gitte f''-skranker og innkapsling mellom polynomer",
+    "kunne hente Taylorkoeffisienter rekursivt fra en likning, og forklare sammenhengen P₁ = tangent = ett Newton-steg"
+  ],
+  "content": [
+    {
+      "id": "mat111-uib-4-3-tip",
+      "type": "tip",
+      "title": "Eksamensvinkel",
+      "content": "**Taylor med aktivt restledd er en hovedsjanger ved UiB — og restleddet er der poengene ligger.**\n\n- **Sjanger G (Taylorpolynom med restledd og feilinnkapsling)** finnes i **25 av 34 arkiverte sett** (2003–2020, kildenote i Del 0) — en av de aller hyppigste oppgavetypene ved UiB (mens den er marginal ved f.eks. UiO). *Sjanger G* er bokstavkoden for denne oppgavetypen i katalogen fra Del 0.\n- Standardoppgaven: skriv $P_n$ om et «pent» punkt, bruk det til en tallnærming (typen $\\sqrt[3]{11}$, $\\sqrt{10}$, $\\ln 2$) — og **bruk Lagrange-restleddet aktivt**: finn skranker for $f^{(n+1)}$, lever et *tallintervall* som fanger den sanne verdien, eller avgjør *fortegnet* på feilen. Et svar der restleddet bare er sitert, men ikke brukt, mister nettopp de poengene oppgaven handler om.\n- **Skarphet teller:** skarpest mulig skranke (beste verdier av $f^{(n+1)}$ på intervallet) gir full pott; grovere skranker gir delvis uttelling.\n- Skjerpede arkivvarianter, alle dekket her: **rekursivt definerte koeffisienter** fra en likning (H2013), **innkapsling** $P_3 + Gx^4 < f(x) < P_3 + Hx^4$ (V2018), og **minste intervall for $f(b)$** gitt skranker på $f''$ (H2018).\n- Kjeden fortsetter: $P_1$ er tangenten — altså er ett Newton-steg fra [kap. 4.2](/bok/mat111-uib/mat111-uib-4-2) det samme som å løse $P_1(x) = 0$."
+    },
+    {
+      "id": "mat111-uib-4-3-fork",
+      "type": "text",
+      "content": "**Forkunnskaper.** Alt her hviler på trygg derivasjon: [kap. 3.1](/bok/mat111-uib/mat111-uib-3-1) samt **[Derivasjonsregler (R1 4.1)](/bok/r1/r1-4-1)** og **[Kjerneregelen (R1 4.3)](/bok/r1/r1-4-3)** — du kommer til å derivere samme funksjon tre–fire ganger på rad og må holde styr på fortegn og potenser. Sekantsetningen fra [kap. 4.1](/bok/mat111-uib/mat111-uib-4-1) er slektningen til restleddet: begge plasserer en ukjent $c$ i et intervall og avgrenser den.\n\n**Sist du var her — to regneformer du bruker hele tiden:**\n$$\\frac{d}{dx}\\,x^{p} = p\\,x^{p-1} \\quad (\\text{også for } p = \\tfrac12, \\tfrac13, -1, \\dots), \\qquad \\frac{d}{dx}\\,\\ln x = \\frac1x.$$"
+    },
+    {
+      "id": "mat111-uib-4-3-motiv",
+      "type": "text",
+      "content": "Kalkulatoren din har ingen $\\sqrt[3]{\\ }$-krystall innebygd — når den viser $\\sqrt[3]{26} \\approx 2{,}9625$, har den *regnet seg fram* med polynomer: gang, legg sammen, ferdig. Det er hele ideen bak Taylorpolynomet: erstatt en vrien funksjon med et polynom som har **samme verdi, samme derivert, samme andrederivert, …** i ett velvalgt punkt $a$, og regn med polynomet i stedet.\n\nMen en tilnærming uten feilkontroll er bare en gjetning. Det som gjør dette til eksamensmatematikk, er **Lagrange-restleddet**: en eksakt formel for feilen, med én ukjent $c$ innesperret i et kjent intervall. Sperr inn $f^{(n+1)}(c)$ mellom sin minste og største verdi på intervallet, og du kan levere noe langt sterkere enn et anslag: *«den sanne verdien ligger garantert mellom disse to tallene»*. Det er samme grep som i sekantsetningen — du vet ikke hvor $c$ er, men du vet hvor mye $f^{(n+1)}$ kan rekke å bli der.\n\nKapitlet har fire læringsløkker: (1) bygge $P_n$ om et pent punkt (≈ 15 min), (2) restleddet og skranke → intervall → fortegn — kjernen (≈ 25 min), (3) skrankevariantene fra arkivet: minste intervall og innkapsling (≈ 15 min), (4) rekursive koeffisienter (≈ 10 min). Ta pause etter løkke 2 — den er kapitlets tyngdepunkt."
+    },
+    {
+      "id": "mat111-uib-4-3-l1",
+      "type": "text",
+      "content": "## Løkke 1: Bygg Taylorpolynomet om et pent punkt"
+    },
+    {
+      "id": "mat111-uib-4-3-def-taylor",
+      "type": "definition",
+      "title": "Taylorpolynomet $P_n$ om $a$",
+      "content": "**Taylorpolynomet av grad $n$ til $f$ om punktet $a$** er polynomet som kopierer $f$ og de $n$ første deriverte i $a$:\n$$P_n(x) = \\sum_{k=0}^{n} \\frac{f^{(k)}(a)}{k!}\\,(x-a)^k = f(a) + f'(a)(x-a) + \\frac{f''(a)}{2!}(x-a)^2 + \\dots + \\frac{f^{(n)}(a)}{n!}(x-a)^n.$$\nNær $a$ er $P_n(x)$ en god erstatning for $f(x)$ — og et polynom kan du regne ut for hånd."
+    },
+    {
+      "id": "mat111-uib-4-3-def-koeff",
+      "type": "definition",
+      "title": "Koeffisienten $\\frac{f^{(k)}(a)}{k!}$",
+      "content": "Koeffisienten foran $(x-a)^k$ er den $k$-te deriverte i utviklingspunktet delt på $k$-fakultet: $\\dfrac{f^{(k)}(a)}{k!}$. Fakulteten kommer av at $k$-te-derivasjon av $(x-a)^k$ produserer faktoren $k!$ — divisjonen sørger for at $P_n^{(k)}(a) = f^{(k)}(a)$. Glemt $k!$ i nevneren er sjangerens vanligste regnefeil."
+    },
+    {
+      "id": "mat111-uib-4-3-def-pent",
+      "type": "definition",
+      "title": "«Pent» utviklingspunkt",
+      "content": "Et **pent punkt** er en $a$ der $f$ og de deriverte har eksakte, enkle verdier: $a = 4, 9, 16, 25$ for $\\sqrt{x}$; $a = 8, 27$ for $\\sqrt[3]{x}$; $a = 1$ for $\\ln x$; $a = 0$ for $e^x, \\sin x, \\cos x$. Eksamensoppgaven velger alltid et pent punkt *nær* tallet som skal tilnærmes — $\\sqrt[3]{26}$ utvikles om $a = 27$, ikke om $a = 0$."
+    },
+    {
+      "id": "mat111-uib-4-3-def-maclaurin",
+      "type": "definition",
+      "title": "Maclaurinpolynom ($a = 0$)",
+      "content": "Taylorpolynomet om $a = 0$ kalles **Maclaurinpolynomet**; da er $P_n(x) = \\sum_{k=0}^n \\frac{f^{(k)}(0)}{k!}x^k$. Standardutviklingene $e^x \\approx 1 + x + \\frac{x^2}{2}$, $\\sin x \\approx x - \\frac{x^3}{6}$, $\\cos x \\approx 1 - \\frac{x^2}{2}$ er Maclaurin-tilfeller og gjengangere i teorispørsmål."
+    },
+    {
+      "id": "mat111-uib-4-3-ex1",
+      "type": "example",
+      "title": "Eksempel 1: Bygg $P_2$ for $\\sqrt{x}$ om $a = 4$",
+      "problem": "Finn Taylorpolynomet av grad 2 til $f(x) = \\sqrt{x}$ om $a = 4$.",
+      "solution": "**Deriver og evaluer i $a = 4$** (skriv $\\sqrt x = x^{1/2}$):\n\n| $k$ | $f^{(k)}(x)$ | $f^{(k)}(4)$ | koeffisient $f^{(k)}(4)/k!$ |\n|---|---|---|---|\n| 0 | $x^{1/2}$ | $2$ | $2$ |\n| 1 | $\\tfrac12 x^{-1/2}$ | $\\tfrac14$ | $\\tfrac14$ |\n| 2 | $-\\tfrac14 x^{-3/2}$ | $-\\tfrac{1}{32}$ | $-\\tfrac{1}{64}$ |\n\n*(Kontrollregning: $f''(4) = -\\tfrac14 \\cdot 4^{-3/2} = -\\tfrac14 \\cdot \\tfrac18 = -\\tfrac{1}{32}$, og $\\tfrac{f''(4)}{2!} = -\\tfrac{1}{64}$.)*\n\n**Sett sammen:**\n$$P_2(x) = 2 + \\frac{x-4}{4} - \\frac{(x-4)^2}{64}.$$\nLegg merke til føringen: derivertetabell med eksakte verdier, deretter polynomet — det er hele leveransen i denne deloppgaven. $\\blacksquare$"
+    },
+    {
+      "id": "mat111-uib-4-3-o1",
+      "type": "exercise",
+      "exercise": {
+        "id": "mat111-uib-4-3-o1-x",
+        "number": "1",
+        "type": "classic",
+        "difficulty": "lett",
+        "task": "Finn Taylorpolynomet av grad 2 til $f(x) = \\sqrt[3]{x}$ om $a = 27$.",
+        "solution": "$f(x) = x^{1/3}$: $f(27) = 3$; $f'(x) = \\tfrac13 x^{-2/3}$ gir $f'(27) = \\tfrac13 \\cdot \\tfrac19 = \\tfrac1{27}$; $f''(x) = -\\tfrac29 x^{-5/3}$ gir $f''(27) = -\\tfrac29 \\cdot \\tfrac{1}{243} = -\\tfrac{2}{2187}$.\n\n$$P_2(x) = 3 + \\frac{x-27}{27} - \\frac{(x-27)^2}{2187}$$\n(siden $\\tfrac{f''(27)}{2!} = -\\tfrac{1}{2187}$).",
+        "hints": [
+          "Skriv $\\sqrt[3]{x} = x^{1/3}$ og bruk potensregelen tre ganger.",
+          "$27^{2/3} = 9$ og $27^{5/3} = 243$.",
+          "Husk å dele andrederiverten på $2!$."
+        ]
+      }
+    },
+    {
+      "id": "mat111-uib-4-3-l2",
+      "type": "text",
+      "content": "## Løkke 2: Lagrange-restleddet — skranker → intervall → fortegn\n\nNå til kjernen. Feilen $f(x) - P_n(x)$ har en eksakt formel — med én ukjent i."
+    },
+    {
+      "id": "mat111-uib-4-3-thm-taylor",
+      "type": "theorem",
+      "title": "Taylors formel med Lagrange-restledd",
+      "content": "La $f$ være $(n+1)$ ganger deriverbar på et intervall som inneholder $a$ og $x$. Da er\n$$f(x) = P_n(x) + R_n(x), \\qquad R_n(x) = \\frac{f^{(n+1)}(c)}{(n+1)!}\\,(x-a)^{n+1}$$\nfor **en eller annen** $c$ strengt mellom $a$ og $x$. Restleddet $R_n(x)$ er den *eksakte* feilen — ikke et anslag. (For $n = 0$ er dette nøyaktig sekantsetningen: $f(x) = f(a) + f'(c)(x-a)$.)"
+    },
+    {
+      "id": "mat111-uib-4-3-def-c",
+      "type": "definition",
+      "title": "Punktet $c$ i restleddet",
+      "content": "$c$ er ukjent — men **innesperret**: den ligger strengt mellom utviklingspunktet $a$ og evalueringspunktet $x$. For $\\sqrt{5}$ utviklet om $a=4$ vet du altså $c \\in (4, 5)$. All feilanalyse består i å utnytte dette fengselet: du vet ikke hvor $c$ er, men du vet hvor stor $f^{(n+1)}(c)$ *kan* bli der."
+    },
+    {
+      "id": "mat111-uib-4-3-def-skranke",
+      "type": "definition",
+      "title": "Skrankeanalysen (min/maks av $f^{(n+1)}$)",
+      "content": "Finn tall $K$ og $L$ med\n$$K \\le f^{(n+1)}(t) \\le L \\quad \\text{for alle } t \\text{ mellom } a \\text{ og } x.$$\nEr $f^{(n+1)}$ **monoton** på intervallet (det vanlige tilfellet), er $K$ og $L$ rett og slett verdiene i endepunktene — sjekk hvilken ende som gir størst verdi. Multipliser så med $\\frac{(x-a)^{n+1}}{(n+1)!}$ (pass på fortegnet hvis $(x-a)^{n+1} < 0$!) for å sperre inn $R_n(x)$."
+    },
+    {
+      "id": "mat111-uib-4-3-def-intervall",
+      "type": "definition",
+      "title": "Feilintervallet som fanger sann verdi",
+      "content": "Har du $R_{\\min} \\le R_n(x) \\le R_{\\max}$, følger\n$$f(x) \\in \\big[\\,P_n(x) + R_{\\min},\\;\\; P_n(x) + R_{\\max}\\,\\big].$$\nDette **tallintervallet** er leveransen: «den sanne verdien ligger garantert mellom …». Regn $P_n(x)$ som desimaltall, legg til skrankene, og skriv intervallet eksplisitt."
+    },
+    {
+      "id": "mat111-uib-4-3-def-fortegn",
+      "type": "definition",
+      "title": "Fortegnet på feilen (for stor / for liten)",
+      "content": "Har $R_n(x) = f(x) - P_n(x)$ fast fortegn (fordi $f^{(n+1)}$ har fast fortegn på intervallet og $(x-a)^{n+1}$ sitt fortegn er kjent), kan du konkludere uten tall: $R_n > 0$ betyr at $P_n(x)$ er **for liten** (underestimat), $R_n < 0$ at den er **for stor** (overestimat). Merk retningen: restleddet måler *sann verdi minus polynom*."
+    },
+    {
+      "id": "mat111-uib-4-3-ex2",
+      "type": "example",
+      "title": "Eksempel 2 (eksamensnivå): $\\sqrt{5}$ med feilintervall",
+      "problem": "Bruk $P_2$ fra eksempel 1 til å tilnærme $\\sqrt{5}$, og bruk Lagrange-restleddet til å angi et minst mulig intervall som garantert inneholder $\\sqrt5$. Er tilnærmingen for stor eller for liten?",
+      "solution": "**Tilnærmingen.** Med $x = 5$, $a = 4$, altså $x - a = 1$:\n$$P_2(5) = 2 + \\frac14 - \\frac{1}{64} = 2{,}25 - 0{,}015625 = 2{,}234375.$$\n\n**Restleddet.** $f'''(x) = \\tfrac38 x^{-5/2}$, så\n$$R_2(5) = \\frac{f'''(c)}{3!}\\cdot 1^3 = \\frac{1}{6}\\cdot\\frac{3}{8}\\,c^{-5/2} = \\frac{1}{16\\,c^{5/2}}, \\qquad c \\in (4,5).$$\n\n**Skrankene (skarpest mulig).** $c^{-5/2}$ er *avtakende* i $c$, så på $(4,5)$ sperres den inn av endepunktene:\n$$\\frac{1}{16 \\cdot 5^{5/2}} < R_2(5) < \\frac{1}{16 \\cdot 4^{5/2}} = \\frac{1}{16 \\cdot 32} = \\frac{1}{512}.$$\nNumerisk: $5^{5/2} = 25\\sqrt5 \\approx 55{,}902$, så $0{,}001118 < R_2(5) < 0{,}001953$.\n\n**Intervallet.**\n$$\\sqrt5 = P_2(5) + R_2(5) \\in \\big(2{,}234375 + 0{,}001118,\\; 2{,}234375 + 0{,}001953\\big) = \\boxed{(2{,}23549,\\; 2{,}23633)}.$$\n\n**Fortegnet.** $R_2(5) > 0$ (positiv derivert tredje orden og $(x-a)^3 = 1 > 0$), så $P_2(5)$ er **for liten**.\n\n*(Kontroll: $\\sqrt5 = 2{,}2360680\\ldots$ ligger i intervallet, og er ganske riktig større enn $2{,}234375$.)* $\\blacksquare$"
+    },
+    {
+      "id": "mat111-uib-4-3-l2-merk",
+      "type": "text",
+      "content": "**Intuisjon:** legg merke til arbeidsdelingen. $P_2(5)$ er ren regning; alt tankearbeidet ligger i restleddet: (1) deriver én gang til enn polynomgraden, (2) sperr $c$ inn i intervallet, (3) bruk monotonien til $f^{(n+1)}$ til å hente skrankene fra endepunktene, (4) legg skrankene på $P_n$. Rekkefølgen *skranker → intervall → fortegn* er alltid den samme — det er en algoritme, ikke en inspirasjon.\n\nOg merk formuleringen «minst mulig intervall»: den ber om **skarpest mulig skranke**, altså de faktiske ekstremverdiene av $f^{(n+1)}$ på intervallet. En grovere, gyldig skranke (f.eks. «$c > 4$ gir $R_2 < 1/512$, og $R_2 > 0$») gir intervallet $(2{,}234375,\\ 2{,}236328)$ — riktig, men ikke minst mulig, og dermed bare delvis uttelling."
+    },
+    {
+      "id": "mat111-uib-4-3-o2",
+      "type": "exercise",
+      "exercise": {
+        "id": "mat111-uib-4-3-o2-x",
+        "number": "2",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "Bruk $P_2$ fra oppgave 1 til å tilnærme $\\sqrt[3]{26}$, og angi ved hjelp av Lagrange-restleddet et minst mulig intervall som garantert inneholder $\\sqrt[3]{26}$. Avgjør også om tilnærmingen er for stor eller for liten.",
+        "solution": "**Tilnærming** ($x = 26$, $x - a = -1$):\n$$P_2(26) = 3 - \\frac{1}{27} - \\frac{1}{2187} \\approx 3 - 0{,}037037 - 0{,}000457 = 2{,}962506.$$\n\n**Restledd:** $f'''(x) = \\tfrac{10}{27}x^{-8/3}$, så\n$$R_2(26) = \\frac{f'''(c)}{6}(-1)^3 = -\\frac{10}{162\\,c^{8/3}} = -\\frac{5}{81\\,c^{8/3}}, \\qquad c \\in (26, 27).$$\n\n**Skrankene (skarpest):** $c^{-8/3}$ er avtakende, så den er størst i $c = 26$ og minst i $c = 27$ ($27^{8/3} = 6561$):\n$$-\\frac{5}{81 \\cdot 26^{8/3}} < R_2(26) < -\\frac{5}{81 \\cdot 6561}.$$\nNumerisk: $26^{8/3} \\approx 5932{,}8$, så $-1{,}0405 \\cdot 10^{-5} < R_2 < -0{,}9408 \\cdot 10^{-5}$.\n\n**Intervall:** $\\sqrt[3]{26} \\in (2{,}962506 - 0{,}0000104,\\; 2{,}962506 - 0{,}0000094) \\approx (2{,}9624953,\\; 2{,}9624963)$.\n\n**Fortegn:** $R_2(26) < 0$ (positiv $f'''$, men $(x-a)^3 = -1 < 0$), så $P_2(26)$ er **for stor**. *(Kontroll: $\\sqrt[3]{26} = 2{,}9624961\\ldots$ ✓.)*",
+        "hints": [
+          "$x - a = -1$: hold styr på $(-1)^3$ i restleddet.",
+          "$f'''(x) = \\frac{10}{27}x^{-8/3}$ — positiv og avtakende; skrankene sitter i endepunktene $26$ og $27$.",
+          "Negativt restledd betyr at polynomverdien er for stor."
+        ]
+      }
+    },
+    {
+      "id": "mat111-uib-4-3-o3",
+      "type": "exercise",
+      "exercise": {
+        "id": "mat111-uib-4-3-o3-x",
+        "number": "3",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "**a)** Finn Maclaurinpolynomet $P_3$ til $f(x) = \\ln(1+x)$.\n\n**b)** Bruk det til å tilnærme $\\ln(1{,}1)$, og angi med restleddet et minst mulig intervall som inneholder $\\ln(1{,}1)$.",
+        "solution": "**a)** $f(0) = 0$; $f'(x) = (1+x)^{-1}$, $f'(0) = 1$; $f''(x) = -(1+x)^{-2}$, $f''(0) = -1$; $f'''(x) = 2(1+x)^{-3}$, $f'''(0) = 2$. Koeffisienter: $1$, $-\\tfrac12$, $\\tfrac{2}{3!} = \\tfrac13$:\n$$P_3(x) = x - \\frac{x^2}{2} + \\frac{x^3}{3}.$$\n\n**b)** $P_3(0{,}1) = 0{,}1 - 0{,}005 + 0{,}000\\overline{3} \\approx 0{,}0953333$.\n\nRestledd: $f^{(4)}(x) = -6(1+x)^{-4}$, så $R_3(0{,}1) = \\dfrac{f^{(4)}(c)}{4!}(0{,}1)^4 = -\\dfrac{10^{-4}}{4(1+c)^4}$ for en $c \\in (0,\\ 0{,}1)$.\n\n$(1+c)^4$ vokser fra $1$ til $1{,}1^4 = 1{,}4641$, så\n$$-\\frac{10^{-4}}{4} \\le R_3 \\le -\\frac{10^{-4}}{4 \\cdot 1{,}4641}, \\quad\\text{dvs.}\\quad -2{,}5\\cdot10^{-5} \\le R_3 \\le -1{,}708\\cdot10^{-5}.$$\n\nIntervall: $\\ln(1{,}1) \\in (0{,}0953333 - 0{,}000025,\\; 0{,}0953333 - 0{,}0000171) = (0{,}0953083,\\; 0{,}0953163)$. Tilnærmingen er for stor ($R_3 < 0$). *(Kontroll: $\\ln(1{,}1) = 0{,}0953102\\ldots$ ✓.)*",
+        "hints": [
+          "Deriver $\\ln(1+x)$ fire ganger og evaluer de tre første i null.",
+          "Restleddet bruker den *fjerde* deriverte, evaluert i ukjent $c \\in (0,\\ 0{,}1)$.",
+          "$(1+c)^4$ er voksende — endepunktene gir skrankene."
+        ]
+      }
+    },
+    {
+      "id": "mat111-uib-4-3-l3",
+      "type": "text",
+      "content": "## Løkke 3: Skrankevariantene fra arkivet\n\nTo skjerpede varianter går igjen: (H2018-typen) *gitt* skranker på $f''$, finn minste mulige intervall for $f(b)$ — og (V2018-typen) *innkapsling* av $f$ mellom to polynomer på et helt intervall."
+    },
+    {
+      "id": "mat111-uib-4-3-def-h2018",
+      "type": "definition",
+      "title": "Minste intervall for $f(b)$ gitt skranker på $f''$ (H2018-typen)",
+      "content": "Oppgitt $f(a)$, $f'(a)$ og $K \\le f''(t) \\le L$ på $[a,b]$: Taylors formel med $n = 1$ gir\n$$f(b) = f(a) + f'(a)(b-a) + \\frac{f''(c)}{2}(b-a)^2,$$\nog innsetting av skrankene for $f''(c)$ gir minste og største mulige verdi av $f(b)$. Intervallet er *skarpt*: uten mer informasjon om $f$ kan det ikke gjøres mindre."
+    },
+    {
+      "id": "mat111-uib-4-3-def-innkapsling",
+      "type": "definition",
+      "title": "Innkapsling mellom to polynomer (V2018-typen)",
+      "content": "En **innkapsling** er en dobbeltulikhet på et helt intervall:\n$$P_n(x) + G\\,(x-a)^{n+1} \\;<\\; f(x) \\;<\\; P_n(x) + H\\,(x-a)^{n+1} \\qquad \\text{for alle } x \\text{ i intervallet},$$\nder $G$ og $H$ er $\\frac{\\min f^{(n+1)}}{(n+1)!}$ og $\\frac{\\max f^{(n+1)}}{(n+1)!}$ på intervallet. Det er nøyaktig samme skrankeanalyse som før — men levert som funksjonsulikhet i stedet for ett tallintervall."
+    },
+    {
+      "id": "mat111-uib-4-3-ex3",
+      "type": "example",
+      "title": "Eksempel 3 (H2018-typen): intervall for $f(3)$",
+      "problem": "Om en to ganger deriverbar funksjon $f$ vet vi: $f(1) = 2$, $f'(1) = 1$, og $1 \\le f''(t) \\le 2$ for alle $t \\in [1,3]$. Finn det minste intervallet som garantert inneholder $f(3)$.",
+      "solution": "**Taylors formel** med $n = 1$, $a = 1$, $x = 3$ (altså $x - a = 2$):\n$$f(3) = f(1) + f'(1)\\cdot 2 + \\frac{f''(c)}{2}\\cdot 2^2 = 2 + 2 + 2f''(c) = 4 + 2f''(c)$$\nfor en $c \\in (1,3)$.\n\n**Sett inn skrankene.** $1 \\le f''(c) \\le 2$ gir\n$$4 + 2 \\cdot 1 \\;\\le\\; f(3) \\;\\le\\; 4 + 2 \\cdot 2, \\qquad\\text{altså}\\qquad \\boxed{f(3) \\in [6,\\ 8].}$$\n\n**Skarphet:** begge endene kan faktisk inntreffe (f.eks. gir $f(x) = 2 + (x-1) + \\tfrac12(x-1)^2$, som har $f'' \\equiv 1$, nøyaktig $f(3) = 6$) — så intervallet kan ikke krympes. $\\blacksquare$"
+    },
+    {
+      "id": "mat111-uib-4-3-ex4",
+      "type": "example",
+      "title": "Eksempel 4 (V2018-typen): innkapsling av $\\cos x$",
+      "problem": "Vis at for alle $x \\in (0,1)$ gjelder\n$$1 - \\frac{x^2}{2} + \\frac{\\cos 1}{24}\\,x^4 \\;<\\; \\cos x \\;<\\; 1 - \\frac{x^2}{2} + \\frac{x^4}{24}.$$",
+      "solution": "Maclaurinpolynomet av grad 3 til $\\cos x$ er $P_3(x) = 1 - \\dfrac{x^2}{2}$ (koeffisientene til $x$ og $x^3$ er null siden $\\sin 0 = 0$). Taylors formel gir for hver $x \\in (0,1)$:\n$$\\cos x = 1 - \\frac{x^2}{2} + R_3(x), \\qquad R_3(x) = \\frac{f^{(4)}(c)}{4!}\\,x^4 = \\frac{\\cos c}{24}\\,x^4$$\nfor en $c \\in (0, x)$, siden $f^{(4)}(t) = \\cos t$.\n\n**Skrankene på $\\cos c$:** for $c \\in (0,x) \\subset (0,1)$ er $\\cos$ strengt avtakende, så\n$$\\cos 1 < \\cos x < \\cos c < \\cos 0 = 1.$$\nSpesielt $\\cos 1 < \\cos c < 1$, strengt. Multiplisert med $\\dfrac{x^4}{24} > 0$:\n$$\\frac{\\cos 1}{24}x^4 < R_3(x) < \\frac{x^4}{24}.$$\nLagt til $P_3(x) = 1 - \\tfrac{x^2}{2}$ på alle sider gir dette nøyaktig påstanden. $\\blacksquare$\n\n*(Talltest i $x = 0{,}5$: venstre $\\approx 0{,}87641$, $\\cos 0{,}5 \\approx 0{,}877583$, høyre $\\approx 0{,}877604$ ✓.)*"
+    },
+    {
+      "id": "mat111-uib-4-3-o4",
+      "type": "exercise",
+      "exercise": {
+        "id": "mat111-uib-4-3-o4-x",
+        "number": "4",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "Om en funksjon $f$ vet vi: $f(2) = 1$, $f'(2) = -1$, og $0 \\le f''(t) \\le 3$ for alle $t \\in [2,4]$. Finn det minste intervallet som garantert inneholder $f(4)$.",
+        "solution": "Taylors formel med $n=1$, $a=2$, $x=4$: $f(4) = f(2) + f'(2)\\cdot 2 + \\dfrac{f''(c)}{2}\\cdot 4 = 1 - 2 + 2f''(c) = -1 + 2f''(c)$ for en $c \\in (2,4)$. Skrankene $0 \\le f''(c) \\le 3$ gir\n$$-1 + 0 \\le f(4) \\le -1 + 6, \\qquad\\text{altså}\\qquad f(4) \\in [-1,\\ 5].$$\nIntervallet er skarpt: $f''\\equiv 0$ (rett linje) gir $f(4) = -1$, og $f'' \\equiv 3$ gir $f(4) = 5$.",
+        "hints": [
+          "Skriv Taylors formel med $n = 1$ om $a = 2$ og sett inn $x = 4$.",
+          "$(x-a)^2/2 = 2$ — gang skrankene for $f''$ med dette tallet."
+        ]
+      }
+    },
+    {
+      "id": "mat111-uib-4-3-l4",
+      "type": "text",
+      "content": "## Løkke 4: Rekursivt definerte koeffisienter (H2013-typen)\n\nNoen oppgaver gir ikke funksjonen som formel, men som en *likning* — f.eks. «$f$ oppfyller $f'(x) = 1 + x f(x)$ med $f(0) = 2$». Da kan du ikke slå opp de deriverte: du må **produsere dem av likningen**, én om gangen."
+    },
+    {
+      "id": "mat111-uib-4-3-def-rekursiv",
+      "type": "definition",
+      "title": "Rekursivt definerte koeffisienter",
+      "content": "Når $f$ er gitt ved en likning som knytter $f'$ (eller $f''$) til $f$ og $x$: (1) les av $f(a)$ fra startbetingelsen; (2) sett inn i likningen for å få $f'(a)$; (3) **deriver hele likningen** (produkt-/kjerneregel!) og sett inn igjen for $f''(a)$; (4) gjenta til graden du trenger. Hver ny derivert *gjenbruker* de forrige verdiene — derav «rekursivt»."
+    },
+    {
+      "id": "mat111-uib-4-3-ex5",
+      "type": "example",
+      "title": "Eksempel 5 (H2013-typen): Taylor fra en likning",
+      "problem": "Funksjonen $f$ oppfyller\n$$f'(x) = 1 + x\\,f(x), \\qquad f(0) = 2.$$\nFinn Maclaurinpolynomet $P_3$ til $f$.",
+      "solution": "**Verdi for verdi fra likningen:**\n\n$f(0) = 2$ (oppgitt).\n\n$f'(0) = 1 + 0 \\cdot f(0) = 1.$\n\n**Deriver likningen** (produktregel på $x f(x)$): $f''(x) = f(x) + x f'(x)$, så\n$$f''(0) = f(0) + 0 = 2.$$\n\n**Deriver igjen:** $f'''(x) = f'(x) + f'(x) + x f''(x) = 2f'(x) + x f''(x)$, så\n$$f'''(0) = 2 f'(0) = 2.$$\n\n**Koeffisientene:** $\\dfrac{f''(0)}{2!} = 1$ og $\\dfrac{f'''(0)}{3!} = \\dfrac{2}{6} = \\dfrac13$:\n$$P_3(x) = 2 + x + x^2 + \\frac{x^3}{3}. \\qquad\\blacksquare$$"
+    },
+    {
+      "id": "mat111-uib-4-3-o5",
+      "type": "exercise",
+      "exercise": {
+        "id": "mat111-uib-4-3-o5-x",
+        "number": "5",
+        "type": "classic",
+        "difficulty": "vanskelig",
+        "task": "Funksjonen $f$ oppfyller $f''(x) = x\\,f(x)$ med $f(0) = 1$ og $f'(0) = 0$. Finn Maclaurinpolynomet $P_3$ til $f$.",
+        "solution": "$f(0) = 1$ og $f'(0) = 0$ er oppgitt. Likningen gir $f''(0) = 0 \\cdot f(0) = 0$. Deriver likningen (produktregel): $f'''(x) = f(x) + x f'(x)$, så $f'''(0) = f(0) = 1$. Koeffisientene: $\\tfrac{f''(0)}{2!} = 0$ og $\\tfrac{f'''(0)}{3!} = \\tfrac16$:\n$$P_3(x) = 1 + \\frac{x^3}{6}.$$",
+        "hints": [
+          "$f''(0)$ leses rett ut av likningen med $x = 0$.",
+          "Deriver $x f(x)$ med produktregelen for å få $f'''$."
+        ]
+      }
+    },
+    {
+      "id": "mat111-uib-4-3-def-p1",
+      "type": "definition",
+      "title": "$P_1$ = tangenten = ett Newton-steg",
+      "content": "$P_1(x) = f(a) + f'(a)(x-a)$ er **tangenten** i $a$ — Taylorpolynomet av grad 1. Løsningen av $P_1(x) = 0$ er $x = a - f(a)/f'(a)$: **ett Newton-steg** fra $a$ ([kap. 4.2](/bok/mat111-uib/mat111-uib-4-2)). Hele Del 4 er dermed én familie: Newton itererer grad-1-Taylor, og restleddet kvantifiserer hvor god selve linariseringen er."
+    },
+    {
+      "id": "mat111-uib-4-3-warn",
+      "type": "warning",
+      "title": "Typiske feil",
+      "content": "1. **Restleddet sitert, ikke brukt.** En tilnærming uten tallfestet feilskranke besvarer ikke oppgaven — «skranker → intervall → fortegn» er selve leveransen i sjanger G.\n2. **Grove skranker der skarpe var tilgjengelige.** «Minst mulig intervall» krever min/maks av $f^{(n+1)}$ på intervallet (endepunktene, når den er monoton) — en lat skranke gir bare delvis uttelling.\n3. **Fortegnet på feilen ikke vurdert** — spesielt når $(x-a)^{n+1}$ er negativ (utvikling *nedover*, som $\\sqrt[3]{26}$ om $27$): da snur restleddets fortegn.\n4. **Feil $c$-intervall.** $c$ ligger mellom $a$ og $x$ — for $\\ln(1{,}1)$ om $a=0$ er $c \\in (0,\\ 0{,}1)$, ikke i $(1,\\ 1{,}1)$.\n5. **Regnefeil i $f^{(n+1)}$**: glemte kjerneregel-faktorer og fortegnsslurv i tredje-/fjerdederiverte ødelegger alt nedstrøms — før derivertetabellen ryddig, med kontrollregning i det pene punktet.\n6. **Glemt $k!$ i koeffisienten** $f^{(k)}(a)/k!$ — den hyppigste rene byggefeilen i $P_n$."
+    },
+    {
+      "id": "mat111-uib-4-3-pool",
+      "type": "text",
+      "content": "## Flere øvingsoppgaver\n\nDrill i hele sjangerbredden: bygg polynom, lever intervall, avgjør fortegn — og variantene."
+    },
+    {
+      "id": "mat111-uib-4-3-d1",
+      "type": "exercise",
+      "exercise": {
+        "id": "mat111-uib-4-3-d1-x",
+        "number": "6",
+        "type": "classic",
+        "difficulty": "lett",
+        "task": "Finn Maclaurinpolynomet $P_3$ til $f(x) = e^{-x}$.",
+        "solution": "$f^{(k)}(x) = (-1)^k e^{-x}$, så $f^{(k)}(0) = (-1)^k$: verdiene er $1, -1, 1, -1$. Koeffisienter: $1, -1, \\tfrac12, -\\tfrac16$:\n$$P_3(x) = 1 - x + \\frac{x^2}{2} - \\frac{x^3}{6}.$$",
+        "hints": [
+          "Hver derivasjon av $e^{-x}$ gir en faktor $-1$ (kjerneregelen)."
+        ]
+      }
+    },
+    {
+      "id": "mat111-uib-4-3-d2",
+      "type": "exercise",
+      "exercise": {
+        "id": "mat111-uib-4-3-d2-x",
+        "number": "7",
+        "type": "classic",
+        "difficulty": "lett",
+        "task": "Skriv opp Taylorpolynomet $P_1$ til $f(x) = x^3 + x - 3$ om $a = 1{,}5$, og vis at nullpunktet til $P_1$ er nøyaktig Newton-steget $x_1$ fra kap. 4.2 (eksempel 1 der).",
+        "solution": "$f(1{,}5) = 1{,}875$ og $f'(1{,}5) = 3 \\cdot 2{,}25 + 1 = 7{,}75$, så $P_1(x) = 1{,}875 + 7{,}75\\,(x - 1{,}5)$. Nullpunkt: $x = 1{,}5 - \\dfrac{1{,}875}{7{,}75} \\approx 1{,}258065$ — identisk med Newton-steget $x_1$ fra kap. 4.2, siden Newton per definisjon løser $P_1(x) = 0$.",
+        "hints": [
+          "$P_1(x) = f(a) + f'(a)(x-a)$ — sett inn og løs $P_1(x) = 0$."
+        ]
+      }
+    },
+    {
+      "id": "mat111-uib-4-3-d3",
+      "type": "exercise",
+      "exercise": {
+        "id": "mat111-uib-4-3-d3-x",
+        "number": "8",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "**a)** Bruk $P_3$ fra oppgave 6 til å tilnærme $e^{-0{,}2}$.\n\n**b)** Angi med Lagrange-restleddet et minst mulig intervall som garantert inneholder $e^{-0{,}2}$, og avgjør om tilnærmingen er for stor eller for liten.",
+        "solution": "**a)** $P_3(0{,}2) = 1 - 0{,}2 + 0{,}02 - \\dfrac{0{,}008}{6} \\approx 1 - 0{,}2 + 0{,}02 - 0{,}001333 = 0{,}818667.$\n\n**b)** $f^{(4)}(x) = e^{-x}$, så $R_3(0{,}2) = \\dfrac{e^{-c}}{24}(0{,}2)^4 = \\dfrac{e^{-c}}{24}\\cdot 0{,}0016$ for en $c \\in (0,\\ 0{,}2)$. $e^{-c}$ er avtakende, så $e^{-0{,}2} < e^{-c} < 1$:\n$$\\frac{0{,}0016\\,e^{-0{,}2}}{24} < R_3 < \\frac{0{,}0016}{24}, \\quad\\text{dvs.}\\quad 5{,}46\\cdot10^{-5} < R_3 < 6{,}67\\cdot10^{-5}.$$\nIntervall: $e^{-0{,}2} \\in (0{,}818667 + 0{,}0000546,\\; 0{,}818667 + 0{,}0000667) \\approx (0{,}818721,\\; 0{,}818733)$. $R_3 > 0$: tilnærmingen er **for liten**. *(Kontroll: $e^{-0{,}2} = 0{,}8187308\\ldots$ ✓. Kuriosum: nedre skranke inneholder selve svaret $e^{-0{,}2}$ — det er helt greit: ulikheten $e^{-0{,}2} < e^{-c}$ er gyldig uansett, og numerisk verdi $0{,}8187$ kan brukes med grov avrunding nedover.)*",
+        "hints": [
+          "Restleddet bruker fjerde deriverte: $f^{(4)}(x) = e^{-x}$.",
+          "$(0{,}2)^4 = 0{,}0016$ og $4! = 24$.",
+          "$e^{-c}$ avtar — hvilket endepunkt gir øvre skranke?"
+        ]
+      }
+    },
+    {
+      "id": "mat111-uib-4-3-d4",
+      "type": "exercise",
+      "exercise": {
+        "id": "mat111-uib-4-3-d4-x",
+        "number": "9",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "Finn $P_2$ til $f(x) = \\sqrt{x}$ om $a = 9$, bruk det til å tilnærme $\\sqrt{8{,}7}$, og avgjør med restleddet om tilnærmingen er for stor eller for liten.",
+        "solution": "$f(9) = 3$; $f'(x) = \\tfrac12 x^{-1/2}$ gir $f'(9) = \\tfrac16$; $f''(x) = -\\tfrac14 x^{-3/2}$ gir $f''(9) = -\\tfrac{1}{108}$, koeffisient $-\\tfrac{1}{216}$:\n$$P_2(x) = 3 + \\frac{x-9}{6} - \\frac{(x-9)^2}{216}.$$\nMed $x - 9 = -0{,}3$: $P_2(8{,}7) = 3 - 0{,}05 - \\dfrac{0{,}09}{216} \\approx 3 - 0{,}05 - 0{,}000417 = 2{,}949583$.\n\n**Fortegn på feilen:** $f'''(x) = \\tfrac38 x^{-5/2} > 0$ på hele $(8{,}7,\\ 9)$, og $(x-a)^3 = (-0{,}3)^3 < 0$, så\n$$R_2(8{,}7) = \\frac{f'''(c)}{6}(-0{,}3)^3 < 0.$$\nTilnærmingen er altså **for stor**. *(Kontroll: $\\sqrt{8{,}7} = 2{,}9495762\\ldots < 2{,}9495833 = P_2$ ✓.)*",
+        "hints": [
+          "$9^{3/2} = 27$; hold koeffisientene som brøker.",
+          "Utvikling nedover: $(x-a)^3$ blir negativ — det snur fortegnet på restleddet."
+        ]
+      }
+    },
+    {
+      "id": "mat111-uib-4-3-d5",
+      "type": "exercise",
+      "exercise": {
+        "id": "mat111-uib-4-3-d5-x",
+        "number": "10",
+        "type": "classic",
+        "difficulty": "vanskelig",
+        "task": "Vis at for alle $x > 0$ gjelder innkapslingen\n$$x - \\frac{x^2}{2} < \\ln(1+x) < x - \\frac{x^2}{2} + \\frac{x^3}{3}.$$",
+        "solution": "Taylors formel om $0$ for $f(x) = \\ln(1+x)$, med $n = 2$: $P_2(x) = x - \\tfrac{x^2}{2}$ og\n$$\\ln(1+x) = x - \\frac{x^2}{2} + R_2(x), \\qquad R_2(x) = \\frac{f'''(c)}{3!}x^3 = \\frac{2(1+c)^{-3}}{6}x^3 = \\frac{x^3}{3(1+c)^3}$$\nfor en $c \\in (0, x)$.\n\n**Nedre skranke:** $R_2(x) > 0$ (alle faktorer positive), så $\\ln(1+x) > x - \\tfrac{x^2}{2}$.\n\n**Øvre skranke:** $c > 0$ gir $(1+c)^3 > 1$, så $R_2(x) < \\dfrac{x^3}{3}$, altså $\\ln(1+x) < x - \\tfrac{x^2}{2} + \\tfrac{x^3}{3}$.\n\nBegge ulikhetene er strenge siden $c > 0$ strengt. $\\blacksquare$ *(Talltest $x = 0{,}5$: $0{,}375 < 0{,}4055 < 0{,}4167$ ✓.)*",
+        "hints": [
+          "Skriv Taylors formel med $n = 2$ og finn $f'''(x) = 2(1+x)^{-3}$.",
+          "Sperr inn $(1+c)^{-3}$ mellom $0$ og $1$ for $c > 0$.",
+          "Innkapsling = samme skrankeanalyse, levert som dobbeltulikhet i $x$."
+        ]
+      }
+    },
+    {
+      "id": "mat111-uib-4-3-d6",
+      "type": "exercise",
+      "exercise": {
+        "id": "mat111-uib-4-3-d6-x",
+        "number": "11",
+        "type": "classic",
+        "difficulty": "vanskelig",
+        "task": "(Krevende.) Funksjonen $f$ oppfyller $f'(x) = x + \\big(f(x)\\big)^2$ med $f(0) = 1$.\n\n**a)** Finn $P_3$ til $f$ om $0$.\n\n**b)** Forklar hvorfor $P_1$-tilnærmingen av $f$ nær $0$ er nøyaktig tangenten i $(0, 1)$.",
+        "solution": "**a)** $f(0) = 1$. Likningen: $f'(0) = 0 + 1^2 = 1$.\n\nDeriver (kjerneregel på $f^2$): $f''(x) = 1 + 2f(x)f'(x)$, så $f''(0) = 1 + 2 \\cdot 1 \\cdot 1 = 3$.\n\nDeriver igjen (produktregel): $f'''(x) = 2\\big(f'(x)\\big)^2 + 2f(x)f''(x)$, så $f'''(0) = 2 \\cdot 1 + 2 \\cdot 1 \\cdot 3 = 8$.\n\nKoeffisienter: $\\tfrac{3}{2!} = \\tfrac32$, $\\tfrac{8}{3!} = \\tfrac43$:\n$$P_3(x) = 1 + x + \\frac{3}{2}x^2 + \\frac{4}{3}x^3.$$\n\n**b)** $P_1(x) = f(0) + f'(0)x = 1 + x$ er per definisjon linjen gjennom $(0, f(0))$ med stigning $f'(0)$ — altså tangenten der. Generelt: grad-1-Taylor *er* tangenten (og dens nullpunkt er ett Newton-steg, kap. 4.2).",
+        "hints": [
+          "$\\frac{d}{dx}f(x)^2 = 2f(x)f'(x)$ — kjerneregelen.",
+          "Hver evaluering i $0$ gjenbruker verdiene du allerede har.",
+          "Del på $2!$ og $3!$ til slutt."
+        ]
+      }
+    },
+    {
+      "id": "mat111-uib-4-3-bb-tekst",
+      "type": "text",
+      "content": "## Begrepsbank til eksamen\n\nSjanger G-verktøykassen i kortform.\n\n*Begrepsbanken gjentar det du nettopp har lest — hopp trygt over ved førstegangslesing.*"
+    },
+    {
+      "id": "mat111-uib-4-3-bb-formel",
+      "type": "definition",
+      "title": "Taylors formel (kortform)",
+      "content": "$f(x) = P_n(x) + R_n(x)$: funksjonen er polynomet pluss en eksakt feil. $P_n(x) = \\sum_{k=0}^n \\frac{f^{(k)}(a)}{k!}(x-a)^k$, $R_n(x) = \\frac{f^{(n+1)}(c)}{(n+1)!}(x-a)^{n+1}$, med $c$ strengt mellom $a$ og $x$."
+    },
+    {
+      "id": "mat111-uib-4-3-bb-rest-struktur",
+      "type": "definition",
+      "title": "Restleddets tre faktorer",
+      "content": "$R_n = \\underbrace{f^{(n+1)}(c)}_{\\text{sperres inn}} \\cdot \\underbrace{\\tfrac{1}{(n+1)!}}_{\\text{kjent}} \\cdot \\underbrace{(x-a)^{n+1}}_{\\text{kjent, sjekk fortegn!}}$. Bare den første er ukjent — og den er fanget mellom min og maks av $f^{(n+1)}$ på intervallet."
+    },
+    {
+      "id": "mat111-uib-4-3-bb-monoton",
+      "type": "definition",
+      "title": "Monotoni-trikset for skranker",
+      "content": "Er $f^{(n+1)}$ monoton på intervallet mellom $a$ og $x$ (typisk potens- eller eksponentialuttrykk), ligger min og maks i endepunktene — skarpest mulige skranker gratis. Skriv én setning om monotonien i føringen."
+    },
+    {
+      "id": "mat111-uib-4-3-bb-algoritme",
+      "type": "definition",
+      "title": "Algoritmen: skranker → intervall → fortegn",
+      "content": "(1) Deriver til orden $n+1$. (2) Sperr $c$ inn mellom $a$ og $x$. (3) Endepunktverdier av $f^{(n+1)}$ gir $R_{\\min} \\le R_n \\le R_{\\max}$. (4) $f(x) \\in [P_n + R_{\\min},\\ P_n + R_{\\max}]$; fast fortegn på $R_n$ gir for stor/for liten."
+    },
+    {
+      "id": "mat111-uib-4-3-bb-skarp",
+      "type": "definition",
+      "title": "Skarpest mulig skranke",
+      "content": "«Minst mulig intervall» = bruk de faktiske ekstremverdiene av $f^{(n+1)}$ på intervallet, ikke en lat, videre skranke. Grov, gyldig skranke: delvis uttelling. Skarp skranke: full."
+    },
+    {
+      "id": "mat111-uib-4-3-bb-nedover",
+      "type": "definition",
+      "title": "Utvikling nedover ($x < a$)",
+      "content": "Da er $x - a < 0$, og $(x-a)^{n+1}$ er negativ for like $n$ (oddetallspotens). Fortegnet på $R_n$ snur — klassisk felle i $\\sqrt[3]{26}$-om-$27$-typen. Sjekk potensens fortegn eksplisitt i føringen."
+    },
+    {
+      "id": "mat111-uib-4-3-bb-h2018",
+      "type": "definition",
+      "title": "H2018-varianten (skranker på $f''$)",
+      "content": "Gitt $f(a)$, $f'(a)$ og $K \\le f'' \\le L$ på $[a,b]$: $f(b) = f(a) + f'(a)(b-a) + \\frac{f''(c)}{2}(b-a)^2$; sett inn $K$ og $L$ for minste/største mulige $f(b)$. Intervallet er skarpt."
+    },
+    {
+      "id": "mat111-uib-4-3-bb-v2018",
+      "type": "definition",
+      "title": "V2018-varianten (innkapsling)",
+      "content": "$P_n(x) + G(x-a)^{n+1} < f(x) < P_n(x) + H(x-a)^{n+1}$ på et helt intervall, med $G, H$ = min/maks av $\\frac{f^{(n+1)}}{(n+1)!}$. Samme analyse som tallintervallet — levert som funksjonsulikhet."
+    },
+    {
+      "id": "mat111-uib-4-3-bb-h2013",
+      "type": "definition",
+      "title": "H2013-varianten (rekursive koeffisienter)",
+      "content": "$f$ gitt ved likning (f.eks. $f' = 1 + xf$): les av $f(a)$, hent $f'(a)$ fra likningen, deriver likningen for $f''(a)$, gjenta. Produkt- og kjerneregel på likningen — hver ny verdi gjenbruker de forrige."
+    },
+    {
+      "id": "mat111-uib-4-3-bb-pent",
+      "type": "definition",
+      "title": "Pene punkter (huskeliste)",
+      "content": "$\\sqrt x$: $a \\in \\{1, 4, 9, 16, 25\\}$ · $\\sqrt[3]{x}$: $a \\in \\{1, 8, 27\\}$ · $\\ln x$: $a = 1$ · $e^x, \\sin, \\cos$: $a = 0$. Velg det pene punktet nærmest tallet som skal tilnærmes."
+    },
+    {
+      "id": "mat111-uib-4-3-bb-p1n",
+      "type": "definition",
+      "title": "$P_1$–tangent–Newton-trekanten",
+      "content": "$P_1$ = tangenten i $a$; nullpunktet til $P_1$ = ett Newton-steg. Taylor generaliserer tangenten til høyere grad; restleddet måler hvor god linjeriseringen/polynomiseringen er. Del 4s røde tråd."
+    },
+    {
+      "id": "mat111-uib-4-3-bb-n0",
+      "type": "definition",
+      "title": "Restleddet med $n = 0$ er sekantsetningen",
+      "content": "$f(x) = f(a) + f'(c)(x-a)$ — Taylors formel med $n=0$ er nøyaktig MVT fra kap. 4.1. Taylorapparatet er altså en gradvis skjerping av middelverdisetningen."
+    },
+    {
+      "id": "mat111-uib-4-3-bb-presisjon",
+      "type": "definition",
+      "title": "Presisjonsspråket i fasit",
+      "content": "Lever intervaller med «garantert»/«fanger sann verdi», feilfortegn som «for stor/for liten», og avslutt med kontrollsetning der det er naturlig. Kalkulatorverdi kan *bekrefte*, aldri *erstatte*, restleddsargumentet."
+    },
+    {
+      "id": "mat111-uib-4-3-bb-grad",
+      "type": "definition",
+      "title": "Gradvalget",
+      "content": "Oppgaven angir graden (oftest 1–3). Høyere grad gir mindre feil nær $a$ — men også en ekstra derivert å regne. Restleddet forteller nøyaktig hva du vinner: feilen skalerer som $(x-a)^{n+1}$."
+    },
+    {
+      "id": "mat111-uib-4-3-rep",
+      "type": "collapsible",
+      "title": "Repetisjonsoppgaver",
+      "buttonText": "Vis repetisjonsoppgaver",
+      "content": [
+        {
+          "id": "mat111-uib-4-3-r1",
+          "type": "exercise",
+          "exercise": {
+            "id": "mat111-uib-4-3-r1-x",
+            "number": "R1",
+            "type": "classic",
+            "difficulty": "lett",
+            "task": "(Fra R1 4.1/4.3) Deriver $f(x) = x^{-3/2}$ og $g(x) = (1+x)^{-2}$.",
+            "solution": "$f'(x) = -\\tfrac32 x^{-5/2}$ (potensregelen). $g'(x) = -2(1+x)^{-3}$ (kjerneregelen; indre derivert $1$).",
+            "hints": [
+              "Potensregelen gjelder også negative brøkeksponenter."
+            ]
+          }
+        },
+        {
+          "id": "mat111-uib-4-3-r2",
+          "type": "exercise",
+          "exercise": {
+            "id": "mat111-uib-4-3-r2-x",
+            "number": "R2",
+            "type": "classic",
+            "difficulty": "lett",
+            "task": "(Fra kap. 3.1) Skriv opp tangenten til $f(x) = \\ln x$ i $a = 1$.",
+            "solution": "$f(1) = 0$, $f'(x) = 1/x$ gir $f'(1) = 1$: tangenten er $y = 0 + 1\\cdot(x-1) = x - 1$. (Dette er også $P_1$ om $1$.)",
+            "hints": [
+              "$y = f(a) + f'(a)(x-a)$."
+            ]
+          }
+        },
+        {
+          "id": "mat111-uib-4-3-r3",
+          "type": "exercise",
+          "exercise": {
+            "id": "mat111-uib-4-3-r3-x",
+            "number": "R3",
+            "type": "classic",
+            "difficulty": "lett",
+            "task": "(Fra kap. 4.1) Hva sier sekantsetningen for $f$ på $[a, x]$ — og hvilken Taylor-orden svarer det til?",
+            "solution": "$f(x) - f(a) = f'(c)(x-a)$ for en $c \\in (a,x)$, dvs. $f(x) = f(a) + f'(c)(x-a)$ — Taylors formel med $n = 0$: polynomet er konstanten $f(a)$, og hele resten er restledd.",
+            "hints": [
+              "Sammenlikn med $f(x) = P_0(x) + R_0(x)$."
+            ]
+          }
+        },
+        {
+          "id": "mat111-uib-4-3-r4",
+          "type": "exercise",
+          "exercise": {
+            "id": "mat111-uib-4-3-r4-x",
+            "number": "R4",
+            "type": "classic",
+            "difficulty": "lett",
+            "task": "(Fra R1 4.1) Regn ut $3!$, $4!$ og $\\dfrac{6}{3!}$ — og forklar hvorfor fakulteter dukker opp i Taylorkoeffisientene.",
+            "solution": "$3! = 6$, $4! = 24$, $\\dfrac{6}{3!} = 1$. Fakultetene kommer av at $\\frac{d^k}{dx^k}(x-a)^k = k!$ — koeffisienten $f^{(k)}(a)/k!$ nøytraliserer denne faktoren slik at $P_n^{(k)}(a) = f^{(k)}(a)$.",
+            "hints": [
+              "Deriver $(x-a)^3$ tre ganger og se hvilken konstant som står igjen."
+            ]
+          }
+        },
+        {
+          "id": "mat111-uib-4-3-r5",
+          "type": "exercise",
+          "exercise": {
+            "id": "mat111-uib-4-3-r5-x",
+            "number": "R5",
+            "type": "classic",
+            "difficulty": "lett",
+            "task": "(Fra kap. 4.2) Skriv Newtons iterasjonsformel — og pek på hvor $P_1$ gjemmer seg i den.",
+            "solution": "$x_{n+1} = x_n - \\dfrac{f(x_n)}{f'(x_n)}$. Den er løsningen av $P_1(x) = f(x_n) + f'(x_n)(x - x_n) = 0$ — Newton løser grad-1-Taylorlikningen i hvert steg.",
+            "hints": [
+              "Sett $P_1(x) = 0$ og løs for $x$."
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": "mat111-uib-4-3-symbol",
+      "type": "collapsible",
+      "title": "Symbol- og formelliste",
+      "buttonText": "Vis symboler og formler",
+      "content": [
+        {
+          "id": "mat111-uib-4-3-symbol-txt",
+          "type": "text",
+          "content": "## Symbol- og formelliste\n\n*Oppslagsverk — alt her forklares underveis i kapitlet.*\n\nAlle symboler og formler som brukes i dette delkapitlet (4.3), samlet på ett sted.\n\n| Symbol | Betydning |\n|---|---|\n| $P_n(x)$ | Taylorpolynomet av grad $n$ om utviklingspunktet $a$ |\n| $a$ | Utviklingspunktet («pent» punkt med enkle deriverte) |\n| $f^{(k)}(a)$ | Den $k$-te deriverte av $f$ evaluert i $a$ |\n| $k!$ | $k$-fakultet: $k! = 1 \\cdot 2 \\cdots k$; nevneren i koeffisientene |\n| $R_n(x)$ | Lagrange-restleddet: den eksakte feilen $f(x) - P_n(x)$ |\n| $c$ | Ukjent punkt strengt mellom $a$ og $x$ i restleddet |\n| $K, L$ | Nedre/øvre skranke for $f^{(n+1)}$ på intervallet |\n| $G, H$ | Koeffisientskranker $\\min / \\max$ av $f^{(n+1)}/(n+1)!$ i innkapsling |\n\n**Formler i dette delkapitlet:**\n\n$$P_n(x) = \\sum_{k=0}^{n} \\frac{f^{(k)}(a)}{k!}(x-a)^k \\quad \\text{(Taylorpolynomet: kopierer verdi og } n \\text{ deriverte i } a\\text{)}$$\n\n$$R_n(x) = \\frac{f^{(n+1)}(c)}{(n+1)!}(x-a)^{n+1} \\quad \\text{(Lagrange-restleddet, } c \\text{ mellom } a \\text{ og } x\\text{)}$$\n\n$$K \\le f^{(n+1)} \\le L \\;\\Longrightarrow\\; f(x) \\in \\Big[P_n(x) + \\tfrac{K\\,(x-a)^{n+1}}{(n+1)!},\\; P_n(x) + \\tfrac{L\\,(x-a)^{n+1}}{(n+1)!}\\Big] \\;\\; (\\text{for } (x-a)^{n+1} > 0)$$\n\n$$f(b) = f(a) + f'(a)(b-a) + \\frac{f''(c)}{2}(b-a)^2 \\quad \\text{(H2018-varianten, } n = 1\\text{)}$$\n\n$$P_1(x) = f(a) + f'(a)(x-a) \\quad \\text{(tangenten; } P_1(x) = 0 \\text{ gir ett Newton-steg)}$$\n\n**Algoritmen:** deriver til orden $n{+}1$ → sperr inn $c$ → endepunktskranker → intervall/fortegn. Skarpest mulig skranke gir full uttelling."
+        }
+      ]
+    }
+  ],
+  "exercises": []
+}

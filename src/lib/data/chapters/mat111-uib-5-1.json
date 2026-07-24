@@ -1,0 +1,520 @@
+{
+  "id": "mat111-uib-5-1",
+  "courseId": "mat111-uib",
+  "chapterNumber": "5.1",
+  "title": "Fundamentalteoremet og integraler med variable grenser",
+  "description": "Analysens fundamentalteorem begge veier, og derivasjon av integraler med variable grenser via kjerneregelen — med veldefinerthetsargument for integranden.",
+  "estimatedMinutes": 50,
+  "competenceGoals": [
+    "kunne bruke analysens fundamentalteorem begge veier: derivere en integralfunksjon og beregne et bestemt integral via en antiderivert",
+    "kunne derivere integraler med variable grenser med kjerneregel-faktoren, også når begge grensene avhenger av x",
+    "kunne begrunne at en integralfunksjon er veldefinert ved å sjekke at integranden er kontinuerlig på integrasjonsområdet",
+    "kunne bruke integrandens fortegn til å avgjøre hvor en integralfunksjon vokser, avtar og har ekstremalpunkter"
+  ],
+  "content": [
+    {
+      "id": "mat111-uib-5-1-tip",
+      "type": "tip",
+      "title": "Eksamensvinkel",
+      "content": "**FTC-oppgaven — derivér integralet, ikke regn det ut.**\n\n- Oppgaven «deriver $F(x)=\\int_a^{g(x)} f(t)\\,dt$» finnes i **10 av 34 arkiverte sett** (2003–2020). Den hører til J-familien i bokas sjangermerking (se Del 0) — *sjanger* er bare bokas navn på en oppgavetype som går igjen.\n- Poenget er nesten aldri å *beregne* integralet — integranden er typisk uten elementær antiderivert (som $e^{-t^2}$ eller $\\frac{\\sin t}{t}$). Du skal bruke **analysens fundamentalteorem** pluss **kjerneregelen**, og det tar under fem minutter når malen sitter.\n- I H2018-varianten krevde løsningsforslaget i tillegg et **veldefinerthetsargument**: en setning om at integranden er kontinuerlig på integrasjonsområdet, slik at integralfunksjonen i det hele tatt finnes. Den setningen er gratis når du vet at den skal med.\n- Prioritet: **kunne** — dette er ikke settets tyngste oppgave, men den er rask og poengsikker, og teoremet her er fundamentet for hele Del 5."
+    },
+    {
+      "id": "mat111-uib-5-1-fork",
+      "type": "text",
+      "content": "**Forkunnskaper.** Dette kapitlet bygger på derivasjonsbegrepet fra [kap. 3.1](/bok/mat111-uib/mat111-uib-3-1) og på integralforståelsen fra R2: **[Analysens fundamentalsetning](/bok/r2/r2-2-5)** (sammenhengen derivasjon–integrasjon) og **[Bestemt integral som grenseverdi](/bok/r2/r2-2-4)** (integralet som grense av summer). Regneteknisk trenger du **[Kjerneregelen](/bok/r1/r1-4-3)** helt automatisert — det er den som gir faktoren $g'(x)$ i dette kapitlets hovedformel.\n\n**Sist du var her** — de to formlene du må ha friskt i minne:\n\n$$\\frac{d}{dx}\\,f(g(x)) = f'(g(x))\\,g'(x) \\qquad\\text{(kjerneregelen)}$$\n\n$$\\int_a^b f(x)\\,dx = F(b) - F(a),\\quad\\text{der } F' = f \\qquad\\text{(fundamentalsetningen slik du kjenner den fra R2)}$$"
+    },
+    {
+      "id": "mat111-uib-5-1-motiv",
+      "type": "text",
+      "content": "Derivasjon og integrasjon ser ut som to helt forskjellige operasjoner: den ene måler stigning i et punkt, den andre samler opp areal over et intervall. **Analysens fundamentalteorem** sier at de er hverandres motsatte operasjoner — og det i *to* retninger. Del 1 sier at hvis du deriverer en arealfunksjon, får du integranden tilbake. Del 2 sier at du kan beregne et areal ved å finne en antiderivert og sette inn grensene.\n\nPå MAT111-eksamen brukes begge retninger aktivt. Del 2 bruker du hver gang du beregner et bestemt integral (hele resten av Del 5). Del 1 testes direkte i FTC-oppgaven: derivér $\\int_1^{x^2}\\frac{\\sin t}{t}\\,dt$ — et integral ingen kan beregne eksakt, men som alle kan *derivere* på tre linjer.\n\nKapitlet har tre læringsløkker: (1) integralfunksjonen og fundamentalteoremets del 1, (2) variable grenser og kjerneregel-faktoren, (3) del 2 og analyse av integralfunksjoner. Ta en pause mellom løkkene — de bygger på hverandre."
+    },
+    {
+      "id": "mat111-uib-5-1-l1",
+      "type": "text",
+      "content": "## Løkke 1 — Integralfunksjonen og fundamentalteoremets del 1 (~15 min)"
+    },
+    {
+      "id": "mat111-uib-5-1-def-antider",
+      "type": "definition",
+      "title": "Antiderivert",
+      "content": "En antiderivert er en funksjon som «deriverer tilbake» til den du startet med. Presist: $F$ er en **antiderivert** til $f$ på et intervall dersom\n\n$$F'(x) = f(x)$$\n\nfor alle $x$ i intervallet. For eksempel er $F(x)=x^3$ en antiderivert til $f(x)=3x^2$. Antideriverte kalles også *ubestemte integraler*."
+    },
+    {
+      "id": "mat111-uib-5-1-def-familie",
+      "type": "definition",
+      "title": "Familien av antideriverte og konstanten $C$",
+      "content": "Antideriverte er aldri alene: har $f$ én antiderivert $F$, er *alle* antideriverte på formen $F(x)+C$ for en konstant $C$. Det er derfor vi skriver\n\n$$\\int f(x)\\,dx = F(x) + C.$$\n\nAt det ikke finnes flere, følger av sekantsetningen (MVT): to funksjoner med samme deriverte på et intervall avviker med en konstant."
+    },
+    {
+      "id": "mat111-uib-5-1-def-bestemt",
+      "type": "definition",
+      "title": "Det bestemte integralet (grense av Riemann-summer)",
+      "content": "Det bestemte integralet er en grenseverdi av arealsummer, ikke en «anti-derivasjon» per definisjon. Vi deler $[a,b]$ i $n$ biter, reiser en søyle på hver bit og summerer søylearealene $\\sum f(x_i^*)\\,\\Delta x$; når inndelingen blir finere og finere, nærmer summene seg ett tall:\n\n$$\\int_a^b f(x)\\,dx = \\lim_{n\\to\\infty}\\sum_{i=1}^n f(x_i^*)\\,\\Delta x.$$\n\nFor kontinuerlige $f$ eksisterer grensen alltid. At dette *sum-tallet* kan beregnes med antideriverte, er nettopp fundamentalteoremets innhold — det er et teorem, ikke en definisjon."
+    },
+    {
+      "id": "mat111-uib-5-1-def-stum",
+      "type": "definition",
+      "title": "Stum integrasjonsvariabel",
+      "content": "Variabelen inni integralet er bare en intern «telle-variabel» — den kan hete hva som helst uten at verdien endres:\n\n$$\\int_a^b f(t)\\,dt = \\int_a^b f(s)\\,ds = \\int_a^b f(u)\\,du.$$\n\nVi sier at integrasjonsvariabelen er **stum**. Derfor skriver vi integralfunksjoner som $F(x)=\\int_a^x f(t)\\,dt$ med $t$ inni: $x$ er opptatt som øvre grense og kan ikke også være integrasjonsvariabel."
+    },
+    {
+      "id": "mat111-uib-5-1-def-fortegnsareal",
+      "type": "definition",
+      "title": "Areal med fortegn",
+      "content": "Det bestemte integralet teller areal *med fortegn*: biter der grafen ligger over $x$-aksen bidrar positivt, biter under aksen bidrar negativt. Derfor kan $\\int_a^b f(x)\\,dx$ godt være null eller negativt selv om grafen «har areal» — integralet er netto-summen, ikke det geometriske arealet."
+    },
+    {
+      "id": "mat111-uib-5-1-def-intfunk",
+      "type": "definition",
+      "title": "Integralfunksjonen (arealfunksjonen)",
+      "content": "En integralfunksjon er et bestemt integral der den øvre grensen får lov til å variere — resultatet blir en *funksjon* av grensen:\n\n$$F(x) = \\int_a^x f(t)\\,dt.$$\n\nGeometrisk er $F(x)$ arealet (med fortegn) under grafen til $f$ fra $a$ og fram til $x$. Når $x$ flyttes, endres arealet — og fundamentalteoremet forteller *hvor fort*."
+    },
+    {
+      "id": "mat111-uib-5-1-def-velldef",
+      "type": "definition",
+      "title": "Veldefinert integralfunksjon",
+      "content": "At integralfunksjonen er **veldefinert**, betyr at integralet faktisk eksisterer for alle $x$ vi tillater. Standardargumentet er ett steg: *integranden er kontinuerlig på hele integrasjonsområdet* — da eksisterer det bestemte integralet, og dermed $F(x)$. Har integranden et brudd (f.eks. $\\frac{\\cos t}{t}$ i $t=0$), må definisjonsområdet til $F$ innskrenkes slik at bruddet aldri havner mellom grensene."
+    },
+    {
+      "id": "mat111-uib-5-1-thm-ftc1",
+      "type": "theorem",
+      "title": "Analysens fundamentalteorem, del 1",
+      "content": "La $f$ være kontinuerlig på et intervall som inneholder $a$. Da er integralfunksjonen $F(x)=\\int_a^x f(t)\\,dt$ deriverbar, og\n\n$$F'(x) = \\frac{d}{dx}\\int_a^x f(t)\\,dt = f(x).$$\n\nÅ derivere arealfunksjonen gir integranden tilbake — derivasjon opphever integrasjon."
+    },
+    {
+      "id": "mat111-uib-5-1-intu1",
+      "type": "text",
+      "content": "**Intuisjon:** øker vi $x$ med en liten bit $h$, vokser arealet med en tynn stripe som er tilnærmet et rektangel: bredde $h$, høyde $f(x)$. Altså er $F(x+h)-F(x)\\approx f(x)\\cdot h$, så differansekvotienten $\\frac{F(x+h)-F(x)}{h}\\approx f(x)$. Når $h\\to 0$, blir tilnærmingen eksakt (kontinuiteten til $f$ er akkurat det som trengs for å presse feilen til null — beviset bruker skviseteoremet på $\\min f \\le \\frac{1}{h}\\int_x^{x+h} f \\le \\max f$ over stripen).\n\nMerk hva teoremet *ikke* sier: du trenger aldri finne noen antiderivert for å derivere en integralfunksjon. Det er hele poenget i eksamensoppgaven — integranden er valgt slik at ingen antiderivert finnes blant elementære funksjoner."
+    },
+    {
+      "id": "mat111-uib-5-1-eks1",
+      "type": "example",
+      "title": "Eksempel 1: Derivér en integralfunksjon (med veldefinerthet)",
+      "problem": "La $G(x)=\\displaystyle\\int_2^x \\ln(1+t^2)\\,dt$. Forklar hvorfor $G$ er definert for alle $x\\in\\mathbb{R}$, og finn $G'(x)$.",
+      "solution": "**Veldefinerthet:** integranden $g(t)=\\ln(1+t^2)$ er kontinuerlig på hele $\\mathbb{R}$ (fordi $1+t^2\\ge 1>0$, så logaritmen er alltid definert). Dermed eksisterer $\\int_2^x g(t)\\,dt$ for alle $x$, og $G$ er veldefinert på $\\mathbb{R}$.\n\n**Derivasjon:** etter analysens fundamentalteorem, del 1, er\n\n$$G'(x) = \\ln(1+x^2).$$\n\nIngen antiderivert trengs — vi leser bare av integranden i $t=x$. $\\blacksquare$"
+    },
+    {
+      "id": "mat111-uib-5-1-o1",
+      "type": "exercise",
+      "exercise": {
+        "id": "mat111-uib-5-1-o1-x",
+        "number": "1",
+        "type": "classic",
+        "difficulty": "lett",
+        "task": "La $F(x)=\\displaystyle\\int_0^x e^{-t^2}\\,dt$ (denne integranden har ingen elementær antiderivert).\n\n**a)** Finn $F'(x)$.\n\n**b)** Begrunn at $F$ er strengt voksende på hele $\\mathbb{R}$.",
+        "solution": "**a)** Integranden $e^{-t^2}$ er kontinuerlig på $\\mathbb{R}$, så $F$ er veldefinert, og fundamentalteoremets del 1 gir $F'(x) = e^{-x^2}$.\n\n**b)** $F'(x)=e^{-x^2}>0$ for alle $x$ (eksponentialfunksjonen er alltid positiv). En funksjon med positiv derivert på hele $\\mathbb{R}$ er strengt voksende der. $\\blacksquare$",
+        "hints": [
+          "Del 1 av fundamentalteoremet: les av integranden i $t=x$.",
+          "Hvilket fortegn har $e^{-x^2}$ — kan en eksponentialfunksjon bli null?"
+        ]
+      }
+    },
+    {
+      "id": "mat111-uib-5-1-o2",
+      "type": "exercise",
+      "exercise": {
+        "id": "mat111-uib-5-1-o2-x",
+        "number": "2",
+        "type": "classic",
+        "difficulty": "lett",
+        "task": "La $F(x)=\\displaystyle\\int_1^x \\sqrt{1+t^3}\\,dt$.\n\n**a)** Hva er $F(1)$?\n\n**b)** Finn $F'(x)$.\n\n**c)** For hvilke $x$ er $F$ veldefinert? (Hint: hvor er integranden definert og kontinuerlig?)",
+        "solution": "**a)** $F(1)=\\int_1^1\\sqrt{1+t^3}\\,dt = 0$ — et integral fra et tall til seg selv er alltid null.\n\n**b)** Fundamentalteoremets del 1: $F'(x)=\\sqrt{1+x^3}$.\n\n**c)** Integranden $\\sqrt{1+t^3}$ krever $1+t^3\\ge 0$, altså $t\\ge -1$, og der er den kontinuerlig. Integrasjonsområdet mellom $1$ og $x$ ligger i $[-1,\\infty)$ nøyaktig når $x\\ge -1$. Altså er $F$ veldefinert for $x\\in[-1,\\infty)$. $\\blacksquare$",
+        "hints": [
+          "$\\int_a^a$ er alltid null.",
+          "Rottegnet krever ikke-negativt radikand: $1+t^3\\ge0$.",
+          "Hele strekningen mellom grensene må ligge i definisjonsområdet."
+        ]
+      }
+    },
+    {
+      "id": "mat111-uib-5-1-l2",
+      "type": "text",
+      "content": "## Løkke 2 — Variable grenser og kjerneregel-faktoren (~20 min)"
+    },
+    {
+      "id": "mat111-uib-5-1-def-normering",
+      "type": "definition",
+      "title": "Normeringen $\\int_a^a f = 0$",
+      "content": "Et integral der grensene er like, er null: $\\int_a^a f(t)\\,dt = 0$ — det er «arealet» av en strekning uten bredde. Dette brukes ofte som kontrollpunkt: en integralfunksjon $F(x)=\\int_a^x f(t)\\,dt$ oppfyller alltid $F(a)=0$."
+    },
+    {
+      "id": "mat111-uib-5-1-def-snu",
+      "type": "definition",
+      "title": "Fortegnssnu ved grensebytte",
+      "content": "Bytter du om grensene i et bestemt integral, snur fortegnet:\n\n$$\\int_b^a f(t)\\,dt = -\\int_a^b f(t)\\,dt.$$\n\nDette er konvensjonen som får hele grenseregningen til å gå opp, og den er nøkkelen til å håndtere integraler der *nedre* grense varierer."
+    },
+    {
+      "id": "mat111-uib-5-1-def-additiv",
+      "type": "definition",
+      "title": "Additivitetsregelen (splitting av intervallet)",
+      "content": "Et integral kan splittes i et mellompunkt uten at verdien endres:\n\n$$\\int_a^b f(t)\\,dt = \\int_a^c f(t)\\,dt + \\int_c^b f(t)\\,dt.$$\n\nMed fortegnssnu-konvensjonen gjelder dette for *alle* plasseringer av $a$, $b$ og $c$ i integrandens kontinuitetsintervall — det er dette som lar oss splitte integraler med to variable grenser i et fast mellompunkt."
+    },
+    {
+      "id": "mat111-uib-5-1-thm-kjerne",
+      "type": "theorem",
+      "title": "Derivasjon med variabel øvre grense (FTC + kjerneregel)",
+      "content": "La $f$ være kontinuerlig og $g$ deriverbar. Da er\n\n$$\\frac{d}{dx}\\int_a^{g(x)} f(t)\\,dt = f(g(x))\\cdot g'(x).$$\n\nIntegranden leses av i øvre grense — og så ganges det med den deriverte av grensen. Dette er ikke en ny regel, bare fundamentalteoremet del 1 satt sammen med kjerneregelen: $F(g(x))$ har derivert $F'(g(x))\\,g'(x) = f(g(x))\\,g'(x)$."
+    },
+    {
+      "id": "mat111-uib-5-1-def-kfaktor",
+      "type": "definition",
+      "title": "Kjerneregel-faktoren $g'(x)$",
+      "content": "Faktoren $g'(x)$ i formelen $\\frac{d}{dx}\\int_a^{g(x)} f(t)\\,dt = f(g(x))\\,g'(x)$ kalles **kjerneregel-faktoren**. Den er den hyppigste glippen i FTC-oppgaven: å svare $f(g(x))$ alene er å derivere $F$ i feil variabel. Huskeregel: øvre grense er en «kjerne» — og kjerner skal alltid etterderiveres."
+    },
+    {
+      "id": "mat111-uib-5-1-def-tovar",
+      "type": "definition",
+      "title": "Tovariantformelen (begge grenser variable)",
+      "content": "Når begge grensene avhenger av $x$, splittes integralet i et fast mellompunkt $c$ og begge bitene deriveres:\n\n$$\\frac{d}{dx}\\int_{h(x)}^{g(x)} f(t)\\,dt = f(g(x))\\,g'(x) - f(h(x))\\,h'(x).$$\n\nØvre grense bidrar med pluss, nedre med minus — minusen kommer fra fortegnssnuen $\\int_{h(x)}^{c} = -\\int_c^{h(x)}$."
+    },
+    {
+      "id": "mat111-uib-5-1-intu2",
+      "type": "text",
+      "content": "**Intuisjon:** tenk på $\\int_{h(x)}^{g(x)} f$ som areal mellom to bevegelige vegger. Når $x$ øker, skyves høyre vegg utover med fart $g'(x)$ og «maler til» areal i høyden $f(g(x))$; venstre vegg skyves med fart $h'(x)$ og «visker ut» areal i høyden $f(h(x))$. Netto endringsrate: $f(g(x))\\,g'(x) - f(h(x))\\,h'(x)$.\n\nUtledningen som gir full uttelling på eksamen, er splittingen: velg et fast tall $c$ i definisjonsområdet og skriv\n$$\\int_{h(x)}^{g(x)} f(t)\\,dt = \\int_c^{g(x)} f(t)\\,dt - \\int_c^{h(x)} f(t)\\,dt,$$\nog deriver hvert ledd med kjerneregel-formelen."
+    },
+    {
+      "id": "mat111-uib-5-1-eks2",
+      "type": "example",
+      "title": "Eksempel 2 (eksamensnivå): variabel øvre grense med veldefinerthetsargument",
+      "problem": "La $F(x)=\\displaystyle\\int_2^{x^3} \\frac{\\cos t}{t}\\,dt$ for $x>0$. Begrunn at $F$ er veldefinert for alle $x>0$, og finn $F'(x)$.",
+      "solution": "**Veldefinerthet:** integranden $\\dfrac{\\cos t}{t}$ er kontinuerlig for alle $t\\neq 0$. For $x>0$ er $x^3>0$, så hele integrasjonsområdet mellom $2$ og $x^3$ ligger i $(0,\\infty)$ — punktet $t=0$ kommer aldri mellom grensene. Integralet eksisterer derfor for hver $x>0$, og $F$ er veldefinert på $(0,\\infty)$.\n\n**Derivasjon:** med $g(x)=x^3$ (så $g'(x)=3x^2$) gir fundamentalteoremet del 1 kombinert med kjerneregelen:\n\n$$F'(x) = \\frac{\\cos(x^3)}{x^3}\\cdot 3x^2 = \\frac{3\\cos(x^3)}{x}.$$\n\n**Konklusjon:** $F'(x)=\\dfrac{3\\cos(x^3)}{x}$ for $x>0$. $\\blacksquare$\n\n*(Kontroll: uten kjerneregel-faktoren $3x^2$ ville svaret manglet hele $x$-avhengigheten i farten til grensen — en klassisk nulltrekk-glipp.)*"
+    },
+    {
+      "id": "mat111-uib-5-1-eks3",
+      "type": "example",
+      "title": "Eksempel 3: begge grensene variable",
+      "problem": "La $H(x)=\\displaystyle\\int_x^{x^2} e^{-t^2}\\,dt$. Finn $H'(x)$.",
+      "solution": "Integranden $e^{-t^2}$ er kontinuerlig på hele $\\mathbb{R}$, så $H$ er veldefinert overalt.\n\n**Splitt i et fast punkt**, f.eks. $c=0$:\n\n$$H(x)=\\int_0^{x^2} e^{-t^2}\\,dt - \\int_0^{x} e^{-t^2}\\,dt.$$\n\nDeriver hvert ledd med kjerneregel-formelen ($g(x)=x^2$ gir faktor $2x$; $h(x)=x$ gir faktor $1$):\n\n$$H'(x) = e^{-(x^2)^2}\\cdot 2x - e^{-x^2}\\cdot 1 = 2x\\,e^{-x^4} - e^{-x^2}.$$\n\n**Konklusjon:** $H'(x) = 2x\\,e^{-x^4} - e^{-x^2}$. $\\blacksquare$"
+    },
+    {
+      "id": "mat111-uib-5-1-o3",
+      "type": "exercise",
+      "exercise": {
+        "id": "mat111-uib-5-1-o3-x",
+        "number": "3",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "La $K(x)=\\displaystyle\\int_{\\sin x}^{1} \\sqrt{1+t^3}\\,dt$. Finn $K'(x)$, og forklar hvorfor $K$ er veldefinert for alle $x\\in\\mathbb{R}$.",
+        "solution": "**Veldefinerthet:** integranden $\\sqrt{1+t^3}$ er kontinuerlig for $t\\ge-1$. Siden $\\sin x\\in[-1,1]$, ligger hele integrasjonsområdet mellom $\\sin x$ og $1$ innenfor $[-1,1]\\subset[-1,\\infty)$. Integralet eksisterer derfor for alle $x$.\n\n**Derivasjon:** her varierer *nedre* grense. Snu fortegnet først:\n$$K(x) = -\\int_1^{\\sin x}\\sqrt{1+t^3}\\,dt.$$\nKjerneregel-formelen med $g(x)=\\sin x$, $g'(x)=\\cos x$:\n$$K'(x) = -\\sqrt{1+\\sin^3 x}\\cdot\\cos x.$$\n\n**Konklusjon:** $K'(x) = -\\cos x\\,\\sqrt{1+\\sin^3 x}$. $\\blacksquare$",
+        "hints": [
+          "Snu integralet: $\\int_{\\sin x}^1 = -\\int_1^{\\sin x}$.",
+          "Deretter er det vanlig variabel-øvre-grense med $g(x)=\\sin x$.",
+          "Husk kjerneregel-faktoren $\\cos x$."
+        ]
+      }
+    },
+    {
+      "id": "mat111-uib-5-1-o4",
+      "type": "exercise",
+      "exercise": {
+        "id": "mat111-uib-5-1-o4-x",
+        "number": "4",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "Finn $\\dfrac{d}{dx}\\displaystyle\\int_0^{2x} \\frac{1}{1+t^4}\\,dt$.",
+        "solution": "Integranden $\\frac{1}{1+t^4}$ er kontinuerlig på hele $\\mathbb{R}$ (nevneren er alltid $\\ge 1$), så integralfunksjonen er veldefinert.\n\nKjerneregel-formelen med $g(x)=2x$, $g'(x)=2$:\n\n$$\\frac{d}{dx}\\int_0^{2x}\\frac{dt}{1+t^4} = \\frac{1}{1+(2x)^4}\\cdot 2 = \\frac{2}{1+16x^4}.\\ \\blacksquare$$",
+        "hints": [
+          "Les av integranden i $t=2x$ og gang med $(2x)'$.",
+          "$(2x)^4=16x^4$."
+        ]
+      }
+    },
+    {
+      "id": "mat111-uib-5-1-l3",
+      "type": "text",
+      "content": "## Løkke 3 — Del 2: beregning og analyse av integralfunksjoner (~15 min)"
+    },
+    {
+      "id": "mat111-uib-5-1-thm-ftc2",
+      "type": "theorem",
+      "title": "Analysens fundamentalteorem, del 2 (innsettingsregelen)",
+      "content": "La $f$ være kontinuerlig på $[a,b]$, og la $F$ være en hvilken som helst antiderivert til $f$ der. Da er\n\n$$\\int_a^b f(x)\\,dx = F(b) - F(a).$$\n\nSum-grensen fra Riemann-definisjonen kan altså beregnes ved å finne én antiderivert og sette inn grensene — det er dette som gjør resten av Del 5 mulig."
+    },
+    {
+      "id": "mat111-uib-5-1-def-innsett",
+      "type": "definition",
+      "title": "Innsettingsnotasjonen $\\big[F(x)\\big]_a^b$",
+      "content": "Klammen med grensene er kortskrift for «sett inn øvre grense minus sett inn nedre grense»:\n\n$$\\big[F(x)\\big]_a^b = F(b) - F(a).$$\n\nI føringen skriver du antideriverte i klammen først, og *deretter* innsettingen som eget steg — da ser sensor både at antideriverten er riktig og at innsettingen er riktig."
+    },
+    {
+      "id": "mat111-uib-5-1-def-ubestemt",
+      "type": "definition",
+      "title": "Ubestemt vs. bestemt integral",
+      "content": "To beslektede, men forskjellige objekter: det **ubestemte** integralet $\\int f(x)\\,dx = F(x)+C$ er en *funksjonsfamilie* (alle antideriverte), mens det **bestemte** integralet $\\int_a^b f(x)\\,dx$ er et *tall*. Konstanten $C$ trengs bare i det ubestemte — i det bestemte kansellerer den i $F(b)-F(a)$."
+    },
+    {
+      "id": "mat111-uib-5-1-eks4",
+      "type": "example",
+      "title": "Eksempel 4: bestemt integral med full innsettingsføring",
+      "problem": "Beregn $\\displaystyle\\int_1^4 \\Big(2x + \\frac{1}{x}\\Big)\\,dx$.",
+      "solution": "Integranden er kontinuerlig på $[1,4]$ (nevneren $x\\neq0$ der). En antiderivert er $F(x)=x^2+\\ln x$, siden $F'(x)=2x+\\frac1x$.\n\nFundamentalteoremets del 2:\n\n$$\\int_1^4\\Big(2x+\\frac1x\\Big)dx = \\Big[x^2+\\ln x\\Big]_1^4 = \\big(16+\\ln 4\\big) - \\big(1+\\ln 1\\big) = 15+\\ln 4.$$\n\n**Sluttsvar:** $\\displaystyle\\int_1^4\\Big(2x+\\frac1x\\Big)dx = 15+\\ln 4\\ (\\approx 16{,}39)$. $\\blacksquare$"
+    },
+    {
+      "id": "mat111-uib-5-1-def-monotoni",
+      "type": "definition",
+      "title": "Monotoni-analyse av integralfunksjoner",
+      "content": "Siden $F'(x)=f(x)$, arver integralfunksjonen sin monotoni direkte fra *integrandens fortegn*: $F$ er voksende der $f>0$ og avtagende der $f<0$. Du drøfter altså $F$ uten å kjenne noe uttrykk for den — fortegnsskjemaet til integranden er alt du trenger."
+    },
+    {
+      "id": "mat111-uib-5-1-def-glatt",
+      "type": "definition",
+      "title": "Integralfunksjonens glatthet",
+      "content": "Integralfunksjonen er alltid *penere* enn integranden: er $f$ kontinuerlig, blir $F(x)=\\int_a^x f(t)\\,dt$ deriverbar (fundamentalteoremet) — og dermed også kontinuerlig. Integrasjon glatter ut; derivasjon gjør det motsatte. Dette er grunnen til at drøfting av $F$ alltid er trygg når integranden er kontinuerlig."
+    },
+    {
+      "id": "mat111-uib-5-1-def-ekstremal",
+      "type": "definition",
+      "title": "Ekstremalpunkter for integralfunksjonen",
+      "content": "Kandidatene for ekstremalpunkter til $F(x)=\\int_a^x f(t)\\,dt$ er nullpunktene til integranden ($F'(x)=f(x)=0$). Skifter $f$ fortegn fra pluss til minus i nullpunktet, har $F$ lokalt maksimum der; fra minus til pluss gir lokalt minimum. Ingen fortegnsskifte — ikke noe ekstremalpunkt."
+    },
+    {
+      "id": "mat111-uib-5-1-eks5",
+      "type": "example",
+      "title": "Eksempel 5 (eksamensnivå): drøft en integralfunksjon uten å beregne den",
+      "problem": "La $F(x)=\\displaystyle\\int_0^x (t^2-4)e^{-t}\\,dt$. Finn alle lokale ekstremalpunkter for $F$, og avgjør hvor $F$ er voksende.",
+      "solution": "Integranden $f(t)=(t^2-4)e^{-t}$ er kontinuerlig på $\\mathbb{R}$, så $F$ er veldefinert, og del 1 gir\n\n$$F'(x) = (x^2-4)e^{-x}.$$\n\n**Fortegnsdrøfting:** $e^{-x}>0$ alltid, så fortegnet styres av $x^2-4=(x-2)(x+2)$:\n\n- $x<-2$: $F'>0$ (begge faktorer negative, produkt positivt) — $F$ voksende\n- $-2<x<2$: $F'<0$ — $F$ avtagende\n- $x>2$: $F'>0$ — $F$ voksende\n\n**Konklusjon:** $F$ er voksende på $(-\\infty,-2]$ og $[2,\\infty)$, avtagende på $[-2,2]$. Fortegnsskiftet pluss→minus i $x=-2$ gir **lokalt maksimum** i $x=-2$; minus→pluss i $x=2$ gir **lokalt minimum** i $x=2$. (Merk: alt dette uten å kjenne noe uttrykk for $F$.) $\\blacksquare$"
+    },
+    {
+      "id": "mat111-uib-5-1-o5",
+      "type": "exercise",
+      "exercise": {
+        "id": "mat111-uib-5-1-o5-x",
+        "number": "5",
+        "type": "classic",
+        "difficulty": "lett",
+        "task": "Beregn $\\displaystyle\\int_0^2 (3t^2-2t)\\,dt$ med fundamentalteoremets del 2, med innsettingsklamme i føringen.",
+        "solution": "En antiderivert til $3t^2-2t$ er $t^3-t^2$. Da er\n\n$$\\int_0^2(3t^2-2t)\\,dt = \\Big[t^3-t^2\\Big]_0^2 = (8-4)-(0-0) = 4.$$\n\n**Sluttsvar:** $4$. $\\blacksquare$",
+        "hints": [
+          "Antideriver ledd for ledd: $t^3$ og $-t^2$.",
+          "Skriv klammen $[\\,\\cdot\\,]_0^2$ og sett inn begge grensene."
+        ]
+      }
+    },
+    {
+      "id": "mat111-uib-5-1-o6",
+      "type": "exercise",
+      "exercise": {
+        "id": "mat111-uib-5-1-o6-x",
+        "number": "6",
+        "type": "classic",
+        "difficulty": "vanskelig",
+        "task": "La $G(x)=\\displaystyle\\int_0^x t(t-3)e^{t}\\,dt$.\n\n**a)** Finn $G'(x)$ og alle lokale ekstremalpunkter for $G$.\n\n**b)** På hvilket intervall er $G$ avtagende?",
+        "solution": "**a)** Integranden er kontinuerlig på $\\mathbb{R}$, så del 1 gir $G'(x)=x(x-3)e^{x}$. Nullpunktene er $x=0$ og $x=3$ ($e^x\\neq0$).\n\nFortegn ($e^x>0$ alltid): for $x<0$ er $x(x-3)>0$ (to negative faktorer); for $0<x<3$ er $x(x-3)<0$; for $x>3$ er $x(x-3)>0$.\n\nPluss→minus i $x=0$: **lokalt maksimum** i $x=0$. Minus→pluss i $x=3$: **lokalt minimum** i $x=3$.\n\n**b)** $G'<0$ nøyaktig på $(0,3)$, så $G$ er avtagende på $[0,3]$. $\\blacksquare$",
+        "hints": [
+          "$G'(x)$ er bare integranden avlest i $t=x$.",
+          "Lag fortegnsskjema for $x(x-3)$ — $e^x$ påvirker aldri fortegnet.",
+          "Ekstremalpunkt krever fortegnsskifte i $G'$."
+        ]
+      }
+    },
+    {
+      "id": "mat111-uib-5-1-warn",
+      "type": "warning",
+      "title": "Typiske feil",
+      "content": "- **Kjerneregel-faktoren glemmes.** $\\frac{d}{dx}\\int_1^{x^2}\\frac{\\sin t}{t}\\,dt$ er $\\frac{\\sin(x^2)}{x^2}\\cdot 2x$ — ikke bare $\\frac{\\sin(x^2)}{x^2}$. Øvre grense er en kjerne og skal etterderiveres.\n- **Feil fortegn med to variable grenser.** Nedre grense bidrar med *minus*: $f(g(x))g'(x)-f(h(x))h'(x)$. Bytt aldri rekkefølgen.\n- **Veldefinerthetsargumentet droppes.** Løsningsforslagene (H2018) krever setningen om at integranden er kontinuerlig på integrasjonsområdet. Én setning — men den må stå der.\n- **$F$ og $f$ forveksles i drøftingen.** Nullpunktene til *integranden* er kandidater for ekstremalpunkter til *integralfunksjonen*. Å sette $F(x)=0$ er feil spørsmål.\n- **Integrasjonsvariabelen blandes med grensen.** Skriv aldri $\\int_a^x f(x)\\,dx$ — inni skal det stå en stum variabel: $\\int_a^x f(t)\\,dt$."
+    },
+    {
+      "id": "mat111-uib-5-1-drillh",
+      "type": "text",
+      "content": "## Drilloppgaver\n\nStigende vanskegrad. Skriv veldefinerthetssetningen i alle oppgavene der den er del av spørsmålet — det er slik føringen skal se ut på eksamen."
+    },
+    {
+      "id": "mat111-uib-5-1-d1",
+      "type": "exercise",
+      "exercise": {
+        "id": "mat111-uib-5-1-d1-x",
+        "number": "7",
+        "type": "classic",
+        "difficulty": "lett",
+        "task": "Finn $\\dfrac{d}{dx}\\displaystyle\\int_5^x \\frac{1}{1+t^2}\\,dt$.",
+        "solution": "Integranden er kontinuerlig på $\\mathbb{R}$, og fundamentalteoremets del 1 gir direkte $\\dfrac{1}{1+x^2}$. $\\blacksquare$",
+        "hints": [
+          "Ingen kjerne her — øvre grense er $x$ selv."
+        ]
+      }
+    },
+    {
+      "id": "mat111-uib-5-1-d2",
+      "type": "exercise",
+      "exercise": {
+        "id": "mat111-uib-5-1-d2-x",
+        "number": "8",
+        "type": "classic",
+        "difficulty": "lett",
+        "task": "Beregn $\\displaystyle\\int_1^e \\frac{3}{x}\\,dx$.",
+        "solution": "Antiderivert: $3\\ln x$ (for $x>0$). Innsetting: $\\big[3\\ln x\\big]_1^e = 3\\ln e - 3\\ln 1 = 3-0=3$. **Sluttsvar:** $3$. $\\blacksquare$",
+        "hints": [
+          "$\\int \\frac1x\\,dx=\\ln|x|+C$; her er $x>0$."
+        ]
+      }
+    },
+    {
+      "id": "mat111-uib-5-1-d3",
+      "type": "exercise",
+      "exercise": {
+        "id": "mat111-uib-5-1-d3-x",
+        "number": "9",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "Finn $\\dfrac{d}{dx}\\displaystyle\\int_0^{x^2} \\sin(t^2)\\,dt$.",
+        "solution": "Integranden $\\sin(t^2)$ er kontinuerlig på $\\mathbb{R}$ (veldefinert). Kjerneregel-formelen med $g(x)=x^2$:\n$$\\frac{d}{dx}\\int_0^{x^2}\\sin(t^2)\\,dt = \\sin\\big((x^2)^2\\big)\\cdot 2x = 2x\\sin(x^4).\\ \\blacksquare$$",
+        "hints": [
+          "Les av integranden i $t=x^2$: det gir $\\sin(x^4)$.",
+          "Gang med $(x^2)'=2x$."
+        ]
+      }
+    },
+    {
+      "id": "mat111-uib-5-1-d4",
+      "type": "exercise",
+      "exercise": {
+        "id": "mat111-uib-5-1-d4-x",
+        "number": "10",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "La $F(x)=\\displaystyle\\int_{x}^{2x} \\frac{1}{1+t^2}\\,dt$. Finn $F'(x)$ og forenkle.",
+        "solution": "Integranden er kontinuerlig på $\\mathbb{R}$, så $F$ er veldefinert. Splitt i $c=0$ og bruk tovariantformelen:\n$$F'(x) = \\frac{1}{1+(2x)^2}\\cdot 2 - \\frac{1}{1+x^2}\\cdot 1 = \\frac{2}{1+4x^2} - \\frac{1}{1+x^2}.\\ \\blacksquare$$",
+        "hints": [
+          "Tovariantformelen: øvre grense pluss, nedre minus.",
+          "Kjerneregel-faktorene er $2$ og $1$."
+        ]
+      }
+    },
+    {
+      "id": "mat111-uib-5-1-d5",
+      "type": "exercise",
+      "exercise": {
+        "id": "mat111-uib-5-1-d5-x",
+        "number": "11",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "For hvilke $x$ er $F(x)=\\displaystyle\\int_0^x \\frac{dt}{t-3}$ veldefinert? Finn $F'(x)$ der.",
+        "solution": "Integranden $\\frac{1}{t-3}$ har brudd i $t=3$. Startpunktet er $0$, så bruddet må ikke ligge mellom $0$ og $x$: det krever $x<3$. For $x\\in(-\\infty,3)$ er integranden kontinuerlig på hele integrasjonsområdet, og $F'(x)=\\dfrac{1}{x-3}$. $\\blacksquare$",
+        "hints": [
+          "Hvor har integranden et brudd?",
+          "Bruddet må aldri havne mellom nedre og øvre grense."
+        ]
+      }
+    },
+    {
+      "id": "mat111-uib-5-1-d6",
+      "type": "exercise",
+      "exercise": {
+        "id": "mat111-uib-5-1-d6-x",
+        "number": "12",
+        "type": "classic",
+        "difficulty": "vanskelig",
+        "task": "La $F(x)=\\displaystyle\\int_0^x \\frac{t-1}{1+t^4}\\,dt$.\n\n**a)** Vis at $F$ har nøyaktig ett lokalt ekstremalpunkt, og avgjør typen.\n\n**b)** Begrunn at $F(2)>F(1)$ uten å beregne noen av verdiene.",
+        "solution": "**a)** Integranden er kontinuerlig ($1+t^4\\ge1$), så $F'(x)=\\dfrac{x-1}{1+x^4}$. Nevneren er alltid positiv, så $F'$ har samme fortegn som $x-1$: negativ for $x<1$, null i $x=1$, positiv for $x>1$. Ett fortegnsskifte, fra minus til pluss: $F$ har nøyaktig ett lokalt ekstremalpunkt, et **lokalt minimum** i $x=1$ (som også er globalt, siden $F$ avtar før og vokser etter).\n\n**b)** $F(2)-F(1) = \\int_1^2 \\frac{t-1}{1+t^4}\\,dt$. På $(1,2]$ er integranden positiv (teller $t-1>0$, nevner positiv), og den er kontinuerlig, så integralet av den over $[1,2]$ er positivt. Altså $F(2)>F(1)$. $\\blacksquare$",
+        "hints": [
+          "$F'$ arver fortegnet til telleren $x-1$.",
+          "I b): skriv differansen som ett integral over $[1,2]$.",
+          "Et integral av en positiv, kontinuerlig funksjon er positivt."
+        ]
+      }
+    },
+    {
+      "id": "mat111-uib-5-1-d7",
+      "type": "exercise",
+      "exercise": {
+        "id": "mat111-uib-5-1-d7-x",
+        "number": "13",
+        "type": "classic",
+        "difficulty": "vanskelig",
+        "task": "(Krevende) La $F(x)=\\displaystyle\\int_1^{e^x}\\frac{\\ln t}{t}\\,dt$ for $x\\in\\mathbb{R}$.\n\n**a)** Begrunn at $F$ er veldefinert, og finn $F'(x)$ med kjerneregel-formelen.\n\n**b)** Kontroller svaret ved først å beregne integralet eksakt (antiderivert til $\\frac{\\ln t}{t}$ er $\\frac12(\\ln t)^2$) og så derivere.",
+        "solution": "**a)** Integranden $\\frac{\\ln t}{t}$ er kontinuerlig for $t>0$. Siden $e^x>0$ for alle $x$, ligger integrasjonsområdet mellom $1$ og $e^x$ alltid i $(0,\\infty)$ — veldefinert for alle $x$. Kjerneregel-formelen med $g(x)=e^x$:\n$$F'(x) = \\frac{\\ln(e^x)}{e^x}\\cdot e^x = \\ln(e^x) = x.$$\n\n**b)** Del 2: $F(x)=\\Big[\\tfrac12(\\ln t)^2\\Big]_1^{e^x} = \\tfrac12(\\ln e^x)^2 - \\tfrac12(\\ln 1)^2 = \\tfrac12 x^2$. Derivasjon: $F'(x)=x$. ✓ Samme svar begge veier. $\\blacksquare$",
+        "hints": [
+          "$\\ln(e^x)=x$ — forenklingen er hele poenget.",
+          "I b): innsettingsklamme med grensene $1$ og $e^x$."
+        ]
+      }
+    },
+    {
+      "id": "mat111-uib-5-1-rep",
+      "type": "collapsible",
+      "title": "Repetisjonsoppgaver",
+      "buttonText": "Vis repetisjonsoppgaver",
+      "content": [
+        {
+          "id": "mat111-uib-5-1-rep-intro",
+          "type": "text",
+          "content": "Fire korte oppgaver fra forkunnskapskapitlene — kjerneregelen og R2-integrasjon skal sitte før du går videre til kap. 5.2."
+        },
+        {
+          "id": "mat111-uib-5-1-r1",
+          "type": "exercise",
+          "exercise": {
+            "id": "mat111-uib-5-1-r1-x",
+            "number": "R1",
+            "type": "classic",
+            "difficulty": "lett",
+            "task": "(Fra R1 4.3) Deriver $f(x)=\\sin(x^3)$.",
+            "solution": "Kjerneregelen med kjerne $u=x^3$: $f'(x)=\\cos(x^3)\\cdot 3x^2 = 3x^2\\cos(x^3)$. $\\blacksquare$",
+            "hints": [
+              "Ytre funksjon $\\sin u$, kjerne $u=x^3$."
+            ]
+          }
+        },
+        {
+          "id": "mat111-uib-5-1-r2",
+          "type": "exercise",
+          "exercise": {
+            "id": "mat111-uib-5-1-r2-x",
+            "number": "R2",
+            "type": "classic",
+            "difficulty": "lett",
+            "task": "(Fra R1 4.3) Deriver $g(x)=e^{-x^2}$.",
+            "solution": "Kjerne $u=-x^2$: $g'(x)=e^{-x^2}\\cdot(-2x) = -2x\\,e^{-x^2}$. $\\blacksquare$",
+            "hints": [
+              "Etterderiver kjernen $-x^2$."
+            ]
+          }
+        },
+        {
+          "id": "mat111-uib-5-1-r3",
+          "type": "exercise",
+          "exercise": {
+            "id": "mat111-uib-5-1-r3-x",
+            "number": "R3",
+            "type": "classic",
+            "difficulty": "lett",
+            "task": "(Fra R2 2.5) Beregn $\\displaystyle\\int_0^1 (4x^3+2x)\\,dx$.",
+            "solution": "$\\big[x^4+x^2\\big]_0^1 = (1+1)-0 = 2$. $\\blacksquare$",
+            "hints": [
+              "Antideriver ledd for ledd og sett inn."
+            ]
+          }
+        },
+        {
+          "id": "mat111-uib-5-1-r4",
+          "type": "exercise",
+          "exercise": {
+            "id": "mat111-uib-5-1-r4-x",
+            "number": "R4",
+            "type": "classic",
+            "difficulty": "lett",
+            "task": "(Fra R2 2.4) Forklar med én setning hva $\\int_0^3 f(x)\\,dx$ *er*, uten å nevne antideriverte.",
+            "solution": "Det er grenseverdien av Riemann-summene $\\sum f(x_i^*)\\Delta x$ når inndelingen av $[0,3]$ blir uendelig fin — arealet med fortegn mellom grafen og $x$-aksen. $\\blacksquare$",
+            "hints": [
+              "Tenk søyler: høyde ganger bredde, summert."
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": "mat111-uib-5-1-symbol",
+      "type": "collapsible",
+      "title": "Symbol- og formelliste",
+      "buttonText": "Vis symboler og formler",
+      "content": [
+        {
+          "id": "mat111-uib-5-1-symbol-txt",
+          "type": "text",
+          "content": "## Symbol- og formelliste\n\n*Oppslagsverk — alt her forklares underveis i kapitlet.*\n\n| Symbol | Betydning |\n|---|---|\n| $F'(x)=f(x)$ | $F$ er en antiderivert til $f$ |\n| $\\int f(x)\\,dx = F(x)+C$ | Ubestemt integral — hele familien av antideriverte |\n| $\\int_a^b f(x)\\,dx$ | Bestemt integral — et tall (grense av Riemann-summer) |\n| $\\sum f(x_i^*)\\,\\Delta x$ | Riemann-sum: søylehøyde ganger søylebredde, summert |\n| $t$ (i $\\int_a^x f(t)\\,dt$) | Stum integrasjonsvariabel — navnet spiller ingen rolle |\n| $F(x)=\\int_a^x f(t)\\,dt$ | Integralfunksjonen (arealfunksjonen) |\n| $\\big[F(x)\\big]_a^b$ | Innsettingsklammen: $F(b)-F(a)$ |\n| $g'(x)$ | Kjerneregel-faktoren når øvre grense er $g(x)$ |\n| $\\int_a^a f = 0$ | Normeringen — like grenser gir null |\n| $\\int_b^a = -\\int_a^b$ | Fortegnssnu ved grensebytte |\n| $\\blacksquare$ | Markerer at løsningen/beviset er ferdig |\n\n**Formler i dette delkapitlet:**\n\n$$\\frac{d}{dx}\\int_a^x f(t)\\,dt = f(x)$$\n*Fundamentalteoremet del 1: derivasjon av arealfunksjonen gir integranden.*\n\n$$\\int_a^b f(x)\\,dx = F(b)-F(a)$$\n*Fundamentalteoremet del 2: bestemt integral via antiderivert.*\n\n$$\\frac{d}{dx}\\int_a^{g(x)} f(t)\\,dt = f(g(x))\\,g'(x)$$\n*Variabel øvre grense: les av integranden i grensen, gang med kjerneregel-faktoren.*\n\n$$\\frac{d}{dx}\\int_{h(x)}^{g(x)} f(t)\\,dt = f(g(x))\\,g'(x) - f(h(x))\\,h'(x)$$\n*Tovariantformelen: øvre grense pluss, nedre grense minus.*"
+        }
+      ]
+    }
+  ],
+  "exercises": []
+}

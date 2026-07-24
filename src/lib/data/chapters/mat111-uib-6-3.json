@@ -1,0 +1,325 @@
+{
+  "id": "mat111-uib-6-3",
+  "courseId": "mat111-uib",
+  "chapterNumber": "6.3",
+  "title": "Drill: anvendt differensiallikning (modelleringskjeden)",
+  "description": "Settets avslutningsoppgave fra ende til annen: oversett en verbal situasjon til en difflikning, klassifiser, løs med full føring, og svar på det anvendte spørsmålet med tolkning og enhet — inkludert den gjennomregnede Torricelli-kjeden.",
+  "estimatedMinutes": 90,
+  "competenceGoals": [
+    "kunne oversette en verbal rate-beskrivelse til en differensiallikning med riktig fortegn og konstant",
+    "kunne gjennomføre hele modelleringskjeden — klassifisering, likevektsløsninger, løsning, konstantbestemmelse fra datapunkter — med full føring",
+    "kunne løse Torricelli-oppgaver som kjeder volumberegning, implisitt derivasjon og separabel likning",
+    "kunne avslutte enhver anvendt oppgave med en konklusjonssetning med tolkning og enhet"
+  ],
+  "content": [
+    {
+      "id": "mat111-uib-6-3-tip",
+      "type": "tip",
+      "title": "Eksamensvinkel",
+      "content": "**Dette er drillkapitlet for settets faste avslutningsoppgave — sjanger A, 33 av 34 sett (97 %).**\n\n- Avslutningsoppgaven gir deg nesten alltid en **verbal rate-beskrivelse** («farten avtar proporsjonalt med kvadratet av farten») og ber deg sette opp likningen, løse den med full føring, og **svare på et anvendt spørsmål** — tømmetid, tid til et smittenivå, temperatur ved et klokkeslett.\n- **Kontekstfamiliene i arkivet:** algevekst, epidemi/ryktespredning (logistisk), skip som mister fart ($v^2$-motstand), radioaktivitet, Newtons avkjøling, saltvannstank, og tanker som tømmes (**Torricelli** — som kjeder omdreiningsvolum fra [kap. 5.6](/bok/mat111-uib/mat111-uib-5-6), implisitt derivasjon fra [kap. 3.3](/bok/mat111-uib/mat111-uib-3-3) og separabel likning i ÉN oppgave).\n- Fasitpraksisens tre faste krav: **konstante/likevektsløsninger notert**, konstanter bestemt fra datapunktene i riktig rekkefølge, og **konklusjonssetning med enhet**. Et riktig tall uten tolkning og enhet regnes som ufullstendig svar.\n- Temaet har **høyeste prioritet**. Teorien står i [kap. 6.1](/bok/mat111-uib/mat111-uib-6-1) (separabel) og [kap. 6.2](/bok/mat111-uib/mat111-uib-6-2) (lineær) — her automatiserer vi hele kjeden fra tekst til konklusjon."
+    },
+    {
+      "type": "text",
+      "id": "mat111-uib-6-3-forkunnskaper",
+      "content": "**Forkunnskaper.** Denne drillen fletter sammen løsningsmalene for differensiallikninger med integrasjon. Du bør ha den separable malen fra **[kap. 6.1 — Separable differensiallikninger](/bok/mat111-uib/mat111-uib-6-1)** og integrerende faktor fra **[kap. 6.2 — Lineære førsteordens differensiallikninger](/bok/mat111-uib/mat111-uib-6-2)** i fingrene, og integrasjonsteknikken (særlig delbrøk og substitusjon) fra **[kap. 5.3 — Integrasjonsteknikk II](/bok/mat111-uib/mat111-uib-5-3)**, siden modelleringskjeden nesten alltid ender i et integral du må regne ut."
+    },
+    {
+      "id": "mat111-uib-6-3-oppskrift",
+      "type": "text",
+      "content": "## Modelleringsoppskriften (seks steg)\n\nSlik angriper du enhver sjanger A-oppgave — samme rekkefølge hver gang:\n\n1. **Oversett rate-beskrivelsen til en likning.** «Raten er proporsjonal med …» betyr $y' = k\\cdot(\\dots)$; «differansen mellom …» betyr en faktor $(y - y_{\\text{omgivelse}})$ eller $(M-y)$. Er raten *avtakende*, hører et minustegn med (eller $k<0$ — velg én konvensjon og vær konsekvent). I Torricelli-oppgaver må likningen først *utledes* fra $V(h)$ og kjerneregelen.\n2. **Klassifiser:** separabel eller lineær (eller begge)? Det bestemmer malen fra [kap. 6.1](/bok/mat111-uib/mat111-uib-6-1)/[kap. 6.2](/bok/mat111-uib/mat111-uib-6-2).\n3. **Noter konstante/likevektsløsninger** og sjekk dem mot startverdien før du deler.\n4. **Løs med full føring** (separasjon/delbrøk eller integrerende faktor).\n5. **Bestem konstantene fra datapunktene** — startverdien først, deretter det andre datapunktet for å finne $k$. To ukjente konstanter krever to datapunkter.\n6. **Svar på det anvendte spørsmålet** — sett opp likningen «$y(t) = $ målverdi», løs for $t$ (eller motsatt), og skriv en **konklusjonssetning med enhet**: «Farten passerer 1 km/t etter 4,5 timer.»\n\nTidsbudsjett på eksamen: avslutningsoppgaven har gjerne 2–3 deloppgaver — regn ~18 min per deloppgave, og hent lettpoengene (modellen + klassifiseringen) først."
+    },
+    {
+      "id": "mat111-uib-6-3-ex-kjede",
+      "type": "example",
+      "title": "Gjennomregnet Torricelli-kjede (med margnotater om fasitpraksis)",
+      "problem": "En tank har form som flaten man får ved å dreie kurven $y = x^2$ (meter) om $y$-aksen. Tanken er fylt med vann til høyden $h_0 = 1$ m. Ved $t=0$ åpnes et hull i bunnen med areal $a = 1{,}0\\ \\text{cm}^2$, og vannet renner ut etter Torricellis lov: volumstrømmen ut er $a\\sqrt{2gh}$, der $h(t)$ er vannhøyden og $g = 9{,}81\\ \\text{m/s}^2$.\n\n**a)** Finn volumet $V(h)$ av vannet når vannhøyden er $h$.\n\n**b)** Vis at $h$ oppfyller differensiallikningen $\\pi h\\,h' = -a\\sqrt{2gh}$.\n\n**c)** Løs likningen og bestem hvor lang tid det tar før tanken er tom.",
+      "solution": "**a) Volumet ved skivemetoden** ([kap. 5.6](/bok/mat111-uib/mat111-uib-5-6)). I høyde $y$ er tverrsnittet en sirkel med radius $x$ der $y = x^2$, altså $x^2 = y$. Skivens areal er $\\pi x^2 = \\pi y$, så\n\n$$V(h) = \\int_0^h \\pi y\\,dy = \\frac{\\pi h^2}{2}.$$\n\n*(Kontroll: $V(1) = \\pi/2 \\approx 1{,}57\\ \\text{m}^3$ — rimelig for en 1 m dyp skål med toppradius 1 m.)*\n\n> *Margnotat:* Første ledd i kjeden er en ren [kap. 5.6](/bok/mat111-uib/mat111-uib-5-6)-oppgave. Vanligste kjedefeil: å svare på a) og så *ikke bruke* $V(h)$ videre — kjeden ER poenget.\n\n**b) Implisitt derivasjon** ([kap. 3.3](/bok/mat111-uib/mat111-uib-3-3)). $V$ og $h$ er begge funksjoner av $t$; kjerneregelen gir\n\n$$\\frac{dV}{dt} = \\frac{dV}{dh}\\cdot\\frac{dh}{dt} = \\pi h\\,h'.$$\n\nTorricellis lov sier at volumet *avtar* med raten $a\\sqrt{2gh}$: $\\dfrac{dV}{dt} = -a\\sqrt{2gh}$. Likestilling gir\n\n$$\\pi h\\,h' = -a\\sqrt{2gh}. \\qquad\\blacksquare$$\n\n> *Margnotat:* Minustegnet skal begrunnes («volumet avtar») — fasitpraksis er å si det i én setning, ikke la det dukke opp umotivert.\n\n**c) Separabel likning med full føring.** Skriv likningen som\n\n$$h' = -\\frac{a\\sqrt{2g}}{\\pi}\\cdot\\frac{\\sqrt{h}}{h} = -\\frac{a\\sqrt{2g}}{\\pi}\\,h^{-1/2} .$$\n\n*Konstante løsninger:* $h\\equiv 0$ gjør høyresiden udefinert her (og svarer til tom tank — slutt-tilstanden, ikke starten); startverdien $h(0)=1\\neq 0$, så vi regner for $h>0$ og lar løsningen løpe til den når $0$.\n\n*Separér og integrer* (sett $c = \\dfrac{a\\sqrt{2g}}{\\pi}$):\n\n$$\\sqrt{h}\\,dh = -c\\,dt \\quad\\Longrightarrow\\quad \\frac{2}{3}h^{3/2} = \\frac{2}{3}h_0^{3/2} - c\\,t.$$\n\n*Konstanten* er allerede bestemt av $h(0)=h_0=1$. Tanken er tom når $h=0$:\n\n$$t_{\\text{tom}} = \\frac{2h_0^{3/2}}{3c} = \\frac{2\\pi}{3a\\sqrt{2g}}.$$\n\n*Tallsvar:* $a = 1{,}0\\ \\text{cm}^2 = 1{,}0\\cdot 10^{-4}\\ \\text{m}^2$ og $\\sqrt{2g} = \\sqrt{19{,}62} \\approx 4{,}429\\ \\text{m}^{1/2}/\\text{s}$ gir\n\n$$t_{\\text{tom}} = \\frac{2\\pi}{3\\cdot 10^{-4}\\cdot 4{,}429} \\approx 4{,}7\\cdot 10^{3}\\ \\text{s} \\approx 79\\ \\text{min}.$$\n\n**Konklusjon:** Tanken er tom etter om lag $4\\,700$ sekunder, det vil si **cirka 1 time og 19 minutter**.\n\n> *Margnotat:* Tre steder løsningsforslagene legger poeng: (i) enhetskonverteringen $\\text{cm}^2 \\to \\text{m}^2$ (faktor $10^{-4}$ — vanligste tallfeil), (ii) at $\\frac{\\sqrt h}{h} = h^{-1/2}$ forenkles FØR separasjonen, (iii) konklusjonssetningen med enhet. Riktig fremgangsmåte gir godt med poeng selv med et tallkludder til slutt — men konklusjonen må stå."
+    },
+    {
+      "id": "mat111-uib-6-3-pool-intro",
+      "type": "text",
+      "content": "## Oppgaver på tvers av kontekstfamiliene\n\nTolv oppgaver som til sammen dekker alle arkivets kontekster. Hver skal føres helt: modell → klassifisering → konstante løsninger → løsning → konstanter fra datapunkter → **konklusjonssetning med enhet**."
+    },
+    {
+      "id": "mat111-uib-6-3-o1",
+      "type": "exercise",
+      "exercise": {
+        "id": "mat111-uib-6-3-o1-x",
+        "number": "1",
+        "type": "classic",
+        "difficulty": "lett",
+        "task": "En kopp kaffe holder $90\\ ^\\circ$C i et rom der temperaturen er $20\\ ^\\circ$C. Etter Newtons avkjølingslov avtar kaffens temperatur med en rate proporsjonal med differansen mellom kaffens og rommets temperatur. Etter 5 minutter er kaffen $70\\ ^\\circ$C.\n\n**a)** Sett opp differensiallikningen og løs den.\n\n**b)** Når kan kaffen drikkes, om det krever at den har sunket til $40\\ ^\\circ$C?",
+        "solution": "**a) Modell:** $T' = -k(T - 20)$ med $k>0$ (raten er proporsjonal med differansen, og temperaturen *avtar* så lenge $T>20$). **Klassifisering:** separabel (også lineær). **Konstant løsning:** $T\\equiv 20$ (romtemperaturen — likevekten); avvises siden $T(0)=90$.\n\n**Løs:** $\\dfrac{dT}{T-20} = -k\\,dt \\Rightarrow \\ln(T-20) = -kt + C$ (positivt for vår løsning, som starter over $20$ og ikke kan krysse likevekten). Altså $T = 20 + Ae^{-kt}$, og $T(0)=90$ gir $A=70$:\n\n$$T(t) = 20 + 70e^{-kt}.$$\n\n**Konstanten $k$ fra datapunktet:** $T(5)=70$: $70 = 20 + 70e^{-5k} \\Rightarrow e^{-5k} = \\dfrac{50}{70} = \\dfrac57 \\Rightarrow k = \\dfrac{\\ln(7/5)}{5} \\approx 0{,}0673\\ \\text{min}^{-1}.$\n\n**b)** $T(t)=40$: $20 = 70e^{-kt} \\Rightarrow e^{-kt} = \\dfrac27 \\Rightarrow t = \\dfrac{\\ln(7/2)}{k} = 5\\cdot\\dfrac{\\ln(7/2)}{\\ln(7/5)} \\approx 18{,}6.$\n\n**Konklusjon:** Kaffen har sunket til $40\\ ^\\circ$C etter **om lag 18,6 minutter** — snaut 19 minutter etter servering.",
+        "hints": [
+          "Raten er proporsjonal med differansen: $T' = -k(T-20)$.",
+          "Datapunktet $T(5)=70$ bestemmer $k$; drikkespørsmålet er likningen $T(t)=40$.",
+          "Begge svar bruker $\\ln$ av en brøk — hold brøkene eksakte til siste linje."
+        ]
+      }
+    },
+    {
+      "id": "mat111-uib-6-3-o2",
+      "type": "exercise",
+      "exercise": {
+        "id": "mat111-uib-6-3-o2-x",
+        "number": "2",
+        "type": "classic",
+        "difficulty": "lett",
+        "task": "En radioaktiv prøve avtar med en rate proporsjonal med gjenværende mengde. Ved $t=0$ inneholder prøven 80 mg; 10 år senere 60 mg.\n\n**a)** Finn mengden $m(t)$.\n\n**b)** Bestem halveringstiden.",
+        "solution": "**a) Modell:** $m' = -km$, $k>0$. **Klassifisering:** separabel. **Konstant løsning:** $m\\equiv 0$; avvises siden $m(0)=80$.\n\n$\\dfrac{dm}{m} = -k\\,dt \\Rightarrow m = Ae^{-kt}$; $m(0)=80$ gir $A=80$. Datapunktet: $60 = 80e^{-10k} \\Rightarrow e^{-10k} = \\dfrac34 \\Rightarrow k = \\dfrac{\\ln(4/3)}{10} \\approx 0{,}0288\\ \\text{år}^{-1}$. Altså\n\n$$m(t) = 80\\,e^{-t\\ln(4/3)/10} = 80\\cdot\\Big(\\frac34\\Big)^{t/10}\\ \\text{mg}.$$\n\n**b)** Halveringstiden $T_{1/2}$ oppfyller $e^{-kT_{1/2}} = \\dfrac12$:\n\n$$T_{1/2} = \\frac{\\ln 2}{k} = \\frac{10\\ln 2}{\\ln(4/3)} \\approx 24{,}1.$$\n\n**Konklusjon:** Halveringstiden er **om lag 24 år**. *(Kontroll: $m(24{,}1) = 80e^{-0{,}0288\\cdot 24{,}1} \\approx 40$ mg ✓.)*",
+        "hints": [
+          "«Rate proporsjonal med mengden» er $m'=-km$ — minus fordi mengden avtar.",
+          "Halveringstid: løs $e^{-kT}=\\frac12$, altså $T = \\ln 2/k$."
+        ]
+      }
+    },
+    {
+      "id": "mat111-uib-6-3-o3",
+      "type": "exercise",
+      "exercise": {
+        "id": "mat111-uib-6-3-o3-x",
+        "number": "3",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "En brusflaske tas ut av kjøleskapet med temperatur $5\\ ^\\circ$C og settes i et rom med $25\\ ^\\circ$C. Etter 10 minutter er den $15\\ ^\\circ$C. Modellér med Newtons lov (nå som oppvarming), og finn når flasken når $20\\ ^\\circ$C. Kommenter svaret: hvorfor tar det *dobbelt* så lang tid å ta igjen halvparten av gjenværende differanse?",
+        "solution": "**Modell:** $T' = -k(T-25)$; nå er $T<25$, så $T-25<0$ og $T'>0$ — samme likning beskriver oppvarming. **Konstant løsning:** $T\\equiv 25$; avvises mot $T(0)=5$.\n\n**Løs:** $T = 25 + Ae^{-kt}$; $T(0)=5$ gir $A=-20$, så $T(t) = 25 - 20e^{-kt}$.\n\n**Konstanten:** $T(10)=15$: $15 = 25-20e^{-10k} \\Rightarrow e^{-10k} = \\dfrac12 \\Rightarrow k = \\dfrac{\\ln 2}{10}$.\n\n**Spørsmålet:** $T(t)=20$: $20e^{-kt} = 5 \\Rightarrow e^{-kt} = \\dfrac14 = \\Big(\\dfrac12\\Big)^2 \\Rightarrow kt = 2\\ln 2 \\Rightarrow t = 20.$\n\n**Konklusjon:** Flasken når $20\\ ^\\circ$C etter **20 minutter**. Differansen mot rommet halveres hvert 10. minutt ($e^{-10k}=\\frac12$): fra 20 til 10 grader differanse tar 10 min, fra 10 til 5 nye 10 min — eksponentiell innhenting blir stadig tregere, selv om «avstanden» som gjenstår er mindre.",
+        "hints": [
+          "Samme Newton-likning som i oppgave 1 — fortegnet ordner seg selv når $T<25$.",
+          "$e^{-10k}=\\frac12$ betyr at differansen halveres per 10 min; $\\frac14 = (\\frac12)^2$.",
+          "Konklusjonen skal ha både tallet og halverings-forklaringen."
+        ]
+      }
+    },
+    {
+      "id": "mat111-uib-6-3-o4",
+      "type": "exercise",
+      "exercise": {
+        "id": "mat111-uib-6-3-o4-x",
+        "number": "4",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "En tank inneholder 100 liter vann med 2 kg salt oppløst. Fra $t=0$ renner det inn 4 L/min saltlake med konsentrasjon 0,1 kg/L, og godt omrørt blanding renner ut med samme hastighet. La $y(t)$ være saltmengden (kg) etter $t$ minutter.\n\n**a)** Vis at $y' = 0{,}4 - 0{,}04\\,y$, og løs likningen.\n\n**b)** Når inneholder tanken 5 kg salt, og hva skjer på lang sikt?",
+        "solution": "**a) Balansen:** rate inn $-$ rate ut. Inn: $4\\ \\text{L/min}\\cdot 0{,}1\\ \\text{kg/L} = 0{,}4$ kg/min. Ut: volumet er konstant 100 L (likt inn og ut), så konsentrasjonen er $y/100$, og ut-raten er $4\\cdot\\dfrac{y}{100} = 0{,}04y$ kg/min. Altså\n\n$$y' = 0{,}4 - 0{,}04\\,y. \\qquad\\blacksquare$$\n\n**Klassifisering:** lineær (og separabel). **Likevektsløsning:** $y\\equiv 10$ (sett $y'=0$); avvises mot $y(0)=2$, men den forteller allerede langtidssvaret.\n\n**Løs (integrerende faktor, [kap. 6.2](/bok/mat111-uib/mat111-uib-6-2)):** $\\mu = e^{0{,}04t}$; $(e^{0{,}04t}y)' = 0{,}4e^{0{,}04t}$; $e^{0{,}04t}y = 10e^{0{,}04t} + C$; $y = 10 + Ce^{-0{,}04t}$. $y(0)=2$ gir $C=-8$:\n\n$$y(t) = 10 - 8e^{-0{,}04t}\\ \\text{kg}.$$\n\n**b)** $y=5$: $8e^{-0{,}04t} = 5 \\Rightarrow t = 25\\ln\\dfrac85 \\approx 11{,}8$ min. Når $t\\to\\infty$: $y\\to 10$ kg.\n\n**Konklusjon:** Tanken inneholder 5 kg salt etter **om lag 11,8 minutter**, og saltmengden stabiliserer seg mot **10 kg** — nøyaktig innløpskonsentrasjonen $0{,}1$ kg/L ganger tankvolumet 100 L, som rimelig er.",
+        "hints": [
+          "Rate inn: L/min ganger kg/L. Rate ut: samme strøm, men med tankens egen konsentrasjon $y/100$.",
+          "Likevekten ($y'=0$) gir langtidssvaret gratis — bruk den som kontroll.",
+          "$y = 10 - 8e^{-0{,}04t}$; sett lik 5 og løs med $\\ln$."
+        ]
+      }
+    },
+    {
+      "id": "mat111-uib-6-3-o5",
+      "type": "exercise",
+      "exercise": {
+        "id": "mat111-uib-6-3-o5-x",
+        "number": "5",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "På en skole med $M = 1000$ elever spres en infeksjon logistisk: $N' = \\dfrac{k}{M}N(M-N)$ smittede etter $t$ dager, med $N(0)=10$. Etter 5 dager er 200 smittet.\n\n**a)** Løs likningen og bestem konstanten.\n\n**b)** Når er 800 elever smittet?",
+        "solution": "**a) Konstante løsninger:** $N\\equiv 0$ og $N\\equiv 1000$; begge avvises mot $N(0)=10$, og løsningen ligger mellom dem.\n\n**Delbrøk og løsning** ([kap. 6.1](/bok/mat111-uib/mat111-uib-6-1), med rate-konstant $k/M$): standardformen gir\n\n$$N(t) = \\frac{M}{1 + Be^{-kt}} = \\frac{1000}{1+Be^{-kt}}, \\qquad B = \\frac{M-N_0}{N_0} = \\frac{990}{10} = 99.$$\n\n**Konstanten $k$:** $N(5)=200$: $\\dfrac{1000}{200} = 1+99e^{-5k} \\Rightarrow e^{-5k} = \\dfrac{4}{99} \\Rightarrow k = \\dfrac{\\ln(99/4)}{5} \\approx 0{,}642\\ \\text{dag}^{-1}.$\n\n**b)** $N=800$: $\\dfrac{1000}{800} = 1+99e^{-kt} \\Rightarrow e^{-kt} = \\dfrac{0{,}25}{99} = \\dfrac{1}{396} \\Rightarrow t = \\dfrac{\\ln 396}{k} \\approx \\dfrac{5{,}98}{0{,}642} \\approx 9{,}3.$\n\n**Konklusjon:** Om lag **9,3 dager** etter utbruddet er 800 elever smittet. *(Rimelighet: veksten er raskest rundt $N=500$, som passeres mellom dag 7 og 8; deretter bremser den mot metningen 1000.)*",
+        "hints": [
+          "Logistisk sluttform: $N = \\frac{M}{1+Be^{-kt}}$ med $B=(M-N_0)/N_0$.",
+          "Datapunktet $N(5)=200$ gir $e^{-5k} = 4/99$.",
+          "Samme manøver i b): isolér $e^{-kt}$ og ta $\\ln$."
+        ]
+      }
+    },
+    {
+      "id": "mat111-uib-6-3-o6",
+      "type": "exercise",
+      "exercise": {
+        "id": "mat111-uib-6-3-o6-x",
+        "number": "6",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "En båt kutter motoren ved farten 20 km/t. Vannmotstanden bremser den med en rate proporsjonal med kvadratet av farten, og etter en halvtime er farten 10 km/t.\n\n**a)** Sett opp og løs differensiallikningen for farten $v(t)$ (timer).\n\n**b)** Når passerer farten 2 km/t?\n\n**c)** (krevende) Hvor langt har båten drevet i løpet av de første 4,5 timene?",
+        "solution": "**a) Modell:** $v' = -kv^2$, $k>0$. **Klassifisering:** separabel. **Konstant løsning:** $v\\equiv 0$; avvises mot $v(0)=20$ (og nås aldri i endelig tid, skal vi se).\n\n$-\\dfrac{dv}{v^2} = k\\,dt \\Rightarrow \\dfrac1v = kt + C$; $v(0)=20$ gir $C = \\dfrac1{20}$:\n\n$$v(t) = \\frac{1}{\\frac{1}{20} + kt}.$$\n\n**Konstanten:** $v(0{,}5)=10$: $\\dfrac{1}{10} = \\dfrac{1}{20} + 0{,}5k \\Rightarrow k = \\dfrac{0{,}05}{0{,}5} = 0{,}1$ (per km — enheten til $k$ er $\\text{h}\\cdot\\text{km}^{-1}\\cdot\\text{h}^{-1}$-kombinasjonen som får regnestykket til å gå opp; på eksamen holder det å oppgi tallet).\n\n**b)** $v(t)=2$: $\\dfrac12 = \\dfrac1{20} + 0{,}1t \\Rightarrow t = \\dfrac{0{,}45}{0{,}1} = 4{,}5.$\n\n**Konklusjon:** Farten passerer 2 km/t etter **4,5 timer**. (Merk kontrasten til eksponentielt henfall: $1/v$ vokser *lineært*, så farten dør mye tregere — men $v=0$ nås aldri eksakt.)\n\n**c)** Strekningen er integralet av farten:\n\n$$s = \\int_0^{4{,}5} \\frac{dt}{\\frac{1}{20}+0{,}1t} = \\frac{1}{0{,}1}\\Big[\\ln\\Big(\\frac{1}{20}+0{,}1t\\Big)\\Big]_0^{4{,}5} = 10\\ln\\frac{0{,}5}{0{,}05} = 10\\ln 10 \\approx 23{,}0.$$\n\n**Konklusjon:** Båten driver **om lag 23 km** de første 4,5 timene.",
+        "hints": [
+          "«Proporsjonal med kvadratet av farten» og bremsing: $v'=-kv^2$.",
+          "$\\int v^{-2}dv = -v^{-1}$ — løsningen har formen $1/v = kt + C$.",
+          "I c): $s=\\int_0^{4{,}5} v\\,dt$, og integranden er $\\frac{1}{a+bt}$ med $\\ln$-antiderivert."
+        ]
+      }
+    },
+    {
+      "id": "mat111-uib-6-3-o7",
+      "type": "exercise",
+      "exercise": {
+        "id": "mat111-uib-6-3-o7-x",
+        "number": "7",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "En algebestand i en dam vokser med raten $0{,}3A$ per uke ($A$ i kg), men høstes samtidig med konstant rate 12 kg/uke: $A' = 0{,}3A - 12$, med $A(0)=10$ kg.\n\n**a)** Finn likevektsbestanden, og avgjør om den er stabil.\n\n**b)** Løs likningen og avgjør når dammen er tom for alger.",
+        "solution": "**a) Likevekt:** $A'=0$ gir $A = \\dfrac{12}{0{,}3} = 40$ kg. **Stabilitet:** for $A<40$ er $A' = 0{,}3(A-40)<0$ — bestanden synker *bort* fra likevekten; for $A>40$ vokser den bort. Likevekten er **ustabil**: starter man under 40 kg, kollapser bestanden; over, eksploderer den.\n\n**b) Klassifisering:** lineær (og separabel). Konstant løsning $A\\equiv 40$ avvist mot $A(0)=10$.\n\nSkriv $A' = 0{,}3(A-40)$; substitusjons-blikket $u = A-40$ gir $u' = 0{,}3u$, så $u = u_0e^{0{,}3t}$ med $u_0 = 10-40 = -30$:\n\n$$A(t) = 40 - 30e^{0{,}3t}.$$\n\n**Tom dam:** $A(t)=0$: $30e^{0{,}3t} = 40 \\Rightarrow e^{0{,}3t} = \\dfrac43 \\Rightarrow t = \\dfrac{\\ln(4/3)}{0{,}3} \\approx 0{,}96.$\n\n**Konklusjon:** Med denne høstingen er dammen tom for alger etter **om lag 0,96 uker — i underkant av 7 dager**. Modellens lærdom: høsting over det bestanden bærer ($A_0 < 40$ kg) gir kollaps, ikke likevekt.",
+        "hints": [
+          "Likevekt: sett $A'=0$. Stabilitet: hvilket fortegn har $A'$ rett under og rett over likevekten?",
+          "Skift variabel til avviket $u = A - 40$ — da blir likningen $u'=0{,}3u$.",
+          "«Tom» betyr $A(t)=0$, ikke $u=0$."
+        ]
+      }
+    },
+    {
+      "id": "mat111-uib-6-3-o8",
+      "type": "exercise",
+      "exercise": {
+        "id": "mat111-uib-6-3-o8-x",
+        "number": "8",
+        "type": "classic",
+        "difficulty": "vanskelig",
+        "task": "Et rykte sprer seg i en bedrift slik at andelen $y(t)$ som har hørt det etter $t$ dager, følger $y' = k\\,y(1-y)$. Ved $t=0$ har 5 % hørt ryktet; etter 2 dager 20 %.\n\n**a)** Løs likningen og bestem $k$.\n\n**b)** Når har halvparten hørt ryktet? Og hvorfor er akkurat $y=\\tfrac12$ tidspunktet der spredningen er raskest?",
+        "solution": "**a) Konstante løsninger:** $y\\equiv 0$ og $y\\equiv 1$; avvises mot $y(0)=0{,}05$, og løsningen ligger i $(0,1)$.\n\n**Logistisk sluttform** ($M=1$): $y(t) = \\dfrac{1}{1+Be^{-kt}}$ med $B = \\dfrac{1-0{,}05}{0{,}05} = 19$.\n\n**Konstanten:** $y(2)=0{,}2$: $\\dfrac{1}{0{,}2} = 1+19e^{-2k} \\Rightarrow e^{-2k} = \\dfrac{4}{19} \\Rightarrow k = \\dfrac{\\ln(19/4)}{2} \\approx 0{,}779\\ \\text{dag}^{-1}.$\n\n**b)** $y=\\tfrac12$: $1+19e^{-kt} = 2 \\Rightarrow e^{-kt} = \\dfrac1{19} \\Rightarrow t = \\dfrac{\\ln 19}{k} = \\dfrac{2\\ln 19}{\\ln(19/4)} \\approx 3{,}8.$\n\n**Konklusjon:** Halvparten har hørt ryktet etter **om lag 3,8 dager**. Raskest spredning ved $y=\\tfrac12$: raten $ky(1-y)$ er et produkt som maksimeres når faktorene balanserer ($y = 1-y$) — det må være mange nok som *kan fortelle* ryktet, og mange nok som *ikke har hørt* det. Før og etter dette punktet er én av faktorene liten.",
+        "hints": [
+          "Samme logistiske mal som i oppgave 5, med $M=1$ (andel).",
+          "$B = (1-y_0)/y_0 = 19$; datapunktet gir $e^{-2k}=4/19$.",
+          "Maksimer produktet $y(1-y)$ — toppen ligger i symmetripunktet."
+        ]
+      }
+    },
+    {
+      "id": "mat111-uib-6-3-o9",
+      "type": "exercise",
+      "exercise": {
+        "id": "mat111-uib-6-3-o9-x",
+        "number": "9",
+        "type": "classic",
+        "difficulty": "vanskelig",
+        "task": "En sylindrisk tank med radius $R = 0{,}4$ m står med aksen loddrett og er fylt med vann til høyden $1{,}6$ m. I bunnen åpnes et hull med areal $a = 0{,}5\\ \\text{cm}^2$, og Torricellis lov gir $\\dfrac{dV}{dt} = -a\\sqrt{2gh}$ med $g=9{,}81\\ \\text{m/s}^2$.\n\n**a)** Utled differensiallikningen for vannhøyden $h(t)$, og løs den.\n\n**b)** Hvor lang tid tar det å tømme tanken?",
+        "solution": "**a) Kjeden.** Sylinder: $V = \\pi R^2 h$, så $\\dfrac{dV}{dt} = \\pi R^2 h'$ (implisitt derivasjon; $R$ er konstant). Torricelli:\n\n$$\\pi R^2 h' = -a\\sqrt{2gh} \\quad\\Longrightarrow\\quad h' = -\\underbrace{\\frac{a\\sqrt{2g}}{\\pi R^2}}_{=:\\,\\kappa}\\sqrt{h}.$$\n\n**Konstant løsning:** $h\\equiv 0$ (tom tank); starten $h(0)=1{,}6\\neq 0$, så vi regner for $h>0$.\n\n**Separér og integrer:** $\\dfrac{dh}{\\sqrt h} = -\\kappa\\,dt \\Rightarrow 2\\sqrt h = 2\\sqrt{h_0} - \\kappa t$, altså\n\n$$h(t) = \\Big(\\sqrt{h_0} - \\frac{\\kappa t}{2}\\Big)^2 \\quad\\text{så lenge uttrykket i parentesen er} \\ge 0.$$\n\n**b) Tallene:** $a = 0{,}5\\ \\text{cm}^2 = 0{,}5\\cdot 10^{-4}\\ \\text{m}^2$, $\\sqrt{2g}\\approx 4{,}429$:\n\n$$\\kappa = \\frac{0{,}5\\cdot 10^{-4}\\cdot 4{,}429}{\\pi\\cdot 0{,}4^2} \\approx 4{,}41\\cdot 10^{-4}\\ \\text{s}^{-1}\\!\\cdot\\text{m}^{1/2}, \\qquad t_{\\text{tom}} = \\frac{2\\sqrt{1{,}6}}{\\kappa} \\approx \\frac{2\\cdot 1{,}265}{4{,}41\\cdot 10^{-4}} \\approx 5{,}7\\cdot 10^3\\ \\text{s}.$$\n\n**Konklusjon:** Tanken tømmes på **om lag 5 700 sekunder ≈ 96 minutter**. *(Merk formen på svaret i a): $h$ avtar som et *kvadrat* av en lineær funksjon — vannspeilet synker langsommere og langsommere fordi trykkhøyden avtar.)*",
+        "hints": [
+          "For sylinderen er $V(h) = \\pi R^2 h$ — kjedens første ledd er gratis her.",
+          "$\\int h^{-1/2}dh = 2\\sqrt h$.",
+          "Enhetsfellen: $0{,}5\\ \\text{cm}^2 = 0{,}5\\cdot 10^{-4}\\ \\text{m}^2$."
+        ]
+      }
+    },
+    {
+      "id": "mat111-uib-6-3-o10",
+      "type": "exercise",
+      "exercise": {
+        "id": "mat111-uib-6-3-o10-x",
+        "number": "10",
+        "type": "classic",
+        "difficulty": "vanskelig",
+        "task": "Karbon-14 har halveringstid 5730 år, og mengden i dødt organisk materiale avtar etter $m' = -km$. I en utgravd trebit er C-14-innholdet 35 % av nivået i levende trevirke. Bestem alderen på trebiten.",
+        "solution": "**Modell og løsning:** $m' = -km$ gir $m(t) = m_0e^{-kt}$ (konstant løsning $m\\equiv 0$ avvist mot $m_0>0$).\n\n**Konstanten fra halveringstiden:** $e^{-k\\cdot 5730} = \\dfrac12 \\Rightarrow k = \\dfrac{\\ln 2}{5730} \\approx 1{,}21\\cdot 10^{-4}\\ \\text{år}^{-1}.$\n\n**Aldersspørsmålet:** $\\dfrac{m}{m_0} = 0{,}35$:\n\n$$e^{-kt} = 0{,}35 \\quad\\Longrightarrow\\quad t = \\frac{\\ln(1/0{,}35)}{k} = 5730\\cdot\\frac{\\ln(1/0{,}35)}{\\ln 2} \\approx 5730\\cdot\\frac{1{,}0498}{0{,}6931} \\approx 8\\,700.$$\n\n**Konklusjon:** Trebiten er **om lag 8 700 år gammel**. *(Rimelighet: 35 % ligger mellom én halvering (50 %) og to (25 %), så svaret må ligge mellom 5 730 og 11 460 år ✓.)*",
+        "hints": [
+          "Halveringstiden gir $k = \\ln 2/5730$ — du trenger ikke noe mer datapunkt.",
+          "Sett $m/m_0 = 0{,}35$ og løs for $t$ med $\\ln$.",
+          "Grovkontroll: mellom én og to halveringer?"
+        ]
+      }
+    },
+    {
+      "id": "mat111-uib-6-3-o11",
+      "type": "exercise",
+      "exercise": {
+        "id": "mat111-uib-6-3-o11-x",
+        "number": "11",
+        "type": "classic",
+        "difficulty": "vanskelig",
+        "task": "(Vannklokken) En skål har form som flaten man får ved å dreie $y = x^4$ (meter) om $y$-aksen, fylt til høyden $h_0 = 1$ m, med et bunnhull med areal $a = 1{,}0\\ \\text{cm}^2$ (Torricelli, $g = 9{,}81\\ \\text{m/s}^2$).\n\n**a)** Finn $V(h)$ og utled differensiallikningen for $h$.\n\n**b)** Vis at vannspeilet synker med *konstant* fart, og finn tømmetiden. Hvorfor gjorde akkurat denne formen skålen til en brukbar vannklokke?",
+        "solution": "**a) Volumet:** i høyde $y$ er $x^4 = y$, så skivearealet er $\\pi x^2 = \\pi\\sqrt{y}$:\n\n$$V(h) = \\int_0^h \\pi\\sqrt{y}\\,dy = \\frac{2\\pi}{3}h^{3/2}.$$\n\n**Kjeden:** $\\dfrac{dV}{dt} = \\pi\\sqrt{h}\\,h' = -a\\sqrt{2gh} = -a\\sqrt{2g}\\,\\sqrt{h}.$\n\n**b)** Del på $\\pi\\sqrt h$ (lovlig for $h>0$; $h\\equiv 0$ er slutt-tilstanden, ikke starten):\n\n$$h' = -\\frac{a\\sqrt{2g}}{\\pi} \\approx -\\frac{10^{-4}\\cdot 4{,}429}{\\pi} \\approx -1{,}41\\cdot 10^{-4}\\ \\text{m/s}$$\n\n— høyresiden er **konstant**: $\\sqrt h$-faktorene fra geometrien og fra Torricelli forkortes nøyaktig. Vannspeilet synker altså lineært, $h(t) = h_0 - \\dfrac{a\\sqrt{2g}}{\\pi}t$, og tømmetiden er\n\n$$t_{\\text{tom}} = \\frac{\\pi h_0}{a\\sqrt{2g}} = \\frac{\\pi}{10^{-4}\\cdot 4{,}429} \\approx 7{,}1\\cdot 10^3\\ \\text{s} \\approx 118\\ \\text{min}.$$\n\n**Konklusjon:** Skålen tømmes på **om lag 7 100 sekunder ≈ 2 timer**, og vannhøyden faller **konstant ≈ 0,14 mm/s** hele veien. Nettopp derfor er formen en vannklokke: like høydeintervaller svarer til like tidsintervaller, så en jevn skala langs kanten viser tiden — i motsetning til sylinderen i oppgave 9, der speilet synker stadig langsommere.",
+        "hints": [
+          "Skivearealet er $\\pi x^2$ der $x^4=y$ — altså $\\pi\\sqrt y$.",
+          "Sett opp $\\pi\\sqrt h\\,h' = -a\\sqrt{2g}\\sqrt h$ og se hva som forkortes.",
+          "Konstant $h'$ betyr lineær $h(t)$ — tømmetid = $h_0/|h'|$."
+        ]
+      }
+    },
+    {
+      "id": "mat111-uib-6-3-o12",
+      "type": "exercise",
+      "exercise": {
+        "id": "mat111-uib-6-3-o12-x",
+        "number": "12",
+        "type": "classic",
+        "difficulty": "lett",
+        "task": "En bakteriekultur vokser med raten $2\\ \\%$ av bestanden per time: $y' = 0{,}02\\,y$, $y(0) = y_0$. Hvor lang tid tar en dobling? Skriv konklusjonen med enhet.",
+        "solution": "**Konstant løsning** $y\\equiv 0$ avvist ($y_0>0$). Separasjon gir $y = y_0e^{0{,}02t}$.\n\n**Dobling:** $e^{0{,}02t} = 2 \\Rightarrow t = \\dfrac{\\ln 2}{0{,}02} \\approx 34{,}7.$\n\n**Konklusjon:** Bestanden dobles på **om lag 34,7 timer** — knappe halvannet døgn. (Doblingstiden $\\ln 2/k$ er uavhengig av startverdien: neste dobling tar like lang tid.)",
+        "hints": [
+          "$y'=ky$ har løsningen $y_0e^{kt}$.",
+          "Doblingstid: løs $e^{kt}=2$."
+        ]
+      }
+    },
+    {
+      "id": "mat111-uib-6-3-warn",
+      "type": "warning",
+      "title": "Typiske feil",
+      "content": "- **Feil modell fra rate-beskrivelsen.** «Proporsjonal med differansen» blir $T' = -kT$ i stedet for $T' = -k(T - T_{\\text{omg}})$; «kvadratet av farten» blir $-kv$ i stedet for $-kv^2$. Les beskrivelsen ord for ord og oversett ledd for ledd.\n- **Konstante/likevektsløsninger glemt** — også i anvendte oppgaver skal setningen stå ([kap. 6.1](/bok/mat111-uib/mat111-uib-6-1)-malen gjelder her).\n- **Konstantene bestemt i feil rekkefølge eller fra feil punkt.** Startverdien bestemmer $A$/$B$; det *andre* datapunktet bestemmer $k$. Bland dem, og begge blir gale.\n- **Svar uten tolkning og enhet.** «$t = 4{,}5$» er ikke et svar på et anvendt spørsmål; «farten passerer 2 km/t etter 4,5 timer» er. Konklusjonssetning med enhet — hver gang.\n- **Kjeden brytes i Torricelli-oppgaver:** $V(h)$ fra deloppgave a) skal *brukes* i b) — og enhetene må konverteres ($\\text{cm}^2\\to\\text{m}^2$ er den klassiske tallfellen).\n- **Glemme minustegnet** når en størrelse avtar — kontroller fortegnet ved å spørre: har $y'$ riktig fortegn ved startverdien?"
+    },
+    {
+      "id": "mat111-uib-6-3-def-intro",
+      "type": "text",
+      "content": "## Modellbanken\n\nOversettelsene og lovene fra kontekstfamiliene, samlet som oppslagskort."
+    },
+    {
+      "id": "mat111-uib-6-3-def-oversett",
+      "type": "definition",
+      "title": "Proporsjonalitets-oversettelsene",
+      "content": "Ordboka fra tekst til likning: «raten er proporsjonal med $y$» $\\Rightarrow y' = \\pm ky$; «… med kvadratet av $y$» $\\Rightarrow y' = \\pm ky^2$; «… med differansen mellom $y$ og $b$» $\\Rightarrow y' = \\pm k(y-b)$; «… med både de smittede og de usmittede» $\\Rightarrow y' = ky(M-y)$. Fortegnet velges så $y'$ får riktig retning ved startverdien."
+    },
+    {
+      "id": "mat111-uib-6-3-def-newton",
+      "type": "definition",
+      "title": "Newtons avkjølingslov",
+      "content": "Temperaturen til et legeme i omgivelser med konstant temperatur $T_{\\text{omg}}$ endrer seg med rate proporsjonal med temperaturdifferansen: $T' = -k(T - T_{\\text{omg}})$, $k>0$. Løsning: $T = T_{\\text{omg}} + Ae^{-kt}$ — differansen mot omgivelsene dør eksponentielt, og samme likning dekker både avkjøling og oppvarming."
+    },
+    {
+      "id": "mat111-uib-6-3-def-logmodell",
+      "type": "definition",
+      "title": "Logistisk vekstmodell",
+      "content": "Vekst med metning: $y' = ky(M-y)$ (eller $y'=\\frac kM y(M-y)$ — sjekk hvilken konstant oppgaven bruker). Sluttform $y = \\frac{M}{1+Be^{-kMt}}$ hhv. $\\frac{M}{1+Be^{-kt}}$, med $B = (M-y_0)/y_0$. Vekstraten er størst ved $y = M/2$; $y\\to M$ når $t\\to\\infty$. Kontekster: epidemi, rykte, bestand med bæreevne."
+    },
+    {
+      "id": "mat111-uib-6-3-def-torricelli",
+      "type": "definition",
+      "title": "Torricellis lov",
+      "content": "Vann renner ut av et hull med areal $a$ i bunnen av en beholder med volumstrøm $\\frac{dV}{dt} = -a\\sqrt{2gh}$, der $h$ er vannhøyden over hullet. Kombinert med beholdergeometrien $V(h)$ og kjerneregelen $\\frac{dV}{dt} = V'(h)\\,h'$ gir den en separabel likning for $h$ — kjeden volum → implisitt derivasjon → separasjon."
+    },
+    {
+      "id": "mat111-uib-6-3-def-halveringstid",
+      "type": "definition",
+      "title": "Halveringstid",
+      "content": "Tiden $T_{1/2}$ det tar før en eksponentielt avtakende størrelse $y = y_0e^{-kt}$ er halvert: $T_{1/2} = \\frac{\\ln 2}{k}$. Uavhengig av startnivået — hver ny halvering tar like lang tid. Kjent halveringstid gir $k$ direkte (C-14-datering, oppgave 10)."
+    },
+    {
+      "id": "mat111-uib-6-3-def-doblingstid",
+      "type": "definition",
+      "title": "Doblingstid",
+      "content": "Speilbildet for vekst: for $y = y_0e^{kt}$ ($k>0$) er doblingstiden $\\frac{\\ln 2}{k}$. Nyttig rimelighetskontroll: «2 % per time» gir dobling på $\\ln 2/0{,}02 \\approx 35$ timer — ikke 50."
+    },
+    {
+      "id": "mat111-uib-6-3-def-likevekt-modell",
+      "type": "definition",
+      "title": "Likevektsløsning i modellspråk",
+      "content": "Nivået der $y'=0$: romtemperaturen i Newton-modellen, $q/p$-nivået i tanken (innkonsentrasjon ganger volum), $0$ og $M$ i logistisk. Stabil hvis naboløsninger trekkes inn, ustabil hvis de drives bort (algedammen i oppgave 7). Likevekten gir ofte langtidssvaret uten regning — bruk den som kontroll."
+    },
+    {
+      "id": "mat111-uib-6-3-def-blanding",
+      "type": "definition",
+      "title": "Blandingsbalansen (tank-modellen)",
+      "content": "For en godt omrørt tank er saltraten $y' = (\\text{rate inn}) - (\\text{rate ut}) = c_{\\text{inn}}\\,r_{\\text{inn}} - \\frac{y}{V}\\,r_{\\text{ut}}$, der $r$ er volumstrømmene og $V$ tankvolumet (konstant når $r_{\\text{inn}} = r_{\\text{ut}}$). Resultatet er en lineær likning — [kap. 6.2](/bok/mat111-uib/mat111-uib-6-2)-maskineriet overtar."
+    },
+    {
+      "id": "mat111-uib-6-3-def-enhetsdisiplin",
+      "type": "definition",
+      "title": "Enhets- og konklusjonsdisiplinen",
+      "content": "To ufravikelige sluttkrav i sjanger A: (i) alle størrelser i samme enhetssystem FØR tallregning ($\\text{cm}^2\\to\\text{m}^2$, minutter vs. timer), (ii) svaret formuleres som setning med enhet: «tanken er tom etter ca. 96 minutter». Tall uten tolkning regnes som ufullstendig besvarelse."
+    },
+    {
+      "id": "mat111-uib-6-3-symbol",
+      "type": "collapsible",
+      "title": "Symbol- og formelliste",
+      "buttonText": "Vis symboler og formler",
+      "content": [
+        {
+          "id": "mat111-uib-6-3-symbol-txt",
+          "type": "text",
+          "content": "## Symbol- og formelliste\n\n*Oppslagsverk — alt her forklares underveis i kapitlet.*\n\n| Symbol | Betydning |\n|---|---|\n| $k$ | Rate-/proporsjonalitetskonstanten (bestemmes av et datapunkt) |\n| $T_{\\text{omg}}$ | Omgivelsestemperaturen i Newtons lov |\n| $M$, $B$ | Bæreevnen og formkonstanten $B=(M-y_0)/y_0$ i logistisk |\n| $V(h)$ | Beholdervolum som funksjon av vannhøyden |\n| $a$, $g$ | Hullareal og tyngdeakselerasjon i Torricellis lov |\n| $T_{1/2}$ | Halveringstid |\n| $c_{\\text{inn}}, r$ | Innkonsentrasjon og volumstrøm i tankmodellen |\n\n**Formler i dette delkapitlet:**\n\n$$T' = -k(T-T_{\\text{omg}}) \\;\\Rightarrow\\; T = T_{\\text{omg}} + Ae^{-kt} \\qquad\\text{(Newton)}$$\n\n$$y' = ky(M-y) \\;\\Rightarrow\\; y = \\frac{M}{1+Be^{-kMt}},\\quad B = \\frac{M-y_0}{y_0} \\qquad\\text{(logistisk)}$$\n\n$$\\frac{dV}{dt} = V'(h)\\,h' = -a\\sqrt{2gh} \\qquad\\text{(Torricelli-kjeden)}$$\n\n$$v' = -kv^2 \\;\\Rightarrow\\; \\frac1v = \\frac1{v_0} + kt \\qquad (v^2\\text{-motstand})$$\n\n$$T_{1/2} = \\frac{\\ln 2}{k}, \\qquad t_{\\text{dobling}} = \\frac{\\ln 2}{k}$$\n\n**Modelleringsoppskriften:** oversett raten → klassifiser → noter likevekter → løs med full føring → konstanter fra datapunkter → konklusjonssetning **med enhet**."
+        }
+      ]
+    }
+  ],
+  "exercises": []
+}

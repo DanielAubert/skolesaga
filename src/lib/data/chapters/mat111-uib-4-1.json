@@ -1,0 +1,572 @@
+{
+  "id": "mat111-uib-4-1",
+  "courseId": "mat111-uib",
+  "chapterNumber": "4.1",
+  "title": "Middelverdisetningen, Rolle og eksistens + entydighet",
+  "description": "Skjæringssetningen gir eksistens, monotoni eller Rolle-motsigelse gir entydighet — de to leveransene fasitpraksisen krever hver for seg.",
+  "estimatedMinutes": 55,
+  "competenceGoals": [
+    "kunne formulere Rolles teorem og sekantsetningen (MVT) presist, med forutsetninger og geometrisk tolkning",
+    "kunne føre «nøyaktig én løsning»-bevis som to atskilte steg: skjæringssetningen for eksistens, monotoni eller Rolle-motsigelse for entydighet",
+    "kunne konstruere en hjelpefunksjon og bruke Rolles teorem til å vise at en likning i f og f′ har en løsning c",
+    "kunne bruke sekantsetningen som ulikhetsmaskin, blant annet til Lipschitz-estimat"
+  ],
+  "content": [
+    {
+      "id": "mat111-uib-4-1-tip",
+      "type": "tip",
+      "title": "Eksamensvinkel",
+      "content": "**«Vis at likningen har nøyaktig én løsning» er UiBs kjede-fundament — og oppgaven de fleste leverer bare halvparten av.**\n\n- **Sjanger F (eksistens + entydighet + Newton/fikspunkt)** finnes i 17 av 34 arkiverte sett (2003–2020, se Del 0 for kildenoten) — og i **7 av de 9 siste settene**. Trenden er stigende: dette er nå et fast innslag.\n- Dette kapitlet har høyeste prioritet fordi det er *fundamentet* for hele kjeden i Del 4: først beviser du at en rot finnes og er alene (dette kapitlet), så tilnærmer du den med Newton (kap. 4.2) eller Taylor (kap. 4.3).\n- **Den hyppigste sensoranmerkningen i sjangeren:** kandidaten leverer *eksistens* (roten finnes) og tror *entydighet* (den er alene) er levert på kjøpet. Det er **to atskilte leveranser** med hvert sitt teorem — det er hele poenget med kapitlet.\n- Sekantsetningen og Rolles teorem brukes i arkivet også til **ulikhetsbevis** (typen $\\ln(1+x) < x$) og til **Lipschitz-estimat** (typen $|\\sin a - \\sin b| \\le |a-b|$) — begge dekkes her.\n- **Om sjangerbokstavene:** gjennom hele boka merker vi oppgavetyper med bokstaver A–N (katalogen står i Del 0). *Sjanger F* er eksistens/entydighet/Newton-kjeden. Du trenger ikke pugge bokstavene — de er bare en kort måte å omtale oppgavetypene på.\n- **Karakter-realisme:** et bevis som navngir setningene og fører begge leveransene rent, gir full pott her selv om andre deler av settet halter. C er en god og vanlig karakter i MAT111 — dette kapitlet er et av de sikreste stedene å hente poengene som løfter deg."
+    },
+    {
+      "id": "mat111-uib-4-1-fork",
+      "type": "text",
+      "content": "**Forkunnskaper.** Dette kapitlet bygger rett på [kap. 2.3](/bok/mat111-uib/mat111-uib-2-3) (skjæringssetningen og ekstremalverdisetningen) og [kap. 3.1](/bok/mat111-uib/mat111-uib-3-1) (deriverbarhet). Monotoni-argumentet «$f' > 0$ på et intervall $\\Rightarrow$ $f$ strengt voksende der» kjenner du fra **[Funksjonsdrøfting (R1 4.6)](/bok/r1/r1-4-6)**.\n\n**Sist du var her — de to nøkkelresultatene fra kap. 2.3:**\n\n- **Skjæringssetningen:** er $f$ kontinuerlig på $[a,b]$ og har $f(a)$ og $f(b)$ motsatt fortegn, finnes minst én $c \\in (a,b)$ med $f(c)=0$.\n- **Ekstremalverdisetningen:** er $f$ kontinuerlig på det lukkede, begrensede intervallet $[a,b]$, antar $f$ både sin største og minste verdi der.\n\nHar du disse to og derivasjonsreglene inne, har du alt du trenger."
+    },
+    {
+      "id": "mat111-uib-4-1-motiv",
+      "type": "text",
+      "content": "Tenk på en fartskontroll med to målepunkter: du passerer punkt A kl. 12.00 og punkt B, 80 km unna, kl. 13.00. Gjennomsnittsfarten er 80 km/t — og da *må* speedometeret ha vist nøyaktig 80 km/t i minst ett øyeblikk underveis. Du kan ikke ha ligget under 80 hele tiden (da rekker du ikke frem) eller over hele tiden (da er du fremme for tidlig). Dette hverdagsargumentet er **sekantsetningen** (middelverdisetningen, MVT): et sted er den *øyeblikkelige* endringen lik den *gjennomsnittlige*.\n\nPå eksamen møter du setningen sjelden direkte — den jobber i kulissene. Standardoppgaven lyder «vis at likningen har **nøyaktig én** løsning i intervallet». Det er to påstander i én: at en løsning *finnes* (eksistens), og at det ikke finnes *flere* (entydighet). Skjæringssetningen fra kap. 2.3 leverer den første; monotoni eller en Rolle-motsigelse leverer den andre. Kapitlets viktigste vane: **før de to stegene hver for seg, med navngitte teoremer.**\n\nKapitlet består av fem korte **læringsløkker** (teori → eksempel → oppgave): (1) Rolles teorem (≈ 10 min), (2) sekantsetningen (≈ 10 min), (3) eksistens–entydighet-malen — kapitlets kjerne (≈ 15 min), (4) hjelpefunksjonsteknikken (≈ 10 min) og (5) MVT som ulikhetsmaskin (≈ 10 min). Ta gjerne en pause etter løkke 3 — de to siste løkkene er teknikker som står på egne ben."
+    },
+    {
+      "id": "mat111-uib-4-1-l1",
+      "type": "text",
+      "content": "## Løkke 1: Rolles teorem\n\nVi starter med spesialtilfellet der sekanten er vannrett: funksjonen har *samme verdi* i begge endepunktene."
+    },
+    {
+      "id": "mat111-uib-4-1-def-sekant",
+      "type": "definition",
+      "title": "Sekanten og sekantstigningen",
+      "content": "**Sekanten** til $f$ over $[a,b]$ er den rette linjen gjennom punktene $(a, f(a))$ og $(b, f(b))$ på grafen. Stigningstallet dens,\n$$\\frac{f(b)-f(a)}{b-a},$$\nkalles **sekantstigningen** og måler den *gjennomsnittlige* endringen av $f$ over intervallet — som gjennomsnittsfarten i fartskontrollen."
+    },
+    {
+      "id": "mat111-uib-4-1-def-forutsetninger",
+      "type": "definition",
+      "title": "Forutsetningene «kontinuerlig på $[a,b]$, deriverbar på $(a,b)$»",
+      "content": "Både Rolle og sekantsetningen krever to ting av $f$: den skal være **kontinuerlig på hele det lukkede intervallet** $[a,b]$ (ingen hopp, heller ikke i endepunktene) og **deriverbar på det åpne intervallet** $(a,b)$ (ingen knekk innenfor). Endepunktene slipper deriverbarhetskravet. På eksamen *sjekker du forutsetningene eksplisitt* før du bruker setningene — ett ord som «polynom, altså kontinuerlig og deriverbar overalt» er nok."
+    },
+    {
+      "id": "mat111-uib-4-1-thm-rolle",
+      "type": "theorem",
+      "title": "Rolles teorem",
+      "content": "La $f$ være kontinuerlig på $[a,b]$ og deriverbar på $(a,b)$, og anta $f(a) = f(b)$. Da finnes minst ett punkt $c \\in (a,b)$ med\n$$f'(c) = 0.$$"
+    },
+    {
+      "id": "mat111-uib-4-1-l1-intuisjon",
+      "type": "text",
+      "content": "**Intuisjon:** starter og slutter grafen i samme høyde, må den snu et sted — og på toppen (eller bunnen) av svingen er tangenten vannrett.\n\n**Bevisidé (via ekstremalverdisetningen):** $f$ er kontinuerlig på det lukkede intervallet $[a,b]$, så ekstremalverdisetningen gir at $f$ antar en største og en minste verdi der. Er begge antatt i endepunktene, er $f$ konstant (siden $f(a)=f(b)$), og da er $f'(c)=0$ overalt i $(a,b)$. Ellers antas et ekstremum i et indre punkt $c$ — og i et indre ekstremum der $f$ er deriverbar, er $f'(c) = 0$ (kjent fra [kap. 3.1](/bok/mat111-uib/mat111-uib-3-1)). Merk hvordan *kontinuitet på lukket intervall* er det som setter ekstremalverdisetningen i sving — det er derfor forutsetningene ikke er pynt."
+    },
+    {
+      "id": "mat111-uib-4-1-ex1",
+      "type": "example",
+      "title": "Eksempel 1: Finn punktet Rolle lover",
+      "problem": "La $f(x) = x^3 - 3x$ på $[0, \\sqrt{3}]$. Sjekk at Rolles teorem kan brukes, og finn alle $c$ som teoremet lover.",
+      "solution": "**Forutsetninger:** $f$ er et polynom, altså kontinuerlig på $[0,\\sqrt3]$ og deriverbar på $(0,\\sqrt3)$. Endepunktverdiene: $f(0) = 0$ og $f(\\sqrt3) = 3\\sqrt3 - 3\\sqrt3 = 0$, så $f(0) = f(\\sqrt3)$. ✓\n\n**Rolles teorem** gir dermed minst én $c \\in (0,\\sqrt3)$ med $f'(c)=0$.\n\n**Finn $c$:** $f'(x) = 3x^2 - 3 = 0$ gir $x = \\pm 1$. Bare $c = 1$ ligger i $(0,\\sqrt3)$.\n\n**Konklusjon:** $c = 1$ er det (eneste) punktet i intervallet med vannrett tangent. $\\blacksquare$"
+    },
+    {
+      "id": "mat111-uib-4-1-o1",
+      "type": "exercise",
+      "exercise": {
+        "id": "mat111-uib-4-1-o1-x",
+        "number": "1",
+        "type": "classic",
+        "difficulty": "lett",
+        "task": "La $f(x) = x^2 - 4x + 3$ på $[1,3]$. Vis at Rolles teorem kan brukes, og finn $c$-punktet teoremet lover.",
+        "solution": "$f$ er et polynom — kontinuerlig på $[1,3]$ og deriverbar på $(1,3)$. Endepunktene: $f(1) = 1-4+3 = 0$ og $f(3) = 9-12+3 = 0$, så $f(1)=f(3)$. Rolles teorem gir minst én $c \\in (1,3)$ med $f'(c)=0$. Vi løser: $f'(x) = 2x - 4 = 0 \\Leftrightarrow x = 2$, og $2 \\in (1,3)$. Altså $c = 2$.",
+        "hints": [
+          "Sjekk de tre forutsetningene: kontinuitet, deriverbarhet og $f(a)=f(b)$.",
+          "Sett $f'(x)=0$ og løs; behold bare løsninger i det åpne intervallet."
+        ]
+      }
+    },
+    {
+      "id": "mat111-uib-4-1-l2",
+      "type": "text",
+      "content": "## Løkke 2: Sekantsetningen (middelverdisetningen)\n\nRolle krever $f(a)=f(b)$ — vannrett sekant. Sekantsetningen fjerner den begrensningen: den sier det samme om en *skrå* sekant."
+    },
+    {
+      "id": "mat111-uib-4-1-thm-mvt",
+      "type": "theorem",
+      "title": "Sekantsetningen (middelverdisetningen, MVT)",
+      "content": "La $f$ være kontinuerlig på $[a,b]$ og deriverbar på $(a,b)$. Da finnes minst ett punkt $c \\in (a,b)$ med\n$$f'(c) = \\frac{f(b)-f(a)}{b-a}.$$\nEt sted i intervallet er den øyeblikkelige endringen lik den gjennomsnittlige."
+    },
+    {
+      "id": "mat111-uib-4-1-l2-intuisjon",
+      "type": "text",
+      "content": "**Intuisjon:** skyv sekanten parallelt med seg selv til den akkurat tangerer grafen — i tangeringspunktet $c$ har tangenten samme stigning som sekanten. Fartskontrollen igjen: gjennomsnittsfart 80 km/t betyr at speedometeret viste 80 i minst ett øyeblikk.\n\n**Bevisidé (via Rolle og en hjelpefunksjon):** trekk sekanten fra grafen. Sett\n$$h(x) = f(x) - \\Big[f(a) + \\frac{f(b)-f(a)}{b-a}(x-a)\\Big].$$\nDa måler $h$ den loddrette avstanden fra grafen ned til sekanten. Direkte innsetting gir $h(a) = 0$ og $h(b) = 0$, og $h$ arver kontinuitet og deriverbarhet fra $f$. Rolles teorem gir en $c$ med $h'(c) = 0$, altså $f'(c) = \\frac{f(b)-f(a)}{b-a}$. Dette hjelpefunksjonstrikset — *bygg en funksjon som blir null i begge ender, og slipp Rolle løs* — er selve arbeidshesten i løkke 4.\n\nMerk: setningen lover **minst én** $c$, ikke nøyaktig én — det kan finnes flere."
+    },
+    {
+      "id": "mat111-uib-4-1-ex2",
+      "type": "example",
+      "title": "Eksempel 2: Finn punktet MVT lover",
+      "problem": "La $f(x) = \\dfrac{1}{x}$ på $[1,4]$. Finn sekantstigningen over intervallet, og finn punktet $c$ der sekantsetningen slår til.",
+      "solution": "**Forutsetninger:** $f(x)=1/x$ er kontinuerlig og deriverbar på hele $(0,\\infty)$, spesielt på $[1,4]$. ✓\n\n**Sekantstigningen:**\n$$\\frac{f(4)-f(1)}{4-1} = \\frac{\\tfrac14 - 1}{3} = \\frac{-\\tfrac34}{3} = -\\frac14.$$\n\n**Sekantsetningen** gir en $c \\in (1,4)$ med $f'(c) = -\\tfrac14$. Siden $f'(x) = -\\dfrac{1}{x^2}$:\n$$-\\frac{1}{c^2} = -\\frac14 \\quad\\Longleftrightarrow\\quad c^2 = 4 \\quad\\Longleftrightarrow\\quad c = 2$$\n(vi forkaster $c=-2$, som ikke ligger i intervallet). **Konklusjon:** $c = 2 \\in (1,4)$. $\\blacksquare$"
+    },
+    {
+      "id": "mat111-uib-4-1-o2",
+      "type": "exercise",
+      "exercise": {
+        "id": "mat111-uib-4-1-o2-x",
+        "number": "2",
+        "type": "classic",
+        "difficulty": "lett",
+        "task": "La $f(x) = \\sqrt{x}$ på $[1,9]$. Finn sekantstigningen, og finn punktet $c$ som sekantsetningen lover.",
+        "solution": "$\\sqrt{x}$ er kontinuerlig på $[1,9]$ og deriverbar på $(1,9)$. Sekantstigningen er $\\dfrac{f(9)-f(1)}{9-1} = \\dfrac{3-1}{8} = \\dfrac14$. Sekantsetningen gir $c$ med $f'(c) = \\dfrac{1}{2\\sqrt{c}} = \\dfrac14$, altså $\\sqrt{c} = 2$, dvs. $c = 4$. Og $4 \\in (1,9)$. ✓",
+        "hints": [
+          "Sekantstigningen er $\\frac{f(9)-f(1)}{9-1}$.",
+          "Sett $f'(c)$ lik sekantstigningen og løs for $c$."
+        ]
+      }
+    },
+    {
+      "id": "mat111-uib-4-1-l3",
+      "type": "text",
+      "content": "## Løkke 3: Eksistens–entydighet-malen (kapitlets kjerne)\n\nNå til eksamensoppgaven. «Vis at likningen har nøyaktig én løsning» krever **to leveranser**, og fasitpraksis er nådeløs på at begge føres — hver med sitt teorem."
+    },
+    {
+      "id": "mat111-uib-4-1-def-eksistens",
+      "type": "definition",
+      "title": "Eksistens-steget (leveranse 1)",
+      "content": "**Eksistens** betyr: likningen har *minst én* løsning. Standardverktøyet er **skjæringssetningen**: flytt alt over på én side så likningen får formen $f(x)=0$, finn to punkter der $f$ har *motsatt fortegn* (grove overslag er helt greit), pek på at $f$ er *kontinuerlig* mellom dem, **navngi setningen** — og konkluder med at en rot finnes i intervallet."
+    },
+    {
+      "id": "mat111-uib-4-1-def-entydighet",
+      "type": "definition",
+      "title": "Entydighets-steget (leveranse 2)",
+      "content": "**Entydighet** betyr: likningen har *høyst én* løsning. To likeverdige standardargumenter:\n\n1. **Monotoni:** vis at $f'$ har fast fortegn på intervallet (f.eks. $f'(x) > 0$ overalt). Da er $f$ strengt monoton og kan ikke treffe null to ganger.\n2. **Rolle-motsigelse:** anta at det finnes *to* røtter $x_1 < x_2$. Da gir Rolles teorem en $c$ mellom dem med $f'(c) = 0$ — og viser du at $f'$ *aldri* er null, har du en motsigelse.\n\nFasit viser ofte begge som likeverdige; velg den som er lettest å regne."
+    },
+    {
+      "id": "mat111-uib-4-1-def-noyaktig-en",
+      "type": "definition",
+      "title": "«Nøyaktig én løsning» = to leveranser",
+      "content": "Påstanden «likningen har **nøyaktig én** løsning» er to påstander limt sammen: *minst én* (eksistens) og *høyst én* (entydighet). De bevises med **forskjellige teoremer** (skjæringssetningen; monotoni/Rolle) og føres som **to atskilte steg**. Å levere det ene og tro det andre følger med, er sjangerens klassiske poengtap."
+    },
+    {
+      "id": "mat111-uib-4-1-def-fortegnsskifte",
+      "type": "definition",
+      "title": "Fortegnsskifte-testen (grove overslag godtas)",
+      "content": "Til eksistens-steget trenger du bare to testpunkter med motsatt fortegn — de trenger ikke være smarte. $f(0)$ og $f(1)$ er ofte nok, og overslag som «$e < 3$, så $f(1) = e - 3 < 0$» er full uttelling. Ikke bruk tid på å finne *hvor* roten er; det er Newtons jobb i kap. 4.2."
+    },
+    {
+      "id": "mat111-uib-4-1-def-monotoni",
+      "type": "definition",
+      "title": "Monotoni fra fortegnet på $f'$",
+      "content": "Har $f'(x) > 0$ for alle $x$ i et intervall, er $f$ **strengt voksende** der (tilsvarende gir $f' < 0$ strengt avtakende). Begrunnelsen er sekantsetningen: for $x_1 < x_2$ i intervallet er $f(x_2)-f(x_1) = f'(c)(x_2-x_1) > 0$. En strengt monoton funksjon treffer aldri samme verdi to ganger — derfor gir fast fortegn på $f'$ entydighet."
+    },
+    {
+      "id": "mat111-uib-4-1-ex3",
+      "type": "example",
+      "title": "Eksempel 3 (eksamensnivå): nøyaktig én løsning",
+      "problem": "Vis at likningen $x^5 + 3x = 1$ har nøyaktig én reell løsning, og at den ligger i $(0,1)$.",
+      "solution": "Sett $f(x) = x^5 + 3x - 1$, slik at likningen blir $f(x) = 0$.\n\n**Steg 1 — eksistens (skjæringssetningen).** $f$ er et polynom og dermed kontinuerlig på $[0,1]$. Vi regner:\n$$f(0) = -1 < 0, \\qquad f(1) = 1 + 3 - 1 = 3 > 0.$$\nSiden $f$ er kontinuerlig på $[0,1]$ og skifter fortegn, gir **skjæringssetningen** minst én rot $r \\in (0,1)$.\n\n**Steg 2 — entydighet (monotoni).** For alle $x \\in \\mathbb{R}$ er\n$$f'(x) = 5x^4 + 3 \\ge 3 > 0,$$\nså $f$ er strengt voksende på hele $\\mathbb{R}$. En strengt voksende funksjon kan ha høyst ett nullpunkt.\n\n**Alternativt (Rolle-motsigelse):** hadde $f$ hatt to røtter $x_1 < x_2$, ville Rolles teorem gitt en $c \\in (x_1, x_2)$ med $f'(c) = 0$ — umulig, siden $f'(x) \\ge 3$ for alle $x$.\n\n**Konklusjon:** likningen har nøyaktig én reell løsning, og den ligger i $(0,1)$. $\\blacksquare$\n\n*(Legg merke til føringen: to navngitte steg. Numerisk er roten $r \\approx 0{,}332$ — men det spør ikke oppgaven om.)*"
+    },
+    {
+      "id": "mat111-uib-4-1-o3",
+      "type": "exercise",
+      "exercise": {
+        "id": "mat111-uib-4-1-o3-x",
+        "number": "3",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "Vis at likningen $e^x = 2 - x$ har nøyaktig én reell løsning, og at den ligger i $(0,1)$.",
+        "solution": "Sett $f(x) = e^x + x - 2$; likningen er ekvivalent med $f(x)=0$.\n\n**Eksistens:** $f$ er kontinuerlig på $[0,1]$ (sum av kontinuerlige funksjoner). $f(0) = 1 - 2 = -1 < 0$ og $f(1) = e - 1 > 0$ (siden $e > 2$). Skjæringssetningen gir en rot i $(0,1)$.\n\n**Entydighet:** $f'(x) = e^x + 1 > 0$ for alle $x$, så $f$ er strengt voksende på $\\mathbb{R}$ og har høyst ett nullpunkt.\n\n**Konklusjon:** nøyaktig én løsning, og den ligger i $(0,1)$. $\\blacksquare$",
+        "hints": [
+          "Flytt alt over på én side: $f(x) = e^x + x - 2$.",
+          "Eksistens: regn $f(0)$ og $f(1)$ og navngi skjæringssetningen.",
+          "Entydighet: hvilket fortegn har $f'(x) = e^x + 1$?"
+        ]
+      }
+    },
+    {
+      "id": "mat111-uib-4-1-o4",
+      "type": "exercise",
+      "exercise": {
+        "id": "mat111-uib-4-1-o4-x",
+        "number": "4",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "Bruk en Rolle-motsigelse til å vise at $x^3 + x + 1 = 0$ har høyst én reell løsning. Vis deretter at den har nøyaktig én, og at den ligger i $(-1, 0)$.",
+        "solution": "Sett $f(x) = x^3 + x + 1$.\n\n**Høyst én (Rolle-motsigelse):** anta at $f$ har to røtter $x_1 < x_2$. $f$ er et polynom, så forutsetningene for Rolle er oppfylt på $[x_1, x_2]$, og siden $f(x_1) = f(x_2) = 0$ finnes en $c \\in (x_1, x_2)$ med $f'(c) = 0$. Men $f'(x) = 3x^2 + 1 \\ge 1 > 0$ for alle $x$ — motsigelse. Altså høyst én rot.\n\n**Eksistens:** $f(-1) = -1 - 1 + 1 = -1 < 0$ og $f(0) = 1 > 0$; $f$ er kontinuerlig, så skjæringssetningen gir en rot i $(-1, 0)$.\n\n**Konklusjon:** nøyaktig én reell rot, og den ligger i $(-1,0)$. $\\blacksquare$",
+        "hints": [
+          "Anta to røtter og bruk Rolle på intervallet mellom dem.",
+          "Regn ut $f'(x)$ — kan den noen gang bli null?",
+          "Eksistens: sjekk fortegnet til $f(-1)$ og $f(0)$."
+        ]
+      }
+    },
+    {
+      "id": "mat111-uib-4-1-l4",
+      "type": "text",
+      "content": "## Løkke 4: Hjelpefunksjonsteknikken\n\nNoen oppgaver ber deg vise at det finnes en $c$ som oppfyller en *likning* som blander $f$, $f'$ og kjente funksjoner — for eksempel «vis at det finnes $c$ med $f'(c) = 2c$». Trikset er alltid det samme: **bygg en hjelpefunksjon som blir null i to punkter, og slipp Rolle løs på den.**"
+    },
+    {
+      "id": "mat111-uib-4-1-def-hjelpefunksjon",
+      "type": "definition",
+      "title": "Hjelpefunksjon",
+      "content": "En **hjelpefunksjon** er en funksjon $g$ du *konstruerer selv* slik at (i) likningen du skal vise, er nøyaktig utsagnet $g'(c) = 0$, og (ii) $g$ har samme verdi i to punkter (typisk $g(a) = g(b) = 0$). Da leverer Rolles teorem punktet $c$. Oppskriften for å finne $g$: flytt alt i mål-likningen over på én side og spør «hva har dette som derivert?». Målet $f'(c) - 2c = 0$ peker f.eks. på $g(x) = f(x) - x^2$; mål av typen $f'(c) + f(c) = 0$ peker på $g(x) = e^x f(x)$, fordi $g' = e^x(f + f')$."
+    },
+    {
+      "id": "mat111-uib-4-1-ex4",
+      "type": "example",
+      "title": "Eksempel 4: Hjelpefunksjon + Rolle",
+      "problem": "La $f$ være kontinuerlig på $[0,1]$ og deriverbar på $(0,1)$, med $f(0) = 0$ og $f(1) = 1$. Vis at det finnes en $c \\in (0,1)$ med $f'(c) = 2c$.",
+      "solution": "**Konstruer hjelpefunksjonen.** Målet $f'(c) - 2c = 0$ er utsagnet $g'(c)=0$ for\n$$g(x) = f(x) - x^2 .$$\n\n**Sjekk forutsetningene for Rolle.** $g$ er kontinuerlig på $[0,1]$ og deriverbar på $(0,1)$ (differanse av $f$ og et polynom). Endepunktene:\n$$g(0) = f(0) - 0 = 0, \\qquad g(1) = f(1) - 1 = 1 - 1 = 0.$$\nAltså $g(0) = g(1)$. ✓\n\n**Bruk Rolle og konkluder.** **Rolles teorem** gir en $c \\in (0,1)$ med $g'(c) = 0$, det vil si\n$$f'(c) - 2c = 0 \\quad\\Longleftrightarrow\\quad f'(c) = 2c. \\qquad\\blacksquare$$"
+    },
+    {
+      "id": "mat111-uib-4-1-o5",
+      "type": "exercise",
+      "exercise": {
+        "id": "mat111-uib-4-1-o5-x",
+        "number": "5",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "La $f$ være kontinuerlig på $[0,1]$ og deriverbar på $(0,1)$, med $f(0) = f(1) = 0$. Vis at det finnes en $c \\in (0,1)$ med $f'(c) = -f(c)$.",
+        "solution": "Målet $f'(c) + f(c) = 0$ peker på hjelpefunksjonen $g(x) = e^x f(x)$, siden $g'(x) = e^x\\big(f(x) + f'(x)\\big)$ (produktregelen).\n\n$g$ er kontinuerlig på $[0,1]$ og deriverbar på $(0,1)$ (produkt av slike funksjoner), og $g(0) = e^0 f(0) = 0$, $g(1) = e\\,f(1) = 0$, så $g(0)=g(1)$. Rolles teorem gir $c \\in (0,1)$ med $g'(c) = 0$, altså $e^c\\big(f(c) + f'(c)\\big) = 0$. Siden $e^c \\neq 0$, følger $f'(c) = -f(c)$. $\\blacksquare$",
+        "hints": [
+          "Skriv målet som $f'(c) + f(c) = 0$ og let etter en $g$ med $g' = (\\text{noe}) \\cdot (f + f')$.",
+          "Prøv $g(x) = e^x f(x)$ og bruk produktregelen.",
+          "Husk å nevne at $e^c \\neq 0$ når du deler den bort."
+        ]
+      }
+    },
+    {
+      "id": "mat111-uib-4-1-l5",
+      "type": "text",
+      "content": "## Løkke 5: MVT som ulikhetsmaskin\n\nSekantsetningen beviser også *ulikheter*. Oppskriften: bruk MVT på et intervall med én «kjent» ende, skriv differansen som $f'(c) \\cdot (\\text{lengde})$, og **avgrens $f'(c)$** med et fast tall. Det gjør MVT til en maskin som veksler informasjon om $f'$ inn i informasjon om $f$."
+    },
+    {
+      "id": "mat111-uib-4-1-def-ulikhetsmaskin",
+      "type": "definition",
+      "title": "MVT som ulikhetsmaskin (oppskriften)",
+      "content": "Skal du vise en ulikhet mellom $f(b)$ og $f(a)$: (1) bruk sekantsetningen på $[a,b]$, som gir $f(b) - f(a) = f'(c)(b-a)$ for en $c \\in (a,b)$; (2) finn en skranke for $f'(c)$ som gjelder for *alle* $c$ i intervallet; (3) gang skranken med $(b-a)$ og konkluder. Du trenger aldri vite hvor $c$ er — bare hvor stor $f'$ *kan* bli."
+    },
+    {
+      "id": "mat111-uib-4-1-def-lipschitz",
+      "type": "definition",
+      "title": "Lipschitz-estimat",
+      "content": "Et **Lipschitz-estimat** er en ulikhet av typen\n$$|f(a) - f(b)| \\le K\\,|a - b|$$\n— funksjonen endrer seg høyst $K$ ganger så fort som argumentet. Den følger rett fra sekantsetningen når $|f'| \\le K$ overalt: $|f(a)-f(b)| = |f'(c)|\\,|a-b| \\le K|a-b|$. Klassikeren er $|\\sin a - \\sin b| \\le |a-b|$, siden $|\\cos c| \\le 1$."
+    },
+    {
+      "id": "mat111-uib-4-1-ex5",
+      "type": "example",
+      "title": "Eksempel 5: Ulikheten $\\ln(1+x) < x$",
+      "problem": "Bruk sekantsetningen til å vise at $\\ln(1+x) < x$ for alle $x > 0$.",
+      "solution": "Sett $f(t) = \\ln(1+t)$, som er kontinuerlig på $[0,x]$ og deriverbar på $(0,x)$ for enhver $x>0$, med $f'(t) = \\dfrac{1}{1+t}$.\n\n**Sekantsetningen** på $[0,x]$ gir en $c \\in (0,x)$ med\n$$\\ln(1+x) - \\ln(1+0) = f'(c)\\,(x - 0) = \\frac{x}{1+c}.$$\n\n**Avgrens $f'(c)$:** siden $c > 0$ er $1 + c > 1$, og dermed $\\dfrac{1}{1+c} < 1$. Fordi $x > 0$ følger\n$$\\ln(1+x) = \\frac{x}{1+c} < x. \\qquad\\blacksquare$$\n\n*(Kontroll med tall: $\\ln(1{,}5) \\approx 0{,}405 < 0{,}5$ ✓ og $\\ln 2 \\approx 0{,}693 < 1$ ✓.)*"
+    },
+    {
+      "id": "mat111-uib-4-1-o6",
+      "type": "exercise",
+      "exercise": {
+        "id": "mat111-uib-4-1-o6-x",
+        "number": "6",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "Bruk sekantsetningen til å vise at $e^x > 1 + x$ for alle $x > 0$.",
+        "solution": "Sett $f(t) = e^t$ på $[0,x]$ for en vilkårlig $x > 0$; $f$ er kontinuerlig og deriverbar overalt. Sekantsetningen gir $c \\in (0,x)$ med\n$$e^x - e^0 = e^c \\, (x-0), \\quad\\text{altså}\\quad e^x - 1 = e^c x.$$\nSiden $c > 0$ er $e^c > e^0 = 1$, og med $x > 0$ følger $e^x - 1 = e^c x > x$, det vil si $e^x > 1 + x$. $\\blacksquare$",
+        "hints": [
+          "Bruk MVT på $f(t) = e^t$ over $[0, x]$.",
+          "Hvorfor er $e^c > 1$ når $c > 0$?"
+        ]
+      }
+    },
+    {
+      "id": "mat111-uib-4-1-warn",
+      "type": "warning",
+      "title": "Typiske feil",
+      "content": "1. **Levere eksistens og tro entydighet er levert (eller omvendt).** Sjangerens kjernefeil. «Nøyaktig én» = *to* atskilte steg med hvert sitt teorem — sjekk at besvarelsen din har begge overskriftene.\n2. **Ikke navngi setningen.** «$f(0)<0$ og $f(1)>0$, så det finnes en rot» uten ordet *skjæringssetningen* (og uten å nevne kontinuitet) gir trekk i føringen. Navngi også Rolle når du bruker den.\n3. **Entydighet påstått uten argument.** «Grafen ser voksende ut» eller «det er åpenbart bare én» teller ikke — det må stå et monotoni-argument ($f'$ har fast fortegn, med regning) eller en Rolle-motsigelse.\n4. **Forutsetningene usjekket før Rolle.** Rolle krever kontinuitet på $[a,b]$, deriverbarhet på $(a,b)$ *og* $f(a)=f(b)$ — alle tre nevnes eksplisitt, spesielt i hjelpefunksjonsoppgaver der du selv har bygget $g$.\n5. **Glemme at MVT gir *minst én* $c$.** Skriv «det finnes en $c$», ikke «$c$-en»; det kan finnes flere, og entydighet av $c$ er aldri gitt gratis."
+    },
+    {
+      "id": "mat111-uib-4-1-pool",
+      "type": "text",
+      "content": "## Flere øvingsoppgaver\n\nStigende drill i hele sjangerens spennvidde: Rolle/MVT-punkter, eksistens + entydighet, hjelpefunksjoner og ulikheter. Alle føres med navngitte teoremer."
+    },
+    {
+      "id": "mat111-uib-4-1-d1",
+      "type": "exercise",
+      "exercise": {
+        "id": "mat111-uib-4-1-d1-x",
+        "number": "7",
+        "type": "classic",
+        "difficulty": "lett",
+        "task": "La $f(x) = x(x-2)$ på $[0,2]$. Finn punktet $c$ som Rolles teorem lover.",
+        "solution": "$f$ er et polynom med $f(0) = 0$ og $f(2) = 0$, så Rolle gjelder på $[0,2]$. $f(x) = x^2 - 2x$ gir $f'(x) = 2x - 2 = 0 \\Leftrightarrow x = 1$, og $1 \\in (0,2)$. Altså $c = 1$.",
+        "hints": [
+          "Sjekk $f(0)$ og $f(2)$, og derivér."
+        ]
+      }
+    },
+    {
+      "id": "mat111-uib-4-1-d2",
+      "type": "exercise",
+      "exercise": {
+        "id": "mat111-uib-4-1-d2-x",
+        "number": "8",
+        "type": "classic",
+        "difficulty": "lett",
+        "task": "La $f(x) = x^3$ på $[0,3]$. Finn alle punkter $c$ som sekantsetningen lover.",
+        "solution": "Sekantstigningen er $\\dfrac{f(3)-f(0)}{3-0} = \\dfrac{27}{3} = 9$. MVT gir $c$ med $f'(c) = 3c^2 = 9$, altså $c = \\pm\\sqrt3$; bare $c = \\sqrt3$ ligger i $(0,3)$. Altså $c = \\sqrt3 \\approx 1{,}73$.",
+        "hints": [
+          "Regn sekantstigningen først.",
+          "Løs $3c^2 = 9$ og forkast løsningen utenfor intervallet."
+        ]
+      }
+    },
+    {
+      "id": "mat111-uib-4-1-d3",
+      "type": "exercise",
+      "exercise": {
+        "id": "mat111-uib-4-1-d3-x",
+        "number": "9",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "Vis at likningen $x^3 + 5x = 3$ har nøyaktig én reell løsning, og at den ligger i $(0,1)$.",
+        "solution": "Sett $f(x) = x^3 + 5x - 3$ (kontinuerlig, polynom).\n\n**Eksistens:** $f(0) = -3 < 0$, $f(1) = 1 + 5 - 3 = 3 > 0$; skjæringssetningen gir en rot i $(0,1)$.\n\n**Entydighet:** $f'(x) = 3x^2 + 5 \\ge 5 > 0$ for alle $x$, så $f$ er strengt voksende på $\\mathbb{R}$ og har høyst ett nullpunkt. (Alternativt: to røtter ville via Rolle gitt $f'(c) = 0$ — umulig.)\n\n**Konklusjon:** nøyaktig én løsning, i $(0,1)$. $\\blacksquare$",
+        "hints": [
+          "Skriv likningen som $f(x) = 0$ og sjekk $f(0)$, $f(1)$.",
+          "Hva er minste mulige verdi av $f'(x) = 3x^2+5$?"
+        ]
+      }
+    },
+    {
+      "id": "mat111-uib-4-1-d4",
+      "type": "exercise",
+      "exercise": {
+        "id": "mat111-uib-4-1-d4-x",
+        "number": "10",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "Bruk sekantsetningen til å vise at $\\sqrt{1+x} < 1 + \\dfrac{x}{2}$ for alle $x > 0$.",
+        "solution": "Sett $f(t) = \\sqrt{1+t}$ på $[0,x]$; $f$ er kontinuerlig der og deriverbar på $(0,x)$ med $f'(t) = \\dfrac{1}{2\\sqrt{1+t}}$. MVT gir $c \\in (0,x)$ med\n$$\\sqrt{1+x} - 1 = \\frac{x}{2\\sqrt{1+c}}.$$\nSiden $c > 0$ er $\\sqrt{1+c} > 1$, så $\\dfrac{1}{2\\sqrt{1+c}} < \\dfrac12$, og dermed $\\sqrt{1+x} - 1 < \\dfrac{x}{2}$, som er påstanden. $\\blacksquare$ *(Talltest: $\\sqrt{2} \\approx 1{,}414 < 1{,}5$ ✓.)*",
+        "hints": [
+          "Bruk MVT på $f(t) = \\sqrt{1+t}$ over $[0,x]$.",
+          "Avgrens $\\frac{1}{2\\sqrt{1+c}}$ når $c > 0$."
+        ]
+      }
+    },
+    {
+      "id": "mat111-uib-4-1-d5",
+      "type": "exercise",
+      "exercise": {
+        "id": "mat111-uib-4-1-d5-x",
+        "number": "11",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "**a)** Vis at $|\\arctan a - \\arctan b| \\le |a - b|$ for alle reelle $a, b$.\n\n**b)** Bruk resultatet til å avgrense $|\\arctan 1{,}2 - \\arctan 1|$ ovenfra.",
+        "solution": "**a)** For $a = b$ er begge sider null. For $a \\neq b$ (si $b < a$): $f(t) = \\arctan t$ er kontinuerlig og deriverbar overalt med $f'(t) = \\dfrac{1}{1+t^2}$. Sekantsetningen på $[b,a]$ gir en $c$ med\n$$\\arctan a - \\arctan b = \\frac{a-b}{1+c^2}.$$\nSiden $0 < \\dfrac{1}{1+c^2} \\le 1$ følger $|\\arctan a - \\arctan b| \\le |a-b|$. $\\blacksquare$\n\n**b)** Med $a = 1{,}2$ og $b = 1$: $|\\arctan 1{,}2 - \\arctan 1| \\le |1{,}2 - 1| = 0{,}2$. *(Faktisk differanse $\\approx 0{,}09$ — estimatet holder med god margin.)*",
+        "hints": [
+          "Dette er et Lipschitz-estimat: hvilken skranke har $|f'(t)| = \\frac{1}{1+t^2}$?",
+          "I b) setter du bare inn tallene i ulikheten fra a)."
+        ]
+      }
+    },
+    {
+      "id": "mat111-uib-4-1-d6",
+      "type": "exercise",
+      "exercise": {
+        "id": "mat111-uib-4-1-d6-x",
+        "number": "12",
+        "type": "classic",
+        "difficulty": "vanskelig",
+        "task": "La $f$ være to ganger deriverbar på $[0,2]$ med $f(0) = f(1) = f(2) = 0$. Vis at det finnes en $c \\in (0,2)$ med $f''(c) = 0$.",
+        "solution": "**Rolle i to etasjer.** $f$ er deriverbar (og dermed kontinuerlig) på $[0,2]$.\n\n**Første etasje:** $f(0) = f(1)$ gir via Rolles teorem en $c_1 \\in (0,1)$ med $f'(c_1) = 0$; $f(1) = f(2)$ gir tilsvarende en $c_2 \\in (1,2)$ med $f'(c_2) = 0$.\n\n**Andre etasje:** $f'$ er deriverbar på $[c_1, c_2]$ (siden $f$ er to ganger deriverbar), og $f'(c_1) = f'(c_2) = 0$. Rolles teorem brukt på $f'$ gir en $c \\in (c_1, c_2) \\subset (0,2)$ med $f''(c) = 0$. $\\blacksquare$",
+        "hints": [
+          "Bruk Rolle på $f$ over $[0,1]$ og over $[1,2]$ — det gir to nullpunkter for $f'$.",
+          "Bruk så Rolle én gang til, på $f'$."
+        ]
+      }
+    },
+    {
+      "id": "mat111-uib-4-1-d7",
+      "type": "exercise",
+      "exercise": {
+        "id": "mat111-uib-4-1-d7-x",
+        "number": "13",
+        "type": "classic",
+        "difficulty": "vanskelig",
+        "task": "Vis at likningen $x + \\ln x = 0$ har nøyaktig én løsning, og at den ligger i $\\left(\\tfrac{1}{e},\\, 1\\right)$.",
+        "solution": "Sett $f(x) = x + \\ln x$ med definisjonsmengde $(0, \\infty)$; $f$ er kontinuerlig der.\n\n**Eksistens:** $f\\!\\left(\\tfrac1e\\right) = \\tfrac1e + \\ln\\tfrac1e = \\tfrac1e - 1 < 0$ (siden $\\tfrac1e < 1$), og $f(1) = 1 + 0 = 1 > 0$. Skjæringssetningen på $\\left[\\tfrac1e, 1\\right]$ gir en rot der.\n\n**Entydighet:** $f'(x) = 1 + \\dfrac1x > 0$ for alle $x > 0$, så $f$ er strengt voksende på hele definisjonsmengden og har høyst ett nullpunkt.\n\n**Konklusjon:** nøyaktig én løsning, og den ligger i $\\left(\\tfrac1e, 1\\right)$. $\\blacksquare$ *(Numerisk: $r \\approx 0{,}567$.)*",
+        "hints": [
+          "Husk definisjonsmengden $x > 0$ — entydigheten gjelder der.",
+          "Regn $f(1/e)$ eksakt: $\\ln(1/e) = -1$.",
+          "Fortegnet til $f'(x) = 1 + 1/x$ på $(0,\\infty)$?"
+        ]
+      }
+    },
+    {
+      "id": "mat111-uib-4-1-d8",
+      "type": "exercise",
+      "exercise": {
+        "id": "mat111-uib-4-1-d8-x",
+        "number": "14",
+        "type": "classic",
+        "difficulty": "vanskelig",
+        "task": "**a)** Vis at for $0 < a < b$ gjelder $\\sqrt{b} - \\sqrt{a} < \\dfrac{b-a}{2\\sqrt{a}}$.\n\n**b)** Bruk a) med $a = 25$, $b = 26$ til å vise at $\\sqrt{26} < 5{,}1$.",
+        "solution": "**a)** $f(t) = \\sqrt{t}$ er kontinuerlig på $[a,b]$ og deriverbar på $(a,b)$ med $f'(t) = \\dfrac{1}{2\\sqrt t}$. Sekantsetningen gir $c \\in (a,b)$ med\n$$\\sqrt b - \\sqrt a = \\frac{b-a}{2\\sqrt c}.$$\nSiden $c > a$ er $\\sqrt c > \\sqrt a$, så $\\dfrac{1}{2\\sqrt c} < \\dfrac{1}{2\\sqrt a}$, og med $b - a > 0$ følger påstanden. $\\blacksquare$\n\n**b)** Innsatt $a=25$, $b=26$: $\\sqrt{26} - 5 < \\dfrac{1}{2 \\cdot 5} = 0{,}1$, altså $\\sqrt{26} < 5{,}1$. *(Sann verdi $\\sqrt{26} \\approx 5{,}099$ — skranken er skarp.)*",
+        "hints": [
+          "MVT på $f(t) = \\sqrt t$ over $[a,b]$.",
+          "Avgrens $\\frac{1}{2\\sqrt c}$ ved å bruke $c > a$.",
+          "I b): $\\sqrt{25} = 5$ er det «pene» ankerpunktet."
+        ]
+      }
+    },
+    {
+      "id": "mat111-uib-4-1-bb-tekst",
+      "type": "text",
+      "content": "## Begrepsbank til eksamen\n\nKjernebegrepene fra kapitlet i eksamensrettet kortform — sammen med definisjonene over utgjør de hele verktøykassen for eksistens/entydighets-delen av sjanger F.\n\n*Begrepsbanken er repetisjons- og flashcard-stoff — den gjentar det du nettopp har lest. Hopp trygt over ved førstegangslesing.*"
+    },
+    {
+      "id": "mat111-uib-4-1-bb-rolle",
+      "type": "definition",
+      "title": "Rolles teorem (kortform)",
+      "content": "$f$ kontinuerlig på $[a,b]$, deriverbar på $(a,b)$, og $f(a) = f(b)$ $\\Rightarrow$ det finnes $c \\in (a,b)$ med $f'(c) = 0$. Spesialtilfellet av sekantsetningen der sekanten er vannrett."
+    },
+    {
+      "id": "mat111-uib-4-1-bb-mvt",
+      "type": "definition",
+      "title": "Sekantsetningen (MVT, kortform)",
+      "content": "$f$ kontinuerlig på $[a,b]$, deriverbar på $(a,b)$ $\\Rightarrow$ det finnes $c \\in (a,b)$ med $f'(c) = \\dfrac{f(b)-f(a)}{b-a}$. Et sted er øyeblikkelig endring lik gjennomsnittlig endring."
+    },
+    {
+      "id": "mat111-uib-4-1-bb-geo",
+      "type": "definition",
+      "title": "Geometrisk tolkning av MVT",
+      "content": "Skyv sekanten gjennom $(a, f(a))$ og $(b, f(b))$ parallelt til den tangerer grafen: i tangeringspunktet $c$ er tangenten parallell med sekanten, altså $f'(c) = $ sekantstigningen."
+    },
+    {
+      "id": "mat111-uib-4-1-bb-bevis-rolle",
+      "type": "definition",
+      "title": "Bevisidé: Rolle fra ekstremalverdisetningen",
+      "content": "Kontinuitet på $[a,b]$ gir (ekstremalverdisetningen) at $f$ antar maks og min. Enten er $f$ konstant (da er $f' \\equiv 0$), eller et ekstremum ligger i et indre punkt $c$ — og der er $f'(c) = 0$."
+    },
+    {
+      "id": "mat111-uib-4-1-bb-bevis-mvt",
+      "type": "definition",
+      "title": "Bevisidé: MVT fra Rolle (hjelpefunksjonen)",
+      "content": "Trekk sekanten fra funksjonen: $h(x) = f(x) - \\big[f(a) + \\frac{f(b)-f(a)}{b-a}(x-a)\\big]$. Da er $h(a) = h(b) = 0$, og Rolle på $h$ gir $c$ med $h'(c) = 0$, som er nettopp $f'(c) = \\frac{f(b)-f(a)}{b-a}$."
+    },
+    {
+      "id": "mat111-uib-4-1-bb-skjaering",
+      "type": "definition",
+      "title": "Skjæringssetningen (gjentak fra kap. 2.3)",
+      "content": "$f$ kontinuerlig på $[a,b]$ med $f(a)$ og $f(b)$ av motsatt fortegn $\\Rightarrow$ minst én $c \\in (a,b)$ med $f(c) = 0$. Eksistens-stegets teorem — navngis alltid."
+    },
+    {
+      "id": "mat111-uib-4-1-bb-evt",
+      "type": "definition",
+      "title": "Ekstremalverdisetningen (gjentak fra kap. 2.3)",
+      "content": "$f$ kontinuerlig på et lukket, begrenset intervall $[a,b]$ $\\Rightarrow$ $f$ antar sin største og minste verdi der. Motoren i beviset for Rolle."
+    },
+    {
+      "id": "mat111-uib-4-1-bb-motsigelse",
+      "type": "definition",
+      "title": "Rolle-motsigelsen (entydighetsargumentet)",
+      "content": "Anta to røtter $x_1 < x_2$ for $f$. Rolle på $[x_1, x_2]$ gir $c$ med $f'(c) = 0$. Viser du at $f'$ aldri er null, er antagelsen umulig — altså høyst én rot. Likeverdig med monotoni-argumentet."
+    },
+    {
+      "id": "mat111-uib-4-1-bb-maskin",
+      "type": "definition",
+      "title": "Ulikhetsmaskinen (oppskriften)",
+      "content": "$f(b) - f(a) = f'(c)(b-a)$ for en $c$ i intervallet; avgrens $f'(c)$ med et fast tall og gang med $(b-a)$. Slik veksles kunnskap om $f'$ inn i ulikheter for $f$ — uten å vite hvor $c$ er."
+    },
+    {
+      "id": "mat111-uib-4-1-bb-fart",
+      "type": "definition",
+      "title": "Fartskontroll-tolkningen",
+      "content": "Gjennomsnittsfart 80 km/t mellom to målepunkter $\\Rightarrow$ speedometeret viste nøyaktig 80 i minst ett øyeblikk. MVT i hverdagsspråk: gjennomsnittlig endring antas som øyeblikkelig endring et sted."
+    },
+    {
+      "id": "mat111-uib-4-1-bb-monoton",
+      "type": "definition",
+      "title": "Strengt monoton funksjon",
+      "content": "$f$ er strengt voksende hvis $x_1 < x_2 \\Rightarrow f(x_1) < f(x_2)$ (strengt avtakende: $>$). En strengt monoton funksjon antar aldri samme verdi to ganger — derfor høyst ett nullpunkt."
+    },
+    {
+      "id": "mat111-uib-4-1-bb-minst-en",
+      "type": "definition",
+      "title": "«Minst én $c$» — ikke nøyaktig én",
+      "content": "Rolle og MVT lover eksistens av *minst ett* punkt $c$; det kan finnes flere. Skriv derfor «det finnes en $c$» i føringen, og bland ikke denne $c$-en sammen med rotens entydighet."
+    },
+    {
+      "id": "mat111-uib-4-1-rep",
+      "type": "collapsible",
+      "title": "Repetisjonsoppgaver",
+      "buttonText": "Vis repetisjonsoppgaver",
+      "content": [
+        {
+          "id": "mat111-uib-4-1-r1",
+          "type": "exercise",
+          "exercise": {
+            "id": "mat111-uib-4-1-r1-x",
+            "number": "R1",
+            "type": "classic",
+            "difficulty": "lett",
+            "task": "(Fra kap. 2.3) Vis at $x^3 - x - 1 = 0$ har minst én løsning i $(1,2)$.",
+            "solution": "$f(x) = x^3 - x - 1$ er kontinuerlig (polynom), $f(1) = -1 < 0$ og $f(2) = 8 - 2 - 1 = 5 > 0$. Skjæringssetningen gir en rot i $(1,2)$. (Kun eksistens spurt — entydighet er ikke påstått.)",
+            "hints": [
+              "Sjekk fortegnene til $f(1)$ og $f(2)$."
+            ]
+          }
+        },
+        {
+          "id": "mat111-uib-4-1-r2",
+          "type": "exercise",
+          "exercise": {
+            "id": "mat111-uib-4-1-r2-x",
+            "number": "R2",
+            "type": "classic",
+            "difficulty": "lett",
+            "task": "(Fra R1 4.6) Finn intervallene der $f(x) = x^2 - 6x + 1$ er strengt voksende og strengt avtakende.",
+            "solution": "$f'(x) = 2x - 6$, som er negativ for $x < 3$ og positiv for $x > 3$. Altså strengt avtakende på $(-\\infty, 3]$ og strengt voksende på $[3, \\infty)$.",
+            "hints": [
+              "Finn fortegnet til $f'(x) = 2x-6$."
+            ]
+          }
+        },
+        {
+          "id": "mat111-uib-4-1-r3",
+          "type": "exercise",
+          "exercise": {
+            "id": "mat111-uib-4-1-r3-x",
+            "number": "R3",
+            "type": "classic",
+            "difficulty": "lett",
+            "task": "(Fra kap. 3.1) Skriv opp differansekvotient-definisjonen av $f'(a)$, og bruk den til å finne $f'(1)$ for $f(x) = x^2$.",
+            "solution": "$f'(a) = \\lim_{h\\to0}\\dfrac{f(a+h)-f(a)}{h}$. For $f(x)=x^2$ i $a=1$: $\\dfrac{(1+h)^2 - 1}{h} = \\dfrac{2h + h^2}{h} = 2 + h \\to 2$ når $h \\to 0$. Altså $f'(1) = 2$.",
+            "hints": [
+              "Utvid $(1+h)^2$ og forkort med $h$."
+            ]
+          }
+        },
+        {
+          "id": "mat111-uib-4-1-r4",
+          "type": "exercise",
+          "exercise": {
+            "id": "mat111-uib-4-1-r4-x",
+            "number": "R4",
+            "type": "classic",
+            "difficulty": "lett",
+            "task": "(Fra kap. 2.3) Forklar med én setning hvorfor $f(x) = x^5 - x\\cos x$ er garantert å anta en største verdi på $[0, 2]$.",
+            "solution": "$f$ er kontinuerlig på det lukkede, begrensede intervallet $[0,2]$ (bygget av kontinuerlige funksjoner), så ekstremalverdisetningen garanterer at største (og minste) verdi antas.",
+            "hints": [
+              "Hvilken setning handler om kontinuerlige funksjoner på lukkede, begrensede intervaller?"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": "mat111-uib-4-1-symbol",
+      "type": "collapsible",
+      "title": "Symbol- og formelliste",
+      "buttonText": "Vis symboler og formler",
+      "content": [
+        {
+          "id": "mat111-uib-4-1-symbol-txt",
+          "type": "text",
+          "content": "## Symbol- og formelliste\n\n*Oppslagsverk — alt her forklares underveis i kapitlet.*\n\nAlle symboler og formler som brukes i dette delkapitlet (4.1), samlet på ett sted.\n\n| Symbol | Betydning |\n|---|---|\n| $[a,b]$ / $(a,b)$ | Lukket / åpent intervall — kontinuitet kreves på $[a,b]$, deriverbarhet på $(a,b)$ |\n| $\\frac{f(b)-f(a)}{b-a}$ | Sekantstigningen: gjennomsnittlig endring av $f$ over $[a,b]$ |\n| $c$ | Punktet Rolle/MVT lover — minst ett, ikke nødvendigvis entydig |\n| $f'(c)$ | Øyeblikkelig endring (tangentstigning) i punktet $c$ |\n| $r$ | Rot: løsning av likningen $f(x) = 0$ |\n| $\\Rightarrow$ / $\\Leftrightarrow$ | Medfører / er ekvivalent med |\n| $\\blacksquare$ | Markerer at beviset er ferdig |\n| $K$ | Lipschitz-konstant: fast skranke for $|f'|$ |\n\n**Formler i dette delkapitlet:**\n\n$$f'(c) = 0 \\quad \\text{(Rolles teorem: } f(a)=f(b) \\text{ gir vannrett tangent et sted)}$$\n\n$$f'(c) = \\frac{f(b)-f(a)}{b-a} \\quad \\text{(sekantsetningen/MVT: øyeblikkelig = gjennomsnittlig et sted)}$$\n\n$$f(b) - f(a) = f'(c)\\,(b-a) \\quad \\text{(MVT på produktform — ulikhetsmaskinens utgangspunkt)}$$\n\n$$|f(a) - f(b)| \\le K\\,|a-b| \\quad \\text{(Lipschitz-estimat når } |f'| \\le K \\text{)}$$\n\n**Malen for «nøyaktig én løsning»:** (1) *Eksistens:* fortegnsskifte + kontinuitet + **skjæringssetningen**. (2) *Entydighet:* $f'$ med fast fortegn (monotoni) ELLER Rolle-motsigelse. To atskilte steg, to navngitte teoremer."
+        }
+      ]
+    }
+  ],
+  "exercises": []
+}

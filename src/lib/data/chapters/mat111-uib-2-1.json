@@ -1,0 +1,512 @@
+{
+  "id": "mat111-uib-2-1",
+  "courseId": "mat111-uib",
+  "chapterNumber": "2.1",
+  "title": "ε-δ-grensebevis: faktoriser, avgrens, velg δ = min",
+  "description": "Den formelle grensedefinisjonen brukt kvantitativt — UiBs faste «gratisoppgave med føringskrav», som skiller kandidater på ren føring.",
+  "estimatedMinutes": 55,
+  "competenceGoals": [
+    "lese ε-δ-definisjonen av grenseverdi med kvantorene i riktig rekkefølge (først ε, så δ)",
+    "føre et fullstendig ε-δ-bevis for polynomer av grad 2–3 med malen faktoriser → avgrens → velg δ = min → verifiser",
+    "avgrense restfaktoren på et kontrollintervall og velge δ = min{1, ε/K}",
+    "bevise grenser mot uendelig med R-ε-varianten",
+    "skille mellom at grensen finnes og at funksjonsverdien finnes"
+  ],
+  "content": [
+    {
+      "id": "mat111-uib-2-1-tip",
+      "type": "tip",
+      "title": "Eksamensvinkel",
+      "content": "**ε-δ-beviset er UiBs faste «gratisoppgave med føringskrav».**\n\n- **Sjanger D (ε-δ-grensebevis)** finnes i 15 av 34 arkiverte sett — men i **7 av de 9 siste settene**, så nå er det et fast innslag. En hel deloppgave (typisk 5–8 % av settet) står og faller på om du fører definisjonen riktig.\n- Poenget her er ikke å *finne* grensen — den er som regel opplagt — men å **bevise** den med den formelle definisjonen. Sensor gir uttelling for at du eksplisitt viser at definisjonens betingelser er oppfylt: du velger en $\\delta$, og du verifiserer implikasjonen. Et svar som bare «regner ut grensen» får null her.\n- **Standardvariantene:** polynom av grad 2–3 (nesten alltid), rasjonale uttrykk, og **R-ε-varianten mot uendelig** (dukker opp i vårsett). De vanskeligste historiske variantene er $e^{-1/x^2}$ og $\\sqrt{|x|}$ — men malen i dette kapitlet dekker alle de vanlige.\n- **Sjangernavnene:** gjennom hele boka merker vi oppgavetyper med bokstaver A–N (se Del 0). *Sjanger D* er nettopp ε-δ-beviset. Du trenger ikke pugge bokstavene — de er bare en rask måte å snakke om oppgavetypene på."
+    },
+    {
+      "id": "mat111-uib-2-1-fork",
+      "type": "text",
+      "content": "**Forkunnskaper.** Dette kapitlet bygger på den intuitive grenseforståelsen fra **[Grenseverdi (R1 3.1)](/bok/r1/r1-3-1)** — at $f(x)$ nærmer seg et tall $L$ når $x$ nærmer seg $a$. Her gjør vi den intuisjonen *presis*. Den eneste regnetekniske forutsetningen er trygg **algebraisk faktorisering** av uttrykk som $x^2-4=(x-2)(x+2)$; friskt opp med **[Rasjonale uttrykk (1T 1.6)](/bok/1t/1t-1-6)** hvis du er rusten på å faktorisere og forkorte.\n\nDu trenger ikke kunne derivasjon eller L'Hôpital her — det kommer i kap. 2.2. Dette kapitlet handler kun om selve grensedefinisjonen og malen for å bruke den."
+    },
+    {
+      "id": "mat111-uib-2-1-motiv",
+      "type": "text",
+      "content": "Når vi skriver $\\lim_{x\\to a} f(x) = L$, mener vi løst sagt at «$f(x)$ kommer så nær $L$ vi bare vil, bare $x$ er nær nok $a$». Det er en fin intuisjon, men den holder ikke i et bevis: hva betyr «så nær vi vil»? Den formelle **ε-δ-definisjonen** gjør nettopp dette kvantitativt, og det er den definisjonen MAT111 tester deg i.\n\nIdeen er en utfordring i to trekk. Motstanderen gir deg en **feiltoleranse** $\\varepsilon > 0$ (hvor nær $L$ svaret må ligge). Du må svare med et **nærhetskrav** $\\delta > 0$ (hvor nær $a$ det holder at $x$ er) slik at garantien holder. Klarer du å svare på *enhver* toleranse, finnes grensen.\n\nKapitlet er bygget som tre **læringsløkker** — teori, gjennomregnet eksempel og øvingsoppgaver om hverandre: (1) hva definisjonen sier og den enkle lineære varianten, (2) bevismalen *faktoriser → avgrens → velg $\\delta=\\min$ → verifiser* for grad 2–3, og (3) R-ε-varianten mot uendelig. Jobb deg gjennom én løkke om gangen."
+    },
+    {
+      "id": "mat111-uib-2-1-l1",
+      "type": "text",
+      "content": "## Løkke 1 — Hva ε-δ-definisjonen sier (~15 min)"
+    },
+    {
+      "id": "mat111-uib-2-1-def-intuitiv",
+      "type": "definition",
+      "title": "Grenseverdi (intuitivt)",
+      "content": "Vi sier at funksjonen $f$ har **grenseverdi** $L$ når $x$ går mot $a$ dersom $f(x)$ nærmer seg $L$ så mye vi bare ønsker, når bare $x$ er tilstrekkelig nær $a$ (men $x\\neq a$). I symboler:\n\n$$\\lim_{x\\to a} f(x) = L.$$\n\nDette er den *intuitive* forståelsen fra R1. Resten av kapitlet gjør uttrykket «så mye vi ønsker» og «tilstrekkelig nær» eksakt."
+    },
+    {
+      "id": "mat111-uib-2-1-def-formal",
+      "type": "definition",
+      "title": "ε-δ-definisjonen av grenseverdi",
+      "content": "Grensen er *garantien om at enhver feiltoleranse kan innfris*. Presist: $\\lim_{x\\to a} f(x) = L$ betyr at det for **hver** $\\varepsilon > 0$ finnes en $\\delta > 0$ slik at\n\n$$0 < |x - a| < \\delta \\;\\Longrightarrow\\; |f(x) - L| < \\varepsilon.$$\n\nLes kvantorene i riktig rekkefølge: *først* gir noen deg $\\varepsilon$, *deretter* skal du finne en $\\delta$ (som får lov til å avhenge av $\\varepsilon$). Betingelsen $0 < |x-a|$ sier at vi ser bort fra selve punktet $x=a$ — grensen bryr seg ikke om $f(a)$."
+    },
+    {
+      "id": "mat111-uib-2-1-def-eps",
+      "type": "definition",
+      "title": "Feiltoleransen $\\varepsilon$",
+      "content": "Tallet $\\varepsilon > 0$ er den **feiltoleransen** motparten krever: svaret $f(x)$ skal ligge nærmere $L$ enn $\\varepsilon$, altså $|f(x)-L| < \\varepsilon$. Geometrisk er det et vannrett bånd $(L-\\varepsilon,\\ L+\\varepsilon)$ om grenseverdien. Jo mindre $\\varepsilon$, jo strengere krav — og du må klare *alle* $\\varepsilon$."
+    },
+    {
+      "id": "mat111-uib-2-1-def-delta",
+      "type": "definition",
+      "title": "Nærhetskravet $\\delta$",
+      "content": "Tallet $\\delta > 0$ er ditt **svar**: hvor nær $a$ det er nok at $x$ ligger for at garantien holder. Det definerer et loddrett intervall $(a-\\delta,\\ a+\\delta)$ om $a$. Du velger $\\delta$ *etter* at $\\varepsilon$ er gitt, så $\\delta$ er en funksjon av $\\varepsilon$. Finnes det alltid et slikt $\\delta$, er beviset i havn."
+    },
+    {
+      "id": "mat111-uib-2-1-geo",
+      "type": "text",
+      "content": "**Geometrisk bilde.** Tegn båndet $L-\\varepsilon < y < L+\\varepsilon$ vannrett om grensen. ε-δ-definisjonen sier: uansett hvor smalt du gjør båndet, kan du finne en så smal loddrett stripe $a-\\delta < x < a+\\delta$ om $a$ at grafen inne i stripen (unntatt over $x=a$) holder seg inne i båndet. Å *bevise* grensen er å oppgi en oppskrift som produserer et slikt $\\delta$ for hver $\\varepsilon$."
+    },
+    {
+      "id": "mat111-uib-2-1-def-punktert",
+      "type": "definition",
+      "title": "Punktert omegn",
+      "content": "Betingelsen $0 < |x-a| < \\delta$ beskriver en **punktert omegn** om $a$: alle $x$ innenfor avstand $\\delta$ fra $a$, *bortsett fra* $a$ selv. At $a$ er tatt ut, er grunnen til at en funksjon kan ha grense $L$ i $a$ selv om $f(a)$ er noe annet — eller ikke er definert i det hele tatt. Grensen handler om oppførselen *rundt* $a$, ikke *i* $a$."
+    },
+    {
+      "id": "mat111-uib-2-1-ex1",
+      "type": "example",
+      "title": "Eksempel 1: Lineær grense med definisjonen",
+      "problem": "Bruk ε-δ-definisjonen til å vise at $\\lim_{x\\to 3}(2x+1) = 7$.",
+      "solution": "**Steg 1 — skriv definisjonen.** Vi skal vise: for hver $\\varepsilon>0$ finnes $\\delta>0$ slik at $0<|x-3|<\\delta \\Rightarrow |(2x+1)-7|<\\varepsilon$.\n\n**Steg 2 — regn på avstanden $|f(x)-L|$.**\n$$|(2x+1)-7| = |2x-6| = 2\\,|x-3|.$$\nHer er faktoren ferdig: avstanden til grensen er nøyaktig $2$ ganger avstanden $|x-3|$.\n\n**Steg 3 — velg $\\delta$.** Vi vil ha $2|x-3| < \\varepsilon$, altså $|x-3| < \\varepsilon/2$. Velg derfor\n$$\\boxed{\\;\\delta = \\frac{\\varepsilon}{2}.\\;}$$\n\n**Steg 4 — verifiser implikasjonen.** Anta $0<|x-3|<\\delta=\\varepsilon/2$. Da er\n$$|(2x+1)-7| = 2|x-3| < 2\\cdot\\frac{\\varepsilon}{2} = \\varepsilon. \\qquad\\checkmark$$\nSiden $\\varepsilon>0$ var vilkårlig, er grensen bevist. *(Enhver mindre $\\delta$ virker også — valget er ikke entydig.)*"
+    },
+    {
+      "id": "mat111-uib-2-1-o1",
+      "type": "exercise",
+      "exercise": {
+        "id": "mat111-uib-2-1-o1-x",
+        "number": "1",
+        "type": "classic",
+        "difficulty": "lett",
+        "task": "Bruk ε-δ-definisjonen til å vise at $\\lim_{x\\to 2}(3x-1)=5$. Oppgi et konkret $\\delta$ uttrykt ved $\\varepsilon$.",
+        "solution": "$|(3x-1)-5| = |3x-6| = 3|x-2|$. Vi vil ha $3|x-2|<\\varepsilon$, altså $|x-2|<\\varepsilon/3$. Velg $\\delta=\\varepsilon/3$. Da gir $0<|x-2|<\\delta$ at $|(3x-1)-5|=3|x-2|<3\\cdot\\varepsilon/3=\\varepsilon.\\ \\checkmark$",
+        "hints": [
+          "Regn ut $|f(x)-L|$ og faktoriser ut $|x-2|$.",
+          "Koeffisienten foran $|x-2|$ blir nevneren i $\\delta$."
+        ]
+      }
+    },
+    {
+      "id": "mat111-uib-2-1-o2",
+      "type": "exercise",
+      "exercise": {
+        "id": "mat111-uib-2-1-o2-x",
+        "number": "2",
+        "type": "classic",
+        "difficulty": "lett",
+        "task": "Vis med definisjonen at $\\lim_{x\\to -1}(4x+3) = -1$.",
+        "solution": "$|(4x+3)-(-1)| = |4x+4| = 4|x-(-1)| = 4|x+1|$. Krev $4|x+1|<\\varepsilon \\Rightarrow |x+1|<\\varepsilon/4$. Velg $\\delta=\\varepsilon/4$; da gir $0<|x+1|<\\delta$ at $|(4x+3)+1| = 4|x+1| < \\varepsilon.\\ \\checkmark$",
+        "hints": [
+          "Skriv $L=-1$ og regn $|f(x)-L|$; pass fortegn i $x-a=x+1$.",
+          "$\\delta = \\varepsilon/|\\text{koeffisient}|$."
+        ]
+      }
+    },
+    {
+      "id": "mat111-uib-2-1-l2",
+      "type": "text",
+      "content": "## Løkke 2 — Bevismalen: faktoriser, avgrens, velg δ = min (~25 min)"
+    },
+    {
+      "id": "mat111-uib-2-1-l2-motiv",
+      "type": "text",
+      "content": "For lineære uttrykk kom faktoren $|x-a|$ rent ut, og $\\delta$ ble bare $\\varepsilon$ delt på en konstant. For **kvadratiske og kubiske** uttrykk får vi en restfaktor som *selv* avhenger av $x$ — og da må vi avgrense den. Det er her den faste **bevismalen** kommer inn. Den er UiBs standardføring, og sensor forventer akkurat disse stegene."
+    },
+    {
+      "id": "mat111-uib-2-1-mal",
+      "type": "theorem",
+      "title": "Bevismalen for polynomgrenser (fire steg + verifikasjon)",
+      "content": "For å vise $\\lim_{x\\to a} f(x) = L$ med definisjonen når $|f(x)-L|$ inneholder en restfaktor:\n\n1. **Faktoriser:** skriv $|f(x)-L| = |x-a|\\cdot|g(x)|$, der $g(x)$ er restfaktoren.\n2. **Avgrens restfaktoren:** krev først $|x-a| < 1$ (et kontrollintervall). På dette intervallet er $|g(x)| \\le K$ for en konstant $K$ du regner ut.\n3. **Velg $\\delta$:** ta det minste av de to kravene,\n$$\\delta = \\min\\Big\\{\\,1,\\ \\frac{\\varepsilon}{K}\\,\\Big\\}.$$\n4. **Verifiser implikasjonen:** anta $0<|x-a|<\\delta$. Da gjelder *både* $|x-a|<1$ (så $|g(x)|\\le K$) *og* $|x-a|<\\varepsilon/K$, altså $|f(x)-L| = |x-a|\\,|g(x)| < \\frac{\\varepsilon}{K}\\cdot K = \\varepsilon.$\n\n$\\min\\{1,\\ \\varepsilon/K\\}$-grepet sikrer at begge kravene holder samtidig. Flere gyldige $\\delta$ finnes — et hvilket som helst $\\delta$ som er $\\le \\min\\{1,\\varepsilon/K\\}$ virker."
+    },
+    {
+      "id": "mat111-uib-2-1-def-kontroll",
+      "type": "definition",
+      "title": "Kontrollintervallet",
+      "content": "Det foreløpige kravet **$|x-a| < 1$** vi legger på for å kunne avgrense restfaktoren. Tallet $1$ er et bekvemt valg (enhver fast positiv radius går an); det låser $x$ til intervallet $(a-1,\\ a+1)$, der restfaktoren $|g(x)|$ ikke kan bli større enn en konstant $K$. Kontrollintervallet er det ene av de to kravene som til slutt kombineres i $\\delta=\\min$."
+    },
+    {
+      "id": "mat111-uib-2-1-def-K",
+      "type": "definition",
+      "title": "Skranken $K$",
+      "content": "Den konstanten som avgrenser restfaktoren på kontrollintervallet: $|g(x)| \\le K$ for alle $x$ med $|x-a|<1$. Du finner $K$ ved å sette inn intervallets ytterpunkter i $|g(x)|$ og ta den største verdien (eventuelt et litt større, enklere tall). $K$ blir nevneren i $\\varepsilon/K$."
+    },
+    {
+      "id": "mat111-uib-2-1-def-min",
+      "type": "definition",
+      "title": "$\\delta$-valget $\\delta=\\min\\{1,\\varepsilon/K\\}$",
+      "content": "Standardføringen i MAT111: når restfaktoren må avgrenses, settes\n\n$$\\delta = \\min\\Big\\{1,\\ \\tfrac{\\varepsilon}{K}\\Big\\}.$$\n\nÅ ta **minimum** av kontrollkravet ($1$) og toleransekravet ($\\varepsilon/K$) garanterer at *begge* er oppfylt samtidig når $|x-a|<\\delta$. Å hoppe over $\\min\\{1,\\cdot\\}$ og bare skrive $\\delta=\\varepsilon/K$ er den vanligste føringsfeilen — da er ikke avgrensningen $|g(x)|\\le K$ sikret."
+    },
+    {
+      "id": "mat111-uib-2-1-ex2",
+      "type": "example",
+      "title": "Eksempel 2: Kvadratisk grense med hele malen",
+      "problem": "Vis med definisjonen at $\\lim_{x\\to 1}(x^2+x+1) = 3$.",
+      "solution": "**Steg 1 — faktoriser.**\n$$|(x^2+x+1)-3| = |x^2+x-2| = |x-1|\\,|x+2|.$$\nRestfaktoren er $g(x)=x+2$.\n\n**Steg 2 — avgrens $|x+2|$.** Krev $|x-1|<1$, altså $0<x<2$. Da er $2<x+2<4$, så\n$$|x+2| < 4 =: K.$$\n\n**Steg 3 — velg $\\delta$.**\n$$\\delta = \\min\\Big\\{1,\\ \\frac{\\varepsilon}{4}\\Big\\}.$$\n\n**Steg 4 — verifiser.** Anta $0<|x-1|<\\delta$. Da er $|x-1|<1$, så $|x+2|<4$, og samtidig $|x-1|<\\varepsilon/4$. Følgelig\n$$|(x^2+x+1)-3| = |x-1|\\,|x+2| < \\frac{\\varepsilon}{4}\\cdot 4 = \\varepsilon. \\qquad\\checkmark$$\nGrensen er bevist. *(Tallkontroll: med $\\varepsilon=0{,}5$ blir $\\delta=0{,}125$; i $x=1{,}125$ er $x^2+x+1=3{,}39$, avstand $0{,}39<0{,}5$.)*"
+    },
+    {
+      "id": "mat111-uib-2-1-o3",
+      "type": "exercise",
+      "exercise": {
+        "id": "mat111-uib-2-1-o3-x",
+        "number": "3",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "Vis med definisjonen at $\\lim_{x\\to 2} x^2 = 4$.",
+        "solution": "**Faktoriser:** $|x^2-4| = |x-2|\\,|x+2|$. **Avgrens:** krev $|x-2|<1 \\Rightarrow 1<x<3 \\Rightarrow 3<x+2<5$, så $|x+2|<5=K$. **Velg:** $\\delta=\\min\\{1,\\ \\varepsilon/5\\}$. **Verifiser:** $0<|x-2|<\\delta$ gir $|x-2|<1$ (så $|x+2|<5$) og $|x-2|<\\varepsilon/5$, altså $|x^2-4|=|x-2||x+2|<\\frac{\\varepsilon}{5}\\cdot5=\\varepsilon.\\ \\checkmark$",
+        "hints": [
+          "$|x^2-4|=|x-2|\\,|x+2|$; restfaktoren er $x+2$.",
+          "På $|x-2|<1$ er $x\\in(1,3)$, så $x+2\\in(3,5)$; ta $K=5$."
+        ]
+      }
+    },
+    {
+      "id": "mat111-uib-2-1-o4",
+      "type": "exercise",
+      "exercise": {
+        "id": "mat111-uib-2-1-o4-x",
+        "number": "4",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "Vis med definisjonen at $\\lim_{x\\to 1} x^3 = 1$.",
+        "solution": "**Faktoriser:** $|x^3-1| = |x-1|\\,|x^2+x+1|$. **Avgrens:** $|x-1|<1 \\Rightarrow 0<x<2 \\Rightarrow x^2+x+1 \\in (1,7)$, så $|x^2+x+1|<7=K$. **Velg:** $\\delta=\\min\\{1,\\ \\varepsilon/7\\}$. **Verifiser:** $0<|x-1|<\\delta$ gir $|x^2+x+1|<7$ og $|x-1|<\\varepsilon/7$, så $|x^3-1|<\\frac{\\varepsilon}{7}\\cdot7=\\varepsilon.\\ \\checkmark$",
+        "hints": [
+          "$x^3-1=(x-1)(x^2+x+1)$.",
+          "$x^2+x+1$ er voksende og positiv på $(0,2)$; øvre verdi nær $x=2$ gir $K=7$."
+        ]
+      }
+    },
+    {
+      "id": "mat111-uib-2-1-ex3",
+      "type": "example",
+      "title": "Eksempel 3 (eksamensnivå): konkret δ for gitt ε",
+      "problem": "Vis at $\\lim_{x\\to 2}(3x^2-1) = 11$ med definisjonen, og oppgi et konkret $\\delta$ som virker for $\\varepsilon = 0{,}1$.",
+      "solution": "**Steg 1 — faktoriser.**\n$$|(3x^2-1)-11| = |3x^2-12| = 3\\,|x^2-4| = 3\\,|x-2|\\,|x+2|.$$\n\n**Steg 2 — avgrens $|x+2|$.** Krev $|x-2|<1 \\Rightarrow 1<x<3 \\Rightarrow 3<x+2<5$, så $|x+2|<5$. Da er\n$$|(3x^2-1)-11| = 3|x-2|\\,|x+2| < 15\\,|x-2|,$$\naltså $K=15$.\n\n**Steg 3 — velg $\\delta$.** $\\displaystyle \\delta = \\min\\Big\\{1,\\ \\frac{\\varepsilon}{15}\\Big\\}.$\n\n**Steg 4 — verifiser.** $0<|x-2|<\\delta \\Rightarrow |x+2|<5$ og $|x-2|<\\varepsilon/15$, så $|(3x^2-1)-11|<15\\cdot\\frac{\\varepsilon}{15}=\\varepsilon.\\ \\checkmark$\n\n**Konkret $\\varepsilon=0{,}1$:** $\\delta = \\min\\{1,\\ 0{,}1/15\\} = \\tfrac{1}{150} \\approx 0{,}0067$. *Tallkontroll:* i $x = 2+\\tfrac{1}{150}$ er $3x^2-1 \\approx 11{,}080$, avstand $\\approx 0{,}080 < 0{,}1.\\ \\checkmark$"
+    },
+    {
+      "id": "mat111-uib-2-1-o5",
+      "type": "exercise",
+      "exercise": {
+        "id": "mat111-uib-2-1-o5-x",
+        "number": "5",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "Vis med definisjonen at $\\lim_{x\\to 2}(x^2-3) = 1$, og oppgi et konkret $\\delta$ for $\\varepsilon = 0{,}2$.",
+        "solution": "$|(x^2-3)-1| = |x^2-4| = |x-2|\\,|x+2|$. Avgrens på $|x-2|<1$: $x\\in(1,3)$, $|x+2|<5=K$. Velg $\\delta=\\min\\{1,\\ \\varepsilon/5\\}$. For $\\varepsilon=0{,}2$: $\\delta=\\min\\{1,\\ 0{,}04\\}=0{,}04$. *Kontroll:* $x=2{,}04 \\Rightarrow x^2-3=1{,}1616$, avstand $0{,}1616<0{,}2.\\ \\checkmark$",
+        "hints": [
+          "Restfaktoren er $x+2$; $K=5$ på kontrollintervallet.",
+          "$\\delta=\\min\\{1,\\varepsilon/5\\}$; sett inn $\\varepsilon=0{,}2$."
+        ]
+      }
+    },
+    {
+      "id": "mat111-uib-2-1-l3",
+      "type": "text",
+      "content": "## Løkke 3 — Grenser mot uendelig: R-ε-varianten (~15 min)"
+    },
+    {
+      "id": "mat111-uib-2-1-l3-motiv",
+      "type": "text",
+      "content": "I vårsettene dukker en variant opp der $x$ ikke går mot et endelig tall, men mot $\\infty$. Da byttes $\\delta$-intervallet om $a$ ut med et krav «$x$ stor nok»: vi finner en grense $R$ slik at $x>R$ tvinger $f(x)$ inn i $\\varepsilon$-båndet om $L$."
+    },
+    {
+      "id": "mat111-uib-2-1-def-Reps",
+      "type": "definition",
+      "title": "R-ε-definisjonen (grense mot uendelig)",
+      "content": "At $f(x)$ nærmer seg $L$ når $x$ vokser uten grense, betyr: for **hver** $\\varepsilon>0$ finnes et tall $R$ slik at\n\n$$x > R \\;\\Longrightarrow\\; |f(x) - L| < \\varepsilon.$$\n\nHer erstatter «$x > R$» rollen som «$0<|x-a|<\\delta$» hadde i den endelige varianten. Malen blir: regn $|f(x)-L|$, løs ulikheten $|f(x)-L|<\\varepsilon$ for $x$, og les av hvilken $R$ som trengs."
+    },
+    {
+      "id": "mat111-uib-2-1-ex4",
+      "type": "example",
+      "title": "Eksempel 4: R-ε mot uendelig",
+      "problem": "Vis med definisjonen at $\\displaystyle\\lim_{x\\to\\infty}\\frac{2x+1}{x} = 2$.",
+      "solution": "**Regn avstanden.** For $x>0$:\n$$\\left|\\frac{2x+1}{x} - 2\\right| = \\left|\\frac{2x+1-2x}{x}\\right| = \\left|\\frac{1}{x}\\right| = \\frac{1}{x}.$$\n\n**Løs $|f(x)-L|<\\varepsilon$ for $x$.** Vi vil ha $\\frac{1}{x}<\\varepsilon$, altså $x > \\frac{1}{\\varepsilon}$. Velg derfor\n$$R = \\frac{1}{\\varepsilon}.$$\n\n**Verifiser.** Hvis $x>R=1/\\varepsilon$, så er $\\frac1x < \\varepsilon$, altså $\\left|\\frac{2x+1}{x}-2\\right| = \\frac1x < \\varepsilon.\\ \\checkmark$ *(Kontroll: $\\varepsilon=0{,}1 \\Rightarrow R=10$; i $x=10{,}01$ er avstanden $\\approx 0{,}0999<0{,}1$.)*"
+    },
+    {
+      "id": "mat111-uib-2-1-o6",
+      "type": "exercise",
+      "exercise": {
+        "id": "mat111-uib-2-1-o6-x",
+        "number": "6",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "Vis med definisjonen at $\\displaystyle\\lim_{x\\to\\infty}\\frac{3x-2}{x} = 3$, og oppgi et konkret $R$ for $\\varepsilon = 0{,}1$.",
+        "solution": "For $x>0$: $\\left|\\frac{3x-2}{x}-3\\right| = \\left|\\frac{-2}{x}\\right| = \\frac{2}{x}$. Krev $\\frac2x<\\varepsilon \\Rightarrow x>\\frac2\\varepsilon$; velg $R=\\frac2\\varepsilon$. Da gir $x>R$ at $\\frac2x<\\varepsilon.\\ \\checkmark$ For $\\varepsilon=0{,}1$: $R=20$. *Kontroll:* $x=20{,}1 \\Rightarrow$ avstand $=2/20{,}1\\approx 0{,}0995<0{,}1.$",
+        "hints": [
+          "Trekk sammen til én brøk: $\\frac{3x-2}{x}-3=\\frac{-2}{x}$.",
+          "$R=\\dfrac{|\\text{teller-konstant}|}{\\varepsilon}$."
+        ]
+      }
+    },
+    {
+      "id": "mat111-uib-2-1-def-finnes",
+      "type": "definition",
+      "title": "Grensen finnes vs. funksjonsverdien finnes",
+      "content": "To ulike spørsmål som ofte forveksles. At **grensen** $\\lim_{x\\to a}f(x)$ finnes, handler kun om oppførselen i den punkterte omegnen $0<|x-a|<\\delta$ — verdien $f(a)$ inngår *ikke*. At **funksjonsverdien** $f(a)$ finnes, er et separat faktum. En funksjon kan ha grense uten å være definert i $a$ (f.eks. $\\frac{\\sin x}{x}$ i $x=0$), og kan være definert i $a$ uten at grensen der er lik $f(a)$. Kontinuitet (kap. 2.3) er nettopp kravet om at de to faller sammen."
+    },
+    {
+      "id": "mat111-uib-2-1-h2019",
+      "type": "text",
+      "content": "**Teorivariant (definisjonen under kontrollerte forhold).** Én gang testet UiB en beslektet ferdighet: å utlede en $0/0$-kvotientgrense direkte fra derivertdefinisjonen og grensesetningene. For eksempel er $\\lim_{x\\to 0}\\frac{\\sin x}{x}=1$ nettopp den deriverte av $\\sin$ i $0$, siden $\\frac{\\sin x - \\sin 0}{x-0}=\\frac{\\sin x}{x}$. Poenget er å kjenne igjen at en grense *er* en derivert eller kan brytes ned med grensesetningene (sum, produkt, kvotient av grenser) — definisjonsbruk, ikke L'Hôpital. Selve regneteknikken for slike grenser kommer i kap. 2.2."
+    },
+    {
+      "id": "mat111-uib-2-1-warn",
+      "type": "warning",
+      "title": "Typiske feil",
+      "content": "- **Kvantorrekkefølgen byttet.** Du kan *ikke* velge $\\delta$ først og så $\\varepsilon$. $\\varepsilon$ gis først; $\\delta$ skal avhenge av $\\varepsilon$. Skriv alltid «gitt $\\varepsilon>0$, velg $\\delta=\\dots$».\n- **Glemme $\\min\\{1,\\cdot\\}$-grepet.** Når restfaktoren må avgrenses, holder det ikke å skrive $\\delta=\\varepsilon/K$ — uten kontrollkravet $|x-a|<1$ er ikke $|g(x)|\\le K$ garantert. Bruk $\\delta=\\min\\{1,\\ \\varepsilon/K\\}$.\n- **Hoppe over verifikasjonssteget.** Å oppgi en $\\delta$ uten å vise implikasjonen $0<|x-a|<\\delta \\Rightarrow |f(x)-L|<\\varepsilon$ gir trekk. Selve verifikasjonen *er* beviset.\n- **Blande «grensen finnes» med «$f(a)$ finnes».** Grensen bryr seg ikke om $f(a)$ — den punkterte omegnen tar $a$ ut.\n- **Regne ut grensen i stedet for å bevise den.** Sjanger D ber om et *bevis* med definisjonen, ikke en utregning. Å bare skrive «grensen er $L$» besvarer ikke oppgaven."
+    },
+    {
+      "id": "mat111-uib-2-1-pool",
+      "type": "text",
+      "content": "## Flere øvingsoppgaver\n\nBlandede ε-δ-bevis på eksamensnivå. Alle løses med malen fra dette kapitlet."
+    },
+    {
+      "id": "mat111-uib-2-1-o7",
+      "type": "exercise",
+      "exercise": {
+        "id": "mat111-uib-2-1-o7-x",
+        "number": "7",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "Vis med definisjonen at $\\lim_{x\\to 3}(x^2-2x) = 3$.",
+        "solution": "$|(x^2-2x)-3| = |x^2-2x-3| = |x-3|\\,|x+1|$. Avgrens på $|x-3|<1$: $2<x<4 \\Rightarrow 3<x+1<5$, så $|x+1|<5=K$. Velg $\\delta=\\min\\{1,\\ \\varepsilon/5\\}$. Da gir $0<|x-3|<\\delta$: $|x+1|<5$ og $|x-3|<\\varepsilon/5$, så $|(x^2-2x)-3|<5\\cdot\\frac{\\varepsilon}{5}=\\varepsilon.\\ \\checkmark$",
+        "hints": [
+          "Faktoriser $x^2-2x-3=(x-3)(x+1)$.",
+          "På $|x-3|<1$ er $x+1\\in(3,5)$; $K=5$."
+        ]
+      }
+    },
+    {
+      "id": "mat111-uib-2-1-o8",
+      "type": "exercise",
+      "exercise": {
+        "id": "mat111-uib-2-1-o8-x",
+        "number": "8",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "Vis med definisjonen at $\\lim_{x\\to -1}(x^2+3x) = -2$.",
+        "solution": "$|(x^2+3x)-(-2)| = |x^2+3x+2| = |x+1|\\,|x+2|$. Avgrens på $|x+1|<1$: $-2<x<0 \\Rightarrow 0<x+2<2$, så $|x+2|<2=K$. Velg $\\delta=\\min\\{1,\\ \\varepsilon/2\\}$. Da: $0<|x+1|<\\delta \\Rightarrow |x+2|<2$ og $|x+1|<\\varepsilon/2$, så $|(x^2+3x)+2|<2\\cdot\\frac{\\varepsilon}{2}=\\varepsilon.\\ \\checkmark$",
+        "hints": [
+          "$x^2+3x+2=(x+1)(x+2)$; her er $a=-1$.",
+          "$|x+1|<1 \\Rightarrow x\\in(-2,0) \\Rightarrow x+2\\in(0,2)$."
+        ]
+      }
+    },
+    {
+      "id": "mat111-uib-2-1-o9",
+      "type": "exercise",
+      "exercise": {
+        "id": "mat111-uib-2-1-o9-x",
+        "number": "9",
+        "type": "classic",
+        "difficulty": "vanskelig",
+        "task": "Vis med definisjonen at $\\displaystyle\\lim_{x\\to\\infty}\\frac{x+5}{2x} = \\frac{1}{2}$.",
+        "solution": "For $x>0$: $\\left|\\frac{x+5}{2x}-\\frac12\\right| = \\left|\\frac{x+5-x}{2x}\\right| = \\frac{5}{2x}$. Krev $\\frac{5}{2x}<\\varepsilon \\Rightarrow x>\\frac{5}{2\\varepsilon}$; velg $R=\\frac{5}{2\\varepsilon}$. Da gir $x>R$ at $\\frac{5}{2x}<\\varepsilon.\\ \\checkmark$ *(Kontroll: $\\varepsilon=0{,}05 \\Rightarrow R=50$; $x=50{,}1 \\Rightarrow$ avstand $\\approx0{,}0499<0{,}05$.)*",
+        "hints": [
+          "Trekk sammen: $\\frac{x+5}{2x}-\\frac12=\\frac{5}{2x}$.",
+          "Løs $\\frac{5}{2x}<\\varepsilon$ for $x$ og les av $R$."
+        ]
+      }
+    },
+    {
+      "id": "mat111-uib-2-1-o10",
+      "type": "exercise",
+      "exercise": {
+        "id": "mat111-uib-2-1-o10-x",
+        "number": "10",
+        "type": "classic",
+        "difficulty": "vanskelig",
+        "task": "Vis med definisjonen at $\\lim_{x\\to 2}(x^3-1) = 7$. (Restfaktoren blir kvadratisk — avgrens den på kontrollintervallet.)",
+        "solution": "$|(x^3-1)-7| = |x^3-8| = |x-2|\\,|x^2+2x+4|$. Avgrens $|x^2+2x+4|$ på $|x-2|<1$: $x\\in(1,3)$. Uttrykket $x^2+2x+4$ er voksende for $x>0$, så på $(1,3)$ er det $<3^2+2\\cdot3+4=19$. Altså $|x^2+2x+4|<19=K$. Velg $\\delta=\\min\\{1,\\ \\varepsilon/19\\}$. Da gir $0<|x-2|<\\delta$: $|x^2+2x+4|<19$ og $|x-2|<\\varepsilon/19$, så $|(x^3-1)-7|<19\\cdot\\frac{\\varepsilon}{19}=\\varepsilon.\\ \\checkmark$",
+        "hints": [
+          "$x^3-8=(x-2)(x^2+2x+4)$.",
+          "Sett inn $x=3$ (øvre ende) i restfaktoren for å finne $K$; den er voksende på intervallet."
+        ]
+      }
+    },
+    {
+      "id": "mat111-uib-2-1-o11",
+      "type": "exercise",
+      "exercise": {
+        "id": "mat111-uib-2-1-o11-x",
+        "number": "11",
+        "type": "classic",
+        "difficulty": "vanskelig",
+        "task": "En medstudent skriver: «$\\lim_{x\\to1}(x^2+x+1)=3$ fordi jeg velger $\\delta=\\varepsilon/4$.» Hva mangler i føringen, og hvorfor kan valget svikte for store $\\varepsilon$?",
+        "solution": "Det som mangler er **kontrollkravet** $|x-1|<1$ og dermed $\\min$-grepet. Avgrensningen $|x+2|<4$ gjelder bare når $x\\in(0,2)$, altså når $|x-1|<1$. Med $\\delta=\\varepsilon/4$ alene kan $\\delta$ bli større enn $1$ for store $\\varepsilon$ (f.eks. $\\varepsilon=8 \\Rightarrow \\delta=2$), og da er ikke $x$ tvunget inn i $(0,2)$, så $|x+2|<4$ svikter. Riktig føring: $\\delta=\\min\\{1,\\ \\varepsilon/4\\}$, og verifikasjonen som viser at begge kravene holder.",
+        "hints": [
+          "Hva sikrer at $|x+2|<4$? Bare kontrollintervallet.",
+          "Test $\\varepsilon=8$: da er $\\varepsilon/4=2>1$."
+        ]
+      }
+    },
+    {
+      "id": "mat111-uib-2-1-o12",
+      "type": "exercise",
+      "exercise": {
+        "id": "mat111-uib-2-1-o12-x",
+        "number": "12",
+        "type": "classic",
+        "difficulty": "vanskelig",
+        "task": "Vis med definisjonen at $\\displaystyle\\lim_{x\\to\\infty}\\frac{4x^2+1}{x^2} = 4$.",
+        "solution": "For $x>0$: $\\left|\\frac{4x^2+1}{x^2}-4\\right| = \\left|\\frac{1}{x^2}\\right| = \\frac{1}{x^2}$. Krev $\\frac{1}{x^2}<\\varepsilon \\Rightarrow x^2>\\frac1\\varepsilon \\Rightarrow x>\\frac{1}{\\sqrt\\varepsilon}$; velg $R=\\frac{1}{\\sqrt\\varepsilon}$. Da gir $x>R$ at $\\frac{1}{x^2}<\\varepsilon.\\ \\checkmark$",
+        "hints": [
+          "$\\frac{4x^2+1}{x^2}-4=\\frac{1}{x^2}$.",
+          "Løs $\\frac{1}{x^2}<\\varepsilon$ for $x$ — husk kvadratroten."
+        ]
+      }
+    },
+    {
+      "id": "mat111-uib-2-1-bb-tekst",
+      "type": "text",
+      "content": "## Begrepsbank til eksamen\n\nKjernebegrepene fra kapitlet i eksamensrettet kortform. Sammen med definisjonene over gir de deg hele apparatet for sjanger D-oppgavene.\n\n*Begrepsbanken er repetisjons- og flashcard-stoff — den gjentar det du nettopp har lest. Hopp trygt over ved førstegangslesing.*"
+    },
+    {
+      "id": "mat111-uib-2-1-bb-implikasjon",
+      "type": "definition",
+      "title": "Verifikasjonssteget (implikasjonen)",
+      "content": "Selve beviset: å vise at $0<|x-a|<\\delta \\Rightarrow |f(x)-L|<\\varepsilon$ med det valgte $\\delta$. Man antar venstresiden og regner seg fram til høyresiden. Uten dette steget er $\\delta$-valget bare en påstand, ikke et bevis."
+    },
+    {
+      "id": "mat111-uib-2-1-bb-restfaktor",
+      "type": "definition",
+      "title": "Restfaktoren",
+      "content": "Faktoren $g(x)$ som blir igjen når $|x-a|$ er trukket ut: $|f(x)-L| = |x-a|\\,|g(x)|$. For $f(x)=x^2$ ved $a=2$ er $g(x)=x+2$. Restfaktoren er den som må avgrenses av en skranke $K$ på kontrollintervallet."
+    },
+    {
+      "id": "mat111-uib-2-1-bb-flere-delta",
+      "type": "definition",
+      "title": "Ikke-entydig δ",
+      "content": "$\\delta$ i et ε-δ-bevis er aldri entydig: hvis et $\\delta$ virker, virker ethvert mindre positivt tall også. Derfor godtar sensor alle korrekte valg — også grovere avgrensninger som gir en mindre (men gyldig) $\\delta$. Du trenger ikke den «beste» $\\delta$, bare én som virker."
+    },
+    {
+      "id": "mat111-uib-2-1-bb-lineaer",
+      "type": "definition",
+      "title": "Lineær grense (spesialtilfelle)",
+      "content": "For $f(x)=mx+b$ er $|f(x)-L| = |m|\\,|x-a|$ uten noen restfaktor å avgrense. Da trengs ikke $\\min$-grepet: $\\delta=\\varepsilon/|m|$ virker direkte (for $m\\neq 0$). Dette er den enkleste ε-δ-varianten og en fin oppvarming før polynommalen."
+    },
+    {
+      "id": "mat111-uib-2-1-bb-ensidig",
+      "type": "definition",
+      "title": "Ensidig grense",
+      "content": "**Høyregrense** $\\lim_{x\\to a^+}f(x)$ bruker bare $x>a$ (kravet blir $a<x<a+\\delta$), **venstregrense** $\\lim_{x\\to a^-}f(x)$ bare $x<a$. Den (tosidige) grensen finnes hviss begge ensidige grenser finnes og er like. Ensidige grenser blir viktige i skjøtepunkter (kap. 2.3 og Del 3)."
+    },
+    {
+      "id": "mat111-uib-2-1-bb-grensesetninger",
+      "type": "definition",
+      "title": "Grensesetningene",
+      "content": "Regnereglene som lar oss bygge grenser fra kjente byggeklosser: grensen av en sum/differanse/produkt er summen/differansen/produktet av grensene, og tilsvarende for kvotient når nevnergrensen er ulik $0$. De brukes til å slippe å føre ε-δ-bevis for hver enkelt grense — men UiB tester av og til at du kan gjøre grunnbeviset likevel."
+    },
+    {
+      "id": "mat111-uib-2-1-bb-avstand",
+      "type": "definition",
+      "title": "Absoluttverdi som avstand",
+      "content": "$|x-a|$ leses som **avstanden** mellom tallene $x$ og $a$ på tallinjen, og $|f(x)-L|$ som avstanden mellom funksjonsverdien og grensen. Hele ε-δ-språket er avstandsspråk: «$f(x)$ nærmere $L$ enn $\\varepsilon$» er $|f(x)-L|<\\varepsilon$, og «$x$ nærmere $a$ enn $\\delta$» er $|x-a|<\\delta$. Å tenke i avstander gjør faktoriseringssteget naturlig."
+    },
+    {
+      "id": "mat111-uib-2-1-bb-kvantorer",
+      "type": "definition",
+      "title": "Kvantorene $\\forall$ og $\\exists$",
+      "content": "$\\forall$ betyr «for alle / for hver» og $\\exists$ betyr «det finnes». ε-δ-definisjonen er $\\forall\\varepsilon>0\\ \\exists\\delta>0:\\ \\dots$ — *for hver* toleranse $\\varepsilon$ *finnes* et nærhetskrav $\\delta$. Rekkefølgen er bindende: $\\delta$ står innenfor $\\forall\\varepsilon$, så $\\delta$ får avhenge av $\\varepsilon$, men ikke omvendt."
+    },
+    {
+      "id": "mat111-uib-2-1-bb-divergens",
+      "type": "definition",
+      "title": "Divergens (grensen finnes ikke)",
+      "content": "En grense **finnes ikke** (funksjonen divergerer i $a$) dersom det ikke finnes noe tall $L$ som oppfyller ε-δ-definisjonen. Typiske grunner: venstre- og høyregrense er ulike (sprang), funksjonen vokser uten grense, eller den svinger uten å nærme seg noe (som $\\sin(1/x)$ i $0$). Å bevise divergens er et eget slag argument og etterspørres sjelden i sjanger D."
+    },
+    {
+      "id": "mat111-uib-2-1-bb-byggeklosser",
+      "type": "definition",
+      "title": "Grunngrensene (byggeklossene)",
+      "content": "De to enkleste grensene, som alt annet bygges på via grensesetningene: for konstantfunksjonen er $\\lim_{x\\to a} k = k$, og for identiteten er $\\lim_{x\\to a} x = a$. Fra disse to og sum-/produktregelen følger at ethvert polynom $p$ har $\\lim_{x\\to a} p(x) = p(a)$ — en kjensgjerning ε-δ-beviset bekrefter i det enkelte tilfellet."
+    },
+    {
+      "id": "mat111-uib-2-1-rep",
+      "type": "collapsible",
+      "title": "Repetisjonsoppgaver",
+      "buttonText": "Vis repetisjonsoppgaver",
+      "content": [
+        {
+          "id": "mat111-uib-2-1-r1",
+          "type": "exercise",
+          "exercise": {
+            "id": "mat111-uib-2-1-r1-x",
+            "number": "R1",
+            "type": "classic",
+            "difficulty": "lett",
+            "task": "(Fra 1T 1.6) Faktoriser $x^2 - x - 6$ og forkort $\\dfrac{x^2-x-6}{x-3}$ for $x\\neq 3$.",
+            "solution": "$x^2-x-6=(x-3)(x+2)$, så $\\dfrac{x^2-x-6}{x-3}=x+2$ for $x\\neq 3$. (Denne typen forkorting er nettopp det som gir restfaktoren i ε-δ-bevis.)",
+            "hints": [
+              "Finn to tall med produkt $-6$ og sum $-1$."
+            ]
+          }
+        },
+        {
+          "id": "mat111-uib-2-1-r2",
+          "type": "exercise",
+          "exercise": {
+            "id": "mat111-uib-2-1-r2-x",
+            "number": "R2",
+            "type": "classic",
+            "difficulty": "lett",
+            "task": "(Fra R1 3.1) Hva nærmer $\\dfrac{x^2-4}{x-2}$ seg når $x\\to 2$? Forklar intuitivt, uten ε-δ.",
+            "solution": "$\\dfrac{x^2-4}{x-2}=\\dfrac{(x-2)(x+2)}{x-2}=x+2$ for $x\\neq2$, som nærmer seg $4$ når $x\\to2$. Grensen er $4$ selv om uttrykket ikke er definert i $x=2$ — et forvarsel om hvorfor den punkterte omegnen tar $a$ ut.",
+            "hints": [
+              "Forkort brøken først; deretter sett inn."
+            ]
+          }
+        },
+        {
+          "id": "mat111-uib-2-1-r3",
+          "type": "exercise",
+          "exercise": {
+            "id": "mat111-uib-2-1-r3-x",
+            "number": "R3",
+            "type": "classic",
+            "difficulty": "middels",
+            "task": "(Fra 1T 1.6) Skriv $x^3-8$ som et produkt av en lineær og en kvadratisk faktor.",
+            "solution": "$x^3-8=(x-2)(x^2+2x+4)$ (konjugatregelen for kuber, $a^3-b^3=(a-b)(a^2+ab+b^2)$ med $b=2$). Det er denne faktoriseringen oppgave 10 bruker.",
+            "hints": [
+              "$a^3-b^3=(a-b)(a^2+ab+b^2)$ med $a=x,\\ b=2$."
+            ]
+          }
+        },
+        {
+          "id": "mat111-uib-2-1-r4",
+          "type": "exercise",
+          "exercise": {
+            "id": "mat111-uib-2-1-r4-x",
+            "number": "R4",
+            "type": "classic",
+            "difficulty": "lett",
+            "task": "(Fra 1T 1.6) Skriv $\\dfrac{1}{x} - \\dfrac{1}{2}$ som én brøk.",
+            "solution": "Fellesnevneren er $2x$: $\\dfrac{1}{x} - \\dfrac{1}{2} = \\dfrac{2 - x}{2x} = \\dfrac{-(x-2)}{2x}$. Å trekke ut faktoren $(x-2)$ slik er nøyaktig det ε-δ-beviset for $\\lim_{x\\to2}\\frac1x = \\frac12$ trenger.",
+            "hints": [
+              "Fellesnevner $2x$; trekk deretter ut $(x-2)$."
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": "mat111-uib-2-1-symbol",
+      "type": "collapsible",
+      "title": "Symbol- og formelliste",
+      "buttonText": "Vis symboler og formler",
+      "content": [
+        {
+          "id": "mat111-uib-2-1-symbol-txt",
+          "type": "text",
+          "content": "## Symbol- og formelliste\n\n*Oppslagsverk — alt her forklares underveis i kapitlet.*\n\nAlle symboler og formler som brukes i dette delkapitlet (2.1), samlet på ett sted.\n\n| Symbol | Betydning |\n|---|---|\n| $\\lim_{x\\to a} f(x)=L$ | Grenseverdien til $f$ når $x$ går mot $a$ er $L$ |\n| $\\varepsilon$ | Feiltoleransen (hvor nær $L$): $\\|f(x)-L\\|<\\varepsilon$ |\n| $\\delta$ | Nærhetskravet (hvor nær $a$): $0<\\|x-a\\|<\\delta$ |\n| $0<\\|x-a\\|<\\delta$ | Punktert omegn om $a$ — $a$ selv er tatt ut |\n| $\\|f(x)-L\\|$ | Avstanden fra funksjonsverdien til grensen |\n| $g(x)$ | Restfaktoren i $\\|f(x)-L\\|=\\|x-a\\|\\,\\|g(x)\\|$ |\n| $K$ | Skranken for restfaktoren på kontrollintervallet: $\\|g(x)\\|\\le K$ |\n| $R$ | Terskelen i R-ε-varianten: $x>R \\Rightarrow \\|f(x)-L\\|<\\varepsilon$ |\n| $\\lim_{x\\to a^\\pm}f(x)$ | Ensidig grense fra høyre ($+$) / venstre ($-$) |\n\n**Formler og maler i dette delkapitlet:**\n\n$$\\lim_{x\\to a} f(x)=L \\iff \\forall\\varepsilon>0\\ \\exists\\delta>0:\\ 0<|x-a|<\\delta \\Rightarrow |f(x)-L|<\\varepsilon$$\nε-δ-definisjonen av grenseverdi (full kvantorform).\n\n$$|f(x)-L| = |x-a|\\cdot|g(x)|$$\nFaktoriseringssteget: trekk ut $|x-a|$, la $g(x)$ være restfaktoren.\n\n$$\\delta = \\min\\Big\\{1,\\ \\frac{\\varepsilon}{K}\\Big\\}$$\nStandard $\\delta$-valg når restfaktoren avgrenses av $K$ på kontrollintervallet $|x-a|<1$.\n\n$$\\lim_{x\\to\\infty} f(x)=L \\iff \\forall\\varepsilon>0\\ \\exists R:\\ x>R \\Rightarrow |f(x)-L|<\\varepsilon$$\nR-ε-definisjonen (grense mot uendelig).\n\n$$\\delta = \\frac{\\varepsilon}{|m|}\\quad (\\text{lineær } f(x)=mx+b)$$\nSpesialtilfellet uten restfaktor."
+        }
+      ]
+    }
+  ],
+  "exercises": []
+}

@@ -1,0 +1,492 @@
+{
+  "id": "mat111-uib-5-7",
+  "courseId": "mat111-uib",
+  "chapterNumber": "5.7",
+  "title": "Numerisk integrasjon: trapes og Simpson med feilestimat",
+  "description": "Trapes- og Simpson-tilnærming fra formel og fra måletabell, med feilformlene brukt kvantitativt — skaff K på intervallet og dimensjonér n — pluss teorien: Simpsons eksakthet for kubiske og moteksempelet der trapes vinner.",
+  "estimatedMinutes": 55,
+  "competenceGoals": [
+    "kunne beregne trapes- og Simpson-tilnærminger fra formel og fra måletabell med riktige vekter",
+    "kunne bruke feilformlene kvantitativt: begrunne en skranke K på intervallet og dimensjonere n for en gitt feilgrense",
+    "kunne begrunne at Simpson er eksakt for tredjegradspolynomer og konstruere et moteksempel der trapesmetoden treffer bedre"
+  ],
+  "content": [
+    {
+      "id": "mat111-uib-5-7-tip",
+      "type": "tip",
+      "title": "Eksamensvinkel",
+      "content": "**Numerisk integrasjon er en UiB-signatur — og feilformlene er poengmaskinen.**\n\n- **Sjanger J — numerisk integrasjon** (bokas merkelapp fra Del 0 for trapes-/Simpson-oppgavene) står i **13 av 34 arkiverte sett (38 %)**, jevnt fordelt siden 2007. Sjangeren finnes knapt i UiO-arkivet — den er et UiB-særtrekk, så generiske oppgavesamlinger dekker den dårlig.\n- **Feilformlene skal brukes *kvantitativt*:** ikke bare siteres, men settes i arbeid — skaff skranken $K$ på intervallet og **dimensjonér $n$** for en gitt feilgrense. Det er her poengene deles ut, og der flest mister dem.\n- Oppgavene kommer i to drakter: **fra formel** (en gitt integrand) og **fra måletabell** (fart, vannføring — tallkolonner uten formel).\n- **Teorivariantene** dukker også opp: forklar metodene, vis at Simpson er eksakt for tredjegradspolynomer, eller konstruer et moteksempel der trapesmetoden slår Simpson (V2020-settet).\n- Prioritet: **kunne** — standardisert sjanger med fast løsningsmal."
+    },
+    {
+      "id": "mat111-uib-5-7-fork",
+      "type": "text",
+      "content": "**Forkunnskaper.** Rammeverket — hva et bestemt integral *er*, og fundamentalteoremet vi bruker som fasit i kontrollregninger — står i [kap. 5.1](/bok/mat111-uib/mat111-uib-5-1). Selve metodene møtte du i R2: **[Numerisk integrasjon](/bok/r2/r2-3-4)**; der var feilformlene valgfrie — her er de kjernen. Til $K$-jakten trengs derivasjonsrutine fra [kap. 3.5](/bok/mat111-uib/mat111-uib-3-5) (maksimum av en funksjon på et intervall).\n\n**Sist du var her** — R2-versjonen av trapesmetoden:\n\n$$T_n = h\\Big(\\tfrac12 f(x_0) + f(x_1) + \\dots + f(x_{n-1}) + \\tfrac12 f(x_n)\\Big), \\qquad h=\\frac{b-a}{n}.$$"
+    },
+    {
+      "id": "mat111-uib-5-7-motiv",
+      "type": "text",
+      "content": "Mange integraler kan ikke løses med antideriverte — $\\int e^{-x^2}dx$ har ingen elementær antiderivert, og en fartslogg fra en test har ingen formel i det hele tatt. Da bytter vi strategi: tilnærm arealet direkte fra funksjonsverdier i noen få punkter. **Trapesmetoden** binder punktene sammen med rette linjer; **Simpsons metode** legger parabler gjennom dem, tre og tre.\n\nMen en tilnærming uten feilkontroll er bare en gjetning. Det MAT111 faktisk tester, er feilformlene i arbeid: *hvor stor kan feilen være* med de delintervallene du har — og *hvor mange delintervaller trenger du* for en gitt nøyaktighet? Den regningen har fast mal, og malen er dette kapitlets ryggrad.\n\nFire læringsløkker: (1) trapesmetoden fra formel og tabell, (2) Simpsons metode, (3) feilformlene kvantitativt — $K$-jakt og dimensjonering av $n$, (4) teorien: eksakthet for kubiske og moteksempelet der trapes vinner."
+    },
+    {
+      "id": "mat111-uib-5-7-l1",
+      "type": "text",
+      "content": "## Løkke 1 — Trapesmetoden (~13 min)"
+    },
+    {
+      "id": "mat111-uib-5-7-def-hvorfor",
+      "type": "definition",
+      "title": "Hvorfor numerisk integrasjon",
+      "content": "Numerisk integrasjon tilnærmer $\\int_a^b f(x)\\,dx$ med en veid sum av funksjonsverdier — uten antiderivert. Den trengs når antideriverten ikke finnes i elementær form (som for $e^{-x^2}$), og når $f$ bare er kjent som måledata i enkeltpunkter."
+    },
+    {
+      "id": "mat111-uib-5-7-def-h",
+      "type": "definition",
+      "title": "Delintervaller og steglengden $h$",
+      "content": "Del $[a,b]$ i $n$ like lange **delintervaller**. Lengden av hvert kalles **steglengden**:\n\n$$h = \\frac{b-a}{n}.$$\n\nAlt i formlene skaleres med $h$ — regn den ut først, og hold $n$ (antall delintervaller, ikke antall punkter) adskilt fra de $n+1$ nodene."
+    },
+    {
+      "id": "mat111-uib-5-7-def-noder",
+      "type": "definition",
+      "title": "Nodene $x_i$",
+      "content": "**Nodene** er delepunktene $x_i = a + ih$ for $i=0,1,\\dots,n$ — fra $x_0=a$ til $x_n=b$, totalt $n+1$ punkter. Funksjonsverdiene $f(x_0),\\dots,f(x_n)$ er metodenes eneste råstoff; en ryddig verditabell over nodene er første linje i føringen."
+    },
+    {
+      "id": "mat111-uib-5-7-def-trapes",
+      "type": "definition",
+      "title": "Trapesformelen",
+      "content": "Bind nabopunkter på grafen sammen med rette linjer; hvert delintervall bidrar med et trapesareal. Summen er\n\n$$T_n = \\frac{h}{2}\\Big[f(x_0) + 2f(x_1) + 2f(x_2) + \\dots + 2f(x_{n-1}) + f(x_n)\\Big].$$\n\nIndre noder teller dobbelt fordi de deles av to trapeser; endepunktene teller én gang."
+    },
+    {
+      "id": "mat111-uib-5-7-def-trapesvekter",
+      "type": "definition",
+      "title": "Trapesvektene $1,2,2,\\dots,2,1$",
+      "content": "Vektmønsteret i $T_n$ er $1,2,2,\\dots,2,1$ — og en innebygd kontroll: vektsummen skal bli $2n$ (så $\\frac h2\\cdot\\text{vektsum}\\cdot\\overline{f} \\approx (b-a)\\overline{f}$ stemmer dimensjonsmessig). Tell vektene før du summerer; ett glemt 2-tall er sjangerens vanligste slurvefeil."
+    },
+    {
+      "id": "mat111-uib-5-7-def-tabell",
+      "type": "definition",
+      "title": "Tilnærming fra måletabell",
+      "content": "Er $f$ gitt som en tabell med jevnt fordelte målinger, ER tabellen nodeverdiene: $h$ er avstanden mellom målingene, og formelen brukes rett på kolonnen. Ingen formel for $f$ trengs — men enheten følger med ($f$ i m/s og $t$ i s gir integral i meter)."
+    },
+    {
+      "id": "mat111-uib-5-7-eks1",
+      "type": "example",
+      "title": "Eksempel 1: trapes fra formel, med verditabell",
+      "problem": "Bruk trapesmetoden med $n=4$ på $\\displaystyle\\int_1^2\\frac{dx}{x}$, og sammenlign med den eksakte verdien $\\ln 2\\approx 0{,}6931$.",
+      "solution": "Steglengde: $h=\\frac{2-1}{4}=0{,}25$. Verditabell over nodene:\n\n| $i$ | $x_i$ | $f(x_i)=1/x_i$ | vekt |\n|---|---|---|---|\n| 0 | $1{,}00$ | $1{,}000000$ | 1 |\n| 1 | $1{,}25$ | $0{,}800000$ | 2 |\n| 2 | $1{,}50$ | $0{,}666667$ | 2 |\n| 3 | $1{,}75$ | $0{,}571429$ | 2 |\n| 4 | $2{,}00$ | $0{,}500000$ | 1 |\n\n$$T_4 = \\frac{0{,}25}{2}\\Big[1 + 2(0{,}8) + 2(0{,}666667) + 2(0{,}571429) + 0{,}5\\Big] = 0{,}125\\cdot 5{,}576190 \\approx 0{,}69702.$$\n\nEksakt er $\\ln 2 = 0{,}69315$, så feilen er $\\approx 0{,}0039$ — trapesene ligger *over* fordi $\\frac1x$ krummer oppover (konveks), og kordene da ligger over grafen.\n\n**Sluttsvar:** $T_4\\approx 0{,}6970$ (eksakt $\\ln 2\\approx 0{,}6931$). $\\blacksquare$"
+    },
+    {
+      "id": "mat111-uib-5-7-o1",
+      "type": "exercise",
+      "exercise": {
+        "id": "mat111-uib-5-7-o1-x",
+        "number": "1",
+        "type": "classic",
+        "difficulty": "lett",
+        "task": "Bruk trapesmetoden med $n=2$ på $\\displaystyle\\int_0^2 x^2\\,dx$, og finn den faktiske feilen mot den eksakte verdien.",
+        "solution": "$h=1$; noder $0,1,2$ med verdier $0,1,4$:\n\n$$T_2 = \\frac12\\big[0 + 2\\cdot 1 + 4\\big] = 3.$$\n\nEksakt: $\\int_0^2 x^2dx = \\frac83 \\approx 2{,}667$. Faktisk feil: $3-\\frac83 = \\frac13$. Overslaget stemmer med krumningen: $x^2$ er konveks, så trapesene ligger over grafen.\n\n**Sluttsvar:** $T_2 = 3$; feil $\\frac13$. $\\blacksquare$",
+        "hints": [
+          "$h=(2-0)/2=1$; vektene er $1,2,1$.",
+          "Eksakt verdi med fundamentalteoremet: $\\big[x^3/3\\big]_0^2$."
+        ]
+      }
+    },
+    {
+      "id": "mat111-uib-5-7-l2",
+      "type": "text",
+      "content": "## Løkke 2 — Simpsons metode (~13 min)"
+    },
+    {
+      "id": "mat111-uib-5-7-def-parabel",
+      "type": "definition",
+      "title": "Parabelidéen",
+      "content": "Simpson erstatter kordene med **parabler**: gjennom tre og tre nabopunkter $(x_{2k},x_{2k+1},x_{2k+2})$ legges en andregradskurve, og dens eksakte areal brukes som bidrag. Fordi parabler følger krumningen, treffer Simpson dramatisk bedre enn trapes for glatte funksjoner — med samme datamengde."
+    },
+    {
+      "id": "mat111-uib-5-7-def-simpson",
+      "type": "definition",
+      "title": "Simpsons formel",
+      "content": "Med $n$ delintervaller ($n$ **partall**) og $h=\\frac{b-a}{n}$:\n\n$$S_n = \\frac{h}{3}\\Big[f(x_0) + 4f(x_1) + 2f(x_2) + 4f(x_3) + \\dots + 2f(x_{n-2}) + 4f(x_{n-1}) + f(x_n)\\Big].$$\n\nOddetallsnodene (parabelmidtpunktene) veier 4, de indre partallsnodene 2, endepunktene 1."
+    },
+    {
+      "id": "mat111-uib-5-7-def-npartall",
+      "type": "definition",
+      "title": "Kravet: $n$ må være partall",
+      "content": "Parablene bruker delintervallene i par — derfor MÅ $n$ være partall i Simpson. Får du et odde $n$ fra en dimensjonering, rund opp til neste partall. En Simpson-regning med odde $n$ er ugyldig uansett hvor pent tallet ser ut."
+    },
+    {
+      "id": "mat111-uib-5-7-def-simpsonvekter",
+      "type": "definition",
+      "title": "Simpson-vektene $1,4,2,4,\\dots,2,4,1$",
+      "content": "Vektmønsteret starter og slutter på 1, veksler $4,2,4,2,\\dots$ imellom, og har alltid 4 nest først og nest sist. Kontroll: vektsummen skal bli $3n$. Å blande trapes- og Simpson-vekter — eller miste vekslingen midt i — er sjangerens klassiske tabellfeil."
+    },
+    {
+      "id": "mat111-uib-5-7-eks2",
+      "type": "example",
+      "title": "Eksempel 2: Simpson på samme integral",
+      "problem": "Bruk Simpsons metode med $n=4$ på $\\displaystyle\\int_1^2\\frac{dx}{x}$, og sammenlign med trapes-resultatet fra eksempel 1.",
+      "solution": "Samme noder og verdier som i eksempel 1, men Simpson-vekter $1,4,2,4,1$ (vektsum $12=3n$ ✓):\n\n$$S_4 = \\frac{0{,}25}{3}\\Big[1 + 4(0{,}8) + 2(0{,}666667) + 4(0{,}571429) + 0{,}5\\Big] = \\frac{0{,}25}{3}\\cdot 8{,}319048 \\approx 0{,}69325.$$\n\nEksakt $\\ln 2 = 0{,}69315$: feilen er $\\approx 1{,}1\\cdot 10^{-4}$ — rundt **35 ganger mindre** enn trapesfeilen $0{,}0039$, med nøyaktig samme fem funksjonsverdier. Det er parabelidéen i praksis.\n\n**Sluttsvar:** $S_4\\approx 0{,}69325$. $\\blacksquare$"
+    },
+    {
+      "id": "mat111-uib-5-7-eks3",
+      "type": "example",
+      "title": "Eksempel 3: Simpson fra måletabell",
+      "problem": "En drone logger farten (i m/s) hvert sekund under en seks sekunders akselerasjonstest:\n\n| $t$ (s) | 0 | 1 | 2 | 3 | 4 | 5 | 6 |\n|---|---|---|---|---|---|---|---|\n| $v(t)$ (m/s) | $0$ | $4{,}2$ | $7{,}1$ | $8{,}6$ | $9{,}0$ | $8{,}4$ | $7{,}0$ |\n\nEstimer tilbakelagt strekning $\\int_0^6 v(t)\\,dt$ med Simpsons metode.",
+      "solution": "Målingene er jevnt fordelt med $h=1$, og $n=6$ er partall — Simpson kan brukes direkte på kolonnen. Vekter $1,4,2,4,2,4,1$ (vektsum $18 = 3n$ ✓):\n\n$$S_6 = \\frac{1}{3}\\Big[0 + 4(4{,}2) + 2(7{,}1) + 4(8{,}6) + 2(9{,}0) + 4(8{,}4) + 7{,}0\\Big] = \\frac{1}{3}\\big[124{,}0\\big] \\approx 41{,}3.$$\n\n**Konklusjon:** dronen tilbakela omtrent $41{,}3$ **meter** i løpet av testen (fart i m/s ganger tid i s gir meter). $\\blacksquare$"
+    },
+    {
+      "id": "mat111-uib-5-7-o2",
+      "type": "exercise",
+      "exercise": {
+        "id": "mat111-uib-5-7-o2-x",
+        "number": "2",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "Vannføringen i en bekk måles hvert halve sekund i to sekunder (i liter/s): $q(0)=0$, $q(0{,}5)=3{,}0$, $q(1)=5{,}2$, $q(1{,}5)=6{,}6$, $q(2)=7{,}2$. Estimer total vannmengde $\\int_0^2 q(t)\\,dt$ med Simpsons metode.",
+        "solution": "$h=0{,}5$ og $n=4$ (partall ✓). Vekter $1,4,2,4,1$:\n\n$$S_4 = \\frac{0{,}5}{3}\\Big[0 + 4(3{,}0) + 2(5{,}2) + 4(6{,}6) + 7{,}2\\Big] = \\frac{0{,}5}{3}\\cdot 56{,}0 \\approx 9{,}33.$$\n\n**Konklusjon:** det rant omtrent $9{,}3$ **liter** gjennom målepunktet i løpet av de to sekundene. $\\blacksquare$",
+        "hints": [
+          "$h$ er avstanden mellom målingene: $0{,}5$ s.",
+          "Vektsummen skal bli $3n=12$ — tell før du summerer."
+        ]
+      }
+    },
+    {
+      "id": "mat111-uib-5-7-l3",
+      "type": "text",
+      "content": "## Løkke 3 — Feilformlene kvantitativt: $K$-jakt og dimensjonering (~16 min)"
+    },
+    {
+      "id": "mat111-uib-5-7-def-feiltrapes",
+      "type": "definition",
+      "title": "Feilskranken for trapesmetoden",
+      "content": "Feilen i trapesmetoden kontrolleres av den andrederiverte — det er krumningen som skiller graf fra korde:\n\n$$|E_T| = \\Big|\\int_a^b f(x)\\,dx - T_n\\Big| \\le \\frac{K(b-a)^3}{12\\,n^2}, \\qquad K = \\max_{[a,b]}|f''|.$$\n\nMerk $n^2$ i nevneren: dobler du $n$, deles feilskranken på 4."
+    },
+    {
+      "id": "mat111-uib-5-7-def-Ktrapes",
+      "type": "definition",
+      "title": "$K$ er maksimum på HELE intervallet",
+      "content": "$K$ skal være en skranke for $|f''|$ over hele $[a,b]$ — ikke verdien i et endepunkt du liker. Standardgrep: hvis $|f''|$ er monoton på intervallet, ligger maksimum i et endepunkt (begrunn monotonien, f.eks. «$2/x^3$ er avtagende, så maksimum er i $x=1$»). En for liten $K$ gjør hele feilgarantien ugyldig."
+    },
+    {
+      "id": "mat111-uib-5-7-def-feilsimpson",
+      "type": "definition",
+      "title": "Feilskranken for Simpsons metode",
+      "content": "Simpsons feil styres av den *fjerde*deriverte:\n\n$$|E_S| \\le \\frac{K(b-a)^5}{180\\,n^4}, \\qquad K = \\max_{[a,b]}\\big|f^{(4)}\\big|.$$\n\n$n^4$ i nevneren er metodens superkraft: dobling av $n$ deler skranken på 16. Derfor holder små partall ($n=4,6,8$) der trapes trenger titalls delintervaller."
+    },
+    {
+      "id": "mat111-uib-5-7-def-trygg-K",
+      "type": "definition",
+      "title": "Trygg (grov) skranke er lov",
+      "content": "$K$ trenger ikke være det *eksakte* maksimum — enhver begrunnet overskranke duger, f.eks. via trekantulikheten: $|16x^4-48x^2+12|\\le 16+48+12=76$ på $[0,1]$. Prisen er en litt for stor $n$; det er et gyldig svar. En skarpere $K$ gir mindre $n$ — begge honoreres når skranken er begrunnet."
+    },
+    {
+      "id": "mat111-uib-5-7-def-dimensjonering",
+      "type": "definition",
+      "title": "Dimensjonering av $n$",
+      "content": "Sjangerens hovedspørsmål: «hvor mange delintervaller trengs for feil høyst $\\varepsilon$?» Malen: sett skranken $\\le\\varepsilon$ og løs for $n$:\n\n$$\\frac{K(b-a)^3}{12n^2}\\le\\varepsilon \\;\\Rightarrow\\; n \\ge \\sqrt{\\frac{K(b-a)^3}{12\\,\\varepsilon}}, \\qquad \\frac{K(b-a)^5}{180n^4}\\le\\varepsilon \\;\\Rightarrow\\; n \\ge \\Big(\\frac{K(b-a)^5}{180\\,\\varepsilon}\\Big)^{1/4}.$$\n\nSvaret er en *nedre grense* for $n$ — aldri et eksakt antall."
+    },
+    {
+      "id": "mat111-uib-5-7-def-avrunding",
+      "type": "definition",
+      "title": "Avrundingsregelen: opp — og til partall for Simpson",
+      "content": "Verdien fra dimensjoneringen rundes ALLTID opp til nærmeste hele tall (en større $n$ gir bare mindre feilskranke). For Simpson rundes det videre opp til nærmeste **partall**: $n\\ge 4{,}54$ gir $n=6$, ikke 5. Å runde ned «fordi det nesten holder» er feil — skranken garanterer ingenting for mindre $n$."
+    },
+    {
+      "id": "mat111-uib-5-7-def-skranke-vs-feil",
+      "type": "definition",
+      "title": "Skranke er ikke feil",
+      "content": "Feilskranken er en *garanti*, ikke en fasit: den faktiske feilen er som regel klart mindre (i eksempel 4: faktisk feil $0{,}0039$ mot skranke $0{,}0104$). Omvendt kan du aldri bruke den faktiske feilen i én oppgave som «skranke» i en annen — garantien kommer bare fra formelen."
+    },
+    {
+      "id": "mat111-uib-5-7-eks4",
+      "type": "example",
+      "title": "Eksempel 4: hele malen på $\\int_1^2 dx/x$",
+      "problem": "For $\\displaystyle\\int_1^2\\frac{dx}{x}$: **a)** finn feilskranken for $T_4$ fra eksempel 1; **b)** hvor mange delintervaller trengs for at trapesmetoden garantert har feil under $5\\cdot 10^{-5}$? **c)** Samme spørsmål for Simpson.",
+      "solution": "**a) Skaff $K$:** $f(x)=x^{-1}$ gir $f''(x) = 2x^{-3}$. På $[1,2]$ er $2/x^3$ positiv og avtagende, så maksimum er i venstre endepunkt: $K = |f''(1)| = 2$. Skranken:\n\n$$|E_T| \\le \\frac{K(b-a)^3}{12n^2} = \\frac{2\\cdot 1^3}{12\\cdot 4^2} = \\frac{2}{192} = \\frac{1}{96} \\approx 0{,}0104.$$\n\n(Faktisk feil var $0{,}0039$ — godt innenfor garantien.)\n\n**b) Dimensjonér $n$ for trapes:**\n\n$$\\frac{2}{12n^2}\\le 5\\cdot 10^{-5} \\;\\Rightarrow\\; n^2 \\ge \\frac{2}{12\\cdot 5\\cdot 10^{-5}} \\approx 3333{,}3 \\;\\Rightarrow\\; n \\ge 57{,}7.$$\n\nRund opp: $n = 58$ delintervaller garanterer feil under $5\\cdot 10^{-5}$.\n\n**c) Simpson:** $f^{(4)}(x) = 24x^{-5}$, avtagende på $[1,2]$, så $K = 24$ (i $x=1$):\n\n$$\\frac{24\\cdot 1^5}{180n^4}\\le 5\\cdot 10^{-5} \\;\\Rightarrow\\; n^4 \\ge \\frac{24}{180\\cdot 5\\cdot 10^{-5}} \\approx 2666{,}7 \\;\\Rightarrow\\; n \\ge 7{,}19.$$\n\nRund opp til partall: $n = 8$. Simpson trenger 8 delintervaller der trapes trenger 58 — $n^4$-effekten. $\\blacksquare$"
+    },
+    {
+      "id": "mat111-uib-5-7-eks5",
+      "type": "example",
+      "title": "Eksempel 5: $K$-jakt uten pen fasit — $\\int_0^1 e^{-x^2}dx$",
+      "problem": "Integranden $e^{-x^2}$ har ingen elementær antiderivert. **a)** Finn en trygg $K$ for trapesmetoden på $[0,1]$ og dimensjonér $n$ for feil høyst $10^{-4}$. **b)** Gjør det samme for Simpson.",
+      "solution": "**a)** $f(x) = e^{-x^2}$ gir $f'(x) = -2xe^{-x^2}$ og\n\n$$f''(x) = (4x^2-2)e^{-x^2}.$$\n\nTrygg skranke på $[0,1]$: $|4x^2-2|\\le 2$ (siden $0\\le x^2\\le 1$ gir $-2\\le 4x^2-2\\le 2$) og $e^{-x^2}\\le 1$, så $K=2$:\n\n$$\\frac{2\\cdot 1}{12n^2}\\le 10^{-4} \\;\\Rightarrow\\; n^2\\ge \\frac{2}{12\\cdot 10^{-4}}\\approx 1667 \\;\\Rightarrow\\; n\\ge 40{,}9 \\;\\Rightarrow\\; n=41.$$\n\n**b)** Fjerdederiverte: $f^{(4)}(x) = (16x^4 - 48x^2 + 12)e^{-x^2}$. Grov, trygg skranke med trekantulikheten: $|16x^4-48x^2+12|\\le 16+48+12 = 76$ og $e^{-x^2}\\le 1$, så $K=76$:\n\n$$\\frac{76}{180n^4}\\le 10^{-4} \\;\\Rightarrow\\; n^4\\ge 4222 \\;\\Rightarrow\\; n\\ge 8{,}1 \\;\\Rightarrow\\; n = 10 \\text{ (partall)}.$$\n\n**Kommentar:** en skarpere analyse viser at $\\max|f^{(4)}| = 12$ (i $x=0$), som gir $n\\ge 5{,}1$, altså $n=6$. Begge svar honoreres — det som kreves, er at skranken er *begrunnet* og *trygg*. Grov-men-trygg koster bare noen ekstra delintervaller. $\\blacksquare$"
+    },
+    {
+      "id": "mat111-uib-5-7-o3",
+      "type": "exercise",
+      "exercise": {
+        "id": "mat111-uib-5-7-o3-x",
+        "number": "3",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "Hvor mange delintervaller trenger trapesmetoden for å beregne $\\displaystyle\\int_0^1 x^4\\,dx$ med garantert feil høyst $0{,}01$?",
+        "solution": "**Skaff $K$:** $f''(x) = 12x^2$ er voksende på $[0,1]$, så maksimum er i høyre endepunkt: $K=12$.\n\n$$\\frac{12\\cdot 1^3}{12n^2}\\le 0{,}01 \\;\\Rightarrow\\; \\frac{1}{n^2}\\le 0{,}01 \\;\\Rightarrow\\; n^2\\ge 100 \\;\\Rightarrow\\; n\\ge 10.$$\n\n**Sluttsvar:** $n=10$ delintervaller. $\\blacksquare$",
+        "hints": [
+          "$f''(x)=12x^2$ — hvor på $[0,1]$ er den størst? Begrunn med monotoni.",
+          "Sett skranken $\\le 0{,}01$ og løs ulikheten for $n$."
+        ]
+      }
+    },
+    {
+      "id": "mat111-uib-5-7-o4",
+      "type": "exercise",
+      "exercise": {
+        "id": "mat111-uib-5-7-o4-x",
+        "number": "4",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "Hvor mange delintervaller trenger Simpsons metode for $\\displaystyle\\int_1^2\\frac{dx}{x}$ med garantert feil høyst $10^{-6}$?",
+        "solution": "Fra eksempel 4: $K = \\max_{[1,2]}|f^{(4)}| = 24$ (i $x=1$, siden $24/x^5$ er avtagende).\n\n$$\\frac{24\\cdot 1^5}{180n^4}\\le 10^{-6} \\;\\Rightarrow\\; n^4 \\ge \\frac{24}{180\\cdot 10^{-6}} \\approx 133\\,333 \\;\\Rightarrow\\; n \\ge 19{,}1.$$\n\nRund opp til partall: $n = 20$.\n\n**Sluttsvar:** $n=20$ delintervaller. $\\blacksquare$",
+        "hints": [
+          "$f^{(4)}(x)=24/x^5$; maksimum i $x=1$.",
+          "Fjerde rot til slutt — og husk partallskravet."
+        ]
+      }
+    },
+    {
+      "id": "mat111-uib-5-7-l4",
+      "type": "text",
+      "content": "## Løkke 4 — Teori: eksakthet for kubiske, og moteksempelet (~13 min)"
+    },
+    {
+      "id": "mat111-uib-5-7-def-presisjonsgrad",
+      "type": "definition",
+      "title": "Presisjonsgrad",
+      "content": "En metodes **presisjonsgrad** er den høyeste polynomgraden den integrerer *eksakt* (feil null) for alle intervaller og alle $n$. Trapesmetoden har presisjonsgrad 1 (rette linjer er dens egne byggeklosser). Simpson er bygd av parabler — men har overraskende presisjonsgrad 3."
+    },
+    {
+      "id": "mat111-uib-5-7-def-simpson-kubisk",
+      "type": "definition",
+      "title": "Simpson er eksakt for tredjegradspolynomer",
+      "content": "For et polynom av grad $\\le 3$ er $f^{(4)}\\equiv 0$, så feilskranken gir\n\n$$|E_S| \\le \\frac{0\\cdot(b-a)^5}{180n^4} = 0$$\n\n— Simpson treffer *eksakt*, uansett $n$. Gratisgraden kommer av symmetri: parabelen bommer på kubikkleddet med like store bidrag over og under, og de kansellerer. Dette er standard teorispørsmål — argumentet «$f^{(4)}=0$ i feilformelen» er hele svaret."
+    },
+    {
+      "id": "mat111-uib-5-7-def-moteksempel",
+      "type": "definition",
+      "title": "Moteksempel-prinsippet: trapes kan slå Simpson",
+      "content": "«Simpson er alltid best» er *usant*, og eksamen (V2020-settet) ber deg vise det med et **moteksempel**: én konkret funksjon, ett konkret intervall og $n$, der begge tilnærmingene regnes ut og trapes faktisk treffer bedre. Feilskrankene sier bare at Simpson vinner *til slutt* (når $n$ vokser) for glatte funksjoner — for ett bestemt lite $n$ kan vektene tilfeldigvis favorisere trapes. Et moteksempel må REGNES, ikke påstås."
+    },
+    {
+      "id": "mat111-uib-5-7-eks6",
+      "type": "example",
+      "title": "Eksempel 6: eksaktheten verifisert",
+      "problem": "Vis ved direkte regning at $S_2$ gir eksakt verdi for $\\displaystyle\\int_0^2 x^3\\,dx$, og forklar hvorfor det måtte bli slik.",
+      "solution": "**Eksakt:** $\\int_0^2 x^3dx = \\big[\\frac{x^4}{4}\\big]_0^2 = 4$.\n\n**Simpson med $n=2$:** $h=1$, noder $0,1,2$, verdier $0,1,8$, vekter $1,4,1$:\n\n$$S_2 = \\frac{1}{3}\\big[0 + 4\\cdot 1 + 8\\big] = \\frac{12}{3} = 4. \\checkmark$$\n\n**Hvorfor:** $f(x)=x^3$ har $f^{(4)}\\equiv 0$, så feilskranken $\\frac{K(b-a)^5}{180n^4}$ er null med $K=0$ — feilen er tvunget til å være null for alle $n$. $\\blacksquare$"
+    },
+    {
+      "id": "mat111-uib-5-7-eks7",
+      "type": "example",
+      "title": "Eksempel 7 (eksamensnivå): moteksempelet der trapes vinner",
+      "problem": "Konstruer et eksempel der trapesmetoden gir bedre tilnærming enn Simpsons metode med samme $n$. (V2020-varianten.)",
+      "solution": "Ta $f(x) = \\cos(2\\pi x)$ på $[0,1]$ med $n=2$. Eksakt:\n\n$$\\int_0^1 \\cos(2\\pi x)\\,dx = \\Big[\\frac{\\sin(2\\pi x)}{2\\pi}\\Big]_0^1 = 0.$$\n\nNoder $0,\\tfrac12,1$ med verdier $\\cos 0 = 1$, $\\cos\\pi = -1$, $\\cos 2\\pi = 1$; $h=\\tfrac12$.\n\n**Trapes** (vekter $1,2,1$):\n$$T_2 = \\frac{1/2}{2}\\big[1 + 2(-1) + 1\\big] = \\frac14\\cdot 0 = 0 \\qquad\\text{— eksakt!}$$\n\n**Simpson** (vekter $1,4,1$):\n$$S_2 = \\frac{1/2}{3}\\big[1 + 4(-1) + 1\\big] = \\frac16\\cdot(-2) = -\\frac13.$$\n\nTrapesfeilen er $0$; Simpson bommer med $\\tfrac13$. Nodene ser bare tre punkter av en hel cosinus-periode — Simpsons parabel gjennom dem er en dyp bue som ikke ligner funksjonen, mens trapesenes feil over og under kansellerer perfekt. Ingen feilformel brytes: skrankene er garantier ovenfra, ikke løfter om hvem som er nærmest. $\\blacksquare$"
+    },
+    {
+      "id": "mat111-uib-5-7-o5",
+      "type": "exercise",
+      "exercise": {
+        "id": "mat111-uib-5-7-o5-x",
+        "number": "5",
+        "type": "classic",
+        "difficulty": "vanskelig",
+        "task": "**a)** Vis ved direkte regning at $S_2$ er eksakt for $\\displaystyle\\int_0^1\\big(x^3 - 2x + 1\\big)\\,dx$. **b)** Er trapesmetoden eksakt for samme integral? Regn ut $T_2$ og sammenlign.",
+        "solution": "**a) Eksakt:** $\\int_0^1(x^3-2x+1)\\,dx = \\big[\\frac{x^4}{4} - x^2 + x\\big]_0^1 = \\frac14 - 1 + 1 = \\frac14.$\n\nSimpson, $n=2$, $h=\\tfrac12$: $f(0)=1$, $f(\\tfrac12)=\\tfrac18 - 1 + 1 = \\tfrac18$, $f(1)=0$:\n\n$$S_2 = \\frac{1/2}{3}\\Big[1 + 4\\cdot\\frac18 + 0\\Big] = \\frac16\\cdot\\frac32 = \\frac14. \\checkmark$$\n\nEksakt — som feilformelen med $f^{(4)}\\equiv 0$ krever.\n\n**b) Trapes:**\n\n$$T_2 = \\frac{1/2}{2}\\Big[1 + 2\\cdot\\frac18 + 0\\Big] = \\frac14\\cdot\\frac54 = \\frac{5}{16} \\ne \\frac14.$$\n\nTrapes bommer med $\\frac{5}{16}-\\frac14 = \\frac{1}{16}$: presisjonsgrad 1 dekker ikke kubikkleddet ($f''=6x\\not\\equiv 0$).\n\n**Sluttsvar:** $S_2 = \\frac14$ (eksakt); $T_2 = \\frac{5}{16}$ (feil $\\frac1{16}$). $\\blacksquare$",
+        "hints": [
+          "Regn nodeverdiene i $0$, $\\tfrac12$ og $1$ først.",
+          "Sammenlign hver metode med den eksakte verdien fra fundamentalteoremet."
+        ]
+      }
+    },
+    {
+      "id": "mat111-uib-5-7-warn",
+      "type": "warning",
+      "title": "Typiske feil",
+      "content": "- **Feilformelen sitert, ikke brukt.** Å skrive skranken uten å løse ulikheten for $n$ gir null uttelling på dimensjoneringsspørsmål — malen er skranke $\\le\\varepsilon$, løs, rund opp.\n- **Feil $K$.** $K$ er maksimum av $|f''|$ (hhv. $|f^{(4)}|$) på HELE intervallet — begrunn hvor maksimum ligger (monotoni), eller bruk en begrunnet grov overskranke. Endepunktverdi uten begrunnelse er ikke en skranke.\n- **Odde $n$ i Simpson.** $n\\ge 4{,}54$ betyr $n=6$, ikke 5. Parablene trenger delintervall-par.\n- **Vektrot.** Trapes $1,2,\\dots,2,1$ (sum $2n$); Simpson $1,4,2,\\dots,4,1$ (sum $3n$). Tell vektsummen som kontroll før du summerer — og ikke bland formlene.\n- **Runde ned $n$.** Dimensjoneringen gir en nedre grense; å runde ned bryter garantien. Opp, alltid.\n- **«Simpson er alltid nærmest.»** Usant for enkelt-$n$ — se moteksempelet i eksempel 7. Skrankene rangerer garantier, ikke enkeltutfall."
+    },
+    {
+      "id": "mat111-uib-5-7-drillh",
+      "type": "text",
+      "content": "## Drilloppgaver\n\nStigende vanskegrad — verditabell, vektkontroll og full dimensjoneringsmal der det spørres."
+    },
+    {
+      "id": "mat111-uib-5-7-d1",
+      "type": "exercise",
+      "exercise": {
+        "id": "mat111-uib-5-7-d1-x",
+        "number": "6",
+        "type": "classic",
+        "difficulty": "lett",
+        "task": "Bruk trapesmetoden med $n=3$ på $\\displaystyle\\int_0^3\\big(x^2+1\\big)\\,dx$, og finn den faktiske feilen.",
+        "solution": "$h=1$; noder $0,1,2,3$ med verdier $1,2,5,10$; vekter $1,2,2,1$:\n\n$$T_3 = \\frac12\\big[1 + 2\\cdot 2 + 2\\cdot 5 + 10\\big] = \\frac12\\cdot 25 = 12{,}5.$$\n\nEksakt: $\\big[\\frac{x^3}{3}+x\\big]_0^3 = 9+3 = 12$. Faktisk feil: $0{,}5$.\n\n**Sluttsvar:** $T_3 = 12{,}5$; feil $0{,}5$. $\\blacksquare$",
+        "hints": [
+          "Trapes fungerer fint for odde $n$ — det er Simpson som krever partall."
+        ]
+      }
+    },
+    {
+      "id": "mat111-uib-5-7-d2",
+      "type": "exercise",
+      "exercise": {
+        "id": "mat111-uib-5-7-d2-x",
+        "number": "7",
+        "type": "classic",
+        "difficulty": "lett",
+        "task": "Kan Simpsons metode brukes med $n=3$? Med $n=6$? Begrunn, og skriv opp vektene i det gyldige tilfellet.",
+        "solution": "$n=3$ er odde — Simpson er **ugyldig** (parablene bruker delintervallene i par). $n=6$ er partall — gyldig, med vekter\n\n$$1,\\,4,\\,2,\\,4,\\,2,\\,4,\\,1$$\n\n(vektsum $18 = 3n$ ✓).\n\n**Sluttsvar:** nei for $n=3$; ja for $n=6$ med vektene over. $\\blacksquare$",
+        "hints": [
+          "Tenk på hvor mange delintervaller hver parabel legger beslag på."
+        ]
+      }
+    },
+    {
+      "id": "mat111-uib-5-7-d3",
+      "type": "exercise",
+      "exercise": {
+        "id": "mat111-uib-5-7-d3-x",
+        "number": "8",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "Hvor mange delintervaller trenger trapesmetoden for $\\displaystyle\\int_1^3\\frac{dx}{x}$ med garantert feil høyst $0{,}01$?",
+        "solution": "**$K$:** $f''(x)=2/x^3$ er avtagende på $[1,3]$, så $K = f''(1) = 2$. Med $b-a=2$:\n\n$$\\frac{2\\cdot 2^3}{12n^2}\\le 0{,}01 \\;\\Rightarrow\\; \\frac{16}{12n^2}\\le 0{,}01 \\;\\Rightarrow\\; n^2 \\ge \\frac{16}{0{,}12}\\approx 133{,}3 \\;\\Rightarrow\\; n\\ge 11{,}6.$$\n\nRund opp: $n=12$.\n\n**Sluttsvar:** $n=12$ delintervaller. $\\blacksquare$",
+        "hints": [
+          "Ikke glem $(b-a)^3 = 8$ — intervallet er lengre enn 1 her.",
+          "Monotoniargument for $K$: $2/x^3$ synker."
+        ]
+      }
+    },
+    {
+      "id": "mat111-uib-5-7-d4",
+      "type": "exercise",
+      "exercise": {
+        "id": "mat111-uib-5-7-d4-x",
+        "number": "9",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "Samme integral, $\\displaystyle\\int_1^3\\frac{dx}{x}$: hvor mange delintervaller trenger Simpsons metode for garantert feil høyst $0{,}01$?",
+        "solution": "**$K$:** $f^{(4)}(x)=24/x^5$ er avtagende, så $K=24$. Med $(b-a)^5 = 32$:\n\n$$\\frac{24\\cdot 32}{180n^4}\\le 0{,}01 \\;\\Rightarrow\\; n^4 \\ge \\frac{768}{1{,}8} \\approx 426{,}7 \\;\\Rightarrow\\; n \\ge 4{,}55.$$\n\nRund opp til partall: $n=6$.\n\n**Sluttsvar:** $n=6$ delintervaller (mot 12 for trapes — med romsligere feilkrav er forspranget mindre enn i eksempel 4, men Simpson vinner fortsatt). $\\blacksquare$",
+        "hints": [
+          "$(b-a)^5=32$; fjerde rot til slutt.",
+          "$4{,}55$ rundes til 6 — partallskravet."
+        ]
+      }
+    },
+    {
+      "id": "mat111-uib-5-7-d5",
+      "type": "exercise",
+      "exercise": {
+        "id": "mat111-uib-5-7-d5-x",
+        "number": "10",
+        "type": "classic",
+        "difficulty": "vanskelig",
+        "task": "For $\\displaystyle\\int_0^1 e^{-x^2}\\,dx$ (uten elementær antiderivert): beregn $T_4$ med fire desimaler i verditabellen, og oppgi feilskranken. (Referanseverdi: integralet er $0{,}7468$ på fire desimaler.)",
+        "solution": "$h=0{,}25$. Verditabell for $f(x)=e^{-x^2}$:\n\n| $x_i$ | $0$ | $0{,}25$ | $0{,}5$ | $0{,}75$ | $1$ |\n|---|---|---|---|---|---|\n| $f(x_i)$ | $1{,}0000$ | $0{,}9394$ | $0{,}7788$ | $0{,}5698$ | $0{,}3679$ |\n\n$$T_4 = \\frac{0{,}25}{2}\\Big[1 + 2(0{,}9394+0{,}7788+0{,}5698) + 0{,}3679\\Big] = 0{,}125\\cdot 5{,}9439 \\approx 0{,}7430.$$\n\n**Feilskranke** (fra eksempel 5: $K=2$):\n\n$$|E_T|\\le \\frac{2}{12\\cdot 16} = \\frac{1}{96}\\approx 0{,}0104.$$\n\nKontroll mot referansen: faktisk feil $|0{,}7430-0{,}7468| = 0{,}0038 < 0{,}0104$ ✓.\n\n**Sluttsvar:** $T_4\\approx 0{,}7430$, med garantert feil under $0{,}0104$. $\\blacksquare$",
+        "hints": [
+          "$e^{-0{,}0625}\\approx 0{,}9394$, $e^{-0{,}25}\\approx 0{,}7788$, $e^{-0{,}5625}\\approx 0{,}5698$, $e^{-1}\\approx 0{,}3679$.",
+          "Skranken var ferdig jaktet i eksempel 5: $K=2$."
+        ]
+      }
+    },
+    {
+      "id": "mat111-uib-5-7-d6",
+      "type": "exercise",
+      "exercise": {
+        "id": "mat111-uib-5-7-d6-x",
+        "number": "11",
+        "type": "classic",
+        "difficulty": "vanskelig",
+        "task": "En medstudent påstår: «Simpsons metode gir alltid minst like god tilnærming som trapesmetoden når begge bruker samme $n$.» Avgjør påstanden — et rent motargument uten regning godtas ikke.",
+        "solution": "Påstanden er **usann**, og motbevises med et regnet moteksempel (jf. eksempel 7): $f(x)=\\cos(2\\pi x)$ på $[0,1]$ med $n=2$.\n\nEksakt: $\\int_0^1\\cos(2\\pi x)\\,dx = 0$. Noder $0,\\tfrac12,1$ gir verdiene $1,-1,1$, og $h=\\tfrac12$:\n\n$$T_2 = \\frac{1/2}{2}\\,[1 - 2 + 1] = 0 \\quad(\\text{feil } 0), \\qquad S_2 = \\frac{1/2}{3}\\,[1 - 4 + 1] = -\\frac13 \\quad(\\text{feil } \\tfrac13).$$\n\nTrapes er eksakt; Simpson bommer grovt. Skrankeformlene motsier ikke dette — de er øvre garantier, og begge overholdes ($0\\le$ skranken, $\\tfrac13\\le$ Simpson-skranken med $K=(2\\pi)^4$: $\\frac{(2\\pi)^4}{180\\cdot 16}\\approx 0{,}54$). For store $n$ tar Simpson igjen og forbi — men påstanden gjaldt *alltid*, og faller på ett moteksempel. $\\blacksquare$",
+        "hints": [
+          "Let etter en funksjon der de tre nodene «lyver» om formen — en hel periode av en cosinus er perfekt.",
+          "Regn begge tilnærmingene eksplisitt og sammenlign med den eksakte verdien."
+        ]
+      }
+    },
+    {
+      "id": "mat111-uib-5-7-rep",
+      "type": "collapsible",
+      "title": "Repetisjonsoppgaver",
+      "buttonText": "Vis repetisjonsoppgaver",
+      "content": [
+        {
+          "id": "mat111-uib-5-7-rep-intro",
+          "type": "text",
+          "content": "Korte oppgaver fra forkunnskapskapitlene — fundamentalteoremet som fasitmaskin, og derivasjonsrutinen bak $K$-jakten."
+        },
+        {
+          "id": "mat111-uib-5-7-r1",
+          "type": "exercise",
+          "exercise": {
+            "id": "mat111-uib-5-7-r1-x",
+            "number": "R1",
+            "type": "classic",
+            "difficulty": "lett",
+            "task": "(Fra [kap. 5.1](/bok/mat111-uib/mat111-uib-5-1)) Beregn eksakt: $\\displaystyle\\int_0^2\\big(3x^2+1\\big)\\,dx$.",
+            "solution": "$\\big[x^3+x\\big]_0^2 = 8+2 = 10$. $\\blacksquare$",
+            "hints": [
+              "Fundamentalteoremet: antiderivert og innsetting."
+            ]
+          }
+        },
+        {
+          "id": "mat111-uib-5-7-r2",
+          "type": "exercise",
+          "exercise": {
+            "id": "mat111-uib-5-7-r2-x",
+            "number": "R2",
+            "type": "classic",
+            "difficulty": "lett",
+            "task": "(Fra R2 3.4) Skriv opp trapesformelen for $n=2$ og bruk den på $\\displaystyle\\int_0^1 x\\,dx$.",
+            "solution": "$T_2 = \\frac{h}{2}[f(x_0)+2f(x_1)+f(x_2)]$ med $h=\\tfrac12$: $\\frac{1/2}{2}[0+2\\cdot\\tfrac12+1] = \\tfrac14\\cdot 2 = \\tfrac12$ — eksakt, siden $f$ er lineær. $\\blacksquare$",
+            "hints": [
+              "For en rett linje ER trapesene grafen."
+            ]
+          }
+        },
+        {
+          "id": "mat111-uib-5-7-r3",
+          "type": "exercise",
+          "exercise": {
+            "id": "mat111-uib-5-7-r3-x",
+            "number": "R3",
+            "type": "classic",
+            "difficulty": "lett",
+            "task": "(Fra [kap. 3.5](/bok/mat111-uib/mat111-uib-3-5)) Finn $f''(x)$ og $f^{(4)}(x)$ for $f(x)=\\dfrac1x$.",
+            "solution": "$f'=-x^{-2}$, $f''=2x^{-3}$, $f'''=-6x^{-4}$, $f^{(4)}=24x^{-5}$. $\\blacksquare$",
+            "hints": [
+              "Potensregelen fire ganger; fortegnet veksler."
+            ]
+          }
+        },
+        {
+          "id": "mat111-uib-5-7-r4",
+          "type": "exercise",
+          "exercise": {
+            "id": "mat111-uib-5-7-r4-x",
+            "number": "R4",
+            "type": "classic",
+            "difficulty": "lett",
+            "task": "(Fra [kap. 3.5](/bok/mat111-uib/mat111-uib-3-5)) Hvor på $[1,2]$ har $g(x)=\\dfrac{2}{x^3}$ sitt maksimum? Begrunn med monotoni.",
+            "solution": "$g'(x) = -6x^{-4} < 0$, så $g$ er strengt avtagende — maksimum i venstre endepunkt: $g(1)=2$. Nøyaktig slik begrunnes $K$ i feilskrankene. $\\blacksquare$",
+            "hints": [
+              "Avtagende funksjon: størst der intervallet starter."
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": "mat111-uib-5-7-symbol",
+      "type": "collapsible",
+      "title": "Symbol- og formelliste",
+      "buttonText": "Vis symboler og formler",
+      "content": [
+        {
+          "id": "mat111-uib-5-7-symbol-txt",
+          "type": "text",
+          "content": "## Symbol- og formelliste\n\n*Oppslagsverk — alt her forklares underveis i kapitlet.*\n\n| Symbol | Betydning |\n|---|---|\n| $n$ | Antall delintervaller (partall for Simpson) |\n| $h=\\frac{b-a}{n}$ | Steglengden |\n| $x_i = a+ih$ | Nodene, $i=0,\\dots,n$ ($n+1$ punkter) |\n| $T_n$, $S_n$ | Trapes- og Simpson-tilnærmingen |\n| $E_T$, $E_S$ | Feilene: eksakt verdi minus tilnærming |\n| $K$ | Skranke for $\\max|f''|$ (trapes) eller $\\max|f^{(4)}|$ (Simpson) på $[a,b]$ |\n| $\\varepsilon$ | Gitt feilgrense i dimensjoneringsoppgaver |\n| $\\blacksquare$ | Løsningen er ferdig |\n\n**Formler i dette delkapitlet:**\n\n$$T_n = \\frac{h}{2}\\Big[f(x_0)+2f(x_1)+\\dots+2f(x_{n-1})+f(x_n)\\Big]$$\n*Trapesformelen — vekter $1,2,\\dots,2,1$ (vektsum $2n$).*\n\n$$S_n = \\frac{h}{3}\\Big[f(x_0)+4f(x_1)+2f(x_2)+\\dots+4f(x_{n-1})+f(x_n)\\Big] \\quad (n\\ \\text{partall})$$\n*Simpsons formel — vekter $1,4,2,\\dots,4,1$ (vektsum $3n$).*\n\n$$|E_T|\\le \\frac{K(b-a)^3}{12n^2}, \\quad K=\\max_{[a,b]}|f''| \\qquad\\qquad |E_S|\\le \\frac{K(b-a)^5}{180n^4}, \\quad K=\\max_{[a,b]}\\big|f^{(4)}\\big|$$\n*Feilskrankene — garantier, ikke fasiter.*\n\n$$n \\ge \\sqrt{\\frac{K(b-a)^3}{12\\varepsilon}} \\ \\text{(trapes)}, \\qquad n \\ge \\Big(\\frac{K(b-a)^5}{180\\varepsilon}\\Big)^{1/4} \\ \\text{(Simpson)}$$\n*Dimensjoneringsmalen — rund opp, til partall for Simpson.*\n\n$$f^{(4)}\\equiv 0 \\ \\Rightarrow\\ E_S = 0$$\n*Simpson er eksakt for polynomer av grad $\\le 3$.*"
+        }
+      ]
+    }
+  ],
+  "exercises": []
+}

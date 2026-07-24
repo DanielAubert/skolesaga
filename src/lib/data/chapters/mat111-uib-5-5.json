@@ -1,0 +1,511 @@
+{
+  "id": "mat111-uib-5-5",
+  "courseId": "mat111-uib",
+  "chapterNumber": "5.5",
+  "title": "Uegentlige integraler",
+  "description": "Grenseføring med eksplisitt lim, direkte beregning, p-integralene som målestokker, og konvergens via sammenligningskriteriet med begge premisser uttalt — pluss splittekravet ved indre singulariteter.",
+  "estimatedMinutes": 55,
+  "competenceGoals": [
+    "kunne føre uegentlige integraler med eksplisitt grensenotasjon og beregne dem direkte",
+    "kunne avgjøre konvergens med sammenligningskriteriet — med både ikke-negativitet og endelig majorant uttalt",
+    "kunne p-integralenes konvergensgrenser i begge ender og bruke dem som navngitte målestokker",
+    "kunne oppdage og splitte singulariteter inne i integrasjonsintervallet"
+  ],
+  "content": [
+    {
+      "id": "mat111-uib-5-5-tip",
+      "type": "tip",
+      "title": "Eksamensvinkel",
+      "content": "**Uegentlige integraler er en trofast midtsjikt-sjanger — og en føringssjanger.**\n\n- **Sjanger I — uegentlige integraler** (bokas merkelapp fra Del 0 for integraler med $\\infty$ i grensen eller en integrand som blåser opp) står i **18 av 34 arkiverte sett (53 %)** — omtrent annethvert år, ofte som én deloppgave med både en beregning og en konvergensavgjørelse.\n- **To fasitkrav går igjen i løsningsforslagene:** (1) grensene føres med **eksplisitt $\\lim$-notasjon** — å «sette inn $\\infty$» direkte underkjennes; (2) sammenligningskriteriet krever **begge premisser uttalt**: at integranden er *ikke-negativ*, OG at majoranten har *endelig integral* (fasitkravet fra H2014-settet).\n- **Klassisk felle (H2011-settet):** en singularitet *inne* i intervallet overses — integralet må splittes i singulariteten, ellers regner du deg pent frem til et absurd svar.\n- Prioritet: **kunne** — sjangeren er standardisert, og føringsmalen i dette kapitlet dekker alle arkivvariantene."
+    },
+    {
+      "id": "mat111-uib-5-5-fork",
+      "type": "text",
+      "content": "**Forkunnskaper.** Teknikkene fra [kap. 5.2](/bok/mat111-uib/mat111-uib-5-2) og [kap. 5.3](/bok/mat111-uib/mat111-uib-5-3) gjør selve regnearbeidet her — særlig substitusjon og delbrøk, og arctan-antideriverten fra fullført kvadrat. Grensebegrepet og innsettingsregelen hviler på [Analysens fundamentalsetning](/bok/r2/r2-2-5).\n\n**Sist du var her** — de to formlene som brukes mest i dette kapitlet:\n\n$$\\int_a^b f(x)\\,dx = F(b)-F(a) \\qquad\\text{og}\\qquad \\int\\frac{dx}{x^2+a^2} = \\frac1a\\arctan\\frac{x}{a} + C.$$"
+    },
+    {
+      "id": "mat111-uib-5-5-motiv",
+      "type": "text",
+      "content": "Fundamentalteoremet krever et *lukket, begrenset* intervall og en *begrenset* integrand. Men mange av de viktigste integralene i matematikk og fysikk bryter nettopp dette: arealet under en hale som strekker seg mot $\\infty$, eller under en graf som blåser opp mot en loddrett asymptote. Slike integraler kalles **uegentlige**, og de defineres ved å gjøre det ulovlige lovlig: integrer opp til en flyttbar grense $b$, og la $b$ gå dit du egentlig ville.\n\nDet gir sjangeren dens doble natur. Noen ganger kan du *beregne* integralet (grensen finnes, og du finner tallet). Andre ganger er spørsmålet bare om integralet *konvergerer* — og da sammenligner du med et integral du kjenner, som regel et $p$-integral.\n\nFire læringsløkker: (1) uendelig integrasjonsgrense og $\\lim$-føringen, (2) singulariteter og splittekravet, (3) $p$-integralene — sjangerens målestokker, (4) sammenligningskriteriet med begge premisser. Ta en pause midtveis — kapitlet er tett."
+    },
+    {
+      "id": "mat111-uib-5-5-l1",
+      "type": "text",
+      "content": "## Løkke 1 — Uendelig integrasjonsgrense og lim-føringen (~15 min)"
+    },
+    {
+      "id": "mat111-uib-5-5-def-uegentlig",
+      "type": "definition",
+      "title": "Uegentlig integral",
+      "content": "Et integral er **uegentlig** når forutsetningene for vanlig integrasjon brytes på én av to måter: integrasjonsintervallet er ubegrenset (en grense er $\\pm\\infty$), eller integranden er ubegrenset (den blåser opp mot $\\pm\\infty$ et sted i eller på kanten av intervallet). Begge tilfellene håndteres med samme idé — en grenseverdi av vanlige integraler."
+    },
+    {
+      "id": "mat111-uib-5-5-def-type1",
+      "type": "definition",
+      "title": "Type I — uendelig integrasjonsgrense",
+      "content": "Når den øvre grensen er uendelig, defineres integralet som en grense av vanlige integraler over voksende, endelige intervaller:\n\n$$\\int_a^\\infty f(x)\\,dx = \\lim_{b\\to\\infty}\\int_a^b f(x)\\,dx.$$\n\nTilsvarende med $\\lim_{a\\to-\\infty}$ når den nedre grensen er $-\\infty$."
+    },
+    {
+      "id": "mat111-uib-5-5-def-limforing",
+      "type": "definition",
+      "title": "$\\lim$-føringen (føringskravet)",
+      "content": "Definisjonen er også føringskravet: skriv $\\lim$-symbolet eksplisitt, regn ut det endelige integralet med $b$ som grense, og ta grensen til slutt. Å «sette inn $\\infty$» rett i antideriverten — altså skrive $\\big[F(x)\\big]_a^\\infty$ uten grensenotasjon — underkjennes i løsningsforslagenes standard, selv når tallet blir riktig."
+    },
+    {
+      "id": "mat111-uib-5-5-def-konv",
+      "type": "definition",
+      "title": "Konvergent og divergent",
+      "content": "Integralet **konvergerer** hvis grensen eksisterer som et endelig tall — det tallet ER integralets verdi. Eksisterer ikke grensen (den er $\\pm\\infty$ eller oscillerer), **divergerer** integralet, og det har ingen verdi."
+    },
+    {
+      "id": "mat111-uib-5-5-def-beggeender",
+      "type": "definition",
+      "title": "Begge grenser uendelige — splitt i et valgfritt punkt",
+      "content": "Et integral $\\int_{-\\infty}^{\\infty} f(x)\\,dx$ behandles som TO uavhengige grenser: velg et delingspunkt $c$ (f.eks. $c=0$) og krev at *begge* delene $\\int_{-\\infty}^c$ og $\\int_c^\\infty$ konvergerer hver for seg. Én divergent del gjør hele integralet divergent — du får ikke la de to endene «utligne» hverandre i samme grense."
+    },
+    {
+      "id": "mat111-uib-5-5-eks1",
+      "type": "example",
+      "title": "Eksempel 1: direkte beregning med lim-føring",
+      "problem": "Beregn $\\displaystyle\\int_3^\\infty \\frac{dx}{x^2+9}$, eller vis at det divergerer.",
+      "solution": "Integranden er kontinuerlig på $[3,\\infty)$ — det uegentlige er bare den øvre grensen. Vi fører med eksplisitt grense:\n\n$$\\int_3^\\infty \\frac{dx}{x^2+9} = \\lim_{b\\to\\infty}\\int_3^b \\frac{dx}{x^2+9} = \\lim_{b\\to\\infty}\\Big[\\frac13\\arctan\\frac{x}{3}\\Big]_3^b = \\lim_{b\\to\\infty}\\Big(\\frac13\\arctan\\frac{b}{3} - \\frac13\\arctan 1\\Big).$$\n\nNår $b\\to\\infty$ går $\\arctan\\frac{b}{3}\\to\\frac{\\pi}{2}$, og $\\arctan 1 = \\frac{\\pi}{4}$:\n\n$$= \\frac13\\cdot\\frac{\\pi}{2} - \\frac13\\cdot\\frac{\\pi}{4} = \\frac{\\pi}{6}-\\frac{\\pi}{12} = \\frac{\\pi}{12}.$$\n\nIntegralet konvergerer. **Sluttsvar:** $\\dfrac{\\pi}{12}$. $\\blacksquare$"
+    },
+    {
+      "id": "mat111-uib-5-5-o1",
+      "type": "exercise",
+      "exercise": {
+        "id": "mat111-uib-5-5-o1-x",
+        "number": "1",
+        "type": "classic",
+        "difficulty": "lett",
+        "task": "Beregn $\\displaystyle\\int_0^\\infty e^{-3x}\\,dx$ med eksplisitt $\\lim$-føring.",
+        "solution": "$$\\int_0^\\infty e^{-3x}\\,dx = \\lim_{b\\to\\infty}\\int_0^b e^{-3x}\\,dx = \\lim_{b\\to\\infty}\\Big[-\\frac13 e^{-3x}\\Big]_0^b = \\lim_{b\\to\\infty}\\Big(-\\frac13 e^{-3b} + \\frac13\\Big).$$\n\nSiden $e^{-3b}\\to 0$ når $b\\to\\infty$, konvergerer integralet.\n\n**Sluttsvar:** $\\dfrac13$. $\\blacksquare$",
+        "hints": [
+          "Antideriverten er $-\\tfrac13 e^{-3x}$; skriv $\\lim_{b\\to\\infty}$ foran alt.",
+          "$e^{-3b}\\to 0$ når $b\\to\\infty$ — det er hele grenseregningen."
+        ]
+      }
+    },
+    {
+      "id": "mat111-uib-5-5-o2",
+      "type": "exercise",
+      "exercise": {
+        "id": "mat111-uib-5-5-o2-x",
+        "number": "2",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "Beregn $\\displaystyle\\int_e^\\infty \\frac{dx}{x(\\ln x)^2}$ — bruk substitusjonsboks og nye grenser, og før grensen eksplisitt.",
+        "solution": "Faktoren $\\frac1x$ peker på kjernen $\\ln x$:\n\n$$\\boxed{\\,u=\\ln x,\\quad du=\\frac{dx}{x},\\quad x=e\\Rightarrow u=1,\\quad x=b\\Rightarrow u=\\ln b\\,}$$\n\n$$\\int_e^\\infty \\frac{dx}{x(\\ln x)^2} = \\lim_{b\\to\\infty}\\int_1^{\\ln b}\\frac{du}{u^2} = \\lim_{b\\to\\infty}\\Big[-\\frac1u\\Big]_1^{\\ln b} = \\lim_{b\\to\\infty}\\Big(1 - \\frac{1}{\\ln b}\\Big) = 1,$$\n\nsiden $\\ln b\\to\\infty$. Integralet konvergerer.\n\n**Sluttsvar:** $1$. $\\blacksquare$",
+        "hints": [
+          "Substituér $u=\\ln x$ på det endelige integralet $\\int_e^b$ først — grensen tas til slutt.",
+          "Den nye øvre grensen blir $\\ln b$, og $\\frac{1}{\\ln b}\\to 0$."
+        ]
+      }
+    },
+    {
+      "id": "mat111-uib-5-5-l2",
+      "type": "text",
+      "content": "## Løkke 2 — Singulariteter og splittekravet (~13 min)"
+    },
+    {
+      "id": "mat111-uib-5-5-def-type2",
+      "type": "definition",
+      "title": "Type II — ubegrenset integrand (singularitet)",
+      "content": "Hvis $f$ blåser opp mot $\\pm\\infty$ i et endepunkt $c$ av intervallet — et punkt der nevneren blir null, eller $\\ln$ møter null — kalles $c$ en **singularitet**. Integralet defineres ved å stoppe like før singulariteten og ta en ensidig grense:\n\n$$\\int_a^c f(x)\\,dx = \\lim_{t\\to c^-}\\int_a^t f(x)\\,dx.$$"
+    },
+    {
+      "id": "mat111-uib-5-5-def-ensidig",
+      "type": "definition",
+      "title": "Ensidig grense ved singularitet",
+      "content": "Grensen ved en singularitet er alltid *ensidig*: $t\\to c^-$ når singulariteten er øvre endepunkt, $t\\to c^+$ når den er nedre. Retningen sier fra hvilken side du nærmer deg det farlige punktet — og skal stå i føringen."
+    },
+    {
+      "id": "mat111-uib-5-5-def-splitt",
+      "type": "definition",
+      "title": "Indre singularitet — splittekravet",
+      "content": "Ligger singulariteten *inne* i intervallet, $a < c < b$, MÅ integralet splittes i $c$:\n\n$$\\int_a^b f(x)\\,dx = \\int_a^c f(x)\\,dx + \\int_c^b f(x)\\,dx,$$\n\nog hver del får sin egen ensidige grense. Begge delene må konvergere for at helheten skal konvergere. Å integrere rett forbi singulariteten med antideriverten er regelbrudd — og gir gjerne et absurd svar."
+    },
+    {
+      "id": "mat111-uib-5-5-def-skjult",
+      "type": "definition",
+      "title": "Skjult uegentlighet (sjekklisten)",
+      "content": "Før du integrerer: sjekk *hele* intervallet for punkter der integranden er udefinert — nullpunkter i nevneren, $\\ln$ av null, negative tall under en rot. En singularitet midt i intervallet ser helt uskyldig ut i oppgaveteksten; det er ditt ansvar å finne den. Først når lista er tom, er integralet et vanlig integral."
+    },
+    {
+      "id": "mat111-uib-5-5-eks2",
+      "type": "example",
+      "title": "Eksempel 2: singularitet i endepunktet",
+      "problem": "Beregn $\\displaystyle\\int_0^4 \\frac{dx}{\\sqrt{4-x}}$, eller vis at det divergerer.",
+      "solution": "Integranden er udefinert i $x=4$ (null under roten i nevneren) — en singularitet i øvre endepunkt. Ensidig grense fra venstre:\n\n$$\\int_0^4 \\frac{dx}{\\sqrt{4-x}} = \\lim_{t\\to 4^-}\\int_0^t (4-x)^{-1/2}\\,dx = \\lim_{t\\to 4^-}\\Big[-2\\sqrt{4-x}\\Big]_0^t = \\lim_{t\\to 4^-}\\big(-2\\sqrt{4-t} + 2\\sqrt{4}\\big).$$\n\nNår $t\\to 4^-$ går $\\sqrt{4-t}\\to 0$, så grensen er $0 + 4 = 4$. Integralet konvergerer.\n\n**Sluttsvar:** $4$. $\\blacksquare$"
+    },
+    {
+      "id": "mat111-uib-5-5-eks3",
+      "type": "example",
+      "title": "Eksempel 3: den indre singulariteten som straffer slurv",
+      "problem": "Undersøk $\\displaystyle\\int_{-2}^{3}\\frac{dx}{x^2}$. Hva er galt med regningen $\\Big[-\\frac1x\\Big]_{-2}^{3} = -\\frac13-\\frac12 = -\\frac56$?",
+      "solution": "**Sjekklisten først:** integranden $\\frac{1}{x^2}$ er udefinert i $x=0$, som ligger *inne* i $[-2,3]$. Integralet må splittes der:\n\n$$\\int_{-2}^{3}\\frac{dx}{x^2} = \\int_{-2}^{0}\\frac{dx}{x^2} + \\int_{0}^{3}\\frac{dx}{x^2}.$$\n\nVi tester den siste delen:\n\n$$\\int_0^3 \\frac{dx}{x^2} = \\lim_{t\\to 0^+}\\Big[-\\frac1x\\Big]_t^3 = \\lim_{t\\to 0^+}\\Big(-\\frac13 + \\frac1t\\Big) = \\infty.$$\n\nÉn del divergerer — dermed **divergerer hele integralet**.\n\n**Hva gikk galt i regningen?** Den brukte fundamentalteoremet over et intervall der antideriverten ikke gjelder (integranden er ikke engang definert i $0$). Svaret $-\\frac56$ avslører seg selv: integranden $\\frac{1}{x^2}$ er *positiv* overalt, så integralet kan umulig være negativt. $\\blacksquare$"
+    },
+    {
+      "id": "mat111-uib-5-5-o3",
+      "type": "exercise",
+      "exercise": {
+        "id": "mat111-uib-5-5-o3-x",
+        "number": "3",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "Undersøk $\\displaystyle\\int_{-1}^{8} x^{-1/3}\\,dx$ (reell kuberot). Splitt der det trengs, og beregn verdien hvis integralet konvergerer.",
+        "solution": "Integranden $x^{-1/3}$ er udefinert i $x=0$ — indre singularitet, så vi splitter:\n\n$$\\int_{-1}^{8} x^{-1/3}\\,dx = \\int_{-1}^{0} x^{-1/3}\\,dx + \\int_{0}^{8} x^{-1/3}\\,dx.$$\n\nAntideriverten er $\\frac{3}{2}x^{2/3}$ (der $x^{2/3}=(\\sqrt[3]{x})^2\\ge 0$).\n\n**Høyre del:** $\\displaystyle\\lim_{t\\to 0^+}\\Big[\\tfrac32 x^{2/3}\\Big]_t^8 = \\tfrac32(8^{2/3}-0) = \\tfrac32\\cdot 4 = 6.$\n\n**Venstre del:** $\\displaystyle\\lim_{s\\to 0^-}\\Big[\\tfrac32 x^{2/3}\\Big]_{-1}^s = \\tfrac32(0 - (-1)^{2/3}) = -\\tfrac32.$\n\nBegge grensene er endelige — integralet konvergerer, med verdi $6 - \\tfrac32 = \\tfrac92$.\n\n**Sluttsvar:** $\\dfrac92$. $\\blacksquare$",
+        "hints": [
+          "Singulariteten ligger i $x=0$: splitt i $\\int_{-1}^0 + \\int_0^8$ med hver sin ensidige grense.",
+          "$\\frac32 x^{2/3}\\to 0$ når $x\\to 0$ fra begge sider — begge delene konvergerer her."
+        ]
+      }
+    },
+    {
+      "id": "mat111-uib-5-5-l3",
+      "type": "text",
+      "content": "## Løkke 3 — p-integralene: sjangerens målestokker (~12 min)"
+    },
+    {
+      "id": "mat111-uib-5-5-def-p-inf",
+      "type": "definition",
+      "title": "$p$-integralet ved uendelig",
+      "content": "Familien $\\int_1^\\infty x^{-p}\\,dx$ er sjangerens viktigste målestokk ved uendelig. Den konvergerer **hvis og bare hvis $p>1$**, og da er\n\n$$\\int_1^\\infty \\frac{dx}{x^p} = \\frac{1}{p-1} \\qquad (p>1).$$\n\nFor $p\\le 1$ divergerer integralet — halen er for tykk."
+    },
+    {
+      "id": "mat111-uib-5-5-def-p-null",
+      "type": "definition",
+      "title": "$p$-integralet ved null",
+      "content": "Ved singulariteten i null snur ulikheten: $\\int_0^1 x^{-p}\\,dx$ konvergerer **hvis og bare hvis $p<1$**, og da er\n\n$$\\int_0^1 \\frac{dx}{x^p} = \\frac{1}{1-p} \\qquad (p<1).$$\n\nFor $p\\ge 1$ divergerer integralet — toppen er for høy."
+    },
+    {
+      "id": "mat111-uib-5-5-def-p-lik1",
+      "type": "definition",
+      "title": "Grensetilfellet $p=1$",
+      "content": "$p=1$ taper i begge ender: antideriverten er $\\ln x$, og $\\ln b\\to\\infty$ når $b\\to\\infty$, mens $\\ln t\\to-\\infty$ når $t\\to 0^+$. Både $\\int_1^\\infty\\frac{dx}{x}$ og $\\int_0^1\\frac{dx}{x}$ divergerer — $\\frac1x$ er skillelinjen selv, og faller på feil side begge steder."
+    },
+    {
+      "id": "mat111-uib-5-5-def-p-huskeregel",
+      "type": "definition",
+      "title": "Huskeregel for $p$-grensene",
+      "content": "«**Stor $p$ hjelper i det store, liten $p$ hjelper i det små.**» Ved $\\infty$ trenger du at grafen faller *fort* ($p>1$); ved $0$ trenger du at den stiger *langsomt* ($p<1$). Skriv alltid hvilket $p$-integral du bruker og hvilken ende det gjelder — det er navnet som gir uttelling."
+    },
+    {
+      "id": "mat111-uib-5-5-eks4",
+      "type": "example",
+      "title": "Eksempel 4: samme eksponent, motsatt skjebne",
+      "problem": "Avgjør ved direkte beregning om $\\displaystyle\\int_1^\\infty \\frac{dx}{x^{3/2}}$ og $\\displaystyle\\int_0^1 \\frac{dx}{x^{3/2}}$ konvergerer.",
+      "solution": "Antideriverten er i begge tilfeller $-2x^{-1/2}$.\n\n**Ved uendelig** ($p=\\tfrac32>1$ — forventer konvergens):\n\n$$\\int_1^\\infty x^{-3/2}\\,dx = \\lim_{b\\to\\infty}\\Big[-\\frac{2}{\\sqrt{x}}\\Big]_1^b = \\lim_{b\\to\\infty}\\Big(2-\\frac{2}{\\sqrt b}\\Big) = 2. \\quad\\text{Konvergerer.}$$\n\n**Ved null** ($p=\\tfrac32\\ge 1$ — forventer divergens):\n\n$$\\int_0^1 x^{-3/2}\\,dx = \\lim_{t\\to 0^+}\\Big[-\\frac{2}{\\sqrt{x}}\\Big]_t^1 = \\lim_{t\\to 0^+}\\Big(\\frac{2}{\\sqrt t}-2\\Big) = \\infty. \\quad\\text{Divergerer.}$$\n\nSamme funksjon, samme $p$ — men konvergensspørsmålet stilles i hver sin ende, og $p$-reglene svarer motsatt. $\\blacksquare$"
+    },
+    {
+      "id": "mat111-uib-5-5-o4",
+      "type": "exercise",
+      "exercise": {
+        "id": "mat111-uib-5-5-o4-x",
+        "number": "4",
+        "type": "classic",
+        "difficulty": "lett",
+        "task": "Avgjør uten lang regning, med navngitt $p$-integral, om integralene konvergerer. Beregn verdien i konvergenstilfellet.\n\n**a)** $\\displaystyle\\int_0^1 \\frac{dx}{x^{4/5}}$\n\n**b)** $\\displaystyle\\int_1^\\infty \\frac{dx}{x^{4/5}}$",
+        "solution": "**a)** $p$-integral ved null med $p=\\tfrac45<1$: **konvergerer**. Verdi:\n\n$$\\lim_{t\\to 0^+}\\Big[5x^{1/5}\\Big]_t^1 = 5(1-0) = 5.$$\n\n**b)** $p$-integral ved uendelig med $p=\\tfrac45\\le 1$: **divergerer** ($5b^{1/5}\\to\\infty$).\n\n**Sluttsvar:** **a)** konvergerer, verdi $5$; **b)** divergerer. $\\blacksquare$",
+        "hints": [
+          "Ved null: konvergens krever $p<1$. Ved uendelig: $p>1$.",
+          "Antideriverten til $x^{-4/5}$ er $5x^{1/5}$."
+        ]
+      }
+    },
+    {
+      "id": "mat111-uib-5-5-l4",
+      "type": "text",
+      "content": "## Løkke 4 — Sammenligningskriteriet med begge premisser (~15 min)"
+    },
+    {
+      "id": "mat111-uib-5-5-def-majorant",
+      "type": "definition",
+      "title": "Majorant",
+      "content": "En **majorant** for $f$ på et intervall er en funksjon $g$ med $f(x)\\le g(x)$ for alle $x$ i intervallet — et «tak» over grafen. I konvergensargumenter velges majoranten blant integraler med kjent skjebne: et $p$-integral eller en $e^{-x}$-hale."
+    },
+    {
+      "id": "mat111-uib-5-5-def-sammenligning",
+      "type": "definition",
+      "title": "Sammenligningskriteriet (konvergens)",
+      "content": "Anta at $0\\le f(x)\\le g(x)$ for alle $x\\ge a$. Hvis $\\int_a^\\infty g(x)\\,dx$ konvergerer, konvergerer også $\\int_a^\\infty f(x)\\,dx$. Intuisjon: arealet under $f$ er klemt mellom $0$ og et endelig areal — det kan verken bli uendelig eller oscillere, for arealfunksjonen vokser og er begrenset ovenfra. Samme kriterium gjelder ved en singularitet."
+    },
+    {
+      "id": "mat111-uib-5-5-def-minorant",
+      "type": "definition",
+      "title": "Divergens ved minorant",
+      "content": "Kriteriet snudd: har du $f(x)\\ge g(x)\\ge 0$ og $\\int_a^\\infty g(x)\\,dx$ divergerer, så divergerer også $\\int_a^\\infty f(x)\\,dx$ — et uendelig areal *under* grafen tvinger integralet i været. En slik $g$ kalles en **minorant** (et «gulv»). Vanligste valg: $\\frac{c}{x}$."
+    },
+    {
+      "id": "mat111-uib-5-5-def-ikkeneg",
+      "type": "definition",
+      "title": "Ikke-negativitetspremisset",
+      "content": "Premisset $f(x)\\ge 0$ er ikke pynt: uten det bryter hele argumentet sammen (en funksjon med store negative utslag kan ha konvergent integral selv om $|f|$ vokser vilt, og omvendt). Fasitkravet fra H2014-settet: full uttelling krever at **både** ikke-negativiteten **og** majorantens endelige integral er uttalt i besvarelsen. Standardgrepet for å se ikke-negativitet: $2+\\cos x\\ge 1>0$ fordi $|\\cos x|\\le 1$."
+    },
+    {
+      "id": "mat111-uib-5-5-def-ehale",
+      "type": "definition",
+      "title": "$e^{-x}$-halen som majorant",
+      "content": "For integrander som avtar raskere enn enhver potens, er $e^{-x}$ standardmajoranten: $\\int_1^\\infty e^{-x}\\,dx = e^{-1}$ er endelig. Nyttig ulikhet: for $x\\ge 1$ er $x^2\\ge x$, så $e^{-x^2}\\le e^{-x}$ — det er nøkkelen til at $\\int_1^\\infty e^{-x^2}\\,dx$ konvergerer, enda integranden mangler elementær antiderivert."
+    },
+    {
+      "id": "mat111-uib-5-5-def-navngi",
+      "type": "definition",
+      "title": "Føringsmalen: navngi majoranten",
+      "content": "Konvergensavgjørelser føres i tre ledd: (1) **ikke-negativitet** — vis $f(x)\\ge 0$ på intervallet; (2) **ulikheten** — vis $f(x)\\le g(x)$ (eller $\\ge$ for divergens) med et kort argument; (3) **navngi** sammenligningsintegralet og dets skjebne («$p$-integral ved uendelig med $p=2>1$, konvergerer»). Konkluder. Alle tre leddene skal stå."
+    },
+    {
+      "id": "mat111-uib-5-5-eks5",
+      "type": "example",
+      "title": "Eksempel 5: konvergens med begge premisser",
+      "problem": "Avgjør om $\\displaystyle\\int_1^\\infty \\frac{2+\\cos x}{x^2}\\,dx$ konvergerer.",
+      "solution": "Integranden har ingen elementær antiderivert å friste med — dette er en ren sammenligningsoppgave.\n\n**1. Ikke-negativitet:** siden $|\\cos x|\\le 1$ er $2+\\cos x\\ge 1>0$, så integranden er positiv for alle $x\\ge 1$.\n\n**2. Majorant:** av samme grunn er $2+\\cos x\\le 3$, så\n\n$$0\\le \\frac{2+\\cos x}{x^2} \\le \\frac{3}{x^2}\\qquad\\text{for alle } x\\ge 1.$$\n\n**3. Majorantens integral er endelig:** $\\int_1^\\infty \\frac{3}{x^2}\\,dx = 3\\int_1^\\infty x^{-2}\\,dx$ er et $p$-integral ved uendelig med $p=2>1$; det konvergerer (med verdi $3$).\n\nEtter sammenligningskriteriet konvergerer da $\\displaystyle\\int_1^\\infty\\frac{2+\\cos x}{x^2}\\,dx$. $\\blacksquare$"
+    },
+    {
+      "id": "mat111-uib-5-5-eks6",
+      "type": "example",
+      "title": "Eksempel 6: divergens med minorant",
+      "problem": "Avgjør om $\\displaystyle\\int_1^\\infty \\frac{2+\\sin x}{x}\\,dx$ konvergerer.",
+      "solution": "**1. Ikke-negativitet:** $|\\sin x|\\le 1$ gir $2+\\sin x\\ge 1>0$.\n\n**2. Minorant:** av samme ulikhet:\n\n$$\\frac{2+\\sin x}{x} \\ge \\frac{1}{x} \\ge 0 \\qquad\\text{for alle } x\\ge 1.$$\n\n**3. Minorantens integral divergerer:** $\\int_1^\\infty\\frac{dx}{x}$ er $p$-integralet ved uendelig med $p=1$ — det divergerer ($\\ln b\\to\\infty$).\n\nIntegranden ligger altså *over* et gulv med uendelig areal: etter sammenligningskriteriet (divergensversjonen) **divergerer** integralet. $\\blacksquare$"
+    },
+    {
+      "id": "mat111-uib-5-5-o5",
+      "type": "exercise",
+      "exercise": {
+        "id": "mat111-uib-5-5-o5-x",
+        "number": "5",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "Vis at $\\displaystyle\\int_0^\\infty e^{-x^2}\\,dx$ konvergerer. (Hint i strukturen: intervallet $[0,1]$ er uskyldig — det er halen som må undersøkes.)",
+        "solution": "**Splitt:** $\\displaystyle\\int_0^\\infty e^{-x^2}\\,dx = \\int_0^1 e^{-x^2}\\,dx + \\int_1^\\infty e^{-x^2}\\,dx.$\n\nDen første delen er et vanlig integral av en kontinuerlig funksjon på $[0,1]$ — et endelig tall (ingen uegentlighet).\n\n**Halen med sammenligning:**\n\n1. *Ikke-negativitet:* $e^{-x^2}>0$ for alle $x$.\n2. *Majorant:* for $x\\ge 1$ er $x^2\\ge x$, så $-x^2\\le -x$ og dermed $e^{-x^2}\\le e^{-x}$.\n3. *Majorantens integral:* $\\displaystyle\\int_1^\\infty e^{-x}\\,dx = \\lim_{b\\to\\infty}\\big[-e^{-x}\\big]_1^b = e^{-1}$ — endelig.\n\nEtter sammenligningskriteriet konvergerer halen, og dermed hele integralet. $\\blacksquare$",
+        "hints": [
+          "For $x\\ge 1$ er $x^2\\ge x$ — hva sier det om $e^{-x^2}$ mot $e^{-x}$?",
+          "Alle tre leddene i føringsmalen skal med: ikke-negativitet, ulikhet, navngitt endelig majorant."
+        ]
+      }
+    },
+    {
+      "id": "mat111-uib-5-5-o6",
+      "type": "exercise",
+      "exercise": {
+        "id": "mat111-uib-5-5-o6-x",
+        "number": "6",
+        "type": "classic",
+        "difficulty": "vanskelig",
+        "task": "Avgjør om $\\displaystyle\\int_1^\\infty \\frac{x+2}{x^3+x}\\,dx$ konvergerer.",
+        "solution": "**1. Ikke-negativitet:** for $x\\ge 1$ er teller og nevner positive, så integranden er positiv.\n\n**2. Majorant:** forstørr telleren og forminsk nevneren: for $x\\ge 1$ er $x+2\\le 3x$ (siden $2\\le 2x$) og $x^3+x\\ge x^3$. Dermed\n\n$$0\\le \\frac{x+2}{x^3+x} \\le \\frac{3x}{x^3} = \\frac{3}{x^2}.$$\n\n**3. Navngitt majorant:** $\\int_1^\\infty \\frac{3}{x^2}\\,dx$ er ($3$ ganger) $p$-integralet ved uendelig med $p=2>1$ — konvergerer.\n\nEtter sammenligningskriteriet **konvergerer** integralet. $\\blacksquare$",
+        "hints": [
+          "Lag en majorant: forstørr telleren ($x+2\\le 3x$ for $x\\ge 1$), forminsk nevneren ($x^3+x\\ge x^3$).",
+          "Målet er en ren potens $\\frac{c}{x^p}$ med $p>1$."
+        ]
+      }
+    },
+    {
+      "id": "mat111-uib-5-5-warn",
+      "type": "warning",
+      "title": "Typiske feil",
+      "content": "- **«Sett inn $\\infty$» uten lim-føring.** $\\big[F(x)\\big]_a^\\infty$ er ikke gyldig notasjon i denne sjangeren — løsningsforslagene krever $\\lim_{b\\to\\infty}$ skrevet ut. Riktig tall redder ikke føringen.\n- **Sammenligning med bare ett premiss.** Ulikheten alene holder ikke: både ikke-negativiteten og majorantens *endelige* integral skal uttales (H2014-fasitkravet). Og majoranten skal navngis — «mindre enn noe som konvergerer» uten navn gir trekk.\n- **Indre singularitet oversett.** Sjekk nevner-nullpunkter i HELE intervallet før du integrerer. $\\int_{-2}^3 \\frac{dx}{x^2} = -\\frac56$ er det klassiske absurde svaret — negativt areal under en positiv graf.\n- **Feil $p$-grense.** Ved $\\infty$: konvergens for $p>1$. Ved $0$: konvergens for $p<1$. De bytter plass — bruk huskeregelen, og si hvilken ende du er i.\n- **Divergens «vist» med majorant.** En divergent majorant beviser ingenting ($f$ kan fint ligge under noe stort). Divergens krever en divergent *minorant* under integranden."
+    },
+    {
+      "id": "mat111-uib-5-5-drillh",
+      "type": "text",
+      "content": "## Drilloppgaver\n\nStigende vanskegrad — lim-føring og navngitte sammenligninger i alle."
+    },
+    {
+      "id": "mat111-uib-5-5-d1",
+      "type": "exercise",
+      "exercise": {
+        "id": "mat111-uib-5-5-d1-x",
+        "number": "7",
+        "type": "classic",
+        "difficulty": "lett",
+        "task": "Beregn $\\displaystyle\\int_1^\\infty \\frac{dx}{x^3}$ med lim-føring, og navngi hvilket $p$-integral dette er.",
+        "solution": "$p$-integral ved uendelig med $p=3>1$ — forventer konvergens.\n\n$$\\int_1^\\infty x^{-3}\\,dx = \\lim_{b\\to\\infty}\\Big[-\\frac{1}{2x^2}\\Big]_1^b = \\lim_{b\\to\\infty}\\Big(\\frac12 - \\frac{1}{2b^2}\\Big) = \\frac12.$$\n\n**Sluttsvar:** $\\dfrac12$. $\\blacksquare$",
+        "hints": [
+          "Antideriverten til $x^{-3}$ er $-\\tfrac12 x^{-2}$."
+        ]
+      }
+    },
+    {
+      "id": "mat111-uib-5-5-d2",
+      "type": "exercise",
+      "exercise": {
+        "id": "mat111-uib-5-5-d2-x",
+        "number": "8",
+        "type": "classic",
+        "difficulty": "lett",
+        "task": "Beregn $\\displaystyle\\int_0^1 \\frac{dx}{\\sqrt{1-x}}$ — identifiser singulariteten først.",
+        "solution": "Integranden er udefinert i $x=1$ (øvre endepunkt). Ensidig grense fra venstre:\n\n$$\\int_0^1 (1-x)^{-1/2}\\,dx = \\lim_{t\\to 1^-}\\Big[-2\\sqrt{1-x}\\Big]_0^t = \\lim_{t\\to 1^-}\\big(-2\\sqrt{1-t}+2\\big) = 2.$$\n\n**Sluttsvar:** $2$. $\\blacksquare$",
+        "hints": [
+          "Singulariteten er i $x=1$: stopp i $t$ og la $t\\to 1^-$."
+        ]
+      }
+    },
+    {
+      "id": "mat111-uib-5-5-d3",
+      "type": "exercise",
+      "exercise": {
+        "id": "mat111-uib-5-5-d3-x",
+        "number": "9",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "Beregn $\\displaystyle\\int_2^\\infty \\frac{dx}{x(\\ln x)^2}$.",
+        "solution": "$$\\boxed{\\,u=\\ln x,\\quad du=\\frac{dx}{x},\\quad x=2\\Rightarrow u=\\ln 2,\\quad x=b\\Rightarrow u=\\ln b\\,}$$\n\n$$\\int_2^\\infty \\frac{dx}{x(\\ln x)^2} = \\lim_{b\\to\\infty}\\int_{\\ln 2}^{\\ln b}\\frac{du}{u^2} = \\lim_{b\\to\\infty}\\Big[-\\frac1u\\Big]_{\\ln 2}^{\\ln b} = \\lim_{b\\to\\infty}\\Big(\\frac{1}{\\ln 2}-\\frac{1}{\\ln b}\\Big) = \\frac{1}{\\ln 2}.$$\n\n**Sluttsvar:** $\\dfrac{1}{\\ln 2}\\ (\\approx 1{,}44)$. $\\blacksquare$",
+        "hints": [
+          "Kjernen er $\\ln x$ — boks med nye grenser, så lim til slutt.",
+          "$\\frac{1}{\\ln b}\\to 0$."
+        ]
+      }
+    },
+    {
+      "id": "mat111-uib-5-5-d4",
+      "type": "exercise",
+      "exercise": {
+        "id": "mat111-uib-5-5-d4-x",
+        "number": "10",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "Beregn $\\displaystyle\\int_0^1 \\ln x\\,dx$. (Singularitet i $0$; bruk mot 1-trikset fra kap. 5.2.)",
+        "solution": "$\\ln x\\to-\\infty$ når $x\\to 0^+$ — singularitet i nedre endepunkt. Delvis integrasjon mot 1 ($u=\\ln x$ deriveres, $v'=1$ antideriveres) gir antideriverten $x\\ln x - x$:\n\n$$\\int_0^1 \\ln x\\,dx = \\lim_{t\\to 0^+}\\Big[x\\ln x - x\\Big]_t^1 = \\lim_{t\\to 0^+}\\big(0 - 1 - t\\ln t + t\\big).$$\n\nGrensen $\\lim_{t\\to 0^+} t\\ln t = 0$ (den «lille» faktoren $t$ vinner over den langsomme $\\ln t$), så verdien er $-1$.\n\n**Sluttsvar:** $-1$. $\\blacksquare$",
+        "hints": [
+          "Antideriverten til $\\ln x$ er $x\\ln x - x$ (kap. 5.2, mot 1-trikset).",
+          "Sluttgrensen står og faller på $t\\ln t\\to 0$ når $t\\to 0^+$ — si det eksplisitt."
+        ]
+      }
+    },
+    {
+      "id": "mat111-uib-5-5-d5",
+      "type": "exercise",
+      "exercise": {
+        "id": "mat111-uib-5-5-d5-x",
+        "number": "11",
+        "type": "classic",
+        "difficulty": "vanskelig",
+        "task": "Beregn $\\displaystyle\\int_0^\\infty \\frac{dx}{\\sqrt{x}\\,(x+4)}$. (Integralet er uegentlig i BEGGE ender — splitt, og bruk substitusjonen $u=\\sqrt{x}$.)",
+        "solution": "Uegentlig i $0$ (nevneren $\\sqrt x\\to 0$) og i $\\infty$: splitt i f.eks. $x=1$ og behandle hver del med sin grense. Substitusjonen tar begge:\n\n$$\\boxed{\\,u=\\sqrt{x},\\quad du=\\frac{dx}{2\\sqrt x}\\;\\Rightarrow\\; dx = 2u\\,du,\\quad x=t\\Rightarrow u=\\sqrt t,\\quad x=b\\Rightarrow u=\\sqrt b\\,}$$\n\n$$\\int_t^b \\frac{dx}{\\sqrt x\\,(x+4)} = \\int_{\\sqrt t}^{\\sqrt b}\\frac{2u\\,du}{u\\,(u^2+4)} = 2\\int_{\\sqrt t}^{\\sqrt b}\\frac{du}{u^2+4} = \\Big[\\arctan\\frac{u}{2}\\Big]_{\\sqrt t}^{\\sqrt b}.$$\n\nNå tas de to grensene hver for seg:\n\n$$\\lim_{t\\to 0^+}\\arctan\\frac{\\sqrt t}{2} = 0, \\qquad \\lim_{b\\to\\infty}\\arctan\\frac{\\sqrt b}{2} = \\frac{\\pi}{2}.$$\n\nBegge delene konvergerer, og verdien er $\\frac{\\pi}{2}-0$.\n\n**Sluttsvar:** $\\dfrac{\\pi}{2}$. $\\blacksquare$",
+        "hints": [
+          "$u=\\sqrt x$ gir $dx=2u\\,du$ og forvandler integranden til $\\frac{2}{u^2+4}$.",
+          "$\\int\\frac{du}{u^2+4} = \\frac12\\arctan\\frac u2$; ta grensene $t\\to 0^+$ og $b\\to\\infty$ separat."
+        ]
+      }
+    },
+    {
+      "id": "mat111-uib-5-5-d6",
+      "type": "exercise",
+      "exercise": {
+        "id": "mat111-uib-5-5-d6-x",
+        "number": "12",
+        "type": "classic",
+        "difficulty": "vanskelig",
+        "task": "Avgjør konvergens (uten å beregne verdien):\n\n**a)** $\\displaystyle\\int_0^1 \\frac{dx}{\\sqrt{x+x^2}}$\n\n**b)** $\\displaystyle\\int_1^\\infty \\frac{1+e^{-x}}{x}\\,dx$",
+        "solution": "**a)** Uegentlig i $0$. (1) Integranden er positiv på $(0,1]$. (2) Siden $x+x^2\\ge x$ er $\\sqrt{x+x^2}\\ge\\sqrt x$, så\n\n$$0\\le \\frac{1}{\\sqrt{x+x^2}} \\le \\frac{1}{\\sqrt x}.$$\n\n(3) $\\int_0^1 x^{-1/2}\\,dx$ er $p$-integralet ved null med $p=\\tfrac12<1$ — konvergerer (verdi $2$). **Konvergerer** etter sammenligningskriteriet.\n\n**b)** (1) Integranden er positiv for $x\\ge 1$. (2) Siden $e^{-x}>0$ er\n\n$$\\frac{1+e^{-x}}{x} \\ge \\frac{1}{x}\\ge 0.$$\n\n(3) $\\int_1^\\infty\\frac{dx}{x}$ er $p$-integralet ved uendelig med $p=1$ — divergerer. **Divergerer** etter minorant-versjonen.\n\n**Sluttsvar:** **a)** konvergerer, **b)** divergerer. $\\blacksquare$",
+        "hints": [
+          "a) Forminsk nevneren: $x+x^2\\ge x$ gir majoranten $x^{-1/2}$.",
+          "b) Kast den positive $e^{-x}$-en: integranden ligger over $\\frac1x$."
+        ]
+      }
+    },
+    {
+      "id": "mat111-uib-5-5-rep",
+      "type": "collapsible",
+      "title": "Repetisjonsoppgaver",
+      "buttonText": "Vis repetisjonsoppgaver",
+      "content": [
+        {
+          "id": "mat111-uib-5-5-rep-intro",
+          "type": "text",
+          "content": "Korte oppgaver fra forkunnskapskapitlene — arctan-formen, substitusjon og delbrøk er arbeidshestene i uegentlige integraler."
+        },
+        {
+          "id": "mat111-uib-5-5-r1",
+          "type": "exercise",
+          "exercise": {
+            "id": "mat111-uib-5-5-r1-x",
+            "number": "R1",
+            "type": "classic",
+            "difficulty": "lett",
+            "task": "(Fra [kap. 5.3](/bok/mat111-uib/mat111-uib-5-3)) Beregn $\\displaystyle\\int_0^1 \\frac{dx}{x^2+1}$.",
+            "solution": "$\\big[\\arctan x\\big]_0^1 = \\arctan 1 - \\arctan 0 = \\frac{\\pi}{4}$. $\\blacksquare$",
+            "hints": [
+              "$\\int\\frac{dx}{x^2+1}=\\arctan x + C$."
+            ]
+          }
+        },
+        {
+          "id": "mat111-uib-5-5-r2",
+          "type": "exercise",
+          "exercise": {
+            "id": "mat111-uib-5-5-r2-x",
+            "number": "R2",
+            "type": "classic",
+            "difficulty": "lett",
+            "task": "(Fra [kap. 5.2](/bok/mat111-uib/mat111-uib-5-2)) Beregn $\\displaystyle\\int x\\,e^{-x^2}\\,dx$.",
+            "solution": "$u=-x^2$, $du=-2x\\,dx$: $\\int x e^{-x^2}dx = -\\tfrac12\\int e^u\\,du = -\\tfrac12 e^{-x^2}+C$. $\\blacksquare$",
+            "hints": [
+              "Kjernen er $-x^2$."
+            ]
+          }
+        },
+        {
+          "id": "mat111-uib-5-5-r3",
+          "type": "exercise",
+          "exercise": {
+            "id": "mat111-uib-5-5-r3-x",
+            "number": "R3",
+            "type": "classic",
+            "difficulty": "lett",
+            "task": "(Fra [kap. 5.3](/bok/mat111-uib/mat111-uib-5-3)) Delbrøkoppspalt $\\dfrac{1}{(x+1)(x+3)}$.",
+            "solution": "$\\frac{1}{(x+1)(x+3)} = \\frac{A}{x+1}+\\frac{B}{x+3}$: $1 = A(x+3)+B(x+1)$; $x=-1$ gir $A=\\tfrac12$, $x=-3$ gir $B=-\\tfrac12$. Altså $\\frac12\\Big(\\frac{1}{x+1}-\\frac{1}{x+3}\\Big)$. $\\blacksquare$",
+            "hints": [
+              "Sett inn nevner-nullpunktene $x=-1$ og $x=-3$."
+            ]
+          }
+        },
+        {
+          "id": "mat111-uib-5-5-r4",
+          "type": "exercise",
+          "exercise": {
+            "id": "mat111-uib-5-5-r4-x",
+            "number": "R4",
+            "type": "classic",
+            "difficulty": "lett",
+            "task": "(Fra R2 2.5) Beregn $\\displaystyle\\int_1^4 \\frac{dx}{\\sqrt x}$.",
+            "solution": "$\\big[2\\sqrt x\\big]_1^4 = 4-2 = 2$. $\\blacksquare$",
+            "hints": [
+              "Antideriverten til $x^{-1/2}$ er $2\\sqrt x$."
+            ]
+          }
+        },
+        {
+          "id": "mat111-uib-5-5-r5",
+          "type": "exercise",
+          "exercise": {
+            "id": "mat111-uib-5-5-r5-x",
+            "number": "R5",
+            "type": "classic",
+            "difficulty": "lett",
+            "task": "(Fra [kap. 2.2](/bok/mat111-uib/mat111-uib-2-2)) Hva er $\\displaystyle\\lim_{b\\to\\infty}\\arctan b$ og $\\displaystyle\\lim_{b\\to\\infty} e^{-b}$?",
+            "solution": "$\\arctan b\\to\\frac{\\pi}{2}$ (vannrett asymptote) og $e^{-b}\\to 0$. Begge brukes i nesten hver lim-føring i dette kapitlet. $\\blacksquare$",
+            "hints": [
+              "Tenk på grafene til $\\arctan$ og $e^{-x}$."
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": "mat111-uib-5-5-symbol",
+      "type": "collapsible",
+      "title": "Symbol- og formelliste",
+      "buttonText": "Vis symboler og formler",
+      "content": [
+        {
+          "id": "mat111-uib-5-5-symbol-txt",
+          "type": "text",
+          "content": "## Symbol- og formelliste\n\n*Oppslagsverk — alt her forklares underveis i kapitlet.*\n\n| Symbol | Betydning |\n|---|---|\n| $\\lim_{b\\to\\infty}$ | Grensen som definerer type I-integraler (obligatorisk i føringen) |\n| $\\lim_{t\\to c^-}$, $\\lim_{t\\to c^+}$ | Ensidige grenser mot en singularitet $c$ |\n| singularitet | Punkt der integranden blåser opp (nevner null, $\\ln 0$, …) |\n| $p$-integral | Målestokkene $\\int_1^\\infty x^{-p}dx$ og $\\int_0^1 x^{-p}dx$ |\n| majorant / minorant | «Tak» over / «gulv» under integranden i sammenligning |\n| konvergerer / divergerer | Grensen finnes som endelig tall / finnes ikke |\n| $\\blacksquare$ | Løsningen er ferdig |\n\n**Formler i dette delkapitlet:**\n\n$$\\int_a^\\infty f(x)\\,dx = \\lim_{b\\to\\infty}\\int_a^b f(x)\\,dx$$\n*Type I — uendelig grense, definert som grenseverdi.*\n\n$$\\int_a^c f(x)\\,dx = \\lim_{t\\to c^-}\\int_a^t f(x)\\,dx$$\n*Type II — singularitet i endepunktet $c$.*\n\n$$\\int_a^b = \\int_a^c + \\int_c^b \\quad\\text{(singularitet i } a<c<b\\text{)}$$\n*Splittekravet: hver del får sin egen ensidige grense; begge må konvergere.*\n\n$$\\int_1^\\infty \\frac{dx}{x^p}\\ \\text{konvergerer} \\iff p>1, \\qquad \\int_0^1 \\frac{dx}{x^p}\\ \\text{konvergerer} \\iff p<1$$\n*$p$-integralene — sjangerens målestokker (verdier $\\frac{1}{p-1}$ hhv. $\\frac{1}{1-p}$).*\n\n$$0\\le f\\le g \\ \\text{og}\\ \\textstyle\\int g<\\infty \\;\\Rightarrow\\; \\int f\\ \\text{konvergerer}$$\n*Sammenligningskriteriet — begge premisser (ikke-negativitet + endelig majorant) skal uttales.*\n\n$$f\\ge g\\ge 0 \\ \\text{og}\\ \\textstyle\\int g=\\infty \\;\\Rightarrow\\; \\int f\\ \\text{divergerer}$$\n*Divergensversjonen — krever en divergent minorant.*\n\n$$e^{-x^2}\\le e^{-x}\\ (x\\ge 1), \\qquad \\int_1^\\infty e^{-x}\\,dx = e^{-1}$$\n*$e^{-x}$-halen som standardmajorant.*"
+        }
+      ]
+    }
+  ],
+  "exercises": []
+}
