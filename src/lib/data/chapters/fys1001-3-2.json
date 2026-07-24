@@ -1,0 +1,382 @@
+{
+  "id": "fys1001-3-2",
+  "courseId": "fys1001",
+  "chapterNumber": "3.2",
+  "title": "Bernoulli, kontinuitet og Torricelli — med gyldighetsvurdering",
+  "description": "Hovedverktøyet i fluid-oppgaven: kontinuitetslikningen, Bernoulli mellom to kloke punkter, Torricelli utledet fra Bernoulli — og gyldighetsvurderingen som skiller toppsjiktet.",
+  "estimatedMinutes": 55,
+  "competenceGoals": [
+    "bruke volumstrøm og kontinuitetslikningen, og skille mellom areal- og diameterendringer",
+    "sette opp Bernoullis likning mellom to fornuftig valgte punkter og begrunne hvilke ledd som faller bort",
+    "utlede og bruke Torricellis lov for utstrømning fra en åpen beholder",
+    "vurdere om Bernoulli i det hele tatt gjelder i en gitt situasjon, og konkludere skarpt om hva svaret er verdt"
+  ],
+  "content": [
+    {
+      "id": "fys1001-3-2-tip-eksamensvinkel",
+      "type": "tip",
+      "title": "Eksamensvinkel",
+      "content": "**Høyeste prioritet — dette er hovedverktøyet i fluid-oppgaven, og fluid er et signaturtema for emnet.** Fluidmekanikk står i **23 av 36 slutteksamener (64 %)** og i så godt som alle midtsemestereksamener i arkivet. Bernoulli-oppgaven med gyldighetsvurdering er selve kjennemerket på FYS1001-eksamen.\n\nDette er **sjanger F**, kortkoden vår for fluidmekanikk (Bernoulli, Torricelli og kontinuitet). I tillegg kommer **sjanger Q**, kortkoden for kvalitative «forklar hvorfor»-spørsmål. Hele kodelista A–Q står i kapittel 0.1.\n\nTre ting arkivet viser tydelig:\n\n1. **Torricelli-varianten går igjen.** Utstrømning fra et reservoar, en tank eller et magmakammer opptrer blant annet i settene fra våren 2021 og våren 2024.\n2. **Gyldighetsvurderingen er et eksplisitt toppnivåkrav.** Våren 2024 skulle kandidaten begrunne hvorfor lava bryter antakelsene bak Bernoulli. Å regne riktig og hoppe over vurderingen koster nettopp de poengene som skiller toppsjiktet.\n3. **Poiseuille dukker opp i kortsvar** — blodstrøm i årer, i settene fra våren 2015 og våren 2016. Det er kjenne-stoff, plassert helt til slutt i kapitlet og merket som sådan.\n\n**Formelark-status:** kontinuitetslikningen $A_1v_1 = A_2v_2$, volumstrømmen $q_V = Av$, Bernoullis likning og Poiseuille står alle på formelarket eller i tabellverket. Det du må kunne **aktivt**, er å velge to kloke punkter, avgjøre hvilke ledd som faller bort, og vurdere om ligningen i det hele tatt gjelder. Ingen av de tre tingene står på noe ark."
+    },
+    {
+      "id": "fys1001-3-2-forkunnskaper",
+      "type": "text",
+      "content": "**Forkunnskaper — dette bygger kapitlet på:**\n\n- [kap. 3.1](/bok/fys1001/fys1001-3-1) — trykk $p = F/A$, væsketrykk $p = p_0 + \\rho gh$ og tetthet $\\rho = m/V$. Skillet mellom absolutt trykk og overtrykk må sitte.\n- [kap. 2.2](/bok/fys1001/fys1001-2-2) — energibevaring. Bernoullis likning **er** energibevaring, bare regnet per volumenhet i stedet for per legeme. Kjenner du igjen $\\tfrac12 mv^2$ og $mgh$ i den, har du halve forståelsen gratis.\n\nVi bruker $g = 9{,}81$ m/s², $p_0 = 1{,}01\\cdot 10^{5}$ Pa og $\\rho_{\\text{vann}} = 1{,}00\\cdot 10^{3}$ kg/m³ gjennom kapitlet. Alle tre hentes fra formelark og tabellverk."
+    },
+    {
+      "id": "fys1001-3-2-intro",
+      "type": "text",
+      "content": "Du holder en hageslange, og vannet siler rolig ut. Så klemmer du tommelen delvis over åpningen — og strålen skyter langt av gårde. Du har ikke tilført noe: samme pumpe, samme trykk i ledningen. Likevel ble farten mye større.\n\nForklaringen er den samme mengden vann per sekund gjennom et mindre hull. Og bytter du fart mot trykk, får du den mest berømte ligningen i fluidmekanikken: der farten er stor, er trykket lavt.\n\nKapitlet går i fem læringsløkker (teori → eksempel → oppgave):\n\n1. **Volumstrøm og kontinuitetslikningen** (~12 min)\n2. **Bernoullis likning og punktvalget** (~14 min)\n3. **Torricelli: utstrømning fra en tank** (~12 min)\n4. **Gyldighetsbetingelsene — toppnivåkravet** (~11 min)\n5. **Poiseuille: bør kjenne til** (~6 min)\n\nTidsanslagene er lesetid; med penn og papir ganger du med omtrent 1,5. — naturlig pausepunkt — etter løkke 2 er et godt sted å dele kapitlet i to økter."
+    },
+    {
+      "id": "fys1001-3-2-lokke1",
+      "type": "text",
+      "content": "## Løkke 1: Volumstrøm og kontinuitetslikningen *(~12 min)*\n\nVi begynner med det enkleste og mest robuste: vann forsvinner ikke, og det hoper seg ikke opp. Alt som går inn i røret, kommer ut."
+    },
+    {
+      "id": "fys1001-3-2-def-volumstrom",
+      "type": "definition",
+      "title": "Volumstrøm",
+      "content": "**Volumstrømmen** er hvor mye væskevolum som passerer et tverrsnitt per sekund:\n\n$$q_V = Av,$$\n\nder $A$ er tverrsnittsarealet og $v$ er farten. Enheten er m³/s.\n\nEnhetskontroll: $\\text{m}^2\\cdot\\text{m/s} = \\text{m}^3/\\text{s}$ — det stemmer. I praktiske sammenhenger møter du liter per minutt eller liter per sekund, og da må du regne om: $1\\ \\text{L} = 10^{-3}\\ \\text{m}^3$, så $1\\ \\text{L/s} = 10^{-3}\\ \\text{m}^3/\\text{s}$.\n\nMerk skillet mellom **fart** (m/s) og **volumstrøm** (m³/s). Å blande dem er en av de vanligste feilene i fluid-oppgaver."
+    },
+    {
+      "id": "fys1001-3-2-def-kontinuitet",
+      "type": "definition",
+      "title": "Kontinuitetslikningen",
+      "content": "For en inkompressibel væske som strømmer gjennom et rør uten lekkasjer, er volumstrømmen den samme i alle tverrsnitt:\n\n$$A_1v_1 = A_2v_2.$$\n\nI ord: **smalere rør gir større fart, i omvendt proporsjon med arealet.** Halveres arealet, dobles farten.\n\nPass på at det er **arealet** og ikke diameteren som inngår. Halveres diameteren, blir arealet en firedel, og farten blir fire ganger så stor. Det er en klassisk felle: for et sirkulært tverrsnitt er $A = \\pi r^2$, så farten går som $1/r^2$."
+    },
+    {
+      "id": "fys1001-3-2-def-stasjonar",
+      "type": "definition",
+      "title": "Stasjonær strøm",
+      "content": "En strøm er **stasjonær** når fart, trykk og retning i hvert *punkt* er konstante over tid. Væsken beveger seg, men mønsteret står stille: farten i innsnevringen er den samme nå som om et sekund.\n\nBåde kontinuitetslikningen og Bernoullis likning forutsetter stasjonær strøm. Et vannglass som helles ut, en bølge, eller en tank som tømmes så raskt at nivået synker merkbart underveis, er *ikke* stasjonære — og da gjelder ligningene bare tilnærmet, som et øyeblikksbilde."
+    },
+    {
+      "id": "fys1001-3-2-oppg-l1a",
+      "type": "exercise",
+      "exercise": {
+        "id": "fys1001-3-2-l1a",
+        "number": "1",
+        "type": "classic",
+        "difficulty": "lett",
+        "task": "(Innstegsoppgave — sjanger F, altså fluidmekanikk.) Vann strømmer med farten 1,5 m/s gjennom et rør med tverrsnittsareal $3{,}0\\cdot 10^{-3}$ m².\n\n**a)** Finn volumstrømmen i m³/s.\n**b)** Oppgi volumstrømmen i liter per sekund.",
+        "solution": "**a)** $q_V = Av = 3{,}0\\cdot 10^{-3}\\ \\text{m}^2\\cdot 1{,}5\\ \\text{m/s} = 4{,}5\\cdot 10^{-3}\\ \\text{m}^3/\\text{s}$.\n\n**b)** Siden $1\\ \\text{m}^3 = 10^{3}$ L, blir\n\n$$q_V = 4{,}5\\cdot 10^{-3}\\ \\text{m}^3/\\text{s} = 4{,}5\\ \\text{L/s}.$$\n\n**Svar:** $4{,}5\\cdot 10^{-3}$ m³/s $= 4{,}5$ L/s. Til sammenligning gir en vanlig kjøkkenkran rundt 0,2 L/s, så dette er et ganske kraftig rør.",
+        "hints": [
+          "Bruk $q_V = Av$ med arealet i m² og farten i m/s.",
+          "Kontroller enheten: m² ganger m/s gir m³/s.",
+          "$1$ m³ er $1000$ liter."
+        ]
+      }
+    },
+    {
+      "id": "fys1001-3-2-ex-slange",
+      "type": "example",
+      "title": "Hageslangen med munnstykke",
+      "problem": "En hageslange har innvendig diameter 16 mm og fører en volumstrøm på 12 L/min.\n\n**a)** Finn tverrsnittsarealet og farten inne i slangen.\n**b)** På enden sitter et munnstykke med åpningsdiameter 4,0 mm. Finn farten i åpningen.",
+      "solution": "**a)** Radien er halve diameteren: $r_1 = 8{,}0\\ \\text{mm} = 8{,}0\\cdot 10^{-3}$ m.\n\n$$A_1 = \\pi r_1^2 = \\pi (8{,}0\\cdot 10^{-3}\\ \\text{m})^2 = 2{,}01\\cdot 10^{-4}\\ \\text{m}^2.$$\n\nVolumstrømmen må gjøres om til SI-enheter:\n\n$$q_V = 12\\ \\text{L/min} = \\frac{12\\cdot 10^{-3}\\ \\text{m}^3}{60\\ \\text{s}} = 2{,}0\\cdot 10^{-4}\\ \\text{m}^3/\\text{s}.$$\n\nFarten følger av $q_V = A_1v_1$:\n\n$$v_1 = \\frac{q_V}{A_1} = \\frac{2{,}0\\cdot 10^{-4}\\ \\text{m}^3/\\text{s}}{2{,}01\\cdot 10^{-4}\\ \\text{m}^2} = 0{,}995\\ \\text{m/s}.$$\n\n**Svar a):** $A_1 = 2{,}0\\cdot 10^{-4}$ m² og $v_1 = 0{,}99$ m/s.\n\n**b)** Åpningens areal:\n\n$$A_2 = \\pi (2{,}0\\cdot 10^{-3}\\ \\text{m})^2 = 1{,}26\\cdot 10^{-5}\\ \\text{m}^2.$$\n\nKontinuitetslikningen gir\n\n$$v_2 = \\frac{q_V}{A_2} = \\frac{2{,}0\\cdot 10^{-4}}{1{,}26\\cdot 10^{-5}}\\ \\text{m/s} = 15{,}9\\ \\text{m/s}.$$\n\n**Svar b):** farten i åpningen er $16$ m/s.\n\n**Rimelighetsvurdering:** diameteren ble redusert med faktoren 4, så arealet med faktoren $4^2 = 16$, og farten skal derfor bli 16 ganger så stor: $16\\cdot 0{,}995 = 15{,}9$ m/s. Det stemmer eksakt — og det er nettopp derfor tommelen over slangeenden gjør at strålen når over hele plenen."
+    },
+    {
+      "id": "fys1001-3-2-oppg-l1b",
+      "type": "exercise",
+      "exercise": {
+        "id": "fys1001-3-2-l1b",
+        "number": "2",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "(Sjanger F.) Et vannrett rør snevres inn fra tverrsnittsareal 8,0 cm² til 2,5 cm². I det brede partiet er farten 1,2 m/s.\n\n**a)** Finn volumstrømmen.\n**b)** Finn farten i det trange partiet.\n**c)** Hva ville farten i det trange partiet blitt om diameteren — ikke arealet — var halvert fra det brede partiet?",
+        "solution": "**a)** Husk arealomregningen $1\\ \\text{cm}^2 = 10^{-4}\\ \\text{m}^2$, altså $A_1 = 8{,}0\\cdot 10^{-4}$ m²:\n\n$$q_V = A_1v_1 = 8{,}0\\cdot 10^{-4}\\ \\text{m}^2\\cdot 1{,}2\\ \\text{m/s} = 9{,}6\\cdot 10^{-4}\\ \\text{m}^3/\\text{s}.$$\n\n**b)** Kontinuitetslikningen med $A_2 = 2{,}5\\cdot 10^{-4}$ m²:\n\n$$v_2 = \\frac{A_1v_1}{A_2} = \\frac{8{,}0\\cdot 10^{-4}\\cdot 1{,}2}{2{,}5\\cdot 10^{-4}}\\ \\text{m/s} = 3{,}84\\ \\text{m/s}.$$\n\n**Svar:** $q_V = 9{,}6\\cdot 10^{-4}$ m³/s og $v_2 = 3{,}8$ m/s.\n\n**c)** Halveres **diameteren**, blir arealet en firedel ($A = \\pi r^2$), og farten fire ganger så stor:\n\n$$v_2 = 4\\cdot 1{,}2\\ \\text{m/s} = 4{,}8\\ \\text{m/s}.$$\n\nMerk forskjellen: en halvering av *arealet* dobler farten, mens en halvering av *diameteren* firedobler den.",
+        "hints": [
+          "Regn om cm² til m² før du setter inn: faktoren er $10^{-4}$.",
+          "Bruk $q_V = Av$ i a) og $A_1v_1 = A_2v_2$ i b).",
+          "I c): hvordan henger arealet sammen med radien for et sirkulært rør?"
+        ]
+      }
+    },
+    {
+      "id": "fys1001-3-2-lokke2",
+      "type": "text",
+      "content": "## Løkke 2: Bernoullis likning og punktvalget *(~14 min)*\n\nKontinuitet forteller hvor fort væsken går. Bernoulli forteller hva det koster i trykk."
+    },
+    {
+      "id": "fys1001-3-2-th-bernoulli",
+      "type": "theorem",
+      "title": "Bernoullis likning",
+      "content": "For en stasjonær strøm av et idealfluid gjelder langs en strømlinje:\n\n$$p + \\rho gh + \\tfrac12\\rho v^2 = \\text{konstant}.$$\n\nAnvendt mellom to punkter blir det\n\n$$p_1 + \\rho gh_1 + \\tfrac12\\rho v_1^2 = p_2 + \\rho gh_2 + \\tfrac12\\rho v_2^2.$$\n\nHer er $p$ trykket, $h$ høyden over et valgt nullnivå, og $v$ farten i det aktuelle punktet.\n\n**Dette er energibevaring per volumenhet.** Sammenlign med [kap. 2.2](/bok/fys1001/fys1001-2-2): der skrev vi $\\tfrac12 mv^2 + mgh = \\text{konstant}$. Deler du hvert ledd på volumet $V$ og bruker $m/V = \\rho$, får du $\\tfrac12\\rho v^2 + \\rho gh$ — nøyaktig de to siste leddene. Trykkleddet $p$ er i tillegg, og representerer arbeidet væsken foran og bak gjør på væskeelementet.\n\nEnhetskontroll: alle tre ledd har enheten Pa $= \\text{J/m}^3$, altså energi per volum. Får du ledd med ulik enhet, har du en feil."
+    },
+    {
+      "id": "fys1001-3-2-def-tre-ledd",
+      "type": "definition",
+      "title": "De tre leddene i Bernoulli",
+      "content": "Det hjelper å ha navn på leddene:\n\n- $p$ — det **statiske trykket**. Det er dette et manometer montert i rørveggen måler.\n- $\\rho gh$ — det **hydrostatiske leddet**. Det du kjenner fra [kap. 3.1](/bok/fys1001/fys1001-3-1): trykkbidraget fra høyden.\n- $\\tfrac12\\rho v^2$ — det **dynamiske trykket**. Bidraget fra bevegelsen.\n\nSummen er konstant langs strømlinjen. Derfor må ett ledd synke når et annet stiger: **vokser farten, faller trykket** (ved samme høyde). Det er hele Bernoulli-effekten i én setning."
+    },
+    {
+      "id": "fys1001-3-2-def-punktvalg",
+      "type": "definition",
+      "title": "Punktvalg-regelen",
+      "content": "Bernoulli er bare nyttig hvis du velger punktene klokt. Regelen er:\n\n**Velg de to punktene der du kjenner flest størrelser.**\n\nI praksis betyr det nesten alltid:\n\n- et punkt på en **stor, fri overflate** (der trykket er $p_0$ og farten praktisk talt null),\n- et punkt i **åpningen eller innsnevringen** du blir spurt om,\n- eller to punkter i **samme høyde** i et vannrett rør, slik at $\\rho gh$-leddene stryker mot hverandre.\n\nSkriv alle seks leddene opp først, og stryk deretter dem som er null eller like på begge sider. Det er den strykingen sensor vil se — den viser at du har vurdert leddene i stedet for å gjette."
+    },
+    {
+      "id": "fys1001-3-2-def-v-null",
+      "type": "definition",
+      "title": "Hvorfor $v \u0007pprox 0$ ved en stor overflate",
+      "content": "Ligger punkt 1 på overflaten av et stort kar eller reservoar, setter vi $v_1 \\approx 0$. Begrunnelsen er kontinuitetslikningen: overflatens areal er enormt sammenlignet med hullets, og $A_1v_1 = A_2v_2$ gir derfor $v_1 = v_2\\,A_2/A_1 \\approx 0$.\n\n**Men bare når arealforholdet er stort.** I et rør som snevres fra 8 cm² til 2,5 cm² kan du ikke sette farten i det brede partiet til null — der er forholdet bare 3,2, og feilen ville blitt grov. Å sette $v \\approx 0$ på feil sted er en av gjengangerfeilene i sjangeren.\n\nSkriv gjerne én setning om antakelsen: «Overflaten er stor sammenlignet med hullet, så jeg setter $v_1 \\approx 0$.»"
+    },
+    {
+      "id": "fys1001-3-2-fig-innsnevring",
+      "type": "image",
+      "src": "/images/textbook/fys1001/fys1001-3-2-innsnevring.svg",
+      "alt": "Vannrett rør som snevres inn på midten. Punkt 1 er markert i det brede partiet med areal A1, fart v1 og trykk p1; punkt 2 er markert i det trange partiet med areal A2, fart v2 og trykk p2. Piler viser at farten er større i det trange partiet. Nederst står kontinuitetslikningen og Bernoulli for samme høyde.",
+      "caption": "Standardskissen for et innsnevret rør: begge punktene navngitt, med areal, fart og trykk. I samme høyde faller de hydrostatiske leddene bort, og Bernoulli reduseres til en balanse mellom trykk og fart."
+    },
+    {
+      "id": "fys1001-3-2-ex-innsnevring",
+      "type": "example",
+      "title": "Trykkfall over en innsnevring",
+      "problem": "Vann ($\\rho = 1{,}00\\cdot 10^{3}$ kg/m³) strømmer gjennom et **vannrett** rør som snevres inn fra tverrsnittsareal 6,0 cm² til 2,0 cm². Farten i det brede partiet er 1,10 m/s.\n\nFinn trykkfallet over innsnevringen.",
+      "solution": "**Punktvalg:** punkt 1 i det brede partiet, punkt 2 i det trange. Begge ligger i **samme høyde**, siden røret er vannrett.\n\n**Trinn 1 — kontinuitet gir farten i det trange partiet.**\n\n$$v_2 = \\frac{A_1v_1}{A_2} = \\frac{6{,}0\\ \\text{cm}^2\\cdot 1{,}10\\ \\text{m/s}}{2{,}0\\ \\text{cm}^2} = 3{,}30\\ \\text{m/s}.$$\n\nLegg merke til at arealene kan stå i cm² her, siden bare forholdet inngår.\n\n**Trinn 2 — Bernoulli mellom punktene.** Vi skriver opp alle leddene:\n\n$$p_1 + \\rho gh_1 + \\tfrac12\\rho v_1^2 = p_2 + \\rho gh_2 + \\tfrac12\\rho v_2^2.$$\n\nRøret er vannrett, så $h_1 = h_2$ og de to hydrostatiske leddene stryker mot hverandre:\n\n$$p_1 + \\tfrac12\\rho v_1^2 = p_2 + \\tfrac12\\rho v_2^2.$$\n\nTrykkfallet blir dermed\n\n$$p_1 - p_2 = \\tfrac12\\rho\\,(v_2^2 - v_1^2) = \\tfrac12\\cdot 1{,}00\\cdot 10^{3}\\ \\text{kg/m}^3\\,\\big((3{,}30)^2 - (1{,}10)^2\\big)\\ \\text{m}^2/\\text{s}^2.$$\n\n$$p_1 - p_2 = 500\\cdot(10{,}89 - 1{,}21)\\ \\text{Pa} = 500\\cdot 9{,}68\\ \\text{Pa} = 4{,}84\\cdot 10^{3}\\ \\text{Pa}.$$\n\n**Svar:** trykket faller med $4{,}84$ kPa over innsnevringen.\n\n**Rimelighetsvurdering:** 4,8 kPa er under 5 % av atmosfæretrykket, altså en beskjeden trykkendring — som forventet ved farter på noen få meter per sekund. Fortegnet er også riktig: trykket er **lavest** der farten er størst.\n\n**Antakelser jeg har brukt:** stasjonær strøm, inkompressibel og ikke-viskøs væske. For vann i et kort rør er alle tre gode tilnærminger. Skriv dette i besvarelsen — det er poenggivende (se løkke 4)."
+    },
+    {
+      "id": "fys1001-3-2-oppg-l2",
+      "type": "exercise",
+      "exercise": {
+        "id": "fys1001-3-2-l2",
+        "number": "3",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "(Sjanger F.) Vann strømmer gjennom et **vannrett** rør. I punkt 1 er trykket $2{,}40\\cdot 10^{5}$ Pa og farten 1,8 m/s. Fram til punkt 2 halveres tverrsnittsarealet.\n\n**a)** Finn farten i punkt 2.\n**b)** Finn trykket i punkt 2.\n**c)** Forklar med én setning hvorfor trykket ikke er det samme i de to punktene.",
+        "solution": "**a)** Kontinuitet: halveres arealet, dobles farten.\n\n$$v_2 = \\frac{A_1}{A_2}v_1 = 2\\cdot 1{,}8\\ \\text{m/s} = 3{,}6\\ \\text{m/s}.$$\n\n**b)** Bernoulli i samme høyde ($\\rho gh$-leddene stryker):\n\n$$p_1 + \\tfrac12\\rho v_1^2 = p_2 + \\tfrac12\\rho v_2^2$$\n\n$$p_2 = p_1 + \\tfrac12\\rho\\,(v_1^2 - v_2^2) = 2{,}40\\cdot 10^{5}\\ \\text{Pa} + 500\\,(3{,}24 - 12{,}96)\\ \\text{Pa}.$$\n\n$$p_2 = 2{,}40\\cdot 10^{5}\\ \\text{Pa} - 4{,}86\\cdot 10^{3}\\ \\text{Pa} = 2{,}35\\cdot 10^{5}\\ \\text{Pa}.$$\n\n**Svar:** $v_2 = 3{,}6$ m/s og $p_2 = 2{,}35\\cdot 10^{5}$ Pa.\n\n**c)** Summen av trykk og dynamisk trykk er konstant langs strømlinjen. Farten øker i det trange partiet, så det dynamiske leddet $\\tfrac12\\rho v^2$ vokser — og da må det statiske trykket $p$ synke tilsvarende.",
+        "hints": [
+          "Start med kontinuitetslikningen for å finne farten.",
+          "Skriv opp alle seks leddene i Bernoulli, og stryk dem som er like.",
+          "Pass fortegnet: trykket skal bli LAVERE der farten er størst."
+        ]
+      }
+    },
+    {
+      "id": "fys1001-3-2-lokke3",
+      "type": "text",
+      "content": "## Løkke 3: Torricelli — utstrømning fra en tank *(~12 min)*\n\n— naturlig pausepunkt —\n\nNå kommer den varianten arkivet bruker oftest: en beholder med et hull. Resultatet er så nyttig at det har eget navn, men du skal kunne **utlede** det, ikke bare bruke det."
+    },
+    {
+      "id": "fys1001-3-2-def-torricelli",
+      "type": "definition",
+      "title": "Torricellis lov",
+      "content": "Strømmer væske ut av et lite hull en høyde $H$ under den frie overflaten i en stor, åpen beholder, er utstrømningsfarten\n\n$$v = \\sqrt{2gH}.$$\n\n**Utledningen** (den du skal kunne gjennomføre på eksamen): velg punkt 1 på overflaten og punkt 2 i hullet, med nullnivå i hullet.\n\n- I punkt 1: trykket er $p_0$ (åpen beholder), farten er $\\approx 0$ (stor overflate), høyden er $H$.\n- I punkt 2: trykket er $p_0$ (strålen går ut i lufta), høyden er 0, farten er $v$.\n\nBernoulli gir\n\n$$p_0 + \\rho gH + 0 = p_0 + 0 + \\tfrac12\\rho v^2.$$\n\nAtmosfæretrykket står på begge sider og stryker. Tettheten forkortes bort, og vi står igjen med $gH = \\tfrac12 v^2$, altså $v = \\sqrt{2gH}$.\n\n**Legg merke til to ting.** For det første er dette samme uttrykk som for et fritt fall fra høyden $H$ (se [kap. 2.2](/bok/fys1001/fys1001-2-2)) — ikke tilfeldig, siden begge er energibevaring. For det andre forsvinner både tettheten og trykket: **kvikksølv og vann strømmer ut med samme fart** fra samme dybde."
+    },
+    {
+      "id": "fys1001-3-2-fig-tank",
+      "type": "image",
+      "src": "/images/textbook/fys1001/fys1001-3-2-tank.svg",
+      "alt": "Åpen tank fylt med vann. Punkt 1 er markert på den store frie overflaten med farten tilnærmet null og trykket p-null. Punkt 2 er et lite hull i sideveggen en høyde H lenger ned, med trykket p-null og utstrømningsfarten v2. En buet stråle går ut fra hullet. Nederst står Bernoulli-oppsettet og resultatet v2 lik kvadratroten av 2gH.",
+      "caption": "Punktvalget som gir Torricelli: overflaten (kjent trykk, fart null) og hullet (kjent trykk, ukjent fart). Begge trykkleddene er $p_0$ og stryker mot hverandre."
+    },
+    {
+      "id": "fys1001-3-2-ex-vanntarn",
+      "type": "example",
+      "title": "Vanntårnet",
+      "problem": "Et vanntårn har fri vannoverflate 11 m over en tappekran med tverrsnittsareal 3,0 cm². Kranen åpnes helt.\n\n**a)** Finn utstrømningsfarten.\n**b)** Finn volumstrømmen ut av kranen, i m³/s og i liter per sekund.\n**c)** Gjør rede for antakelsene du har brukt.",
+      "solution": "**a)** **Punktvalg:** punkt 1 på den frie overflaten i tårnet, punkt 2 i kranåpningen. Nullnivå i kranen.\n\nOverflaten er stor sammenlignet med kranåpningen, så $v_1 \\approx 0$. Begge punktene har trykket $p_0$: overflaten er åpen mot lufta, og strålen går ut i lufta.\n\n$$p_0 + \\rho gH + 0 = p_0 + 0 + \\tfrac12\\rho v_2^2 \\quad\\Longrightarrow\\quad v_2 = \\sqrt{2gH}.$$\n\n$$v_2 = \\sqrt{2\\cdot 9{,}81\\ \\text{m/s}^2\\cdot 11\\ \\text{m}} = \\sqrt{216\\ \\text{m}^2/\\text{s}^2} = 14{,}7\\ \\text{m/s}.$$\n\n**Svar a):** utstrømningsfarten er $14{,}7$ m/s.\n\n**b)** $A_2 = 3{,}0\\ \\text{cm}^2 = 3{,}0\\cdot 10^{-4}$ m²:\n\n$$q_V = A_2v_2 = 3{,}0\\cdot 10^{-4}\\ \\text{m}^2\\cdot 14{,}7\\ \\text{m/s} = 4{,}41\\cdot 10^{-3}\\ \\text{m}^3/\\text{s} = 4{,}4\\ \\text{L/s}.$$\n\n**c)** Utregningen hviler på fire antakelser:\n\n1. **Stasjonær strøm** — vannivået i tårnet synker så langsomt at $H$ kan regnes konstant. Rimelig for et stort tårn og en liten kran.\n2. **Inkompressibel væske** — vann har praktisk talt konstant tetthet. Godt oppfylt.\n3. **Ikke-viskøs væske** — indre friksjon i vannet og mot rørveggene er neglisjert. Godt oppfylt for vann over korte avstander, dårligere gjennom lange, trange ledninger.\n4. **Stor overflate** — som gjør at $v_1 \\approx 0$. Godt oppfylt her.\n\n**Rimelighetsvurdering:** 14,7 m/s er om lag 53 km/t. Det er en kraftig stråle, og den svarer til at vannet «faller» 11 m — som er nettopp det energiregnskapet sier. I virkeligheten blir farten noe lavere fordi vi har neglisjert friksjonen i røret og innsnevringstapet i kranen."
+    },
+    {
+      "id": "fys1001-3-2-oppg-l3",
+      "type": "exercise",
+      "exercise": {
+        "id": "fys1001-3-2-l3",
+        "number": "4",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "(Sjanger F.) En stor, åpen tank er fylt med vann til 2,5 m over et lite hull i sideveggen. Hullet har areal 1,5 cm².\n\n**a)** Finn utstrømningsfarten gjennom hullet.\n**b)** Finn volumstrømmen.\n**c)** Etter en stund har vannivået sunket til 1,2 m over hullet. Finn den nye utstrømningsfarten, og forklar hvorfor farten ikke halveres når høyden nesten halveres.",
+        "solution": "**a)** Punkt 1 på overflaten ($v_1 \\approx 0$, trykk $p_0$), punkt 2 i hullet (trykk $p_0$), nullnivå i hullet. Bernoulli gir Torricelli:\n\n$$v = \\sqrt{2gH} = \\sqrt{2\\cdot 9{,}81\\ \\text{m/s}^2\\cdot 2{,}5\\ \\text{m}} = \\sqrt{49{,}1\\ \\text{m}^2/\\text{s}^2} = 7{,}00\\ \\text{m/s}.$$\n\n**b)** $A = 1{,}5\\ \\text{cm}^2 = 1{,}5\\cdot 10^{-4}$ m²:\n\n$$q_V = Av = 1{,}5\\cdot 10^{-4}\\ \\text{m}^2\\cdot 7{,}00\\ \\text{m/s} = 1{,}05\\cdot 10^{-3}\\ \\text{m}^3/\\text{s} = 1{,}05\\ \\text{L/s}.$$\n\n**c)** Med $H = 1{,}2$ m:\n\n$$v = \\sqrt{2\\cdot 9{,}81\\cdot 1{,}2}\\ \\text{m/s} = \\sqrt{23{,}5}\\ \\text{m/s} = 4{,}85\\ \\text{m/s}.$$\n\nFarten er altså redusert fra 7,00 m/s til 4,85 m/s, en nedgang på 31 % — ikke 52 % som høyden. Grunnen er **kvadratroten**: farten går som $\\sqrt{H}$, ikke som $H$. Halveres høyden, blir farten $\\sqrt{0{,}5} = 0{,}71$ ganger så stor.\n\n**Svar:** $7{,}00$ m/s, $1{,}05$ L/s og $4{,}85$ m/s.",
+        "hints": [
+          "Velg punkt 1 på overflaten og punkt 2 i hullet, og si hvorfor $v_1 \\approx 0$.",
+          "Begge punktene har trykket $p_0$ — hva skjer da med trykkleddene?",
+          "I c): se på hvordan $H$ inngår i uttrykket for $v$. Er sammenhengen lineær?"
+        ]
+      }
+    },
+    {
+      "id": "fys1001-3-2-lokke4",
+      "type": "text",
+      "content": "## Løkke 4: Gyldighetsbetingelsene — toppnivåkravet *(~11 min)*\n\nHer ligger de poengene som skiller toppsjiktet. Bernoulli er ikke en universallov; den gjelder for en idealisert væske i en idealisert strøm, og eksamen tester om du vet når idealiseringen brister."
+    },
+    {
+      "id": "fys1001-3-2-def-idealfluid",
+      "type": "definition",
+      "title": "Idealfluid og de tre betingelsene",
+      "content": "Bernoullis likning gjelder for et **idealfluid** i **stasjonær** strøm langs en strømlinje. De tre betingelsene er:\n\n1. **Inkompressibelt** — tettheten $\\rho$ er konstant. Godt oppfylt for væsker, dårligere for gasser i høy fart.\n2. **Ikke-viskøst** — ingen indre friksjon. Væsken taper ikke energi til varme underveis.\n3. **Stasjonær strøm** — fart og trykk i hvert punkt er konstante over tid.\n\nI tillegg må de to punktene ligge på **samme strømlinje**, og det må ikke tilføres eller tas ut energi mellom dem.\n\nSkriv disse tre i besvarelsen når oppgaven inviterer til det — og en oppgave som slutter med «vurder» eller «gjør rede for antakelsene» inviterer alltid."
+    },
+    {
+      "id": "fys1001-3-2-def-viskositet",
+      "type": "definition",
+      "title": "Viskositet",
+      "content": "**Viskositet** er en væskes indre friksjon — dens motstand mot å strømme. Vann har lav viskositet, honning og lava høy. Symbolet er $\\eta$ («eta»), samme bokstav som virkningsgrad i [kap. 2.1](/bok/fys1001/fys1001-2-1), men her med en helt annen betydning.\n\nI en viskøs væske går mekanisk energi tapt til varme underveis, akkurat som friksjonsleddet $R\\cdot s$ i [kap. 2.2](/bok/fys1001/fys1001-2-2). Da er ikke summen $p + \\rho gh + \\tfrac12\\rho v^2$ konstant, men **avtakende** i strømretningen — og Bernoulli overestimerer farten.\n\nPraktisk konsekvens: Bernoulli gir gode svar for vann i korte, vide rør, men blir stadig dårligere for tykke væsker og for lange, trange ledninger."
+    },
+    {
+      "id": "fys1001-3-2-def-brudd",
+      "type": "definition",
+      "title": "Fire situasjoner der Bernoulli ikke gjelder",
+      "content": "Kjenn igjen disse, for de er selve gyldighetsvurderingen:\n\n1. **Viskøs væske.** Lava, sirup, olje, blod i tynne årer. Energitap til indre friksjon.\n2. **Flerfasestrøm.** Væske med gassbobler eller faste partikler — lava med gassbobler og krystaller er skoleeksempelet. Da er ikke tettheten en veldefinert konstant.\n3. **Ikke-stasjonær strøm.** En tank som tømmes raskt, en trykkbølge, en ventil som åpnes brått.\n4. **Energi tilføres eller tas ut mellom punktene.** En **pumpe** tilfører energi, en **turbin** tar ut energi. Bernoulli mellom et punkt før og et punkt etter en pumpe er alltid feil — leddene balanserer ikke, fordi pumpearbeidet mangler i regnskapet.\n\nKonklusjonen skal være **skarp**, ikke helgardert: «Lava er en viskøs flerfasestrøm, så Bernoulli gir bare en øvre grense for farten — den virkelige farten er lavere.»"
+    },
+    {
+      "id": "fys1001-3-2-ex-sirup",
+      "type": "example",
+      "title": "Når Torricelli gir feil svar",
+      "problem": "En student regner på et kar med tykk sirup som tappes gjennom et rør i bunnen. Sirupoverflaten står 1,0 m over utløpet. Studenten bruker Torricelli og får $v = \\sqrt{2\\cdot 9{,}81\\cdot 1{,}0} = 4{,}4$ m/s.\n\nVurder svaret. Er det for høyt, for lavt, eller riktig — og hvorfor?",
+      "solution": "**Svaret er for høyt**, og feilen er systematisk, ikke tilfeldig.\n\nTorricelli følger av Bernoulli, som forutsetter et **ikke-viskøst** fluid. Sirup har svært høy viskositet: den taper mye mekanisk energi til indre friksjon og til friksjon mot rørveggen på vei ut. Den energien er ikke med i regnskapet $\\rho gH = \\tfrac12\\rho v^2$, og derfor overestimerer utregningen farten.\n\nHvor mye? Det kan vi ikke si uten viskositetsdata og rørgeometri — men vi kan si **retningen** med sikkerhet: energitap gir lavere fart, aldri høyere. $4{,}4$ m/s er altså en **øvre grense**.\n\nAt sirup faktisk siler langsomt ut av en flaske, mens vann fosser, er hverdagsbekreftelsen på nettopp dette.\n\n**Slik ville jeg skrevet det på eksamen:** «Torricelli forutsetter et ikke-viskøst idealfluid. Sirup er svært viskøs, så en betydelig del av den potensielle energien går til indre friksjon i stedet for til fart. Utregningen gir derfor en øvre grense; den virkelige utstrømningsfarten er lavere enn 4,4 m/s.»\n\n**Merk konklusjonsformen.** Den er skarp og lander på én side. Å skrive «det kan være riktig, men det kan også være galt» ville vært helgardering, og det trekkes det for."
+    },
+    {
+      "id": "fys1001-3-2-oppg-l4a",
+      "type": "exercise",
+      "exercise": {
+        "id": "fys1001-3-2-l4a",
+        "number": "5",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "(Sjanger Q — kvalitativ, gyldighetsvurdering. Svar i 2–4 setninger.) I en oppgave om et vulkanutbrudd blir Bernoullis likning brukt til å regne ut hvor fort lava presses opp gjennom en kanal fra et magmakammer.\n\nVurder om Bernoulli er et gyldig verktøy her, og si hva svaret i så fall er verdt.",
+        "solution": "Bernoulli hviler på at fluidet er inkompressibelt, ikke-viskøst og i stasjonær strøm. Lava bryter **minst to** av betingelsene: den er svært viskøs, og den er en flerfasestrøm med gassbobler og faste krystaller, slik at tettheten verken er konstant eller veldefinert. I tillegg er et utbrudd typisk støtvist og dermed ikke-stasjonært.\n\nRegningen er derfor ikke en beskrivelse av virkeligheten, men et **overslag som gir en øvre grense** for farten: all energi som i praksis går til indre friksjon, er i modellen regnet som fart.\n\n**Konklusjon:** bruk gjerne Bernoulli som første overslag, men oppgi eksplisitt at den virkelige oppstrømningsfarten er lavere.",
+        "hints": [
+          "Ramse opp de tre betingelsene, og gå gjennom dem én for én.",
+          "Tenk over hva lava består av, ikke bare hvor tykk den er.",
+          "Konkluder skarpt: er svaret en øvre eller en nedre grense?"
+        ]
+      }
+    },
+    {
+      "id": "fys1001-3-2-oppg-l4b",
+      "type": "exercise",
+      "exercise": {
+        "id": "fys1001-3-2-l4b",
+        "number": "6",
+        "type": "classic",
+        "difficulty": "vanskelig",
+        "task": "(Sjanger Q — **krevende**. Svar i 2–4 setninger.) En student setter opp Bernoullis likning mellom et punkt i røret rett før en vannpumpe og et punkt rett etter den, og blir overrasket over at leddene ikke balanserer.\n\n**a)** Forklar hvorfor oppsettet er feil.\n**b)** Hva må legges til i regnskapet for at det skal stemme?",
+        "solution": "**a)** Bernoullis likning uttrykker at den mekaniske energien per volum er **bevart** mellom de to punktene. En pumpe **tilfører** energi til væsken — det er hele hensikten med den. Da er ikke summen $p + \\rho gh + \\tfrac12\\rho v^2$ den samme på begge sider, og ligningen slik den står, er ikke gyldig. Samme sak gjelder motsatt vei over en turbin, som tar energi *ut*.\n\n**b)** Regnskapet må utvides med pumpens arbeid per volumenhet. Skriver vi det som $w_{\\text{pumpe}}$ (med enhet J/m³, altså Pa), blir sammenhengen\n\n$$p_1 + \\rho gh_1 + \\tfrac12\\rho v_1^2 + w_{\\text{pumpe}} = p_2 + \\rho gh_2 + \\tfrac12\\rho v_2^2.$$\n\n**Konklusjon:** velg alltid to punkter som ligger på samme side av pumpa — det er den enkleste utveien og den løsningsforslagene bruker.",
+        "hints": [
+          "Hva er det Bernoullis likning egentlig sier om energien mellom to punkter?",
+          "Hva gjør en pumpe med væskens energi?",
+          "I b): tenk på hvilken enhet et ekstra ledd må ha for å passe inn i ligningen."
+        ]
+      }
+    },
+    {
+      "id": "fys1001-3-2-lokke5",
+      "type": "text",
+      "content": "## Løkke 5: Poiseuille — *bør kjenne til* *(~6 min)*\n\nDette er **kjenne-stoff**, plassert sist fordi det er minst eksamensrelevant: Poiseuille har dukket opp i kortsvar i settene fra våren 2015 og våren 2016, alltid i blodstrøm-sammenheng, og alltid som en kvalitativ innsikt. Du skal kjenne konsekvensen, ikke pugge formelen."
+    },
+    {
+      "id": "fys1001-3-2-def-poiseuille",
+      "type": "definition",
+      "title": "Poiseuille-innsikten *(bør kjenne til)*",
+      "content": "For en **viskøs** væske i laminær strøm gjennom et sylindrisk rør med radius $r$ og lengde $l$ er trykkfallet som må til for å opprettholde en gitt volumstrøm\n\n$$\\Delta p \\propto \\frac{l}{r^4}.$$\n\nSelve formelen med konstanter og viskositeten $\\eta$ hentes fra tabellverket når du trenger den. **Innsikten** du skal ha, er fjerdepotensen:\n\n- Halveres radien, må trykkfallet være $2^4 = 16$ ganger større for samme strøm.\n- Reduseres radien med bare 20 %, må trykkfallet øke med faktoren $1/0{,}80^4 = 2{,}4$ — altså mer enn en dobling.\n\nDette er medisinsk viktig: en beskjeden forkalkning eller sammentrekning i en blodåre endrer strømningsmotstanden dramatisk, og hjertet må jobbe tilsvarende hardere. Samme innsikt forklarer hvorfor en tett nese er så påfallende — en liten hevelse i slimhinnen gir stor motstandsøkning.\n\nMerk hvor dette skiller seg fra Bernoulli: Poiseuille handler nettopp om det Bernoulli ser bort fra, nemlig viskositeten."
+    },
+    {
+      "id": "fys1001-3-2-oppg-l5",
+      "type": "exercise",
+      "exercise": {
+        "id": "fys1001-3-2-l5",
+        "number": "7",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "(Sjanger Q — kvalitativ, *kjenne*-stoff. Svar i 2–4 setninger.) En blodåre trekker seg sammen slik at radien blir 20 % mindre, mens lengden er uendret.\n\nAnslå hvor mye større trykkforskjell hjertet må skape for å holde volumstrømmen uendret, og kommenter hva det betyr.",
+        "solution": "Trykkfallet som må til, er omvendt proporsjonalt med radien i fjerde potens: $\\Delta p \\propto 1/r^4$. Med radien redusert til $0{,}80$ av opprinnelig verdi blir faktoren\n\n$$\\frac{1}{0{,}80^4} = \\frac{1}{0{,}41} = 2{,}4.$$\n\nHjertet må altså skape om lag **2,4 ganger** så stor trykkforskjell for å holde blodstrømmen uendret.\n\n**Kommentar:** en tilsynelatende beskjeden innsnevring på 20 % mer enn dobler belastningen. Det er derfor små endringer i blodårenes tverrsnitt har så store fysiologiske konsekvenser — fjerdepotensen forstørrer alt.",
+        "hints": [
+          "Hvilken potens av radien inngår i trykkfallet?",
+          "Sett $r_{\\text{ny}} = 0{,}80\\,r$ og regn ut forholdet mellom de to trykkfallene.",
+          "Kommenter at effekten er langt større enn de 20 prosentene antyder."
+        ]
+      }
+    },
+    {
+      "id": "fys1001-3-2-warn-typiske-feil",
+      "type": "warning",
+      "title": "Typiske feil",
+      "content": "Feilene under har egne numre i bokas samlede feilregister (feilkatalogen i kapittel 8.1) — nummeret er bare en etikett du kan slå opp på senere.\n\n- **Feil #4 — bruke Bernoulli ukritisk.** Å regne uten å nevne betingelsene koster toppnivåpoengene, og å regne på lava eller sirup som om det var vann er direkte galt. Legg til to setninger om antakelsene når konteksten inviterer.\n- **Velge punkter der ingenting er kjent.** Punktvalget er halve oppgaven. Let etter en fri overflate, en åpning eller to punkter i samme høyde.\n- **Sette $v \\approx 0$ der det ikke gjelder.** Antakelsen krever at arealet er *mye* større, som en tankoverflate mot et hull. I et rør som snevres fra 6 til 2 cm² gjelder den ikke.\n- **Blande volumstrøm og fart.** $q_V$ måles i m³/s, $v$ i m/s. Spør oppgaven «hvor mye vann per sekund», er svaret en volumstrøm.\n- **Bruke diameter der arealet skal inn.** For sirkulære rør er $A = \\pi r^2$, så halvert diameter gir firedoblet fart — ikke doblet.\n- **Feil arealomregning.** $1\\ \\text{cm}^2 = 10^{-4}\\ \\text{m}^2$, ikke $10^{-2}$.\n- **Bruke Bernoulli over en pumpe eller turbin.** Der tilføres eller tas det ut energi, og likningen gjelder ikke.\n- **Glemme kvadratroten i Torricelli.** Farten går som $\\sqrt{H}$: firedobler du høyden, dobles farten.\n- **Svar uten enhet.** Trykk i Pa (og bar der oppgaven bruker bar), fart i m/s, volumstrøm i m³/s."
+    },
+    {
+      "id": "fys1001-3-2-begrepsbank-tekst",
+      "type": "text",
+      "content": "## Begrepsbank\n\nDette er flashcard-/repetisjonsstoff — hopp trygt over ved førstegangslesing; tidsanslaget gjelder kjernestoffet."
+    },
+    {
+      "id": "fys1001-3-2-bb-stromlinje",
+      "type": "definition",
+      "title": "Strømlinje",
+      "content": "En **strømlinje** er kurven en tenkt væskepartikkel følger gjennom strømmen. I stasjonær strøm er strømlinjene faste i rommet, og de tegnes tettere der farten er stor.\n\nBernoullis likning gjelder **langs en strømlinje**. Det er sjelden en praktisk begrensning i eksamensoppgavene — reservoaroverflaten og hullet ligger på samme strømlinje — men det er verdt å nevne når en oppgave ber om betingelsene."
+    },
+    {
+      "id": "fys1001-3-2-bb-venturi",
+      "type": "definition",
+      "title": "Venturi-effekten",
+      "content": "Navnet på fenomenet at trykket faller i en innsnevring fordi farten øker. Effekten brukes praktisk i **venturimåler** (måler volumstrøm ved å måle trykkfallet over en kjent innsnevring), i forstøvere og i karburatorer.\n\nSammenhengen: kontinuitet gir større fart i det trange partiet, og Bernoulli oversetter fartsøkningen til et trykkfall, $p_1 - p_2 = \\tfrac12\\rho(v_2^2 - v_1^2)$."
+    },
+    {
+      "id": "fys1001-3-2-bb-tak",
+      "type": "definition",
+      "title": "Hvorfor taket blåser av i storm",
+      "content": "Vinden må øke farten når den passerer over en takrygg, på samme måte som i en innsnevring. Etter Bernoulli betyr større fart lavere trykk, så trykket **over** taket blir mindre enn trykket i den nesten stillestående lufta inne i huset.\n\nTrykkforskjellen virker på hele takflaten, og fordi arealet er stort, blir kraften stor. Det er samme mekanisme som gir løft på en flyvinge — og en av de mest brukte kvalitative Bernoulli-oppgavene."
+    },
+    {
+      "id": "fys1001-3-2-bb-enheter-strom",
+      "type": "definition",
+      "title": "Enheter for volumstrøm",
+      "content": "De omregningene du trenger i praksis:\n\n- $1\\ \\text{L} = 10^{-3}\\ \\text{m}^3$\n- $1\\ \\text{L/s} = 10^{-3}\\ \\text{m}^3/\\text{s}$\n- $1\\ \\text{L/min} = \\dfrac{10^{-3}}{60}\\ \\text{m}^3/\\text{s} = 1{,}67\\cdot 10^{-5}\\ \\text{m}^3/\\text{s}$\n\nRegn alltid om til m³/s før du setter inn i formlene, og gjør om tilbake til liter i svaret hvis oppgaven bruker liter. Det er lettere å lese rimeligheten av «4,4 L/s» enn av «$4{,}4\\cdot 10^{-3}$ m³/s»."
+    },
+    {
+      "id": "fys1001-3-2-bb-fylletid",
+      "type": "definition",
+      "title": "Fylletid og tømmetid",
+      "content": "Kjenner du volumstrømmen, får du tiden det tar å fylle eller tømme et volum $V$:\n\n$$t = \\frac{V}{q_V}.$$\n\nTo advarsler. For det første må volumstrømmen være **konstant** for at dette skal være eksakt. For det andre er den ikke konstant når en tank tømmes gjennom et hull: farten går som $\\sqrt{H}$, og $H$ synker underveis, så strømmen avtar. Tømmetiden blir derfor lengre enn $V/q_V$ regnet med starthøyden — den utregningen gir en **nedre grense**."
+    },
+    {
+      "id": "fys1001-3-2-bb-trykkbegrep",
+      "type": "definition",
+      "title": "Statisk, dynamisk og totalt trykk",
+      "content": "Tre navn du kan møte i oppgavetekster:\n\n- **Statisk trykk** $p$ — det et manometer i rørveggen måler.\n- **Dynamisk trykk** $\\tfrac12\\rho v^2$ — bidraget fra farten.\n- **Totaltrykk** (stagnasjonstrykk) $p + \\tfrac12\\rho v^2$ — det du måler med et rør som peker rett mot strømmen, slik at væsken bremses til null der.\n\nDifferansen mellom totaltrykk og statisk trykk gir farten. Det er prinsippet bak pitotrøret som måler farten til et fly."
+    },
+    {
+      "id": "fys1001-3-2-bb-pitot",
+      "type": "definition",
+      "title": "Pitotrør",
+      "content": "Et lite rør som peker rett mot strømmen. Væsken eller lufta bremses til null i åpningen, så røret måler **totaltrykket** $p + \\tfrac12\\rho v^2$. Måler du i tillegg det statiske trykket med et hull i siden, gir differansen farten:\n\n$$\\tfrac12\\rho v^2 = p_{\\text{tot}} - p \\quad\\Longrightarrow\\quad v = \\sqrt{\\frac{2(p_{\\text{tot}} - p)}{\\rho}}.$$\n\nDette er hvordan et fly måler farten sin gjennom lufta. Utledningen er ren Bernoulli mellom et punkt i den frie strømmen og et punkt der farten er bremset til null."
+    },
+    {
+      "id": "fys1001-3-2-bb-laminar-turbulent",
+      "type": "definition",
+      "title": "Laminær og turbulent strøm",
+      "content": "**Laminær** strøm følger jevne, parallelle strømlinjer som ikke krysser hverandre — som vann fra en kran som nettopp er åpnet. **Turbulent** strøm er virvlete og uordnet, som vann fra en kran åpnet helt.\n\nBernoulli forutsetter i praksis laminær, stasjonær strøm. I turbulent strøm går mye energi til virvler og varme, og ligningen overestimerer farten. Poiseuille-uttrykket gjelder også bare laminært. Grensen mellom de to bestemmes av fart, rørdiameter, tetthet og viskositet, men selve kriteriet er ikke pensum her."
+    },
+    {
+      "id": "fys1001-3-2-bb-sifonen",
+      "type": "definition",
+      "title": "Sifongen",
+      "content": "En slange som leder væske opp over kanten av et kar og ned på utsiden, slik at karet tømmes uten pumpe. Legger du punkt 1 på overflaten i karet og punkt 2 ved slangens utløp, gir Bernoulli\n\n$$v_2 = \\sqrt{2g\\,\\Delta h},$$\n\nder $\\Delta h$ er høydeforskjellen mellom overflaten og **utløpet** — ikke toppen av slangen. Igjen samme Torricelli-uttrykk.\n\nBetingelsen for at sifongen virker, er at utløpet ligger lavere enn overflaten. Ligger det høyere, stopper strømmen."
+    },
+    {
+      "id": "fys1001-3-2-rep",
+      "type": "collapsible",
+      "title": "Rask repetisjon",
+      "buttonText": "Vis repetisjon",
+      "content": [
+        {
+          "id": "fys1001-3-2-rep-text",
+          "type": "text",
+          "content": "## Rask repetisjon av kapittel 3.2\n\n**Kontinuitet og volumstrøm**\n\n$$q_V = Av, \\qquad A_1v_1 = A_2v_2$$\n\nArealet, ikke diameteren: halvert diameter gir firedoblet fart.\n\n**Bernoulli**\n\n$$p_1 + \\rho gh_1 + \\tfrac12\\rho v_1^2 = p_2 + \\rho gh_2 + \\tfrac12\\rho v_2^2$$\n\nEnergibevaring per volum; alle ledd i Pa $=$ J/m³. Vannrett rør: $\\rho gh$-leddene stryker. Åpen mot lufta i begge punkter: trykkleddene stryker.\n\n**Torricelli**\n\n$$v = \\sqrt{2gH}$$\n\nUavhengig av tetthet. Utled den fra Bernoulli — ikke bare sett den inn.\n\n**Punktvalg-oppskriften**\n\n1. Skisser strømmen, sett punkt 1 og 2 der du kjenner flest størrelser.\n2. Skriv opp alle seks leddene.\n3. Stryk dem som er null eller like, og si hvorfor.\n4. Bruk kontinuitet hvis to tverrsnitt inngår.\n5. Vurder gyldigheten når konteksten inviterer.\n\n**Gyldighet: tre betingelser**\n\nInkompressibelt · ikke-viskøst · stasjonær strøm. Bryter noe av dette (lava, sirup, blod i tynne årer, pumpe mellom punktene), er svaret en **øvre grense** — si det skarpt."
+        }
+      ]
+    },
+    {
+      "id": "fys1001-3-2-symbolliste",
+      "type": "collapsible",
+      "title": "Symbol- og formelliste",
+      "buttonText": "Vis symboler og formler",
+      "content": [
+        {
+          "id": "fys1001-3-2-symbolliste-text",
+          "type": "text",
+          "content": "## Symbol- og formelliste\n\n*Oppslagsverk — alt her forklares underveis i kapitlet.*\n\nAlle symboler og formler i delkapittel 3.2. Merk tre symboler som betyr noe annet andre steder i boka: i **dette** delkapitlet er $p$ **trykk** (i Del 2 er $p$ bevegelsesmengde), $\\eta$ er **viskositet** (i kap. 2.1 er $\\eta$ virkningsgrad), og $\\rho$ er alltid væskens tetthet.\n\n| Symbol | Betydning | SI-enhet |\n|---|---|---|\n| $p$, $p_1$, $p_2$ | **Trykk** (statisk trykk) i punkt 1 og 2 | Pa |\n| $p_0$ | Atmosfæretrykket, $1{,}01\\cdot 10^{5}$ | Pa |\n| $\\rho$ | Væskens tetthet | kg/m³ |\n| $v$, $v_1$, $v_2$ | Fart i punkt 1 og 2 | m/s |\n| $h$, $h_1$, $h_2$ | Høyde over valgt nullnivå | m |\n| $H$ | Høydeforskjell fra fri overflate ned til utløpet | m |\n| $A$, $A_1$, $A_2$ | Tverrsnittsareal | m² |\n| $r$ | Radius i sirkulært rør, $A = \\pi r^2$ | m |\n| $l$ | Rørlengde (i Poiseuille) | m |\n| $q_V$ | Volumstrøm | m³/s |\n| $g$ | Tyngdeakselerasjonen, $9{,}81$ | m/s² |\n| $\\eta$ | **Viskositet** i dette delkapitlet | Pa·s |\n| $\\Delta p$ | Trykkforskjell | Pa |\n| $w_{\\text{pumpe}}$ | Pumpearbeid per volumenhet | Pa = J/m³ |\n| $t$ | Tid (fylle- eller tømmetid) | s |\n\n**Formler i dette delkapitlet:**\n\n$$q_V = Av$$\nVolumstrøm. *(står på formelarket — må kunne brukes aktivt)*\n\n$$A_1v_1 = A_2v_2$$\nKontinuitetslikningen for inkompressibel, stasjonær strøm. *(står på formelarket — må kunne brukes aktivt)*\n\n$$A = \\pi r^2$$\nTverrsnittsareal av sirkulært rør. *(geometri — må kunne brukes aktivt)*\n\n$$p + \\rho gh + \\tfrac12\\rho v^2 = \\text{konstant}$$\nBernoullis likning langs en strømlinje. *(står på formelarket — men punktvalget og strykingen av ledd må du gjøre selv)*\n\n$$p_1 - p_2 = \\tfrac12\\rho\\,(v_2^2 - v_1^2)$$\nTrykkfall over en innsnevring i vannrett rør. *(følger av Bernoulli — må kunne utledes aktivt)*\n\n$$v = \\sqrt{2gH}$$\nTorricellis lov for utstrømning fra stor, åpen beholder. *(følger av Bernoulli — utledningen må kunne gjennomføres aktivt)*\n\n$$p + \\tfrac12\\rho v^2$$\nTotaltrykk (stagnasjonstrykk). *(må kunne brukes aktivt i kvalitative sammenhenger)*\n\n$$t = \\frac{V}{q_V}$$\nFylletid ved konstant volumstrøm. *(må kunne settes opp aktivt)*\n\n$$\\Delta p \\propto \\frac{l}{r^4}$$\nPoiseuille-innsikten for viskøs strøm. *(hentes fra tabellverket; kun den kvalitative konsekvensen er kjenne-stoff)*\n\n$$g = 9{,}81\\ \\text{m/s}^2, \\qquad p_0 = 1{,}01\\cdot 10^{5}\\ \\text{Pa}, \\qquad \\rho_{\\text{vann}} = 1{,}00\\cdot 10^{3}\\ \\text{kg/m}^3$$\nKonstanter og tabellverdier. *(hentes fra formelark/tabell)*"
+        }
+      ]
+    }
+  ],
+  "exercises": []
+}
