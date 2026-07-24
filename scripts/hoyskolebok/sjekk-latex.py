@@ -83,12 +83,18 @@ def main():
                 avvik.append(f"KONTROLLTEGN {KTRL[o]} i {navn}{sti}: {s[max(0,i-40):i+25]!r}")
 
     # 2.–4. matteuttrykk
+    # Kapittel-JSON leses med json.load, så strengene er alt avescapet. Quiz-.ts-fila
+    # leses som rå tekst, der LaTeX står escapet for JS-strengen (`\\alpha`) — den må
+    # avescapes, ellers rapporterer KaTeX falske feil på hver kommando.
+    def avescape(tex, navn):
+        return tex.replace("\\\\", "\\") if navn.endswith(".ts") else tex
+
     uttrykk = []
     for navn, _, s in alle:
         for m in re.finditer(r"\$\$([\s\S]+?)\$\$", s):
-            uttrykk.append((navn, m.group(1), True))
+            uttrykk.append((navn, avescape(m.group(1), navn), True))
         for m in re.finditer(r"\$([^$\n]+?)\$", re.sub(r"\$\$[\s\S]+?\$\$", "", s)):
-            uttrykk.append((navn, m.group(1), False))
+            uttrykk.append((navn, avescape(m.group(1), navn), False))
 
     for navn, tex, _ in uttrykk:
         if tex.rstrip().endswith("\\") and not tex.rstrip().endswith("\\\\"):
@@ -104,13 +110,19 @@ def main():
         with tempfile.NamedTemporaryFile("w", suffix=".js", delete=False, encoding="utf-8") as f:
             f.write(NODE_KATEX)
             js = f.name
-        r = subprocess.run(["node", js, tmp], capture_output=True, text=True, cwd=ROOT)
+        # NODE_PATH må settes: node løser `require` relativt til SKRIPTFILA, ikke cwd,
+        # så en temp-fil utenfor prosjektet finner ikke katex uten dette.
+        miljø = dict(os.environ, NODE_PATH=os.path.join(ROOT, "node_modules"))
+        r = subprocess.run(["node", js, tmp], capture_output=True, text=True, cwd=ROOT, env=miljø)
         os.unlink(tmp)
         os.unlink(js)
         if r.returncode == 0:
             katex_feil = json.loads(r.stdout.strip().splitlines()[-1])
             for navn, tex in katex_feil:
                 avvik.append(f"KATEX-FEIL i {navn}: {tex!r}")
+        else:
+            print("ADVARSEL: KaTeX-kjøringen feilet — porten er da BARE delvis kjørt:")
+            print("  " + (r.stderr.strip().splitlines() or ["(ingen feilmelding)"])[-1])
 
     print(f"{emne}: {len(uttrykk)} matteuttrykk kontrollert"
           + ("" if katex_feil is not None else " (KaTeX-kjøring hoppet over — mangler node_modules/katex)"))
