@@ -1253,7 +1253,7 @@ const quizData_tma4110: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva er nulliteten $\\dim\\operatorname{Nul}A$?",
-      options: ["Antall frie variabler (kolonner uten pivot)", "Antall pivotkolonner i matrisen", "Antall rader i matrisen $A$", "Rangen til matrisen $A$"],
+      options: ["Antall frie variabler (kolonner uten pivot)", "Antall pivotkolonner i den radreduserte matrisen", "Antall rader i matrisen $A$", "Rangen til matrisen $A$"],
       explanation: "Nulliteten er antall frie variabler; sammen med rangen fyller den alle kolonnene.",
     },
     {
@@ -1268,7 +1268,7 @@ const quizData_tma4110: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva er sammenhengen mellom radrang og kolonnerang?",
-      options: ["De er alltid like, begge lik $\\operatorname{rang}A$", "Radrangen er alltid størst av de to", "Kolonnerangen er alltid størst av de to", "De er uavhengige størrelser uten sammenheng"],
+      options: ["De er alltid like, begge lik $\\operatorname{rang}A$", "Radrangen er alltid størst av de to", "Kolonnerangen er alltid størst av de to", "De er to helt uavhengige størrelser uten noen fast sammenheng"],
       explanation: "Antall uavhengige rader er alltid lik antall uavhengige kolonner — begge er rangen.",
     },
     {
@@ -1298,12 +1298,12 @@ const quizData_tma4110: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva betyr $\\operatorname{Nul}A=\\{\\mathbf 0\\}$?",
-      options: ["At kolonnene er lineært uavhengige (ingen frie variabler)", "At matrisen bare inneholder nuller overalt", "At kolonnerommet er hele $\\mathbb R^m$", "At matrisen har flere rader enn kolonner"],
+      options: ["At kolonnene er lineært uavhengige (ingen frie variabler)", "At matrisen $A$ bare inneholder nuller i samtlige posisjoner", "At kolonnerommet er hele $\\mathbb R^m$", "At matrisen har flere rader enn kolonner"],
       explanation: "Trivielt nullrom betyr pivot i hver kolonne, altså uavhengige kolonner og $\\operatorname{rang}A=n$.",
     },
     {
       question: "Hva brukes dimensjonsteoremet mest til i en besvarelse?",
-      options: ["Som kontroll: rang + nullitet må bli $n$", "Til å regne ut determinanten raskere", "Til å finne inversen av matrisen", "Til å bytte om rader og kolonner"],
+      options: ["Som kontroll: rang + nullitet må bli $n$", "Til å regne ut determinanten til matrisen mye raskere", "Til å finne inversen av matrisen", "Til å bytte om rader og kolonner"],
       explanation: "Etter å ha regnet rang og nullitet hver for seg, sjekker du at summen er $n$ — det fanger regnefeil.",
     },
     {
@@ -1313,7 +1313,7 @@ const quizData_tma4110: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hvorfor er de spesielle løsningene automatisk lineært uavhengige?",
-      options: ["Hver har en $1$-ener i sin egen frie posisjon der de andre har $0$", "Fordi de alltid står vinkelrett på hverandre", "Fordi de alle har samme lengde i rommet", "Fordi de utspenner hele kolonnerommet"],
+      options: ["Hver har en $1$-ener i sin egen frie posisjon der de andre har $0$", "Fordi de spesielle løsningene alltid står parvis vinkelrett på hverandre", "Fordi de alle har samme lengde i rommet", "Fordi de utspenner hele kolonnerommet"],
       explanation: "Ser du bare på de frie posisjonene, danner de spesielle løsningene en enhetsmatrise, så ingen er en kombinasjon av de andre.",
     },
     {
@@ -1325,12 +1325,12 @@ const quizData_tma4110: Record<string, QuizQuestion[]> = {
   'tma4110-3-4': [
     {
       question: "Hva er koordinatvektoren $[\\mathbf x]_{\\mathcal B}$ relativt en ordnet basis $\\mathcal B=\\{\\mathbf b_1,\\dots,\\mathbf b_n\\}$?",
-      options: ["Listen av koeffisienter $c_i$ i den entydige fremstillingen $\\mathbf x=c_1\\mathbf b_1+\\dots+c_n\\mathbf b_n$", "Listen av lengdene til hver av basisvektorene $\\mathbf b_i$, målt i den vanlige normen i rommet", "Basisvektorene $\\mathbf b_1,\\dots,\\mathbf b_n$ selv, stablet oppå hverandre i én lang kolonnevektor", "Komponentene til $\\mathbf x$ relativt standardbasisen, uansett hvilken basis $\\mathcal B$ faktisk er"],
+      options: ["Koeffisientene $c_i$ i den entydige fremstillingen $\\mathbf x=c_1\\mathbf b_1+\\dots+c_n\\mathbf b_n$", "Listen av lengdene til hver av basisvektorene $\\mathbf b_i$, målt i den vanlige normen i rommet", "Basisvektorene $\\mathbf b_1,\\dots,\\mathbf b_n$ selv, stablet oppå hverandre i én lang kolonnevektor", "Komponentene til $\\mathbf x$ relativt standardbasisen, uansett hvilken basis $\\mathcal B$ faktisk er"],
       explanation: "En basis gir en entydig fremstilling $\\mathbf x=c_1\\mathbf b_1+\\dots+c_n\\mathbf b_n$, og koordinatvektoren er nettopp koeffisientene $(c_1,\\dots,c_n)$.",
     },
     {
       question: "Hvorfor er koordinatvektoren veldefinert (entydig)?",
-      options: ["Fordi basisen er uavhengig, så fremstillingen $\\mathbf x=\\sum c_i\\mathbf b_i$ har nøyaktig ett koeffisientsett", "Fordi basisvektorene alltid velges slik at de står innbyrdes vinkelrett på hverandre i rommet", "Fordi hver enkelt av basisvektorene per definisjon skaleres til å ha lengde nøyaktig lik $1$", "Fordi ethvert vektorrom vi arbeider med her har endelig dimensjon og en fast standardbasis"],
+      options: ["Basisen er uavhengig, så $\\mathbf x=\\sum c_i\\mathbf b_i$ har nøyaktig ett koeffisientsett", "Fordi basisvektorene alltid velges slik at de står innbyrdes vinkelrett på hverandre i rommet", "Fordi hver enkelt av basisvektorene per definisjon skaleres til å ha lengde nøyaktig lik $1$", "Fordi ethvert vektorrom vi arbeider med her har endelig dimensjon og en fast standardbasis"],
       explanation: "Uavhengigheten utelukker to ulike fremstillinger av samme vektor — differansen ville vært en ikke-triviell relasjon mellom basisvektorene.",
     },
     {
@@ -1365,7 +1365,7 @@ const quizData_tma4110: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva gjør basisskiftematrisen $P_{\\mathcal C\\leftarrow\\mathcal B}$?",
-      options: ["Tar $\\mathcal B$-koordinater inn og gir $\\mathcal C$-koordinater ut, via $[\\mathbf x]_{\\mathcal C}=P_{\\mathcal C\\leftarrow\\mathcal B}[\\mathbf x]_{\\mathcal B}$", "Tar $\\mathcal C$-koordinater inn og gir $\\mathcal B$-koordinater ut, altså den motsatte veien av pilen", "Projiserer en vilkårlig vektor ned på basisen $\\mathcal C$ og forkaster resten av vektoren", "Regner ut determinanten til overgangen og skalerer koordinatene med denne determinanten"],
+      options: ["Tar $\\mathcal B$-koordinater inn og gir $\\mathcal C$-koordinater ut", "Tar $\\mathcal C$-koordinater inn og gir $\\mathcal B$-koordinater ut, altså den motsatte veien av pilen", "Projiserer en vilkårlig vektor ned på basisen $\\mathcal C$ og forkaster resten av vektoren", "Regner ut determinanten til overgangen og skalerer koordinatene med denne determinanten"],
       explanation: "Les pilen $\\mathcal C\\leftarrow\\mathcal B$ som «ut $\\leftarrow$ inn»: matrisen oversetter fra $\\mathcal B$-koordinater til $\\mathcal C$-koordinater.",
     },
     {
@@ -1375,12 +1375,12 @@ const quizData_tma4110: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hvordan skifter du koordinater den motsatte veien, fra $\\mathcal C$ til $\\mathcal B$?",
-      options: ["Bruk den inverse matrisen $P_{\\mathcal B\\leftarrow\\mathcal C}=(P_{\\mathcal C\\leftarrow\\mathcal B})^{-1}$", "Bruk den transponerte matrisen $(P_{\\mathcal C\\leftarrow\\mathcal B})^{T}$ i stedet", "Bruk den samme matrisen $P_{\\mathcal C\\leftarrow\\mathcal B}$ en ekstra gang", "Bruk determinanten $\\det P_{\\mathcal C\\leftarrow\\mathcal B}$ som en ren skalarfaktor"],
+      options: ["Bruk inversen $P_{\\mathcal B\\leftarrow\\mathcal C}=(P_{\\mathcal C\\leftarrow\\mathcal B})^{-1}$", "Bruk den transponerte matrisen $(P_{\\mathcal C\\leftarrow\\mathcal B})^{T}$ i stedet for inversen", "Bruk den samme matrisen $P_{\\mathcal C\\leftarrow\\mathcal B}$ en ekstra gang", "Bruk determinanten $\\det P_{\\mathcal C\\leftarrow\\mathcal B}$ som en ren skalarfaktor"],
       explanation: "De to skiftene opphever hverandre, $P_{\\mathcal B\\leftarrow\\mathcal C}P_{\\mathcal C\\leftarrow\\mathcal B}=I$, så motsatt vei er den inverse matrisen.",
     },
     {
       question: "Hva er den vanligste fellen ved basisskiftematriser?",
-      options: ["Å bruke feil retning og forveksle $P_{\\mathcal C\\leftarrow\\mathcal B}$ med sin egen inverse matrise", "Å glemme å regne ut determinanten til alle basisvektorene helt først i oppgaven", "Å bruke altfor få desimaler i mellomregningen og dermed miste presisjon i svaret", "Å skrive koordinatvektoren som en radvektor i stedet for som en stående kolonne"],
+      options: ["Å bruke feil retning og forveksle $P_{\\mathcal C\\leftarrow\\mathcal B}$ med inversen", "Å glemme å regne ut determinanten til alle basisvektorene helt først i oppgaven", "Å bruke altfor få desimaler i alle mellomregningene og dermed miste presisjon i sluttsvaret", "Å skrive koordinatvektoren som en radvektor i stedet for som en stående kolonne"],
       explanation: "Retningen på pilen $\\mathcal C\\leftarrow\\mathcal B$ avgjør alt; bytter du den, får du inversen og feil svar.",
     },
     {
@@ -1400,7 +1400,7 @@ const quizData_tma4110: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva må du huske til slutt når du har regnet et polynomsvar i koordinater?",
-      options: ["Å oversette koordinatvektoren tilbake til polynomet $c_1\\mathbf b_1+\\dots+c_n\\mathbf b_n$ i original form", "Å normalisere koordinatvektoren du fikk til å ha lengde nøyaktig lik $1$ først", "Å transponere koordinatvektoren før du fører den opp som sluttsvar på oppgaven", "Å gange hele svaret med determinanten til basisen for å skalere det riktig"],
+      options: ["Å oversette svaret tilbake til polynomet $c_1\\mathbf b_1+\\dots+c_n\\mathbf b_n$", "Å normalisere koordinatvektoren du fikk slik at den får lengde nøyaktig lik $1$ aller først", "Å transponere koordinatvektoren før du fører den opp som sluttsvar på oppgaven", "Å gange hele svaret med determinanten til basisen for å skalere det riktig"],
       explanation: "Sensor vil ofte ha svaret i original form; en koordinatvektor $(c_1,\\dots,c_n)$ svarer til objektet $c_1\\mathbf b_1+\\dots+c_n\\mathbf b_n$.",
     },
     {
@@ -1417,7 +1417,7 @@ const quizData_tma4110: Record<string, QuizQuestion[]> = {
   'tma4110-3-5': [
     {
       question: "Hvilke tre betingelser må du vise for at $W\\subseteq V$ er et underrom?",
-      options: ["At $\\mathbf 0\\in W$, at $W$ er lukket under addisjon, og at $W$ er lukket under skalar", "At $W$ er endelig, at $W$ inneholder en basis, og at $W$ har positiv dimensjon", "At $W$ er lukket under addisjon, under skalar, og under invertering av matriser", "At $W$ inneholder standardbasisen, er lukket under produkt, og under transponering"],
+      options: ["At $\\mathbf 0\\in W$, og at $W$ er lukket under addisjon og skalar", "At $W$ er endelig, at $W$ inneholder en basis, og at $W$ har positiv dimensjon", "At $W$ er lukket under addisjon, under skalar, og under invertering av matriser", "At $W$ inneholder standardbasisen, er lukket under produkt, og under transponering"],
       explanation: "Et underrom må inneholde nullvektoren og være lukket under både addisjon og skalarmultiplikasjon — alle tre må vises.",
     },
     {
@@ -1442,7 +1442,7 @@ const quizData_tma4110: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva er den mest testede fellen i sjanger E?",
-      options: ["Å oppgi de reduserte RREF-kolonnene som basis for $\\operatorname{Col}A$", "Å glemme å skrive opp determinanten av matrisen underveis", "Å telle antallet rader i matrisen i stedet for kolonnene", "Å bruke desimaltall i mellomregningen i stedet for brøk"],
+      options: ["Å oppgi de reduserte RREF-kolonnene som basis for $\\operatorname{Col}A$", "Å glemme å skrive opp determinanten av koeffisientmatrisen underveis i regningen", "Å telle antallet rader i matrisen i stedet for kolonnene", "Å bruke desimaltall i mellomregningen i stedet for brøk"],
       explanation: "Basis for $\\operatorname{Col}A$ skal være de opprinnelige pivotkolonnene i $A$, ikke de reduserte kolonnene fra RREF.",
     },
     {
@@ -1472,12 +1472,12 @@ const quizData_tma4110: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hvordan skifter du koordinater fra $\\mathcal C$ tilbake til $\\mathcal B$?",
-      options: ["Med den inverse matrisen $P_{\\mathcal B\\leftarrow\\mathcal C}=(P_{\\mathcal C\\leftarrow\\mathcal B})^{-1}$", "Med den transponerte matrisen $(P_{\\mathcal C\\leftarrow\\mathcal B})^{T}$", "Med nøyaktig den samme matrisen $P_{\\mathcal C\\leftarrow\\mathcal B}$ igjen", "Med determinanten $\\det P_{\\mathcal C\\leftarrow\\mathcal B}$ som en skalarfaktor"],
+      options: ["Med inversen $P_{\\mathcal B\\leftarrow\\mathcal C}=(P_{\\mathcal C\\leftarrow\\mathcal B})^{-1}$", "Med den transponerte matrisen $(P_{\\mathcal C\\leftarrow\\mathcal B})^{T}$", "Med nøyaktig den samme matrisen $P_{\\mathcal C\\leftarrow\\mathcal B}$ igjen", "Med determinanten $\\det P_{\\mathcal C\\leftarrow\\mathcal B}$ som en ren skalarfaktor på koordinatene"],
       explanation: "De to skiftene opphever hverandre, $P_{\\mathcal B\\leftarrow\\mathcal C}P_{\\mathcal C\\leftarrow\\mathcal B}=I$, så motsatt vei er den inverse.",
     },
     {
       question: "Hvordan avgjør du om $\\mathbf b$ ligger i $\\operatorname{Col}A$?",
-      options: ["Sjekk om $\\mathbf b$ kan skrives som en lineærkombinasjon av en basis for $\\operatorname{Col}A$", "Sjekk om $\\mathbf b$ er en av de spesielle løsningene av systemet $A\\mathbf x=\\mathbf 0$", "Sjekk om $\\mathbf b$ har like mange komponenter som $A$ har kolonner totalt", "Sjekk om determinanten $\\det A$ er forskjellig fra tallet null"],
+      options: ["Sjekk om $\\mathbf b$ er en lineærkombinasjon av en basis for $\\operatorname{Col}A$", "Sjekk om $\\mathbf b$ er en av de spesielle løsningene av systemet $A\\mathbf x=\\mathbf 0$", "Sjekk om $\\mathbf b$ har like mange komponenter som $A$ har kolonner totalt", "Sjekk om determinanten $\\det A$ er forskjellig fra tallet null"],
       explanation: "$\\mathbf b\\in\\operatorname{Col}A$ betyr at $\\mathbf b$ kan skrives som en kombinasjon av kolonnene, altså at $A\\mathbf x=\\mathbf b$ er løsbart.",
     },
     {
@@ -1499,7 +1499,7 @@ const quizData_tma4110: Record<string, QuizQuestion[]> = {
   'tma4110-4-1': [
     {
       question: "Hva betyr det at en transformasjon $T:\\mathbb R^n\\to\\mathbb R^m$ er lineær?",
-      options: ["At $T(\\mathbf u+\\mathbf v)=T(\\mathbf u)+T(\\mathbf v)$ og $T(c\\mathbf u)=c\\,T(\\mathbf u)$ for alle $\\mathbf u,\\mathbf v,c$", "At $T$ sender enhver rett linje i planet til en annen rett linje med nøyaktig samme lengde og retning", "At $T(\\mathbf u\\cdot\\mathbf v)=T(\\mathbf u)\\cdot T(\\mathbf v)$ slik at prikkproduktet bevares under avbildningen", "At $T$ er en funksjon av bare én variabel og har en graf som er en rett linje gjennom origo uten konstantledd"],
+      options: ["At $T(\\mathbf u+\\mathbf v)=T(\\mathbf u)+T(\\mathbf v)$ og $T(c\\mathbf u)=c\\,T(\\mathbf u)$ for alle $\\mathbf u,\\mathbf v,c$", "At $T$ sender enhver rett linje i planet til en annen rett linje med nøyaktig samme lengde, retning og plassering", "At $T(\\mathbf u\\cdot\\mathbf v)=T(\\mathbf u)\\cdot T(\\mathbf v)$ slik at prikkproduktet bevares under avbildningen", "At $T$ er en funksjon av bare én variabel og har en graf som er en rett linje gjennom origo uten konstantledd"],
       explanation: "Linearitet er nettopp de to betingelsene: additivitet og homogenitet, ekvivalent med at $T$ bevarer lineærkombinasjoner.",
     },
     {
@@ -1509,7 +1509,7 @@ const quizData_tma4110: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Er $T(x,y)=(x+1,\\ 2y)$ en lineær transformasjon?",
-      options: ["Nei, for $T(\\mathbf 0)=(1,0)\\ne\\mathbf 0$ — konstantleddet ødelegger linearitet", "Ja, for hver komponent er en pen og glatt funksjon av variablene $x$ og $y$", "Ja, for avbildningen sender origo til punktet $(1,0)$ på en entydig måte", "Nei, men bare fordi $y$-komponenten mangler et helt eget konstantledd"],
+      options: ["Nei, for $T(\\mathbf 0)=(1,0)\\ne\\mathbf 0$ — konstantleddet ødelegger linearitet", "Ja, for begge komponentene er pene og glatte funksjoner av de to variablene $x$ og $y$", "Ja, for avbildningen sender origo til punktet $(1,0)$ på en entydig måte", "Nei, men bare fordi $y$-komponenten mangler et helt eget konstantledd"],
       explanation: "$T(\\mathbf 0)=(0+1,\\ 0)=(1,0)\\ne\\mathbf 0$, så forkastningstesten slår til: $T$ er ikke lineær (den er affin).",
     },
     {
@@ -1775,7 +1775,7 @@ const quizData_tma4110: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva sier diagonaliserbarhetskriteriet?",
-      options: ["Geometrisk = algebraisk multiplisitet for hver egenverdi", "Alle egenverdiene må være strengt positive reelle tall", "Determinanten $\\det A$ må være forskjellig fra null", "Matrisen må være øvre eller nedre triangulær"],
+      options: ["Geometrisk = algebraisk multiplisitet for hver egenverdi", "Alle egenverdiene til matrisen må være strengt positive reelle tall", "Determinanten $\\det A$ må være forskjellig fra null", "Matrisen må være øvre eller nedre triangulær"],
       explanation: "Kriteriet: $A$ er diagonaliserbar nettopp når summen av egenrom-dimensjonene er $n$, ekvivalent at geometrisk = algebraisk multiplisitet for hver egenverdi (nok uavhengige egenvektorer).",
     },
     {
@@ -1785,7 +1785,7 @@ const quizData_tma4110: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva garanterer spektralteoremet for en symmetrisk matrise?",
-      options: ["Ortogonalt diagonaliserbar ($A=PDP^{T}$), reelle egenverdier", "Ikke diagonaliserbar med mindre egenverdiene er distinkte", "At matrisen $A$ alltid er inverterbar uansett egenverdier", "Komplekse egenverdier som opptrer parvis i konjugerte par"],
+      options: ["Ortogonalt diagonaliserbar ($A=PDP^{T}$), reelle egenverdier", "Ikke diagonaliserbar med mindre egenverdiene er distinkte", "At matrisen $A$ alltid er inverterbar uansett egenverdier", "Komplekse egenverdier som alltid opptrer parvis i konjugerte par"],
       explanation: "Spektralteoremet: enhver reell symmetrisk matrise er ortogonalt diagonaliserbar, $A=PDP^{T}$ med ortogonal $P$, har bare reelle egenverdier, og er alltid diagonaliserbar uansett multiplisiteter.",
     },
     {
@@ -1959,12 +1959,12 @@ const quizData_tma4110: Record<string, QuizQuestion[]> = {
   'tma4110-5-4': [
     {
       question: "En reell $2\\times2$-matrise har egenverdi $\\lambda=3+2i$. Hva er den andre egenverdien?",
-      options: ["$3-2i$, altså konjugatet, siden komplekse egenverdier kommer parvis", "$3+2i$ igjen, siden en $2\\times2$-matrise har en dobbel egenverdi", "$-3-2i$, med motsatt fortegn på både real- og imaginærdel", "$2+3i$, der real- og imaginærdel har byttet plass i tallet"],
+      options: ["$3-2i$, altså konjugatet, siden komplekse egenverdier kommer parvis", "$3+2i$ igjen, siden en $2\\times2$-matrise nødvendigvis har en dobbel egenverdi", "$-3-2i$, med motsatt fortegn på både real- og imaginærdel", "$2+3i$, der real- og imaginærdel har byttet plass i tallet"],
       explanation: "For en reell matrise har karakteristisk polynom reelle koeffisienter, så komplekse røtter opptrer i konjugerte par: $\\lambda=3+2i$ tvinger $\\bar\\lambda=3-2i$.",
     },
     {
       question: "Hvordan finner du egenvektoren til $\\bar\\lambda$ når du kjenner egenvektoren $\\mathbf v$ til $\\lambda$ (reell matrise)?",
-      options: ["Konjuger $\\mathbf v$ komponentvis; da hører $\\bar{\\mathbf v}$ til $\\bar\\lambda$", "Bytt fortegn på hele $\\mathbf v$; da hører $-\\mathbf v$ til $\\bar\\lambda$", "Transponer $\\mathbf v$; da hører radvektoren $\\mathbf v^T$ til $\\bar\\lambda$", "Normaliser $\\mathbf v$ til lengde $1$; da hører den til $\\bar\\lambda$"],
+      options: ["Konjuger $\\mathbf v$ komponentvis; da hører $\\bar{\\mathbf v}$ til $\\bar\\lambda$", "Bytt fortegn på hele $\\mathbf v$; da hører $-\\mathbf v$ til $\\bar\\lambda$", "Transponer $\\mathbf v$; da hører radvektoren $\\mathbf v^T$ automatisk til $\\bar\\lambda$", "Normaliser $\\mathbf v$ til lengde $1$; da hører den til $\\bar\\lambda$"],
       explanation: "Konjugerer du $A\\mathbf v=\\lambda\\mathbf v$ og bruker $\\bar A=A$, får du $A\\bar{\\mathbf v}=\\bar\\lambda\\bar{\\mathbf v}$: den konjugerte vektoren er egenvektor for den konjugerte egenverdien.",
     },
     {
@@ -1994,7 +1994,7 @@ const quizData_tma4110: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva blir summen $\\lambda+\\bar\\lambda$ for et konjugert par $\\lambda=a+bi$?",
-      options: ["$2a$, et reelt tall som samtidig er lik $\\operatorname{spor}A$", "$2bi$, et rent imaginært tall lik dobbelt imaginærdel", "$0$ alltid, siden konjugerte tall opphever hverandre", "$a^2+b^2$, et positivt tall som er lik $\\det A$"],
+      options: ["$2a$, et reelt tall som samtidig er lik $\\operatorname{spor}A$", "$2bi$, et rent imaginært tall lik det dobbelte av imaginærdelen", "$0$ alltid, siden konjugerte tall opphever hverandre", "$a^2+b^2$, et positivt tall som er lik $\\det A$"],
       explanation: "$\\lambda+\\bar\\lambda=(a+bi)+(a-bi)=2a$, som er reelt og lik sporet. (Produktet $\\lambda\\bar\\lambda=a^2+b^2=\\det A$ er også reelt.)",
     },
     {
@@ -2004,7 +2004,7 @@ const quizData_tma4110: Record<string, QuizQuestion[]> = {
     },
     {
       question: "En kompleks egenvektor skrives $\\mathbf v=\\mathbf p+i\\mathbf q$. Hva er $\\mathbf p$ og $\\mathbf q$?",
-      options: ["Realdelen $\\operatorname{Re}\\mathbf v$ og imaginærdelen $\\operatorname{Im}\\mathbf v$", "To komplekse egenverdier som hører til den reelle matrisen $A$", "Lengden og vinkelen til $\\mathbf v$ skrevet på polarform", "De to radvektorene i selve koeffisientmatrisen $A$"],
+      options: ["Realdelen og imaginærdelen av vektoren $\\mathbf v$", "To komplekse egenverdier som hører til den reelle matrisen $A$", "Lengden og vinkelen til $\\mathbf v$ skrevet på polarform", "De to radvektorene i selve koeffisientmatrisen $A$"],
       explanation: "$\\mathbf p=\\operatorname{Re}\\mathbf v$ og $\\mathbf q=\\operatorname{Im}\\mathbf v$ er reelle vektorer som utspenner planet der rotasjonen skjer.",
     },
     {
@@ -2019,7 +2019,7 @@ const quizData_tma4110: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva sier algebraens fundamentalteorem om egenverdiene til en $n\\times n$-matrise?",
-      options: ["Den har nøyaktig $n$ egenverdier i $\\mathbb C$ (med multiplisitet)", "Den har nøyaktig $n$ reelle egenverdier, aldri komplekse", "Den har alltid minst én reell egenverdi blant dem", "Den har høyst $n-1$ forskjellige egenverdier totalt"],
+      options: ["Den har nøyaktig $n$ egenverdier i $\\mathbb C$ (med multiplisitet)", "Den har alltid nøyaktig $n$ rent reelle egenverdier, aldri komplekse", "Den har alltid minst én reell egenverdi blant dem", "Den har høyst $n-1$ forskjellige egenverdier totalt"],
       explanation: "Karakteristisk likning er et polynom av grad $n$, som har $n$ røtter i $\\mathbb C$ med multiplisitet — noen kan være komplekse.",
     },
     {
@@ -2041,27 +2041,27 @@ const quizData_tma4110: Record<string, QuizQuestion[]> = {
   'tma4110-5-5': [
     {
       question: "En egenvektor $\\mathbf v$ er oppgitt. Hva er den raskeste måten å finne egenverdien på?",
-      options: ["Regn $A\\mathbf v$ og se hvilken $\\lambda$ som gir $A\\mathbf v=\\lambda\\mathbf v$", "Sett opp og løs hele karakteristisk likning $\\det(A-\\lambda I)=0$", "Radreduser $A$ til trappeform og les egenverdien av pivotene", "Regn determinanten $\\det A$ og del den på $\\operatorname{spor}A$"],
+      options: ["Regn $A\\mathbf v$ og les av $\\lambda$ i $A\\mathbf v=\\lambda\\mathbf v$", "Sett opp og løs hele karakteristisk likning $\\det(A-\\lambda I)=0$", "Radreduser $A$ til trappeform og les egenverdien av pivotene", "Regn determinanten $\\det A$ og del den på $\\operatorname{spor}A$"],
       explanation: "Når $\\mathbf v$ er gitt, er innsetting raskest: $A\\mathbf v$ blir et multiplum $\\lambda\\mathbf v$, og du leser av $\\lambda$ direkte — ingen karakteristisk likning nødvendig.",
     },
     {
       question: "Hva er den geometriske multiplisiteten til en egenverdi $\\lambda$?",
-      options: ["$\\dim E_\\lambda=\\dim\\operatorname{Nul}(A-\\lambda I)$, antall frie variabler", "Rotmultiplisiteten til $\\lambda$ i karakteristisk polynom", "Antall ganger $\\lambda$ opptrer på diagonalen i matrisen $A$", "Selve tallverdien til egenverdien $\\lambda$ som skalar"],
+      options: ["$\\dim E_\\lambda=\\dim\\operatorname{Nul}(A-\\lambda I)$", "Rotmultiplisiteten til $\\lambda$ i karakteristisk polynom", "Antall ganger $\\lambda$ opptrer på diagonalen i matrisen $A$", "Selve tallverdien til egenverdien $\\lambda$ som skalar"],
       explanation: "Geometrisk multiplisitet er dimensjonen til egenrommet, altså antall frie variabler i $\\operatorname{Nul}(A-\\lambda I)$. (Rotmultiplisiteten er den algebraiske multiplisiteten.)",
     },
     {
       question: "Når er en $n\\times n$-matrise diagonaliserbar?",
-      options: ["Når geometrisk multiplisitet $=$ algebraisk for hver egenverdi", "Når determinanten $\\det A$ er ulik null (inverterbar)", "Når alle egenverdiene er positive reelle tall", "Når matrisen $A$ selv er inverterbar med $\\det A\\ne0$"],
+      options: ["Når geometrisk multiplisitet $=$ algebraisk for hver egenverdi", "Når determinanten $\\det A$ til matrisen er ulik null (inverterbar)", "Når alle egenverdiene er positive reelle tall", "Når matrisen $A$ selv er inverterbar med $\\det A\\ne0$"],
       explanation: "Diagonaliserbarhetskriteriet: for hver egenverdi må $\\dim E_\\lambda$ være lik den algebraiske multiplisiteten, slik at summen av egenrom-dimensjoner blir $n$.",
     },
     {
       question: "Hvilken navngitt snarvei garanterer at en matrise er diagonaliserbar?",
-      options: ["At den har $n$ forskjellige egenverdier, altså distinkte", "At determinanten er lik $1$, altså volumbevarende", "At sporet er lik null, altså sum av egenverdier null", "At alle diagonalelementene i matrisen er like store"],
+      options: ["At den har $n$ forskjellige egenverdier, altså distinkte", "At determinanten er lik $1$, altså volumbevarende", "At sporet er lik null, altså at summen av alle egenverdiene er null", "At alle diagonalelementene i matrisen er like store"],
       explanation: "$n$ distinkte egenverdier gir $n$ lineært uavhengige egenvektorer, altså en full basis — matrisen er diagonaliserbar. (Symmetrisk og triangulær er andre nyttige snarveier.)",
     },
     {
       question: "En symmetrisk matrise ($A^T=A$) er alltid:",
-      options: ["ortogonalt diagonaliserbar, etter spektralteoremet", "triangulær med egenverdiene på diagonalen", "lik sin egen inverse matrise $A^{-1}$", "uten reelle egenverdier i det hele tatt"],
+      options: ["ortogonalt diagonaliserbar, etter spektralteoremet", "triangulær, med alle egenverdiene sine stående langs diagonalen", "lik sin egen inverse matrise $A^{-1}$", "uten reelle egenverdier i det hele tatt"],
       explanation: "Spektralteoremet: en reell symmetrisk matrise er ortogonalt diagonaliserbar ($A=PDP^T$ med ortogonal $P$), og har alltid reelle egenverdier.",
     },
     {
@@ -2081,12 +2081,12 @@ const quizData_tma4110: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hvordan finner du den stasjonære fordelingen til en Markov-matrise?",
-      options: ["Finn egenvektoren til $\\lambda=1$ og normaliser den til sum $1$", "Finn egenvektoren til den største egenverdien, unormalisert", "Regn ut $\\det(P-I)$ og bruk tallet direkte som fordeling", "Ta gjennomsnittet av de to kolonnene i matrisen $P$"],
+      options: ["Finn egenvektoren til $\\lambda=1$ og normaliser den til sum $1$", "Finn egenvektoren til den største egenverdien og bruk den unormalisert", "Regn ut $\\det(P-I)$ og bruk tallet direkte som fordeling", "Ta gjennomsnittet av de to kolonnene i matrisen $P$"],
       explanation: "Stasjonær fordeling $\\mathbf q$ oppfyller $P\\mathbf q=\\mathbf q$ (egenvektor til $\\lambda=1$) og skal være en sannsynlighetsvektor, så du normaliserer den til å summere til $1$.",
     },
     {
       question: "Du skal vise at en matrise IKKE er diagonaliserbar. Hva viser du?",
-      options: ["At et egenrom er for lite: geometrisk $<$ algebraisk multiplisitet", "At determinanten $\\det A$ er lik null (singulær matrise)", "At matrisen $A$ ikke er symmetrisk om hoveddiagonalen", "At sporet $\\operatorname{spor}A$ til matrisen er negativt"],
+      options: ["At et egenrom er for lite: geometrisk $<$ algebraisk multiplisitet", "At determinanten $\\det A$ er lik null (singulær matrise)", "At matrisen $A$ ikke er symmetrisk om hoveddiagonalen", "At sporet $\\operatorname{spor}A$ til matrisen er et strengt negativt tall"],
       explanation: "Ikke-diagonaliserbarhet vises ved at $\\dim E_\\lambda$ er mindre enn den algebraiske multiplisiteten for minst én egenverdi — da finnes ikke nok uavhengige egenvektorer.",
     },
     {
@@ -3155,7 +3155,7 @@ const quizData_tma4110: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva forteller Wronski-determinanten W(y1,y2)=y1 y2'-y2 y1'?",
-      options: ["Om y1 og y2 er lineært uavhengige: W≠0 i et punkt betyr uavhengige løsninger", "Hvor mange røtter den karakteristiske likningen har i det komplekse planet", "Verdien av den partikulære løsningen y_p i initialpunktet x=0 for likningen", "Om diskriminanten er positiv, slik at man slipper å regne den ut på nytt"],
+      options: ["Om y1 og y2 er lineært uavhengige: W≠0 i et punkt betyr uavhengige løsninger", "Hvor mange røtter den karakteristiske likningen til differensiallikningen har i det komplekse planet", "Verdien av den partikulære løsningen y_p i initialpunktet x=0 for likningen", "Om diskriminanten er positiv, slik at man slipper å regne den ut på nytt"],
       explanation: "Er Wronski-determinanten forskjellig fra null i minst ett punkt, er y1 og y2 lineært uavhengige og danner et fundamentalt løsningssett.",
     },
     {
@@ -3232,7 +3232,7 @@ const quizData_tma4110: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Når bestemmer du integrasjonskonstantene C1 og C2 i et initialverdiproblem?",
-      options: ["Til slutt, etter at hele y=y_h+y_p er satt sammen, ved å sette inn y(x0) og y'(x0)", "Med en gang, rett etter at den homogene løsningen y_h er funnet, før y_p regnes", "Underveis, ett ledd om gangen mens du bygger opp den partikulære løsningen", "Aldri, siden konstantene forsvinner automatisk når pådraget g(x) settes inn"],
+      options: ["Til slutt, etter at hele y=y_h+y_p er satt sammen, ved å sette inn y(x0) og y'(x0)", "Med en gang, rett etter at den homogene løsningen y_h er funnet, og før partikulærløsningen y_p regnes ut", "Underveis, ett ledd om gangen mens du bygger opp den partikulære løsningen", "Aldri, siden konstantene forsvinner automatisk når pådraget g(x) settes inn"],
       explanation: "Konstantene bestemmes SIST: y_p bidrar også til y(x0) og y'(x0), så du må ha hele y=y_h+y_p klar før du setter inn initialbetingelsene.",
     },
     {
@@ -3304,7 +3304,7 @@ const quizData_tma4110: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva kjennetegner overkritisk demping ($c^2-4mk>0$)?",
-      options: ["To reelle, ulike, negative røtter og en løsning $x=C_1e^{r_1t}+C_2e^{r_2t}$ helt uten svingning", "Kompleks-konjugerte røtter og en løsning som svinger med stadig avtakende amplitude mot null", "En dobbel reell rot og den aller raskest mulige returen til likevekt uten noe oversving", "Rent imaginære røtter og en svingning med helt konstant amplitude i all framtid framover"],
+      options: ["To reelle, ulike, negative røtter og en løsning $x=C_1e^{r_1t}+C_2e^{r_2t}$ helt uten svingning", "Kompleks-konjugerte røtter og en løsning som svinger fram og tilbake med stadig avtakende amplitude mot null", "En dobbel reell rot og den aller raskest mulige returen til likevekt uten noe oversving", "Rent imaginære røtter og en svingning med helt konstant amplitude i all framtid framover"],
       explanation: "$c^2-4mk>0$ gir to reelle, ulike, negative røtter. Systemet kryper mot likevekt uten å svinge: $x=C_1e^{r_1t}+C_2e^{r_2t}$.",
     },
     {
