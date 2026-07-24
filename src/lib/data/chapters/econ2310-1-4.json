@@ -1,0 +1,356 @@
+{
+  "id": "econ2310-1-4",
+  "courseId": "econ2310",
+  "chapterNumber": "1.4",
+  "title": "Produktivitetsvekst: Solow med effektive arbeidere",
+  "description": "Modellen med teknologisk fremgang — den eneste kilden til varig vekst per arbeider, og en dokumentert A-differensiator.",
+  "estimatedMinutes": 55,
+  "competenceGoals": [
+    "sette opp vekstmodellen med arbeidskraft målt i effektivitetsenheter og tolke det nye utvanningsleddet",
+    "angi vekstratene i steady state for størrelser per effektivitetsenhet, per arbeider og totalt",
+    "analysere virkningen av høyere produktivitetsvekst og skille nivåeffekten fra baneeffekten",
+    "holde forutsetningene konsistente gjennom en analyse med eller uten produktivitetsvekst"
+  ],
+  "content": [
+    {
+      "id": "econ2310-1-4-tip-eksamensvinkel",
+      "type": "tip",
+      "title": "Eksamensvinkel",
+      "content": "**Dette er kapitlet som løser modellens største svakhet — og som er dokumentert som et av de vanskeligste delspørsmålene i emnet.**\n\n- **Produktivitetsvekst** er testet i **2 av 13 sett (15 %)**, som isolert tall er lite.\n- Men i det ene tilfellet skriver sensorveiledningen rett ut at kandidatene ikke ventes å ha sett dette før — det er nettopp et av de siste, bevisst kinkige delspørsmålene som brukes til å skille de beste besvarelsene.\n- Presisjonen herfra kreves dessuten **implisitt** i alle likevektssvar: så snart du sier hva som er konstant og hva som vokser, bør du vite om du analyserer modellen med eller uten produktivitetsvekst.\n\nKapitlet har **høyeste prioritet** som del av vekstkomplekset, selv med lav enkeltfrekvens: det er billig å dekke og dyrt å mangle.\n\nÉn ting du skal ta med deg videre: den samme oppgaven kan ofte løses både med og uten produktivitetsvekst. Sensor godtar begge spor — men du må **si hvilket du velger, og holde deg til det**. Å bytte spor midt i analysen er en egen feiltype."
+    },
+    {
+      "id": "econ2310-1-4-forkunnskaper",
+      "type": "text",
+      "content": "**Forkunnskaper:** hele [kap. 1.1](/bok/econ2310/econ2310-1-1) til [kap. 1.3](/bok/econ2310/econ2310-1-3). Du bruker:\n\n- bevegelsesligningen $\\Delta k = s f(k) - (n+\\delta)k$ og likevektsbetingelsen,\n- fasediagrammet og tidsbanen,\n- at høyere $n$ eller $\\delta$ gjør strålen brattere og senker $k^*$,\n- skillet mellom nivå og vekstrate.\n\nAlt dette gjelder fortsatt. Det som endres i dette kapitlet, er hva vi måler *per*."
+    },
+    {
+      "id": "econ2310-1-4-intro",
+      "type": "text",
+      "content": "## Problemet modellen så langt ikke løser\n\nGrunnmodellen har en påstand som er lett å sjekke mot virkeligheten, og som ikke holder: den sier at produksjonen per arbeider slutter å vokse når økonomien har nådd likevekt.\n\nMen rike land har hatt vedvarende vekst i produksjonen per arbeider i over hundre år. Norge er ikke bare litt rikere per innbygger enn i 1950 — landet er flere ganger rikere, og veksten har ikke stanset. Ingen rimelig tolkning av modellen så langt kan forklare det: kapitaloppbygging alene gir en engangsgevinst, ikke en varig vekstbane, nettopp fordi avkastningen på kapital avtar.\n\nLøsningen er å slippe inn **teknologisk fremgang**: at hver arbeider blir stadig mer produktiv, uavhengig av hvor mye utstyr hun har. Det er den ene mekanismen i dette pensumet som gir varig vekst i produksjonen per arbeider.\n\nKapitlet har **tre løkker**: først bygger vi om modellen til å måle per effektivitetsenhet (løkke 1), så leser vi av hva som vokser og hva som står stille (løkke 2), og til slutt kjører vi skiftet der produktivitetsveksten selv øker (løkke 3)."
+    },
+    {
+      "id": "econ2310-1-4-symbolvarsel",
+      "type": "warning",
+      "title": "NB: to betydninger i omløp — sjekk hva oppgaven bruker",
+      "content": "Dette kapitlet tar i bruk **to** symboler som brukes om noe annet andre steder i boka. Begge er verdt å ha klart for seg før du leser videre.\n\n**$g$ betyr produktivitetsvekst her.** I Del 4, der vi analyserer åpen økonomi, er $g_Y$, $g_E$ og $g_\\pi$ navnene på koeffisientene i sentralbankens renteregel — de har ingenting å gjøre med teknologisk fremgang. Eksamenssettene bruker begge konvensjonene, hvert sett innenfor sin egen modell.\n\n**$k$ skifter innhold i dette kapitlet.** Fra og med nå betyr $k$ kapital per **effektivitetsenhet**, ikke kapital per arbeider. Formen på bevegelsesligningen og på figurene er identisk, men størrelsen betyr noe nytt. Det er derfor det er så viktig å si hvilken modellvariant du bruker: symbolet ser likt ut, men uttrykker to ulike ting.\n\nPraktisk regel, som gjelder hele boka: **definer symbolene dine i starten av hvert svar.** Da er du trygg uansett hvilken konvensjon settet følger."
+    },
+    {
+      "id": "econ2310-1-4-lokke1",
+      "type": "text",
+      "content": "## Løkke 1 — Effektive arbeidere (~20 min)"
+    },
+    {
+      "id": "econ2310-1-4-effektivitetsenheter",
+      "type": "text",
+      "content": "### Å telle arbeidskraft i effektivitetsenheter\n\nAnta at hver arbeider blir jevnt mer produktiv over tid. Vi fanger dette med et **produktivitetsnivå** $A$, som vokser med en fast rate $g$, og skriver produktfunksjonen slik:\n\n$$Y = F(K, A L)$$\n\nProduktet $AL$ kalles **arbeidskraft målt i effektivitetsenheter**. Tanken er enkel: hvis produktiviteten dobles, er én arbeider like mye verdt i produksjonen som to arbeidere var før. Regnet i effektivitetsenheter har arbeidsstyrken altså doblet seg, selv om antallet hoder er det samme.\n\n**Hvor fort vokser $AL$?** Antallet arbeidere vokser med $n$, og produktiviteten med $g$. Til sammen vokser effektivitetsenhetene med om lag $n+g$:\n\n$$\\frac{\\Delta(AL)}{AL} \\approx n + g$$\n\n*Intuisjon:* det kommer flere arbeidere, og hver av dem er mer verdt enn før. Begge deler øker den effektive arbeidsstyrken.\n\n**Nå gjentar vi hele grepet fra kap. 1.1.** Produktfunksjonen har konstant skalaavkastning, så vi kan dele alt på $AL$ i stedet for på $L$:\n\n$$k = \\frac{K}{AL}, \\qquad y = \\frac{Y}{AL}, \\qquad y = f(k)$$\n\nFormen er den samme som før. Det eneste som er nytt, er at vi nå måler per **effektivitetsenhet** i stedet for per arbeider."
+    },
+    {
+      "id": "econ2310-1-4-def-produktivitetsniva",
+      "type": "definition",
+      "title": "Produktivitetsnivået $A$",
+      "content": "Et mål på hvor mye hver arbeider klarer å produsere med gitt utstyr — teknologi i bred forstand: kunnskap, organisering, arbeidsmetoder, programvare, utdanning.\n\n$A$ er **eksogen** i denne modellen. Vi antar at den vokser med en fast rate $g$ og forklarer ikke hvorfor. Det er en velkjent begrensning, og den er verdt å nevne: modellen forteller at teknologisk fremgang er den eneste kilden til varig vekst per arbeider, men ikke hvor fremgangen kommer fra.\n\nMerk at $A$ ikke er en beholdning som slites. Kunnskap forsvinner ikke slik maskiner gjør, og det er en av grunnene til at teknologi kan gi vekst uten grense mens kapital ikke kan."
+    },
+    {
+      "id": "econ2310-1-4-def-g",
+      "type": "definition",
+      "title": "Produktivitetsveksten $g$",
+      "content": "Vekstraten i produktivitetsnivået: $A$ vokser med raten $g$ per periode.\n\n$$\\frac{\\Delta A}{A} = g$$\n\nI dette kapitlet, og i hele Del 1, betyr $g$ **produktivitetsvekst**. I Del 4 er $g_Y$, $g_E$ og $g_\\pi$ navn på koeffisientene i sentralbankens renteregel — samme bokstav, helt annen rolle.\n\n$g$ er den ene parameteren i vekstmodellen som påvirker den langsiktige **vekstraten** for produksjonen per arbeider. Spareraten, befolkningsveksten og kapitalslitet påvirker bare nivåene."
+    },
+    {
+      "id": "econ2310-1-4-def-effektivitetsenhet",
+      "type": "definition",
+      "title": "Effektivitetsenhet og effektiv arbeidsstyrke $AL$",
+      "content": "En effektivitetsenhet er én arbeider ganget med produktivitetsnivået. Den effektive arbeidsstyrken er derfor $AL$.\n\nTanken: blir hver arbeider dobbelt så produktiv, teller hun i produksjonen som to arbeidere gjorde før. Regnet i effektivitetsenheter har arbeidsstyrken doblet seg, uten at noen er ansatt.\n\nDen effektive arbeidsstyrken vokser med om lag $n+g$ — antallet arbeidere med $n$, og verdien av hver av dem med $g$. Det er denne samlede vekstraten som havner i utvanningsleddet."
+    },
+    {
+      "id": "econ2310-1-4-def-k-per-effektivitetsenhet",
+      "type": "definition",
+      "title": "Kapital per effektivitetsenhet $k = K/(AL)$",
+      "content": "Kapitalbeholdningen delt på den effektive arbeidsstyrken — modellens hovedstørrelse når produktivitetsvekst er med.\n\n$$k = \\frac{K}{AL}, \\qquad y = \\frac{Y}{AL} = f(k)$$\n\nMerk at symbolet er det samme som før, men innholdet er nytt: dette er ikke kapital per arbeider. En økonomi kan godt ha fallende kapital per effektivitetsenhet mens kapitalen per arbeider stiger — det skjer nettopp når produktiviteten vokser raskt.\n\nNettopp derfor er konsistenskravet så viktig: si hvilken av de to variantene du bruker, og hold deg til den gjennom hele analysen."
+    },
+    {
+      "id": "econ2310-1-4-bevegelsesligning-g",
+      "type": "text",
+      "content": "### Bevegelsesligningen med produktivitetsvekst\n\nNå gjentar vi utvanningsresonnementet fra [kap. 1.1](/bok/econ2310/econ2310-1-1), men med tre grunner til at kapitalen per effektivitetsenhet vannes ut i stedet for to:\n\n$$\\Delta k = s f(k) - (n+g+\\delta)k$$\n\n*Intuisjon, ledd for ledd:*\n\n- $s f(k)$ er investeringen per effektivitetsenhet — samme uttrykk som før, ny måleenhet.\n- $\\delta k$ erstatter kapital som slites ut.\n- $nk$ utstyrer de nye arbeiderne.\n- $gk$ er det **nye** leddet: fordi hver arbeider blir mer produktiv, blir antallet effektivitetsenheter større, og den eksisterende kapitalen skal fordeles på flere av dem.\n\nDet siste leddet er verdt et øyeblikks ettertanke, for det er lett å synes det er merkelig at teknologisk fremgang «vanner ut» kapitalen. Poenget er rent regneteknisk: vi måler nå kapital per effektivitetsenhet, og nevneren i den brøken vokser med $n+g$ i stedet for bare $n$. Skal brøken holdes konstant, må telleren vokse like fort.\n\n**Alt annet er som før.** Sparekurven $s f(k)$ er konkav, strålen $(n+g+\\delta)k$ er rett med helning $n+g+\\delta$, og de krysser i ett punkt $k^*$ der\n\n$$s f(k^*) = (n+g+\\delta)k^*.$$\n\nFiguren er den samme figuren du allerede kan tegne. Bare aksemerkingen endres: horisontalaksen er nå kapital per **effektivitetsenhet**."
+    },
+    {
+      "id": "econ2310-1-4-def-bevegelsesligning-g",
+      "type": "definition",
+      "title": "Bevegelsesligningen med produktivitetsvekst",
+      "content": "Modellens sentrale relasjon når produktiviteten vokser:\n\n$$\\Delta k = s f(k) - (n+g+\\delta)k, \\qquad k = \\frac{K}{AL}$$\n\nInvestering per effektivitetsenhet minus utvanning. Utvanningen har nå tre grunner i stedet for to: slitasje ($\\delta$), flere arbeidere ($n$) og høyere produktivitet per arbeider ($g$).\n\nLikevektsbetingelsen blir $s f(k^*) = (n+g+\\delta)k^*$, og figuren er identisk med den fra [kap. 1.2](/bok/econ2310/econ2310-1-2) — bare med en brattere stråle og en ny aksemerking.\n\nDette er den andre av de to formlene du må kunne skrive ned uten oppslag i vekstblokken."
+    },
+    {
+      "id": "econ2310-1-4-def-utvanning-g",
+      "type": "definition",
+      "title": "Utvanningsleddet $(n+g+\\delta)k$",
+      "content": "Den investeringen per effektivitetsenhet som kreves for å holde kapitalen per effektivitetsenhet uendret:\n\n$$(n+g+\\delta)k = \\underbrace{\\delta k}_{\\text{slitasje}} + \\underbrace{nk}_{\\text{flere arbeidere}} + \\underbrace{gk}_{\\text{høyere produktivitet}}$$\n\nDet tredje leddet er nytt, og det er rent regneteknisk: nevneren i brøken $K/(AL)$ vokser nå med $n+g$, så telleren må vokse like fort for at brøken skal stå stille.\n\nGrafisk er hele leddet en rett stråle med helning $n+g+\\delta$ — brattere enn i modellen uten produktivitetsvekst. Det betyr at $k^*$ målt per effektivitetsenhet er **lavere** når produktiviteten vokser, og det er ikke et tegn på fattigdom, bare på at måleenheten vokser."
+    },
+    {
+      "id": "econ2310-1-4-ex-1",
+      "type": "example",
+      "title": "Eksempel 1: Sett opp modellen med produktivitetsvekst (sjanger C-utvidelse)",
+      "problem": "En økonomi har konstant sparerate, befolkningsvekst $n$ og kapitalslit $\\delta$, og i tillegg blir hver arbeider jevnt mer produktiv: produktivitetsnivået vokser med raten $g$. Sett opp modellen, og forklar hvert ledd.",
+      "solution": "**Forutsetningen jeg legger til grunn:** dette er modellen **med** produktivitetsvekst, og jeg holder den gjennom hele analysen.\n\n**Produktfunksjonen.** Med produktivitetsnivået $A$ skriver vi $Y = F(K, AL)$, der $AL$ er arbeidskraft målt i effektivitetsenheter. Konstant skalaavkastning gjelder som før, så vi kan dele på $AL$:\n\n$$y = f(k), \\qquad y = \\frac{Y}{AL}, \\quad k = \\frac{K}{AL}, \\qquad f'(k) > 0, \\; f''(k) < 0.$$\n\nHer er $y$ produksjon per effektivitetsenhet og $k$ kapital per effektivitetsenhet. Begrunnelsen for konkaviteten er den samme som før: øker bare kapitalen, holdes den andre innsatsfaktoren fast, og avkastningen avtar.\n\n**Bevegelsesligningen.**\n\n$$\\Delta k = s f(k) - (n+g+\\delta)k$$\n\n- $s f(k)$: andelen $s$ av produksjonen per effektivitetsenhet spares og investeres.\n- $\\delta k$: erstatter kapital som slites ut.\n- $nk$: utstyrer de nye arbeiderne — det kommer $n$ prosent flere hoder hvert år.\n- $gk$: den effektive arbeidsstyrken vokser også fordi hvert hode blir mer produktivt, og den eksisterende kapitalen skal fordeles på flere effektivitetsenheter.\n\n**Likevekten.**\n\n$$s f(k^*) = (n+g+\\delta)k^*$$\n\nFiguren er den samme som i grunnmodellen: konkav sparekurve, rett stråle, ett skjæringspunkt, dynamikkpiler som peker innover fra begge sider. Den eneste forskjellen er at strålen er brattere (helning $n+g+\\delta$ i stedet for $n+\\delta$), og at horisontalaksen måler kapital per **effektivitetsenhet**.\n\n**En presisering det er verdt å ta med.** At $k^*$ blir lavere når $g$ er positiv, betyr **ikke** at økonomien er fattigere. Måleenheten har endret seg: vi deler nå på et tall som vokser raskere. Velstandsmålet er produksjonen per **arbeider**, og den er $y \\cdot A$ — og den vokser, som neste løkke viser."
+    },
+    {
+      "id": "econ2310-1-4-oppg-1",
+      "type": "exercise",
+      "exercise": {
+        "id": "econ2310-1-4-o1",
+        "number": "1",
+        "type": "classic",
+        "difficulty": "lett",
+        "task": "(Innstegsoppgave. Sjanger C-utvidelse.) Skriv ned bevegelsesligningen med produktivitetsvekst, og forklar kort:\n\n**a)** hva $k$ betyr nå,\n\n**b)** hvorfor $g$ står i utvanningsleddet,\n\n**c)** hva likevektsbetingelsen blir.",
+        "solution": "Bevegelsesligningen er\n\n$$\\Delta k = s f(k) - (n+g+\\delta)k.$$\n\n**a)** $k = K/(AL)$ er kapital per **effektivitetsenhet** — kapitalbeholdningen delt på arbeidsstyrken målt i effektivitetsenheter, ikke i hoder.\n\n**b)** Fordi nevneren i brøken $K/(AL)$ nå vokser med $n+g$: både antallet arbeidere og produktiviteten per arbeider øker. Skal brøken stå stille, må telleren vokse like fort, og det kravet er utvanningsleddet.\n\n**c)** $s f(k^*) = (n+g+\\delta)k^*$. Grafisk: den konkave sparekurven møter den rette strålen med helning $n+g+\\delta$.",
+        "hints": [
+          "Sammenlign med bevegelsesligningen uten produktivitetsvekst — hva er lagt til?",
+          "For b): tenk på hva som skjer med brøken $K/(AL)$ når nevneren vokser."
+        ]
+      }
+    },
+    {
+      "id": "econ2310-1-4-lokke2",
+      "type": "text",
+      "content": "## Løkke 2 — Hva vokser nå? (~18 min)\n\n— naturlig pausepunkt —\n\nHer ligger hele poenget med kapitlet, og det er også her presisjonen skiller nivåene."
+    },
+    {
+      "id": "econ2310-1-4-hva-vokser",
+      "type": "text",
+      "content": "### Per effektivitetsenhet står stille — per arbeider vokser\n\nI steady state er $k$ og $y$ konstante. Men $k$ og $y$ måler nå per **effektivitetsenhet**, og det er ikke velstandsmålet. Velstandsmålet er produksjonen per **arbeider**:\n\n$$\\frac{Y}{L} = \\frac{Y}{AL}\\cdot A = y \\cdot A$$\n\nFaktoren $y$ er konstant i steady state. Faktoren $A$ vokser med raten $g$. Altså:\n\n$$\\frac{\\Delta (Y/L)}{Y/L} = g \\qquad \\text{i steady state.}$$\n\n**Produksjonen per arbeider vokser med raten $g$, også på lang sikt.** Det samme gjelder forbruket per arbeider, som er $(1-s)$ ganger produksjonen per arbeider.\n\nOg totalstørrelsene? Samlet produksjon er produksjonen per arbeider ganget med antall arbeidere, så den vokser med $n+g$:\n\n$$\\frac{\\Delta Y}{Y} = \\frac{\\Delta K}{K} = n + g \\qquad \\text{i steady state.}$$\n\nDette er den store forskjellen fra grunnmodellen, og det er derfor kapitlet finnes. Modellen kan nå forklare vedvarende velstandsvekst — men bare ved å legge den inn som en eksogen antakelse. Vekst per arbeider *kommer fra* teknologisk fremgang, ikke fra sparing.\n\n*Intuisjon:* sparing kan bygge opp kapital, men avkastningen på kapital avtar, så den kilden tørker ut. Teknologisk fremgang gjør derimot både arbeidskraften og kapitalen mer verdt hvert år, uten å møte samme grense. Derfor er det bare den som kan bære vekst i det lange løp."
+    },
+    {
+      "id": "econ2310-1-4-def-steady-state-g",
+      "type": "definition",
+      "title": "Steady state med produktivitetsvekst",
+      "content": "Tilstanden der kapitalen per **effektivitetsenhet** står stille: $\\Delta k = 0$, altså $s f(k^*) = (n+g+\\delta)k^*$.\n\nMerk hvor mye som vokser i denne «stasjonære» tilstanden:\n\n- per effektivitetsenhet: $k$ og $y$ er konstante,\n- per arbeider: produksjon og forbruk vokser med raten $g$,\n- samlet: $K$ og $Y$ vokser med raten $n+g$.\n\nDet er altså bare den mest abstrakte av de tre målestokkene som står stille. Sier du «i steady state er alt konstant», har du sagt noe som er galt i to av tre betydninger."
+    },
+    {
+      "id": "econ2310-1-4-def-vekstrater-g",
+      "type": "definition",
+      "title": "Vekstratene i steady state med produktivitetsvekst",
+      "content": "Oversikten du bør ha automatisert, siden den er selve svaret på «hva skjer på lang sikt»:\n\n| Størrelse | Vekstrate i steady state |\n|---|---|\n| $k = K/(AL)$ | 0 |\n| $y = Y/(AL)$ | 0 |\n| Produksjon per arbeider $Y/L$ | $g$ |\n| Forbruk per arbeider | $g$ |\n| $L$ | $n$ |\n| $A$ | $g$ |\n| $K$ | $n+g$ |\n| $Y$ | $n+g$ |\n\nSammenlign med grunnmodellen, der de fire midterste radene alle var null eller $n$. Forskjellen er hele grunnen til at denne varianten finnes."
+    },
+    {
+      "id": "econ2310-1-4-def-varig-vekst",
+      "type": "definition",
+      "title": "Den eneste kilden til varig vekst per arbeider",
+      "content": "I dette pensumet er teknologisk fremgang **den eneste** mekanismen som gir vedvarende vekst i produksjonen per arbeider.\n\nGrunnen er avtakende avkastning på kapital. Sparing kan bygge opp kapitalen per arbeider, men hver ny enhet gir mindre enn den forrige, samtidig som slitasje og utvanning vokser proporsjonalt. Kilden tørker ut, og resultatet er en engangsgevinst i nivået.\n\nProduktivitetsvekst møter ikke denne grensen: den gjør både arbeidskraft og kapital mer verdt hvert år.\n\nDette er et av de svarene sensor belønner når kandidaten kommer med det selv — for eksempel som en avsluttende kommentar til en oppgave om sparerater."
+    },
+    {
+      "id": "econ2310-1-4-def-balansert-vekstbane",
+      "type": "definition",
+      "title": "Balansert vekstbane",
+      "content": "En bane der alle størrelsene i økonomien vokser med konstante rater, slik at forholdene mellom dem er stabile.\n\nI steady state med produktivitetsvekst vokser $K$ og $Y$ med samme rate $n+g$, slik at kapital-produksjonsforholdet $K/Y$ er konstant. Produksjon og forbruk per arbeider vokser med $g$, slik at spare- og forbruksandelene er konstante.\n\nBegrepet er nyttig fordi det gir presise ord for hva «likevekt» betyr i en modell der nesten alt vokser: det er ikke at ting står stille, men at **forholdene** står stille. Det er også en grunn til at $K/Y$ er en av de mest brukte størrelsene i empirisk vekstforskning: modellen spår at den skal være stabil over tid."
+    },
+    {
+      "id": "econ2310-1-4-oppg-2",
+      "type": "exercise",
+      "exercise": {
+        "id": "econ2310-1-4-o2",
+        "number": "2",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "(Sjanger C-utvidelse.) En besvarelse skriver: «Med produktivitetsvekst er alt konstant i steady state, slik som før.»\n\n**a)** Hva er galt?\n\n**b)** Skriv opp de riktige vekstratene for: kapital per effektivitetsenhet, produksjon per arbeider, og samlet produksjon.\n\n**c)** Hvilken av de tre er velstandsmålet?",
+        "solution": "**a)** Påstanden er gal for to av tre målestokker. Det som er konstant i steady state, er størrelsene per **effektivitetsenhet**. Både størrelsene per arbeider og totalstørrelsene vokser.\n\n**b)**\n\n- Kapital per effektivitetsenhet, $k = K/(AL)$: vekstrate **0**.\n- Produksjon per arbeider, $Y/L = y\\cdot A$: vekstrate **$g$**, siden $y$ er konstant og $A$ vokser med $g$.\n- Samlet produksjon $Y$: vekstrate **$n+g$**, siden produksjonen per arbeider vokser med $g$ og antallet arbeidere med $n$.\n\n**c)** Produksjonen per arbeider — og enda mer presist: forbruket per arbeider, som vokser med samme rate $g$. Kapital per effektivitetsenhet er en regneteknisk hjelpestørrelse, ikke et velferdsmål, og samlet produksjon sier mest om økonomiens størrelse.",
+        "hints": [
+          "Sjekk hva som faktisk er definert som konstant i likevekten.",
+          "Skriv $Y/L$ som produkt av $y$ og $A$, og se hva hver faktor gjør.",
+          "Spør deg hvilken av de tre en innbygger faktisk merker."
+        ]
+      }
+    },
+    {
+      "id": "econ2310-1-4-oppg-3",
+      "type": "exercise",
+      "exercise": {
+        "id": "econ2310-1-4-o3",
+        "number": "3",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "(Sjanger C-utvidelse.) I en økonomi med produktivitetsvekst er kapital-produksjonsforholdet $K/Y$ konstant over tid, mens både $K$ og $Y$ vokser.\n\n**a)** Forklar hvorfor dette er forenlig med modellen.\n\n**b)** Hva ville skjedd med $K/Y$ hvis spareraten økte varig?",
+        "solution": "**a)** I steady state vokser både $K$ og $Y$ med raten $n+g$. Når teller og nevner vokser med samme rate, er forholdet mellom dem konstant. Dette er nettopp hva som menes med en **balansert vekstbane**: det er ikke nivåene som står stille, men forholdene mellom dem.\n\nAt noe kan vokse og likevel være i likevekt, er ikke en selvmotsigelse — likevekten er definert ved at kapitalen per effektivitetsenhet står stille, ikke ved at ingenting beveger seg.\n\n**b)** Da ville $K/Y$ steget til et nytt, høyere nivå. Høyere sparerate hever $k^*$ målt per effektivitetsenhet, altså kapitalbeholdningen i forhold til den effektive arbeidsstyrken — og siden produksjonen er $f(k^*)$ ganget med den effektive arbeidsstyrken, stiger $K/Y = k^*/f(k^*)$. Fordi $f$ er konkav, vokser $k^*$ raskere enn $f(k^*)$, så forholdet stiger.\n\nEtter overgangsfasen ville $K/Y$ igjen ligget stille — på et høyere nivå. Nok en gang en nivåeffekt, ikke en vekstrateeffekt.",
+        "hints": [
+          "I a): sammenlign vekstratene til teller og nevner i steady state.",
+          "I b): skriv $K/Y$ som $k^*/f(k^*)$ og bruk at $f$ er konkav."
+        ]
+      }
+    },
+    {
+      "id": "econ2310-1-4-lokke3",
+      "type": "text",
+      "content": "## Løkke 3 — Skiftet: høyere produktivitetsvekst (~17 min)\n\n— naturlig pausepunkt —\n\nNå kommer det som har vært et av de vanskeligste delspørsmålene i emnet: hva skjer når produktivitetsveksten selv øker, for eksempel fra én til to prosent i året?"
+    },
+    {
+      "id": "econ2310-1-4-g-skift",
+      "type": "text",
+      "content": "### Nivå ned, bane opp\n\nAnta at $g$ øker varig fra $g_0$ til $g_1$.\n\n**I figuren.** Strålen har helning $n+g+\\delta$, så høyere $g$ gjør den **brattere** — akkurat som høyere $n$ eller $\\delta$ gjorde. Sparekurven er uendret.\n\n**Figur i ord — skift i produktivitetsveksten.** Horisontalaksen er kapital per **effektivitetsenhet**, $k$. Én konkav sparekurve $s f(k)$, uendret. To rette stråler fra origo: $(n+g_0+\\delta)k$ og den brattere $(n+g_1+\\delta)k$. Gammel likevekt A over $k_0^*$; ny likevekt B over $k_1^* < k_0^*$. Stiplede hjelpelinjer, og dynamikkpil mot venstre mellom de to.\n\n**Resultat 1: $k^*$ per effektivitetsenhet faller.** Rent grafisk er dette identisk med et $n$- eller $\\delta$-skift.\n\n**Resultat 2 — og her er poenget: dette er ikke dårlig nytt.** Produksjonen per arbeider vokser nå med den nye, høyere raten $g_1$. Den langsiktige **vekstbanen** for velstanden er blitt brattere.\n\nVi må altså skille skarpt mellom to ting:\n\n- **nivået** på kapital per effektivitetsenhet, som faller — fordi vi deler på et tall som nå vokser raskere,\n- **banen** for produksjonen per arbeider, som blir brattere — fordi produktiviteten stiger raskere.\n\nÅ tolke det første som «lavere velstand» er en av de fellene sensorveiledningene peker på. Det er å lese en regneteknisk hjelpestørrelse som om den var et velferdsmål."
+    },
+    {
+      "id": "econ2310-1-4-g-overgang",
+      "type": "text",
+      "content": "### Hva skjer med veksten underveis?\n\nEn presis beskrivelse av overgangsfasen er en effektiv måte å vise at du forstår mekanismen og ikke bare har lært fasiten.\n\nI selve øyeblikket $g$ øker, er $k$ forhåndsbestemt: kapitalbeholdningen kan ikke hoppe. Men nå ligger sparekurven under den nye, brattere strålen, så $\\Delta k < 0$ og kapitalen per effektivitetsenhet begynner å falle mot $k_1^*$.\n\nProduksjonen per arbeider er $y\\cdot A$. To krefter virker samtidig:\n\n- $A$ vokser nå raskere, med $g_1$ i stedet for $g_0$ — det trekker veksten **opp**,\n- $y = f(k)$ faller mens $k$ glir ned mot $k_1^*$ — det trekker veksten **ned**.\n\nNettoresultatet er at veksten i produksjonen per arbeider **stiger umiddelbart, men ikke helt opp til $g_1$**. Deretter stiger den videre, og nærmer seg $g_1$ etter hvert som fallet i $k$ dør ut.\n\n*Intuisjon:* økonomien får umiddelbart mer teknologisk fremgang, men bruker en periode på å tilpasse kapitalbeholdningen til at måleenheten nå vokser raskere. Under tilpasningen spises en del av gevinsten opp; når tilpasningen er ferdig, får den full effekt.\n\n**Figur i ord — tidsbanen for produksjonen per arbeider.** Bruk et diagram med tid på horisontalaksen og *logaritmen* av produksjonen per arbeider vertikalt. På logaritmisk akse blir en konstant vekstrate en **rett linje**, med helning lik vekstraten. Tegn en rett linje med helning $g_0$ fram til tidspunktet $t_0$. Fra $t_0$ knekker banen oppover: den er først litt brattere enn $g_0$, deretter stadig brattere, og nærmer seg asymptotisk en rett linje med helning $g_1$. Ingen vertikale hopp — nivået er kontinuerlig, det er helningen som endres.\n\n**Hvorfor logaritmisk akse er verdt bryet:** i vanlig skala er en konstant vekstrate en krum, eksponentiell kurve, og da er det nesten umulig å se om helningen har endret seg. Logaritmen gjør en endring i vekstraten synlig som en knekk. Det er dessuten en standardmåte å vise vekstbaner på i faglitteraturen, og den koster ingenting å nevne."
+    },
+    {
+      "id": "econ2310-1-4-def-g-skift-niva",
+      "type": "definition",
+      "title": "Effekten av høyere $g$ på nivået per effektivitetsenhet",
+      "content": "Høyere produktivitetsvekst gjør strålen $(n+g+\\delta)k$ brattere, og senker derfor $k^*$ og $y^*$ målt **per effektivitetsenhet**.\n\nGrafisk er skiftet identisk med et $n$- eller $\\delta$-skift.\n\nFellen er tolkningen. Dette er ikke velstandstap: nevneren i brøken $K/(AL)$ vokser nå raskere, så et lavere forholdstall betyr ikke mindre utstyr per arbeider. Kapitalen per **arbeider** kan godt stige samtidig — den vokser med $g_1$ på den nye banen."
+    },
+    {
+      "id": "econ2310-1-4-def-g-skift-bane",
+      "type": "definition",
+      "title": "Effekten av høyere $g$ på vekstbanen per arbeider",
+      "content": "Den langsiktige vekstraten for produksjonen og forbruket per arbeider stiger fra $g_0$ til $g_1$.\n\nDet er dette som er det økonomisk interessante ved skiftet, og det som gjør høyere produktivitetsvekst utvetydig gunstig for velstanden — i motsetning til høyere befolkningsvekst eller kapitalslit, som senker nivået per arbeider uten å heve vekstraten.\n\nTegnet i et diagram med tid horisontalt og logaritmen av produksjonen per arbeider vertikalt: banen knekker oppover ved sjokktidspunktet og nærmer seg en rett linje med den nye, brattere helningen $g_1$."
+    },
+    {
+      "id": "econ2310-1-4-def-niva-vs-bane",
+      "type": "definition",
+      "title": "Nivå kontra bane — skillet dette kapitlet handler om",
+      "content": "To spørsmål som må holdes fra hverandre i alle svar om produktivitetsvekst:\n\n- **Nivåspørsmålet:** hvor høyt ligger kapitalen per effektivitetsenhet? Svar: lavere når $g$ er høy.\n- **Banespørsmålet:** hvor bratt vokser produksjonen per arbeider? Svar: brattere når $g$ er høy.\n\nDe to svarene peker i motsatt retning, og det er nettopp derfor spørsmålet er egnet til å skille besvarelser. Et svar som bare gir det første, ser ut som om økt produktivitetsvekst er skadelig — og det er feil.\n\nFormuleringen som treffer: «Kapitalintensiteten målt per effektivitetsenhet faller, men det er en måleeffekt. Produksjonen per arbeider vokser nå raskere, med $g_1$ i stedet for $g_0$, og velstanden er dermed entydig bedre på lang sikt.»"
+    },
+    {
+      "id": "econ2310-1-4-def-overgangsvekst-g",
+      "type": "definition",
+      "title": "Overgangsveksten ved høyere $g$",
+      "content": "Hva som skjer med veksten i produksjonen per arbeider mens økonomien tilpasser seg:\n\n- den **stiger umiddelbart**, men ikke helt opp til den nye raten $g_1$,\n- den **stiger videre** gjennom overgangsfasen,\n- og **nærmer seg $g_1$** asymptotisk når fallet i $k$ dør ut.\n\nGrunnen er at to krefter virker samtidig: $A$ vokser raskere (opp), mens $y = f(k)$ faller mot den nye, lavere likevekten (ned). Den andre kraften dør ut, den første består.\n\nNivået på produksjonen per arbeider gjør ingen hopp — det er helningen på banen som endres."
+    },
+    {
+      "id": "econ2310-1-4-def-logaritmisk-bane",
+      "type": "definition",
+      "title": "Logaritmisk tidsbane",
+      "content": "En figur med tid på horisontalaksen og logaritmen av en størrelse på vertikalaksen.\n\nNytten er at en **konstant vekstrate blir en rett linje**, med helning lik vekstraten. Da blir en endring i vekstraten synlig som en knekk i linjen, i stedet for som en nesten umerkelig endring i krumningen på en eksponentiell kurve.\n\nDette er standardmåten å vise vekstbaner på i faglitteraturen, og den er velegnet når du skal vise effekten av høyere $g$: gammel bane er en rett linje med helning $g_0$, ny bane knekker oppover og nærmer seg en rett linje med helning $g_1$."
+    },
+    {
+      "id": "econ2310-1-4-konsistenskravet",
+      "type": "warning",
+      "title": "Konsistenskravet: velg spor, og hold det",
+      "content": "Dette er bokas feil **#9** (#9 — inkonsistente forutsetninger, typisk å bytte mellom modell med og uten produktivitetsvekst midt i analysen), og det finnes eksamensspørsmål som er konstruert nettopp for å avsløre det.\n\nMange oppgaver kan besvares både med og uten produktivitetsvekst, og sensor godtar **begge** spor. Men da gjelder to krav:\n\n1. **Si eksplisitt hvilket spor du velger.** Én setning: «Jeg analyserer modellen uten produktivitetsvekst, slik at $k$ er kapital per arbeider.»\n2. **Hold det gjennom hele analysen.** Bruker du $(n+\\delta)$ i figuren, kan du ikke konkludere med at produksjonen per arbeider vokser med $g$ på lang sikt. Bruker du $(n+g+\\delta)$, må du huske at $k$ nå er per effektivitetsenhet og at velstandsmålet er $y\\cdot A$.\n\nSjekkspørsmålet før du leverer: **hva er nevneren i min $k$?** Er svaret $L$, kan ikke $g$ dukke opp i konklusjonen. Er svaret $AL$, må $g$ dukke opp både i strålen og i konklusjonen."
+    },
+    {
+      "id": "econ2310-1-4-ex-2",
+      "type": "example",
+      "title": "Eksempel 2: Produktivitetsveksten dobles (sjanger C-utvidelse, eksamensnivå)",
+      "problem": "«Teknologisk fremgang gjør arbeiderne jevnt mer produktive, og veksttakten i produktiviteten dobles varig. Forklar hva som skjer med kapitalintensiteten målt per effektivitetsenhet, og med produksjonen per arbeider på kort og lang sikt.»",
+      "solution": "**Forutsetningen jeg legger til grunn og holder:** modellen med produktivitetsvekst, der $k = K/(AL)$ er kapital per effektivitetsenhet, $y = f(k)$ er produksjon per effektivitetsenhet, og\n\n$$\\Delta k = s f(k) - (n+g+\\delta)k.$$\n\nProduktivitetsveksten øker varig fra $g_0$ til $g_1 = 2g_0$. Økonomien lå i steady state da endringen skjedde.\n\n**Figuren.** $k$ på horisontalaksen (per effektivitetsenhet). Uendret konkav sparekurve $s f(k)$. To stråler: $(n+g_0+\\delta)k$ og den brattere $(n+g_1+\\delta)k$. Gammel likevekt A over $k_0^*$, ny likevekt B over $k_1^* < k_0^*$, med stiplede hjelpelinjer og dynamikkpil mot venstre.\n\n**Kapitalintensiteten per effektivitetsenhet: ned.** I den nye likevekten er $k_1^* < k_0^*$ og $y_1^* = f(k_1^*) < f(k_0^*)$. Mekanismen: nevneren i $K/(AL)$ vokser nå raskere, så kapitalbeholdningen må vokse raskere bare for å holde forholdstallet oppe. Med uendret sparerate klarer den ikke det, og forholdstallet glir nedover.\n\n**Kort sikt for produksjonen per arbeider: intet hopp, men brattere bane.** Kapitalbeholdningen er forhåndsbestemt, og produktivitetsnivået $A$ hopper ikke — det er *vekstraten* i $A$ som er endret. Nivået på produksjonen per arbeider, $y\\cdot A$, er derfor uendret i selve øyeblikket.\n\nMen veksten i produksjonen per arbeider endres straks. To krefter virker: $A$ vokser nå med $g_1$ i stedet for $g_0$, som trekker opp, mens $y = f(k)$ faller mot den nye likevekten, som trekker ned. Nettoresultatet er at veksten **stiger umiddelbart, men til noe mindre enn $g_1$** — deretter stiger den videre mot $g_1$ etter hvert som fallet i $k$ dør ut.\n\n**Lang sikt: produksjonen per arbeider vokser med $g_1$.** I den nye likevekten er $y$ konstant, og produksjonen per arbeider $y\\cdot A$ vokser derfor med den nye raten $g_1$ — dobbelt så fort som før. Forbruket per arbeider vokser med samme rate. Samlet produksjon vokser med $n+g_1$.\n\n**Figur i ord — vekstbanen.** Tid horisontalt, logaritmen av produksjonen per arbeider vertikalt. Rett linje med helning $g_0$ fram til $t_0$; deretter en bane som knekker oppover, først litt brattere, så gradvis brattere, og som nærmer seg en rett linje med helning $g_1$. Ingen vertikalt hopp i $t_0$.\n\n**Konklusjonen, skarpt formulert.** Høyere produktivitetsvekst senker kapitalintensiteten målt per effektivitetsenhet, men det er en **måleeffekt** og ikke et velstandstap. Velstanden per arbeider vokser nå dobbelt så fort som før, i all fremtid. Målt i det økonomien faktisk er til for — forbruk per innbygger — er dette den mest gunstige endringen noen av parametrene i modellen kan gjennomgå.\n\n**Kontrasten som gjør poenget skarpere:** høyere $n$ og høyere $\\delta$ senker også $k^*$, men de hever ikke vekstraten. Høyere $g$ er den ene av de tre stråleparametrene der det lavere nivået kommer med noe langt mer verdifullt i retur."
+    },
+    {
+      "id": "econ2310-1-4-oppg-4",
+      "type": "exercise",
+      "exercise": {
+        "id": "econ2310-1-4-o4",
+        "number": "4",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "(Sjanger C-utvidelse.) Produktivitetsveksten $g$ øker varig.\n\n**a)** Hva skjer med $k^*$ målt per effektivitetsenhet?\n\n**b)** Hva skjer med den langsiktige vekstraten for produksjonen per arbeider?\n\n**c)** Hvorfor er svaret i a) ikke et tegn på lavere velstand?",
+        "solution": "**a)** Strålen $(n+g+\\delta)k$ blir brattere, og møter den uendrede sparekurven lenger til venstre. Altså faller $k^*$ målt per effektivitetsenhet, og dermed også $y^* = f(k^*)$ målt per effektivitetsenhet.\n\n**b)** Den stiger, fra $g_0$ til $g_1$. Produksjonen per arbeider er $y\\cdot A$, der $y$ er konstant i den nye likevekten og $A$ vokser med $g_1$.\n\n**c)** Fordi $k$ måler kapital per **effektivitetsenhet**, ikke per arbeider. Nevneren $AL$ vokser nå raskere enn før, så et lavere forholdstall betyr ikke at hver arbeider har mindre utstyr. Kapitalen per arbeider, $K/L$, vokser tvert imot med raten $g_1$ på den nye banen — raskere enn før.\n\nStørrelsen $k$ er en regneteknisk hjelpestørrelse som gjør modellen løsbar, ikke et velferdsmål. Velferdsmålet er forbruket per arbeider, og det vokser nå raskere.",
+        "hints": [
+          "Se hvilken av de to kurvene som inneholder $g$.",
+          "Skriv produksjonen per arbeider som $y\\cdot A$ og se på hver faktor.",
+          "I c): hva er egentlig nevneren i brøken $k$?"
+        ]
+      }
+    },
+    {
+      "id": "econ2310-1-4-oppg-5",
+      "type": "exercise",
+      "exercise": {
+        "id": "econ2310-1-4-o5",
+        "number": "5",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "(Sjanger C-utvidelse — konsistensfellen.) En besvarelse gjør følgende: den tegner fasediagrammet med strålen $(n+\\delta)k$, finner $k^*$, og konkluderer at «på lang sikt vokser produksjonen per arbeider med raten $g$».\n\n**a)** Hva er den logiske feilen?\n\n**b)** Skriv to alternative, konsistente svar — ett for hvert spor.",
+        "solution": "**a)** Besvarelsen har blandet de to modellvariantene. Strålen $(n+\\delta)k$ hører til modellen **uten** produktivitetsvekst, der $k$ er kapital per arbeider og der produksjonen per arbeider er **konstant** i steady state. Konklusjonen med vekstraten $g$ hører til modellen **med** produktivitetsvekst, der strålen skulle vært $(n+g+\\delta)k$ og $k$ kapital per effektivitetsenhet.\n\nSensor kan ikke vite om kandidaten har forstått noen av variantene, siden de to halvdelene motsier hverandre. Dette er nettopp feil #9, og det finnes eksamensspørsmål konstruert for å avdekke den.\n\n**b)** To konsistente svar:\n\n**Spor 1 — uten produktivitetsvekst:** «Jeg ser på modellen uten teknologisk fremgang, der $k = K/L$ er kapital per arbeider og $\\Delta k = s f(k) - (n+\\delta)k$. I steady state er $k^*$ bestemt av $s f(k^*) = (n+\\delta)k^*$. Produksjonen per arbeider er da **konstant**, mens samlet produksjon vokser med $n$.»\n\n**Spor 2 — med produktivitetsvekst:** «Jeg ser på modellen med teknologisk fremgang, der $k = K/(AL)$ er kapital per effektivitetsenhet og $\\Delta k = s f(k) - (n+g+\\delta)k$. I steady state er $k^*$ bestemt av $s f(k^*) = (n+g+\\delta)k^*$, og størrelsene per effektivitetsenhet er konstante. Produksjonen per arbeider vokser derimot med raten $g$, og samlet produksjon med $n+g$.»\n\nSjekkspørsmålet som fanger feilen: **hva er nevneren i min $k$?** Er den $L$, kan $g$ ikke stå i konklusjonen. Er den $AL$, må $g$ stå både i strålen og i konklusjonen.",
+        "hints": [
+          "Se på hvilken stråle som er brukt, og hvilken modellvariant den hører til.",
+          "Spør deg hva nevneren i $k$ er i hvert av de to sporene."
+        ]
+      }
+    },
+    {
+      "id": "econ2310-1-4-oppg-6",
+      "type": "exercise",
+      "exercise": {
+        "id": "econ2310-1-4-o6",
+        "number": "6",
+        "type": "classic",
+        "difficulty": "vanskelig",
+        "task": "(Krevende. Sjanger C-utvidelse.) I en økonomi med produktivitetsvekst øker spareraten varig, samtidig som produktivitetsveksten er uendret.\n\n**a)** Hva skjer med $k^*$ og $y^*$ per effektivitetsenhet?\n\n**b)** Hva skjer med den langsiktige vekstraten for produksjonen per arbeider?\n\n**c)** Hva skjer med **nivået** på produksjonen per arbeider, sammenlignet med den gamle banen?\n\n**d)** Bruk svarene til å forklare, i tre til fire setninger, hvorfor sparepolitikk og innovasjonspolitikk gjør prinsipielt ulike ting i denne modellen.",
+        "solution": "**a)** Sparekurven skifter opp, strålen $(n+g+\\delta)k$ er uendret. Skjæringspunktet flytter seg mot høyre: $k^*$ og $y^*$ per effektivitetsenhet **stiger**.\n\n**b)** Den er **uendret** lik $g$. Vekstraten for produksjonen per arbeider bestemmes utelukkende av produktivitetsveksten, og $g$ er ikke endret. Etter overgangsfasen vokser produksjonen per arbeider igjen med $g$, akkurat som før.\n\n**c)** Nivået ligger permanent **høyere** enn på den gamle banen. Produksjonen per arbeider er $y\\cdot A$: faktoren $A$ følger samme bane som før, mens $y = f(k^*)$ nå er høyere. Tegnet med logaritmisk vertikalakse: den nye banen er en rett linje med **samme helning** $g$, men forskjøvet oppover — og med en overgangsfase der banen er brattere enn $g$ mens økonomien løfter seg fra den gamle linjen til den nye.\n\n**d)** Sparepolitikk løfter **nivået** på velstandsbanen, men ikke helningen: mer sparing gir mer kapital per effektivitetsenhet, en overgangsperiode med ekstra vekst, og deretter en varig høyere, men like bratt bane. Innovasjonspolitikk endrer **helningen**: høyere $g$ gjør at velstanden per arbeider vokser raskere i all fremtid.\n\nForskjellen er stor i det lange løp. En nivåheving er en engangsgevinst som gjentar seg hvert år på samme nivå, mens en brattere bane vokser i betydning år for år. Det er også verdt å legge til det modellen *ikke* sier: den forklarer ikke hva som bestemmer $g$, og den kan derfor ikke fortelle om innovasjonspolitikk faktisk virker — bare at det ville betydd mye om den gjorde det.",
+        "hints": [
+          "I a): hvilken av kurvene inneholder $s$?",
+          "I b): hva er det som bestemmer vekstraten for produksjonen per arbeider i steady state?",
+          "I c): skriv produksjonen per arbeider som $y\\cdot A$ og se hvilken faktor som er endret.",
+          "I d): sammenlign hva de to politikktypene gjør med helning og med nivå."
+        ]
+      }
+    },
+    {
+      "id": "econ2310-1-4-typiske-feil",
+      "type": "warning",
+      "title": "Typiske feil i denne sjangeren",
+      "content": "1. **Å bytte mellom modell med og uten produktivitetsvekst midt i analysen** (feil #9). Si hvilket spor du bruker, og hold det. Sjekkspørsmålet: hva er nevneren i min $k$?\n2. **Å tolke lavere $k^*$ per effektivitetsenhet som lavere velstand.** Det er en måleeffekt: nevneren vokser raskere. Velstandsmålet er produksjonen og forbruket per arbeider, som vokser med $g$.\n3. **Å glemme at vekst per arbeider med raten $g$ er *forenlig med* steady state.** Likevekten krever bare at størrelsene per effektivitetsenhet står stille.\n4. **Å blande $g$ inn i modellen fra kap. 1.1–1.3 uten å endre strålen.** Skal $g$ med, må strålen være $(n+g+\\delta)k$ og $k$ måles per effektivitetsenhet.\n5. **Å påstå at høyere sparerate hever den langsiktige vekstraten.** Den hever nivået på banen; bare $g$ endrer helningen.\n6. **Å bruke $g$ som koeffisientnavn i denne delen.** I Del 4 er $g_Y$, $g_E$ og $g_\\pi$ koeffisienter i renteregelen — hold rollene fra hverandre, og definer symbolene dine."
+    },
+    {
+      "id": "econ2310-1-4-begrepsbank-intro",
+      "type": "text",
+      "content": "## Begrepsbank\n\nBegrepsbanken er flashcard- og repetisjonsstoff — den gjentar det du nettopp har lest. Hopp trygt over ved førstegangslesing; tidsanslaget for kapitlet gjelder kjernestoffet."
+    },
+    {
+      "id": "econ2310-1-4-def-symbolkollisjon-g",
+      "type": "definition",
+      "title": "Symbolet $g$: to roller i denne boka",
+      "content": "Samme bokstav, to helt ulike betydninger — fordi eksamenssettene bruker begge konvensjonene.\n\n**I Del 1** er $g$ **produktivitetsveksten**: vekstraten i teknologinivået $A$, og den eneste kilden til varig vekst per arbeider.\n\n**I Del 4** er $g_Y$, $g_E$ og $g_\\pi$ navnene på **koeffisientene i sentralbankens renteregel** — hvor kraftig renta reagerer på produksjonsgapet, på valutakursimpulser og på inflasjonsimpulser.\n\nDet finnes ingen sammenheng mellom de to. Beskyttelsen er den samme som mot alle notasjonsfeller i dette emnet: definer symbolene dine i starten av hvert svar, og skriv hva de måler."
+    },
+    {
+      "id": "econ2310-1-4-def-kapital-per-arbeider-med-g",
+      "type": "definition",
+      "title": "Kapital per arbeider når produktiviteten vokser",
+      "content": "En størrelse det er verdt å ha eksplisitt, siden den forebygger den vanligste tolkningsfeilen i kapitlet.\n\nKapitalen per arbeider er $K/L = k\\cdot A$. I steady state er $k$ konstant mens $A$ vokser med $g$, så **kapitalen per arbeider vokser med raten $g$**.\n\nHver arbeider får altså stadig mer utstyr, år etter år. At kapitalen per *effektivitetsenhet* er konstant — eller faller når $g$ øker — er en helt annen påstand, om en helt annen brøk.\n\nDette er nyttig å skrive ut i et svar: «kapitalen per arbeider vokser med $g$, mens kapitalen per effektivitetsenhet er konstant». Da er det tydelig at du vet hvilken nevner du snakker om."
+    },
+    {
+      "id": "econ2310-1-4-def-hvorfor-a-ikke-slites",
+      "type": "definition",
+      "title": "Hvorfor teknologi kan gi vekst uten grense",
+      "content": "Kjernen i hvorfor kapital og teknologi virker så ulikt i denne modellen.\n\n**Kapital møter avtakende avkastning.** Hver ny maskin per arbeider gir mindre enn den forrige, samtidig som slitasje og utvanning vokser proporsjonalt med beholdningen. Kilden tørker ut, og resultatet er en engangsgevinst i nivået.\n\n**Teknologi møter ikke samme grense** i modellen. Et høyere produktivitetsnivå gjør både arbeidskraften og kapitalen mer verdt, og $A$ slites ikke: kunnskap forsvinner ikke slik maskiner gjør.\n\nMerk at dette er en **antakelse** i modellen, ikke et resultat den beviser. Modellen sier at *hvis* produktiviteten vokser jevnt, får vi varig vekst per arbeider — men den forklarer ikke hvorfor produktiviteten skulle vokse jevnt."
+    },
+    {
+      "id": "econ2310-1-4-def-forbruk-per-arbeider-g",
+      "type": "definition",
+      "title": "Forbruk per arbeider med produktivitetsvekst",
+      "content": "Velferdsmålet i denne modellvarianten:\n\n$$c^{arb} = (1-s)\\, y \\cdot A = (1-s) f(k)\\cdot A$$\n\nI steady state er $f(k^*)$ konstant, mens $A$ vokser med raten $g$. Forbruket per arbeider vokser derfor med **$g$**, i all fremtid.\n\nDet er dette som gjør varianten med produktivitetsvekst til den empirisk relevante: den kan forklare at levestandarden i rike land har fortsatt å stige i mer enn hundre år, mens grunnmodellen forutsier at den skulle flatet ut."
+    },
+    {
+      "id": "econ2310-1-4-def-kilder-til-vekst",
+      "type": "definition",
+      "title": "De to kildene til høyere velstand — og hva de kan hver for seg",
+      "content": "En oppsummering det er verdt å ha klar, siden den ofte er svaret på en avsluttende drøftingsdel.\n\n**Kapitaloppbygging** (høyere sparerate) hever **nivået** på velstandsbanen. Den gir en overgangsperiode med ekstra vekst, og deretter en varig høyere, men like bratt bane. Gevinsten er endelig, fordi avkastningen på kapital avtar.\n\n**Teknologisk fremgang** (høyere $g$) hever **helningen** på banen. Velstanden per arbeider vokser raskere i all fremtid.\n\nI det lange løp er den andre langt viktigst: en nivåheving er en engangsgevinst, mens en brattere bane vokser i betydning år for år. Modellen forklarer imidlertid ikke hva som bestemmer $g$ — den sier bare hvor mye det ville betydd."
+    },
+    {
+      "id": "econ2310-1-4-repetisjon",
+      "type": "collapsible",
+      "title": "Repetisjon: sjekk deg selv før du går videre",
+      "buttonText": "Vis repetisjonssjekk",
+      "content": [
+        {
+          "id": "econ2310-1-4-repetisjon-text",
+          "type": "text",
+          "content": "## Kan du dette, er du klar for kap. 1.5\n\n☐ Skrive ned $\\Delta k = s f(k) - (n+g+\\delta)k$ og si hva $k$ betyr nå.\n\n☐ Forklare hvorfor $g$ havner i utvanningsleddet.\n\n☐ Sette opp vekstratene i steady state: per effektivitetsenhet (0), per arbeider ($g$), samlet ($n+g$).\n\n☐ Si hvorfor produktivitetsvekst er den eneste kilden til varig vekst per arbeider.\n\n☐ Tegne skiftet ved høyere $g$, og si hva som skjer med nivået per effektivitetsenhet.\n\n☐ Forklare hvorfor det lavere nivået **ikke** betyr lavere velstand.\n\n☐ Sjekke egen konsistens: hva er nevneren i min $k$?\n\n**Neste steg:** [kap. 1.5](/bok/econ2310/econ2310-1-5) løser opp ubestemtheten fra [kap. 1.3](/bok/econ2310/econ2310-1-3) — hvilken sparerate gir egentlig høyest varig forbruk?"
+        }
+      ]
+    },
+    {
+      "id": "econ2310-1-4-symbolliste",
+      "type": "collapsible",
+      "title": "Symbol- og formelliste",
+      "buttonText": "Vis symboler og formler",
+      "content": [
+        {
+          "id": "econ2310-1-4-symbolliste-text",
+          "type": "text",
+          "content": "## Symbol- og formelliste\n\n*Oppslagsverk — alt her forklares underveis i kapitlet.*\n\n| Symbol | Betydning i dette delkapitlet |\n|---|---|\n| $A$ | Produktivitetsnivået (teknologinivået) — eksogent, vokser med raten $g$ |\n| $g$ | **Produktivitetsvekst** i denne delen. (I Del 4 er $g_Y, g_E, g_\\pi$ koeffisienter i renteregelen — ingen sammenheng) |\n| $AL$ | Arbeidskraft målt i effektivitetsenheter; vokser med om lag $n+g$ |\n| $k$ | **Kapital per effektivitetsenhet**, $k = K/(AL)$ — merk: ikke per arbeider i dette kapitlet |\n| $y$ | Produksjon per effektivitetsenhet, $y = Y/(AL) = f(k)$ |\n| $k^*, y^*$ | Likevektsverdiene per effektivitetsenhet |\n| $K/L$ | Kapital per arbeider $= k\\cdot A$; vokser med $g$ i steady state |\n| $Y/L$ | Produksjon per arbeider $= y\\cdot A$; vokser med $g$ i steady state — velstandsmålet |\n| $L$ | Arbeidsstyrken, vokser med raten $n$ |\n| $s$ | Sparerate — eksogen |\n| $n$ | Befolkningsvekst — eksogen |\n| $\\delta$ | Kapitalslit — eksogen |\n| $K/Y$ | Kapital-produksjonsforholdet, konstant på en balansert vekstbane |\n\n**Formler i dette delkapitlet:**\n\n$$Y = F(K, AL)$$\nProduktfunksjonen med arbeidskraft målt i effektivitetsenheter.\n\n$$k = \\frac{K}{AL}, \\qquad y = \\frac{Y}{AL} = f(k)$$\nPer effektivitetsenhet-formen, med $f' > 0$ og $f'' < 0$ som før.\n\n$$\\Delta k = s f(k) - (n+g+\\delta)k$$\nBevegelsesligningen med produktivitetsvekst: investering per effektivitetsenhet minus utvanning, der utvanningen nå har tre grunner.\n\n$$s f(k^*) = (n+g+\\delta)k^*$$\nLikevektsbetingelsen. Strålen er brattere enn i grunnmodellen, så $k^*$ er lavere — en måleeffekt, ikke velstandstap.\n\n$$\\frac{Y}{L} = y\\cdot A, \\qquad \\frac{\\Delta(Y/L)}{Y/L} = g \\quad \\text{i steady state}$$\nVelstandsmålet og dets vekstrate: produksjonen per arbeider vokser med produktivitetsveksten.\n\n$$\\frac{\\Delta Y}{Y} = \\frac{\\Delta K}{K} = n+g \\quad \\text{i steady state}$$\nTotalstørrelsene vokser med summen av befolkningsvekst og produktivitetsvekst."
+        }
+      ]
+    }
+  ],
+  "exercises": []
+}
