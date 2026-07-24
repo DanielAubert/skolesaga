@@ -1,0 +1,469 @@
+{
+  "id": "fys1001-4-4",
+  "courseId": "fys1001",
+  "chapterNumber": "4.4",
+  "title": "Varmetransport og strålingsbalanse",
+  "description": "Stefan–Boltzmann som balanseligning, Wiens lov og varmeledning gjennom sjikt — pluss de kvalitative klassikerne om klær, metall og snø rundt trestammer.",
+  "estimatedMinutes": 55,
+  "competenceGoals": [
+    "skille ledning, konveksjon og stråling med egne eksempler, og velge riktig mekanisme i en forklaring",
+    "regne varmetap gjennom ett eller flere sjikt med ledningsloven og med U-verdi",
+    "regne netto utstrålt effekt med Stefan–Boltzmanns lov og emissivitet, konsekvent i kelvin",
+    "finne likevektstemperatur ved å sette effekt inn lik effekt ut, og plassere strålingstoppen med Wiens lov"
+  ],
+  "content": [
+    {
+      "id": "fys1001-4-4-tip-eksamensvinkel",
+      "type": "tip",
+      "title": "Eksamensvinkel",
+      "content": "**Prioritet: du må kunne dette.** Varmestråling og varmeledning er testet som regneoppgave i **13 av 36 slutteksamener (36 %)** — og i tillegg som kortsvar i flere sett. U-verdi og sjikt i vegg var oppe i høst 2019 og vår 2022; strålingsbalanse i vår 2017, vår 2021 og vår 2023; Wiens lov i vår 2017.\n\nOppgavemalen heter **I** i sjangerkatalogen i [kap. 0.1](/bok/fys1001/fys1001-0-1): **sjanger I = strålings- og varmebalanse**. De faste variantene:\n\n- **Balansemetoden**: effekt inn = effekt ut $\\Rightarrow$ likevektstemperatur. Dette er hovedgrepet, og det gjenbrukes på alt fra solfangere til planeter.\n- **Netto utstrålt effekt** fra en varm flate til kaldere omgivelser.\n- **Varmetap gjennom en vegg eller tank**, med sjikt i serie eller oppgitt U-verdi.\n- **Wiens lov** til å plassere strålingstoppen: infrarødt for kropper, synlig lys for sola.\n- **Kvalitative klassikere** (sjanger Q — forklaringsoppgaver): hvorfor snøen smelter i en ring rundt en mørk trestamme, hvorfor klær isolerer, hvorfor metall kjennes kaldere enn tre ved samme temperatur.\n\n**Kelvin-disiplinen er dødsalvorlig her.** I $P = \\varepsilon\\sigma A T^4$ står temperaturen alene *og* i fjerde potens. Setter du inn 20 i stedet for 293, bommer du med en faktor på over $10^{4}$. Regn alltid om til kelvin før du gjør noe annet."
+    },
+    {
+      "id": "fys1001-4-4-forkunnskaper",
+      "type": "text",
+      "content": "### Forkunnskaper\n\n- **Varme og effekt** — [kap. 4.1](/bok/fys1001/fys1001-4-1): at varme er overført energi, og at effekt er energi per tid ($1\\ \\text{W} = 1\\ \\text{J/s}$). Skal du fra effekt til energi, bruker du $Q = Pt$.\n- **Kelvin** — [kap. 4.2](/bok/fys1001/fys1001-4-2): $T\\ [\\text{K}] = t\\ [^\\circ\\text{C}] + 273$. Regelen «står $T$ alene, bruk kelvin» gjelder i alle strålingsformler.\n- **Potensregning** — [Potenser med heltallseksponenter](/bok/1t/1t-1-2): du skal opphøye i fjerde og ta fjerderot, altså $T = \\sqrt[4]{\\ }$, som på kalkulatoren er potensen $0{,}25$.\n\nKonstantene $\\sigma$ og Wiens konstant, og alle materialdata ($\\lambda$-verdier, emissiviteter, U-verdier), er **tabelloppslag**."
+    },
+    {
+      "id": "fys1001-4-4-anker",
+      "type": "text",
+      "content": "## Hverdagsanker: kjøkkenbenken og brødfjøla\n\nLegg én hånd på steinbenken og én på treskjærefjøla ved siden av. Steinen kjennes kald, treet nesten lunt — men et termometer viser samme temperatur på begge.\n\nForklaringen er varmeledning: steinen leder varmen bort fra hånda din mange ganger raskere enn treet, og det er varmetapet fra huden nervene registrerer, ikke temperaturen. Dette er ett av tre måter varme flytter seg på, og alle tre kommer i dette kapitlet:\n\n- **ledning** gjennom fast stoff (steinen, veggen, vinduet),\n- **konveksjon** ved at varm væske eller gass strømmer (radiatoren, vinden rundt huset),\n- **stråling** som elektromagnetiske bølger, uten noe medium i mellom (sola, peisen, du selv).\n\n*Tidsbruk: seks korte løkker på 7–11 minutter, med naturlige pausepunkter markert underveis.*"
+    },
+    {
+      "id": "fys1001-4-4-l1-intro",
+      "type": "text",
+      "content": "## Løkke 1 — De tre mekanismene (~8 min)"
+    },
+    {
+      "id": "fys1001-4-4-d-ledning",
+      "type": "definition",
+      "title": "Varmeledning",
+      "content": "**Varmeledning er transport av varme gjennom et materiale ved at molekylene dulter energien videre, uten at stoffet selv flytter seg.**\n\nMetaller leder godt (frie elektroner sprer energien raskt), mens luft, ull og isopor leder dårlig. Det er derfor en teskje i teen blir varm i andre enden, mens plastskaftet ikke gjør det."
+    },
+    {
+      "id": "fys1001-4-4-d-konveksjon",
+      "type": "definition",
+      "title": "Konveksjon",
+      "content": "**Konveksjon er varmetransport ved at en væske eller gass strømmer og tar med seg energien.**\n\nVarm luft er lettere enn kald og stiger, kald luft synker og erstatter den — slik holder en radiator hele rommet varmt, ikke bare veggen bak seg. Blåser det utenfor en vegg, byttes den varme grensehinnen av luft ut hele tiden, og varmetapet øker merkbart selv om lufttemperaturen er den samme.\n\nKonveksjon regnes ikke på med formel i FYS1001; den brukes til å **forklare**. Nøkkelinnsikten er at *hindret* konveksjon isolerer: stillestående luft i en dundyne eller i en glassrute er en utmerket isolator, mens luft i bevegelse er en effektiv varmetransportør."
+    },
+    {
+      "id": "fys1001-4-4-d-straaling",
+      "type": "definition",
+      "title": "Varmestråling",
+      "content": "**Varmestråling er elektromagnetiske bølger som alle legemer sender ut i kraft av sin temperatur — og den trenger ikke noe medium.**\n\nDet er derfor sola varmer oss gjennom det tomme rommet, og derfor du kjenner varmen fra en peis før lufta rundt har blitt varm. Alle legemer stråler hele tiden, også du selv og isbiter; det som avgjør netto varmetap, er forskjellen mellom det du sender ut og det du får inn."
+    },
+    {
+      "id": "fys1001-4-4-o1",
+      "type": "exercise",
+      "exercise": {
+        "id": "fys1001-4-4-o1",
+        "number": "1",
+        "type": "classic",
+        "difficulty": "lett",
+        "task": "(Innstegsoppgave.) Avgjør for hvert tilfelle hvilken av de tre mekanismene som er den viktigste, og forklar med én setning hver:\n\n**a)** En kaffekopp av metall blir varm i håndtaket.\n**b)** Du kjenner varmen i ansiktet når du står tre meter fra en bålpanne.\n**c)** Et rom med radiator under vinduet blir jevnt varmt.",
+        "solution": "**a)** Varmeledning. Energien dultes videre gjennom metallet fra kaffen til håndtaket, uten at metallet flytter seg.\n\n**b)** Stråling. Tre meter luft varmer ikke ansiktet nevneverdig ved ledning, og lufta over bålet stiger rett opp — det er de elektromagnetiske bølgene som treffer huden.\n\n**c)** Konveksjon. Lufta varmes ved radiatoren, stiger, kjøles mot taket og vinduet og synker ned igjen, slik at hele romvolumet blandes.",
+        "hints": [
+          "Spør for hvert tilfelle: flytter noe stoff seg, eller går energien gjennom stoffet — eller helt uten medium?",
+          "Stråling er den eneste som virker gjennom tomrom og over avstand.",
+          "Strømmende luft eller væske betyr konveksjon."
+        ]
+      }
+    },
+    {
+      "id": "fys1001-4-4-l2-intro",
+      "type": "text",
+      "content": "## Løkke 2 — Varmeledning gjennom et sjikt (~10 min)"
+    },
+    {
+      "id": "fys1001-4-4-d-H",
+      "type": "definition",
+      "title": "Ledningsloven",
+      "content": "**Effekten som ledes gjennom et sjikt, er proporsjonal med arealet og temperaturforskjellen, og omvendt proporsjonal med tykkelsen:**\n\n$$H = \\frac{\\lambda A \\Delta T}{L}$$\n\nHer er $H$ varmestrømmen i watt, $\\lambda$ materialets varmeledningsevne i W/(m$\\cdot$K), $A$ arealet i $\\text{m}^2$, $\\Delta T$ temperaturforskjellen over sjiktet i K og $L$ tykkelsen i meter.\n\nLes den slik: dobbelt så tykk isolasjon halverer varmetapet, og dobbelt så stor veggflate dobler det. Siden bare $\\Delta T$ inngår, er celsius trygt her — i motsetning til i strålingsformlene senere i kapitlet."
+    },
+    {
+      "id": "fys1001-4-4-d-lambda",
+      "type": "definition",
+      "title": "Varmeledningsevne (λ)",
+      "content": "**Varmeledningsevnen $\\lambda$ forteller hvor godt et materiale leder varme**, med enhet W/(m$\\cdot$K).\n\nNoen typiske verdier, alle **tabelloppslag**: mineralull 0,037, tre 0,13, betong 1,7, glass 0,80, stål 50, kobber 400 W/(m$\\cdot$K).\n\nSpennet er enormt — kobber leder over 10 000 ganger bedre enn mineralull. Det er derfor et hus isoleres med ull og en kjele lages av metall.\n\n**Merk symbolkollisjonen:** i dette kapitlet er $\\lambda$ varmeledningsevne i ledningsloven, men $\\lambda_{\\text{maks}}$ i Wiens lov er en *bølgelengde* målt i meter. To helt ulike størrelser med samme bokstav — symbollisten nederst holder dem fra hverandre."
+    },
+    {
+      "id": "fys1001-4-4-ex1",
+      "type": "example",
+      "title": "Eksempel 1: Varmetap gjennom en isolert vegg (sjanger I)",
+      "problem": "En vegg på 25 $\\text{m}^2$ er isolert med 12 cm mineralull, $\\lambda = 0{,}037$ W/(m$\\cdot$K). Det er 25 grader varmere inne enn ute.\n\nFinn varmestrømmen gjennom veggen når vi ser bort fra alle andre sjikt.",
+      "solution": "**Data:** $A = 25\\ \\text{m}^2$, $L = 0{,}12$ m, $\\Delta T = 25$ K, $\\lambda = 0{,}037$ W/(m$\\cdot$K).\n\n$$H = \\frac{\\lambda A \\Delta T}{L} = \\frac{0{,}037 \\cdot 25 \\cdot 25}{0{,}12}\\ \\text{W} = \\frac{23{,}1}{0{,}12}\\ \\text{W} = 1{,}9\\cdot10^{2}\\ \\text{W}$$\n\n**Svar:** Varmestrømmen er 193 W, altså om lag 1,9$\\cdot10^{2}$ W.\n\n**Rimelighetsvurdering:** en enkelt vegg som taper like mye som to lyspærer av gammel type, er et troverdig tall for et godt isolert hus. Over et døgn blir det $193 \\cdot 86\\,400\\ \\text{J} = 16{,}7$ MJ $= 4{,}6$ kWh — som er en realistisk andel av et husholdningsforbruk.\n\n**Merk enhetene:** tykkelsen må være i meter. Setter du inn 12 i stedet for 0,12, får du et svar som er 100 ganger for lite."
+    },
+    {
+      "id": "fys1001-4-4-o2",
+      "type": "exercise",
+      "exercise": {
+        "id": "fys1001-4-4-o2",
+        "number": "2",
+        "type": "classic",
+        "difficulty": "lett",
+        "task": "(Sjanger I.) En rute av enkelt glass har arealet 1,4 $\\text{m}^2$ og tykkelsen 4,0 mm. Glassets varmeledningsevne er 0,80 W/(m$\\cdot$K), og temperaturforskjellen over ruta er 18 K.\n\n**a)** Finn varmestrømmen gjennom glasset.\n**b)** Svaret er urealistisk høyt for et virkelig vindu. Hva har modellen utelatt?",
+        "solution": "**a)**\n$$H = \\frac{\\lambda A\\Delta T}{L} = \\frac{0{,}80\\cdot1{,}4\\cdot18}{0{,}0040}\\ \\text{W} = \\frac{20{,}16}{0{,}0040}\\ \\text{W} = 5{,}0\\cdot10^{3}\\ \\text{W}$$\n\n**Svar:** $5{,}0\\cdot10^{3}$ W, altså 5,0 kW.\n\n**b)** Modellen har utelatt de tynne, nesten stillestående luftsjiktene på hver side av glasset. Selve glasset leder svært godt og er svært tynt, så det er grensesjiktene av luft som i praksis bestemmer varmetapet — et virkelig enkeltglassvindu taper snarere 100–150 W ved disse forholdene. Derfor oppgir byggebransjen U-verdier for hele vindusløsningen i stedet for $\\lambda$ for glasset.",
+        "hints": [
+          "Husk å gjøre om 4,0 mm til meter før du setter inn.",
+          "Bruk $H = \\lambda A\\Delta T/L$ direkte.",
+          "I **b)**: hva ligger det på hver side av glasset som formelen ikke tar hensyn til?"
+        ]
+      }
+    },
+    {
+      "id": "fys1001-4-4-l3-intro",
+      "type": "text",
+      "content": "— naturlig pausepunkt —\n\n## Løkke 3 — Sjikt i serie og U-verdi (~11 min)"
+    },
+    {
+      "id": "fys1001-4-4-d-Rmot",
+      "type": "definition",
+      "title": "Termisk motstand og sjikt i serie",
+      "content": "**Hvert sjikt i en vegg har en termisk motstand $R = L/\\lambda$ (med enhet $\\text{m}^2\\text{K/W}$), og motstandene i en sammensatt vegg legges sammen:**\n\n$$R_{\\text{tot}} = \\frac{L_1}{\\lambda_1} + \\frac{L_2}{\\lambda_2} + \\dots$$\n\nTankegangen er den samme som for motstander i serie i en elektrisk krets ([kap. 5.2](/bok/fys1001/fys1001-5-2)): all varmen må gjennom alle sjiktene etter tur, så hindringene summeres.\n\nKonsekvensen er verdt å merke seg: **det dårligst ledende sjiktet dominerer**. Et tykt betongsjikt bidrar nesten ingenting i forhold til noen centimeter mineralull."
+    },
+    {
+      "id": "fys1001-4-4-d-U",
+      "type": "definition",
+      "title": "U-verdi (varmegjennomgangstall)",
+      "content": "**U-verdien er den inverse av den samlede termiske motstanden, og gir varmetapet per kvadratmeter per grad:**\n\n$$U = \\frac{1}{R_{\\text{tot}}}, \\qquad H = U A \\Delta T$$\n\nEnheten er W/($\\text{m}^2\\cdot$K). Lav U-verdi betyr god isolasjon — moderne vinduer ligger rundt 0,8, dårlig isolerte vegger over 1,0, godt isolerte vegger under 0,2 W/($\\text{m}^2\\cdot$K).\n\n**Hold $\\lambda$ og $U$ fra hverandre:** $\\lambda$ er en egenskap ved *materialet* (per meter tykkelse), mens $U$ gjelder den *ferdige konstruksjonen* med sine faktiske tykkelser. U-verdier er tabelloppslag eller oppgitt i teksten."
+    },
+    {
+      "id": "fys1001-4-4-ex2",
+      "type": "example",
+      "title": "Eksempel 2: Vegg med to sjikt (sjanger I)",
+      "problem": "En kjellervegg på 30 $\\text{m}^2$ består av 15 cm mineralull ($\\lambda = 0{,}037$ W/(m$\\cdot$K)) og 10 cm betong ($\\lambda = 1{,}7$ W/(m$\\cdot$K)). Inne er det 21 $^\\circ$C, ute 0 $^\\circ$C.\n\n**a)** Finn veggens U-verdi.\n**b)** Finn varmestrømmen gjennom veggen.\n**c)** Hvor stor del av temperaturfallet skjer i betongen?",
+      "solution": "**a)** Regn motstandene hver for seg:\n\n$$R_1 = \\frac{L_1}{\\lambda_1} = \\frac{0{,}15}{0{,}037} = 4{,}054\\ \\text{m}^2\\text{K/W}$$\n$$R_2 = \\frac{L_2}{\\lambda_2} = \\frac{0{,}10}{1{,}7} = 0{,}0588\\ \\text{m}^2\\text{K/W}$$\n$$R_{\\text{tot}} = 4{,}054 + 0{,}059 = 4{,}113\\ \\text{m}^2\\text{K/W}$$\n$$U = \\frac{1}{R_{\\text{tot}}} = 0{,}243\\ \\text{W/(m}^2\\text{K)}$$\n\n**Svar:** $U = 0{,}24$ W/($\\text{m}^2\\cdot$K) — en godt isolert vegg.\n\n**b)**\n$$H = UA\\Delta T = 0{,}243\\cdot30\\cdot21\\ \\text{W} = 1{,}5\\cdot10^{2}\\ \\text{W}$$\n\n**Svar:** 153 W, altså om lag $1{,}5\\cdot10^{2}$ W.\n\n**c)** Temperaturfallet fordeler seg som motstandene:\n\n$$\\Delta T_{\\text{betong}} = \\Delta T_{\\text{tot}}\\cdot\\frac{R_2}{R_{\\text{tot}}} = 21\\ \\text{K}\\cdot\\frac{0{,}0588}{4{,}113} = 0{,}30\\ \\text{K}$$\n\n**Svar:** Bare 0,3 av de 21 gradene forsvinner i betongen; de resterende 20,7 gradene faller over mineralullen.\n\n**Konklusjon å skrive ut:** betongen bidrar praktisk talt ingenting til isolasjonen, selv om den er 10 cm tykk. All isolasjonsevnen ligger i ulla. Det er nettopp dette den neste figuren viser."
+    },
+    {
+      "id": "fys1001-4-4-fig-profil",
+      "type": "image",
+      "src": "/images/textbook/fys1001/fys1001-4-4-temperaturprofil-sjikt.svg",
+      "alt": "Temperaturprofil gjennom en vegg: temperaturen faller bratt fra 21 grader til 0,3 grader gjennom mineralullsjiktet fra 0 til 0,15 meter, og deretter nesten flatt gjennom betongen til 0 grader ved 0,25 meter.",
+      "caption": "Temperaturprofilen gjennom veggen i eksempel 2. Det bratte fallet i mineralullen og det nesten flate partiet i betongen viser direkte hvilket sjikt som isolerer — kurven er brattest der motstanden er størst."
+    },
+    {
+      "id": "fys1001-4-4-o3",
+      "type": "exercise",
+      "exercise": {
+        "id": "fys1001-4-4-o3",
+        "number": "3",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "(Sjanger I.) En varmtvannstank har overflateareal 3,2 $\\text{m}^2$ og en isolasjonskappe med U-verdi 0,45 W/($\\text{m}^2\\cdot$K). Vannet holder 75 $^\\circ$C, og kjellerrommet 18 $^\\circ$C.\n\n**a)** Finn varmetapet fra tanken.\n**b)** Hvor mye energi tapes i løpet av et døgn? Oppgi svaret både i joule og i kilowattimer.\n**c)** Hva ville skjedd med varmetapet hvis isolasjonskappen ble byttet til en med dobbelt så tykk isolasjon av samme materiale? Svar uten ny utregning.",
+        "solution": "**a)**\n$$H = UA\\Delta T = 0{,}45\\cdot3{,}2\\cdot(75 - 18)\\ \\text{W} = 0{,}45\\cdot3{,}2\\cdot57\\ \\text{W} = 82\\ \\text{W}$$\n\n**Svar:** Varmetapet er 82 W.\n\n**b)** Ett døgn er $t = 86\\,400$ s:\n\n$$Q = Ht = 82{,}1\\cdot86\\,400\\ \\text{J} = 7{,}1\\cdot10^{6}\\ \\text{J} = 7{,}1\\ \\text{MJ}$$\n$$Q = \\frac{7{,}1\\cdot10^{6}}{3{,}6\\cdot10^{6}}\\ \\text{kWh} = 2{,}0\\ \\text{kWh}$$\n\n**Svar:** 7,1 MJ per døgn, altså om lag 2,0 kWh.\n\n**c)** Dobbelt så tykk isolasjon dobler den termiske motstanden $R = L/\\lambda$ og halverer derfor U-verdien. Varmetapet ville blitt halvert, til om lag 41 W — cirka 1,0 kWh per døgn. (Her har vi sett bort fra at overflatearealet blir litt større med tykkere kappe.)",
+        "hints": [
+          "Bruk $H = UA\\Delta T$; U-verdien er oppgitt, så du trenger ikke regne motstander.",
+          "I **b)**: gå fra effekt til energi med $Q = Ht$, og husk at 1 kWh $= 3{,}6\\cdot10^{6}$ J.",
+          "I **c)**: hvordan avhenger $R = L/\\lambda$ av tykkelsen, og hva blir da $U = 1/R$?"
+        ]
+      }
+    },
+    {
+      "id": "fys1001-4-4-l4-intro",
+      "type": "text",
+      "content": "— naturlig pausepunkt —\n\n## Løkke 4 — Stefan–Boltzmann og netto stråling (~11 min)"
+    },
+    {
+      "id": "fys1001-4-4-d-sb",
+      "type": "definition",
+      "title": "Stefan–Boltzmanns lov",
+      "content": "**Et absolutt svart legeme stråler ut effekten**\n\n$$M = \\sigma T^4$$\n\n**per kvadratmeter overflate**, der $\\sigma = 5{,}67\\cdot10^{-8}$ W/($\\text{m}^2\\text{K}^4$) er Stefan–Boltzmanns konstant (**et formelarkoppslag**) og $T$ er den absolutte temperaturen i **kelvin**.\n\nFjerdepotensen er lovens viktigste egenskap: dobler du den absolutte temperaturen, blir utstrålingen $2^4 = 16$ ganger så stor. Det er derfor en glødende ovn stråler så voldsomt mer enn en lunken.\n\nFor et legeme med overflate $A$ blir samlet utstrålt effekt $P = \\sigma A T^4$."
+    },
+    {
+      "id": "fys1001-4-4-d-emissivitet",
+      "type": "definition",
+      "title": "Emissivitet (ε)",
+      "content": "**Emissiviteten forteller hvor stor del av den svarte strålingen en virkelig flate faktisk sender ut:**\n\n$$P = \\varepsilon\\sigma A T^4, \\qquad 0 \\le \\varepsilon \\le 1$$\n\nDen er et rent tall uten enhet. Matte, mørke flater ligger nær 1 (menneskehud og de fleste malte flater rundt 0,95; sot 0,99), mens blank metallfolie kan ligge så lavt som 0,05.\n\nSamme tall gjelder for *absorpsjon*: en flate som stråler dårlig, absorberer også dårlig. Det er hele ideen bak den blanke innerflaten i en termos og bak refleksjonsfolie i byggisolasjon.\n\n$\\varepsilon$-verdier er **tabelloppslag** eller oppgitt i oppgaven."
+    },
+    {
+      "id": "fys1001-4-4-d-netto",
+      "type": "definition",
+      "title": "Netto utstrålt effekt",
+      "content": "**Alle legemer stråler, også omgivelsene. Det som teller for varmetapet, er differansen:**\n\n$$P_{\\text{netto}} = \\varepsilon\\sigma A\\left(T^4 - T_{\\text{omg}}^4\\right)$$\n\nBåde $T$ og $T_{\\text{omg}}$ skal være i **kelvin**, og differansen tas mellom de *fjerdepotensene* — ikke mellom temperaturene. $(T - T_{\\text{omg}})^4$ er noe helt annet og et vanlig feilgrep.\n\nEr flaten kaldere enn omgivelsene, blir uttrykket negativt: da mottar legemet netto stråling i stedet for å avgi."
+    },
+    {
+      "id": "fys1001-4-4-ex3",
+      "type": "example",
+      "title": "Eksempel 3: Hvor mye stråler et menneske? (sjanger I)",
+      "problem": "En person har hudoverflate 1,8 $\\text{m}^2$ med temperatur 33 $^\\circ$C og emissivitet 0,97. Rommet rundt holder 20 $^\\circ$C.\n\nFinn netto utstrålt effekt.",
+      "solution": "**Kelvin først:** $T = 33 + 273 = 306$ K og $T_{\\text{omg}} = 20 + 273 = 293$ K.\n\n$$P = \\varepsilon\\sigma A\\left(T^4 - T_{\\text{omg}}^4\\right) = 0{,}97 \\cdot 5{,}67\\cdot10^{-8} \\cdot 1{,}8 \\cdot \\left(306^4 - 293^4\\right)\\ \\text{W}$$\n\nRegn fjerdepotensene hver for seg:\n\n$$306^4 = 8{,}768\\cdot10^{9}, \\qquad 293^4 = 7{,}370\\cdot10^{9}, \\qquad \\text{differanse} = 1{,}398\\cdot10^{9}$$\n\n$$P = 0{,}97\\cdot5{,}67\\cdot10^{-8}\\cdot1{,}8\\cdot1{,}398\\cdot10^{9}\\ \\text{W} = 1{,}4\\cdot10^{2}\\ \\text{W}$$\n\n**Svar:** Netto utstrålt effekt er 138 W, altså om lag $1{,}4\\cdot10^{2}$ W.\n\n**Rimelighetsvurdering:** en person i ro omsetter rundt 100 W. At det aller meste av dette tapes som stråling i et rom på 20 $^\\circ$C, stemmer godt — og det forklarer hvorfor et rom med kalde vegger kjennes kaldt selv når lufta er 22 $^\\circ$C: det er veggenes $T_{\\text{omg}}$ som avgjør, ikke lufttemperaturen.\n\n**Merk regnemåten:** $(306 - 293)^4 = 13^4 = 28\\,561$ ville gitt et helt annet og galt svar. Fjerdepotensene skal regnes hver for seg og trekkes fra hverandre etterpå."
+    },
+    {
+      "id": "fys1001-4-4-o4",
+      "type": "exercise",
+      "exercise": {
+        "id": "fys1001-4-4-o4",
+        "number": "4",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "(Sjanger I.) Fronten på en vedovn har arealet 0,40 $\\text{m}^2$ og temperaturen 180 $^\\circ$C. Emissiviteten er 0,85, og rommet holder 20 $^\\circ$C.\n\n**a)** Finn netto utstrålt effekt fra ovnsfronten.\n**b)** Hvor mange ganger større ville utstrålingen fra fronten alene ($\\varepsilon\\sigma A T^4$, uten omgivelsesleddet) blitt hvis fronten holdt 453 K i stedet for 226,5 K? Svar uten ny utregning.",
+        "solution": "**a)** Kelvin: $T = 180 + 273 = 453$ K, $T_{\\text{omg}} = 20 + 273 = 293$ K.\n\n$$453^4 = 4{,}211\\cdot10^{10}, \\qquad 293^4 = 7{,}370\\cdot10^{9}, \\qquad \\text{differanse} = 3{,}474\\cdot10^{10}$$\n\n$$P = 0{,}85\\cdot5{,}67\\cdot10^{-8}\\cdot0{,}40\\cdot3{,}474\\cdot10^{10}\\ \\text{W} = 6{,}7\\cdot10^{2}\\ \\text{W}$$\n\n**Svar:** Om lag 670 W — nesten en tidel av en typisk vedovns totale effekt, bare fra strålingen ut av fronten.\n\n**b)** 16 ganger. Utstrålingen går som $T^4$, og en dobling av den absolutte temperaturen gir faktoren $2^4 = 16$. Dette er kvadrat- og fjerdegradslovenes hovedpoeng: strålingen vokser dramatisk raskere enn temperaturen.",
+        "hints": [
+          "Regn om begge temperaturer til kelvin før du gjør noe annet.",
+          "Regn $T^4$ og $T_{\\text{omg}}^4$ hver for seg, og trekk fra etterpå — ikke $(T - T_{\\text{omg}})^4$.",
+          "I **b)**: hvilken potens av $T$ inngår i loven?"
+        ]
+      }
+    },
+    {
+      "id": "fys1001-4-4-l5-intro",
+      "type": "text",
+      "content": "— naturlig pausepunkt —\n\n## Løkke 5 — Balansemetoden: likevektstemperatur (~11 min)"
+    },
+    {
+      "id": "fys1001-4-4-d-balanse",
+      "type": "definition",
+      "title": "Balansemetoden",
+      "content": "**Når et legeme har stabil temperatur, er effekten inn like stor som effekten ut. Setter du de to uttrykkene lik hverandre og løser for $T$, får du likevektstemperaturen.**\n\n$$P_{\\text{inn}} = P_{\\text{ut}}$$\n\nDette er hovedgrepet i sjanger I, og det gjenbrukes på alt: en solfanger, et satellittpanel, en planet uten atmosfære, en kropp i et rom. Oppskriften er alltid den samme:\n\n1. skriv opp all effekt inn (innstråling ganger areal, eventuelt elektrisk effekt),\n2. skriv opp all effekt ut (stråling, ledning, eventuelt konveksjon),\n3. sett dem lik hverandre,\n4. løs for det som er ukjent — ofte $T$, og da med en fjerderot."
+    },
+    {
+      "id": "fys1001-4-4-fig-balanse",
+      "type": "image",
+      "src": "/images/textbook/fys1001/fys1001-4-4-varmebalanse.svg",
+      "alt": "Balanseskisse: en flate med areal A, temperatur T og emissivitet epsilon, med tre røde piler for innstrålt effekt fra venstre og tre blå piler for utstrålt effekt mot høyre.",
+      "caption": "Balanseskissen som hører til oppskriften: piler inn på venstre side, piler ut på høyre, og likevektsbetingelsen skrevet over. Tegn denne figuren først i enhver balanseoppgave — den viser sensor at du har identifisert alle bidragene."
+    },
+    {
+      "id": "fys1001-4-4-ex4",
+      "type": "example",
+      "title": "Eksempel 4: Likevektstemperatur i en solfanger (sjanger I)",
+      "problem": "En matt svart solfangerplate absorberer 750 W per kvadratmeter fra sola. Platen taper varme bare ved stråling, med emissivitet 0,95, til omgivelser som holder 5,0 $^\\circ$C.\n\nFinn platens likevektstemperatur.",
+      "solution": "**Steg 1 — skisse og balanse.** Effekt inn er den absorberte solstrålingen; effekt ut er nettostrålingen fra platen. Per kvadratmeter:\n\n$$750\\ \\text{W} = \\varepsilon\\sigma\\left(T^4 - T_{\\text{omg}}^4\\right)$$\n\n**Steg 2 — kelvin.** $T_{\\text{omg}} = 5{,}0 + 273 = 278$ K, og $278^4 = 5{,}973\\cdot10^{9}$.\n\n**Steg 3 — løs for $T^4$.**\n\n$$T^4 - 5{,}973\\cdot10^{9} = \\frac{750}{0{,}95 \\cdot 5{,}67\\cdot10^{-8}} = \\frac{750}{5{,}387\\cdot10^{-8}} = 1{,}392\\cdot10^{10}$$\n$$T^4 = 1{,}392\\cdot10^{10} + 5{,}973\\cdot10^{9} = 1{,}990\\cdot10^{10}$$\n\n**Steg 4 — fjerderot.**\n\n$$T = \\left(1{,}990\\cdot10^{10}\\right)^{0{,}25} = 376\\ \\text{K}$$\n\n**Svar:** Likevektstemperaturen er 376 K, altså $1{,}0\\cdot10^{2}\\ ^\\circ$C.\n\n**Rimelighetsvurdering:** en svart plate i sterk sol som bare kjøles av stråling, blir svært varm — over 100 $^\\circ$C er realistisk, og det er nettopp derfor solfangere kan koke vann. En virkelig plate ville i tillegg tapt varme ved konveksjon til lufta, og da blir temperaturen lavere. Skriv den setningen: den viser at du kjenner modellens grenser."
+    },
+    {
+      "id": "fys1001-4-4-o5",
+      "type": "exercise",
+      "exercise": {
+        "id": "fys1001-4-4-o5",
+        "number": "5",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "(Sjanger I.) Et flatt panel på en satellitt vender rett mot sola og absorberer 1 360 W per kvadratmeter. Panelet stråler fra den samme flaten med emissivitet 1,0, og omgivelsene i rommet er så kalde at $T_{\\text{omg}}^4$ kan settes til null.\n\n**a)** Finn panelets likevektstemperatur i kelvin og i celsius.\n**b)** Hva ville temperaturen blitt hvis panelet i stedet kunne stråle fra begge sider, altså med dobbelt så stort utstrålende areal? Regn ut.",
+        "solution": "**a)** Balansen per kvadratmeter absorberende flate:\n\n$$1360\\ \\text{W} = \\sigma T^4 \\quad\\Rightarrow\\quad T^4 = \\frac{1360}{5{,}67\\cdot10^{-8}} = 2{,}399\\cdot10^{10}$$\n$$T = \\left(2{,}399\\cdot10^{10}\\right)^{0{,}25} = 394\\ \\text{K}$$\n\n**Svar:** $T = 394$ K, altså $1{,}2\\cdot10^{2}\\ ^\\circ$C.\n\n**b)** Nå absorberes fortsatt 1 360 W per kvadratmeter på solsiden, men strålingen skjer fra $2A$:\n\n$$1360 A = \\sigma \\cdot 2A \\cdot T^4 \\quad\\Rightarrow\\quad T^4 = \\frac{1360}{2\\cdot5{,}67\\cdot10^{-8}} = 1{,}199\\cdot10^{10}$$\n$$T = \\left(1{,}199\\cdot10^{10}\\right)^{0{,}25} = 331\\ \\text{K}$$\n\n**Svar:** 331 K, altså 58 $^\\circ$C. Halvert utstrålingstettheten ga bare 16 % lavere absolutt temperatur — nettopp fordi effekten går som $T^4$: en halvering av effekten svarer til å dele temperaturen på $\\sqrt[4]{2} = 1{,}19$.",
+        "hints": [
+          "Sett absorbert effekt lik utstrålt effekt, og stryk arealet der det kan strykes.",
+          "Løs for $T^4$ først, ta fjerderoten til slutt (potensen 0,25 på kalkulatoren).",
+          "I **b)**: hva skjer med balanselikningen når utstrålingsarealet dobles, men absorpsjonsarealet ikke gjør det?"
+        ]
+      }
+    },
+    {
+      "id": "fys1001-4-4-l6-intro",
+      "type": "text",
+      "content": "## Løkke 6 — Wiens lov og de kvalitative klassikerne (~9 min)"
+    },
+    {
+      "id": "fys1001-4-4-d-wien",
+      "type": "definition",
+      "title": "Wiens forskyvningslov",
+      "content": "**Bølgelengden der strålingen er sterkest, er omvendt proporsjonal med den absolutte temperaturen:**\n\n$$\\lambda_{\\text{maks}} = \\frac{a}{T}, \\qquad a = 2{,}90\\cdot10^{-3}\\ \\text{m}\\cdot\\text{K}$$\n\nKonstanten $a$ er et **tabelloppslag**, og $T$ skal være i **kelvin**.\n\nBruken er å plassere strålingen i spekteret: sola med 5 800 K har toppen ved 500 nm — midt i det synlige området, som er grunnen til at øynene våre er følsomme nettopp der. En kropp på 306 K har toppen ved 9,5 $\\mu$m, altså langt inne i det infrarøde, som er hvorfor et varmesøkende kamera ser oss i mørket.\n\nMerk igjen: $\\lambda_{\\text{maks}}$ her er en **bølgelengde** i meter, ikke varmeledningsevnen $\\lambda$ fra løkke 2."
+    },
+    {
+      "id": "fys1001-4-4-d-svart",
+      "type": "definition",
+      "title": "Absolutt svart legeme",
+      "content": "**Et absolutt svart legeme absorberer all stråling som treffer det, og er samtidig den best mulige utstråleren ved en gitt temperatur ($\\varepsilon = 1$).**\n\nOrdet «svart» handler om absorpsjon, ikke om farge slik øyet ser den: sola oppfører seg nesten som et svart legeme, selv om den lyser kraftig. En liten åpning inn i en varm, lukket ovn er den beste praktiske tilnærmingen.\n\nAlle virkelige flater beskrives med $\\varepsilon < 1$ i forhold til dette idealet."
+    },
+    {
+      "id": "fys1001-4-4-ex5",
+      "type": "example",
+      "title": "Eksempel 5: Klassikeren om snøen rundt trestammen (sjanger Q)",
+      "problem": "Om våren smelter snøen først i en ring rundt mørke trestammer, selv om lufttemperaturen er den samme overalt.\n\nForklar med strålingsfysikk. Svar i 2–4 setninger, slik du ville skrevet det på eksamen.",
+      "solution": "Den mørke barken har høy emissivitet og absorberer derfor en stor del av solstrålingen som treffer den, mens den hvite snøen reflekterer det aller meste. Stammen blir dermed betydelig varmere enn snøen rundt, og den avgir varme til snøen i nærheten både ved stråling og ved ledning gjennom kontaktflaten. Denne ekstra varmen smelter snøen nærmest stammen først, og resultatet er en ring av bar mark rundt hvert tre.\n\n**Merk hva som gjør dette til et fullt svar:** mekanismen er navngitt med fagbegrep (emissivitet/absorpsjon), koblet til den konkrete situasjonen (mørk bark mot hvit snø), og det er en konklusjon til slutt. Et svar som bare sier «fordi mørke ting blir varmere», får langt mindre uttelling."
+    },
+    {
+      "id": "fys1001-4-4-o6",
+      "type": "exercise",
+      "exercise": {
+        "id": "fys1001-4-4-o6",
+        "number": "6",
+        "type": "classic",
+        "difficulty": "lett",
+        "task": "(Sjanger I.) En stjerne har strålingsmaksimum ved bølgelengden 725 nm.\n\n**a)** Finn stjernens overflatetemperatur. ($a = 2{,}90\\cdot10^{-3}$ m$\\cdot$K)\n**b)** Er stjernen varmere eller kaldere enn sola, som har maksimum ved 500 nm? Begrunn ut fra formelen.",
+        "solution": "**a)** $\\lambda_{\\text{maks}} = 725\\ \\text{nm} = 7{,}25\\cdot10^{-7}$ m.\n\n$$T = \\frac{a}{\\lambda_{\\text{maks}}} = \\frac{2{,}90\\cdot10^{-3}}{7{,}25\\cdot10^{-7}}\\ \\text{K} = 4{,}0\\cdot10^{3}\\ \\text{K}$$\n\n**Svar:** 4 000 K.\n\n**b)** Kaldere. Wiens lov gir omvendt proporsjonalitet: lengre bølgelengde ved maksimum betyr lavere temperatur. Stjernen med maksimum i det røde området (725 nm) er kaldere enn sola, som har maksimum i det grønne (500 nm) — og det er grunnen til at kjølige stjerner ser rødlige ut.",
+        "hints": [
+          "Løs $\\lambda_{\\text{maks}} = a/T$ for $T$.",
+          "Gjør om nanometer til meter: $1\\ \\text{nm} = 10^{-9}$ m.",
+          "I **b)**: står $\\lambda_{\\text{maks}}$ og $T$ i samme eller motsatt forhold til hverandre?"
+        ]
+      }
+    },
+    {
+      "id": "fys1001-4-4-o7",
+      "type": "exercise",
+      "exercise": {
+        "id": "fys1001-4-4-o7",
+        "number": "7",
+        "type": "classic",
+        "difficulty": "lett",
+        "task": "(Sjanger Q — kvalitativ forklaringsoppgave.)\n\n**a)** Forklar hvorfor en ullgenser holder deg varm, med utgangspunkt i to av de tre varmetransportmekanismene.\n**b)** Forklar hvorfor et metallhåndtak kjennes kaldere enn et trehåndtak i samme rom, selv om et termometer viser samme temperatur på begge.",
+        "solution": "**a)** Ulla holder store mengder luft i ro mellom fibrene. Stillestående luft leder varme dårlig, og siden lufta ikke får strømme, er også konveksjonen effektivt stanset — det er nettopp den luftstrømmen som ellers ville fraktet kroppsvarmen bort. Genseren isolerer altså ved å hindre både ledning og konveksjon, ikke ved å «lage varme».\n\n**b)** Metallet har mye høyere varmeledningsevne enn treet og trekker derfor varmen fra hånda mange ganger raskere. Det nervene registrerer, er hvor fort huden mister varme — ikke temperaturen på gjenstanden. Derfor kjennes metallet kaldt, mens treet, som leder dårlig, kjennes nesten lunt ved samme temperatur.",
+        "hints": [
+          "Hva er det egentlig ulla gjør med luft?",
+          "Tenk på hvilke to mekanismer stillestående luft setter en stopper for.",
+          "I **b)**: hva er det huden faktisk merker — temperatur eller varmestrøm?"
+        ]
+      }
+    },
+    {
+      "id": "fys1001-4-4-o8",
+      "type": "exercise",
+      "exercise": {
+        "id": "fys1001-4-4-o8",
+        "number": "8",
+        "type": "classic",
+        "difficulty": "vanskelig",
+        "task": "(Sjanger I — krevende, kombinert.) En kokende vannkjele står på en plate. Kjelens sideflate er 0,25 $\\text{m}^2$, har temperaturen 96 $^\\circ$C og emissivitet 0,90. Rommet holder 22 $^\\circ$C.\n\n**a)** Finn netto strålingstap fra sideflaten.\n**b)** Sideflaten består av 1,5 mm stål med $\\lambda = 50$ W/(m$\\cdot$K). Regn ut hvilken temperaturforskjell som må til over stålet for å lede den samme effekten gjennom veggen, og kommenter hva svaret betyr.",
+        "solution": "**a)** Kelvin: $T = 96 + 273 = 369$ K, $T_{\\text{omg}} = 22 + 273 = 295$ K.\n\n$$369^4 = 1{,}854\\cdot10^{10}, \\qquad 295^4 = 7{,}573\\cdot10^{9}, \\qquad \\text{differanse} = 1{,}097\\cdot10^{10}$$\n\n$$P = 0{,}90\\cdot5{,}67\\cdot10^{-8}\\cdot0{,}25\\cdot1{,}097\\cdot10^{10}\\ \\text{W} = 1{,}4\\cdot10^{2}\\ \\text{W}$$\n\n**Svar:** Netto strålingstap er om lag 140 W.\n\n**b)** Vi krever $H = \\lambda A\\Delta T/L = 140$ W og løser for $\\Delta T$:\n\n$$\\Delta T = \\frac{HL}{\\lambda A} = \\frac{140 \\cdot 0{,}0015}{50 \\cdot 0{,}25}\\ \\text{K} = \\frac{0{,}210}{12{,}5}\\ \\text{K} = 0{,}017\\ \\text{K}$$\n\n**Svar:** Det trengs bare 0,017 K temperaturforskjell over stålveggen.\n\n**Konklusjon:** stålet er en så god varmeleder og så tynt at det praktisk talt ikke utgjør noen hindring — hele kjeleveggen har samme temperatur som vannet, for alle praktiske formål. Flaskehalsen for varmetapet ligger utenfor veggen, i strålingen og i konveksjonen til lufta rundt. Det er derfor det er meningsløst å «isolere» en kjele med tykkere stål, mens en isolasjonskappe av ull ville hjulpet mye.",
+        "hints": [
+          "Del oppgaven i to: først et strålingsregnestykke, så et ledningsregnestykke med samme effekt.",
+          "Regn om alle temperaturer til kelvin i strålingsdelen, og husk at $\\Delta T$ i ledningsloven kan stå i K eller $^\\circ$C.",
+          "Løs $H = \\lambda A\\Delta T/L$ for $\\Delta T$, og se hvor liten den blir."
+        ]
+      }
+    },
+    {
+      "id": "fys1001-4-4-warn-feil",
+      "type": "warning",
+      "title": "Typiske feil",
+      "content": "- **Celsius i $T^4$.** Den mest katastrofale feilen i kapitlet, fordi fjerdepotensen forstørrer den enormt: $20^4 = 160\\,000$ mot $293^4 = 7{,}4\\cdot10^{9}$ — en faktor på nesten $10^{5}$. Regn om til kelvin *før* du gjør noe annet. Merk kontrasten til ledningsloven $H = \\lambda A\\Delta T/L$: der står en differanse, og der er celsius trygt.\n- **$(T - T_{\\text{omg}})^4$ i stedet for $T^4 - T_{\\text{omg}}^4$.** Regn de to fjerdepotensene hver for seg og trekk fra etterpå. Å ta differansen først og opphøye etterpå gir et helt annet — og altfor lite — svar.\n- **Glemme omgivelsesleddet.** Spørsmålet «hvor mye varme taper flaten» handler om *netto* stråling. Regner du bare $\\varepsilon\\sigma AT^4$, overdriver du tapet, ofte grovt.\n- **Glemme emissiviteten.** $\\varepsilon$ er sjelden 1 for virkelige flater. Står det en emissivitet i oppgaveteksten, skal den brukes.\n- **Lineær-tenkning i $T^4$-loven.** Dobbel absolutt temperatur gir 16 ganger utstrålingen, ikke det dobbelte. Samme type feil i motsatt retning: halvert utstrålt effekt betyr bare 16 % lavere absolutt temperatur.\n- **Tykkelse i millimeter.** $L$ i $H = \\lambda A\\Delta T/L$ skal være i meter. Setter du inn 4,0 i stedet for 0,0040, bommer du med en faktor 1 000.\n- **Blande $\\lambda$ og $U$ — og de to $\\lambda$-ene.** $\\lambda$ er varmeledningsevne for materialet, $U$ gjelder hele konstruksjonen. Og $\\lambda_{\\text{maks}}$ i Wiens lov er en bølgelengde, ikke en ledningsevne. Skriv alltid ut hvilken størrelse du mener.\n- **Feil mekanisme i kvalitative svar.** «Klær isolerer fordi de stråler mindre» er ikke hovedforklaringen — det er hindret konveksjon og dårlig ledning i den stillestående lufta. Navngi riktig mekanisme; det er nettopp det som gir uttelling."
+    },
+    {
+      "id": "fys1001-4-4-bank-notis",
+      "type": "text",
+      "content": "## Begrepsbank\n\n*Begrepsbanken er flashcard-/repetisjonsstoff — den gjentar det du nettopp har lest. Hopp trygt over ved førstegangslesing; tidsanslaget for kapitlet gjelder kjernestoffet.*"
+    },
+    {
+      "id": "fys1001-4-4-bank-1",
+      "type": "definition",
+      "title": "Stefan–Boltzmanns konstant (σ)",
+      "content": "**Konstanten i strålingsloven er $\\sigma = 5{,}67\\cdot10^{-8}$ W/($\\text{m}^2\\text{K}^4$).**\n\nDen er et **formelarkoppslag** — du skal kjenne igjen symbolet og vite hvor det hører hjemme, ikke pugge sifrene. Legg merke til enheten: den forteller deg selv at $T$ må være i kelvin og at svaret kommer ut som watt per kvadratmeter."
+    },
+    {
+      "id": "fys1001-4-4-bank-2",
+      "type": "definition",
+      "title": "Strålingsspekter: infrarødt og synlig",
+      "content": "**Kalde legemer stråler i det infrarøde, varme i det synlige.**\n\nGrensen for hva øyet ser, ligger mellom om lag 400 nm (fiolett) og 700 nm (rødt). Wiens lov $\\lambda_{\\text{maks}} = a/T$ plasserer toppen: kroppstemperatur gir 9,5 $\\mu$m (infrarødt, usynlig), en glødende ovnsplate rundt 3 $\\mu$m, sola 500 nm (synlig). Det er derfor et varmekamera trenger IR-følsomme sensorer."
+    },
+    {
+      "id": "fys1001-4-4-bank-3",
+      "type": "definition",
+      "title": "Overgangsmotstand",
+      "content": "**Overgangsmotstanden er den termiske motstanden i det tynne, nesten stillestående luftsjiktet inntil en flate.**\n\nI virkelige bygg utgjør den en betydelig del av veggens samlede motstand — særlig for tynne, godt ledende sjikt som glass. Det er derfor et enkeltglassvindu i praksis taper langt mindre enn ledningsloven for glasset alene tilsier, og det er derfor blåst luft (vind) øker varmetapet: overgangsmotstanden blir mindre når grensesjiktet blåses vekk."
+    },
+    {
+      "id": "fys1001-4-4-bank-4",
+      "type": "definition",
+      "title": "Varmeledningsevne og U-verdi — skillet",
+      "content": "**$\\lambda$ er en materialegenskap, $U$ gjelder den ferdige konstruksjonen.**\n\n$\\lambda$ har enheten W/(m$\\cdot$K) og sier ingenting om tykkelse. $U$ har enheten W/($\\text{m}^2\\cdot$K) og har tykkelsene bygget inn: $U = 1/\\sum(L_i/\\lambda_i)$. Oppgaven forteller alltid hvilken av dem du får — sjekk enheten hvis du er i tvil, den avgjør saken."
+    },
+    {
+      "id": "fys1001-4-4-bank-5",
+      "type": "definition",
+      "title": "Hvorfor metall kjennes kaldere enn tre",
+      "content": "**Huden merker varmestrøm, ikke temperatur.**\n\nMetall har $\\lambda$ flere hundre ganger høyere enn tre og trekker varmen ut av huden svært raskt, mens treet knapt greier å ta imot. Ved samme temperatur kjennes metallet derfor kaldt og treet lunt. Samme mekanisme motsatt vei: en metallflate på 60 $^\\circ$C brenner deg, mens treverk på 60 $^\\circ$C bare kjennes varmt."
+    },
+    {
+      "id": "fys1001-4-4-bank-6",
+      "type": "definition",
+      "title": "Hvorfor klær isolerer",
+      "content": "**Klær isolerer ved å holde luft i ro.**\n\nStillestående luft leder varme dårlig ($\\lambda \\approx 0{,}026$ W/(m$\\cdot$K)), og når lufta ikke får strømme, stanses også konveksjonen. Det er derfor en løs, tykk ullgenser isolerer bedre enn et tett, tynt plagg av samme masse — og derfor vind gjør deg kald: den bytter ut den stillestående lufta i og rundt plagget."
+    },
+    {
+      "id": "fys1001-4-4-bank-7",
+      "type": "definition",
+      "title": "Drivhuseffekten (kvalitativt)",
+      "content": "**Atmosfæren slipper inn synlig sollys, men bremser den infrarøde utstrålingen fra jordoverflaten.**\n\nSola stråler ved 5 800 K med maksimum i det synlige, som atmosfæren i stor grad er gjennomsiktig for. Jordoverflaten stråler ved rundt 290 K, altså i det infrarøde — og der absorberer $\\mathrm{CO_2}$ og vanndamp kraftig. Balansen $P_{\\text{inn}} = P_{\\text{ut}}$ oppnås derfor ved en høyere overflatetemperatur enn den ville vært uten atmosfære."
+    },
+    {
+      "id": "fys1001-4-4-bank-8",
+      "type": "definition",
+      "title": "Termosen: alle tre mekanismer stanset",
+      "content": "**En termos er et lærebokeksempel på at alle tre transportmekanismene må stanses hver for seg.**\n\nVakuumet mellom veggene fjerner ledning og konveksjon (ingen molekyler å transportere med), og den speilblanke innerflaten har lav emissivitet, som skjærer ned strålingen. Korken hindrer konveksjon opp. Fjern én av de tre, og termosen slutter å virke — noe som gjør den til et populært utgangspunkt for kvalitative deloppgaver."
+    },
+    {
+      "id": "fys1001-4-4-repetisjon",
+      "type": "collapsible",
+      "title": "Repetisjonsoppgaver",
+      "buttonText": "Vis repetisjonsoppgaver",
+      "content": [
+        {
+          "id": "fys1001-4-4-rep-1",
+          "type": "exercise",
+          "exercise": {
+            "id": "fys1001-4-4-rep-o1",
+            "number": "R1",
+            "type": "classic",
+            "difficulty": "lett",
+            "task": "(Fra [kap. 4.2](/bok/fys1001/fys1001-4-2).) Regn om 15 $^\\circ$C og 450 $^\\circ$C til kelvin.",
+            "solution": "$15 + 273 = 288$ K og $450 + 273 = 723$ K.",
+            "hints": [
+              "Legg til 273."
+            ]
+          }
+        },
+        {
+          "id": "fys1001-4-4-rep-2",
+          "type": "exercise",
+          "exercise": {
+            "id": "fys1001-4-4-rep-o2",
+            "number": "R2",
+            "type": "classic",
+            "difficulty": "lett",
+            "task": "(Fra [kap. 4.1](/bok/fys1001/fys1001-4-1).) En vegg taper 250 W. Hvor mye energi tapes i løpet av 8,0 timer?",
+            "solution": "$t = 8{,}0\\ \\text{h} = 2{,}88\\cdot10^{4}$ s, så $Q = Pt = 250\\cdot2{,}88\\cdot10^{4}\\ \\text{J} = 7{,}2\\cdot10^{6}$ J $= 7{,}2$ MJ $= 2{,}0$ kWh.",
+            "hints": [
+              "Gjør om timer til sekunder.",
+              "$Q = Pt$."
+            ]
+          }
+        },
+        {
+          "id": "fys1001-4-4-rep-3",
+          "type": "exercise",
+          "exercise": {
+            "id": "fys1001-4-4-rep-o3",
+            "number": "R3",
+            "type": "classic",
+            "difficulty": "middels",
+            "task": "(Fra [Potenser med heltallseksponenter](/bok/1t/1t-1-2).) Løs $T^4 = 8{,}1\\cdot10^{9}$ for $T$.",
+            "solution": "$T = (8{,}1\\cdot10^{9})^{0{,}25} = 3{,}0\\cdot10^{2}$ K. På kalkulatoren tar du fjerderoten som potensen $0{,}25$ — eller kvadratroten to ganger: $\\sqrt{8{,}1\\cdot10^{9}} = 9{,}0\\cdot10^{4}$, og $\\sqrt{9{,}0\\cdot10^{4}} = 300$.",
+            "hints": [
+              "Fjerderot er det samme som å opphøye i $0{,}25$.",
+              "Alternativt: ta kvadratroten to ganger."
+            ]
+          }
+        },
+        {
+          "id": "fys1001-4-4-rep-4",
+          "type": "exercise",
+          "exercise": {
+            "id": "fys1001-4-4-rep-o4",
+            "number": "R4",
+            "type": "classic",
+            "difficulty": "lett",
+            "task": "To sjikt har termiske motstander 3,0 og 0,50 $\\text{m}^2$K/W. Finn U-verdien for konstruksjonen.",
+            "solution": "$R_{\\text{tot}} = 3{,}0 + 0{,}50 = 3{,}5\\ \\text{m}^2$K/W, så $U = 1/3{,}5 = 0{,}29$ W/($\\text{m}^2\\cdot$K).",
+            "hints": [
+              "Motstander i serie legges sammen.",
+              "$U$ er den inverse av den samlede motstanden."
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": "fys1001-4-4-symbolliste",
+      "type": "collapsible",
+      "title": "Symbol- og formelliste",
+      "buttonText": "Vis symboler og formler",
+      "content": [
+        {
+          "id": "fys1001-4-4-symbolliste-tekst",
+          "type": "text",
+          "content": "## Symbol- og formelliste\n\n*Oppslagsverk — alt her forklares underveis i kapitlet.*\n\nAlle symboler og formler brukt i delkapittel 4.4, samlet.\n\n| Symbol | Betydning | SI-enhet |\n|---|---|---|\n| $H$ | Varmestrøm ved ledning (effekt) | W |\n| $P$ | Utstrålt eller innstrålt effekt | W |\n| $M$ | Utstrålt effekt per areal (strålingstetthet) | W/$\\text{m}^2$ |\n| $\\lambda$ | Varmeledningsevne (materialegenskap) | W/(m$\\cdot$K) |\n| $\\lambda_{\\text{maks}}$ | Bølgelengde der strålingen er sterkest | m |\n| $A$ | Areal | $\\text{m}^2$ |\n| $L$ | Tykkelse på et sjikt | m |\n| $\\Delta T$ | Temperaturforskjell over et sjikt | K (samme tall som $^\\circ$C) |\n| $T$ | Absolutt temperatur — **alltid kelvin i strålingsformlene** | K |\n| $T_{\\text{omg}}$ | Omgivelsenes absolutte temperatur | K |\n| $R$ | Termisk motstand, $R = L/\\lambda$ | $\\text{m}^2$K/W |\n| $U$ | Varmegjennomgangstall (U-verdi), $U = 1/R_{\\text{tot}}$ | W/($\\text{m}^2\\cdot$K) |\n| $\\varepsilon$ | Emissivitet | uten enhet |\n| $\\sigma$ | Stefan–Boltzmanns konstant, $5{,}67\\cdot10^{-8}$ | W/($\\text{m}^2\\text{K}^4$) |\n| $a$ | Wiens konstant, $2{,}90\\cdot10^{-3}$ | m$\\cdot$K |\n\n**Symboler som betyr noe annet andre steder — les nøye:**\n\n- $\\lambda$ betyr **to forskjellige ting i dette delkapitlet**: varmeledningsevne i $H = \\lambda A\\Delta T/L$, og bølgelengde i $\\lambda_{\\text{maks}} = a/T$. Enhetene skiller dem: W/(m$\\cdot$K) mot m. I [kap. 7.3](/bok/fys1001/fys1001-7-3) er $\\lambda$ i tillegg henfallskonstanten.\n- $R$ er termisk motstand her — i [kap. 1.3](/bok/fys1001/fys1001-1-3) er $R$ friksjonskraften og i [kap. 5.2](/bok/fys1001/fys1001-5-2) resistansen.\n- $A$ er areal her, ikke aktivitet som i [kap. 7.3](/bok/fys1001/fys1001-7-3).\n- $M$ er strålingstetthet her, ikke kraftmoment som i [kap. 1.5](/bok/fys1001/fys1001-1-5).\n\n**Formler i dette delkapitlet:**\n\n$$H = \\frac{\\lambda A \\Delta T}{L}$$\nVarmeledning gjennom et sjikt. **Står på formelarket.** Celsius er trygt her, siden det er en differanse.\n\n$$R = \\frac{L}{\\lambda}, \\qquad R_{\\text{tot}} = \\sum_i \\frac{L_i}{\\lambda_i}, \\qquad U = \\frac{1}{R_{\\text{tot}}}$$\nTermisk motstand og U-verdi for sjikt i serie. **Må kunne brukes aktivt** — sammenstillingen står ikke ferdig på arket.\n\n$$H = U A \\Delta T$$\nVarmetap uttrykt med U-verdi. **Må kunne brukes aktivt.**\n\n$$M = \\sigma T^4$$\nStefan–Boltzmanns lov per areal, for et svart legeme. **Står på formelarket.** Kelvin.\n\n$$P = \\varepsilon\\sigma A T^4$$\nUtstrålt effekt fra en virkelig flate. **Står på formelarket.** Kelvin.\n\n$$P_{\\text{netto}} = \\varepsilon\\sigma A\\left(T^4 - T_{\\text{omg}}^4\\right)$$\nNetto stråling mot omgivelser. **Må kunne brukes aktivt** — og du må selv huske omgivelsesleddet.\n\n$$P_{\\text{inn}} = P_{\\text{ut}}$$\nBalansemetoden for likevektstemperatur. **Må kunne brukes aktivt** — dette er en oppstilling, ikke en formel.\n\n$$\\lambda_{\\text{maks}} = \\frac{a}{T}$$\nWiens forskyvningslov. **Står på formelarket**; konstanten $a$ er et tabelloppslag. Kelvin.\n\n**Tabellverdier brukt i kapitlet (alle er oppslag):** $\\lambda$ for mineralull 0,037, luft 0,026, tre 0,13, glass 0,80, betong 1,7, stål 50, kobber 400 W/(m$\\cdot$K); emissiviteter 0,85–0,97 for matte flater."
+        }
+      ]
+    }
+  ],
+  "exercises": []
+}
