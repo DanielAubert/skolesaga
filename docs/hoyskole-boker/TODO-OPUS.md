@@ -28,8 +28,12 @@ studentvolum + sterkest rammeverk først), men plukk fritt.
       modellen er bokstandard (IKKE standard produsentteori).
 - [x] `tma4245` — **BYGGET (i main per 24. juli 2026, 44 kap).** TMA4245 Statistikk
       (NTNU). Størst NTNU-emne; eget Python/Monte Carlo-kapittel.
-- [ ] `fys1001` — FYS1001 Innføring i fysikk (UiO). Regnefag; kvalitativ
-      hverdagsfysikk-sjanger + formelark-skillet står i skjelettet.
+- [x] `fys1001` — **BYGGET 25. juli 2026** (35 kap + 7 prøver = 42 filer, 550 fc,
+      558 quiz, 109 SVG i Storage, BOKPORT + LATEX-PORT OK). Steg 3 komplett:
+      ~1 880 numeriske sjekker i 5 verifikatorbølger, 48 avvik rettet — bl.a. feil
+      omløpsretning for ladd partikkel, en figur med fysisk umulig kraftretning,
+      feil netto stråling (255 W), og 6 øvingseksamen-oppgaver som var ordrett
+      identiske med gjennomregnede eksempler tidligere i boka.
 - [ ] `econ2310` — ECON2310 Makroøkonomi 2 (UiO). Bygger videre på
       econ1310-boka (kryssbok-lenker dit er spesifisert i skjelettet).
 - [ ] `econ2220` — ECON2220 Mikroøkonomi 2 (UiO). Bygger på econ1210-boka;
