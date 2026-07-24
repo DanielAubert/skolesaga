@@ -31,6 +31,19 @@ Branch: `bok/tma4110` (worktree). Arketype: regnefag. Institusjon: NTNU (slug `n
   («Sist du var her»-formelblokkene beholdt); (3) LENGDE-TELL i hele Del 6
   balansert: 6-2 56 %→28 %, 6-3 56 %→28 %, 6-4 39 %→28 %, 6-5 50 %→31 %
   (17 distraktorer forlenget, fasit og semantikk urørt). Bok-nivå: 31 %.
+- (24. juli, steg 3 forts. V) **DEL 11 FERDIG — STEG 3 KOMPLETT.** 11-1..11-5 gjennomgått
+  (~70 sjekker): alle tre øvingseksamenene etterregnet (komplekse røtter, parametersystemer,
+  Col/Nul + dimensjonsteoremet, $A^n$ via diagonalisering, Gram–Schmidt både standard og
+  integral, minste kvadrater, ODE m/resonans, ODE-system, bevis). **0 fasitavvik.**
+  Quiz 11-1..11-5 (43 spm) fasitkontrollert: alle riktige.
+  **RENDERINGSFUNN (hele boka):** kjørte alle 16 574 formler gjennom KaTeX —
+  2 formler rendret som rød feiltekst i produksjon: `\begin{psmallmatrix}` (11-1; ikke
+  støttet av KaTeX-versjonen i repoet → byttet til `\left(\begin{smallmatrix}…`) og
+  `$\cos,\sin,e,\ $` (10-3; renderer trimmer strengen, så den endte på en løs backslash).
+  Dessuten 3 formler med gåseøyne inne i `\text{}` («No character metrics») — flyttet ut.
+  Etter fiks: **16 574 formler, 0 KaTeX-feil.** Ellers: typo «felller», manglende `)` i
+  en kortittel, og 11.4 opg. 5 (minste kvadrater) hadde identiske data OG fasit som
+  6.5 opg. 8 — nye punkter, ny fasit ($y=\tfrac12+\tfrac75x$), sympy-verifisert.
 - (24. juli, steg 3 forts. IV) **DEL 10 FERDIG.** 10-1/10-2/10-3 + prøve etterregnet
   (~90 sjekker: egenverdier, egenvektorer, real/imaginærdel, IVP-konstanter, klassifisering;
   alle nye og gamle systemløsninger sympy-verifisert mot $\mathbf x'=A\mathbf x$).
