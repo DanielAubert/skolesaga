@@ -1,0 +1,152 @@
+{
+  "id": "mat1120-4-prove",
+  "courseId": "mat1120",
+  "chapterNumber": "4.P",
+  "title": "Prøver til del 4: Indreproduktrom, ortogonalitet og Gram–Schmidt",
+  "description": "Fire temaprøver til Del 4: indreprodukt, norm og ortogonalitet i vektet, integral- og evalueringsindreprodukt (kap. 4.1), Gram–Schmidt i R^n med ortonormalisering og Fourier-koeffisienter (kap. 4.2), Gram–Schmidt i integralindreprodukt på P2 (kap. 4.2–4.3), og et indreprodukt-tverrsnitt med ortogonal basis i vektet OG evalueringsindreprodukt (kap. 4.1–4.3). Full fasit etter føringsstandarden, med understreking av at alt regnes i det oppgitte indreproduktet, og selvdiagnose.",
+  "estimatedMinutes": 155,
+  "competenceGoals": [
+    "kunne regne skalarprodukt, norm, avstand og ortogonalitet i standard, vektet, integral- og evalueringsindreprodukt, og bestemme ukjente slik at to vektorer blir ortogonale",
+    "kunne utføre Gram–Schmidt i R^n med heltalls-oppskalering, normalisere til ortonormal basis og bruke Fourier-koeffisienter",
+    "kunne utføre Gram–Schmidt i ikke-standard indreprodukt (integral og evaluering) og normalisere med den oppgitte normen",
+    "kunne føre en fullstendig ortogonalitets- og Gram–Schmidt-besvarelse der alle skalarprodukt og normer regnes i det oppgitte indreproduktet, med eksakte svar"
+  ],
+  "content": [
+    {
+      "id": "mat1120-4-prove-tip",
+      "type": "tip",
+      "title": "Om prøvene til Del 4",
+      "content": "Disse fire prøvene dekker hele **Del 4 — Indreproduktrom, ortogonalitet og Gram–Schmidt** og trener sjanger B: indreprodukt (standard, vektet, integral og evaluering), norm og ortogonalitet, og Gram–Schmidt til en ortogonal/ortonormal basis. Dette er stoffet som ligger under **hvert eneste sett** (~100 %) — og der **ikke-standard indreprodukt** (~7 av 10 sett) er den store karakterskilleren.\n\n- **Prøve 1 — Indreprodukt, norm og ortogonalitet ([kap. 4.1](/bok/mat1120/mat1120-4-1)):** regn i vektet, integral- og evalueringsindreprodukt; finn normer, avgjør ortogonalitet og bestem ukjente. ~35 min.\n- **Prøve 2 — Gram–Schmidt i $\\mathbb{R}^n$ + ortonormalisering ([kap. 4.2](/bok/mat1120/mat1120-4-2)):** full trestegs Gram–Schmidt i standardprikkproduktet, heltalls-oppskalering, normalisering og koordinater (Fourier-koeffisienter). ~40 min.\n- **Prøve 3 — Gram–Schmidt i integralindreprodukt på $\\operatorname{P}_2$ ([kap. 4.2](/bok/mat1120/mat1120-4-2)–[4.3](/bok/mat1120/mat1120-4-3)):** ikke-standard — alle skalarprodukt og normer regnes med integralet. ~40 min.\n- **Prøve 4 — Indreprodukt-tverrsnitt ([kap. 4.1](/bok/mat1120/mat1120-4-1)–[4.3](/bok/mat1120/mat1120-4-3)):** ortogonal basis i **vektet** ($\\mathbb{R}^3$) OG **evaluerings**-indreprodukt ($\\operatorname{P}_2$) — samme maskineri, ulik definisjon. ~40 min.\n\n**4 prøver à ~35–40 min, kan trygt deles over flere kvelder — én prøve per økt.** Milepælen er å fullføre settet, ikke å ta alt på én gang.\n\n**Merk formatet:** MAT1120-eksamen har **ingen flervalg** — alt er fullt begrunnet langsvar. Her har likevel **Prøve 1** en liten flervalgsdel til rask begrepssjekk (flervalget bor *inne i* Prøve 1); kryss av og kontroller mot fasiten. De øvrige oppgavene skal føres som en fullstendig besvarelse.\n\n**Den ene setningen du må ta med deg:** når oppgaven oppgir et indreprodukt, regnes **alt** — hvert skalarprodukt, hver norm, hver ortogonalitetssjekk, og normen i normaliseringen — med *det* indreproduktet. Å falle tilbake på standardprikkproduktet er den dyreste og vanligste feilen i faget. Etter hver fasit står en avkryssbar selvdiagnose."
+    },
+    {
+      "id": "mat1120-4-prove-forkunnskaper",
+      "type": "text",
+      "content": "**Forkunnskaper:** hele Del 4.\n\n- [Kap. 4.1](/bok/mat1120/mat1120-4-1) — de fire indreprodukt-typene, norm $\\|\\mathbf{v}\\|=\\sqrt{\\langle\\mathbf{v},\\mathbf{v}\\rangle}$, ortogonalitet $\\langle\\mathbf{u},\\mathbf{v}\\rangle=0$ og avstand — alt i det *oppgitte* indreproduktet\n- [Kap. 4.2](/bok/mat1120/mat1120-4-2) — ortogonale mengder, Gram–Schmidt $\\mathbf{v}_1=\\mathbf{a}_1$, $\\mathbf{v}_k=\\mathbf{a}_k-\\sum_{i<k}\\frac{\\langle\\mathbf{a}_k,\\mathbf{v}_i\\rangle}{\\langle\\mathbf{v}_i,\\mathbf{v}_i\\rangle}\\mathbf{v}_i$, heltalls-oppskalering, normalisering og Fourier-koeffisienter\n- [Kap. 4.3](/bok/mat1120/mat1120-4-3) — drill\n- [Kap. 2.1](/bok/mat1120/mat1120-2-1) — polynomrommet $\\operatorname{P}_n$\n- [Skalarprodukt](/bok/r1/r1-6-3) — prikkprodukt; [Integralregning](/bok/r2/r2-4-1) — integraler av polynomer\n\nBegrepet indreproduktrom forutsettes på innføringsnivå fra MAT1110. Ta prøvene uten hjelpemidler, slik eksamen er lagt opp."
+    },
+    {
+      "id": "mat1120-4-prove-p1",
+      "type": "collapsible",
+      "title": "Prøve 1",
+      "buttonText": "Vis prøve 1",
+      "content": [
+        {
+          "id": "mat1120-4-prove-p1-oppg",
+          "type": "text",
+          "content": "**Sjanger:** indreprodukt, norm og ortogonalitet (B). **Anbefalt tid:** ca. 35 minutter.\n\nDenne prøven veksler mellom tre indreprodukt. **Les nøye hvilket indreprodukt hver deloppgave bruker**, og regn *alt* i det — også normene.\n\n**Flervalg (kryss av, sjekk mot fasit):**\n\n1. **Normen** $\\|\\mathbf{v}\\|$ i et indreproduktrom er (a) $\\sqrt{v_1^{2}+\\dots+v_n^{2}}$ uansett indreprodukt (b) tallet $\\langle\\mathbf{v},\\mathbf{v}\\rangle$ (c) $\\sqrt{\\langle\\mathbf{v},\\mathbf{v}\\rangle}$ i det oppgitte indreproduktet (d) den største koordinaten i tallverdi.\n2. To vektorer $\\mathbf{u},\\mathbf{v}$ er **ortogonale** i et indreprodukt dersom (a) $\\langle\\mathbf{u},\\mathbf{v}\\rangle=0$ (b) $\\mathbf{u}\\cdot\\mathbf{v}=0$ i standardprikkproduktet (c) $\\|\\mathbf{u}\\|=\\|\\mathbf{v}\\|$ (d) $\\langle\\mathbf{u},\\mathbf{v}\\rangle=1$.\n3. Uttrykket $\\langle\\mathbf{x},\\mathbf{y}\\rangle=\\sum_i w_ix_iy_i$ på $\\mathbb{R}^n$ er et **ekte indreprodukt** nøyaktig når (a) $\\sum_i w_i=1$ (b) alle vektene er hele tall (c) minst én $w_i>0$ (d) alle $w_i>0$.\n4. Kan samme polynom $t$ ha **ulik norm** i to forskjellige indreprodukt på $\\operatorname{P}_2$? (a) Nei, lengden er en fast egenskap ved polynomet (b) Ja, fordi normen regnes i det oppgitte indreproduktet, som varierer (c) Nei, alle indreprodukt gir samme norm (d) Bare hvis polynomet ikke er normalisert.\n\n**Skriveoppgaver:**\n\n**a)** På $\\mathbb{R}^3$ med det **vektede** indreproduktet $\\langle\\mathbf{x},\\mathbf{y}\\rangle=3x_1y_1+x_2y_2+2x_3y_3$: regn $\\langle\\mathbf{u},\\mathbf{v}\\rangle$ og $\\|\\mathbf{u}\\|$ for $\\mathbf{u}=(1,2,1)$ og $\\mathbf{v}=(2,-1,1)$, avgjør om $\\mathbf{u}$ og $\\mathbf{v}$ er ortogonale, og bestem tallet $k$ slik at $(1,1,k)$ blir ortogonal på $\\mathbf{v}=(2,-1,1)$.\n\n**b)** På $\\operatorname{P}_2$ med **integral**indreproduktet $\\langle p,q\\rangle=\\int_0^2 p(t)q(t)\\,dt$: regn $\\langle 1,t\\rangle$ og $\\|t\\|$, avgjør om $1$ og $t$ er ortogonale, og bestem tallet $b$ slik at $1$ og $t+b$ blir ortogonale.\n\n**c)** På $\\operatorname{P}_2$ med **evaluerings**indreproduktet $\\langle p,q\\rangle=p(-1)q(-1)+p(0)q(0)+p(2)q(2)$ (punktene $-1,0,2$): regn $\\|t\\|$ og $\\langle 1,t\\rangle$, avgjør om $1$ og $t$ er ortogonale, og bestem tallet $c$ slik at $1$ og $t-c$ blir ortogonale."
+        },
+        {
+          "id": "mat1120-4-prove-p1-fasit",
+          "type": "collapsible",
+          "title": "Fasit — Prøve 1",
+          "buttonText": "Vis fasit",
+          "content": [
+            {
+              "id": "mat1120-4-prove-p1-fasit-tekst",
+              "type": "text",
+              "content": "**Flervalg — riktige svar:** 1c · 2a · 3d · 4b. *(1 poeng hver.)*\n\n*Om 1a/1b: normen er $\\sqrt{\\langle\\mathbf{v},\\mathbf{v}\\rangle}$ i det **oppgitte** indreproduktet — kvadratsummen av koordinatene gjelder bare i standardprikkproduktet, og selve $\\langle\\mathbf{v},\\mathbf{v}\\rangle$ (uten rot) er kvadratet av normen. Om 2b: ortogonalitet avgjøres i det oppgitte indreproduktet, ikke standardprikkproduktet. Om 3c: én positiv vekt er ikke nok — **alle** $w_i>0$ kreves for positiv definitthet (aksiom 4). Om 4a/4c: normen skifter med indreproduktet, så samme $t$ kan ha ulik lengde.*\n\n**Alle skriveoppgavene regnes i det indreproduktet deloppgaven oppgir — også normene.**\n\n**a)** Vektet, vekter $3,1,2$ i hvert ledd.\n$$\\langle\\mathbf{u},\\mathbf{v}\\rangle=3(1)(2)+1(2)(-1)+2(1)(1)=6-2+2=6.$$\nSiden $\\langle\\mathbf{u},\\mathbf{v}\\rangle=6\\ne0$, er $\\mathbf{u}$ og $\\mathbf{v}$ **ikke** ortogonale.\n$$\\|\\mathbf{u}\\|=\\sqrt{\\langle\\mathbf{u},\\mathbf{u}\\rangle}=\\sqrt{3(1)^2+1(2)^2+2(1)^2}=\\sqrt{3+4+2}=\\sqrt9=3.$$\nOrtogonalitetskravet $\\langle(1,1,k),(2,-1,1)\\rangle=0$: $3(1)(2)+1(1)(-1)+2(k)(1)=6-1+2k=5+2k=0\\Rightarrow k=-\\tfrac52$. *(Kontroll: $(1,1,-\\tfrac52)$ mot $(2,-1,1)$ gir $6-1-5=0$ ✓.)* **Eksakt:** $\\langle\\mathbf{u},\\mathbf{v}\\rangle=6$, $\\|\\mathbf{u}\\|=3$, ikke ortogonale, $k=-\\tfrac52$.\n\n**b)** Integral over $[0,2]$; alle skalarprodukt er $\\int_0^2(\\cdots)\\,dt$.\n$$\\langle 1,t\\rangle=\\int_0^2 t\\,dt=\\Big[\\tfrac{t^2}{2}\\Big]_0^2=2.$$\nSiden $\\langle 1,t\\rangle=2\\ne0$, er $1$ og $t$ **ikke** ortogonale.\n$$\\|t\\|=\\sqrt{\\langle t,t\\rangle}=\\sqrt{\\int_0^2 t^2\\,dt}=\\sqrt{\\Big[\\tfrac{t^3}{3}\\Big]_0^2}=\\sqrt{\\tfrac83}=\\frac{2\\sqrt6}{3}.$$\nKravet $\\langle 1,t+b\\rangle=0$: $\\int_0^2(t+b)\\,dt=\\big[\\tfrac{t^2}{2}+bt\\big]_0^2=2+2b=0\\Rightarrow b=-1$. Altså er $1$ og $t-1$ ortogonale på $[0,2]$. **Eksakt:** $\\langle 1,t\\rangle=2$, $\\|t\\|=\\tfrac{2\\sqrt6}{3}$, ikke ortogonale, $b=-1$.\n\n**c)** Evaluering i punktene $-1,0,2$; sett inn i hvert polynom og summer produktene.\n$$\\|t\\|=\\sqrt{\\langle t,t\\rangle}=\\sqrt{(-1)^2+0^2+2^2}=\\sqrt{1+0+4}=\\sqrt5.$$\n$$\\langle 1,t\\rangle=1\\cdot(-1)+1\\cdot0+1\\cdot2=-1+0+2=1.$$\nSiden $\\langle 1,t\\rangle=1\\ne0$, er $1$ og $t$ **ikke** ortogonale i dette indreproduktet. Kravet $\\langle 1,t-c\\rangle=0$: $(-1-c)+(0-c)+(2-c)=1-3c=0\\Rightarrow c=\\tfrac13$. Altså er $1$ og $t-\\tfrac13$ ortogonale her. **Eksakt:** $\\|t\\|=\\sqrt5$, $\\langle 1,t\\rangle=1$, ikke ortogonale, $c=\\tfrac13$.\n\n*Legg merke til at $\\|t\\|$ ble $\\tfrac{2\\sqrt6}{3}$ i b) og $\\sqrt5$ i c) — samme polynom, ulik norm, fordi indreproduktet er ulikt (jf. flervalg 4).*"
+            },
+            {
+              "id": "mat1120-4-prove-p1-diag",
+              "type": "text",
+              "content": "**Selvdiagnose — kryss av ($\\square$):**\n\n- ☐ Jeg leste hvilket indreprodukt hver deloppgave oppga, og brukte det i **alle** skalarprodukt og normer.\n- ☐ Jeg regnet den vektede normen med vektene $3,1,2$ (ikke standardnormen) i a).\n- ☐ Jeg regnet integralnormen $\\|t\\|=\\sqrt{\\int_0^2 t^2\\,dt}$ i b), ikke kvadratsummen av koeffisientene.\n- ☐ Jeg satte inn evalueringspunktene $-1,0,2$ i c) og summerte produktene.\n- ☐ Jeg satte opp $\\langle\\,\\cdot\\,,\\,\\cdot\\,\\rangle=0$ og løste for den ukjente ($k$, $b$, $c$) i det oppgitte indreproduktet, og kontrollerte svaret.\n- ☐ Jeg la merke til at samme $t$ fikk ulik norm i b) og c) — normen skifter med indreproduktet."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "mat1120-4-prove-p2",
+      "type": "collapsible",
+      "title": "Prøve 2",
+      "buttonText": "Vis prøve 2",
+      "content": [
+        {
+          "id": "mat1120-4-prove-p2-oppg",
+          "type": "text",
+          "content": "**Sjanger:** Gram–Schmidt i $\\mathbb{R}^n$ + ortonormalisering (B). **Anbefalt tid:** ca. 40 minutter. Før som en fullstendig besvarelse.\n\nHer er indreproduktet **standardprikkproduktet** $\\langle\\mathbf{x},\\mathbf{y}\\rangle=\\mathbf{x}\\cdot\\mathbf{y}$ på $\\mathbb{R}^3$.\n\n**Oppgave 1.** La\n$$\\mathbf{a}_1=(1,2,2),\\qquad \\mathbf{a}_2=(3,3,0),\\qquad \\mathbf{a}_3=(5,1,1).$$\nDisse er lineært uavhengige og utspenner $\\mathbb{R}^3$.\n\n**a)** Bruk Gram–Schmidt på $\\mathbf{a}_1,\\mathbf{a}_2,\\mathbf{a}_3$ til en **ortogonal** basis for $\\mathbb{R}^3$. Skalér underveis til heltallsvektorer.\n\n**b)** Normalisér den ortogonale basisen fra a) til en **ortonormal** basis.\n\n**c)** La $\\mathbf{y}=(6,3,3)$. Bruk den ortogonale basisen fra a) og **Fourier-koeffisientene** $\\frac{\\langle\\mathbf{y},\\mathbf{v}_i\\rangle}{\\langle\\mathbf{v}_i,\\mathbf{v}_i\\rangle}$ til å skrive $\\mathbf{y}$ som en lineærkombinasjon av basisvektorene (uten å løse et likningssystem)."
+        },
+        {
+          "id": "mat1120-4-prove-p2-fasit",
+          "type": "collapsible",
+          "title": "Fasit — Prøve 2",
+          "buttonText": "Vis fasit",
+          "content": [
+            {
+              "id": "mat1120-4-prove-p2-fasit-tekst",
+              "type": "text",
+              "content": "Indreproduktet er standardprikkproduktet. Gram–Schmidt: $\\mathbf{v}_1=\\mathbf{a}_1$, $\\mathbf{v}_k=\\mathbf{a}_k-\\sum_{i<k}\\frac{\\langle\\mathbf{a}_k,\\mathbf{v}_i\\rangle}{\\langle\\mathbf{v}_i,\\mathbf{v}_i\\rangle}\\mathbf{v}_i$.\n\n**a) Steg 1:** $\\mathbf{v}_1=(1,2,2)$, $\\ \\langle\\mathbf{v}_1,\\mathbf{v}_1\\rangle=1+4+4=9$.\n\n**Steg 2:** $\\langle\\mathbf{a}_2,\\mathbf{v}_1\\rangle=3+6+0=9$, så\n$$\\mathbf{v}_2=(3,3,0)-\\tfrac{9}{9}(1,2,2)=(3,3,0)-(1,2,2)=(2,1,-2).$$\nAllerede heltall. $\\langle\\mathbf{v}_2,\\mathbf{v}_2\\rangle=4+1+4=9$. Kontroll: $\\langle\\mathbf{v}_1,\\mathbf{v}_2\\rangle=2+2-4=0$ ✓.\n\n**Steg 3:** $\\langle\\mathbf{a}_3,\\mathbf{v}_1\\rangle=5+2+2=9$ og $\\langle\\mathbf{a}_3,\\mathbf{v}_2\\rangle=10+1-2=9$, så — med de *allerede ortogonaliserte* $\\mathbf{v}_1,\\mathbf{v}_2$ —\n$$\\mathbf{v}_3=(5,1,1)-\\tfrac{9}{9}(1,2,2)-\\tfrac{9}{9}(2,1,-2)=(5,1,1)-(1,2,2)-(2,1,-2)=(2,-2,1).$$\n**Ortogonal basis:** $\\{(1,2,2),\\ (2,1,-2),\\ (2,-2,1)\\}$. Kontroll: $\\langle\\mathbf{v}_1,\\mathbf{v}_3\\rangle=2-4+2=0$ og $\\langle\\mathbf{v}_2,\\mathbf{v}_3\\rangle=4-2-2=0$ ✓.\n\n**b)** Alle tre har samme norm: $\\|\\mathbf{v}_i\\|=\\sqrt9=3$. Del hver på $3$:\n$$\\mathbf{u}_1=\\tfrac13(1,2,2),\\quad \\mathbf{u}_2=\\tfrac13(2,1,-2),\\quad \\mathbf{u}_3=\\tfrac13(2,-2,1).$$\nDette er en **ortonormal** basis ($\\langle\\mathbf{u}_i,\\mathbf{u}_j\\rangle=\\delta_{ij}$). **Eksakt** — behold $\\tfrac13$, ingen desimaler.\n\n**c)** Med en **ortogonal** basis er koeffisientene bare Fourier-koeffisienter (ingen ligningsløsning):\n$$\\frac{\\langle\\mathbf{y},\\mathbf{v}_1\\rangle}{\\langle\\mathbf{v}_1,\\mathbf{v}_1\\rangle}=\\frac{6+6+6}{9}=2,\\quad \\frac{\\langle\\mathbf{y},\\mathbf{v}_2\\rangle}{\\langle\\mathbf{v}_2,\\mathbf{v}_2\\rangle}=\\frac{12+3-6}{9}=1,\\quad \\frac{\\langle\\mathbf{y},\\mathbf{v}_3\\rangle}{\\langle\\mathbf{v}_3,\\mathbf{v}_3\\rangle}=\\frac{12-6+3}{9}=1.$$\nAltså $\\mathbf{y}=2\\mathbf{v}_1+\\mathbf{v}_2+\\mathbf{v}_3$. **Kontroll:** $2(1,2,2)+(2,1,-2)+(2,-2,1)=(6,3,3)=\\mathbf{y}$ ✓.\n\n**Konklusjon:** ortogonal basis som i a), ortonormal ved å dele på $3$, og $\\mathbf{y}=2\\mathbf{v}_1+\\mathbf{v}_2+\\mathbf{v}_3$. **Eksakte svar** hele veien."
+            },
+            {
+              "id": "mat1120-4-prove-p2-diag",
+              "type": "text",
+              "content": "**Selvdiagnose — kryss av ($\\square$):**\n\n- ☐ Jeg satte $\\mathbf{v}_1=\\mathbf{a}_1$ og regnet $\\langle\\mathbf{v}_1,\\mathbf{v}_1\\rangle$ som nevner.\n- ☐ Jeg trakk fra projeksjonene med de **allerede ortogonaliserte** $\\mathbf{v}_i$-ene (ikke $\\mathbf{a}_i$) i steg 3.\n- ☐ Jeg skalerte underveis til heltallsvektorer der det trengtes, og kontrollerte at alle par er ortogonale.\n- ☐ Jeg normaliserte ved å dele hver $\\mathbf{v}_i$ på sin norm og lot svaret stå eksakt.\n- ☐ Jeg brukte Fourier-koeffisientene $\\frac{\\langle\\mathbf{y},\\mathbf{v}_i\\rangle}{\\langle\\mathbf{v}_i,\\mathbf{v}_i\\rangle}$ i c) i stedet for å løse et likningssystem, og kontrollerte lineærkombinasjonen."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "mat1120-4-prove-p3",
+      "type": "collapsible",
+      "title": "Prøve 3",
+      "buttonText": "Vis prøve 3",
+      "content": [
+        {
+          "id": "mat1120-4-prove-p3-oppg",
+          "type": "text",
+          "content": "**Sjanger:** Gram–Schmidt i **integral**indreprodukt på $\\operatorname{P}_2$ (B, ikke-standard). **Anbefalt tid:** ca. 40 minutter. Før som en fullstendig besvarelse.\n\nPå $\\operatorname{P}_2$ med integralindreproduktet\n$$\\langle p,q\\rangle=\\int_1^3 p(t)\\,q(t)\\,dt.$$\nStandardbasisen er $\\{1,t,t^2\\}$.\n\n**a)** Regn $\\langle 1,1\\rangle$ og $\\langle t,1\\rangle$, og finn den ortogonaliserte $v_2$ fra $t$ (skalér til heltallskoeffisienter). Kontroller at $v_2\\perp 1$.\n\n**b)** Fullfør Gram–Schmidt til en **ortogonal** basis $\\{v_1,v_2,v_3\\}$ for $\\operatorname{P}_2$ (skalér $v_3$ til heltallskoeffisienter).\n\n**c)** Normalisér $v_1$ og $v_2$ til enhetsvektorer $u_1,u_2$ i dette indreproduktet. (Merk hva $\\|1\\|$ blir.)"
+        },
+        {
+          "id": "mat1120-4-prove-p3-fasit",
+          "type": "collapsible",
+          "title": "Fasit — Prøve 3",
+          "buttonText": "Vis fasit",
+          "content": [
+            {
+              "id": "mat1120-4-prove-p3-fasit-tekst",
+              "type": "text",
+              "content": "**Indreproduktet er integralet over $[1,3]$ — hvert skalarprodukt og hver norm under er $\\int_1^3(\\cdots)\\,dt$, aldri standardprikkproduktet.** Gram–Schmidt: $v_1=1$, $v_k=a_k-\\sum_{i<k}\\frac{\\langle a_k,v_i\\rangle}{\\langle v_i,v_i\\rangle}v_i$.\n\n**a) Steg 1:** $v_1=1$, $\\ \\langle 1,1\\rangle=\\int_1^3 1\\,dt=[t]_1^3=2$.\n\n**Steg 2 ($t$):** $\\langle t,1\\rangle=\\int_1^3 t\\,dt=\\big[\\tfrac{t^2}{2}\\big]_1^3=\\tfrac92-\\tfrac12=4$. Da\n$$v_2=t-\\frac{\\langle t,1\\rangle}{\\langle 1,1\\rangle}\\cdot1=t-\\tfrac{4}{2}\\cdot1=t-2.$$\nAllerede heltallskoeffisienter. **Kontroll:** $\\langle t-2,1\\rangle=\\int_1^3(t-2)\\,dt=\\big[\\tfrac{t^2}{2}-2t\\big]_1^3=(\\tfrac92-6)-(\\tfrac12-2)=-\\tfrac32+\\tfrac32=0$ ✓.\n\n**b)** Vi trenger $\\langle v_2,v_2\\rangle=\\int_1^3(t-2)^2\\,dt=\\tfrac23$ (substituer $u=t-2$: $\\int_{-1}^1 u^2\\,du=\\tfrac23$). Videre\n$$\\langle t^2,1\\rangle=\\int_1^3 t^2\\,dt=\\big[\\tfrac{t^3}{3}\\big]_1^3=\\tfrac{27}{3}-\\tfrac13=\\tfrac{26}{3},\\qquad \\langle t^2,v_2\\rangle=\\int_1^3 t^2(t-2)\\,dt=\\int_1^3(t^3-2t^2)\\,dt=\\big[\\tfrac{t^4}{4}-\\tfrac{2t^3}{3}\\big]_1^3=\\tfrac83.$$\nMed de **allerede ortogonaliserte** $v_1=1$ og $v_2=t-2$:\n$$v_3=t^2-\\frac{26/3}{2}\\cdot1-\\frac{8/3}{2/3}\\,(t-2)=t^2-\\tfrac{13}{3}-4(t-2)=t^2-4t+\\tfrac{11}{3}.$$\nSkalér med $3$: $v_3=3t^2-12t+11$.\n\n**Ortogonal basis:** $\\{\\,1,\\ t-2,\\ 3t^2-12t+11\\,\\}$. **Kontroll:** $\\langle 1,3t^2-12t+11\\rangle=\\int_1^3(3t^2-12t+11)\\,dt=[t^3-6t^2+11t]_1^3=(27-54+33)-(1-6+11)=6-6=0$ ✓, og tilsvarende $\\langle t-2,3t^2-12t+11\\rangle=0$.\n\n**c)** Normalisér med **integral**normen (ikke kvadratsummen av koeffisientene):\n$$\\|1\\|=\\sqrt{\\langle 1,1\\rangle}=\\sqrt2,\\qquad \\|t-2\\|=\\sqrt{\\langle t-2,t-2\\rangle}=\\sqrt{\\tfrac23}=\\frac{\\sqrt6}{3}.$$\n$$u_1=\\frac{1}{\\sqrt2},\\qquad u_2=\\frac{t-2}{\\sqrt{2/3}}=\\sqrt{\\tfrac32}\\,(t-2)=\\frac{\\sqrt6}{2}\\,(t-2).$$\n**Merk:** konstanten $1$ har norm $\\sqrt2$, ikke $1$ — en klassisk felle. **Eksakte svar** — heltallskoeffisienter i basisen, rottegn beholdt i normaliseringen.\n\n**Konklusjon:** ortogonal basis $\\{1,\\ t-2,\\ 3t^2-12t+11\\}$ for $\\operatorname{P}_2$ i integralindreproduktet på $[1,3]$, med $u_1=\\tfrac{1}{\\sqrt2}$ og $u_2=\\tfrac{\\sqrt6}{2}(t-2)$."
+            },
+            {
+              "id": "mat1120-4-prove-p3-diag",
+              "type": "text",
+              "content": "**Selvdiagnose — kryss av ($\\square$):**\n\n- ☐ Jeg skrev opp at indreproduktet er $\\int_1^3(\\cdots)\\,dt$ og brukte det i **hvert** ledd — aldri standardprikkproduktet.\n- ☐ Jeg regnet $\\langle v_2,v_2\\rangle=\\tfrac23$ og brukte den (ikke $\\langle t,t\\rangle$) som nevner i steg 3.\n- ☐ Jeg brukte den allerede ortogonaliserte $v_2=t-2$ i projeksjonen for $v_3$, ikke $t$.\n- ☐ Jeg skalerte $v_3$ til heltallskoeffisienter og kontrollerte ortogonaliteten med et integral.\n- ☐ Jeg normaliserte med **integral**normen og la merke til at $\\|1\\|=\\sqrt2\\ne1$.\n- ☐ Jeg lot alle svar stå eksakt (brøk/$\\sqrt{\\ }$), uten desimaltilnærming."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "mat1120-4-prove-p4",
+      "type": "collapsible",
+      "title": "Prøve 4",
+      "buttonText": "Vis prøve 4",
+      "content": [
+        {
+          "id": "mat1120-4-prove-p4-oppg",
+          "type": "text",
+          "content": "**Sjanger:** indreprodukt-tverrsnitt — ortogonal basis i **vektet** og **evaluerings**-indreprodukt (B). **Anbefalt tid:** ca. 40 minutter. Før som en fullstendig besvarelse.\n\n**Oppgave 1 (vektet indreprodukt på $\\mathbb{R}^3$).** Bruk\n$$\\langle\\mathbf{x},\\mathbf{y}\\rangle=2x_1y_1+x_2y_2+x_3y_3.$$\nLa $\\mathbf{a}_1=(1,1,0)$, $\\mathbf{a}_2=(0,1,1)$, $\\mathbf{a}_3=(0,0,1)$.\n\n**a)** Bruk Gram–Schmidt til en **ortogonal** basis for $\\mathbb{R}^3$ i dette vektede indreproduktet (skalér til heltall).\n\n**b)** Normalisér basisen fra a) til en **ortonormal** basis i det vektede indreproduktet.\n\n**Oppgave 2 (evalueringsindreprodukt på $\\operatorname{P}_2$).** Bruk\n$$\\langle p,q\\rangle=p(0)q(0)+p(1)q(1)+p(3)q(3)\\quad(\\text{punktene }0,1,3).$$\n\n**c)** Bruk Gram–Schmidt på $\\{1,t,t^2\\}$ til en **ortogonal** basis for $\\operatorname{P}_2$ i dette evalueringsindreproduktet (skalér til heltallskoeffisienter).\n\n**d)** Forklar med én–to setninger hvorfor den ortogonale basisen i c) blir en *annen* enn den ville blitt i standardprikkproduktet på koeffisientene — og hva som er den felles refleksen i a) og c)."
+        },
+        {
+          "id": "mat1120-4-prove-p4-fasit",
+          "type": "collapsible",
+          "title": "Fasit — Prøve 4",
+          "buttonText": "Vis fasit",
+          "content": [
+            {
+              "id": "mat1120-4-prove-p4-fasit-tekst",
+              "type": "text",
+              "content": "**To ulike indreprodukt, men samme Gram–Schmidt-maskineri — og i begge regnes ALT (tellere, nevnere, normer) i det oppgitte indreproduktet.**\n\n**a)** Vektet med vekter $2,1,1$. **Steg 1:** $\\mathbf{v}_1=(1,1,0)$, $\\ \\langle\\mathbf{v}_1,\\mathbf{v}_1\\rangle=2(1)+1(1)+1(0)=3$.\n\n**Steg 2:** $\\langle\\mathbf{a}_2,\\mathbf{v}_1\\rangle=2(0)(1)+1(1)(1)+1(1)(0)=1$, så\n$$\\mathbf{v}_2=(0,1,1)-\\tfrac13(1,1,0)=\\left(-\\tfrac13,\\tfrac23,1\\right)\\ \\xrightarrow{\\times3}\\ (-1,2,3).$$\n$\\langle\\mathbf{v}_2,\\mathbf{v}_2\\rangle=2(1)+1(4)+1(9)=15$. Kontroll: $\\langle\\mathbf{v}_1,\\mathbf{v}_2\\rangle=2(1)(-1)+1(1)(2)+1(0)(3)=-2+2=0$ ✓.\n\n**Steg 3:** $\\langle\\mathbf{a}_3,\\mathbf{v}_1\\rangle=2(0)(1)+1(0)(1)+1(1)(0)=0$ og $\\langle\\mathbf{a}_3,\\mathbf{v}_2\\rangle=2(0)(-1)+1(0)(2)+1(1)(3)=3$, så\n$$\\mathbf{v}_3=(0,0,1)-0\\cdot\\mathbf{v}_1-\\tfrac{3}{15}(-1,2,3)=(0,0,1)-\\tfrac15(-1,2,3)=\\left(\\tfrac15,-\\tfrac25,\\tfrac25\\right)\\ \\xrightarrow{\\times5}\\ (1,-2,2).$$\n**Ortogonal basis (vektet):** $\\{(1,1,0),\\ (-1,2,3),\\ (1,-2,2)\\}$. Kontroll: $\\langle\\mathbf{v}_1,\\mathbf{v}_3\\rangle=2(1)+1(-2)+0=0$ og $\\langle\\mathbf{v}_2,\\mathbf{v}_3\\rangle=2(-1)(1)+1(2)(-2)+1(3)(2)=-2-4+6=0$ ✓.\n\n**b)** Vektede normer: $\\|\\mathbf{v}_1\\|^2=3$, $\\|\\mathbf{v}_2\\|^2=15$, $\\|\\mathbf{v}_3\\|^2=2(1)+1(4)+1(4)=10$. Del hver på sin (vektede) norm:\n$$\\mathbf{u}_1=\\tfrac{1}{\\sqrt3}(1,1,0),\\quad \\mathbf{u}_2=\\tfrac{1}{\\sqrt{15}}(-1,2,3),\\quad \\mathbf{u}_3=\\tfrac{1}{\\sqrt{10}}(1,-2,2).$$\n*(Felle: standardnormene $\\sqrt2,\\sqrt{14},\\sqrt9$ ville vært feil — vektene må inn.)*\n\n**c)** Evaluering i $0,1,3$. **Steg 1:** $v_1=1$, $\\ \\langle 1,1\\rangle=1+1+1=3$.\n\n**Steg 2 ($t$):** $\\langle t,1\\rangle=0+1+3=4$, så $v_2=t-\\tfrac43\\cdot1=t-\\tfrac43\\ \\xrightarrow{\\times3}\\ 3t-4$. Med $v_2=t-\\tfrac43$: $\\langle v_2,v_2\\rangle=(-\\tfrac43)^2+(-\\tfrac13)^2+(\\tfrac53)^2=\\tfrac{16+1+25}{9}=\\tfrac{14}{3}$ (verdiene i $0,1,3$ er $-\\tfrac43,-\\tfrac13,\\tfrac53$).\n\n**Steg 3 ($t^2$):** $\\langle t^2,1\\rangle=0+1+9=10$ og $\\langle t^2,v_2\\rangle=0(-\\tfrac43)+1(-\\tfrac13)+9(\\tfrac53)=-\\tfrac13+15=\\tfrac{44}{3}$, så\n$$v_3=t^2-\\frac{10}{3}\\cdot1-\\frac{44/3}{14/3}\\,\\Big(t-\\tfrac43\\Big)=t^2-\\tfrac{10}{3}-\\tfrac{22}{7}\\Big(t-\\tfrac43\\Big)=t^2-\\tfrac{22}{7}t+\\tfrac67.$$\nSkalér med $7$: $v_3=7t^2-22t+6$.\n\n**Ortogonal basis (evaluering):** $\\{\\,1,\\ 3t-4,\\ 7t^2-22t+6\\,\\}$. **Kontroll** (verdiene i $0,1,3$): $3t-4$ gir $-4,-1,5$; $7t^2-22t+6$ gir $6,-9,3$. $\\langle 1,7t^2-22t+6\\rangle=6-9+3=0$ ✓ og $\\langle 3t-4,7t^2-22t+6\\rangle=(-4)(6)+(-1)(-9)+(5)(3)=-24+9+15=0$ ✓.\n\n**d)** Evalueringsindreproduktet vekter og blander polynomverdiene i punktene $0,1,3$ — det er *ikke* det samme som standardprikkproduktet på koeffisientene (der $\\{1,t,t^2\\}$ allerede ville vært ortogonale og Gram–Schmidt gjort ingenting). Nettopp derfor får vi den ikke-trivielle basisen $\\{1,3t-4,7t^2-22t+6\\}$. **Den felles refleksen** i a) og c) er den samme som i hele Del 4: *identifiser det oppgitte indreproduktet først, og regn hvert eneste skalarprodukt og hver norm i det* — vektet i a), evaluering i c). **Eksakte svar** i begge oppgavene."
+            },
+            {
+              "id": "mat1120-4-prove-p4-diag",
+              "type": "text",
+              "content": "**Selvdiagnose — kryss av ($\\square$):**\n\n- ☐ Jeg brukte vektene $2,1,1$ i **alle** skalarprodukt i oppgave 1 — også nevnerne og normene.\n- ☐ Jeg brukte de allerede ortogonaliserte $\\mathbf{v}_i$-ene i steg 3 og skalerte til heltall.\n- ☐ Jeg normaliserte med den vektede normen i b), ikke standardnormen.\n- ☐ Jeg satte inn evalueringspunktene $0,1,3$ i oppgave 2 og regnet $\\langle v_2,v_2\\rangle=\\tfrac{14}{3}$ som nevner i steg 3.\n- ☐ Jeg kontrollerte ortogonaliteten i begge oppgaver (vektet i a), evaluering i c)).\n- ☐ Jeg så at samme maskineri gir ulike ortogonale baser fordi indreproduktet er ulikt, og lot svarene stå eksakt."
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "exercises": []
+}

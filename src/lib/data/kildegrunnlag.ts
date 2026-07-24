@@ -427,6 +427,40 @@ const KILDEGRUNNLAG: Record<string, Kildegrunnlag> = {
     ],
     analysedato: 'juli 2026',
   },
+  mat1120: {
+    courseId: 'mat1120',
+    institusjon: 'Universitetet i Oslo (UiO) — Matematisk institutt',
+    sammendrag:
+      'Boka er kalibrert mot MAT1120s eksamensarkiv ved UiO: sju fullstendige sett med tilhørende offisielle løsningsforslag (H2018–H2024). Formatet er usedvanlig stabilt — hvert sett er en 4-timers skriftlig skoleeksamen med nøyaktig 10 deloppgaver som teller likt (10 p hver), gruppert i 4–5 hovedoppgaver, karakter A–F, ingen flervalg, alt fullt begrunnet langsvar. Det definerende trekket er vedlegget: formelt ingen hjelpemidler, men hvert sett kommer med en Matlab-utskrift (rref/poly/eig) eller (fra H2024) et ark med ferdige reduserte trappeformer — studenten leser pivoter, karakteristisk polynom og egenverdier ut av vedlegget i stedet for å radredusere for hånd.',
+    eksamenssett: [
+      {
+        tittel: '7 eksamenssett lest oppgave for oppgave (H2018–H2024)',
+        detalj:
+          'Alle sju settene i arkivet, hver deloppgave sammen med det utdelte vedlegget (Matlab-utskrift rref/poly/eig 2018–2022; ferdige RREF-ark fra 2024). Grunnlaget for de fem faste søylene og temafrekvensene i boka.',
+      },
+    ],
+    sensorveiledninger: [
+      {
+        tittel: '7 offisielle løsningsforslag (H2018–H2024)',
+        detalj:
+          'Ett fullstendig offisielt løsningsforslag per sett. Disse definerer føringsstandarden boka lærer bort: vedleggssitering framfor manuell radreduksjon, Col A-basis fra opprinnelige pivotkolonner, P/D matchet søyle for søyle, ortonormale kolonner i P ved ortogonal diagonalisering, diagonaliserbarhet begrunnet med multiplisitet, eksakte svar.',
+      },
+    ],
+    andreKilder: [
+      {
+        tittel: 'UiOs emnebeskrivelse for MAT1120',
+        detalj:
+          'Omskrevet sammendrag av emnesiden (læringsmål, pensum forankret i David C. Lay: Linear Algebra and Its Applications, vurderingsform: én avsluttende 4-timers skoleeksamen, to godkjente obligatoriske innleveringer kreves for å gå opp).',
+      },
+    ],
+    forbehold: [
+      'Vedleggsformatet skiftet fra Matlab-utskrift (2018–2022) til rene RREF-ark (H2024). Boka trener begge (samme funksjon), og kap. 0.1 ber studenten verifisere formatet mot nyeste sett.',
+      'H2020 var hjemmeeksamen (pandemi-avvik), men innhold og struktur var uendret.',
+      'Determinant-regneregler, matriseinvers-mekanikk, Cramer og likningssystem-parameteranalyse forutsettes fra MAT1100/MAT1110 og testes ikke som egne temaer — der et konkret metodevalg er faglig standard snarere enn dokumentert i løsningsforslagene, er det merket i teksten.',
+      'Alle oppgaver, matriser, tall og caser i boka er nyskrevne. Arkivet er brukt som mønster (sjangre, temavekting, føringsstandard) — aldri ordrett.',
+    ],
+    analysedato: 'juli 2026',
+  },
 };
 
 export function getKildegrunnlag(courseId: string): Kildegrunnlag | null {

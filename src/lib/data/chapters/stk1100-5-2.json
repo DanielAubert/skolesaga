@@ -1,0 +1,529 @@
+{
+  "id": "stk1100-5-2",
+  "courseId": "stk1100",
+  "chapterNumber": "5.2",
+  "title": "Maximum likelihood og momentmetoden",
+  "description": "Likelihood → log-likelihood → derivér → løs: den utledningen som alltid kommer, pluss momentmetoden som alternativ.",
+  "estimatedMinutes": 70,
+  "competenceGoals": [
+    "utlede maximum-likelihood-estimatoren med alle trinn: likelihood som produkt, log-likelihood, derivér og løs",
+    "gjennomføre ML for standardfordelingene (eksponensial i begge parametriseringer, Poisson, normal, gamma med kjent form) og for eksotiske fordelinger (Pareto, Weibull)",
+    "bruke momentmetoden som alternativ og forklare når den gir et annet svar enn ML",
+    "anvende invariansprinsippet til å estimere en funksjon av parameteren"
+  ],
+  "content": [
+    {
+      "id": "stk1100-5-2-tip-eksamensvinkel",
+      "type": "tip",
+      "title": "Eksamensvinkel",
+      "content": "**Maximum likelihood (ML) er i 9 av 10 avsluttende skoleeksamener (90 %)** i STK1100-arkivet 2015–2024 — analysen kaller det «emnets viktigste ferdighet». Dette er kjedens *første* ledd (sjanger G, estimerings-oppgaven): du får en fordeling med en ukjent parameter, og skal utlede estimatoren. Varianter fra arkivet: ML på en eksotisk fordeling (Pareto V2017, Rayleigh V2019, Weibull V2021, Laplace V2024), momentmetoden som alternativ, og «en annen foreslått estimator» som skal vurderes.\n\n**Sensorkrav 5: ML-ritualet skal utledes aktivt med ALLE trinn** — likelihood som produkt, logaritmen (med begrunnelse), derivér, løs. Å hoppe rett til svaret gir ikke full uttelling. Formelsamlingen har fordelingene med tetthet og $E$/Var, men *likelihood-oppsettet og utledningen må du gjøre selv*.\n\nPrioritet: **høyeste**. Klarer du ML-ritualet på en fordeling du aldri har sett, er den tunge oppgave 3 på eksamen halvveis løst."
+    },
+    {
+      "id": "stk1100-5-2-forkunnskaper",
+      "type": "text",
+      "content": "**Forkunnskaper:** Dette kapitlet bygger på estimator-egenskapene i [kap. 5.1](/bok/stk1100/stk1100-5-1) (forventningsretthet, varians — vi sjekker ML-estimatorene mot dem) og tetthetene fra [kap. 2.1](/bok/stk1100/stk1100-2-1) (eksponensial i begge parametriseringer, uniform, normal).\n\n**Sist du var her — det du bruker mest:**\n- **Eksponensial i to former** (kap. 2.1): rate $f(x) = \\lambda e^{-\\lambda x}$ ($E = 1/\\lambda$) og forventning $f(x) = \\tfrac1\\mu e^{-x/\\mu}$ ($E = \\mu$). Oppgaven sier alltid hvilken — les den.\n- **Forventningsrett** (kap. 5.1): $E(\\hat\\theta) = \\theta$, sjekkes ved å regne $E$ av estimatoren.\n\nDu deriverer log-likelihooden, så [R1 4.1 Derivasjonsregler](/bok/r1/r1-4-1) (særlig $\\frac{d}{dx}\\ln x = 1/x$ og kjerneregelen) er verktøyet."
+    },
+    {
+      "id": "stk1100-5-2-intro",
+      "type": "text",
+      "content": "Du har en fordeling med en ukjent parameter $\\theta$ og et datasett $x_1, \\dots, x_n$. Hvilken $\\theta$ er mest *plausibel* gitt akkurat disse dataene? **Maximum likelihood** svarer: velg den $\\theta$ som gjør de observerte dataene *mest sannsynlige*. Vi setter opp sannsynligheten (tettheten) for å se nettopp dette datasettet som en funksjon av $\\theta$ — likelihood-funksjonen — og finner toppunktet.\n\nKapitlet har fem læringsløkker (teori → eksempel → oppgaver): (1) selve ML-ritualet med eksponensial, (2) flere standardtilfeller (Poisson, eksponensial forventningsform), (3) normal og gamma med kjent form, (4) de eksotiske (Pareto, Weibull), og (5) momentmetoden som alternativ + invariansprinsippet. Kapitlet er på 70 minutter — ta en pause etter løkke 3."
+    },
+    {
+      "id": "stk1100-5-2-l1-head",
+      "type": "text",
+      "content": "## Løkke 1 — ML-ritualet: likelihood, log, derivér, løs (~18 min)"
+    },
+    {
+      "id": "stk1100-5-2-l1-tekst",
+      "type": "text",
+      "content": "Observasjonene $x_1, \\dots, x_n$ er iid med tetthet $f(x; \\theta)$. Sannsynligheten (tettheten) for å observere *hele* datasettet er produktet av de enkelte tetthetene — det er **likelihood-funksjonen** $L(\\theta)$. Vi maksimerer den over $\\theta$. Fordi et produkt er tungt å derivere, tar vi først logaritmen: logaritmen gjør produktet til en sum, og siden $\\ln$ er strengt voksende, ligger maksimum på samme sted. Så deriverer vi log-likelihooden, setter den lik null, og løser."
+    },
+    {
+      "id": "stk1100-5-2-def-likelihood",
+      "type": "definition",
+      "title": "Likelihood-funksjonen $L(\\theta)$",
+      "content": "**Likelihooden** er tettheten (eller punktsannsynligheten) for å observere hele datasettet, sett som en funksjon av parameteren $\\theta$ med dataene faste. For iid-observasjoner er den produktet:\n\n$$L(\\theta) = \\prod_{i=1}^n f(x_i; \\theta).$$\n\nMerk: produktet går over **alle** $n$ observasjonene. $L(\\theta)$ er *ikke* en sannsynlighetsfordeling i $\\theta$ — den måler hvor godt hver $\\theta$ forklarer de dataene vi faktisk fikk."
+    },
+    {
+      "id": "stk1100-5-2-def-loglik",
+      "type": "definition",
+      "title": "Log-likelihood $\\ell(\\theta)$",
+      "content": "**Log-likelihooden** er den naturlige logaritmen av likelihooden:\n\n$$\\ell(\\theta) = \\ln L(\\theta) = \\sum_{i=1}^n \\ln f(x_i; \\theta).$$\n\nLogaritmen gjør produktet til en **sum** (mye lettere å derivere), og fordi $\\ln$ er strengt voksende, har $\\ell(\\theta)$ maksimum for nøyaktig samme $\\theta$ som $L(\\theta)$. Derfor jobber vi alltid med $\\ell$."
+    },
+    {
+      "id": "stk1100-5-2-def-mle",
+      "type": "definition",
+      "title": "ML-estimatoren (score-ligningen)",
+      "content": "**Maximum-likelihood-estimatoren** $\\hat\\theta$ er den verdien som maksimerer $\\ell(\\theta)$. Den finnes ved å derivere og sette lik null (score-ligningen):\n\n$$\\ell'(\\theta) = 0 \\quad \\Rightarrow \\quad \\hat\\theta.$$\n\nLøsningen er ML-*estimatet* når vi setter inn observerte tall, og ML-*estimatoren* når vi lar dataene være $X_i$ (stokastiske). På STK1100 er det milde krav til eksplisitt maksimumskontroll, men **hele regnekjeden skal vises**."
+    },
+    {
+      "id": "stk1100-5-2-ex-eksp-rate",
+      "type": "example",
+      "title": "Eksempel 1: ML for eksponensial i rateform",
+      "problem": "Levetidene $x_1, \\dots, x_n$ er iid eksponensialfordelte i **rateform**: $f(x; \\lambda) = \\lambda e^{-\\lambda x}$, $x > 0$, med ukjent rate $\\lambda$. Utled ML-estimatoren for $\\lambda$.",
+      "solution": "**1. Likelihood** (produkt over alle $n$):\n\n$$L(\\lambda) = \\prod_{i=1}^n \\lambda e^{-\\lambda x_i} = \\lambda^n e^{-\\lambda \\sum_{i=1}^n x_i}.$$\n\n**2. Log-likelihood** (produkt → sum):\n\n$$\\ell(\\lambda) = n\\ln\\lambda - \\lambda\\sum_{i=1}^n x_i.$$\n\n**3. Derivér og sett lik 0:**\n\n$$\\ell'(\\lambda) = \\frac{n}{\\lambda} - \\sum_{i=1}^n x_i = 0.$$\n\n**4. Løs:** $\\frac{n}{\\lambda} = \\sum x_i \\Rightarrow \\hat\\lambda = \\dfrac{n}{\\sum_{i=1}^n x_i} = \\dfrac{1}{\\bar x}$.\n\nML-estimatoren er $\\hat\\lambda = 1/\\bar X$. Rimelig: stor gjennomsnittlig levetid $\\bar X$ betyr liten rate. (I forventningsform hadde vi fått $\\hat\\mu = \\bar X$ — se løkke 2.)"
+    },
+    {
+      "id": "stk1100-5-2-l1a",
+      "type": "exercise",
+      "exercise": {
+        "id": "stk1100-5-2-ex-l1a",
+        "number": "1",
+        "type": "classic",
+        "difficulty": "lett",
+        "task": "For eksponensial i rateform $f(x;\\lambda) = \\lambda e^{-\\lambda x}$ med $n$ iid-observasjoner, skriv opp likelihooden $L(\\lambda)$ og log-likelihooden $\\ell(\\lambda)$. (Du trenger ikke derivere.)",
+        "solution": "$L(\\lambda) = \\prod_{i=1}^n \\lambda e^{-\\lambda x_i} = \\lambda^n e^{-\\lambda\\sum x_i}$. Logaritmen gjør produktet til en sum: $\\ell(\\lambda) = \\ln L = n\\ln\\lambda - \\lambda\\sum_{i=1}^n x_i$.",
+        "hints": [
+          "Likelihood = produkt av tetthetene over alle $i$.",
+          "Samle $\\lambda$-ene: $\\prod\\lambda = \\lambda^n$, og eksponentene adderes."
+        ]
+      }
+    },
+    {
+      "id": "stk1100-5-2-l1b",
+      "type": "exercise",
+      "exercise": {
+        "id": "stk1100-5-2-ex-l1b",
+        "number": "2",
+        "type": "classic",
+        "difficulty": "lett",
+        "task": "Hvorfor tar vi logaritmen av likelihooden før vi deriverer? Nevn to grunner, og forklar hvorfor maksimum ikke flyttes.",
+        "solution": "(1) Logaritmen gjør **produktet til en sum** ($\\ln\\prod = \\sum\\ln$), som er langt lettere å derivere. (2) Den forenkler eksponentialer og potenser (f.eks. $\\ln(\\lambda^n e^{-\\lambda\\sum x_i}) = n\\ln\\lambda - \\lambda\\sum x_i$). Maksimum flyttes ikke fordi $\\ln$ er en **strengt voksende** funksjon: $L$ og $\\ell = \\ln L$ har toppunkt for nøyaktig samme $\\theta$.",
+        "hints": [
+          "Tenk på hva $\\ln$ gjør med et produkt.",
+          "Strengt voksende funksjon bevarer hvor toppen ligger."
+        ]
+      }
+    },
+    {
+      "id": "stk1100-5-2-l2-head",
+      "type": "text",
+      "content": "## Løkke 2 — Flere standardtilfeller: Poisson og eksponensial forventningsform (~14 min)"
+    },
+    {
+      "id": "stk1100-5-2-l2-tekst",
+      "type": "text",
+      "content": "ML-ritualet er det samme uansett fordeling — bare tettheten/punktsannsynligheten byttes. For diskrete fordelinger er $f$ en punktsannsynlighet, men oppskriften (produkt → log → derivér → løs) er identisk. Vi tar Poisson og eksponensial i forventningsform; begge gir den samme, intuitive estimatoren: $\\hat\\theta = \\bar X$."
+    },
+    {
+      "id": "stk1100-5-2-def-poisson-ml",
+      "type": "definition",
+      "title": "ML for Poisson",
+      "content": "For $X_i \\sim \\text{Poisson}(\\lambda)$ med punktsannsynlighet $p(x;\\lambda) = e^{-\\lambda}\\lambda^x/x!$ blir\n\n$$\\ell(\\lambda) = -n\\lambda + \\left(\\sum x_i\\right)\\ln\\lambda - \\sum\\ln(x_i!), \\qquad \\ell'(\\lambda) = -n + \\frac{\\sum x_i}{\\lambda} = 0.$$\n\nLøsningen er $\\hat\\lambda = \\bar X$. Her er $\\lambda$ raten i Poisson-prosessen, og estimatet er rett og slett det observerte gjennomsnittet."
+    },
+    {
+      "id": "stk1100-5-2-def-eksp-forv-ml",
+      "type": "definition",
+      "title": "ML for eksponensial i forventningsform",
+      "content": "For eksponensial i **forventningsform** $f(x;\\mu) = \\tfrac1\\mu e^{-x/\\mu}$ ($E(X) = \\mu$) blir\n\n$$\\ell(\\mu) = -n\\ln\\mu - \\frac{1}{\\mu}\\sum x_i, \\qquad \\ell'(\\mu) = -\\frac{n}{\\mu} + \\frac{\\sum x_i}{\\mu^2} = 0.$$\n\nLøsningen er $\\hat\\mu = \\bar X$. Sammenlign med rateformen ($\\hat\\lambda = 1/\\bar X$): samme fordeling, men parameteren — og dermed estimatoren — avhenger av *hvilken parametrisering* oppgaven bruker. Les alltid definisjonen."
+    },
+    {
+      "id": "stk1100-5-2-ex-poisson",
+      "type": "example",
+      "title": "Eksempel 2: ML for Poisson (bakterietelling)",
+      "problem": "Antall bakteriekolonier i $n$ vannprøver er iid $\\text{Poisson}(\\lambda)$ med $p(x;\\lambda) = e^{-\\lambda}\\lambda^x/x!$. Utled ML-estimatoren for $\\lambda$.",
+      "solution": "**1. Likelihood:** $L(\\lambda) = \\prod_{i=1}^n \\dfrac{e^{-\\lambda}\\lambda^{x_i}}{x_i!} = \\dfrac{e^{-n\\lambda}\\,\\lambda^{\\sum x_i}}{\\prod x_i!}$.\n\n**2. Log-likelihood:** $\\ell(\\lambda) = -n\\lambda + \\left(\\sum x_i\\right)\\ln\\lambda - \\sum\\ln(x_i!)$. Det siste leddet inneholder ikke $\\lambda$ og forsvinner i derivasjonen.\n\n**3. Derivér:** $\\ell'(\\lambda) = -n + \\dfrac{\\sum x_i}{\\lambda} = 0$.\n\n**4. Løs:** $\\dfrac{\\sum x_i}{\\lambda} = n \\Rightarrow \\hat\\lambda = \\dfrac{\\sum x_i}{n} = \\bar x$.\n\nML-estimatoren er $\\hat\\lambda = \\bar X$ — det observerte snittantallet. Den er forventningsrett fordi $E(\\bar X) = E(X_i) = \\lambda$."
+    },
+    {
+      "id": "stk1100-5-2-l2a",
+      "type": "exercise",
+      "exercise": {
+        "id": "stk1100-5-2-ex-l2a",
+        "number": "3",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "Antall kundehenvendelser per time er iid $\\text{Poisson}(\\lambda)$. Du observerer $x_1, \\dots, x_n$.\n\n**a)** Utled ML-estimatoren for $\\lambda$.\n\n**b)** Er den forventningsrett? Finn også $\\text{Var}(\\hat\\lambda)$.",
+        "solution": "**a)** $\\ell(\\lambda) = -n\\lambda + (\\sum x_i)\\ln\\lambda - \\sum\\ln(x_i!)$, $\\ell'(\\lambda) = -n + \\sum x_i/\\lambda = 0 \\Rightarrow \\hat\\lambda = \\bar X$.\n\n**b)** $E(\\hat\\lambda) = E(\\bar X) = \\lambda$, så ja, forventningsrett. Var: for Poisson er $\\text{Var}(X_i) = \\lambda$, så $\\text{Var}(\\hat\\lambda) = \\text{Var}(\\bar X) = \\lambda/n$.",
+        "hints": [
+          "Sett opp $\\ell$ og derivér mot $\\lambda$; $\\sum\\ln(x_i!)$ er konstant.",
+          "For Poisson er både $E(X_i)$ og $\\text{Var}(X_i)$ lik $\\lambda$."
+        ]
+      }
+    },
+    {
+      "id": "stk1100-5-2-l2b",
+      "type": "exercise",
+      "exercise": {
+        "id": "stk1100-5-2-ex-l2b",
+        "number": "4",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "Ventetidene $x_1, \\dots, x_n$ mellom hendelser er iid eksponensiale i **forventningsform** $f(x;\\mu) = \\tfrac1\\mu e^{-x/\\mu}$. Utled ML-estimatoren for $\\mu$, og vis at den er forventningsrett.",
+        "solution": "**Likelihood:** $L(\\mu) = \\mu^{-n}e^{-\\sum x_i/\\mu}$. **Log:** $\\ell(\\mu) = -n\\ln\\mu - \\tfrac1\\mu\\sum x_i$. **Derivér:** $\\ell'(\\mu) = -\\tfrac n\\mu + \\tfrac{\\sum x_i}{\\mu^2} = 0$. Multipliser med $\\mu^2$: $-n\\mu + \\sum x_i = 0 \\Rightarrow \\hat\\mu = \\bar X$.\n\n**Forventningsrett:** $E(\\hat\\mu) = E(\\bar X) = \\mu$ (siden $E(X_i) = \\mu$ i forventningsform). Ja.",
+        "hints": [
+          "Bruk forventningsformen: $E(X_i) = \\mu$.",
+          "Multipliser $\\ell'(\\mu) = 0$ med $\\mu^2$ for å rydde."
+        ]
+      }
+    },
+    {
+      "id": "stk1100-5-2-l3-head",
+      "type": "text",
+      "content": "## Løkke 3 — Normal og gamma med kjent formparameter (~14 min)"
+    },
+    {
+      "id": "stk1100-5-2-l3-tekst",
+      "type": "text",
+      "content": "Med to parametre (normal: $\\mu$ og $\\sigma^2$) deriverer vi $\\ell$ mot hver for seg. Med gamma der formparameteren $\\alpha$ er *kjent* og bare skalaen $\\beta$ er ukjent, er det igjen ett-parameters-ritualet. Gamma-tilfellet er et STK1100-yndlingscase (V-oppgaver med kjent form 4), og estimatoren $\\hat\\beta = \\bar X/\\alpha$ viser seg å være forventningsrett."
+    },
+    {
+      "id": "stk1100-5-2-def-normal-ml",
+      "type": "definition",
+      "title": "ML for normalfordelingen",
+      "content": "For $X_i \\sim N(\\mu, \\sigma^2)$ gir derivasjon mot hver parameter\n\n$$\\hat\\mu = \\bar X, \\qquad \\hat\\sigma^2 = \\frac{1}{n}\\sum_{i=1}^n (X_i - \\bar X)^2.$$\n\nMerk: ML-estimatoren for variansen har $n$ i nevneren (ikke $n-1$), og er derfor **skjev** for $\\sigma^2$ ($E = \\frac{n-1}{n}\\sigma^2$, jf. kap. 5.1). ML og forventningsretthet trekker altså ikke alltid samme vei."
+    },
+    {
+      "id": "stk1100-5-2-def-gamma-ml",
+      "type": "definition",
+      "title": "ML for gamma med kjent formparameter",
+      "content": "For $X_i \\sim \\text{gamma}(\\alpha, \\beta)$ med **kjent** $\\alpha$ og ukjent skala $\\beta$:\n\n$$\\ell(\\beta) = -n\\alpha\\ln\\beta - \\frac{1}{\\beta}\\sum x_i + (\\alpha-1)\\sum\\ln x_i - n\\ln\\Gamma(\\alpha),$$\n\n$$\\ell'(\\beta) = -\\frac{n\\alpha}{\\beta} + \\frac{\\sum x_i}{\\beta^2} = 0 \\ \\Rightarrow\\ \\hat\\beta = \\frac{\\sum x_i}{n\\alpha} = \\frac{\\bar X}{\\alpha}.$$\n\nForventningsrett: $E(\\hat\\beta) = E(\\bar X)/\\alpha = \\alpha\\beta/\\alpha = \\beta$ (bruker $E(X_i) = \\alpha\\beta$). Ledd uten $\\beta$ (som $n\\ln\\Gamma(\\alpha)$) forsvinner i derivasjonen."
+    },
+    {
+      "id": "stk1100-5-2-ex-gamma",
+      "type": "example",
+      "title": "Eksempel 3: ML for gammafordelt bruddstyrke (kjent form)",
+      "problem": "Bruddstyrken til $n$ fiberprøver er iid gammafordelt med kjent formparameter $\\alpha = 4$ og ukjent skala $\\beta$: $f(x;\\beta) = \\dfrac{x^{3}e^{-x/\\beta}}{\\beta^{4}\\,\\Gamma(4)}$, $x > 0$. Utled ML-estimatoren $\\hat\\beta$ og vis at den er forventningsrett.",
+      "solution": "**1. Likelihood:** $L(\\beta) = \\prod_{i=1}^n \\dfrac{x_i^{3}e^{-x_i/\\beta}}{\\beta^{4}\\Gamma(4)} = \\dfrac{\\left(\\prod x_i^3\\right)e^{-\\sum x_i/\\beta}}{\\beta^{4n}\\Gamma(4)^n}$.\n\n**2. Log:** $\\ell(\\beta) = 3\\sum\\ln x_i - \\dfrac{\\sum x_i}{\\beta} - 4n\\ln\\beta - n\\ln\\Gamma(4)$.\n\n**3. Derivér mot $\\beta$** (bare ledd 2 og 3 har $\\beta$): $\\ell'(\\beta) = \\dfrac{\\sum x_i}{\\beta^2} - \\dfrac{4n}{\\beta} = 0$.\n\n**4. Løs:** $\\dfrac{\\sum x_i}{\\beta^2} = \\dfrac{4n}{\\beta} \\Rightarrow \\dfrac{\\sum x_i}{\\beta} = 4n \\Rightarrow \\hat\\beta = \\dfrac{\\sum x_i}{4n} = \\dfrac{\\bar X}{4}$.\n\nGenerelt $\\hat\\beta = \\bar X/\\alpha$. **Forventningsrett:** $E(\\hat\\beta) = E(\\bar X)/4 = \\alpha\\beta/4 = 4\\beta/4 = \\beta$. Ja — dette er et av de rene tilfellene der ML-estimatoren er forventningsrett."
+    },
+    {
+      "id": "stk1100-5-2-l3a",
+      "type": "exercise",
+      "exercise": {
+        "id": "stk1100-5-2-ex-l3a",
+        "number": "5",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "For $N(\\mu, \\sigma^2)$ med begge parametre ukjente er ML-estimatorene $\\hat\\mu = \\bar X$ og $\\hat\\sigma^2 = \\tfrac1n\\sum(X_i-\\bar X)^2$.\n\n**a)** Er $\\hat\\mu$ forventningsrett for $\\mu$?\n\n**b)** Er $\\hat\\sigma^2$ forventningsrett for $\\sigma^2$? Hvis ikke, hvordan korrigeres den?",
+        "solution": "**a)** $E(\\hat\\mu) = E(\\bar X) = \\mu$ — ja, forventningsrett.\n\n**b)** Nei: $E(\\hat\\sigma^2) = \\frac{n-1}{n}\\sigma^2 < \\sigma^2$, altså skjev (underestimerer). Korreksjon (kap. 5.1): gang med $\\frac{n}{n-1}$, som gir $S^2 = \\frac{1}{n-1}\\sum(X_i-\\bar X)^2$. ML-varians og forventningsrett varians skiller altså lag i nevneren.",
+        "hints": [
+          "$\\bar X$ er alltid forventningsrett for $\\mu$.",
+          "ML-variansen har $n$ i nevneren og er skjev; $S^2$ har $n-1$."
+        ]
+      }
+    },
+    {
+      "id": "stk1100-5-2-l3b",
+      "type": "exercise",
+      "exercise": {
+        "id": "stk1100-5-2-ex-l3b",
+        "number": "6",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "Nedbørsmengder $x_1, \\dots, x_n$ er iid gammafordelte med kjent form $\\alpha = 3$ og ukjent skala $\\beta$: $f(x;\\beta) = \\dfrac{x^{2}e^{-x/\\beta}}{\\beta^{3}\\Gamma(3)}$.\n\n**a)** Utled $\\hat\\beta$.\n\n**b)** Finn $\\text{Var}(\\hat\\beta)$ uttrykt ved $\\beta$ og $n$.",
+        "solution": "**a)** $\\ell(\\beta) = 2\\sum\\ln x_i - \\tfrac{\\sum x_i}{\\beta} - 3n\\ln\\beta - n\\ln\\Gamma(3)$. $\\ell'(\\beta) = \\tfrac{\\sum x_i}{\\beta^2} - \\tfrac{3n}{\\beta} = 0 \\Rightarrow \\hat\\beta = \\tfrac{\\sum x_i}{3n} = \\bar X/3$ (altså $\\bar X/\\alpha$).\n\n**b)** $\\text{Var}(\\hat\\beta) = \\tfrac{1}{\\alpha^2}\\text{Var}(\\bar X) = \\tfrac{1}{\\alpha^2}\\cdot\\tfrac{\\text{Var}(X_i)}{n} = \\tfrac{1}{9}\\cdot\\tfrac{\\alpha\\beta^2}{n} = \\tfrac{3\\beta^2}{9n} = \\tfrac{\\beta^2}{3n}$. (Generelt $\\text{Var}(\\hat\\beta) = \\beta^2/(n\\alpha)$.)",
+        "hints": [
+          "$\\hat\\beta = \\bar X/\\alpha$ generelt.",
+          "$\\text{Var}(X_i) = \\alpha\\beta^2$ for gamma; $\\text{Var}(\\bar X) = \\text{Var}(X_i)/n$."
+        ]
+      }
+    },
+    {
+      "id": "stk1100-5-2-l4-head",
+      "type": "text",
+      "content": "## Løkke 4 — De eksotiske: Pareto og Weibull (~13 min)"
+    },
+    {
+      "id": "stk1100-5-2-l4-tekst",
+      "type": "text",
+      "content": "UiO-sjangeren er ML på en «navngitt eksotisk» fordeling. Ritualet er uendret; det eneste nye er at log-tettheten inneholder logaritmer og potenser av dataene. Pareto gir en pen lukket estimator; Weibull med kjent form gir en potens-estimator. Begge er hyppige eksamenscaser (Pareto V2017, Weibull V2021)."
+    },
+    {
+      "id": "stk1100-5-2-def-pareto-ml",
+      "type": "definition",
+      "title": "ML for Pareto (kjent minsteverdi)",
+      "content": "For Pareto $f(x;\\theta) = \\dfrac{\\theta k^\\theta}{x^{\\theta+1}}$, $x \\ge k$, med **kjent** $k$ og ukjent formparameter $\\theta$:\n\n$$\\ell(\\theta) = n\\ln\\theta + n\\theta\\ln k - (\\theta+1)\\sum\\ln x_i, \\qquad \\ell'(\\theta) = \\frac n\\theta + n\\ln k - \\sum\\ln x_i = 0.$$\n\nLøsning: $\\hat\\theta = \\dfrac{n}{\\sum\\ln x_i - n\\ln k} = \\dfrac{n}{\\sum_{i=1}^n \\ln(x_i/k)}$. (Denne estimatoren er skjev — korreksjonen kommer i drillkapittel 5.3.)"
+    },
+    {
+      "id": "stk1100-5-2-def-weibull-ml",
+      "type": "definition",
+      "title": "ML for Weibull med kjent formparameter",
+      "content": "For Weibull $f(x;\\beta) = \\dfrac{\\alpha}{\\beta}\\left(\\dfrac{x}{\\beta}\\right)^{\\alpha-1}e^{-(x/\\beta)^\\alpha}$, $x \\ge 0$, med **kjent** form $\\alpha$ og ukjent skala $\\beta$:\n\n$$\\ell(\\beta) = n\\ln\\alpha - n\\alpha\\ln\\beta + (\\alpha-1)\\sum\\ln x_i - \\beta^{-\\alpha}\\sum x_i^\\alpha,$$\n\n$$\\ell'(\\beta) = -\\frac{n\\alpha}{\\beta} + \\alpha\\beta^{-\\alpha-1}\\sum x_i^\\alpha = 0 \\ \\Rightarrow\\ \\hat\\beta = \\left(\\frac{1}{n}\\sum_{i=1}^n x_i^\\alpha\\right)^{1/\\alpha}.$$\n\nEn potens-estimator. Ved $\\alpha = 1$ (eksponensial) reduseres den til $\\hat\\beta = \\bar X$."
+    },
+    {
+      "id": "stk1100-5-2-ex-pareto",
+      "type": "example",
+      "title": "Eksempel 4: ML for Pareto-fordelt inntekt",
+      "problem": "Inntektene $x_1, \\dots, x_n$ over minsteinntekten $k$ (kjent) er iid Pareto: $f(x;\\theta) = \\theta k^\\theta / x^{\\theta+1}$, $x \\ge k$. Utled ML-estimatoren for formparameteren $\\theta$.",
+      "solution": "**1. Likelihood:** $L(\\theta) = \\prod_{i=1}^n \\dfrac{\\theta k^\\theta}{x_i^{\\theta+1}} = \\dfrac{\\theta^n k^{n\\theta}}{\\left(\\prod x_i\\right)^{\\theta+1}}$.\n\n**2. Log:** $\\ell(\\theta) = n\\ln\\theta + n\\theta\\ln k - (\\theta+1)\\sum\\ln x_i$.\n\n**3. Derivér:** $\\ell'(\\theta) = \\dfrac n\\theta + n\\ln k - \\sum\\ln x_i = 0$.\n\n**4. Løs:** $\\dfrac n\\theta = \\sum\\ln x_i - n\\ln k = \\sum\\ln(x_i/k)$, altså\n\n$$\\hat\\theta = \\frac{n}{\\sum_{i=1}^n \\ln(x_i/k)}.$$\n\nNevneren $\\sum\\ln(x_i/k)$ er sum av $n$ eksponensiale (kap. 2.3), som er $\\text{gamma}(n, 1/\\theta)$ — nøkkelen til at $\\hat\\theta$ er skjev, og til den eksakte pivotalen (Del 6). Korreksjonen behandles i [kap. 5.3](/bok/stk1100/stk1100-5-3)."
+    },
+    {
+      "id": "stk1100-5-2-l4a",
+      "type": "exercise",
+      "exercise": {
+        "id": "stk1100-5-2-ex-l4a",
+        "number": "7",
+        "type": "classic",
+        "difficulty": "vanskelig",
+        "task": "Levetidene $x_1, \\dots, x_n$ er iid Weibull med **kjent** form $\\alpha = 2$ og ukjent skala $\\beta$: $f(x;\\beta) = \\dfrac{2x}{\\beta^2}e^{-(x/\\beta)^2}$, $x \\ge 0$. Utled ML-estimatoren $\\hat\\beta$.",
+        "solution": "**Likelihood:** $L(\\beta) = \\prod \\dfrac{2x_i}{\\beta^2}e^{-(x_i/\\beta)^2} = \\dfrac{2^n\\prod x_i}{\\beta^{2n}}e^{-\\beta^{-2}\\sum x_i^2}$.\n\n**Log:** $\\ell(\\beta) = n\\ln 2 + \\sum\\ln x_i - 2n\\ln\\beta - \\beta^{-2}\\sum x_i^2$.\n\n**Derivér:** $\\ell'(\\beta) = -\\dfrac{2n}{\\beta} + 2\\beta^{-3}\\sum x_i^2 = 0$. Multipliser med $\\beta^3/2$: $-n\\beta^2 + \\sum x_i^2 = 0$.\n\n**Løs:** $\\beta^2 = \\dfrac1n\\sum x_i^2 \\Rightarrow \\hat\\beta = \\sqrt{\\dfrac1n\\sum x_i^2}$. (Generelt $\\hat\\beta = (\\tfrac1n\\sum x_i^\\alpha)^{1/\\alpha}$.)",
+        "hints": [
+          "Skriv $(x/\\beta)^2 = x^2/\\beta^2$, så eksponenten er $-\\beta^{-2}\\sum x_i^2$.",
+          "Derivér $-2n\\ln\\beta - \\beta^{-2}\\sum x_i^2$ mot $\\beta$."
+        ]
+      }
+    },
+    {
+      "id": "stk1100-5-2-l4b",
+      "type": "exercise",
+      "exercise": {
+        "id": "stk1100-5-2-ex-l4b",
+        "number": "8",
+        "type": "classic",
+        "difficulty": "vanskelig",
+        "task": "Inntektene er Pareto med kjent $k = 200$ og ukjent $\\theta$. Fem observerte inntekter gir $\\sum_{i=1}^5 \\ln(x_i/k) = 2{,}0$. Finn ML-**estimatet** for $\\theta$, og forklar hvorfor svaret her er et *estimat* og ikke en *estimator*.",
+        "solution": "ML-estimatoren er $\\hat\\theta = n/\\sum\\ln(x_i/k)$. Med $n = 5$ og $\\sum\\ln(x_i/k) = 2{,}0$: $\\hat\\theta = 5/2{,}0 = 2{,}5$.\n\nDette er et **estimat** (ett tall) fordi vi satte inn *konkrete observerte* verdier. Estimatoren $\\hat\\theta = n/\\sum\\ln(X_i/k)$ (med stokastiske $X_i$) er derimot en regel/stokastisk variabel. Skillet er sensorkrav 6.",
+        "hints": [
+          "Sett $n = 5$ og summen inn i $\\hat\\theta = n/\\sum\\ln(x_i/k)$.",
+          "Konkrete tall inn $\\Rightarrow$ estimat; stokastiske $X_i$ $\\Rightarrow$ estimator."
+        ]
+      }
+    },
+    {
+      "id": "stk1100-5-2-l5-head",
+      "type": "text",
+      "content": "## Løkke 5 — Momentmetoden og invariansprinsippet (~11 min)"
+    },
+    {
+      "id": "stk1100-5-2-l5-tekst",
+      "type": "text",
+      "content": "**Momentmetoden** er et alternativ til ML: sett teoretiske momenter lik empiriske og løs for parameteren. Med én ukjent parameter: sett $E(X) = \\bar X$ og løs. Ofte gir ML og moment *samme* svar (eksponensial, Poisson, gamma med kjent form), men ikke alltid — når de skiller lag, sier oppgaven gjerne hvilken den vil ha. Til slutt: **invariansprinsippet** — ML-estimatoren for en funksjon $g(\\theta)$ er bare $g$ av ML-estimatoren."
+    },
+    {
+      "id": "stk1100-5-2-def-momentmetoden",
+      "type": "definition",
+      "title": "Momentmetoden",
+      "content": "**Momentmetoden** estimerer en parameter ved å avstemme teoretiske momenter mot empiriske. Med én ukjent parameter $\\theta$: løs\n\n$$E(X) = \\bar X$$\n\nfor $\\theta$ (bruk $E(X)$-uttrykket fra fordelingskatalogen). Trengs to parametre, tar man også med $E(X^2) = \\overline{X^2} = \\tfrac1n\\sum X_i^2$. Enkel når $E(X)$ har en grei formel; gir av og til et annet svar enn ML."
+    },
+    {
+      "id": "stk1100-5-2-def-ml-vs-moment",
+      "type": "definition",
+      "title": "Når ML og momentmetoden gir ulikt svar",
+      "content": "For mange fordelinger sammenfaller ML og momentmetoden (eksponensial: begge gir $\\hat\\mu = \\bar X$; gamma med kjent form: begge gir $\\bar X/\\alpha$). Men de kan skille lag — f.eks. for Pareto, der ML gir $\\hat\\theta = n/\\sum\\ln(X_i/k)$, mens moment løser $\\tfrac{\\theta k}{\\theta-1} = \\bar X$. Da sier oppgaven hvilken metode som ønskes; ML er hovedmetoden i STK1100."
+    },
+    {
+      "id": "stk1100-5-2-def-invarians",
+      "type": "definition",
+      "title": "Invariansprinsippet",
+      "content": "**Invariansprinsippet:** er $\\hat\\theta$ ML-estimatoren for $\\theta$, er ML-estimatoren for en funksjon $g(\\theta)$ rett og slett\n\n$$\\widehat{g(\\theta)} = g(\\hat\\theta).$$\n\nEksempel: for eksponensial i forventningsform er $\\hat\\mu = \\bar X$, så ML-estimatoren for medianen $\\mu\\ln 2$ er $\\bar X\\ln 2$, og for overlevelsen $P(X > t) = e^{-t/\\mu}$ er $e^{-t/\\bar X}$. (Merk: invarians bevarer *ikke* forventningsretthet — jf. $E[\\sqrt V] \\ne \\sqrt{E V}$ i kap. 5.1.) Prinsippet er broen til KI-transformasjon i [kap. 6.1](/bok/stk1100/stk1100-6-1)."
+    },
+    {
+      "id": "stk1100-5-2-ex-moment",
+      "type": "example",
+      "title": "Eksempel 5: Momentmetoden for Rayleigh, og invarians",
+      "problem": "Bølgehøydene er iid Rayleigh med $E(X) = \\sigma\\sqrt{\\pi/2}$ (parameter $\\sigma$). **a)** Finn momentestimatoren for $\\sigma$. **b)** Bruk invariansprinsippet til å estimere medianen $m = \\sigma\\sqrt{2\\ln 2}$.",
+      "solution": "**a)** Momentmetoden: sett $E(X) = \\bar X$, altså $\\sigma\\sqrt{\\pi/2} = \\bar X$, som gir\n\n$$\\hat\\sigma_{\\text{mom}} = \\frac{\\bar X}{\\sqrt{\\pi/2}} = \\bar X\\sqrt{\\frac{2}{\\pi}} \\approx 0{,}798\\,\\bar X.$$\n\n(Til sammenligning gir ML $\\hat\\sigma^2_{\\text{ML}} = \\tfrac{1}{2n}\\sum X_i^2$, altså $\\hat\\sigma_{\\text{ML}} = \\sqrt{\\tfrac{1}{2n}\\sum X_i^2}$ — et *annet* uttrykk. ML og moment skiller her lag.)\n\n**b)** Invariansprinsippet: medianen er en funksjon $g(\\sigma) = \\sigma\\sqrt{2\\ln 2}$ av parameteren, så estimatet er $\\hat m = \\hat\\sigma\\sqrt{2\\ln 2}$. Med momentestimatoren: $\\hat m = 0{,}798\\,\\bar X\\cdot\\sqrt{2\\ln 2} \\approx 0{,}798\\,\\bar X\\cdot 1{,}177 \\approx 0{,}939\\,\\bar X$."
+    },
+    {
+      "id": "stk1100-5-2-l5a",
+      "type": "exercise",
+      "exercise": {
+        "id": "stk1100-5-2-ex-l5a",
+        "number": "9",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "Ventetidene er iid eksponensiale i **rateform** $f(x) = \\lambda e^{-\\lambda x}$ ($E(X) = 1/\\lambda$).\n\n**a)** Finn momentestimatoren for $\\lambda$ og sammenlign med ML-estimatoren.\n\n**b)** Bruk invariansprinsippet til å estimere sannsynligheten $P(X > t) = e^{-\\lambda t}$ for en fast $t$.",
+        "solution": "**a)** Momentmetoden: $E(X) = 1/\\lambda = \\bar X \\Rightarrow \\hat\\lambda_{\\text{mom}} = 1/\\bar X$. ML ga også $\\hat\\lambda = 1/\\bar X$ (eksempel 1) — her **sammenfaller** de.\n\n**b)** $P(X > t) = e^{-\\lambda t}$ er en funksjon $g(\\lambda)$, så invarians gir $\\widehat{P(X > t)} = e^{-\\hat\\lambda t} = e^{-t/\\bar X}$.",
+        "hints": [
+          "Momentmetoden: sett $E(X) = \\bar X$ og løs for $\\lambda$ (husk $E(X) = 1/\\lambda$ i rateform).",
+          "Invarians: sett $\\hat\\lambda$ inn i $e^{-\\lambda t}$."
+        ]
+      }
+    },
+    {
+      "id": "stk1100-5-2-l5b",
+      "type": "exercise",
+      "exercise": {
+        "id": "stk1100-5-2-ex-l5b",
+        "number": "10",
+        "type": "classic",
+        "difficulty": "vanskelig",
+        "task": "Inntektene er Pareto med kjent $k$ og ukjent $\\theta$, der $E(X) = \\dfrac{\\theta k}{\\theta - 1}$ for $\\theta > 1$.\n\n**a)** Finn momentestimatoren for $\\theta$.\n\n**b)** Forklar hvorfor den skiller seg fra ML-estimatoren $\\hat\\theta_{\\text{ML}} = n/\\sum\\ln(X_i/k)$.",
+        "solution": "**a)** Sett $E(X) = \\bar X$: $\\dfrac{\\theta k}{\\theta - 1} = \\bar X$. Løs: $\\theta k = \\bar X(\\theta - 1) = \\bar X\\theta - \\bar X \\Rightarrow \\theta(\\bar X - k) = \\bar X \\Rightarrow \\hat\\theta_{\\text{mom}} = \\dfrac{\\bar X}{\\bar X - k}$ (krever $\\bar X > k$).\n\n**b)** Momentmetoden bruker bare gjennomsnittet $\\bar X$, mens ML bruker $\\sum\\ln(X_i/k)$ — to helt forskjellige funksjoner av dataene. De gir generelt ulike tall. For Pareto er ML å foretrekke (bruker informasjonen i hele halen); moment-varianten er dessuten følsom for den tunge halen. Oppgaven sier hvilken som ønskes.",
+        "hints": [
+          "Løs $\\theta k/(\\theta-1) = \\bar X$ for $\\theta$ ved å samle $\\theta$-leddene.",
+          "ML og moment bruker ulike funksjoner av dataene ($\\sum\\ln X_i$ vs. $\\bar X$)."
+        ]
+      }
+    },
+    {
+      "id": "stk1100-5-2-warn-typiske",
+      "type": "warning",
+      "title": "Typiske feil",
+      "content": "- **Derivere uten å ta logaritme først.** Å derivere produktet $L(\\theta)$ direkte er nesten alltid rot. Ta $\\ell = \\ln L$ (produkt → sum) først — det er sensorkrav 5.\n- **Glemme at likelihooden er et produkt over ALLE observasjoner.** $L(\\theta) = \\prod_{i=1}^n f(x_i;\\theta)$, ikke bare $f(x_1;\\theta)$. Da havner $n$ på rett plass.\n- **Ikke løse ligningen fullstendig.** $\\ell'(\\theta) = 0$ skal løses helt for $\\hat\\theta$ — et halvferdig uttrykk gir ikke full uttelling.\n- **Forveksle estimator og estimat i svaret.** Skriv estimatoren med store $X_i$ (f.eks. $\\hat\\mu = \\bar X$); et tall er et estimat.\n- **Blande eksponensialens parametriseringer.** Rateform gir $\\hat\\lambda = 1/\\bar X$; forventningsform gir $\\hat\\mu = \\bar X$. Les hvilken oppgaven bruker — samme fordeling, ulik estimator.\n- **Anta at ML-estimatoren er forventningsrett.** Mange er skjeve (ML-varians, Pareto-$\\hat\\theta$, Weibull-$\\hat\\beta$). Sjekk med kap. 5.1-verktøyet."
+    },
+    {
+      "id": "stk1100-5-2-bank-head",
+      "type": "text",
+      "content": "## Begrepsbank — flashcards\n\n*Flashcard-/repetisjonsstoff — hopp trygt over ved førstegangslesing; tidsanslaget gjelder kjernestoffet.* Kortene under er ML-ritualet og standardestimatorene til rask oppslag."
+    },
+    {
+      "id": "stk1100-5-2-kort-ritual",
+      "type": "definition",
+      "title": "ML-ritualet — kortet",
+      "content": "Fire trinn: (1) $L(\\theta) = \\prod_{i=1}^n f(x_i;\\theta)$; (2) $\\ell(\\theta) = \\ln L = \\sum\\ln f(x_i;\\theta)$; (3) $\\ell'(\\theta) = 0$; (4) løs for $\\hat\\theta$. Logaritmen gjør produkt til sum og flytter ikke maksimum."
+    },
+    {
+      "id": "stk1100-5-2-kort-produkt",
+      "type": "definition",
+      "title": "Likelihood = produkt over ALLE obs — kortet",
+      "content": "$L(\\theta) = \\prod_{i=1}^n f(x_i;\\theta)$ — produktet går over hele datasettet. For diskrete data er $f$ punktsannsynligheten. Glemmer du produktet, mister du $n$ i estimatoren."
+    },
+    {
+      "id": "stk1100-5-2-kort-score",
+      "type": "definition",
+      "title": "Score-ligningen — kortet",
+      "content": "$\\ell'(\\theta) = 0$ er score-ligningen; løsningen er ML-estimatoren. Ledd i $\\ell$ som ikke inneholder $\\theta$ (som $\\sum\\ln x_i!$ eller $n\\ln\\Gamma(\\alpha)$) forsvinner i derivasjonen."
+    },
+    {
+      "id": "stk1100-5-2-kort-eksp",
+      "type": "definition",
+      "title": "Eksponensial-ML — kortet (begge former)",
+      "content": "Rateform $f = \\lambda e^{-\\lambda x}$: $\\hat\\lambda = 1/\\bar X$. Forventningsform $f = \\tfrac1\\mu e^{-x/\\mu}$: $\\hat\\mu = \\bar X$. Samme fordeling, ulik estimator — les parametriseringen."
+    },
+    {
+      "id": "stk1100-5-2-kort-poisson",
+      "type": "definition",
+      "title": "Poisson-ML — kortet",
+      "content": "$X_i \\sim \\text{Poisson}(\\lambda)$: $\\hat\\lambda = \\bar X$, forventningsrett ($E = \\lambda$), $\\text{Var}(\\hat\\lambda) = \\lambda/n$ (siden $\\text{Var}(X_i) = \\lambda$)."
+    },
+    {
+      "id": "stk1100-5-2-kort-normal",
+      "type": "definition",
+      "title": "Normal-ML — kortet",
+      "content": "$N(\\mu,\\sigma^2)$: $\\hat\\mu = \\bar X$ (forventningsrett), $\\hat\\sigma^2 = \\tfrac1n\\sum(X_i-\\bar X)^2$ (skjev, $n$ i nevner). Forventningsrett variansestimator er $S^2$ med $n-1$."
+    },
+    {
+      "id": "stk1100-5-2-kort-gamma",
+      "type": "definition",
+      "title": "Gamma-kjent-form-ML — kortet",
+      "content": "$\\text{gamma}(\\alpha,\\beta)$, $\\alpha$ kjent: $\\hat\\beta = \\bar X/\\alpha$, forventningsrett ($E(\\bar X) = \\alpha\\beta$), $\\text{Var}(\\hat\\beta) = \\beta^2/(n\\alpha)$."
+    },
+    {
+      "id": "stk1100-5-2-kort-pareto",
+      "type": "definition",
+      "title": "Pareto-ML — kortet",
+      "content": "$f = \\theta k^\\theta/x^{\\theta+1}$, $k$ kjent: $\\hat\\theta = n/\\sum\\ln(X_i/k)$. Skjev (korrigeres i 5.3). Nevneren $\\sum\\ln(X_i/k) \\sim \\text{gamma}(n, 1/\\theta)$."
+    },
+    {
+      "id": "stk1100-5-2-kort-weibull",
+      "type": "definition",
+      "title": "Weibull-kjent-form-ML — kortet",
+      "content": "$f = \\tfrac\\alpha\\beta(x/\\beta)^{\\alpha-1}e^{-(x/\\beta)^\\alpha}$, $\\alpha$ kjent: $\\hat\\beta = (\\tfrac1n\\sum X_i^\\alpha)^{1/\\alpha}$. Skjev (Γ-korreksjon i 5.3). Ved $\\alpha=1$: $\\hat\\beta = \\bar X$."
+    },
+    {
+      "id": "stk1100-5-2-kort-moment",
+      "type": "definition",
+      "title": "Momentmetode — kortet",
+      "content": "Sett $E(X) = \\bar X$ (og evt. $E(X^2) = \\overline{X^2}$) og løs for parameteren. Sammenfaller ofte med ML (eksponensial, Poisson, gamma kjent form), men ikke alltid (Pareto, Rayleigh)."
+    },
+    {
+      "id": "stk1100-5-2-kort-invarians",
+      "type": "definition",
+      "title": "Invariansprinsippet — kortet",
+      "content": "$\\widehat{g(\\theta)} = g(\\hat\\theta)$: ML av en funksjon = funksjonen av ML-estimatoren. F.eks. median $\\mu\\ln2 \\to \\bar X\\ln2$, overlevelse $e^{-t/\\mu} \\to e^{-t/\\bar X}$. Bevarer ikke forventningsretthet."
+    },
+    {
+      "id": "stk1100-5-2-kort-hvorforlog",
+      "type": "definition",
+      "title": "Hvorfor logaritmen — kortet",
+      "content": "To grunner: (1) $\\ln$ gjør produktet $\\prod$ til en sum $\\sum$ (lett å derivere) og forenkler potenser/eksponentialer; (2) $\\ln$ er strengt voksende, så $L$ og $\\ell = \\ln L$ har maksimum for samme $\\theta$. Derfor maksimeres alltid $\\ell$."
+    },
+    {
+      "id": "stk1100-5-2-kort-mlskjev",
+      "type": "definition",
+      "title": "ML er ofte skjev — kortet",
+      "content": "ML-estimatoren er *ikke* automatisk forventningsrett. Forventningsrette: $\\hat\\mu = \\bar X$, gamma-$\\hat\\beta = \\bar X/\\alpha$. Skjeve: ML-varians ($n$ i nevner), Pareto-$\\hat\\theta$, Weibull-$\\hat\\beta$. Sjekk alltid med $E(\\hat\\theta)$ (kap. 5.1)."
+    },
+    {
+      "id": "stk1100-5-2-rep",
+      "type": "collapsible",
+      "title": "Repetisjonsoppgaver",
+      "buttonText": "Vis repetisjonsoppgaver",
+      "content": [
+        {
+          "id": "stk1100-5-2-rep-intro",
+          "type": "text",
+          "content": "Fire korte oppgaver fra forkunnskapskapitlene (5.1 egenskaper, 2.1 eksponensial) — friskt før drillen i 5.3."
+        },
+        {
+          "id": "stk1100-5-2-rep1",
+          "type": "exercise",
+          "exercise": {
+            "id": "stk1100-5-2-ex-rep1",
+            "number": "R1",
+            "type": "classic",
+            "difficulty": "lett",
+            "task": "(Fra 5.1.) Er $\\bar X$ forventningsrett for $\\mu$ når $E(X_i) = \\mu$? Begrunn med én linje.",
+            "solution": "Ja: $E(\\bar X) = \\tfrac1n\\sum E(X_i) = \\tfrac1n\\cdot n\\mu = \\mu$.",
+            "hints": [
+              "Ta $E$ av gjennomsnittet.",
+              "Forventning er lineær."
+            ]
+          }
+        },
+        {
+          "id": "stk1100-5-2-rep2",
+          "type": "exercise",
+          "exercise": {
+            "id": "stk1100-5-2-ex-rep2",
+            "number": "R2",
+            "type": "classic",
+            "difficulty": "lett",
+            "task": "(Fra 2.1.) Skriv opp tettheten til eksponensial i **rateform** og i **forventningsform**, og oppgi $E(X)$ for hver.",
+            "solution": "Rateform: $f(x) = \\lambda e^{-\\lambda x}$, $E(X) = 1/\\lambda$. Forventningsform: $f(x) = \\tfrac1\\mu e^{-x/\\mu}$, $E(X) = \\mu$. Samme fordeling, to skrivemåter.",
+            "hints": [
+              "Rate bruker $\\lambda$, forventning bruker $\\mu = 1/\\lambda$.",
+              "$E(X)$ er $1/\\lambda$ hhv. $\\mu$."
+            ]
+          }
+        },
+        {
+          "id": "stk1100-5-2-rep3",
+          "type": "exercise",
+          "exercise": {
+            "id": "stk1100-5-2-ex-rep3",
+            "number": "R3",
+            "type": "classic",
+            "difficulty": "middels",
+            "task": "(Fra 5.1.) $\\hat\\sigma^2 = \\tfrac1n\\sum(X_i-\\bar X)^2$ har $E(\\hat\\sigma^2) = \\tfrac{n-1}{n}\\sigma^2$. Lag en forventningsrett estimator for $\\sigma^2$.",
+            "solution": "$E(\\hat\\sigma^2) = c\\sigma^2$ med $c = (n-1)/n$, så $\\hat\\sigma^2/c = \\tfrac{n}{n-1}\\cdot\\tfrac1n\\sum(X_i-\\bar X)^2 = \\tfrac{1}{n-1}\\sum(X_i-\\bar X)^2 = S^2$ er forventningsrett.",
+            "hints": [
+              "Del på faktoren $c = (n-1)/n$.",
+              "Resultatet er $S^2$ med $n-1$ i nevner."
+            ]
+          }
+        },
+        {
+          "id": "stk1100-5-2-rep4",
+          "type": "exercise",
+          "exercise": {
+            "id": "stk1100-5-2-ex-rep4",
+            "number": "R4",
+            "type": "classic",
+            "difficulty": "middels",
+            "task": "(Fra 5.1.) $V \\sim \\text{gamma}(\\alpha,\\beta)$. Er $\\sqrt V$ forventningsrett for $\\sqrt{E(V)} = \\sqrt{\\alpha\\beta}$? Begrunn kort.",
+            "solution": "Nei. Kvadratrot er konkav, så $E[\\sqrt V] < \\sqrt{E V} = \\sqrt{\\alpha\\beta}$. Konkret gir E(Vʳ)-formelen $E(\\sqrt V) = \\sqrt\\beta\\,\\Gamma(\\alpha+\\tfrac12)/\\Gamma(\\alpha) < \\sqrt{\\alpha\\beta}$ — rota underestimerer.",
+            "hints": [
+              "Rot er konkav: $E[\\sqrt V] < \\sqrt{E V}$.",
+              "Bruk E(Vʳ)-formelen med $r = \\tfrac12$."
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": "stk1100-5-2-symbolliste",
+      "type": "collapsible",
+      "title": "Symbol- og formelliste",
+      "buttonText": "Vis symboler og formler",
+      "content": [
+        {
+          "id": "stk1100-5-2-sym-innhold",
+          "type": "text",
+          "content": "*Oppslagsverk — alt her forklares underveis i kapitlet.*\n\n| Symbol | Betydning |\n|---|---|\n| $\\theta$ | Ukjent parameter (generelt) |\n| $L(\\theta)$ | Likelihood-funksjonen, $\\prod f(x_i;\\theta)$ |\n| $\\ell(\\theta)$ | Log-likelihood, $\\ln L(\\theta)$ |\n| $\\ell'(\\theta)$ | Score-funksjonen (den deriverte) |\n| $\\hat\\theta$ | ML-estimatoren |\n| $\\bar X$ | Utvalgsgjennomsnittet |\n| $\\lambda$ | Rate (eksponensial rateform / Poisson) |\n| $\\mu$ | Forventning (eksponensial forventningsform / normal) |\n| $\\alpha, \\beta$ | Form / skala (gamma, Weibull) |\n| $k, \\theta$ | Pareto minsteverdi / formparameter |\n| $\\Gamma$ | Gammafunksjonen |\n\n**Formler i dette kapitlet:**\n\n$$L(\\theta) = \\prod_{i=1}^n f(x_i;\\theta), \\qquad \\ell(\\theta) = \\sum_{i=1}^n \\ln f(x_i;\\theta), \\qquad \\ell'(\\hat\\theta) = 0$$\n\n$$\\text{Eksp. rate: } \\hat\\lambda = 1/\\bar X; \\qquad \\text{Eksp. forventning: } \\hat\\mu = \\bar X; \\qquad \\text{Poisson: } \\hat\\lambda = \\bar X$$\n\n$$\\text{Normal: } \\hat\\mu = \\bar X,\\ \\hat\\sigma^2 = \\tfrac1n\\textstyle\\sum(X_i-\\bar X)^2; \\qquad \\text{Gamma (kjent } \\alpha): \\hat\\beta = \\bar X/\\alpha$$\n\n$$\\text{Pareto: } \\hat\\theta = \\frac{n}{\\sum\\ln(X_i/k)}; \\qquad \\text{Weibull (kjent } \\alpha): \\hat\\beta = \\left(\\tfrac1n\\textstyle\\sum X_i^\\alpha\\right)^{1/\\alpha}$$\n\n$$\\text{Momentmetoden: } E(X) = \\bar X; \\qquad \\text{Invarians: } \\widehat{g(\\theta)} = g(\\hat\\theta)$$"
+        }
+      ]
+    }
+  ],
+  "exercises": []
+}

@@ -1,0 +1,319 @@
+{
+  "id": "stk1100-2-3",
+  "courseId": "stk1100",
+  "chapterNumber": "2.3",
+  "title": "Drill: den egendefinerte og «eksotiske» tettheten (sjanger C)",
+  "description": "Standardtreningen i kontinuerlig sannsynlighet: fra oppgitt tetthet til normering, CDF, median og momenter — og beredskapen mot et ukjent fordelingsnavn.",
+  "estimatedMinutes": 80,
+  "competenceGoals": [
+    "gå fra en oppgitt tetthet til normeringskonstant, fordelingsfunksjon, median og momenter etter en fast oppskrift",
+    "gjenkjenne og regne på Laplace-, Pareto-, Rayleigh-, Weibull- og lognormalfordelingen",
+    "transformere en eksotisk fordeling til eksponensial/gamma med potens- og logaritmetransformasjon",
+    "sjekke konvergensbetingelser for momenter med tunge haler"
+  ],
+  "content": [
+    {
+      "id": "stk1100-2-3-tip-eksamensvinkel",
+      "type": "tip",
+      "title": "Eksamensvinkel",
+      "content": "**Den «navngitte eksotiske» kontinuerlige fordelingen er i 6 av 10 avsluttende skoleeksamener (60 %)** i STK1100-arkivet 2015–2024 — en egen UiO-sjanger: Laplace (V2016, V2024), Pareto/inntekt (V2017), Rayleigh (V2019), lognormal/alkoholforbruk (V2020), Weibull/levetid (V2021) og binormal (V2022). Nesten alltid er den *inngangen* til den store estimeringsoppgaven.\n\nDette kalles **sjanger C** i boka: du får servert en tetthet (eller CDF, eller MGF) for en fordeling med et ukjent eller uvant navn, og skal håndtere den med de helt vanlige teknikkene fra kap. 2.1–2.2. **Poenget med drillen:** et ukjent fordelingsnavn skal *ikke skremme*. Oppgaven gir deg alltid det du trenger — tetthet, momentformel eller integralet — og resten er standardregning.\n\nDette er et drillkapittel: kort teori (én løsningsoppskrift), ett gjennomregnet eksamenscase med sensornotater, og deretter mange oppgaver over ulike fordelingsfamilier. Prioritet: **høyeste** som standardtrening."
+    },
+    {
+      "id": "stk1100-2-3-forkunnskaper",
+      "type": "text",
+      "content": "**Forkunnskaper:** Alt fra [kap. 2.1](/bok/stk1100/stk1100-2-1) (normeringskonstant, stykkevis $F$, median ved $F(m) = p$, momenter ved integrasjon, eksponensial) og [kap. 2.2](/bok/stk1100/stk1100-2-2) (gammaintegralet $\\int_0^\\infty x^{a-1}e^{-x/b}dx = b^a\\Gamma(a)$, gammafunksjonens regneregler).\n\n**Sist du var her — de tre grepene du bruker mest:**\n- Normering: $\\int f = 1$ bestemmer konstanten.\n- Median: løs $F(m) = \\tfrac12$ (potens-, log- eller andregradslikning).\n- Momenter: $E(X) = \\int x f\\,dx$, ofte via gammaintegralet.\n\nNye fordelingsnavn (Laplace, Pareto, Rayleigh, Weibull, lognormal) forklares der de dukker opp — du trenger ikke ha sett dem før."
+    },
+    {
+      "id": "stk1100-2-3-oppskrift-head",
+      "type": "text",
+      "content": "## Løsningsoppskriften for sjanger C"
+    },
+    {
+      "id": "stk1100-2-3-oppskrift",
+      "type": "text",
+      "content": "Møter du en oppgitt tetthet $f(x)$ (kjent eller ukjent fordelingsnavn), kjør denne faste algoritmen — den løser praktisk talt hver sjanger C-oppgave:\n\n**1. Normer.** Er tettheten gitt «proporsjonal med» noe, finn konstanten av $\\int f = 1$. Er $f$ allerede komplett, hopp over — men sjekk gjerne at den integrerer til 1.\n\n**2. Utled $F(x)$.** Integrer tettheten fra bunnen av støtten: $F(x) = \\int_{A}^{x} f(t)\\,dt$. Skriv den **stykkevis** — 0 under støtten, formel på støtten, 1 over. (For fordelinger definert ved halen, som Pareto/Weibull, er det ofte lettere å regne $P(X > x) = 1 - F(x)$ direkte.)\n\n**3. Regn sannsynligheter** fra $F$: $P(a < X \\le b) = F(b) - F(a)$, $P(X > x) = 1 - F(x)$, og betingede via definisjonen.\n\n**4. Median og kvantiler:** løs $F(m) = \\tfrac12$ (og $F(x_p) = p$). Dette blir en potenslikning (Pareto), logaritmelikning (Weibull/Rayleigh) eller andregradslikning — regn nøyaktig.\n\n**5. Momenter:** $E(X) = \\int x f\\,dx$, $E(X^2) = \\int x^2 f\\,dx$, $\\text{Var} = E(X^2) - [E(X)]^2$. Bruk gammaintegralet og $\\Gamma$-reglene fra kap. 2.2 der integranden har form $x^{a-1}e^{-\\ldots}$.\n\n**6. Pek fremover:** kvantilfunksjonen $F^{-1}$ er råstoffet i inversjonsmetoden for simulering (kap. 7.1), og en passende **potens- eller logaritmetransformasjon** gjør ofte den eksotiske fordelingen om til en eksponensial/gamma (kap. 4.3) — nøkkelen til estimering senere."
+    },
+    {
+      "id": "stk1100-2-3-case",
+      "type": "example",
+      "title": "Gjennomregnet eksamenscase: Pareto-fordelt inntekt (med sensornotater)",
+      "problem": "Årsinntekten $X$ (i tusen kroner) over en minsteinntekt $k = 250$ er Pareto-fordelt med tetthet\n\n$$f(x) = \\frac{\\theta\\,k^\\theta}{x^{\\theta+1}}, \\qquad x \\ge k, \\quad \\theta = 2{,}5.$$\n\n**a)** Vis at $f$ er en gyldig tetthet og finn fordelingsfunksjonen $F$.\n**b)** Finn medianinntekten.\n**c)** Finn forventet inntekt $E(X)$.\n**d)** Vis at $2\\theta\\ln(X/k)$ er kjikvadratfordelt, og angi frihetsgradene.",
+      "solution": "**a)** *Sensornotat: start med å bekrefte at tettheten er gyldig — 1 poeng nesten gratis.* Integrer fra $k$:\n\n$$F(x) = \\int_k^x \\frac{\\theta k^\\theta}{t^{\\theta+1}}\\,dt = \\theta k^\\theta\\left[\\frac{t^{-\\theta}}{-\\theta}\\right]_k^x = k^\\theta\\left(k^{-\\theta} - x^{-\\theta}\\right) = 1 - \\left(\\frac{k}{x}\\right)^{\\theta}, \\quad x \\ge k.$$\n\nStykkevis: $F(x) = 0$ for $x < k$ og $F(x) = 1 - (k/x)^\\theta$ for $x \\ge k$. At $F(k) = 0$ og $F(\\infty) = 1$ bekrefter at tettheten er gyldig. *Sensornotat: her holder det å vise $F(\\infty) = 1$.*\n\n**b)** *Sensornotat: median = løs $F(m) = \\tfrac12$, ikke $f(m)$.*\n\n$$1 - \\left(\\frac{k}{m}\\right)^\\theta = \\tfrac12 \\;\\Rightarrow\\; \\left(\\frac{k}{m}\\right)^\\theta = \\tfrac12 \\;\\Rightarrow\\; \\frac{k}{m} = 2^{-1/\\theta} \\;\\Rightarrow\\; m = k\\cdot 2^{1/\\theta}.$$\n\nMed $k = 250$, $\\theta = 2{,}5$: $m = 250\\cdot 2^{0{,}4} \\approx 250\\cdot 1{,}320 = 329{,}9$ tusen kroner.\n\n**c)** *Sensornotat: her kreves $\\theta > 1$ for at integralet konvergerer — nevn betingelsen.*\n\n$$E(X) = \\int_k^\\infty x\\cdot\\frac{\\theta k^\\theta}{x^{\\theta+1}}\\,dx = \\theta k^\\theta\\int_k^\\infty x^{-\\theta}\\,dx = \\theta k^\\theta\\left[\\frac{x^{1-\\theta}}{1-\\theta}\\right]_k^\\infty.$$\n\nFor $\\theta > 1$ går den øvre grensen mot 0, og\n\n$$E(X) = \\theta k^\\theta\\cdot\\frac{k^{1-\\theta}}{\\theta - 1} = \\frac{\\theta k}{\\theta - 1} = \\frac{2{,}5\\cdot 250}{1{,}5} \\approx 416{,}7 \\text{ tusen kroner}.$$\n\nMerk: $E(X) > m$ — fordelingen er høyreskjev (rike-halen drar snittet opp).\n\n**d)** *Sensornotat: dette er A-differensiatoren — bruk CDF-metoden.* La $Y = 2\\theta\\ln(X/k)$. Siden $X \\ge k$ er $Y \\ge 0$. For $y \\ge 0$:\n\n$$P(Y \\le y) = P\\!\\left(2\\theta\\ln\\tfrac{X}{k} \\le y\\right) = P\\!\\left(X \\le k\\,e^{y/(2\\theta)}\\right) = F\\!\\left(k e^{y/(2\\theta)}\\right).$$\n\nSett inn $F$: $\\left(k/(k e^{y/(2\\theta)})\\right)^\\theta = e^{-y/2}$, så\n\n$$P(Y \\le y) = 1 - e^{-y/2}.$$\n\nDet er fordelingsfunksjonen til en eksponensial med forventning 2, altså $\\text{gamma}(1, 2) = \\chi^2_2$. **$Y = 2\\theta\\ln(X/k) \\sim \\chi^2_2$** (2 frihetsgrader). *Sensornotat: nettopp denne transformasjonen er broen til den eksakte pivotalen for $\\theta$ i Del 6.*\n\n> — naturlig pausepunkt — nå har du sett hele oppskriften på ett case. Under følger drilloppgavene."
+    },
+    {
+      "id": "stk1100-2-3-oppg-lett-power",
+      "type": "exercise",
+      "exercise": {
+        "id": "stk1100-2-3-ex-lett-power",
+        "number": "1",
+        "type": "classic",
+        "difficulty": "lett",
+        "task": "En variabel har tetthet $f(x) = c\\,x^3$ for $0 \\le x \\le 1$ og 0 ellers.\n\n**a)** Finn $c$.\n**b)** Finn $F(x)$ på støtten og medianen.",
+        "solution": "**a)** $\\int_0^1 c x^3 dx = c/4 = 1 \\Rightarrow c = 4$.\n\n**b)** $F(x) = \\int_0^x 4t^3 dt = x^4$ på $[0,1]$. Median: $m^4 = \\tfrac12 \\Rightarrow m = (\\tfrac12)^{1/4} \\approx 0{,}841$.",
+        "hints": [
+          "Normer med $\\int_0^1 c x^3 dx = 1$.",
+          "$F(x) = x^4$; løs $F(m) = \\tfrac12$."
+        ]
+      }
+    },
+    {
+      "id": "stk1100-2-3-oppg-lett-power2",
+      "type": "exercise",
+      "exercise": {
+        "id": "stk1100-2-3-ex-lett-power2",
+        "number": "2",
+        "type": "classic",
+        "difficulty": "lett",
+        "task": "For tettheten $f(x) = 4x^3$ på $[0,1]$ (fra oppgave 1), finn $E(X)$.",
+        "solution": "$E(X) = \\int_0^1 x\\cdot 4x^3\\,dx = 4\\int_0^1 x^4\\,dx = 4\\cdot\\tfrac15 = \\tfrac45 = 0{,}8$.",
+        "hints": [
+          "$E(X) = \\int x f\\,dx$ over $[0,1]$.",
+          "$\\int_0^1 x^4 dx = 1/5$."
+        ]
+      }
+    },
+    {
+      "id": "stk1100-2-3-oppg-lett-laplace",
+      "type": "exercise",
+      "exercise": {
+        "id": "stk1100-2-3-ex-lett-laplace",
+        "number": "3",
+        "type": "classic",
+        "difficulty": "lett",
+        "task": "Laplace-fordelingen (dobbelt-eksponensial) har tetthet $f(x) = \\tfrac{1}{2b}e^{-|x|/b}$ for alle reelle $x$, med $b = 2$.\n\n**a)** Forklar hvorfor medianen er 0.\n**b)** Finn $P(X > 2)$.",
+        "solution": "**a)** Tettheten er symmetrisk om 0 ($f(-x) = f(x)$), så halvparten av arealet ligger på hver side. Dermed $F(0) = \\tfrac12$ og medianen er $m = 0$.\n\n**b)** For $x > 0$ er $f(x) = \\tfrac{1}{2b}e^{-x/b}$. $P(X > 2) = \\int_2^\\infty \\tfrac{1}{4}e^{-x/2}\\,dx = \\tfrac12 e^{-2/2} = \\tfrac12 e^{-1} \\approx 0{,}184$.",
+        "hints": [
+          "Symmetrisk tetthet $\\Rightarrow$ median i symmetripunktet.",
+          "På den positive halvdelen er halen $\\tfrac12 e^{-x/b}$."
+        ]
+      }
+    },
+    {
+      "id": "stk1100-2-3-oppg-mid-rayleigh",
+      "type": "exercise",
+      "exercise": {
+        "id": "stk1100-2-3-ex-mid-rayleigh",
+        "number": "4",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "Bølgehøyden $X$ (meter) er Rayleigh-fordelt med tetthet $f(x) = \\tfrac{x}{\\sigma^2}e^{-x^2/(2\\sigma^2)}$, $x \\ge 0$, med $\\sigma = 2$.\n\n**a)** Utled $F(x)$.\n**b)** Finn medianen.\n**c)** Finn $P(X > 3)$.",
+        "solution": "**a)** Substituér $u = t^2/(2\\sigma^2)$, $du = t/\\sigma^2\\,dt$: $F(x) = \\int_0^x \\tfrac{t}{\\sigma^2}e^{-t^2/(2\\sigma^2)}dt = 1 - e^{-x^2/(2\\sigma^2)}$, $x \\ge 0$.\n\n**b)** $F(m) = \\tfrac12$: $e^{-m^2/(2\\sigma^2)} = \\tfrac12 \\Rightarrow \\tfrac{m^2}{2\\sigma^2} = \\ln 2 \\Rightarrow m = \\sigma\\sqrt{2\\ln 2} = 2\\sqrt{2\\ln 2} \\approx 2{,}355$ m.\n\n**c)** $P(X > 3) = e^{-3^2/(2\\cdot 4)} = e^{-9/8} = e^{-1{,}125} \\approx 0{,}325$.",
+        "hints": [
+          "Halen er $P(X > x) = e^{-x^2/(2\\sigma^2)}$; deriver for å bekrefte $f$.",
+          "Median: løs $e^{-m^2/(2\\sigma^2)} = \\tfrac12$ for $m$."
+        ]
+      }
+    },
+    {
+      "id": "stk1100-2-3-oppg-mid-weibull",
+      "type": "exercise",
+      "exercise": {
+        "id": "stk1100-2-3-ex-mid-weibull",
+        "number": "5",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "Levetiden $X$ (timer) til en komponent er Weibull-fordelt med $f(x) = \\tfrac{\\alpha}{\\beta}\\left(\\tfrac{x}{\\beta}\\right)^{\\alpha-1}e^{-(x/\\beta)^\\alpha}$, $x \\ge 0$, med formparameter $\\alpha = 2$ og skala $\\beta = 100$.\n\n**a)** Vis at $F(x) = 1 - e^{-(x/\\beta)^\\alpha}$.\n**b)** Finn medianlevetiden.\n**c)** Finn $P(X > 120)$.",
+        "solution": "**a)** Substituér $u = (t/\\beta)^\\alpha$: $F(x) = \\int_0^x \\tfrac{\\alpha}{\\beta}(t/\\beta)^{\\alpha-1}e^{-(t/\\beta)^\\alpha}dt = 1 - e^{-(x/\\beta)^\\alpha}$.\n\n**b)** $F(m) = \\tfrac12$: $(m/\\beta)^\\alpha = \\ln 2 \\Rightarrow m = \\beta(\\ln 2)^{1/\\alpha} = 100\\sqrt{\\ln 2} \\approx 83{,}3$ timer.\n\n**c)** $P(X > 120) = e^{-(120/100)^2} = e^{-1{,}44} \\approx 0{,}237$.",
+        "hints": [
+          "Halen er $e^{-(x/\\beta)^\\alpha}$.",
+          "Median: $(m/\\beta)^\\alpha = \\ln 2$, løs for $m$."
+        ]
+      }
+    },
+    {
+      "id": "stk1100-2-3-oppg-mid-lognormal",
+      "type": "exercise",
+      "exercise": {
+        "id": "stk1100-2-3-ex-mid-lognormal",
+        "number": "6",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "Alkoholforbruket $X$ (liter per år) er lognormalfordelt: $\\ln X \\sim N(\\mu, \\sigma^2)$ med $\\mu = 1$ og $\\sigma = 0{,}5$. Da er $F(x) = \\Phi\\!\\left(\\tfrac{\\ln x - \\mu}{\\sigma}\\right)$, der $\\Phi$ er standardnormal fordelingsfunksjon.\n\n**a)** Finn medianen.\n**b)** Finn $P(X > 5)$ (bruk $\\Phi(1{,}22) \\approx 0{,}889$).",
+        "solution": "**a)** $F(m) = \\tfrac12$: $\\Phi\\!\\left(\\tfrac{\\ln m - \\mu}{\\sigma}\\right) = \\tfrac12 \\Rightarrow \\tfrac{\\ln m - \\mu}{\\sigma} = 0 \\Rightarrow \\ln m = \\mu \\Rightarrow m = e^\\mu = e^1 \\approx 2{,}72$ liter.\n\n**b)** $P(X > 5) = 1 - \\Phi\\!\\left(\\tfrac{\\ln 5 - 1}{0{,}5}\\right) = 1 - \\Phi\\!\\left(\\tfrac{1{,}609 - 1}{0{,}5}\\right) = 1 - \\Phi(1{,}22) \\approx 1 - 0{,}889 = 0{,}111$.",
+        "hints": [
+          "Median: $\\Phi$-argumentet skal være 0, så $\\ln m = \\mu$.",
+          "Standardiser: $(\\ln 5 - \\mu)/\\sigma$, slå opp i $\\Phi$."
+        ]
+      }
+    },
+    {
+      "id": "stk1100-2-3-oppg-mid-pareto",
+      "type": "exercise",
+      "exercise": {
+        "id": "stk1100-2-3-ex-mid-pareto",
+        "number": "7",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "Formuen $X$ (millioner) er Pareto-fordelt med $f(x) = \\theta k^\\theta/x^{\\theta+1}$, $x \\ge k$, med $k = 1$ og $\\theta = 3$.\n\n**a)** Finn $F(x)$ og medianen.\n**b)** Finn $E(X)$.",
+        "solution": "**a)** $F(x) = 1 - (k/x)^\\theta = 1 - (1/x)^3 = 1 - x^{-3}$, $x \\ge 1$. Median: $(1/m)^3 = \\tfrac12 \\Rightarrow m = 2^{1/3} \\approx 1{,}260$ millioner.\n\n**b)** For $\\theta = 3 > 1$: $E(X) = \\tfrac{\\theta k}{\\theta - 1} = \\tfrac{3\\cdot 1}{2} = 1{,}5$ millioner.",
+        "hints": [
+          "$F(x) = 1 - (k/x)^\\theta$; median: $(k/m)^\\theta = \\tfrac12$.",
+          "$E(X) = \\theta k/(\\theta - 1)$ for $\\theta > 1$."
+        ]
+      }
+    },
+    {
+      "id": "stk1100-2-3-oppg-vansk-pareto-trans",
+      "type": "exercise",
+      "exercise": {
+        "id": "stk1100-2-3-ex-vansk-pareto-trans",
+        "number": "8",
+        "type": "classic",
+        "difficulty": "vanskelig",
+        "task": "Inntekten $X$ er Pareto-fordelt med kjent minsteinntekt $k$ og ukjent formparameter $\\theta$: $F(x) = 1 - (k/x)^\\theta$, $x \\ge k$.\n\n**a)** Vis at $Y = \\ln(X/k)$ er eksponensialfordelt, og angi forventningen.\n**b)** Bruk dette til å vise at $2\\theta\\ln(X/k) \\sim \\chi^2_2$.",
+        "solution": "**a)** For $y \\ge 0$: $P(Y \\le y) = P(\\ln(X/k) \\le y) = P(X \\le k e^y) = 1 - (k/(k e^y))^\\theta = 1 - e^{-\\theta y}$. Det er en eksponensialfordeling i rateform med rate $\\theta$, altså forventning $1/\\theta$.\n\n**b)** La $W = 2\\theta Y$. Da $P(W \\le w) = P(Y \\le w/(2\\theta)) = 1 - e^{-\\theta\\cdot w/(2\\theta)} = 1 - e^{-w/2}$, som er fordelingsfunksjonen til en eksponensial med forventning 2, dvs. $\\text{gamma}(1,2) = \\chi^2_2$. Altså $2\\theta\\ln(X/k) \\sim \\chi^2_2$.",
+        "hints": [
+          "CDF-metoden: $P(Y \\le y) = P(X \\le k e^y)$, sett inn $F$.",
+          "$\\text{gamma}(1,2) = \\chi^2_2$ har CDF $1 - e^{-w/2}$."
+        ]
+      }
+    },
+    {
+      "id": "stk1100-2-3-oppg-vansk-weibull-trans",
+      "type": "exercise",
+      "exercise": {
+        "id": "stk1100-2-3-ex-vansk-weibull-trans",
+        "number": "9",
+        "type": "classic",
+        "difficulty": "vanskelig",
+        "task": "For en Weibull-variabel $X$ med $F(x) = 1 - e^{-(x/\\beta)^\\alpha}$ ($\\alpha, \\beta$ kjent), vis at $Z = (X/\\beta)^\\alpha$ er eksponensialfordelt med forventning 1, og finn deretter medianen til $Z$.",
+        "solution": "For $z \\ge 0$: $P(Z \\le z) = P((X/\\beta)^\\alpha \\le z) = P(X \\le \\beta z^{1/\\alpha}) = 1 - e^{-((\\beta z^{1/\\alpha})/\\beta)^\\alpha} = 1 - e^{-z}$. Det er en eksponensial i rateform med rate 1, altså forventning 1. Median til $Z$: $1 - e^{-m} = \\tfrac12 \\Rightarrow m = \\ln 2 \\approx 0{,}693$.",
+        "hints": [
+          "CDF-metoden: $P(Z \\le z) = P(X \\le \\beta z^{1/\\alpha})$.",
+          "Sett inn $F$; potensen $\\alpha$ kanselleres og gir $1 - e^{-z}$."
+        ]
+      }
+    },
+    {
+      "id": "stk1100-2-3-oppg-vansk-power-mom",
+      "type": "exercise",
+      "exercise": {
+        "id": "stk1100-2-3-ex-vansk-power-mom",
+        "number": "10",
+        "type": "classic",
+        "difficulty": "vanskelig",
+        "task": "En stykkevis tetthet er $f(x) = c\\,x(2 - x)$ for $0 \\le x \\le 2$ og 0 ellers.\n\n**a)** Finn $c$.\n**b)** Finn $E(X)$, og forklar hvorfor svaret er 1 uten å regne (symmetri).",
+        "solution": "**a)** $\\int_0^2 c\\,x(2-x)\\,dx = c\\int_0^2 (2x - x^2)\\,dx = c\\big[x^2 - \\tfrac{x^3}{3}\\big]_0^2 = c(4 - \\tfrac83) = c\\cdot\\tfrac43 = 1 \\Rightarrow c = \\tfrac34$.\n\n**b)** $E(X) = \\int_0^2 x\\cdot\\tfrac34 x(2-x)\\,dx = \\tfrac34\\int_0^2 (2x^2 - x^3)\\,dx = \\tfrac34\\big[\\tfrac{2x^3}{3} - \\tfrac{x^4}{4}\\big]_0^2 = \\tfrac34(\\tfrac{16}{3} - 4) = \\tfrac34\\cdot\\tfrac43 = 1$.\n\n*Symmetri:* tettheten $x(2-x)$ er symmetrisk om $x = 1$ (topp i midten, null i endene), så tyngdepunktet — og dermed forventningen og medianen — ligger i $x = 1$.",
+        "hints": [
+          "Normer: $\\int_0^2 c x(2-x)dx = 1$.",
+          "$\\int_0^2 (2x - x^2)dx = 4 - 8/3 = 4/3$."
+        ]
+      }
+    },
+    {
+      "id": "stk1100-2-3-warn-typiske",
+      "type": "warning",
+      "title": "Typiske feil",
+      "content": "- **Glemme normering** før du regner videre på en «proporsjonal med»-tetthet — da blir $F$, median og momenter alle skalert feil.\n- **Slurve med stykkevis $F$.** For Pareto/Weibull er det ofte lettest å regne halen $P(X > x) = 1 - F(x)$ direkte, men husk at $F = 0$ under støtten.\n- **Median-algebra.** Potenslikning (Pareto: $(k/m)^\\theta = \\tfrac12$), logaritmelikning (Weibull/Rayleigh: $(m/\\beta)^\\alpha = \\ln 2$) og andregrad — regn nøyaktig, ikke på øyemål.\n- **La ukjent fordelingsnavn skremme til gjetting.** Navnet er uvesentlig — kjør oppskriften. Oppgaven gir alltid tettheten/CDF/integralet du trenger.\n- **Glemme konvergensbetingelsen** i momentene: Pareto har endelig forventning bare for $\\theta > 1$ og endelig varians bare for $\\theta > 2$ — nevn betingelsen."
+    },
+    {
+      "id": "stk1100-2-3-kort-head",
+      "type": "text",
+      "content": "## Oppskriftskort — flashcards\n\n*Flashcard-/repetisjonsstoff — hopp trygt over ved førstegangslesing.* Formel- og oppskriftskort for sjanger C, til rask oppslag under drilling."
+    },
+    {
+      "id": "stk1100-2-3-kort-oppskrift",
+      "type": "definition",
+      "title": "Sjanger C — oppskriften",
+      "content": "Oppgitt tetthet: (1) normer ($\\int f = 1$), (2) utled stykkevis $F$, (3) regn $P$-er fra $F$, (4) median/kvantil ved $F(m) = p$, (5) momenter ved integrasjon/gammaintegralet, (6) pek fremover ($F^{-1}$, transformasjon til gamma)."
+    },
+    {
+      "id": "stk1100-2-3-kort-normering",
+      "type": "definition",
+      "title": "Normeringskortet",
+      "content": "Er $f = c\\,g(x)$: $c = 1/\\int g\\,dx$ over støtten. Alltid første steg ved «proporsjonal med». Uten riktig $c$ blir alt etterpå galt."
+    },
+    {
+      "id": "stk1100-2-3-kort-cdf",
+      "type": "definition",
+      "title": "CDF-kortet",
+      "content": "$F(x) = \\int_A^x f(t)\\,dt$, stykkevis (0 under støtten, 1 over). Sjekk $F(A) = 0$, $F(B) = 1$. For hale-definerte fordelinger: regn $P(X > x) = 1 - F(x)$ direkte."
+    },
+    {
+      "id": "stk1100-2-3-kort-median",
+      "type": "definition",
+      "title": "Median-kortet",
+      "content": "Løs $F(m) = \\tfrac12$ — aldri $f(m)$. Typiske former: potens ($(k/m)^\\theta = \\tfrac12$), logaritme ($(m/\\beta)^\\alpha = \\ln 2$), andregrad."
+    },
+    {
+      "id": "stk1100-2-3-kort-momenter",
+      "type": "definition",
+      "title": "Momentkortet",
+      "content": "$E(X) = \\int x f\\,dx$, $E(X^2) = \\int x^2 f\\,dx$, $\\text{Var} = E(X^2) - [E(X)]^2$. Har integranden form $x^{a-1}e^{-x/b}$, bruk gammaintegralet $b^a\\Gamma(a)$."
+    },
+    {
+      "id": "stk1100-2-3-kort-laplace",
+      "type": "definition",
+      "title": "Laplace (dobbelt-eksponensial)",
+      "content": "$f(x) = \\tfrac{1}{2b}e^{-|x-\\mu|/b}$, alle reelle $x$. Symmetrisk om $\\mu$, så median $= \\mu$ og $E(X) = \\mu$; $\\text{Var}(X) = 2b^2$. To eksponensialhaler speilet."
+    },
+    {
+      "id": "stk1100-2-3-kort-pareto",
+      "type": "definition",
+      "title": "Pareto (tung hale)",
+      "content": "$f(x) = \\theta k^\\theta/x^{\\theta+1}$, $x \\ge k$. $F(x) = 1 - (k/x)^\\theta$. Median $= k\\cdot 2^{1/\\theta}$. $E(X) = \\theta k/(\\theta-1)$ for $\\theta > 1$; endelig varians krever $\\theta > 2$."
+    },
+    {
+      "id": "stk1100-2-3-kort-pareto-trans",
+      "type": "definition",
+      "title": "Pareto → gamma",
+      "content": "For Pareto er $\\ln(X/k)$ eksponensial med rate $\\theta$, og $2\\theta\\ln(X/k) \\sim \\chi^2_2 = \\text{gamma}(1,2)$. Broen til den eksakte pivotalen for $\\theta$ (Del 6)."
+    },
+    {
+      "id": "stk1100-2-3-kort-rayleigh",
+      "type": "definition",
+      "title": "Rayleigh",
+      "content": "$f(x) = \\tfrac{x}{\\sigma^2}e^{-x^2/(2\\sigma^2)}$, $x \\ge 0$. $F(x) = 1 - e^{-x^2/(2\\sigma^2)}$. Median $= \\sigma\\sqrt{2\\ln 2}$, $E(X) = \\sigma\\sqrt{\\pi/2}$. Modell for bølgehøyder/vindstyrke."
+    },
+    {
+      "id": "stk1100-2-3-kort-weibull",
+      "type": "definition",
+      "title": "Weibull",
+      "content": "$f(x) = \\tfrac{\\alpha}{\\beta}(x/\\beta)^{\\alpha-1}e^{-(x/\\beta)^\\alpha}$, $x \\ge 0$. $F(x) = 1 - e^{-(x/\\beta)^\\alpha}$. Median $= \\beta(\\ln 2)^{1/\\alpha}$. Ved $\\alpha = 1$: eksponensial. Levetidsmodell med aldring."
+    },
+    {
+      "id": "stk1100-2-3-kort-weibull-trans",
+      "type": "definition",
+      "title": "Weibull → eksponensial",
+      "content": "For Weibull er $(X/\\beta)^\\alpha$ eksponensial med forventning 1 (rate 1). Potenstransformasjonen fjerner formparameteren — grepet i kap. 4.3."
+    },
+    {
+      "id": "stk1100-2-3-kort-lognormal",
+      "type": "definition",
+      "title": "Lognormal",
+      "content": "$\\ln X \\sim N(\\mu, \\sigma^2)$, så $F(x) = \\Phi\\!\\left(\\tfrac{\\ln x - \\mu}{\\sigma}\\right)$, $x > 0$. Median $= e^\\mu$. Modell for inntekt/forbruk med multiplikativ variasjon."
+    },
+    {
+      "id": "stk1100-2-3-kort-potens",
+      "type": "definition",
+      "title": "Potenstetthet",
+      "content": "$f(x) = (k+1)x^k$ på $[0,1]$ gir $F(x) = x^{k+1}$, median $= (\\tfrac12)^{1/(k+1)}$, $E(X) = \\tfrac{k+1}{k+2}$. Enkleste sjanger C — ren normering og integrasjon."
+    },
+    {
+      "id": "stk1100-2-3-kort-konvergens",
+      "type": "definition",
+      "title": "Konvergensbetingelser",
+      "content": "Tunge haler har ikke alltid endelige momenter: Pareto har endelig $E(X)$ bare for $\\theta > 1$, endelig $\\text{Var}$ for $\\theta > 2$. Sjekk at integralet konvergerer før du oppgir et tall."
+    },
+    {
+      "id": "stk1100-2-3-kort-beredskap",
+      "type": "definition",
+      "title": "Ukjent fordelingsnavn — beredskap",
+      "content": "Et uvant navn skal ikke skremme. Oppgaven gir tetthet/CDF/MGF. Kjør oppskriften (normer → $F$ → $P$ → median → momenter). Navnet er bare en etikett; teknikkene er de vanlige."
+    },
+    {
+      "id": "stk1100-2-3-symbolliste",
+      "type": "collapsible",
+      "title": "Symbol- og formelliste",
+      "buttonText": "Vis symboler og formler",
+      "content": [
+        {
+          "id": "stk1100-2-3-sym-innhold",
+          "type": "text",
+          "content": "*Oppslagsverk — alt her forklares underveis i kapitlet.*\n\n| Symbol | Betydning |\n|---|---|\n| $f(x)$ | Tetthet |\n| $F(x)$ | Fordelingsfunksjon, $P(X \\le x)$ |\n| $c$ | Normeringskonstant |\n| $m$ | Median ($F(m) = \\tfrac12$) |\n| $k$ | Pareto minsteverdi (nedre grense) |\n| $\\theta$ | Pareto formparameter |\n| $\\alpha, \\beta$ | Weibull form / skala |\n| $\\sigma$ | Rayleigh/lognormal spredningsparameter |\n| $\\Phi$ | Standardnormal fordelingsfunksjon |\n| $\\chi^2_2$ | Kjikvadrat, 2 frihetsgrader $= \\text{gamma}(1,2)$ |\n\n**Formler i dette kapitlet:**\n\n$$\\text{Laplace: } f = \\tfrac{1}{2b}e^{-|x-\\mu|/b}, \\quad E = \\mu, \\quad \\text{Var} = 2b^2$$\n\n$$\\text{Pareto: } F = 1 - (k/x)^\\theta, \\quad m = k\\,2^{1/\\theta}, \\quad E = \\tfrac{\\theta k}{\\theta-1}\\ (\\theta>1)$$\n\n$$\\text{Rayleigh: } F = 1 - e^{-x^2/(2\\sigma^2)}, \\quad m = \\sigma\\sqrt{2\\ln 2}, \\quad E = \\sigma\\sqrt{\\pi/2}$$\n\n$$\\text{Weibull: } F = 1 - e^{-(x/\\beta)^\\alpha}, \\quad m = \\beta(\\ln 2)^{1/\\alpha}$$\n\n$$\\text{Lognormal: } F = \\Phi\\!\\left(\\tfrac{\\ln x - \\mu}{\\sigma}\\right), \\quad m = e^\\mu$$\n\n$$\\text{Pareto-transform: } 2\\theta\\ln(X/k) \\sim \\chi^2_2; \\qquad \\text{Weibull-transform: } (X/\\beta)^\\alpha \\sim \\text{eksp}(1)$$"
+        }
+      ]
+    }
+  ],
+  "exercises": []
+}

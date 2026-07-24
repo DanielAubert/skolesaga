@@ -1,0 +1,311 @@
+{
+  "id": "stk1100-6-3",
+  "courseId": "stk1100",
+  "chapterNumber": "6.3",
+  "title": "Drill: hele kjeden — fordeling → estimator → pivot → eksakt KI (+ CLT + bootstrap-SE)",
+  "description": "Bokas ryggrad-drill: hele estimerings-oppgaven fra modelldefinisjon til eksakt KI, CLT-alternativ og bootstrap-SE som én sammenhengende fortelling — slik den står i praktisk talt hvert sett.",
+  "estimatedMinutes": 95,
+  "competenceGoals": [
+    "gjennomføre hele estimerings-kjeden fra modelldefinisjon via ML og transformasjon til eksakt pivotal-konfidensintervall",
+    "korrigere skjevhet i rot-/potensestimatorer via gammafunksjonen der oppgaven krever en forventningsrett estimator",
+    "gi et CLT-basert Wald-alternativ og begrunne intervallvalget ut fra dekning",
+    "beskrive en parametrisk bootstrap for standardfeilen og avslutte med tolket tallsvar og avledede størrelser"
+  ],
+  "content": [
+    {
+      "id": "stk1100-6-3-tip-eksamensvinkel",
+      "type": "tip",
+      "title": "Eksamensvinkel",
+      "content": "**Dette kapitlet ER STK1100-eksamens tyngste oppgave.** Kjernen er én lang kjede som er gjentatt i praktisk talt hvert eneste sett siden 2015 — oftest som oppgave 3, verdt **60–70 % av poengene**, uendret i oppbygning:\n\n$$\\text{fordeling} \\to \\text{estimator} \\to \\text{forventningsretthet/varians} \\to \\text{transformasjon til gamma/}\\chi^2 \\to \\text{eksakt pivotal-KI} \\to (\\text{CLT-KI}) \\to (\\text{bootstrap-SE}).$$\n\nDette er **drillsporets sluttledd** ([kap. 4.3](/bok/stk1100/stk1100-4-3) → [kap. 5.3](/bok/stk1100/stk1100-5-3) → **6.3**): her settes alle leddene sammen til én sammenhengende fortelling. Kontekstene i arkivet er levetider, inntekter, konsentrasjoner og målinger.\n\nKapitlet er tungt (~95 min) — **del det gjerne over to økter**: løsningsoppskriften + de to gjennomregnede casene i økt 1, drilloppgavene i økt 2. Der poengene glipper: å miste tråden mellom leddene (bruke feil estimat videre), $2n$ vs. $n$ i frihetsgraden, å melde Wald som «best» for liten $n$, og å glemme tolkningen til slutt. Prioritet: **høyeste**."
+    },
+    {
+      "id": "stk1100-6-3-forkunnskaper",
+      "type": "text",
+      "content": "**Forkunnskaper:** hele kjeden bygger på [kap. 6.1](/bok/stk1100/stk1100-6-1) (eksakt pivotal-KI), [kap. 6.2](/bok/stk1100/stk1100-6-2) (CLT/Wald + dekning), [kap. 5.3](/bok/stk1100/stk1100-5-3) (ML + egenskaper + skjevhetskorreksjon) og [kap. 4.3](/bok/stk1100/stk1100-4-3) (transformasjon til gamma/$\\chi^2$).\n\n**Sist du var her — de fem formlene hele kjeden hviler på (drillsporets sluttledd):**\n\n$$\\textbf{ML (5.2/5.3):}\\quad \\ell(\\theta)=\\sum \\ln f(x_i;\\theta),\\quad \\ell'(\\hat\\theta)=0.$$\n\n$$\\textbf{Skjevhetskorreksjon (5.1/5.3):}\\quad E(V^r)=\\beta^r\\frac{\\Gamma(\\alpha+r)}{\\Gamma(\\alpha)}\\ \\Rightarrow\\ \\text{del ut } \\Gamma\\text{-faktoren.}$$\n\n$$\\textbf{Pivot (4.3):}\\quad \\frac{2\\sum X_i}{\\mu}\\sim\\chi^2_{2n}\\ (\\text{eksp.}),\\quad \\sum(X_i/\\beta)^\\alpha\\sim\\text{gamma}(n,1)\\ (\\text{Weibull}).$$\n\n$$\\textbf{Eksakt KI (6.1):}\\quad \\mu\\in\\left[\\frac{2\\sum x_i}{\\chi^2_{2n,\\alpha/2}},\\ \\frac{2\\sum x_i}{\\chi^2_{2n,1-\\alpha/2}}\\right].$$\n\n$$\\textbf{Wald (6.2):}\\quad \\hat\\theta\\pm z_{\\alpha/2}\\widehat{\\text{SE}}\\ (\\text{alternativ ved stor } n).$$\n\nHar du disse fem, er hele oppgaven ett løp fra modelldefinisjon til tolket tallsvar."
+    },
+    {
+      "id": "stk1100-6-3-oppskrift-head",
+      "type": "text",
+      "content": "## Løsningsoppskrift for HELE kjeden — åtte trinn"
+    },
+    {
+      "id": "stk1100-6-3-oppskrift",
+      "type": "text",
+      "content": "Møter du den store estimerings-oppgaven, kjør denne faste åtte-trinns-algoritmen. Hvert trinn gir uttelling, og sensor følger nettopp denne rekkefølgen.\n\n**1. Modelldefinisjon (sensorkrav 1).** «La $X_i = \\ldots$, iid med fordeling $\\ldots$» — med parameter og **hvilken parametrisering** (eksponensial: rate eller forventning?).\n\n**2. Estimator (5.2).** Sett opp likelihood over ALLE $n$ observasjoner, ta logaritme, deriver, løs: $\\hat\\theta$. (Momentmetoden som alternativ der oppgaven ber om det.)\n\n**3. Forventningsretthet + varians (5.1/5.3).** Regn $E(\\hat\\theta)$. Er den skjev ($E(\\hat\\theta)=c\\theta$, $c\\ne 1$), **korriger via $\\Gamma$/E(Vʳ)**: $\\hat\\theta/c$ er forventningsrett. Finn $\\text{Var}(\\hat\\theta)$ og estimert SE.\n\n**4. Transformasjon til pivot (4.3).** Bygg $W(X;\\theta)$ med kjent gamma-/$\\chi^2$-fordeling. **Pass frihetsgraden:** $\\chi^2_{2n}$ (eksp.), $\\chi^2_n$ (normal kjent $\\mu$), gamma$(n,1)$ (Weibull), gamma$(n,2)=\\chi^2_{2n}$ (Pareto).\n\n**5. Eksakt pivotal-KI (6.1).** Sett kvantiler rundt $W$, løs dobbeltulikheten for $\\theta$ — **snu ved invertering** (endepunktene bytter plass). Intervallet er ofte asymmetrisk.\n\n*— naturlig pausepunkt: trinn 1–5 er kjernen; 6–8 er A-differensiatorene —*\n\n**6. CLT-/Wald-KI + dekningsvurdering (6.2).** Gi alternativet $\\hat\\theta\\pm z_{\\alpha/2}\\widehat{\\text{SE}}$, og si hvilket du foretrekker: eksakt ved lav/moderat $n$ (bedre dekning), Wald ved stor $n$.\n\n**7. Bootstrap-SE (forhåndsvarsel, fullføres i [kap. 7.2](/bok/stk1100/stk1100-7-2)).** Nevn at en **parametrisk bootstrap** gir en numerisk standardfeil: trekk mange utvalg fra modellen med $\\hat\\theta$ innsatt, beregn $\\hat\\theta^*$ hver gang, og bruk standardavviket til $\\hat\\theta^*$-ene som SE.\n\n**8. Tallsvar med tolkning (sensorkrav 11).** Sett inn tallene, oppgi **enhet** og en **tolkende setning**. Transformer til avledet størrelse (median, kvantil) der oppgaven ber om det."
+    },
+    {
+      "id": "stk1100-6-3-case1",
+      "type": "example",
+      "title": "Gjennomregnet hovedcase: eksponensiale konsentrasjoner (med sensornotater)",
+      "problem": "Konsentrasjonene $X_1,\\ldots,X_{15}$ (mg/l) i uavhengige vannprøver antas eksponensialfordelte i **forventningsform** med forventning $\\mu$: $f(x)=\\tfrac{1}{\\mu}e^{-x/\\mu}$, $x\\ge 0$. Observert $\\sum x_i = 96$.\n\n**a)** Utled ML-estimatoren og vis at den er forventningsrett.\n**b)** Vis at $2\\sum X_i/\\mu \\sim \\chi^2_{30}$, og konstruer et eksakt 95 %-KI for $\\mu$.\n**c)** Gi det tilsvarende CLT-baserte intervallet og forklar hvilket du foretrekker for $n=15$.\n**d)** Gi et 95 %-KI for medianlevetiden og beskriv en parametrisk bootstrap for SE.",
+      "solution": "*Sensornotat: dette er hele kjeden i miniatyr. Hvert delsvar er ett ledd — mist ikke tråden mellom dem.*\n\n**a) Modell + ML.** La $X_i$ = konsentrasjon i prøve $i$, iid eksponensial i forventningsform med forventning $\\mu$. Likelihood over ALLE 15 observasjoner:\n$$L(\\mu)=\\prod_{i=1}^{15}\\frac{1}{\\mu}e^{-x_i/\\mu}=\\mu^{-15}e^{-\\sum x_i/\\mu}.$$\n$$\\ell(\\mu)=-15\\ln\\mu-\\frac{\\sum x_i}{\\mu},\\qquad \\ell'(\\mu)=-\\frac{15}{\\mu}+\\frac{\\sum x_i}{\\mu^2}=0 \\ \\Rightarrow\\ \\hat\\mu=\\bar X=\\frac{96}{15}=6{,}4.$$\nForventningsrett: $E(\\hat\\mu)=E(\\bar X)=\\mu$ (regnereglene fra [kap. 1.2](/bok/stk1100/stk1100-1-2)). *Sensornotat: skriv likelihood som produkt over ALLE obs — 1 poeng — og vis $E(\\bar X)=\\mu$ eksplisitt.*\n\n**b) Pivot + eksakt KI.** For hvert ledd er $2X_i/\\mu\\sim\\chi^2_2$ (CDF-metoden, [kap. 4.3](/bok/stk1100/stk1100-4-3)); summen av 15 uavhengige $\\chi^2_2$ er\n$$W=\\frac{2\\sum X_i}{\\mu}\\sim\\chi^2_{2\\cdot 15}=\\chi^2_{30}.$$\nMed $\\alpha/2=0{,}025$: $\\chi^2_{30,0{,}025}=46{,}98$, $\\chi^2_{30,0{,}975}=16{,}79$. Løs (inverter — endepunktene bytter plass), $2\\sum x_i=192$:\n$$\\mu\\in\\left[\\frac{192}{46{,}98},\\ \\frac{192}{16{,}79}\\right]=[4{,}09,\\ 11{,}43]\\ \\text{mg/l}.$$\n*Sensornotat: frihetsgrad $2n=30$, ikke 15. Stor kvantil i nedre grense. Asymmetrisk — korrekt.*\n\n*— naturlig pausepunkt —*\n\n**c) CLT/Wald + valg.** For eksponensial er $\\text{SE}(\\hat\\mu)=\\mu/\\sqrt n$, estimert $\\widehat{\\text{SE}}=6{,}4/\\sqrt{15}=1{,}653$. Wald:\n$$6{,}4\\pm 1{,}96\\cdot 1{,}653=6{,}4\\pm 3{,}24=[3{,}16,\\ 9{,}64].$$\nFor $n=15$ **foretrekker jeg det eksakte intervallet**: standardfeilen avhenger selv av $\\mu$, så normaltilnærmingen underdekker ved lav/moderat $n$ (jf. dekningspoenget i [kap. 6.2](/bok/stk1100/stk1100-6-2)). Wald oppgis som alternativ, ikke som beste svar. *Sensornotat: å begrunne valget med dekning gir A-uttelling.*\n\n**d) Median + bootstrap.** Medianen er $m=\\mu\\ln 2$; $g(\\mu)=\\mu\\ln 2$ er strengt voksende, så\n$$m\\in[4{,}09\\ln 2,\\ 11{,}43\\ln 2]=[2{,}83,\\ 7{,}93]\\ \\text{mg/l}.$$\n**Parametrisk bootstrap for SE:** trekk $B$ (f.eks. 10000) nye utvalg à 15 fra eksponensial med $\\hat\\mu=6{,}4$ innsatt, regn $\\hat\\mu^*=\\bar X^*$ i hvert, og bruk empirisk standardavvik (`ddof=1`) til de 10000 $\\hat\\mu^*$-verdiene som bootstrap-SE (fullt apparat i [kap. 7.2](/bok/stk1100/stk1100-7-2)).\n\n**Tolkning:** vi er 95 % konfidente på at gjennomsnittskonsentrasjonen ligger mellom 4,1 og 11,4 mg/l, og medianen mellom 2,8 og 7,9 mg/l."
+    },
+    {
+      "id": "stk1100-6-3-case2",
+      "type": "example",
+      "title": "Andrecase: Pareto-inntekter med log-løft (med sensornotater)",
+      "problem": "Årsinntekter $X_1,\\ldots,X_{12}$ (i mill.) over en kjent minsteinntekt $k=1$ antas Pareto-fordelte med tetthet $f(x)=\\theta k^\\theta/x^{\\theta+1}$, $x\\ge k$, ukjent formparameter $\\theta$. Observert $\\sum\\ln(x_i/k)=7{,}5$.\n\n**a)** Utled ML-estimatoren $\\hat\\theta$.\n**b)** Vis at $2\\theta\\sum\\ln(X_i/k)\\sim\\chi^2_{24}$ og konstruer et eksakt 95 %-KI for $\\theta$.\n**c)** Medianinntekten er $m=k\\cdot 2^{1/\\theta}$. Gi et 95 %-KI for $m$.",
+      "solution": "**a) ML.** $\\ell(\\theta)=n\\ln\\theta+n\\theta\\ln k-(\\theta+1)\\sum\\ln x_i$. Med $T=\\sum\\ln(x_i/k)$: $\\ell'(\\theta)=n/\\theta - T=0\\Rightarrow \\hat\\theta=n/T=12/7{,}5=1{,}6$. *Sensornotat: $\\hat\\theta=n/\\sum\\ln(x_i/k)$ — log-summen er den suffisiente størrelsen.*\n\n**b) Pivot + KI.** Hvert ledd $2\\theta\\ln(X_i/k)\\sim\\chi^2_2$ (log-løftet, [kap. 4.3](/bok/stk1100/stk1100-4-3)); summen $W=2\\theta T\\sim\\chi^2_{24}$. $\\chi^2_{24,0{,}025}=39{,}36$, $\\chi^2_{24,0{,}975}=12{,}40$. Isoler $\\theta=W/(2T)$ — her deler vi på den **positive** $2T=15$, så kvantilene bytter **ikke** plass:\n$$\\theta\\in\\left[\\frac{12{,}40}{15},\\ \\frac{39{,}36}{15}\\right]=[0{,}827,\\ 2{,}624].$$\n*Sensornotat: pass på — motsatt forventningsformen (der $\\mu$ står i nevneren) står $\\theta$ i telleren, så ingen vending. $\\hat\\theta=1{,}6$ ligger inni.*\n\n*— naturlig pausepunkt —*\n\n**c) Median.** $g(\\theta)=k\\cdot 2^{1/\\theta}=2^{1/\\theta}$ (siden $k=1$) er strengt **avtakende** i $\\theta$, så endepunktene bytter plass:\n$$m\\in[g(2{,}624),\\ g(0{,}827)]=[2^{1/2{,}624},\\ 2^{1/0{,}827}]=[1{,}30,\\ 2{,}31].$$\nPunktestimat: $\\hat m=2^{1/1{,}6}=1{,}54$. **Tolkning:** vi er 95 % konfidente på at medianinntekten ligger mellom 1,30 og 2,31 mill. *Sensornotat: å se at $g$ avtar — og dermed snu — er A-detaljen her.*"
+    },
+    {
+      "id": "stk1100-6-3-drill-head",
+      "type": "text",
+      "content": "## Drilloppgaver — hele kjeden, roterte fordelinger\n\n*Del gjerne over to økter. Oppgavene stiger i vanskelighet; de tre siste er krevende A-oppgaver.*"
+    },
+    {
+      "id": "stk1100-6-3-ex1",
+      "type": "exercise",
+      "exercise": {
+        "id": "stk1100-6-3-ex1",
+        "number": 1,
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "Levetider $X_1,\\ldots,X_{20}$ er eksponensiale i forventningsform, $\\sum x_i=150$.\n\n**a)** Finn ML-estimatoren $\\hat\\mu$.\n**b)** Konstruer et eksakt 95 %-KI for $\\mu$. Oppgitt: $\\chi^2_{40,0{,}025}=59{,}34$, $\\chi^2_{40,0{,}975}=24{,}43$.\n**c)** Gi Wald-intervallet og si hvilket du melder som hovedsvar.",
+        "solution": "**a)** $\\hat\\mu=\\bar X=150/20=7{,}5$.\n\n**b)** Pivot $2\\sum X_i/\\mu\\sim\\chi^2_{40}$, $2\\sum x_i=300$:\n$$\\mu\\in[300/59{,}34,\\ 300/24{,}43]=[5{,}06,\\ 12{,}28].$$\n\n**c)** $\\widehat{\\text{SE}}=7{,}5/\\sqrt{20}=1{,}677$; Wald $=7{,}5\\pm 1{,}96\\cdot 1{,}677=[4{,}21,\\ 10{,}79]$. For $n=20$ melder jeg det **eksakte** (korrekt dekning); Wald som alternativ.",
+        "hints": [
+          "ML for eksponensiell forventning er $\\hat\\mu=\\bar X$.",
+          "Frihetsgrad $2n=40$; $2\\sum x_i=300$; stor kvantil i nedre grense.",
+          "Wald: $\\hat\\mu\\pm 1{,}96\\cdot\\hat\\mu/\\sqrt n$."
+        ]
+      }
+    },
+    {
+      "id": "stk1100-6-3-ex2",
+      "type": "exercise",
+      "exercise": {
+        "id": "stk1100-6-3-ex2",
+        "number": 2,
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "For $n=12$ eksponensiale (forventningsform) levetider er $\\sum x_i=72$.\n\n**a)** Konstruer et eksakt 90 %-KI for $\\mu$. Oppgitt: $\\chi^2_{24,0{,}05}=36{,}42$, $\\chi^2_{24,0{,}95}=13{,}85$.\n**b)** Gi et 90 %-KI for medianlevetiden $m=\\mu\\ln 2$.",
+        "solution": "**a)** $\\hat\\mu=72/12=6$. Pivot $2\\sum X_i/\\mu\\sim\\chi^2_{24}$, $2\\sum x_i=144$:\n$$\\mu\\in[144/36{,}42,\\ 144/13{,}85]=[3{,}95,\\ 10{,}40].$$\n\n**b)** $g(\\mu)=\\mu\\ln 2$ er voksende:\n$$m\\in[3{,}95\\ln 2,\\ 10{,}40\\ln 2]=[2{,}74,\\ 7{,}21].$$",
+        "hints": [
+          "$2n=24$, $2\\sum x_i=144$; 90 % gir $\\alpha/2=0{,}05$.",
+          "Stor kvantil $36{,}42$ i nedre grense.",
+          "Median: gang begge endepunkter med $\\ln 2$ (voksende — samme rekkefølge)."
+        ]
+      }
+    },
+    {
+      "id": "stk1100-6-3-ex3",
+      "type": "exercise",
+      "exercise": {
+        "id": "stk1100-6-3-ex3",
+        "number": 3,
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "Bruddstyrker er gammafordelte med **kjent** formparameter $\\alpha=3$ og ukjent skala $\\beta$: $f(x)\\propto x^{2}e^{-x/\\beta}$. For $n=5$ er $\\sum x_i=90$.\n\n**a)** ML-estimatoren for $\\beta$ er $\\hat\\beta=\\bar X/\\alpha$. Regn den ut.\n**b)** Pivoten er $2\\sum X_i/\\beta\\sim\\chi^2_{2n\\alpha}$. Konstruer et eksakt 95 %-KI for $\\beta$. Oppgitt: $\\chi^2_{30,0{,}025}=46{,}98$, $\\chi^2_{30,0{,}975}=16{,}79$.",
+        "solution": "**a)** $\\hat\\beta=\\bar X/\\alpha=(90/5)/3=18/3=6$.\n\n**b)** Summen av $n$ gamma$(\\alpha,\\beta)$ er gamma$(n\\alpha,\\beta)$, så $2\\sum X_i/\\beta\\sim\\chi^2_{2n\\alpha}=\\chi^2_{30}$. Med $2\\sum x_i=180$:\n$$\\beta\\in[180/46{,}98,\\ 180/16{,}79]=[3{,}83,\\ 10{,}72].$$",
+        "hints": [
+          "$\\hat\\beta=\\bar X/\\alpha$: regn $\\bar X$ først.",
+          "Frihetsgrad $2n\\alpha=2\\cdot 5\\cdot 3=30$; $2\\sum x_i=180$.",
+          "Stor kvantil i nedre grense, som for eksponensial."
+        ]
+      }
+    },
+    {
+      "id": "stk1100-6-3-ex4",
+      "type": "exercise",
+      "exercise": {
+        "id": "stk1100-6-3-ex4",
+        "number": 4,
+        "type": "classic",
+        "difficulty": "vanskelig",
+        "task": "Levetider er Weibull-fordelte med **kjent** form $\\alpha=2$ og ukjent skala $\\beta$; ML gir $\\hat\\beta=(\\tfrac{1}{n}\\sum x_i^2)^{1/2}$. For $n=8$ er $\\sum x_i^2=40$.\n\n**a)** Regn ut $\\hat\\beta$, og vis at $\\sum(X_i/\\beta)^2=\\sum X_i^2/\\beta^2\\sim$ gamma$(8,1)$.\n**b)** $\\hat\\beta$ er skjev. Bruk E(Vʳ)-formelen med $V\\sim$ gamma$(8,1)$ og $E(\\sqrt V)=\\Gamma(8{,}5)/\\Gamma(8)=2{,}785$ til å finne en forventningsrett korreksjon.\n**c)** Konstruer et eksakt 95 %-KI for $\\beta$. Oppgitt: gamma$(8,1)$-kvantiler $g_{0{,}025}=3{,}454$, $g_{0{,}975}=14{,}42$.",
+        "solution": "**a)** $\\hat\\beta=(40/8)^{1/2}=\\sqrt 5=2{,}236$. Hvert $(X_i/\\beta)^2\\sim$ exp$(1)=$ gamma$(1,1)$; summen $\\sum X_i^2/\\beta^2\\sim$ gamma$(8,1)$.\n\n**b)** Skriv $\\hat\\beta=(\\sum X_i^2/n)^{1/2}=\\beta\\,(V/n)^{1/2}$ der $V=\\sum X_i^2/\\beta^2\\sim$ gamma$(8,1)$. Da\n$$E(\\hat\\beta)=\\frac{\\beta}{\\sqrt n}E(\\sqrt V)=\\frac{\\beta}{\\sqrt 8}\\cdot 2{,}785 =0{,}985\\,\\beta.$$\nSkjev (faktor 0,985). Forventningsrett korreksjon: $$\\tilde\\beta=\\frac{\\sqrt n}{E(\\sqrt V)}\\hat\\beta=\\frac{\\sqrt 8}{2{,}785}\\cdot 2{,}236 =1{,}016\\cdot 2{,}236=2{,}271.$$\n\n*— naturlig pausepunkt —*\n\n**c)** Fra $\\sum X_i^2/\\beta^2\\sim$ gamma$(8,1)$: $\\beta^2\\in[40/14{,}42,\\ 40/3{,}454]=[2{,}77,\\ 11{,}58]$. Løft til $\\beta$ med voksende $\\sqrt{\\cdot}$:\n$$\\beta\\in[\\sqrt{2{,}77},\\ \\sqrt{11{,}58}]=[1{,}67,\\ 3{,}40].$$",
+        "hints": [
+          "**a)** $(X_i/\\beta)^2$ er eksponensial(1); summen av $n$ slike er gamma$(n,1)$.",
+          "**b)** Skriv $\\hat\\beta=\\beta(V/n)^{1/2}$ og ta forventning med $E(\\sqrt V)$.",
+          "**c)** KI for $\\beta^2$ først (invertering snur), så $\\sqrt{\\cdot}$ (voksende, samme rekkefølge)."
+        ]
+      }
+    },
+    {
+      "id": "stk1100-6-3-ex5",
+      "type": "exercise",
+      "exercise": {
+        "id": "stk1100-6-3-ex5",
+        "number": 5,
+        "type": "classic",
+        "difficulty": "vanskelig",
+        "task": "Inntekter er Pareto-fordelte med kjent $k=1$ og ukjent $\\theta$; $\\hat\\theta=n/T$ med $T=\\sum\\ln(x_i/k)$. For $n=12$ er $T=7{,}5$.\n\n**a)** Regn ut $\\hat\\theta$ og konstruer et eksakt 95 %-KI for $\\theta$ via $2\\theta T\\sim\\chi^2_{24}$. Oppgitt: $\\chi^2_{24,0{,}025}=39{,}36$, $\\chi^2_{24,0{,}975}=12{,}40$.\n**b)** Gi et 95 %-KI for medianinntekten $m=k\\cdot 2^{1/\\theta}$.",
+        "solution": "**a)** $\\hat\\theta=12/7{,}5=1{,}6$. Isoler $\\theta=W/(2T)$; $2T=15$ er positiv, ingen vending:\n$$\\theta\\in[12{,}40/15,\\ 39{,}36/15]=[0{,}827,\\ 2{,}624].$$\n\n**b)** $g(\\theta)=2^{1/\\theta}$ er **avtakende**, så endepunktene bytter plass:\n$$m\\in[2^{1/2{,}624},\\ 2^{1/0{,}827}]=[1{,}30,\\ 2{,}31].$$",
+        "hints": [
+          "$\\hat\\theta=n/T$; $\\theta$ står i telleren av pivoten → ingen vending.",
+          "Del kvantilene på $2T=15$.",
+          "Median $g(\\theta)=2^{1/\\theta}$ avtar i $\\theta$ → bytt endepunktene."
+        ]
+      }
+    },
+    {
+      "id": "stk1100-6-3-ex6",
+      "type": "exercise",
+      "exercise": {
+        "id": "stk1100-6-3-ex6",
+        "number": 6,
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "Målefeil er normalfordelte med **kjent** $\\mu=0$ og ukjent varians $\\sigma^2$; $n=12$, $\\sum(x_i-\\mu)^2=30$.\n\n**a)** Konstruer et eksakt 95 %-KI for $\\sigma^2$ via $\\sum(X_i-\\mu)^2/\\sigma^2\\sim\\chi^2_{12}$. Oppgitt: $\\chi^2_{12,0{,}025}=23{,}34$, $\\chi^2_{12,0{,}975}=4{,}404$.\n**b)** Gi et 95 %-KI for standardavviket $\\sigma$.",
+        "solution": "**a)** Frihetsgrad $n=12$ (ikke $2n$ — normal med kjent $\\mu$):\n$$\\sigma^2\\in[30/23{,}34,\\ 30/4{,}404]=[1{,}29,\\ 6{,}81].$$\n\n**b)** $\\sqrt{\\cdot}$ voksende: $\\sigma\\in[\\sqrt{1{,}29},\\ \\sqrt{6{,}81}]=[1{,}13,\\ 2{,}61]$.",
+        "hints": [
+          "Normal med kjent $\\mu$: frihetsgrad $n=12$, ikke $2n$.",
+          "Stor kvantil $23{,}34$ i nedre grense.",
+          "$\\sigma=\\sqrt{\\sigma^2}$, voksende — behold rekkefølgen."
+        ]
+      }
+    },
+    {
+      "id": "stk1100-6-3-ex7",
+      "type": "exercise",
+      "exercise": {
+        "id": "stk1100-6-3-ex7",
+        "number": 7,
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "Åtte eksponensiale (forventningsform) levetider gir $\\hat\\mu=5$, $\\sum x_i=40$. Det eksakte 95 %-KI-et er $[2{,}77,\\ 11{,}58]$ og Wald-intervallet er $[1{,}54,\\ 8{,}46]$. Wald er smalest.\n\n**a)** Regn Wald selv ($z_{0{,}025}=1{,}96$) for å bekrefte.\n**b)** Hvilket melder du som hovedsvar for $n=8$, og hvorfor er «smalest» ikke «best» her?",
+        "solution": "**a)** $\\widehat{\\text{SE}}=5/\\sqrt 8=1{,}768$; Wald $=5\\pm 1{,}96\\cdot 1{,}768=5\\pm 3{,}46=[1{,}54,\\ 8{,}46]$. ✓\n\n**b)** Det **eksakte** meldes som hovedsvar. Ved $n=8$ underdekker Wald (SE $=\\mu/\\sqrt n$ avhenger av $\\mu$, normaltilnærmingen er dårlig), så det smalere intervallet gir bare falsk presisjon. Det eksakte har korrekt dekning per konstruksjon.",
+        "hints": [
+          "Wald: $\\hat\\mu\\pm 1{,}96\\cdot\\hat\\mu/\\sqrt 8$.",
+          "Smalere = ikke bedre hvis det underdekker — tenk dekningsgrad.",
+          "SE avhenger av $\\mu$ → Wald svikter ved lav $n$; velg eksakt."
+        ]
+      }
+    },
+    {
+      "id": "stk1100-6-3-ex8",
+      "type": "exercise",
+      "exercise": {
+        "id": "stk1100-6-3-ex8",
+        "number": 8,
+        "type": "classic",
+        "difficulty": "vanskelig",
+        "task": "Tjuefem konsentrasjoner er eksponensiale i forventningsform, $\\sum x_i=160$.\n\n**a)** Finn $\\hat\\mu$ og et eksakt 95 %-KI. Oppgitt: $\\chi^2_{50,0{,}025}=71{,}42$, $\\chi^2_{50,0{,}975}=32{,}36$.\n**b)** Beskriv presist en **parametrisk bootstrap** for standardfeilen til $\\hat\\mu$, med kjørbar kodeskisse.",
+        "solution": "**a)** $\\hat\\mu=160/25=6{,}4$. Pivot $\\chi^2_{50}$, $2\\sum x_i=320$:\n$$\\mu\\in[320/71{,}42,\\ 320/32{,}36]=[4{,}48,\\ 9{,}89].$$\n\n**b)** Parametrisk bootstrap: trekk $B$ nye utvalg à $n=25$ fra eksponensial med $\\hat\\mu=6{,}4$ innsatt, beregn $\\hat\\mu^*=\\bar X^*$ i hvert, og bruk empirisk standardavvik (`ddof=1`) til $\\hat\\mu^*$-ene som bootstrap-SE:\n\n```python\nimport numpy as np\nrng = np.random.default_rng(0)\nmuhat, n, B = 6.4, 25, 10000\nboot = np.empty(B)\nfor b in range(B):\n    xstar = rng.exponential(muhat, size=n)\n    boot[b] = xstar.mean()\nse_boot = boot.std(ddof=1)\nprint(se_boot)   # ~ 1.31, tett pa muhat/sqrt(n)=1.28\n```\nBootstrap-SE $\\approx\\hat\\mu/\\sqrt n=6{,}4/5=1{,}28$ (fullt apparat i [kap. 7.2](/bok/stk1100/stk1100-7-2)).",
+        "hints": [
+          "**a)** $2\\sum x_i=320$, frihetsgrad $2n=50$.",
+          "**b)** Parametrisk = trekk fra modellen med $\\hat\\mu$ innsatt, ikke fra dataene.",
+          "Bootstrap-SE = standardavviket (`ddof=1`) til de $B$ bootstrap-estimatene."
+        ]
+      }
+    },
+    {
+      "id": "stk1100-6-3-ex9",
+      "type": "exercise",
+      "exercise": {
+        "id": "stk1100-6-3-ex9",
+        "number": 9,
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "Ti levetider er eksponensiale i **rateform** $f(x)=\\lambda e^{-\\lambda x}$, $\\sum x_i=50$.\n\n**a)** Finn ML-estimatoren $\\hat\\lambda$.\n**b)** Konstruer et eksakt 95 %-KI for $\\lambda$ via $2\\lambda\\sum X_i\\sim\\chi^2_{20}$. Oppgitt: $\\chi^2_{20,0{,}025}=34{,}17$, $\\chi^2_{20,0{,}975}=9{,}591$.",
+        "solution": "**a)** $\\ell(\\lambda)=n\\ln\\lambda-\\lambda\\sum x_i$; $\\ell'=n/\\lambda-\\sum x_i=0\\Rightarrow\\hat\\lambda=n/\\sum x_i=10/50=0{,}20$.\n\n**b)** Isoler $\\lambda=W/(2\\sum X_i)$; $2\\sum x_i=100$ er positiv (ingen vending):\n$$\\lambda\\in[9{,}591/100,\\ 34{,}17/100]=[0{,}0959,\\ 0{,}3417].$$",
+        "hints": [
+          "Rateform-ML: $\\hat\\lambda=n/\\sum x_i$.",
+          "$\\lambda$ står i telleren → del kvantilene på $2\\sum x_i=100$, ingen vending.",
+          "Liten kvantil i nedre grense her (motsatt forventningsformen)."
+        ]
+      }
+    },
+    {
+      "id": "stk1100-6-3-ex10",
+      "type": "exercise",
+      "exercise": {
+        "id": "stk1100-6-3-ex10",
+        "number": 10,
+        "type": "classic",
+        "difficulty": "vanskelig",
+        "task": "En kollega leverer denne besvarelsen for $n=10$ eksponensiale (forventningsform) levetider, $\\sum x_i=84$: «$\\hat\\mu=8{,}4$. Pivot $2\\sum X_i/\\mu\\sim\\chi^2_{10}$. 90 %-KI $=[2\\sum x_i/\\chi^2_{10,0{,}95},\\ 2\\sum x_i/\\chi^2_{10,0{,}05}] =[168/3{,}94,\\ 168/18{,}31]=[42{,}6,\\ 9{,}17]$.» Finn og rett alle feilene, og gi det korrekte intervallet. Oppgitt: $\\chi^2_{20,0{,}05}=31{,}41$, $\\chi^2_{20,0{,}95}=10{,}85$.",
+        "solution": "Tre feil:\n1. **Feil frihetsgrad:** eksponensialpivoten har $2n=20$, ikke $10$. Riktig fordeling $\\chi^2_{20}$.\n2. **Feil kvantil i feil endepunkt / manglende vending:** ved invertering skal den **store** kvantilen ($\\chi^2_{20,0{,}05}=31{,}41$) stå i **nedre** grense.\n3. **Endepunktene i gal rekkefølge:** kollegaen skriver $[42{,}6,\\ 9{,}17]$ — nedre grense større enn øvre, som er umulig.\n\nKorrekt: $2\\sum x_i=168$,\n$$\\mu\\in\\left[\\frac{168}{31{,}41},\\ \\frac{168}{10{,}85}\\right]=[5{,}35,\\ 15{,}48].$$\nPunktestimatet 8,4 ligger inni, og intervallet er asymmetrisk (korrekt).",
+        "hints": [
+          "Sjekk frihetsgraden først: eksponensial → $2n$.",
+          "Ved invertering bytter endepunktene plass — stor kvantil i nedre grense.",
+          "En KI-nedre grense kan aldri være større enn øvre; det avslører rekkefølgefeilen."
+        ]
+      }
+    },
+    {
+      "id": "stk1100-6-3-warning-typiske",
+      "type": "warning",
+      "title": "Typiske feil",
+      "content": "- **Frihetsgrad $2n$ vs. $n$.** Eksponensial/Pareto: $2n$. Normal med kjent $\\mu$: $n$. Gamma$(\\alpha,\\beta)$ med kjent $\\alpha$: $2n\\alpha$. Weibull: gamma$(n,1)$. Les hvilken pivot oppgaven gir.\n- **Miste tråden mellom leddene.** Bruk samme $\\hat\\theta$ og samme $\\sum x_i$ konsekvent gjennom hele kjeden — ikke bland estimat fra ett delpunkt inn i et annet.\n- **Glemme skjevhetskorreksjonen.** Rot-/potensestimatorer (Weibull-$\\hat\\beta$, $\\sqrt{\\hat\\sigma^2}$) er skjeve; del ut $\\Gamma$-faktoren når oppgaven ber om en forventningsrett estimator.\n- **Ikke snu ulikheten ved invertering.** Står parameteren i nevneren (forventningsform, $\\beta^\\alpha$), bytter endepunktene plass — stor kvantil i nedre grense.\n- **Melde Wald som «best» for liten $n$.** Wald er et alternativ; det eksakte foretrekkes ved lav/moderat $n$ (bedre dekning).\n- **Glemme tolkningen.** Avslutt alltid med tallsvar, enhet og en setnings tolkning (og avledet størrelse der oppgaven ber om det)."
+    },
+    {
+      "id": "stk1100-6-3-kort-notis",
+      "type": "text",
+      "content": "## Oppskriftskort — kjeden komprimert\n\n*Flashcard-/repetisjonsstoff — hopp trygt over ved førstegangslesing; tidsanslaget gjelder kjernestoffet og drilloppgavene. Kortene er hele kjeden i lommeformat.*"
+    },
+    {
+      "id": "stk1100-6-3-kort-1",
+      "type": "definition",
+      "title": "Kjeden i åtte trinn — kortet",
+      "content": "Hele den store oppgaven: **1** modelldefinisjon → **2** ML-estimator → **3** forventningsretthet + skjevhetskorreksjon + varians → **4** transformasjon til gamma/$\\chi^2$-pivot → **5** eksakt pivotal-KI → **6** CLT/Wald + dekning → **7** bootstrap-SE → **8** tallsvar med tolkning. Følg rekkefølgen; hvert trinn gir uttelling."
+    },
+    {
+      "id": "stk1100-6-3-kort-2",
+      "type": "definition",
+      "title": "Modelldefinisjon — kortet",
+      "content": "Åpne ALLTID med «La $X_i = \\ldots$, iid med fordeling $\\ldots$, parameter $\\ldots$» (sensorkrav 1). For eksponensial: si **rate** ($\\lambda e^{-\\lambda x}$) eller **forventning** ($\\tfrac1\\mu e^{-x/\\mu}$). Uten definerte variable regnes svaret som ufullstendig."
+    },
+    {
+      "id": "stk1100-6-3-kort-3",
+      "type": "definition",
+      "title": "ML-leddet — kortet",
+      "content": "Likelihood over ALLE $n$ obs, log, deriver, løs:\n\n$$\\ell(\\theta)=\\sum_{i=1}^n\\ln f(x_i;\\theta),\\quad \\ell'(\\hat\\theta)=0.$$\n\nStandardsvar: $\\hat\\mu=\\bar X$ (eksp. forventning), $\\hat\\lambda=n/\\sum x_i$ (rate), $\\hat\\theta=n/\\sum\\ln(x_i/k)$ (Pareto)."
+    },
+    {
+      "id": "stk1100-6-3-kort-4",
+      "type": "definition",
+      "title": "Forventningsretthet + skjevhetskorreksjon — kortet",
+      "content": "Regn $E(\\hat\\theta)$. Er $E(\\hat\\theta)=c\\theta$ med $c\\ne 1$, er $\\hat\\theta/c$ forventningsrett. For rot/potens: bruk\n\n$$E(V^r)=\\beta^r\\frac{\\Gamma(\\alpha+r)}{\\Gamma(\\alpha)}$$\n\ntil å finne $\\Gamma$-faktoren (Weibull-$\\hat\\beta$, $\\sqrt{\\hat\\sigma^2}$)."
+    },
+    {
+      "id": "stk1100-6-3-kort-5",
+      "type": "definition",
+      "title": "Transformasjon til pivot — kortet",
+      "content": "Frihetsgrad-tabellen for pivoten:\n\n| Modell | Pivot | Fordeling |\n|---|---|---|\n| Eksp. (forventn.) | $2\\sum X_i/\\mu$ | $\\chi^2_{2n}$ |\n| Normal, kjent $\\mu$ | $\\sum(X_i-\\mu)^2/\\sigma^2$ | $\\chi^2_n$ |\n| Gamma, kjent $\\alpha$ | $2\\sum X_i/\\beta$ | $\\chi^2_{2n\\alpha}$ |\n| Weibull, kjent $\\alpha$ | $\\sum(X_i/\\beta)^\\alpha$ | gamma$(n,1)$ |\n| Pareto, kjent $k$ | $2\\theta\\sum\\ln(X_i/k)$ | $\\chi^2_{2n}$ |"
+    },
+    {
+      "id": "stk1100-6-3-kort-6",
+      "type": "definition",
+      "title": "Eksakt pivotal-KI — kortet",
+      "content": "Sett kvantiler rundt pivoten og løs for parameteren. For eksponensiell forventning:\n\n$$\\mu\\in\\left[\\frac{2\\sum x_i}{\\chi^2_{2n,\\alpha/2}},\\ \\frac{2\\sum x_i}{\\chi^2_{2n,1-\\alpha/2}}\\right].$$\n\n**Invertering snur** (stor kvantil i nedre grense); intervallet er ofte asymmetrisk."
+    },
+    {
+      "id": "stk1100-6-3-kort-7",
+      "type": "definition",
+      "title": "CLT/Wald-alternativet — kortet",
+      "content": "$\\hat\\theta\\pm z_{\\alpha/2}\\widehat{\\text{SE}}$ — symmetrisk, CLT-basert. Foretrekk **eksakt ved lav/moderat $n$** (bedre dekning), Wald ved stor $n$. For eksponensial: $\\widehat{\\text{SE}}(\\hat\\mu)=\\bar X/\\sqrt n$."
+    },
+    {
+      "id": "stk1100-6-3-kort-8",
+      "type": "definition",
+      "title": "Eksakt-vs-Wald-dekning — kortet",
+      "content": "V2024: eksponensial, nominelt 95 %, $n=10$ → eksakt dekker **95,9 %**, Wald **91,1 %**; $n=100$ → begge ca. **94 %**. Poeng: et smalere Wald-intervall som underdekker er ikke «best» — velg eksakt for liten $n$."
+    },
+    {
+      "id": "stk1100-6-3-kort-9",
+      "type": "definition",
+      "title": "Bootstrap-SE — kortet",
+      "content": "**Parametrisk bootstrap:** trekk $B$ utvalg à $n$ fra modellen med $\\hat\\theta$ innsatt, regn $\\hat\\theta^*$ i hvert, bruk standardavviket (`ddof=1`) til $\\hat\\theta^*$-ene som SE. Numerisk alternativ til analytisk SE (fullføres i [kap. 7.2](/bok/stk1100/stk1100-7-2))."
+    },
+    {
+      "id": "stk1100-6-3-kort-10",
+      "type": "definition",
+      "title": "Tallsvar med tolkning — kortet",
+      "content": "Avslutt kjeden med tall, **enhet** og en **tolkende setning**: «Vi er 95 % konfidente på at forventet konsentrasjon ligger mellom 4,1 og 11,4 mg/l.» Transformer til median/kvantil der oppgaven ber om det (monoton funksjon — snu hvis avtakende)."
+    },
+    {
+      "id": "stk1100-6-3-symbolliste",
+      "type": "collapsible",
+      "title": "Symbol- og formelliste",
+      "buttonText": "Vis symboler og formler",
+      "content": [
+        {
+          "id": "stk1100-6-3-symbol-tekst",
+          "type": "text",
+          "content": "*Oppslagsverk — alt her forklares underveis i kapitlet.*\n\n| Symbol | Betydning |\n|---|---|\n| $X_1,\\ldots,X_n$ | Uavhengige, identisk fordelte observasjoner (iid) |\n| $\\hat\\theta,\\ \\hat\\mu,\\ \\hat\\beta,\\ \\hat\\lambda$ | ML-estimatorer |\n| $\\tilde\\beta$ | Skjevhetskorrigert (forventningsrett) estimator |\n| $\\bar X$ | Utvalgsgjennomsnitt |\n| $\\mu,\\ \\lambda$ | Eksponensiell forventning / rate |\n| $\\beta,\\ \\alpha$ | Skala- og formparameter (gamma/Weibull) |\n| $\\theta,\\ k$ | Pareto formparameter / kjent minsteverdi |\n| $\\sigma^2$ | Varians (normal med kjent $\\mu$) |\n| $W$ | Pivotal størrelse |\n| $T$ | $\\sum\\ln(X_i/k)$ (Pareto log-sum) |\n| $\\widehat{\\text{SE}}$ | Estimert standardfeil |\n| $\\chi^2_{\\nu,\\alpha},\\ z_\\alpha$ | Kvantiler, øvre haleareal |\n| $\\Gamma(\\cdot)$ | Gammafunksjonen (skjevhetskorreksjon) |\n\n**Formler i dette kapitlet:**\n\n$$\\ell(\\theta)=\\sum_{i=1}^n\\ln f(x_i;\\theta),\\quad \\ell'(\\hat\\theta)=0 \\qquad \\text{(ML)}$$\n\n$$E(V^r)=\\beta^r\\frac{\\Gamma(\\alpha+r)}{\\Gamma(\\alpha)},\\ V\\sim\\text{gamma}(\\alpha,\\beta) \\qquad \\text{(skjevhetskorreksjon)}$$\n\n$$\\frac{2\\sum X_i}{\\mu}\\sim\\chi^2_{2n},\\quad \\sum(X_i/\\beta)^\\alpha\\sim\\text{gamma}(n,1),\\quad 2\\theta\\sum\\ln(X_i/k)\\sim\\chi^2_{2n} \\qquad \\text{(pivoter)}$$\n\n$$\\mu\\in\\left[\\frac{2\\sum x_i}{\\chi^2_{2n,\\alpha/2}},\\ \\frac{2\\sum x_i}{\\chi^2_{2n,1-\\alpha/2}}\\right] \\qquad \\text{(eksakt KI)}$$\n\n$$\\hat\\theta\\pm z_{\\alpha/2}\\widehat{\\text{SE}} \\qquad \\text{(Wald-alternativ)}$$\n\n$$m=\\mu\\ln 2\\ (\\text{eksp.}),\\quad m=k\\cdot 2^{1/\\theta}\\ (\\text{Pareto}) \\qquad \\text{(median, for KI-transformasjon)}$$"
+        }
+      ]
+    }
+  ],
+  "exercises": []
+}

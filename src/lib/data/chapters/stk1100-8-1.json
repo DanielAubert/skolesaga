@@ -1,0 +1,445 @@
+{
+  "id": "stk1100-8-1",
+  "courseId": "stk1100",
+  "chapterNumber": "8.1",
+  "title": "Kovarians, korrelasjon og binormalfordelingen",
+  "description": "Kovarians og korrelasjon i lineærkombinasjoner, og binormalfordelingen der rho=0 betyr uavhengighet og den betingede fordelingen er en lineær regresjonsmodell.",
+  "estimatedMinutes": 55,
+  "competenceGoals": [
+    "regne kovarians og korrelasjon og bruke kovariansleddet i variansen til en lineærkombinasjon",
+    "beskrive binormalfordelingen ved dens fem parametre og forklare hvorfor rho=0 der betyr uavhengighet",
+    "bruke den betingede fordelingen i en binormal til å finne betinget forventning og varians",
+    "gjenkjenne den betingede forventningen som en lineær regresjonsmodell"
+  ],
+  "content": [
+    {
+      "id": "stk1100-8-1-tip-eksamensvinkel",
+      "type": "tip",
+      "title": "Eksamensvinkel",
+      "content": "**Del 8 er A-differensiatorene** — stoffet som skiller de sterkeste besvarelsene. Du kommer langt på eksamen uten det, men det åpner de siste poengene.\n\n- **Kovarians og korrelasjon** dukker eksplisitt opp i **2 av 10 sett (20 %)** (V2015, V2022), men regnereglene for lineærkombinasjoner er verktøyet i praktisk talt hver oppgave.\n- **Normal- og binormalfordelingen** brukes som verktøy i **omtrent 8 av 10 sett (80 %)**; binormalen eksplisitt i V2022 — nettopp som broen til regresjon (kap. 8.3).\n\nMålet med kapitlet: kunne regne kovarians og korrelasjon, håndtere kovariansleddet i $\\text{Var}(aX+bY)$, og **bruke** binormalfordelingens to signaturegenskaper: at $\\rho=0$ her faktisk betyr uavhengighet, og at den betingede fordelingen $[Y\\mid X=x]$ er en ferdig lineær regresjonsmodell.\n\nBinormaltettheten og standardnormaltabellen ($\\Phi$) står i formelsamlingen — du skal **kjenne igjen og bruke** dem, ikke pugge dem. Kovariansreglene må derimot sitte i hodet: de står ikke i brukbar form i formelsamlingen."
+    },
+    {
+      "id": "stk1100-8-1-forkunnskaper",
+      "type": "text",
+      "content": "**Forkunnskaper:** Dette kapitlet bygger på **[kap. 1.2 Stokastiske variable, forventning og varians](/bok/stk1100/stk1100-1-2)** — forventning, varians, og regnereglene for lineærkombinasjoner — og på **[kap. 3.1 Simultantetthet](/bok/stk1100/stk1100-3-1)**, der marginaltetthet, betinget tetthet og betinget forventning ble innført.\n\n**Sist du var her (fra kap. 1.2):** de tre reglene vi bygger videre på:\n\n$$\\text{Cov}(X,Y)=E(XY)-E(X)E(Y)$$\n$$\\text{Var}(aX+bY)=a^2\\text{Var}(X)+b^2\\text{Var}(Y)+2ab\\,\\text{Cov}(X,Y)$$\n$$\\rho=\\frac{\\text{Cov}(X,Y)}{\\sqrt{\\text{Var}(X)\\text{Var}(Y)}}$$\n\nHovedpoenget den gang var kovariansleddet $2ab\\,\\text{Cov}(X,Y)$: det er null når $X$ og $Y$ er uavhengige, men må med når de samvarierer. Fra kap. 3.1 tar vi med at den betingede forventningen $E(Y\\mid X=x)$ regnes fra den betingede tettheten $f_{Y\\mid X=x}(y)=f(x,y)/f_X(x)$."
+    },
+    {
+      "id": "stk1100-8-1-intro",
+      "type": "text",
+      "content": "To variable **samvarierer** når høye verdier av den ene har en tendens til å opptre sammen med høye (eller lave) verdier av den andre. Kovariansen og korrelasjonen tallfester denne tendensen, og de er byggesteinene under to ting eksamen elsker: variansen til en sum av avhengige variable, og **prediksjon** — å gjette $Y$ når man har observert $X$.\n\nKapitlet er bygget som tre **læringsløkker**. Løkke 1 (~18 min) frisker opp kovarians og korrelasjon og fester kovariansleddet i variansregelen. Løkke 2 (~18 min) innfører binormalfordelingen og dens spesielle egenskap $\\rho=0\\Leftrightarrow$ uavhengighet. Løkke 3 (~19 min) viser at den betingede fordelingen i en binormal ER en lineær regresjonsmodell — broen til kap. 8.2 og 8.3. Hver løkke går teori → eksempel → oppgave."
+    },
+    {
+      "id": "stk1100-8-1-lokke1-tekst",
+      "type": "text",
+      "content": "## Løkke 1 — Kovarians, korrelasjon og variansen til en sum (~18 min)"
+    },
+    {
+      "id": "stk1100-8-1-def-kovarians",
+      "type": "definition",
+      "title": "Kovarians",
+      "content": "Kovariansen måler om to variable svinger i takt: er den positiv, følges høye $X$-verdier av høye $Y$-verdier; er den negativ, følges høye $X$ av lave $Y$. I symboler:\n\n$$\\text{Cov}(X,Y)=E[(X-\\mu_X)(Y-\\mu_Y)]=E(XY)-E(X)E(Y)$$\n\nDen andre formen (regneformelen) er den du bruker i praksis. Merk at $\\text{Cov}(X,X)=\\text{Var}(X)$: variansen er bare kovariansen til en variabel med seg selv. Enheten på kovariansen er produktet av enhetene til $X$ og $Y$, så tallet er vanskelig å tolke alene — derfor standardiserer vi til korrelasjon."
+    },
+    {
+      "id": "stk1100-8-1-def-korrelasjon",
+      "type": "definition",
+      "title": "Korrelasjonskoeffisienten",
+      "content": "Korrelasjonen er kovariansen skalert til et **enhetsløst tall mellom $-1$ og $1$**, slik at styrken på samvariasjonen kan sammenlignes på tvers av størrelser:\n\n$$\\rho=\\text{Corr}(X,Y)=\\frac{\\text{Cov}(X,Y)}{\\sqrt{\\text{Var}(X)\\text{Var}(Y)}},\\qquad -1\\le\\rho\\le 1$$\n\n$\\rho>0$ betyr positiv samvariasjon, $\\rho<0$ negativ, og $\\rho=0$ at variablene er **ukorrelerte**. Verdien $\\rho=\\pm 1$ inntreffer kun når $Y$ er en eksakt lineær funksjon av $X$. Korrelasjonen fanger bare den **lineære** delen av sammenhengen."
+    },
+    {
+      "id": "stk1100-8-1-def-varregel",
+      "type": "definition",
+      "title": "Variansregelen for en lineærkombinasjon",
+      "content": "Variansen til en vektet sum har et **kovariansledd** som må med når variablene samvarierer:\n\n$$\\text{Var}(aX+bY)=a^2\\text{Var}(X)+b^2\\text{Var}(Y)+2ab\\,\\text{Cov}(X,Y)$$\n\nTre feller å huske: koeffisientene kommer inn i **andre potens** ($a^2$, $b^2$); kovariansleddet har faktoren $2ab$ (så for $X-Y$ er $b=-1$ og leddet blir $-2\\,\\text{Cov}$); og leddet er **null bare når $X$ og $Y$ er uavhengige (eller ukorrelerte)**. Er de uavhengige, forenkles regelen til $a^2\\text{Var}(X)+b^2\\text{Var}(Y)$."
+    },
+    {
+      "id": "stk1100-8-1-def-bilinear",
+      "type": "definition",
+      "title": "Regnereglene for kovarians (bilinearitet og skalering)",
+      "content": "Kovariansen er **lineær i hvert argument** og upåvirket av konstantledd, noe som gjør regningen med sammensatte uttrykk grei:\n\n$$\\text{Cov}(aX+b,\\,cY+d)=ac\\,\\text{Cov}(X,Y)$$\n$$\\text{Cov}(X,\\,Y+Z)=\\text{Cov}(X,Y)+\\text{Cov}(X,Z)$$\n\nKonstantene $b$ og $d$ forsvinner (en konstant samvarierer ikke med noe), mens skalafaktorene $a$ og $c$ multipliseres inn. Korrelasjonen er derimot **invariant** under positiv lineær skalering: $\\text{Corr}(aX+b,cY+d)=\\text{Corr}(X,Y)$ når $a,c>0$."
+    },
+    {
+      "id": "stk1100-8-1-ex1",
+      "type": "example",
+      "title": "Eksempel 1: Forventning, varians og korrelasjon for en lineærkombinasjon",
+      "problem": "To variable har $E(X)=3$, $E(Y)=5$, $\\text{Var}(X)=4$, $\\text{Var}(Y)=9$ og $\\text{Cov}(X,Y)=-2$. Finn korrelasjonen $\\rho$, samt $E(2X-Y)$ og $\\text{Var}(2X-Y)$.",
+      "solution": "**Korrelasjon:**\n$$\\rho=\\frac{\\text{Cov}(X,Y)}{\\sqrt{\\text{Var}(X)\\text{Var}(Y)}}=\\frac{-2}{\\sqrt{4\\cdot 9}}=\\frac{-2}{6}=-\\tfrac13\\approx-0{,}33.$$\nSvakt negativ samvariasjon.\n\n**Forventning** (lineær, ingen kovarians inn her):\n$$E(2X-Y)=2E(X)-E(Y)=2\\cdot 3-5=1.$$\n\n**Varians** (her MÅ kovariansleddet med, med $a=2$, $b=-1$):\n$$\\text{Var}(2X-Y)=2^2\\text{Var}(X)+(-1)^2\\text{Var}(Y)+2\\cdot 2\\cdot(-1)\\,\\text{Cov}(X,Y)$$\n$$=4\\cdot 4+1\\cdot 9-4\\cdot(-2)=16+9+8=33.$$\nMerk at kovariansleddet ble **positivt** ($-4\\cdot(-2)=+8$) fordi både $b$ og $\\text{Cov}$ er negative — en typisk fortegnsfelle."
+    },
+    {
+      "id": "stk1100-8-1-l1",
+      "type": "exercise",
+      "exercise": {
+        "id": "stk1100-8-1-l1",
+        "number": "1",
+        "type": "classic",
+        "difficulty": "lett",
+        "task": "(Innstegsoppgave — ren bruk av definisjonen.) To variable har $\\text{Var}(X)=16$, $\\text{Var}(Y)=25$ og $\\text{Cov}(X,Y)=12$. Finn korrelasjonskoeffisienten $\\rho$, og si om samvariasjonen er positiv eller negativ.",
+        "solution": "$$\\rho=\\frac{\\text{Cov}(X,Y)}{\\sqrt{\\text{Var}(X)\\text{Var}(Y)}}=\\frac{12}{\\sqrt{16\\cdot 25}}=\\frac{12}{20}=0{,}6.$$\nPositiv korrelasjon ($\\rho=0{,}6>0$): høye $X$-verdier opptrer sammen med høye $Y$-verdier.",
+        "hints": [
+          "Sett inn i $\\rho=\\text{Cov}/\\sqrt{\\text{Var}(X)\\text{Var}(Y)}$.",
+          "Nevneren er $\\sqrt{16\\cdot 25}=\\sqrt{400}$."
+        ]
+      }
+    },
+    {
+      "id": "stk1100-8-1-l2",
+      "type": "exercise",
+      "exercise": {
+        "id": "stk1100-8-1-l2",
+        "number": "2",
+        "type": "classic",
+        "difficulty": "lett",
+        "task": "To variable har $\\text{Var}(X)=6$, $\\text{Var}(Y)=2$ og $\\text{Cov}(X,Y)=1{,}5$.\n\n**a)** Finn $\\text{Var}(X+Y)$.\n\n**b)** Hva ville $\\text{Var}(X+Y)$ vært dersom $X$ og $Y$ var uavhengige?",
+        "solution": "**a)** Med kovariansleddet ($a=b=1$):\n$$\\text{Var}(X+Y)=\\text{Var}(X)+\\text{Var}(Y)+2\\,\\text{Cov}(X,Y)=6+2+2\\cdot 1{,}5=11.$$\n\n**b)** Uavhengige variable er ukorrelerte, så $\\text{Cov}(X,Y)=0$ og kovariansleddet faller bort:\n$$\\text{Var}(X+Y)=6+2=8.$$\nDen positive kovariansen øker altså variansen til summen.",
+        "hints": [
+          "$\\text{Var}(X+Y)=\\text{Var}(X)+\\text{Var}(Y)+2\\,\\text{Cov}(X,Y)$.",
+          "Uavhengig $\\Rightarrow$ $\\text{Cov}=0$, så leddet forsvinner."
+        ]
+      }
+    },
+    {
+      "id": "stk1100-8-1-m1",
+      "type": "exercise",
+      "exercise": {
+        "id": "stk1100-8-1-m1",
+        "number": "3",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "To variable har $E(X)=2$, $E(Y)=7$, $\\text{Var}(X)=5$, $\\text{Var}(Y)=4$ og $\\text{Cov}(X,Y)=-1{,}5$.\n\n**a)** Finn $E(3X+2Y)$ og $\\text{Var}(3X+2Y)$.\n\n**b)** Finn korrelasjonen $\\rho$.",
+        "solution": "**a)** Forventning:\n$$E(3X+2Y)=3\\cdot 2+2\\cdot 7=20.$$\nVarians med $a=3$, $b=2$:\n$$\\text{Var}(3X+2Y)=9\\cdot 5+4\\cdot 4+2\\cdot 3\\cdot 2\\cdot(-1{,}5)=45+16-18=43.$$\n\n**b)**\n$$\\rho=\\frac{-1{,}5}{\\sqrt{5\\cdot 4}}=\\frac{-1{,}5}{\\sqrt{20}}\\approx-0{,}335.$$",
+        "hints": [
+          "Kvadrer koeffisientene: $9\\text{Var}(X)+4\\text{Var}(Y)$.",
+          "Kovariansleddet er $2\\cdot 3\\cdot 2\\cdot\\text{Cov}$.",
+          "$\\sqrt{20}\\approx 4{,}47$."
+        ]
+      }
+    },
+    {
+      "id": "stk1100-8-1-lokke2-tekst",
+      "type": "text",
+      "content": "## Løkke 2 — Binormalfordelingen og $\\rho=0\\Leftrightarrow$ uavhengighet (~18 min)"
+    },
+    {
+      "id": "stk1100-8-1-binormal-motiv",
+      "type": "text",
+      "content": "Fra kap. 1.2 husker vi en viktig advarsel: **uavhengig medfører ukorrelert, men ikke omvendt** — to variable kan ha $\\rho=0$ og likevel være avhengige. Det finnes én sentral unntaksfordeling der ukorrelert faktisk betyr uavhengig: **binormalfordelingen** (den todimensjonale normalfordelingen). Det er også fordelingen som ligger under de fleste normal-baserte oppgavene, og den kobler samvariasjon direkte til regresjon."
+    },
+    {
+      "id": "stk1100-8-1-def-binormal",
+      "type": "definition",
+      "title": "Binormalfordelingen (parametrene)",
+      "content": "Et par $(X,Y)$ er **binormalfordelt** når det beskrives av fem parametre: forventningene og variansene til hver variabel, pluss korrelasjonen mellom dem:\n\n$$(X,Y)\\sim\\text{binormal}(\\mu_1,\\mu_2,\\sigma_1^2,\\sigma_2^2,\\rho)$$\n\nHer er $\\mu_1=E(X)$, $\\mu_2=E(Y)$, $\\sigma_1^2=\\text{Var}(X)$, $\\sigma_2^2=\\text{Var}(Y)$ og $\\rho=\\text{Corr}(X,Y)$ med $-1<\\rho<1$. De fem tallene bestemmer hele fordelingen. Dette er den vanligste modellen for to naturlig samvarierende måltall (høyder, vekter, konsentrasjoner)."
+    },
+    {
+      "id": "stk1100-8-1-def-binormaltetthet",
+      "type": "definition",
+      "title": "Den bivariate normaltettheten (til bruk)",
+      "content": "Selve tetthetsformelen står i formelsamlingen og skal **brukes/gjenkjennes**, ikke pugges eller utledes:\n\n$$f(x,y)=\\frac{1}{2\\pi\\sigma_1\\sigma_2\\sqrt{1-\\rho^2}}\\exp\\!\\left(-\\frac{1}{2(1-\\rho^2)}\\left[\\frac{(x-\\mu_1)^2}{\\sigma_1^2}-\\frac{2\\rho(x-\\mu_1)(y-\\mu_2)}{\\sigma_1\\sigma_2}+\\frac{(y-\\mu_2)^2}{\\sigma_2^2}\\right]\\right)$$\n\nDet viktige poenget er strukturelt: **når $\\rho=0$**, forsvinner krysseleddet, og eksponenten deler seg i en ren $x$-del og en ren $y$-del. Da faktoriserer tettheten, $f(x,y)=f_X(x)f_Y(y)$ — nettopp definisjonen på uavhengighet."
+    },
+    {
+      "id": "stk1100-8-1-def-marginaler",
+      "type": "definition",
+      "title": "Marginalfordelingene i en binormal",
+      "content": "Begge marginalfordelingene til en binormal er **selv normale**:\n\n$$X\\sim N(\\mu_1,\\sigma_1^2),\\qquad Y\\sim N(\\mu_2,\\sigma_2^2).$$\n\nDet betyr at du kan standardisere hver variabel for seg med $\\Phi$ akkurat som vanlig. (Det motsatte gjelder ikke generelt: to normale marginaler garanterer ikke at paret er binormalt.)"
+    },
+    {
+      "id": "stk1100-8-1-def-rho0",
+      "type": "definition",
+      "title": "$\\rho=0\\Leftrightarrow$ uavhengighet for binormale",
+      "content": "For en binormalfordeling — og **kun** for den blant fordelingene vi møter — er ukorrelert det samme som uavhengig:\n\n$$\\rho=0\\quad\\Longleftrightarrow\\quad X\\text{ og }Y\\text{ er uavhengige}.$$\n\nDette er kontrasten til den generelle regelen fra kap. 1.2 (der ukorrelert ikke gir uavhengig). Grunnen er at binormaltettheten faktoriserer nøyaktig når krysseleddet $\\rho=0$ nuller ut. Merk betingelsen: at variablene hver for seg er normale er **ikke** nok — de må være **binormale sammen** for at implikasjonen skal gjelde."
+    },
+    {
+      "id": "stk1100-8-1-ex2",
+      "type": "example",
+      "title": "Eksempel 2: Ukorrelert og uavhengig i binormalen",
+      "problem": "Anta at $(X,Y)$ er binormalfordelt med $\\rho=0$. Forklar hvorfor $X$ og $Y$ da er uavhengige, og hvorfor du ikke kunne trukket samme konklusjon dersom du bare visste at $X$ og $Y$ var ukorrelerte uten å vite at de var binormale.",
+      "solution": "**Hvorfor uavhengige når $\\rho=0$:** Sett $\\rho=0$ inn i binormaltettheten. Krysseleddet $-\\frac{2\\rho(x-\\mu_1)(y-\\mu_2)}{\\sigma_1\\sigma_2}$ blir null, og eksponenten reduseres til $-\\frac12\\big[\\frac{(x-\\mu_1)^2}{\\sigma_1^2}+\\frac{(y-\\mu_2)^2}{\\sigma_2^2}\\big]$. Da splittes tettheten i et produkt:\n$$f(x,y)=\\underbrace{\\frac{1}{\\sqrt{2\\pi}\\sigma_1}e^{-(x-\\mu_1)^2/2\\sigma_1^2}}_{f_X(x)}\\cdot\\underbrace{\\frac{1}{\\sqrt{2\\pi}\\sigma_2}e^{-(y-\\mu_2)^2/2\\sigma_2^2}}_{f_Y(y)}.$$\nSiden $f(x,y)=f_X(x)f_Y(y)$ for alle $(x,y)$, er $X$ og $Y$ uavhengige.\n\n**Hvorfor ikke generelt:** Ukorrelert betyr bare $\\text{Cov}(X,Y)=0$, altså at den *lineære* samvariasjonen er null. Uten binormal-antakelsen kan variablene fortsatt være avhengige gjennom en ikke-lineær sammenheng (et standardmoteksempel er $Y=X^2$ med symmetrisk $X$, der $\\text{Cov}=0$ men $Y$ er fullstendig bestemt av $X$). Det er faktoriseringen av binormaltettheten som gjør implikasjonen gyldig her."
+    },
+    {
+      "id": "stk1100-8-1-m2",
+      "type": "exercise",
+      "exercise": {
+        "id": "stk1100-8-1-m2",
+        "number": "4",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "$(X,Y)$ er binormalfordelt med $\\sigma_1=2$, $\\sigma_2=3$ og $\\text{Cov}(X,Y)=0$.\n\n**a)** Er $X$ og $Y$ uavhengige? Begrunn.\n\n**b)** Finn $\\text{Var}(X+Y)$ og $\\text{Var}(X-Y)$.",
+        "solution": "**a)** $\\text{Cov}(X,Y)=0$ gir $\\rho=0$. Siden paret er **binormalt**, medfører $\\rho=0$ uavhengighet. Ja, $X$ og $Y$ er uavhengige.\n\n**b)** Med $\\text{Cov}=0$ faller kovariansleddet bort begge veier:\n$$\\text{Var}(X+Y)=\\sigma_1^2+\\sigma_2^2=4+9=13,$$\n$$\\text{Var}(X-Y)=\\sigma_1^2+\\sigma_2^2=4+9=13.$$\nDe er like nettopp fordi kovariansen er null.",
+        "hints": [
+          "$\\text{Cov}=0\\Rightarrow\\rho=0$; nøkkelordet er *binormal*.",
+          "Uten kovariansledd blir $\\text{Var}(X+Y)=\\text{Var}(X-Y)$."
+        ]
+      }
+    },
+    {
+      "id": "stk1100-8-1-pausepunkt",
+      "type": "text",
+      "content": "— naturlig pausepunkt —\n\nDu har nå kovariansreglene og binormalens uavhengighetsegenskap. Siste løkke kobler dette til prediksjon: hva er det beste gjettet på $Y$ når du har sett $X$?"
+    },
+    {
+      "id": "stk1100-8-1-lokke3-tekst",
+      "type": "text",
+      "content": "## Løkke 3 — Den betingede fordelingen er en regresjonsmodell (~19 min)"
+    },
+    {
+      "id": "stk1100-8-1-betinget-motiv",
+      "type": "text",
+      "content": "Fra kap. 3.1 vet vi at når vi har observert $X=x$, beskrives $Y$ av den betingede tettheten $f_{Y\\mid X=x}(y)$, med betinget forventning $E(Y\\mid X=x)$. For en binormal har denne betingede fordelingen en spesielt enkel form — den er **selv normal**, med en forventning som er **lineær i $x$**. Det er dette som gjør binormalen til broen mellom samvariasjon og regresjon."
+    },
+    {
+      "id": "stk1100-8-1-def-betinget-fordeling",
+      "type": "definition",
+      "title": "Den betingede fordelingen i en binormal (til bruk)",
+      "content": "Gitt $X=x$ er $Y$ **normalfordelt** med en forventning som flytter seg lineært med $x$ og en varians som er den samme for alle $x$:\n\n$$[Y\\mid X=x]\\sim N\\!\\left(\\mu_2+\\rho\\frac{\\sigma_2}{\\sigma_1}(x-\\mu_1),\\;\\sigma_2^2(1-\\rho^2)\\right)$$\n\nDette resultatet leses av formelsamlingen og **brukes** — det utledes ikke på STK1100-nivå. Legg merke til de to delene: en betinget forventning som er en rett linje i $x$, og en betinget varians som er redusert med faktoren $(1-\\rho^2)$ og **ikke avhenger av $x$**."
+    },
+    {
+      "id": "stk1100-8-1-def-betinget-forventning",
+      "type": "definition",
+      "title": "Betinget forventning som regresjonslinje",
+      "content": "Den betingede forventningen er den **beste prediksjonen** av $Y$ gitt $X=x$, og for binormalen er den en rett linje:\n\n$$E(Y\\mid X=x)=\\mu_2+\\rho\\frac{\\sigma_2}{\\sigma_1}(x-\\mu_1)$$\n\nDette er en ferdig **lineær regresjonsmodell** med skjæringspunkt $\\mu_2-\\rho\\frac{\\sigma_2}{\\sigma_1}\\mu_1$ og stigningstall $\\beta=\\rho\\frac{\\sigma_2}{\\sigma_1}$. I den standardiserte binormalen ($\\mu_1=\\mu_2=0$, $\\sigma_1=\\sigma_2=1$) forenkles den til $E(Y\\mid X=x)=\\rho x$. Nettopp denne linjen estimeres fra data i kap. 8.3."
+    },
+    {
+      "id": "stk1100-8-1-def-betinget-varians",
+      "type": "definition",
+      "title": "Betinget varians $\\sigma_2^2(1-\\rho^2)$",
+      "content": "Kunnskap om $X$ **reduserer** usikkerheten om $Y$: den betingede variansen er alltid mindre enn (eller lik) den marginale variansen $\\sigma_2^2$:\n\n$$\\text{Var}(Y\\mid X=x)=\\sigma_2^2(1-\\rho^2)$$\n\nJo sterkere korrelasjon (jo nærmere $\\rho^2$ er 1), desto mer skrumper usikkerheten. Ved $\\rho=0$ er $\\text{Var}(Y\\mid X=x)=\\sigma_2^2$ — å kjenne $X$ hjelper ikke, i tråd med at variablene da er uavhengige. Ved $\\rho=\\pm 1$ er den betingede variansen $0$: $Y$ er da eksakt bestemt av $X$. Merk fellen: den betingede variansen er $\\sigma_2^2(1-\\rho^2)$, **ikke** $\\sigma_2^2$."
+    },
+    {
+      "id": "stk1100-8-1-ex3",
+      "type": "example",
+      "title": "Eksempel 3: Betinget forventning og varians i standardisert binormal",
+      "problem": "$(X,Y)$ er binormalfordelt med $\\mu_1=\\mu_2=0$, $\\sigma_1=\\sigma_2=1$ og korrelasjon $\\rho=0{,}6$.\n\n**a)** Finn $E(Y\\mid X=2)$ og $\\text{Var}(Y\\mid X=2)$.\n\n**b)** Forklar hvorfor $\\rho=0$ her ville gitt uavhengighet, og hva som skjer med prediksjonen da.",
+      "solution": "**a)** Med standardiserte parametre forenkles regresjonslinjen til $E(Y\\mid X=x)=\\rho x$:\n$$E(Y\\mid X=2)=0{,}6\\cdot 2=1{,}2.$$\nBetinget varians:\n$$\\text{Var}(Y\\mid X=2)=\\sigma_2^2(1-\\rho^2)=1\\cdot(1-0{,}36)=0{,}64.$$\nDen er den samme for enhver $x$ (homoskedastisitet). Å kjenne $X=2$ krymper usikkerheten om $Y$ fra $1$ (marginalt) til $0{,}64$.\n\n**b)** Ved $\\rho=0$ er paret ukorrelert, og siden det er binormalt, dermed uavhengig. Da blir $E(Y\\mid X=x)=0=\\mu_2$ for alle $x$ — observasjonen av $X$ gir ingen informasjon, og beste gjett på $Y$ er bare den marginale forventningen. Den betingede variansen blir $\\sigma_2^2(1-0)=1$, altså uendret fra marginalen: null reduksjon i usikkerhet."
+    },
+    {
+      "id": "stk1100-8-1-m3",
+      "type": "exercise",
+      "exercise": {
+        "id": "stk1100-8-1-m3",
+        "number": "5",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "En blodprøve gir to samvarierende måltall $(X,Y)$ som er binormalfordelt med $\\mu_1=50$, $\\mu_2=120$, $\\sigma_1=8$, $\\sigma_2=15$ og $\\rho=-0{,}4$.\n\n**a)** Finn $E(Y\\mid X=60)$.\n\n**b)** Finn $\\text{Var}(Y\\mid X=60)$ og sammenlign med den marginale variansen $\\sigma_2^2$.",
+        "solution": "**a)** Regresjonslinjen:\n$$E(Y\\mid X=60)=\\mu_2+\\rho\\frac{\\sigma_2}{\\sigma_1}(x-\\mu_1)=120+(-0{,}4)\\cdot\\frac{15}{8}\\cdot(60-50).$$\n$$=120-0{,}4\\cdot 1{,}875\\cdot 10=120-7{,}5=112{,}5.$$\nEn $X$ over gjennomsnittet trekker forventet $Y$ ned, fordi $\\rho<0$.\n\n**b)**\n$$\\text{Var}(Y\\mid X=60)=\\sigma_2^2(1-\\rho^2)=225\\cdot(1-0{,}16)=225\\cdot 0{,}84=189.$$\nMarginalt er $\\sigma_2^2=225$. Å kjenne $X$ reduserer usikkerheten fra $225$ til $189$ — en beskjeden reduksjon, som passer med en svak korrelasjon $|\\rho|=0{,}4$.",
+        "hints": [
+          "Bruk $E(Y\\mid X=x)=\\mu_2+\\rho\\frac{\\sigma_2}{\\sigma_1}(x-\\mu_1)$.",
+          "$\\frac{\\sigma_2}{\\sigma_1}=15/8=1{,}875$; pass på fortegnet til $\\rho$.",
+          "Betinget varians er $\\sigma_2^2(1-\\rho^2)$, ikke $\\sigma_2^2$."
+        ]
+      }
+    },
+    {
+      "id": "stk1100-8-1-v1",
+      "type": "exercise",
+      "exercise": {
+        "id": "stk1100-8-1-v1",
+        "number": "6",
+        "type": "classic",
+        "difficulty": "vanskelig",
+        "task": "$(X,Y)$ er standardisert binormal ($\\mu_1=\\mu_2=0$, $\\sigma_1=\\sigma_2=1$) med korrelasjon $\\rho$.\n\n**a)** Skriv opp $E(Y\\mid X=x)$ og forklar hvorfor dette er en lineær regresjonsmodell — hva er stigningstallet?\n\n**b)** Vis at $|E(Y\\mid X=x)|<|x|$ når $0<\\rho<1$, og forklar hvorfor dette kalles «regresjon mot gjennomsnittet».",
+        "solution": "**a)** $E(Y\\mid X=x)=\\rho x$. Dette er en rett linje gjennom origo med **stigningstall $\\rho$**. Den har formen $E(Y\\mid X=x)=\\beta_0+\\beta_1 x$ med $\\beta_0=0$ og $\\beta_1=\\rho$ — altså en lineær regresjonsmodell for $Y$ på $x$. Det er nettopp denne linjen kap. 8.3 estimerer fra observerte data.\n\n**b)** For $0<\\rho<1$ og $x\\ne 0$ er $|\\rho x|=\\rho|x|<|x|$ siden $\\rho<1$. Prediksjonen for $Y$ ligger altså **nærmere gjennomsnittet (0) enn $x$ selv er**. Fenomenet kalles «regresjon mot gjennomsnittet»: en uvanlig høy $X$ ledsages i snitt av en $Y$ som er høy, men mindre ekstrem. Jo svakere korrelasjon, desto sterkere trekkes prediksjonen mot midten; ved $\\rho=0$ blir beste gjett alltid $0$ uansett $x$.",
+        "hints": [
+          "Sett $\\mu_1=\\mu_2=0$, $\\sigma_1=\\sigma_2=1$ inn i regresjonslinjen.",
+          "Stigningstallet er faktoren foran $x$.",
+          "$\\rho<1$ gir $\\rho|x|<|x|$."
+        ]
+      }
+    },
+    {
+      "id": "stk1100-8-1-v2",
+      "type": "exercise",
+      "exercise": {
+        "id": "stk1100-8-1-v2",
+        "number": "7",
+        "type": "classic",
+        "difficulty": "vanskelig",
+        "task": "En studie av kroppshøyde modellerer fars høyde $X$ og voksen sønns høyde $Y$ (i cm) som binormal med $\\mu_1=179$, $\\mu_2=181$, $\\sigma_1=6$, $\\sigma_2=6{,}5$ og $\\rho=0{,}5$.\n\n**a)** En far er 185 cm. Hva er beste prediksjon for sønnens høyde, og hva er standardavviket rundt prediksjonen?\n\n**b)** Kommenter tallet i lys av «regresjon mot gjennomsnittet».",
+        "solution": "**a)** Betinget forventning:\n$$E(Y\\mid X=185)=181+0{,}5\\cdot\\frac{6{,}5}{6}\\cdot(185-179)=181+0{,}5\\cdot 1{,}0833\\cdot 6=181+3{,}25=184{,}25\\text{ cm}.$$\nBetinget varians:\n$$\\text{Var}(Y\\mid X=185)=\\sigma_2^2(1-\\rho^2)=6{,}5^2(1-0{,}25)=42{,}25\\cdot 0{,}75=31{,}6875,$$\nså standardavviket er $\\sqrt{31{,}6875}\\approx 5{,}63$ cm.\n\n**b)** Faren ligger $6$ cm over sitt gjennomsnitt ($185-179$). Sønnens forventede høyde ligger bare $184{,}25-181=3{,}25$ cm over sitt gjennomsnitt — mindre ekstremt. Med $\\rho=0{,}5$ «arves» omtrent halvparten av avviket (justert for de ulike standardavvikene): en høy far ventes å få en høy sønn, men i snitt nærmere befolkningsgjennomsnittet. Dette er regresjon mot gjennomsnittet i praksis.",
+        "hints": [
+          "$E(Y\\mid X=x)=\\mu_2+\\rho\\frac{\\sigma_2}{\\sigma_1}(x-\\mu_1)$ med $x=185$.",
+          "$\\frac{\\sigma_2}{\\sigma_1}=6{,}5/6\\approx 1{,}083$.",
+          "Standardavviket er $\\sqrt{\\sigma_2^2(1-\\rho^2)}$."
+        ]
+      }
+    },
+    {
+      "id": "stk1100-8-1-warn-typiske-feil",
+      "type": "warning",
+      "title": "Typiske feil",
+      "content": "- **Glemme kovariansleddet i $\\text{Var}(aX+bY)$** når variablene er korrelerte — eller ta det med når de er uavhengige. Leddet er $2ab\\,\\text{Cov}(X,Y)$ og er null nettopp ved uavhengighet/ukorrelerthet.\n- **Slutte fra ukorrelert til uavhengig i det generelle tilfellet.** $\\rho=0\\Rightarrow$ uavhengig gjelder **kun** for binormale par. For vilkårlige fordelinger kan $\\rho=0$ og variablene likevel være avhengige.\n- **Forveksle $\\sigma_2^2$ og $\\sigma_2^2(1-\\rho^2)$** i den betingede variansen. Å kjenne $X$ reduserer variansen med faktoren $(1-\\rho^2)$.\n- **Glemme kvadratene på koeffisientene** ($a^2$, $b^2$) eller fortegnet i kovariansleddet (for $X-Y$ er leddet $-2\\,\\text{Cov}$).\n- **Tro at to normale marginaler betyr binormal.** Uavhengighetsegenskapen krever at paret er binormalt *sammen*, ikke bare hver for seg."
+    },
+    {
+      "id": "stk1100-8-1-begrepsbank-tekst",
+      "type": "text",
+      "content": "## Begrepsbank til eksamen\n\nHer er kjernebegrepene fra kapitlet samlet i eksamensrettet kortform.\n\n*Begrepsbanken er flashcard-/repetisjonsstoff — hopp trygt over ved førstegangslesing; tidsanslaget for kapitlet gjelder kjernestoffet.*"
+    },
+    {
+      "id": "stk1100-8-1-bb-samvariasjon",
+      "type": "definition",
+      "title": "Samvariasjon",
+      "content": "At to variable har en tendens til å bevege seg sammen. **Positiv** samvariasjon ($\\text{Cov}>0$, $\\rho>0$): høye verdier av den ene følges av høye verdier av den andre. **Negativ** ($\\text{Cov}<0$, $\\rho<0$): høye av den ene følges av lave av den andre. Kovarians og korrelasjon er de to målene på samvariasjon."
+    },
+    {
+      "id": "stk1100-8-1-bb-ukorrelert",
+      "type": "definition",
+      "title": "Ukorrelerte variable",
+      "content": "To variable er ukorrelerte når $\\text{Cov}(X,Y)=0$, altså $\\rho=0$. Det betyr at det ikke finnes noen **lineær** samvariasjon. Ukorrelerthet utelukker ikke ikke-lineær avhengighet — unntaket er binormale par, der ukorrelert også betyr uavhengig."
+    },
+    {
+      "id": "stk1100-8-1-bb-uavh-ukorr",
+      "type": "definition",
+      "title": "Uavhengig medfører ukorrelert (ikke omvendt)",
+      "content": "Er $X$ og $Y$ uavhengige, så er $E(XY)=E(X)E(Y)$, og dermed $\\text{Cov}(X,Y)=0$: uavhengige variable er alltid ukorrelerte. Den motsatte veien holder **ikke** generelt — ukorrelerte variable kan være avhengige. Eneste unntak i pensum: binormalfordelingen."
+    },
+    {
+      "id": "stk1100-8-1-bb-cov-selv",
+      "type": "definition",
+      "title": "Kovarians med seg selv",
+      "content": "Kovariansen til en variabel med seg selv er variansen: $\\text{Cov}(X,X)=E(X^2)-[E(X)]^2=\\text{Var}(X)$. Dette gjør variansregelen for lineærkombinasjoner til et spesialtilfelle av bilineariteten til kovariansen."
+    },
+    {
+      "id": "stk1100-8-1-bb-var-sum-diff",
+      "type": "definition",
+      "title": "Varians av sum og differanse",
+      "content": "$$\\text{Var}(X+Y)=\\text{Var}(X)+\\text{Var}(Y)+2\\,\\text{Cov}(X,Y)$$ $$\\text{Var}(X-Y)=\\text{Var}(X)+\\text{Var}(Y)-2\\,\\text{Cov}(X,Y)$$ Variansen til en differanse har $\\text{Var}(Y)$ med **pluss** (ikke minus) — bare kovariansleddet snur fortegn. Ved uavhengighet er $\\text{Var}(X+Y)=\\text{Var}(X-Y)=\\text{Var}(X)+\\text{Var}(Y)$."
+    },
+    {
+      "id": "stk1100-8-1-bb-korr-enhetslos",
+      "type": "definition",
+      "title": "Korrelasjon er enhetsløs og begrenset",
+      "content": "Korrelasjonen er alltid mellom $-1$ og $1$ og er uten benevning, siden kovariansen deles på produktet av standardavvikene. Den er invariant under positiv lineær skalering: å bytte måleenhet ($\\text{cm}\\to\\text{m}$) endrer ikke $\\rho$. Derfor egner den seg til å sammenligne styrken på samvariasjon på tvers av størrelser."
+    },
+    {
+      "id": "stk1100-8-1-bb-perfekt-korr",
+      "type": "definition",
+      "title": "Perfekt korrelasjon",
+      "content": "$\\rho=\\pm 1$ inntreffer **hviss** $Y$ er en eksakt lineær funksjon av $X$, $Y=a+bX$: $\\rho=+1$ når $b>0$, $\\rho=-1$ når $b<0$. Da ligger alle punkter på en rett linje, og den betingede variansen $\\sigma_2^2(1-\\rho^2)=0$: $Y$ er fullstendig bestemt av $X$."
+    },
+    {
+      "id": "stk1100-8-1-bb-standardnormal",
+      "type": "definition",
+      "title": "Standardnormal og $\\Phi$ (repetisjon)",
+      "content": "$Z\\sim N(0,1)$ har fordelingsfunksjon $\\Phi(z)=P(Z\\le z)$, som slås opp i formelsamlingens tabell. En vilkårlig $X\\sim N(\\mu,\\sigma^2)$ standardiseres via $Z=(X-\\mu)/\\sigma$, slik at $P(X\\le x)=\\Phi\\!\\big(\\frac{x-\\mu}{\\sigma}\\big)$. Husk at annet argument i $N(\\mu,\\sigma^2)$ er **variansen**, ikke standardavviket."
+    },
+    {
+      "id": "stk1100-8-1-bb-standardisering",
+      "type": "definition",
+      "title": "Standardisering av binormal",
+      "content": "Siden marginalene i en binormal er normale, kan hver variabel standardiseres for seg: $Z_1=(X-\\mu_1)/\\sigma_1$, $Z_2=(Y-\\mu_2)/\\sigma_2$. Da er $(Z_1,Z_2)$ standardisert binormal med samme korrelasjon $\\rho$, og $E(Z_2\\mid Z_1=z)=\\rho z$. Standardisering forenkler alle betingede regnestykker."
+    },
+    {
+      "id": "stk1100-8-1-bb-determinasjon",
+      "type": "definition",
+      "title": "Determinasjonsandel $\\rho^2$",
+      "content": "$\\rho^2$ er andelen av variansen i $Y$ som **forklares** av den lineære sammenhengen med $X$: den betingede variansen krymper fra $\\sigma_2^2$ til $\\sigma_2^2(1-\\rho^2)$, altså en reduksjon på en andel $\\rho^2$. Ved $\\rho^2=1$ forklares alt; ved $\\rho^2=0$ forklares ingenting."
+    },
+    {
+      "id": "stk1100-8-1-bb-betinget-tetthet",
+      "type": "definition",
+      "title": "Betinget forventning fra betinget tetthet (kobling 3.1)",
+      "content": "Generelt (fra kap. 3.1) er $E(Y\\mid X=x)=\\int y\\,f_{Y\\mid X=x}(y)\\,dy$ der $f_{Y\\mid X=x}(y)=f(x,y)/f_X(x)$. For binormalen slipper vi integralet fordi den betingede fordelingen er kjent å være normal — vi leser bare av forventning og varians. $E(Y\\mid X=x)$ er en funksjon av $x$ og kalles regresjonsfunksjonen."
+    },
+    {
+      "id": "stk1100-8-1-bb-regresjonslinje",
+      "type": "definition",
+      "title": "Regresjonslinjen (befolkning)",
+      "content": "Den rette linjen $E(Y\\mid X=x)=\\mu_2+\\rho\\frac{\\sigma_2}{\\sigma_1}(x-\\mu_1)$ er den **teoretiske** (befolknings-) regresjonslinjen: den beste lineære prediksjonen av $Y$ gitt $x$. Stigningstallet er $\\beta=\\rho\\sigma_2/\\sigma_1$. I kap. 8.3 erstattes de ukjente parametrene med estimater fra data, og linjen blir $\\hat\\beta_0+\\hat\\beta_1 x$."
+    },
+    {
+      "id": "stk1100-8-1-bb-regresjon-mot-snitt",
+      "type": "definition",
+      "title": "Regresjon mot gjennomsnittet",
+      "content": "Fordi $|\\rho|<1$ ligger den predikerte $Y$-verdien nærmere sitt gjennomsnitt (målt i standardavvik) enn $X$ er sitt. En ekstrem $X$ ledsages i snitt av en mindre ekstrem $Y$. Fenomenet, oppdaget av Galton, ga metoden navnet «regresjon»."
+    },
+    {
+      "id": "stk1100-8-1-bb-homoskedastisitet",
+      "type": "definition",
+      "title": "Homoskedastisitet i binormalen",
+      "content": "Den betingede variansen $\\text{Var}(Y\\mid X=x)=\\sigma_2^2(1-\\rho^2)$ er **den samme for alle $x$** — spredningen om regresjonslinjen er konstant. Denne egenskapen (konstant feilvarians) er nettopp forutsetningen $\\text{Var}(\\varepsilon_i)=\\sigma^2$ i regresjonsmodellen i kap. 8.3."
+    },
+    {
+      "id": "stk1100-8-1-rep",
+      "type": "collapsible",
+      "title": "Repetisjonsoppgaver",
+      "buttonText": "Vis repetisjonsoppgaver",
+      "content": [
+        {
+          "id": "stk1100-8-1-rep-1",
+          "type": "exercise",
+          "exercise": {
+            "id": "stk1100-8-1-rep-1",
+            "number": "R1",
+            "type": "classic",
+            "difficulty": "lett",
+            "task": "(Fra kap. 1.2) $X$ og $Y$ er uavhengige med $\\text{Var}(X)=3$ og $\\text{Var}(Y)=5$. Finn $\\text{Var}(2X+Y)$ og $\\text{Var}(X-Y)$.",
+            "solution": "Uavhengige gir $\\text{Cov}(X,Y)=0$, så kovariansleddet forsvinner:\n$$\\text{Var}(2X+Y)=4\\cdot 3+1\\cdot 5=17,\\qquad \\text{Var}(X-Y)=3+5=8.$$",
+            "hints": [
+              "Uavhengig $\\Rightarrow$ $\\text{Cov}=0$.",
+              "Husk $a^2$ og $b^2$ på koeffisientene."
+            ]
+          }
+        },
+        {
+          "id": "stk1100-8-1-rep-2",
+          "type": "exercise",
+          "exercise": {
+            "id": "stk1100-8-1-rep-2",
+            "number": "R2",
+            "type": "classic",
+            "difficulty": "lett",
+            "task": "(Fra kap. 1.2) Bruk regneformelen $\\text{Cov}(X,Y)=E(XY)-E(X)E(Y)$ til å finne kovariansen når $E(XY)=10$, $E(X)=2$ og $E(Y)=3$.",
+            "solution": "$$\\text{Cov}(X,Y)=E(XY)-E(X)E(Y)=10-2\\cdot 3=4.$$",
+            "hints": [
+              "Sett rett inn i regneformelen."
+            ]
+          }
+        },
+        {
+          "id": "stk1100-8-1-rep-3",
+          "type": "exercise",
+          "exercise": {
+            "id": "stk1100-8-1-rep-3",
+            "number": "R3",
+            "type": "classic",
+            "difficulty": "middels",
+            "task": "(Fra kap. 3.1) En simultantetthet er $f(x,y)=x+y$ på enhetskvadratet $0<x<1$, $0<y<1$. Finn marginaltettheten $f_X(x)$.",
+            "solution": "Integrer ut $y$ over $[0,1]$:\n$$f_X(x)=\\int_0^1 (x+y)\\,dy=\\Big[xy+\\tfrac{y^2}{2}\\Big]_0^1=x+\\tfrac12,\\qquad 0<x<1.$$",
+            "hints": [
+              "Marginaltetthet: integrer ut den andre variabelen.",
+              "$\\int_0^1 y\\,dy=\\tfrac12$."
+            ]
+          }
+        },
+        {
+          "id": "stk1100-8-1-rep-4",
+          "type": "exercise",
+          "exercise": {
+            "id": "stk1100-8-1-rep-4",
+            "number": "R4",
+            "type": "classic",
+            "difficulty": "middels",
+            "task": "(Fra kap. 3.1) For samme tetthet $f(x,y)=x+y$ på enhetskvadratet: skriv opp den betingede tettheten $f_{Y\\mid X=x}(y)$.",
+            "solution": "Med $f_X(x)=x+\\tfrac12$:\n$$f_{Y\\mid X=x}(y)=\\frac{f(x,y)}{f_X(x)}=\\frac{x+y}{x+\\tfrac12},\\qquad 0<y<1.$$\nDette er en gyldig tetthet i $y$ (integrerer til 1 over $[0,1]$).",
+            "hints": [
+              "$f_{Y\\mid X=x}(y)=f(x,y)/f_X(x)$.",
+              "Bruk $f_X(x)$ fra forrige oppgave."
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": "stk1100-8-1-symbolliste",
+      "type": "collapsible",
+      "title": "Symbol- og formelliste",
+      "buttonText": "Vis symboler og formler",
+      "content": [
+        {
+          "id": "stk1100-8-1-symbolliste-text",
+          "type": "text",
+          "content": "## Symbol- og formelliste\n\n*Oppslagsverk — alt her forklares underveis i kapitlet.*\n\n| Symbol | Betydning |\n|---|---|\n| $\\text{Cov}(X,Y)$ | Kovariansen mellom $X$ og $Y$ |\n| $\\rho$, $\\text{Corr}(X,Y)$ | Korrelasjonskoeffisienten, $-1\\le\\rho\\le 1$ |\n| $\\mu_1,\\mu_2$ | Forventningene $E(X)$, $E(Y)$ |\n| $\\sigma_1^2,\\sigma_2^2$ | Variansene $\\text{Var}(X)$, $\\text{Var}(Y)$ |\n| $\\sigma_1,\\sigma_2$ | Standardavvikene |\n| $E(Y\\mid X=x)$ | Betinget forventning av $Y$ gitt $X=x$ (regresjonslinjen) |\n| $\\text{Var}(Y\\mid X=x)$ | Betinget varians av $Y$ gitt $X=x$ |\n| $f(x,y)$ | Simultantetthet |\n| $f_X(x)$ | Marginaltetthet for $X$ |\n| $f_{Y\\mid X=x}(y)$ | Betinget tetthet for $Y$ gitt $X=x$ |\n| $N(\\mu,\\sigma^2)$ | Normalfordeling; annet argument er **variansen** |\n| $\\Phi$ | Standardnormal fordelingsfunksjon |\n| $Z$ | Standardisert variabel $(X-\\mu)/\\sigma$ |\n\n**Formler i dette kapitlet:**\n\n$$\\text{Cov}(X,Y)=E(XY)-E(X)E(Y)$$\nRegneformelen for kovarians.\n\n$$\\rho=\\frac{\\text{Cov}(X,Y)}{\\sqrt{\\text{Var}(X)\\text{Var}(Y)}}$$\nKorrelasjonskoeffisienten — enhetsløs, mellom $-1$ og $1$.\n\n$$\\text{Var}(aX+bY)=a^2\\text{Var}(X)+b^2\\text{Var}(Y)+2ab\\,\\text{Cov}(X,Y)$$\nVariansen til en lineærkombinasjon, med kovariansleddet.\n\n$$\\text{Cov}(aX+b,cY+d)=ac\\,\\text{Cov}(X,Y)$$\nSkalering/bilinearitet: konstantledd forsvinner.\n\n$$(X,Y)\\sim\\text{binormal}(\\mu_1,\\mu_2,\\sigma_1^2,\\sigma_2^2,\\rho)$$\nBinormalfordelingens fem parametre.\n\n$$\\rho=0\\;\\Longleftrightarrow\\;X,Y\\text{ uavhengige (kun binormal)}$$\nUkorrelert = uavhengig, gyldig kun for binormale par.\n\n$$E(Y\\mid X=x)=\\mu_2+\\rho\\frac{\\sigma_2}{\\sigma_1}(x-\\mu_1)$$\nDen betingede forventningen — befolkningens regresjonslinje.\n\n$$\\text{Var}(Y\\mid X=x)=\\sigma_2^2(1-\\rho^2)$$\nDen betingede variansen — redusert med faktoren $(1-\\rho^2)$, uavhengig av $x$."
+        }
+      ]
+    }
+  ],
+  "exercises": []
+}

@@ -1,0 +1,497 @@
+{
+  "id": "stk1100-5-1",
+  "courseId": "stk1100",
+  "chapterNumber": "5.1",
+  "title": "Estimatorer og egenskaper: forventningsretthet, varians og skjevhet",
+  "description": "Hva som gjør en estimator god — forventningsretthet, varians og standardfeil — og hvordan skjevhet kvantifiseres og korrigeres.",
+  "estimatedMinutes": 55,
+  "competenceGoals": [
+    "skille konsekvent mellom en estimator (stokastisk regel) og et estimat (tallverdi)",
+    "avgjøre om en estimator er forventningsrett ved å regne ut forventningen, og finne varians og standardfeil",
+    "kvantifisere skjevhet og lage en forventningsrett estimator ved skjevhetskorreksjon, inkludert Γ-faktoren for rot- og potensestimatorer",
+    "sammenligne to estimatorer på forventningsretthet og varians og velge med begrunnelse"
+  ],
+  "content": [
+    {
+      "id": "stk1100-5-1-tip-eksamensvinkel",
+      "type": "tip",
+      "title": "Eksamensvinkel",
+      "content": "**Punktestimering er i 9 av 10 avsluttende skoleeksamener (90 %)** i STK1100-arkivet 2015–2024 — og estimator-egenskapene i dette kapitlet er *del av hver eneste* estimeringsoppgave. Dette er kjedens egenskapsledd: etter at du har utledet en estimator (kap. 5.2), er nesten alltid neste spørsmål «er den forventningsrett?», «hva er variansen/standardfeilen?», eller «korriger skjevheten».\n\nDette kalles **sjanger G** i boka (estimering + eksakt konfidensintervall, kjerneoppgaven) — her tar vi egenskapsdelen. Sensor krever tre ting (sensorkrav 6): (i) at du **skiller estimator fra estimat** konsekvent, (ii) at forventningsrettheten *regnes ut* (ikke bare påstås), og (iii) at skjevhet **kvantifiseres** — og korrigeres der oppgaven ber om en forventningsrett estimator.\n\nSkjevhetskorreksjon via gammafunksjonen (Γ-faktoren) er en **A-differensiator**: den skiller topbesvarelsene ut (V2018: $\\sqrt{\\hat\\sigma^2}$ skjev for $\\sigma$; V2021: Weibull-$\\hat\\beta$ med Γ-faktor). Prioritet: **høyeste**."
+    },
+    {
+      "id": "stk1100-5-1-forkunnskaper",
+      "type": "text",
+      "content": "**Forkunnskaper:** Dette kapitlet bygger på momentregnereglene fra [kap. 1.2](/bok/stk1100/stk1100-1-2) og gamma-/Γ-verktøyet fra [kap. 2.2](/bok/stk1100/stk1100-2-2).\n\n**Sist du var her — de tre grepene du bruker mest:**\n- **Momentregnereglene** (kap. 1.2, må sitte utenat): $E(aX + bY) = aE(X) + bE(Y)$ og, for *uavhengige* $X_i$, $\\text{Var}\\!\\left(\\sum a_i X_i\\right) = \\sum a_i^2\\,\\text{Var}(X_i)$. Disse er motoren når vi regner $E(\\hat\\theta)$ og $\\text{Var}(\\hat\\theta)$.\n- **E(Vʳ)-formelen** (kap. 2.2): for $V \\sim \\text{gamma}(\\alpha, \\beta)$ og $r > -\\alpha$ er $E(V^r) = \\beta^r\\,\\dfrac{\\Gamma(\\alpha + r)}{\\Gamma(\\alpha)}$. Den kvantifiserer skjevheten til rot- og potensestimatorer.\n- **Γ-reglene** (kap. 2.2): $\\Gamma(\\alpha + 1) = \\alpha\\,\\Gamma(\\alpha)$, $\\Gamma(1) = 1$, $\\Gamma(\\tfrac12) = \\sqrt{\\pi}$.\n\nTrenger du å friske opp derivasjon (til variansregning), se [R1 4.1 Derivasjonsregler](/bok/r1/r1-4-1)."
+    },
+    {
+      "id": "stk1100-5-1-intro",
+      "type": "text",
+      "content": "Tenk deg at du skal anslå gjennomsnittshøyden i en befolkning. Du kan ikke måle alle, så du trekker et utvalg og regner ut *utvalgets* gjennomsnitt. Men to forskere som trekker hvert sitt utvalg får to litt ulike tall — anslaget er selv tilfeldig. Spørsmålet i dette kapitlet er: **hva gjør et slikt anslag godt?** Treffer regelen «riktig i snitt» (forventningsrett)? Hvor mye spriker den fra gang til gang (varians/standardfeil)? Og hvis den systematisk bommer — kan vi korrigere den?\n\nVi bygger kapitlet som fem korte **læringsløkker**, hver på formen teori → gjennomregnet eksempel → øvingsoppgaver: (1) estimator vs. estimat og forventningsretthet, (2) varians og standardfeil, (3) skjevhet og skjevhetskorreksjon, (4) den viktige fella $E[\\sqrt V] \\ne \\sqrt{E[V]}$ med Γ-faktoren, og (5) å sammenligne to estimatorer og velge. Kapitlet er på 55 minutter — ta gjerne en pause etter løkke 3."
+    },
+    {
+      "id": "stk1100-5-1-l1-head",
+      "type": "text",
+      "content": "## Løkke 1 — Estimator, estimat og forventningsretthet (~12 min)"
+    },
+    {
+      "id": "stk1100-5-1-l1-tekst",
+      "type": "text",
+      "content": "Vi observerer $X_1, \\dots, X_n$ — uavhengige og identisk fordelte (iid) stokastiske variable fra en fordeling som avhenger av en ukjent **parameter** $\\theta$ (for eksempel forventningen $\\mu$, variansen $\\sigma^2$ eller en skala $\\beta$). En **estimator** er en regel som gjør observasjonene om til et anslag på $\\theta$. Fordi observasjonene er stokastiske, er estimatoren selv en stokastisk variabel — og skrives derfor med stor bokstav og hatt: $\\hat\\theta$. Når vi setter inn de konkrete måletallene, får vi ett tall — **estimatet**. Dette skillet er sensorkrav 6, og vi holder det strengt gjennom hele boka."
+    },
+    {
+      "id": "stk1100-5-1-def-estimator",
+      "type": "definition",
+      "title": "Estimator (stokastisk regel)",
+      "content": "En **estimator** er en funksjon av observasjonene $X_1, \\dots, X_n$ som brukes til å anslå en ukjent parameter. Fordi observasjonene er stokastiske, er estimatoren selv en **stokastisk variabel** — den har en fordeling, en forventning og en varians.\n\n$$\\hat\\theta = \\hat\\theta(X_1, \\dots, X_n).$$\n\nSkrives med **stor bokstav og hatt** (f.eks. $\\hat\\mu = \\bar X$, $\\hat\\beta$). Eksempel: $\\bar X = \\frac{1}{n}\\sum_{i=1}^n X_i$ er en estimator for forventningen $\\mu$."
+    },
+    {
+      "id": "stk1100-5-1-def-estimat",
+      "type": "definition",
+      "title": "Estimat (tallverdi)",
+      "content": "Et **estimat** er tallet du får når de konkrete observerte verdiene $x_1, \\dots, x_n$ settes inn i estimatoren:\n\n$$\\hat\\theta(x_1, \\dots, x_n) = \\text{ett tall}.$$\n\nSkrives med **små bokstaver** ($\\bar x$). Estimatoren $\\bar X$ er en *regel* (stokastisk); estimatet $\\bar x = 4{,}2$ er *resultatet* av å bruke regelen på dine data. Sensor trekker for å blande de to — «$\\bar X$ er forventningsrett» gir mening, «$\\bar x = 4{,}2$ er forventningsrett» gjør det ikke."
+    },
+    {
+      "id": "stk1100-5-1-def-forventningsretthet",
+      "type": "definition",
+      "title": "Forventningsretthet (forventningsrett estimator)",
+      "content": "En estimator $\\hat\\theta$ er **forventningsrett** (engelsk: *unbiased*) for $\\theta$ dersom den treffer riktig *i gjennomsnitt* over alle mulige utvalg:\n\n$$E(\\hat\\theta) = \\theta \\quad \\text{for alle verdier av } \\theta.$$\n\nDette betyr *ikke* at et enkelt estimat treffer $\\theta$ — bare at estimatoren ikke bommer systematisk i én retning. Sensorkrav: forventningsrettheten skal **regnes ut** ved å ta $E$ av estimatoren med momentregnereglene, ikke bare påstås."
+    },
+    {
+      "id": "stk1100-5-1-ex-xbar",
+      "type": "example",
+      "title": "Eksempel 1: $\\bar X$ er forventningsrett for $\\mu$",
+      "problem": "La $X_1, \\dots, X_n$ være iid med $E(X_i) = \\mu$. Vis at $\\bar X = \\frac{1}{n}\\sum_{i=1}^n X_i$ er forventningsrett for $\\mu$.",
+      "solution": "Bruk lineariteten til forventning (kap. 1.2):\n\n$$E(\\bar X) = E\\!\\left(\\frac{1}{n}\\sum_{i=1}^n X_i\\right) = \\frac{1}{n}\\sum_{i=1}^n E(X_i) = \\frac{1}{n}\\cdot n\\mu = \\mu.$$\n\nSiden $E(\\bar X) = \\mu$ for enhver $\\mu$, er $\\bar X$ forventningsrett for $\\mu$. Legg merke til at vi *regnet* $E(\\bar X)$ — vi antok det ikke."
+    },
+    {
+      "id": "stk1100-5-1-l1a",
+      "type": "exercise",
+      "exercise": {
+        "id": "stk1100-5-1-ex-l1a",
+        "number": "1",
+        "type": "classic",
+        "difficulty": "lett",
+        "task": "Forklar med egne ord forskjellen på en **estimator** og et **estimat**, og gi ett eksempel på hver.",
+        "solution": "En **estimator** er en regel/funksjon av de stokastiske observasjonene $X_1, \\dots, X_n$ — den er selv en stokastisk variabel og skrives med stor bokstav og hatt, f.eks. $\\hat\\mu = \\bar X$. Et **estimat** er tallet regelen gir når konkrete målte verdier settes inn, f.eks. $\\bar x = 4{,}2$. Estimatoren har en fordeling (og dermed forventning og varians); estimatet er bare ett tall.",
+        "hints": [
+          "Den ene er en stokastisk *regel*, den andre et *tall*.",
+          "Stor bokstav med hatt vs. liten bokstav."
+        ]
+      }
+    },
+    {
+      "id": "stk1100-5-1-l1b",
+      "type": "exercise",
+      "exercise": {
+        "id": "stk1100-5-1-ex-l1b",
+        "number": "2",
+        "type": "classic",
+        "difficulty": "lett",
+        "task": "La $X_1, \\dots, X_n$ være iid med forventning $\\mu$. En forsker foreslår estimatoren $\\hat\\mu = X_1$ (bruk bare den første observasjonen). Er den forventningsrett for $\\mu$?",
+        "solution": "$E(\\hat\\mu) = E(X_1) = \\mu$. Ja, $\\hat\\mu = X_1$ er forventningsrett for $\\mu$ — den treffer riktig i snitt. (Den er derimot dårlig fordi den kaster bort $n-1$ observasjoner og får stor varians; det ser vi på i løkke 2.)",
+        "hints": [
+          "Ta $E$ av estimatoren.",
+          "$E(X_1) = \\mu$ fordi $X_1$ har forventning $\\mu$."
+        ]
+      }
+    },
+    {
+      "id": "stk1100-5-1-l2-head",
+      "type": "text",
+      "content": "## Løkke 2 — Varians og standardfeil (~10 min)"
+    },
+    {
+      "id": "stk1100-5-1-l2-tekst",
+      "type": "text",
+      "content": "Forventningsretthet forteller om estimatoren treffer *i snitt* — men ikke hvor mye den spriker fra utvalg til utvalg. Det måler **variansen** $\\text{Var}(\\hat\\theta)$, og kvadratroten er estimatorens **standardfeil**. To forventningsrette estimatorer kan ha svært ulik varians; den med lavest varians er den skarpeste. Variansen regnes med varians-regelen for lineærkombinasjoner av *uavhengige* variable (kap. 1.2)."
+    },
+    {
+      "id": "stk1100-5-1-def-varians",
+      "type": "definition",
+      "title": "Variansen til en estimator",
+      "content": "Variansen $\\text{Var}(\\hat\\theta)$ måler hvor mye estimatoren varierer rundt sin egen forventning fra utvalg til utvalg — altså presisjonen. For en lineærkombinasjon av *uavhengige* observasjoner regnes den med\n\n$$\\text{Var}\\!\\left(\\sum_i a_i X_i\\right) = \\sum_i a_i^2\\,\\text{Var}(X_i)$$\n\n(ingen kovariansledd fordi observasjonene er uavhengige). Jo mindre varians, desto skarpere estimator."
+    },
+    {
+      "id": "stk1100-5-1-def-var-xbar",
+      "type": "definition",
+      "title": "$\\text{Var}(\\bar X) = \\sigma^2/n$",
+      "content": "Er $X_1, \\dots, X_n$ iid med $\\text{Var}(X_i) = \\sigma^2$, er variansen til gjennomsnittet\n\n$$\\text{Var}(\\bar X) = \\frac{\\sigma^2}{n}.$$\n\nSentralt: variansen synker som $1/n$ — dobler du utvalget, halveres variansen. Dette er grunnen til at $\\bar X$ slår $X_1$: begge er forventningsrette, men $\\bar X$ har $n$ ganger mindre varians."
+    },
+    {
+      "id": "stk1100-5-1-def-se",
+      "type": "definition",
+      "title": "Standardfeil (SE)",
+      "content": "**Standardfeilen** til en estimator er standardavviket til estimatoren:\n\n$$\\text{SE}(\\hat\\theta) = \\sqrt{\\text{Var}(\\hat\\theta)}.$$\n\nFor gjennomsnittet: $\\text{SE}(\\bar X) = \\sigma/\\sqrt{n}$. Når $\\sigma$ er ukjent, brukes den **estimerte standardfeilen** $\\widehat{\\text{SE}}(\\bar X) = S/\\sqrt{n}$ der $S = \\sqrt{S^2}$ er utvalgsstandardavviket. Standardfeilen er «pluss-minus»-tallet i konfidensintervallet (Del 6)."
+    },
+    {
+      "id": "stk1100-5-1-ex-se",
+      "type": "example",
+      "title": "Eksempel 2: Varians og standardfeil for $\\bar X$",
+      "problem": "Levetiden til en komponent har standardavvik $\\sigma = 40$ timer. Du måler $n = 25$ komponenter. Finn $\\text{Var}(\\bar X)$ og standardfeilen $\\text{SE}(\\bar X)$.",
+      "solution": "$$\\text{Var}(\\bar X) = \\frac{\\sigma^2}{n} = \\frac{40^2}{25} = \\frac{1600}{25} = 64 \\text{ timer}^2.$$\n\n$$\\text{SE}(\\bar X) = \\frac{\\sigma}{\\sqrt n} = \\frac{40}{\\sqrt{25}} = \\frac{40}{5} = 8 \\text{ timer}.$$\n\nGjennomsnittet av 25 målinger sprer seg altså med standardavvik 8 timer — fem ganger skarpere enn én enkelt måling ($\\sigma = 40$)."
+    },
+    {
+      "id": "stk1100-5-1-l2a",
+      "type": "exercise",
+      "exercise": {
+        "id": "stk1100-5-1-ex-l2a",
+        "number": "3",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "Konsentrasjonen av et stoff har standardavvik $\\sigma = 6$ mg/l. Et laboratorium tar $n = 9$ målinger.\n\n**a)** Finn $\\text{Var}(\\bar X)$ og $\\text{SE}(\\bar X)$.\n\n**b)** Hvor mange målinger trengs for at standardfeilen skal bli 1 mg/l?",
+        "solution": "**a)** $\\text{Var}(\\bar X) = \\sigma^2/n = 36/9 = 4$, så $\\text{SE}(\\bar X) = \\sqrt 4 = 2$ mg/l.\n\n**b)** Vi vil ha $\\sigma/\\sqrt n = 1$, altså $\\sqrt n = \\sigma = 6$, som gir $n = 36$ målinger.",
+        "hints": [
+          "$\\text{Var}(\\bar X) = \\sigma^2/n$ og $\\text{SE} = \\sigma/\\sqrt n$.",
+          "I b): sett $\\sigma/\\sqrt n = 1$ og løs for $n$."
+        ]
+      }
+    },
+    {
+      "id": "stk1100-5-1-l2b",
+      "type": "exercise",
+      "exercise": {
+        "id": "stk1100-5-1-ex-l2b",
+        "number": "4",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "To forventningsrette estimatorer for $\\mu$ er $\\hat\\mu_1 = X_1$ (kun første observasjon) og $\\hat\\mu_2 = \\bar X$ (gjennomsnittet av $n = 16$). Observasjonene er iid med varians $\\sigma^2$. Finn variansen til hver, og avgjør hvilken som er best.",
+        "solution": "$\\text{Var}(\\hat\\mu_1) = \\text{Var}(X_1) = \\sigma^2$. $\\text{Var}(\\hat\\mu_2) = \\text{Var}(\\bar X) = \\sigma^2/16$. Begge er forventningsrette, men $\\hat\\mu_2$ har 16 ganger mindre varians, så $\\bar X$ er klart best (skarpest). En estimator skal helst både treffe i snitt *og* ha liten varians.",
+        "hints": [
+          "Var av én observasjon er $\\sigma^2$; var av snittet er $\\sigma^2/n$.",
+          "Lavest varians vinner blant forventningsrette estimatorer."
+        ]
+      }
+    },
+    {
+      "id": "stk1100-5-1-l3-head",
+      "type": "text",
+      "content": "## Løkke 3 — Skjevhet og skjevhetskorreksjon (~12 min)"
+    },
+    {
+      "id": "stk1100-5-1-l3-tekst",
+      "type": "text",
+      "content": "Ikke alle estimatorer er forventningsrette. **Skjevheten** (engelsk: *bias*) måler den systematiske bommen: $E(\\hat\\theta) - \\theta$. En estimator er forventningsrett nettopp når skjevheten er 0. Det viktige poenget: hvis vi regner ut $E(\\hat\\theta)$ og finner $E(\\hat\\theta) = c\\,\\theta$ med en *kjent* konstant $c \\ne 1$, kan vi lage en forventningsrett estimator ved å dele på $c$. Dette er «skjevhetskorreksjon» og er A-stoff."
+    },
+    {
+      "id": "stk1100-5-1-def-skjevhet",
+      "type": "definition",
+      "title": "Skjevhet (bias)",
+      "content": "**Skjevheten** til en estimator er den systematiske forskjellen mellom det den treffer i snitt og den sanne verdien:\n\n$$\\text{bias}(\\hat\\theta) = E(\\hat\\theta) - \\theta.$$\n\nEr $\\text{bias}(\\hat\\theta) = 0$, er estimatoren forventningsrett. Positiv skjevhet betyr systematisk overestimering, negativ betyr underestimering. Skjevhet skal **kvantifiseres** (regnes ut), ikke bare konstateres."
+    },
+    {
+      "id": "stk1100-5-1-def-korreksjon",
+      "type": "definition",
+      "title": "Skjevhetskorreksjon ved multiplikativ skjevhet",
+      "content": "Regner du ut forventningen og finner at estimatoren er skjev med en **kjent multiplikativ faktor**,\n\n$$E(\\hat\\theta) = c\\,\\theta \\quad (c \\ne 1 \\text{ kjent}),$$\n\nså er den korrigerte estimatoren $\\hat\\theta/c$ forventningsrett:\n\n$$E\\!\\left(\\frac{\\hat\\theta}{c}\\right) = \\frac{1}{c}\\,E(\\hat\\theta) = \\frac{1}{c}\\cdot c\\theta = \\theta.$$\n\nGrepet virker bare når $c$ ikke selv avhenger av den ukjente $\\theta$ (den må kunne regnes ut fra kjente størrelser som $n$ og en kjent formparameter)."
+    },
+    {
+      "id": "stk1100-5-1-def-s2",
+      "type": "definition",
+      "title": "Utvalgsvariansen $S^2$ (forventningsrett for $\\sigma^2$)",
+      "content": "Utvalgsvariansen med $n-1$ i nevneren,\n\n$$S^2 = \\frac{1}{n-1}\\sum_{i=1}^n (X_i - \\bar X)^2,$$\n\ner forventningsrett for $\\sigma^2$: $E(S^2) = \\sigma^2$. Nettopp derfor deler vi på $n-1$ og ikke på $n$. Tallet $n-1$ kalles **frihetsgrader** (kap. 2.2) — én er «brukt opp» av at $\\bar X$ er estimert fra de samme dataene."
+    },
+    {
+      "id": "stk1100-5-1-def-nvar",
+      "type": "definition",
+      "title": "Hvorfor $n$-varianten er skjev",
+      "content": "$n$-varianten $\\hat\\sigma^2 = \\frac{1}{n}\\sum_{i=1}^n (X_i - \\bar X)^2$ er **skjev** — den underestimerer systematisk:\n\n$$E(\\hat\\sigma^2) = \\frac{n-1}{n}\\,\\sigma^2 < \\sigma^2.$$\n\nSkjevheten er multiplikativ med kjent faktor $c = (n-1)/n$, så korreksjonen er å dele på $c$: $\\hat\\sigma^2 \\cdot \\frac{n}{n-1} = S^2$. Slik gjenfinner vi $S^2$ som den skjevhetskorrigerte $n$-varianten."
+    },
+    {
+      "id": "stk1100-5-1-ex-s2",
+      "type": "example",
+      "title": "Eksempel 3: Skjevhetskorreksjon av $n$-varianten",
+      "problem": "En student regner ut $\\hat\\sigma^2 = \\frac{1}{n}\\sum (X_i - \\bar X)^2$ og lurer på om den er forventningsrett for $\\sigma^2$. Det er kjent at $E(\\hat\\sigma^2) = \\frac{n-1}{n}\\sigma^2$. Er $\\hat\\sigma^2$ forventningsrett? Hvis ikke, lag en forventningsrett estimator.",
+      "solution": "$E(\\hat\\sigma^2) = \\frac{n-1}{n}\\sigma^2 \\ne \\sigma^2$, så $\\hat\\sigma^2$ er **skjev** — den bommer med faktoren $c = (n-1)/n < 1$ og underestimerer $\\sigma^2$ systematisk.\n\nSkjevhetskorreksjon: siden $E(\\hat\\sigma^2) = c\\,\\sigma^2$ med kjent $c$, deler vi på $c$:\n\n$$\\frac{\\hat\\sigma^2}{c} = \\frac{n}{n-1}\\cdot\\frac{1}{n}\\sum (X_i - \\bar X)^2 = \\frac{1}{n-1}\\sum (X_i - \\bar X)^2 = S^2.$$\n\nDen korrigerte estimatoren er nettopp utvalgsvariansen $S^2$, som er forventningsrett. *Dette forklarer $n-1$-nevneren.*"
+    },
+    {
+      "id": "stk1100-5-1-l3a",
+      "type": "exercise",
+      "exercise": {
+        "id": "stk1100-5-1-ex-l3a",
+        "number": "5",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "En estimator $\\hat\\theta$ for en skalaparameter $\\theta$ har $E(\\hat\\theta) = \\frac{n}{n+2}\\theta$.\n\n**a)** Finn skjevheten.\n\n**b)** Lag en forventningsrett estimator basert på $\\hat\\theta$.",
+        "solution": "**a)** $\\text{bias}(\\hat\\theta) = E(\\hat\\theta) - \\theta = \\frac{n}{n+2}\\theta - \\theta = \\left(\\frac{n}{n+2} - 1\\right)\\theta = -\\frac{2}{n+2}\\theta$. Negativ skjevhet — $\\hat\\theta$ underestimerer $\\theta$.\n\n**b)** $E(\\hat\\theta) = c\\theta$ med $c = n/(n+2)$ kjent, så $\\frac{\\hat\\theta}{c} = \\frac{n+2}{n}\\hat\\theta$ er forventningsrett: $E\\!\\left(\\frac{n+2}{n}\\hat\\theta\\right) = \\frac{n+2}{n}\\cdot\\frac{n}{n+2}\\theta = \\theta$.",
+        "hints": [
+          "Skjevhet $= E(\\hat\\theta) - \\theta$.",
+          "Del estimatoren på faktoren $c = n/(n+2)$."
+        ]
+      }
+    },
+    {
+      "id": "stk1100-5-1-l4-head",
+      "type": "text",
+      "content": "## Løkke 4 — Fella $E[\\sqrt V] \\ne \\sqrt{E[V]}$ og Γ-faktoren (~11 min)"
+    },
+    {
+      "id": "stk1100-5-1-l4-tekst",
+      "type": "text",
+      "content": "Her kommer den viktigste fella i hele kapitlet — og en fast A-differensiator. Anta at $\\hat\\sigma^2$ er forventningsrett for $\\sigma^2$. Er da $\\sqrt{\\hat\\sigma^2}$ forventningsrett for $\\sigma$? **Nei.** Grunnen er en generell regel: for en *krum* funksjon $g$ er $E[g(V)] \\ne g(E[V])$. For kvadratrot (som er konkav) gjelder $E[\\sqrt V] < \\sqrt{E[V]}$, så rot-estimatoren **underestimerer** systematisk. Når $V$ er gammafordelt, kan vi kvantifisere skjevheten eksakt med E(Vʳ)-formelen fra kap. 2.2 — og korrigere med en Γ-faktor."
+    },
+    {
+      "id": "stk1100-5-1-def-sqrt",
+      "type": "definition",
+      "title": "Nøkkelinnsikt: $E[\\sqrt V] \\ne \\sqrt{E[V]}$",
+      "content": "At en estimator $V$ er forventningsrett for en størrelse betyr **ikke** at $\\sqrt V$ (eller en annen potens) er forventningsrett for kvadratroten av størrelsen. For kvadratrot, som er en konkav funksjon, gjelder\n\n$$E[\\sqrt V] < \\sqrt{E[V]}.$$\n\nAlment: å ta rot eller potens av en forventningsrett estimator innfører skjevhet. Derfor er $S = \\sqrt{S^2}$ **skjev** for $\\sigma$ selv om $S^2$ er forventningsrett for $\\sigma^2$."
+    },
+    {
+      "id": "stk1100-5-1-def-gammafaktor",
+      "type": "definition",
+      "title": "Γ-faktoren for rot-/potensestimatorer",
+      "content": "Er $V \\sim \\text{gamma}(\\alpha, \\beta)$, gir E(Vʳ)-formelen (kap. 2.2) den eksakte forventningen til enhver potens:\n\n$$E(V^r) = \\beta^r\\,\\frac{\\Gamma(\\alpha + r)}{\\Gamma(\\alpha)}, \\qquad r > -\\alpha.$$\n\nForholdet $\\Gamma(\\alpha + r)/\\Gamma(\\alpha)$ er **Γ-faktoren** som kvantifiserer skjevheten. Med $r = \\tfrac12$ får du forventningen til $\\sqrt V$; den avviker fra $\\sqrt{E(V)}$ med nettopp denne faktoren, og deling på faktoren gir en forventningsrett rot-estimator."
+    },
+    {
+      "id": "stk1100-5-1-ex-sqrt",
+      "type": "example",
+      "title": "Eksempel 4: $S$ underestimerer $\\sigma$ — og korreksjonen",
+      "problem": "For et normalfordelt utvalg er $(n-1)S^2/\\sigma^2 \\sim \\chi^2_{n-1}$, slik at $S^2 \\sim \\text{gamma}\\!\\left(\\tfrac{n-1}{2},\\ \\tfrac{2\\sigma^2}{n-1}\\right)$. Vis at $S = \\sqrt{S^2}$ er skjev for $\\sigma$, og finn en forventningsrett korreksjon. Regn ut korreksjonsfaktoren for $n = 10$.",
+      "solution": "Bruk E(Vʳ)-formelen med $V = S^2$, $\\alpha = \\tfrac{n-1}{2}$, $\\beta = \\tfrac{2\\sigma^2}{n-1}$ og $r = \\tfrac12$:\n\n$$E(S) = E\\!\\left(\\sqrt{S^2}\\right) = \\beta^{1/2}\\frac{\\Gamma(\\alpha + \\tfrac12)}{\\Gamma(\\alpha)} = \\sqrt{\\frac{2\\sigma^2}{n-1}}\\cdot\\frac{\\Gamma\\!\\left(\\tfrac{n}{2}\\right)}{\\Gamma\\!\\left(\\tfrac{n-1}{2}\\right)} = \\sigma\\underbrace{\\sqrt{\\frac{2}{n-1}}\\,\\frac{\\Gamma(n/2)}{\\Gamma((n-1)/2)}}_{c_n}.$$\n\nSiden $c_n < 1$ er $E(S) = c_n\\,\\sigma < \\sigma$: $S$ **underestimerer** $\\sigma$. Fordi $E(S) = c_n\\sigma$ med kjent $c_n$, er $S/c_n$ forventningsrett for $\\sigma$.\n\nFor $n = 10$: $c_{10} = \\sqrt{\\tfrac{2}{9}}\\cdot\\dfrac{\\Gamma(5)}{\\Gamma(4{,}5)} = 0{,}4714\\cdot\\dfrac{24}{11{,}632} = 0{,}9727$. Altså treffer $S$ i snitt bare $97{,}3\\,\\%$ av $\\sigma$ — en korreksjon på ca. $2{,}7\\,\\%$. Den forventningsrette estimatoren er $S/0{,}9727$."
+    },
+    {
+      "id": "stk1100-5-1-l4a",
+      "type": "exercise",
+      "exercise": {
+        "id": "stk1100-5-1-ex-l4a",
+        "number": "6",
+        "type": "classic",
+        "difficulty": "vanskelig",
+        "task": "La $V \\sim \\text{gamma}(\\alpha, \\beta)$ med kjent formparameter $\\alpha = 4$. Det er kjent at $\\hat\\beta = V/\\alpha$ er forventningsrett for $\\beta$.\n\n**a)** Er $\\sqrt{\\hat\\beta}$ forventningsrett for $\\sqrt\\beta$?\n\n**b)** Finn $E(\\sqrt V)$ når $\\beta = 3$, og sammenlign med $\\sqrt{E(V)}$. (Bruk $\\Gamma(4) = 6$, $\\Gamma(4{,}5) \\approx 11{,}632$.)",
+        "solution": "**a)** Nei. $\\sqrt{\\cdot}$ er konkav, så $E[\\sqrt{\\hat\\beta}] < \\sqrt{E[\\hat\\beta]} = \\sqrt\\beta$ — rot-estimatoren underestimerer. Forventningsretthet av $\\hat\\beta$ arves *ikke* av $\\sqrt{\\hat\\beta}$.\n\n**b)** Med E(Vʳ)-formelen, $r = \\tfrac12$: $E(\\sqrt V) = \\beta^{1/2}\\frac{\\Gamma(4{,}5)}{\\Gamma(4)} = \\sqrt 3\\cdot\\frac{11{,}632}{6} = 1{,}732\\cdot 1{,}939 \\approx 3{,}358$. Til sammenligning $\\sqrt{E(V)} = \\sqrt{\\alpha\\beta} = \\sqrt{12} \\approx 3{,}464$. Vi ser $E(\\sqrt V) \\approx 3{,}358 < 3{,}464$ — rota bommer nedover, som forventet.",
+        "hints": [
+          "Kvadratrot er konkav: $E[\\sqrt V] < \\sqrt{E V}$.",
+          "Bruk $E(V^r) = \\beta^r\\Gamma(\\alpha+r)/\\Gamma(\\alpha)$ med $r = \\tfrac12$."
+        ]
+      }
+    },
+    {
+      "id": "stk1100-5-1-l5-head",
+      "type": "text",
+      "content": "## Løkke 5 — Sammenligne to estimatorer og velge (~10 min)"
+    },
+    {
+      "id": "stk1100-5-1-l5-tekst",
+      "type": "text",
+      "content": "En vanlig eksamensdeloppgave gir to (eller tre) foreslåtte estimatorer for samme parameter og ber deg velge. Fremgangsmåten er fast: (1) sjekk forventningsretthet for hver, (2) regn variansen for hver, (3) velg den forventningsrette med lavest varians — og begrunn i *begge* kriterier. Er begge forventningsrette, avgjør variansen; er bare den ene forventningsrett, veier det tungt (men se også skjevhet mot varians samlet)."
+    },
+    {
+      "id": "stk1100-5-1-def-sammenligning",
+      "type": "definition",
+      "title": "Å sammenligne estimatorer",
+      "content": "Skal du velge mellom to estimatorer $\\hat\\theta_1$ og $\\hat\\theta_2$ for samme $\\theta$:\n\n1. **Forventningsretthet:** regn $E(\\hat\\theta_1)$ og $E(\\hat\\theta_2)$ — er de lik $\\theta$?\n2. **Varians:** regn $\\text{Var}(\\hat\\theta_1)$ og $\\text{Var}(\\hat\\theta_2)$.\n3. **Velg:** blant forventningsrette estimatorer velges den med **lavest varians** (mest presis). Begrunn valget i begge kriterier — et svar «jeg velger $\\hat\\theta_1$» uten variansregning gir ikke full uttelling."
+    },
+    {
+      "id": "stk1100-5-1-def-konsistens",
+      "type": "definition",
+      "title": "Konsistens (bør kjenne til)",
+      "content": "En estimator er **konsistent** hvis den nærmer seg den sanne verdien når utvalget vokser — presist: $\\text{Var}(\\hat\\theta) \\to 0$ og $\\text{bias}(\\hat\\theta) \\to 0$ når $n \\to \\infty$. $\\bar X$ er konsistent fordi $\\text{Var}(\\bar X) = \\sigma^2/n \\to 0$. En estimator som $X_1$ er forventningsrett, men *ikke* konsistent (variansen $\\sigma^2$ krymper aldri). På STK1100 holder intuisjonen «variansen går mot 0»."
+    },
+    {
+      "id": "stk1100-5-1-ex-sammenlign",
+      "type": "example",
+      "title": "Eksempel 5: To estimatorer for $\\mu$ (sjanger G)",
+      "problem": "To estimatorer for forventningen $\\mu$ foreslås ut fra iid-observasjonene $X_1, \\dots, X_n$ (varians $\\sigma^2$): $\\hat\\mu_1 = \\bar X$ og $\\hat\\mu_2 = \\tfrac12(X_1 + X_n)$. Vis at begge er forventningsrette, finn variansene, og avgjør hvilken som bør brukes (for $n > 2$).",
+      "solution": "**Forventningsretthet:** $E(\\hat\\mu_1) = E(\\bar X) = \\mu$. $E(\\hat\\mu_2) = \\tfrac12(E(X_1) + E(X_n)) = \\tfrac12(\\mu + \\mu) = \\mu$. Begge forventningsrette.\n\n**Varians:** $\\text{Var}(\\hat\\mu_1) = \\sigma^2/n$. For $\\hat\\mu_2$, uavhengige $X_1, X_n$: $\\text{Var}(\\hat\\mu_2) = \\tfrac14(\\text{Var}(X_1) + \\text{Var}(X_n)) = \\tfrac14(\\sigma^2 + \\sigma^2) = \\sigma^2/2$.\n\n**Valg:** for $n > 2$ er $\\sigma^2/n < \\sigma^2/2$, så $\\hat\\mu_1 = \\bar X$ har lavest varians og bør velges. Begge treffer i snitt, men $\\bar X$ er skarpest fordi den utnytter alle $n$ observasjonene (mens $\\hat\\mu_2$ bruker bare to). *Sensorpoeng: begrunn i begge kriterier.*"
+    },
+    {
+      "id": "stk1100-5-1-l5a",
+      "type": "exercise",
+      "exercise": {
+        "id": "stk1100-5-1-ex-l5a",
+        "number": "7",
+        "type": "classic",
+        "difficulty": "vanskelig",
+        "task": "For iid-observasjoner $X_1, \\dots, X_3$ (varians $\\sigma^2$) foreslås $\\hat\\mu_1 = \\bar X = \\tfrac13(X_1 + X_2 + X_3)$ og den *vektede* $\\hat\\mu_2 = \\tfrac14 X_1 + \\tfrac12 X_2 + \\tfrac14 X_3$.\n\n**a)** Vis at begge er forventningsrette.\n\n**b)** Finn variansene og avgjør hvilken som bør brukes.",
+        "solution": "**a)** $E(\\hat\\mu_1) = \\tfrac13(3\\mu) = \\mu$. $E(\\hat\\mu_2) = (\\tfrac14 + \\tfrac12 + \\tfrac14)\\mu = 1\\cdot\\mu = \\mu$ (vektene summerer til 1). Begge forventningsrette.\n\n**b)** $\\text{Var}(\\hat\\mu_1) = \\sigma^2/3 \\approx 0{,}333\\sigma^2$. $\\text{Var}(\\hat\\mu_2) = \\left(\\tfrac{1}{16} + \\tfrac14 + \\tfrac{1}{16}\\right)\\sigma^2 = \\tfrac{6}{16}\\sigma^2 = 0{,}375\\sigma^2$. Siden $0{,}333 < 0{,}375$ har $\\bar X$ lavest varians og bør velges. (Generelt gir *like* vekter $1/n$ lavest varians blant forventningsrette lineærkombinasjoner.)",
+        "hints": [
+          "Forventningsrett lineærkombinasjon $\\Leftrightarrow$ vektene summerer til 1.",
+          "$\\text{Var}(\\sum a_i X_i) = \\sigma^2\\sum a_i^2$; sammenlign $\\sum a_i^2$."
+        ]
+      }
+    },
+    {
+      "id": "stk1100-5-1-l5b",
+      "type": "exercise",
+      "exercise": {
+        "id": "stk1100-5-1-ex-l5b",
+        "number": "8",
+        "type": "classic",
+        "difficulty": "vanskelig",
+        "task": "Levetidene $X_1, \\dots, X_n$ er eksponensialfordelte i **forventningsform** ($f(x) = \\tfrac1\\mu e^{-x/\\mu}$, $E(X_i) = \\mu$, $\\text{Var}(X_i) = \\mu^2$). Vis at $\\bar X$ er forventningsrett for $\\mu$, og finn $\\text{Var}(\\bar X)$ og standardfeilen uttrykt ved $\\mu$ og $n$.",
+        "solution": "Eksponensial i forventningsform har $E(X_i) = \\mu$ og $\\text{Var}(X_i) = \\mu^2$.\n\n**Forventningsrett:** $E(\\bar X) = \\frac{1}{n}\\sum E(X_i) = \\frac{1}{n}\\cdot n\\mu = \\mu$. Ja.\n\n**Varians:** $\\text{Var}(\\bar X) = \\frac{1}{n^2}\\sum \\text{Var}(X_i) = \\frac{1}{n^2}\\cdot n\\mu^2 = \\frac{\\mu^2}{n}$.\n\n**Standardfeil:** $\\text{SE}(\\bar X) = \\sqrt{\\mu^2/n} = \\mu/\\sqrt n$. (Estimert: $\\bar X/\\sqrt n$, siden $\\hat\\mu = \\bar X$.)",
+        "hints": [
+          "Eksponensial forventningsform: $E(X_i) = \\mu$, $\\text{Var}(X_i) = \\mu^2$.",
+          "$\\text{Var}(\\bar X) = \\text{Var}(X_i)/n$."
+        ]
+      }
+    },
+    {
+      "id": "stk1100-5-1-warn-typiske",
+      "type": "warning",
+      "title": "Typiske feil",
+      "content": "- **Anta at enhver estimator er forventningsrett.** Forventningsretthet må *regnes ut* ved å ta $E$ av estimatoren — mange estimatorer (særlig ML-estimatorer for skala/form) er skjeve.\n- **Blande $\\hat\\sigma^2$ og $\\sqrt{\\hat\\sigma^2}$.** At $S^2$ er forventningsrett for $\\sigma^2$ betyr *ikke* at $S = \\sqrt{S^2}$ er forventningsrett for $\\sigma$ — kvadratrot er konkav og gir underestimering ($E[\\sqrt V] < \\sqrt{E V}$).\n- **Glemme Γ-faktoren** i rot-/potensestimatorer (Weibull, gamma, $S$ for $\\sigma$). Skjevheten er $\\Gamma(\\alpha + r)/\\Gamma(\\alpha)$ — kvantifiser den med E(Vʳ)-formelen.\n- **Forveksle estimator og estimat.** «$\\bar X$ er forventningsrett» gir mening; «$\\bar x = 4{,}2$ er forventningsrett» gjør det ikke. Bruk stor bokstav for regelen, liten for tallet.\n- **Velge estimator uten variansregning.** Blant forventningsrette estimatorer avgjør variansen — begrunn valget i begge kriterier, ikke bare det ene."
+    },
+    {
+      "id": "stk1100-5-1-bank-head",
+      "type": "text",
+      "content": "## Begrepsbank — flashcards\n\n*Flashcard-/repetisjonsstoff — hopp trygt over ved førstegangslesing; tidsanslaget gjelder kjernestoffet.* Kortene under oppsummerer estimator-egenskapene til rask repetisjon."
+    },
+    {
+      "id": "stk1100-5-1-kort-estimator-estimat",
+      "type": "definition",
+      "title": "Estimator vs. estimat — kortet",
+      "content": "**Estimator** $\\hat\\theta = \\hat\\theta(X_1, \\dots, X_n)$: stokastisk regel, stor bokstav, har fordeling. **Estimat**: tallet $\\hat\\theta(x_1, \\dots, x_n)$, liten bokstav. Egenskaper (forventningsretthet, varians) tilhører estimatoren, aldri estimatet."
+    },
+    {
+      "id": "stk1100-5-1-kort-bias",
+      "type": "definition",
+      "title": "Bias-formelen — kortet",
+      "content": "$\\text{bias}(\\hat\\theta) = E(\\hat\\theta) - \\theta$. Null $\\Leftrightarrow$ forventningsrett. Positiv = systematisk overestimering, negativ = underestimering. Skal kvantifiseres."
+    },
+    {
+      "id": "stk1100-5-1-kort-xbar",
+      "type": "definition",
+      "title": "$\\bar X$-egenskapene — kortet",
+      "content": "$E(\\bar X) = \\mu$ (forventningsrett), $\\text{Var}(\\bar X) = \\sigma^2/n$, $\\text{SE}(\\bar X) = \\sigma/\\sqrt n$. Variansen synker som $1/n$; $\\bar X$ er konsistent."
+    },
+    {
+      "id": "stk1100-5-1-kort-s2",
+      "type": "definition",
+      "title": "$S^2$-egenskapene — kortet",
+      "content": "$S^2 = \\frac{1}{n-1}\\sum (X_i - \\bar X)^2$ er forventningsrett for $\\sigma^2$. $n$-varianten $\\frac1n\\sum(X_i-\\bar X)^2$ er skjev: $E = \\frac{n-1}{n}\\sigma^2$. Deling på $\\frac{n-1}{n}$ gir tilbake $S^2$."
+    },
+    {
+      "id": "stk1100-5-1-kort-se",
+      "type": "definition",
+      "title": "SE vs. varians — kortet",
+      "content": "$\\text{SE}(\\hat\\theta) = \\sqrt{\\text{Var}(\\hat\\theta)}$ — standardavviket til estimatoren, «pluss-minus»-tallet i KI. Estimert SE bruker $S$ i stedet for ukjent $\\sigma$: $S/\\sqrt n$."
+    },
+    {
+      "id": "stk1100-5-1-kort-sqrt",
+      "type": "definition",
+      "title": "Rot underestimerer — kortet",
+      "content": "$E[\\sqrt V] < \\sqrt{E[V]}$ (kvadratrot konkav). Derfor er $S$ skjev for $\\sigma$ selv om $S^2$ er forventningsrett for $\\sigma^2$. Generelt: rot/potens av forventningsrett estimator er skjev."
+    },
+    {
+      "id": "stk1100-5-1-kort-gammafaktor",
+      "type": "definition",
+      "title": "Γ-faktoren — kortet",
+      "content": "For $V \\sim \\text{gamma}(\\alpha, \\beta)$: $E(V^r) = \\beta^r\\Gamma(\\alpha+r)/\\Gamma(\\alpha)$. Γ-faktoren $\\Gamma(\\alpha+r)/\\Gamma(\\alpha)$ kvantifiserer rot-/potens-skjevheten; deling på den gir forventningsrett."
+    },
+    {
+      "id": "stk1100-5-1-kort-cn",
+      "type": "definition",
+      "title": "$c_n$-korreksjonen for $S$ — kortet",
+      "content": "$E(S) = c_n\\,\\sigma$ med $c_n = \\sqrt{\\tfrac{2}{n-1}}\\,\\Gamma(n/2)/\\Gamma((n-1)/2) < 1$. F.eks. $c_{10} = 0{,}9727$. Forventningsrett estimator for $\\sigma$: $S/c_n$."
+    },
+    {
+      "id": "stk1100-5-1-kort-effektivitet",
+      "type": "definition",
+      "title": "Effektivitet — kortet",
+      "content": "Blant to forventningsrette estimatorer er den med **lavest varians** mest effektiv (skarpest). Like vekter $1/n$ gir lavest varians blant forventningsrette lineærkombinasjoner av iid-observasjoner."
+    },
+    {
+      "id": "stk1100-5-1-kort-mse",
+      "type": "definition",
+      "title": "MSE = varians + skjevhet² (bør kjenne)",
+      "content": "Samlet feil måles av middelkvadratfeilen $\\text{MSE}(\\hat\\theta) = E[(\\hat\\theta - \\theta)^2] = \\text{Var}(\\hat\\theta) + [\\text{bias}(\\hat\\theta)]^2$. For forventningsrette estimatorer er MSE = varians. En litt skjev estimator med mye mindre varians kan ha lavere MSE."
+    },
+    {
+      "id": "stk1100-5-1-kort-momentregler",
+      "type": "definition",
+      "title": "Momentreglene (repetisjon fra 1.2) — kortet",
+      "content": "$E(\\sum a_i X_i) = \\sum a_i E(X_i)$ (alltid). For *uavhengige* $X_i$: $\\text{Var}(\\sum a_i X_i) = \\sum a_i^2 \\text{Var}(X_i)$ (ingen kovariansledd). Motoren i all forventnings- og variansregning på estimatorer."
+    },
+    {
+      "id": "stk1100-5-1-rep",
+      "type": "collapsible",
+      "title": "Repetisjonsoppgaver",
+      "buttonText": "Vis repetisjonsoppgaver",
+      "content": [
+        {
+          "id": "stk1100-5-1-rep-intro",
+          "type": "text",
+          "content": "Fire korte oppgaver fra forkunnskapskapitlene (1.2 momentregler, 2.2 gamma/Γ) — friskt i minne før estimeringen fortsetter i 5.2."
+        },
+        {
+          "id": "stk1100-5-1-rep1",
+          "type": "exercise",
+          "exercise": {
+            "id": "stk1100-5-1-ex-rep1",
+            "number": "R1",
+            "type": "classic",
+            "difficulty": "lett",
+            "task": "(Fra 1.2.) $X$ og $Y$ er uavhengige med $\\text{Var}(X) = 3$, $\\text{Var}(Y) = 5$. Finn $\\text{Var}(2X - Y)$.",
+            "solution": "Uavhengige, så ingen kovariansledd: $\\text{Var}(2X - Y) = 2^2\\text{Var}(X) + (-1)^2\\text{Var}(Y) = 4\\cdot 3 + 5 = 17$.",
+            "hints": [
+              "Kvadrér koeffisientene.",
+              "Uavhengige $\\Rightarrow$ dropp kovariansleddet."
+            ]
+          }
+        },
+        {
+          "id": "stk1100-5-1-rep2",
+          "type": "exercise",
+          "exercise": {
+            "id": "stk1100-5-1-ex-rep2",
+            "number": "R2",
+            "type": "classic",
+            "difficulty": "lett",
+            "task": "(Fra 1.2.) Iid $X_1, \\dots, X_n$ med $E(X_i) = \\mu$. Finn $E\\!\\left(\\sum_{i=1}^n X_i\\right)$.",
+            "solution": "$E\\!\\left(\\sum X_i\\right) = \\sum E(X_i) = n\\mu$.",
+            "hints": [
+              "Forventning er lineær.",
+              "$n$ like ledd, hvert $\\mu$."
+            ]
+          }
+        },
+        {
+          "id": "stk1100-5-1-rep3",
+          "type": "exercise",
+          "exercise": {
+            "id": "stk1100-5-1-ex-rep3",
+            "number": "R3",
+            "type": "classic",
+            "difficulty": "middels",
+            "task": "(Fra 2.2.) For $V \\sim \\text{gamma}(\\alpha, \\beta)$, bruk E(Vʳ)-formelen til å finne $E(V^2)$ og deretter $\\text{Var}(V)$.",
+            "solution": "$E(V^2) = \\beta^2\\frac{\\Gamma(\\alpha+2)}{\\Gamma(\\alpha)} = \\beta^2(\\alpha+1)\\alpha$ (bruk $\\Gamma(\\alpha+2) = (\\alpha+1)\\alpha\\Gamma(\\alpha)$). Da $\\text{Var}(V) = E(V^2) - [E(V)]^2 = \\alpha(\\alpha+1)\\beta^2 - (\\alpha\\beta)^2 = \\alpha\\beta^2$.",
+            "hints": [
+              "$E(V^r) = \\beta^r\\Gamma(\\alpha+r)/\\Gamma(\\alpha)$ med $r = 2$.",
+              "$\\Gamma(\\alpha+2) = (\\alpha+1)\\alpha\\Gamma(\\alpha)$."
+            ]
+          }
+        },
+        {
+          "id": "stk1100-5-1-rep4",
+          "type": "exercise",
+          "exercise": {
+            "id": "stk1100-5-1-ex-rep4",
+            "number": "R4",
+            "type": "classic",
+            "difficulty": "middels",
+            "task": "(Fra 2.2.) Regn ut Γ-faktoren $\\Gamma(\\alpha + \\tfrac12)/\\Gamma(\\alpha)$ for $\\alpha = 2$. (Bruk $\\Gamma(\\tfrac12) = \\sqrt\\pi$.)",
+            "solution": "$\\Gamma(2 + \\tfrac12) = \\Gamma(\\tfrac52) = \\tfrac32\\cdot\\tfrac12\\cdot\\Gamma(\\tfrac12) = \\tfrac34\\sqrt\\pi$. Og $\\Gamma(2) = 1! = 1$. Faktoren blir $\\frac{\\tfrac34\\sqrt\\pi}{1} = \\tfrac34\\sqrt\\pi \\approx 1{,}329$.",
+            "hints": [
+              "Trapp ned med $\\Gamma(\\alpha+1) = \\alpha\\Gamma(\\alpha)$ til $\\Gamma(\\tfrac12)$.",
+              "$\\Gamma(2) = 1$."
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": "stk1100-5-1-symbolliste",
+      "type": "collapsible",
+      "title": "Symbol- og formelliste",
+      "buttonText": "Vis symboler og formler",
+      "content": [
+        {
+          "id": "stk1100-5-1-sym-innhold",
+          "type": "text",
+          "content": "*Oppslagsverk — alt her forklares underveis i kapitlet.*\n\n| Symbol | Betydning |\n|---|---|\n| $\\theta$ | Ukjent parameter (generelt) |\n| $\\hat\\theta$ | Estimator (stokastisk regel, stor bokstav + hatt) |\n| $X_1, \\dots, X_n$ | Iid observasjoner (stokastiske) |\n| $\\bar X$ | Utvalgsgjennomsnittet, $\\frac1n\\sum X_i$ |\n| $S^2$ | Utvalgsvariansen, $\\frac{1}{n-1}\\sum(X_i - \\bar X)^2$ |\n| $S$ | Utvalgsstandardavviket, $\\sqrt{S^2}$ |\n| $\\mu, \\sigma^2$ | Forventning og varians i fordelingen |\n| $\\text{bias}(\\hat\\theta)$ | Skjevheten, $E(\\hat\\theta) - \\theta$ |\n| $\\text{SE}(\\hat\\theta)$ | Standardfeilen, $\\sqrt{\\text{Var}(\\hat\\theta)}$ |\n| $c_n$ | Korreksjonsfaktor for $S$ (mot skjevhet) |\n| $\\Gamma$ | Gammafunksjonen |\n| $\\alpha, \\beta$ | Form / skala i gammafordelingen |\n\n**Formler i dette kapitlet:**\n\n$$\\text{Forventningsrett: } E(\\hat\\theta) = \\theta \\qquad \\text{Skjevhet: } \\text{bias}(\\hat\\theta) = E(\\hat\\theta) - \\theta$$\n\n$$E(\\bar X) = \\mu, \\qquad \\text{Var}(\\bar X) = \\frac{\\sigma^2}{n}, \\qquad \\text{SE}(\\bar X) = \\frac{\\sigma}{\\sqrt n}$$\n\n$$S^2 = \\frac{1}{n-1}\\sum_{i=1}^n (X_i - \\bar X)^2, \\quad E(S^2) = \\sigma^2; \\qquad E\\!\\left(\\tfrac1n\\textstyle\\sum(X_i-\\bar X)^2\\right) = \\frac{n-1}{n}\\sigma^2$$\n\n$$\\text{Skjevhetskorreksjon: } E(\\hat\\theta) = c\\theta \\ \\Rightarrow\\ E(\\hat\\theta/c) = \\theta$$\n\n$$E[\\sqrt V] < \\sqrt{E[V]}; \\qquad E(V^r) = \\beta^r\\frac{\\Gamma(\\alpha+r)}{\\Gamma(\\alpha)}\\ (V \\sim \\text{gamma}(\\alpha,\\beta),\\ r > -\\alpha)$$\n\n$$E(S) = c_n\\sigma, \\quad c_n = \\sqrt{\\tfrac{2}{n-1}}\\,\\frac{\\Gamma(n/2)}{\\Gamma((n-1)/2)} < 1; \\qquad \\text{MSE}(\\hat\\theta) = \\text{Var}(\\hat\\theta) + [\\text{bias}(\\hat\\theta)]^2$$"
+        }
+      ]
+    }
+  ],
+  "exercises": []
+}

@@ -1,0 +1,233 @@
+{
+  "id": "stk1100-4-prove",
+  "courseId": "stk1100",
+  "chapterNumber": "4.P",
+  "title": "Prøver til del 4: Transformasjon: broen til pivotalen",
+  "description": "Fire temaprøver som dekker momentgenererende funksjoner, CDF-metoden, Jacobi-transformasjon og oppbyggingen av gamma/kjikvadrat-pivotalen — med fullstendige løsningsforslag og selvdiagnose. Fire prøver à 30–45 min, kan tas som separate økter.",
+  "estimatedMinutes": 140,
+  "competenceGoals": [
+    "kunne utlede en momentgenererende funksjon med konvergenskrav og hente forventning og varians fra den",
+    "kunne finne fordelingen til Y=g(X) med CDF-metoden for både voksende og avtakende g",
+    "kunne bruke Jacobi-determinanten til å finne simultantettheten og marginalene etter et variabelbytte",
+    "kunne transformere observasjoner til en gamma/kjikvadrat-pivotal med riktige frihetsgrader"
+  ],
+  "content": [
+    {
+      "id": "stk1100-4-prove-tip",
+      "type": "tip",
+      "title": "Om prøvene til Del 4",
+      "content": "**Fire prøver til Del 4** som dekker transformasjonsapparatet — «broen til pivotalen» — som er i ~90 % av settene.\n\n| Prøve | Tema | Tid |\n|---|---|---|\n| 4.A | MGF: utled $E$ og $\\text{Var}$ med konvergenskrav | ~30 min |\n| 4.B | CDF-metoden på monotone transformasjoner | ~30 min |\n| 4.C | Jacobi for $(X,Y) \\to (U,V)$ | ~35 min |\n| 4.D | Transformasjon til gamma/$\\chi^2$ — full utledning (pivot-forberedelse) | ~45 min |\n\n**Flervalgsoppgaven bor i prøve 4.B** (ett riktig alternativ per punkt).\n\n**Prøvene kan trygt deles over flere kvelder — én prøve per økt.** Løs hver prøve *før* du åpner fasiten, og bruk selvdiagnose-listen etterpå. I 4.C skal du **tegne integrasjonsområdet** etter Jacobi-byttet før du integrerer ut en marginal."
+    },
+    {
+      "id": "stk1100-4-prove-forkunnskaper",
+      "type": "text",
+      "content": "**Forkunnskaper:** Disse prøvene forutsetter hele Del 4 — momentgenererende funksjoner ([kap. 4.1](/bok/stk1100/stk1100-4-1)), CDF-metoden og Jacobi ([kap. 4.2](/bok/stk1100/stk1100-4-2)) og transformasjonen til gamma/$\\chi^2$ ([kap. 4.3](/bok/stk1100/stk1100-4-3)). Under ligger gammafordelingen, identiteten $\\chi^2_n = \\text{gamma}(n/2,2)$ og sum-av-gamma-regelen ([kap. 2.2](/bok/stk1100/stk1100-2-2)). Derivasjonsreglene friskes opp i [R1 4.1](/bok/r1/r1-4-1)."
+    },
+    {
+      "id": "stk1100-4-prove-intro",
+      "type": "text",
+      "content": "Transformasjon er den mest brukte teknikken på STK1100-eksamen og selve broen fram til det eksakte konfidensintervallet. De fire prøvene trener de tre verktøyene hver for seg — momentgenererende funksjoner (4.A), CDF-metoden (4.B) og Jacobi (4.C) — før 4.D setter dem sammen til en full pivotal-utledning på eksamensnivå. Les alltid oppgavens egen parametrisering av eksponensial- og Weibull-fordelingen; frihetsgradene ($2n$ mot $n$) avgjøres av hvilken fordeling du starter med."
+    },
+    {
+      "id": "stk1100-4-prove-p1",
+      "type": "collapsible",
+      "title": "Prøve 4.A — MGF: utled E og Var med konvergenskrav (~30 min)",
+      "buttonText": "Vis prøve 4.A",
+      "content": [
+        {
+          "id": "stk1100-4-prove-p1-ex1",
+          "type": "exercise",
+          "exercise": {
+            "id": "stk1100-4-prove-p1-ex1",
+            "number": "1",
+            "type": "classic",
+            "difficulty": "middels",
+            "task": "**MGF for antall hendelser.** Antall trafikkuhell $X$ i et veikryss per måned modelleres som Poisson-fordelt med parameter $\\lambda$, $p(x) = \\frac{\\lambda^x e^{-\\lambda}}{x!}$, $x = 0,1,2,\\ldots$\n\n**a)** Utled den momentgenererende funksjonen $M_X(t)$, og angi for hvilke $t$ den konvergerer.\n**b)** Bruk $M'(0)$ og $M''(0)$ til å vise at $E(X) = \\lambda$ og $\\text{Var}(X) = \\lambda$.\n**c)** Bekreft variansen raskere med kumulant-snarveien $R(t) = \\ln M(t)$.",
+            "solution": "**a)** $M_X(t) = E(e^{tX}) = \\sum_{x=0}^\\infty e^{tx}\\frac{\\lambda^x e^{-\\lambda}}{x!} = e^{-\\lambda}\\sum_{x=0}^\\infty \\frac{(\\lambda e^t)^x}{x!} = e^{-\\lambda}e^{\\lambda e^t} = e^{\\lambda(e^t - 1)}.$\n\nEksponensialrekken $\\sum (\\lambda e^t)^x/x!$ konvergerer for **alle** $t$, så MGF-en er definert for alle $t$. (Kontroll: $M(0) = e^{\\lambda(1-1)} = 1$.)\n\n**b)** $M'(t) = e^{\\lambda(e^t-1)}\\cdot \\lambda e^t$, så $E(X) = M'(0) = 1\\cdot\\lambda = \\lambda$. Produktregelen gir $M''(t) = \\lambda e^t M(t)(1 + \\lambda e^t)$, så $M''(0) = \\lambda(1+\\lambda) = \\lambda + \\lambda^2 = E(X^2)$. Da $\\text{Var}(X) = (\\lambda+\\lambda^2) - \\lambda^2 = \\lambda$.\n\n**c)** $R(t) = \\ln M(t) = \\lambda(e^t - 1)$, så $R'(t) = \\lambda e^t$ og $R''(t) = \\lambda e^t$. Direkte: $E(X) = R'(0) = \\lambda$ og $\\text{Var}(X) = R''(0) = \\lambda$ — samme svar uten produktregelen.",
+            "hints": [
+              "MGF er $E(e^{tX}) = \\sum e^{tx}p(x)$; kjenn igjen eksponensialrekken $\\sum a^x/x! = e^a$.",
+              "Kumulant-snarveien: $R''(0)$ er variansen direkte."
+            ]
+          }
+        },
+        {
+          "id": "stk1100-4-prove-p1-ex2",
+          "type": "exercise",
+          "exercise": {
+            "id": "stk1100-4-prove-p1-ex2",
+            "number": "2",
+            "type": "classic",
+            "difficulty": "middels",
+            "task": "**MGF for en gammafordeling.** Den akkumulerte slitasjen $X$ på et lager er gamma-fordelt med formparameter $\\alpha = 2$ og skalaparameter $\\beta$, altså gamma$(2,\\beta)$.\n\n**a)** Skriv opp MGF-en $M_X(t)$ med konvergenskravet på $t$.\n**b)** Utled $E(X)$ og $\\text{Var}(X)$ ved derivasjon.\n**c)** Finn $E(X^2)$.",
+            "solution": "**a)** For gamma$(\\alpha,\\beta)$ med skala $\\beta$ er $M_X(t) = (1-\\beta t)^{-\\alpha}$ for $t < 1/\\beta$. Med $\\alpha = 2$: $M_X(t) = (1-\\beta t)^{-2}$, gyldig for $t < 1/\\beta$.\n\n**b)** $M'(t) = 2\\beta(1-\\beta t)^{-3}$, så $E(X) = M'(0) = 2\\beta$. $M''(t) = 6\\beta^2(1-\\beta t)^{-4}$, så $M''(0) = 6\\beta^2 = E(X^2)$. Da $\\text{Var}(X) = 6\\beta^2 - (2\\beta)^2 = 6\\beta^2 - 4\\beta^2 = 2\\beta^2$. (Stemmer med $E = \\alpha\\beta = 2\\beta$, $\\text{Var} = \\alpha\\beta^2 = 2\\beta^2$.)\n\n**c)** $E(X^2) = M''(0) = 6\\beta^2$ (funnet i b).",
+            "hints": [
+              "Sett $\\alpha=2$ i $(1-\\beta t)^{-\\alpha}$; konvergenskravet er $t<1/\\beta$.",
+              "$E(X^2) = M''(0)$, og $\\text{Var} = M''(0) - [M'(0)]^2$."
+            ]
+          }
+        },
+        {
+          "id": "stk1100-4-prove-p1-selvdiag",
+          "type": "text",
+          "content": "### Selvdiagnose 4.A\n\n- ☐ Jeg utledet MGF-en fra $E(e^{tX})$ og oppga **konvergensområdet** for $t$.\n- ☐ Jeg regnet $E(X) = M'(0)$ og $E(X^2) = M''(0)$, ikke bare siterte dem.\n- ☐ Jeg fant variansen som $M''(0) - [M'(0)]^2$.\n- ☐ Jeg brukte $R(t) = \\ln M(t)$ og fikk variansen direkte som $R''(0)$.\n\nManglet du noe? Repeter [kap. 4.1](/bok/stk1100/stk1100-4-1)."
+        }
+      ]
+    },
+    {
+      "id": "stk1100-4-prove-p2",
+      "type": "collapsible",
+      "title": "Prøve 4.B — CDF-metoden på monotone transformasjoner (~30 min)",
+      "buttonText": "Vis prøve 4.B",
+      "content": [
+        {
+          "id": "stk1100-4-prove-p2-ex1",
+          "type": "exercise",
+          "exercise": {
+            "id": "stk1100-4-prove-p2-ex1",
+            "number": "1",
+            "type": "classic",
+            "difficulty": "middels",
+            "task": "**CDF-metoden, voksende transformasjon.** Levetiden $X$ (år) til en komponent er eksponensialfordelt i **rateform** med rate $\\lambda$, $F_X(x) = 1 - e^{-\\lambda x}$, $x \\ge 0$. En avledet størrelse er $Y = X^3$.\n\n**a)** Er $g(x) = x^3$ voksende på $x \\ge 0$? Finn $F_Y(y)$ med CDF-metoden.\n**b)** Deriver til tettheten $f_Y(y)$.",
+            "solution": "**a)** $g(x) = x^3$ er voksende for $x \\ge 0$, med invers $g^{-1}(y) = y^{1/3}$. For $y > 0$:\n\n$$F_Y(y) = P(X^3 \\le y) = P(X \\le y^{1/3}) = F_X(y^{1/3}) = 1 - e^{-\\lambda y^{1/3}}.$$\n\n**b)** Deriver med kjerneregelen ($\\tfrac{d}{dy}y^{1/3} = \\tfrac13 y^{-2/3}$):\n\n$$f_Y(y) = e^{-\\lambda y^{1/3}}\\cdot \\lambda\\cdot \\tfrac13 y^{-2/3} = \\frac{\\lambda}{3}\\,y^{-2/3}\\,e^{-\\lambda y^{1/3}}, \\qquad y > 0.$$",
+            "hints": [
+              "Skriv $\\{X^3 \\le y\\} = \\{X \\le y^{1/3}\\}$ og sett inn $F_X$.",
+              "Kjerneregel: gang med $\\tfrac{d}{dy}y^{1/3} = \\tfrac13 y^{-2/3}$."
+            ]
+          }
+        },
+        {
+          "id": "stk1100-4-prove-p2-ex2",
+          "type": "exercise",
+          "exercise": {
+            "id": "stk1100-4-prove-p2-ex2",
+            "number": "2",
+            "type": "classic",
+            "difficulty": "middels",
+            "task": "**CDF-metoden, avtakende transformasjon.** La $X$ være eksponensialfordelt i rateform med rate $\\lambda$ ($F_X(x) = 1 - e^{-\\lambda x}$), og sett $Y = e^{-\\lambda X}$.\n\n**a)** Er $g(x) = e^{-\\lambda x}$ voksende eller avtakende? I hvilket intervall ligger $Y$?\n**b)** Finn $F_Y(y)$ (husk å snu ulikheten), og deriver til $f_Y(y)$. Hvilken fordeling har $Y$?",
+            "solution": "**a)** $g(x) = e^{-\\lambda x}$ er **avtakende** (større $x$ gir mindre $Y$). For $x \\ge 0$ ligger $Y = e^{-\\lambda X}$ i $(0, 1]$.\n\n**b)** Snu ulikheten: for $0 < y \\le 1$,\n\n$$F_Y(y) = P(e^{-\\lambda X} \\le y) = P(-\\lambda X \\le \\ln y) = P\\Big(X \\ge -\\tfrac{\\ln y}{\\lambda}\\Big) = e^{-\\lambda\\cdot(-\\ln y/\\lambda)} = e^{\\ln y} = y.$$\n\nDeriver: $f_Y(y) = 1$ på $(0,1)$. Altså er **$Y$ uniform på $[0,1]$**. (Dette er sannsynlighetsintegral-transformasjonen $Y = F_X(X)$ — grunnlaget for inversjonsmetoden i kap. 7.1.)",
+            "hints": [
+              "Avtakende $g$: $\\{e^{-\\lambda X} \\le y\\} = \\{X \\ge -\\ln(y)/\\lambda\\}$, og halen $1-F_X$ dukker opp.",
+              "Bruk $P(X \\ge x) = e^{-\\lambda x}$; sett $x = -\\ln(y)/\\lambda$."
+            ]
+          }
+        },
+        {
+          "id": "stk1100-4-prove-p2-ex3",
+          "type": "exercise",
+          "exercise": {
+            "id": "stk1100-4-prove-p2-ex3",
+            "number": "3",
+            "type": "classic",
+            "difficulty": "middels",
+            "task": "**Flervalg.** Velg det ene riktige alternativet for hvert punkt.\n\n**a)** I CDF-metoden for $Y = g(X)$, hva er **første** steg?\n(a) Sett $y$ rett inn i tettheten $f_X$  (b) Skriv $F_Y(y) = P(g(X) \\le y)$ og oversett til en hendelse om $X$  (c) Deriver $f_X$  (d) Anta at $Y$ er normalfordelt\n\n**b)** Når $g$ er **avtakende**, er $F_Y(y)$ lik:\n(a) $F_X(g^{-1}(y))$  (b) $f_X(g^{-1}(y))$  (c) $1 - F_X(g^{-1}(y))$  (d) $1 - f_X(g^{-1}(y))$\n\n**c)** La $Z \\sim N(0,1)$. Fordelingen til $Z^2$ er:\n(a) $\\chi^2_1 = \\text{gamma}(\\tfrac12, 2)$  (b) $N(0,1)$  (c) $\\chi^2_2$  (d) eksponensial med forventning 1\n\n**d)** Hvorfor står det absoluttverdi i $f_Y(y) = f_X(g^{-1}(y))\\,\\big|\\tfrac{d}{dy}g^{-1}(y)\\big|$?\n(a) For å runde av  (b) Fordi $f_X$ alltid er negativ  (c) Det er valgfritt  (d) Fordi en tetthet aldri kan være negativ",
+            "solution": "**a) (b)** CDF-metoden starter alltid med $F_Y(y) = P(g(X) \\le y)$, oversatt til en hendelse om $X$ — aldri ved å gjette tettheten.\n\n**b) (c)** For avtakende $g$ snus ulikheten, og halen $1 - F_X(g^{-1}(y))$ dukker opp.\n\n**c) (a)** Kvadratet av en standardnormal er $\\chi^2_1 = \\text{gamma}(\\tfrac12, 2)$ — én frihetsgrad.\n\n**d) (d)** Absoluttverdien sikrer en positiv tetthet, uansett om $g$ vokser eller avtar.\n\n*(Riktige bokstaver: b, c, a, d — stokket.)*",
+            "hints": [
+              "Skille CDF-steget (via $F_Y$) fra derivasjonssteget.",
+              "Avtakende $g$ gir $1-F_X$; $Z^2$ er $\\chi^2_1$, ikke $\\chi^2_2$."
+            ]
+          }
+        },
+        {
+          "id": "stk1100-4-prove-p2-selvdiag",
+          "type": "text",
+          "content": "### Selvdiagnose 4.B\n\n- ☐ Jeg skrev $F_Y(y) = P(g(X)\\le y)$ og oversatte til en hendelse om $X$.\n- ☐ Jeg sjekket om $g$ var voksende eller avtakende *før* jeg fjernet $P$-tegnet.\n- ☐ Jeg snudde ulikheten (og fikk $1 - F_X$) for den avtakende transformasjonen.\n- ☐ Jeg deriverte med kjerneregelen og anga støtten for $f_Y$.\n- ☐ Jeg kjente igjen $Z^2 \\sim \\chi^2_1$.\n\nManglet du noe? Repeter [kap. 4.2](/bok/stk1100/stk1100-4-2), løkke 1–3."
+        }
+      ]
+    },
+    {
+      "id": "stk1100-4-prove-p3",
+      "type": "collapsible",
+      "title": "Prøve 4.C — Jacobi for (X,Y) til (U,V) (~35 min)",
+      "buttonText": "Vis prøve 4.C",
+      "content": [
+        {
+          "id": "stk1100-4-prove-p3-ex1",
+          "type": "exercise",
+          "exercise": {
+            "id": "stk1100-4-prove-p3-ex1",
+            "number": "1",
+            "type": "classic",
+            "difficulty": "vanskelig",
+            "task": "**Jacobi med tegnet område.** La $X$ og $Y$ være uavhengige og **uniformt** fordelt på $[0,1]$, så $f_{XY}(x,y) = 1$ på enhetskvadratet. Sett $U = X + Y$ og $V = X - Y$.\n\n**a)** Finn inversen $X, Y$ uttrykt ved $U, V$ og regn Jacobi-determinanten $|J|$. Skriv opp $f_{UV}(u,v)$.\n**b)** Tegn støtten til $(U,V)$ og finn marginaltettheten $f_U(u)$.\n**c)** Er $U$ og $V$ uavhengige? Begrunn.",
+            "solution": "**a)** Løs likningssystemet $u = x+y$, $v = x-y$: $X = \\tfrac{U+V}{2}$, $Y = \\tfrac{U-V}{2}$. Partielle deriverte: $\\tfrac{\\partial x}{\\partial u} = \\tfrac12$, $\\tfrac{\\partial x}{\\partial v} = \\tfrac12$, $\\tfrac{\\partial y}{\\partial u} = \\tfrac12$, $\\tfrac{\\partial y}{\\partial v} = -\\tfrac12$. Determinanten:\n\n$$J = \\tfrac12\\cdot(-\\tfrac12) - \\tfrac12\\cdot\\tfrac12 = -\\tfrac14 - \\tfrac14 = -\\tfrac12,\\qquad |J| = \\tfrac12.$$\n\nSiden $f_{XY} = 1$: $f_{UV}(u,v) = 1\\cdot|J| = \\tfrac12$ på støtten.\n\n**b)** **Støtten:** kravene $0<x<1$, $0<y<1$ blir $0 < \\tfrac{u+v}{2} < 1$ og $0 < \\tfrac{u-v}{2} < 1$, altså $-u < v < 2-u$ og $u-2 < v < u$. Dette er en **diamant (rotert kvadrat)** med hjørner $(0,0)$, $(1,1)$, $(2,0)$, $(1,-1)$ (se figur).\n\n**Marginal for $U$:** for $0 < u < 1$ er de bindende grensene $-u < v < u$ (lengde $2u$), så $f_U(u) = \\int_{-u}^{u}\\tfrac12\\,dv = u$. For $1 < u < 2$ er grensene $u-2 < v < 2-u$ (lengde $2(2-u)$), så $f_U(u) = \\tfrac12\\cdot 2(2-u) = 2-u$. Altså en **trekantfordeling**:\n\n$$f_U(u) = \\begin{cases} u, & 0<u<1 \\\\ 2-u, & 1\\le u<2 \\end{cases}$$\n\n**c)** Tettheten $f_{UV} = \\tfrac12$ er konstant, men støtten er en **diamant, ikke et rektangel** — altså ikke et produktområde. Da er $U$ og $V$ **avhengige**: i null-området, f.eks. $(u,v) = (0{,}1,\\,0{,}9)$, er $f_{UV} = 0$ mens $f_U(0{,}1)>0$ og $f_V(0{,}9)>0$. Konstant tetthet beviser altså *ikke* uavhengighet når støtten er skrå.",
+            "hints": [
+              "Løs $u=x+y$, $v=x-y$ for $x,y$; determinanten gir $|J|=\\tfrac12$.",
+              "Tegn diamanten: for $0<u<1$ går $v$ fra $-u$ til $u$. Konstant tetthet på en ikke-rektangulær støtte gir avhengighet."
+            ]
+          }
+        },
+        {
+          "id": "stk1100-4-prove-p3-fig-diamant",
+          "type": "image",
+          "src": "/images/textbook/stk1100/stk1100-4-prove-c-diamant.svg",
+          "alt": "Koordinatsystem med u vannrett og v loddrett. Stoetten til (U,V) er en diamant (rotert kvadrat) med hjoerner i (0,0), (1,1), (2,0) og (1,-1). En stiplet loddrett strek ved en fast u-verdi viser integrasjon i v mellom nedre og oevre kant av diamanten.",
+          "caption": "Støtten til $(U,V) = (X+Y,\\,X-Y)$ er en diamant, ikke et rektangel. For å finne $f_U(u)$ holdes $u$ fast og $v$ integreres mellom diamantens kanter (den stiplede stripa) — for $0<u<1$ fra $-u$ til $u$. Fordi støtten er skrå, er $U$ og $V$ avhengige selv om tettheten er konstant."
+        },
+        {
+          "id": "stk1100-4-prove-p3-ex2",
+          "type": "exercise",
+          "exercise": {
+            "id": "stk1100-4-prove-p3-ex2",
+            "number": "2",
+            "type": "classic",
+            "difficulty": "middels",
+            "task": "**Jacobi mot gammamarginal.** To uavhengige nedbrytningstider $X, Y$ er eksponensialfordelte i rateform med rate 1, $f_{XY}(x,y) = e^{-(x+y)}$ for $x, y > 0$. Sett $U = X + Y$ og $V = Y$.\n\n**a)** Finn inversen og $|J|$, og skriv opp $f_{UV}(u,v)$ med støtten.\n**b)** Finn marginaltettheten $f_U(u)$ og identifiser fordelingen.",
+            "solution": "**a)** $V = Y$ gir $Y = V$; $U = X+Y$ gir $X = U - V$. Partielle deriverte: $\\tfrac{\\partial x}{\\partial u}=1$, $\\tfrac{\\partial x}{\\partial v}=-1$, $\\tfrac{\\partial y}{\\partial u}=0$, $\\tfrac{\\partial y}{\\partial v}=1$. Determinant: $J = 1\\cdot 1 - (-1)\\cdot 0 = 1$, så $|J| = 1$. Med $x+y = (u-v)+v = u$:\n\n$$f_{UV}(u,v) = e^{-((u-v)+v)}\\cdot 1 = e^{-u}.$$\n\n**Støtte:** $x>0 \\Rightarrow u-v>0 \\Rightarrow v<u$; $y>0 \\Rightarrow v>0$. Altså $0 < v < u$ (en kile).\n\n**b)** For fast $u > 0$ integrerer vi $v$ fra 0 til $u$:\n\n$$f_U(u) = \\int_0^u e^{-u}\\,dv = u\\,e^{-u},\\qquad u>0.$$\n\nDette er gamma$(2,1)$-tettheten — summen av to uavhengige eksponensiale (rate 1) er gamma$(2,1)$, i tråd med Erlang-resultatet fra [kap. 2.2](/bok/stk1100/stk1100-2-2).",
+            "hints": [
+              "Løs $u=x+y$, $v=y$: $x=u-v$, $y=v$, $|J|=1$.",
+              "Kilen $0<v<u$; integrer $v$ fra 0 til $u$ og kjenn igjen $u e^{-u}$ som gamma$(2,1)$."
+            ]
+          }
+        },
+        {
+          "id": "stk1100-4-prove-p3-selvdiag",
+          "type": "text",
+          "content": "### Selvdiagnose 4.C\n\n- ☐ Jeg fant inversen $X,Y$ ved $U,V$ *før* jeg deriverte.\n- ☐ Jeg regnet $|J|$ og brukte **absoluttverdien** i formelen $f_{UV} = f_{XY}\\cdot|J|$.\n- ☐ Jeg tegnet støtten og leste marginaliseringsgrensene rett av den.\n- ☐ Jeg husket at konstant tetthet på en skrå støtte ikke gir uavhengighet.\n- ☐ Jeg kjente igjen $u e^{-u}$ som gamma$(2,1)$.\n\nManglet du noe? Repeter [kap. 4.2](/bok/stk1100/stk1100-4-2), løkke 5–6."
+        }
+      ]
+    },
+    {
+      "id": "stk1100-4-prove-p4",
+      "type": "collapsible",
+      "title": "Prøve 4.D — Transformasjon til gamma/χ²: full utledning (eksamensnivå, ~45 min)",
+      "buttonText": "Vis prøve 4.D",
+      "content": [
+        {
+          "id": "stk1100-4-prove-p4-ex1",
+          "type": "exercise",
+          "exercise": {
+            "id": "stk1100-4-prove-p4-ex1",
+            "number": "1",
+            "type": "classic",
+            "difficulty": "vanskelig",
+            "task": "**Transformasjon til $\\chi^2$ — full utledning (eksamensnivå).** Bruddstyrkene $X_1, \\ldots, X_n$ til $n$ fiberprøver er uavhengige og Weibull-fordelte med **kjent** formparameter $\\alpha$ og ukjent skalaparameter $\\beta$, $F_X(x) = 1 - e^{-(x/\\beta)^\\alpha}$, $x \\ge 0$.\n\n**a)** Vis ved CDF-metoden at $Y_i = (X_i/\\beta)^\\alpha$ er eksponensialfordelt med forventning 1.\n**b)** Vis med begrunnelse at $W = 2\\sum_{i=1}^n (X_i/\\beta)^\\alpha \\sim \\chi^2_{2n}$.\n**c)** Forklar hvorfor $W$ er en **pivotal** for $\\beta$, og skisser hvordan den gir et eksakt konfidensintervall for $\\beta^\\alpha$.\n**d)** For $n = 10$ prøver med $\\alpha = 2$ observeres $\\sum_{i=1}^{10} x_i^2 = 150$. Angi frihetsgradene og et 95 %-konfidensintervall for $\\beta^2$. (Bruk $\\chi^2_{20,\\,0{,}975} = 9{,}591$ og $\\chi^2_{20,\\,0{,}025} = 34{,}170$.)",
+            "solution": "**a)** $g(x) = (x/\\beta)^\\alpha$ er voksende for $x \\ge 0$, med invers $g^{-1}(y) = \\beta y^{1/\\alpha}$. For $y > 0$:\n\n$$F_{Y_i}(y) = P\\big((X_i/\\beta)^\\alpha \\le y\\big) = P\\big(X_i \\le \\beta y^{1/\\alpha}\\big) = 1 - e^{-((\\beta y^{1/\\alpha})/\\beta)^\\alpha} = 1 - e^{-y}.$$\n\nDette er fordelingsfunksjonen til eksponensial med forventning 1 (= gamma$(1,1)$). Altså $Y_i \\sim$ eksponensial(forventning 1).\n\n**b)** Hvert $Y_i \\sim$ gamma$(1,1)$, så $2Y_i \\sim$ gamma$(1,2) = \\chi^2_2$ (en skalering med 2 endrer skalaparameteren fra 1 til 2). De $n$ leddene er uavhengige med **felles skala** 2, så ved sum-av-gamma-regelen (bevist via MGF-entydighet i [kap. 4.1](/bok/stk1100/stk1100-4-1)):\n\n$$W = 2\\sum_{i=1}^n (X_i/\\beta)^\\alpha = \\sum_{i=1}^n 2Y_i \\sim \\text{gamma}(n, 2) = \\chi^2_{2n}.$$\n\nAltså $W \\sim \\chi^2_{2n}$ — $2n$ frihetsgrader (ikke $n$).\n\n**c)** $W = 2\\sum (X_i/\\beta)^\\alpha$ inneholder den ukjente $\\beta$, men *fordelingen* er $\\chi^2_{2n}$ — helt uten $\\beta$. En slik størrelse er en **pivotal**. Skriv $S = \\sum X_i^\\alpha$; da er $W = 2S/\\beta^\\alpha$. Med kjente $\\chi^2_{2n}$-persentiler:\n\n$$P\\big(\\chi^2_{2n,\\,0{,}975} \\le 2S/\\beta^\\alpha \\le \\chi^2_{2n,\\,0{,}025}\\big) = 0{,}95.$$\n\nLøs den doble ulikheten for $\\beta^\\alpha$:\n\n$$\\frac{2S}{\\chi^2_{2n,\\,0{,}025}} \\le \\beta^\\alpha \\le \\frac{2S}{\\chi^2_{2n,\\,0{,}975}}.$$\n\n**d)** Med $n = 10$ er frihetsgraden $2n = 20$. Med $\\alpha = 2$ er $S = \\sum x_i^2 = 150$, så $\\beta^\\alpha = \\beta^2$:\n\n$$\\frac{2\\cdot 150}{34{,}170} \\le \\beta^2 \\le \\frac{2\\cdot 150}{9{,}591}, \\qquad\\text{altså}\\qquad 8{,}78 \\le \\beta^2 \\le 31{,}28.$$\n\nDet eksakte 95 %-konfidensintervallet for $\\beta^2$ er $[8{,}78,\\ 31{,}28]$. (Intervallet er asymmetrisk — et trekk ved eksakte $\\chi^2$-intervaller, ikke en feil.)",
+            "hints": [
+              "I a): potensløftet $(X/\\beta)^\\alpha$ — sett $x=\\beta y^{1/\\alpha}$ inn i Weibull-$F_X$, eksponenten blir $-y$.",
+              "I b): hvert $2Y_i \\sim \\chi^2_2$; sum av $n$ med felles skala 2 gir $\\chi^2_{2n}$. I d): $W = 2S/\\beta^2$, klem mellom persentilene og løs for $\\beta^2$."
+            ]
+          }
+        },
+        {
+          "id": "stk1100-4-prove-p4-selvdiag",
+          "type": "text",
+          "content": "### Selvdiagnose 4.D\n\n- ☐ Jeg viste med CDF-metoden at $(X_i/\\beta)^\\alpha \\sim$ eksponensial(1), med eksponenten $-y$.\n- ☐ Jeg gikk via $2Y_i \\sim \\chi^2_2$ og fikk frihetsgrad **$2n$**, ikke $n$.\n- ☐ Jeg oppga sum-av-gamma / MGF-entydighet som begrunnelse.\n- ☐ Jeg forklarte hvorfor $W$ er en pivotal (kjent fordeling, ukjent parameter).\n- ☐ Jeg klemte pivotalen mellom $\\chi^2_{20}$-persentilene og løste for $\\beta^2$: $[8{,}78,\\ 31{,}28]$.\n\nManglet du noe? Repeter [kap. 4.3](/bok/stk1100/stk1100-4-3) og [kap. 4.2](/bok/stk1100/stk1100-4-2)."
+        }
+      ]
+    },
+    {
+      "id": "stk1100-4-prove-symbolliste",
+      "type": "collapsible",
+      "title": "Symbol- og formelliste",
+      "buttonText": "Vis symboler og formler",
+      "content": [
+        {
+          "id": "stk1100-4-prove-sym-text",
+          "type": "text",
+          "content": "## Symbol- og formelliste\n\n*Oppslagsverk — alt her forklares underveis.*\n\n| Symbol | Betydning |\n|---|---|\n| $M_X(t)$ | Momentgenererende funksjon, $E(e^{tX})$ |\n| $M'(0),\\, M''(0)$ | Første/andre deriverte i null: $E(X)$, $E(X^2)$ |\n| $R(t)$ | Kumulantgenererende funksjon, $\\ln M(t)$ |\n| $Y = g(X)$ | Transformert variabel; $g^{-1}$ er inversen |\n| $F_X, f_X$ | Fordelingsfunksjon og tetthet til $X$ |\n| $Z$ | Standardnormal, $N(0,1)$ |\n| $(U,V)$ | Nye variable etter bivariat bytte |\n| $J,\\ |J|$ | Jacobi-determinant og dens absoluttverdi |\n| $\\partial x/\\partial u$ | Partiell derivert av $x(u,v)$ mhp. $u$ |\n| $\\alpha, \\beta$ | Form- og skalaparameter (gamma/Weibull) |\n| $\\lambda$ | Rate (Poisson / eksponensial i rateform) |\n| $\\chi^2_\\nu$ | Kjikvadrat med $\\nu$ frihetsgrader $= \\text{gamma}(\\nu/2, 2)$ |\n| $W$ | Den bygde pivotalen |\n\n**Formler i disse prøvene:**\n\n$$M_X(t) = E(e^{tX}), \\qquad E(X) = M'(0), \\quad \\text{Var}(X) = M''(0) - [M'(0)]^2$$\n\n$$R(t) = \\ln M(t), \\qquad E(X) = R'(0), \\qquad \\text{Var}(X) = R''(0)$$\n\n$$\\text{Gamma}(\\alpha,\\beta):\\ M(t) = (1-\\beta t)^{-\\alpha},\\ t<1/\\beta; \\qquad \\text{Poisson}(\\lambda):\\ M(t) = e^{\\lambda(e^t-1)}$$\n\n$$\\text{CDF-metoden:}\\ F_Y(y) = F_X(g^{-1}(y))\\ (\\text{voksende}), \\quad 1 - F_X(g^{-1}(y))\\ (\\text{avtakende})$$\n\n$$f_Y(y) = f_X(g^{-1}(y))\\,\\big|\\tfrac{d}{dy}g^{-1}(y)\\big|, \\qquad Z \\sim N(0,1) \\Rightarrow Z^2 \\sim \\chi^2_1$$\n\n$$J = \\frac{\\partial x}{\\partial u}\\frac{\\partial y}{\\partial v} - \\frac{\\partial x}{\\partial v}\\frac{\\partial y}{\\partial u}, \\qquad f_{UV}(u,v) = f_{XY}(x(u,v), y(u,v))\\,|J|$$\n\n$$\\textstyle\\sum_i \\text{gamma}(\\alpha_i, \\beta) = \\text{gamma}(\\sum\\alpha_i, \\beta)\\ (\\text{felles skala}); \\qquad \\text{gamma}(k,2) = \\chi^2_{2k}$$\n\n$$\\text{Eksponensial: } 2X/\\mu \\sim \\chi^2_2,\\ 2\\textstyle\\sum X_i/\\mu \\sim \\chi^2_{2n}; \\qquad \\text{Weibull: } (X/\\beta)^\\alpha \\sim \\text{gamma}(1,1)$$"
+        }
+      ]
+    }
+  ],
+  "exercises": []
+}

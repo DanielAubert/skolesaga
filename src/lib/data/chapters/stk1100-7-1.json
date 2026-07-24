@@ -1,0 +1,418 @@
+{
+  "id": "stk1100-7-1",
+  "courseId": "stk1100",
+  "chapterNumber": "7.1",
+  "title": "Inversjonsmetoden og numpy-verktøykassen",
+  "description": "Fra F⁻¹ på papir til kjørbar numpy-funksjon: simuler fra en vilkårlig fordeling med inversjonsmetoden, og les en simuleringssnutt for å finne fordeling og estimand.",
+  "estimatedMinutes": 60,
+  "competenceGoals": [
+    "utlede fordelingsfunksjonen og dens inverse og bruke inversjonsmetoden til å simulere fra en vilkårlig kontinuerlig fordeling",
+    "skrive kjørbar, vektorisert numpy-kode som trekker realisasjoner og estimerer sannsynligheter, forventninger og varianser",
+    "bruke np.random.uniform, stats.norm.rvs, np.mean, np.var og np.std riktig, med ddof=1 der empirisk varians kreves",
+    "lese en kort simuleringssnutt og avgjøre hvilken fordeling det trekkes fra og hva som estimeres"
+  ],
+  "content": [
+    {
+      "id": "stk1100-7-1-tip-eksamensvinkel",
+      "type": "tip",
+      "title": "Eksamensvinkel",
+      "content": "**Simulering med Python er fast inventar på STK1100-eksamen — og det er ferdigheten mange dropper fordi det «ser programmeringstungt ut».** Ikke du.\n\n- **Simulering/Python (sjanger I)** dukker opp i **6 av 10 sett (60 %)**, jevnt fordelt siden 2015. «Sjanger I» er vår kode for *simulering, bootstrap og Python* — oppgaver der du skal trekke tilfeldige tall og regne på dem.\n- **Inversjonsmetoden** spesielt: Laplace-fordeling (V2016), Rayleigh (V2019). Fra og med V2020 forventer fasiten **full, kjørbar Python-kode** — ikke bare en beskrivelse.\n- **Sensorkrav 10:** koden skal være *korrekt og kjørbar*. Delvis eller ikke-kjørende kode gir bare delvis uttelling. All kode i denne boka er faktisk kjørt før den ble skrevet — kjør den selv også.\n\nPrioritet: **kunne** (nivå 2). Dette er ikke det tyngste temaet, men det er lavthengende poeng for den som har øvd på idiomene. Målet i dette kapitlet: gå fra $F^{-1}$ på papir til en `numpy`-funksjon som faktisk kjører."
+    },
+    {
+      "id": "stk1100-7-1-forkunnskaper",
+      "type": "text",
+      "content": "**Forkunnskaper:** Dette kapitlet bygger på **[kap. 2.3](/bok/stk1100/stk1100-2-3)** (fordelingsfunksjonen $F$ og dens inverse for egendefinerte/«eksotiske» tettheter) og **[kap. 4.2](/bok/stk1100/stk1100-4-2)** (CDF-metoden for transformasjon). Fra **[kap. 5.1](/bok/stk1100/stk1100-5-1)** trenger du bare grunnen til at empirisk varians deles på $n-1$ (det blir `ddof=1` i koden).\n\n**Sist du var her — de tre tingene du må ha friskt:**\n\n1. **Fordelingsfunksjonen** $F(x) = P(X \\le x)$ — voksende, fra 0 til 1.\n2. **Den inverse** $F^{-1}$: løser du $F(x) = u$ for $x$, får du $x = F^{-1}(u)$. For en voksende, kontinuerlig $F$ finnes den entydig for $0 < u < 1$.\n3. **Eksponensialfordelingen** (forventnings-parametrisering, forventning $\\mu$): tetthet $f(x) = \\frac{1}{\\mu}e^{-x/\\mu}$, fordelingsfunksjon $F(x) = 1 - e^{-x/\\mu}$ for $x > 0$. (Rate-parametriseringen $f(x) = \\lambda e^{-\\lambda x}$, $F(x) = 1 - e^{-\\lambda x}$ bruker vi der oppgaven gjør det — les alltid oppgavens egen definisjon.)"
+    },
+    {
+      "id": "stk1100-7-1-intro",
+      "type": "text",
+      "content": "Tenk deg at du vil vite hvor ofte en komponent med tilfeldig levetid varer i mer enn 8 år, eller hva forventet verdi av en komplisert funksjon av flere variable er — men integralet er stygt eller finnes ikke i lukket form. I stedet for å regne kan du la datamaskinen «kaste terning» én million ganger og *telle*. Det er hele idéen bak simulering: en sannsynlighet er en andel, og en forventning er et gjennomsnitt, så trekker vi mange nok realisasjoner, leser vi svaret rett ut av tallene.\n\nMen datamaskinen kan i utgangspunktet bare trekke *uniforme* tall mellom 0 og 1 (`np.random.uniform`). Spørsmålet blir da: hvordan lager vi tall fra *vår* fordeling — eksponensial, Pareto, Rayleigh — ut fra uniforme tall? Svaret er **inversjonsmetoden**, og den er kapitlets første halvdel. Andre halvdel er `numpy`-verktøykassen: de få funksjonene og idiomene sensor forventer å se, og hvordan du *leser* en simuleringssnutt.\n\nKapitlet er bygget som fire korte **læringsløkker** — teori → gjennomregnet eksempel → øvingsoppgave — så du kan ta én om gangen. Med fire løkker à ~13 min passer det med en kort pause etter løkke 2."
+    },
+    {
+      "id": "stk1100-7-1-l1-head",
+      "type": "text",
+      "content": "## Løkke 1 — Inversjonsmetoden (~15 min)"
+    },
+    {
+      "id": "stk1100-7-1-thm-inversjon",
+      "type": "theorem",
+      "title": "Inversjonsmetoden",
+      "content": "La $U$ være uniformt fordelt på $(0,1)$, og la $F$ være en voksende, kontinuerlig fordelingsfunksjon med invers $F^{-1}$. Da har den transformerte variabelen\n\n$$X = F^{-1}(U)$$\n\nnettopp fordelingsfunksjonen $F$. Med andre ord: trekker du et uniformt tall $u$ og setter det inn i $F^{-1}$, får du en realisasjon fra fordelingen med fordelingsfunksjon $F$."
+    },
+    {
+      "id": "stk1100-7-1-l1-bevis",
+      "type": "text",
+      "content": "**Beviset er tre linjer.** Vi regner ut fordelingsfunksjonen til $X = F^{-1}(U)$ direkte:\n\n$$P(X \\le x) = P\\big(F^{-1}(U) \\le x\\big) = P\\big(U \\le F(x)\\big) = F(x).$$\n\n*Intuisjon steg 1:* Vi bruker at $F$ er voksende, så $F^{-1}(U) \\le x$ er det samme som $U \\le F(x)$ (vi «kjører $F$ på begge sider»).\n\n*Intuisjon steg 2:* Siden $U$ er uniform på $(0,1)$, er $P(U \\le c) = c$ for enhver $c$ mellom 0 og 1 — og $F(x)$ ligger nettopp mellom 0 og 1. Derfor blir $P(U \\le F(x)) = F(x)$.\n\n*Intuisjon steg 3:* Resultatet $P(X \\le x) = F(x)$ er per definisjon fordelingsfunksjonen til $X$. Ferdig — $X$ har fordelingen vi ville ha.\n\n**Arbeidsflyten** blir dermed alltid den samme:\n\n1. Skaff fordelingsfunksjonen $F(x)$ (utledet i [kap. 2.3](/bok/stk1100/stk1100-2-3)).\n2. Løs likningen $F(x) = u$ for $x$ — det gir formelen $x = F^{-1}(u)$.\n3. Implementer: trekk uniforme $u$-er og sett dem inn i formelen."
+    },
+    {
+      "id": "stk1100-7-1-ex1",
+      "type": "example",
+      "title": "Eksempel 1: Inversjon for eksponensialfordelingen",
+      "problem": "Levetiden $X$ (i år) til en sensor er eksponensialfordelt med forventning $\\mu = 5$, altså $F(x) = 1 - e^{-x/\\mu}$ for $x > 0$. Utled inversjonsformelen $F^{-1}(u)$, og skriv en Python-funksjon som trekker $n$ realisasjoner. Kontroller at gjennomsnitt og empirisk varians stemmer med teorien ($E(X) = \\mu = 5$, $\\text{Var}(X) = \\mu^2 = 25$).",
+      "solution": "**Steg 2 — løs $F(x) = u$ for $x$:**\n\n$$1 - e^{-x/\\mu} = u \\;\\Rightarrow\\; e^{-x/\\mu} = 1 - u \\;\\Rightarrow\\; -\\frac{x}{\\mu} = \\ln(1-u) \\;\\Rightarrow\\; x = -\\mu\\ln(1-u).$$\n\nSå $F^{-1}(u) = -\\mu\\ln(1-u)$.\n\n**Steg 3 — implementer og kontroller:**\n\n```python\nimport numpy as np\n\ndef simuler_eksp(n, mu):\n    u = np.random.uniform(size=n)\n    return -mu * np.log(1 - u)\n\nnp.random.seed(1)\nx = simuler_eksp(10**6, 5.0)\nprint(np.mean(x), np.var(x, ddof=1))\n# 4.9971...  24.9402...\n```\n\nGjennomsnittet ligger på $\\approx 5{,}00$ og den empiriske variansen på $\\approx 24{,}94$ — akkurat de teoretiske verdiene $\\mu = 5$ og $\\mu^2 = 25$, med litt Monte Carlo-støy. Koden kjører og bekrefter at inversjonsformelen er riktig.\n\n*Merk `ddof=1`:* `np.var(x, ddof=1)` deler på $n-1$ og gir den forventningsrette empiriske variansen (kobling [kap. 5.1](/bok/stk1100/stk1100-5-1)). Standard `np.var` deler på $n$; med $n = 10^6$ er forskjellen mikroskopisk, men sensor vil se `ddof=1` der du estimerer en varians."
+    },
+    {
+      "id": "stk1100-7-1-ex-l1a",
+      "type": "exercise",
+      "exercise": {
+        "id": "stk1100-7-1-o1",
+        "number": "1",
+        "type": "classic",
+        "difficulty": "lett",
+        "task": "(Innsteg.) En variabel $X$ har fordelingsfunksjon $F(x) = 1 - e^{-x/\\mu}$ for $x > 0$ (eksponensial, forventning $\\mu$). Løs likningen $F(x) = u$ for $x$, og skriv ned inversjonsformelen $F^{-1}(u)$.",
+        "solution": "$$1 - e^{-x/\\mu} = u \\;\\Rightarrow\\; e^{-x/\\mu} = 1-u \\;\\Rightarrow\\; -\\frac{x}{\\mu} = \\ln(1-u) \\;\\Rightarrow\\; x = -\\mu\\ln(1-u).$$\n\nSå $F^{-1}(u) = -\\mu\\ln(1-u)$. Dette er inversjonsformelen du setter uniforme $u$-er inn i.",
+        "hints": [
+          "Sett $F(x) = u$ og isoler eksponentialleddet $e^{-x/\\mu}$ først.",
+          "Ta naturlig logaritme på begge sider for å få ned eksponenten.",
+          "Husk fortegnet: $\\ln(1-u)$ er negativt for $0 < u < 1$, så $-\\mu\\ln(1-u)$ blir positivt."
+        ]
+      }
+    },
+    {
+      "id": "stk1100-7-1-ex-l1b",
+      "type": "exercise",
+      "exercise": {
+        "id": "stk1100-7-1-o2",
+        "number": "2",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "En oppgave bruker **rate-parametriseringen** av eksponensialfordelingen: $f(x) = \\lambda e^{-\\lambda x}$, altså $F(x) = 1 - e^{-\\lambda x}$ for $x > 0$, med rate $\\lambda$.\n\n**a)** Utled inversjonsformelen $F^{-1}(u)$ i denne parametriseringen.\n\n**b)** Skriv en Python-funksjon `simuler(n, lam)` som trekker $n$ realisasjoner, og forklar hvorfor svaret er konsistent med forventnings-formen $x = -\\mu\\ln(1-u)$ når $\\mu = 1/\\lambda$.",
+        "solution": "**a)** $1 - e^{-\\lambda x} = u \\Rightarrow e^{-\\lambda x} = 1-u \\Rightarrow -\\lambda x = \\ln(1-u) \\Rightarrow x = -\\frac{1}{\\lambda}\\ln(1-u)$. Så $F^{-1}(u) = -\\dfrac{\\ln(1-u)}{\\lambda}$.\n\n**b)**\n\n```python\nimport numpy as np\n\ndef simuler(n, lam):\n    u = np.random.uniform(size=n)\n    return -np.log(1 - u) / lam\n\nnp.random.seed(10)\nx = simuler(10**6, 0.2)   # lambda = 0.2  =>  mu = 1/0.2 = 5\nprint(np.mean(x))\n# 5.0006...\n```\n\nSiden $\\mu = 1/\\lambda$, er $-\\frac{1}{\\lambda}\\ln(1-u) = -\\mu\\ln(1-u)$ — nøyaktig samme formel. Rate- og forventnings-parametriseringen gir samme tall når $\\mu = 1/\\lambda$; det er bare to skrivemåter. Med $\\lambda = 0{,}2$ blir $\\mu = 5$, og gjennomsnittet ligger på $\\approx 5$.",
+        "hints": [
+          "Inversjonsformelen: løs $1 - e^{-\\lambda x} = u$ for $x$ (samme grep som i oppgave 1, men med $\\lambda$ i stedet for $1/\\mu$).",
+          "Bruk `np.random.uniform(size=n)` og del på `lam`.",
+          "Sett $\\mu = 1/\\lambda$ inn i $-\\mu\\ln(1-u)$ og sammenlign leddene."
+        ]
+      }
+    },
+    {
+      "id": "stk1100-7-1-l2-head",
+      "type": "text",
+      "content": "## Løkke 2 — numpy-verktøykassen (~15 min)\n\n*— naturlig pausepunkt etter denne løkka —*"
+    },
+    {
+      "id": "stk1100-7-1-l2-tekst",
+      "type": "text",
+      "content": "Inversjonsmetoden lager tallene; `numpy` og `scipy.stats` regner på dem. Her er hele verktøykassen sensor forventer — det er ikke mange funksjoner:\n\n- **`np.random.uniform(size=n)`** — trekker $n$ uniforme tall på $(0,1)$. Dette er råstoffet til inversjonsmetoden.\n- **`stats.norm.rvs(mu, sigma, size=n)`** — trekker $n$ normalfordelte tall. **Advarsel: annet argument er STANDARDAVVIKET $\\sigma$, ikke variansen.** Skriver du variansen der, får du feil spredning (en klassisk sensorfelle). For $X \\sim N(\\mu, \\sigma^2)$ med $\\sigma^2 = 9$ skriver du `stats.norm.rvs(mu, 3, size=n)` — altså `3`, ikke `9`.\n- **`np.mean(x)`** — gjennomsnittet, estimatet av $E(X)$.\n- **`np.var(x, ddof=1)`** og **`np.std(x, ddof=1)`** — empirisk varians og standardavvik. `ddof=1` betyr «del på $n-1$», som gir den forventningsrette variansen (kobling [kap. 5.1](/bok/stk1100/stk1100-5-1)). Uten `ddof=1` deler `numpy` på $n$ og gir en litt for liten varians.\n- **Vektorisering.** Skriv `-mu * np.log(1 - u)` på hele vektoren `u` på én gang — ikke en `for`-løkke over enkeltelementer. Vektorisert kode er kortere, raskere og det sensor forventer.\n\n**Funksjonsmønsteret** som går igjen:\n\n```python\ndef simuler(n):\n    u = np.random.uniform(size=n)\n    return ...   # inversjonsformelen anvendt vektorisert på u\n```"
+    },
+    {
+      "id": "stk1100-7-1-ex2",
+      "type": "example",
+      "title": "Eksempel 2: Trekke normalfordelte tall — pass på argumentet",
+      "problem": "Konsentrasjonen $Y$ (mg/l) av et stoff er $N(\\mu, \\sigma^2)$ med forventning $\\mu = 10$ og varians $\\sigma^2 = 4$. Trekk $10^6$ realisasjoner med `stats.norm.rvs`, og kontroller gjennomsnitt og empirisk standardavvik. Hva er den vanligste feilen her?",
+      "solution": "Variansen er $\\sigma^2 = 4$, så **standardavviket er $\\sigma = \\sqrt{4} = 2$**. Det er $2$ — ikke $4$ — som skal inn som annet argument:\n\n```python\nimport numpy as np\nfrom scipy import stats\n\nnp.random.seed(3)\ny = stats.norm.rvs(10, 2, size=10**6)   # 2 = standardavviket (ikke variansen 4!)\nprint(np.mean(y), np.std(y, ddof=1))\n# 10.0039...  1.9966...\n```\n\nGjennomsnittet ligger på $\\approx 10$ og empirisk standardavvik på $\\approx 2 = \\sigma$. \n\n**Den vanligste feilen** er å skrive `stats.norm.rvs(10, 4, ...)` — da sender du variansen der funksjonen vil ha standardavviket, og får spredning $\\sigma = 4$ i stedet for $2$. Empirisk standardavvik ville da blitt $\\approx 4$, og alle etterfølgende sannsynligheter feil. Les alltid dokumentasjonen: `scale` = standardavvik."
+    },
+    {
+      "id": "stk1100-7-1-ex-l2a",
+      "type": "exercise",
+      "exercise": {
+        "id": "stk1100-7-1-o3",
+        "number": "3",
+        "type": "classic",
+        "difficulty": "lett",
+        "task": "En medstudent vil trekke fra $N(\\mu, \\sigma^2)$ med $\\mu = 100$ og **varians** $\\sigma^2 = 25$, og skriver `stats.norm.rvs(100, 25, size=n)`. Forklar hva som er galt, og skriv den korrekte linjen.",
+        "solution": "Annet argument til `stats.norm.rvs` er **standardavviket** $\\sigma$, ikke variansen. Med varians $25$ er $\\sigma = \\sqrt{25} = 5$. Studenten sender $25$ og får dermed spredning $\\sigma = 25$ — fem ganger for stor.\n\nKorrekt: `stats.norm.rvs(100, 5, size=n)`.",
+        "hints": [
+          "Hva står `scale`-argumentet for i `stats.norm.rvs(loc, scale, ...)`?",
+          "Regn ut $\\sqrt{\\sigma^2}$ fra variansen $25$."
+        ]
+      }
+    },
+    {
+      "id": "stk1100-7-1-ex-l2b",
+      "type": "exercise",
+      "exercise": {
+        "id": "stk1100-7-1-o4",
+        "number": "4",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "Skriv om denne løkke-baserte koden til vektorisert `numpy`, og forklar én fordel utover hastighet:\n\n```python\nx = []\nfor i in range(n):\n    u = np.random.uniform()\n    x.append(-mu * np.log(1 - u))\n```",
+        "solution": "Vektorisert:\n\n```python\nu = np.random.uniform(size=n)\nx = -mu * np.log(1 - u)\n```\n\nHele vektoren `u` behandles på én gang; `np.log` og multiplikasjonen virker elementvis. **Fordel utover hastighet:** koden er kortere og lettere å lese, og resultatet `x` er et `numpy`-array du kan sende rett videre til `np.mean(x)`, `np.var(x, ddof=1)` eller `np.mean(x > 2)` uten flere løkker. Løkke der vektorisering er naturlig, er nettopp en av de dokumenterte kodefellene.",
+        "hints": [
+          "`np.random.uniform(size=n)` trekker hele vektoren i én kall.",
+          "`np.log` og `*` virker elementvis på et array — ingen `for`-løkke trengs."
+        ]
+      }
+    },
+    {
+      "id": "stk1100-7-1-l3-head",
+      "type": "text",
+      "content": "## Løkke 3 — Haler og flere fordelinger (~15 min)"
+    },
+    {
+      "id": "stk1100-7-1-l3-tekst",
+      "type": "text",
+      "content": "Inversjonsmetoden virker for enhver fordeling der du klarer å løse $F(x) = u$. De «eksotiske» fordelingene fra [kap. 2.3](/bok/stk1100/stk1100-2-3) gir alle pene inversjonsformler:\n\n- **Pareto** (hale, minsteverdi $k$, formparameter $\\theta$): $F(x) = 1 - (k/x)^{\\theta}$ for $x > k$, som gir $x = k(1-u)^{-1/\\theta}$.\n- **Weibull** (skala $\\beta$, form $\\alpha$): $F(x) = 1 - e^{-(x/\\beta)^{\\alpha}}$, som gir $x = \\beta\\big(-\\ln(1-u)\\big)^{1/\\alpha}$.\n- **Rayleigh** (skala $\\sigma$): $F(x) = 1 - e^{-x^2/(2\\sigma^2)}$, som gir $x = \\sigma\\sqrt{-2\\ln(1-u)}$.\n\nHver av dem er samme tre-stegs oppskrift: skaff $F$, løs for $x$, implementer vektorisert."
+    },
+    {
+      "id": "stk1100-7-1-ex3",
+      "type": "example",
+      "title": "Eksempel 3: Pareto-hale og et sannsynlighetsestimat",
+      "problem": "Bølgehøyden $X$ (i meter) har tetthet $f(x) = 4/x^5$ for $x > 1$. Finn $F$ og $F^{-1}$, skriv en Python-funksjon som trekker $n$ realisasjoner, og bruk den til å estimere $P(X > 2)$. Sammenlign med den eksakte verdien.",
+      "solution": "**Fordelingsfunksjon.** Dette er Pareto med $k = 1$, $\\theta = 4$ (siden $f(x) = \\theta k^{\\theta}/x^{\\theta+1} = 4/x^5$). Integrerer vi:\n\n$$F(x) = \\int_1^x \\frac{4}{t^5}\\,dt = \\Big[-t^{-4}\\Big]_1^x = 1 - x^{-4}, \\qquad x > 1.$$\n\n**Invers.** $1 - x^{-4} = u \\Rightarrow x^{-4} = 1 - u \\Rightarrow x = (1-u)^{-1/4}$ — altså $x = k(1-u)^{-1/\\theta}$ med $k=1, \\theta=4$.\n\n**Eksakt $P(X > 2)$:** $P(X > 2) = 1 - F(2) = 2^{-4} = 1/16 = 0{,}0625$.\n\n**Kode:**\n\n```python\nimport numpy as np\n\ndef simuler_pareto(n, k, theta):\n    u = np.random.uniform(size=n)\n    return k * (1 - u)**(-1/theta)\n\nnp.random.seed(2)\nx = simuler_pareto(10**6, 1.0, 4.0)\nprint(np.mean(x > 2))\n# 0.06287...\n```\n\nHer er `x > 2` et array med `True`/`False`; `np.mean` av det er andelen `True` — altså estimatet av $P(X > 2)$. Vi får $\\approx 0{,}0629$, mot den eksakte $0{,}0625$. Stemmer."
+    },
+    {
+      "id": "stk1100-7-1-ex-l3a",
+      "type": "exercise",
+      "exercise": {
+        "id": "stk1100-7-1-o5",
+        "number": "5",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "Vindstyrken $X$ er Rayleigh-fordelt med skala $\\sigma$: $F(x) = 1 - e^{-x^2/(2\\sigma^2)}$ for $x > 0$.\n\n**a)** Utled inversjonsformelen $F^{-1}(u)$.\n\n**b)** Skriv en Python-funksjon `simuler_rayleigh(n, sigma)` og bruk den (med $\\sigma = 3$) til å estimere forventningen. Den teoretiske er $E(X) = \\sigma\\sqrt{\\pi/2}$ — stemmer estimatet?",
+        "solution": "**a)** $1 - e^{-x^2/(2\\sigma^2)} = u \\Rightarrow e^{-x^2/(2\\sigma^2)} = 1-u \\Rightarrow -\\frac{x^2}{2\\sigma^2} = \\ln(1-u) \\Rightarrow x^2 = -2\\sigma^2\\ln(1-u)$, så\n\n$$x = \\sigma\\sqrt{-2\\ln(1-u)}.$$\n\n(Vi tar den positive roten siden $x > 0$.)\n\n**b)**\n\n```python\nimport numpy as np\n\ndef simuler_rayleigh(n, sigma):\n    u = np.random.uniform(size=n)\n    return sigma * np.sqrt(-2 * np.log(1 - u))\n\nnp.random.seed(5)\nx = simuler_rayleigh(10**6, 3.0)\nprint(np.mean(x), 3 * np.sqrt(np.pi / 2))\n# 3.7630...  3.7599...\n```\n\nEstimatet $\\approx 3{,}763$ mot teoretisk $\\sigma\\sqrt{\\pi/2} \\approx 3{,}760$ — stemmer.",
+        "hints": [
+          "Isoler eksponentialleddet, ta $\\ln$, og løs så for $x^2$ før du tar kvadratrot.",
+          "Bruk `np.sqrt(-2 * np.log(1 - u))` — merk minustegnet inni så uttrykket blir positivt.",
+          "Husk at $X > 0$, så bare den positive roten er aktuell."
+        ]
+      }
+    },
+    {
+      "id": "stk1100-7-1-ex-l3b",
+      "type": "exercise",
+      "exercise": {
+        "id": "stk1100-7-1-o6",
+        "number": "6",
+        "type": "classic",
+        "difficulty": "vanskelig",
+        "task": "Levetiden $X$ (i tusen timer) til en fiber er Weibull-fordelt: $F(x) = 1 - e^{-(x/\\beta)^{\\alpha}}$ for $x > 0$, med form $\\alpha = 1{,}5$ og skala $\\beta = 4$.\n\n**a)** Utled $F^{-1}(u)$ og skriv en simuleringsfunksjon.\n\n**b)** Bruk simulering til å estimere medianen, og sammenlign med den eksakte medianen $\\beta(\\ln 2)^{1/\\alpha}$.\n\n**c)** Forklar kort hvorfor inversjonsmetoden fungerer like godt her som for eksponensial, selv om Weibull ikke har «minneløshet».",
+        "solution": "**a)** $1 - e^{-(x/\\beta)^{\\alpha}} = u \\Rightarrow (x/\\beta)^{\\alpha} = -\\ln(1-u) \\Rightarrow x = \\beta\\big(-\\ln(1-u)\\big)^{1/\\alpha}$.\n\n```python\nimport numpy as np\n\ndef simuler_weibull(n, alpha, beta):\n    u = np.random.uniform(size=n)\n    return beta * (-np.log(1 - u))**(1/alpha)\n\nnp.random.seed(6)\nx = simuler_weibull(10**6, 1.5, 4.0)\nprint(np.median(x), 4 * np.log(2)**(1/1.5))\n# 3.1342...  3.1329...\n```\n\n**b)** Estimert median $\\approx 3{,}134$, eksakt $\\beta(\\ln 2)^{1/\\alpha} = 4\\cdot(\\ln 2)^{1/1{,}5} \\approx 3{,}133$. Stemmer.\n\n**c)** Inversjonsmetoden krever bare at $F$ er voksende og lett å invertere — ikke noen spesiell egenskap som minneløshet. Beviset ($P(F^{-1}(U) \\le x) = F(x)$) gjelder for enhver kontinuerlig, voksende $F$. Minneløshet er en egenskap ved eksponensialfordelingen spesielt; den har ingenting med om vi kan simulere den å gjøre.",
+        "hints": [
+          "Isoler $(x/\\beta)^{\\alpha}$, deretter opphøy i $1/\\alpha$ for å frigjøre $x$.",
+          "`np.median(x)` gir den empiriske medianen; sammenlign med `beta * np.log(2)**(1/alpha)`.",
+          "Hvilke krav stiller selve beviset for inversjonsmetoden til $F$? Bare monotoni og kontinuitet."
+        ]
+      }
+    },
+    {
+      "id": "stk1100-7-1-l4-head",
+      "type": "text",
+      "content": "## Løkke 4 — Kodelesing som ferdighet (~15 min)"
+    },
+    {
+      "id": "stk1100-7-1-l4-tekst",
+      "type": "text",
+      "content": "Eksamen ber deg ikke bare *skrive* kode — den ber deg **lese** en snutt og svare på to spørsmål: (1) hvilken fordeling trekkes det fra, og (2) hva estimeres? Framgangsmåten:\n\n1. **Finn inversjonsformelen i koden** og kjenn den igjen. `-mu*np.log(1-u)` er eksponensial; `k*(1-u)**(-1/theta)` er Pareto; `sigma*np.sqrt(-2*np.log(1-u))` er Rayleigh.\n2. **Les den siste linjen — estimandet.** `np.mean(x)` estimerer $E(X)$; `np.var(x, ddof=1)` estimerer $\\text{Var}(X)$; `np.mean(x > a)` estimerer $P(X > a)$ (gjennomsnitt av en indikator er en sannsynlighet); `np.mean(g(x))` estimerer $E[g(X)]$.\n\nNøkkelen til punkt 2: en sannsynlighet *er* en forventet indikator. `x > a` er en vektor av `True`/`False` (1/0), og gjennomsnittet av den er andelen som oppfyller betingelsen — altså et estimat av $P(X > a)$."
+    },
+    {
+      "id": "stk1100-7-1-ex4",
+      "type": "example",
+      "title": "Eksempel 4: Les snutten — fordeling og estimand",
+      "problem": "Hva trekker denne koden fra, og hva estimerer siste linje?\n\n```python\nimport numpy as np\nnp.random.seed(4)\nu = np.random.uniform(size=10**6)\nx = -5 * np.log(1 - u)\nprint(np.mean(x > 2))\n```",
+      "solution": "**Fordeling:** Inversjonsformelen `-5*np.log(1-u)` er $-\\mu\\ln(1-u)$ med $\\mu = 5$ — altså eksponensialfordeling med forventning $\\mu = 5$.\n\n**Estimand:** `x > 2` er en indikatorvektor, og `np.mean` av den er andelen realisasjoner større enn 2 — et estimat av $P(X > 2)$.\n\n**Kontroll:** For eksponensial med forventning $\\mu = 5$ er $P(X > 2) = e^{-2/5} = e^{-0{,}4} \\approx 0{,}6703$.\n\n```python\n# kjører koden over gir:\n# 0.67048...\n# mot eksakt e^{-0.4} = 0.67032...\n```\n\nSvaret: koden estimerer $P(X > 2) \\approx 0{,}670$ for en eksponensialfordeling med forventning 5."
+    },
+    {
+      "id": "stk1100-7-1-ex-l4a",
+      "type": "exercise",
+      "exercise": {
+        "id": "stk1100-7-1-o7",
+        "number": "7",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "(Kodelesing.) Hva trekker koden fra, og hva estimerer siste linje? Gi også den eksakte verdien.\n\n```python\nimport numpy as np\nnp.random.seed(0)\nu = np.random.uniform(size=10**6)\nx = 1 * (1 - u)**(-1/4)\nprint(np.mean(x))\n```",
+        "solution": "**Fordeling:** `1*(1-u)**(-1/4)` er $k(1-u)^{-1/\\theta}$ med $k = 1$, $\\theta = 4$ — Pareto med minsteverdi $1$ og formparameter $4$.\n\n**Estimand:** `np.mean(x)` estimerer $E(X)$.\n\n**Eksakt:** For Pareto med $k=1, \\theta=4$ er $E(X) = \\dfrac{\\theta k}{\\theta - 1} = \\dfrac{4\\cdot 1}{3} = \\dfrac{4}{3} \\approx 1{,}333$. Simuleringen gir en verdi nær $1{,}33$.",
+        "hints": [
+          "Kjenn igjen inversjonsformelen $k(1-u)^{-1/\\theta}$ — hvilke $k$ og $\\theta$?",
+          "`np.mean(x)` uten noen betingelse estimerer forventningen $E(X)$.",
+          "Forventningen til Pareto er $\\theta k/(\\theta-1)$ (gjelder når $\\theta > 1$)."
+        ]
+      }
+    },
+    {
+      "id": "stk1100-7-1-ex-l4b",
+      "type": "exercise",
+      "exercise": {
+        "id": "stk1100-7-1-o8",
+        "number": "8",
+        "type": "classic",
+        "difficulty": "vanskelig",
+        "task": "(Kodelesing + feilsøk.) En student vil estimere $P(X > 8)$ for en eksponensialfordeling med forventning $\\mu = 5$ og skriver:\n\n```python\nimport numpy as np\nu = np.random.uniform(size=10**6)\nx = -5 * np.log(u)\nprint(np.mean(x > 8))\n```\n\n**a)** Er koden riktig? Forklar hva `-5*np.log(u)` trekker fra.\n\n**b)** Hva estimerer siste linje, og hva er den eksakte verdien den bør ligge nær?",
+        "solution": "**a)** Koden er **riktig** — men av en subtil grunn. Inversjonsformelen er egentlig $-\\mu\\ln(1-u)$. Her står det $-\\mu\\ln(u)$. Siden $U$ er uniform på $(0,1)$, er $1-U$ *også* uniform på $(0,1)$; de har samme fordeling. Derfor gir både $-\\mu\\ln(1-u)$ og $-\\mu\\ln(u)$ eksponensialfordelte tall med forventning $\\mu = 5$. Snarveien er vanlig og korrekt.\n\n(Hadde fordelingen ikke hatt denne symmetrien i $u \\leftrightarrow 1-u$, måtte man brukt $1-u$ nøyaktig.)\n\n**b)** Siste linje estimerer $P(X > 8)$. Eksakt: $e^{-8/5} = e^{-1{,}6} \\approx 0{,}2019$. Estimatet bør ligge nær $0{,}202$.",
+        "hints": [
+          "Hvilken fordeling har $1 - U$ når $U$ er uniform på $(0,1)$?",
+          "Sammenlign $-\\mu\\ln(u)$ med den korrekte $-\\mu\\ln(1-u)$ — er $u$ og $1-u$ likeverdige som uniform input?",
+          "Eksakt haleannsynlighet: $P(X > 8) = e^{-8/\\mu}$ med $\\mu = 5$."
+        ]
+      }
+    },
+    {
+      "id": "stk1100-7-1-warn-typiske",
+      "type": "warning",
+      "title": "Typiske feil",
+      "content": "- **Løse $f(x) = u$ i stedet for $F(x) = u$.** Inversjonsmetoden bruker *fordelingsfunksjonen* $F$, ikke tettheten $f$. Å invertere $f$ gir tull. Skaff alltid $F$ først (integrer $f$).\n- **Sende variansen der `scale` = standardavvik kreves.** `stats.norm.rvs(mu, sigma, size=n)` vil ha $\\sigma$, ikke $\\sigma^2$. Har du variansen, ta kvadratroten først.\n- **`np.var`/`np.std` uten `ddof=1`.** Da deles det på $n$, og du estimerer en litt for liten varians. Bruk `ddof=1` når du estimerer varians/standardfeil (kobling [kap. 5.1](/bok/stk1100/stk1100-5-1)).\n- **`for`-løkke der vektorisering er naturlig.** Behandle hele `u`-vektoren på én gang: `-mu*np.log(1-u)`. Løkke over enkeltelementer er tregt og unødvendig.\n- **Kode som ikke kjører.** Delvis eller ikke-kjørbar kode gir bare delvis uttelling (sensorkrav 10). Test snutten før du leverer — importér `numpy`, definer alt, kjør."
+    },
+    {
+      "id": "stk1100-7-1-begrepsbank-intro",
+      "type": "text",
+      "content": "### Begrepsbank\n\n*Flashcard-/repetisjonsstoff — hopp trygt over ved førstegangslesing; tidsanslaget gjelder kjernestoffet. Kortene under samler metodene og idiomene til rask repetisjon.*"
+    },
+    {
+      "id": "stk1100-7-1-def-01",
+      "type": "definition",
+      "title": "Inversjonsmetoden",
+      "content": "Å simulere fra en fordeling ved å trekke uniforme tall og sette dem inn i den inverse fordelingsfunksjonen. I symboler: er $U \\sim$ uniform$(0,1)$, har $X = F^{-1}(U)$ fordelingsfunksjon $F$. Arbeidsflyt: skaff $F$, løs $F(x) = u$ for $x$, implementer."
+    },
+    {
+      "id": "stk1100-7-1-def-02",
+      "type": "definition",
+      "title": "Uniform$(0,1)$ som råstoff",
+      "content": "Datamaskinens grunnleggende tilfeldighet: tall jevnt fordelt mellom 0 og 1. I kode `np.random.uniform(size=n)`. All annen simulering (inversjonsmetoden) bygger på å transformere disse tallene. Egenskap: $P(U \\le c) = c$ for $0 \\le c \\le 1$."
+    },
+    {
+      "id": "stk1100-7-1-def-03",
+      "type": "definition",
+      "title": "Fordelingsfunksjonen $F$ (repetisjon)",
+      "content": "Sannsynligheten for å ligge til og med et punkt: $F(x) = P(X \\le x)$. Voksende, går fra 0 til 1. Inversjonsmetodens første ingrediens — den skaffes ved å integrere tettheten $f$."
+    },
+    {
+      "id": "stk1100-7-1-def-04",
+      "type": "definition",
+      "title": "Invers fordelingsfunksjon $F^{-1}$",
+      "content": "Løsningen av $F(x) = u$ med hensyn på $x$; kalles også kvantilfunksjonen. For en voksende, kontinuerlig $F$ finnes den entydig for $0 < u < 1$. Det er denne du setter uniforme tall inn i."
+    },
+    {
+      "id": "stk1100-7-1-def-05",
+      "type": "definition",
+      "title": "Inversjon: eksponensial (forventning $\\mu$)",
+      "content": "For $F(x) = 1 - e^{-x/\\mu}$ er inversjonsformelen $x = -\\mu\\ln(1-u)$. Grunnformelen i simulering — kjenn den igjen både når du skriver og leser kode."
+    },
+    {
+      "id": "stk1100-7-1-def-06",
+      "type": "definition",
+      "title": "Inversjon: eksponensial (rate $\\lambda$)",
+      "content": "For $F(x) = 1 - e^{-\\lambda x}$ er inversjonsformelen $x = -\\frac{1}{\\lambda}\\ln(1-u)$. Samme tall som forventnings-formen når $\\mu = 1/\\lambda$; les alltid oppgavens egen parametrisering."
+    },
+    {
+      "id": "stk1100-7-1-def-07",
+      "type": "definition",
+      "title": "Inversjon: Pareto",
+      "content": "For $F(x) = 1 - (k/x)^{\\theta}$, $x > k$, er inversjonsformelen $x = k(1-u)^{-1/\\theta}$. Hale-fordeling med minsteverdi $k$ og form $\\theta$."
+    },
+    {
+      "id": "stk1100-7-1-def-08",
+      "type": "definition",
+      "title": "Inversjon: Weibull",
+      "content": "For $F(x) = 1 - e^{-(x/\\beta)^{\\alpha}}$ er inversjonsformelen $x = \\beta\\big(-\\ln(1-u)\\big)^{1/\\alpha}$. Skala $\\beta$, form $\\alpha$; eksponensial er spesialtilfellet $\\alpha = 1$."
+    },
+    {
+      "id": "stk1100-7-1-def-09",
+      "type": "definition",
+      "title": "Inversjon: Rayleigh",
+      "content": "For $F(x) = 1 - e^{-x^2/(2\\sigma^2)}$ er inversjonsformelen $x = \\sigma\\sqrt{-2\\ln(1-u)}$. Ta den positive roten siden $x > 0$."
+    },
+    {
+      "id": "stk1100-7-1-def-10",
+      "type": "definition",
+      "title": "`np.random.uniform(size=n)`",
+      "content": "Trekker $n$ uniforme tall på $(0,1)$ som et array. Råstoffet til inversjonsmetoden. Argumentet `size` bestemmer antallet — bruk det i stedet for en løkke."
+    },
+    {
+      "id": "stk1100-7-1-def-11",
+      "type": "definition",
+      "title": "`stats.norm.rvs(mu, sigma, size=n)`",
+      "content": "Trekker $n$ normalfordelte tall. **Annet argument er standardavviket $\\sigma$, ikke variansen $\\sigma^2$.** For $N(\\mu, \\sigma^2)$ med $\\sigma^2 = 9$: skriv `stats.norm.rvs(mu, 3, size=n)`."
+    },
+    {
+      "id": "stk1100-7-1-def-12",
+      "type": "definition",
+      "title": "Vektorisering",
+      "content": "Å regne på hele arrayet på én gang — `-mu*np.log(1-u)` — i stedet for en `for`-løkke over enkeltelementer. Kortere, raskere, og det sensor forventer. `np.log`, `*`, `>` og lignende virker elementvis."
+    },
+    {
+      "id": "stk1100-7-1-def-13",
+      "type": "definition",
+      "title": "`np.mean(x)` som estimat av $E(X)$",
+      "content": "Gjennomsnittet av realisasjonene er estimatet av forventningen. Store talls lov gjør at $\\frac1n\\sum x_i \\to E(X)$ når $n$ er stor."
+    },
+    {
+      "id": "stk1100-7-1-def-14",
+      "type": "definition",
+      "title": "`np.var(x, ddof=1)`",
+      "content": "Den empiriske variansen med divisor $n-1$ — den forventningsrette varianten (kobling [kap. 5.1](/bok/stk1100/stk1100-5-1)). Estimerer $\\text{Var}(X)$."
+    },
+    {
+      "id": "stk1100-7-1-def-15",
+      "type": "definition",
+      "title": "`np.std(x, ddof=1)`",
+      "content": "Det empiriske standardavviket, $\\sqrt{\\text{empirisk varians}}$, med divisor $n-1$. Brukes som estimat av standardavvik og som byggekloss i standardfeil."
+    },
+    {
+      "id": "stk1100-7-1-def-16",
+      "type": "definition",
+      "title": "Hvorfor `ddof=1`",
+      "content": "«Delta degrees of freedom» = 1 gjør at det deles på $n-1$ i stedet for $n$. Det gir en forventningsrett estimator av variansen; med divisor $n$ blir estimatet systematisk litt for lite (kobling [kap. 5.1](/bok/stk1100/stk1100-5-1))."
+    },
+    {
+      "id": "stk1100-7-1-def-17",
+      "type": "definition",
+      "title": "Sannsynlighet som gjennomsnitt av indikator",
+      "content": "En sannsynlighet er en andel: `np.mean(x > a)` estimerer $P(X > a)$ fordi `x > a` er en vektor av 1/0 (`True`/`False`) og gjennomsnittet er andelen som er sanne. Generelt estimerer `np.mean(g(x))` forventningen $E[g(X)]$."
+    },
+    {
+      "id": "stk1100-7-1-def-18",
+      "type": "definition",
+      "title": "Kodelesing: fordeling + estimand",
+      "content": "Egen ferdighet: gitt en snutt, identifiser (1) fordelingen fra inversjonsformelen i koden, og (2) estimandet fra siste linje (`np.mean` → $E(X)$, `np.mean(x>a)` → $P(X>a)$, `np.var(...,ddof=1)` → varians)."
+    },
+    {
+      "id": "stk1100-7-1-def-19",
+      "type": "definition",
+      "title": "Funksjonsmønsteret `def simuler(n)`",
+      "content": "Standardoppsettet: `def simuler(n): u = np.random.uniform(size=n); return <inversjonsformel>`. Gjør simuleringen gjenbrukbar og lett å teste — kall `simuler(10**6)` og send resultatet til `np.mean` osv."
+    },
+    {
+      "id": "stk1100-7-1-def-20",
+      "type": "definition",
+      "title": "$1-U$ og $U$ som likeverdig input",
+      "content": "Er $U \\sim$ uniform$(0,1)$, er også $1-U \\sim$ uniform$(0,1)$. Derfor gir både $-\\mu\\ln(1-u)$ og $-\\mu\\ln(u)$ korrekte eksponensiale tall. Snarveien er vanlig, men skriv $1-u$ når du følger inversjonsformelen bokstavelig."
+    },
+    {
+      "id": "stk1100-7-1-rep-oppg",
+      "type": "collapsible",
+      "title": "Repetisjonsoppgaver",
+      "buttonText": "Vis repetisjonsoppgaver",
+      "content": [
+        {
+          "id": "stk1100-7-1-rep-1",
+          "type": "text",
+          "content": "Korte oppgaver fra forkunnskapskapitlene ([kap. 2.3](/bok/stk1100/stk1100-2-3), [kap. 4.2](/bok/stk1100/stk1100-4-2)). Fasit rett under hver."
+        },
+        {
+          "id": "stk1100-7-1-rep-2",
+          "type": "text",
+          "content": "**R1 (fra 2.3).** En tetthet er $f(x) = 3x^2$ for $0 < x < 1$. Finn fordelingsfunksjonen $F(x)$ på $(0,1)$.\n\n*Fasit:* $F(x) = \\int_0^x 3t^2\\,dt = x^3$ for $0 < x < 1$ (og $0$ under, $1$ over)."
+        },
+        {
+          "id": "stk1100-7-1-rep-3",
+          "type": "text",
+          "content": "**R2 (inversjon av R1).** Bruk $F(x) = x^3$ til å finne inversjonsformelen $F^{-1}(u)$.\n\n*Fasit:* $x^3 = u \\Rightarrow x = u^{1/3}$. Så `x = np.random.uniform(size=n)**(1/3)` simulerer fra denne fordelingen."
+        },
+        {
+          "id": "stk1100-7-1-rep-4",
+          "type": "text",
+          "content": "**R3 (fra 2.3).** For eksponensial med forventning $\\mu = 4$: hva er medianen? (Løs $F(m) = 1/2$.)\n\n*Fasit:* $1 - e^{-m/4} = 1/2 \\Rightarrow e^{-m/4} = 1/2 \\Rightarrow m = 4\\ln 2 \\approx 2{,}77$."
+        },
+        {
+          "id": "stk1100-7-1-rep-5",
+          "type": "text",
+          "content": "**R4 (fra 4.2, CDF-metoden).** $X$ er uniform på $(0,1)$ og $Y = -\\ln X$. Bruk CDF-metoden til å finne fordelingen til $Y$.\n\n*Fasit:* $F_Y(y) = P(-\\ln X \\le y) = P(X \\ge e^{-y}) = 1 - e^{-y}$ for $y > 0$ — eksponensial med forventning 1. (Dette er nettopp inversjonsmetoden sett fra transformasjonssiden.)"
+        }
+      ]
+    },
+    {
+      "id": "stk1100-7-1-symbolliste",
+      "type": "collapsible",
+      "title": "Symbol- og formelliste",
+      "buttonText": "Vis symboler og formler",
+      "content": [
+        {
+          "id": "stk1100-7-1-sym-innhold",
+          "type": "text",
+          "content": "*Oppslagsverk — alt her forklares underveis i kapitlet.*\n\n| Symbol | Betydning |\n|---|---|\n| $U$ | Uniformt fordelt variabel på $(0,1)$ (`np.random.uniform`) |\n| $u$ | En trukket uniform verdi (liten bokstav = observasjon) |\n| $F(x)$ | Fordelingsfunksjonen, $P(X \\le x)$ |\n| $F^{-1}(u)$ | Den inverse fordelingsfunksjonen (kvantilfunksjonen) |\n| $\\mu$ | Forventning (eksponensial forventnings-form: $E(X) = \\mu$) |\n| $\\lambda$ | Rate (eksponensial rate-form: $E(X) = 1/\\lambda$) |\n| $k, \\theta$ | Minsteverdi og form i Pareto |\n| $\\alpha, \\beta$ | Form og skala i Weibull |\n| $\\sigma$ | Skala i Rayleigh / standardavvik i normal |\n| $n$ | Antall realisasjoner som trekkes |\n| `ddof=1` | Divisor $n-1$ i empirisk varians/standardavvik |\n\n**Formler i dette kapitlet:**\n\n$$\\textbf{Inversjonsmetoden: } U \\sim \\text{uniform}(0,1) \\;\\Rightarrow\\; X = F^{-1}(U) \\text{ har fordelingsfunksjon } F$$\n\n$$P(F^{-1}(U) \\le x) = P(U \\le F(x)) = F(x) \\quad (\\text{beviset})$$\n\n$$\\text{Eksponensial: } x = -\\mu\\ln(1-u) \\;=\\; -\\tfrac{1}{\\lambda}\\ln(1-u)$$\n\n$$\\text{Pareto: } x = k(1-u)^{-1/\\theta} \\qquad \\text{Weibull: } x = \\beta\\big(-\\ln(1-u)\\big)^{1/\\alpha}$$\n\n$$\\text{Rayleigh: } x = \\sigma\\sqrt{-2\\ln(1-u)}$$\n\n$$\\widehat{E(X)} = \\texttt{np.mean(x)}, \\quad \\widehat{\\text{Var}(X)} = \\texttt{np.var(x, ddof=1)}, \\quad \\widehat{P(X>a)} = \\texttt{np.mean(x>a)}$$"
+        }
+      ]
+    }
+  ],
+  "exercises": []
+}

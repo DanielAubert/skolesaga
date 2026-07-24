@@ -1,0 +1,454 @@
+{
+  "id": "stk1100-1-1",
+  "courseId": "stk1100",
+  "chapterNumber": "1.1",
+  "title": "Betinget sannsynlighet, total sannsynlighet og Bayes",
+  "description": "Fra betinget sannsynlighet til Bayes' formel — med diagnosetest-oppsettet som åpner sett etter sett.",
+  "estimatedMinutes": 55,
+  "competenceGoals": [
+    "regne ut betinget sannsynlighet og bruke multiplikasjonsregelen",
+    "bruke loven om total sannsynlighet over et fullstendig sett av hendelser",
+    "snu en betinget sannsynlighet med Bayes' formel og tolke resultatet i en diagnosetest",
+    "oppdatere en sannsynlighet over flere runder når ny informasjon kommer inn"
+  ],
+  "content": [
+    {
+      "id": "stk1100-1-1-tip-eksamensvinkel",
+      "type": "tip",
+      "title": "Eksamensvinkel",
+      "content": "**Betinget sannsynlighet, total sannsynlighet og Bayes' formel (sjanger A) er i 7 av 10 avsluttende skoleeksamener (70 %) i STK1100-arkivet 2015–2024, nesten alltid som oppgave 1** — den oppgaven du starter dagen med. Sjanger A er bokas kode for nettopp denne oppgavetypen (betinget/total/Bayes).\n\nDe tilbakevendende innpakningene (her omskrevet) er diagnosetester med sensitivitet og spesifisitet, genetikk (recessive gener, eneggede vs. toeggede tvillinger), en «jukseterning» trukket tilfeldig, og bakterier med mutasjon. Ofte kommer flere runder på samme oppsett: du oppdaterer en sannsynlighet når ny informasjon kommer inn.\n\n**Sensorens første krav (gjelder hele boka): definer hendelsene med egne symboler FØR du regner.** Et svar som starter rett på tall, uten «La $S$ = personen har antistoffer, $T$ = testen er positiv», regnes som ufullstendig selv når tallsvaret er riktig. Prioritet: **høyeste** — dette er billige, sikre poeng du ikke har råd til å miste.\n\n> Ren kombinatorikk (tunge telleoppgaver) kreves i praksis **ikke** her — telling holdes på nivå «gunstige av mulige»."
+    },
+    {
+      "id": "stk1100-1-1-forkunnskaper",
+      "type": "text",
+      "content": "**Forkunnskaper:** Dette kapitlet bygger på grunnleggende sannsynlighet fra videregående. Du bør kjenne til utfallsrom, hendelser, addisjonsregelen og komplementregelen fra [R1 8.3 Grunnleggende sannsynlighet](/bok/r1/r1-8-3), og selve begrepet betinget sannsynlighet fra [R1 8.4 Betinget sannsynlighet](/bok/r1/r1-8-4) (alternativt [S1 5.2 Betinget sannsynlighet](/bok/s1/s1-5-2)).\n\nAlt du trenger av regneteknikk er trygg brøkregning og å kunne løse en enkel likning. Ingen integrasjon eller derivasjon her — det kommer først i [kap. 1.2](/bok/stk1100/stk1100-1-2) og senere deler. Nye fagord (sensitivitet, spesifisitet, prevalens) forklares der de brukes."
+    },
+    {
+      "id": "stk1100-1-1-intro",
+      "type": "text",
+      "content": "Tenk på en hverdagssituasjon: du tar en hjemmetest, og den slår ut positivt. Hvor bekymret bør du være? Svaret avhenger ikke bare av hvor god testen er, men også av hvor vanlig tilstanden er i utgangspunktet. Nettopp dette samspillet — mellom hvor treffsikker en test er og hvor sjelden det den leter etter er — er kjernen i **Bayes' formel**, og det er den enkeltmekanismen STK1100-eksamen tester oftest.\n\nKapitlet er bygget som fire små **læringsløkker**. Vi går fra betinget sannsynlighet (hva vet vi når vi vet noe), via loven om total sannsynlighet (hvordan legge sammen alle veiene til en hendelse), til Bayes' formel (hvordan snu en betinget sannsynlighet), og til slutt oppdatering over flere runder. Hver løkke går teori → gjennomregnet eksempel → øvingsoppgaver, så du kan jobbe deg gjennom stoffet bit for bit.\n\n> Dette er et 55-minutters kapittel. Naturlige pausepunkter er markert underveis — du trenger ikke ta alt i én økt."
+    },
+    {
+      "id": "stk1100-1-1-l1-head",
+      "type": "text",
+      "content": "## Løkke 1 — Betinget sannsynlighet og multiplikasjonsregelen (~12 min)"
+    },
+    {
+      "id": "stk1100-1-1-l1-teori",
+      "type": "text",
+      "content": "Ofte får vi vite noe **før** vi regner ut sannsynligheten for noe annet: en test er positiv, en første kule ble trukket, en person tilhører en gitt gruppe. Den nye informasjonen krymper utfallsrommet — vi ser bare på den delen av verden der betingelsen er oppfylt. Betinget sannsynlighet formaliserer dette."
+    },
+    {
+      "id": "stk1100-1-1-def-betinget",
+      "type": "definition",
+      "title": "Betinget sannsynlighet",
+      "content": "Sannsynligheten for at $A$ skjer **når vi allerede vet at** $B$ har skjedd. Vi krymper verden til de utfallene der $B$ gjelder, og måler hvor stor andel av dem som også gir $A$:\n\n$$P(A \\mid B) = \\frac{P(A \\cap B)}{P(B)}, \\qquad P(B) > 0.$$\n\nHer er $A \\cap B$ hendelsen «både $A$ og $B$». Loddrett strek leses «gitt». Merk rekkefølgen: $P(A \\mid B)$ og $P(B \\mid A)$ er som regel **ikke** like — å bytte dem er den vanligste feilen i hele kapitlet."
+    },
+    {
+      "id": "stk1100-1-1-def-multiplikasjon",
+      "type": "definition",
+      "title": "Multiplikasjonsregelen",
+      "content": "Løser vi definisjonen over for snittet, får vi en regel for sannsynligheten for at to hendelser skjer samtidig:\n\n$$P(A \\cap B) = P(B)\\,P(A \\mid B) = P(A)\\,P(B \\mid A).$$\n\nDen leses som en «vei»: først skjer $B$ (sannsynlighet $P(B)$), deretter $A$ gitt at $B$ har skjedd (sannsynlighet $P(A \\mid B)$). Dette er byggeklossen i alle sannsynlighetstrær."
+    },
+    {
+      "id": "stk1100-1-1-def-uavhengig",
+      "type": "definition",
+      "title": "Uavhengige hendelser",
+      "content": "To hendelser er uavhengige dersom kunnskap om den ene ikke endrer sannsynligheten for den andre:\n\n$$P(A \\mid B) = P(A) \\quad\\Longleftrightarrow\\quad P(A \\cap B) = P(A)\\,P(B).$$\n\nMerk: uavhengighet er en **påstand som må begrunnes eller følge av oppgaven** — den kan ikke antas gratis. Sensor trekker for å gange sannsynligheter sammen uten å ha vist at hendelsene er uavhengige."
+    },
+    {
+      "id": "stk1100-1-1-ex-l1",
+      "type": "example",
+      "title": "Eksempel 1: Betinget sannsynlighet fra en tabell",
+      "problem": "I en klasse på 100 elever går 60 på realfag; av dem har 24 valgt fysikk. Av de 40 som ikke går realfag har 4 valgt fysikk. En elev trekkes tilfeldig. La $R$ = eleven går realfag og $F$ = eleven har valgt fysikk. Finn $P(F \\mid R)$ og $P(R \\mid F)$.",
+      "solution": "**Definer hendelsene:** $R$ = realfag, $F$ = fysikk (allerede gjort over).\n\n$P(R) = 60/100 = 0{,}60$, og $P(F \\cap R) = 24/100 = 0{,}24$.\n\n$$P(F \\mid R) = \\frac{P(F \\cap R)}{P(R)} = \\frac{0{,}24}{0{,}60} = 0{,}40.$$\n\nFor $P(R \\mid F)$ trenger vi $P(F)$. Totalt har $24 + 4 = 28$ elever fysikk, så $P(F) = 0{,}28$:\n\n$$P(R \\mid F) = \\frac{P(F \\cap R)}{P(F)} = \\frac{0{,}24}{0{,}28} \\approx 0{,}857.$$\n\nLegg merke til at $P(F \\mid R) = 0{,}40$ og $P(R \\mid F) \\approx 0{,}86$ er svært forskjellige — retningen på betingelsen betyr alt."
+    },
+    {
+      "id": "stk1100-1-1-oppg-l1a",
+      "type": "exercise",
+      "exercise": {
+        "id": "stk1100-1-1-oppg-l1a-e",
+        "number": "1",
+        "type": "classic",
+        "difficulty": "lett",
+        "task": "La $A$ og $B$ være hendelser med $P(A) = 0{,}5$, $P(B) = 0{,}4$ og $P(A \\cap B) = 0{,}2$.\n\n**a)** Finn $P(A \\mid B)$.\n\n**b)** Finn $P(B \\mid A)$.\n\n**c)** Er $A$ og $B$ uavhengige? Begrunn.",
+        "solution": "**a)** $P(A \\mid B) = \\dfrac{P(A \\cap B)}{P(B)} = \\dfrac{0{,}2}{0{,}4} = 0{,}5$.\n\n**b)** $P(B \\mid A) = \\dfrac{P(A \\cap B)}{P(A)} = \\dfrac{0{,}2}{0{,}5} = 0{,}4$.\n\n**c)** Ja: $P(A \\mid B) = 0{,}5 = P(A)$, så å vite $B$ endrer ikke sannsynligheten for $A$. Ekvivalent: $P(A)P(B) = 0{,}5 \\cdot 0{,}4 = 0{,}2 = P(A \\cap B)$.",
+        "hints": [
+          "Bruk $P(A \\mid B) = P(A \\cap B)/P(B)$.",
+          "Uavhengighet kan sjekkes enten via $P(A \\mid B) = P(A)$ eller via $P(A \\cap B) = P(A)P(B)$."
+        ]
+      }
+    },
+    {
+      "id": "stk1100-1-1-oppg-l1b",
+      "type": "exercise",
+      "exercise": {
+        "id": "stk1100-1-1-oppg-l1b-e",
+        "number": "2",
+        "type": "classic",
+        "difficulty": "lett",
+        "task": "En bedrift produserer komponenter på to skift. Dagskiftet lager 70 % av komponentene, kveldsskiftet 30 %. La $D$ = komponenten kom fra dagskiftet. En tilfeldig komponent er defekt; hendelsen kaller vi $F$. Det er kjent at $P(F \\mid D) = 0{,}02$.\n\n**a)** Skriv $P(D)$ og $P(F \\mid D)$ i ord.\n\n**b)** Finn sannsynligheten for at en komponent både kom fra dagskiftet og er defekt.",
+        "solution": "**a)** $P(D) = 0{,}70$ er sannsynligheten for at en tilfeldig komponent kom fra dagskiftet. $P(F \\mid D) = 0{,}02$ er sannsynligheten for at en komponent er defekt **gitt** at den kom fra dagskiftet (dagskiftets defektrate).\n\n**b)** Multiplikasjonsregelen:\n$$P(F \\cap D) = P(D)\\,P(F \\mid D) = 0{,}70 \\cdot 0{,}02 = 0{,}014.$$",
+        "hints": [
+          "Multiplikasjonsregelen: $P(F \\cap D) = P(D)\\,P(F \\mid D)$.",
+          "Definer alltid hendelsene i ord først — det er sensorkravet."
+        ]
+      }
+    },
+    {
+      "id": "stk1100-1-1-l2-head",
+      "type": "text",
+      "content": "## Løkke 2 — Loven om total sannsynlighet (~12 min)"
+    },
+    {
+      "id": "stk1100-1-1-l2-teori",
+      "type": "text",
+      "content": "Ofte kan en hendelse $B$ nås langs flere gjensidig utelukkende veier — komponenten kom fra dagskiftet **eller** kveldsskiftet, personen har genet **eller** ikke. Da deler vi opp verden i disse veiene og legger sammen bidraget fra hver. Delene må dekke alt og ikke overlappe: de danner et **fullstendig hendelsessystem** (en partisjon)."
+    },
+    {
+      "id": "stk1100-1-1-def-partisjon",
+      "type": "definition",
+      "title": "Fullstendig hendelsessystem (partisjon)",
+      "content": "En samling hendelser $A_1, A_2, \\ldots, A_k$ danner et fullstendig hendelsessystem dersom de er **parvis disjunkte** (ingen to kan skje samtidig) og til sammen **dekker hele utfallsrommet**. Da havner ethvert utfall i nøyaktig én av dem, og\n\n$$P(A_1) + P(A_2) + \\cdots + P(A_k) = 1.$$\n\nDet enkleste eksemplet er en hendelse og komplementet: $\\{A, A^c\\}$."
+    },
+    {
+      "id": "stk1100-1-1-def-total",
+      "type": "definition",
+      "title": "Loven om total sannsynlighet",
+      "content": "Når $A_1, \\ldots, A_k$ er et fullstendig hendelsessystem, kan vi finne sannsynligheten for en hvilken som helst hendelse $B$ ved å summere bidraget langs hver vei:\n\n$$P(B) = \\sum_{i=1}^{k} P(B \\mid A_i)\\,P(A_i).$$\n\nHvert ledd $P(B \\mid A_i)P(A_i)$ er sannsynligheten for å nå $B$ **via** $A_i$ (multiplikasjonsregelen). Vi legger sammen alle veiene fordi de utelukker hverandre."
+    },
+    {
+      "id": "stk1100-1-1-ex-l2",
+      "type": "example",
+      "title": "Eksempel 2: Total sannsynlighet — to maskiner",
+      "problem": "En fabrikk bruker to maskiner. Maskin A lager 60 % av enhetene og har defektrate 2 %; maskin B lager 40 % og har defektrate 5 %. En enhet trekkes tilfeldig. Hva er sannsynligheten for at den er defekt?",
+      "solution": "**Definer hendelsene:** $A$ = enheten kom fra maskin A, $B$ = fra maskin B (disse danner et fullstendig hendelsessystem), $D$ = enheten er defekt.\n\nGitt: $P(A) = 0{,}60$, $P(B) = 0{,}40$, $P(D \\mid A) = 0{,}02$, $P(D \\mid B) = 0{,}05$.\n\nLoven om total sannsynlighet:\n$$P(D) = P(D \\mid A)P(A) + P(D \\mid B)P(B) = 0{,}02 \\cdot 0{,}60 + 0{,}05 \\cdot 0{,}40 = 0{,}012 + 0{,}020 = 0{,}032.$$\n\nSå 3,2 % av enhetene er defekte. Legg merke til at vi vektet hver maskins defektrate med hvor stor andel den produserer."
+    },
+    {
+      "id": "stk1100-1-1-oppg-l2",
+      "type": "exercise",
+      "exercise": {
+        "id": "stk1100-1-1-oppg-l2-e",
+        "number": "3",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "Et forsikringsselskap deler kundene i tre risikoklasser: lav (50 % av kundene, skadesannsynlighet 0,05 per år), middels (35 %, skadesannsynlighet 0,12) og høy (15 %, skadesannsynlighet 0,30).\n\n**a)** Definer et fullstendig hendelsessystem for risikoklassene.\n\n**b)** Finn sannsynligheten for at en tilfeldig kunde har minst én skade i løpet av et år.",
+        "solution": "**a)** La $L$, $M$, $H$ være hendelsene at kunden er i henholdsvis lav, middels og høy risikoklasse. De er parvis disjunkte og dekker alle kunder, med $P(L) = 0{,}50$, $P(M) = 0{,}35$, $P(H) = 0{,}15$ (summerer til 1). La $S$ = kunden har minst én skade.\n\n**b)** Total sannsynlighet:\n$$P(S) = 0{,}05 \\cdot 0{,}50 + 0{,}12 \\cdot 0{,}35 + 0{,}30 \\cdot 0{,}15 = 0{,}025 + 0{,}042 + 0{,}045 = 0{,}112.$$\n\nSå 11,2 % av kundene har minst én skade i løpet av året.",
+        "hints": [
+          "Sett opp $P(S) = \\sum_i P(S \\mid \\text{klasse}_i)P(\\text{klasse}_i)$.",
+          "Sjekk at klasseandelene summerer til 1 før du regner."
+        ]
+      }
+    },
+    {
+      "id": "stk1100-1-1-l3-head",
+      "type": "text",
+      "content": "## Løkke 3 — Bayes' formel og diagnosetester (~18 min)"
+    },
+    {
+      "id": "stk1100-1-1-l3-teori",
+      "type": "text",
+      "content": "Nå kommer selve kjerneferdigheten. I total sannsynlighet gikk vi **framover**: fra årsak (hvilken maskin) til virkning (defekt). Bayes' formel går **bakover**: vi observerer virkningen (enheten er defekt) og spør hvor sannsynlig hver årsak var. Dette er nøyaktig strukturen i en diagnosetest — vi ser testresultatet og vil vite tilstanden."
+    },
+    {
+      "id": "stk1100-1-1-def-bayes",
+      "type": "definition",
+      "title": "Bayes' formel",
+      "content": "Når vi kjenner sannsynligheten for $B$ gitt hver årsak $A_i$, men vil snu det og finne sannsynligheten for årsaken $A_j$ gitt at $B$ er observert:\n\n$$P(A_j \\mid B) = \\frac{P(B \\mid A_j)\\,P(A_j)}{\\sum_{i} P(B \\mid A_i)\\,P(A_i)}.$$\n\nTelleren er sannsynligheten for å nå $B$ via akkurat $A_j$ (multiplikasjonsregelen); nevneren er $P(B)$ (total sannsynlighet) — summen av alle veiene. Bayes' formel er altså bare multiplikasjonsregelen delt på total sannsynlighet."
+    },
+    {
+      "id": "stk1100-1-1-l3-diag",
+      "type": "text",
+      "content": "Diagnosetester er den vanligste innpakningen. Da trenger vi et lite fagvokabular. En test leter etter en tilstand (antistoffer, en mutasjon, en sykdom). La $S$ = personen har tilstanden og $T$ = testen er positiv.\n\n- **Sensitivitet** $= P(T \\mid S)$: andelen syke som testen fanger opp (sann positiv-rate).\n- **Spesifisitet** $= P(T^c \\mid S^c)$: andelen friske som testen korrekt frikjenner (sann negativ-rate).\n- **Prevalens** $= P(S)$: hvor vanlig tilstanden er i befolkningen — forhåndssannsynligheten før testen.\n\nDet vi egentlig vil vite er $P(S \\mid T)$: gitt en positiv test, hvor sannsynlig er det at personen faktisk har tilstanden? Dette kalles den **positive prediktive verdien**, og den kan være overraskende lav når tilstanden er sjelden."
+    },
+    {
+      "id": "stk1100-1-1-ex-l3",
+      "type": "example",
+      "title": "Eksempel 3: Diagnosetest og lav prevalens",
+      "problem": "En antistofftest har sensitivitet 99 % og spesifisitet 96 %. I befolkningen har 0,5 % antistoffer. En tilfeldig person tester positivt. Finn sannsynligheten for at personen faktisk har antistoffer, og kommenter tallet.",
+      "solution": "**Definer hendelsene:** $S$ = personen har antistoffer, $T$ = testen er positiv.\n\nGitt: $P(T \\mid S) = 0{,}99$ (sensitivitet), $P(T^c \\mid S^c) = 0{,}96$ (spesifisitet), så $P(T \\mid S^c) = 1 - 0{,}96 = 0{,}04$ (falsk positiv-rate). Prevalens $P(S) = 0{,}005$, så $P(S^c) = 0{,}995$.\n\n**Total sannsynlighet for positiv test:**\n$$P(T) = P(T \\mid S)P(S) + P(T \\mid S^c)P(S^c) = 0{,}99 \\cdot 0{,}005 + 0{,}04 \\cdot 0{,}995 = 0{,}00495 + 0{,}0398 = 0{,}04475.$$\n\n**Bayes' formel:**\n$$P(S \\mid T) = \\frac{P(T \\mid S)P(S)}{P(T)} = \\frac{0{,}00495}{0{,}04475} \\approx 0{,}111.$$\n\n**Kommentar:** Selv med en svært god test er sjansen for at en positiv person faktisk har antistoffer bare rundt **11 %**. Grunnen er lav prevalens: fordi de friske er så mange flere (99,5 %), gir de få prosentene falske positive ($0{,}04 \\cdot 0{,}995 \\approx 0{,}040$) langt flere positive tester enn de sanne positive ($0{,}99 \\cdot 0{,}005 \\approx 0{,}005$). Derfor brukes ofte en ny, uavhengig test for å bekrefte."
+    },
+    {
+      "id": "stk1100-1-1-oppg-l3a",
+      "type": "exercise",
+      "exercise": {
+        "id": "stk1100-1-1-oppg-l3a-e",
+        "number": "4",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "To urner ser like ut. Urne I inneholder 3 hvite og 7 svarte kuler; urne II inneholder 6 hvite og 4 svarte. Du velger en urne tilfeldig (like sannsynlig) og trekker en kule. Kula er hvit.\n\n**a)** Definer hendelsene og finn sannsynligheten for å trekke en hvit kule.\n\n**b)** Gitt at kula er hvit, finn sannsynligheten for at den kom fra urne I.",
+        "solution": "**a)** La $I$ = urne I valgt, $II$ = urne II valgt ($P(I) = P(II) = 0{,}5$), og $H$ = trukket kule er hvit. $P(H \\mid I) = 3/10 = 0{,}3$, $P(H \\mid II) = 6/10 = 0{,}6$.\n$$P(H) = 0{,}3 \\cdot 0{,}5 + 0{,}6 \\cdot 0{,}5 = 0{,}15 + 0{,}30 = 0{,}45.$$\n\n**b)** Bayes:\n$$P(I \\mid H) = \\frac{P(H \\mid I)P(I)}{P(H)} = \\frac{0{,}15}{0{,}45} = \\frac{1}{3} \\approx 0{,}333.$$",
+        "hints": [
+          "Først total sannsynlighet $P(H)$, så Bayes med $P(H)$ i nevneren.",
+          "$P(I \\mid H) = P(H \\mid I)P(I)/P(H)$."
+        ]
+      }
+    },
+    {
+      "id": "stk1100-1-1-oppg-l3b",
+      "type": "exercise",
+      "exercise": {
+        "id": "stk1100-1-1-oppg-l3b-e",
+        "number": "5",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "En hurtigtest for en tarmbakterie har sensitivitet 90 % og spesifisitet 98 %. Blant reisende fra et gitt område bærer 8 % bakterien. En tilfeldig reisende tester positivt.\n\n**a)** Definer hendelsene og angi sensitivitet, spesifisitet og prevalens som betingede sannsynligheter.\n\n**b)** Finn sannsynligheten for at den reisende faktisk bærer bakterien.",
+        "solution": "**a)** $S$ = bærer bakterien, $T$ = positiv test. Sensitivitet $P(T \\mid S) = 0{,}90$; spesifisitet $P(T^c \\mid S^c) = 0{,}98$, så $P(T \\mid S^c) = 0{,}02$; prevalens $P(S) = 0{,}08$, $P(S^c) = 0{,}92$.\n\n**b)** $P(T) = 0{,}90 \\cdot 0{,}08 + 0{,}02 \\cdot 0{,}92 = 0{,}072 + 0{,}0184 = 0{,}0904$.\n$$P(S \\mid T) = \\frac{0{,}072}{0{,}0904} \\approx 0{,}796.$$\nMed høyere prevalens (8 %) blir den positive prediktive verdien mye høyere (ca. 80 %) enn i eksemplet med 0,5 % prevalens.",
+        "hints": [
+          "Regn ut $P(T \\mid S^c) = 1 - \\text{spesifisitet}$ først.",
+          "$P(S \\mid T) = P(T \\mid S)P(S) / P(T)$, der $P(T)$ er total sannsynlighet."
+        ]
+      }
+    },
+    {
+      "id": "stk1100-1-1-oppg-l3c",
+      "type": "exercise",
+      "exercise": {
+        "id": "stk1100-1-1-oppg-l3c-e",
+        "number": "6",
+        "type": "classic",
+        "difficulty": "vanskelig",
+        "task": "En sjelden arvelig tilstand rammer 1 av 2000 personer. En gentest gir positivt utslag hos 98 % av dem som har tilstanden, og gir falskt positivt utslag hos 1 % av dem som ikke har den.\n\n**a)** Definer hendelsene og finn sannsynligheten for et positivt utslag.\n\n**b)** Finn den positive prediktive verdien $P(S \\mid T)$.\n\n**c)** Forklar kort hvorfor svaret er så mye lavere enn testens sensitivitet.",
+        "solution": "**a)** $S$ = har tilstanden, $T$ = positivt utslag. $P(S) = 1/2000 = 0{,}0005$; $P(T \\mid S) = 0{,}98$; $P(T \\mid S^c) = 0{,}01$; $P(S^c) = 0{,}9995$.\n$$P(T) = 0{,}98 \\cdot 0{,}0005 + 0{,}01 \\cdot 0{,}9995 = 0{,}00049 + 0{,}009995 = 0{,}010485.$$\n\n**b)** $$P(S \\mid T) = \\frac{0{,}00049}{0{,}010485} \\approx 0{,}0467.$$\n\n**c)** Sensitiviteten (98 %) sier hvor godt testen fanger opp de syke, men de syke er ekstremt få (0,05 %). Selv en liten falsk positiv-rate (1 %) på den enorme friske gruppen (99,95 %) gir omtrent 20 ganger flere falske positive enn sanne positive. Derfor er bare ca. 4,7 % av de positive faktisk syke.",
+        "hints": [
+          "Regn $P(T)$ med total sannsynlighet først; bruk brøk $1/2000$ eksakt.",
+          "Positiv prediktiv verdi = $P(T \\mid S)P(S)/P(T)$.",
+          "Sammenlign de to leddene i nevneren: sann positiv mot falsk positiv."
+        ]
+      }
+    },
+    {
+      "id": "stk1100-1-1-l4-head",
+      "type": "text",
+      "content": "## Løkke 4 — Oppdatering over flere runder (~10 min)"
+    },
+    {
+      "id": "stk1100-1-1-l4-teori",
+      "type": "text",
+      "content": "STK1100-oppgavene stopper sjelden ved én runde. Når en **ny, uavhengig** observasjon kommer inn, bruker vi gårsdagens svar som dagens utgangspunkt: etterhåndssannsynligheten $P(S \\mid T)$ fra runde 1 blir forhåndssannsynligheten i runde 2. Vi kjører Bayes på nytt med den oppdaterte prevalensen. (At de to testene er uavhengige **gitt tilstanden** må oppgaven gi eller vi må begrunne — ellers kan vi ikke bruke samme tall på nytt.)"
+    },
+    {
+      "id": "stk1100-1-1-def-oppdatering",
+      "type": "definition",
+      "title": "Bayesiansk oppdatering",
+      "content": "Å oppdatere en sannsynlighet betyr å erstatte forhåndssannsynligheten (a priori) med etterhåndssannsynligheten (a posteriori) etter hvert som data kommer inn. Første rundes svar $P(S \\mid T_1)$ blir andre rundes forhåndssannsynlighet:\n\n$$P(S \\mid T_1, T_2) = \\frac{P(T_2 \\mid S)\\,P(S \\mid T_1)}{P(T_2 \\mid S)\\,P(S \\mid T_1) + P(T_2 \\mid S^c)\\,P(S^c \\mid T_1)},$$\n\nnår $T_2$ er uavhengig av $T_1$ gitt tilstanden. Hver ny bekreftende test løfter sannsynligheten."
+    },
+    {
+      "id": "stk1100-1-1-ex-l4",
+      "type": "example",
+      "title": "Eksempel 4: To positive tester på rad",
+      "problem": "Bruk testen fra Eksempel 3 (sensitivitet 99 %, spesifisitet 96 %, prevalens 0,5 %). Personen testet positivt én gang og tar en ny, uavhengig test som også er positiv. Finn den oppdaterte sannsynligheten for antistoffer.",
+      "solution": "Fra Eksempel 3: etter første positive test er $P(S \\mid T_1) \\approx 0{,}1106$. Denne bruker vi som ny forhåndssannsynlighet.\n\n**Ny prevalens:** $P(S) = 0{,}1106$, $P(S^c) = 0{,}8894$. Samme test: $P(T_2 \\mid S) = 0{,}99$, $P(T_2 \\mid S^c) = 0{,}04$.\n\n$$P(T_2) = 0{,}99 \\cdot 0{,}1106 + 0{,}04 \\cdot 0{,}8894 = 0{,}10949 + 0{,}03558 = 0{,}14506.$$\n$$P(S \\mid T_1, T_2) = \\frac{0{,}10949}{0{,}14506} \\approx 0{,}755.$$\n\nTo uavhengige positive tester løfter sannsynligheten fra ca. 11 % til ca. **75 %**. Det er nettopp derfor sjeldne tilstander bekreftes med en ny test."
+    },
+    {
+      "id": "stk1100-1-1-oppg-l4",
+      "type": "exercise",
+      "exercise": {
+        "id": "stk1100-1-1-oppg-l4-e",
+        "number": "7",
+        "type": "classic",
+        "difficulty": "vanskelig",
+        "task": "En bakteriestamme muterer. En koloni er enten mutert ($M$) eller ikke. Før noen analyse antar vi $P(M) = 0{,}20$. En analyse gir utslag «mutert» hos 85 % av de muterte og hos 10 % av de ikke-muterte. Analysen kjøres to ganger uavhengig, og begge ganger gir den utslag «mutert».\n\n**a)** Finn $P(M \\mid \\text{første utslag})$.\n\n**b)** Bruk svaret som ny forhåndssannsynlighet og finn $P(M \\mid \\text{begge utslag})$.",
+        "solution": "**a)** $D$ = analysen gir utslag «mutert». $P(D \\mid M) = 0{,}85$, $P(D \\mid M^c) = 0{,}10$, $P(M) = 0{,}20$, $P(M^c) = 0{,}80$.\n$$P(D) = 0{,}85 \\cdot 0{,}20 + 0{,}10 \\cdot 0{,}80 = 0{,}17 + 0{,}08 = 0{,}25.$$\n$$P(M \\mid D_1) = \\frac{0{,}17}{0{,}25} = 0{,}68.$$\n\n**b)** Ny forhåndssannsynlighet $P(M) = 0{,}68$, $P(M^c) = 0{,}32$:\n$$P(D_2) = 0{,}85 \\cdot 0{,}68 + 0{,}10 \\cdot 0{,}32 = 0{,}578 + 0{,}032 = 0{,}610.$$\n$$P(M \\mid D_1, D_2) = \\frac{0{,}578}{0{,}610} \\approx 0{,}948.$$\nTo utslag løfter sannsynligheten fra 20 % via 68 % til ca. 95 %.",
+        "hints": [
+          "Runde 1: vanlig Bayes med $P(M) = 0{,}20$.",
+          "Runde 2: sett inn svaret fra a) som ny $P(M)$ og kjør Bayes én gang til.",
+          "De to analysene er uavhengige gitt tilstanden — derfor kan samme utslagsrater brukes på nytt."
+        ]
+      }
+    },
+    {
+      "id": "stk1100-1-1-oppg-genetikk",
+      "type": "exercise",
+      "exercise": {
+        "id": "stk1100-1-1-oppg-genetikk-e",
+        "number": "8",
+        "type": "classic",
+        "difficulty": "vanskelig",
+        "task": "Et recessivt gen gir en egenskap bare hos individer med to kopier ($aa$). I en populasjon er andelen genotyper $AA$: 0,49, $Aa$: 0,42, $aa$: 0,09. Bare $aa$ viser egenskapen.\n\n**a)** En tilfeldig person **viser ikke** egenskapen. Finn sannsynligheten for at personen likevel bærer minst ett $a$-gen (altså er $Aa$).\n\n**b)** Kommenter hvorfor denne «skjulte» bærersannsynligheten er høy.",
+        "solution": "**a)** La $B$ = personen viser ikke egenskapen (altså er $AA$ eller $Aa$), og vi søker $P(Aa \\mid B)$. Siden $aa$ alltid viser egenskapen og $AA, Aa$ aldri gjør det, er $P(B) = P(AA) + P(Aa) = 0{,}49 + 0{,}42 = 0{,}91$.\n$$P(Aa \\mid B) = \\frac{P(Aa)}{P(B)} = \\frac{0{,}42}{0{,}91} \\approx 0{,}462.$$\n\n**b)** Nesten halvparten (ca. 46 %) av de som ikke viser egenskapen, bærer likevel genet skjult. Grunnen er at heterozygote $Aa$ er nesten like vanlige som de rene $AA$, og siden begge ser like ut utad, «gjemmer» $Aa$-bærerne seg i den friske gruppen.",
+        "hints": [
+          "Hvilke genotyper viser ikke egenskapen? De utgjør betingelsen $B$.",
+          "$P(Aa \\mid B) = P(Aa)/P(B)$ siden $Aa$ er en del av $B$.",
+          "$B$ er hele gruppen som ikke er $aa$."
+        ]
+      }
+    },
+    {
+      "id": "stk1100-1-1-warn-typiske-feil",
+      "type": "warning",
+      "title": "Typiske feil",
+      "content": "- **Forveksle $P(A \\mid B)$ og $P(B \\mid A)$.** Dette er kjernen i diagnostikk-oppgavene: $P(\\text{positiv} \\mid \\text{syk})$ (sensitiviteten, ofte høy) er noe helt annet enn $P(\\text{syk} \\mid \\text{positiv})$ (det vi vil vite, ofte lav ved sjeldne tilstander).\n- **Glemme total sannsynlighet i nevneren.** Bayes' nevner er $P(B) = \\sum_i P(B \\mid A_i)P(A_i)$ — ikke bare $P(B \\mid A_j)$. Å dele på feil nevner gir tall som kan overstige 1.\n- **Regne uten å definere hendelsene.** Sensor krever «La $S = \\ldots$, $T = \\ldots$» først. Riktig tall uten definerte hendelser gir trekk.\n- **Anta uavhengighet uten belegg.** Å gange sannsynligheter sammen krever at hendelsene er uavhengige — det må følge av oppgaven eller begrunnes.\n- **Blande spesifisitet og falsk positiv-rate.** Spesifisitet er $P(T^c \\mid S^c)$; falsk positiv-rate er $P(T \\mid S^c) = 1 - \\text{spesifisitet}$. Det er sistnevnte som går inn i total sannsynlighet."
+    },
+    {
+      "id": "stk1100-1-1-begrepsbank-notis",
+      "type": "text",
+      "content": "### Begrepsbank\n\n*Flashcard-/repetisjonsstoff — hopp trygt over ved førstegangslesing; tidsanslaget på 55 minutter gjelder kjernestoffet over. Begrepene under er allerede brukt i kapitlet og samles her for repetisjon.*"
+    },
+    {
+      "id": "stk1100-1-1-bb-komplement",
+      "type": "definition",
+      "title": "Komplementregelen",
+      "content": "Sannsynligheten for at en hendelse **ikke** skjer er én minus sannsynligheten for at den skjer:\n\n$$P(A^c) = 1 - P(A).$$\n\nBrukes stadig i diagnostikk: $P(S^c) = 1 - P(S)$ (andelen friske), og $P(T \\mid S^c) = 1 - P(T^c \\mid S^c)$ (falsk positiv-rate fra spesifisiteten)."
+    },
+    {
+      "id": "stk1100-1-1-bb-disjunkt",
+      "type": "definition",
+      "title": "Disjunkte hendelser",
+      "content": "To hendelser er disjunkte (gjensidig utelukkende) dersom de ikke kan skje samtidig: $A \\cap B = \\varnothing$, så $P(A \\cap B) = 0$. For disjunkte hendelser gjelder $P(A \\cup B) = P(A) + P(B)$. Ikke forveksle med uavhengige — disjunkte hendelser er tvert imot sterkt avhengige (skjer den ene, kan ikke den andre skje)."
+    },
+    {
+      "id": "stk1100-1-1-bb-tre",
+      "type": "definition",
+      "title": "Sannsynlighetstre",
+      "content": "En figur der hver gren er en betinget sannsynlighet og hver full sti et produkt (multiplikasjonsregelen). Første forgreining er de disjunkte årsakene $A_i$ (med $P(A_i)$), neste forgreining utfallet $B$ eller $B^c$ (med $P(B \\mid A_i)$). Summen av sannsynlighetene langs alle stiene som ender i $B$ er nettopp total sannsynlighet."
+    },
+    {
+      "id": "stk1100-1-1-bb-sensitivitet",
+      "type": "definition",
+      "title": "Sensitivitet",
+      "content": "Andelen av de som **har** tilstanden som testen fanger opp — den sanne positiv-raten:\n\n$$\\text{sensitivitet} = P(T \\mid S).$$\n\nEn høy sensitivitet betyr få falske negative. Sensitivitet alene sier ingenting om hvor sannsynlig tilstanden er gitt en positiv test."
+    },
+    {
+      "id": "stk1100-1-1-bb-spesifisitet",
+      "type": "definition",
+      "title": "Spesifisitet",
+      "content": "Andelen av de **friske** som testen korrekt frikjenner — den sanne negativ-raten:\n\n$$\\text{spesifisitet} = P(T^c \\mid S^c).$$\n\nFalsk positiv-raten er komplementet: $P(T \\mid S^c) = 1 - \\text{spesifisitet}$. Det er falsk positiv-raten, ikke spesifisiteten direkte, som går inn i total sannsynlighet."
+    },
+    {
+      "id": "stk1100-1-1-bb-prevalens",
+      "type": "definition",
+      "title": "Prevalens",
+      "content": "Hvor vanlig tilstanden er i befolkningen — forhåndssannsynligheten før testen tas:\n\n$$\\text{prevalens} = P(S).$$\n\nAvgjørende for den positive prediktive verdien: lav prevalens gir lav $P(S \\mid T)$ selv med en god test, fordi de mange friske produserer mange falske positive."
+    },
+    {
+      "id": "stk1100-1-1-bb-falsk-positiv",
+      "type": "definition",
+      "title": "Falsk positiv",
+      "content": "En positiv test hos en person **uten** tilstanden. Sannsynligheten er falsk positiv-raten $P(T \\mid S^c) = 1 - \\text{spesifisitet}$. I en befolkning med lav prevalens dominerer de falske positive antallet positive tester."
+    },
+    {
+      "id": "stk1100-1-1-bb-falsk-negativ",
+      "type": "definition",
+      "title": "Falsk negativ",
+      "content": "En negativ test hos en person **med** tilstanden. Sannsynligheten er $P(T^c \\mid S) = 1 - \\text{sensitivitet}$. Lav sensitivitet gir mange falske negative — tilstander som overses."
+    },
+    {
+      "id": "stk1100-1-1-bb-ppv",
+      "type": "definition",
+      "title": "Positiv prediktiv verdi (PPV)",
+      "content": "Sannsynligheten for at en person med positiv test **faktisk** har tilstanden:\n\n$$\\text{PPV} = P(S \\mid T) = \\frac{P(T \\mid S)P(S)}{P(T \\mid S)P(S) + P(T \\mid S^c)P(S^c)}.$$\n\nDette er svaret Bayes' formel gir i en diagnosetest, og kan være lavt selv når sensitivitet og spesifisitet er høye."
+    },
+    {
+      "id": "stk1100-1-1-bb-npv",
+      "type": "definition",
+      "title": "Negativ prediktiv verdi (NPV)",
+      "content": "Sannsynligheten for at en person med negativ test **faktisk** er frisk:\n\n$$\\text{NPV} = P(S^c \\mid T^c) = \\frac{P(T^c \\mid S^c)P(S^c)}{P(T^c \\mid S^c)P(S^c) + P(T^c \\mid S)P(S)}.$$\n\nVed lav prevalens er NPV som regel svært høy — en negativ test er da svært betryggende."
+    },
+    {
+      "id": "stk1100-1-1-bb-apriori",
+      "type": "definition",
+      "title": "Forhåndssannsynlighet (a priori)",
+      "content": "Sannsynligheten for en hendelse **før** ny informasjon tas med — $P(A_j)$ i Bayes' formel. I diagnostikk er dette prevalensen $P(S)$. Ved oppdatering over flere runder er forrige rundes etterhåndssannsynlighet den nye forhåndssannsynligheten."
+    },
+    {
+      "id": "stk1100-1-1-bb-aposteriori",
+      "type": "definition",
+      "title": "Etterhåndssannsynlighet (a posteriori)",
+      "content": "Sannsynligheten for en hendelse **etter** at ny informasjon er tatt med — $P(A_j \\mid B)$ på venstre side i Bayes' formel. I diagnostikk er dette den positive prediktive verdien $P(S \\mid T)$."
+    },
+    {
+      "id": "stk1100-1-1-bb-betinget-uavhengig",
+      "type": "definition",
+      "title": "Betinget uavhengighet",
+      "content": "To hendelser $T_1$ og $T_2$ er uavhengige **gitt** tilstanden $S$ dersom\n\n$$P(T_1 \\cap T_2 \\mid S) = P(T_1 \\mid S)\\,P(T_2 \\mid S).$$\n\nDette er forutsetningen som lar oss oppdatere over flere tester med samme sensitivitet/spesifisitet: to tester på samme person antas å være uavhengige når vi vet om personen har tilstanden eller ei."
+    },
+    {
+      "id": "stk1100-1-1-rep-collapsible",
+      "type": "collapsible",
+      "title": "Repetisjonsoppgaver",
+      "buttonText": "Vis repetisjonsoppgaver",
+      "content": [
+        {
+          "id": "stk1100-1-1-rep-intro",
+          "type": "text",
+          "content": "Korte oppgaver fra forkunnskapene ([R1 8.3](/bok/r1/r1-8-3), [R1 8.4](/bok/r1/r1-8-4)) for å varme opp."
+        },
+        {
+          "id": "stk1100-1-1-rep-1",
+          "type": "exercise",
+          "exercise": {
+            "id": "stk1100-1-1-rep-1-e",
+            "number": "R1",
+            "type": "classic",
+            "difficulty": "lett",
+            "task": "En vanlig terning kastes. La $A$ = partall og $B$ = minst 4. Finn $P(A)$, $P(B)$ og $P(A \\cap B)$.",
+            "solution": "$A = \\{2,4,6\\}$ gir $P(A) = 3/6 = 1/2$. $B = \\{4,5,6\\}$ gir $P(B) = 3/6 = 1/2$. $A \\cap B = \\{4,6\\}$ gir $P(A \\cap B) = 2/6 = 1/3$.",
+            "hints": [
+              "Skriv opp hvilke øyne som ligger i hver hendelse."
+            ]
+          }
+        },
+        {
+          "id": "stk1100-1-1-rep-2",
+          "type": "exercise",
+          "exercise": {
+            "id": "stk1100-1-1-rep-2-e",
+            "number": "R2",
+            "type": "classic",
+            "difficulty": "lett",
+            "task": "Med tallene fra forrige oppgave: finn $P(A \\mid B)$ og avgjør om $A$ og $B$ er uavhengige.",
+            "solution": "$P(A \\mid B) = \\dfrac{P(A \\cap B)}{P(B)} = \\dfrac{1/3}{1/2} = \\dfrac{2}{3}$. Siden $P(A) = 1/2 \\neq 2/3 = P(A \\mid B)$, er $A$ og $B$ **avhengige**.",
+            "hints": [
+              "Sammenlign $P(A \\mid B)$ med $P(A)$."
+            ]
+          }
+        },
+        {
+          "id": "stk1100-1-1-rep-3",
+          "type": "exercise",
+          "exercise": {
+            "id": "stk1100-1-1-rep-3-e",
+            "number": "R3",
+            "type": "classic",
+            "difficulty": "lett",
+            "task": "En eske har 5 røde og 3 blå kuler. Du trekker to uten tilbakelegging. Finn sannsynligheten for at begge er røde.",
+            "solution": "$P(\\text{begge røde}) = \\dfrac{5}{8} \\cdot \\dfrac{4}{7} = \\dfrac{20}{56} = \\dfrac{5}{14} \\approx 0{,}357$. Andre trekning er betinget på at første var rød (multiplikasjonsregelen).",
+            "hints": [
+              "Bruk multiplikasjonsregelen: $P(R_1)\\,P(R_2 \\mid R_1)$."
+            ]
+          }
+        },
+        {
+          "id": "stk1100-1-1-rep-4",
+          "type": "exercise",
+          "exercise": {
+            "id": "stk1100-1-1-rep-4-e",
+            "number": "R4",
+            "type": "classic",
+            "difficulty": "lett",
+            "task": "$P(A) = 0{,}3$. Finn $P(A^c)$, og forklar hva komplementet betyr.",
+            "solution": "$P(A^c) = 1 - 0{,}3 = 0{,}7$. Komplementet $A^c$ er hendelsen at $A$ **ikke** skjer, og sannsynlighetene må summere til 1.",
+            "hints": [
+              "Komplementregelen: $P(A^c) = 1 - P(A)$."
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": "stk1100-1-1-sym-collapsible",
+      "type": "collapsible",
+      "title": "Symbol- og formelliste",
+      "buttonText": "Vis symboler og formler",
+      "content": [
+        {
+          "id": "stk1100-1-1-sym-intro",
+          "type": "text",
+          "content": "*Oppslagsverk — alt her forklares underveis i kapitlet.*\n\nAlle symboler og formler brukt i kapittel 1.1, samlet på ett sted.\n\n| Symbol | Betydning |\n|---|---|\n| $A, B$ | Hendelser (delmengder av utfallsrommet) |\n| $A^c$ | Komplementet til $A$ (at $A$ ikke skjer) |\n| $A \\cap B$ | Snittet — både $A$ og $B$ |\n| $A \\cup B$ | Unionen — $A$ eller $B$ (eller begge) |\n| $\\varnothing$ | Den tomme hendelsen (kan ikke skje) |\n| $P(A)$ | Sannsynligheten for $A$ |\n| $P(A \\mid B)$ | Betinget sannsynlighet for $A$ gitt $B$ |\n| $A_1, \\ldots, A_k$ | Et fullstendig hendelsessystem (partisjon) |\n| $S$ | Tilstanden i en diagnosetest (f.eks. har antistoffer) |\n| $T$ | Testen er positiv |\n| $P(T \\mid S)$ | Sensitivitet (sann positiv-rate) |\n| $P(T^c \\mid S^c)$ | Spesifisitet (sann negativ-rate) |\n| $P(S)$ | Prevalens (forhåndssannsynlighet) |\n| $P(S \\mid T)$ | Positiv prediktiv verdi (etterhåndssannsynlighet) |\n\n**Formler i dette kapitlet:**\n\n$$P(A \\mid B) = \\frac{P(A \\cap B)}{P(B)} \\quad \\text{(betinget sannsynlighet)}$$\n\n$$P(A \\cap B) = P(B)P(A \\mid B) = P(A)P(B \\mid A) \\quad \\text{(multiplikasjonsregelen)}$$\n\n$$P(A \\cap B) = P(A)P(B) \\quad \\text{(gjelder KUN når } A, B \\text{ er uavhengige)}$$\n\n$$P(B) = \\sum_{i} P(B \\mid A_i)P(A_i) \\quad \\text{(loven om total sannsynlighet)}$$\n\n$$P(A_j \\mid B) = \\frac{P(B \\mid A_j)P(A_j)}{\\sum_i P(B \\mid A_i)P(A_i)} \\quad \\text{(Bayes' formel)}$$\n\n$$P(A^c) = 1 - P(A) \\quad \\text{(komplementregelen)}$$"
+        }
+      ]
+    }
+  ],
+  "exercises": []
+}

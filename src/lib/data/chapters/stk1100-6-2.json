@@ -1,0 +1,316 @@
+{
+  "id": "stk1100-6-2",
+  "courseId": "stk1100",
+  "chapterNumber": "6.2",
+  "title": "CLT-tilnærmet KI og eksakt-vs-Wald-dekningen",
+  "description": "Det CLT-baserte Wald-intervallet som alternativ — og hvorfor det eksakte pivotal-intervallet foretrekkes ved lav n (dekning 95,9 % mot 91,1 %).",
+  "estimatedMinutes": 55,
+  "competenceGoals": [
+    "formulere sentralgrenseteoremet presist med alle tre forutsetninger (uavhengig, identisk fordelt, endelig varians)",
+    "konstruere et CLT-basert Wald-konfidensintervall med estimert standardfeil",
+    "sammenligne eksakt pivotal-KI og Wald-KI på dekningsgrad og begrunne hvorfor eksakt foretrekkes ved lav n",
+    "tolke en dekningssimulering og angi når CLT-tilnærmingen er forsvarlig"
+  ],
+  "content": [
+    {
+      "id": "stk1100-6-2-tip-eksamensvinkel",
+      "type": "tip",
+      "title": "Eksamensvinkel",
+      "content": "**Sentralgrenseteoremet (CLT) begrunnet til et tilnærmet konfidensintervall dukker opp i 4 av 10 avsluttende skoleeksamener (40 %)** (V2020, V2022, V2023, V2024). Enda viktigere: **sammenligningen eksakt pivotal-KI vs. det CLT-baserte Wald-intervallet, med simulert dekningsgrad, sto eksplisitt i V2024** — og ligger implisitt (som «to alternative intervaller») i V2016 og V2023.\n\nWald-intervallet er $\\hat\\theta \\pm z_{\\alpha/2}\\cdot\\widehat{\\text{SE}}$ — enkelt og symmetrisk. Men når standardavviket avhenger av parameteren (som for eksponensial), **undervurderer Wald-intervallet usikkerheten ved lav $n$**: i V2024-studien dekket det eksakte intervallet sann parameter 95,9 % av gangene mot Wald-intervallets 91,1 % for $n=10$ — mens begge nærmet seg 94 % ved $n=100$.\n\nSensor vil at du (1) **formulerer CLT presist med alle tre forutsetninger**, (2) vet at det eksakte pivotal-intervallet foretrekkes ved lav/moderat $n$, og (3) godtar Wald som et *alternativ* — aldri som «det beste» for lite utvalg. Prioritet: **kunne** (CLT-formuleringen og dekningspoenget er A-markører)."
+    },
+    {
+      "id": "stk1100-6-2-forkunnskaper",
+      "type": "text",
+      "content": "**Forkunnskaper:** [kap. 6.1](/bok/stk1100/stk1100-6-1) (eksakt pivotal-KI — som dette kapitlet sammenligner mot). Momentregnereglene er fra [kap. 1.2](/bok/stk1100/stk1100-1-2), estimatoregenskapene fra [kap. 5.1](/bok/stk1100/stk1100-5-1).\n\n**Sist du var her — det eksakte intervallet du nå får et alternativ til:**\n\n$$\\textbf{Eksakt (fra 6.1):}\\quad \\mu \\in \\left[\\frac{2\\sum x_i}{\\chi^2_{2n,\\alpha/2}},\\ \\frac{2\\sum x_i}{\\chi^2_{2n,1-\\alpha/2}}\\right] \\quad (\\text{asymmetrisk}).$$\n\nDette intervallet har dekning nøyaktig lik konfidensgraden, uansett $n$. I dette kapitlet bygger vi det enklere **Wald-intervallet** basert på CLT, og ser presist når det svikter."
+    },
+    {
+      "id": "stk1100-6-2-intro",
+      "type": "text",
+      "content": "Ikke alle estimatorer har en pen eksakt pivot. Da er redningen **sentralgrenseteoremet**: for stor $n$ er en gjennomsnittsbasert estimator tilnærmet normalfordelt, og vi kan legge et symmetrisk normalintervall rundt den. Det gir **Wald-intervallet** — arbeidshesten i praktisk statistikk.\n\nMen «stor $n$» er nøkkelen. Vi bygger tre læringsløkker: (1) CLT presist formulert, (2) Wald-intervallet, og (3) den avgjørende sammenligningen eksakt vs. Wald via **dekningsgrad** — der vi ser med egne (simulerte) tall hvorfor det eksakte intervallet vinner ved lav $n$. Sett av ca. 55 minutter."
+    },
+    {
+      "id": "stk1100-6-2-lokke1-head",
+      "type": "text",
+      "content": "## Løkke 1 — Sentralgrenseteoremet presist (~18 min)"
+    },
+    {
+      "id": "stk1100-6-2-def-clt",
+      "type": "definition",
+      "title": "Sentralgrenseteoremet (CLT)",
+      "content": "Gjennomsnittet av mange uavhengige, likt fordelte målinger er tilnærmet normalfordelt — uansett formen på den underliggende fordelingen. Presist: for $X_1,\\ldots,X_n$ som er **uavhengige og identisk fordelte** med $E(X_i)=\\mu$ og **endelig varians** $\\text{Var}(X_i)=\\sigma^2 < \\infty$, gjelder\n\n$$\\frac{\\bar X - \\mu}{\\sigma/\\sqrt n} \\ \\xrightarrow{\\ \\text{tilnærmet}\\ }\\ N(0,1) \\quad \\text{for stor } n.$$\n\n**Alle tre forutsetningene må med** når du formulerer teoremet: uavhengige, identisk fordelte, og endelig varians. Utelater du én, er formuleringen ufullstendig (sensortrekk). Merk at det er den *standardiserte* størrelsen som blir $N(0,1)$-fordelt — ikke $\\bar X$ selv."
+    },
+    {
+      "id": "stk1100-6-2-def-standardisering",
+      "type": "definition",
+      "title": "Standardisering av gjennomsnittet",
+      "content": "Å trekke fra forventningen og dele på standardavviket, slik at størrelsen får forventning 0 og varians 1 — i symboler:\n\n$$Z = \\frac{\\bar X - \\mu}{\\sigma/\\sqrt n}, \\qquad E(Z)=0,\\ \\text{Var}(Z)=1.$$\n\nHer er $\\sigma/\\sqrt n$ standardavviket til $\\bar X$ (standardfeilen), siden $\\text{Var}(\\bar X)=\\sigma^2/n$ (fra [kap. 5.1](/bok/stk1100/stk1100-5-1)). CLT sier at nettopp denne standardiserte størrelsen nærmer seg $N(0,1)$."
+    },
+    {
+      "id": "stk1100-6-2-example1",
+      "type": "example",
+      "title": "Eksempel 1: CLT-formulering og en tilnærmet sannsynlighet",
+      "problem": "En maskin fyller poser med en forventet vekt $\\mu=500$ g og standardavvik $\\sigma=20$ g per pose (fordelingen er ukjent, men har endelig varians). $n=100$ poser veies.\n\n**a)** Formuler CLT for gjennomsnittsvekten $\\bar X$, med alle forutsetninger.\n**b)** Finn tilnærmet $P(\\bar X > 503)$.",
+      "solution": "**a)** Posevektene $X_1,\\ldots,X_{100}$ antas uavhengige og identisk fordelte med $E(X_i)=500$ og endelig varians $\\sigma^2 = 400$. Da er, ved CLT, $(\\bar X - 500)/(20/\\sqrt{100})$ tilnærmet $N(0,1)$ — altså er $\\bar X$ tilnærmet $N(500,\\ 20^2/100) = N(500,\\ 4)$ (standardfeil 2 g).\n\n**b)** Standardiser: $$P(\\bar X > 503) = P\\!\\left(Z > \\frac{503-500}{2}\\right) = P(Z > 1{,}5) \\approx 1 - \\Phi(1{,}5) = 1 - 0{,}9332 = 0{,}0668.$$\nAltså ca. 6,7 % sjanse for at snittvekten overstiger 503 g."
+    },
+    {
+      "id": "stk1100-6-2-ex1",
+      "type": "exercise",
+      "exercise": {
+        "id": "stk1100-6-2-ex1",
+        "number": 1,
+        "type": "classic",
+        "difficulty": "lett",
+        "task": "En student formulerer CLT slik: «Gjennomsnittet $\\bar X$ er tilnærmet normalfordelt for stor $n$.» Hvilke tre forutsetninger mangler i den presise formuleringen, og hva er det egentlig som blir $N(0,1)$?",
+        "solution": "De tre forutsetningene som må med: observasjonene er (1) **uavhengige**, (2) **identisk fordelte**, og (3) har **endelig varians** $\\sigma^2 < \\infty$. Og det er den **standardiserte** størrelsen\n$$\\frac{\\bar X - \\mu}{\\sigma/\\sqrt n}$$\nsom blir tilnærmet $N(0,1)$ — ikke $\\bar X$ selv (den blir tilnærmet $N(\\mu, \\sigma^2/n)$).",
+        "hints": [
+          "Tenk på hva som kan gå galt: avhengige data? ulik fordeling? uendelig varians?",
+          "CLT gjelder den standardiserte størrelsen, ikke $\\bar X$ direkte.",
+          "Tre stikkord: uavhengig, identisk fordelt, endelig varians."
+        ]
+      }
+    },
+    {
+      "id": "stk1100-6-2-lokke2-head",
+      "type": "text",
+      "content": "## Løkke 2 — Wald-intervallet (~17 min)"
+    },
+    {
+      "id": "stk1100-6-2-def-asymptotisk",
+      "type": "definition",
+      "title": "ML-estimatorens tilnærmede normalitet",
+      "content": "For stor $n$ er en maximum-likelihood-estimator tilnærmet normalfordelt om sann parameter — i symboler:\n\n$$\\hat\\theta \\ \\xrightarrow{\\ \\text{tilnærmet}\\ }\\ N\\big(\\theta,\\ \\text{Var}(\\hat\\theta)\\big) \\quad \\text{for stor } n.$$\n\nDette er en følge av CLT (ML-estimatoren er ofte et gjennomsnitt eller en glatt funksjon av ett). Resultatet lar oss legge et normalintervall rundt $\\hat\\theta$ — men gjelder bare tilnærmet, og best når $n$ er stor."
+    },
+    {
+      "id": "stk1100-6-2-def-se",
+      "type": "definition",
+      "title": "Estimert standardfeil",
+      "content": "Standardavviket til estimatoren, der ukjente parametre er byttet ut med sine estimater — i symboler:\n\n$$\\widehat{\\text{SE}} = \\sqrt{\\widehat{\\text{Var}}(\\hat\\theta)}.$$\n\nFor eksponensiell forventning er $\\text{Var}(\\bar X)=\\mu^2/n$, så $\\text{SE}(\\hat\\mu)=\\mu/\\sqrt n$; siden $\\mu$ er ukjent brukes $\\widehat{\\text{SE}} = \\hat\\mu/\\sqrt n = \\bar X/\\sqrt n$. **At standardfeilen selv avhenger av parameteren** er nettopp grunnen til at Wald-intervallet sliter ved lav $n$ (løkke 3)."
+    },
+    {
+      "id": "stk1100-6-2-def-wald",
+      "type": "definition",
+      "title": "Wald-intervallet (CLT-basert KI)",
+      "content": "Et symmetrisk konfidensintervall bygget på at estimatoren er tilnærmet normalfordelt — i symboler:\n\n$$\\hat\\theta \\pm z_{\\alpha/2}\\cdot \\widehat{\\text{SE}}, \\qquad \\big[\\hat\\theta - z_{\\alpha/2}\\widehat{\\text{SE}},\\ \\hat\\theta + z_{\\alpha/2}\\widehat{\\text{SE}}\\big].$$\n\nHer er $z_{\\alpha/2}$ normalkvantilen (f.eks. $z_{0{,}025}=1{,}96$ for 95 %). Intervallet er alltid **symmetrisk** om $\\hat\\theta$ — i motsetning til det asymmetriske eksakte intervallet fra [kap. 6.1](/bok/stk1100/stk1100-6-1). Det er enkelt å regne, men bygger på en tilnærmelse som krever stor $n$."
+    },
+    {
+      "id": "stk1100-6-2-example2",
+      "type": "example",
+      "title": "Eksempel 2: Wald-intervall for eksponensiell forventning",
+      "problem": "Tjuefem levetider antas eksponensialfordelte i forventningsform med forventning $\\mu$; observert $\\sum x_i = 160$, så $\\hat\\mu = 6{,}4$.\n\n**a)** Finn den estimerte standardfeilen $\\widehat{\\text{SE}}(\\hat\\mu)$.\n**b)** Konstruer et 95 % Wald-intervall for $\\mu$.",
+      "solution": "**a)** For eksponensial er $\\text{Var}(\\bar X)=\\mu^2/n$, så $\\text{SE}(\\hat\\mu)=\\mu/\\sqrt n$. Estimert: $\\widehat{\\text{SE}} = \\hat\\mu/\\sqrt n = 6{,}4/\\sqrt{25} = 6{,}4/5 = 1{,}28$.\n\n**b)** Med $z_{0{,}025}=1{,}96$:\n$$\\hat\\mu \\pm z_{0{,}025}\\widehat{\\text{SE}} = 6{,}4 \\pm 1{,}96\\cdot 1{,}28 = 6{,}4 \\pm 2{,}51 = [3{,}89,\\ 8{,}91].$$\n\nIntervallet er symmetrisk om 6,4 — til forskjell fra det eksakte pivotal-intervallet, som ville vært asymmetrisk (og noe bredere oppover)."
+    },
+    {
+      "id": "stk1100-6-2-ex2",
+      "type": "exercise",
+      "exercise": {
+        "id": "stk1100-6-2-ex2",
+        "number": 2,
+        "type": "classic",
+        "difficulty": "lett",
+        "task": "En estimator har $\\hat\\theta = 12{,}0$ og estimert standardfeil $\\widehat{\\text{SE}} = 1{,}5$. Konstruer et 95 % Wald-intervall for $\\theta$ ($z_{0{,}025}=1{,}96$).",
+        "solution": "$$\\hat\\theta \\pm z_{0{,}025}\\widehat{\\text{SE}} = 12{,}0 \\pm 1{,}96\\cdot 1{,}5 = 12{,}0 \\pm 2{,}94 = [9{,}06,\\ 14{,}94].$$\n\nIntervallet er symmetrisk om punktestimatet 12,0.",
+        "hints": [
+          "Wald-intervallet er $\\hat\\theta \\pm z_{\\alpha/2}\\widehat{\\text{SE}}$.",
+          "For 95 % er $z_{0{,}025}=1{,}96$.",
+          "Regn $1{,}96\\cdot 1{,}5 = 2{,}94$."
+        ]
+      }
+    },
+    {
+      "id": "stk1100-6-2-lokke3-head",
+      "type": "text",
+      "content": "## Løkke 3 — Eksakt vs. Wald: dekningsgraden avgjør (~20 min)"
+    },
+    {
+      "id": "stk1100-6-2-def-dekning",
+      "type": "definition",
+      "title": "Dekningsgrad (coverage)",
+      "content": "Den faktiske andelen gjentatte konfidensintervaller som inneholder sann parameter — til forskjell fra den tilsiktede konfidensgraden:\n\n$$\\text{dekningsgrad} = P\\big(\\text{intervallet dekker sann } \\theta\\big).$$\n\nFor et **eksakt** intervall er dekningsgraden lik konfidensgraden ($1-\\alpha$) per konstruksjon. For et **tilnærmet** (Wald) intervall kan den avvike — særlig ved lav $n$, der den ofte er *lavere* enn tilsiktet (undercoverage). Dekning måles med en simuleringsstudie (kobling [kap. 7.2](/bok/stk1100/stk1100-7-2))."
+    },
+    {
+      "id": "stk1100-6-2-def-eksakt-vs-wald",
+      "type": "definition",
+      "title": "Eksakt vs. Wald — dekningspoenget",
+      "content": "Når standardavviket til estimatoren avhenger av parameteren, har det eksakte pivotal-intervallet **bedre dekning ved lav/moderat $n$** enn Wald-intervallet:\n\n$$\\text{lav } n:\\quad \\text{dekning}_{\\text{eksakt}} \\approx 1-\\alpha \\ >\\ \\text{dekning}_{\\text{Wald}}.$$\n\nKonkret V2024-illustrasjon (eksponensiell modell, nominelt 95 %, $n=10$): eksakt dekket 95,9 %, Wald 91,1 %. Ved $n=100$ nærmet begge seg 94 %. Wald godtas som *alternativ*, men er aldri «det beste» for lite utvalg — og et smalere Wald-intervall er ikke «riktigere», det bare undervurderer usikkerheten."
+    },
+    {
+      "id": "stk1100-6-2-dekning-sim",
+      "type": "text",
+      "content": "### Simuleringen bak tallene\n\nDekningstallene er ikke tatt ut av lufta — de kommer fra en **dekningssimulering** som du selv kan kjøre (fullt apparat i [kap. 7.2](/bok/stk1100/stk1100-7-2)). Ideen: trekk $n$ eksponensiale observasjoner med kjent sann $\\mu$, bygg begge intervallene, og tell hvor ofte de dekker sann $\\mu$. Gjentar vi 1000 ganger for $n=10$ (nominelt 95 %):\n\n```python\nimport numpy as np\nfrom scipy import stats\nrng = np.random.default_rng(13)\nn, mu, alpha, B = 10, 5.0, 0.05, 1000\nz = stats.norm.ppf(1 - alpha/2)\nchi_lo = stats.chi2.ppf(1 - alpha/2, 2*n)   # stor kvantil -> nedre grense\nchi_hi = stats.chi2.ppf(alpha/2, 2*n)       # liten kvantil -> ovre grense\ncov_exact = cov_wald = 0\nfor _ in range(B):\n    x = rng.exponential(mu, size=n)\n    s, mhat = x.sum(), x.mean()\n    # eksakt pivotal-KI (fra kap. 6.1)\n    if 2*s/chi_lo <= mu <= 2*s/chi_hi:\n        cov_exact += 1\n    # Wald-KI: SE = mhat/sqrt(n)\n    se = mhat/np.sqrt(n)\n    if mhat - z*se <= mu <= mhat + z*se:\n        cov_wald += 1\nprint(cov_exact, cov_wald)   # -> 959 911\n```\n\nUtfallet er **959** (95,9 %) for det eksakte og **911** (91,1 %) for Wald. Det eksakte treffer sitt tilsiktede 95 %-nivå (avviket 95,9 % er ren simuleringsstøy — 1000 gjentakelser gir usikkerhet på ca. $\\pm 0{,}7$ prosentpoeng), mens Wald **underdekker** klart. Øker vi til $n=100$, nærmer begge seg 94 %, og forskjellen forsvinner — CLT-tilnærmingen blir god."
+    },
+    {
+      "id": "stk1100-6-2-example3",
+      "type": "example",
+      "title": "Eksempel 3: tolke en dekningsstudie",
+      "problem": "I en simuleringsstudie med 1000 gjentakelser og $n=10$ (nominelt 95 %) dekket det eksakte intervallet sann $\\mu$ 959 ganger og Wald-intervallet 911 ganger.\n\n**a)** Hvilket intervall foretrekker du for $n=10$, og hvorfor?\n**b)** Hva skjer når $n$ øker til 100?\n**c)** Er det smalere (Wald) intervallet «riktigere»?",
+      "solution": "**a)** Jeg foretrekker det **eksakte** intervallet. Det treffer sitt tilsiktede 95 %-nivå (95,9 % er simuleringsstøy rundt 95 %), mens Wald bare dekker 91,1 % — det **underdekker**, altså gir en falsk følelse av presisjon. Fordi standardfeilen $\\mu/\\sqrt n$ selv avhenger av $\\mu$, er normaltilnærmingen dårlig ved lav $n$.\n\n**b)** Ved $n=100$ blir CLT-tilnærmingen god, og begge intervallene dekker ca. 94 % — forskjellen forsvinner. For store utvalg er Wald et fullgodt, enklere alternativ.\n\n**c)** Nei. Et smalere intervall er ikke «riktigere» hvis det underdekker — det undervurderer usikkerheten. Bredden må stå i forhold til den faktiske dekningen. Det asymmetriske eksakte intervallet er korrekt."
+    },
+    {
+      "id": "stk1100-6-2-ex3",
+      "type": "exercise",
+      "exercise": {
+        "id": "stk1100-6-2-ex3",
+        "number": 3,
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "For $n=8$ eksponensiale observasjoner med $\\hat\\mu = 5$ og $\\sum x_i = 40$ er det eksakte 95 %-intervallet $[2{,}77,\\ 11{,}58]$ (bredde 8,81) og Wald-intervallet $[1{,}54,\\ 8{,}46]$ (bredde 6,93). Wald er smalest. Forklar hvorfor det likevel ikke er å foretrekke ved denne $n$-en.",
+        "solution": "Wald-intervallet er smalere fordi det bygger på en normaltilnærming som ved lav $n$ **undervurderer usikkerheten** — standardfeilen $\\mu/\\sqrt n$ avhenger selv av den ukjente $\\mu$, og tilnærmingen er dårlig med bare 8 observasjoner. Et smalere intervall som underdekker (dekker sjeldnere enn 95 %) er ikke bedre; det gir en falsk presisjon. Det eksakte intervallet har korrekt dekning per konstruksjon og foretrekkes. Wald er kun et *alternativ*, godt først når $n$ er stor.",
+        "hints": [
+          "Smalere er ikke det samme som bedre — tenk på dekningsgrad.",
+          "Standardfeilen $\\mu/\\sqrt n$ avhenger av parameteren; tilnærmingen svikter ved lav $n$.",
+          "Det eksakte har dekning $= 1-\\alpha$ per konstruksjon; Wald underdekker her."
+        ]
+      }
+    },
+    {
+      "id": "stk1100-6-2-ex4",
+      "type": "exercise",
+      "exercise": {
+        "id": "stk1100-6-2-ex4",
+        "number": 4,
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "Forklar med egne ord hvorfor det er uforsvarlig å bruke et CLT-basert Wald-intervall på et lite, tydelig skjevt datasett (f.eks. $n=6$ levetider) uten forbehold — og hva du heller bør gjøre.",
+        "solution": "CLT gir bare en *tilnærming* som blir god når $n$ er stor. For $n=6$ fra en skjev fordeling er gjennomsnittet fortsatt merkbart skjevt fordelt, så normaltilnærmingen er dårlig: Wald-intervallet blir feilplassert og underdekker. Man bør i stedet bruke det **eksakte pivotal-intervallet** (som ikke krever normaltilnærming) der en pivot finnes — for eksponensiale/gamma-/Weibull-data gjør den det. Wald kan nevnes som alternativ, men med eksplisitt forbehold om at $n$ er for liten til at CLT er pålitelig.",
+        "hints": [
+          "CLT er en tilnærming som krever stor $n$ — hva skjer ved liten, skjev $n$?",
+          "Finnes det et intervall som IKKE hviler på normaltilnærming?",
+          "Eksakt pivotal-KI fra kap. 6.1 er svaret når en pivot finnes."
+        ]
+      }
+    },
+    {
+      "id": "stk1100-6-2-ex5",
+      "type": "exercise",
+      "exercise": {
+        "id": "stk1100-6-2-ex5",
+        "number": 5,
+        "type": "classic",
+        "difficulty": "vanskelig",
+        "task": "Tjuefem eksponensiale observasjoner gir $\\hat\\mu = 6{,}4$, $\\sum x_i = 160$.\n\n**a)** Gi både det eksakte 95 %-KI-et og Wald-intervallet. Oppgitt: $\\chi^2_{50,0{,}025}=71{,}42$, $\\chi^2_{50,0{,}975}=32{,}36$, $z_{0{,}025}=1{,}96$.\n**b)** Sammenlign form og bredde, og si hvilket du melder som hovedsvar for $n=25$.",
+        "solution": "**a)** Eksakt (pivot $2\\sum X_i/\\mu \\sim \\chi^2_{50}$, $2\\sum x_i = 320$):\n$$\\mu \\in \\left[\\frac{320}{71{,}42},\\ \\frac{320}{32{,}36}\\right] = [4{,}48,\\ 9{,}89].$$\nWald ($\\widehat{\\text{SE}} = 6{,}4/\\sqrt{25} = 1{,}28$):\n$$6{,}4 \\pm 1{,}96\\cdot 1{,}28 = [3{,}89,\\ 8{,}91].$$\n\n**b)** Det eksakte er **asymmetrisk** om 6,4 (avstand ned 1,92, opp 3,49) og forskjøvet oppover; Wald er **symmetrisk** ($\\pm 2{,}51$). For $n=25$ (moderat) melder jeg det **eksakte** som hovedsvar fordi det har korrekt dekning; Wald oppgis som et rimelig alternativ siden $n$ ikke er svært liten, men det underdekker fortsatt noe. Merk at Wald her feilaktig strekker seg lengre ned og kortere opp enn den korrekte formen.",
+        "hints": [
+          "**a)** Eksakt: $2\\sum x_i = 320$, del på $\\chi^2_{50}$-kvantilene (stor i nedre).",
+          "Wald: $\\widehat{\\text{SE}} = \\hat\\mu/\\sqrt n$, deretter $\\pm 1{,}96\\cdot\\widehat{\\text{SE}}$.",
+          "**b)** Eksakt er asymmetrisk og har korrekt dekning; velg det som hovedsvar."
+        ]
+      }
+    },
+    {
+      "id": "stk1100-6-2-warning-typiske",
+      "type": "warning",
+      "title": "Typiske feil",
+      "content": "- **Hoppe rett til Wald/CLT-KI uten å vurdere det eksakte.** Finnes en pivot, er det eksakte intervallet førstevalget ved lav/moderat $n$.\n- **Tro at det smalere (Wald) intervallet er «riktigere».** Et smalere intervall som underdekker gir bare falsk presisjon — bredden må matche den faktiske dekningen.\n- **Utelate forutsetninger i CLT-formuleringen.** Alle tre — uavhengige, identisk fordelte, endelig varians — må med (sensortrekk).\n- **Bruke CLT på åpenbart liten eller skjev $n$ uten forbehold.** CLT er en tilnærming som krever stor $n$; nevn forbeholdet eksplisitt.\n- **Standardisere $\\bar X$ i stedet for den korrekte størrelsen.** Det er $(\\bar X-\\mu)/(\\sigma/\\sqrt n)$ som blir $N(0,1)$ — ikke $\\bar X$."
+    },
+    {
+      "id": "stk1100-6-2-begrepsbank-notis",
+      "type": "text",
+      "content": "## Begrepsbank — formelkort\n\n*Flashcard-/repetisjonsstoff — hopp trygt over ved førstegangslesing; tidsanslaget gjelder kjernestoffet.*"
+    },
+    {
+      "id": "stk1100-6-2-card-1",
+      "type": "definition",
+      "title": "CLT — tre-forutsetnings-kortet",
+      "content": "CLT presist: for $X_1,\\ldots,X_n$ **uavhengige**, **identisk fordelte**, med **endelig varians** $\\sigma^2$, er\n\n$$\\frac{\\bar X-\\mu}{\\sigma/\\sqrt n} \\xrightarrow{\\text{tilnærmet}} N(0,1).$$\n\nAlle tre stikkordene må med, ellers er formuleringen ufullstendig."
+    },
+    {
+      "id": "stk1100-6-2-card-2",
+      "type": "definition",
+      "title": "Wald-formel-kortet",
+      "content": "Det CLT-baserte konfidensintervallet:\n\n$$\\hat\\theta \\pm z_{\\alpha/2}\\cdot\\widehat{\\text{SE}}.$$\n\nSymmetrisk om $\\hat\\theta$, enkelt å regne, men hviler på normaltilnærming — godt først når $n$ er stor."
+    },
+    {
+      "id": "stk1100-6-2-card-3",
+      "type": "definition",
+      "title": "z-kvantil-kortet",
+      "content": "Normalkvantilene (øvre haleareal) fra formelsamlingen: $z_{0{,}025}=1{,}96$ (95 %), $z_{0{,}05}=1{,}645$ (90 %), $z_{0{,}005}=2{,}576$ (99 %). Brukes i Wald: bredere intervall ved høyere konfidensgrad."
+    },
+    {
+      "id": "stk1100-6-2-card-4",
+      "type": "definition",
+      "title": "Dekningstall-kortet (95,9 vs. 91,1)",
+      "content": "V2024-illustrasjonen (eksponensiell, nominelt 95 %): for $n=10$ dekket eksakt **95,9 %**, Wald **91,1 %**; for $n=100$ dekket **begge ca. 94 %**. Konklusjon: eksakt foretrekkes ved lav $n$; forskjellen forsvinner ved stor $n$."
+    },
+    {
+      "id": "stk1100-6-2-card-5",
+      "type": "definition",
+      "title": "Når velge eksakt vs. Wald — kortet",
+      "content": "**Lav/moderat $n$ og pivot finnes:** velg eksakt (korrekt dekning). **Stor $n$:** Wald er fullgodt og enklere. **Ingen pivot:** Wald/CLT er redningen, med forbehold om at $n$ må være stor nok."
+    },
+    {
+      "id": "stk1100-6-2-card-6",
+      "type": "definition",
+      "title": "Standardfeil avhenger av parameteren — kortet",
+      "content": "For eksponensial er $\\text{SE}(\\hat\\mu)=\\mu/\\sqrt n$ — den avhenger selv av $\\mu$. Nettopp derfor svikter Wald-intervallet ved lav $n$: normaltilnærmingen får ikke tak i den parameteravhengige skjevheten, mens den eksakte pivoten gjør det."
+    },
+    {
+      "id": "stk1100-6-2-card-7",
+      "type": "definition",
+      "title": "Undercoverage-kortet",
+      "content": "**Underdekning** betyr at intervallet dekker sann parameter *sjeldnere* enn den tilsiktede konfidensgraden (Wald: 91,1 % mot nominelt 95 % ved $n=10$). Et underdekkende intervall gir falsk presisjon — bredden er for liten."
+    },
+    {
+      "id": "stk1100-6-2-card-8",
+      "type": "definition",
+      "title": "Symmetrisk vs. asymmetrisk — kortet",
+      "content": "Wald er **symmetrisk** om $\\hat\\theta$ ($\\pm z\\widehat{\\text{SE}}$). Det eksakte $\\chi^2$-intervallet er **asymmetrisk** (høyreskjevt). Ved lav $n$ er den asymmetriske formen mer korrekt — symmetrien er en av grunnene til at Wald bommer."
+    },
+    {
+      "id": "stk1100-6-2-card-9",
+      "type": "definition",
+      "title": "CLT gjelder standardisert størrelse — kortet",
+      "content": "Det er $(\\bar X-\\mu)/(\\sigma/\\sqrt n)$ som blir $N(0,1)$, ikke $\\bar X$ selv. $\\bar X$ blir tilnærmet $N(\\mu,\\ \\sigma^2/n)$. Standardfeilen er $\\sigma/\\sqrt n$."
+    },
+    {
+      "id": "stk1100-6-2-card-10",
+      "type": "definition",
+      "title": "Konfidensgrad vs. dekningsgrad — kortet",
+      "content": "**Konfidensgrad** $1-\\alpha$: nivået vi sikter mot. **Dekningsgrad:** den faktiske andelen intervaller som dekker sann $\\theta$. For eksakte intervaller er de like; for tilnærmede (Wald) kan dekningen være lavere ved lav $n$."
+    },
+    {
+      "id": "stk1100-6-2-card-11",
+      "type": "definition",
+      "title": "Wald godtas som alternativ — kortet",
+      "content": "På eksamen: presenter det eksakte som hovedsvar der en pivot finnes, og nevn Wald som et *alternativ*. Skriv aldri at Wald er «best» for lite utvalg — det er sensorens eksplisitte poeng (V2024)."
+    },
+    {
+      "id": "stk1100-6-2-card-12",
+      "type": "definition",
+      "title": "Dekningssimulering-oppsettet — kortet",
+      "content": "Mål dekning: trekk $n$ observasjoner med kjent sann $\\theta$, bygg intervallet, tell treff, gjenta $B$ ganger. Andelen treff $\\approx$ dekningsgraden. Fullt apparat i [kap. 7.2](/bok/stk1100/stk1100-7-2)."
+    },
+    {
+      "id": "stk1100-6-2-card-13",
+      "type": "definition",
+      "title": "CLT-forbeholdet — kortet",
+      "content": "Bruk aldri CLT/Wald på liten eller tydelig skjev $n$ uten å si det: «for $n=6$ er normaltilnærmingen usikker». Angi forbeholdet, og foretrekk eksakt der en pivot finnes."
+    },
+    {
+      "id": "stk1100-6-2-rep",
+      "type": "collapsible",
+      "title": "Repetisjonsoppgaver",
+      "buttonText": "Vis repetisjonsoppgaver",
+      "content": [
+        {
+          "id": "stk1100-6-2-rep-tekst",
+          "type": "text",
+          "content": "Korte oppgaver fra forkunnskapskapitlene.\n\n**R1 (fra 5.1 — varians av gjennomsnitt).** Hva er $\\text{Var}(\\bar X)$ for $n$ iid observasjoner med varians $\\sigma^2$?\n*Løsning:* $\\text{Var}(\\bar X)=\\sigma^2/n$, så $\\text{SE}(\\bar X)=\\sigma/\\sqrt n$.\n\n**R2 (fra 6.1 — eksakt KI).** Skriv det eksakte 95 %-KI-et for eksponensiell forventning $\\mu$.\n*Løsning:* $[2\\sum x_i/\\chi^2_{2n,0{,}025},\\ 2\\sum x_i/\\chi^2_{2n,0{,}975}]$.\n\n**R3 (normalkvantil).** Hva er $z_{0{,}025}$?\n*Løsning:* $1{,}96$ (arealet 2,5 % til høyre).\n\n**R4 (fra 1.2 — standardisering).** Standardiser $\\bar X$ når $E(\\bar X)=\\mu$, $\\text{Var}(\\bar X)=\\sigma^2/n$.\n*Løsning:* $Z=(\\bar X-\\mu)/(\\sigma/\\sqrt n)$, med $E(Z)=0$, $\\text{Var}(Z)=1$."
+        }
+      ]
+    },
+    {
+      "id": "stk1100-6-2-symbolliste",
+      "type": "collapsible",
+      "title": "Symbol- og formelliste",
+      "buttonText": "Vis symboler og formler",
+      "content": [
+        {
+          "id": "stk1100-6-2-symbol-tekst",
+          "type": "text",
+          "content": "*Oppslagsverk — alt her forklares underveis i kapitlet.*\n\n| Symbol | Betydning |\n|---|---|\n| $X_1,\\ldots,X_n$ | Uavhengige, identisk fordelte observasjoner (iid) |\n| $\\bar X$ | Utvalgsgjennomsnitt |\n| $\\mu,\\ \\sigma^2$ | Forventning og varians |\n| $\\hat\\theta$ | Estimator (stokastisk) |\n| $\\widehat{\\text{SE}}$ | Estimert standardfeil $\\sqrt{\\widehat{\\text{Var}}(\\hat\\theta)}$ |\n| $z_\\alpha$ | Normalkvantil, øvre haleareal: $P(Z>z_\\alpha)=\\alpha$ |\n| $\\Phi$ | Standardnormal fordelingsfunksjon |\n| $1-\\alpha$ | Konfidensgrad |\n| $N(0,1)$ | Standardnormalfordeling |\n\n**Formler i dette kapitlet:**\n\n$$\\frac{\\bar X-\\mu}{\\sigma/\\sqrt n} \\xrightarrow{\\text{tilnærmet}} N(0,1) \\qquad \\text{(sentralgrenseteoremet)}$$\n\n$$\\text{Var}(\\bar X)=\\frac{\\sigma^2}{n},\\qquad \\text{SE}(\\bar X)=\\frac{\\sigma}{\\sqrt n} \\qquad \\text{(standardfeil)}$$\n\n$$\\hat\\theta \\pm z_{\\alpha/2}\\cdot\\widehat{\\text{SE}} \\qquad \\text{(Wald-intervallet)}$$\n\n$$\\widehat{\\text{SE}}(\\hat\\mu) = \\frac{\\bar X}{\\sqrt n} \\qquad \\text{(eksponensial: SE avhenger av parameteren)}$$\n\n$$\\text{dekning}_{\\text{eksakt}}(n{=}10)=95{,}9\\%\\ >\\ \\text{dekning}_{\\text{Wald}}(n{=}10)=91{,}1\\% \\qquad \\text{(V2024-illustrasjon)}$$"
+        }
+      ]
+    }
+  ],
+  "exercises": []
+}

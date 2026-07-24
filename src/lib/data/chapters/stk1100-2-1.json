@@ -1,0 +1,557 @@
+{
+  "id": "stk1100-2-1",
+  "courseId": "stk1100",
+  "chapterNumber": "2.1",
+  "title": "Kontinuerlige fordelinger: tetthet, CDF, median og eksponensial",
+  "description": "Normeringskonstant, fordelingsfunksjon, median ved F(m)=p og momenter — med eksponensialfordelingen i begge parametriseringer.",
+  "estimatedMinutes": 65,
+  "competenceGoals": [
+    "finne normeringskonstant og stykkevis fordelingsfunksjon fra en oppgitt tetthet",
+    "regne ut median og kvantiler ved å løse likningen F(m)=p aktivt",
+    "regne ut forventning og varians for en kontinuerlig variabel ved integrasjon",
+    "bruke eksponensialfordelingen i begge parametriseringer og utlede minneløsheten"
+  ],
+  "content": [
+    {
+      "id": "stk1100-2-1-tip-eksamensvinkel",
+      "type": "tip",
+      "title": "Eksamensvinkel",
+      "content": "**Median og kvantiler ved å løse $F(m) = p$ er i 9 av 10 avsluttende skoleeksamener (90 %)** i STK1100-arkivet 2015–2024 — nesten alltid som en deloppgave inne i en større fordelingsoppgave. **Eksponensialfordelingen eksplisitt** (ofte med minneløsheten) er i 5 av 10 sett (V2015, V2016, V2019, V2021, V2023).\n\nDette kapitlet er grunnmuren under **sjanger C** — den egendefinerte/«eksotiske» tettheten (kap. 2.3) — og under hele estimerings-kjeden senere i boka. «Sjanger C» er UiO-navnet på oppgaven der du får servert en tetthet og skal finne normeringskonstant, fordelingsfunksjon, median og momenter; den forklares grundig i kap. 2.3. Prioritet: **høyeste**.\n\n**To ting må sitte perfekt:** (1) medianen finnes ved å løse likningen $F(m) = \\tfrac12$ — *aktivt*, ikke ved å sette tettheten lik en halv; (2) eksponensialfordelingen dukker opp i **to ulike parametriseringer**, og du må lese oppgavens egen definisjon hver gang. Standardfordelingenes tetthet og momenter står i formelsamlingen — men medianregningen og minneløshetsutledningen må du gjøre selv."
+    },
+    {
+      "id": "stk1100-2-1-forkunnskaper",
+      "type": "text",
+      "content": "**Forkunnskaper:** Dette kapitlet bygger på stokastiske variable, tetthet og fordelingsfunksjon fra [kap. 1.2](/bok/stk1100/stk1100-1-2) — du bør vite at $f(x)$ er en tetthet (ikke en sannsynlighet), at $F(x) = P(X \\le x)$ og at $F'(x) = f(x)$.\n\nDu regner integraler hele veien: normeringskonstanten, fordelingsfunksjonen og momentene er alle integraler. Frisk opp bestemt integral i [R2 2.4 Bestemt integral](/bok/r2/r2-2-4), det ubestemte integralet i [R2 2.2 Ubestemt integral](/bok/r2/r2-2-2) og kontinuerlige fordelinger fra videregående i [S2 4.6 Kontinuerlige sannsynlighetsfordelinger](/bok/s2/s2-4-6). Fagord som *kvantil*, *median* og *minneløshet* forklares der de innføres."
+    },
+    {
+      "id": "stk1100-2-1-intro",
+      "type": "text",
+      "content": "En **kontinuerlig** stokastisk variabel — en levetid, en konsentrasjon, en bølgehøyde — beskrives av en tetthet $f(x)$. Fra tettheten kan vi lese ut alt vi trenger: hvor sannsynligheten ligger (arealet under kurven), hvilken verdi som deler fordelingen i to like halvdeler (medianen), og hvor stor variabelen er *i gjennomsnitt* (forventningen). Dette er akkurat regneteknikkene STK1100-eksamen tester igjen og igjen.\n\nKapitlet er sju **læringsløkker**: normeringskonstant → fordelingsfunksjon → median og kvantiler → momenter → uniform fordeling → eksponensialfordelingen (begge parametriseringer) → minneløsheten. Hver løkke går teori → gjennomregnet eksempel → øvingsoppgaver, så du kan jobbe deg gjennom stoffet bit for bit.\n\n> 65-minutters kapittel. Pausepunkter er markert underveis — del gjerne over to økter ved løkke 4."
+    },
+    {
+      "id": "stk1100-2-1-l1-head",
+      "type": "text",
+      "content": "## Løkke 1 — Tetthet og normeringskonstanten (~8 min)"
+    },
+    {
+      "id": "stk1100-2-1-l1-teori",
+      "type": "text",
+      "content": "En funksjon $f(x)$ kan bare være en tetthet hvis den er ikke-negativ og har **samlet areal 1** under kurven. Når en oppgave gir tettheten «opp til en konstant» — for eksempel $f(x) = c\\,x^2$ — er første steg alltid å finne konstanten $c$ som gjør arealet lik 1. Vi kaller $c$ **normeringskonstanten**, og området der $f(x) > 0$ kaller vi **støtten**."
+    },
+    {
+      "id": "stk1100-2-1-def-kontvar",
+      "type": "definition",
+      "title": "Kontinuerlig stokastisk variabel",
+      "content": "En stokastisk variabel $X$ som kan ta alle verdier i et intervall, beskrevet av en **tetthet** $f(x) \\ge 0$. Sannsynligheter er *arealer*:\n\n$$P(a < X \\le b) = \\int_a^b f(x)\\,dx.$$\n\nOmrådet der $f(x) > 0$ kalles **støtten** til fordelingen. Utenfor støtten er $f(x) = 0$."
+    },
+    {
+      "id": "stk1100-2-1-def-normering",
+      "type": "definition",
+      "title": "Normeringskonstanten",
+      "content": "Tallet som skalerer en tetthet slik at det samlede arealet blir 1. Er $f(x) = c\\,g(x)$ på støtten, bestemmes $c$ av kravet\n\n$$\\int_{-\\infty}^{\\infty} f(x)\\,dx = c\\int g(x)\\,dx = 1 \\quad\\Rightarrow\\quad c = \\frac{1}{\\int g(x)\\,dx}.$$\n\nAlltid første steg når en oppgave gir tettheten «proporsjonal med» noe: uten riktig $c$ blir alt du regner etterpå galt."
+    },
+    {
+      "id": "stk1100-2-1-ex-l1",
+      "type": "example",
+      "title": "Eksempel 1: Finn normeringskonstanten",
+      "problem": "En tetthet har formen $f(x) = c\\,x^2$ for $0 \\le x \\le 2$ og $f(x) = 0$ ellers. Bestem $c$.",
+      "solution": "Kravet er at arealet er 1:\n\n$$\\int_0^2 c\\,x^2\\,dx = c\\left[\\frac{x^3}{3}\\right]_0^2 = c\\cdot\\frac{8}{3} = 1.$$\n\nAltså $c = \\tfrac{3}{8}$. Tettheten er $f(x) = \\tfrac{3}{8}x^2$ på $[0,2]$. Merk at $f(2) = \\tfrac{3}{8}\\cdot 4 = 1{,}5 > 1$ — helt greit, for en tetthet er ikke en sannsynlighet."
+    },
+    {
+      "id": "stk1100-2-1-oppg-l1a",
+      "type": "exercise",
+      "exercise": {
+        "id": "stk1100-2-1-ex-l1a",
+        "number": "1",
+        "type": "classic",
+        "difficulty": "lett",
+        "task": "En tetthet har formen $f(x) = c\\,x$ for $0 \\le x \\le 3$ og $f(x) = 0$ ellers.\n\n**a)** Bestem normeringskonstanten $c$.\n**b)** Forklar hvorfor verdien $f(3) = c\\cdot 3$ kan være større enn 1 uten at noe er galt.",
+        "solution": "**a)** $\\int_0^3 c\\,x\\,dx = c\\big[\\tfrac{x^2}{2}\\big]_0^3 = c\\cdot\\tfrac{9}{2} = 1$, så $c = \\tfrac{2}{9}$.\n\n**b)** $f(x)$ er en tetthet, ikke en sannsynlighet. Sannsynligheter er *arealer* under kurven, og et enkeltpunkt har areal 0. Tetthetsverdien i étt punkt kan derfor godt overstige 1; det er bare det samlede arealet som må være 1.",
+        "hints": [
+          "Sett integralet av $c\\,x$ over støtten lik 1 og løs for $c$.",
+          "$\\int_0^3 x\\,dx = \\tfrac{9}{2}$."
+        ]
+      }
+    },
+    {
+      "id": "stk1100-2-1-l2-head",
+      "type": "text",
+      "content": "## Løkke 2 — Fordelingsfunksjonen, stykkevis (~9 min)"
+    },
+    {
+      "id": "stk1100-2-1-l2-teori",
+      "type": "text",
+      "content": "Fordelingsfunksjonen $F(x) = P(X \\le x)$ finner du ved å integrere tettheten fra bunnen av støtten opp til $x$. Den er **stykkevis definert**: 0 til venstre for støtten, en voksende formel *på* støtten, og 1 til høyre for støtten. Å skrive alle tre delene er et sensorpoeng — en $F$ uten «ytterdelene» 0 og 1 regnes som ufullstendig."
+    },
+    {
+      "id": "stk1100-2-1-def-cdf",
+      "type": "definition",
+      "title": "Fordelingsfunksjonen (kontinuerlig)",
+      "content": "Den akkumulerte sannsynligheten til og med $x$:\n\n$$F(x) = P(X \\le x) = \\int_{-\\infty}^{x} f(t)\\,dt.$$\n\n$F$ er voksende, $F(-\\infty) = 0$ og $F(\\infty) = 1$, og $F'(x) = f(x)$ der $f$ er kontinuerlig. Du regner sannsynligheter direkte fra $F$: $P(a < X \\le b) = F(b) - F(a)$ og $P(X > x) = 1 - F(x)$."
+    },
+    {
+      "id": "stk1100-2-1-def-stykkevis",
+      "type": "definition",
+      "title": "Stykkevis fordelingsfunksjon",
+      "content": "For en variabel med støtte $[A, B]$ skrives $F$ i tre deler:\n\n$$F(x) = \\begin{cases} 0, & x < A \\\\ \\text{(integralformel)}, & A \\le x \\le B \\\\ 1, & x > B \\end{cases}$$\n\nDe to ytterdelene ($0$ under støtten, $1$ over) hører alltid med. Sjekk alltid at formelen gir $F(A) = 0$ og $F(B) = 1$ i endepunktene."
+    },
+    {
+      "id": "stk1100-2-1-def-hale",
+      "type": "definition",
+      "title": "Overlevelsesfunksjonen (halen)",
+      "content": "Sannsynligheten for å overstige $x$:\n\n$$P(X > x) = 1 - F(x).$$\n\nKalles også halefunksjonen. For levetider er dette «sannsynligheten for å overleve forbi tid $x$», og den er ofte lettere å jobbe med enn $F$ selv (f.eks. for eksponensialfordelingen, der halen er en ren eksponentialfunksjon)."
+    },
+    {
+      "id": "stk1100-2-1-ex-l2",
+      "type": "example",
+      "title": "Eksempel 2: Fra tetthet til stykkevis $F$",
+      "problem": "Bruk tettheten $f(x) = \\tfrac{3}{8}x^2$ på $[0,2]$ fra eksempel 1. Finn fordelingsfunksjonen $F(x)$ for alle $x$, og regn ut $P(X > 1)$.",
+      "solution": "På støtten integrerer vi fra 0:\n\n$$F(x) = \\int_0^x \\tfrac{3}{8}t^2\\,dt = \\tfrac{3}{8}\\cdot\\frac{x^3}{3} = \\frac{x^3}{8}, \\qquad 0 \\le x \\le 2.$$\n\nStykkevis, med ytterdelene:\n\n$$F(x) = \\begin{cases} 0, & x < 0 \\\\ x^3/8, & 0 \\le x \\le 2 \\\\ 1, & x > 2 \\end{cases}$$\n\nSjekk: $F(0) = 0$ og $F(2) = 8/8 = 1$. Da er\n\n$$P(X > 1) = 1 - F(1) = 1 - \\tfrac{1}{8} = \\tfrac{7}{8} = 0{,}875.$$"
+    },
+    {
+      "id": "stk1100-2-1-oppg-l2a",
+      "type": "exercise",
+      "exercise": {
+        "id": "stk1100-2-1-ex-l2a",
+        "number": "2",
+        "type": "classic",
+        "difficulty": "lett",
+        "task": "En variabel har tetthet $f(x) = \\tfrac{2}{9}x$ for $0 \\le x \\le 3$ (fra oppgave 1).\n\n**a)** Finn den stykkevise fordelingsfunksjonen $F(x)$.\n**b)** Regn ut $P(1 < X \\le 2)$.",
+        "solution": "**a)** På støtten: $F(x) = \\int_0^x \\tfrac{2}{9}t\\,dt = \\tfrac{2}{9}\\cdot\\tfrac{x^2}{2} = \\tfrac{x^2}{9}$. Stykkevis:\n\n$$F(x) = \\begin{cases} 0, & x < 0 \\\\ x^2/9, & 0 \\le x \\le 3 \\\\ 1, & x > 3 \\end{cases}$$\n\nSjekk: $F(3) = 9/9 = 1$. ✓\n\n**b)** $P(1 < X \\le 2) = F(2) - F(1) = \\tfrac{4}{9} - \\tfrac{1}{9} = \\tfrac{3}{9} = \\tfrac13 \\approx 0{,}333$.",
+        "hints": [
+          "Integrer $f$ fra 0 til $x$ for formelen på støtten, og husk delene 0 og 1 utenfor.",
+          "$P(1 < X \\le 2) = F(2) - F(1)$."
+        ]
+      }
+    },
+    {
+      "id": "stk1100-2-1-l3-head",
+      "type": "text",
+      "content": "## Løkke 3 — Median og kvantiler: løs $F(m) = p$ (~12 min)"
+    },
+    {
+      "id": "stk1100-2-1-l3-teori",
+      "type": "text",
+      "content": "**Medianen** er verdien som deler fordelingen i to like store halvdeler: like sannsynlig å lande under som over. Den finner du ved å løse likningen\n\n$$F(m) = \\tfrac12$$\n\n— *ikke* ved å sette tettheten lik en halv. Mer generelt er **$p$-kvantilen** verdien $x_p$ der $F(x_p) = p$: for $p = 0{,}9$ får du 90-persentilen. Dette er den hyppigste enkeltferdigheten i hele kapitlet (90 % av settene), og algebraen kan bli en andregrads-, potens- eller logaritmelikning — vi øver på alle tre."
+    },
+    {
+      "id": "stk1100-2-1-def-median",
+      "type": "definition",
+      "title": "Median",
+      "content": "Verdien som deler sannsynligheten i to like halvdeler. For en kontinuerlig variabel er medianen $m$ løsningen av\n\n$$F(m) = \\tfrac12.$$\n\nMed sannsynlighet $\\tfrac12$ lander $X$ under $m$ og med sannsynlighet $\\tfrac12$ over. Merk: du løser en likning i $F$, ikke i tettheten $f$."
+    },
+    {
+      "id": "stk1100-2-1-def-kvantil",
+      "type": "definition",
+      "title": "Kvantil ($p$-kvantil)",
+      "content": "For $0 < p < 1$ er $p$-kvantilen $x_p$ verdien der akkurat andelen $p$ av sannsynligheten ligger til venstre:\n\n$$F(x_p) = p \\quad\\Leftrightarrow\\quad x_p = F^{-1}(p).$$\n\nMedianen er $0{,}5$-kvantilen. Uttrykt i prosent kalles $x_p$ også **persentilen** (90-persentilen er $x_{0{,}9}$). Funksjonen $F^{-1}$ som snur $F$ kalles **kvantilfunksjonen**."
+    },
+    {
+      "id": "stk1100-2-1-def-kvartil",
+      "type": "definition",
+      "title": "Kvartilene",
+      "content": "De tre kvantilene som deler fordelingen i fire like deler: nedre kvartil $Q_1 = x_{0{,}25}$, medianen $Q_2 = x_{0{,}5}$ og øvre kvartil $Q_3 = x_{0{,}75}$. Avstanden $Q_3 - Q_1$ kalles **interkvartilbredden** og måler spredningen i de midtre 50 % av fordelingen."
+    },
+    {
+      "id": "stk1100-2-1-ex-l3",
+      "type": "example",
+      "title": "Eksempel 3: Median og 90-persentil",
+      "problem": "Bruk $F(x) = x^3/8$ på $[0,2]$. Finn medianen og 90-persentilen.",
+      "solution": "**Median:** løs $F(m) = \\tfrac12$:\n\n$$\\frac{m^3}{8} = \\frac12 \\;\\Rightarrow\\; m^3 = 4 \\;\\Rightarrow\\; m = 4^{1/3} \\approx 1{,}587.$$\n\n**90-persentil:** løs $F(x_{0{,}9}) = 0{,}9$:\n\n$$\\frac{x^3}{8} = 0{,}9 \\;\\Rightarrow\\; x^3 = 7{,}2 \\;\\Rightarrow\\; x = 7{,}2^{1/3} \\approx 1{,}931.$$\n\nBegge ligger i støtten $[0,2]$, som de skal. 90 % av verdiene er under $1{,}931$."
+    },
+    {
+      "id": "stk1100-2-1-oppg-l3a",
+      "type": "exercise",
+      "exercise": {
+        "id": "stk1100-2-1-ex-l3a",
+        "number": "3",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "En variabel har fordelingsfunksjon $F(x) = x^2/9$ på $[0,3]$ (fra oppgave 2).\n\n**a)** Finn medianen.\n**b)** Finn nedre kvartil $Q_1$.",
+        "solution": "**a)** $F(m) = \\tfrac12$: $\\tfrac{m^2}{9} = \\tfrac12 \\Rightarrow m^2 = 4{,}5 \\Rightarrow m = \\sqrt{4{,}5} \\approx 2{,}121$.\n\n**b)** $F(Q_1) = 0{,}25$: $\\tfrac{Q_1^2}{9} = 0{,}25 \\Rightarrow Q_1^2 = 2{,}25 \\Rightarrow Q_1 = 1{,}5$.\n\nBegge ligger i $[0,3]$.",
+        "hints": [
+          "Sett $F$ lik $\\tfrac12$ (median) og $0{,}25$ ($Q_1$), og løs for $x$.",
+          "Her blir det en andregradslikning: $m^2 = 9\\cdot p$."
+        ]
+      }
+    },
+    {
+      "id": "stk1100-2-1-l4-head",
+      "type": "text",
+      "content": "## Løkke 4 — Forventning og varians ved integrasjon (~10 min)"
+    },
+    {
+      "id": "stk1100-2-1-l4-note",
+      "type": "text",
+      "content": "> — naturlig pausepunkt — halvveis. Ta gjerne en pause før momentene."
+    },
+    {
+      "id": "stk1100-2-1-l4-teori",
+      "type": "text",
+      "content": "Forventningen og variansen til en kontinuerlig variabel regnes ved integrasjon, akkurat som i [kap. 1.2](/bok/stk1100/stk1100-1-2), men nå med en konkret tetthet. Grepet for variansen er alltid **regneformelen** $\\text{Var}(X) = E(X^2) - [E(X)]^2$: regn først $E(X)$ og $E(X^2)$ hver for seg, trekk så fra."
+    },
+    {
+      "id": "stk1100-2-1-def-forventning",
+      "type": "definition",
+      "title": "Forventning (kontinuerlig)",
+      "content": "Tyngdepunktet i fordelingen — gjennomsnittsverdien i det lange løp:\n\n$$E(X) = \\int_{-\\infty}^{\\infty} x\\,f(x)\\,dx.$$\n\nIntegralet tas over støtten (der $f > 0$). For et symmetrisk tetthetsområde faller $E(X)$ midt i symmetriaksen."
+    },
+    {
+      "id": "stk1100-2-1-def-egx",
+      "type": "definition",
+      "title": "Forventningen til en funksjon $E[g(X)]$",
+      "content": "Forventningen til en hvilken som helst funksjon av $X$ regnes uten å finne fordelingen til $g(X)$ først:\n\n$$E[g(X)] = \\int_{-\\infty}^{\\infty} g(x)\\,f(x)\\,dx.$$\n\nSpesialtilfellet $g(x) = x^2$ gir **andre moment** $E(X^2)$, som du trenger til variansen."
+    },
+    {
+      "id": "stk1100-2-1-def-varians",
+      "type": "definition",
+      "title": "Varians og standardavvik (kontinuerlig)",
+      "content": "Spredningen rundt forventningen, via regneformelen:\n\n$$\\text{Var}(X) = E(X^2) - [E(X)]^2, \\qquad \\text{SD}(X) = \\sqrt{\\text{Var}(X)}.$$\n\nRegn $E(X)$ og $E(X^2)$ som to separate integraler og sett inn. Standardavviket $\\text{SD}(X)$ har samme enhet som $X$ selv."
+    },
+    {
+      "id": "stk1100-2-1-ex-l4",
+      "type": "example",
+      "title": "Eksempel 4: Forventning og varians",
+      "problem": "Bruk $f(x) = \\tfrac{3}{8}x^2$ på $[0,2]$. Finn $E(X)$, $E(X^2)$ og $\\text{Var}(X)$.",
+      "solution": "$$E(X) = \\int_0^2 x\\cdot\\tfrac{3}{8}x^2\\,dx = \\tfrac{3}{8}\\int_0^2 x^3\\,dx = \\tfrac{3}{8}\\cdot\\frac{16}{4} = \\tfrac{3}{8}\\cdot 4 = 1{,}5.$$\n\n$$E(X^2) = \\int_0^2 x^2\\cdot\\tfrac{3}{8}x^2\\,dx = \\tfrac{3}{8}\\int_0^2 x^4\\,dx = \\tfrac{3}{8}\\cdot\\frac{32}{5} = \\frac{12}{5} = 2{,}4.$$\n\n$$\\text{Var}(X) = 2{,}4 - 1{,}5^2 = 2{,}4 - 2{,}25 = 0{,}15, \\qquad \\text{SD}(X) = \\sqrt{0{,}15} \\approx 0{,}387.$$"
+    },
+    {
+      "id": "stk1100-2-1-oppg-l4a",
+      "type": "exercise",
+      "exercise": {
+        "id": "stk1100-2-1-ex-l4a",
+        "number": "4",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "En variabel har tetthet $f(x) = \\tfrac{2}{9}x$ på $[0,3]$.\n\n**a)** Finn $E(X)$.\n**b)** Finn $E(X^2)$ og $\\text{Var}(X)$.",
+        "solution": "**a)** $E(X) = \\int_0^3 x\\cdot\\tfrac{2}{9}x\\,dx = \\tfrac{2}{9}\\int_0^3 x^2\\,dx = \\tfrac{2}{9}\\cdot\\frac{27}{3} = \\tfrac{2}{9}\\cdot 9 = 2$.\n\n**b)** $E(X^2) = \\tfrac{2}{9}\\int_0^3 x^3\\,dx = \\tfrac{2}{9}\\cdot\\frac{81}{4} = \\tfrac{81}{18} = 4{,}5$. Da er $\\text{Var}(X) = 4{,}5 - 2^2 = 0{,}5$.",
+        "hints": [
+          "$E(X) = \\int x f\\,dx$ og $E(X^2) = \\int x^2 f\\,dx$ over støtten.",
+          "Variansen: $E(X^2) - [E(X)]^2$."
+        ]
+      }
+    },
+    {
+      "id": "stk1100-2-1-l5-head",
+      "type": "text",
+      "content": "## Løkke 5 — Uniform fordeling (~6 min)"
+    },
+    {
+      "id": "stk1100-2-1-l5-teori",
+      "type": "text",
+      "content": "Den enkleste kontinuerlige fordelingen er den **uniforme**: tettheten er konstant over et intervall $[a,b]$. Alt — tetthet, $F$, median, momenter — blir rette linjer og gjennomsnitt. Den brukes til å modellere «ren tilfeldighet i et intervall», og den er startpunktet for simulering (inversjonsmetoden i kap. 7.1)."
+    },
+    {
+      "id": "stk1100-2-1-def-uniform",
+      "type": "definition",
+      "title": "Uniform fordeling",
+      "content": "$X$ er uniformt fordelt på $[a,b]$ når tettheten er konstant der:\n\n$$f(x) = \\frac{1}{b-a}, \\quad a \\le x \\le b; \\qquad F(x) = \\frac{x-a}{b-a}, \\quad a \\le x \\le b.$$\n\nForventning og varians:\n\n$$E(X) = \\frac{a+b}{2}, \\qquad \\text{Var}(X) = \\frac{(b-a)^2}{12}.$$\n\nMedianen er midtpunktet $\\tfrac{a+b}{2}$ (fordelingen er symmetrisk)."
+    },
+    {
+      "id": "stk1100-2-1-ex-l5",
+      "type": "example",
+      "title": "Eksempel 5: Ventetid uniformt fordelt",
+      "problem": "En buss kommer på et tilfeldig tidspunkt i løpet av de neste 10 minuttene, så ventetiden $X$ er uniform på $[0,10]$ (minutter). Finn forventet ventetid, standardavviket, medianen og $P(X > 7)$.",
+      "solution": "$$E(X) = \\frac{0+10}{2} = 5 \\text{ min}, \\qquad \\text{Var}(X) = \\frac{10^2}{12} = \\frac{100}{12} \\approx 8{,}33, \\quad \\text{SD}(X) \\approx 2{,}89 \\text{ min}.$$\n\nMedianen er midtpunktet $m = 5$ min. Halen:\n\n$$P(X > 7) = 1 - F(7) = 1 - \\frac{7-0}{10-0} = 1 - 0{,}7 = 0{,}3.$$"
+    },
+    {
+      "id": "stk1100-2-1-oppg-l5a",
+      "type": "exercise",
+      "exercise": {
+        "id": "stk1100-2-1-ex-l5a",
+        "number": "5",
+        "type": "classic",
+        "difficulty": "lett",
+        "task": "Ventetiden $X$ på en ferje er uniform på $[2,8]$ (minutter).\n\n**a)** Finn $E(X)$ og $\\text{Var}(X)$.\n**b)** Finn $P(3 < X < 5)$.",
+        "solution": "**a)** $E(X) = \\tfrac{2+8}{2} = 5$ min, $\\text{Var}(X) = \\tfrac{(8-2)^2}{12} = \\tfrac{36}{12} = 3$.\n\n**b)** $P(3 < X < 5) = \\tfrac{5-3}{8-2} = \\tfrac{2}{6} = \\tfrac13 \\approx 0{,}333$.",
+        "hints": [
+          "Uniform på $[a,b]$: $E = \\tfrac{a+b}{2}$, $\\text{Var} = \\tfrac{(b-a)^2}{12}$.",
+          "Sannsynligheten for et delintervall er lengden delt på $b-a$."
+        ]
+      }
+    },
+    {
+      "id": "stk1100-2-1-l6-head",
+      "type": "text",
+      "content": "## Løkke 6 — Eksponensialfordelingen i begge parametriseringer (~12 min)"
+    },
+    {
+      "id": "stk1100-2-1-warn-param",
+      "type": "warning",
+      "title": "NB: to parametriseringer i omløp",
+      "content": "Eksponensialfordelingen skrives på **to ulike måter** i STK1100-oppgaver, og de bruker samme fordeling med ulik bokstav. **Les alltid oppgavens egen definisjon før du regner** — dette er en dokumentert felle på UiO-eksamen.\n\n- **Rateform:** $f(x) = \\lambda e^{-\\lambda x}$, forventning $E(X) = 1/\\lambda$. Her er $\\lambda$ en *rate* (hendelser per tidsenhet).\n- **Forventningsform:** $f(x) = \\tfrac{1}{\\mu}e^{-x/\\mu}$, forventning $E(X) = \\mu$. Her er $\\mu$ *forventningen selv*.\n\nSammenhengen er $\\mu = 1/\\lambda$. Blander du de to, blir alle svar feil med en faktor."
+    },
+    {
+      "id": "stk1100-2-1-l6-teori",
+      "type": "text",
+      "content": "Eksponensialfordelingen modellerer **ventetider** — tiden til neste hendelse i en prosess der hendelser inntreffer med konstant rate (den er ventetiden i Poisson-prosessen fra [kap. 1.3](/bok/stk1100/stk1100-1-3)). Støtten er $x \\ge 0$. Det fine er at halen er en ren eksponentialfunksjon, så $F$ og medianen faller rett ut."
+    },
+    {
+      "id": "stk1100-2-1-def-exp-rate",
+      "type": "definition",
+      "title": "Eksponensialfordelingen — rateform",
+      "content": "Ventetid med konstant rate $\\lambda > 0$ (hendelser per tidsenhet):\n\n$$f(x) = \\lambda e^{-\\lambda x}, \\qquad F(x) = 1 - e^{-\\lambda x}, \\qquad P(X > x) = e^{-\\lambda x}, \\quad x \\ge 0.$$\n\nForventning og varians: $E(X) = 1/\\lambda$, $\\text{Var}(X) = 1/\\lambda^2$. Rateformen brukes når oppgaven oppgir en rate (f.eks. «$\\lambda = 3$ kunder per time»)."
+    },
+    {
+      "id": "stk1100-2-1-def-exp-mean",
+      "type": "definition",
+      "title": "Eksponensialfordelingen — forventningsform",
+      "content": "Samme fordeling parametrisert ved forventningen $\\mu > 0$:\n\n$$f(x) = \\frac{1}{\\mu}e^{-x/\\mu}, \\qquad F(x) = 1 - e^{-x/\\mu}, \\qquad P(X > x) = e^{-x/\\mu}, \\quad x \\ge 0.$$\n\nHer er $E(X) = \\mu$ og $\\text{Var}(X) = \\mu^2$. Sammenhengen med rateformen: $\\mu = 1/\\lambda$. Brukes når oppgaven oppgir en gjennomsnittlig levetid (f.eks. «forventet levetid $\\mu = 5$ år»)."
+    },
+    {
+      "id": "stk1100-2-1-def-exp-median",
+      "type": "definition",
+      "title": "Eksponensialfordelingens median",
+      "content": "Medianen finnes av $F(m) = \\tfrac12$, altså $1 - e^{-m/\\mu} = \\tfrac12$, som gir\n\n$$m = \\mu\\ln 2 \\approx 0{,}693\\,\\mu \\qquad (\\text{rateform: } m = \\tfrac{\\ln 2}{\\lambda}).$$\n\nMedianen er alltid **mindre** enn forventningen ($\\ln 2 < 1$) — fordelingen er høyreskjev, med en lang hale mot store verdier som drar snittet opp."
+    },
+    {
+      "id": "stk1100-2-1-ex-l6",
+      "type": "example",
+      "title": "Eksempel 6: Levetid — forventningsform",
+      "problem": "Levetiden $X$ til en sensor er eksponensialfordelt med forventning $\\mu = 5$ år. Skriv opp $F$, finn medianlevetiden, og regn ut $P(X > 8)$.",
+      "solution": "Forventningsform med $\\mu = 5$:\n\n$$f(x) = \\tfrac{1}{5}e^{-x/5}, \\qquad F(x) = 1 - e^{-x/5}, \\quad x \\ge 0.$$\n\n**Median:** $F(m) = \\tfrac12 \\Rightarrow e^{-m/5} = \\tfrac12 \\Rightarrow m = 5\\ln 2 \\approx 3{,}47$ år. (Mindre enn forventningen 5 år — høyreskjev.)\n\n**Hale:** $P(X > 8) = e^{-8/5} = e^{-1{,}6} \\approx 0{,}202$."
+    },
+    {
+      "id": "stk1100-2-1-oppg-l6a",
+      "type": "exercise",
+      "exercise": {
+        "id": "stk1100-2-1-ex-l6a",
+        "number": "6",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "Antall minutter mellom to kundeankomster i en nettbutikk er eksponensialfordelt med rate $\\lambda = 0{,}2$ per minutt.\n\n**a)** Skriv opp $f$, $F$ og forventet tid mellom ankomster.\n**b)** Finn medianen og $P(X > 10)$.",
+        "solution": "**a)** Rateform: $f(x) = 0{,}2\\,e^{-0{,}2x}$, $F(x) = 1 - e^{-0{,}2x}$, $E(X) = 1/\\lambda = 5$ minutter.\n\n**b)** Median: $m = \\tfrac{\\ln 2}{0{,}2} = \\tfrac{0{,}693}{0{,}2} \\approx 3{,}47$ min. Hale: $P(X > 10) = e^{-0{,}2\\cdot 10} = e^{-2} \\approx 0{,}135$.",
+        "hints": [
+          "Rateform: $f = \\lambda e^{-\\lambda x}$, $E = 1/\\lambda$, hale $e^{-\\lambda x}$.",
+          "Median: løs $e^{-\\lambda m} = \\tfrac12$, så $m = \\ln 2 / \\lambda$."
+        ]
+      }
+    },
+    {
+      "id": "stk1100-2-1-l7-head",
+      "type": "text",
+      "content": "## Løkke 7 — Minneløsheten (~8 min)"
+    },
+    {
+      "id": "stk1100-2-1-l7-teori",
+      "type": "text",
+      "content": "Eksponensialfordelingen har en egenskap ingen annen kontinuerlig fordeling har: den **glemmer sin egen alder**. At en komponent allerede har levd i $t$ år, endrer ikke sannsynligheten for at den lever $s$ år til — den er like «ny» som før. Dette følger direkte av at halen er en eksponentialfunksjon, og vi utleder det aktivt (sensor vil se utledningen, ikke bare påstanden)."
+    },
+    {
+      "id": "stk1100-2-1-def-minnelos",
+      "type": "definition",
+      "title": "Minneløsheten",
+      "content": "For en eksponensialfordelt $X$ gjelder for alle $s, t > 0$:\n\n$$P(X > s + t \\mid X > t) = P(X > s).$$\n\nI ord: gitt at variabelen alt har oversteget $t$, er sannsynligheten for å vare $s$ *til* akkurat som om den startet på nytt. Eksponensialfordelingen er den **eneste** kontinuerlige fordelingen med denne egenskapen — den svarer til konstant rate (ingen aldring/slitasje)."
+    },
+    {
+      "id": "stk1100-2-1-l7-utledning",
+      "type": "text",
+      "content": "**Utledning.** Vi bruker at halen er $P(X > x) = e^{-x/\\mu}$ og definisjonen av betinget sannsynlighet:\n\n$$P(X > s + t \\mid X > t) = \\frac{P(X > s + t \\text{ og } X > t)}{P(X > t)}.$$\n\n*Intuisjon:* hendelsen $\\{X > s+t\\}$ ligger inni $\\{X > t\\}$ (er $X$ større enn $s+t$, er den også større enn $t$), så felleshendelsen er bare $\\{X > s+t\\}$. Da:\n\n$$= \\frac{P(X > s+t)}{P(X > t)} = \\frac{e^{-(s+t)/\\mu}}{e^{-t/\\mu}} = e^{-s/\\mu} = P(X > s).$$\n\n*Intuisjon:* eksponenten $-(s+t)/\\mu$ minus $-t/\\mu$ etterlater akkurat $-s/\\mu$ — alderen $t$ forsvinner helt. Det er nettopp derfor fordelingen kalles minneløs."
+    },
+    {
+      "id": "stk1100-2-1-ex-l7",
+      "type": "example",
+      "title": "Eksempel 7: Minneløsheten i tall",
+      "problem": "Sensoren fra eksempel 6 har $\\mu = 5$ år. Vis at $P(X > 8 \\mid X > 3) = P(X > 5)$, og forklar hva det betyr.",
+      "solution": "$$P(X > 8 \\mid X > 3) = \\frac{P(X > 8)}{P(X > 3)} = \\frac{e^{-8/5}}{e^{-3/5}} = e^{-(8-3)/5} = e^{-5/5} = e^{-1} \\approx 0{,}368.$$\n\nOg $P(X > 5) = e^{-5/5} = e^{-1} \\approx 0{,}368$. De er like. **Betydning:** at sensoren alt har fungert i 3 år, gir den ingen «ekstra slitasje» — sannsynligheten for å vare 5 år til er den samme som for en helt ny sensor. Modellen har konstant feilrate og passer dårlig på komponenter som slites (der brukes heller Weibull, kap. 2.3)."
+    },
+    {
+      "id": "stk1100-2-1-oppg-l7a",
+      "type": "exercise",
+      "exercise": {
+        "id": "stk1100-2-1-ex-l7a",
+        "number": "7",
+        "type": "classic",
+        "difficulty": "vanskelig",
+        "task": "Tiden $X$ (timer) til en server trenger omstart er eksponensialfordelt med rate $\\lambda = 0{,}05$ per time.\n\n**a)** Finn $P(X > 30)$.\n**b)** Serveren har alt gått i 20 timer uten omstart. Finn sannsynligheten for at den går minst 30 timer til, og forklar hvorfor du ikke trenger de 20 timene i regnestykket.",
+        "solution": "**a)** $P(X > 30) = e^{-0{,}05\\cdot 30} = e^{-1{,}5} \\approx 0{,}223$.\n\n**b)** Ved minneløsheten er $P(X > 20 + 30 \\mid X > 20) = P(X > 30) = e^{-1{,}5} \\approx 0{,}223$. De 20 timene faller ut fordi eksponensialfordelingen er minneløs — raten er konstant, så en server som alt har gått 20 timer er like «ny» som en fersk. Formelt: $\\tfrac{e^{-0{,}05\\cdot 50}}{e^{-0{,}05\\cdot 20}} = e^{-0{,}05\\cdot 30}$.",
+        "hints": [
+          "Hale i rateform: $P(X > x) = e^{-\\lambda x}$.",
+          "Minneløshet: $P(X > t + s \\mid X > t) = P(X > s)$ — alderen $t$ forsvinner."
+        ]
+      }
+    },
+    {
+      "id": "stk1100-2-1-warn-typiske",
+      "type": "warning",
+      "title": "Typiske feil",
+      "content": "- **Blande de to eksponensial-parametriseringene.** Rateform har $E = 1/\\lambda$; forventningsform har $E = \\mu$. Les oppgavens definisjon før du setter inn tall — dette er den vanligste eksponensialfeilen på UiO-eksamen.\n- **Løse $f(m) = \\tfrac12$ i stedet for $F(m) = \\tfrac12$.** Medianen bestemmes av fordelingsfunksjonen (arealet), ikke av tettheten i étt punkt.\n- **Blande tetthet og sannsynlighet.** $f(x)$ er ikke en sannsynlighet og kan overstige 1. Sannsynligheter er alltid arealer/integraler.\n- **Slurve med stykkevis $F$.** Glemmer du ytterdelene ($F = 0$ under støtten, $F = 1$ over), regnes $F$ som ufullstendig — og du kan få $F > 1$ eller $F < 0$ ved innsetting utenfor støtten.\n- **Glemme normeringskonstanten** før du regner videre på en «proporsjonal med»-tetthet."
+    },
+    {
+      "id": "stk1100-2-1-begrepsbank-head",
+      "type": "text",
+      "content": "## Begrepsbank — flashcards\n\n*Flashcard-/repetisjonsstoff — hopp trygt over ved førstegangslesing; tidsanslaget gjelder kjernestoffet.* Kortene under samler begrepene fra kapitlet til pugg og rask oppslag."
+    },
+    {
+      "id": "stk1100-2-1-bb-tetthet-ikke-sanns",
+      "type": "definition",
+      "title": "Tetthet er ikke sannsynlighet",
+      "content": "For en kontinuerlig $X$ er $f(x)$ en tetthet, ikke en sannsynlighet. Den kan være større enn 1, og $P(X = x) = 0$ for hver enkeltverdi. Bare *arealer* $\\int_a^b f\\,dx$ er sannsynligheter."
+    },
+    {
+      "id": "stk1100-2-1-bb-areal",
+      "type": "definition",
+      "title": "Areal som sannsynlighet",
+      "content": "Sannsynligheten for at $X$ havner i et intervall er arealet under tetthetskurven over intervallet: $P(a < X \\le b) = \\int_a^b f(x)\\,dx = F(b) - F(a)$."
+    },
+    {
+      "id": "stk1100-2-1-bb-f-voksende",
+      "type": "definition",
+      "title": "$F$ er voksende med grenser 0 og 1",
+      "content": "Fordelingsfunksjonen $F(x) = P(X \\le x)$ starter på 0 (langt til venstre), vokser aldri nedover, og ender på 1 (langt til høyre). Utenfor støtten er den henholdsvis 0 og 1."
+    },
+    {
+      "id": "stk1100-2-1-bb-kvantilfn",
+      "type": "definition",
+      "title": "Kvantilfunksjonen $F^{-1}$",
+      "content": "Funksjonen som snur $F$: gitt en andel $p$, gir $F^{-1}(p)$ verdien $x_p$ med $F(x_p) = p$. Den er råstoffet i inversjonsmetoden for simulering (kap. 7.1)."
+    },
+    {
+      "id": "stk1100-2-1-bb-symmetrisk",
+      "type": "definition",
+      "title": "Symmetrisk fordeling",
+      "content": "Er tettheten speilsymmetrisk om et punkt $c$, faller både median og forventning i $c$: $E(X) = m = c$. Uniform og normal er symmetriske."
+    },
+    {
+      "id": "stk1100-2-1-bb-hoyreskjev",
+      "type": "definition",
+      "title": "Høyreskjev fordeling",
+      "content": "En fordeling med en lang hale mot store verdier. Da er medianen **mindre** enn forventningen ($m < E(X)$), fordi halen drar snittet opp. Eksponensial og Pareto er høyreskjeve."
+    },
+    {
+      "id": "stk1100-2-1-bb-modus",
+      "type": "definition",
+      "title": "Modus (typetall)",
+      "content": "Verdien der tettheten $f(x)$ er størst — det mest «sannsynlige» området. For en eksponensialfordeling ligger modus i $x = 0$; for en symmetrisk fordeling faller modus sammen med median og forventning."
+    },
+    {
+      "id": "stk1100-2-1-bb-persentil",
+      "type": "definition",
+      "title": "Persentil",
+      "content": "$p$-kvantilen uttrykt i prosent: 90-persentilen er verdien $x_{0{,}9}$ med $F(x_{0{,}9}) = 0{,}9$, altså verdien 90 % av fordelingen ligger under."
+    },
+    {
+      "id": "stk1100-2-1-bb-iqr",
+      "type": "definition",
+      "title": "Interkvartilbredde",
+      "content": "Avstanden $Q_3 - Q_1$ mellom øvre og nedre kvartil — spennet i de midtre 50 % av fordelingen. Et robust spredningsmål som ikke påvirkes av ekstreme haleverdier."
+    },
+    {
+      "id": "stk1100-2-1-bb-exp-oppsummert",
+      "type": "definition",
+      "title": "Eksponensial — oppsummert",
+      "content": "Ventetid med konstant rate. Rateform $f = \\lambda e^{-\\lambda x}$, $E = 1/\\lambda$; forventningsform $f = \\tfrac1\\mu e^{-x/\\mu}$, $E = \\mu$. Median $= \\mu\\ln 2$, varians $= \\mu^2$, hale $= e^{-x/\\mu}$, minneløs."
+    },
+    {
+      "id": "stk1100-2-1-bb-les-def",
+      "type": "definition",
+      "title": "Les oppgavens definisjon",
+      "content": "Før du bruker en «navngitt» fordeling på STK1100-eksamen: sjekk hvilken parametrisering oppgaven bruker. Eksponensial kan være rate ($\\lambda$) eller forventning ($\\mu$); Weibull/gamma kan ha skala eller rate. Bruk oppgavens egen $f(x)$."
+    },
+    {
+      "id": "stk1100-2-1-bb-uniform-kort",
+      "type": "definition",
+      "title": "Uniform — oppsummert",
+      "content": "Konstant tetthet $\\tfrac{1}{b-a}$ på $[a,b]$. $F(x) = \\tfrac{x-a}{b-a}$, $E = \\tfrac{a+b}{2}$, $\\text{Var} = \\tfrac{(b-a)^2}{12}$, median $= \\tfrac{a+b}{2}$. Byggekloss for simulering."
+    },
+    {
+      "id": "stk1100-2-1-bb-poisson-eksp",
+      "type": "definition",
+      "title": "Ventetid i Poisson-prosessen",
+      "content": "Er hendelser Poisson-fordelt med rate $\\lambda$ (kap. 1.3), er tiden $X$ mellom to hendelser eksponensialfordelt med samme rate $\\lambda$: $f(x) = \\lambda e^{-\\lambda x}$. Minneløsheten svarer til at prosessen «starter på nytt» etter hver hendelse."
+    },
+    {
+      "id": "stk1100-2-1-bb-cv-eksp",
+      "type": "definition",
+      "title": "Eksponensialens variasjonskoeffisient",
+      "content": "For en eksponensialfordeling er standardavviket lik forventningen: $\\text{SD}(X) = \\mu = E(X)$, så variasjonskoeffisienten $\\text{SD}/E = 1$. Et raskt kjennetegn: er spredningen like stor som gjennomsnittet, er eksponensial en naturlig modell."
+    },
+    {
+      "id": "stk1100-2-1-rep-oppgaver",
+      "type": "collapsible",
+      "title": "Repetisjonsoppgaver",
+      "buttonText": "Vis repetisjonsoppgaver",
+      "content": [
+        {
+          "id": "stk1100-2-1-rep-intro",
+          "type": "text",
+          "content": "Korte oppgaver fra forkunnskapene — tetthet og fordelingsfunksjon fra [kap. 1.2](/bok/stk1100/stk1100-1-2) og integrasjon fra [R2 2.4](/bok/r2/r2-2-4) — til oppvarming."
+        },
+        {
+          "id": "stk1100-2-1-rep-oppg1",
+          "type": "exercise",
+          "exercise": {
+            "id": "stk1100-2-1-rep-ex1",
+            "number": "R1",
+            "type": "classic",
+            "difficulty": "lett",
+            "task": "Forklar forskjellen på en tetthet $f(x)$ og fordelingsfunksjonen $F(x)$, og hvordan de henger sammen.",
+            "solution": "$f(x)$ er tettheten — den beskriver hvor sannsynligheten er konsentrert, men er ikke selv en sannsynlighet. $F(x) = P(X \\le x)$ er den akkumulerte sannsynligheten opp til $x$. Sammenhengen: $F(x) = \\int_{-\\infty}^x f(t)\\,dt$ og motsatt $F'(x) = f(x)$.",
+            "hints": [
+              "Tenk på $F$ som det oppsamlede arealet under $f$."
+            ]
+          }
+        },
+        {
+          "id": "stk1100-2-1-rep-oppg2",
+          "type": "exercise",
+          "exercise": {
+            "id": "stk1100-2-1-rep-ex2",
+            "number": "R2",
+            "type": "classic",
+            "difficulty": "lett",
+            "task": "En variabel $X$ har $F(x) = x^2$ på $[0,1]$. Finn tettheten $f(x)$ på støtten og regn ut $P(X \\le 0{,}5)$.",
+            "solution": "$f(x) = F'(x) = 2x$ på $[0,1]$. $P(X \\le 0{,}5) = F(0{,}5) = 0{,}5^2 = 0{,}25$.",
+            "hints": [
+              "Deriver $F$ for å få $f$; sett inn i $F$ for sannsynligheten."
+            ]
+          }
+        },
+        {
+          "id": "stk1100-2-1-rep-oppg3",
+          "type": "exercise",
+          "exercise": {
+            "id": "stk1100-2-1-rep-ex3",
+            "number": "R3",
+            "type": "classic",
+            "difficulty": "lett",
+            "task": "Regn ut integralet $\\int_0^2 3x^2\\,dx$.",
+            "solution": "$\\int_0^2 3x^2\\,dx = \\big[x^3\\big]_0^2 = 8$.",
+            "hints": [
+              "Antiderivert av $3x^2$ er $x^3$."
+            ]
+          }
+        },
+        {
+          "id": "stk1100-2-1-rep-oppg4",
+          "type": "exercise",
+          "exercise": {
+            "id": "stk1100-2-1-rep-ex4",
+            "number": "R4",
+            "type": "classic",
+            "difficulty": "middels",
+            "task": "For en diskret variabel med $p(0) = 0{,}5$, $p(1) = 0{,}3$, $p(2) = 0{,}2$, finn forventningen $E(X)$.",
+            "solution": "$E(X) = \\sum x\\,p(x) = 0\\cdot 0{,}5 + 1\\cdot 0{,}3 + 2\\cdot 0{,}2 = 0{,}3 + 0{,}4 = 0{,}7$.",
+            "hints": [
+              "Diskret forventning: $\\sum_x x\\,p(x)$."
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": "stk1100-2-1-symbolliste",
+      "type": "collapsible",
+      "title": "Symbol- og formelliste",
+      "buttonText": "Vis symboler og formler",
+      "content": [
+        {
+          "id": "stk1100-2-1-sym-innhold",
+          "type": "text",
+          "content": "*Oppslagsverk — alt her forklares underveis i kapitlet.*\n\n| Symbol | Betydning |\n|---|---|\n| $f(x)$ | Sannsynlighetstetthet (ikke en sannsynlighet) |\n| $F(x)$ | Fordelingsfunksjon, $F(x) = P(X \\le x)$ |\n| $P(X > x)$ | Halen/overlevelsesfunksjonen, $1 - F(x)$ |\n| $c$ | Normeringskonstant ($\\int f = 1$) |\n| $m$ | Median ($F(m) = \\tfrac12$) |\n| $x_p$ | $p$-kvantil ($F(x_p) = p$) |\n| $Q_1, Q_2, Q_3$ | Nedre kvartil, median, øvre kvartil |\n| $E(X)$ | Forventning |\n| $E(X^2)$ | Andre moment |\n| $\\text{Var}(X)$ | Varians |\n| $\\text{SD}(X)$ | Standardavvik, $\\sqrt{\\text{Var}(X)}$ |\n| $\\lambda$ | Rate i eksponensial-/Poisson-modell |\n| $\\mu$ | Forventning (eksponensialens forventningsform) |\n\n**Formler i dette kapitlet:**\n\n$$\\int_{-\\infty}^{\\infty} f(x)\\,dx = 1 \\quad \\text{(normering)}$$\n\n$$F(x) = \\int_{-\\infty}^{x} f(t)\\,dt, \\qquad F'(x) = f(x)$$\n\n$$F(m) = \\tfrac12 \\ \\text{(median)}, \\qquad F(x_p) = p \\ \\text{(kvantil)}$$\n\n$$E(X) = \\int x f(x)\\,dx, \\qquad E[g(X)] = \\int g(x) f(x)\\,dx$$\n\n$$\\text{Var}(X) = E(X^2) - [E(X)]^2$$\n\n$$\\text{Uniform } [a,b]:\\ f = \\tfrac{1}{b-a},\\ E = \\tfrac{a+b}{2},\\ \\text{Var} = \\tfrac{(b-a)^2}{12}$$\n\n$$\\text{Eksponensial (rate)}:\\ f = \\lambda e^{-\\lambda x},\\ F = 1 - e^{-\\lambda x},\\ E = 1/\\lambda$$\n\n$$\\text{Eksponensial (forventning)}:\\ f = \\tfrac1\\mu e^{-x/\\mu},\\ E = \\mu,\\ m = \\mu\\ln 2$$\n\n$$P(X > s+t \\mid X > t) = P(X > s) \\quad \\text{(minneløshet)}$$"
+        }
+      ]
+    }
+  ],
+  "exercises": []
+}
