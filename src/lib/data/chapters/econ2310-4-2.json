@@ -1,0 +1,494 @@
+{
+  "id": "econ2310-4-2",
+  "courseId": "econ2310",
+  "chapterNumber": "4.2",
+  "title": "RR-relasjonen: reaksjonsfunksjonen fra mandatet — og hva Yⁿ gjør der",
+  "description": "RR er ikke en markedslikevekt, men sentralbankens begrunnede regel — utledet fra fleksibel inflasjonsstyring, med potensielt BNP som anker.",
+  "estimatedMinutes": 60,
+  "competenceGoals": [
+    "begrunne renteregelen fra det pengepolitiske mandatet, ledd for ledd",
+    "forklare hvorfor banken reagerer på produksjonsgapet, og hvordan Phillips-kurven ligger inne i koeffisienten",
+    "gjøre rede for hva som bestemmer potensielt BNP og hvorfor størrelsen inngår i regelen",
+    "skille mellom skift i renteregelen og bevegelse langs den"
+  ],
+  "content": [
+    {
+      "id": "econ2310-4-2-tip-eksamensvinkel",
+      "type": "tip",
+      "title": "Eksamensvinkel",
+      "content": "**Renteregelen er relasjonen som oftest blir oppgitt uten et eneste ord om hvor den kommer fra — og det er nettopp opphavet du skal levere.**\n\n- Å forklare renteregelen (i boka **sjanger F**) er etterspurt i **4 av 13 sett**: H2019, H2023, H2025 og H2021-utsatt.\n- **H2023 spør direkte** hva som bestemmer potensielt BNP, og hvorfor den størrelsen står i renteregelen. Det spørsmålet er en av de tydeligste «kan du dette, eller pugget du formelen?»-testene i hele emnet.\n- Kapitlet har **høyeste prioritet**: uten en begrunnet renteregel kollapser hele skiftanalysen i kap. 4.4, fordi du da ikke kan si hva sentralbanken gjør med et sjokk.\n\nEtt grep bærer hele kapitlet: **renteregelen er ingen markedsligning, men en oppskrift sentralbanken har valgt fordi den har et mandat.** Klarer du å begrunne regelen fra målene, har du svart på sjangeren."
+    },
+    {
+      "id": "econ2310-4-2-forkunnskaper",
+      "type": "text",
+      "content": "**Sist du var her — de tre tingene du trenger ferskt:**\n\n1. **Renteregelen fra ECON1310.** Sentralbanken setter renta etter en regel som reagerer på inflasjonen og på hvor økonomien ligger i forhold til normalnivået. Se [Renteregelen og RR-kurven](/bok/econ1310/econ1310-5-1).\n2. **Likevektsledigheten.** Lønns- og priskurveapparatet gir én ledighetsrate der lønnskravene og bedriftenes prissetting er forenlige med hverandre. Ligger ledigheten under denne raten, tiltar lønns- og prisveksten. Se [Lønns- og priskurvemodellen og likevektsledigheten](/bok/econ1310/econ1310-4-1).\n3. **Mandatet.** Norges Bank driver *fleksibel inflasjonsstyring*: inflasjonen skal holdes nær målet over tid, men banken skal samtidig bidra til stabil produksjon og sysselsetting — og ikke bruke unødig kraftige virkemidler. Se [Pengepolitikk i praksis: fleksibel inflasjonsstyring, gradvishet og likviditetsfellen](/bok/econ1310/econ1310-5-6).\n\nI tillegg bygger kapitlet direkte på IS-relasjonen fra [kap. 4.1](/bok/econ2310/econ2310-4-1): impulsene $Z^E$ og $Z^\\pi$ er de samme her, men de virker på en helt annen måte."
+    },
+    {
+      "id": "econ2310-4-2-intro",
+      "type": "text",
+      "content": "Åtte ganger i året samles komiteen i Norges Bank og bestemmer styringsrenta. Ingen markedskraft tvinger fram et bestemt tall — det er mennesker som veier hensyn mot hverandre og fatter et vedtak. Likevel er beslutningen ikke tilfeldig: banken har et mandat, den har erfaring med hva som virker, og den vil at markedet skal kunne forutsi hva den gjør.\n\nDet er nettopp denne forutsigbarheten renteregelen fanger. Regelen er en komprimert beskrivelse av hvordan en sentralbank med et gitt mandat pleier å reagere når økonomien beveger seg. Det er derfor du aldri skal kalle den en likevektsbetingelse: den beskriver **atferd hos en aktør med et mål**, ikke balanse i et marked."
+    },
+    {
+      "id": "econ2310-4-2-lokke1",
+      "type": "text",
+      "content": "## Løkke 1 — Regelen, og hvor den kommer fra (~20 min)"
+    },
+    {
+      "id": "econ2310-4-2-rr-oppsett",
+      "type": "text",
+      "content": "### Relasjonen\n\nRenteregelen i bokas standardform er\n\n$$i = Z^i + g_Y\\,\\frac{Y - Y^n}{Y^n} + g_E\\,Z^E + g_\\pi\\,Z^\\pi$$\n\nmed alle koeffisientene positive. Les den som en setning: *renta settes til et grunnivå, pluss et påslag når økonomien går varmt, pluss et påslag når krona svekkes, pluss et påslag når det kommer prisimpulser.*\n\n- $Z^i$ er grunnivået — det rentenivået banken lander på når alt annet er i balanse. Endringer i $Z^i$ tolkes som at banken selv har endret linje, eller at det nøytrale rentenivået har flyttet seg.\n- $(Y-Y^n)/Y^n$ er **produksjonsgapet**: hvor mye produksjonen ligger over eller under det nivået økonomien tåler over tid.\n- $Z^E$ og $Z^\\pi$ er de samme impulsene som i IS-relasjonen — men her står de fordi banken *reagerer* på dem, ikke fordi de flytter etterspørselen.\n\n*Merk symbolet:* $g$-ene her er **ikke** vekstrater. I Del 1 av boka betyr $g$ produktivitetsvekst; i Del 4 er $g_Y$, $g_E$ og $g_\\pi$ ganske enkelt navn på hvor kraftig banken reagerer på hver ting."
+    },
+    {
+      "id": "econ2310-4-2-def-rr",
+      "type": "definition",
+      "title": "Renteregelen (RR-relasjonen)",
+      "content": "Sentralbankens systematiske oppskrift for hvordan renta settes når økonomien beveger seg. I symboler:\n\n$$i = Z^i + g_Y\\,\\frac{Y-Y^n}{Y^n} + g_E\\,Z^E + g_\\pi\\,Z^\\pi$$\n\nRegelen sier at renta heves når produksjonen ligger over potensielt BNP, når krona svekkes, og når det kommer prisimpulser utenfra. I et $(Y,i)$-diagram er RR en **stigende** kurve med helning $g_Y/Y^n$.\n\nRegelen er ingen likevektsbetingelse for et marked, men en **reaksjonsfunksjon**: den beskriver hva en bank med et bestemt mandat velger å gjøre."
+    },
+    {
+      "id": "econ2310-4-2-def-reaksjonsfunksjon",
+      "type": "definition",
+      "title": "Reaksjonsfunksjon",
+      "content": "En relasjon som beskriver hvordan en aktør *velger* å handle som svar på det som skjer rundt seg — til forskjell fra en likevektsbetingelse, som beskriver at to markedskrefter møtes.\n\nRenteregelen er skoleeksempelet: den beskriver sentralbankens valg. Konsekvensen er praktisk viktig — endrer banken vurderinger eller mandat, flytter hele relasjonen seg, uten at noe i markedet har endret seg. Å behandle regelen som en markedsligning er feil #6 i bokas feilregister."
+    },
+    {
+      "id": "econ2310-4-2-def-fleksibel",
+      "type": "definition",
+      "title": "Fleksibel inflasjonsstyring",
+      "content": "Det pengepolitiske opplegget renteregelen er utledet fra: inflasjonen skal holdes lav og stabil nær målet **over tid**, samtidig som banken bidrar til stabil produksjon og sysselsetting og unngår unødig kraftige virkemidler.\n\nOrdet «fleksibel» er nøkkelen. Hadde banken kun brydd seg om inflasjonen, ville den satt renta så hardt at prispresset forsvant med én gang — med store svingninger i produksjon og ledighet som pris. Fleksibiliteten er grunnen til at koeffisientene $g_Y$, $g_E$ og $g_\\pi$ er endelige tall og ikke uendelig store."
+    },
+    {
+      "id": "econ2310-4-2-def-mandat",
+      "type": "definition",
+      "title": "Det pengepolitiske mandatet",
+      "content": "Oppdraget politiske myndigheter har gitt sentralbanken: å holde inflasjonen lav og stabil nær et tallfestet mål, og innenfor dette bidra til høy og stabil produksjon og sysselsetting. Hensynet til å motvirke oppbygging av finansielle ubalanser regnes som et tilleggshensyn.\n\nMandatet er *begrunnelsen* bak hvert eneste ledd i renteregelen. Skal du forklare regelen på eksamen, er dette startpunktet: hvert ledd svarer til et hensyn i mandatet."
+    },
+    {
+      "id": "econ2310-4-2-ex-1",
+      "type": "example",
+      "title": "Eksempel 1: Utled regelen fra mandatet (sjanger F)",
+      "problem": "Renteregelen er oppgitt uten begrunnelse. Forklar hvordan den kan utledes fra det pengepolitiske mandatet.",
+      "solution": "**Startpunktet er målene.** Banken skal holde inflasjonen nær målet over tid og samtidig bidra til stabil produksjon og sysselsetting. Renta er det eneste virkemiddelet, så alt banken kan gjøre, er å flytte renta når noe truer målene.\n\n**Leddet $g_Y (Y-Y^n)/Y^n$.** Ligger produksjonen over potensielt BNP, er ledigheten lavere enn likevektsledigheten. Da presses lønnsveksten opp, og prisveksten følger etter — det er nettopp det Phillips-kurven sier. Banken vet dette og trenger ikke vente på at inflasjonen faktisk stiger: den setter renta opp allerede når gapet åpner seg. Phillips-kurven er altså «bakt inn» i koeffisienten $g_Y$. Det samme leddet ivaretar stabiliseringshensynet, siden renteoppgangen demper aktiviteten.\n\n**Leddet $g_E Z^E$.** Svekkes krona, blir importvarer dyrere målt i kroner, og konsumprisveksten stiger direkte. I tillegg bedres konkurranseevnen, aktiviteten stiger og prispresset øker også den veien. Banken svarer med høyere rente — som i tillegg trekker krona tilbake gjennom renteparitetsbetingelsen.\n\n**Leddet $g_\\pi Z^\\pi$.** Kommer det en prisimpuls som ikke skyldes presset i økonomien, stiger inflasjonen uten at gapet har åpnet seg. Banken reagerer, men avveid: en kraftig respons ville stabilisert prisene fort og produksjonen dårlig.\n\n**Leddet $Z^i$.** Grunnivået fanger alt annet — endret vurdering av det nøytrale rentenivået, eller et bevisst linjeskifte.\n\n**Konklusjon.** Hvert ledd svarer til et hensyn i mandatet, og koeffisientenes *størrelse* svarer til hvor tungt hvert hensyn veier. Regelen er derfor ikke en naturlov, men en oppsummering av en valgt politikk."
+    },
+    {
+      "id": "econ2310-4-2-oppg-1",
+      "type": "exercise",
+      "exercise": {
+        "id": "econ2310-4-2-oppg-1",
+        "number": "1",
+        "type": "classic",
+        "difficulty": "lett",
+        "task": "(Sjanger F — innstegsoppgave, ren gjengivelse med egne ord.)\n\nForklar med to–tre setninger hvorfor renteregelen ikke er en markedsligning.",
+        "solution": "En markedsligning beskriver at to krefter møtes, slik at et marked går i balanse. Renteregelen beskriver derimot hva én aktør — sentralbanken — velger å gjøre for å nå sine mål. Renta i regelen er resultatet av et vedtak, ikke av at tilbud møter etterspørsel, og derfor flytter hele relasjonen seg hvis banken endrer vurderinger eller mandat.",
+        "hints": [
+          "Spør hvem som «bestemmer» tallet i relasjonen.",
+          "Tenk på hva som skjer med relasjonen hvis banken bytter linje."
+        ]
+      }
+    },
+    {
+      "id": "econ2310-4-2-oppg-2",
+      "type": "exercise",
+      "exercise": {
+        "id": "econ2310-4-2-oppg-2",
+        "number": "2",
+        "type": "classic",
+        "difficulty": "lett",
+        "task": "(Sjanger F — leddgjenkjenning.)\n\nKnytt hvert ledd i renteregelen til hensynet i mandatet det ivaretar.\n\n**a)** $g_Y (Y-Y^n)/Y^n$\n\n**b)** $g_\\pi Z^\\pi$\n\n**c)** $g_E Z^E$",
+        "solution": "**a)** Ivaretar begge hovedhensyn på én gang: et positivt produksjonsgap varsler stigende prisvekst (inflasjonsmålet), og renteøkningen demper samtidig konjunktursvingningen (stabil produksjon og sysselsetting).\n\n**b)** Ivaretar inflasjonsmålet direkte: en prisimpuls som ikke skyldes presset i økonomien, må likevel motvirkes for at inflasjonen skal ligge nær målet over tid.\n\n**c)** Ivaretar inflasjonsmålet gjennom importprisene: en svakere krone gjør importvarer dyrere og løfter konsumprisveksten, i tillegg til at bedret konkurranseevne øker aktiviteten.",
+        "hints": [
+          "Ta utgangspunkt i de to hovedmålene og spør hvilket ledd som truer hvilket mål.",
+          "Ett av leddene ivaretar begge målene samtidig."
+        ]
+      }
+    },
+    {
+      "id": "econ2310-4-2-lokke2",
+      "type": "text",
+      "content": "## Løkke 2 — Hvorfor renta følger produksjonsgapet (~15 min)"
+    },
+    {
+      "id": "econ2310-4-2-gapet",
+      "type": "text",
+      "content": "### Phillips-kurven ligger inne i koeffisienten\n\nHvorfor reagerer banken i det hele tatt på produksjonen? Den har jo ikke noe produksjonsmål i tallfestet forstand. Svaret går i to trinn.\n\n**Trinn 1 — gapet varsler inflasjon.** Phillips-kurven sier $\\pi = Z^\\pi + \\beta (Y-Y^n)/Y^n$. Et positivt gap betyr lav ledighet, sterk forhandlingsposisjon for arbeidstakerne, høyere lønnsvekst og dermed høyere prisvekst. Gapet er altså et *varsel* om inflasjon, og pengepolitikk virker med etterslep — banken må reagere før inflasjonen er et faktum.\n\n**Trinn 2 — stabilitetshensynet.** Mandatet sier dessuten at banken skal bidra til stabil produksjon og sysselsetting. Å stramme til i høykonjunktur og lette i lavkonjunktur følger direkte av dette.\n\nBegge hensyn peker samme vei, og begge er samlet i den ene koeffisienten $g_Y$. Det gir en viktig innsikt: **er Phillips-kurven brattere (høyere $\\beta$), blir $g_Y$ større**, fordi et gitt gap da gir mer inflasjon og krever kraftigere respons. Vi bruker dette poenget aktivt i [kap. 4.3](/bok/econ2310/econ2310-4-3)."
+    },
+    {
+      "id": "econ2310-4-2-def-gY",
+      "type": "definition",
+      "title": "Koeffisienten $g_Y$",
+      "content": "Hvor kraftig sentralbanken hever renta når produksjonsgapet øker med ett prosentpoeng. Den er styrken i bankens konjunkturrespons.\n\n$g_Y$ inneholder to ting samtidig: hvor mye inflasjon et gitt gap skaper (Phillips-kurvens $\\beta$), og hvor tungt banken vekter inflasjonsmålet mot hensynet til stabil produksjon. Derfor gir en brattere Phillips-kurve en større $g_Y$ — banken har mer å reagere på."
+    },
+    {
+      "id": "econ2310-4-2-def-gE-gpi",
+      "type": "definition",
+      "title": "Koeffisientene $g_E$ og $g_\\pi$",
+      "content": "Hvor kraftig banken hever renta som svar på en valutakursimpuls ($g_E$) og på en prisimpuls ($g_\\pi$).\n\n$g_E$ er den mest interessante av de to i skiftanalysen: den avgjør om en kronesvekkelse ender med høyere eller lavere produksjon. Er $g_E$ liten, får konkurranseevnegevinsten dominere; er $g_E$ stor, spiser renteøkningen opp gevinsten. Det er nettopp derfor produksjonseffekten av en kronesvekkelse ikke kan signeres (kap. 4.4)."
+    },
+    {
+      "id": "econ2310-4-2-def-Zi",
+      "type": "definition",
+      "title": "$Z^i$ — renteimpulsen",
+      "content": "Grunnivået i renteregelen: den renta banken lander på når produksjonsgapet er null og det ikke kommer impulser fra kurs eller priser.\n\n$Z^i$ flyttes av endringer i det nøytrale rentenivået og av at banken selv legger om linjen — for eksempel et bevisst tilstrammingsgrep utover det regelen ellers tilsier. I diagrammet skifter en endring i $Z^i$ hele RR-kurven opp eller ned uten å endre helningen."
+    },
+    {
+      "id": "econ2310-4-2-ex-2",
+      "type": "example",
+      "title": "Eksempel 2: Hva gjør banken når krona svekkes? (sjanger F)",
+      "problem": "Krona svekkes fordi utenlandske renter er satt kraftig opp. Forklar hvorfor sentralbanken reagerer, og hvilket ledd i regelen som fanger reaksjonen.",
+      "solution": "**Impulsen.** Høyere utenlandsk rente gjør plasseringer i utlandet mer attraktive. Etter renteparitetsbetingelsen $E = E^e + \\kappa(i^F-i)$ svekkes krona. I modellen er dette en positiv $Z^E$-impuls.\n\n**Hvorfor banken reagerer — to grunner.** For det første blir importvarer dyrere målt i kroner, og siden importvarer inngår i konsumprisindeksen, stiger konsumprisveksten direkte og nokså raskt. For det andre bedres konkurranseevnen, så eksporten stiger og aktiviteten tar seg opp — som gjennom Phillips-kurven gir ytterligere prispress, denne gangen på norske varer.\n\n**Leddet.** Reaksjonen fanges av $g_E Z^E$ i regelen: renta heves i takt med kursimpulsen. I tillegg kommer reaksjonen på det høyere produksjonsgapet gjennom $g_Y$-leddet, dersom aktiviteten faktisk stiger.\n\n**En viktig tilbakekobling.** Renteøkningen trekker i seg selv krona tilbake, siden høyere norsk rente styrker krona. Banken motvirker altså delvis den impulsen den reagerer på — men bare delvis, for et fullt motsvar ville krevd en renteøkning som kvalte aktiviteten."
+    },
+    {
+      "id": "econ2310-4-2-oppg-3",
+      "type": "exercise",
+      "exercise": {
+        "id": "econ2310-4-2-oppg-3",
+        "number": "3",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "(Sjanger F — koeffisienttolkning.)\n\nTo sentralbanker har samme mandat, men land A har en brattere Phillips-kurve enn land B.\n\n**a)** Hvilken bank har størst $g_Y$? Begrunn.\n\n**b)** Hva betyr forskjellen for hvordan RR-kurven ser ut i de to landene?",
+        "solution": "**a)** Land A. Er Phillips-kurven brattere, skaper et gitt produksjonsgap mer inflasjon. Banken har dermed mer å reagere på for hvert prosentpoeng gapet åpner seg, og velger en kraftigere respons. Koeffisienten $g_Y$ er selv et resultat av bankens avveining, og den avveiningen avhenger av hvor mye inflasjon som står på spill.\n\n**b)** RR-kurvens helning er $g_Y/Y^n$. Større $g_Y$ betyr **brattere RR** i land A: renta beveger seg mye for en gitt endring i produksjonen. I land B er kurven flatere, og renta reagerer mildere på konjunkturene.",
+        "hints": [
+          "Spør hva banken egentlig reagerer på når den reagerer på produksjonen.",
+          "Skriv opp RR-kurvens helning før du svarer på b)."
+        ]
+      }
+    },
+    {
+      "id": "econ2310-4-2-oppg-4",
+      "type": "exercise",
+      "exercise": {
+        "id": "econ2310-4-2-oppg-4",
+        "number": "4",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "(Sjanger F — skift mot bevegelse langs kurven.)\n\nAvgjør for hver hendelse om RR-kurven skifter, eller om vi beveger oss langs den. Begrunn kort.\n\n**a)** Produksjonen stiger fordi offentlige kjøp har økt.\n\n**b)** Banken justerer opp sitt anslag på det nøytrale rentenivået.\n\n**c)** Krona svekkes fordi risikopremien på kroner har steget.",
+        "solution": "**a)** Bevegelse **langs** RR. Produksjonen står som variabel i regelen, så en endring i $Y$ flytter oss oppover langs kurven — banken hever renta i tråd med den regelen den allerede følger.\n\n**b)** **Skift** i RR. Et nytt anslag på det nøytrale nivået endrer $Z^i$, altså konstantleddet. Hele kurven flytter seg opp, og renta blir høyere for ethvert produksjonsnivå.\n\n**c)** **Skift** i RR. $Z^E$ er en egen impuls i regelen, så kurven flytter seg opp. (Merk at samme impuls også skifter IS-kurven — det er derfor kronesvekkelse er et sjokk som treffer to relasjoner, som vi ser i [kap. 4.4](/bok/econ2310/econ2310-4-4).)",
+        "hints": [
+          "Se hvilke størrelser som står som variabler i regelen, og hvilke som står som konstantledd.",
+          "En av hendelsene treffer to relasjoner samtidig, men spørsmålet gjelder bare RR."
+        ]
+      }
+    },
+    {
+      "id": "econ2310-4-2-pause-1",
+      "type": "text",
+      "content": "— naturlig pausepunkt —"
+    },
+    {
+      "id": "econ2310-4-2-lokke3",
+      "type": "text",
+      "content": "## Løkke 3 — Hva er $Y^n$, og hvorfor står den i regelen? (~15 min)"
+    },
+    {
+      "id": "econ2310-4-2-yn",
+      "type": "text",
+      "content": "### Størrelsen H2023 spurte om\n\nPotensielt BNP er ikke «maksimal produksjon». Økonomien *kan* produsere mer enn $Y^n$ en stund — det skjer i enhver høykonjunktur. Poenget er at den ikke kan gjøre det uten at prisveksten tiltar.\n\n**Hva bestemmer $Y^n$?** Tilbudssiden: hvor mange som er i arbeidsstyrken, hvor produktive de er, hvor mye kapital de har å jobbe med — og, avgjørende for begrepet, **hvordan lønns- og prisdannelsen fungerer**. Lønns- og priskurveapparatet fra ECON1310 gir én ledighetsrate der arbeidstakernes lønnskrav og bedriftenes prissetting er forenlige: likevektsledigheten. Produksjonsnivået som svarer til denne ledigheten, er $Y^n$.\n\n**Hvorfor står den i regelen?** Fordi det bare er *gapet* banken kan si noe fornuftig om. Å sikte mot et produksjonsnivå over $Y^n$ ville betydd ledighet under likevektsledigheten permanent — og da ville lønns- og prisveksten fortsatt å tilta, år etter år. Inflasjonsmålet ville brutt sammen. $Y^n$ er derfor ankeret som gjør regelen forenlig med mandatet.\n\n**En viktig konsekvens:** endringer i $Y^n$ er tilbudssidehendelser. Blir arbeidsstyrken større eller lønnsdannelsen mer velfungerende, stiger $Y^n$, gapet lukkes ved uendret $Y$, og banken kan sette renta lavere uten at inflasjonen tiltar."
+    },
+    {
+      "id": "econ2310-4-2-def-yn",
+      "type": "definition",
+      "title": "Potensielt BNP $Y^n$",
+      "content": "Det produksjonsnivået som er forenlig med stabil inflasjon: nivået der ledigheten er lik likevektsledigheten, og der lønns- og prisveksten verken tiltar eller avtar.\n\nDet bestemmes av tilbudssiden — arbeidsstyrken, produktiviteten, kapitalbeholdningen og måten lønns- og prisdannelsen fungerer på. Det er **ikke** et tak: faktisk produksjon kan ligge over $Y^n$ i en høykonjunktur, men da med stigende prisvekst som følge."
+    },
+    {
+      "id": "econ2310-4-2-def-likevektsledighet",
+      "type": "definition",
+      "title": "Likevektsledigheten",
+      "content": "Den ledighetsraten der arbeidstakernes lønnskrav og bedriftenes prissetting er forenlige med hverandre, slik at lønns- og prisveksten holder seg stabil.\n\nDen bestemmes av institusjonene i arbeidsmarkedet: hvordan lønnsforhandlingene er organisert, hvor sterk konkurransen i produktmarkedene er, hvordan ledighetstrygden er utformet. Potensielt BNP er produksjonsnivået som svarer til denne ledigheten — de to begrepene er to sider av samme sak."
+    },
+    {
+      "id": "econ2310-4-2-def-gap",
+      "type": "definition",
+      "title": "Produksjonsgapet",
+      "content": "Den relative avstanden mellom faktisk og potensielt BNP: $(Y-Y^n)/Y^n$. Positivt gap betyr høykonjunktur med press i arbeidsmarkedet, negativt gap betyr ledig kapasitet.\n\nGapet er størrelsen både Phillips-kurven og renteregelen reagerer på. Det er også grunnen til at $Y^n$ må være med i begge relasjoner: uten et referansenivå er «høy produksjon» et meningsløst begrep."
+    },
+    {
+      "id": "econ2310-4-2-ex-3",
+      "type": "example",
+      "title": "Eksempel 3: «Hva bestemmer potensielt BNP, og hvorfor inngår det i renteregelen?» (sjanger F, eksamensnivå)",
+      "problem": "Besvar spørsmålet slik det er stilt på eksamen, med begge deler: hva størrelsen er bestemt av, og hvorfor den står i regelen.",
+      "solution": "**Hva $Y^n$ er.** Potensielt BNP er det produksjonsnivået økonomien kan holde over tid uten at inflasjonen tiltar eller avtar. Det svarer til at ledigheten er lik likevektsledigheten.\n\n**Hva som bestemmer det.** Tilbudssiden. Størrelsen på arbeidsstyrken (demografi, innvandring, yrkesdeltakelse), produktiviteten (teknologi, kompetanse, kapitalbeholdning) og — avgjørende — hvordan lønns- og prisdannelsen fungerer. Lønns- og priskurveapparatet gir én ledighetsrate der lønnskravene og prissettingen er forenlige; endres forhandlingssystemet, konkurransen i produktmarkedene eller ledighetstrygdens utforming, endres likevektsledigheten og dermed $Y^n$. Merk at $Y^n$ ikke er et tak: faktisk produksjon kan godt ligge over, men bare med tiltakende prisvekst som følge.\n\n**Hvorfor det står i regelen.** Fordi banken ikke kan reagere på produksjonsnivået som sådan — bare på nivået i forhold til det som er bærekraftig. Phillips-kurven gjør sammenhengen presis: bare når $Y = Y^n$, er prispresset nøytralt. Ligger produksjonen over, tiltar lønns- og prisveksten, og banken må stramme til for å nå inflasjonsmålet. Ville banken i stedet siktet mot et fast produksjonsnivå over $Y^n$, ville den måttet akseptere stadig stigende inflasjon. $Y^n$ er dermed ankeret som gjør regelen forenlig med mandatet.\n\n**Et poeng som løfter svaret.** $Y^n$ er ikke observerbar. Banken må anslå den, og anslaget er usikkert. Undervurderer banken $Y^n$, ser den et press som ikke er der og strammer til for hardt; overvurderer den, kommer den for sent på banen. Det er en av grunnene til at pengepolitikken føres gradvis og ikke i store sprang."
+    },
+    {
+      "id": "econ2310-4-2-oppg-5",
+      "type": "exercise",
+      "exercise": {
+        "id": "econ2310-4-2-oppg-5",
+        "number": "5",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "(Sjanger F — $Y^n$ i praksis.)\n\nEn reform gjør at flere kommer inn i arbeidsstyrken, og likevektsledigheten faller.\n\n**a)** Hva skjer med $Y^n$?\n\n**b)** Hva skjer med produksjonsgapet ved uendret faktisk produksjon, og hva gjør banken?",
+        "solution": "**a)** $Y^n$ **stiger**. Flere i arbeidsstyrken og lavere likevektsledighet betyr at økonomien kan produsere mer uten at prisveksten tiltar.\n\n**b)** Ved uendret $Y$ blir gapet $(Y-Y^n)/Y^n$ **mindre** — det som før så ut som press, er det ikke lenger. Gjennom $g_Y$-leddet setter banken renta **lavere** enn den ellers ville gjort. Merk at lavere rente her ikke er en lettelse i pengepolitikken i vanlig forstand: det er en tilpasning til at økonomiens tåleevne er blitt større.",
+        "hints": [
+          "Tenk på hva som skjer med nivået økonomien kan holde uten tiltakende prisvekst.",
+          "Gapet har $Y^n$ i både teller og nevner — men her er det telleren som gjør jobben."
+        ]
+      }
+    },
+    {
+      "id": "econ2310-4-2-oppg-6",
+      "type": "exercise",
+      "exercise": {
+        "id": "econ2310-4-2-oppg-6",
+        "number": "6",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "(Sjanger F — begrepskontroll med en felle.)\n\nTa stilling til hver påstand, og begrunn.\n\n**a)** «Produksjonen kan aldri ligge over $Y^n$.»\n\n**b)** «$Y^n$ bestemmes av etterspørselen i økonomien.»\n\n**c)** «Banken kan ikke observere $Y^n$ direkte.»",
+        "solution": "**a)** **Galt.** $Y^n$ er ikke et kapasitetstak. I en høykonjunktur ligger produksjonen over $Y^n$, med ledighet under likevektsledigheten. Prisen er tiltakende lønns- og prisvekst, og det er nettopp det banken reagerer på.\n\n**b)** **Galt.** $Y^n$ er en tilbudssidestørrelse: arbeidsstyrke, produktivitet, kapital og lønns-/prisdannelse. Etterspørselen bestemmer *faktisk* produksjon på kort sikt, ikke det bærekraftige nivået.\n\n**c)** **Riktig.** $Y^n$ må anslås, og anslaget er usikkert. Dette er en reell begrensning i pengepolitikken og en av grunnene til at banken beveger renta gradvis.",
+        "hints": [
+          "To av påstandene er gale og én er riktig — les hver for seg.",
+          "Skill konsekvent mellom hva som bestemmer faktisk produksjon og hva som bestemmer det bærekraftige nivået."
+        ]
+      }
+    },
+    {
+      "id": "econ2310-4-2-lokke4",
+      "type": "text",
+      "content": "## Løkke 4 — RR i diagrammet, og malen (~10 min)"
+    },
+    {
+      "id": "econ2310-4-2-rr-figur",
+      "type": "text",
+      "content": "### RR-kurven\n\n*Figur i ord:* Samme akser som IS-diagrammet — **$Y$ vannrett, $i$ loddrett**. RR er en **stigende, rett linje** med helning $g_Y/Y^n$. Marker gjerne $Y^n$ som en loddrett stiplet hjelpelinje: der krysser RR sitt eget «nøytrale» nivå, altså $i = Z^i + g_E Z^E + g_\\pi Z^\\pi$. Et punkt $A$ på kurven markeres med stiplede hjelpelinjer til aksene.\n\nDen verbale mekanismen: beveger vi oss mot høyre langs kurven, er produksjonen høyere, gapet større og prispresset sterkere — og banken svarer med høyere rente. Kurven er derfor stigende. Et skift oppover betyr at banken setter en høyere rente for *ethvert* produksjonsnivå, og skyldes en endring i $Z^i$, $Z^E$ eller $Z^\\pi$."
+    },
+    {
+      "id": "econ2310-4-2-forklar-relasjonen-mal",
+      "type": "text",
+      "content": "### «Forklar relasjonen»-malen for RR\n\n> **Mal (fire til fem setninger):**\n>\n> «Relasjonen er ikke en markedslikevekt, men sentralbankens reaksjonsfunksjon: den beskriver hvordan banken setter renta gitt sitt mandat om lav og stabil inflasjon og stabil produksjon og sysselsetting. Renta heves når produksjonen ligger over potensielt BNP, fordi et positivt produksjonsgap gir lav ledighet, høy lønnsvekst og dermed stigende prisvekst — Phillips-kurven ligger inne i koeffisienten $g_Y$. Renta heves også når krona svekkes ($Z^E$), fordi dyrere importvarer løfter konsumprisveksten direkte og bedret konkurranseevne øker aktiviteten, og når det kommer prisimpulser utenfra ($Z^\\pi$). $Z^i$ er grunnivået, som flyttes av endringer i det nøytrale rentenivået eller av at banken legger om linjen. Potensielt BNP er nivået som er forenlig med stabil inflasjon, bestemt av tilbudssiden og av hvordan lønns- og prisdannelsen fungerer; det er bare i forhold til dette nivået banken kan vurdere om økonomien går for varmt.»\n\nDet som løfter svaret: at du sier **hvorfor** hvert ledd står der (mandatet), ikke bare hva som skjer."
+    },
+    {
+      "id": "econ2310-4-2-arbeidsdeling",
+      "type": "text",
+      "content": "### To tillegg som ofte gir det siste poenget\n\n**Arbeidsdelingen mot finanspolitikken.** Pengepolitikken er førstelinjeforsvaret i konjunkturstyringen: den kan endres raskt, treffer bredt og er ikke bundet av budsjettprosesser. Finanspolitikken er tyngre å snu, men kan treffe målrettet og virker uten å gå veien om valutakursen. Sammenligningen komponent for komponent tar vi i [kap. 4.5](/bok/econ2310/econ2310-4-5).\n\n**Finansielle ubalanser.** Vedvarende lav rente kan drive opp gjeld og eiendomspriser og bygge opp sårbarhet som slår ut senere. Hensynet til å motvirke slik oppbygging regnes som et tilleggsargument i rentesettingen — ikke et selvstendig mål på linje med inflasjonsmålet, men noe som kan tilsi at banken holder renta litt høyere enn inflasjons- og produksjonshensynet alene skulle tilsi. I modellen fanges dette naturlig av $Z^i$."
+    },
+    {
+      "id": "econ2310-4-2-ex-4",
+      "type": "example",
+      "title": "Eksempel 4: Full besvarelse på eksamensnivå (sjanger F)",
+      "problem": "Relasjonen $i = Z^i + g_Y (Y-Y^n)/Y^n + g_E Z^E + g_\\pi Z^\\pi$ er oppgitt uten forklaring, sammen med opplysningen om at alle parametre er positive. Forklar relasjonen, og gjør rede for hva slags relasjon den er.",
+      "solution": "**Hva slags relasjon.** Dette er sentralbankens reaksjonsfunksjon — en beskrivelse av hvordan banken *velger* å sette renta. Den er ikke en likevektsbetingelse for et marked, og det er et poeng med praktiske følger: endrer banken vurderinger eller mandat, flytter hele relasjonen seg selv om ingenting i økonomien ellers har endret seg. Renta $i$ er endogen; $Z^i$, $Z^E$, $Z^\\pi$ og $Y^n$ er eksogene, og $Y$ bestemmes sammen med renta av hele systemet.\n\n**Begrunnelsen.** Mandatet er fleksibel inflasjonsstyring: inflasjonen skal være lav og stabil nær målet over tid, og innenfor det skal banken bidra til stabil produksjon og sysselsetting.\n\n**Leddene.** $g_Y (Y-Y^n)/Y^n$: et positivt produksjonsgap betyr ledighet under likevektsledigheten, sterkere lønnsvekst og stigende prisvekst — Phillips-kurven er bakt inn i koeffisienten. Banken hever renta før inflasjonen er et faktum, fordi pengepolitikken virker med etterslep. Samme ledd ivaretar stabiliseringshensynet. $g_E Z^E$: en svakere krone løfter konsumprisveksten direkte gjennom dyrere importvarer, og øker aktiviteten gjennom bedret konkurranseevne; begge deler tilsier høyere rente. $g_\\pi Z^\\pi$: prisimpulser som ikke skyldes presset i økonomien, må også motvirkes, men avveid mot produksjonshensynet. $Z^i$: grunnivået, som fanger det nøytrale rentenivået og bevisste linjeskifter — og som også er der hensynet til finansielle ubalanser naturlig kommer inn.\n\n**Potensielt BNP.** $Y^n$ er nivået som er forenlig med stabil inflasjon, bestemt av arbeidsstyrke, produktivitet, kapital og lønns-/prisdannelse. Det er ikke observerbart og må anslås — en usikkerhet som er en av grunnene til at renta beveges gradvis.\n\n**Grafisk.** *Figur i ord:* i et $(Y,i)$-diagram er RR en stigende linje med helning $g_Y/Y^n$. Impulsene $Z^i$, $Z^E$ og $Z^\\pi$ skifter kurven loddrett; en endring i $Y$ flytter oss langs den. Et punkt $A$ markeres med stiplede hjelpelinjer til aksene, og $Y^n$ tegnes som en loddrett stiplet linje.\n\n**Konklusjon.** Regelen er en oppsummering av valgt politikk: hvert ledd svarer til et hensyn i mandatet, og koeffisientenes størrelse svarer til hvor tungt hvert hensyn veier."
+    },
+    {
+      "id": "econ2310-4-2-oppg-7",
+      "type": "exercise",
+      "exercise": {
+        "id": "econ2310-4-2-oppg-7",
+        "number": "7",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "(Sjanger F — mekanismespørsmål.)\n\nForklar hvorfor sentralbanken hever renta når krona svekkes, og pek på **to** atskilte grunner.",
+        "solution": "**Grunn 1 — direkte prisvirkning.** Importvarer inngår i konsumprisindeksen. Svakere krone gjør dem dyrere målt i kroner, så konsumprisveksten stiger nokså raskt, uten at noe har skjedd med presset i økonomien.\n\n**Grunn 2 — aktivitetsvirkningen.** Svakere krone bedrer konkurranseevnen, så eksporten stiger og importen faller. Høyere aktivitet gir lavere ledighet, høyere lønnsvekst og dermed prispress også på norske varer — denne veien går altså gjennom Phillips-kurven.\n\nBegge tilsier høyere rente. I regelen fanges den første og deler av den andre av $g_E Z^E$-leddet, mens aktivitetsvirkningen i tillegg slår inn gjennom $g_Y$-leddet når produksjonen faktisk stiger. Renteøkningen trekker samtidig krona tilbake, siden høyere norsk rente styrker krona — banken motvirker altså delvis impulsen den reagerer på.",
+        "hints": [
+          "Skill mellom prisene på importerte varer og prisene på norske varer.",
+          "Den ene grunnen virker med én gang, den andre går veien om aktiviteten."
+        ]
+      }
+    },
+    {
+      "id": "econ2310-4-2-oppg-8",
+      "type": "exercise",
+      "exercise": {
+        "id": "econ2310-4-2-oppg-8",
+        "number": "8",
+        "type": "classic",
+        "difficulty": "vanskelig",
+        "task": "(Sjanger F på eksamensnivå.)\n\nEn kandidat skriver: «Renteregelen viser hvordan renta bestemmes i markedet for lån, der tilbudet av sparing møter etterspørselen etter kreditt.»\n\n**a)** Hva er galt med denne forståelsen?\n\n**b)** Hvilke konsekvenser får feilen for en skiftanalyse?",
+        "solution": "**a)** Regelen beskriver ikke et marked, men én aktørs valg. Renta i modellen settes av sentralbanken ut fra et mandat, ikke av at sparing møter kredittetterspørsel. Feilen er ikke bare terminologisk: den fjerner selve begrunnelsen for relasjonen, og dermed det oppgaven ber om.\n\n**b)** Konsekvensene er konkrete. For det første klarer man ikke å forklare hvorfor $Z^E$ og $Z^\\pi$ i det hele tatt står i relasjonen — i en markedstolkning har importpriser ingen naturlig plass. For det andre mister man rentens *rolle* i skiftanalysen: sentralbankens respons er grunnen til at et etterspørselssjokk ikke slår fullt ut i produksjonen, og at et kurssjokk gir entydig høyere rente. For det tredje kan man ikke forklare hva som skifter kurven, siden et skift i en reaksjonsfunksjon betyr at banken har endret atferd.",
+        "hints": [
+          "Spør hvem som setter renta i denne modellen, og hvorfor.",
+          "Tenk gjennom hva du ikke ville klart å forklare i kap. 4.4 med markedstolkningen."
+        ]
+      }
+    },
+    {
+      "id": "econ2310-4-2-oppg-9",
+      "type": "exercise",
+      "exercise": {
+        "id": "econ2310-4-2-oppg-9",
+        "number": "9",
+        "type": "classic",
+        "difficulty": "vanskelig",
+        "task": "(Sjanger F på eksamensnivå — krevende.)\n\nAnta at sentralbanken legger vesentlig større vekt på inflasjonsmålet og mindre på stabil produksjon.\n\n**a)** Hva skjer med koeffisientene i regelen?\n\n**b)** Hva skjer med RR-kurven i diagrammet?\n\n**c)** Vil økonomien få mer eller mindre stabil produksjon? Begrunn — og si hva som taler mot at en slik omlegging uten videre er en forbedring.",
+        "solution": "**a)** Koeffisientene $g_Y$, $g_E$ og $g_\\pi$ blir **større**: banken svarer kraftigere på alt som truer inflasjonsmålet, enten det er et produksjonsgap, en kursimpuls eller en prisimpuls.\n\n**b)** RR blir **brattere**, siden helningen er $g_Y/Y^n$. En gitt endring i produksjonen utløser nå en større renteendring.\n\n**c)** Produksjonen blir **mindre** stabil, ikke mer. Med en brattere RR møtes ethvert etterspørselssjokk av en kraftigere rentebevegelse; inflasjonen holdes tettere på målet, men rentebanen — og dermed konsum, investeringer og valutakurs — svinger mer. Det er nettopp denne avveiningen ordet «fleksibel» i fleksibel inflasjonsstyring viser til.\n\nDet som taler mot omleggingen: mandatet inneholder stabil produksjon og sysselsetting som et selvstendig hensyn, og kostnaden ved store svingninger i ledighet er reell og skjevt fordelt. I tillegg er $Y^n$ usikkert anslått, så en bank som reagerer kraftig, reagerer også kraftig på egne målefeil. En kraftigere respons gir raskere inflasjonskontroll, men til en pris som mandatet uttrykkelig ber banken veie.",
+        "hints": [
+          "Start med hva koeffisientene faktisk måler — de er et resultat av bankens avveining.",
+          "Skriv opp helningen på RR før du svarer på b).",
+          "I c) må du veie to hensyn mot hverandre og lande — ikke bare liste dem."
+        ]
+      }
+    },
+    {
+      "id": "econ2310-4-2-warn-typiske-feil",
+      "type": "warning",
+      "title": "Typiske feil",
+      "content": "- **Behandle renteregelen som en markedsligning** (feil #6 i bokas feilregister — registeret er den samlede lista over de tolv feilene sensorene ser oftest). «Renta følger regelen» er ikke en forklaring; regelen skal begrunnes fra mandatet.\n- **Ikke kunne si hva som bestemmer $Y^n$.** Svaret er tilbudssiden — arbeidsstyrke, produktivitet, kapital og lønns-/prisdannelse — ikke etterspørselen. Dette er spurt direkte på eksamen.\n- **Glemme at Phillips-kurven ligger inne i $g_Y$.** Uten den er det uforklarlig hvorfor en bank med inflasjonsmål bryr seg om produksjonen i det hele tatt.\n- **Utelate kurs- og prisleddene** når banken reagerer på importert prispress. Da mister du hele forklaringen på hvorfor et kurssjokk skifter *to* kurver.\n- **Kalle $Y^n$ et kapasitetstak.** Produksjonen kan ligge over $Y^n$ — det koster tiltakende prisvekst, ikke fysisk umulighet.\n- **Blande $Z^i$ og $i$.** $Z^i$ er grunnivået i regelen (eksogent); $i$ er renta som faktisk settes (endogen)."
+    },
+    {
+      "id": "econ2310-4-2-warn-symbolvarsel",
+      "type": "warning",
+      "title": "NB: $g$ betyr noe annet her enn i Del 1",
+      "content": "I Del 1 av boka er $g$ **produktivitetsvekst** i vekstmodellen. I Del 4 er $g_Y$, $g_E$ og $g_\\pi$ **koeffisienter i renteregelen** — de er ikke vekstrater i det hele tatt, og de har ingen tidsdimensjon.\n\nEldre eksamenssett skriver de samme koeffisientene som $\\gamma$-er ($\\gamma_Y$, $\\gamma_E$, $\\gamma_\\pi$). Boka skriver konsekvent $g$-er, men du skal kjenne igjen $\\gamma$-varianten når den dukker opp — settene sier selv at du kan bruke din egen notasjon, så lenge du forklarer den. Samme bokstav $\\gamma$ brukes i enkelte eldre vekstsett som sparerate; det er en tredje betydning, og den hører hjemme i Del 1."
+    },
+    {
+      "id": "econ2310-4-2-begrepsbank-notis",
+      "type": "text",
+      "content": "## Begrepsbank\n\nBegrepsbanken er flashcard- og repetisjonsstoff — den gjentar det du nettopp har lest. Hopp trygt over ved førstegangslesing; tidsanslaget for kapitlet gjelder kjernestoffet."
+    },
+    {
+      "id": "econ2310-4-2-def-bb-1",
+      "type": "definition",
+      "title": "Inflasjonsmål",
+      "content": "Det tallfestede målet for prisveksten som sentralbanken styrer mot over tid. Målet er nominelt anker: det gir husholdninger, bedrifter og partene i arbeidslivet en felles forventning om prisveksten.\n\nI modellen ligger målet implisitt i renteregelen: koeffisientene er valgt slik at banken motvirker avvik. Selve talltørrelsen spiller ingen rolle for analysen — det som betyr noe, er at banken *reagerer*."
+    },
+    {
+      "id": "econ2310-4-2-def-bb-2",
+      "type": "definition",
+      "title": "Nøytralt rentenivå",
+      "content": "Det rentenivået som verken strammer til eller stimulerer økonomien når produksjonen er lik potensielt BNP og det ikke er impulser fra kurs eller priser.\n\nI regelen svarer dette til $Z^i$. At anslaget på nøytral rente endres, er en av de vanligste grunnene til at RR-kurven skifter uten at noe annet i økonomien har endret seg."
+    },
+    {
+      "id": "econ2310-4-2-def-bb-3",
+      "type": "definition",
+      "title": "Gradvishet i pengepolitikken",
+      "content": "Praksisen med å endre renta i små skritt framfor store sprang. Begrunnelsen er sammensatt: anslagene på $Y^n$ og på virkningene av renta er usikre, og store rentebevegelser kan skape ustabilitet i finansmarkedene og i husholdningenes økonomi.\n\nGradvisheten er ikke i strid med regelen — den er en av grunnene til at koeffisientene er moderate framfor svært store."
+    },
+    {
+      "id": "econ2310-4-2-def-bb-4",
+      "type": "definition",
+      "title": "Finansielle ubalanser",
+      "content": "Oppbygging av høy gjeld og høye eiendomspriser som gjør økonomien sårbar for tilbakeslag. Hensynet til å motvirke slik oppbygging er et tilleggsargument i rentesettingen.\n\nDet er ikke et selvstendig mål på linje med inflasjonsmålet, men kan tilsi at banken holder renta litt høyere enn inflasjons- og produksjonshensynet alene skulle tilsi. I modellen fanges det av $Z^i$."
+    },
+    {
+      "id": "econ2310-4-2-def-bb-5",
+      "type": "definition",
+      "title": "Pengepolitikkens etterslep",
+      "content": "At en renteendring bruker tid — typisk flere kvartaler — på å slå gjennom i konsum, investeringer, valutakurs og til slutt priser.\n\nEtterslepet er grunnen til at banken reagerer på produksjonsgapet, som er et *varsel* om inflasjon, framfor å vente til inflasjonen faktisk har endret seg. En bank som bare reagerte på observert inflasjon, ville systematisk komme for sent."
+    },
+    {
+      "id": "econ2310-4-2-def-bb-6",
+      "type": "definition",
+      "title": "Reaksjonsfunksjon mot likevektsbetingelse",
+      "content": "Et skille du bør kunne formulere presist. En **likevektsbetingelse** sier at to krefter møtes, slik som at samlet produksjon er lik samlet etterspørsel. En **reaksjonsfunksjon** sier hva en aktør velger å gjøre, gitt sine mål.\n\nIS er av den første typen, RR av den andre. Skillet avgjør hva det betyr at kurven skifter: IS skifter når etterspørselen endres, RR skifter når bankens vurderinger eller mandat endres."
+    },
+    {
+      "id": "econ2310-4-2-def-bb-7",
+      "type": "definition",
+      "title": "RR-kurvens helning",
+      "content": "Helningen på renteregelen i et $(Y,i)$-diagram er $g_Y/Y^n$, altså positiv: renta stiger med produksjonen.\n\nBrattere RR betyr at banken reagerer kraftigere på konjunkturene — enten fordi den vekter inflasjonsmålet tyngre, eller fordi Phillips-kurven er brattere slik at et gitt gap gir mer inflasjon."
+    },
+    {
+      "id": "econ2310-4-2-def-bb-8",
+      "type": "definition",
+      "title": "Skift i RR-kurven",
+      "content": "En loddrett forflytning av hele kurven, slik at renta blir en annen for ethvert produksjonsnivå. Skiftet utløses av endringer i $Z^i$, $Z^E$ eller $Z^\\pi$ — altså av grunnivået, kursimpulser eller prisimpulser.\n\nEn endring i $Y$ gir derimot ikke skift, men bevegelse langs kurven. Å blande de to er en klassisk kilde til feil i skiftanalysen."
+    },
+    {
+      "id": "econ2310-4-2-def-bb-9",
+      "type": "definition",
+      "title": "Konsumprisindeksen (KPI)",
+      "content": "Prisindeksen som måler hva husholdningene faktisk betaler, og som består av både importerte og norskproduserte varer og tjenester.\n\nSkillet er viktig i dette faget: en kronesvekkelse løfter KPI raskt gjennom importleddet, mens prisveksten på *norske* varer bare påvirkes indirekte, via aktivitet og lønnsvekst. Sammenblanding av de to er feil #4 i bokas feilregister."
+    },
+    {
+      "id": "econ2310-4-2-def-bb-10",
+      "type": "definition",
+      "title": "Importert prisvekst",
+      "content": "Den delen av prisveksten som skyldes dyrere importvarer, enten fordi krona er svekket eller fordi prisene ute har steget.\n\nDen treffer konsumprisindeksen direkte og er en av hovedgrunnene til at kursimpulser står i renteregelen. Merk at importert prisvekst ikke i seg selv sier noe om presset i norsk økonomi."
+    },
+    {
+      "id": "econ2310-4-2-def-bb-11",
+      "type": "definition",
+      "title": "Konjunkturstabilisering",
+      "content": "Politikk som demper svingningene i produksjon og sysselsetting rundt det bærekraftige nivået. Pengepolitikken er førstelinjeforsvaret, fordi renta kan endres raskt og treffer bredt.\n\nStabilisering betyr å dempe, ikke å oppheve: renteresponsen fjerner ikke et etterspørselssjokk, den demper virkningen av det. Denne presiseringen er verdt poeng i skiftanalysen."
+    },
+    {
+      "id": "econ2310-4-2-def-bb-12",
+      "type": "definition",
+      "title": "Styringsrenta",
+      "content": "Renta sentralbanken faktisk fastsetter — renta bankene får på sine innskudd over natten i sentralbanken. Den smitter over på pengemarkedsrenter og videre på lånerenter og innskuddsrenter for husholdninger og bedrifter.\n\nI modellen skiller vi ikke mellom styringsrente og utlånsrente: $i$ representerer rentenivået i økonomien. Gjennomslaget er i praksis ikke fullstendig, men forenklingen er uproblematisk for analysen."
+    },
+    {
+      "id": "econ2310-4-2-def-bb-13",
+      "type": "definition",
+      "title": "Kausalkjeden aktivitet → ledighet → lønn → pris",
+      "content": "Kjeden som gjør at produksjonen har noe å si for inflasjonen: høyere aktivitet krever mer arbeidskraft, ledigheten faller, arbeidstakernes forhandlingsposisjon styrkes, lønnsveksten stiger, og bedriftene velter kostnadene over i prisene.\n\nDette er innholdet i Phillips-kurvens $\\beta$. Kjeden må gjengis i riktig retning: å skrive at høyere produksjon gir *høyere* ledighet, snur hele analysen."
+    },
+    {
+      "id": "econ2310-4-2-def-bb-14",
+      "type": "definition",
+      "title": "Pengepolitisk troverdighet",
+      "content": "At husholdninger, bedrifter og partene i arbeidslivet stoler på at banken faktisk vil holde inflasjonen nær målet over tid.\n\nTroverdighet gjør jobben lettere: forventes prisveksten å komme tilbake til målet, blir lønnskravene mer moderate, og banken trenger mindre renteendring for samme resultat. Modellen behandler ikke forventningsdannelsen eksplisitt, men troverdighet er en av grunnene til at koeffisientene i regelen kan være moderate."
+    },
+    {
+      "id": "econ2310-4-2-def-bb-15",
+      "type": "definition",
+      "title": "Endogen rente",
+      "content": "At renta bestemmes inne i modellen framfor å være gitt utenfra. I ECON1310 var renta ofte eksogen i de enkleste modellene; her er den endogen, fordi renteregelen bestemmer den sammen med IS-relasjonen.\n\nKonsekvensen er at ethvert sjokk automatisk utløser en pengepolitisk respons. Å glemme denne responsen er en av de vanligste feilene i skiftanalyse."
+    },
+    {
+      "id": "econ2310-4-2-rep",
+      "type": "collapsible",
+      "title": "Repetisjon: sjekk at dette sitter",
+      "buttonText": "Vis repetisjonsspørsmål",
+      "content": [
+        {
+          "id": "econ2310-4-2-oppg-R1",
+          "type": "exercise",
+          "exercise": {
+            "id": "econ2310-4-2-oppg-R1",
+            "number": "R1",
+            "type": "classic",
+            "difficulty": "lett",
+            "task": "Skriv opp renteregelen og si med én setning hva hvert ledd reagerer på.",
+            "solution": "$i = Z^i + g_Y (Y-Y^n)/Y^n + g_E Z^E + g_\\pi Z^\\pi$. $Z^i$ er grunnivået, $g_Y$-leddet reagerer på produksjonsgapet, $g_E$-leddet på kursimpulser og $g_\\pi$-leddet på prisimpulser.",
+            "hints": [
+              "Fire ledd: ett grunnivå og tre ting banken reagerer på."
+            ]
+          }
+        },
+        {
+          "id": "econ2310-4-2-oppg-R2",
+          "type": "exercise",
+          "exercise": {
+            "id": "econ2310-4-2-oppg-R2",
+            "number": "R2",
+            "type": "classic",
+            "difficulty": "lett",
+            "task": "Hva er sammenhengen mellom likevektsledigheten og potensielt BNP?",
+            "solution": "De er to sider av samme sak: potensielt BNP er produksjonsnivået som svarer til at ledigheten er lik likevektsledigheten. Begge er bestemt av tilbudssiden og av hvordan lønns- og prisdannelsen fungerer.",
+            "hints": [
+              "Tenk på hvilket produksjonsnivå som hører til en gitt ledighetsrate."
+            ]
+          }
+        },
+        {
+          "id": "econ2310-4-2-oppg-R3",
+          "type": "exercise",
+          "exercise": {
+            "id": "econ2310-4-2-oppg-R3",
+            "number": "R3",
+            "type": "classic",
+            "difficulty": "middels",
+            "task": "Hvorfor er det galt å si at renteregelen «bestemmer renta uavhengig av økonomien»?",
+            "solution": "Fordi renta i regelen avhenger av produksjonen, som selv bestemmes av modellen. Regelen bestemmer renta *gitt* hva som skjer i økonomien, og produksjonen bestemmes samtidig av IS-relasjonen. Renta og produksjonen finnes altså sammen, i skjæringspunktet mellom de to relasjonene.",
+            "hints": [
+              "Hvor mange endogene variabler står i regelen?"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": "econ2310-4-2-symbolliste",
+      "type": "collapsible",
+      "title": "Symbol- og formelliste",
+      "buttonText": "Vis symboler og formler",
+      "content": [
+        {
+          "id": "econ2310-4-2-symbolliste-tekst",
+          "type": "text",
+          "content": "## Symbol- og formelliste\n\n*Oppslagsverk — alt her forklares underveis i kapitlet.*\n\n| Symbol | Betydning |\n|---|---|\n| $i$ | Nominell rente — **endogen**, satt av sentralbanken etter regelen |\n| $Y$ | Produksjon / BNP — **endogen** |\n| $Y^n$ | Potensielt BNP — produksjonsnivået forenlig med stabil inflasjon (eksogen) |\n| $(Y-Y^n)/Y^n$ | Produksjonsgapet |\n| $Z^i$ | Grunnivået i regelen: nøytral rente, linjeskifte, finansielle ubalanser — eksogen |\n| $Z^E$ | Valutakursimpuls (utenlandsk rente, forventet langsiktskurs, risikopremie) — eksogen |\n| $Z^\\pi$ | Prisimpuls utenfra — eksogen |\n| $g_Y$ | Rentens respons på produksjonsgapet, $g_Y>0$ |\n| $g_E$ | Rentens respons på kursimpulser, $g_E>0$ |\n| $g_\\pi$ | Rentens respons på prisimpulser, $g_\\pi>0$ |\n| $\\beta$ | Phillips-kurvens helning — ligger bak størrelsen på $g_Y$ |\n| $\\pi$ | Inflasjon |\n| $E$ | Valutakurs; høyere $E$ = svakere krone |\n\n**Merk symbolbruken i dette kapitlet:** $g_Y$, $g_E$ og $g_\\pi$ er **koeffisienter**, ikke vekstrater — $g$ som produktivitetsvekst hører til Del 1. Eldre sett skriver de samme koeffisientene som $\\gamma$-er. $k$ og $\\alpha$ brukes ikke i dette kapitlet.\n\n**Formler i dette delkapitlet:**\n\n$$i = Z^i + g_Y\\,\\frac{Y-Y^n}{Y^n} + g_E\\,Z^E + g_\\pi\\,Z^\\pi$$\n\nRenteregelen: sentralbankens reaksjonsfunksjon, begrunnet fra mandatet.\n\n$$\\pi = Z^\\pi + \\beta\\,\\frac{Y-Y^n}{Y^n}$$\n\nPhillips-kurven — grunnen til at banken reagerer på produksjonsgapet.\n\n$$\\text{Helning på RR} = \\frac{g_Y}{Y^n} > 0$$\n\nBrattere RR = kraftigere konjunkturrespons fra banken."
+        }
+      ]
+    }
+  ],
+  "exercises": []
+}
