@@ -1718,7 +1718,7 @@ def f1_axes(xlab, ylab, xmax=XMAX, ytop=YTOP, xnote=None, ynote=None):
     b += f1_lab(xmax + 3, OY + 6, xlab)
     b += f1_lab(OX - 16, ytop - 5, ylab)
     if xnote:
-        b += txt(xmax + 3, OY + 20, xnote, GREY, 10.5, False, anchor='end')
+        b += txt(xmax + 3, OY + 32, xnote, GREY, 10.5, False, anchor='end')
     if ynote:
         b += txt(OX + 8, ytop + 12, ynote, GREY, 10.5, False)
     return b
@@ -1802,6 +1802,14 @@ def f1_ybracket(S, y0, y1, xpix, label, col=INK, size=10.5, dx=6):
     b += line((xpix-4, ya), (xpix+4, ya), col, 1.4)
     b += line((xpix-4, yb), (xpix+4, yb), col, 1.4)
     b += txt(xpix+dx, (ya+yb)/2+4, label, col, size, False)
+    return b
+
+
+def f1_legend(S, x, y, lines, size=10, color=INK, dy=12.5):
+    """Liten punktliste plassert ved datapunktet (x, y), linjer nedover."""
+    b = ''
+    for i, t in enumerate(lines):
+        b += txt(S.px(x), S.py(y) + i*dy, t, color, size, False)
     return b
 
 
@@ -1892,15 +1900,15 @@ def f1_del1(out):
     b += f1_axes(('c', '1'), ('c', '2'))
     for lv, w in ((4.0, 1.8), (6.0, 2.8), (8.0, 1.8)):
         b += f1_cd(S, a, (lv, lv), PUR, w)
-    b += f1_lab(S.px(11.2), S.py(36.0/11.2)+16, ('ū = 4', ''), PUR, 12)
-    b += txt(S.px(6.6), S.py(36.0/6.6)-8, 'ū = 6', PUR, 13, True)
-    b += txt(S.px(9.4), S.py(64.0/9.4)-8, 'ū = 8', PUR, 12, True)
+    b += txt(S.px(11.2), S.py(16.0/11.2)+16, 'ū = 4', PUR, 12, True)
+    b += txt(S.px(8.9), S.py(36.0/8.9)-8, 'ū = 6', PUR, 13, True)
+    b += txt(S.px(11.6), S.py(64.0/11.6)-8, 'ū = 8', PUR, 12, True)
     b += line(S.p(*A), S.p(*B), INK, 1.5, '5 3')
     b += f1_pt(S, A, 'A', -18, -8, True, '4', '9')
     b += f1_pt(S, B, 'B', 9, 16, True, '9', '4')
     b += f1_pt(S, M, 'M', 9, -9, True, '6,5', '6,5')
-    b += txt(S.px(7.2), S.py(8.3), 'M ligger over kurven', INK, 10.5, False)
-    b += txt(S.px(7.2), S.py(7.6), '— blandingen er bedre', INK, 10.5, False)
+    b += f1_legend(S, 1.2, 2.6, ['M ligger over kurven:',
+                                 'blandingen av A og B er bedre'], 10.5)
     b += arrow(S.p(10.8, 9.2), S.p(12.6, 11.4), GRN, 1.7)
     b += txt(S.px(10.0), S.py(11.9), 'høyere nytte', GRN, 11.5, False)
     save('econ2220-1-2-indifferenskurver-konveksitet', b, out)
@@ -1928,7 +1936,7 @@ def f1_del1(out):
     b += txt(S.px(2.6), S.py(10.1), 'bratt tangent', RED, 10.5, False)
     b += txt(S.px(11.0), S.py(6.2), 'MSB = 0,25 i B', BLUE, 12, False)
     b += txt(S.px(11.0), S.py(5.4), 'slak tangent', BLUE, 10.5, False)
-    b += txt(S.px(6.2), S.py(1.3), 'tangenten blir slakere mot høyre', GREY, 10.5, False)
+    b += txt(S.px(1.6), S.py(1.4), 'tangenten blir slakere mot høyre', GREY, 10.5, False)
     save('econ2220-1-2-msb-avtakende', b, out)
     n += 1
 
@@ -2035,18 +2043,17 @@ def f1_del2(out):
                'punktene til aksene.')
     b += f1_axes(('c', '1'), ('c', '2'))
     b += f1_bline(S, xi, yi, INK, 2.4)
-    b += f1_cd(S, aR, P, PUR, 1.8, '6 4')
+    b += f1_cd_arc(S, aR, P, 4.0, PUR, 2.0, '6 4')
     b += f1_cd(S, aR, R, PUR, 2.7)
-    b += f1_cd(S, aR, Q, PUR, 1.8, '6 4')
-    b += f1_pt(S, P, 'P', -20, -10, True, '5', '30')
-    b += f1_pt(S, R, 'R', 10, -10, True, '8', '24')
-    b += f1_pt(S, Q, 'Q', 10, 16, True, '12', '16')
+    b += f1_cd_arc(S, aR, Q, 5.0, PUR, 2.0, '6 4')
+    b += f1_pt(S, P, 'P', -22, -6, True, '5', '30')
+    b += f1_pt(S, R, 'R', 11, -11, True, '8', '24')
+    b += f1_pt(S, Q, 'Q', 12, 18, True, '12', '16')
     b += arrow(S.p(6.1, yi-(p1/p2)*6.1), S.p(7.1, yi-(p1/p2)*7.1), GRN, 1.7, None, 7)
     b += arrow(S.p(10.9, yi-(p1/p2)*10.9), S.p(9.1, yi-(p1/p2)*9.1), GRN, 1.7, None, 7)
-    b += txt(S.px(2.0), S.py(41.0), 'MSB = 4 > 2: kjøp mer av vare 1', PUR, 10.5, False)
-    b += txt(S.px(11.6), S.py(10.0), 'MSB < 2: kjøp mindre', PUR, 10.5, False)
-    b += txt(S.px(9.3), S.py(31.5), 'R: MSB = 2 = p₁/p₂', GRN, 11.5, False)
-    b += txt(S.px(9.3), S.py(29.0), 'optimum', GRN, 11.5, False)
+    b += txt(S.px(1.4), S.py(41.5), 'i P: MSB = 4 > 2 — kjøp mer av vare 1', PUR, 10.5, False)
+    b += txt(S.px(12.4), S.py(11.0), 'i Q: MSB < 2 — kjøp mindre', PUR, 10.5, False)
+    b += f1_legend(S, 10.6, 33.0, ['R: MSB = 2 = p₁/p₂', 'altså optimum'], 11.5, GRN, 14.0)
     save('econ2220-2-1-ikke-optimale-punkter', b, out)
     n += 1
 
@@ -2070,9 +2077,11 @@ def f1_del2(out):
     b += f1_pt(S, (m1, c1a), '', 0, 0, True, '8 000', '62,2')
     b += f1_pt(S, (m2, c1b), '', 0, 0, True, '12 000', '93,3')
     b += txt(S.px(9700.0), S.py(hell*9700.0)-10, 'Engel-kurven', BLUE, 12.5, False)
-    b += txt(S.px(700.0), S.py(96.0), '∂c₁/∂m = a/p₁ = 0,35/45 ≈ 0,0078 > 0', INK, 11.5, False)
-    b += txt(S.px(700.0), S.py(88.0), 'billetter per ekstra krone — altså et normalt gode', GREY, 10.5, False)
-    b += txt(S.px(700.0), S.py(78.0), 'gjennom origo: budsjettandelen står stille', GREY, 10.5, False)
+    b += txt(S.px(500.0), S.py(106.0), '∂c₁/∂m = a/p₁ = 0,35/45 ≈ 0,0078 > 0', INK, 11, False)
+    b += f1_legend(S, 500.0, 98.0,
+                   ['billetter per ekstra krone', '— altså et normalt gode.',
+                    'Linja går gjennom origo:', 'budsjettandelen står stille.'],
+                   10, GREY, 12.0)
     save('econ2220-2-2-engelkurve-normalitet', b, out)
     n += 1
 
@@ -2099,11 +2108,14 @@ def f1_del2(out):
     b += line(S.p(*Eb), S.p(*E), INK, 1.6, '4 3')
     b += f1_pt(S, E, 'E', 10, -10, True, '100', '50')
     b += f1_pt(S, Eb, 'E′', 10, 16, True, None, '25')
-    b += txt(OX-6, S.py(100.0)+4, 'm/p₂ = 100', GREY, 11, False, anchor='end')
-    b += txt(S.px(200.0), OY+16, 'm/p₁ = 200', GREY, 11, False, anchor='middle')
-    b += txt(S.px(106.0), S.py(37.0), 'c₁ uendret', INK, 11.5, False)
-    b += txt(S.px(120.0), S.py(64.0), 'gammel linje', GREY, 11, False)
-    b += txt(S.px(128.0), S.py(18.0), 'ny linje (p₂ doblet)', RED, 11, False)
+    b += txt(OX-6, S.py(100.0)+4, '100', GREY, 11, False, anchor='end')
+    b += txt(S.px(200.0), OY+16, '200', GREY, 11, False, anchor='middle')
+    b += txt(S.px(105.0), S.py(38.0), 'c₁ uendret', INK, 11.5, False)
+    b += txt(S.px(126.0), S.py(66.0), 'gammel linje', GREY, 11, False)
+    b += txt(S.px(14.0), S.py(27.0), 'ny linje (p₂ doblet)', RED, 11, False)
+    b += f1_legend(S, 6.0, 13.0,
+                   ['m/p₁ = 200 er uendret (p₁ står stille),',
+                    'mens m/p₂ faller fra 100 til 50 når p₂ dobles'], 10, GREY, 12.0)
     save('econ2220-2-2-krysspris-uavhengighet', b, out)
     n += 1
 
@@ -2164,15 +2176,16 @@ def f1_del2(out):
     b += f1_bline(S, m/p1, m/p2, GREY, 2.4, '6 4')
     b += f1_bline(S, ms/p1b, ms/p2, INK, 2.0, '2 3')
     b += f1_pt(S, A, 'A', 12, -10, True, '300', None)
-    b += f1_ybracket(S, m/p2, ms/p2, OX-34,
-                     'kompensasjonen', ORG, 10.5, -6)
-    b += txt(OX-30, S.py(0.5*(m/p2 + ms/p2))+18, 'Δp₁ · c₁ = 1 · 300 = 300 kr', ORG, 10.5, False, anchor='end')
+    b += f1_ybracket(S, m/p2, ms/p2, OX+16, '', ORG, 10.5, 0)
+    b += f1_legend(S, 122.0, 296.0,
+                   ['kompensasjonen:', 'Δp₁ · c₁ = 1 · 300 = 300 kr',
+                    '= 60 enheter av vare 2'], 10.5, ORG, 12.0)
     b += txt(OX-6, S.py(m/p2)+4, '240', GREY, 11, False, anchor='end')
     b += txt(OX-6, S.py(ms/p2)+4, '300', GREY, 11, False, anchor='end')
     b += txt(S.px(430.0), S.py(105.0), 'opprinnelig linje', GREY, 11, False)
     b += txt(S.px(330.0), S.py(215.0), 'kompensert linje:', INK, 11, False)
     b += txt(S.px(330.0), S.py(196.0), 'ny helning, gjennom A', INK, 11, False)
-    b += txt(S.px(28.0), S.py(30.0), 'de nye, overkommelige kurvene ligger til venstre for A', GREY, 10.5, False)
+    b += txt(S.px(28.0), S.py(24.0), 'de nye, overkommelige kurvene ligger til venstre for A', GREY, 10.5, False)
     save('econ2220-2-3-slutsky-kompensasjon', b, out)
     n += 1
 
@@ -2212,13 +2225,13 @@ def f1_del2(out):
     b += f1_pt(S, Sp, 'S', 11, 16, True, '40', '40')
     b += f1_pt(S, K, 'K', 11, -10, True, '25', '100')
     b += f1_arrow_pts(S, Sp, K, '', GRN, 0, 0, 11, 2.0)
-    b += txt(S.px(29.0), S.py(78.0), 'høyere nytte', GRN, 11, False)
-    b += txt(S.px(46.0), S.py(24.0), 'subsidielinje (helning −1)', BLUE, 10.5, False)
-    b += txt(S.px(30.0), S.py(160.0), 'kontantstøtte:', RED, 11, False)
-    b += txt(S.px(30.0), S.py(146.0), 'helning −4 gjennom S', RED, 11, False)
-    b += txt(S.px(44.0), S.py(58.0), 'kurven gjennom S tangerer', INK, 10, False)
-    b += txt(S.px(44.0), S.py(48.0), 'subsidielinja, men skjærer', INK, 10, False)
-    b += txt(S.px(44.0), S.py(38.0), 'kontantstøttelinja', INK, 10, False)
+    b += txt(S.px(15.0), S.py(70.0), 'høyere nytte', GRN, 11, False)
+    b += txt(S.px(56.0), S.py(11.0), 'subsidielinje (helning −1)', BLUE, 10.5, False)
+    b += txt(S.px(31.0), S.py(163.0), 'kontantstøtte:', RED, 11, False)
+    b += txt(S.px(31.0), S.py(149.0), 'helning −4 gjennom S', RED, 11, False)
+    b += f1_legend(S, 50.0, 118.0,
+                   ['kurven gjennom S tangerer', 'subsidielinja, men skjærer',
+                    'kontantstøttelinja'], 10)
     save('econ2220-2-4-subsidie-mot-kontantstotte', b, out)
     n += 1
     return n
@@ -2245,11 +2258,11 @@ def f1_del3(out):
                'merket at hun selger vare én, delen til høyre at hun kjøper vare én.')
     b += f1_axes(('c', '1'), ('c', '2'), xnote='gulrøtter, kg', ynote='poteter, kg')
     b += f1_bline(S, xi, yi, INK, 2.6)
-    b += f1_pt(S, W, 'W', 12, 16, True, '200', '150')
+    b += f1_pt(S, W, 'W', -24, 18, True, '200', '150')
     b += arrow(S.p(170.0, yi-1.5*170.0+22.0), S.p(90.0, yi-1.5*90.0+22.0), GRN, 1.6, None, 7)
     b += txt(S.px(96.0), S.py(yi-1.5*130.0+52.0), 'selger vare 1', GRN, 11.5, False)
-    b += arrow(S.p(230.0, yi-1.5*230.0+22.0), S.p(285.0, yi-1.5*285.0+22.0), RED, 1.6, None, 7)
-    b += txt(S.px(224.0), S.py(yi-1.5*258.0+52.0), 'kjøper vare 1', RED, 11.5, False)
+    b += arrow(S.p(232.0, yi-1.5*232.0+18.0), S.p(287.0, yi-1.5*287.0+18.0), RED, 1.6, None, 7)
+    b += txt(S.px(228.0), S.py(yi-1.5*262.0+60.0), 'kjøper vare 1', RED, 11.5, False)
     b += txt(S.px(150.0), S.py(430.0), 'helning −p₁/p₂ = −1,5', INK, 11.5, False)
     b += txt(S.px(150.0), S.py(400.0), 'linja går alltid gjennom W', GREY, 10.5, False)
     save('econ2220-3-1-beholdningsbudsjett', b, out)
@@ -2270,13 +2283,13 @@ def f1_del3(out):
     b += f1_axes(('c', '1'), ('c', '2'), xnote='gulrøtter, kg', ynote='poteter, kg')
     b += f1_bline(S, xi, yi, GREY, 2.2, '6 4')
     b += f1_bline(S, xib, yib, RED, 2.6)
-    b += f1_pt(S, W, 'W', 13, 17, True, '200', '150')
+    b += f1_pt(S, W, 'W', -24, 19, True, '200', '150')
     b += f1_rotarrow(S, W, 30, -18, -150)
-    b += txt(S.px(64.0), S.py(560.0), 'ny linje: helning −2', RED, 11.5, False)
-    b += txt(S.px(150.0), S.py(410.0), 'gammel linje: helning −1,5', GREY, 11, False)
-    b += txt(S.px(214.0), S.py(148.0), 'rotasjon om W', ORG, 11, False)
-    b += txt(S.px(28.0), S.py(600.0), 'over den gamle til venstre for W,', GREY, 10.5, False)
-    b += txt(S.px(28.0), S.py(572.0), 'under den til høyre', GREY, 10.5, False)
+    b += txt(S.px(36.0), S.py(516.0), 'ny linje: helning −2', RED, 11.5, False)
+    b += txt(S.px(150.0), S.py(414.0), 'gammel linje: helning −1,5', GREY, 11, False)
+    b += txt(S.px(222.0), S.py(122.0), 'rotasjon om W', ORG, 11, False)
+    b += f1_legend(S, 14.0, 250.0, ['den nye linja ligger over den gamle',
+                                    'til venstre for W, og under den til høyre'], 10.5, GREY)
     save('econ2220-3-1-rotasjon', b, out)
     n += 1
 
@@ -2296,7 +2309,7 @@ def f1_del3(out):
     b += f1_axes(('c', '1'), ('c', '2'), xnote='gulrøtter, kg', ynote='poteter, kg')
     b += f1_bline(S, xi, yi, INK, 2.4)
     b += f1_cd(S, a, E, PUR, 2.6)
-    b += f1_pt(S, W, 'W', 13, 17, True, '200', '150')
+    b += f1_pt(S, W, 'W', 13, 19, True, '200', '150')
     b += f1_pt(S, E, 'E', -22, -11, True, '120', '270')
     b += dblarrow((S.px(E[0]), OY+26), (S.px(W[0]), OY+26), GRN, 1.5, 7)
     b += txt(0.5*(S.px(E[0])+S.px(W[0])), OY+42, 'selger 80 kg', GRN, 11, False, anchor='middle')
@@ -2356,11 +2369,10 @@ def f1_del3(out):
     b += f1_xarrow(S, A[0], B[0], OY+30, 'SE = −3,5 kg', GRN)
     b += f1_xarrow(S, B[0], C[0], OY+56, 'IE samlet = +2,5 kg', BLUE)
     b += txt(S.px(5.0), S.py(176.0), 'ny linje (p₁ opp): helning −2,5', RED, 11, False)
-    b += txt(S.px(41.0), S.py(34.0), 'kompensert linje (m° = 157,5)', INK, 10, False)
+    b += txt(S.px(8.0), S.py(46.0), 'kompensert linje (m° = 157,5)', INK, 10, False)
     b += txt(S.px(46.0), S.py(62.0), 'gammel linje', GREY, 10.5, False)
-    b += txt(S.px(3.0), S.py(112.0), 'A = (35; 70)', INK, 10, False)
-    b += txt(S.px(3.0), S.py(100.0), 'B = (31,5; 78,75)', INK, 10, False)
-    b += txt(S.px(3.0), S.py(88.0), 'C = (34; 85)', INK, 10, False)
+    b += f1_legend(S, 3.0, 30.0, ['A = (35; 70)', 'B = (31,5; 78,75)',
+                                 'C = (34; 85)'], 10)
     save('econ2220-3-2-slutsky-beholdning', b, out)
     n += 1
 
@@ -2378,17 +2390,19 @@ def f1_del3(out):
     b += f1_bline(S, ms/r1, ms, INK, 1.6, '2 3')
     b += f1_bline(S, m/r1, m, '#8a8a8a', 1.3, '1 3')
     b += f1_bline(S, mb/r1, mb, RED, 2.2)
-    b += f1_pt(S, W2, 'W', 12, 17, True, '60', '20')
-    b += f1_pt(S, A, 'A', 11, 15, True, '35', None)
-    b += f1_pt(S, B, 'B', -8, -12, True, '31,5', None)
-    b += f1_pt(S, Bp, 'B′', -24, -9, True, '28', '70')
-    b += f1_pt(S, C, 'C', 10, -10, True, '34', '85')
+    b += f1_pt(S, W2, 'W', 12, 19, True, '60', '20')
+    b += f1_pt(S, A, 'A', -9, 19, True, None, None)
+    b += f1_pt(S, B, 'B', -20, -9, True, None, None)
+    b += f1_pt(S, Bp, 'B′', -25, -9, True, None, '70')
+    b += f1_pt(S, C, 'C', 10, -10, True, None, '85')
     b += f1_xarrow(S, B[0], Bp[0], OY+30, 'ordinær IE = −3,5 kg', BLUE)
     b += f1_xarrow(S, Bp[0], C[0], OY+56, 'beholdnings-IE = +6 kg', GRN)
-    b += txt(S.px(1.5), S.py(178.0), 'ny linje: helning −2,5 gjennom W', RED, 10.5, False)
-    b += txt(S.px(20.0), S.py(148.0), 'kompensert (m° = 157,5)', INK, 10, False)
-    b += txt(S.px(36.0), S.py(112.0), 'hjelpelinje: ny helning,', '#6f6f6f', 10, False)
-    b += txt(S.px(36.0), S.py(103.0), 'gammel pengeinntekt 140', '#6f6f6f', 10, False)
+    b += txt(S.px(13.0), S.py(172.0), 'ny linje: helning −2,5 gjennom W', RED, 10.5, False)
+    b += txt(S.px(13.0), S.py(151.0), 'kompensert linje (m° = 157,5)', INK, 10, False)
+    b += txt(S.px(38.0), S.py(116.0), 'hjelpelinje: ny helning,', '#6f6f6f', 10, False)
+    b += txt(S.px(38.0), S.py(106.0), 'gammel pengeinntekt 140', '#6f6f6f', 10, False)
+    b += f1_legend(S, 2.0, 52.0, ['A = (35; 70)', 'B = (31,5; 78,75)',
+                                  'B′ = (28; 70)', 'C = (34; 85)'], 10)
     save('econ2220-3-2-to-inntektseffekter', b, out)
     n += 1
 
@@ -2422,8 +2436,8 @@ def f1_del3(out):
     b += f1_pt(S, Ak, 'A', 12, 15, True, '52,5', '105')
     b += f1_pt(S, Ck, 'C', -22, -10, True, '43', None)
     b += f1_rotarrow(S, W3, 26, 20, 140)
-    b += txt(S.px(60.0), S.py(72.0), 'her tilpasser hun seg —', ORG, 10.5, False)
-    b += txt(S.px(60.0), S.py(60.0), 'ny linje ligger under', ORG, 10.5, False)
+    b += txt(S.px(56.0), S.py(64.0), 'her tilpasser hun seg —', ORG, 10.5, False)
+    b += txt(S.px(56.0), S.py(52.0), 'ny linje ligger under', ORG, 10.5, False)
     b += txt(S.px(30.0), S.py(206.0), 'netto kjøper: A til høyre for W', GREY, 10.5, False)
     b += txt(S.px(30.0), S.py(194.0), 'og C på lavere kurve enn A', GREY, 10.5, False)
     save('econ2220-3-2-nettokjoper', b, out)
@@ -2454,9 +2468,9 @@ def f1_del3(out):
     b += f1_bline(S, Wnv, Wnv*(1+r), INK, 2.4)
     b += f1_cd(S, a, E, PUR, 2.6)
     b += f1_pt(S, Y, '', 0, 0, True, '500', '210')
-    b += txt(S.px(516.0), S.py(232.0), 'inntektspunktet (500, 210)', INK, 10.5, False)
-    b += txt(S.px(516.0), S.py(206.0), '— konsumér inntekten', GREY, 10, False)
-    b += txt(S.px(516.0), S.py(184.0), 'som den kommer', GREY, 10, False)
+    b += f1_legend(S, 528.0, 150.0,
+                   ['inntektspunktet (500, 210):', 'konsumér inntekten',
+                    'som den kommer'], 10.5)
     b += f1_pt(S, E, 'E', -22, -11, True, '350', '367,5')
     b += dblarrow((S.px(E[0]), OY+26), (S.px(Y[0]), OY+26), GRN, 1.5, 7)
     b += txt(0.5*(S.px(E[0])+S.px(Y[0])), OY+42, 'sparing 150', GRN, 11, False, anchor='middle')
@@ -2500,16 +2514,19 @@ def f1_del3(out):
     b += f1_cd(S, a, C, PUR, 2.0)
     b += f1_cd_arc(S, a, B, 95.0, PUR, 1.8, '5 3')
     b += f1_pt(S, Y, '', 0, 0, True, '500', '210')
-    b += txt(S.px(514.0), S.py(236.0), 'inntektspunktet', INK, 10.5, False)
-    b += f1_pt(S, A, 'A', 12, 16, True, '350', None)
-    b += f1_pt(S, B, 'B', -22, -9, True, '322', None)
-    b += f1_pt(S, C, 'C', 11, -11, True, '334', '417,5')
+    b += txt(S.px(516.0), S.py(188.0), 'inntektspunktet', INK, 10.5, False)
+    b += f1_pt(S, A, 'A', 12, 18, True, '350', None)
+    b += f1_pt(S, B, 'B', -22, -9, True, None, None)
+    b += f1_pt(S, C, 'C', 11, -11, True, None, '417,5')
     b += f1_rotarrow(S, Y, 28, -20, -145)
-    b += f1_xarrow(S, A[0], B[0], OY+30, 'SE', GRN)
-    b += f1_xarrow(S, B[0], C[0], OY+56, 'IE', BLUE)
-    b += txt(S.px(20.0), S.py(872.0), 'ny linje: helning −1,25', RED, 11, False)
-    b += txt(S.px(20.0), S.py(838.0), 'sparerens side — ny linje ligger over', ORG, 10.5, False)
-    b += txt(S.px(330.0), S.py(636.0), 'kompensert linje gjennom A', INK, 10, False)
+    b += txt(S.px(150.0), OY+36, 'SE: 350 → 322 (−28 kr)', GRN, 10.5, False)
+    b += txt(S.px(150.0), OY+52, 'IE: 322 → 334 (+12 kr)', BLUE, 10.5, False)
+    b += txt(S.px(150.0), OY+68, 'til sammen −16 kr konsum i dag', INK, 10.5, False)
+    b += txt(S.px(150.0), S.py(806.0), 'ny linje: helning −1,25', RED, 11, False)
+    b += txt(S.px(150.0), S.py(766.0), 'sparerens side — ny linje ligger over', ORG, 10.5, False)
+    b += txt(S.px(150.0), S.py(726.0), 'kompensert linje: gjennom A, ny helning', INK, 10, False)
+    b += f1_legend(S, 2.0, 168.0, ['A = (350; 367,5)', 'B = (322; 402,5)',
+                                   'C = (334; 417,5)'], 10)
     save('econ2220-3-3-renterotasjon', b, out)
     n += 1
 
@@ -2542,15 +2559,16 @@ def f1_del3(out):
     b += f1_cd(S, a, Al, PUR, 2.4)
     b += f1_cd(S, a, Cl, PUR, 2.0, '5 3')
     b += f1_pt(S, (n1, n2), '', 0, 0, True, '240', '630')
-    b += txt(S.px(250.0), S.py(660.0), 'inntektspunktet (240, 630)', INK, 10.5, False)
-    b += f1_pt(S, Al, 'A', 12, 16, True, '420', '441')
-    b += f1_pt(S, Cl, 'C', -22, -11, True, '372', None)
+    b += txt(S.px(266.0), S.py(676.0), 'inntektspunktet (240, 630)', INK, 10.5, False)
+    b += f1_pt(S, Al, 'A', 12, 18, True, '420', '441')
+    b += f1_pt(S, Cl, 'C', -23, -11, True, None, None)
     b += f1_rotarrow(S, (n1, n2), 27, 16, 142)
-    b += txt(S.px(470.0), S.py(300.0), 'låntakerens side —', ORG, 10.5, False)
-    b += txt(S.px(470.0), S.py(262.0), 'ny linje ligger under', ORG, 10.5, False)
-    b += txt(S.px(30.0), S.py(975.0), 'ny linje: helning −1,25', RED, 11, False)
-    b += txt(S.px(430.0), S.py(760.0), 'C på lavere kurve enn A:', GREY, 10, False)
-    b += txt(S.px(430.0), S.py(724.0), 'låntakeren taper', GREY, 10, False)
+    b += txt(S.px(556.0), S.py(128.0), 'låntakerens side —', ORG, 10.5, False)
+    b += txt(S.px(556.0), S.py(92.0), 'ny linje ligger under', ORG, 10.5, False)
+    b += txt(S.px(150.0), S.py(966.0), 'ny linje: helning −1,25', RED, 11, False)
+    b += txt(S.px(430.0), S.py(880.0), 'C på lavere kurve enn A:', GREY, 10, False)
+    b += txt(S.px(430.0), S.py(846.0), 'låntakeren taper', GREY, 10, False)
+    b += f1_legend(S, 430.0, 800.0, ['A = (420; 441)', 'C = (372; 465)'], 10, GREY)
     save('econ2220-3-3-laantaker', b, out)
     n += 1
 
@@ -2594,15 +2612,17 @@ def f1_del3(out):
     b += f1_cd(S, a, C, PUR, 2.0)
     b += f1_cd_arc(S, a, B, 900.0, PUR, 1.8, '5 3')
     b += f1_pt(S, Ws, 'W', 12, -10, True, '9 000', '30')
-    b += f1_pt(S, A, 'A', 12, 16, True, '2 100', '168')
-    b += f1_pt(S, B, 'B', -24, -9, True, '1 540', None)
-    b += f1_pt(S, C, 'C', 11, -11, True, '2 000', '240')
+    b += f1_pt(S, A, 'A', 12, 19, True, None, '168')
+    b += f1_pt(S, B, 'B', -22, -9, True, None, None)
+    b += f1_pt(S, C, 'C', 11, -11, True, None, '240')
     b += f1_rotarrow(S, Ws, 26, 150, 250)
     b += f1_xarrow(S, A[0], B[0], OY+30, 'SE = −560 kWh', GRN)
     b += f1_xarrow(S, B[0], C[0], OY+56, 'IE samlet = +460 kWh', BLUE)
     b += txt(S.px(2700.0), S.py(310.0), 'ny linje: helning −0,03', RED, 11, False)
-    b += txt(S.px(3400.0), S.py(226.0), 'kompensert linje gjennom A', INK, 10, False)
-    b += txt(S.px(5200.0), S.py(120.0), 'gammel linje: helning −0,02', GREY, 10, False)
+    b += txt(S.px(7360.0), S.py(52.0), 'kompensert linje (gjennom A)', INK, 10, False)
+    b += txt(S.px(4200.0), S.py(92.0), 'gammel linje: helning −0,02', GREY, 10, False)
+    b += f1_legend(S, 7400.0, 292.0, ['A = (2 100; 168)', 'B = (1 540; 184,8)',
+                                      'C = (2 000; 240)'], 10)
     save('econ2220-3-4-solcelle-rotasjon', b, out)
     n += 1
 
@@ -2642,14 +2662,15 @@ def f1_del3(out):
     b += f1_cd(S, a, A, PUR, 2.4)
     b += f1_cd(S, a, C, PUR, 2.0, '5 3')
     b += f1_pt(S, Wf, 'W', 12, -10, True, '500', '200')
-    b += f1_pt(S, A, 'A', -22, -11, True, '333,3', '400')
-    b += f1_pt(S, C, 'C', 12, 16, True, '375', '300')
+    b += f1_pt(S, A, 'A', -22, -11, True, None, '400')
+    b += f1_pt(S, C, 'C', -24, 18, True, None, '300')
     b += f1_rotarrow(S, Wf, 26, 155, 250)
-    b += txt(S.px(120.0), S.py(600.0), 'selgerens side —', ORG, 10.5, False)
-    b += txt(S.px(120.0), S.py(560.0), 'ny linje ligger under', ORG, 10.5, False)
+    b += txt(S.px(96.0), S.py(622.0), 'selgerens side —', ORG, 10.5, False)
+    b += txt(S.px(96.0), S.py(586.0), 'ny linje ligger under', ORG, 10.5, False)
     b += txt(S.px(330.0), S.py(824.0), 'gammel linje: helning −1,2', GREY, 11, False)
-    b += txt(S.px(430.0), S.py(240.0), 'ny linje: helning −0,8', RED, 11, False)
-    b += txt(S.px(330.0), S.py(770.0), 'C på lavere kurve enn A: hun taper', GREY, 10, False)
+    b += txt(S.px(534.0), S.py(58.0), 'ny linje: helning −0,8', RED, 11, False)
+    b += txt(S.px(330.0), S.py(776.0), 'C på lavere kurve enn A: hun taper', GREY, 10, False)
+    b += f1_legend(S, 40.0, 320.0, ['A = (333,3; 400)', 'C = (375; 300)'], 10)
     save('econ2220-3-4-laksefisker-prisfall', b, out)
     n += 1
     return n
