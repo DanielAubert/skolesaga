@@ -988,9 +988,9 @@ const quizData_fys1001: Record<string, QuizQuestion[]> = {
       explanation: "Utenfor støtet er det energiregnskapet som gjelder: $v = \\sqrt{2gh}$ ned en bane, og $\\tfrac12 mv'^2 = \\mu mgs$ på glidestrekningen. Bevegelsesmengden er ikke bevart der, siden friksjonen er en ytre kraft.",
     },
     {
-      question: "En kloss slippes fra 0,50 m på en friksjonsfri bue. Hvilken fart har den nederst?",
-      options: ["3,1 m/s", "4,9 m/s", "9,8 m/s", "1,6 m/s"],
-      explanation: "$v = \\sqrt{2gh} = \\sqrt{2\\cdot 9{,}81\\cdot 0{,}50} = 3{,}13$ m/s. Svaret 4,9 m/s kommer av å regne $gh$ uten kvadratrot på hele uttrykket.",
+      question: "En kloss slippes fra 0,65 m på en friksjonsfri bue. Hvilken fart har den nederst?",
+      options: ["3,6 m/s", "6,4 m/s", "12,8 m/s", "2,5 m/s"],
+      explanation: "$v = \\sqrt{2gh} = \\sqrt{2\\cdot 9{,}81\\cdot 0{,}65} = 3{,}57$ m/s, altså $3{,}6$ m/s. Svaret 6,4 m/s er $gh$ uten kvadratrot, 12,8 m/s er $2gh$ uten kvadratrot, og 2,5 m/s er $\\sqrt{gh}$ — faktoren 2 er glemt.",
     },
     {
       question: "I fase 3 skal du regne stopplengden. Hvilken fart bruker du?",
