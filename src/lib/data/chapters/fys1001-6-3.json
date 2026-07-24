@@ -1,0 +1,407 @@
+{
+  "id": "fys1001-6-3",
+  "courseId": "fys1001",
+  "chapterNumber": "6.3",
+  "title": "Linser, speil og synet",
+  "description": "Linseformelen med fortegnskonvensjon, strålekonstruksjon og øye/brille-konteksten som går igjen.",
+  "estimatedMinutes": 55,
+  "competenceGoals": [
+    "bruke linseformelen med riktig fortegnskonvensjon og avgjøre om bildet er reelt eller virtuelt, rettvendt eller omvendt",
+    "regne ut forstørrelsen og kontrollere resultatet mot en strålekonstruksjon med de tre standardstrålene",
+    "forklare lupen og spredelinsa ut fra at bildeavstanden blir negativ",
+    "regne med linsestyrke i dioptrier og finne brillestyrken til et nærsynt eller langsynt øye",
+    "løse baklengs-oppgaver der forstørrelsen er gitt og avstandene skal bestemmes"
+  ],
+  "content": [
+    {
+      "id": "fys1001-6-3-tip-eksamensvinkel",
+      "type": "tip",
+      "title": "Eksamensvinkel",
+      "content": "**Prioritet: kunne (nivå 2).** Geometrisk optikk er belagt i **23 av 36 slutteksamener (64 %)**, og linsedelen er den tyngste halvparten.\n\nOppgavene tilhører **sjanger N**, bokas kortnavn for oppgavetypen *«geometrisk optikk»*. Det som går igjen:\n\n- **linseformelen** $\\tfrac1a + \\tfrac1b = \\tfrac1f$ med riktig fortegn, og forstørrelsen $m = b/a$;\n- **strålekonstruksjonen forventes tegnet** — og løsningsforslagene sammenligner konstruksjonen med regningen. Stemmer de ikke, taper du poeng selv om tallet er riktig;\n- **øye-, brille- og lupekonteksten:** nærpunkt, akkomodasjon, nærsynt mot langsynt, brilleglassets fortegn, og at samlet styrke er omtrent summen av styrkene;\n- **lupevarianten** (objekt innenfor brennvidden, virtuelt bilde) kom i V2021.\n\n**Formelarket:** linseformelen, $m = b/a$ og $D = 1/f$ står på arket. Det du må kunne *aktivt*, er fortegnskonvensjonen og konstruksjonen — det er der poengene ligger.\n\n**Ett grep sparer deg mange feil:** tegn konstruksjonen *først*, grovt. Da ser du om bildet skal ligge på den ene eller andre siden, om det er rettvendt eller omvendt, og om det er større eller mindre. Regningen blir da en kontroll, ikke en gjetning."
+    },
+    {
+      "id": "fys1001-6-3-forkunnskaper",
+      "type": "text",
+      "content": "## Forkunnskaper\n\nDette kapitlet bygger på:\n\n- [kap. 6.2](/bok/fys1001/fys1001-6-2) — brytning. En linse er bare to krumme brytende flater, og all linseoptikk er Snells lov brukt to ganger. Du trenger ikke regne på det her, men forståelsen sitter bedre med den bakgrunnen.\n- [Brøkregning](/bok/1t/1t-1-4) — linseformelen er en likning med tre brøker, og du må kunne løse den for hver av de tre størrelsene.\n\nKapitlet tar rundt 55 minutter og er delt i fire løkker med pausepunkter."
+    },
+    {
+      "id": "fys1001-6-3-l1",
+      "type": "text",
+      "content": "### Løkke 1 — Linseformelen og fortegnene (~15 min)\n\nHold en lupe over en avis. Nær avisen ser du bokstavene forstørret og rettvendte. Løfter du lupa langt nok opp, snur bildet plutselig og blir mindre. Det er samme linse og samme formel — bare ulik avstand. Fortegnene i formelen er det som forteller hvilket av de to tilfellene du er i."
+    },
+    {
+      "id": "fys1001-6-3-def-linse",
+      "type": "definition",
+      "title": "Samlelinse og spredelinse",
+      "content": "En **samlelinse** (konveks, tykkest på midten) bøyer parallelle stråler inn mot ett punkt, **brennpunktet**. Avstanden fra linsa til brennpunktet er **brennvidden** $f$, og for en samlelinse er $f > 0$.\n\nEn **spredelinse** (konkav, tynnest på midten) sprer parallelle stråler. Forlenget bakover ser de ut til å komme fra et brennpunkt på inngangssiden, og vi setter $f < 0$.\n\n**Optisk akse** er linja gjennom linsemidten, vinkelrett på linsa. Alle avstander måles langs denne."
+    },
+    {
+      "id": "fys1001-6-3-def-linseformel",
+      "type": "definition",
+      "title": "Linseformelen",
+      "content": "For en tynn linse med brennvidde $f$, objektavstand $a$ og bildeavstand $b$ gjelder\n\n$$\\frac{1}{a} + \\frac{1}{b} = \\frac{1}{f}$$\n\nAlle tre størrelsene måles langs den optiske aksen, og formelen brukes også for **speil** (med $f = R/2$ for et kulespeil).\n\n**Merk brøkstrukturen:** skal du finne $b$, blir det\n\n$$\\frac{1}{b} = \\frac{1}{f} - \\frac{1}{a} \\quad\\Longrightarrow\\quad b = \\frac{1}{\\ \\tfrac1f - \\tfrac1a\\ }$$\n\nDen vanligste regnefeilen er å glemme det siste steget og svare $1/b$ i stedet for $b$."
+    },
+    {
+      "id": "fys1001-6-3-def-fortegn",
+      "type": "definition",
+      "title": "Fortegnskonvensjonen",
+      "content": "Dette er kapitlets viktigste enkeltavsnitt. Konvensjonen boka bruker:\n\n- **$a > 0$** for et vanlig objekt foran linsa.\n- **$f > 0$** for samlelinse, **$f < 0$** for spredelinse.\n- **$b > 0$:** bildet ligger på **motsatt** side av linsa. Det er da **reelt** — strålene møtes faktisk der, og bildet kan fanges på en skjerm. Det er også **omvendt**.\n- **$b < 0$:** bildet ligger på **samme** side som objektet. Det er da **virtuelt** — strålene møtes bare når de forlenges bakover, og bildet kan *ikke* fanges på en skjerm. Det er **rettvendt**.\n\nFår du negativ $b$, er det altså ikke en feil: det er svaret på om bildet er virtuelt."
+    },
+    {
+      "id": "fys1001-6-3-def-forstorrelse",
+      "type": "definition",
+      "title": "Forstørrelse $m$",
+      "content": "**Forstørrelsen** er forholdet mellom bildets og objektets høyde, og den er lik forholdet mellom avstandene:\n\n$$m = \\frac{b}{a} = \\frac{y'}{y}$$\n\nTolkningen i boka følger fortegnskonvensjonen over:\n\n- **$m > 0$** (altså $b > 0$): reelt og omvendt bilde;\n- **$m < 0$** (altså $b < 0$): virtuelt og rettvendt bilde.\n\nTallverdien $|m|$ er hvor mange ganger større bildet er. Er $|m| < 1$, er bildet forminsket."
+    },
+    {
+      "id": "fys1001-6-3-def-tre-straaler",
+      "type": "definition",
+      "title": "De tre standardstrålene",
+      "content": "Konstruksjonen bygger på tre stråler fra objektets topp. Du trenger bare to av dem, men den tredje er en gratis kontroll:\n\n1. **Parallellstrålen:** går parallelt med den optiske aksen inn mot linsa, og videre gjennom brennpunktet på baksiden.\n2. **Brennpunktstrålen:** går gjennom brennpunktet på framsiden, og videre parallelt med aksen.\n3. **Senterstrålen:** går rett gjennom linsemidten uten å skifte retning.\n\nBildet ligger der strålene møtes. Møtes de bare når du forlenger dem **bakover** (stiplet), er bildet virtuelt.\n\nFor en **spredelinse** brukes samme tre stråler, men parallellstrålen ser ut til å komme fra brennpunktet på inngangssiden."
+    },
+    {
+      "id": "fys1001-6-3-fig-konstruksjon",
+      "type": "image",
+      "src": "/images/textbook/fys1001/fys1001-6-3-stralekonstruksjon.svg",
+      "alt": "En samlelinse på en optisk akse med brennpunktene F og F prime og punktene 2F markert. Et objekt står som en oransje pil mellom F og 2F til venstre. Tre stråler går fra objektets topp gjennom linsa: en blå parallellstråle som knekker gjennom F prime, en grønn brennpunktstråle som går ut parallelt, og en stiplet lilla senterstråle rett gjennom midten. De møtes til høyre for linsa der bildet står som en omvendt oransje pil.",
+      "caption": "Strålekonstruksjon for en samlelinse med objektet mellom $f$ og $2f$: bildet blir reelt, omvendt og forstørret. De tre standardstrålene møtes i samme punkt — det er kontrollen på at konstruksjonen er riktig."
+    },
+    {
+      "id": "fys1001-6-3-ex1",
+      "type": "example",
+      "title": "Eksempel 1: Reelt bilde med konstruksjon (sjanger N)",
+      "problem": "En samlelinse har brennvidde $f = 12\\ \\text{cm}$. Et objekt står $20\\ \\text{cm}$ foran linsa.\n\n**a)** Finn bildeavstanden ved regning.\n**b)** Finn forstørrelsen, og avgjør om bildet er reelt eller virtuelt, rettvendt eller omvendt.\n**c)** Kontroller mot strålekonstruksjonen.",
+      "solution": "**a)** Linseformelen løst for $b$:\n\n$$\\frac{1}{b} = \\frac{1}{f} - \\frac{1}{a} = \\frac{1}{12} - \\frac{1}{20} = \\frac{5}{60} - \\frac{3}{60} = \\frac{2}{60} = \\frac{1}{30}$$\n\n$$b = 30\\ \\text{cm}$$\n\n**b)** Forstørrelsen:\n\n$$m = \\frac{b}{a} = \\frac{30\\ \\text{cm}}{20\\ \\text{cm}} = 1{,}5$$\n\n$b$ er **positiv**, så bildet ligger på motsatt side av linsa: det er **reelt** og **omvendt**. Tallverdien $1{,}5$ betyr at det er $1{,}5$ ganger større enn objektet.\n\n**c) Kontrollen mot konstruksjonen.** Objektet står mellom $f = 12\\ \\text{cm}$ og $2f = 24\\ \\text{cm}$. Konstruksjonen i figuren over viser da at strålene møtes på motsatt side, utenfor $2f$, og at bildet er omvendt og større enn objektet.\n\nRegningen gir $b = 30\\ \\text{cm} > 2f = 24\\ \\text{cm}$ ✓ og $|m| = 1{,}5 > 1$ ✓ Konstruksjon og regning stemmer.\n\n**Konklusjon:** bildet ligger $30\\ \\text{cm}$ bak linsa, er reelt, omvendt og $1{,}5$ ganger så stort.\n\n**Regelen konstruksjonen avslører:** står objektet mellom $f$ og $2f$, blir bildet alltid reelt, omvendt og forstørret. Står det utenfor $2f$, blir bildet reelt, omvendt og forminsket."
+    },
+    {
+      "id": "fys1001-6-3-o1",
+      "type": "exercise",
+      "exercise": {
+        "id": "fys1001-6-3-e1",
+        "number": "1",
+        "type": "classic",
+        "difficulty": "lett",
+        "task": "*(Innstegsoppgave — sjanger N.)* En samlelinse har brennvidde $f = 8{,}0\\ \\text{cm}$. Et objekt står $24\\ \\text{cm}$ foran linsa.\n\n**a)** Finn bildeavstanden.\n**b)** Finn forstørrelsen, og si om bildet er reelt eller virtuelt.",
+        "solution": "**a)**\n\n$$\\frac{1}{b} = \\frac{1}{8{,}0} - \\frac{1}{24} = \\frac{3}{24} - \\frac{1}{24} = \\frac{2}{24} = \\frac{1}{12} \\quad\\Longrightarrow\\quad b = 12\\ \\text{cm}$$\n\n**b)**\n\n$$m = \\frac{b}{a} = \\frac{12\\ \\text{cm}}{24\\ \\text{cm}} = 0{,}50$$\n\n$b$ er positiv, så bildet er **reelt** og **omvendt**, og det er halvparten så stort som objektet.\n\n**Kontroll mot regelen:** objektet står utenfor $2f = 16\\ \\text{cm}$, og da skal bildet være reelt, omvendt og forminsket ✓\n\n**Konklusjon:** bildet ligger $12\\ \\text{cm}$ bak linsa og er reelt, omvendt og forminsket med faktor $0{,}50$.",
+        "hints": [
+          "Skriv $1/b = 1/f - 1/a$ og finn fellesnevner.",
+          "Husk å snu brøken til slutt — svaret er $b$, ikke $1/b$.",
+          "Positiv $b$ betyr at bildet ligger på motsatt side av linsa."
+        ]
+      }
+    },
+    {
+      "id": "fys1001-6-3-l2",
+      "type": "text",
+      "content": "— naturlig pausepunkt —\n\n### Løkke 2 — Lupen og spredelinsa: virtuelle bilder (~14 min)\n\nNå til de to tilfellene der $b$ blir negativ. Det er her fortegnskonvensjonen tjener seg inn."
+    },
+    {
+      "id": "fys1001-6-3-def-virtuelt",
+      "type": "definition",
+      "title": "Reelt og virtuelt bilde",
+      "content": "Et **reelt** bilde dannes der lysstrålene faktisk møtes. Du kan sette opp et papir der og se bildet på papiret. Reelle bilder fra en enkel linse er alltid omvendte, og $b > 0$.\n\nEt **virtuelt** bilde dannes der strålene *ser ut* til å komme fra, når du forlenger dem bakover. Ingen lys går gjennom det punktet, så et papir der viser ingenting — men øyet ditt ser bildet, fordi øyet tolker strålene som om de kom derfra. Virtuelle bilder fra en enkel linse er alltid rettvendte, og $b < 0$.\n\nSpeilbildet ditt i et flatt speil er et virtuelt bilde. Det ser ut til å ligge like langt bak speilet som du står foran."
+    },
+    {
+      "id": "fys1001-6-3-def-lupe",
+      "type": "definition",
+      "title": "Lupen: objekt innenfor brennvidden",
+      "content": "Står objektet **nærmere linsa enn brennvidden** ($a < f$), blir $1/f - 1/a$ negativ, og dermed $b < 0$: bildet er **virtuelt, rettvendt og forstørret**.\n\nDette er hele prinsippet bak en **lupe**. Du holder lupa slik at gjenstanden er innenfor brennpunktet, og øyet ser et forstørret, rettvendt bilde et stykke bak gjenstanden.\n\nLøfter du lupa forbi brennvidden, snur bildet og blir reelt — det er derfor bildet «vipper» når du beveger lupa."
+    },
+    {
+      "id": "fys1001-6-3-fig-lupe",
+      "type": "image",
+      "src": "/images/textbook/fys1001/fys1001-6-3-lupe.svg",
+      "alt": "En samlelinse med brennpunktene F og F prime. Et objekt står som en kort oransje pil mellom brennpunktet F og linsa. To stråler går gjennom linsa og sprer seg, og de er forlenget bakover med stiplede linjer som møtes langt til venstre, der et større rettvendt virtuelt bilde er tegnet.",
+      "caption": "Lupen: objektet står innenfor brennvidden, strålene sprer seg etter linsa, og bildet dannes der de forlengede strålene møtes — virtuelt, rettvendt og forstørret."
+    },
+    {
+      "id": "fys1001-6-3-ex2",
+      "type": "example",
+      "title": "Eksempel 2: Lupen (sjanger N)",
+      "problem": "En samlelinse med brennvidde $6{,}0\\ \\text{cm}$ holdes $4{,}0\\ \\text{cm}$ fra et frimerke.\n\n**a)** Finn bildeavstanden ved regning.\n**b)** Finn forstørrelsen, og avgjør bildetype.\n**c)** Forklar hvorfor dette er prinsippet bak en lupe.",
+      "solution": "**a)**\n\n$$\\frac{1}{b} = \\frac{1}{6{,}0} - \\frac{1}{4{,}0} = \\frac{2}{12} - \\frac{3}{12} = -\\frac{1}{12} \\quad\\Longrightarrow\\quad b = -12\\ \\text{cm}$$\n\n**b)**\n\n$$m = \\frac{b}{a} = \\frac{-12\\ \\text{cm}}{4{,}0\\ \\text{cm}} = -3{,}0$$\n\n$b$ er **negativ**, så bildet ligger på **samme side** som frimerket, $12\\ \\text{cm}$ fra linsa. Det er **virtuelt** og **rettvendt**, og tallverdien $3{,}0$ betyr at det ser tre ganger så stort ut.\n\n**c)** En lupe skal gi et forstørret bilde du kan se på — altså et rettvendt bilde som øyet kan fokusere på. Det får du bare når objektet ligger **innenfor** brennvidden, for da blir $1/f - 1/a$ negativ og bildet virtuelt.\n\nStrålene fra frimerket sprer seg etter linsa, men mindre enn de gjorde før. Øyet tolker dem som om de kom fra et større objekt lenger borte, og det er dette forstørrede, virtuelle bildet du ser. Se figuren over.\n\n**Konklusjon:** bildet er virtuelt, rettvendt, $3{,}0$ ganger forstørret og ligger $12\\ \\text{cm}$ foran linsa på samme side som frimerket.\n\n**Kontroll mot konstruksjonen:** figuren viser strålene forlenget bakover, og de møtes lengre unna linsa enn objektet — nettopp $12\\ \\text{cm}$ mot objektets $4{,}0\\ \\text{cm}$, altså tre ganger så langt ✓ Det er samme faktor som forstørrelsen, som det skal være."
+    },
+    {
+      "id": "fys1001-6-3-o2",
+      "type": "exercise",
+      "exercise": {
+        "id": "fys1001-6-3-e2",
+        "number": "2",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "*(Sjanger N — lupevarianten.)* En samlelinse med brennvidde $5{,}0\\ \\text{cm}$ holdes $3{,}0\\ \\text{cm}$ over en tekst.\n\n**a)** Finn bildeavstanden og forstørrelsen.\n**b)** Avgjør om bildet er reelt eller virtuelt, rettvendt eller omvendt, og begrunn med fortegnet.",
+        "solution": "**a)**\n\n$$\\frac{1}{b} = \\frac{1}{5{,}0} - \\frac{1}{3{,}0} = \\frac{3}{15} - \\frac{5}{15} = -\\frac{2}{15} \\quad\\Longrightarrow\\quad b = -7{,}5\\ \\text{cm}$$\n\n$$m = \\frac{b}{a} = \\frac{-7{,}5\\ \\text{cm}}{3{,}0\\ \\text{cm}} = -2{,}5$$\n\n**b)** $b$ er negativ, og etter fortegnskonvensjonen betyr det at bildet ligger på **samme side** av linsa som teksten. Da er det **virtuelt**: strålene møtes ikke der, de bare ser ut til å komme derfra, og bildet kan ikke fanges på en skjerm.\n\nNegativ $m$ betyr **rettvendt** bilde. Tallverdien $2{,}5$ er forstørrelsen.\n\n**Konklusjon:** bildet er virtuelt, rettvendt og $2{,}5$ ganger forstørret, og ligger $7{,}5\\ \\text{cm}$ fra linsa på samme side som teksten. Dette er en lupe i bruk — objektet står innenfor brennvidden på $5{,}0\\ \\text{cm}$.",
+        "hints": [
+          "Objektet står innenfor brennvidden — hva sier det om fortegnet på $1/f - 1/a$?",
+          "Regn ut $1/b$ med fellesnevner, og snu til slutt.",
+          "Bruk fortegnskonvensjonen til å avgjøre bildetypen: negativ $b$ betyr samme side som objektet."
+        ]
+      }
+    },
+    {
+      "id": "fys1001-6-3-fig-spredelinse",
+      "type": "image",
+      "src": "/images/textbook/fys1001/fys1001-6-3-spredelinse.svg",
+      "alt": "En spredelinse på en optisk akse med brennpunktene F og F prime. Et objekt står som en oransje pil til venstre. En blå parallellstråle sprer seg etter linsa og er forlenget bakover med stiplet linje mot brennpunktet F. En lilla senterstråle går rett gjennom. Et lite rettvendt bilde er tegnet mellom F og linsa.",
+      "caption": "Spredelinse: strålene sprer seg, og forlenget bakover møtes de på objektsiden. Bildet er alltid virtuelt, rettvendt og forminsket, uansett hvor objektet står."
+    },
+    {
+      "id": "fys1001-6-3-ex3",
+      "type": "example",
+      "title": "Eksempel 3: Spredelinse (sjanger N)",
+      "problem": "En spredelinse har brennvidde $f = -20\\ \\text{cm}$. Et objekt står $30\\ \\text{cm}$ foran linsa.\n\n**a)** Finn bildeavstanden og forstørrelsen.\n**b)** Vis at en spredelinse alltid gir virtuelt, rettvendt og forminsket bilde, uansett hvor objektet står.",
+      "solution": "**a)** Husk at $f$ er negativ:\n\n$$\\frac{1}{b} = \\frac{1}{-20} - \\frac{1}{30} = -\\frac{3}{60} - \\frac{2}{60} = -\\frac{5}{60} = -\\frac{1}{12} \\quad\\Longrightarrow\\quad b = -12\\ \\text{cm}$$\n\n$$m = \\frac{b}{a} = \\frac{-12}{30} = -0{,}40$$\n\nBildet er virtuelt (negativ $b$), rettvendt (negativ $m$) og forminsket til $40\\ \\%$ av objektets størrelse. Se figuren over.\n\n**b) Det generelle argumentet.** Med $f < 0$ og $a > 0$ er\n\n$$\\frac{1}{b} = \\frac{1}{f} - \\frac{1}{a}$$\n\nHer er $1/f$ negativ og $-1/a$ også negativ, så summen er **alltid negativ**. Dermed er $b < 0$ for alle positive $a$: bildet er alltid virtuelt og rettvendt.\n\nFor størrelsen: $\\left|\\dfrac1b\\right| = \\dfrac{1}{|f|} + \\dfrac1a > \\dfrac1a$, altså $|b| < a$. Da er $|m| = |b|/a < 1$, så bildet er alltid forminsket.\n\n**Konklusjon:** bildet ligger $12\\ \\text{cm}$ foran linsa, er virtuelt, rettvendt og $0{,}40$ ganger så stort — og påstanden i b) gjelder ubetinget for alle objektavstander $a > 0$."
+    },
+    {
+      "id": "fys1001-6-3-o3",
+      "type": "exercise",
+      "exercise": {
+        "id": "fys1001-6-3-e3",
+        "number": "3",
+        "type": "classic",
+        "difficulty": "lett",
+        "task": "*(Sjanger N.)* En spredelinse har brennvidde $f = -15\\ \\text{cm}$. Et objekt står $10\\ \\text{cm}$ foran linsa.\n\n**a)** Finn bildeavstanden og forstørrelsen.\n**b)** Er svaret i tråd med regelen for spredelinser?",
+        "solution": "**a)**\n\n$$\\frac{1}{b} = \\frac{1}{-15} - \\frac{1}{10} = -\\frac{2}{30} - \\frac{3}{30} = -\\frac{5}{30} = -\\frac{1}{6{,}0} \\quad\\Longrightarrow\\quad b = -6{,}0\\ \\text{cm}$$\n\n$$m = \\frac{b}{a} = \\frac{-6{,}0}{10} = -0{,}60$$\n\n**b)** Ja. Bildet er virtuelt ($b < 0$), rettvendt ($m < 0$) og forminsket ($|m| = 0{,}60 < 1$) — akkurat som regelen sier at det alltid blir for en spredelinse.\n\n**Konklusjon:** bildet ligger $6{,}0\\ \\text{cm}$ foran linsa på samme side som objektet, og er $0{,}60$ ganger så stort.",
+        "hints": [
+          "Sett inn $f$ med negativt fortegn.",
+          "Finn fellesnevner for de to brøkene og snu til slutt.",
+          "Sjekk svaret mot regelen: spredelinse gir alltid virtuelt, rettvendt, forminsket bilde."
+        ]
+      }
+    },
+    {
+      "id": "fys1001-6-3-l3",
+      "type": "text",
+      "content": "— naturlig pausepunkt —\n\n### Løkke 3 — Dioptrier, øyet og brillene (~14 min)\n\nOptikerens språk er dioptrier, og eksamensoppgavene bruker det. Her er koblingen."
+    },
+    {
+      "id": "fys1001-6-3-def-dioptri",
+      "type": "definition",
+      "title": "Linsestyrke $D$ i dioptrier",
+      "content": "**Linsestyrken** er den omvendte brennvidden:\n\n$$D = \\frac{1}{f}$$\n\nEnheten er **dioptri**, forkortet **dpt**, og $1\\ \\text{dpt} = 1\\ \\text{m}^{-1}$.\n\n**Det kritiske:** $f$ **må være i meter**. En linse med $f = 25\\ \\text{cm} = 0{,}25\\ \\text{m}$ har styrken $D = 1/0{,}25 = +4{,}0\\ \\text{dpt}$ — ikke $1/25 = 0{,}04$.\n\nSamlelinser har positiv styrke, spredelinser negativ. Et brilleglass merket $-2{,}5$ er altså en spredelinse med $f = -0{,}40\\ \\text{m}$."
+    },
+    {
+      "id": "fys1001-6-3-def-samlet-styrke",
+      "type": "definition",
+      "title": "Samlet styrke av linser i kontakt",
+      "content": "Legger du to tynne linser tett inntil hverandre, er den samlede styrken omtrent summen:\n\n$$D = D_1 + D_2$$\n\nDette er bruksnivå — utledningen trenger du ikke. Formelen er grunnen til at optikere regner i dioptrier: styrker legges sammen, mens brennvidder ikke gjør det.\n\n**Eksempel på hvorfor:** en linse på $+3{,}0\\ \\text{dpt}$ ($f = 33\\ \\text{cm}$) og en på $-1{,}0\\ \\text{dpt}$ ($f = -100\\ \\text{cm}$) gir til sammen $+2{,}0\\ \\text{dpt}$, altså $f = 50\\ \\text{cm}$. Brennviddene $33$ og $-100$ gir ingen enkel sum."
+    },
+    {
+      "id": "fys1001-6-3-def-oyet",
+      "type": "definition",
+      "title": "Øyet: nærpunkt, fjernpunkt og akkomodasjon",
+      "content": "Øyelinsen har fast avstand til netthinnen, så bildeavstanden $b$ kan ikke endres. I stedet endrer øyet **brennvidden** ved å stramme eller slappe av muskler rundt linsen. Dette kalles **akkomodasjon**.\n\n**Nærpunktet** er den korteste avstanden øyet kan fokusere skarpt på. For et normalt ungt øye er det rundt $25\\ \\text{cm}$; det øker med alderen fordi linsen blir stivere.\n\n**Fjernpunktet** er den største avstanden øyet kan fokusere skarpt på. For et normalt øye er det uendelig langt.\n\nAkkomodasjonsområdet er strekningen mellom nærpunkt og fjernpunkt."
+    },
+    {
+      "id": "fys1001-6-3-def-naersynt",
+      "type": "definition",
+      "title": "Nærsynthet og langsynthet",
+      "content": "**Nærsynt** (myopi): øyet bryter lyset for kraftig, så bildet av fjerne objekter dannes foran netthinnen. Fjernpunktet ligger i en endelig avstand. Rettes med en **spredelinse** (negativ styrke), som svekker brytningen.\n\n**Langsynt** (hypermetropi): øyet bryter for svakt, og nærpunktet ligger for langt ute. Rettes med en **samlelinse** (positiv styrke), som styrker brytningen.\n\n**Huskeregelen:** nærsynt ser nært — trenger minus. Langsynt ser langt — trenger pluss."
+    },
+    {
+      "id": "fys1001-6-3-ex4",
+      "type": "example",
+      "title": "Eksempel 4: Lesebriller til et langsynt øye (sjanger N)",
+      "problem": "En person har nærpunkt $50\\ \\text{cm}$ og vil kunne lese på $25\\ \\text{cm}$ avstand.\n\nHvilken linsestyrke trengs i lesebrillene?",
+      "solution": "**Tenk gjennom hva brillen skal gjøre.** Boka skal stå $25\\ \\text{cm}$ fra brillen, men øyet klarer bare å fokusere på noe som er minst $50\\ \\text{cm}$ borte. Brillen må derfor lage et **virtuelt bilde** av boka i $50\\ \\text{cm}$ avstand, som øyet så kan se skarpt på.\n\n**Sett inn i linseformelen** med $a = 0{,}25\\ \\text{m}$ og $b = -0{,}50\\ \\text{m}$ (negativ, fordi bildet er virtuelt og ligger på samme side som boka):\n\n$$\\frac{1}{f} = \\frac{1}{a} + \\frac{1}{b} = \\frac{1}{0{,}25} + \\frac{1}{-0{,}50} = 4{,}0 - 2{,}0 = 2{,}0\\ \\text{m}^{-1}$$\n\n$$D = \\frac{1}{f} = +2{,}0\\ \\text{dpt}$$\n\n**Konklusjon:** personen trenger lesebriller på $+2{,}0$ dioptrier, altså samlelinser med brennvidde $f = 0{,}50\\ \\text{m}$.\n\n**Rimelighetssjekk:** langsynthet krever positiv styrke ✓ og $+2$ dpt er en helt vanlig lesebrillestyrke ✓\n\n**Merk at avstandene måtte i meter.** Hadde vi regnet i centimeter, ville vi fått $1/f = 1/25 - 1/50 = 0{,}02\\ \\text{cm}^{-1}$, som er $2{,}0\\ \\text{m}^{-1}$ — riktig tall, men bare hvis du husker å gjøre om enheten til slutt. Det er tryggere å gå over til meter først."
+    },
+    {
+      "id": "fys1001-6-3-o4",
+      "type": "exercise",
+      "exercise": {
+        "id": "fys1001-6-3-e4",
+        "number": "4",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "*(Sjanger N — brille til et nærsynt øye.)* En nærsynt person har fjernpunkt $2{,}0\\ \\text{m}$ og vil kunne se skarpt på fjerne objekter.\n\n**a)** Hvilken linsestyrke trengs?\n**b)** Personen får i tillegg et lesetillegg på $+2{,}5\\ \\text{dpt}$ i nedre del av glasset. Hvilken samlet styrke har lesefeltet?",
+        "solution": "**a)** Brillen skal lage et virtuelt bilde av et fjernt objekt i personens fjernpunkt, $2{,}0\\ \\text{m}$ foran øyet. Et fjernt objekt gir $1/a \\approx 0$, og bildet er virtuelt: $b = -2{,}0\\ \\text{m}$.\n\n$$\\frac{1}{f} = \\frac{1}{a} + \\frac{1}{b} = 0 + \\frac{1}{-2{,}0} = -0{,}50\\ \\text{m}^{-1}$$\n\n$$D = -0{,}50\\ \\text{dpt}$$\n\n**Rimelighetssjekk:** nærsynthet krever negativ styrke, altså spredelinse ✓\n\n**b)** Samlet styrke er summen av styrkene:\n\n$$D_{\\text{lese}} = -0{,}50\\ \\text{dpt} + 2{,}5\\ \\text{dpt} = +2{,}0\\ \\text{dpt}$$\n\n**Konklusjon:** avstandsfeltet skal være $-0{,}50$ dpt, og lesefeltet får samlet styrke $+2{,}0$ dpt. Det er slik progressive glass fungerer — samme glass har ulik styrke i ulike soner.",
+        "hints": [
+          "Et fjernt objekt gir $1/a \\approx 0$ i linseformelen.",
+          "Brillen skal lage et virtuelt bilde i personens fjernpunkt, så $b$ er negativ.",
+          "I b): styrker i dioptrier legges rett sammen når linsene sitter tett."
+        ]
+      }
+    },
+    {
+      "id": "fys1001-6-3-o5",
+      "type": "exercise",
+      "exercise": {
+        "id": "fys1001-6-3-e5",
+        "number": "5",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "*(Sjanger Q — kvalitativ forklaring. «Sjanger Q» er bokas navn på de rene «forklar/begrunn»-deloppgavene, som utgjør 25–40 % av eksamen.)*\n\nForklar i 2–4 setninger hvorfor nærpunktet øker med alderen, og hvorfor det er nettopp *lese*briller folk trenger først.",
+        "solution": "Mekanismen er **akkomodasjon**: øyet fokuserer ved å endre brennvidden på øyelinsen, og det gjør det ved å endre linsens krumning. Med årene blir linsen stivere, så den klarer ikke å krumme seg like mye — det maksimale bidraget til brytningen blir mindre.\n\nÅ fokusere på noe **nært** krever den *korteste* brennvidden, altså den kraftigste krumningen. Det er derfor evnen til å se nært svikter først, mens synet på avstand kan være helt uendret: der trengs slappest mulig linse, og det klarer øyet fortsatt.\n\n**Konklusjon:** nærpunktet flytter seg utover, og løsningen er en samlelinse som overtar den brytningen linsen ikke lenger klarer å legge til — altså lesebriller med positiv styrke.",
+        "hints": [
+          "Hva er det fysisk øyet gjør når det fokuserer på noe nært?",
+          "Hvilken brennvidde krever nært syn sammenlignet med fjernt syn?",
+          "Svar i tre ledd: navngi mekanismen, koble den til situasjonen, konkluder."
+        ]
+      }
+    },
+    {
+      "id": "fys1001-6-3-l4",
+      "type": "text",
+      "content": "— naturlig pausepunkt —\n\n### Løkke 4 — Baklengs-oppgaven og speil (~10 min)\n\nDen siste varianten: du får forstørrelsen og skal finne avstandene. Og en kort merknad om speil."
+    },
+    {
+      "id": "fys1001-6-3-def-speil",
+      "type": "definition",
+      "title": "Speilformelen",
+      "content": "Linseformelen gjelder også for **kulespeil**:\n\n$$\\frac{1}{a} + \\frac{1}{b} = \\frac{1}{f}, \\qquad f = \\frac{R}{2}$$\n\nder $R$ er speilets krumningsradius.\n\n- **Konkavt** (hult) speil: $f > 0$, virker som en samlelinse. Sminkespeil og barberspeil er konkave — objektet står innenfor $f$ og gir et forstørret, rettvendt, virtuelt bilde.\n- **Konvekst** (utoverbuet) speil: $f < 0$, virker som en spredelinse. Alltid forminsket, rettvendt, virtuelt bilde — men med stort synsfelt. Derfor brukes de som trafikkspeil og i butikktak.\n- **Flatt** speil: $R \\to \\infty$, altså $f \\to \\infty$. Da gir formelen $b = -a$: bildet ligger like langt bak speilet som objektet står foran, og er virtuelt og rettvendt."
+    },
+    {
+      "id": "fys1001-6-3-o6",
+      "type": "exercise",
+      "exercise": {
+        "id": "fys1001-6-3-e6",
+        "number": "6",
+        "type": "classic",
+        "difficulty": "vanskelig",
+        "task": "*(Sjanger N — krevende, baklengs.)* En samlelinse har brennvidde $f = 15\\ \\text{cm}$. Du vil ha et **reelt** bilde som er nøyaktig $3$ ganger så stort som objektet.\n\n**a)** Hvor må objektet stå, og hvor kommer bildet?\n**b)** Kontroller svaret mot linseformelen og mot forstørrelsen.\n**c)** Hva ville skjedd om du ville ha et *virtuelt* bilde med samme forstørrelse?",
+        "solution": "**a)** Reelt bilde betyr $b > 0$, og forstørrelse $3$ betyr\n\n$$m = \\frac{b}{a} = 3 \\quad\\Longrightarrow\\quad b = 3a$$\n\nSett inn i linseformelen:\n\n$$\\frac{1}{a} + \\frac{1}{3a} = \\frac{1}{15}$$\n\nFellesnevner på venstre side:\n\n$$\\frac{3}{3a} + \\frac{1}{3a} = \\frac{4}{3a} = \\frac{1}{15} \\quad\\Longrightarrow\\quad 3a = 60 \\quad\\Longrightarrow\\quad a = 20\\ \\text{cm}$$\n\n$$b = 3a = 60\\ \\text{cm}$$\n\n**b) Kontroll.** Linseformelen: $\\dfrac{1}{20} + \\dfrac{1}{60} = \\dfrac{3}{60} + \\dfrac{1}{60} = \\dfrac{4}{60} = \\dfrac{1}{15}$ ✓\n\nForstørrelsen: $m = 60/20 = 3{,}0$, positiv, altså reelt og omvendt ✓\n\nObjektet står mellom $f = 15\\ \\text{cm}$ og $2f = 30\\ \\text{cm}$, og regelen sier da at bildet skal være reelt, omvendt og forstørret ✓ Se fasitfiguren under.\n\n**c)** Et virtuelt bilde krever $b < 0$, altså $m = b/a < 0$. Med $m = -3$ blir $b = -3a$:\n\n$$\\frac{1}{a} - \\frac{1}{3a} = \\frac{2}{3a} = \\frac{1}{15} \\quad\\Longrightarrow\\quad 3a = 30 \\quad\\Longrightarrow\\quad a = 10\\ \\text{cm}$$\n\nog $b = -30\\ \\text{cm}$. Objektet må altså stå $10\\ \\text{cm}$ fra linsa — **innenfor** brennvidden på $15\\ \\text{cm}$, som er nettopp lupetilfellet.\n\n**Konklusjon:** for reelt bilde med 3× forstørrelse skal objektet stå $20\\ \\text{cm}$ fra linsa og bildet kommer $60\\ \\text{cm}$ bak. For virtuelt bilde med samme tallforstørrelse skal objektet stå $10\\ \\text{cm}$ fra linsa, og bildet blir rettvendt $30\\ \\text{cm}$ foran.\n\n**Merk hva fortegnet på $m$ gjorde:** samme forstørrelsestall, to helt ulike oppsett. Det er derfor du må lese oppgaveteksten nøye etter ordene «reelt» og «virtuelt».",
+        "hints": [
+          "Uttrykk $b$ ved $a$ ved hjelp av forstørrelsen før du setter inn i linseformelen.",
+          "Reelt bilde gir positiv $m$; virtuelt gir negativ.",
+          "Etter innsetting står du med én ligning og én ukjent — samle brøkene på venstre side."
+        ]
+      }
+    },
+    {
+      "id": "fys1001-6-3-fig-fasit3x",
+      "type": "image",
+      "src": "/images/textbook/fys1001/fys1001-6-3-fasit-3x.svg",
+      "alt": "En samlelinse med brennpunktene F og F prime tett rundt linsa. Et objekt står som en kort oransje pil 20 cm til venstre, og to stråler møtes 60 cm til høyre der et tre ganger større omvendt bilde er tegnet. Avstandene a lik 20 cm og b lik 60 cm er målsatt under aksen.",
+      "caption": "Fasitfigur til oppgave 6 a): objektet $20\\ \\text{cm}$ fra linsa gir bildet $60\\ \\text{cm}$ på motsatt side, altså tre ganger så langt unna og tre ganger så stort — reelt og omvendt."
+    },
+    {
+      "id": "fys1001-6-3-warn",
+      "type": "warning",
+      "title": "Typiske feil",
+      "content": "- **Fortegnsslurv: positiv $b$ for et virtuelt bilde.** Får du $b < 0$, er det svaret, ikke en feil. Negativ $b$ betyr virtuelt og rettvendt bilde på samme side som objektet.\n- **Blande $a$ og $b$.** $a$ er objektavstanden, $b$ er bildeavstanden. Bytter du dem, får du ofte et tall som *ser* plausibelt ut — derfor er konstruksjonen en så viktig kontroll.\n- **Glemme å snu brøken.** Linseformelen gir $1/b$. Svaret er $b$.\n- **Konstruksjon som motsier regningen.** Løsningsforslagene sammenligner de to. Tegn grovt først, regn etterpå: er bildet omvendt i konstruksjonen, må $b$ være positiv.\n- **Glemme dioptri-definisjonen: $f$ i meter!** $f = 25\\ \\text{cm}$ gir $D = +4{,}0$ dpt, ikke $0{,}04$.\n- **Gi spredelinsa positiv brennvidde.** $f < 0$ for spredelinse, både i linseformelen og i dioptriregningen.\n- **Blande nærsynt og langsynt.** Nærsynt trenger minus (spredelinse), langsynt trenger pluss (samlelinse).\n- **Legge sammen brennvidder i stedet for styrker.** Det er dioptriene som summeres når linser sitter tett: $D = D_1 + D_2$.\n- **Manglende enhet.** cm eller m på avstandene, dpt på styrken. Forstørrelsen er enhetsløs — men skriv om bildet er rettvendt eller omvendt."
+    },
+    {
+      "id": "fys1001-6-3-bb-intro",
+      "type": "text",
+      "content": "## Begrepsbank\n\n*Flashcard-/repetisjonsstoff — hopp trygt over ved førstegangslesing; tidsanslaget gjelder kjernestoffet.*"
+    },
+    {
+      "id": "fys1001-6-3-bb-regler",
+      "type": "definition",
+      "title": "De fire tilfellene for en samlelinse",
+      "content": "Med $f > 0$ gir objektavstanden fire ulike utfall:\n\n| Objektet står | Bildet blir |\n|---|---|\n| utenfor $2f$ | reelt, omvendt, forminsket |\n| mellom $f$ og $2f$ | reelt, omvendt, forstørret |\n| i $f$ | ingen bilde (strålene går ut parallelt) |\n| innenfor $f$ | virtuelt, rettvendt, forstørret (lupe) |\n\nI det spesielle tilfellet $a = 2f$ blir $b = 2f$ og $|m| = 1$: bildet er like stort som objektet, men omvendt. Tabellen er verdt å kunne — den er en gratis rimelighetssjekk på hver regning."
+    },
+    {
+      "id": "fys1001-6-3-bb-konstruksjon-metode",
+      "type": "definition",
+      "title": "Arbeidsmetoden for en linseoppgave",
+      "content": "Fem steg:\n\n1. **tegn grovt** — linse, optisk akse, brennpunkter, objekt;\n2. **konstruér** med to av de tre standardstrålene, og se hvor bildet lander;\n3. **les av kvalitativt:** reelt eller virtuelt, rettvendt eller omvendt, større eller mindre;\n4. **regn** med linseformelen og $m = b/a$;\n5. **sammenlign** regning og konstruksjon. Er de uenige, har du en fortegnsfeil.\n\nRekkefølgen er ikke tilfeldig: konstruksjonen først gjør at du oppdager fortegnsfeil i stedet for å skrive dem ned."
+    },
+    {
+      "id": "fys1001-6-3-bb-oyets-brytning",
+      "type": "definition",
+      "title": "Hvor øyet bryter lyset",
+      "content": "Det er ikke øyelinsen alene som bryter lyset. Den største delen av brytningen skjer i **hornhinnen** (cornea), som utgjør rundt $2/3$ av øyets samlede styrke på omtrent $+60$ dpt.\n\nØyelinsens rolle er **finjusteringen** — den bidrar med noen få dioptrier som kan endres ved akkomodasjon. Det er derfor laserkirurgi virker på hornhinnen: der ligger mesteparten av brytningen."
+    },
+    {
+      "id": "fys1001-6-3-bb-kamera",
+      "type": "definition",
+      "title": "Kameraet mot øyet",
+      "content": "Et **kamera** har fast brennvidde per objektiv og fokuserer ved å endre **avstanden** mellom linse og sensor, altså $b$.\n\nEt **øye** har fast $b$ (avstanden til netthinnen) og fokuserer ved å endre **brennvidden** $f$ gjennom akkomodasjon.\n\nBegge bruker samme linseformel; de holder bare ulik størrelse fast. Bildet på netthinnen er reelt og omvendt — hjernen snur det."
+    },
+    {
+      "id": "fys1001-6-3-bb-lupeforstorrelse",
+      "type": "definition",
+      "title": "Hvorfor lupen har en grense",
+      "content": "Forstørrelsen til en lupe øker når objektet nærmer seg brennpunktet, men da flytter det virtuelle bildet seg samtidig langt bort.\n\nI praksis holder man lupa slik at det virtuelle bildet havner rundt nærpunktet, altså $25\\ \\text{cm}$ fra øyet. Det gir en praktisk forstørrelse på omtrent $D\\cdot0{,}25\\ \\text{m}$ ganger — en lupe på $+10$ dpt gir altså rundt $2{,}5$ ganger. Vil du mer, trenger du mikroskop, som bruker to linser i serie."
+    },
+    {
+      "id": "fys1001-6-3-bb-virtuelt-speil",
+      "type": "definition",
+      "title": "Speilbildet i et flatt speil",
+      "content": "Sett $f \\to \\infty$ i speilformelen: $\\dfrac1a + \\dfrac1b = 0$, altså $b = -a$.\n\nBildet ligger like langt **bak** speilet som du står foran, det er virtuelt ($b < 0$), rettvendt og like stort ($|m| = 1$). At det virker «speilvendt» handler om at forsiden og baksiden byttes, ikke om at bildet er snudd opp ned."
+    },
+    {
+      "id": "fys1001-6-3-bb-linsestyrke-praksis",
+      "type": "definition",
+      "title": "Å lese en brilleresept",
+      "content": "Et brilleglass merket $-2{,}5$ er en **spredelinse** med\n\n$$f = \\frac{1}{D} = \\frac{1}{-2{,}5\\ \\text{m}^{-1}} = -0{,}40\\ \\text{m} = -40\\ \\text{cm}$$\n\nNegativt fortegn betyr nærsynt, positivt betyr langsynt (eller lesetillegg). Tallets størrelse forteller hvor kraftig korreksjonen er: $-0{,}5$ er svakt nærsynt, $-6$ er sterkt."
+    },
+    {
+      "id": "fys1001-6-3-bb-akkomodasjonsbredde",
+      "type": "definition",
+      "title": "Akkomodasjonsbredde",
+      "content": "**Akkomodasjonsbredden** er forskjellen i styrke øyet kan legge til, målt i dioptrier:\n\n$$A = \\frac{1}{a_{\\text{nær}}} - \\frac{1}{a_{\\text{fjern}}}$$\n\nmed avstandene i meter. Et ungt øye med nærpunkt $0{,}10\\ \\text{m}$ og fjernpunkt uendelig har $A = 10\\ \\text{dpt}$. Ved 50 år er nærpunktet ofte $0{,}50\\ \\text{m}$, altså $A = 2\\ \\text{dpt}$ — det er dette tapet lesebrillene erstatter."
+    },
+    {
+      "id": "fys1001-6-3-rep",
+      "type": "collapsible",
+      "title": "Repetisjonsoppgaver",
+      "buttonText": "Vis repetisjonsoppgaver",
+      "content": [
+        {
+          "id": "fys1001-6-3-rep-1",
+          "type": "exercise",
+          "exercise": {
+            "id": "fys1001-6-3-rep-e1",
+            "number": "R1",
+            "type": "classic",
+            "difficulty": "lett",
+            "task": "Et brilleglass har brennvidde $f = -40\\ \\text{cm}$. Finn styrken i dioptrier, og si om personen er nærsynt eller langsynt.",
+            "solution": "Gjør om til meter først: $f = -0{,}40\\ \\text{m}$.\n\n$$D = \\frac{1}{f} = \\frac{1}{-0{,}40\\ \\text{m}} = -2{,}5\\ \\text{dpt}$$\n\nNegativ styrke betyr spredelinse, og spredelinse brukes for å svekke brytningen i et øye som bryter for kraftig. Personen er derfor **nærsynt**.",
+            "hints": [
+              "$f$ må være i meter før du regner ut $D$.",
+              "Negativ styrke betyr spredelinse."
+            ]
+          }
+        },
+        {
+          "id": "fys1001-6-3-rep-2",
+          "type": "exercise",
+          "exercise": {
+            "id": "fys1001-6-3-rep-e2",
+            "number": "R2",
+            "type": "classic",
+            "difficulty": "lett",
+            "task": "*(Fra [kap. 6.2](/bok/fys1001/fys1001-6-2).)* Hvorfor bryter en glasslinse lyset i det hele tatt? Svar i én til to setninger.",
+            "solution": "Fordi lyset går saktere i glass enn i luft ($c = c_0/n$ med $n \\approx 1{,}5$), og en bølge som treffer grenseflaten skrått, knekker etter Snells lov. Linsens krumme flater er formet slik at strålene knekker ulikt mye avhengig av hvor de treffer — og det er dette som samler dem i brennpunktet.",
+            "hints": [
+              "Tenk på lysfarten i glass sammenlignet med i luft.",
+              "Hva gjør en krum flate med stråler som treffer på ulike steder?"
+            ]
+          }
+        },
+        {
+          "id": "fys1001-6-3-rep-3",
+          "type": "exercise",
+          "exercise": {
+            "id": "fys1001-6-3-rep-e3",
+            "number": "R3",
+            "type": "classic",
+            "difficulty": "middels",
+            "task": "En samlelinse med $f = 10\\ \\text{cm}$ har objektet i $a = 20\\ \\text{cm}$. Finn $b$ og $m$, og forklar hva som er spesielt med dette tilfellet.",
+            "solution": "$$\\frac{1}{b} = \\frac{1}{10} - \\frac{1}{20} = \\frac{2}{20} - \\frac{1}{20} = \\frac{1}{20} \\quad\\Longrightarrow\\quad b = 20\\ \\text{cm}$$\n\n$$m = \\frac{20}{20} = 1{,}0$$\n\nDette er tilfellet $a = 2f$: bildet ligger like langt fra linsa som objektet, og er **like stort** — men omvendt, siden $b > 0$. Det er grenseskillet mellom forminsket og forstørret bilde.",
+            "hints": [
+              "Regn ut $b$ på vanlig måte.",
+              "Sammenlign objektavstanden med $2f$."
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": "fys1001-6-3-symbolliste",
+      "type": "collapsible",
+      "title": "Symbol- og formelliste",
+      "buttonText": "Vis symboler og formler",
+      "content": [
+        {
+          "id": "fys1001-6-3-symbolliste-tekst",
+          "type": "text",
+          "content": "## Symbol- og formelliste\n\n*Oppslagsverk — alt her forklares underveis i kapitlet.*\n\nAlle symboler og formler i delkapittel 6.3. Betydningene gjelder **dette delkapitlet** og arves ikke fra tidligere deler.\n\n| Symbol | Betydning | SI-enhet |\n|---|---|---|\n| $a$ | Objektavstand (linse til objekt) | m (ofte cm) |\n| $b$ | Bildeavstand. Positiv: reelt bilde på motsatt side. Negativ: virtuelt bilde på samme side | m (ofte cm) |\n| $f$ | Brennvidde. Positiv for samlelinse, negativ for spredelinse | m (ofte cm) |\n| $F$, $F'$ | Brennpunktene på hver side av linsa | – |\n| $m$ | Forstørrelse $b/a$. Positiv: reelt og omvendt. Negativ: virtuelt og rettvendt | dimensjonsløs |\n| $y$, $y'$ | Objektets og bildets høyde | m |\n| $D$ | **Linsestyrke** $1/f$ med $f$ i **meter** | dioptri, dpt $= \\text{m}^{-1}$ |\n| $R$ | **Krumningsradius** til et speil (her: *ikke* resistans eller friksjonskraft) | m |\n| $A$ | **Akkomodasjonsbredde** (her: *ikke* areal) | dpt |\n| $n$ | Brytningsindeks (bare nevnt, i koblingen til [kap. 6.2](/bok/fys1001/fys1001-6-2)) | dimensjonsløs |\n\n**Symbolkollisjoner du skal være obs på i akkurat dette delkapitlet:**\n\n- $R$ er **krumningsradius** til et speil. I [kap. 5.2](/bok/fys1001/fys1001-5-2) er $R$ resistans, i Del 1 er $R = \\mu N$ friksjonskraften.\n- $A$ er **akkomodasjonsbredde** i dioptrier her. I Del 5 er $A$ areal i m².\n- $f$ er **brennvidde** i meter. I [kap. 6.1](/bok/fys1001/fys1001-6-1) er $f$ frekvens i hertz — pass ekstra på i oppgaver som blander bølger og optikk.\n- $D$ er **linsestyrke** i dioptrier, ikke diameter eller avstand.\n- $b$ er **bildeavstand**. I Del 6 forekommer $b$ ikke i noen annen betydning.\n- $E$, $B$, $k$ og $\\lambda$ brukes ikke i dette delkapitlet.\n\n**Formler i dette delkapitlet:**\n\n$$\\frac{1}{a} + \\frac{1}{b} = \\frac{1}{f}$$\nLinse- og speilformelen. *(Står på formelarket — fortegnskonvensjonen er ditt ansvar.)*\n\n$$m = \\frac{b}{a} = \\frac{y'}{y}$$\nForstørrelsen, med fortegnet som forteller bildetypen. *(Står på formelarket.)*\n\n$$D = \\frac{1}{f} \\qquad (f \\text{ i meter})$$\nLinsestyrke i dioptrier. *(Står på formelarket — enhetsfella er din.)*\n\n$$D = D_1 + D_2$$\nSamlet styrke for tynne linser i kontakt. *(Bruksnivå — må kunne brukes aktivt.)*\n\n$$f = \\frac{R}{2}$$\nBrennvidden til et kulespeil med krumningsradius $R$. *(Står på formelarket.)*\n\n$$A = \\frac{1}{a_{\\text{nær}}} - \\frac{1}{a_{\\text{fjern}}}$$\nAkkomodasjonsbredde i dioptrier, med avstandene i meter. *(Må kunne settes opp.)*\n\n$$b = -a \\quad (\\text{flatt speil})$$\nFølger av $f \\to \\infty$: bildet ligger like langt bak speilet som objektet står foran. *(Må kunne begrunnes.)*"
+        }
+      ]
+    }
+  ],
+  "exercises": []
+}
