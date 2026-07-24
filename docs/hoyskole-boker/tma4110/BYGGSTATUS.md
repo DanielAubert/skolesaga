@@ -30,6 +30,7 @@ Branch: `bok/tma4110` (worktree). Arketype: regnefag. Institusjon: NTNU (slug `n
   - 5-3 verifisert: 8 sjekker, 0 avvik.
   - 5-4 verifisert: 11 sjekker, 0 avvik (én falsk positiv i egen sjekk — usimplifisert
     matriselikhet i sympy, fasit korrekt).
+  - 5-5 verifisert: 12 sjekker, 0 avvik.
 - (22. juli, steg 3-oppstart) Committet estetikk-fikser: (1) 4 filer fra forrige økt
   (10-2, 10-3, 6-1, 7-prove — deloppgaver egne linjer, sjangerkode ut av
   competenceGoals, commit 1fd5f69e); (2) fullt sveip over alle 52 filer etter
