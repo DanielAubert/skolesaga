@@ -1579,7 +1579,7 @@ const quizData_fys1001: Record<string, QuizQuestion[]> = {
     {
       question: "En vegg på 10 $\\text{m}^2$ med 20 cm isolasjon ($\\lambda = 0{,}040$ W/(m$\\cdot$K)) har 20 K temperaturforskjell. Hva er varmestrømmen?",
       options: ["40 W", "800 W", "4,0 W", "0,40 W"],
-      explanation: "$H = \\lambda A\\Delta T/L = 0{,}040\\cdot10\\cdot20/0{,}20 = 40$ W. Svaret 800 W kommer av å sette inn tykkelsen som 20 (cm) i stedet for 0,20 (m).",
+      explanation: "$H = \\lambda A\\Delta T/L = 0{,}040\\cdot10\\cdot20/0{,}20 = 40$ W. Svaret 0,40 W kommer av å sette inn tykkelsen som 20 (cm) i stedet for 0,20 (m) — en faktor 100 for lite.",
     },
     {
       question: "En konstruksjon har samlet termisk motstand $4{,}0\\ \\text{m}^2$K/W. Hva er U-verdien?",
