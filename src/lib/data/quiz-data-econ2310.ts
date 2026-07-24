@@ -34,7 +34,7 @@ const quizData_econ2310: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Sensorveiledningen skiller B fra A. Hva er skillet i praksis?",
-      options: ["Selvstendig begrepsbruk — for eksempel at du selv trekker inn kontrasten mellom tilbudsbestemt og etterspørselsbestemt produksjon", "Antall riktige delsvar", "Lengden på besvarelsen", "At besvarelsen er helt uten feil i samtlige delspørsmål, også det siste og vanskeligste, og at alle figurer er tegnet nøyaktig"],
+      options: ["Selvstendig begrepsbruk — for eksempel at du selv trekker inn kontrasten mellom tilbudsbestemt og etterspørselsbestemt produksjon", "Antall riktige delsvar — en A krever at samtlige delspørsmål er besvart uten regnefeil eller utelatelser, mens en B typisk har ett eller to hull i utregningene", "Lengden på besvarelsen", "At besvarelsen er helt uten feil i samtlige delspørsmål, også det siste og vanskeligste, og at alle figurer er tegnet nøyaktig"],
       explanation: "Alt riktig med brukbare forklaringer ligger an til B; det som løfter til A er reell innsikt og at kandidaten trekker inn begrepsapparatet uoppfordret. Feilfrihet er uttrykkelig ikke kravet — se metaregel 6.",
     },
     {
@@ -395,7 +395,7 @@ const quizData_econ2310: Record<string, QuizQuestion[]> = {
     },
     {
       question: "En besvarelse skriver: «Alle effektene her er ubestemte, så vi kan ikke si noe sikkert.» Hva er galt?",
-      options: ["Retningen på $k^*$ og $y^*$ er entydig i hvert enkeltskift — bare forbrukseffekten ved en spareøkning er ubestemt", "Ingenting — alle langsiktseffekter i vekstmodellen er ubestemte", "Alle effektene er entydige, også forbrukseffekten", "Ubestemte effekter skal alltid signeres med det mest sannsynlige fortegnet"],
+      options: ["Retningen på $k^*$ og $y^*$ er entydig i hvert enkeltskift — bare forbrukseffekten ved en spareøkning er ubestemt", "Ingenting — alle langsiktseffekter i vekstmodellen er ubestemte", "Alle effektene er entydige, også forbrukseffekten, siden fortegnene følger direkte av de deriverte i modellen uten flere forutsetninger", "Ubestemte effekter skal alltid signeres med det mest sannsynlige fortegnet"],
       explanation: "Å gjøre alt betinget viser like lite som å signere alt. Forbehold er et verktøy: signer det modellen bestemmer, og flagg det den ikke bestemmer — med hva det avhenger av.",
     },
     {
@@ -2142,7 +2142,7 @@ const quizData_econ2310: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hvorfor er det ikke en selvmotsigelse at valutakursen slår fullt ut i inflasjonen her, mens kap. 3.2 sier at bare den direkte kanalen har vekt $\\alpha$?",
-      options: ["Kap. 3.2 beskriver den umiddelbare virkningen, mens hovedkursmodellen beskriver situasjonen etter at lønnsdannelsen har tilpasset seg", "Kap. 3.2 bruker en helt annen definisjon av valutakursen, med motsatt fortegnskonvensjon enn den boka ellers følger", "Kap. 3.2 gjelder bare når sentralbanken holder renta fast, noe hovedkursmodellen ikke gjør", "De to kapitlene motsier faktisk hverandre, og eksamen godtar begge svarene"],
+      options: ["Kap. 3.2 beskriver den umiddelbare virkningen, mens hovedkursmodellen beskriver situasjonen etter at lønnsdannelsen har tilpasset seg", "Kap. 3.2 bruker en helt annen definisjon av valutakursen, med motsatt fortegnskonvensjon enn den boka ellers følger", "Kap. 3.2 gjelder bare når sentralbanken holder renta fast, noe hovedkursmodellen ikke gjør", "De to kapitlene motsier faktisk hverandre, og sensorveiledningen godtar begge svarene så lenge du velger ett av dem og holder deg konsekvent gjennom hele besvarelsen"],
       explanation: "Forskjellen er horisont, ikke faglig uenighet. Den indirekte kanalen (via aktivitet og lønnsdannelse) er treg og på kort sikt ubestemt, men i en vekstrate-modell der lønnsoppgjørene har fanget opp kursendringen, er den fullt virksom. Sier du hvilken horisont du snakker om, er begge svar riktige.",
     },
     {
@@ -2405,7 +2405,7 @@ const quizData_econ2310: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva er den viktigste innsikten fra modellen med kriselikevekter?",
-      options: ["At et midlertidig sjokk kan gi en varig nedgang dersom det skyver aktiviteten under terskelen", "At alle nedgangskonjunkturer blir varige dersom finansmarkedene fungerer dårlig i en periode", "At sentralbanken alltid kan hindre en krise ved å kutte styringsrenta raskt nok", "At risikopremien er den viktigste enkeltfaktoren bak norsk konjunkturutvikling"],
+      options: ["At et midlertidig sjokk kan gi en varig nedgang dersom det skyver aktiviteten under terskelen", "At alle nedgangskonjunkturer blir varige dersom finansmarkedene fungerer dårlig i en periode", "At sentralbanken alltid kan hindre en krise ved å kutte styringsrenta raskt nok", "At risikopremien er den viktigste enkeltfaktoren bak norsk konjunkturutvikling, og at den derfor bør styre politikken"],
       explanation: "Det er sjokkets størrelse i forhold til terskelen som avgjør, ikke hvor lenge sjokket varer. Er det mindre, henter økonomien seg inn av seg selv; er det stort nok, blir den liggende i kriselikevekten også etter at sjokket er over.",
     },
     {
@@ -2547,10 +2547,10 @@ const quizData_econ2310: Record<string, QuizQuestion[]> = {
       options: ["Fordi høyere aktivitet da gir sterkere lønns- og prisvekst, som svekker konkurranseevnen og trekker eksporten ned", "Fordi sentralbanken da slutter å reagere på produksjonsgapet", "Fordi importlekkasjen blir større når prisene stiger", "Fordi høyere aktivitet da gir høyere ledighet og lavere lønnsvekst, slik at norske varer blir billigere og eksporten forsterker oppgangen"],
       explanation: "Kjeden er: høyere $Y$, lavere ledighet, høyere lønnsvekst, dyrere norske varer, lavere eksport. Alternativet med høyere ledighet snur kjeden feil vei — en dokumentert felle.",
     },
-    {
-      question: "Hva er den riktige rekkefølgen i prisvirkningens kjede?",
-      options: ["Høyere produksjon, lavere ledighet, høyere lønnsvekst, dyrere norske varer, lavere eksport", "Høyere produksjon, høyere ledighet, lavere lønnsvekst, billigere norske varer og dermed høyere eksport enn før impulsen kom", "Lavere rente, sterkere krone, lavere importpriser, lavere lønnsvekst", "Høyere ledighet, høyere lønnsvekst, dyrere varer, lavere produksjon"],
-      explanation: "Dette er den ene kjeden det er lett å snu. Høyere aktivitet presser ledigheten ned, ikke opp.",
+        {
+      question: "Oppgaven sier bare «forklar relasjonen». Hva må med for at forklaringen skal telle som fullstendig?",
+      options: ["Hva variabelen på venstresiden bestemmes av, hvilken vei hvert ledd trekker, og hvorfor mekanismen virker slik", "En presis gjengivelse av relasjonen med alle symboler definert, slik den er skrevet i oppgavesettet", "En tolkning av fortegnet på hver koeffisient, uten å gå inn på mekanismen bak", "En figur der relasjonen er tegnet inn med navngitte akser og skjæringspunkter"],
+      explanation: "Sensorens regel nr. 1 er å forklare relasjonene du bruker: hva bestemmes, av hva, i hvilken retning, og gjennom hvilken mekanisme. Å gjengi relasjonen eller bare lese av fortegn er beskrivelse, ikke forklaring — figuren er støtte i tillegg.",
     },
     {
       question: "Hva betyr det at høyere $E$ innebærer svakere krone?",
@@ -2636,7 +2636,7 @@ const quizData_econ2310: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Penge- og finanspolitikk doseres slik at produksjonen blir den samme. Hva er hovedforskjellen?",
-      options: ["Sammensetningen: pengepolitikk svekker krona og løfter nettoeksport og investeringer, finanspolitikk løfter offentlige kjøp uten kurseffekt", "Ingen reell forskjell, siden produksjonen per forutsetning ender på samme nivå i begge scenarioene", "Finanspolitikk gir svakere krone, siden økte offentlige utgifter svekker tilliten til statsfinansene", "Pengepolitikk virker bare på inflasjonen, mens finanspolitikk er det eneste virkemidlet som påvirker produksjonen"],
+      options: ["Sammensetningen: pengepolitikk svekker krona og løfter nettoeksport og investeringer, finanspolitikk løfter offentlige kjøp uten kurseffekt", "Ingen reell forskjell, siden produksjonen per forutsetning ender på samme nivå i begge scenarioene — valget blir dermed politisk, ikke økonomisk", "Finanspolitikk gir svakere krone, siden økte offentlige utgifter svekker tilliten til statsfinansene", "Pengepolitikk virker bare på inflasjonen, mens finanspolitikk er det eneste virkemidlet som påvirker produksjonen"],
       explanation: "Valutakurskanalen virker bare når renten endres. Derfor gir de to virkemidlene samme produksjon, men ulik fordeling på konsum, investeringer, offentlige kjøp og nettoeksport — og ulik kurs.",
     },
     {
@@ -2685,7 +2685,7 @@ const quizData_econ2310: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hvorfor kan langtidsvirkningen av en høyere sparerate på konsumet per arbeider ikke signeres?",
-      options: ["Fordi produksjonen blir høyere mens andelen som forbrukes blir lavere — utfallet avhenger av om økonomien lå under eller over det konsummaksimerende nivået", "Fordi konsumet avhenger av renten, og modellen sier ingenting om hvordan renten utvikler seg over tid", "Fordi det ikke er mulig å måle konsum per arbeider når befolkningen vokser samtidig som kapitalen bygges opp", "Fordi virkningen avhenger av om økonomien er åpen eller lukket, og oppgaven sier ikke hvilken av dem det er"],
+      options: ["Fordi produksjonen blir høyere mens andelen som forbrukes blir lavere — utfallet avhenger av om økonomien lå under eller over det konsummaksimerende nivået", "Fordi konsumet avhenger av renten, og modellen sier ingenting om hvordan renten utvikler seg over tid, slik at forbruksbanen blir ubestemmelig i denne rammen", "Fordi det ikke er mulig å måle konsum per arbeider når befolkningen vokser samtidig som kapitalen bygges opp", "Fordi virkningen avhenger av om økonomien er åpen eller lukket, og oppgaven sier ikke hvilken av dem det er"],
       explanation: "Konsumet er $(1-s)f(k^*)$: $f(k^*)$ stiger, $(1-s)$ faller. Ligger økonomien under nivået der $f'(k^*)=n+\\delta$, øker konsumet; ligger den over, faller det.",
     },
     {
