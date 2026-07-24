@@ -1,0 +1,159 @@
+{
+  "id": "mat1120-6-prove",
+  "courseId": "mat1120",
+  "chapterNumber": "6.P",
+  "title": "Prøver til del 6: Symmetriske matriser og kvadratiske former",
+  "description": "Fire temaprøver til Del 6: spektralteoremet og ortogonal diagonalisering A=PDPᵀ (kap. 6.1), kvadratisk form med symmetrisering og definitthet pluss posdef-bevis (kap. 6.2), Rayleigh-maks og kjeglesnitt via x=Py med skisse i hovedaksene (kap. 6.3), og en full oppgave 4-simulering kjedet på én matrise (kap. 6.1–6.4). Full fasit etter føringsstandarden, med vedlegg og selvdiagnose.",
+  "estimatedMinutes": 160,
+  "competenceGoals": [
+    "kunne begrunne ortogonal diagonaliserbarhet med spektralteoremet og bygge ortogonal P med normalisering og Gram–Schmidt i egenrom",
+    "kunne symmetrisere en kvadratisk form, klassifisere definitthet via egenverditegn og bevise posdef ⇒ invertibel og B⁻¹ posdef",
+    "kunne bruke Rayleigh (Teorem 6/7 §7.3) og variabelskiftet x=Py til kjeglesnitt, med skisse i hovedaksene",
+    "kunne føre en fullstendig oppgave 4-besvarelse kjedet på én symmetrisk matrise med vedleggssitering og eksakte svar"
+  ],
+  "content": [
+    {
+      "id": "mat1120-6-prove-tip",
+      "type": "tip",
+      "title": "Om prøvene til Del 6",
+      "content": "Disse fire prøvene dekker hele **Del 6 — Symmetriske matriser og kvadratiske former** og trener sjanger F + G: spektralteoremet, ortogonal diagonalisering $A=PDP^{T}$, kvadratiske former/definitthet, Rayleigh og kjeglesnitt — karakterskiller-kjeden i **oppgave 4** (~55–70 %). Alt av egenverdier og egenvektorer **leses av et vedlegg** (`[V D]=eig`/`poly`+RREF).\n\n- **Prøve 6.A — Spektralteorem + ortogonal diagonalisering ([kap. 6.1](/bok/mat1120/mat1120-6-1)):** begrunn med spektralteoremet, normalisér, Gram–Schmidt i et egenrom med multiplisitet, bygg ortogonal $P$. ~35 min.\n- **Prøve 6.B — Kvadratisk form: symmetrisering + definitthet ([kap. 6.2](/bok/mat1120/mat1120-6-2)):** kryssledd delt på 2, klassifiser via egenverditegn, posdef-bevis. ~40 min.\n- **Prøve 6.C — Rayleigh + kjeglesnitt ([kap. 6.3](/bok/mat1120/mat1120-6-3)):** Rayleigh-maks (Teorem 6/7 §7.3) og variabelskifte $\\mathbf{x}=P\\mathbf{y}$ med skisse i hovedaksene. ~40 min.\n- **Prøve 6.D — Oppgave 4-simulering ([kap. 6.1](/bok/mat1120/mat1120-6-1)–[6.4](/bok/mat1120/mat1120-6-4)):** symmetrisk $A$ → ortogonal diagonalisering → kvadratisk form → Rayleigh, kjedet på **én** matrise. ~45 min.\n\n**4 prøver à ~35–45 min, kan trygt deles over flere kvelder — én prøve per økt.** Milepælen er å fullføre settet.\n\n**Merk formatet:** MAT1120-eksamen har **ingen flervalg** — alt er fullt begrunnet langsvar. Her har likevel **Prøve 6.A** en liten flervalgsdel til rask begrepssjekk (flervalget bor *inne i* Prøve 6.A); kryss av og kontroller mot fasiten. De øvrige oppgavene føres som en fullstendig besvarelse: **navngi teoremet** (spektralteoremet, Rayleigh Teorem 6/7 §7.3), **normalisér** og **Gram–Schmidt** i egenrom, **del kryssleddet på 2**, klassifiser fra **egenverditegn**, og avslutt med verbal konklusjon og **eksakte** svar. Etter hver fasit står en avkryssbar selvdiagnose."
+    },
+    {
+      "id": "mat1120-6-prove-forkunnskaper",
+      "type": "text",
+      "content": "**Forkunnskaper:** hele Del 6.\n\n- [Kap. 6.1](/bok/mat1120/mat1120-6-1) — spektralteoremet, $A=PDP^{T}$, normalisering + Gram–Schmidt i egenrom\n- [Kap. 6.2](/bok/mat1120/mat1120-6-2) — kvadratisk form, symmetrisering, definitthet, posdef-bevis\n- [Kap. 6.3](/bok/mat1120/mat1120-6-3) — Rayleigh, kjeglesnitt via $\\mathbf{x}=P\\mathbf{y}$\n- [Kap. 6.4](/bok/mat1120/mat1120-6-4) — drill\n- [Kap. 3.2](/bok/mat1120/mat1120-3-2) — diagonalisering; [kap. 4.2](/bok/mat1120/mat1120-4-2) — Gram–Schmidt\n- [Matriseregning og transponering (MAT1110)](/bok/mat1110/mat1110-1-3) — matriseprodukt og transponering\n\nTa prøvene uten hjelpemidler utover vedlegget, slik eksamen er lagt opp."
+    },
+    {
+      "id": "mat1120-6-prove-p1",
+      "type": "collapsible",
+      "title": "Prøve 1 — 6.A",
+      "buttonText": "Vis prøve 1",
+      "content": [
+        {
+          "id": "mat1120-6-prove-p1-oppg",
+          "type": "text",
+          "content": "**Sjanger:** spektralteoremet + ortogonal diagonalisering $A=PDP^{T}$ (F). **Anbefalt tid:** ca. 35 minutter.\n\nVedlegget gir for\n$$A=\\begin{bmatrix}2&-1&1\\\\-1&2&-1\\\\1&-1&2\\end{bmatrix}$$\negenverdiene ($\\texttt{[V D]=eig}$) $\\lambda=1$ (algebraisk multiplisitet $2$) med egenrom utspent av $(1,1,0)^{T}$ og $(-1,0,1)^{T}$, og $\\lambda=4$ (enkel) med egenvektor $(1,-1,1)^{T}$.\n\n**Flervalg (kryss av, sjekk mot fasit):**\n\n1. En matrise er ortogonalt diagonaliserbar hvis og bare hvis den er (a) invertibel (b) triangulær (c) **symmetrisk** (d) diagonal.\n2. For en symmetrisk matrise er egenvektorer til ulike egenverdier (a) parallelle (b) lineært avhengige (c) komplekse (d) **ortogonale**.\n3. At $P$ er ortogonal betyr at (a) **$P^{T}P=I$** (b) $\\det P=0$ (c) $P=P^{T}$ (d) $P$ er triangulær.\n4. Gram–Schmidt trengs (a) alltid, uansett matrise (b) aldri for symmetriske matriser (c) mellom egenrom til ulike egenverdier (d) **innen et egenrom med multiplisitet der basis ikke er ortogonal**.\n\n**Skriveoppgaver:**\n\n**a)** Begrunn at $A$ er ortogonalt diagonaliserbar.\n\n**b)** Finn en ortogonal matrise $P$ og diagonal $D$ med $A=PDP^{T}$. Vis Gram–Schmidt-steget eksplisitt.\n\n**c)** Kontroller at $P^{T}P=I$ (minst for de to første søylene), og oppgi $\\det A$ og $\\operatorname{spor}A$ ut fra egenverdiene."
+        },
+        {
+          "id": "mat1120-6-prove-p1-fasit",
+          "type": "collapsible",
+          "title": "Fasit — Prøve 6.A",
+          "buttonText": "Vis fasit",
+          "content": [
+            {
+              "id": "mat1120-6-prove-p1-fasit-tekst",
+              "type": "text",
+              "content": "**Flervalg — riktige svar:** 1c · 2d · 3a · 4d. *(1 poeng hver.)*\n\n*Om 1a/1b/1d: invertibel, triangulær eller diagonal er verken nødvendig eller tilstrekkelig; symmetri er det avgjørende. Om 4c: egenrom til ulike egenverdier er allerede ortogonale — Gram–Schmidt gjøres bare innen ett egenrom.*\n\n**a)** $A=A^{T}$ (sjekk: $a_{12}=a_{21}=-1$, $a_{13}=a_{31}=1$, $a_{23}=a_{32}=-1$), så ved **spektralteoremet** er $A$ ortogonalt diagonaliserbar: det finnes en ortonormal egenbasis og $A=PDP^{T}$ med ortogonal $P$.\n\n**b)** Egenvektoren $(1,-1,1)^{T}$ for $\\lambda=4$ er ortogonal på hele $E_1$ (ulike egenverdier — kontroll: $(1,-1,1)\\cdot(1,1,0)=0$, $(1,-1,1)\\cdot(-1,0,1)=0$ ✓). Inne i $E_1$ er $(1,1,0)\\cdot(-1,0,1)=-1\\ne0$, så vi kjører **Gram–Schmidt** med $\\mathbf{v}_1=(1,1,0)^{T}$, $\\mathbf{v}_2=(-1,0,1)^{T}$:\n$$\\mathbf{w}_2=(-1,0,1)^{T}-\\frac{(-1,0,1)\\cdot(1,1,0)}{(1,1,0)\\cdot(1,1,0)}(1,1,0)^{T}=(-1,0,1)^{T}-\\frac{-1}{2}(1,1,0)^{T}=\\tfrac12(-1,1,2)^{T}\\sim(-1,1,2)^{T}.$$\nKontroll: $(1,1,0)\\cdot(-1,1,2)=0$ ✓. Normalisér ($\\lVert(1,1,0)\\rVert=\\sqrt2$, $\\lVert(-1,1,2)\\rVert=\\sqrt6$, $\\lVert(1,-1,1)\\rVert=\\sqrt3$):\n$$P=\\begin{bmatrix}\\tfrac{1}{\\sqrt2}&-\\tfrac{1}{\\sqrt6}&\\tfrac{1}{\\sqrt3}\\\\[2pt]\\tfrac{1}{\\sqrt2}&\\tfrac{1}{\\sqrt6}&-\\tfrac{1}{\\sqrt3}\\\\[2pt]0&\\tfrac{2}{\\sqrt6}&\\tfrac{1}{\\sqrt3}\\end{bmatrix},\\qquad D=\\begin{bmatrix}1&0&0\\\\0&1&0\\\\0&0&4\\end{bmatrix}.$$\nSøyle 1 og 2 hører til $\\lambda=1$, søyle 3 til $\\lambda=4$; $D$ matcher. Da er $A=PDP^{T}$.\n\n**c)** Søyle 1 og 2: $\\big(\\tfrac{1}{\\sqrt2}\\big)^2+\\big(\\tfrac{1}{\\sqrt2}\\big)^2+0=1$ og $\\big(-\\tfrac{1}{\\sqrt6}\\big)^2+\\big(\\tfrac{1}{\\sqrt6}\\big)^2+\\big(\\tfrac{2}{\\sqrt6}\\big)^2=\\tfrac{1+1+4}{6}=1$; skalarproduktet er $-\\tfrac{1}{\\sqrt{12}}+\\tfrac{1}{\\sqrt{12}}+0=0$ ✓. $\\det A=\\prod\\lambda_i=1\\cdot1\\cdot4=4$; $\\operatorname{spor}A=\\sum\\lambda_i=1+1+4=6$ (stemmer med diagonalen $2+2+2=6$). **Eksakt svar** — $P,D$ som over, $\\det A=4$, $\\operatorname{spor}A=6$."
+            },
+            {
+              "id": "mat1120-6-prove-p1-diag",
+              "type": "text",
+              "content": "**Selvdiagnose — kryss av ($\\square$):**\n\n- ☐ Jeg begrunnet ortogonal diagonaliserbarhet med **spektralteoremet** (ikke bare påstod den).\n- ☐ Jeg sjekket at vedleggets $E_1$-basis var ikke-ortogonal og kjørte **Gram–Schmidt** der.\n- ☐ Jeg **normaliserte** alle tre søyler så $P$ ble ortogonal.\n- ☐ Jeg matchet $P$ og $D$ søyle for søyle og kontrollerte $P^{T}P=I$.\n- ☐ Jeg skrev $A=PDP^{T}$ (ikke $PDP^{-1}$) og oppga $\\det A=\\prod\\lambda_i$, $\\operatorname{spor}A=\\sum\\lambda_i$."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "mat1120-6-prove-p2",
+      "type": "collapsible",
+      "title": "Prøve 2 — 6.B",
+      "buttonText": "Vis prøve 2",
+      "content": [
+        {
+          "id": "mat1120-6-prove-p2-oppg",
+          "type": "text",
+          "content": "**Sjanger:** kvadratisk form — symmetrisering + definitthet (G, + L-bevis). **Anbefalt tid:** ca. 40 minutter. Før som en fullstendig besvarelse.\n\n**Oppgave 1.** La $Q(x_1,x_2,x_3)=x_1^2+x_2^2+3x_3^2+4x_1x_2$.\n\n**a)** Skriv $Q(\\mathbf{x})=\\mathbf{x}^{T}A\\mathbf{x}$ med symmetrisk $A$.\n\n**b)** Vedlegget gir egenverdiene til $A$: $\\lambda=3$ (dobbel) og $\\lambda=-1$. Klassifiser definittheten til $Q$, og angi hva origo er (minimum/maksimum/sadelpunkt).\n\n**Oppgave 2.** La $B=\\begin{bmatrix}5&-2\\\\-2&2\\end{bmatrix}$. Vedlegget gir egenverdiene $1$ og $6$.\n\n**c)** Klassifiser definittheten til $B$.\n\n**d)** Bevis, generelt for en symmetrisk positiv definit matrise $B$, at $B$ er invertibel og at $B^{-1}$ også er positiv definit. Bruk resultatet til å angi egenverdiene til $B^{-1}$ for matrisen over."
+        },
+        {
+          "id": "mat1120-6-prove-p2-fasit",
+          "type": "collapsible",
+          "title": "Fasit — Prøve 6.B",
+          "buttonText": "Vis fasit",
+          "content": [
+            {
+              "id": "mat1120-6-prove-p2-fasit-tekst",
+              "type": "text",
+              "content": "**a)** Diagonal $a_{11}=1,a_{22}=1,a_{33}=3$; kryssledd $4x_1x_2\\Rightarrow a_{12}=a_{21}=2$ (delt på 2), ingen $x_1x_3$- eller $x_2x_3$-ledd:\n$$A=\\begin{bmatrix}1&2&0\\\\2&1&0\\\\0&0&3\\end{bmatrix}.$$\nKontroll: $\\mathbf{x}^{T}A\\mathbf{x}=x_1^2+x_2^2+3x_3^2+2\\cdot2\\,x_1x_2$ ✓.\n\n**b)** Egenverdiene er $3,3,-1$. Både positive og negativ egenverdi ⇒ **indefinit**. Origo er et **sadelpunkt** ($Q$ vokser langs egenrommet til $3$, synker langs egenvektoren til $-1$; f.eks. $Q(1,1,0)=1+1+4=6>0$, $Q(1,-1,0)=1+1-4=-2<0$).\n\n**c)** Egenverdiene $1,6$ er **begge $>0$** ⇒ $B$ er **positiv definit**.\n\n**d)** **Bevis.** La $B$ være symmetrisk og posdef, altså $B=B^{T}$ med alle egenverdier $\\lambda_i>0$. Ved spektralteoremet ([kap. 6.1](/bok/mat1120/mat1120-6-1)) er $B=PDP^{T}$ med ortogonal $P$ og $D=\\operatorname{diag}(\\lambda_i)$.\n\n- *Invertibel:* $\\det B=\\det D=\\prod\\lambda_i>0\\ne0$, så $B$ er invertibel.\n- *$B^{-1}$ posdef:* siden $P^{-1}=P^{T}$ er $B^{-1}=(PDP^{T})^{-1}=PD^{-1}P^{T}$ med $D^{-1}=\\operatorname{diag}(1/\\lambda_i)$. Dette er en ortogonal diagonalisering, så $B^{-1}$ er symmetrisk med egenverdier $1/\\lambda_i$. Fordi hver $\\lambda_i>0$, er hver $1/\\lambda_i>0$, altså er $B^{-1}$ **positiv definit**. $\\blacksquare$\n\nFor matrisen over: egenverdiene til $B^{-1}$ er $\\tfrac{1}{1}=1$ og $\\tfrac{1}{6}$. **Eksakt svar** — $Q$ indefinit (sadelpunkt), $B$ posdef, $B^{-1}$ posdef med egenverdier $1,\\tfrac16$."
+            },
+            {
+              "id": "mat1120-6-prove-p2-diag",
+              "type": "text",
+              "content": "**Selvdiagnose — kryss av ($\\square$):**\n\n- ☐ Jeg **delte kryssleddet på 2** ($a_{12}=2$) og fikk en symmetrisk $A$.\n- ☐ Jeg klassifiserte fra **egenverditegnene**, ikke fra diagonalen.\n- ☐ Jeg koblet klassifiseringen til origo (minimum/maksimum/sadelpunkt).\n- ☐ Jeg nevnte forutsetningen $B=B^{T}$ **før** jeg brukte spektralteoremet i beviset.\n- ☐ Jeg fant egenverdiene til $B^{-1}$ som $1/\\lambda_i$ og konkluderte posdef."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "mat1120-6-prove-p3",
+      "type": "collapsible",
+      "title": "Prøve 3 — 6.C",
+      "buttonText": "Vis prøve 3",
+      "content": [
+        {
+          "id": "mat1120-6-prove-p3-oppg",
+          "type": "text",
+          "content": "**Sjanger:** Rayleigh-maks (Teorem 6/7 §7.3) + kjeglesnitt via $\\mathbf{x}=P\\mathbf{y}$ (G). **Anbefalt tid:** ca. 40 minutter.\n\n**Oppgave 1 (Rayleigh).** La $A$ være symmetrisk med egenverdier $\\lambda_1=8>\\lambda_2=5>\\lambda_3=2$ og ortonormale egenvektorer $\\mathbf{u}_1,\\mathbf{u}_2,\\mathbf{u}_3$.\n\n**a)** Finn $\\max$ og $\\min$ av $\\mathbf{x}^{T}A\\mathbf{x}$ over $\\lVert\\mathbf{x}\\rVert=1$, og oppgi hvor de nås.\n\n**b)** Finn $\\max\\{\\mathbf{x}^{T}A\\mathbf{x}:\\lVert\\mathbf{x}\\rVert=1,\\ \\mathbf{x}\\perp\\mathbf{u}_1\\}$, og navngi teoremet.\n\n**Oppgave 2 (kjeglesnitt).** Betrakt kurven $2x_1^2+6x_1x_2+2x_2^2=5$. Vedlegget gir for $A=\\begin{bmatrix}2&3\\\\3&2\\end{bmatrix}$ egenverdiene $\\lambda=5$ med egenvektor $(1,1)^{T}$ og $\\lambda=-1$ med egenvektor $(1,-1)^{T}$.\n\n**c)** Utfør variabelskiftet $\\mathbf{x}=P\\mathbf{y}$ som fjerner kryssleddet, klassifiser kurven, og skriv den på standardform.\n\n**d)** **Skisser** kurven i hovedaksene $y_1,y_2$, med toppunkter og asymptoter."
+        },
+        {
+          "id": "mat1120-6-prove-p3-fasit",
+          "type": "collapsible",
+          "title": "Fasit — Prøve 6.C",
+          "buttonText": "Vis fasit",
+          "content": [
+            {
+              "id": "mat1120-6-prove-p3-fasit-tekst",
+              "type": "text",
+              "content": "**a)** Ved **Rayleigh (Teorem 6 §7.3)**: $\\max_{\\lVert\\mathbf{x}\\rVert=1}\\mathbf{x}^{T}A\\mathbf{x}=\\lambda_1=8$, oppnådd i $\\mathbf{x}=\\mathbf{u}_1$; $\\min=\\lambda_3=2$, oppnådd i $\\mathbf{x}=\\mathbf{u}_3$.\n\n**b)** Med bibetingelsen $\\mathbf{x}\\perp\\mathbf{u}_1$ faller den største retningen bort, og maksimum blir **nest største** egenverdi: $\\lambda_2=5$, oppnådd i $\\mathbf{x}=\\mathbf{u}_2$ — **Teorem 7 §7.3**.\n\n**c)** Kryssleddet er allerede symmetrisert i $A=\\begin{bmatrix}2&3\\\\3&2\\end{bmatrix}$ ($a_{12}=6/2=3$). Egenverdiene $5,-1$ har **motsatt fortegn** (indefinit) ⇒ **hyperbel**. Normalisér egenvektorene (begge lengde $\\sqrt2$) og sett $P=\\tfrac{1}{\\sqrt2}\\begin{bmatrix}1&1\\\\1&-1\\end{bmatrix}$ (søyle 1 ↔ $\\lambda=5$, søyle 2 ↔ $\\lambda=-1$). Med $\\mathbf{x}=P\\mathbf{y}$:\n$$2x_1^2+6x_1x_2+2x_2^2=5y_1^2-y_2^2=5\\ \\Rightarrow\\ \\frac{y_1^2}{1}-\\frac{y_2^2}{5}=1.$$\n\n**d)** En hyperbel som åpner langs $y_1$-aksen, med toppunkter $y_1=\\pm1$ (i $y$-planet) og asymptoter $y_2=\\pm\\sqrt5\\,y_1$. Hovedaksene peker langs egenvektorene $(1,1)^{T}$ og $(1,-1)^{T}$ (en $45^{\\circ}$-vridning i $x$-planet). Skisse i hovedaksene:"
+            },
+            {
+              "id": "mat1120-6-prove-p3-fig",
+              "type": "image",
+              "src": "/images/textbook/mat1120/mat1120-6-prove-6c-hyperbel.svg",
+              "alt": "Koordinatsystem med hovedaksene y-en og y-to. To hyperbelgrener åpner mot venstre og høyre langs den vannrette y-en-aksen med toppunkter i y-en lik pluss/minus 1. To stiplede asymptotelinjer gjennom origo har bratt stigning pluss og minus kvadratroten av fem.",
+              "caption": "Hyperbelen $\\tfrac{y_1^2}{1}-\\tfrac{y_2^2}{5}=1$ fra oppgave 2, i hovedaksene. Den positive egenverdien ($\\lambda=5$, langs $y_1$) gir aksen grenene åpner om; toppunktene ligger i $y_1=\\pm1$ og asymptotene er $y_2=\\pm\\sqrt5\\,y_1$."
+            },
+            {
+              "id": "mat1120-6-prove-p3-diag",
+              "type": "text",
+              "content": "**Selvdiagnose — kryss av ($\\square$):**\n\n- ☐ Jeg brukte Rayleigh (Teorem 6 §7.3): $\\max=\\lambda_{\\max}$ i $\\mathbf{u}_1$, $\\min=\\lambda_{\\min}$ i $\\mathbf{u}_n$.\n- ☐ Jeg brukte Teorem 7 for det begrensede maksimumet ($\\mathbf{x}\\perp\\mathbf{u}_1\\Rightarrow\\lambda_2$).\n- ☐ Jeg utførte variabelskiftet $\\mathbf{x}=P\\mathbf{y}$ med **normalisert** (ortogonal) $P$.\n- ☐ Jeg klassifiserte kurven fra egenverditegnene (blandet ⇒ hyperbel) og skrev standardform.\n- ☐ Jeg skisserte i **hovedaksene** $y_1,y_2$ med toppunkter og asymptoter."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "mat1120-6-prove-p4",
+      "type": "collapsible",
+      "title": "Prøve 4 — 6.D",
+      "buttonText": "Vis prøve 4",
+      "content": [
+        {
+          "id": "mat1120-6-prove-p4-oppg",
+          "type": "text",
+          "content": "**Sjanger:** oppgave 4-simulering — symmetrisk $A$ → ortogonal diagonalisering → kvadratisk form → Rayleigh, kjedet (F + G). **Anbefalt tid:** ca. 45 minutter. Før som en fullstendig besvarelse.\n\nVedlegget gir for\n$$A=\\begin{bmatrix}4&1&1\\\\1&4&1\\\\1&1&4\\end{bmatrix}$$\negenverdiene $\\lambda=3$ (algebraisk multiplisitet $2$) med egenrom utspent av $(1,-1,0)^{T}$ og $(1,0,-1)^{T}$, og $\\lambda=6$ (enkel) med egenvektor $(1,1,1)^{T}$.\n\n**a)** Begrunn at $A$ er ortogonalt diagonaliserbar, og finn ortogonal $P$ og diagonal $D$ med $A=PDP^{T}$ (vis Gram–Schmidt i egenrommet).\n\n**b)** Skriv $Q(\\mathbf{x})=\\mathbf{x}^{T}A\\mathbf{x}$ ut i koordinater, og bruk et ortogonalt variabelskifte til å skrive $Q$ uten kryssledd. Klassifiser definittheten.\n\n**c)** Finn $\\max$ og $\\min$ av $Q$ over $\\lVert\\mathbf{x}\\rVert=1$, og oppgi hvor de nås.\n\n**d)** Er $A$ invertibel? Hva er egenverdiene til $A^{-1}$, og hva blir $\\max_{\\lVert\\mathbf{x}\\rVert=1}\\mathbf{x}^{T}A^{-1}\\mathbf{x}$?"
+        },
+        {
+          "id": "mat1120-6-prove-p4-fasit",
+          "type": "collapsible",
+          "title": "Fasit — Prøve 6.D",
+          "buttonText": "Vis fasit",
+          "content": [
+            {
+              "id": "mat1120-6-prove-p4-fasit-tekst",
+              "type": "text",
+              "content": "**a)** $A=A^{T}$, så ved **spektralteoremet** er $A$ ortogonalt diagonaliserbar. Egenvektoren $(1,1,1)^{T}$ for $\\lambda=6$ er ortogonal på $E_3$ (kontroll: $(1,1,1)\\cdot(1,-1,0)=0$, $(1,1,1)\\cdot(1,0,-1)=0$ ✓). Inne i $E_3$ er $(1,-1,0)\\cdot(1,0,-1)=1\\ne0$, så **Gram–Schmidt** med $\\mathbf{v}_1=(1,-1,0)^{T}$, $\\mathbf{v}_2=(1,0,-1)^{T}$:\n$$\\mathbf{w}_2=(1,0,-1)^{T}-\\frac{1}{2}(1,-1,0)^{T}=\\tfrac12(1,1,-2)^{T}\\sim(1,1,-2)^{T}.$$\nKontroll $(1,-1,0)\\cdot(1,1,-2)=0$ ✓. Normalisér ($\\sqrt2,\\sqrt6,\\sqrt3$):\n$$P=\\begin{bmatrix}\\tfrac{1}{\\sqrt2}&\\tfrac{1}{\\sqrt6}&\\tfrac{1}{\\sqrt3}\\\\[2pt]-\\tfrac{1}{\\sqrt2}&\\tfrac{1}{\\sqrt6}&\\tfrac{1}{\\sqrt3}\\\\[2pt]0&-\\tfrac{2}{\\sqrt6}&\\tfrac{1}{\\sqrt3}\\end{bmatrix},\\qquad D=\\begin{bmatrix}3&0&0\\\\0&3&0\\\\0&0&6\\end{bmatrix}.$$\nSøyle 1, 2 hører til $\\lambda=3$, søyle 3 til $\\lambda=6$. Da $A=PDP^{T}$.\n\n**b)** Diagonal $4,4,4$; kryssledd delt på 2 (her ganget tilbake): $a_{12}=a_{13}=a_{23}=1\\Rightarrow$\n$$Q=4x_1^2+4x_2^2+4x_3^2+2x_1x_2+2x_1x_3+2x_2x_3.$$\nMed $\\mathbf{x}=P\\mathbf{y}$ er $Q=3y_1^2+3y_2^2+6y_3^2$ (ingen kryssledd). Alle koeffisienter $>0$ ⇒ **positiv definit**.\n\n**c)** Ved **Rayleigh (Teorem 6 §7.3)**: $\\max_{\\lVert\\mathbf{x}\\rVert=1}Q=\\lambda_{\\max}=6$, oppnådd i $\\tfrac{1}{\\sqrt3}(1,1,1)^{T}$; $\\min=\\lambda_{\\min}=3$, oppnådd for enhver enhetsvektor i $E_3$.\n\n**d)** Alle egenverdier $>0$ ⇒ $\\det A=3\\cdot3\\cdot6=54\\ne0$, så $A$ er **invertibel**. Egenverdiene til $A^{-1}$ er $\\tfrac13,\\tfrac13,\\tfrac16$ (samme egenvektorer). Rayleigh på $A^{-1}$: $\\max_{\\lVert\\mathbf{x}\\rVert=1}\\mathbf{x}^{T}A^{-1}\\mathbf{x}=\\lambda_{\\max}(A^{-1})=\\tfrac13$, oppnådd i $E_3$ (egenvektorene til $A$s minste egenverdi). **Eksakt svar** — $A=PDP^{T}$, $Q$ posdef, $\\max=6$, $\\min=3$; $A^{-1}$-egenverdier $\\tfrac13,\\tfrac13,\\tfrac16$, Rayleigh-maks $\\tfrac13$. Legg merke til at **samme** egenverdier bar b), c) og d)."
+            },
+            {
+              "id": "mat1120-6-prove-p4-diag",
+              "type": "text",
+              "content": "**Selvdiagnose — kryss av ($\\square$):**\n\n- ☐ Jeg begrunnet med spektralteoremet og kjørte **Gram–Schmidt** i $E_3$.\n- ☐ Jeg **normaliserte** og kontrollerte at $P$ ble ortogonal; skrev $A=PDP^{T}$.\n- ☐ Jeg symmetriserte $Q$ (kryssledd/2) og fjernet kryssleddet med $\\mathbf{x}=P\\mathbf{y}$.\n- ☐ Jeg klassifiserte fra egenverditegn og brukte Rayleigh for $\\max/\\min$.\n- ☐ Jeg gjenbrukte **samme** egenverdier gjennom b)–d) og fant $A^{-1}$-egenverdiene som $1/\\lambda_i$."
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "exercises": []
+}

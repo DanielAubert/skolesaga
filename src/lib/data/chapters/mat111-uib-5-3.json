@@ -1,0 +1,526 @@
+{
+  "id": "mat111-uib-5-3",
+  "courseId": "mat111-uib",
+  "chapterNumber": "5.3",
+  "title": "Integrasjonsteknikk II: delbrøk, polynomdivisjon og trig-substitusjon",
+  "description": "Rasjonale integrander med delbrøk (også irreduserbar kvadratisk faktor → arctan-ledd) og trigonometrisk substitusjon for rotuttrykk.",
+  "estimatedMinutes": 60,
+  "competenceGoals": [
+    "kunne avgjøre om en rasjonal brøk er ekte, og utføre polynomdivisjon først når den ikke er det",
+    "kunne sette opp og løse delbrøkoppspalting for distinkte lineære, gjentatte lineære og irreduserbare kvadratiske faktorer",
+    "kunne integrere brøker med irreduserbar kvadratisk nevner via fullført kvadrat, med både ln-ledd og arctan-ledd",
+    "kunne gjennomføre trigonometrisk substitusjon med deklarert verdimengde og tilbaketransformasjon",
+    "kunne kjede substitusjon og delbrøk når en rasjonal struktur ligger i forkledning"
+  ],
+  "content": [
+    {
+      "id": "mat111-uib-5-3-tip",
+      "type": "tip",
+      "title": "Eksamensvinkel",
+      "content": "**Rasjonale integrander og rotuttrykk — midtsjiktet og toppen av integrasjonssjangeren.**\n\n- Dette kapitlet fortsetter **sjanger B (integrasjonsteknikk, 97 % av settene)** fra kap. 5.2. Delbrøk med *irreduserbar kvadratisk faktor* og *trigonometrisk substitusjon* er markørene som skiller midtsjiktet fra toppen i arkivets løsningsforslag — de enkle delbrøkene er standardkost, disse variantene avgjør de siste poengene.\n- To faste feller løsningsforslagene straffer: delbrøk satt opp **uten polynomdivisjon først** når tellergraden er for høy, og **glemt arctan-ledd** når nevneren har en faktor uten reelle røtter.\n- Alt føres med teknikk synlig (åpen bok-regelen fra kap. 5.2 gjelder uendret): oppsettet av delbrøken, koeffisientbestemmelsen og substitusjonsboksen er selve besvarelsen.\n- Prioritet: **perfekt**."
+    },
+    {
+      "id": "mat111-uib-5-3-fork",
+      "type": "text",
+      "content": "**Forkunnskaper.** Teknikkfundamentet er [kap. 5.2](/bok/mat111-uib/mat111-uib-5-2) (substitusjon med boks — trig-substitusjon er en substitusjon «baklengs»). Fra videregående trengs tre verktøy: **[Delbrøkoppspalting](/bok/r2/r2-3-3)** (grunnvarianten med to lineære faktorer), **[Polynomer og polynomdivisjon](/bok/r1/r1-1-1)** og **[Fullstendig kvadrat](/bok/1t/1t-2-4)**.\n\n**Sist du var her** — de to algebra-grepene som bærer hele kapitlet:\n\n$$\\frac{x^2+2}{x-1} = x+1+\\frac{3}{x-1}\\ \\text{(divisjon)} \\qquad x^2+4x+13 = (x+2)^2+9\\ \\text{(fullført kvadrat)}$$"
+    },
+    {
+      "id": "mat111-uib-5-3-motiv",
+      "type": "text",
+      "content": "Substitusjon og delvis integrasjon biter ikke på $\\displaystyle\\int\\frac{x+5}{(x-1)(x+3)}\\,dx$ — det finnes ingen kjerne og ingen produktstruktur som hjelper. Men brøken kan *skrives om*: som en sum av småbrøker med én faktor i hver nevner, og hver småbrøk er et grunnintegral. Det er **delbrøkoppspalting** — algebra som forvandler et umulig integral til to trivielle.\n\nKapitlet bygger verktøykassen for alle rasjonale integrander: polynomdivisjon når telleren er for stor, delbrøk for alle nevnertyper — også den irreduserbare kvadratiske faktoren som gir $\\arctan$-ledd — og til slutt **trigonometrisk substitusjon** for rotuttrykkene $\\sqrt{a^2-x^2}$ og $\\sqrt{a^2+x^2}$.\n\nFire læringsløkker: (1) polynomdivisjon først, (2) delbrøk med lineære faktorer, (3) irreduserbar kvadratisk faktor, (4) trig-substitusjon og kjeding. Kapitlet er algebra-tungt — ta pauser mellom løkkene."
+    },
+    {
+      "id": "mat111-uib-5-3-l1",
+      "type": "text",
+      "content": "## Løkke 1 — Polynomdivisjon først (~10 min)"
+    },
+    {
+      "id": "mat111-uib-5-3-def-ekte",
+      "type": "definition",
+      "title": "Ekte og uekte rasjonal funksjon",
+      "content": "En rasjonal funksjon $\\frac{p(x)}{q(x)}$ er **ekte** når tellergraden er *lavere* enn nevnergraden, og **uekte** ellers. Delbrøkoppspalting virker bare på ekte brøker — en uekte brøk må først «reduseres» med polynomdivisjon. Sjekk gradene før du gjør noe som helst."
+    },
+    {
+      "id": "mat111-uib-5-3-def-polydiv",
+      "type": "definition",
+      "title": "Polynomdivisjon først (regelen)",
+      "content": "Er tellergraden $\\ge$ nevnergraden, divider polynomene:\n\n$$\\frac{p(x)}{q(x)} = k(x) + \\frac{r(x)}{q(x)},$$\n\nder kvotienten $k(x)$ er et polynom (integreres direkte) og resten $r(x)$ har lavere grad enn $q(x)$ — restbrøken er ekte og klar for delbrøk. Å hoppe over dette steget er arkivets vanligste delbrøk-feil."
+    },
+    {
+      "id": "mat111-uib-5-3-def-grunnint",
+      "type": "definition",
+      "title": "Grunnintegralet $\\int\\frac{dx}{x-a}$",
+      "content": "Byggeklossen alle delbrøker til slutt reduseres til:\n\n$$\\int\\frac{dx}{x-a} = \\ln|x-a| + C.$$\n\nMed konstant $A$ i telleren: $\\int\\frac{A}{x-a}\\,dx = A\\ln|x-a|+C$. Absoluttverdien skal med — nevneren kan være negativ i integrasjonsområdet."
+    },
+    {
+      "id": "mat111-uib-5-3-eks1",
+      "type": "example",
+      "title": "Eksempel 1: uekte brøk — divider først",
+      "problem": "Beregn $\\displaystyle\\int\\frac{x^2+2}{x-1}\\,dx$.",
+      "solution": "Tellergrad 2 $\\ge$ nevnergrad 1 → uekte brøk, divider først:\n\n$$x^2+2 = (x-1)(x+1) + 3 \\quad\\Longrightarrow\\quad \\frac{x^2+2}{x-1} = x+1+\\frac{3}{x-1}.$$\n\n*(Kontroll: $(x-1)(x+1)+3 = x^2-1+3 = x^2+2$. ✓)*\n\n$$\\int\\frac{x^2+2}{x-1}\\,dx = \\int(x+1)\\,dx + 3\\int\\frac{dx}{x-1} = \\frac{x^2}{2}+x+3\\ln|x-1|+C.$$\n\n**Sluttsvar:** $\\dfrac{x^2}{2}+x+3\\ln|x-1|+C$. $\\blacksquare$"
+    },
+    {
+      "id": "mat111-uib-5-3-o1",
+      "type": "exercise",
+      "exercise": {
+        "id": "mat111-uib-5-3-o1-x",
+        "number": "1",
+        "type": "classic",
+        "difficulty": "lett",
+        "task": "Beregn $\\displaystyle\\int_0^1\\frac{x^3+2x}{x^2+1}\\,dx$. (Divider — og se etter et $\\ln$-mønster i restbrøken.)",
+        "solution": "Tellergrad 3 $\\ge$ nevnergrad 2 → divider: $x^3+2x = x(x^2+1) + x$, så\n$$\\frac{x^3+2x}{x^2+1} = x + \\frac{x}{x^2+1}.$$\n\nRestbrøken er $\\ln$-mønsteret fra kap. 5.2 ($u=x^2+1$):\n$$\\int_0^1\\frac{x^3+2x}{x^2+1}\\,dx = \\Big[\\frac{x^2}{2}\\Big]_0^1 + \\frac12\\Big[\\ln(x^2+1)\\Big]_0^1 = \\frac12+\\frac{\\ln2}{2}.$$\n\n**Sluttsvar:** $\\dfrac12+\\dfrac{\\ln2}{2}$. $\\blacksquare$",
+        "hints": [
+          "$x^3+2x = x(x^2+1)+x$.",
+          "$\\int\\frac{x}{x^2+1}dx = \\frac12\\ln(x^2+1)+C$."
+        ]
+      }
+    },
+    {
+      "id": "mat111-uib-5-3-l2",
+      "type": "text",
+      "content": "## Løkke 2 — Delbrøk med lineære faktorer (~15 min)"
+    },
+    {
+      "id": "mat111-uib-5-3-def-delbrok",
+      "type": "definition",
+      "title": "Delbrøkoppspalting",
+      "content": "Delbrøkoppspalting skriver en ekte rasjonal brøk som en sum av enklere brøker — én (eller flere) per faktor i nevneren. Faktoriser nevneren fullstendig først; formen på oppsettet bestemmes av faktortypene: distinkte lineære, gjentatte lineære eller irreduserbare kvadratiske."
+    },
+    {
+      "id": "mat111-uib-5-3-def-distinkt",
+      "type": "definition",
+      "title": "Oppsettet for distinkte lineære faktorer",
+      "content": "Har nevneren bare ulike lineære faktorer, får hver faktor én konstant:\n\n$$\\frac{r(x)}{(x-a)(x-b)} = \\frac{A}{x-a}+\\frac{B}{x-b}.$$\n\nKonstantene $A$ og $B$ bestemmes ved innsettingsmetoden eller koeffisientsammenligning — og *sjekkes alltid* ved å legge brøkene sammen igjen."
+    },
+    {
+      "id": "mat111-uib-5-3-def-innsett",
+      "type": "definition",
+      "title": "Innsettingsmetoden («dekk til»-metoden)",
+      "content": "Raskeste vei til koeffisientene: gang likningen $r(x) = A(x-b)+B(x-a)$ opp med fellesnevneren, og sett inn røttene én av gangen. Med $x=a$ forsvinner $B$-leddet og $A$ løses direkte; med $x=b$ finner du $B$. Metoden virker fordi identiteten skal gjelde for *alle* $x$ — også røttene."
+    },
+    {
+      "id": "mat111-uib-5-3-def-koeffsml",
+      "type": "definition",
+      "title": "Koeffisientsammenligning",
+      "content": "Alternativet til innsetting: gang opp, sorter etter potenser av $x$, og krev at koeffisientene på hver side er like. Gir et lineært likningssett i $A, B, \\dots$ Metoden er tyngre, men nødvendig som supplement når det er færre røtter enn ukjente (gjentatte og kvadratiske faktorer)."
+    },
+    {
+      "id": "mat111-uib-5-3-eks2",
+      "type": "example",
+      "title": "Eksempel 2: to distinkte lineære faktorer",
+      "problem": "Beregn $\\displaystyle\\int\\frac{x+5}{(x-1)(x+3)}\\,dx$.",
+      "solution": "Ekte brøk (tellergrad 1 < nevnergrad 2), nevneren ferdig faktorisert. **Oppsett:**\n$$\\frac{x+5}{(x-1)(x+3)} = \\frac{A}{x-1}+\\frac{B}{x+3}.$$\n\nGang opp med $(x-1)(x+3)$:\n$$x+5 = A(x+3)+B(x-1).$$\n\n**Innsetting:** $x=1$: $6 = 4A \\Rightarrow A=\\tfrac32$. $x=-3$: $2 = -4B \\Rightarrow B=-\\tfrac12$.\n\n*(Kontroll: $\\tfrac32(x+3)-\\tfrac12(x-1) = \\tfrac32x+\\tfrac92-\\tfrac12x+\\tfrac12 = x+5$. ✓)*\n\n$$\\int\\frac{x+5}{(x-1)(x+3)}\\,dx = \\frac32\\ln|x-1| - \\frac12\\ln|x+3| + C.\\ \\blacksquare$$"
+    },
+    {
+      "id": "mat111-uib-5-3-def-gjentatt",
+      "type": "definition",
+      "title": "Oppsettet for gjentatte lineære faktorer",
+      "content": "En faktor med multiplisitet — som $(x+1)^2$ — får ett ledd per potens opp til multiplisiteten:\n\n$$\\frac{r(x)}{(x+1)^2} = \\frac{A}{x+1}+\\frac{B}{(x+1)^2}.$$\n\nAndreleddet integreres med potensregelen: $\\int\\frac{B}{(x+1)^2}\\,dx = -\\frac{B}{x+1}+C$ — det gir *ikke* logaritme."
+    },
+    {
+      "id": "mat111-uib-5-3-eks3",
+      "type": "example",
+      "title": "Eksempel 3: gjentatt lineær faktor",
+      "problem": "Beregn $\\displaystyle\\int\\frac{3x+1}{(x+1)^2}\\,dx$.",
+      "solution": "**Oppsett** (én term per potens):\n$$\\frac{3x+1}{(x+1)^2} = \\frac{A}{x+1}+\\frac{B}{(x+1)^2} \\;\\Longrightarrow\\; 3x+1 = A(x+1)+B.$$\n\n**Innsetting** $x=-1$: $-2 = B$. **Koeffisientsammenligning** på $x$: $3 = A$.\n\n*(Kontroll: $3(x+1)-2 = 3x+1$. ✓)*\n\n$$\\int\\frac{3x+1}{(x+1)^2}\\,dx = 3\\ln|x+1| - 2\\int\\frac{dx}{(x+1)^2} = 3\\ln|x+1| + \\frac{2}{x+1} + C.$$\n\n**Kontroll ved derivasjon:** $\\big(3\\ln|x+1|+\\tfrac{2}{x+1}\\big)' = \\tfrac{3}{x+1}-\\tfrac{2}{(x+1)^2} = \\tfrac{3(x+1)-2}{(x+1)^2} = \\tfrac{3x+1}{(x+1)^2}$. ✓ $\\blacksquare$"
+    },
+    {
+      "id": "mat111-uib-5-3-o2",
+      "type": "exercise",
+      "exercise": {
+        "id": "mat111-uib-5-3-o2-x",
+        "number": "2",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "Beregn $\\displaystyle\\int\\frac{dx}{x^2-5x+6}$.",
+        "solution": "Faktoriser nevneren: $x^2-5x+6 = (x-2)(x-3)$. Oppsett:\n$$\\frac{1}{(x-2)(x-3)} = \\frac{A}{x-2}+\\frac{B}{x-3} \\;\\Longrightarrow\\; 1 = A(x-3)+B(x-2).$$\n$x=2$: $1=-A\\Rightarrow A=-1$. $x=3$: $1=B$.\n\n$$\\int\\frac{dx}{x^2-5x+6} = \\ln|x-3| - \\ln|x-2| + C = \\ln\\left|\\frac{x-3}{x-2}\\right|+C.\\ \\blacksquare$",
+        "hints": [
+          "Finn to tall med sum $5$ og produkt $6$.",
+          "Innsetting av røttene gir $A$ og $B$ direkte."
+        ]
+      }
+    },
+    {
+      "id": "mat111-uib-5-3-o3",
+      "type": "exercise",
+      "exercise": {
+        "id": "mat111-uib-5-3-o3-x",
+        "number": "3",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "Beregn $\\displaystyle\\int_3^4\\frac{x+4}{(x-2)(x+1)^2}\\,dx$ — sett opp med både enkel og gjentatt faktor. (Svaret kan inneholde $\\ln$.)",
+        "solution": "**Oppsett:** $\\dfrac{x+4}{(x-2)(x+1)^2} = \\dfrac{A}{x-2}+\\dfrac{B}{x+1}+\\dfrac{C}{(x+1)^2}$.\n\nGang opp: $x+4 = A(x+1)^2 + B(x-2)(x+1) + C(x-2)$.\n\n$x=2$: $6 = 9A \\Rightarrow A=\\tfrac23$. $x=-1$: $3 = -3C \\Rightarrow C=-1$. Koeffisient på $x^2$: $0 = A+B \\Rightarrow B=-\\tfrac23$.\n\n*(Kontroll i $x=0$: $A - 2B - 2C = \\tfrac23+\\tfrac43+2 = 4$. ✓)*\n\n$$\\int_3^4 = \\Big[\\tfrac23\\ln|x-2| - \\tfrac23\\ln|x+1| + \\tfrac{1}{x+1}\\Big]_3^4 = \\tfrac23\\ln2-\\tfrac23\\ln5+\\tfrac15 - \\big(0-\\tfrac23\\ln4+\\tfrac14\\big).$$\n\n$$= \\frac23\\ln\\frac{2\\cdot4}{5} - \\frac{1}{20} = \\frac23\\ln\\frac85-\\frac1{20}.$$\n\n**Sluttsvar:** $\\dfrac23\\ln\\dfrac85-\\dfrac1{20}\\ (\\approx 0{,}263)$. $\\blacksquare$",
+        "hints": [
+          "Tre ledd i oppsettet: $A/(x-2) + B/(x+1) + C/(x+1)^2$.",
+          "Røttene $2$ og $-1$ gir $A$ og $C$; sammenlign $x^2$-koeffisienten for $B$.",
+          "$\\int (x+1)^{-2} dx = -(x+1)^{-1}$."
+        ]
+      }
+    },
+    {
+      "id": "mat111-uib-5-3-l3",
+      "type": "text",
+      "content": "## Løkke 3 — Irreduserbar kvadratisk faktor: fullført kvadrat og arctan (~18 min)"
+    },
+    {
+      "id": "mat111-uib-5-3-def-irred",
+      "type": "definition",
+      "title": "Irreduserbar kvadratisk faktor",
+      "content": "En kvadratisk faktor er **irreduserbar** (over de reelle tallene) når den ikke har reelle røtter — diskriminanten er negativ, som i $x^2+4$ og $x^2+4x+13$. Den kan ikke splittes i lineære faktorer, og bidraget dens i integralet blir logaritme- og $\\arctan$-ledd, ikke flere $\\ln|x-a|$."
+    },
+    {
+      "id": "mat111-uib-5-3-def-arctangrunn",
+      "type": "definition",
+      "title": "$\\arctan$-grunnintegralet",
+      "content": "Byggeklossen for irreduserbare faktorer:\n\n$$\\int\\frac{dx}{x^2+a^2} = \\frac1a\\arctan\\frac{x}{a} + C \\qquad (a>0).$$\n\nKontroll: $\\big(\\frac1a\\arctan\\frac xa\\big)' = \\frac1a\\cdot\\frac{1/a}{1+(x/a)^2} = \\frac{1}{a^2+x^2}$. Merk $\\frac1a$-faktoren foran — den glemmes ofte."
+    },
+    {
+      "id": "mat111-uib-5-3-def-fullfkv",
+      "type": "definition",
+      "title": "Fullført kvadrat (broen til arctan)",
+      "content": "En irreduserbar nevner tvinges inn i $\\arctan$-formen ved å fullføre kvadratet:\n\n$$x^2+bx+c = \\Big(x+\\frac b2\\Big)^2 + \\underbrace{c-\\frac{b^2}{4}}_{=\\,a^2\\,>\\,0}.$$\n\nMed skiftet $u=x+\\frac b2$ står du igjen med $u^2+a^2$ — klart for grunnintegralet. At restleddet er positivt, er nettopp irreduserbarheten."
+    },
+    {
+      "id": "mat111-uib-5-3-def-lndel",
+      "type": "definition",
+      "title": "$\\ln$-delen og $\\arctan$-delen (tellersplittingen)",
+      "content": "En lineær teller over irreduserbar nevner splittes i to deler med hver sin skjebne:\n\n$$\\frac{px+q}{x^2+bx+c} = \\frac{p}{2}\\cdot\\frac{2x+b}{x^2+bx+c} + \\Big(q-\\frac{pb}{2}\\Big)\\frac{1}{x^2+bx+c}.$$\n\nFørste del har *nevnerens deriverte* i telleren → $\\ln$-mønsteret. Andre del har konstant teller → fullført kvadrat → $\\arctan$. Begge leddene skal med i svaret."
+    },
+    {
+      "id": "mat111-uib-5-3-def-bxcoppsett",
+      "type": "definition",
+      "title": "Oppsettet $\\frac{Bx+C}{x^2+a^2}$ i delbrøk",
+      "content": "I en delbrøkoppspalting får en irreduserbar kvadratisk faktor en *lineær* teller — ikke bare en konstant:\n\n$$\\frac{r(x)}{x(x^2+a^2)} = \\frac{A}{x} + \\frac{Bx+C}{x^2+a^2}.$$\n\nEn konstant teller alene er en for snever ansats og gir et uløselig likningssett. Koeffisientene bestemmes med innsetting ($x=0$ gir $A$) pluss koeffisientsammenligning."
+    },
+    {
+      "id": "mat111-uib-5-3-eks4",
+      "type": "example",
+      "title": "Eksempel 4 (eksamensnivå): lineær teller over irreduserbar nevner",
+      "problem": "Beregn $\\displaystyle\\int\\frac{2x+5}{x^2+4x+13}\\,dx$.",
+      "solution": "Nevneren har diskriminant $16-52<0$ → irreduserbar. **Splitt telleren** etter nevnerens deriverte $2x+4$:\n$$2x+5 = (2x+4)+1.$$\n\n$$\\int\\frac{2x+5}{x^2+4x+13}\\,dx = \\underbrace{\\int\\frac{2x+4}{x^2+4x+13}\\,dx}_{\\ln\\text{-delen}} + \\underbrace{\\int\\frac{dx}{x^2+4x+13}}_{\\arctan\\text{-delen}}.$$\n\n**$\\ln$-delen** ($u=x^2+4x+13$, $du=(2x+4)dx$): $\\ln(x^2+4x+13)$ (nevneren er alltid positiv — absoluttverdi unødvendig).\n\n**$\\arctan$-delen** — fullfør kvadratet: $x^2+4x+13 = (x+2)^2+9$. Med $u=x+2$ og $a=3$:\n$$\\int\\frac{du}{u^2+9} = \\frac13\\arctan\\frac{u}{3}+C = \\frac13\\arctan\\frac{x+2}{3}+C.$$\n\n**Sluttsvar:** $\\displaystyle\\int\\frac{2x+5}{x^2+4x+13}\\,dx = \\ln(x^2+4x+13) + \\frac13\\arctan\\frac{x+2}{3} + C.\\ \\blacksquare$"
+    },
+    {
+      "id": "mat111-uib-5-3-eks5",
+      "type": "example",
+      "title": "Eksempel 5: delbrøk med irreduserbar faktor",
+      "problem": "Beregn $\\displaystyle\\int\\frac{2x^2+x+8}{x(x^2+4)}\\,dx$.",
+      "solution": "Ekte brøk; nevneren har den lineære faktoren $x$ og den irreduserbare faktoren $x^2+4$. **Oppsett med lineær teller:**\n$$\\frac{2x^2+x+8}{x(x^2+4)} = \\frac{A}{x}+\\frac{Bx+C}{x^2+4} \\;\\Longrightarrow\\; 2x^2+x+8 = A(x^2+4) + (Bx+C)x.$$\n\n**Innsetting** $x=0$: $8=4A\\Rightarrow A=2$. **Koeffisientsammenligning:** $x^2$: $2 = A+B \\Rightarrow B=0$; $x$: $1=C$.\n\n*(Kontroll: $2(x^2+4)+x = 2x^2+x+8$. ✓)*\n\n$$\\int\\frac{2x^2+x+8}{x(x^2+4)}\\,dx = 2\\int\\frac{dx}{x} + \\int\\frac{dx}{x^2+4} = 2\\ln|x| + \\frac12\\arctan\\frac{x}{2} + C.\\ \\blacksquare$$"
+    },
+    {
+      "id": "mat111-uib-5-3-o4",
+      "type": "exercise",
+      "exercise": {
+        "id": "mat111-uib-5-3-o4-x",
+        "number": "4",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "Beregn $\\displaystyle\\int\\frac{dx}{x^2+6x+13}$.",
+        "solution": "Diskriminanten er $36-52<0$ → irreduserbar; fullfør kvadratet:\n$$x^2+6x+13 = (x+3)^2+4.$$\n\nMed $u=x+3$ ($du=dx$) og $a=2$:\n$$\\int\\frac{dx}{(x+3)^2+4} = \\frac12\\arctan\\frac{x+3}{2}+C.\\ \\blacksquare$",
+        "hints": [
+          "Fullfør kvadratet: halver koeffisienten foran $x$.",
+          "Grunnintegralet gir faktoren $\\frac1a=\\frac12$ foran."
+        ]
+      }
+    },
+    {
+      "id": "mat111-uib-5-3-o5",
+      "type": "exercise",
+      "exercise": {
+        "id": "mat111-uib-5-3-o5-x",
+        "number": "5",
+        "type": "classic",
+        "difficulty": "vanskelig",
+        "task": "Beregn $\\displaystyle\\int\\frac{4x+3}{x^2+2x+10}\\,dx$.",
+        "solution": "Irreduserbar nevner (diskriminant $4-40<0$). Nevnerens deriverte er $2x+2$; splitt telleren: $4x+3 = 2(2x+2)-1$.\n\n$$\\int\\frac{4x+3}{x^2+2x+10}\\,dx = 2\\int\\frac{2x+2}{x^2+2x+10}\\,dx - \\int\\frac{dx}{x^2+2x+10}.$$\n\n$\\ln$-delen: $2\\ln(x^2+2x+10)$. $\\arctan$-delen: $x^2+2x+10 = (x+1)^2+9$, så $\\int\\frac{dx}{(x+1)^2+9} = \\frac13\\arctan\\frac{x+1}{3}$.\n\n**Sluttsvar:** $2\\ln(x^2+2x+10) - \\dfrac13\\arctan\\dfrac{x+1}{3} + C$. $\\blacksquare$",
+        "hints": [
+          "Nevnerens deriverte er $2x+2$ — skriv $4x+3 = 2(2x+2)-1$.",
+          "Fullfør kvadratet for konstant-delen.",
+          "Begge leddene ($\\ln$ og $\\arctan$) skal med."
+        ]
+      }
+    },
+    {
+      "id": "mat111-uib-5-3-l4",
+      "type": "text",
+      "content": "## Løkke 4 — Trigonometrisk substitusjon og kjeding (~17 min)"
+    },
+    {
+      "id": "mat111-uib-5-3-def-trigsin",
+      "type": "definition",
+      "title": "Trig-substitusjonen $x=a\\sin\\theta$ (for $\\sqrt{a^2-x^2}$)",
+      "content": "Rotuttrykket $\\sqrt{a^2-x^2}$ løses opp med $x=a\\sin\\theta$, $dx=a\\cos\\theta\\,d\\theta$:\n\n$$\\sqrt{a^2-x^2} = \\sqrt{a^2(1-\\sin^2\\theta)} = a|\\cos\\theta| = a\\cos\\theta,$$\n\nder siste likhet krever **verdimengden** $\\theta\\in[-\\frac\\pi2,\\frac\\pi2]$ (da er $\\cos\\theta\\ge0$). Roten forsvinner — det er hele poenget."
+    },
+    {
+      "id": "mat111-uib-5-3-def-trigtan",
+      "type": "definition",
+      "title": "Trig-substitusjonen $x=a\\tan\\theta$ (for $\\sqrt{a^2+x^2}$ og $(a^2+x^2)^k$)",
+      "content": "For uttrykk med $a^2+x^2$ brukes $x=a\\tan\\theta$, $dx=\\frac{a}{\\cos^2\\theta}\\,d\\theta$:\n\n$$a^2+x^2 = a^2(1+\\tan^2\\theta) = \\frac{a^2}{\\cos^2\\theta},$$\n\nmed verdimengde $\\theta\\in(-\\frac\\pi2,\\frac\\pi2)$. Summen av kvadrater kollapser til én cosinuspotens."
+    },
+    {
+      "id": "mat111-uib-5-3-def-verdimengde",
+      "type": "definition",
+      "title": "Verdimengdekravet",
+      "content": "Trig-substitusjonene er bare gyldige med et *deklarert* $\\theta$-intervall: $[-\\frac\\pi2,\\frac\\pi2]$ for sinus, $(-\\frac\\pi2,\\frac\\pi2)$ for tangens. Kravet gjør to jobber: det sikrer $\\cos\\theta\\ge0$ (så $\\sqrt{\\cos^2\\theta}=\\cos\\theta$ uten fortegnsfeil), og det gjør substitusjonen inverterbar slik at tilbaketransformasjonen $\\theta=\\arcsin\\frac xa$ (eller $\\arctan\\frac xa$) er entydig. Løsningsforslagene skriver intervallet eksplisitt."
+    },
+    {
+      "id": "mat111-uib-5-3-def-trekant",
+      "type": "definition",
+      "title": "Tilbaketransformasjon med rettvinklet trekant",
+      "content": "Svaret i $\\theta$-verdenen skal tilbake til $x$. Tegn en rettvinklet trekant som koder substitusjonen: for $x=a\\sin\\theta$ er hypotenusen $a$, motstående katet $x$ og hosliggende $\\sqrt{a^2-x^2}$. Da leses alle trig-uttrykk av direkte, f.eks. $\\cos\\theta = \\frac{\\sqrt{a^2-x^2}}{a}$ og $\\sin2\\theta = 2\\sin\\theta\\cos\\theta = \\frac{2x\\sqrt{a^2-x^2}}{a^2}$."
+    },
+    {
+      "id": "mat111-uib-5-3-eks6",
+      "type": "example",
+      "title": "Eksempel 6 (eksamensnivå): $x=a\\sin\\theta$",
+      "problem": "Beregn $\\displaystyle\\int\\sqrt{9-x^2}\\,dx$ med trigonometrisk substitusjon.",
+      "solution": "$$\\boxed{\\,x=3\\sin\\theta,\\quad dx=3\\cos\\theta\\,d\\theta,\\quad \\theta\\in[-\\tfrac\\pi2,\\tfrac\\pi2]\\,}$$\n\nDa er $\\sqrt{9-x^2} = 3\\cos\\theta$ (ikke-negativ takket være verdimengdekravet), og\n$$\\int\\sqrt{9-x^2}\\,dx = \\int 3\\cos\\theta\\cdot3\\cos\\theta\\,d\\theta = 9\\int\\cos^2\\theta\\,d\\theta = 9\\int\\frac{1+\\cos2\\theta}{2}\\,d\\theta = \\frac92\\theta + \\frac94\\sin2\\theta + C.$$\n\n**Tilbaketransformasjon** ($\\theta=\\arcsin\\frac x3$; trekanten gir $\\cos\\theta=\\frac{\\sqrt{9-x^2}}{3}$, så $\\sin2\\theta = 2\\cdot\\frac x3\\cdot\\frac{\\sqrt{9-x^2}}{3}$):\n$$\\int\\sqrt{9-x^2}\\,dx = \\frac92\\arcsin\\frac{x}{3} + \\frac{x\\sqrt{9-x^2}}{2} + C.$$\n\n**Kontroll ved derivasjon** (produkt- og kjerneregel) gir $\\sqrt{9-x^2}$. ✓ $\\blacksquare$"
+    },
+    {
+      "id": "mat111-uib-5-3-eks7",
+      "type": "example",
+      "title": "Eksempel 7: $x=a\\tan\\theta$ på en potens",
+      "problem": "Beregn $\\displaystyle\\int\\frac{dx}{(4+x^2)^{3/2}}$.",
+      "solution": "$$\\boxed{\\,x=2\\tan\\theta,\\quad dx=\\frac{2}{\\cos^2\\theta}\\,d\\theta,\\quad \\theta\\in(-\\tfrac\\pi2,\\tfrac\\pi2)\\,}$$\n\nDa er $4+x^2 = \\frac{4}{\\cos^2\\theta}$, så $(4+x^2)^{3/2} = \\frac{8}{\\cos^3\\theta}$ (cosinus er positiv i intervallet), og\n$$\\int\\frac{dx}{(4+x^2)^{3/2}} = \\int\\frac{\\cos^3\\theta}{8}\\cdot\\frac{2}{\\cos^2\\theta}\\,d\\theta = \\frac14\\int\\cos\\theta\\,d\\theta = \\frac{\\sin\\theta}{4}+C.$$\n\n**Trekanten** for $\\tan\\theta=\\frac x2$: kateter $x$ og $2$, hypotenus $\\sqrt{4+x^2}$, så $\\sin\\theta = \\frac{x}{\\sqrt{4+x^2}}$:\n$$\\int\\frac{dx}{(4+x^2)^{3/2}} = \\frac{x}{4\\sqrt{4+x^2}}+C.\\ \\blacksquare$$"
+    },
+    {
+      "id": "mat111-uib-5-3-def-kjedingdb",
+      "type": "definition",
+      "title": "Kjeding: substitusjon → delbrøk",
+      "content": "Mange arkivintegraler er rasjonale *i forkledning*: en substitusjon (typisk $u=e^x$ eller $u=\\sqrt x$) avslører en rasjonal funksjon i $u$, som så delbrøkoppspaltes. Kjenningsmerke: eksponentialer eller røtter i både teller og nevner. Begge føringskravene gjelder — boks for substitusjonen, oppsett for delbrøken."
+    },
+    {
+      "id": "mat111-uib-5-3-eks8",
+      "type": "example",
+      "title": "Eksempel 8 (eksamensnivå): kjeden $u=e^x$ → delbrøk",
+      "problem": "Beregn $\\displaystyle\\int\\frac{e^x}{e^{2x}+3e^x+2}\\,dx$.",
+      "solution": "$$\\boxed{\\,u=e^x,\\quad du=e^x\\,dx\\,}$$\n\n$$\\int\\frac{e^x\\,dx}{e^{2x}+3e^x+2} = \\int\\frac{du}{u^2+3u+2} = \\int\\frac{du}{(u+1)(u+2)}.$$\n\n**Delbrøk:** $\\frac{1}{(u+1)(u+2)} = \\frac{A}{u+1}+\\frac{B}{u+2}$; $1 = A(u+2)+B(u+1)$; $u=-1$: $A=1$; $u=-2$: $B=-1$.\n\n$$\\int\\frac{du}{(u+1)(u+2)} = \\ln|u+1|-\\ln|u+2|+C = \\ln\\frac{u+1}{u+2}+C.$$\n\n**Tilbakebytting** ($u=e^x>0$, så absoluttverdier unødvendige):\n$$\\int\\frac{e^x}{e^{2x}+3e^x+2}\\,dx = \\ln\\frac{e^x+1}{e^x+2}+C.\\ \\blacksquare$$"
+    },
+    {
+      "id": "mat111-uib-5-3-o6",
+      "type": "exercise",
+      "exercise": {
+        "id": "mat111-uib-5-3-o6-x",
+        "number": "6",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "Beregn $\\displaystyle\\int_0^{3/2}\\sqrt{9-x^2}\\,dx$ ved å bruke antideriverten fra Eksempel 6 — eller direkte med nye $\\theta$-grenser.",
+        "solution": "Med antideriverten fra Eksempel 6:\n$$\\int_0^{3/2}\\sqrt{9-x^2}\\,dx = \\Big[\\frac92\\arcsin\\frac x3 + \\frac{x\\sqrt{9-x^2}}{2}\\Big]_0^{3/2} = \\frac92\\arcsin\\frac12 + \\frac{\\frac32\\sqrt{9-\\frac94}}{2} - 0.$$\n\n$\\arcsin\\frac12 = \\frac\\pi6$ og $\\sqrt{27/4}=\\frac{3\\sqrt3}{2}$:\n$$= \\frac{9\\pi}{12} + \\frac{9\\sqrt3}{8} = \\frac{3\\pi}{4}+\\frac{9\\sqrt3}{8}.$$\n\n*Alternativt:* nye grenser i $\\theta$-verdenen: $x=0\\Rightarrow\\theta=0$, $x=\\frac32\\Rightarrow\\theta=\\frac\\pi6$, og $9\\int_0^{\\pi/6}\\cos^2\\theta\\,d\\theta$ gir samme svar.\n\n**Sluttsvar:** $\\dfrac{3\\pi}{4}+\\dfrac{9\\sqrt3}{8}\\ (\\approx 4{,}30)$. $\\blacksquare$",
+        "hints": [
+          "$\\arcsin\\frac12=\\frac\\pi6$.",
+          "$9-\\frac94 = \\frac{27}4$, og $\\sqrt{27}=3\\sqrt3$."
+        ]
+      }
+    },
+    {
+      "id": "mat111-uib-5-3-o7",
+      "type": "exercise",
+      "exercise": {
+        "id": "mat111-uib-5-3-o7-x",
+        "number": "7",
+        "type": "classic",
+        "difficulty": "vanskelig",
+        "task": "(Krevende) Beregn $\\displaystyle\\int_4^9\\frac{\\sqrt x}{x-1}\\,dx$ med substitusjonen $u=\\sqrt x$ og delbrøk.",
+        "solution": "$$\\boxed{\\,u=\\sqrt x,\\quad x=u^2,\\quad dx=2u\\,du,\\quad x=4\\Rightarrow u=2,\\quad x=9\\Rightarrow u=3\\,}$$\n\n$$\\int_4^9\\frac{\\sqrt x}{x-1}\\,dx = \\int_2^3\\frac{u\\cdot2u}{u^2-1}\\,du = \\int_2^3\\frac{2u^2}{u^2-1}\\,du.$$\n\nUekte brøk → divider: $\\frac{2u^2}{u^2-1} = 2 + \\frac{2}{u^2-1} = 2+\\frac{2}{(u-1)(u+1)}$.\n\n**Delbrøk:** $\\frac{2}{(u-1)(u+1)} = \\frac{1}{u-1}-\\frac{1}{u+1}$ (innsetting av $u=\\pm1$).\n\n$$\\int_2^3 = \\Big[2u + \\ln|u-1| - \\ln|u+1|\\Big]_2^3 = \\big(6+\\ln2-\\ln4\\big) - \\big(4+0-\\ln3\\big) = 2+\\ln\\frac{2\\cdot3}{4} = 2+\\ln\\frac32.$$\n\n**Sluttsvar:** $2+\\ln\\dfrac32\\ (\\approx 2{,}41)$. $\\blacksquare$",
+        "hints": [
+          "Etter substitusjonen: $\\frac{2u^2}{u^2-1}$ er uekte — divider først.",
+          "$u^2-1=(u-1)(u+1)$ — to distinkte lineære faktorer.",
+          "Samle logaritmene til slutt."
+        ]
+      }
+    },
+    {
+      "id": "mat111-uib-5-3-warn",
+      "type": "warning",
+      "title": "Typiske feil",
+      "content": "- **Delbrøk uten polynomdivisjon.** Er tellergraden $\\ge$ nevnergraden, gir delbrøk-ansatsen et selvmotsigende likningssett. Sjekk gradene FØR oppsettet.\n- **Glemt $\\arctan$-ledd.** En irreduserbar kvadratisk faktor gir både et $\\ln$-ledd (fra tellerens deriverte-del) og et $\\arctan$-ledd (fra konstant-delen). Halvparten av svaret mangler hvis du stopper etter logaritmen.\n- **Konstant teller over kvadratisk faktor i oppsettet.** Riktig ansats er $\\frac{Bx+C}{x^2+a^2}$ — lineær teller.\n- **Verdimengden droppes i trig-substitusjon.** Uten $\\theta\\in[-\\frac\\pi2,\\frac\\pi2]$ er $\\sqrt{\\cos^2\\theta}=\\cos\\theta$ ubegrunnet (fortegnsfeil truer), og tilbaketransformasjonen er tvetydig.\n- **Glemt $\\frac1a$-faktor:** $\\int\\frac{dx}{x^2+a^2} = \\frac1a\\arctan\\frac xa$ — ikke $\\arctan\\frac xa$.\n- **Koeffisienter uten kontroll.** Legg alltid delbrøkene sammen igjen (eller sett inn en tredje $x$-verdi) — én fortegnsfeil i $A$ forplanter seg til hele svaret."
+    },
+    {
+      "id": "mat111-uib-5-3-drillh",
+      "type": "text",
+      "content": "## Drilloppgaver\n\nStigende vanskegrad. Skriv oppsettet og kontroller koeffisientene i alle delbrøkoppgavene."
+    },
+    {
+      "id": "mat111-uib-5-3-d1",
+      "type": "exercise",
+      "exercise": {
+        "id": "mat111-uib-5-3-d1-x",
+        "number": "8",
+        "type": "classic",
+        "difficulty": "lett",
+        "task": "Avgjør for hver brøk om den er ekte eller uekte: $\\dfrac{x+1}{x^2-4}$, $\\dfrac{x^2}{x^2-4}$, $\\dfrac{x^3+1}{x^2+1}$.",
+        "solution": "$\\frac{x+1}{x^2-4}$: tellergrad 1 < 2 → **ekte** (klar for delbrøk). $\\frac{x^2}{x^2-4}$: grad 2 = 2 → **uekte** (divider: $1+\\frac{4}{x^2-4}$). $\\frac{x^3+1}{x^2+1}$: grad 3 > 2 → **uekte** (divider: $x+\\frac{1-x}{x^2+1}$). $\\blacksquare$",
+        "hints": [
+          "Sammenlign tellergrad og nevnergrad — ekte krever strengt lavere teller."
+        ]
+      }
+    },
+    {
+      "id": "mat111-uib-5-3-d2",
+      "type": "exercise",
+      "exercise": {
+        "id": "mat111-uib-5-3-d2-x",
+        "number": "9",
+        "type": "classic",
+        "difficulty": "lett",
+        "task": "Beregn $\\displaystyle\\int\\frac{dx}{x^2+16}$.",
+        "solution": "Grunnintegralet med $a=4$: $\\displaystyle\\int\\frac{dx}{x^2+16} = \\frac14\\arctan\\frac x4 + C$. $\\blacksquare$",
+        "hints": [
+          "$16=4^2$; husk faktoren $\\frac1a$ foran."
+        ]
+      }
+    },
+    {
+      "id": "mat111-uib-5-3-d3",
+      "type": "exercise",
+      "exercise": {
+        "id": "mat111-uib-5-3-d3-x",
+        "number": "10",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "Beregn $\\displaystyle\\int_0^1\\frac{x+7}{(x+1)(x+4)}\\,dx$.",
+        "solution": "Oppsett: $\\frac{x+7}{(x+1)(x+4)} = \\frac{A}{x+1}+\\frac{B}{x+4}$; $x+7 = A(x+4)+B(x+1)$.\n$x=-1$: $6=3A\\Rightarrow A=2$. $x=-4$: $3=-3B\\Rightarrow B=-1$.\n\n$$\\int_0^1 = \\Big[2\\ln|x+1|-\\ln|x+4|\\Big]_0^1 = (2\\ln2-\\ln5)-(0-\\ln4) = \\ln\\frac{4\\cdot4}{5} = \\ln\\frac{16}5.$$\n\n**Sluttsvar:** $\\ln\\dfrac{16}5\\ (\\approx 1{,}16)$. $\\blacksquare$",
+        "hints": [
+          "Innsetting av $x=-1$ og $x=-4$.",
+          "Samle: $2\\ln2+\\ln4=\\ln16$."
+        ]
+      }
+    },
+    {
+      "id": "mat111-uib-5-3-d4",
+      "type": "exercise",
+      "exercise": {
+        "id": "mat111-uib-5-3-d4-x",
+        "number": "11",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "Beregn $\\displaystyle\\int\\frac{x^3}{x^2+4}\\,dx$.",
+        "solution": "Uekte → divider: $x^3 = x(x^2+4)-4x$, så $\\frac{x^3}{x^2+4} = x - \\frac{4x}{x^2+4}$.\n\nAndre ledd er $\\ln$-mønsteret ($u=x^2+4$): $\\int\\frac{4x}{x^2+4}dx = 2\\ln(x^2+4)$.\n\n$$\\int\\frac{x^3}{x^2+4}\\,dx = \\frac{x^2}{2} - 2\\ln(x^2+4) + C.\\ \\blacksquare$",
+        "hints": [
+          "Divider først: $x^3 = x(x^2+4) - 4x$.",
+          "$\\frac{4x}{x^2+4}$ har nevnerens deriverte (ganger 2) i telleren."
+        ]
+      }
+    },
+    {
+      "id": "mat111-uib-5-3-d5",
+      "type": "exercise",
+      "exercise": {
+        "id": "mat111-uib-5-3-d5-x",
+        "number": "12",
+        "type": "classic",
+        "difficulty": "vanskelig",
+        "task": "Beregn $\\displaystyle\\int\\frac{x^2+2x+3}{(x-1)(x^2+1)}\\,dx$.",
+        "solution": "Ekte brøk; oppsett med lineær teller over den irreduserbare faktoren:\n$$\\frac{x^2+2x+3}{(x-1)(x^2+1)} = \\frac{A}{x-1}+\\frac{Bx+C}{x^2+1}.$$\nGang opp: $x^2+2x+3 = A(x^2+1)+(Bx+C)(x-1)$. $x=1$: $6=2A\\Rightarrow A=3$. $x^2$: $1=A+B\\Rightarrow B=-2$. Konstant: $3=A-C\\Rightarrow C=0$.\n\n*(Kontroll i $x=0$: $A-C=3$. ✓)*\n\n$$\\int = 3\\ln|x-1| - \\int\\frac{2x}{x^2+1}\\,dx = 3\\ln|x-1| - \\ln(x^2+1) + C.\\ \\blacksquare$",
+        "hints": [
+          "Ansatsen er $\\frac{A}{x-1}+\\frac{Bx+C}{x^2+1}$.",
+          "Rota $x=1$ gir $A$; sammenlign $x^2$- og konstantledd for $B$ og $C$.",
+          "$\\frac{2x}{x^2+1}$ er et rent $\\ln$-mønster."
+        ]
+      }
+    },
+    {
+      "id": "mat111-uib-5-3-d6",
+      "type": "exercise",
+      "exercise": {
+        "id": "mat111-uib-5-3-d6-x",
+        "number": "13",
+        "type": "classic",
+        "difficulty": "vanskelig",
+        "task": "(Krevende) Beregn $\\displaystyle\\int_0^2\\frac{x^2}{\\sqrt{16-x^2}}\\,dx$.",
+        "solution": "$$\\boxed{\\,x=4\\sin\\theta,\\quad dx=4\\cos\\theta\\,d\\theta,\\quad \\theta\\in[-\\tfrac\\pi2,\\tfrac\\pi2],\\quad x=0\\Rightarrow\\theta=0,\\quad x=2\\Rightarrow\\theta=\\tfrac\\pi6\\,}$$\n\n$\\sqrt{16-x^2}=4\\cos\\theta$, så\n$$\\int_0^2\\frac{x^2}{\\sqrt{16-x^2}}\\,dx = \\int_0^{\\pi/6}\\frac{16\\sin^2\\theta}{4\\cos\\theta}\\cdot4\\cos\\theta\\,d\\theta = 16\\int_0^{\\pi/6}\\sin^2\\theta\\,d\\theta.$$\n\nMed $\\sin^2\\theta = \\frac{1-\\cos2\\theta}{2}$:\n$$16\\int_0^{\\pi/6}\\frac{1-\\cos2\\theta}{2}\\,d\\theta = 8\\Big[\\theta-\\frac{\\sin2\\theta}{2}\\Big]_0^{\\pi/6} = 8\\Big(\\frac\\pi6-\\frac{\\sin(\\pi/3)}{2}\\Big) = \\frac{4\\pi}{3} - 2\\sqrt3.$$\n\n**Sluttsvar:** $\\dfrac{4\\pi}{3}-2\\sqrt3\\ (\\approx 0{,}72)$. $\\blacksquare$",
+        "hints": [
+          "$x=4\\sin\\theta$ løser opp roten; oversett grensene til $\\theta$.",
+          "$\\sin^2\\theta=\\frac{1-\\cos2\\theta}{2}$.",
+          "$\\sin\\frac\\pi3=\\frac{\\sqrt3}{2}$."
+        ]
+      }
+    },
+    {
+      "id": "mat111-uib-5-3-rep",
+      "type": "collapsible",
+      "title": "Repetisjonsoppgaver",
+      "buttonText": "Vis repetisjonsoppgaver",
+      "content": [
+        {
+          "id": "mat111-uib-5-3-rep-intro",
+          "type": "text",
+          "content": "Korte algebra-oppgaver fra forkunnskapskapitlene — divisjon, faktorisering og fullført kvadrat er arbeidshestene i dette kapitlet."
+        },
+        {
+          "id": "mat111-uib-5-3-r1",
+          "type": "exercise",
+          "exercise": {
+            "id": "mat111-uib-5-3-r1-x",
+            "number": "R1",
+            "type": "classic",
+            "difficulty": "lett",
+            "task": "(Fra R1 1.1) Utfør polynomdivisjonen $(x^2+3x+5):(x+1)$.",
+            "solution": "$x^2+3x+5 = (x+1)(x+2)+3$, så $\\frac{x^2+3x+5}{x+1} = x+2+\\frac{3}{x+1}$. $\\blacksquare$",
+            "hints": [
+              "Første kvotientledd: $x^2/x = x$."
+            ]
+          }
+        },
+        {
+          "id": "mat111-uib-5-3-r2",
+          "type": "exercise",
+          "exercise": {
+            "id": "mat111-uib-5-3-r2-x",
+            "number": "R2",
+            "type": "classic",
+            "difficulty": "lett",
+            "task": "(Fra 1T 2.4) Fullfør kvadratet: $x^2+8x+25$.",
+            "solution": "$x^2+8x+25 = (x+4)^2+25-16 = (x+4)^2+9$. $\\blacksquare$",
+            "hints": [
+              "Halver 8, kvadrer, kompenser."
+            ]
+          }
+        },
+        {
+          "id": "mat111-uib-5-3-r3",
+          "type": "exercise",
+          "exercise": {
+            "id": "mat111-uib-5-3-r3-x",
+            "number": "R3",
+            "type": "classic",
+            "difficulty": "lett",
+            "task": "(Fra R2 3.3) Spalt $\\dfrac{1}{(x-2)(x+2)}$ i delbrøker.",
+            "solution": "$\\frac{1}{(x-2)(x+2)} = \\frac{A}{x-2}+\\frac{B}{x+2}$; $1=A(x+2)+B(x-2)$; $x=2$: $A=\\frac14$; $x=-2$: $B=-\\frac14$. Altså $\\frac{1/4}{x-2}-\\frac{1/4}{x+2}$. $\\blacksquare$",
+            "hints": [
+              "Innsettingsmetoden med røttene $\\pm2$."
+            ]
+          }
+        },
+        {
+          "id": "mat111-uib-5-3-r4",
+          "type": "exercise",
+          "exercise": {
+            "id": "mat111-uib-5-3-r4-x",
+            "number": "R4",
+            "type": "classic",
+            "difficulty": "lett",
+            "task": "(Fra R1 1.1) Faktoriser $x^2-x-12$ og $u^2+3u+2$.",
+            "solution": "$x^2-x-12=(x-4)(x+3)$; $u^2+3u+2=(u+1)(u+2)$. $\\blacksquare$",
+            "hints": [
+              "Let etter tallpar med riktig sum og produkt."
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": "mat111-uib-5-3-symbol",
+      "type": "collapsible",
+      "title": "Symbol- og formelliste",
+      "buttonText": "Vis symboler og formler",
+      "content": [
+        {
+          "id": "mat111-uib-5-3-symbol-txt",
+          "type": "text",
+          "content": "## Symbol- og formelliste\n\n*Oppslagsverk — alt her forklares underveis i kapitlet.*\n\n| Symbol | Betydning |\n|---|---|\n| $\\frac{p(x)}{q(x)}$ | Rasjonal funksjon — ekte hvis tellergrad < nevnergrad |\n| $k(x) + \\frac{r(x)}{q(x)}$ | Resultatet av polynomdivisjon: kvotient + ekte restbrøk |\n| $A, B, C$ | Ukjente koeffisienter i delbrøkoppsettet |\n| $(x+1)^2$ | Gjentatt lineær faktor — ett ledd per potens |\n| $x^2+a^2$ | Irreduserbar kvadratisk faktor (ingen reelle røtter) |\n| $\\frac{Bx+C}{x^2+a^2}$ | Ansatsen for irreduserbar faktor: lineær teller |\n| $\\theta\\in[-\\frac\\pi2,\\frac\\pi2]$ | Verdimengdekravet i trig-substitusjon |\n| $\\arcsin, \\arctan$ | Inverse trig-funksjoner — tilbaketransformasjonen |\n\n**Formler i dette delkapitlet:**\n\n$$\\int\\frac{dx}{x-a} = \\ln|x-a|+C$$\n*Grunnintegralet for lineære faktorer.*\n\n$$\\int\\frac{dx}{x^2+a^2} = \\frac1a\\arctan\\frac xa + C$$\n*Grunnintegralet for irreduserbare faktorer — husk $\\frac1a$.*\n\n$$x^2+bx+c = \\Big(x+\\frac b2\\Big)^2 + c-\\frac{b^2}4$$\n*Fullført kvadrat — broen til arctan-formen.*\n\n$$\\frac{r(x)}{(x-a)(x-b)} = \\frac{A}{x-a}+\\frac{B}{x-b}, \\qquad \\frac{r(x)}{(x-a)^2} = \\frac{A}{x-a}+\\frac{B}{(x-a)^2}$$\n*Delbrøkoppsettene for distinkte og gjentatte lineære faktorer.*\n\n$$x = a\\sin\\theta \\Rightarrow \\sqrt{a^2-x^2}=a\\cos\\theta, \\qquad x=a\\tan\\theta \\Rightarrow a^2+x^2 = \\frac{a^2}{\\cos^2\\theta}$$\n*Trig-substitusjonene (med verdimengdekravet).*"
+        }
+      ]
+    }
+  ],
+  "exercises": []
+}

@@ -1,0 +1,339 @@
+{
+  "id": "mat111-uib-2-4",
+  "courseId": "mat111-uib",
+  "chapterNumber": "2.4",
+  "title": "Drill: ε-δ-malen og grensetempo",
+  "description": "ε-δ-føringen til automatikk og alle ubestemte former i tempo — gratispoengene i midten av settet skal sitte.",
+  "estimatedMinutes": 80,
+  "competenceGoals": [
+    "føre ε-δ-bevis raskt og fullstendig for polynom grad 2–3, rasjonale uttrykk og R-ε-varianten",
+    "velge δ = min{1, ε/K} og oppgi konkret δ for gitt ε",
+    "klassifisere en grenses ubestemte form og velge riktig teknikk uten å nøle",
+    "regne alle ubestemte former med korrekt føring og markert form"
+  ],
+  "content": [
+    {
+      "id": "mat111-uib-2-4-tip",
+      "type": "tip",
+      "title": "Eksamensvinkel",
+      "content": "**Dette er drillkapitlet for midtdelens gratispoeng.** To ferdigheter til automatikk:\n\n- **ε-δ-føringen (sjanger D)** — fast i 7 av de 9 siste settene. Malen *faktoriser → avgrens → velg $\\delta=\\min$ → verifiser* skal sitte i fingrene, inkludert R-ε-varianten mot uendelig og «velg konkret $\\delta$ for gitt $\\varepsilon$».\n- **Grensetempo (grensedelen av sjanger M)** — grenser inngår i 23 av 34 sett. Du skal kjenne igjen formen på et blikk og velge riktig våpen uten å nøle.\n\nVariantene som har forekommet: ε-δ på polynom grad 2–3, rasjonale uttrykk og R-ε; grenser på alle ubestemte former. Målet her er *tempo* med *full føring* — begge deler samtidig."
+    },
+    {
+      "id": "mat111-uib-2-4-fork",
+      "type": "text",
+      "content": "**Forkunnskaper.** Dette kapitlet drar sammen **kap. 2.1** (ε-δ-malen), **kap. 2.2** (grenseteknikkene: L'Hôpital, konjugat, logaritmetriks, skvis, standardgrenser) og **kap. 2.3** (kontinuerlig utvidelse). Ingen nye teknikker introduseres — her trenes de du allerede har. Er noe rustent, hopp tilbake til teorikapitlet før du driller."
+    },
+    {
+      "id": "mat111-uib-2-4-oppskrift-eps",
+      "type": "text",
+      "content": "## Løsningsoppskrift 1 — ε-δ-beviset som algoritme\n\nFor $\\lim_{x\\to a}f(x)=L$ (endelig $a$):\n\n1. **Skriv definisjonen.** «Gitt $\\varepsilon>0$, vi søker $\\delta>0$ slik at $0<|x-a|<\\delta \\Rightarrow |f(x)-L|<\\varepsilon$.»\n2. **Faktoriser** $|f(x)-L| = |x-a|\\cdot|g(x)|$.\n3. **Avgrens** restfaktoren: krev $|x-a|<1$, finn $x$-intervallet, og les av $K$ med $|g(x)|\\le K$.\n4. **Velg** $\\delta=\\min\\{1,\\ \\varepsilon/K\\}$ (dropp $\\min$ bare hvis $g$ er konstant, dvs. lineær $f$).\n5. **Verifiser** implikasjonen: $0<|x-a|<\\delta \\Rightarrow |f(x)-L|=|x-a||g(x)|<\\frac{\\varepsilon}{K}\\cdot K=\\varepsilon$.\n\nFor $\\lim_{x\\to\\infty}f(x)=L$ (R-ε): regn $|f(x)-L|$, løs $|f(x)-L|<\\varepsilon$ for $x$, og les av $R$. Krav: $x>R \\Rightarrow |f(x)-L|<\\varepsilon$."
+    },
+    {
+      "id": "mat111-uib-2-4-beslutningstre",
+      "type": "text",
+      "content": "## Løsningsoppskrift 2 — beslutningstre for grenser\n\n1. **Sett inn grenseverdien.** Får du et bestemt tall? → **ferdig**, det er grensen.\n2. **Ubestemt form?** Klassifiser: $[0/0]$, $[\\infty/\\infty]$, $0\\cdot\\infty$, $\\infty-\\infty$, $1^\\infty$, $0^0$, $\\infty^0$.\n3. **Velg våpen etter form:**\n   - $[0/0]$ eller $[\\infty/\\infty]$: standardgrense hvis du ser den, ellers **L'Hôpital** (marker formen!).\n   - $0\\cdot\\infty$: flytt en faktor til nevneren → brøk → L'Hôpital.\n   - $\\infty-\\infty$: **konjugat** (røtter) eller **fellesnevner** (brøker) → brøk.\n   - $1^\\infty,0^0,\\infty^0$: **logaritmetriks** ($\\ln y=g\\ln f$), finn grensen, **eksponentiér tilbake**.\n   - Svinging ($\\sin\\frac1x$) eller $\\frac{\\text{begrenset}}{\\to\\infty}$: **skvis** (uttal begrensetheten).\n   - Rasjonalt mot $\\infty$: **del på ledende ledd** eller bruk veksthierarkiet."
+    },
+    {
+      "id": "mat111-uib-2-4-case",
+      "type": "example",
+      "title": "Gjennomregnet eksamensblokk (med sensor-margnotater)",
+      "problem": "En midtdel av et sett: (a) Vis med definisjonen at $\\lim_{x\\to2}(3x^2-1)=11$, og oppgi et $\\delta$ for $\\varepsilon=0{,}1$. (b) $\\lim_{x\\to0}\\frac{e^x-1-x}{x^2}$. (c) $\\lim_{x\\to0^+}(1+3x)^{1/x}$. (d) $\\lim_{x\\to\\infty}(\\sqrt{x^2+4x}-x)$.",
+      "solution": "**(a) ε-δ.** $|(3x^2-1)-11|=3|x^2-4|=3|x-2||x+2|$. På $|x-2|<1$ er $x\\in(1,3)$, så $|x+2|<5$; dermed $|f-11|<15|x-2|$, $K=15$. Velg $\\delta=\\min\\{1,\\ \\varepsilon/15\\}$. Verifikasjon: $0<|x-2|<\\delta \\Rightarrow |x+2|<5$ og $|x-2|<\\varepsilon/15$, så $|f-11|<15\\cdot\\frac{\\varepsilon}{15}=\\varepsilon.$ For $\\varepsilon=0{,}1$: $\\delta=\\frac{1}{150}\\approx0{,}0067$.\n> *Sensor:* Føringsminstekravet er de fire leddene — faktorisering, avgrensning med $K$, $\\delta=\\min$, og den fullførte implikasjonen. Det konkrete $\\delta$ må være et *tall*. Alt her gir full uttelling.\n\n**(b) $[0/0]$.** Formsjekk: $\\frac{1-1-0}{0}=[0/0]$. L'Hôpital: $\\frac{e^x-1}{2x}$, fortsatt $[0/0]$. L'Hôpital: $\\frac{e^x}{2}\\to\\frac12$. Svar: $\\frac12$.\n> *Sensor:* Marker $[0/0]$ ved *begge* deriveringer. Stopp når nevneren ikke lenger gir $0$.\n\n**(c) $1^\\infty$.** $y=(1+3x)^{1/x}$, $\\ln y=\\frac{\\ln(1+3x)}{x}$ (form $[0/0]$). L'Hôpital: $\\frac{3/(1+3x)}{1}\\to3$. Eksponentiér: grensen er $e^3$.\n> *Sensor:* Den som glemmer $e^{(\\cdot)}$ og svarer $3$ mister poeng. Koblingen $y\\to e^{\\lim\\ln y}$ må stå.\n\n**(d) $\\infty-\\infty$.** Konjugat: $\\frac{4x}{\\sqrt{x^2+4x}+x}$, del på $x$: $\\frac{4}{\\sqrt{1+4/x}+1}\\to\\frac42=2$. Svar: $2$.\n> *Sensor:* $\\infty-\\infty$ er ikke L'Hôpital-klar; konjugatgrepet er det som gir poeng. Kjede-observasjon: settet dekker med vilje tre ulike ubestemte former (b,c,d) — gjenkjenn formen *før* du velger metode."
+    },
+    {
+      "id": "mat111-uib-2-4-drill1",
+      "type": "text",
+      "content": "## Drill A — ε-δ-bevis"
+    },
+    {
+      "id": "mat111-uib-2-4-o1",
+      "type": "exercise",
+      "exercise": {
+        "id": "mat111-uib-2-4-o1-x",
+        "number": "1",
+        "type": "classic",
+        "difficulty": "lett",
+        "task": "Vis med definisjonen at $\\lim_{x\\to2}(4x-3)=5$, og oppgi $\\delta(\\varepsilon)$.",
+        "solution": "$|(4x-3)-5|=|4x-8|=4|x-2|$. Krev $4|x-2|<\\varepsilon \\Rightarrow |x-2|<\\varepsilon/4$. Velg $\\delta=\\varepsilon/4$ (lineær — ingen $\\min$). Verifikasjon: $0<|x-2|<\\delta \\Rightarrow |f-5|=4|x-2|<\\varepsilon.$",
+        "hints": [
+          "Lineært: faktorer ut $|x-2|$.",
+          "$\\delta=\\varepsilon/4$."
+        ]
+      }
+    },
+    {
+      "id": "mat111-uib-2-4-o2",
+      "type": "exercise",
+      "exercise": {
+        "id": "mat111-uib-2-4-o2-x",
+        "number": "2",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "Vis med definisjonen at $\\lim_{x\\to2}(x^2+2x)=8$.",
+        "solution": "$|(x^2+2x)-8|=|x^2+2x-8|=|x-2||x+4|$. På $|x-2|<1$: $x\\in(1,3) \\Rightarrow x+4\\in(5,7)$, så $|x+4|<7=K$. Velg $\\delta=\\min\\{1,\\ \\varepsilon/7\\}$. Verifikasjon: $0<|x-2|<\\delta \\Rightarrow |x+4|<7$ og $|x-2|<\\varepsilon/7$, så $|f-8|<7\\cdot\\frac{\\varepsilon}{7}=\\varepsilon.$",
+        "hints": [
+          "$x^2+2x-8=(x-2)(x+4)$.",
+          "På $(1,3)$ er $x+4\\in(5,7)$; $K=7$."
+        ]
+      }
+    },
+    {
+      "id": "mat111-uib-2-4-o3",
+      "type": "exercise",
+      "exercise": {
+        "id": "mat111-uib-2-4-o3-x",
+        "number": "3",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "Vis med definisjonen at $\\lim_{x\\to2}x^3=8$, og oppgi $\\delta$ for $\\varepsilon=0{,}5$.",
+        "solution": "$|x^3-8|=|x-2||x^2+2x+4|$. På $|x-2|<1$: $x\\in(1,3)$; $x^2+2x+4$ er voksende, $<3^2+6+4=19$, så $K=19$. Velg $\\delta=\\min\\{1,\\ \\varepsilon/19\\}$. For $\\varepsilon=0{,}5$: $\\delta=\\min\\{1,\\ 0{,}0263\\}\\approx0{,}026$. Verifikasjon som i malen.",
+        "hints": [
+          "$x^3-8=(x-2)(x^2+2x+4)$.",
+          "Sett $x=3$ i restfaktoren for $K=19$."
+        ]
+      }
+    },
+    {
+      "id": "mat111-uib-2-4-o4",
+      "type": "exercise",
+      "exercise": {
+        "id": "mat111-uib-2-4-o4-x",
+        "number": "4",
+        "type": "classic",
+        "difficulty": "vanskelig",
+        "task": "Vis med definisjonen at $\\lim_{x\\to2}(3x^2-1)=11$, og velg et konkret $\\delta$ for $\\varepsilon=0{,}1$.",
+        "solution": "$|(3x^2-1)-11|=3|x-2||x+2|$. På $|x-2|<1$: $|x+2|<5$, så $|f-11|<15|x-2|$, $K=15$. $\\delta=\\min\\{1,\\ \\varepsilon/15\\}$. For $\\varepsilon=0{,}1$: $\\delta=\\frac{1}{150}\\approx0{,}0067$. *Kontroll:* $x=2+\\frac1{150} \\Rightarrow 3x^2-1\\approx11{,}080$, avstand $0{,}080<0{,}1.$",
+        "hints": [
+          "$3|x^2-4|=3|x-2||x+2|$; $K=15$.",
+          "$\\delta=\\min\\{1,\\ 0{,}1/15\\}=1/150$."
+        ]
+      }
+    },
+    {
+      "id": "mat111-uib-2-4-o5",
+      "type": "exercise",
+      "exercise": {
+        "id": "mat111-uib-2-4-o5-x",
+        "number": "5",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "Vis med definisjonen at $\\displaystyle\\lim_{x\\to\\infty}\\frac{5x-1}{x}=5$, og oppgi $R$ for $\\varepsilon=0{,}01$.",
+        "solution": "For $x>0$: $\\left|\\frac{5x-1}{x}-5\\right|=\\left|\\frac{-1}{x}\\right|=\\frac1x$. Krev $\\frac1x<\\varepsilon \\Rightarrow x>\\frac1\\varepsilon$; $R=\\frac1\\varepsilon$. For $\\varepsilon=0{,}01$: $R=100$. Krav: $x>R \\Rightarrow \\frac1x<\\varepsilon.$",
+        "hints": [
+          "$\\frac{5x-1}{x}-5=\\frac{-1}{x}$.",
+          "$R=1/\\varepsilon$."
+        ]
+      }
+    },
+    {
+      "id": "mat111-uib-2-4-o6",
+      "type": "exercise",
+      "exercise": {
+        "id": "mat111-uib-2-4-o6-x",
+        "number": "6",
+        "type": "classic",
+        "difficulty": "vanskelig",
+        "task": "En kandidat fører $\\lim_{x\\to2}x^2=4$ og skriver «velg $\\delta=\\varepsilon/5$». Er beviset komplett? Rett opp føringen.",
+        "solution": "Ikke komplett: $|x+2|<5$ gjelder bare når $|x-2|<1$ (så $x\\in(1,3)$). Uten kontrollkravet svikter avgrensningen for store $\\varepsilon$ (f.eks. $\\varepsilon=10 \\Rightarrow \\delta=2$, som slipper $x$ ut av $(1,3)$). Riktig: $\\delta=\\min\\{1,\\ \\varepsilon/5\\}$, pluss den fullførte verifikasjonen.",
+        "hints": [
+          "Hva sikrer $|x+2|<5$? Bare $|x-2|<1$.",
+          "Legg til $\\min\\{1,\\cdot\\}$ og verifikasjonssteget."
+        ]
+      }
+    },
+    {
+      "id": "mat111-uib-2-4-drill2",
+      "type": "text",
+      "content": "## Drill B — grensetempo (alle former)"
+    },
+    {
+      "id": "mat111-uib-2-4-o7",
+      "type": "exercise",
+      "exercise": {
+        "id": "mat111-uib-2-4-o7-x",
+        "number": "7",
+        "type": "classic",
+        "difficulty": "lett",
+        "task": "$\\displaystyle\\lim_{x\\to0}\\frac{\\sin 3x}{\\sin 5x}$.",
+        "solution": "Skriv $\\frac{\\sin3x}{\\sin5x}=\\frac{3x}{5x}\\cdot\\frac{\\sin3x/3x}{\\sin5x/5x}=\\frac35\\cdot\\frac{\\to1}{\\to1}\\to\\frac35$. Svar: $\\frac35$.",
+        "hints": [
+          "Gang og del med $3x$ og $5x$.",
+          "$\\frac{\\sin u}{u}\\to1$ på begge."
+        ]
+      }
+    },
+    {
+      "id": "mat111-uib-2-4-o8",
+      "type": "exercise",
+      "exercise": {
+        "id": "mat111-uib-2-4-o8-x",
+        "number": "8",
+        "type": "classic",
+        "difficulty": "lett",
+        "task": "$\\displaystyle\\lim_{x\\to0}\\frac{1-\\cos 2x}{x^2}$.",
+        "solution": "$[0/0]$. L'Hôpital: $\\frac{2\\sin2x}{2x}=\\frac{2\\sin2x}{2x}\\to2\\cdot1=2$ (eller standard: $1-\\cos2x=2\\sin^2x$, så $\\frac{2\\sin^2x}{x^2}\\to2$). Svar: $2$.",
+        "hints": [
+          "Bruk $1-\\cos2x=2\\sin^2x$ eller L'Hôpital.",
+          "$\\frac{\\sin x}{x}\\to1$."
+        ]
+      }
+    },
+    {
+      "id": "mat111-uib-2-4-o9",
+      "type": "exercise",
+      "exercise": {
+        "id": "mat111-uib-2-4-o9-x",
+        "number": "9",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "$\\displaystyle\\lim_{x\\to\\infty}x^2 e^{-x}$.",
+        "solution": "Form $\\infty\\cdot0 = \\frac{x^2}{e^x}$, $[\\infty/\\infty]$. Veksthierarkiet $x^p\\ll e^x$ gir $0$ direkte (eller L'Hôpital to ganger: $\\frac{2x}{e^x}\\to0$, $\\frac{2}{e^x}\\to0$). Svar: $0$.",
+        "hints": [
+          "Skriv som $\\frac{x^2}{e^x}$.",
+          "Eksponentialen slår polynomet."
+        ]
+      }
+    },
+    {
+      "id": "mat111-uib-2-4-o10",
+      "type": "exercise",
+      "exercise": {
+        "id": "mat111-uib-2-4-o10-x",
+        "number": "10",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "$\\displaystyle\\lim_{x\\to0}\\frac{\\sqrt{1+x}-1}{x}$.",
+        "solution": "$[0/0]$. Konjugat: $\\frac{\\sqrt{1+x}-1}{x}\\cdot\\frac{\\sqrt{1+x}+1}{\\sqrt{1+x}+1}=\\frac{(1+x)-1}{x(\\sqrt{1+x}+1)}=\\frac{1}{\\sqrt{1+x}+1}\\to\\frac12$. Svar: $\\frac12$.",
+        "hints": [
+          "Gang med konjugaten $\\sqrt{1+x}+1$.",
+          "Teller blir $x$, som forkortes."
+        ]
+      }
+    },
+    {
+      "id": "mat111-uib-2-4-o11",
+      "type": "exercise",
+      "exercise": {
+        "id": "mat111-uib-2-4-o11-x",
+        "number": "11",
+        "type": "classic",
+        "difficulty": "vanskelig",
+        "task": "$\\displaystyle\\lim_{x\\to\\infty}\\left(1+\\frac5x\\right)^{x}$.",
+        "solution": "Form $1^\\infty$. $y=(1+5/x)^x$, $\\ln y=x\\ln(1+5/x)=\\frac{\\ln(1+5/x)}{1/x}$, $[0/0]$. L'Hôpital (mhp. $x$): $\\frac{\\frac{-5/x^2}{1+5/x}}{-1/x^2}=\\frac{5}{1+5/x}\\to5$. Eksponentiér: grensen er $e^5$. Svar: $e^5$.",
+        "hints": [
+          "$\\ln y=x\\ln(1+5/x)$; skriv som brøk over $1/x$.",
+          "Svaret er $e^{\\lim\\ln y}=e^5$."
+        ]
+      }
+    },
+    {
+      "id": "mat111-uib-2-4-o12",
+      "type": "exercise",
+      "exercise": {
+        "id": "mat111-uib-2-4-o12-x",
+        "number": "12",
+        "type": "classic",
+        "difficulty": "vanskelig",
+        "task": "$\\displaystyle\\lim_{x\\to0}\\frac{2^{x}-1}{x}$.",
+        "solution": "$[0/0]$. Skriv $2^x=e^{x\\ln2}$: $\\frac{e^{x\\ln2}-1}{x}$. L'Hôpital: $\\frac{\\ln2\\cdot e^{x\\ln2}}{1}\\to\\ln2$. (Eller: den deriverte av $2^x$ i $0$ er $\\ln2$.) Svar: $\\ln 2$.",
+        "hints": [
+          "$2^x=e^{x\\ln2}$.",
+          "L'Hôpital gir $\\ln2\\cdot e^{x\\ln2}\\to\\ln2$."
+        ]
+      }
+    },
+    {
+      "id": "mat111-uib-2-4-o13",
+      "type": "exercise",
+      "exercise": {
+        "id": "mat111-uib-2-4-o13-x",
+        "number": "13",
+        "type": "classic",
+        "difficulty": "vanskelig",
+        "task": "$\\displaystyle\\lim_{x\\to1}\\frac{\\ln x}{x-1}$.",
+        "solution": "$x=1$: $\\frac{0}{0}=[0/0]$. L'Hôpital: $\\frac{1/x}{1}\\to1$. (Dette er den deriverte av $\\ln x$ i $1$.) Svar: $1$.",
+        "hints": [
+          "Bekreft $[0/0]$; deriver teller og nevner.",
+          "$\\frac{d}{dx}\\ln x=\\frac1x$, innsatt $x=1$ gir $1$."
+        ]
+      }
+    },
+    {
+      "id": "mat111-uib-2-4-o14",
+      "type": "exercise",
+      "exercise": {
+        "id": "mat111-uib-2-4-o14-x",
+        "number": "14",
+        "type": "classic",
+        "difficulty": "vanskelig",
+        "task": "$\\displaystyle\\lim_{x\\to\\infty}\\left(\\sqrt{x^2+3x}-\\sqrt{x^2+x}\\right)$.",
+        "solution": "Form $\\infty-\\infty$. Konjugat: $\\frac{(x^2+3x)-(x^2+x)}{\\sqrt{x^2+3x}+\\sqrt{x^2+x}}=\\frac{2x}{\\sqrt{x^2+3x}+\\sqrt{x^2+x}}$. Del på $x$: $\\frac{2}{\\sqrt{1+3/x}+\\sqrt{1+1/x}}\\to\\frac{2}{1+1}=1$. Svar: $1$.",
+        "hints": [
+          "Gang med konjugaten $\\sqrt{x^2+3x}+\\sqrt{x^2+x}$.",
+          "Del teller og nevner på $x$."
+        ]
+      }
+    },
+    {
+      "id": "mat111-uib-2-4-warn",
+      "type": "warning",
+      "title": "Typiske feil",
+      "content": "- **Kvantor- og min-fellene fra 2.1:** $\\delta$ velges etter $\\varepsilon$; bruk $\\min\\{1,\\varepsilon/K\\}$ når restfaktoren avgrenses; verifiser alltid implikasjonen.\n- **L'Hôpital-refleksen:** ikke deriver løs — sjekk om en standardgrense, konjugat eller veksthierarki gir svaret raskere. Og marker formen først.\n- **Formen ikke identifisert:** $1^\\infty$ og $\\infty-\\infty$ må skrives om *før* L'Hôpital. Å derivere en $\\infty-\\infty$-differanse direkte er meningsløst.\n- **Tidsfellen:** ti runder L'Hôpital der veksthierarkiet gir $0$ på én linje stjeler minutter du trenger på difflikningen til slutt."
+    },
+    {
+      "id": "mat111-uib-2-4-kort-tekst",
+      "type": "text",
+      "content": "## Hurtigkort til eksamen\n\nSeks oppslagskort som samler drillens kjernegrep. *Flashcard-stoff.*"
+    },
+    {
+      "id": "mat111-uib-2-4-k-mal",
+      "type": "definition",
+      "title": "ε-δ-malen (fire steg)",
+      "content": "**Faktoriser** $|f(x)-L|=|x-a||g(x)|$ → **avgrens** $|g|\\le K$ på $|x-a|<1$ → **velg** $\\delta=\\min\\{1,\\varepsilon/K\\}$ → **verifiser** implikasjonen. For lineær $f$ droppes $\\min$: $\\delta=\\varepsilon/|m|$."
+    },
+    {
+      "id": "mat111-uib-2-4-k-reps",
+      "type": "definition",
+      "title": "R-ε-malen (mot uendelig)",
+      "content": "Regn $|f(x)-L|$, løs $|f(x)-L|<\\varepsilon$ for $x$, les av $R$. Krav: $x>R \\Rightarrow |f(x)-L|<\\varepsilon$. Typisk $|f-L|=\\frac{c}{x}$ gir $R=\\frac{c}{\\varepsilon}$."
+    },
+    {
+      "id": "mat111-uib-2-4-k-form",
+      "type": "definition",
+      "title": "Formsjekk før L'Hôpital",
+      "content": "Sett inn grenseverdien; er uttrykket $[0/0]$ eller $[\\infty/\\infty]$? Marker formen. Bare da gjelder L'Hôpital, og markeringen gjentas ved hver derivering. Bestemt tall ⇒ ferdig."
+    },
+    {
+      "id": "mat111-uib-2-4-k-omskriv",
+      "type": "definition",
+      "title": "Omskriving av de andre formene",
+      "content": "$0\\cdot\\infty \\to$ brøk (flytt faktor til nevner). $\\infty-\\infty \\to$ konjugat (røtter) / fellesnevner (brøker). $1^\\infty,0^0,\\infty^0 \\to$ logaritmetriks: $\\ln y=g\\ln f$, finn grense, eksponentiér til $e^{(\\cdot)}$."
+    },
+    {
+      "id": "mat111-uib-2-4-k-standard",
+      "type": "definition",
+      "title": "Standardgrensene",
+      "content": "$\\frac{\\sin x}{x}\\to1$, $\\frac{\\tan x}{x}\\to1$, $\\frac{1-\\cos x}{x^2}\\to\\frac12$, $\\frac{e^x-1}{x}\\to1$, $\\frac{\\ln(1+x)}{x}\\to1$; veksthierarki $\\ln x\\ll x^p\\ll e^x$; $(1+k/x)^x\\to e^k$. Se dem, slipp L'Hôpital."
+    },
+    {
+      "id": "mat111-uib-2-4-k-skvis",
+      "type": "definition",
+      "title": "Skvis (uttal begrensetheten)",
+      "content": "Ved svinging eller $\\frac{\\text{begrenset}}{\\to\\infty}$: klem $f$ mellom to funksjoner med samme grense. Ulikheten *må* begrunnes med $|\\sin|\\le1$ eller $|\\cos|\\le1$. Begge ytterfunksjonene $\\to L \\Rightarrow f\\to L$."
+    },
+    {
+      "id": "mat111-uib-2-4-symbol",
+      "type": "collapsible",
+      "title": "Symbol- og formelliste",
+      "buttonText": "Vis symboler og formler",
+      "content": [
+        {
+          "id": "mat111-uib-2-4-symbol-txt",
+          "type": "text",
+          "content": "## Symbol- og formelliste\n\n*Oppslagsverk — alt her trenes i dette drillkapitlet og forklares fullt ut i kap. 2.1–2.3.*\n\n| Symbol / uttrykk | Betydning |\n|---|---|\n| $\\delta=\\min\\{1,\\varepsilon/K\\}$ | ε-δ-valget med avgrenset restfaktor $K$ |\n| $R=R(\\varepsilon)$ | Terskel i R-ε-varianten ($x>R$) |\n| $[0/0],[\\infty/\\infty]$ | Ubestemte former for L'Hôpital |\n| $\\ln y=g\\ln f$ | Logaritmetrikset for potensformer |\n| $\\sqrt A-\\sqrt B=\\frac{A-B}{\\sqrt A+\\sqrt B}$ | Konjugattrikset |\n| $h\\le f\\le H$ | Skvis-klemme |\n\n**Standardgrenser:** $\\dfrac{\\sin x}{x}\\to1$, $\\dfrac{1-\\cos x}{x^2}\\to\\dfrac12$, $\\dfrac{e^x-1}{x}\\to1$, $\\dfrac{\\ln(1+x)}{x}\\to1$, $\\ \\ln x\\ll x^p\\ll e^x$, $\\ (1+k/x)^x\\to e^k$."
+        }
+      ]
+    }
+  ],
+  "exercises": []
+}

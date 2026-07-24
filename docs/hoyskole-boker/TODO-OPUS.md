@@ -78,7 +78,9 @@ Prioritert etter studentvolum og materialstyrke:
 - [ ] `fys1100` — Mekanikk og modellering (UiO, 36 filer, SV)
 - [ ] `mek1100` — Feltteori og vektoranalyse (UiO, 50 filer)
 - [ ] `mat1110` — Kalkulus og lineær algebra (UiO, 26 filer)
-- [ ] `stk1110` — Statistiske metoder og dataanalyse (UiO, 41 filer; oppfølger til stk1100)
+- [x] `stk1110` — **BYGGET 24. juli 2026** (28 kap, 515 quiz, 505 fc, BOKPORT OK,
+      5 verifikatorer grønne (~1100 sjekker, 2 regnekjeder + 12 desimalavvik rettet),
+      prod-curl 9/9, kildegrunnlag-side, 9 SVG). Oppfølger til stk1100.
 - [ ] `in1010` — Objektorientert programmering (UiO, 25 filer, SV)
 - [ ] `in2010` — Algoritmer og datastrukturer (UiO, 34 filer, SV)
 - [ ] `tdt4100` — Objektorientert programmering (NTNU, 45 filer)

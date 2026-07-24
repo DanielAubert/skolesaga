@@ -1,0 +1,509 @@
+{
+ "id": "mat111-uib-3-3",
+ "courseId": "mat111-uib",
+ "chapterNumber": "3.3",
+ "title": "Implisitt derivasjon, tangenter og relaterte rater",
+ "description": "Implisitt derivasjon med punktverifikasjon, andrederiverte fra relasjonen og relaterte rater med fortegnstolket konklusjon.",
+ "estimatedMinutes": 55,
+ "competenceGoals": [
+  "kunne finne tangenten til en implisitt gitt kurve, med punktverifikasjon som første steg",
+  "kunne finne andrederiverte i et punkt direkte fra relasjonen, uten å løse likningen",
+  "kunne sette opp og løse relaterte rater-oppgaver etter femstegsoppskriften med geometrisk modell",
+  "kunne avslutte anvendte oppgaver med konklusjonssetning der fortegn og enhet er tolket"
+ ],
+ "content": [
+  {
+   "id": "mat111-uib-3-3-tip",
+   "type": "tip",
+   "title": "Eksamensvinkel",
+   "content": "**Implisitt derivasjon og relaterte rater er i sterk vekst i settene.**\n\n- **Sjanger K** (implisitt derivasjon/relaterte rater) står i 15 av 34 arkiverte sett — men i **7 av de 9 siste**, så regn den som fast inventar.\n- Tre former går igjen: (i) **tangent til implisitt gitt kurve** (der fasit alltid starter med å verifisere at punktet ligger på kurven — et steg mange glemmer), (ii) **$y''$ i et punkt** uten å løse likningen, (iii) **relaterte rater** med geometrisk modell (Pytagoras-snor, synsvinkel, veinettkurve).\n- Løsningsforslagenes krav i ratene: konklusjonssetning med **tolket fortegn og enhet** («avstanden avtar med …»). Et nakent tall til slutt trekker.\n- Prioritet: kunne. Tidsbudsjett: 8–12 min per deloppgave.\n- *Sjangerbokstavene A–N* er bokas merkelapper for arkivets oppgavetyper (Del 0); K er implisitt/rater."
+  },
+  {
+   "id": "mat111-uib-3-3-fork",
+   "type": "text",
+   "content": "**Forkunnskaper.** Differansekvotient-grunnlaget fra [kap. 3.1](/bok/mat111-uib/mat111-uib-3-1). Fra R1/R2 trengs derivasjonsreglene aktivt: **[Kjerneregelen](/bok/r1/r1-4-3)**, **[Produktregelen og kvotientregelen](/bok/r1/r1-4-4)**, **[Relaterte rater](/bok/r1/r1-4-7)** (grunnoppsettet) og **[Derivasjon av trigonometriske funksjoner](/bok/r2/r2-4-9)**.\n\n**Sist du var her (nøkkelformlene):** kjerneregelen $\\bigl(g(u(x))\\bigr)' = g'(u(x))\\,u'(x)$; produktregelen $(uv)' = u'v + uv'$; og $(\\tan\\theta)' = \\frac{1}{\\cos^2\\theta} = 1+\\tan^2\\theta$."
+  },
+  {
+   "id": "mat111-uib-3-3-motiv",
+   "type": "text",
+   "content": "Mange kurver er gitt som en **likning** i $x$ og $y$ — ikke som $y=f(x)$. Likevel har kurven tangenter, og punkter som beveger seg langs den har fart. Implisitt derivasjon henter ut $y'$ direkte fra likningen, uten å løse den — ofte er det umulig å løse den uansett.\n\nSamme teknikk med tiden $t$ som fri variabel gir **relaterte rater**: når to størrelser er bundet sammen av en geometrisk relasjon, binder derivasjon av relasjonen sammen endringsratene deres. Det er MAT111s standardformat for anvendt derivasjon — og settene straffer konsekvent svar uten fortegns- og enhetstolkning."
+  },
+  {
+   "id": "mat111-uib-3-3-l1",
+   "type": "text",
+   "content": "## Implisitt derivasjon og tangent\n\n*Læringsløkke 1 av 3 — ca. 18 min.*"
+  },
+  {
+   "id": "mat111-uib-3-3-def-implisitt",
+   "type": "definition",
+   "title": "Implisitt gitt kurve",
+   "content": "En kurve er implisitt gitt når den beskrives av en likning i $x$ og $y$ — for eksempel $x^2+xy+y^2=7$ — i stedet for en formel $y=f(x)$. Nær de fleste punkter på kurven kan $y$ *lokalt* oppfattes som en funksjon av $x$, selv om vi ikke kan (eller vil) løse ut formelen."
+  },
+  {
+   "id": "mat111-uib-3-3-def-impder",
+   "type": "definition",
+   "title": "Implisitt derivasjon",
+   "content": "Metoden: deriver hele likningen ledd for ledd med hensyn på $x$, der $y$ behandles som funksjon av $x$ — hvert ledd med $y$ får kjernefaktoren $y'$ fra kjerneregelen. Deretter løses den (alltid lineære) likningen for $y'$."
+  },
+  {
+   "id": "mat111-uib-3-3-def-kjernefaktor",
+   "type": "definition",
+   "title": "Kjernefaktoren $y'$",
+   "content": "Når $y$ er funksjon av $x$, gir kjerneregelen $\\frac{d}{dx}\\,y^2 = 2y\\,y'$, $\\frac{d}{dx}\\sin y = (\\cos y)\\,y'$ osv. — den ekstra faktoren $y'$ er kjernefaktoren. Å glemme den er feilkilde nummer én i implisitt derivasjon."
+  },
+  {
+   "id": "mat111-uib-3-3-def-punktverif",
+   "type": "definition",
+   "title": "Punktverifikasjonen",
+   "content": "Første linje i enhver tangentoppgave på implisitt kurve: sett punktet inn i likningen og vis at den stemmer. Ligger ikke punktet på kurven, er alt etterpå meningsløst — og fasit gir dette steget egen uttelling."
+  },
+  {
+   "id": "mat111-uib-3-3-th-oppskrift",
+   "type": "theorem",
+   "title": "Oppskriften: tangent til implisitt gitt kurve",
+   "content": "1. **Verifiser** at punktet $(x_0,y_0)$ ligger på kurven (sett inn).\n2. **Deriver** likningen implisitt mhp. $x$ (kjernefaktor $y'$ på alle $y$-ledd).\n3. **Løs** for $y'$ og **sett inn** $(x_0,y_0)$.\n4. **Skriv tangentlikningen** $y = y_0 + y'(x_0)\\,(x-x_0)$."
+  },
+  {
+   "id": "mat111-uib-3-3-ex1",
+   "type": "example",
+   "title": "Eksempel 1: tangent til $x^2+xy+y^2=7$",
+   "problem": "Vis at punktet $(1,2)$ ligger på kurven $x^2+xy+y^2=7$, og finn likningen for tangenten der.",
+   "solution": "**1. Punktverifikasjon:** $1^2 + 1\\cdot2 + 2^2 = 1+2+4 = 7$. ✓ Punktet ligger på kurven.\n\n**2. Implisitt derivasjon** (produktregel på $xy$, kjernefaktor på $y$-leddene):\n$$2x + \\bigl(1\\cdot y + x\\,y'\\bigr) + 2y\\,y' = 0.$$\n**3. Løs for $y'$:** $y'(x+2y) = -(2x+y)$, så\n$$y' = -\\frac{2x+y}{x+2y}.$$\nI $(1,2)$: $y' = -\\dfrac{2+2}{1+4} = -\\dfrac{4}{5}$.\n\n**4. Tangentlikningen:**\n$$y = 2 - \\frac45(x-1), \\qquad\\text{dvs. } y = -\\frac45 x + \\frac{14}{5}.$$"
+  },
+  {
+   "id": "mat111-uib-3-3-o1",
+   "type": "exercise",
+   "exercise": {
+    "id": "mat111-uib-3-3-o1-x",
+    "number": "1",
+    "type": "classic",
+    "difficulty": "lett",
+    "task": "Vis at $(1,2)$ ligger på kurven $x^3+y^3=9$, og finn stigningstallet til tangenten der.",
+    "solution": "**Verifikasjon:** $1^3+2^3 = 1+8 = 9$. ✓\n\n**Implisitt derivasjon:** $3x^2 + 3y^2\\,y' = 0$, så $y' = -\\dfrac{x^2}{y^2}$.\n\nI $(1,2)$: $y' = -\\dfrac{1}{4}$.\n\n**Konklusjon:** tangenten i $(1,2)$ har stigningstall $-\\dfrac14$.",
+    "hints": [
+     "Sett inn punktet først — verifikasjonen er egen leveranse.",
+     "$\\frac{d}{dx}y^3 = 3y^2\\,y'$ — husk kjernefaktoren."
+    ]
+   }
+  },
+  {
+   "id": "mat111-uib-3-3-o2",
+   "type": "exercise",
+   "exercise": {
+    "id": "mat111-uib-3-3-o2-x",
+    "number": "2",
+    "type": "classic",
+    "difficulty": "lett",
+    "task": "Finn likningen for tangenten til ellipsen $x^2+4y^2=8$ i punktet $(2,1)$.",
+    "solution": "**Verifikasjon:** $2^2 + 4\\cdot1^2 = 4+4 = 8$. ✓\n\n**Implisitt derivasjon:** $2x + 8y\\,y' = 0$, så $y' = -\\dfrac{x}{4y}$. I $(2,1)$: $y' = -\\dfrac{2}{4} = -\\dfrac12$.\n\n**Tangentlikningen:** $y = 1 - \\dfrac12(x-2) = -\\dfrac12 x + 2$.",
+    "hints": [
+     "Verifiser punktet, deriver, løs for $y'$, sett inn.",
+     "$\\frac{d}{dx}(4y^2) = 8y\\,y'$."
+    ]
+   }
+  },
+  {
+   "id": "mat111-uib-3-3-o3",
+   "type": "exercise",
+   "exercise": {
+    "id": "mat111-uib-3-3-o3-x",
+    "number": "3",
+    "type": "classic",
+    "difficulty": "middels",
+    "task": "Kurven $x^2+xy+y^2=7$ (fra eksempel 1): finn alle punkter på kurven der tangenten er horisontal.",
+    "solution": "Fra eksempel 1 er $y' = -\\dfrac{2x+y}{x+2y}$. Horisontal tangent krever $y'=0$, altså teller null og nevner ulik null:\n$$2x+y = 0 \\quad\\Rightarrow\\quad y = -2x.$$\nSett inn i kurvelikningen:\n$$x^2 + x(-2x) + (-2x)^2 = x^2 - 2x^2 + 4x^2 = 3x^2 = 7 \\quad\\Rightarrow\\quad x = \\pm\\sqrt{\\tfrac{7}{3}}.$$\nPunktene er $\\left(\\sqrt{7/3},\\,-2\\sqrt{7/3}\\right)$ og $\\left(-\\sqrt{7/3},\\,2\\sqrt{7/3}\\right)$. (Nevnersjekk: $x+2y = x-4x = -3x \\neq 0$ i begge. ✓)\n\n**Konklusjon:** horisontal tangent i $\\pm\\left(\\sqrt{7/3},\\,-2\\sqrt{7/3}\\right)$.",
+    "hints": [
+     "Horisontal tangent: sett telleren i $y'$ lik null — men punktet må fortsatt ligge på kurven.",
+     "Kombinér $y=-2x$ med kurvelikningen og løs for $x$."
+    ]
+   }
+  },
+  {
+   "id": "mat111-uib-3-3-l2",
+   "type": "text",
+   "content": "## Andrederivert fra relasjonen\n\n*Læringsløkke 2 av 3 — ca. 12 min.*\n\nSettene spør gjerne etter $y''$ i et punkt **uten at likningen skal løses**. Metoden: deriver relasjonen to ganger, og sett inn kjente verdier av $x$, $y$ og $y'$ til slutt. *Intuisjon:* hver derivasjonsrunde gir en ny lineær likning i den høyeste deriverte — du løser aldri noe verre enn førstegradslikninger."
+  },
+  {
+   "id": "mat111-uib-3-3-def-ypp",
+   "type": "definition",
+   "title": "Andrederivert av implisitt relasjon",
+   "content": "Framgangsmåten for $y''$: deriver den allerede deriverte likningen én gang til, med produktregel på ledd som inneholder $y'$ — husk $\\frac{d}{dx}\\,y' = y''$, slik at for eksempel $\\frac{d}{dx}\\bigl(y\\,y'\\bigr) = (y')^2 + y\\,y''$ og $\\frac{d}{dx}\\bigl(x\\,y'\\bigr) = y' + x\\,y''$. Løs for $y''$ og sett inn tallene for $x$, $y$ og $y'$ til slutt."
+  },
+  {
+   "id": "mat111-uib-3-3-ex2",
+   "type": "example",
+   "title": "Eksempel 2: $y''$ på sirkelen $x^2+y^2=25$",
+   "problem": "Punktet $(3,4)$ ligger på sirkelen $x^2+y^2=25$ (sjekk: $9+16=25$ ✓). Finn $y'$ og $y''$ i punktet.",
+   "solution": "**Første derivasjon:** $2x + 2y\\,y' = 0$, så $y' = -\\dfrac{x}{y}$. I $(3,4)$: $y' = -\\dfrac34$.\n\n**Andre derivasjon** (deriver $2x+2y\\,y'=0$; produktregel på $y\\,y'$):\n$$2 + 2\\bigl((y')^2 + y\\,y''\\bigr) = 0 \\quad\\Rightarrow\\quad y'' = -\\frac{1+(y')^2}{y}.$$\nI $(3,4)$ med $y'=-\\frac34$:\n$$y'' = -\\frac{1+\\frac{9}{16}}{4} = -\\frac{\\frac{25}{16}}{4} = -\\frac{25}{64}.$$\n**Konklusjon:** $y'(3)=-\\dfrac34$, $y''(3)=-\\dfrac{25}{64}$ — sirkelen krummer nedover i øvre halvplan, som den skal."
+  },
+  {
+   "id": "mat111-uib-3-3-o4",
+   "type": "exercise",
+   "exercise": {
+    "id": "mat111-uib-3-3-o4-x",
+    "number": "4",
+    "type": "classic",
+    "difficulty": "middels",
+    "task": "Punktet $(1,2)$ ligger på kurven $xy+y^2=6$ (sjekk selv). Finn $y'$ og $y''$ i punktet.",
+    "solution": "**Verifikasjon:** $1\\cdot2 + 2^2 = 2+4 = 6$. ✓\n\n**Første derivasjon** (produktregel på $xy$):\n$$y + x\\,y' + 2y\\,y' = 0 \\quad\\Rightarrow\\quad y' = -\\frac{y}{x+2y}.$$\nI $(1,2)$: $y' = -\\dfrac{2}{5}$.\n\n**Andre derivasjon** av $y + xy' + 2y\\,y' = 0$:\n$$y' + \\bigl(y' + x\\,y''\\bigr) + 2\\bigl((y')^2 + y\\,y''\\bigr) = 0 \\quad\\Rightarrow\\quad 2y' + 2(y')^2 + y''(x+2y) = 0.$$\nLøs for $y''$ og sett inn $x=1$, $y=2$, $y'=-\\frac25$:\n$$y'' = -\\frac{2y' + 2(y')^2}{x+2y} = -\\frac{2\\cdot(-\\frac25) + 2\\cdot\\frac{4}{25}}{5} = -\\frac{-\\frac45+\\frac{8}{25}}{5} = -\\frac{-\\frac{12}{25}}{5} = \\frac{12}{125}.$$\n**Konklusjon:** $y' = -\\dfrac25$ og $y'' = \\dfrac{12}{125}$ i $(1,2)$.",
+    "hints": [
+     "Deriver likningen to ganger; sett inn tall først HELT til slutt.",
+     "$\\frac{d}{dx}(x\\,y') = y' + x\\,y''$ og $\\frac{d}{dx}(y\\,y') = (y')^2 + y\\,y''$."
+    ]
+   }
+  },
+  {
+   "id": "mat111-uib-3-3-l3",
+   "type": "text",
+   "content": "## Relaterte rater\n\n*Læringsløkke 3 av 3 — ca. 20 min.*\n\nNå er den frie variabelen **tiden $t$**, og både $x$ og $y$ (og hva ellers modellen har) er funksjoner av $t$. Derivasjon av relasjonen mhp. $t$ knytter ratene sammen. Merk språket: $x'(t) = \\frac{dx}{dt}$ er endringsraten til $x$, målt i enhet per tidsenhet."
+  },
+  {
+   "id": "mat111-uib-3-3-th-rate",
+   "type": "theorem",
+   "title": "Rate-oppskriften (fem steg)",
+   "content": "1. **Figur og navn:** tegn situasjonen, navngi de tidsavhengige størrelsene ($x(t)$, $y(t)$, $\\theta(t)$, …).\n2. **Modeller sammenhengen:** finn relasjonen som ALLTID gjelder — Pytagoras, formlikhet, $\\tan\\theta$, volumformel.\n3. **Deriver implisitt mhp. $t$:** hvert ledd får sin ratefaktor ($\\frac{d}{dt}x^2 = 2x\\,x'$ osv.).\n4. **Sett inn øyeblikkstallene** — først NÅ, aldri før derivasjonen.\n5. **Konkluder med fortegn og enhet:** «… avtar med 0,2 m/s» — tolkningen er en del av svaret."
+  },
+  {
+   "id": "mat111-uib-3-3-def-oyeblikk",
+   "type": "definition",
+   "title": "Øyeblikkstall",
+   "content": "Tallverdiene som bare gjelder i det aktuelle øyeblikket (posisjoner, avstander, rater akkurat da). De settes inn ETTER derivasjonen — settes de inn før, deriverer du konstanter og mister ratene."
+  },
+  {
+   "id": "mat111-uib-3-3-def-fortegnstolk",
+   "type": "definition",
+   "title": "Fortegns- og enhetstolkning",
+   "content": "Sluttsvaret i en rateoppgave er en setning: fortegnet oversettes til retning («øker»/«avtar»/«synker»), og enheten oppgis (m/s, cm³/s, rad/s). Løsningsforslagenes krav — et nakent tall regnes som ufullført svar."
+  },
+  {
+   "id": "mat111-uib-3-3-ex3",
+   "type": "example",
+   "title": "Eksempel 3: stige som glir (Pytagoras-modellen)",
+   "problem": "En 5 m lang stige står mot en vegg. Foten glir utover med 0,3 m/s. Hvor fort synker toppen i det øyeblikket foten er 3 m fra veggen?",
+   "solution": "**1. Figur og navn:** la $x(t)$ være avstanden fra veggen til stigefoten og $y(t)$ høyden til toppen. \n\n**2. Modell (gjelder hele tiden):** Pytagoras: $x^2 + y^2 = 25$.\n\n**3. Deriver mhp. $t$:** $2x\\,x' + 2y\\,y' = 0$, dvs. $y' = -\\dfrac{x\\,x'}{y}$.\n\n**4. Øyeblikkstall:** $x=3$ gir $y = \\sqrt{25-9} = 4$; $x' = 0{,}3$ m/s. Altså\n$$y' = -\\frac{3\\cdot 0{,}3}{4} = -0{,}225 \\text{ m/s}.$$\n**5. Konklusjon:** fortegnet er negativt — toppen er på vei ned. **Toppen synker med $0{,}225$ m/s i dette øyeblikket.**"
+  },
+  {
+   "id": "mat111-uib-3-3-o5",
+   "type": "exercise",
+   "exercise": {
+    "id": "mat111-uib-3-3-o5-x",
+    "number": "5",
+    "type": "classic",
+    "difficulty": "middels",
+    "task": "Et fyrverkeri stiger rett opp med 5 m/s. En tilskuer står 40 m fra oppskytningspunktet. Hvor fort øker synsvinkelen $\\theta$ (målt fra bakken) i det øyeblikket raketten er 30 m over bakken?",
+    "solution": "**Modell:** la $h(t)$ være høyden. Synsvinkelen oppfyller $\\tan\\theta = \\dfrac{h}{40}$ hele tiden.\n\n**Deriver mhp. $t$** ($(\\tan\\theta)' = \\frac{\\theta'}{\\cos^2\\theta}$ via kjerneregelen):\n$$\\frac{\\theta'}{\\cos^2\\theta} = \\frac{h'}{40} \\quad\\Rightarrow\\quad \\theta' = \\frac{h'}{40}\\cos^2\\theta.$$\n**Øyeblikkstall:** $h=30$, $h'=5$. Hypotenusen er $\\sqrt{40^2+30^2} = \\sqrt{2500} = 50$, så $\\cos\\theta = \\frac{40}{50} = \\frac45$ og $\\cos^2\\theta = \\frac{16}{25}$. Dermed\n$$\\theta' = \\frac{5}{40}\\cdot\\frac{16}{25} = \\frac{1}{8}\\cdot\\frac{16}{25} = \\frac{2}{25} = 0{,}08 \\text{ rad/s}.$$\n**Konklusjon:** synsvinkelen øker med $0{,}08$ rad/s i dette øyeblikket (positivt fortegn — raketten er på vei opp).",
+    "hints": [
+     "Relasjonen som alltid gjelder: $\\tan\\theta = h/40$.",
+     "Finn $\\cos\\theta$ fra trekanten 30–40–50 i øyeblikket."
+    ]
+   }
+  },
+  {
+   "id": "mat111-uib-3-3-o6",
+   "type": "exercise",
+   "exercise": {
+    "id": "mat111-uib-3-3-o6-x",
+    "number": "6",
+    "type": "classic",
+    "difficulty": "middels",
+    "task": "En kuleformet ballong blåses opp med konstant $100$ cm³/s. Hvor fort vokser radien i det øyeblikket $r = 5$ cm? (Kulevolum: $V = \\frac43\\pi r^3$.)",
+    "solution": "**Modell:** $V = \\dfrac43\\pi r^3$ gjelder hele tiden, med $V$ og $r$ funksjoner av $t$.\n\n**Deriver mhp. $t$:** $V' = 4\\pi r^2\\, r'$, så $r' = \\dfrac{V'}{4\\pi r^2}$.\n\n**Øyeblikkstall:** $V' = 100$, $r=5$:\n$$r' = \\frac{100}{4\\pi\\cdot 25} = \\frac{1}{\\pi} \\approx 0{,}32 \\text{ cm/s}.$$\n**Konklusjon:** radien vokser med $\\frac{1}{\\pi} \\approx 0{,}32$ cm/s i dette øyeblikket — positivt fortegn, ballongen utvider seg. (Merk at raten avtar med voksende $r$: samme luftstrøm gir langsommere radievekst i stor ballong.)",
+    "hints": [
+     "$\\frac{d}{dt}r^3 = 3r^2\\,r'$ — kjernefaktoren i tid.",
+     "Løs for $r'$ FØR du setter inn tallene."
+    ]
+   }
+  },
+  {
+   "id": "mat111-uib-3-3-o7",
+   "type": "exercise",
+   "exercise": {
+    "id": "mat111-uib-3-3-o7-x",
+    "number": "7",
+    "type": "classic",
+    "difficulty": "middels",
+    "task": "En bil følger veikurven $y^3 + xy = 12$ (posisjoner i km). I det øyeblikket bilen passerer punktet $(2,2)$, er $x'(t) = 4$ km/t. Finn $y'(t)$ i samme øyeblikk, og tolk svaret.",
+    "solution": "**Verifikasjon:** $2^3 + 2\\cdot2 = 8+4 = 12$. ✓ Punktet ligger på kurven.\n\n**Deriver relasjonen mhp. $t$** (begge variable avhenger av $t$; produktregel på $xy$):\n$$3y^2\\,y' + x'\\,y + x\\,y' = 0.$$\n**Øyeblikkstall:** $x=2$, $y=2$, $x'=4$:\n$$3\\cdot4\\cdot y' + 4\\cdot2 + 2y' = 0 \\quad\\Rightarrow\\quad 14y' = -8 \\quad\\Rightarrow\\quad y' = -\\frac{4}{7}.$$\n**Konklusjon:** $y$-koordinaten avtar med $\\frac{4}{7} \\approx 0{,}57$ km/t i dette øyeblikket — bilen beveger seg mot sør (avtakende $y$) mens den kjører østover.",
+    "hints": [
+     "Alle ledd deriveres mhp. $t$: $\\frac{d}{dt}y^3 = 3y^2y'$, $\\frac{d}{dt}(xy) = x'y + xy'$.",
+     "Sett inn øyeblikkstallene etter derivasjonen og løs den lineære likningen for $y'$."
+    ]
+   }
+  },
+  {
+   "id": "mat111-uib-3-3-warn",
+   "type": "warning",
+   "title": "Typiske feil",
+   "content": "- **Sette inn tallene FØR derivasjonen.** Da låses variablene til konstanter, ratene forsvinner, og alt blir null. Øyeblikkstall inn i steg 4 — aldri før.\n- **Glemme kjernefaktoren** $y'$ (eller $\\frac{dx}{dt}$): $\\frac{d}{dx}y^2 = 2y\\,y'$, ikke $2y$. Tilsvarende i tid: $\\frac{d}{dt}x^2 = 2x\\,x'$.\n- **Svar uten fortegns- og enhetstolkning.** «$y' = -0{,}225$» er ikke ferdig — «toppen synker med 0,225 m/s» er svaret.\n- **Ikke verifisere at punktet ligger på kurven** i tangentoppgaver — fasit fører steget eksplisitt, og det avslører trykkfeil i egne utregninger.\n- **Feil rettvinkelmodell fra figuren:** sjekk hva som faktisk er konstant (stigelengden, avstanden til observatøren) og hva som endres, før du velger Pytagoras/formlikhet/$\\tan\\theta$."
+  },
+  {
+   "id": "mat111-uib-3-3-pool",
+   "type": "text",
+   "content": "## Drillpulje — stigende vanskegrad"
+  },
+  {
+   "id": "mat111-uib-3-3-o8",
+   "type": "exercise",
+   "exercise": {
+    "id": "mat111-uib-3-3-o8-x",
+    "number": "8",
+    "type": "classic",
+    "difficulty": "lett",
+    "task": "Finn $y'$ i punktet $(1,3)$ på sirkelen $x^2+y^2=10$.",
+    "solution": "**Verifikasjon:** $1+9=10$. ✓\n\n**Implisitt derivasjon:** $2x + 2y\\,y' = 0$, så $y' = -\\dfrac{x}{y} = -\\dfrac13$ i $(1,3)$.\n\n**Konklusjon:** $y'(1) = -\\dfrac13$.",
+    "hints": [
+     "Deriver, løs for $y'$, sett inn punktet.",
+     "$y'=-x/y$ for alle sirkler $x^2+y^2=r^2$."
+    ]
+   }
+  },
+  {
+   "id": "mat111-uib-3-3-o9",
+   "type": "exercise",
+   "exercise": {
+    "id": "mat111-uib-3-3-o9-x",
+    "number": "9",
+    "type": "classic",
+    "difficulty": "lett",
+    "task": "Ligger punktet $(2,1)$ på kurven $x^2y + y^3 = 5$? Finn i så fall stigningstallet til tangenten der.",
+    "solution": "**Verifikasjon:** $2^2\\cdot1 + 1^3 = 4+1 = 5$. ✓ Punktet ligger på kurven.\n\n**Implisitt derivasjon** (produktregel på $x^2y$):\n$$2xy + x^2y' + 3y^2y' = 0 \\quad\\Rightarrow\\quad y' = -\\frac{2xy}{x^2+3y^2}.$$\nI $(2,1)$: $y' = -\\dfrac{2\\cdot2\\cdot1}{4+3} = -\\dfrac47$.\n\n**Konklusjon:** tangenten i $(2,1)$ har stigningstall $-\\dfrac47$.",
+    "hints": [
+     "Sett inn punktet i likningen først.",
+     "$\\frac{d}{dx}(x^2y) = 2xy + x^2y'$ — produktregel."
+    ]
+   }
+  },
+  {
+   "id": "mat111-uib-3-3-o10",
+   "type": "exercise",
+   "exercise": {
+    "id": "mat111-uib-3-3-o10-x",
+    "number": "10",
+    "type": "classic",
+    "difficulty": "middels",
+    "task": "En kjegleformet tank (spissen ned) har radius lik en tredjedel av høyden i alle nivåer: $r = h/3$. Vann fylles på med $2$ dm³/min. Hvor fort stiger vannstanden når $h = 6$ dm? (Kjeglevolum: $V = \\frac13\\pi r^2 h$.)",
+    "solution": "**Modell:** med $r = h/3$ blir volumet en funksjon av $h$ alene:\n$$V = \\frac13\\pi\\left(\\frac{h}{3}\\right)^2 h = \\frac{\\pi h^3}{27}.$$\n**Deriver mhp. $t$:** $V' = \\dfrac{\\pi\\cdot 3h^2}{27}\\,h' = \\dfrac{\\pi h^2}{9}\\,h'$, så $h' = \\dfrac{9V'}{\\pi h^2}$.\n\n**Øyeblikkstall:** $V' = 2$, $h=6$:\n$$h' = \\frac{9\\cdot2}{\\pi\\cdot36} = \\frac{1}{2\\pi} \\approx 0{,}16 \\text{ dm/min}.$$\n**Konklusjon:** vannstanden stiger med $\\frac{1}{2\\pi} \\approx 0{,}16$ dm/min i dette øyeblikket (positivt fortegn — tanken fylles).",
+    "hints": [
+     "Bruk bibetingelsen $r=h/3$ til å skrive $V$ med bare $h$ FØR du deriverer.",
+     "$\\frac{d}{dt}h^3 = 3h^2h'$."
+    ]
+   }
+  },
+  {
+   "id": "mat111-uib-3-3-o11",
+   "type": "exercise",
+   "exercise": {
+    "id": "mat111-uib-3-3-o11-x",
+    "number": "11",
+    "type": "classic",
+    "difficulty": "vanskelig",
+    "task": "To biler starter samtidig fra samme kryss: bil A kjører nordover med 20 m/s, bil B østover med 15 m/s. Hvor fort øker avstanden mellom dem i det øyeblikket A er 400 m og B er 300 m fra krysset?",
+    "solution": "**Modell:** la $y(t)$ og $x(t)$ være avstandene til A (nord) og B (øst), og $s(t)$ avstanden mellom bilene. Pytagoras gjelder hele tiden:\n$$s^2 = x^2 + y^2.$$\n**Deriver mhp. $t$:** $2s\\,s' = 2x\\,x' + 2y\\,y'$, så $s' = \\dfrac{x\\,x' + y\\,y'}{s}$.\n\n**Øyeblikkstall:** $x=300$, $y=400$, så $s = \\sqrt{300^2+400^2} = 500$; $x' = 15$, $y' = 20$:\n$$s' = \\frac{300\\cdot15 + 400\\cdot20}{500} = \\frac{4500+8000}{500} = \\frac{12500}{500} = 25 \\text{ m/s}.$$\n**Konklusjon:** avstanden mellom bilene øker med $25$ m/s i dette øyeblikket (positivt fortegn — de fjerner seg fra hverandre).",
+    "hints": [
+     "Relasjonen er $s^2 = x^2+y^2$ — deriver alle tre variable mhp. $t$.",
+     "Regn $s=500$ fra 3–4–5-trekanten før innsetting."
+    ]
+   }
+  },
+  {
+   "id": "mat111-uib-3-3-o12",
+   "type": "exercise",
+   "exercise": {
+    "id": "mat111-uib-3-3-o12-x",
+    "number": "12",
+    "type": "classic",
+    "difficulty": "vanskelig",
+    "task": "En lyktestolpe er 5 m høy. En person på 2 m går bort fra stolpen med 1,2 m/s.\n\n**a)** Hvor fort vokser skyggen til personen?\n\n**b)** Hvor fort beveger skyggespissen seg langs bakken?",
+    "solution": "**Modell (formlikhet):** la $x(t)$ være avstanden fra stolpen til personen og $s(t)$ skyggelengden. Lysstrålen gjennom stolpetoppen og hodet gir formlike trekanter:\n$$\\frac{s}{2} = \\frac{x+s}{5} \\quad\\Rightarrow\\quad 5s = 2x + 2s \\quad\\Rightarrow\\quad s = \\frac{2x}{3}.$$\n**a) Deriver mhp. $t$:** $s' = \\dfrac{2}{3}x' = \\dfrac{2}{3}\\cdot1{,}2 = 0{,}8$ m/s.\n\n**Konklusjon a):** skyggen vokser med $0{,}8$ m/s (positiv — den blir lengre når personen går utover). Merk at svaret er uavhengig av hvor personen er — relasjonen er lineær.\n\n**b)** Skyggespissen er i posisjon $x + s$, så farten er\n$$ (x+s)' = x' + s' = 1{,}2 + 0{,}8 = 2{,}0 \\text{ m/s}.$$\n**Konklusjon b):** skyggespissen beveger seg utover med $2{,}0$ m/s — raskere enn personen, som den må.",
+    "hints": [
+     "Formlike trekanter: hele trekanten (stolpe, $x+s$) mot den lille (person, $s$).",
+     "Løs relasjonen for $s$ FØR derivasjonen — den blir lineær i $x$."
+    ]
+   }
+  },
+  {
+   "id": "mat111-uib-3-3-o13",
+   "type": "exercise",
+   "exercise": {
+    "id": "mat111-uib-3-3-o13-x",
+    "number": "13",
+    "type": "classic",
+    "difficulty": "vanskelig",
+    "task": "Kurven $x^2 - xy + y^2 = 3$ er en ellipse.\n\n**a)** Verifiser at $(1,2)$ ligger på kurven, og finn $y'$ der.\n\n**b)** Finn alle punkter på kurven med vertikal tangent.",
+    "solution": "**a) Verifikasjon:** $1 - 2 + 4 = 3$. ✓\n\nImplisitt derivasjon (produktregel på $xy$):\n$$2x - (y + x\\,y') + 2y\\,y' = 0 \\quad\\Rightarrow\\quad y'(2y - x) = y - 2x \\quad\\Rightarrow\\quad y' = \\frac{y-2x}{2y-x}.$$\nI $(1,2)$: $y' = \\dfrac{2-2}{4-1} = 0$ — tangenten er horisontal der.\n\n**b) Vertikal tangent:** nevneren null og telleren ulik null: $2y - x = 0$, dvs. $x = 2y$. Sett inn i kurvelikningen:\n$$(2y)^2 - 2y\\cdot y + y^2 = 4y^2 - 2y^2 + y^2 = 3y^2 = 3 \\quad\\Rightarrow\\quad y = \\pm1.$$\nPunktene er $(2,1)$ og $(-2,-1)$. (Tellersjekk: $y-2x = 1-4 = -3 \\neq 0$ hhv. $3\\neq0$. ✓)\n\n**Konklusjon:** $y'=0$ i $(1,2)$; vertikal tangent i $(2,1)$ og $(-2,-1)$.",
+    "hints": [
+     "Vertikal tangent: nevneren i $y'$ er null (og telleren ikke).",
+     "Kombinér $x=2y$ med kurvelikningen."
+    ]
+   }
+  },
+  {
+   "id": "mat111-uib-3-3-bb-tekst",
+   "type": "text",
+   "content": "## Begrepsbank\n\nKortdefinisjonene under er kapitlets ordforråd samlet — flashcard-grunnlag og oppslagsverk."
+  },
+  {
+   "id": "mat111-uib-3-3-bb-eksplisitt",
+   "type": "definition",
+   "title": "Eksplisitt vs. implisitt form",
+   "content": "Eksplisitt: $y = f(x)$ — $y$ er løst ut. Implisitt: en likning i $x$ og $y$ som binder dem sammen uten at $y$ er løst ut. Implisitt derivasjon virker direkte på den siste formen."
+  },
+  {
+   "id": "mat111-uib-3-3-bb-lokal",
+   "type": "definition",
+   "title": "Lokalt en funksjon",
+   "content": "Nær de fleste kurvepunkter kan et stykke av kurven ses som grafen til én funksjon $y(x)$ — det er denne lokale funksjonen implisitt derivasjon deriverer. I punkter med vertikal tangent bryter det sammen (der er $y'$ udefinert)."
+  },
+  {
+   "id": "mat111-uib-3-3-bb-hortangent",
+   "type": "definition",
+   "title": "Horisontal og vertikal tangent",
+   "content": "Med $y' = \\frac{\\text{teller}}{\\text{nevner}}$ fra implisitt derivasjon: horisontal tangent der telleren er null (og nevneren ikke), vertikal tangent der nevneren er null (og telleren ikke). Kandidatene må alltid settes inn i kurvelikningen."
+  },
+  {
+   "id": "mat111-uib-3-3-bb-tangentlikning",
+   "type": "definition",
+   "title": "Tangentlikningen (punkt–stigning)",
+   "content": "$y = y_0 + y'(x_0)(x-x_0)$ — samme formel som for eksplisitte grafer; forskjellen er bare hvordan $y'(x_0)$ er funnet."
+  },
+  {
+   "id": "mat111-uib-3-3-bb-kjernetid",
+   "type": "definition",
+   "title": "Kjerneregelen med hensyn på tid",
+   "content": "Når $x = x(t)$: $\\frac{d}{dt}x^n = nx^{n-1}x'$, $\\frac{d}{dt}\\tan\\theta = \\frac{\\theta'}{\\cos^2\\theta}$ osv. Hver tidsavhengig størrelse gir sin ratefaktor — det er kjerneregelen som kobler ratene."
+  },
+  {
+   "id": "mat111-uib-3-3-bb-pytagoras",
+   "type": "definition",
+   "title": "Pytagoras-modellen",
+   "content": "Standardmodell for avstander i rette vinkler (stige mot vegg, to biler i kryss, båt og kai): $a^2 + b^2 = c^2$ mellom de tidsavhengige lengdene. Derivert: $2a\\,a' + 2b\\,b' = 2c\\,c'$."
+  },
+  {
+   "id": "mat111-uib-3-3-bb-synsvinkel",
+   "type": "definition",
+   "title": "Synsvinkelmodellen ($\\tan\\theta$)",
+   "content": "Når en vinkel følger et stigende/synkende objekt: $\\tan\\theta = \\frac{\\text{motstående}}{\\text{hosliggende}}$, derivert $\\frac{\\theta'}{\\cos^2\\theta} = \\frac{h'}{d}$ (fast avstand $d$). $\\cos\\theta$ hentes fra trekanten i øyeblikket. Svar i rad/s."
+  },
+  {
+   "id": "mat111-uib-3-3-bb-formlikhet",
+   "type": "definition",
+   "title": "Formlikhetsmodellen",
+   "content": "Skygge- og lignende oppgaver: to formlike trekanter gir en proporsjon mellom tidsavhengige lengder — ofte en lineær relasjon som er enkel å derivere."
+  },
+  {
+   "id": "mat111-uib-3-3-bb-volummodell",
+   "type": "definition",
+   "title": "Volummodellene",
+   "content": "Kule $V=\\frac43\\pi r^3$, kjegle $V=\\frac13\\pi r^2h$ (med bibetingelse som $r=h/3$), sylinder $V=\\pi r^2 h$ — relasjoner mellom tidsavhengige størrelser i fylle-/tappeoppgaver. Bibetingelsen settes inn FØR derivasjonen."
+  },
+  {
+   "id": "mat111-uib-3-3-bb-radprs",
+   "type": "definition",
+   "title": "Radianer per sekund (rad/s)",
+   "content": "Enheten for vinkelrater. Vinkler i derivasjonssammenheng måles alltid i radianer — derivasjonsformlene for sin, cos og tan forutsetter det."
+  },
+  {
+   "id": "mat111-uib-3-3-bb-konklusjon",
+   "type": "definition",
+   "title": "Konklusjonssetningen",
+   "content": "Siste linje i en anvendt oppgave: tallsvar med enhet og tolket fortegn, formulert som setning. En del av føringsstandarden i hele boka — og eksplisitt etterspurt i rateoppgavene."
+  },
+  {
+   "id": "mat111-uib-3-3-rep",
+   "type": "collapsible",
+   "title": "Repetisjonsoppgaver",
+   "buttonText": "Vis repetisjonsoppgaver",
+   "content": [
+    {
+     "id": "mat111-uib-3-3-r1",
+     "type": "exercise",
+     "exercise": {
+      "id": "mat111-uib-3-3-r1-x",
+      "number": "R1",
+      "type": "classic",
+      "difficulty": "lett",
+      "task": "Deriver $f(x) = (x^2+1)^5$ med kjerneregelen.",
+      "solution": "Ytre funksjon $u^5$, kjerne $u = x^2+1$: $f'(x) = 5(x^2+1)^4\\cdot 2x = 10x(x^2+1)^4$.",
+      "hints": [
+       "Deriver det ytre, gang med den deriverte av kjernen."
+      ]
+     }
+    },
+    {
+     "id": "mat111-uib-3-3-r2",
+     "type": "exercise",
+     "exercise": {
+      "id": "mat111-uib-3-3-r2-x",
+      "number": "R2",
+      "type": "classic",
+      "difficulty": "lett",
+      "task": "Deriver $g(x) = x^2\\sin x$ med produktregelen.",
+      "solution": "$g'(x) = 2x\\sin x + x^2\\cos x$.",
+      "hints": [
+       "$(uv)' = u'v + uv'$ med $u=x^2$, $v=\\sin x$."
+      ]
+     }
+    },
+    {
+     "id": "mat111-uib-3-3-r3",
+     "type": "exercise",
+     "exercise": {
+      "id": "mat111-uib-3-3-r3-x",
+      "number": "R3",
+      "type": "classic",
+      "difficulty": "lett",
+      "task": "Deriver $h(x) = \\tan(3x)$.",
+      "solution": "Kjerneregelen med $(\\tan u)' = \\frac{1}{\\cos^2 u}$: $h'(x) = \\frac{3}{\\cos^2(3x)}$.",
+      "hints": [
+       "Ytre derivert $1/\\cos^2$, indre derivert $3$."
+      ]
+     }
+    },
+    {
+     "id": "mat111-uib-3-3-r4",
+     "type": "exercise",
+     "exercise": {
+      "id": "mat111-uib-3-3-r4-x",
+      "number": "R4",
+      "type": "classic",
+      "difficulty": "middels",
+      "task": "En kvadratisk plate utvider seg slik at sidelengden vokser med $0{,}02$ cm/s. Hvor fort vokser arealet når siden er $10$ cm?",
+      "solution": "$A = s^2$ gir $A' = 2s\\,s' = 2\\cdot10\\cdot0{,}02 = 0{,}4$ cm²/s. Arealet vokser med $0{,}4$ cm²/s i dette øyeblikket.",
+      "hints": [
+       "Deriver $A=s^2$ mhp. $t$ før du setter inn tall."
+      ]
+     }
+    },
+    {
+     "id": "mat111-uib-3-3-r5",
+     "type": "exercise",
+     "exercise": {
+      "id": "mat111-uib-3-3-r5-x",
+      "number": "R5",
+      "type": "classic",
+      "difficulty": "middels",
+      "task": "Deriver $k(x) = \\dfrac{\\sin x}{x}$ for $x\\neq0$ med kvotientregelen.",
+      "solution": "$$k'(x) = \\frac{x\\cos x - \\sin x}{x^2}.$$",
+      "hints": [
+       "$\\left(\\frac{u}{v}\\right)' = \\frac{u'v - uv'}{v^2}$."
+      ]
+     }
+    }
+   ]
+  },
+  {
+   "id": "mat111-uib-3-3-symbol",
+   "type": "collapsible",
+   "title": "Symbol- og formelliste",
+   "buttonText": "Vis symboler og formler",
+   "content": [
+    {
+     "id": "mat111-uib-3-3-symbol-t",
+     "type": "text",
+     "content": "## Symbol- og formelliste\n\n*Oppslagsverk — alt her forklares underveis i kapitlet.*\n\nAlle symboler og formler som brukes i dette delkapitlet (3.3), samlet på ett sted.\n\n| Symbol | Betydning |\n|---|---|\n| $y'$ | Den deriverte av $y$ mhp. $x$ langs kurven (kjernefaktoren) |\n| $y''$ | Andrederiverte av $y$ mhp. $x$, funnet fra relasjonen |\n| $x'(t),\\ y'(t),\\ \\frac{dx}{dt}$ | Endringsrater mhp. tiden $t$ |\n| $\\theta,\\ \\theta'$ | Synsvinkel og vinkelrate (rad/s) |\n| $(x_0,y_0)$ | Punktet som verifiseres på kurven |\n| rad/s, m/s, cm³/s | Enheter — obligatoriske i konklusjonssetningen |\n\n**Formler i dette delkapitlet:**\n\n$$\\frac{d}{dx}\\,y^n = ny^{n-1}\\,y', \\qquad \\frac{d}{dx}(xy) = y + x\\,y'$$\nKjerne- og produktregelen i implisitt derivasjon — kjernefaktoren $y'$ på alle $y$-ledd.\n\n$$y = y_0 + y'(x_0)(x-x_0)$$\nTangentlikningen i det verifiserte punktet.\n\n$$2 + 2\\bigl((y')^2 + y\\,y''\\bigr) = 0 \\ \\text{(fra } x^2+y^2=25\\text{)}$$\nMønsteret for andrederivert av relasjonen: deriver to ganger, sett inn $x$, $y$, $y'$.\n\n$$s^2 = x^2+y^2 \\ \\Rightarrow\\ s\\,s' = x\\,x' + y\\,y'$$\nPytagoras-modellen derivert mhp. $t$.\n\n$$\\tan\\theta = \\frac{h}{d} \\ \\Rightarrow\\ \\frac{\\theta'}{\\cos^2\\theta} = \\frac{h'}{d}$$\nSynsvinkelmodellen — $\\cos\\theta$ hentes fra trekanten i øyeblikket.\n\n$$V = \\frac43\\pi r^3 \\ \\Rightarrow\\ V' = 4\\pi r^2\\,r'$$\nVolummodell (kule) derivert mhp. $t$."
+    }
+   ]
+  }
+ ],
+ "exercises": []
+}

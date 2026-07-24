@@ -1,0 +1,489 @@
+{
+  "id": "mat111-uib-6-1",
+  "courseId": "mat111-uib",
+  "chapterNumber": "6.1",
+  "title": "Separable differensiallikninger",
+  "description": "Full føringsmal for separable likninger — inkludert konstante løsninger som alltid noteres og sjekkes mot initialbetingelsen før man deler, og logistisk likning via delbrøk.",
+  "estimatedMinutes": 55,
+  "competenceGoals": [
+    "kunne avgjøre om en førsteordens differensiallikning er separabel, og notere de konstante løsningene før variablene skilles",
+    "kunne løse separable initialverdiproblemer med føringsmalen i fem steg, inkludert korrekt håndtering av integrasjonskonstanten og absoluttverdien",
+    "kunne løse den logistiske likningen med delbrøkoppspalting og tolke bæreevnen som grenseverdi",
+    "kunne kontrollere en løsning ved innsetting i likningen og initialbetingelsen"
+  ],
+  "content": [
+    {
+      "id": "mat111-uib-6-1-tip",
+      "type": "tip",
+      "title": "Eksamensvinkel",
+      "content": "**Differensiallikninger er settets faste avslutningsoppgave — og separabel er hovedtypen.**\n\n- **Sjanger A (anvendt førsteordens differensiallikning)** står i **33 av 34 arkiverte sett (97 %)**, nesten alltid som settets siste oppgave. Dette er, sammen med integrasjonsteknikk, det mest pålitelige enkelttemaet i MAT111 — det har **høyeste prioritet**.\n- Fasitpraksisen er kompromissløs på ett punkt: **konstante løsninger skal noteres og sjekkes mot initialbetingelsen FØR du deler på $h(y)$**. Løsningsforslagene sjekker alltid $y\\equiv 0$ (og eventuelle andre nullpunkter for $h$) — hopper du over det, mangler føringen et ledd sensor ser etter.\n- **Logistisk likning** ($y'=ky(M-y)$) løses via **delbrøkoppspalting**; hintet «bruk delbrøk» gis ofte i oppgaveteksten, men du bør kunne oppspaltingen uten hint.\n- Dette kapitlet gir deg *føringsmalen* (fem steg) som løsningsforslagene følger. [Kap. 6.2](/bok/mat111-uib/mat111-uib-6-2) tar den lineære varianten, og [kap. 6.3](/bok/mat111-uib/mat111-uib-6-3) driller de anvendte kontekstene som avslutningsoppgaven faktisk bruker.\n- **Sjangernavnene:** bokstavene A–N er bokas merkelapper for oppgavetypene (katalogen står i Del 0). *Sjanger A* er den anvendte differensiallikningen — avslutningsoppgaven."
+    },
+    {
+      "id": "mat111-uib-6-1-fork",
+      "type": "text",
+      "content": "**Forkunnskaper.** Regneteknisk hviler kapitlet på integrasjonsteknikkene fra **[kap. 5.3](/bok/mat111-uib/mat111-uib-5-3)** — spesielt delbrøkoppspalting, som logistisk likning bruker direkte. Har du ikke sett differensiallikninger før, gir **[Introduksjon til differensiallikninger (S2 2.1)](/bok/s2/s2-2-1)** og **[Separable differensiallikninger (S2 2.2)](/bok/s2/s2-2-2)** en mykere start, og **[Logistisk vekst (R1 5.2)](/bok/r1/r1-5-2)** den logistiske modellen i ord.\n\n**Sist du var her — tre nøkkelformler du trenger i dag:**\n\n$$\\int \\frac{1}{y}\\,dy = \\ln|y| + C, \\qquad \\int e^{ay}\\,dy = \\frac{1}{a}e^{ay} + C, \\qquad \\frac{1}{y(M-y)} = \\frac{1}{M}\\Big(\\frac{1}{y} + \\frac{1}{M-y}\\Big).$$\n\nDen siste er delbrøkoppspaltingen som bærer hele den logistiske utregningen — vi utleder den på nytt i løkke 3."
+    },
+    {
+      "id": "mat111-uib-6-1-motiv",
+      "type": "text",
+      "content": "En differensiallikning sier ikke hva en størrelse *er*, men hvordan den *endrer seg*: «farten avtar proporsjonalt med kvadratet av farten», «temperaturen synker proporsjonalt med temperaturforskjellen». Nesten alle naturlover er formulert slik — derfor avslutter nesten hvert MAT111-sett med en.\n\nDen **separable** typen er den du møter oftest: likninger der $x$-avhengigheten og $y$-avhengigheten kan skilles på hver sin side av likhetstegnet. Da blir løsningen ren integrasjon — men med to feller fasitpraksisen straffer hardt: **konstante løsninger** som glemmes når man deler, og **integrasjonskonstanten** som glemmes eller bestemmes feil.\n\nKapitlet har tre læringsløkker: (1) hva en differensiallikning og en separabel likning er, (2) føringsmalen i fem steg — den du skal bruke på eksamen, og (3) logistisk likning via delbrøk. Jobb deg gjennom én løkke om gangen; kapitlet er beregnet til ~55 min, så ta gjerne pause mellom løkkene."
+    },
+    {
+      "id": "mat111-uib-6-1-l1",
+      "type": "text",
+      "content": "## Løkke 1 — Differensiallikninger og separabel form (~15 min)"
+    },
+    {
+      "id": "mat111-uib-6-1-def-diffl",
+      "type": "definition",
+      "title": "Differensiallikning",
+      "content": "En **differensiallikning** er en likning der den ukjente er en *funksjon* $y(x)$, og der likningen knytter funksjonen til dens deriverte. For eksempel sier\n\n$$y' = -2xy$$\n\nat stigningstallet til grafen i hvert punkt er $-2x$ ganger funksjonsverdien der. Å *løse* likningen er å finne alle funksjoner som oppfyller den — ikke ett tall, men en hel funksjon."
+    },
+    {
+      "id": "mat111-uib-6-1-def-orden",
+      "type": "definition",
+      "title": "Orden",
+      "content": "**Ordenen** til en differensiallikning er den høyeste deriverte som forekommer. $y' = -2xy$ er av **første orden** (bare $y'$), mens $y'' + y = 0$ er av andre orden. MAT111-eksamen holder seg til **førsteordens** likninger — separable (dette kapitlet) og lineære ([kap. 6.2](/bok/mat111-uib/mat111-uib-6-2))."
+    },
+    {
+      "id": "mat111-uib-6-1-def-losning",
+      "type": "definition",
+      "title": "Løsning av en differensiallikning",
+      "content": "En funksjon $y(x)$ er en **løsning** dersom innsetting av $y$ og $y'$ gjør likningen til en identitet på et intervall. For eksempel er $y = 3e^{-x^2}$ en løsning av $y'=-2xy$, fordi $y' = -6xe^{-x^2} = -2x\\cdot 3e^{-x^2} = -2xy$ for alle $x$. **Innsettingskontrollen** er også din sluttkontroll på eksamen: deriver svaret ditt og sjekk at likningen stemmer."
+    },
+    {
+      "id": "mat111-uib-6-1-def-ivp",
+      "type": "definition",
+      "title": "Initialverdiproblem og initialbetingelse",
+      "content": "En differensiallikning har normalt uendelig mange løsninger (én for hver verdi av integrasjonskonstanten). Et **initialverdiproblem** er likningen *pluss* en **initialbetingelse** $y(x_0)=y_0$ — et datapunkt som plukker ut én bestemt løsning. På eksamen er initialbetingelsen ofte et fysisk startpunkt: «temperaturen var 90 °C ved $t=0$»."
+    },
+    {
+      "id": "mat111-uib-6-1-def-separabel",
+      "type": "definition",
+      "title": "Separabel differensiallikning",
+      "content": "En førsteordens likning er **separabel** dersom den kan skrives på formen\n\n$$y' = g(x)\\,h(y)$$\n\n— høyresiden er et *produkt* av en faktor som bare inneholder $x$ og en faktor som bare inneholder $y$. Da kan variablene skilles: alt med $y$ flyttes til venstre, alt med $x$ til høyre, og begge sider integreres. $y'=-2xy$ er separabel ($g(x)=-2x$, $h(y)=y$); $y' = x + y$ er det ikke (summen kan ikke faktoriseres slik — men den er lineær, se [kap. 6.2](/bok/mat111-uib/mat111-uib-6-2))."
+    },
+    {
+      "id": "mat111-uib-6-1-def-konstant",
+      "type": "definition",
+      "title": "Konstant løsning (likevektsløsning)",
+      "content": "En **konstant løsning** er en løsning på formen $y \\equiv c$ (samme verdi for alle $x$). Da er $y'=0$, så $y\\equiv c$ løser $y'=g(x)h(y)$ nøyaktig når $h(c)=0$. Konstante løsninger kalles også **likevektsløsninger** — systemet står stille der.\n\n**Hvorfor de er føringskritiske:** i separasjonssteget deler vi på $h(y)$, og det er bare lov når $h(y)\\neq 0$. Nullpunktene til $h$ må derfor **noteres som egne løsninger først**, og deretter **sjekkes mot initialbetingelsen** — først når de ikke passer, kan de avvises og divisjonen gjennomføres."
+    },
+    {
+      "id": "mat111-uib-6-1-l1-intuisjon",
+      "type": "text",
+      "content": "**Separasjonen i Leibniz-notasjon.** Skriv $y' = \\dfrac{dy}{dx}$. Da kan $y'=g(x)h(y)$ omformes til\n\n$$\\frac{dy}{h(y)} = g(x)\\,dx,$$\n\nog begge sider integreres hver for seg. *Intuisjon:* dette er kjerneregelen baklengs — hvis $H$ er en antiderivert til $1/h$ og $G$ til $g$, sier likningen at $\\frac{d}{dx}H(y(x)) = \\frac{H'(y)\\,y'}{1} = \\frac{y'}{h(y)} = g(x) = G'(x)$, så $H(y)=G(x)+C$. Leibniz-skrivemåten er en trygg huskeregel for nøyaktig denne regningen — og den er standardføringen i løsningsforslagene."
+    },
+    {
+      "id": "mat111-uib-6-1-ex1",
+      "type": "example",
+      "title": "Eksempel 1: Separabel likning med full føring",
+      "problem": "Løs initialverdiproblemet $y' = -2xy$, $\\quad y(0)=3$.",
+      "solution": "**Steg 1 — konstante løsninger.** $h(y)=y$ har nullpunktet $y=0$, så $y\\equiv 0$ er en (konstant) løsning. Men $y(0)=3\\neq 0$, så den passer ikke initialbetingelsen — **avvist**. Dermed er $y\\neq 0$ langs vår løsning, og vi kan trygt dele på $y$.\n\n**Steg 2 — separér.**\n$$\\frac{dy}{y} = -2x\\,dx.$$\n\n**Steg 3 — integrer begge sider.**\n$$\\ln|y| = -x^2 + C.$$\n\n**Steg 4 — løs for $y$ og bestem konstanten.** Eksponentiér: $|y| = e^{C}e^{-x^2}$, altså $y = A e^{-x^2}$ med $A=\\pm e^{C}$ (en vilkårlig konstant $\\neq 0$; $A=0$ svarer til den konstante løsningen). Initialbetingelsen: $y(0)=A e^{0} = A = 3$.\n\n**Konklusjon:**\n$$\\boxed{\\,y = 3e^{-x^2}.\\,}$$\n\n**Kontroll ved innsetting:** $y' = -6xe^{-x^2} = -2x\\cdot(3e^{-x^2}) = -2xy$ ✓ og $y(0)=3$ ✓."
+    },
+    {
+      "id": "mat111-uib-6-1-o1",
+      "type": "exercise",
+      "exercise": {
+        "id": "mat111-uib-6-1-o1-x",
+        "number": "1",
+        "type": "classic",
+        "difficulty": "lett",
+        "task": "Løs initialverdiproblemet $y' = 3y$, $\\quad y(0)=2$. Husk å notere og sjekke den konstante løsningen.",
+        "solution": "**Konstante løsninger:** $h(y)=y=0$ gir $y\\equiv 0$; men $y(0)=2\\neq 0$, så den avvises, og vi kan dele på $y$.\n\n**Separér og integrer:** $\\dfrac{dy}{y} = 3\\,dx \\Rightarrow \\ln|y| = 3x + C \\Rightarrow y = Ae^{3x}$.\n\n**Konstanten:** $y(0)=A=2$. **Svar:** $y = 2e^{3x}$. *Kontroll:* $y' = 6e^{3x} = 3\\cdot 2e^{3x} = 3y$ ✓.",
+        "hints": [
+          "Noter først: hvilken konstant $y$ gjør $h(y)=y$ til null? Passer den med $y(0)=2$?",
+          "Separér: $\\frac{dy}{y}=3\\,dx$, og integrer begge sider."
+        ]
+      }
+    },
+    {
+      "id": "mat111-uib-6-1-o2",
+      "type": "exercise",
+      "exercise": {
+        "id": "mat111-uib-6-1-o2-x",
+        "number": "2",
+        "type": "classic",
+        "difficulty": "lett",
+        "task": "Løs initialverdiproblemet $y' = \\dfrac{x}{y}$, $\\quad y(0)=2$.",
+        "solution": "**Konstante løsninger:** $h(y)=1/y$ har ingen nullpunkter (brøken blir aldri $0$), så det finnes ingen konstante løsninger å notere — og divisjonen er allerede gjort i likningen ($y=0$ er utenfor definisjonsområdet). Vi sier dette eksplisitt.\n\n**Separér og integrer:** $y\\,dy = x\\,dx \\Rightarrow \\dfrac{y^2}{2} = \\dfrac{x^2}{2} + C$.\n\n**Konstanten:** $y(0)=2$ gir $2 = 0 + C$, så $C=2$ og $y^2 = x^2+4$.\n\n**Løs for $y$:** $y = \\pm\\sqrt{x^2+4}$; initialbetingelsen $y(0)=2>0$ velger **plusstegnet**. **Svar:** $y = \\sqrt{x^2+4}$. *Kontroll:* $y' = \\dfrac{x}{\\sqrt{x^2+4}} = \\dfrac{x}{y}$ ✓.",
+        "hints": [
+          "Gang opp med $y$: $y\\,dy = x\\,dx$.",
+          "Etter integrasjonen har du $y^2 = x^2 + 2C$ — bruk $y(0)=2$, og la initialbetingelsen velge fortegnet på roten."
+        ]
+      }
+    },
+    {
+      "id": "mat111-uib-6-1-l2",
+      "type": "text",
+      "content": "## Løkke 2 — Føringsmalen i fem steg (~20 min)"
+    },
+    {
+      "id": "mat111-uib-6-1-mal",
+      "type": "theorem",
+      "title": "Føringsmalen for separable likninger (fem steg)",
+      "content": "Slik fører løsningsforslagene en separabel likning $y'=g(x)h(y)$ — og slik bør du føre den:\n\n1. **Noter konstante løsninger.** Finn nullpunktene til $h$; hver gir en konstant løsning $y\\equiv c$. **Sjekk dem mot initialbetingelsen** før de forkastes. (Er det ingen initialbetingelse, skal de stå igjen som en del av svaret!)\n2. **Separér:** $\\dfrac{dy}{h(y)} = g(x)\\,dx$ — nå lovlig, siden steg 1 utelukket $h(y)=0$ langs løsningen.\n3. **Integrer begge sider** (delbrøk for logistisk; husk integrasjonskonstanten $C$ — én holder).\n4. **Løs for $y$ og bestem konstanten** fra initialbetingelsen eller et datapunkt.\n5. **Kontroller og konkluder:** sett løsningen inn i likningen (og i initialbetingelsen); i anvendte oppgaver skrives en konklusjonssetning med enhet.\n\nSteg 1 er det som oftest mangler i besvarelser — og det fasitpraksisen alltid har med."
+    },
+    {
+      "id": "mat111-uib-6-1-def-generell",
+      "type": "definition",
+      "title": "Generell løsning og integrasjonskonstanten",
+      "content": "Den **generelle løsningen** er hele familien av løsninger, parametrisert av **integrasjonskonstanten** $C$ (eller $A$ etter omskriving) — for $y'=-2xy$ er den $y=Ae^{-x^2}$. Én konstant holder for en førsteordens likning: skriver du $C_1$ på venstre og $C_2$ på høyre side, slås de sammen til $C = C_2 - C_1$. En **partikulær løsning** er ett bestemt medlem av familien, plukket ut av initialbetingelsen."
+    },
+    {
+      "id": "mat111-uib-6-1-def-Afor",
+      "type": "definition",
+      "title": "Fra $\\ln|y|$ til $y = Ae^{G(x)}$ (absoluttverdi-føringen)",
+      "content": "Når integrasjonen gir $\\ln|y| = G(x) + C$, eksponentierer vi: $|y| = e^C e^{G(x)}$, altså $y = \\pm e^C e^{G(x)}$. Standardføringen samler fortegnet og konstanten i én ny konstant $A = \\pm e^C \\neq 0$:\n\n$$y = A e^{G(x)}.$$\n\nTillater vi i tillegg $A=0$, fanger formelen også den konstante løsningen $y\\equiv 0$ — nevn gjerne det. Poenget sensor ser etter: absoluttverdien er *håndtert*, ikke stille droppet."
+    },
+    {
+      "id": "mat111-uib-6-1-ex2",
+      "type": "example",
+      "title": "Eksempel 2: Likning uten konstante løsninger",
+      "problem": "Løs initialverdiproblemet $y' = 2x\\,e^{-y}$, $\\quad y(0)=0$.",
+      "solution": "**Steg 1 — konstante løsninger.** $h(y) = e^{-y}$ er aldri null, så likningen har **ingen konstante løsninger** — det noterer vi eksplisitt, og divisjonen i neste steg er ufarlig.\n\n**Steg 2 — separér.** $e^{y}\\,dy = 2x\\,dx.$\n\n**Steg 3 — integrer.** $e^{y} = x^2 + C.$\n\n**Steg 4 — konstant og løs for $y$.** $y(0)=0$ gir $e^0 = 0 + C$, så $C=1$, og dermed $e^y = x^2+1$. Siden $x^2+1>0$ for alle $x$, kan vi ta logaritmen på hele tallinjen:\n\n$$\\boxed{\\,y = \\ln(x^2+1).\\,}$$\n\n**Steg 5 — kontroll.** $y' = \\dfrac{2x}{x^2+1}$ og $2xe^{-y} = \\dfrac{2x}{x^2+1}$ ✓; $y(0)=\\ln 1 = 0$ ✓.\n\n*Merk føringen:* også når det ikke finnes konstante løsninger, viser vi at vi har **sjekket** — én setning holder."
+    },
+    {
+      "id": "mat111-uib-6-1-o3",
+      "type": "exercise",
+      "exercise": {
+        "id": "mat111-uib-6-1-o3-x",
+        "number": "3",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "Løs initialverdiproblemet $y' = 2x(1+y^2)$, $\\quad y(0)=0$, og angi for hvilke $x$ nær $0$ løsningen er definert.",
+        "solution": "**Konstante løsninger:** $h(y)=1+y^2 \\ge 1 > 0$ har ingen nullpunkter — ingen konstante løsninger (notert).\n\n**Separér og integrer:** $\\dfrac{dy}{1+y^2} = 2x\\,dx \\Rightarrow \\arctan y = x^2 + C$.\n\n**Konstanten:** $y(0)=0$ gir $\\arctan 0 = 0 = C$.\n\n**Løs for $y$:** $y = \\tan(x^2)$.\n\n**Definisjonsområde:** $\\tan$ krever $x^2 < \\pi/2$, altså $|x| < \\sqrt{\\pi/2}$. **Svar:** $y=\\tan(x^2)$ for $|x|<\\sqrt{\\pi/2}$. *Kontroll:* $y' = 2x\\sec^2(x^2)... = 2x(1+\\tan^2(x^2)) = 2x(1+y^2)$ ✓ (identiteten $\\sec^2 u = 1+\\tan^2 u$).",
+        "hints": [
+          "$\\int \\frac{dy}{1+y^2} = \\arctan y + C$ — standardintegralet fra [kap. 5.3](/bok/mat111-uib/mat111-uib-5-3).",
+          "Har $1+y^2$ noen nullpunkter? Skriv én setning om det før du deler.",
+          "Løsningen finnes bare der $x^2$ holder seg unna $\\pi/2$."
+        ]
+      }
+    },
+    {
+      "id": "mat111-uib-6-1-l3",
+      "type": "text",
+      "content": "## Løkke 3 — Logistisk likning via delbrøk (~20 min)"
+    },
+    {
+      "id": "mat111-uib-6-1-def-logistisk",
+      "type": "definition",
+      "title": "Logistisk differensiallikning",
+      "content": "Den **logistiske likningen** er\n\n$$y' = k\\,y\\,(M-y), \\qquad k>0,$$\n\nmodellen for vekst med metning: for små $y$ er $y'\\approx kMy$ (tilnærmet eksponentiell vekst), men veksten bremser når $y$ nærmer seg $M$, og stopper helt i $y=M$. Den beskriver epidemier, ryktespredning og populasjoner med begrensede ressurser — gjengangere i avslutningsoppgaven ([kap. 6.3](/bok/mat111-uib/mat111-uib-6-3))."
+    },
+    {
+      "id": "mat111-uib-6-1-def-baereevne",
+      "type": "definition",
+      "title": "Bæreevnen $M$",
+      "content": "Konstanten $M$ i $y'=ky(M-y)$ er **bæreevnen** (metningsnivået): den øvre grensen veksten flater ut mot. Både $y\\equiv 0$ og $y\\equiv M$ er konstante løsninger (begge faktorer har nullpunkt), og enhver løsning som starter mellom $0$ og $M$, vokser mot $M$ når $x\\to\\infty$ uten å nå den. I anvendte oppgaver er $M$ f.eks. befolkningen som kan smittes, eller antallet som kan ha hørt ryktet."
+    },
+    {
+      "id": "mat111-uib-6-1-thm-delbrok",
+      "type": "theorem",
+      "title": "Delbrøkoppspaltingen for logistisk likning",
+      "content": "For $y$ mellom $0$ og $M$ gjelder\n\n$$\\frac{1}{y(M-y)} = \\frac{1}{M}\\left(\\frac{1}{y} + \\frac{1}{M-y}\\right).$$\n\n*Utledning (slik du fører den):* sett $\\dfrac{1}{y(M-y)} = \\dfrac{a}{y} + \\dfrac{b}{M-y}$. Gang opp med $y(M-y)$: $1 = a(M-y) + by$. $y=0$ gir $a = 1/M$; $y=M$ gir $b=1/M$. ∎\n\n*Intuisjon:* produktet i nevneren splittes i to enkle brøker som hver integreres til en logaritme — det er hele trikset som gjør logistisk likning løsbar med [kap. 5.3](/bok/mat111-uib/mat111-uib-5-3)-teknikk."
+    },
+    {
+      "id": "mat111-uib-6-1-ex3",
+      "type": "example",
+      "title": "Eksempel 3: Logistisk likning med delbrøk",
+      "problem": "Løs initialverdiproblemet $y' = y(3-y)$, $\\quad y(0)=1$, og finn $\\displaystyle\\lim_{x\\to\\infty} y(x)$.",
+      "solution": "**Steg 1 — konstante løsninger.** $h(y)=y(3-y)$ har nullpunktene $y=0$ og $y=3$, så $y\\equiv 0$ og $y\\equiv 3$ er konstante løsninger. Initialbetingelsen $y(0)=1$ passer ingen av dem — **begge avvises**, og siden løsningen starter mellom $0$ og $3$, holder den seg der (den kan ikke krysse en konstant løsning). Divisjonen er lovlig.\n\n**Steg 2 — separér.** $\\dfrac{dy}{y(3-y)} = dx.$\n\n**Steg 3 — integrer med delbrøk.** Med $M=3$: $\\dfrac{1}{y(3-y)} = \\dfrac{1}{3}\\Big(\\dfrac{1}{y}+\\dfrac{1}{3-y}\\Big)$, så\n\n$$\\frac{1}{3}\\big(\\ln y - \\ln(3-y)\\big) = x + C \\quad\\Longrightarrow\\quad \\ln\\frac{y}{3-y} = 3x + C_1.$$\n\n(For $0<y<3$ er både $y$ og $3-y$ positive, så absoluttverdiene kan sløyfes — begrunnet av steg 1. Merk fortegnet: $\\int \\frac{dy}{3-y} = -\\ln(3-y)$.)\n\n**Steg 4 — løs for $y$ og bestem konstanten.** Eksponentiér: $\\dfrac{y}{3-y} = Be^{3x}$. Initialbetingelsen: $\\dfrac{1}{2} = B$. Løs for $y$: $y = (3-y)\\cdot\\tfrac12 e^{3x} \\Rightarrow y\\big(1+\\tfrac12 e^{3x}\\big) = \\tfrac32 e^{3x}$, altså\n\n$$\\boxed{\\,y = \\frac{3e^{3x}}{2 + e^{3x}} = \\frac{3}{1 + 2e^{-3x}}.\\,}$$\n\n**Steg 5 — kontroll og grense.** $y(0) = \\dfrac{3}{1+2} = 1$ ✓; innsetting i likningen stemmer (deriver og sjekk, eller kontroller numerisk i ett punkt). Når $x\\to\\infty$, går $e^{-3x}\\to 0$, så\n\n$$\\lim_{x\\to\\infty} y(x) = 3$$\n\n— løsningen vokser mot bæreevnen $M=3$ uten å nå den, nøyaktig som steg 1 forutså."
+    },
+    {
+      "id": "mat111-uib-6-1-o4",
+      "type": "exercise",
+      "exercise": {
+        "id": "mat111-uib-6-1-o4-x",
+        "number": "4",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "Løs initialverdiproblemet $y' = 2y(1-y)$, $\\quad y(0)=\\dfrac{1}{4}$.",
+        "solution": "**Konstante løsninger:** $y\\equiv 0$ og $y\\equiv 1$; initialbetingelsen $\\tfrac14$ passer ingen av dem — avvist, og løsningen ligger mellom $0$ og $1$.\n\n**Separér + delbrøk** ($M=1$): $\\dfrac{dy}{y(1-y)} = 2\\,dx$ og $\\dfrac{1}{y(1-y)} = \\dfrac{1}{y}+\\dfrac{1}{1-y}$, så $\\ln\\dfrac{y}{1-y} = 2x + C$.\n\n**Konstanten:** $x=0$: $\\ln\\dfrac{1/4}{3/4} = \\ln\\dfrac13 = C$.\n\n**Løs for $y$:** $\\dfrac{y}{1-y} = \\dfrac13 e^{2x} \\Rightarrow y = \\dfrac{e^{2x}}{3+e^{2x}} = \\dfrac{1}{1+3e^{-2x}}$.\n\n**Svar:** $y = \\dfrac{1}{1+3e^{-2x}}$. *Kontroll:* $y(0)=\\frac{1}{4}$ ✓, og $y\\to 1$ (bæreevnen) når $x\\to\\infty$, som forventet.",
+        "hints": [
+          "Nullpunktene til $h(y)=2y(1-y)$: to konstante løsninger å notere.",
+          "$\\frac{1}{y(1-y)} = \\frac1y + \\frac{1}{1-y}$ (delbrøk med $M=1$).",
+          "Etter eksponentiering: løs $\\frac{y}{1-y}=Be^{2x}$ for $y$."
+        ]
+      }
+    },
+    {
+      "id": "mat111-uib-6-1-def-eksentyd",
+      "type": "definition",
+      "title": "Eksistens og entydighet for initialverdiproblem (kunne-stoff)",
+      "content": "Når høyresiden i $y'=f(x,y)$ er kontinuerlig og endrer seg glatt med $y$ nær punktet $(x_0,y_0)$, har initialverdiproblemet $y'=f(x,y),\\ y(x_0)=y_0$ **nøyaktig én** løsning på et intervall rundt $x_0$. To konsekvenser du kan bruke: (i) løsningskurver kan ikke krysse hverandre — derfor holdt løsningen i eksempel 3 seg mellom de konstante løsningene; (ii) svaret ditt er *hele* svaret. Randtilfellet: for $y'=\\sqrt{y},\\ y(0)=0$ svikter glattheten i $y=0$, og entydigheten ryker (både $y\\equiv 0$ og $y=x^2/4$ passer for $x\\ge 0$) — derfor er eksamensoppgavene stilt med initialbetingelser der teorien holder."
+    },
+    {
+      "id": "mat111-uib-6-1-warn",
+      "type": "warning",
+      "title": "Typiske feil",
+      "content": "- **Konstante løsninger glemt.** Å dele på $y$ (eller $y(M-y)$) uten først å notere og sjekke $y\\equiv 0$ (og $y\\equiv M$) mot initialbetingelsen er føringsfeilen fasitpraksisen alltid retter. Uten initialbetingelse: de konstante løsningene skal MED i svaret.\n- **Integrasjonskonstanten glemt — eller bestemt for tidlig.** $C$ skal inn ved integrasjonen og bestemmes fra initialbetingelsen; å «legge til $C$ til slutt» etter eksponentiering gir feil konstantstruktur.\n- **Delbrøk-feil i logistisk.** Faktoren $\\frac1M$ mistes, eller fortegnet i $\\int\\frac{dy}{M-y} = -\\ln|M-y|$ glemmes. Kontroller alltid oppspaltingen ved å sette på felles brøkstrek.\n- **Absoluttverdien stille droppet.** $\\ln|y|$ håndteres via $A=\\pm e^C$ eller ved å begrunne at uttrykket er positivt (som mellom $0$ og $M$ i logistisk) — én setning, men den skal stå.\n- **Svar uten kontroll.** Innsettingskontrollen (deriver svaret, sjekk likning + initialbetingelse) tar 30 sekunder og fanger de fleste regnefeil — og i anvendte oppgaver mangler konklusjonen ofte enhet (mer om det i [kap. 6.3](/bok/mat111-uib/mat111-uib-6-3))."
+    },
+    {
+      "id": "mat111-uib-6-1-pool",
+      "type": "text",
+      "content": "## Flere øvingsoppgaver\n\nStigende drill på føringsmalen. Bruk alle fem stegene i hver oppgave — også setningen om konstante løsninger."
+    },
+    {
+      "id": "mat111-uib-6-1-o5",
+      "type": "exercise",
+      "exercise": {
+        "id": "mat111-uib-6-1-o5-x",
+        "number": "5",
+        "type": "classic",
+        "difficulty": "lett",
+        "task": "Løs initialverdiproblemet $y' = -y^2$, $\\quad y(0)=1$.",
+        "solution": "**Konstante løsninger:** $h(y)=-y^2=0$ gir $y\\equiv 0$; avvises siden $y(0)=1\\neq 0$.\n\n**Separér og integrer:** $-\\dfrac{dy}{y^2} = dx \\Rightarrow \\dfrac{1}{y} = x + C$.\n\n**Konstanten:** $y(0)=1$ gir $C=1$. **Svar:** $y = \\dfrac{1}{x+1}$ (for $x>-1$). *Kontroll:* $y' = -\\dfrac{1}{(x+1)^2} = -y^2$ ✓.",
+        "hints": [
+          "$\\int y^{-2}\\,dy = -y^{-1} + C$.",
+          "Hold styr på fortegnene: $-\\frac{dy}{y^2}=dx$ gir $\\frac1y = x+C$."
+        ]
+      }
+    },
+    {
+      "id": "mat111-uib-6-1-o6",
+      "type": "exercise",
+      "exercise": {
+        "id": "mat111-uib-6-1-o6-x",
+        "number": "6",
+        "type": "classic",
+        "difficulty": "lett",
+        "task": "Løs initialverdiproblemet $y' = \\dfrac{x^2}{y^2}$, $\\quad y(1)=1$.",
+        "solution": "**Konstante løsninger:** $h(y)=1/y^2$ er aldri null — ingen konstante løsninger (notert); $y=0$ ligger utenfor definisjonsområdet.\n\n**Separér og integrer:** $y^2\\,dy = x^2\\,dx \\Rightarrow \\dfrac{y^3}{3} = \\dfrac{x^3}{3} + C$.\n\n**Konstanten:** $y(1)=1$ gir $\\tfrac13 = \\tfrac13 + C$, så $C=0$ og $y^3 = x^3$.\n\n**Svar:** $y = x$ (for $x>0$). *Kontroll:* $y'=1$ og $\\dfrac{x^2}{y^2} = \\dfrac{x^2}{x^2} = 1$ ✓.",
+        "hints": [
+          "Gang opp med $y^2$ og integrer begge sider.",
+          "$y^3 = x^3$ har nøyaktig én reell løsning for $y$."
+        ]
+      }
+    },
+    {
+      "id": "mat111-uib-6-1-o7",
+      "type": "exercise",
+      "exercise": {
+        "id": "mat111-uib-6-1-o7-x",
+        "number": "7",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "Løs initialverdiproblemet $y' = y\\cos x$, $\\quad y(0)=1$.",
+        "solution": "**Konstante løsninger:** $y\\equiv 0$; avvises siden $y(0)=1$.\n\n**Separér og integrer:** $\\dfrac{dy}{y} = \\cos x\\,dx \\Rightarrow \\ln|y| = \\sin x + C$.\n\n**Løs for $y$ og bestem konstanten:** $y = Ae^{\\sin x}$; $y(0)=A e^{0}=A=1$.\n\n**Svar:** $y = e^{\\sin x}$. *Kontroll:* $y' = \\cos x\\,e^{\\sin x} = y\\cos x$ ✓. (Løsningen svinger mellom $e^{-1}$ og $e$ — vekstraten skifter fortegn med $\\cos x$.)",
+        "hints": [
+          "Samme mal som eksempel 1 — bare med $g(x)=\\cos x$.",
+          "Husk $A=\\pm e^C$-omskrivingen etter $\\ln|y| = \\sin x + C$."
+        ]
+      }
+    },
+    {
+      "id": "mat111-uib-6-1-o8",
+      "type": "exercise",
+      "exercise": {
+        "id": "mat111-uib-6-1-o8-x",
+        "number": "8",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "Løs initialverdiproblemet $y' = e^{x-y}$, $\\quad y(0)=0$.",
+        "solution": "**Konstante løsninger:** $h(y)=e^{-y}$ er aldri null — ingen konstante løsninger (notert).\n\n**Separér:** $e^{x-y} = e^x e^{-y}$, så $e^{y}\\,dy = e^{x}\\,dx$.\n\n**Integrer:** $e^{y} = e^{x} + C$.\n\n**Konstanten:** $y(0)=0$ gir $1 = 1 + C$, så $C=0$ og $e^y=e^x$.\n\n**Svar:** $y = x$. *Kontroll:* $y'=1$ og $e^{x-y}=e^{0}=1$ ✓. (Med en annen initialbetingelse, f.eks. $y(0)=1$, blir $C=e-1$ og $y=\\ln(e^x+e-1)$ — konstanten endrer hele formen på svaret.)",
+        "hints": [
+          "Splitt eksponenten: $e^{x-y}=e^x e^{-y}$ — da er likningen separabel.",
+          "Etter integrasjonen: $e^y = e^x + C$; bruk initialbetingelsen FØR du tar logaritmen."
+        ]
+      }
+    },
+    {
+      "id": "mat111-uib-6-1-o9",
+      "type": "exercise",
+      "exercise": {
+        "id": "mat111-uib-6-1-o9-x",
+        "number": "9",
+        "type": "classic",
+        "difficulty": "vanskelig",
+        "task": "En populasjon følger $y' = \\dfrac{1}{2}\\,y(4-y)$ (i passende enheter), med $y(0)=1$.\n\n**a)** Løs initialverdiproblemet.\n\n**b)** Finn tidspunktet der $y=2$, og forklar hva som er spesielt med dette nivået i en logistisk modell.",
+        "solution": "**a) Konstante løsninger:** $y\\equiv 0$ og $y\\equiv 4$; begge avvises mot $y(0)=1$, og løsningen holder seg i $(0,4)$.\n\n**Separér + delbrøk** ($M=4$): $\\dfrac{1}{y(4-y)} = \\dfrac14\\Big(\\dfrac1y + \\dfrac{1}{4-y}\\Big)$, så\n\n$$\\frac14\\ln\\frac{y}{4-y} = \\frac{x}{2} + C \\;\\Longrightarrow\\; \\ln\\frac{y}{4-y} = 2x + C_1.$$\n\n**Konstanten:** $x=0$: $\\ln\\frac{1}{3} = C_1$. Eksponentiér: $\\dfrac{y}{4-y} = \\dfrac13 e^{2x}$, og løsning for $y$:\n\n$$y = \\frac{4e^{2x}}{3+e^{2x}} = \\frac{4}{1+3e^{-2x}}.$$\n\n*Kontroll:* $y(0)=\\frac{4}{4}=1$ ✓.\n\n**b)** $y=2$: $\\dfrac{4}{1+3e^{-2x}} = 2 \\iff 1+3e^{-2x} = 2 \\iff e^{-2x} = \\dfrac13 \\iff x = \\dfrac{\\ln 3}{2} \\approx 0{,}55.$\n\nNivået $y=2 = M/2$ er **vendepunktet** i logistisk vekst: $y' = \\tfrac12 y(4-y)$ er størst når $y(4-y)$ er størst, altså i $y=2$ — veksten er raskest halvveis til bæreevnen, og deretter bremser den.",
+        "hints": [
+          "Delbrøk med $M=4$: $\\frac{1}{y(4-y)}=\\frac14(\\frac1y+\\frac{1}{4-y})$.",
+          "Sluttformen $y = \\frac{4}{1+3e^{-2x}}$ gjør b) til en ren likning i $e^{-2x}$.",
+          "Hvor er produktet $y(4-y)$ størst?"
+        ]
+      }
+    },
+    {
+      "id": "mat111-uib-6-1-o10",
+      "type": "exercise",
+      "exercise": {
+        "id": "mat111-uib-6-1-o10-x",
+        "number": "10",
+        "type": "classic",
+        "difficulty": "vanskelig",
+        "task": "Betrakt initialverdiproblemet $y' = \\sqrt{y}$, $\\quad y(1)=1$.\n\n**a)** Har likningen konstante løsninger? Passer noen av dem initialbetingelsen?\n\n**b)** Løs initialverdiproblemet.",
+        "solution": "**a)** $h(y)=\\sqrt{y} = 0$ for $y=0$, så $y\\equiv 0$ er en konstant løsning. Men $y(1)=1\\neq 0$ — **avvist** for vårt problem. (Merk: i akkurat punktet $y=0$ er $\\sqrt{y}$ ikke glatt, så der er entydigheten skjør — men vår løsning starter i $y=1$ og holder seg unna.)\n\n**b) Separér og integrer:** $\\dfrac{dy}{\\sqrt{y}} = dx \\Rightarrow 2\\sqrt{y} = x + C$.\n\n**Konstanten:** $y(1)=1$ gir $2 = 1 + C$, så $C=1$ og $\\sqrt{y} = \\dfrac{x+1}{2}$ (krever $x\\ge -1$ for at høyresiden er $\\ge 0$).\n\n**Svar:** $y = \\dfrac{(x+1)^2}{4}$ for $x > -1$. *Kontroll:* $y' = \\dfrac{x+1}{2} = \\sqrt{y}$ ✓ (positiv rot siden $x>-1$), og $y(1) = \\dfrac{4}{4} = 1$ ✓.",
+        "hints": [
+          "$\\int y^{-1/2}\\,dy = 2\\sqrt{y} + C$.",
+          "Hold styr på hvor $\\sqrt{y} = \\frac{x+1}{2}$ er gyldig — venstresiden er aldri negativ."
+        ]
+      }
+    },
+    {
+      "id": "mat111-uib-6-1-o11",
+      "type": "exercise",
+      "exercise": {
+        "id": "mat111-uib-6-1-o11-x",
+        "number": "11",
+        "type": "classic",
+        "difficulty": "vanskelig",
+        "task": "Løs initialverdiproblemet $y' = \\dfrac{1+y^2}{1+x^2}$, $\\quad y(0)=1$, og vis at svaret kan skrives som en rasjonal funksjon av $x$.",
+        "solution": "**Konstante løsninger:** $1+y^2>0$ har ingen nullpunkter — ingen konstante løsninger (notert).\n\n**Separér og integrer:** $\\dfrac{dy}{1+y^2} = \\dfrac{dx}{1+x^2} \\Rightarrow \\arctan y = \\arctan x + C$.\n\n**Konstanten:** $y(0)=1$ gir $\\arctan 1 = \\dfrac{\\pi}{4} = C$.\n\n**Løs for $y$:** $y = \\tan\\!\\big(\\arctan x + \\tfrac{\\pi}{4}\\big)$. Summeformelen for tangens ($\\tan\\frac\\pi4 = 1$):\n\n$$y = \\frac{x + 1}{1 - x}, \\qquad x < 1.$$\n\n*Kontroll:* $y' = \\dfrac{(1-x) + (x+1)}{(1-x)^2} = \\dfrac{2}{(1-x)^2}$, og $\\dfrac{1+y^2}{1+x^2} = \\dfrac{1 + \\frac{(1+x)^2}{(1-x)^2}}{1+x^2} = \\dfrac{(1-x)^2+(1+x)^2}{(1-x)^2(1+x^2)} = \\dfrac{2+2x^2}{(1-x)^2(1+x^2)} = \\dfrac{2}{(1-x)^2}$ ✓, og $y(0)=1$ ✓.\n\n**Svar:** $y = \\dfrac{1+x}{1-x}$ for $x<1$. (Løsningen «blåser opp» mot $x=1$ — separable løsninger kan ha begrenset levetid selv om likningen ser snill ut.)",
+        "hints": [
+          "Begge sider er $\\arctan$-integraler.",
+          "$\\tan(u+v) = \\frac{\\tan u + \\tan v}{1-\\tan u\\tan v}$ med $v=\\frac{\\pi}{4}$.",
+          "Kontroller ved innsetting — regn $\\frac{1+y^2}{1+x^2}$ eksplisitt."
+        ]
+      }
+    },
+    {
+      "id": "mat111-uib-6-1-bb-tekst",
+      "type": "text",
+      "content": "## Begrepsbank til eksamen\n\nKjernebegrepene i kortform — repetisjons- og flashcard-stoff. Hopp trygt over ved førstegangslesing."
+    },
+    {
+      "id": "mat111-uib-6-1-bb-separasjon",
+      "type": "definition",
+      "title": "Separasjon av variable",
+      "content": "Selve grepet: skriv $y'=\\frac{dy}{dx}$, samle all $y$-avhengighet (inkl. $dy$) på venstre side og all $x$-avhengighet (inkl. $dx$) på høyre: $\\frac{dy}{h(y)}=g(x)\\,dx$. Gyldig først når konstante løsninger er notert (divisjonen krever $h(y)\\neq 0$). Deretter integreres hver side for seg."
+    },
+    {
+      "id": "mat111-uib-6-1-bb-eksplimpl",
+      "type": "definition",
+      "title": "Eksplisitt og implisitt løsning",
+      "content": "En **eksplisitt** løsning har formen $y = $ (uttrykk i $x$), som $y=3e^{-x^2}$. En **implisitt** løsning er en likning som knytter $y$ og $x$, som $e^y = x^2+1$ før logaritmen er tatt. Eksamensoppgavene vil normalt ha eksplisitt svar når det er mulig — «løs for $y$» er steg 4 i malen."
+    },
+    {
+      "id": "mat111-uib-6-1-bb-defomr",
+      "type": "definition",
+      "title": "Definisjonsområdet til løsningen",
+      "content": "En løsning lever på et *intervall*, og det kan være mindre enn hele $\\mathbb{R}$: $y=\\frac{1}{x+1}$ (oppgave 5) lever på $x>-1$, og $y=\\tan(x^2)$ (oppgave 3) krever $x^2<\\pi/2$. Når svaret har brudd eller rotkrav, angi intervallet som inneholder initialpunktet."
+    },
+    {
+      "id": "mat111-uib-6-1-bb-retningsfelt",
+      "type": "definition",
+      "title": "Retningsfelt",
+      "content": "Et **retningsfelt** tegner i hvert punkt $(x,y)$ en liten strek med stigning $f(x,y)$ — likningen $y'=f(x,y)$ som «kompassnåler». Løsningskurvene følger nålene. Konstante løsninger blir vannrette linjer i feltet, og at kurver ikke krysser (entydighet) synes direkte i bildet."
+    },
+    {
+      "id": "mat111-uib-6-1-bb-partikulaer",
+      "type": "definition",
+      "title": "Partikulær løsning",
+      "content": "Det ene medlemmet av løsningsfamilien som initialbetingelsen plukker ut: den generelle løsningen $y=Ae^{3x}$ pluss betingelsen $y(0)=2$ gir den partikulære løsningen $y=2e^{3x}$. Eksamensspørsmålet «løs initialverdiproblemet» ber om den partikulære løsningen."
+    },
+    {
+      "id": "mat111-uib-6-1-bb-vekstrate",
+      "type": "definition",
+      "title": "Vekstraten $k$ og modellen $y'=ky$",
+      "content": "Likningen $y'=ky$ sier at endringen er proporsjonal med størrelsen selv; løsningen er $y = y_0e^{kx}$. Med $k>0$: eksponentiell vekst; med $k<0$: eksponentielt henfall (radioaktivitet, avkjølingsdifferanse). Dette er den enkleste separable likningen og grunnmuren i [kap. 6.3](/bok/mat111-uib/mat111-uib-6-3)-modellene."
+    },
+    {
+      "id": "mat111-uib-6-1-bb-delbrokmet",
+      "type": "definition",
+      "title": "Delbrøkmetoden (kortversjon for to lineære faktorer)",
+      "content": "$\\frac{1}{(y-r_1)(y-r_2)} = \\frac{a}{y-r_1} + \\frac{b}{y-r_2}$; gang opp og sett inn $y=r_1$ og $y=r_2$ for å finne $a$ og $b$ (innsettingsmetoden fra [kap. 5.3](/bok/mat111-uib/mat111-uib-5-3)). For logistisk gir det $\\frac1M$-faktoren foran begge brøkene."
+    },
+    {
+      "id": "mat111-uib-6-1-bb-stabilitet",
+      "type": "definition",
+      "title": "Stabil og ustabil likevekt",
+      "content": "En likevektsløsning er **stabil** hvis naboløsninger trekkes mot den ($y\\equiv M$ i logistisk: løsninger under vokser opp mot $M$), og **ustabil** hvis de drives bort ($y\\equiv 0$ i logistisk: enhver liten start vokser vekk). Nyttig tolkningsspråk i anvendte oppgaver — «bestanden stabiliserer seg mot bæreevnen»."
+    },
+    {
+      "id": "mat111-uib-6-1-bb-innsetting",
+      "type": "definition",
+      "title": "Innsettingskontrollen",
+      "content": "Sluttkontrollen som hører til steg 5 i malen: deriver svaret ditt, sett $y$ og $y'$ inn i den opprinnelige likningen, og sjekk initialbetingelsen. Fanger fortegnsfeil, delbrøkfeil og konstantfeil — de tre vanligste regnefeilene i sjanger A — på under et minutt."
+    },
+    {
+      "id": "mat111-uib-6-1-bb-diffvsalm",
+      "type": "definition",
+      "title": "Differensiallikning vs. vanlig likning",
+      "content": "En vanlig likning har et *tall* som ukjent og et tall som svar; en differensiallikning har en *funksjon* som ukjent og en funksjonsfamilie som svar. Derfor har svaret en integrasjonskonstant, og derfor trengs en initialbetingelse for å få ett bestemt svar — to tall-likninger tilsvarer dette ikke."
+    },
+    {
+      "id": "mat111-uib-6-1-rep",
+      "type": "collapsible",
+      "title": "Repetisjonsoppgaver",
+      "buttonText": "Vis repetisjonsoppgaver",
+      "content": [
+        {
+          "id": "mat111-uib-6-1-r1",
+          "type": "exercise",
+          "exercise": {
+            "id": "mat111-uib-6-1-r1-x",
+            "number": "R1",
+            "type": "classic",
+            "difficulty": "lett",
+            "task": "(Fra [kap. 5.2](/bok/mat111-uib/mat111-uib-5-2)) Beregn $\\displaystyle\\int \\frac{2x}{x^2+1}\\,dx$.",
+            "solution": "Substitusjon $u=x^2+1$, $du=2x\\,dx$: $\\int\\frac{du}{u} = \\ln|u| + C = \\ln(x^2+1)+C$ (positivt, så absoluttverdien kan sløyfes). Dette er nøyaktig integralet som dukket opp i kontrollen av eksempel 2.",
+            "hints": [
+              "Telleren er den deriverte av nevneren."
+            ]
+          }
+        },
+        {
+          "id": "mat111-uib-6-1-r2",
+          "type": "exercise",
+          "exercise": {
+            "id": "mat111-uib-6-1-r2-x",
+            "number": "R2",
+            "type": "classic",
+            "difficulty": "lett",
+            "task": "(Fra [kap. 5.3](/bok/mat111-uib/mat111-uib-5-3)) Delbrøkoppspalt $\\dfrac{1}{y(2-y)}$.",
+            "solution": "Sett $\\frac{1}{y(2-y)}=\\frac{a}{y}+\\frac{b}{2-y}$; gang opp: $1=a(2-y)+by$. $y=0$: $a=\\frac12$. $y=2$: $b=\\frac12$. Altså $\\frac{1}{y(2-y)}=\\frac12\\big(\\frac1y+\\frac{1}{2-y}\\big)$ — mønsteret $\\frac1M(\\cdots)$ med $M=2$.",
+            "hints": [
+              "Innsettingsmetoden: sett $y=0$ og $y=2$ etter oppganging."
+            ]
+          }
+        },
+        {
+          "id": "mat111-uib-6-1-r3",
+          "type": "exercise",
+          "exercise": {
+            "id": "mat111-uib-6-1-r3-x",
+            "number": "R3",
+            "type": "classic",
+            "difficulty": "lett",
+            "task": "(Fra [Separable differensiallikninger (S2 2.2)](/bok/s2/s2-2-2)) Hvilke av likningene er separable? $\\;$ **a)** $y' = x^2y$ $\\;$ **b)** $y' = x + y$ $\\;$ **c)** $y' = e^{x}e^{y}$",
+            "solution": "**a)** Separabel: $g(x)=x^2$, $h(y)=y$. **b)** Ikke separabel: $x+y$ kan ikke skrives som produkt $g(x)h(y)$ (men den er lineær — [kap. 6.2](/bok/mat111-uib/mat111-uib-6-2)). **c)** Separabel: allerede faktorisert, $g(x)=e^x$, $h(y)=e^y$.",
+            "hints": [
+              "Test: kan høyresiden skrives som (noe med bare $x$) $\\cdot$ (noe med bare $y$)?"
+            ]
+          }
+        },
+        {
+          "id": "mat111-uib-6-1-r4",
+          "type": "exercise",
+          "exercise": {
+            "id": "mat111-uib-6-1-r4-x",
+            "number": "R4",
+            "type": "classic",
+            "difficulty": "middels",
+            "task": "(Fra [kap. 5.1](/bok/mat111-uib/mat111-uib-5-1)) Finn alle antideriverte til $g(x) = \\cos x - 2x$, og den som oppfyller $G(0)=5$.",
+            "solution": "$G(x) = \\sin x - x^2 + C$. Kravet $G(0)=5$ gir $0-0+C=5$, så $G(x)=\\sin x - x^2 + 5$. Samme logikk som initialbetingelser i differensiallikninger: betingelsen bestemmer konstanten.",
+            "hints": [
+              "Antideriver ledd for ledd; bruk deretter betingelsen til å finne $C$."
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": "mat111-uib-6-1-symbol",
+      "type": "collapsible",
+      "title": "Symbol- og formelliste",
+      "buttonText": "Vis symboler og formler",
+      "content": [
+        {
+          "id": "mat111-uib-6-1-symbol-txt",
+          "type": "text",
+          "content": "## Symbol- og formelliste\n\n*Oppslagsverk — alt her forklares underveis i kapitlet.*\n\n| Symbol | Betydning |\n|---|---|\n| $y' = g(x)h(y)$ | Separabel differensiallikning ($x$- og $y$-del som produkt) |\n| $y(x_0)=y_0$ | Initialbetingelse — plukker ut én løsning |\n| $y \\equiv c$ | Konstant løsning (likevektsløsning); finnes der $h(c)=0$ |\n| $C$, $A$ | Integrasjonskonstanten; $A=\\pm e^C$ etter eksponentiering |\n| $\\dfrac{dy}{h(y)} = g(x)\\,dx$ | Separasjonen i Leibniz-notasjon |\n| $M$ | Bæreevnen i logistisk likning |\n| $k$ | Vekst-/proporsjonalitetskonstanten |\n\n**Formler i dette delkapitlet:**\n\n$$\\int\\frac{dy}{y} = \\ln|y| + C \\;\\Rightarrow\\; y = Ae^{G(x)} \\text{ når } \\ln|y| = G(x)+C$$\nAbsoluttverdi-føringen: fortegn og $e^C$ samles i $A$.\n\n$$y' = ky(M-y), \\qquad \\frac{1}{y(M-y)} = \\frac{1}{M}\\Big(\\frac{1}{y}+\\frac{1}{M-y}\\Big)$$\nLogistisk likning og delbrøkoppspaltingen som løser den.\n\n$$y = \\frac{M}{1 + Be^{-kMx}}$$\nSluttformen på logistiske løsninger ($B$ bestemmes av initialbetingelsen); $y\\to M$ når $x\\to\\infty$.\n\n**Føringsmalen (fem steg):** noter konstante løsninger og sjekk mot initialbetingelsen → separér → integrer (delbrøk ved behov) → løs for $y$ og bestem konstanten → kontroller ved innsetting og konkluder."
+        }
+      ]
+    }
+  ],
+  "exercises": []
+}

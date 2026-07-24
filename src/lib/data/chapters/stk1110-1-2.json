@@ -1,0 +1,620 @@
+{
+  "id": "stk1110-1-2",
+  "courseId": "stk1110",
+  "chapterNumber": "1.2",
+  "title": "Momentmetoden og maximum likelihood — den faste kjeden",
+  "description": "Momentestimatoren (E(X)=X̄) og ML-kjeden L→ℓ→score→løs→bekreft maksimum (ℓ''<0), med invariansprinsippet — kjernen i hver eneste Oppgave 1.",
+  "estimatedMinutes": 65,
+  "competenceGoals": [
+    "finne momentestimatoren ved a sette E(X) lik utvalgsgjennomsnittet, ogsa nar E(X)=g(theta) er ikke-triviell",
+    "utlede ML-estimatoren via hele kjeden L til log-likelihood til score til los til bekreft maksimum",
+    "bekrefte at ML-punktet er et maksimum med andrederiverttesten",
+    "bruke invariansprinsippet til a finne ML for en omregnet parameter"
+  ],
+  "content": [
+    {
+      "id": "stk1110-1-2-tip",
+      "type": "tip",
+      "title": "Eksamensvinkel",
+      "content": "**Dette er selve kjernen i Oppgave 1 — den kommer hvert år.** Maximum likelihood (ML) opptrer i **omtrent 18 av 22 sett (82 %)**, og momentmetoden i **omtrent 11 av 22 (50 %)** — nesten alltid i estimeringsoppgaven.\n\n- **Sjanger A** (momentestimator mot ML) er det bærende mønsteret. *Sjanger* = oppgavetype; A er «finn og sammenlign estimatorer med moment- og ML-metoden».\n- Ofte skal du vise at moment- og ML-estimatoren **sammenfaller** (typisk Poisson: begge blir $\\bar X$).\n- **Invariansprinsippet** (ML for en omregnet parameter) dukker opp jevnlig.\n\n**Sensorens absolutte krav (§4.2):** ML-utledningen skal ha **alle fem trinn** — $L\\to\\ell\\to s\\to$ løs $\\to$ **bekreft maksimum** ($\\ell''(\\hat\\theta)<0$). Det siste trinnet glemmes oftest og er den vanligste trekkbelastningen her. Prioritet: **må sitte perfekt.**"
+    },
+    {
+      "id": "stk1110-1-2-forkunnskaper",
+      "type": "text",
+      "content": "**Forkunnskaper:** Dette kapitlet bruker ML-oppsettet og fordelingskatalogen fra **[kap. 0.2](/bok/stk1110/stk1110-0-2)** (likelihood $L(\\theta)=\\prod f(x_i;\\theta)$, log-likelihood, score) og estimator-egenskapene fra **[kap. 1.1](/bok/stk1110/stk1110-1-1)** (forventningsretthet, varians). Selve moment- og ML-metoden er innført i STK1100 kap. 5.2 *Maximum likelihood og momentmetoden* (→ stk1100-5-2) *(klartekst — STK1100 er ikke bygget ennå)*.\n\nDu trenger å derivere logaritmer og produkter og løse en ligning; vil du friske opp derivasjon, se [R1 4.1 Derivasjonsregler](/bok/r1/r1-4-1) og [R2 1.2 Deriverte og kjerneregelen](/bok/r2/r2-1-2). Her ligger vekten på *inferensen* som følger av estimatoren, ikke på fordelingsmodelleringen — det er skillet fra STK1100."
+    },
+    {
+      "id": "stk1110-1-2-motiv",
+      "type": "text",
+      "content": "Du har en fordeling med en ukjent parameter og et datasett. Hvordan lager du en estimator systematisk — ikke ved å gjette, men ved en oppskrift som virker for enhver fordeling?\n\nDette kapitlet gir de to standardoppskriftene. **Momentmetoden** setter teoretiske momenter lik empiriske og løser. **Maximum likelihood** velger den parameterverdien som gjør de observerte dataene mest sannsynlige, via en fast femtrinnskjede. Begge er verktøy sensor forventer at du behersker som en refleks, for de åpner nesten hver eneste estimeringsoppgave.\n\nKapitlet er bygget som fem **læringsløkker**: momentmetoden, ML-kjeden, ML på flere modeller, moment mot ML når de skiller lag, og invariansprinsippet. Hver løkke går teori → gjennomregnet eksempel → øvingsoppgave."
+    },
+    {
+      "id": "stk1110-1-2-l1",
+      "type": "text",
+      "content": "## Løkke 1 — Momentmetoden (~10 min)"
+    },
+    {
+      "id": "stk1110-1-2-l1-intro",
+      "type": "text",
+      "content": "Den enkleste oppskriften bygger på én idé: **utvalget skal ligne fordelingen**. Fordelingens teoretiske forventning $E(X)$ er en funksjon av parameteren; vi setter den lik det vi faktisk måler, $\\bar X$, og løser for parameteren."
+    },
+    {
+      "id": "stk1110-1-2-def-tmom",
+      "type": "definition",
+      "title": "Teoretisk moment",
+      "content": "Det **$k$-te teoretiske momentet** er forventningen $E(X^k)$ — en funksjon av den ukjente parameteren. Det første momentet er $E(X)$, det andre $E(X^2)$. Disse leser du ut av fordelingen (ofte rett fra formelsamlingen)."
+    },
+    {
+      "id": "stk1110-1-2-def-emom",
+      "type": "definition",
+      "title": "Empirisk moment",
+      "content": "Det **$k$-te empiriske momentet** er gjennomsnittet $\\frac1n\\sum_{i=1}^n X_i^k$ regnet ut av dataene. Det første empiriske momentet er $\\bar X$, det andre $\\frac1n\\sum X_i^2$."
+    },
+    {
+      "id": "stk1110-1-2-def-mom",
+      "type": "definition",
+      "title": "Momentmetoden",
+      "content": "**Momentmetoden** finner en estimator ved å sette **teoretiske momenter lik empiriske** og løse for parameteren. Med én ukjent parameter holder det med det første momentet:\n\n$$E(X)=\\bar X \\quad\\Rightarrow\\quad \\text{løs for parameteren}.$$\n\nHar fordelingen to parametre, bruker du de to første momentene ($E(X)=\\bar X$ og $E(X^2)=\\frac1n\\sum X_i^2$)."
+    },
+    {
+      "id": "stk1110-1-2-def-momest",
+      "type": "definition",
+      "title": "Momentestimatoren",
+      "content": "**Momentestimatoren** $\\hat\\theta$ er løsningen av momentligningen(e). Skriv den med store bokstaver siden den er en tilfeldig variabel (jf. kap. 1.1). Eksempel: for en fordeling med $E(X)=2\\theta$ blir momentligningen $2\\theta=\\bar X$, altså $\\hat\\theta=\\bar X/2$."
+    },
+    {
+      "id": "stk1110-1-2-ex1",
+      "type": "example",
+      "title": "Eksempel 1: Momentmetoden på en Poisson-modell (sjanger A)",
+      "problem": "Antall kundehenvendelser per time er Poisson-fordelt med rate $\\lambda$: $E(X)=\\lambda$. Du observerer $x_1,\\dots,x_n$. Finn momentestimatoren for $\\lambda$.",
+      "solution": "Første teoretiske moment er $E(X)=\\lambda$. Momentligningen setter dette lik det empiriske:\n\n$$E(X)=\\bar X \\quad\\Rightarrow\\quad \\lambda=\\bar X \\quad\\Rightarrow\\quad \\hat\\lambda=\\bar X.$$\n\nMomentestimatoren er altså rett og slett gjennomsnittet. Med data $2,0,3,1,4,2,1,3$ ($n=8$, sum $16$) blir estimatet $\\hat\\lambda=16/8=2$ henvendelser per time."
+    },
+    {
+      "id": "stk1110-1-2-oppg1",
+      "type": "exercise",
+      "exercise": {
+        "id": "stk1110-1-2-oppg1-e",
+        "number": "1",
+        "type": "classic",
+        "difficulty": "lett",
+        "task": "Levetiden til en komponent er eksponentialfordelt med rate $\\lambda$, slik at $E(X)=1/\\lambda$. Finn momentestimatoren for $\\lambda$ og regn ut estimatet når $\\bar x=5$ timer.",
+        "solution": "Momentligningen: $E(X)=\\bar X\\Rightarrow \\dfrac1\\lambda=\\bar X\\Rightarrow \\hat\\lambda=\\dfrac{1}{\\bar X}$. Med $\\bar x=5$: $\\hat\\lambda=1/5=0{,}20$ per time.",
+        "hints": [
+          "Sett $E(X)=1/\\lambda$ lik $\\bar X$.",
+          "Løs for $\\lambda$ ved å invertere."
+        ]
+      }
+    },
+    {
+      "id": "stk1110-1-2-l2",
+      "type": "text",
+      "content": "## Løkke 2 — ML-kjeden: alle fem trinn (~18 min)"
+    },
+    {
+      "id": "stk1110-1-2-l2-intro",
+      "type": "text",
+      "content": "Maximum likelihood spør: *hvilken parameterverdi gjør nettopp de dataene jeg så, mest sannsynlige?* Svaret finnes ved en fast femtrinnskjede som er verdt å kunne utenat — sensor krever hvert trinn, og oftest glemmes det siste."
+    },
+    {
+      "id": "stk1110-1-2-def-L",
+      "type": "definition",
+      "title": "Likelihood-funksjonen $L(\\theta)$",
+      "content": "**Likelihood-funksjonen** er den simultane tettheten (eller punktsannsynligheten) for dataene, betraktet som funksjon av parameteren $\\theta$ med dataene fastholdt:\n\n$$L(\\theta)=\\prod_{i=1}^n f(x_i;\\theta).$$\n\nProduktet kommer av at observasjonene er uavhengige. $L(\\theta)$ måler hvor godt hver parameterverdi «forklarer» dataene — vi leter etter toppen."
+    },
+    {
+      "id": "stk1110-1-2-def-l",
+      "type": "definition",
+      "title": "Log-likelihood-funksjonen $\\ell(\\theta)$",
+      "content": "**Log-likelihood** er logaritmen av likelihooden:\n\n$$\\ell(\\theta)=\\log L(\\theta)=\\sum_{i=1}^n \\log f(x_i;\\theta).$$\n\nLogaritmen gjør produktet om til en **sum**, som er langt lettere å derivere, og flytter ikke toppunktet (logaritmen er strengt voksende). Ta *alltid* logaritmen først — å derivere $L$ direkte drukner deg i produktregelen."
+    },
+    {
+      "id": "stk1110-1-2-def-score",
+      "type": "definition",
+      "title": "Scorefunksjonen $s(\\theta)$",
+      "content": "**Scorefunksjonen** er den deriverte av log-likelihood med hensyn på parameteren:\n\n$$s(\\theta)=\\ell'(\\theta)=\\frac{d}{d\\theta}\\log L(\\theta).$$\n\nToppen av $\\ell$ ligger der scoren er null. Scoren er også byggesteinen for Fisher-informasjonen i kap. 1.3."
+    },
+    {
+      "id": "stk1110-1-2-def-mleq",
+      "type": "definition",
+      "title": "Likelihoodligningen",
+      "content": "**Likelihoodligningen** er betingelsen for et stasjonærpunkt:\n\n$$s(\\hat\\theta)=\\ell'(\\hat\\theta)=0.$$\n\nLøsningen er kandidaten til ML-estimatoren. Merk: dette gir bare et *stasjonær*punkt — du må bekrefte at det er et maksimum (neste definisjon)."
+    },
+    {
+      "id": "stk1110-1-2-def-mle",
+      "type": "definition",
+      "title": "Maximum-likelihood-estimatoren (MLE)",
+      "content": "**Maximum-likelihood-estimatoren** $\\hat\\theta$ er den parameterverdien som maksimerer $L(\\theta)$ (og dermed $\\ell(\\theta)$). Den finnes vanligvis ved å løse likelihoodligningen $s(\\hat\\theta)=0$ og deretter bekrefte at punktet er et toppunkt. MLE er den mest brukte estimatoren i hele emnet."
+    },
+    {
+      "id": "stk1110-1-2-def-maksbekreft",
+      "type": "definition",
+      "title": "Maksimumsbekreftelsen (andrederiverttesten)",
+      "content": "**Obligatorisk siste trinn:** bekreft at løsningen faktisk maksimerer log-likelihood ved at den andrederiverte er negativ:\n\n$$\\ell''(\\hat\\theta)<0.$$\n\nEr $\\ell''(\\hat\\theta)<0$, buer $\\ell$ nedover i punktet — det er et toppunkt, ikke et bunnpunkt eller vendepunkt. **Dette trinnet glemmes oftest og straffes hardt** (sensorkrav §4.2/§5.3)."
+    },
+    {
+      "id": "stk1110-1-2-l2-kjede",
+      "type": "text",
+      "content": "**ML-kjeden — de fem trinnene (lær dem utenat):**\n\n1. **Sett opp likelihood:** $L(\\theta)=\\prod_{i=1}^n f(x_i;\\theta)$.\n   *Intuisjon: produktet av tetthetene måler hvor godt $\\theta$ forklarer dataene.*\n2. **Ta logaritmen:** $\\ell(\\theta)=\\sum_i\\log f(x_i;\\theta)$.\n   *Intuisjon: sum er lettere enn produkt, og toppunktet flytter seg ikke.*\n3. **Deriver til score:** $s(\\theta)=\\ell'(\\theta)$.\n   *Intuisjon: toppen ligger der stigningstallet er null.*\n4. **Løs likelihoodligningen** $s(\\hat\\theta)=0$.\n   *Intuisjon: kandidaten til toppunkt.*\n5. **Bekreft maksimum:** $\\ell''(\\hat\\theta)<0$.\n   *Intuisjon: sjekk at kurven buer nedover — ellers er det ikke en topp.*"
+    },
+    {
+      "id": "stk1110-1-2-ex2",
+      "type": "example",
+      "title": "Eksempel 2: ML for Poisson — hele kjeden (sjanger A)",
+      "problem": "Observasjonene $x_1,\\dots,x_n$ er uavhengige Poisson$(\\lambda)$ med punktsannsynlighet $f(x;\\lambda)=\\dfrac{e^{-\\lambda}\\lambda^{x}}{x!}$. Utled ML-estimatoren for $\\lambda$ med alle fem trinn.",
+      "solution": "**Trinn 1 — likelihood:**\n$$L(\\lambda)=\\prod_{i=1}^n \\frac{e^{-\\lambda}\\lambda^{x_i}}{x_i!}=\\frac{e^{-n\\lambda}\\lambda^{\\sum x_i}}{\\prod x_i!}.$$\n\n**Trinn 2 — log-likelihood:**\n$$\\ell(\\lambda)=-n\\lambda+\\Big(\\sum x_i\\Big)\\log\\lambda-\\log\\Big(\\prod x_i!\\Big).$$\nDet siste leddet er en konstant (avhenger ikke av $\\lambda$) og forsvinner ved derivasjon.\n\n**Trinn 3 — score:**\n$$s(\\lambda)=\\ell'(\\lambda)=-n+\\frac{\\sum x_i}{\\lambda}.$$\n\n**Trinn 4 — løs $s(\\hat\\lambda)=0$:**\n$$-n+\\frac{\\sum x_i}{\\hat\\lambda}=0 \\ \\Rightarrow\\ \\hat\\lambda=\\frac{\\sum x_i}{n}=\\bar X.$$\n\n**Trinn 5 — bekreft maksimum:**\n$$\\ell''(\\lambda)=-\\frac{\\sum x_i}{\\lambda^2}<0 \\quad(\\text{siden } \\sum x_i>0),$$\nså punktet er et maksimum. **Konklusjon:** $\\hat\\lambda_{ML}=\\bar X$ — samme som momentestimatoren (eksempel 1). Estimatoren er dessuten forventningsrett: $E(\\bar X)=\\lambda$, med varians $\\lambda/n$."
+    },
+    {
+      "id": "stk1110-1-2-oppg2",
+      "type": "exercise",
+      "exercise": {
+        "id": "stk1110-1-2-oppg2-e",
+        "number": "2",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "Observasjonene er uavhengige Bernoulli$(p)$ med $f(x;p)=p^x(1-p)^{1-x}$, $x\\in\\{0,1\\}$. Utled ML-estimatoren for $p$ med alle fem trinn, inkludert maksimumsbekreftelsen.",
+        "solution": "**1.** $L(p)=\\prod p^{x_i}(1-p)^{1-x_i}=p^{\\sum x_i}(1-p)^{n-\\sum x_i}$.\n\n**2.** $\\ell(p)=\\big(\\sum x_i\\big)\\log p+\\big(n-\\sum x_i\\big)\\log(1-p)$.\n\n**3.** $s(p)=\\dfrac{\\sum x_i}{p}-\\dfrac{n-\\sum x_i}{1-p}$.\n\n**4.** $s(\\hat p)=0\\Rightarrow (1-p)\\sum x_i=p(n-\\sum x_i)\\Rightarrow \\sum x_i=pn\\Rightarrow \\hat p=\\dfrac{\\sum x_i}{n}=\\bar X$.\n\n**5.** $\\ell''(p)=-\\dfrac{\\sum x_i}{p^2}-\\dfrac{n-\\sum x_i}{(1-p)^2}<0$ (begge ledd negative), så det er et maksimum. $\\hat p_{ML}=\\bar X$.",
+        "hints": [
+          "Ta logaritmen så produktet blir en sum av to log-ledd.",
+          "Sett score lik null og gang opp nevnerne; husk å sjekke $\\ell''<0$."
+        ]
+      }
+    },
+    {
+      "id": "stk1110-1-2-l3",
+      "type": "text",
+      "content": "## Løkke 3 — ML på flere modeller (~14 min)"
+    },
+    {
+      "id": "stk1110-1-2-l3-intro",
+      "type": "text",
+      "content": "Kjeden er den samme uansett fordeling. Her ser vi to modeller du må kunne: eksponentialfordelingen (én parameter) og normalfordelingen (to parametre, der ML-variansen blir den skjeve estimatoren fra kap. 1.1)."
+    },
+    {
+      "id": "stk1110-1-2-ex3",
+      "type": "example",
+      "title": "Eksempel 3: ML for eksponentialfordelingen (sjanger A)",
+      "problem": "Levetidene $x_1,\\dots,x_n$ er uavhengige eksponentialfordelte med rate $\\lambda$: $f(x;\\lambda)=\\lambda e^{-\\lambda x}$, $x>0$. Finn ML-estimatoren for $\\lambda$ og bekreft maksimum.",
+      "solution": "**1.** $L(\\lambda)=\\prod \\lambda e^{-\\lambda x_i}=\\lambda^n e^{-\\lambda\\sum x_i}$.\n\n**2.** $\\ell(\\lambda)=n\\log\\lambda-\\lambda\\sum x_i$.\n\n**3.** $s(\\lambda)=\\dfrac{n}{\\lambda}-\\sum x_i$.\n\n**4.** $s(\\hat\\lambda)=0\\Rightarrow \\dfrac{n}{\\hat\\lambda}=\\sum x_i\\Rightarrow \\hat\\lambda=\\dfrac{n}{\\sum x_i}=\\dfrac{1}{\\bar X}$.\n\n**5.** $\\ell''(\\lambda)=-\\dfrac{n}{\\lambda^2}<0$, altså maksimum. **Konklusjon:** $\\hat\\lambda_{ML}=1/\\bar X$ — samme som momentestimatoren (oppgave 1). Med data der sum $=39$, $n=8$ ($\\bar x=4{,}875$): $\\hat\\lambda=1/4{,}875\\approx0{,}205$ per time."
+    },
+    {
+      "id": "stk1110-1-2-oppg3",
+      "type": "exercise",
+      "exercise": {
+        "id": "stk1110-1-2-oppg3-e",
+        "number": "3",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "Observasjonene er uavhengige med tetthet $f(x;\\theta)=\\theta x^{\\theta-1}$ for $0<x<1$, $\\theta>0$ (en potensfordeling).\n\n**a)** Sett opp $\\ell(\\theta)$ og finn scoren.\n\n**b)** Utled ML-estimatoren og bekreft maksimum.",
+        "solution": "**a)** $L(\\theta)=\\prod \\theta x_i^{\\theta-1}=\\theta^n\\big(\\prod x_i\\big)^{\\theta-1}$, så $\\ell(\\theta)=n\\log\\theta+(\\theta-1)\\sum\\log x_i$. Score: $s(\\theta)=\\dfrac{n}{\\theta}+\\sum\\log x_i$.\n\n**b)** $s(\\hat\\theta)=0\\Rightarrow \\dfrac{n}{\\hat\\theta}=-\\sum\\log x_i\\Rightarrow \\hat\\theta=\\dfrac{-n}{\\sum\\log x_i}=\\dfrac{n}{-\\sum\\log x_i}$. Siden $0<x_i<1$ er $\\log x_i<0$, så $-\\sum\\log x_i>0$ og $\\hat\\theta>0$ — gyldig. Maksimum: $\\ell''(\\theta)=-\\dfrac{n}{\\theta^2}<0$. ✓",
+        "hints": [
+          "$\\log(\\theta x^{\\theta-1})=\\log\\theta+(\\theta-1)\\log x$.",
+          "Husk at $\\log x_i<0$ når $0<x_i<1$, så estimatoren blir positiv."
+        ]
+      }
+    },
+    {
+      "id": "stk1110-1-2-ex4",
+      "type": "example",
+      "title": "Eksempel 4: ML for normalfordelingen — to parametre (sjanger A)",
+      "problem": "$x_1,\\dots,x_n$ er uavhengige $N(\\mu,\\sigma^2)$ med tetthet $f(x;\\mu,\\sigma^2)=\\dfrac{1}{\\sqrt{2\\pi\\sigma^2}}\\exp\\!\\left(-\\dfrac{(x-\\mu)^2}{2\\sigma^2}\\right)$. Finn ML-estimatorene for $\\mu$ og $\\sigma^2$.",
+      "solution": "Log-likelihood:\n$$\\ell(\\mu,\\sigma^2)=-\\frac{n}{2}\\log(2\\pi)-\\frac{n}{2}\\log\\sigma^2-\\frac{1}{2\\sigma^2}\\sum(x_i-\\mu)^2.$$\n\n**For $\\mu$:** $\\dfrac{\\partial\\ell}{\\partial\\mu}=\\dfrac{1}{\\sigma^2}\\sum(x_i-\\mu)=0\\Rightarrow \\hat\\mu=\\bar X$. Andrederivert $-n/\\sigma^2<0$ ✓.\n\n**For $\\sigma^2$:** $\\dfrac{\\partial\\ell}{\\partial\\sigma^2}=-\\dfrac{n}{2\\sigma^2}+\\dfrac{1}{2\\sigma^4}\\sum(x_i-\\mu)^2=0$. Sett inn $\\hat\\mu=\\bar X$ og løs: $\\hat\\sigma^2=\\dfrac1n\\sum(X_i-\\bar X)^2$. (Andrederivert i $\\hat\\sigma^2$ er negativ — maksimum.)\n\n**Kobling til kap. 1.1:** ML-estimatoren $\\hat\\sigma^2$ deler på $n$ og er derfor **skjev** med $b=-\\sigma^2/n$; den forventningsrette varianten er $S^2$ (divisor $n-1$). ML gir ikke automatisk forventningsrette estimatorer."
+    },
+    {
+      "id": "stk1110-1-2-oppg4",
+      "type": "exercise",
+      "exercise": {
+        "id": "stk1110-1-2-oppg4-e",
+        "number": "4",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "Data er uavhengige $N(\\mu,\\sigma^2)$ med kjent $\\sigma^2$ (bare $\\mu$ ukjent). Vis at ML-estimatoren for $\\mu$ er $\\bar X$, og at den er forventningsrett.",
+        "solution": "$\\ell(\\mu)=\\text{konst}-\\dfrac{1}{2\\sigma^2}\\sum(x_i-\\mu)^2$. Score: $s(\\mu)=\\dfrac{1}{\\sigma^2}\\sum(x_i-\\mu)$. Sett $=0$: $\\sum(x_i-\\hat\\mu)=0\\Rightarrow \\hat\\mu=\\bar X$. Maksimum: $\\ell''(\\mu)=-n/\\sigma^2<0$ ✓. Forventningsrett: $E(\\bar X)=\\mu$ (kap. 1.1).",
+        "hints": [
+          "Bare leddet med $(x_i-\\mu)^2$ avhenger av $\\mu$.",
+          "Deriver, sett score lik null, og løs for $\\mu$."
+        ]
+      }
+    },
+    {
+      "id": "stk1110-1-2-l4",
+      "type": "text",
+      "content": "## Løkke 4 — Ikke-triviell moment: når moment og ML skiller lag (~13 min)"
+    },
+    {
+      "id": "stk1110-1-2-l4-intro",
+      "type": "text",
+      "content": "I Poisson og eksponential ga moment og ML samme estimator. Men det er tilfeldig. Når det teoretiske momentet er en mer sammensatt funksjon $E(X)=g(\\theta)$, kan de to metodene gi *forskjellige* estimatorer — Rayleigh-fordelingen er standardeksempelet."
+    },
+    {
+      "id": "stk1110-1-2-def-gtheta",
+      "type": "definition",
+      "title": "Ikke-triviell momentligning $E(X)=g(\\theta)$",
+      "content": "Når det første momentet er en funksjon $E(X)=g(\\theta)$ (ikke bare $\\theta$ selv), løses momentligningen $g(\\hat\\theta)=\\bar X$ ved å invertere $g$: $\\hat\\theta=g^{-1}(\\bar X)$. For Rayleigh er $E(X)=\\theta\\sqrt{\\pi/2}$, så $\\hat\\theta=\\bar X\\sqrt{2/\\pi}$; for Weibull $E(X)=\\beta\\,\\Gamma(1+1/\\alpha)$."
+    },
+    {
+      "id": "stk1110-1-2-ex5",
+      "type": "example",
+      "title": "Eksempel 5: Rayleigh — moment mot ML (sjanger A, eksamensnivå)",
+      "problem": "Vindstyrker $x_1,\\dots,x_n$ er Rayleigh-fordelte med tetthet $f(x;\\theta)=\\dfrac{x}{\\theta^2}\\,e^{-x^2/(2\\theta^2)}$, $x>0$, $\\theta>0$. Kjent: $E(X)=\\theta\\sqrt{\\pi/2}$ og $E(X^2)=2\\theta^2$. Finn både momentestimatoren og ML-estimatoren for $\\theta$, og vis at de er forskjellige.",
+      "solution": "**Momentestimatoren:** momentligningen $E(X)=\\bar X$ gir $\\theta\\sqrt{\\pi/2}=\\bar X$, altså\n$$\\hat\\theta_{\\text{mom}}=\\bar X\\sqrt{2/\\pi}\\approx 0{,}798\\,\\bar X.$$\n\n**ML-estimatoren (hele kjeden):**\n1. $L(\\theta)=\\prod \\dfrac{x_i}{\\theta^2}e^{-x_i^2/(2\\theta^2)}$.\n2. $\\ell(\\theta)=\\sum\\log x_i-2n\\log\\theta-\\dfrac{1}{2\\theta^2}\\sum x_i^2$.\n3. $s(\\theta)=-\\dfrac{2n}{\\theta}+\\dfrac{1}{\\theta^3}\\sum x_i^2$.\n4. $s(\\hat\\theta)=0\\Rightarrow \\dfrac{\\sum x_i^2}{\\hat\\theta^3}=\\dfrac{2n}{\\hat\\theta}\\Rightarrow \\hat\\theta^2=\\dfrac{\\sum x_i^2}{2n}\\Rightarrow \\hat\\theta_{ML}=\\sqrt{\\dfrac{\\sum x_i^2}{2n}}$.\n5. $\\ell''(\\theta)=\\dfrac{2n}{\\theta^2}-\\dfrac{3\\sum x_i^2}{\\theta^4}$. I $\\hat\\theta$ er $\\sum x_i^2=2n\\hat\\theta^2$, så $\\ell''(\\hat\\theta)=\\dfrac{2n}{\\hat\\theta^2}-\\dfrac{6n}{\\hat\\theta^2}=-\\dfrac{4n}{\\hat\\theta^2}<0$ ✓ (maksimum).\n\n**De skiller lag:** momentestimatoren bruker det *første* momentet, ML svarer til det *andre* ($E(X^2)=2\\theta^2$). Med data $2{,}1;\\,4{,}3;\\,1{,}8;\\,3{,}5;\\,2{,}9;\\,5{,}1;\\,3{,}2;\\,2{,}6$ ($n=8$, $\\bar x=3{,}1875$, $\\sum x_i^2=89{,}81$): $\\hat\\theta_{\\text{mom}}=0{,}798\\cdot3{,}1875\\approx2{,}54$, mens $\\hat\\theta_{ML}=\\sqrt{89{,}81/16}\\approx2{,}37$. Ulike tall — ML er her å foretrekke (mer effisient)."
+    },
+    {
+      "id": "stk1110-1-2-oppg5",
+      "type": "exercise",
+      "exercise": {
+        "id": "stk1110-1-2-oppg5-e",
+        "number": "5",
+        "type": "classic",
+        "difficulty": "vanskelig",
+        "task": "Data $x_1,\\dots,x_n$ har tetthet $f(x;\\theta)=\\dfrac{2x}{\\theta}e^{-x^2/\\theta}$, $x>0$, $\\theta>0$, med $E(X^2)=\\theta$.\n\n**a)** Finn ML-estimatoren for $\\theta$ og bekreft maksimum.\n\n**b)** Finn momentestimatoren basert på det *andre* momentet, og sammenlign.",
+        "solution": "**a)** $\\ell(\\theta)=\\sum\\log(2x_i)-n\\log\\theta-\\dfrac{1}{\\theta}\\sum x_i^2$. Score: $s(\\theta)=-\\dfrac{n}{\\theta}+\\dfrac{1}{\\theta^2}\\sum x_i^2$. Sett $=0$: $\\hat\\theta=\\dfrac{\\sum x_i^2}{n}$. Maksimum: $\\ell''(\\theta)=\\dfrac{n}{\\theta^2}-\\dfrac{2\\sum x_i^2}{\\theta^3}$; i $\\hat\\theta$ (der $\\sum x_i^2=n\\hat\\theta$) blir $\\ell''=\\dfrac{n}{\\hat\\theta^2}-\\dfrac{2n}{\\hat\\theta^2}=-\\dfrac{n}{\\hat\\theta^2}<0$ ✓.\n\n**b)** Andre-moment-ligningen $E(X^2)=\\frac1n\\sum x_i^2$ gir $\\theta=\\frac1n\\sum x_i^2$ — **samme** som ML her. (Når ML-ligningen svarer til å matche nettopp det momentet, sammenfaller de.)",
+        "hints": [
+          "$\\log f=\\log(2x)-\\log\\theta-x^2/\\theta$; bare de to siste leddene avhenger av $\\theta$.",
+          "For (b): sett $E(X^2)=\\theta$ lik det empiriske andre momentet."
+        ]
+      }
+    },
+    {
+      "id": "stk1110-1-2-l5",
+      "type": "text",
+      "content": "## Løkke 5 — Invariansprinsippet (~10 min)"
+    },
+    {
+      "id": "stk1110-1-2-l5-intro",
+      "type": "text",
+      "content": "Ofte vil oppgaven ha ML-estimatoren for en *omregnet* størrelse — en sannsynlighet, et forhold, et gjennomsnitt uttrykt ved parameteren. Da slipper du å gjøre hele kjeden på nytt: invariansprinsippet lar deg bare sette inn."
+    },
+    {
+      "id": "stk1110-1-2-def-invarians",
+      "type": "definition",
+      "title": "Invariansprinsippet",
+      "content": "**Invariansprinsippet:** er $\\hat\\theta$ ML-estimatoren for $\\theta$, så er ML-estimatoren for en funksjon $\\psi=g(\\theta)$ ganske enkelt\n\n$$\\hat\\psi=g(\\hat\\theta).$$\n\nDu setter ML-estimatoren rett inn i funksjonen — ingen ny derivasjon. Eksempel: ML for $\\lambda$ i Poisson er $\\bar X$, så ML for $\\psi=e^{-\\lambda}=P(X=0)$ er $e^{-\\bar X}$."
+    },
+    {
+      "id": "stk1110-1-2-ex6",
+      "type": "example",
+      "title": "Eksempel 6: Invariansprinsippet på Poisson (sjanger A)",
+      "problem": "Antall feil per enhet er Poisson$(\\lambda)$, og ML-estimatoren er $\\hat\\lambda=\\bar X$ (eksempel 2). Finn ML-estimatoren for sannsynligheten $\\psi=P(X=0)=e^{-\\lambda}$ for at en enhet er feilfri.",
+      "solution": "Sannsynligheten for null feil er $\\psi=g(\\lambda)=e^{-\\lambda}$. Invariansprinsippet gir direkte:\n\n$$\\hat\\psi=g(\\hat\\lambda)=e^{-\\hat\\lambda}=e^{-\\bar X}.$$\n\nMed $\\bar x=2$ (data fra eksempel 1): $\\hat\\psi=e^{-2}\\approx0{,}135$ — anslått er cirka 13,5 % av enhetene feilfrie. Ingen ny ML-kjede nødvendig."
+    },
+    {
+      "id": "stk1110-1-2-oppg6",
+      "type": "exercise",
+      "exercise": {
+        "id": "stk1110-1-2-oppg6-e",
+        "number": "6",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "Levetider er eksponentialfordelte med rate $\\lambda$, og ML-estimatoren er $\\hat\\lambda=1/\\bar X$ (eksempel 3).\n\n**a)** Finn ML-estimatoren for forventet levetid $\\mu=1/\\lambda$.\n\n**b)** Finn ML-estimatoren for sannsynligheten $\\psi=P(X>t)=e^{-\\lambda t}$ for at en komponent overlever tiden $t$.",
+        "solution": "**a)** $\\mu=g(\\lambda)=1/\\lambda$, så $\\hat\\mu=1/\\hat\\lambda=1/(1/\\bar X)=\\bar X$. Forventet levetid estimeres altså med gjennomsnittet.\n\n**b)** $\\psi=e^{-\\lambda t}$, så $\\hat\\psi=e^{-\\hat\\lambda t}=e^{-t/\\bar X}$. Sett inn ML-estimatoren for $\\lambda$ direkte.",
+        "hints": [
+          "Invarians: sett $\\hat\\lambda$ inn i funksjonen, ikke gjør ny ML.",
+          "$1/\\hat\\lambda$ og $e^{-\\hat\\lambda t}$."
+        ]
+      }
+    },
+    {
+      "id": "stk1110-1-2-poisson-recap",
+      "type": "text",
+      "content": "**Poisson-oppsummeringen (fast eksamenspoeng):** for Poisson$(\\lambda)$ sammenfaller alt — momentestimatoren er $\\bar X$ (eksempel 1), ML-estimatoren er $\\bar X$ (eksempel 2), begge er forventningsrette med varians $\\lambda/n$, og invarians gir umiddelbart ML for avledede størrelser som $P(X=0)=e^{-\\bar X}$. Nettopp denne «alt blir $\\bar X$»-strukturen er grunnen til at Poisson er den hyppigste modellen i Oppgave 1."
+    },
+    {
+      "id": "stk1110-1-2-warn",
+      "type": "warning",
+      "title": "Typiske feil (fra løsningsforslagene)",
+      "content": "- **Glemme maksimumsbekreftelsen** ($\\ell''(\\hat\\theta)<0$). Dette er den vanligste feilen — uten trinn 5 er ML-utledningen ufullstendig og sensor trekker.\n- **Ikke ta logaritmen først.** Å derivere $L(\\theta)$ direkte gir en produktderivasjon som drukner deg. Log gjør produkt til sum.\n- **Derivere $\\ell$ feil** — særlig glemme kjerneregelen i ledd som $x_i^2/(2\\theta^2)$ (deriverer til $-x_i^2/\\theta^3$).\n- **Forveksle momentmetoden med minste kvadrater.** Momentmetoden matcher momenter; minste kvadrater (Del 3) minimerer kvadratavvik.\n- **Anta at moment = ML alltid.** De sammenfaller for Poisson/eksponential, men ikke generelt (Rayleigh).\n- **Estimator mot estimat:** skriv $\\hat\\theta$ med stor bokstav som tilfeldig variabel når du regner forventning/varians (jf. kap. 1.1)."
+    },
+    {
+      "id": "stk1110-1-2-drill",
+      "type": "text",
+      "content": "## Blandet drill (sjanger A, stigende)"
+    },
+    {
+      "id": "stk1110-1-2-d1",
+      "type": "exercise",
+      "exercise": {
+        "id": "stk1110-1-2-d1-e",
+        "number": "7",
+        "type": "classic",
+        "difficulty": "lett",
+        "task": "Skriv opp de fem trinnene i ML-kjeden i riktig rekkefølge, med symbol for hvert.",
+        "solution": "1. Likelihood $L(\\theta)=\\prod f(x_i;\\theta)$. 2. Log-likelihood $\\ell(\\theta)=\\log L(\\theta)$. 3. Score $s(\\theta)=\\ell'(\\theta)$. 4. Løs likelihoodligningen $s(\\hat\\theta)=0$. 5. Bekreft maksimum $\\ell''(\\hat\\theta)<0$.",
+        "hints": [
+          "Start med produktet av tetthetene.",
+          "Det siste trinnet er den deriverte-testen."
+        ]
+      }
+    },
+    {
+      "id": "stk1110-1-2-d2",
+      "type": "exercise",
+      "exercise": {
+        "id": "stk1110-1-2-d2-e",
+        "number": "8",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "Data er uavhengige geometrisk fordelte med $f(x;p)=(1-p)^{x-1}p$, $x=1,2,\\dots$, og $E(X)=1/p$.\n\n**a)** Finn momentestimatoren for $p$.\n\n**b)** Utled ML-estimatoren og bekreft maksimum.",
+        "solution": "**a)** $E(X)=1/p=\\bar X\\Rightarrow \\hat p_{\\text{mom}}=1/\\bar X$.\n\n**b)** $\\ell(p)=\\big(\\sum(x_i-1)\\big)\\log(1-p)+n\\log p=\\big(\\sum x_i-n\\big)\\log(1-p)+n\\log p$. Score: $s(p)=-\\dfrac{\\sum x_i-n}{1-p}+\\dfrac{n}{p}$. Sett $=0$: $n(1-p)=p(\\sum x_i-n)\\Rightarrow n=p\\sum x_i\\Rightarrow \\hat p=\\dfrac{n}{\\sum x_i}=\\dfrac{1}{\\bar X}$. Maksimum: $\\ell''(p)=-\\dfrac{\\sum x_i-n}{(1-p)^2}-\\dfrac{n}{p^2}<0$ ✓. Moment og ML sammenfaller.",
+        "hints": [
+          "$\\log f=(x-1)\\log(1-p)+\\log p$.",
+          "Sett score lik null og løs; sjekk $\\ell''<0$."
+        ]
+      }
+    },
+    {
+      "id": "stk1110-1-2-d3",
+      "type": "exercise",
+      "exercise": {
+        "id": "stk1110-1-2-d3-e",
+        "number": "9",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "For Poisson$(\\lambda)$ er $\\hat\\lambda=\\bar X$. Bruk invariansprinsippet til å finne ML-estimatoren for **a)** standardavviket $\\sigma=\\sqrt\\lambda$, og **b)** oddsen $\\psi=\\lambda/(1+\\lambda)$.",
+        "solution": "**a)** $\\sigma=g(\\lambda)=\\sqrt\\lambda$, så $\\hat\\sigma=\\sqrt{\\hat\\lambda}=\\sqrt{\\bar X}$.\n\n**b)** $\\psi=\\dfrac{\\lambda}{1+\\lambda}$, så $\\hat\\psi=\\dfrac{\\hat\\lambda}{1+\\hat\\lambda}=\\dfrac{\\bar X}{1+\\bar X}$. Sett $\\hat\\lambda=\\bar X$ rett inn.",
+        "hints": [
+          "Invarians: $\\hat\\psi=g(\\hat\\lambda)$.",
+          "Sett $\\bar X$ inn i hver funksjon."
+        ]
+      }
+    },
+    {
+      "id": "stk1110-1-2-d4",
+      "type": "exercise",
+      "exercise": {
+        "id": "stk1110-1-2-d4-e",
+        "number": "10",
+        "type": "classic",
+        "difficulty": "vanskelig",
+        "task": "(Krevende.) Data er uavhengige uniformt fordelt på $[0,\\theta]$ med tetthet $f(x;\\theta)=1/\\theta$ for $0\\le x\\le\\theta$. Her virker *ikke* den vanlige score-metoden — forklar hvorfor, og finn ML-estimatoren.",
+        "solution": "$L(\\theta)=\\prod \\dfrac1\\theta=\\theta^{-n}$, men **bare gyldig når $\\theta\\ge\\max_i x_i$** (ellers er en observasjon utenfor $[0,\\theta]$ og tettheten er 0). $\\ell(\\theta)=-n\\log\\theta$ er strengt *avtakende* i $\\theta$, så scoren $s(\\theta)=-n/\\theta$ er aldri null — det finnes ikke noe indre stasjonærpunkt. Likelihooden maksimeres derfor ved den *minste tillatte* $\\theta$, som er randen:\n\n$$\\hat\\theta_{ML}=\\max_i X_i=X_{(n)}.$$\n\n**Lærdom:** når score aldri blir null, ligger ML-maksimum på randen av parameterområdet — sjekk alltid definisjonsområdet før du deriverer blindt. (Momentestimatoren blir derimot $\\hat\\theta=2\\bar X$, siden $E(X)=\\theta/2$ — nok et tilfelle der de to metodene skiller lag.)",
+        "hints": [
+          "Score-metoden ($\\ell'(\\theta)=0$) forutsetter at støtten til fordelingen ikke avhenger av $\\theta$. Her er $0\\le x\\le\\theta$, så støtten flytter seg med $\\theta$ — se på likelihooden $L(\\theta)$ direkte som funksjon av $\\theta$ i stedet.",
+          "$L(\\theta)=\\theta^{-n}$ så lenge ALLE $x_i\\le\\theta$, og $0$ ellers. Hvor stor må $\\theta$ minst være for at likelihooden ikke er null, og hvordan oppfører $\\theta^{-n}$ seg når $\\theta$ vokser?"
+        ]
+      }
+    },
+    {
+      "id": "stk1110-1-2-d5",
+      "type": "exercise",
+      "exercise": {
+        "id": "stk1110-1-2-d5-e",
+        "number": "11",
+        "type": "classic",
+        "difficulty": "vanskelig",
+        "task": "(Kald oppgave — momentliste som fasit.) Levetider er Rayleigh-fordelte, $f(x;\\theta)=\\dfrac{x}{\\theta^2}e^{-x^2/(2\\theta^2)}$, med ML-estimator $\\hat\\theta_{ML}=\\sqrt{\\sum X_i^2/(2n)}$ (eksempel 5). Bruk invariansprinsippet til å finne ML-estimatoren for medianlevetiden $m=\\theta\\sqrt{2\\log 2}$, og skisser hvordan du ville sjekket at ML-punktet er et maksimum.",
+        "solution": "Momentliste:\n- Median er en funksjon av $\\theta$: $m=g(\\theta)=\\theta\\sqrt{2\\log 2}$.\n- Invarians: $\\hat m=g(\\hat\\theta_{ML})=\\sqrt{2\\log 2}\\cdot\\sqrt{\\dfrac{\\sum X_i^2}{2n}}=\\sqrt{\\dfrac{\\log 2}{n}\\sum X_i^2}$.\n- Maksimumssjekk (allerede gjort i eksempel 5): $\\ell''(\\hat\\theta)=-4n/\\hat\\theta^2<0$, så $\\hat\\theta_{ML}$ er et ekte maksimum — og invarians overfører maksimum-egenskapen til $\\hat m$.\n- Merk: invarians krever ingen ny derivasjon; sett bare ML-estimatoren inn i $g$.",
+        "hints": []
+      }
+    },
+    {
+      "id": "stk1110-1-2-bank",
+      "type": "text",
+      "content": "## Begrepsbank"
+    },
+    {
+      "id": "stk1110-1-2-bank-note",
+      "type": "text",
+      "content": "*Flashcard-/repetisjonsstoff — hopp trygt over ved førstegangslesing; tidsanslaget gjelder kjernestoffet.* Korte, navngitte definisjoner for eksamensrepetisjon."
+    },
+    {
+      "id": "stk1110-1-2-bank-tetthet",
+      "type": "definition",
+      "title": "Tetthet mot likelihood",
+      "content": "Samme uttrykk $f(x;\\theta)$, men to synsvinkler: som **tetthet** varierer $x$ med $\\theta$ fast; som **likelihood** varierer $\\theta$ med dataene $x$ fast. ML ser på funksjonen som likelihood."
+    },
+    {
+      "id": "stk1110-1-2-bank-produkt",
+      "type": "definition",
+      "title": "Produktform ved uavhengighet",
+      "content": "At likelihooden er et *produkt* $\\prod f(x_i;\\theta)$ følger direkte av at observasjonene er uavhengige (simultantetthet = produkt av marginale). Uten uavhengighet gjelder ikke produktformen."
+    },
+    {
+      "id": "stk1110-1-2-bank-logrolle",
+      "type": "definition",
+      "title": "Logaritmens rolle i ML",
+      "content": "Logaritmen gjør produkt til sum og potenser til faktorer, og den er strengt voksende — derfor har $\\ell(\\theta)$ og $L(\\theta)$ samme maksimumspunkt. Nesten all ML-regning gjøres på $\\ell$."
+    },
+    {
+      "id": "stk1110-1-2-bank-konstledd",
+      "type": "definition",
+      "title": "Konstantledd i log-likelihood",
+      "content": "Ledd i $\\ell(\\theta)$ som ikke inneholder $\\theta$ (for eksempel $-\\log(\\prod x_i!)$ i Poisson eller $\\sum\\log x_i$ i Rayleigh) forsvinner ved derivasjon og påvirker ikke estimatoren. De kan droppes tidlig."
+    },
+    {
+      "id": "stk1110-1-2-bank-poisson",
+      "type": "definition",
+      "title": "Poisson-modellen",
+      "content": "$f(x;\\lambda)=e^{-\\lambda}\\lambda^x/x!$, $E(X)=\\text{Var}(X)=\\lambda$. Moment- og ML-estimator er begge $\\bar X$; den hyppigste modellen i Oppgave 1."
+    },
+    {
+      "id": "stk1110-1-2-bank-bernoulli",
+      "type": "definition",
+      "title": "Bernoulli-modellen",
+      "content": "$f(x;p)=p^x(1-p)^{1-x}$, $x\\in\\{0,1\\}$, $E(X)=p$. ML- og momentestimator er $\\bar X$ (andelen enere). Summen $\\sum X_i$ er binomisk."
+    },
+    {
+      "id": "stk1110-1-2-bank-eksp",
+      "type": "definition",
+      "title": "Eksponentialmodellen",
+      "content": "$f(x;\\lambda)=\\lambda e^{-\\lambda x}$, $x>0$, $E(X)=1/\\lambda$. ML- og momentestimator er $1/\\bar X$; standardmodell for levetider og ventetider."
+    },
+    {
+      "id": "stk1110-1-2-bank-normal",
+      "type": "definition",
+      "title": "Normalmodellens ML",
+      "content": "For $N(\\mu,\\sigma^2)$ er $\\hat\\mu=\\bar X$ og $\\hat\\sigma^2=\\frac1n\\sum(X_i-\\bar X)^2$ (divisor $n$, altså skjev). Viser at ML ikke garanterer forventningsretthet."
+    },
+    {
+      "id": "stk1110-1-2-bank-rayleigh",
+      "type": "definition",
+      "title": "Rayleigh-modellen",
+      "content": "$f(x;\\theta)=\\frac{x}{\\theta^2}e^{-x^2/(2\\theta^2)}$, $E(X)=\\theta\\sqrt{\\pi/2}$, $E(X^2)=2\\theta^2$. Moment ($\\bar X\\sqrt{2/\\pi}$) og ML ($\\sqrt{\\sum X_i^2/(2n)}$) skiller lag — standardeksempel på det."
+    },
+    {
+      "id": "stk1110-1-2-bank-uniform",
+      "type": "definition",
+      "title": "Uniformmodellen (ML på randen)",
+      "content": "For uniform på $[0,\\theta]$ er $L(\\theta)=\\theta^{-n}$ avtakende, så scoren blir aldri null; ML-estimatoren er randverdien $\\hat\\theta=\\max_i X_i$. Minner om å sjekke definisjonsområdet."
+    },
+    {
+      "id": "stk1110-1-2-bank-forstemom",
+      "type": "definition",
+      "title": "Første teoretiske moment $E(X)$",
+      "content": "Fordelingens forventning uttrykt ved parameteren — grunnlaget for momentmetoden med én parameter. Ofte oppgitt i formelsamlingen for hver standardfordeling."
+    },
+    {
+      "id": "stk1110-1-2-bank-andremom",
+      "type": "definition",
+      "title": "Andre teoretiske moment $E(X^2)$",
+      "content": "$E(X^2)=\\text{Var}(X)+[E(X)]^2$. Brukes i momentmetoden når fordelingen har to parametre, eller når det første momentet ikke inneholder parameteren."
+    },
+    {
+      "id": "stk1110-1-2-bank-toparam",
+      "type": "definition",
+      "title": "Momentmetode for to parametre",
+      "content": "Med to ukjente løses de to første momentligningene simultant: $E(X)=\\bar X$ og $E(X^2)=\\frac1n\\sum X_i^2$. Gir for eksempel $\\hat\\mu=\\bar X$ og $\\hat\\sigma^2=\\frac1n\\sum(X_i-\\bar X)^2$ i normalmodellen."
+    },
+    {
+      "id": "stk1110-1-2-bank-sammenfall",
+      "type": "definition",
+      "title": "Sammenfall av moment og ML",
+      "content": "For Poisson, Bernoulli og eksponential gir de to metodene identisk estimator ($\\bar X$ eller $1/\\bar X$). Det er *ikke* en generell regel — sjekk hver modell."
+    },
+    {
+      "id": "stk1110-1-2-bank-regul",
+      "type": "definition",
+      "title": "Regularitetsbetingelser",
+      "content": "Vilkår (glatt tetthet, parameter i det indre, felles støtte) som sikrer at ML-estimatoren finnes via score = 0 og har pen asymptotikk. Brytes de (som i uniformmodellen), ligger maksimum på randen. *(Prioritet: kjenne til.)*"
+    },
+    {
+      "id": "stk1110-1-2-bank-mlkonsis",
+      "type": "definition",
+      "title": "Konsistens av MLE",
+      "content": "Under regularitetsbetingelser er ML-estimatoren konsistent: $\\hat\\theta_{ML}\\xrightarrow{P}\\theta$ når $n\\to\\infty$. En hovedgrunn til at ML er standardvalget. *(Prioritet: kjenne til — bygger på kap. 1.1.)*"
+    },
+    {
+      "id": "stk1110-1-2-bank-mlasymp",
+      "type": "definition",
+      "title": "Asymptotisk normalitet av MLE",
+      "content": "I store utvalg er $\\hat\\theta_{ML}\\approx N\\!\\left(\\theta,\\frac{1}{nI(\\theta)}\\right)$, der $I(\\theta)$ er Fisher-informasjonen. Dette er grunnlaget for Wald-konfidensintervallet i **[kap. 1.3](/bok/stk1110/stk1110-1-3)**. *(Prioritet: kjenne til her.)*"
+    },
+    {
+      "id": "stk1110-1-2-bank-momsvakhet",
+      "type": "definition",
+      "title": "Momentmetodens svakhet",
+      "content": "Momentestimatoren er enkel, men ofte mindre effisient (større varians) enn ML, og kan gi estimater utenfor gyldig område. ML foretrekkes når begge finnes."
+    },
+    {
+      "id": "stk1110-1-2-bank-estfunk",
+      "type": "definition",
+      "title": "Estimeringsfunksjon",
+      "content": "En funksjon av data og parameter som settes lik null for å definere estimatoren. Scoren $s(\\theta)$ er ML-metodens estimeringsfunksjon; momentmetodens er $E(X)-\\bar X$."
+    },
+    {
+      "id": "stk1110-1-2-bank-obsinfo",
+      "type": "definition",
+      "title": "Observert informasjon",
+      "content": "Den negative andrederiverte $-\\ell''(\\hat\\theta)$. At den er **positiv** er nettopp maksimumsbekreftelsen ($\\ell''<0$). Forventningen av $-\\ell''$ er Fisher-informasjonen (kap. 1.3)."
+    },
+    {
+      "id": "stk1110-1-2-bank-stasjon",
+      "type": "definition",
+      "title": "Stasjonærpunkt (kritisk punkt)",
+      "content": "En parameterverdi der scoren er null, $s(\\theta)=0$. Kan være maksimum, minimum eller vendepunkt — derfor kreves andrederiverttesten for å bekrefte at det er et *maksimum*."
+    },
+    {
+      "id": "stk1110-1-2-bank-logkonkav",
+      "type": "definition",
+      "title": "Log-konkav likelihood",
+      "content": "Er $\\ell(\\theta)$ konkav (buer nedover overalt, $\\ell''<0$ for alle $\\theta$), har likelihoodligningen høyst én løsning, og den er automatisk det globale maksimumet. Gjelder Poisson, eksponential og flere."
+    },
+    {
+      "id": "stk1110-1-2-bank-startverdi",
+      "type": "definition",
+      "title": "Startverdi / numerisk ML",
+      "content": "Når likelihoodligningen ikke har lukket løsning (for eksempel Weibulls formparameter), løses $s(\\hat\\theta)=0$ numerisk fra en startverdi. På STK1110-eksamen holder de seg til modeller med lukket løsning. *(Prioritet: kjenne til.)*"
+    },
+    {
+      "id": "stk1110-1-2-symbol",
+      "type": "collapsible",
+      "title": "Symbol- og formelliste",
+      "buttonText": "Vis symboler og formler",
+      "content": [
+        {
+          "id": "stk1110-1-2-symbol-t",
+          "type": "text",
+          "content": "## Symbol- og formelliste\n\n*Oppslagsverk — alt her forklares underveis i kapitlet.*\n\n| Symbol | Betydning |\n|---|---|\n| $\\theta$ | Ukjent parameter |\n| $\\hat\\theta$ | Estimator/estimat for $\\theta$ |\n| $f(x;\\theta)$ | Tetthet / punktsannsynlighet |\n| $L(\\theta)$ | Likelihood-funksjonen, $\\prod f(x_i;\\theta)$ |\n| $\\ell(\\theta)$ | Log-likelihood, $\\log L(\\theta)$ |\n| $s(\\theta)$ | Scorefunksjonen, $\\ell'(\\theta)$ |\n| $\\ell''(\\theta)$ | Andrederiverte av log-likelihood |\n| $\\bar X$ | Utvalgsgjennomsnitt (første empiriske moment) |\n| $\\frac1n\\sum X_i^2$ | Andre empiriske moment |\n| $E(X),\\ E(X^2)$ | Første/andre teoretiske moment |\n| $\\lambda$ | Rate i Poisson/eksponential |\n| $p$ | Suksessannsynlighet (Bernoulli/geometrisk) |\n| $\\mu,\\ \\sigma^2$ | Forventning og varians (normal) |\n| $\\psi=g(\\theta)$ | Omregnet parameter (invarians) |\n| $\\hat\\psi=g(\\hat\\theta)$ | ML for omregnet parameter |\n| $X_{(n)}=\\max_i X_i$ | Største observasjon (uniform-ML) |\n| $I(\\theta)$ | Fisher-informasjon (nevnt, kap. 1.3) |\n\n**Formler i dette delkapitlet:**\n\n$$E(X)=\\bar X$$\nMomentmetodens ligning (én parameter).\n\n$$L(\\theta)=\\prod_{i=1}^n f(x_i;\\theta)$$\nLikelihood — produkt fordi observasjonene er uavhengige.\n\n$$\\ell(\\theta)=\\sum_{i=1}^n \\log f(x_i;\\theta)$$\nLog-likelihood — produkt blir sum.\n\n$$s(\\theta)=\\ell'(\\theta),\\qquad s(\\hat\\theta)=0$$\nScore og likelihoodligningen.\n\n$$\\ell''(\\hat\\theta)<0$$\nMaksimumsbekreftelsen — obligatorisk siste trinn.\n\n$$\\hat\\psi=g(\\hat\\theta)$$\nInvariansprinsippet — sett ML-estimatoren inn i funksjonen.\n\n$$\\hat\\lambda_{ML}=\\bar X \\quad(\\text{Poisson}),\\qquad \\hat\\lambda_{ML}=1/\\bar X \\quad(\\text{eksponential})$$\nStandardresultater der moment og ML sammenfaller.\n\n$$\\hat\\theta_{\\text{mom}}=\\bar X\\sqrt{2/\\pi},\\qquad \\hat\\theta_{ML}=\\sqrt{\\tfrac{1}{2n}\\textstyle\\sum X_i^2} \\quad(\\text{Rayleigh})$$\nEksempel der moment og ML skiller lag."
+        }
+      ]
+    },
+    {
+      "id": "stk1110-1-2-rep",
+      "type": "collapsible",
+      "title": "Repetisjonsoppgaver",
+      "buttonText": "Vis repetisjonsoppgaver",
+      "content": [
+        {
+          "id": "stk1110-1-2-rep1",
+          "type": "exercise",
+          "exercise": {
+            "id": "stk1110-1-2-rep1e",
+            "number": "R1",
+            "type": "classic",
+            "difficulty": "lett",
+            "task": "(Fra kap. 0.2) Skriv opp likelihood $L(\\lambda)$ for uavhengige Poisson$(\\lambda)$-data og forklar hvorfor det blir et produkt.",
+            "solution": "$L(\\lambda)=\\prod_{i=1}^n \\dfrac{e^{-\\lambda}\\lambda^{x_i}}{x_i!}$. Det blir et produkt fordi observasjonene er uavhengige, så den simultane punktsannsynligheten er produktet av de enkelte.",
+            "hints": [
+              "Uavhengighet gir simultantetthet = produkt av marginale."
+            ]
+          }
+        },
+        {
+          "id": "stk1110-1-2-rep2",
+          "type": "exercise",
+          "exercise": {
+            "id": "stk1110-1-2-rep2e",
+            "number": "R2",
+            "type": "classic",
+            "difficulty": "lett",
+            "task": "(Fra kap. 1.1) Er ML-estimatoren $\\hat\\lambda=\\bar X$ for Poisson forventningsrett? Er den konsistent?",
+            "solution": "$E(\\bar X)=\\lambda$, så den er forventningsrett. $\\text{Var}(\\bar X)=\\lambda/n\\to0$, og med forventningsretthet gir Tsjebysjeff konsistens. Ja på begge.",
+            "hints": [
+              "Bruk $E(\\bar X)=\\lambda$ og $\\text{Var}(\\bar X)=\\lambda/n$ fra kap. 1.1."
+            ]
+          }
+        },
+        {
+          "id": "stk1110-1-2-rep3",
+          "type": "exercise",
+          "exercise": {
+            "id": "stk1110-1-2-rep3e",
+            "number": "R3",
+            "type": "classic",
+            "difficulty": "middels",
+            "task": "(Fra kap. 0.2) For en gamma$(\\alpha,\\beta)$-fordeling er $E(X)=\\alpha\\beta$. Med $\\alpha$ kjent, finn momentestimatoren for $\\beta$.",
+            "solution": "Momentligningen $E(X)=\\bar X$ gir $\\alpha\\beta=\\bar X$, altså $\\hat\\beta=\\bar X/\\alpha$. (Kjikvadrat $\\chi^2_n$ er gamma$(n/2,2)$, jf. kap. 0.2.)",
+            "hints": [
+              "Sett $\\alpha\\beta=\\bar X$ og løs for $\\beta$ med $\\alpha$ kjent."
+            ]
+          }
+        },
+        {
+          "id": "stk1110-1-2-rep4",
+          "type": "exercise",
+          "exercise": {
+            "id": "stk1110-1-2-rep4e",
+            "number": "R4",
+            "type": "classic",
+            "difficulty": "middels",
+            "task": "(Fra kap. 1.1) ML-variansestimatoren for normalfordelingen er $\\hat\\sigma^2=\\frac1n\\sum(X_i-\\bar X)^2$. Er den forventningsrett? Hva er den forventningsrette varianten?",
+            "solution": "Nei — $E(\\hat\\sigma^2)=\\frac{n-1}{n}\\sigma^2$, skjev med $b=-\\sigma^2/n$. Den forventningsrette varianten er $S^2=\\frac{1}{n-1}\\sum(X_i-\\bar X)^2$. ML gir altså ikke automatisk forventningsrette estimatorer.",
+            "hints": [
+              "ML deler på $n$; forventningsrett krever $n-1$."
+            ]
+          }
+        }
+      ]
+    }
+  ],
+  "exercises": []
+}

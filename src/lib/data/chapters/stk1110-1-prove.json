@@ -1,0 +1,168 @@
+{
+  "id": "stk1110-1-prove",
+  "courseId": "stk1110",
+  "chapterNumber": "1.P",
+  "title": "Prøver til del 1: Estimeringsteori",
+  "description": "Fire komplette prøver som dekker hele Del 1 (kap. 1.1–1.5): moment mot ML med bekreftet maksimum, forventningsretthet og MSE, Fisher-info → Wald-KI med Cramér–Rao, og en full estimeringskjede med Bayes-punkt — med modellbesvarelser og selvdiagnose.",
+  "estimatedMinutes": 155,
+  "competenceGoals": [
+    "gjennomføre en full estimeringsoppgave under tidspress med alle ledd i kjeden",
+    "velge riktig sammenligningsmål (varians mot MSE) og bekrefte ML-maksimum",
+    "konstruere Wald-konfidensintervall med riktig z-kvantil og transformere det ved invarians",
+    "løse et konjugert Bayes-punkt og knytte det til ML-estimatet"
+  ],
+  "content": [
+    {
+      "id": "stk1110-1-prove-tip",
+      "type": "tip",
+      "title": "Fire prøver til Del 1 — estimeringsteori",
+      "content": "Fire komplette prøver som dekker hele Del 1 (kap. 1.1–1.5): estimatoregenskaper, moment- og ML-metoden med bekreftet maksimum, Fisher-informasjon, Wald-konfidensintervall, Cramér–Rao og et Bayes-punkt. Til sammen speiler de den faste **Oppgave 1** på STK1110-eksamen.\n\n**Slik bruker du dem:** hver prøve er én kjededelt oppgave (deloppgaver a, b, c, …) i samme kontekst — akkurat som eksamen, der tidlige svar gjenbrukes senere. **4 prøver à ~35–45 min:**\n- **Prøve 1 (1.A, ~35 min):** moment mot ML med bekreftet maksimum på en oppgitt tetthet.\n- **Prøve 2 (1.B, ~35 min):** forventningsretthet, varians og estimator-sammenligning (MSE).\n- **Prøve 3 (1.C, ~40 min):** Fisher-info → ML-fordeling → Wald-KI, med Cramér–Rao.\n- **Prøve 4 (1.D, ~45 min):** full estimeringskjede a–f på eksamensnivå, med et Bayes-punkt.\n\nDu kan **trygt dele prøvene over flere kvelder — én prøve per økt.** Ta hver prøve på tid, med formelsamling og kalkulator (som på eksamen), og **skriv ut hvert ledd** før du åpner fasiten: sensor belønner alle trinn i kjeden. Løsningene er nyskrevne modellbesvarelser på A-nivå.\n\n**Ingen flervalg:** som på den ekte STK1110-eksamen er alle deloppgaver konstruksjonsoppgaver (utled/regn/forklar) — ingen avkryssingsdel."
+    },
+    {
+      "id": "stk1110-1-prove-forkunnskaper",
+      "type": "text",
+      "content": "**Forkunnskaper:** Del 1 (kap. 1.1–1.5). Du bør beherske estimator/estimat-skillet og MSE ([kap. 1.1](/bok/stk1110/stk1110-1-1)), moment- og ML-kjeden med maksimumsbekreftelse ([kap. 1.2](/bok/stk1110/stk1110-1-2)), Fisher-informasjon, ML-asymptotikk, Wald-KI og Cramér–Rao ([kap. 1.3](/bok/stk1110/stk1110-1-3)), Bayes-/konjugeringspunktet ([kap. 1.4](/bok/stk1110/stk1110-1-4)) og hele sju-trinns-oppskriften ([kap. 1.5](/bok/stk1110/stk1110-1-5))."
+    },
+    {
+      "id": "stk1110-1-prove-p1",
+      "type": "collapsible",
+      "title": "Prøve 1 — Moment mot ML (~35 min)",
+      "buttonText": "Vis prøve 1",
+      "content": [
+        {
+          "id": "stk1110-1-prove-p1-intro",
+          "type": "text",
+          "content": "**Prøve 1 — Moment mot maximum likelihood (sjanger A).** Veiledende tid: **~35 minutter.** Hjelpemidler: formelsamling for STK1110 + kalkulator. Skriv ut alle fem ML-trinnene, inkludert maksimumsbekreftelsen."
+        },
+        {
+          "id": "stk1110-1-prove-p1-o1",
+          "type": "exercise",
+          "exercise": {
+            "id": "stk1110-1-prove-p1-o1-e",
+            "number": "1",
+            "type": "classic",
+            "difficulty": "middels",
+            "task": "Slitasjemål $x_1,\\dots,x_n$ (mellom 0 og 1) er modellert med tettheten\n$$f(x;\\theta)=\\theta x^{\\theta-1},\\qquad 0<x<1,\\ \\theta>0,$$\nmed forventning $E(X)=\\dfrac{\\theta}{\\theta+1}$. Du har $n=20$ observasjoner med $\\bar x=0{,}70$ og $\\sum_{i=1}^n\\log x_i=-8{,}0$.\n\n**a)** Sett opp modellen og finn momentestimatoren for $\\theta$.\n\n**b)** Utled ML-estimatoren for $\\theta$ med alle fem trinn, og bekreft at det er et maksimum.\n\n**c)** Sammenfaller moment- og ML-estimatoren her? Begrunn.\n\n**d)** Regn ut begge estimatene, og angi hvilken du ville rapportert, med kort begrunnelse.",
+            "solution": "**a)** Modell: $X_1,\\dots,X_n$ uavhengige med tetthet $f(x;\\theta)=\\theta x^{\\theta-1}$ på $(0,1)$. Momentligningen $E(X)=\\bar X$ gir $\\dfrac{\\theta}{\\theta+1}=\\bar X$, altså $\\theta=\\bar X(\\theta+1)\\Rightarrow \\theta(1-\\bar X)=\\bar X$, så\n$$\\hat\\theta_{\\text{mom}}=\\frac{\\bar X}{1-\\bar X}.$$\n\n**b)** ML-kjeden:\n1. $L(\\theta)=\\prod\\theta x_i^{\\theta-1}=\\theta^n\\big(\\prod x_i\\big)^{\\theta-1}$.\n2. $\\ell(\\theta)=n\\log\\theta+(\\theta-1)\\sum\\log x_i$.\n3. $s(\\theta)=\\dfrac n\\theta+\\sum\\log x_i$.\n4. $s(\\hat\\theta)=0\\Rightarrow \\dfrac{n}{\\hat\\theta}=-\\sum\\log x_i\\Rightarrow \\hat\\theta_{ML}=\\dfrac{n}{-\\sum\\log x_i}=\\dfrac{-n}{\\sum\\log x_i}$. Siden $0<x_i<1$ er $\\log x_i<0$, så $-\\sum\\log x_i>0$ og $\\hat\\theta_{ML}>0$ — gyldig.\n5. $\\ell''(\\theta)=-\\dfrac{n}{\\theta^2}<0$ ✔, altså et maksimum.\n\n**c)** Nei — de sammenfaller ikke. Momentestimatoren bygger på gjennomsnittet $\\bar X$, mens ML bygger på $\\sum\\log X_i$. Bare når ML-ligningen tilfeldigvis svarer til å matche første moment (som i Poisson/eksponential) blir de like; her er scoren en funksjon av log-observasjonene, ikke av $\\bar X$.\n\n**d)** $\\hat\\theta_{\\text{mom}}=\\dfrac{0{,}70}{1-0{,}70}=\\dfrac{0{,}70}{0{,}30}=2{,}33$; $\\hat\\theta_{ML}=\\dfrac{-20}{-8{,}0}=\\dfrac{20}{8{,}0}=2{,}50$. Jeg rapporterer **ML-estimatet 2,50**: ML er (under regularitet) asymptotisk effisient og utnytter hele likelihooden, mens momentestimatoren typisk har større varians. Begge er rimelige positive verdier, som forventet for $\\theta>0$.",
+            "hints": [
+              "Momentligningen er $E(X)=\\bar X$ med $E(X)=\\theta/(\\theta+1)$.",
+              "ML: log-likelihood er $n\\log\\theta+(\\theta-1)\\sum\\log x_i$; score gir $\\hat\\theta=-n/\\sum\\log x_i$.",
+              "Bekreft med $\\ell''(\\theta)=-n/\\theta^2<0$; sjekk fortegnet på $\\sum\\log x_i$."
+            ]
+          }
+        },
+        {
+          "id": "stk1110-1-prove-p1-check",
+          "type": "text",
+          "content": "**Selvdiagnose — Prøve 1** (kryss av det du klarte uten fasit):\n\n- ☐ Jeg definerte modellen og satte opp momentligningen $E(X)=\\bar X$ riktig.\n- ☐ Jeg skrev ut alle fem ML-trinnene $L\\to\\ell\\to s\\to$ løs $\\to$ bekreft.\n- ☐ Jeg bekreftet maksimum med $\\ell''(\\hat\\theta)<0$ (ikke bare løste $s=0$).\n- ☐ Jeg forklarte *hvorfor* moment og ML skiller lag her.\n- ☐ Jeg sjekket at $\\hat\\theta_{ML}>0$ ved å bruke at $\\log x_i<0$ på $(0,1)$."
+        }
+      ]
+    },
+    {
+      "id": "stk1110-1-prove-p2",
+      "type": "collapsible",
+      "title": "Prøve 2 — Forventningsretthet, varians og MSE (~35 min)",
+      "buttonText": "Vis prøve 2",
+      "content": [
+        {
+          "id": "stk1110-1-prove-p2-intro",
+          "type": "text",
+          "content": "**Prøve 2 — Forventningsretthet, varians og estimator-sammenligning (sjanger B).** Veiledende tid: **~35 minutter.** Husk: sammenlign forventningsrette estimatorer på varians, men bruk MSE $=\\text{Var}+b^2$ så snart én er skjev."
+        },
+        {
+          "id": "stk1110-1-prove-p2-o1",
+          "type": "exercise",
+          "exercise": {
+            "id": "stk1110-1-prove-p2-o1-e",
+            "number": "1",
+            "type": "classic",
+            "difficulty": "middels",
+            "task": "Levetider $X_1,\\dots,X_n$ er uavhengige eksponentialfordelte med forventning $\\theta$, så $E(X_i)=\\theta$ og $\\text{Var}(X_i)=\\theta^2$. Betrakt tre estimatorer for $\\theta$:\n$$\\hat\\Theta_A=\\bar X,\\qquad \\hat\\Theta_B=X_1,\\qquad \\hat\\Theta_C=\\frac{n}{n+1}\\bar X.$$\n\n**a)** Vis at $\\hat\\Theta_A$ og $\\hat\\Theta_B$ er forventningsrette, finn variansene, og avgjør hvilken du foretrekker.\n\n**b)** Finn skjevheten og MSE til $\\hat\\Theta_C$, og sammenlign MSE med $\\hat\\Theta_A$. Hvilken har minst MSE?\n\n**c)** Vis at $\\hat\\Theta_A$ er konsistent for $\\theta$.",
+            "solution": "**a)** $E(\\hat\\Theta_A)=E(\\bar X)=\\theta$ og $E(\\hat\\Theta_B)=E(X_1)=\\theta$ — begge forventningsrette. Varianser: $\\text{Var}(\\hat\\Theta_A)=\\dfrac{\\text{Var}(X)}{n}=\\dfrac{\\theta^2}{n}$, og $\\text{Var}(\\hat\\Theta_B)=\\text{Var}(X_1)=\\theta^2$. Siden begge er forventningsrette, sammenligner vi på varians: $\\dfrac{\\theta^2}{n}<\\theta^2$ for $n>1$, så **$\\hat\\Theta_A=\\bar X$ foretrekkes** — den bruker alle $n$ observasjonene, mens $\\hat\\Theta_B$ kaster bort $n-1$.\n\n**b)** $E(\\hat\\Theta_C)=\\dfrac{n}{n+1}\\theta$, så skjevheten er $b(\\hat\\Theta_C)=\\dfrac{n}{n+1}\\theta-\\theta=-\\dfrac{\\theta}{n+1}$ (bommer litt for lavt). Varians: $\\text{Var}(\\hat\\Theta_C)=\\Big(\\dfrac{n}{n+1}\\Big)^2\\dfrac{\\theta^2}{n}=\\dfrac{n\\theta^2}{(n+1)^2}$. MSE:\n$$\\text{MSE}(\\hat\\Theta_C)=\\frac{n\\theta^2}{(n+1)^2}+\\frac{\\theta^2}{(n+1)^2}=\\frac{(n+1)\\theta^2}{(n+1)^2}=\\frac{\\theta^2}{n+1}.$$\nSammenlign med $\\text{MSE}(\\hat\\Theta_A)=\\text{Var}(\\hat\\Theta_A)=\\dfrac{\\theta^2}{n}$. Siden $\\dfrac{\\theta^2}{n+1}<\\dfrac{\\theta^2}{n}$, har **den litt skjeve $\\hat\\Theta_C$ minst MSE** — et eksempel på at forventningsretthet ikke alltid er «best» (jf. [kap. 1.1](/bok/stk1110/stk1110-1-1)). Her *må* vi bruke MSE, ikke varians alene, fordi $\\hat\\Theta_C$ er skjev.\n\n**c)** $\\hat\\Theta_A$ er forventningsrett og $\\text{Var}(\\hat\\Theta_A)=\\theta^2/n\\to0$ når $n\\to\\infty$, så $\\text{MSE}(\\hat\\Theta_A)\\to0$. Tsjebysjeff ([kap. 1.1](/bok/stk1110/stk1110-1-1)) gir $P(|\\bar X-\\theta|\\ge\\varepsilon)\\le\\dfrac{\\theta^2/n}{\\varepsilon^2}\\to0$, altså $\\bar X\\xrightarrow{P}\\theta$ — konsistent.",
+            "hints": [
+              "For uavhengige: $\\text{Var}(\\bar X)=\\text{Var}(X)/n$; her $\\text{Var}(X)=\\theta^2$.",
+              "MSE $=\\text{Var}+b^2$; regn skjevheten til $\\hat\\Theta_C$ først.",
+              "Konsistens: vis $\\text{MSE}\\to0$ og bruk Tsjebysjeff."
+            ]
+          }
+        },
+        {
+          "id": "stk1110-1-prove-p2-check",
+          "type": "text",
+          "content": "**Selvdiagnose — Prøve 2:**\n\n- ☐ Jeg viste forventningsretthet ved $E(\\hat\\Theta)=\\theta$, ikke bare påsto det.\n- ☐ Jeg sammenlignet de to forventningsrette estimatorene på *varians*.\n- ☐ Jeg byttet til *MSE* så snart en estimator ble skjev.\n- ☐ Jeg fikk at den skjeve $\\hat\\Theta_C$ faktisk har minst MSE (og forsto hvorfor).\n- ☐ Jeg brukte Tsjebysjeff (MSE $\\to0$) til å vise konsistens.\n- ☐ Jeg skilte estimator (stor $\\hat\\Theta$) fra estimat konsekvent."
+        }
+      ]
+    },
+    {
+      "id": "stk1110-1-prove-p3",
+      "type": "collapsible",
+      "title": "Prøve 3 — Fisher, ML-fordeling og Wald-KI (~40 min)",
+      "buttonText": "Vis prøve 3",
+      "content": [
+        {
+          "id": "stk1110-1-prove-p3-intro",
+          "type": "text",
+          "content": "**Prøve 3 — Fisher-informasjon, ML-fordeling og Wald-KI (sjanger C/D).** Veiledende tid: **~40 minutter.** Nevn eksplisitt at normaltilnærmingen er ML-asymptotikk, og bruk $z$ (ikke $t$) i Wald-intervallet."
+        },
+        {
+          "id": "stk1110-1-prove-p3-o1",
+          "type": "exercise",
+          "exercise": {
+            "id": "stk1110-1-prove-p3-o1-e",
+            "number": "1",
+            "type": "classic",
+            "difficulty": "vanskelig",
+            "task": "Nedbrytningstider $x_1,\\dots,x_n$ har tettheten\n$$f(x;\\theta)=\\frac{2x}{\\theta}\\,e^{-x^2/\\theta},\\qquad x>0,\\ \\theta>0,$$\nmed $E(X^2)=\\theta$. Du har $n=40$ observasjoner med $\\sum x_i^2=100$.\n\n**a)** Utled ML-estimatoren for $\\theta$ og bekreft maksimum.\n\n**b)** Vis at ML-estimatoren er forventningsrett og finn variansen (bruk at $X^2$ er eksponentialfordelt med forventning $\\theta$).\n\n**c)** Finn Fisher-informasjonen $I(\\theta)$ og angi ML-estimatorens tilnærmede fordeling.\n\n**d)** Konstruer et 95 % Wald-konfidensintervall for $\\theta$.\n\n**e)** Oppgi Cramér–Rao-grensen og avgjør om estimatoren er effisient.",
+            "solution": "**a)** $\\ell(\\theta)=\\sum\\log(2x_i)-n\\log\\theta-\\dfrac1\\theta\\sum x_i^2$; $s(\\theta)=-\\dfrac n\\theta+\\dfrac{\\sum x_i^2}{\\theta^2}$; $s(\\hat\\theta)=0\\Rightarrow \\hat\\theta_{ML}=\\dfrac{1}{n}\\sum x_i^2$. Maksimum: $\\ell''(\\theta)=\\dfrac{n}{\\theta^2}-\\dfrac{2\\sum x_i^2}{\\theta^3}$; i $\\hat\\theta$ (der $\\sum x_i^2=n\\hat\\theta$) blir $\\ell''=\\dfrac{n}{\\hat\\theta^2}-\\dfrac{2n}{\\hat\\theta^2}=-\\dfrac{n}{\\hat\\theta^2}<0$ ✔.\n\n**b)** $E(\\hat\\theta)=\\dfrac1n\\sum E(X_i^2)=\\dfrac1n\\cdot n\\theta=\\theta$ — forventningsrett. Siden $Y=X^2$ er eksponentialfordelt med forventning $\\theta$, er $\\text{Var}(X^2)=\\theta^2$, så $\\text{Var}(\\hat\\theta)=\\dfrac{\\text{Var}(X^2)}{n}=\\dfrac{\\theta^2}{n}$.\n\n**c)** $\\log f=\\log(2x)-\\log\\theta-\\dfrac{x^2}{\\theta}$; $\\dfrac{\\partial^2}{\\partial\\theta^2}\\log f=\\dfrac{1}{\\theta^2}-\\dfrac{2x^2}{\\theta^3}$; $E(X^2)=\\theta$ gir $I(\\theta)=-\\Big(\\dfrac{1}{\\theta^2}-\\dfrac{2}{\\theta^2}\\Big)=\\dfrac{1}{\\theta^2}$. ML-asymptotikken (sentralgrenseteoremet) gir\n$$\\hat\\theta\\ \\overset{\\text{ca.}}{\\sim}\\ N\\!\\Big(\\theta,\\ \\frac{1}{nI(\\theta)}\\Big)=N\\!\\Big(\\theta,\\ \\frac{\\theta^2}{n}\\Big).$$\n\n**d)** $\\hat\\theta=100/40=2{,}5$. $se=\\sqrt{1/(nI(\\hat\\theta))}=\\hat\\theta/\\sqrt n=2{,}5/\\sqrt{40}=0{,}395$. Med $z_{0{,}025}=1{,}96$: $2{,}5\\pm1{,}96\\cdot0{,}395=2{,}5\\pm0{,}775=[1{,}73,\\ 3{,}27]$. ($z$, ikke $t$, fordi normalformen kommer fra ML-asymptotikken.)\n\n**e)** Cramér–Rao: $\\dfrac{1}{nI(\\theta)}=\\dfrac{\\theta^2}{n}$, som er nøyaktig $\\text{Var}(\\hat\\theta)$. Estimatoren **oppnår grensen — den er effisient**; ingen forventningsrett estimator for $\\theta$ kan ha mindre varians (jf. [kap. 1.3](/bok/stk1110/stk1110-1-3)).",
+            "hints": [
+              "ML: deriver $\\ell=\\text{konst}-n\\log\\theta-\\tfrac1\\theta\\sum x_i^2$ og sett score lik null.",
+              "Fisher: $\\partial^2\\log f/\\partial\\theta^2=1/\\theta^2-2x^2/\\theta^3$; sett $E(X^2)=\\theta$ inn.",
+              "$se=\\hat\\theta/\\sqrt n$; bruk $z=1{,}96$."
+            ]
+          }
+        },
+        {
+          "id": "stk1110-1-prove-p3-check",
+          "type": "text",
+          "content": "**Selvdiagnose — Prøve 3:**\n\n- ☐ Jeg bekreftet ML-maksimum med $\\ell''(\\hat\\theta)<0$.\n- ☐ Jeg regnet Fisher-informasjonen med minustegn og forventning: $I=-E[\\partial^2\\log f/\\partial\\theta^2]$.\n- ☐ Jeg skrev ML-fordelingen $N(\\theta,1/(nI))$ og *nevnte* at det er ML-asymptotikk/CLT.\n- ☐ Jeg brukte $z=1{,}96$ (ikke $t$) i Wald-intervallet.\n- ☐ Jeg sammenlignet variansen med Cramér–Rao-grensen og konkluderte om effisiens."
+        }
+      ]
+    },
+    {
+      "id": "stk1110-1-prove-p4",
+      "type": "collapsible",
+      "title": "Prøve 4 — Full estimeringskjede med Bayes (~45 min)",
+      "buttonText": "Vis prøve 4",
+      "content": [
+        {
+          "id": "stk1110-1-prove-p4-intro",
+          "type": "text",
+          "content": "**Prøve 4 — Full estimeringskjede med Bayes-punkt (sjanger A + C + L).** Veiledende tid: **~45 minutter.** Dette er en komplett Oppgave 1: modell → ML → Fisher → Wald → invarians → Bayes. Skriv ut hvert ledd."
+        },
+        {
+          "id": "stk1110-1-prove-p4-o1",
+          "type": "exercise",
+          "exercise": {
+            "id": "stk1110-1-prove-p4-o1-e",
+            "number": "1",
+            "type": "classic",
+            "difficulty": "vanskelig",
+            "task": "Ventetider (minutter) $x_1,\\dots,x_n$ er eksponentialfordelte med rate $\\lambda$: $f(x;\\lambda)=\\lambda e^{-\\lambda x}$, $x>0$, med $E(X)=1/\\lambda$. Du har $n=12$ ventetider med $\\sum x_i=30$ (altså $\\bar x=2{,}5$).\n\n**a)** Finn momentestimatoren for $\\lambda$.\n\n**b)** Utled ML-estimatoren for $\\lambda$ med alle fem trinn.\n\n**c)** Finn Fisher-informasjonen $I(\\lambda)$ og ML-estimatorens tilnærmede fordeling.\n\n**d)** Gi et 95 % Wald-konfidensintervall for $\\lambda$.\n\n**e)** Bruk invarians til å finne ML-estimatet og et 95 %-intervall for forventet ventetid $\\theta=1/\\lambda$.\n\n**f)** Anta en gamma$(2,1)$-apriori (skala) for $\\lambda$. Finn aposteriorifordelingen og Bayes-estimatoren, og sammenlign med ML.",
+            "solution": "**a)** $E(X)=1/\\lambda=\\bar X\\Rightarrow \\hat\\lambda_{\\text{mom}}=1/\\bar X=1/2{,}5=0{,}40$.\n\n**b)** 1. $L(\\lambda)=\\prod\\lambda e^{-\\lambda x_i}=\\lambda^n e^{-\\lambda\\sum x_i}$. 2. $\\ell(\\lambda)=n\\log\\lambda-\\lambda\\sum x_i$. 3. $s(\\lambda)=\\dfrac n\\lambda-\\sum x_i$. 4. $s(\\hat\\lambda)=0\\Rightarrow \\hat\\lambda_{ML}=\\dfrac{n}{\\sum x_i}=\\dfrac{12}{30}=0{,}40$. 5. $\\ell''(\\lambda)=-\\dfrac{n}{\\lambda^2}<0$ ✔. (Moment og ML sammenfaller.)\n\n**c)** $\\log f=\\log\\lambda-\\lambda x$; $\\dfrac{\\partial^2}{\\partial\\lambda^2}\\log f=-\\dfrac{1}{\\lambda^2}$, så $I(\\lambda)=\\dfrac{1}{\\lambda^2}$. ML-asymptotikk: $\\hat\\lambda\\overset{\\text{ca.}}{\\sim}N\\!\\big(\\lambda,\\tfrac{1}{nI(\\lambda)}\\big)=N\\!\\big(\\lambda,\\tfrac{\\lambda^2}{n}\\big)$.\n\n**d)** $se=\\sqrt{1/(nI(\\hat\\lambda))}=\\hat\\lambda/\\sqrt n=0{,}40/\\sqrt{12}=0{,}1155$. Wald: $0{,}40\\pm1{,}96\\cdot0{,}1155=0{,}40\\pm0{,}226=[0{,}174,\\ 0{,}626]$.\n\n**e)** Invarians: $\\theta=g(\\lambda)=1/\\lambda$ er avtakende, så $\\hat\\theta=1/\\hat\\lambda=1/0{,}40=2{,}5$, og endepunktene bytter plass: $\\left[\\dfrac{1}{0{,}626},\\ \\dfrac{1}{0{,}174}\\right]=[1{,}60,\\ 5{,}75]$ minutter. Ingen ny ML- eller Fisher-regning nødvendig (jf. [kap. 1.3](/bok/stk1110/stk1110-1-3)).\n\n**f)** Gamma er konjugert til eksponential-raten (gamma–gamma, [kap. 1.4](/bok/stk1110/stk1110-1-4)). Likelihood $L(\\lambda)\\propto\\lambda^{n}e^{-\\lambda\\sum x_i}=\\lambda^{12}e^{-30\\lambda}$; apriori $\\pi(\\lambda)\\propto\\lambda^{a-1}e^{-\\lambda/b}=\\lambda^{1}e^{-\\lambda}$. Samlet: $\\pi(\\lambda\\mid x)\\propto\\lambda^{13}e^{-31\\lambda}$, en gamma-kjerne. Aposteriori: gamma$\\big(a+n,\\ b/(1+b\\sum x_i)\\big)=$ gamma$\\big(2+12,\\ 1/(1+30)\\big)=$ gamma$(14,\\ 1/31)$. Bayes-estimatoren er aposteriori forventning $\\alpha'\\beta'=14/31=0{,}452$. ML er $0{,}40$; Bayes ($0{,}452$) er trukket opp mot apriori-forventningen $ab=2$ — med bare $n=12$ har apriorien merkbar vekt, men Bayes $\\to$ ML når $n$ vokser.",
+            "hints": [
+              "ML for eksponential-rate er $n/\\sum x_i$; bekreft med $\\ell''=-n/\\lambda^2<0$.",
+              "$I(\\lambda)=1/\\lambda^2$, så $se=\\hat\\lambda/\\sqrt n$; invarians med $1/\\lambda$ er avtakende.",
+              "Bayes: samle $\\lambda^{n}e^{-\\lambda\\sum x_i}$ med gamma-kjernen; Bayes-est $=\\alpha'\\beta'$."
+            ]
+          }
+        },
+        {
+          "id": "stk1110-1-prove-p4-check",
+          "type": "text",
+          "content": "**Selvdiagnose — Prøve 4:**\n\n- ☐ Jeg definerte modellen og fant moment- og ML-estimatoren (med $\\ell''<0$).\n- ☐ Jeg regnet $I(\\lambda)$ og skrev ML-fordelingen $N(\\lambda,\\lambda^2/n)$ med CLT-begrunnelse.\n- ☐ Jeg brukte $z$ i Wald-intervallet for $\\lambda$.\n- ☐ Jeg transformerte intervallet til $\\theta=1/\\lambda$ og husket at avtakende $g$ bytter endepunkter.\n- ☐ Jeg samlet eksponentene og leste av aposteriori gamma$(14,1/31)$.\n- ☐ Jeg tok Bayes-estimatoren som aposteriori *forventning* $\\alpha'\\beta'$ og forklarte retningen mot apriori."
+        }
+      ]
+    }
+  ],
+  "exercises": []
+}

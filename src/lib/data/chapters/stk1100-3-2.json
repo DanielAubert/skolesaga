@@ -1,0 +1,319 @@
+{
+  "id": "stk1100-3-2",
+  "courseId": "stk1100",
+  "chapterNumber": "3.2",
+  "title": "Drill: uavhengighet ved faktorisering (eget drillmål)",
+  "description": "Bevis eller motbevis uavhengighet ved å sjekke f(x,y)=f_X(x)·f_Y(y) for ALLE (x,y) — inkludert null-området sensor alltid ser etter.",
+  "estimatedMinutes": 70,
+  "competenceGoals": [
+    "bevise eller motbevise uavhengighet ved å sjekke om simultantettheten faktoriserer i produktet av marginaltetthetene",
+    "avgjøre uavhengighet fra støtten: en støtte som ikke er et rektangel gir automatisk avhengige variable",
+    "gjennomføre uavhengighetssjekken for diskrete simultanfordelinger i tabell",
+    "skille ukorrelerte fra uavhengige variable"
+  ],
+  "content": [
+    {
+      "id": "stk1100-3-2-tip-eksamensvinkel",
+      "type": "tip",
+      "title": "Eksamensvinkel",
+      "content": "**Uavhengighetssjekken er en fast, hyppig belønnet deloppgave.**\n\n- Spørsmålet «er $X$ og $Y$ uavhengige?» er en del av simultanfordelingen (sjanger D) i **~80 %** av settene, og er et eksplisitt **sensorkrav**: uavhengighet skal *bevises ved faktorisering*, ikke påstås.\n- Full uttelling krever at du sjekker $f(x,y) = f_X(x)\\,f_Y(y)$ for **alle** $(x,y)$ — også der tettheten er 0. Ett moteksempel (ett punkt/én celle i **null-området**) er nok til å motbevise uavhengighet.\n- Den farligste fella: å konkludere «uavhengig» fordi $f$ *ser ut som* et produkt (f.eks. $8xy = 8x\\cdot y$), uten å sjekke støtten. Dette drillkapitlet trener nettopp å ikke gå i den fella.\n\nDette er et rendyrket **drillkapittel**: en fast løsningsoppskrift, ett gjennomregnet eksamenscase, og elleve varianter på eksamensnivå. Sett av ca. 70 minutter."
+    },
+    {
+      "id": "stk1100-3-2-forkunnskaper",
+      "type": "text",
+      "content": "**Forkunnskaper.** Alt her bygger på **[kap. 3.1 Simultantetthet](/bok/stk1100/stk1100-3-1)** — spesielt marginaltettheten $f_X(x) = \\int f(x,y)\\,dy$ og begrepet **støtte** (området der $f > 0$). Fra [kap. 1.2](/bok/stk1100/stk1100-1-2) trenger du kovarians $\\text{Cov}(X,Y) = E(XY) - E(X)E(Y)$ til den siste nyansen (ukorrelert vs. uavhengig).\n\n**Sist du var her — de to nøkkelformlene du bruker hele veien:**\n\n$$f_X(x) = \\int f(x,y)\\,dy, \\qquad f_Y(y) = \\int f(x,y)\\,dx \\quad \\text{(marginaltetthetene)}.$$"
+    },
+    {
+      "id": "stk1100-3-2-losningsoppskrift",
+      "type": "text",
+      "content": "## Løsningsoppskrift: er $X$ og $Y$ uavhengige?\n\nFølg de fire trinnene *hver* gang — de gir sensorpoengene i riktig rekkefølge:\n\n1. **Finn begge marginaltetthetene** $f_X(x)$ og $f_Y(y)$ (integrer ut den andre variabelen). Skriv hver med sin gyldige støtte.\n2. **Dann produktet** $f_X(x)\\,f_Y(y)$.\n3. **Sammenlign med $f(x,y)$ på HELE planet — også der én eller begge er 0.** To ting kan avsløre avhengighet:\n   - *Formen:* $f(x,y) \\ne f_X(x)\\,f_Y(y)$ et sted der begge er positive.\n   - *Støtten:* er støtten til $f$ **ikke et produktområde** (ikke et rektangel med akseparallelle sider), er $X$ og $Y$ **automatisk avhengige** — uansett hvordan formelen ser ut. Da finnes det et punkt der $f = 0$ men $f_X\\,f_Y > 0$ (i null-området).\n4. **Konkluder med begrunnelse.** Uavhengig: «$f(x,y) = f_X(x)f_Y(y)$ for alle $(x,y)$». Avhengig: pek på ett moteksempel-punkt (gjerne i null-området) eller på at støtten ikke er et rektangel.\n\n**Snarvei (bruk den, men skriv begrunnelsen):** Er støtten en trekant, en disk eller på annen måte «skrå», er svaret avhengig før du regner. Er støtten et rektangel, må du sjekke *formen* med trinn 1–3.\n\n**Diskret variant (tabell):** samme idé — $p(x,y) = p_X(x)\\,p_Y(y)$ må gjelde for *hver* celle. Én **0-celle der begge marginaler er positive** motbeviser uavhengighet umiddelbart."
+    },
+    {
+      "id": "stk1100-3-2-ex-case",
+      "type": "example",
+      "title": "Gjennomregnet eksamenscase: trekantstøtte",
+      "problem": "$(X,Y)$ har simultantetthet $f(x,y) = 8xy$ på trekanten $0 < x < y < 1$, og 0 ellers. Avgjør med full begrunnelse om $X$ og $Y$ er uavhengige — og forklar hvorfor svaret ikke kan leses av produktformen $8xy$ alene.",
+      "solution": "**Trinn 1 — marginaltetthetene.** Tegn støtten først (se figur under): for en fast $x$ går $y$ fra $x$ til 1; for en fast $y$ går $x$ fra 0 til $y$.\n\n$$f_X(x) = \\int_x^1 8xy\\,dy = 8x\\Big[\\tfrac{y^2}{2}\\Big]_x^1 = 4x(1 - x^2), \\qquad 0 < x < 1.$$\n\n$$f_Y(y) = \\int_0^y 8xy\\,dx = 8y\\Big[\\tfrac{x^2}{2}\\Big]_0^y = 4y^3, \\qquad 0 < y < 1.$$\n\n*(Sensormerknad: riktige grenser — $y$ fra $x$ til 1, ikke fra 0 til 1 — gir poenget her. De følger av skissen.)*\n\n**Trinn 2 — produktet.** $f_X(x)\\,f_Y(y) = 4x(1 - x^2)\\cdot 4y^3 = 16\\,x\\,y^3(1 - x^2).$\n\n**Trinn 3 — sammenlign på hele planet.** Produktet $16xy^3(1-x^2)$ er ikke engang lik $8xy$ på trekanten, men det avgjørende poenget ligger i **null-området**: velg et punkt der $x > y$, for eksempel $(x,y) = (0{,}8,\\,0{,}3)$. Der er $f(0{,}8, 0{,}3) = 0$ (utenfor støtten), mens $f_X(0{,}8) > 0$ og $f_Y(0{,}3) > 0$, så $f_X\\,f_Y > 0$. Altså $f \\ne f_X f_Y$ i dette punktet.\n\n*(Sensormerknad: det er akkurat dette null-området sensor ser etter. Ett slikt moteksempel er nok.)*\n\n**Trinn 4 — konklusjon.** $X$ og $Y$ er **avhengige**. Grunnen er at støtten $\\{0 < x < y < 1\\}$ er en **trekant**, ikke et rektangel: kjennskap til $X = x$ begrenser $Y$ til intervallet $(x, 1)$, så $Y$ sin fordeling endrer seg med $x$.\n\n**Hvorfor produktformen lurer deg:** $8xy = 8x\\cdot y$ *ser ut* som «funksjon av $x$» ganger «funksjon av $y$». Men faktoriseringskriteriet krever likhet på **hele** planet, inkludert null-området — og der bryter det sammen. Produktformen alene sier ingenting så lenge støtten ikke er et rektangel."
+    },
+    {
+      "id": "stk1100-3-2-fig-trekant",
+      "type": "image",
+      "src": "/images/textbook/stk1100/stk1100-3-2-trekantstotte.svg",
+      "alt": "Enhetskvadrat delt av diagonalen y = x. Den øvre venstre trekanten der 0 er mindre enn x mindre enn y mindre enn 1 er skyggelagt som støtte der f er positiv; den nedre høyre trekanten er markert som null-området der f er 0.",
+      "caption": "Støtten til $f(x,y) = 8xy$ (skyggelagt trekant, $0 < x < y < 1$) og **null-området** (nedre høyre, $f = 0$). Fordi støtten ikke er et rektangel, er $X$ og $Y$ avhengige — moteksemplet finnes i null-området."
+    },
+    {
+      "id": "stk1100-3-2-ex-indep",
+      "type": "example",
+      "title": "Kontrasteksempel: produktstøtte gir uavhengighet",
+      "problem": "$(X,Y)$ har tetthet $f(x,y) = 4xy$ på enhetskvadratet $0 < x < 1$, $0 < y < 1$, og 0 ellers. Er $X$ og $Y$ uavhengige?",
+      "solution": "**Marginaler:** $f_X(x) = \\int_0^1 4xy\\,dy = 4x\\cdot\\tfrac12 = 2x$ ($0<x<1$), og tilsvarende $f_Y(y) = 2y$ ($0<y<1$).\n\n**Produkt:** $f_X(x)\\,f_Y(y) = 2x\\cdot 2y = 4xy$.\n\n**Sammenlign på hele planet:** På enhetskvadratet er $f_X f_Y = 4xy = f(x,y)$. Utenfor er *begge* sider 0 (støtten er rektangelet $(0,1)\\times(0,1)$ — et **produktområde**), så likheten holder også der.\n\n**Konklusjon:** $f(x,y) = f_X(x)f_Y(y)$ for alle $(x,y)$, så $X$ og $Y$ er **uavhengige**. Her lurer ikke produktformen: både formen *og* støtten er et produkt."
+    },
+    {
+      "id": "stk1100-3-2-oppgaver-intro",
+      "type": "text",
+      "content": "### Øvingsoppgaver — bland variantene\n\n*Tidsanslag: ca. 40 min for alle elleve. Ta gjerne pause etter oppgave 6 — de fire siste er de tyngste.*"
+    },
+    {
+      "id": "stk1100-3-2-oppg-1",
+      "type": "exercise",
+      "exercise": {
+        "id": "stk1100-3-2-e1",
+        "number": "1",
+        "type": "classic",
+        "difficulty": "lett",
+        "task": "$f(x,y) = 4xy$ er allerede vist uavhengig over. La nå $f(x,y) = 6xy^2$ på enhetskvadratet $0 < x < 1$, $0 < y < 1$. Avgjør om $X$ og $Y$ er uavhengige.",
+        "solution": "Marginaler: $f_X(x) = \\int_0^1 6xy^2\\,dy = 6x\\cdot\\tfrac13 = 2x$; $f_Y(y) = \\int_0^1 6xy^2\\,dx = 6y^2\\cdot\\tfrac12 = 3y^2$.\n\nProdukt: $f_X f_Y = 2x\\cdot 3y^2 = 6xy^2 = f(x,y)$, og støtten er rektangelet $(0,1)\\times(0,1)$. Likheten holder på hele planet.\n\n**Uavhengige.**",
+        "hints": [
+          "Finn $f_X(x)$ og $f_Y(y)$, dann produktet, sammenlign med $f$.",
+          "Støtten er et rektangel — sjekk bare formen."
+        ]
+      }
+    },
+    {
+      "id": "stk1100-3-2-oppg-2",
+      "type": "exercise",
+      "exercise": {
+        "id": "stk1100-3-2-e2",
+        "number": "2",
+        "type": "classic",
+        "difficulty": "lett",
+        "task": "$X$ og $Y$ har simultantetthet $f(x,y) = e^{-(x+y)}$ på $x > 0$, $y > 0$, og 0 ellers. (Dette er to eksponensialfordelinger i **rate-parametrisering med rate 1**, $\\lambda = 1$.) Er de uavhengige?",
+        "solution": "Marginaler: $f_X(x) = \\int_0^\\infty e^{-(x+y)}\\,dy = e^{-x}\\int_0^\\infty e^{-y}\\,dy = e^{-x}$ ($x>0$); tilsvarende $f_Y(y) = e^{-y}$ ($y>0$).\n\nProdukt: $f_X f_Y = e^{-x}e^{-y} = e^{-(x+y)} = f(x,y)$. Støtten er første kvadrant $(0,\\infty)\\times(0,\\infty)$ — et produktområde.\n\n**Uavhengige** (to uavhengige eksponensialvariable med rate 1).",
+        "hints": [
+          "Skriv $e^{-(x+y)} = e^{-x}\\,e^{-y}$ og integrer hver del for seg.",
+          "Første kvadrant er et produktområde, så sjekk formen."
+        ]
+      }
+    },
+    {
+      "id": "stk1100-3-2-oppg-3",
+      "type": "exercise",
+      "exercise": {
+        "id": "stk1100-3-2-e3",
+        "number": "3",
+        "type": "classic",
+        "difficulty": "lett",
+        "task": "Er variablene uavhengige når $f(x,y) = \\tfrac{1}{4}$ på rektangelet $0 < x < 2$, $0 < y < 2$ (uniform), og 0 ellers?",
+        "solution": "Marginaler: $f_X(x) = \\int_0^2 \\tfrac14\\,dy = \\tfrac12$ ($0<x<2$); $f_Y(y) = \\tfrac12$ ($0<y<2$).\n\nProdukt: $f_X f_Y = \\tfrac12\\cdot\\tfrac12 = \\tfrac14 = f(x,y)$ på rektangelet, og 0 = 0 utenfor.\n\n**Uavhengige.** En uniform fordeling på et *rektangel* gir alltid uavhengige koordinater.",
+        "hints": [
+          "Marginalene til en uniform fordeling er også uniforme.",
+          "Rektangulær støtte + konstant tetthet: sjekk produktet."
+        ]
+      }
+    },
+    {
+      "id": "stk1100-3-2-oppg-4",
+      "type": "exercise",
+      "exercise": {
+        "id": "stk1100-3-2-e4",
+        "number": "4",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "$f(x,y) = x + y$ på enhetskvadratet $0 < x < 1$, $0 < y < 1$. Støtten er et rektangel. Er $X$ og $Y$ uavhengige?",
+        "solution": "Marginaler (fra kap. 3.1): $f_X(x) = x + \\tfrac12$, $f_Y(y) = y + \\tfrac12$.\n\nProdukt: $f_X f_Y = (x+\\tfrac12)(y+\\tfrac12) = xy + \\tfrac{x}{2} + \\tfrac{y}{2} + \\tfrac14$.\n\nSammenlign med $f(x,y) = x + y$: de er *ikke* like. For eksempel i $(x,y) = (0{,}2,\\,0{,}2)$ er $f = 0{,}4$, mens $f_X f_Y = 0{,}7\\cdot 0{,}7 = 0{,}49$.\n\n**Avhengige.** Her er støtten et rektangel, men *formen* faktoriserer ikke — en sum $x + y$ kan ikke skrives som $g(x)h(y)$.",
+        "hints": [
+          "Rektangulær støtte betyr at du må sjekke formen — dann $f_X f_Y$.",
+          "En sum $x + y$ er ikke et produkt av en $x$-del og en $y$-del."
+        ]
+      }
+    },
+    {
+      "id": "stk1100-3-2-oppg-5",
+      "type": "exercise",
+      "exercise": {
+        "id": "stk1100-3-2-e5",
+        "number": "5",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "$(X,Y)$ er **uniform på trekanten** $0 < x < y < 1$, altså $f(x,y) = 2$ der, og 0 ellers. Avgjør om $X$ og $Y$ er uavhengige.",
+        "solution": "Marginaler: $f_X(x) = \\int_x^1 2\\,dy = 2(1 - x)$ ($0<x<1$); $f_Y(y) = \\int_0^y 2\\,dx = 2y$ ($0<y<1$).\n\nProdukt: $f_X f_Y = 2(1-x)\\cdot 2y = 4y(1 - x)$, som ikke er lik $f = 2$.\n\nMen det avgjørende: støtten er en **trekant**. I null-området, f.eks. $(x,y) = (0{,}7,\\,0{,}2)$, er $f = 0$ mens $f_X(0{,}7)f_Y(0{,}2) > 0$.\n\n**Avhengige** — trekantstøtte gir alltid avhengighet.",
+        "hints": [
+          "Uniform betyr $f$ konstant på støtten; finn konstanten fra areal om nødvendig (her oppgitt som 2).",
+          "Støtten er en trekant — pek på et null-områdepunkt."
+        ]
+      }
+    },
+    {
+      "id": "stk1100-3-2-oppg-6",
+      "type": "exercise",
+      "exercise": {
+        "id": "stk1100-3-2-e6",
+        "number": "6",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "$f(x,y) = 6x$ på trekanten $0 < x < y < 1$, og 0 ellers. \n\n**a)** Vis at $\\iint f = 1$.\n**b)** Avgjør om $X$ og $Y$ er uavhengige.",
+        "solution": "**a)** $\\int_0^1 \\int_0^y 6x\\,dx\\,dy = \\int_0^1 6\\cdot\\tfrac{y^2}{2}\\,dy = \\int_0^1 3y^2\\,dy = 1.$ ✓\n\n**b)** Marginaler: $f_X(x) = \\int_x^1 6x\\,dy = 6x(1 - x)$ ($0<x<1$); $f_Y(y) = \\int_0^y 6x\\,dx = 3y^2$ ($0<y<1$).\n\nProdukt: $f_X f_Y = 6x(1-x)\\cdot 3y^2 = 18xy^2(1 - x) \\ne 6x$. Og støtten er en trekant, så null-området avgjør uansett (f.eks. $(0{,}9, 0{,}1)$: $f = 0$, men $f_X f_Y > 0$).\n\n**Avhengige.** Merk: $f = 6x$ ser ut som «bare en funksjon av $x$», men trekantstøtten kobler likevel $X$ og $Y$.",
+        "hints": [
+          "I a): integrer $x$ innerst fra 0 til $y$.",
+          "I b): trekantstøtte — svaret er avhengig; vis moteksemplet i null-området."
+        ]
+      }
+    },
+    {
+      "id": "stk1100-3-2-oppg-7",
+      "type": "exercise",
+      "exercise": {
+        "id": "stk1100-3-2-e7",
+        "number": "7",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "$(X,Y)$ har diskret simultanfordeling:\n\n| $p(x,y)$ | $Y=0$ | $Y=1$ | $Y=2$ |\n|---|---|---|---|\n| $X=0$ | $0{,}08$ | $0{,}20$ | $0{,}12$ |\n| $X=1$ | $0{,}12$ | $0{,}30$ | $0{,}18$ |\n\nAvgjør om $X$ og $Y$ er uavhengige.",
+        "solution": "Marginaler: $p_X(0) = 0{,}40$, $p_X(1) = 0{,}60$; $p_Y(0) = 0{,}20$, $p_Y(1) = 0{,}50$, $p_Y(2) = 0{,}30$.\n\nSjekk hver celle mot produktet: $p_X(0)p_Y(0) = 0{,}40\\cdot 0{,}20 = 0{,}08 = p(0,0)$ ✓; $p_X(0)p_Y(1) = 0{,}40\\cdot 0{,}50 = 0{,}20 = p(0,1)$ ✓; $p_X(1)p_Y(2) = 0{,}60\\cdot 0{,}30 = 0{,}18 = p(1,2)$ ✓ — og alle de øvrige stemmer også.\n\n**Uavhengige** — hver celle er nøyaktig radsum ganger kolonnesum.",
+        "hints": [
+          "Regn radmarginaler $p_X$ og kolonnemarginaler $p_Y$.",
+          "Uavhengighet krever $p(x,y) = p_X(x)p_Y(y)$ i *hver* celle."
+        ]
+      }
+    },
+    {
+      "id": "stk1100-3-2-oppg-8",
+      "type": "exercise",
+      "exercise": {
+        "id": "stk1100-3-2-e8",
+        "number": "8",
+        "type": "classic",
+        "difficulty": "vanskelig",
+        "task": "$(X,Y)$ har tabellen:\n\n| $p(x,y)$ | $Y=0$ | $Y=1$ | $Y=2$ |\n|---|---|---|---|\n| $X=0$ | $0{,}25$ | $0{,}25$ | $0$ |\n| $X=1$ | $0$ | $0{,}25$ | $0{,}25$ |\n\nAvgjør om $X$ og $Y$ er uavhengige, og begrunn med det diskrete null-området.",
+        "solution": "Marginaler: $p_X(0) = 0{,}50$, $p_X(1) = 0{,}50$; $p_Y(0) = 0{,}25$, $p_Y(1) = 0{,}50$, $p_Y(2) = 0{,}25$.\n\nSe på **0-cellen** $p(0,2) = 0$. Men $p_X(0)\\,p_Y(2) = 0{,}50\\cdot 0{,}25 = 0{,}125 \\ne 0$. Én celle bryter faktoriseringen.\n\n**Avhengige.** Dette er den diskrete parallellen til null-området: en 0-celle der *begge* marginaler er positive motbeviser uavhengighet umiddelbart.",
+        "hints": [
+          "Let etter en celle som er 0 mens både radsummen og kolonnesummen er positive.",
+          "$p(0,2) = 0$ men $p_X(0)p_Y(2) = 0{,}125$."
+        ]
+      }
+    },
+    {
+      "id": "stk1100-3-2-oppg-9",
+      "type": "exercise",
+      "exercise": {
+        "id": "stk1100-3-2-e9",
+        "number": "9",
+        "type": "classic",
+        "difficulty": "vanskelig",
+        "task": "$(X,Y)$ har tabellen (ingen nullceller):\n\n| $p(x,y)$ | $Y=0$ | $Y=1$ |\n|---|---|---|\n| $X=0$ | $0{,}10$ | $0{,}40$ |\n| $X=1$ | $0{,}30$ | $0{,}20$ |\n\nAvgjør om $X$ og $Y$ er uavhengige.",
+        "solution": "Marginaler: $p_X(0) = 0{,}50$, $p_X(1) = 0{,}50$; $p_Y(0) = 0{,}40$, $p_Y(1) = 0{,}60$.\n\nSjekk cellen $(0,0)$: $p_X(0)\\,p_Y(0) = 0{,}50\\cdot 0{,}40 = 0{,}20$, men $p(0,0) = 0{,}10$. Ulikt.\n\n**Avhengige.** Her finnes ingen 0-celler, så du må sjekke *formen*: minst én celle avviker fra produktet av marginalene.",
+        "hints": [
+          "Ingen nullceller her — regn produktet radsum·kolonnesum for en celle.",
+          "$p_X(0)p_Y(0) = 0{,}20 \\ne 0{,}10 = p(0,0)$."
+        ]
+      }
+    },
+    {
+      "id": "stk1100-3-2-oppg-10",
+      "type": "exercise",
+      "exercise": {
+        "id": "stk1100-3-2-e10",
+        "number": "10",
+        "type": "classic",
+        "difficulty": "vanskelig",
+        "task": "La $X$ ta verdiene $-1, 0, 1$ med sannsynlighet $\\tfrac13$ hver, og sett $Y = X^2$. \n\n**a)** Vis at $\\text{Cov}(X,Y) = 0$ (altså at $X$ og $Y$ er *ukorrelerte*).\n**b)** Vis at $X$ og $Y$ likevel er *avhengige*.",
+        "solution": "Simultanfordelingen: $(X,Y)$ tar $(-1,1)$, $(0,0)$, $(1,1)$, hver med sannsynlighet $\\tfrac13$. Marginaler: $p_X(-1)=p_X(0)=p_X(1)=\\tfrac13$; $p_Y(0) = \\tfrac13$, $p_Y(1) = \\tfrac23$.\n\n**a)** $E(X) = \\tfrac13(-1 + 0 + 1) = 0$. $E(XY) = E(X^3) = \\tfrac13((-1)^3 + 0 + 1^3) = 0$. Da $\\text{Cov}(X,Y) = E(XY) - E(X)E(Y) = 0 - 0 = 0$. **Ukorrelerte.**\n\n**b)** Sjekk cellen $(X,Y) = (0,0)$: $p(0,0) = \\tfrac13$, men $p_X(0)\\,p_Y(0) = \\tfrac13\\cdot\\tfrac13 = \\tfrac19 \\ne \\tfrac13$. Så faktoriseringen brytes. **Avhengige.**\n\nKonklusjon: $\\text{Cov} = 0$ (ukorrelert) betyr *ikke* uavhengig. Her bestemmer $X$ verdien til $Y$ fullstendig, men den *lineære* samvariasjonen er 0.",
+        "hints": [
+          "I a): $Y = X^2$ gir $XY = X^3$; bruk symmetrien om 0.",
+          "I b): finn én celle der $p(x,y) \\ne p_X(x)p_Y(y)$ — prøv $(0,0)$."
+        ]
+      }
+    },
+    {
+      "id": "stk1100-3-2-oppg-11",
+      "type": "exercise",
+      "exercise": {
+        "id": "stk1100-3-2-e11",
+        "number": "11",
+        "type": "classic",
+        "difficulty": "vanskelig",
+        "task": "Et vanlig feilresonnement lyder: «$f(x,y) = 8xy$ på $0 < x < y < 1$ faktoriserer som $8x\\cdot y$, altså er $X$ og $Y$ uavhengige.» Motbevis påstanden presist, og forklar hvor resonnementet svikter.",
+        "solution": "Påstanden er **feil** — $X$ og $Y$ er avhengige (vist i eksamenscaset over). Feilen i resonnementet:\n\nFaktoriseringskriteriet krever $f(x,y) = f_X(x)\\,f_Y(y)$ for **alle** $(x,y)$, med de *virkelige* marginalene. Her er $f_X(x) = 4x(1 - x^2)$ og $f_Y(y) = 4y^3$, så $f_X f_Y = 16xy^3(1 - x^2) \\ne 8xy$. Å splitte selve formelen som «$8x$ ganger $y$» gir *ikke* marginalene — og ignorerer at støtten $\\{0 < x < y < 1\\}$ er en trekant.\n\nMoteksempel i null-området: i $(x,y) = (0{,}6, 0{,}2)$ er $f = 0$ (fordi $x > y$), men $f_X(0{,}6)f_Y(0{,}2) > 0$. Ett slikt punkt motbeviser uavhengighet.\n\n**Kjerneleksjon:** en formel som *ser ut som* et produkt beviser ingenting så lenge støtten ikke er et rektangel.",
+        "hints": [
+          "De ekte marginalene er $f_X = 4x(1-x^2)$ og $f_Y = 4y^3$, ikke «$8x$» og «$y$».",
+          "Finn et punkt med $x > y$ der $f = 0$ men $f_X f_Y > 0$."
+        ]
+      }
+    },
+    {
+      "id": "stk1100-3-2-typiske-feil",
+      "type": "warning",
+      "title": "Typiske feil",
+      "content": "- **Sjekke faktoriseringen bare der $f > 0$.** Den klassiske tabben. Du *må* inkludere null-området: en trekant- eller disk-støtte gir alltid avhengighet, uansett formel.\n- **Konkludere «uavhengig» fordi $f$ ser ut som et produkt** ($8xy$, $6x$ …) uten å sjekke støtten. Produktformen alene beviser ingenting.\n- **Splitte formelen i stedet for å finne de ekte marginalene.** «$8xy = 8x\\cdot y$» gir ikke $f_X$ og $f_Y$ — de får du bare ved å integrere.\n- **Slutte fra ukorrelert til uavhengig.** $\\text{Cov}(X,Y) = 0$ betyr bare at det ikke er *lineær* samvariasjon; variablene kan fortsatt være avhengige.\n- **Diskret: overse en 0-celle.** Én celle med $p(x,y) = 0$ mens begge marginaler er positive motbeviser uavhengighet med én gang."
+    },
+    {
+      "id": "stk1100-3-2-formelkort-intro",
+      "type": "text",
+      "content": "### Oppskrifts- og formelkort\n\n*Flashcard-stoff — hopp trygt over ved førstegangslesing. Kortene destillerer sjekken til korte regler du kan pugge.*"
+    },
+    {
+      "id": "stk1100-3-2-bb-faktoriseringskriteriet",
+      "type": "definition",
+      "title": "Faktoriseringskriteriet (kontinuerlig)",
+      "content": "Hovedregelen for uavhengighet: fordelingen til den ene endres ikke av den andre. Formelt er $X$ og $Y$ **uavhengige** hviss simultantettheten faktoriserer,\n\n$$f(x,y) = f_X(x)\\,f_Y(y) \\quad \\text{for ALLE } (x,y),$$\n\nmed de *ekte* marginaltetthetene. «For alle» inkluderer null-området."
+    },
+    {
+      "id": "stk1100-3-2-bb-stottekriteriet",
+      "type": "definition",
+      "title": "Støttekriteriet (snarveien)",
+      "content": "En rask forhåndssjekk på støtten alene. Er støtten til $f$ **ikke et produktområde** (ikke et akseparallelt rektangel) — for eksempel en trekant, en disk eller et skrått bånd — er $X$ og $Y$ **automatisk avhengige**. Er støtten et rektangel, må du i tillegg sjekke formen $f = f_X f_Y$."
+    },
+    {
+      "id": "stk1100-3-2-bb-produktomrade",
+      "type": "definition",
+      "title": "Produktområde",
+      "content": "Et område der $x$- og $y$-grensene er uavhengige av hverandre — et rektangel $\\{a<x<b,\\ c<y<d\\}$ (eventuelt uendelig, som første kvadrant). Uavhengige variable *må* ha en slik støtte. Kjennetegn: den ene variabelens mulige verdier avhenger ikke av den andres verdi."
+    },
+    {
+      "id": "stk1100-3-2-bb-nullomradet",
+      "type": "definition",
+      "title": "Null-området",
+      "content": "Området der tettheten er 0, altså utenfor støtten. Det er her uavhengighet oftest brytes: finnes det ett punkt med $f(x,y) = 0$ mens $f_X(x)\\,f_Y(y) > 0$, er variablene avhengige. Sensor leter alltid etter et slikt moteksempel — så nevn det eksplisitt."
+    },
+    {
+      "id": "stk1100-3-2-bb-diskret-kriterium",
+      "type": "definition",
+      "title": "Faktoriseringskriteriet (diskret)",
+      "content": "Tabellversjonen: $X$ og $Y$ er **uavhengige** hviss $p(x,y) = p_X(x)\\,p_Y(y)$ for **hver** celle $(x,y)$. Hvor $p_X$ er radsummene og $p_Y$ kolonnesummene. Én celle som bryter likheten er nok til å motbevise."
+    },
+    {
+      "id": "stk1100-3-2-bb-nullcelle",
+      "type": "definition",
+      "title": "0-celle-regelen (diskret)",
+      "content": "En rask motbevis-regel for tabeller: er det en celle med $p(x,y) = 0$ mens *både* radsummen $p_X(x)$ og kolonnesummen $p_Y(y)$ er positive, er $X$ og $Y$ **avhengige** — umiddelbart, uten å sjekke resten. Den diskrete parallellen til null-området."
+    },
+    {
+      "id": "stk1100-3-2-bb-ukorrelert",
+      "type": "definition",
+      "title": "Ukorrelert",
+      "content": "To variable er **ukorrelerte** når kovariansen er null: $\\text{Cov}(X,Y) = E(XY) - E(X)E(Y) = 0$. Dette måler fravær av *lineær* samvariasjon — ikke fravær av all avhengighet."
+    },
+    {
+      "id": "stk1100-3-2-bb-uavh-medfoerer-ukorr",
+      "type": "definition",
+      "title": "Uavhengig medfører ukorrelert",
+      "content": "Er $X$ og $Y$ **uavhengige**, så er $E(XY) = E(X)E(Y)$, og dermed $\\text{Cov}(X,Y) = 0$: de er også ukorrelerte. Denne retningen holder alltid — uavhengighet er den sterkere egenskapen."
+    },
+    {
+      "id": "stk1100-3-2-bb-ikke-omvendt",
+      "type": "definition",
+      "title": "Ukorrelert medfører IKKE uavhengig",
+      "content": "Den omvendte veien svikter: $\\text{Cov}(X,Y) = 0$ betyr *ikke* at $X$ og $Y$ er uavhengige. Standard moteksempel: $X \\in \\{-1,0,1\\}$ likt fordelt og $Y = X^2$ gir $\\text{Cov} = 0$, men $Y$ er fullstendig bestemt av $X$. Ukorrelert er svakere enn uavhengig."
+    },
+    {
+      "id": "stk1100-3-2-bb-faktoriseringstriks",
+      "type": "definition",
+      "title": "Faktoriseringstrikset — og fella",
+      "content": "Ser tettheten ut som $f(x,y) = g(x)\\,h(y)$ **på en rektangulær støtte**, *er* $X$ og $Y$ uavhengige (marginalene blir proporsjonale med $g$ og $h$). Men gjelder produktformen bare på en **skrå** støtte (trekant/disk), er variablene avhengige uansett — fella er å bruke trikset uten å sjekke at støtten er et rektangel."
+    },
+    {
+      "id": "stk1100-3-2-symbolliste",
+      "type": "collapsible",
+      "title": "Symbol- og formelliste",
+      "buttonText": "Vis symboler og formler",
+      "content": [
+        {
+          "id": "stk1100-3-2-symbolliste-text",
+          "type": "text",
+          "content": "## Symbol- og formelliste\n\n*Oppslagsverk — alt her forklares underveis i kapitlet.*\n\n| Symbol | Betydning |\n|---|---|\n| $f(x,y)$ | Simultantetthet til $(X,Y)$ |\n| $f_X(x),\\, f_Y(y)$ | Marginaltettheter (integrer ut den andre variabelen) |\n| $p(x,y)$ | Diskret simultan punktsannsynlighet |\n| $p_X(x),\\, p_Y(y)$ | Diskrete marginaler (radsum / kolonnesum) |\n| støtte | Området der $f > 0$ |\n| null-området | Området der $f = 0$ (utenfor støtten) |\n| $\\text{Cov}(X,Y)$ | Kovarians, $E(XY) - E(X)E(Y)$ |\n| $\\lambda$ | Rate i eksponensialfordelingen $f(x) = \\lambda e^{-\\lambda x}$ |\n\n**Formler i dette kapitlet:**\n\n$$f(x,y) = f_X(x)\\,f_Y(y)\\ \\text{for alle }(x,y) \\iff X, Y \\text{ uavhengige (kontinuerlig)}$$\n\n$$p(x,y) = p_X(x)\\,p_Y(y)\\ \\text{for alle celler} \\iff X, Y \\text{ uavhengige (diskret)}$$\n\n$$f_X(x) = \\int f(x,y)\\,dy, \\qquad f_Y(y) = \\int f(x,y)\\,dx \\quad \\text{(marginaltetthetene)}$$\n\n$$\\text{Cov}(X,Y) = E(XY) - E(X)E(Y) = 0 \\quad \\text{(ukorrelert — svakere enn uavhengig)}$$\n\n$$X, Y \\text{ uavhengige} \\;\\Rightarrow\\; \\text{ukorrelerte}, \\quad \\text{men ikke omvendt}$$"
+        }
+      ]
+    }
+  ],
+  "exercises": []
+}

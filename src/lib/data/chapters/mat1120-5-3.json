@@ -1,0 +1,385 @@
+{
+  "id": "mat1120-5-3",
+  "courseId": "mat1120",
+  "chapterNumber": "5.3",
+  "title": "Drill: projeksjon og minste kvadrater kjedet",
+  "description": "Hele oppgave 1-halen drillet kjedet: fra samme matrise — ortogonal basis (Gram–Schmidt) → projeksjon → minste kvadrater (begge veier) → avstand → W⊥ — inkludert ikke-standard indreprodukt og affin løsning.",
+  "estimatedMinutes": 85,
+  "competenceGoals": [
+    "kjede ortogonal basis, projeksjon, minste kvadrater, avstand og W⊥ på samme matrise med korrekt vedleggssitering",
+    "velge mellom normallikninger og projeksjonssnarvei og bruke koblingen proj_W b = Cx̂",
+    "skille entydig løsning (full kolonnerang) fra affin løsning (rangdefekt) og gjenkjenne det oppgitte indreproduktet",
+    "unngå hele fellekatalogen fra 5.1–5.2 under tidspress"
+  ],
+  "content": [
+    {
+      "id": "mat1120-5-3-tip",
+      "type": "tip",
+      "title": "Eksamensvinkel",
+      "content": "**Dette er oppgave 1-halen drillet til automatikk.** I praktisk talt hvert sett kjedes projeksjon og minste kvadrater på **samme matrise** som $\\operatorname{Col}/\\operatorname{Nul}$-oppgaven (sjanger B + C, ~100 %). Denne drillen kobler alt fra [kap. 5.1](/bok/mat1120/mat1120-5-1) og [kap. 5.2](/bok/mat1120/mat1120-5-2): ortogonal basis → projeksjon → minste kvadrater (begge veier) → avstand → $W^{\\perp}$ — inkludert ikke-standard indreprodukt og affin løsning.\n\n**De to karakterskillerne** du driller her: (1) **ortogonal basis FØR projeksjon** (Gram–Schmidt hvis den ikke er ortogonal), og (2) **affin løsning ved rangdefekt** (partikulær $+\\operatorname{Nul}C$, ikke ett entydig svar).\n\n*~85 min. Ta gjerne den gjennomregnede casen først, så oppgavene i din egen takt — de stiger i vanskegrad.*"
+    },
+    {
+      "id": "mat1120-5-3-forkunnskaper",
+      "type": "text",
+      "content": "**Forkunnskaper:**\n\n- [Kap. 5.1](/bok/mat1120/mat1120-5-1) — ortogonal projeksjon, dekomposisjon, $W^{\\perp}$ og avstand\n- [Kap. 5.2](/bok/mat1120/mat1120-5-2) — minste kvadrater: normallikninger, projeksjonssnarvei, affin løsning\n- [Kap. 4.2](/bok/mat1120/mat1120-4-2) — ortogonal basis / Gram–Schmidt\n\nAlle metodene er innført der; her kjeder vi dem på eksamensnivå."
+    },
+    {
+      "id": "mat1120-5-3-oppskrift",
+      "type": "text",
+      "content": "## Løsningsoppskrift — projeksjon og minste kvadrater kjedet\n\nSamme fem steg dekker hele oppgave 1-halen. Følg dem i rekkefølge:\n\n**1. Identifiser indreproduktet.** Standard, vektet, integral eller evaluering? Alt som følger regnes med *dette* indreproduktet — også norm og Gram–Schmidt. (Felle nr. 1.)\n\n**2. Skaff en ortogonal basis for $W$** — men bare hvis du skal bruke projeksjonsformelen. Er den utleverte basisen ikke ortogonal, kjør Gram–Schmidt (skalér til heltall). (Felle nr. 4.)\n\n**3. Velg vei til minste kvadrater:**\n- **Normallikninger** $C^{T}C\\hat{\\mathbf{x}}=C^{T}\\mathbf{b}$ — les den lille RREF-en fra vedlegget.\n- **Projeksjonssnarvei** — regn $\\mathbf{p}=\\operatorname{proj}_W\\mathbf{b}$ og løs $C\\mathbf{x}=\\mathbf{p}$. Bruk denne hvis du allerede har projisert.\n\n**4. Sjekk full kolonnerang.** Uavhengige kolonner ⇒ entydig $\\hat{\\mathbf{x}}$. Avhengige kolonner (rangdefekt) ⇒ **affin** løsning $\\hat{\\mathbf{x}}_p+\\operatorname{Nul}C$. Si det eksplisitt. (Felle nr. 5.)\n\n**5. Avstand og $W^{\\perp}$.** Avstand $=\\|\\mathbf{b}-C\\hat{\\mathbf{x}}\\|=\\|\\mathbf{z}\\|$ (residualets norm, ikke $\\|C\\hat{\\mathbf{x}}\\|$). $W^{\\perp}$-basis via $\\operatorname{Nul}(A^{T})$ (husk $\\dim W+\\dim W^{\\perp}=\\dim(\\text{rom})$).\n\n**Koblingen du gjenbruker hele veien:** $\\operatorname{proj}_W\\mathbf{b}=C\\hat{\\mathbf{x}}$ — projeksjon og minste kvadrater er to sider av samme sak."
+    },
+    {
+      "id": "mat1120-5-3-m-indreprodukt",
+      "type": "definition",
+      "title": "Regel 1: Identifiser indreproduktet først",
+      "content": "Før noe regnes: er indreproduktet standard, vektet, integral eller evaluering? *Alle* skalarprodukt, normer og Gram–Schmidt-ledd i hele oppgaven bruker den oppgitte definisjonen. Å falle tilbake på standardprikkproduktet ett sted er felle nr. 1."
+    },
+    {
+      "id": "mat1120-5-3-m-ortobasis",
+      "type": "definition",
+      "title": "Regel 2: Ortogonal basis før projeksjon",
+      "content": "Projeksjonsformelen $\\operatorname{proj}_W\\mathbf{y}=\\sum\\frac{\\langle\\mathbf{y},\\mathbf{v}_i\\rangle}{\\langle\\mathbf{v}_i,\\mathbf{v}_i\\rangle}\\mathbf{v}_i$ krever en ortogonal basis. Er den utleverte basisen ikke ortogonal, kjør Gram–Schmidt (skalér til heltall) først. Felle nr. 4."
+    },
+    {
+      "id": "mat1120-5-3-m-normal",
+      "type": "definition",
+      "title": "Regel 3a: Normallikningene",
+      "content": "$C^{T}C\\hat{\\mathbf{x}}=C^{T}\\mathbf{b}$ — sett opp $C^{T}C$ (kvadratisk) og $C^{T}\\mathbf{b}$ for hånd, og les RREF-en av det lille systemet fra vedlegget. Radreduser aldri normallikningene for hånd hvis vedlegget gir dem."
+    },
+    {
+      "id": "mat1120-5-3-m-snarvei",
+      "type": "definition",
+      "title": "Regel 3b: Projeksjonssnarveien",
+      "content": "Regn $\\mathbf{p}=\\operatorname{proj}_W\\mathbf{b}$ direkte og løs det konsistente $C\\mathbf{x}=\\mathbf{p}$. Belønnes særlig når projeksjonen allerede er regnet i en tidligere deloppgave. Gir samme $C\\hat{\\mathbf{x}}$ som normallikningene."
+    },
+    {
+      "id": "mat1120-5-3-m-affin",
+      "type": "definition",
+      "title": "Regel 4: Full kolonnerang eller affin",
+      "content": "Uavhengige kolonner ($C^{T}C$ invertibel) ⇒ entydig $\\hat{\\mathbf{x}}$. Avhengige kolonner (rangdefekt) ⇒ **affin** løsning $\\hat{\\mathbf{x}}_p+\\operatorname{Nul}C$. Skriv eksplisitt hvilket tilfelle det er. Felle nr. 5."
+    },
+    {
+      "id": "mat1120-5-3-m-avstand",
+      "type": "definition",
+      "title": "Regel 5a: Avstand = residualets norm",
+      "content": "$d(\\mathbf{b},W)=\\|\\mathbf{b}-C\\hat{\\mathbf{x}}\\|=\\|\\mathbf{z}\\|$ — normen av resten, **ikke** $\\|C\\hat{\\mathbf{x}}\\|$ og ikke $\\|\\hat{\\mathbf{x}}\\|$. Regnes i det oppgitte indreproduktet."
+    },
+    {
+      "id": "mat1120-5-3-m-wperp",
+      "type": "definition",
+      "title": "Regel 5b: $W^{\\perp}$-basis",
+      "content": "Basis for $W^{\\perp}=(\\operatorname{Col}A)^{\\perp}=\\operatorname{Nul}(A^{T})$. Antall vektorer er $\\dim(\\text{rom})-\\dim W$ — oppgi ikke bare restvektoren $\\mathbf{z}$ hvis $\\dim W^{\\perp}>1$."
+    },
+    {
+      "id": "mat1120-5-3-m-kobling",
+      "type": "definition",
+      "title": "Regel: Koblingen $\\operatorname{proj}_W\\mathbf{b}=C\\hat{\\mathbf{x}}$",
+      "content": "Projeksjon og minste kvadrater er samme sak: $C\\hat{\\mathbf{x}}$ er projeksjonen av $\\mathbf{b}$ på $\\operatorname{Col}C$, samme for alle (evt. affine) løsninger. Bruk den til gratis kontroll og til å hoppe mellom de to veiene."
+    },
+    {
+      "id": "mat1120-5-3-case",
+      "type": "example",
+      "title": "Gjennomregnet O1-hale-case (sensor-kommentert)",
+      "problem": "Samme matrise gjennom hele oppgaven (standardprikkprodukt):\n$$C=\\begin{bmatrix}1&0\\\\1&1\\\\1&2\\\\1&3\\end{bmatrix},\\qquad \\mathbf{b}=\\begin{bmatrix}3\\\\1\\\\5\\\\5\\end{bmatrix},\\qquad W=\\operatorname{Col}C.$$\nVedlegget gir $\\operatorname{rref}\\big[\\,C^{T}C\\mid C^{T}\\mathbf{b}\\,\\big]=\\begin{bmatrix}1&0&2\\\\0&1&1\\end{bmatrix}.$\n\n**a)** Finn en ortogonal basis for $W$.\n**b)** Projiser $\\mathbf{b}$ ned på $W$ og finn avstanden $d(\\mathbf{b},W)$.\n**c)** Finn en minste kvadraters løsning av $C\\mathbf{x}=\\mathbf{b}$, og kontroller koblingen $\\operatorname{proj}_W\\mathbf{b}=C\\hat{\\mathbf{x}}$.\n**d)** Oppgi en basis for $W^{\\perp}$.",
+      "solution": "**a) Ortogonal basis (Gram–Schmidt).** Kolonnene $\\mathbf{c}_1=(1,1,1,1)$, $\\mathbf{c}_2=(0,1,2,3)$ er ikke ortogonale ($\\langle\\mathbf{c}_1,\\mathbf{c}_2\\rangle=6\\ne0$). *(Sensormerknad: her sitter felle nr. 4 — du kan ikke projisere på $\\mathbf{c}_1,\\mathbf{c}_2$ direkte.)*\n$$\\mathbf{v}_1=(1,1,1,1),\\quad \\mathbf{v}_2=\\mathbf{c}_2-\\tfrac{6}{4}\\mathbf{v}_1=\\left(-\\tfrac32,-\\tfrac12,\\tfrac12,\\tfrac32\\right)\\xrightarrow{\\times2}(-3,-1,1,3).$$\nOrtogonal basis: $\\{(1,1,1,1),(-3,-1,1,3)\\}$, med $\\langle\\mathbf{v}_1,\\mathbf{v}_1\\rangle=4$, $\\langle\\mathbf{v}_2,\\mathbf{v}_2\\rangle=20$.\n\n**b) Projeksjon og avstand.**\n$$c_1=\\frac{\\langle\\mathbf{b},\\mathbf{v}_1\\rangle}{4}=\\frac{3+1+5+5}{4}=\\frac{14}{4}=\\frac72,\\quad c_2=\\frac{\\langle\\mathbf{b},\\mathbf{v}_2\\rangle}{20}=\\frac{-9-1+5+15}{20}=\\frac{10}{20}=\\frac12.$$\n$$\\hat{\\mathbf{b}}=\\tfrac72(1,1,1,1)+\\tfrac12(-3,-1,1,3)=(2,3,4,5).$$\nResidual $\\mathbf{z}=\\mathbf{b}-\\hat{\\mathbf{b}}=(3,1,5,5)-(2,3,4,5)=(1,-2,1,0)$, så\n$$d(\\mathbf{b},W)=\\|\\mathbf{z}\\|=\\sqrt{1+4+1+0}=\\sqrt6.$$\n*(Sensormerknad: avstanden er $\\|\\mathbf{z}\\|$, ikke $\\|\\hat{\\mathbf{b}}\\|$.)*\n\n**c) Minste kvadrater.** Normallikningene: $C^{T}C=\\begin{bmatrix}4&6\\\\6&14\\end{bmatrix}$, $C^{T}\\mathbf{b}=\\begin{bmatrix}14\\\\26\\end{bmatrix}$. Fra vedleggets RREF: $\\hat{\\mathbf{x}}=(2,1)$. Kolonnene er uavhengige (full kolonnerang), så løsningen er **entydig**. **Kobling:** $C\\hat{\\mathbf{x}}=2(1,1,1,1)+1(0,1,2,3)=(2,3,4,5)=\\hat{\\mathbf{b}}.$ ✓ *(Sensormerknad: koblingen $\\operatorname{proj}_W\\mathbf{b}=C\\hat{\\mathbf{x}}$ bekrefter begge deler i ett.)*\n\n**d) $W^{\\perp}$-basis.** $\\dim W^{\\perp}=4-2=2$, så $\\mathbf{z}$ alene er ikke nok. Løs $A^{T}\\mathbf{n}=\\mathbf{0}$ med $A=C$: en basis er $\\{(1,-2,1,0),(2,-3,0,1)\\}$. **Konklusjon:** projeksjonen er $(2,3,4,5)$, avstanden $\\sqrt6$, minste kvadraters løsning $(2,1)$ (entydig)."
+    },
+    {
+      "id": "mat1120-5-3-bank-tekst",
+      "type": "text",
+      "content": "## Oppgavebank — stigende vanskegrad\n\nOppgavene dekker hele variantkatalogen: projeksjon + avstand, normallikninger, projeksjonssnarvei, affin løsning ved rangdefekt, $W^{\\perp}$-basis og ikke-standard indreprodukt. Signalboksene *etter* hver oppgave sier hva den tester."
+    },
+    {
+      "id": "mat1120-5-3-e1",
+      "type": "exercise",
+      "exercise": {
+        "id": "mat1120-5-3-e1-e",
+        "number": "1",
+        "type": "classic",
+        "difficulty": "lett",
+        "task": "(Standardprikkprodukt) Projiser $\\mathbf{y}=(4,1,2)$ ned på $W=\\operatorname{Span}\\{(1,2,1),(1,-1,1)\\}$ (basisen er ortogonal). Oppgi $\\hat{\\mathbf{y}}$ og resten $\\mathbf{z}$.",
+        "solution": "Ortogonal? $\\langle(1,2,1),(1,-1,1)\\rangle=1-2+1=0.$ ✓\n$$c_1=\\frac{\\langle(4,1,2),(1,2,1)\\rangle}{6}=\\frac{4+2+2}{6}=\\frac{8}{6}=\\frac43,\\quad c_2=\\frac{\\langle(4,1,2),(1,-1,1)\\rangle}{3}=\\frac{4-1+2}{3}=\\frac53.$$\n$$\\hat{\\mathbf{y}}=\\tfrac43(1,2,1)+\\tfrac53(1,-1,1)=(3,1,3),\\qquad \\mathbf{z}=(4,1,2)-(3,1,3)=(1,0,-1).$$\nKontroll: $\\langle\\mathbf{z},(1,2,1)\\rangle=1+0-1=0$, $\\langle\\mathbf{z},(1,-1,1)\\rangle=1-0-1=0.$ ✓",
+        "hints": [
+          "Sjekk ortogonalitet, bruk $c_i=\\langle\\mathbf{y},\\mathbf{v}_i\\rangle/\\langle\\mathbf{v}_i,\\mathbf{v}_i\\rangle$; nevnerne er $6$ og $3$.",
+          "$\\hat{\\mathbf{y}}=c_1\\mathbf{v}_1+c_2\\mathbf{v}_2$, så $\\mathbf{z}=\\mathbf{y}-\\hat{\\mathbf{y}}$."
+        ]
+      }
+    },
+    {
+      "id": "mat1120-5-3-e1-sig",
+      "type": "text",
+      "content": "**Tester:** ren projeksjon med ferdig ortogonal basis (steg 2 unødvendig) — grunntilfellet."
+    },
+    {
+      "id": "mat1120-5-3-e2",
+      "type": "exercise",
+      "exercise": {
+        "id": "mat1120-5-3-e2-e",
+        "number": "2",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "(Standardprikkprodukt) Basisen $\\mathbf{a}_1=(1,1,0)$, $\\mathbf{a}_2=(2,0,1)$ for $W$ er *ikke* ortogonal. Projiser $\\mathbf{b}=(3,1,4)$ ned på $W$, og finn avstanden.",
+        "solution": "**Gram–Schmidt først** (felle nr. 4): $\\langle\\mathbf{a}_1,\\mathbf{a}_2\\rangle=2\\ne0$.\n$$\\mathbf{v}_1=(1,1,0),\\quad \\mathbf{v}_2=(2,0,1)-\\tfrac{2}{2}(1,1,0)=(1,-1,1).$$\nNå projiser: $c_1=\\frac{\\langle(3,1,4),(1,1,0)\\rangle}{2}=\\frac{4}{2}=2$, $c_2=\\frac{\\langle(3,1,4),(1,-1,1)\\rangle}{3}=\\frac{3-1+4}{3}=2$.\n$$\\hat{\\mathbf{b}}=2(1,1,0)+2(1,-1,1)=(4,0,2),\\quad \\mathbf{z}=(3,1,4)-(4,0,2)=(-1,1,2).$$\nAvstand $=\\|\\mathbf{z}\\|=\\sqrt{1+1+4}=\\sqrt6.$",
+        "hints": [
+          "Sjekk ortogonalitet — den mangler, så kjør Gram–Schmidt på $\\mathbf{a}_1,\\mathbf{a}_2$ først.",
+          "Projiser med den nye ortogonale basisen; avstand $=\\|\\mathbf{b}-\\hat{\\mathbf{b}}\\|$."
+        ]
+      }
+    },
+    {
+      "id": "mat1120-5-3-e2-sig",
+      "type": "text",
+      "content": "**Tester:** ortogonal basis FØR projeksjon (Gram–Schmidt-forsteget) + avstand."
+    },
+    {
+      "id": "mat1120-5-3-e3",
+      "type": "exercise",
+      "exercise": {
+        "id": "mat1120-5-3-e3-e",
+        "number": "3",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "(Standardprikkprodukt) Finn minste kvadraters løsning av $C\\mathbf{x}=\\mathbf{b}$ med $C=\\begin{bmatrix}1&-1\\\\1&0\\\\1&1\\\\1&2\\end{bmatrix}$, $\\mathbf{b}=(1,-1,3,3)$. Vedlegget gir $\\operatorname{rref}[\\,C^{T}C\\mid C^{T}\\mathbf{b}\\,]=\\begin{bmatrix}1&0&1\\\\0&1&1\\end{bmatrix}$. Oppgi også avstanden.",
+        "solution": "$C^{T}C=\\begin{bmatrix}4&2\\\\2&6\\end{bmatrix}$, $C^{T}\\mathbf{b}=\\begin{bmatrix}6\\\\8\\end{bmatrix}$ (første: $1-1+3+3=6$; andre: $-1+0+3+6=8$). Fra vedleggets RREF: $\\hat{\\mathbf{x}}=(1,1)$.\n\n$C\\hat{\\mathbf{x}}=(0,1,2,3)$, residual $\\mathbf{z}=(1,-1,3,3)-(0,1,2,3)=(1,-2,1,0)$, avstand $=\\sqrt{1+4+1}=\\sqrt6$. Kolonnene er uavhengige, så løsningen er entydig.",
+        "hints": [
+          "Sett opp $C^{T}C$ og $C^{T}\\mathbf{b}$ komponentvis; les $\\hat{\\mathbf{x}}$ av vedlegget.",
+          "Avstand $=\\|\\mathbf{b}-C\\hat{\\mathbf{x}}\\|$."
+        ]
+      }
+    },
+    {
+      "id": "mat1120-5-3-e3-sig",
+      "type": "text",
+      "content": "**Tester:** normallikninger med vedleggslesing + avstand + entydighet (full kolonnerang)."
+    },
+    {
+      "id": "mat1120-5-3-e4",
+      "type": "exercise",
+      "exercise": {
+        "id": "mat1120-5-3-e4-e",
+        "number": "4",
+        "type": "classic",
+        "difficulty": "vanskelig",
+        "task": "(Standardprikkprodukt) La $C=\\begin{bmatrix}1&1&2\\\\1&0&1\\\\0&1&1\\end{bmatrix}$ (tredje kolonne $=$ sum av de to første) og $\\mathbf{b}=(4,1,0)$. Finn **alle** minste kvadraters løsninger, projeksjonen $\\operatorname{proj}_W\\mathbf{b}$ og avstanden. Vedlegget gir $\\operatorname{rref}[\\,C^{T}C\\mid C^{T}\\mathbf{b}\\,]=\\begin{bmatrix}1&0&1&2\\\\0&1&1&1\\\\0&0&0&0\\end{bmatrix}$.",
+        "solution": "**Rangdefekt:** $\\mathbf{c}_3=\\mathbf{c}_1+\\mathbf{c}_2$, så $\\operatorname{rang}C=2<3$ — vent affin løsning (felle nr. 5).\n\nFra vedleggets RREF (pivot i kol. 1,2; fri $x_3$): $x_1=2-x_3$, $x_2=1-x_3$. Med $x_3=s$:\n$$\\hat{\\mathbf{x}}=\\begin{bmatrix}2\\\\1\\\\0\\end{bmatrix}+s\\begin{bmatrix}-1\\\\-1\\\\1\\end{bmatrix},\\quad s\\in\\mathbb{R},$$\nder $\\operatorname{Nul}C=\\operatorname{Span}\\{(-1,-1,1)\\}$. **Affin**, ikke entydig.\n\n**Projeksjon** (samme for alle $s$): $\\operatorname{proj}_W\\mathbf{b}=C(2,1,0)^T=2\\mathbf{c}_1+\\mathbf{c}_2=(3,2,1)$. Avstand $=\\|(4,1,0)-(3,2,1)\\|=\\|(1,-1,-1)\\|=\\sqrt3$.",
+        "hints": [
+          "Sjekk kolonnerangen — avhengige kolonner gir affin løsning.",
+          "Les partikulær løsning av vedlegget (fri variabel $=0$) og legg til $\\operatorname{Nul}C$; projeksjonen $=C\\hat{\\mathbf{x}}$ er lik for alle."
+        ]
+      }
+    },
+    {
+      "id": "mat1120-5-3-e4-sig",
+      "type": "text",
+      "content": "**Tester:** affin løsning ved rangdefekt (partikulær + Nul C) + entydig projeksjon."
+    },
+    {
+      "id": "mat1120-5-3-e5",
+      "type": "exercise",
+      "exercise": {
+        "id": "mat1120-5-3-e5-e",
+        "number": "5",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "(Standardprikkprodukt) For $C=\\begin{bmatrix}1&0\\\\1&1\\\\1&2\\\\1&3\\end{bmatrix}$ og $\\mathbf{b}=(3,1,5,5)$ er $\\hat{\\mathbf{x}}=(2,1)$ (fra casen). Bruk **projeksjonssnarveien**: bruk $\\hat{\\mathbf{x}}$ til å oppgi $\\operatorname{proj}_W\\mathbf{b}$, og forklar hvorfor du slipper å regne projeksjonen på nytt.",
+        "solution": "Koblingen gir $\\operatorname{proj}_W\\mathbf{b}=C\\hat{\\mathbf{x}}=2(1,1,1,1)+1(0,1,2,3)=(2,3,4,5)$ direkte. Du slipper Gram–Schmidt og Fourier-summen fordi $C\\hat{\\mathbf{x}}$ *per definisjon* er projeksjonen av $\\mathbf{b}$ på $\\operatorname{Col}C$ — minste kvadraters løsning og projeksjon er samme sak.",
+        "hints": [
+          "$\\operatorname{proj}_W\\mathbf{b}=C\\hat{\\mathbf{x}}$ — bare matrise-vektor-produkt.",
+          "Koblingen betyr at projeksjonen allerede er «gratis» når $\\hat{\\mathbf{x}}$ er kjent."
+        ]
+      }
+    },
+    {
+      "id": "mat1120-5-3-e5-sig",
+      "type": "text",
+      "content": "**Tester:** koblingen proj_W b = Cx̂ som snarvei mellom de to veiene."
+    },
+    {
+      "id": "mat1120-5-3-e6",
+      "type": "exercise",
+      "exercise": {
+        "id": "mat1120-5-3-e6-e",
+        "number": "6",
+        "type": "classic",
+        "difficulty": "vanskelig",
+        "task": "(Integralindreprodukt) På $\\operatorname{P}_2$ med $\\langle p,q\\rangle=\\int_{-1}^1 pq\\,dt$: projiser $y=t^2$ ned på $W=\\operatorname{Span}\\{1,t\\}$, og finn avstanden fra $t^2$ til $W$.",
+        "solution": "Basisen er ortogonal her: $\\langle 1,t\\rangle=\\int_{-1}^1 t\\,dt=0.$ ✓ (Alle integraler over $[-1,1]$.)\n\nNevnere: $\\langle 1,1\\rangle=2$, $\\langle t,t\\rangle=\\tfrac23$. Tellere: $\\langle t^2,1\\rangle=\\tfrac23$, $\\langle t^2,t\\rangle=0$.\n$$\\hat{y}=\\frac{2/3}{2}\\cdot1+0\\cdot t=\\tfrac13,\\qquad z=t^2-\\tfrac13.$$\nAvstand: $\\langle z,z\\rangle=\\int_{-1}^1(t^2-\\tfrac13)^2dt=\\tfrac25-\\tfrac49+\\tfrac29=\\tfrac{8}{45}$, så $d=\\sqrt{8/45}=\\dfrac{2\\sqrt{10}}{15}$.",
+        "hints": [
+          "Alle $\\langle\\cdot,\\cdot\\rangle$ er integraler over $[-1,1]$ — også nevnerne.",
+          "$\\hat{y}=\\frac{\\langle t^2,1\\rangle}{\\langle 1,1\\rangle}\\cdot1+\\frac{\\langle t^2,t\\rangle}{\\langle t,t\\rangle}\\cdot t$; avstand $=\\sqrt{\\langle z,z\\rangle}$."
+        ]
+      }
+    },
+    {
+      "id": "mat1120-5-3-e6-sig",
+      "type": "text",
+      "content": "**Tester:** projeksjon i ikke-standard (integral) indreprodukt + avstand — felle nr. 1."
+    },
+    {
+      "id": "mat1120-5-3-e7",
+      "type": "exercise",
+      "exercise": {
+        "id": "mat1120-5-3-e7-e",
+        "number": "7",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "(Standardprikkprodukt) La $W=\\operatorname{Span}\\{(1,1,0,0),(1,-1,1,1)\\}$ i $\\mathbb{R}^4$. Finn en basis for $W^{\\perp}$ ved $(\\operatorname{Col}A)^{\\perp}=\\operatorname{Nul}(A^{T})$.",
+        "solution": "Sett vektorene som kolonner i $A$; $A^{T}=\\begin{bmatrix}1&1&0&0\\\\1&-1&1&1\\end{bmatrix}$. Likningene $A^{T}\\mathbf{n}=\\mathbf{0}$: $n_1+n_2=0$ og $n_1-n_2+n_3+n_4=0$. Fra første $n_2=-n_1$; innsatt: $2n_1+n_3+n_4=0$, så $n_1=-\\tfrac12(n_3+n_4)$. Frie $n_3,n_4$ gir (skalert):\n$$\\mathbf{n}_1=(-1,1,2,0),\\qquad \\mathbf{n}_2=(-1,1,0,2).$$\nBasis for $W^{\\perp}$: $\\{(-1,1,2,0),(-1,1,0,2)\\}$ ($\\dim W^{\\perp}=4-2=2$). Kontroll: begge ortogonale på de to $W$-vektorene. ✓",
+        "hints": [
+          "$W^{\\perp}=\\operatorname{Nul}(A^{T})$ der kolonnene i $A$ utspenner $W$.",
+          "Løs $A^{T}\\mathbf{n}=\\mathbf{0}$; $\\dim W^{\\perp}=2$, så du trenger to vektorer."
+        ]
+      }
+    },
+    {
+      "id": "mat1120-5-3-e7-sig",
+      "type": "text",
+      "content": "**Tester:** $W^{\\perp}$-basis via Nul(Aᵀ) + riktig dimensjon (ikke bare én vektor)."
+    },
+    {
+      "id": "mat1120-5-3-e8",
+      "type": "exercise",
+      "exercise": {
+        "id": "mat1120-5-3-e8-e",
+        "number": "8",
+        "type": "classic",
+        "difficulty": "vanskelig",
+        "task": "(Standardprikkprodukt, kjedet) Med $C=\\begin{bmatrix}1&1\\\\1&2\\\\1&3\\\\1&4\\end{bmatrix}$ og $\\mathbf{b}=(3,2,3,6)$: **a)** finn minste kvadraters løsning via normallikningene ($\\operatorname{rref}[\\,C^{T}C\\mid C^{T}\\mathbf{b}\\,]=\\begin{bmatrix}1&0&1\\\\0&1&1\\end{bmatrix}$), **b)** bruk koblingen til å oppgi $\\operatorname{proj}_W\\mathbf{b}$, **c)** finn avstanden.",
+        "solution": "**a)** $C^{T}C=\\begin{bmatrix}4&10\\\\10&30\\end{bmatrix}$, $C^{T}\\mathbf{b}=(14,40)$. Fra vedlegget: $\\hat{\\mathbf{x}}=(1,1)$ (entydig — full kolonnerang).\n\n**b)** $\\operatorname{proj}_W\\mathbf{b}=C\\hat{\\mathbf{x}}=(2,3,4,5)$.\n\n**c)** Residual $\\mathbf{z}=(3,2,3,6)-(2,3,4,5)=(1,-1,-1,1)$, avstand $=\\sqrt{1+1+1+1}=2$.",
+        "hints": [
+          "Les $\\hat{\\mathbf{x}}$ av vedlegget; $\\operatorname{proj}_W\\mathbf{b}=C\\hat{\\mathbf{x}}$.",
+          "Avstand $=\\|\\mathbf{b}-C\\hat{\\mathbf{x}}\\|$."
+        ]
+      }
+    },
+    {
+      "id": "mat1120-5-3-e8-sig",
+      "type": "text",
+      "content": "**Tester:** hele kjeden normallikninger → projeksjon (kobling) → avstand på samme matrise."
+    },
+    {
+      "id": "mat1120-5-3-e9",
+      "type": "exercise",
+      "exercise": {
+        "id": "mat1120-5-3-e9-e",
+        "number": "9",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "(Standardprikkprodukt) Projiser $\\mathbf{b}=(3,3,0)$ ned på linjen $W=\\operatorname{Span}\\{(1,2,2)\\}$, og oppgi avstanden fra $\\mathbf{b}$ til $W$.",
+        "solution": "Projeksjon på én vektor:\n$$\\hat{\\mathbf{b}}=\\frac{\\langle(3,3,0),(1,2,2)\\rangle}{\\langle(1,2,2),(1,2,2)\\rangle}(1,2,2)=\\frac{3+6+0}{9}(1,2,2)=(1,2,2).$$\n$\\mathbf{z}=(3,3,0)-(1,2,2)=(2,1,-2)$, avstand $=\\sqrt{4+1+4}=\\sqrt9=3$.",
+        "hints": [
+          "Projeksjon på én linje er ett Fourier-ledd; nevner $\\langle(1,2,2),(1,2,2)\\rangle=9$.",
+          "Avstand $=\\|\\mathbf{b}-\\hat{\\mathbf{b}}\\|$."
+        ]
+      }
+    },
+    {
+      "id": "mat1120-5-3-e9-sig",
+      "type": "text",
+      "content": "**Tester:** projeksjon på en linje + avstand (grunntilfellet i Gram–Schmidt)."
+    },
+    {
+      "id": "mat1120-5-3-e10",
+      "type": "exercise",
+      "exercise": {
+        "id": "mat1120-5-3-e10-e",
+        "number": "10",
+        "type": "classic",
+        "difficulty": "vanskelig",
+        "task": "(Vektet indreprodukt) I $\\mathbb{R}^3$ med $\\langle\\mathbf{x},\\mathbf{y}\\rangle=2x_1y_1+x_2y_2+x_3y_3$: projiser $\\mathbf{y}=(1,2,2)$ ned på $W=\\operatorname{Span}\\{\\mathbf{v}\\}$ med $\\mathbf{v}=(1,0,1)$.",
+        "solution": "Bruk det **vektede** indreproduktet i alt:\n$$\\langle\\mathbf{y},\\mathbf{v}\\rangle=2(1)(1)+(2)(0)+(2)(1)=2+0+2=4,\\qquad \\langle\\mathbf{v},\\mathbf{v}\\rangle=2(1)^2+0+1^2=3.$$\n$$\\hat{\\mathbf{y}}=\\frac{4}{3}(1,0,1)=\\left(\\tfrac43,0,\\tfrac43\\right).$$\nRest $\\mathbf{z}=(1,2,2)-(\\tfrac43,0,\\tfrac43)=(-\\tfrac13,2,\\tfrac23)$. Kontroll (vektet): $\\langle\\mathbf{z},\\mathbf{v}\\rangle=2(-\\tfrac13)(1)+0+(\\tfrac23)(1)=-\\tfrac23+\\tfrac23=0.$ ✓",
+        "hints": [
+          "Bruk det vektede indreproduktet $2x_1y_1+x_2y_2+x_3y_3$ i BÅDE teller og nevner.",
+          "$\\hat{\\mathbf{y}}=\\frac{\\langle\\mathbf{y},\\mathbf{v}\\rangle}{\\langle\\mathbf{v},\\mathbf{v}\\rangle}\\mathbf{v}$; kontroller at $\\langle\\mathbf{z},\\mathbf{v}\\rangle=0$ i samme indreprodukt."
+        ]
+      }
+    },
+    {
+      "id": "mat1120-5-3-e10-sig",
+      "type": "text",
+      "content": "**Tester:** projeksjon i vektet indreprodukt — nevneren $\\langle\\mathbf{v},\\mathbf{v}\\rangle$ må også være vektet (felle nr. 1)."
+    },
+    {
+      "id": "mat1120-5-3-e11",
+      "type": "exercise",
+      "exercise": {
+        "id": "mat1120-5-3-e11-e",
+        "number": "11",
+        "type": "classic",
+        "difficulty": "vanskelig",
+        "task": "(Standardprikkprodukt) La $C=\\begin{bmatrix}1&1&2\\\\1&0&1\\\\0&1&1\\\\1&1&2\\end{bmatrix}$ (kolonne 3 $=$ kolonne 1 $+$ kolonne 2) og $\\mathbf{b}=(3,0,0,2)$. Avgjør om minste kvadraters løsning er entydig, og oppgi projeksjonen $\\operatorname{proj}_W\\mathbf{b}$. Vedlegget gir $\\operatorname{rref}[\\,C^{T}C\\mid C^{T}\\mathbf{b}\\,]=\\begin{bmatrix}1&0&1&1\\\\0&1&1&1\\\\0&0&0&0\\end{bmatrix}$.",
+        "solution": "Kolonnene er avhengige ($\\mathbf{c}_3=\\mathbf{c}_1+\\mathbf{c}_2$), så $\\operatorname{rang}C=2<3$: løsningen er **ikke entydig**, den er affin. Fra vedlegget: $x_1=1-x_3$, $x_2=1-x_3$, fri $x_3=s$:\n$$\\hat{\\mathbf{x}}=(1,1,0)+s(-1,-1,1),\\quad \\operatorname{Nul}C=\\operatorname{Span}\\{(-1,-1,1)\\}.$$\nProjeksjonen (samme for alle $s$): $\\operatorname{proj}_W\\mathbf{b}=C(1,1,0)^T=\\mathbf{c}_1+\\mathbf{c}_2=(2,1,1,2)$.",
+        "hints": [
+          "Er kolonnene uavhengige? Nei — så affin løsning.",
+          "Les partikulær av vedlegget og legg til $\\operatorname{Nul}C$; $\\operatorname{proj}_W\\mathbf{b}=C\\hat{\\mathbf{x}}$ er entydig."
+        ]
+      }
+    },
+    {
+      "id": "mat1120-5-3-e11-sig",
+      "type": "text",
+      "content": "**Tester:** «entydig eller affin?»-vurderingen + at projeksjonen er entydig selv ved rangdefekt."
+    },
+    {
+      "id": "mat1120-5-3-e12",
+      "type": "exercise",
+      "exercise": {
+        "id": "mat1120-5-3-e12-e",
+        "number": "12",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "(Standardprikkprodukt) $\\mathbf{y}=(1,1,4,4)$ projiseres på $W=\\operatorname{Span}\\{(1,1,0,0),(1,-1,1,1)\\}$ og gir $\\hat{\\mathbf{y}}=(3,-1,2,2)$. Skriv dekomposisjonen $\\mathbf{y}=\\hat{\\mathbf{y}}+\\mathbf{z}$ og verifiser at $\\mathbf{z}\\in W^{\\perp}$.",
+        "solution": "$\\mathbf{z}=\\mathbf{y}-\\hat{\\mathbf{y}}=(1,1,4,4)-(3,-1,2,2)=(-2,2,2,2)$.\n\nDekomposisjon: $(1,1,4,4)=\\underbrace{(3,-1,2,2)}_{\\in W}+\\underbrace{(-2,2,2,2)}_{\\in W^{\\perp}}$.\n\nVerifisering: $\\langle\\mathbf{z},(1,1,0,0)\\rangle=-2+2+0+0=0$ og $\\langle\\mathbf{z},(1,-1,1,1)\\rangle=-2-2+2+2=0.$ ✓ $\\mathbf{z}$ er ortogonal på begge $W$-basisvektorene, altså i $W^{\\perp}$.",
+        "hints": [
+          "$\\mathbf{z}=\\mathbf{y}-\\hat{\\mathbf{y}}$.",
+          "Sjekk $\\langle\\mathbf{z},\\mathbf{v}_i\\rangle=0$ for hver basisvektor i $W$."
+        ]
+      }
+    },
+    {
+      "id": "mat1120-5-3-e12-sig",
+      "type": "text",
+      "content": "**Tester:** dekomposisjonen y = ŷ + z og verifikasjon av at resten ligger i W⊥."
+    },
+    {
+      "id": "mat1120-5-3-e13",
+      "type": "exercise",
+      "exercise": {
+        "id": "mat1120-5-3-e13-e",
+        "number": "13",
+        "type": "classic",
+        "difficulty": "vanskelig",
+        "task": "(Evalueringsindreprodukt) På $\\operatorname{P}_2$ svarer indreproduktet $\\langle p,q\\rangle=p(-1)q(-1)+p(0)q(0)+p(1)q(1)$ til standardprikkproduktet av verdivektorene $(p(-1),p(0),p(1))$. Projiser $t^2$ (verdivektor $(1,0,1)$) ned på $W=\\operatorname{Span}\\{1,t\\}$, som svarer til $\\operatorname{Span}\\{(1,1,1),(-1,0,1)\\}$. Oppgi projeksjonen og resten $\\mathbf{z}$.",
+        "solution": "Evalueringsindreproduktet på $\\operatorname{P}_2$ svarer til standardprikkproduktet av verdivektorene i punktene $-1,0,1$. Verdiene: $1\\mapsto(1,1,1)$, $t\\mapsto(-1,0,1)$, $t^2\\mapsto(1,0,1)$.\n\nBasisen $\\{(1,1,1),(-1,0,1)\\}$ er ortogonal: $\\langle(1,1,1),(-1,0,1)\\rangle=-1+0+1=0.$ ✓\n$$c_1=\\frac{\\langle(1,0,1),(1,1,1)\\rangle}{3}=\\frac{2}{3},\\quad c_2=\\frac{\\langle(1,0,1),(-1,0,1)\\rangle}{2}=\\frac{0}{2}=0.$$\n$$\\hat{\\mathbf{y}}=\\tfrac23(1,1,1)=\\left(\\tfrac23,\\tfrac23,\\tfrac23\\right),\\qquad \\mathbf{z}=(1,0,1)-\\left(\\tfrac23,\\tfrac23,\\tfrac23\\right)=\\left(\\tfrac13,-\\tfrac23,\\tfrac13\\right).$$\nDette er projeksjonen av $t^2$ på $\\operatorname{P}_1$ målt i evalueringsindreproduktet — den «beste lineære tilnærmingen» i de tre punktene.",
+        "hints": [
+          "Evalueringsindreproduktet = standardprikkprodukt av verdivektorene $(p(-1),p(0),p(1))$.",
+          "$1,t,t^2$ blir $(1,1,1),(-1,0,1),(1,0,1)$; projiser $(1,0,1)$ på de to første."
+        ]
+      }
+    },
+    {
+      "id": "mat1120-5-3-e13-sig",
+      "type": "text",
+      "content": "**Tester:** projeksjon i evalueringsindreprodukt oversatt til verdivektorer — beste lineære tilnærming."
+    },
+    {
+      "id": "mat1120-5-3-warn",
+      "type": "warning",
+      "title": "Typiske feil (drill)",
+      "content": "- **Projeksjon uten ortogonal basis** (nr. 4) — sjekk alltid $\\langle\\mathbf{v}_i,\\mathbf{v}_j\\rangle=0$; ellers Gram–Schmidt først.\n- **Entydig løsning ved rangdefekt** (nr. 5) — avhengige kolonner gir affin løsning $\\hat{\\mathbf{x}}_p+\\operatorname{Nul}C$.\n- **Feil indreprodukt** (nr. 1) — vektet/integral/evaluering brukes i *alle* ledd, også nevnere og norm.\n- **Avstand som $\\|\\hat{\\mathbf{y}}\\|$ eller $\\|C\\hat{\\mathbf{x}}\\|$** — avstanden er residualets norm $\\|\\mathbf{z}\\|$.\n- **$W^{\\perp}$ underdimensjonert** — bruk $\\dim W+\\dim W^{\\perp}=\\dim(\\text{rom})$ og $\\operatorname{Nul}(A^{T})$.\n- **Radreduserer normallikningene for hånd** — les den lille RREF-en av vedlegget.\n- **Desimaltilnærming** — la $\\sqrt6$, $\\tfrac{2\\sqrt{10}}{15}$ osv. stå eksakt."
+    },
+    {
+      "id": "mat1120-5-3-symbol",
+      "type": "collapsible",
+      "title": "Symbol- og formelliste",
+      "buttonText": "Vis symboler og formler",
+      "content": [
+        {
+          "id": "mat1120-5-3-symbol-text",
+          "type": "text",
+          "content": "## Symbol- og formelliste\n\n*Oppslagsverk — alt her forklares underveis i kapitlet.*\n\nAlle symboler og formler som brukes i dette delkapitlet (5.3), samlet på ett sted.\n\n| Symbol | Betydning |\n|---|---|\n| $\\operatorname{proj}_W\\mathbf{y}$ | Ortogonal projeksjon av $\\mathbf{y}$ på $W$ |\n| $\\hat{\\mathbf{x}}$ | Minste kvadraters løsning |\n| $C^{T}C\\hat{\\mathbf{x}}=C^{T}\\mathbf{b}$ | Normallikningene |\n| $\\mathbf{z}=\\mathbf{b}-C\\hat{\\mathbf{x}}$ | Residual (avstand $=\\|\\mathbf{z}\\|$) |\n| $\\operatorname{Nul}C$ | Retningen i den affine løsningen |\n| $W^{\\perp}=\\operatorname{Nul}(A^{T})$ | Ortogonalkomplementet |\n\n**Formler i dette delkapitlet:**\n\n$$\\operatorname{proj}_W\\mathbf{y}=\\sum_i\\frac{\\langle\\mathbf{y},\\mathbf{v}_i\\rangle}{\\langle\\mathbf{v}_i,\\mathbf{v}_i\\rangle}\\mathbf{v}_i\\quad(\\text{ortogonal basis})$$\nProjeksjon — Gram–Schmidt først om nødvendig.\n\n$$C^{T}C\\hat{\\mathbf{x}}=C^{T}\\mathbf{b},\\qquad \\operatorname{proj}_W\\mathbf{b}=C\\hat{\\mathbf{x}}$$\nNormallikninger og koblingen til projeksjon.\n\n$$\\hat{\\mathbf{x}}=\\hat{\\mathbf{x}}_p+\\operatorname{Nul}C\\quad(\\text{rangdefekt})$$\nAffin løsning ved avhengige kolonner.\n\n$$d(\\mathbf{b},W)=\\|\\mathbf{b}-C\\hat{\\mathbf{x}}\\|=\\|\\mathbf{z}\\|,\\qquad \\dim W+\\dim W^{\\perp}=\\dim(\\text{rom})$$\nAvstand og dimensjonsrelasjon."
+        }
+      ]
+    }
+  ],
+  "exercises": []
+}

@@ -1,0 +1,328 @@
+{
+  "id": "stk1110-0-2",
+  "courseId": "stk1110",
+  "chapterNumber": "0.2",
+  "title": "STK1100-broen: hva forutsettes (kompakt repetisjon)",
+  "description": "En kompakt oppfriskning av STK1100-apparatet STK1110 bygger på — fordelinger, forventning/varians-regler, transformasjon, gamma/χ² og ML-grunnlaget — med kryssbok-referanser, ikke ny teori.",
+  "estimatedMinutes": 45,
+  "competenceGoals": [
+    "regne forventning og varians av lineærkombinasjoner, med kovariansleddet på plass",
+    "kjenne igjen standardfordelingene og koblingen mellom gamma og kjikvadrat",
+    "sette opp likelihood, log-likelihood og scorefunksjonen for en gitt tetthet",
+    "gjenkjenne transformasjonsformelen som verktøy for eksakte pivotaler senere i boka"
+  ],
+  "content": [
+    {
+      "id": "stk1110-0-2-tip-eksamensvinkel",
+      "type": "tip",
+      "title": "Eksamensvinkel",
+      "content": "**Dette kapitlet testes ikke direkte** — ren sannsynlighetsregning er ≈0 av 22 sett. Men det er **verktøykassen bak alle tre søylene**, og et rustent apparat her koster deg tid akkurat der du ikke har den: i åpningen av Oppgave 1.\n\n- **Regnereglene for $E$ og Var** (særlig kovariansleddet) brukes hver gang du finner variansen til en estimator.\n- **Fordelingskatalogen** ($N$, gamma, χ², Poisson, …) må sitte, for du skal *velge* riktig fordeling — den ligger i formelsamlingen, men valget må du gjøre selv.\n- **ML-oppsettet** $L \\to \\ell \\to s(\\theta)$ er **broen til hele Del 1**. Har du det i fingrene, sparer du minutter på hver estimeringsoppgave.\n\nLes dette kompakt og aktivt: gjenkjenn, ikke pugg. Er du trygg på STK1100 fra før, kan du skumme og hoppe rett til Del 1."
+    },
+    {
+      "id": "stk1110-0-2-forkunnskaper",
+      "type": "text",
+      "content": "**Forkunnskaper:** Dette er en oppfriskning av apparatet fra STK1100 — les det som repetisjon, ikke som ny teori. De naturlige forkunnskapsankrene (klartekst inntil STK1100-boka er live):\n\n- STK1100 kap. 1.2 *Stokastiske variable, forventning og varians* (→ stk1100-1-2)\n- STK1100 kap. 2.1 *Kontinuerlige fordelinger* (→ stk1100-2-1)\n- STK1100 kap. 2.2 *Gammafordelingen og kjikvadrat* (→ stk1100-2-2)\n- STK1100 kap. 4.2 *Transformasjonsteknikkene* (→ stk1100-4-2)\n- STK1100 kap. 5.2 *Maximum likelihood og momentmetoden* (→ stk1100-5-2)\n\nFor integrasjon og derivasjon som dukker opp underveis: [R2 2.4 Bestemt integral](/bok/r2/r2-2-4) og [R1 4.1 Derivasjonsregler](/bok/r1/r1-4-1). Alt annet du trenger, er tatt med her."
+    },
+    {
+      "id": "stk1110-0-2-intro",
+      "type": "text",
+      "content": "## Hva du trenger med deg — og ikke\n\nSTK1110 forutsetter STK1100s sannsynlighetsapparat, men **gjentar det ikke**. Simultantettheter, momentgenererende funksjoner, Jacobi-determinanter og kombinatorikk testes så godt som aldri som egen oppgave (≈0/22). Derfor får de ingen egne kapitler her — bare denne kompakte oppfriskningen av de bitene som faktisk *brukes* som verktøy i inferensen.\n\nVi går gjennom fire småløkker: (1) regnereglene for forventning og varians, (2) fordelingskatalogen med gamma/χ²-koblingen, (3) transformasjonsformelen som pivot-råstoff, og (4) ML-grunnlaget som er broen til Del 1. Hvert punkt er holdt til noen få linjer med en peker til STK1100 der den fulle utledningen bor."
+    },
+    {
+      "id": "stk1110-0-2-lokke1",
+      "type": "text",
+      "content": "## Løkke 1 — Regnereglene for forventning og varians"
+    },
+    {
+      "id": "stk1110-0-2-def-forventning",
+      "type": "definition",
+      "title": "Forventningsverdi $E(X)$",
+      "content": "Tyngdepunktet i fordelingen til en stokastisk variabel $X$ — «gjennomsnittsverdien i det lange løp». For en kontinuerlig variabel er $E(X)=\\int x f(x)\\,dx$, for en diskret $E(X)=\\sum_x x\\,p(x)$. Alle standardfordelingenes forventninger står i formelsamlingen. (STK1100 kap. 1.2, → stk1100-1-2.)"
+    },
+    {
+      "id": "stk1110-0-2-def-varians",
+      "type": "definition",
+      "title": "Varians $\\text{Var}(X)$",
+      "content": "Et mål på spredning: $\\text{Var}(X)=E[(X-E(X))^2]=E(X^2)-\\big(E(X)\\big)^2$. Kvadratroten er standardavviket $\\sigma$. I inferens er variansen til en *estimator* det sentrale — den forteller hvor presis estimatoren er. (STK1100 kap. 1.2, → stk1100-1-2.)"
+    },
+    {
+      "id": "stk1110-0-2-def-kovarians",
+      "type": "definition",
+      "title": "Kovarians $\\text{Cov}(X,Y)$",
+      "content": "Måler hvordan to variable samvarierer: $\\text{Cov}(X,Y)=E[(X-E X)(Y-E Y)]$. Er den positiv, følges de gjerne ad; er den null, er de ukorrelerte (og uavhengige variable har alltid $\\text{Cov}=0$). Kovariansen er nøkkelleddet i variansen til en sum."
+    },
+    {
+      "id": "stk1110-0-2-def-linearitet",
+      "type": "definition",
+      "title": "Linearitet i forventning",
+      "content": "Forventning er en lineær operasjon — den fordeler seg over summer og konstanter uansett avhengighet: $E(aX+bY)=aE(X)+bE(Y)$. Dette gjelder *alltid*, også når $X$ og $Y$ er avhengige, og er ofte det første grepet når du finner $E(\\hat{\\theta})$."
+    },
+    {
+      "id": "stk1110-0-2-def-variansregel",
+      "type": "definition",
+      "title": "Variansregelen for en sum",
+      "content": "$$\\text{Var}(aX+bY)=a^2\\text{Var}(X)+b^2\\text{Var}(Y)+2ab\\,\\text{Cov}(X,Y).$$\nI motsetning til forventning er varians *ikke* lineær: konstantene kvadreres, og det kommer et **kovariansledd**. Glemmer du det leddet når variablene er avhengige, blir variansen feil."
+    },
+    {
+      "id": "stk1110-0-2-def-kovariansledd",
+      "type": "definition",
+      "title": "Kovariansleddet",
+      "content": "Leddet $2ab\\,\\text{Cov}(X,Y)$ i variansregelen. Er $X$ og $Y$ **uavhengige** (eller bare ukorrelerte), er $\\text{Cov}(X,Y)=0$ og leddet faller bort, slik at $\\text{Var}(aX+bY)=a^2\\text{Var}(X)+b^2\\text{Var}(Y)$. En klassisk tabbe er å bruke denne forenklede formen når variablene faktisk er avhengige."
+    },
+    {
+      "id": "stk1110-0-2-def-var-snitt",
+      "type": "definition",
+      "title": "Variansen til utvalgsgjennomsnittet",
+      "content": "For $n$ uavhengige, identisk fordelte variable med varians $\\sigma^2$ er $\\text{Var}(\\bar X)=\\sigma^2/n$. Variansen krymper med $n$ — mer data gir mer presist gjennomsnitt. Dette er byggeklossen bak standardfeilen $\\sigma/\\sqrt n$ i nesten hvert konfidensintervall."
+    },
+    {
+      "id": "stk1110-0-2-def-iid",
+      "type": "definition",
+      "title": "Uavhengige og identisk fordelte (i.i.d.)",
+      "content": "At observasjonene $X_1,\\dots,X_n$ er *uavhengige* (den ene sier ingenting om den andre) og *identisk fordelt* (samme fordeling og parameter). Dette er standardantakelsen bak nesten all inferens i emnet — den lar oss skrive $L(\\theta)=\\prod f(x_i;\\theta)$ og bruke $\\text{Var}(\\bar X)=\\sigma^2/n$."
+    },
+    {
+      "id": "stk1110-0-2-def-empirisk",
+      "type": "definition",
+      "title": "Empirisk gjennomsnitt $\\bar X$ og empirisk varians $S^2$",
+      "content": "$\\bar X=\\frac1n\\sum X_i$ og $S^2=\\frac{1}{n-1}\\sum (X_i-\\bar X)^2$. Dette er de *data-baserte* motstykkene til $\\mu$ og $\\sigma^2$. Deleren $n-1$ (ikke $n$) gjør $S^2$ forventningsrett for $\\sigma^2$ — et poeng som kommer igjen når frihetsgrader dukker opp."
+    },
+    {
+      "id": "stk1110-0-2-ex-1",
+      "type": "example",
+      "title": "Eksempel 1: $E$ og Var av en lineærkombinasjon",
+      "problem": "To uavhengige stokastiske variable har $E(X)=5$, $E(Y)=2$, $\\text{Var}(X)=4$ og $\\text{Var}(Y)=3$. Finn $E(3X-2Y)$ og $\\text{Var}(3X-2Y)$.",
+      "solution": "**Forventning** (lineær, uansett avhengighet):\n$$E(3X-2Y)=3E(X)-2E(Y)=3\\cdot 5-2\\cdot 2=15-4=11.$$\n\n**Varians** (konstantene kvadreres; $X$ og $Y$ uavhengige, så $\\text{Cov}(X,Y)=0$ og kovariansleddet faller bort):\n$$\\text{Var}(3X-2Y)=3^2\\text{Var}(X)+(-2)^2\\text{Var}(Y)=9\\cdot 4+4\\cdot 3=36+12=48.$$\n\nLegg merke til at variansen bruker $(-2)^2=4$ — fortegnet på $-2Y$ forsvinner når det kvadreres."
+    },
+    {
+      "id": "stk1110-0-2-oppg-1-wrap",
+      "type": "exercise",
+      "exercise": {
+        "id": "stk1110-0-2-oppg-1",
+        "number": "1",
+        "type": "classic",
+        "difficulty": "lett",
+        "task": "(Oppfriskning — $E$ og Var.) To uavhengige variable har $E(X)=10$, $E(Y)=4$, $\\text{Var}(X)=9$ og $\\text{Var}(Y)=16$. Finn $E(2X-Y)$ og $\\text{Var}(2X-Y)$.",
+        "solution": "$E(2X-Y)=2E(X)-E(Y)=2\\cdot 10-4=16.$\n\n$\\text{Var}(2X-Y)=2^2\\text{Var}(X)+(-1)^2\\text{Var}(Y)=4\\cdot 9+1\\cdot 16=36+16=52$ (kovariansleddet er null siden variablene er uavhengige).",
+        "hints": [
+          "Forventning er lineær; varians kvadrerer konstantene og har et kovariansledd.",
+          "Er $X$ og $Y$ uavhengige, hva blir $\\text{Cov}(X,Y)$?"
+        ]
+      }
+    },
+    {
+      "id": "stk1110-0-2-oppg-2-wrap",
+      "type": "exercise",
+      "exercise": {
+        "id": "stk1110-0-2-oppg-2",
+        "number": "2",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "(Oppfriskning — kovariansleddet.) To variable har $\\text{Var}(X)=\\text{Var}(Y)=1$ og $\\text{Cov}(X,Y)=0{,}5$. Finn $\\text{Var}(X+Y)$ og $\\text{Var}(X-Y)$, og forklar hvorfor de to ikke er like.",
+        "solution": "$\\text{Var}(X+Y)=\\text{Var}(X)+\\text{Var}(Y)+2\\text{Cov}(X,Y)=1+1+2\\cdot 0{,}5=3.$\n\n$\\text{Var}(X-Y)=\\text{Var}(X)+\\text{Var}(Y)-2\\text{Cov}(X,Y)=1+1-2\\cdot 0{,}5=1.$\n\nDe er ulike fordi kovariansleddet skifter fortegn: i summen legges $+2\\text{Cov}$ til, i differansen trekkes $2\\text{Cov}$ fra. Positiv kovarians blåser opp variansen til summen og demper variansen til differansen. Hadde variablene vært uavhengige ($\\text{Cov}=0$), ville begge gitt $2$.",
+        "hints": [
+          "Skriv ut variansregelen med kovariansleddet for både $X+Y$ og $X-Y$.",
+          "Hva skjer med fortegnet på kovariansleddet når du bytter $+Y$ med $-Y$?"
+        ]
+      }
+    },
+    {
+      "id": "stk1110-0-2-lokke2",
+      "type": "text",
+      "content": "## Løkke 2 — Fordelingskatalogen og gamma/χ²-koblingen\n\nAlle disse fordelingene står i formelsamlingen med tetthet, $E$ og Var. Poenget er ikke å pugge dem, men å **gjenkjenne** hvilken som passer en gitt situasjon — og å kjenne koblingen mellom gamma og kjikvadrat, som er råstoffet bak eksakte pivotaler senere."
+    },
+    {
+      "id": "stk1110-0-2-def-normal",
+      "type": "definition",
+      "title": "Normalfordelingen $N(\\mu,\\sigma^2)$",
+      "content": "Den symmetriske «klokkekurven» med forventning $\\mu$ og **varians $\\sigma^2$** (andre argument er alltid variansen, aldri standardavviket). Standardnormalen $Z\\sim N(0,1)$ har fordelingsfunksjon $\\Phi$, og $Z=(X-\\mu)/\\sigma$ standardiserer enhver normalvariabel. Grunnfordelingen bak t-, χ²- og F-fordelingene. (STK1100 kap. 2.1, → stk1100-2-1.)"
+    },
+    {
+      "id": "stk1110-0-2-def-eksponensial",
+      "type": "definition",
+      "title": "Eksponensialfordelingen",
+      "content": "Modell for ventetider, med tetthet $f(x)=\\lambda e^{-\\lambda x}$ for $x>0$ (rate $\\lambda$), $E(X)=1/\\lambda$ og $\\text{Var}(X)=1/\\lambda^2$. Den er et spesialtilfelle av gammafordelingen (formparameter $1$) og dukker opp som «eksotisk» modell i estimeringsoppgaver. (STK1100 kap. 2.1, → stk1100-2-1.)"
+    },
+    {
+      "id": "stk1110-0-2-def-poisson",
+      "type": "definition",
+      "title": "Poissonfordelingen",
+      "content": "Teller antall hendelser i et fast intervall, med punktsannsynlighet $p(x)=e^{-\\lambda}\\lambda^x/x!$ for $x=0,1,2,\\dots$ Den har den karakteristiske egenskapen $E(X)=\\text{Var}(X)=\\lambda$. En gjenganger i estimeringsoppgaver, ofte der moment- og ML-estimator sammenfaller ($\\hat\\lambda=\\bar X$). (STK1100 kap. 2.1, → stk1100-2-1.)"
+    },
+    {
+      "id": "stk1110-0-2-def-binomisk",
+      "type": "definition",
+      "title": "Binomisk fordeling",
+      "content": "Antall suksesser i $n$ uavhengige forsøk med suksessannsynlighet $p$: $p(x)=\\binom{n}{x}p^x(1-p)^{n-x}$, $E(X)=np$, $\\text{Var}(X)=np(1-p)$. Grunnlaget for andelsestimatoren $\\hat p=X/n$ og andelstesten senere i boka. (STK1100 kap. 2.1, → stk1100-2-1.)"
+    },
+    {
+      "id": "stk1110-0-2-def-gamma",
+      "type": "definition",
+      "title": "Gammafordelingen",
+      "content": "En fleksibel fordeling for positive størrelser, med formparameter $\\alpha$ og skalaparameter $\\beta$, tetthet $f(x)\\propto x^{\\alpha-1}e^{-x/\\beta}$ for $x>0$. Forventning $E(X)=\\alpha\\beta$ og varians $\\text{Var}(X)=\\alpha\\beta^2$. En sum av $n$ uavhengige eksponensialvariable er gamma. (STK1100 kap. 2.2, → stk1100-2-2.)"
+    },
+    {
+      "id": "stk1110-0-2-def-kjikvadrat",
+      "type": "definition",
+      "title": "Kjikvadratfordelingen $\\chi^2_n$",
+      "content": "Fordelingen til en sum av $n$ uavhengige kvadrerte standardnormaler, med $n$ frihetsgrader, $E(\\chi^2_n)=n$ og $\\text{Var}(\\chi^2_n)=2n$. Den er ryggraden i inferens om varianser og i t-fordelingens konstruksjon. (STK1100 kap. 2.2, → stk1100-2-2.)"
+    },
+    {
+      "id": "stk1110-0-2-def-gamma-chi",
+      "type": "definition",
+      "title": "Gamma–kjikvadrat-koblingen",
+      "content": "Kjikvadratfordelingen er et spesialtilfelle av gamma: $\\chi^2_n=\\text{gamma}(\\alpha=n/2,\\ \\beta=2)$. Sjekk med formlene: $E=\\alpha\\beta=(n/2)\\cdot 2=n$ og $\\text{Var}=\\alpha\\beta^2=(n/2)\\cdot 4=2n$ — akkurat kjikvadratens verdier. Denne koblingen er råstoffet bak eksakte pivotaler som $2X/\\theta\\sim\\chi^2$ (kap. [2.5](/bok/stk1110/stk1110-2-5))."
+    },
+    {
+      "id": "stk1110-0-2-def-sum-gamma",
+      "type": "definition",
+      "title": "Sum av uavhengige gammavariable",
+      "content": "Summen av uavhengige gammavariable med **felles skalaparameter $\\beta$** er igjen gamma, med formparameteren lik summen av formparametrene. Spesielt: en sum av $n$ uavhengige eksponensialvariable (rate $\\lambda$) er $\\text{gamma}(n,\\ 1/\\lambda)$. Dette er nettopp det som gjør $2\\sum X_i/\\theta$ kjikvadratfordelt i eksakte pivoter."
+    },
+    {
+      "id": "stk1110-0-2-def-t",
+      "type": "definition",
+      "title": "$t$-fordelingen",
+      "content": "Fordelingen til $Z/\\sqrt{V/\\nu}$ der $Z\\sim N(0,1)$ og $V\\sim\\chi^2_\\nu$ er uavhengige — «normalfordeling med tyngre haler». Den oppstår når du erstatter et ukjent $\\sigma$ med estimatet $S$, og er derfor grunnen til at konfidensintervall for en forventning bruker $t$ (ikke $z$) med $n-1$ frihetsgrader. Kvantilene står i formelsamlingen."
+    },
+    {
+      "id": "stk1110-0-2-ex-2",
+      "type": "example",
+      "title": "Eksempel 2: $\\chi^2_n$ som gammafordeling",
+      "problem": "Vis, ved hjelp av gammaformlene, at en $\\chi^2_6$-variabel har forventning $6$ og varians $12$.",
+      "solution": "$\\chi^2_6$ er gammafordelingen med formparameter $\\alpha=n/2=6/2=3$ og skalaparameter $\\beta=2$.\n\n**Forventning:** $E=\\alpha\\beta=3\\cdot 2=6.$\n**Varians:** $\\text{Var}=\\alpha\\beta^2=3\\cdot 2^2=3\\cdot 4=12.$\n\nDette stemmer med de generelle kjikvadratformlene $E(\\chi^2_n)=n$ og $\\text{Var}(\\chi^2_n)=2n$ satt inn med $n=6$. Poenget: du trenger ikke huske kjikvadratformlene separat — de følger av gamma-koblingen $\\chi^2_n=\\text{gamma}(n/2,2)$."
+    },
+    {
+      "id": "stk1110-0-2-oppg-3-wrap",
+      "type": "exercise",
+      "exercise": {
+        "id": "stk1110-0-2-oppg-3",
+        "number": "3",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "(Oppfriskning — gamma/χ².) En variabel er $\\chi^2_{10}$-fordelt. Uttrykk den som en gammafordeling (angi $\\alpha$ og $\\beta$), og finn forventning og varians.",
+        "solution": "$\\chi^2_{10}=\\text{gamma}(\\alpha=n/2,\\ \\beta=2)=\\text{gamma}(5,\\ 2)$.\n\nForventning: $E=\\alpha\\beta=5\\cdot 2=10$. Varians: $\\text{Var}=\\alpha\\beta^2=5\\cdot 4=20$.\n\nKontroll mot kjikvadratformlene: $E(\\chi^2_{10})=n=10$ og $\\text{Var}(\\chi^2_{10})=2n=20$. Alt stemmer.",
+        "hints": [
+          "Bruk koblingen $\\chi^2_n=\\text{gamma}(n/2,\\,2)$.",
+          "Sett $\\alpha$ og $\\beta$ inn i gammaformlene $E=\\alpha\\beta$ og $\\text{Var}=\\alpha\\beta^2$."
+        ]
+      }
+    },
+    {
+      "id": "stk1110-0-2-lokke3",
+      "type": "text",
+      "content": "## Løkke 3 — Transformasjon: pivot-råstoffet\n\nTransformasjonsteknikkene fra STK1100 er ikke et eget eksamenstema i STK1110, men de *gjenbrukes* som verktøy for å bygge eksakte konfidensintervaller og tester (kap. [2.5](/bok/stk1110/stk1110-2-5)). Du trenger bare å kjenne igjen de to metodene."
+    },
+    {
+      "id": "stk1110-0-2-def-transformasjon",
+      "type": "definition",
+      "title": "Transformasjonsformelen (tetthetsmetoden)",
+      "content": "For en monoton transformasjon $V=h(X)$ med invers $x=x(v)$ er tettheten til $V$ gitt ved\n$$g(v)=f\\big(x(v)\\big)\\cdot\\left|\\frac{dx}{dv}\\right|.$$\nAbsoluttverdien av den deriverte (Jacobi-faktoren) skal alltid være med. Dette er verktøyet bak eksakte pivotaler. (STK1100 kap. 4.2, → stk1100-4-2; for derivasjon [R1 4.1](/bok/r1/r1-4-1).)"
+    },
+    {
+      "id": "stk1110-0-2-def-cdf",
+      "type": "definition",
+      "title": "CDF-metoden",
+      "content": "Et alternativ til tetthetsmetoden: finn fordelingsfunksjonen til $V=h(X)$ direkte via $G(v)=P(V\\le v)=P\\big(h(X)\\le v\\big)$, uttrykk hendelsen i $X$, og deriver til slutt for å få tettheten. Nyttig når transformasjonen ikke er monoton, eller når du er ute etter en sannsynlighet snarere enn en tetthet."
+    },
+    {
+      "id": "stk1110-0-2-lokke4",
+      "type": "text",
+      "content": "## Løkke 4 — ML-grunnlaget: broen til Del 1\n\nDette er det viktigste avsnittet i kapitlet. Hele estimeringssøylen (Del 1) bygger på likelihood-apparatet, og selve *utledningen* av ML-estimatoren gjøres i kap. [1.2](/bok/stk1110/stk1110-1-2). Her friskes bare oppsettet opp — vi setter opp funksjonene, men løser ingenting ennå. (STK1100 kap. 5.2, → stk1100-5-2.)"
+    },
+    {
+      "id": "stk1110-0-2-def-likelihood",
+      "type": "definition",
+      "title": "Likelihoodfunksjonen $L(\\theta)$",
+      "content": "For uavhengige observasjoner $x_1,\\dots,x_n$ fra en tetthet/punktsannsynlighet $f(x;\\theta)$ er\n$$L(\\theta)=\\prod_{i=1}^n f(x_i;\\theta).$$\nDen leses som «hvor sannsynlige er de observerte dataene, som funksjon av parameteren $\\theta$». Maximum likelihood velger den $\\theta$ som gjør $L$ størst."
+    },
+    {
+      "id": "stk1110-0-2-def-loglikelihood",
+      "type": "definition",
+      "title": "Log-likelihood $\\ell(\\theta)$",
+      "content": "Logaritmen av likelihooden, $\\ell(\\theta)=\\log L(\\theta)=\\sum_{i=1}^n \\log f(x_i;\\theta)$. Vi jobber alltid med $\\ell$ i stedet for $L$ fordi logaritmen gjør **produktet om til en sum**, som er langt lettere å derivere — og maksimum ligger på samme sted siden $\\log$ er strengt voksende."
+    },
+    {
+      "id": "stk1110-0-2-def-score",
+      "type": "definition",
+      "title": "Scorefunksjonen $s(\\theta)$",
+      "content": "Den deriverte av log-likelihooden: $s(\\theta)=\\ell'(\\theta)=\\dfrac{d}{d\\theta}\\log L(\\theta)$. ML-estimatoren finnes ved å løse likelihoodlikningen $s(\\theta)=0$ (og bekrefte at det er et maksimum) — men selve løsningen gjøres i kap. [1.2](/bok/stk1110/stk1110-1-2). Scorefunksjonen er også byggeklossen bak Fisher-informasjonen."
+    },
+    {
+      "id": "stk1110-0-2-def-moment",
+      "type": "definition",
+      "title": "Momentmetodens byggekloss",
+      "content": "Momentmetoden setter det *teoretiske* første momentet lik det *empiriske*: $E(X)=\\bar X$, og løser for parameteren. Der $E(X)=g(\\theta)$ gir dette et eksplisitt uttrykk for $\\hat\\theta$. Den er ofte enklere enn ML og faller for enkelte fordelinger (Poisson, normal) sammen med ML-estimatoren."
+    },
+    {
+      "id": "stk1110-0-2-def-bro",
+      "type": "definition",
+      "title": "Broen til STK1110",
+      "content": "ML-kjeden $L\\to\\ell\\to s(\\theta)\\to\\text{løs}\\to\\text{forventningsretthet}\\to\\text{varians}\\to\\text{KI}$ er den felles kjernen STK1100 og STK1110 deler. STK1110 forlenger den i to retninger: **nedover mot testing** (utled nivå, P-verdi, styrke) og **utover mot regresjon** (minste kvadrater = ML under normalfeil, matriseform, diagnostikk). Det er derfor dette oppsettet må sitte."
+    },
+    {
+      "id": "stk1110-0-2-ex-3",
+      "type": "example",
+      "title": "Eksempel 3: Sett opp $\\ell(\\theta)$ for eksponensialmodellen",
+      "problem": "La $X_1,\\dots,X_n$ være uavhengige og eksponensialfordelte med rate $\\lambda$, altså $f(x;\\lambda)=\\lambda e^{-\\lambda x}$ for $x>0$. Sett opp likelihood- og log-likelihood-funksjonen og scorefunksjonen (uten å løse for $\\hat\\lambda$).",
+      "solution": "**Likelihood** (produkt av tetthetene):\n$$L(\\lambda)=\\prod_{i=1}^n \\lambda e^{-\\lambda x_i}=\\lambda^n e^{-\\lambda\\sum_{i=1}^n x_i}.$$\n\n**Log-likelihood** (produktet blir en sum):\n$$\\ell(\\lambda)=\\log L(\\lambda)=n\\log\\lambda-\\lambda\\sum_{i=1}^n x_i.$$\n\n**Scorefunksjonen** (deriver med hensyn på $\\lambda$):\n$$s(\\lambda)=\\ell'(\\lambda)=\\frac{n}{\\lambda}-\\sum_{i=1}^n x_i.$$\n\nHer stopper vi. Å løse $s(\\lambda)=0$ og bekrefte at det gir et maksimum, hører til ML-kapitlet ([kap. 1.2](/bok/stk1110/stk1110-1-2)) — poenget nå er bare at oppsettet sitter."
+    },
+    {
+      "id": "stk1110-0-2-oppg-4-wrap",
+      "type": "exercise",
+      "exercise": {
+        "id": "stk1110-0-2-oppg-4",
+        "number": "4",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "(Oppfriskning — ML-oppsett.) La $X_1,\\dots,X_n$ være uavhengige og Poisson-fordelte med rate $\\lambda$, altså $p(x;\\lambda)=e^{-\\lambda}\\lambda^x/x!$. Sett opp log-likelihood-funksjonen $\\ell(\\lambda)$ (du skal ikke løse for estimatoren).",
+        "solution": "Likelihood: $L(\\lambda)=\\prod_{i=1}^n \\dfrac{e^{-\\lambda}\\lambda^{x_i}}{x_i!}=\\dfrac{e^{-n\\lambda}\\lambda^{\\sum x_i}}{\\prod_i x_i!}.$\n\nLog-likelihood (produktet blir en sum):\n$$\\ell(\\lambda)=-n\\lambda+\\Big(\\sum_{i=1}^n x_i\\Big)\\log\\lambda-\\sum_{i=1}^n \\log(x_i!).$$\n\nDet siste leddet inneholder ikke $\\lambda$ og spiller derfor ingen rolle når man senere deriverer for å finne estimatoren.",
+        "hints": [
+          "Skriv $L(\\lambda)$ som et produkt, og husk at $\\log$ gjør produktet om til en sum.",
+          "Ledd som ikke inneholder $\\lambda$ blir konstante — de kan bæres med, men påvirker ikke maksimumet."
+        ]
+      }
+    },
+    {
+      "id": "stk1110-0-2-oppg-5-wrap",
+      "type": "exercise",
+      "exercise": {
+        "id": "stk1110-0-2-oppg-5",
+        "number": "5",
+        "type": "classic",
+        "difficulty": "lett",
+        "task": "(Oppfriskning — momentmetoden.) For en Poisson-fordeling er $E(X)=\\lambda$. Bruk momentmetoden til å finne momentestimatoren for $\\lambda$.",
+        "solution": "Momentmetoden setter det teoretiske første momentet lik det empiriske:\n$$E(X)=\\bar X \\quad\\Longrightarrow\\quad \\lambda=\\bar X \\quad\\Longrightarrow\\quad \\hat\\lambda=\\bar X.$$\n\nMomentestimatoren for Poisson-raten er altså rett og slett utvalgsgjennomsnittet. (Dette faller sammen med ML-estimatoren for Poisson — noe du viser i [kap. 1.2](/bok/stk1110/stk1110-1-2).)",
+        "hints": [
+          "Momentmetoden avstemmer $E(X)$ mot $\\bar X$.",
+          "Hva er $E(X)$ for en Poisson-fordeling, og hva må da $\\lambda$ være?"
+        ]
+      }
+    },
+    {
+      "id": "stk1110-0-2-warn-typiske-feil",
+      "type": "warning",
+      "title": "Typiske feil i overgangen fra STK1100",
+      "content": "**1. Tro at STK1110 re-tester simultantetthet og MGF.** Det gjør det ikke — sannsynlighetsapparatet brukes som verktøy, aldri som selvstendig oppgave. Bruk tiden på inferens, ikke på å re-lese hele STK1100.\n\n**2. Glemme kovariansleddet i variansen av en sum.** $\\text{Var}(aX+bY)=a^2\\text{Var}(X)+b^2\\text{Var}(Y)+2ab\\,\\text{Cov}(X,Y)$ — leddet forsvinner kun ved uavhengighet, og du må si det eksplisitt.\n\n**3. Rustent ML-oppsett inn i eksamen.** Oppgave 1 forutsetter at kjeden $L\\to\\ell\\to$ score $\\to$ løs $\\to$ bekreft maks sitter som en refleks — taper du tid her, taper du den på hele settet."
+    },
+    {
+      "id": "stk1110-0-2-avslutning",
+      "type": "text",
+      "content": "## Kort oppsummert\n\nAlt i dette kapitlet **forutsettes** — det testes ikke som egen oppgave, men brukes overalt. De tre grepene du tar med deg videre:\n\n1. **$E$ er lineær, Var er det ikke** — og kovariansleddet må med når variablene er avhengige.\n2. **Fordelingskatalogen ligger i formelsamlingen**, men gjenkjenningen og gamma/χ²-koblingen må du eie selv.\n3. **ML-oppsettet $L\\to\\ell\\to s(\\theta)$ er broen** til Del 1.\n\nAlt dette forutsettes; STK1110 forlenger ML-kjeden nedover mot *testing* og utover mot *regresjon*. Er du trygg på dette, er du klar for [kap. 1.1](/bok/stk1110/stk1110-1-1)."
+    },
+    {
+      "id": "stk1110-0-2-symbolliste",
+      "type": "collapsible",
+      "title": "Symbol- og formelliste",
+      "buttonText": "Vis symboler og formler",
+      "content": [
+        {
+          "id": "stk1110-0-2-symbolliste-text",
+          "type": "text",
+          "content": "## Symbol- og formelliste\n\n*Oppslagsverk — alt her forklares underveis i kapitlet.*\n\nAlle symboler og formler brukt i dette delkapitlet (0.2), samlet på ett sted.\n\n| Symbol | Betydning |\n|---|---|\n| $X,\\ Y$ | Stokastiske variable |\n| $x_i$ | Observasjon nr. $i$ |\n| $E(X)$ | Forventningsverdi (tyngdepunkt) |\n| $\\text{Var}(X)$ | Varians (spredningsmål) |\n| $\\sigma,\\ \\sigma^2$ | Standardavvik og varians |\n| $\\text{Cov}(X,Y)$ | Kovarians mellom $X$ og $Y$ |\n| $\\bar X$ | Utvalgsgjennomsnitt, $\\frac1n\\sum X_i$ |\n| $S^2$ | Utvalgsvarians, $\\frac{1}{n-1}\\sum(X_i-\\bar X)^2$ |\n| $N(\\mu,\\sigma^2)$ | Normalfordeling (andre argument = variansen) |\n| $\\Phi$ | Standardnormal fordelingsfunksjon |\n| $\\lambda$ | Rate (eksponensial/Poisson) |\n| $\\alpha,\\ \\beta$ | Form- og skalaparameter i gammafordelingen |\n| $\\chi^2_n$ | Kjikvadratfordeling med $n$ frihetsgrader |\n| $t_\\nu$ | t-fordeling med $\\nu$ frihetsgrader |\n| $\\theta$ | Generisk ukjent parameter |\n| $\\hat\\theta,\\ \\hat\\lambda$ | Estimatorer |\n| $L(\\theta)$ | Likelihoodfunksjonen |\n| $\\ell(\\theta)$ | Log-likelihood |\n| $s(\\theta)$ | Scorefunksjonen, $\\ell'(\\theta)$ |\n| $h(X),\\ dx/dv$ | Transformasjon og dens Jacobi-faktor |\n\n**Formler i dette delkapitlet:**\n\n$$E(aX+bY)=aE(X)+bE(Y) \\qquad (\\text{linearitet, alltid}).$$\n$$\\text{Var}(aX+bY)=a^2\\text{Var}(X)+b^2\\text{Var}(Y)+2ab\\,\\text{Cov}(X,Y).$$\n$$\\text{Var}(\\bar X)=\\frac{\\sigma^2}{n}, \\qquad S^2=\\frac{1}{n-1}\\sum_{i=1}^n (X_i-\\bar X)^2.$$\n$$\\text{gamma}(\\alpha,\\beta):\\ E=\\alpha\\beta,\\ \\text{Var}=\\alpha\\beta^2; \\qquad \\chi^2_n=\\text{gamma}(n/2,\\,2),\\ E=n,\\ \\text{Var}=2n.$$\n$$\\text{Poisson}(\\lambda):\\ E=\\text{Var}=\\lambda; \\qquad \\text{eksponensial}(\\lambda):\\ E=1/\\lambda,\\ \\text{Var}=1/\\lambda^2.$$\n$$g(v)=f\\big(x(v)\\big)\\left|\\frac{dx}{dv}\\right| \\qquad (\\text{transformasjonsformelen}).$$\n$$L(\\theta)=\\prod_{i=1}^n f(x_i;\\theta), \\quad \\ell(\\theta)=\\sum_{i=1}^n \\log f(x_i;\\theta), \\quad s(\\theta)=\\ell'(\\theta).$$\n$$\\text{Momentmetoden:}\\quad E(X)=\\bar X \\ \\Rightarrow\\ \\hat\\theta.$$"
+        }
+      ]
+    }
+  ],
+  "exercises": []
+}

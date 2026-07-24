@@ -1,0 +1,271 @@
+{
+  "id": "stk1100-6-prove",
+  "courseId": "stk1100",
+  "chapterNumber": "6.P",
+  "title": "Prøver til del 6: Konfidensintervall — eksakt pivotal og CLT",
+  "description": "Fire temaprøver som dekker eksakt pivotal-KI for eksponensialdata, pivot for gamma/normal med KI-transformasjon via monoton funksjon, CLT-basert Wald-intervall med eksakt-vs-Wald-dekning, og en full kjedeoppgave fra fordeling til eksakt KI — med fullstendige løsningsforslag og selvdiagnose. Fire prøver à 35–60 min, kan tas som separate økter.",
+  "estimatedMinutes": 175,
+  "competenceGoals": [
+    "kunne utlede et eksakt pivotal-konfidensintervall for eksponensialdata med riktig frihetsgrad og fortegnsvending",
+    "kunne bygge pivot for gamma- og normalmodeller og transformere et KI til en avledet størrelse via en monoton funksjon",
+    "kunne konstruere et CLT-basert Wald-intervall og begrunne hvorfor eksakt foretrekkes ved lav n ut fra dekningsgrad",
+    "kunne løse en full kjedeoppgave fra fordeling og estimator til eksakt konfidensintervall på eksamensnivå"
+  ],
+  "content": [
+    {
+      "id": "stk1100-6-prove-tip",
+      "type": "tip",
+      "title": "Om prøvene til Del 6",
+      "content": "**Fire prøver til Del 6** som dekker konfidensintervallet — kjedens endepunkt. KI er i **100 %** av settene, og den eksakte pivotal-varianten via gamma/$\\chi^2$ i **70 %** (signaturferdigheten).\n\n| Prøve | Tema | Tid |\n|---|---|---|\n| 6.A | Eksakt pivotal-KI for eksponensialdata | ~40 min |\n| 6.B | Pivot for gamma/normal + KI-transformasjon | ~40 min |\n| 6.C | CLT-KI og eksakt-vs-Wald-dekning (V2024-poenget) | ~35 min |\n| 6.D | Full kjedeoppgave: fordeling til eksakt KI (eksamensnivå) | ~60 min |\n\n**Flervalgsoppgaven bor i prøve 6.C** (ett riktig alternativ per punkt).\n\n**Prøvene kan trygt deles over flere kvelder — én prøve per økt.** Løs hver prøve *før* du åpner fasiten. Pass de to feilene som koster mest: **feil frihetsgrad** (eksponensial har $\\chi^2_{2n}$, normal med kjent $\\mu$ har $\\chi^2_n$) og **feil kvantil i feil endepunkt** — den *store* kvantilen står i **nedre** grense når du inverterer. Et asymmetrisk eksakt intervall er korrekt, ikke en regnefeil."
+    },
+    {
+      "id": "stk1100-6-prove-forkunnskaper",
+      "type": "text",
+      "content": "**Forkunnskaper:** Disse prøvene forutsetter hele Del 6 — eksakt pivotal-KI via gamma/$\\chi^2$ ([kap. 6.1](/bok/stk1100/stk1100-6-1)) og CLT-basert Wald-intervall med dekningssammenligning ([kap. 6.2](/bok/stk1100/stk1100-6-2)), samt ryggrad-drillen ([kap. 6.3](/bok/stk1100/stk1100-6-3)). Under ligger transformasjonen til gamma/$\\chi^2$ som bygger pivotalene ([kap. 4.3](/bok/stk1100/stk1100-4-3)), ML-estimatorene ([kap. 5.2](/bok/stk1100/stk1100-5-2)) og gamma-/$\\chi^2$-apparatet med kvantilnotasjon ([kap. 2.2](/bok/stk1100/stk1100-2-2)). Kvantilene ($\\chi^2_{\\nu,\\alpha}$, $z_\\alpha$) er oppgitt i hver oppgave — de står i formelsamlingen; pivoten og ulikhetsløsningen må du utlede aktivt."
+    },
+    {
+      "id": "stk1100-6-prove-intro",
+      "type": "text",
+      "content": "Konfidensintervallet er den faste avslutningen på eksamens store estimeringsoppgave. Metoden er alltid den samme: finn en **pivot** med kjent fordeling fri for parameteren, sett kvantiler rundt den, og løs ulikheten for parameteren — pass fortegn når du inverterer. De fire prøvene trener nettopp dette: fra eksponensial-hovedpivoten (6.A) via gamma/normal med KI-transformasjon (6.B) og CLT-alternativet med dekningsvurdering (6.C) til en full kjedeoppgave på eksamensnivå (6.D). Kvantiler er oppgitt med **øvre haleareal**: $P(\\chi^2_\\nu > \\chi^2_{\\nu,\\alpha}) = \\alpha$."
+    },
+    {
+      "id": "stk1100-6-prove-p1",
+      "type": "collapsible",
+      "title": "Prøve 6.A — Eksakt pivotal-KI for eksponensialdata (~40 min)",
+      "buttonText": "Vis prøve 6.A",
+      "content": [
+        {
+          "id": "stk1100-6-prove-p1-ex1",
+          "type": "exercise",
+          "exercise": {
+            "id": "stk1100-6-prove-p1-ex1",
+            "number": "1",
+            "type": "classic",
+            "difficulty": "lett",
+            "task": "**Pivot og frihetsgrad.** Levetidene til $n = 12$ uavhengige komponenter er eksponensialfordelte i **forventningsform** ($E(X_i) = \\mu$). Hvilken fordeling har pivoten $W = 2\\sum X_i/\\mu$, og hvor mange frihetsgrader har den?",
+            "solution": "Hvert ledd gir $2X_i/\\mu \\sim \\chi^2_2$, og summen av $n = 12$ uavhengige $\\chi^2_2$ er kjikvadratfordelt med frihetsgradene addert:\n$$W = \\frac{2\\sum X_i}{\\mu} \\sim \\chi^2_{2n} = \\chi^2_{24}.$$\nFrihetsgraden er $2n = 24$ — **ikke** $n = 12$. Fordelingen $\\chi^2_{24}$ inneholder ikke $\\mu$, som er hele poenget med en pivot.",
+            "hints": [
+              "Ett ledd: $2X_i/\\mu \\sim \\chi^2_2$; frihetsgradene adderes når du summerer uavhengige kjikvadrater.",
+              "Eksponensialpivoten har $2n$ frihetsgrader, ikke $n$."
+            ]
+          }
+        },
+        {
+          "id": "stk1100-6-prove-p1-ex2",
+          "type": "exercise",
+          "exercise": {
+            "id": "stk1100-6-prove-p1-ex2",
+            "number": "2",
+            "type": "classic",
+            "difficulty": "middels",
+            "task": "**Eksakt 90 %-KI for forventet levetid.** De samme $n = 12$ eksponensiale levetidene (forventningsform) gir observert $\\sum x_i = 60$ (tusen timer).\n\n**a)** Utled et eksakt 90 %-konfidensintervall for $\\mu$. Oppgitt: $\\chi^2_{24,\\,0{,}05} = 36{,}42$ og $\\chi^2_{24,\\,0{,}95} = 13{,}85$.\n**b)** Er intervallet symmetrisk om punktestimatet $\\hat\\mu = 5$? Kommenter.",
+            "solution": "**a)** Pivoten er $W = 2\\sum X_i/\\mu \\sim \\chi^2_{24}$. Konfidensgrad $1-\\alpha = 0{,}90$ gir $\\alpha/2 = 0{,}05$, og\n$$P\\Big(\\chi^2_{24,\\,0{,}95} \\le \\frac{2\\sum X_i}{\\mu} \\le \\chi^2_{24,\\,0{,}05}\\Big) = 0{,}90.$$\nLøs for $\\mu$ ved å invertere — **inverteringen snur ulikheten, så endepunktene bytter plass**:\n$$\\mu \\in \\left[\\frac{2\\sum x_i}{\\chi^2_{24,\\,0{,}05}},\\ \\frac{2\\sum x_i}{\\chi^2_{24,\\,0{,}95}}\\right] = \\left[\\frac{120}{36{,}42},\\ \\frac{120}{13{,}85}\\right] = [3{,}30,\\ 8{,}67]\\ \\text{(tusen timer)}.$$\n\n**b)** Punktestimatet er $\\hat\\mu = 60/12 = 5$. Avstanden ned er $5 - 3{,}30 = 1{,}70$; avstanden opp er $8{,}67 - 5 = 3{,}67$ — mer enn dobbelt så langt. Intervallet er altså **asymmetrisk**, med en lang hale oppover. Det er korrekt og forventet: $\\chi^2$-fordelingen er høyreskjev, så den eksakte metoden gir et skjevt intervall. Ikke «rett» det til noe symmetrisk.",
+            "hints": [
+              "Den store kvantilen $36{,}42$ havner i **nedre** grense (den står i nevneren).",
+              "Nedre $= 2\\sum x_i/\\chi^2_{24,0{,}05}$, øvre $= 2\\sum x_i/\\chi^2_{24,0{,}95}$; $2\\sum x_i = 120$."
+            ]
+          }
+        },
+        {
+          "id": "stk1100-6-prove-p1-ex3",
+          "type": "exercise",
+          "exercise": {
+            "id": "stk1100-6-prove-p1-ex3",
+            "number": "3",
+            "type": "classic",
+            "difficulty": "vanskelig",
+            "task": "**Rateform og median.** Ventetidene mellom serverforespørsler er iid eksponensiale i **rateform** $f(x) = \\lambda e^{-\\lambda x}$. For $n = 10$ forespørsler er $\\sum x_i = 50$ ms.\n\n**a)** Bruk pivoten $2\\lambda\\sum X_i \\sim \\chi^2_{2n}$ til å lage et eksakt 95 %-KI for raten $\\lambda$. Oppgitt: $\\chi^2_{20,\\,0{,}025} = 34{,}17$, $\\chi^2_{20,\\,0{,}975} = 9{,}591$.\n**b)** Medianventetiden er $m = (\\ln 2)/\\lambda$. Gi et 95 %-KI for $m$, og forklar hvorfor endepunktene bytter plass.",
+            "solution": "**a)** Her står $\\lambda$ i *telleren* av pivoten $W = 2\\lambda\\sum X_i \\sim \\chi^2_{20}$, så vi deler bare på $2\\sum x_i = 100$ (positiv størrelse — **ingen** vending):\n$$\\lambda \\in \\left[\\frac{\\chi^2_{20,\\,0{,}975}}{2\\sum x_i},\\ \\frac{\\chi^2_{20,\\,0{,}025}}{2\\sum x_i}\\right] = \\left[\\frac{9{,}591}{100},\\ \\frac{34{,}17}{100}\\right] = [0{,}0959,\\ 0{,}3417]\\ \\text{per ms}.$$\nPunktestimatet $\\hat\\lambda = n/\\sum x_i = 10/50 = 0{,}20$ ligger inni.\n\n**b)** $g(\\lambda) = (\\ln 2)/\\lambda$ er strengt **avtakende** ($\\lambda$ i nevneren), så endepunktene bytter plass:\n$$m \\in \\left[\\frac{\\ln 2}{0{,}3417},\\ \\frac{\\ln 2}{0{,}0959}\\right] = [2{,}03,\\ 7{,}23]\\ \\text{ms}.$$\nNedre grense for $m$ kommer fra *øvre* grense for $\\lambda$ — nettopp fordi $g$ avtar.",
+            "hints": [
+              "I a): $\\lambda$ står i telleren, del på $2\\sum x_i = 100$ (ingen vending); liten kvantil i nedre.",
+              "I b): $m = (\\ln 2)/\\lambda$ avtar i $\\lambda$, så bytt endepunktene."
+            ]
+          }
+        },
+        {
+          "id": "stk1100-6-prove-p1-selvdiag",
+          "type": "text",
+          "content": "### Selvdiagnose 6.A\n\n- ☐ Jeg visste at eksponensialpivoten har $2n$ frihetsgrader.\n- ☐ Jeg satte den store kvantilen i nedre grense og snudde ulikheten ved invertering (forventningsform).\n- ☐ Jeg så at rateformen har $\\lambda$ i telleren, så jeg delte på $2\\sum x_i$ uten vending.\n- ☐ Jeg transformerte til medianen med den avtakende $g(\\lambda) = (\\ln 2)/\\lambda$ og byttet endepunktene.\n- ☐ Jeg sjekket at punktestimatet lå inni hvert intervall.\n\nManglet du noe? Repeter [kap. 6.1](/bok/stk1100/stk1100-6-1), løkke 1 og 3."
+        }
+      ]
+    },
+    {
+      "id": "stk1100-6-prove-p2",
+      "type": "collapsible",
+      "title": "Prøve 6.B — Pivot for gamma/normal og KI-transformasjon (~40 min)",
+      "buttonText": "Vis prøve 6.B",
+      "content": [
+        {
+          "id": "stk1100-6-prove-p2-ex1",
+          "type": "exercise",
+          "exercise": {
+            "id": "stk1100-6-prove-p2-ex1",
+            "number": "1",
+            "type": "classic",
+            "difficulty": "middels",
+            "task": "**Eksakt KI for varians (normal, kjent $\\mu$).** Ti målefeil er uavhengige og normalfordelte med **kjent** forventning $\\mu = 0$ og ukjent varians $\\sigma^2$. Observert $\\sum (x_i - \\mu)^2 = 50$.\n\n**a)** Konstruer et eksakt 95 %-KI for $\\sigma^2$. Oppgitt: $\\chi^2_{10,\\,0{,}025} = 20{,}48$, $\\chi^2_{10,\\,0{,}975} = 3{,}247$.\n**b)** Gi et 95 %-KI for standardavviket $\\sigma$, og begrunn hvorfor endepunktene *ikke* bytter plass.",
+            "solution": "**a)** Med kjent $\\mu$ er pivoten $\\dfrac{\\sum(X_i-\\mu)^2}{\\sigma^2} \\sim \\chi^2_{n} = \\chi^2_{10}$ (frihetsgrad $n$, ikke $2n$). Med $\\alpha/2 = 0{,}025$:\n$$\\sigma^2 \\in \\left[\\frac{\\sum(x_i-\\mu)^2}{\\chi^2_{10,\\,0{,}025}},\\ \\frac{\\sum(x_i-\\mu)^2}{\\chi^2_{10,\\,0{,}975}}\\right] = \\left[\\frac{50}{20{,}48},\\ \\frac{50}{3{,}247}\\right] = [2{,}44,\\ 15{,}40].$$\n\n**b)** $g(\\sigma^2) = \\sqrt{\\sigma^2} = \\sigma$ er strengt **voksende** for positive verdier, så endepunktene beholder rekkefølgen:\n$$\\sigma \\in [\\sqrt{2{,}44},\\ \\sqrt{15{,}40}] = [1{,}56,\\ 3{,}92].$$\nEn voksende funksjon bevarer «minst forblir minst» — ingen vending.",
+            "hints": [
+              "Kjent $\\mu$ gir frihetsgrad $n = 10$; stor kvantil ($20{,}48$) i nedre grense.",
+              "$\\sigma = \\sqrt{\\sigma^2}$, kvadratrot er voksende, så transformer hvert endepunkt direkte."
+            ]
+          }
+        },
+        {
+          "id": "stk1100-6-prove-p2-ex2",
+          "type": "exercise",
+          "exercise": {
+            "id": "stk1100-6-prove-p2-ex2",
+            "number": "2",
+            "type": "classic",
+            "difficulty": "vanskelig",
+            "task": "**Eksakt KI via gamma-pivot (Weibull).** Levetider er Weibull med **kjent** form $\\alpha = 2$ og ukjent skala $\\beta$. Pivoten er $\\sum (X_i/\\beta)^2 \\sim \\text{gamma}(n,1)$. For $n = 8$ er $\\sum x_i^2 = 60$.\n\n**a)** Lag et eksakt 90 %-KI for $\\beta^2$. Oppgitt: gamma$(8,1)$-kvantiler (øvre haleareal) $g_{0{,}05} = 13{,}15$ og $g_{0{,}95} = 3{,}981$.\n**b)** Gi et 90 %-KI for skalaparameteren $\\beta$.",
+            "solution": "**a)** Med $\\alpha = 2$ er $\\sum (X_i/\\beta)^2 = \\dfrac{\\sum X_i^2}{\\beta^2} = \\dfrac{S}{\\beta^2} \\sim \\text{gamma}(8,1)$, der $S = \\sum x_i^2 = 60$. Løs $g_{0{,}95} \\le S/\\beta^2 \\le g_{0{,}05}$ ved å invertere (endepunktene bytter plass, stor kvantil i nedre):\n$$\\beta^2 \\in \\left[\\frac{S}{g_{0{,}05}},\\ \\frac{S}{g_{0{,}95}}\\right] = \\left[\\frac{60}{13{,}15},\\ \\frac{60}{3{,}981}\\right] = [4{,}56,\\ 15{,}07].$$\n\n**b)** $g(\\beta^2) = \\sqrt{\\beta^2} = \\beta$ er strengt voksende, så\n$$\\beta \\in [\\sqrt{4{,}56},\\ \\sqrt{15{,}07}] = [2{,}14,\\ 3{,}88].$$",
+            "hints": [
+              "Med $\\alpha = 2$ blir $\\sum(X_i/\\beta)^2 = (\\sum x_i^2)/\\beta^2 = S/\\beta^2$; $S = 60$.",
+              "Invertering snur ulikheten (stor gamma-kvantil $13{,}15$ i nedre grense); løft til $\\beta$ med $\\sqrt{\\cdot}$."
+            ]
+          }
+        },
+        {
+          "id": "stk1100-6-prove-p2-ex3",
+          "type": "exercise",
+          "exercise": {
+            "id": "stk1100-6-prove-p2-ex3",
+            "number": "3",
+            "type": "classic",
+            "difficulty": "vanskelig",
+            "task": "**KI-transformasjon med avtakende funksjon (Pareto).** Inntekter er Pareto-fordelte med **kjent** minsteinntekt $k = 1$ (i mill.) og ukjent formparameter $\\theta$, med pivot $2\\theta\\sum\\ln(X_i/k) \\sim \\chi^2_{2n}$. For $n = 10$ er $T = \\sum\\ln(x_i/k) = 4$.\n\n**a)** Lag et eksakt 95 %-KI for $\\theta$. Oppgitt: $\\chi^2_{20,\\,0{,}025} = 34{,}17$, $\\chi^2_{20,\\,0{,}975} = 9{,}591$.\n**b)** Medianinntekten er $m = k\\cdot 2^{1/\\theta}$. Gi et 95 %-KI for $m$, og forklar retningen på transformasjonen.",
+            "solution": "**a)** Her står $\\theta$ i telleren av $W = 2\\theta T \\sim \\chi^2_{20}$, så vi deler på $2T = 8$ (positiv — ingen vending):\n$$\\theta \\in \\left[\\frac{\\chi^2_{20,\\,0{,}975}}{2T},\\ \\frac{\\chi^2_{20,\\,0{,}025}}{2T}\\right] = \\left[\\frac{9{,}591}{8},\\ \\frac{34{,}17}{8}\\right] = [1{,}20,\\ 4{,}27].$$\nPunktestimatet $\\hat\\theta = n/T = 10/4 = 2{,}5$ ligger inni.\n\n**b)** $g(\\theta) = k\\cdot 2^{1/\\theta} = 2^{1/\\theta}$ (siden $k = 1$). Når $\\theta$ øker, avtar $1/\\theta$, og $g$ *avtar* — altså strengt **avtakende**. Endepunktene bytter plass:\n$$m \\in \\left[2^{1/4{,}27},\\ 2^{1/1{,}20}\\right] = [1{,}18,\\ 1{,}78]\\ \\text{mill.}$$\nNedre grense for medianen kommer fra *øvre* grense for $\\theta$.",
+            "hints": [
+              "I a): $\\theta$ i telleren, del på $2T = 8$ (ingen vending); liten kvantil i nedre.",
+              "I b): $g(\\theta) = k\\cdot 2^{1/\\theta}$ avtar i $\\theta$ — bytt endepunktene."
+            ]
+          }
+        },
+        {
+          "id": "stk1100-6-prove-p2-selvdiag",
+          "type": "text",
+          "content": "### Selvdiagnose 6.B\n\n- ☐ Jeg brukte frihetsgrad $n$ (ikke $2n$) for normal med kjent $\\mu$.\n- ☐ Jeg skrev Weibull-pivoten som $S/\\beta^2 \\sim \\text{gamma}(n,1)$ og inverterte riktig.\n- ☐ Jeg løftet $\\sigma^2 \\to \\sigma$ og $\\beta^2 \\to \\beta$ med den voksende $\\sqrt{\\cdot}$ uten å bytte endepunkter.\n- ☐ Jeg så at Pareto-medianen $k\\cdot 2^{1/\\theta}$ er avtakende og byttet endepunktene.\n\nManglet du noe? Repeter [kap. 6.1](/bok/stk1100/stk1100-6-1), løkke 2 og 3."
+        }
+      ]
+    },
+    {
+      "id": "stk1100-6-prove-p3",
+      "type": "collapsible",
+      "title": "Prøve 6.C — CLT-KI og eksakt-vs-Wald-dekning (~35 min)",
+      "buttonText": "Vis prøve 6.C",
+      "content": [
+        {
+          "id": "stk1100-6-prove-p3-ex1",
+          "type": "exercise",
+          "exercise": {
+            "id": "stk1100-6-prove-p3-ex1",
+            "number": "1",
+            "type": "classic",
+            "difficulty": "lett",
+            "task": "**CLT og Wald-intervall.** En maskin fyller flasker med forventet volum $\\mu$ og standardavvik $\\sigma = 8$ ml per flaske (ukjent fordeling, endelig varians). $n = 64$ flasker måles, med $\\bar x = 500$ ml.\n\n**a)** Formuler sentralgrenseteoremet for $\\bar X$ med alle tre forutsetninger, og angi tilnærmet fordeling til $\\bar X$.\n**b)** Konstruer et 95 % Wald-intervall for $\\mu$ (bruk $\\sigma$ som kjent, $z_{0{,}025} = 1{,}96$).",
+            "solution": "**a)** For $X_1,\\dots,X_{64}$ som er (1) **uavhengige**, (2) **identisk fordelte** og har (3) **endelig varians** $\\sigma^2 = 64$, er den standardiserte størrelsen\n$$\\frac{\\bar X - \\mu}{\\sigma/\\sqrt n} \\ \\xrightarrow{\\ \\text{tilnærmet}\\ }\\ N(0,1) \\quad \\text{for stor } n.$$\nDa er $\\bar X$ tilnærmet $N(\\mu,\\ \\sigma^2/n) = N(\\mu,\\ 64/64) = N(\\mu,\\ 1)$, med standardfeil $\\sigma/\\sqrt n = 8/8 = 1$ ml.\n\n**b)** $\\bar x \\pm z_{0{,}025}\\cdot\\dfrac{\\sigma}{\\sqrt n} = 500 \\pm 1{,}96\\cdot 1 = [498{,}04,\\ 501{,}96]$ ml. Intervallet er symmetrisk om 500.",
+            "hints": [
+              "Tre forutsetninger: uavhengig, identisk fordelt, endelig varians; det er $(\\bar X-\\mu)/(\\sigma/\\sqrt n)$ som blir $N(0,1)$.",
+              "Standardfeil $= \\sigma/\\sqrt n = 8/8 = 1$; Wald $= \\bar x \\pm 1{,}96\\cdot 1$."
+            ]
+          }
+        },
+        {
+          "id": "stk1100-6-prove-p3-ex2",
+          "type": "exercise",
+          "exercise": {
+            "id": "stk1100-6-prove-p3-ex2",
+            "number": "2",
+            "type": "classic",
+            "difficulty": "middels",
+            "task": "**Eksakt vs. Wald for eksponensialdata.** Tjue levetider er eksponensiale i forventningsform med $\\sum x_i = 100$, så $\\hat\\mu = 5$.\n\n**a)** Gi det eksakte 95 %-KI-et. Oppgitt: $\\chi^2_{40,\\,0{,}025} = 59{,}34$, $\\chi^2_{40,\\,0{,}975} = 24{,}43$.\n**b)** Gi Wald-intervallet ($\\widehat{\\text{SE}} = \\hat\\mu/\\sqrt n$, $z_{0{,}025} = 1{,}96$).\n**c)** Sammenlign form og bredde, og si hvilket du melder som hovedsvar for $n = 20$.",
+            "solution": "**a)** Pivot $2\\sum X_i/\\mu \\sim \\chi^2_{40}$, $2\\sum x_i = 200$:\n$$\\mu \\in \\left[\\frac{200}{59{,}34},\\ \\frac{200}{24{,}43}\\right] = [3{,}37,\\ 8{,}19].$$\n\n**b)** For eksponensial er $\\text{Var}(\\bar X) = \\mu^2/n$, så $\\widehat{\\text{SE}} = \\hat\\mu/\\sqrt n = 5/\\sqrt{20} = 1{,}118$. Wald:\n$$5 \\pm 1{,}96\\cdot 1{,}118 = 5 \\pm 2{,}19 = [2{,}81,\\ 7{,}19].$$\n\n**c)** Det eksakte er **asymmetrisk** om 5 (avstand ned 1,63, opp 3,19), forskjøvet oppover; Wald er **symmetrisk** ($\\pm 2{,}19$) og strekker seg feilaktig lenger ned og kortere opp. For $n = 20$ (moderat) melder jeg det **eksakte** som hovedsvar fordi det har korrekt dekning per konstruksjon; Wald oppgis som et rimelig alternativ siden $n$ ikke er svært liten, men det underdekker fortsatt noe.",
+            "hints": [
+              "Eksakt: $2\\sum x_i = 200$, del på $\\chi^2_{40}$-kvantilene (stor i nedre).",
+              "Wald: $\\widehat{\\text{SE}} = \\hat\\mu/\\sqrt n$, så $\\hat\\mu \\pm 1{,}96\\,\\widehat{\\text{SE}}$; eksakt er hovedsvar."
+            ]
+          }
+        },
+        {
+          "id": "stk1100-6-prove-p3-fig-tekst",
+          "type": "text",
+          "content": "### Dekningsgraden bak V2024-poenget\n\nFiguren under viser den **simulerte dekningsgraden** — andelen av mange gjentatte intervaller som faktisk fanger sann $\\mu$ — for det eksakte pivotal-intervallet og Wald-intervallet, med nominelt (tilsiktet) 95 %. For $n = 10$ underdekker Wald tydelig (91,1 % mot 95,9 %); ved $n = 100$ er begge nær 95 %, og forskjellen forsvinner. Full simuleringskode ligger i [kap. 7.2](/bok/stk1100/stk1100-7-2)."
+        },
+        {
+          "id": "stk1100-6-prove-p3-fig",
+          "type": "image",
+          "src": "/images/textbook/stk1100/stk1100-6-prove-c-dekning.svg",
+          "alt": "Soylediagram over dekningsgrad i prosent for to utvalgsstoerrelser. For n lik 10 dekker det eksakte pivotal-intervallet 95,9 prosent og Wald-intervallet 91,1 prosent. For n lik 100 dekker begge omtrent 94,5 prosent. En stiplet vannrett linje markerer nominelt 95 prosent.",
+          "caption": "Simulert dekningsgrad for eksakt pivotal-KI (blå) og Wald-KI (oransje), nominelt 95 % (stiplet). Ved $n = 10$ underdekker Wald (91,1 % mot eksakt 95,9 %); ved $n = 100$ er begge nær nivået — CLT-tilnærmingen er da god."
+        },
+        {
+          "id": "stk1100-6-prove-p3-ex3",
+          "type": "exercise",
+          "exercise": {
+            "id": "stk1100-6-prove-p3-ex3",
+            "number": "3",
+            "type": "classic",
+            "difficulty": "middels",
+            "task": "**Flervalg.** Velg det ene riktige alternativet for hvert punkt.\n\n**a)** Hva betyr det at Wald-intervallet «underdekker» ved $n = 10$?\n(a) Det er for bredt  (b) Det dekker oftere enn 95 %  (c) Det dekker sann parameter sjeldnere enn tilsiktet 95 %  (d) Det er alltid feil\n\n**b)** Hvorfor foretrekkes det eksakte pivotal-intervallet ved lav $n$?\n(a) Det har korrekt dekning uten normaltilnærming  (b) Det er alltid smalest  (c) Det er symmetrisk  (d) Det krever ingen data\n\n**c)** Hva skjer med forskjellen eksakt vs. Wald når $n$ øker til 100?\n(a) Wald blir best  (b) Eksakt underdekker  (c) Forskjellen øker  (d) Begge nærmer seg ~94 %, forskjellen forsvinner\n\n**d)** Er et smalere (Wald) intervall «riktigere»?\n(a) Ja, smalere er mer presist  (b) Nei — et smalere intervall som underdekker gir falsk presisjon  (c) Bare for store $n$  (d) Ja, alltid",
+            "solution": "**a) (c)** Underdekning betyr at intervallet fanger sann parameter *sjeldnere* enn den tilsiktede konfidensgraden (91,1 % mot nominelt 95 % ved $n = 10$).\n\n**b) (a)** Det eksakte intervallet har dekning lik konfidensgraden per konstruksjon — det hviler ikke på en normaltilnærming som svikter ved lav $n$.\n\n**c) (d)** Ved $n = 100$ blir CLT-tilnærmingen god, og begge dekker ca. 94 % — forskjellen forsvinner.\n\n**d) (b)** Et smalere intervall som underdekker gir bare falsk presisjon; bredden må stå i forhold til den faktiske dekningen.\n\n*(Riktige bokstaver: c, a, d, b — stokket.)*",
+            "hints": [
+              "Skill bredde fra dekningsgrad — smalere er ikke det samme som bedre.",
+              "Standardfeilen $\\mu/\\sqrt n$ avhenger av parameteren; normaltilnærmingen krever stor $n$."
+            ]
+          }
+        },
+        {
+          "id": "stk1100-6-prove-p3-selvdiag",
+          "type": "text",
+          "content": "### Selvdiagnose 6.C\n\n- ☐ Jeg formulerte CLT med alle tre forutsetningene og standardiserte riktig størrelse.\n- ☐ Jeg bygde Wald-intervallet $\\hat\\theta \\pm z_{\\alpha/2}\\widehat{\\text{SE}}$ med estimert standardfeil.\n- ☐ Jeg sammenlignet eksakt (asymmetrisk, korrekt dekning) mot Wald (symmetrisk, underdekker ved lav $n$).\n- ☐ Jeg leste dekningsfiguren og forsto at 91,1 % < 95 % er underdekning.\n- ☐ Jeg meldte det eksakte som hovedsvar der en pivot finnes.\n\nManglet du noe? Repeter [kap. 6.2](/bok/stk1100/stk1100-6-2)."
+        }
+      ]
+    },
+    {
+      "id": "stk1100-6-prove-p4",
+      "type": "collapsible",
+      "title": "Prøve 6.D — Full kjedeoppgave: fordeling til eksakt KI (eksamensnivå, ~60 min)",
+      "buttonText": "Vis prøve 6.D",
+      "content": [
+        {
+          "id": "stk1100-6-prove-p4-ex1",
+          "type": "exercise",
+          "exercise": {
+            "id": "stk1100-6-prove-p4-ex1",
+            "number": "1",
+            "type": "classic",
+            "difficulty": "vanskelig",
+            "task": "**Full kjedeoppgave (eksamensnivå).** Konsentrasjonene $X_1,\\dots,X_{15}$ av et miljøgift i 15 vannprøver antas iid eksponensialfordelte i **forventningsform** ($E(X_i) = \\mu$), med observert $\\sum x_i = 90$ (µg/l).\n\n**a)** Utled ML-estimatoren $\\hat\\mu$ og vis at den er forventningsrett.\n**b)** Finn $\\text{Var}(\\hat\\mu)$ og den estimerte standardfeilen.\n**c)** Vis at $2\\sum X_i/\\mu \\sim \\chi^2_{30}$ og konstruer et eksakt 95 %-KI for $\\mu$. Oppgitt: $\\chi^2_{30,\\,0{,}025} = 46{,}98$, $\\chi^2_{30,\\,0{,}975} = 16{,}79$.\n**d)** Gi det tilsvarende 95 % Wald-intervallet ($z_{0{,}025} = 1{,}96$), sammenlign, og si hvilket du melder som hovedsvar for $n = 15$.\n**e)** Medianen er $m = \\mu\\ln 2$. Gi et 95 %-KI for $m$.\n**f)** Beskriv kort hvordan parametrisk bootstrap gir en alternativ standardfeil for $\\hat\\mu$.",
+            "solution": "**a)** $L(\\mu) = \\mu^{-n}e^{-\\sum x_i/\\mu}$, $\\ell(\\mu) = -n\\ln\\mu - \\tfrac1\\mu\\sum x_i$, $\\ell'(\\mu) = -\\tfrac n\\mu + \\tfrac{\\sum x_i}{\\mu^2} = 0 \\Rightarrow \\hat\\mu = \\bar X = 90/15 = 6$ µg/l. Forventningsrett: $E(\\hat\\mu) = E(\\bar X) = \\mu$.\n\n**b)** I forventningsform er $\\text{Var}(X_i) = \\mu^2$, så $\\text{Var}(\\hat\\mu) = \\text{Var}(\\bar X) = \\mu^2/n = \\mu^2/15$. Estimert standardfeil: $\\widehat{\\text{SE}} = \\hat\\mu/\\sqrt n = 6/\\sqrt{15} = 1{,}549$.\n\n**c)** Hvert ledd $2X_i/\\mu \\sim \\chi^2_2$, og summen av $n = 15$ uavhengige gir $2\\sum X_i/\\mu \\sim \\chi^2_{30}$. Med $\\alpha/2 = 0{,}025$, invertering (stor kvantil i nedre):\n$$\\mu \\in \\left[\\frac{2\\sum x_i}{\\chi^2_{30,\\,0{,}025}},\\ \\frac{2\\sum x_i}{\\chi^2_{30,\\,0{,}975}}\\right] = \\left[\\frac{180}{46{,}98},\\ \\frac{180}{16{,}79}\\right] = [3{,}83,\\ 10{,}72]\\ \\mu\\text{g/l}.$$\nPunktestimatet $\\hat\\mu = 6$ ligger inni; intervallet er asymmetrisk (lengre opp).\n\n**d)** Wald: $6 \\pm 1{,}96\\cdot 1{,}549 = 6 \\pm 3{,}04 = [2{,}96,\\ 9{,}04]$. Det er symmetrisk om 6, mens det eksakte er skjevt oppover. For $n = 15$ (liten/moderat) melder jeg det **eksakte** som hovedsvar — det har korrekt dekning, mens Wald underdekker fordi standardfeilen $\\mu/\\sqrt n$ selv avhenger av $\\mu$. Wald nevnes som alternativ med forbehold.\n\n**e)** $g(\\mu) = \\mu\\ln 2$ er strengt voksende, så\n$$m \\in [3{,}83\\cdot\\ln 2,\\ 10{,}72\\cdot\\ln 2] = [2{,}66,\\ 7{,}43]\\ \\mu\\text{g/l}.$$\n\n**f)** **Parametrisk bootstrap:** sett $\\hat\\mu = 6$ inn i eksponensialfordelingen. For $b = 1,\\dots,B$ (f.eks. $B = 10000$): trekk et nytt utvalg på $n = 15$ verdier fra Eksponensial med forventning $\\hat\\mu$, og regn ut gjennomsnittet $\\bar x_b^{*}$. Bootstrap-standardfeilen er det empiriske standardavviket til de $B$ verdiene, `np.std(mhat_boot, ddof=1)`. Det gir et numerisk anslag på $\\text{SE}(\\hat\\mu)$ uten å bruke den analytiske formelen $\\mu/\\sqrt n$ (fullt apparat i [kap. 7.2](/bok/stk1100/stk1100-7-2)).",
+            "hints": [
+              "a–b) ML gir $\\hat\\mu = \\bar X$; i forventningsform er $\\text{Var}(X_i) = \\mu^2$, så $\\text{SE} = \\hat\\mu/\\sqrt n$.",
+              "c) $2\\sum X_i/\\mu \\sim \\chi^2_{2n} = \\chi^2_{30}$; $2\\sum x_i = 180$, stor kvantil i nedre grense.",
+              "e–f) $m = \\mu\\ln 2$ voksende; parametrisk bootstrap trekker fra Eksp($\\hat\\mu$) og bruker `ddof=1`."
+            ]
+          }
+        },
+        {
+          "id": "stk1100-6-prove-p4-selvdiag",
+          "type": "text",
+          "content": "### Selvdiagnose 6.D\n\n- ☐ Jeg utledet $\\hat\\mu = \\bar X$ med ML-ritualet og viste forventningsretthet.\n- ☐ Jeg fant $\\text{Var}(\\hat\\mu) = \\mu^2/n$ og estimert SE $= \\hat\\mu/\\sqrt n$.\n- ☐ Jeg viste $2\\sum X_i/\\mu \\sim \\chi^2_{30}$ og konstruerte det eksakte KI-et med riktig kvantil i riktig endepunkt.\n- ☐ Jeg ga Wald-intervallet, sammenlignet, og valgte eksakt som hovedsvar for $n = 15$.\n- ☐ Jeg transformerte til medianen og beskrev parametrisk bootstrap med `ddof=1`.\n\nManglet du noe? Repeter ryggrad-drillen i [kap. 6.3](/bok/stk1100/stk1100-6-3)."
+        }
+      ]
+    },
+    {
+      "id": "stk1100-6-prove-symbolliste",
+      "type": "collapsible",
+      "title": "Symbol- og formelliste",
+      "buttonText": "Vis symboler og formler",
+      "content": [
+        {
+          "id": "stk1100-6-prove-sym-text",
+          "type": "text",
+          "content": "## Symbol- og formelliste\n\n*Oppslagsverk — alt her forklares underveis.*\n\n| Symbol | Betydning |\n|---|---|\n| $X_1,\\dots,X_n$ | Iid observasjoner (stokastiske) |\n| $\\mu$ | Forventning (eksponensial forventningsform) |\n| $\\lambda$ | Rate (eksponensial rateform) |\n| $\\sigma^2,\\ \\sigma$ | Varians og standardavvik (normal) |\n| $\\beta,\\ \\alpha$ | Skala- og formparameter (Weibull) |\n| $\\theta,\\ k$ | Formparameter / kjent minsteverdi (Pareto) |\n| $\\hat\\mu,\\ \\hat\\theta$ | Estimator (stokastisk) / estimat (tall) |\n| $W$ | Pivotal størrelse |\n| $1-\\alpha$ | Konfidensgrad |\n| $[L,U]$ | Nedre og øvre KI-endepunkt |\n| $\\chi^2_{\\nu,\\alpha}$ | $\\chi^2$-kvantil, øvre haleareal: $P(\\chi^2_\\nu > \\chi^2_{\\nu,\\alpha}) = \\alpha$ |\n| $z_\\alpha$ | Normalkvantil, øvre haleareal |\n| $\\widehat{\\text{SE}}$ | Estimert standardfeil |\n| dekningsgrad | Andelen gjentatte KI som dekker sann parameter |\n\n**Formler i disse prøvene:**\n\n$$\\frac{2\\sum X_i}{\\mu} \\sim \\chi^2_{2n}\\ (\\text{eksp.}), \\qquad \\mu \\in \\left[\\frac{2\\sum x_i}{\\chi^2_{2n,\\alpha/2}},\\ \\frac{2\\sum x_i}{\\chi^2_{2n,1-\\alpha/2}}\\right]$$\n\n$$\\frac{\\sum(X_i-\\mu)^2}{\\sigma^2} \\sim \\chi^2_n\\ (\\text{normal, kjent }\\mu), \\qquad \\sum(X_i/\\beta)^\\alpha \\sim \\text{gamma}(n,1)\\ (\\text{Weibull})$$\n\n$$2\\theta\\sum\\ln(X_i/k) \\sim \\chi^2_{2n}\\ (\\text{Pareto}), \\qquad 2\\lambda\\sum X_i \\sim \\chi^2_{2n}\\ (\\text{eksp. rateform})$$\n\n$$[L,U]\\ \\text{KI for }\\theta,\\ g\\ \\text{voksende} \\Rightarrow [g(L),g(U)]\\ \\text{KI for }g(\\theta)\\ (\\text{avtakende: bytt endepunkter})$$\n\n$$\\frac{\\bar X - \\mu}{\\sigma/\\sqrt n} \\xrightarrow{\\text{tilnærmet}} N(0,1)\\ (\\text{CLT}), \\qquad \\hat\\theta \\pm z_{\\alpha/2}\\cdot\\widehat{\\text{SE}}\\ (\\text{Wald})$$\n\n$$\\text{dekning}_{\\text{eksakt}}(n{=}10) = 95{,}9\\%\\ >\\ \\text{dekning}_{\\text{Wald}}(n{=}10) = 91{,}1\\% \\quad (\\text{begge} \\approx 94\\%\\ \\text{ved } n{=}100)$$\n\n$$m = \\mu\\ln 2\\ (\\text{eksp. median}), \\qquad m = (\\ln 2)/\\lambda\\ (\\text{rateform})$$"
+        }
+      ]
+    }
+  ],
+  "exercises": []
+}

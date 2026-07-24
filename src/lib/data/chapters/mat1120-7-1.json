@@ -1,0 +1,394 @@
+{
+  "id": "mat1120-7-1",
+  "courseId": "mat1120",
+  "chapterNumber": "7.1",
+  "title": "Singulærverdidekomposisjon A=UΣVᵀ",
+  "description": "SVD A=UΣVᵀ bygget fra AᵀA: V fra ortonormale egenvektorer, singulærverdier σᵢ=√λᵢ synkende i Σ, uᵢ=(1/σᵢ)Avᵢ utvidet til ortonormal U — pluss max‖Ax‖=σ₁ som Rayleigh på AᵀA.",
+  "estimatedMinutes": 60,
+  "competenceGoals": [
+    "bygge en singulærverdidekomposisjon A=UΣVᵀ fra AᵀA: V og σᵢ=√λᵢ fra vedleggets egenverdier, uᵢ=(1/σᵢ)Avᵢ utvidet til ortonormal U",
+    "ordne singulærverdiene synkende og lese rangen som antall σᵢ>0",
+    "bruke max‖Ax‖=σ₁ (oppnådd i v₁) som Rayleigh anvendt på AᵀA",
+    "forklare at SVD finnes for enhver matrise og skille σᵢ fra egenverdiene til A"
+  ],
+  "content": [
+    {
+      "id": "mat1120-7-1-tip",
+      "type": "tip",
+      "title": "Eksamensvinkel",
+      "content": "**Singulærverdidekomposisjon (SVD) er den brede topp-poeng-oppgaven.** Sjanger K — bygg $A=U\\Sigma V^{T}$ fra $A^{T}A$ og les av $\\max_{\\lVert\\mathbf{x}\\rVert=1}\\lVert A\\mathbf{x}\\rVert=\\sigma_1$ — er med i **~30 %** av settene (2019 O4b, 2022-u O3). Prioritet: **kjenne** (nivå 3, bredde og de siste poengene).\n\n- SVD er **spektralteoremet i arbeid**: du ortogonaldiagonaliserer den *symmetriske* matrisen $A^{T}A$ (fra [kap. 6.1](/bok/mat1120/mat1120-6-1)) og oversetter resultatet til en dekomposisjon av $A$ selv.\n- Grepet fasiten alltid tar: regn $A^{T}A$, les egenverdier og ortonormale egenvektorer av vedlegget → $V$; $\\sigma_i=\\sqrt{\\lambda_i}$ **synkende** → $\\Sigma$; $\\mathbf{u}_i=\\tfrac{1}{\\sigma_i}A\\mathbf{v}_i$ → $U$; utvid $U$ til full ortonormal basis.\n- Deloppgaven som nesten alltid henger på: $\\max\\{\\lVert A\\mathbf{x}\\rVert:\\lVert\\mathbf{x}\\rVert=1\\}=\\sigma_1$, oppnådd i $\\mathbf{v}_1$ (egenvektoren til *største* egenverdi av $A^{T}A$). Dette er Rayleigh ([kap. 6.3](/bok/mat1120/mat1120-6-3)) anvendt på $A^{T}A$.\n\nEgenverdiene og egenvektorene til $A^{T}A$ leses av vedlegget (`eig`) — du regner dem ikke for hånd."
+    },
+    {
+      "id": "mat1120-7-1-forkunnskaper",
+      "type": "text",
+      "content": "**Forkunnskaper:**\n\n- [Kap. 6.1](/bok/mat1120/mat1120-6-1) — spektralteoremet og ortogonal diagonalisering; hele SVD bygges på at $A^{T}A$ er symmetrisk\n- [Kap. 4.2](/bok/mat1120/mat1120-4-2) — ortonormal basis og Gram–Schmidt, som vi bruker til å utvide $U$\n- [Kap. 3.1](/bok/mat1120/mat1120-3-1) — egenverdier og egenrom\n- [Kap. 4.1](/bok/mat1120/mat1120-4-1) — norm og skalarprodukt i $\\mathbb{R}^n$\n- [Kap. 6.3](/bok/mat1120/mat1120-6-3) — Rayleigh-maks\n- [Matriseregning og transponering (MAT1110)](/bok/mat1110/mat1110-1-3) — matriseprodukt og transponering"
+    },
+    {
+      "id": "mat1120-7-1-sist",
+      "type": "text",
+      "content": "## Sist du var her\n\nSVD står på tre resultater du bør ha friskt i minne:\n\n- **Spektralteoremet** ([kap. 6.1](/bok/mat1120/mat1120-6-1)): en symmetrisk matrise $M=M^{T}$ er ortogonalt diagonaliserbar, $M=PDP^{T}$ med **ortonormale** egenvektorer i $P$ ($P^{T}P=I$). Her er $M=A^{T}A$.\n- **Normalisering:** $\\mathbf{u}=\\tfrac{1}{\\lVert\\mathbf{v}\\rVert}\\mathbf{v}$ gir en enhetsvektor.\n- **Rayleigh** ([kap. 6.3](/bok/mat1120/mat1120-6-3)): $\\max_{\\lVert\\mathbf{x}\\rVert=1}\\mathbf{x}^{T}M\\mathbf{x}=\\lambda_{\\max}(M)$, oppnådd i den tilhørende egenvektoren.\n\nSVD kobler disse: $\\sigma_i=\\sqrt{\\lambda_i(A^{T}A)}$, og $\\max\\lVert A\\mathbf{x}\\rVert=\\sigma_1$ er Rayleigh på $A^{T}A$.\n\n*Kapitlet er tungt (~60 min); ta gjerne løkke 1–2 (oppbyggingen av SVD) i én økt og løkke 3 ($\\max\\lVert A\\mathbf{x}\\rVert$ + lav-rang) i en annen. — naturlig pausepunkt —*"
+    },
+    {
+      "id": "mat1120-7-1-intro",
+      "type": "text",
+      "content": "Ikke alle matriser er kvadratiske, og ikke alle kvadratiske matriser er symmetriske — så den pene $A=PDP^{T}$ finnes ikke for en vilkårlig $A$. **Singulærverdidekomposisjonen** er svaret: *enhver* $m\\times n$-matrise, uansett form, kan skrives\n$$A=U\\Sigma V^{T},$$\nder $U$ og $V$ er ortogonale (ortonormale søyler) og $\\Sigma$ er en «diagonal» med ikke-negative tall $\\sigma_1\\ge\\sigma_2\\ge\\dots\\ge0$ — **singulærverdiene**. Trikset er at $A^{T}A$ *alltid* er symmetrisk, så spektralteoremet gjelder for den, og vi høster $V$, $\\Sigma$ og $U$ derfra.\n\nKapitlet går i tre løkker:\n\n1. **Fra $A^{T}A$ til $V$ og $\\Sigma$:** ortogonaldiagonaliser $A^{T}A$, ta $\\sigma_i=\\sqrt{\\lambda_i}$.\n2. **Fra $V$ til $U$:** $\\mathbf{u}_i=\\tfrac{1}{\\sigma_i}A\\mathbf{v}_i$, utvid til ortonormal basis, sett sammen $A=U\\Sigma V^{T}$.\n3. **Rang og $\\max\\lVert A\\mathbf{x}\\rVert=\\sigma_1$**, pluss et blikk på lav-rangs-tilnærming."
+    },
+    {
+      "id": "mat1120-7-1-l1",
+      "type": "text",
+      "content": "## Løkke 1 — Fra $A^{T}A$ til høyresingulærvektorene $V$ og singulærverdiene $\\Sigma$ (~22 min)"
+    },
+    {
+      "id": "mat1120-7-1-l1-teori",
+      "type": "text",
+      "content": "Uansett hvordan $A$ ser ut, er $A^{T}A$ en **kvadratisk, symmetrisk** $n\\times n$-matrise: $(A^{T}A)^{T}=A^{T}(A^{T})^{T}=A^{T}A$. Dermed gir spektralteoremet en ortonormal egenbasis $\\mathbf{v}_1,\\dots,\\mathbf{v}_n$ med reelle egenverdier $\\lambda_1\\ge\\dots\\ge\\lambda_n$. Og egenverdiene er **aldri negative**: for en egenvektor $\\mathbf{v}$ med $\\lVert\\mathbf{v}\\rVert=1$ er\n$$\\lambda=\\lambda\\lVert\\mathbf{v}\\rVert^2=\\mathbf{v}^{T}(A^{T}A)\\mathbf{v}=(A\\mathbf{v})^{T}(A\\mathbf{v})=\\lVert A\\mathbf{v}\\rVert^2\\ge0.$$\nDerfor kan vi trygt ta kvadratrot. **Singulærverdiene** til $A$ er $\\sigma_i=\\sqrt{\\lambda_i}$, ordnet **synkende**. De ortonormale egenvektorene $\\mathbf{v}_i$ blir søylene i $V$ (de kalles **høyresingulærvektorer**), og $\\sigma_i$ havner på diagonalen i $\\Sigma$.\n\n**Steg 1–3:** (1) regn $A^{T}A$; (2) les egenverdier + ortonormale egenvektorer av vedlegget, ordne $\\lambda_1\\ge\\lambda_2\\ge\\dots$; (3) $\\sigma_i=\\sqrt{\\lambda_i}$, $V=[\\mathbf{v}_1\\cdots\\mathbf{v}_n]$."
+    },
+    {
+      "id": "mat1120-7-1-def-sigma",
+      "type": "definition",
+      "title": "Singulærverdi",
+      "content": "En **singulærverdi** til en matrise $A$ er kvadratroten av en egenverdi til $A^{T}A$: $\\sigma_i=\\sqrt{\\lambda_i}$, der $\\lambda_i\\ge0$ er egenverdiene til den symmetriske matrisen $A^{T}A$. Singulærverdiene er alltid $\\ge0$ og ordnes **synkende**, $\\sigma_1\\ge\\sigma_2\\ge\\dots$ Til forskjell fra egenverdiene til $A$ (som kan være negative eller komplekse) er singulærverdiene reelle og ikke-negative — de måler hvor mye $A$ strekker i hver hovedretning."
+    },
+    {
+      "id": "mat1120-7-1-def-ATA",
+      "type": "definition",
+      "title": "Hvorfor $A^{T}A$",
+      "content": "Matrisen $A^{T}A$ er hjørnesteinen i SVD fordi den *alltid* er **symmetrisk** ($(A^{T}A)^{T}=A^{T}A$) og har **ikke-negative egenverdier** ($\\lambda=\\lVert A\\mathbf{v}\\rVert^2\\ge0$ for en enhetsegenvektor). Spektralteoremet gjelder derfor uansett hvordan $A$ ser ut, og gir en ortonormal egenbasis $\\mathbf{v}_1,\\dots,\\mathbf{v}_n$ — nettopp høyresingulærvektorene. $A^{T}A$ er $n\\times n$ når $A$ er $m\\times n$."
+    },
+    {
+      "id": "mat1120-7-1-def-V",
+      "type": "definition",
+      "title": "Høyresingulærvektorer $V$",
+      "content": "Søylene i $V$ er en **ortonormal** egenbasis for $A^{T}A$: $V=[\\mathbf{v}_1\\ \\mathbf{v}_2\\ \\cdots\\ \\mathbf{v}_n]$ der $A^{T}A\\,\\mathbf{v}_i=\\lambda_i\\mathbf{v}_i$ og $\\mathbf{v}_i$ er ordnet slik at $\\lambda_1\\ge\\lambda_2\\ge\\dots$. Da er $V$ ortogonal ($V^{T}V=I$). Disse kalles **høyresingulærvektorer** fordi de står til høyre i $A=U\\Sigma V^{T}$. De leses (etter normalisering) rett av vedleggets `eig`$(A^{T}A)$."
+    },
+    {
+      "id": "mat1120-7-1-ex1",
+      "type": "example",
+      "title": "Eksempel 1: $A^{T}A$, singulærverdier og $V$",
+      "problem": "La $A=\\begin{bmatrix}2&2\\\\1&0\\\\0&1\\end{bmatrix}$. Finn $A^{T}A$, singulærverdiene til $A$, og en ortogonal $V$ av høyresingulærvektorer. **Vedlegg** (`eig`$(A^{T}A)$): egenverdiene er $\\lambda=9$ med egenvektor $(1,1)^{T}$ og $\\lambda=1$ med egenvektor $(1,-1)^{T}$.",
+      "solution": "**Regn $A^{T}A$** ($A$ er $3\\times2$, så $A^{T}A$ er $2\\times2$):\n$$A^{T}A=\\begin{bmatrix}2&1&0\\\\2&0&1\\end{bmatrix}\\begin{bmatrix}2&2\\\\1&0\\\\0&1\\end{bmatrix}=\\begin{bmatrix}5&4\\\\4&5\\end{bmatrix}.$$\nDenne er symmetrisk — som den må være.\n\n**Fra vedlegget** ser vi at $A^{T}A$ har egenverdiene $9$ og $1$ med ortogonale egenvektorer $(1,1)^{T}$ og $(1,-1)^{T}$ (kontroll: $(1,1)\\cdot(1,-1)=0$ ✓). Ordnet **synkende**: $\\lambda_1=9,\\ \\lambda_2=1$.\n\n**Singulærverdier:** $\\sigma_1=\\sqrt9=3$, $\\sigma_2=\\sqrt1=1$.\n\n**Normalisér** egenvektorene (begge har lengde $\\sqrt2$) til høyresingulærvektorer:\n$$\\mathbf{v}_1=\\tfrac{1}{\\sqrt2}\\begin{bmatrix}1\\\\1\\end{bmatrix},\\quad \\mathbf{v}_2=\\tfrac{1}{\\sqrt2}\\begin{bmatrix}1\\\\-1\\end{bmatrix},\\qquad V=\\frac{1}{\\sqrt2}\\begin{bmatrix}1&1\\\\1&-1\\end{bmatrix},\\quad \\Sigma=\\begin{bmatrix}3&0\\\\0&1\\\\0&0\\end{bmatrix}.$$\n**Konklusjon:** singulærverdiene er $\\sigma_1=3,\\ \\sigma_2=1$; $V$ og $\\Sigma$ som over (eksakte verdier med $\\tfrac{1}{\\sqrt2}$). Merk at $\\Sigma$ er $3\\times2$ — samme form som $A$. Vi bygger $U$ i løkke 2."
+    },
+    {
+      "id": "mat1120-7-1-e1",
+      "type": "exercise",
+      "exercise": {
+        "id": "mat1120-7-1-e1",
+        "number": "1",
+        "type": "classic",
+        "difficulty": "lett",
+        "task": "Vedlegget forteller at $A^{T}A$ har egenverdiene $49$, $16$ og $0$.\n\n**a)** Hva er singulærverdiene til $A$?\n\n**b)** Hva er rangen til $A$?",
+        "solution": "**a)** Singulærverdiene er kvadratrøttene, ordnet synkende: $\\sigma_1=\\sqrt{49}=7$, $\\sigma_2=\\sqrt{16}=4$, $\\sigma_3=\\sqrt0=0$.\n\n**b)** Rangen er antallet **positive** singulærverdier: $7>0$ og $4>0$, mens $0$ ikke teller. Altså $\\operatorname{rang}A=2$.",
+        "hints": [
+          "Singulærverdi $=\\sqrt{\\lambda}$ der $\\lambda$ er egenverdi til $A^{T}A$; ordne synkende.",
+          "Rangen = antall $\\sigma_i>0$."
+        ]
+      }
+    },
+    {
+      "id": "mat1120-7-1-e2",
+      "type": "exercise",
+      "exercise": {
+        "id": "mat1120-7-1-e2",
+        "number": "2",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "La $A=\\begin{bmatrix}2&-2\\\\1&0\\\\0&1\\end{bmatrix}$. **Vedlegg:** $A^{T}A$ har egenverdiene $\\lambda=9$ med egenvektor $(1,-1)^{T}$ og $\\lambda=1$ med egenvektor $(1,1)^{T}$.\n\n**a)** Regn $A^{T}A$ og bekreft at den er symmetrisk.\n\n**b)** Oppgi singulærverdiene og en ortogonal $V$.",
+        "solution": "**a)** $A^{T}A=\\begin{bmatrix}2&1&0\\\\-2&0&1\\end{bmatrix}\\begin{bmatrix}2&-2\\\\1&0\\\\0&1\\end{bmatrix}=\\begin{bmatrix}5&-4\\\\-4&5\\end{bmatrix}$, som er symmetrisk ($a_{12}=a_{21}=-4$).\n\n**b)** Fra vedlegget: $\\lambda_1=9$ (egenvektor $(1,-1)^{T}$), $\\lambda_2=1$ (egenvektor $(1,1)^{T}$), synkende ordnet. Singulærverdier $\\sigma_1=3,\\ \\sigma_2=1$. Begge egenvektorer har lengde $\\sqrt2$:\n$$V=\\frac{1}{\\sqrt2}\\begin{bmatrix}1&1\\\\-1&1\\end{bmatrix},\\qquad \\Sigma=\\begin{bmatrix}3&0\\\\0&1\\\\0&0\\end{bmatrix}.$$\nSøyle 1 av $V$ hører til $\\sigma_1=3$, søyle 2 til $\\sigma_2=1$.",
+        "hints": [
+          "Regn $A^{T}A$ først; egenverdien $9$ (størst) skal bli $\\sigma_1$.",
+          "Normalisér egenvektorene ($\\div\\sqrt2$) og sett $\\mathbf{v}_1$ (for $\\lambda=9$) som første søyle i $V$."
+        ]
+      }
+    },
+    {
+      "id": "mat1120-7-1-l2",
+      "type": "text",
+      "content": "## Løkke 2 — Fra $V$ til $U$: bygg $\\mathbf{u}_i=\\tfrac{1}{\\sigma_i}A\\mathbf{v}_i$ og sett sammen $A=U\\Sigma V^{T}$ (~22 min)"
+    },
+    {
+      "id": "mat1120-7-1-l2-teori",
+      "type": "text",
+      "content": "Nå har vi $V$ og $\\Sigma$; det som mangler er den **venstre** ortogonale matrisen $U$ (størrelse $m\\times m$). Oppskriften er kort: for hver **positiv** singulærverdi settes\n$$\\mathbf{u}_i=\\frac{1}{\\sigma_i}A\\mathbf{v}_i.$$\nDisse blir automatisk **ortonormale** (det følger av at $\\mathbf{v}_i$ er egenvektorer for $A^{T}A$). Har du færre positive $\\sigma_i$ enn $m$, **utvider** du $\\{\\mathbf{u}_i\\}$ til en full ortonormal basis for $\\mathbb{R}^m$ (Gram–Schmidt / et vektorprodukt i $\\mathbb{R}^3$) — disse ekstra søylene ganges uansett med $0$ i $\\Sigma$, så de påvirker ikke $A$, men de gjør $U$ ortogonal.\n\nGlemmer du $\\tfrac{1}{\\sigma_i}$, blir $\\mathbf{u}_i$ ikke en enhetsvektor, og $U$ ikke ortogonal — en av de vanligste SVD-feilene."
+    },
+    {
+      "id": "mat1120-7-1-def-U",
+      "type": "definition",
+      "title": "Venstresingulærvektorer $U$",
+      "content": "For hver positiv singulærverdi er venstresingulærvektoren $\\mathbf{u}_i=\\dfrac{1}{\\sigma_i}A\\mathbf{v}_i$. Disse er ortonormale, og søylene $\\mathbf{u}_1,\\dots,\\mathbf{u}_m$ (etter utvidelse til full ortonormal basis for $\\mathbb{R}^m$) danner den ortogonale matrisen $U$ ($U^{T}U=I$). De kalles **venstresingulærvektorer** fordi de står til venstre i $A=U\\Sigma V^{T}$. Faktoren $\\tfrac{1}{\\sigma_i}$ er avgjørende — uten den blir $\\mathbf{u}_i$ ikke en enhetsvektor."
+    },
+    {
+      "id": "mat1120-7-1-def-svd",
+      "type": "definition",
+      "title": "Singulærverdidekomposisjon $A=U\\Sigma V^{T}$",
+      "content": "En **singulærverdidekomposisjon** av en $m\\times n$-matrise $A$ er en faktorisering $A=U\\Sigma V^{T}$ der $U$ ($m\\times m$) og $V$ ($n\\times n$) er ortogonale, og $\\Sigma$ ($m\\times n$) har singulærverdiene $\\sigma_1\\ge\\sigma_2\\ge\\dots\\ge0$ på «diagonalen» og null ellers. En slik dekomposisjon finnes for *enhver* matrise. Den forteller at $A$ virker slik: roter/reflekter med $V^{T}$, strekk hver akse med $\\sigma_i$, roter/reflekter med $U$."
+    },
+    {
+      "id": "mat1120-7-1-def-Sigma",
+      "type": "definition",
+      "title": "$\\Sigma$-matrisen",
+      "content": "$\\Sigma$ har samme form som $A$ ($m\\times n$) og bærer singulærverdiene på hoveddiagonalen i **synkende** rekkefølge: $\\Sigma_{ii}=\\sigma_i$, alt annet $0$. Er $A$ ikke kvadratisk, har $\\Sigma$ en rad eller søyle med bare nuller for å passe formen. Nuller nederst/til høyre svarer til singulærverdier lik $0$ (rangdefekt)."
+    },
+    {
+      "id": "mat1120-7-1-ex2",
+      "type": "example",
+      "title": "Eksempel 2: Bygg $U$ og fullfør SVD",
+      "problem": "Fullfør SVD-en for $A=\\begin{bmatrix}2&2\\\\1&0\\\\0&1\\end{bmatrix}$ fra eksempel 1 (der $\\sigma_1=3,\\sigma_2=1$, $\\mathbf{v}_1=\\tfrac{1}{\\sqrt2}(1,1)^{T}$, $\\mathbf{v}_2=\\tfrac{1}{\\sqrt2}(1,-1)^{T}$). Skriv $A=U\\Sigma V^{T}$.",
+      "solution": "**Venstresingulærvektorer** for de to positive $\\sigma_i$. Regn først $A\\mathbf{v}_i$ (uten $\\tfrac{1}{\\sqrt2}$-faktoren, sett den inn til slutt): $A(1,1)^{T}=(4,1,1)^{T}$ og $A(1,-1)^{T}=(0,1,-1)^{T}$. Da:\n$$\\mathbf{u}_1=\\frac{1}{\\sigma_1}A\\mathbf{v}_1=\\frac{1}{3}\\cdot\\frac{1}{\\sqrt2}\\begin{bmatrix}4\\\\1\\\\1\\end{bmatrix}=\\frac{1}{3\\sqrt2}\\begin{bmatrix}4\\\\1\\\\1\\end{bmatrix},\\qquad \\mathbf{u}_2=\\frac{1}{\\sigma_2}A\\mathbf{v}_2=\\frac{1}{\\sqrt2}\\begin{bmatrix}0\\\\1\\\\-1\\end{bmatrix}.$$\nKontroll: $\\lVert\\mathbf{u}_1\\rVert^2=\\tfrac{16+1+1}{18}=1$ ✓, $\\lVert\\mathbf{u}_2\\rVert^2=\\tfrac{0+1+1}{2}=1$ ✓, $\\mathbf{u}_1\\cdot\\mathbf{u}_2=\\tfrac{1}{3\\sqrt2\\cdot\\sqrt2}(0+1-1)=0$ ✓.\n\n**Utvid $U$** til $\\mathbb{R}^3$: en tredje enhetsvektor $\\mathbf{u}_3\\perp\\mathbf{u}_1,\\mathbf{u}_2$. Vektorproduktet $(4,1,1)\\times(0,1,-1)=(-2,4,4)\\sim(-1,2,2)$, med lengde $3$, gir $\\mathbf{u}_3=\\tfrac{1}{3}(-1,2,2)^{T}$.\n\n**Sett sammen:**\n$$U=\\begin{bmatrix}\\tfrac{4}{3\\sqrt2}&0&-\\tfrac13\\\\[2pt]\\tfrac{1}{3\\sqrt2}&\\tfrac{1}{\\sqrt2}&\\tfrac23\\\\[2pt]\\tfrac{1}{3\\sqrt2}&-\\tfrac{1}{\\sqrt2}&\\tfrac23\\end{bmatrix},\\quad \\Sigma=\\begin{bmatrix}3&0\\\\0&1\\\\0&0\\end{bmatrix},\\quad V=\\frac{1}{\\sqrt2}\\begin{bmatrix}1&1\\\\1&-1\\end{bmatrix}.$$\nDa er $A=U\\Sigma V^{T}$. Den tredje søylen i $U$ ganges med $\\Sigma$s nullrad, så den påvirker ikke produktet — men den gjør $U$ ortogonal. **Konklusjon:** SVD funnet, alle tall eksakte."
+    },
+    {
+      "id": "mat1120-7-1-e3",
+      "type": "exercise",
+      "exercise": {
+        "id": "mat1120-7-1-e3",
+        "number": "3",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "Bruk resultatene fra oppgave 2 ($A=\\begin{bmatrix}2&-2\\\\1&0\\\\0&1\\end{bmatrix}$, $\\sigma_1=3,\\sigma_2=1$, $\\mathbf{v}_1=\\tfrac{1}{\\sqrt2}(1,-1)^{T}$, $\\mathbf{v}_2=\\tfrac{1}{\\sqrt2}(1,1)^{T}$). Finn $\\mathbf{u}_1$ og $\\mathbf{u}_2$, og kontroller at de er ortonormale.",
+        "solution": "$A(1,-1)^{T}=(2+2,\\,1,\\,-1)^{T}=(4,1,-1)^{T}$ og $A(1,1)^{T}=(2-2,\\,1,\\,1)^{T}=(0,1,1)^{T}$, så\n$$\\mathbf{u}_1=\\frac{1}{\\sigma_1}A\\mathbf{v}_1=\\frac{1}{3\\sqrt2}\\begin{bmatrix}4\\\\1\\\\-1\\end{bmatrix},\\qquad \\mathbf{u}_2=\\frac{1}{\\sigma_2}A\\mathbf{v}_2=\\frac{1}{\\sqrt2}\\begin{bmatrix}0\\\\1\\\\1\\end{bmatrix}.$$\nKontroll: $\\lVert\\mathbf{u}_1\\rVert^2=\\tfrac{16+1+1}{18}=1$, $\\lVert\\mathbf{u}_2\\rVert^2=\\tfrac{2}{2}=1$, $\\mathbf{u}_1\\cdot\\mathbf{u}_2=\\tfrac{1}{3\\sqrt2\\sqrt2}(0+1-1)=0$. Ortonormale ✓.",
+        "hints": [
+          "Bruk $\\mathbf{u}_i=\\tfrac{1}{\\sigma_i}A\\mathbf{v}_i$; regn $A\\mathbf{v}_i$ først.",
+          "Del på $\\sigma_1=3$ for $\\mathbf{u}_1$ og $\\sigma_2=1$ for $\\mathbf{u}_2$; sjekk deretter normer og skalarprodukt."
+        ]
+      }
+    },
+    {
+      "id": "mat1120-7-1-e4",
+      "type": "exercise",
+      "exercise": {
+        "id": "mat1120-7-1-e4",
+        "number": "4",
+        "type": "classic",
+        "difficulty": "vanskelig",
+        "task": "La $A=\\begin{bmatrix}1&2\\\\2&1\\end{bmatrix}$. $A$ er symmetrisk med egenverdier $3$ og $-1$.\n\n**a)** Regn $A^{T}A$ og oppgi singulærverdiene. Er de lik egenverdiene til $A$?\n\n**b)** Med $\\mathbf{v}_1=\\tfrac{1}{\\sqrt2}(1,1)^{T}$ (for $\\lambda(A^{T}A)=9$) og $\\mathbf{v}_2=\\tfrac{1}{\\sqrt2}(1,-1)^{T}$, finn $\\mathbf{u}_1,\\mathbf{u}_2$ og forklar hvor det negative fortegnet til egenverdien $-1$ havner.",
+        "solution": "**a)** $A^{T}A=A^2=\\begin{bmatrix}1&2\\\\2&1\\end{bmatrix}^2=\\begin{bmatrix}5&4\\\\4&5\\end{bmatrix}$, med egenverdier $9$ og $1$. Singulærverdier $\\sigma_1=3,\\ \\sigma_2=1$. **Nei** — de er *ikke* egenverdiene til $A$ (som er $3$ og $-1$); de er $|3|$ og $|-1|$. Singulærverdier er alltid $\\ge0$.\n\n**b)** $A\\mathbf{v}_1=\\tfrac{1}{\\sqrt2}(1+2,2+1)^{T}=\\tfrac{1}{\\sqrt2}(3,3)^{T}$, så $\\mathbf{u}_1=\\tfrac{1}{3}A\\mathbf{v}_1=\\tfrac{1}{\\sqrt2}(1,1)^{T}=\\mathbf{v}_1$. $A\\mathbf{v}_2=\\tfrac{1}{\\sqrt2}(1-2,2-1)^{T}=\\tfrac{1}{\\sqrt2}(-1,1)^{T}$, så $\\mathbf{u}_2=\\tfrac{1}{1}A\\mathbf{v}_2=\\tfrac{1}{\\sqrt2}(-1,1)^{T}=-\\mathbf{v}_2$. Det negative fortegnet til egenverdien $-1$ dukker opp som $\\mathbf{u}_2=-\\mathbf{v}_2$ — altså i **$U$**, ikke i $\\Sigma$. Da er $A=U\\Sigma V^{T}$ med $\\Sigma=\\operatorname{diag}(3,1)$ (positiv), og fortegnsforskjellen ligger i at $U\\ne V$.",
+        "hints": [
+          "Regn $A^{T}A=A^2$ og ta kvadratrot av egenverdiene — de blir $|3|$ og $|-1|$.",
+          "Regn $\\mathbf{u}_i=\\tfrac{1}{\\sigma_i}A\\mathbf{v}_i$; sammenlign $\\mathbf{u}_2$ med $\\mathbf{v}_2$ og se fortegnet."
+        ]
+      }
+    },
+    {
+      "id": "mat1120-7-1-l3",
+      "type": "text",
+      "content": "## Løkke 3 — Rang, $\\max\\lVert A\\mathbf{x}\\rVert=\\sigma_1$ og lav-rangs-tilnærming (~14 min)"
+    },
+    {
+      "id": "mat1120-7-1-l3-teori",
+      "type": "text",
+      "content": "SVD gir to opplysninger nesten gratis. **Rangen** til $A$ er antallet *positive* singulærverdier — nuller i $\\Sigma$ svarer til retninger $A$ kollapser. Og det avgjørende for optimering: den største strekkingen $A$ gjør på enhetssfæren er nettopp $\\sigma_1$,\n$$\\max_{\\lVert\\mathbf{x}\\rVert=1}\\lVert A\\mathbf{x}\\rVert=\\sigma_1,$$\noppnådd i $\\mathbf{x}=\\mathbf{v}_1$ (høyresingulærvektoren til største singulærverdi). Dette er ikke et nytt resultat — det er **Rayleigh på $A^{T}A$**: $\\lVert A\\mathbf{x}\\rVert^2=\\mathbf{x}^{T}A^{T}A\\mathbf{x}$, som maksimeres av største egenverdi $\\lambda_1=\\sigma_1^2$ i egenvektoren $\\mathbf{v}_1$. Tilsvarende er $\\min_{\\lVert\\mathbf{x}\\rVert=1}\\lVert A\\mathbf{x}\\rVert=\\sigma_n$.\n\n**Felle:** svaret er $\\sigma_1$, ikke $\\lambda_1$ — glemmer du kvadratroten, får du $\\sigma_1^2$."
+    },
+    {
+      "id": "mat1120-7-1-def-rang",
+      "type": "definition",
+      "title": "Rang fra singulærverdier",
+      "content": "Rangen til $A$ er **antallet positive singulærverdier**: $\\operatorname{rang}A=\\#\\{i:\\sigma_i>0\\}$. Singulærverdier lik $0$ svarer til retninger som $A$ sender til null (kollapser), og teller ikke. Dette er ofte den raskeste måten å lese rangen på når SVD-en er kjent."
+    },
+    {
+      "id": "mat1120-7-1-def-maxnorm",
+      "type": "definition",
+      "title": "$\\max\\lVert A\\mathbf{x}\\rVert=\\sigma_1$",
+      "content": "På enhetssfæren $\\lVert\\mathbf{x}\\rVert=1$ er den største verdien av $\\lVert A\\mathbf{x}\\rVert$ lik den **største singulærverdien** $\\sigma_1$, oppnådd i $\\mathbf{x}=\\mathbf{v}_1$. Den minste er $\\sigma_n$, i $\\mathbf{x}=\\mathbf{v}_n$. Dette er Rayleigh anvendt på $A^{T}A$, siden $\\lVert A\\mathbf{x}\\rVert^2=\\mathbf{x}^{T}A^{T}A\\mathbf{x}$. Svaret er $\\sigma_1$ (ikke $\\lambda_1=\\sigma_1^2$)."
+    },
+    {
+      "id": "mat1120-7-1-ex3",
+      "type": "example",
+      "title": "Eksempel 3: Rang og maksimal strekking",
+      "problem": "For $A=\\begin{bmatrix}2&2\\\\1&0\\\\0&1\\end{bmatrix}$ (singulærverdier $\\sigma_1=3,\\sigma_2=1$, $\\mathbf{v}_1=\\tfrac{1}{\\sqrt2}(1,1)^{T}$): oppgi $\\operatorname{rang}A$ og $\\max\\{\\lVert A\\mathbf{x}\\rVert:\\lVert\\mathbf{x}\\rVert=1\\}$ med den $\\mathbf{x}$ som gir maksimum.",
+      "solution": "**Rang:** to positive singulærverdier ($3,1$), så $\\operatorname{rang}A=2$ (full søylerang — søylene i $A$ er uavhengige).\n\n**Maksimal strekking:** $\\max_{\\lVert\\mathbf{x}\\rVert=1}\\lVert A\\mathbf{x}\\rVert=\\sigma_1=3$, oppnådd i $\\mathbf{x}=\\mathbf{v}_1=\\tfrac{1}{\\sqrt2}(1,1)^{T}$. **Kontroll:** $A\\mathbf{v}_1=\\tfrac{1}{\\sqrt2}(4,1,1)^{T}$, med $\\lVert A\\mathbf{v}_1\\rVert=\\tfrac{1}{\\sqrt2}\\sqrt{16+1+1}=\\tfrac{\\sqrt{18}}{\\sqrt2}=\\sqrt9=3$ ✓. **Konklusjon:** $\\operatorname{rang}A=2$, $\\max\\lVert A\\mathbf{x}\\rVert=3$ i retning $\\tfrac{1}{\\sqrt2}(1,1)^{T}$ — eksakt, ikke $\\sigma_1^2=9$."
+    },
+    {
+      "id": "mat1120-7-1-e5",
+      "type": "exercise",
+      "exercise": {
+        "id": "mat1120-7-1-e5",
+        "number": "5",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "En $2\\times2$-matrise $A$ har singulærverdier $\\sigma_1=5$ og $\\sigma_2=2$, med $\\mathbf{v}_1=\\tfrac{1}{\\sqrt5}(2,1)^{T}$.\n\n**a)** Hva er $\\max\\{\\lVert A\\mathbf{x}\\rVert:\\lVert\\mathbf{x}\\rVert=1\\}$, og i hvilken retning?\n\n**b)** Hva er $\\min\\{\\lVert A\\mathbf{x}\\rVert:\\lVert\\mathbf{x}\\rVert=1\\}$?\n\n**c)** Er $A$ invertibel?",
+        "solution": "**a)** Maksimum er $\\sigma_1=5$, oppnådd i $\\mathbf{x}=\\mathbf{v}_1=\\tfrac{1}{\\sqrt5}(2,1)^{T}$.\n\n**b)** Minimum er den minste singulærverdien, $\\sigma_2=2$ (i $\\mathbf{v}_2$).\n\n**c)** Ja: begge singulærverdier er positive, så $\\operatorname{rang}A=2$ (full rang), og en kvadratisk matrise med full rang er invertibel.",
+        "hints": [
+          "$\\max\\lVert A\\mathbf{x}\\rVert=\\sigma_1$ i $\\mathbf{v}_1$; $\\min=\\sigma_n$.",
+          "Svaret er singulærverdien selv, ikke kvadratet. Full rang ⇔ alle $\\sigma_i>0$."
+        ]
+      }
+    },
+    {
+      "id": "mat1120-7-1-def-lavrang",
+      "type": "definition",
+      "title": "Lav-rangs-tilnærming (kjennskap)",
+      "content": "Beholder du bare de $k$ største leddene i summen $A=\\sum_i\\sigma_i\\mathbf{u}_i\\mathbf{v}_i^{T}$, får du den beste rang-$k$-tilnærmingen $A_k=\\sum_{i=1}^{k}\\sigma_i\\mathbf{u}_i\\mathbf{v}_i^{T}$ til $A$. Feilen styres av de forkastede singulærverdiene ($\\sigma_{k+1},\\dots$). Dette er ideen bak bildekomprimering og dataredusering — på pensumnivå holder det å **kjenne** at SVD gir denne optimale tilnærmingen."
+    },
+    {
+      "id": "mat1120-7-1-e6",
+      "type": "exercise",
+      "exercise": {
+        "id": "mat1120-7-1-e6",
+        "number": "6",
+        "type": "classic",
+        "difficulty": "vanskelig",
+        "task": "En $3\\times3$-matrise har singulærverdier $\\sigma_1=6,\\ \\sigma_2=4,\\ \\sigma_3=0$.\n\n**a)** Hva er rangen?\n\n**b)** Er matrisen invertibel? Begrunn.\n\n**c)** Hva er $\\max\\{\\lVert A\\mathbf{x}\\rVert:\\lVert\\mathbf{x}\\rVert=1\\}$, og hva er $\\min$ over samme mengde?",
+        "solution": "**a)** To positive singulærverdier, så $\\operatorname{rang}A=2$.\n\n**b)** **Nei.** En invertibel $3\\times3$-matrise må ha rang $3$; her er rangen $2$ (fordi $\\sigma_3=0$). Ekvivalent: $\\sigma_3=0$ betyr at $A$ kollapser en retning, så $\\operatorname{Nul}A\\ne\\{\\mathbf{0}\\}$.\n\n**c)** $\\max\\lVert A\\mathbf{x}\\rVert=\\sigma_1=6$; $\\min\\lVert A\\mathbf{x}\\rVert=\\sigma_3=0$ (oppnådd i $\\mathbf{v}_3$, som ligger i $\\operatorname{Nul}A$).",
+        "hints": [
+          "Rang = antall $\\sigma_i>0$; invertibel krever full rang.",
+          "$\\max=\\sigma_1$, $\\min=\\sigma_n$ — her er $\\sigma_3=0$."
+        ]
+      }
+    },
+    {
+      "id": "mat1120-7-1-warn",
+      "type": "warning",
+      "title": "Typiske feil",
+      "content": "- **Singulærverdiene ikke synkende ordnet:** $\\sigma_1\\ge\\sigma_2\\ge\\dots$ er en del av definisjonen. Sorter egenverdiene til $A^{T}A$ synkende *før* du tar kvadratrot, og match $V,\\Sigma,U$ til samme rekkefølge.\n- **Glemmer $\\sigma_i=\\sqrt{\\lambda_i}$** og bruker egenverdien $\\lambda_i$ direkte. Singulærverdien er *kvadratroten* av egenverdien til $A^{T}A$.\n- **Glemmer $\\tfrac{1}{\\sigma_i}$ i $\\mathbf{u}_i=\\tfrac{1}{\\sigma_i}A\\mathbf{v}_i$:** da blir $\\mathbf{u}_i$ ikke en enhetsvektor og $U$ ikke ortogonal.\n- **Utvider ikke $U$ til full ortonormal basis** når det er færre positive $\\sigma_i$ enn $m$. De manglende søylene trengs for at $U$ skal være ortogonal (de ganges med $0$ i $\\Sigma$).\n- **Forveksler $\\sigma_1$ og $\\lambda_1$ i $\\max\\lVert A\\mathbf{x}\\rVert$:** svaret er $\\sigma_1$, ikke $\\sigma_1^2=\\lambda_1$.\n- **Regner egenverdiene til $A^{T}A$ for hånd** i stedet for å lese dem av vedlegget (`eig`)."
+    },
+    {
+      "id": "mat1120-7-1-bb",
+      "type": "text",
+      "content": "## Begrepsbank til eksamen\n\nKjernebegrepene fra kapitlet i eksamensrettet kortform.\n\n*Begrepsbanken er flashcard-/repetisjonsstoff — hopp trygt over ved førstegangslesing; tidsanslaget gjelder kjernestoffet.*"
+    },
+    {
+      "id": "mat1120-7-1-bb-oppskrift",
+      "type": "definition",
+      "title": "SVD-oppskriften i fem steg",
+      "content": "(1) Regn $A^{T}A$. (2) Les egenverdier + ortonormale egenvektorer av vedlegget, ordne synkende → $V$. (3) $\\sigma_i=\\sqrt{\\lambda_i}$ → $\\Sigma$. (4) $\\mathbf{u}_i=\\tfrac{1}{\\sigma_i}A\\mathbf{v}_i$ for $\\sigma_i>0$. (5) Utvid $\\{\\mathbf{u}_i\\}$ til ortonormal basis → $U$. Da $A=U\\Sigma V^{T}$."
+    },
+    {
+      "id": "mat1120-7-1-bb-ATAegen",
+      "type": "definition",
+      "title": "$A^{T}A$ har egenverdier $\\ge0$",
+      "content": "For en enhetsegenvektor $\\mathbf{v}$ av $A^{T}A$ er $\\lambda=\\mathbf{v}^{T}A^{T}A\\mathbf{v}=\\lVert A\\mathbf{v}\\rVert^2\\ge0$. Derfor kan vi ta $\\sigma=\\sqrt{\\lambda}$. $A^{T}A$ er alltid symmetrisk og **positiv semidefinit**."
+    },
+    {
+      "id": "mat1120-7-1-bb-synk",
+      "type": "definition",
+      "title": "Synkende rekkefølge",
+      "content": "Singulærverdiene ordnes alltid $\\sigma_1\\ge\\sigma_2\\ge\\dots\\ge0$. Match $V$s søyler, $\\Sigma$s diagonal og $U$s søyler til samme rekkefølge — ellers stemmer ikke $A=U\\Sigma V^{T}$."
+    },
+    {
+      "id": "mat1120-7-1-bb-sigmaikkelambda",
+      "type": "definition",
+      "title": "$\\sigma_i$ er ikke egenverdi til $A$",
+      "content": "Singulærverdiene er kvadratrøttene av egenverdiene til $A^{T}A$, *ikke* egenverdiene til $A$. For symmetrisk $A$ er $\\sigma_i=|\\lambda_i(A)|$; for usymmetrisk/ikke-kvadratisk $A$ har $A$ kanskje ingen (reelle) egenverdier i det hele tatt."
+    },
+    {
+      "id": "mat1120-7-1-bb-uformel",
+      "type": "definition",
+      "title": "Formelen $\\mathbf{u}_i=\\tfrac{1}{\\sigma_i}A\\mathbf{v}_i$",
+      "content": "Gjelder bare for $\\sigma_i>0$. Faktoren $\\tfrac{1}{\\sigma_i}$ normaliserer: $\\lVert A\\mathbf{v}_i\\rVert=\\sigma_i$, så $\\mathbf{u}_i$ får lengde 1. Uten den blir $U$ ikke ortogonal."
+    },
+    {
+      "id": "mat1120-7-1-bb-uortonormal",
+      "type": "definition",
+      "title": "$\\mathbf{u}_i$ er automatisk ortonormale",
+      "content": "For $i\\ne j$ er $\\mathbf{u}_i\\cdot\\mathbf{u}_j=\\tfrac{1}{\\sigma_i\\sigma_j}(A\\mathbf{v}_i)\\cdot(A\\mathbf{v}_j)=\\tfrac{1}{\\sigma_i\\sigma_j}\\mathbf{v}_i^{T}A^{T}A\\mathbf{v}_j=\\tfrac{\\lambda_j}{\\sigma_i\\sigma_j}\\mathbf{v}_i\\cdot\\mathbf{v}_j=0$. Ortonormaliteten arves fra at $\\mathbf{v}_i$ er ortonormale egenvektorer."
+    },
+    {
+      "id": "mat1120-7-1-bb-utvidU",
+      "type": "definition",
+      "title": "Utvide $U$",
+      "content": "Har $A$ rang $r<m$, gir formelen bare $r$ venstresingulærvektorer. Fyll opp med en ortonormal basis for komplementet (Gram–Schmidt, eller et vektorprodukt i $\\mathbb{R}^3$). De ekstra søylene ganges med $0$ i $\\Sigma$ og endrer ikke $A$, men gjør $U$ ortogonal."
+    },
+    {
+      "id": "mat1120-7-1-bb-antall",
+      "type": "definition",
+      "title": "Antall singulærverdier",
+      "content": "En $m\\times n$-matrise har $\\min(m,n)$ singulærverdier (noen kan være $0$). $\\Sigma$ er $m\\times n$ med disse på diagonalen. Antallet *positive* er rangen."
+    },
+    {
+      "id": "mat1120-7-1-bb-max",
+      "type": "definition",
+      "title": "$\\max\\lVert A\\mathbf{x}\\rVert=\\sigma_1$",
+      "content": "På enhetssfæren er største strekking $\\sigma_1$ (i $\\mathbf{v}_1$), minste er $\\sigma_n$ (i $\\mathbf{v}_n$). Følger av Rayleigh på $A^{T}A$: $\\lVert A\\mathbf{x}\\rVert^2=\\mathbf{x}^{T}A^{T}A\\mathbf{x}$."
+    },
+    {
+      "id": "mat1120-7-1-bb-finnesalltid",
+      "type": "definition",
+      "title": "SVD finnes for enhver matrise",
+      "content": "I motsetning til diagonalisering (som krever egenvektorbasis) og ortogonal diagonalisering (som krever symmetri) finnes SVD for *alle* $m\\times n$-matriser — kvadratiske eller ikke, diagonaliserbare eller ikke. Det er styrken ved SVD."
+    },
+    {
+      "id": "mat1120-7-1-bb-Vortdiag",
+      "type": "definition",
+      "title": "$V$ ortogonaldiagonaliserer $A^{T}A$",
+      "content": "Søylene i $V$ er en ortonormal egenbasis for $A^{T}A$, så $A^{T}A=V\\,\\operatorname{diag}(\\sigma_i^2)\\,V^{T}$. Dette er spektralteoremet ([kap. 6.1](/bok/mat1120/mat1120-6-1)) anvendt på $A^{T}A$."
+    },
+    {
+      "id": "mat1120-7-1-bb-symmpos",
+      "type": "definition",
+      "title": "SVD vs. spektral for symmetrisk $A$",
+      "content": "Er $A$ symmetrisk og **positiv definit**, faller SVD og ortogonal diagonalisering sammen: $\\sigma_i=\\lambda_i(A)$ og $U=V=P$. Er noen $\\lambda_i(A)<0$, er $\\sigma_i=|\\lambda_i|$ og fortegnet flyttes til $U$ (jf. oppgave 4)."
+    },
+    {
+      "id": "mat1120-7-1-bb-vedlegg",
+      "type": "definition",
+      "title": "Vedlegget `eig`$(A^{T}A)$",
+      "content": "På eksamen får du egenverdiene og (ofte ortonormale) egenvektorene til $A^{T}A$ av vedlegget. Din jobb: ta $\\sqrt{}$ for $\\sigma_i$, sortere synkende, og bygge $\\mathbf{u}_i=\\tfrac{1}{\\sigma_i}A\\mathbf{v}_i$ — ikke å diagonalisere $A^{T}A$ for hånd."
+    },
+    {
+      "id": "mat1120-7-1-rep",
+      "type": "collapsible",
+      "title": "Repetisjonsoppgaver",
+      "buttonText": "Vis repetisjonsoppgaver",
+      "content": [
+        {
+          "id": "mat1120-7-1-r1",
+          "type": "exercise",
+          "exercise": {
+            "id": "mat1120-7-1-r1",
+            "number": "R1",
+            "type": "classic",
+            "difficulty": "lett",
+            "task": "$A^{T}A$ har egenverdier $36$ og $9$. Hva er singulærverdiene til $A$?",
+            "solution": "$\\sigma_1=\\sqrt{36}=6$, $\\sigma_2=\\sqrt9=3$ (synkende).",
+            "hints": [
+              "Ta kvadratrot av hver egenverdi."
+            ]
+          }
+        },
+        {
+          "id": "mat1120-7-1-r2",
+          "type": "exercise",
+          "exercise": {
+            "id": "mat1120-7-1-r2",
+            "number": "R2",
+            "type": "classic",
+            "difficulty": "lett",
+            "task": "En matrise har singulærverdier $8,5,0,0$. Hva er rangen?",
+            "solution": "Antall positive singulærverdier er $2$, så $\\operatorname{rang}A=2$.",
+            "hints": [
+              "Tell de $\\sigma_i>0$."
+            ]
+          }
+        },
+        {
+          "id": "mat1120-7-1-r3",
+          "type": "exercise",
+          "exercise": {
+            "id": "mat1120-7-1-r3",
+            "number": "R3",
+            "type": "classic",
+            "difficulty": "middels",
+            "task": "$A$ har $\\sigma_1=7$ med $\\mathbf{v}_1=\\tfrac{1}{\\sqrt2}(1,-1)^{T}$. Hva er $\\max\\{\\lVert A\\mathbf{x}\\rVert:\\lVert\\mathbf{x}\\rVert=1\\}$ og hvor?",
+            "solution": "$\\max\\lVert A\\mathbf{x}\\rVert=\\sigma_1=7$, oppnådd i $\\mathbf{x}=\\mathbf{v}_1=\\tfrac{1}{\\sqrt2}(1,-1)^{T}$.",
+            "hints": [
+              "$\\max=\\sigma_1$ i $\\mathbf{v}_1$; ikke kvadrer."
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": "mat1120-7-1-symbol",
+      "type": "collapsible",
+      "title": "Symbol- og formelliste",
+      "buttonText": "Vis symboler og formler",
+      "content": [
+        {
+          "id": "mat1120-7-1-symbol-tekst",
+          "type": "text",
+          "content": "## Symbol- og formelliste\n\n*Oppslagsverk — alt her forklares underveis i kapitlet.*\n\n| Symbol | Betydning |\n|---|---|\n| $A=U\\Sigma V^{T}$ | Singulærverdidekomposisjon |\n| $\\sigma_i$ | Singulærverdi ($\\sigma_1\\ge\\sigma_2\\ge\\dots\\ge0$) |\n| $\\lambda_i$ | Egenverdi til $A^{T}A$ ($\\sigma_i=\\sqrt{\\lambda_i}$) |\n| $V=[\\mathbf{v}_i]$ | Høyresingulærvektorer (egenvektorer til $A^{T}A$) |\n| $U=[\\mathbf{u}_i]$ | Venstresingulærvektorer |\n| $\\Sigma$ | $m\\times n$ med $\\sigma_i$ på diagonalen |\n| $\\operatorname{rang}A$ | Antall $\\sigma_i>0$ |\n\n**Formler og resultater i dette delkapitlet:**\n\n$$\\sigma_i=\\sqrt{\\lambda_i(A^{T}A)},\\qquad \\mathbf{u}_i=\\frac{1}{\\sigma_i}A\\mathbf{v}_i$$\nSingulærverdier og venstresingulærvektorer.\n\n$$A=U\\Sigma V^{T},\\qquad U^{T}U=I,\\ V^{T}V=I$$\nSingulærverdidekomposisjonen — finnes for enhver matrise.\n\n$$\\max_{\\lVert\\mathbf{x}\\rVert=1}\\lVert A\\mathbf{x}\\rVert=\\sigma_1\\ (\\text{i }\\mathbf{v}_1),\\qquad \\min_{\\lVert\\mathbf{x}\\rVert=1}\\lVert A\\mathbf{x}\\rVert=\\sigma_n$$\nMaksimal/minimal strekking (Rayleigh på $A^{T}A$).\n\n**Metode:** (1) $A^{T}A$; (2) egenverdier/vektorer fra vedlegg, synkende → $V$; (3) $\\sigma_i=\\sqrt{\\lambda_i}$ → $\\Sigma$; (4) $\\mathbf{u}_i=\\tfrac{1}{\\sigma_i}A\\mathbf{v}_i$; (5) utvid → $U$; da $A=U\\Sigma V^{T}$."
+        }
+      ]
+    }
+  ],
+  "exercises": []
+}

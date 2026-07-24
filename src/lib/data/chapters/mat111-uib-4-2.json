@@ -1,0 +1,502 @@
+{
+  "id": "mat111-uib-4-2",
+  "courseId": "mat111-uib",
+  "chapterNumber": "4.2",
+  "title": "Newtons metode og fikspunktiterasjon",
+  "description": "Iterasjonen, krumningsargumentet for over-/underestimat på hele intervallet, og fikspunkt-kontraksjonen — det numeriske leddet i UiBs signaturkjede.",
+  "estimatedMinutes": 55,
+  "competenceGoals": [
+    "kunne utføre Newton-steg med full føring og utlede formelen fra tangentens nullpunkt",
+    "kunne avgjøre om en Newton-tilnærming er for stor eller for liten med et krumningsargument som gjelder hele intervallet mellom iterat og rot",
+    "kunne føre et monotont konvergensbevis for Newtons metode (induksjon + krumning + kompletthetsprinsippet)",
+    "kunne vise at en løsning er fikspunkt for en omskrevet g, iterere, og begrunne konvergens med kontraksjonsvilkåret |g′| ≤ k < 1"
+  ],
+  "content": [
+    {
+      "id": "mat111-uib-4-2-tip",
+      "type": "tip",
+      "title": "Eksamensvinkel",
+      "content": "**Newton-steget er lett — karakterskilleren er å avgjøre om svaret er for stort eller for lite.**\n\n- **Sjanger F, Newton-delen:** Newtons metode finnes i 14 av 34 arkiverte sett (2003–2020, kildenote i Del 0); **fikspunktiterasjon** i 3 av 34, men står eksplisitt i emnebeskrivelsen — så den regnes som *kjenne*-stoff, mens Newton-kjeden har høyeste prioritet.\n- Selve iterasjonen (regn $x_1$, $x_2$) er nesten gratispoeng. **Karakterskilleren** er tilleggsspørsmålet: *er tilnærmingen for stor eller for liten?* Det krever et **krumningsargument på hele intervallet** mellom startpunkt og rot — å sjekke $f''$ i ett enkelt punkt er utilstrekkelig (sensormerknad H2016, gjengitt i løsningsforslagene).\n- H2019 krevde et **fullt monotont konvergensbevis** (induksjon + krumning) — det dekkes her på *kunne*-nivå.\n- Kapitlet henger sammen med resten av kjeden: eksistens/entydighet fra [kap. 4.1](/bok/mat111-uib/mat111-uib-4-1) forteller *at* og *hvor* roten finnes; Newton finner den. Og i [kap. 4.3](/bok/mat111-uib/mat111-uib-4-3) skal du se at ett Newton-steg er nøyaktig å bytte $f$ ut med Taylorpolynomet $P_1$."
+    },
+    {
+      "id": "mat111-uib-4-2-fork",
+      "type": "text",
+      "content": "**Forkunnskaper.** Du trenger eksistens–entydighet-malen fra [kap. 4.1](/bok/mat111-uib/mat111-uib-4-1) (den er alltid deloppgave a i denne sjangeren) og sekantsetningen derfra til kontraksjonsargumentet. Selve Newtons metode har du møtt regneteknisk i **[Newtons metode (R1 3.5)](/bok/r1/r1-3-5)** — her løftes den til eksamensnivået med feilfortegn og konvergensbevis.\n\n**Sist du var her — nøkkelen fra kap. 4.1:** sekantsetningen sier $g(x) - g(y) = g'(c)(x-y)$ for en $c$ mellom $x$ og $y$ — det er den som skal gjøre fikspunktiterasjonen til en kontraksjon. Og tangentlikningen fra [kap. 3.1](/bok/mat111-uib/mat111-uib-3-1): tangenten i $(a, f(a))$ er $y = f(a) + f'(a)(x-a)$."
+    },
+    {
+      "id": "mat111-uib-4-2-motiv",
+      "type": "text",
+      "content": "I kap. 4.1 beviste du at $x^5 + 3x = 1$ har nøyaktig én løsning i $(0,1)$ — men *hvilket tall* er det? Beviset sier ingenting om det. Slik er det overalt: likninger fra virkeligheten (renteberegninger, banestimater, kjemisk likevekt) kan sjelden løses eksakt. Det du kan, er å *tilnærme* roten — og da vil du vite to ting: hvor fort tilnærmingen blir god, og **på hvilken side av sannheten du ligger**. En bro-ingeniør som vet at estimatet hennes er «for lite», vet hvilken vei sikkerhetsmarginen peker.\n\nDette kapitlet gir deg begge verktøyene UiB tester: **Newtons metode** (følg tangenten ned til aksen, gjenta) og **fikspunktiterasjon** (mat funksjonen med sitt eget svar, gjenta). Begge er dumme, raske maskiner — poenget på eksamen er begrunnelsene rundt: krumningsargumentet for feilens fortegn, og kontraksjonsvilkåret $|g'| < 1$ for konvergens.\n\nTre læringsløkker: (1) Newton-iterasjonen og geometrien (≈ 15 min), (2) krumningsargumentet og konvergensbeviset — kapitlets kjerne (≈ 20 min), (3) fikspunktiterasjon (≈ 15 min). Pausepunkt: ta gjerne løkke 3 som egen økt."
+    },
+    {
+      "id": "mat111-uib-4-2-l1",
+      "type": "text",
+      "content": "## Løkke 1: Newtons metode — tangentens nullpunkt\n\nIdé: står du i punktet $x_n$ og vil mot roten av $f$, så erstatt den krokete grafen med det du *kan* løse — tangenten — og gå dit *den* treffer $x$-aksen."
+    },
+    {
+      "id": "mat111-uib-4-2-def-newton",
+      "type": "definition",
+      "title": "Newtons iterasjonsformel",
+      "content": "**Newtons metode** for likningen $f(x) = 0$ starter i en gjetning $x_0$ og gjentar\n$$x_{n+1} = x_n - \\frac{f(x_n)}{f'(x_n)}.$$\nHvert steg bytter grafen ut med tangenten i $(x_n, f(x_n))$ og hopper til tangentens nullpunkt. Formelen krever $f'(x_n) \\neq 0$ — en vannrett tangent har ikke noe nullpunkt å hoppe til."
+    },
+    {
+      "id": "mat111-uib-4-2-def-tangentnull",
+      "type": "definition",
+      "title": "Tangentens nullpunkt (geometrisk tolkning)",
+      "content": "Tangenten i $(x_n, f(x_n))$ har likningen $y = f(x_n) + f'(x_n)(x - x_n)$. Setter du $y = 0$ og løser for $x$, får du nøyaktig $x = x_n - f(x_n)/f'(x_n)$ — altså er Newton-steget *per definisjon* tangentens skjæring med $x$-aksen. Denne utledningen bør du kunne reprodusere; den er et vanlig teorispørsmål."
+    },
+    {
+      "id": "mat111-uib-4-2-def-antallsteg",
+      "type": "definition",
+      "title": "Antall steg (les oppgaven!)",
+      "content": "Oppgaven sier nøyaktig hvor mange iterasjoner du skal regne — «utfør to steg fra $x_0 = 1{,}5$» betyr regn $x_1$ og $x_2$, ferdig. Å regne fire steg der én er bedt om, er en ren tidsfelle på en fem timers eksamen: null ekstra poeng, mange ekstra minutter. Oppgi mellomverdiene med fornuftig antall desimaler (4–6) og avrund til slutt."
+    },
+    {
+      "id": "mat111-uib-4-2-ex1",
+      "type": "example",
+      "title": "Eksempel 1: To Newton-steg, full føring",
+      "problem": "Likningen $x^3 + x = 3$ har nøyaktig én reell løsning $r$, og den ligger i $(1,\\ 1{,}5)$ (vist med malen fra kap. 4.1). Utfør to steg av Newtons metode fra $x_0 = 1{,}5$.",
+      "solution": "Sett $f(x) = x^3 + x - 3$, slik at $f'(x) = 3x^2 + 1$.\n\n**Steg 1:** $f(1{,}5) = 3{,}375 + 1{,}5 - 3 = 1{,}875$ og $f'(1{,}5) = 6{,}75 + 1 = 7{,}75$:\n$$x_1 = 1{,}5 - \\frac{1{,}875}{7{,}75} = 1{,}5 - 0{,}241935 \\approx 1{,}258065.$$\n\n**Steg 2:** $f(x_1) = 1{,}258065^3 + 1{,}258065 - 3 \\approx 1{,}991174 + 1{,}258065 - 3 = 0{,}249239$ og $f'(x_1) = 3 \\cdot 1{,}582727 + 1 \\approx 5{,}748182$:\n$$x_2 = 1{,}258065 - \\frac{0{,}249239}{5{,}748182} \\approx 1{,}258065 - 0{,}043360 \\approx 1{,}214705.$$\n\n**Svar:** $x_1 \\approx 1{,}2581$ og $x_2 \\approx 1{,}2147$. *(Til sammenlikning er $r \\approx 1{,}21341$ — allerede $x_2$ har tre riktige sifre. Om $x_2$ er for stor eller for liten, avgjør vi i løkke 2.)*"
+    },
+    {
+      "id": "mat111-uib-4-2-o1",
+      "type": "exercise",
+      "exercise": {
+        "id": "mat111-uib-4-2-o1-x",
+        "number": "1",
+        "type": "classic",
+        "difficulty": "lett",
+        "task": "Likningen $x^2 = 5$ har én positiv løsning. Utfør to Newton-steg på $f(x) = x^2 - 5$ fra $x_0 = 3$, og oppgi $x_1$ og $x_2$ som brøker.",
+        "solution": "$f'(x) = 2x$, så $x_{n+1} = x_n - \\dfrac{x_n^2 - 5}{2x_n}$.\n\n**Steg 1:** $x_1 = 3 - \\dfrac{9-5}{6} = 3 - \\dfrac{4}{6} = \\dfrac{7}{3} \\approx 2{,}3333$.\n\n**Steg 2:** $f(7/3) = \\dfrac{49}{9} - 5 = \\dfrac{4}{9}$ og $f'(7/3) = \\dfrac{14}{3}$, så $x_2 = \\dfrac73 - \\dfrac{4/9}{14/3} = \\dfrac73 - \\dfrac{2}{21} = \\dfrac{47}{21} \\approx 2{,}2381$.\n\n*(Sann verdi: $\\sqrt5 \\approx 2{,}23607$.)*",
+        "hints": [
+          "Skriv opp $x_{n+1} = x_n - f(x_n)/f'(x_n)$ med $f(x) = x^2-5$.",
+          "Hold regningen i brøk: $f(7/3) = 49/9 - 45/9$."
+        ]
+      }
+    },
+    {
+      "id": "mat111-uib-4-2-l2",
+      "type": "text",
+      "content": "## Løkke 2: For stor eller for liten? Krumningsargumentet\n\nNå til karakterskilleren. Newton gir deg et tall — men ligger det *over* eller *under* den sanne roten? Svaret styres av hvilken vei grafen krummer, og argumentet må gjelde **hele intervallet** mellom iteratene og roten."
+    },
+    {
+      "id": "mat111-uib-4-2-def-overunder",
+      "type": "definition",
+      "title": "Overestimat og underestimat",
+      "content": "En tilnærming $\\tilde{x}$ til roten $r$ er et **overestimat** hvis $\\tilde{x} > r$ («for stor») og et **underestimat** hvis $\\tilde{x} < r$ («for liten»). På eksamen skal fortegnet på feilen *begrunnes*, ikke avleses av kalkulatoren — det er hele poenget med spørsmålet."
+    },
+    {
+      "id": "mat111-uib-4-2-def-krumning",
+      "type": "definition",
+      "title": "Krumning på et intervall: konveks og konkav",
+      "content": "$f$ er **konveks** («smiler») på et intervall hvis $f''(x) > 0$ *overalt der*; da ligger grafen **over** alle sine tangenter. $f$ er **konkav** («sur munn») hvis $f''(x) < 0$ overalt; da ligger grafen **under** tangentene. Det avgjørende ordet er *overalt*: krumningsfortegnet må holdes på **hele** intervallet det argumenteres over — ett punkt er ikke nok."
+    },
+    {
+      "id": "mat111-uib-4-2-thm-side",
+      "type": "theorem",
+      "title": "Hvilken side lander Newton-steget på?",
+      "content": "Anta at $f'$ og $f''$ har fast fortegn på hele intervallet mellom $x_n$ og roten $r$ (og at $x_n \\neq r$). Tangenten i $x_n$ ligger da under grafen hvis $f'' > 0$, over grafen hvis $f'' < 0$. Følgelig lander neste iterat $x_{n+1}$ **på den siden av $r$ der $f$ har samme fortegn som $f''$**:\n\n| | $f$ voksende ($f' > 0$) | $f$ avtakende ($f' < 0$) |\n|---|---|---|\n| **konveks** ($f'' > 0$ på hele intervallet) | $x_{n+1} > r$ — for stor | $x_{n+1} < r$ — for liten |\n| **konkav** ($f'' < 0$ på hele intervallet) | $x_{n+1} < r$ — for liten | $x_{n+1} > r$ — for stor |\n\nHuskeregel: konveks graf ligger over tangentene, så tangent-nullpunktet havner der grafen er *positiv*; for voksende $f$ er det til høyre for roten. Merk at regelen gjelder fra og med $x_1$ — startpunktet $x_0$ kan ligge på «feil» side, men første steg hopper over til riktig side."
+    },
+    {
+      "id": "mat111-uib-4-2-l2-intuisjon",
+      "type": "text",
+      "content": "**Intuisjon:** en konveks graf bøyer seg opp og vekk fra tangentene sine. Følger du tangenten fra et punkt på grafen ned til aksen, kommer du til et sted der grafen selv fortsatt er *over* null-nivået tangenten traff — altså på den siden av roten der $f > 0$. For en voksende funksjon er det høyresiden: steget stopper «for tidlig», over roten.\n\n**Derfor må fortegnet holdes på hele intervallet:** argumentet sammenlikner tangenten med grafen *hele veien* fra $x_n$ til $r$. Skifter $f''$ fortegn underveis, kan grafen krysse tangenten, og konklusjonen ryker. Standardføringen er derfor en linje av typen «$f''(x) = 6x > 0$ for alle $x \\in [1{,}2,\\ 1{,}5] \\supset [r, x_n]$» — et *intervallargument*, ikke en punktevaluering (sensormerknad H2016)."
+    },
+    {
+      "id": "mat111-uib-4-2-ex2",
+      "type": "example",
+      "title": "Eksempel 2: Feilens fortegn med intervallargument",
+      "problem": "I eksempel 1 fant vi $x_2 \\approx 1{,}2147$ for roten $r \\in (1,\\ 1{,}5)$ av $f(x) = x^3 + x - 3$. Avgjør med et krumningsargument om $x_2$ er for stor eller for liten.",
+      "solution": "Vi sjekker fortegnene til $f'$ og $f''$ **på hele intervallet** $[1,\\ 1{,}5]$, som inneholder både $r$ og alle iteratene:\n\n- $f'(x) = 3x^2 + 1 \\ge 4 > 0$ for $x \\in [1,\\ 1{,}5]$ — $f$ er strengt voksende der.\n- $f''(x) = 6x \\ge 6 > 0$ for **alle** $x \\in [1,\\ 1{,}5]$ — $f$ er konveks på hele intervallet.\n\n$f$ er altså voksende og konveks på hele intervallet mellom rot og iterater: tabellen (konveks + voksende) gir at hvert Newton-steg lander til **høyre** for roten. Spesielt er\n$$x_2 > r,$$\nså $x_2 \\approx 1{,}2147$ er **for stor**. $\\blacksquare$\n\n*(Kontroll: $r \\approx 1{,}21341 < 1{,}21471 = x_2$ ✓. Merk føringen: begge fortegnene er begrunnet med ulikheter som gjelder hele intervallet — ikke med innsetting av ett punkt.)*"
+    },
+    {
+      "id": "mat111-uib-4-2-o2",
+      "type": "exercise",
+      "exercise": {
+        "id": "mat111-uib-4-2-o2-x",
+        "number": "2",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "Likningen $e^x = 3x$ har en løsning $r \\in (0, 1)$ (og $f(x) = e^x - 3x$ har $f(0) = 1 > 0$, $f(1) = e - 3 < 0$).\n\n**a)** Utfør to Newton-steg fra $x_0 = 0$.\n\n**b)** Avgjør med et krumningsargument på hele intervallet om $x_2$ er for stor eller for liten.",
+        "solution": "**a)** $f(x) = e^x - 3x$, $f'(x) = e^x - 3$.\n\nSteg 1: $f(0) = 1$, $f'(0) = -2$, så $x_1 = 0 - \\dfrac{1}{-2} = 0{,}5$.\n\nSteg 2: $f(0{,}5) = e^{0{,}5} - 1{,}5 \\approx 0{,}148721$, $f'(0{,}5) = e^{0{,}5} - 3 \\approx -1{,}351279$, så\n$$x_2 = 0{,}5 - \\frac{0{,}148721}{-1{,}351279} \\approx 0{,}5 + 0{,}110059 \\approx 0{,}610059.$$\n\n**b)** På hele $[0, r]$ (og $r < 1$): $f''(x) = e^x > 0$ for alle $x$ — konveks overalt. Og $f'(x) = e^x - 3 < 0$ for alle $x \\le r < 1$, siden $e^x \\le e < 3$ der — $f$ er avtakende på hele intervallet. Tabellen (konveks + avtakende) gir at iteratene fra og med $x_1$ lander til **venstre** for roten: $x_2 < r$, altså **for liten**. *(Kontroll: $r \\approx 0{,}61906 > 0{,}61006 = x_2$ ✓.)*",
+        "hints": [
+          "Formelen: $x_{n+1} = x_n - f(x_n)/f'(x_n)$; start med $f(0)$ og $f'(0)$.",
+          "I b): finn fortegnet til $f'' = e^x$ og til $f' = e^x - 3$ på hele $[0, 1)$ — ikke bare i ett punkt.",
+          "Slå opp kombinasjonen i tabellen: konveks + avtakende."
+        ]
+      }
+    },
+    {
+      "id": "mat111-uib-4-2-l2b",
+      "type": "text",
+      "content": "### Konvergensbeviset (kunne-nivå, H2006/H2019-typen)\n\nKrumningsargumentet gir mer enn feilens fortegn — det gir et fullt **konvergensbevis**: iteratene danner en monoton, begrenset følge som må konvergere, og grensen må være roten. Strukturen er induksjon + krumning."
+    },
+    {
+      "id": "mat111-uib-4-2-def-konvbevis",
+      "type": "definition",
+      "title": "Monotont konvergensbevis (skjemaet)",
+      "content": "For $f$ voksende og konveks på $[r, x_0]$ (de andre tilfellene er speilbilder):\n\n1. **Induksjon:** vis at $x_n > r$ for alle $n \\ge 1$ — basissteget er krumningsargumentet for $x_1$; trinnet gjentar det for $x_{n+1}$ gitt $x_n > r$.\n2. **Monotoni:** for $x_n > r$ er $f(x_n) > 0$ og $f'(x_n) > 0$, så $x_{n+1} = x_n - f(x_n)/f'(x_n) < x_n$ — følgen avtar.\n3. **Konvergens:** følgen er avtakende og nedad begrenset (av $r$), så den konvergerer mot en grense $L \\ge r$ (kompletthetsprinsippet).\n4. **Grensen er roten:** lar du $n \\to \\infty$ i iterasjonsformelen, får du $L = L - f(L)/f'(L)$, altså $f(L) = 0$; entydigheten fra kap. 4.1 gir $L = r$."
+    },
+    {
+      "id": "mat111-uib-4-2-ex3",
+      "type": "example",
+      "title": "Eksempel 3 (kunne-nivå): fullt konvergensbevis",
+      "problem": "La $f(x) = x^3 + x - 3$ med rot $r \\in (1,\\ 1{,}5)$, og la $x_0 = 1{,}5$. Vis at Newton-følgen $(x_n)$ er avtakende for $n \\ge 0$, at $x_n > r$ for alle $n$, og at $x_n \\to r$.",
+      "solution": "På $[r,\\ 1{,}5]$ er $f'(x) = 3x^2+1 > 0$ og $f''(x) = 6x > 0$ (begge for alle $x \\ge 1 > 0$, spesielt på hele intervallet).\n\n**1. Induksjon på påstanden $x_n > r$ (for $n \\ge 0$).**\n*Basissteg:* $x_0 = 1{,}5 > r$ siden $r < 1{,}5$. ✓\n*Induksjonstrinn:* anta $x_n > r$. La $T(x) = f(x_n) + f'(x_n)(x - x_n)$ være tangenten i $x_n$; per konstruksjon er $T(x_{n+1}) = 0$. Konveksiteten ($f'' > 0$ på hele intervallet) betyr at grafen ligger **over** tangentene sine, med likhet bare i tangeringspunktet. Evaluert i $x_{n+1} \\neq x_n$ gir det\n$$f(x_{n+1}) > T(x_{n+1}) = 0 = f(r).$$\nSiden $f$ er strengt voksende, følger $x_{n+1} > r$. ✓ Ved induksjon gjelder $x_n > r$ for alle $n$.\n\n**2. Følgen avtar.** For $x_n > r$ er $f(x_n) > f(r) = 0$ (voksende $f$) og $f'(x_n) > 0$, så\n$$x_{n+1} = x_n - \\underbrace{\\frac{f(x_n)}{f'(x_n)}}_{> 0} < x_n.$$\n\n**3. Konvergens.** $(x_n)$ er avtakende og nedad begrenset av $r$; kompletthetsprinsippet gir at $x_n \\to L$ for en $L \\ge r$.\n\n**4. Grensen er roten.** $f$ og $f'$ er kontinuerlige og $f'(L) \\ge f'(1) = 4 \\neq 0$, så vi kan la $n \\to \\infty$ i $x_{n+1} = x_n - f(x_n)/f'(x_n)$:\n$$L = L - \\frac{f(L)}{f'(L)} \\;\\Longrightarrow\\; f(L) = 0.$$\nEntydigheten (kap. 4.1: $f' > 0$ på $\\mathbb{R}$) gir $L = r$. Altså $x_n \\to r$. $\\blacksquare$"
+    },
+    {
+      "id": "mat111-uib-4-2-l3",
+      "type": "text",
+      "content": "## Løkke 3: Fikspunktiterasjon\n\nDen andre maskinen skriver likningen om til formen $x = g(x)$ og mater funksjonen med sitt eget svar: $x_{n+1} = g(x_n)$."
+    },
+    {
+      "id": "mat111-uib-4-2-def-fikspunkt",
+      "type": "definition",
+      "title": "Fikspunkt",
+      "content": "Et **fikspunkt** for funksjonen $g$ er et tall $r$ med\n$$g(r) = r$$\n— et punkt $g$ lar stå i ro. Geometrisk er fikspunktene skjæringspunktene mellom grafen $y = g(x)$ og diagonalen $y = x$. En likning $f(x) = 0$ gjøres om til fikspunktform ved å isolere en $x$: løsningene av $f(x)=0$ blir nøyaktig fikspunktene til den omskrevne $g$."
+    },
+    {
+      "id": "mat111-uib-4-2-def-fikspunktiter",
+      "type": "definition",
+      "title": "Fikspunktiterasjon",
+      "content": "**Fikspunktiterasjonen** starter i $x_0$ og gjentar\n$$x_{n+1} = g(x_n).$$\nKonvergerer følgen mot en $L$, og $g$ er kontinuerlig, er $L$ automatisk et fikspunkt: $L = \\lim x_{n+1} = \\lim g(x_n) = g(L)$. Spørsmålet er *om* den konvergerer — det avgjør størrelsen på $|g'|$ nær fikspunktet."
+    },
+    {
+      "id": "mat111-uib-4-2-def-kontraksjon",
+      "type": "definition",
+      "title": "Kontraksjonsvilkåret $|g'| \\le k < 1$",
+      "content": "Anta at det finnes en konstant $k < 1$ med $|g'(x)| \\le k$ for alle $x$ i et intervall $I$ som inneholder fikspunktet $r$, og at $g$ sender $I$ inn i $I$. Da er iterasjonen en **kontraksjon**: ved sekantsetningen finnes en $c$ mellom $x_n$ og $r$ med\n$$|x_{n+1} - r| = |g(x_n) - g(r)| = |g'(c)|\\,|x_n - r| \\le k\\,|x_n - r|.$$\nFeilen krymper altså med faktoren $k$ i hvert steg, så $|x_n - r| \\le k^n |x_0 - r| \\to 0$: iterasjonen konvergerer. Er derimot $|g'(r)| > 1$, forstørres små feil, og iterasjonen rømmer fra fikspunktet."
+    },
+    {
+      "id": "mat111-uib-4-2-ex4",
+      "type": "example",
+      "title": "Eksempel 4: Fikspunktiterasjon med kontraksjonsbevis",
+      "problem": "Likningen $x e^x = 1$ har nøyaktig én positiv løsning $r$ (vist med malen fra kap. 4.1; $r \\in (0,1)$).\n\n**a)** Vis at $r$ er et fikspunkt for $g(x) = e^{-x}$.\n\n**b)** Iterér to ganger fra $x_0 = 0{,}5$.\n\n**c)** Forklar hvorfor iterasjonen konvergerer mot $r$.",
+      "solution": "**a)** For $x > 0$ er $x e^x = 1 \\Leftrightarrow x = e^{-x}$ (del på $e^x \\neq 0$). Løsningen $r$ oppfyller altså $g(r) = e^{-r} = r$ — den er fikspunkt for $g$. ✓\n\n**b)** $x_1 = g(0{,}5) = e^{-0{,}5} \\approx 0{,}606531$; $x_2 = g(x_1) = e^{-0{,}606531} \\approx 0{,}545239$.\n\n**c)** Vi bruker intervallet $I = [0{,}4,\\ 0{,}7]$, som inneholder både $x_0$ og $r$ ($r \\approx 0{,}5671$).\n\n*$g$ holder seg i $I$:* $g$ er avtakende, så $g(I) = [e^{-0{,}7},\\ e^{-0{,}4}] \\approx [0{,}497,\\ 0{,}670] \\subset I$. ✓\n\n*Kontraksjon:* $g'(x) = -e^{-x}$, så for $x \\in I$ er\n$$|g'(x)| = e^{-x} \\le e^{-0{,}4} \\approx 0{,}670 = k < 1.$$\nSekantsetningen gir da $|x_{n+1} - r| = |g'(c)||x_n - r| \\le k|x_n - r|$, så feilen krymper geometrisk: $|x_n - r| \\le k^n|x_0 - r| \\to 0$. Iterasjonen konvergerer mot $r$. $\\blacksquare$\n\n*(Merk fortegnet: $g' < 0$ gjør at iteratene hopper til motsatt side av $r$ i hvert steg — $0{,}5 < r < 0{,}6065$, så $0{,}5452 < r$ igjen … en spiral inn mot fikspunktet, se figuren under.)*"
+    },
+    {
+      "id": "mat111-uib-4-2-fig-spiral",
+      "type": "image",
+      "src": "/images/textbook/mat111-uib/mat111-uib-4-2-fikspunkt-spiral.svg",
+      "alt": "Spindelvevsdiagram for fikspunktiterasjonen x_{n+1} = e^{-x_n} fra x0 = 0,5: vekselvis vannrette og loddrette segmenter mellom kurven y = e^{-x} og diagonalen y = x spiraler inn mot fikspunktet r ≈ 0,567.",
+      "caption": "Spiral-tilfellet: g'(r) < 0 gjør at iteratene x₀, x₁, x₂, … hopper annenhver side av fikspunktet. Vannrett segment = «flytt svaret til diagonalen», loddrett = «regn g av det»."
+    },
+    {
+      "id": "mat111-uib-4-2-def-trapp",
+      "type": "definition",
+      "title": "Trappe- og spiralfigur (spindelvev)",
+      "content": "Iterasjonen tegnes som et **spindelvev**: fra $x_n$ går du *loddrett* til kurven $y = g(x)$ (det gir $g(x_n) = x_{n+1}$) og *vannrett* til diagonalen $y = x$ (det gjør svaret til neste input). Med $0 < g'(r) < 1$ kryper vevet ensidig mot fikspunktet — en **trapp**; med $-1 < g'(r) < 0$ hopper det annenhver side — en **spiral**. Med $|g'(r)| > 1$ vender vevet *utover*: fikspunktet frastøter."
+    },
+    {
+      "id": "mat111-uib-4-2-ex5",
+      "type": "example",
+      "title": "Eksempel 5: Tiltrekkende og frastøtende fikspunkt",
+      "problem": "La $g(x) = \\dfrac{x^2 + 2}{3}$. Finn begge fikspunktene til $g$, og avgjør for hvert av dem om fikspunktiterasjonen konvergerer dit fra startpunkter like ved.",
+      "solution": "**Fikspunktene:** $g(x) = x \\Leftrightarrow x^2 + 2 = 3x \\Leftrightarrow x^2 - 3x + 2 = (x-1)(x-2) = 0$, altså $r = 1$ og $r = 2$.\n\n**Derivert-testen:** $g'(x) = \\dfrac{2x}{3}$.\n\n- I $r = 1$: $|g'(1)| = \\dfrac23 < 1$ — **tiltrekkende**. På f.eks. $I = [0{,}5,\\ 1{,}5]$ er $|g'(x)| \\le \\dfrac{2 \\cdot 1{,}5}{3} = 1$… ikke godt nok; stram inn til $I = [0{,}5,\\ 1{,}4]$: $|g'| \\le \\dfrac{2{,}8}{3} \\approx 0{,}933 = k < 1$, og $g(I) = [g(0{,}5), g(1{,}4)] = [0{,}75,\\ 1{,}32] \\subset I$. Kontraksjonsargumentet gir konvergens mot $1$ for start i $I$. Talltest fra $x_0 = 0{,}5$: $0{,}75 \\to 0{,}854 \\to 0{,}910 \\to \\dots \\to 1$. ✓\n- I $r = 2$: $|g'(2)| = \\dfrac43 > 1$ — **frastøtende**. Små avvik forstørres med faktor $\\approx \\dfrac43$ per steg: fra $x_0 = 2{,}1$ gir iterasjonen $2{,}137 \\to 2{,}188 \\to 2{,}263 \\to 2{,}374 \\to \\dots$ — vekk fra $2$.\n\n**Konklusjon:** iterasjonen finner fikspunktet $1$, men kan aldri finne $2$ (annet enn ved å starte eksakt der). $\\blacksquare$"
+    },
+    {
+      "id": "mat111-uib-4-2-o3",
+      "type": "exercise",
+      "exercise": {
+        "id": "mat111-uib-4-2-o3-x",
+        "number": "3",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "Likningen $\\cos x = x$ har nøyaktig én løsning $r$, og den ligger i $(0{,}6,\\ 0{,}9)$.\n\n**a)** Iterér $x_{n+1} = \\cos x_n$ to ganger fra $x_0 = 0{,}7$.\n\n**b)** Vis at iterasjonen konvergerer mot $r$, ved å sjekke kontraksjonsvilkåret på $I = [0{,}6,\\ 0{,}9]$.",
+        "solution": "**a)** $x_1 = \\cos 0{,}7 \\approx 0{,}764842$; $x_2 = \\cos 0{,}764842 \\approx 0{,}721492$.\n\n**b)** *$g = \\cos$ holder seg i $I$:* $\\cos$ er avtakende på $[0{,}6, 0{,}9]$, så $g(I) = [\\cos 0{,}9,\\ \\cos 0{,}6] \\approx [0{,}622,\\ 0{,}825] \\subset [0{,}6,\\ 0{,}9]$. ✓\n\n*Kontraksjon:* $|g'(x)| = |\\sin x| = \\sin x$ er voksende på $I$, så $|g'(x)| \\le \\sin 0{,}9 \\approx 0{,}783 = k < 1$ for alle $x \\in I$. Sekantsetningen gir $|x_{n+1} - r| \\le k\\,|x_n - r|$, altså $|x_n - r| \\le k^n |x_0 - r| \\to 0$: iterasjonen konvergerer mot $r$. Siden $g' < 0$ på $I$ skjer det som en spiral (annenhver side). $\\blacksquare$",
+        "hints": [
+          "Kalkulator i radianer!",
+          "Skranken for $|\\sin x|$ på $[0{,}6, 0{,}9]$ finner du i høyre endepunkt.",
+          "Sjekk også at $\\cos$ sender intervallet inn i seg selv."
+        ]
+      }
+    },
+    {
+      "id": "mat111-uib-4-2-def-p1newton",
+      "type": "definition",
+      "title": "Sammenhengen $P_1$ = tangent = ett Newton-steg",
+      "content": "Taylorpolynomet av grad 1 om $a$ (kommer i [kap. 4.3](/bok/mat111-uib/mat111-uib-4-3)) er $P_1(x) = f(a) + f'(a)(x-a)$ — nøyaktig **tangenten** i $a$. Løser du $P_1(x) = 0$, får du $x = a - f(a)/f'(a)$ — nøyaktig **ett Newton-steg** fra $a$. Newtons metode er altså «erstatt $f$ med sitt Taylorpolynom av grad 1, løs, gjenta». Dette knytter hele kjeden i Del 4 sammen, og er et yndet teorispørsmål."
+    },
+    {
+      "id": "mat111-uib-4-2-warn",
+      "type": "warning",
+      "title": "Typiske feil",
+      "content": "1. **Krumningen sjekket i ett punkt.** «$f''(x_0) > 0$, altså for stor» er utilstrekkelig — fortegnet må begrunnes på **hele intervallet** mellom iterat og rot (sensormerknad H2016). Skriv en ulikhet som gjelder hele intervallet.\n2. **Feilens fortegn ikke vurdert i det hele tatt.** Spør oppgaven «for stor eller for liten?», er et tall uten krumningsargument et halvt svar.\n3. **Fire iterasjoner der én er bedt om.** Ren tidsfelle — les oppgaven og tell steg.\n4. **Fikspunkt-konvergens påstått uten $|g'| < 1$-argument.** «Det ser ut til å konvergere» eller tre talleksempler beviser ingenting; skranken $|g'(x)| \\le k < 1$ på et intervall rundt fikspunktet (pluss at $g$ holder seg i intervallet) er selve leveransen.\n5. **Blande $x_0$ inn i sideregelen.** Tabellen gjelder iteratene *fra og med $x_1$* — startpunktet kan ligge på feil side (som $x_0 = 0$ i oppgave 2), første steg hopper over."
+    },
+    {
+      "id": "mat111-uib-4-2-pool",
+      "type": "text",
+      "content": "## Flere øvingsoppgaver\n\nDrill på hele kjeden: iterér, begrunn feilens fortegn med intervallargument, og før kontraksjonsbevis."
+    },
+    {
+      "id": "mat111-uib-4-2-d1",
+      "type": "exercise",
+      "exercise": {
+        "id": "mat111-uib-4-2-d1-x",
+        "number": "4",
+        "type": "classic",
+        "difficulty": "lett",
+        "task": "Utfør ett Newton-steg på $f(x) = x^2 - 10$ fra $x_0 = 3$, og oppgi $x_1$ som brøk.",
+        "solution": "$f'(x) = 2x$. $x_1 = 3 - \\dfrac{9 - 10}{6} = 3 + \\dfrac16 = \\dfrac{19}{6} \\approx 3{,}1667$. *(Sann verdi $\\sqrt{10} \\approx 3{,}1623$.)*",
+        "hints": [
+          "$f(3) = -1$ er negativ — da øker steget verdien."
+        ]
+      }
+    },
+    {
+      "id": "mat111-uib-4-2-d2",
+      "type": "exercise",
+      "exercise": {
+        "id": "mat111-uib-4-2-d2-x",
+        "number": "5",
+        "type": "classic",
+        "difficulty": "lett",
+        "task": "Forklar med utgangspunkt i tangentlikningen hvorfor Newton-steget har formen $x_{n+1} = x_n - f(x_n)/f'(x_n)$.",
+        "solution": "Tangenten i $(x_n, f(x_n))$ er $y = f(x_n) + f'(x_n)(x - x_n)$. Dens nullpunkt: $0 = f(x_n) + f'(x_n)(x - x_n) \\Leftrightarrow x - x_n = -\\dfrac{f(x_n)}{f'(x_n)} \\Leftrightarrow x = x_n - \\dfrac{f(x_n)}{f'(x_n)}$. Newton-steget er altså per konstruksjon tangentens skjæring med $x$-aksen (og krever $f'(x_n) \\neq 0$).",
+        "hints": [
+          "Sett $y = 0$ i tangentlikningen og løs for $x$."
+        ]
+      }
+    },
+    {
+      "id": "mat111-uib-4-2-d3",
+      "type": "exercise",
+      "exercise": {
+        "id": "mat111-uib-4-2-d3-x",
+        "number": "6",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "Likningen $x^3 = 9$ har én reell løsning $r$, og $2 < r < 2{,}1$ (sjekk gjerne fortegn selv).\n\n**a)** Utfør to Newton-steg på $f(x) = x^3 - 9$ fra $x_0 = 2{,}1$.\n\n**b)** Er $x_2$ for stor eller for liten? Begrunn med et krumningsargument på hele intervallet.",
+        "solution": "**a)** $f'(x) = 3x^2$. $f(2{,}1) = 9{,}261 - 9 = 0{,}261$, $f'(2{,}1) = 13{,}23$:\n$$x_1 = 2{,}1 - \\frac{0{,}261}{13{,}23} \\approx 2{,}080272.$$\n$f(x_1) \\approx 2{,}080272^3 - 9 \\approx 0{,}002265$, $f'(x_1) \\approx 12{,}983$:\n$$x_2 \\approx 2{,}080272 - \\frac{0{,}002265}{12{,}983} \\approx 2{,}080098.$$\n\n**b)** På hele $[2,\\ 2{,}1]$: $f'(x) = 3x^2 \\ge 12 > 0$ (voksende) og $f''(x) = 6x \\ge 12 > 0$ (konveks) — begge ulikhetene gjelder alle $x$ i intervallet. Konveks + voksende gir at iteratene fra og med $x_1$ ligger til høyre for roten: $x_2 > r$, altså **for stor**. *(Kontroll: $9^{1/3} \\approx 2{,}080084 < 2{,}080098$ ✓.)*",
+        "hints": [
+          "$f(2) = -1 < 0 < 0{,}261 = f(2{,}1)$ plasserer roten.",
+          "I b): vis $f'' = 6x > 0$ med en ulikhet som dekker hele $[2, 2{,}1]$."
+        ]
+      }
+    },
+    {
+      "id": "mat111-uib-4-2-d4",
+      "type": "exercise",
+      "exercise": {
+        "id": "mat111-uib-4-2-d4-x",
+        "number": "7",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "Likningen $x = \\dfrac{x^3 + 1}{4}$ har en løsning i $(0,\\ 0{,}5)$.\n\n**a)** Iterér $x_{n+1} = g(x_n) = \\dfrac{x_n^3 + 1}{4}$ to ganger fra $x_0 = 0$.\n\n**b)** Vis med kontraksjonsvilkåret at iterasjonen konvergerer mot løsningen.",
+        "solution": "**a)** $x_1 = g(0) = \\dfrac{0 + 1}{4} = 0{,}25$; $x_2 = g(0{,}25) = \\dfrac{0{,}015625 + 1}{4} \\approx 0{,}253906$.\n\n**b)** Bruk $I = [0,\\ 0{,}5]$. *Invarians:* $g$ er voksende på $I$, så $g(I) = [g(0), g(0{,}5)] = [0{,}25,\\ 0{,}28125] \\subset I$. ✓ *Kontraksjon:* $g'(x) = \\dfrac{3x^2}{4}$, så for $x \\in I$: $|g'(x)| \\le \\dfrac{3 \\cdot 0{,}25}{4} = 0{,}1875 = k < 1$. Sekantsetningen gir $|x_{n+1} - r| \\le k|x_n - r|$, så $|x_n - r| \\le k^n|x_0 - r| \\to 0$. Iterasjonen konvergerer (raskt — feilen deles på over 5 hvert steg) mot løsningen $r \\approx 0{,}2541$. Siden $g' > 0$ på $I$ kryper iteratene ensidig oppover mot $r$ — trappefiguren. $\\blacksquare$",
+        "hints": [
+          "Maksimér $|g'(x)| = 3x^2/4$ på intervallet — største verdi i høyre endepunkt.",
+          "Husk begge leveransene: $g(I) \\subseteq I$ og $|g'| \\le k < 1$ på $I$."
+        ]
+      }
+    },
+    {
+      "id": "mat111-uib-4-2-d5",
+      "type": "exercise",
+      "exercise": {
+        "id": "mat111-uib-4-2-d5-x",
+        "number": "8",
+        "type": "classic",
+        "difficulty": "vanskelig",
+        "task": "La $f(x) = \\ln x$ (med roten $r = 1$).\n\n**a)** Utfør to Newton-steg fra $x_0 = 2$.\n\n**b)** Vis at $x_1 < 1$ selv om $x_0 > 1$, og forklar med krumningstabellen hvorfor alle iteratene fra og med $x_1$ er underestimat.",
+        "solution": "**a)** $f'(x) = 1/x$, så $x_{n+1} = x_n - x_n \\ln x_n$.\n$x_1 = 2 - 2\\ln 2 \\approx 2 - 1{,}386294 = 0{,}613706$.\n$x_2 = x_1 - x_1 \\ln x_1 \\approx 0{,}613706 - 0{,}613706 \\cdot (-0{,}488116) \\approx 0{,}613706 + 0{,}299560 \\approx 0{,}913266$.\n\n**b)** $x_1 \\approx 0{,}6137 < 1$: startpunktet lå på høyresiden, men første steg hoppet over roten. Det stemmer med tabellen: på ethvert intervall i $(0, \\infty)$ er $f'(x) = 1/x > 0$ (voksende) og $f''(x) = -1/x^2 < 0$ (konkav) — fortegnene gjelder *overalt* på $(0,\\infty)$, så intervallkravet er oppfylt uansett hvor iteratene ligger. Konkav + voksende gir at hvert Newton-steg lander til **venstre** for roten: $x_n < 1$ for alle $n \\ge 1$ — alle er underestimat (og følgen kryper deretter voksende opp mot $1$: $0{,}6137 < 0{,}9133 < \\dots$). *(Kontroll: $x_3 \\approx 0{,}99613 < 1$ ✓.)*",
+        "hints": [
+          "Forenkle steget: $x - \\frac{\\ln x}{1/x} = x - x\\ln x$.",
+          "Hvilket fortegn har $f'' = -1/x^2$ — og hvor gjelder det?",
+          "Startpunktet kan ligge på «feil» side; regelen gjelder fra $x_1$."
+        ]
+      }
+    },
+    {
+      "id": "mat111-uib-4-2-d6",
+      "type": "exercise",
+      "exercise": {
+        "id": "mat111-uib-4-2-d6-x",
+        "number": "9",
+        "type": "classic",
+        "difficulty": "vanskelig",
+        "task": "(Krevende, H2019-typen.) La $f(x) = x^2 - 5$ og $x_0 = 3$. Vis ved induksjon at Newton-følgen oppfyller $x_n > \\sqrt5$ for alle $n \\ge 0$, at følgen er avtakende, og at $x_n \\to \\sqrt5$.",
+        "solution": "På $[\\sqrt5, 3]$ er $f'(x) = 2x \\ge 2\\sqrt5 > 0$ og $f''(x) = 2 > 0$ — voksende og konveks overalt (fortegnene gjelder til og med hele $(0,\\infty)$).\n\n**Induksjon ($x_n > \\sqrt5$):** *Basissteg:* $x_0 = 3 > \\sqrt5$. ✓ *Trinn:* anta $x_n > \\sqrt5$. Konveksiteten gir at grafen ligger over tangenten i $x_n$; i punktet $x_{n+1}$ (tangentens nullpunkt) er derfor $f(x_{n+1}) > 0$ (streng ulikhet siden $f'' = 2 > 0$ og $x_{n+1} \\ne x_n$), altså $x_{n+1}^2 > 5$; og $x_{n+1} = \\frac12(x_n + 5/x_n) > 0$, så $x_{n+1} > \\sqrt5$. ✓\n\n**Avtakende:** for $x_n > \\sqrt5$ er $f(x_n) > 0$ og $f'(x_n) > 0$, så $x_{n+1} = x_n - f(x_n)/f'(x_n) < x_n$.\n\n**Konvergens:** avtakende og nedad begrenset av $\\sqrt5$ gir (kompletthetsprinsippet) $x_n \\to L \\ge \\sqrt5$. Grenseovergang i $x_{n+1} = \\frac12\\big(x_n + \\frac{5}{x_n}\\big)$ (kontinuitet, $L > 0$) gir $L = \\frac12(L + 5/L)$, altså $L^2 = 5$ og $L = \\sqrt5$. $\\blacksquare$",
+        "hints": [
+          "Skriv steget om: $x_{n+1} = \\frac{1}{2}(x_n + 5/x_n)$ — det forenkler både positivitet og grenseovergang.",
+          "Basissteg + trinn + konklusjon: full induksjonsstruktur (mønsteret drilles videre i kap. 4.4).",
+          "Avslutt med kompletthetsprinsippet og grenseovergang i formelen."
+        ]
+      }
+    },
+    {
+      "id": "mat111-uib-4-2-bb-tekst",
+      "type": "text",
+      "content": "## Begrepsbank til eksamen\n\nKjernebegrepene i eksamensrettet kortform — verktøykassen for Newton/fikspunkt-delen av sjanger F.\n\n*Begrepsbanken gjentar det du nettopp har lest — hopp trygt over ved førstegangslesing.*"
+    },
+    {
+      "id": "mat111-uib-4-2-bb-newton",
+      "type": "definition",
+      "title": "Newtons metode (kortform)",
+      "content": "$x_{n+1} = x_n - \\dfrac{f(x_n)}{f'(x_n)}$: hopp til tangentens nullpunkt, gjenta. Krever $f'(x_n) \\neq 0$. Regn nøyaktig så mange steg som oppgaven ber om."
+    },
+    {
+      "id": "mat111-uib-4-2-bb-geometri",
+      "type": "definition",
+      "title": "Geometrien bak steget",
+      "content": "Tangenten i $(x_n, f(x_n))$ er $y = f(x_n) + f'(x_n)(x - x_n)$; sett $y = 0$ og løs — det *er* Newton-formelen. Kunne utledes på forespørsel."
+    },
+    {
+      "id": "mat111-uib-4-2-bb-tabell",
+      "type": "definition",
+      "title": "Krumningstabellen (feilens fortegn)",
+      "content": "Med faste fortegn på $f'$ og $f''$ på hele intervallet mellom iterat og rot: konveks + voksende → for stor; konveks + avtakende → for liten; konkav + voksende → for liten; konkav + avtakende → for stor. Gjelder fra og med $x_1$."
+    },
+    {
+      "id": "mat111-uib-4-2-bb-helintervall",
+      "type": "definition",
+      "title": "«På hele intervallet» (H2016-kravet)",
+      "content": "Krumningsargumentet sammenlikner tangent og graf langs hele veien fra iterat til rot — derfor må $f''$-fortegnet begrunnes med en ulikhet som dekker **hele** intervallet, aldri med innsetting av ett punkt."
+    },
+    {
+      "id": "mat111-uib-4-2-bb-konvskjema",
+      "type": "definition",
+      "title": "Konvergensbevisets fire trinn",
+      "content": "(1) Induksjon: alle iterater på samme side av roten (krumning). (2) Monotoni: følgen avtar/vokser. (3) Kompletthetsprinsippet: monoton + begrenset ⇒ konvergent. (4) Grenseovergang i formelen ⇒ grensen er roten (entydighet fra kap. 4.1 avslutter)."
+    },
+    {
+      "id": "mat111-uib-4-2-bb-fiks",
+      "type": "definition",
+      "title": "Fikspunkt (kortform)",
+      "content": "$g(r) = r$: et punkt $g$ lar stå i ro; grafisk skjæringen mellom $y = g(x)$ og $y = x$. Likningen $f(x) = 0$ omskrives til $x = g(x)$ ved å isolere en $x$."
+    },
+    {
+      "id": "mat111-uib-4-2-bb-kontraksjon",
+      "type": "definition",
+      "title": "Kontraksjonsvilkåret (kortform)",
+      "content": "$|g'(x)| \\le k < 1$ på et intervall $I$ rundt fikspunktet, og $g(I) \\subseteq I$: da gir sekantsetningen $|x_{n+1} - r| \\le k|x_n - r|$, så feilen krymper geometrisk, $|x_n - r| \\le k^n|x_0 - r| \\to 0$."
+    },
+    {
+      "id": "mat111-uib-4-2-bb-attraktiv",
+      "type": "definition",
+      "title": "Tiltrekkende vs. frastøtende fikspunkt",
+      "content": "$|g'(r)| < 1$: fikspunktet tiltrekker (iterasjonen finner det). $|g'(r)| > 1$: det frastøter (små feil forstørres — iterasjonen rømmer). Testen er å derivere $g$ og evaluere størrelsesorden nær $r$."
+    },
+    {
+      "id": "mat111-uib-4-2-bb-spindelvev",
+      "type": "definition",
+      "title": "Spindelvev: trapp og spiral",
+      "content": "Loddrett til kurven ($x_{n+1} = g(x_n)$), vannrett til diagonalen (gjør svaret til input). $0 < g'(r) < 1$: ensidig trapp. $-1 < g'(r) < 0$: spiral, annenhver side. $|g'(r)| > 1$: vevet vender utover."
+    },
+    {
+      "id": "mat111-uib-4-2-bb-p1",
+      "type": "definition",
+      "title": "$P_1$ = tangent = ett Newton-steg",
+      "content": "Taylorpolynomet $P_1(x) = f(a) + f'(a)(x - a)$ er tangenten i $a$, og nullpunktet dens er $a - f(a)/f'(a)$ — ett Newton-steg. Newton = «lineariser med $P_1$, løs, gjenta»."
+    },
+    {
+      "id": "mat111-uib-4-2-bb-start",
+      "type": "definition",
+      "title": "Startverdiens rolle",
+      "content": "$x_0$ kan ligge på «feil» side av roten (sideregelen gjelder først fra $x_1$), og en $x_0$ med $f'(x_0) \\approx 0$ kan slynge iterasjonen langt av gårde. Velg start i intervallet der eksistensbeviset plasserte roten."
+    },
+    {
+      "id": "mat111-uib-4-2-bb-kjede",
+      "type": "definition",
+      "title": "Kjeden i sjanger F",
+      "content": "Full eksamensoppgave: (a) eksistens + entydighet (kap. 4.1-malen), (b) 1–2 Newton-steg, (c) for stor/for liten med krumningsargument på hele intervallet — eller fikspunktvarianten med kontraksjon. Del-kapitlene 4.1–4.2 er én sammenhengende leveranse."
+    },
+    {
+      "id": "mat111-uib-4-2-rep",
+      "type": "collapsible",
+      "title": "Repetisjonsoppgaver",
+      "buttonText": "Vis repetisjonsoppgaver",
+      "content": [
+        {
+          "id": "mat111-uib-4-2-r1",
+          "type": "exercise",
+          "exercise": {
+            "id": "mat111-uib-4-2-r1-x",
+            "number": "R1",
+            "type": "classic",
+            "difficulty": "lett",
+            "task": "(Fra kap. 4.1) Vis at $x^3 + x = 3$ har nøyaktig én reell løsning, og at den ligger i $(1,\\ 1{,}5)$.",
+            "solution": "$f(x) = x^3 + x - 3$ er kontinuerlig; $f(1) = -1 < 0$ og $f(1{,}5) = 1{,}875 > 0$, så skjæringssetningen gir en rot i $(1,\\ 1{,}5)$. Entydighet: $f'(x) = 3x^2 + 1 \\ge 1 > 0$ overalt, så $f$ er strengt voksende — høyst én rot. To steg, to teoremer. $\\blacksquare$",
+            "hints": [
+              "Eksistens først (skjæringssetningen), så entydighet (monotoni)."
+            ]
+          }
+        },
+        {
+          "id": "mat111-uib-4-2-r2",
+          "type": "exercise",
+          "exercise": {
+            "id": "mat111-uib-4-2-r2-x",
+            "number": "R2",
+            "type": "classic",
+            "difficulty": "lett",
+            "task": "(Fra kap. 3.1) Skriv opp likningen for tangenten til $f(x) = x^3$ i punktet $a = 2$.",
+            "solution": "$f(2) = 8$ og $f'(x) = 3x^2$ gir $f'(2) = 12$. Tangenten: $y = 8 + 12(x - 2) = 12x - 16$.",
+            "hints": [
+              "$y = f(a) + f'(a)(x-a)$."
+            ]
+          }
+        },
+        {
+          "id": "mat111-uib-4-2-r3",
+          "type": "exercise",
+          "exercise": {
+            "id": "mat111-uib-4-2-r3-x",
+            "number": "R3",
+            "type": "classic",
+            "difficulty": "lett",
+            "task": "(Fra R1 3.5) Gjør ett Newton-steg for hånd på $f(x) = x^2 - 2$ fra $x_0 = 1$.",
+            "solution": "$x_1 = 1 - \\dfrac{1 - 2}{2} = 1 + \\dfrac12 = \\dfrac32$. *(Neste steg ville gitt $17/12 \\approx 1{,}4167$, nær $\\sqrt2 \\approx 1{,}4142$.)*",
+            "hints": [
+              "$f(1) = -1$, $f'(1) = 2$."
+            ]
+          }
+        },
+        {
+          "id": "mat111-uib-4-2-r4",
+          "type": "exercise",
+          "exercise": {
+            "id": "mat111-uib-4-2-r4-x",
+            "number": "R4",
+            "type": "classic",
+            "difficulty": "lett",
+            "task": "(Fra kap. 4.1) Sekantsetningen på $g$ over intervallet mellom $x$ og $r$: hvilken likhet gir den, og hvorfor er den nyttig når $g(r) = r$?",
+            "solution": "Den gir $g(x) - g(r) = g'(c)(x - r)$ for en $c$ mellom $x$ og $r$. Med $g(r) = r$ blir venstresiden $g(x) - r = x_{\\text{neste}} - r$ når $x$ er et iterat — altså kobles ny feil til gammel feil via $|g'(c)|$. Det er nøyaktig kontraksjonsargumentet.",
+            "hints": [
+              "Skriv MVT for $g$ og sett inn $g(r) = r$."
+            ]
+          }
+        },
+        {
+          "id": "mat111-uib-4-2-r5",
+          "type": "exercise",
+          "exercise": {
+            "id": "mat111-uib-4-2-r5-x",
+            "number": "R5",
+            "type": "classic",
+            "difficulty": "lett",
+            "task": "(Fra kap. 3.5/R1 4.6) Hva forteller fortegnet til $f''$ om grafen, og hva heter de to tilfellene?",
+            "solution": "$f'' > 0$ på et intervall: grafen krummer oppover — **konveks** («smiler»), ligger over tangentene sine. $f'' < 0$: krummer nedover — **konkav**, ligger under tangentene. Det er tangent-egenskapen Newton-argumentene bruker.",
+            "hints": [
+              "Tenk «smil» og «sur munn» — og hva det gjør med tangentene."
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": "mat111-uib-4-2-symbol",
+      "type": "collapsible",
+      "title": "Symbol- og formelliste",
+      "buttonText": "Vis symboler og formler",
+      "content": [
+        {
+          "id": "mat111-uib-4-2-symbol-txt",
+          "type": "text",
+          "content": "## Symbol- og formelliste\n\n*Oppslagsverk — alt her forklares underveis i kapitlet.*\n\nAlle symboler og formler som brukes i dette delkapitlet (4.2), samlet på ett sted.\n\n| Symbol | Betydning |\n|---|---|\n| $x_0$ | Startverdien (gjetningen) for iterasjonen |\n| $x_n$ | Iterat nummer $n$ — tilnærmingen etter $n$ steg |\n| $r$ | Den sanne roten ($f(r) = 0$) eller fikspunktet ($g(r) = r$) |\n| $f''$ | Andrederiverte — fortegnet gir krumningen (konveks/konkav) |\n| $g$ | Iterasjonsfunksjonen i fikspunktform $x = g(x)$ |\n| $k$ | Kontraksjonskonstanten: $|g'| \\le k < 1$ på intervallet |\n| $I$ | Intervallet der kontraksjonen sjekkes, med $g(I) \\subseteq I$ |\n| $L$ | Grensen for følgen $(x_n)$ i konvergensbeviset |\n\n**Formler i dette delkapitlet:**\n\n$$x_{n+1} = x_n - \\frac{f(x_n)}{f'(x_n)} \\quad \\text{(Newtons metode: tangentens nullpunkt)}$$\n\n$$y = f(x_n) + f'(x_n)(x - x_n) \\quad \\text{(tangenten steget bygges av — også } P_1 \\text{ om } x_n\\text{)}$$\n\n$$x_{n+1} = g(x_n) \\quad \\text{(fikspunktiterasjonen for } x = g(x)\\text{)}$$\n\n$$|x_{n+1} - r| = |g'(c)|\\,|x_n - r| \\le k\\,|x_n - r| \\quad \\text{(kontraksjon via sekantsetningen)}$$\n\n$$|x_n - r| \\le k^n\\,|x_0 - r| \\to 0 \\quad \\text{(geometrisk feilkrymping når } k < 1\\text{)}$$\n\n**Krumningstabellen:** konveks+voksende → for stor · konveks+avtakende → for liten · konkav+voksende → for liten · konkav+avtakende → for stor (fortegn på hele intervallet; gjelder fra $x_1$)."
+        }
+      ]
+    }
+  ],
+  "exercises": []
+}

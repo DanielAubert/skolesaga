@@ -1,0 +1,532 @@
+{
+  "id": "mat111-uib-5-2",
+  "courseId": "mat111-uib",
+  "chapterNumber": "5.2",
+  "title": "Integrasjonsteknikk I: substitusjon og delvis integrasjon",
+  "description": "De to grunnteknikkene med UiBs føringsstandard: substitusjonsboks med nye grenser, og dokumentert u/v'-valg — inkludert de «ensomme» funksjonene arctan og ln.",
+  "estimatedMinutes": 60,
+  "competenceGoals": [
+    "kunne gjennomføre substitusjon med boksført kjerne, differensial og nye grenser",
+    "kunne velge og dokumentere u og v' i delvis integrasjon med LIATE-heuristikken",
+    "kunne integrere de «ensomme» funksjonene ln x og arctan x delvis mot 1",
+    "kunne løse sykliske integraler med «løs for integralet»-grepet og kjede substitusjon med delvis integrasjon"
+  ],
+  "content": [
+    {
+      "id": "mat111-uib-5-2-tip",
+      "type": "tip",
+      "title": "Eksamensvinkel",
+      "content": "**Integrasjonsteknikk er sjangeren MAT111-eksamen aldri dropper.**\n\n- **Sjanger B — integrasjonsteknikk** (bokas merkelapp fra Del 0 for «beregn integralet»-oppgavene) står i **33 av 34 arkiverte sett (97 %)**, typisk som 2–4 deloppgaver midt i settet. Ingen annen oppgavetype er i nærheten av den frekvensen.\n- **Åpen bok forplikter:** læreboka ligger på pulten, og mange fasitsvar står bokstavelig talt i permen. Derfor sier oppgaven eksplisitt at integralet skal løses *«med grunnleggende teknikker, ikke ved oppslag»* — et svar uten synlig teknikk gir null, uansett hvor riktig tallet er.\n- To føringsdetaljer går igjen i løsningsforslagene og er gratispoeng når de sitter: **substitusjonsboksen** (skriv $u$, $du$ og de *nye grensene* i en egen boks) og det **dokumenterte $u/v'$-valget** i delvis integrasjon.\n- Prioritet: **perfekt** — dette og kap. 5.3–5.4 er bokas viktigste regnekapitler."
+    },
+    {
+      "id": "mat111-uib-5-2-fork",
+      "type": "text",
+      "content": "**Forkunnskaper.** Fundamentet er [kap. 5.1](/bok/mat111-uib/mat111-uib-5-1) (fundamentalteoremet — all integralberegning hviler på det). Selve teknikkene har du møtt i R2: **[Variabelskifte (substitusjon)](/bok/r2/r2-3-1)** og **[Delvis integrasjon](/bok/r2/r2-3-2)**; grunnintegralene fra **[Integrasjon av 1/x og eksponentialfunksjoner](/bok/r2/r2-2-3)** må sitte i fingrene.\n\n**Sist du var her** — de to teknikkformlene fra R2 som dette kapitlet strammer opp til MAT111-standard:\n\n$$\\int f(g(x))\\,g'(x)\\,dx = \\int f(u)\\,du \\quad (u=g(x)) \\qquad\\text{og}\\qquad \\int u\\,v'\\,dx = uv - \\int u'\\,v\\,dx.$$"
+    },
+    {
+      "id": "mat111-uib-5-2-motiv",
+      "type": "text",
+      "content": "Derivasjon er mekanisk: med kjerne-, produkt- og kvotientregelen kan du derivere *alt*. Integrasjon er motsatt — det finnes ingen algoritme, bare et verktøyskrin. De to grunnverktøyene er **substitusjon** (kjerneregelen baklengs) og **delvis integrasjon** (produktregelen baklengs). Nesten alle integralene i MAT111-arkivet faller for ett av dem, eller for en kort kjede av dem.\n\nDet MAT111 tester, er ikke bare at du *finner* svaret, men at du *fører* teknikken slik løsningsforslagene gjør: boksen med $u$, $du$ og nye grenser; en linje som begrunner valget av $u$ og $v'$. I åpen bok-formatet er føringen selve prestasjonen.\n\nFire læringsløkker: (1) substitusjon med boks og nye grenser, (2) delvis integrasjon med dokumentert valg, (3) de «ensomme» funksjonene $\\ln x$ og $\\arctan x$, (4) sykliske integraler og teknikk-kjeding. Ta pauser mellom løkkene — kapitlet er langt."
+    },
+    {
+      "id": "mat111-uib-5-2-l1",
+      "type": "text",
+      "content": "## Løkke 1 — Substitusjon med boks og nye grenser (~18 min)"
+    },
+    {
+      "id": "mat111-uib-5-2-def-subst",
+      "type": "definition",
+      "title": "Substitusjon (variabelskifte)",
+      "content": "Substitusjon er kjerneregelen lest baklengs: gjenkjenn en kjerne $g(x)$ hvis deriverte står som faktor, og bytt variabel:\n\n$$\\int f(g(x))\\,g'(x)\\,dx = \\int f(u)\\,du, \\qquad u = g(x).$$\n\nIntegralet i $u$-verdenen skal være *enklere* — det er testen på at substitusjonen var riktig valgt."
+    },
+    {
+      "id": "mat111-uib-5-2-def-kjerne",
+      "type": "definition",
+      "title": "Kjernen $u$",
+      "content": "Kjernen er det indre uttrykket du velger å døpe om til $u$. Godt kjernevalg kjennetegnes av at $u'$ (eller et konstant multiplum av den) står som faktor i integranden: i $\\int x\\,e^{x^2}\\,dx$ er kjernen $u=x^2$ fordi $u'=2x$ matcher faktoren $x$ så nær som en konstant."
+    },
+    {
+      "id": "mat111-uib-5-2-def-du",
+      "type": "definition",
+      "title": "Differensialet $du$",
+      "content": "Differensialet oversetter $dx$ til $u$-verdenen: fra $u=g(x)$ følger\n\n$$du = g'(x)\\,dx.$$\n\nI praksis: deriver kjernen, og løs for $dx$ om nødvendig. Skrivemåten er ikke pynt — det er $du$-linjen som viser sensor at variabelbyttet er gjort riktig."
+    },
+    {
+      "id": "mat111-uib-5-2-def-boks",
+      "type": "definition",
+      "title": "Substitusjonsboksen (føringskravet)",
+      "content": "MAT111-føringen samler variabelbyttet i en egen boks *før* regningen fortsetter:\n\n$$\\boxed{\\,u = g(x), \\quad du = g'(x)\\,dx, \\quad x=a \\Rightarrow u=g(a), \\quad x=b \\Rightarrow u=g(b)\\,}$$\n\nAlle tre ingrediensene skal med: kjernen, differensialet og de **nye grensene**. Løsningsforslagene fører boksen konsekvent, og et bestemt integral uten grenselinjene regnes som mangelfull føring."
+    },
+    {
+      "id": "mat111-uib-5-2-def-nygrense",
+      "type": "definition",
+      "title": "Nye grenser",
+      "content": "Ved substitusjon i et *bestemt* integral skal grensene følge med over i $u$-verdenen: $x$-grensene $a$ og $b$ blir $u$-grensene $g(a)$ og $g(b)$:\n\n$$\\int_a^b f(g(x))\\,g'(x)\\,dx = \\int_{g(a)}^{g(b)} f(u)\\,du.$$\n\nDa slipper du å bytte tilbake til $x$ til slutt — du setter inn $u$-grensene direkte. (Ikke bli overrasket om den nye nedre grensen er størst; da kan du snu integralet med fortegnsbytte.)"
+    },
+    {
+      "id": "mat111-uib-5-2-def-tilbake",
+      "type": "definition",
+      "title": "Tilbakebytting",
+      "content": "I et *ubestemt* integral finnes ingen grenser å oversette — da må svaret tilbake til $x$: sett $u=g(x)$ inn i antideriverten til slutt. Et svar som står igjen i $u$, er ikke ferdig. Huskeregel: bestemt integral → nye grenser, ubestemt integral → tilbakebytting."
+    },
+    {
+      "id": "mat111-uib-5-2-eks1",
+      "type": "example",
+      "title": "Eksempel 1: bestemt integral med substitusjonsboks",
+      "problem": "Beregn $\\displaystyle\\int_1^e \\frac{(\\ln x)^2}{x}\\,dx$ med grunnleggende teknikker (vis utregningen).",
+      "solution": "Faktoren $\\frac1x$ er den deriverte av $\\ln x$ — det peker på kjernen.\n\n$$\\boxed{\\,u=\\ln x,\\quad du=\\frac{1}{x}\\,dx,\\quad x=1\\Rightarrow u=0,\\quad x=e\\Rightarrow u=1\\,}$$\n\n$$\\int_1^e \\frac{(\\ln x)^2}{x}\\,dx = \\int_0^1 u^2\\,du = \\Big[\\frac{u^3}{3}\\Big]_0^1 = \\frac13.$$\n\n**Sluttsvar:** $\\dfrac13$. $\\blacksquare$"
+    },
+    {
+      "id": "mat111-uib-5-2-def-lnmonster",
+      "type": "definition",
+      "title": "$\\ln$-mønsteret $\\int \\frac{f'(x)}{f(x)}\\,dx$",
+      "content": "Står den deriverte av nevneren i telleren, er svaret en logaritme:\n\n$$\\int \\frac{f'(x)}{f(x)}\\,dx = \\ln|f(x)| + C.$$\n\nDette er substitusjonen $u=f(x)$ i ferdigtygd form, og det raskeste mønsteret å sjekke først i enhver brøk. Eksempel: $\\int\\frac{2x}{1+x^2}\\,dx = \\ln(1+x^2)+C$."
+    },
+    {
+      "id": "mat111-uib-5-2-eks2",
+      "type": "example",
+      "title": "Eksempel 2: $\\ln$-mønsteret med grenser",
+      "problem": "Beregn $\\displaystyle\\int_0^2 \\frac{x}{1+x^2}\\,dx$.",
+      "solution": "Telleren er (så nær som faktoren 2) den deriverte av nevneren.\n\n$$\\boxed{\\,u=1+x^2,\\quad du=2x\\,dx \\;\\Rightarrow\\; x\\,dx=\\tfrac12\\,du,\\quad x=0\\Rightarrow u=1,\\quad x=2\\Rightarrow u=5\\,}$$\n\n$$\\int_0^2\\frac{x}{1+x^2}\\,dx = \\frac12\\int_1^5\\frac{du}{u} = \\frac12\\Big[\\ln u\\Big]_1^5 = \\frac{\\ln 5}{2}.$$\n\n**Sluttsvar:** $\\dfrac{\\ln 5}{2}$. $\\blacksquare$ *(Merk: $u=1+x^2\\ge1>0$, så absoluttverdien i $\\ln|u|$ kan sløyfes.)*"
+    },
+    {
+      "id": "mat111-uib-5-2-def-klassiske",
+      "type": "definition",
+      "title": "Klassiske kjerner (sjekkliste)",
+      "content": "De kjernene arkivet bruker igjen og igjen: eksponenten i $e^{g(x)}$; radikanden under et rottegn; nevneren i en brøk; $\\ln x$ når $\\frac1x$ står som faktor; det indre i $\\sin(\\dots)$/$\\cos(\\dots)$; og $u=\\cos x$ i $\\int\\tan x\\,dx = \\int\\frac{\\sin x}{\\cos x}\\,dx = -\\ln|\\cos x|+C$. Sjekk alltid: står $u'$ som faktor?"
+    },
+    {
+      "id": "mat111-uib-5-2-o1",
+      "type": "exercise",
+      "exercise": {
+        "id": "mat111-uib-5-2-o1-x",
+        "number": "1",
+        "type": "classic",
+        "difficulty": "lett",
+        "task": "Beregn $\\displaystyle\\int_0^1 x\\,e^{-x^2/2}\\,dx$ med substitusjonsboks.",
+        "solution": "$$\\boxed{\\,u=-\\tfrac{x^2}{2},\\quad du=-x\\,dx\\;\\Rightarrow\\; x\\,dx=-du,\\quad x=0\\Rightarrow u=0,\\quad x=1\\Rightarrow u=-\\tfrac12\\,}$$\n\n$$\\int_0^1 x\\,e^{-x^2/2}\\,dx = -\\int_0^{-1/2} e^{u}\\,du = \\int_{-1/2}^{0} e^u\\,du = \\Big[e^u\\Big]_{-1/2}^0 = 1 - e^{-1/2}.$$\n\n**Sluttsvar:** $1-e^{-1/2}\\ (\\approx 0{,}393)$. $\\blacksquare$",
+        "hints": [
+          "Kjernen er eksponenten $-x^2/2$.",
+          "Snu gjerne integralet når den nye nedre grensen er størst — det koster bare et fortegn."
+        ]
+      }
+    },
+    {
+      "id": "mat111-uib-5-2-o2",
+      "type": "exercise",
+      "exercise": {
+        "id": "mat111-uib-5-2-o2-x",
+        "number": "2",
+        "type": "classic",
+        "difficulty": "lett",
+        "task": "Beregn $\\displaystyle\\int_0^{\\sqrt{\\pi}} x\\sin(x^2)\\,dx$.",
+        "solution": "$$\\boxed{\\,u=x^2,\\quad du=2x\\,dx\\;\\Rightarrow\\;x\\,dx=\\tfrac12du,\\quad x=0\\Rightarrow u=0,\\quad x=\\sqrt{\\pi}\\Rightarrow u=\\pi\\,}$$\n\n$$\\int_0^{\\sqrt\\pi}x\\sin(x^2)\\,dx = \\frac12\\int_0^{\\pi}\\sin u\\,du = \\frac12\\Big[-\\cos u\\Big]_0^{\\pi} = \\frac12\\big(1-(-1)\\big) = 1.$$\n\n**Sluttsvar:** $1$. $\\blacksquare$",
+        "hints": [
+          "Kjernen er det indre i sinus: $u=x^2$.",
+          "$[-\\cos u]_0^\\pi = -(-1)-(-1)$ — hold styr på minusene."
+        ]
+      }
+    },
+    {
+      "id": "mat111-uib-5-2-o3",
+      "type": "exercise",
+      "exercise": {
+        "id": "mat111-uib-5-2-o3-x",
+        "number": "3",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "Beregn $\\displaystyle\\int_e^{e^2}\\frac{dx}{x\\ln x}$.",
+        "solution": "Faktoren $\\frac1x$ peker på kjernen $u=\\ln x$.\n\n$$\\boxed{\\,u=\\ln x,\\quad du=\\tfrac1x dx,\\quad x=e\\Rightarrow u=1,\\quad x=e^2\\Rightarrow u=2\\,}$$\n\n$$\\int_e^{e^2}\\frac{dx}{x\\ln x} = \\int_1^2\\frac{du}{u} = \\Big[\\ln u\\Big]_1^2 = \\ln 2.$$\n\n**Sluttsvar:** $\\ln 2$. $\\blacksquare$",
+        "hints": [
+          "Skriv integranden som $\\frac{1}{\\ln x}\\cdot\\frac1x$.",
+          "I $u$-verdenen står du igjen med $\\int du/u$."
+        ]
+      }
+    },
+    {
+      "id": "mat111-uib-5-2-l2",
+      "type": "text",
+      "content": "## Løkke 2 — Delvis integrasjon med dokumentert valg (~17 min)"
+    },
+    {
+      "id": "mat111-uib-5-2-def-delvis",
+      "type": "definition",
+      "title": "Delvis integrasjon",
+      "content": "Delvis integrasjon er produktregelen baklengs: den flytter derivasjonsarbeidet fra én faktor til den andre.\n\n$$\\int u(x)\\,v'(x)\\,dx = u(x)\\,v(x) - \\int u'(x)\\,v(x)\\,dx.$$\n\nDu velger hvilken faktor som er $u$ (skal *deriveres*) og hvilken som er $v'$ (skal *antideriveres*). Målet: restintegralet $\\int u'v\\,dx$ skal være enklere enn det du startet med."
+    },
+    {
+      "id": "mat111-uib-5-2-def-uvvalg",
+      "type": "definition",
+      "title": "$u/v'$-valget",
+      "content": "Valget avgjør alt: deriveres feil faktor, blir restintegralet *verre*. Tommelfingertest før du regner: hva skjer med hver faktor ved derivasjon? Polynomer blir enklere (graden synker), $\\ln x$ og $\\arctan x$ blir *mye* enklere (algebraiske), mens $e^x$, $\\sin x$, $\\cos x$ bare bytter kostyme. Deriver den som blir enklest."
+    },
+    {
+      "id": "mat111-uib-5-2-def-liate",
+      "type": "definition",
+      "title": "LIATE-heuristikken",
+      "content": "Prioriteringsrekkefølge for hvem som skal være $u$ (deriveres): **L**ogaritmer, **I**nverse trigonometriske, **A**lgebraiske (polynomer), **T**rigonometriske, **E**ksponentialfunksjoner. Den faktoren som står tidligst i LIATE, velges som $u$; resten blir $v'$. Heuristikken treffer i praksis alle arkivets delvis-oppgaver."
+    },
+    {
+      "id": "mat111-uib-5-2-def-dokumentert",
+      "type": "definition",
+      "title": "Dokumentert valg (føringskravet i delvis)",
+      "content": "Løsningsforslagene skriver valget eksplisitt før regningen, på formen\n\n$$u = \\ln x \\;(\\Rightarrow u' = \\tfrac1x), \\qquad v' = x \\;(\\Rightarrow v = \\tfrac{x^2}{2}),$$\n\ngjerne med et halvsetnings-hvorfor («$\\ln x$ deriveres bort»). Denne linjen er ikke pynt: den viser sensor at teknikken er valgt bevisst — kravet i åpen bok-formatet."
+    },
+    {
+      "id": "mat111-uib-5-2-eks3",
+      "type": "example",
+      "title": "Eksempel 3: delvis integrasjon med dokumentert valg",
+      "problem": "Beregn $\\displaystyle\\int x\\,e^{2x}\\,dx$.",
+      "solution": "Produkt av polynom og eksponentialfunksjon → delvis integrasjon. LIATE: **A**lgebraisk før **E**ksponential, så polynomet deriveres.\n\n$$u=x\\;(\\Rightarrow u'=1),\\qquad v'=e^{2x}\\;(\\Rightarrow v=\\tfrac12 e^{2x}).$$\n\n$$\\int x\\,e^{2x}\\,dx = x\\cdot\\frac{e^{2x}}{2} - \\int 1\\cdot\\frac{e^{2x}}{2}\\,dx = \\frac{x\\,e^{2x}}{2} - \\frac{e^{2x}}{4} + C.$$\n\n**Kontroll ved derivasjon:** $\\big(\\tfrac{x}{2}e^{2x}-\\tfrac14 e^{2x}\\big)' = \\tfrac12 e^{2x}+x e^{2x} - \\tfrac12 e^{2x} = x\\,e^{2x}$. ✓\n\n**Sluttsvar:** $\\dfrac{x\\,e^{2x}}{2}-\\dfrac{e^{2x}}{4}+C$. $\\blacksquare$"
+    },
+    {
+      "id": "mat111-uib-5-2-def-gjentatt",
+      "type": "definition",
+      "title": "Gjentatt delvis integrasjon",
+      "content": "Er polynomgraden 2 eller høyere, må delvis integrasjon kjøres flere ganger — én gang per grad: $\\int x^2e^x\\,dx$ krever to runder, $\\int x^3\\sin x\\,dx$ tre. Behold samme strategi hele veien (deriver polynomet), ellers reverserer runde to det runde én gjorde."
+    },
+    {
+      "id": "mat111-uib-5-2-eks4",
+      "type": "example",
+      "title": "Eksempel 4: bestemt integral og gjentatt delvis",
+      "problem": "Beregn **a)** $\\displaystyle\\int_0^{\\pi/2} x\\cos x\\,dx$ og **b)** $\\displaystyle\\int_0^1 x^2 e^x\\,dx$.",
+      "solution": "**a)** LIATE: polynomet deriveres. $u=x\\;(u'=1)$, $v'=\\cos x\\;(v=\\sin x)$:\n$$\\int_0^{\\pi/2}x\\cos x\\,dx = \\Big[x\\sin x\\Big]_0^{\\pi/2} - \\int_0^{\\pi/2}\\sin x\\,dx = \\frac{\\pi}{2} - \\Big[-\\cos x\\Big]_0^{\\pi/2}.$$\nInnsettingen føres ryddig: $\\big[-\\cos x\\big]_0^{\\pi/2} = -\\cos\\frac{\\pi}{2}+\\cos 0 = 0+1 = 1$. Altså\n$$\\int_0^{\\pi/2}x\\cos x\\,dx = \\frac{\\pi}{2}-1.$$\n\n**b)** To runder. Runde 1: $u=x^2\\;(u'=2x)$, $v'=e^x\\;(v=e^x)$:\n$$\\int_0^1 x^2e^x\\,dx = \\Big[x^2e^x\\Big]_0^1 - 2\\int_0^1 xe^x\\,dx = e - 2\\int_0^1 xe^x\\,dx.$$\nRunde 2 på restintegralet: $u=x$, $v'=e^x$: $\\int_0^1 xe^x\\,dx = [xe^x]_0^1-\\int_0^1e^x\\,dx = e-(e-1) = 1$.\nDermed $\\int_0^1x^2e^x\\,dx = e-2\\cdot1 = e-2$.\n\n**Sluttsvar:** a) $\\dfrac{\\pi}{2}-1$, b) $e-2$. $\\blacksquare$"
+    },
+    {
+      "id": "mat111-uib-5-2-o4",
+      "type": "exercise",
+      "exercise": {
+        "id": "mat111-uib-5-2-o4-x",
+        "number": "4",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "Beregn $\\displaystyle\\int_1^e x\\ln x\\,dx$ med dokumentert $u/v'$-valg.",
+        "solution": "LIATE: **L**ogaritme før **A**lgebraisk, så $\\ln x$ deriveres.\n\n$$u=\\ln x\\;(\\Rightarrow u'=\\tfrac1x),\\qquad v'=x\\;(\\Rightarrow v=\\tfrac{x^2}2).$$\n\n$$\\int_1^e x\\ln x\\,dx = \\Big[\\frac{x^2}{2}\\ln x\\Big]_1^e - \\int_1^e \\frac{x^2}{2}\\cdot\\frac1x\\,dx = \\frac{e^2}{2} - \\frac12\\int_1^e x\\,dx = \\frac{e^2}{2}-\\frac12\\cdot\\frac{e^2-1}{2}.$$\n\n$$= \\frac{e^2}{2}-\\frac{e^2-1}{4} = \\frac{2e^2-e^2+1}{4} = \\frac{e^2+1}{4}.$$\n\n**Sluttsvar:** $\\dfrac{e^2+1}{4}$. $\\blacksquare$",
+        "hints": [
+          "LIATE: logaritmen skal deriveres, ikke antideriveres.",
+          "Restintegralet blir $\\frac12\\int x\\,dx$ — sjekk at det ble enklere."
+        ]
+      }
+    },
+    {
+      "id": "mat111-uib-5-2-o5",
+      "type": "exercise",
+      "exercise": {
+        "id": "mat111-uib-5-2-o5-x",
+        "number": "5",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "Hva går galt hvis du i $\\int x\\,e^{2x}\\,dx$ velger $u=e^{2x}$ og $v'=x$? Gjennomfør ett steg og forklar.",
+        "solution": "Med $u=e^{2x}\\;(u'=2e^{2x})$ og $v'=x\\;(v=\\tfrac{x^2}2)$ gir formelen\n$$\\int xe^{2x}\\,dx = \\frac{x^2}{2}e^{2x} - \\int x^2 e^{2x}\\,dx.$$\nRestintegralet har *høyere* polynomgrad enn det vi startet med ($x^2$ mot $x$) — integralet ble verre, ikke enklere. Det er nettopp dette LIATE forhindrer: polynomet (A) skal deriveres, eksponentialen (E) antideriveres. $\\blacksquare$",
+        "hints": [
+          "Regn ut restintegralet $\\int u'v\\,dx$ og sammenlign graden med utgangspunktet."
+        ]
+      }
+    },
+    {
+      "id": "mat111-uib-5-2-l3",
+      "type": "text",
+      "content": "## Løkke 3 — De «ensomme» funksjonene: $\\ln x$ og $\\arctan x$ (~10 min)"
+    },
+    {
+      "id": "mat111-uib-5-2-def-ensom",
+      "type": "definition",
+      "title": "«Ensom» transcendent funksjon",
+      "content": "En «ensom» funksjon er en integrand som står helt alene og ikke lar seg antiderivere direkte — klassikerne er $\\ln x$ og $\\arctan x$. De står ikke i grunnintegral-tabellen, men de *deriveres* lett ($\\frac1x$ og $\\frac{1}{1+x^2}$) — og det er nøkkelen."
+    },
+    {
+      "id": "mat111-uib-5-2-def-mot1",
+      "type": "definition",
+      "title": "Mot 1-trikset",
+      "content": "Skriv den ensomme integranden som et produkt med den usynlige faktoren $1$, og integrér delvis med $v'=1$:\n\n$$\\int f(x)\\,dx = \\int f(x)\\cdot 1\\,dx, \\qquad u=f(x),\\; v'=1\\;(v=x).$$\n\nDa flyttes alt arbeid over på $u'=f'(x)$, som for $\\ln$ og $\\arctan$ er en enkel algebraisk funksjon. (LIATE er enig: L og I står først og skal deriveres.)"
+    },
+    {
+      "id": "mat111-uib-5-2-eks5",
+      "type": "example",
+      "title": "Eksempel 5: $\\int \\ln x\\,dx$ med mot 1-trikset",
+      "problem": "Beregn $\\displaystyle\\int \\ln x\\,dx$, og bruk svaret til å beregne $\\displaystyle\\int_1^e\\ln x\\,dx$.",
+      "solution": "Skriv $\\ln x = \\ln x\\cdot 1$ og velg (dokumentert):\n$$u=\\ln x\\;(\\Rightarrow u'=\\tfrac1x),\\qquad v'=1\\;(\\Rightarrow v=x).$$\n\n$$\\int\\ln x\\,dx = x\\ln x - \\int \\frac1x\\cdot x\\,dx = x\\ln x - \\int 1\\,dx = x\\ln x - x + C.$$\n\n**Bestemt:** $\\displaystyle\\int_1^e\\ln x\\,dx = \\Big[x\\ln x - x\\Big]_1^e = (e-e)-(0-1) = 1.$\n\n**Sluttsvar:** $\\int\\ln x\\,dx = x\\ln x-x+C$; $\\int_1^e\\ln x\\,dx = 1$. $\\blacksquare$"
+    },
+    {
+      "id": "mat111-uib-5-2-o6",
+      "type": "exercise",
+      "exercise": {
+        "id": "mat111-uib-5-2-o6-x",
+        "number": "6",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "Beregn $\\displaystyle\\int_0^1 \\arctan x\\,dx$ med mot 1-trikset. (Husk: $(\\arctan x)' = \\frac{1}{1+x^2}$.)",
+        "solution": "$$u=\\arctan x\\;(\\Rightarrow u'=\\tfrac{1}{1+x^2}),\\qquad v'=1\\;(\\Rightarrow v=x).$$\n\n$$\\int_0^1\\arctan x\\,dx = \\Big[x\\arctan x\\Big]_0^1 - \\int_0^1\\frac{x}{1+x^2}\\,dx = \\frac{\\pi}{4} - \\int_0^1\\frac{x}{1+x^2}\\,dx.$$\n\nRestintegralet er $\\ln$-mønsteret (jf. Eksempel 2): $\\displaystyle\\int_0^1\\frac{x}{1+x^2}\\,dx = \\frac12\\big[\\ln(1+x^2)\\big]_0^1 = \\frac{\\ln 2}{2}$.\n\n**Sluttsvar:** $\\displaystyle\\int_0^1\\arctan x\\,dx = \\frac{\\pi}{4}-\\frac{\\ln 2}{2}\\ (\\approx 0{,}439)$. $\\blacksquare$",
+        "hints": [
+          "Sett $v'=1$ og deriver $\\arctan x$.",
+          "Restintegralet $\\int\\frac{x}{1+x^2}dx$ er et rent $\\ln$-mønster.",
+          "$\\arctan 1 = \\pi/4$."
+        ]
+      }
+    },
+    {
+      "id": "mat111-uib-5-2-l4",
+      "type": "text",
+      "content": "## Løkke 4 — Sykliske integraler og teknikk-kjeding (~15 min)"
+    },
+    {
+      "id": "mat111-uib-5-2-def-syklisk",
+      "type": "definition",
+      "title": "Syklisk integral",
+      "content": "Et syklisk integral kommer tilbake til seg selv: etter to runder delvis integrasjon på $\\int e^x\\cos x\\,dx$ dukker *det samme integralet* opp igjen på høyresiden. Det er ikke en blindvei — det er en likning."
+    },
+    {
+      "id": "mat111-uib-5-2-def-losfor",
+      "type": "definition",
+      "title": "«Løs for integralet»-grepet",
+      "content": "Kall det ukjente integralet $I$. Når $I$ dukker opp igjen etter to runder delvis, står du med en likning av typen\n\n$$I = (\\text{utregnede ledd}) - c\\,I,$$\n\nsom løses algebraisk: $(1+c)I = \\text{ledd}$, så $I = \\frac{\\text{ledd}}{1+c}$ (pluss $C$ i ubestemte integraler). Viktig: bruk *samme* valgstrategi i begge rundene (f.eks. alltid $u$ = trig-faktoren), ellers reverserer runde to runde én og gir $I=I$."
+    },
+    {
+      "id": "mat111-uib-5-2-eks6",
+      "type": "example",
+      "title": "Eksempel 6: syklisk integral — $\\int e^x\\cos x\\,dx$",
+      "problem": "Beregn $\\displaystyle\\int e^{x}\\cos x\\,dx$.",
+      "solution": "La $I=\\displaystyle\\int e^x\\cos x\\,dx$. Ingen av faktorene «deriveres bort», så vi kjører to runder med fast strategi: $u$ = trig-faktoren.\n\n**Runde 1:** $u=\\cos x\\;(u'=-\\sin x)$, $v'=e^x\\;(v=e^x)$:\n$$I = e^x\\cos x + \\int e^x\\sin x\\,dx.$$\n\n**Runde 2** (samme strategi): $u=\\sin x\\;(u'=\\cos x)$, $v'=e^x\\;(v=e^x)$:\n$$\\int e^x\\sin x\\,dx = e^x\\sin x - \\int e^x\\cos x\\,dx = e^x\\sin x - I.$$\n\n**Sett sammen og løs for $I$:**\n$$I = e^x\\cos x + e^x\\sin x - I \\;\\Longrightarrow\\; 2I = e^x(\\sin x+\\cos x) \\;\\Longrightarrow\\; I = \\frac{e^x(\\sin x+\\cos x)}{2} + C.$$\n\n**Kontroll ved derivasjon:** $\\big(\\tfrac{e^x}{2}(\\sin x+\\cos x)\\big)' = \\tfrac{e^x}{2}(\\sin x+\\cos x) + \\tfrac{e^x}{2}(\\cos x-\\sin x) = e^x\\cos x$. ✓ $\\blacksquare$"
+    },
+    {
+      "id": "mat111-uib-5-2-def-kjeding",
+      "type": "definition",
+      "title": "Teknikk-kjeding",
+      "content": "Mange eksamensintegraler krever to teknikker etter hverandre — typisk **substitusjon først, deretter delvis** i den nye variabelen. Kjenningsmerke: en sammensatt kjerne (som $\\sqrt{x}$ eller $e^x$) som etter substitusjon etterlater et produkt. Boksen føres for substitusjonen og valget dokumenteres for delvis-steget — begge føringskravene gjelder i kjeden."
+    },
+    {
+      "id": "mat111-uib-5-2-eks7",
+      "type": "example",
+      "title": "Eksempel 7 (eksamensnivå): kjeden substitusjon → delvis",
+      "problem": "Beregn $\\displaystyle\\int_0^{\\pi^2}\\sin\\sqrt{x}\\,dx$ med grunnleggende teknikker.",
+      "solution": "Kjernen $\\sqrt x$ er sammensatt — substituer først.\n\n$$\\boxed{\\,u=\\sqrt{x},\\quad x=u^2,\\quad dx=2u\\,du,\\quad x=0\\Rightarrow u=0,\\quad x=\\pi^2\\Rightarrow u=\\pi\\,}$$\n\n$$\\int_0^{\\pi^2}\\sin\\sqrt x\\,dx = \\int_0^{\\pi} \\sin u\\cdot 2u\\,du = 2\\int_0^\\pi u\\sin u\\,du.$$\n\nNytt integral er produkt polynom × trig → delvis, med dokumentert valg $u_1=u\\;(u_1'=1)$, $v'=\\sin u\\;(v=-\\cos u)$:\n$$\\int_0^\\pi u\\sin u\\,du = \\Big[-u\\cos u\\Big]_0^\\pi + \\int_0^\\pi \\cos u\\,du = \\big(-\\pi\\cdot(-1)+0\\big) + \\Big[\\sin u\\Big]_0^\\pi = \\pi + 0 = \\pi.$$\n\nDermed $\\displaystyle\\int_0^{\\pi^2}\\sin\\sqrt x\\,dx = 2\\pi$.\n\n**Sluttsvar:** $2\\pi$. $\\blacksquare$"
+    },
+    {
+      "id": "mat111-uib-5-2-o7",
+      "type": "exercise",
+      "exercise": {
+        "id": "mat111-uib-5-2-o7-x",
+        "number": "7",
+        "type": "classic",
+        "difficulty": "vanskelig",
+        "task": "Beregn $\\displaystyle\\int e^{-x}\\sin x\\,dx$ med «løs for integralet»-grepet.",
+        "solution": "La $I=\\int e^{-x}\\sin x\\,dx$. Fast strategi: $u$ = trig-faktoren.\n\n**Runde 1:** $u=\\sin x\\;(u'=\\cos x)$, $v'=e^{-x}\\;(v=-e^{-x})$:\n$$I = -e^{-x}\\sin x + \\int e^{-x}\\cos x\\,dx.$$\n\n**Runde 2:** $u=\\cos x\\;(u'=-\\sin x)$, $v'=e^{-x}\\;(v=-e^{-x})$:\n$$\\int e^{-x}\\cos x\\,dx = -e^{-x}\\cos x - \\int e^{-x}\\sin x\\,dx = -e^{-x}\\cos x - I.$$\n\n**Løs:** $I = -e^{-x}\\sin x - e^{-x}\\cos x - I$, så $2I = -e^{-x}(\\sin x+\\cos x)$, altså\n$$I = -\\frac{e^{-x}(\\sin x+\\cos x)}{2}+C.$$\n\n**Kontroll:** derivasjon gir $\\tfrac{e^{-x}}{2}(\\sin x+\\cos x) - \\tfrac{e^{-x}}{2}(\\cos x-\\sin x) = e^{-x}\\sin x$. ✓ $\\blacksquare$",
+        "hints": [
+          "Kall integralet $I$ og kjør to runder delvis med samme strategi.",
+          "Pass på fortegnene: $v=-e^{-x}$, ikke $e^{-x}$.",
+          "Når $I$ dukker opp igjen: flytt det over og del."
+        ]
+      }
+    },
+    {
+      "id": "mat111-uib-5-2-warn",
+      "type": "warning",
+      "title": "Typiske feil",
+      "content": "- **Grensene blir ikke med over i $u$-verdenen.** Enten oversetter du grensene i boksen, eller så bytter du tilbake til $x$ før innsetting — aldri en blanding. Å sette $x$-grensene inn i et $u$-uttrykk er den vanligste teknikk-feilen i arkivet.\n- **Feil $u/v'$-valg.** Deriverer du eksponentialen og antideriverer polynomet, vokser graden og integralet blir verre. Sjekk med LIATE før du starter — og skriv valget.\n- **Fortegnsglipp i $-\\int u'v\\,dx$.** Spesielt når $v$ selv har minusfortegn (som $v=-\\cos x$ eller $v=-e^{-x}$): to minuser skal bli pluss.\n- **Ulik strategi i sykliske integraler.** Bytter du hvem som deriveres mellom runde 1 og 2, ender du med $I=I$ — sant, men ubrukelig.\n- **«Slå opp»-føring.** Å skrive fasitsvaret fra permen uten synlig teknikk gir null i åpen bok-formatet. Boksen og valglinjen ER besvarelsen."
+    },
+    {
+      "id": "mat111-uib-5-2-drillh",
+      "type": "text",
+      "content": "## Drilloppgaver\n\nStigende vanskegrad — før substitusjonsboks og dokumentert valg i alle."
+    },
+    {
+      "id": "mat111-uib-5-2-d1",
+      "type": "exercise",
+      "exercise": {
+        "id": "mat111-uib-5-2-d1-x",
+        "number": "8",
+        "type": "classic",
+        "difficulty": "lett",
+        "task": "Beregn $\\displaystyle\\int_0^{\\pi/4}\\tan x\\,dx$.",
+        "solution": "$\\tan x = \\frac{\\sin x}{\\cos x}$; telleren er (med minus) den deriverte av nevneren.\n\n$$\\boxed{\\,u=\\cos x,\\quad du=-\\sin x\\,dx,\\quad x=0\\Rightarrow u=1,\\quad x=\\tfrac\\pi4\\Rightarrow u=\\tfrac{\\sqrt2}{2}\\,}$$\n\n$$\\int_0^{\\pi/4}\\tan x\\,dx = -\\int_1^{\\sqrt2/2}\\frac{du}{u} = \\int_{\\sqrt2/2}^{1}\\frac{du}{u} = \\ln 1 - \\ln\\frac{\\sqrt2}{2} = \\ln\\frac{2}{\\sqrt2} = \\frac{\\ln 2}{2}.$$\n\n**Sluttsvar:** $\\dfrac{\\ln2}{2}$. $\\blacksquare$",
+        "hints": [
+          "Skriv $\\tan x$ som brøk og bruk $\\ln$-mønsteret.",
+          "$-\\ln(\\sqrt2/2)=\\ln(2/\\sqrt2)=\\ln\\sqrt2$."
+        ]
+      }
+    },
+    {
+      "id": "mat111-uib-5-2-d2",
+      "type": "exercise",
+      "exercise": {
+        "id": "mat111-uib-5-2-d2-x",
+        "number": "9",
+        "type": "classic",
+        "difficulty": "lett",
+        "task": "Beregn $\\displaystyle\\int x^2 e^{x^3}\\,dx$.",
+        "solution": "$$\\boxed{\\,u=x^3,\\quad du=3x^2\\,dx\\;\\Rightarrow\\;x^2\\,dx=\\tfrac13 du\\,}$$\n\n$$\\int x^2e^{x^3}\\,dx = \\frac13\\int e^u\\,du = \\frac13 e^u + C = \\frac{e^{x^3}}{3}+C.$$\n\nUbestemt integral → husk tilbakebyttingen og $+C$. $\\blacksquare$",
+        "hints": [
+          "Kjernen er eksponenten $x^3$; $u'=3x^2$ matcher faktoren."
+        ]
+      }
+    },
+    {
+      "id": "mat111-uib-5-2-d3",
+      "type": "exercise",
+      "exercise": {
+        "id": "mat111-uib-5-2-d3-x",
+        "number": "10",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "Beregn $\\displaystyle\\int_0^{\\pi/3} x\\sin(3x)\\,dx$.",
+        "solution": "Delvis, dokumentert: $u=x\\;(u'=1)$, $v'=\\sin 3x\\;(v=-\\tfrac13\\cos 3x)$:\n$$\\int_0^{\\pi/3}x\\sin3x\\,dx = \\Big[-\\frac{x}{3}\\cos3x\\Big]_0^{\\pi/3} + \\frac13\\int_0^{\\pi/3}\\cos3x\\,dx.$$\nFørste ledd: $-\\frac{\\pi}{9}\\cos\\pi - 0 = \\frac{\\pi}{9}$. Andre ledd: $\\frac13\\big[\\tfrac13\\sin3x\\big]_0^{\\pi/3} = \\frac19(\\sin\\pi-0)=0$.\n\n**Sluttsvar:** $\\dfrac{\\pi}{9}$. $\\blacksquare$",
+        "hints": [
+          "LIATE: polynomet deriveres.",
+          "$v=-\\frac13\\cos3x$ — kjerneregel-konstanten må med.",
+          "$\\cos\\pi=-1$, $\\sin\\pi=0$."
+        ]
+      }
+    },
+    {
+      "id": "mat111-uib-5-2-d4",
+      "type": "exercise",
+      "exercise": {
+        "id": "mat111-uib-5-2-d4-x",
+        "number": "11",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "Beregn $\\displaystyle\\int_1^{4}\\frac{e^{\\sqrt x}}{\\sqrt x}\\,dx$.",
+        "solution": "$$\\boxed{\\,u=\\sqrt x,\\quad du=\\frac{1}{2\\sqrt x}\\,dx\\;\\Rightarrow\\;\\frac{dx}{\\sqrt x}=2\\,du,\\quad x=1\\Rightarrow u=1,\\quad x=4\\Rightarrow u=2\\,}$$\n\n$$\\int_1^4\\frac{e^{\\sqrt x}}{\\sqrt x}\\,dx = 2\\int_1^2 e^u\\,du = 2\\big(e^2-e\\big).$$\n\n**Sluttsvar:** $2(e^2-e)\\ (\\approx 9{,}34)$. $\\blacksquare$",
+        "hints": [
+          "Kjernen er $\\sqrt x$; faktoren $1/\\sqrt x$ er (nesten) dens deriverte.",
+          "Nye grenser: $1\\to1$, $4\\to2$."
+        ]
+      }
+    },
+    {
+      "id": "mat111-uib-5-2-d5",
+      "type": "exercise",
+      "exercise": {
+        "id": "mat111-uib-5-2-d5-x",
+        "number": "12",
+        "type": "classic",
+        "difficulty": "vanskelig",
+        "task": "Beregn $\\displaystyle\\int (\\ln x)^2\\,dx$. (Hint: mot 1-trikset, to runder.)",
+        "solution": "**Runde 1:** $u=(\\ln x)^2\\;(u'=\\tfrac{2\\ln x}{x})$, $v'=1\\;(v=x)$:\n$$\\int(\\ln x)^2dx = x(\\ln x)^2 - 2\\int\\ln x\\,dx.$$\n\n**Runde 2** (Eksempel 5): $\\int\\ln x\\,dx = x\\ln x - x + C$.\n\n$$\\int(\\ln x)^2dx = x(\\ln x)^2 - 2x\\ln x + 2x + C.$$\n\n**Kontroll:** derivasjon gir $(\\ln x)^2 + 2\\ln x - 2\\ln x - 2 + 2 = (\\ln x)^2$. ✓ $\\blacksquare$",
+        "hints": [
+          "Sett $v'=1$ og deriver $(\\ln x)^2$ med kjerneregelen.",
+          "Restintegralet er $\\int\\ln x\\,dx$ — som du kjenner fra Eksempel 5."
+        ]
+      }
+    },
+    {
+      "id": "mat111-uib-5-2-d6",
+      "type": "exercise",
+      "exercise": {
+        "id": "mat111-uib-5-2-d6-x",
+        "number": "13",
+        "type": "classic",
+        "difficulty": "vanskelig",
+        "task": "(Krevende) Beregn $\\displaystyle\\int_0^{1} \\ln(1+x^2)\\,dx$.",
+        "solution": "Mot 1-trikset: $u=\\ln(1+x^2)\\;(u'=\\tfrac{2x}{1+x^2})$, $v'=1\\;(v=x)$:\n$$\\int_0^1\\ln(1+x^2)\\,dx = \\Big[x\\ln(1+x^2)\\Big]_0^1 - \\int_0^1\\frac{2x^2}{1+x^2}\\,dx = \\ln 2 - 2\\int_0^1\\frac{x^2}{1+x^2}\\,dx.$$\n\nRestintegralet: skriv $\\frac{x^2}{1+x^2} = 1-\\frac{1}{1+x^2}$, så\n$$\\int_0^1\\frac{x^2}{1+x^2}\\,dx = \\Big[x-\\arctan x\\Big]_0^1 = 1-\\frac{\\pi}{4}.$$\n\n$$\\int_0^1\\ln(1+x^2)\\,dx = \\ln2 - 2\\Big(1-\\frac\\pi4\\Big) = \\ln 2 - 2 + \\frac{\\pi}{2}.$$\n\n**Sluttsvar:** $\\ln2-2+\\dfrac\\pi2\\ (\\approx 0{,}264)$. $\\blacksquare$",
+        "hints": [
+          "Ensom funksjon → delvis mot 1.",
+          "Skriv $\\frac{x^2}{1+x^2}$ som $1-\\frac{1}{1+x^2}$.",
+          "$(\\arctan x)'=\\frac1{1+x^2}$."
+        ]
+      }
+    },
+    {
+      "id": "mat111-uib-5-2-rep",
+      "type": "collapsible",
+      "title": "Repetisjonsoppgaver",
+      "buttonText": "Vis repetisjonsoppgaver",
+      "content": [
+        {
+          "id": "mat111-uib-5-2-rep-intro",
+          "type": "text",
+          "content": "Korte oppgaver fra forkunnskapskapitlene — grunnintegralene og kjerneregelen må være automatiske her."
+        },
+        {
+          "id": "mat111-uib-5-2-r1",
+          "type": "exercise",
+          "exercise": {
+            "id": "mat111-uib-5-2-r1-x",
+            "number": "R1",
+            "type": "classic",
+            "difficulty": "lett",
+            "task": "(Fra R2 2.3) Beregn $\\displaystyle\\int_1^2\\frac{3}{x}\\,dx$ og $\\displaystyle\\int_0^1 e^{2x}\\,dx$.",
+            "solution": "$\\int_1^2\\frac3x dx = 3[\\ln x]_1^2 = 3\\ln2$. $\\int_0^1 e^{2x}dx = [\\tfrac12e^{2x}]_0^1 = \\tfrac{e^2-1}{2}$. $\\blacksquare$",
+            "hints": [
+              "$\\int\\frac1x dx=\\ln|x|$; $\\int e^{kx}dx = \\frac1k e^{kx}$."
+            ]
+          }
+        },
+        {
+          "id": "mat111-uib-5-2-r2",
+          "type": "exercise",
+          "exercise": {
+            "id": "mat111-uib-5-2-r2-x",
+            "number": "R2",
+            "type": "classic",
+            "difficulty": "lett",
+            "task": "(Fra R1 4.3) Deriver $f(x)=\\ln(1+x^2)$ og $g(x)=e^{-x^2/2}$.",
+            "solution": "$f'(x)=\\frac{2x}{1+x^2}$ (kjerneregel). $g'(x)=-x\\,e^{-x^2/2}$. $\\blacksquare$",
+            "hints": [
+              "Etterderiver kjernene $1+x^2$ og $-x^2/2$."
+            ]
+          }
+        },
+        {
+          "id": "mat111-uib-5-2-r3",
+          "type": "exercise",
+          "exercise": {
+            "id": "mat111-uib-5-2-r3-x",
+            "number": "R3",
+            "type": "classic",
+            "difficulty": "lett",
+            "task": "(Fra R2 3.1) Beregn $\\displaystyle\\int 2x\\cos(x^2)\\,dx$.",
+            "solution": "$u=x^2$, $du=2x\\,dx$: $\\int\\cos u\\,du = \\sin u + C = \\sin(x^2)+C$. $\\blacksquare$",
+            "hints": [
+              "Faktoren $2x$ er nøyaktig $u'$."
+            ]
+          }
+        },
+        {
+          "id": "mat111-uib-5-2-r4",
+          "type": "exercise",
+          "exercise": {
+            "id": "mat111-uib-5-2-r4-x",
+            "number": "R4",
+            "type": "classic",
+            "difficulty": "lett",
+            "task": "(Fra R2 3.2) Skriv opp formelen for delvis integrasjon og navngi hvem som deriveres.",
+            "solution": "$\\int u\\,v'\\,dx = uv - \\int u'\\,v\\,dx$. Faktoren $u$ deriveres, faktoren $v'$ antideriveres. $\\blacksquare$",
+            "hints": [
+              "Produktregelen baklengs."
+            ]
+          }
+        },
+        {
+          "id": "mat111-uib-5-2-r5",
+          "type": "exercise",
+          "exercise": {
+            "id": "mat111-uib-5-2-r5-x",
+            "number": "R5",
+            "type": "classic",
+            "difficulty": "lett",
+            "task": "(Fra R2 2.5) Beregn $\\displaystyle\\int_0^{\\pi}\\sin x\\,dx$.",
+            "solution": "$[-\\cos x]_0^\\pi = -(-1)-(-1) = 2$. $\\blacksquare$",
+            "hints": [
+              "$\\cos\\pi=-1$, $\\cos0=1$."
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": "mat111-uib-5-2-symbol",
+      "type": "collapsible",
+      "title": "Symbol- og formelliste",
+      "buttonText": "Vis symboler og formler",
+      "content": [
+        {
+          "id": "mat111-uib-5-2-symbol-txt",
+          "type": "text",
+          "content": "## Symbol- og formelliste\n\n*Oppslagsverk — alt her forklares underveis i kapitlet.*\n\n| Symbol | Betydning |\n|---|---|\n| $u=g(x)$ | Kjernen — det indre uttrykket som bytter navn |\n| $du=g'(x)\\,dx$ | Differensialet — oversettelsen av $dx$ |\n| $\\boxed{u,\\ du,\\ \\text{nye grenser}}$ | Substitusjonsboksen (føringskravet) |\n| $u/v'$ | Rollefordelingen i delvis integrasjon: $u$ deriveres, $v'$ antideriveres |\n| LIATE | Prioritering av $u$: Logaritme, Invers trig, Algebraisk, Trig, Eksponential |\n| $I$ | Navnet på det ukjente integralet i «løs for integralet»-grepet |\n| $C$ | Integrasjonskonstanten (bare i ubestemte integraler) |\n| $\\blacksquare$ | Løsningen er ferdig |\n\n**Formler i dette delkapitlet:**\n\n$$\\int f(g(x))\\,g'(x)\\,dx = \\int f(u)\\,du,\\qquad u=g(x)$$\n*Substitusjon — kjerneregelen baklengs.*\n\n$$\\int_a^b f(g(x))\\,g'(x)\\,dx = \\int_{g(a)}^{g(b)} f(u)\\,du$$\n*Bestemt integral: grensene følger med over i $u$-verdenen.*\n\n$$\\int \\frac{f'(x)}{f(x)}\\,dx = \\ln|f(x)|+C$$\n*$\\ln$-mønsteret — nevnerens deriverte i telleren.*\n\n$$\\int u\\,v'\\,dx = uv - \\int u'\\,v\\,dx$$\n*Delvis integrasjon — produktregelen baklengs.*\n\n$$\\int\\ln x\\,dx = x\\ln x - x + C\\qquad \\int\\arctan x\\,dx = x\\arctan x - \\tfrac12\\ln(1+x^2)+C$$\n*De ensomme funksjonene, integrert delvis mot 1.*\n\n$$\\int e^x\\cos x\\,dx = \\frac{e^x(\\sin x+\\cos x)}{2}+C$$\n*Prototypen på et syklisk integral (utledes med «løs for $I$»).*"
+        }
+      ]
+    }
+  ],
+  "exercises": []
+}

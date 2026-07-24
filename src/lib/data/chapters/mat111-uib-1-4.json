@@ -1,0 +1,330 @@
+{
+  "id": "mat111-uib-1-4",
+  "courseId": "mat111-uib",
+  "chapterNumber": "1.4",
+  "title": "Drill: komplekse tall som åpningsoppgave",
+  "description": "Hele komplekstall-repertoaret som gjennomført åpningsoppgave — normalform, de Moivre, røtter, likning og faktorisering, med full føring.",
+  "estimatedMinutes": 90,
+  "competenceGoals": [
+    "kjøre hele åpningsoppgaven (polarform, potens, røtter, likning, faktorisering, mengde) på rutine og med full føring",
+    "velge riktig teknikk og riktig svarform under tidspress",
+    "se og utnytte kjeder mellom delpunktene i en sammensatt oppgave"
+  ],
+  "content": [
+    {
+      "id": "mat111-uib-1-4-tip",
+      "type": "tip",
+      "title": "Eksamensvinkel",
+      "content": "**Dette er hele komplekstall-repertoaret drillet som den gjennomførte åpningsoppgaven.**\n\n- **Sjanger C** åpner **28 av 34 sett** — og består oftest av flere delpunkter (1a–1f) som *kjeder* teknikkene fra kap. 1.1–1.3: polarform, potens, røtter, likning og faktorisering.\n- Ofte gjenbrukes et delsvar senere (f.eks. en faktorisering fra 1c dukker opp i et integral lenger ut i settet) — se etter kjedene.\n- **Åpen bok måler føring og tempo:** der polarform gir svaret på tre linjer, taper du tid på å gnu gjennom normalform.\n\n**Mål:** kjøre hele åpningsoppgaven på rutine, med full føring og riktig svarform hvert sted — så du sikrer de billige poengene tidlig og sparer tid til resten av settet."
+    },
+    {
+      "id": "mat111-uib-1-4-fork",
+      "type": "text",
+      "content": "**Forkunnskaper.** Hele Del 1: [kap. 1.1](/bok/mat111-uib/mat111-uib-1-1) (normalform, polarform, geometri), [kap. 1.2](/bok/mat111-uib/mat111-uib-1-2) (de Moivre, røtter) og [kap. 1.3](/bok/mat111-uib/mat111-uib-1-3) (likninger, faktorisering). Denne drillen introduserer ingen ny teori — den setter alt sammen under tidspress. Løs først uten fasit; sjekk deretter føringen."
+    },
+    {
+      "id": "mat111-uib-1-4-intro",
+      "type": "text",
+      "content": "En MAT111-åpning ser typisk slik ut: «La $z=\\dots$. (a) Skriv på polarform. (b) Regn $z^n$. (c) Finn alle $n$-te røtter. (d) Faktoriser … (e) Løs likningen … (f) Beskriv mengden …». Under har du seks **løsningsoppskrifter** (én per deltype), deretter en fullstendig gjennomregnet eksamens-åpning med sensor-margnotater, og til slutt en oppgavebank på eksamensnivå. Alle svar føres som A-besvarelse: hvert steg vist, sluttsvar markert."
+    },
+    {
+      "id": "mat111-uib-1-4-recipes",
+      "type": "text",
+      "content": "## Seks løsningsoppskrifter"
+    },
+    {
+      "id": "mat111-uib-1-4-rec-polar",
+      "type": "definition",
+      "title": "Oppskrift 1 — Polarform",
+      "content": "**Tegn punktet** $(a,b)$ → bestem kvadranten → $r=\\sqrt{a^2+b^2}$ → referansevinkel $\\arctan(|b|/|a|)$ justert til kvadranten → $z=re^{i\\theta}$. Skriv ut til normalform *bare* hvis oppgaven ber om det."
+    },
+    {
+      "id": "mat111-uib-1-4-rec-potens",
+      "type": "definition",
+      "title": "Oppskrift 2 — Potens $z^n$",
+      "content": "Polarform først → de Moivre $z^n=r^n e^{in\\theta}$ → **reduser $n\\theta$ mod $2\\pi$** → skriv ut til normalform hvis spurt. Sjekk at $r^n$ er regnet riktig ($(\\sqrt2)^6=8$, ikke $12$)."
+    },
+    {
+      "id": "mat111-uib-1-4-rec-rot",
+      "type": "definition",
+      "title": "Oppskrift 3 — Alle $n$-te røtter",
+      "content": "Skriv $w=Re^{i\\varphi}$ → radius $R^{1/n}$ (reell $n$-te rot) → argumenter $(\\varphi+2k\\pi)/n$ for $k=0,\\dots,n-1$ → **prinsipalroten først**, resten ved å legge til $\\tfrac{2\\pi}{n}$. Kontroll: $n$ røtter jevnt på en sirkel, sum av enhetsrøtter $=0$."
+    },
+    {
+      "id": "mat111-uib-1-4-rec-likning",
+      "type": "definition",
+      "title": "Oppskrift 4 — Likning",
+      "content": "Ren $z^n=c$: bruk rotformelen (Oppskrift 3). Generell $az^2+bz+c=0$: andregradsformelen, med $\\sqrt{D}=i\\sqrt{|D|}$ når $D<0$. Høyere grad: finn/gis én rot, del ut, reduser til andregrad."
+    },
+    {
+      "id": "mat111-uib-1-4-rec-faktor",
+      "type": "definition",
+      "title": "Oppskrift 5 — Faktorisering",
+      "content": "Finn røttene → konjugatpar $z_0,\\bar z_0$ gir reell faktor $z^2-2\\operatorname{Re}(z_0)z+|z_0|^2$ → polynomdivisjon for restfaktoren → skriv **begge** faktoriseringer ($\\mathbb{C}$: lineære; $\\mathbb{R}$: lineære + irreduserbare kvadratiske) → verifiser ved gjenmultiplikasjon."
+    },
+    {
+      "id": "mat111-uib-1-4-rec-mengde",
+      "type": "definition",
+      "title": "Oppskrift 6 — Geometrisk mengde",
+      "content": "Oversett $|z-w|$ til **avstand**. $|z-a|=r$ er sirkel (sentrum $a$, radius $r$); $|z-a|=|z-b|$ er midtnormalen mellom $a$ og $b$. Sett $z=x+iy$ og kvadrer for å få likningen når du er i tvil."
+    },
+    {
+      "id": "mat111-uib-1-4-case-h",
+      "type": "text",
+      "content": "## Gjennomregnet eksamens-åpning (med sensor-margnotater)"
+    },
+    {
+      "id": "mat111-uib-1-4-case",
+      "type": "example",
+      "title": "Oppgave 1 (a–f) — komplett åpning",
+      "problem": "La $z=2+2i$.\n\n**(a)** Skriv $z$ på polarform.\n**(b)** Bruk (a) til å regne $z^6$ på normalform.\n**(c)** Finn alle løsninger av $u^3=-8$ på normalform.\n**(d)** Faktoriser $u^3+8$ både over $\\mathbb{C}$ og over $\\mathbb{R}$.\n**(e)** Løs $v^2-2v+5=0$.\n**(f)** Beskriv mengden av $w$ med $|w-z|=|w|$.",
+      "solution": "**(a)** Punktet $(2,2)$ ligger i første kvadrant. $r=\\sqrt{4+4}=2\\sqrt2$, referansevinkel $\\arctan\\tfrac{2}{2}=\\tfrac{\\pi}{4}$. Altså $z=2\\sqrt2\\,e^{i\\pi/4}$. *(Sensor: kvadrantkontroll vist — full uttelling.)*\n\n**(b)** de Moivre: $z^6=(2\\sqrt2)^6 e^{i6\\pi/4}$. Modulus: $(2\\sqrt2)^6=(8)^3=512$. Vinkel: $\\tfrac{6\\pi}{4}=\\tfrac{3\\pi}{2}$ (allerede i $[0,2\\pi)$). Så $z^6=512\\,e^{i3\\pi/2}=512(0-i)=\\boxed{-512i}$. *(Sensor: $r^6$ og vinkelreduksjon markert — poeng selv om normalform-utskrivingen skulle glippe.)*\n\n**(c)** $-8=8e^{i\\pi}$, så $u_k=2e^{i(\\pi+2k\\pi)/3}$, $k=0,1,2$: $u_0=2e^{i\\pi/3}=1+\\sqrt3\\,i$, $u_1=2e^{i\\pi}=-2$, $u_2=2e^{i5\\pi/3}=1-\\sqrt3\\,i$. *(Sensor: $2k\\pi$-leddet med — alle tre røtter, ikke bare én.)*\n\n**(d)** Røttene fra (c) gir faktoriseringen. **Over $\\mathbb{C}$:** $u^3+8=(u+2)(u-(1+\\sqrt3 i))(u-(1-\\sqrt3 i))$. **Over $\\mathbb{R}$:** slå sammen konjugatparet $1\\pm\\sqrt3 i$: $u^2-2u+4$ ($\\operatorname{Re}=1$, $|u_0|^2=4$). Altså $u^3+8=(u+2)(u^2-2u+4)$. *(Sensor: her ligger en kjede — (c) gjenbrukt direkte i (d), ingen ny regning.)*\n\n**(e)** $D=4-20=-16$, $\\sqrt{D}=4i$: $v=\\tfrac{2\\pm4i}{2}=\\boxed{1\\pm2i}$. Et konjugatpar, som seg hør og bør for reelle koeffisienter.\n\n**(f)** $|w-z|$ er avstanden fra $w$ til $z=(2,2)$, og $|w|=|w-0|$ avstanden til origo. «Like langt fra $(2,2)$ og $(0,0)$» er **midtnormalen** til linjestykket mellom dem. Med $w=x+iy$: $(x-2)^2+(y-2)^2=x^2+y^2\\Rightarrow -4x-4y+8=0\\Rightarrow \\boxed{x+y=2}$. *(Sensor: oversettelsen $|w-z|=$ avstand gir full uttelling; skisse anbefales.)*"
+    },
+    {
+      "id": "mat111-uib-1-4-bank",
+      "type": "text",
+      "content": "## Oppgavebank på eksamensnivå"
+    },
+    {
+      "id": "mat111-uib-1-4-o1-w",
+      "type": "exercise",
+      "exercise": {
+        "id": "mat111-uib-1-4-o1",
+        "number": "1",
+        "type": "classic",
+        "difficulty": "lett",
+        "task": "Skriv $z=-4$ på polarform, og $z=6e^{i5\\pi/6}$ på normalform.",
+        "solution": "$-4=(-4,0)$ ligger på den negative reelle aksen: $r=4$, $\\theta=\\pi$, så $-4=4e^{i\\pi}$. Og $6e^{i5\\pi/6}=6(\\cos\\tfrac{5\\pi}{6}+i\\sin\\tfrac{5\\pi}{6})=6(-\\tfrac{\\sqrt3}{2}+i\\tfrac12)=-3\\sqrt3+3i$.",
+        "hints": [
+          "Negativ reell akse har argument $\\pi$.",
+          "$\\cos\\tfrac{5\\pi}{6}=-\\tfrac{\\sqrt3}{2}$, $\\sin\\tfrac{5\\pi}{6}=\\tfrac12$."
+        ]
+      }
+    },
+    {
+      "id": "mat111-uib-1-4-o2-w",
+      "type": "exercise",
+      "exercise": {
+        "id": "mat111-uib-1-4-o2",
+        "number": "2",
+        "type": "classic",
+        "difficulty": "lett",
+        "task": "Skriv $\\dfrac{3-2i}{1+i}$ på normalform.",
+        "solution": "Forleng med $\\overline{1+i}=1-i$: $\\dfrac{(3-2i)(1-i)}{1^2+1^2}=\\dfrac{3-3i-2i+2i^2}{2}=\\dfrac{1-5i}{2}=\\tfrac12-\\tfrac52 i$.",
+        "hints": [
+          "Nevneren blir $|1+i|^2=2$.",
+          "Gang ut telleren; $2i^2=-2$."
+        ]
+      }
+    },
+    {
+      "id": "mat111-uib-1-4-o3-w",
+      "type": "exercise",
+      "exercise": {
+        "id": "mat111-uib-1-4-o3",
+        "number": "3",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "Regn $(1-i)^{8}$ på normalform.",
+        "solution": "$1-i=\\sqrt2\\,e^{-i\\pi/4}$. de Moivre: $(1-i)^8=(\\sqrt2)^8 e^{-i2\\pi}=2^4\\cdot1=16$.",
+        "hints": [
+          "$(\\sqrt2)^8=2^4=16$.",
+          "$e^{-i2\\pi}=1$ etter reduksjon."
+        ]
+      }
+    },
+    {
+      "id": "mat111-uib-1-4-o4-w",
+      "type": "exercise",
+      "exercise": {
+        "id": "mat111-uib-1-4-o4",
+        "number": "4",
+        "type": "classic",
+        "difficulty": "vanskelig",
+        "task": "Regn $(\\sqrt3-i)^{5}$ på normalform.",
+        "solution": "$\\sqrt3-i$ er i fjerde kvadrant: $r=2$, $\\theta=-\\tfrac{\\pi}{6}$. de Moivre: $(2e^{-i\\pi/6})^5=2^5 e^{-i5\\pi/6}=32(\\cos(-\\tfrac{5\\pi}{6})+i\\sin(-\\tfrac{5\\pi}{6}))=32(-\\tfrac{\\sqrt3}{2}-i\\tfrac12)=-16\\sqrt3-16i$.",
+        "hints": [
+          "$r=2$, $\\theta=-\\pi/6$; $2^5=32$.",
+          "$\\cos(-\\tfrac{5\\pi}{6})=-\\tfrac{\\sqrt3}{2}$, $\\sin(-\\tfrac{5\\pi}{6})=-\\tfrac12$."
+        ]
+      }
+    },
+    {
+      "id": "mat111-uib-1-4-o5-w",
+      "type": "exercise",
+      "exercise": {
+        "id": "mat111-uib-1-4-o5",
+        "number": "5",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "Finn alle løsninger av $z^4=16$ på normalform.",
+        "solution": "$16=16e^{i0}$, radius $16^{1/4}=2$, argumenter $\\tfrac{2k\\pi}{4}=0,\\tfrac{\\pi}{2},\\pi,\\tfrac{3\\pi}{2}$. Røttene er $2,\\ 2i,\\ -2,\\ -2i$.",
+        "hints": [
+          "$16^{1/4}=2$; fire røtter jevnt rundt.",
+          "Argumentene er multipler av $\\pi/2$."
+        ]
+      }
+    },
+    {
+      "id": "mat111-uib-1-4-o6-w",
+      "type": "exercise",
+      "exercise": {
+        "id": "mat111-uib-1-4-o6",
+        "number": "6",
+        "type": "classic",
+        "difficulty": "vanskelig",
+        "task": "Finn alle løsninger av $z^3=-27i$ på normalform.",
+        "solution": "$-27i=27e^{-i\\pi/2}$, radius $3$, argumenter $\\tfrac{-\\pi/2+2k\\pi}{3}$: $-\\tfrac{\\pi}{6},\\tfrac{\\pi}{2},\\tfrac{7\\pi}{6}$. Røttene: $3e^{-i\\pi/6}=\\tfrac{3\\sqrt3}{2}-\\tfrac32 i$, $3e^{i\\pi/2}=3i$, $3e^{i7\\pi/6}=-\\tfrac{3\\sqrt3}{2}-\\tfrac32 i$.",
+        "hints": [
+          "$-27i=27e^{-i\\pi/2}$; radius $3$.",
+          "Argumentene: $(-\\pi/2+2k\\pi)/3$ for $k=0,1,2$."
+        ]
+      }
+    },
+    {
+      "id": "mat111-uib-1-4-o7-w",
+      "type": "exercise",
+      "exercise": {
+        "id": "mat111-uib-1-4-o7",
+        "number": "7",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "Løs den bikvadratiske likningen $z^4+5z^2+4=0$.",
+        "solution": "$u=z^2$: $u^2+5u+4=(u+1)(u+4)=0$, så $u=-1$ eller $u=-4$. $z^2=-1\\Rightarrow z=\\pm i$; $z^2=-4\\Rightarrow z=\\pm2i$. Løsningene er $z=\\pm i,\\ \\pm2i$.",
+        "hints": [
+          "Substituer $u=z^2$ og faktoriser $u^2+5u+4$.",
+          "$z^2=-1$ og $z^2=-4$ gir rent imaginære løsninger."
+        ]
+      }
+    },
+    {
+      "id": "mat111-uib-1-4-o8-w",
+      "type": "exercise",
+      "exercise": {
+        "id": "mat111-uib-1-4-o8",
+        "number": "8",
+        "type": "classic",
+        "difficulty": "lett",
+        "task": "Løs $v^2-2v+2=0$ på normalform.",
+        "solution": "$D=4-8=-4$, $\\sqrt{D}=2i$: $v=\\tfrac{2\\pm2i}{2}=1\\pm i$.",
+        "hints": [
+          "Regn diskriminanten.",
+          "$\\sqrt{-4}=2i$."
+        ]
+      }
+    },
+    {
+      "id": "mat111-uib-1-4-o9-w",
+      "type": "exercise",
+      "exercise": {
+        "id": "mat111-uib-1-4-o9",
+        "number": "9",
+        "type": "classic",
+        "difficulty": "vanskelig",
+        "task": "Vis at $2+i$ er rot i $p(z)=z^3-5z^2+9z-5$, og faktoriser $p$ over $\\mathbb{C}$ og over $\\mathbb{R}$.",
+        "solution": "**Rot:** $(2+i)^2=4+4i+i^2=3+4i$, $(2+i)^3=(2+i)(3+4i)=6+8i+3i+4i^2=2+11i$. Da $p(2+i)=(2+11i)-5(3+4i)+9(2+i)-5=(2+11i)+(-15-20i)+(18+9i)-5=0$ ✓.\n\n**Konjugat:** $2-i$ er også rot (reelle koeffisienter). Reell faktor: $(z-(2+i))(z-(2-i))=z^2-4z+5$ ($\\operatorname{Re}=2$, $|2+i|^2=5$).\n\n**Polynomdivisjon:** $p(z)=(z^2-4z+5)(z-1)$ (kontroll: $p(1)=1-5+9-5=0$ ✓).\n\n**Over $\\mathbb{R}$:** $(z-1)(z^2-4z+5)$. **Over $\\mathbb{C}$:** $(z-1)(z-(2+i))(z-(2-i))$.",
+        "hints": [
+          "Regn $(2+i)^2$ og $(2+i)^3$, sett inn i $p$.",
+          "Konjugatparet gir $z^2-4z+5$; del $p$ på den for den reelle roten $z=1$."
+        ]
+      }
+    },
+    {
+      "id": "mat111-uib-1-4-o10-w",
+      "type": "exercise",
+      "exercise": {
+        "id": "mat111-uib-1-4-o10",
+        "number": "10",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "Faktoriser $z^4-1$ over $\\mathbb{C}$ og over $\\mathbb{R}$.",
+        "solution": "$z^4-1=(z^2-1)(z^2+1)=(z-1)(z+1)(z^2+1)$. **Over $\\mathbb{R}$:** $(z-1)(z+1)(z^2+1)$ ($z^2+1$ irreduserbar). **Over $\\mathbb{C}$:** split $z^2+1=(z-i)(z+i)$: $(z-1)(z+1)(z-i)(z+i)$.",
+        "hints": [
+          "Bruk $a^2-b^2$ to ganger.",
+          "$z^2+1$ er reell-irreduserbar, men $=(z-i)(z+i)$ over $\\mathbb{C}$."
+        ]
+      }
+    },
+    {
+      "id": "mat111-uib-1-4-o11-w",
+      "type": "exercise",
+      "exercise": {
+        "id": "mat111-uib-1-4-o11",
+        "number": "11",
+        "type": "classic",
+        "difficulty": "vanskelig",
+        "task": "Finn begge kvadratrøttene av $-5+12i$.",
+        "solution": "Sett $z=a+bi$: $a^2-b^2=-5$, $2ab=12$, og $a^2+b^2=|-5+12i|=\\sqrt{25+144}=13$. Legg sammen: $2a^2=8\\Rightarrow a=\\pm2$; trekk fra: $2b^2=18\\Rightarrow b=\\pm3$. $2ab=12>0$ gir likt fortegn: $z=\\pm(2+3i)$. Kontroll: $(2+3i)^2=4+12i-9=-5+12i$ ✓.",
+        "hints": [
+          "Bruk $a^2-b^2=\\operatorname{Re}$, $2ab=\\operatorname{Im}$ og $a^2+b^2=|w|$.",
+          "$2ab=12>0$ ⇒ $a,b$ har samme fortegn."
+        ]
+      }
+    },
+    {
+      "id": "mat111-uib-1-4-o12-w",
+      "type": "exercise",
+      "exercise": {
+        "id": "mat111-uib-1-4-o12",
+        "number": "12",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "Beskriv mengden av $z$ med $|z-1|=|z+3|$.",
+        "solution": "Avstand til $1=(1,0)$ lik avstand til $-3=(-3,0)$ — midtnormalen. Med $z=x+iy$: $(x-1)^2+y^2=(x+3)^2+y^2\\Rightarrow -2x+1=6x+9\\Rightarrow x=-1$. Mengden er den **loddrette linja $x=-1$**.",
+        "hints": [
+          "$|z+3|=|z-(-3)|$: avstand til $(-3,0)$.",
+          "Kvadrer og forenkle; $y$ faller bort."
+        ]
+      }
+    },
+    {
+      "id": "mat111-uib-1-4-o13-w",
+      "type": "exercise",
+      "exercise": {
+        "id": "mat111-uib-1-4-o13",
+        "number": "13",
+        "type": "classic",
+        "difficulty": "vanskelig",
+        "task": "La $z=2+2i$.\n\n**a)** Regn $z^3$ på normalform.\n\n**b)** Bruk a)-svaret til å finne én løsning av $u^3=z^3$ som IKKE er $z$ selv.",
+        "solution": "**(a)** $z=2\\sqrt2\\,e^{i\\pi/4}$, så $z^3=(2\\sqrt2)^3 e^{i3\\pi/4}=16\\sqrt2\\,e^{i3\\pi/4}=16\\sqrt2(-\\tfrac{\\sqrt2}{2}+i\\tfrac{\\sqrt2}{2})=-16+16i$.\n\n**(b)** Løsningene av $u^3=z^3$ er $z$ ganget med de tredje enhetsrøttene $e^{i2k\\pi/3}$. En annen enn $z$ selv: $u=z\\,e^{i2\\pi/3}=2\\sqrt2\\,e^{i(\\pi/4+2\\pi/3)}=2\\sqrt2\\,e^{i11\\pi/12}$. (Eller på normalform via $\\cos/\\sin$ av $\\tfrac{11\\pi}{12}$.) Den tredje er $z\\,e^{i4\\pi/3}=2\\sqrt2\\,e^{i(\\pi/4+4\\pi/3)}=2\\sqrt2\\,e^{i19\\pi/12}$.",
+        "hints": [
+          "$(2\\sqrt2)^3=16\\sqrt2$; argument $3\\cdot\\pi/4$.",
+          "$u^3=z^3$ har røtter $z\\cdot e^{i2k\\pi/3}$ — gang $z$ med enhetsrøttene."
+        ]
+      }
+    },
+    {
+      "id": "mat111-uib-1-4-warn",
+      "type": "warning",
+      "title": "Typiske feil (samlet fra Del 1)",
+      "content": "- **Argument i feil kvadrant** — tegn alltid punktet (Oppskrift 1).\n- **Glemme $2k\\pi$-leddet** i røtter (Oppskrift 3) — gir bare én rot.\n- **Glemme vinkelreduksjon** ved høye potenser (Oppskrift 2).\n- **Bare én faktorisering** levert der begge kreves (Oppskrift 5).\n- **Polarsvar ikke skrevet ut** til normalform når det er etterspurt.\n- **Tidsfellen:** lange normalform-utregninger der polarform gir svaret på tre linjer."
+    },
+    {
+      "id": "mat111-uib-1-4-rep",
+      "type": "collapsible",
+      "title": "Oppsummering",
+      "buttonText": "Vis oppsummering",
+      "content": [
+        {
+          "id": "mat111-uib-1-4-rep-t",
+          "type": "text",
+          "content": "## Kort oppsummering\n\nÅpningsoppgaven er seks små ferdigheter kjedet sammen: **polarform → potens → røtter → likning → faktorisering → mengde**. Kjør dem på oppskrift, vis hvert steg, og lever i den svarformen oppgaven ber om. Se etter kjeder — et delsvar (særlig en faktorisering) dukker gjerne opp igjen senere i settet.\n\nDu er nå ferdig med Del 1. Prøvekapitlet [mat111-uib-1-prove](/bok/mat111-uib/mat111-uib-1-prove) har fire prøver som tester hele delen under tidspress."
+        }
+      ]
+    },
+    {
+      "id": "mat111-uib-1-4-symbol",
+      "type": "collapsible",
+      "title": "Symbol- og formelliste",
+      "buttonText": "Vis symboler og formler",
+      "content": [
+        {
+          "id": "mat111-uib-1-4-symbol-t",
+          "type": "text",
+          "content": "## Samlet formelliste — Del 1\n\n| Formel | Bruk |\n|---|---|\n| $z=re^{i\\theta}$, $e^{i\\theta}=\\cos\\theta+i\\sin\\theta$ | polarform / Euler |\n| $\\dfrac{z}{w}=\\dfrac{z\\bar w}{|w|^2}$ | divisjon |\n| $z^n=r^n e^{in\\theta}$ | de Moivre (potens) |\n| $z_k=R^{1/n}e^{i(\\varphi+2k\\pi)/n}$ | de $n$ røttene av $z^n=w$ |\n| $z=\\tfrac{-b\\pm\\sqrt{b^2-4ac}}{2a}$, $\\sqrt{-k}=i\\sqrt k$ | andregradslikning |\n| $(z-z_0)(z-\\bar z_0)=z^2-2\\operatorname{Re}(z_0)z+|z_0|^2$ | reell faktor fra konjugatpar |\n| $|z-a|=r$ / $|z-a|=|z-b|$ | sirkel / midtnormal |\n\nAlle oppskriftene i kortform står i «Seks løsningsoppskrifter» øverst."
+        }
+      ]
+    }
+  ],
+  "exercises": []
+}

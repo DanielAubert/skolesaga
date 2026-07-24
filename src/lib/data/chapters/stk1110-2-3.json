@@ -1,0 +1,449 @@
+{
+  "id": "stk1110-2-3",
+  "courseId": "stk1110",
+  "chapterNumber": "2.3",
+  "title": "To-utvalg, parvise data og andeler",
+  "description": "To-utvalgs t-test med pooled varians, parvise data redusert til differanser, og andelstest med pooled p-hatt — og hvorfor parvis IKKE er det samme som to uavhengige utvalg.",
+  "estimatedMinutes": 55,
+  "competenceGoals": [
+    "sette opp to-utvalgs t-test med pooled varians og riktige frihetsgrader m+n-2",
+    "redusere parvise data til differanser og teste dem som ett utvalg med n-1 frihetsgrader",
+    "gjennomfore en to-utvalgs andelstest med pooled p-hatt under H0",
+    "gjenkjenne koblingen mellom to-utvalgs t-test og enkel regresjon pa en dummy"
+  ],
+  "content": [
+    {
+      "id": "stk1110-2-3-tip",
+      "type": "tip",
+      "title": "Eksamensvinkel",
+      "content": "**Sammenligningsoppgaven.** To-utvalgstesting opptrer i **omtrent 8 av 22 sett (36 %)**, parvise data i ~9 %, og to-utvalgs andeler i ~23 %. Ofte en deloppgave i Oppgave 2.\n\n- **Sjanger G** = sammenligne to grupper. *Sjanger* = en fast type deloppgave.\n- Den klassiske fellen: **behandle parvise data som to uavhengige utvalg**. Parvise data skal reduseres til differanser og testes som ETT utvalg.\n- En annen felle: bruke separate $\\hat p_1,\\hat p_2$ i stedet for **pooled** $\\hat p$ under $H_0$ i andelstesten.\n\n**Sensorens krav (§4.5–4.6):** riktig frihetsgrad ($m+n-2$ pooled, $n-1$ parvis), riktig varianssammenslåing, og det fulle testritualet fra [kap. 2.2](/bok/stk1110/stk1110-2-2). Prioritet: **kunne godt.**\n\n*Tidsbruk:* ~55 min kjernestoff i tre løkker (to-utvalgs t, parvise data, andeler)."
+    },
+    {
+      "id": "stk1110-2-3-forkunnskaper",
+      "type": "text",
+      "content": "**Forkunnskaper:** Dette kapitlet bygger på det komplette testritualet i **[kap. 2.2](/bok/stk1110/stk1110-2-2)** (fem trinn, P-verdi, dualitet) og på konfidensintervallene i **[kap. 2.1](/bok/stk1110/stk1110-2-1)** (t-intervall, kvantiler, $n-1$). Alt her er samme maskineri anvendt på en *differanse* i stedet for én forventning.\n\nRegnereglene for varians av en sum/differanse — $\\operatorname{Var}(\\bar Y_1-\\bar Y_2)=\\operatorname{Var}(\\bar Y_1)+\\operatorname{Var}(\\bar Y_2)$ for uavhengige grupper — kommer fra STK1100 kap. 1.2 *Stokastiske variable, forventning og varians* (→ stk1100-1-2) *(klartekst — STK1100 er ikke bygget ennå)*."
+    },
+    {
+      "id": "stk1110-2-3-sistduvarher",
+      "type": "text",
+      "content": "**Sist du var her (fra kap. 2.1–2.2 — det du trenger nå):**\n\n$$T=\\frac{\\bar X-\\mu_0}{S/\\sqrt n}\\sim t_{n-1}\\ (\\text{under } H_0),\\qquad \\bar X\\pm t_{n-1,\\alpha/2}\\frac{S}{\\sqrt n}.$$\n\nÉn forventning testes med observator over standardfeil, og fordelingen er $t_{n-1}$. Nå sammenligner vi TO forventninger. Alt følger samme mal — men vi må slå sammen spredningen fra begge gruppene og telle frihetsgradene på nytt."
+    },
+    {
+      "id": "stk1110-2-3-motiv",
+      "type": "text",
+      "content": "Svært mange spørsmål handler om å sammenligne to grupper: virker behandling A bedre enn B? Er andelen fornøyde høyere i den ene gruppen? Skiller to strender seg i målt verdi?\n\nDet fins tre situasjoner, og de behandles ulikt:\n\n1. **To uavhengige utvalg** (ulike enheter i hver gruppe) $\\to$ to-utvalgs t-test med pooled varians.\n2. **Parvise (avhengige) data** (samme enhet målt to ganger, f.eks. før/etter) $\\to$ reduser til differanser og gjør en ett-utvalgs test.\n3. **To andeler** $\\to$ z-test med en pooled $\\hat p$ under $H_0$.\n\nVi går i tre løkker, én per situasjon: teori $\\to$ gjennomregnet eksempel $\\to$ øvingsoppgave."
+    },
+
+    { "id": "stk1110-2-3-l1", "type": "text", "content": "## Løkke 1 — To uavhengige utvalg med pooled varians (~18 min)" },
+    {
+      "id": "stk1110-2-3-def-touavh",
+      "type": "definition",
+      "title": "To uavhengige utvalg (lik varians)",
+      "content": "**Modellen:** to uavhengige grupper, $Y_{1,1},\\dots,Y_{1,m}\\sim N(\\mu_1,\\sigma^2)$ og $Y_{2,1},\\dots,Y_{2,n}\\sim N(\\mu_2,\\sigma^2)$, med **felles varians** $\\sigma^2$ (lik-varians-antakelsen). Vi vil teste $H_0:\\mu_1=\\mu_2$ (dvs. $\\mu_1-\\mu_2=0$). «Uavhengige» betyr at gruppene består av *ulike* enheter — ingen kobling mellom dem. Antakelsen om lik varians lar oss slå sammen spredningsanslagene."
+    },
+    {
+      "id": "stk1110-2-3-def-pooled",
+      "type": "definition",
+      "title": "Pooled (sammenslått) varians $S_p^2$",
+      "content": "**Pooled varians** slår sammen de to utvalgsvariansene til ett felles anslag på $\\sigma^2$, vektet med frihetsgradene:\n$$S_p^2=\\frac{(m-1)S_1^2+(n-1)S_2^2}{m+n-2}.$$\nTelleren er summen av kvadratavvik fra begge grupper; nevneren $m+n-2$ er de samlede frihetsgradene (hver gruppe mister én til sitt eget gjennomsnitt). $S_p=\\sqrt{S_p^2}$ er det felles standardavviket. Den gruppa med flest observasjoner teller mest."
+    },
+    {
+      "id": "stk1110-2-3-oppg1",
+      "type": "exercise",
+      "exercise": {
+        "id": "stk1110-2-3-oppg1-e",
+        "number": "1",
+        "type": "classic",
+        "difficulty": "lett",
+        "task": "Gruppe 1 har $m=8$ observasjoner med $s_1=3{,}0$; gruppe 2 har $n=10$ med $s_2=2{,}4$. Regn ut pooled varians $S_p^2$ og pooled standardavvik $S_p$.",
+        "solution": "$S_p^2=\\dfrac{(8-1)\\cdot 3{,}0^2+(10-1)\\cdot 2{,}4^2}{8+10-2}=\\dfrac{7\\cdot 9+9\\cdot 5{,}76}{16}=\\dfrac{63+51{,}84}{16}=\\dfrac{114{,}84}{16}=7{,}18.$ Da er $S_p=\\sqrt{7{,}18}=2{,}68$. Frihetsgrader: $m+n-2=16$.",
+        "hints": [
+          "Vekt hver $s_i^2$ med sin egen $(\\text{størrelse}-1)$ og del på $m+n-2$.",
+          "$S_p^2=\\dfrac{7\\cdot 9+9\\cdot 5{,}76}{16}$, deretter kvadratrot for $S_p$."
+        ]
+      }
+    },
+    {
+      "id": "stk1110-2-3-def-tobs2",
+      "type": "definition",
+      "title": "To-utvalgs t-observator",
+      "content": "**Observatoren** måler differansen $\\bar Y_1-\\bar Y_2$ i enheter av dens standardfeil:\n$$T=\\frac{\\bar Y_1-\\bar Y_2}{S_p\\sqrt{\\dfrac1m+\\dfrac1n}}\\ \\sim\\ t_{m+n-2}\\quad(\\text{under } H_0:\\mu_1=\\mu_2).$$\nStandardfeilen $S_p\\sqrt{1/m+1/n}$ kommer av at $\\operatorname{Var}(\\bar Y_1-\\bar Y_2)=\\sigma^2(1/m+1/n)$ for uavhengige grupper. Frihetsgradene er $m+n-2$ — feil df her er en klassisk tabbe (§4.6)."
+    },
+    {
+      "id": "stk1110-2-3-def-ki2",
+      "type": "definition",
+      "title": "Konfidensintervall for differansen $\\mu_1-\\mu_2$",
+      "content": "**Intervallet for forskjellen** har samme form som ett-utvalgs t-intervall, men på differansen:\n$$(\\bar Y_1-\\bar Y_2)\\ \\pm\\ t_{m+n-2,\\,\\alpha/2}\\;S_p\\sqrt{\\frac1m+\\frac1n}.$$\nDualiteten gjelder: inneholder intervallet 0, kan $H_0:\\mu_1=\\mu_2$ ikke forkastes tosidig på nivå $\\alpha$; ekskluderer det 0, forkastes $H_0$."
+    },
+    {
+      "id": "stk1110-2-3-ex1",
+      "type": "example",
+      "title": "Eksempel 1: To-utvalgs t-test med pooled varians (sjanger G)",
+      "problem": "Målt konsentrasjon ved to stasjoner: stasjon 1 har $m=10$ prøver med $\\bar y_1=19{,}0$ og $s_1=2{,}5$; stasjon 2 har $n=12$ prøver med $\\bar y_2=15{,}5$ og $s_2=3{,}0$. Anta normale data med lik varians. Test på 1 %-nivå om forventet konsentrasjon er forskjellig, og gi et 99 % KI for differansen. Bruk $t_{20,\\,0{,}005}=2{,}845$.",
+      "solution": "**1.** $H_0:\\mu_1=\\mu_2$ mot $H_a:\\mu_1\\ne\\mu_2$ (tosidig — spør bare om «forskjellig»).\n\n**2.** Pooled varians: $S_p^2=\\dfrac{9\\cdot 2{,}5^2+11\\cdot 3{,}0^2}{20}=\\dfrac{56{,}25+99}{20}=7{,}76$, så $S_p=2{,}79$. Observator $T=\\dfrac{\\bar Y_1-\\bar Y_2}{S_p\\sqrt{1/m+1/n}}\\sim t_{20}$ under $H_0$.\n\n**3.** Forkast når $|T|>t_{20,\\,0{,}005}=2{,}845$. Under $H_0$: $P(|T|>2{,}845\\mid H_0)=0{,}005+0{,}005=0{,}01$ — nivå 1 %.\n\n**4.** Standardfeil: $S_p\\sqrt{1/10+1/12}=2{,}79\\cdot\\sqrt{0{,}1833}=2{,}79\\cdot 0{,}4282=1{,}193$. $T=\\dfrac{19{,}0-15{,}5}{1{,}193}=\\dfrac{3{,}5}{1{,}193}=2{,}93>2{,}845$: forkast. P-verdi $\\approx 0{,}008<0{,}01$.\n\n**5.** På 1 %-nivå er det forskjell i forventet konsentrasjon mellom stasjonene. **99 % KI:** $3{,}5\\pm 2{,}845\\cdot 1{,}193=3{,}5\\pm 3{,}39=[0{,}11,\\ 6{,}89]$. Intervallet utelukker 0 — samme konklusjon (dualitet)."
+    },
+    {
+      "id": "stk1110-2-3-oppg2",
+      "type": "exercise",
+      "exercise": {
+        "id": "stk1110-2-3-oppg2-e",
+        "number": "2",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "To metoder måles på uavhengige prøver: metode 1 har $m=8$, $\\bar y_1=25{,}0$, $s_1=3{,}0$; metode 2 har $n=10$, $\\bar y_2=22{,}0$, $s_2=2{,}4$ (normale data, lik varians). Fra oppgave 1 er $S_p^2=7{,}18$, $S_p=2{,}68$. Test tosidig på 5 %-nivå og gi et 95 % KI for differansen. Bruk $t_{16,\\,0{,}025}=2{,}120$.",
+        "solution": "$H_0:\\mu_1=\\mu_2$ mot $H_a:\\mu_1\\ne\\mu_2$. Standardfeil: $S_p\\sqrt{1/8+1/10}=2{,}68\\cdot\\sqrt{0{,}225}=2{,}68\\cdot 0{,}4743=1{,}271$. $T=\\dfrac{25{,}0-22{,}0}{1{,}271}=\\dfrac{3{,}0}{1{,}271}=2{,}36>2{,}120$: forkast på 5 %. P-verdi $\\approx 0{,}031$. **95 % KI:** $3{,}0\\pm 2{,}120\\cdot 1{,}271=3{,}0\\pm 2{,}69=[0{,}31,\\ 5{,}69]$ — utelukker 0. Konklusjon: forskjell mellom metodene på 5 %-nivå (df $=16$).",
+        "hints": [
+          "Standardfeil $=S_p\\sqrt{1/m+1/n}$ med $S_p=2{,}68$.",
+          "Frihetsgrader $m+n-2=16$; sammenlign $T$ med 2,120."
+        ]
+      }
+    },
+
+    { "id": "stk1110-2-3-l2", "type": "text", "content": "## Løkke 2 — Parvise data: reduser til differanser (~16 min)" },
+    {
+      "id": "stk1110-2-3-def-parvis",
+      "type": "definition",
+      "title": "Parvise (avhengige) data",
+      "content": "**Parvise data** oppstår når hver enhet gir *to* koblede målinger — typisk før og etter et tiltak på samme individ, eller to metoder på samme prøve. Da er de to «gruppene» IKKE uavhengige: en person med høy verdi før har ofte høy verdi etter. Denne koblingen må utnyttes, ikke ignoreres — å behandle parvise data som to uavhengige utvalg er en klassisk feil (§5.4)."
+    },
+    {
+      "id": "stk1110-2-3-def-parvistest",
+      "type": "definition",
+      "title": "Parvis t-test (differanse-reduksjon)",
+      "content": "**Grepet:** regn differansen for hvert par, $D_i=X_i-Y_i$, og behandle $D_1,\\dots,D_n$ som ETT utvalg. Test $H_0:\\mu_D=0$ med en ett-utvalgs t-test:\n$$T=\\frac{\\bar D}{S_D/\\sqrt n}\\ \\sim\\ t_{n-1}\\quad(\\text{under } H_0),$$\nder $\\bar D$ og $S_D$ er gjennomsnitt og standardavvik av differansene, og $n$ er antall **par**. Frihetsgradene er $n-1$ (ikke $2n-2$) — koblingen halverer i praksis problemet til ett utvalg."
+    },
+    {
+      "id": "stk1110-2-3-ex2",
+      "type": "example",
+      "title": "Eksempel 2: Parvis t-test (sjanger G)",
+      "problem": "Åtte deltakere måles før og etter et treningsprogram. Differansene (etter − før, i kg) er $3,\\ 1,\\ 4,\\ 2,\\ 0,\\ 5,\\ -1,\\ 3$. Test på 5 %-nivå om programmet gir en økning i forventet verdi. Bruk $t_{7,\\,0{,}05}=1{,}895$ og opplys at $P(T_7>2{,}96)\\approx 0{,}011$.",
+      "solution": "**1.** $H_0:\\mu_D=0$ mot $H_a:\\mu_D>0$ (ensidig — vi vil påvise økning). Her er $D_i$ differansene, behandlet som ETT utvalg.\n\n**2.** $\\bar D=\\dfrac{3+1+4+2+0+5-1+3}{8}=\\dfrac{17}{8}=2{,}125$; $S_D=2{,}03$; $T=\\dfrac{\\bar D}{S_D/\\sqrt 8}\\sim t_7$ under $H_0$.\n\n**3.** Forkast når $T>t_{7,\\,0{,}05}=1{,}895$. Under $H_0$: $P(T>1{,}895\\mid H_0)=0{,}05$.\n\n**4.** $T=\\dfrac{2{,}125}{2{,}03/\\sqrt 8}=\\dfrac{2{,}125}{0{,}718}=2{,}96>1{,}895$: forkast. P-verdi $=P(T_7>2{,}96)\\approx 0{,}011<0{,}05$ — sannsynligheten under $H_0$ for et minst like ekstremt utfall.\n\n**5.** På 5 %-nivå er det belegg for at programmet gir en økning (forventet endring $>0$; P-verdi $\\approx 0{,}011$). **Merk:** her er $n=8$ par, så df $=7$ — ikke $2\\cdot 8-2=14$."
+    },
+    {
+      "id": "stk1110-2-3-warn-parvis",
+      "type": "warning",
+      "title": "Fellen: parvis behandlet som to uavhengige utvalg",
+      "content": "Hvis du feilaktig kjører en to-utvalgs test på de 8 «før»- og 8 «etter»-verdiene som om de var uavhengige, får du **feil frihetsgrader** ($14$ i stedet for $7$) og — verre — en **for stor standardfeil**. Koblingen mellom par fjerner mye støy (individvariasjonen), så den parvise testen er langt mer sensitiv. Kjennetegn på parvise data: samme enhet måles to ganger, eller enhetene er naturlig koblet (tvillinger, venstre/høyre). Da: regn $D_i$ og bruk $t_{n-1}$."
+    },
+    {
+      "id": "stk1110-2-3-oppg3",
+      "type": "exercise",
+      "exercise": {
+        "id": "stk1110-2-3-oppg3-e",
+        "number": "3",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "Ti prøver måles med to instrumenter. Differansene (instrument A − B) er $5,\\ 2,\\ 3,\\ -1,\\ 4,\\ 2,\\ 6,\\ 1,\\ 3,\\ 0$. Test tosidig på 5 %-nivå om instrumentene gir systematisk ulikt resultat. Bruk $\\bar d=2{,}5$, $s_D=2{,}17$, $t_{9,\\,0{,}025}=2{,}262$ og $P(T_9>3{,}64)\\approx 0{,}003$ (tosidig $\\approx 0{,}005$).",
+        "solution": "$H_0:\\mu_D=0$ mot $H_a:\\mu_D\\ne 0$. Dette er PARVISE data ($n=10$ par) — bruk differansene. $T=\\dfrac{\\bar d}{s_D/\\sqrt{10}}=\\dfrac{2{,}5}{2{,}17/3{,}162}=\\dfrac{2{,}5}{0{,}687}=3{,}64$. Under $H_0$: $T\\sim t_9$. Siden $|3{,}64|>2{,}262$: forkast. Tosidig P-verdi $\\approx 0{,}005<0{,}05$. Konklusjon: instrumentene gir systematisk ulikt resultat (df $=9$, ikke $18$).",
+        "hints": [
+          "Parvise data: regn på differansene, ETT utvalg med $n=10$ par.",
+          "$T=\\bar d/(s_D/\\sqrt{10})$; frihetsgrader $n-1=9$."
+        ]
+      }
+    },
+
+    { "id": "stk1110-2-3-l3", "type": "text", "content": "## Løkke 3 — To andeler med pooled p-hatt (~13 min)" },
+    {
+      "id": "stk1110-2-3-def-pooledp",
+      "type": "definition",
+      "title": "Pooled andelsestimat $\\hat p$ under $H_0$",
+      "content": "**Under $H_0:p_1=p_2$** antar vi én felles andel, og estimerer den ved å slå sammen ALLE suksessene:\n$$\\hat p=\\frac{x_1+x_2}{n_1+n_2},$$\nder $x_1,x_2$ er antall suksesser og $n_1,n_2$ gruppestørrelsene. Dette **pooled** estimatet brukes i standardfeilen til testen — fordi $H_0$ sier at gruppene har samme $p$. (I et *konfidensintervall* for differansen brukes derimot separate $\\hat p_1,\\hat p_2$, siden vi da ikke antar likhet.)"
+    },
+    {
+      "id": "stk1110-2-3-def-andelstest",
+      "type": "definition",
+      "title": "To-utvalgs andelstest (z-test)",
+      "content": "**Observatoren** sammenligner de to andelene med pooled standardfeil under $H_0$:\n$$Z=\\frac{\\hat p_1-\\hat p_2}{\\sqrt{\\hat p(1-\\hat p)\\left(\\dfrac{1}{n_1}+\\dfrac{1}{n_2}\\right)}}\\ \\sim\\ N(0,1)\\quad(\\text{under } H_0),$$\nder $\\hat p_1=x_1/n_1$, $\\hat p_2=x_2/n_2$ og $\\hat p$ er det pooled estimatet. Normaltilnærmingen krever at antall suksesser og feil i hver gruppe er romslig større enn 5."
+    },
+    {
+      "id": "stk1110-2-3-ex3",
+      "type": "example",
+      "title": "Eksempel 3: To-utvalgs andelstest (sjanger G)",
+      "problem": "I gruppe 1 er $x_1=70$ av $n_1=200$ fornøyde; i gruppe 2 er $x_2=45$ av $n_2=180$. Test tosidig på 5 %-nivå om andelen fornøyde er forskjellig. Bruk $z_{0{,}025}=1{,}96$ og $P(Z>2{,}12)\\approx 0{,}017$.",
+      "solution": "**1.** $H_0:p_1=p_2$ mot $H_a:p_1\\ne p_2$ (tosidig).\n\n**2.** $\\hat p_1=70/200=0{,}35$, $\\hat p_2=45/180=0{,}25$. Pooled: $\\hat p=\\dfrac{70+45}{200+180}=\\dfrac{115}{380}=0{,}303$. Observator $Z\\sim N(0,1)$ under $H_0$.\n\n**3.** Forkast når $|Z|>1{,}96$. Under $H_0$: $P(|Z|>1{,}96\\mid H_0)=0{,}05$.\n\n**4.** Standardfeil: $\\sqrt{0{,}303\\cdot 0{,}697\\,(1/200+1/180)}=\\sqrt{0{,}2112\\cdot 0{,}01056}=\\sqrt{0{,}002230}=0{,}0472$. $Z=\\dfrac{0{,}35-0{,}25}{0{,}0472}=\\dfrac{0{,}10}{0{,}0472}=2{,}12>1{,}96$: forkast. Tosidig P-verdi $=2\\cdot P(Z>2{,}12)\\approx 0{,}034<0{,}05$.\n\n**5.** På 5 %-nivå er andelen fornøyde forskjellig mellom gruppene (P-verdi $\\approx 0{,}034$). Merk bruk av **pooled** $\\hat p=0{,}303$ i standardfeilen."
+    },
+    {
+      "id": "stk1110-2-3-oppg4",
+      "type": "exercise",
+      "exercise": {
+        "id": "stk1110-2-3-oppg4-e",
+        "number": "4",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "Gruppe 1: $x_1=48$ suksesser av $n_1=120$. Gruppe 2: $x_2=30$ av $n_2=100$. Test tosidig på 5 %-nivå om suksessandelen er forskjellig. Bruk $z_{0{,}025}=1{,}96$ og $P(Z>1{,}54)\\approx 0{,}062$.",
+        "solution": "$\\hat p_1=48/120=0{,}40$, $\\hat p_2=30/100=0{,}30$. Pooled: $\\hat p=\\dfrac{48+30}{120+100}=\\dfrac{78}{220}=0{,}355$. Standardfeil: $\\sqrt{0{,}355\\cdot 0{,}645\\,(1/120+1/100)}=\\sqrt{0{,}2290\\cdot 0{,}01833}=\\sqrt{0{,}004198}=0{,}0648$. $Z=\\dfrac{0{,}40-0{,}30}{0{,}0648}=1{,}54$. $|1{,}54|<1{,}96$: forkast **ikke**. Tosidig P-verdi $\\approx 0{,}123>0{,}05$. Konklusjon: ikke belegg for forskjell på 5 %-nivå. (Bruk pooled $\\hat p=0{,}355$.)",
+        "hints": [
+          "Pooled $\\hat p=(x_1+x_2)/(n_1+n_2)$ — slå sammen alle suksessene.",
+          "Sett pooled $\\hat p$ inn i standardfeilen $\\sqrt{\\hat p(1-\\hat p)(1/n_1+1/n_2)}$."
+        ]
+      }
+    },
+    {
+      "id": "stk1110-2-3-def-dummy",
+      "type": "definition",
+      "title": "Kobling: to-utvalg som regresjon på en dummy",
+      "content": "**En to-utvalgs t-test er ekvivalent med en enkel lineær regresjon på en indikatorvariabel (dummy).** Kod gruppetilhørighet som $x\\in\\{0,1\\}$ (eller $\\{\\pm 0{,}5\\}$); da er stigningstallet $\\hat\\beta_1$ nettopp differansen $\\bar Y_1-\\bar Y_2$, det pooled standardavviket $S_p$ er regresjonens $\\hat\\sigma$, og t-testen for $\\beta_1=0$ er identisk med to-utvalgstesten. Dette utdypes i Del 3 (kap. 3.1) og kobler sammenligning og regresjon. *(Prioritet: kjenne til nå, brukes senere.)*"
+    },
+
+    {
+      "id": "stk1110-2-3-warn",
+      "type": "warning",
+      "title": "Typiske feil (fra løsningsforslagene)",
+      "content": "- **Behandle parvise data som to uavhengige utvalg.** Er enhetene koblet (før/etter, samme prøve), reduser til differanser $D_i$ og bruk $t_{n-1}$ — ikke en to-utvalgstest.\n- **Feil frihetsgrader.** Pooled to-utvalg: $m+n-2$. Parvis: $n-1$ ($n$ = antall par). En to-utvalgs df på parvise data er dobbelt feil.\n- **Separate $\\hat p$ i andelstesten.** Under $H_0:p_1=p_2$ skal standardfeilen bruke **pooled** $\\hat p=(x_1+x_2)/(n_1+n_2)$ — ikke $\\hat p_1,\\hat p_2$ hver for seg. (Separate brukes i KI for differansen.)\n- **Feil varianssum i differanse-KI-et.** For uavhengige grupper er $\\operatorname{Var}(\\bar Y_1-\\bar Y_2)=\\sigma^2(1/m+1/n)$ — pluss, ikke minus, under rota.\n- **Glemme lik-varians-antakelsen** bak pooling; sjekk den (F-test, kap. 2.5) hvis oppgaven ber om det."
+    },
+
+    { "id": "stk1110-2-3-drill", "type": "text", "content": "## Blandet drill (sjanger G, stigende)" },
+    {
+      "id": "stk1110-2-3-d5",
+      "type": "exercise",
+      "exercise": {
+        "id": "stk1110-2-3-d5-e",
+        "number": "5",
+        "type": "classic",
+        "difficulty": "vanskelig",
+        "task": "En forsker sammenligner utbytte fra to jordtyper (uavhengige felt): type A har $m=6$, $\\bar y_1=42$, $s_1=4$; type B har $n=9$, $\\bar y_2=37$, $s_2=5$ (normale data, lik varians).\n\n**a)** Regn pooled varians og standardfeil.\n\n**b)** Test tosidig på 5 %-nivå. Bruk $t_{13,\\,0{,}025}=2{,}160$.\n\n**c)** Gi et 95 % KI for differansen og bruk dualiteten.",
+        "solution": "**a)** $S_p^2=\\dfrac{5\\cdot 16+8\\cdot 25}{13}=\\dfrac{80+200}{13}=21{,}54$, $S_p=4{,}64$. Standardfeil $=4{,}64\\sqrt{1/6+1/9}=4{,}64\\sqrt{0{,}2778}=4{,}64\\cdot 0{,}527=2{,}45$.\n\n**b)** $T=\\dfrac{42-37}{2{,}45}=\\dfrac{5}{2{,}45}=2{,}04$. $|2{,}04|<2{,}160$: forkast **ikke** på 5 %-nivå (df $=13$).\n\n**c)** KI: $5\\pm 2{,}160\\cdot 2{,}45=5\\pm 5{,}28=[-0{,}28,\\ 10{,}28]$. Intervallet inneholder 0 — samme konklusjon (kan ikke forkaste $H_0$).",
+        "hints": [
+          "$S_p^2=\\dfrac{(m-1)s_1^2+(n-1)s_2^2}{m+n-2}$ med df $=13$.",
+          "Sjekk om KI-et for differansen inneholder 0 (dualiteten)."
+        ]
+      }
+    },
+    {
+      "id": "stk1110-2-3-d6",
+      "type": "exercise",
+      "exercise": {
+        "id": "stk1110-2-3-d6-e",
+        "number": "6",
+        "type": "classic",
+        "difficulty": "vanskelig",
+        "task": "(Krevende — velg riktig oppsett.) I hvert av tilfellene: si om det er PARVISE data eller TO UAVHENGIGE utvalg, hvilken observator og hvilke frihetsgrader du bruker.\n\n**a)** Blodtrykk hos 20 pasienter, målt før og etter medisin.\n\n**b)** Reaksjonstid hos 15 menn og 18 kvinner.\n\n**c)** Slitasje på venstre og høyre sko hos 12 personer, to materialer.",
+        "solution": "**a)** Parvise (samme pasient to ganger). Reduser til $D_i=$ etter − før; $T=\\bar D/(S_D/\\sqrt{20})\\sim t_{19}$.\n\n**b)** To uavhengige utvalg (ulike personer, ulike grupper). Pooled to-utvalgs t; df $=15+18-2=31$.\n\n**c)** Parvise (venstre/høyre på samme person er koblet). Reduser til differanser per person; $T\\sim t_{11}$.",
+        "hints": [
+          "Spør: er de to målingene koblet til SAMME enhet, eller kommer de fra ulike enheter?",
+          "Koblet → parvis ($n-1$ df på differansene); ulike enheter → to-utvalg ($m+n-2$)."
+        ]
+      }
+    },
+    {
+      "id": "stk1110-2-3-d7",
+      "type": "exercise",
+      "exercise": {
+        "id": "stk1110-2-3-d7-e",
+        "number": "7",
+        "type": "classic",
+        "difficulty": "vanskelig",
+        "task": "(Kald oppgave — fasit som momentliste, ingen hint.) I en kampanje svarer $x_1=90$ av $n_1=300$ ja i by A og $x_2=60$ av $n_2=250$ ja i by B. Sett opp hypotesene for en tosidig andelstest, regn pooled $\\hat p$, standardfeil og observator $Z$, og angi hva du trenger for å konkludere på 5 %-nivå.",
+        "solution": "- $H_0:p_1=p_2$ mot $H_a:p_1\\ne p_2$.\n- $\\hat p_1=90/300=0{,}30$, $\\hat p_2=60/250=0{,}24$.\n- Pooled $\\hat p=\\dfrac{90+60}{300+250}=\\dfrac{150}{550}=0{,}2727$.\n- Standardfeil $=\\sqrt{0{,}2727\\cdot 0{,}7273\\,(1/300+1/250)}=\\sqrt{0{,}19835\\cdot 0{,}007333}=\\sqrt{0{,}001455}=0{,}0381$.\n- $Z=\\dfrac{0{,}30-0{,}24}{0{,}0381}=\\dfrac{0{,}06}{0{,}0381}=1{,}57$.\n- Sammenlign med $z_{0{,}025}=1{,}96$: $1{,}57<1{,}96$, så forkast **ikke** på 5 %-nivå (tosidig P-verdi $\\approx 0{,}116$).",
+        "hints": []
+      }
+    },
+
+    { "id": "stk1110-2-3-bank", "type": "text", "content": "## Begrepsbank" },
+    {
+      "id": "stk1110-2-3-bank-note",
+      "type": "text",
+      "content": "*Flashcard-/repetisjonsstoff — hopp trygt over ved førstegangslesing; tidsanslaget gjelder kjernestoffet.* Korte, navngitte definisjoner for eksamensrepetisjon."
+    },
+    {
+      "id": "stk1110-2-3-bank-pooledvar",
+      "type": "definition",
+      "title": "Pooled varians (kort)",
+      "content": "$S_p^2=\\dfrac{(m-1)S_1^2+(n-1)S_2^2}{m+n-2}$ — det felles variansanslaget når to grupper antas å ha samme $\\sigma^2$. Vektet med frihetsgrader; nevner $m+n-2$."
+    },
+    {
+      "id": "stk1110-2-3-bank-tobs2",
+      "type": "definition",
+      "title": "To-utvalgs t-observator (kort)",
+      "content": "$T=\\dfrac{\\bar Y_1-\\bar Y_2}{S_p\\sqrt{1/m+1/n}}\\sim t_{m+n-2}$ under $H_0:\\mu_1=\\mu_2$. Frihetsgrader $m+n-2$."
+    },
+    {
+      "id": "stk1110-2-3-bank-df2",
+      "type": "definition",
+      "title": "Frihetsgrader, pooled to-utvalg",
+      "content": "$m+n-2$: hver gruppe mister én frihetsgrad til sitt eget gjennomsnitt. Feil df (f.eks. $m+n-1$ eller $n-1$) er en klassisk tabbe som straffes."
+    },
+    {
+      "id": "stk1110-2-3-bank-varsum",
+      "type": "definition",
+      "title": "Varians av en differanse (uavhengige)",
+      "content": "For uavhengige grupper: $\\operatorname{Var}(\\bar Y_1-\\bar Y_2)=\\operatorname{Var}(\\bar Y_1)+\\operatorname{Var}(\\bar Y_2)=\\sigma^2(1/m+1/n)$. Variansene LEGGES sammen (pluss), også for en differanse."
+    },
+    {
+      "id": "stk1110-2-3-bank-likvarians",
+      "type": "definition",
+      "title": "Lik-varians-antakelsen",
+      "content": "Pooling forutsetter at de to gruppene har samme $\\sigma^2$. Er variansene tydelig ulike, brukes en Welch-variant (ikke pooled) — eller man sjekker antakelsen med en F-test for variansforhold (kap. 2.5)."
+    },
+    {
+      "id": "stk1110-2-3-bank-welch",
+      "type": "definition",
+      "title": "Welch-t (kjenne til)",
+      "content": "Et to-utvalgs t-alternativ som IKKE antar lik varians; det bruker separate $S_1^2,S_2^2$ og en tilnærmet (ofte ikke-heltallig) frihetsgrad. Pooled t er standard på eksamen, men vit at Welch finnes for ulik varians. *(Prioritet: kjenne til.)*"
+    },
+    {
+      "id": "stk1110-2-3-bank-parvis",
+      "type": "definition",
+      "title": "Parvise data (kort)",
+      "content": "To koblede målinger per enhet (før/etter, to metoder på samme prøve). Reduseres til differanser $D_i$ og behandles som ETT utvalg. IKKE to uavhengige utvalg."
+    },
+    {
+      "id": "stk1110-2-3-bank-parvistest",
+      "type": "definition",
+      "title": "Parvis t-observator (kort)",
+      "content": "$T=\\bar D/(S_D/\\sqrt n)\\sim t_{n-1}$ under $H_0:\\mu_D=0$, der $n$ er antall par. Differansene fjerner individvariasjonen og gir høyere sensitivitet."
+    },
+    {
+      "id": "stk1110-2-3-bank-df1",
+      "type": "definition",
+      "title": "Frihetsgrader, parvis",
+      "content": "$n-1$, der $n$ er antall PAR — ikke $2n-2$. Koblingen reduserer problemet til ett utvalg av differanser."
+    },
+    {
+      "id": "stk1110-2-3-bank-parvisfordel",
+      "type": "definition",
+      "title": "Hvorfor parvis er kraftigere",
+      "content": "Ved å ta differanser fjernes den delen av variasjonen som skyldes forskjeller mellom enheter. Standardfeilen blir mindre, så en reell effekt oppdages lettere enn med et uavhengig oppsett."
+    },
+    {
+      "id": "stk1110-2-3-bank-pooledp",
+      "type": "definition",
+      "title": "Pooled andel (kort)",
+      "content": "$\\hat p=(x_1+x_2)/(n_1+n_2)$ — felles andel under $H_0:p_1=p_2$. Brukes i standardfeilen til andelstesten, ikke i KI for differansen."
+    },
+    {
+      "id": "stk1110-2-3-bank-andelstest",
+      "type": "definition",
+      "title": "To-utvalgs andels-z (kort)",
+      "content": "$Z=\\dfrac{\\hat p_1-\\hat p_2}{\\sqrt{\\hat p(1-\\hat p)(1/n_1+1/n_2)}}\\sim N(0,1)$ under $H_0$, med pooled $\\hat p$. Normaltilnærming, ingen frihetsgrader."
+    },
+    {
+      "id": "stk1110-2-3-bank-andelKI",
+      "type": "definition",
+      "title": "KI for andelsdifferansen",
+      "content": "$(\\hat p_1-\\hat p_2)\\pm z_{\\alpha/2}\\sqrt{\\dfrac{\\hat p_1(1-\\hat p_1)}{n_1}+\\dfrac{\\hat p_2(1-\\hat p_2)}{n_2}}$ — her brukes SEPARATE $\\hat p_1,\\hat p_2$ (ikke pooled), fordi vi ikke antar likhet."
+    },
+    {
+      "id": "stk1110-2-3-bank-poolvskiseparate",
+      "type": "definition",
+      "title": "Pooled mot separate i andeler",
+      "content": "Test av $H_0:p_1=p_2$: bruk **pooled** $\\hat p$ i standardfeilen (fordi $H_0$ antar likhet). Konfidensintervall for $p_1-p_2$: bruk **separate** $\\hat p_1,\\hat p_2$ (ingen likhetsantakelse). En hyppig forveksling."
+    },
+    {
+      "id": "stk1110-2-3-bank-dummykobling",
+      "type": "definition",
+      "title": "To-utvalg som dummy-regresjon",
+      "content": "Med gruppe kodet som dummy $x\\in\\{0,1\\}$ er $\\hat\\beta_1=\\bar Y_1-\\bar Y_2$, $S_p=\\hat\\sigma$, og t-testen for $\\beta_1=0$ er identisk med to-utvalgstesten. Broen til regresjonen i Del 3."
+    },
+    {
+      "id": "stk1110-2-3-bank-normalitet2",
+      "type": "definition",
+      "title": "Antakelser i to-utvalgstesten",
+      "content": "Normale data i hver gruppe, uavhengige observasjoner, og (for pooled) lik varians. t-testen er rimelig robust mot moderate normalitetsavvik, mindre mot sterkt ulik varians."
+    },
+    {
+      "id": "stk1110-2-3-bank-effektstr",
+      "type": "definition",
+      "title": "Estimert differanse",
+      "content": "$\\bar Y_1-\\bar Y_2$ (to-utvalg) eller $\\bar D$ (parvis) er selve estimatet på effekten. Rapporter det med KI ved siden av P-verdien — signifikans alene sier ikke hvor stor forskjellen er."
+    },
+    {
+      "id": "stk1110-2-3-bank-ensidigto",
+      "type": "definition",
+      "title": "Retning i to-gruppe-tester",
+      "content": "«Er A større enn B?» gir ensidig $H_a:\\mu_1>\\mu_2$; «er de forskjellige?» gir tosidig $H_a:\\mu_1\\ne\\mu_2$. Samme regel som for ett utvalg — retningen følger av spørsmålet."
+    },
+    {
+      "id": "stk1110-2-3-bank-npbetingelse2",
+      "type": "definition",
+      "title": "Gyldighet for andels-z",
+      "content": "Normaltilnærmingen krever at antall suksesser OG feil i HVER gruppe er romslig over 5 (noen krever $\\ge 10$). Ved svært små andeler eller grupper er den upålitelig."
+    },
+    {
+      "id": "stk1110-2-3-bank-dualitet2",
+      "type": "definition",
+      "title": "Dualitet for differansen",
+      "content": "Inneholder KI-et for $\\mu_1-\\mu_2$ (eller $\\mu_D$, eller $p_1-p_2$) verdien 0, kan $H_0$ om ingen forskjell ikke forkastes tosidig. Utelukker det 0, forkastes $H_0$. Samme kryssjekk som i kap. 2.2."
+    },
+    {
+      "id": "stk1110-2-3-bank-velgtest",
+      "type": "definition",
+      "title": "Velg riktig to-gruppe-test",
+      "content": "Beslutningsregel: er responsen en **andel** $\\to$ to-utvalgs andels-z med pooled $\\hat p$. Ellers, er enhetene **koblet** (samme/matchede enheter) $\\to$ parvis t på differansene ($t_{n-1}$); er de **uavhengige** $\\to$ pooled to-utvalgs t ($t_{m+n-2}$). Feil valg her endrer både observator og frihetsgrader."
+    },
+    {
+      "id": "stk1110-2-3-symbol",
+      "type": "collapsible",
+      "title": "Symbol- og formelliste",
+      "buttonText": "Vis symboler og formler",
+      "content": [
+        {
+          "id": "stk1110-2-3-symbol-t",
+          "type": "text",
+          "content": "## Symbol- og formelliste\n\n*Oppslagsverk — alt her forklares underveis i kapitlet.*\n\n| Symbol | Betydning |\n|---|---|\n| $\\mu_1,\\mu_2$ | Forventninger i gruppe 1 og 2 |\n| $\\bar Y_1,\\bar Y_2$ | Gruppegjennomsnitt |\n| $m,\\ n$ | Gruppestørrelser (to-utvalg) |\n| $S_1^2,S_2^2$ | Gruppevariansene |\n| $S_p^2,\\ S_p$ | Pooled varians / standardavvik |\n| $D_i,\\ \\bar D,\\ S_D$ | Parvis differanse, snitt, standardavvik |\n| $x_1,x_2$ | Antall suksesser (andeler) |\n| $\\hat p_1,\\hat p_2$ | Gruppeandeler $x_i/n_i$ |\n| $\\hat p$ | Pooled andel $(x_1+x_2)/(n_1+n_2)$ |\n\n**Formler i dette delkapitlet:**\n\n$$S_p^2=\\frac{(m-1)S_1^2+(n-1)S_2^2}{m+n-2}$$\nPooled varians (lik-varians-antakelse).\n\n$$T=\\frac{\\bar Y_1-\\bar Y_2}{S_p\\sqrt{1/m+1/n}}\\sim t_{m+n-2}$$\nTo-utvalgs t-observator (under $H_0$).\n\n$$T=\\frac{\\bar D}{S_D/\\sqrt n}\\sim t_{n-1}$$\nParvis t-observator på differansene ($n$ par).\n\n$$\\hat p=\\frac{x_1+x_2}{n_1+n_2},\\qquad Z=\\frac{\\hat p_1-\\hat p_2}{\\sqrt{\\hat p(1-\\hat p)(1/n_1+1/n_2)}}\\sim N(0,1)$$\nPooled andel og to-utvalgs andels-z (under $H_0$)."
+        }
+      ]
+    },
+    {
+      "id": "stk1110-2-3-rep",
+      "type": "collapsible",
+      "title": "Repetisjonsoppgaver",
+      "buttonText": "Vis repetisjonsoppgaver",
+      "content": [
+        {
+          "id": "stk1110-2-3-rep1",
+          "type": "exercise",
+          "exercise": {
+            "id": "stk1110-2-3-rep1e",
+            "number": "R1",
+            "type": "classic",
+            "difficulty": "lett",
+            "task": "(Fra kap. 2.2) Skriv ut de fem trinnene i testritualet i stikkord.",
+            "solution": "1) $H_0/H_a$ med begrunnet retning; 2) observator + fordeling under $H_0$; 3) utled at nivået blir $\\alpha$; 4) tallfest + P-verdi (definert i ord); 5) konkluder i kontekst + dualitet.",
+            "hints": ["Hypoteser → observator/fordeling → nivå-utledning → tallfest/P-verdi → konklusjon."]
+          }
+        },
+        {
+          "id": "stk1110-2-3-rep2",
+          "type": "exercise",
+          "exercise": {
+            "id": "stk1110-2-3-rep2e",
+            "number": "R2",
+            "type": "classic",
+            "difficulty": "lett",
+            "task": "(Fra kap. 2.1) Hva er standardfeilen til ett gjennomsnitt, og hvordan generaliseres den til en differanse av to uavhengige gjennomsnitt?",
+            "solution": "Ett gjennomsnitt: $S/\\sqrt n$. To uavhengige gjennomsnitt: $\\operatorname{Var}(\\bar Y_1-\\bar Y_2)=\\sigma^2(1/m+1/n)$, så standardfeilen er $S_p\\sqrt{1/m+1/n}$.",
+            "hints": ["Variansene av de to gjennomsnittene legges sammen for differansen."]
+          }
+        },
+        {
+          "id": "stk1110-2-3-rep3",
+          "type": "exercise",
+          "exercise": {
+            "id": "stk1110-2-3-rep3e",
+            "number": "R3",
+            "type": "classic",
+            "difficulty": "middels",
+            "task": "(Fra kap. 2.2) Bruk dualiteten: et 95 % KI for $\\mu_1-\\mu_2$ er $[0{,}3,\\ 5{,}7]$. Kan $H_0:\\mu_1=\\mu_2$ forkastes tosidig på 5 %-nivå?",
+            "solution": "Ja — intervallet inneholder ikke 0, så $H_0:\\mu_1-\\mu_2=0$ forkastes tosidig på 5 %-nivå.",
+            "hints": ["Sjekk om 0 (ingen forskjell) er innenfor eller utenfor KI-et."]
+          }
+        },
+        {
+          "id": "stk1110-2-3-rep4",
+          "type": "exercise",
+          "exercise": {
+            "id": "stk1110-2-3-rep4e",
+            "number": "R4",
+            "type": "classic",
+            "difficulty": "middels",
+            "task": "(Fra kap. 2.1) For en andel $\\hat p$ er standardfeilen $\\sqrt{\\hat p(1-\\hat p)/n}$. Hvordan endres dette i en to-utvalgs andelstest under $H_0$?",
+            "solution": "Under $H_0:p_1=p_2$ brukes én felles (pooled) $\\hat p=(x_1+x_2)/(n_1+n_2)$, og standardfeilen blir $\\sqrt{\\hat p(1-\\hat p)(1/n_1+1/n_2)}$ — samme form, men med pooled $\\hat p$ og summen av $1/n_i$.",
+            "hints": ["Erstatt $1/n$ med $1/n_1+1/n_2$ og bruk pooled $\\hat p$."]
+          }
+        }
+      ]
+    }
+  ],
+  "exercises": []
+}

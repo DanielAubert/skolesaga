@@ -1,0 +1,528 @@
+{
+  "id": "stk1110-2-1",
+  "courseId": "stk1110",
+  "chapterNumber": "2.1",
+  "title": "Konfidensintervall: t, Wald, andeler og varians",
+  "description": "Standardintervallene og valget mellom dem: t-intervall ved ukjent sigma, Wald-intervall for en MLE, andels-intervall og khikvadrat-intervall for variansen — med riktig kvantil og frihetsgrad.",
+  "estimatedMinutes": 60,
+  "competenceGoals": [
+    "konstruere t-konfidensintervall for forventningen og begrunne hvorfor t (ikke z) og n-1 frihetsgrader brukes",
+    "sette opp Wald-intervall for en ML-estimator og andels-intervall med riktig kvantil",
+    "konstruere det asymmetriske khikvadrat-intervallet for variansen",
+    "tolke et konfidensintervall frekventistisk og velge riktig intervalltype til situasjonen"
+  ],
+  "content": [
+    {
+      "id": "stk1110-2-1-tip",
+      "type": "tip",
+      "title": "Eksamensvinkel",
+      "content": "**Det aller hyppigste temaet.** Konfidensintervall (KI) opptrer i **omtrent 21 av 22 sett (95 %)** — nesten alltid som en deloppgave i testoppgaven (Oppgave 2), og nesten alltid koblet til en hypotesetest via *dualiteten* (kap. 2.2).\n\n- **Sjanger D** = konfidensintervall-oppgaven. *Sjanger* betyr her en type deloppgave med fast form.\n- **t-intervallet** for forventningen er klart hyppigst. Andels-intervall og khikvadrat-intervall for variansen roterer inn. Wald-intervallet for en ML-estimator kjenner du fra [kap. 1.3](/bok/stk1110/stk1110-1-3).\n\n**Sensorens krav (§4.6 og §4.11):** riktig **kvantil** OG riktig **frihetsgrad**, og et tallsvar med rimelig presisjon og riktig enhet. Feil frihetsgrader straffes hardt. Prioritet: **må sitte perfekt.**\n\n*Tidsbruk:* ~60 min kjernestoff i fem korte løkker (t-intervall, tolkning, Wald, andeler, varians). Begrepsbanken til slutt er repetisjon — hopp forbi ved førstegangslesing."
+    },
+    {
+      "id": "stk1110-2-1-forkunnskaper",
+      "type": "text",
+      "content": "**Forkunnskaper:** Dette kapitlet bygger på Wald-intervallet og standardfeilen i **[kap. 1.3](/bok/stk1110/stk1110-1-3)** (ML-estimatorens tilnærmede normalfordeling, $se(\\hat\\theta)$, $z$-kvantilen) og på estimator-egenskapene i **[kap. 1.1](/bok/stk1110/stk1110-1-1)** (forventningsretthet, varians). De CLT-tilnærmede intervallene kommer fra STK1100 kap. 6.2 *CLT-tilnærmet konfidensintervall* (→ stk1100-6-2) *(klartekst — STK1100 er ikke bygget ennå)*. For $t$-, $z$- og $\\chi^2$-fordelingene: formelsamlingen for STK1110 (tren *oppslag* av kvantiler).\n\nAlt du trenger fra sannsynlighetsteorien — at $(n-1)S^2/\\sigma^2$ er khikvadratfordelt — repeteres kort her. Trenger du å friske opp integral/derivasjon: [R2 2.4 Bestemt integral](/bok/r2/r2-2-4)."
+    },
+    {
+      "id": "stk1110-2-1-motiv",
+      "type": "text",
+      "content": "Et punktestimat gir *ett tall* — men hvor mye kan vi stole på det? Konfidensintervallet svarer ved å legge en usikkerhetsmargin rundt estimatet: et intervall som med en oppgitt sannsynlighet (typisk 95 %) fanger den ukjente parameteren.\n\nAlle standardintervallene har samme grunnform: **estimat $\\pm$ kvantil $\\times$ standardfeil**. Kunsten på eksamen er å velge *riktig kvantil* (z eller t?) og *riktig frihetsgrad* — og for variansen: et intervall som ikke er symmetrisk i det hele tatt.\n\nVi går i fem løkker: (1) t-intervallet for forventningen, (2) hva et KI egentlig betyr, (3) Wald-intervallet for en ML-estimator, (4) andels-intervallet, (5) khikvadrat-intervallet for variansen. Hver løkke: teori $\\to$ gjennomregnet eksempel $\\to$ øvingsoppgave."
+    },
+
+    { "id": "stk1110-2-1-l1", "type": "text", "content": "## Løkke 1 — t-intervallet for forventningen (~14 min)" },
+    {
+      "id": "stk1110-2-1-def-tfordeling",
+      "type": "definition",
+      "title": "t-fordelingen",
+      "content": "**t-fordelingen** oppstår når vi standardiserer et normalfordelt gjennomsnitt, men må bruke det *estimerte* standardavviket $S$ i stedet for det sanne $\\sigma$. Den ligner standardnormalen, men har tyngre haler — ekstra usikkerhet fordi $S$ selv varierer fra utvalg til utvalg.\n\nFor normale data $X_1,\\dots,X_n$ gjelder eksakt\n$$\\frac{\\bar X-\\mu}{S/\\sqrt n}\\sim t_{n-1},$$\nen t-fordeling med $n-1$ **frihetsgrader**. Jo større $n$, jo nærmere standardnormalen (for $n\\to\\infty$ er $t_\\infty=N(0,1)$). Kvantilene ligger i formelsamlingen."
+    },
+    {
+      "id": "stk1110-2-1-def-tint",
+      "type": "definition",
+      "title": "t-konfidensintervallet for forventningen $\\mu$",
+      "content": "**t-konfidensintervallet** brukes for forventningen $\\mu$ når dataene er (tilnærmet) normale og $\\sigma$ er **ukjent** — det normale tilfellet i praksis. Et $(1-\\alpha)$-intervall er\n$$\\bar X \\pm t_{n-1,\\,\\alpha/2}\\cdot \\frac{S}{\\sqrt n},$$\nder $t_{n-1,\\alpha/2}$ er øvre $\\alpha/2$-kvantil i t-fordelingen med $n-1$ frihetsgrader ($P(T_{n-1}>t_{n-1,\\alpha/2})=\\alpha/2$). Her er $\\bar X$ estimatet, $S/\\sqrt n$ standardfeilen til gjennomsnittet, og $t_{n-1,\\alpha/2}$ kvantilantallet standardfeil. For 95 % og $n-1=15$ er $t_{15,\\,0{,}025}=2{,}131$."
+    },
+    {
+      "id": "stk1110-2-1-l1-utl",
+      "type": "text",
+      "content": "**Hvorfor t (ikke z), og hvorfor $n-1$ frihetsgrader (utledes):**\n\n1. Med **kjent** $\\sigma$ er $\\dfrac{\\bar X-\\mu}{\\sigma/\\sqrt n}\\sim N(0,1)$ eksakt, og vi ville brukt $z$-kvantilen.\n   *Intuisjon: teller normal, nevner en fast konstant $\\Rightarrow$ standardnormal.*\n2. Men $\\sigma$ er ukjent, så vi setter inn $S$. Nå er nevneren $S/\\sqrt n$ **stokastisk** — $S$ varierer mellom utvalg. Det legger til ekstra usikkerhet og gjør halene tyngre enn i normalen.\n   *Intuisjon: vi «gjetter» spredningen, og gjettet kan bomme $\\Rightarrow$ bredere fordeling.*\n3. Nøkkelen bak $n-1$: utvalgsvariansen oppfyller $\\dfrac{(n-1)S^2}{\\sigma^2}\\sim\\chi^2_{n-1}$ — den mister én frihetsgrad fordi $S^2$ er regnet om $\\bar X$ (ett estimert senter binder opp én grad).\n   *Intuisjon: når du har regnet $\\bar X$, er bare $n-1$ av avvikene $X_i-\\bar X$ «frie» — det siste er bestemt av at de summerer til null.*\n4. Kvotienten av en standardnormal og roten av en uavhengig $\\chi^2_{n-1}/(n-1)$ er per definisjon $t_{n-1}$. Derfor: **t, ikke z, og $n-1$ frihetsgrader.**"
+    },
+    {
+      "id": "stk1110-2-1-ex1",
+      "type": "example",
+      "title": "Eksempel 1: t-intervall for en forventning (sjanger D)",
+      "problem": "Bruddstyrken (i kN) til $n=16$ prøvestykker har gjennomsnitt $\\bar x=20{,}5$ og utvalgsstandardavvik $s=3{,}2$. Anta normale data med ukjent $\\sigma$. Konstruer et 95 % konfidensintervall for forventet bruddstyrke $\\mu$, og forklar valget av fordeling og frihetsgrad.",
+      "solution": "Ukjent $\\sigma$ og normale data $\\Rightarrow$ **t-intervall** med $n-1=15$ frihetsgrader.\n\nStandardfeil: $S/\\sqrt n = 3{,}2/\\sqrt{16}=3{,}2/4=0{,}80$.\n\nKvantil (formelsamling): $t_{15,\\,0{,}025}=2{,}131$.\n\nMargin: $2{,}131\\cdot 0{,}80=1{,}705$.\n\n$$\\bar x \\pm t_{15,\\,0{,}025}\\frac{s}{\\sqrt n}=20{,}5\\pm 1{,}705=[18{,}80,\\ 22{,}20]\\ \\text{kN}.$$\n\n**Valget:** $t$ fordi $\\sigma$ er estimert med $S$; $n-1=15$ fordi $(n-1)S^2/\\sigma^2\\sim\\chi^2_{15}$. Prosedyren fanger den sanne $\\mu$ i 95 % av gjentatte utvalg; her ga den $[18{,}80,\\ 22{,}20]$ kN."
+    },
+    {
+      "id": "stk1110-2-1-oppg1",
+      "type": "exercise",
+      "exercise": {
+        "id": "stk1110-2-1-oppg1-e",
+        "number": "1",
+        "type": "classic",
+        "difficulty": "lett",
+        "task": "Du skal lage et 95 % t-intervall fra et utvalg på $n=10$ normale observasjoner med ukjent $\\sigma$.\n\n**a)** Hvor mange frihetsgrader har t-fordelingen?\n\n**b)** Hvilken kvantil $t_{n-1,\\alpha/2}$ skal du slå opp (formelsamlingen gir $t_{9,\\,0{,}025}=2{,}262$)?",
+        "solution": "**a)** $n-1=9$ frihetsgrader.\n\n**b)** For 95 % er $\\alpha=0{,}05$, så du slår opp øvre $\\alpha/2=0{,}025$-kvantil: $t_{9,\\,0{,}025}=2{,}262$. (Tosidig intervall $\\Rightarrow$ $\\alpha/2$ i hver hale.)",
+        "hints": [
+          "Frihetsgrader for et ett-utvalgs t-intervall er antall observasjoner minus 1.",
+          "Tosidig 95 % betyr 2,5 % i hver hale — bruk kvantilen for 0,025."
+        ]
+      }
+    },
+    {
+      "id": "stk1110-2-1-oppg2",
+      "type": "exercise",
+      "exercise": {
+        "id": "stk1110-2-1-oppg2-e",
+        "number": "2",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "Måleavvik (mm) fra $n=25$ enheter har $\\bar x=100$ og $s=10$. Anta normale data, ukjent $\\sigma$. Konstruer et 95 % konfidensintervall for $\\mu$. Bruk $t_{24,\\,0{,}025}=2{,}064$.",
+        "solution": "$S/\\sqrt n=10/\\sqrt{25}=10/5=2{,}0$. Margin $=2{,}064\\cdot 2{,}0=4{,}128$. Intervall: $100\\pm 4{,}128=[95{,}87,\\ 104{,}13]$ mm.",
+        "hints": [
+          "Standardfeilen er $s/\\sqrt n$; sett inn $n=25$.",
+          "Margin = kvantil $\\times$ standardfeil, deretter $\\bar x\\pm$ margin."
+        ]
+      }
+    },
+    {
+      "id": "stk1110-2-1-oppg3",
+      "type": "exercise",
+      "exercise": {
+        "id": "stk1110-2-1-oppg3-e",
+        "number": "3",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "En liten stikkprøve på $n=9$ batterier har levetid med $\\bar x=50$ timer og $s=6$ timer (normale data, ukjent $\\sigma$). Lag et **99 %** konfidensintervall for forventet levetid. Bruk $t_{8,\\,0{,}005}=3{,}355$.",
+        "solution": "For 99 % er $\\alpha=0{,}01$, så $\\alpha/2=0{,}005$. $S/\\sqrt n=6/\\sqrt 9=6/3=2{,}0$. Margin $=3{,}355\\cdot 2{,}0=6{,}71$. Intervall: $50\\pm 6{,}71=[43{,}29,\\ 56{,}71]$ timer. Merk at 99 % gir bredere intervall enn 95 % (større kvantil).",
+        "hints": [
+          "99 % betyr $\\alpha=0{,}01$ og $\\alpha/2=0{,}005$ i hver hale.",
+          "Standardfeil $6/3=2$; margin = $3{,}355\\times 2$."
+        ]
+      }
+    },
+
+    { "id": "stk1110-2-1-l2", "type": "text", "content": "## Løkke 2 — Hva et konfidensintervall betyr (~8 min)" },
+    {
+      "id": "stk1110-2-1-def-tolkning",
+      "type": "definition",
+      "title": "Frekventistisk tolkning av konfidensintervallet",
+      "content": "Et **95 % konfidensintervall** betyr at *prosedyren* — regelen «$\\bar X\\pm t\\cdot S/\\sqrt n$» — fanger den sanne parameteren i 95 % av gjentatte utvalg. Det er **ikke** «95 % sannsynlighet for at $\\mu$ ligger i akkurat dette intervallet».\n\nGrunnen: den sanne $\\mu$ er et *fast* (ukjent) tall, ikke stokastisk. Det som varierer fra utvalg til utvalg, er intervallgrensene. Etter at du har regnet ut ett konkret intervall $[18{,}80,\\ 22{,}20]$, ligger $\\mu$ enten inni eller utenfor — det er ingen sannsynlighet igjen. Sannsynligheten 0,95 hører til *metoden*, ikke det enkelte tallet."
+    },
+    {
+      "id": "stk1110-2-1-def-nivaa",
+      "type": "definition",
+      "title": "Konfidensnivå og dekningsgrad",
+      "content": "**Konfidensnivået** $(1-\\alpha)$ er den tilstrebede dekningen — hvor ofte prosedyren skal fange parameteren. **Dekningsgraden** er den faktiske sannsynligheten for at intervallet inneholder parameteren over gjentatte utvalg. For t-intervallet med normale data er dekningen eksakt $(1-\\alpha)$; for Wald- og andels-intervaller er den *tilnærmet* $(1-\\alpha)$ (eksakt bare i store utvalg)."
+    },
+    {
+      "id": "stk1110-2-1-oppg4",
+      "type": "exercise",
+      "exercise": {
+        "id": "stk1110-2-1-oppg4-e",
+        "number": "4",
+        "type": "classic",
+        "difficulty": "lett",
+        "task": "En student skriver: «Vi fant intervallet $[18{,}80,\\ 22{,}20]$, så det er 95 % sannsynlig at $\\mu$ ligger mellom 18,80 og 22,20.» Hva er galt, og hvordan formulerer du det riktig?",
+        "solution": "Utsagnet behandler $\\mu$ som stokastisk. $\\mu$ er et fast, ukjent tall — etter at intervallet er regnet ut, ligger $\\mu$ enten inni eller utenfor. Riktig: «Prosedyren som ga dette intervallet, fanger den sanne $\\mu$ i 95 % av gjentatte utvalg.» Sannsynligheten 0,95 hører til metoden, ikke det enkelte tallparet.",
+        "hints": [
+          "Er det $\\mu$ eller intervallgrensene som varierer fra utvalg til utvalg?",
+          "Flytt sannsynligheten fra «dette intervallet» til «prosedyren over gjentatte utvalg»."
+        ]
+      }
+    },
+
+    { "id": "stk1110-2-1-l3", "type": "text", "content": "## Løkke 3 — Wald-intervallet for en ML-estimator (~10 min)" },
+    {
+      "id": "stk1110-2-1-def-wald",
+      "type": "definition",
+      "title": "Wald-konfidensintervallet for en MLE",
+      "content": "**Wald-intervallet** (fra [kap. 1.3](/bok/stk1110/stk1110-1-3)) bruker at ML-estimatoren er tilnærmet normalfordelt i store utvalg, $\\hat\\theta\\overset{\\text{ca.}}{\\sim}N(\\theta,\\,1/(nI(\\theta)))$. Et tilnærmet $(1-\\alpha)$-intervall er\n$$\\hat\\theta \\pm z_{\\alpha/2}\\,se(\\hat\\theta),\\qquad se(\\hat\\theta)=\\sqrt{\\frac{1}{nI(\\hat\\theta)}}.$$\nHer brukes **$z$-kvantilen** (ikke $t$), fordi normalformen kommer fra ML-**asymptotikken** (sentralgrenseteoremet) — ikke fra en eksakt normalmodell med estimert $\\sigma$. $z_{0{,}025}=1{,}96$ for 95 %. Nevn asymptotikken eksplisitt (sensorkrav §4.4)."
+    },
+    {
+      "id": "stk1110-2-1-textzt",
+      "type": "text",
+      "content": "**z eller t? Den avgjørende forskjellen:**\n\n- **t-intervall** ($\\bar X\\pm t_{n-1,\\alpha/2}S/\\sqrt n$): eksakt normalmodell, $\\sigma$ estimert med $S$. Bruk **t**.\n- **Wald-intervall** ($\\hat\\theta\\pm z_{\\alpha/2}\\,se$): ingen eksakt normalmodell — normalformen er en *asymptotisk tilnærming* fra ML-teorien. Bruk **z**.\n\nEn av de vanligste feilene er å bytte om disse. Spør alltid: *Er normalformen eksakt (fra normale data) eller asymptotisk (fra store utvalg)?*"
+    },
+    {
+      "id": "stk1110-2-1-ex2",
+      "type": "example",
+      "title": "Eksempel 2: Wald-intervall for en Poisson-rate (sjanger D)",
+      "problem": "Antall driftsavbrudd per måned antas Poisson$(\\lambda)$. Over $n=50$ måneder er gjennomsnittet $\\bar x=2{,}4$. ML-estimatoren er $\\hat\\lambda=\\bar X$ og Fisher-informasjonen $I(\\lambda)=1/\\lambda$ (kap. 1.3). Gi et 95 % Wald-intervall for $\\lambda$.",
+      "solution": "$\\hat\\lambda=\\bar x=2{,}4$. Standardfeil:\n$$se(\\hat\\lambda)=\\sqrt{\\frac{1}{nI(\\hat\\lambda)}}=\\sqrt{\\frac{\\hat\\lambda}{n}}=\\sqrt{\\frac{2{,}4}{50}}=0{,}219.$$\nMed $z_{0{,}025}=1{,}96$: $2{,}4\\pm 1{,}96\\cdot 0{,}219=2{,}4\\pm 0{,}429=[1{,}97,\\ 2{,}83]$ avbrudd per måned.\n\n**Poeng:** her brukes $z$ (ikke $t$) fordi normalformen er ML-asymptotikken — si det eksplisitt."
+    },
+    {
+      "id": "stk1110-2-1-oppg5",
+      "type": "exercise",
+      "exercise": {
+        "id": "stk1110-2-1-oppg5-e",
+        "number": "5",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "Antall feilmeldinger per dag er Poisson$(\\lambda)$ med $I(\\lambda)=1/\\lambda$. Over $n=80$ dager er $\\bar x=1{,}5$. Gi et 95 % Wald-intervall for $\\lambda$, og forklar hvorfor du bruker $z$ og ikke $t$.",
+        "solution": "$\\hat\\lambda=1{,}5$, $se=\\sqrt{\\hat\\lambda/n}=\\sqrt{1{,}5/80}=0{,}137$. Wald: $1{,}5\\pm 1{,}96\\cdot 0{,}137=1{,}5\\pm 0{,}268=[1{,}23,\\ 1{,}77]$. Vi bruker $z$ fordi normalformen kommer fra ML-asymptotikken (sentralgrenseteoremet), ikke fra en eksakt normalmodell med estimert $\\sigma$.",
+        "hints": [
+          "$se(\\hat\\lambda)=\\sqrt{1/(nI(\\hat\\lambda))}=\\sqrt{\\hat\\lambda/n}$ siden $I(\\lambda)=1/\\lambda$.",
+          "Wald bruker z-kvantilen 1,96 for 95 %."
+        ]
+      }
+    },
+
+    { "id": "stk1110-2-1-l4", "type": "text", "content": "## Løkke 4 — Andels-intervallet (~9 min)" },
+    {
+      "id": "stk1110-2-1-def-andel",
+      "type": "definition",
+      "title": "Konfidensintervall for en andel $p$",
+      "content": "**Andels-intervallet** gjelder når du observerer antall «suksesser» $X$ i $n$ uavhengige forsøk, $X\\sim\\text{binomisk}(n,p)$, og estimerer $\\hat p=X/n$. Dette er et spesialtilfelle av Wald-intervallet ($\\hat p$ er ML-estimatoren, med $I(p)=1/[p(1-p)]$). Et tilnærmet $(1-\\alpha)$-intervall er\n$$\\hat p \\pm z_{\\alpha/2}\\sqrt{\\frac{\\hat p(1-\\hat p)}{n}}.$$\nStandardfeilen $\\sqrt{\\hat p(1-\\hat p)/n}$ er $\\sqrt{1/(nI(\\hat p))}$ med $\\hat p$ satt inn. Tilnærmingen er god når $n\\hat p$ og $n(1-\\hat p)$ begge er romslig større enn 5."
+    },
+    {
+      "id": "stk1110-2-1-ex3",
+      "type": "example",
+      "title": "Eksempel 3: Andels-intervall (sjanger D)",
+      "problem": "I en spørreundersøkelse svarer $X=80$ av $n=250$ tilfeldig utvalgte «ja». Gi et 95 % konfidensintervall for andelen $p$ i populasjonen som ville svart «ja».",
+      "solution": "$\\hat p = 80/250 = 0{,}32$. Sjekk tilnærming: $n\\hat p=80$ og $n(1-\\hat p)=170$, begge $\\gg 5$ — greit.\n\n$$se(\\hat p)=\\sqrt{\\frac{0{,}32\\cdot 0{,}68}{250}}=\\sqrt{0{,}000870}=0{,}0295.$$\n\nWald: $0{,}32\\pm 1{,}96\\cdot 0{,}0295=0{,}32\\pm 0{,}0578=[0{,}262,\\ 0{,}378]$.\n\nProsedyren fanger den sanne andelen i 95 % av gjentatte utvalg; her $[0{,}262,\\ 0{,}378]$, altså mellom ca. 26 % og 38 %."
+    },
+    {
+      "id": "stk1110-2-1-oppg6",
+      "type": "exercise",
+      "exercise": {
+        "id": "stk1110-2-1-oppg6-e",
+        "number": "6",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "Av $n=400$ produserte enheter er $X=120$ defekte. Gi et 95 % konfidensintervall for defektandelen $p$.",
+        "solution": "$\\hat p=120/400=0{,}30$. $se=\\sqrt{0{,}30\\cdot 0{,}70/400}=\\sqrt{0{,}000525}=0{,}0229$. Wald: $0{,}30\\pm 1{,}96\\cdot 0{,}0229=0{,}30\\pm 0{,}0449=[0{,}255,\\ 0{,}345]$. Både $n\\hat p=120$ og $n(1-\\hat p)=280$ er godt over 5, så normaltilnærmingen er god.",
+        "hints": [
+          "$\\hat p=X/n$, deretter $se=\\sqrt{\\hat p(1-\\hat p)/n}$.",
+          "Wald med z = 1,96: $\\hat p\\pm 1{,}96\\,se$."
+        ]
+      }
+    },
+
+    { "id": "stk1110-2-1-l5", "type": "text", "content": "## Løkke 5 — Khikvadrat-intervallet for variansen (~11 min)" },
+    {
+      "id": "stk1110-2-1-def-samplingS2",
+      "type": "definition",
+      "title": "Utvalgsvariansens fordeling",
+      "content": "For normale data er den skalerte utvalgsvariansen **khikvadratfordelt**:\n$$\\frac{(n-1)S^2}{\\sigma^2}\\sim\\chi^2_{n-1}.$$\nDette er samme resultat som gir t-intervallet sin $n-1$ frihetsgrad. Det er også pivoten vi bruker for å lage et intervall for variansen $\\sigma^2$ selv: størrelsen $(n-1)S^2/\\sigma^2$ har en fordeling som *ikke* avhenger av $\\sigma$, så vi kan sette kvantiler rundt den og løse for $\\sigma^2$."
+    },
+    {
+      "id": "stk1110-2-1-def-chiint",
+      "type": "definition",
+      "title": "Khikvadrat-intervallet for variansen $\\sigma^2$",
+      "content": "**Intervallet for variansen** er **asymmetrisk** — fordi khikvadratfordelingen er skjev. Et $(1-\\alpha)$-intervall for $\\sigma^2$ er\n$$\\left[\\frac{(n-1)S^2}{\\chi^2_{n-1,\\,\\alpha/2}},\\ \\frac{(n-1)S^2}{\\chi^2_{n-1,\\,1-\\alpha/2}}\\right],$$\nder $\\chi^2_{n-1,\\alpha/2}$ er øvre $\\alpha/2$-kvantil og $\\chi^2_{n-1,1-\\alpha/2}$ er nedre $\\alpha/2$-kvantil (øvre $1-\\alpha/2$). Legg merke til at den **store** kvantilen står i **nedre** grense (deler på et stort tall $\\to$ liten verdi). For standardavviket $\\sigma$: ta kvadratrot av begge grenser."
+    },
+    {
+      "id": "stk1110-2-1-l5-utl",
+      "type": "text",
+      "content": "**Hvorfor formen (utledes):**\n\n1. Start med pivoten $\\dfrac{(n-1)S^2}{\\sigma^2}\\sim\\chi^2_{n-1}$, som fanges mellom sine to $\\alpha/2$-kvantiler med sannsynlighet $1-\\alpha$:\n   $$P\\!\\left(\\chi^2_{n-1,\\,1-\\alpha/2}\\le \\frac{(n-1)S^2}{\\sigma^2}\\le \\chi^2_{n-1,\\,\\alpha/2}\\right)=1-\\alpha.$$\n   *Intuisjon: nedre kvantil kutter av $\\alpha/2$ til venstre, øvre kvantil $\\alpha/2$ til høyre.*\n2. Løs den doble ulikheten for $\\sigma^2$. Inverter (og snu ulikhetstegnene) — den *største* kvantilen havner i *nevneren* av den *nedre* grensen:\n   $$\\frac{(n-1)S^2}{\\chi^2_{n-1,\\,\\alpha/2}}\\le \\sigma^2\\le \\frac{(n-1)S^2}{\\chi^2_{n-1,\\,1-\\alpha/2}}.$$\n   *Intuisjon: å dele på et stort tall gir en liten nedre grense — derfor byttet plassering.*\n3. Intervallet er ikke symmetrisk om $S^2$; det er en egenskap ved fordelingen, ikke en regnefeil."
+    },
+    {
+      "id": "stk1110-2-1-ex4",
+      "type": "example",
+      "title": "Eksempel 4: Khikvadrat-intervall for varians og standardavvik (sjanger D, eksamensnivå)",
+      "problem": "Fyllmengden (i ml) i $n=20$ flasker har utvalgsvarians $s^2=20{,}25$ (altså $s=4{,}5$). Anta normale data. Gi et 95 % konfidensintervall for variansen $\\sigma^2$ og for standardavviket $\\sigma$. Bruk $\\chi^2_{19,\\,0{,}025}=32{,}852$ og $\\chi^2_{19,\\,0{,}975}=8{,}907$.",
+      "solution": "Frihetsgrader $n-1=19$, og $(n-1)s^2=19\\cdot 20{,}25=384{,}75$.\n\n$$\\sigma^2\\in\\left[\\frac{384{,}75}{32{,}852},\\ \\frac{384{,}75}{8{,}907}\\right]=[11{,}71,\\ 43{,}20]\\ \\text{ml}^2.$$\n\nLegg merke til at den *store* kvantilen $32{,}852$ gir den *nedre* grensen. For standardavviket $\\sigma$ tar vi kvadratrot:\n$$\\sigma\\in[\\sqrt{11{,}71},\\ \\sqrt{43{,}20}]=[3{,}42,\\ 6{,}57]\\ \\text{ml}.$$\n\nIntervallet er tydelig asymmetrisk om $s=4{,}5$ — riktig, siden khikvadratfordelingen er skjev."
+    },
+    {
+      "id": "stk1110-2-1-oppg7",
+      "type": "exercise",
+      "exercise": {
+        "id": "stk1110-2-1-oppg7-e",
+        "number": "7",
+        "type": "classic",
+        "difficulty": "vanskelig",
+        "task": "Måleavvik fra $n=15$ kalibreringer har utvalgsvarians $s^2=25$ (normale data). Bruk $\\chi^2_{14,\\,0{,}025}=26{,}119$ og $\\chi^2_{14,\\,0{,}975}=5{,}629$.\n\n**a)** Gi et 95 % konfidensintervall for $\\sigma^2$.\n\n**b)** Gi et 95 % konfidensintervall for $\\sigma$.\n\n**c)** Hvorfor er intervallet asymmetrisk om $s^2$?",
+        "solution": "$n-1=14$, $(n-1)s^2=14\\cdot 25=350$.\n\n**a)** $\\sigma^2\\in\\left[\\dfrac{350}{26{,}119},\\ \\dfrac{350}{5{,}629}\\right]=[13{,}40,\\ 62{,}18]$.\n\n**b)** $\\sigma\\in[\\sqrt{13{,}40},\\ \\sqrt{62{,}18}]=[3{,}66,\\ 7{,}89]$.\n\n**c)** Khikvadratfordelingen er skjev (ikke symmetrisk), så de to $\\alpha/2$-kvantilene ligger ulikt langt fra midten. Derfor blir intervallet for $\\sigma^2$ ikke symmetrisk om $s^2=25$ — det er et trekk ved fordelingen, ikke en feil.",
+        "hints": [
+          "Regn ut $(n-1)s^2$ først; her $14\\times 25$.",
+          "Nedre grense har den STORE kvantilen (26,119) i nevneren; øvre grense den lille (5,629)."
+        ]
+      }
+    },
+    {
+      "id": "stk1110-2-1-oppg8",
+      "type": "exercise",
+      "exercise": {
+        "id": "stk1110-2-1-oppg8-e",
+        "number": "8",
+        "type": "classic",
+        "difficulty": "vanskelig",
+        "task": "(Krevende — velg riktig intervalltype selv.) I fire ulike situasjoner: (i) forventet vekt fra $n=30$ normale målinger, ukjent $\\sigma$; (ii) andelen som foretrekker et produkt, ut fra 60 «ja» av 200; (iii) en Poisson-rate estimert med ML fra 100 observasjoner; (iv) variabiliteten (variansen) i en normal prosess fra $n=12$ målinger. Angi for HVER situasjon hvilket intervall og hvilken kvantil (z, t eller $\\chi^2$, med frihetsgrad) du ville brukt — uten å regne ut tall.",
+        "solution": "**(i)** t-intervall: $\\bar X\\pm t_{29,\\,\\alpha/2}\\,S/\\sqrt n$ — normale data, estimert $\\sigma$, df $=29$.\n\n**(ii)** Andels-intervall (Wald): $\\hat p\\pm z_{\\alpha/2}\\sqrt{\\hat p(1-\\hat p)/n}$ med $\\hat p=0{,}30$ — z-kvantil, ingen df.\n\n**(iii)** Wald-intervall for MLE: $\\hat\\lambda\\pm z_{\\alpha/2}\\,se$ — z (asymptotikk), ingen df.\n\n**(iv)** Khikvadrat-intervall for $\\sigma^2$: $\\left[\\dfrac{(n-1)S^2}{\\chi^2_{11,\\,\\alpha/2}},\\ \\dfrac{(n-1)S^2}{\\chi^2_{11,\\,1-\\alpha/2}}\\right]$ — $\\chi^2$-kvantiler, df $=11$, asymmetrisk.",
+        "hints": [
+          "Spør for hver: er parameteren en forventning, en andel, en generell MLE, eller en varians?",
+          "Forventning + estimert sigma → t; andel/MLE → z (asymptotisk); varians → khikvadrat (asymmetrisk)."
+        ]
+      }
+    },
+    {
+      "id": "stk1110-2-1-oppg9",
+      "type": "exercise",
+      "exercise": {
+        "id": "stk1110-2-1-oppg9-e",
+        "number": "9",
+        "type": "classic",
+        "difficulty": "vanskelig",
+        "task": "(Kald oppgave — fasit som momentliste, ingen hint.) Reaksjonstider (sekunder) fra $n=12$ normale forsøk har $\\bar x=8{,}4$ og $s=1{,}8$. Gi et **90 %** konfidensintervall for forventet reaksjonstid, tolk det frekventistisk i én setning, og forklar hva som ville skjedd med bredden om du gikk til 95 %. Bruk $t_{11,\\,0{,}05}=1{,}796$.",
+        "solution": "- $S/\\sqrt n=1{,}8/\\sqrt{12}=0{,}520$.\n- Margin $=1{,}796\\cdot 0{,}520=0{,}933$.\n- 90 %-intervall: $8{,}4\\pm 0{,}933=[7{,}47,\\ 9{,}33]$ s.\n- Tolkning: prosedyren fanger den sanne forventede reaksjonstiden i 90 % av gjentatte utvalg.\n- Ved 95 % ville kvantilen økt (til $t_{11,\\,0{,}025}=2{,}201$), så intervallet ble **bredere** — høyere konfidens koster presisjon.",
+        "hints": []
+      }
+    },
+
+    {
+      "id": "stk1110-2-1-warn",
+      "type": "warning",
+      "title": "Typiske feil (fra løsningsforslagene)",
+      "content": "- **z der det skal være t.** Når $\\sigma$ er estimert med $S$ i en normalmodell, er kvantilen $t_{n-1,\\alpha/2}$, ikke $z_{\\alpha/2}$. (Wald- og andels-intervaller bruker derimot z — normalformen er asymptotisk der.)\n- **Feil frihetsgrader.** Ett-utvalgs t- og khikvadrat-intervall bruker $n-1$, ikke $n$. Feil df straffes hardt (§4.6).\n- **Glemme $\\alpha/2$.** Et tosidig intervall har $\\alpha/2$ i hver hale — bruk $t_{n-1,\\,\\alpha/2}$, ikke $t_{n-1,\\,\\alpha}$.\n- **Feiltolke KI-et** som «95 % sannsynlig at $\\theta$ ligger her». Sannsynligheten hører til prosedyren over gjentatte utvalg; $\\theta$ er ikke stokastisk.\n- **Symmetrisk varians-intervall.** Intervallet for $\\sigma^2$ er asymmetrisk — du kan ikke skrive $s^2\\pm$ noe. Bruk khikvadrat-kvantilene, og pass på at den store kvantilen gir nedre grense.\n- **Glemme enhet/presisjon.** Oppgi svaret med rimelig antall siffer og riktig enhet (§4.11)."
+    },
+
+    { "id": "stk1110-2-1-drill", "type": "text", "content": "## Blandet drill (sjanger D, stigende)" },
+    {
+      "id": "stk1110-2-1-d10",
+      "type": "exercise",
+      "exercise": {
+        "id": "stk1110-2-1-d10-e",
+        "number": "10",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "Et laboratorium måler pH i $n=16$ prøver: $\\bar x=7{,}05$, $s=0{,}20$ (normale data, ukjent $\\sigma$).\n\n**a)** Gi et 95 % konfidensintervall for forventet pH. Bruk $t_{15,\\,0{,}025}=2{,}131$.\n\n**b)** Ligger pH 7,00 innenfor intervallet?",
+        "solution": "**a)** $S/\\sqrt n=0{,}20/4=0{,}05$. Margin $=2{,}131\\cdot 0{,}05=0{,}107$. Intervall: $7{,}05\\pm 0{,}107=[6{,}94,\\ 7{,}16]$.\n\n**b)** Ja, 7,00 ligger innenfor $[6{,}94,\\ 7{,}16]$. (I kap. 2.2 ser du at dette betyr at $H_0:\\mu=7{,}00$ *ikke* forkastes tosidig på 5 %-nivå — dualiteten.)",
+        "hints": [
+          "Standardfeil $0{,}20/\\sqrt{16}=0{,}05$.",
+          "Sjekk om 7,00 er mellom nedre og øvre grense."
+        ]
+      }
+    },
+    {
+      "id": "stk1110-2-1-d11",
+      "type": "exercise",
+      "exercise": {
+        "id": "stk1110-2-1-d11-e",
+        "number": "11",
+        "type": "classic",
+        "difficulty": "vanskelig",
+        "task": "En meningsmåling gir $\\hat p=0{,}45$ blant $n=1000$ spurte.\n\n**a)** Gi et 95 % konfidensintervall for $p$.\n\n**b)** Hvor mange respondenter måtte du (grovt) hatt for å halvere marginens bredde, alt annet likt?",
+        "solution": "**a)** $se=\\sqrt{0{,}45\\cdot 0{,}55/1000}=\\sqrt{0{,}0002475}=0{,}0157$. Intervall: $0{,}45\\pm 1{,}96\\cdot 0{,}0157=0{,}45\\pm 0{,}0308=[0{,}419,\\ 0{,}481]$.\n\n**b)** Marginen er proporsjonal med $1/\\sqrt n$. For å halvere den må $\\sqrt n$ dobles, altså $n$ firedobles: ca. $4000$ respondenter.",
+        "hints": [
+          "$se=\\sqrt{\\hat p(1-\\hat p)/n}$, deretter $\\pm 1{,}96\\,se$.",
+          "Bredden går som $1/\\sqrt n$ — halvering krever firedobling av n."
+        ]
+      }
+    },
+
+    { "id": "stk1110-2-1-bank", "type": "text", "content": "## Begrepsbank" },
+    {
+      "id": "stk1110-2-1-bank-note",
+      "type": "text",
+      "content": "*Flashcard-/repetisjonsstoff — hopp trygt over ved førstegangslesing; tidsanslaget gjelder kjernestoffet.* Korte, navngitte definisjoner for eksamensrepetisjon."
+    },
+    {
+      "id": "stk1110-2-1-bank-tkvantil",
+      "type": "definition",
+      "title": "t-kvantilen $t_{\\nu,\\alpha}$",
+      "content": "Øvre $\\alpha$-kvantil i t-fordelingen med $\\nu$ frihetsgrader: $P(T_\\nu>t_{\\nu,\\alpha})=\\alpha$. Tosidig $(1-\\alpha)$-intervall bruker $t_{\\nu,\\alpha/2}$. Ligger i formelsamlingen. For store $\\nu$ nærmer $t_{\\nu,\\alpha}$ seg $z_\\alpha$."
+    },
+    {
+      "id": "stk1110-2-1-bank-zkvantil",
+      "type": "definition",
+      "title": "z-kvantilen $z_{\\alpha/2}$",
+      "content": "Øvre $\\alpha/2$-kvantil i standardnormalen: $P(Z>z_{\\alpha/2})=\\alpha/2$. For 95 % er $z_{0{,}025}=1{,}96$; for 90 % $z_{0{,}05}=1{,}645$; for 99 % $z_{0{,}005}=2{,}576$."
+    },
+    {
+      "id": "stk1110-2-1-bank-chikvantil",
+      "type": "definition",
+      "title": "khikvadrat-kvantilen $\\chi^2_{\\nu,\\alpha}$",
+      "content": "Øvre $\\alpha$-kvantil i khikvadratfordelingen med $\\nu$ frihetsgrader: $P(\\chi^2_\\nu>\\chi^2_{\\nu,\\alpha})=\\alpha$. Fordelingen er skjev, så $\\chi^2_{\\nu,\\alpha/2}\\ne$ speiling av $\\chi^2_{\\nu,1-\\alpha/2}$ — derfor blir varians-intervallet asymmetrisk."
+    },
+    {
+      "id": "stk1110-2-1-bank-S2",
+      "type": "definition",
+      "title": "Utvalgsvariansen $S^2$",
+      "content": "$S^2=\\dfrac{1}{n-1}\\sum_{i=1}^n(X_i-\\bar X)^2$ — det forventningsrette anslaget på $\\sigma^2$. Deleren $n-1$ (ikke $n$) korrigerer for at avvikene måles fra $\\bar X$, ikke fra den sanne $\\mu$."
+    },
+    {
+      "id": "stk1110-2-1-bank-S",
+      "type": "definition",
+      "title": "Utvalgsstandardavviket $S$",
+      "content": "$S=\\sqrt{S^2}$, anslaget på $\\sigma$. Merk: $S$ er *ikke* forventningsrett for $\\sigma$ selv om $S^2$ er det for $\\sigma^2$ (kvadratrot er en ikke-lineær transformasjon). Brukes i standardfeilen $S/\\sqrt n$."
+    },
+    {
+      "id": "stk1110-2-1-bank-sefeil",
+      "type": "definition",
+      "title": "Standardfeilen til gjennomsnittet",
+      "content": "$se(\\bar X)=S/\\sqrt n$ — det estimerte standardavviket til $\\bar X$. (Det sanne er $\\sigma/\\sqrt n$.) Faller som $1/\\sqrt n$: firedobler du utvalget, halveres standardfeilen."
+    },
+    {
+      "id": "stk1110-2-1-bank-margin",
+      "type": "definition",
+      "title": "Feilmarginen",
+      "content": "Halve bredden på et symmetrisk konfidensintervall: kvantil $\\times$ standardfeil (f.eks. $t_{n-1,\\alpha/2}\\,S/\\sqrt n$). Intervallet er estimat $\\pm$ feilmargin. Marginen krymper med større $n$ og vokser med høyere konfidensnivå."
+    },
+    {
+      "id": "stk1110-2-1-bank-pivot",
+      "type": "definition",
+      "title": "Pivotstørrelse",
+      "content": "En funksjon av data og parameter hvis fordeling *ikke* avhenger av parameteren — f.eks. $(\\bar X-\\mu)/(S/\\sqrt n)\\sim t_{n-1}$ eller $(n-1)S^2/\\sigma^2\\sim\\chi^2_{n-1}$. Man setter kvantiler rundt pivoten og løser ulikheten for parameteren."
+    },
+    {
+      "id": "stk1110-2-1-bank-samplingchi",
+      "type": "definition",
+      "title": "Fordelingen $(n-1)S^2/\\sigma^2\\sim\\chi^2_{n-1}$",
+      "content": "For normale data er den skalerte utvalgsvariansen khikvadratfordelt med $n-1$ frihetsgrader. Dette resultatet står bak både $n-1$ i t-intervallet og hele khikvadrat-intervallet for variansen."
+    },
+    {
+      "id": "stk1110-2-1-bank-frihetsgrad",
+      "type": "definition",
+      "title": "Frihetsgrader",
+      "content": "Antall uavhengige biter informasjon som er igjen etter at parametere er estimert fra dataene. Ett gjennomsnitt binder én grad, så ett-utvalgs $S^2$ har $n-1$. I regresjon mister man én grad per estimert koeffisient ($n-2$ i enkel, $n-k-1$ i multippel — kommer i Del 3)."
+    },
+    {
+      "id": "stk1110-2-1-bank-tvsz",
+      "type": "definition",
+      "title": "t mot z — når hva",
+      "content": "Bruk **t** når normalformen er *eksakt* men $\\sigma$ er estimert (normale data, $\\bar X\\pm t\\,S/\\sqrt n$). Bruk **z** når normalformen er en *asymptotisk tilnærming* (Wald for MLE, andeler). Spørsmålet er alltid: eksakt normal eller asymptotisk normal?"
+    },
+    {
+      "id": "stk1110-2-1-bank-ensidig",
+      "type": "definition",
+      "title": "Ensidig konfidensintervall",
+      "content": "Et intervall som bare begrenser parameteren fra én side, f.eks. øvre grense $\\bar X + t_{n-1,\\alpha}\\,S/\\sqrt n$ (hele $\\alpha$ i én hale). Brukes når bare én retning er interessant (f.eks. «forventningen er høyst …»). Merk: da brukes $\\alpha$, ikke $\\alpha/2$."
+    },
+    {
+      "id": "stk1110-2-1-bank-npbetingelse",
+      "type": "definition",
+      "title": "Gyldighetsbetingelsen for andels-intervallet",
+      "content": "Normaltilnærmingen bak $\\hat p\\pm z_{\\alpha/2}\\sqrt{\\hat p(1-\\hat p)/n}$ er god når $n\\hat p\\ge 5$ og $n(1-\\hat p)\\ge 5$ (noen krever $\\ge 10$). For små $n$ eller $\\hat p$ nær 0 eller 1 blir den upresis (og kan gi grenser utenfor $[0,1]$)."
+    },
+    {
+      "id": "stk1110-2-1-bank-wilson",
+      "type": "definition",
+      "title": "Wilson-intervallet (kjenne til)",
+      "content": "Et mer nøyaktig andels-intervall enn Wald, særlig for små $n$ eller ekstreme $\\hat p$; det unngår grenser utenfor $[0,1]$. Wald-intervallet er standard på eksamen, men vit at det finnes bedre alternativer. *(Prioritet: kjenne til.)*"
+    },
+    {
+      "id": "stk1110-2-1-bank-sigmaKI",
+      "type": "definition",
+      "title": "Intervall for standardavviket $\\sigma$",
+      "content": "Ta kvadratrot av begge grensene i $\\sigma^2$-intervallet: $\\left[\\sqrt{(n-1)S^2/\\chi^2_{n-1,\\alpha/2}},\\ \\sqrt{(n-1)S^2/\\chi^2_{n-1,1-\\alpha/2}}\\right]$. Fortsatt asymmetrisk om $S$."
+    },
+    {
+      "id": "stk1110-2-1-bank-bredde",
+      "type": "definition",
+      "title": "Bredde og presisjon",
+      "content": "Bredden på et symmetrisk KI er $2\\times$ feilmargin. Den krymper som $1/\\sqrt n$ (mer data) og vokser med konfidensnivået (større kvantil). Å halvere bredden krever firedobling av $n$."
+    },
+    {
+      "id": "stk1110-2-1-bank-normalantakelse",
+      "type": "definition",
+      "title": "Normalantakelsen og robusthet",
+      "content": "t- og khikvadrat-intervallene forutsetter normale data. t-intervallet er ganske **robust** mot moderate avvik fra normalitet (særlig for stor $n$), mens khikvadrat-intervallet for variansen er **følsomt** for ikke-normalitet — vær varsom der."
+    },
+    {
+      "id": "stk1110-2-1-bank-estimatorestimat",
+      "type": "definition",
+      "title": "Estimator mot estimat",
+      "content": "**Estimatoren** $\\bar X$ (stor bokstav) er en stokastisk variabel — den har en fordeling, og det er den som gir intervallet sin dekningsegenskap. **Estimatet** $\\bar x$ (liten bokstav) er tallet fra ett konkret utvalg. Gjennomgående sensorkrav å skille dem."
+    },
+    {
+      "id": "stk1110-2-1-bank-dualitetforvarsel",
+      "type": "definition",
+      "title": "Kobling KI og test (dualitet)",
+      "content": "Et tosidig $(1-\\alpha)$-konfidensintervall inneholder nøyaktig de verdiene $\\theta_0$ som *ikke* forkastes av en tosidig test på nivå $\\alpha$. Ligger $\\theta_0$ utenfor intervallet, forkastes $H_0:\\theta=\\theta_0$. Denne dualiteten utvikles i [kap. 2.2](/bok/stk1110/stk1110-2-2)."
+    },
+    {
+      "id": "stk1110-2-1-bank-asymmetri",
+      "type": "definition",
+      "title": "Symmetrisk mot asymmetrisk intervall",
+      "content": "t-, Wald- og andels-intervaller er symmetriske om estimatet (estimat $\\pm$ margin). Intervallet for variansen er **asymmetrisk** fordi khikvadratfordelingen er skjev; det samme gjelder de asymmetriske pivot-intervallene fra kap. 1.3. Asymmetri er da riktig, ikke en feil."
+    },
+    {
+      "id": "stk1110-2-1-bank-binomsim",
+      "type": "definition",
+      "title": "Andel som spesialtilfelle av Wald",
+      "content": "Andels-estimatoren $\\hat p=X/n$ er ML-estimatoren for binomisk$(n,p)$, med $I(p)=1/[p(1-p)]$. Derfor er andels-intervallet nøyaktig Wald-intervallet: $se(\\hat p)=\\sqrt{1/(nI(\\hat p))}=\\sqrt{\\hat p(1-\\hat p)/n}$."
+    },
+    {
+      "id": "stk1110-2-1-bank-tolkfelle",
+      "type": "definition",
+      "title": "Vanligste feiltolkning",
+      "content": "«Det er 95 % sannsynlig at $\\theta$ ligger i dette intervallet» er feil: $\\theta$ er fast, ikke stokastisk. Riktig utsagn refererer alltid til *prosedyren* over gjentatte utvalg, ikke det ene tallparet."
+    },
+    {
+      "id": "stk1110-2-1-symbol",
+      "type": "collapsible",
+      "title": "Symbol- og formelliste",
+      "buttonText": "Vis symboler og formler",
+      "content": [
+        {
+          "id": "stk1110-2-1-symbol-t",
+          "type": "text",
+          "content": "## Symbol- og formelliste\n\n*Oppslagsverk — alt her forklares underveis i kapitlet.*\n\n| Symbol | Betydning |\n|---|---|\n| $\\mu$ | Forventning (ukjent parameter) |\n| $\\sigma^2,\\ \\sigma$ | Varians / standardavvik |\n| $\\bar X,\\ \\bar x$ | Utvalgsgjennomsnitt (estimator / estimat) |\n| $S^2,\\ S$ | Utvalgsvarians / -standardavvik |\n| $n$ | Utvalgsstørrelse |\n| $1-\\alpha$ | Konfidensnivå |\n| $t_{n-1,\\,\\alpha/2}$ | Øvre $\\alpha/2$-kvantil i $t_{n-1}$ |\n| $z_{\\alpha/2}$ | Øvre $\\alpha/2$-kvantil i $N(0,1)$ |\n| $\\chi^2_{n-1,\\,\\alpha/2}$ | Øvre $\\alpha/2$-kvantil i $\\chi^2_{n-1}$ |\n| $\\hat p$ | Andels-estimator $X/n$ |\n| $\\hat\\theta$ | ML-estimator (Wald) |\n| $se(\\cdot)$ | Standardfeil |\n\n**Formler i dette delkapitlet:**\n\n$$\\bar X \\pm t_{n-1,\\,\\alpha/2}\\,\\frac{S}{\\sqrt n}$$\nt-konfidensintervall for $\\mu$ (ukjent $\\sigma$, normale data).\n\n$$\\frac{\\bar X-\\mu}{S/\\sqrt n}\\sim t_{n-1},\\qquad \\frac{(n-1)S^2}{\\sigma^2}\\sim\\chi^2_{n-1}$$\nPivotene bak t- og khikvadrat-intervallene.\n\n$$\\hat\\theta \\pm z_{\\alpha/2}\\,se(\\hat\\theta)$$\nWald-intervall for en ML-estimator (z, asymptotisk).\n\n$$\\hat p \\pm z_{\\alpha/2}\\sqrt{\\frac{\\hat p(1-\\hat p)}{n}}$$\nKonfidensintervall for en andel.\n\n$$\\left[\\frac{(n-1)S^2}{\\chi^2_{n-1,\\,\\alpha/2}},\\ \\frac{(n-1)S^2}{\\chi^2_{n-1,\\,1-\\alpha/2}}\\right]$$\nKhikvadrat-intervall for variansen $\\sigma^2$ (asymmetrisk)."
+        }
+      ]
+    },
+    {
+      "id": "stk1110-2-1-rep",
+      "type": "collapsible",
+      "title": "Repetisjonsoppgaver",
+      "buttonText": "Vis repetisjonsoppgaver",
+      "content": [
+        {
+          "id": "stk1110-2-1-rep1",
+          "type": "exercise",
+          "exercise": {
+            "id": "stk1110-2-1-rep1e",
+            "number": "R1",
+            "type": "classic",
+            "difficulty": "lett",
+            "task": "(Fra kap. 1.3) Skriv opp Wald-intervallet for en ML-estimator og forklar hva $se(\\hat\\theta)$ er.",
+            "solution": "$\\hat\\theta\\pm z_{\\alpha/2}\\,se(\\hat\\theta)$ med $se(\\hat\\theta)=\\sqrt{1/(nI(\\hat\\theta))}$ — det estimerte standardavviket til ML-estimatoren, med $\\hat\\theta$ satt inn i Fisher-informasjonen.",
+            "hints": ["Wald bruker z-kvantilen og standardfeilen fra Fisher-informasjonen."]
+          }
+        },
+        {
+          "id": "stk1110-2-1-rep2",
+          "type": "exercise",
+          "exercise": {
+            "id": "stk1110-2-1-rep2e",
+            "number": "R2",
+            "type": "classic",
+            "difficulty": "lett",
+            "task": "(Fra kap. 1.1) Hva er $\\operatorname{Var}(\\bar X)$ når $X_i$ er uavhengige med varians $\\sigma^2$, og hva blir standardavviket til $\\bar X$?",
+            "solution": "$\\operatorname{Var}(\\bar X)=\\sigma^2/n$, så standardavviket er $\\sigma/\\sqrt n$. Erstatter vi $\\sigma$ med $S$, får vi standardfeilen $S/\\sqrt n$ i t-intervallet.",
+            "hints": ["Var av et gjennomsnitt av uavhengige variabler er $\\sigma^2/n$."]
+          }
+        },
+        {
+          "id": "stk1110-2-1-rep3",
+          "type": "exercise",
+          "exercise": {
+            "id": "stk1110-2-1-rep3e",
+            "number": "R3",
+            "type": "classic",
+            "difficulty": "middels",
+            "task": "(Fra kap. 1.3) For Bernoulli$(p)$ er $I(p)=1/[p(1-p)]$. Vis at Wald-standardfeilen for $\\hat p$ blir $\\sqrt{\\hat p(1-\\hat p)/n}$.",
+            "solution": "$se(\\hat p)=\\sqrt{1/(nI(\\hat p))}=\\sqrt{1/\\left(n\\cdot\\frac{1}{\\hat p(1-\\hat p)}\\right)}=\\sqrt{\\hat p(1-\\hat p)/n}$. Det er nettopp andels-intervallets standardfeil.",
+            "hints": ["Sett $I(\\hat p)=1/[\\hat p(1-\\hat p)]$ inn i $1/(nI)$ og forenkle."]
+          }
+        },
+        {
+          "id": "stk1110-2-1-rep4",
+          "type": "exercise",
+          "exercise": {
+            "id": "stk1110-2-1-rep4e",
+            "number": "R4",
+            "type": "classic",
+            "difficulty": "middels",
+            "task": "(Fra kap. 0.2 / 1.3) Hvorfor bruker Wald-intervallet z-kvantilen mens t-intervallet bruker t-kvantilen?",
+            "solution": "t-intervallet gjelder eksakt normale data med estimert $\\sigma$; der er $(\\bar X-\\mu)/(S/\\sqrt n)$ eksakt $t_{n-1}$. Wald hviler på ML-asymptotikken (sentralgrenseteoremet) der $\\hat\\theta$ bare er *tilnærmet* normal — normaltilnærmingen bruker z. Kort: eksakt normal med estimert spredning $\\to$ t; asymptotisk normal $\\to$ z.",
+            "hints": ["Skillet er eksakt normalmodell (t) mot asymptotisk normaltilnærming (z)."]
+          }
+        }
+      ]
+    }
+  ],
+  "exercises": []
+}

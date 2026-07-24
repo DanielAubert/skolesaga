@@ -189,6 +189,10 @@ import quizData_econ1210 from './quiz-data-econ1210';
 import quizData_mat1100 from './quiz-data-mat1100';
 import quizData_tma4245 from './quiz-data-tma4245';
 import quizData_mat1110 from './quiz-data-mat1110';
+import quizData_stk1110 from './quiz-data-stk1110';
+import quizData_stk1100 from './quiz-data-stk1100';
+import quizData_mat1120 from './quiz-data-mat1120';
+import quizData_mat111uib from './quiz-data-mat111-uib';
 import quizData_tma4110 from './quiz-data-tma4110';
 
 // Merged quiz data from all subject files
@@ -347,6 +351,10 @@ export const quizData: Record<string, QuizQuestion[]> = {
   ...quizData_mat1100,
   ...quizData_tma4245,
   ...quizData_mat1110,
+  ...quizData_stk1110,
+  ...quizData_stk1100,
+  ...quizData_mat1120,
+  ...quizData_mat111uib,
   ...quizData_tma4110,
 };
 

@@ -1,0 +1,356 @@
+{
+  "id": "stk1110-2-6",
+  "courseId": "stk1110",
+  "chapterNumber": "2.6",
+  "title": "Enveis ANOVA og ikke-parametriske alternativer",
+  "description": "Enveis variansanalyse (F-test pa gruppeforskjeller, koblet til dummy-regresjon), og de robuste alternativene nar normalitet svikter: bootstrap-persentilintervall og rang-/Wilcoxon-test.",
+  "estimatedMinutes": 50,
+  "competenceGoals": [
+    "sette opp enveis ANOVA-modellen og tolke F-testen MSB delt pa MSW fra en R-utskrift",
+    "forklare koblingen mellom ANOVA og dummy-regresjon",
+    "beskrive bootstrap-persentilintervallet konseptuelt og lese av persentilene",
+    "vurdere nar en rang-/Wilcoxon-test foretrekkes framfor t-testen ut fra et QQ-plott"
+  ],
+  "content": [
+    {
+      "id": "stk1110-2-6-tip",
+      "type": "tip",
+      "title": "Eksamensvinkel",
+      "content": "**Rotasjonsstoff (kjenne).** Enveis ANOVA opptrer i **omtrent 2 av 22 sett (9 %)**, ofte koblet til dummy-regresjon; ikke-parametriske alternativer (bootstrap, rangtest) i ~9 %. Begge er roterende innslag — kan dukke opp, men vektes lavere enn testritualet.\n\n- **Sjanger M** = enveis ANOVA. **Sjanger O** = ikke-parametrikk/bootstrap. *Sjanger* = en fast type deloppgave.\n- Kravet er **tolkning og oppsett**, ikke tunge håndregninger: du skal lese F-testens P-verdi fra en R-utskrift, beskrive bootstrap konseptuelt, og vite når en rangtest er å foretrekke.\n- **Boka inneholder ingen kode** — R-utskrifter er rene tekst-tabeller du skal *lese*.\n\n**Sensorens krav (§5.14):** ikke tolke en ikke-signifikant ANOVA som «alle grupper like», og ikke blande bootstrap-persentilen med normaltilnærmingens intervall. Prioritet: **kjenne.**\n\n*Tidsbruk:* ~50 min kjernestoff i tre løkker (ANOVA $\\to$ bootstrap $\\to$ rangtest)."
+    },
+    {
+      "id": "stk1110-2-6-forkunnskaper",
+      "type": "text",
+      "content": "**Forkunnskaper:** Dette kapitlet utvider to-utvalgssammenligningen i **[kap. 2.3](/bok/stk1110/stk1110-2-3)** fra to til mange grupper, og bruker testritualet fra **[kap. 2.2](/bok/stk1110/stk1110-2-2)** (hypoteser, observator med fordeling, P-verdi, konklusjon). F-fordelingen er den samme som i **[kap. 2.5](/bok/stk1110/stk1110-2-5)**.\n\nKoblingen til dummy-regresjon peker framover mot Del 3 (multippel regresjon, kap. 3.3) — her holder det å *kjenne* sammenhengen."
+    },
+    {
+      "id": "stk1110-2-6-sistduvarher",
+      "type": "text",
+      "content": "**Sist du var her (fra kap. 2.3 og 2.5 — det du trenger nå):**\n\n$$\\text{To grupper: } T=\\frac{\\bar Y_1-\\bar Y_2}{S_p\\sqrt{1/m+1/n}}\\sim t_{m+n-2};\\qquad F=\\frac{S_1^2}{S_2^2}\\sim F_{\\nu_1,\\nu_2}.$$\n\nMed **to** grupper sammenligner vi to gjennomsnitt med en t-test. Med **tre eller flere** grupper kan vi ikke bare kjøre mange t-tester (det blåser opp type I-raten) — vi trenger én samlet test. Det er nettopp det ANOVA gir, og observatoren er en F-brøk, akkurat som i F-testen for varianser."
+    },
+    {
+      "id": "stk1110-2-6-motiv",
+      "type": "text",
+      "content": "Ofte skal vi sammenligne flere enn to grupper: virker tre behandlinger ulikt? Skiller fire jordtyper seg i avling? Å kjøre alle parvise t-tester øker sjansen for minst én falsk alarm kraftig. **Enveis ANOVA** løser dette med én F-test som spør: *er det noen forskjell mellom gruppeforventningene i det hele tatt?*\n\nOg når normalitetsantakelsen svikter — QQ-plottet buer — finnes robuste alternativer: **bootstrap** (la dataene selv gi fordelingen) og **rangtester** (bruk rekkefølgen, ikke tallverdiene). Alt dette testes på tolknings- og oppsettnivå.\n\nVi går i tre løkker: (1) enveis ANOVA og F-testen, (2) bootstrap-persentilintervallet, (3) rang-/Wilcoxon-testen."
+    },
+    {
+      "id": "stk1110-2-6-l1",
+      "type": "text",
+      "content": "## Løkke 1 — Enveis ANOVA og F-testen (~20 min)"
+    },
+    {
+      "id": "stk1110-2-6-def-anova",
+      "type": "definition",
+      "title": "Enveis ANOVA-modellen",
+      "content": "**Enveis variansanalyse (ANOVA)** sammenligner forventningene i $k$ grupper. Modellen er\n$$X_{ij}=\\mu_i+\\varepsilon_{ij},\\qquad \\varepsilon_{ij}\\sim N(0,\\sigma^2)\\ \\text{uavhengige},$$\nder $X_{ij}$ er observasjon $j$ i gruppe $i$, $\\mu_i$ er gruppe $i$s forventning, og feilleddene har **felles varians** $\\sigma^2$. Antakelsene er altså: normalitet, uavhengighet og lik varians på tvers av grupper — de samme som bak den pooled to-utvalgstesten, generalisert til $k$ grupper."
+    },
+    {
+      "id": "stk1110-2-6-def-anovah0",
+      "type": "definition",
+      "title": "Nullhypotesen i ANOVA",
+      "content": "**Nullhypotesen** er at alle gruppeforventningene er like:\n$$H_0:\\mu_1=\\mu_2=\\cdots=\\mu_k\\quad\\text{mot}\\quad H_a:\\text{minst én } \\mu_i\\text{ skiller seg}.$$\nMerk at $H_a$ *ikke* sier hvilken eller hvor mange grupper som er ulike — bare at de ikke alle er like. En signifikant ANOVA forteller at det finnes en forskjell et sted, men ikke hvor (det krever oppfølgende kontraster)."
+    },
+    {
+      "id": "stk1110-2-6-def-msb",
+      "type": "definition",
+      "title": "Mean square between (MSB)",
+      "content": "**MSB** måler variasjonen *mellom* gruppene: hvor mye gruppegjennomsnittene $\\bar X_i$ spriker rundt totalgjennomsnittet. Den er kvadratsummen mellom grupper delt på frihetsgradene $k-1$:\n$$\\text{MSB}=\\frac{\\text{SSB}}{k-1},\\qquad \\text{SSB}=\\sum_{i=1}^k n_i(\\bar X_i-\\bar X)^2.$$\nStor MSB betyr at gruppegjennomsnittene ligger langt fra hverandre — et tegn på reell forskjell."
+    },
+    {
+      "id": "stk1110-2-6-def-msw",
+      "type": "definition",
+      "title": "Mean square within (MSW)",
+      "content": "**MSW** måler variasjonen *innen* gruppene — den rene støyen $\\sigma^2$. Den er kvadratsummen innen grupper delt på frihetsgradene $N-k$ (der $N$ er totalt antall observasjoner):\n$$\\text{MSW}=\\frac{\\text{SSW}}{N-k},\\qquad \\text{SSW}=\\sum_{i=1}^k\\sum_{j}(X_{ij}-\\bar X_i)^2.$$\nMSW er et forventningsrett anslag på $\\sigma^2$ uansett om $H_0$ er sann eller ikke — den generaliserer den pooled variansen $S_p^2$."
+    },
+    {
+      "id": "stk1110-2-6-def-fobs",
+      "type": "definition",
+      "title": "F-observatoren i ANOVA",
+      "content": "**Observatoren** er forholdet mellom variasjon mellom og innen grupper:\n$$F=\\frac{\\text{MSB}}{\\text{MSW}}\\ \\sim\\ F_{k-1,\\,N-k}\\quad(\\text{under } H_0).$$\nUnder $H_0$ måler både teller og nevner bare $\\sigma^2$, så $F\\approx 1$. Er gruppeforventningene ulike, blåses MSB opp, og $F$ blir stor. Vi forkaster $H_0$ for **store** $F$ (ensidig øvre hale): forkast når $F>F_{k-1,\\,N-k,\\,\\alpha}$, eller når P-verdien $P(F_{k-1,N-k}>F_{\\text{obs}})<\\alpha$."
+    },
+    {
+      "id": "stk1110-2-6-text-utskrift",
+      "type": "text",
+      "content": "**Å lese ANOVA-tabellen fra en R-utskrift (ren tekst — ingen kode):** En enveis ANOVA presenteres som en tabell med én rad for gruppeeffekten og én for residualene:\n\n```\n            Df   Sum Sq   Mean Sq   F value   Pr(>F)\ngruppe       2    84.30    42.15      6.72     0.0043\nResiduals   27   169.40     6.27\n```\n\nKolonnene: **Df** = frihetsgrader ($k-1=2$ mellom, $N-k=27$ innen, så $k=3$ grupper og $N=30$ observasjoner). **Sum Sq** = kvadratsummene (SSB, SSW). **Mean Sq** = MSB $=84{,}30/2=42{,}15$ og MSW $=169{,}40/27=6{,}27$. **F value** = MSB/MSW $=42{,}15/6{,}27=6{,}72$. **Pr(>F)** = P-verdien $=P(F_{2,27}>6{,}72)=0{,}0043$. Siden $0{,}0043<0{,}05$: forkast $H_0$ — minst én gruppe skiller seg."
+    },
+    {
+      "id": "stk1110-2-6-ex1",
+      "type": "example",
+      "title": "Eksempel 1: Enveis ANOVA fra R-utskrift (sjanger M)",
+      "problem": "Tre behandlinger (A, B, C) testes for effekt på vektøkning, med til sammen $N=30$ dyr. En enveis ANOVA gir tabellen over (F value $=6{,}72$, Pr(>F) $=0{,}0043$). Formuler hypotesene, oppgi observatoren med fordeling under $H_0$, og konkluder på 5 %-nivå.",
+      "solution": "**1.** $H_0:\\mu_A=\\mu_B=\\mu_C$ mot $H_a:$ minst én gruppe skiller seg.\n\n**2.** Observator $F=\\text{MSB}/\\text{MSW}$. Under $H_0$: $F\\sim F_{k-1,\\,N-k}=F_{2,\\,27}$ (3 grupper, 30 observasjoner).\n\n**3.** Fra utskriften: $F_{\\text{obs}}=42{,}15/6{,}27=6{,}72$, med P-verdi $\\text{Pr(>F)}=P(F_{2,27}>6{,}72)=0{,}0043$.\n\n**4.** Siden $0{,}0043<0{,}05$: forkast $H_0$.\n\n**5.** På 5 %-nivå er det belegg for at minst én av behandlingene gir ulik forventet vektøkning. **Merk:** ANOVA sier *at* det finnes en forskjell, ikke *hvilke* grupper som skiller seg — det krever oppfølgende parvise sammenligninger (kontraster)."
+    },
+    {
+      "id": "stk1110-2-6-oppg1",
+      "type": "exercise",
+      "exercise": {
+        "id": "stk1110-2-6-oppg1-e",
+        "number": "1",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "En enveis ANOVA med $k=3$ grupper og $N=24$ observasjoner gir SSB $=120{,}6$ og SSW $=210{,}0$.\n\n**a)** Regn ut MSB, MSW og F-observatoren.\n\n**b)** Angi fordelingen under $H_0$ og konkluder på 5 %-nivå. Opplyst: $P(F_{2,21}>6{,}03)\\approx 0{,}009$.",
+        "solution": "**a)** MSB $=120{,}6/(k-1)=120{,}6/2=60{,}3$. MSW $=210{,}0/(N-k)=210{,}0/21=10{,}0$. $F=60{,}3/10{,}0=6{,}03$.\n\n**b)** Under $H_0$: $F\\sim F_{k-1,\\,N-k}=F_{2,\\,21}$. P-verdi $=P(F_{2,21}>6{,}03)\\approx 0{,}009<0{,}05$: forkast $H_0$ — minst én gruppe skiller seg på 5 %-nivå.",
+        "hints": [
+          "MSB $=$ SSB$/(k-1)$, MSW $=$ SSW$/(N-k)$ med $N-k=24-3=21$.",
+          "$F=$ MSB/MSW, fordeling $F_{k-1,\\,N-k}$."
+        ]
+      }
+    },
+    {
+      "id": "stk1110-2-6-def-dummykobling",
+      "type": "definition",
+      "title": "Kobling: ANOVA som dummy-regresjon",
+      "content": "**Enveis ANOVA er en lineær regresjon på indikatorvariabler (dummyer).** Med $k$ grupper koder man $k-1$ dummyer (én gruppe er referanse), og hver regresjonskoeffisient er forskjellen mellom en gruppes forventning og referansens. ANOVAs F-test tilsvarer regresjonens samlede F-test (alle helninger $=0$), og enkeltforskjeller (**kontraster**) testes med t-tester på koeffisientene. Dette utdypes i Del 3 (kap. 3.3). *(Prioritet: kjenne til nå.)*"
+    },
+    {
+      "id": "stk1110-2-6-l2",
+      "type": "text",
+      "content": "## Løkke 2 — Bootstrap-persentilintervallet (~15 min)"
+    },
+    {
+      "id": "stk1110-2-6-def-ecdf",
+      "type": "definition",
+      "title": "Empirisk fordelingsfunksjon",
+      "content": "**Den empiriske fordelingsfunksjonen** er dataenes egen «fordeling»:\n$$\\hat F(x)=\\frac{1}{n}\\sum_{i=1}^n I(x_i\\le x),$$\naltså andelen observasjoner som er $\\le x$. Den legger like stor sannsynlighet $1/n$ på hvert datapunkt. Bootstrap bruker $\\hat F$ som en erstatning for den ukjente sanne fordelingen $F$ — vi later som dataene *er* populasjonen."
+    },
+    {
+      "id": "stk1110-2-6-def-bootstrap",
+      "type": "definition",
+      "title": "Bootstrap (persentilmetoden)",
+      "content": "**Bootstrap** anslår usikkerheten i en estimator uten å anta en bestemt fordeling. Idéen (konseptuelt — ingen kode): trekk et nytt utvalg av størrelse $n$ **med tilbakelegging** fra de opprinnelige dataene, regn ut estimatoren på dette gjenutvalget, og gjenta $B$ ganger (f.eks. $B=2000$). De $B$ estimatene danner en **bootstrap-fordeling** som etterligner estimatorens virkelige variasjon. Metoden krever bare svake antakelser."
+    },
+    {
+      "id": "stk1110-2-6-def-persentilintervall",
+      "type": "definition",
+      "title": "Bootstrap-persentilintervall",
+      "content": "**Et $(1-\\alpha)$ persentilintervall** leses direkte av bootstrap-fordelingen: sorter de $B$ estimatene og ta $\\alpha/2$- og $(1-\\alpha/2)$-persentilene som nedre og øvre grense. For 95 % er det 2,5- og 97,5-persentilene. Når bootstrap-histogrammet er tilnærmet normalt og symmetrisk, ligner persentilintervallet på det vanlige $\\hat\\theta\\pm z_{\\alpha/2}\\,se$-intervallet — men persentilmetoden fanger også skjevhet."
+    },
+    {
+      "id": "stk1110-2-6-ex2",
+      "type": "example",
+      "title": "Eksempel 2: Bootstrap-persentilintervall (sjanger O)",
+      "problem": "En analytiker vil ha et 95 % konfidensintervall for **medianen** levetid, men fordelingen er tydelig skjev, så en normaltilnærming er tvilsom. Hun trekker $B=2000$ gjenutvalg med tilbakelegging, regner medianen i hvert, og finner at 2,5-persentilen av de 2000 medianene er 12,4 og 97,5-persentilen er 18,1. Angi persentilintervallet og tolk det, og kommentér forholdet til et normaltilnærmet intervall.",
+      "solution": "**Persentilintervallet** leses direkte av bootstrap-fordelingen:\n$$\\text{95 % persentil-KI} = [12{,}4,\\ 18{,}1].$$\n\n**Tolkning:** vi er 95 % konfidente på at den sanne medianlevetiden ligger mellom 12,4 og 18,1 — uten å ha antatt noen bestemt fordeling. Intervallet er bygget fra dataenes egen variasjon (via $\\hat F$).\n\n**Kommentar:** hadde fordelingen vært tilnærmet normal og symmetrisk, ville persentilintervallet ligget nær et $\\hat\\theta\\pm 1{,}96\\,se$-intervall. Her er dataene skjeve, så persentilmetoden — som *ikke* tvinger fram symmetri — er mer pålitelig. Å blande de to (f.eks. bruke bootstrap-$se$ i en symmetrisk normalformel og kalle det persentilintervall) er en klassisk feil (§5.14)."
+    },
+    {
+      "id": "stk1110-2-6-oppg2",
+      "type": "exercise",
+      "exercise": {
+        "id": "stk1110-2-6-oppg2-e",
+        "number": "2",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "Et bootstrap med $B=1000$ gjenutvalg gir en fordeling for et gjennomsnitt der 2,5-persentilen er 48,0 og 97,5-persentilen er 55,0.\n\n**a)** Skriv opp 95 % bootstrap-persentilintervallet.\n\n**b)** Punktestimatet er $\\bar x=51{,}0$. Er intervallet symmetrisk om estimatet, og hva forteller det deg?",
+        "solution": "**a)** $[48{,}0,\\ 55{,}0]$ — nedre grense er 2,5-persentilen, øvre er 97,5-persentilen.\n\n**b)** Avstanden ned er $51{,}0-48{,}0=3{,}0$; avstanden opp er $55{,}0-51{,}0=4{,}0$. Intervallet er altså lett asymmetrisk (litt lengre opp), noe som antyder en viss høyreskjevhet i bootstrap-fordelingen. Et rent normaltilnærmet intervall ville vært symmetrisk og ikke fanget dette.",
+        "hints": [
+          "Persentilintervallet er [2,5-persentil, 97,5-persentil].",
+          "Sammenlign avstanden fra $\\bar x$ til hver grense."
+        ]
+      }
+    },
+    {
+      "id": "stk1110-2-6-l3",
+      "type": "text",
+      "content": "## Løkke 3 — Rang-/Wilcoxon-testen (~15 min)"
+    },
+    {
+      "id": "stk1110-2-6-def-qqnormalitet",
+      "type": "definition",
+      "title": "QQ-plott og normalitet",
+      "content": "**Et QQ-plott** tegner de sorterte observasjonene mot forventede normalkvantiler. Ligger punktene på en tilnærmet rett linje, er normalantakelsen rimelig. Systematisk kurvatur eller tydelig S-form (tunge haler, skjevhet) tyder på **ikke-normalitet**. Da er t-testen — som antar normale data — mindre pålitelig, særlig ved små utvalg, og en rangbasert test er å foretrekke."
+    },
+    {
+      "id": "stk1110-2-6-def-wilcoxon",
+      "type": "definition",
+      "title": "Rang-/Wilcoxon-test",
+      "content": "**Rangtester** bytter tallverdiene med deres **ranger** (rekkefølge) og tester på rangene i stedet. Wilcoxons rangsumtest (også kalt Mann–Whitney) er det ikke-parametriske alternativet til to-utvalgs t-test; Wilcoxons signed-rank er alternativet til den parvise t-testen. De antar **ikke** normalitet — bare at fordelingene har lik form — og er robuste mot uteliggere. Prisen er litt lavere styrke *når* dataene faktisk er normale. På eksamen kreves bare oppsett og tolkning, ikke manuell utregning av rangsummer."
+    },
+    {
+      "id": "stk1110-2-6-ex3",
+      "type": "example",
+      "title": "Eksempel 3: Rangtest når normalitet svikter (sjanger O)",
+      "problem": "To metoder skal sammenlignes på $n=12$ små, skjeve målinger. QQ-plottet buer tydelig (tunge haler). En to-utvalgs t-test gir P-verdi 0,03, mens en Wilcoxon rangsumtest gir «W = 62, p-value = 0,078». Forklar hvorfor rangtesten er å foretrekke her, og hva forskjellen i P-verdi betyr for konklusjonen.",
+      "solution": "**Hvorfor rangtest:** QQ-plottet viser klart brudd på normalitet, og med bare 12 observasjoner kan ikke sentralgrenseteoremet redde t-testen. Rangtesten antar ikke normalitet og er robust mot de tunge halene — dens forutsetninger er oppfylt, t-testens er ikke.\n\n**Forskjellen i P-verdi:** t-testens 0,03 (signifikant på 5 %) hviler på en antakelse som ikke holder, så den kan være for optimistisk. Rangtestens 0,078 bygger på svakere, oppfylte antakelser og gir *ikke* signifikans på 5 %. Med svakere antakelser får man gjerne en **høyere/svakere P-verdi** — prisen for robusthet.\n\n**Konklusjon:** vi bør stole på rangtesten: på 5 %-nivå er det *ikke* tilstrekkelig belegg for en forskjell mellom metodene. Å rapportere t-testens 0,03 som «signifikant» ville vært misvisende her."
+    },
+    {
+      "id": "stk1110-2-6-oppg3",
+      "type": "exercise",
+      "exercise": {
+        "id": "stk1110-2-6-oppg3-e",
+        "number": "3",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "En forsker har $n=9$ observasjoner med et QQ-plott som viser en tydelig S-form.\n\n**a)** Hva antyder S-formen om dataene?\n\n**b)** Bør hun bruke en t-test eller en rangtest, og hvorfor?\n\n**c)** Hvis rangtesten gir en høyere P-verdi enn t-testen, betyr det at rangtesten er «dårligere»?",
+        "solution": "**a)** En S-form i QQ-plottet antyder ikke-normalitet — typisk tunge haler (eller skjevhet).\n\n**b)** Rangtest: med bare 9 observasjoner og tydelig ikke-normalitet er t-testens antakelser brutt, mens rangtesten ikke krever normalitet.\n\n**c)** Nei. En høyere P-verdi reflekterer at rangtesten bygger på svakere (men her oppfylte) antakelser — den er mer *ærlig* om usikkerheten. Lavere P fra en test med brutte antakelser er ikke mer pålitelig.",
+        "hints": [
+          "S-form i QQ-plott = avvik fra normalfordeling.",
+          "Hvilken test krever normalitet, og er den antakelsen oppfylt her?"
+        ]
+      }
+    },
+    {
+      "id": "stk1110-2-6-warn",
+      "type": "warning",
+      "title": "Typiske feil (fra losningsforslagene)",
+      "content": "- **Tolke en ikke-signifikant ANOVA som «alle grupper like».** Å ikke forkaste $H_0$ betyr bare at vi ikke har belegg for forskjell — ikke bevis for likhet. (§5.14)\n- **Tro at en signifikant ANOVA sier hvilke grupper som skiller seg.** F-testen sier bare *at* det finnes en forskjell; hvilke krever oppfølgende kontraster.\n- **Blande bootstrap-persentilen med normaltilnærmingens intervall.** Persentilintervallet leses av bootstrap-fordelingens persentiler; det er ikke $\\hat\\theta\\pm z\\,se$. (§5.14)\n- **Bruke t-test der QQ-plottet klart bryter normalitet** (særlig ved små $n$). Da er en rangtest riktigere.\n- **Tolke rangtestens høyere P-verdi som at den er «svakere/dårligere».** Den er robust; høyere P er prisen for svakere antakelser.\n- **Glemme lik-varians-antakelsen i ANOVA** — samme forutsetning som for pooling (sjekk evt. med F-test, kap. 2.5)."
+    },
+    {
+      "id": "stk1110-2-6-drill",
+      "type": "text",
+      "content": "## Blandet drill (sjanger M + O, stigende)"
+    },
+    {
+      "id": "stk1110-2-6-d4",
+      "type": "exercise",
+      "exercise": {
+        "id": "stk1110-2-6-d4-e",
+        "number": "4",
+        "type": "classic",
+        "difficulty": "vanskelig",
+        "task": "En enveis ANOVA med $k=4$ grupper og $N=40$ observasjoner gir følgende R-utskrift:\n\n```\n            Df   Sum Sq   Mean Sq   F value   Pr(>F)\ngruppe       3    54.0     18.00     1.80     0.165\nResiduals   36   360.0     10.00\n```\n\n**a)** Verifiser Mean Sq- og F value-kolonnene.\n\n**b)** Konkluder på 5 %-nivå.\n\n**c)** En medstudent skriver «ANOVA viser at alle fire gruppene har lik forventning». Er det en korrekt konklusjon?",
+        "solution": "**a)** MSB $=54{,}0/3=18{,}00$; MSW $=360{,}0/36=10{,}00$; $F=18{,}00/10{,}00=1{,}80$ — stemmer med utskriften. Df: $k-1=3$, $N-k=36$.\n\n**b)** Under $H_0$: $F\\sim F_{3,\\,36}$. P-verdi $=0{,}165>0{,}05$: forkast **ikke** $H_0$. Ingen belegg for forskjell mellom gruppene på 5 %-nivå.\n\n**c)** Nei. Å ikke forkaste $H_0$ betyr «ikke tilstrekkelig belegg for forskjell» — det er *ikke* det samme som å ha vist at gruppene er like. Fravær av bevis er ikke bevis på fravær.",
+        "hints": [
+          "Mean Sq $=$ Sum Sq$/$Df; F value $=$ MSB/MSW.",
+          "Sammenlign Pr(>F) med 0,05, og husk hva «behold $H_0$» faktisk betyr."
+        ]
+      }
+    },
+    {
+      "id": "stk1110-2-6-d5",
+      "type": "exercise",
+      "exercise": {
+        "id": "stk1110-2-6-d5-e",
+        "number": "5",
+        "type": "classic",
+        "difficulty": "vanskelig",
+        "task": "(Krevende.) Forklar konseptuelt, uten kode, hvordan du ville bygget et 90 % bootstrap-persentilintervall for standardavviket $\\sigma$ i et lite, skjevt datasett med $n=15$ observasjoner. Angi hvilke persentiler du leser av.",
+        "solution": "1) Behandle de 15 observasjonene som populasjonen (empirisk fordeling $\\hat F$, sannsynlighet $1/15$ på hver). 2) Trekk et gjenutvalg av størrelse 15 **med tilbakelegging**, og regn utvalgsstandardavviket $s$ på gjenutvalget. 3) Gjenta dette mange ganger (f.eks. $B=2000$), så du får 2000 verdier av $s$. 4) Sorter dem og les av persentilene som svarer til $\\alpha/2$ og $1-\\alpha/2$. For 90 % ($\\alpha=0{,}10$) er det **5-persentilen og 95-persentilen** — de blir nedre og øvre grense i intervallet. Ingen normalantakelse er nødvendig.",
+        "hints": [
+          "Trekk med tilbakelegging, regn statistikken, gjenta, sorter.",
+          "90 % betyr $\\alpha=0{,}10$; hvilke to persentiler gir grensene?"
+        ]
+      }
+    },
+    {
+      "id": "stk1110-2-6-d6",
+      "type": "exercise",
+      "exercise": {
+        "id": "stk1110-2-6-d6-e",
+        "number": "6",
+        "type": "classic",
+        "difficulty": "vanskelig",
+        "task": "(Kald oppgave — fasit som momentliste, ingen hint.) En enveis ANOVA på $k=3$ grupper med $N=18$ gir MSB $=24{,}0$ og MSW $=4{,}0$. Angi observatoren med fordeling under $H_0$, tallfest F, og forklar hva du trenger for å konkludere. Deretter: QQ-plottet av residualene buer tydelig — hva bør du gjøre?",
+        "solution": "- $H_0:\\mu_1=\\mu_2=\\mu_3$ mot $H_a:$ minst én skiller seg.\n- Observator $F=\\text{MSB}/\\text{MSW}\\sim F_{k-1,\\,N-k}=F_{2,\\,15}$ under $H_0$.\n- $F=24{,}0/4{,}0=6{,}0$.\n- For å konkludere trengs P-verdien $P(F_{2,15}>6{,}0)$ (eller den kritiske verdien $F_{2,15,\\,0{,}05}$); sammenlign med $\\alpha$.\n- Buende QQ-plott bryter normalitetsantakelsen bak ANOVA. Da bør man være varsom med F-testen og vurdere et ikke-parametrisk alternativ (f.eks. Kruskal–Wallis, rangbasert ANOVA) eller en transformasjon av dataene.",
+        "hints": []
+      }
+    },
+    {
+      "id": "stk1110-2-6-bank",
+      "type": "text",
+      "content": "## Begrepsbank"
+    },
+    {
+      "id": "stk1110-2-6-bank-note",
+      "type": "text",
+      "content": "*Flashcard-/repetisjonsstoff — hopp trygt over ved førstegangslesing; tidsanslaget gjelder kjernestoffet.* Korte, navngitte definisjoner for eksamensrepetisjon."
+    },
+    {
+      "id": "stk1110-2-6-bank-anovatabell",
+      "type": "definition",
+      "title": "ANOVA-tabellen (les fra R-utskrift)",
+      "content": "Rader: gruppe (mellom) og Residuals (innen). Kolonner: Df ($k-1$ og $N-k$), Sum Sq (SSB, SSW), Mean Sq (MSB, MSW), F value (MSB/MSW), Pr(>F) (P-verdien). Alt leses direkte; ingen kode kreves."
+    },
+    {
+      "id": "stk1110-2-6-bank-parametriskvsikke",
+      "type": "definition",
+      "title": "Parametrisk mot ikke-parametrisk",
+      "content": "Parametriske tester (t, F, ANOVA) antar en bestemt fordeling (normal). Ikke-parametriske (rang, bootstrap) krever svakere antakelser og er robuste mot uteliggere/skjevhet, mot litt lavere styrke når normalitet faktisk holder."
+    },
+    {
+      "id": "stk1110-2-6-bank-ikkesignifikantanova",
+      "type": "definition",
+      "title": "Ikke-signifikant ANOVA",
+      "content": "Å ikke forkaste $H_0$ i ANOVA betyr «ikke belegg for forskjell» — IKKE at gruppene er like. En signifikant ANOVA sier bare at én forskjell finnes, ikke hvilke grupper som skiller seg."
+    },
+    {
+      "id": "stk1110-2-6-bank-kontraster",
+      "type": "definition",
+      "title": "Kontraster",
+      "content": "Etter en signifikant ANOVA testes enkeltforskjeller mellom grupper med kontraster — i praksis t-tester på koeffisientene i den tilsvarende dummy-regresjonen. De sier *hvilke* grupper som skiller seg (utdypes i kap. 3.3)."
+    },
+    {
+      "id": "stk1110-2-6-symbol",
+      "type": "collapsible",
+      "title": "Symbol- og formelliste",
+      "buttonText": "Vis symboler og formler",
+      "content": [
+        {
+          "id": "stk1110-2-6-symbol-t",
+          "type": "text",
+          "content": "## Symbol- og formelliste\n\n*Oppslagsverk — alt her forklares underveis i kapitlet.*\n\n| Symbol | Betydning |\n|---|---|\n| $X_{ij}$ | Observasjon $j$ i gruppe $i$ |\n| $\\mu_i$ | Forventning i gruppe $i$ |\n| $k$ | Antall grupper |\n| $N$ | Totalt antall observasjoner |\n| SSB, MSB | Kvadratsum / gjennomsnitt mellom grupper |\n| SSW, MSW | Kvadratsum / gjennomsnitt innen grupper |\n| $F$ | ANOVA-observator MSB/MSW |\n| $\\hat F(x)$ | Empirisk fordelingsfunksjon |\n| $B$ | Antall bootstrap-gjenutvalg |\n\n**Formler i dette delkapitlet:**\n\n$$X_{ij}=\\mu_i+\\varepsilon_{ij},\\qquad \\varepsilon_{ij}\\sim N(0,\\sigma^2)$$\nEnveis ANOVA-modellen.\n\n$$F=\\frac{\\text{MSB}}{\\text{MSW}}=\\frac{\\text{SSB}/(k-1)}{\\text{SSW}/(N-k)}\\sim F_{k-1,\\,N-k}\\quad(\\text{under } H_0)$$\nANOVA-observatoren.\n\n$$\\hat F(x)=\\frac{1}{n}\\sum_{i=1}^n I(x_i\\le x)$$\nEmpirisk fordelingsfunksjon (grunnlaget for bootstrap).\n\n$$\\text{95 % persentil-KI}=[\\,2{,}5\\text{-persentil},\\ 97{,}5\\text{-persentil}\\,]$$\nBootstrap-persentilintervall (leses av bootstrap-fordelingen)."
+        }
+      ]
+    },
+    {
+      "id": "stk1110-2-6-rep",
+      "type": "collapsible",
+      "title": "Repetisjonsoppgaver",
+      "buttonText": "Vis repetisjonsoppgaver",
+      "content": [
+        {
+          "id": "stk1110-2-6-rep1",
+          "type": "exercise",
+          "exercise": {
+            "id": "stk1110-2-6-rep1e",
+            "number": "R1",
+            "type": "classic",
+            "difficulty": "lett",
+            "task": "(Fra kap. 2.3) Hvorfor kan vi ikke bare kjøre alle parvise t-tester i stedet for én ANOVA når vi har mange grupper?",
+            "solution": "Fordi hver test har sin egen type I-risiko $\\alpha$; med mange parvise tester blåses den samlede sjansen for minst én falsk alarm kraftig opp. ANOVA gir én samlet test med kontrollert nivå.",
+            "hints": ["Tenk på hva som skjer med den samlede feilraten ved mange tester."]
+          }
+        },
+        {
+          "id": "stk1110-2-6-rep2",
+          "type": "exercise",
+          "exercise": {
+            "id": "stk1110-2-6-rep2e",
+            "number": "R2",
+            "type": "classic",
+            "difficulty": "lett",
+            "task": "(Fra kap. 2.5) Hvilken fordeling har forholdet mellom to skalerte, uavhengige kjikvadrat, og hvor dukker den opp i dette kapitlet?",
+            "solution": "$F=\\dfrac{U/\\nu_1}{V/\\nu_2}\\sim F_{\\nu_1,\\nu_2}$. Den er ANOVA-observatorens fordeling (MSB og MSW er skalerte kjikvadrat under $H_0$), med df $(k-1,\\,N-k)$.",
+            "hints": ["F-fordelingen — samme som i F-testen for varianser."]
+          }
+        },
+        {
+          "id": "stk1110-2-6-rep3",
+          "type": "exercise",
+          "exercise": {
+            "id": "stk1110-2-6-rep3e",
+            "number": "R3",
+            "type": "classic",
+            "difficulty": "middels",
+            "task": "(Fra kap. 2.2) En P-verdi fra en ANOVA er 0,20. Formuler konklusjonen korrekt i ord.",
+            "solution": "På det aktuelle nivået (f.eks. 5 %) er $0{,}20>0{,}05$, så vi forkaster ikke $H_0$: det er ikke tilstrekkelig belegg for at gruppeforventningene er forskjellige. Vi konkluderer IKKE med at de er like.",
+            "hints": ["Behold $H_0$ = «ikke belegg for forskjell», ikke «likhet bevist»."]
+          }
+        },
+        {
+          "id": "stk1110-2-6-rep4",
+          "type": "exercise",
+          "exercise": {
+            "id": "stk1110-2-6-rep4e",
+            "number": "R4",
+            "type": "classic",
+            "difficulty": "middels",
+            "task": "(Fra kap. 2.3) Hvordan henger den pooled variansen $S_p^2$ fra to-utvalgstesten sammen med MSW i ANOVA?",
+            "solution": "MSW er generaliseringen av $S_p^2$ til $k$ grupper: begge er et forventningsrett anslag på den felles $\\sigma^2$, dannet ved å slå sammen kvadratavvik innen grupper og dele på de samlede frihetsgradene ($m+n-2$ for to grupper, $N-k$ for $k$ grupper).",
+            "hints": ["Begge måler støyen $\\sigma^2$ innen grupper."]
+          }
+        }
+      ]
+    }
+  ],
+  "exercises": []
+}

@@ -1,0 +1,504 @@
+{
+  "id": "stk1100-4-1",
+  "courseId": "stk1100",
+  "chapterNumber": "4.1",
+  "title": "Momentgenererende funksjoner",
+  "description": "Utled E og V fra MGF-en (med konvergenskravet), og identifiser fordelingen til en sum eller et gjennomsnitt ved å multiplisere MGF-ene.",
+  "estimatedMinutes": 55,
+  "competenceGoals": [
+    "utlede den momentgenererende funksjonen til en fordeling med konvergenskravet på t",
+    "hente forventning og varians fra MGF-en ved derivasjon, og bruke kumulant-snarveien R(t)=ln M(t)",
+    "identifisere fordelingen til en sum av uavhengige variable ved å multiplisere MGF-ene",
+    "begrunne identifikasjonen med at MGF-en bestemmer fordelingen entydig"
+  ],
+  "content": [
+    {
+      "id": "stk1100-4-1-tip-eksamensvinkel",
+      "type": "tip",
+      "title": "Eksamensvinkel",
+      "content": "**Momentgenererende funksjoner (MGF) er i 6–7 av 10 avsluttende skoleeksamener (~65 %)** i STK1100-arkivet 2015–2024 (V2015, V2016, V2018, V2021, V2022, V2023, pluss normal-MGF V2020). I boka kaller vi denne oppgavetypen **sjanger F**: du får en fordeling og skal enten *utlede* MGF-en (med konvergenskravet), *hente* forventning og varians fra den, eller *identifisere* fordelingen til en sum ved å multiplisere MGF-ene.\n\nMGF-en er et av tre transformasjonsverktøy i denne delen (de to andre — CDF-metoden og Jacobi — kommer i kap. 4.2). Den er «broen» som gjør at en sum av uavhengige variable kan gjenkjennes: multipliser MGF-ene, kjenn igjen svaret. Prioritet: **høyeste** (et kjerneledd i eksamens-fortellingen).\n\n**Tre ting sensor krever:** (1) når du utleder en MGF, skal **konvergenskravet på $t$** stå der (for hvilke $t$ integralet/summen konvergerer); (2) $E(X) = M'(0)$ og $E(X^2) = M''(0)$ regnes ut, ikke bare siteres; (3) for en sum **multipliseres** MGF-ene — aldri adderes — og entydigheten («MGF-en bestemmer fordelingen») nevnes eksplisitt."
+    },
+    {
+      "id": "stk1100-4-1-forkunnskaper",
+      "type": "text",
+      "content": "**Forkunnskaper:** Dette kapitlet bygger på forventning til en funksjon $E[g(X)]$ og momentene $E(X), E(X^2), \\text{Var}(X)$ fra [kap. 2.1](/bok/stk1100/stk1100-2-1), og på gammafordelingen, identiteten $\\chi^2_n = \\text{gamma}(n/2, 2)$ og «sum av uavhengige gamma med felles skala» fra [kap. 2.2](/bok/stk1100/stk1100-2-2). Diskrete fordelinger (Poisson, geometrisk) er fra [kap. 1.3](/bok/stk1100/stk1100-1-3).\n\nDu deriverer hele veien — MGF-en er en funksjon av $t$, og $E(X)$ finnes ved å derivere den. Frisk opp produkt-, kjerne- og eksponentialderivasjon i [R1 4.1 Derivasjonsregler](/bok/r1/r1-4-1). Fagordene *moment*, *momentgenererende funksjon* og *entydighet* forklares der de innføres."
+    },
+    {
+      "id": "stk1100-4-1-intro",
+      "type": "text",
+      "content": "Hvordan finner du forventningen og variansen til en fordeling uten å regne to integraler hver gang — og hvordan gjenkjenner du fordelingen til en *sum* av uavhengige variable? Svaret på begge er den samme funksjonen: den **momentgenererende funksjonen** (MGF, engelsk *moment generating function*). Den koder hele fordelingen i én funksjon av en hjelpevariabel $t$, og fra den faller momentene ut ved derivasjon.\n\nHele poenget på eksamen er dette: for en sum av *uavhengige* variable ganges MGF-ene sammen, og fordi MGF-en bestemmer fordelingen entydig, kan du lese av hva summen er. Det er slik «sum av eksponensiale blir gamma» og «sum av Poisson blir Poisson» bevises — resultatene du fikk servert i kap. 2.2, utledes her.\n\nKapitlet er seks **læringsløkker**: definisjonen → momenter fra MGF → gamma-MGF-en (med konvergenskrav) → MGF-katalogen (Poisson, normal, geometrisk) → kumulant-snarveien → sum og gjennomsnitt av uavhengige. Hver løkke går teori → gjennomregnet eksempel → øvingsoppgave.\n\n> 55-minutters kapittel. Naturlig pausepunkt er markert ved løkke 4."
+    },
+    {
+      "id": "stk1100-4-1-l1-head",
+      "type": "text",
+      "content": "## Løkke 1 — Hva MGF-en er (~8 min)"
+    },
+    {
+      "id": "stk1100-4-1-l1-teori",
+      "type": "text",
+      "content": "Den momentgenererende funksjonen til $X$ er forventningen til $e^{tX}$, sett som en funksjon av tallet $t$. Vi behandler $t$ som en hjelpevariabel vi kan derivere med hensyn på. For en diskret variabel er det en sum, for en kontinuerlig et integral — begge veier er bare $E[g(X)]$-regelen fra [kap. 2.1](/bok/stk1100/stk1100-2-1) med $g(x) = e^{tx}$."
+    },
+    {
+      "id": "stk1100-4-1-def-mgf",
+      "type": "definition",
+      "title": "Momentgenererende funksjon (MGF)",
+      "content": "Et verktøy som samler hele fordelingen i én funksjon av en hjelpevariabel $t$: forventningen til $e^{tX}$.\n\n$$M_X(t) = E\\!\\left(e^{tX}\\right) = \\begin{cases} \\sum_x e^{tx} p(x), & X \\text{ diskret} \\\\[2pt] \\int_{-\\infty}^{\\infty} e^{tx} f(x)\\,dx, & X \\text{ kontinuerlig} \\end{cases}$$\n\nDen kalles *momentgenererende* fordi momentene $E(X), E(X^2), \\ldots$ kan «genereres» ved å derivere den. Alltid $M_X(0) = E(e^0) = 1$ — en rask kontroll på at du ikke har regnet feil."
+    },
+    {
+      "id": "stk1100-4-1-ex-l1",
+      "type": "example",
+      "title": "Eksempel 1: MGF for en enkel diskret variabel",
+      "problem": "En variabel $X$ har $P(X=0) = 0{,}5$, $P(X=1) = 0{,}3$ og $P(X=2) = 0{,}2$. Finn $M_X(t)$ og sjekk at $M_X(0) = 1$.",
+      "solution": "Per definisjon summerer vi $e^{tx}p(x)$ over de tre verdiene:\n\n$$M_X(t) = e^{t\\cdot 0}\\cdot 0{,}5 + e^{t\\cdot 1}\\cdot 0{,}3 + e^{t\\cdot 2}\\cdot 0{,}2 = 0{,}5 + 0{,}3\\,e^{t} + 0{,}2\\,e^{2t}.$$\n\nDenne konvergerer for alle $t$ (endelig sum). Kontroll: $M_X(0) = 0{,}5 + 0{,}3 + 0{,}2 = 1$. ✓"
+    },
+    {
+      "id": "stk1100-4-1-oppg-l1a",
+      "type": "exercise",
+      "exercise": {
+        "id": "stk1100-4-1-x-oppg-l1a",
+        "number": "1",
+        "type": "classic",
+        "difficulty": "lett",
+        "task": "En variabel $Y$ har $P(Y=1) = 0{,}4$, $P(Y=3) = 0{,}6$.\n\n**a)** Skriv opp $M_Y(t)$.\n**b)** Kontroller at $M_Y(0) = 1$.",
+        "solution": "**a)** $M_Y(t) = 0{,}4\\,e^{t} + 0{,}6\\,e^{3t}$ (summen $\\sum e^{ty}p(y)$).\n\n**b)** $M_Y(0) = 0{,}4 + 0{,}6 = 1$. ✓",
+        "hints": [
+          "MGF for diskret variabel: $M_Y(t) = \\sum_y e^{ty}p(y)$.",
+          "Sett $t = 0$: hvert ledd blir $p(y)$, summen er 1."
+        ]
+      }
+    },
+    {
+      "id": "stk1100-4-1-l2-head",
+      "type": "text",
+      "content": "## Løkke 2 — Momenter fra MGF-en: deriver og sett $t = 0$ (~10 min)"
+    },
+    {
+      "id": "stk1100-4-1-l2-teori",
+      "type": "text",
+      "content": "Her kommer navnet fra: deriverer du MGF-en og setter $t = 0$, faller momentene ut. Grunnen er at $\\frac{d}{dt}e^{tX} = X e^{tX}$, så $M'(t) = E(X e^{tX})$, og i $t = 0$ blir dette $E(X)$. Deriverer du en gang til, får du $E(X^2)$. Variansen finner du så med regneformelen fra [kap. 2.1](/bok/stk1100/stk1100-2-1)."
+    },
+    {
+      "id": "stk1100-4-1-def-moment-fra-mgf",
+      "type": "definition",
+      "title": "Momenter ved derivasjon av MGF-en",
+      "content": "Reglene som gjør MGF-en nyttig: forventningen er den deriverte i $t = 0$, andre moment er den andrederiverte i $t = 0$.\n\n$$E(X) = M'(0), \\qquad E(X^2) = M''(0), \\qquad \\text{Var}(X) = M''(0) - \\big[M'(0)\\big]^2.$$\n\nMer generelt er $r$-te moment $E(X^r) = M^{(r)}(0)$. Du slipper altså å regne to integraler for $E(X)$ og $E(X^2)$ — én MGF og to derivasjoner holder."
+    },
+    {
+      "id": "stk1100-4-1-ex-l2",
+      "type": "example",
+      "title": "Eksempel 2: E og Var fra MGF-en",
+      "problem": "Bruk $M_X(t) = 0{,}5 + 0{,}3\\,e^{t} + 0{,}2\\,e^{2t}$ fra eksempel 1. Finn $E(X)$ og $\\text{Var}(X)$.",
+      "solution": "Deriver:\n\n$$M'(t) = 0{,}3\\,e^{t} + 0{,}4\\,e^{2t}, \\qquad M''(t) = 0{,}3\\,e^{t} + 0{,}8\\,e^{2t}.$$\n\nSett $t = 0$:\n\n$$E(X) = M'(0) = 0{,}3 + 0{,}4 = 0{,}7, \\qquad E(X^2) = M''(0) = 0{,}3 + 0{,}8 = 1{,}1.$$\n\n$$\\text{Var}(X) = 1{,}1 - 0{,}7^2 = 1{,}1 - 0{,}49 = 0{,}61.$$\n\nKontroll direkte: $E(X) = 0\\cdot 0{,}5 + 1\\cdot 0{,}3 + 2\\cdot 0{,}2 = 0{,}7$. ✓"
+    },
+    {
+      "id": "stk1100-4-1-oppg-l2a",
+      "type": "exercise",
+      "exercise": {
+        "id": "stk1100-4-1-x-oppg-l2a",
+        "number": "2",
+        "type": "classic",
+        "difficulty": "lett",
+        "task": "En variabel har MGF $M_X(t) = \\tfrac13 + \\tfrac13 e^{t} + \\tfrac13 e^{2t}$.\n\n**a)** Finn $E(X)$.\n**b)** Finn $E(X^2)$ og $\\text{Var}(X)$.",
+        "solution": "**a)** $M'(t) = \\tfrac13 e^{t} + \\tfrac23 e^{2t}$, så $E(X) = M'(0) = \\tfrac13 + \\tfrac23 = 1$.\n\n**b)** $M''(t) = \\tfrac13 e^{t} + \\tfrac43 e^{2t}$, så $E(X^2) = M''(0) = \\tfrac13 + \\tfrac43 = \\tfrac53$. Da er $\\text{Var}(X) = \\tfrac53 - 1^2 = \\tfrac23 \\approx 0{,}667$.",
+        "hints": [
+          "$E(X) = M'(0)$ og $E(X^2) = M''(0)$.",
+          "Var: $M''(0) - [M'(0)]^2$."
+        ]
+      }
+    },
+    {
+      "id": "stk1100-4-1-l3-head",
+      "type": "text",
+      "content": "## Løkke 3 — Utled gamma-MGF-en med konvergenskrav (~10 min)"
+    },
+    {
+      "id": "stk1100-4-1-l3-teori",
+      "type": "text",
+      "content": "Nå til den utledningen sensor oftest ber om: MGF-en til gammafordelingen. Poenget som *må* med, er **konvergenskravet** — integralet $\\int_0^\\infty e^{tx} f(x)\\,dx$ konvergerer bare når $t$ er liten nok til at $e^{tx}$ ikke vokser raskere enn tettheten avtar. For gamma$(\\alpha, \\beta)$ (skala $\\beta$, fra [kap. 2.2](/bok/stk1100/stk1100-2-2)) er kravet $t < 1/\\beta$."
+    },
+    {
+      "id": "stk1100-4-1-def-gamma-mgf",
+      "type": "definition",
+      "title": "MGF for gammafordelingen (med konvergenskrav)",
+      "content": "Momentgenererende funksjon for $X \\sim \\text{gamma}(\\alpha, \\beta)$ med skalaparameter $\\beta$, gyldig bare for $t$ under raten $1/\\beta$:\n\n$$M_X(t) = (1 - \\beta t)^{-\\alpha}, \\qquad t < \\frac{1}{\\beta}.$$\n\nKonvergenskravet $t < 1/\\beta$ hører alltid med — uten det er MGF-en udefinert (integralet divergerer). Spesialtilfeller: eksponensial (forventningsform, $\\alpha = 1$) har $M(t) = (1 - \\mu t)^{-1}$ for $t < 1/\\mu$; kjikvadrat $\\chi^2_n = \\text{gamma}(n/2, 2)$ har $M(t) = (1 - 2t)^{-n/2}$ for $t < 1/2$."
+    },
+    {
+      "id": "stk1100-4-1-l3-utledning",
+      "type": "text",
+      "content": "**Utledning.** Vi setter inn gammatettheten og samler eksponentene:\n\n$$M_X(t) = \\int_0^\\infty e^{tx}\\,\\frac{1}{\\beta^\\alpha \\Gamma(\\alpha)} x^{\\alpha-1} e^{-x/\\beta}\\,dx = \\frac{1}{\\beta^\\alpha \\Gamma(\\alpha)} \\int_0^\\infty x^{\\alpha-1} e^{-x(1/\\beta - t)}\\,dx.$$\n\n*Intuisjon:* de to eksponentene $e^{tx}$ og $e^{-x/\\beta}$ smelter sammen til én med rate $\\tfrac1\\beta - t$. For at integralet skal konvergere, må denne raten være positiv: $\\tfrac1\\beta - t > 0$, altså $t < 1/\\beta$. *Der ligger konvergenskravet.*\n\nNå gjenkjenner vi gammaintegralet $\\int_0^\\infty x^{a-1}e^{-x/b}\\,dx = b^a\\Gamma(a)$ fra [kap. 2.2](/bok/stk1100/stk1100-2-2), med $a = \\alpha$ og $b = (1/\\beta - t)^{-1} = \\tfrac{\\beta}{1 - \\beta t}$:\n\n$$M_X(t) = \\frac{1}{\\beta^\\alpha \\Gamma(\\alpha)}\\cdot \\left(\\frac{\\beta}{1-\\beta t}\\right)^\\alpha \\Gamma(\\alpha) = \\frac{\\beta^\\alpha}{\\beta^\\alpha (1-\\beta t)^\\alpha} = (1 - \\beta t)^{-\\alpha}.$$\n\n*Intuisjon:* $\\beta^\\alpha$ og $\\Gamma(\\alpha)$ stryker mot brøkens nevner, og igjen står den kompakte formen $(1 - \\beta t)^{-\\alpha}$."
+    },
+    {
+      "id": "stk1100-4-1-ex-l3",
+      "type": "example",
+      "title": "Eksempel 3: E og Var for gamma via MGF-en",
+      "problem": "Bruk $M_X(t) = (1 - \\beta t)^{-\\alpha}$ til å finne $E(X)$ og $\\text{Var}(X)$ for $X \\sim \\text{gamma}(\\alpha, \\beta)$.",
+      "solution": "Deriver med kjerneregelen. Med $M(t) = (1 - \\beta t)^{-\\alpha}$:\n\n$$M'(t) = -\\alpha (1 - \\beta t)^{-\\alpha - 1}\\cdot(-\\beta) = \\alpha\\beta\\,(1 - \\beta t)^{-\\alpha-1}.$$\n\nI $t = 0$: $E(X) = M'(0) = \\alpha\\beta$. Deriver igjen:\n\n$$M''(t) = \\alpha\\beta\\,(-\\alpha-1)(1-\\beta t)^{-\\alpha-2}\\cdot(-\\beta) = \\alpha(\\alpha+1)\\beta^2\\,(1-\\beta t)^{-\\alpha-2}.$$\n\nI $t = 0$: $E(X^2) = M''(0) = \\alpha(\\alpha+1)\\beta^2$. Da:\n\n$$\\text{Var}(X) = \\alpha(\\alpha+1)\\beta^2 - (\\alpha\\beta)^2 = \\alpha\\beta^2\\big[(\\alpha+1) - \\alpha\\big] = \\alpha\\beta^2.$$\n\nDette stemmer med formelsamlingens $E(X) = \\alpha\\beta$, $\\text{Var}(X) = \\alpha\\beta^2$ — men nå har du utledet det."
+    },
+    {
+      "id": "stk1100-4-1-oppg-l3a",
+      "type": "exercise",
+      "exercise": {
+        "id": "stk1100-4-1-x-oppg-l3a",
+        "number": "3",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "La $X$ være eksponensialfordelt i forventningsform med forventning $\\mu$, altså $X \\sim \\text{gamma}(1, \\mu)$.\n\n**a)** Skriv opp MGF-en med konvergenskrav.\n**b)** Bruk den til å vise at $E(X) = \\mu$ og $\\text{Var}(X) = \\mu^2$.",
+        "solution": "**a)** Med $\\alpha = 1$, $\\beta = \\mu$: $M_X(t) = (1 - \\mu t)^{-1}$ for $t < 1/\\mu$.\n\n**b)** $M'(t) = \\mu(1 - \\mu t)^{-2}$, så $E(X) = M'(0) = \\mu$. $M''(t) = 2\\mu^2(1 - \\mu t)^{-3}$, så $E(X^2) = M''(0) = 2\\mu^2$. Da $\\text{Var}(X) = 2\\mu^2 - \\mu^2 = \\mu^2$.",
+        "hints": [
+          "Sett $\\alpha = 1$, $\\beta = \\mu$ i $(1-\\beta t)^{-\\alpha}$; husk kravet $t < 1/\\mu$.",
+          "$E = M'(0)$, $E(X^2) = M''(0)$, $\\text{Var} = E(X^2) - E(X)^2$."
+        ]
+      }
+    },
+    {
+      "id": "stk1100-4-1-l4-head",
+      "type": "text",
+      "content": "## Løkke 4 — MGF-katalogen: Poisson, normal, geometrisk (~9 min)"
+    },
+    {
+      "id": "stk1100-4-1-l4-note",
+      "type": "text",
+      "content": "> — naturlig pausepunkt — omtrent halvveis. Ta gjerne en pause før katalogen."
+    },
+    {
+      "id": "stk1100-4-1-l4-teori",
+      "type": "text",
+      "content": "De vanligste fordelingenes MGF-er står i formelsamlingen (tren oppslag/gjenkjenning), men på eksamen blir du bedt om å *utlede* minst én av dem og *bruke* dem til å hente momenter eller identifisere summer. Her er de tre du oftest møter i tillegg til gamma. Alle deles den samme oppskriften: sett inn $e^{tx}$, samle eksponentene, kjenn igjen en kjent sum eller et kjent integral."
+    },
+    {
+      "id": "stk1100-4-1-def-poisson-mgf",
+      "type": "definition",
+      "title": "MGF for Poissonfordelingen",
+      "content": "Momentgenererende funksjon for $X \\sim \\text{Poisson}(\\lambda)$, gyldig for alle $t$:\n\n$$M_X(t) = e^{\\lambda(e^t - 1)}.$$\n\nUtledningen bruker eksponensialrekken: $\\sum_{x=0}^\\infty e^{tx}\\frac{\\lambda^x e^{-\\lambda}}{x!} = e^{-\\lambda}\\sum_x \\frac{(\\lambda e^t)^x}{x!} = e^{-\\lambda}e^{\\lambda e^t}$. Derfra $E(X) = M'(0) = \\lambda$ og $\\text{Var}(X) = \\lambda$ (begge lik $\\lambda$ — et kjennetegn ved Poisson)."
+    },
+    {
+      "id": "stk1100-4-1-def-normal-mgf",
+      "type": "definition",
+      "title": "MGF for normalfordelingen",
+      "content": "Momentgenererende funksjon for $X \\sim N(\\mu, \\sigma^2)$ (annet argument er variansen), gyldig for alle $t$:\n\n$$M_X(t) = e^{\\mu t + \\sigma^2 t^2/2}.$$\n\nDeriverer du: $E(X) = M'(0) = \\mu$ og $\\text{Var}(X) = M''(0) - \\mu^2 = (\\sigma^2 + \\mu^2) - \\mu^2 = \\sigma^2$. Formen er nyttig fordi en lineærkombinasjon av uavhengige normale igjen får en MGF av samme type — summen er normal."
+    },
+    {
+      "id": "stk1100-4-1-def-geom-mgf",
+      "type": "definition",
+      "title": "MGF for den geometriske fordelingen",
+      "content": "Momentgenererende funksjon for $X \\sim \\text{geometrisk}(p)$ på $\\{1, 2, 3, \\ldots\\}$ (antall forsøk til første suksess), gyldig for $t < -\\ln(1-p)$:\n\n$$M_X(t) = \\frac{p\\,e^t}{1 - (1-p)e^t}.$$\n\nDen kommer fra en geometrisk rekke: $\\sum_{x=1}^\\infty e^{tx}(1-p)^{x-1}p = p e^t \\sum_{k=0}^\\infty [(1-p)e^t]^k$, som konvergerer når $(1-p)e^t < 1$. Herfra $E(X) = 1/p$ og $\\text{Var}(X) = (1-p)/p^2$."
+    },
+    {
+      "id": "stk1100-4-1-ex-l4",
+      "type": "example",
+      "title": "Eksempel 4: Poisson-momenter fra MGF-en",
+      "problem": "Bruk $M_X(t) = e^{\\lambda(e^t - 1)}$ til å vise at både forventning og varians for Poisson er $\\lambda$.",
+      "solution": "Deriver med kjerneregelen — den ytre er $e^{(\\cdot)}$, den indre $\\lambda(e^t - 1)$ med derivert $\\lambda e^t$:\n\n$$M'(t) = e^{\\lambda(e^t-1)}\\cdot \\lambda e^t, \\qquad M'(0) = e^{0}\\cdot \\lambda = \\lambda = E(X).$$\n\nDeriver igjen (produktregel på $\\lambda e^t \\cdot M(t)$):\n\n$$M''(t) = \\lambda e^t M(t) + \\lambda e^t\\cdot \\lambda e^t M(t) = \\lambda e^t M(t)\\big(1 + \\lambda e^t\\big).$$\n\nI $t = 0$: $M''(0) = \\lambda\\cdot 1\\cdot(1 + \\lambda) = \\lambda + \\lambda^2 = E(X^2)$. Da:\n\n$$\\text{Var}(X) = (\\lambda + \\lambda^2) - \\lambda^2 = \\lambda.$$\n\nForventning og varians er begge $\\lambda$ — Poisson-signaturen."
+    },
+    {
+      "id": "stk1100-4-1-oppg-l4a",
+      "type": "exercise",
+      "exercise": {
+        "id": "stk1100-4-1-x-oppg-l4a",
+        "number": "4",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "La $X \\sim N(\\mu, \\sigma^2)$ med MGF $M_X(t) = e^{\\mu t + \\sigma^2 t^2/2}$.\n\n**a)** Finn $M'(t)$ og vis at $E(X) = \\mu$.\n**b)** Finn $E(X^2)$ og bekreft at $\\text{Var}(X) = \\sigma^2$.",
+        "solution": "**a)** Kjerneregel, indre $\\mu t + \\sigma^2 t^2/2$ med derivert $\\mu + \\sigma^2 t$: $M'(t) = (\\mu + \\sigma^2 t)\\,e^{\\mu t + \\sigma^2 t^2/2}$. I $t = 0$: $M'(0) = \\mu\\cdot 1 = \\mu = E(X)$.\n\n**b)** Produktregel: $M''(t) = \\sigma^2 e^{(\\cdot)} + (\\mu + \\sigma^2 t)^2 e^{(\\cdot)}$. I $t = 0$: $M''(0) = \\sigma^2 + \\mu^2 = E(X^2)$. Da $\\text{Var}(X) = (\\sigma^2 + \\mu^2) - \\mu^2 = \\sigma^2$.",
+        "hints": [
+          "Kjerneregel: den indre funksjonens derivert er $\\mu + \\sigma^2 t$.",
+          "I $t = 0$ er eksponentialleddet lik 1; $\\text{Var} = M''(0) - [M'(0)]^2$."
+        ]
+      }
+    },
+    {
+      "id": "stk1100-4-1-l5-head",
+      "type": "text",
+      "content": "## Løkke 5 — Kumulant-snarveien $R(t) = \\ln M(t)$ (~8 min)"
+    },
+    {
+      "id": "stk1100-4-1-l5-teori",
+      "type": "text",
+      "content": "For fordelinger med MGF på eksponentialform (gamma, Poisson, normal) er det ofte raskere å derivere **logaritmen** av MGF-en. Da blir $E(X) = R'(0)$ og $\\text{Var}(X) = R''(0)$ *direkte* — variansen kommer uten at du trenger $E(X^2)$ og regneformelen. Funksjonen $R(t) = \\ln M(t)$ kalles den kumulantgenererende funksjonen."
+    },
+    {
+      "id": "stk1100-4-1-def-kumulant",
+      "type": "definition",
+      "title": "Kumulantgenererende funksjon $R(t) = \\ln M(t)$",
+      "content": "Logaritmen av MGF-en — en snarvei som gir forventning og varians direkte, uten omveien om $E(X^2)$:\n\n$$R(t) = \\ln M_X(t), \\qquad E(X) = R'(0), \\qquad \\text{Var}(X) = R''(0).$$\n\nAt $R''(0)$ blir variansen (ikke andre moment) er det som gjør snarveien nyttig: for MGF-er på formen $e^{(\\cdot)}$ eller $(\\cdot)^{-\\alpha}$ forsvinner produkt- og kvotientregelen når du først tar logaritmen. Kontroll: alltid $R(0) = \\ln M(0) = \\ln 1 = 0$."
+    },
+    {
+      "id": "stk1100-4-1-ex-l5",
+      "type": "example",
+      "title": "Eksempel 5: Poisson-varians på ett trinn",
+      "problem": "Bruk $R(t) = \\ln M(t)$ for Poisson$(\\lambda)$ til å finne $E(X)$ og $\\text{Var}(X)$ i ett jafs.",
+      "solution": "MGF-en er $M(t) = e^{\\lambda(e^t - 1)}$, så logaritmen er ren:\n\n$$R(t) = \\ln M(t) = \\lambda(e^t - 1).$$\n\nDeriver to ganger — $e^t$ hele veien:\n\n$$R'(t) = \\lambda e^t \\;\\Rightarrow\\; E(X) = R'(0) = \\lambda; \\qquad R''(t) = \\lambda e^t \\;\\Rightarrow\\; \\text{Var}(X) = R''(0) = \\lambda.$$\n\nSammenlign med eksempel 4: samme svar, men uten produktregelen og regneformelen. Det er snarveiens gevinst."
+    },
+    {
+      "id": "stk1100-4-1-oppg-l5a",
+      "type": "exercise",
+      "exercise": {
+        "id": "stk1100-4-1-x-oppg-l5a",
+        "number": "5",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "La $X \\sim \\text{gamma}(\\alpha, \\beta)$ med $M(t) = (1 - \\beta t)^{-\\alpha}$.\n\n**a)** Finn $R(t) = \\ln M(t)$.\n**b)** Bruk $R'(0)$ og $R''(0)$ til å finne $E(X)$ og $\\text{Var}(X)$.",
+        "solution": "**a)** $R(t) = \\ln (1-\\beta t)^{-\\alpha} = -\\alpha\\ln(1 - \\beta t)$.\n\n**b)** $R'(t) = -\\alpha\\cdot\\frac{-\\beta}{1-\\beta t} = \\frac{\\alpha\\beta}{1 - \\beta t}$, så $E(X) = R'(0) = \\alpha\\beta$. Deriver igjen: $R''(t) = \\alpha\\beta\\cdot\\frac{\\beta}{(1-\\beta t)^2} = \\frac{\\alpha\\beta^2}{(1-\\beta t)^2}$, så $\\text{Var}(X) = R''(0) = \\alpha\\beta^2$.",
+        "hints": [
+          "$\\ln$ av en potens: $\\ln(1-\\beta t)^{-\\alpha} = -\\alpha\\ln(1-\\beta t)$.",
+          "$E = R'(0)$, $\\text{Var} = R''(0)$ direkte — ingen regneformel nødvendig."
+        ]
+      }
+    },
+    {
+      "id": "stk1100-4-1-l6-head",
+      "type": "text",
+      "content": "## Løkke 6 — Sum og gjennomsnitt av uavhengige: multipliser MGF-ene (~10 min)"
+    },
+    {
+      "id": "stk1100-4-1-l6-teori",
+      "type": "text",
+      "content": "Nå til grunnen til at MGF-en er så sentral på STK1100-eksamen. For **uavhengige** variable faktoriserer forventningen av et produkt, så MGF-en til en sum er *produktet* av MGF-ene. Og fordi MGF-en bestemmer fordelingen entydig, kan du lese av hva summen er — det er slik resultatene i [kap. 2.2](/bok/stk1100/stk1100-2-2) bevises."
+    },
+    {
+      "id": "stk1100-4-1-def-sum-mgf",
+      "type": "definition",
+      "title": "MGF for en sum av uavhengige variable",
+      "content": "Regelen som gjør MGF til et identifikasjonsverktøy: er $X_1, \\ldots, X_n$ uavhengige, er MGF-en til summen produktet av de enkelte MGF-ene.\n\n$$M_{X_1 + \\cdots + X_n}(t) = \\prod_{i=1}^n M_{X_i}(t).$$\n\nGrunnen: $E\\!\\left(e^{t\\sum X_i}\\right) = E\\!\\left(\\prod_i e^{tX_i}\\right) = \\prod_i E(e^{tX_i})$, der siste likhet krever **uavhengighet**. Merk: MGF-ene **multipliseres**, ikke adderes — den vanligste feilen på dette temaet."
+    },
+    {
+      "id": "stk1100-4-1-def-entydighet",
+      "type": "definition",
+      "title": "Entydighet: MGF-en bestemmer fordelingen",
+      "content": "Prinsippet som lar deg *identifisere* en fordeling fra MGF-en: har to variable samme MGF (på et intervall rundt 0), har de samme fordeling.\n\n$$M_X(t) = M_Y(t) \\text{ nær } t = 0 \\;\\Rightarrow\\; X \\text{ og } Y \\text{ har samme fordeling}.$$\n\nDerfor holder det å regne ut MGF-en til en sum og *kjenne den igjen* i katalogen: kjenner du igjen $(1-\\beta t)^{-\\alpha}$, er summen gamma$(\\alpha, \\beta)$. Sensor vil se at du nevner entydigheten — den er begrunnelsen for identifikasjonen."
+    },
+    {
+      "id": "stk1100-4-1-ex-l6",
+      "type": "example",
+      "title": "Eksempel 6: Sum av eksponensiale, og gjennomsnittet",
+      "problem": "La $X_1, \\ldots, X_n$ være uavhengige og eksponensialfordelte med forventning $\\mu$ (altså gamma$(1, \\mu)$ hver). Vis at summen $S = \\sum X_i$ er gammafordelt, og finn fordelingen til gjennomsnittet $\\bar X = S/n$.",
+      "solution": "**Summen.** Hver $X_i$ har MGF $M_{X_i}(t) = (1 - \\mu t)^{-1}$ for $t < 1/\\mu$. Multipliser (uavhengighet):\n\n$$M_S(t) = \\prod_{i=1}^n (1 - \\mu t)^{-1} = (1 - \\mu t)^{-n}, \\qquad t < 1/\\mu.$$\n\nDette er MGF-en til gamma$(n, \\mu)$. Ved entydigheten er $S \\sim \\text{gamma}(n, \\mu)$ — nettopp Erlang-resultatet fra [kap. 2.2](/bok/stk1100/stk1100-2-2), nå bevist.\n\n**Gjennomsnittet.** For en skalering $\\bar X = S/n$ gjelder $M_{\\bar X}(t) = M_S(t/n)$:\n\n$$M_{\\bar X}(t) = \\left(1 - \\mu\\cdot\\tfrac{t}{n}\\right)^{-n} = \\left(1 - \\tfrac{\\mu}{n} t\\right)^{-n}.$$\n\nDette er MGF-en til gamma$(n, \\mu/n)$. Altså $\\bar X \\sim \\text{gamma}(n, \\mu/n)$, med $E(\\bar X) = n\\cdot\\tfrac{\\mu}{n} = \\mu$ og $\\text{Var}(\\bar X) = n\\big(\\tfrac{\\mu}{n}\\big)^2 = \\mu^2/n$ — riktig, gjennomsnittet har mindre spredning.\n\n> — naturlig pausepunkt — dette er kjernen i kapitlet: sum → produkt av MGF → gjenkjenn fordelingen."
+    },
+    {
+      "id": "stk1100-4-1-oppg-l6a",
+      "type": "exercise",
+      "exercise": {
+        "id": "stk1100-4-1-x-oppg-l6a",
+        "number": "6",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "La $X \\sim \\text{Poisson}(\\lambda_1)$ og $Y \\sim \\text{Poisson}(\\lambda_2)$ være uavhengige.\n\n**a)** Skriv opp MGF-en til $S = X + Y$ ved å multiplisere.\n**b)** Identifiser fordelingen til $S$ og begrunn med entydigheten.",
+        "solution": "**a)** $M_S(t) = M_X(t)M_Y(t) = e^{\\lambda_1(e^t-1)}\\cdot e^{\\lambda_2(e^t-1)} = e^{(\\lambda_1 + \\lambda_2)(e^t - 1)}$.\n\n**b)** Dette er nøyaktig MGF-en til en Poisson-fordeling med parameter $\\lambda_1 + \\lambda_2$. Siden MGF-en bestemmer fordelingen entydig, er $S \\sim \\text{Poisson}(\\lambda_1 + \\lambda_2)$. Summen av uavhengige Poisson er altså Poisson med lagt-sammen rate.",
+        "hints": [
+          "Multipliser MGF-ene (uavhengighet), og legg sammen eksponentene.",
+          "Kjenn igjen $e^{c(e^t-1)}$ som Poisson-MGF med parameter $c$; nevn entydigheten."
+        ]
+      }
+    },
+    {
+      "id": "stk1100-4-1-oppg-l6b",
+      "type": "exercise",
+      "exercise": {
+        "id": "stk1100-4-1-x-oppg-l6b",
+        "number": "7",
+        "type": "classic",
+        "difficulty": "vanskelig",
+        "task": "La $X_1, \\ldots, X_n$ være uavhengige og eksponensialfordelte i **rateform** med felles rate $\\lambda$ (altså $f(x) = \\lambda e^{-\\lambda x}$, som er gamma$(1, 1/\\lambda)$).\n\n**a)** Finn MGF-en til én $X_i$ med konvergenskrav.\n**b)** Vis at $S = \\sum X_i \\sim \\text{gamma}(n, 1/\\lambda)$, og angi $E(S)$ og $\\text{Var}(S)$.",
+        "solution": "**a)** Rateform er gamma med $\\alpha = 1$, skala $\\beta = 1/\\lambda$. MGF: $M_{X_i}(t) = (1 - t/\\lambda)^{-1}$ for $t < \\lambda$ (kravet $t < 1/\\beta = \\lambda$).\n\n**b)** Uavhengighet gir $M_S(t) = \\prod (1 - t/\\lambda)^{-1} = (1 - t/\\lambda)^{-n}$ for $t < \\lambda$. Dette er MGF-en til gamma$(n, 1/\\lambda)$; ved entydigheten er $S \\sim \\text{gamma}(n, 1/\\lambda)$. Da $E(S) = n\\cdot\\tfrac1\\lambda = n/\\lambda$ og $\\text{Var}(S) = n\\cdot\\tfrac{1}{\\lambda^2} = n/\\lambda^2$.",
+        "hints": [
+          "Rateform $\\lambda e^{-\\lambda x}$ er gamma$(1, 1/\\lambda)$ — skala er $1/\\lambda$.",
+          "Multipliser: $[(1 - t/\\lambda)^{-1}]^n$; kjenn igjen gamma$(n, 1/\\lambda)$ og bruk $E = \\alpha\\beta$, $\\text{Var} = \\alpha\\beta^2$."
+        ]
+      }
+    },
+    {
+      "id": "stk1100-4-1-warn-typiske",
+      "type": "warning",
+      "title": "Typiske feil",
+      "content": "- **Glemme konvergenskravet på $t$.** En utledet MGF uten «$\\ldots$ for $t < 1/\\beta$» (eller tilsvarende) regnes som ufullstendig av sensor. Kravet kommer alltid fra at de sammensmeltede eksponentene må gi en avtakende funksjon.\n- **Addere MGF-ene for en sum i stedet for å multiplisere.** For uavhengige $X_i$ er $M_{\\sum X_i} = \\prod M_{X_i}$ — et produkt. (Det er *kumulantene* $R = \\ln M$ som adderes.)\n- **Identifisere summen uten entydighetsargumentet.** Å regne ut $M_S(t) = (1-\\mu t)^{-n}$ er ikke nok; du må si «ved entydigheten er dette gamma$(n, \\mu)$».\n- **Regnefeil i $M'(0)$ / $M''(0)$.** Bruk kjerneregelen nøye, og sjekk alltid $M(0) = 1$ og $R(0) = 0$ før du deriverer.\n- **Bruke variansen der du skulle brukt andre moment.** $M''(0) = E(X^2)$, ikke $\\text{Var}(X)$ — variansen er $M''(0) - [M'(0)]^2$. (Med $R = \\ln M$ blir derimot $R''(0)$ variansen direkte.)"
+    },
+    {
+      "id": "stk1100-4-1-begrepsbank-head",
+      "type": "text",
+      "content": "## Begrepsbank — flashcards\n\n*Flashcard-/repetisjonsstoff — hopp trygt over ved førstegangslesing; tidsanslaget gjelder kjernestoffet.* Kortene samler MGF-begrepene til pugg og raskt oppslag."
+    },
+    {
+      "id": "stk1100-4-1-bb-konvergenskrav",
+      "type": "definition",
+      "title": "Konvergenskravet",
+      "content": "En MGF er bare definert for de $t$ der $E(e^{tX})$ er endelig. For gamma$(\\alpha,\\beta)$: $t < 1/\\beta$; for kjikvadrat $\\chi^2_n$: $t < 1/2$; for geometrisk: $t < -\\ln(1-p)$. Poisson og normal har MGF for alle $t$. Kravet skal alltid oppgis ved utledning."
+    },
+    {
+      "id": "stk1100-4-1-bb-kjikvadrat-mgf",
+      "type": "definition",
+      "title": "Kjikvadrat-MGF",
+      "content": "Siden $\\chi^2_n = \\text{gamma}(n/2, 2)$, er $M(t) = (1 - 2t)^{-n/2}$ for $t < 1/2$. Summen av uavhengige $\\chi^2$-er blir $\\chi^2$ med lagt-sammen frihetsgrader, fordi eksponentene $-n_i/2$ adderes i produktet."
+    },
+    {
+      "id": "stk1100-4-1-bb-M0",
+      "type": "definition",
+      "title": "Kontrollen $M(0) = 1$",
+      "content": "Enhver MGF oppfyller $M_X(0) = E(e^0) = E(1) = 1$. Får du noe annet når du setter $t = 0$, har du regnet feil. Tilsvarende: $R(0) = \\ln M(0) = 0$ for den kumulantgenererende funksjonen."
+    },
+    {
+      "id": "stk1100-4-1-bb-poisson-sum-kort",
+      "type": "definition",
+      "title": "Poisson-sum",
+      "content": "Uavhengige $X_i \\sim \\text{Poisson}(\\lambda_i)$ gir $\\sum X_i \\sim \\text{Poisson}(\\sum \\lambda_i)$. Bevist ved at produktet av MGF-ene $e^{\\lambda_i(e^t-1)}$ blir $e^{(\\sum\\lambda_i)(e^t-1)}$."
+    },
+    {
+      "id": "stk1100-4-1-bb-exp-sum-kort",
+      "type": "definition",
+      "title": "Sum av eksponensiale (Erlang)",
+      "content": "Uavhengige eksponensiale med felles forventning $\\mu$ (gamma$(1,\\mu)$) summerer til gamma$(n,\\mu)$ — Erlang. MGF-beviset: $[(1-\\mu t)^{-1}]^n = (1-\\mu t)^{-n}$."
+    },
+    {
+      "id": "stk1100-4-1-bb-gjennomsnitt-exp",
+      "type": "definition",
+      "title": "Gjennomsnitt av eksponensiale",
+      "content": "For uavhengige eksponensiale med forventning $\\mu$ er $\\bar X = \\tfrac1n\\sum X_i \\sim \\text{gamma}(n, \\mu/n)$: $M_{\\bar X}(t) = M_S(t/n) = (1 - \\tfrac\\mu n t)^{-n}$. Da $E(\\bar X) = \\mu$, $\\text{Var}(\\bar X) = \\mu^2/n$."
+    },
+    {
+      "id": "stk1100-4-1-bb-skalering-mgf",
+      "type": "definition",
+      "title": "MGF ved skalering og forskyvning",
+      "content": "For $Y = aX + b$ er $M_Y(t) = e^{bt}M_X(at)$, fordi $E(e^{t(aX+b)}) = e^{bt}E(e^{(at)X})$. Spesielt $M_{\\bar X}(t) = M_S(t/n)$ for gjennomsnittet $\\bar X = S/n$."
+    },
+    {
+      "id": "stk1100-4-1-bb-mgf-vs-formelsamling",
+      "type": "definition",
+      "title": "MGF: oppslag vs. utledning",
+      "content": "MGF-katalogen (gamma, Poisson, normal, geometrisk) står i formelsamlingen — tren gjenkjenningen. Men *utledningen* av en gitt MGF (med konvergenskrav) og *identifikasjonen* av en sum må gjøres aktivt; det er der poengene sitter."
+    },
+    {
+      "id": "stk1100-4-1-bb-mgf-momenter-hoyere",
+      "type": "definition",
+      "title": "Høyere momenter",
+      "content": "MGF-en gir alle momentene: $E(X^r) = M^{(r)}(0)$. Deriver $r$ ganger og sett $t = 0$. Nyttig når en oppgave ber om $E(X^3)$ eller skjevhet — du slipper $r$ separate integraler."
+    },
+    {
+      "id": "stk1100-4-1-bb-hvorfor-uavhengig",
+      "type": "definition",
+      "title": "Hvorfor uavhengighet kreves",
+      "content": "Produktregelen $M_{\\sum X_i} = \\prod M_{X_i}$ hviler på $E(\\prod e^{tX_i}) = \\prod E(e^{tX_i})$, som bare gjelder når variablene er uavhengige. Uten uavhengighet må du håndtere kovariansleddene direkte (kap. 1.2)."
+    },
+    {
+      "id": "stk1100-4-1-bb-mgf-diskret-kont",
+      "type": "definition",
+      "title": "Sum vs. integral",
+      "content": "MGF-en regnes som en sum $\\sum_x e^{tx}p(x)$ for diskrete variable og et integral $\\int e^{tx}f(x)\\,dx$ for kontinuerlige — begge er $E[g(X)]$-regelen med $g(x) = e^{tx}$."
+    },
+    {
+      "id": "stk1100-4-1-bb-poisson-signatur",
+      "type": "definition",
+      "title": "Poisson-signaturen",
+      "content": "At $E(X) = \\text{Var}(X) = \\lambda$ er unikt for Poisson blant standardfordelingene. MGF-utledningen bekrefter det: $M'(0) = \\lambda$ og $M''(0) - \\lambda^2 = \\lambda$."
+    },
+    {
+      "id": "stk1100-4-1-bb-normal-lukket",
+      "type": "definition",
+      "title": "Normal er lukket under sum",
+      "content": "Fordi normal-MGF-en $e^{\\mu t + \\sigma^2 t^2/2}$ ganges til en MGF av samme form, er enhver lineærkombinasjon av uavhengige normale igjen normal: $aX + bY \\sim N(a\\mu_X + b\\mu_Y,\\ a^2\\sigma_X^2 + b^2\\sigma_Y^2)$."
+    },
+    {
+      "id": "stk1100-4-1-bb-mgf-eksisterer",
+      "type": "definition",
+      "title": "Når MGF-en finnes",
+      "content": "Ikke alle fordelinger har MGF (noen tunge haler gir divergerende $E(e^{tX})$ for alle $t \\ne 0$). Der en oppgave oppgir eller ber om MGF-en, finnes den — men konvergensintervallet må angis."
+    },
+    {
+      "id": "stk1100-4-1-bb-r-adderes",
+      "type": "definition",
+      "title": "Kumulanter adderes",
+      "content": "Der MGF-ene multipliseres for en sum, **adderes** de kumulantgenererende: $R_{\\sum X_i}(t) = \\sum_i R_{X_i}(t)$. Derfor adderes forventninger ($R'(0)$) og varianser ($R''(0)$) for uavhengige ledd."
+    },
+    {
+      "id": "stk1100-4-1-bb-mgf-identifikasjon-steg",
+      "type": "definition",
+      "title": "Identifikasjonsoppskrift",
+      "content": "Slik identifiserer du en sum: 1) skriv hver $M_{X_i}(t)$; 2) multipliser; 3) forenkle eksponentene; 4) kjenn igjen resultatet i katalogen; 5) konkluder med entydigheten. Fem trinn, samme hver gang."
+    },
+    {
+      "id": "stk1100-4-1-rep",
+      "type": "collapsible",
+      "title": "Repetisjonsoppgaver",
+      "buttonText": "Vis repetisjonsoppgaver",
+      "content": [
+        {
+          "id": "stk1100-4-1-rep-intro",
+          "type": "text",
+          "content": "Korte oppgaver fra forkunnskapene — momenter fra [kap. 2.1](/bok/stk1100/stk1100-2-1), gamma og sum-av-gamma fra [kap. 2.2](/bok/stk1100/stk1100-2-2) og derivasjon fra [R1 4.1](/bok/r1/r1-4-1) — til oppvarming."
+        },
+        {
+          "id": "stk1100-4-1-rep-o1",
+          "type": "exercise",
+          "exercise": {
+            "id": "stk1100-4-1-x-rep-o1",
+            "number": "R1",
+            "type": "classic",
+            "difficulty": "lett",
+            "task": "Deriver $g(t) = (1 - 3t)^{-2}$ med hensyn på $t$.",
+            "solution": "Kjerneregel: $g'(t) = -2(1-3t)^{-3}\\cdot(-3) = 6(1-3t)^{-3}$.",
+            "hints": [
+              "Ytre derivert $-2(\\cdot)^{-3}$, indre derivert $-3$."
+            ]
+          }
+        },
+        {
+          "id": "stk1100-4-1-rep-o2",
+          "type": "exercise",
+          "exercise": {
+            "id": "stk1100-4-1-x-rep-o2",
+            "number": "R2",
+            "type": "classic",
+            "difficulty": "lett",
+            "task": "For $X \\sim \\text{gamma}(\\alpha,\\beta)$ med skala $\\beta$, hva er $E(X)$ og $\\text{Var}(X)$?",
+            "solution": "$E(X) = \\alpha\\beta$ og $\\text{Var}(X) = \\alpha\\beta^2$ (fra kap. 2.2).",
+            "hints": [
+              "Skala-parametriseringen: forventning $\\alpha\\beta$."
+            ]
+          }
+        },
+        {
+          "id": "stk1100-4-1-rep-o3",
+          "type": "exercise",
+          "exercise": {
+            "id": "stk1100-4-1-x-rep-o3",
+            "number": "R3",
+            "type": "classic",
+            "difficulty": "lett",
+            "task": "Skriv $\\chi^2_n$ som en gammafordeling.",
+            "solution": "$\\chi^2_n = \\text{gamma}(n/2, 2)$: formparameter $n/2$, skala 2.",
+            "hints": [
+              "Formparameter halve frihetsgraden, skala 2."
+            ]
+          }
+        },
+        {
+          "id": "stk1100-4-1-rep-o4",
+          "type": "exercise",
+          "exercise": {
+            "id": "stk1100-4-1-x-rep-o4",
+            "number": "R4",
+            "type": "classic",
+            "difficulty": "middels",
+            "task": "En sum av $n=5$ uavhengige eksponensiale med felles forventning $\\mu = 4$ er gammafordelt. Hva er $E$ og $\\text{Var}$ av summen?",
+            "solution": "Summen er gamma$(5, 4)$ (Erlang). $E = 5\\cdot 4 = 20$, $\\text{Var} = 5\\cdot 4^2 = 80$.",
+            "hints": [
+              "Erlang: sum av $n$ eksponensiale (forventning $\\mu$) er gamma$(n,\\mu)$."
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": "stk1100-4-1-symbolliste",
+      "type": "collapsible",
+      "title": "Symbol- og formelliste",
+      "buttonText": "Vis symboler og formler",
+      "content": [
+        {
+          "id": "stk1100-4-1-sym-innhold",
+          "type": "text",
+          "content": "*Oppslagsverk — alt her forklares underveis i kapitlet.*\n\n| Symbol | Betydning |\n|---|---|\n| $M_X(t)$ | Momentgenererende funksjon, $E(e^{tX})$ |\n| $t$ | Hjelpevariabelen i MGF-en |\n| $M'(0), M''(0)$ | Første/andre deriverte i null: $E(X)$, $E(X^2)$ |\n| $M^{(r)}(0)$ | $r$-te moment $E(X^r)$ |\n| $R(t)$ | Kumulantgenererende funksjon, $\\ln M(t)$ |\n| $\\alpha, \\beta$ | Form- og skalaparameter i gamma$(\\alpha,\\beta)$ |\n| $\\lambda$ | Rate/parameter i Poisson |\n| $\\mu, \\sigma^2$ | Forventning og varians i $N(\\mu,\\sigma^2)$ |\n| $p$ | Suksess-sannsynlighet i geometrisk |\n| $\\chi^2_n$ | Kjikvadrat med $n$ frihetsgrader $= \\text{gamma}(n/2,2)$ |\n| $\\prod$ | Produkt (over uavhengige ledd) |\n\n**Formler i dette kapitlet:**\n\n$$M_X(t) = E(e^{tX}), \\qquad M_X(0) = 1$$\n\n$$E(X) = M'(0), \\quad E(X^2) = M''(0), \\quad \\text{Var}(X) = M''(0) - [M'(0)]^2$$\n\n$$R(t) = \\ln M(t), \\qquad E(X) = R'(0), \\qquad \\text{Var}(X) = R''(0)$$\n\n$$\\text{Gamma}(\\alpha,\\beta):\\ M(t) = (1-\\beta t)^{-\\alpha},\\ t < 1/\\beta$$\n\n$$\\text{Poisson}(\\lambda):\\ M(t) = e^{\\lambda(e^t-1)}; \\qquad N(\\mu,\\sigma^2):\\ M(t) = e^{\\mu t + \\sigma^2 t^2/2}$$\n\n$$\\text{Geometrisk}(p):\\ M(t) = \\frac{p e^t}{1-(1-p)e^t},\\ t < -\\ln(1-p)$$\n\n$$M_{X_1+\\cdots+X_n}(t) = \\prod_{i=1}^n M_{X_i}(t) \\quad (\\text{uavhengige})$$\n\n$$M_{aX+b}(t) = e^{bt}M_X(at)$$"
+        }
+      ]
+    }
+  ],
+  "exercises": []
+}

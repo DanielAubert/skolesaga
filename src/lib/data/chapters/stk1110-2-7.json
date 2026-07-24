@@ -1,0 +1,363 @@
+{
+  "id": "stk1110-2-7",
+  "courseId": "stk1110",
+  "chapterNumber": "2.7",
+  "title": "Drill: det komplette test-ritualet (sjanger E)",
+  "description": "Ritualet skrevet ut i full detalj, om og om igjen, over alle testtypene — inkludert den eksplisitte utledningen av at nivaet blir alpha og den verbalt korrekte P-verdi-definisjonen sensor krever.",
+  "estimatedMinutes": 80,
+  "competenceGoals": [
+    "kjenne igjen hvilken testtype en oppgave krever og skrive ut hele femtrinnsmalen for hver av dem",
+    "utlede eksplisitt at testen far niva alpha ved a regne P(forkast H0 gitt H0 sann)",
+    "velge riktig testobservator, fordeling og frihetsgrader for ett-utvalg, to-utvalg, parvis, andeler, Poisson, F, ANOVA og rangtest",
+    "definere P-verdien verbalt korrekt, konkludere i kontekst og kryssjekke mot konfidensintervallet"
+  ],
+  "content": [
+    {
+      "id": "stk1110-2-7-tip",
+      "type": "tip",
+      "title": "Eksamensvinkel",
+      "content": "**Dette kapitlet ER sensorkravet.** Testritualet er hjertet i Oppgave 2, som opptrer i **omtrent 20 av 22 sett (91 %)**. Løsningsforslagene skriver ut hele ritualet — særlig **nivå-utledningen** $P(\\text{forkast } H_0\\mid H_0)=\\alpha$ og den **verbale P-verdi-definisjonen**. Å bare «sette inn i formel» gir ikke full uttelling.\n\n- **Sjanger E** = hypotesetest-oppgaven i full pakke. Her drilles ALLE underartene: ett-utvalgs t, to-utvalgs pooled t, parvis t, andels-z, Poisson-test, F-test for varianser, ANOVA-F og rangtest.\n- Poenget med drillen: **samme fem trinn hver gang** — bare observatoren og frihetsgradene bytter. Når malen sitter i fingrene, koker enhver testoppgave ned til «hvilken observator, hvilken fordeling, hvilke frihetsgrader?».\n\n**Sensorens krav (§4.5):** de fem trinnene MÅ være med, nivået MÅ utledes, og P-verdien MÅ defineres i ord. Prioritet: **høyeste prioritet — dette er det tydeligste enkeltkravet i emnet.**\n\n*Tidsbruk:* ~80 min. Del gjerne over to økter: én for malen + de fire t-baserte testene, én for andeler/Poisson/F/ANOVA/rang. Anslaget er lesetid; regner du for hånd, gang med ca. 1,5."
+    },
+    {
+      "id": "stk1110-2-7-forkunnskaper",
+      "type": "text",
+      "content": "**Forkunnskaper:** Dette drillkapitlet samler hele Del 2. Du bør ha vært innom testritualet i **[kap. 2.2](/bok/stk1110/stk1110-2-2)** (de fem trinnene, P-verdi, dualitet), konfidensintervallene i **[kap. 2.1](/bok/stk1110/stk1110-2-1)** (t-, z-, andels- og $\\chi^2$-intervall, kvantiler, frihetsgrader), sammenligningstestene i **[kap. 2.3](/bok/stk1110/stk1110-2-3)** (to-utvalgs pooled t, parvis t, andels-z), styrke/dimensjonering i **[kap. 2.4](/bok/stk1110/stk1110-2-4)**, F-testen og eksakt pivot i **[kap. 2.5](/bok/stk1110/stk1110-2-5)**, og ANOVA/rangtest i **[kap. 2.6](/bok/stk1110/stk1110-2-6)**.\n\nAlt du trenger av fordelingsteori er allerede etablert der; her handler alt om å *utføre* ritualet raskt og fullstendig. Nødvendige kvantiler ($z$, $t$, $F$, $\\chi^2$) legges — som på eksamen — rett i oppgaveteksten."
+    },
+    {
+      "id": "stk1110-2-7-sistduvarher",
+      "type": "text",
+      "content": "**Sist du var her (nøkkelformlene du drar veksel på nå):**\n\n$$\\text{Ett utvalg: } T=\\frac{\\bar X-\\mu_0}{S/\\sqrt n}\\sim t_{n-1};\\qquad \\text{To utvalg: } T=\\frac{\\bar Y_1-\\bar Y_2}{S_p\\sqrt{1/m+1/n}}\\sim t_{m+n-2};$$\n$$\\text{Parvis: } T=\\frac{\\bar D}{S_D/\\sqrt n}\\sim t_{n-1};\\qquad \\text{Andeler: } Z=\\frac{\\hat p_1-\\hat p_2}{\\sqrt{\\hat p(1-\\hat p)(1/n_1+1/n_2)}}\\sim N(0,1).$$\n\nLegg merke til at alle har samme form: **(estimat − nullverdi) delt på standardfeil**. Det er malen — resten er å velge riktig standardfeil og riktig fordeling."
+    },
+    {
+      "id": "stk1110-2-7-oppskrift",
+      "type": "text",
+      "content": "## Løsningsoppskrift: den obligatoriske femtrinnsmalen\n\nHver eneste testoppgave løses med de samme fem trinnene. Lær dem som en fast kjede — sensor forventer å se alle fem.\n\n**Trinn 1 — Hypoteser med begrunnet retning.** Skriv $H_0$ (en likhet, «status quo») og $H_a$. **Begrunn** om $H_a$ er ensidig eller tosidig: skal du påvise en *bestemt* retning (øker/synker), er den ensidig; skal du bare påvise *endring*, er den tosidig. Retningen følger av spørsmålet og bestemmes FØR du ser dataene.\n\n**Trinn 2 — Testobservator og fordeling under $H_0$.** Skriv opp observatoren (estimat minus nullverdi, delt på standardfeil) og **oppgi fordelingen den har når $H_0$ er sann** — riktig type OG riktige frihetsgrader. Dette er der de fleste feilene skjer.\n\n**Trinn 3 — Utled at nivået blir $\\alpha$.** Regn eksplisitt\n$$P(\\text{forkast } H_0\\mid H_0\\text{ sann})=\\alpha.$$\nFor en høyresidig test: $P(T>t_{\\nu,\\alpha}\\mid H_0)=\\alpha$ per definisjon av kvantilen. For tosidig: $\\alpha/2$ i hver hale summerer til $\\alpha$. **Skriv sannsynligheten ut** — ikke bare «vi bruker 5 %». Dette er A-kravet (§4.5).\n\n**Trinn 4 — Tallfest, sammenlign og oppgi P-verdien.** Sett inn tallene, sammenlign observatoren med den kritiske verdien, og **oppgi P-verdien**. Definer den i ord: *«sannsynligheten under $H_0$ for et minst like ekstremt utfall som det observerte.»* Forkast når P-verdi $<\\alpha$.\n\n**Trinn 5 — Konkluder i ord i kontekst + dualitet.** Oversett «forkast/behold» til situasjonens språk, med P-verdi og nivå. Bruk **CI↔test-dualiteten** som kryssjekk: en tosidig test forkaster $H_0:\\theta=\\theta_0$ hvis og bare hvis $\\theta_0$ ligger utenfor det $(1-\\alpha)$-KI-et (for en ensidig test: utenfor det ensidige intervallet)."
+    },
+    {
+      "id": "stk1110-2-7-tabell",
+      "type": "text",
+      "content": "**Observator- og frihetsgrad-velgeren (trinn 2, alle testtypene):**\n\n| Situasjon | Observator | Fordeling under $H_0$ |\n|---|---|---|\n| Ett utvalg, ukjent $\\sigma$ | $T=\\dfrac{\\bar X-\\mu_0}{S/\\sqrt n}$ | $t_{n-1}$ |\n| Ett utvalg, kjent $\\sigma$ | $Z=\\dfrac{\\bar X-\\mu_0}{\\sigma/\\sqrt n}$ | $N(0,1)$ |\n| To uavhengige utvalg, lik varians | $T=\\dfrac{\\bar Y_1-\\bar Y_2}{S_p\\sqrt{1/m+1/n}}$ | $t_{m+n-2}$ |\n| Parvise data | $T=\\dfrac{\\bar D}{S_D/\\sqrt n}$ ($n$ = par) | $t_{n-1}$ |\n| To andeler | $Z=\\dfrac{\\hat p_1-\\hat p_2}{\\sqrt{\\hat p(1-\\hat p)(1/n_1+1/n_2)}}$ | $N(0,1)$ |\n| Poisson-antall (stor $\\mu$) | $Z=\\dfrac{X-\\mu_0}{\\sqrt{\\mu_0}}$ | $N(0,1)$ (CLT) |\n| To varianser | $F=\\dfrac{S_1^2}{S_2^2}$ | $F_{m-1,\\,n-1}$ |\n| $k$ gruppers forventning | $F=\\dfrac{\\text{MSB}}{\\text{MSW}}$ | $F_{k-1,\\,N-k}$ |\n\nVelg raden, og de fire andre trinnene er identiske. **Feil frihetsgrader straffes hardt** — dobbeltsjekk alltid nevneren."
+    },
+    {
+      "id": "stk1110-2-7-case",
+      "type": "example",
+      "title": "Gjennomregnet eksamenscase: ett-utvalgs t med sensor-margnotater",
+      "problem": "Et renseanlegg skal holde forventet utslipp under grenseverdien 25 mg/l. Tilsynet mistenker **overskridelse** og tar $n=20$ uavhengige prøver: $\\bar x=27{,}2$ mg/l og $s=4{,}5$ mg/l (normale data, ukjent $\\sigma$). Test på 5 %-nivå om forventet utslipp overstiger 25 mg/l. Bruk $t_{19,\\,0{,}05}=1{,}729$ og $t_{19,\\,0{,}025}=2{,}093$, og opplys at $P(T_{19}>2{,}19)\\approx 0{,}021$.",
+      "solution": "**Trinn 1 — hypoteser med begrunnet retning:** Tilsynet vil påvise *overskridelse*, altså en økning i én bestemt retning $\\Rightarrow$ ensidig (høyresidig):\n$$H_0:\\mu=25\\qquad\\text{mot}\\qquad H_a:\\mu>25.$$\n*Sensor-margnotat: full uttelling krever at retningen begrunnes ut fra ordet «overskridelse» — ikke velges etter at man har sett at $\\bar x>25$.*\n\n**Trinn 2 — observator + fordeling under $H_0$:** $T=\\dfrac{\\bar X-25}{S/\\sqrt n}$. Ukjent $\\sigma$ og normale data gir under $H_0$:\n$$T\\sim t_{n-1}=t_{19}.$$\n*Sensor-margnotat: her sitter poenget for $t$ (ikke $z$) og for $n-1=19$ frihetsgrader — feil df koster.*\n\n**Trinn 3 — utled at nivået blir 5 %:** Vi forkaster når $T>t_{19,\\,0{,}05}=1{,}729$. Under $H_0$ er $T\\sim t_{19}$, så\n$$P(\\text{forkast } H_0\\mid H_0)=P(T>1{,}729\\mid H_0)=0{,}05,$$\nnettopp fordi $t_{19,\\,0{,}05}$ per definisjon skjærer av arealet 0,05 i øvre hale. *Sensor-margnotat: dette trinnet — sannsynligheten skrevet ut — er det hyppigst glemte og et rent A-krav (§4.5).*\n\n**Trinn 4 — tallfest + P-verdi:** Standardfeil $S/\\sqrt n=4{,}5/\\sqrt{20}=1{,}006$. \n$$T=\\frac{27{,}2-25}{1{,}006}=\\frac{2{,}2}{1{,}006}=2{,}19>1{,}729,$$\nså vi forkaster. **P-verdien** er sannsynligheten under $H_0$ for et minst like ekstremt (stort) utfall som det observerte: $P\\text{-verdi}=P(T_{19}>2{,}19)\\approx 0{,}021<0{,}05$. *Sensor-margnotat: den verbale definisjonen må stå der — «$P(T_{19}>2{,}19)$» alene, uten ord, gir ikke full uttelling.*\n\n**Trinn 5 — konklusjon i kontekst + dualitet:** På 5 %-nivå er det belegg for at forventet utslipp overstiger grenseverdien 25 mg/l (P-verdi $\\approx 0{,}021$). **Kryssjekk (ensidig dualitet):** det ensidige nedre 95 %-intervallet er $\\mu>\\bar x-t_{19,\\,0{,}05}\\,S/\\sqrt n=27{,}2-1{,}729\\cdot 1{,}006=25{,}46$. Siden hele intervallet $\\mu>25{,}46$ ligger over 25, utelukkes nullverdien 25 — samme konklusjon som testen. *Sensor-margnotat: dualiteten som kryssjekk viser modenhet og fanger regnefeil.*"
+    },
+    {
+      "id": "stk1110-2-7-drill",
+      "type": "text",
+      "content": "## Drill: samme mal, alle testtypene\n\nOppgavene under ruller gjennom hver underart av sjanger E. Skriv ut **alle fem trinn** hver gang — også når det frister å hoppe over nivå-utledningen. De to siste er merket «(krevende)», og helt sist ligger en **kald oppgave** uten hint, der fasiten bare er en momentliste (som på eksamen får du ingen ledetråder)."
+    },
+    {
+      "id": "stk1110-2-7-ex1",
+      "type": "exercise",
+      "exercise": {
+        "id": "stk1110-2-7-ex1-e",
+        "number": "1",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "**(Ett-utvalgs t, ensidig.)** Et nytt kosttilskudd skal *øke* forventet hemoglobin over dagens nivå 12,0 g/dl. Fra $n=16$ pasienter: $\\bar x=12{,}8$, $s=1{,}6$ (normale data, ukjent $\\sigma$). Test på 5 %-nivå. Bruk $t_{15,\\,0{,}05}=1{,}753$ og $P(T_{15}>2{,}0)\\approx 0{,}032$.\n\nSkriv ut alle fem trinn, inkludert nivå-utledningen.",
+        "solution": "**1.** $H_0:\\mu=12{,}0$ mot $H_a:\\mu>12{,}0$ (ensidig — vi vil påvise en *økning*).\n\n**2.** $T=\\dfrac{\\bar X-12{,}0}{S/\\sqrt{16}}$; under $H_0$ (ukjent $\\sigma$, normale data): $T\\sim t_{15}$.\n\n**3.** Forkast når $T>t_{15,\\,0{,}05}=1{,}753$. Under $H_0$: $P(T>1{,}753\\mid H_0)=0{,}05$ — nivået er 5 %.\n\n**4.** Standardfeil $1{,}6/\\sqrt{16}=0{,}40$. $T=\\dfrac{12{,}8-12{,}0}{0{,}40}=\\dfrac{0{,}8}{0{,}40}=2{,}0>1{,}753$: forkast. P-verdi $=P(T_{15}>2{,}0)\\approx 0{,}032<0{,}05$ — sannsynligheten under $H_0$ for et minst like ekstremt utfall.\n\n**5.** På 5 %-nivå er det belegg for at tilskuddet øker forventet hemoglobin. Kryssjekk: ensidig nedre 95 %-grense $12{,}8-1{,}753\\cdot 0{,}40=12{,}10>12{,}0$, så 12,0 utelukkes — samme konklusjon.",
+        "hints": [
+          "Ensidig fordi vi vil påvise en ØKNING; $H_0:\\mu=12{,}0$, $T\\sim t_{15}$.",
+          "Standardfeil $1{,}6/\\sqrt{16}=0{,}40$; nivå-utledningen er $P(T>1{,}753\\mid H_0)=0{,}05$."
+        ]
+      }
+    },
+    {
+      "id": "stk1110-2-7-ex2",
+      "type": "exercise",
+      "exercise": {
+        "id": "stk1110-2-7-ex2-e",
+        "number": "2",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "**(Ett-utvalgs t, tosidig.)** En tappemaskin skal holde forventet fylling på $\\mu=500$ ml. Kvalitetskontrollen vil bare vite om fyllingen *har endret seg*. Fra $n=25$ flasker: $\\bar x=497$, $s=8$ (normale data). Test tosidig på 5 %-nivå, og kryssjekk mot det tosidige 95 %-KI-et. Bruk $t_{24,\\,0{,}025}=2{,}064$ og $P(T_{24}>1{,}875)\\approx 0{,}0365$.",
+        "solution": "**1.** $H_0:\\mu=500$ mot $H_a:\\mu\\ne 500$ (tosidig — spør bare om *endring*, ikke retning).\n\n**2.** $T=\\dfrac{\\bar X-500}{S/\\sqrt{25}}$; under $H_0$: $T\\sim t_{24}$.\n\n**3.** Forkast når $|T|>t_{24,\\,0{,}025}=2{,}064$. Under $H_0$: $P(|T|>2{,}064\\mid H_0)=0{,}025+0{,}025=0{,}05$.\n\n**4.** Standardfeil $8/\\sqrt{25}=1{,}6$. $T=\\dfrac{497-500}{1{,}6}=\\dfrac{-3}{1{,}6}=-1{,}875$. $|-1{,}875|=1{,}875<2{,}064$: forkast **ikke**. P-verdi (tosidig) $=2\\,P(T_{24}>1{,}875)\\approx 0{,}073>0{,}05$.\n\n**5.** På 5 %-nivå har vi ikke belegg for at forventet fylling har endret seg fra 500 ml (P-verdi $\\approx 0{,}073$). Kryssjekk: 95 %-KI $497\\pm 2{,}064\\cdot 1{,}6=497\\pm 3{,}30=[493{,}70,\\ 500{,}30]$; verdien 500 ligger **innenfor**, så $H_0$ kan ikke forkastes — samme konklusjon (dualitet).",
+        "hints": [
+          "Tosidig: $H_a:\\mu\\ne 500$, forkast når $|T|>2{,}064$.",
+          "Standardfeil $8/5=1{,}6$; P-verdien er dobbelt halesannsynlighet."
+        ]
+      }
+    },
+    {
+      "id": "stk1110-2-7-ex3",
+      "type": "exercise",
+      "exercise": {
+        "id": "stk1110-2-7-ex3-e",
+        "number": "3",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "**(To-utvalgs pooled t.)** To gjødseltyper sammenlignes på uavhengige forsøksfelt. Type 1: $m=10$, $\\bar y_1=53$, $s_1=5$. Type 2: $n=12$, $\\bar y_2=48$, $s_2=4$ (normale data, lik varians). Test tosidig på 5 %-nivå om forventet avling er forskjellig, og gi et 95 % KI for differansen. Bruk $t_{20,\\,0{,}025}=2{,}086$ og $P(T_{20}>2{,}61)\\approx 0{,}0084$.",
+        "solution": "**1.** $H_0:\\mu_1=\\mu_2$ mot $H_a:\\mu_1\\ne\\mu_2$ (tosidig).\n\n**2.** Pooled varians $S_p^2=\\dfrac{(m-1)S_1^2+(n-1)S_2^2}{m+n-2}=\\dfrac{9\\cdot 25+11\\cdot 16}{20}=\\dfrac{225+176}{20}=20{,}05$, så $S_p=4{,}48$. Observator $T=\\dfrac{\\bar Y_1-\\bar Y_2}{S_p\\sqrt{1/m+1/n}}$; under $H_0$: $T\\sim t_{m+n-2}=t_{20}$.\n\n**3.** Forkast når $|T|>t_{20,\\,0{,}025}=2{,}086$. Under $H_0$: $P(|T|>2{,}086\\mid H_0)=0{,}05$.\n\n**4.** Standardfeil $4{,}48\\sqrt{1/10+1/12}=4{,}48\\cdot 0{,}4282=1{,}917$. $T=\\dfrac{53-48}{1{,}917}=\\dfrac{5}{1{,}917}=2{,}61>2{,}086$: forkast. P-verdi $=2\\,P(T_{20}>2{,}61)\\approx 0{,}017<0{,}05$.\n\n**5.** På 5 %-nivå er forventet avling forskjellig mellom de to gjødseltypene. 95 %-KI for differansen: $5\\pm 2{,}086\\cdot 1{,}917=5\\pm 4{,}00=[1{,}00,\\ 9{,}00]$ — utelukker 0, samme konklusjon (df $=20$).",
+        "hints": [
+          "$S_p^2=\\dfrac{9\\cdot 25+11\\cdot 16}{20}$; frihetsgrader $m+n-2=20$.",
+          "Standardfeil $=S_p\\sqrt{1/10+1/12}$; sjekk om KI-et for differansen inneholder 0."
+        ]
+      }
+    },
+    {
+      "id": "stk1110-2-7-ex4",
+      "type": "exercise",
+      "exercise": {
+        "id": "stk1110-2-7-ex4-e",
+        "number": "4",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "**(Parvis t.)** Ti bilister kjører samme rute med to dekktyper (samme bil, samme fører) — dette er PARVISE data. Differansene i drivstofforbruk (type A − type B) har $\\bar d=2{,}4$ og $s_D=3{,}2$ over $n=10$ par. Test ensidig på 5 %-nivå om type A gir *høyere* forbruk. Bruk $t_{9,\\,0{,}05}=1{,}833$ og $P(T_9>2{,}37)\\approx 0{,}021$.",
+        "solution": "**1.** $H_0:\\mu_D=0$ mot $H_a:\\mu_D>0$ (ensidig — vi vil påvise at A gir høyere forbruk). $D_i$ er differansene, behandlet som ETT utvalg.\n\n**2.** $T=\\dfrac{\\bar D}{S_D/\\sqrt{10}}$; under $H_0$: $T\\sim t_{n-1}=t_9$. **Merk:** $n=10$ *par*, så df $=9$ — ikke $2\\cdot 10-2=18$.\n\n**3.** Forkast når $T>t_{9,\\,0{,}05}=1{,}833$. Under $H_0$: $P(T>1{,}833\\mid H_0)=0{,}05$.\n\n**4.** Standardfeil $3{,}2/\\sqrt{10}=1{,}012$. $T=\\dfrac{2{,}4}{1{,}012}=2{,}37>1{,}833$: forkast. P-verdi $=P(T_9>2{,}37)\\approx 0{,}021<0{,}05$ — sannsynligheten under $H_0$ for et minst like ekstremt utfall.\n\n**5.** På 5 %-nivå er det belegg for at dekktype A gir høyere forventet forbruk enn type B (P-verdi $\\approx 0{,}021$).",
+        "hints": [
+          "Parvise data: regn på differansene $D_i$, ETT utvalg med $n=10$ par $\\Rightarrow$ $t_9$.",
+          "Standardfeil $3{,}2/\\sqrt{10}=1{,}012$; ensidig kritisk verdi 1,833."
+        ]
+      }
+    },
+    {
+      "id": "stk1110-2-7-ex5",
+      "type": "exercise",
+      "exercise": {
+        "id": "stk1110-2-7-ex5-e",
+        "number": "5",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "**(To-utvalgs andels-z, pooled $\\hat p$.)** Et informasjonstiltak prøves ut i to bydeler. Bydel 1: $x_1=90$ av $n_1=200$ svarer riktig; bydel 2: $x_2=66$ av $n_2=200$. Test tosidig på 5 %-nivå om andelen riktige svar er forskjellig. Bruk $z_{0{,}025}=1{,}96$ og $P(Z>2{,}46)\\approx 0{,}0069$.",
+        "solution": "**1.** $H_0:p_1=p_2$ mot $H_a:p_1\\ne p_2$ (tosidig).\n\n**2.** $\\hat p_1=90/200=0{,}45$, $\\hat p_2=66/200=0{,}33$. **Pooled** under $H_0$: $\\hat p=\\dfrac{90+66}{200+200}=\\dfrac{156}{400}=0{,}39$. Observator $Z=\\dfrac{\\hat p_1-\\hat p_2}{\\sqrt{\\hat p(1-\\hat p)(1/n_1+1/n_2)}}$; under $H_0$: $Z\\sim N(0,1)$.\n\n**3.** Forkast når $|Z|>z_{0{,}025}=1{,}96$. Under $H_0$: $P(|Z|>1{,}96\\mid H_0)=0{,}025+0{,}025=0{,}05$.\n\n**4.** Standardfeil $\\sqrt{0{,}39\\cdot 0{,}61\\,(1/200+1/200)}=\\sqrt{0{,}2379\\cdot 0{,}01}=\\sqrt{0{,}002379}=0{,}0488$. $Z=\\dfrac{0{,}45-0{,}33}{0{,}0488}=\\dfrac{0{,}12}{0{,}0488}=2{,}46>1{,}96$: forkast. P-verdi (tosidig) $=2\\,P(Z>2{,}46)\\approx 0{,}014<0{,}05$.\n\n**5.** På 5 %-nivå er andelen riktige svar forskjellig mellom bydelene (P-verdi $\\approx 0{,}014$). Merk bruk av **pooled** $\\hat p=0{,}39$ i standardfeilen — ikke separate $\\hat p_1,\\hat p_2$.",
+        "hints": [
+          "Under $H_0$ brukes pooled $\\hat p=(x_1+x_2)/(n_1+n_2)=0{,}39$ i standardfeilen.",
+          "$Z=(\\hat p_1-\\hat p_2)/\\sqrt{\\hat p(1-\\hat p)(1/n_1+1/n_2)}$; tosidig kritisk verdi 1,96."
+        ]
+      }
+    },
+    {
+      "id": "stk1110-2-7-ex6",
+      "type": "exercise",
+      "exercise": {
+        "id": "stk1110-2-7-ex6-e",
+        "number": "6",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "**(Poisson-test, normaltilnærmet.)** Antall registrerte feil i en produksjonsperiode er $X\\sim\\text{Poisson}(\\mu)$. Normalt ligger raten på $\\mu_0=100$; ledelsen vil påvise en *økning*. Denne perioden observeres $x=118$. Test på 5 %-nivå med normaltilnærming. Bruk $z_{0{,}05}=1{,}645$ og $P(Z>1{,}80)\\approx 0{,}036$.",
+        "solution": "**1.** $H_0:\\mu=100$ mot $H_a:\\mu>100$ (ensidig — vi vil påvise økning).\n\n**2.** For Poisson er $E(X)=\\text{Var}(X)=\\mu$. Ved stor $\\mu$ gir **sentralgrenseteoremet** $X\\approx N(\\mu,\\mu)$. Observator $Z=\\dfrac{X-\\mu_0}{\\sqrt{\\mu_0}}$; under $H_0$: $Z\\approx N(0,1)$ (normaltilnærming).\n\n**3.** Forkast når $Z>z_{0{,}05}=1{,}645$. Under $H_0$: $P(Z>1{,}645\\mid H_0)=0{,}05$.\n\n**4.** $Z=\\dfrac{118-100}{\\sqrt{100}}=\\dfrac{18}{10}=1{,}80>1{,}645$: forkast. P-verdi $=P(Z>1{,}80)\\approx 0{,}036<0{,}05$ — sannsynligheten under $H_0$ for et minst like ekstremt utfall.\n\n**5.** På 5 %-nivå er det belegg for at feilraten har økt over 100 (P-verdi $\\approx 0{,}036$). Merk: konklusjonen hviler på normaltilnærmingen $X\\approx N(\\mu,\\mu)$ (CLT), som må nevnes eksplisitt.",
+        "hints": [
+          "Poisson: $E(X)=\\text{Var}(X)=\\mu$, så standardavviket under $H_0$ er $\\sqrt{\\mu_0}=10$.",
+          "$Z=(X-\\mu_0)/\\sqrt{\\mu_0}$; nevn CLT-tilnærmingen i trinn 2."
+        ]
+      }
+    },
+    {
+      "id": "stk1110-2-7-ex7",
+      "type": "exercise",
+      "exercise": {
+        "id": "stk1110-2-7-ex7-e",
+        "number": "7",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "**(F-test for varianser.)** Før en pooled to-utvalgstest vil du sjekke lik-varians-antakelsen. Utvalg 1: $m=21$ med $s_1^2=6{,}0$. Utvalg 2: $n=16$ med $s_2^2=2{,}4$ (uavhengige normale data). Test tosidig på 5 %-nivå om variansene er like, og si hva konklusjonen betyr for en påfølgende pooled test. Bruk $F_{20,\\,15,\\,0{,}025}=2{,}76$.",
+        "solution": "**1.** $H_0:\\sigma_1^2=\\sigma_2^2$ mot $H_a:\\sigma_1^2\\ne\\sigma_2^2$ (tosidig).\n\n**2.** Legg største varians i telleren: $F=\\dfrac{S_1^2}{S_2^2}$; under $H_0$: $F\\sim F_{m-1,\\,n-1}=F_{20,\\,15}$ (teller-df fra utvalg 1, nevner-df fra utvalg 2).\n\n**3.** Tosidig forkast når $F>F_{20,\\,15,\\,0{,}025}=2{,}76$ (øvre grense). Under $H_0$ er $P(F>2{,}76\\mid H_0)=0{,}025$ i øvre hale (den nedre halen dekker de resterende 0,025).\n\n**4.** $F=\\dfrac{6{,}0}{2{,}4}=2{,}50<2{,}76$: forkast **ikke**. (P-verdi $\\approx 0{,}075>0{,}05$.)\n\n**5.** På 5 %-nivå er det ikke belegg for ulik varians — **lik-varians-antakelsen kan beholdes**, så en pooled to-utvalgs t-test er forsvarlig. Merk: å beholde $H_0$ betyr ikke at variansene er *bevist* like, bare at det ikke er belegg mot antakelsen.",
+        "hints": [
+          "$F=s_1^2/s_2^2$ med største varians i telleren; frihetsgrader $(m-1,\\,n-1)=(20,15)$.",
+          "Sammenlign med øvre kvantil $F_{20,15,\\,0{,}025}=2{,}76$."
+        ]
+      }
+    },
+    {
+      "id": "stk1110-2-7-ex8",
+      "type": "exercise",
+      "exercise": {
+        "id": "stk1110-2-7-ex8-e",
+        "number": "8",
+        "type": "classic",
+        "difficulty": "vanskelig",
+        "task": "**(Enveis ANOVA-F fra R-utskrift.)** Tre opplæringsopplegg (A, B, C) sammenlignes på til sammen $N=27$ deltakere. En enveis variansanalyse gir følgende utskrift:\n\n```\n            Df   Sum Sq   Mean Sq   F value   Pr(>F)\nopplegg      2    96.0     48.00     4.80     0.0176\nResiduals   24   240.0     10.00\n```\n\n**a)** Verifiser Mean Sq- og F value-kolonnene.\n\n**b)** Formuler hypotesene og oppgi observatoren med fordeling under $H_0$.\n\n**c)** Konkluder på 5 %-nivå, og forklar hva testen IKKE forteller.",
+        "solution": "**a)** MSB $=\\text{SSB}/(k-1)=96{,}0/2=48{,}00$; MSW $=\\text{SSW}/(N-k)=240{,}0/24=10{,}00$. $F=\\text{MSB}/\\text{MSW}=48{,}00/10{,}00=4{,}80$ — stemmer. Df: $k-1=2$ (så $k=3$ grupper) og $N-k=24$ (så $N=27$).\n\n**b)** $H_0:\\mu_A=\\mu_B=\\mu_C$ mot $H_a:$ minst én gruppe skiller seg. Observator $F=\\text{MSB}/\\text{MSW}$; under $H_0$: $F\\sim F_{k-1,\\,N-k}=F_{2,\\,24}$. (Nivå-utledning: vi forkaster for store $F$; $P(F_{2,24}>F_{2,24,\\,0{,}05}\\mid H_0)=0{,}05$.)\n\n**c)** Fra utskriften: $\\text{Pr(>F)}=P(F_{2,24}>4{,}80)=0{,}0176<0{,}05$: forkast $H_0$. På 5 %-nivå er det belegg for at minst ett opplegg gir ulik forventet effekt. **Testen sier bare AT det finnes en forskjell — ikke HVILKE grupper som skiller seg.** Det krever oppfølgende parvise sammenligninger (kontraster, kap. 3.3).",
+        "hints": [
+          "Mean Sq $=$ Sum Sq$/$Df; F value $=$ MSB/MSW.",
+          "Fordeling $F_{k-1,\\,N-k}$; les $k$ og $N$ ut av Df-kolonnen."
+        ]
+      }
+    },
+    {
+      "id": "stk1110-2-7-ex9",
+      "type": "exercise",
+      "exercise": {
+        "id": "stk1110-2-7-ex9-e",
+        "number": "9",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "**(Rangtest — når normalitet svikter.)** To metoder sammenlignes på $n=11$ små, tydelig skjeve målinger. QQ-plottet buer sterkt (tunge haler). En to-utvalgs t-test gir P-verdi 0,04, mens en Wilcoxon rangsumtest gir «W = 74, p-value = 0,09».\n\n**a)** Hvorfor er rangtesten å foretrekke her?\n\n**b)** Hva betyr forskjellen i P-verdi for konklusjonen på 5 %-nivå?\n\n**c)** En medstudent sier at den høyere P-verdien viser at rangtesten er «dårligere». Har han rett?",
+        "solution": "**a)** QQ-plottet viser klart brudd på normalitet, og med bare 11 observasjoner kan ikke sentralgrenseteoremet redde t-testen. Rangtesten (Wilcoxon/Mann–Whitney) antar *ikke* normalitet — bare lik fordelingsform — og er robust mot de tunge halene. Dens forutsetninger er oppfylt; t-testens er det ikke.\n\n**b)** t-testens P-verdi 0,04 er signifikant på 5 %, men hviler på en antakelse som er brutt, så den kan være for optimistisk. Rangtestens 0,09 bygger på svakere, oppfylte antakelser og gir *ikke* signifikans på 5 %. Vi bør stole på rangtesten: på 5 %-nivå er det **ikke** tilstrekkelig belegg for en forskjell mellom metodene.\n\n**c)** Nei. En høyere P-verdi er *prisen* for svakere antakelser — testen er mer ærlig om usikkerheten når dataene er ikke-normale. En lavere P fra en test med brutte forutsetninger er ikke mer pålitelig.",
+        "hints": [
+          "Hvilken av testene krever normalitet, og er den antakelsen oppfylt ved $n=11$ og buende QQ-plott?",
+          "Tenk på hva en høyere P-verdi fra en robust test faktisk reflekterer."
+        ]
+      }
+    },
+    {
+      "id": "stk1110-2-7-ex10",
+      "type": "exercise",
+      "exercise": {
+        "id": "stk1110-2-7-ex10-e",
+        "number": "10",
+        "type": "classic",
+        "difficulty": "vanskelig",
+        "task": "**(Krevende — velg riktig oppsett, så utfør.)** Avgjør i hvert tilfelle hvilken testtype som er riktig, hvilken observator og fordeling (med frihetsgrader) du bruker — og for (c) utfør hele ritualet.\n\n**a)** Blodtrykk hos 18 pasienter, målt før og etter en behandling; påvise endring.\n\n**b)** Andel fornøyde blant 250 kunder i butikk X mot 300 i butikk Y.\n\n**c)** Reaksjonstid hos $m=8$ menn ($\\bar y_1=44$, $s_1=6$) og $n=11$ kvinner ($\\bar y_2=38$, $s_2=5$), uavhengige normale data, lik varians; påvise forskjell tosidig på 5 %-nivå. Bruk $t_{17,\\,0{,}025}=2{,}110$ og $P(T_{17}>2{,}38)\\approx 0{,}015$.",
+        "solution": "**a)** PARVISE data (samme pasient to ganger). Reduser til $D_i=$ etter − før; $T=\\bar D/(S_D/\\sqrt{18})\\sim t_{17}$ under $H_0:\\mu_D=0$. Tosidig ($H_a:\\mu_D\\ne 0$), siden vi bare vil påvise *endring*.\n\n**b)** To-utvalgs ANDELS-test. $Z=\\dfrac{\\hat p_X-\\hat p_Y}{\\sqrt{\\hat p(1-\\hat p)(1/250+1/300)}}\\sim N(0,1)$ under $H_0:p_X=p_Y$, med pooled $\\hat p=(x_X+x_Y)/(250+300)$.\n\n**c)** To uavhengige utvalg, lik varians $\\Rightarrow$ pooled to-utvalgs t.\n**1.** $H_0:\\mu_1=\\mu_2$ mot $H_a:\\mu_1\\ne\\mu_2$.\n**2.** $S_p^2=\\dfrac{7\\cdot 36+10\\cdot 25}{17}=\\dfrac{252+250}{17}=29{,}53$, $S_p=5{,}43$. $T=\\dfrac{\\bar Y_1-\\bar Y_2}{S_p\\sqrt{1/8+1/11}}\\sim t_{17}$ under $H_0$.\n**3.** Forkast når $|T|>t_{17,\\,0{,}025}=2{,}110$; under $H_0$ er $P(|T|>2{,}110\\mid H_0)=0{,}05$.\n**4.** Standardfeil $5{,}43\\sqrt{1/8+1/11}=5{,}43\\cdot 0{,}4647=2{,}525$. $T=\\dfrac{44-38}{2{,}525}=\\dfrac{6}{2{,}525}=2{,}38>2{,}110$: forkast. P-verdi $=2\\,P(T_{17}>2{,}38)\\approx 0{,}030<0{,}05$.\n**5.** På 5 %-nivå er forventet reaksjonstid forskjellig mellom kjønnene (P-verdi $\\approx 0{,}030$, df $=17$).",
+        "hints": [
+          "Spør alltid først: én forventning, to koblede, to uavhengige, andeler, antall, eller varianser? Det avgjør observator og df.",
+          "For (c): $S_p^2=\\dfrac{7\\cdot 36+10\\cdot 25}{17}$, df $=m+n-2=17$."
+        ]
+      }
+    },
+    {
+      "id": "stk1110-2-7-ex11",
+      "type": "exercise",
+      "exercise": {
+        "id": "stk1110-2-7-ex11-e",
+        "number": "11",
+        "type": "classic",
+        "difficulty": "vanskelig",
+        "task": "**(Krevende — finn feilene.)** En student leverer denne besvarelsen på en test av $H_0:\\mu=50$ (påvise *økning*, ukjent $\\sigma$, $n=16$, $\\bar x=52$, $s=6$, 5 %-nivå):\n\n*«Jeg tester $H_0:\\mu=50$ mot $H_a:\\mu\\ne 50$. Observator $Z=(\\bar X-50)/(\\sigma/\\sqrt n)\\sim N(0,1)$. $Z=(52-50)/(6/\\sqrt{16})=2/1{,}5=1{,}33$. P-verdien 0,18 er sannsynligheten for at $H_0$ er sann; siden den er stor, er $H_0$ bevist. Jeg beholder $H_0$.»*\n\nPek ut alle feilene og skriv en korrekt kort løsning. Bruk $t_{15,\\,0{,}05}=1{,}753$ og $P(T_{15}>1{,}33)\\approx 0{,}10$.",
+        "solution": "**Feilene:**\n1. **Feil retning i $H_a$:** oppgaven vil påvise *økning* $\\Rightarrow$ ensidig $H_a:\\mu>50$, ikke tosidig.\n2. **$z$ der det skal være $t$:** $\\sigma$ er ukjent (vi har $s$), så observatoren er $T\\sim t_{n-1}=t_{15}$, ikke $Z\\sim N(0,1)$.\n3. **Standardfeil-verdien er riktig regnet ($6/4=1{,}5$)**, men skulle gitt en $t$-observator: $T=1{,}33\\sim t_{15}$.\n4. **P-verdi-mistolkning:** P-verdien er IKKE «sannsynligheten for at $H_0$ er sann». Den er sannsynligheten under $H_0$ for et minst like ekstremt utfall.\n5. **«$H_0$ er bevist»:** å beholde $H_0$ beviser den ikke — det betyr bare utilstrekkelig belegg mot den.\n\n**Korrekt løsning:** $H_0:\\mu=50$ mot $H_a:\\mu>50$. $T=\\dfrac{\\bar X-50}{S/\\sqrt{16}}\\sim t_{15}$. Forkast når $T>t_{15,\\,0{,}05}=1{,}753$; under $H_0$ er $P(T>1{,}753\\mid H_0)=0{,}05$. $T=\\dfrac{52-50}{1{,}5}=1{,}33<1{,}753$: forkast **ikke**. Ensidig P-verdi $=P(T_{15}>1{,}33)\\approx 0{,}10>0{,}05$. På 5 %-nivå har vi ikke tilstrekkelig belegg for at forventningen har økt over 50.",
+        "hints": [
+          "Sjekk hvert trinn mot malen: stemmer retningen i $H_a$? kjent eller ukjent $\\sigma$? er P-verdien tolket korrekt?",
+          "Ukjent $\\sigma$ + «påvise økning» $\\Rightarrow$ ensidig $t_{15}$-test."
+        ]
+      }
+    },
+    {
+      "id": "stk1110-2-7-ex12",
+      "type": "exercise",
+      "exercise": {
+        "id": "stk1110-2-7-ex12-e",
+        "number": "12",
+        "type": "classic",
+        "difficulty": "vanskelig",
+        "task": "**(Kald oppgave — fasit som momentliste, ingen hint.)** En kalibrering skal holde forventet måleverdi på 50 enheter; laboratoriet vil vite om verdien *har endret seg*. Fra $n=25$ normale målinger: $\\bar x=51{,}5$, $s=4{,}0$. Gjennomfør hele femtrinnsmalen tosidig på 5 %-nivå, oppgi P-verdien og definer den, og kryssjekk mot det tosidige 95 %-KI-et. Bruk $t_{24,\\,0{,}025}=2{,}064$ og $P(T_{24}>1{,}875)\\approx 0{,}0365$.",
+        "solution": "- **1.** $H_0:\\mu=50$ mot $H_a:\\mu\\ne 50$ (tosidig — bare «endret seg»).\n- **2.** $T=\\dfrac{\\bar X-50}{S/\\sqrt{25}}\\sim t_{24}$ under $H_0$ (ukjent $\\sigma$, normale data).\n- **3.** Forkast når $|T|>t_{24,\\,0{,}025}=2{,}064$; under $H_0$: $P(|T|>2{,}064\\mid H_0)=0{,}025+0{,}025=0{,}05$.\n- **4.** Standardfeil $4{,}0/\\sqrt{25}=0{,}80$. $T=\\dfrac{51{,}5-50}{0{,}80}=\\dfrac{1{,}5}{0{,}80}=1{,}875$. $|1{,}875|<2{,}064$: forkast **ikke**. P-verdi $=2\\,P(T_{24}>1{,}875)\\approx 0{,}073$ = sannsynligheten under $H_0$ for et minst like ekstremt utfall; $0{,}073>0{,}05$.\n- **5.** På 5 %-nivå har vi ikke belegg for at kalibreringen har endret seg fra 50. Kryssjekk: 95 %-KI $51{,}5\\pm 2{,}064\\cdot 0{,}80=51{,}5\\pm 1{,}65=[49{,}85,\\ 53{,}15]$; 50 ligger innenfor $\\Rightarrow$ kan ikke forkaste (dualitet).",
+        "hints": []
+      }
+    },
+    {
+      "id": "stk1110-2-7-warn-typiske-feil",
+      "type": "warning",
+      "title": "Typiske feil i test-ritualet",
+      "content": "**1. Hoppe over nivå-utledningen.** Trinnet der du viser at forkastningsregelen har nivå $\\alpha$ er en del av ritualet — ikke bare «forkast hvis $|T|>t_{n-1,\\alpha/2}$» uten begrunnelse.\n\n**2. P-verdi-mistolkning.** P-verdien er sannsynligheten, beregnet under $H_0$, for et minst like ekstremt utfall som det observerte — aldri «sannsynligheten for at $H_0$ er sann».\n\n**3. Feil retning i $H_a$ og feil frihetsgrader.** Retningen skal begrunnes fra spørsmålet FØR du ser på tallene; df er $n-1$, $m+n-2$ (pooled) eller $n-1$ for differansene ved parvise data.\n\n**4. Parvise data behandlet som to uavhengige utvalg.** Reduser alltid til differansene $D_i$ først — to-utvalgsformelen er gal her og gir feil varians.\n\n**5. Konklusjon uten kontekst.** «Forkaster $H_0$» er et halvt svar; konkluder i oppgavens egne ord (t↔z-forveksling trekker også)."
+    },
+    {
+      "id": "stk1110-2-7-bank",
+      "type": "text",
+      "content": "## Begrepsbank"
+    },
+    {
+      "id": "stk1110-2-7-bank-note",
+      "type": "text",
+      "content": "*Flashcard-/repetisjonsstoff — hopp trygt over ved førstegangslesing; tidsanslaget gjelder kjernestoffet.* Korte, navngitte definisjoner av testritual-begrepene, samlet for eksamensrepetisjon."
+    },
+    {
+      "id": "stk1110-2-7-bank-mal",
+      "type": "definition",
+      "title": "Femtrinns-testmalen",
+      "content": "Den faste kjeden i enhver hypotesetest: (1) $H_0/H_a$ med begrunnet retning; (2) observator + fordeling under $H_0$; (3) utled at nivået blir $\\alpha$; (4) tallfest + P-verdi (definert i ord); (5) konkluder i kontekst + dualitet. Bare observatoren og frihetsgradene bytter mellom testtypene."
+    },
+    {
+      "id": "stk1110-2-7-bank-niva",
+      "type": "definition",
+      "title": "Nivå-utledningen",
+      "content": "Å skrive eksplisitt ut at $P(\\text{forkast } H_0\\mid H_0\\text{ sann})=\\alpha$. Ensidig: $P(T>t_{\\nu,\\alpha}\\mid H_0)=\\alpha$; tosidig: $\\alpha/2$ i hver hale. Det eksplisitte sensorkravet (§4.5) og det hyppigst glemte trinnet — «vi bruker 5 %» holder ikke."
+    },
+    {
+      "id": "stk1110-2-7-bank-pverdi",
+      "type": "definition",
+      "title": "P-verdien (verbal definisjon)",
+      "content": "Sannsynligheten — beregnet UNDER $H_0$ — for et minst like ekstremt utfall som det observerte, målt i retning av $H_a$. Forkast når P-verdi $<\\alpha$. IKKE «sannsynligheten for at $H_0$ er sann»: $H_0$ er ikke stokastisk."
+    },
+    {
+      "id": "stk1110-2-7-bank-observator",
+      "type": "definition",
+      "title": "Testobservator og nullfordeling",
+      "content": "Observatoren er (estimat − nullverdi) delt på standardfeil. Nullfordelingen er dens fordeling når $H_0$ er sann; alt — kritisk verdi, P-verdi, nivå — leses av den. Trinn 2 krever både type OG riktige frihetsgrader."
+    },
+    {
+      "id": "stk1110-2-7-bank-ettutvalg",
+      "type": "definition",
+      "title": "Ett-utvalgs t-test",
+      "content": "For én forventning med ukjent $\\sigma$: $T=(\\bar X-\\mu_0)/(S/\\sqrt n)\\sim t_{n-1}$ under $H_0$. Med kjent $\\sigma$ blir den $Z=(\\bar X-\\mu_0)/(\\sigma/\\sqrt n)\\sim N(0,1)$. Frihetsgrader $n-1$."
+    },
+    {
+      "id": "stk1110-2-7-bank-touvalg",
+      "type": "definition",
+      "title": "To-utvalgs pooled t-test",
+      "content": "For to uavhengige grupper med lik varians: $T=\\dfrac{\\bar Y_1-\\bar Y_2}{S_p\\sqrt{1/m+1/n}}\\sim t_{m+n-2}$, med $S_p^2=\\dfrac{(m-1)S_1^2+(n-1)S_2^2}{m+n-2}$. Frihetsgrader $m+n-2$."
+    },
+    {
+      "id": "stk1110-2-7-bank-parvis",
+      "type": "definition",
+      "title": "Parvis t-test",
+      "content": "For koblede data (samme/matchede enheter): reduser til differanser $D_i$ og test som ETT utvalg: $T=\\bar D/(S_D/\\sqrt n)\\sim t_{n-1}$, der $n$ er antall PAR. Frihetsgrader $n-1$ — ikke $2n-2$. Å behandle parvise data som to uavhengige utvalg er en klassisk felle."
+    },
+    {
+      "id": "stk1110-2-7-bank-andels",
+      "type": "definition",
+      "title": "To-utvalgs andels-z",
+      "content": "$Z=\\dfrac{\\hat p_1-\\hat p_2}{\\sqrt{\\hat p(1-\\hat p)(1/n_1+1/n_2)}}\\sim N(0,1)$ under $H_0:p_1=p_2$, med **pooled** $\\hat p=(x_1+x_2)/(n_1+n_2)$. Normaltilnærming, ingen frihetsgrader. Pooled i testen, separate $\\hat p_i$ i KI for differansen."
+    },
+    {
+      "id": "stk1110-2-7-bank-poisson",
+      "type": "definition",
+      "title": "Poisson-test (normaltilnærmet)",
+      "content": "For et Poisson-antall er $E(X)=\\text{Var}(X)=\\mu$. Ved stor $\\mu$ gir CLT $X\\approx N(\\mu,\\mu)$, og observatoren er $Z=(X-\\mu_0)/\\sqrt{\\mu_0}\\sim N(0,1)$ under $H_0$. Normaltilnærmingen må nevnes eksplisitt."
+    },
+    {
+      "id": "stk1110-2-7-bank-ftest",
+      "type": "definition",
+      "title": "F-test for varianser",
+      "content": "For to uavhengige normale utvalg: $F=S_1^2/S_2^2\\sim F_{m-1,\\,n-1}$ under $H_0:\\sigma_1^2=\\sigma_2^2$ (teller-df fra utvalg 1). Store/små $F$ taler mot $H_0$. Brukes til å sjekke lik-varians-antakelsen før en pooled test."
+    },
+    {
+      "id": "stk1110-2-7-bank-anova",
+      "type": "definition",
+      "title": "Enveis ANOVA-F",
+      "content": "For $k$ gruppers forventning: $F=\\text{MSB}/\\text{MSW}\\sim F_{k-1,\\,N-k}$ under $H_0:\\mu_1=\\cdots=\\mu_k$. Forkast for store $F$. Sier bare AT det finnes en forskjell, ikke HVILKE grupper — les P-verdien fra Pr(>F) i R-utskriften."
+    },
+    {
+      "id": "stk1110-2-7-bank-rang",
+      "type": "definition",
+      "title": "Rang-/Wilcoxon-test",
+      "content": "Det ikke-parametriske alternativet når QQ-plottet bryter normalitet: bytt tallverdiene med ranger og test på dem. Antar ikke normalitet, robust mot uteliggere; prisen er litt lavere styrke og gjerne en høyere P-verdi når data faktisk er normale."
+    },
+    {
+      "id": "stk1110-2-7-bank-retning",
+      "type": "definition",
+      "title": "Begrunnet retning (ensidig/tosidig)",
+      "content": "Ensidig $H_a$ ($\\mu>\\mu_0$ eller $\\mu<\\mu_0$) når du skal påvise en BESTEMT retning; tosidig ($\\mu\\ne\\mu_0$) når du bare vil påvise ENDRING. Retningen følger av spørsmålet og bestemmes FØR dataene ses — å velge etter dataene («fiske») ugyldiggjør nivået."
+    },
+    {
+      "id": "stk1110-2-7-bank-dfvelger",
+      "type": "definition",
+      "title": "Frihetsgrad-velgeren",
+      "content": "Ett utvalg / parvis: $n-1$. Pooled to-utvalg: $m+n-2$. F-test varianser: $(m-1,\\,n-1)$. ANOVA: $(k-1,\\,N-k)$. Andels-z og Poisson-z: ingen (normaltilnærming). Feil frihetsgrader straffes hardt (§4.6)."
+    },
+    {
+      "id": "stk1110-2-7-bank-dualitet",
+      "type": "definition",
+      "title": "CI–test-dualitet (kryssjekk)",
+      "content": "En tosidig test på nivå $\\alpha$ forkaster $H_0:\\theta=\\theta_0$ hvis og bare hvis $\\theta_0$ ligger utenfor det tosidige $(1-\\alpha)$-KI-et (ensidig test: utenfor det ensidige intervallet). Brukes som kryssjekk i trinn 5 — har du regnet både KI og test, må de stemme."
+    },
+    {
+      "id": "stk1110-2-7-symbol",
+      "type": "collapsible",
+      "title": "Symbol- og formelliste",
+      "buttonText": "Vis symboler og formler",
+      "content": [
+        {
+          "id": "stk1110-2-7-symbol-t",
+          "type": "text",
+          "content": "## Symbol- og formelliste\n\n*Oppslagsverk — alt her forklares underveis i kapitlet.*\n\n| Symbol | Betydning |\n|---|---|\n| $H_0,\\ H_a$ | Null- og alternativhypotese |\n| $\\alpha$ | Signifikansnivå (type I-sannsynlighet) |\n| $T,\\ Z,\\ F$ | Testobservatorer (t-, normal-, F-basert) |\n| $t_{\\nu,\\alpha}$ | Øvre $\\alpha$-kvantil i $t_\\nu$ |\n| $z_\\alpha,\\ z_{\\alpha/2}$ | Øvre kvantiler i $N(0,1)$ |\n| $F_{\\nu_1,\\nu_2,\\alpha}$ | Øvre $\\alpha$-kvantil i $F_{\\nu_1,\\nu_2}$ |\n| $S_p^2$ | Pooled varians |\n| $\\bar D,\\ S_D$ | Parvis differansesnitt / -standardavvik |\n| $\\hat p$ | Pooled andel $(x_1+x_2)/(n_1+n_2)$ |\n| MSB, MSW | Kvadratsnitt mellom / innen grupper |\n| P-verdi | Halesannsynlighet under $H_0$ |\n\n**Formler i dette delkapitlet:**\n\n$$T=\\frac{\\bar X-\\mu_0}{S/\\sqrt n}\\sim t_{n-1},\\qquad T=\\frac{\\bar Y_1-\\bar Y_2}{S_p\\sqrt{1/m+1/n}}\\sim t_{m+n-2},\\qquad T=\\frac{\\bar D}{S_D/\\sqrt n}\\sim t_{n-1}$$\nt-baserte observatorer (ett utvalg, to utvalg, parvis).\n\n$$Z=\\frac{\\hat p_1-\\hat p_2}{\\sqrt{\\hat p(1-\\hat p)(1/n_1+1/n_2)}}\\sim N(0,1),\\qquad Z=\\frac{X-\\mu_0}{\\sqrt{\\mu_0}}\\sim N(0,1)$$\nAndels-z (pooled $\\hat p$) og Poisson-z (normaltilnærming).\n\n$$F=\\frac{S_1^2}{S_2^2}\\sim F_{m-1,\\,n-1},\\qquad F=\\frac{\\text{MSB}}{\\text{MSW}}\\sim F_{k-1,\\,N-k}$$\nF-test for varianser og enveis ANOVA-F.\n\n$$P(\\text{forkast } H_0\\mid H_0)=\\alpha,\\qquad \\text{forkast } H_0:\\theta=\\theta_0 \\iff \\theta_0\\notin \\text{KI}_{1-\\alpha}$$\nNivå-utledningen og CI–test-dualiteten."
+        }
+      ]
+    }
+  ],
+  "exercises": []
+}

@@ -1,0 +1,341 @@
+{
+  "id": "stk1100-1-prove",
+  "courseId": "stk1100",
+  "chapterNumber": "1.P",
+  "title": "Prøver til del 1: Sannsynlighet, betingning og diskrete modeller",
+  "description": "Fire nyskrevne temaprøver som dekker Bayes og total sannsynlighet, momentregneregler med kovarians, og diskret modellvalg med Poisson-prosessen — med fullstendige løsningsforslag. Fire prøver à 30–40 min, kan tas som separate økter.",
+  "estimatedMinutes": 140,
+  "competenceGoals": [
+    "kunne løse Bayes- og totalsannsynlighetsoppgaver med presise hendelsesdefinisjoner på eksamensnivå",
+    "kunne bruke momentregnereglene for lineærkombinasjoner med kovariansleddet riktig",
+    "kunne velge og begrunne riktig diskret modell og regne med Poisson-prosessen"
+  ],
+  "content": [
+    {
+      "id": "stk1100-1-prove-tip",
+      "type": "tip",
+      "title": "Om prøvene til Del 1",
+      "content": "**Fire prøver à ~30–40 min.** Prøvene dekker hele Del 1 — betinget/total/Bayes (sjanger A), momentregnereglene for lineærkombinasjoner (verktøyet i 100 % av settene) og diskret modellvalg med Poisson-prosess (sjanger B).\n\n| Prøve | Tema | Tid |\n|---|---|---|\n| 1.A | Bayes og total sannsynlighet med hendelsesdefinisjoner | 35 min |\n| 1.B | Momentregneregler for lineærkombinasjoner, med kovariansfeller | 30 min |\n| 1.C | Diskret modellvalg og Poisson-prosess | 35 min |\n| 1.D | Blandet sannsynlighetsoppgave i oppgave-1-format (eksamensnivå) | 40 min |\n\n**Sensorregel for hele delen:** definer alltid hendelsene/variablene med egne symboler FØR du regner, og begrunn modellvalget. Riktig tallsvar uten definisjoner gir trekk. Hver prøve har ett flervalgsspørsmål (merket **Flervalg**) — kryss av ett alternativ før du sjekker fasit. Løs prøven først, sjekk deretter mot fasit og selvdiagnosen.\n\n**Prøvene kan trygt deles over flere kvelder — én prøve per økt.** Milepælen er å fullføre settet, ikke å ta alt på én gang."
+    },
+    {
+      "id": "stk1100-1-prove-forkunnskaper",
+      "type": "text",
+      "content": "**Forkunnskaper:** Disse prøvene forutsetter at du har jobbet gjennom hele Del 1 — betinget sannsynlighet, total sannsynlighet og Bayes ([kap. 1.1](/bok/stk1100/stk1100-1-1)), stokastiske variable, forventning, varians og kovarians ([kap. 1.2](/bok/stk1100/stk1100-1-2)) og diskrete fordelinger med Poisson-prosessen ([kap. 1.3](/bok/stk1100/stk1100-1-3)). Bruk prøvene som en test etter at du har lest kapitlene: klarer du dem uten å slå opp, sitter fundamentet. Trenger du å friske opp grunnleggende sannsynlighet, se [R1 8.3 Grunnleggende sannsynlighet](/bok/r1/r1-8-3), [R1 8.4 Betinget sannsynlighet](/bok/r1/r1-8-4) og [S1 5.2 Betinget sannsynlighet](/bok/s1/s1-5-2)."
+    },
+    {
+      "id": "stk1100-1-prove-intro",
+      "type": "text",
+      "content": "Del 1 er fundamentet under resten av boka: hendelsesregning (Bayes), momentregnereglene som brukes i praktisk talt hver oppgave, og modellvalget som åpner enhver sannsynlighetsoppgave. Prøvene under er nyskrevne og på samme nivå som de tre–fire første deloppgavene i et STK1100-sett. Regn med penn og papir, definer symboler underveis, og bruk selvdiagnosen til å finne hva du bør repetere."
+    },
+    {
+      "id": "stk1100-1-prove-a",
+      "type": "collapsible",
+      "title": "Prøve 1.A — Bayes og total sannsynlighet (35 min)",
+      "buttonText": "Vis prøve 1.A",
+      "content": [
+        {
+          "id": "stk1100-1-prove-a-ex1",
+          "type": "exercise",
+          "exercise": {
+            "id": "stk1100-1-prove-a-ex1",
+            "number": "1",
+            "type": "classic",
+            "difficulty": "middels",
+            "task": "**Diagnosetest med oppdatering.** En hurtigtest for et virusantistoff har sensitivitet 96 % og spesifisitet 98 %. I befolkningen har 3 % antistoffer.\n\n**a)** Definer hendelsene med symboler og finn sannsynligheten for en positiv test.\n\n**b)** Finn sannsynligheten for at en person med positiv test faktisk har antistoffer, og kommenter tallet.\n\n**c)** Personen tar en ny, uavhengig test som også er positiv. Finn den oppdaterte sannsynligheten for antistoffer.",
+            "solution": "**a)** La $S$ = personen har antistoffer, $T$ = testen er positiv. Da er $P(S) = 0{,}03$, $P(S^c) = 0{,}97$, sensitivitet $P(T \\mid S) = 0{,}96$ og falsk positiv-rate $P(T \\mid S^c) = 1 - 0{,}98 = 0{,}02$. Loven om total sannsynlighet:\n$$P(T) = P(T \\mid S)P(S) + P(T \\mid S^c)P(S^c) = 0{,}96 \\cdot 0{,}03 + 0{,}02 \\cdot 0{,}97 = 0{,}0288 + 0{,}0194 = 0{,}0482.$$\n\n**b)** Bayes' formel:\n$$P(S \\mid T) = \\frac{P(T \\mid S)P(S)}{P(T)} = \\frac{0{,}0288}{0{,}0482} \\approx 0{,}598.$$\nSelv med en god test er sjansen for antistoffer gitt positiv test bare ca. **60 %**. Grunnen er lav prevalens: de mange friske (97 %) gir mange falske positive, som er sammenlignbart med de sanne positive.\n\n**c)** Første rundes svar blir ny forhåndssannsynlighet: $P(S) = 0{,}5975$, $P(S^c) = 0{,}4025$. Samme test brukt uavhengig gitt tilstanden:\n$$P(T_2) = 0{,}96 \\cdot 0{,}5975 + 0{,}02 \\cdot 0{,}4025 = 0{,}57361 + 0{,}00805 = 0{,}58166.$$\n$$P(S \\mid T_1, T_2) = \\frac{0{,}57361}{0{,}58166} \\approx 0{,}986.$$\nTo uavhengige positive tester løfter sannsynligheten fra ca. 60 % til ca. **99 %** — derfor bekreftes sjeldne funn med en ny test.",
+            "hints": [
+              "Definer $S$ og $T$ i ord først; regn $P(T)$ med total sannsynlighet.",
+              "Bayes: $P(S\\mid T) = P(T\\mid S)P(S)/P(T)$.",
+              "Runde 2: sett svaret fra b) inn som ny $P(S)$ og kjør Bayes én gang til."
+            ]
+          }
+        },
+        {
+          "id": "stk1100-1-prove-a-ex2",
+          "type": "exercise",
+          "exercise": {
+            "id": "stk1100-1-prove-a-ex2",
+            "number": "2",
+            "type": "classic",
+            "difficulty": "middels",
+            "task": "**Total sannsynlighet og Bayes med tre kilder.** En laboratoriekomponent leveres fra tre fabrikker: A (50 % av leveransene, feilrate 1 %), B (30 %, feilrate 3 %) og C (20 %, feilrate 6 %). En tilfeldig komponent viser seg å være defekt.\n\n**a)** Sett opp et fullstendig hendelsessystem og finn sannsynligheten for at en tilfeldig komponent er defekt.\n\n**b)** Finn sannsynligheten for at den defekte komponenten kom fra fabrikk C.",
+            "solution": "**a)** La $A$, $B$, $C$ være hendelsene at komponenten kom fra hver fabrikk (parvis disjunkte, dekker alt: $0{,}5 + 0{,}3 + 0{,}2 = 1$), og $D$ = komponenten er defekt. Med $P(D\\mid A) = 0{,}01$, $P(D\\mid B) = 0{,}03$, $P(D\\mid C) = 0{,}06$:\n$$P(D) = 0{,}01 \\cdot 0{,}5 + 0{,}03 \\cdot 0{,}3 + 0{,}06 \\cdot 0{,}2 = 0{,}005 + 0{,}009 + 0{,}012 = 0{,}026.$$\n\n**b)** Bayes:\n$$P(C \\mid D) = \\frac{P(D\\mid C)P(C)}{P(D)} = \\frac{0{,}012}{0{,}026} \\approx 0{,}462.$$\nSelv om C bare står for 20 % av leveransene, kommer ca. 46 % av de defekte derfra — den høye feilraten veier tungt.",
+            "hints": [
+              "Klasseandelene må summere til 1; regn $P(D) = \\sum_i P(D\\mid \\text{fabrikk}_i)P(\\text{fabrikk}_i)$.",
+              "$P(C\\mid D) = P(D\\mid C)P(C)/P(D)$."
+            ]
+          }
+        },
+        {
+          "id": "stk1100-1-prove-a-ex3",
+          "type": "exercise",
+          "exercise": {
+            "id": "stk1100-1-prove-a-ex3",
+            "number": "3",
+            "type": "classic",
+            "difficulty": "vanskelig",
+            "task": "**Jukseterning valgt tilfeldig.** En eske inneholder 10 terninger; 2 er forfalsket og viser sekser med sannsynlighet 0,5, mens 8 er ekte og viser sekser med sannsynlighet $1/6$. Du trekker en terning tilfeldig og kaster den.\n\n**a)** Definer hendelsene og finn sannsynligheten for at kastet viser sekser.\n\n**b)** Kastet viste sekser. Finn sannsynligheten for at terningen er forfalsket.\n\n**c)** Du kaster samme terning en gang til, og den viser sekser igjen. Finn sannsynligheten for at terningen er forfalsket nå.",
+            "solution": "**a)** La $F$ = terningen er forfalsket ($P(F) = 0{,}2$), $E$ = ekte ($P(E) = 0{,}8$), og $K$ = kastet viser sekser, med $P(K\\mid F) = 0{,}5$, $P(K\\mid E) = 1/6$:\n$$P(K) = 0{,}5 \\cdot 0{,}2 + \\tfrac{1}{6} \\cdot 0{,}8 = 0{,}1 + 0{,}1333 = 0{,}2333.$$\n\n**b)** Bayes:\n$$P(F \\mid K) = \\frac{0{,}1}{0{,}2333} \\approx 0{,}429.$$\n\n**c)** To seksere på rad, uavhengige gitt terningtypen: $P(KK\\mid F) = 0{,}5^2 = 0{,}25$, $P(KK\\mid E) = (1/6)^2 = 1/36 \\approx 0{,}02778$.\n$$P(F \\mid KK) = \\frac{0{,}25 \\cdot 0{,}2}{0{,}25 \\cdot 0{,}2 + 0{,}02778 \\cdot 0{,}8} = \\frac{0{,}05}{0{,}05 + 0{,}02222} = \\frac{0{,}05}{0{,}07222} \\approx 0{,}692.$$\nTo seksere løfter mistanken fra 20 % via 43 % til ca. 69 %.",
+            "hints": [
+              "Definer $F$/$E$ og $K$; bruk total sannsynlighet for $P(K)$.",
+              "Runde 2 kan gjøres i ett steg med $P(KK\\mid F) = 0{,}5^2$ og $P(KK\\mid E) = (1/6)^2$.",
+              "De to kastene er uavhengige gitt terningtypen — derfor kan samme sannsynligheter brukes på nytt."
+            ]
+          }
+        },
+        {
+          "id": "stk1100-1-prove-a-fv",
+          "type": "exercise",
+          "exercise": {
+            "id": "stk1100-1-prove-a-fv",
+            "number": "4",
+            "type": "classic",
+            "difficulty": "lett",
+            "task": "**Flervalg.** En test har sensitivitet $P(\\text{positiv} \\mid \\text{syk}) = 0{,}95$ og spesifisitet $0{,}90$. Hva er falsk positiv-raten $P(\\text{positiv} \\mid \\text{frisk})$?\n\nA) $0{,}95$\nB) $0{,}05$\nC) $0{,}10$\nD) $0{,}90$",
+            "solution": "**Riktig: C) $0{,}10$.** Falsk positiv-raten er komplementet til spesifisiteten: $P(T\\mid S^c) = 1 - \\text{spesifisitet} = 1 - 0{,}90 = 0{,}10$. Det er denne raten (ikke spesifisiteten selv) som går inn i total sannsynlighet i nevneren i Bayes. A og D gjengir sensitivitet/spesifisitet, B er komplementet til sensitiviteten.",
+            "hints": [
+              "Falsk positiv-rate $= 1 - \\text{spesifisitet}$."
+            ]
+          }
+        },
+        {
+          "id": "stk1100-1-prove-a-diag",
+          "type": "text",
+          "content": "**Selvdiagnose — Prøve 1.A.** Kryss av det du fikk til uten å slå opp:\n\n- ☐ Jeg definerte hendelsene med egne symboler FØR jeg regnet.\n- ☐ Jeg brukte loven om total sannsynlighet i nevneren i Bayes.\n- ☐ Jeg holdt $P(A\\mid B)$ og $P(B\\mid A)$ fra hverandre.\n- ☐ Jeg oppdaterte riktig ved å bruke forrige svar som ny forhåndssannsynlighet.\n- ☐ Jeg skjønte hvorfor lav prevalens gir lav positiv prediktiv verdi."
+        }
+      ]
+    },
+    {
+      "id": "stk1100-1-prove-b",
+      "type": "collapsible",
+      "title": "Prøve 1.B — Momentregneregler og kovarians (30 min)",
+      "buttonText": "Vis prøve 1.B",
+      "content": [
+        {
+          "id": "stk1100-1-prove-b-ex1",
+          "type": "exercise",
+          "exercise": {
+            "id": "stk1100-1-prove-b-ex1",
+            "number": "1",
+            "type": "classic",
+            "difficulty": "middels",
+            "task": "**Lineærkombinasjon med kovarians.** To stokastiske variable har $E(X) = 8$, $E(Y) = 3$, $\\text{Var}(X) = 5$, $\\text{Var}(Y) = 2$ og $\\text{Cov}(X,Y) = 1{,}5$.\n\n**a)** Finn $E(2X - 3Y)$.\n\n**b)** Finn $\\text{Var}(2X - 3Y)$.",
+            "solution": "**a)** Forventning er alltid lineær:\n$$E(2X - 3Y) = 2E(X) - 3E(Y) = 2 \\cdot 8 - 3 \\cdot 3 = 16 - 9 = 7.$$\n\n**b)** Med $a = 2$, $b = -3$:\n$$\\text{Var}(2X - 3Y) = a^2\\text{Var}(X) + b^2\\text{Var}(Y) + 2ab\\,\\text{Cov}(X,Y) = 4 \\cdot 5 + 9 \\cdot 2 + 2 \\cdot 2 \\cdot (-3) \\cdot 1{,}5.$$\n$$= 20 + 18 - 18 = 20.$$\nKrysleddet ble negativt her fordi koeffisientproduktet $2ab = -12$ er negativt mens kovariansen er positiv.",
+            "hints": [
+              "Forventning: sett bare inn i $2E(X) - 3E(Y)$.",
+              "Varians: $a^2\\text{Var}(X) + b^2\\text{Var}(Y) + 2ab\\,\\text{Cov}(X,Y)$ med $a=2$, $b=-3$ — pass på fortegnet på krysleddet."
+            ]
+          }
+        },
+        {
+          "id": "stk1100-1-prove-b-ex2",
+          "type": "exercise",
+          "exercise": {
+            "id": "stk1100-1-prove-b-ex2",
+            "number": "2",
+            "type": "classic",
+            "difficulty": "middels",
+            "task": "**Kovarians og korrelasjon fra en simultanfordeling.** $X$ og $Y$ er begge 0 eller 1 med simultanfordeling $p(0,0) = 0{,}4$, $p(0,1) = 0{,}1$, $p(1,0) = 0{,}2$, $p(1,1) = 0{,}3$.\n\n**a)** Finn $E(X)$, $E(Y)$ og $E(XY)$.\n\n**b)** Finn $\\text{Cov}(X,Y)$ og korrelasjonen $\\rho$.",
+            "solution": "**a)** Marginaler: $P(X = 1) = p(1,0) + p(1,1) = 0{,}2 + 0{,}3 = 0{,}5$, så $E(X) = 0{,}5$. $P(Y = 1) = p(0,1) + p(1,1) = 0{,}1 + 0{,}3 = 0{,}4$, så $E(Y) = 0{,}4$. Produktet $XY = 1$ bare når begge er 1, så $E(XY) = p(1,1) = 0{,}3$.\n\n**b)** $$\\text{Cov}(X,Y) = E(XY) - E(X)E(Y) = 0{,}3 - 0{,}5 \\cdot 0{,}4 = 0{,}3 - 0{,}2 = 0{,}1.$$\nVarianser: $E(X^2) = P(X=1) = 0{,}5$ gir $\\text{Var}(X) = 0{,}5 - 0{,}25 = 0{,}25$; tilsvarende $\\text{Var}(Y) = 0{,}4 - 0{,}16 = 0{,}24$.\n$$\\rho = \\frac{\\text{Cov}(X,Y)}{\\sqrt{\\text{Var}(X)\\text{Var}(Y)}} = \\frac{0{,}1}{\\sqrt{0{,}25 \\cdot 0{,}24}} = \\frac{0{,}1}{\\sqrt{0{,}06}} \\approx 0{,}408.$$\nSvak til moderat positiv samvariasjon; $X$ og $Y$ er avhengige.",
+            "hints": [
+              "Marginalene fås ved å summere rader/kolonner; $E(XY) = \\sum xy\\,p(x,y)$, og bare cellen $(1,1)$ bidrar.",
+              "$\\text{Cov} = E(XY) - E(X)E(Y)$; for 0/1-variable er $\\text{Var} = P(=1) - P(=1)^2$.",
+              "$\\rho = \\text{Cov}/\\sqrt{\\text{Var}(X)\\text{Var}(Y)}$."
+            ]
+          }
+        },
+        {
+          "id": "stk1100-1-prove-b-ex3",
+          "type": "exercise",
+          "exercise": {
+            "id": "stk1100-1-prove-b-ex3",
+            "number": "3",
+            "type": "classic",
+            "difficulty": "vanskelig",
+            "task": "**Portefølje og diversifisering.** En portefølje legger andel $w = 0{,}4$ i aksje $X$ og resten i aksje $Y$: $P = 0{,}4X + 0{,}6Y$. Aksjene har $E(X) = 5$, $E(Y) = 8$, $\\text{Var}(X) = 9$, $\\text{Var}(Y) = 16$ og $\\text{Cov}(X,Y) = -2$.\n\n**a)** Finn forventet avkastning $E(P)$.\n\n**b)** Finn $\\text{Var}(P)$ og standardavviket $\\text{SD}(P)$.\n\n**c)** En medstudent hevder $\\text{Var}(X - Y) = \\text{Var}(X) - \\text{Var}(Y) = -7$. Forklar hva som er feil.",
+            "solution": "**a)** $$E(P) = 0{,}4 \\cdot 5 + 0{,}6 \\cdot 8 = 2 + 4{,}8 = 6{,}8.$$\n\n**b)** Med $a = 0{,}4$, $b = 0{,}6$:\n$$\\text{Var}(P) = 0{,}4^2 \\cdot 9 + 0{,}6^2 \\cdot 16 + 2 \\cdot 0{,}4 \\cdot 0{,}6 \\cdot (-2) = 1{,}44 + 5{,}76 - 0{,}96 = 6{,}24.$$\n$$\\text{SD}(P) = \\sqrt{6{,}24} \\approx 2{,}50.$$\nDen negative kovariansen demper svingningen (diversifiseringseffekten).\n\n**c)** Med $a = 1$, $b = -1$ er $b^2 = (-1)^2 = 1$, så begge variansleddene er **positive**: $\\text{Var}(X - Y) = \\text{Var}(X) + \\text{Var}(Y) - 2\\text{Cov}(X,Y)$. Varianser trekkes aldri fra hverandre; bare krysleddet skifter fortegn. Et negativt tall som $-7$ er umulig, siden en varians alltid er $\\ge 0$ — det avslører feilen umiddelbart.",
+            "hints": [
+              "Forventning er lineær; variansen har tre ledd med koeffisientene kvadrert.",
+              "$2ab\\,\\text{Cov} = 2 \\cdot 0{,}4 \\cdot 0{,}6 \\cdot (-2)$.",
+              "$b = -1$ gir $b^2 = 1$ — variansleddene forblir positive."
+            ]
+          }
+        },
+        {
+          "id": "stk1100-1-prove-b-fv",
+          "type": "exercise",
+          "exercise": {
+            "id": "stk1100-1-prove-b-fv",
+            "number": "4",
+            "type": "classic",
+            "difficulty": "lett",
+            "task": "**Flervalg.** $X$ og $Y$ er **uavhengige** med $\\text{Var}(X) = 3$ og $\\text{Var}(Y) = 5$. Hva er $\\text{Var}(X - Y)$?\n\nA) $2$\nB) $8$\nC) $-2$\nD) $15$",
+            "solution": "**Riktig: B) $8$.** Ved uavhengighet er $\\text{Cov}(X,Y) = 0$, så krysleddet forsvinner og $\\text{Var}(X - Y) = \\text{Var}(X) + \\text{Var}(Y) = 3 + 5 = 8$. Variansene legges sammen også ved differanse. A ($3 - 5 = -2$ i tallverdi... egentlig $2$) og C ($-2$) kommer fra å trekke variansene fra hverandre, D fra å gange dem.",
+            "hints": [
+              "Uavhengige $\\Rightarrow \\text{Cov} = 0$; $\\text{Var}(X - Y) = \\text{Var}(X) + \\text{Var}(Y)$."
+            ]
+          }
+        },
+        {
+          "id": "stk1100-1-prove-b-diag",
+          "type": "text",
+          "content": "**Selvdiagnose — Prøve 1.B.** Kryss av det du fikk til uten å slå opp:\n\n- ☐ Jeg brukte at forventning er lineær uten forbehold om uavhengighet.\n- ☐ Jeg kvadrerte koeffisientene i variansleddene.\n- ☐ Jeg fikk fortegnet på kovariansleddet $2ab\\,\\text{Cov}(X,Y)$ riktig.\n- ☐ Jeg husket at $\\text{Var}(X - Y) = \\text{Var}(X) + \\text{Var}(Y) - 2\\text{Cov}(X,Y)$, ikke en differanse av varianser.\n- ☐ Jeg regnet $\\rho$ ved å dele kovariansen på $\\sqrt{\\text{Var}(X)\\text{Var}(Y)}$."
+        }
+      ]
+    },
+    {
+      "id": "stk1100-1-prove-c",
+      "type": "collapsible",
+      "title": "Prøve 1.C — Diskret modellvalg og Poisson-prosess (35 min)",
+      "buttonText": "Vis prøve 1.C",
+      "content": [
+        {
+          "id": "stk1100-1-prove-c-ex1",
+          "type": "exercise",
+          "exercise": {
+            "id": "stk1100-1-prove-c-ex1",
+            "number": "1",
+            "type": "classic",
+            "difficulty": "middels",
+            "task": "**Binomisk modell.** En behandling virker på 20 % av pasientene, uavhengig av hverandre. Tolv pasienter behandles. La $X$ = antall som blir bra.\n\n**a)** Angi fordelingen med parametre og begrunn modellvalget.\n\n**b)** Finn $E(X)$ og $\\text{Var}(X)$.\n\n**c)** Finn $P(X = 3)$ og $P(X \\ge 1)$.",
+            "solution": "**a)** Fast antall forsøk ($n = 12$), uavhengige, samme suksesssannsynlighet ($p = 0{,}2$): $X \\sim \\text{bin}(12;\\, 0{,}2)$.\n\n**b)** $E(X) = np = 12 \\cdot 0{,}2 = 2{,}4$ og $\\text{Var}(X) = np(1-p) = 12 \\cdot 0{,}2 \\cdot 0{,}8 = 1{,}92$.\n\n**c)** $$P(X = 3) = \\binom{12}{3}(0{,}2)^3(0{,}8)^9 = 220 \\cdot 0{,}008 \\cdot 0{,}13422 \\approx 0{,}236.$$\n$$P(X \\ge 1) = 1 - P(X = 0) = 1 - (0{,}8)^{12} = 1 - 0{,}0687 = 0{,}931.$$",
+            "hints": [
+              "Antall forsøk er fast ($n = 12$) $\\Rightarrow$ binomisk.",
+              "$E = np$, $\\text{Var} = np(1-p)$; $P(X=k) = \\binom{n}{k}p^k(1-p)^{n-k}$.",
+              "Bruk komplementet for $P(X \\ge 1)$."
+            ]
+          }
+        },
+        {
+          "id": "stk1100-1-prove-c-ex2",
+          "type": "exercise",
+          "exercise": {
+            "id": "stk1100-1-prove-c-ex2",
+            "number": "2",
+            "type": "classic",
+            "difficulty": "middels",
+            "task": "**Poisson-prosess med rateskalering.** Antall støvpartikler i renromsluft følger en Poisson-prosess med rate $\\lambda = 0{,}6$ partikler per liter.\n\n**a)** Angi forutsetningene og modellen for antall partikler $X$ i en prøve på 4 liter, og finn $E(X)$ og $\\text{Var}(X)$.\n\n**b)** Finn sannsynligheten for minst én partikkel i 4-litersprøven.\n\n**c)** Hvor stor må prøven være for at sannsynligheten for minst én partikkel skal overstige $0{,}999$?",
+            "solution": "**a)** Forutsetninger: partikler fordeler seg uavhengig i disjunkte luftmengder, med konstant tetthet (rate) og ikke to i nøyaktig samme punkt. Da er antallet i $t = 4$ liter Poisson-fordelt med forventning $\\lambda t$:\n$$X \\sim \\text{Poisson}(0{,}6 \\cdot 4) = \\text{Poisson}(2{,}4), \\qquad E(X) = \\text{Var}(X) = 2{,}4.$$\n\n**b)** $$P(X \\ge 1) = 1 - e^{-2{,}4} = 1 - 0{,}0907 = 0{,}9093.$$\n\n**c)** Vi vil ha $1 - e^{-0{,}6 t} > 0{,}999$, altså $e^{-0{,}6 t} < 0{,}001$. Ta naturlig logaritme (snu tegnet ved deling på $-0{,}6$):\n$$-0{,}6 t < \\ln(0{,}001) = -6{,}908 \\;\\Longleftrightarrow\\; t > \\frac{6{,}908}{0{,}6} \\approx 11{,}51.$$\nProven må være større enn ca. **11,5 liter**.",
+            "hints": [
+              "Skaler raten til intervallet: $\\mu = \\lambda t = 0{,}6 \\cdot 4$.",
+              "$P(X \\ge 1) = 1 - e^{-\\mu}$.",
+              "Løs $1 - e^{-0{,}6t} > 0{,}999$; $t > -\\ln(1 - p_0)/\\lambda$."
+            ]
+          }
+        },
+        {
+          "id": "stk1100-1-prove-c-ex3",
+          "type": "exercise",
+          "exercise": {
+            "id": "stk1100-1-prove-c-ex3",
+            "number": "3",
+            "type": "classic",
+            "difficulty": "vanskelig",
+            "task": "**Poisson-prosess og venting til suksess.** Feil på en optisk fiber inntreffer etter en Poisson-prosess med rate $\\lambda = 0{,}05$ feil per km.\n\n**a)** Finn sannsynligheten for ingen feil på en strekning på 20 km.\n\n**b)** Finn forventet antall feil på 60 km.\n\n**c)** En inspektør tester skjøter én etter én; hver skjøt er defekt med sannsynlighet 0,08, uavhengig. La $W$ = antall skjøter til og med den første defekte. Angi modellen, finn $E(W)$ og $P(W = 3)$.",
+            "solution": "**a)** For $t = 20$ km er $\\mu = 0{,}05 \\cdot 20 = 1$, så $X \\sim \\text{Poisson}(1)$ og\n$$P(X = 0) = e^{-1} \\approx 0{,}368.$$\n\n**b)** For 60 km er $\\mu = 0{,}05 \\cdot 60 = 3$, altså forventet antall feil er $3$.\n\n**c)** Uavhengige forsøk til første suksess: $W \\sim \\text{geometrisk}(0{,}08)$, med $E(W) = 1/p = 1/0{,}08 = 12{,}5$ skjøter. Den første defekte er nummer 3 når de to første er gode:\n$$P(W = 3) = (0{,}92)^2 \\cdot 0{,}08 = 0{,}8464 \\cdot 0{,}08 \\approx 0{,}0677.$$",
+            "hints": [
+              "Poisson: $\\mu = \\lambda t$; $P(X = 0) = e^{-\\mu}$.",
+              "Venting til første suksess $\\Rightarrow$ geometrisk med $E(W) = 1/p$.",
+              "$P(W = 3) = (1-p)^2 p$."
+            ]
+          }
+        },
+        {
+          "id": "stk1100-1-prove-c-fv",
+          "type": "exercise",
+          "exercise": {
+            "id": "stk1100-1-prove-c-fv",
+            "number": "4",
+            "type": "classic",
+            "difficulty": "lett",
+            "task": "**Flervalg.** Antall kunder i en butikk i løpet av en time følger en Poisson-prosess med rate 10 per time. Forventet antall kunder i løpet av 18 minutter er:\n\nA) $10$\nB) $1{,}8$\nC) $5{,}4$\nD) $3$",
+            "solution": "**Riktig: D) $3$.** Raten må skaleres til intervallet. 18 minutter er $t = 18/60 = 0{,}3$ time, så $\\mu = \\lambda t = 10 \\cdot 0{,}3 = 3$. A bruker raten uskalert, B og C er skaleringsfeil (f.eks. $18 \\cdot 0{,}1$ eller feil brøk).",
+            "hints": [
+              "Gjør 18 minutter om til time og bruk $\\mu = \\lambda t$."
+            ]
+          }
+        },
+        {
+          "id": "stk1100-1-prove-c-diag",
+          "type": "text",
+          "content": "**Selvdiagnose — Prøve 1.C.** Kryss av det du fikk til uten å slå opp:\n\n- ☐ Jeg begrunnet modellvalget (fast antall forsøk $\\Rightarrow$ binomisk; hendelser i et intervall $\\Rightarrow$ Poisson).\n- ☐ Jeg skalerte Poisson-raten til intervallet ($\\mu = \\lambda t$).\n- ☐ Jeg brukte komplementet $1 - P(X = 0)$ for «minst én».\n- ☐ Jeg snudde ulikhetstegnet riktig da jeg tok logaritmen.\n- ☐ Jeg kjente igjen «venting til første suksess» som geometrisk med $E = 1/p$."
+        }
+      ]
+    },
+    {
+      "id": "stk1100-1-prove-d",
+      "type": "collapsible",
+      "title": "Prøve 1.D — Blandet sannsynlighetsoppgave (eksamensnivå, 40 min)",
+      "buttonText": "Vis prøve 1.D",
+      "content": [
+        {
+          "id": "stk1100-1-prove-d-ex1",
+          "type": "exercise",
+          "exercise": {
+            "id": "stk1100-1-prove-d-ex1",
+            "number": "1",
+            "type": "classic",
+            "difficulty": "vanskelig",
+            "task": "**Importkontroll — full oppgave (eksamensnivå).** En havn tester forsendelser for en forurensning. Testen har sensitivitet 97 % og spesifisitet 94 %, og andelen forurensede forsendelser er 5 %.\n\n**a)** Definer hendelsene og finn sannsynligheten for en positiv test.\n\n**b)** Finn sannsynligheten for at en forsendelse med positiv test faktisk er forurenset.\n\n**c)** Finn sannsynligheten for at en forsendelse med **negativ** test likevel er forurenset, og kommenter.",
+            "solution": "**a)** La $S$ = forsendelsen er forurenset ($P(S) = 0{,}05$, $P(S^c) = 0{,}95$), $T$ = positiv test. Sensitivitet $P(T\\mid S) = 0{,}97$, falsk positiv-rate $P(T\\mid S^c) = 1 - 0{,}94 = 0{,}06$:\n$$P(T) = 0{,}97 \\cdot 0{,}05 + 0{,}06 \\cdot 0{,}95 = 0{,}0485 + 0{,}057 = 0{,}1055.$$\n\n**b)** $$P(S \\mid T) = \\frac{0{,}0485}{0{,}1055} \\approx 0{,}460.$$\n\n**c)** $P(T^c) = 1 - 0{,}1055 = 0{,}8945$, og $P(S \\cap T^c) = P(T^c\\mid S)P(S) = 0{,}03 \\cdot 0{,}05 = 0{,}0015$:\n$$P(S \\mid T^c) = \\frac{0{,}0015}{0{,}8945} \\approx 0{,}0017.$$\nEn negativ test er svært betryggende: bare ca. 0,17 % av de negative er likevel forurenset (høy negativ prediktiv verdi), mens en positiv test bare gir ca. 46 % sannsynlighet for forurensning på grunn av mange falske positive ved lav andel forurensede.",
+            "hints": [
+              "Definer $S$ og $T$; $P(T\\mid S^c) = 1 - \\text{spesifisitet}$.",
+              "Bayes for b); for c) bruk $P(S\\mid T^c) = P(T^c\\mid S)P(S)/P(T^c)$ med $P(T^c\\mid S) = 1 - \\text{sensitivitet}$."
+            ]
+          }
+        },
+        {
+          "id": "stk1100-1-prove-d-ex2",
+          "type": "exercise",
+          "exercise": {
+            "id": "stk1100-1-prove-d-ex2",
+            "number": "2",
+            "type": "classic",
+            "difficulty": "vanskelig",
+            "task": "**Samme oppgave, forts. — Poisson og momentregning.** Forurensede forsendelser ankommer havna etter en Poisson-prosess med rate $\\lambda = 1{,}2$ per dag.\n\n**a)** Finn sannsynligheten for minst én forurenset forsendelse i løpet av en dag.\n\n**b)** Finn sannsynligheten for ingen forurenset forsendelse i en 5-dagers arbeidsuke.\n\n**c)** Antall forurensede forsendelser $X$ på en dag har $E(X) = \\text{Var}(X) = 1{,}2$. Hver forurenset forsendelse koster $3$ (tusen kr) i opprydding, pluss et fast oppsett på $2$ (tusen kr) den dagen: $K = 3X + 2$. Finn $E(K)$ og $\\text{Var}(K)$.",
+            "solution": "**a)** $X \\sim \\text{Poisson}(1{,}2)$ for én dag, så\n$$P(X \\ge 1) = 1 - e^{-1{,}2} = 1 - 0{,}3012 = 0{,}6988.$$\n\n**b)** Fem dager gir $\\mu = \\lambda t = 1{,}2 \\cdot 5 = 6$, så antallet i uka er $\\text{Poisson}(6)$ og\n$$P(\\text{ingen}) = e^{-6} \\approx 0{,}00248.$$\n\n**c)** Lineær transformasjon av én variabel:\n$$E(K) = 3E(X) + 2 = 3 \\cdot 1{,}2 + 2 = 5{,}6 \\text{ (tusen kr)}.$$\n$$\\text{Var}(K) = 3^2\\,\\text{Var}(X) = 9 \\cdot 1{,}2 = 10{,}8.$$\nKonstantleddet $+2$ påvirker forventningen, men ikke variansen.",
+            "hints": [
+              "Poisson med $\\mu = \\lambda t$; bruk komplementet for «minst én».",
+              "Fem dager: $\\mu = 1{,}2 \\cdot 5 = 6$.",
+              "$E(aX+b) = aE(X)+b$, $\\text{Var}(aX+b) = a^2\\text{Var}(X)$ — konstantleddet forsvinner i variansen."
+            ]
+          }
+        },
+        {
+          "id": "stk1100-1-prove-d-fv",
+          "type": "exercise",
+          "exercise": {
+            "id": "stk1100-1-prove-d-fv",
+            "number": "3",
+            "type": "classic",
+            "difficulty": "lett",
+            "task": "**Flervalg.** Ved lav prevalens og en ellers god test er den positive prediktive verdien $P(\\text{syk} \\mid \\text{positiv})$ typisk:\n\nA) lav, fordi de mange friske gir mange falske positive\nB) lik testens sensitivitet\nC) alltid over $0{,}9$\nD) lik testens spesifisitet",
+            "solution": "**Riktig: A).** Når tilstanden er sjelden, er de friske så mange at selv en liten falsk positiv-rate gir mange falske positive — sammenlignbart med eller flere enn de sanne positive. Da blir $P(\\text{syk}\\mid\\text{positiv})$ lav, selv med høy sensitivitet og spesifisitet. B og D forveksler prediktiv verdi med testens egenskaper; C er feil nettopp fordi lav prevalens trekker den ned.",
+            "hints": [
+              "Tenk på hvor mange falske positive de mange friske produserer."
+            ]
+          }
+        },
+        {
+          "id": "stk1100-1-prove-d-diag",
+          "type": "text",
+          "content": "**Selvdiagnose — Prøve 1.D.** Kryss av det du fikk til uten å slå opp:\n\n- ☐ Jeg definerte hendelsene og regnet både positiv og negativ prediktiv verdi.\n- ☐ Jeg skalerte Poisson-raten til riktig intervall (1 dag og 5 dager).\n- ☐ Jeg brukte komplementet for «minst én» og «ingen».\n- ☐ Jeg brukte $E(aX+b)$ og $\\text{Var}(aX+b)$ riktig (konstantledd ut av variansen).\n- ☐ Jeg holdt tidsbudsjettet og gravde meg ikke fast i ett delpunkt."
+        }
+      ]
+    },
+    {
+      "id": "stk1100-1-prove-symbolliste",
+      "type": "collapsible",
+      "title": "Symbol- og formelliste",
+      "buttonText": "Vis symboler og formler",
+      "content": [
+        {
+          "id": "stk1100-1-prove-symbolliste-text",
+          "type": "text",
+          "content": "*Oppslagsverk — alt her forklares underveis.*\n\nAlle symboler og formler prøvene bruker, samlet på ett sted.\n\n| Symbol | Betydning |\n|---|---|\n| $A, B$ | Hendelser |\n| $A^c$ | Komplementet (at $A$ ikke skjer) |\n| $P(A \\mid B)$ | Betinget sannsynlighet for $A$ gitt $B$ |\n| $S, T$ | Tilstand og positiv test i en diagnosetest |\n| $X, Y$ | Stokastiske variable (store bokstaver) |\n| $E(X)$ | Forventning |\n| $\\text{Var}(X)$ | Varians; $\\text{SD}(X) = \\sqrt{\\text{Var}(X)}$ |\n| $\\text{Cov}(X,Y)$ | Kovarians |\n| $\\rho$ | Korrelasjonskoeffisient, $-1 \\le \\rho \\le 1$ |\n| $n, p$ | Antall forsøk og suksesssannsynlighet (binomisk) |\n| $\\lambda$ | Rate/intensitet i en Poisson-prosess |\n| $t$ | Intervallstørrelse; $\\mu = \\lambda t$ |\n| $\\mu$ | Forventet antall (Poisson) |\n\n**Formler prøvene bruker:**\n\n$$P(A \\mid B) = \\frac{P(A \\cap B)}{P(B)} \\quad \\text{(betinget sannsynlighet)}$$\n\n$$P(B) = \\sum_i P(B \\mid A_i)P(A_i) \\quad \\text{(loven om total sannsynlighet)}$$\n\n$$P(A_j \\mid B) = \\frac{P(B \\mid A_j)P(A_j)}{\\sum_i P(B \\mid A_i)P(A_i)} \\quad \\text{(Bayes' formel)}$$\n\n$$E(aX + bY) = aE(X) + bE(Y) \\quad \\text{(alltid — ingen antakelse om uavhengighet)}$$\n\n$$\\text{Var}(aX + bY) = a^2\\text{Var}(X) + b^2\\text{Var}(Y) + 2ab\\,\\text{Cov}(X,Y)$$\n\n$$\\text{Cov}(X,Y) = E(XY) - E(X)E(Y), \\qquad \\rho = \\frac{\\text{Cov}(X,Y)}{\\sqrt{\\text{Var}(X)\\text{Var}(Y)}}$$\n\n$$P(X = k) = \\binom{n}{k}p^k(1-p)^{n-k}, \\quad E = np, \\quad \\text{Var} = np(1-p) \\quad \\text{(binomisk)}$$\n\n$$P(X = k) = \\frac{\\mu^k e^{-\\mu}}{k!}, \\quad E = \\text{Var} = \\mu, \\quad \\mu = \\lambda t \\quad \\text{(Poisson)}$$\n\n$$P(X = k) = (1-p)^{k-1}p, \\quad E = \\tfrac{1}{p} \\quad \\text{(geometrisk)}, \\qquad P(X \\ge 1) = 1 - P(X = 0)$$"
+        }
+      ]
+    }
+  ],
+  "exercises": []
+}

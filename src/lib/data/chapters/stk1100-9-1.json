@@ -1,0 +1,467 @@
+{
+  "id": "stk1100-9-1",
+  "courseId": "stk1100",
+  "chapterNumber": "9.1",
+  "title": "Sjangerguiden og fortellingsoppgavens anatomi",
+  "description": "De tolv oppgavetypene A–L med løsningsoppskriftene i kortform, kjede-kartet, feilkatalogen, sensorreglene og tidsbudsjettet for firetimerseksamen.",
+  "estimatedMinutes": 60,
+  "competenceGoals": [
+    "gjenkjenne hvilken oppgavetype en eksamensoppgave tilhører og velge riktig førstegrep",
+    "se den gjennomgående estimeringsfortellingen som binder en hel oppgave sammen, ledd for ledd",
+    "unngå de vanligste sensortrekkene ved å følge en fast sjekkliste",
+    "sette opp et realistisk tidsbudsjett for en firetimers skoleeksamen med tre til fire store oppgaver"
+  ],
+  "content": [
+    {
+      "id": "stk1100-9-1-tip-eksamensvinkel",
+      "type": "tip",
+      "title": "Eksamensvinkel",
+      "content": "**Dette er kartet over hele eksamen — les det før du gyver løs på et gammelt sett.**\n\nSTK1100-eksamen er fire timers skriftlig skoleeksamen med **3–4 store fortellingsoppgaver** (ingen kortsvars- eller flervalgsdel), hver verdt 25–35 poeng. Bak variasjonen i innpakning ligger tolv oppgavetyper som gjentar seg sett etter sett siden 2015. Dette kapitlet samler dem:\n\n- **Tolv sjangre (A–L)** med en løsningsoppskrift hver, frekvens (andel av de 10 settene 2015–2024) og hvor i settet de pleier å dukke opp.\n- **Kjede-kartet** — den lange estimeringsfortellingen som alene bærer 60–70 % av poengene.\n- **Feilkatalogen** — de tretten sensortrekkene, hver med kapitlet som forebygger den.\n- **Sensorreglene** — de elleve kravene løsningsforslagene stiller, i kortform.\n- **Tidsbudsjettet** for de fire timene.\n\nIngen nye regnemetoder her; alt er repetisjon og oversikt. Bruk kapitlet som sjekkliste rett før øvingseksamenene i [kap. 9.2](/bok/stk1100/stk1100-9-2)–[9.4](/bok/stk1100/stk1100-9-4)."
+    },
+    {
+      "id": "stk1100-9-1-forkunnskaper",
+      "type": "text",
+      "content": "**Forkunnskaper:** Dette kapitlet oppsummerer hele boka, så det bygger i prinsippet på alt. Du får mest ut av det etter at du har jobbet deg gjennom [Del 1](/bok/stk1100/stk1100-1-1) til [Del 8](/bok/stk1100/stk1100-8-3). De viktigste henvisningene er drillkapitlene [2.3](/bok/stk1100/stk1100-2-3) (eksotisk tetthet), [3.2](/bok/stk1100/stk1100-3-2) (uavhengighet), [4.3](/bok/stk1100/stk1100-4-3) (transformasjon til gamma/$\\chi^2$), [5.3](/bok/stk1100/stk1100-5-3) (estimatoren) og [6.3](/bok/stk1100/stk1100-6-3) (hele kjeden), samt [7.1](/bok/stk1100/stk1100-7-1)–[7.2](/bok/stk1100/stk1100-7-2) (simulering og bootstrap). Du trenger ingen nye forkunnskaper utenfra — men har du hull, følger lenkene tilbake til teorien.\n\nSjangerbokstavene **A–L** ble innført i [kap. 0.1](/bok/stk1100/stk1100-0-1); her får de sin komplette oppskrift."
+    },
+    {
+      "id": "stk1100-9-1-intro",
+      "type": "text",
+      "content": "Tenk deg at du åpner eksamenssettet klokka ni. Fire oppgaver, fire timer, og en klump i magen. Det som skiller en rolig kandidat fra en stresset, er sjelden at den ene kan *mer* — det er at den ene **kjenner igjen** hva slags oppgave hun ser på, og vet hva første trekk er. En erfaren sensor kan lese en STK1100-oppgave og si «dette er en Bayes-åpning», «dette er simultantetthet», «dette er estimerings-kjeden» før hun har lest ferdig. Det er den gjenkjenningen dette kapitlet trener.\n\nVi går gjennom fire ting i tur og orden: **kjeden** som binder den tunge oppgaven sammen, **de tolv sjangrene** med hver sin oppskrift, **de tretten typiske feilene**, og **de elleve sensorreglene** — før vi setter opp et tidsbudsjett og lar deg øve på ren gjenkjenning."
+    },
+    {
+      "id": "stk1100-9-1-kjede-intro",
+      "type": "text",
+      "content": "## Kjede-kartet: den store oppgavens anatomi\n\nI praktisk talt hvert sett siden 2015 er én av oppgavene (nesten alltid oppgave 3) den samme lange fortellingen, bare med ny fordeling og nye tall. Den er verdt 60–70 % av poengene til sammen med åpningsoppgavene, og den går alltid slik:\n\n$$\\text{fordeling} \\;\\to\\; \\text{estimator} \\;\\to\\; \\text{egenskaper} \\;\\to\\; \\text{gamma/}\\chi^2\\text{-pivot} \\;\\to\\; \\text{eksakt KI} \\;\\to\\; \\text{CLT/bootstrap-SE}$$\n\nHvert ledd har sitt kapittel i boka. Klarer du å se en oppgave som **én sammenhengende kjede** i stedet for seks løsrevne delpunkt, mister du ikke tråden når du fører estimatet videre fra ett ledd til det neste. Under er de seks leddene som repetisjonskort — drillsporet som setter dem sammen er [4.3](/bok/stk1100/stk1100-4-3) → [5.3](/bok/stk1100/stk1100-5-3) → [6.3](/bok/stk1100/stk1100-6-3)."
+    },
+    {
+      "id": "stk1100-9-1-kjede-1",
+      "type": "definition",
+      "title": "Kjeden, ledd 1: fordelingen",
+      "content": "Første ledd er å **lese oppgavens egen definisjon av fordelingen** og gjøre den arbeidsklar. Normer tettheten om nødvendig ($\\int f = 1$), utled fordelingsfunksjonen $F$, og finn median/kvantiler ved $F(m) = p$. Merk om eksponensialfordelingen er gitt på rateform $\\lambda e^{-\\lambda x}$ eller forventningsform $\\frac{1}{\\mu}e^{-x/\\mu}$ — dette avgjør alt som følger. Kapittel: [2.1](/bok/stk1100/stk1100-2-1) og drillen [2.3](/bok/stk1100/stk1100-2-3)."
+    },
+    {
+      "id": "stk1100-9-1-kjede-2",
+      "type": "definition",
+      "title": "Kjeden, ledd 2: estimatoren",
+      "content": "Andre ledd er å **utlede punktestimatoren**, nesten alltid med maximum likelihood. Skriv likelihooden som produkt over alle observasjoner, ta logaritmen, deriver og løs: $L(\\theta) = \\prod f(x_i;\\theta) \\to \\ell = \\ln L \\to \\ell'(\\theta) = 0 \\to \\hat\\theta$. Momentmetoden er alternativet når ML blir tungt. Kapittel: [5.2](/bok/stk1100/stk1100-5-2)."
+    },
+    {
+      "id": "stk1100-9-1-kjede-3",
+      "type": "definition",
+      "title": "Kjeden, ledd 3: egenskapene",
+      "content": "Tredje ledd er å **vurdere estimatoren**: er $\\hat\\theta$ forventningsrett ($E(\\hat\\theta) = \\theta$)? Hvis $E(\\hat\\theta) = c\\theta$ med $c \\ne 1$, korriger til $\\hat\\theta/c$ — typisk en $\\Gamma$-faktor for rot-/potensestimatorer, siden $E[\\sqrt V] \\ne \\sqrt{E[V]}$. Finn variansen og den estimerte standardfeilen. Skill estimator (stokastisk, stor bokstav) fra estimat (tall). Kapittel: [5.1](/bok/stk1100/stk1100-5-1) og drillen [5.3](/bok/stk1100/stk1100-5-3)."
+    },
+    {
+      "id": "stk1100-9-1-kjede-4",
+      "type": "definition",
+      "title": "Kjeden, ledd 4: gamma/$\\chi^2$-pivoten",
+      "content": "Fjerde ledd er **broen**: gjør en observasjon eller estimator om til en størrelse med kjent gamma-/kjikvadratfordeling som ikke avhenger av parameteren. Standardgrepene: $2\\sum X_i/\\mu \\sim \\chi^2_{2n}$ (eksponensial), $n\\hat\\sigma^2/\\sigma^2 \\sim \\chi^2_n$ (normal med kjent $\\mu$), $n(\\hat\\beta/\\beta)^\\alpha \\sim$ gamma$(n,1)$ (Weibull). Pass frihetsgradene. Kapittel: drillen [4.3](/bok/stk1100/stk1100-4-3)."
+    },
+    {
+      "id": "stk1100-9-1-kjede-5",
+      "type": "definition",
+      "title": "Kjeden, ledd 5: det eksakte KI-et",
+      "content": "Femte ledd er **det eksakte konfidensintervallet**: sett kvantiler rundt pivoten, $P(w_1 \\le W \\le w_2) = 1-\\alpha$, og løs dobbeltulikheten for parameteren. For eksponensial-$\\mu$: $\\left[\\frac{2\\sum x_i}{\\chi^2_{2n,\\alpha/2}}, \\frac{2\\sum x_i}{\\chi^2_{2n,1-\\alpha/2}}\\right]$. Endepunktene bytter plass når du inverterer — og et asymmetrisk intervall er *riktig*, ikke en feil. Kapittel: [6.1](/bok/stk1100/stk1100-6-1)."
+    },
+    {
+      "id": "stk1100-9-1-kjede-6",
+      "type": "definition",
+      "title": "Kjeden, ledd 6: CLT-alternativ og bootstrap-SE",
+      "content": "Sjette ledd er **alternativene**: Wald-/CLT-intervallet $\\hat\\theta \\pm z_{\\alpha/2}\\widehat{\\text{SE}}$ (nevn sentralgrenseteoremet eksplisitt), og bootstrap for en standardfeil du ikke kan regne analytisk. Poeng verdt å nevne: når SE avhenger av parameteren, dekker det eksakte intervallet bedre ved liten $n$ (rundt 95,8 % mot 91,6 % for $n = 10$). Kapittel: [6.2](/bok/stk1100/stk1100-6-2) og [7.2](/bok/stk1100/stk1100-7-2)."
+    },
+    {
+      "id": "stk1100-9-1-sjanger-intro",
+      "type": "text",
+      "content": "## Sjangerkatalogen A–L\n\n> **Flashcard-/repetisjonsstoff — hopp trygt over ved førstegangslesing; tidsanslaget gjelder kjernestoffet.** Kortene under er ment for repetisjon rett før eksamen: én oppskrift per sjanger, med frekvens og henvisning til kapitlet som lærer den fra grunnen.\n\nHver oppgave på eksamen er satt sammen av én eller flere av disse tolv typene. Frekvensene er andelen av de 10 settene 2015–2024 der typen forekom."
+    },
+    {
+      "id": "stk1100-9-1-sj-A",
+      "type": "definition",
+      "title": "Sjanger A: Bayes, total sannsynlighet og betingning",
+      "content": "Dette er diagnosetest-åpningen. **Oppskrift:** definer hendelsene med egne symboler («la $S$ = syk, $T$ = positiv test») *før* du regner; finn nevneren med loven om total sannsynlighet $P(T) = \\sum_i P(T\\mid A_i)P(A_i)$ over en partisjon; snu betingingen med Bayes $P(A_j\\mid T) = P(T\\mid A_j)P(A_j)/P(T)$; ved flere runder blir forrige posterior den nye prior. **Frekvens:** 70 %, nesten alltid oppgave 1. **Kapittel:** [1.1](/bok/stk1100/stk1100-1-1)."
+    },
+    {
+      "id": "stk1100-9-1-sj-B",
+      "type": "definition",
+      "title": "Sjanger B: diskret fordeling med forventning og varians",
+      "content": "Modellvalg pluss E/V. **Oppskrift:** velg fordelingen fra situasjonen (fast antall uavhengige forsøk $\\to$ binomisk; hendelser i tid/rom $\\to$ Poisson med rate $\\lambda t$; ventetid til første suksess $\\to$ geometrisk); oppgi forutsetningene; hent $E$ og Var fra formelsamlingen eller utled dem via MGF; ofte følger en estimator med standardfeil. **Frekvens:** hver undertype ~30 %. **Kapittel:** [1.3](/bok/stk1100/stk1100-1-3)."
+    },
+    {
+      "id": "stk1100-9-1-sj-C",
+      "type": "definition",
+      "title": "Sjanger C: egendefinert eller «eksotisk» kontinuerlig tetthet",
+      "content": "En oppgitt tetthet med et navn du kanskje ikke har hørt (Laplace, Pareto, Rayleigh, Weibull, lognormal). **Oppskrift:** normer ($\\int f = 1$ gir konstanten); utled $F$ stykkevis (0 og 1 utenfor støtten); finn median ved $F(m) = \\tfrac12$; regn momenter ved integrasjon, ofte via gammaintegralet. Et ukjent navn skal aldri skremme — standardteknikkene holder. **Frekvens:** 60 %, ofte inngangen til estimerings-oppgaven. **Kapittel:** [2.1](/bok/stk1100/stk1100-2-1)–[2.2](/bok/stk1100/stk1100-2-2), drill [2.3](/bok/stk1100/stk1100-2-3)."
+    },
+    {
+      "id": "stk1100-9-1-sj-D",
+      "type": "definition",
+      "title": "Sjanger D: simultantetthet",
+      "content": "En tetthet $f(x,y)$ i to variable. **Oppskrift:** normer ($\\iint f = 1$); finn marginaltetthetene ved å integrere ut den andre variabelen; betinget tetthet $f_{Y\\mid X=x}(y) = f(x,y)/f_X(x)$; regn $P(\\text{område})$ som dobbeltintegral **med området tegnet** for å sette grensene; avgjør uavhengighet ved faktorisering på hele planet. **Frekvens:** 80 %, nesten alltid en egen stor oppgave. **Kapittel:** [3.1](/bok/stk1100/stk1100-3-1), drill [3.2](/bok/stk1100/stk1100-3-2)."
+    },
+    {
+      "id": "stk1100-9-1-sj-E",
+      "type": "definition",
+      "title": "Sjanger E: transformasjon (CDF-metoden og Jacobi)",
+      "content": "Finn fordelingen til en funksjon av en eller flere variable. **Oppskrift:** for $Y = g(X)$ bruk CDF-metoden $F_Y(y) = P(g(X) \\le y)$, løs ulikheten (snu ved avtakende $g$), deriver til tetthet; for $(U,V) = g(X,Y)$ bruk Jacobi $f_{UV} = f_{XY}\\cdot|J|$. Dette er broen som bygger alle pivotalene. **Frekvens:** 90 % — den mest brukte teknikken. **Kapittel:** [4.2](/bok/stk1100/stk1100-4-2), drill [4.3](/bok/stk1100/stk1100-4-3)."
+    },
+    {
+      "id": "stk1100-9-1-sj-F",
+      "type": "definition",
+      "title": "Sjanger F: momentgenererende funksjon",
+      "content": "MGF-en som verktøy. **Oppskrift:** $M_X(t) = E(e^{tX})$ utledes ved integrasjon/summasjon **med konvergenskravet på $t$**; hent momentene som $E(X) = M'(0)$, $E(X^2) = M''(0)$, Var $= E(X^2) - E(X)^2$; for en sum av uavhengige, multipliser MGF-ene og gjenkjenn resultatfordelingen (entydighet). **Frekvens:** ~65 %. **Kapittel:** [4.1](/bok/stk1100/stk1100-4-1)."
+    },
+    {
+      "id": "stk1100-9-1-sj-G",
+      "type": "definition",
+      "title": "Sjanger G: estimering med eksakt pivotal-KI (kjerneoppgaven)",
+      "content": "Emnets signaturoppgave. **Oppskrift:** utled ML-estimatoren (produkt $\\to$ log $\\to$ deriver $\\to$ løs); vis forventningsretthet og korriger skjevhet via $\\Gamma$; transformer til en gamma-/$\\chi^2$-pivot; sett kvantiler og løs ulikheten for parameteren $\\to$ eksakt (asymmetrisk) KI. **Frekvens:** estimering 90 %, eksakt pivotal-KI 70 %. **Kapittel:** [5.2](/bok/stk1100/stk1100-5-2) og [6.1](/bok/stk1100/stk1100-6-1), drill [5.3](/bok/stk1100/stk1100-5-3)/[6.3](/bok/stk1100/stk1100-6-3)."
+    },
+    {
+      "id": "stk1100-9-1-sj-H",
+      "type": "definition",
+      "title": "Sjanger H: eksakt pivotal mot Wald/CLT-dekning",
+      "content": "Sammenlign to konfidensintervaller. **Oppskrift:** Wald-/CLT-intervallet er $\\hat\\theta \\pm z_{\\alpha/2}\\widehat{\\text{SE}}$, begrunnet med sentralgrenseteoremet; når standardavviket avhenger av parameteren, har det eksakte pivotal-intervallet bedre dekning ved liten $n$ (typisk 95,8 % mot 91,6 % for $n=10$, begge ~95 % ved $n=100$). Foretrekk det eksakte for lite utvalg; asymmetri er riktig. **Frekvens:** 40 %. **Kapittel:** [6.2](/bok/stk1100/stk1100-6-2)."
+    },
+    {
+      "id": "stk1100-9-1-sj-I",
+      "type": "definition",
+      "title": "Sjanger I: simulering, bootstrap og Python",
+      "content": "Kjørbar numerikk. **Oppskrift:** inversjonsmetoden trekker $X = F^{-1}(U)$ fra $U \\sim$ uniform$(0,1)$; bootstrap estimerer en standardfeil ved å gjenta estimatoren $B$ ganger på nye utvalg og ta `np.std(..., ddof=1)`; en sannsynlighet estimeres som gjennomsnittet av en indikator (`np.mean(betingelse)`). Koden skal være komplett og faktisk kjøre. **Frekvens:** 60 %, fast siden 2015. **Kapittel:** [7.1](/bok/stk1100/stk1100-7-1)–[7.2](/bok/stk1100/stk1100-7-2)."
+    },
+    {
+      "id": "stk1100-9-1-sj-J",
+      "type": "definition",
+      "title": "Sjanger J: simultanfordeling via Jacobi",
+      "content": "En ren bivariat transformasjon $(X,Y) \\to (U,V)$. **Oppskrift:** velg $U, V$; inverter til $X = X(U,V)$, $Y = Y(U,V)$; regn Jacobi-determinanten $|J| = \\left|\\det\\frac{\\partial(x,y)}{\\partial(u,v)}\\right|$ (absoluttverdi!); sett opp $f_{UV} = f_{XY}\\cdot|J|$ på den transformerte støtten; integrer ut for marginalen. Klassikeren: $(X+Y,\\, X/(X+Y))$ for uavhengige gamma. **Frekvens:** ~30 %. **Kapittel:** [4.2](/bok/stk1100/stk1100-4-2)."
+    },
+    {
+      "id": "stk1100-9-1-sj-K",
+      "type": "definition",
+      "title": "Sjanger K: enkel lineær regresjon",
+      "content": "Minste kvadraters tilpasning, i STK1100s elementære form (ingen residualplott eller prediksjonsintervall). **Oppskrift:** minimer $\\sum(Y_i - \\hat Y_i)^2$; med konstantledd $\\hat\\beta_1 = S_{xY}/S_{xx}$, $\\hat\\beta_0 = \\bar Y - \\hat\\beta_1\\bar x$; uten konstantledd $\\hat\\gamma = \\sum x_iY_i/\\sum x_i^2$; finn $E$ og Var av estimatoren under modellen; modellvalg via om KI-et for $\\beta_0$ inneholder 0. **Frekvens:** 20 %, men begge de to siste settene. **Kapittel:** [8.3](/bok/stk1100/stk1100-8-3) *(verifiser — bygges i Del 8)*."
+    },
+    {
+      "id": "stk1100-9-1-sj-L",
+      "type": "definition",
+      "title": "Sjanger L: betinget forventning, prediksjon og MSE",
+      "content": "Beste gjett når to variable henger sammen. **Oppskrift:** regn $E(Y\\mid X=x)$ fra den betingede tettheten; forventningen er den prediksjonen som minimerer forventet kvadratisk feil $E[(\\theta - Y)^2]$; for binormale data er formen lineær, $E(Y\\mid X=x) = \\mu_2 + \\rho\\frac{\\sigma_2}{\\sigma_1}(x-\\mu_1)$, og den betingede variansen er redusert med $(1-\\rho^2)$. **Frekvens:** 30 %. **Kapittel:** [8.2](/bok/stk1100/stk1100-8-2) *(verifiser — bygges i Del 8)*."
+    },
+    {
+      "id": "stk1100-9-1-feil-intro",
+      "type": "text",
+      "content": "## Feilkatalogen: de tretten sensortrekkene\n\nDisse tretten feilene står bak de fleste tapte poengene i arkivet. Hver har et kapittel som forebygger den — går du på en av dem gjentatte ganger, er det kapitlet du bør tilbake til."
+    },
+    {
+      "id": "stk1100-9-1-feil-1",
+      "type": "definition",
+      "title": "Feil 1: uavhengighet uten faktorisering",
+      "content": "Den vanligste feilen i simultanoppgaver er å *påstå* uavhengighet fordi tettheten «ser ut som et produkt», uten å sjekke faktoriseringen $f(x,y) = f_X(x)f_Y(y)$ for **alle** $(x,y)$ — inkludert null-området. Er støtten ikke et produktområde (f.eks. en trekant), er variablene automatisk avhengige. Forebygges i [kap. 3.2](/bok/stk1100/stk1100-3-2)."
+    },
+    {
+      "id": "stk1100-9-1-feil-2",
+      "type": "definition",
+      "title": "Feil 2: feil integralgrenser i dobbeltintegralet",
+      "content": "Grensene i $\\iint$ settes feil fordi integrasjonsområdet ikke er tegnet. Tegn alltid området først — det er både et sensorkrav og din egen sikkerhet mot bytte av grenser. Forebygges i [kap. 3.1](/bok/stk1100/stk1100-3-1)."
+    },
+    {
+      "id": "stk1100-9-1-feil-3",
+      "type": "definition",
+      "title": "Feil 3: hoppe til Wald og tro at asymmetri er feil",
+      "content": "Å gå rett på Wald-/CLT-intervallet når det eksakte kreves, eller å «rette opp» et asymmetrisk eksakt intervall til noe symmetrisk. Asymmetri er riktig når pivoten er skjev. Forebygges i [kap. 6.1](/bok/stk1100/stk1100-6-1)–[6.2](/bok/stk1100/stk1100-6-2)."
+    },
+    {
+      "id": "stk1100-9-1-feil-4",
+      "type": "definition",
+      "title": "Feil 4: tetthet forvekslet med sannsynlighet",
+      "content": "Å tro at $f(x)$ er en sannsynlighet (den kan overstige 1) eller at $P(X = x) > 0$ for kontinuerlig $X$ (den er 0). Sannsynligheter er *arealer* under tettheten. Forebygges i [kap. 1.2](/bok/stk1100/stk1100-1-2) og [2.1](/bok/stk1100/stk1100-2-1)."
+    },
+    {
+      "id": "stk1100-9-1-feil-5",
+      "type": "definition",
+      "title": "Feil 5: MGF uten konvergenskrav",
+      "content": "Å utlede en MGF uten å angi for hvilke $t$ den konvergerer (f.eks. $t < 1/\\beta$ for gamma). Uten konvergensområdet er utledningen ufullstendig. Forebygges i [kap. 4.1](/bok/stk1100/stk1100-4-1)."
+    },
+    {
+      "id": "stk1100-9-1-feil-6",
+      "type": "definition",
+      "title": "Feil 6: eksponensial-parametriseringen blandet",
+      "content": "Å bruke rateformen $\\lambda e^{-\\lambda x}$ og forventningsformen $\\frac{1}{\\mu}e^{-x/\\mu}$ om hverandre, eller anta feil form. Les oppgavens egen definisjon hver gang. Forebygges i [kap. 2.1](/bok/stk1100/stk1100-2-1)."
+    },
+    {
+      "id": "stk1100-9-1-feil-7",
+      "type": "definition",
+      "title": "Feil 7: skjevhets-slurv",
+      "content": "Å anta at en estimator er forventningsrett uten å regne, eller glemme $\\Gamma$-faktoren når man tar en rot/potens: $E[\\sqrt V] \\ne \\sqrt{E[V]}$. Forebygges i [kap. 5.1](/bok/stk1100/stk1100-5-1) og [5.3](/bok/stk1100/stk1100-5-3)."
+    },
+    {
+      "id": "stk1100-9-1-feil-8",
+      "type": "definition",
+      "title": "Feil 8: ML uten logaritme først",
+      "content": "Å derivere likelihooden direkte i stedet for å logaritmere først, eller ikke løse likningen fullstendig. Alltid $L \\to \\ell = \\ln L \\to \\ell' = 0 \\to$ løs. Forebygges i [kap. 5.2](/bok/stk1100/stk1100-5-2)."
+    },
+    {
+      "id": "stk1100-9-1-feil-9",
+      "type": "definition",
+      "title": "Feil 9: kovariansleddet glemt (eller feilbrukt)",
+      "content": "Å droppe $2ab\\,\\text{Cov}(X,Y)$ i $\\text{Var}(aX+bY)$ når variablene er korrelerte — eller ta det med når de er uavhengige. Og: $\\text{Var}(X-Y) \\ne \\text{Var}(X) - \\text{Var}(Y)$. Forebygges i [kap. 1.2](/bok/stk1100/stk1100-1-2) og [8.1](/bok/stk1100/stk1100-8-1)."
+    },
+    {
+      "id": "stk1100-9-1-feil-10",
+      "type": "definition",
+      "title": "Feil 10: transformasjon uten metode eller $|J|$",
+      "content": "Å gjette tettheten til $Y = g(X)$, eller glemme absoluttverdien på Jacobi-determinanten. Bruk alltid CDF-metoden eller Jacobi eksplisitt. Forebygges i [kap. 4.2](/bok/stk1100/stk1100-4-2)."
+    },
+    {
+      "id": "stk1100-9-1-feil-11",
+      "type": "definition",
+      "title": "Feil 11: bootstrap uten `ddof=1` eller uten trekkeregel",
+      "content": "Å bruke `np.var`/`np.std` uten `ddof=1`, eller beskrive bootstrap uten å si at man trekker *med tilbakelegging* (ikke-parametrisk) eller *fra den tilpassede fordelingen* (parametrisk). Forebygges i [kap. 7.1](/bok/stk1100/stk1100-7-1)–[7.2](/bok/stk1100/stk1100-7-2)."
+    },
+    {
+      "id": "stk1100-9-1-feil-12",
+      "type": "definition",
+      "title": "Feil 12: median-algebra ($F(m) = \\tfrac12$)",
+      "content": "Å løse $f(m) = \\tfrac12$ i stedet for $F(m) = \\tfrac12$, eller å rote i log-/potenslikningen når man løser for medianen. Medianen er der *fordelingsfunksjonen* er $\\tfrac12$. Forebygges i [kap. 2.1](/bok/stk1100/stk1100-2-1) og [2.3](/bok/stk1100/stk1100-2-3)."
+    },
+    {
+      "id": "stk1100-9-1-feil-13",
+      "type": "definition",
+      "title": "Feil 13: feil frihetsgrader i pivoten",
+      "content": "Å bruke $\\chi^2_n$ eller $\\chi^2_{n-1}$ der eksponensial-pivoten krever $\\chi^2_{2n}$ (eller motsatt for normal med kjent $\\mu$, som er $\\chi^2_n$). Les hvilken pivot fordelingen gir. Forebygges i [kap. 2.2](/bok/stk1100/stk1100-2-2), [4.3](/bok/stk1100/stk1100-4-3) og [6.1](/bok/stk1100/stk1100-6-1)."
+    },
+    {
+      "id": "stk1100-9-1-sensor-intro",
+      "type": "text",
+      "content": "## Sensorreglene: de elleve kravene\n\nLøsningsforslagene i arkivet stiller gjennomgående de samme elleve kravene. De koster ingenting å oppfylle, men å bryte dem koster poeng selv når regningen er riktig."
+    },
+    {
+      "id": "stk1100-9-1-sr-1",
+      "type": "definition",
+      "title": "Sensorkrav 1: definer variable og hendelser",
+      "content": "Skriv «la $X$ = …» eller «la $S$ = hendelsen at …» *før* du regner. Et svar uten definerte størrelser regnes som ufullstendig, selv om tallet er riktig."
+    },
+    {
+      "id": "stk1100-9-1-sr-2",
+      "type": "definition",
+      "title": "Sensorkrav 2: bevis uavhengighet ved faktorisering",
+      "content": "Uavhengighet påstås aldri fra intuisjon. Vis $f(x,y) = f_X(x)f_Y(y)$ for alle $(x,y)$, inkludert null-området — ett moteksempel motbeviser."
+    },
+    {
+      "id": "stk1100-9-1-sr-3",
+      "type": "definition",
+      "title": "Sensorkrav 3: tegn integrasjonsområdet",
+      "content": "For hvert dobbeltintegral: tegn området i $xy$-planet før du setter grensene. Dette er et eksplisitt krav, ikke en anbefaling."
+    },
+    {
+      "id": "stk1100-9-1-sr-4",
+      "type": "definition",
+      "title": "Sensorkrav 4: MGF med konvergenskrav",
+      "content": "Oppgi for hvilke $t$ MGF-en konvergerer, og hent momentene som $E = M'(0)$, $E(X^2) = M''(0)$."
+    },
+    {
+      "id": "stk1100-9-1-sr-5",
+      "type": "definition",
+      "title": "Sensorkrav 5: ML med alle trinn",
+      "content": "Vis hele kjeden $L \\to \\ell \\to$ deriver $\\to$ løs. Et estimat uten regnekjede får ikke full uttelling."
+    },
+    {
+      "id": "stk1100-9-1-sr-6",
+      "type": "definition",
+      "title": "Sensorkrav 6: egenskaper fullstendig, skjevhet korrigert",
+      "content": "Vis forventningsretthet og varians fullstendig; kvantifiser og korriger skjevhet. Skill konsekvent estimator (stokastisk) fra estimat (tall)."
+    },
+    {
+      "id": "stk1100-9-1-sr-7",
+      "type": "definition",
+      "title": "Sensorkrav 7: foretrekk eksakt pivotal framfor Wald",
+      "content": "Når standardfeilen avhenger av parameteren, foretrekkes det eksakte intervallet ved liten $n$. Et asymmetrisk eksakt intervall er riktig."
+    },
+    {
+      "id": "stk1100-9-1-sr-8",
+      "type": "definition",
+      "title": "Sensorkrav 8: nevn CLT eksplisitt",
+      "content": "Ved normaltilnærming skal sentralgrenseteoremet nevnes med alle tre forutsetningene (uavhengige, identisk fordelte, endelig varians)."
+    },
+    {
+      "id": "stk1100-9-1-sr-9",
+      "type": "definition",
+      "title": "Sensorkrav 9: transformasjoner med metode",
+      "content": "Bruk CDF-metoden, Jacobi eller MGF eksplisitt — aldri gjetting av resultatfordelingen."
+    },
+    {
+      "id": "stk1100-9-1-sr-10",
+      "type": "definition",
+      "title": "Sensorkrav 10: bootstrap presist og kjørbar kode",
+      "content": "Beskriv bootstrap-algoritmen presist og lever Python-kode som faktisk kjører, med `ddof=1` der en empirisk standardfeil beregnes."
+    },
+    {
+      "id": "stk1100-9-1-sr-11",
+      "type": "definition",
+      "title": "Sensorkrav 11: tallsvar med tolkning",
+      "content": "Avslutt med et tallsvar med enhet og en setnings tolkning. «Regn ferdig og forklar hva tallet betyr.»"
+    },
+    {
+      "id": "stk1100-9-1-tid-intro",
+      "type": "text",
+      "content": "## Tidsbudsjettet for de fire timene\n\nFire timer på 3–4 oppgaver betyr rundt 60–80 minutter per oppgave. De tre kortene under er den strategien som gir flest poeng under tidspress."
+    },
+    {
+      "id": "stk1100-9-1-tid-1",
+      "type": "definition",
+      "title": "Tidsbudsjett: fordel de 240 minuttene",
+      "content": "Med 3–4 oppgaver à 25–35 poeng har du **rundt 60–80 minutter per oppgave**. Del tiden proporsjonalt med poengene, og hold av 15–20 minutter til slutt for gjennomlesing og tallsvar. Alle delpunkter teller — et delpunkt du hopper over, er garantert tap, mens et delpunkt du bruker for lang tid på, stjeler fra resten. Grav deg aldri fast i ett delpunkt."
+    },
+    {
+      "id": "stk1100-9-1-tid-2",
+      "type": "definition",
+      "title": "Tidsbudsjett: rekkefølgen på oppgavene",
+      "content": "Ta de sikre poengene først. Åpningsoppgavene (Bayes/sjanger A, standardisering, marginaler, median) gir trygg uttelling raskt og varmer deg opp. Sett av **mest tid til estimerings-kjeden** (oppgave 3, sjanger G+H) — den er tyngst og verdt mest. La en Python-/simuleringsoppgave stå til du har sikret de analytiske poengene, men ikke dropp den: 60 % av settene har den."
+    },
+    {
+      "id": "stk1100-9-1-tid-3",
+      "type": "definition",
+      "title": "Tidsbudsjett: slå opp eller utled?",
+      "content": "Spar tid ved å vite hva som ligger i formelsamlingen. **Slå opp:** fordelingskatalogens $E$/Var/MGF, gammafunksjonens egenskaper, kvantiltabeller ($\\Phi$, $z_\\alpha$, $\\chi^2$, gamma), standard-KI-formler. **Utled aktivt:** ML, pivotaler, transformasjoner, minneløshet og bootstrap. Å lete etter noe som må utledes — eller utlede noe som står i tabellen — er bortkastet tid."
+    },
+    {
+      "id": "stk1100-9-1-warning-meta",
+      "type": "warning",
+      "title": "Typiske feil (metanivå)",
+      "content": "Dette er feilene som handler om *forberedelse og eksamensteknikk*, ikke om regning:\n\n- **Bruke for mye tid på ett delpunkt.** Alle delpunkter teller — en fastlåst delpunkt-jakt koster mer enn den gir.\n- **Ikke se kjeden som én oppgave.** Å behandle de seks leddene som løsrevne delpunkt gjør at man mister estimatet mellom leddene og fører feil tall videre.\n- **Hoppe over definisjonene under tidspress.** «La $X$ = …» tar ti sekunder og er sensorkrav 1 — å droppe det koster poeng på ellers riktig regning.\n- **Pugge formler som ligger i formelsamlingen** i stedet for å trene valg og utledning.\n- **Øve kun på sannsynlighetsdelen** og møte veggen på estimerings-kjeden, som bærer flest poeng.\n- **Hoppe over simulering/Python** fordi det ser programmeringstungt ut — 60 % av settene har det.\n- **Forberede hypotesetesting** (feil emne — det ligger i STK1110)."
+    },
+    {
+      "id": "stk1100-9-1-oppg-1",
+      "type": "exercise",
+      "exercise": {
+        "id": "stk1100-9-1-oppg-1-x",
+        "number": "1",
+        "type": "classic",
+        "difficulty": "lett",
+        "task": "En eksamensoppgave gir tettheten $f(x,y) = c\\,xy$ på trekanten $0 < x < y < 1$ og ber deg finne $c$, begge marginaltetthetene og avgjøre om $X$ og $Y$ er uavhengige.\n\n**a)** Hvilken sjanger (A–L) er dette?\n\n**b)** Hva er første trekk, og hva må du være ekstra påpasselig med i uavhengighetsdelen?",
+        "solution": "**a)** Sjanger **D** (simultantetthet) — en tetthet i to variable med spørsmål om marginaler og uavhengighet.\n\n**b)** Første trekk er å **normere**: løs $\\iint c\\,xy\\,dx\\,dy = 1$ over trekanten for å finne $c$. I uavhengighetsdelen må du sjekke faktoriseringen på **hele planet, inkludert null-området**: støtten er en trekant (ikke et rektangel), så $X$ og $Y$ er automatisk avhengige — det kan ikke leses av produktformen $c\\,xy$ alene. Dette er nettopp feil 1 i katalogen.",
+        "hints": [
+          "Se på hva oppgaven spør om — marginaler og uavhengighet fra en oppgitt $f(x,y)$ peker på én bestemt sjanger.",
+          "Første trekk i enhver simultantetthet-oppgave er alltid det samme: sikre at tettheten integrerer til 1.",
+          "Støtten $0 < x < y < 1$ er en trekant, ikke et produktområde — hva sier det om uavhengighet?"
+        ]
+      }
+    },
+    {
+      "id": "stk1100-9-1-oppg-2",
+      "type": "exercise",
+      "exercise": {
+        "id": "stk1100-9-1-oppg-2-x",
+        "number": "2",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "Levetidene $X_1, \\ldots, X_{10}$ antas eksponensialfordelte med forventning $\\mu$, og $\\sum x_i = 84$. Oppgaven ber deg utlede ML-estimatoren og et eksakt 95 %-konfidensintervall for $\\mu$.\n\n**a)** Hvilken sjanger er dette, og hvilken pivot bygger du KI-et på?\n\n**b)** Hvilke frihetsgrader har pivoten?",
+        "solution": "**a)** Sjanger **G** (estimering med eksakt pivotal-KI). ML gir $\\hat\\mu = \\bar X = 8{,}4$. Pivoten er $\\dfrac{2\\sum X_i}{\\mu} \\sim \\chi^2_{2n}$ — en størrelse med kjent kjikvadratfordeling som ikke avhenger av $\\mu$.\n\n**b)** Med $n = 10$ har pivoten $2n = 20$ frihetsgrader, altså $\\chi^2_{20}$. KI-et blir $\\left[\\frac{2\\cdot 84}{\\chi^2_{20,\\,0{,}025}}, \\frac{2\\cdot 84}{\\chi^2_{20,\\,0{,}975}}\\right]$. Å bruke $\\chi^2_{10}$ eller $\\chi^2_9$ her er feil 13 i katalogen.",
+        "hints": [
+          "Oppgaven ber om ML *og* et eksakt KI for en levetidsfordeling — det er kjerneoppgaven.",
+          "For eksponensiale observasjoner er standardpivoten $2\\sum X_i/\\mu$; slå opp hvilken fordeling den har.",
+          "Eksponensial-pivoten har alltid $2n$ frihetsgrader, ikke $n$."
+        ]
+      }
+    },
+    {
+      "id": "stk1100-9-1-oppg-3",
+      "type": "exercise",
+      "exercise": {
+        "id": "stk1100-9-1-oppg-3-x",
+        "number": "3",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "Et eksamenssett har fire oppgaver à 25 poeng, 240 minutter til rådighet: (1) Bayes/diagnosetest, (2) simultantetthet, (3) estimerings-kjeden på en Weibull-fordeling, (4) transformasjon + et Python-innslag. Sett opp et tidsbudsjett med rekkefølge, og begrunn det.",
+        "solution": "Oppgavene er like mye verdt (25 p hver), men ulikt tunge. Et forsvarlig budsjett:\n\n**Rekkefølge og tid:**\n- **Oppgave 1 (Bayes), ~45 min, først.** Trygge åpningspoeng; definer hendelsene, bruk total sannsynlighet og Bayes. Kort og sikker — god oppvarming.\n- **Oppgave 2 (simultantetthet), ~55 min.** Normer, marginaler, tegn området for $P(\\text{område})$. Metodisk, middels tung.\n- **Oppgave 3 (estimerings-kjeden), ~75 min, mest tid.** Tyngst og bygger på seg selv (ML $\\to$ egenskaper $\\to$ pivot $\\to$ eksakt KI). Ikke start denne stresset — derfor ikke først.\n- **Oppgave 4 (transformasjon + Python), ~45 min.** Ta den nest sist/sist; skriv Python-koden komplett, men ikke la den spise av kjede-tiden.\n- **~20 min buffer** til slutt: tallsvar med enhet og tolkning (sensorkrav 11), og et raskt blikk på delpunkt du eventuelt hoppet over.\n\n**Begrunnelse:** ta sikre poeng først (oppgave 1), gi den tyngste og mest sammenhengende oppgaven mest tid (oppgave 3), og la deg ikke grave fast — alle delpunkter teller likt uansett hvilken oppgave de står i.",
+        "hints": [
+          "Poengene er like, men tiden bør følge *tyngden*, ikke bare poengsummen.",
+          "Hvilken oppgave gir de tryggeste poengene raskest, og hvilken bygger mest på seg selv?",
+          "Husk en sluttbuffer til tallsvar, tolkning og oversette delpunkt."
+        ]
+      }
+    },
+    {
+      "id": "stk1100-9-1-oppg-4",
+      "type": "exercise",
+      "exercise": {
+        "id": "stk1100-9-1-oppg-4-x",
+        "number": "4",
+        "type": "classic",
+        "difficulty": "vanskelig",
+        "task": "En oppgave ber deg: (i) utlede ML-estimatoren for skalaparameteren i en Weibull-fordeling med kjent formparameter, (ii) vise at estimatoren er skjev og finne en $\\Gamma$-korreksjon, (iii) vise at $\\frac{2\\sum X_i^\\alpha}{\\beta^\\alpha} \\sim \\chi^2_{2n}$, og (iv) konstruere et eksakt KI. Plasser hvert delpunkt i kjeden, og oppgi kapitlet som drilles.",
+        "solution": "Dette er hele estimerings-kjeden på én fordeling — sjanger **G** (med et hint av C i innpakningen).\n\n**(i) ML-estimatoren** er kjedens ledd 2 (estimatoren): skriv likelihooden over alle observasjoner, logaritmer, deriver og løs $\\to$ $\\hat\\beta = \\left(\\frac1n\\sum X_i^\\alpha\\right)^{1/\\alpha}$. Drilles i [kap. 5.2](/bok/stk1100/stk1100-5-2)/[5.3](/bok/stk1100/stk1100-5-3).\n\n**(ii) Skjevhet og $\\Gamma$-korreksjon** er ledd 3 (egenskapene): siden $E[\\hat\\beta] = c\\beta$ med $c = \\Gamma(n+1/\\alpha)/(n^{1/\\alpha}\\Gamma(n)) \\ne 1$, er $\\hat\\beta/c$ forventningsrett. Drilles i [kap. 5.1](/bok/stk1100/stk1100-5-1)/[5.3](/bok/stk1100/stk1100-5-3).\n\n**(iii) Transformasjonen til $\\chi^2_{2n}$** er ledd 4 (gamma/$\\chi^2$-pivoten): $X_i^\\alpha$ er eksponensiale, så $\\frac{2\\sum X_i^\\alpha}{\\beta^\\alpha}$ er en sum som gir $\\chi^2_{2n}$. Drilles i [kap. 4.3](/bok/stk1100/stk1100-4-3).\n\n**(iv) Det eksakte KI-et** er ledd 5: sett $\\chi^2$-kvantiler rundt pivoten og løs ulikheten for $\\beta^\\alpha$, deretter ta $\\alpha$-te rot. Drilles i [kap. 6.1](/bok/stk1100/stk1100-6-1). Hele kjeden settes sammen i drillen [6.3](/bok/stk1100/stk1100-6-3).",
+        "hints": [
+          "Alle fire delpunktene tilhører samme sammenhengende oppgave — hvilken?",
+          "Match hvert delpunkt mot ett av de seks kjede-leddene (fordeling, estimator, egenskaper, pivot, KI, alternativ).",
+          "$X_i^\\alpha$ er eksponensialfordelt — det er nøkkelen til at summen blir $\\chi^2_{2n}$."
+        ]
+      }
+    },
+    {
+      "id": "stk1100-9-1-collapsible-kald-bank",
+      "type": "collapsible",
+      "title": "Kald bank (uten hint)",
+      "buttonText": "Vis kald bank (3 oppgaver uten hint)",
+      "content": [
+        {
+          "id": "stk1100-9-1-kb-intro",
+          "type": "text",
+          "content": "**Kald bank — eksamenstrening uten stillas.** Disse tre oppgavene er merket *vanskelig* og har **ingen hint**: fasiten er en ren momentliste, slik en sensor ville krysset av. Bruk dem som en siste selvtest — klarer du å reise hele løsningen selv, er du klar for øvingseksamenene."
+        },
+        {
+          "id": "stk1100-9-1-kb-1",
+          "type": "exercise",
+          "exercise": {
+            "id": "stk1100-9-1-kb-1-x",
+            "number": "KB1",
+            "type": "classic",
+            "difficulty": "vanskelig",
+            "task": "La $V \\sim$ gamma$(\\alpha, \\beta)$ (skalaparametrisering, $E(V) = \\alpha\\beta$). Vis at $E(\\sqrt V) = \\beta^{1/2}\\dfrac{\\Gamma(\\alpha + \\tfrac12)}{\\Gamma(\\alpha)}$, og forklar hvorfor $\\sqrt V$ ikke er en forventningsrett estimator for $\\sqrt{\\alpha\\beta} = \\sqrt{E(V)}$.",
+            "solution": "**Fasit (momentliste — ingen hint):**\n- Bruk E(Vʳ)-formelen $E(V^r) = \\beta^r\\Gamma(\\alpha+r)/\\Gamma(\\alpha)$ med $r = \\tfrac12$; alternativt regn $\\int_0^\\infty \\sqrt v\\,\\frac{1}{\\beta^\\alpha\\Gamma(\\alpha)}v^{\\alpha-1}e^{-v/\\beta}\\,dv$ og bruk gammaintegralet $\\int_0^\\infty x^{a-1}e^{-x/b}\\,dx = b^a\\Gamma(a)$ med $a = \\alpha+\\tfrac12$, $b = \\beta$.\n- Resultat: $E(\\sqrt V) = \\beta^{1/2}\\Gamma(\\alpha+\\tfrac12)/\\Gamma(\\alpha)$.\n- $\\sqrt{\\cdot}$ er en konkav funksjon, så Jensens ulikhet gir $E(\\sqrt V) < \\sqrt{E(V)}$: kvadratrota av en forventningsrett størrelse er *skjev nedover*. Tallsjekk ($\\alpha=3,\\beta=2$): $E(\\sqrt V) \\approx 2{,}350 < \\sqrt{6} \\approx 2{,}449$.\n- Poeng: dette er kjernen i skjevhetskorreksjon via $\\Gamma$ — rot-/potensestimatorer må korrigeres med et $\\Gamma$-forhold for å bli forventningsrette.",
+            "hints": []
+          }
+        },
+        {
+          "id": "stk1100-9-1-kb-2",
+          "type": "exercise",
+          "exercise": {
+            "id": "stk1100-9-1-kb-2-x",
+            "number": "KB2",
+            "type": "classic",
+            "difficulty": "vanskelig",
+            "task": "Komponentlevetider $X_1, \\ldots, X_{12}$ antas eksponensialfordelte med forventning $\\mu$ (målt i tusen timer), og $\\sum x_i = 90$. Utled et eksakt 95 %-konfidensintervall for $\\mu$, og deretter et 95 %-intervall for medianlevetiden $\\mu\\ln 2$.",
+            "solution": "**Fasit (momentliste — ingen hint):**\n- Pivot: $\\dfrac{2\\sum X_i}{\\mu} \\sim \\chi^2_{2n} = \\chi^2_{24}$. Med $2\\sum x_i = 180$.\n- Kvantiler (øvre haleareal): $\\chi^2_{24,\\,0{,}025} = 39{,}364$, $\\chi^2_{24,\\,0{,}975} = 12{,}401$.\n- KI for $\\mu$: $\\left[\\frac{180}{39{,}364}, \\frac{180}{12{,}401}\\right] = [4{,}573,\\ 14{,}515]$ (tusen timer). Merk asymmetrien.\n- Medianen $\\mu\\ln 2$ er en strengt voksende funksjon av $\\mu$, så intervallet transformeres endepunkt for endepunkt: $[4{,}573\\cdot\\ln 2,\\ 14{,}515\\cdot\\ln 2] = [3{,}170,\\ 10{,}061]$ (tusen timer).\n- Tolkning: med 95 % sikkerhet ligger forventet levetid mellom ca. 4 570 og 14 500 timer, medianen mellom ca. 3 170 og 10 060 timer.",
+            "hints": []
+          }
+        },
+        {
+          "id": "stk1100-9-1-kb-3",
+          "type": "exercise",
+          "exercise": {
+            "id": "stk1100-9-1-kb-3-x",
+            "number": "KB3",
+            "type": "classic",
+            "difficulty": "vanskelig",
+            "task": "$(X,Y)$ har tetthet $f(x,y) = \\tfrac23(x + 2y)$ på enhetskvadratet $0 < x < 1$, $0 < y < 1$ (og 0 ellers). Avgjør med full begrunnelse om $X$ og $Y$ er uavhengige, og finn den betingede forventningen $E(Y \\mid X = x)$.",
+            "solution": "**Fasit (momentliste — ingen hint):**\n- Marginaler: $f_X(x) = \\int_0^1 \\tfrac23(x+2y)\\,dy = \\tfrac23(x+1)$ for $0<x<1$; $f_Y(y) = \\int_0^1 \\tfrac23(x+2y)\\,dx = \\tfrac23(\\tfrac12+2y)$ for $0<y<1$.\n- Uavhengighet: $f_X(x)f_Y(y) = \\tfrac49(x+1)(\\tfrac12+2y) \\ne \\tfrac23(x+2y) = f(x,y)$. Støtten er et produktområde (kvadratet), men tettheten faktoriserer ikke $\\Rightarrow$ **avhengige**. (Merk kontrasten til en trekantstøtte, der avhengighet følger av selve null-området.)\n- Betinget tetthet: $f_{Y\\mid X=x}(y) = f(x,y)/f_X(x) = (x+2y)/(x+1)$, $0<y<1$.\n- $E(Y\\mid X=x) = \\int_0^1 y\\,\\frac{x+2y}{x+1}\\,dy = \\frac{1}{x+1}\\left(\\frac x2 + \\frac23\\right) = \\dfrac{3x+4}{6(x+1)}$.\n- Sjekk: ved $x=0{,}5$ gir formelen $5{,}5/9 \\approx 0{,}611 > 0{,}5$ — rimelig, siden tettheten legger mer vekt på høye $y$ (leddet $2y$).",
+            "hints": []
+          }
+        }
+      ]
+    },
+    {
+      "id": "stk1100-9-1-collapsible-symbol",
+      "type": "collapsible",
+      "title": "Symbol- og formelliste",
+      "buttonText": "Vis symboler og formler",
+      "content": [
+        {
+          "id": "stk1100-9-1-symbol-body",
+          "type": "text",
+          "content": "Oppslagsverk — alt her forklares underveis i kapitlet.\n\n| Symbol | Betydning |\n|---|---|\n| $X, Y$ | stokastiske variable (store bokstaver) |\n| $x, y$ | observerte verdier (små bokstaver) |\n| $\\hat\\theta, \\hat\\mu, \\hat\\beta$ | estimatorer (hatt, stokastiske) |\n| $\\bar X$ | utvalgsgjennomsnitt |\n| $f(x), F(x)$ | tetthet og fordelingsfunksjon |\n| $f(x,y)$ | simultantetthet |\n| $f_X(x)$ | marginaltetthet |\n| $E(\\cdot), \\text{Var}(\\cdot), \\text{Cov}(\\cdot,\\cdot)$ | forventning, varians, kovarians |\n| $\\rho$ | korrelasjon |\n| $M_X(t)$ | momentgenererende funksjon |\n| $L, \\ell$ | likelihood og log-likelihood |\n| $|J|$ | Jacobi-determinantens absoluttverdi |\n| $\\chi^2_\\nu$ | kjikvadratfordeling med $\\nu$ frihetsgrader |\n| $\\Gamma(\\cdot)$ | gammafunksjonen |\n| $\\Phi$ | standardnormal fordelingsfunksjon |\n| $z_\\alpha, \\chi^2_{\\nu,\\alpha}$ | kvantiler med øvre haleareal $\\alpha$ |\n| $\\lambda$ | rate i en Poisson-prosess / eksponensial |\n| $\\mu$ | forventning (bl.a. eksponensial forventningsform) |\n\n**Formler i dette kapitlet:**\n\nBayes' formel (sjanger A):\n$$P(A_j \\mid B) = \\frac{P(B \\mid A_j)P(A_j)}{\\sum_i P(B \\mid A_i)P(A_i)}$$\n\nEksponensial-pivoten (kjeden, ledd 4–5):\n$$\\frac{2\\sum X_i}{\\mu} \\sim \\chi^2_{2n}, \\qquad \\text{KI: } \\left[\\frac{2\\sum x_i}{\\chi^2_{2n,\\alpha/2}}, \\frac{2\\sum x_i}{\\chi^2_{2n,1-\\alpha/2}}\\right]$$\n\nWald-/CLT-intervall (kjeden, ledd 6):\n$$\\hat\\theta \\pm z_{\\alpha/2}\\,\\widehat{\\text{SE}}$$\n\nJacobi-transformasjon (sjanger E/J):\n$$f_{UV}(u,v) = f_{XY}(x(u,v), y(u,v))\\cdot |J|$$\n\nE(Vʳ)-formelen (skjevhetskorreksjon):\n$$E(V^r) = \\beta^r\\frac{\\Gamma(\\alpha+r)}{\\Gamma(\\alpha)}, \\quad V \\sim \\text{gamma}(\\alpha,\\beta)$$\n\nBetinget forventning for binormal (sjanger L):\n$$E(Y \\mid X = x) = \\mu_2 + \\rho\\frac{\\sigma_2}{\\sigma_1}(x - \\mu_1)$$"
+        }
+      ]
+    }
+  ],
+  "exercises": []
+}

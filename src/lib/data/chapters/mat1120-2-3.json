@@ -1,0 +1,382 @@
+{
+  "id": "mat1120-2-3",
+  "courseId": "mat1120",
+  "chapterNumber": "2.3",
+  "title": "Koordinater [x]_B og koordinatavbildningen",
+  "description": "Koordinatvektoren [x]_B relativt en ordnet basis, koordinatavbildningen som isomorfi V→ℝⁿ, og hvordan den gjør abstrakte problemer (polynomer, funksjoner) til vanlig matriseregning i ℝⁿ.",
+  "estimatedMinutes": 50,
+  "competenceGoals": [
+    "finne koordinatvektoren [x]_B til et polynom eller en funksjon relativt en ordnet basis, også ikke-standard basiser",
+    "forklare koordinatavbildningen som en isomorfi V→ℝⁿ og hva det betyr",
+    "bruke at isomorfien bevarer uavhengighet, span og dimensjon til å avgjøre abstrakte spørsmål med matriseregning i ℝⁿ",
+    "oversette et koordinatsvar tilbake til et polynom eller en funksjon i det abstrakte rommet"
+  ],
+  "content": [
+    {
+      "id": "mat1120-2-3-tip-eksamensvinkel",
+      "type": "tip",
+      "title": "Eksamensvinkel",
+      "content": "**Koordinater er verktøyet som gjør signaturoppgaven regnbar.** Sjanger H/I, ~100 % — koordinatvektoren $[\\mathbf{x}]_{\\mathcal{B}}$ brukes i så godt som hver abstrakt-vektorrom-oppgave, og er forutsetningen for overgangsmatrisen (kap. 2.4) og matriserepresentasjonen $[T]_{\\mathcal{B}}$ (kap. 2.5).\n\n- Grepet fasiten bruker: **oversett** polynomet/funksjonen til en koordinatvektor i $\\mathbb{R}^n$, **regn** med vanlig matrisealgebra, **oversett tilbake**.\n- Det som gjør oversettelsen lovlig, er at koordinatavbildningen er en **isomorfi** (forklart under) — den bevarer uavhengighet, span og dimensjon nøyaktig.\n\n**Sensorregel:** basisen er *ordnet*. Rekkefølgen på koordinatene følger rekkefølgen på basisvektorene — bytt om, og hele svaret blir feil. Skriv alltid ned hvilken (ordnet) basis koordinatene er tatt relativt."
+    },
+    {
+      "id": "mat1120-2-3-forkunnskaper",
+      "type": "text",
+      "content": "**Forkunnskaper:**\n\n- [Kap. 2.1](/bok/mat1120/mat1120-2-1) — vektorrom, $\\operatorname{P}_n$, funksjonsrom\n- [Kap. 2.2](/bok/mat1120/mat1120-2-2) — basis, dimensjon, uavhengighet; den entydige basisrepresentasjonen er akkurat det som gjør koordinater veldefinerte\n- Små lineære likningssystem for å finne koordinater — trygg bokstavregning holder\n- [Lineæravbildninger (MAT1110)](/bok/mat1110/mat1110-1-4) — det vi trenger om lineære avbildninger (utdypes i kap. 2.5) og repeteres kort"
+    },
+    {
+      "id": "mat1120-2-3-intro",
+      "type": "text",
+      "content": "Vi har jobbet abstrakt med polynomer og funksjoner. Nå knytter vi dem til tall igjen — men på en kontrollert måte. Velger vi en fast (ordnet) basis $\\mathcal{B}$ for et $n$-dimensjonalt rom $V$, får hver vektor en entydig liste med $n$ koeffisienter: **koordinatvektoren** $[\\mathbf{x}]_{\\mathcal{B}}\\in\\mathbb{R}^n$. Denne oversettelsen er så snill at *alt* det lineære (uavhengighet, span, dimensjon) overføres uendret mellom $V$ og $\\mathbb{R}^n$.\n\nDet er dette som gjør signaturoppgaven overkommelig: et spørsmål om polynomer blir et spørsmål om tallvektorer du allerede kan håndtere fra Del 1. Vi jobber i tre løkker: **(1)** hva $[\\mathbf{x}]_{\\mathcal{B}}$ er, **(2)** koordinatavbildningen som *isomorfi*, **(3)** å regne abstrakt via koordinater."
+    },
+    {
+      "id": "mat1120-2-3-lokke1",
+      "type": "text",
+      "content": "## Løkke 1 — Koordinatvektoren $[\\mathbf{x}]_{\\mathcal{B}}$ (~18 min)"
+    },
+    {
+      "id": "mat1120-2-3-def-ordnet-basis",
+      "type": "definition",
+      "title": "Ordnet basis",
+      "content": "En **ordnet basis** $\\mathcal{B}=\\{\\mathbf{b}_1,\\mathbf{b}_2,\\dots,\\mathbf{b}_n\\}$ er en basis der rekkefølgen på vektorene er fastlagt. Rekkefølgen er viktig fordi den bestemmer *hvilken koordinat som hører til hvilken plass*. Skriver vi $\\mathcal{B}=\\{1,t,t^2\\}$, betyr det at første koordinat hører til $1$, andre til $t$, tredje til $t^2$."
+    },
+    {
+      "id": "mat1120-2-3-def-koordinatvektor",
+      "type": "definition",
+      "title": "Koordinatvektoren $[\\mathbf{x}]_{\\mathcal{B}}$",
+      "content": "La $\\mathcal{B}=\\{\\mathbf{b}_1,\\dots,\\mathbf{b}_n\\}$ være en ordnet basis for $V$. Fordi $\\mathcal{B}$ er en basis, kan enhver $\\mathbf{x}\\in V$ skrives entydig som\n\n$$\\mathbf{x}=c_1\\mathbf{b}_1+c_2\\mathbf{b}_2+\\dots+c_n\\mathbf{b}_n.$$\n\n**Koordinatvektoren** til $\\mathbf{x}$ relativt $\\mathcal{B}$ er søylevektoren med disse koeffisientene:\n\n$$[\\mathbf{x}]_{\\mathcal{B}}=\\begin{bmatrix}c_1\\\\ c_2\\\\ \\vdots\\\\ c_n\\end{bmatrix}\\in\\mathbb{R}^n.$$\n\nDen « oversetter» en abstrakt vektor til en tallkolonne. For $\\operatorname{P}_n$ med standardbasis er $[\\mathbf{x}]_{\\mathcal{B}}$ rett og slett koeffisientlista til polynomet."
+    },
+    {
+      "id": "mat1120-2-3-def-entydighet",
+      "type": "definition",
+      "title": "Entydighet av koordinater",
+      "content": "Koordinatvektoren er **entydig**: siden basisrepresentasjonen er entydig (kap. 2.2), finnes det bare én mulig $[\\mathbf{x}]_{\\mathcal{B}}$ for hver $\\mathbf{x}$. Det er denne entydigheten som gjør koordinatavbildningen veldefinert — uten en basis (bare en utspennende mengde) ville koeffisientene ikke vært entydige."
+    },
+    {
+      "id": "mat1120-2-3-ex-koord-std",
+      "type": "example",
+      "title": "Eksempel 1: Koordinater i standardbasisen",
+      "problem": "La $\\mathcal{B}=\\{1,\\ t,\\ t^2\\}$ være standardbasisen for $\\operatorname{P}_2$. Finn $[3-2t+t^2]_{\\mathcal{B}}$.",
+      "solution": "Vi skriver $3-2t+t^2=3\\cdot 1+(-2)\\cdot t+1\\cdot t^2$, så koeffisientene i rekkefølgen $(1,\\ t,\\ t^2)$ er $3,\\ -2,\\ 1$. Altså\n\n$$[3-2t+t^2]_{\\mathcal{B}}=\\begin{bmatrix}3\\\\ -2\\\\ 1\\end{bmatrix}.$$\n\nI standardbasisen er koordinatvektoren simpelthen koeffisientlista — les den rett av polynomet, i riktig rekkefølge."
+    },
+    {
+      "id": "mat1120-2-3-1",
+      "type": "exercise",
+      "exercise": {
+        "id": "mat1120-2-3-e1",
+        "number": "1",
+        "type": "classic",
+        "difficulty": "lett",
+        "task": "(Innstegsoppgave — ren gjengivelse.) La $\\mathcal{B}=\\{1,\\ t,\\ t^2,\\ t^3\\}$ være standardbasisen for $\\operatorname{P}_3$. Finn $[4+t^2-5t^3]_{\\mathcal{B}}$.",
+        "solution": "Skriv $4+t^2-5t^3=4\\cdot 1+0\\cdot t+1\\cdot t^2+(-5)\\cdot t^3$. Koeffisientene i rekkefølgen $(1,t,t^2,t^3)$ er $4,0,1,-5$, så\n\n$$[4+t^2-5t^3]_{\\mathcal{B}}=\\begin{bmatrix}4\\\\ 0\\\\ 1\\\\ -5\\end{bmatrix}.$$\n\nHusk $0$-en for det manglende $t$-leddet.",
+        "hints": [
+          "Les av koeffisienten for hver potens, i rekkefølgen $1,t,t^2,t^3$.",
+          "Manglende ledd gir koordinat $0$ — ikke hopp over plassen."
+        ]
+      }
+    },
+    {
+      "id": "mat1120-2-3-ex-koord-ikkestd",
+      "type": "example",
+      "title": "Eksempel 2: Koordinater i en ikke-standard basis",
+      "problem": "La $\\mathcal{C}=\\{1,\\ 1+t,\\ 1+t+t^2\\}$ være en (ordnet) basis for $\\operatorname{P}_2$. Finn $[3-2t+t^2]_{\\mathcal{C}}$.",
+      "solution": "Her må vi løse et lite likningssystem. Vi søker $c_1,c_2,c_3$ med\n\n$$c_1\\cdot 1+c_2(1+t)+c_3(1+t+t^2)=3-2t+t^2.$$\n\nSamle etter potens av $t$ og sammenlign koeffisienter:\n\n$$t^2:\\ c_3=1,\\qquad t:\\ c_2+c_3=-2,\\qquad \\text{konstant}:\\ c_1+c_2+c_3=3.$$\n\nBaklengs: $c_3=1$; $c_2=-2-c_3=-3$; $c_1=3-c_2-c_3=3-(-3)-1=5$. Altså\n\n$$[3-2t+t^2]_{\\mathcal{C}}=\\begin{bmatrix}5\\\\ -3\\\\ 1\\end{bmatrix}.$$\n\n**Kontroll:** $5\\cdot 1-3(1+t)+1(1+t+t^2)=5-3-3t+1+t+t^2=3-2t+t^2$. ✓ Legg merke til at *samme* polynom har ulik koordinatvektor i ulike baser — $(3,-2,1)$ i standardbasisen, $(5,-3,1)$ i $\\mathcal{C}$."
+    },
+    {
+      "id": "mat1120-2-3-2",
+      "type": "exercise",
+      "exercise": {
+        "id": "mat1120-2-3-e2",
+        "number": "2",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "La $\\mathcal{B}=\\{1+t,\\ 1-t\\}$ være en ordnet basis for $\\operatorname{P}_1$. Finn $[3+5t]_{\\mathcal{B}}$.",
+        "solution": "Søk $c_1,c_2$ med $c_1(1+t)+c_2(1-t)=3+5t$. Samle:\n\n$$\\text{konstant}:\\ c_1+c_2=3,\\qquad t:\\ c_1-c_2=5.$$\n\nAdder likningene: $2c_1=8\\Rightarrow c_1=4$; deretter $c_2=3-4=-1$. Altså\n\n$$[3+5t]_{\\mathcal{B}}=\\begin{bmatrix}4\\\\ -1\\end{bmatrix}.$$\n\n**Kontroll:** $4(1+t)-1(1-t)=4+4t-1+t=3+5t$. ✓",
+        "hints": [
+          "Sett $c_1(1+t)+c_2(1-t)=3+5t$ og sammenlign konstantledd og $t$-ledd.",
+          "To likninger i $c_1,c_2$ — legg dem sammen for å eliminere $c_2$."
+        ]
+      }
+    },
+    {
+      "id": "mat1120-2-3-lokke2",
+      "type": "text",
+      "content": "## Løkke 2 — Koordinatavbildningen som isomorfi (~17 min)"
+    },
+    {
+      "id": "mat1120-2-3-lokke2-tekst",
+      "type": "text",
+      "content": "Så langt har vi oversatt enkeltvektorer. Nå ser vi på selve *oversettelsen* som en avbildning $\\mathbf{x}\\mapsto[\\mathbf{x}]_{\\mathcal{B}}$ fra $V$ til $\\mathbb{R}^n$ — og hvorfor den er så veloppdragen at abstrakte spørsmål trygt kan flyttes til $\\mathbb{R}^n$."
+    },
+    {
+      "id": "mat1120-2-3-def-lin-avbildning",
+      "type": "definition",
+      "title": "Lineær avbildning (kort)",
+      "content": "En **lineær avbildning** $T:V\\to W$ mellom vektorrom er en regel som bevarer de to operasjonene:\n\n$$T(\\mathbf{u}+\\mathbf{v})=T(\\mathbf{u})+T(\\mathbf{v}),\\qquad T(c\\mathbf{u})=c\\,T(\\mathbf{u}).$$\n\nDen « respekterer» addisjon og skalering. (Lineære avbildninger og matrisene deres er hovedtema i kap. 2.5 — her trenger vi bare at koordinatavbildningen er en av dem.)"
+    },
+    {
+      "id": "mat1120-2-3-def-koordinatavbildning",
+      "type": "definition",
+      "title": "Koordinatavbildningen",
+      "content": "**Koordinatavbildningen** relativt en ordnet basis $\\mathcal{B}$ for et $n$-dimensjonalt rom $V$ er avbildningen\n\n$$\\Phi:V\\to\\mathbb{R}^n,\\qquad \\Phi(\\mathbf{x})=[\\mathbf{x}]_{\\mathcal{B}}.$$\n\nDen sender hver abstrakt vektor til sin tallkolonne. $\\Phi$ er **lineær**: $[\\mathbf{u}+\\mathbf{v}]_{\\mathcal{B}}=[\\mathbf{u}]_{\\mathcal{B}}+[\\mathbf{v}]_{\\mathcal{B}}$ og $[c\\mathbf{u}]_{\\mathcal{B}}=c[\\mathbf{u}]_{\\mathcal{B}}$ (koeffisientene legges sammen og skaleres direkte)."
+    },
+    {
+      "id": "mat1120-2-3-def-isomorfi",
+      "type": "definition",
+      "title": "Isomorfi (klarspråk først)",
+      "content": "Ordet **isomorfi** betyr « samme form». En **isomorfi** er en lineær avbildning som er **bijektiv** — den parer opp vektorene i $V$ og vektorene i $\\mathbb{R}^n$ én-til-én, uten å miste eller doble noe. To rom som er knyttet av en isomorfi kalles **isomorfe** ($V\\cong\\mathbb{R}^n$): de er « samme rom i forkledning», og alt lineært i det ene speiles nøyaktig i det andre.\n\nKort sagt: en isomorfi er en *fullstendig og reversibel oversettelse* mellom to vektorrom."
+    },
+    {
+      "id": "mat1120-2-3-thm-isomorfi",
+      "type": "theorem",
+      "title": "Koordinatavbildningen er en isomorfi",
+      "content": "For en ordnet basis $\\mathcal{B}$ for et $n$-dimensjonalt rom $V$ er koordinatavbildningen $\\Phi:V\\to\\mathbb{R}^n$ en **isomorfi**. Derfor bevares alt lineært nøyaktig:\n\n$$\\{\\mathbf{v}_1,\\dots,\\mathbf{v}_k\\}\\text{ uavhengig i }V\\iff\\{[\\mathbf{v}_1]_{\\mathcal{B}},\\dots,[\\mathbf{v}_k]_{\\mathcal{B}}\\}\\text{ uavhengig i }\\mathbb{R}^n,$$\n\nog likeså for span og dimensjon. **Konsekvens:** ethvert spørsmål om uavhengighet, span eller dimensjon i $V$ kan avgjøres ved å regne på koordinatvektorene i $\\mathbb{R}^n$ — med de vanlige verktøyene (radreduksjon, determinant) fra Del 1."
+    },
+    {
+      "id": "mat1120-2-3-ex-koord-uavh",
+      "type": "example",
+      "title": "Eksempel 3: Uavhengighet avgjort med koordinater",
+      "problem": "Avgjør ved koordinater om $\\{2-t,\\ 1+t^2,\\ t+t^2\\}$ er lineært uavhengige i $\\operatorname{P}_2$.",
+      "solution": "Vi bruker koordinatavbildningen relativt standardbasisen $\\{1,t,t^2\\}$:\n\n$$[2-t]_{\\mathcal{B}}=\\begin{bmatrix}2\\\\-1\\\\0\\end{bmatrix},\\quad [1+t^2]_{\\mathcal{B}}=\\begin{bmatrix}1\\\\0\\\\1\\end{bmatrix},\\quad [t+t^2]_{\\mathcal{B}}=\\begin{bmatrix}0\\\\1\\\\1\\end{bmatrix}.$$\n\nEtter isomorfi-teoremet er polynomene uavhengige hvis og bare hvis disse tre koordinatvektorene er uavhengige i $\\mathbb{R}^3$. Still dem opp som søyler og regn determinanten:\n\n$$\\det\\begin{bmatrix}2&1&0\\\\-1&0&1\\\\0&1&1\\end{bmatrix}=2(0\\cdot 1-1\\cdot 1)-1((-1)\\cdot 1-1\\cdot 0)+0=2(-1)-1(-1)=-1.$$\n\nDeterminanten er $-1\\neq 0$, så koordinatvektorene er uavhengige — og dermed er polynomene lineært uavhengige i $\\operatorname{P}_2$. (Tre uavhengige vektorer i $\\operatorname{P}_2$ er også en basis, jf. dimensjonsargumentet.)"
+    },
+    {
+      "id": "mat1120-2-3-3",
+      "type": "exercise",
+      "exercise": {
+        "id": "mat1120-2-3-e3",
+        "number": "3",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "Avgjør ved koordinater (relativt $\\{1,t,t^2\\}$) om $\\{1+t,\\ 1+t^2,\\ t-t^2\\}$ er lineært uavhengige i $\\operatorname{P}_2$.",
+        "solution": "Koordinatvektorene relativt $\\{1,t,t^2\\}$:\n\n$$[1+t]_{\\mathcal{B}}=(1,1,0),\\quad [1+t^2]_{\\mathcal{B}}=(1,0,1),\\quad [t-t^2]_{\\mathcal{B}}=(0,1,-1).$$\n\nDeterminanten av matrisen med disse som søyler:\n$$\\det\\begin{bmatrix}1&1&0\\\\1&0&1\\\\0&1&-1\\end{bmatrix}=1(0\\cdot(-1)-1\\cdot1)-1(1\\cdot(-1)-1\\cdot0)+0=1(-1)-1(-1)=0.$$\n\nDeterminanten er $0$, så koordinatvektorene er **avhengige** — og dermed er polynomene lineært **avhengige**. (Konkret: $(1+t)-(1+t^2)=t-t^2$, altså er den tredje differansen av de to første.)",
+        "hints": [
+          "Oversett hvert polynom til sin koordinatvektor relativt $\\{1,t,t^2\\}$.",
+          "Regn determinanten av de tre søylene — $0$ betyr avhengige."
+        ]
+      }
+    },
+    {
+      "id": "mat1120-2-3-lokke3",
+      "type": "text",
+      "content": "## Løkke 3 — Regne abstrakt via koordinater (~15 min)"
+    },
+    {
+      "id": "mat1120-2-3-lokke3-tekst",
+      "type": "text",
+      "content": "Koordinater virker i funksjonsrom akkurat som i polynomrom. Har rommet en oppgitt basis, blir vektorene tallkolonner du kan regne med — og du oversetter tilbake til slutt."
+    },
+    {
+      "id": "mat1120-2-3-def-koord-funksjonsrom",
+      "type": "definition",
+      "title": "Koordinater i funksjonsrom",
+      "content": "I et funksjonsrom $V=\\operatorname{Span}\\{f_1,\\dots,f_n\\}$ med basis $\\mathcal{B}=\\{f_1,\\dots,f_n\\}$ er koordinatvektoren til $f=c_1f_1+\\dots+c_nf_n$ nettopp $[f]_{\\mathcal{B}}=(c_1,\\dots,c_n)$. F.eks. i $V=\\operatorname{Span}\\{\\sin t,\\cos t\\}$ har $3\\sin t-2\\cos t$ koordinatvektor $(3,-2)$ relativt $\\{\\sin t,\\cos t\\}$."
+    },
+    {
+      "id": "mat1120-2-3-ex-koord-funk",
+      "type": "example",
+      "title": "Eksempel 4: Koordinater i et funksjonsrom",
+      "problem": "La $V=\\operatorname{Span}\\{\\sin t,\\ \\cos t\\}$ med ordnet basis $\\mathcal{B}=\\{\\sin t,\\ \\cos t\\}$. Finn $[\\,4\\sin t+7\\cos t\\,]_{\\mathcal{B}}$ og $[\\,\\cos t\\,]_{\\mathcal{B}}$.",
+      "solution": "$4\\sin t+7\\cos t$ er allerede skrevet i basisen, med koeffisienter $4$ (for $\\sin t$) og $7$ (for $\\cos t$):\n\n$$[\\,4\\sin t+7\\cos t\\,]_{\\mathcal{B}}=\\begin{bmatrix}4\\\\ 7\\end{bmatrix}.$$\n\nFor $\\cos t$: skriv $\\cos t=0\\cdot\\sin t+1\\cdot\\cos t$, så\n\n$$[\\,\\cos t\\,]_{\\mathcal{B}}=\\begin{bmatrix}0\\\\ 1\\end{bmatrix}.$$\n\nIgjen: koordinatvektoren leser bare av koeffisientene i den ordnede basisen — nå med funksjoner i stedet for monomer."
+    },
+    {
+      "id": "mat1120-2-3-4",
+      "type": "exercise",
+      "exercise": {
+        "id": "mat1120-2-3-e4",
+        "number": "4",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "La $V=\\operatorname{Span}\\{1,\\ e^x\\cos x,\\ e^x\\sin x\\}$ med ordnet basis $\\mathcal{B}=\\{1,\\ e^x\\cos x,\\ e^x\\sin x\\}$.\n\n**a)** Finn $[\\,5-e^x\\cos x+3e^x\\sin x\\,]_{\\mathcal{B}}$.\n\n**b)** Hvilken funksjon $g\\in V$ har $[g]_{\\mathcal{B}}=(0,2,-4)$?",
+        "solution": "**a)** Les av koeffisientene i rekkefølgen $(1,\\ e^x\\cos x,\\ e^x\\sin x)$: koeffisienten for $1$ er $5$, for $e^x\\cos x$ er $-1$, for $e^x\\sin x$ er $3$. Altså\n$$[\\,5-e^x\\cos x+3e^x\\sin x\\,]_{\\mathcal{B}}=\\begin{bmatrix}5\\\\ -1\\\\ 3\\end{bmatrix}.$$\n\n**b)** Koordinatvektoren $(0,2,-4)$ betyr $0\\cdot 1+2\\,e^x\\cos x-4\\,e^x\\sin x$, altså $g(x)=2e^x\\cos x-4e^x\\sin x$.",
+        "hints": [
+          "Rekkefølgen på koordinatene følger rekkefølgen på basisfunksjonene.",
+          "For (b): gang hver basisfunksjon med sin koordinat og summer."
+        ]
+      }
+    },
+    {
+      "id": "mat1120-2-3-5",
+      "type": "exercise",
+      "exercise": {
+        "id": "mat1120-2-3-e5",
+        "number": "5",
+        "type": "classic",
+        "difficulty": "vanskelig",
+        "task": "La $\\mathcal{C}=\\{1,\\ 1+t,\\ 1+t+t^2\\}$ være en ordnet basis for $\\operatorname{P}_2$. Bruk koordinater relativt $\\mathcal{C}$ til å avgjøre om $\\{1+2t+t^2,\\ 2+t,\\ 3+3t+t^2\\}$ er uavhengige i $\\operatorname{P}_2$. *(Tips: finn først koordinatvektoren til hvert av de tre polynomene i $\\mathcal{C}$.)*",
+        "solution": "Vi finner $[\\,\\cdot\\,]_{\\mathcal{C}}$ for hvert polynom ved koeffisientsammenligning ($p=c_1\\cdot1+c_2(1+t)+c_3(1+t+t^2)$ gir $c_3=[t^2\\text{-koeff}]$, $c_2=[t\\text{-koeff}]-c_3$, $c_1=[\\text{konst}]-c_2-c_3$):\n\n- $1+2t+t^2$: $c_3=1$, $c_2=2-1=1$, $c_1=1-1-1=-1$ → $(-1,1,1)$.\n- $2+t$: $c_3=0$, $c_2=1-0=1$, $c_1=2-1-0=1$ → $(1,1,0)$.\n- $3+3t+t^2$: $c_3=1$, $c_2=3-1=2$, $c_1=3-2-1=0$ → $(0,2,1)$.\n\nEtter isomorfi-teoremet er polynomene uavhengige ⇔ disse koordinatvektorene er uavhengige i $\\mathbb{R}^3$. Determinanten av søylene:\n$$\\det\\begin{bmatrix}-1&1&0\\\\1&1&2\\\\1&0&1\\end{bmatrix}=-1(1\\cdot1-2\\cdot0)-1(1\\cdot1-2\\cdot1)+0=-1-1(-1)=0.$$\n\nDeterminanten er $0$, så polynomene er **lineært avhengige**. (Kontroll: $(1+2t+t^2)+(2+t)=3+3t+t^2$ — den tredje er summen av de to første.)",
+        "hints": [
+          "Oversett hvert polynom til koordinater i $\\mathcal{C}$ ved baklengs koeffisientsammenligning.",
+          "Regn determinanten av de tre koordinatvektorene — svaret er basisuavhengig, så du kan like gjerne bruke standardbasisen som kontroll."
+        ]
+      }
+    },
+    {
+      "id": "mat1120-2-3-warn-typiske-feil",
+      "type": "warning",
+      "title": "Typiske feil",
+      "content": "- **Feil rekkefølge på koordinatene.** Basisen er *ordnet*: bytter du om $t$- og $t^2$-plassen, blir hele koordinatvektoren feil. Skriv alltid ned den ordnede basisen først.\n- **Glemmer at koordinatavbildningen krever en fast basis.** Uten en oppgitt (ordnet) basis er $[\\mathbf{x}]_{\\mathcal{B}}$ meningsløs — og *samme* vektor har ulik koordinatvektor i ulike baser.\n- **Regner tungt i $V$ når koordinater ville forenklet.** Isomorfien lar deg flytte uavhengighet/span/dimensjon til $\\mathbb{R}^n$ og bruke radreduksjon/determinant. Utnytt det.\n- **Blander koordinatvektoren og selve vektoren.** $[\\mathbf{x}]_{\\mathcal{B}}$ er en tallkolonne *om* $\\mathbf{x}$, ikke $\\mathbf{x}$ selv. Svaret på « finn polynomet» må oversettes tilbake til et polynom.\n- **Glemmer en $0$-koordinat** for et manglende ledd (f.eks. intet $t$-ledd) — plassen skal fylles med $0$, ikke hoppes over."
+    },
+    {
+      "id": "mat1120-2-3-begrepsbank-tekst",
+      "type": "text",
+      "content": "## Begrepsbank til eksamen\n\nKoordinatapparatet i kortform — verktøyet under overgangsmatrisen (2.4) og $[T]_{\\mathcal{B}}$ (2.5).\n\n*Begrepsbanken er flashcard-/repetisjonsstoff — den gjentar det du nettopp har lest. Hopp trygt over ved førstegangslesing; tidsanslaget for kapitlet gjelder kjernestoffet.*"
+    },
+    {
+      "id": "mat1120-2-3-bb-bijektiv",
+      "type": "definition",
+      "title": "Bijektiv",
+      "content": "En avbildning er **bijektiv** hvis den er både injektiv (én-til-én) og surjektiv (på). Da parer den elementene i de to mengdene perfekt sammen, og har en invers. En isomorfi er nettopp en *lineær* bijektiv avbildning."
+    },
+    {
+      "id": "mat1120-2-3-bb-injektiv",
+      "type": "definition",
+      "title": "Injektiv (én-til-én)",
+      "content": "En avbildning er **injektiv** hvis ulike vektorer sendes til ulike bilder: $T(\\mathbf{u})=T(\\mathbf{v})\\Rightarrow\\mathbf{u}=\\mathbf{v}$. Koordinatavbildningen er injektiv fordi koordinatvektoren er entydig."
+    },
+    {
+      "id": "mat1120-2-3-bb-surjektiv",
+      "type": "definition",
+      "title": "Surjektiv (på)",
+      "content": "En avbildning $T:V\\to W$ er **surjektiv** hvis hver vektor i $W$ er bilde av noe i $V$. Koordinatavbildningen $\\Phi:V\\to\\mathbb{R}^n$ er surjektiv: enhver tallkolonne $(c_1,\\dots,c_n)$ er koordinatvektoren til $c_1\\mathbf{b}_1+\\dots+c_n\\mathbf{b}_n$."
+    },
+    {
+      "id": "mat1120-2-3-bb-isomorfe-rom",
+      "type": "definition",
+      "title": "Isomorfe rom $V\\cong\\mathbb{R}^n$",
+      "content": "Ethvert $n$-dimensjonalt reelt vektorrom er **isomorft** med $\\mathbb{R}^n$ via en koordinatavbildning. Derfor er $\\operatorname{P}_2\\cong\\mathbb{R}^3$ og $\\operatorname{Span}\\{\\sin t,\\cos t\\}\\cong\\mathbb{R}^2$ — « samme rom i forkledning». Dimensjonen er den eneste invarianten som avgjør isomorfi."
+    },
+    {
+      "id": "mat1120-2-3-bb-bevarer-uavh",
+      "type": "definition",
+      "title": "Koordinater bevarer uavhengighet",
+      "content": "$\\{\\mathbf{v}_i\\}$ er uavhengige i $V$ ⇔ koordinatvektorene $\\{[\\mathbf{v}_i]_{\\mathcal{B}}\\}$ er uavhengige i $\\mathbb{R}^n$. Dette er arbeidshesten: test abstrakt uavhengighet med determinant/radreduksjon på koordinatene."
+    },
+    {
+      "id": "mat1120-2-3-bb-bevarer-span",
+      "type": "definition",
+      "title": "Koordinater bevarer span",
+      "content": "$\\mathbf{x}\\in\\operatorname{Span}\\{\\mathbf{v}_i\\}$ i $V$ ⇔ $[\\mathbf{x}]_{\\mathcal{B}}\\in\\operatorname{Span}\\{[\\mathbf{v}_i]_{\\mathcal{B}}\\}$ i $\\mathbb{R}^n$. Spørsmål om « ligger $\\mathbf{x}$ i spennet» blir et vanlig likningssystem i koordinater."
+    },
+    {
+      "id": "mat1120-2-3-bb-bevarer-dim",
+      "type": "definition",
+      "title": "Koordinater bevarer dimensjon",
+      "content": "Et underrom $U\\subseteq V$ og dets bilde $\\Phi(U)\\subseteq\\mathbb{R}^n$ har samme dimensjon. Derfor kan dimensjonen til et abstrakt underrom regnes som rangen til koordinatvektorene."
+    },
+    {
+      "id": "mat1120-2-3-bb-invers",
+      "type": "definition",
+      "title": "Invers koordinatavbildning",
+      "content": "Fordi $\\Phi$ er bijektiv, finnes inversen $\\Phi^{-1}:\\mathbb{R}^n\\to V$ som sender $(c_1,\\dots,c_n)$ til $c_1\\mathbf{b}_1+\\dots+c_n\\mathbf{b}_n$. Det er dette steget « oversett tilbake» — fra en koordinatvektor til et polynom/en funksjon."
+    },
+    {
+      "id": "mat1120-2-3-bb-standardkoordinater",
+      "type": "definition",
+      "title": "Standardkoordinater i $\\operatorname{P}_n$",
+      "content": "Relativt standardbasisen $\\{1,t,\\dots,t^n\\}$ er koordinatvektoren til $p(t)=a_0+\\dots+a_nt^n$ rett og slett koeffisientlista $(a_0,\\dots,a_n)$. Den enkleste og mest brukte koordinatavbildningen."
+    },
+    {
+      "id": "mat1120-2-3-bb-basisavhengig",
+      "type": "definition",
+      "title": "Koordinater er basisavhengige",
+      "content": "Samme vektor har *ulik* koordinatvektor i ulike baser: $3-2t+t^2$ er $(3,-2,1)$ i $\\{1,t,t^2\\}$, men $(5,-3,1)$ i $\\{1,1+t,1+t+t^2\\}$. Å oversette mellom to baser er overgangsmatrisens jobb (kap. 2.4)."
+    },
+    {
+      "id": "mat1120-2-3-bb-koord-vs-vektor",
+      "type": "definition",
+      "title": "Koordinatvektor vs. vektor",
+      "content": "$[\\mathbf{x}]_{\\mathcal{B}}$ er en tallkolonne i $\\mathbb{R}^n$ som *representerer* $\\mathbf{x}$ — den er ikke $\\mathbf{x}$ selv. På et abstrakt rom må sluttsvaret oversettes tilbake til et polynom eller en funksjon."
+    },
+    {
+      "id": "mat1120-2-3-bb-oversett-tre-steg",
+      "type": "definition",
+      "title": "Oversett–regn–oversett tilbake",
+      "content": "Standardgrepet i signaturoppgaven: (1) **oversett** vektorene til koordinatvektorer i $\\mathbb{R}^n$; (2) **regn** med vanlig matrisealgebra; (3) **oversett tilbake** til $V$. Isomorfien garanterer at svaret blir riktig."
+    },
+    {
+      "id": "mat1120-2-3-bb-koord-lineaer",
+      "type": "definition",
+      "title": "Koordinatavbildningen er lineær",
+      "content": "$[\\mathbf{u}+\\mathbf{v}]_{\\mathcal{B}}=[\\mathbf{u}]_{\\mathcal{B}}+[\\mathbf{v}]_{\\mathcal{B}}$ og $[c\\mathbf{u}]_{\\mathcal{B}}=c[\\mathbf{u}]_{\\mathcal{B}}$. Linearitet er halve isomorfi-kravet (den andre halvparten er bijektivitet)."
+    },
+    {
+      "id": "mat1120-2-3-bb-rang-koordinater",
+      "type": "definition",
+      "title": "Dimensjon som rang av koordinater",
+      "content": "Dimensjonen til $\\operatorname{Span}\\{\\mathbf{v}_1,\\dots,\\mathbf{v}_k\\}$ i $V$ er rangen til matrisen med koordinatvektorene $[\\mathbf{v}_i]_{\\mathcal{B}}$ som søyler. Slik regnes dimensjonen til et abstrakt underrom med de vanlige RREF-verktøyene fra Del 1."
+    },
+    {
+      "id": "mat1120-2-3-bb-determinanttest-koord",
+      "type": "definition",
+      "title": "Determinanttest på koordinater",
+      "content": "For $n$ vektorer i et $n$-dimensjonalt rom: still koordinatvektorene opp som søyler og regn determinanten. Er den $\\neq 0$, er vektorene uavhengige (og en basis); er den $0$, er de avhengige. Grepet i uavhengighetseksemplene i dette kapitlet."
+    },
+    {
+      "id": "mat1120-2-3-rep",
+      "type": "collapsible",
+      "title": "Repetisjonsoppgaver",
+      "buttonText": "Vis repetisjonsoppgaver",
+      "content": [
+        {
+          "id": "mat1120-2-3-R1",
+          "type": "exercise",
+          "exercise": {
+            "id": "mat1120-2-3-eR1",
+            "number": "R1",
+            "type": "classic",
+            "difficulty": "lett",
+            "task": "(Fra dette kapitlet) La $\\mathcal{B}=\\{1,t,t^2\\}$. Finn $[7-3t]_{\\mathcal{B}}$.",
+            "solution": "$7-3t=7\\cdot1+(-3)\\cdot t+0\\cdot t^2$, så $[7-3t]_{\\mathcal{B}}=(7,-3,0)$. Husk $0$ for det manglende $t^2$-leddet.",
+            "hints": [
+              "Les av koeffisientene for $1,t,t^2$."
+            ]
+          }
+        },
+        {
+          "id": "mat1120-2-3-R2",
+          "type": "exercise",
+          "exercise": {
+            "id": "mat1120-2-3-eR2",
+            "number": "R2",
+            "type": "classic",
+            "difficulty": "middels",
+            "task": "(Fra [kap. 2.2](/bok/mat1120/mat1120-2-2)) Hvorfor lar dimensjonsargumentet oss konkludere at $\\{2-t,\\ 1+t^2,\\ t+t^2\\}$ er en basis for $\\operatorname{P}_2$ når vi har vist at koordinatvektorene er uavhengige?",
+            "solution": "Uavhengige koordinatvektorer ⇔ uavhengige polynomer (isomorfi). Vi har da $3$ uavhengige vektorer i $\\operatorname{P}_2$, og $\\dim\\operatorname{P}_2=3$. Dimensjonsargumentet sier at $3$ uavhengige vektorer i et $3$-dimensjonalt rom er en basis.",
+            "hints": [
+              "Tell vektorene mot dimensjonen.",
+              "Uavhengig + riktig antall ⇒ basis."
+            ]
+          }
+        },
+        {
+          "id": "mat1120-2-3-R3",
+          "type": "exercise",
+          "exercise": {
+            "id": "mat1120-2-3-eR3",
+            "number": "R3",
+            "type": "classic",
+            "difficulty": "middels",
+            "task": "(Fra [kap. 2.1](/bok/mat1120/mat1120-2-1)) Hva er $\\dim\\operatorname{P}_2$, og hvilket $\\mathbb{R}^n$ er $\\operatorname{P}_2$ isomorft med?",
+            "solution": "$\\dim\\operatorname{P}_2=3$, og koordinatavbildningen gir en isomorfi $\\operatorname{P}_2\\cong\\mathbb{R}^3$. Et $n$-dimensjonalt rom er alltid isomorft med $\\mathbb{R}^n$.",
+            "hints": [
+              "Dimensjonen bestemmer hvilket $\\mathbb{R}^n$."
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": "mat1120-2-3-symbolliste",
+      "type": "collapsible",
+      "title": "Symbol- og formelliste",
+      "buttonText": "Vis symboler og formler",
+      "content": [
+        {
+          "id": "mat1120-2-3-symbolliste-text",
+          "type": "text",
+          "content": "## Symbol- og formelliste\n\n*Oppslagsverk — alt her forklares underveis i kapitlet.*\n\nAlle symboler og formler som brukes i dette delkapitlet (2.3), samlet på ett sted.\n\n| Symbol | Betydning |\n|---|---|\n| $\\mathcal{B},\\ \\mathcal{C}$ | Ordnede baser |\n| $[\\mathbf{x}]_{\\mathcal{B}}$ | Koordinatvektoren til $\\mathbf{x}$ relativt $\\mathcal{B}$ |\n| $c_1,\\dots,c_n$ | Koordinatene (koeffisientene i basisen) |\n| $\\Phi$ | Koordinatavbildningen $V\\to\\mathbb{R}^n$ |\n| $\\Phi^{-1}$ | Den inverse — « oversett tilbake» til $V$ |\n| $V\\cong\\mathbb{R}^n$ | $V$ er isomorf med $\\mathbb{R}^n$ |\n| $T:V\\to W$ | En lineær avbildning |\n| $\\det$ | Determinant (uavhengighetstest på koordinater) |\n\n**Formler i dette delkapitlet:**\n\n$$\\mathbf{x}=c_1\\mathbf{b}_1+\\dots+c_n\\mathbf{b}_n\\ \\Rightarrow\\ [\\mathbf{x}]_{\\mathcal{B}}=(c_1,\\dots,c_n)^{T}$$\nDefinisjonen av koordinatvektoren — koeffisientene i den ordnede basisen.\n\n$$[\\mathbf{u}+\\mathbf{v}]_{\\mathcal{B}}=[\\mathbf{u}]_{\\mathcal{B}}+[\\mathbf{v}]_{\\mathcal{B}},\\qquad [c\\mathbf{u}]_{\\mathcal{B}}=c[\\mathbf{u}]_{\\mathcal{B}}$$\nKoordinatavbildningen er lineær.\n\n$$\\{\\mathbf{v}_i\\}\\text{ uavhengige i }V\\iff\\{[\\mathbf{v}_i]_{\\mathcal{B}}\\}\\text{ uavhengige i }\\mathbb{R}^n$$\nIsomorfien bevarer uavhengighet (og span og dimensjon) — hele grunnen til å regne i koordinater."
+        }
+      ]
+    }
+  ],
+  "exercises": []
+}

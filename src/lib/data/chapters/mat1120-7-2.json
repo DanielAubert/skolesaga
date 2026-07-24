@@ -1,0 +1,399 @@
+{
+  "id": "mat1120-7-2",
+  "courseId": "mat1120",
+  "chapterNumber": "7.2",
+  "title": "Differensiallikningssystem x′=Ax og diskret dynamikk",
+  "description": "Egenverdianvendelsen: løs x′=Ax med x(t)=Σcᵢvᵢe^{λᵢt} (koeffisienter fra Pc=x(0)), og analyser diskret dynamikk xₖ=Σcᵢλᵢᵏvᵢ (langtidsatferd fra fortegn/|λ|, normbevaring når |λ|=1).",
+  "estimatedMinutes": 55,
+  "competenceGoals": [
+    "løse x′=Ax med generell løsning x(t)=Σcᵢvᵢe^{λᵢt} og bestemme koeffisientene fra Pc=x(0)",
+    "avgjøre langtidsatferd og stabilitet fra fortegnet på egenverdiene",
+    "løse diskret dynamikk xₖ=Σcᵢλᵢᵏvᵢ og avgjøre langtid fra |λᵢ|, inkludert normbevaring når A er ortogonal",
+    "forklare at metoden krever egenvektorbasis (diagonaliserbar A)"
+  ],
+  "content": [
+    {
+      "id": "mat1120-7-2-tip",
+      "type": "tip",
+      "title": "Eksamensvinkel",
+      "content": "**Differensiallikningssystemet $\\mathbf{x}'=A\\mathbf{x}$ er egenverditeoriens store anvendelse.** Sjanger J — løs $\\mathbf{x}'=A\\mathbf{x}$ med egenvektorbasis — er med i **~35 %** av settene (2018 O2c, 2019 O2b; via $[T]_{\\mathcal{B}}$ i 2021), og den **diskrete** varianten $\\mathbf{x}_{k+1}=A\\mathbf{x}_k$ i **~15 %** (2020 O2b). Prioritet: **kjenne** (nivå 3).\n\n- **Kontinuerlig:** generell løsning $\\mathbf{x}(t)=c_1\\mathbf{v}_1e^{\\lambda_1t}+\\dots+c_n\\mathbf{v}_ne^{\\lambda_nt}$ — ett ledd per egenverdi/egenvektor. Koeffisientene $c_i$ løses fra begynnelsesverdien $P\\mathbf{c}=\\mathbf{x}(0)$.\n- **Diskret:** $\\mathbf{x}_k=c_1\\lambda_1^k\\mathbf{v}_1+\\dots+c_n\\lambda_n^k\\mathbf{v}_n$ — samme dekomponering, men $\\lambda_i^k$ i stedet for $e^{\\lambda_it}$.\n- Langtidsatferden ($t\\to\\infty$ eller $k\\to\\infty$) styres av fortegnene/størrelsene på $\\lambda_i$: negativ realdel ⇒ dør ut, positiv ⇒ vokser, $|\\lambda|=1$ ⇒ konstant/normbevarende.\n\nMetoden krever at $A$ har en **egenvektorbasis** (er diagonaliserbar). Egenverdier og egenvektorer leses av vedlegget."
+    },
+    {
+      "id": "mat1120-7-2-forkunnskaper",
+      "type": "text",
+      "content": "**Forkunnskaper:**\n\n- [Kap. 3.2](/bok/mat1120/mat1120-3-2) — diagonalisering og egenvektorbasis; metoden krever at $A$ er diagonaliserbar\n- [Kap. 3.1](/bok/mat1120/mat1120-3-1) — egenverdier/egenvektorer\n- [Kap. 3.3](/bok/mat1120/mat1120-3-3) — $A^k$ via diagonalisering\n- [Derivasjon](/bok/r2/r2-3-1) — eksponentialfunksjonen og at $\\tfrac{d}{dt}e^{\\lambda t}=\\lambda e^{\\lambda t}$\n- [Egenverdier (MAT1110)](/bok/mat1110/mat1110-6-1) og [diagonalisering (MAT1110)](/bok/mat1110/mat1110-6-2) — grunnleggende egenverdibegrep repeteres der"
+    },
+    {
+      "id": "mat1120-7-2-sist",
+      "type": "text",
+      "content": "## Sist du var her\n\nHele kapitlet hviler på diagonalisering ([kap. 3.2](/bok/mat1120/mat1120-3-2)):\n\n- $A$ er **diagonaliserbar** hvis den har $n$ lineært uavhengige egenvektorer — en **egenvektorbasis**. Da er $A=PDP^{-1}$ med egenvektorer som søyler i $P$ og egenverdier i $D$.\n- **Egenvektor:** $A\\mathbf{v}=\\lambda\\mathbf{v}$ — $A$ virker som ren skalering med $\\lambda$ langs $\\mathbf{v}$.\n- Fra kalkulus: den skalare likningen $x'=\\lambda x$ har løsning $x(t)=ce^{\\lambda t}$.\n\nIdeen i kapitlet: i en egenvektorbasis kobler $\\mathbf{x}'=A\\mathbf{x}$ fra hverandre til $n$ uavhengige skalarlikninger $x_i'=\\lambda_i x_i$, hver med løsning $e^{\\lambda_it}$.\n\n*Kapitlet er ~55 min; ta gjerne kontinuerlig (løkke 1–3) i én økt og diskret (løkke 4) i en annen. — naturlig pausepunkt —*"
+    },
+    {
+      "id": "mat1120-7-2-intro",
+      "type": "text",
+      "content": "Egenverdier og egenvektorer er ikke bare et regnestykke — de er *nøkkelen* til å løse systemer som utvikler seg over tid. Et **differensiallikningssystem** $\\mathbf{x}'=A\\mathbf{x}$ beskriver hvordan en tilstandsvektor $\\mathbf{x}(t)$ endrer seg kontinuerlig; en **diskret** dynamikk $\\mathbf{x}_{k+1}=A\\mathbf{x}_k$ beskriver steg-for-steg-utvikling. Begge løses med samme grep: **dekomponer i egenvektorbasis**, der $A$ virker som ren skalering, og skriv løsningen ledd for ledd.\n\nKapitlet går i fire løkker:\n\n1. **Kontinuerlig:** generell løsning $\\mathbf{x}(t)=\\sum c_i\\mathbf{v}_ie^{\\lambda_it}$.\n2. **Begynnelsesverdier:** finn $c_i$ fra $P\\mathbf{c}=\\mathbf{x}(0)$.\n3. **Langtidsatferd og stabilitet:** hva fortegnet til $\\lambda_i$ betyr for $t\\to\\infty$.\n4. **Diskret dynamikk:** $\\mathbf{x}_k=\\sum c_i\\lambda_i^k\\mathbf{v}_i$, langtid og normbevaring."
+    },
+    {
+      "id": "mat1120-7-2-l1",
+      "type": "text",
+      "content": "## Løkke 1 — Kontinuerlig system: generell løsning $\\mathbf{x}(t)=\\sum c_i\\mathbf{v}_ie^{\\lambda_it}$ (~15 min)"
+    },
+    {
+      "id": "mat1120-7-2-l1-teori",
+      "type": "text",
+      "content": "Betrakt $\\mathbf{x}'(t)=A\\mathbf{x}(t)$, der $\\mathbf{x}'$ betyr at vi deriverer hver komponent. Er $\\mathbf{v}$ en egenvektor med egenverdi $\\lambda$, så er $\\mathbf{x}(t)=\\mathbf{v}e^{\\lambda t}$ en løsning — sjekk: $\\mathbf{x}'=\\lambda\\mathbf{v}e^{\\lambda t}$ og $A\\mathbf{x}=A\\mathbf{v}e^{\\lambda t}=\\lambda\\mathbf{v}e^{\\lambda t}$, likt ✓. Slike **enkeltløsninger** finnes én for hver egenverdi/egenvektor.\n\nHar $A$ en egenvektorbasis $\\mathbf{v}_1,\\dots,\\mathbf{v}_n$ (altså er diagonaliserbar), er *enhver* løsning en lineærkombinasjon av dem — dette er **superposisjonsprinsippet** for lineære systemer:\n$$\\mathbf{x}(t)=c_1\\mathbf{v}_1e^{\\lambda_1t}+c_2\\mathbf{v}_2e^{\\lambda_2t}+\\dots+c_n\\mathbf{v}_ne^{\\lambda_nt}.$$\nDette er den **generelle løsningen**: konstantene $c_1,\\dots,c_n$ er frie inntil en begynnelsesverdi låser dem (løkke 2). Merk: metoden bruker $e^{\\lambda_it}$ (ikke $\\lambda_i$) og krever egenvektorbasis."
+    },
+    {
+      "id": "mat1120-7-2-def-system",
+      "type": "definition",
+      "title": "Differensiallikningssystem $\\mathbf{x}'=A\\mathbf{x}$",
+      "content": "Et **lineært differensiallikningssystem** $\\mathbf{x}'=A\\mathbf{x}$ beskriver en tilstandsvektor $\\mathbf{x}(t)$ hvis endringsrate i hvert øyeblikk er $A$ ganget med tilstanden selv. Komponentvis er $x_i'(t)=\\sum_j a_{ij}x_j(t)$. Det generaliserer den skalare $x'=ax$ (med løsning $ce^{at}$) til flere koblede størrelser, og modellerer alt fra populasjoner til fjærsystemer."
+    },
+    {
+      "id": "mat1120-7-2-def-enkel",
+      "type": "definition",
+      "title": "Enkeltløsning $\\mathbf{v}e^{\\lambda t}$",
+      "content": "For hvert egenpar $(\\lambda,\\mathbf{v})$ av $A$ er $\\mathbf{x}(t)=\\mathbf{v}e^{\\lambda t}$ en løsning av $\\mathbf{x}'=A\\mathbf{x}$. Verifisering: $\\mathbf{x}'=\\lambda\\mathbf{v}e^{\\lambda t}=A\\mathbf{v}e^{\\lambda t}=A\\mathbf{x}$. Vektoren $\\mathbf{v}$ gir *retningen* (fast over tid), og $e^{\\lambda t}$ gir *veksten/dempingen* langs den retningen. Disse er byggeklossene i den generelle løsningen."
+    },
+    {
+      "id": "mat1120-7-2-def-generell",
+      "type": "definition",
+      "title": "Generell løsning (egenvektorbasis)",
+      "content": "Når $A$ er diagonaliserbar med egenvektorbasis $\\mathbf{v}_1,\\dots,\\mathbf{v}_n$ og egenverdier $\\lambda_1,\\dots,\\lambda_n$, er den **generelle løsningen** av $\\mathbf{x}'=A\\mathbf{x}$ en lineærkombinasjon av enkeltløsningene: $\\mathbf{x}(t)=\\sum_{i=1}^{n}c_i\\mathbf{v}_ie^{\\lambda_it}$. De frie konstantene $c_i$ bestemmes av en begynnelsesverdi. Bruk $e^{\\lambda_it}$ — ikke $\\lambda_i$ eller $\\lambda_i^t$."
+    },
+    {
+      "id": "mat1120-7-2-ex1",
+      "type": "example",
+      "title": "Eksempel 1: Generell løsning av et 2×2-system",
+      "problem": "Skriv den generelle løsningen av $\\mathbf{x}'=A\\mathbf{x}$ for $A=\\begin{bmatrix}-2&1\\\\1&-2\\end{bmatrix}$. **Vedlegg** (`eig`): egenverdiene er $\\lambda_1=-1$ med egenvektor $(1,1)^{T}$ og $\\lambda_2=-3$ med egenvektor $(1,-1)^{T}$.",
+      "solution": "$A$ er symmetrisk med to distinkte egenverdier, så den har en egenvektorbasis (diagonaliserbar). Fra vedlegget: $(\\lambda_1,\\mathbf{v}_1)=(-1,(1,1)^{T})$ og $(\\lambda_2,\\mathbf{v}_2)=(-3,(1,-1)^{T})$. Hver gir en enkeltløsning $\\mathbf{v}_ie^{\\lambda_it}$, og den generelle løsningen er summen:\n$$\\mathbf{x}(t)=c_1\\begin{bmatrix}1\\\\1\\end{bmatrix}e^{-t}+c_2\\begin{bmatrix}1\\\\-1\\end{bmatrix}e^{-3t}.$$\n**Kontroll** av det første leddet: $\\tfrac{d}{dt}\\big((1,1)^{T}e^{-t}\\big)=-(1,1)^{T}e^{-t}$ og $A(1,1)^{T}e^{-t}=-1\\cdot(1,1)^{T}e^{-t}$ — likt ✓. **Konklusjon:** generell løsning som over, med frie $c_1,c_2$ (låses av en begynnelsesverdi)."
+    },
+    {
+      "id": "mat1120-7-2-e1",
+      "type": "exercise",
+      "exercise": {
+        "id": "mat1120-7-2-e1",
+        "number": "1",
+        "type": "classic",
+        "difficulty": "lett",
+        "task": "$A$ har egenverdier $\\lambda_1=2$ (egenvektor $(1,0)^{T}$) og $\\lambda_2=5$ (egenvektor $(1,1)^{T}$). Skriv den generelle løsningen av $\\mathbf{x}'=A\\mathbf{x}$.",
+        "solution": "Ett ledd per egenpar, med $e^{\\lambda_it}$:\n$$\\mathbf{x}(t)=c_1\\begin{bmatrix}1\\\\0\\end{bmatrix}e^{2t}+c_2\\begin{bmatrix}1\\\\1\\end{bmatrix}e^{5t}.$$",
+        "hints": [
+          "Generell løsning $=\\sum c_i\\mathbf{v}_ie^{\\lambda_it}$ — bruk $e^{\\lambda_it}$, ikke $\\lambda_i$.",
+          "Sett hver egenvektor foran sin egen $e^{\\lambda_it}$; la $c_1,c_2$ stå frie."
+        ]
+      }
+    },
+    {
+      "id": "mat1120-7-2-e2",
+      "type": "exercise",
+      "exercise": {
+        "id": "mat1120-7-2-e2",
+        "number": "2",
+        "type": "classic",
+        "difficulty": "lett",
+        "task": "Kontroller at $\\mathbf{x}(t)=(1,-1)^{T}e^{4t}$ er en løsning av $\\mathbf{x}'=A\\mathbf{x}$ når $(1,-1)^{T}$ er egenvektor for $A$ med egenverdi $4$.",
+        "solution": "Deriver: $\\mathbf{x}'(t)=4(1,-1)^{T}e^{4t}$. På den andre siden: $A\\mathbf{x}=A(1,-1)^{T}e^{4t}=4(1,-1)^{T}e^{4t}$ (siden $A\\mathbf{v}=4\\mathbf{v}$). De to sidene er like, så $\\mathbf{x}(t)$ er en løsning ✓.",
+        "hints": [
+          "Deriver $\\mathbf{x}(t)$ og regn $A\\mathbf{x}(t)$; bruk $A\\mathbf{v}=4\\mathbf{v}$.",
+          "Begge sider skal bli $4(1,-1)^{T}e^{4t}$."
+        ]
+      }
+    },
+    {
+      "id": "mat1120-7-2-l2",
+      "type": "text",
+      "content": "## Løkke 2 — Begynnelsesverdier: løs $P\\mathbf{c}=\\mathbf{x}(0)$ (~13 min)"
+    },
+    {
+      "id": "mat1120-7-2-l2-teori",
+      "type": "text",
+      "content": "Den generelle løsningen har $n$ frie konstanter. En **begynnelsesverdi** $\\mathbf{x}(0)=\\mathbf{x}_0$ låser dem: sett $t=0$ (så $e^{\\lambda_i\\cdot0}=1$):\n$$\\mathbf{x}(0)=c_1\\mathbf{v}_1+c_2\\mathbf{v}_2+\\dots+c_n\\mathbf{v}_n=\\mathbf{x}_0.$$\nDette er nettopp å skrive $\\mathbf{x}_0$ i egenvektorbasisen. På matriseform er det $P\\mathbf{c}=\\mathbf{x}_0$, der $P=[\\mathbf{v}_1\\cdots\\mathbf{v}_n]$ og $\\mathbf{c}=(c_1,\\dots,c_n)^{T}$. Løs for $\\mathbf{c}$ (for $2\\times2$ ofte i hodet; ellers $\\mathbf{c}=P^{-1}\\mathbf{x}_0$), og sett konstantene inn i den generelle løsningen. Da er løsningen entydig bestemt."
+    },
+    {
+      "id": "mat1120-7-2-def-begynnelse",
+      "type": "definition",
+      "title": "Begynnelsesverdi $P\\mathbf{c}=\\mathbf{x}(0)$",
+      "content": "Konstantene $c_i$ i den generelle løsningen bestemmes av begynnelsestilstanden $\\mathbf{x}(0)=\\mathbf{x}_0$ ved å sette $t=0$: siden $e^0=1$ blir $\\sum c_i\\mathbf{v}_i=\\mathbf{x}_0$, altså det lineære systemet $P\\mathbf{c}=\\mathbf{x}_0$ med egenvektormatrisen $P$. Å løse dette er å finne koordinatene til $\\mathbf{x}_0$ i egenvektorbasisen. Deretter er løsningen entydig."
+    },
+    {
+      "id": "mat1120-7-2-ex2",
+      "type": "example",
+      "title": "Eksempel 2: Løs med begynnelsesverdi",
+      "problem": "Løs $\\mathbf{x}'=A\\mathbf{x}$ fra eksempel 1 ($\\lambda_1=-1,\\mathbf{v}_1=(1,1)^{T}$; $\\lambda_2=-3,\\mathbf{v}_2=(1,-1)^{T}$) med begynnelsesverdi $\\mathbf{x}(0)=(1,0)^{T}$.",
+      "solution": "Sett $t=0$ i den generelle løsningen $\\mathbf{x}(t)=c_1(1,1)^{T}e^{-t}+c_2(1,-1)^{T}e^{-3t}$:\n$$c_1\\begin{bmatrix}1\\\\1\\end{bmatrix}+c_2\\begin{bmatrix}1\\\\-1\\end{bmatrix}=\\begin{bmatrix}1\\\\0\\end{bmatrix}\\ \\Rightarrow\\ \\begin{cases}c_1+c_2=1\\\\ c_1-c_2=0\\end{cases}$$\nAdderes/subtraheres: $c_1=c_2=\\tfrac12$. Sett inn:\n$$\\mathbf{x}(t)=\\tfrac12\\begin{bmatrix}1\\\\1\\end{bmatrix}e^{-t}+\\tfrac12\\begin{bmatrix}1\\\\-1\\end{bmatrix}e^{-3t}.$$\n**Kontroll** ved $t=0$: $\\tfrac12(1,1)^{T}+\\tfrac12(1,-1)^{T}=(1,0)^{T}$ ✓. **Konklusjon:** entydig løsning som over, med eksakte $c_1=c_2=\\tfrac12$."
+    },
+    {
+      "id": "mat1120-7-2-e3",
+      "type": "exercise",
+      "exercise": {
+        "id": "mat1120-7-2-e3",
+        "number": "3",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "$A$ har $\\lambda_1=1$ med $\\mathbf{v}_1=(1,1)^{T}$ og $\\lambda_2=-2$ med $\\mathbf{v}_2=(1,-1)^{T}$. Løs $\\mathbf{x}'=A\\mathbf{x}$ med $\\mathbf{x}(0)=(3,1)^{T}$.",
+        "solution": "Generell løsning $\\mathbf{x}(t)=c_1(1,1)^{T}e^{t}+c_2(1,-1)^{T}e^{-2t}$. Ved $t=0$: $c_1+c_2=3$, $c_1-c_2=1$ ⇒ $c_1=2,\\ c_2=1$. Altså\n$$\\mathbf{x}(t)=2\\begin{bmatrix}1\\\\1\\end{bmatrix}e^{t}+\\begin{bmatrix}1\\\\-1\\end{bmatrix}e^{-2t}.$$\nKontroll ved $t=0$: $2(1,1)^{T}+(1,-1)^{T}=(3,1)^{T}$ ✓.",
+        "hints": [
+          "Sett $t=0$: $c_1\\mathbf{v}_1+c_2\\mathbf{v}_2=\\mathbf{x}(0)$, altså $P\\mathbf{c}=\\mathbf{x}(0)$.",
+          "Løs $c_1+c_2=3$, $c_1-c_2=1$ for $c_1,c_2$, og sett inn i den generelle løsningen."
+        ]
+      }
+    },
+    {
+      "id": "mat1120-7-2-l3",
+      "type": "text",
+      "content": "## Løkke 3 — Langtidsatferd og stabilitet ($t\\to\\infty$) (~12 min)"
+    },
+    {
+      "id": "mat1120-7-2-l3-teori",
+      "type": "text",
+      "content": "Hvert ledd i løsningen har faktoren $e^{\\lambda_it}$. Når $t\\to\\infty$ styres oppførselen av **fortegnet** (mer presist realdelen) til egenverdiene:\n\n- $\\lambda_i<0$: $e^{\\lambda_it}\\to0$ — leddet **dør ut**.\n- $\\lambda_i>0$: $e^{\\lambda_it}\\to\\infty$ — leddet **vokser** (dominerer).\n- $\\lambda_i=0$: $e^{0}=1$ konstant — leddet står stille.\n\nEr **alle** $\\lambda_i<0$, går $\\mathbf{x}(t)\\to\\mathbf{0}$ uansett start: origo er et **stabilt** punkt. Har minst én $\\lambda_i>0$, vokser løsningen langs den egenvektoren (med mindre begynnelsesverdien tilfeldigvis har $c_i=0$ der). Er egenverdiene av blandet fortegn, er origo et **sadelpunkt**: løsningen krymper i noen retninger og vokser i andre. Dominerende retning for store $t$ er egenvektoren til den **største** egenverdien."
+    },
+    {
+      "id": "mat1120-7-2-def-stabilitet",
+      "type": "definition",
+      "title": "Stabilitet fra fortegn på $\\lambda_i$",
+      "content": "Langtidsatferden til $\\mathbf{x}'=A\\mathbf{x}$ bestemmes av egenverdienes fortegn (realdel): alle $\\lambda_i<0$ ⇒ $\\mathbf{x}(t)\\to\\mathbf{0}$ (stabilt), minst én $\\lambda_i>0$ ⇒ vekst langs den egenvektoren (ustabilt), blandet fortegn ⇒ sadelpunkt. For store $t$ dominerer leddet med **størst** egenverdi. En kompleks egenverdi $\\lambda=a\\pm bi$ gir oscillasjon $e^{at}(\\cos bt,\\sin bt)$ styrt av realdelen $a$ (kjennskap)."
+    },
+    {
+      "id": "mat1120-7-2-def-dominant",
+      "type": "definition",
+      "title": "Dominant egenverdi",
+      "content": "For store $t$ vokser leddet med **størst** egenverdi $\\lambda_{\\max}$ raskest, så $\\mathbf{x}(t)$ retter seg inn mot egenvektoren $\\mathbf{v}_{\\max}$ (så lenge $c_{\\max}\\ne0$). Den dominante egenverdien avgjør altså både om systemet vokser/dør og i hvilken retning. I diskrete systemer er det egenverdien med størst $|\\lambda|$ som dominerer."
+    },
+    {
+      "id": "mat1120-7-2-ex3",
+      "type": "example",
+      "title": "Eksempel 3: Langtidsatferd med blandet fortegn",
+      "problem": "For $\\mathbf{x}'=A\\mathbf{x}$ med $\\lambda_1=3$ (egenvektor $(1,1)^{T}$) og $\\lambda_2=-1$ (egenvektor $(1,-1)^{T}$): beskriv $\\mathbf{x}(t)$ når $t\\to\\infty$ for en generell begynnelsesverdi.",
+      "solution": "Generell løsning: $\\mathbf{x}(t)=c_1(1,1)^{T}e^{3t}+c_2(1,-1)^{T}e^{-t}$. Når $t\\to\\infty$: leddet med $e^{-t}\\to0$ (dør ut), mens $e^{3t}\\to\\infty$ (vokser). Derfor **dominerer** det første leddet, og $\\mathbf{x}(t)$ vokser uten grense langs retningen $(1,1)^{T}$ (egenvektoren til den største egenverdien) — med mindre begynnelsesverdien tilfeldigvis har $c_1=0$, da krymper løsningen mot $\\mathbf{0}$ langs $(1,-1)^{T}$. **Konklusjon:** origo er et **sadelpunkt**; generisk vekst langs $(1,1)^{T}$."
+    },
+    {
+      "id": "mat1120-7-2-e4",
+      "type": "exercise",
+      "exercise": {
+        "id": "mat1120-7-2-e4",
+        "number": "4",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "$\\mathbf{x}'=A\\mathbf{x}$ har egenverdier $\\lambda_1=-1$ og $\\lambda_2=-4$ (begge negative), med egenvektorer $(2,1)^{T}$ og $(1,-1)^{T}$.\n\n**a)** Hva skjer med $\\mathbf{x}(t)$ når $t\\to\\infty$?\n\n**b)** Langs hvilken retning nærmer løsningen seg origo til slutt?",
+        "solution": "**a)** Begge egenverdier er negative, så begge ledd $e^{-t},e^{-4t}\\to0$. Dermed $\\mathbf{x}(t)\\to\\mathbf{0}$ for enhver begynnelsesverdi — origo er **stabilt**.\n\n**b)** Leddet $e^{-4t}$ dør raskest; til slutt dominerer det tregeste, $e^{-t}$ (den **største** egenverdien $-1$). Løsningen nærmer seg origo langs egenvektoren $(2,1)^{T}$.",
+        "hints": [
+          "Sjekk fortegnet på hver $\\lambda_i$: negativ ⇒ leddet $\\to0$.",
+          "Den *største* (minst negative) egenverdien dør tregest og bestemmer retningen inn mot origo."
+        ]
+      }
+    },
+    {
+      "id": "mat1120-7-2-l4",
+      "type": "text",
+      "content": "## Løkke 4 — Diskret dynamikk $\\mathbf{x}_{k+1}=A\\mathbf{x}_k$: $\\mathbf{x}_k=\\sum c_i\\lambda_i^k\\mathbf{v}_i$ (~15 min)"
+    },
+    {
+      "id": "mat1120-7-2-l4-teori",
+      "type": "text",
+      "content": "I et **diskret** system tar tilstanden hopp: $\\mathbf{x}_1=A\\mathbf{x}_0$, $\\mathbf{x}_2=A\\mathbf{x}_1=A^2\\mathbf{x}_0$, generelt $\\mathbf{x}_k=A^k\\mathbf{x}_0$. Samme grep som før: dekomponer $\\mathbf{x}_0=c_1\\mathbf{v}_1+\\dots+c_n\\mathbf{v}_n$ i egenvektorbasis. Siden $A^k\\mathbf{v}_i=\\lambda_i^k\\mathbf{v}_i$, blir\n$$\\mathbf{x}_k=c_1\\lambda_1^k\\mathbf{v}_1+c_2\\lambda_2^k\\mathbf{v}_2+\\dots+c_n\\lambda_n^k\\mathbf{v}_n.$$\nForskjellen fra det kontinuerlige: **$\\lambda_i^k$ i stedet for $e^{\\lambda_it}$**. Langtidsatferden ($k\\to\\infty$) styres nå av **$|\\lambda_i|$**:\n\n- $|\\lambda_i|<1$: $\\lambda_i^k\\to0$ (dør ut).\n- $|\\lambda_i|>1$: $|\\lambda_i^k|\\to\\infty$ (vokser).\n- $|\\lambda_i|=1$: konstant størrelse — hvis $A$ er **ortogonal** (alle $|\\lambda_i|=1$), er $\\lVert\\mathbf{x}_k\\rVert=\\lVert\\mathbf{x}_0\\rVert$ for alle $k$ (**normbevaring**, jf. [kap. 6.1](/bok/mat1120/mat1120-6-1)).\n\nEr $\\lambda=1$ en egenverdi, står den komponenten stille — en **likevekt/steady state**."
+    },
+    {
+      "id": "mat1120-7-2-def-diskret",
+      "type": "definition",
+      "title": "Diskret system $\\mathbf{x}_{k+1}=A\\mathbf{x}_k$",
+      "content": "Et **diskret dynamisk system** oppdaterer tilstanden i steg: $\\mathbf{x}_{k+1}=A\\mathbf{x}_k$, så $\\mathbf{x}_k=A^k\\mathbf{x}_0$. Med egenvektorbasis blir løsningen $\\mathbf{x}_k=\\sum c_i\\lambda_i^k\\mathbf{v}_i$. Det modellerer prosesser som utvikler seg i faste tidsskritt (år, generasjoner, iterasjoner) — i motsetning til det kontinuerlige $\\mathbf{x}'=A\\mathbf{x}$."
+    },
+    {
+      "id": "mat1120-7-2-def-diskretlos",
+      "type": "definition",
+      "title": "Diskret løsning $\\mathbf{x}_k=\\sum c_i\\lambda_i^k\\mathbf{v}_i$",
+      "content": "Dekomponer $\\mathbf{x}_0=\\sum c_i\\mathbf{v}_i$ i egenvektorbasis; da er $\\mathbf{x}_k=A^k\\mathbf{x}_0=\\sum c_i\\lambda_i^k\\mathbf{v}_i$ (fordi $A^k\\mathbf{v}_i=\\lambda_i^k\\mathbf{v}_i$). Samme koeffisienter $c_i$ som i det kontinuerlige tilfellet (fra $P\\mathbf{c}=\\mathbf{x}_0$), men $\\lambda_i^k$ erstatter $e^{\\lambda_it}$. Krever egenvektorbasis (diagonaliserbar $A$)."
+    },
+    {
+      "id": "mat1120-7-2-def-langtid",
+      "type": "definition",
+      "title": "Langtid via $|\\lambda_i|$",
+      "content": "For $k\\to\\infty$ styres $\\mathbf{x}_k$ av **størrelsen** $|\\lambda_i|$: ledd med $|\\lambda_i|<1$ dør ut, $|\\lambda_i|>1$ vokser, og den største $|\\lambda_i|$ dominerer retningen. Er største $|\\lambda_i|=1$ (f.eks. $\\lambda=1$), stabiliserer $\\mathbf{x}_k$ seg mot en likevektsretning $\\mathbf{v}$; er alle $|\\lambda_i|<1$, går $\\mathbf{x}_k\\to\\mathbf{0}$."
+    },
+    {
+      "id": "mat1120-7-2-def-normbevaring",
+      "type": "definition",
+      "title": "Normbevaring når $|\\lambda|=1$",
+      "content": "Er $A$ **ortogonal** ($A^{T}A=I$), bevarer den lengder: $\\lVert A\\mathbf{x}\\rVert=\\lVert\\mathbf{x}\\rVert$, så $\\lVert\\mathbf{x}_k\\rVert=\\lVert\\mathbf{x}_0\\rVert$ er **konstant** for alle $k$ (jf. [kap. 6.1](/bok/mat1120/mat1120-6-1)). Egenverdiene til en ortogonal matrise har $|\\lambda|=1$. Da vokser eller dør ikke tilstanden — den roterer/speiles rundt på en sfære med fast radius (2020-varianten)."
+    },
+    {
+      "id": "mat1120-7-2-ex4",
+      "type": "example",
+      "title": "Eksempel 4: Diskret langtid og normbevaring",
+      "problem": "**a)** Et diskret system har $\\lambda_1=1$ (egenvektor $(1,1)^{T}$) og $\\lambda_2=\\tfrac12$ (egenvektor $(1,-1)^{T}$), med $\\mathbf{x}_0=(3,1)^{T}$. Finn $\\mathbf{x}_k$ og $\\lim_{k\\to\\infty}\\mathbf{x}_k$.\n\n**b)** La $B=\\begin{bmatrix}0&1\\\\1&0\\end{bmatrix}$ (ortogonal). Regn $\\lVert\\mathbf{x}_k\\rVert$ for $\\mathbf{x}_0=(2,1)^{T}$, og forklar.",
+      "solution": "**a)** Dekomponer $\\mathbf{x}_0$: $c_1(1,1)^{T}+c_2(1,-1)^{T}=(3,1)^{T}$ gir $c_1+c_2=3,\\ c_1-c_2=1$, så $c_1=2,\\ c_2=1$. Da\n$$\\mathbf{x}_k=2\\cdot1^k\\begin{bmatrix}1\\\\1\\end{bmatrix}+1\\cdot\\Big(\\tfrac12\\Big)^k\\begin{bmatrix}1\\\\-1\\end{bmatrix}=2\\begin{bmatrix}1\\\\1\\end{bmatrix}+\\Big(\\tfrac12\\Big)^k\\begin{bmatrix}1\\\\-1\\end{bmatrix}.$$\nSiden $|\\tfrac12|<1$, dør det andre leddet ut: $\\lim_{k\\to\\infty}\\mathbf{x}_k=2(1,1)^{T}=(2,2)^{T}$ — en **likevekt** langs egenvektoren til $\\lambda=1$.\n\n**b)** $B$ er ortogonal ($B^{T}B=I$), altså normbevarende. $\\mathbf{x}_1=B(2,1)^{T}=(1,2)^{T}$, $\\mathbf{x}_2=B(1,2)^{T}=(2,1)^{T}$, … Normen er konstant: $\\lVert\\mathbf{x}_k\\rVert=\\sqrt{2^2+1^2}=\\sqrt5$ for alle $k$. Egenverdiene til $B$ er $1$ og $-1$, begge med $|\\lambda|=1$, derfor verken vekst eller demping — bare ombytting. **Konklusjon:** a) $\\mathbf{x}_k\\to(2,2)^{T}$; b) $\\lVert\\mathbf{x}_k\\rVert=\\sqrt5$ konstant."
+    },
+    {
+      "id": "mat1120-7-2-e5",
+      "type": "exercise",
+      "exercise": {
+        "id": "mat1120-7-2-e5",
+        "number": "5",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "Et diskret system har $\\lambda_1=1$ (egenvektor $(2,1)^{T}$) og $\\lambda_2=\\tfrac13$ (egenvektor $(1,-1)^{T}$), med $\\mathbf{x}_0=(3,0)^{T}$.\n\n**a)** Skriv $\\mathbf{x}_k$ i egenvektorbasis.\n\n**b)** Hva er $\\lim_{k\\to\\infty}\\mathbf{x}_k$?",
+        "solution": "**a)** Dekomponer $\\mathbf{x}_0=(3,0)^{T}$: $c_1(2,1)^{T}+c_2(1,-1)^{T}=(3,0)^{T}$ gir $2c_1+c_2=3,\\ c_1-c_2=0$ ⇒ $c_1=c_2=1$. Da $\\mathbf{x}_k=1^k(2,1)^{T}+(\\tfrac13)^k(1,-1)^{T}=(2,1)^{T}+(\\tfrac13)^k(1,-1)^{T}$.\n\n**b)** $(\\tfrac13)^k\\to0$, så $\\lim_{k\\to\\infty}\\mathbf{x}_k=(2,1)^{T}$ (likevekt langs egenvektoren til $\\lambda=1$).",
+        "hints": [
+          "Løs $P\\mathbf{c}=\\mathbf{x}_0$ for $c_1,c_2$; bruk $\\mathbf{x}_k=\\sum c_i\\lambda_i^k\\mathbf{v}_i$.",
+          "Ledd med $|\\lambda|<1$ forsvinner når $k\\to\\infty$; bare $\\lambda=1$-leddet overlever."
+        ]
+      }
+    },
+    {
+      "id": "mat1120-7-2-e6",
+      "type": "exercise",
+      "exercise": {
+        "id": "mat1120-7-2-e6",
+        "number": "6",
+        "type": "classic",
+        "difficulty": "vanskelig",
+        "task": "En operator $T$ på $\\operatorname{P}_1$ (polynomer av grad $\\le1$) har i basisen $\\mathcal{B}=\\{1,t\\}$ matrisen $[T]_{\\mathcal{B}}=\\begin{bmatrix}0&1\\\\0&0\\end{bmatrix}$ (svarer til $T(p)=p'$). Kan differensiallikningen $\\mathbf{y}'=[T]_{\\mathcal{B}}\\mathbf{y}$ løses med egenvektormetoden? Begrunn.",
+        "solution": "Matrisen $[T]_{\\mathcal{B}}=\\begin{bmatrix}0&1\\\\0&0\\end{bmatrix}$ er triangulær med egenverdi $0$ (dobbel). Egenrommet $\\operatorname{Nul}([T]_{\\mathcal{B}}-0I)=\\operatorname{Nul}\\begin{bmatrix}0&1\\\\0&0\\end{bmatrix}$ er utspent av $(1,0)^{T}$ alene — geometrisk multiplisitet $1<2$ = algebraisk. Matrisen er derfor **ikke diagonaliserbar**, så den har ingen egenvektorbasis, og egenvektormetoden $\\mathbf{y}=\\sum c_i\\mathbf{v}_ie^{\\lambda_it}$ er **ikke** direkte anvendbar. (Kobling til [kap. 3.2](/bok/mat1120/mat1120-3-2): metoden krever diagonaliserbarhet; her må man bruke andre teknikker.)",
+        "hints": [
+          "Sjekk om $[T]_{\\mathcal{B}}$ er diagonaliserbar: finn egenverdier og egenrommenes dimensjon.",
+          "Egenverdi $0$ med algebraisk multiplisitet $2$, men geometrisk $1$ ⇒ ikke egenvektorbasis ⇒ metoden gjelder ikke."
+        ]
+      }
+    },
+    {
+      "id": "mat1120-7-2-warn",
+      "type": "warning",
+      "title": "Typiske feil",
+      "content": "- **Bruker $\\lambda_i$ i stedet for $e^{\\lambda_it}$** (kontinuerlig) eller $\\lambda_i^k$ (diskret). Faktoren er $e^{\\lambda_it}$ — den skalare $x'=\\lambda x$ har løsning $e^{\\lambda t}$, ikke $\\lambda t$.\n- **Feil koeffisienter:** $c_i$ må løses fra $P\\mathbf{c}=\\mathbf{x}(0)$ (sett $t=0$), ikke gjettes. Husk at $e^{\\lambda_i\\cdot0}=1$.\n- **Glemmer at metoden krever egenvektorbasis:** er $A$ ikke diagonaliserbar (et egenrom for lite), gjelder ikke $\\mathbf{x}=\\sum c_i\\mathbf{v}_ie^{\\lambda_it}$ direkte.\n- **Feil langtidskonklusjon:** kontinuerlig styres av **fortegnet** til $\\lambda_i$ ($e^{\\lambda t}\\to0$ ⇔ $\\lambda<0$); diskret styres av **$|\\lambda_i|$** ($\\lambda^k\\to0$ ⇔ $|\\lambda|<1$). Bland ikke de to kriteriene.\n- **Normbevaring** krever ortogonal (normbevarende) $A$ med $|\\lambda|=1$ — ikke bare én egenverdi med $|\\lambda|=1$."
+    },
+    {
+      "id": "mat1120-7-2-bb",
+      "type": "text",
+      "content": "## Begrepsbank til eksamen\n\nKjernebegrepene fra kapitlet i eksamensrettet kortform.\n\n*Begrepsbanken er flashcard-/repetisjonsstoff — hopp trygt over ved førstegangslesing; tidsanslaget gjelder kjernestoffet.*"
+    },
+    {
+      "id": "mat1120-7-2-bb-metode",
+      "type": "definition",
+      "title": "Metoden i tre steg (kontinuerlig)",
+      "content": "(1) Les egenverdier/egenvektorer av vedlegget (krever diagonaliserbar $A$). (2) Skriv generell løsning $\\mathbf{x}(t)=\\sum c_i\\mathbf{v}_ie^{\\lambda_it}$. (3) Løs $P\\mathbf{c}=\\mathbf{x}(0)$ for $c_i$ og sett inn. Bruk $e^{\\lambda_it}$, ikke $\\lambda_i$."
+    },
+    {
+      "id": "mat1120-7-2-bb-hvorforexp",
+      "type": "definition",
+      "title": "Hvorfor $e^{\\lambda t}$",
+      "content": "I én dimensjon har $x'=\\lambda x$ løsningen $x(t)=ce^{\\lambda t}$. Langs en egenvektor virker $A$ som ren skalering med $\\lambda$, så systemet kobler fra til $n$ slike skalarlikninger — derav $e^{\\lambda_it}$ i hvert ledd."
+    },
+    {
+      "id": "mat1120-7-2-bb-superposisjon",
+      "type": "definition",
+      "title": "Superposisjonsprinsippet",
+      "content": "En sum av løsninger av $\\mathbf{x}'=A\\mathbf{x}$ er igjen en løsning (systemet er lineært). Derfor er den generelle løsningen en lineærkombinasjon av enkeltløsningene $\\mathbf{v}_ie^{\\lambda_it}$ — én per egenpar."
+    },
+    {
+      "id": "mat1120-7-2-bb-krav",
+      "type": "definition",
+      "title": "Metoden krever egenvektorbasis",
+      "content": "$\\mathbf{x}(t)=\\sum c_i\\mathbf{v}_ie^{\\lambda_it}$ dekker *alle* løsninger bare når de $n$ egenvektorene er en basis (dvs. $A$ diagonaliserbar). Uten egenvektorbasis (et egenrom for lite) trengs andre teknikker."
+    },
+    {
+      "id": "mat1120-7-2-bb-c",
+      "type": "definition",
+      "title": "Koeffisientene $c_i$",
+      "content": "$c_i$ er koordinatene til $\\mathbf{x}(0)$ i egenvektorbasisen: løs $P\\mathbf{c}=\\mathbf{x}(0)$ (sett $t=0$). Samme $c_i$ brukes både i den kontinuerlige og diskrete løsningen."
+    },
+    {
+      "id": "mat1120-7-2-bb-sjekk",
+      "type": "definition",
+      "title": "Kontroll: sett inn i $\\mathbf{x}'=A\\mathbf{x}$",
+      "content": "Verifiser et ledd ved å derivere: $\\tfrac{d}{dt}(\\mathbf{v}e^{\\lambda t})=\\lambda\\mathbf{v}e^{\\lambda t}$, og $A(\\mathbf{v}e^{\\lambda t})=\\lambda\\mathbf{v}e^{\\lambda t}$ (siden $A\\mathbf{v}=\\lambda\\mathbf{v}$). Sjekk også at $\\mathbf{x}(0)$ stemmer."
+    },
+    {
+      "id": "mat1120-7-2-bb-kompleks",
+      "type": "definition",
+      "title": "Komplekse egenverdier (kjennskap)",
+      "content": "$\\lambda=a\\pm bi$ gir oscillerende løsninger $e^{at}(\\cos bt,\\sin bt)$: realdelen $a$ styrer vekst/demping, imaginærdelen $b$ gir svingninger. Ren imaginær ($a=0$) gir sirkelbevegelse med konstant amplitude."
+    },
+    {
+      "id": "mat1120-7-2-bb-Ak",
+      "type": "definition",
+      "title": "Kobling til $A^k$",
+      "content": "$\\mathbf{x}_k=A^k\\mathbf{x}_0$, og $A^k=PD^kP^{-1}$ ([kap. 3.3](/bok/mat1120/mat1120-3-3)) med $D^k=\\operatorname{diag}(\\lambda_i^k)$. Egenvektormetoden er nettopp denne diagonaliseringen brukt på $\\mathbf{x}_0$."
+    },
+    {
+      "id": "mat1120-7-2-bb-TB",
+      "type": "definition",
+      "title": "Kobling til $[T]_{\\mathcal{B}}$ (2021)",
+      "content": "Et system kan være gitt via en operator $T$ på et abstrakt rom; da løser du $\\mathbf{y}'=[T]_{\\mathcal{B}}\\mathbf{y}$ på koordinatene og oversetter tilbake til funksjoner. Egenverdiene er basisuavhengige ([kap. 2.6](/bok/mat1120/mat1120-2-6))."
+    },
+    {
+      "id": "mat1120-7-2-bb-kont-vs-disk",
+      "type": "definition",
+      "title": "Kontinuerlig vs. diskret",
+      "content": "Kontinuerlig $\\mathbf{x}'=A\\mathbf{x}$: ledd $e^{\\lambda_it}$, stabilitet via fortegn på $\\lambda$. Diskret $\\mathbf{x}_{k+1}=A\\mathbf{x}_k$: ledd $\\lambda_i^k$, langtid via $|\\lambda|$. Samme egenvektordekomponering, ulik tidsfaktor og ulikt stabilitetskriterium."
+    },
+    {
+      "id": "mat1120-7-2-rep",
+      "type": "collapsible",
+      "title": "Repetisjonsoppgaver",
+      "buttonText": "Vis repetisjonsoppgaver",
+      "content": [
+        {
+          "id": "mat1120-7-2-r1",
+          "type": "exercise",
+          "exercise": {
+            "id": "mat1120-7-2-r1",
+            "number": "R1",
+            "type": "classic",
+            "difficulty": "lett",
+            "task": "$A$ har $\\lambda_1=3$ (egenvektor $(1,2)^{T}$), $\\lambda_2=-1$ (egenvektor $(1,-1)^{T}$). Skriv generell løsning av $\\mathbf{x}'=A\\mathbf{x}$.",
+            "solution": "$\\mathbf{x}(t)=c_1(1,2)^{T}e^{3t}+c_2(1,-1)^{T}e^{-t}$.",
+            "hints": [
+              "Ett ledd $\\mathbf{v}_ie^{\\lambda_it}$ per egenpar."
+            ]
+          }
+        },
+        {
+          "id": "mat1120-7-2-r2",
+          "type": "exercise",
+          "exercise": {
+            "id": "mat1120-7-2-r2",
+            "number": "R2",
+            "type": "classic",
+            "difficulty": "lett",
+            "task": "I et diskret system er $\\lambda_1=1,\\ \\lambda_2=0{,}2$. Hvilket ledd overlever når $k\\to\\infty$?",
+            "solution": "$0{,}2^k\\to0$ siden $|0{,}2|<1$, mens $1^k=1$. Bare $\\lambda=1$-leddet overlever — en likevekt.",
+            "hints": [
+              "Sammenlign $|\\lambda_i|$ med $1$."
+            ]
+          }
+        },
+        {
+          "id": "mat1120-7-2-r3",
+          "type": "exercise",
+          "exercise": {
+            "id": "mat1120-7-2-r3",
+            "number": "R3",
+            "type": "classic",
+            "difficulty": "middels",
+            "task": "$\\mathbf{x}'=A\\mathbf{x}$ har alle egenverdier negative. Hva er $\\lim_{t\\to\\infty}\\mathbf{x}(t)$?",
+            "solution": "Alle ledd $e^{\\lambda_it}\\to0$, så $\\mathbf{x}(t)\\to\\mathbf{0}$ (origo er stabilt), uansett begynnelsesverdi.",
+            "hints": [
+              "Negativ $\\lambda$ ⇒ $e^{\\lambda t}\\to0$."
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": "mat1120-7-2-symbol",
+      "type": "collapsible",
+      "title": "Symbol- og formelliste",
+      "buttonText": "Vis symboler og formler",
+      "content": [
+        {
+          "id": "mat1120-7-2-symbol-tekst",
+          "type": "text",
+          "content": "## Symbol- og formelliste\n\n*Oppslagsverk — alt her forklares underveis i kapitlet.*\n\n| Symbol | Betydning |\n|---|---|\n| $\\mathbf{x}'=A\\mathbf{x}$ | Kontinuerlig differensiallikningssystem |\n| $\\mathbf{x}_{k+1}=A\\mathbf{x}_k$ | Diskret dynamisk system |\n| $\\mathbf{x}(t)=\\sum c_i\\mathbf{v}_ie^{\\lambda_it}$ | Generell løsning (kontinuerlig) |\n| $\\mathbf{x}_k=\\sum c_i\\lambda_i^k\\mathbf{v}_i$ | Løsning (diskret) |\n| $P\\mathbf{c}=\\mathbf{x}(0)$ | Bestemmer koeffisientene $c_i$ |\n| $\\lambda_i,\\mathbf{v}_i$ | Egenverdi/egenvektor til $A$ |\n\n**Formler og resultater i dette delkapitlet:**\n\n$$\\mathbf{x}(t)=c_1\\mathbf{v}_1e^{\\lambda_1t}+\\dots+c_n\\mathbf{v}_ne^{\\lambda_nt},\\qquad P\\mathbf{c}=\\mathbf{x}(0)$$\nKontinuerlig løsning (krever egenvektorbasis); $c_i$ fra begynnelsesverdi.\n\n$$\\mathbf{x}_k=c_1\\lambda_1^k\\mathbf{v}_1+\\dots+c_n\\lambda_n^k\\mathbf{v}_n$$\nDiskret løsning — $\\lambda_i^k$ i stedet for $e^{\\lambda_it}$.\n\n**Langtid:** kontinuerlig $e^{\\lambda t}\\to0\\Leftrightarrow\\lambda<0$; diskret $\\lambda^k\\to0\\Leftrightarrow|\\lambda|<1$; ortogonal $A$ ($|\\lambda|=1$) ⇒ $\\lVert\\mathbf{x}_k\\rVert$ konstant."
+        }
+      ]
+    }
+  ],
+  "exercises": []
+}

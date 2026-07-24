@@ -1,0 +1,397 @@
+{
+  "id": "mat111-uib-1-3",
+  "courseId": "mat111-uib",
+  "chapterNumber": "1.3",
+  "title": "Komplekse likninger og reell/kompleks faktorisering",
+  "description": "Andregradslikninger med negativ diskriminant, konjugatrotsetningen og veien fra kjent rot til full faktorisering over både C og R.",
+  "estimatedMinutes": 55,
+  "competenceGoals": [
+    "løse andregradslikninger med negativ diskriminant og gi røttene som konjugatpar på normalform",
+    "bruke konjugatrotsetningen korrekt (og vite når den ikke gjelder)",
+    "faktorisere et reelt polynom både over C (lineære faktorer) og over R (lineære + irreduserbare kvadratiske)",
+    "gå fra en kjent rot til komplett faktorisering via polynomdivisjon, med verifikasjon"
+  ],
+  "content": [
+    {
+      "id": "mat111-uib-1-3-tip",
+      "type": "tip",
+      "title": "Eksamensvinkel",
+      "content": "**Siste del av åpningsoppgaven: løs en likning med komplekse røtter, og faktoriser.**\n\n- **Sjanger C** avsluttes her: en andregradslikning med negativ diskriminant, og faktorisering av et reelt polynom **både over $\\mathbb{C}$** (lineære faktorer) **og over $\\mathbb{R}$** (lineære + irreduserbare kvadratiske).\n- **Full pott krever begge faktoriseringene** når begge er etterspurt — å levere bare den ene er den vanligste poengtapsfellen her.\n- **Åpen bok måler føring:** vis at $z_0$ er rot ved innsetting, bruk konjugatrotsetningen eksplisitt, og verifiser polynomdivisjonen.\n\n**Mål:** fra kjent (eller funnet) rot til komplett faktorisering over begge tallområder, trygt og verifisert."
+    },
+    {
+      "id": "mat111-uib-1-3-fork",
+      "type": "text",
+      "content": "**Forkunnskaper.** Bygger på [kap. 1.1](/bok/mat111-uib/mat111-uib-1-1)–[1.2](/bok/mat111-uib/mat111-uib-1-2) (konjugat, modulus, $n$-te røtter). I tillegg trenger du [Polynomer og polynomdivisjon](/bok/r1/r1-1-1) (divisjonsalgoritmen) og [ABC-formelen](/bok/1t/1t-2-3) (andregradslikninger). Konjugatet $\\bar z$ og identiteten $z\\bar z=|z|^2$ fra kap. 1.1 er sentrale her."
+    },
+    {
+      "id": "mat111-uib-1-3-motiv",
+      "type": "text",
+      "content": "Over de reelle tallene kan $z^2-4z+13$ ikke faktoriseres — diskriminanten er negativ. Over de **komplekse** tallene kan *ethvert* polynom faktoriseres fullstendig i lineære faktorer (algebraens fundamentalteorem). Dette kapitlet knytter sammen tre ting: å løse likninger med komplekse røtter, **konjugatrotsetningen** (som gjør at reelle polynomer får røttene i konjugatpar), og veien fra en kjent rot til full faktorisering over både $\\mathbb{C}$ og $\\mathbb{R}$.\n\nTre løkker: **(1)** andregradslikninger og konjugatrotsetningen, **(2)** faktorisering over $\\mathbb{C}$ og $\\mathbb{R}$, **(3)** fra kjent rot til komplett faktorisering via polynomdivisjon. Hver løkke: **teori → eksempel → oppgave**."
+    },
+    {
+      "id": "mat111-uib-1-3-l1",
+      "type": "text",
+      "content": "## Løkke 1 — Andregradslikninger og konjugatrotsetningen (~18 min)"
+    },
+    {
+      "id": "mat111-uib-1-3-def-abc",
+      "type": "definition",
+      "title": "Andregradsformelen over $\\mathbb{C}$",
+      "content": "For $az^2+bz+c=0$ ($a\\ne0$, reelle eller komplekse koeffisienter) gjelder samme formel som over $\\mathbb{R}$:\n\n$$z=\\frac{-b\\pm\\sqrt{b^2-4ac}}{2a}.$$\n\nForskjellen er at kvadratroten nå alltid finnes — også når $b^2-4ac<0$."
+    },
+    {
+      "id": "mat111-uib-1-3-def-disk",
+      "type": "definition",
+      "title": "Diskriminanten og fortegnet",
+      "content": "Tallet $D=b^2-4ac$ (for reelle $a,b,c$) styrer løsningene: $D>0$ gir to reelle røtter, $D=0$ én dobbel reell, og $D<0$ **to komplekse konjugerte røtter** $\\tfrac{-b}{2a}\\pm i\\tfrac{\\sqrt{|D|}}{2a}$."
+    },
+    {
+      "id": "mat111-uib-1-3-def-sqrtneg",
+      "type": "definition",
+      "title": "Kvadratrot av negativt reelt tall",
+      "content": "Når $D<0$ skriver vi $\\sqrt{D}=\\sqrt{-|D|}=i\\sqrt{|D|}$. For eksempel $\\sqrt{-36}=6i$. Det er dette som setter $i$ inn i andregradsformelen og gir komplekse røtter."
+    },
+    {
+      "id": "mat111-uib-1-3-def-konjpar",
+      "type": "definition",
+      "title": "Røtter i konjugatpar",
+      "content": "For et andregradspolynom med **reelle** koeffisienter og $D<0$ er de to røttene hverandres konjugat: $z_0=\\alpha+\\beta i$ og $\\bar z_0=\\alpha-\\beta i$. De har lik realdel og motsatt imaginærdel."
+    },
+    {
+      "id": "mat111-uib-1-3-ex1",
+      "type": "example",
+      "title": "Eksempel 1: Andregradslikning med negativ diskriminant",
+      "problem": "Løs $z^2-4z+13=0$, og gi røttene på normalform.",
+      "solution": "Diskriminanten: $D=(-4)^2-4\\cdot1\\cdot13=16-52=-36<0$, så vi venter to komplekse konjugerte røtter.\n\n$$z=\\frac{4\\pm\\sqrt{-36}}{2}=\\frac{4\\pm6i}{2}=2\\pm3i.$$\n\nRøttene er $\\boxed{z=2+3i\\ \\text{ og }\\ z=2-3i}$ — et konjugatpar. Kontroll (sum $=4$, produkt $=(2)^2+(3)^2=13$) stemmer med $-b/a=4$ og $c/a=13$. ✓"
+    },
+    {
+      "id": "mat111-uib-1-3-o1-w",
+      "type": "exercise",
+      "exercise": {
+        "id": "mat111-uib-1-3-o1",
+        "number": "1",
+        "type": "classic",
+        "difficulty": "lett",
+        "task": "Løs $z^2+2z+5=0$ på normalform.",
+        "solution": "$D=4-20=-16$, så $\\sqrt{D}=4i$. $z=\\dfrac{-2\\pm4i}{2}=-1\\pm2i$. Røttene er $\\boxed{-1+2i,\\ -1-2i}$.",
+        "hints": [
+          "Regn diskriminanten $D=b^2-4ac$ først.",
+          "$\\sqrt{-16}=4i$; sett inn i andregradsformelen."
+        ]
+      }
+    },
+    {
+      "id": "mat111-uib-1-3-def-konjrotsetning",
+      "type": "definition",
+      "title": "Konjugatrotsetningen",
+      "content": "**Har et polynom $p(z)$ bare reelle koeffisienter, og er $z_0$ en rot, så er også $\\bar z_0$ en rot.** Komplekse røtter opptrer altså alltid i konjugatpar. (Forutsetningen om *reelle* koeffisienter er avgjørende.)"
+    },
+    {
+      "id": "mat111-uib-1-3-def-konjrot-bevis",
+      "type": "definition",
+      "title": "Bevisidé for konjugatrotsetningen",
+      "content": "Har $p$ reelle koeffisienter, er $\\overline{p(z)}=p(\\bar z)$ (konjugering fordeler over sum og produkt, og lar reelle koeffisienter i fred). Er $p(z_0)=0$, så er $p(\\bar z_0)=\\overline{p(z_0)}=\\bar 0=0$ — altså er $\\bar z_0$ også rot. ∎"
+    },
+    {
+      "id": "mat111-uib-1-3-def-ikke-gjelder",
+      "type": "definition",
+      "title": "Når setningen IKKE gjelder",
+      "content": "Konjugatrotsetningen krever **reelle** koeffisienter. For polynomer med komplekse koeffisienter, som $z^2-iz$, gjelder den ikke — der er $0$ og $i$ røtter, og $\\bar i=-i$ er *ikke* rot. Sjekk alltid at koeffisientene er reelle før du bruker setningen."
+    },
+    {
+      "id": "mat111-uib-1-3-o2-w",
+      "type": "exercise",
+      "exercise": {
+        "id": "mat111-uib-1-3-o2",
+        "number": "2",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "Vis at $3-i$ er rot i $p(z)=z^2-6z+10$, og skriv opp den andre roten uten mer regning.",
+        "solution": "Innsetting: $p(3-i)=(3-i)^2-6(3-i)+10=(9-6i+i^2)-18+6i+10=(8-6i)-18+6i+10=0$ ✓. Siden $p$ har reelle koeffisienter, gir konjugatrotsetningen at $\\overline{3-i}=3+i$ også er rot. De to røttene er $3-i$ og $3+i$.",
+        "hints": [
+          "Sett $3-i$ inn i $p$; husk $(3-i)^2=9-6i+i^2=8-6i$.",
+          "Reelle koeffisienter ⇒ konjugatet er automatisk den andre roten."
+        ]
+      }
+    },
+    {
+      "id": "mat111-uib-1-3-l2",
+      "type": "text",
+      "content": "## Løkke 2 — Faktorisering over $\\mathbb{C}$ og over $\\mathbb{R}$ (~20 min)"
+    },
+    {
+      "id": "mat111-uib-1-3-def-aft",
+      "type": "definition",
+      "title": "Algebraens fundamentalteorem",
+      "content": "Ethvert polynom av grad $n\\ge1$ (med komplekse koeffisienter) har **nøyaktig $n$ røtter i $\\mathbb{C}$**, regnet med multiplisitet. Vi bruker teoremet slik: gradtall $=$ antall røtter, så et gradtall-$n$-polynom faktoriserer i $n$ lineære faktorer over $\\mathbb{C}$."
+    },
+    {
+      "id": "mat111-uib-1-3-def-faktorsetning",
+      "type": "definition",
+      "title": "Faktorsetningen",
+      "content": "$z_0$ er en rot i $p(z)$ **hvis og bare hvis** $(z-z_0)$ er en faktor: $p(z)=(z-z_0)q(z)$ for et polynom $q$ av én grad lavere. Dette er broa mellom røtter og faktorer."
+    },
+    {
+      "id": "mat111-uib-1-3-def-mult",
+      "type": "definition",
+      "title": "Multiplisitet",
+      "content": "Er $(z-z_0)^m$ en faktor i $p$, men ikke $(z-z_0)^{m+1}$, sier vi at $z_0$ er en rot med **multiplisitet** $m$. Når vi teller «$n$ røtter», telles hver med sin multiplisitet."
+    },
+    {
+      "id": "mat111-uib-1-3-def-ledende",
+      "type": "definition",
+      "title": "Ledende koeffisient i faktoriseringen",
+      "content": "Faktoriseringen har alltid en konstant $a$ foran — den **ledende koeffisienten** til $p$. For et normert polynom (ledende koeffisient $1$) er $a=1$ og faller bort, men for f.eks. $2z^2-4z+10$ må du beholde $2$: $2(z-(1+2i))(z-(1-2i))$."
+    },
+    {
+      "id": "mat111-uib-1-3-def-oddegrad",
+      "type": "definition",
+      "title": "Reelt polynom av oddegrad har en reell rot",
+      "content": "Siden ikke-reelle røtter i et reelt polynom kommer i par, må et polynom av **odde** grad ha et odde antall reelle røtter — spesielt minst én. Derfor har hvert tredjegradspolynom med reelle koeffisienter alltid minst én reell rot (nyttig når du leter etter en startfaktor)."
+    },
+    {
+      "id": "mat111-uib-1-3-def-faktC",
+      "type": "definition",
+      "title": "Faktorisering over $\\mathbb{C}$",
+      "content": "Med røttene $z_1,\\dots,z_n$ (med multiplisitet) og ledende koeffisient $a$:\n\n$$p(z)=a\\,(z-z_1)(z-z_2)\\cdots(z-z_n).$$\n\nAlle faktorer er lineære. Dette er den fullstendige faktoriseringen over $\\mathbb{C}$."
+    },
+    {
+      "id": "mat111-uib-1-3-def-reell-faktor",
+      "type": "definition",
+      "title": "Reell kvadratisk faktor fra et konjugatpar",
+      "content": "Et konjugatpar $z_0,\\bar z_0$ multipliseres til en **reell** kvadratisk faktor:\n\n$$(z-z_0)(z-\\bar z_0)=z^2-2\\operatorname{Re}(z_0)\\,z+|z_0|^2.$$\n\nKoeffisientene $-2\\operatorname{Re}(z_0)$ og $|z_0|^2$ er reelle. Dette er grepet som gir reell faktorisering."
+    },
+    {
+      "id": "mat111-uib-1-3-def-faktR",
+      "type": "definition",
+      "title": "Faktorisering over $\\mathbb{R}$",
+      "content": "Et polynom med reelle koeffisienter faktoriserer over $\\mathbb{R}$ i **lineære faktorer** (fra de reelle røttene) og **irreduserbare kvadratiske faktorer** (ett per konjugatpar). Ingen faktor av grad $\\ge3$ trengs."
+    },
+    {
+      "id": "mat111-uib-1-3-def-irred",
+      "type": "definition",
+      "title": "Irreduserbart kvadratisk polynom",
+      "content": "Et reelt andregradspolynom $z^2+pz+q$ er **irreduserbart over $\\mathbb{R}$** når diskriminanten $p^2-4q<0$ — det har ingen reelle røtter og kan ikke splittes videre uten komplekse tall. Slike faktorer er byggesteinene i reell faktorisering."
+    },
+    {
+      "id": "mat111-uib-1-3-ex2",
+      "type": "example",
+      "title": "Eksempel 2: Faktorisering over $\\mathbb{C}$ og $\\mathbb{R}$",
+      "problem": "Løs $z^3=8$, og faktoriser $z^3-8$ både over $\\mathbb{C}$ og over $\\mathbb{R}$.",
+      "solution": "**Røttene:** $8=8e^{i0}$, så $z_k=2e^{i2k\\pi/3}$, $k=0,1,2$: $z_0=2$, $z_1=2e^{i2\\pi/3}=-1+\\sqrt3\\,i$, $z_2=2e^{i4\\pi/3}=-1-\\sqrt3\\,i$. (Merk konjugatparet $z_1,z_2$.)\n\n**Over $\\mathbb{C}$** (tre lineære faktorer):\n\n$$z^3-8=(z-2)\\big(z-(-1+\\sqrt3\\,i)\\big)\\big(z-(-1-\\sqrt3\\,i)\\big).$$\n\n**Over $\\mathbb{R}$:** slå konjugatparet sammen: $(z-(-1+\\sqrt3 i))(z-(-1-\\sqrt3 i))=z^2-2\\operatorname{Re}(z_1)z+|z_1|^2=z^2+2z+4$ (her $\\operatorname{Re}(z_1)=-1$, $|z_1|^2=1+3=4$). Altså\n\n$$z^3-8=(z-2)(z^2+2z+4).$$\n\nKontroll: $z^2+2z+4$ har $D=4-16<0$, altså irreduserbar ✓, og utregning gir $z^3-8$ ✓."
+    },
+    {
+      "id": "mat111-uib-1-3-o3-w",
+      "type": "exercise",
+      "exercise": {
+        "id": "mat111-uib-1-3-o3",
+        "number": "3",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "Faktoriser $z^3+8$ over $\\mathbb{C}$ og over $\\mathbb{R}$.",
+        "solution": "$z^3=-8=8e^{i\\pi}$ gir $z_k=2e^{i(\\pi+2k\\pi)/3}$: $z_0=2e^{i\\pi/3}=1+\\sqrt3\\,i$, $z_1=2e^{i\\pi}=-2$, $z_2=2e^{i5\\pi/3}=1-\\sqrt3\\,i$.\n\n**Over $\\mathbb{C}$:** $(z+2)(z-(1+\\sqrt3 i))(z-(1-\\sqrt3 i))$.\n\n**Over $\\mathbb{R}$:** konjugatparet $1\\pm\\sqrt3 i$ gir $z^2-2z+4$ ($\\operatorname{Re}=1$, $|z_0|^2=1+3=4$). Altså $z^3+8=(z+2)(z^2-2z+4)$.",
+        "hints": [
+          "Én reell rot ($z=-2$) og ett konjugatpar.",
+          "Reell faktor: $z^2-2\\operatorname{Re}(z_0)z+|z_0|^2$ med $z_0=1+\\sqrt3 i$."
+        ]
+      }
+    },
+    {
+      "id": "mat111-uib-1-3-o4-w",
+      "type": "exercise",
+      "exercise": {
+        "id": "mat111-uib-1-3-o4",
+        "number": "4",
+        "type": "classic",
+        "difficulty": "vanskelig",
+        "task": "Faktoriser $z^4+4$ over $\\mathbb{C}$ og over $\\mathbb{R}$.",
+        "solution": "$z^4=-4=4e^{i\\pi}$ gir $z_k=\\sqrt2\\,e^{i(\\pi+2k\\pi)/4}$: argumenter $\\tfrac{\\pi}{4},\\tfrac{3\\pi}{4},\\tfrac{5\\pi}{4},\\tfrac{7\\pi}{4}$, radius $\\sqrt2$. Røttene er $1+i,\\ -1+i,\\ -1-i,\\ 1-i$.\n\n**Over $\\mathbb{C}$:** $(z-(1+i))(z-(-1+i))(z-(-1-i))(z-(1-i))$.\n\n**Over $\\mathbb{R}$:** par konjugatene. $1\\pm i$ gir $z^2-2z+2$; $-1\\pm i$ gir $z^2+2z+2$. Altså\n\n$$z^4+4=(z^2-2z+2)(z^2+2z+2).$$\n\nKontroll: begge kvadratiske har $D=4-8<0$ (irreduserbare), og produktet er $z^4+4$ ✓.",
+        "hints": [
+          "Fire fjerderøtter av $-4$ med radius $\\sqrt2$ og argumenter $\\pi/4+k\\pi/2$.",
+          "Par konjugatene $1\\pm i$ og $-1\\pm i$; hver gir en reell kvadratisk faktor."
+        ]
+      }
+    },
+    {
+      "id": "mat111-uib-1-3-l3",
+      "type": "text",
+      "content": "## Løkke 3 — Fra kjent rot til komplett faktorisering (~17 min)"
+    },
+    {
+      "id": "mat111-uib-1-3-def-polydiv",
+      "type": "definition",
+      "title": "Polynomdivisjon",
+      "content": "For å dele $p(z)$ på en faktor $d(z)$ bruker vi divisjonsalgoritmen (samme oppstilling som for reelle polynomer): $p(z)=d(z)\\,q(z)+r(z)$ med $\\deg r<\\deg d$. Er $d(z)$ en faktor, blir resten $r(z)=0$, og $q(z)$ er restfaktoren."
+    },
+    {
+      "id": "mat111-uib-1-3-def-verifiser",
+      "type": "definition",
+      "title": "Verifikasjon ved innsetting og gjenmultiplikasjon",
+      "content": "Etter polynomdivisjon er det billig forsikring å **gange faktorene sammen igjen** og sjekke at du får $p$ tilbake — eller å sette en kjent rot inn i restfaktoren. Regnefeil i polynomdivisjonen er en vanlig kilde til poengtap."
+    },
+    {
+      "id": "mat111-uib-1-3-def-strategi",
+      "type": "definition",
+      "title": "Strategi: fra ett konjugatpar til reell faktor",
+      "content": "Er $z_0$ (ikke-reell) en kjent rot i et reelt polynom, er $\\bar z_0$ det også. Multipliser dem til den reelle kvadratiske faktoren $z^2-2\\operatorname{Re}(z_0)z+|z_0|^2$, og **del** $p$ på den for å finne restfaktoren — det gir resten av røttene direkte."
+    },
+    {
+      "id": "mat111-uib-1-3-def-komplett",
+      "type": "definition",
+      "title": "Komplett faktorisering (gradkontroll)",
+      "content": "En faktorisering er **komplett** når summen av faktorenes grader er lik $\\deg p$, og ingen faktor kan splittes videre (over det aktuelle tallområdet). Over $\\mathbb{C}$ betyr det $n$ lineære faktorer; over $\\mathbb{R}$ at hver kvadratisk faktor har negativ diskriminant. Tell alltid gradene som sluttkontroll."
+    },
+    {
+      "id": "mat111-uib-1-3-def-strategivalg",
+      "type": "definition",
+      "title": "Strategivalg: andregradsformel vs. polarform",
+      "content": "Er likningen en ren $z^n=c$, bruk **rotformelen** fra kap. 1.2 (polarform). Er den et generelt andregradsuttrykk $az^2+bz+c=0$, bruk **andregradsformelen**. For høyere grad: finn/gis én rot, del ut faktoren, og reduser til et andregradspolynom."
+    },
+    {
+      "id": "mat111-uib-1-3-def-vieta",
+      "type": "definition",
+      "title": "Sum og produkt av røtter (Vieta)",
+      "content": "For $z^2+bz+c=(z-z_1)(z-z_2)$ er $z_1+z_2=-b$ og $z_1z_2=c$. For et konjugatpar: sum $=2\\operatorname{Re}(z_0)$ og produkt $=|z_0|^2$ — nettopp koeffisientene i den reelle faktoren. Nyttig som rask kontroll."
+    },
+    {
+      "id": "mat111-uib-1-3-ex3",
+      "type": "example",
+      "title": "Eksempel 3: Vis rot → begge faktoriseringer",
+      "problem": "Vis at $1+2i$ er rot i $p(z)=z^3-5z^2+11z-15$, og finn faktoriseringen både over $\\mathbb{C}$ og over $\\mathbb{R}$.",
+      "solution": "**Vis roten:** $p(1+2i)$. Her er $(1+2i)^2=1+4i+4i^2=-3+4i$ og $(1+2i)^3=(1+2i)(-3+4i)=-3+4i-6i+8i^2=-11-2i$. Sett inn:\n\n$$p(1+2i)=(-11-2i)-5(-3+4i)+11(1+2i)-15=(-11-2i)+(15-20i)+(11+22i)-15=0\\ ✓.$$\n\n**Konjugatrotsetningen:** koeffisientene er reelle, så $\\overline{1+2i}=1-2i$ er også rot. Konjugatparet gir den reelle faktoren\n\n$$(z-(1+2i))(z-(1-2i))=z^2-2\\operatorname{Re}(1+2i)\\,z+|1+2i|^2=z^2-2z+5.$$\n\n**Finn restfaktoren** ved polynomdivisjon: $\\;z^3-5z^2+11z-15=(z^2-2z+5)(z-3)$. (Kontroll: gang ut igjen, eller sjekk at $z=3$ gir $p(3)=27-45+33-15=0$ ✓.)\n\n**Over $\\mathbb{R}$:** $\\;p(z)=(z-3)(z^2-2z+5).$\n\n**Over $\\mathbb{C}$:** split den reelle kvadratiske faktoren: $\\;p(z)=(z-3)(z-(1+2i))(z-(1-2i)).$"
+    },
+    {
+      "id": "mat111-uib-1-3-o5-w",
+      "type": "exercise",
+      "exercise": {
+        "id": "mat111-uib-1-3-o5",
+        "number": "5",
+        "type": "classic",
+        "difficulty": "vanskelig",
+        "task": "Vis at $1-i$ er rot i $p(z)=z^3-6z^2+10z-8$, og finn begge faktoriseringene.",
+        "solution": "**Rot:** $(1-i)^2=1-2i+i^2=-2i$, $(1-i)^3=(1-i)(-2i)=-2i+2i^2=-2-2i$. Da er $p(1-i)=(-2-2i)-6(-2i)+10(1-i)-8=(-2-2i)+12i+(10-10i)-8=0$ ✓.\n\n**Konjugat:** $1+i$ er også rot (reelle koeffisienter). Reell faktor: $(z-(1-i))(z-(1+i))=z^2-2z+2$ ($\\operatorname{Re}=1$, $|1-i|^2=2$).\n\n**Polynomdivisjon:** $z^3-6z^2+10z-8=(z^2-2z+2)(z-4)$ (kontroll: $p(4)=64-96+40-8=0$ ✓).\n\n**Over $\\mathbb{R}$:** $(z-4)(z^2-2z+2)$. **Over $\\mathbb{C}$:** $(z-4)(z-(1-i))(z-(1+i))$.",
+        "hints": [
+          "Regn $(1-i)^2$ og $(1-i)^3$ først, sett inn.",
+          "Konjugatparet gir $z^2-2z+2$; del $p$ på den for å finne den siste (reelle) roten."
+        ]
+      }
+    },
+    {
+      "id": "mat111-uib-1-3-o6-w",
+      "type": "exercise",
+      "exercise": {
+        "id": "mat111-uib-1-3-o6",
+        "number": "6",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "Faktoriser $z^4-16$ over $\\mathbb{R}$ og over $\\mathbb{C}$.",
+        "solution": "$z^4-16=(z^2-4)(z^2+4)=(z-2)(z+2)(z^2+4)$. **Over $\\mathbb{R}$:** $(z-2)(z+2)(z^2+4)$ ($z^2+4$ har $D=-16<0$, irreduserbar). **Over $\\mathbb{C}$:** split $z^2+4=(z-2i)(z+2i)$, så $(z-2)(z+2)(z-2i)(z+2i)$.",
+        "hints": [
+          "Bruk konjugatsetningen $a^2-b^2$ to ganger: $z^4-16=(z^2-4)(z^2+4)$.",
+          "$z^2+4$ er reell-irreduserbar, men splittes over $\\mathbb{C}$ til $(z-2i)(z+2i)$."
+        ]
+      }
+    },
+    {
+      "id": "mat111-uib-1-3-warn",
+      "type": "warning",
+      "title": "Typiske feil (likninger og faktorisering)",
+      "content": "- **Levere bare én faktorisering** når både $\\mathbb{C}$ og $\\mathbb{R}$ er etterspurt — koster full pott.\n- **Glemme den konjugerte roten** — reelle koeffisienter gir alltid konjugatpar.\n- **Regnefeil i polynomdivisjonen** — verifiser ved å gange faktorene sammen igjen, eller sett en rot inn i restfaktoren.\n- **Bruke konjugatrotsetningen på polynom med komplekse koeffisienter** — den gjelder bare for reelle koeffisienter.\n- **Kalle en reell kvadratisk faktor «ferdig faktorisert over $\\mathbb{C}$»** — over $\\mathbb{C}$ må den splittes videre i to lineære."
+    },
+    {
+      "id": "mat111-uib-1-3-rep",
+      "type": "collapsible",
+      "title": "Repetisjonsoppgaver",
+      "buttonText": "Vis repetisjonsoppgaver",
+      "content": [
+        {
+          "id": "mat111-uib-1-3-r1",
+          "type": "exercise",
+          "exercise": {
+            "id": "mat111-uib-1-3-r1-x",
+            "number": "R1",
+            "type": "classic",
+            "difficulty": "lett",
+            "task": "(Fra R1 1.1) Utfør polynomdivisjonen $(x^3 - 2x^2 + 3x - 6) : (x - 2)$.",
+            "solution": "$x^3 - 2x^2 + 3x - 6 = (x-2)(x^2 + 3)$ med rest $0$: første ledd $x^2$ gir $x^3 - 2x^2$, resten er $3x - 6 = 3(x-2)$. Kontroll ved innsetting: $(x-2)(x^2+3) = x^3 + 3x - 2x^2 - 6$. ✓",
+            "hints": [
+              "Del ledd for ledd: $x^3 : x = x^2$ først."
+            ]
+          }
+        },
+        {
+          "id": "mat111-uib-1-3-r2",
+          "type": "exercise",
+          "exercise": {
+            "id": "mat111-uib-1-3-r2-x",
+            "number": "R2",
+            "type": "classic",
+            "difficulty": "lett",
+            "task": "(Fra 1T 2.3) Løs $x^2 - 5x + 6 = 0$ og skriv venstresiden som et produkt.",
+            "solution": "$x = \\dfrac{5 \\pm \\sqrt{25-24}}{2} = \\dfrac{5 \\pm 1}{2}$, så $x = 3$ eller $x = 2$, og $x^2 - 5x + 6 = (x-2)(x-3)$. Samme rot-til-faktor-logikk brukes for komplekse røtter i dette kapitlet.",
+            "hints": [
+              "Diskriminanten er $25 - 24 = 1$."
+            ]
+          }
+        },
+        {
+          "id": "mat111-uib-1-3-r3",
+          "type": "exercise",
+          "exercise": {
+            "id": "mat111-uib-1-3-r3-x",
+            "number": "R3",
+            "type": "classic",
+            "difficulty": "lett",
+            "task": "(Fra kap. 1.1) Regn ut $(2+i)(2-i)$, og forklar hvorfor svaret måtte bli reelt.",
+            "solution": "$(2+i)(2-i) = 4 - 2i + 2i - i^2 = 4 + 1 = 5$. Produktet er $z\\bar z = |z|^2$ for $z = 2+i$, og $|z|^2$ er alltid reelt — nøyaktig grunnen til at konjugatpar multipliseres til en reell kvadratisk faktor.",
+            "hints": [
+              "Kjenner du igjen $z\\bar z$?"
+            ]
+          }
+        },
+        {
+          "id": "mat111-uib-1-3-r4",
+          "type": "exercise",
+          "exercise": {
+            "id": "mat111-uib-1-3-r4-x",
+            "number": "R4",
+            "type": "classic",
+            "difficulty": "lett",
+            "task": "(Fra kap. 1.2) Skriv $z = -2$ på polarform.",
+            "solution": "Punktet $(-2, 0)$ ligger på den negative realaksen: $r = 2$ og $\\theta = \\pi$, så $z = 2e^{i\\pi}$. (Denne formen er startpunktet når likninger av typen $z^n = -2$ skal løses med rotformelen.)",
+            "hints": [
+              "Negativ realakse betyr argument $\\pi$."
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": "mat111-uib-1-3-oppsummering",
+      "type": "collapsible",
+      "title": "Oppsummering",
+      "buttonText": "Vis oppsummering",
+      "content": [
+        {
+          "id": "mat111-uib-1-3-rep-t",
+          "type": "text",
+          "content": "## Kort oppsummering\n\n1. **Andregrad med $D<0$:** $\\sqrt{D}=i\\sqrt{|D|}$ gir konjugatpar $\\alpha\\pm\\beta i$.\n2. **Konjugatrotsetningen** (reelle koeff.): $z_0$ rot $\\Rightarrow$ $\\bar z_0$ rot. Sjekk at koeffisientene er reelle før bruk.\n3. **Over $\\mathbb{C}$:** $n$ lineære faktorer (algebraens fundamentalteorem). **Over $\\mathbb{R}$:** lineære + irreduserbare kvadratiske.\n4. **Konjugatpar → reell faktor:** $z^2-2\\operatorname{Re}(z_0)z+|z_0|^2$.\n5. **Fra kjent rot:** vis rot ved innsetting → reell faktor → polynomdivisjon → **begge** faktoriseringer, verifisert.\n\nDette avslutter komplekstall-teorien. Kap. 1.4 er en ren drillsamling av hele åpningsoppgaven."
+        }
+      ]
+    },
+    {
+      "id": "mat111-uib-1-3-symbol",
+      "type": "collapsible",
+      "title": "Symbol- og formelliste",
+      "buttonText": "Vis symboler og formler",
+      "content": [
+        {
+          "id": "mat111-uib-1-3-symbol-t",
+          "type": "text",
+          "content": "## Symbol- og formelliste\n\n| Formel / begrep | Betydning |\n|---|---|\n| $z=\\tfrac{-b\\pm\\sqrt{b^2-4ac}}{2a}$ | Andregradsformelen (gjelder også over $\\mathbb{C}$) |\n| $D=b^2-4ac$ | Diskriminant; $D<0\\Rightarrow$ komplekse konjugerte røtter |\n| $\\sqrt{-k}=i\\sqrt{k}$ | Kvadratrot av negativt reelt tall ($k>0$) |\n| Konjugatrotsetningen | Reelle koeff.: $z_0$ rot $\\Rightarrow \\bar z_0$ rot |\n| $(z-z_0)(z-\\bar z_0)=z^2-2\\operatorname{Re}(z_0)z+|z_0|^2$ | Reell kvadratisk faktor fra konjugatpar |\n| Algebraens fundamentalteorem | Grad $n$ $\\Rightarrow$ $n$ røtter i $\\mathbb{C}$ (m/multiplisitet) |\n| Faktorsetningen | $z_0$ rot $\\iff (z-z_0)$ faktor |\n| $p=d\\,q+r,\\ \\deg r<\\deg d$ | Polynomdivisjon; faktor $\\Rightarrow r=0$ |\n\n**Over $\\mathbb{C}$:** bare lineære faktorer. **Over $\\mathbb{R}$:** lineære + irreduserbare kvadratiske (én per konjugatpar). **Vieta (kvadratisk):** $z_1+z_2=-b$, $z_1z_2=c$."
+        }
+      ]
+    }
+  ],
+  "exercises": []
+}

@@ -1,0 +1,503 @@
+{
+  "id": "stk1110-3-1",
+  "courseId": "stk1110",
+  "chapterNumber": "3.1",
+  "title": "Enkel lineær regresjon: minste kvadrater og inferens for stigningstallet",
+  "description": "Minste kvadraters estimator (= ML under normalfeil), E og V av stigningstallestimatoren, t-test og KI for beta1, tolkning av koeffisientene i kontekst, og R-kvadrat som kvadrert korrelasjon.",
+  "estimatedMinutes": 65,
+  "competenceGoals": [
+    "utlede minste kvadraters estimatorer fra normalligningene og vise at LS = ML under normalfeil",
+    "utlede forventning og varians av stigningstallestimatoren og estimere feilvariansen med n-2 frihetsgrader",
+    "gjennomfore t-test og konfidensintervall for stigningstallet med riktige frihetsgrader",
+    "tolke koeffisientene i kontekst, advare mot ekstrapolering, og bruke R-kvadrat som kvadrert korrelasjon"
+  ],
+  "content": [
+    {
+      "id": "stk1110-3-1-tip",
+      "type": "tip",
+      "title": "Eksamensvinkel",
+      "content": "**Den tunge storoppgaven starter her.** Enkel lineær regresjon opptrer i **omtrent 20 av 22 sett (91 %)** — nesten alltid som en hel Oppgave 3, oftest med R-utskrift. Dette er *sjanger H* (en fast oppgavetype): du får et datasett eller en R-utskrift og skal tolke og teste stigningstallet.\n\n- **Utledning av minste kvadraters formler** (normalligningene) kommer i ~36 % av settene.\n- **Utledning av $E(\\hat\\beta_1)$ og $V(\\hat\\beta_1)$** i ~27 %.\n- **t-test og konfidensintervall for stigningstallet $\\beta_1$** i ~91 % — dette må sitte som en refleks.\n\n**Sensorkrav (§4.8):** tolk koeffisientene *i kontekst*, bruk riktige frihetsgrader ($n-2$, ikke $n-1$), og advar mot å bruke modellen langt utenfor dataområdet. Prioritet: **må sitte perfekt.**\n\n*Tidsbruk:* ~65 min i fire løkker (minste kvadrater $\\to$ $E$/$V$ av $\\hat\\beta_1$ $\\to$ inferens for $\\beta_1$ $\\to$ tolkning og $R^2$). Legg inn en pause etter løkke 2."
+    },
+    {
+      "id": "stk1110-3-1-forkunnskaper",
+      "type": "text",
+      "content": "**Forkunnskaper:** Dette kapitlet bygger på testritualet og t-fordelingen fra **[kap. 2.2](/bok/stk1110/stk1110-2-2)** og konfidensintervallene i **[kap. 2.1](/bok/stk1110/stk1110-2-1)** — inferensen for stigningstallet er akkurat en t-test og et t-intervall, bare med en ny standardfeil. Fordelingsteorien ($(n-2)S^2/\\sigma^2\\sim\\chi^2_{n-2}$) hviler på gamma/khikvadrat-koblingen fra kap. 0.2.\n\nRegresjon behandles elementært i STK1100 kap. 8.3 *Enkel lineær regresjon* (→ stk1100-8-3) *(klartekst — STK1100 er ikke bygget ennå)*; her tar vi den fulle inferensen. For derivasjon av en kvadratisk sum: [R1 4.1 Derivasjonsregler](/bok/r1/r1-4-1)."
+    },
+    {
+      "id": "stk1110-3-1-sistduvarher",
+      "type": "text",
+      "content": "**Sist du var her (fra kap. 2.1–2.2 — det du trenger nå):**\n\n$$T=\\frac{\\hat\\theta-\\theta_0}{se(\\hat\\theta)}\\sim t_{\\nu},\\qquad \\text{KI: }\\hat\\theta\\pm t_{\\nu,\\,\\alpha/2}\\,se(\\hat\\theta).$$\n\nHele regresjonsinferensen er *dette* mønsteret. Det eneste nye er at estimatoren er stigningstallet $\\hat\\beta_1$, standardfeilen er $se(\\hat\\beta_1)=S/\\sqrt{S_{xx}}$, og frihetsgraden er $\\nu=n-2$ (ikke $n-1$ — vi estimerer nå to ting, $\\beta_0$ og $\\beta_1$)."
+    },
+    {
+      "id": "stk1110-3-1-motiv",
+      "type": "text",
+      "content": "Ofte vil vi forklare én størrelse ($y$, **responsen**) ut fra en annen ($x$, **forklaringsvariabelen**): salg ut fra reklame, avling ut fra gjødsel, eksamenspoeng ut fra studietimer. Punktene i et spredningsdiagram ligger sjelden på én rett linje — men om de klumper seg rundt en linje, vil vi finne *den beste* linja og si noe presist om hvor bratt den er.\n\nRegresjon svarer på tre spørsmål eksamen stiller igjen og igjen: (1) Hvilken rett linje passer dataene best? (2) Hvor mye endrer $y$ seg per enhet $x$ — og hvor sikre er vi på det tallet? (3) Hvor mye av variasjonen i $y$ forklarer $x$?\n\nVi går i fire løkker: minste kvadrater (finn linja), $E$ og $V$ av stigningstallet (hvor presis er den), inferens (t-test og KI for $\\beta_1$), og tolkning + $R^2$."
+    },
+    {
+      "id": "stk1110-3-1-l1",
+      "type": "text",
+      "content": "## Løkke 1 — Modellen og minste kvadrater (~18 min)"
+    },
+    {
+      "id": "stk1110-3-1-def-modell",
+      "type": "definition",
+      "title": "Enkel lineær regresjonsmodell",
+      "content": "**Modellen sier at responsen er en rett linje i $x$ pluss tilfeldig støy.** For observasjon $i$:\n$$Y_i=\\beta_0+\\beta_1 x_i+\\varepsilon_i,\\qquad \\varepsilon_i\\sim N(0,\\sigma^2)\\ \\text{uavhengige}.$$\nHer er $x_i$ faste (kjente) tall, $\\beta_0$ **konstantleddet** (skjæringen med $y$-aksen), $\\beta_1$ **stigningstallet** (endring i forventet $y$ per enhet $x$), og $\\varepsilon_i$ **feilleddet**. Merk: annet argument i $N(0,\\sigma^2)$ er **variansen**. Fordi $\\varepsilon_i$ er stokastisk, er $Y_i$ stokastisk (stor bokstav) med $E(Y_i)=\\beta_0+\\beta_1 x_i$ og $V(Y_i)=\\sigma^2$."
+    },
+    {
+      "id": "stk1110-3-1-def-feilledd",
+      "type": "definition",
+      "title": "Feilleddet $\\varepsilon_i$",
+      "content": "**Feilleddet er alt i $Y_i$ som den rette linja ikke fanger** — måleusikkerhet og utelatte faktorer. Modellantakelsene handler alle om $\\varepsilon_i$: forventning null ($E(\\varepsilon_i)=0$), **konstant varians** $\\sigma^2$ (homoskedastisitet), **uavhengige** feilledd, og **normalfordelte** feilledd. De tre siste sikrer at inferensen (t-test, KI) er gyldig; normaliteten sjekkes med residualplott (kap. 3.4)."
+    },
+    {
+      "id": "stk1110-3-1-def-ls",
+      "type": "definition",
+      "title": "Minste kvadraters metode",
+      "content": "**Minste kvadraters metode velger linja som gjør de loddrette avstandene fra punktene til linja minst mulig — samlet.** Vi minimerer summen av de *kvadrerte* residualene:\n$$Q(\\beta_0,\\beta_1)=\\sum_{i=1}^n\\bigl(y_i-\\beta_0-\\beta_1 x_i\\bigr)^2.$$\nVi kvadrerer så positive og negative avvik ikke skal nulle hverandre ut, og fordi kvadratet gjør $Q$ deriverbar. Løsningen kalles minste kvadraters estimatorer $\\hat\\beta_0,\\hat\\beta_1$."
+    },
+    {
+      "id": "stk1110-3-1-fig-punktsky",
+      "type": "image",
+      "src": "/images/textbook/stk1110/stk1110-3-1-punktsky-regresjon.svg",
+      "alt": "Punktsky av observasjoner med den tilpassede minste kvadraters linjen y-hatt lik beta-null-hatt pluss beta-en-hatt ganger x gjennom skyen",
+      "caption": "Minste kvadraters linje legger seg der summen av de kvadrerte loddrette avstandene fra punktene til linja er minst — det er dette $\\sum(y_i-\\hat y_i)^2$ måler."
+    },
+    {
+      "id": "stk1110-3-1-l1-utl",
+      "type": "text",
+      "content": "**Utled normalligningene (dette kreves aktivt, §4.8).** Vi finner minimum ved å sette de partiellderiverte lik null.\n\n*Steg 1 — deriver med hensyn på $\\beta_0$:*\n$$\\frac{\\partial Q}{\\partial\\beta_0}=-2\\sum_{i}\\bigl(y_i-\\beta_0-\\beta_1 x_i\\bigr)=0\\ \\Rightarrow\\ \\sum y_i=n\\beta_0+\\beta_1\\sum x_i.$$\n*Intuisjon: den beste linja går gjennom «tyngdepunktet» $(\\bar x,\\bar y)$ — deler vi denne ligningen på $n$, får vi nettopp $\\bar y=\\beta_0+\\beta_1\\bar x$.*\n\n*Steg 2 — deriver med hensyn på $\\beta_1$:*\n$$\\frac{\\partial Q}{\\partial\\beta_1}=-2\\sum_{i}x_i\\bigl(y_i-\\beta_0-\\beta_1 x_i\\bigr)=0\\ \\Rightarrow\\ \\sum x_iy_i=\\beta_0\\sum x_i+\\beta_1\\sum x_i^2.$$\n*Intuisjon: residualene skal være ukorrelert med $x$ — ingen lineær trend igjen å hente ut.*\n\nDisse to kalles **normalligningene**. Løser vi dem (sett inn $\\hat\\beta_0=\\bar y-\\hat\\beta_1\\bar x$ fra steg 1 i steg 2), får vi\n$$\\boxed{\\hat\\beta_1=\\frac{\\sum(x_i-\\bar x)(Y_i-\\bar Y)}{\\sum(x_i-\\bar x)^2}=\\frac{S_{xy}}{S_{xx}},\\qquad \\hat\\beta_0=\\bar Y-\\hat\\beta_1\\bar x.}$$\n*Intuisjon: telleren måler hvordan $x$ og $y$ samvarierer, nevneren hvor spredt $x$-ene er — stigningstallet er «samvariasjon per spredning i $x$».*"
+    },
+    {
+      "id": "stk1110-3-1-def-normalligninger",
+      "type": "definition",
+      "title": "Normalligningene",
+      "content": "**De to ligningene minste kvadrater gir når vi setter de partiellderiverte lik null:**\n$$\\sum y_i=n\\hat\\beta_0+\\hat\\beta_1\\sum x_i,\\qquad \\sum x_iy_i=\\hat\\beta_0\\sum x_i+\\hat\\beta_1\\sum x_i^2.$$\nDen første sier at linja går gjennom $(\\bar x,\\bar y)$. Løsningen er $\\hat\\beta_1=S_{xy}/S_{xx}$ og $\\hat\\beta_0=\\bar Y-\\hat\\beta_1\\bar x$."
+    },
+    {
+      "id": "stk1110-3-1-def-sxx",
+      "type": "definition",
+      "title": "Summeuttrykkene $S_{xx}$ og $S_{xy}$",
+      "content": "**Regnestørrelsene som bygger stigningstallet:**\n$$S_{xx}=\\sum(x_i-\\bar x)^2,\\qquad S_{xy}=\\sum(x_i-\\bar x)(y_i-\\bar y).$$\n$S_{xx}$ er spredningen i $x$-verdiene; $S_{xy}$ er samvariasjonen mellom $x$ og $y$. Da er $\\hat\\beta_1=S_{xy}/S_{xx}$. Regnevennlige varianter: $S_{xx}=\\sum x_i^2-n\\bar x^2$ og $S_{xy}=\\sum x_iy_i-n\\bar x\\bar y$."
+    },
+    {
+      "id": "stk1110-3-1-def-beta1",
+      "type": "definition",
+      "title": "Stigningstallestimatoren $\\hat\\beta_1$",
+      "content": "**Estimatoren for hvor mye forventet $y$ endrer seg per enhet $x$:**\n$$\\hat\\beta_1=\\frac{S_{xy}}{S_{xx}}=\\frac{\\sum(x_i-\\bar x)(Y_i-\\bar Y)}{\\sum(x_i-\\bar x)^2}.$$\n$\\hat\\beta_1$ er en **estimator** (stor bokstav $Y$, stokastisk); et konkret tall fra data er et **estimat**. En nyttig omskriving er $\\hat\\beta_1=\\sum c_iY_i$ med vektene $c_i=(x_i-\\bar x)/S_{xx}$ — den brukes til å utlede $E$ og $V$."
+    },
+    {
+      "id": "stk1110-3-1-def-beta0",
+      "type": "definition",
+      "title": "Konstantleddestimatoren $\\hat\\beta_0$",
+      "content": "**Estimatoren for skjæringen med $y$-aksen:**\n$$\\hat\\beta_0=\\bar Y-\\hat\\beta_1\\bar x.$$\nDen følger av at linja går gjennom tyngdepunktet $(\\bar x,\\bar Y)$. $\\hat\\beta_0$ er forventet respons ved $x=0$ — men denne tolkningen er bare meningsfull hvis $x=0$ ligger innenfor (eller nær) dataområdet."
+    },
+    {
+      "id": "stk1110-3-1-def-residual",
+      "type": "definition",
+      "title": "Tilpasset verdi og residual",
+      "content": "**Den tilpassede verdien** er linjas prediksjon $\\hat y_i=\\hat\\beta_0+\\hat\\beta_1 x_i$. **Residualen** er den loddrette avstanden fra punktet til linja:\n$$e_i=y_i-\\hat y_i.$$\nResidualene er det empiriske motstykket til de ukjente feilleddene $\\varepsilon_i$. Minste kvadrater gjør nettopp $\\sum e_i^2$ minst, og gir alltid $\\sum e_i=0$ og $\\sum x_ie_i=0$ (fra normalligningene)."
+    },
+    {
+      "id": "stk1110-3-1-ex1",
+      "type": "example",
+      "title": "Eksempel 1: Minste kvadrater for hånd (innøving)",
+      "problem": "Fire målinger gir $x=(1,2,3,4)$ og $y=(3,5,6,8)$. Finn minste kvadraters linje.",
+      "solution": "$\\bar x=2{,}5$, $\\bar y=5{,}5$.\n\n$S_{xx}=\\sum(x_i-\\bar x)^2=(-1{,}5)^2+(-0{,}5)^2+(0{,}5)^2+(1{,}5)^2=5{,}0.$\n\n$S_{xy}=\\sum(x_i-\\bar x)(y_i-\\bar y)=(-1{,}5)(-2{,}5)+(-0{,}5)(-0{,}5)+(0{,}5)(0{,}5)+(1{,}5)(2{,}5)=8{,}0.$\n\n$$\\hat\\beta_1=\\frac{S_{xy}}{S_{xx}}=\\frac{8{,}0}{5{,}0}=1{,}6,\\qquad \\hat\\beta_0=\\bar y-\\hat\\beta_1\\bar x=5{,}5-1{,}6\\cdot 2{,}5=1{,}5.$$\n\nLinja er $\\hat y=1{,}5+1{,}6x$. Sjekk: ved $x=2{,}5$ gir den $\\hat y=5{,}5=\\bar y$ — linja går gjennom tyngdepunktet, som den skal."
+    },
+    {
+      "id": "stk1110-3-1-oppg1",
+      "type": "exercise",
+      "exercise": {
+        "id": "stk1110-3-1-oppg1-e",
+        "number": "1",
+        "type": "classic",
+        "difficulty": "lett",
+        "task": "Fem observasjoner: $x=(10,20,30,40,50)$, $y=(38,44,53,58,67)$. Det er oppgitt at $\\bar x=30$, $\\bar y=52$, $S_{xx}=1000$ og $S_{xy}=720$.\n\n**a)** Finn $\\hat\\beta_1$ og $\\hat\\beta_0$.\n\n**b)** Hva er den tilpassede verdien ved $x=40$, og hva er residualen der?",
+        "solution": "**a)** $\\hat\\beta_1=S_{xy}/S_{xx}=720/1000=0{,}72$. $\\hat\\beta_0=\\bar y-\\hat\\beta_1\\bar x=52-0{,}72\\cdot 30=52-21{,}6=30{,}4$. Linja: $\\hat y=30{,}4+0{,}72x$.\n\n**b)** $\\hat y=30{,}4+0{,}72\\cdot 40=30{,}4+28{,}8=59{,}2$. Residual $e=y-\\hat y=58-59{,}2=-1{,}2$.",
+        "hints": [
+          "$\\hat\\beta_1=S_{xy}/S_{xx}$, og $\\hat\\beta_0$ følger av at linja går gjennom $(\\bar x,\\bar y)$.",
+          "Tilpasset verdi settes inn i $\\hat y=\\hat\\beta_0+\\hat\\beta_1 x$; residualen er $y-\\hat y$."
+        ]
+      }
+    },
+    {
+      "id": "stk1110-3-1-l2",
+      "type": "text",
+      "content": "## Løkke 2 — Forventning, varians og LS = ML (~18 min)"
+    },
+    {
+      "id": "stk1110-3-1-def-lsml",
+      "type": "definition",
+      "title": "LS = ML under normalfeil",
+      "content": "**Under normalfordelte feilledd gir minste kvadrater nøyaktig de samme estimatorene som maximum likelihood.** Likelihooden er\n$$L(\\beta_0,\\beta_1,\\sigma^2)=\\prod_{i=1}^n\\frac{1}{\\sqrt{2\\pi\\sigma^2}}\\exp\\!\\Bigl(-\\frac{(y_i-\\beta_0-\\beta_1x_i)^2}{2\\sigma^2}\\Bigr).$$\nLog-likelihooden inneholder $-\\frac{1}{2\\sigma^2}\\sum(y_i-\\beta_0-\\beta_1x_i)^2$. Å maksimere $\\ell$ over $\\beta_0,\\beta_1$ er derfor det samme som å **minimere** $\\sum(y_i-\\beta_0-\\beta_1x_i)^2$ — altså minste kvadrater. Dette rettferdiggjør LS og kobler regresjonen til hele ML-kjeden fra Del 1."
+    },
+    {
+      "id": "stk1110-3-1-def-eforv",
+      "type": "definition",
+      "title": "Forventningsretthet av $\\hat\\beta_1$",
+      "content": "**Stigningstallestimatoren treffer riktig i snitt:** $E(\\hat\\beta_1)=\\beta_1$. Med vektene $c_i=(x_i-\\bar x)/S_{xx}$ (som gir $\\sum c_i=0$ og $\\sum c_ix_i=1$) er $\\hat\\beta_1=\\sum c_iY_i$, så\n$$E(\\hat\\beta_1)=\\sum c_iE(Y_i)=\\sum c_i(\\beta_0+\\beta_1x_i)=\\beta_0\\underbrace{\\sum c_i}_{0}+\\beta_1\\underbrace{\\sum c_ix_i}_{1}=\\beta_1.$$\nEstimatoren er altså forventningsrett — uten normalitetsantakelse, kun $E(\\varepsilon_i)=0$."
+    },
+    {
+      "id": "stk1110-3-1-def-vvar",
+      "type": "definition",
+      "title": "Variansen $V(\\hat\\beta_1)$",
+      "content": "**Hvor mye stigningstallet svinger fra utvalg til utvalg:**\n$$V(\\hat\\beta_1)=\\frac{\\sigma^2}{S_{xx}}=\\frac{\\sigma^2}{\\sum(x_i-\\bar x)^2}.$$\nUtledning: $\\hat\\beta_1=\\sum c_iY_i$ med uavhengige $Y_i$, så $V(\\hat\\beta_1)=\\sum c_i^2V(Y_i)=\\sigma^2\\sum c_i^2=\\sigma^2\\cdot\\frac{S_{xx}}{S_{xx}^2}=\\sigma^2/S_{xx}$. **Konsekvens:** jo mer spredte $x$-verdiene er (stor $S_{xx}$), jo mer presist estimeres stigningstallet."
+    },
+    {
+      "id": "stk1110-3-1-l2-utl",
+      "type": "text",
+      "content": "**Utledning av variansen, steg for steg (§4.8, ~27 % av settene).**\n\n*Steg 1:* Skriv $\\hat\\beta_1=\\sum c_iY_i$ med $c_i=(x_i-\\bar x)/S_{xx}$.\n*Intuisjon: $\\hat\\beta_1$ er en lineærkombinasjon av uavhengige $Y_i$ — da kan vi bruke $V(\\sum c_iY_i)=\\sum c_i^2 V(Y_i)$.*\n\n*Steg 2:* Fordi $Y_i$ er uavhengige med $V(Y_i)=\\sigma^2$:\n$$V(\\hat\\beta_1)=\\sum c_i^2\\,\\sigma^2=\\sigma^2\\sum\\frac{(x_i-\\bar x)^2}{S_{xx}^2}=\\sigma^2\\,\\frac{S_{xx}}{S_{xx}^2}=\\frac{\\sigma^2}{S_{xx}}.$$\n*Intuisjon: $\\sum(x_i-\\bar x)^2=S_{xx}$ i telleren forkortes mot ett $S_{xx}$ i nevneren.*\n\nI praksis er $\\sigma^2$ ukjent og erstattes av estimatoren $S^2$ nedenfor — da får vi standardfeilen $se(\\hat\\beta_1)=S/\\sqrt{S_{xx}}$."
+    },
+    {
+      "id": "stk1110-3-1-def-sse",
+      "type": "definition",
+      "title": "Residualkvadratsummen SSE",
+      "content": "**Summen av kvadrerte residualer — det linja ikke klarte å forklare:**\n$$\\text{SSE}=\\sum_{i=1}^n(y_i-\\hat y_i)^2=\\sum e_i^2.$$\nSSE måler spredningen rundt linja. Den inngår i variansestimatoren og i $R^2$. Regnevennlig: $\\text{SSE}=S_{yy}-\\hat\\beta_1 S_{xy}$, der $S_{yy}=\\sum(y_i-\\bar y)^2$."
+    },
+    {
+      "id": "stk1110-3-1-def-s2",
+      "type": "definition",
+      "title": "Variansestimatoren $S^2$ og frihetsgradene $n-2$",
+      "content": "**Vi estimerer feilvariansen $\\sigma^2$ med den gjennomsnittlige kvadrerte residualen:**\n$$S^2=\\frac{\\text{SSE}}{n-2}.$$\nDeleren er $n-2$, ikke $n-1$: vi har brukt data til å estimere **to** parametere ($\\beta_0$ og $\\beta_1$), så to frihetsgrader er bundet. Med denne deleren er $S^2$ forventningsrett for $\\sigma^2$. $S=\\sqrt{S^2}$ er «Residual standard error» i R-utskriften."
+    },
+    {
+      "id": "stk1110-3-1-def-fg",
+      "type": "definition",
+      "title": "Frihetsgrader $n-2$ (enkel regresjon)",
+      "content": "**I enkel lineær regresjon har feilvariansen $n-2$ frihetsgrader.** To parametere ($\\beta_0,\\beta_1$) er estimert fra $n$ observasjoner, så $n-2$ står igjen. All inferens for $\\beta_0$ og $\\beta_1$ bruker $t_{n-2}$, og $(n-2)S^2/\\sigma^2\\sim\\chi^2_{n-2}$. Å skrive $n-1$ er den vanligste og hardest straffede feilen (§4.6)."
+    },
+    {
+      "id": "stk1110-3-1-oppg2",
+      "type": "exercise",
+      "exercise": {
+        "id": "stk1110-3-1-oppg2-e",
+        "number": "2",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "For datasettet i oppgave 1 ($n=5$, $S_{xx}=1000$, $\\hat\\beta_1=0{,}72$) er $S_{yy}=522$.\n\n**a)** Finn SSE ved $\\text{SSE}=S_{yy}-\\hat\\beta_1 S_{xy}$ (husk $S_{xy}=720$).\n\n**b)** Finn variansestimatet $S^2$ og standardfeilen $se(\\hat\\beta_1)=S/\\sqrt{S_{xx}}$.",
+        "solution": "**a)** $\\text{SSE}=522-0{,}72\\cdot 720=522-518{,}4=3{,}6$.\n\n**b)** $S^2=\\text{SSE}/(n-2)=3{,}6/3=1{,}2$, så $S\\approx 1{,}095$. Standardfeil: $se(\\hat\\beta_1)=S/\\sqrt{S_{xx}}=1{,}095/\\sqrt{1000}=1{,}095/31{,}62\\approx 0{,}0346$.",
+        "hints": [
+          "Bruk $\\text{SSE}=S_{yy}-\\hat\\beta_1 S_{xy}$; deretter $S^2=\\text{SSE}/(n-2)$ med $n-2=3$.",
+          "Standardfeilen erstatter $\\sigma$ med $S$ i $\\sqrt{\\sigma^2/S_{xx}}$."
+        ]
+      }
+    },
+    {
+      "id": "stk1110-3-1-l3",
+      "type": "text",
+      "content": "## Løkke 3 — Inferens for stigningstallet (~17 min)"
+    },
+    {
+      "id": "stk1110-3-1-def-se",
+      "type": "definition",
+      "title": "Standardfeilen $se(\\hat\\beta_1)$",
+      "content": "**Den estimerte spredningen til $\\hat\\beta_1$:**\n$$se(\\hat\\beta_1)=\\frac{S}{\\sqrt{S_{xx}}},\\qquad S=\\sqrt{\\text{SSE}/(n-2)}.$$\nDen er kvadratroten av $V(\\hat\\beta_1)=\\sigma^2/S_{xx}$ med $\\sigma$ erstattet av $S$. Standardfeilen er «Std. Error»-kolonnen for stigningstallet i R-utskriften og går rett inn i t-observatoren og konfidensintervallet."
+    },
+    {
+      "id": "stk1110-3-1-def-tobs",
+      "type": "definition",
+      "title": "t-observatoren for $\\beta_1$",
+      "content": "**For å teste en påstand $H_0:\\beta_1=\\beta_1^0$ bruker vi**\n$$T=\\frac{\\hat\\beta_1-\\beta_1^0}{se(\\hat\\beta_1)}\\sim t_{n-2}\\quad(\\text{under } H_0).$$\nFordelingen er $t_{n-2}$ fordi telleren er (tilnærmet) normal, $(n-2)S^2/\\sigma^2\\sim\\chi^2_{n-2}$, og de to er uavhengige — normal delt på uavhengig $\\sqrt{\\chi^2/\\text{df}}$ gir en t-fordeling. Den vanligste testen er $H_0:\\beta_1=0$ («har $x$ noen effekt?»), som gir $T=\\hat\\beta_1/se(\\hat\\beta_1)$ — nettopp «t value»-kolonnen i R-utskriften."
+    },
+    {
+      "id": "stk1110-3-1-def-uavh",
+      "type": "definition",
+      "title": "Hvorfor t (og ikke z)",
+      "content": "**Vi bruker t-fordelingen fordi $\\sigma$ er estimert med $S$.** Teller $(\\hat\\beta_1-\\beta_1^0)/\\sqrt{\\sigma^2/S_{xx}}$ er standardnormal, men vi kjenner ikke $\\sigma$ og setter inn $S$. Forholdet mellom en standardnormal og en uavhengig $\\sqrt{\\chi^2_{n-2}/(n-2)}$ er per definisjon $t_{n-2}$. Med kjent $\\sigma$ (sjelden) ville vi brukt $N(0,1)$."
+    },
+    {
+      "id": "stk1110-3-1-def-ki",
+      "type": "definition",
+      "title": "Konfidensintervall for $\\beta_1$",
+      "content": "**Et $(1-\\alpha)$-konfidensintervall for stigningstallet:**\n$$\\hat\\beta_1\\pm t_{n-2,\\,\\alpha/2}\\cdot se(\\hat\\beta_1).$$\nSamme mønster som t-intervallet for en forventning, med $n-2$ frihetsgrader. Via dualiteten (kap. 2.2): $\\beta_1^0$ ligger utenfor intervallet **hviss** den tosidige testen forkaster $H_0:\\beta_1=\\beta_1^0$. Ligger $0$ utenfor, er stigningstallet signifikant forskjellig fra null."
+    },
+    {
+      "id": "stk1110-3-1-ex2",
+      "type": "example",
+      "title": "Eksempel 2: Full regresjonsinferens (eksamensnivå, sjanger H)",
+      "problem": "En lærer registrerer antall timer $x$ studert og oppnådde eksamenspoeng $y$ for $n=10$ studenter. Oppsummert: $\\bar x=11$, $\\bar y=68{,}5$, $S_{xx}=330$, $S_{xy}=711$, $S_{yy}=1668{,}5$. Bruk $t_{8,\\,0{,}025}=2{,}306$.\n\n**a)** Finn $\\hat\\beta_1$ og $\\hat\\beta_0$, og tolk dem i kontekst.\n**b)** Finn $S^2$ og $se(\\hat\\beta_1)$.\n**c)** Test $H_0:\\beta_1=0$ mot $H_a:\\beta_1\\ne 0$ på 5 %-nivå, og gi et 95 %-KI for $\\beta_1$.\n**d)** Kan vi forkaste at hver ekstra time gir 2 poeng ($\\beta_1=2$)?",
+      "solution": "**a)** $\\hat\\beta_1=S_{xy}/S_{xx}=711/330=2{,}155$. $\\hat\\beta_0=\\bar y-\\hat\\beta_1\\bar x=68{,}5-2{,}155\\cdot 11=68{,}5-23{,}70=44{,}80$.\n\n*Tolkning:* Én ekstra studietime svarer til $\\approx 2{,}15$ poeng høyere forventet eksamensresultat. $\\hat\\beta_0=44{,}8$ er forventet poengsum ved $x=0$ timer — men $x=0$ ligger utenfor dataområdet (2–20 timer), så dette er en ekstrapolering man skal være varsom med.\n\n**b)** $\\text{SSE}=S_{yy}-\\hat\\beta_1 S_{xy}=1668{,}5-2{,}155\\cdot 711=1668{,}5-1531{,}9=136{,}6$. $S^2=\\text{SSE}/(n-2)=136{,}6/8=17{,}08$, $S=4{,}13$. $se(\\hat\\beta_1)=S/\\sqrt{S_{xx}}=4{,}13/\\sqrt{330}=4{,}13/18{,}17=0{,}2275$.\n\n**c)** $T=\\hat\\beta_1/se(\\hat\\beta_1)=2{,}155/0{,}2275=9{,}47$. Kritisk verdi $t_{8,\\,0{,}025}=2{,}306$; siden $9{,}47>2{,}306$, forkaster vi $H_0$ — stigningstallet er klart signifikant. 95 %-KI: $2{,}155\\pm 2{,}306\\cdot 0{,}2275=2{,}155\\pm 0{,}525=[1{,}63,\\ 2{,}68]$.\n\n**d)** $T=\\dfrac{\\hat\\beta_1-2}{se}=\\dfrac{2{,}155-2}{0{,}2275}=0{,}68$. Siden $|0{,}68|<2{,}306$ (og $2$ ligger inne i $[1{,}63,\\ 2{,}68]$), kan vi **ikke** forkaste $\\beta_1=2$. Dataene er forenlige med at hver time gir 2 poeng."
+    },
+    {
+      "id": "stk1110-3-1-oppg3",
+      "type": "exercise",
+      "exercise": {
+        "id": "stk1110-3-1-oppg3-e",
+        "number": "3",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "En analyse gir $\\hat\\beta_1=0{,}72$, $se(\\hat\\beta_1)=0{,}0346$ og $n=5$ (altså $n-2=3$ frihetsgrader). Bruk $t_{3,\\,0{,}025}=3{,}182$.\n\n**a)** Test $H_0:\\beta_1=0$ mot $H_a:\\beta_1\\ne 0$ på 5 %-nivå.\n**b)** Gi et 95 %-KI for $\\beta_1$.",
+        "solution": "**a)** $T=\\hat\\beta_1/se=0{,}72/0{,}0346=20{,}81$. Siden $20{,}81>t_{3,\\,0{,}025}=3{,}182$, forkastes $H_0$: stigningstallet er signifikant forskjellig fra 0 på 5 %-nivå.\n\n**b)** KI: $0{,}72\\pm 3{,}182\\cdot 0{,}0346=0{,}72\\pm 0{,}110=[0{,}610,\\ 0{,}830]$. Null ligger utenfor — i tråd med at $H_0:\\beta_1=0$ ble forkastet (dualiteten).",
+        "hints": [
+          "t-observatoren er $\\hat\\beta_1/se(\\hat\\beta_1)$; sammenlign med $t_{n-2,\\,0{,}025}$.",
+          "KI $=\\hat\\beta_1\\pm t_{3,\\,0{,}025}\\,se$. Merk $n-2=3$, ikke $n-1$."
+        ]
+      }
+    },
+    {
+      "id": "stk1110-3-1-l4",
+      "type": "text",
+      "content": "## Løkke 4 — Tolkning, $R^2$ og regresjon uten konstantledd (~12 min)"
+    },
+    {
+      "id": "stk1110-3-1-def-tolkbeta1",
+      "type": "definition",
+      "title": "Tolkning av stigningstallet $\\hat\\beta_1$",
+      "content": "**$\\hat\\beta_1$ er forventet endring i responsen $y$ når $x$ øker med én enhet.** Tolkningen skal alltid gjøres *i kontekst og med enhet*: «hver ekstra studietime svarer til $\\approx 2{,}15$ flere eksamenspoeng». Merk «svarer til / er assosiert med», ikke nødvendigvis «forårsaker» — regresjon på observasjonsdata viser samvariasjon, ikke automatisk årsak."
+    },
+    {
+      "id": "stk1110-3-1-def-tolkbeta0",
+      "type": "definition",
+      "title": "Tolkning av konstantleddet $\\hat\\beta_0$",
+      "content": "**$\\hat\\beta_0$ er forventet respons når $x=0$.** Denne tolkningen er bare meningsfull hvis $x=0$ er en realistisk verdi som ligger i eller nær dataområdet. Er $x=0$ langt utenfor (f.eks. «0 cm høyde», «0 kg»), er $\\hat\\beta_0$ et rent regneteknisk skjæringspunkt uten reell tolkning — å tolke det som en faktisk forventet verdi er en klassisk feil (§4.8)."
+    },
+    {
+      "id": "stk1110-3-1-def-ekstrapolering",
+      "type": "definition",
+      "title": "Ekstrapolering",
+      "content": "**Ekstrapolering er å bruke regresjonslinja utenfor det $x$-området dataene dekker.** Modellen er kun understøttet der vi har observasjoner; utenfor kan den lineære sammenhengen bryte sammen, og både prediksjoner og tolkningen av $\\hat\\beta_0$ (ved $x=0$) blir upålitelige. Advar alltid mot ekstrapolering når oppgaven ber om en verdi langt fra dataområdet (§4.8)."
+    },
+    {
+      "id": "stk1110-3-1-def-r2",
+      "type": "definition",
+      "title": "Determinasjonskoeffisienten $R^2$",
+      "content": "**$R^2$ er andelen av variasjonen i $y$ som modellen forklarer:**\n$$R^2=\\frac{\\text{SSR}}{\\text{SST}}=1-\\frac{\\text{SSE}}{\\text{SST}},\\qquad \\text{SST}=\\sum(y_i-\\bar y)^2.$$\nHer er SST total variasjon, SSE uforklart variasjon (rundt linja), og SSR $=$ SST $-$ SSE forklart variasjon. $R^2\\in[0,1]$: $R^2=1$ betyr perfekt lineær tilpasning, $R^2=0$ at $x$ ikke forklarer noe. $R^2=0{,}82$ leses «82 % av variasjonen i $y$ forklares av $x$»."
+    },
+    {
+      "id": "stk1110-3-1-def-r2korr",
+      "type": "definition",
+      "title": "$R^2$ som kvadrert korrelasjon",
+      "content": "**I enkel regresjon er $R^2$ nøyaktig kvadratet av korrelasjonen mellom $x$ og $y$:**\n$$R^2=r^2,\\qquad r=\\frac{S_{xy}}{\\sqrt{S_{xx}S_{yy}}}.$$\nDerfor: $R^2=0{,}81$ svarer til $|r|=0{,}9$. **Merk kvadratet** — å forveksle $R^2$ og $r$ (glemme å kvadrere) er en hyppig feil. Fortegnet til $r$ (samme som fortegnet til $\\hat\\beta_1$) forsvinner i $R^2$."
+    },
+    {
+      "id": "stk1110-3-1-ex3",
+      "type": "example",
+      "title": "Eksempel 3: $R^2$ og korrelasjon",
+      "problem": "For studietimer-dataene (eksempel 2) er $\\text{SSE}=136{,}6$ og $\\text{SST}=S_{yy}=1668{,}5$. Finn $R^2$ og korrelasjonen $r$.",
+      "solution": "$$R^2=1-\\frac{\\text{SSE}}{\\text{SST}}=1-\\frac{136{,}6}{1668{,}5}=1-0{,}0819=0{,}918.$$\nAltså forklarer antall studietimer om lag 92 % av variasjonen i eksamenspoengene. Korrelasjonen er $r=\\sqrt{R^2}=\\sqrt{0{,}918}=0{,}958$ (positiv, siden $\\hat\\beta_1>0$). Sjekk: $r^2=0{,}958^2=0{,}918=R^2$ — som det skal være i enkel regresjon."
+    },
+    {
+      "id": "stk1110-3-1-def-nointercept",
+      "type": "definition",
+      "title": "Regresjon uten konstantledd",
+      "content": "**Når modellen tvinges gjennom origo** ($Y_i=\\gamma x_i+\\varepsilon_i$, ingen $\\beta_0$), gir minste kvadrater\n$$\\hat\\gamma=\\frac{\\sum x_iY_i}{\\sum x_i^2}.$$\nUtledning: minimer $\\sum(y_i-\\gamma x_i)^2$, deriver mht. $\\gamma$ og sett lik null: $-2\\sum x_i(y_i-\\gamma x_i)=0\\Rightarrow\\hat\\gamma=\\sum x_iy_i/\\sum x_i^2$. Brukes bare når teorien tilsier at $y=0$ når $x=0$ (f.eks. proporsjonalitet)."
+    },
+    {
+      "id": "stk1110-3-1-oppg4",
+      "type": "exercise",
+      "exercise": {
+        "id": "stk1110-3-1-oppg4-e",
+        "number": "4",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "En fysikklov tilsier at $y$ er proporsjonal med $x$ (altså $y=0$ når $x=0$), så vi tilpasser $Y_i=\\gamma x_i+\\varepsilon_i$ uten konstantledd. Data gir $\\sum x_iy_i=342$ og $\\sum x_i^2=138$.\n\n**a)** Finn $\\hat\\gamma$.\n**b)** Hvorfor bruker vi her modellen uten konstantledd i stedet for den vanlige?",
+        "solution": "**a)** $\\hat\\gamma=\\dfrac{\\sum x_iy_i}{\\sum x_i^2}=\\dfrac{342}{138}=2{,}478$.\n\n**b)** Fordi teorien (proporsjonalitet) sier at responsen er 0 når $x=0$. Da er $\\beta_0=0$ en modellantakelse, ikke noe vi estimerer, og linja tvinges gjennom origo. Uten en slik teoretisk begrunnelse bør man beholde konstantleddet.",
+        "hints": [
+          "Uten konstantledd er $\\hat\\gamma=\\sum x_iy_i/\\sum x_i^2$ (ikke sentrert om $\\bar x$).",
+          "Tenk på hva $y=0$ ved $x=0$ betyr for $\\beta_0$."
+        ]
+      }
+    },
+    {
+      "id": "stk1110-3-1-warn",
+      "type": "warning",
+      "title": "Typiske feil (fra løsningsforslagene)",
+      "content": "- **$n-1$ i stedet for $n-2$ frihetsgrader.** Enkel regresjon estimerer to parametere, så $S^2=\\text{SSE}/(n-2)$ og all inferens bruker $t_{n-2}$. Dette straffes hardt (§4.6).\n- **Tolke $\\hat\\beta_0$ ved $x=0$ når $x=0$ er urealistisk.** Skjæringen er da et rent regneteknisk tall, ikke en meningsfull forventet verdi.\n- **Ekstrapolere** utenfor dataområdet uten forbehold. Modellen er bare understøttet der du har data.\n- **Forveksle $R^2$ og korrelasjonen $r$.** I enkel regresjon er $R^2=r^2$ — husk kvadratet.\n- **Regne LS «rett fram» uten å utlede normalligningene** når oppgaven ber om utledningen (§4.8).\n- **Glemme å tolke koeffisientene i kontekst** (med enhet). En ren tallverdi uten tolkning gir ikke full uttelling.\n- **Forveksle estimator og estimat:** $\\hat\\beta_1$ (stor bokstav-uttrykk) er stokastisk; tallet fra ett datasett er et estimat."
+    },
+    {
+      "id": "stk1110-3-1-drill",
+      "type": "text",
+      "content": "## Blandet drill (sjanger H, stigende)"
+    },
+    {
+      "id": "stk1110-3-1-d5",
+      "type": "exercise",
+      "exercise": {
+        "id": "stk1110-3-1-d5-e",
+        "number": "5",
+        "type": "classic",
+        "difficulty": "lett",
+        "task": "Åtte målinger gir $\\bar x=4{,}5$, $\\bar y=202{,}5$, $S_{xx}=42$, $S_{xy}=-1090$. ($x$ = bilens alder i år, $y$ = pris i 1000 kr.)\n\n**a)** Finn $\\hat\\beta_1$ og $\\hat\\beta_0$.\n**b)** Tolk $\\hat\\beta_1$ i kontekst.",
+        "solution": "**a)** $\\hat\\beta_1=S_{xy}/S_{xx}=-1090/42=-25{,}95$. $\\hat\\beta_0=202{,}5-(-25{,}95)\\cdot 4{,}5=202{,}5+116{,}8=319{,}3$.\n\n**b)** For hvert ekstra år synker forventet pris med om lag 26 000 kr ($\\hat\\beta_1\\approx -25{,}95$ i 1000 kr).",
+        "hints": [
+          "$\\hat\\beta_1=S_{xy}/S_{xx}$; her er $S_{xy}$ negativ, så linja synker.",
+          "Tolkningen er «endring i $y$ per år», med riktig enhet (1000 kr)."
+        ]
+      }
+    },
+    {
+      "id": "stk1110-3-1-d6",
+      "type": "exercise",
+      "exercise": {
+        "id": "stk1110-3-1-d6-e",
+        "number": "6",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "Fortsett med bil-dataene fra oppgave 5. Det er oppgitt $S_{yy}=28470$ og $t_{6,\\,0{,}025}=2{,}447$.\n\n**a)** Finn SSE, $S^2$ og $se(\\hat\\beta_1)$.\n**b)** Gi et 95 %-KI for $\\beta_1$ og avgjør om prisfallet er signifikant ($H_0:\\beta_1=0$).",
+        "solution": "**a)** $\\text{SSE}=S_{yy}-\\hat\\beta_1 S_{xy}=28470-(-25{,}95)(-1090)=28470-28286=184$ (avrunding; eksakt $\\approx 181{,}9$ med flere desimaler i $\\hat\\beta_1$). Bruker vi $\\hat\\beta_1=-25{,}9524$: $\\text{SSE}=28470-(-25{,}9524)(-1090)=28470-28288{,}1=181{,}9$. $S^2=181{,}9/6=30{,}32$, $S=5{,}51$. $se(\\hat\\beta_1)=5{,}51/\\sqrt{42}=5{,}51/6{,}48=0{,}850$.\n\n**b)** KI: $-25{,}95\\pm 2{,}447\\cdot 0{,}850=-25{,}95\\pm 2{,}08=[-28{,}03,\\ -23{,}87]$. Null ligger langt utenfor, så prisfallet er klart signifikant: $T=-25{,}95/0{,}850=-30{,}5$, $|T|\\gg 2{,}447$.",
+        "hints": [
+          "Bruk mange desimaler i $\\hat\\beta_1$ (−25,9524) når du regner SSE, ellers hoper avrundingsfeil seg opp.",
+          "KI $=\\hat\\beta_1\\pm t_{6,\\,0{,}025}\\,se$; signifikans følger av om 0 er innenfor."
+        ]
+      }
+    },
+    {
+      "id": "stk1110-3-1-d7",
+      "type": "exercise",
+      "exercise": {
+        "id": "stk1110-3-1-d7-e",
+        "number": "7",
+        "type": "classic",
+        "difficulty": "vanskelig",
+        "task": "En forsker vil vise egenskaper ved minste kvadrater generelt.\n\n**a)** Utled $\\hat\\beta_1=S_{xy}/S_{xx}$ og $\\hat\\beta_0=\\bar Y-\\hat\\beta_1\\bar x$ fra normalligningene.\n**b)** Vis at $E(\\hat\\beta_1)=\\beta_1$.\n**c)** Vis at $V(\\hat\\beta_1)=\\sigma^2/S_{xx}$.",
+        "solution": "**a)** Minimer $Q=\\sum(y_i-\\beta_0-\\beta_1x_i)^2$. $\\partial Q/\\partial\\beta_0=0$ gir $\\sum y_i=n\\hat\\beta_0+\\hat\\beta_1\\sum x_i$, dvs. $\\hat\\beta_0=\\bar y-\\hat\\beta_1\\bar x$. $\\partial Q/\\partial\\beta_1=0$ gir $\\sum x_iy_i=\\hat\\beta_0\\sum x_i+\\hat\\beta_1\\sum x_i^2$. Sett inn $\\hat\\beta_0$: etter forenkling $\\hat\\beta_1=\\frac{\\sum x_iy_i-n\\bar x\\bar y}{\\sum x_i^2-n\\bar x^2}=\\frac{S_{xy}}{S_{xx}}$.\n\n**b)** Skriv $\\hat\\beta_1=\\sum c_iY_i$, $c_i=(x_i-\\bar x)/S_{xx}$, med $\\sum c_i=0$, $\\sum c_ix_i=1$. Da $E(\\hat\\beta_1)=\\sum c_i(\\beta_0+\\beta_1x_i)=\\beta_0\\cdot 0+\\beta_1\\cdot 1=\\beta_1$.\n\n**c)** $V(\\hat\\beta_1)=\\sum c_i^2 V(Y_i)=\\sigma^2\\sum c_i^2=\\sigma^2\\,S_{xx}/S_{xx}^2=\\sigma^2/S_{xx}$ (uavhengige $Y_i$).",
+        "hints": [
+          "Start med $Q=\\sum(y_i-\\beta_0-\\beta_1x_i)^2$ og deriver mht. begge parametere.",
+          "For b) og c): bruk $\\hat\\beta_1=\\sum c_iY_i$ med $c_i=(x_i-\\bar x)/S_{xx}$, og egenskapene $\\sum c_i=0$, $\\sum c_ix_i=1$, $\\sum c_i^2=1/S_{xx}$."
+        ]
+      }
+    },
+    {
+      "id": "stk1110-3-1-d8",
+      "type": "exercise",
+      "exercise": {
+        "id": "stk1110-3-1-d8-e",
+        "number": "8",
+        "type": "classic",
+        "difficulty": "vanskelig",
+        "task": "(Kald oppgave — fasit som momentliste, ingen hint.) I en regresjon av blodtrykk ($y$) på alder ($x$, år, målt for personer 30–70 år) får en student $\\hat\\beta_0=70$, $\\hat\\beta_1=0{,}6$ og $R^2=0{,}49$. Studenten skriver: «Forventet blodtrykk ved fødsel ($x=0$) er 70, og korrelasjonen mellom alder og blodtrykk er 0,49.» Pek ut de to feilene og gi de korrekte formuleringene.",
+        "solution": "- **Feil 1 (ekstrapolering / tolkning av $\\hat\\beta_0$):** $x=0$ (fødsel) ligger langt utenfor dataområdet 30–70 år. $\\hat\\beta_0=70$ er et regneteknisk skjæringspunkt, ikke et pålitelig anslag på blodtrykk ved fødsel. Korrekt: modellen skal ikke brukes ved $x=0$; tolk heller $\\hat\\beta_1$.\n- **Feil 2 ($R^2$ vs. $r$):** $R^2=0{,}49$ er *andelen forklart variasjon*, ikke korrelasjonen. Korrelasjonen er $r=\\sqrt{0{,}49}=0{,}70$ (positiv, siden $\\hat\\beta_1>0$). Riktig utsagn: «alder forklarer 49 % av variasjonen i blodtrykk; korrelasjonen er 0,70.»",
+        "hints": []
+      }
+    },
+    {
+      "id": "stk1110-3-1-bank",
+      "type": "text",
+      "content": "## Begrepsbank"
+    },
+    {
+      "id": "stk1110-3-1-bank-note",
+      "type": "text",
+      "content": "*Flashcard-/repetisjonsstoff — hopp trygt over ved førstegangslesing; tidsanslaget gjelder kjernestoffet.* Korte, navngitte definisjoner for eksamensrepetisjon."
+    },
+    {
+      "id": "stk1110-3-1-bank-dekomp",
+      "type": "definition",
+      "title": "Kvadratsumsdekomponeringen",
+      "content": "Den totale variasjonen deler seg i forklart og uforklart del: $\\text{SST}=\\text{SSR}+\\text{SSE}$, der $\\text{SST}=\\sum(y_i-\\bar y)^2$, $\\text{SSR}=\\sum(\\hat y_i-\\bar y)^2$ (forklart) og $\\text{SSE}=\\sum(y_i-\\hat y_i)^2$ (residual). $R^2=\\text{SSR}/\\text{SST}$."
+    },
+    {
+      "id": "stk1110-3-1-bank-homosked",
+      "type": "definition",
+      "title": "Homoskedastisitet",
+      "content": "Antakelsen om **konstant feilvarians**: $V(\\varepsilon_i)=\\sigma^2$ er den samme for alle $x_i$. Brytes den (varierende spredning), er $se$-ene feil og inferensen upålitelig; sjekkes med scale-location-plottet (kap. 3.4)."
+    },
+    {
+      "id": "stk1110-3-1-bank-antakelser",
+      "type": "definition",
+      "title": "Modellantakelsene i regresjon",
+      "content": "Fire antakelser om feilleddene: **linearitet** ($E(Y_i)=\\beta_0+\\beta_1x_i$), **uavhengighet**, **konstant varians** $\\sigma^2$, og **normalitet** ($\\varepsilon_i\\sim N$). De tre siste sikrer at t-test og KI er gyldige og sjekkes med residualplott."
+    },
+    {
+      "id": "stk1110-3-1-bank-estimatorestimat",
+      "type": "definition",
+      "title": "Estimator mot estimat (regresjon)",
+      "content": "$\\hat\\beta_1=\\sum c_iY_i$ er en **estimator** — en stokastisk variabel (stor bokstav $Y$) med forventning og varians. Tallverdien fra ett datasett, f.eks. $2{,}15$, er et **estimat**. Sensor krever at du skiller de to konsekvent (§4.2)."
+    },
+    {
+      "id": "stk1110-3-1-bank-respons",
+      "type": "definition",
+      "title": "Respons- og forklaringsvariabel",
+      "content": "**Responsvariabelen** $y$ er den vi vil forklare/predikere (avhengig variabel); **forklaringsvariabelen** $x$ (kovariat, prediktor, uavhengig variabel) er den vi forklarer med. I modellen er $x$ fast og $Y$ stokastisk."
+    },
+    {
+      "id": "stk1110-3-1-bank-korr",
+      "type": "definition",
+      "title": "Korrelasjonskoeffisienten $r$",
+      "content": "$r=S_{xy}/\\sqrt{S_{xx}S_{yy}}\\in[-1,1]$ måler styrke og retning på den lineære samvariasjonen. Fortegnet er det samme som for $\\hat\\beta_1$, og $r^2=R^2$ i enkel regresjon. $r=0$ betyr ingen lineær sammenheng (kan likevel finnes en ikke-lineær)."
+    },
+    {
+      "id": "stk1110-3-1-symbol",
+      "type": "collapsible",
+      "title": "Symbol- og formelliste",
+      "buttonText": "Vis symboler og formler",
+      "content": [
+        {
+          "id": "stk1110-3-1-symbol-t",
+          "type": "text",
+          "content": "## Symbol- og formelliste\n\n*Oppslagsverk — alt her forklares underveis i kapitlet.*\n\n| Symbol | Betydning |\n|---|---|\n| $Y_i,\\ x_i$ | Respons (stokastisk) og forklaringsvariabel (fast) |\n| $\\beta_0,\\ \\beta_1$ | Konstantledd og stigningstall (sanne) |\n| $\\hat\\beta_0,\\ \\hat\\beta_1$ | Minste kvadraters estimatorer |\n| $\\varepsilon_i$ | Feilledd, $\\varepsilon_i\\sim N(0,\\sigma^2)$ |\n| $\\hat y_i,\\ e_i$ | Tilpasset verdi og residual $y_i-\\hat y_i$ |\n| $S_{xx},\\ S_{xy},\\ S_{yy}$ | $\\sum(x_i-\\bar x)^2$, $\\sum(x_i-\\bar x)(y_i-\\bar y)$, $\\sum(y_i-\\bar y)^2$ |\n| SSE, SSR, SST | Residual-, forklart og total kvadratsum |\n| $S^2$ | Variansestimator $\\text{SSE}/(n-2)$ |\n| $se(\\hat\\beta_1)$ | Standardfeil $S/\\sqrt{S_{xx}}$ |\n| $R^2,\\ r$ | Determinasjonskoeffisient og korrelasjon |\n| $t_{n-2,\\,\\alpha/2}$ | t-kvantil med $n-2$ frihetsgrader |\n\n**Formler i dette delkapitlet:**\n\n$$\\hat\\beta_1=\\frac{S_{xy}}{S_{xx}},\\qquad \\hat\\beta_0=\\bar Y-\\hat\\beta_1\\bar x$$\nMinste kvadraters estimatorer.\n\n$$E(\\hat\\beta_1)=\\beta_1,\\qquad V(\\hat\\beta_1)=\\frac{\\sigma^2}{S_{xx}}$$\nForventningsrett; presisjonen vokser med spredningen i $x$.\n\n$$S^2=\\frac{\\text{SSE}}{n-2},\\qquad se(\\hat\\beta_1)=\\frac{S}{\\sqrt{S_{xx}}}$$\nVariansestimator (df $=n-2$) og standardfeil.\n\n$$T=\\frac{\\hat\\beta_1-\\beta_1^0}{se(\\hat\\beta_1)}\\sim t_{n-2},\\qquad \\hat\\beta_1\\pm t_{n-2,\\,\\alpha/2}\\,se(\\hat\\beta_1)$$\nt-test og konfidensintervall for stigningstallet.\n\n$$R^2=1-\\frac{\\text{SSE}}{\\text{SST}}=r^2,\\qquad \\hat\\gamma=\\frac{\\sum x_iY_i}{\\sum x_i^2}\\ (\\text{uten konstantledd})$$\nForklart variasjon (= kvadrert korrelasjon) og regresjon gjennom origo."
+        }
+      ]
+    },
+    {
+      "id": "stk1110-3-1-rep",
+      "type": "collapsible",
+      "title": "Repetisjonsoppgaver",
+      "buttonText": "Vis repetisjonsoppgaver",
+      "content": [
+        {
+          "id": "stk1110-3-1-rep1",
+          "type": "exercise",
+          "exercise": {
+            "id": "stk1110-3-1-rep1e",
+            "number": "R1",
+            "type": "classic",
+            "difficulty": "lett",
+            "task": "(Fra kap. 2.1) Skriv opp den generelle formen på et t-konfidensintervall og forklar hvorfor regresjons-KI-et $\\hat\\beta_1\\pm t_{n-2,\\,\\alpha/2}se$ er samme mønster.",
+            "solution": "Generelt: $\\hat\\theta\\pm t_{\\nu,\\,\\alpha/2}se(\\hat\\theta)$. Regresjons-KI-et er dette med $\\hat\\theta=\\hat\\beta_1$, $se=S/\\sqrt{S_{xx}}$ og $\\nu=n-2$. Samme pivot-idé: (estimator − parameter)/standardfeil er t-fordelt.",
+            "hints": [
+              "Alle t-intervaller er estimat $\\pm$ kvantil $\\times$ standardfeil."
+            ]
+          }
+        },
+        {
+          "id": "stk1110-3-1-rep2",
+          "type": "exercise",
+          "exercise": {
+            "id": "stk1110-3-1-rep2e",
+            "number": "R2",
+            "type": "classic",
+            "difficulty": "lett",
+            "task": "(Fra kap. 2.2) Forklar dualiteten: hvordan ser du fra et 95 %-KI for $\\beta_1$ om $H_0:\\beta_1=0$ forkastes tosidig på 5 %-nivå?",
+            "solution": "Forkast $H_0:\\beta_1=0$ hviss $0$ ligger utenfor det tosidige 95 %-KI-et. Ligger 0 innenfor, kan $H_0$ ikke forkastes.",
+            "hints": [
+              "Verdier utenfor KI-et er nettopp de som forkastes."
+            ]
+          }
+        },
+        {
+          "id": "stk1110-3-1-rep3",
+          "type": "exercise",
+          "exercise": {
+            "id": "stk1110-3-1-rep3e",
+            "number": "R3",
+            "type": "classic",
+            "difficulty": "middels",
+            "task": "(Fra kap. 0.2) $Y_i=\\beta_0+\\beta_1x_i+\\varepsilon_i$ med uavhengige $\\varepsilon_i$, $V(\\varepsilon_i)=\\sigma^2$. Bruk regnereglene for varians til å finne $V(Y_i)$ og $V(\\sum c_iY_i)$.",
+            "solution": "$V(Y_i)=V(\\beta_0+\\beta_1x_i+\\varepsilon_i)=V(\\varepsilon_i)=\\sigma^2$ (konstanter har varians 0). For uavhengige $Y_i$: $V(\\sum c_iY_i)=\\sum c_i^2V(Y_i)=\\sigma^2\\sum c_i^2$ (ingen kovariansledd).",
+            "hints": [
+              "Konstantledd faller ut av variansen; uavhengighet fjerner kovariansleddene."
+            ]
+          }
+        },
+        {
+          "id": "stk1110-3-1-rep4",
+          "type": "exercise",
+          "exercise": {
+            "id": "stk1110-3-1-rep4e",
+            "number": "R4",
+            "type": "classic",
+            "difficulty": "middels",
+            "task": "(Fra kap. 1.2) Skriv opp de fire trinnene i ML-kjeden, og forklar i én setning hvorfor LS = ML for regresjon med normalfeil.",
+            "solution": "ML-kjeden: $L\\to\\ell\\to s=\\ell'\\to$ løs $s=0$ (og bekreft maks). For normalfeil inneholder $\\ell$ leddet $-\\frac{1}{2\\sigma^2}\\sum(y_i-\\beta_0-\\beta_1x_i)^2$, så å maksimere $\\ell$ over $\\beta_0,\\beta_1$ er å minimere residualkvadratsummen — nettopp minste kvadrater.",
+            "hints": [
+              "Se på hvor $\\sum(y_i-\\beta_0-\\beta_1x_i)^2$ dukker opp i log-likelihooden."
+            ]
+          }
+        }
+      ]
+    }
+  ],
+  "exercises": []
+}

@@ -1,0 +1,494 @@
+{
+  "id": "mat111-uib-7-1",
+  "courseId": "mat111-uib",
+  "chapterNumber": "7.1",
+  "title": "Uendelige rekker og konvergenstester",
+  "description": "Standard konvergenstester med formsjekk-disiplin — geometrisk rekke, n-te-ledd-testen, p-rekker, forholdstesten, integraltesten, grensesammenligning og alternerende rekker. Pensumpliktig kunne-stoff uten arkivbelegg etter 2005.",
+  "estimatedMinutes": 55,
+  "competenceGoals": [
+    "kunne avgjøre konvergens for geometriske rekker og p-rekker, og summere geometriske rekker med riktig startindeks",
+    "kunne velge riktig konvergenstest ut fra rekkens form, navngi den og sjekke forutsetningene",
+    "kunne bruke forholdstesten, integraltesten (med lim-føring) og grensesammenligning med navngitt sammenligningsrekke",
+    "kunne klassifisere alternerende rekker som absolutt eller betinget konvergente med Leibniz' kriterium"
+  ],
+  "content": [
+    {
+      "id": "mat111-uib-7-1-tip",
+      "type": "tip",
+      "title": "Eksamensvinkel",
+      "content": "**Ærlig varedeklarasjon: uendelige rekker er pensumpliktig kunne-stoff — men uten arkivbelegg etter 2005.**\n\n- Rekker har **0 forekomster i eksamensarkivet etter 2005** og var **ute av pensumlistene 2006–2019**. Temaet står imidlertid i **gjeldende emnebeskrivelse (2026)**, og da dekker boka det — kalibrert mot de gamle 2003–2005-sjangrene ($p$-rekker, forholdstest, grensesammenligning, integraltest, alternerende rekker) som mal. **Sjekk selv første tilgjengelige sett etter 2020**: dukker rekker opp der, bør du oppgradere prioriteten; hvis ikke, er dette «kjenne»-stoff du leser etter at Del 1–6 sitter.\n- Prioritet: **kjenne** — les for forståelse og tren formsjekk-disiplinen, men driller du på tid, bruk timene på Del 5–6 først.\n- Det som testes (den gang og i så fall igjen): **velg riktig test etter rekkens form**, navngi testen, sjekk dens forutsetninger — og konkluder. Det er samme føringslogikk som ellers i kurset: begrunnelsen er svaret.\n- Kapitlet lener seg på [kap. 5.5](/bok/mat111-uib/mat111-uib-5-5): integraltesten er broen mellom uegentlige integraler og rekker, og $p$-rekkene speiler $p$-integralene nøyaktig."
+    },
+    {
+      "id": "mat111-uib-7-1-fork",
+      "type": "text",
+      "content": "**Forkunnskaper.** Uegentlige integraler med lim-føring fra **[kap. 5.5](/bok/mat111-uib/mat111-uib-5-5)** (integraltesten gjenbruker dem direkte). Fra videregående: **[Uendelige rekker og konvergens (R2 1.5)](/bok/r2/r2-1-5)** og **[Rekker og summasjon (R2 1.4)](/bok/r2/r2-1-4)** — geometriske rekker og summetegnet er startpunktet vårt.\n\n**Sist du var her — to fakta fra [kap. 5.5](/bok/mat111-uib/mat111-uib-5-5) du trenger i dag:**\n\n$$\\int_1^\\infty \\frac{dx}{x^p} \\text{ konvergerer} \\iff p>1, \\qquad \\int_a^\\infty f = \\lim_{R\\to\\infty}\\int_a^R f \\ \\ (\\text{alltid med } \\lim\\text{-føring}).$$"
+    },
+    {
+      "id": "mat111-uib-7-1-motiv",
+      "type": "text",
+      "content": "Kan man summere uendelig mange tall? Noen ganger, ja: $\\frac12 + \\frac14 + \\frac18 + \\cdots$ kommer så nær $1$ du vil. Andre ganger nei: $1 + \\frac12 + \\frac13 + \\frac14 + \\cdots$ vokser over alle grenser, enda leddene går mot null. Å *avgjøre hvilken av delene* en gitt rekke tilhører, er kapitlets ene ferdighet.\n\nVerktøykassen er en håndfull **konvergenstester**, og hele kunsten er **formsjekk-disiplin**: rekkens *form* avgjør hvilken test som er riktig — fakulteter og $n$-te potenser peker mot forholdstesten, «ligner på $1/n^p$» mot sammenligning, «funksjon jeg kan integrere» mot integraltesten, vekslende fortegn mot Leibniz.\n\nFem korte læringsløkker: (1) hva en rekke og en sum er, med geometrisk rekke, (2) divergens-testen og $p$-rekker, (3) forholdstesten, (4) integraltesten og grensesammenligning, (5) alternerende rekker. Til slutt: testvelgeren som samler alt. ~55 min — ta pauser mellom løkkene."
+    },
+    {
+      "id": "mat111-uib-7-1-l1",
+      "type": "text",
+      "content": "## Løkke 1 — Rekker, delsummer og geometrisk rekke (~12 min)"
+    },
+    {
+      "id": "mat111-uib-7-1-def-rekke",
+      "type": "definition",
+      "title": "Uendelig rekke",
+      "content": "En **uendelig rekke** er et formelt uttrykk $\\displaystyle\\sum_{n=1}^\\infty a_n = a_1 + a_2 + a_3 + \\cdots$, der tallene $a_n$ kalles rekkens **ledd**. Uttrykket i seg selv er bare en oppskrift — om det *betyr* et tall, avgjøres av delsummene."
+    },
+    {
+      "id": "mat111-uib-7-1-def-delsum",
+      "type": "definition",
+      "title": "Delsum",
+      "content": "Den $N$-te **delsummen** er den endelige summen $S_N = a_1 + a_2 + \\cdots + a_N$. Delsummene danner en følge $S_1, S_2, S_3, \\ldots$ — og det er *denne følgen* all konvergensteori handler om. En rekke er altså «en følge av delsummer i forkledning»."
+    },
+    {
+      "id": "mat111-uib-7-1-def-konvergens",
+      "type": "definition",
+      "title": "Konvergens og sum av en rekke",
+      "content": "Rekken $\\sum a_n$ **konvergerer** med **sum** $S$ dersom delsumfølgen har grenseverdi: $\\lim_{N\\to\\infty} S_N = S$. Finnes ingen slik (endelig) grense, **divergerer** rekken. Merk språket: «summen av rekken» er per definisjon en *grenseverdi* — aldri en faktisk addisjon av uendelig mange tall."
+    },
+    {
+      "id": "mat111-uib-7-1-def-geom",
+      "type": "definition",
+      "title": "Geometrisk rekke og kvotienten $r$",
+      "content": "En **geometrisk rekke** har konstant forhold mellom nabo-ledd: $\\sum_{n=0}^\\infty ar^n = a + ar + ar^2 + \\cdots$ med **kvotient** $r$. Den er den ene rekketypen der vi kan *regne ut* summen eksakt — og referansepunktet flere av testene sammenligner mot."
+    },
+    {
+      "id": "mat111-uib-7-1-thm-geom",
+      "type": "theorem",
+      "title": "Summen av en geometrisk rekke",
+      "content": "For $|r|<1$ konvergerer den geometriske rekken, med\n\n$$\\sum_{n=0}^\\infty ar^n = \\frac{a}{1-r};$$\n\nfor $|r|\\ge 1$ (og $a\\neq 0$) divergerer den.\n\n*Utledning:* delsummen er $S_N = a\\dfrac{1-r^{N+1}}{1-r}$ (gang $S_N$ med $r$ og trekk fra). Når $|r|<1$, går $r^{N+1}\\to 0$, så $S_N \\to \\dfrac{a}{1-r}$; når $|r|\\ge 1$, går ikke $r^{N+1}$ mot noe endelig, og delsummene konvergerer ikke. *Intuisjon:* hvert ledd er en fast brøkdel av det forrige — krymper leddene geometrisk, «kveles» halen."
+    },
+    {
+      "id": "mat111-uib-7-1-ex1",
+      "type": "example",
+      "title": "Eksempel 1: Geometrisk rekke — sum og startindeks",
+      "problem": "Avgjør om rekkene konvergerer, og finn i så fall summen: $\\;$ **a)** $\\displaystyle\\sum_{n=0}^\\infty 3\\Big(\\frac25\\Big)^n$ $\\;$ **b)** $\\displaystyle\\sum_{n=1}^\\infty \\frac{4}{3^n}$ $\\;$ **c)** $\\displaystyle\\sum_{n=0}^\\infty \\Big(\\frac32\\Big)^n$",
+      "solution": "**a)** Geometrisk med $a=3$, $r=\\dfrac25$; $|r| = \\dfrac25 < 1$, så rekken konvergerer:\n$$\\sum_{n=0}^\\infty 3\\Big(\\frac25\\Big)^n = \\frac{3}{1-\\frac25} = \\frac{3}{3/5} = 5.$$\n\n**b)** Geometrisk med $r=\\dfrac13$, men startindeksen er $n=1$: første ledd er $a = \\dfrac43$. Da er\n$$\\sum_{n=1}^\\infty \\frac{4}{3^n} = \\frac{4/3}{1-\\frac13} = \\frac{4/3}{2/3} = 2.$$\n(Alternativt: summen fra $n=0$ er $\\frac{4}{1-1/3}=6$; trekk fra $n=0$-leddet $4$: $6-4=2$.)\n\n**c)** $r = \\dfrac32$ har $|r|\\ge 1$ — leddene vokser, og rekken **divergerer**.\n\n*Formsjekk-vanen:* identifiser $a$ = *første ledd som faktisk summeres* og $r$, sjekk $|r|<1$, og bruk formelen. Startindeksen er den klassiske fellen."
+    },
+    {
+      "id": "mat111-uib-7-1-o1",
+      "type": "exercise",
+      "exercise": {
+        "id": "mat111-uib-7-1-o1-x",
+        "number": "1",
+        "type": "classic",
+        "difficulty": "lett",
+        "task": "Finn summen av $\\displaystyle\\sum_{n=0}^\\infty 2\\Big(\\!-\\frac34\\Big)^n$, eller begrunn at den ikke finnes.",
+        "solution": "Geometrisk med $a=2$ og $r=-\\dfrac34$; $|r|=\\dfrac34<1$, så rekken konvergerer:\n$$\\sum_{n=0}^\\infty 2\\Big(\\!-\\frac34\\Big)^n = \\frac{2}{1-(-\\frac34)} = \\frac{2}{7/4} = \\frac{8}{7}.$$\nNegativ kvotient er helt greit — kravet er $|r|<1$.",
+        "hints": [
+          "Les av $a$ og $r$; sjekk $|r|<1$.",
+          "$1-(-\\frac34) = \\frac74$."
+        ]
+      }
+    },
+    {
+      "id": "mat111-uib-7-1-o2",
+      "type": "exercise",
+      "exercise": {
+        "id": "mat111-uib-7-1-o2-x",
+        "number": "2",
+        "type": "classic",
+        "difficulty": "lett",
+        "task": "Finn summen av $\\displaystyle\\sum_{n=3}^\\infty \\Big(\\frac12\\Big)^n$.",
+        "solution": "Geometrisk med $r=\\dfrac12$; første ledd som summeres er $a = \\Big(\\dfrac12\\Big)^3 = \\dfrac18$:\n$$\\sum_{n=3}^\\infty \\Big(\\frac12\\Big)^n = \\frac{1/8}{1-\\frac12} = \\frac14.$$\n*Kontroll:* hele rekken fra $n=0$ er $2$; de tre første leddene er $1+\\frac12+\\frac14 = \\frac74$; resten er $2-\\frac74 = \\frac14$ ✓.",
+        "hints": [
+          "Sett $a$ = leddet for $n=3$.",
+          "Kontroller ved å trekke de første leddene fra totalsummen."
+        ]
+      }
+    },
+    {
+      "id": "mat111-uib-7-1-l2",
+      "type": "text",
+      "content": "## Løkke 2 — Divergenstesten og p-rekker (~10 min)"
+    },
+    {
+      "id": "mat111-uib-7-1-def-nteledd",
+      "type": "definition",
+      "title": "$n$-te-ledd-testen (divergenstesten)",
+      "content": "Hvis $a_n \\not\\to 0$, så **divergerer** $\\sum a_n$. Logikken: konvergerer rekken, må $a_n = S_n - S_{n-1} \\to S - S = 0$.\n\n**Advarsel — testen virker bare én vei:** $a_n\\to 0$ beviser *ingenting* (den harmoniske rekken har $a_n\\to 0$ og divergerer likevel). Testen er et raskt førstefilter: sjekk alltid om leddene går mot null før du gjør noe mer avansert."
+    },
+    {
+      "id": "mat111-uib-7-1-def-harmonisk",
+      "type": "definition",
+      "title": "Den harmoniske rekken",
+      "content": "Rekken $\\displaystyle\\sum_{n=1}^\\infty\\frac1n = 1 + \\frac12 + \\frac13 + \\cdots$ — skoleeksemplet på at $a_n\\to 0$ ikke redder en rekke. Den divergerer (langsomt: delsummene vokser som $\\ln N$), og er standard-sammenligningsrekke for divergens."
+    },
+    {
+      "id": "mat111-uib-7-1-def-prekke",
+      "type": "definition",
+      "title": "$p$-rekke",
+      "content": "En rekke på formen $\\displaystyle\\sum_{n=1}^\\infty \\frac{1}{n^p}$. Familien er rekke-speilbildet av $p$-integralene fra [kap. 5.5](/bok/mat111-uib/mat111-uib-5-5) og fungerer som «målestokk-rekker»: nesten alle sammenligninger skjer mot en $p$-rekke eller en geometrisk rekke."
+    },
+    {
+      "id": "mat111-uib-7-1-thm-prekke",
+      "type": "theorem",
+      "title": "$p$-rekke-kriteriet",
+      "content": "$$\\sum_{n=1}^\\infty \\frac{1}{n^p} \\ \\text{konvergerer} \\iff p > 1.$$\n\n*Intuisjon/bro til [kap. 5.5](/bok/mat111-uib/mat111-uib-5-5):* delsummene er trappesummer for $\\int_1^\\infty x^{-p}\\,dx$, som konvergerer nøyaktig for $p>1$ — integraltesten (løkke 4) gjør dette presist. Randtilfellet $p=1$ er den harmoniske rekken (divergent); $p=2$ gir en konvergent klassiker."
+    },
+    {
+      "id": "mat111-uib-7-1-ex2",
+      "type": "example",
+      "title": "Eksempel 2: Førstefilter og p-gjenkjenning",
+      "problem": "Avgjør konvergens: $\\;$ **a)** $\\displaystyle\\sum_{n=1}^\\infty \\frac{n}{2n+1}$ $\\;$ **b)** $\\displaystyle\\sum_{n=1}^\\infty \\frac{1}{n^3}$ $\\;$ **c)** $\\displaystyle\\sum_{n=1}^\\infty \\frac{1}{\\sqrt n}$",
+      "solution": "**a) Formsjekk:** leddene $\\dfrac{n}{2n+1} \\to \\dfrac12 \\neq 0$ ($n\\to\\infty$). Etter **$n$-te-ledd-testen** divergerer rekken. (Ingen finere test trengs — og delsummene vokser omtrent som $N/2$.)\n\n**b)** $p$-rekke med $p=3>1$: **konvergerer** etter $p$-rekke-kriteriet.\n\n**c)** $\\dfrac{1}{\\sqrt n} = \\dfrac{1}{n^{1/2}}$: $p$-rekke med $p=\\dfrac12 \\le 1$ — **divergerer**, enda leddene går mot null. Kontrasten b)/c) er hele poenget med $p$-grensen: eksponenten avgjør, ikke at leddene «blir små»."
+    },
+    {
+      "id": "mat111-uib-7-1-o3",
+      "type": "exercise",
+      "exercise": {
+        "id": "mat111-uib-7-1-o3-x",
+        "number": "3",
+        "type": "classic",
+        "difficulty": "lett",
+        "task": "Avgjør konvergens, med navngitt test: $\\;$ **a)** $\\displaystyle\\sum_{n=1}^\\infty \\frac{1}{n^{4}}$ $\\;$ **b)** $\\displaystyle\\sum_{n=1}^\\infty \\frac{3n^2}{n^2+5}$ $\\;$ **c)** $\\displaystyle\\sum_{n=1}^\\infty \\frac{1}{n^{0{,}9}}$",
+        "solution": "**a)** $p$-rekke, $p=4>1$: **konvergerer** ($p$-rekke-kriteriet).\n\n**b)** $\\dfrac{3n^2}{n^2+5}\\to 3\\neq 0$: **divergerer** ($n$-te-ledd-testen).\n\n**c)** $p = 0{,}9\\le 1$: **divergerer** ($p$-rekke-kriteriet). Formsjekk-momentet: b) skal stoppes av førstefilteret — ikke kast en avansert test på en rekke hvis ledd ikke går mot null.",
+        "hints": [
+          "Sjekk først: går leddene mot null?",
+          "Deretter: er det en ren $p$-rekke?"
+        ]
+      }
+    },
+    {
+      "id": "mat111-uib-7-1-l3",
+      "type": "text",
+      "content": "## Løkke 3 — Forholdstesten (~10 min)"
+    },
+    {
+      "id": "mat111-uib-7-1-def-forhold",
+      "type": "definition",
+      "title": "Forholdstesten",
+      "content": "La $L = \\displaystyle\\lim_{n\\to\\infty}\\left|\\frac{a_{n+1}}{a_n}\\right|$ (dersom grensen finnes). Da gjelder:\n\n- $L < 1$: rekken konvergerer (til og med absolutt — se løkke 5),\n- $L > 1$ (eller $L=\\infty$): rekken divergerer,\n- $L = 1$: **testen er uavgjort** — ingen konklusjon; prøv en annen test.\n\n*Intuisjon:* $L$ måler den asymptotiske «kvotienten»: for store $n$ oppfører rekken seg som en geometrisk rekke med kvotient $L$. **Formsignal:** fakulteter ($n!$) og potenser ($c^n$) — forhold mellom naboledd forenkler slikt vakkert. **Fellen:** alle $p$-rekker gir $L=1$, så forholdstesten kan aldri avgjøre dem."
+    },
+    {
+      "id": "mat111-uib-7-1-ex3",
+      "type": "example",
+      "title": "Eksempel 3: Forholdstest på potens-form",
+      "problem": "Avgjør om $\\displaystyle\\sum_{n=1}^\\infty \\frac{n^2}{3^n}$ konvergerer.",
+      "solution": "**Formsjekk:** leddene inneholder $3^n$ — potensvekst i nevneren peker mot **forholdstesten**.\n\n$$\\left|\\frac{a_{n+1}}{a_n}\\right| = \\frac{(n+1)^2}{3^{n+1}}\\cdot\\frac{3^n}{n^2} = \\frac13\\Big(\\frac{n+1}{n}\\Big)^2 = \\frac13\\Big(1+\\frac1n\\Big)^2 \\longrightarrow \\frac13 \\quad (n\\to\\infty).$$\n\nSiden $L = \\dfrac13 < 1$, **konvergerer** rekken etter forholdstesten. (Kvadratet $n^2$ i telleren er sjanseløst mot den geometriske faktoren — polynomer taper alltid mot potenser.)\n\n*Føringsdetalj:* skriv forholdet, forenkle, ta grensen, og **navngi testen i konklusjonen**: «etter forholdstesten, siden $L=\\frac13<1$, konvergerer rekken.»"
+    },
+    {
+      "id": "mat111-uib-7-1-o4",
+      "type": "exercise",
+      "exercise": {
+        "id": "mat111-uib-7-1-o4-x",
+        "number": "4",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "Avgjør med forholdstesten: $\\;$ **a)** $\\displaystyle\\sum_{n=1}^\\infty \\frac{5^n}{n!}$ $\\;$ **b)** $\\displaystyle\\sum_{n=1}^\\infty \\frac{n!}{10^n}$ $\\;$ **c)** Hva sier forholdstesten om $\\displaystyle\\sum_{n=1}^\\infty\\frac{1}{n^2}$?",
+        "solution": "**a)** $\\left|\\dfrac{a_{n+1}}{a_n}\\right| = \\dfrac{5^{n+1}}{(n+1)!}\\cdot\\dfrac{n!}{5^n} = \\dfrac{5}{n+1} \\to 0 < 1$: **konvergerer**. (Fakultetsvekst i nevneren slår enhver potens.)\n\n**b)** $\\left|\\dfrac{a_{n+1}}{a_n}\\right| = \\dfrac{(n+1)!}{10^{n+1}}\\cdot\\dfrac{10^n}{n!} = \\dfrac{n+1}{10} \\to \\infty$: **divergerer**. (Fra $n=10$ og utover vokser leddene.)\n\n**c)** $\\left|\\dfrac{a_{n+1}}{a_n}\\right| = \\Big(\\dfrac{n}{n+1}\\Big)^2 \\to 1$: **uavgjort** — forholdstesten kan ikke konkludere. (Rekken konvergerer selvsagt som $p$-rekke med $p=2$; poenget er at det må en *annen* test til. Å konkludere «konvergerer» fra $L=1$ er den klassiske forholdstest-feilen.)",
+        "hints": [
+          "$\\frac{(n+1)!}{n!} = n+1$ og $\\frac{c^{n+1}}{c^n} = c$ — forholdet rydder opp selv.",
+          "I c): hva er grensen av $(n/(n+1))^2$, og hva sier testen da?"
+        ]
+      }
+    },
+    {
+      "id": "mat111-uib-7-1-l4",
+      "type": "text",
+      "content": "## Løkke 4 — Integraltesten og grensesammenligning (~13 min)"
+    },
+    {
+      "id": "mat111-uib-7-1-def-integraltest",
+      "type": "definition",
+      "title": "Integraltesten",
+      "content": "La $f$ være **positiv, kontinuerlig og avtakende** på $[a,\\infty)$, og $a_n = f(n)$. Da gjelder:\n\n$$\\sum_{n=a}^\\infty a_n \\ \\text{konvergerer} \\iff \\int_a^\\infty f(x)\\,dx \\ \\text{konvergerer}.$$\n\n*Intuisjon:* leddene er arealer av søyler med bredde 1 som klemmer integralet mellom to trappesummer — rekke og integral deler skjebne. **Forutsetningene skal sjekkes eksplisitt** (positiv? avtakende?) — å bruke testen uten er et føringstrekk. Integralet regnes med $\\lim$-føring som i [kap. 5.5](/bok/mat111-uib/mat111-uib-5-5); «sett inn $\\infty$» underkjennes også her."
+    },
+    {
+      "id": "mat111-uib-7-1-ex4",
+      "type": "example",
+      "title": "Eksempel 4: Integraltesten med lim-føring — og en divergent tvilling",
+      "problem": "Avgjør konvergens: $\\;$ **a)** $\\displaystyle\\sum_{n=2}^\\infty \\frac{1}{n(\\ln n)^2}$ $\\;$ **b)** $\\displaystyle\\sum_{n=2}^\\infty \\frac{1}{n\\ln n}$",
+      "solution": "**a) Formsjekk:** $\\ln$-uttrykk uten potens-/fakultetsstruktur — men $f(x) = \\dfrac{1}{x(\\ln x)^2}$ kan integreres (substitusjon). **Forutsetninger:** på $[2,\\infty)$ er $f$ positiv og kontinuerlig, og avtakende (både $x$ og $(\\ln x)^2$ vokser). Integraltesten kan brukes.\n\n**Integralet, med lim-føring** (substitusjon $u = \\ln x$, $du = dx/x$; nye grenser $x=2\\mapsto u=\\ln 2$, $x=R\\mapsto u=\\ln R$):\n\n$$\\int_2^\\infty \\frac{dx}{x(\\ln x)^2} = \\lim_{R\\to\\infty}\\int_{\\ln 2}^{\\ln R}\\frac{du}{u^2} = \\lim_{R\\to\\infty}\\left[-\\frac1u\\right]_{\\ln 2}^{\\ln R} = \\lim_{R\\to\\infty}\\left(\\frac{1}{\\ln 2} - \\frac{1}{\\ln R}\\right) = \\frac{1}{\\ln 2}.$$\n\nIntegralet konvergerer (verdien $\\frac{1}{\\ln 2}\\approx 1{,}44$), så **rekken konvergerer** etter integraltesten.\n\n**b)** Samme oppsett gir $\\displaystyle\\int_2^\\infty\\frac{dx}{x\\ln x} = \\lim_{R\\to\\infty}\\big[\\ln u\\big]_{\\ln 2}^{\\ln R} = \\lim_{R\\to\\infty}\\big(\\ln\\ln R - \\ln\\ln 2\\big) = \\infty$ — integralet divergerer, så **rekken divergerer**.\n\n*Moralen:* de to rekkene er nesten like, og bare integraltesten skiller dem — én ekstra $\\ln$-potens i nevneren avgjør. (Og merk: verdien $\\frac{1}{\\ln 2}$ er IKKE summen av rekken i a) — testen gir bare konvergens/divergens, ikke summen.)"
+    },
+    {
+      "id": "mat111-uib-7-1-def-grensesml",
+      "type": "definition",
+      "title": "Grensesammenligningstesten",
+      "content": "La $a_n, b_n > 0$ og $\\displaystyle\\lim_{n\\to\\infty}\\frac{a_n}{b_n} = c$ med $0 < c < \\infty$. Da konvergerer $\\sum a_n$ og $\\sum b_n$ **sammen** — begge eller ingen.\n\n*Bruksmønster:* for rasjonale/rot-uttrykk, plukk dominerende ledd i teller og nevner og la $b_n$ være den $p$-rekken (eller geometriske rekken) som fanger størrelsesordenen. **Føringskrav:** sammenligningsrekken $\\sum b_n$ skal **navngis**, og grensen $c$ regnes ut eksplisitt."
+    },
+    {
+      "id": "mat111-uib-7-1-o5",
+      "type": "exercise",
+      "exercise": {
+        "id": "mat111-uib-7-1-o5-x",
+        "number": "5",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "Avgjør konvergens med grensesammenligningstesten, med navngitt sammenligningsrekke: $\\;$ **a)** $\\displaystyle\\sum_{n=1}^\\infty \\frac{2n+3}{n^3+n}$ $\\;$ **b)** $\\displaystyle\\sum_{n=1}^\\infty \\frac{1}{2n-1}$",
+        "solution": "**a)** Dominerende ledd: $\\dfrac{2n}{n^3} = \\dfrac{2}{n^2}$ — sammenlign med **$p$-rekken $\\sum \\frac{1}{n^2}$** ($p=2>1$, konvergent):\n\n$$\\frac{a_n}{b_n} = \\frac{2n+3}{n^3+n}\\cdot n^2 = \\frac{2n^3+3n^2}{n^3+n} = \\frac{2+3/n}{1+1/n^2} \\longrightarrow 2 \\in (0,\\infty).$$\n\nEtter grensesammenligningstesten **konvergerer** rekken (sammen med $\\sum 1/n^2$).\n\n**b)** Dominerende ledd $\\dfrac{1}{2n}$ — sammenlign med **den harmoniske rekken $\\sum\\frac1n$** (divergent):\n\n$$\\frac{a_n}{b_n} = \\frac{n}{2n-1} \\longrightarrow \\frac12 \\in (0,\\infty).$$\n\nRekkene deler skjebne, så $\\sum\\dfrac{1}{2n-1}$ **divergerer**. (Merk at $n$-te-ledd-testen er tannløs her — leddene går mot null; det er *raten* som er for langsom.)",
+        "hints": [
+          "Plukk dominerende ledd oppe og nede; det gir $b_n$.",
+          "Regn grensen $a_n/b_n$ eksplisitt — den skal være et endelig, positivt tall.",
+          "Navngi sammenligningsrekken og dens status (konvergent/divergent $p$-rekke)."
+        ]
+      }
+    },
+    {
+      "id": "mat111-uib-7-1-l5",
+      "type": "text",
+      "content": "## Løkke 5 — Alternerende rekker, absolutt og betinget konvergens (~10 min)"
+    },
+    {
+      "id": "mat111-uib-7-1-def-alternerende",
+      "type": "definition",
+      "title": "Alternerende rekke",
+      "content": "En rekke der leddene bytter fortegn annenhver gang: $\\sum (-1)^{n+1}b_n = b_1 - b_2 + b_3 - \\cdots$ med $b_n > 0$. Formsignalet er faktorer som $(-1)^n$ eller $(-1)^{n+1}$. Fortegnsvekslingen gir «gratis» kansellering — alternerende rekker konvergerer langt oftere enn de positive tvillingene sine."
+    },
+    {
+      "id": "mat111-uib-7-1-def-leibniz",
+      "type": "definition",
+      "title": "Leibniz' kriterium (testen for alternerende rekker)",
+      "content": "Hvis $b_n > 0$ er **avtakende** ($b_{n+1}\\le b_n$) og $b_n \\to 0$, så konvergerer den alternerende rekken $\\sum(-1)^{n+1}b_n$.\n\nI tillegg gjelder **feilskranken**: $|S - S_N| \\le b_{N+1}$ — feilen ved å stoppe etter $N$ ledd er høyst det første utelatte leddet. *Intuisjon:* delsummene hopper vekselvis over og under grensen, med stadig kortere hopp; sannheten ligger alltid mellom to naboer. Begge forutsetningene (avtakende, mot null) skal sjekkes i føringen."
+    },
+    {
+      "id": "mat111-uib-7-1-def-abskonv",
+      "type": "definition",
+      "title": "Absolutt konvergens",
+      "content": "$\\sum a_n$ er **absolutt konvergent** dersom $\\sum |a_n|$ konvergerer. Absolutt konvergens medfører konvergens (men ikke omvendt). Absolutt konvergente rekker er de «robuste»: de tåler omstokking av ledd og oppfører seg som endelige summer."
+    },
+    {
+      "id": "mat111-uib-7-1-def-betinget",
+      "type": "definition",
+      "title": "Betinget konvergens",
+      "content": "$\\sum a_n$ er **betinget konvergent** dersom den konvergerer, men $\\sum|a_n|$ divergerer — konvergensen skyldes *kanselleringen*, ikke at leddene er små nok. Klassikeren er den alternerende harmoniske rekken $\\sum\\frac{(-1)^{n+1}}{n}$ (konvergent) mot den harmoniske (divergent). Undersøkelsesrekkefølgen i oppgaver: sjekk først $\\sum|a_n|$; divergerer den, sjekk Leibniz på originalen."
+    },
+    {
+      "id": "mat111-uib-7-1-ex5",
+      "type": "example",
+      "title": "Eksempel 5: Absolutt eller betinget?",
+      "problem": "Avgjør om $\\displaystyle\\sum_{n=1}^\\infty \\frac{(-1)^{n+1}}{\\sqrt n}$ konvergerer, og i så fall om konvergensen er absolutt eller betinget.",
+      "solution": "**Steg 1 — absoluttrekken.** $\\displaystyle\\sum\\Big|\\frac{(-1)^{n+1}}{\\sqrt n}\\Big| = \\sum\\frac{1}{n^{1/2}}$ er en $p$-rekke med $p=\\frac12\\le 1$: **divergerer**. Rekken er altså ikke absolutt konvergent.\n\n**Steg 2 — Leibniz på originalen.** $b_n = \\dfrac{1}{\\sqrt n}$: positiv ✓, avtakende ✓ ($\\sqrt n$ vokser), og $b_n \\to 0$ ✓. Etter **Leibniz' kriterium** konvergerer den alternerende rekken.\n\n**Konklusjon:** rekken er **betinget konvergent** — konvergent, men ikke absolutt. (Numerisk kryper delsummene inn mot $\\approx 0{,}605$, vekselvis ovenfra og nedenfra, med feil høyst $b_{N+1} = 1/\\sqrt{N+1}$.)"
+    },
+    {
+      "id": "mat111-uib-7-1-o6",
+      "type": "exercise",
+      "exercise": {
+        "id": "mat111-uib-7-1-o6-x",
+        "number": "6",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "Avgjør om $\\displaystyle\\sum_{n=2}^\\infty \\frac{(-1)^n}{\\ln n}$ konvergerer, og klassifiser konvergensen (absolutt/betinget).",
+        "solution": "**Absoluttrekken:** $\\sum\\dfrac{1}{\\ln n}$. Siden $\\ln n < n$ for $n\\ge 2$, er $\\dfrac{1}{\\ln n} > \\dfrac{1}{n}$, og den harmoniske rekken divergerer — så absoluttrekken **divergerer** (sammenligning med navngitt divergent rekke).\n\n**Leibniz:** $b_n = \\dfrac{1}{\\ln n}$ er positiv ✓, avtakende ✓ ($\\ln$ vokser) og $b_n\\to 0$ ✓ — rekken **konvergerer** etter Leibniz' kriterium.\n\n**Konklusjon:** **betinget konvergent**. (Ekstremt langsomt: feilskranken er $1/\\ln(N+1)$, så selv en million ledd gir bare ~1 desimal.)",
+        "hints": [
+          "Sjekk absoluttrekken først — sammenlign $\\frac{1}{\\ln n}$ med $\\frac1n$.",
+          "Deretter Leibniz: positiv, avtakende, mot null — alle tre skal nevnes."
+        ]
+      }
+    },
+    {
+      "id": "mat111-uib-7-1-def-testvelger",
+      "type": "definition",
+      "title": "Formsjekk: testvelgeren",
+      "content": "Beslutningsrekkefølgen når en rekke skal klassifiseres — formen velger testen:\n\n1. **Går ikke leddene mot 0?** → $n$-te-ledd-testen: divergens. Ferdig.\n2. **Geometrisk form** ($ar^n$)? → summér med $\\frac{a}{1-r}$ hvis $|r|<1$.\n3. **Ren $p$-form** ($1/n^p$)? → $p$-rekke-kriteriet.\n4. **Fakulteter/potenser** ($n!$, $c^n$)? → forholdstesten (husk: $L=1$ er uavgjort).\n5. **Rasjonal/rot-form**? → grensesammenligning mot dominerende $p$-rekke (navngi den).\n6. **Integrerbar, positiv og avtakende form** (typisk $\\ln$-uttrykk)? → integraltesten med lim-føring.\n7. **Vekslende fortegn**? → først absoluttrekken (punkt 2–6); divergerer den, Leibniz på originalen.\n\nKonklusjonen skal alltid navngi testen og bekrefte dens forutsetninger."
+    },
+    {
+      "id": "mat111-uib-7-1-warn",
+      "type": "warning",
+      "title": "Typiske feil",
+      "content": "- **Test uten formsjekk.** Å kaste forholdstesten på en $p$-rekke ($L=1$, uavgjort) eller integraltesten på noe som ikke er avtakende. Formen velger testen — bruk testvelgeren.\n- **Forholdstesten «konkludert» ved $L=1$.** $L=1$ betyr *ingen informasjon* — ikke konvergens, ikke divergens. Bytt test.\n- **$n$-te-ledd-testen brukt baklengs.** $a_n\\to 0$ beviser IKKE konvergens (harmonisk rekke!). Testen kan bare felle, aldri frikjenne.\n- **Integraltesten uten forutsetningssjekk** (positiv? avtakende?) eller uten $\\lim$-føring i integralet — begge er føringstrekk. Og integralverdien er ikke rekkens sum.\n- **Absolutt og betinget blandet.** Rekkefølgen er fast: først $\\sum|a_n|$; divergerer den, så Leibniz. «Konvergent etter Leibniz» uten absolutt-sjekken besvarer ikke et klassifiseringsspørsmål.\n- **Startindeks-slurv i geometriske rekker:** $a$ i $\\frac{a}{1-r}$ er *første ledd som summeres*, ikke nødvendigvis leddet for $n=0$."
+    },
+    {
+      "id": "mat111-uib-7-1-pool",
+      "type": "text",
+      "content": "## Flere øvingsoppgaver\n\nBlandet klassifiseringsdrill — formsjekk først, navngi testen, sjekk forutsetningene."
+    },
+    {
+      "id": "mat111-uib-7-1-o7",
+      "type": "exercise",
+      "exercise": {
+        "id": "mat111-uib-7-1-o7-x",
+        "number": "7",
+        "type": "classic",
+        "difficulty": "lett",
+        "task": "Avgjør konvergens, med navngitt test: $\\;$ **a)** $\\displaystyle\\sum_{n=1}^\\infty \\frac{n}{5^n}$ $\\;$ **b)** $\\displaystyle\\sum_{n=1}^\\infty (-1)^n\\frac{n}{n+1}$",
+        "solution": "**a)** Potensform → **forholdstesten**: $\\left|\\dfrac{a_{n+1}}{a_n}\\right| = \\dfrac{n+1}{5^{n+1}}\\cdot\\dfrac{5^n}{n} = \\dfrac15\\cdot\\dfrac{n+1}{n} \\to \\dfrac15 < 1$: **konvergerer**.\n\n**b)** Leddene $(-1)^n\\dfrac{n}{n+1}$ går ikke mot null ($|a_n|\\to 1$) — **divergerer** etter $n$-te-ledd-testen. (Leibniz kan ikke redde den: kriteriet krever $b_n\\to 0$.)",
+        "hints": [
+          "a) $5^n$ i nevneren roper forholdstest.",
+          "b) Førstefilteret gjelder også alternerende rekker."
+        ]
+      }
+    },
+    {
+      "id": "mat111-uib-7-1-o8",
+      "type": "exercise",
+      "exercise": {
+        "id": "mat111-uib-7-1-o8-x",
+        "number": "8",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "Avgjør konvergens for $\\displaystyle\\sum_{n=1}^\\infty \\frac{n+1}{n^3}$ på to måter: med grensesammenligning og ved å splitte i to rekker.",
+        "solution": "**Grensesammenligning** mot $p$-rekken $\\sum\\frac{1}{n^2}$ (konvergent, $p=2$): $\\dfrac{a_n}{b_n} = \\dfrac{(n+1)n^2}{n^3} = 1+\\dfrac1n \\to 1 \\in (0,\\infty)$, så rekken **konvergerer**.\n\n**Splitting:** $\\dfrac{n+1}{n^3} = \\dfrac{1}{n^2} + \\dfrac{1}{n^3}$ — summen av to konvergente $p$-rekker ($p=2$ og $p=3$) konvergerer. Begge føringer er gyldige; splittingen gir til og med summen som sum av to kjente rekkeverdier.",
+        "hints": [
+          "Dominerende ledd: $n/n^3 = 1/n^2$.",
+          "$\\frac{n+1}{n^3}$ lar seg dele i to brøker."
+        ]
+      }
+    },
+    {
+      "id": "mat111-uib-7-1-o9",
+      "type": "exercise",
+      "exercise": {
+        "id": "mat111-uib-7-1-o9-x",
+        "number": "9",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "Avgjør konvergens for $\\displaystyle\\sum_{n=1}^\\infty \\frac{\\cos n}{n^2}$. (Merk: leddene har ikke fast fortegnsmønster.)",
+        "solution": "Fortegnene til $\\cos n$ hopper uregelmessig — verken positiv rekke eller pent alternerende, så testene for slike passer ikke direkte. **Grepet er absolutt konvergens:**\n\n$$\\Big|\\frac{\\cos n}{n^2}\\Big| \\le \\frac{1}{n^2},$$\n\nog $\\sum\\frac{1}{n^2}$ er en konvergent $p$-rekke ($p=2$). Ved sammenligning konvergerer $\\sum\\big|\\frac{\\cos n}{n^2}\\big|$, så rekken er **absolutt konvergent** — og dermed konvergent. (Begrensetheten $|\\cos n|\\le 1$ uttales eksplisitt, akkurat som i skviseteorem-føringen.)",
+        "hints": [
+          "Uregelmessige fortegn → prøv absoluttrekken.",
+          "$|\\cos n|\\le 1$ gir en $p$-rekke-majorant."
+        ]
+      }
+    },
+    {
+      "id": "mat111-uib-7-1-o10",
+      "type": "exercise",
+      "exercise": {
+        "id": "mat111-uib-7-1-o10-x",
+        "number": "10",
+        "type": "classic",
+        "difficulty": "vanskelig",
+        "task": "Avgjør konvergens for $\\displaystyle\\sum_{n=1}^\\infty \\frac{1}{\\sqrt{n^3+2n}}$, med navngitt test og full føring.",
+        "solution": "**Formsjekk:** rot av polynom — dominerende ledd $\\sqrt{n^3} = n^{3/2}$; kandidat: grensesammenligning mot $p$-rekken $\\sum\\dfrac{1}{n^{3/2}}$ ($p=\\frac32>1$, konvergent).\n\n$$\\frac{a_n}{b_n} = \\frac{n^{3/2}}{\\sqrt{n^3+2n}} = \\sqrt{\\frac{n^3}{n^3+2n}} = \\sqrt{\\frac{1}{1+2/n^2}} \\longrightarrow 1 \\in (0,\\infty).$$\n\nEtter grensesammenligningstesten deler rekkene skjebne, så $\\sum\\dfrac{1}{\\sqrt{n^3+2n}}$ **konvergerer**.",
+        "hints": [
+          "Dominerende ledd under roten: $n^3$.",
+          "Sammenlign med $1/n^{3/2}$ — og regn grensen som én rot."
+        ]
+      }
+    },
+    {
+      "id": "mat111-uib-7-1-o11",
+      "type": "exercise",
+      "exercise": {
+        "id": "mat111-uib-7-1-o11-x",
+        "number": "11",
+        "type": "classic",
+        "difficulty": "vanskelig",
+        "task": "Klassifiser $\\displaystyle\\sum_{n=1}^\\infty (-1)^{n+1}\\frac{n}{n^2+1}$ som absolutt konvergent, betinget konvergent eller divergent.",
+        "solution": "**Absoluttrekken:** $\\sum\\dfrac{n}{n^2+1}$; grensesammenligning mot harmonisk rekke $\\sum\\frac1n$ (divergent): $\\dfrac{n}{n^2+1}\\cdot n = \\dfrac{n^2}{n^2+1}\\to 1$, så absoluttrekken **divergerer**.\n\n**Leibniz:** $b_n = \\dfrac{n}{n^2+1}$: positiv ✓; $b_n \\to 0$ ✓; avtakende? Betrakt $f(x) = \\dfrac{x}{x^2+1}$: $f'(x) = \\dfrac{1-x^2}{(x^2+1)^2} < 0$ for $x>1$, så $b_n$ er avtakende fra $n=1$ ✓ (de første leddene kan uansett aldri påvirke konvergens). Rekken **konvergerer** etter Leibniz.\n\n**Konklusjon:** **betinget konvergent**. Merk føringen for «avtakende»: en derivert-sjekk av den tilhørende funksjonen er standardargumentet når det ikke er opplagt.",
+        "hints": [
+          "Absolutt-sjekken først: $\\frac{n}{n^2+1}$ ligner $\\frac1n$.",
+          "Avtakende-kravet i Leibniz: deriver $f(x)=\\frac{x}{x^2+1}$.",
+          "Tre bokser å krysse av i Leibniz — alle skal nevnes."
+        ]
+      }
+    },
+    {
+      "id": "mat111-uib-7-1-o12",
+      "type": "exercise",
+      "exercise": {
+        "id": "mat111-uib-7-1-o12-x",
+        "number": "12",
+        "type": "classic",
+        "difficulty": "vanskelig",
+        "task": "En medstudent skriver: «$\\displaystyle\\sum_{n=1}^\\infty \\frac{1}{n}$ konvergerer, for $\\frac1n \\to 0$ — og forholdstesten gir $\\frac{n}{n+1}\\to 1$, som bekrefter det.» Pek på begge feilene, og gi den korrekte konklusjonen med korrekt begrunnelse.",
+        "solution": "**Feil 1:** «$a_n \\to 0$ ⟹ konvergens» er $n$-te-ledd-testen brukt baklengs — testen kan bare påvise *divergens* (når $a_n\\not\\to 0$), aldri konvergens.\n\n**Feil 2:** forholdstest-grensen $L=1$ er **uavgjort** — den «bekrefter» ingenting, verken konvergens eller divergens.\n\n**Korrekt konklusjon:** den harmoniske rekken **divergerer**. Korrekt begrunnelse, f.eks. integraltesten: $f(x)=\\frac1x$ er positiv, kontinuerlig og avtakende på $[1,\\infty)$, og\n\n$$\\int_1^\\infty\\frac{dx}{x} = \\lim_{R\\to\\infty}\\big[\\ln x\\big]_1^R = \\lim_{R\\to\\infty}\\ln R = \\infty,$$\n\nså rekken divergerer med integralet. (Alternativt: $p$-rekke-kriteriet med $p=1\\le 1$.)",
+        "hints": [
+          "Hvilken vei virker $n$-te-ledd-testen?",
+          "Hva betyr $L=1$ i forholdstesten?",
+          "Divergensen bevises med integraltesten eller $p$-kriteriet."
+        ]
+      }
+    },
+    {
+      "id": "mat111-uib-7-1-bb-divergens",
+      "type": "definition",
+      "title": "Divergens",
+      "content": "En rekke divergerer når delsumfølgen ikke har endelig grense — enten ved å vokse over alle grenser (harmonisk rekke) eller ved å svinge uten mål ($\\sum(-1)^n$). «Divergerer» er en konklusjon på linje med «konvergerer» og skal begrunnes med en navngitt test."
+    },
+    {
+      "id": "mat111-uib-7-1-bb-folgevsrekke",
+      "type": "definition",
+      "title": "Følge vs. rekke",
+      "content": "En **følge** er en liste av tall $a_1, a_2, \\ldots$; en **rekke** er summen av dem. To ulike konvergensspørsmål: følgen $a_n = \\frac1n$ konvergerer (mot $0$), men rekken $\\sum\\frac1n$ divergerer. Blandes de, blir $n$-te-ledd-testen fort «bevis» for ting den ikke beviser."
+    },
+    {
+      "id": "mat111-uib-7-1-rep",
+      "type": "collapsible",
+      "title": "Repetisjonsoppgaver",
+      "buttonText": "Vis repetisjonsoppgaver",
+      "content": [
+        {
+          "id": "mat111-uib-7-1-r1",
+          "type": "exercise",
+          "exercise": {
+            "id": "mat111-uib-7-1-r1-x",
+            "number": "R1",
+            "type": "classic",
+            "difficulty": "lett",
+            "task": "(Fra [kap. 5.5](/bok/mat111-uib/mat111-uib-5-5)) Avgjør med lim-føring om $\\displaystyle\\int_1^\\infty \\frac{dx}{x^3}$ konvergerer, og finn i så fall verdien.",
+            "solution": "$\\int_1^\\infty x^{-3}dx = \\lim_{R\\to\\infty}\\big[-\\tfrac{1}{2x^2}\\big]_1^R = \\lim_{R\\to\\infty}\\big(\\tfrac12 - \\tfrac{1}{2R^2}\\big) = \\tfrac12$. Konvergent ($p$-integral med $p=3>1$) — samme $p$-grense som rekkene arver via integraltesten.",
+            "hints": [
+              "Antiderivert av $x^{-3}$ er $-\\frac{1}{2}x^{-2}$."
+            ]
+          }
+        },
+        {
+          "id": "mat111-uib-7-1-r2",
+          "type": "exercise",
+          "exercise": {
+            "id": "mat111-uib-7-1-r2-x",
+            "number": "R2",
+            "type": "classic",
+            "difficulty": "lett",
+            "task": "(Fra [Rekker og summasjon (R2 1.4)](/bok/r2/r2-1-4)) Skriv ut de fire første leddene av $\\displaystyle\\sum_{n=1}^\\infty \\frac{(-1)^{n+1}}{n^2}$ og regn delsummen $S_4$.",
+            "solution": "$1 - \\frac14 + \\frac19 - \\frac1{16}$; $S_4 = \\frac{144 - 36 + 16 - 9}{144} = \\frac{115}{144} \\approx 0{,}799$. (Rekken er absolutt konvergent — $p=2$ — med sum $\\approx 0{,}822$; feilen $|S-S_4|\\le b_5 = 1/25$ ✓.)",
+            "hints": [
+              "Fellesnevner 144 — eller desimaltall."
+            ]
+          }
+        },
+        {
+          "id": "mat111-uib-7-1-r3",
+          "type": "exercise",
+          "exercise": {
+            "id": "mat111-uib-7-1-r3-x",
+            "number": "R3",
+            "type": "classic",
+            "difficulty": "lett",
+            "task": "(Fra [Uendelige rekker og konvergens (R2 1.5)](/bok/r2/r2-1-5)) En ball slippes fra 2 m og spretter hver gang tilbake til 60 % av forrige høyde. Hvor langt faller den totalt?",
+            "solution": "Fallhøydene er $2, 2\\cdot 0{,}6, 2\\cdot 0{,}6^2, \\ldots$ — geometrisk med $a=2$, $r=0{,}6$: total fallstrekning $\\frac{2}{1-0{,}6} = 5$ m.",
+            "hints": [
+              "Geometrisk rekke med $r=0{,}6$."
+            ]
+          }
+        },
+        {
+          "id": "mat111-uib-7-1-r4",
+          "type": "exercise",
+          "exercise": {
+            "id": "mat111-uib-7-1-r4-x",
+            "number": "R4",
+            "type": "classic",
+            "difficulty": "middels",
+            "task": "(Fra [kap. 5.5](/bok/mat111-uib/mat111-uib-5-5)) For hvilke $p$ konvergerer $\\displaystyle\\int_1^\\infty\\frac{dx}{x^p}$? Skisser regningen for $p\\neq 1$ og $p=1$.",
+            "solution": "For $p\\neq1$: $\\lim_{R\\to\\infty}\\big[\\frac{x^{1-p}}{1-p}\\big]_1^R$ — endelig hviss $1-p<0$, dvs. $p>1$ (verdi $\\frac{1}{p-1}$). For $p=1$: $\\lim_{R\\to\\infty}\\ln R = \\infty$. Konvergens nøyaktig for $p>1$ — grensen $p$-rekkene arver.",
+            "hints": [
+              "Del i tilfellene $p\\neq 1$ (potensregel) og $p=1$ ($\\ln$)."
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": "mat111-uib-7-1-symbol",
+      "type": "collapsible",
+      "title": "Symbol- og formelliste",
+      "buttonText": "Vis symboler og formler",
+      "content": [
+        {
+          "id": "mat111-uib-7-1-symbol-txt",
+          "type": "text",
+          "content": "## Symbol- og formelliste\n\n*Oppslagsverk — alt her forklares underveis i kapitlet.*\n\n| Symbol | Betydning |\n|---|---|\n| $\\sum_{n=1}^\\infty a_n$ | Uendelig rekke med ledd $a_n$ |\n| $S_N$ | Delsummen $a_1+\\cdots+a_N$; rekkens sum er $\\lim_{N\\to\\infty}S_N$ |\n| $r$ | Kvotienten i en geometrisk rekke |\n| $L$ | Grensen i forholdstesten |\n| $b_n$ | De positive leddene i en alternerende rekke $\\sum(-1)^{n+1}b_n$ |\n| $p$ | Eksponenten i $p$-rekken $\\sum 1/n^p$ |\n\n**Formler i dette delkapitlet:**\n\n$$\\sum_{n=0}^\\infty ar^n = \\frac{a}{1-r} \\quad (|r|<1); \\qquad a = \\text{første ledd som summeres}$$\n\n$$a_n \\not\\to 0 \\;\\Rightarrow\\; \\sum a_n \\text{ divergerer} \\qquad (n\\text{-te-ledd-testen — virker bare én vei})$$\n\n$$\\sum \\frac{1}{n^p} \\text{ konvergerer} \\iff p>1$$\n\n$$L = \\lim\\Big|\\frac{a_{n+1}}{a_n}\\Big|: \\quad L<1 \\Rightarrow \\text{konv.}, \\quad L>1 \\Rightarrow \\text{div.}, \\quad L=1 \\Rightarrow \\text{uavgjort}$$\n\n$$f \\text{ positiv, kontinuerlig, avtakende}: \\ \\sum f(n) \\sim \\int^\\infty f(x)\\,dx \\ \\ (\\text{integraltesten, med } \\lim\\text{-føring})$$\n\n$$\\lim\\frac{a_n}{b_n} = c \\in (0,\\infty) \\;\\Rightarrow\\; \\sum a_n \\text{ og } \\sum b_n \\text{ deler skjebne} \\qquad (\\text{grensesammenligning})$$\n\n$$b_n \\searrow 0 \\;\\Rightarrow\\; \\sum(-1)^{n+1}b_n \\text{ konvergerer}, \\quad |S-S_N|\\le b_{N+1} \\qquad (\\text{Leibniz})$$"
+        }
+      ]
+    }
+  ],
+  "exercises": []
+}

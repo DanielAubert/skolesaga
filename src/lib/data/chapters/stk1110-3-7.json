@@ -1,0 +1,331 @@
+{
+  "id": "stk1110-3-7",
+  "courseId": "stk1110",
+  "chapterNumber": "3.7",
+  "title": "Drill: regresjonsoppgaven fra R-utskrift (sjanger H–K)",
+  "description": "Den tunge storoppgaven trent ledd for ledd: fra R-utskrift til koeffisientinferens, R-kvadrat/justert R-kvadrat, konfundering, diagnostikk og prediksjonsintervall — enkel og multippel regresjon.",
+  "estimatedMinutes": 80,
+  "competenceGoals": [
+    "folge syvtrinnsoppskriften fra R-utskrift til full regresjonsbesvarelse a til f",
+    "gjennomfore t-test og KI for koeffisienter med riktig frihetsgrad n-2 eller n-k-1",
+    "bruke justert R-kvadrat til modellvalg og forklare konfundering nar en variabel legges til",
+    "vurdere residualplott i monstre og skille konfidensintervall fra prediksjonsintervall med 1+ under rota"
+  ],
+  "content": [
+    {
+      "id": "stk1110-3-7-tip",
+      "type": "tip",
+      "title": "Eksamensvinkel",
+      "content": "**Den tunge storoppgaven.** Regresjon er Oppgave 3 i **omtrent 20 av 22 sett (91 %)**, og i **omtrent 15 av 22 (68 %)** får du en R-utskrift å jobbe fra. Oppgaven er alltid en **a–f-kjede** i samme kontekst, der tidlige svar gjenbrukes — og den bærer mest poeng av de tre søylene.\n\nKjeden ruller gjennom fire faste sjangre (oppgavetyper):\n\n- **Sjanger H** — enkel regresjon: koeffisienter, t-test og KI for stigningstallet ([kap. 3.1](/bok/stk1110/stk1110-3-1)–[3.2](/bok/stk1110/stk1110-3-2)).\n- **Sjanger I** — multippel regresjon: matriseform, justert $R^2$, konfundering ([kap. 3.3](/bok/stk1110/stk1110-3-3)).\n- **Sjanger J** — diagnostikk: de tre residualplottene ([kap. 3.4](/bok/stk1110/stk1110-3-4)).\n- **Sjanger K** — prediksjon: KI for forventet respons vs. prediksjonsintervall ([kap. 3.5](/bok/stk1110/stk1110-3-5)).\n\n**Formelsamlingen** dekker KI-/PI-formlene og $R^2$-definisjonene — tren *valg* og oppslag. Det som må regnes aktivt: tolkning i kontekst, riktige frihetsgrader, konfunderingsargumentet og mønster-lesing av plott. Prioritet: **må sitte perfekt.**\n\n*Tidsbruk:* ~80 min. Del gjerne i to økter: oppskriften + eksamenscasen + oppgave 1–5 i én, oppgave 6–10 i neste. Anslaget er lesetid; regner du for hånd, gang med ca. 1,5."
+    },
+    {
+      "id": "stk1110-3-7-forkunnskaper",
+      "type": "text",
+      "content": "**Forkunnskaper:** Dette drillkapitlet samler hele Del 3. Du bør ha vært innom minste kvadrater og inferens for stigningstallet i **[kap. 3.1](/bok/stk1110/stk1110-3-1)**, utskriftslesing i **[kap. 3.2](/bok/stk1110/stk1110-3-2)**, multippel regresjon med justert $R^2$ og konfundering i **[kap. 3.3](/bok/stk1110/stk1110-3-3)**, residualdiagnostikk i **[kap. 3.4](/bok/stk1110/stk1110-3-4)**, prediksjonsintervall i **[kap. 3.5](/bok/stk1110/stk1110-3-5)** og (for én deloppgave) logistisk regresjon i **[kap. 3.6](/bok/stk1110/stk1110-3-6)**.\n\nAlle nødvendige kvantiler legges — som på eksamen — rett i oppgavetekstene. R-utskriftene er rene teksttabeller: du skal lese dem, aldri skrive kode."
+    },
+    {
+      "id": "stk1110-3-7-sistduvarher",
+      "type": "text",
+      "content": "**Sist du var her (nøkkelformlene du drar veksel på nå):**\n\n$$\\texttt{t value}=\\frac{\\texttt{Estimate}}{\\texttt{Std. Error}},\\qquad \\text{KI: }\\hat\\beta_j\\pm t_{df,\\,\\alpha/2}\\,se(\\hat\\beta_j),\\qquad df=\\begin{cases}n-2 & \\text{enkel}\\\\ n-k-1 & \\text{multippel}\\end{cases}$$\n$$R^2_{\\text{just}}=1-\\frac{\\text{SSE}/(n-k-1)}{\\text{SST}/(n-1)},\\qquad \\text{PI: }\\hat y_0\\pm t_{n-2,\\,\\alpha/2}\\,\\hat\\sigma\\sqrt{1+\\frac1n+\\frac{(x_0-\\bar x)^2}{S_{xx}}}$$\n\nAlt i dette kapitlet er kombinasjoner av disse fire — pluss ord: tolkning i kontekst, konfunderingsargument og mønster-lesing av plott."
+    },
+    {
+      "id": "stk1110-3-7-oppskrift",
+      "type": "text",
+      "content": "## Løsningsoppskrift: syv trinn fra utskrift til full besvarelse\n\nHver regresjonsoppgave — uansett hvilke deloppgaver den stiller — er et utvalg av de samme syv trinnene. Kjør dem i rekkefølge:\n\n**Trinn 1 — Definer modellen og antakelsene.** Skriv $Y_i=\\beta_0+\\beta_1x_{i1}+\\dots+\\beta_kx_{ik}+\\varepsilon_i$ med uavhengige $\\varepsilon_i\\sim N(0,\\sigma^2)$. Navngi variablene i kontekst.\n\n**Trinn 2 — Les/utled koeffisientene og tolk i kontekst.** Fra utskriften (Estimate) eller via minste kvadrater. Tolk ALLTID med enhet: «per enhet $x$ endres forventet $y$ med $\\hat\\beta_1$ …» — i multippel modell: «… med de øvrige variablene holdt konstant».\n\n**Trinn 3 — Inferens for en koeffisient.** t-test $T=(\\hat\\beta_j-\\beta_j^0)/se(\\hat\\beta_j)$ og KI $\\hat\\beta_j\\pm t_{df,\\,\\alpha/2}\\,se(\\hat\\beta_j)$ — med riktig frihetsgrad: $n-2$ (enkel), $n-k-1$ (multippel). Ved samlet spørsmål: F-testen ($H_0:$ alle helninger $=0$).\n\n**Trinn 4 — $R^2$ vs. justert $R^2$.** Tolk $R^2$ som forklart andel. Ved **modellvalg** brukes ALLTID justert $R^2$ — $R^2$ øker automatisk for hver variabel som legges til.\n\n**Trinn 5 — Konfundering.** Endrer en koeffisient seg fra enkel til multippel modell? Forklar: den nye variabelen er korrelert med både responsen og den gamle variabelen; i multippel modell måles effekten *med den nye holdt konstant*.\n\n**Trinn 6 — Diagnostikk i mønstre.** Residual mot tilpasset (kurvatur → ikke-linearitet), scale-location (trend → heteroskedastisitet), QQ-plott (avvik fra linje → ikke-normalitet). Aldri bare «ser greit ut» — nevn mønsteret du ser eller ikke ser.\n\n**Trinn 7 — Prediksjon.** KI for *forventet* respons vs. prediksjonsintervall for *ny observasjon* — PI har «$1+$» under rota og er alltid bredere. Kommenter alltid om $x_0$ ligger i dataområdet (ekstrapolering).\n\n**Kjede-regelen:** står du fast på ett ledd, bruk *oppgitt* mellomresultat og gå videre — et blankt deltrinn sperrer aldri resten av kjeden."
+    },
+    {
+      "id": "stk1110-3-7-tabell",
+      "type": "text",
+      "content": "**Trinn-velgeren (hvor i utskriften finner du hva):**\n\n| Du trenger | Sted i utskriften | Regel |\n|---|---|---|\n| $\\hat\\beta_j$ | Estimate-kolonnen | tolk i kontekst, med enhet |\n| $se(\\hat\\beta_j)$ | Std. Error-kolonnen | til t-test og KI |\n| t-test av $\\beta_j=0$ | `t value` / `Pr(>|t|)` | forkast når P-verdi $<\\alpha$ |\n| test av $\\beta_j=c\\ (c\\ne 0)$ | må regnes selv | $T=(\\hat\\beta_j-c)/se$ |\n| $\\hat\\sigma$ og $df$ | Residual standard error-linja | $df=n-2$ eller $n-k-1$ |\n| forklart andel | Multiple R-squared | tolkning, ikke modellvalg |\n| modellvalg | Adjusted R-squared | størst justert $R^2$ vinner |\n| samlet test | F-statistic-linja | $H_0:\\beta_1=\\dots=\\beta_k=0$ |\n\nI enkel regresjon er F-testen og t-testen for stigningstallet samme test: $F=T^2$."
+    },
+    {
+      "id": "stk1110-3-7-case",
+      "type": "example",
+      "title": "Gjennomregnet eksamenscase: forbruk, vekt og motorvolum med sensor-margnotater",
+      "problem": "For $n=30$ bilmodeller er drivstofforbruket $y$ (liter per 100 km) regressert på vekt $x_1$ (tonn), og deretter på vekt og motorvolum $x_2$ (liter). Vektene i utvalget ligger mellom 0,9 og 2,1 tonn, med $\\bar x_1=1{,}4$ og $S_{x_1x_1}=4{,}5$.\n\n**Modell 1 (enkel):**\n\n```\nCoefficients:\n            Estimate  Std. Error  t value  Pr(>|t|)\n(Intercept)   2.1000      0.3424    6.134  1.28e-06\nvekt          3.2000      0.2357   13.576  7.68e-14\n---\nResidual standard error: 0.5 on 28 degrees of freedom\nMultiple R-squared:  0.8681,   Adjusted R-squared:  0.8634\nF-statistic: 184.3 on 1 and 28 DF,  p-value: 7.68e-14\n```\n\n**Modell 2 (multippel):**\n\n```\nCoefficients:\n            Estimate  Std. Error  t value  Pr(>|t|)\n(Intercept)   1.7500      0.5200    3.365   0.00231\nvekt          2.5300      0.3400    7.441  5.27e-08\nvolum         0.9500      0.4100    2.317   0.02832\n---\nResidual standard error: 0.463 on 27 degrees of freedom\nMultiple R-squared:  0.891,    Adjusted R-squared:  0.8829\nF-statistic: 110.4 on 2 and 27 DF,  p-value: 1.01e-13\n```\n\n**a)** Tolk vekt-koeffisienten i modell 1 i kontekst.\n**b)** Test i modell 1 om vekt har effekt, og gi et 95 %-KI for stigningstallet. Bruk $t_{28,\\,0{,}025}=2{,}048$.\n**c)** Hvilken modell foretrekker du, og hvorfor?\n**d)** Vekt-koeffisienten falt fra 3,20 til 2,53 da volum kom inn. Forklar.\n**e)** Residualplottene for modell 2 viser: ingen kurvatur i residual-mot-tilpasset, flat scale-location, QQ-punkter nær linja. Vurder antakelsene.\n**f)** Bruk modell 1 til et 95 % prediksjonsintervall for forbruket til en NY bil på 1,6 tonn, og sammenlign med KI-et for forventet forbruk ved samme vekt.",
+      "solution": "**a)** *Trinn 1–2.* Modell: $Y_i=\\beta_0+\\beta_1x_{i1}+\\varepsilon_i$, $\\varepsilon_i\\sim N(0,\\sigma^2)$ uavhengige. $\\hat\\beta_1=3{,}20$: per ekstra tonn bilvekt øker forventet forbruk med estimert 3,20 l/100 km. *Sensor-margnotat: tolkning uten enhet («forbruket øker med 3,2») gir trekk.*\n\n**b)** *Trinn 3.* $H_0:\\beta_1=0$ mot $H_a:\\beta_1\\ne 0$. Fra utskriften: $T=3{,}2000/0{,}2357=13{,}58$ og Pr(>|t|) $=7{,}7\\cdot 10^{-14}<0{,}05$: forkast — vekt har klar effekt. KI: $3{,}20\\pm 2{,}048\\cdot 0{,}2357=3{,}20\\pm 0{,}483=[2{,}72,\\ 3{,}68]$. *Sensor-margnotat: df er $n-2=28$ — hentes rett fra «on 28 degrees of freedom»-linja; $n-1=29$ her er den klassiske feilen.*\n\n**c)** *Trinn 4.* Modellvalg gjøres med **justert** $R^2$: $0{,}8829$ (modell 2) mot $0{,}8634$ (modell 1) — modell 2 foretrekkes. I tillegg er volum-koeffisienten signifikant ($0{,}028<0{,}05$). *Sensor-margnotat: å sammenligne Multiple R-squared (0,891 mot 0,868) gir ikke uttelling — den øker uansett når en variabel legges til.*\n\n**d)** *Trinn 5 — konfundering.* Tyngre biler har som regel større motor, så vekt og volum er positivt korrelert, og volum påvirker forbruket. I modell 1 fanger vekt-koeffisienten derfor også noe av volum-effekten. I modell 2 måles vekt-effekten *med volum holdt konstant* — den rendyrkede vekt-effekten er mindre (2,53).\n\n**e)** *Trinn 6.* Ingen kurvatur → lineariteten står; flat scale-location → konstant varians (homoskedastisitet) er forenlig med data; QQ nær linja → normalantakelsen er rimelig. Antakelsene virker oppfylt — konklusjonen begrunnes i **mønstrene**, ikke med et rent «ser greit ut». *Sensor-margnotat: navngi hvilket plott som sjekker hva.*\n\n**f)** *Trinn 7.* $\\hat y_0=2{,}10+3{,}20\\cdot 1{,}6=7{,}22$. Med $\\hat\\sigma=0{,}5$, $n=30$, $\\bar x=1{,}4$, $S_{xx}=4{,}5$:\n$$\\frac1n+\\frac{(x_0-\\bar x)^2}{S_{xx}}=\\frac1{30}+\\frac{0{,}2^2}{4{,}5}=0{,}0422.$$\nKI for forventet forbruk: $7{,}22\\pm 2{,}048\\cdot 0{,}5\\sqrt{0{,}0422}=7{,}22\\pm 0{,}21=[7{,}01,\\ 7{,}43]$.\nPI for ny bil: $7{,}22\\pm 2{,}048\\cdot 0{,}5\\sqrt{1+0{,}0422}=7{,}22\\pm 1{,}05=[6{,}17,\\ 8{,}27]$.\nPI-et er mye bredere: den nye bilens eget støyledd $\\varepsilon_0$ kommer i tillegg («$1+$» under rota). $x_0=1{,}6$ ligger trygt i dataområdet [0,9, 2,1], så ingen ekstrapoleringsfare. *Sensor-margnotat: KI/PI-forvekslingen er den vanligste feilen i sjanger K — pek eksplisitt på «$1+$».*"
+    },
+    {
+      "id": "stk1110-3-7-drill",
+      "type": "text",
+      "content": "## Drill: ti a–f-kjeder på eksamensnivå\n\nOppgavene under ruller gjennom sjanger H, I, J og K — enkle og multiple modeller om hverandre, alle med R-utskrift. Kjør syvtrinnsoppskriften hver gang. To oppgaver er merket «(krevende)», og helt sist ligger en **kald oppgave** uten hint, der fasiten bare er en momentliste — som generalprøve."
+    },
+    {
+      "id": "stk1110-3-7-ex1",
+      "type": "exercise",
+      "exercise": {
+        "id": "stk1110-3-7-ex1-e",
+        "number": "1",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "**(Sjanger H — enkel regresjon fra utskrift.)** Månedlig husleie $y$ (i tusen kroner) er regressert på areal $x$ (m²) for $n=25$ leiligheter (areal 30–85 m²):\n\n```\nCoefficients:\n            Estimate  Std. Error  t value  Pr(>|t|)\n(Intercept)   3.4900     0.52200    6.685  8.06e-07\nareal         0.0820     0.00919    8.920  6.30e-09\n---\nResidual standard error: 0.65 on 23 degrees of freedom\nMultiple R-squared:  0.7758,   Adjusted R-squared:  0.766\nF-statistic: 79.57 on 1 and 23 DF,  p-value: 6.30e-09\n```\n\n**a)** Tolk stigningstallet i kontekst.\n**b)** Verifiser t value for areal.\n**c)** Er arealeffekten signifikant på 5 %-nivå?\n**d)** Gi et 95 %-KI for $\\beta_1$. Bruk $t_{23,\\,0{,}025}=2{,}069$.\n**e)** Angi $\\hat\\sigma$ og frihetsgradene, og forklar hvor $n$ kan leses ut.\n**f)** Tolk Multiple R-squared.",
+        "solution": "**a)** Per ekstra m² øker forventet husleie med estimert 0,082 tusen kr $=$ 82 kroner per måned.\n\n**b)** $0{,}0820/0{,}00919=8{,}92$ — stemmer med t value-kolonnen.\n\n**c)** Ja: Pr(>|t|) $=6{,}3\\cdot 10^{-9}<0{,}05$.\n\n**d)** $0{,}082\\pm 2{,}069\\cdot 0{,}00919=0{,}082\\pm 0{,}019=[0{,}063,\\ 0{,}101]$ (tusen kr per m²).\n\n**e)** $\\hat\\sigma=0{,}65$ på $n-2=23$ frihetsgrader, så $n=25$ — df-linja avslører utvalgsstørrelsen.\n\n**f)** $R^2=0{,}776$: modellen forklarer ca. 78 % av variasjonen i husleie mellom leilighetene.",
+        "hints": [
+          "t value er alltid Estimate delt på Std. Error; KI-et er Estimate $\\pm$ kvantil $\\times$ Std. Error.",
+          "«on 23 degrees of freedom» betyr $n-2=23$ i enkel regresjon."
+        ]
+      }
+    },
+    {
+      "id": "stk1110-3-7-ex2",
+      "type": "exercise",
+      "exercise": {
+        "id": "stk1110-3-7-ex2-e",
+        "number": "2",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "**(Sjanger H — minste kvadrater for hånd, deretter inferens.)** For $n=12$ målinger av tørketid $y$ (minutter) mot temperatur $x$ (°C) er det oppgitt: $\\bar x=5$, $\\bar y=20$, $S_{xy}=\\sum(x_i-\\bar x)(y_i-\\bar y)=90$, $S_{xx}=\\sum(x_i-\\bar x)^2=40$ og $\\text{SSE}=50$.\n\n**a)** Finn minste kvadraters estimater $\\hat\\beta_1$ og $\\hat\\beta_0$.\n**b)** Estimer $\\sigma$ med riktige frihetsgrader.\n**c)** Test $H_0:\\beta_1=0$ mot $H_a:\\beta_1\\ne 0$ på 5 %-nivå. Bruk $t_{10,\\,0{,}025}=2{,}228$ og at $P(T_{10}>6{,}36)\\approx 0{,}00004$.",
+        "solution": "**a)** $\\hat\\beta_1=S_{xy}/S_{xx}=90/40=2{,}25$; $\\hat\\beta_0=\\bar y-\\hat\\beta_1\\bar x=20-2{,}25\\cdot 5=8{,}75$.\n\n**b)** $\\hat\\sigma^2=\\text{SSE}/(n-2)=50/10=5$, så $\\hat\\sigma=\\sqrt 5=2{,}236$ (df $=10$, ikke 11 — to parametere er estimert).\n\n**c)** $se(\\hat\\beta_1)=\\hat\\sigma/\\sqrt{S_{xx}}=2{,}236/\\sqrt{40}=0{,}354$. $T=2{,}25/0{,}354=6{,}36>2{,}228$: forkast. P-verdi $=2\\cdot 0{,}00004\\approx 0{,}0001<0{,}05$ — temperaturen har klar effekt på forventet tørketid.",
+        "hints": [
+          "$\\hat\\beta_1=S_{xy}/S_{xx}$ og linja går gjennom $(\\bar x,\\bar y)$.",
+          "$se(\\hat\\beta_1)=\\hat\\sigma/\\sqrt{S_{xx}}$ med $\\hat\\sigma$ fra (b); df $=n-2=10$."
+        ]
+      }
+    },
+    {
+      "id": "stk1110-3-7-ex3",
+      "type": "exercise",
+      "exercise": {
+        "id": "stk1110-3-7-ex3-e",
+        "number": "3",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "**(Sjanger K — prediksjon.)** Strekkfasthet $y$ (MPa) mot herdetid $x$ (døgn) for $n=20$ prøver (herdetid 4–16 døgn, $\\bar x=10$, $S_{xx}=250$):\n\n```\nCoefficients:\n            Estimate  Std. Error  t value  Pr(>|t|)\n(Intercept)   4.0000     1.61000    2.485    0.0230\ntid           1.8000     0.15179   11.859  6.11e-10\n---\nResidual standard error: 2.4 on 18 degrees of freedom\nMultiple R-squared:  0.8865,   Adjusted R-squared:  0.8802\n```\n\nBruk $t_{18,\\,0{,}025}=2{,}101$.\n\n**a)** Angi et 95 %-KI for forventet strekkfasthet ved $x_0=12$ døgn.\n**b)** Angi et 95 % prediksjonsintervall for en NY prøve ved $x_0=12$, og forklar hvorfor det er bredere.\n**c)** En kollega vil predikere ved $x_0=25$ døgn. Regn ut prediksjonsintervallet og forklar hvorfor det ikke bør brukes.",
+        "solution": "**a)** $\\hat y_0=4{,}0+1{,}8\\cdot 12=25{,}6$. $\\dfrac1{20}+\\dfrac{(12-10)^2}{250}=0{,}05+0{,}016=0{,}066$.\nKI: $25{,}6\\pm 2{,}101\\cdot 2{,}4\\sqrt{0{,}066}=25{,}6\\pm 1{,}30=[24{,}30,\\ 26{,}90]$ MPa.\n\n**b)** PI: $25{,}6\\pm 2{,}101\\cdot 2{,}4\\sqrt{1+0{,}066}=25{,}6\\pm 5{,}21=[20{,}39,\\ 30{,}81]$ MPa. Bredere fordi den nye prøvens eget støyledd $\\varepsilon_0$ legges til usikkerheten i $\\hat y_0$ — det er «$1+$»-leddet under rota.\n\n**c)** $\\hat y_0=4{,}0+1{,}8\\cdot 25=49{,}0$; $\\sqrt{1+\\tfrac1{20}+\\tfrac{(25-10)^2}{250}}=\\sqrt{1{,}95}=1{,}396$, så PI $=49{,}0\\pm 2{,}101\\cdot 2{,}4\\cdot 1{,}396=49{,}0\\pm 7{,}04$. Men $x_0=25$ ligger langt utenfor dataområdet 4–16 døgn: linearitet er udokumentert der (herding flater typisk ut), så både punktprediksjonen og intervallet er upålitelige — ekstrapolering skal frarådes.",
+        "hints": [
+          "Begge intervallene har form $\\hat y_0\\pm t\\,\\hat\\sigma\\sqrt{\\cdot}$; forskjellen er «$1+$» under rota.",
+          "For (c): sjekk $x_0$ mot dataområdet FØR du stoler på tallet."
+        ]
+      }
+    },
+    {
+      "id": "stk1110-3-7-ex4",
+      "type": "exercise",
+      "exercise": {
+        "id": "stk1110-3-7-ex4-e",
+        "number": "4",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "**(Sjanger I — multippel regresjon fra utskrift.)** Boligpris $y$ (mill. kr) mot areal $x_1$ (m²) og alder $x_2$ (år) for et utvalg boliger:\n\n```\nCoefficients:\n            Estimate  Std. Error  t value  Pr(>|t|)\n(Intercept)   1.2000      0.3500    3.429   0.00211\nareal         0.0280      0.0060    4.667  8.84e-05\nalder        -0.0150      0.0070   -2.143   0.04205\n---\nResidual standard error: 0.31 on 25 degrees of freedom\nMultiple R-squared:  0.712,    Adjusted R-squared:  0.689\nF-statistic: 30.90 on 2 and 25 DF,  p-value: 1.75e-07\n```\n\n**a)** Hvor mange boliger er med, og hvordan ser du det?\n**b)** Tolk alder-koeffisienten i kontekst.\n**c)** Gi et 95 %-KI for alder-koeffisienten. Bruk $t_{25,\\,0{,}025}=2{,}060$.\n**d)** Hvilken hypotese tester F-linja, og hva konkluderer du?",
+        "solution": "**a)** df $=n-k-1=25$ med $k=2$ prediktorer gir $n=28$ boliger.\n\n**b)** Per ekstra år boligalder synker forventet pris med estimert 0,015 mill. kr $=$ 15 000 kr, **med arealet holdt konstant**.\n\n**c)** $-0{,}015\\pm 2{,}060\\cdot 0{,}007=-0{,}015\\pm 0{,}0144=[-0{,}0294,\\ -0{,}0006]$. Intervallet ligger så vidt helt under 0 — konsistent med P-verdien 0,042 like under 0,05.\n\n**d)** F-linja tester $H_0:\\beta_1=\\beta_2=0$ (ingen av prediktorene har effekt) mot at minst én har. P-verdi $=1{,}75\\cdot 10^{-7}<0{,}05$: forkast — modellen som helhet har forklaringskraft.",
+        "hints": [
+          "df-linja gir $n-k-1$; tell prediktorene for å finne $k$.",
+          "I multippel modell skal tolkningen ha med «holdt konstant»-forbeholdet."
+        ]
+      }
+    },
+    {
+      "id": "stk1110-3-7-ex5",
+      "type": "exercise",
+      "exercise": {
+        "id": "stk1110-3-7-ex5-e",
+        "number": "5",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "**(Sjanger I — konfundering.)** Timelønn $y$ (kr) er først regressert på utdanningslengde $x_1$ (år), deretter på utdanning og yrkeserfaring $x_2$ (år). Nøkkeltall:\n\n```\nModell A (enkel):    utdanning  42.0  (Std. Error 6.0)\n                     Adjusted R-squared: 0.41\nModell B (multippel): utdanning  28.0  (Std. Error 7.0)\n                      erfaring   15.0  (Std. Error 4.0)\n                      Adjusted R-squared: 0.55\n```\n\n**a)** Utdanningskoeffisienten falt fra 42 til 28. Gi konfunderingsforklaringen.\n**b)** Hvilken modell foretrekkes, og med hvilket kriterium?\n**c)** Under hvilken betingelse ville koeffisienten IKKE endret seg fra A til B?",
+        "solution": "**a)** Erfaring påvirker lønna og er korrelert med utdanning (i dette utvalget). I modell A, uten erfaring, fanger utdanningskoeffisienten derfor også en del av erfaringseffekten. I modell B måles utdanningseffekten *med erfaring holdt konstant* — den rendyrkede effekten er 28 kr per utdanningsår.\n\n**b)** Modell B: justert $R^2$ er 0,55 mot 0,41. (Justert $R^2$ — ikke $R^2$ — brukes til modellvalg, siden $R^2$ øker automatisk med flere variabler.)\n\n**c)** Hvis utdanning og erfaring hadde vært ukorrelerte (ortogonale, f.eks. ved balansert design), ville utdanningskoeffisienten vært (tilnærmet) uendret — det er korrelasjonen mellom prediktorene som flytter koeffisienten.",
+        "hints": [
+          "Hvem «arver» effekten til en utelatt, korrelert variabel?",
+          "Modellvalg: sammenlign justert $R^2$, aldri Multiple R-squared."
+        ]
+      }
+    },
+    {
+      "id": "stk1110-3-7-ex6",
+      "type": "exercise",
+      "exercise": {
+        "id": "stk1110-3-7-ex6-e",
+        "number": "6",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "**(Sjanger J — diagnostikk.)** For en enkel regresjon av avlingsmengde mot gjødselmengde viser residualplottene:\n\n- *Residual mot tilpasset:* tydelig omvendt U-form (parabel) — positive residualer i midten, negative i begge ender.\n- *Scale-location:* omtrent flat trend.\n- *QQ-plott:* punktene følger linja godt.\n\n**a)** Hva sjekker hvert av de tre plottene?\n**b)** Hvilken antakelse er brutt her, og hva betyr mønsteret faglig?\n**c)** Foreslå en konkret modellutvidelse, og forklar hvorfor konklusjoner fra den lineære modellen er upålitelige.",
+        "solution": "**a)** Residual mot tilpasset: **linearitet** (kurvatur avslører feil funksjonsform). Scale-location: **konstant varians** (stigende/fallende trend avslører heteroskedastisitet). QQ-plott: **normalitet** av feilleddene.\n\n**b)** Lineariteten er brutt: parabelmønsteret betyr at sammenhengen er krum — avlingen stiger med gjødsel opp til et toppunkt og flater ut/synker (metning). Varians- og normalantakelsen ser derimot greie ut, begrunnet i flat scale-location og QQ-punkter nær linja.\n\n**c)** Legg til et kvadratledd: $Y_i=\\beta_0+\\beta_1x_i+\\beta_2x_i^2+\\varepsilon_i$. I den lineære modellen er $E(\\varepsilon_i)\\ne 0$ systematisk (modellfeil), så koeffisienttolkningen «konstant effekt per enhet» er gal, prediksjonene er skjeve i endene, og testene bygger på en feilspesifisert modell.",
+        "hints": [
+          "Koble hvert plott til én antakelse: form, varians, normalitet.",
+          "Parabel i residualplottet roper på et $x^2$-ledd i modellen."
+        ]
+      }
+    },
+    {
+      "id": "stk1110-3-7-ex7",
+      "type": "exercise",
+      "exercise": {
+        "id": "stk1110-3-7-ex7-e",
+        "number": "7",
+        "type": "classic",
+        "difficulty": "vanskelig",
+        "task": "**(Krevende — sjanger I: F mot t ved kollineære prediktorer.)** Salget $y$ er regressert på annonsering i to kanaler, $x_1$ og $x_2$, som er sterkt korrelerte ($r=0{,}93$), for $n=24$ uker:\n\n```\nCoefficients:\n            Estimate  Std. Error  t value  Pr(>|t|)\n(Intercept)   5.1000      1.9000    2.684    0.0139\nkanal1        0.8400      0.6400    1.312    0.2035\nkanal2        0.7100      0.6800    1.044    0.3083\n---\nResidual standard error: 3.4 on 21 degrees of freedom\nMultiple R-squared:  0.706,    Adjusted R-squared:  0.678\nF-statistic: 25.21 on 2 and 21 DF,  p-value: 2.62e-06\n```\n\n**a)** Ingen av kanal-koeffisientene er signifikante, men F-testen er sterkt signifikant. Forklar hvordan dette henger sammen.\n**b)** Betyr t-resultatene at annonsering er uten verdi? Formuler den korrekte, betingede tolkningen.\n**c)** Hva ville du gjort videre med modellen?",
+        "solution": "**a)** F-testen tester $H_0:\\beta_1=\\beta_2=0$ — at kanalene *samlet* er uten effekt — og forkaster klart ($p=2{,}6\\cdot 10^{-6}$; $R^2=0{,}71$). Hver t-test tester én koeffisient *betinget på at den andre er i modellen*. Når $x_1$ og $x_2$ er nesten kollineære, bærer de samme informasjon: gitt den ene, tilfører den andre lite, standardfeilene blåses opp, og begge t-testene blir svake. Samlet effekt er sterk; den lar seg bare ikke fordele presist mellom kanalene.\n\n**b)** Nei. «Ikke signifikant» betyr her «ingen påvisbar *tilleggseffekt* utover den andre kanalen» — ikke «uviktig». Å rapportere kanalene som virkningsløse ville motsi F-testen.\n\n**c)** Forenkle: bruk én av kanalene (eller summen av dem) som prediktor — med bare én av dem i modellen vil den fremstå klart signifikant, og justert $R^2$ vil trolig holde seg nesten uendret.",
+        "hints": [
+          "Hvilken hypotese tester F-linja, og hvilken tester hver t-rad?",
+          "Sterk korrelasjon mellom prediktorer blåser opp standardfeilene til de individuelle koeffisientene."
+        ]
+      }
+    },
+    {
+      "id": "stk1110-3-7-ex8",
+      "type": "exercise",
+      "exercise": {
+        "id": "stk1110-3-7-ex8-e",
+        "number": "8",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "**(Sjanger H — test mot en annen verdi enn null.)** Et måleinstrument kalibreres mot en referanse; ved perfekt kalibrering er stigningstallet 1. Regresjon av instrumentverdi mot referanseverdi for $n=32$ prøver:\n\n```\nCoefficients:\n            Estimate  Std. Error  t value  Pr(>|t|)\n(Intercept)   0.3100      0.4200    0.738    0.4662\nreferanse     0.9140      0.0380   24.053   < 2e-16\n---\nResidual standard error: 1.02 on 30 degrees of freedom\n```\n\n**a)** Forklar hvorfor Pr(>|t|)-kolonnen IKKE besvarer kalibreringsspørsmålet.\n**b)** Test $H_0:\\beta_1=1$ mot $H_a:\\beta_1\\ne 1$ på 5 %-nivå. Bruk $t_{30,\\,0{,}025}=2{,}042$ og $P(T_{30}>2{,}26)\\approx 0{,}0155$.\n**c)** Kryssjekk med et 95 %-KI for $\\beta_1$.",
+        "solution": "**a)** Utskriftens t- og P-verdier tester $H_0:\\beta_1=0$ («ingen sammenheng») — et helt annet spørsmål. Kalibreringsspørsmålet er $H_0:\\beta_1=1$, og da må observatoren regnes selv.\n\n**b)** $T=\\dfrac{\\hat\\beta_1-1}{se(\\hat\\beta_1)}=\\dfrac{0{,}914-1}{0{,}038}=-2{,}26$; under $H_0$ er $T\\sim t_{30}$. $|{-2{,}26}|=2{,}26>2{,}042$: forkast. P-verdi $=2\\cdot 0{,}0155\\approx 0{,}031<0{,}05$. På 5 %-nivå avviker stigningstallet fra 1 — instrumentet underestimerer endringer i referansen.\n\n**c)** KI: $0{,}914\\pm 2{,}042\\cdot 0{,}038=0{,}914\\pm 0{,}078=[0{,}836,\\ 0{,}992]$. Verdien 1 ligger utenfor — samme konklusjon (dualitet).",
+        "hints": [
+          "Pr(>|t|) i utskriften gjelder alltid nullverdien 0 — les oppgavens nullverdi nøye.",
+          "$T=(\\hat\\beta_1-1)/se(\\hat\\beta_1)$ med df $=n-2=30$."
+        ]
+      }
+    },
+    {
+      "id": "stk1110-3-7-ex9",
+      "type": "exercise",
+      "exercise": {
+        "id": "stk1110-3-7-ex9-e",
+        "number": "9",
+        "type": "classic",
+        "difficulty": "vanskelig",
+        "task": "**(Krevende — full a–f-kjede med konfundering og ekstrapolering.)** Daglig sykkelutleie $y$ (i hundre sykler) mot temperatur $x_1$ (°C) og nedbør $x_2$ (mm) for $n=35$ dager (temperatur 5–28 °C):\n\n**Modell A (bare temperatur):**\n\n```\nCoefficients:\n            Estimate  Std. Error  t value  Pr(>|t|)\ntemp          1.4200      0.1800    7.889  4.27e-09\n---\nResidual standard error: 2.32 on 33 degrees of freedom\nMultiple R-squared:  0.658,    Adjusted R-squared:  0.6476\n```\n\n**Modell B (temperatur + nedbør):**\n\n```\nCoefficients:\n            Estimate  Std. Error  t value  Pr(>|t|)\n(Intercept)   8.2000      2.1000    3.905   0.00046\ntemp          1.2100      0.1600    7.562  1.30e-08\nnedbor       -0.6500      0.2100   -3.095   0.00407\n---\nResidual standard error: 2.05 on 32 degrees of freedom\nMultiple R-squared:  0.741,    Adjusted R-squared:  0.7248\nF-statistic: 45.78 on 2 and 32 DF,  p-value: 4.10e-10\n```\n\n**a)** Tolk temp-koeffisienten i modell B i kontekst.\n**b)** Test på 5 %-nivå om nedbør har effekt gitt temperatur, med alle ledd i konklusjonen.\n**c)** Gi et 95 %-KI for nedbør-koeffisienten. Bruk $t_{32,\\,0{,}025}=2{,}037$.\n**d)** Velg modell med begrunnelse.\n**e)** Temp-koeffisienten endret seg fra 1,42 til 1,21. Forklar mekanismen.\n**f)** En festivalarrangør vil bruke modell B ved 35 °C. Kommenter.",
+        "solution": "**a)** Per grad høyere temperatur øker forventet utleie med estimert 1,21 hundre $=$ 121 sykler per dag, **med nedbøren holdt konstant**.\n\n**b)** $H_0:\\beta_2=0$ (ingen nedbørseffekt gitt temperatur) mot $H_a:\\beta_2\\ne 0$. Fra utskriften: $T=-3{,}095$, Pr(>|t|) $=0{,}0041<0{,}05$: forkast. På 5 %-nivå har nedbør en effekt på utleien utover temperaturen (df $=n-k-1=32$).\n\n**c)** $-0{,}65\\pm 2{,}037\\cdot 0{,}21=-0{,}65\\pm 0{,}428=[-1{,}078,\\ -0{,}222]$ — hele intervallet under 0, konsistent med (b).\n\n**d)** Modell B: justert $R^2=0{,}7248$ mot $0{,}6476$, og nedbør er signifikant. (Sammenligning skal skje med justert $R^2$, ikke Multiple R-squared.)\n\n**e)** Konfundering: varme dager er oftere tørre, så temperatur og nedbør er (negativt) korrelert, og nedbør påvirker utleien. I modell A fanger temp-koeffisienten derfor også litt av «tørt vær»-effekten; i modell B renses den ut (1,21 med nedbør holdt konstant).\n\n**f)** 35 °C ligger utenfor dataområdet 5–28 °C — ekstrapolering. Lineariteten er udokumentert der (utleie kan flate ut eller falle i hete), og både KI og PI blir svært brede fordi $(x_0-\\bar x)^2$-leddet vokser. Prediksjonen bør frarådes, eller i det minste rapporteres med kraftig forbehold.",
+        "hints": [
+          "Følg syvtrinnsoppskriften: tolkning → t/KI → justert $R^2$ → konfundering → ekstrapolering.",
+          "For (e): hvilken vei samvarierer temperatur og nedbør, og hvem påvirker responsen?"
+        ]
+      }
+    },
+    {
+      "id": "stk1110-3-7-ex10",
+      "type": "exercise",
+      "exercise": {
+        "id": "stk1110-3-7-ex10-e",
+        "number": "10",
+        "type": "classic",
+        "difficulty": "vanskelig",
+        "task": "**(Kald oppgave — fasit som momentliste, ingen hint.)** Avling $y$ (kg per rute) mot gjødselmengde $x$ (kg per dekar) for $n=15$ forsøksruter (gjødsel 20–60, $\\bar x=40$, $S_{xx}=3000$):\n\n```\nCoefficients:\n            Estimate  Std. Error  t value  Pr(>|t|)\n(Intercept)  13.2000     1.00700   13.109  7.19e-09\ngjodsel       0.1200     0.02373    5.056  0.000220\n---\nResidual standard error: 1.3 on 13 degrees of freedom\nMultiple R-squared:  0.6629,   Adjusted R-squared:  0.6369\nF-statistic: 25.56 on 1 and 13 DF,  p-value: 0.000220\n```\n\nBruk $t_{13,\\,0{,}025}=2{,}160$.\n\n**a)** Tolk stigningstallet i kontekst.\n**b)** Test på 5 %-nivå om gjødsel har effekt, og verifiser t value.\n**c)** Gi et 95 %-KI for $\\beta_1$.\n**d)** Angi $\\hat\\sigma$, frihetsgradene og sammenhengen mellom F og t her.\n**e)** Gi et 95 % prediksjonsintervall for en NY rute med $x_0=50$, og kommenter dataområdet.",
+        "solution": "**Momentliste (kald generalprøve):**\n\n- **a)** Estimert 0,12 kg mer avling per rute per ekstra kg gjødsel per dekar (tolkning MED enhet).\n- **b)** $H_0:\\beta_1=0$ mot $H_a:\\beta_1\\ne 0$; $t=0{,}1200/0{,}02373=5{,}06$; Pr(>|t|) $=0{,}00022<0{,}05$: forkast — gjødsel har effekt.\n- **c)** $0{,}12\\pm 2{,}160\\cdot 0{,}02373=0{,}12\\pm 0{,}051=[0{,}069,\\ 0{,}171]$.\n- **d)** $\\hat\\sigma=1{,}3$ på $n-2=13$ df; i enkel regresjon er $F=t^2$: $5{,}056^2=25{,}56$ — samme test, samme P-verdi.\n- **e)** $\\hat y_0=13{,}2+0{,}12\\cdot 50=19{,}2$; $\\sqrt{1+\\tfrac1{15}+\\tfrac{(50-40)^2}{3000}}=\\sqrt{1{,}10}=1{,}049$; PI $=19{,}2\\pm 2{,}160\\cdot 1{,}3\\cdot 1{,}049=19{,}2\\pm 2{,}95=[16{,}25,\\ 22{,}15]$ kg. $x_0=50$ ligger innenfor dataområdet 20–60 — ingen ekstrapoleringsfare.\n- Full uttelling krever: hypoteser, riktig df, «$1+$» i PI-rota og dataområde-kommentaren.",
+        "hints": []
+      }
+    },
+    {
+      "id": "stk1110-3-7-warn-typiske-feil",
+      "type": "warning",
+      "title": "Typiske feil i regresjonsoppgaven",
+      "content": "**1. Feil frihetsgrader.** Enkel regresjon: $n-2$; multippel med $k$ prediktorer: $n-k-1$. Feil df gir feil kvantil og trekker gjennom hele oppgaven.\n\n**2. $R^2$ i stedet for justert $R^2$ til modellvalg.** $R^2$ øker alltid når du legger til en prediktor — bare justert $R^2$ straffer unødvendige ledd.\n\n**3. Konfidens- og prediksjonsintervall forvekslet.** KI gjelder forventet respons $E(Y_0)$; PI gjelder én ny observasjon og har det ekstra $\\sigma^2$-leddet — PI er alltid bredere.\n\n**4. Koeffisient tolket som «hele effekten».** I multippel regresjon er $\\hat\\beta_j$ effekten av $x_j$ når de andre prediktorene holdes faste — utelater du det, tolker du feil (konfundering).\n\n**5. Lese R-utskriften feil og «ser greit ut» i diagnostikken.** Vit hvilken kolonne som er Estimate/Std. Error/t/P-verdi, og tolk residualplottene i mønstre (vifteform, kurvatur, tunge haler) — aldri bare «ser greit ut»."
+    },
+    {
+      "id": "stk1110-3-7-bank",
+      "type": "text",
+      "content": "## Begrepsbank"
+    },
+    {
+      "id": "stk1110-3-7-bank-note",
+      "type": "text",
+      "content": "*Flashcard-/repetisjonsstoff — hopp trygt over ved førstegangslesing; tidsanslaget gjelder kjernestoffet.* Syvtrinnsoppskriften og støttebegrepene, samlet for eksamensrepetisjon."
+    },
+    {
+      "id": "stk1110-3-7-bank-oppskrift",
+      "type": "definition",
+      "title": "Syvtrinns-regresjonsoppskriften",
+      "content": "Den faste kjeden i enhver regresjonsoppgave: (1) modell + antakelser; (2) koeffisienter + tolkning i kontekst; (3) t-test/KI med riktig df (evt. F-test); (4) $R^2$ vs. justert $R^2$; (5) konfundering; (6) diagnostikk i mønstre; (7) prediksjon med KI/PI-skillet og ekstrapoleringssjekk."
+    },
+    {
+      "id": "stk1110-3-7-bank-modell",
+      "type": "definition",
+      "title": "Modell og antakelser (trinn 1)",
+      "content": "Startpunktet for full uttelling: $Y_i=\\beta_0+\\beta_1x_{i1}+\\dots+\\beta_kx_{ik}+\\varepsilon_i$ med uavhengige $\\varepsilon_i\\sim N(0,\\sigma^2)$. Antakelsene (linearitet, konstant varians, normalitet, uavhengighet) er nettopp det diagnostikken i trinn 6 etterprøver."
+    },
+    {
+      "id": "stk1110-3-7-bank-tolkning",
+      "type": "definition",
+      "title": "Tolkning i kontekst (trinn 2)",
+      "content": "Sensorkravet for koeffisienter: tallfest MED enhet, og i multippel modell alltid med forbeholdet «med de øvrige variablene holdt konstant». En naken tallverdi uten kontekst gir ikke full uttelling."
+    },
+    {
+      "id": "stk1110-3-7-bank-ttest",
+      "type": "definition",
+      "title": "t-test for én koeffisient (trinn 3)",
+      "content": "Observatoren $T=(\\hat\\beta_j-\\beta_j^0)/se(\\hat\\beta_j)\\sim t_{df}$ under $H_0$. Utskriftens t value og Pr(>|t|) gjelder nullverdien 0; mot enhver annen nullverdi må $T$ regnes selv."
+    },
+    {
+      "id": "stk1110-3-7-bank-kifra",
+      "type": "definition",
+      "title": "KI fra utskriften",
+      "content": "Konfidensintervallet bygges rett fra kolonnene: Estimate $\\pm\\ t_{df,\\,\\alpha/2}\\cdot$ Std. Error, med df fra Residual standard error-linja. Dualitet: nullverdier utenfor intervallet forkastes av den tosidige testen."
+    },
+    {
+      "id": "stk1110-3-7-bank-ftest",
+      "type": "definition",
+      "title": "F-testen for samlet signifikans",
+      "content": "F-statistic-linja tester $H_0:\\beta_1=\\dots=\\beta_k=0$ — at ingen av prediktorene har effekt. I enkel regresjon er $F=T^2$, så F- og t-testen er samme test der."
+    },
+    {
+      "id": "stk1110-3-7-bank-dfvelger",
+      "type": "definition",
+      "title": "Frihetsgrad-velgeren i regresjon",
+      "content": "df $=n-2$ i enkel regresjon (to parametere estimert), $n-k-1$ i multippel med $k$ prediktorer. Leses direkte av «on … degrees of freedom»; feil df straffes hardt."
+    },
+    {
+      "id": "stk1110-3-7-bank-r2just",
+      "type": "definition",
+      "title": "$R^2$ vs. justert $R^2$ (trinn 4)",
+      "content": "$R^2=1-\\text{SSE}/\\text{SST}$ øker ALLTID når en variabel legges til; justert $R^2=1-\\dfrac{\\text{SSE}/(n-k-1)}{\\text{SST}/(n-1)}$ straffer for antall prediktorer og er derfor modellvalgskriteriet."
+    },
+    {
+      "id": "stk1110-3-7-bank-konfundering",
+      "type": "definition",
+      "title": "Konfundering (trinn 5)",
+      "content": "At en koeffisient endrer seg når en korrelert variabel legges til: uten den nye variabelen fanger den gamle koeffisienten også noe av dens effekt. Med ukorrelerte (ortogonale) prediktorer skjer ingen endring."
+    },
+    {
+      "id": "stk1110-3-7-bank-plott",
+      "type": "definition",
+      "title": "De tre diagnostikkplottene (trinn 6)",
+      "content": "Residual mot tilpasset → linearitet (kurvatur = feil form); scale-location → konstant varians (trend = heteroskedastisitet); QQ-plott → normalitet (avvik fra linja). Tolkes alltid i MØNSTRE, aldri «ser greit ut»."
+    },
+    {
+      "id": "stk1110-3-7-bank-kiforv",
+      "type": "definition",
+      "title": "KI for forventet respons",
+      "content": "Intervallet for $\\mu_{Y\\mid x_0}$: $\\hat y_0\\pm t_{n-2,\\,\\alpha/2}\\,\\hat\\sigma\\sqrt{\\dfrac1n+\\dfrac{(x_0-\\bar x)^2}{S_{xx}}}$ — usikkerheten i selve linja ved $x_0$."
+    },
+    {
+      "id": "stk1110-3-7-bank-pi",
+      "type": "definition",
+      "title": "Prediksjonsintervall («$1+$»)",
+      "content": "Intervallet for en NY observasjon ved $x_0$: samme formel med $\\sqrt{1+\\dfrac1n+\\dfrac{(x_0-\\bar x)^2}{S_{xx}}}$. «$1+$»-leddet er den nye observasjonens eget støyledd $\\varepsilon_0$ — derfor alltid bredere enn KI-et."
+    },
+    {
+      "id": "stk1110-3-7-bank-ekstrapolering",
+      "type": "definition",
+      "title": "Ekstrapoleringssjekken (trinn 7)",
+      "content": "Før enhver prediksjon: ligger $x_0$ i dataområdet? Utenfor er lineariteten udokumentert og intervallene eser ut med $(x_0-\\bar x)^2$ — prediksjonen skal frarådes eller rapporteres med kraftig forbehold."
+    },
+    {
+      "id": "stk1110-3-7-bank-betinget",
+      "type": "definition",
+      "title": "Ikke-signifikant er ikke uviktig",
+      "content": "En t-test i multippel modell er betinget på de øvrige variablene: «ikke signifikant» betyr «ingen påvisbar tilleggseffekt», ikke «uten verdi». Ved kollineære prediktorer kan alle t-tester være svake selv om F-testen er sterk."
+    },
+    {
+      "id": "stk1110-3-7-bank-kjederegel",
+      "type": "definition",
+      "title": "Kjede-regelen (oppgitt mellomresultat)",
+      "content": "Eksamens a–f-kjeder er bygget slik at ett blankt deltrinn ikke sperrer resten: bruk det oppgitte mellomresultatet og regn videre. Å stoppe helt ved første hinder er den dyreste strategifeilen i storoppgaven."
+    },
+    {
+      "id": "stk1110-3-7-symbol",
+      "type": "collapsible",
+      "title": "Symbol- og formelliste",
+      "buttonText": "Vis symboler og formler",
+      "content": [
+        {
+          "id": "stk1110-3-7-symbol-t",
+          "type": "text",
+          "content": "## Symbol- og formelliste\n\n*Oppslagsverk — alt her forklares underveis i kapitlet.*\n\n| Symbol | Betydning |\n|---|---|\n| $\\hat\\beta_j$, Estimate | Koeffisientestimat |\n| $se(\\hat\\beta_j)$, Std. Error | Standardfeil |\n| t value | $\\hat\\beta_j/se(\\hat\\beta_j)$ |\n| `Pr(>|t|)` | Tosidig P-verdi for $H_0:\\beta_j=0$ |\n| $\\hat\\sigma$ | Residual standard error |\n| $df$ | $n-2$ (enkel), $n-k-1$ (multippel) |\n| $R^2$ / justert $R^2$ | Forklart andel / modellvalgsmål |\n| F-statistic | Samlet test $H_0:\\beta_1=\\dots=\\beta_k=0$ |\n| $S_{xx}$ | $\\sum(x_i-\\bar x)^2$ |\n| $\\hat y_0$ | Prediksjon $\\hat\\beta_0+\\hat\\beta_1x_0$ |\n| KI / PI | Intervall for forventning / ny observasjon |\n\n**Formler i dette delkapitlet:**\n\n$$T=\\frac{\\hat\\beta_j-\\beta_j^0}{se(\\hat\\beta_j)}\\sim t_{df},\\qquad \\text{KI: }\\hat\\beta_j\\pm t_{df,\\,\\alpha/2}\\,se(\\hat\\beta_j)$$\nKoeffisientinferens med df $=n-2$ eller $n-k-1$.\n\n$$R^2=1-\\frac{\\text{SSE}}{\\text{SST}},\\qquad R^2_{\\text{just}}=1-\\frac{\\text{SSE}/(n-k-1)}{\\text{SST}/(n-1)},\\qquad F=T^2\\ (\\text{enkel})$$\nForklart andel, modellvalgsmålet og F/t-koblingen.\n\n$$\\hat y_0\\pm t_{n-2,\\,\\alpha/2}\\,\\hat\\sigma\\sqrt{\\tfrac1n+\\tfrac{(x_0-\\bar x)^2}{S_{xx}}}\\quad\\text{(KI)},\\qquad \\hat y_0\\pm t_{n-2,\\,\\alpha/2}\\,\\hat\\sigma\\sqrt{1+\\tfrac1n+\\tfrac{(x_0-\\bar x)^2}{S_{xx}}}\\quad\\text{(PI)}$$\nForventnings- og prediksjonsintervall — merk «$1+$» i PI-et.\n\n$$\\hat\\beta_1=\\frac{S_{xy}}{S_{xx}},\\qquad \\hat\\beta_0=\\bar y-\\hat\\beta_1\\bar x,\\qquad \\hat\\sigma^2=\\frac{\\text{SSE}}{n-2}$$\nMinste kvadrater og variansestimatet i enkel regresjon."
+        }
+      ]
+    }
+  ],
+  "exercises": []
+}

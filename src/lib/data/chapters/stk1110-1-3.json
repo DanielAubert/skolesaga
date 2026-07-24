@@ -1,0 +1,564 @@
+{
+  "id": "stk1110-1-3",
+  "courseId": "stk1110",
+  "chapterNumber": "1.3",
+  "title": "Fisher-informasjon, MLE-asymptotikk, Wald-KI og Cramér–Rao",
+  "description": "Fisher-informasjonen I(θ), MLE-ens tilnærmede normalfordeling N(θ,1/(nI(θ))), Wald-konfidensintervallet og Cramér–Raos nedre grense — det som skiller A-besvarelsen.",
+  "estimatedMinutes": 60,
+  "competenceGoals": [
+    "regne ut Fisher-informasjonen I(theta) i en observasjon og I_n=nI for hele utvalget",
+    "angi ML-estimatorens tilnaermede normalfordeling N(theta,1/(nI)) og begrunne den med sentralgrenseteoremet",
+    "konstruere Wald-konfidensintervall og velge symmetrisk eller asymmetrisk pivot-form",
+    "forklare Cramer-Rao-grensen og hvorfor ML-estimatoren er asymptotisk effisient"
+  ],
+  "content": [
+    {
+      "id": "stk1110-1-3-tip",
+      "type": "tip",
+      "title": "Eksamensvinkel",
+      "content": "**A-differensiatoren i estimeringsoppgaven.** Fisher-informasjon med tilnærmet normalfordelt ML-estimator opptrer i **omtrent 10 av 22 sett (45 %)**, og andelen har vært **stigende siden 2016**. Cramér–Rao ble bedt om eksplisitt så sent som i det nyeste settet.\n\n- **Sjanger C** (Fisher-info + ML-estimatorens fordeling) og **sjanger D** (Wald-konfidensintervall) hører sammen — de utgjør ofte de siste, tyngst tellende deloppgavene i Oppgave 1. *Sjanger* = oppgavetype.\n- Dette er stoffet som skiller A-besvarelsen: åpningsdelene (definer modell, finn ML-estimator) tar deg til bestått, men Fisher → Wald → Cramér–Rao tar deg til topps.\n\n**Sensorens krav (§4.4):** når du bruker normaltilnærming, **nevn eksplisitt** at det er ML-estimatorens asymptotikk (sentralgrenseteoremet) som ligger bak, og koble variansen til $1/(nI(\\theta))$. Prioritet: **kunne — mot perfekt for topp karakter.**"
+    },
+    {
+      "id": "stk1110-1-3-forkunnskaper",
+      "type": "text",
+      "content": "**Forkunnskaper:** Dette kapitlet bygger rett på ML-kjeden i **[kap. 1.2](/bok/stk1110/stk1110-1-2)** (likelihood $L$, log-likelihood $\\ell$, score $s=\\ell'$ og maksimumsbekreftelsen $\\ell''<0$) og estimator-egenskapene i **[kap. 1.1](/bok/stk1110/stk1110-1-1)** (forventningsretthet, varians, konsistens). Den andrederiverte $\\ell''$ fra kap. 1.2 er selve råstoffet for Fisher-informasjonen.\n\nNormaltilnærmingen hviler på sentralgrenseteoremet og de CLT-baserte konfidensintervallene fra STK1100 kap. 6.2 *CLT-tilnærmet konfidensintervall* (→ stk1100-6-2), og ML-grunnlaget fra STK1100 kap. 5.2 *Maximum likelihood og momentmetoden* (→ stk1100-5-2) *(klartekst — STK1100 er ikke bygget ennå)*. Trenger du å friske opp derivasjon og forventning som integral, se [R2 2.4 Bestemt integral](/bok/r2/r2-2-4) og [R1 4.1 Derivasjonsregler](/bok/r1/r1-4-1)."
+    },
+    {
+      "id": "stk1110-1-3-sistduvarher",
+      "type": "text",
+      "content": "**Sist du var her (fra kap. 1.2 — nøkkelformlene du trenger nå):**\n\n$$\\ell(\\theta)=\\sum_{i=1}^n\\log f(x_i;\\theta),\\qquad s(\\theta)=\\ell'(\\theta),\\qquad \\ell''(\\hat\\theta)<0.$$\n\nDu deriverte log-likelihood to ganger for å bekrefte maksimum. **Den samme andrederiverte** $\\ell''$ er byggesteinen i dette kapitlet: tar du forventningen av $-\\ell''$ og snur fortegnet, får du Fisher-informasjonen. ML-estimatoren $\\hat\\theta$ (f.eks. $\\bar X$ for Poisson, $1/\\bar X$ for eksponential) er punktet vi nå skal sette usikkerhet på."
+    },
+    {
+      "id": "stk1110-1-3-motiv",
+      "type": "text",
+      "content": "ML-estimatoren gir deg et *tall*. Men eksamen — og virkeligheten — spør: *hvor sikkert er det tallet?* Svaret ligger i hvor **skarp** toppen på log-likelihood-kurven er. En spiss topp betyr at dataene peker tydelig på én verdi (liten usikkerhet); en flat topp betyr stor usikkerhet.\n\n**Fisher-informasjonen** måler nettopp denne skarpheten — den forventede krumningen i toppen. Jo mer informasjon, jo mindre varians, jo smalere konfidensintervall. Dette kapitlet knytter sammen fire ting som henger uløselig sammen: informasjonen $I(\\theta)$, ML-estimatorens tilnærmede normalfordeling, **Wald-konfidensintervallet** og **Cramér–Raos** teoretiske grense for hvor godt det i det hele tatt går an å estimere.\n\nKapitlet går i seks løkker: Fisher-info → asymptotisk fordeling → standardfeil → Wald-KI → asymmetrisk pivot → Cramér–Rao og invarians. Hver løkke: teori → gjennomregnet eksempel → øvingsoppgave."
+    },
+    {
+      "id": "stk1110-1-3-l1",
+      "type": "text",
+      "content": "## Løkke 1 — Fisher-informasjonen (~12 min)"
+    },
+    {
+      "id": "stk1110-1-3-def-fisher",
+      "type": "definition",
+      "title": "Fisher-informasjonen $I(\\theta)$",
+      "content": "**Fisher-informasjonen** måler hvor mye én observasjon i gjennomsnitt forteller om parameteren — den forventede krumningen (nedadbøyningen) av log-likelihood i det sanne punktet. Formelt er den den forventede negative andrederiverte av log-tettheten:\n\n$$I(\\theta)=-E\\!\\left[\\frac{\\partial^2}{\\partial\\theta^2}\\log f(X;\\theta)\\right].$$\n\nStor $I(\\theta)$ = skarp topp = presis estimering. Merk store $X$: vi tar forventning over den stokastiske variabelen, så $I(\\theta)$ blir et tall som avhenger bare av $\\theta$, ikke av de konkrete dataene."
+    },
+    {
+      "id": "stk1110-1-3-l1-utl",
+      "type": "text",
+      "content": "**Hvorfor krumning = informasjon (utledes):**\n\n1. Toppen av $\\ell(\\theta)$ ligger der scoren er null. Nær toppen buer kurven nedover, så den andrederiverte $\\ell''(\\theta)$ er negativ.\n   *Intuisjon: en spiss topp (sterkt negativ $\\ell''$) betyr at log-likelihood faller raskt når du beveger deg vekk fra ML-verdien — dataene «insisterer» på verdien.*\n2. For én observasjon er krumningen $\\frac{\\partial^2}{\\partial\\theta^2}\\log f(X;\\theta)$ selv stokastisk (den avhenger av $X$). Vi tar forventningen for å få et fast mål og snur fortegnet så tallet blir positivt:\n   $$I(\\theta)=-E\\!\\left[\\frac{\\partial^2}{\\partial\\theta^2}\\log f(X;\\theta)\\right].$$\n   *Intuisjon: gjennomsnittlig hvor spiss toppen er, målt som en positiv informasjonsmengde.*\n3. Det finnes en ekvivalent form via variansen av scoren (neste definisjon), som ofte er lettere å regne."
+    },
+    {
+      "id": "stk1110-1-3-def-scorevar",
+      "type": "definition",
+      "title": "Fisher-informasjonen som score-varians",
+      "content": "**Fisher-informasjonen kan også regnes som variansen av scoren** i én observasjon:\n\n$$I(\\theta)=E\\!\\left[\\left(\\frac{\\partial}{\\partial\\theta}\\log f(X;\\theta)\\right)^2\\right]=\\operatorname{Var}\\!\\left(\\frac{\\partial}{\\partial\\theta}\\log f(X;\\theta)\\right).$$\n\nDe to formlene gir alltid samme svar (under regularitetsbetingelsene), fordi scoren har forventning null. Velg den som er lettest å regne for din tetthet — andrederivert-formen er vanligst på eksamen."
+    },
+    {
+      "id": "stk1110-1-3-def-In",
+      "type": "definition",
+      "title": "Informasjonen i hele utvalget $I_n(\\theta)$",
+      "content": "**Informasjonen i hele utvalget** er additiv: $n$ uavhengige observasjoner gir $n$ ganger informasjonen i én:\n\n$$I_n(\\theta)=n\\,I(\\theta).$$\n\nDette er nøkkelen til hvorfor mer data gir mindre usikkerhet — informasjonen vokser lineært med $n$, og variansen til ML-estimatoren (neste løkke) er nettopp $1/I_n(\\theta)$. **Bland aldri $I(\\theta)$ (én observasjon) med $I_n(\\theta)=nI(\\theta)$ (hele utvalget)** — en klassisk trekkbelastning."
+    },
+    {
+      "id": "stk1110-1-3-ex1",
+      "type": "example",
+      "title": "Eksempel 1: Fisher-informasjon for Poisson (sjanger C)",
+      "problem": "Antall skader per forsikringsavtale er Poisson$(\\lambda)$ med punktsannsynlighet $f(x;\\lambda)=e^{-\\lambda}\\lambda^x/x!$. Finn Fisher-informasjonen $I(\\lambda)$ i én observasjon og $I_n(\\lambda)$ for $n$ observasjoner.",
+      "solution": "$\\log f=-\\lambda+x\\log\\lambda-\\log x!$.\n\n**Førstederivert (score):** $\\dfrac{\\partial}{\\partial\\lambda}\\log f=-1+\\dfrac{x}{\\lambda}$.\n\n**Andrederivert:** $\\dfrac{\\partial^2}{\\partial\\lambda^2}\\log f=-\\dfrac{x}{\\lambda^2}$.\n\n**Ta forventning og snu fortegn** (bruk $E(X)=\\lambda$):\n$$I(\\lambda)=-E\\!\\left[-\\frac{X}{\\lambda^2}\\right]=\\frac{E(X)}{\\lambda^2}=\\frac{\\lambda}{\\lambda^2}=\\frac{1}{\\lambda}.$$\n\nFor hele utvalget: $I_n(\\lambda)=nI(\\lambda)=\\dfrac{n}{\\lambda}$. Merk: stor $\\lambda$ (mye spredning) gir *lavere* informasjon per observasjon."
+    },
+    {
+      "id": "stk1110-1-3-oppg1",
+      "type": "exercise",
+      "exercise": {
+        "id": "stk1110-1-3-oppg1-e",
+        "number": "1",
+        "type": "classic",
+        "difficulty": "lett",
+        "task": "Levetider er eksponentialfordelte med rate $\\lambda$, $f(x;\\lambda)=\\lambda e^{-\\lambda x}$, $x>0$ (husk $E(X)=1/\\lambda$). Finn Fisher-informasjonen $I(\\lambda)$ i én observasjon og $I_n(\\lambda)$.",
+        "solution": "$\\log f=\\log\\lambda-\\lambda x$. Score: $\\dfrac{\\partial}{\\partial\\lambda}\\log f=\\dfrac1\\lambda-x$. Andrederivert: $-\\dfrac{1}{\\lambda^2}$ (uavhengig av $x$). Da er $I(\\lambda)=-E[-1/\\lambda^2]=\\dfrac{1}{\\lambda^2}$, og $I_n(\\lambda)=\\dfrac{n}{\\lambda^2}$.",
+        "hints": [
+          "Deriver $\\log f=\\log\\lambda-\\lambda x$ to ganger med hensyn på $\\lambda$.",
+          "Andrederiverte er her konstant i $x$, så forventningen er triviell."
+        ]
+      }
+    },
+    {
+      "id": "stk1110-1-3-l2",
+      "type": "text",
+      "content": "## Løkke 2 — ML-estimatorens asymptotiske fordeling (~10 min)"
+    },
+    {
+      "id": "stk1110-1-3-def-asymp",
+      "type": "definition",
+      "title": "ML-estimatorens asymptotiske fordeling",
+      "content": "Under regularitetsbetingelsene er maximum-likelihood-estimatoren **tilnærmet normalfordelt** i store utvalg, sentrert på den sanne verdien, med varians lik den inverse utvalgsinformasjonen:\n\n$$\\hat\\theta \\;\\overset{\\text{ca.}}{\\sim}\\; N\\!\\left(\\theta,\\ \\frac{1}{nI(\\theta)}\\right)\\qquad(n \\text{ stor}).$$\n\nDette er grunnlaget for Wald-konfidensintervallet. **Bruker du normaltilnærmingen, må du nevne at det er denne ML-asymptotikken (sentralgrenseteoremet) som gjelder** (sensorkrav §4.4). Andre argument i $N(\\cdot,\\cdot)$ er variansen, aldri standardavviket."
+    },
+    {
+      "id": "stk1110-1-3-ex2",
+      "type": "example",
+      "title": "Eksempel 2: Asymptotisk fordeling for Poisson (sjanger C)",
+      "problem": "For Poisson$(\\lambda)$ er ML-estimatoren $\\hat\\lambda=\\bar X$ (kap. 1.2) og $I(\\lambda)=1/\\lambda$ (eksempel 1). Angi den tilnærmede fordelingen til $\\hat\\lambda$ for stor $n$.",
+      "solution": "ML-asymptotikken gir\n$$\\hat\\lambda\\overset{\\text{ca.}}{\\sim}N\\!\\left(\\lambda,\\frac{1}{nI(\\lambda)}\\right)=N\\!\\left(\\lambda,\\frac{\\lambda}{n}\\right).$$\nHer stemmer tilnærmingen med det eksakte: $E(\\bar X)=\\lambda$ og $\\operatorname{Var}(\\bar X)=\\lambda/n$ nøyaktig. **Poeng til sensor:** si eksplisitt at normalformen følger av ML-asymptotikken/sentralgrenseteoremet — ikke bare «$\\bar X$ er normal»."
+    },
+    {
+      "id": "stk1110-1-3-oppg2",
+      "type": "exercise",
+      "exercise": {
+        "id": "stk1110-1-3-oppg2-e",
+        "number": "2",
+        "type": "classic",
+        "difficulty": "lett",
+        "task": "Data er eksponentialfordelte med rate $\\lambda$ og $I(\\lambda)=1/\\lambda^2$ (oppgave 1), med ML-estimator $\\hat\\lambda=1/\\bar X$. Angi den tilnærmede fordelingen til $\\hat\\lambda$ for stor $n$, og skriv variansen ut.",
+        "solution": "$\\hat\\lambda\\overset{\\text{ca.}}{\\sim}N\\!\\left(\\lambda,\\dfrac{1}{nI(\\lambda)}\\right)=N\\!\\left(\\lambda,\\dfrac{\\lambda^2}{n}\\right).$ Variansen er $\\lambda^2/n$. Nevn at det er ML-asymptotikken/sentralgrenseteoremet som gir normalformen.",
+        "hints": [
+          "Sett $I(\\lambda)=1/\\lambda^2$ inn i $1/(nI(\\lambda))$.",
+          "Husk å nevne sentralgrenseteoremet bak normaltilnærmingen."
+        ]
+      }
+    },
+    {
+      "id": "stk1110-1-3-l3",
+      "type": "text",
+      "content": "## Løkke 3 — Standardfeil og Wald-konfidensintervall (~12 min)"
+    },
+    {
+      "id": "stk1110-1-3-def-se",
+      "type": "definition",
+      "title": "Standardfeilen $se(\\hat\\theta)$",
+      "content": "**Standardfeilen** til en estimator er det *estimerte* standardavviket — anslaget på hvor mye $\\hat\\theta$ typisk bommer. For en ML-estimator setter vi den estimerte informasjonen i stedet for den sanne (plugg inn $\\hat\\theta$):\n\n$$se(\\hat\\theta)=\\sqrt{\\frac{1}{nI(\\hat\\theta)}}.$$\n\nDette er $\\sqrt{\\text{varians}}$, men med $\\theta$ erstattet av estimatet fordi den sanne $\\theta$ er ukjent. Standardfeilen er byggesteinen i Wald-intervallet."
+    },
+    {
+      "id": "stk1110-1-3-def-wald",
+      "type": "definition",
+      "title": "Wald-konfidensintervallet",
+      "content": "**Wald-konfidensintervallet** tar ML-estimatorens tilnærmede normalfordeling og legger på $\\pm$ et kvantilantall standardfeil. Et tilnærmet $(1-\\alpha)$-intervall for $\\theta$ er\n\n$$\\hat\\theta \\pm z_{\\alpha/2}\\,se(\\hat\\theta),\\qquad se(\\hat\\theta)=\\sqrt{\\frac{1}{nI(\\hat\\theta)}}.$$\n\n$z_{\\alpha/2}$ er øvre $\\alpha/2$-kvantil i standardnormalen ($z_{0{,}025}=1{,}96$ for 95 %). **Koble alltid variansen eksplisitt til $1/(nI(\\theta))$** — det er det sensor ser etter (§4.4)."
+    },
+    {
+      "id": "stk1110-1-3-l3-utl",
+      "type": "text",
+      "content": "**Hvorfor formen $\\hat\\theta\\pm z_{\\alpha/2}\\,se$ (utledes):**\n\n1. Start med pivoten $\\dfrac{\\hat\\theta-\\theta}{se(\\hat\\theta)}\\overset{\\text{ca.}}{\\sim}N(0,1)$.\n   *Intuisjon: standardiser ML-estimatoren — trekk fra forventningen, del på standardfeilen.*\n2. En standardnormal ligger mellom $-z_{\\alpha/2}$ og $z_{\\alpha/2}$ med sannsynlighet $1-\\alpha$:\n   $$P\\!\\left(-z_{\\alpha/2}\\le \\frac{\\hat\\theta-\\theta}{se}\\le z_{\\alpha/2}\\right)\\approx 1-\\alpha.$$\n   *Intuisjon: $z_{\\alpha/2}$ kutter av $\\alpha/2$ i hver hale.*\n3. Løs ulikheten for $\\theta$ (med $se$ behandlet som en fast størrelse): $\\hat\\theta-z_{\\alpha/2}se\\le\\theta\\le\\hat\\theta+z_{\\alpha/2}se$.\n   *Intuisjon: det gir det symmetriske Wald-intervallet.*"
+    },
+    {
+      "id": "stk1110-1-3-ex3",
+      "type": "example",
+      "title": "Eksempel 3: Wald-intervall for Poisson-rate (sjanger D)",
+      "problem": "Antall skader per avtale er Poisson$(\\lambda)$. Du observerer $n=40$ avtaler med gjennomsnitt $\\bar x=3{,}5$ skader. Konstruer et 95 % Wald-konfidensintervall for $\\lambda$.",
+      "solution": "ML-estimatet er $\\hat\\lambda=\\bar x=3{,}5$. Informasjonen er $I(\\lambda)=1/\\lambda$, så\n$$se(\\hat\\lambda)=\\sqrt{\\frac{1}{nI(\\hat\\lambda)}}=\\sqrt{\\frac{\\hat\\lambda}{n}}=\\sqrt{\\frac{3{,}5}{40}}=0{,}296.$$\nMed $z_{0{,}025}=1{,}96$:\n$$3{,}5 \\pm 1{,}96\\cdot 0{,}296 = 3{,}5 \\pm 0{,}580 = [2{,}92,\\ 4{,}08].$$\nProsedyren fanger den sanne raten i 95 % av gjentatte utvalg; her gir den $[2{,}92,\\ 4{,}08]$ skader per avtale. **Nevn** at normalformen bak intervallet er ML-asymptotikken."
+    },
+    {
+      "id": "stk1110-1-3-oppg3",
+      "type": "exercise",
+      "exercise": {
+        "id": "stk1110-1-3-oppg3-e",
+        "number": "3",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "I et utvalg på $n=200$ enheter er andelen defekte $\\hat p=0{,}30$. For Bernoulli$(p)$ er $I(p)=1/[p(1-p)]$. Konstruer et 95 % Wald-intervall for $p$.",
+        "solution": "$se(\\hat p)=\\sqrt{1/(nI(\\hat p))}=\\sqrt{\\hat p(1-\\hat p)/n}=\\sqrt{0{,}30\\cdot0{,}70/200}=0{,}0324$. Med $z=1{,}96$: $0{,}30\\pm1{,}96\\cdot0{,}0324=0{,}30\\pm0{,}0635=[0{,}236,\\ 0{,}364]$. Dette er nettopp andels-intervallet du møter igjen i **[kap. 2.1](/bok/stk1110/stk1110-2-1)**.",
+        "hints": [
+          "$se(\\hat p)=\\sqrt{1/(nI(\\hat p))}$; sett $I(\\hat p)=1/[\\hat p(1-\\hat p)]$ inn.",
+          "Da forenkles $se$ til $\\sqrt{\\hat p(1-\\hat p)/n}$."
+        ]
+      }
+    },
+    {
+      "id": "stk1110-1-3-l4",
+      "type": "text",
+      "content": "## Løkke 4 — Asymmetrisk pivot-form (~10 min)"
+    },
+    {
+      "id": "stk1110-1-3-def-asym",
+      "type": "definition",
+      "title": "Asymmetrisk (pivot-basert) Wald-intervall",
+      "content": "**Asymmetrisk Wald-intervall.** Når standardfeilen selv avhenger av parameteren — $se\\propto\\theta$ — er det mer presist å beholde den *sanne* $\\theta$ i pivoten i stedet for å plugge inn $\\hat\\theta$. For eksponentialmodellen (forventning $\\theta$, $I(\\theta)=1/\\theta^2$, så standardavviket er $\\theta/\\sqrt n$) gir pivoten $\\dfrac{\\hat\\theta-\\theta}{\\theta/\\sqrt n}$ intervallet\n\n$$\\left[\\frac{\\hat\\theta}{1+z_{\\alpha/2}/\\sqrt n},\\ \\frac{\\hat\\theta}{1-z_{\\alpha/2}/\\sqrt n}\\right].$$\n\nDette er **asymmetrisk om $\\hat\\theta$ — og det er et trekk, ikke en feil** (§4.7). Den symmetriske Wald-formen er en grovere tilnærming, og kan gi negative grenser for en positiv parameter."
+    },
+    {
+      "id": "stk1110-1-3-l4-utl",
+      "type": "text",
+      "content": "**Utledning (eksponential, $se=\\theta/\\sqrt n$; skriv $z=z_{\\alpha/2}$):**\n\n1. Behold sann $\\theta$ i nevneren: $-z\\le\\dfrac{\\hat\\theta-\\theta}{\\theta/\\sqrt n}\\le z$.\n   *Intuisjon: vi standardiserer med den ekte usikkerheten, ikke den estimerte.*\n2. Venstre ulikhet: $\\hat\\theta-\\theta\\le z\\theta/\\sqrt n\\Rightarrow \\hat\\theta\\le\\theta(1+z/\\sqrt n)\\Rightarrow \\theta\\ge\\dfrac{\\hat\\theta}{1+z/\\sqrt n}$.\n3. Høyre ulikhet: $\\hat\\theta-\\theta\\ge -z\\theta/\\sqrt n\\Rightarrow \\hat\\theta\\ge\\theta(1-z/\\sqrt n)\\Rightarrow \\theta\\le\\dfrac{\\hat\\theta}{1-z/\\sqrt n}$.\n   *Intuisjon: de to grensene deler ikke $\\hat\\theta$ likt — nedre og øvre ende skyves ulikt.*\n\nSammen: $\\left[\\dfrac{\\hat\\theta}{1+z/\\sqrt n},\\ \\dfrac{\\hat\\theta}{1-z/\\sqrt n}\\right]$. (Den *eksakte* $\\chi^2$-pivoten for samme modell kommer i kap. 2.5.)"
+    },
+    {
+      "id": "stk1110-1-3-ex4",
+      "type": "example",
+      "title": "Eksempel 4: Symmetrisk mot asymmetrisk Wald (sjanger D, eksamensnivå)",
+      "problem": "Ventetider (minutter) er eksponentialfordelte med forventning $\\theta$, $f(x;\\theta)=\\frac1\\theta e^{-x/\\theta}$, og $I(\\theta)=1/\\theta^2$. Du har $n=25$ observasjoner med $\\bar x=8{,}0$. Gi (a) det symmetriske og (b) det asymmetriske 95 % Wald-intervallet for $\\theta$, og kommentér forskjellen.",
+      "solution": "ML: $\\hat\\theta=\\bar x=8{,}0$. $se(\\hat\\theta)=\\sqrt{1/(nI(\\hat\\theta))}=\\hat\\theta/\\sqrt n=8/5=1{,}6$. $z/\\sqrt n=1{,}96/5=0{,}392$.\n\n**a) Symmetrisk:** $8{,}0\\pm1{,}96\\cdot1{,}6=8{,}0\\pm3{,}136=[4{,}86,\\ 11{,}14]$.\n\n**b) Asymmetrisk pivot:** $\\left[\\dfrac{8}{1+0{,}392},\\ \\dfrac{8}{1-0{,}392}\\right]=\\left[\\dfrac{8}{1{,}392},\\ \\dfrac{8}{0{,}608}\\right]=[5{,}75,\\ 13{,}16]$.\n\n**Forskjell:** det asymmetriske intervallet strekker seg lenger oppover (mot store $\\theta$) og mindre nedover — riktig, siden usikkerheten vokser med $\\theta$. Det symmetriske er en grovere approksimasjon. Begge er 95 %-intervall; det asymmetriske foretrekkes når $se$ avhenger av parameteren."
+    },
+    {
+      "id": "stk1110-1-3-oppg4",
+      "type": "exercise",
+      "exercise": {
+        "id": "stk1110-1-3-oppg4-e",
+        "number": "4",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "Bruk samme eksponentialmodell ($se=\\theta/\\sqrt n$) med $n=16$ observasjoner og $\\bar x=5{,}0$ timer.\n\n**a)** Gi det symmetriske 95 % Wald-intervallet for $\\theta$.\n\n**b)** Gi det asymmetriske pivot-intervallet.\n\n**c)** Hvilket er å foretrekke, og hvorfor?",
+        "solution": "$\\hat\\theta=5{,}0$, $se=5/4=1{,}25$, $z/\\sqrt n=1{,}96/4=0{,}49$.\n\n**a)** $5\\pm1{,}96\\cdot1{,}25=5\\pm2{,}45=[2{,}55,\\ 7{,}45]$.\n\n**b)** $\\left[\\dfrac{5}{1{,}49},\\ \\dfrac{5}{0{,}51}\\right]=[3{,}36,\\ 9{,}80]$.\n\n**c)** Det asymmetriske: standardavviket ($\\theta/\\sqrt n$) avhenger av parameteren, så pivot-formen med sann $\\theta$ i nevneren er mer presis. Den unngår også negative nedre grenser.",
+        "hints": [
+          "$se=\\hat\\theta/\\sqrt n$ fordi $I(\\theta)=1/\\theta^2$ gir $1/(nI)=\\theta^2/n$.",
+          "Asymmetrisk: del $\\hat\\theta$ på $1+z/\\sqrt n$ og på $1-z/\\sqrt n$."
+        ]
+      }
+    },
+    {
+      "id": "stk1110-1-3-l5",
+      "type": "text",
+      "content": "## Løkke 5 — Cramér–Rao og effisiens (~10 min)"
+    },
+    {
+      "id": "stk1110-1-3-def-cr",
+      "type": "definition",
+      "title": "Cramér–Raos nedre grense",
+      "content": "**Cramér–Raos nedre grense** setter en teoretisk bunn for hvor liten variansen til en forventningsrett estimator kan bli. For enhver forventningsrett estimator $T$ for $\\theta$ gjelder\n\n$$\\operatorname{Var}(T)\\ge \\frac{1}{nI(\\theta)}=\\frac{1}{I_n(\\theta)}.$$\n\nIngen forventningsrett estimator kan slå denne grensen. Den er nøyaktig den variansen ML-estimatoren oppnår asymptotisk — derfor kan ingen gjøre det vesentlig bedre enn maximum likelihood i store utvalg."
+    },
+    {
+      "id": "stk1110-1-3-def-eff",
+      "type": "definition",
+      "title": "Asymptotisk effisiens",
+      "content": "**Asymptotisk effisiens.** En estimator er asymptotisk effisient hvis variansen når Cramér–Rao-grensen $1/(nI(\\theta))$ når $n\\to\\infty$. Maximum-likelihood-estimatoren er asymptotisk effisient under regularitetsbetingelsene — den henter i praksis ut *all* informasjonen dataene inneholder. Dette er hovedgrunnen til at ML er standardvalget."
+    },
+    {
+      "id": "stk1110-1-3-ex5",
+      "type": "example",
+      "title": "Eksempel 5: $\\bar X$ oppnår Cramér–Rao-grensen (Poisson)",
+      "problem": "For Poisson$(\\lambda)$ er $\\hat\\lambda=\\bar X$ forventningsrett med $\\operatorname{Var}(\\bar X)=\\lambda/n$, og $I(\\lambda)=1/\\lambda$. Vis at $\\bar X$ oppnår Cramér–Rao-grensen, og forklar hva det betyr.",
+      "solution": "Cramér–Rao-grensen er $\\dfrac{1}{nI(\\lambda)}=\\dfrac{1}{n\\cdot(1/\\lambda)}=\\dfrac{\\lambda}{n}$. Dette er *nøyaktig* $\\operatorname{Var}(\\bar X)$. Altså oppnår $\\bar X$ grensen — den er en **effisient** estimator (ikke bare asymptotisk): ingen forventningsrett estimator for $\\lambda$ kan ha mindre varians. Derfor er det umulig å forbedre $\\bar X$ i Poisson-modellen."
+    },
+    {
+      "id": "stk1110-1-3-oppg5",
+      "type": "exercise",
+      "exercise": {
+        "id": "stk1110-1-3-oppg5-e",
+        "number": "5",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "For eksponentialmodellen med forventning $\\theta$ er $\\hat\\theta=\\bar X$ forventningsrett med $\\operatorname{Var}(\\bar X)=\\theta^2/n$, og $I(\\theta)=1/\\theta^2$.\n\n**a)** Finn Cramér–Rao-grensen.\n\n**b)** Oppnår $\\bar X$ den?\n\n**c)** Hva forteller det deg?",
+        "solution": "**a)** $\\dfrac{1}{nI(\\theta)}=\\dfrac{1}{n/\\theta^2}=\\dfrac{\\theta^2}{n}$.\n\n**b)** Ja — $\\operatorname{Var}(\\bar X)=\\theta^2/n$ er lik grensen.\n\n**c)** $\\bar X$ er effisient: ingen forventningsrett estimator for $\\theta$ har mindre varians. Wald-intervallet bygget på $\\bar X$ er dermed så smalt som teorien tillater.",
+        "hints": [
+          "Sett $I(\\theta)=1/\\theta^2$ inn i $1/(nI(\\theta))$.",
+          "Sammenlign grensen med den oppgitte $\\operatorname{Var}(\\bar X)=\\theta^2/n$."
+        ]
+      }
+    },
+    {
+      "id": "stk1110-1-3-l6",
+      "type": "text",
+      "content": "## Løkke 6 — Invarians: transformer Wald-intervallet (~8 min)"
+    },
+    {
+      "id": "stk1110-1-3-def-inv",
+      "type": "definition",
+      "title": "Invarians-transformasjon av et konfidensintervall",
+      "content": "**Invarians-transformasjon av et konfidensintervall.** Er $[L,\\ U]$ et $(1-\\alpha)$-intervall for $\\theta$ og $\\psi=g(\\theta)$ en **monoton voksende** funksjon, så er\n\n$$[\\,g(L),\\ g(U)\\,]$$\n\net $(1-\\alpha)$-intervall for $\\psi$ — dekningsgraden bevares fordi $g$ er én-til-én. Er $g$ **avtakende**, bytter endepunktene plass: $[g(U),\\ g(L)]$. Punktestimatet transformeres samtidig ved invariansprinsippet (kap. 1.2): $\\hat\\psi=g(\\hat\\theta)$. Ingen ny ML- eller Fisher-regning trengs."
+    },
+    {
+      "id": "stk1110-1-3-ex6",
+      "type": "example",
+      "title": "Eksempel 6: Transformer intervallet til raten (sjanger C/D)",
+      "problem": "For eksponentialmodellen (forventning $\\theta$) fant du 95 %-intervallet $[4{,}86,\\ 11{,}14]$ for $\\theta$ (eksempel 4a), med $\\hat\\theta=8{,}0$. Raten er $\\lambda=1/\\theta$. Finn ML-estimatet og et 95 %-intervall for $\\lambda$.",
+      "solution": "Invariansprinsippet gir punktestimatet $\\hat\\lambda=1/\\hat\\theta=1/8=0{,}125$ per minutt. Funksjonen $g(\\theta)=1/\\theta$ er **avtakende**, så endepunktene bytter plass:\n$$\\left[\\frac{1}{11{,}14},\\ \\frac{1}{4{,}86}\\right]=[0{,}090,\\ 0{,}206].$$\nAltså $[0{,}090,\\ 0{,}206]$ for raten $\\lambda$. Vi gjorde verken ny ML eller ny Fisher-regning — bare transformerte intervallet."
+    },
+    {
+      "id": "stk1110-1-3-oppg6",
+      "type": "exercise",
+      "exercise": {
+        "id": "stk1110-1-3-oppg6-e",
+        "number": "6",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "Fra samme modell har du 95 %-intervallet $[2{,}55,\\ 7{,}45]$ for forventet ventetid $\\theta$ (oppgave 4a), $\\hat\\theta=5{,}0$.\n\n**a)** Finn ML-estimatet og et 95 %-intervall for $\\log\\theta$.\n\n**b)** Finn tilsvarende for raten $\\lambda=1/\\theta$.",
+        "solution": "**a)** $g(\\theta)=\\log\\theta$ er voksende, så endepunktene beholder rekkefølgen: $\\widehat{\\log\\theta}=\\log 5=1{,}609$, intervall $[\\log 2{,}55,\\ \\log 7{,}45]=[0{,}936,\\ 2{,}008]$.\n\n**b)** $g(\\theta)=1/\\theta$ er avtakende → bytt endepunkter: $\\hat\\lambda=1/5=0{,}20$, intervall $[1/7{,}45,\\ 1/2{,}55]=[0{,}134,\\ 0{,}392]$.",
+        "hints": [
+          "Bruk $[g(L),g(U)]$ når $g$ er voksende, og bytt endepunkter når $g$ er avtakende.",
+          "$\\log\\theta$ er voksende; $1/\\theta$ er avtakende."
+        ]
+      }
+    },
+    {
+      "id": "stk1110-1-3-warn",
+      "type": "warning",
+      "title": "Typiske feil (fra løsningsforslagene)",
+      "content": "- **Glemme minustegnet eller forventningen** i $I(\\theta)=-E[\\partial^2\\log f/\\partial\\theta^2]$. Uten forventningen får du en tilfeldig størrelse (observert informasjon), ikke Fisher-informasjonen; uten minus får du feil fortegn.\n- **Forveksle $I(\\theta)$ (én observasjon) med $I_n(\\theta)=nI(\\theta)$ (hele utvalget).** Variansen til ML-estimatoren er $1/(nI(\\theta))$, ikke $1/I(\\theta)$.\n- **Ikke nevne ML-asymptotikken** når du bruker normaltilnærming. Sensor vil se at du vet *hvorfor* $\\hat\\theta$ er tilnærmet normal (§4.4).\n- **Hoppe rett til symmetrisk Wald** der standardavviket avhenger av parameteren — da er en asymmetrisk/eksakt pivot riktigere (og et symmetrisk intervall kan gi negative grenser for en positiv parameter).\n- **Bruke $z$ der det skulle vært $t$:** Wald-intervall for en ML-estimator bruker $z$ (normaltilnærming), men et intervall for et normalgjennomsnitt med estimert $\\sigma$ bruker $t$ (kap. 2.1). Velg riktig.\n- **Estimator mot estimat:** $\\hat\\theta$ er en stokastisk variabel (stor bokstav) når du regner varians/fordeling; estimatet er tallet du setter inn i $se$."
+    },
+    {
+      "id": "stk1110-1-3-drill",
+      "type": "text",
+      "content": "## Blandet drill (sjanger C + D, stigende)"
+    },
+    {
+      "id": "stk1110-1-3-d7",
+      "type": "exercise",
+      "exercise": {
+        "id": "stk1110-1-3-d7-e",
+        "number": "7",
+        "type": "classic",
+        "difficulty": "lett",
+        "task": "Data er $N(\\mu,\\sigma^2)$ med **kjent** $\\sigma^2$. Vis at Fisher-informasjonen om $\\mu$ i én observasjon er $I(\\mu)=1/\\sigma^2$, og angi $I_n(\\mu)$.",
+        "solution": "$\\log f=\\text{konst}-\\dfrac{(x-\\mu)^2}{2\\sigma^2}$. Score: $\\dfrac{\\partial}{\\partial\\mu}\\log f=\\dfrac{x-\\mu}{\\sigma^2}$. Andrederivert: $-\\dfrac{1}{\\sigma^2}$ (konstant). Da $I(\\mu)=-E[-1/\\sigma^2]=1/\\sigma^2$, og $I_n(\\mu)=n/\\sigma^2$. (Variansen til $\\bar X$ er $1/I_n=\\sigma^2/n$ — konsistent.)",
+        "hints": [
+          "Bare $-(x-\\mu)^2/(2\\sigma^2)$ avhenger av $\\mu$.",
+          "Andrederiverte er konstant, så forventningen er triviell."
+        ]
+      }
+    },
+    {
+      "id": "stk1110-1-3-d8",
+      "type": "exercise",
+      "exercise": {
+        "id": "stk1110-1-3-d8-e",
+        "number": "8",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "Vindstyrker er Rayleigh-fordelte, $f(x;\\theta)=\\frac{x}{\\theta^2}e^{-x^2/(2\\theta^2)}$, med $E(X^2)=2\\theta^2$ og ML-estimator $\\hat\\theta=\\sqrt{\\sum X_i^2/(2n)}$ (kap. 1.2).\n\n**a)** Vis at $I(\\theta)=4/\\theta^2$.\n\n**b)** Med $n=30$ og $\\hat\\theta=4{,}0$, gi et 95 % Wald-intervall for $\\theta$.",
+        "solution": "**a)** $\\log f=\\log x-2\\log\\theta-\\dfrac{x^2}{2\\theta^2}$. Score: $-\\dfrac2\\theta+\\dfrac{x^2}{\\theta^3}$. Andrederivert: $\\dfrac{2}{\\theta^2}-\\dfrac{3x^2}{\\theta^4}$. Ta forventning med $E(X^2)=2\\theta^2$: $I(\\theta)=-\\left(\\dfrac{2}{\\theta^2}-\\dfrac{3\\cdot2\\theta^2}{\\theta^4}\\right)=-\\dfrac{2}{\\theta^2}+\\dfrac{6}{\\theta^2}=\\dfrac{4}{\\theta^2}$.\n\n**b)** $se(\\hat\\theta)=\\sqrt{1/(nI(\\hat\\theta))}=\\sqrt{\\hat\\theta^2/(4n)}=\\dfrac{\\hat\\theta}{2\\sqrt n}=\\dfrac{4}{2\\sqrt{30}}=0{,}365$. Wald: $4{,}0\\pm1{,}96\\cdot0{,}365=4{,}0\\pm0{,}716=[3{,}28,\\ 4{,}72]$.",
+        "hints": [
+          "Deriver $\\log f$ to ganger og sett $E(X^2)=2\\theta^2$ inn i forventningen.",
+          "$se=\\hat\\theta/(2\\sqrt n)$ siden $I(\\theta)=4/\\theta^2$."
+        ]
+      }
+    },
+    {
+      "id": "stk1110-1-3-d9",
+      "type": "exercise",
+      "exercise": {
+        "id": "stk1110-1-3-d9-e",
+        "number": "9",
+        "type": "classic",
+        "difficulty": "vanskelig",
+        "task": "(Krevende.) For Poisson$(\\lambda)$ er $I(\\lambda)=1/\\lambda$. En kollega foreslår å estimere $\\lambda$ med bare den første observasjonen, $T=X_1$.\n\n**a)** Er $T$ forventningsrett? Finn $\\operatorname{Var}(T)$.\n\n**b)** Sammenlign $\\operatorname{Var}(T)$ med Cramér–Rao-grensen for $n$ observasjoner og med $\\operatorname{Var}(\\bar X)$.\n\n**c)** Hva er den relative effisiensen til $T$ mot $\\bar X$?",
+        "solution": "**a)** $E(X_1)=\\lambda$ (forventningsrett), $\\operatorname{Var}(X_1)=\\lambda$.\n\n**b)** Cramér–Rao for $n$ obs: $\\dfrac{1}{nI(\\lambda)}=\\dfrac{\\lambda}{n}$, som $\\bar X$ oppnår ($\\operatorname{Var}(\\bar X)=\\lambda/n$). $T$ bruker bare én observasjon: $\\operatorname{Var}(T)=\\lambda\\gg\\lambda/n$. $T$ ligger langt over grensen — den kaster bort $n-1$ observasjoner.\n\n**c)** Relativ effisiens $=\\dfrac{\\operatorname{Var}(\\bar X)}{\\operatorname{Var}(T)}=\\dfrac{\\lambda/n}{\\lambda}=\\dfrac1n$. $T$ er bare $1/n$ så effisient som $\\bar X$.",
+        "hints": [
+          "En enkelt Poisson-observasjon har både forventning og varians lik $\\lambda$.",
+          "Relativ effisiens er forholdet mellom variansene, den minste over den største."
+        ]
+      }
+    },
+    {
+      "id": "stk1110-1-3-d10",
+      "type": "exercise",
+      "exercise": {
+        "id": "stk1110-1-3-d10-e",
+        "number": "10",
+        "type": "classic",
+        "difficulty": "vanskelig",
+        "task": "(Kald oppgave — momentliste som fasit.) Data er eksponentialfordelte med rate $\\lambda$, $I(\\lambda)=1/\\lambda^2$, $\\hat\\lambda=1/\\bar X$. Med $n=100$ og $\\bar x=4{,}0$: sett opp den tilnærmede fordelingen til $\\hat\\lambda$, regn standardfeilen, gi et 95 % Wald-intervall for $\\lambda$, og transformer det til et intervall for forventet levetid $\\theta=1/\\lambda$.",
+        "solution": "- Fordeling: $\\hat\\lambda\\overset{\\text{ca.}}{\\sim}N(\\lambda,\\lambda^2/n)$ (ML-asymptotikk).\n- $\\hat\\lambda=1/\\bar x=0{,}25$; $se=\\hat\\lambda/\\sqrt n=0{,}25/10=0{,}025$.\n- Wald 95 %: $0{,}25\\pm1{,}96\\cdot0{,}025=[0{,}201,\\ 0{,}299]$.\n- Transform $\\theta=1/\\lambda$ (avtakende, bytt ende): $\\hat\\theta=4{,}0$, intervall $[1/0{,}299,\\ 1/0{,}201]=[3{,}34,\\ 4{,}98]$ tidsenheter.",
+        "hints": []
+      }
+    },
+    {
+      "id": "stk1110-1-3-bank",
+      "type": "text",
+      "content": "## Begrepsbank"
+    },
+    {
+      "id": "stk1110-1-3-bank-note",
+      "type": "text",
+      "content": "*Flashcard-/repetisjonsstoff — hopp trygt over ved førstegangslesing; tidsanslaget gjelder kjernestoffet.* Korte, navngitte definisjoner for eksamensrepetisjon."
+    },
+    {
+      "id": "stk1110-1-3-bank-score",
+      "type": "definition",
+      "title": "Scorefunksjonen (repetisjon)",
+      "content": "$s(\\theta)=\\ell'(\\theta)$, den deriverte av log-likelihood. Den har forventning null i det sanne punktet, og variansen av scoren er nettopp Fisher-informasjonen $I(\\theta)$."
+    },
+    {
+      "id": "stk1110-1-3-bank-obsinfo",
+      "type": "definition",
+      "title": "Observert informasjon",
+      "content": "Den negative andrederiverte evaluert i estimatet, $-\\ell''(\\hat\\theta)$ — et *datavhengig* mål på krumningen. Tar du forventningen (over $X$) i stedet, får du Fisher-informasjonen $I_n(\\theta)$. Observert informasjon brukes ofte i praksis som anslag på $I_n(\\theta)$."
+    },
+    {
+      "id": "stk1110-1-3-bank-regul",
+      "type": "definition",
+      "title": "Regularitetsbetingelser",
+      "content": "Vilkår (glatt tetthet, felles støtte uavhengig av $\\theta$, parameter i det indre, mulig å bytte derivasjon og integrasjon) som gjør at Fisher-teorien og ML-asymptotikken holder. Brytes de (som for uniform på $[0,\\theta]$), gjelder ikke $N(\\theta,1/(nI))$. *(Prioritet: kjenne til.)*"
+    },
+    {
+      "id": "stk1110-1-3-bank-fi-poisson",
+      "type": "definition",
+      "title": "Fisher-info: Poisson",
+      "content": "For Poisson$(\\lambda)$ er $I(\\lambda)=1/\\lambda$, så $I_n(\\lambda)=n/\\lambda$ og ML-variansen er $\\lambda/n$ — lik $\\operatorname{Var}(\\bar X)$."
+    },
+    {
+      "id": "stk1110-1-3-bank-fi-eksp",
+      "type": "definition",
+      "title": "Fisher-info: eksponential",
+      "content": "For eksponential med rate $\\lambda$ er $I(\\lambda)=1/\\lambda^2$; for samme fordeling parametrisert ved forventning $\\theta=1/\\lambda$ er også $I(\\theta)=1/\\theta^2$. ML-variansen for $\\theta$ er $\\theta^2/n$."
+    },
+    {
+      "id": "stk1110-1-3-bank-fi-bern",
+      "type": "definition",
+      "title": "Fisher-info: Bernoulli",
+      "content": "For Bernoulli$(p)$ er $I(p)=\\dfrac{1}{p(1-p)}$, så $se(\\hat p)=\\sqrt{\\hat p(1-\\hat p)/n}$ — grunnlaget for andels-konfidensintervallet."
+    },
+    {
+      "id": "stk1110-1-3-bank-fi-normal",
+      "type": "definition",
+      "title": "Fisher-info: normal (kjent varians)",
+      "content": "For $N(\\mu,\\sigma^2)$ med kjent $\\sigma^2$ er $I(\\mu)=1/\\sigma^2$, så $I_n(\\mu)=n/\\sigma^2$ og $\\operatorname{Var}(\\bar X)=\\sigma^2/n$. Her er $\\bar X$ eksakt normalfordelt, ikke bare tilnærmet."
+    },
+    {
+      "id": "stk1110-1-3-bank-fi-ray",
+      "type": "definition",
+      "title": "Fisher-info: Rayleigh",
+      "content": "For Rayleigh$(\\theta)$ er $I(\\theta)=4/\\theta^2$, så $se(\\hat\\theta)=\\hat\\theta/(2\\sqrt n)$. Standardeksempel på en «eksotisk» fordeling i estimeringsoppgaven."
+    },
+    {
+      "id": "stk1110-1-3-bank-z",
+      "type": "definition",
+      "title": "$z$-kvantilen $z_{\\alpha/2}$",
+      "content": "Øvre $\\alpha/2$-kvantil i standardnormalen: $P(Z>z_{\\alpha/2})=\\alpha/2$. For 95 % er $z_{0{,}025}=1{,}96$; for 90 % er $z_{0{,}05}=1{,}645$; for 99 % er $z_{0{,}005}=2{,}576$. Tosidige intervall bruker $\\alpha/2$ i hver hale."
+    },
+    {
+      "id": "stk1110-1-3-bank-phi",
+      "type": "definition",
+      "title": "Standardnormalen $\\Phi$",
+      "content": "$\\Phi$ er fordelingsfunksjonen til $N(0,1)$: $\\Phi(z)=P(Z\\le z)$. Kvantilen $z_{\\alpha/2}$ er verdien med $\\Phi(z_{\\alpha/2})=1-\\alpha/2$. Ligger i formelsamlingen (tren oppslag)."
+    },
+    {
+      "id": "stk1110-1-3-bank-niva",
+      "type": "definition",
+      "title": "Konfidensnivå og dekningsgrad",
+      "content": "$(1-\\alpha)$ er konfidensnivået; dekningsgraden er sannsynligheten for at *prosedyren* fanger den sanne parameteren over gjentatte utvalg. For Wald-intervall er dekningen tilnærmet $(1-\\alpha)$ (eksakt bare i grensen)."
+    },
+    {
+      "id": "stk1110-1-3-bank-tolk",
+      "type": "definition",
+      "title": "Tolkning av konfidensintervall",
+      "content": "Et 95 %-intervall betyr at metoden fanger $\\theta$ i 95 % av gjentatte utvalg — **ikke** at det er 95 % sannsynlig at $\\theta$ ligger i akkurat dette intervallet. $\\theta$ er ikke stokastisk; intervallgrensene er det."
+    },
+    {
+      "id": "stk1110-1-3-bank-pivot",
+      "type": "definition",
+      "title": "Pivotstørrelse",
+      "content": "En funksjon av data og parameter hvis fordeling *ikke* avhenger av parameteren — for eksempel $(\\hat\\theta-\\theta)/se\\sim N(0,1)$. Man snur ulikheten for pivoten om til et intervall for $\\theta$."
+    },
+    {
+      "id": "stk1110-1-3-bank-waldvseksakt",
+      "type": "definition",
+      "title": "Wald mot eksakt/asymmetrisk pivot",
+      "content": "Wald er en normaltilnærming som er symmetrisk om $\\hat\\theta$. Når $se$ avhenger av $\\theta$, gir en asymmetrisk pivot (eller den eksakte $\\chi^2$-pivoten i kap. 2.5) et mer presist, asymmetrisk intervall. Asymmetri er da riktig, ikke feil."
+    },
+    {
+      "id": "stk1110-1-3-bank-asympforv",
+      "type": "definition",
+      "title": "Asymptotisk forventningsrett",
+      "content": "En estimator er asymptotisk forventningsrett hvis $E(\\hat\\theta)\\to\\theta$ når $n\\to\\infty$. ML-estimatorer kan være skjeve for lite $n$ (som $\\hat\\sigma^2$ i normalmodellen), men blir forventningsrette i grensen."
+    },
+    {
+      "id": "stk1110-1-3-bank-releff",
+      "type": "definition",
+      "title": "Relativ effisiens",
+      "content": "Forholdet mellom variansene til to forventningsrette estimatorer, $\\operatorname{Var}(\\hat\\theta_1)/\\operatorname{Var}(\\hat\\theta_2)$. Den med minst varians (nærmest Cramér–Rao-grensen) er mest effisient."
+    },
+    {
+      "id": "stk1110-1-3-bank-konsis",
+      "type": "definition",
+      "title": "Konsistens via Fisher-informasjon",
+      "content": "Siden ML-variansen er $1/(nI(\\theta))\\to0$ og ML-estimatoren er asymptotisk forventningsrett, gir Tsjebysjeff (kap. 1.1) at $\\hat\\theta\\xrightarrow{P}\\theta$. Mer informasjon ($I_n\\to\\infty$) tvinger estimatoren mot sannheten."
+    },
+    {
+      "id": "stk1110-1-3-bank-presisjon",
+      "type": "definition",
+      "title": "Presisjon og informasjonsmengde",
+      "content": "Bredden på Wald-intervallet er $2z_{\\alpha/2}\\,se=2z_{\\alpha/2}/\\sqrt{nI(\\hat\\theta)}$. Mer informasjon (større $I$ eller $n$) gir smalere intervall — presisjonen vokser som $\\sqrt n$."
+    },
+    {
+      "id": "stk1110-1-3-bank-estsann",
+      "type": "definition",
+      "title": "Estimert mot sann informasjon",
+      "content": "I variansen $1/(nI(\\theta))$ står den *sanne* $\\theta$; i standardfeilen $se=\\sqrt{1/(nI(\\hat\\theta))}$ plugger vi inn *estimatet* fordi $\\theta$ er ukjent. Skillet er kilden til forskjellen mellom symmetrisk (plugg inn) og asymmetrisk (behold sann $\\theta$) Wald."
+    },
+    {
+      "id": "stk1110-1-3-bank-krumning",
+      "type": "definition",
+      "title": "Log-likelihoodens krumning",
+      "content": "Fisher-informasjonen er forventet krumning av log-likelihood: $I_n(\\theta)=-E[\\ell''(\\theta)]$. Skarp topp (stor krumning) = mye informasjon = liten varians. Dette er den geometriske tolkningen av hele kapitlet."
+    },
+    {
+      "id": "stk1110-1-3-symbol",
+      "type": "collapsible",
+      "title": "Symbol- og formelliste",
+      "buttonText": "Vis symboler og formler",
+      "content": [
+        {
+          "id": "stk1110-1-3-symbol-t",
+          "type": "text",
+          "content": "## Symbol- og formelliste\n\n*Oppslagsverk — alt her forklares underveis i kapitlet.*\n\n| Symbol | Betydning |\n|---|---|\n| $\\theta$ | Ukjent parameter |\n| $\\hat\\theta$ | ML-estimator/estimat for $\\theta$ |\n| $f(x;\\theta)$ | Tetthet / punktsannsynlighet |\n| $\\ell(\\theta)$ | Log-likelihood, $\\sum\\log f(x_i;\\theta)$ |\n| $s(\\theta)=\\ell'(\\theta)$ | Scorefunksjonen |\n| $\\ell''(\\theta)$ | Andrederiverte av log-likelihood |\n| $I(\\theta)$ | Fisher-informasjon i én observasjon |\n| $I_n(\\theta)=nI(\\theta)$ | Informasjon i hele utvalget |\n| $se(\\hat\\theta)$ | Standardfeil, $\\sqrt{1/(nI(\\hat\\theta))}$ |\n| $z_{\\alpha/2}$ | Øvre $\\alpha/2$-kvantil i $N(0,1)$ |\n| $\\Phi$ | Standardnormal fordelingsfunksjon |\n| $1-\\alpha$ | Konfidensnivå |\n| $N(\\theta,\\ 1/(nI(\\theta)))$ | ML-estimatorens tilnærmede fordeling (2. arg = varians) |\n| $\\psi=g(\\theta)$ | Omregnet parameter (invarians) |\n| $T$ | Vilkårlig forventningsrett estimator (Cramér–Rao) |\n\n**Formler i dette delkapitlet:**\n\n$$I(\\theta)=-E\\!\\left[\\frac{\\partial^2}{\\partial\\theta^2}\\log f(X;\\theta)\\right]=E\\!\\left[\\left(\\frac{\\partial}{\\partial\\theta}\\log f(X;\\theta)\\right)^2\\right]$$\nFisher-informasjonen — to ekvivalente former.\n\n$$I_n(\\theta)=n\\,I(\\theta)$$\nInformasjonen i hele utvalget (additiv).\n\n$$\\hat\\theta\\ \\overset{\\text{ca.}}{\\sim}\\ N\\!\\left(\\theta,\\ \\frac{1}{nI(\\theta)}\\right)$$\nML-asymptotikken — nevn den eksplisitt ved normaltilnærming.\n\n$$se(\\hat\\theta)=\\sqrt{\\frac{1}{nI(\\hat\\theta)}}$$\nStandardfeilen (estimert informasjon).\n\n$$\\hat\\theta \\pm z_{\\alpha/2}\\,se(\\hat\\theta)$$\nSymmetrisk Wald-konfidensintervall.\n\n$$\\left[\\frac{\\hat\\theta}{1+z_{\\alpha/2}/\\sqrt n},\\ \\frac{\\hat\\theta}{1-z_{\\alpha/2}/\\sqrt n}\\right]$$\nAsymmetrisk pivot-form (eksponential, $se=\\theta/\\sqrt n$).\n\n$$\\operatorname{Var}(T)\\ge \\frac{1}{nI(\\theta)}$$\nCramér–Raos nedre grense — ML oppnår den asymptotisk.\n\n$$\\hat\\psi=g(\\hat\\theta),\\qquad [g(L),\\ g(U)]\\ (g \\text{ voksende})$$\nInvarians for punkt og intervall."
+        }
+      ]
+    },
+    {
+      "id": "stk1110-1-3-rep",
+      "type": "collapsible",
+      "title": "Repetisjonsoppgaver",
+      "buttonText": "Vis repetisjonsoppgaver",
+      "content": [
+        {
+          "id": "stk1110-1-3-rep1",
+          "type": "exercise",
+          "exercise": {
+            "id": "stk1110-1-3-rep1e",
+            "number": "R1",
+            "type": "classic",
+            "difficulty": "lett",
+            "task": "(Fra kap. 1.2) Skriv opp scoren $s(\\lambda)$ og andrederiverte $\\ell''(\\lambda)$ for uavhengige eksponential$(\\lambda)$-data (rate). Disse er råstoffet for Fisher-informasjonen.",
+            "solution": "$\\ell(\\lambda)=n\\log\\lambda-\\lambda\\sum x_i$, $s(\\lambda)=\\dfrac n\\lambda-\\sum x_i$, $\\ell''(\\lambda)=-\\dfrac{n}{\\lambda^2}$. Da er $I_n(\\lambda)=-E[\\ell'']=\\dfrac{n}{\\lambda^2}$.",
+            "hints": [
+              "Log-likelihood for eksponential (rate) er $n\\log\\lambda-\\lambda\\sum x_i$."
+            ]
+          }
+        },
+        {
+          "id": "stk1110-1-3-rep2",
+          "type": "exercise",
+          "exercise": {
+            "id": "stk1110-1-3-rep2e",
+            "number": "R2",
+            "type": "classic",
+            "difficulty": "lett",
+            "task": "(Fra kap. 1.1) Hva er $E(\\bar X)$ og $\\operatorname{Var}(\\bar X)$ når $X_i$ er uavhengige med forventning $\\mu$ og varians $\\sigma^2$?",
+            "solution": "$E(\\bar X)=\\mu$ og $\\operatorname{Var}(\\bar X)=\\sigma^2/n$. Variansen faller som $1/n$ — samme $1/n$-avhengighet som informasjonen $I_n=nI$ gir i ML-variansen.",
+            "hints": [
+              "Bruk regnereglene for forventning og varians av et gjennomsnitt."
+            ]
+          }
+        },
+        {
+          "id": "stk1110-1-3-rep3",
+          "type": "exercise",
+          "exercise": {
+            "id": "stk1110-1-3-rep3e",
+            "number": "R3",
+            "type": "classic",
+            "difficulty": "middels",
+            "task": "(Fra kap. 1.2) For Poisson$(\\lambda)$: hva er ML-estimatoren, og er den forventningsrett?",
+            "solution": "$\\hat\\lambda=\\bar X$ (kap. 1.2), og $E(\\bar X)=\\lambda$ — forventningsrett. Den oppnår Cramér–Rao-grensen $\\lambda/n$ (eksempel 5), altså effisient.",
+            "hints": [
+              "ML for Poisson ble utledet til $\\bar X$ i kap. 1.2."
+            ]
+          }
+        },
+        {
+          "id": "stk1110-1-3-rep4",
+          "type": "exercise",
+          "exercise": {
+            "id": "stk1110-1-3-rep4e",
+            "number": "R4",
+            "type": "classic",
+            "difficulty": "middels",
+            "task": "(Fra kap. 1.1) Forklar kort hvorfor en estimator med $\\operatorname{Var}(\\hat\\theta)\\to0$ som er (asymptotisk) forventningsrett, er konsistent.",
+            "solution": "Tsjebysjeff gir $P(|\\hat\\theta-\\theta|>\\varepsilon)\\le\\operatorname{Var}(\\hat\\theta)/\\varepsilon^2\\to0$, så $\\hat\\theta\\xrightarrow{P}\\theta$. En ML-estimator med varians $1/(nI(\\theta))\\to0$ er dermed konsistent.",
+            "hints": [
+              "Bruk Tsjebysjeff-ulikheten fra kap. 1.1."
+            ]
+          }
+        }
+      ]
+    }
+  ],
+  "exercises": []
+}

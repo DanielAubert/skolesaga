@@ -1,0 +1,397 @@
+{
+  "id": "stk1100-6-1",
+  "courseId": "stk1100",
+  "chapterNumber": "6.1",
+  "title": "Eksakt pivotal-KI via gamma/χ²",
+  "description": "Finn en pivot med kjent gamma/χ²-fordeling, sett kvantiler rundt, løs ulikheten for parameteren — emnets signaturferdighet, med det asymmetriske eksakte intervallet.",
+  "estimatedMinutes": 70,
+  "competenceGoals": [
+    "finne en pivotal størrelse med kjent gamma-/kjikvadratfordeling fri for den ukjente parameteren",
+    "utlede et eksakt konfidensintervall ved å løse dobbeltulikheten, med riktig kvantil i riktig endepunkt og riktig fortegnsvending",
+    "gjenkjenne og begrunne at det eksakte intervallet ofte er asymmetrisk",
+    "transformere et konfidensintervall til en avledet størrelse (median, kvantil, standardavvik) via en monoton funksjon"
+  ],
+  "content": [
+    {
+      "id": "stk1100-6-1-tip-eksamensvinkel",
+      "type": "tip",
+      "title": "Eksamensvinkel",
+      "content": "**Konfidensintervall (KI) er i samtlige 10 avsluttende skoleeksamener (100 %)** i STK1100-arkivet 2015–2024 — ingen enkeltferdighet er sikrere testet. Og den *eksakte pivotal-varianten via gamma/$\\chi^2$* dukker opp i **7 av 10 sett (70 %)** (V2015, V2017, V2018, V2019, V2021, V2022, V2023), nesten alltid som den faste avslutningen på den store estimerings-oppgaven. Dette er **emnets signaturferdighet** og en tydelig A-kandidat-markør (A er toppkarakteren på skalaen A–F, jf. [kap. 0.1](/bok/stk1100/stk1100-0-1)).\n\nMetoden heter **pivotal-metoden**: du finner en størrelse (en *pivot*) som har en kjent fordeling — typisk $\\chi^2$ eller gamma — helt uten den ukjente parameteren, setter kvantiler rundt den, og løser ulikheten for parameteren. Persentilene ($\\chi^2_{\\nu,\\alpha}$) slår du opp i formelsamlingen; **selve pivoten og ulikhetsløsningen må du utlede aktivt** — det er der poengene sitter.\n\n**Merk deg allerede nå:** det eksakte intervallet er ofte **asymmetrisk** om punktestimatet (den øvre og nedre halvdelen er ulikt lange). Det er et *trekk* ved metoden, ikke en regnefeil — mange kandidater tror de har gjort noe galt og «retter» et korrekt svar. To feil koster mest: **feil kvantil i feil endepunkt** og **feil frihetsgrader** ($2n$ vs. $n$). Prioritet: **høyeste**."
+    },
+    {
+      "id": "stk1100-6-1-forkunnskaper",
+      "type": "text",
+      "content": "**Forkunnskaper:** [kap. 5.2](/bok/stk1100/stk1100-5-2) (maximum likelihood — estimatoren du lager KI rundt) og [kap. 4.3](/bok/stk1100/stk1100-4-3) (transformasjon til gamma/$\\chi^2$ — pivot-fabrikken). Kvantilnotasjonen og gamma-/$\\chi^2$-apparatet er fra [kap. 2.2](/bok/stk1100/stk1100-2-2).\n\n**Sist du var her — de tre resultatene dette kapitlet hviler på:**\n\n$$\\textbf{ML-estimatoren:}\\quad \\ell(\\theta)=\\sum_{i=1}^n \\ln f(x_i;\\theta),\\quad \\ell'(\\hat\\theta)=0 \\ \\Rightarrow\\ \\hat\\theta.$$\n\n$$\\textbf{Standardpivotalene (fra 4.3):}\\quad \\frac{2\\sum X_i}{\\mu}\\sim\\chi^2_{2n}\\ \\text{(eksp.)},\\quad \\frac{\\sum(X_i-\\mu)^2}{\\sigma^2}\\sim\\chi^2_{n}\\ \\text{(normal, kjent }\\mu).$$\n\n$$\\textbf{Kvantil med øvre haleareal:}\\quad P(\\chi^2_\\nu > \\chi^2_{\\nu,\\alpha})=\\alpha,\\qquad P(Z>z_\\alpha)=\\alpha.$$\n\nHar du disse tre på plass, er hele kapitlet én idé: skvis pivoten mellom to kvantiler og snu ulikheten om til et intervall for parameteren. Eksponensial oppgis i **både** rate- og forventningsform i arkivet — les alltid oppgavens egen definisjon (som i [kap. 2.1](/bok/stk1100/stk1100-2-1))."
+    },
+    {
+      "id": "stk1100-6-1-intro",
+      "type": "text",
+      "content": "Et **punktestimat** — som $\\hat\\mu = \\bar x = 8{,}4$ år for en gjennomsnittlig levetid — er étt tall, og treffer nesten aldri den sanne verdien nøyaktig. Et **konfidensintervall** svarer i stedet på spørsmålet: *hvilke verdier av parameteren er forenlige med dataene?* Et 90 %-KI er konstruert slik at prosedyren fanger den sanne parameteren i 90 % av tenkte gjentakelser av forsøket.\n\nVi bygger kapitlet som tre **læringsløkker**: (1) pivotal-metoden med eksponensial-hovedeksemplet, (2) de andre standardpivotalene (normal med kjent $\\mu$, rateform, Weibull, Pareto), og (3) hvordan et KI *transformeres* til en avledet størrelse som medianen. Hver løkke går teori → gjennomregnet eksempel → øvingsoppgaver, så du kan arbeide deg gjennom bit for bit. Sett av ca. 70 minutter."
+    },
+    {
+      "id": "stk1100-6-1-lokke1-head",
+      "type": "text",
+      "content": "## Løkke 1 — Pivotal-metoden og eksponensial-hovedeksemplet (~30 min)"
+    },
+    {
+      "id": "stk1100-6-1-def-ki",
+      "type": "definition",
+      "title": "Konfidensintervall",
+      "content": "Et intervall regnet ut fra dataene som med en oppgitt sannsynlighet inneholder den ukjente parameteren — i symboler:\n\n$$P\\big(L(X_1,\\ldots,X_n) \\le \\theta \\le U(X_1,\\ldots,X_n)\\big) = 1-\\alpha.$$\n\nHer er $L$ og $U$ **stokastiske** endepunkter (de avhenger av dataene), og $1-\\alpha$ er **konfidensgraden** (f.eks. 0,95). Tolkning: gjentar vi forsøket mange ganger, vil andelen intervaller som dekker sann $\\theta$ nærme seg $1-\\alpha$. Når vi setter inn de observerte tallene, får vi étt konkret intervall — og da er $\\theta$ enten i det eller ikke; sannsynligheten gjelder *prosedyren*, ikke det ferdig utregnede intervallet."
+    },
+    {
+      "id": "stk1100-6-1-def-pivot",
+      "type": "definition",
+      "title": "Pivotal størrelse (pivot)",
+      "content": "En funksjon av både dataene og parameteren hvis fordeling er **kjent og fri for parameteren** — i symboler:\n\n$$W = W(X_1,\\ldots,X_n;\\theta), \\qquad \\text{fordelingen til } W \\text{ avhenger ikke av } \\theta.$$\n\nOrdet *pivot* betyr «dreiepunkt»: størrelsen kobler dataene til parameteren, men selve fordelingen står fast uansett hva $\\theta$ er. Fordi vi vet hvilken fordeling $W$ har (typisk $\\chi^2_\\nu$ eller gamma), kan vi legge kvantiler rundt den og regne baklengs til et intervall for $\\theta$. Standardpivotalene bygde du i [kap. 4.3](/bok/stk1100/stk1100-4-3)."
+    },
+    {
+      "id": "stk1100-6-1-def-metoden",
+      "type": "definition",
+      "title": "Pivotal-metoden — de tre trinnene",
+      "content": "Oppskriften som gjør en pivot om til et konfidensintervall, i tre faste trinn:\n\n**1.** Finn en pivot $W(X_1,\\ldots,X_n;\\theta)$ med kjent fordeling fri for $\\theta$.\n\n**2.** Sett kvantiler rundt den slik at\n$$P\\big(w_1 \\le W \\le w_2\\big) = 1-\\alpha,$$\nder $w_1$ og $w_2$ er nedre og øvre kvantil (for et symmetrisk haleoppsett: $w_1 = \\chi^2_{\\nu,1-\\alpha/2}$, $w_2 = \\chi^2_{\\nu,\\alpha/2}$).\n\n**3.** Løs dobbeltulikheten $w_1 \\le W \\le w_2$ for $\\theta$. **Pass fortegn/retning:** deler du på en negativ størrelse eller inverterer, **snur ulikheten og endepunktene bytter plass.** Resultatet er $[L, U]$."
+    },
+    {
+      "id": "stk1100-6-1-def-kvantil",
+      "type": "definition",
+      "title": "Kvantiler med øvre haleareal",
+      "content": "Notasjonen boka og formelsamlingen bruker: kvantilen er verdien som har det oppgitte arealet **til høyre** for seg — i symboler:\n\n$$P(\\chi^2_\\nu > \\chi^2_{\\nu,\\alpha}) = \\alpha, \\qquad P(Z > z_\\alpha)=\\alpha.$$\n\nAltså er $\\chi^2_{\\nu,0{,}05}$ den *store* verdien (5 % sannsynlighet for å overstige den) og $\\chi^2_{\\nu,0{,}95}$ den *lille*. For et $(1-\\alpha)$-intervall bruker vi $\\chi^2_{\\nu,\\alpha/2}$ (øvre) og $\\chi^2_{\\nu,1-\\alpha/2}$ (nedre). Den vanligste tabben er å hente feil kvantil — slå opp begge før du setter dem inn."
+    },
+    {
+      "id": "stk1100-6-1-def-pivot-eksp",
+      "type": "definition",
+      "title": "Standardpivot: eksponensial",
+      "content": "For uavhengige eksponensiale levetider i forventningsform ($E(X_i)=\\mu$) er totalsummen — riktig skalert — kjikvadratfordelt med $2n$ frihetsgrader:\n\n$$\\frac{2\\sum_{i=1}^n X_i}{\\mu} = \\frac{2n\\hat\\mu}{\\mu} \\sim \\chi^2_{2n}, \\qquad \\hat\\mu=\\bar X.$$\n\nDette er hovedpivoten i STK1100 (den bygde du i [kap. 4.3](/bok/stk1100/stk1100-4-3) fra $2X_i/\\mu \\sim \\chi^2_2$ og sum-av-gamma-regelen). **Frihetsgraden er $2n$, ikke $n$** — en gjenganger blant tapte poeng. I rateform ($f(x)=\\lambda e^{-\\lambda x}$) blir samme pivot $2\\lambda\\sum X_i \\sim \\chi^2_{2n}$."
+    },
+    {
+      "id": "stk1100-6-1-example1",
+      "type": "example",
+      "title": "Eksempel 1: eksakt 90 %-KI for eksponensiell forventning",
+      "problem": "Ti komponentlevetider $X_1,\\ldots,X_{10}$ antas uavhengige og eksponensialfordelte i forventningsform med forventning $\\mu$, altså $f(x)=\\tfrac{1}{\\mu}e^{-x/\\mu}$, $x\\ge 0$. Observert sum er $\\sum x_i = 84$ (år).\n\n**a)** Skriv ned pivoten og dens fordeling.\n**b)** Utled et eksakt 90 %-konfidensintervall for $\\mu$.\n**c)** Er intervallet symmetrisk om punktestimatet $\\hat\\mu = 8{,}4$? Kommenter.",
+      "solution": "**a)** Med $n=10$ er pivoten\n$$W = \\frac{2\\sum X_i}{\\mu} \\sim \\chi^2_{2n} = \\chi^2_{20}.$$\nFordelingen $\\chi^2_{20}$ inneholder ikke $\\mu$ — det er hele poenget.\n\n**b)** Konfidensgrad $1-\\alpha = 0{,}90$ gir $\\alpha/2 = 0{,}05$. Fra tabellen (øvre haleareal): $\\chi^2_{20,0{,}05} = 31{,}41$ og $\\chi^2_{20,0{,}95} = 10{,}85$. Vi setter\n$$P\\left(\\chi^2_{20,0{,}95} \\le \\frac{2\\sum X_i}{\\mu} \\le \\chi^2_{20,0{,}05}\\right)=0{,}90.$$\nLøs for $\\mu$ ved å invertere (del på $2\\sum X_i$, ta den resiproke verdien). **Inverteringen snur ulikheten**, så endepunktene bytter plass:\n$$\\frac{2\\sum x_i}{\\chi^2_{20,0{,}05}} \\le \\mu \\le \\frac{2\\sum x_i}{\\chi^2_{20,0{,}95}}.$$\nSett inn $\\sum x_i = 84$:\n$$\\mu \\in \\left[\\frac{2\\cdot 84}{31{,}41},\\ \\frac{2\\cdot 84}{10{,}85}\\right] = [5{,}35,\\ 15{,}48]\\ \\text{år}.$$\n\n**c)** Punktestimatet er $\\hat\\mu = 84/10 = 8{,}4$. Avstanden ned er $8{,}4-5{,}35 = 3{,}05$; avstanden opp er $15{,}48-8{,}4 = 7{,}08$ — mer enn dobbelt så langt. Intervallet er altså **asymmetrisk**, med en lang hale oppover. Det er korrekt og forventet: $\\chi^2$-fordelingen er selv høyreskjev, så den eksakte metoden gir et skjevt intervall. Ikke «rett» dette til noe symmetrisk."
+    },
+    {
+      "id": "stk1100-6-1-ex1",
+      "type": "exercise",
+      "exercise": {
+        "id": "stk1100-6-1-ex1",
+        "number": 1,
+        "type": "classic",
+        "difficulty": "lett",
+        "task": "Levetidene til $n=10$ uavhengige komponenter er eksponensialfordelte i forventningsform med forventning $\\mu$. Hvilken fordeling har pivoten $W = 2\\sum X_i / \\mu$, og hvor mange frihetsgrader har den?",
+        "solution": "Hvert ledd gir $2X_i/\\mu \\sim \\chi^2_2$, og summen av $n=10$ uavhengige $\\chi^2_2$ er $\\chi^2$ med $2\\cdot 10 = 20$ frihetsgrader:\n\n$$W = \\frac{2\\sum X_i}{\\mu} \\sim \\chi^2_{20}.$$\n\nFrihetsgraden er $2n = 20$ — ikke $n=10$.",
+        "hints": [
+          "Ett ledd: $2X_i/\\mu \\sim \\chi^2_2$. Hva blir summen av $n$ uavhengige $\\chi^2_2$?",
+          "Frihetsgradene adderes når du summerer uavhengige kjikvadrater.",
+          "Pass på: eksponensialpivoten har $2n$ frihetsgrader, ikke $n$."
+        ]
+      }
+    },
+    {
+      "id": "stk1100-6-1-ex2",
+      "type": "exercise",
+      "exercise": {
+        "id": "stk1100-6-1-ex2",
+        "number": 2,
+        "type": "classic",
+        "difficulty": "lett",
+        "task": "Bruk pivoten $2\\sum X_i/\\mu \\sim \\chi^2_{2n}$ til å finne et eksakt 95 %-konfidensintervall for $\\mu$ når $n=15$ og $\\sum x_i = 96$. Oppgitt: $\\chi^2_{30,0{,}025} = 46{,}98$ og $\\chi^2_{30,0{,}975} = 16{,}79$.",
+        "solution": "Her er $2n = 30$ og $\\alpha/2 = 0{,}025$. Intervallet er\n$$\\mu \\in \\left[\\frac{2\\sum x_i}{\\chi^2_{30,0{,}025}},\\ \\frac{2\\sum x_i}{\\chi^2_{30,0{,}975}}\\right] = \\left[\\frac{192}{46{,}98},\\ \\frac{192}{16{,}79}\\right] = [4{,}09,\\ 11{,}43].$$\n\nPunktestimatet $\\hat\\mu = 96/15 = 6{,}4$ ligger inni, og intervallet er asymmetrisk (lengre opp enn ned).",
+        "hints": [
+          "Stor kvantil ($\\chi^2_{30,0{,}025}=46{,}98$) i **nedre** endepunkt, liten i øvre.",
+          "Nedre grense $= 2\\sum x_i / \\chi^2_{30,0{,}025}$; øvre $= 2\\sum x_i/\\chi^2_{30,0{,}975}$.",
+          "$2\\sum x_i = 192$."
+        ]
+      }
+    },
+    {
+      "id": "stk1100-6-1-lokke2-head",
+      "type": "text",
+      "content": "## Løkke 2 — De andre standardpivotalene (~20 min)"
+    },
+    {
+      "id": "stk1100-6-1-lokke2-tekst",
+      "type": "text",
+      "content": "Samme tre trinn virker for hver fordeling der du klarer å bygge en pivot. Forskjellen ligger bare i **hvilken** pivot og **hvor mange** frihetsgrader. De fire du må kjenne (alle fra [kap. 4.3](/bok/stk1100/stk1100-4-3)):\n\n| Modell | Pivot | Fordeling |\n|---|---|---|\n| Eksponensial (forventning $\\mu$) | $2\\sum X_i/\\mu$ | $\\chi^2_{2n}$ |\n| Normal, kjent $\\mu$ (ukjent $\\sigma^2$) | $\\sum(X_i-\\mu)^2/\\sigma^2$ | $\\chi^2_{n}$ |\n| Weibull, kjent form $\\alpha$ | $\\sum(X_i/\\beta)^\\alpha$ | gamma$(n,1)$ |\n| Pareto, kjent min $k$ | $2\\theta\\sum\\ln(X_i/k)$ | $\\chi^2_{2n}$ = gamma$(n,2)$ |\n\nFor normal med kjent $\\mu$ er $\\hat\\sigma^2 = \\tfrac{1}{n}\\sum(X_i-\\mu)^2$, så pivoten kan skrives $n\\hat\\sigma^2/\\sigma^2 \\sim \\chi^2_n$. Legg merke til at frihetsgraden nå er $n$ (ikke $2n$) — les alltid *hvilken* pivot oppgaven gjelder."
+    },
+    {
+      "id": "stk1100-6-1-def-pivot-normal",
+      "type": "definition",
+      "title": "Standardpivot: normal med kjent $\\mu$",
+      "content": "Når forventningen $\\mu$ er kjent og vi vil estimere variansen $\\sigma^2$, er den skalerte kvadratsummen kjikvadratfordelt med $n$ frihetsgrader:\n\n$$\\frac{\\sum_{i=1}^n (X_i-\\mu)^2}{\\sigma^2} = \\frac{n\\hat\\sigma^2}{\\sigma^2} \\sim \\chi^2_{n}, \\qquad \\hat\\sigma^2 = \\frac{1}{n}\\sum(X_i-\\mu)^2.$$\n\nHer er frihetsgraden $n$ fordi hvert standardisert kvadrat $(X_i-\\mu)^2/\\sigma^2 \\sim \\chi^2_1$ og de $n$ leddene summeres. (Er $\\mu$ *ukjent* og estimert med $\\bar X$, mister man én frihetsgrad, $\\chi^2_{n-1}$ — men det er utenfor dette kapitlets kjent-$\\mu$-tilfelle.)"
+    },
+    {
+      "id": "stk1100-6-1-example2",
+      "type": "example",
+      "title": "Eksempel 2: eksakt KI for varians (normal, kjent $\\mu$)",
+      "problem": "Tolv målinger av et instruments avvik er uavhengige og normalfordelte med kjent forventning $\\mu = 0$ og ukjent varians $\\sigma^2$. Observert $\\sum (x_i-\\mu)^2 = 30$.\n\n**a)** Konstruer et eksakt 95 %-KI for $\\sigma^2$.\n**b)** Gi et KI for standardavviket $\\sigma$.",
+      "solution": "**a)** Pivoten er $\\sum(X_i-\\mu)^2/\\sigma^2 \\sim \\chi^2_{12}$. Med $\\alpha/2=0{,}025$: $\\chi^2_{12,0{,}025}=23{,}34$, $\\chi^2_{12,0{,}975}=4{,}404$. Løs\n$$\\chi^2_{12,0{,}975} \\le \\frac{\\sum(x_i-\\mu)^2}{\\sigma^2} \\le \\chi^2_{12,0{,}025}\\ \\Longrightarrow\\ \\sigma^2 \\in \\left[\\frac{30}{23{,}34},\\ \\frac{30}{4{,}404}\\right] = [1{,}29,\\ 6{,}81].$$\n\n**b)** Kvadratrot er strengt voksende, så (se løkke 3) transformeres endepunktene direkte:\n$$\\sigma \\in [\\sqrt{1{,}29},\\ \\sqrt{6{,}81}] = [1{,}13,\\ 2{,}61].$$"
+    },
+    {
+      "id": "stk1100-6-1-ex3",
+      "type": "exercise",
+      "exercise": {
+        "id": "stk1100-6-1-ex3",
+        "number": 3,
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "Åtte uavhengige levetider er eksponensialfordelte i **rateform** $f(x)=\\lambda e^{-\\lambda x}$, med observert $\\sum x_i = 40$. Bruk at $2\\lambda\\sum X_i \\sim \\chi^2_{2n}$ til å lage et eksakt 95 %-KI for raten $\\lambda$. Oppgitt: $\\chi^2_{16,0{,}025}=28{,}85$, $\\chi^2_{16,0{,}975}=6{,}908$.",
+        "solution": "Her er $n=8$, $2n=16$. Fra $\\chi^2_{16,0{,}975} \\le 2\\lambda\\sum X_i \\le \\chi^2_{16,0{,}025}$ deler vi på $2\\sum x_i = 80$ (positivt — ingen vending):\n$$\\lambda \\in \\left[\\frac{\\chi^2_{16,0{,}975}}{2\\sum x_i},\\ \\frac{\\chi^2_{16,0{,}025}}{2\\sum x_i}\\right] = \\left[\\frac{6{,}908}{80},\\ \\frac{28{,}85}{80}\\right] = [0{,}0863,\\ 0{,}3606].$$\n\nPunktestimatet $\\hat\\lambda = n/\\sum x_i = 8/40 = 0{,}20$ ligger inni. Merk at her deler vi på en positiv størrelse, så kvantilene *ikke* bytter plass — motsatt forventningsformen der vi inverterer.",
+        "hints": [
+          "Isoler $\\lambda$: $\\lambda = W/(2\\sum X_i)$ der $W=2\\lambda\\sum X_i$.",
+          "Du deler på den positive størrelsen $2\\sum x_i$ — ulikheten snur IKKE her.",
+          "Liten kvantil ($6{,}908$) i nedre grense, stor ($28{,}85$) i øvre."
+        ]
+      }
+    },
+    {
+      "id": "stk1100-6-1-ex4",
+      "type": "exercise",
+      "exercise": {
+        "id": "stk1100-6-1-ex4",
+        "number": 4,
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "Levetider er Weibull-fordelte med **kjent** formparameter $\\alpha=2$ og ukjent skalaparameter $\\beta$. Pivoten er $\\sum(X_i/\\beta)^\\alpha \\sim$ gamma$(n,1)$. For $n=8$ er observert $S=\\sum x_i^2 = 40$. Lag et eksakt 95 %-KI for $\\beta^2$. Oppgitt: gamma$(8,1)$-kvantiler $g_{0{,}025}=3{,}454$, $g_{0{,}975}=14{,}42$.",
+        "solution": "Med $\\alpha=2$ er $\\sum(X_i/\\beta)^2 = S/\\beta^2$, så pivoten er $S/\\beta^2 \\sim$ gamma$(8,1)$. Løs\n$$g_{0{,}025} \\le \\frac{S}{\\beta^2} \\le g_{0{,}975} \\ \\Longrightarrow\\ \\beta^2 \\in \\left[\\frac{S}{g_{0{,}975}},\\ \\frac{S}{g_{0{,}025}}\\right] = \\left[\\frac{40}{14{,}42},\\ \\frac{40}{3{,}454}\\right] = [2{,}77,\\ 11{,}58].$$\n\nInverteringen snur ulikheten, så den *store* kvantilen havner i **nedre** grense. Punktestimatet $\\widehat{\\beta^2} = S/n = 40/8 = 5$ ligger inni.",
+        "hints": [
+          "Med $\\alpha=2$ blir $\\sum(X_i/\\beta)^2 = (\\sum x_i^2)/\\beta^2 = S/\\beta^2$.",
+          "Isoler $\\beta^2 = S/W$, $W\\sim$ gamma$(8,1)$ — invertering snur ulikheten.",
+          "Stor kvantil $14{,}42$ i nedre endepunkt."
+        ]
+      }
+    },
+    {
+      "id": "stk1100-6-1-lokke3-head",
+      "type": "text",
+      "content": "## Løkke 3 — KI transformert til en avledet størrelse (~15 min)"
+    },
+    {
+      "id": "stk1100-6-1-def-transform",
+      "type": "definition",
+      "title": "KI-transformasjon via monoton funksjon",
+      "content": "Har du et konfidensintervall for én størrelse, får du gratis et intervall for enhver **strengt monoton** funksjon av den — i symboler:\n\n$$[L,U] \\text{ er } (1-\\alpha)\\text{-KI for } \\theta,\\ g \\text{ strengt voksende}\\ \\Rightarrow\\ [g(L),\\, g(U)] \\text{ er } (1-\\alpha)\\text{-KI for } g(\\theta).$$\n\nEr $g$ strengt **avtakende**, bytter endepunktene plass: $[g(U), g(L)]$. Grunnen er at en monoton $g$ bevarer (eller snur) ulikheter uten å endre sannsynligheten: $P(L\\le\\theta\\le U) = P(g(L)\\le g(\\theta)\\le g(U))$. Dette er samme invariansidé som for ML-estimatoren ([kap. 5.2](/bok/stk1100/stk1100-5-2)), brukt til å lage KI for median, kvantiler og standardavvik."
+    },
+    {
+      "id": "stk1100-6-1-example3",
+      "type": "example",
+      "title": "Eksempel 3: KI for medianlevetiden",
+      "problem": "Fra Eksempel 1 har vi et eksakt 90 %-KI for eksponensiell forventning: $\\mu \\in [5{,}35,\\ 15{,}48]$ år. Medianlevetiden er $m = \\mu\\ln 2$. Finn et 90 %-KI for $m$.",
+      "solution": "For eksponensialfordelingen løser $F(m)=\\tfrac12$ til $m = \\mu\\ln 2$ (fra [kap. 2.1](/bok/stk1100/stk1100-2-1)). Funksjonen $g(\\mu)=\\mu\\ln 2$ er strengt voksende ($\\ln 2 > 0$), så endepunktene transformeres direkte:\n$$m \\in [5{,}35\\cdot\\ln 2,\\ 15{,}48\\cdot\\ln 2] = [3{,}71,\\ 10{,}73]\\ \\text{år}.$$\n\nKonfidensgraden er uendret 90 % — vi har bare byttet målestokk. Punktestimatet for medianen er $\\hat m = 8{,}4\\cdot\\ln 2 = 5{,}82$ år."
+    },
+    {
+      "id": "stk1100-6-1-ex5",
+      "type": "exercise",
+      "exercise": {
+        "id": "stk1100-6-1-ex5",
+        "number": 5,
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "Fra Eksempel 2 har du et 95 %-KI for variansen: $\\sigma^2 \\in [1{,}29,\\ 6{,}81]$. Bruk KI-transformasjon til å gi et 95 %-KI for standardavviket $\\sigma$, og begrunn hvorfor endepunktene *ikke* bytter plass.",
+        "solution": "$g(\\sigma^2)=\\sqrt{\\sigma^2}=\\sigma$ er strengt voksende for positive verdier, så endepunktene beholder rekkefølgen:\n$$\\sigma \\in [\\sqrt{1{,}29},\\ \\sqrt{6{,}81}] = [1{,}13,\\ 2{,}61].$$\n\nFordi $\\sqrt{\\cdot}$ er voksende, forblir det minste tallet minst — ingen vending.",
+        "hints": [
+          "$\\sigma = \\sqrt{\\sigma^2}$, og kvadratrot er strengt voksende for positive tall.",
+          "Voksende $g$: transformer hvert endepunkt direkte, samme rekkefølge.",
+          "Regn $\\sqrt{1{,}29}$ og $\\sqrt{6{,}81}$."
+        ]
+      }
+    },
+    {
+      "id": "stk1100-6-1-ex6",
+      "type": "exercise",
+      "exercise": {
+        "id": "stk1100-6-1-ex6",
+        "number": 6,
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "For en normalfordeling med kjent $\\mu$ er $F(m)=\\tfrac12$ oppfylt ved $m=\\mu$, så medianen er ikke interessant her. Vurder i stedet en eksponensiell modell der et 95 %-KI for forventningen er $\\mu \\in [4{,}09,\\ 11{,}43]$. Gi et 95 %-KI for **årlig sviktsannsynlighet** $p = P(X \\le 1) = 1 - e^{-1/\\mu}$.",
+        "solution": "$g(\\mu) = 1 - e^{-1/\\mu}$. Deriverer vi (eller resonnerer): når $\\mu$ øker, blir $1/\\mu$ mindre, $e^{-1/\\mu}$ større, og $g$ *mindre*. Altså er $g$ strengt **avtakende**, og endepunktene bytter plass:\n$$p \\in [g(11{,}43),\\ g(4{,}09)] = [1-e^{-1/11{,}43},\\ 1-e^{-1/4{,}09}].$$\nRegn: $1-e^{-0{,}0875}=0{,}0838$ og $1-e^{-0{,}2445}=0{,}2169$. Altså $p \\in [0{,}084,\\ 0{,}217]$.\n\nNøkkelen var å se at $g$ avtar, slik at nedre grense for $p$ kommer fra **øvre** grense for $\\mu$.",
+        "hints": [
+          "Sjekk om $g(\\mu)=1-e^{-1/\\mu}$ vokser eller avtar i $\\mu$.",
+          "Større $\\mu$ gir mindre $1/\\mu$, altså mindre sviktsannsynlighet → $g$ avtar.",
+          "Avtakende $g$: nedre $p$-grense fra øvre $\\mu$-grense (endepunktene bytter plass)."
+        ]
+      }
+    },
+    {
+      "id": "stk1100-6-1-ex7",
+      "type": "exercise",
+      "exercise": {
+        "id": "stk1100-6-1-ex7",
+        "number": 7,
+        "type": "classic",
+        "difficulty": "vanskelig",
+        "task": "Inntekter er Pareto-fordelte med kjent minsteinntekt $k=2$ og ukjent formparameter $\\theta$, med tetthet $f(x)=\\theta k^\\theta/x^{\\theta+1}$ for $x\\ge k$. For $n=10$ observasjoner er $T=\\sum \\ln(x_i/k) = 5$.\n\n**a)** Bruk at $2\\theta\\sum\\ln(X_i/k) \\sim \\chi^2_{2n}$ til å lage et eksakt 90 %-KI for $\\theta$. Oppgitt: $\\chi^2_{20,0{,}05}=31{,}41$, $\\chi^2_{20,0{,}95}=10{,}85$.\n**b)** Medianinntekten er $m = k\\cdot 2^{1/\\theta}$. Gi et 90 %-KI for $m$.",
+        "solution": "**a)** Pivoten $W=2\\theta T \\sim \\chi^2_{20}$. Fra $\\chi^2_{20,0{,}95}\\le 2\\theta T \\le \\chi^2_{20,0{,}05}$ deler vi på $2T=10$ (positivt):\n$$\\theta \\in \\left[\\frac{10{,}85}{10},\\ \\frac{31{,}41}{10}\\right] = [1{,}085,\\ 3{,}141].$$\nPunktestimatet $\\hat\\theta = n/T = 10/5 = 2$ ligger inni.\n\n**b)** $g(\\theta)=k\\cdot 2^{1/\\theta} = 2\\cdot 2^{1/\\theta}$. Når $\\theta$ øker, avtar $1/\\theta$, så $g$ er strengt **avtakende** — endepunktene bytter plass:\n$$m \\in [g(3{,}141),\\ g(1{,}085)] = [2\\cdot 2^{1/3{,}141},\\ 2\\cdot 2^{1/1{,}085}] = [2{,}49,\\ 3{,}79].$$",
+        "hints": [
+          "**a)** Isoler $\\theta = W/(2T)$; du deler på den positive $2T$, ingen vending.",
+          "$\\hat\\theta = n/T$ er en grei kontroll på at intervallet omslutter estimatet.",
+          "**b)** $g(\\theta)=k\\cdot 2^{1/\\theta}$ avtar i $\\theta$ — bytt endepunktene."
+        ]
+      }
+    },
+    {
+      "id": "stk1100-6-1-ex8",
+      "type": "exercise",
+      "exercise": {
+        "id": "stk1100-6-1-ex8",
+        "number": 8,
+        "type": "classic",
+        "difficulty": "vanskelig",
+        "task": "Vis den generelle utledningen: gitt eksponensiale data i forventningsform med pivot $2\\sum X_i/\\mu \\sim \\chi^2_{2n}$, utled formelen for det eksakte $(1-\\alpha)$-KI-et for $\\mu$ fra grunnen av, og forklar tydelig hvorfor endepunktene bytter plass.",
+        "solution": "Start med kvantilulikheten (øvre haleareal-notasjon):\n$$P\\left(\\chi^2_{2n,1-\\alpha/2} \\le \\frac{2\\sum X_i}{\\mu} \\le \\chi^2_{2n,\\alpha/2}\\right) = 1-\\alpha.$$\nAlle tre ledd er positive. Ta den resiproke verdien (inverter). **Inversjon er en avtakende operasjon**, så hver «mindre-enn» blir en «større-enn» og rekkefølgen snur:\n$$\\frac{1}{\\chi^2_{2n,\\alpha/2}} \\le \\frac{\\mu}{2\\sum X_i} \\le \\frac{1}{\\chi^2_{2n,1-\\alpha/2}}.$$\nGang med $2\\sum X_i > 0$ (bevarer retning):\n$$\\boxed{\\ \\mu \\in \\left[\\frac{2\\sum x_i}{\\chi^2_{2n,\\alpha/2}},\\ \\frac{2\\sum x_i}{\\chi^2_{2n,1-\\alpha/2}}\\right]\\ }.$$\n**Poenget:** den *store* kvantilen $\\chi^2_{2n,\\alpha/2}$ står i **nedre** grense fordi den står i nevneren — en stor nevner gir et lite tall. Derfor bytter endepunktene plass ved inverteringen.",
+        "hints": [
+          "Start fra $\\chi^2_{2n,1-\\alpha/2} \\le 2\\sum X_i/\\mu \\le \\chi^2_{2n,\\alpha/2}$.",
+          "Ta den resiproke verdien av alle tre ledd — inversjon snur ulikhetsretningen.",
+          "Stor kvantil i nevneren → lite tall → den havner i nedre grense."
+        ]
+      }
+    },
+    {
+      "id": "stk1100-6-1-warning-typiske",
+      "type": "warning",
+      "title": "Typiske feil",
+      "content": "- **Glemme å snu ulikheten ved invertering.** Når du løser $w_1 \\le 2\\sum X_i/\\mu \\le w_2$ for $\\mu$, tar du den resiproke verdien — og da bytter endepunktene plass. Den *store* kvantilen skal i **nedre** grense.\n- **Feil kvantil i feil endepunkt.** Med øvre-haleareal-notasjon er $\\chi^2_{\\nu,0{,}025}$ den *store* verdien og $\\chi^2_{\\nu,0{,}975}$ den *lille*. Slå opp begge og sjekk hvilken som er størst før du setter dem inn.\n- **Feil frihetsgrader.** Eksponensialpivoten har $2n$; normal-med-kjent-$\\mu$ har $n$; Weibull/Pareto har gamma$(n,\\cdot)$. Les *hvilken* pivot oppgaven gir.\n- **Tro at et asymmetrisk intervall er feil.** Det eksakte $\\chi^2$-intervallet er høyreskjevt om punktestimatet — det er korrekt, ikke en regnefeil.\n- **Glemme monotoniretningen ved KI-transformasjon.** Er $g$ avtakende (som $1-e^{-1/\\mu}$ eller $k\\cdot 2^{1/\\theta}$), bytter endepunktene plass."
+    },
+    {
+      "id": "stk1100-6-1-begrepsbank-notis",
+      "type": "text",
+      "content": "## Begrepsbank — formelkort\n\n*Flashcard-/repetisjonsstoff — hopp trygt over ved førstegangslesing; tidsanslaget gjelder kjernestoffet. Kortene under er komprimerte oppslag til de sju metodene over.*"
+    },
+    {
+      "id": "stk1100-6-1-card-1",
+      "type": "definition",
+      "title": "Standardpivot: Weibull — kortet",
+      "content": "For Weibull med kjent formparameter $\\alpha$ er den skalerte potenssummen gammafordelt:\n\n$$\\sum_{i=1}^n (X_i/\\beta)^\\alpha \\sim \\text{gamma}(n,1).$$\n\nKI for $\\beta^\\alpha$: del $\\sum x_i^\\alpha$ på gamma$(n,1)$-kvantilene (invertering snur rekkefølgen). $\\beta$ fås ved den voksende transformasjonen $(\\cdot)^{1/\\alpha}$."
+    },
+    {
+      "id": "stk1100-6-1-card-2",
+      "type": "definition",
+      "title": "Standardpivot: Pareto — kortet",
+      "content": "For Pareto med kjent minsteverdi $k$ er den skalerte log-summen kjikvadratfordelt:\n\n$$2\\theta\\sum_{i=1}^n \\ln(X_i/k) \\sim \\chi^2_{2n} = \\text{gamma}(n,2).$$\n\n$\\hat\\theta = n/\\sum\\ln(X_i/k)$. KI for $\\theta$: del kvantilene på $2\\sum\\ln(x_i/k)$ (positiv nevner — ingen vending)."
+    },
+    {
+      "id": "stk1100-6-1-card-3",
+      "type": "definition",
+      "title": "Pivot-katalogen — kortet",
+      "content": "De fire standardpivotalene med frihetsgrad:\n\n$$2\\textstyle\\sum X_i/\\mu \\sim \\chi^2_{2n}\\ (\\text{eksp.}),\\quad \\sum(X_i-\\mu)^2/\\sigma^2 \\sim \\chi^2_{n}\\ (\\text{normal, kjent }\\mu),$$\n$$\\sum(X_i/\\beta)^\\alpha \\sim \\text{gamma}(n,1)\\ (\\text{Weibull}),\\quad 2\\theta\\sum\\ln(X_i/k) \\sim \\chi^2_{2n}\\ (\\text{Pareto}).$$"
+    },
+    {
+      "id": "stk1100-6-1-card-4",
+      "type": "definition",
+      "title": "Frihetsgrad-kortet ($2n$ vs. $n$)",
+      "content": "Antall frihetsgrader skiller pivotalene:\n\nEksponensial og Pareto: **$2n$**. Normal med kjent $\\mu$: **$n$** (étt $\\chi^2_1$-ledd per observasjon). Weibull: gamma$(n,1)$. Bruk feil frihetsgrad, og hele intervallet blir galt — dette er den vanligste tapte poengkilden."
+    },
+    {
+      "id": "stk1100-6-1-card-5",
+      "type": "definition",
+      "title": "Kvantil-i-riktig-endepunkt — kortet",
+      "content": "Med øvre-haleareal-notasjon ($P(\\chi^2_\\nu>\\chi^2_{\\nu,\\alpha})=\\alpha$):\n\n$$\\text{nedre grense} = \\frac{2\\sum x_i}{\\chi^2_{2n,\\alpha/2}}\\ (\\text{stor kvantil}),\\quad \\text{øvre grense} = \\frac{2\\sum x_i}{\\chi^2_{2n,1-\\alpha/2}}\\ (\\text{liten kvantil}).$$\n\nStor kvantil i nevneren gir lite tall → nedre grense."
+    },
+    {
+      "id": "stk1100-6-1-card-6",
+      "type": "definition",
+      "title": "Invertering-snur-ulikheten — kortet",
+      "content": "Når parameteren står i nevneren av pivoten, løser du ved å ta den resiproke verdien — en avtakende operasjon:\n\n$$a \\le \\frac{c}{\\mu} \\le b \\ (a,b,c>0) \\ \\Longleftrightarrow\\ \\frac{c}{b} \\le \\mu \\le \\frac{c}{a}.$$\n\nEndepunktene bytter plass; sjekk alltid med at punktestimatet ligger inni."
+    },
+    {
+      "id": "stk1100-6-1-card-7",
+      "type": "definition",
+      "title": "Median-KI ($\\mu\\ln 2$) — kortet",
+      "content": "Eksponensialfordelingens median er $m=\\mu\\ln 2$ (fra $F(m)=\\tfrac12$). Siden $g(\\mu)=\\mu\\ln 2$ er strengt voksende:\n\n$$[L,U]\\text{ KI for }\\mu \\ \\Rightarrow\\ [L\\ln 2,\\ U\\ln 2]\\text{ KI for }m.$$\n\nSamme konfidensgrad — bare en ny målestokk."
+    },
+    {
+      "id": "stk1100-6-1-card-8",
+      "type": "definition",
+      "title": "Asymmetrisk KI — kortet",
+      "content": "Det eksakte $\\chi^2$-baserte intervallet er **asymmetrisk** om punktestimatet: den øvre halvdelen er lengre enn den nedre, fordi $\\chi^2$-fordelingen er høyreskjev. Dette er korrekt og forventet — ikke «rett» det til noe symmetrisk. (Wald-intervallet i [kap. 6.2](/bok/stk1100/stk1100-6-2) er derimot symmetrisk.)"
+    },
+    {
+      "id": "stk1100-6-1-card-9",
+      "type": "definition",
+      "title": "Konfidensgrad vs. dekning — kortet",
+      "content": "**Konfidensgrad** $1-\\alpha$ er det tilsiktede nivået vi bygger intervallet for. **Dekningsgrad** er den faktiske andelen gjentatte intervaller som fanger sann $\\theta$. For eksakte pivotal-intervaller er dekningen lik konfidensgraden per konstruksjon; tilnærmede intervaller (kap. 6.2) kan avvike."
+    },
+    {
+      "id": "stk1100-6-1-card-10",
+      "type": "definition",
+      "title": "Formelsamling vs. utled — kortet",
+      "content": "**Står i formelsamlingen (tren oppslaget):** $\\chi^2_{\\nu,\\alpha}$- og $z_\\alpha$-kvantilene, fordelingskatalogen. **Må utledes aktivt:** pivoten (fra 4.3), ulikhetsløsningen med riktig vending, og KI-transformasjonen via monoton funksjon. Poengene ligger i utledningen."
+    },
+    {
+      "id": "stk1100-6-1-card-11",
+      "type": "definition",
+      "title": "Punktestimat ligger i KI — kortet",
+      "content": "En rask konsistenssjekk: punktestimatet ($\\hat\\mu=\\bar x$, $\\hat\\theta=n/T$ osv.) skal alltid ligge **inni** det eksakte intervallet. Gjør det ikke det, har du sannsynligvis byttet om kvantilene eller glemt å snu ulikheten."
+    },
+    {
+      "id": "stk1100-6-1-card-12",
+      "type": "definition",
+      "title": "Tolkning av KI — kortet",
+      "content": "Sett alltid på **enhet** og en setnings **tolkning** til slutt: «Vi er 90 % konfidente på at forventet levetid ligger mellom 5,3 og 15,5 år.» Sensor krever tallsvar med tolkning — et bart intervall uten enhet og ord gir redusert uttelling."
+    },
+    {
+      "id": "stk1100-6-1-card-13",
+      "type": "definition",
+      "title": "Eksponensial rateform-pivot — kortet",
+      "content": "Oppgir oppgaven eksponensialen i **rateform** $f(x)=\\lambda e^{-\\lambda x}$, er pivoten\n\n$$2\\lambda\\sum_{i=1}^n X_i \\sim \\chi^2_{2n}, \\qquad \\hat\\lambda = n/\\textstyle\\sum X_i.$$\n\nHer står $\\lambda$ i telleren, så KI-et fås ved å dele kvantilene på $2\\sum x_i$ (positiv nevner — ingen vending): $\\lambda \\in [\\chi^2_{2n,1-\\alpha/2}/(2\\sum x_i),\\ \\chi^2_{2n,\\alpha/2}/(2\\sum x_i)]$."
+    },
+    {
+      "id": "stk1100-6-1-card-14",
+      "type": "definition",
+      "title": "Normal-kjent-µ-KI for $\\sigma^2$ — kortet",
+      "content": "Fra pivoten $\\sum(X_i-\\mu)^2/\\sigma^2 \\sim \\chi^2_n$ (kjent $\\mu$):\n\n$$\\sigma^2 \\in \\left[\\frac{\\sum(x_i-\\mu)^2}{\\chi^2_{n,\\alpha/2}},\\ \\frac{\\sum(x_i-\\mu)^2}{\\chi^2_{n,1-\\alpha/2}}\\right].$$\n\nStandardavviket fås ved den voksende transformasjonen $\\sqrt{\\cdot}$ på begge endepunkter."
+    },
+    {
+      "id": "stk1100-6-1-card-15",
+      "type": "definition",
+      "title": "Weibull-KI løftet til $\\beta$ — kortet",
+      "content": "Weibull-pivoten gir først et KI for $\\beta^\\alpha$:\n\n$$\\beta^\\alpha \\in \\left[\\frac{\\sum x_i^\\alpha}{g_{n,\\alpha/2}},\\ \\frac{\\sum x_i^\\alpha}{g_{n,1-\\alpha/2}}\\right],\\quad g \\sim \\text{gamma}(n,1).$$\n\nDeretter løftes til $\\beta$ med den strengt voksende $(\\cdot)^{1/\\alpha}$ — endepunktene beholder rekkefølgen."
+    },
+    {
+      "id": "stk1100-6-1-card-16",
+      "type": "definition",
+      "title": "Pareto-median-KI — kortet",
+      "content": "Pareto-medianen er $m = k\\cdot 2^{1/\\theta}$. Funksjonen $g(\\theta)=k\\cdot 2^{1/\\theta}$ er strengt **avtakende** i $\\theta$, så et KI $[\\theta_L,\\theta_U]$ gir\n\n$$m \\in \\big[\\,k\\cdot 2^{1/\\theta_U},\\ k\\cdot 2^{1/\\theta_L}\\,\\big]$$\n\n— endepunktene bytter plass. Samme mønster som all KI-transformasjon med avtakende $g$."
+    },
+    {
+      "id": "stk1100-6-1-card-17",
+      "type": "definition",
+      "title": "Sjekkliste for pivotal-KI — kortet",
+      "content": "Fem punkter å hake av før du leverer et eksakt KI:\n\n1) riktig pivot for oppgavens fordeling; 2) riktig frihetsgrad ($2n$ / $n$ / gamma$(n,\\cdot)$); 3) riktig kvantil i riktig endepunkt; 4) snudd ulikheten der du inverterte; 5) punktestimatet ligger inni — og svaret har enhet og tolkning."
+    },
+    {
+      "id": "stk1100-6-1-card-18",
+      "type": "definition",
+      "title": "Bredere KI ved høyere konfidensgrad — kortet",
+      "content": "Vil du være sikrere (høyere $1-\\alpha$), blir intervallet **bredere**: $\\alpha/2$ minker, $\\chi^2_{2n,\\alpha/2}$ vokser og $\\chi^2_{2n,1-\\alpha/2}$ minker, så nedre grense synker og øvre grense stiger. Et 99 %-KI er alltid videre enn 90 %-KI-et fra samme data — mer sikkerhet koster presisjon."
+    },
+    {
+      "id": "stk1100-6-1-rep",
+      "type": "collapsible",
+      "title": "Repetisjonsoppgaver",
+      "buttonText": "Vis repetisjonsoppgaver",
+      "content": [
+        {
+          "id": "stk1100-6-1-rep-tekst",
+          "type": "text",
+          "content": "Korte oppgaver fra forkunnskapskapitlene som dette kapitlet hviler på. Løs dem før du går videre til drillen i [kap. 6.3](/bok/stk1100/stk1100-6-3).\n\n**R1 (fra 5.2 — ML).** Utled ML-estimatoren $\\hat\\mu$ for eksponensiell forventning fra $n$ observasjoner.\n*Løsning:* $\\ell(\\mu) = -n\\ln\\mu - \\tfrac{1}{\\mu}\\sum x_i$; $\\ell'(\\mu) = -n/\\mu + \\sum x_i/\\mu^2 = 0 \\Rightarrow \\hat\\mu = \\bar x$.\n\n**R2 (fra 4.3 — pivot).** Hvilken fordeling har $\\sum (X_i-\\mu)^2/\\sigma^2$ for $n$ normale observasjoner med kjent $\\mu$?\n*Løsning:* Hvert ledd $\\sim \\chi^2_1$, summen $\\sim \\chi^2_n$.\n\n**R3 (fra 2.2 — $\\chi^2$-gamma).** Skriv $\\chi^2_{20}$ som en gammafordeling.\n*Løsning:* $\\chi^2_{20} = \\text{gamma}(20/2, 2) = \\text{gamma}(10, 2)$.\n\n**R4 (fra 2.1 — median).** Finn medianen til en eksponensialfordeling med forventning $\\mu$.\n*Løsning:* $F(m) = 1-e^{-m/\\mu} = \\tfrac12 \\Rightarrow m = \\mu\\ln 2$.\n\n**R5 (fra 4.3 — frihetsgrad).** Ti eksponensiale observasjoner: hvor mange frihetsgrader har $2\\sum X_i/\\mu$?\n*Løsning:* $2n = 20$."
+        }
+      ]
+    },
+    {
+      "id": "stk1100-6-1-symbolliste",
+      "type": "collapsible",
+      "title": "Symbol- og formelliste",
+      "buttonText": "Vis symboler og formler",
+      "content": [
+        {
+          "id": "stk1100-6-1-symbol-tekst",
+          "type": "text",
+          "content": "*Oppslagsverk — alt her forklares underveis i kapitlet.*\n\n| Symbol | Betydning |\n|---|---|\n| $X_1,\\ldots,X_n$ | Uavhengige, identisk fordelte observasjoner (iid) |\n| $\\theta$ | Generisk ukjent parameter |\n| $\\mu$ | Forventning (eksponensial forventningsform) |\n| $\\lambda$ | Rate (eksponensial rateform) |\n| $\\sigma^2,\\ \\sigma$ | Varians og standardavvik (normal) |\n| $\\beta,\\ \\alpha$ | Skala- og formparameter (Weibull) |\n| $k$ | Kjent minsteverdi (Pareto) |\n| $\\hat\\theta,\\ \\hat\\mu$ | Estimator (stokastisk) / estimat (tall) |\n| $W$ | Pivotal størrelse |\n| $1-\\alpha$ | Konfidensgrad |\n| $[L,U]$ | Nedre og øvre KI-endepunkt (stokastiske) |\n| $\\chi^2_{\\nu,\\alpha}$ | $\\chi^2$-kvantil, øvre haleareal: $P(\\chi^2_\\nu>\\chi^2_{\\nu,\\alpha})=\\alpha$ |\n| $z_\\alpha$ | Normalkvantil, øvre haleareal |\n| gamma$(n,1)$ | Gammafordeling, formparameter $n$, skala 1 (Weibull-pivot) |\n\n**Formler i dette kapitlet:**\n\n$$P\\big(L \\le \\theta \\le U\\big) = 1-\\alpha \\qquad \\text{(konfidensintervall)}$$\n\n$$\\frac{2\\sum X_i}{\\mu} \\sim \\chi^2_{2n} \\qquad \\text{(eksponensialpivot, forventningsform)}$$\n\n$$\\mu \\in \\left[\\frac{2\\sum x_i}{\\chi^2_{2n,\\alpha/2}},\\ \\frac{2\\sum x_i}{\\chi^2_{2n,1-\\alpha/2}}\\right] \\qquad \\text{(eksakt KI for }\\mu)$$\n\n$$\\frac{\\sum(X_i-\\mu)^2}{\\sigma^2} \\sim \\chi^2_{n} \\qquad \\text{(normalpivot, kjent }\\mu)$$\n\n$$\\sum(X_i/\\beta)^\\alpha \\sim \\text{gamma}(n,1),\\qquad 2\\theta\\sum\\ln(X_i/k) \\sim \\chi^2_{2n} \\qquad \\text{(Weibull-/Pareto-pivot)}$$\n\n$$[L,U]\\text{ KI for }\\theta,\\ g\\text{ voksende} \\ \\Rightarrow\\ [g(L),g(U)]\\text{ KI for }g(\\theta) \\qquad \\text{(KI-transformasjon)}$$\n\n$$m = \\mu\\ln 2 \\qquad \\text{(eksponensiell median)}$$"
+        }
+      ]
+    }
+  ],
+  "exercises": []
+}

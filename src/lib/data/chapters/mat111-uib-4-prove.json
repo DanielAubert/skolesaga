@@ -1,0 +1,289 @@
+{
+  "id": "mat111-uib-4-prove",
+  "courseId": "mat111-uib",
+  "chapterNumber": "4.P",
+  "title": "Prøver til del 4: Eksistens, entydighet og tilnærming",
+  "description": "Fire prøver som dekker hele Del 4 — eksistens og entydighet som to leveranser, Newton med krumningsargument og fikspunkt-kontraksjon med figur, Taylor med aktivt restledd, og induksjon på n-te derivert i kjede med Taylor. Med fasit etter føringsstandarden og selvdiagnose.",
+  "estimatedMinutes": 165,
+  "competenceGoals": [
+    "kunne levere eksistens og entydighet som to atskilte, teorem-navngitte steg under prøveforhold",
+    "kunne iterere Newton og fikspunkt med krumnings- og kontraksjonsargumenter etter delens føringsstandard",
+    "kunne bruke Lagrange-restleddet kvantitativt og føre et komplett induksjonsbevis for en f^(n)-formel"
+  ],
+  "content": [
+    {
+      "id": "mat111-uib-4-prove-tip",
+      "type": "tip",
+      "title": "Om prøvene til Del 4",
+      "content": "Fire prøver som dekker hele Del 4 (eksistens, entydighet og tilnærming) — UiBs signaturkjede der skjæringssetning, Newton, Taylor og induksjon bygger på hverandre. Til sammen **4 prøver à ~35–45 min, kan trygt deles over flere kvelder — én prøve per økt**. Husk delens føringskrav: eksistens og entydighet føres som TO atskilte steg med navngitte teoremer, Newtons feilfortegn krever krumningsargument på HELE intervallet, restleddet brukes KVANTITATIVT (skranker → intervall → fortegn), og induksjonsbeviset har alle fire trinnene. Full fasit ligger som utvidbare løsninger; **avkryssbar selvdiagnose** avslutter hver prøve.\n\n| Prøve | Tema (kap.) | Tid |\n|---|---|---|\n| 4.A | Eksistens + entydighet som to leveranser + hjelpefunksjon (4.1) | ~40 min |\n| 4.B | Newton med krumningsargument + fikspunkt-kontraksjon (4.2) | ~45 min |\n| 4.C | Taylor med aktivt restledd: intervall, fortegn, innkapsling (4.3) | ~45 min |\n| 4.D | Induksjon på n-te derivert + blandet kjedeoppgave (4.3–4.4) | ~35 min |"
+    },
+    {
+      "id": "mat111-uib-4-prove-fork",
+      "type": "text",
+      "content": "**Forkunnskaper.**\n\n- [kap. 4.1](/bok/mat111-uib/mat111-uib-4-1) — eksistens–entydighet-malen (skjæringssetning + monotoni/Rolle-motsigelse), hjelpefunksjonsteknikken og MVT som ulikhetsmaskin.\n- [kap. 4.2](/bok/mat111-uib/mat111-uib-4-2) — Newtons iterasjonsformel, krumningsargumentet for feilens fortegn på hele intervallet, og fikspunktiterasjon med kontraksjonsvilkåret $\\lvert g'\\rvert < 1$.\n- [kap. 4.3](/bok/mat111-uib/mat111-uib-4-3) — Taylorpolynomet, Lagrange-restleddet og algoritmen skranker → intervall → fortegn.\n- [kap. 4.4](/bok/mat111-uib/mat111-uib-4-4) — induksjonsmalen for $f^{(n)}$-formler: basissteg, hypotese, trinn, konklusjon.\n\nLøs uten fasit først; sjekk deretter føringen ledd for ledd — det er føringen som gir poengene."
+    },
+    {
+      "id": "mat111-uib-4-prove-p1",
+      "type": "collapsible",
+      "title": "Prøve 1 — Eksistens og entydighet som to leveranser (4.A, ~40 min)",
+      "buttonText": "Vis prøve 1",
+      "content": [
+        {
+          "id": "mat111-uib-4-prove-p1-intro",
+          "type": "text",
+          "content": "**Prøve 4.A.** Tre oppgaver, ~40 min. I hver oppgave: eksistens og entydighet er TO leveranser — navngi teoremet i hver av dem."
+        },
+        {
+          "id": "mat111-uib-4-prove-p1o1",
+          "type": "exercise",
+          "exercise": {
+            "id": "mat111-uib-4-prove-p1o1-x",
+            "number": "1",
+            "type": "classic",
+            "difficulty": "middels",
+            "task": "Vis at likningen\n$$x^7 + 5x = 3$$\nhar nøyaktig én reell løsning, og at den ligger i intervallet $(0, 1)$.",
+            "solution": "La $f(x) = x^7 + 5x - 3$ — kontinuerlig på hele $\\mathbb{R}$ (polynom).\n\n**Leveranse 1 — eksistens (skjæringssetningen).** $f(0) = -3 < 0$ og $f(1) = 1 + 5 - 3 = 3 > 0$. Siden $f$ er kontinuerlig på $[0,1]$ med fortegnsskifte, gir **skjæringssetningen** minst én $r \\in (0,1)$ med $f(r) = 0$. ✓\n\n**Leveranse 2 — entydighet (monotoni).** $f'(x) = 7x^6 + 5 \\ge 5 > 0$ for alle $x$ — fast positivt fortegn, så $f$ er strengt voksende på $\\mathbb{R}$ og kan ikke ha to nullpunkter. ✓\n\n*Alternativt (Rolle-motsigelse):* hadde $f$ hatt to nullpunkter $a < b$, ville **Rolles teorem** (f kontinuerlig og deriverbar overalt, $f(a) = f(b) = 0$) gitt en $c \\in (a,b)$ med $f'(c) = 0$ — umulig når $f' \\ge 5$.\n\n**Konklusjon:** likningen har nøyaktig én reell løsning, og den ligger i $(0,1)$. $\\blacksquare$",
+            "hints": [
+              "Flytt alt over på én side og navngi funksjonen.",
+              "Eksistens: regn $f(0)$ og $f(1)$, pek på fortegnsskiftet og NAVNGI setningen.",
+              "Entydighet: vis at $f'$ har fast fortegn — eller før Rolle-motsigelsen."
+            ]
+          }
+        },
+        {
+          "id": "mat111-uib-4-prove-p1o2",
+          "type": "exercise",
+          "exercise": {
+            "id": "mat111-uib-4-prove-p1o2-x",
+            "number": "2",
+            "type": "classic",
+            "difficulty": "middels",
+            "task": "Vis at likningen\n$$e^{-x} = 2x$$\nhar nøyaktig én løsning på $\\mathbb{R}$, og angi et intervall av lengde $1$ som inneholder den.",
+            "solution": "La $g(x) = e^{-x} - 2x$ — kontinuerlig og deriverbar på hele $\\mathbb{R}$.\n\n**Leveranse 1 — eksistens.** $g(0) = 1 > 0$ og $g(1) = e^{-1} - 2 \\approx 0{,}368 - 2 = -1{,}632 < 0$. **Skjæringssetningen** (g kontinuerlig på $[0,1]$, fortegnsskifte) gir minst én løsning i $(0, 1)$ — et intervall av lengde $1$. ✓\n\n**Leveranse 2 — entydighet.** $g'(x) = -e^{-x} - 2 < 0$ for alle $x$ (begge leddene er negative) — $g$ er strengt avtakende på hele $\\mathbb{R}$ og tar hver verdi høyst én gang. ✓\n\n**Konklusjon:** likningen $e^{-x} = 2x$ har nøyaktig én løsning, og den ligger i $(0,1)$. $\\blacksquare$",
+            "hints": [
+              "Sett $g(x) = e^{-x} - 2x$ og se etter fortegnsskifte i pene punkter.",
+              "$g'$ er en sum av to negative ledd — det er hele entydighetsargumentet.",
+              "Husk å levere BEGGE stegene, hver med navngitt begrunnelse."
+            ]
+          }
+        },
+        {
+          "id": "mat111-uib-4-prove-p1o3",
+          "type": "exercise",
+          "exercise": {
+            "id": "mat111-uib-4-prove-p1o3-x",
+            "number": "3",
+            "type": "classic",
+            "difficulty": "vanskelig",
+            "task": "La $f$ være kontinuerlig på $[0,1]$ og deriverbar på $(0,1)$, med $f(0) = 0$ og $f(1) = 1$.\n\nVis at det finnes et punkt $c \\in (0,1)$ slik at\n$$f'(c) = 2c.$$",
+            "solution": "**Konstruer hjelpefunksjonen.** Likningen $f'(c) = 2c$ omskrives til $f'(c) - 2c = 0$ — venstresiden er den deriverte av\n$$g(x) = f(x) - x^2.$$\n\n**Sjekk Rolles forutsetninger for $g$ på $[0,1]$:**\n\n- $g$ er kontinuerlig på $[0,1]$ (differanse av $f$ og et polynom),\n- $g$ er deriverbar på $(0,1)$, med $g'(x) = f'(x) - 2x$,\n- like endeverdier: $g(0) = f(0) - 0 = 0$ og $g(1) = f(1) - 1 = 1 - 1 = 0$. ✓\n\n**Bruk Rolles teorem.** Alle forutsetningene holder, så det finnes en $c \\in (0,1)$ med\n$$g'(c) = 0, \\qquad\\text{dvs.}\\qquad f'(c) - 2c = 0 \\iff f'(c) = 2c. \\qquad\\blacksquare$$\n\n*(Merk føringen: hjelpefunksjonen skrives opp, alle tre forutsetningene sjekkes eksplisitt, og teoremet navngis — det er de tre poenggivende leddene i denne sjangeren.)*",
+            "hints": [
+              "Flytt alt i mållikningen over på én side — hva er den en derivert av?",
+              "Hjelpefunksjonen er $g(x) = f(x) - x^2$; regn $g(0)$ og $g(1)$.",
+              "Sjekk kontinuitet, deriverbarhet og like endeverdier FØR du navngir Rolle."
+            ]
+          }
+        },
+        {
+          "id": "mat111-uib-4-prove-chk-p1",
+          "type": "text",
+          "content": "**Selvdiagnose — kryss av det du fikk til uten å slå opp:**\n\n- ☐ Leverte eksistens og entydighet som TO atskilte, merkede steg\n- ☐ Navnga skjæringssetningen (og sjekket kontinuitet + fortegnsskifte)\n- ☐ Førte entydighet med fast fortegn på $f'$ ELLER Rolle-motsigelse\n- ☐ Konstruerte hjelpefunksjonen ved å flytte alt over på én side\n- ☐ Sjekket Rolles tre forutsetninger eksplisitt før bruk"
+        }
+      ]
+    },
+    {
+      "id": "mat111-uib-4-prove-p2",
+      "type": "collapsible",
+      "title": "Prøve 2 — Newton med krumningsargument + fikspunkt (4.B, ~45 min)",
+      "buttonText": "Vis prøve 2",
+      "content": [
+        {
+          "id": "mat111-uib-4-prove-p2-intro",
+          "type": "text",
+          "content": "**Prøve 4.B.** To sammensatte oppgaver, ~45 min. Karakterskilleren: feilens fortegn krever krumningsargument på HELE intervallet mellom startpunkt og rot — ett punkt er ikke nok."
+        },
+        {
+          "id": "mat111-uib-4-prove-p2o1",
+          "type": "exercise",
+          "exercise": {
+            "id": "mat111-uib-4-prove-p2o1-x",
+            "number": "1",
+            "type": "classic",
+            "difficulty": "vanskelig",
+            "task": "La $f(x) = x^3 - x - 4$.\n\n**a)** Vis at $f$ har nøyaktig ett nullpunkt i intervallet $[1, 2]$.\n\n**b)** Utfør to Newton-steg fra $x_0 = 2$ (oppgi $x_1$ eksakt og $x_2$ med seks desimaler).\n\n**c)** Avgjør med et krumningsargument på hele intervallet om $x_2$ er for stor eller for liten i forhold til nullpunktet.",
+            "solution": "**a) Eksistens + entydighet (to leveranser).** $f$ er kontinuerlig (polynom); $f(1) = 1 - 1 - 4 = -4 < 0$ og $f(2) = 8 - 2 - 4 = 2 > 0$ — **skjæringssetningen** gir minst ett nullpunkt $r \\in (1,2)$. Entydighet på intervallet: $f'(x) = 3x^2 - 1 \\ge 3\\cdot1 - 1 = 2 > 0$ for alle $x \\in [1,2]$ — $f$ er strengt voksende der, så nullpunktet er det eneste i $[1,2]$. ✓\n\n**b) To Newton-steg.** Iterasjonsformelen $x_{n+1} = x_n - \\dfrac{f(x_n)}{f'(x_n)}$ med $f'(x) = 3x^2 - 1$:\n\n$$x_1 = 2 - \\frac{f(2)}{f'(2)} = 2 - \\frac{2}{11} = \\frac{20}{11} \\approx 1{,}818182.$$\n$$f(x_1) = \\Big(\\tfrac{20}{11}\\Big)^3 - \\tfrac{20}{11} - 4 \\approx 6{,}010518 - 1{,}818182 - 4 = 0{,}192336, \\qquad f'(x_1) = 3\\cdot\\tfrac{400}{121} - 1 \\approx 8{,}917355.$$\n$$x_2 = x_1 - \\frac{f(x_1)}{f'(x_1)} \\approx 1{,}818182 - \\frac{0{,}192336}{8{,}917355} \\approx 1{,}796613.$$\n\n**c) Feilens fortegn — krumning på HELE intervallet.** $f''(x) = 6x$, og på hele $[1,2]$ — som inneholder både roten $r$ og alle iteratene — er $f''(x) \\ge 6 > 0$: $f$ er **konveks på hele intervallet**, ikke bare i ett punkt. En konveks graf ligger over alle sine tangenter; startpunktet $x_0 = 2$ ligger på siden der $f > 0$ (til høyre for $r$, siden $f$ er voksende). Tangenten i et punkt til høyre for $r$ treffer derfor $x$-aksen FØR grafen gjør det — hvert Newton-steg lander til høyre for $r$, men nærmere. Altså er $r < x_2 < x_1 < x_0$:\n\n**Konklusjon:** $x_2 \\approx 1{,}796613$ er **for stor** (et overestimat). *(Kontroll: $f(x_2) \\approx 0{,}0026 > 0$ — $x_2$ ligger fortsatt på plussiden av det voksende $f$, altså til høyre for roten ✓; roten er $r \\approx 1{,}796322$.)* $\\blacksquare$",
+            "hints": [
+              "a) To leveranser: fortegnsskifte + monotoni på intervallet.",
+              "b) Hold $x_1 = 20/11$ eksakt og regn $x_2$ med desimaltall.",
+              "c) $f'' = 6x > 0$ på HELE $[1,2]$ — si det, og bruk at konveks graf ligger over tangentene."
+            ]
+          }
+        },
+        {
+          "id": "mat111-uib-4-prove-p2o2",
+          "type": "exercise",
+          "exercise": {
+            "id": "mat111-uib-4-prove-p2o2-x",
+            "number": "2",
+            "type": "classic",
+            "difficulty": "vanskelig",
+            "task": "Likningen\n$$x^3 - 4x + 1 = 0$$\nhar en løsning $r$ i intervallet $[0, \\tfrac12]$.\n\n**a)** Vis at $r$ finnes og er den eneste løsningen i $[0, \\tfrac12]$.\n\n**b)** Vis at $r$ er et fikspunkt for $g(x) = \\dfrac{x^3 + 1}{4}$.\n\n**c)** Iterér to ganger fra $x_0 = 0$, og oppgi $x_1$ og $x_2$ eksakt.\n\n**d)** Forklar hvorfor iterasjonen konvergerer mot $r$ (kontraksjonsvilkåret), og avgjør med en skisse om iterasjonen kryper ensidig (trapp) eller hopper fra side til side (spiral).",
+            "solution": "**a) Eksistens + entydighet.** $h(x) = x^3 - 4x + 1$ er kontinuerlig; $h(0) = 1 > 0$ og $h(\\tfrac12) = \\tfrac18 - 2 + 1 = -\\tfrac78 < 0$ — **skjæringssetningen** gir minst én $r \\in (0, \\tfrac12)$. Entydighet: $h'(x) = 3x^2 - 4 \\le 3\\cdot\\tfrac14 - 4 = -\\tfrac{13}{4} < 0$ på $[0,\\tfrac12]$ — strengt avtakende, så $r$ er eneste løsning der. ✓\n\n**b) Fikspunkt-omskrivingen.** For $x \\in [0,\\tfrac12]$:\n$$x^3 - 4x + 1 = 0 \\iff x^3 + 1 = 4x \\iff \\frac{x^3+1}{4} = x,$$\naltså er $r$ løsning av likningen hvis og bare hvis $g(r) = r$: $r$ er fikspunkt for $g$. ✓\n\n**c) To iterasjoner fra $x_0 = 0$:**\n$$x_1 = g(0) = \\frac{0 + 1}{4} = \\frac14 = 0{,}25, \\qquad x_2 = g\\Big(\\frac14\\Big) = \\frac{\\frac{1}{64} + 1}{4} = \\frac{65}{256} = 0{,}25390625.$$\n\n**d) Konvergens (kontraksjonsvilkåret) og figurtype.** $g'(x) = \\dfrac{3x^2}{4}$, så på $[0, \\tfrac12]$:\n$$0 \\le g'(x) \\le \\frac{3\\cdot\\frac14}{4} = \\frac{3}{16} < 1.$$\nI tillegg holder $g$ seg i intervallet: $g$ er voksende med $g(0) = \\tfrac14$ og $g(\\tfrac12) = \\tfrac{9}{32}$, så $g([0,\\tfrac12]) = [\\tfrac14, \\tfrac{9}{32}] \\subset [0,\\tfrac12]$. Sekantsetningen gir da for hvert steg en $\\xi$ mellom $x_n$ og $r$ med\n$$\\lvert x_{n+1} - r\\rvert = \\lvert g(x_n) - g(r)\\rvert = \\lvert g'(\\xi)\\rvert\\,\\lvert x_n - r\\rvert \\le \\frac{3}{16}\\,\\lvert x_n - r\\rvert,$$\nså avstanden til $r$ krymper med minst faktoren $\\tfrac{3}{16}$ per steg — iterasjonen konvergerer mot $r$. Siden $g' > 0$ nær $r$ (positiv, ikke negativ), beholder feilen $x_n - r$ samme fortegn hele veien: iterasjonen kryper **ensidig — en trapp, ikke spiral** (spiralen krever $g' < 0$). Skissen under viser trappa: loddrett til kurven, vannrett til $y = x$, gjentatt.\n\n*(Kontroll: $r \\approx 0{,}254102$, og $x_0 = 0 < x_1 = 0{,}25 < x_2 = 0{,}25390625 < r$ — ensidig kryp nedenfra ✓.)* $\\blacksquare$",
+            "hints": [
+              "a) Fortegnsskifte + fast fortegn på $h'$ over intervallet.",
+              "b) Flytt $4x$ over og del på $4$ — ekvivalensen skal vises begge veier.",
+              "d) Maksimér $\\lvert g'\\rvert$ på intervallet og sammenlign med $1$; fortegnet på $g'$ avgjør trapp mot spiral."
+            ]
+          }
+        },
+        {
+          "id": "mat111-uib-4-prove-p2-fig",
+          "type": "image",
+          "src": "/images/textbook/mat111-uib/mat111-uib-4-prove-fikspunkt-trapp.svg",
+          "alt": "Trappediagram for fikspunktiterasjonen x_{n+1} = g(x_n) med g(x) = (x^3+1)/4: fra x_0 = 0 går et loddrett trinn opp til kurven y = g(x), et vannrett trinn bort til linjen y = x, og deretter stadig mindre trinn som kryper ensidig inn mot fikspunktet r ≈ 0,254, markert som grønt punkt i skjæringen mellom kurven og y = x.",
+          "caption": "Fasitfigur til oppgave 2 d): trappekonvergens for g(x) = (x³+1)/4 fra x₀ = 0. Fordi 0 < g′ < 1 nær fikspunktet, kryper iterasjonen ensidig (trapp) mot r ≈ 0,254 — allerede x₁ = 0,25 og x₂ ≈ 0,2539 ligger tett innpå."
+        },
+        {
+          "id": "mat111-uib-4-prove-chk-p2",
+          "type": "text",
+          "content": "**Selvdiagnose — kryss av det du fikk til uten å slå opp:**\n\n- ☐ Leverte eksistens + entydighet før iterasjonen startet\n- ☐ Regnet nøyaktig så mange Newton-steg som oppgaven ba om\n- ☐ Sjekket krumningen på HELE intervallet — ikke bare i ett punkt — og konkluderte om feilens fortegn\n- ☐ Dokumenterte kontraksjonsvilkåret $\\lvert g'\\rvert \\le k < 1$ (med maksimering av $g'$ på intervallet)\n- ☐ Begrunnet trapp mot spiral fra fortegnet på $g'$ — og tegnet skissen"
+        }
+      ]
+    },
+    {
+      "id": "mat111-uib-4-prove-p3",
+      "type": "collapsible",
+      "title": "Prøve 3 — Taylor med aktivt restledd (4.C, ~45 min)",
+      "buttonText": "Vis prøve 3",
+      "content": [
+        {
+          "id": "mat111-uib-4-prove-p3-intro",
+          "type": "text",
+          "content": "**Prøve 4.C.** Tre oppgaver, ~45 min. Restleddet skal brukes KVANTITATIVT i alle tre: skranker → intervall → fortegn. Skarpest mulig skranke gir full uttelling."
+        },
+        {
+          "id": "mat111-uib-4-prove-p3o1",
+          "type": "exercise",
+          "exercise": {
+            "id": "mat111-uib-4-prove-p3o1-x",
+            "number": "1",
+            "type": "classic",
+            "difficulty": "vanskelig",
+            "task": "**a)** Finn Taylorpolynomet $P_2$ til $f(x) = \\sqrt{x}$ om $a = 16$.\n\n**b)** Bruk $P_2$ til å tilnærme $\\sqrt{17}$.\n\n**c)** Bruk Lagrange-restleddet til å angi et minst mulig intervall som garantert inneholder $\\sqrt{17}$, og avgjør om tilnærmingen er for stor eller for liten.",
+            "solution": "**a) Derivertetabell** ($f = x^{1/2}$): $f(16) = 4$; $f'(x) = \\tfrac12x^{-1/2}$ gir $f'(16) = \\tfrac18$; $f''(x) = -\\tfrac14x^{-3/2}$ gir $f''(16) = -\\tfrac14\\cdot\\tfrac{1}{64} = -\\tfrac{1}{256}$, koeffisient $\\tfrac{f''(16)}{2!} = -\\tfrac{1}{512}$:\n$$P_2(x) = 4 + \\frac{x-16}{8} - \\frac{(x-16)^2}{512}.$$\n\n**b) Tilnærmingen** ($x = 17$, $x - a = 1$):\n$$P_2(17) = 4 + \\frac18 - \\frac{1}{512} = 4{,}125 - 0{,}001953125 = 4{,}123046875.$$\n\n**c) Restleddet.** $f'''(x) = \\tfrac38x^{-5/2}$, så\n$$R_2(17) = \\frac{f'''(c)}{3!}\\cdot 1^3 = \\frac{1}{16\\,c^{5/2}}, \\qquad c \\in (16, 17).$$\n**Skarpest mulige skranker:** $c^{-5/2}$ er avtakende i $c$, så ytterpunktene gir\n$$\\frac{1}{16\\cdot 17^{5/2}} < R_2(17) < \\frac{1}{16\\cdot 16^{5/2}} = \\frac{1}{16\\cdot 1024} = \\frac{1}{16384}.$$\nNumerisk: $17^{5/2} = 289\\sqrt{17} \\approx 1191{,}58$, så $5{,}245\\cdot10^{-5} < R_2 < 6{,}104\\cdot10^{-5}$.\n\n**Intervallet:**\n$$\\sqrt{17} = P_2(17) + R_2(17) \\in \\big(4{,}123046875 + 0{,}0000525,\\; 4{,}123046875 + 0{,}0000611\\big) = \\big(4{,}123099,\\; 4{,}123108\\big)$$\n(nedre skranke rundet NED, øvre rundet OPP — avrundingen må ikke krympe intervallet).\n\n**Fortegnet:** $R_2(17) > 0$ (positiv $f'''$ og $(x-a)^3 = 1 > 0$), så $P_2(17)$ er **for liten**.\n\n*(Kontroll: $\\sqrt{17} = 4{,}1231056\\ldots$ ligger i intervallet og er større enn $P_2(17)$ ✓.)* $\\blacksquare$",
+            "hints": [
+              "a) $16^{3/2} = 64$ og $16^{5/2} = 1024$ — hold alt som brøker.",
+              "c) $c^{-5/2}$ avtar: hvilket endepunkt gir øvre skranke?",
+              "Rund nedre skranke ned og øvre opp — intervallet skal GARANTERE."
+            ]
+          }
+        },
+        {
+          "id": "mat111-uib-4-prove-p3o2",
+          "type": "exercise",
+          "exercise": {
+            "id": "mat111-uib-4-prove-p3o2-x",
+            "number": "2",
+            "type": "classic",
+            "difficulty": "middels",
+            "task": "Om en to ganger deriverbar funksjon $f$ vet vi:\n$$f(2) = 3, \\qquad f'(2) = -2, \\qquad 1 \\le f''(t) \\le 4 \\ \\text{ for alle } t \\in [2, 5].$$\n\nFinn det minste intervallet som garantert inneholder $f(5)$, og forklar hvorfor det ikke kan gjøres mindre.",
+            "solution": "**Taylors formel** med $n = 1$, $a = 2$, $x = 5$ (altså $x - a = 3$): det finnes en $c \\in (2,5)$ med\n$$f(5) = f(2) + f'(2)\\cdot 3 + \\frac{f''(c)}{2}\\cdot 3^2 = 3 - 6 + \\frac92\\,f''(c) = -3 + \\frac92\\,f''(c).$$\n\n**Sett inn skrankene.** $1 \\le f''(c) \\le 4$ gir\n$$-3 + \\frac92\\cdot 1 \\;\\le\\; f(5) \\;\\le\\; -3 + \\frac92\\cdot 4, \\qquad\\text{altså}\\qquad f(5) \\in \\Big[\\frac32,\\; 15\\Big].$$\n\n**Skarphet.** Begge endene kan faktisk inntreffe: polynomet $f(x) = 3 - 2(x-2) + \\tfrac12(x-2)^2$ har $f'' \\equiv 1$ og oppfyller alle betingelsene med $f(5) = 3 - 6 + \\tfrac92 = \\tfrac32$; tilsvarende gir $f'' \\equiv 4$ (koeffisient $2$ på kvadratleddet) $f(5) = 3 - 6 + 18 = 15$. Uten mer informasjon om $f$ kan intervallet derfor ikke krympes.\n\n**Konklusjon:** $f(5) \\in \\big[\\tfrac32,\\ 15\\big]$, og intervallet er minst mulig. $\\blacksquare$",
+            "hints": [
+              "Taylors formel med $n=1$: verdi + tangentledd + restledd med $f''(c)/2$.",
+              "$(x-a)^2/2 = 9/2$ — gang skrankene med dette tallet.",
+              "Skarphet: konstruer polynomer med $f''$ konstant lik hver skranke."
+            ]
+          }
+        },
+        {
+          "id": "mat111-uib-4-prove-p3o3",
+          "type": "exercise",
+          "exercise": {
+            "id": "mat111-uib-4-prove-p3o3-x",
+            "number": "3",
+            "type": "classic",
+            "difficulty": "vanskelig",
+            "task": "Vis at for alle $x \\in (0, 1)$ gjelder innkapslingen\n$$1 + x + \\frac{x^2}{2} + \\frac{x^3}{6} \\;<\\; e^x \\;<\\; 1 + x + \\frac{x^2}{2} + \\frac{e}{6}\\,x^3.$$",
+            "solution": "Maclaurinpolynomet av grad 2 til $f(x) = e^x$ er $P_2(x) = 1 + x + \\dfrac{x^2}{2}$ (alle deriverte er $e^x$, med verdi $1$ i null). **Taylors formel** gir for hver $x \\in (0,1)$ en $c \\in (0, x)$ med\n$$e^x = 1 + x + \\frac{x^2}{2} + R_2(x), \\qquad R_2(x) = \\frac{f'''(c)}{3!}\\,x^3 = \\frac{e^c}{6}\\,x^3.$$\n\n**Skrankene på $e^c$.** Eksponentialfunksjonen er strengt voksende, og $0 < c < x < 1$, så\n$$1 = e^0 < e^c < e^1 = e \\qquad\\text{(begge ulikhetene strenge).}$$\n\n**Multipliser med $\\dfrac{x^3}{6} > 0$** (positiv faktor bevarer strenge ulikheter):\n$$\\frac{x^3}{6} < R_2(x) < \\frac{e}{6}\\,x^3.$$\n\n**Legg til $P_2(x)$ på alle tre sidene:**\n$$1 + x + \\frac{x^2}{2} + \\frac{x^3}{6} \\;<\\; e^x \\;<\\; 1 + x + \\frac{x^2}{2} + \\frac{e}{6}\\,x^3,$$\nsom er nøyaktig påstanden. $\\blacksquare$\n\n*(Talltest i $x = 0{,}5$: venstre $\\approx 1{,}645833$, $e^{0{,}5} \\approx 1{,}648721$, høyre $\\approx 1{,}681631$ ✓.)*",
+            "hints": [
+              "Skriv Taylors formel med $n = 2$ om $0$; restleddet bruker $f''' = e^x$.",
+              "Sperr $e^c$ inn mellom $e^0$ og $e^1$ — det er hele skrankeanalysen.",
+              "Innkapsling = samme analyse levert som dobbeltulikhet i $x$."
+            ]
+          }
+        },
+        {
+          "id": "mat111-uib-4-prove-chk-p3",
+          "type": "text",
+          "content": "**Selvdiagnose — kryss av det du fikk til uten å slå opp:**\n\n- ☐ Brukte restleddet kvantitativt — ikke bare siterte det\n- ☐ Hentet skarpest mulige skranker fra endepunktene (med monotoniargument for $f^{(n+1)}$)\n- ☐ Rundet nedre skranke ned og øvre opp, så intervallet garanterer\n- ☐ Avgjorde fortegnet på feilen (for stor / for liten) med begrunnelse\n- ☐ Leverte innkapslingen som funksjonsulikhet med strenge ulikheter begrunnet"
+        }
+      ]
+    },
+    {
+      "id": "mat111-uib-4-prove-p4",
+      "type": "collapsible",
+      "title": "Prøve 4 — Induksjon på n-te derivert + kjedeoppgave (4.D, ~35 min)",
+      "buttonText": "Vis prøve 4",
+      "content": [
+        {
+          "id": "mat111-uib-4-prove-p4-intro",
+          "type": "text",
+          "content": "**Prøve 4.D.** To oppgaver, ~35 min. Full induksjonsstruktur i oppgave 1 — og i oppgave 2 skal formelen ARBEIDE: den mater Taylorkoeffisienter og restledd (sjanger N møter sjanger G)."
+        },
+        {
+          "id": "mat111-uib-4-prove-p4o1",
+          "type": "exercise",
+          "exercise": {
+            "id": "mat111-uib-4-prove-p4o1-x",
+            "number": "1",
+            "type": "classic",
+            "difficulty": "vanskelig",
+            "task": "Vis ved induksjon at\n$$\\frac{d^n}{dx^n}\\,\\ln(4x+1) = \\frac{(-1)^{n-1}\\,4^n\\,(n-1)!}{(4x+1)^n} \\qquad\\text{for alle } n \\ge 1 \\ \\ (x > -\\tfrac14).$$",
+            "solution": "La $f(x) = \\ln(4x+1)$.\n\n**Basissteg ($n = 1$).** Direkte regning (kjerneregelen): $f'(x) = \\dfrac{4}{4x+1}$. Formelen med $n = 1$: $\\dfrac{(-1)^0\\,4^1\\,0!}{(4x+1)^1} = \\dfrac{4}{4x+1}$. Samme uttrykk — verifisert mot direkte regning. ✓\n\n**Induksjonshypotese.** Anta at for et vilkårlig $n \\ge 1$ er\n$$f^{(n)}(x) = (-1)^{n-1}\\,4^n\\,(n-1)!\\,(4x+1)^{-n}.$$\n\n**Induksjonstrinn.** Siden $f^{(n+1)} = \\big(f^{(n)}\\big)'$, deriverer vi hypotesen (potensregel + kjerneregel med indre derivert $4$):\n$$f^{(n+1)}(x) = (-1)^{n-1}\\,4^n\\,(n-1)!\\cdot(-n)\\,(4x+1)^{-n-1}\\cdot 4.$$\nRyddelinjen: $(-1)^{n-1}\\cdot(-1) = (-1)^n$; $\\ 4^n\\cdot 4 = 4^{n+1}$; $\\ (n-1)!\\cdot n = n!$. Altså\n$$f^{(n+1)}(x) = \\frac{(-1)^{n}\\,4^{n+1}\\,n!}{(4x+1)^{n+1}},$$\nsom er formelen med $n+1$ i stedet for $n$ i alle fire postene (fortegn, kjernefaktor, fakultet, nevnerpotens). ✓\n\n**Konklusjon.** Ved induksjonsprinsippet gjelder formelen for alle $n \\ge 1$. $\\blacksquare$",
+            "hints": [
+              "Basissteget: regn $f'$ MED kjerneregelen og sammenlign med formelen for $n=1$.",
+              "I trinnet: deriver hypotesen — ikke funksjonen fra bunnen av.",
+              "Rydd de tre tellerpostene hver for seg: fortegn, $4$-potens, fakultet."
+            ]
+          }
+        },
+        {
+          "id": "mat111-uib-4-prove-p4o2",
+          "type": "exercise",
+          "exercise": {
+            "id": "mat111-uib-4-prove-p4o2-x",
+            "number": "2",
+            "type": "classic",
+            "difficulty": "vanskelig",
+            "task": "La fortsatt $f(x) = \\ln(4x+1)$.\n\n**a)** Bruk formelen fra oppgave 1 til å finne Maclaurinpolynomet $P_3$ til $f$.\n\n**b)** Bruk $P_3$ til å tilnærme $\\ln 1{,}4$, og bruk Lagrange-restleddet — med $f^{(4)}$ hentet fra formelen — til å angi et minst mulig intervall som garantert inneholder $\\ln 1{,}4$. Er tilnærmingen for stor eller for liten?",
+            "solution": "**a) Koeffisientene fra formelen.** I $x = 0$ er $4x + 1 = 1$, så $f^{(n)}(0) = (-1)^{n-1}\\,4^n\\,(n-1)!$, og Taylorkoeffisientene blir\n$$\\frac{f^{(n)}(0)}{n!} = \\frac{(-1)^{n-1}\\,4^n\\,(n-1)!}{n!} = \\frac{(-1)^{n-1}\\,4^n}{n}.$$\nMed $f(0) = \\ln 1 = 0$: $c_1 = 4$, $c_2 = -\\tfrac{16}{2} = -8$, $c_3 = \\tfrac{64}{3}$:\n$$P_3(x) = 4x - 8x^2 + \\frac{64}{3}x^3.$$\n\n**b) Tilnærmingen.** $\\ln 1{,}4 = f(0{,}1)$:\n$$P_3(0{,}1) = 0{,}4 - 0{,}08 + \\frac{64}{3}\\cdot 0{,}001 = 0{,}4 - 0{,}08 + 0{,}021333\\ldots \\approx 0{,}341333.$$\n\n**Restleddet.** Formelen med $n = 4$: $f^{(4)}(x) = \\dfrac{(-1)^3\\,4^4\\,3!}{(4x+1)^4} = -\\dfrac{1536}{(4x+1)^4}$, så det finnes en $c \\in (0,\\ 0{,}1)$ med\n$$R_3(0{,}1) = \\frac{f^{(4)}(c)}{4!}\\,(0{,}1)^4 = -\\frac{1536}{24\\,(4c+1)^4}\\cdot 10^{-4} = -\\frac{0{,}0064}{(4c+1)^4}.$$\n\n**Skarpest mulige skranker.** $(4c+1)^4$ er voksende i $c$, fra $1^4 = 1$ til $1{,}4^4 = 3{,}8416$; restleddet er negativt, og:\n$$-0{,}0064 < R_3(0{,}1) < -\\frac{0{,}0064}{3{,}8416} \\approx -0{,}001666.$$\n\n**Intervallet:**\n$$\\ln 1{,}4 \\in \\big(0{,}341333 - 0{,}0064,\\; 0{,}341333 - 0{,}001666\\big) = \\big(0{,}334933,\\; 0{,}339668\\big)$$\n(ytterpunktene rundet utover). **Fortegnet:** $R_3 < 0$, så $P_3(0{,}1)$ er **for stor**.\n\n*(Kontroll: $\\ln 1{,}4 = 0{,}336472\\ldots$ ligger i intervallet, og er ganske riktig mindre enn $0{,}341333$ ✓. — Merk kjeden: uten $f^{(n)}$-formelen fra oppgave 1 hadde både $c_3$ og $f^{(4)}$ krevd fire runder manuell derivasjon.)* $\\blacksquare$",
+            "hints": [
+              "a) Sett $x = 0$ i formelen — nevneren blir $1$ — og del på $n!$.",
+              "b) Restleddet bruker formelen med $n = 4$ og en $c$ mellom $0$ og $0{,}1$.",
+              "$(4c+1)^4$ vokser: endepunktene $c=0$ og $c=0{,}1$ gir skrankene."
+            ]
+          }
+        },
+        {
+          "id": "mat111-uib-4-prove-chk-p4",
+          "type": "text",
+          "content": "**Selvdiagnose — kryss av det du fikk til uten å slå opp:**\n\n- ☐ Verifiserte basissteget mot direkte regning (begge sider vist)\n- ☐ Deriverte faktisk hypotesen i trinnet, med synlig ryddelinje\n- ☐ Bokførte fortegn, kjernefaktor, fakultet og nevnerpotens riktig\n- ☐ Avsluttet med induksjonsprinsippet nevnt ved navn\n- ☐ Gjenbrukte $f^{(n)}$-formelen kvantitativt i Taylorkoeffisientene og restleddet"
+        }
+      ]
+    },
+    {
+      "id": "mat111-uib-4-prove-symbol",
+      "type": "collapsible",
+      "title": "Symbol- og formelliste",
+      "buttonText": "Vis symboler og formler",
+      "content": [
+        {
+          "id": "mat111-uib-4-prove-symbol-t",
+          "type": "text",
+          "content": "## Symbol- og formelliste (Del 4)\n\n| Formel | Bruk |\n|---|---|\n| fortegnsskifte + kontinuitet + navn | skjæringssetningen — eksistens-leveransen |\n| $f'$ med fast fortegn ELLER Rolle-motsigelse | entydighets-leveransen |\n| $g(x)$ konstruert så mållikningen blir $g'(c) = 0$ | hjelpefunksjonsteknikken (Rolle) |\n| $x_{n+1} = x_n - \\dfrac{f(x_n)}{f'(x_n)}$ | Newtons iterasjonsformel |\n| $f''$ med fast fortegn på HELE intervallet | krumningsargumentet for feilens fortegn |\n| $\\lvert g'\\rvert \\le k < 1$ på intervallet (+ $g$ holder seg der) | kontraksjonsvilkåret for fikspunktiterasjon |\n| $g' > 0$: trapp; $g' < 0$: spiral | figurtypen for fikspunkt-konvergens |\n| $R_n(x) = \\dfrac{f^{(n+1)}(c)}{(n+1)!}(x-a)^{n+1}$, $c$ mellom $a$ og $x$ | Lagrange-restleddet — skranker → intervall → fortegn |\n| basissteg → hypotese → trinn (deriver!) → konklusjon | induksjonsmalen for $f^{(n)}$-formler |\n\nAlt forklares i delens kapitler [kap. 4.1](/bok/mat111-uib/mat111-uib-4-1)–[kap. 4.4](/bok/mat111-uib/mat111-uib-4-4)."
+        }
+      ]
+    }
+  ],
+  "exercises": []
+}

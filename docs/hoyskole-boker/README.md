@@ -383,7 +383,7 @@ ferdig (= rammeverk komplett, klart for Opus-bygging via BYGGEKONTRAKT-MAL) ·
 | SOS2200 Organisasjon, ledelse og arbeid (UiO) | drøfting | skjelett |
 | SOSANT1000 Innføring i sosialantropologi (UiO) | drøfting | skjelett |
 | STK1100 Sannsynlighet og statistisk modellering (UiO) | regnefag | skjelett |
-| STK1110 Statistiske metoder og dataanalyse (UiO) | regnefag | skjelett |
+| STK1110 Statistiske metoder og dataanalyse (UiO) | regnefag | **bok** (live) |
 | STV1020 Politisk analyse 2 (UiO) | drøfting/hybrid | skjelett |
 | SVMET1010 Kvalitative metoder (UiO) | drøfting | skjelett |
 | TDT4100 Objektorientert programmering (NTNU) | regnefag/kodefag | skjelett |

@@ -1,0 +1,495 @@
+{
+ "id": "mat111-uib-3-4",
+ "courseId": "mat111-uib",
+ "chapterNumber": "3.4",
+ "title": "Invers funksjon: eksistens, uttrykk og derivert av invers",
+ "description": "Monotoni-begrunnet eksistens, uttrykk med riktig definisjonsmengde og derivert-av-invers-formelen for tangenter til den inverse.",
+ "estimatedMinutes": 50,
+ "competenceGoals": [
+  "kunne begrunne at en invers funksjon finnes via fast fortegn på den deriverte over et intervall",
+  "kunne finne uttrykk for inversen med riktig definisjonsmengde (verdimengden til funksjonen)",
+  "kunne regne den deriverte av inversen med formelen og oppskriften «finn a først»",
+  "kunne finne største inverterbarhetsintervall med fortegnsskjema, og forklare fellen med usammenhengende definisjonsmengder"
+ ],
+ "content": [
+  {
+   "id": "mat111-uib-3-4-tip",
+   "type": "tip",
+   "title": "Eksamensvinkel",
+   "content": "**Inversoppgavene er settets «pluss i margen»-materiale — små detaljer gir og tar poengene.**\n\n- **Sjanger L (invers funksjon)** står i 12 av 34 arkiverte sett. Tre gjengangere: (i) vis at $f$ er én-til-én (monotoni-begrunnelse via fortegnet til $f'$), (ii) finn uttrykk for $f^{-1}$ **med riktig definisjonsmengde** — det er dette som gir «pluss i margen» i løsningsforslagene, (iii) $(f^{-1})'(b)$ og tangent til den inverse.\n- Subtile arkivvarianter: **største intervall der $f$ er inverterbar** (V2020) og **moteksemplet på usammenhengende definisjonsmengde** (V2010) — begge dekkes her.\n- Prioritet: kunne. Tidsbudsjett: 8–12 min per deloppgave.\n- *Sjangerbokstavene A–N* er bokas merkelapper for arkivets oppgavetyper (Del 0); L er inversoppgavene."
+  },
+  {
+   "id": "mat111-uib-3-4-fork",
+   "type": "text",
+   "content": "**Forkunnskaper.** Derivasjonsgrunnlaget fra [kap. 3.1](/bok/mat111-uib/mat111-uib-3-1). Fra R1: **[Omvendte funksjoner](/bok/r1/r1-2-2)** (begrepet og grafspeilingen), **[Derivasjon av omvendte funksjoner](/bok/r1/r1-4-5)** (formelen) og **[Potenser og logaritmer](/bok/r1/r1-1-2)** (regnereglene for å løse ut $x$).\n\n**Sist du var her (nøkkelformlene):** $f^{-1}(f(x)) = x$; grafen til $f^{-1}$ er grafen til $f$ speilet om linja $y=x$; $e^{\\ln x} = x$ for $x>0$."
+  },
+  {
+   "id": "mat111-uib-3-4-motiv",
+   "type": "text",
+   "content": "En funksjon kan bare «kjøres baklengs» hvis den aldri sender to ulike $x$-verdier til samme $y$-verdi. MAT111 spør om dette i tre lag: *finnes* inversen (eksistens — begrunnes med monotoni), *hva er* inversen (uttrykk — med definisjonsmengde), og *hvor bratt* er inversen (derivert — uten å finne uttrykket i det hele tatt).\n\nDet siste laget er det eleganteste: formelen $(f^{-1})'(b) = 1/f'(a)$ gir tangenter til den inverse selv når likningen $y=f(x)$ er umulig å løse for hånd — en klassisk eksamenskonstruksjon."
+  },
+  {
+   "id": "mat111-uib-3-4-l1",
+   "type": "text",
+   "content": "## Eksistens: én-til-én via monotoni\n\n*Læringsløkke 1 av 4 — ca. 12 min.*"
+  },
+  {
+   "id": "mat111-uib-3-4-def-entilen",
+   "type": "definition",
+   "title": "Én-til-én (injektiv)",
+   "content": "En funksjon er én-til-én når ulike $x$-verdier alltid gir ulike funksjonsverdier: $x_1 \\neq x_2 \\Rightarrow f(x_1) \\neq f(x_2)$. Grafisk: ingen horisontal linje treffer grafen mer enn én gang (horisontallinjetesten)."
+  },
+  {
+   "id": "mat111-uib-3-4-def-invers",
+   "type": "definition",
+   "title": "Invers funksjon",
+   "content": "Er $f$ én-til-én på definisjonsmengden $D_f$ med verdimengde $V_f$, finnes inversen $f^{-1}$: funksjonen som sender hver $y$ i $V_f$ tilbake til den entydige $x$-en med $f(x)=y$. Da er $D_{f^{-1}} = V_f$ og $V_{f^{-1}} = D_f$ — mengdene bytter plass."
+  },
+  {
+   "id": "mat111-uib-3-4-def-monoton",
+   "type": "definition",
+   "title": "Strengt monoton",
+   "content": "$f$ er strengt voksende på et intervall når $x_1 < x_2 \\Rightarrow f(x_1) < f(x_2)$, og strengt avtakende når ulikheten snus. En strengt monoton funksjon er automatisk én-til-én — den kan aldri komme tilbake til en verdi den har brukt."
+  },
+  {
+   "id": "mat111-uib-3-4-th-monokrit",
+   "type": "theorem",
+   "title": "Monotonikriteriet (eksistensverktøyet)",
+   "content": "Har $f'$ fast fortegn på et **intervall** $I$ ($f'(x)>0$ for alle $x$ i $I$, eller $f'(x)<0$ for alle $x$ i $I$), er $f$ strengt monoton på $I$ — og dermed én-til-én, så $f^{-1}$ finnes der.\n\n*Intuisjon:* positiv derivert betyr at grafen klatrer i hvert eneste punkt; da kan den aldri returnere til en gammel verdi. (Den formelle begrunnelsen går via sekantsetningen — den kommer i [kap. 4.1](/bok/mat111-uib/mat111-uib-4-1); et alternativt argument samme sted: hadde $f$ truffet samme verdi to ganger, ville Rolles teorem gitt et punkt med $f'=0$, i strid med det faste fortegnet.)\n\n**Merk ordet *intervall*:** kriteriet gjelder kun på sammenhengende mengder — se fellen i læringsløkke 4."
+  },
+  {
+   "id": "mat111-uib-3-4-ex1",
+   "type": "example",
+   "title": "Eksempel 1: eksistens via fortegnet til $f'$",
+   "problem": "Vis at $f(x) = x^3 + 3x + 1$ har en invers funksjon definert på hele $\\mathbb{R}$.",
+   "solution": "**Derivert med fast fortegn:** $f'(x) = 3x^2 + 3 \\ge 3 > 0$ for alle $x$ — fast positivt fortegn på hele intervallet $\\mathbb{R}$.\n\n**Konklusjon via monotonikriteriet:** $f$ er strengt voksende på $\\mathbb{R}$, dermed én-til-én, så $f^{-1}$ finnes. Verdimengden er hele $\\mathbb{R}$ (siden $f(x)\\to\\pm\\infty$ når $x\\to\\pm\\infty$ og $f$ er kontinuerlig — skjæringssetningen fra [kap. 2.3](/bok/mat111-uib/mat111-uib-2-3) fyller ut alle mellomverdier), så $f^{-1}$ er definert på hele $\\mathbb{R}$. $\\blacksquare$"
+  },
+  {
+   "id": "mat111-uib-3-4-o1",
+   "type": "exercise",
+   "exercise": {
+    "id": "mat111-uib-3-4-o1-x",
+    "number": "1",
+    "type": "classic",
+    "difficulty": "lett",
+    "task": "Vis at $f(x) = x^5 + 4x - 2$ er én-til-én på $\\mathbb{R}$.",
+    "solution": "$f'(x) = 5x^4 + 4 \\ge 4 > 0$ for alle $x$ (fjerdepotens er aldri negativ). Fast positivt fortegn på hele $\\mathbb{R}$ gir ved monotonikriteriet at $f$ er strengt voksende — og strengt monotone funksjoner er én-til-én. $\\blacksquare$",
+    "hints": [
+     "Deriver og vis at $f'$ har fast fortegn på hele $\\mathbb{R}$.",
+     "$5x^4 \\ge 0$ alltid — hva blir minste verdi av $f'$?"
+    ]
+   }
+  },
+  {
+   "id": "mat111-uib-3-4-l2",
+   "type": "text",
+   "content": "## Uttrykk for inversen — med definisjonsmengde\n\n*Læringsløkke 2 av 4 — ca. 13 min.*\n\nOppskriften: sett $y = f(x)$, løs for $x$, bytt gjerne navn til slutt — og **oppgi definisjonsmengden til $f^{-1}$** (som er verdimengden til $f$). Den siste linjen er «pluss i margen»-detaljen løsningsforslagene belønner."
+  },
+  {
+   "id": "mat111-uib-3-4-def-uttrykk",
+   "type": "definition",
+   "title": "Uttrykk for $f^{-1}$",
+   "content": "Framgangsmåte: (1) skriv $y=f(x)$; (2) løs likningen for $x$ (her brukes potens-/logaritmeregler, fullføring av kvadrat o.l.); (3) resultatet $x = f^{-1}(y)$; (4) **fastsett $D_{f^{-1}} = V_f$** — finn verdimengden til $f$ fra monotonien og endepunkts-/grenseverdiene."
+  },
+  {
+   "id": "mat111-uib-3-4-def-verdimengde",
+   "type": "definition",
+   "title": "Verdimengdekravet i røtter og logaritmer",
+   "content": "Når inversuttrykket inneholder $\\sqrt{\\cdot}$ eller $\\ln(\\cdot)$, må argumentet være hhv. $\\ge 0$ og $> 0$ — men den egentlige definisjonsmengden til $f^{-1}$ er verdimengden til $f$, som kan være strengere enn det uttrykket alene tillater. Regel: regn ut $V_f$, ikke bare «hva formelen tåler»."
+  },
+  {
+   "id": "mat111-uib-3-4-ex2",
+   "type": "example",
+   "title": "Eksempel 2: invers med fullføring av kvadrat",
+   "problem": "La $f(x) = x^2 - 4x + 7$ med definisjonsmengde $[2,\\infty)$. Vis at $f$ er én-til-én der, og finn $f^{-1}$ med definisjonsmengde.",
+   "solution": "**Én-til-én:** $f'(x) = 2x-4 \\ge 0$ for $x\\ge2$, med likhet kun i $x=2$ — $f$ er strengt voksende på intervallet $[2,\\infty)$, altså én-til-én. ✓\n\n**Uttrykk:** fullfør kvadratet: $f(x) = (x-2)^2 + 3$. Sett $y = (x-2)^2+3$ og løs for $x$ på $[2,\\infty)$ (der $x-2\\ge0$, så den positive roten gjelder):\n$$(x-2)^2 = y-3 \\quad\\Rightarrow\\quad x - 2 = \\sqrt{y-3} \\quad\\Rightarrow\\quad x = 2 + \\sqrt{y-3}.$$\n**Definisjonsmengde:** $f$ er voksende fra $f(2) = 3$ mot $\\infty$, så $V_f = [3,\\infty)$. Dermed\n$$f^{-1}(x) = 2 + \\sqrt{x-3}, \\qquad D_{f^{-1}} = [3,\\infty).$$\n(Merk: uten intervallrestriksjonen $[2,\\infty)$ hadde $f$ ikke vært én-til-én — parabelen bruker hver verdi over 3 to ganger.)"
+  },
+  {
+   "id": "mat111-uib-3-4-o2",
+   "type": "exercise",
+   "exercise": {
+    "id": "mat111-uib-3-4-o2-x",
+    "number": "2",
+    "type": "classic",
+    "difficulty": "middels",
+    "task": "La $f(x) = \\sqrt{x-2} + 3$.\n\n**a)** Oppgi definisjonsmengde og verdimengde for $f$.\n\n**b)** Finn $f^{-1}$ med definisjonsmengde.",
+    "solution": "**a)** Rotargumentet krever $x \\ge 2$: $D_f = [2,\\infty)$. Roten vokser fra $0$ mot $\\infty$, så $f$ vokser fra $3$: $V_f = [3,\\infty)$.\n\n**b)** Sett $y = \\sqrt{x-2}+3$ og løs for $x$:\n$$\\sqrt{x-2} = y-3 \\quad\\Rightarrow\\quad x - 2 = (y-3)^2 \\quad\\Rightarrow\\quad x = (y-3)^2 + 2.$$\nDefinisjonsmengden til $f^{-1}$ er $V_f$:\n$$f^{-1}(x) = (x-3)^2 + 2, \\qquad D_{f^{-1}} = [3,\\infty).$$\n(Uten restriksjonen $x\\ge3$ ville formelen $(x-3)^2+2$ vært definert overalt — men da beskriver den ikke lenger inversen. Definisjonsmengden er en del av svaret.)",
+    "hints": [
+     "Kvadrér først etter å ha isolert roten.",
+     "$D_{f^{-1}} = V_f$ — les verdimengden ut av monotonien og startverdien $f(2)=3$."
+    ]
+   }
+  },
+  {
+   "id": "mat111-uib-3-4-o3",
+   "type": "exercise",
+   "exercise": {
+    "id": "mat111-uib-3-4-o3-x",
+    "number": "3",
+    "type": "classic",
+    "difficulty": "middels",
+    "task": "La $g(x) = \\ln(x^2+4x+5)$ med definisjonsmengde $[-2,\\infty)$. Vis at $g$ er én-til-én der, og finn $g^{-1}$ med definisjonsmengde.",
+    "solution": "**Én-til-én:** fullfør kvadratet: $x^2+4x+5 = (x+2)^2+1 \\ge 1 > 0$ (så $\\ln$ er definert overalt). Derivert: $g'(x) = \\dfrac{2x+4}{x^2+4x+5}$; for $x > -2$ er telleren positiv og nevneren positiv, så $g'(x)>0$ — $g$ er strengt voksende på $[-2,\\infty)$, altså én-til-én. ✓\n\n**Uttrykk:** $y = \\ln\\bigl((x+2)^2+1\\bigr)$ gir $(x+2)^2 + 1 = e^y$, så $(x+2)^2 = e^y - 1$. På $[-2,\\infty)$ er $x+2\\ge0$, så\n$$x = -2 + \\sqrt{e^y - 1}.$$\n**Definisjonsmengde:** $g$ vokser fra $g(-2) = \\ln 1 = 0$ mot $\\infty$, så $V_g = [0,\\infty)$. Dermed\n$$g^{-1}(x) = -2 + \\sqrt{e^x - 1}, \\qquad D_{g^{-1}} = [0,\\infty).$$",
+    "hints": [
+     "Fullfør kvadratet inne i logaritmen først.",
+     "Løs $\\ln(u) = y$ som $u = e^y$, og velg positiv rot fordi $x+2\\ge0$ på intervallet."
+    ]
+   }
+  },
+  {
+   "id": "mat111-uib-3-4-l3",
+   "type": "text",
+   "content": "## Derivert av invers: $(f^{-1})'(b) = 1/f'(a)$ — «finn $a$ først»\n\n*Læringsløkke 3 av 4 — ca. 13 min.*\n\nHer trengs ikke noe uttrykk for $f^{-1}$ i det hele tatt — bare punktet. *Intuisjon:* speiling om $y=x$ bytter om «bortover» og «oppover», så stigningstallet inverteres: bratt graf gir slak invers og omvendt."
+  },
+  {
+   "id": "mat111-uib-3-4-th-derinv",
+   "type": "theorem",
+   "title": "Derivert av invers funksjon",
+   "content": "Er $f$ deriverbar i $a$ med $f'(a) \\neq 0$, og $f^{-1}$ finnes nær $b = f(a)$, så er $f^{-1}$ deriverbar i $b$ med\n$$(f^{-1})'(b) = \\frac{1}{f'(a)}, \\qquad\\text{der } f(a) = b.$$\nMerk: det deriveres i $a$ — punktet på $f$-siden — ikke i $b$. (Formelen følger av kjerneregelen på identiteten $f(f^{-1}(x)) = x$: $f'(f^{-1}(b))\\cdot(f^{-1})'(b) = 1$.)"
+  },
+  {
+   "id": "mat111-uib-3-4-def-finna",
+   "type": "definition",
+   "title": "Oppskriften «finn $a$ først»",
+   "content": "Skal du regne $(f^{-1})'(b)$: (1) **finn $a$** ved å løse $f(a) = b$ (prøv små heltall — eksamensoppgavene er rigget for det); (2) regn $f'(a)$; (3) svaret er $1/f'(a)$. Å regne $1/f'(b)$ — altså å derivere i feil punkt — er sjangerens klassiske feil."
+  },
+  {
+   "id": "mat111-uib-3-4-ex3",
+   "type": "example",
+   "title": "Eksempel 3: $(f^{-1})'(2)$ uten uttrykk for inversen",
+   "problem": "La $f(x) = x^3 + 4x - 3$. Forklar hvorfor $f^{-1}$ finnes, og regn ut $(f^{-1})'(2)$.",
+   "solution": "**Eksistens:** $f'(x) = 3x^2+4 \\ge 4 > 0$ på hele $\\mathbb{R}$ — monotonikriteriet gir strengt voksende, så $f^{-1}$ finnes. ✓\n\n**Finn $a$ først:** løs $f(a) = 2$: prøv $a=1$: $1 + 4 - 3 = 2$. ✓ (Monotonien garanterer at $a=1$ er den eneste løsningen.)\n\n**Deriver i $a$:** $f'(1) = 3+4 = 7$.\n\n**Formelen:**\n$$(f^{-1})'(2) = \\frac{1}{f'(1)} = \\frac{1}{7}.$$\n**Konklusjon:** $(f^{-1})'(2) = \\dfrac17$ — merk at vi aldri trengte noe uttrykk for $f^{-1}$ (og at likningen $y = x^3+4x-3$ ikke lar seg løse pent for hånd)."
+  },
+  {
+   "id": "mat111-uib-3-4-o4",
+   "type": "exercise",
+   "exercise": {
+    "id": "mat111-uib-3-4-o4-x",
+    "number": "4",
+    "type": "classic",
+    "difficulty": "middels",
+    "task": "La $f(x) = x^7 + x + 2$. Vis at $f^{-1}$ finnes, og regn ut $(f^{-1})'(4)$.",
+    "solution": "**Eksistens:** $f'(x) = 7x^6 + 1 \\ge 1 > 0$ overalt — strengt voksende (monotonikriteriet), så $f^{-1}$ finnes.\n\n**Finn $a$:** $f(a) = 4$: prøv $a=1$: $1+1+2 = 4$. ✓\n\n**Deriver i $a$:** $f'(1) = 7+1 = 8$.\n\n$$(f^{-1})'(4) = \\frac{1}{f'(1)} = \\frac18.$$",
+    "hints": [
+     "Løs $f(a)=4$ ved å prøve små heltall.",
+     "Formelen bruker $f'(a)$ — ikke $f'(4)$."
+    ]
+   }
+  },
+  {
+   "id": "mat111-uib-3-4-o5",
+   "type": "exercise",
+   "exercise": {
+    "id": "mat111-uib-3-4-o5-x",
+    "number": "5",
+    "type": "classic",
+    "difficulty": "middels",
+    "task": "La $f(x) = x^3 + 2x$. Finn likningen for tangenten til grafen til $f^{-1}$ i punktet der $x = 3$.",
+    "solution": "**Eksistens:** $f'(x) = 3x^2+2 > 0$ — strengt voksende, $f^{-1}$ finnes.\n\n**Finn $a$:** $f(a) = 3$: $a=1$ gir $1+2=3$. ✓ Så $f^{-1}(3) = 1$ — tangeringspunktet er $(3, 1)$.\n\n**Stigningstall:** $f'(1) = 3+2 = 5$, så $(f^{-1})'(3) = \\dfrac15$.\n\n**Tangentlikningen:**\n$$y = 1 + \\frac15(x-3), \\qquad\\text{dvs. } y = \\frac{x}{5} + \\frac25.$$",
+    "hints": [
+     "Tangeringspunktet er $(3, f^{-1}(3))$ — finn $f^{-1}(3)$ ved å løse $f(a)=3$.",
+     "Stigningstallet er $1/f'(a)$, og tangentformelen er som vanlig."
+    ]
+   }
+  },
+  {
+   "id": "mat111-uib-3-4-l4",
+   "type": "text",
+   "content": "## Største inverterbarhetsintervall — og fellen med usammenhengende mengder\n\n*Læringsløkke 4 av 4 — ca. 12 min.*\n\nNår $f$ ikke er én-til-én globalt, spør settene etter det **største intervallet** rundt et gitt punkt der inversen finnes. Verktøyet er fortegnsskjemaet til $f'$: intervallet strekker seg fra forrige til neste fortegnsskifte."
+  },
+  {
+   "id": "mat111-uib-3-4-def-storste",
+   "type": "definition",
+   "title": "Største inverterbarhetsintervall",
+   "content": "Det største intervallet rundt et gitt punkt der $f$ er strengt monoton — avlest fra fortegnsskjemaet til $f'$ som strekningen mellom to nabo-nullpunkter (eller ut mot $\\pm\\infty$). Endepunkter der $f'$ er null, kan tas med: monotonien ryker ikke av ett enkelt nullpunkt for $f'$."
+  },
+  {
+   "id": "mat111-uib-3-4-ex4",
+   "type": "example",
+   "title": "Eksempel 4: største intervall rundt $x=3$ (V2020-varianten)",
+   "problem": "La $f(x) = x^3 - 12x$. Finn det største intervallet som inneholder $x=3$, der $f$ har invers.",
+   "solution": "**Fortegnsskjema for $f'$:** $f'(x) = 3x^2 - 12 = 3(x-2)(x+2)$, med nullpunkter $x = \\pm2$:\n\n| Intervall | $(-\\infty,-2)$ | $(-2,2)$ | $(2,\\infty)$ |\n|---|---|---|---|\n| $f'(x)$ | $+$ | $-$ | $+$ |\n\n**Avlesning:** $x=3$ ligger i $(2,\\infty)$, der $f'>0$. Monotonien strekker seg ned til $x=2$ (og $f'(2)=0$ i ett enkelt punkt ødelegger ikke streng monotoni på $[2,\\infty)$), men ikke forbi: på $(-2,2)$ avtar $f$.\n\n**Konklusjon:** det største intervallet er $[2,\\infty)$ — der er $f$ strengt voksende og har invers. $\\blacksquare$"
+  },
+  {
+   "id": "mat111-uib-3-4-def-usammenh",
+   "type": "definition",
+   "title": "Fellen: usammenhengende definisjonsmengde",
+   "content": "Monotonikriteriet krever et INTERVALL. På en usammenhengende mengde kan $f'$ være positiv overalt uten at $f$ er én-til-én: standardmoteksemplet er $\\tan x$ på $\\left(-\\frac{\\pi}{2},\\frac{\\pi}{2}\\right)\\cup\\left(\\frac{\\pi}{2},\\frac{3\\pi}{2}\\right)$ — $(\\tan x)' = \\frac{1}{\\cos^2 x} > 0$ overalt, men $\\tan 0 = \\tan\\pi = 0$, så to ulike punkter gir samme verdi (V2010-varianten)."
+  },
+  {
+   "id": "mat111-uib-3-4-o6",
+   "type": "exercise",
+   "exercise": {
+    "id": "mat111-uib-3-4-o6-x",
+    "number": "6",
+    "type": "classic",
+    "difficulty": "vanskelig",
+    "task": "La $f(x) = x^4 - 8x^2$. Finn det største intervallet som inneholder $x=1$, der $f$ har invers.",
+    "solution": "**Fortegnsskjema:** $f'(x) = 4x^3 - 16x = 4x(x-2)(x+2)$, nullpunkter $x = -2, 0, 2$:\n\n| Intervall | $(-\\infty,-2)$ | $(-2,0)$ | $(0,2)$ | $(2,\\infty)$ |\n|---|---|---|---|---|\n| $f'(x)$ | $-$ | $+$ | $-$ | $+$ |\n\n(Kontroll i $x=1$: $f'(1) = 4 - 16 = -12 < 0$. ✓)\n\n**Avlesning:** $x=1$ ligger i $(0,2)$, der $f$ er strengt avtakende. Monotonien ryker i begge nabo-nullpunktene ($f$ snur der), men endepunktene selv kan tas med.\n\n**Konklusjon:** største intervall er $[0,2]$ — der er $f$ strengt avtakende og har invers.",
+    "hints": [
+     "Faktoriser $f'$ helt: $4x(x-2)(x+2)$ — tre nullpunkter.",
+     "Intervallet går fra forrige til neste fortegnsskifte rundt $x=1$."
+    ]
+   }
+  },
+  {
+   "id": "mat111-uib-3-4-o7",
+   "type": "exercise",
+   "exercise": {
+    "id": "mat111-uib-3-4-o7-x",
+    "number": "7",
+    "type": "classic",
+    "difficulty": "vanskelig",
+    "task": "En medstudent hevder: «$f'(x) > 0$ for alle $x$ i definisjonsmengden, altså er $f$ én-til-én.» Forklar hvorfor argumentet svikter når definisjonsmengden ikke er et intervall, og gi et konkret moteksempel med funksjonsverdier.",
+    "solution": "**Hullet i argumentet:** monotonikriteriet utleder «strengt voksende» fra fast fortegn — men den utledningen (via sekantsetningen, [kap. 4.1](/bok/mat111-uib/mat111-uib-4-1)) forutsetter at man kan trekke et sekantintervall MELLOM to vilkårlige punkter, altså at definisjonsmengden er sammenhengende. Over et gap i definisjonsmengden finnes ingen slik forbindelse, og funksjonen kan «starte på nytt» på lavere verdier etter gapet.\n\n**Moteksempel:** $f(x) = \\tan x$ på $\\left(-\\frac{\\pi}{2},\\frac{\\pi}{2}\\right)\\cup\\left(\\frac{\\pi}{2},\\frac{3\\pi}{2}\\right)$: $f'(x) = \\frac{1}{\\cos^2 x} > 0$ i hvert punkt av mengden, men\n$$\\tan 0 = 0 \\quad\\text{og}\\quad \\tan\\pi = 0,$$\nto ulike punkter med samme funksjonsverdi — $f$ er ikke én-til-én. På HVERT av de to delintervallene er $\\tan$ derimot strengt voksende og inverterbar.\n\n**Konklusjon:** fast fortegn på $f'$ gir én-til-én kun på intervaller — aldri automatisk på usammenhengende mengder.",
+    "hints": [
+     "Hvilken forutsetning i monotonikriteriet handler om formen på definisjonsmengden?",
+     "$\\tan$ er periodisk — finn to punkter i hver sin gren med samme verdi."
+    ]
+   }
+  },
+  {
+   "id": "mat111-uib-3-4-warn",
+   "type": "warning",
+   "title": "Typiske feil",
+   "content": "- **Regne $1/f'(b)$ i stedet for $1/f'(a)$.** Formelen deriverer i punktet på $f$-siden: løs $f(a)=b$ FØRST, deriver så i $a$. Dette er sjangerens hyppigste poengtap.\n- **Oppgi $f^{-1}$ uten definisjonsmengde.** Uttrykket alene er et ufullført svar — $D_{f^{-1}} = V_f$ skal stå, og den gir «pluss i margen».\n- **Påstå inverterbarhet fra $f'>0$ på usammenhengende mengde.** Kriteriet gjelder intervaller; $\\tan x$ er moteksemplet.\n- **Glemme verdimengdekravet i røtter og logaritmer:** definisjonsmengden til inversen er $V_f$ — ikke «alt formelen tåler».\n- **Velge feil rotfortegn** når kvadratet løses opp: intervallrestriksjonen ($x-2\\ge0$ e.l.) avgjør om det er pluss- eller minusroten som gjelder."
+  },
+  {
+   "id": "mat111-uib-3-4-pool",
+   "type": "text",
+   "content": "## Drillpulje — stigende vanskegrad"
+  },
+  {
+   "id": "mat111-uib-3-4-o8",
+   "type": "exercise",
+   "exercise": {
+    "id": "mat111-uib-3-4-o8-x",
+    "number": "8",
+    "type": "classic",
+    "difficulty": "lett",
+    "task": "Vis at $f(x) = e^{2x} - 4$ er én-til-én på $\\mathbb{R}$, og finn $f^{-1}$ med definisjonsmengde.",
+    "solution": "**Én-til-én:** $f'(x) = 2e^{2x} > 0$ overalt — strengt voksende (monotonikriteriet). ✓\n\n**Uttrykk:** $y = e^{2x}-4$ gir $e^{2x} = y+4$, så $2x = \\ln(y+4)$ og $x = \\frac12\\ln(y+4)$.\n\n**Definisjonsmengde:** $e^{2x}$ har verdimengde $(0,\\infty)$, så $V_f = (-4,\\infty)$. Dermed\n$$f^{-1}(x) = \\frac12\\ln(x+4), \\qquad D_{f^{-1}} = (-4,\\infty).$$",
+    "hints": [
+     "Løs $e^{2x} = y+4$ med logaritmen.",
+     "$V_f$: hva skjer med $e^{2x}-4$ når $x\\to-\\infty$ og $x\\to\\infty$?"
+    ]
+   }
+  },
+  {
+   "id": "mat111-uib-3-4-o9",
+   "type": "exercise",
+   "exercise": {
+    "id": "mat111-uib-3-4-o9-x",
+    "number": "9",
+    "type": "classic",
+    "difficulty": "lett",
+    "task": "$f$ er strengt voksende med $f(2) = 5$ og $f'(2) = 3$. Regn ut $(f^{-1})'(5)$ og $f^{-1}(5)$.",
+    "solution": "$f(2)=5$ betyr $f^{-1}(5) = 2$. Formelen med $a=2$, $b=5$:\n$$(f^{-1})'(5) = \\frac{1}{f'(2)} = \\frac13.$$",
+    "hints": [
+     "$b=5$ er funksjonsverdien; $a$ er punktet med $f(a)=5$ — det er oppgitt.",
+     "Formelen: $1/f'(a)$, ikke $1/f'(5)$."
+    ]
+   }
+  },
+  {
+   "id": "mat111-uib-3-4-o10",
+   "type": "exercise",
+   "exercise": {
+    "id": "mat111-uib-3-4-o10-x",
+    "number": "10",
+    "type": "classic",
+    "difficulty": "middels",
+    "task": "La $f(x) = 2x^5 + x + 3$. Vis at $f^{-1}$ finnes, og finn likningen for tangenten til grafen til $f^{-1}$ i punktet $(6, 1)$.",
+    "solution": "**Eksistens:** $f'(x) = 10x^4 + 1 \\ge 1 > 0$ — strengt voksende, $f^{-1}$ finnes. ✓\n\n**Sjekk punktet:** $f(1) = 2+1+3 = 6$, så $f^{-1}(6) = 1$ — punktet $(6,1)$ ligger på grafen til $f^{-1}$. ✓\n\n**Stigningstall:** $f'(1) = 10+1 = 11$, så $(f^{-1})'(6) = \\dfrac{1}{11}$.\n\n**Tangentlikningen:**\n$$y = 1 + \\frac{1}{11}(x-6).$$",
+    "hints": [
+     "Verifiser først at $f(1)=6$ — det er punktverifikasjonen i denne sjangeren.",
+     "Stigningstallet til inversen i $b=6$ er $1/f'(1)$."
+    ]
+   }
+  },
+  {
+   "id": "mat111-uib-3-4-o11",
+   "type": "exercise",
+   "exercise": {
+    "id": "mat111-uib-3-4-o11-x",
+    "number": "11",
+    "type": "classic",
+    "difficulty": "middels",
+    "task": "La $f(x) = x^3 - 9x$. Finn det største intervallet som inneholder $x=0$, der $f$ har invers.",
+    "solution": "**Fortegnsskjema:** $f'(x) = 3x^2 - 9 = 3(x^2-3)$, nullpunkter $x = \\pm\\sqrt3$:\n\n| Intervall | $(-\\infty,-\\sqrt3)$ | $(-\\sqrt3,\\sqrt3)$ | $(\\sqrt3,\\infty)$ |\n|---|---|---|---|\n| $f'(x)$ | $+$ | $-$ | $+$ |\n\n(Kontroll i $x=0$: $f'(0) = -9 < 0$. ✓)\n\n$x=0$ ligger i $(-\\sqrt3,\\sqrt3)$, der $f$ er strengt avtakende; endepunktene kan tas med.\n\n**Konklusjon:** største intervall er $[-\\sqrt3,\\sqrt3]$.",
+    "hints": [
+     "Finn nullpunktene til $f'$ og sett opp fortegnsskjemaet.",
+     "Intervallet rundt $0$ avgrenses av de to nærmeste fortegnsskiftene."
+    ]
+   }
+  },
+  {
+   "id": "mat111-uib-3-4-o12",
+   "type": "exercise",
+   "exercise": {
+    "id": "mat111-uib-3-4-o12-x",
+    "number": "12",
+    "type": "classic",
+    "difficulty": "vanskelig",
+    "task": "La $f(x) = x + e^x$.\n\n**a)** Vis at $f^{-1}$ finnes på hele $\\mathbb{R}$.\n\n**b)** Regn ut $(f^{-1})'(1)$.\n\n**c)** Forklar hvorfor et eksplisitt uttrykk for $f^{-1}$ ikke lar seg skrive med elementære funksjoner — og hvorfor det ikke hindrer b).",
+    "solution": "**a)** $f'(x) = 1 + e^x > 1 > 0$ overalt — strengt voksende (monotonikriteriet), så $f^{-1}$ finnes. Verdimengden er hele $\\mathbb{R}$ ($f\\to-\\infty$ når $x\\to-\\infty$ siden $e^x\\to0$, og $f\\to\\infty$ når $x\\to\\infty$; kontinuitet + skjæringssetningen fyller mellomverdiene). ✓\n\n**b)** **Finn $a$ først:** $f(a) = 1$: prøv $a=0$: $0 + e^0 = 1$. ✓ Så\n$$(f^{-1})'(1) = \\frac{1}{f'(0)} = \\frac{1}{1+e^0} = \\frac12.$$\n**c)** Likningen $y = x + e^x$ blander polynom og eksponentialfunksjon og kan ikke løses for $x$ med endelig mange elementære operasjoner (samme hinder som for $xe^x=c$-likninger). Formelen $(f^{-1})'(b) = 1/f'(a)$ trenger imidlertid bare PUNKTET $a$ — ikke noe globalt uttrykk — og $a=0$ fant vi ved innsetting. Derfor er b) fullt regnbar likevel.",
+    "hints": [
+     "a): $e^x>0$ gir $f'(x)>1$.",
+     "b): løs $a+e^a=1$ ved å prøve $a=0$.",
+     "c): formelen er punktvis — hvilken informasjon krever den egentlig?"
+    ]
+   }
+  },
+  {
+   "id": "mat111-uib-3-4-bb-tekst",
+   "type": "text",
+   "content": "## Begrepsbank\n\nKortdefinisjonene under er kapitlets ordforråd samlet — flashcard-grunnlag og oppslagsverk."
+  },
+  {
+   "id": "mat111-uib-3-4-bb-horisontal",
+   "type": "definition",
+   "title": "Horisontallinjetesten",
+   "content": "Grafisk test for én-til-én: hvis ingen horisontal linje skjærer grafen mer enn én gang, er funksjonen én-til-én. Den grafiske tvillingen til definisjonen $x_1\\neq x_2 \\Rightarrow f(x_1)\\neq f(x_2)$."
+  },
+  {
+   "id": "mat111-uib-3-4-bb-speiling",
+   "type": "definition",
+   "title": "Grafspeiling om $y=x$",
+   "content": "Grafen til $f^{-1}$ er grafen til $f$ speilet om linja $y=x$: punktet $(a,b)$ på $f$ svarer til $(b,a)$ på $f^{-1}$. Speilingen forklarer både mengdebyttet $D\\leftrightarrow V$ og inverteringen av stigningstall."
+  },
+  {
+   "id": "mat111-uib-3-4-bb-identitet",
+   "type": "definition",
+   "title": "Inversidentitetene",
+   "content": "$f^{-1}(f(x)) = x$ for alle $x$ i $D_f$, og $f(f^{-1}(y)) = y$ for alle $y$ i $V_f$. Derivasjon av den siste med kjerneregelen er beviset for derivert-av-invers-formelen."
+  },
+  {
+   "id": "mat111-uib-3-4-bb-eksplog",
+   "type": "definition",
+   "title": "Eksponential- og logaritmeparet",
+   "content": "$e^x$ og $\\ln x$ er hverandres inverser: $D_{e^x} = \\mathbb{R}$, $V_{e^x} = (0,\\infty)$ — byttet om for $\\ln$. Standardeksemplet på inverspar, og verktøyet for å løse ut $x$ i eksponentiallikninger."
+  },
+  {
+   "id": "mat111-uib-3-4-bb-fortegnsskjema",
+   "type": "definition",
+   "title": "Fortegnsskjema for $f'$ (i inversoppgaver)",
+   "content": "Tabellen over fortegnet til $f'$ mellom nullpunktene — verktøyet for å finne største inverterbarhetsintervall: intervallet rundt punktet strekker seg mellom de to nærmeste fortegnsskiftene."
+  },
+  {
+   "id": "mat111-uib-3-4-bb-enkeltnull",
+   "type": "definition",
+   "title": "Enkeltnullpunkt for $f'$ ødelegger ikke",
+   "content": "$f(x)=x^3$ er strengt voksende på hele $\\mathbb{R}$ selv om $f'(0)=0$: streng monotoni tåler at $f'$ er null i isolerte punkter, så lenge fortegnet ellers er fast. Derfor kan endepunkter med $f'=0$ tas med i inverterbarhetsintervallet."
+  },
+  {
+   "id": "mat111-uib-3-4-bb-inverterbar",
+   "type": "definition",
+   "title": "Inverterbar",
+   "content": "En funksjon er inverterbar (på en mengde) når den er én-til-én der — da, og bare da, finnes $f^{-1}$. I eksamensspråket brukes «én-til-én», «injektiv» og «inverterbar» om samme egenskap."
+  },
+  {
+   "id": "mat111-uib-3-4-bb-restriksjon",
+   "type": "definition",
+   "title": "Restriksjon av definisjonsmengden",
+   "content": "Å innskrenke $D_f$ til et mindre intervall der funksjonen ER én-til-én — standardgrepet for å gi ikke-injektive funksjoner en invers (som $x^2$ på $[0,\\infty)$ med invers $\\sqrt{x}$). Restriksjonen skal alltid oppgis sammen med inversuttrykket."
+  },
+  {
+   "id": "mat111-uib-3-4-rep",
+   "type": "collapsible",
+   "title": "Repetisjonsoppgaver",
+   "buttonText": "Vis repetisjonsoppgaver",
+   "content": [
+    {
+     "id": "mat111-uib-3-4-r1",
+     "type": "exercise",
+     "exercise": {
+      "id": "mat111-uib-3-4-r1-x",
+      "number": "R1",
+      "type": "classic",
+      "difficulty": "lett",
+      "task": "Finn den omvendte funksjonen til $f(x) = 3x - 6$.",
+      "solution": "$y = 3x-6$ gir $x = \\frac{y+6}{3}$, så $f^{-1}(x) = \\frac{x+6}{3} = \\frac{x}{3}+2$. (Lineære funksjoner med stigningstall $\\neq0$ er alltid én-til-én.)",
+      "hints": [
+       "Løs $y=3x-6$ for $x$."
+      ]
+     }
+    },
+    {
+     "id": "mat111-uib-3-4-r2",
+     "type": "exercise",
+     "exercise": {
+      "id": "mat111-uib-3-4-r2-x",
+      "number": "R2",
+      "type": "classic",
+      "difficulty": "lett",
+      "task": "Løs likningen $e^{3x} = 5$ for $x$.",
+      "solution": "$3x = \\ln 5$, så $x = \\frac{\\ln 5}{3}$.",
+      "hints": [
+       "Ta $\\ln$ på begge sider."
+      ]
+     }
+    },
+    {
+     "id": "mat111-uib-3-4-r3",
+     "type": "exercise",
+     "exercise": {
+      "id": "mat111-uib-3-4-r3-x",
+      "number": "R3",
+      "type": "classic",
+      "difficulty": "lett",
+      "task": "Grafen til $f$ går gjennom $(2,7)$. Hvilket punkt ligger da på grafen til $f^{-1}$, og hva er $f^{-1}(7)$?",
+      "solution": "Speiling om $y=x$: punktet $(7,2)$ ligger på grafen til $f^{-1}$, og $f^{-1}(7) = 2$.",
+      "hints": [
+       "$(a,b)$ på $f$ svarer til $(b,a)$ på $f^{-1}$."
+      ]
+     }
+    },
+    {
+     "id": "mat111-uib-3-4-r4",
+     "type": "exercise",
+     "exercise": {
+      "id": "mat111-uib-3-4-r4-x",
+      "number": "R4",
+      "type": "classic",
+      "difficulty": "middels",
+      "task": "Bruk regelen for derivasjon av omvendte funksjoner fra R1 på paret $f(x)=e^x$, $f^{-1}(x)=\\ln x$: utled $(\\ln x)'$ fra $(e^x)' = e^x$.",
+      "solution": "Med $b = x$ og $a = \\ln x$ (slik at $f(a)=b$): $(\\ln x)' = \\frac{1}{f'(a)} = \\frac{1}{e^{\\ln x}} = \\frac{1}{x}$ for $x>0$.",
+      "hints": [
+       "Formelen: $(f^{-1})'(b) = 1/f'(a)$ med $f(a)=b$.",
+       "$e^{\\ln x} = x$."
+      ]
+     }
+    },
+    {
+     "id": "mat111-uib-3-4-r5",
+     "type": "exercise",
+     "exercise": {
+      "id": "mat111-uib-3-4-r5-x",
+      "number": "R5",
+      "type": "classic",
+      "difficulty": "middels",
+      "task": "Forklar med horisontallinjetesten hvorfor $f(x)=x^2$ (på hele $\\mathbb{R}$) ikke har invers, og angi en restriksjon som fikser det.",
+      "solution": "Linja $y=4$ treffer grafen i både $x=-2$ og $x=2$ — to punkter, så $f$ er ikke én-til-én på $\\mathbb{R}$. Restriksjonen $[0,\\infty)$ (eller $(-\\infty,0]$) gjør $f$ strengt monoton, og inversen blir $\\sqrt{x}$ (hhv. $-\\sqrt{x}$).",
+      "hints": [
+       "Finn en horisontal linje som treffer parabelen to ganger."
+      ]
+     }
+    }
+   ]
+  },
+  {
+   "id": "mat111-uib-3-4-symbol",
+   "type": "collapsible",
+   "title": "Symbol- og formelliste",
+   "buttonText": "Vis symboler og formler",
+   "content": [
+    {
+     "id": "mat111-uib-3-4-symbol-t",
+     "type": "text",
+     "content": "## Symbol- og formelliste\n\n*Oppslagsverk — alt her forklares underveis i kapitlet.*\n\nAlle symboler og formler som brukes i dette delkapitlet (3.4), samlet på ett sted.\n\n| Symbol | Betydning |\n|---|---|\n| $f^{-1}$ | Den inverse funksjonen (IKKE $1/f$) |\n| $D_f,\\ V_f$ | Definisjonsmengde og verdimengde — bytter plass under invertering |\n| $a,\\ b$ | Punktparet $f(a)=b$: $a$ på $f$-siden, $b$ på inverssiden |\n| $(f^{-1})'(b)$ | Den deriverte av inversen i $b$ |\n| $y=x$ | Speilingslinja mellom grafene til $f$ og $f^{-1}$ |\n| $[2,\\infty)$ osv. | Intervallnotasjon for restriksjoner og svar |\n\n**Formler i dette delkapitlet:**\n\n$$f'(x) > 0 \\ \\text{(eller } <0\\text{) på intervallet } I \\ \\Rightarrow\\ f \\text{ strengt monoton på } I \\ \\Rightarrow\\ f^{-1} \\text{ finnes}$$\nMonotonikriteriet — eksistensverktøyet. Gjelder KUN på intervaller.\n\n$$D_{f^{-1}} = V_f, \\qquad V_{f^{-1}} = D_f$$\nMengdebyttet — definisjonsmengden til inversen er verdimengden til $f$.\n\n$$(f^{-1})'(b) = \\frac{1}{f'(a)}, \\qquad f(a) = b$$\nDerivert av invers — «finn $a$ først». Utledes fra $f(f^{-1}(x))=x$ med kjerneregelen.\n\n$$y = f^{-1}(b) + (f^{-1})'(b)\\,(x-b)$$\nTangenten til grafen til inversen i punktet $(b, f^{-1}(b))$.\n\n$$\\tan 0 = \\tan\\pi = 0 \\ \\text{med } (\\tan x)' > 0 \\text{ overalt}$$\nMoteksemplet: fast fortegn på usammenhengende mengde gir IKKE én-til-én."
+    }
+   ]
+  }
+ ],
+ "exercises": []
+}

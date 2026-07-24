@@ -1,0 +1,514 @@
+{
+  "id": "stk1100-2-2",
+  "courseId": "stk1100",
+  "chapterNumber": "2.2",
+  "title": "Gammafordelingen, kjikvadrat og Γ-verktøyet",
+  "description": "Gammafordelingen med skalaparameter, identiteten kjikvadrat=gamma(n/2,2), gammaintegralet og momentformelen E(V^r) som bygger alle pivotalene.",
+  "estimatedMinutes": 60,
+  "competenceGoals": [
+    "bruke gammafunksjonens regneregler og gammaintegralet aktivt",
+    "regne ut forventning, varians og momenter for en gammafordeling via E(V^r)-formelen",
+    "bruke identiteten mellom kjikvadrat og gammafordelingen med riktige frihetsgrader",
+    "bruke regelen for sum av uavhengige gammavariable med felles skala"
+  ],
+  "content": [
+    {
+      "id": "stk1100-2-2-tip-eksamensvinkel",
+      "type": "tip",
+      "title": "Eksamensvinkel",
+      "content": "**Gamma- og kjikvadratapparatet er i 7 av 10 avsluttende skoleeksamener (70 %)** i STK1100-arkivet 2015–2024 (V2015, V2017, V2018, V2019, V2021, V2022, V2023) — byggeklossen for både pivotalene (de eksakte konfidensintervallene i Del 6) og for forventningsretthet/skjevhet i estimering (Del 5).\n\nDette er STK1100s «kjæledegge». Sitter identiteten $\\chi^2_n = \\text{gamma}(n/2, 2)$ og gammaintegralet i fingrene, faller mange A-poeng ut nesten gratis senere i boka. Prioritet: **høyeste**.\n\n**Formelsamlingen** har gammafordelingens tetthet, $E$, $\\text{Var}$ og kjikvadrattabellen — *tren oppslaget* (riktige frihetsgrader!). Men **gammafunksjonens regneregler, gammaintegralet og momentformelen $E(V^r)$ må du bruke aktivt** — de står ikke i brukbar form på pulten."
+    },
+    {
+      "id": "stk1100-2-2-forkunnskaper",
+      "type": "text",
+      "content": "**Forkunnskaper:** Dette kapitlet bygger på tetthet, fordelingsfunksjon og momenter fra [kap. 2.1](/bok/stk1100/stk1100-2-1) — særlig eksponensialfordelingen, som er gammafordelingens enkleste spesialtilfelle.\n\nDu integrerer tyngre uttrykk her: gammaintegralet involverer $x^{a-1}e^{-x/b}$. Frisk opp bestemt integral i [R2 2.4 Bestemt integral](/bok/r2/r2-2-4) og delvis integrasjon i [R2 3.2 Delvis integrasjon](/bok/r2/r2-3-2) (brukes til å bygge gammafunksjonens rekursjon). Fagord som *frihetsgrader*, *formparameter* og *skalaparameter* forklares der de innføres.\n\n**Sist du var her (kap. 2.1):** eksponensial i forventningsform er $f(x) = \\tfrac1\\mu e^{-x/\\mu}$ med $E(X) = \\mu$ — dette er akkurat $\\text{gamma}(1, \\mu)$, som du vil kjenne igjen straks."
+    },
+    {
+      "id": "stk1100-2-2-intro",
+      "type": "text",
+      "content": "Gammafordelingen er en fleksibel familie av høyreskjeve fordelinger på de positive tallene — den beskriver ventetider, levetider og summer av slike. To spesialtilfeller er allerede kjente: eksponensialfordelingen (kap. 2.1) og **kjikvadratfordelingen**, som er selve motoren i de eksakte konfidensintervallene senere. Verktøyet som binder alt sammen, er **gammafunksjonen** $\\Gamma(\\alpha)$ og **gammaintegralet**.\n\nKapitlet er seks **læringsløkker**: gammafunksjonen → gammaintegralet → gammafordelingen → momentformelen $E(V^r)$ → kjikvadrat → sum av gamma. Hver løkke går teori → eksempel → øvingsoppgaver.\n\n> 60-minutters kapittel med pausepunkt ved løkke 4."
+    },
+    {
+      "id": "stk1100-2-2-l1-head",
+      "type": "text",
+      "content": "## Løkke 1 — Gammafunksjonen $\\Gamma(\\alpha)$ (~10 min)"
+    },
+    {
+      "id": "stk1100-2-2-l1-teori",
+      "type": "text",
+      "content": "Gammafunksjonen er en «fakultet for alle tall». For hele tall gir den det vanlige fakultetet, men den er også definert for halvtall og desimaler. Vi trenger fire egenskaper — de dekker alt STK1100 krever av Γ-regning."
+    },
+    {
+      "id": "stk1100-2-2-def-gammafn",
+      "type": "definition",
+      "title": "Gammafunksjonen",
+      "content": "En funksjon som utvider fakultetet til alle positive tall, definert ved integralet\n\n$$\\Gamma(\\alpha) = \\int_0^\\infty x^{\\alpha-1} e^{-x}\\,dx, \\qquad \\alpha > 0.$$\n\nDu trenger sjelden integralet selv — det er de fire regnereglene under du bruker."
+    },
+    {
+      "id": "stk1100-2-2-def-gamma-verdier",
+      "type": "definition",
+      "title": "Startverdiene $\\Gamma(1)$ og $\\Gamma(\\tfrac12)$",
+      "content": "De to «ankrene» all Γ-regning trappes ned til:\n\n$$\\Gamma(1) = 1, \\qquad \\Gamma\\!\\left(\\tfrac12\\right) = \\sqrt{\\pi} \\approx 1{,}7725.$$\n\n$\\Gamma(1)$ brukes for heltalls-argumenter, $\\Gamma(\\tfrac12)$ for halvtall (som dukker opp i kjikvadrat med odde frihetsgrader)."
+    },
+    {
+      "id": "stk1100-2-2-def-gamma-rekursjon",
+      "type": "definition",
+      "title": "Rekursjonen $\\Gamma(\\alpha+1) = \\alpha\\,\\Gamma(\\alpha)$",
+      "content": "Nedtrappingsregelen som lar deg redusere ethvert argument til $\\Gamma(1)$ eller $\\Gamma(\\tfrac12)$:\n\n$$\\Gamma(\\alpha + 1) = \\alpha\\,\\Gamma(\\alpha).$$\n\nDen følger av delvis integrasjon i integraldefinisjonen. Brukt gjentatte ganger: $\\Gamma(\\tfrac52) = \\tfrac32\\cdot\\tfrac12\\cdot\\Gamma(\\tfrac12) = \\tfrac34\\sqrt\\pi$."
+    },
+    {
+      "id": "stk1100-2-2-def-gamma-fakultet",
+      "type": "definition",
+      "title": "Γ og fakultet",
+      "content": "For et positivt heltall $a$ faller gammafunksjonen sammen med fakultetet:\n\n$$\\Gamma(a) = (a-1)!.$$\n\nFor eksempel $\\Gamma(4) = 3! = 6$. Slik blir gammafordeling med heltalls formparameter håndterlig uten integraltabeller."
+    },
+    {
+      "id": "stk1100-2-2-ex-l1",
+      "type": "example",
+      "title": "Eksempel 1: Regn ut $\\Gamma(\\tfrac52)$ og $\\Gamma(4)$",
+      "problem": "Bruk regnereglene til å finne $\\Gamma(\\tfrac52)$ og $\\Gamma(4)$.",
+      "solution": "**$\\Gamma(\\tfrac52)$:** trapp ned med rekursjonen til $\\Gamma(\\tfrac12) = \\sqrt\\pi$:\n\n$$\\Gamma\\!\\left(\\tfrac52\\right) = \\tfrac32\\,\\Gamma\\!\\left(\\tfrac32\\right) = \\tfrac32\\cdot\\tfrac12\\,\\Gamma\\!\\left(\\tfrac12\\right) = \\tfrac34\\sqrt\\pi \\approx 1{,}329.$$\n\n**$\\Gamma(4)$:** heltall, så $\\Gamma(4) = 3! = 6$."
+    },
+    {
+      "id": "stk1100-2-2-oppg-l1a",
+      "type": "exercise",
+      "exercise": {
+        "id": "stk1100-2-2-ex-l1a",
+        "number": "1",
+        "type": "classic",
+        "difficulty": "lett",
+        "task": "Bruk regnereglene for gammafunksjonen.\n\n**a)** Finn $\\Gamma(5)$.\n**b)** Finn $\\Gamma(\\tfrac72)$ uttrykt ved $\\sqrt\\pi$.",
+        "solution": "**a)** $\\Gamma(5) = 4! = 24$.\n\n**b)** $\\Gamma(\\tfrac72) = \\tfrac52\\,\\Gamma(\\tfrac52) = \\tfrac52\\cdot\\tfrac34\\sqrt\\pi = \\tfrac{15}{8}\\sqrt\\pi \\approx 3{,}323$.",
+        "hints": [
+          "Heltall: $\\Gamma(a) = (a-1)!$. Halvtall: trapp ned til $\\Gamma(\\tfrac12) = \\sqrt\\pi$ med rekursjonen.",
+          "$\\Gamma(\\tfrac72) = \\tfrac52\\cdot\\tfrac32\\cdot\\tfrac12\\cdot\\sqrt\\pi$."
+        ]
+      }
+    },
+    {
+      "id": "stk1100-2-2-l2-head",
+      "type": "text",
+      "content": "## Løkke 2 — Gammaintegralet (~9 min)"
+    },
+    {
+      "id": "stk1100-2-2-l2-teori",
+      "type": "text",
+      "content": "Ett integral dukker opp igjen og igjen når du normerer tettheter og regner momenter for skjeve fordelinger. Det er verdt å kunne som et ferdig oppslag — ofte gir eksamen det direkte i oppgaveteksten, men du må vite hvordan du bruker det."
+    },
+    {
+      "id": "stk1100-2-2-def-gammaintegral",
+      "type": "definition",
+      "title": "Gammaintegralet",
+      "content": "For $a > 0$ og $b > 0$:\n\n$$\\int_0^\\infty x^{a-1} e^{-x/b}\\,dx = b^a\\,\\Gamma(a).$$\n\nMed $b = 1$ er dette bare definisjonen av $\\Gamma(a)$. Trikset for å bruke det: skriv integranden på formen $x^{a-1}e^{-x/b}$, les av $a$ (potensen pluss 1) og $b$ (fra eksponenten), og sett inn."
+    },
+    {
+      "id": "stk1100-2-2-ex-l2",
+      "type": "example",
+      "title": "Eksempel 2: Bruk gammaintegralet",
+      "problem": "Regn ut $\\int_0^\\infty x^3 e^{-x/2}\\,dx$.",
+      "solution": "Skriv integranden på standardform $x^{a-1}e^{-x/b}$: her er $a - 1 = 3$, altså $a = 4$, og $b = 2$. Da:\n\n$$\\int_0^\\infty x^3 e^{-x/2}\\,dx = b^a\\,\\Gamma(a) = 2^4\\,\\Gamma(4) = 16\\cdot 6 = 96.$$"
+    },
+    {
+      "id": "stk1100-2-2-oppg-l2a",
+      "type": "exercise",
+      "exercise": {
+        "id": "stk1100-2-2-ex-l2a",
+        "number": "2",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "Bruk gammaintegralet $\\int_0^\\infty x^{a-1}e^{-x/b}\\,dx = b^a\\Gamma(a)$.\n\n**a)** Regn ut $\\int_0^\\infty x^2 e^{-x/3}\\,dx$.\n**b)** Regn ut $\\int_0^\\infty x^{1/2} e^{-x}\\,dx$.",
+        "solution": "**a)** $a - 1 = 2 \\Rightarrow a = 3$, $b = 3$: $3^3\\,\\Gamma(3) = 27\\cdot 2! = 27\\cdot 2 = 54$.\n\n**b)** $a - 1 = \\tfrac12 \\Rightarrow a = \\tfrac32$, $b = 1$: $1^{3/2}\\,\\Gamma(\\tfrac32) = \\tfrac12\\sqrt\\pi \\approx 0{,}886$.",
+        "hints": [
+          "Les av $a$ fra potensen ($a = $ potens $+ 1$) og $b$ fra eksponenten $e^{-x/b}$.",
+          "$\\Gamma(3) = 2!$ og $\\Gamma(\\tfrac32) = \\tfrac12\\sqrt\\pi$."
+        ]
+      }
+    },
+    {
+      "id": "stk1100-2-2-l3-head",
+      "type": "text",
+      "content": "## Løkke 3 — Gammafordelingen med skalaparameter (~11 min)"
+    },
+    {
+      "id": "stk1100-2-2-warn-skala",
+      "type": "warning",
+      "title": "NB: skala kontra rate",
+      "content": "Gammafordelingen skrives i to konkurrerende former, akkurat som eksponensial. **Denne boka bruker konsekvent skalaparameteren $\\beta$** (som UiO-arkivet):\n\n- **Skalaform (vår):** $f(x) = \\tfrac{1}{\\beta^\\alpha\\Gamma(\\alpha)}x^{\\alpha-1}e^{-x/\\beta}$, med $E = \\alpha\\beta$.\n- **Rateform (andre lærebøker):** samme fordeling med $\\beta \\to 1/\\lambda$ og $e^{-\\lambda x}$.\n\nSjekk alltid om et oppgitt tall er skala ($\\beta$) eller rate ($\\lambda = 1/\\beta$) før du setter inn — en forvekslet parameter gir feil svar."
+    },
+    {
+      "id": "stk1100-2-2-def-gamma",
+      "type": "definition",
+      "title": "Gammafordelingen $\\text{gamma}(\\alpha,\\beta)$",
+      "content": "En familie av høyreskjeve fordelinger på $x > 0$ med formparameter $\\alpha > 0$ og **skalaparameter** $\\beta > 0$:\n\n$$f(x) = \\frac{1}{\\beta^\\alpha\\,\\Gamma(\\alpha)}\\,x^{\\alpha-1} e^{-x/\\beta}, \\qquad x > 0.$$\n\nForventning og varians: $E(X) = \\alpha\\beta$, $\\text{Var}(X) = \\alpha\\beta^2$. Formparameteren $\\alpha$ styrer formen (skjevheten), skalaen $\\beta$ strekker fordelingen langs $x$-aksen."
+    },
+    {
+      "id": "stk1100-2-2-def-alpha",
+      "type": "definition",
+      "title": "Formparameteren $\\alpha$",
+      "content": "Parameteren som styrer fordelingens *form*. Ved $\\alpha = 1$ er gammafordelingen en eksponensialfordeling (tettheten starter på sitt maksimum i $x = 0$); for $\\alpha > 1$ får tettheten en pukkel og blir mindre skjev når $\\alpha$ vokser. $\\alpha$ er dimensjonsløs."
+    },
+    {
+      "id": "stk1100-2-2-def-beta",
+      "type": "definition",
+      "title": "Skalaparameteren $\\beta$",
+      "content": "Parameteren som *strekker* fordelingen langs $x$-aksen: dobler du $\\beta$, dobles både forventning ($\\alpha\\beta$) og standardavvik. $\\beta$ har samme enhet som $X$. I rateform brukes i stedet raten $\\lambda = 1/\\beta$."
+    },
+    {
+      "id": "stk1100-2-2-def-gamma-EV",
+      "type": "definition",
+      "title": "Forventning og varians til gamma",
+      "content": "For $V \\sim \\text{gamma}(\\alpha, \\beta)$ (skalaform):\n\n$$E(V) = \\alpha\\beta, \\qquad \\text{Var}(V) = \\alpha\\beta^2.$$\n\nDisse følger av gammaintegralet: $E(V) = \\int_0^\\infty v\\,f(v)\\,dv$ blir et gammaintegral med $a = \\alpha+1$, som gir $\\alpha\\beta$."
+    },
+    {
+      "id": "stk1100-2-2-def-eksp-spesial",
+      "type": "definition",
+      "title": "Eksponensial som spesialtilfelle",
+      "content": "Gammafordelingen med $\\alpha = 1$ er nettopp eksponensialfordelingen:\n\n$$\\text{gamma}(1, \\beta): \\quad f(x) = \\tfrac1\\beta e^{-x/\\beta}, \\quad E = \\beta.$$\n\nSå eksponensialens forventningsform (kap. 2.1) er $\\text{gamma}(1, \\mu)$. Dette knytter de to kapitlene sammen."
+    },
+    {
+      "id": "stk1100-2-2-ex-l3",
+      "type": "example",
+      "title": "Eksempel 3: $E(V)$ via gammaintegralet",
+      "problem": "La $V \\sim \\text{gamma}(\\alpha, \\beta)$. Vis at $E(V) = \\alpha\\beta$ ved å bruke gammaintegralet, og regn ut $E$ og $\\text{Var}$ for $\\text{gamma}(3, 2)$.",
+      "solution": "$$E(V) = \\int_0^\\infty v\\cdot\\frac{v^{\\alpha-1}e^{-v/\\beta}}{\\beta^\\alpha\\Gamma(\\alpha)}\\,dv = \\frac{1}{\\beta^\\alpha\\Gamma(\\alpha)}\\int_0^\\infty v^{\\alpha}e^{-v/\\beta}\\,dv.$$\n\nGammaintegralet med $a = \\alpha + 1$, $b = \\beta$ gir $\\int_0^\\infty v^{\\alpha}e^{-v/\\beta}dv = \\beta^{\\alpha+1}\\Gamma(\\alpha+1)$. Sett inn og bruk $\\Gamma(\\alpha+1) = \\alpha\\Gamma(\\alpha)$:\n\n$$E(V) = \\frac{\\beta^{\\alpha+1}\\alpha\\Gamma(\\alpha)}{\\beta^\\alpha\\Gamma(\\alpha)} = \\alpha\\beta.$$\n\nFor $\\text{gamma}(3, 2)$: $E = 3\\cdot 2 = 6$ og $\\text{Var} = 3\\cdot 2^2 = 12$."
+    },
+    {
+      "id": "stk1100-2-2-oppg-l3a",
+      "type": "exercise",
+      "exercise": {
+        "id": "stk1100-2-2-ex-l3a",
+        "number": "3",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "La $V \\sim \\text{gamma}(2, 3)$.\n\n**a)** Skriv opp tettheten $f(v)$.\n**b)** Finn $E(V)$ og $\\text{Var}(V)$.",
+        "solution": "**a)** $\\alpha = 2$, $\\beta = 3$: $f(v) = \\dfrac{1}{3^2\\,\\Gamma(2)}v^{1}e^{-v/3} = \\dfrac{v}{9}e^{-v/3}$, $v > 0$ (siden $\\Gamma(2) = 1! = 1$).\n\n**b)** $E(V) = \\alpha\\beta = 2\\cdot 3 = 6$, $\\text{Var}(V) = \\alpha\\beta^2 = 2\\cdot 9 = 18$.",
+        "hints": [
+          "Sett inn $\\alpha, \\beta$ i tetthetsformelen; $\\Gamma(2) = 1$.",
+          "$E = \\alpha\\beta$, $\\text{Var} = \\alpha\\beta^2$."
+        ]
+      }
+    },
+    {
+      "id": "stk1100-2-2-l4-head",
+      "type": "text",
+      "content": "## Løkke 4 — Momentformelen $E(V^r)$ og skjevhet (~10 min)"
+    },
+    {
+      "id": "stk1100-2-2-l4-note",
+      "type": "text",
+      "content": "> — naturlig pausepunkt — etter momentformelen kommer kjikvadrat."
+    },
+    {
+      "id": "stk1100-2-2-l4-teori",
+      "type": "text",
+      "content": "Noen ganger trenger vi forventningen til en *potens* eller *rot* av en gammavariabel — for eksempel $E(\\sqrt V)$ når en estimator inneholder en kvadratrot. Da er det én formel som gir svaret direkte, uten nytt integral. Den brukes til å avsløre **skjevhet**: at en rot-estimator systematisk bommer (kobling til kap. 5.3)."
+    },
+    {
+      "id": "stk1100-2-2-def-EVr",
+      "type": "definition",
+      "title": "Momentformelen $E(V^r)$",
+      "content": "For $V \\sim \\text{gamma}(\\alpha, \\beta)$ og en hvilken som helst potens $r > -\\alpha$:\n\n$$E(V^r) = \\beta^r\\,\\frac{\\Gamma(\\alpha + r)}{\\Gamma(\\alpha)}.$$\n\nMed $r = 1$ gir den $E(V) = \\beta\\cdot\\alpha\\Gamma(\\alpha)/\\Gamma(\\alpha) = \\alpha\\beta$; med $r = 2$ gir den $E(V^2) = \\beta^2\\alpha(\\alpha+1)$. Betingelsen $r > -\\alpha$ sikrer at integralet konvergerer."
+    },
+    {
+      "id": "stk1100-2-2-def-skjevhet",
+      "type": "definition",
+      "title": "Skjevhet av en rot-estimator",
+      "content": "Fordi kvadratrot er en krum (konkav) funksjon, er $E(\\sqrt V) \\ne \\sqrt{E(V)}$ — de skiller lag. Momentformelen gir\n\n$$E(\\sqrt V) = \\beta^{1/2}\\frac{\\Gamma(\\alpha + \\tfrac12)}{\\Gamma(\\alpha)} < \\sqrt{\\alpha\\beta} = \\sqrt{E(V)}.$$\n\nDerfor er $\\sqrt V$ ikke forventningsrett for $\\sqrt{E(V)}$: den underestimerer systematisk. Dette er A-stoff i estimeringskapitlet (kap. 5.3)."
+    },
+    {
+      "id": "stk1100-2-2-ex-l4",
+      "type": "example",
+      "title": "Eksempel 4: $E(\\sqrt V)$ og skjevhet",
+      "problem": "La $V \\sim \\text{gamma}(4, 3)$. Finn $E(\\sqrt V)$ og sammenlign med $\\sqrt{E(V)}$.",
+      "solution": "Bruk momentformelen med $r = \\tfrac12$:\n\n$$E(\\sqrt V) = 3^{1/2}\\frac{\\Gamma(4 + \\tfrac12)}{\\Gamma(4)} = \\sqrt 3\\cdot\\frac{\\Gamma(4{,}5)}{\\Gamma(4)}.$$\n\nHer er $\\Gamma(4) = 3! = 6$ og $\\Gamma(4{,}5) = \\tfrac72\\cdot\\tfrac52\\cdot\\tfrac32\\cdot\\tfrac12\\sqrt\\pi = \\tfrac{105}{16}\\sqrt\\pi \\approx 11{,}632$. Da:\n\n$$E(\\sqrt V) = 1{,}732\\cdot\\frac{11{,}632}{6} \\approx 3{,}358.$$\n\nTil sammenligning: $\\sqrt{E(V)} = \\sqrt{4\\cdot 3} = \\sqrt{12} \\approx 3{,}464$. Vi ser $E(\\sqrt V) \\approx 3{,}358 < 3{,}464$ — roten underestimerer, akkurat som skjevheten forutsier."
+    },
+    {
+      "id": "stk1100-2-2-oppg-l4a",
+      "type": "exercise",
+      "exercise": {
+        "id": "stk1100-2-2-ex-l4a",
+        "number": "4",
+        "type": "classic",
+        "difficulty": "vanskelig",
+        "task": "La $V \\sim \\text{gamma}(3, 2)$. Bruk momentformelen $E(V^r) = \\beta^r\\Gamma(\\alpha+r)/\\Gamma(\\alpha)$.\n\n**a)** Finn $E(V^2)$ og bekreft at $\\text{Var}(V) = E(V^2) - [E(V)]^2 = 12$.\n**b)** Finn $E(1/V) = E(V^{-1})$.",
+        "solution": "**a)** $E(V^2) = \\beta^2\\dfrac{\\Gamma(\\alpha+2)}{\\Gamma(\\alpha)} = 2^2\\dfrac{\\Gamma(5)}{\\Gamma(3)} = 4\\cdot\\dfrac{24}{2} = 48$. Da $\\text{Var} = 48 - 6^2 = 48 - 36 = 12$. ✓\n\n**b)** $r = -1 > -\\alpha = -3$, ok: $E(V^{-1}) = \\beta^{-1}\\dfrac{\\Gamma(\\alpha-1)}{\\Gamma(\\alpha)} = \\dfrac{1}{2}\\cdot\\dfrac{\\Gamma(2)}{\\Gamma(3)} = \\dfrac12\\cdot\\dfrac{1}{2} = \\dfrac14 = 0{,}25$.",
+        "hints": [
+          "Sett $r = 2$ og $r = -1$ i formelen; $\\Gamma(\\alpha+r)/\\Gamma(\\alpha)$ forenkles med rekursjonen.",
+          "$\\Gamma(5) = 4! = 24$, $\\Gamma(3) = 2! = 2$, $\\Gamma(2) = 1$."
+        ]
+      }
+    },
+    {
+      "id": "stk1100-2-2-l5-head",
+      "type": "text",
+      "content": "## Løkke 5 — Kjikvadratfordelingen $\\chi^2_n = \\text{gamma}(n/2, 2)$ (~10 min)"
+    },
+    {
+      "id": "stk1100-2-2-l5-teori",
+      "type": "text",
+      "content": "Kjikvadratfordelingen er ikke en ny fordeling — den er bare en **gammafordeling med skala 2**. Denne identiteten er selve nøkkelen til de eksakte konfidensintervallene senere, og den *skal sitte*. Antall **frihetsgrader** $n$ er parameteren som teller hvor mange kvadrerte normalvariable som er lagt sammen (utledes i kap. 4.2 — her presenterer vi fordelingen selv)."
+    },
+    {
+      "id": "stk1100-2-2-def-frihetsgrader",
+      "type": "definition",
+      "title": "Frihetsgrader",
+      "content": "Parameteren $n$ i kjikvadratfordelingen, som teller antall uavhengige kvadrerte standardnormale ledd summen består av. Flere frihetsgrader gir en mindre skjev, mer symmetrisk fordeling med større forventning ($E = n$). Riktig antall frihetsgrader er avgjørende — feil $n$ gir feil tabelloppslag."
+    },
+    {
+      "id": "stk1100-2-2-def-kjikvadrat",
+      "type": "definition",
+      "title": "Kjikvadratfordelingen $\\chi^2_n$",
+      "content": "Fordelingen til en sum av $n$ uavhengige kvadrerte standardnormale variable. Den er en gammafordeling med formparameter $n/2$ og skala 2:\n\n$$\\chi^2_n = \\text{gamma}\\!\\left(\\tfrac{n}{2},\\, 2\\right).$$\n\nStøtten er $x > 0$. Denne identiteten er STK1100s mest brukte — lær den utenat."
+    },
+    {
+      "id": "stk1100-2-2-def-kjikvadrat-EV",
+      "type": "definition",
+      "title": "Kjikvadratets forventning og varians",
+      "content": "Fra $\\chi^2_n = \\text{gamma}(n/2, 2)$ og formlene $E = \\alpha\\beta$, $\\text{Var} = \\alpha\\beta^2$:\n\n$$E(\\chi^2_n) = \\tfrac{n}{2}\\cdot 2 = n, \\qquad \\text{Var}(\\chi^2_n) = \\tfrac{n}{2}\\cdot 4 = 2n.$$\n\nForventningen er altså *lik* antallet frihetsgrader — en rask kontroll på at du har riktig $n$."
+    },
+    {
+      "id": "stk1100-2-2-def-kjikvadrat-kvantil",
+      "type": "definition",
+      "title": "Øvre kvantil $\\chi^2_{\\nu,\\alpha}$",
+      "content": "Kjikvadrattabellen slås opp med **øvre haleareal**: $\\chi^2_{\\nu,\\alpha}$ er verdien der\n\n$$P(\\chi^2_\\nu > \\chi^2_{\\nu,\\alpha}) = \\alpha.$$\n\nFor eksempel $\\chi^2_{6,\\,0{,}05} \\approx 12{,}59$: det er 5 % sannsynlighet for å overstige denne verdien med 6 frihetsgrader. Disse persentilene brukes som endepunkter i pivotal-intervallene (kap. 6.1)."
+    },
+    {
+      "id": "stk1100-2-2-ex-l5",
+      "type": "example",
+      "title": "Eksempel 5: Kjikvadrat via gamma",
+      "problem": "Bruk identiteten $\\chi^2_6 = \\text{gamma}(3, 2)$. Finn forventning og varians, og slå opp $\\chi^2_{6,\\,0{,}05}$.",
+      "solution": "Med $\\alpha = 3$, $\\beta = 2$: $E = \\alpha\\beta = 6$ (lik antall frihetsgrader, som forventet) og $\\text{Var} = \\alpha\\beta^2 = 3\\cdot 4 = 12 = 2n$.\n\nFra kjikvadrattabellen med 6 frihetsgrader og øvre haleareal 0,05: $\\chi^2_{6,\\,0{,}05} \\approx 12{,}59$. Det betyr $P(\\chi^2_6 > 12{,}59) = 0{,}05$."
+    },
+    {
+      "id": "stk1100-2-2-oppg-l5a",
+      "type": "exercise",
+      "exercise": {
+        "id": "stk1100-2-2-ex-l5a",
+        "number": "5",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "En variabel er $\\chi^2_{10}$-fordelt.\n\n**a)** Skriv den som en gammafordeling, og finn $E$ og $\\text{Var}$.\n**b)** Fra tabellen er $\\chi^2_{10,\\,0{,}05} = 18{,}31$. Forklar med ord hva dette tallet betyr.",
+        "solution": "**a)** $\\chi^2_{10} = \\text{gamma}(5, 2)$. Da $E = 5\\cdot 2 = 10$ (lik frihetsgradene) og $\\text{Var} = 5\\cdot 4 = 20 = 2n$.\n\n**b)** $\\chi^2_{10,\\,0{,}05} = 18{,}31$ er verdien med 5 % sannsynlighet over: $P(\\chi^2_{10} > 18{,}31) = 0{,}05$. Det er øvre 5 %-persentil for 10 frihetsgrader.",
+        "hints": [
+          "$\\chi^2_n = \\text{gamma}(n/2, 2)$, så her $\\alpha = 5$, $\\beta = 2$.",
+          "$E = n$, $\\text{Var} = 2n$; tabellen bruker øvre haleareal."
+        ]
+      }
+    },
+    {
+      "id": "stk1100-2-2-l6-head",
+      "type": "text",
+      "content": "## Løkke 6 — Sum av uavhengige gamma (~9 min)"
+    },
+    {
+      "id": "stk1100-2-2-l6-teori",
+      "type": "text",
+      "content": "Det siste nøkkelresultatet: legger du sammen uavhengige gammavariable som deler skala, får du en ny gammavariabel — formparametrene legges bare sammen. Dette er grunnen til at en sum av eksponensiale ventetider blir gamma (Erlang), og at summer av kjikvadrat blir kjikvadrat. Resultatet bevises via momentgenererende funksjoner i kap. 4.1; her bruker vi det."
+    },
+    {
+      "id": "stk1100-2-2-def-sum-gamma",
+      "type": "definition",
+      "title": "Sum av uavhengige gamma (felles skala)",
+      "content": "Er $V_1, \\dots, V_k$ uavhengige med $V_i \\sim \\text{gamma}(\\alpha_i, \\beta)$ (samme skala $\\beta$), så er summen igjen gamma med samme skala og formparametrene lagt sammen:\n\n$$\\sum_{i=1}^k V_i \\sim \\text{gamma}\\!\\left(\\sum_{i=1}^k \\alpha_i,\\ \\beta\\right).$$\n\nMerk kravet om **felles skala** $\\beta$ — uten det gjelder ikke regelen."
+    },
+    {
+      "id": "stk1100-2-2-def-erlang",
+      "type": "definition",
+      "title": "Erlang: sum av eksponensiale",
+      "content": "En sum av $n$ uavhengige eksponensiale med felles forventning $\\beta$ er gamma med heltalls form:\n\n$$\\sum_{i=1}^n X_i \\sim \\text{gamma}(n, \\beta), \\qquad X_i \\sim \\text{gamma}(1, \\beta).$$\n\nDette kalles Erlang-fordelingen og er tiden til den $n$-te hendelsen i en Poisson-prosess. Forventning $n\\beta$, varians $n\\beta^2$."
+    },
+    {
+      "id": "stk1100-2-2-def-sum-kjikvadrat",
+      "type": "definition",
+      "title": "Sum av uavhengige kjikvadrat",
+      "content": "Fordi $\\chi^2_n = \\text{gamma}(n/2, 2)$ alle har skala 2, gir sumregelen:\n\n$$\\chi^2_{n_1} + \\chi^2_{n_2} = \\chi^2_{n_1 + n_2}$$\n\nfor uavhengige ledd. Frihetsgradene legges sammen — nyttig når man setter sammen flere uavhengige utvalg."
+    },
+    {
+      "id": "stk1100-2-2-ex-l6",
+      "type": "example",
+      "title": "Eksempel 6: Sum av eksponensiale ventetider",
+      "problem": "En maskin har fire komponenter i serie som byttes etter tur. Hver har eksponensialfordelt levetid med forventning $\\beta = 4$ måneder, uavhengig av de andre. Finn fordelingen, forventningen og variansen til den totale levetiden $S = X_1 + X_2 + X_3 + X_4$.",
+      "solution": "Hver $X_i \\sim \\text{gamma}(1, 4)$. Med felles skala $\\beta = 4$ gir sumregelen:\n\n$$S = \\sum_{i=1}^4 X_i \\sim \\text{gamma}(4, 4).$$\n\nDa $E(S) = \\alpha\\beta = 4\\cdot 4 = 16$ måneder og $\\text{Var}(S) = \\alpha\\beta^2 = 4\\cdot 16 = 64$, altså $\\text{SD}(S) = 8$ måneder."
+    },
+    {
+      "id": "stk1100-2-2-oppg-l6a",
+      "type": "exercise",
+      "exercise": {
+        "id": "stk1100-2-2-ex-l6a",
+        "number": "6",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "La $X_1, \\dots, X_5$ være uavhengige eksponensiale med felles forventning $\\beta = 2$ (dvs. hver $\\text{gamma}(1,2)$).\n\n**a)** Hvilken fordeling har summen $S = \\sum X_i$?\n**b)** Finn $E(S)$ og $\\text{Var}(S)$.",
+        "solution": "**a)** Felles skala $\\beta = 2$, så $S \\sim \\text{gamma}(5, 2)$ (formparametrene $1+1+1+1+1 = 5$ lagt sammen). Dette er en Erlang-fordeling.\n\n**b)** $E(S) = 5\\cdot 2 = 10$, $\\text{Var}(S) = 5\\cdot 2^2 = 20$.",
+        "hints": [
+          "Felles skala: legg sammen formparametrene, behold skalaen.",
+          "$\\text{gamma}(5,2)$ har $E = \\alpha\\beta$, $\\text{Var} = \\alpha\\beta^2$."
+        ]
+      }
+    },
+    {
+      "id": "stk1100-2-2-warn-typiske",
+      "type": "warning",
+      "title": "Typiske feil",
+      "content": "- **Feil frihetsgrader i kjikvadrat-koblingen.** Blande $\\chi^2_{2n}$ og $\\chi^2_n$ er den vanligste tabellfeilen. Les hvilken pivot oppgaven bruker (eksponensial gir alltid $\\chi^2_{2n}$, se Del 6) — riktig $n$ er halve poenget.\n- **Forveksle skala og rate i gamma.** Skalaform har $E = \\alpha\\beta$; med rate $\\lambda = 1/\\beta$ blir alt invertert. Sjekk hvilken parameter oppgaven oppgir.\n- **Glemme Γ-faktoren i potens-/rotmomenter.** $E(\\sqrt V) \\ne \\sqrt{E(V)}$ — bruk momentformelen $E(V^r) = \\beta^r\\Gamma(\\alpha+r)/\\Gamma(\\alpha)$, ikke roten av forventningen.\n- **Regnefeil i nedtrappingen** $\\Gamma(\\alpha+1) = \\alpha\\Gamma(\\alpha)$. Trapp helt ned til $\\Gamma(1) = 1$ eller $\\Gamma(\\tfrac12) = \\sqrt\\pi$, ett steg om gangen.\n- **Bruke sumregelen uten felles skala.** $\\sum \\text{gamma}(\\alpha_i, \\beta)$ er gamma bare når alle $\\beta$-ene er like."
+    },
+    {
+      "id": "stk1100-2-2-begrepsbank-head",
+      "type": "text",
+      "content": "## Begrepsbank — flashcards\n\n*Flashcard-/repetisjonsstoff — hopp trygt over ved førstegangslesing; tidsanslaget gjelder kjernestoffet.* Kortene samler Γ-verktøyet og gamma/kjikvadrat-identitetene til pugg."
+    },
+    {
+      "id": "stk1100-2-2-bb-gamma-oppsummert",
+      "type": "definition",
+      "title": "Gammafordelingen — oppsummert",
+      "content": "$\\text{gamma}(\\alpha,\\beta)$ med skala $\\beta$: $f(x) = \\tfrac{1}{\\beta^\\alpha\\Gamma(\\alpha)}x^{\\alpha-1}e^{-x/\\beta}$, $x > 0$. $E = \\alpha\\beta$, $\\text{Var} = \\alpha\\beta^2$. Høyreskjev, positiv støtte."
+    },
+    {
+      "id": "stk1100-2-2-bb-fire-gamma-regler",
+      "type": "definition",
+      "title": "Γ-reglene på ett kort",
+      "content": "$\\Gamma(1) = 1$; $\\Gamma(\\tfrac12) = \\sqrt\\pi$; $\\Gamma(\\alpha+1) = \\alpha\\Gamma(\\alpha)$; $\\Gamma(a) = (a-1)!$ for heltall $a$. Trapp ethvert argument ned til ett av ankrene."
+    },
+    {
+      "id": "stk1100-2-2-bb-gammaintegral-kort",
+      "type": "definition",
+      "title": "Gammaintegralet",
+      "content": "$\\int_0^\\infty x^{a-1}e^{-x/b}\\,dx = b^a\\Gamma(a)$. Les av $a$ (potens $+1$) og $b$ (fra $e^{-x/b}$), sett inn. Med $b = 1$ er det definisjonen av $\\Gamma(a)$."
+    },
+    {
+      "id": "stk1100-2-2-bb-chi2-identitet",
+      "type": "definition",
+      "title": "Identiteten $\\chi^2_n = \\text{gamma}(n/2, 2)$",
+      "content": "Kjikvadrat med $n$ frihetsgrader er gamma med form $n/2$ og skala 2. Herav $E = n$, $\\text{Var} = 2n$. STK1100s mest brukte identitet — motoren i eksakte KI."
+    },
+    {
+      "id": "stk1100-2-2-bb-EVr-kort",
+      "type": "definition",
+      "title": "Momentformelen $E(V^r)$",
+      "content": "For $V \\sim \\text{gamma}(\\alpha,\\beta)$, $r > -\\alpha$: $E(V^r) = \\beta^r\\dfrac{\\Gamma(\\alpha+r)}{\\Gamma(\\alpha)}$. Gir $E(V) = \\alpha\\beta$ ($r=1$) og $E(V^2) = \\beta^2\\alpha(\\alpha+1)$ ($r=2$)."
+    },
+    {
+      "id": "stk1100-2-2-bb-skjevhet-kort",
+      "type": "definition",
+      "title": "Rot underestimerer",
+      "content": "$E(\\sqrt V) = \\beta^{1/2}\\Gamma(\\alpha+\\tfrac12)/\\Gamma(\\alpha) < \\sqrt{\\alpha\\beta}$. En kvadratrot-estimator bommer systematisk nedover — skjevhet som må korrigeres (kap. 5.3)."
+    },
+    {
+      "id": "stk1100-2-2-bb-sum-gamma-kort",
+      "type": "definition",
+      "title": "Sum av gamma (felles skala)",
+      "content": "Uavhengige $V_i \\sim \\text{gamma}(\\alpha_i, \\beta)$ med samme $\\beta$: $\\sum V_i \\sim \\text{gamma}(\\sum\\alpha_i, \\beta)$. Krever felles skala."
+    },
+    {
+      "id": "stk1100-2-2-bb-erlang-kort",
+      "type": "definition",
+      "title": "Erlang / sum av eksponensiale",
+      "content": "Sum av $n$ uavhengige eksponensiale med felles forventning $\\beta$ er $\\text{gamma}(n, \\beta)$ — tiden til $n$-te hendelse i en Poisson-prosess. $E = n\\beta$."
+    },
+    {
+      "id": "stk1100-2-2-bb-eksp-gamma1",
+      "type": "definition",
+      "title": "Eksponensial $= \\text{gamma}(1,\\beta)$",
+      "content": "Eksponensialens forventningsform $f = \\tfrac1\\beta e^{-x/\\beta}$ er gammafordelingen med $\\alpha = 1$. Alt gamma-maskineri gjelder derfor også eksponensial."
+    },
+    {
+      "id": "stk1100-2-2-bb-chi2-tabell",
+      "type": "definition",
+      "title": "Kjikvadrattabellen (øvre hale)",
+      "content": "$\\chi^2_{\\nu,\\alpha}$ er verdien med $P(\\chi^2_\\nu > \\chi^2_{\\nu,\\alpha}) = \\alpha$ (øvre haleareal). Brukes som endepunkt i eksakte pivotal-KI; slå opp med riktig $\\nu$."
+    },
+    {
+      "id": "stk1100-2-2-bb-form-skala",
+      "type": "definition",
+      "title": "Form kontra skala",
+      "content": "$\\alpha$ (form) styrer skjevheten — ved $\\alpha = 1$ er fordelingen eksponensiell; store $\\alpha$ gir tilnærmet symmetri. $\\beta$ (skala) strekker fordelingen; forveksle den ikke med raten $\\lambda = 1/\\beta$."
+    },
+    {
+      "id": "stk1100-2-2-rep-oppgaver",
+      "type": "collapsible",
+      "title": "Repetisjonsoppgaver",
+      "buttonText": "Vis repetisjonsoppgaver",
+      "content": [
+        {
+          "id": "stk1100-2-2-rep-intro",
+          "type": "text",
+          "content": "Korte oppgaver fra forkunnskapene — eksponensial og momenter fra [kap. 2.1](/bok/stk1100/stk1100-2-1) og integrasjon fra [R2 2.4](/bok/r2/r2-2-4) — til oppvarming."
+        },
+        {
+          "id": "stk1100-2-2-rep-oppg1",
+          "type": "exercise",
+          "exercise": {
+            "id": "stk1100-2-2-rep-ex1",
+            "number": "R1",
+            "type": "classic",
+            "difficulty": "lett",
+            "task": "Skriv eksponensialfordelingen med forventning $\\mu = 4$ som en gammafordeling.",
+            "solution": "Eksponensial i forventningsform er $\\text{gamma}(1, \\mu)$, altså her $\\text{gamma}(1, 4)$: $f(x) = \\tfrac14 e^{-x/4}$, $x > 0$.",
+            "hints": [
+              "Eksponensial $=$ gamma med $\\alpha = 1$."
+            ]
+          }
+        },
+        {
+          "id": "stk1100-2-2-rep-oppg2",
+          "type": "exercise",
+          "exercise": {
+            "id": "stk1100-2-2-rep-ex2",
+            "number": "R2",
+            "type": "classic",
+            "difficulty": "lett",
+            "task": "Regn ut $\\Gamma(3)$ og $\\Gamma(\\tfrac32)$.",
+            "solution": "$\\Gamma(3) = 2! = 2$. $\\Gamma(\\tfrac32) = \\tfrac12\\Gamma(\\tfrac12) = \\tfrac12\\sqrt\\pi \\approx 0{,}886$.",
+            "hints": [
+              "Heltall: $(a-1)!$. Halvtall: rekursjon ned til $\\Gamma(\\tfrac12) = \\sqrt\\pi$."
+            ]
+          }
+        },
+        {
+          "id": "stk1100-2-2-rep-oppg3",
+          "type": "exercise",
+          "exercise": {
+            "id": "stk1100-2-2-rep-ex3",
+            "number": "R3",
+            "type": "classic",
+            "difficulty": "middels",
+            "task": "En eksponensialvariabel har rate $\\lambda = 0{,}25$. Finn forventning og median.",
+            "solution": "$E = 1/\\lambda = 4$. Median $= \\ln 2/\\lambda = 0{,}693/0{,}25 \\approx 2{,}77$.",
+            "hints": [
+              "Rateform: $E = 1/\\lambda$, median $= \\ln 2/\\lambda$."
+            ]
+          }
+        },
+        {
+          "id": "stk1100-2-2-rep-oppg4",
+          "type": "exercise",
+          "exercise": {
+            "id": "stk1100-2-2-rep-ex4",
+            "number": "R4",
+            "type": "classic",
+            "difficulty": "middels",
+            "task": "Regn ut $\\int_0^\\infty x\\,e^{-x/5}\\,dx$ med gammaintegralet.",
+            "solution": "$a - 1 = 1 \\Rightarrow a = 2$, $b = 5$: $5^2\\Gamma(2) = 25\\cdot 1 = 25$.",
+            "hints": [
+              "$a = 2$, $b = 5$, $\\Gamma(2) = 1$."
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": "stk1100-2-2-symbolliste",
+      "type": "collapsible",
+      "title": "Symbol- og formelliste",
+      "buttonText": "Vis symboler og formler",
+      "content": [
+        {
+          "id": "stk1100-2-2-sym-innhold",
+          "type": "text",
+          "content": "*Oppslagsverk — alt her forklares underveis i kapitlet.*\n\n| Symbol | Betydning |\n|---|---|\n| $\\Gamma(\\alpha)$ | Gammafunksjonen |\n| $\\alpha$ | Formparameter i gammafordelingen |\n| $\\beta$ | Skalaparameter i gammafordelingen |\n| $\\text{gamma}(\\alpha,\\beta)$ | Gammafordeling med form $\\alpha$, skala $\\beta$ |\n| $\\chi^2_n$ | Kjikvadratfordeling med $n$ frihetsgrader |\n| $n, \\nu$ | Antall frihetsgrader |\n| $\\chi^2_{\\nu,\\alpha}$ | Øvre $\\alpha$-kvantil i kjikvadrat |\n| $E(V^r)$ | $r$-te moment til $V$ |\n| $\\lambda$ | Rate ($= 1/\\beta$ i rateform) |\n\n**Formler i dette kapitlet:**\n\n$$\\Gamma(1) = 1, \\quad \\Gamma(\\tfrac12) = \\sqrt\\pi, \\quad \\Gamma(\\alpha+1) = \\alpha\\Gamma(\\alpha), \\quad \\Gamma(a) = (a-1)!$$\n\n$$\\int_0^\\infty x^{a-1}e^{-x/b}\\,dx = b^a\\,\\Gamma(a)$$\n\n$$f(x) = \\frac{1}{\\beta^\\alpha\\Gamma(\\alpha)}x^{\\alpha-1}e^{-x/\\beta}, \\quad E = \\alpha\\beta, \\quad \\text{Var} = \\alpha\\beta^2$$\n\n$$E(V^r) = \\beta^r\\frac{\\Gamma(\\alpha+r)}{\\Gamma(\\alpha)}, \\quad r > -\\alpha$$\n\n$$\\chi^2_n = \\text{gamma}\\!\\left(\\tfrac{n}{2}, 2\\right), \\quad E(\\chi^2_n) = n, \\quad \\text{Var}(\\chi^2_n) = 2n$$\n\n$$\\sum_i \\text{gamma}(\\alpha_i, \\beta) = \\text{gamma}\\!\\left(\\textstyle\\sum_i \\alpha_i, \\beta\\right) \\quad \\text{(felles skala)}$$"
+        }
+      ]
+    }
+  ],
+  "exercises": []
+}

@@ -1,0 +1,550 @@
+{
+  "id": "mat111-uib-2-2",
+  "courseId": "mat111-uib",
+  "chapterNumber": "2.2",
+  "title": "Grenseteknikk: L'Hôpital og alle ubestemte former",
+  "description": "Regneverktøyet for grenseoppgavene (68 %): alle ubestemte former, med formsjekk-disiplinen sensor krever før L'Hôpital.",
+  "estimatedMinutes": 55,
+  "competenceGoals": [
+    "kjenne igjen og bruke standardgrensene sin x/x, (1−cos x)/x² og veksthierarkiet",
+    "markere den ubestemte formen ([0/0] eller [∞/∞]) før hver bruk av L'Hôpital og sjekke forutsetningene",
+    "skrive om formene 0·∞, ∞−∞, 1^∞, 0^0 og ∞^0 til en brøk L'Hôpital kan brukes på (konjugat og logaritmetriks)",
+    "bruke skviseteoremet med uttalt begrensethet der L'Hôpital ikke hjelper",
+    "velge raskeste vei (standardgrense/veksthierarki) framfor unødig L'Hôpital"
+  ],
+  "content": [
+    {
+      "id": "mat111-uib-2-2-tip",
+      "type": "tip",
+      "title": "Eksamensvinkel",
+      "content": "**Grenseregning er arbeidshesten i midten av settet.**\n\n- Egne **grenseoppgaver (sjanger M, grensedelen)** finnes i 23 av 34 sett — grenser/L'Hôpital ligger på ca. **68 %**. I tillegg dukker L'Hôpital opp *kjedet* inn i kontinuitetsoppgaver (kap. 2.3), FTC-oppgaver og drøfting. Å regne grenser raskt og riktig frigjør tid til de tyngre delene.\n- **Føringskravet sensor bryr seg om:** før hver bruk av L'Hôpital skal du **markere den ubestemte formen** eksplisitt — $[0/0]$ eller $[\\infty/\\infty]$ — og sjekke at forutsetningene holder. Bruker du L'Hôpital to ganger, markerer du formen begge gangene. L'Hôpital på et uttrykk som *ikke* er ubestemt gir feil svar og trekk.\n- **Prioritet:** dette er *kunne*-stoff, men tempoet skal være perfekt — grensene er ofte de billigste poengene i midtdelen. De vanskeligste variantene er de som *ikke* løses av L'Hôpital direkte ($1^\\infty$, $\\infty-\\infty$), der du må skrive om først."
+    },
+    {
+      "id": "mat111-uib-2-2-fork",
+      "type": "text",
+      "content": "**Forkunnskaper.** Dette kapitlet bygger på grensebegrepet fra **kap. 2.1** (du trenger den intuitive grensen, ikke ε-δ-beviset her). L'Hôpital deriverer teller og nevner, så du må være trygg på **[Derivasjonsregler (R1 4.1)](/bok/r1/r1-4-1)** — potens-, kjerne- og produktregel. Logaritmetrikset for $1^\\infty$, $0^0$ og $\\infty^0$ bruker regnereglene for **[Potenser og logaritmer (R1 1.2)](/bok/r1/r1-1-2)**, særlig $a^b=e^{b\\ln a}$ og $\\ln(a^b)=b\\ln a$.\n\n**Sist du var her — tre ferdige oppfriskninger:**\n- Kjerneregel: $\\dfrac{d}{dx}f(g(x)) = f'(g(x))\\,g'(x)$.\n- $\\dfrac{d}{dx}\\ln x = \\dfrac1x$, $\\ \\dfrac{d}{dx}e^x = e^x$, $\\ \\dfrac{d}{dx}\\sin x = \\cos x$.\n- Potenslov: $a^b = e^{b\\ln a}$ (broen mellom potens og eksponent i logaritmetrikset)."
+    },
+    {
+      "id": "mat111-uib-2-2-motiv",
+      "type": "text",
+      "content": "Setter du $x=a$ inn i en grense og får et *bestemt* tall, er du ferdig — grensen er det tallet. Problemene oppstår når innsetting gir et **ubestemt uttrykk** som $\\tfrac00$ eller $\\tfrac{\\infty}{\\infty}$: da har uttrykket ingen opplagt verdi, og du må jobbe. Dette kapitlet gir deg våpenarsenalet: standardgrenser du kan utenat, **L'Hôpitals regel** for $[0/0]$ og $[\\infty/\\infty]$, omskrivinger som gjør *alle* de andre ubestemte formene om til én av disse to, og **skviseteoremet** for de tilfellene der L'Hôpital ikke biter.\n\nNøkkeldisiplinen gjennom hele kapitlet: **identifiser formen først**. Mange feil kommer av å bruke L'Hôpital i vranglås — på et uttrykk som ikke er ubestemt, eller på $1^\\infty$ uten å ta logaritmen først. Fire læringsløkker: (1) standardgrensene, (2) L'Hôpital for $[0/0]$ og $[\\infty/\\infty]$, (3) de andre formene via omskriving, (4) skvis og når L'Hôpital ikke hjelper."
+    },
+    {
+      "id": "mat111-uib-2-2-l1",
+      "type": "text",
+      "content": "## Løkke 1 — Standardgrensene du kan utenat (~12 min)"
+    },
+    {
+      "id": "mat111-uib-2-2-def-sinx",
+      "type": "definition",
+      "title": "Standardgrensen $\\frac{\\sin x}{x}\\to 1$",
+      "content": "Den mest brukte trigonometriske grensen:\n$$\\lim_{x\\to 0}\\frac{\\sin x}{x} = 1.$$\nDen er formen $[0/0]$, men er så vanlig at du bruker den direkte. Beslektet: $\\lim_{x\\to0}\\frac{\\tan x}{x}=1$ og $\\lim_{x\\to0}\\frac{1-\\cos x}{x}=0$. Kjenner du disse igjen, slipper du L'Hôpital i mange oppgaver."
+    },
+    {
+      "id": "mat111-uib-2-2-def-cos",
+      "type": "definition",
+      "title": "Standardgrensen $\\frac{1-\\cos x}{x^2}\\to\\frac12$",
+      "content": "$$\\lim_{x\\to 0}\\frac{1-\\cos x}{x^2} = \\frac12.$$\nEn hyppig byggekloss i grenser med cosinus. Den følger av $1-\\cos x = 2\\sin^2(x/2)$ og $\\frac{\\sin x}{x}\\to1$, eller av L'Hôpital brukt to ganger. Merk kvadratet i nevneren — med $x$ i første potens er grensen bare $0$."
+    },
+    {
+      "id": "mat111-uib-2-2-def-vekst",
+      "type": "definition",
+      "title": "Veksthierarkiet",
+      "content": "Rangordningen av hvor fort funksjoner vokser mot uendelig:\n$$\\ln x \\;\\ll\\; x^p \\;\\ll\\; e^x \\qquad (p>0,\\ x\\to\\infty),$$\nder «$\\ll$» betyr «vokser mye langsommere enn». Følgen er at $\\lim_{x\\to\\infty}\\frac{\\ln x}{x^p}=0$ og $\\lim_{x\\to\\infty}\\frac{x^p}{e^x}=0$ for enhver $p>0$: eksponentialen slår ethvert polynom, som slår logaritmen. Ofte gir hierarkiet svaret uten regning."
+    },
+    {
+      "id": "mat111-uib-2-2-def-xlnx",
+      "type": "definition",
+      "title": "Grensen $x\\ln x\\to 0$",
+      "content": "$$\\lim_{x\\to 0^+} x\\ln x = 0.$$\nSelv om $\\ln x\\to-\\infty$, trekker $x\\to0$ raskere, så produktet går mot $0$. Dette er formen $0\\cdot\\infty$, som løses ved å skrive $x\\ln x=\\frac{\\ln x}{1/x}$ og bruke L'Hôpital (eller veksthierarkiet). En standardgrense verdt å kjenne."
+    },
+    {
+      "id": "mat111-uib-2-2-ex1",
+      "type": "example",
+      "title": "Eksempel 1: standardgrense uten L'Hôpital",
+      "problem": "Beregn $\\displaystyle\\lim_{x\\to 0}\\frac{\\sin 3x}{5x}$.",
+      "solution": "Skriv om for å få $\\frac{\\sin(\\cdot)}{(\\cdot)}$-formen. Med $u=3x$:\n$$\\frac{\\sin 3x}{5x} = \\frac{3}{5}\\cdot\\frac{\\sin 3x}{3x}.$$\nNår $x\\to0$ går $3x\\to0$, så $\\frac{\\sin 3x}{3x}\\to 1$. Dermed\n$$\\lim_{x\\to0}\\frac{\\sin 3x}{5x} = \\frac35\\cdot 1 = \\frac35.$$\n*(Ingen L'Hôpital nødvendig — standardgrensen gir svaret direkte.)*"
+    },
+    {
+      "id": "mat111-uib-2-2-o1",
+      "type": "exercise",
+      "exercise": {
+        "id": "mat111-uib-2-2-o1-x",
+        "number": "1",
+        "type": "classic",
+        "difficulty": "lett",
+        "task": "Beregn $\\displaystyle\\lim_{x\\to0}\\frac{\\sin 4x}{x}$.",
+        "solution": "$\\frac{\\sin4x}{x}=4\\cdot\\frac{\\sin4x}{4x}\\to 4\\cdot1=4$ når $x\\to0$ (siden $4x\\to0$).",
+        "hints": [
+          "Skriv om til $\\frac{\\sin(4x)}{4x}$ ved å gange med $4/4$.",
+          "$\\frac{\\sin u}{u}\\to1$ når $u\\to0$."
+        ]
+      }
+    },
+    {
+      "id": "mat111-uib-2-2-o2",
+      "type": "exercise",
+      "exercise": {
+        "id": "mat111-uib-2-2-o2-x",
+        "number": "2",
+        "type": "classic",
+        "difficulty": "lett",
+        "task": "Beregn $\\displaystyle\\lim_{x\\to\\infty}\\frac{\\ln x}{x^2}$ ved hjelp av veksthierarkiet.",
+        "solution": "Etter hierarkiet vokser $\\ln x$ mye langsommere enn enhver positiv potens $x^p$, så $\\frac{\\ln x}{x^2}\\to 0$. (Bekreftes av L'Hôpital $[\\infty/\\infty]$: $\\frac{1/x}{2x}=\\frac{1}{2x^2}\\to0$.)",
+        "hints": [
+          "$\\ln x \\ll x^p$ for $p>0$.",
+          "Tell nevner: $x^2$ vinner over $\\ln x$."
+        ]
+      }
+    },
+    {
+      "id": "mat111-uib-2-2-l2",
+      "type": "text",
+      "content": "## Løkke 2 — L'Hôpital for $[0/0]$ og $[\\infty/\\infty]$ (~15 min)"
+    },
+    {
+      "id": "mat111-uib-2-2-def-ubestemt",
+      "type": "definition",
+      "title": "Ubestemt form",
+      "content": "Et grenseuttrykk er på **ubestemt form** når direkte innsetting gir et symbol uten fastlagt verdi. De syv ubestemte formene er\n$$\\tfrac00,\\quad \\tfrac{\\infty}{\\infty},\\quad 0\\cdot\\infty,\\quad \\infty-\\infty,\\quad 1^\\infty,\\quad 0^0,\\quad \\infty^0.$$\nBare her er det noe å regne på — og bare $[0/0]$ og $[\\infty/\\infty]$ kan L'Hôpital brukes på *direkte*. De øvrige skrives først om til en av disse to."
+    },
+    {
+      "id": "mat111-uib-2-2-def-lhopital",
+      "type": "theorem",
+      "title": "L'Hôpitals regel",
+      "content": "Anta at $\\lim_{x\\to a}\\frac{f(x)}{g(x)}$ er på form $[0/0]$ eller $[\\infty/\\infty]$, at $f,g$ er deriverbare nær $a$ (unntatt evt. i $a$) med $g'\\neq0$, og at $\\lim_{x\\to a}\\frac{f'(x)}{g'(x)}$ finnes (eventuelt $\\pm\\infty$). Da er\n$$\\lim_{x\\to a}\\frac{f(x)}{g(x)} = \\lim_{x\\to a}\\frac{f'(x)}{g'(x)}.$$\nGjelder også for $a=\\pm\\infty$ og ensidige grenser. **Føringskrav:** marker $[0/0]$ eller $[\\infty/\\infty]$ *før* hver anvendelse. Er formen ikke ubestemt, gjelder ikke regelen."
+    },
+    {
+      "id": "mat111-uib-2-2-def-formsjekk",
+      "type": "definition",
+      "title": "Formsjekk-disiplinen",
+      "content": "Den obligatoriske vanen: sett inn grenseverdien *før* du deriverer, og skriv opp hvilken ubestemt form du har (f.eks. «$[0/0]$»). Bruker du L'Hôpital på nytt på det nye uttrykket, gjør du formsjekken på nytt. Stopper uttrykket å være ubestemt (blir f.eks. $\\frac{\\text{tall}}{\\text{tall}\\neq0}$), setter du inn og er ferdig — å derivere videre da gir feil."
+    },
+    {
+      "id": "mat111-uib-2-2-ex2",
+      "type": "example",
+      "title": "Eksempel 2: $[0/0]$ med gjentatt L'Hôpital",
+      "problem": "Beregn $\\displaystyle\\lim_{x\\to0}\\frac{e^x-1-x}{x^2}$.",
+      "solution": "**Formsjekk:** innsatt $x=0$ gir $\\frac{1-1-0}{0}=\\frac00$ — ubestemt $[0/0]$.\n\n**L'Hôpital (1. gang):**\n$$\\lim_{x\\to0}\\frac{e^x-1-x}{x^2} = \\lim_{x\\to0}\\frac{e^x-1}{2x}.$$\n**Formsjekk igjen:** $\\frac{1-1}{0}=\\frac00$ — fortsatt $[0/0]$.\n\n**L'Hôpital (2. gang):**\n$$= \\lim_{x\\to0}\\frac{e^x}{2} = \\frac{e^0}{2} = \\frac12.$$\nNå er uttrykket bestemt ($\\frac{1}{2}$), så vi setter inn og stopper. Svar: $\\boxed{\\tfrac12}$."
+    },
+    {
+      "id": "mat111-uib-2-2-o3",
+      "type": "exercise",
+      "exercise": {
+        "id": "mat111-uib-2-2-o3-x",
+        "number": "3",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "Beregn $\\displaystyle\\lim_{x\\to0}\\frac{\\sin x - x}{x^3}$. Marker den ubestemte formen ved hver bruk.",
+        "solution": "$x=0$: $\\frac{0-0}{0}=[0/0]$. L'Hôpital: $\\lim\\frac{\\cos x-1}{3x^2}$, fortsatt $[0/0]$. L'Hôpital: $\\lim\\frac{-\\sin x}{6x}$, fortsatt $[0/0]$. L'Hôpital: $\\lim\\frac{-\\cos x}{6}=\\frac{-1}{6}$. Svar: $-\\frac16$. (Tre bruk, formsjekk hver gang.)",
+        "hints": [
+          "Sett inn $0$ og bekreft $[0/0]$ før hver derivering.",
+          "Du trenger tre runder; stopp når nevneren ikke lenger gir $0$."
+        ]
+      }
+    },
+    {
+      "id": "mat111-uib-2-2-ex3",
+      "type": "example",
+      "title": "Eksempel 3: $[\\infty/\\infty]$ og veksthierarkiet",
+      "problem": "Beregn $\\displaystyle\\lim_{x\\to\\infty}\\frac{x^2}{e^x}$.",
+      "solution": "**Formsjekk:** $\\frac{\\infty}{\\infty}$. **L'Hôpital:** $\\lim\\frac{2x}{e^x}$, fortsatt $[\\infty/\\infty]$. **Igjen:** $\\lim\\frac{2}{e^x}=0$.\n\n**Alternativt (raskere):** veksthierarkiet $x^p\\ll e^x$ gir $\\frac{x^2}{e^x}\\to0$ direkte — en linje. Begge veier gir $\\boxed{0}$."
+    },
+    {
+      "id": "mat111-uib-2-2-o4",
+      "type": "exercise",
+      "exercise": {
+        "id": "mat111-uib-2-2-o4-x",
+        "number": "4",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "Beregn $\\displaystyle\\lim_{x\\to0}\\frac{e^{2x}-1}{x}$.",
+        "solution": "$x=0$: $\\frac{1-1}{0}=[0/0]$. L'Hôpital: $\\lim\\frac{2e^{2x}}{1}=2e^0=2$. Svar: $2$. (Alternativt er dette den deriverte av $e^{2x}$ i $0$, som er $2$.)",
+        "hints": [
+          "Bekreft $[0/0]$, deriver teller og nevner.",
+          "$\\frac{d}{dx}e^{2x}=2e^{2x}$."
+        ]
+      }
+    },
+    {
+      "id": "mat111-uib-2-2-l3",
+      "type": "text",
+      "content": "## Løkke 3 — De andre ubestemte formene (~18 min)"
+    },
+    {
+      "id": "mat111-uib-2-2-l3-motiv",
+      "type": "text",
+      "content": "L'Hôpital kan bare brukes på en brøk på form $[0/0]$ eller $[\\infty/\\infty]$. De fire andre formene angripes ved å **skrive dem om** til en slik brøk først. Her er standardgrepene."
+    },
+    {
+      "id": "mat111-uib-2-2-def-0inf",
+      "type": "definition",
+      "title": "Formen $0\\cdot\\infty$",
+      "content": "Et produkt $f\\cdot g$ der $f\\to0$ og $g\\to\\infty$ (eller omvendt). **Grep:** flytt den ene faktoren ned i nevneren for å lage en brøk: $f\\cdot g = \\dfrac{f}{1/g}$ (gir $[0/0]$) eller $\\dfrac{g}{1/f}$ (gir $[\\infty/\\infty]$). Deretter L'Hôpital. Eksempel: $x\\ln x = \\dfrac{\\ln x}{1/x}$."
+    },
+    {
+      "id": "mat111-uib-2-2-def-infinf",
+      "type": "definition",
+      "title": "Formen $\\infty-\\infty$ (fellesnevner eller konjugat)",
+      "content": "En differanse der begge ledd går mot $\\infty$. **Grep:** slå sammen til én brøk. To standardveier: **fellesnevner** (for brøker/logaritmer) og **konjugattrikset** (for rotuttrykk): gang og del med den konjugerte, $\\sqrt{A}-\\sqrt{B}=\\dfrac{A-B}{\\sqrt{A}+\\sqrt{B}}$. Etter omskriving er uttrykket en brøk du kan behandle med L'Hôpital eller ledende ledd."
+    },
+    {
+      "id": "mat111-uib-2-2-def-1inf",
+      "type": "definition",
+      "title": "Formene $1^\\infty$, $0^0$, $\\infty^0$ (logaritmetrikset)",
+      "content": "Potensuttrykk $y=f(x)^{g(x)}$ der eksponent og grunntall drar mot en ubestemt kombinasjon. **Grep:** ta logaritmen. Sett $y=f^{g}$, så er $\\ln y = g\\ln f$ — nå et $0\\cdot\\infty$-produkt. Finn $\\lim \\ln y = L$, og **eksponentiér tilbake**: den opprinnelige grensen er $e^{L}$. Å glemme det siste steget ($e^L$) er en klassisk feil."
+    },
+    {
+      "id": "mat111-uib-2-2-ex4",
+      "type": "example",
+      "title": "Eksempel 4: $\\infty-\\infty$ med konjugat",
+      "problem": "Beregn $\\displaystyle\\lim_{x\\to\\infty}\\left(\\sqrt{x^2+4x}-x\\right)$.",
+      "solution": "**Formsjekk:** $\\infty-\\infty$ — ubestemt, ikke klar for L'Hôpital.\n\n**Konjugattrikset:** gang og del med $\\sqrt{x^2+4x}+x$:\n$$\\sqrt{x^2+4x}-x = \\frac{(x^2+4x)-x^2}{\\sqrt{x^2+4x}+x} = \\frac{4x}{\\sqrt{x^2+4x}+x}.$$\n**Del på $x$** (for $x>0$, så $x=\\sqrt{x^2}$):\n$$= \\frac{4}{\\sqrt{1+4/x}+1} \\;\\xrightarrow[x\\to\\infty]{}\\; \\frac{4}{\\sqrt{1}+1} = \\frac{4}{2} = 2.$$\nSvar: $\\boxed{2}$. *(Tallkontroll: $x=10^6 \\Rightarrow$ verdien $\\approx 2{,}000$.)*"
+    },
+    {
+      "id": "mat111-uib-2-2-o5",
+      "type": "exercise",
+      "exercise": {
+        "id": "mat111-uib-2-2-o5-x",
+        "number": "5",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "Beregn $\\displaystyle\\lim_{x\\to\\infty}\\left(\\sqrt{x^2+x}-x\\right)$.",
+        "solution": "$\\infty-\\infty$. Konjugat: $\\sqrt{x^2+x}-x=\\frac{x^2+x-x^2}{\\sqrt{x^2+x}+x}=\\frac{x}{\\sqrt{x^2+x}+x}$. Del på $x$: $\\frac{1}{\\sqrt{1+1/x}+1}\\to\\frac{1}{1+1}=\\frac12$. Svar: $\\frac12$.",
+        "hints": [
+          "Gang med den konjugerte $\\sqrt{x^2+x}+x$.",
+          "Del teller og nevner på $x$; husk $x=\\sqrt{x^2}$ for $x>0$."
+        ]
+      }
+    },
+    {
+      "id": "mat111-uib-2-2-ex5",
+      "type": "example",
+      "title": "Eksempel 5: $1^\\infty$ med logaritmetrikset",
+      "problem": "Beregn $\\displaystyle\\lim_{x\\to0^+}(1+3x)^{1/x}$.",
+      "solution": "**Formsjekk:** grunntall $\\to1$, eksponent $\\to\\infty$ — form $1^\\infty$, ubestemt. Ta logaritmen: sett $y=(1+3x)^{1/x}$, da\n$$\\ln y = \\frac{\\ln(1+3x)}{x}.$$\n**Formsjekk på $\\ln y$:** $x=0$ gir $\\frac{\\ln 1}{0}=\\frac00=[0/0]$. **L'Hôpital:**\n$$\\lim_{x\\to0^+}\\frac{\\ln(1+3x)}{x} = \\lim_{x\\to0^+}\\frac{3/(1+3x)}{1} = \\frac{3}{1} = 3.$$\nSå $\\lim \\ln y = 3$. **Eksponentiér tilbake:**\n$$\\lim_{x\\to0^+}(1+3x)^{1/x} = e^{3}.$$\nSvar: $\\boxed{e^3}\\approx 20{,}09$. *(Å stoppe ved $3$ og glemme $e^{(\\cdot)}$ er den vanligste feilen her.)*"
+    },
+    {
+      "id": "mat111-uib-2-2-o6",
+      "type": "exercise",
+      "exercise": {
+        "id": "mat111-uib-2-2-o6-x",
+        "number": "6",
+        "type": "classic",
+        "difficulty": "vanskelig",
+        "task": "Beregn $\\displaystyle\\lim_{x\\to\\infty}\\left(1+\\frac2x\\right)^{x}$ med logaritmetrikset.",
+        "solution": "Form $1^\\infty$. $y=(1+2/x)^x$, $\\ln y = x\\ln(1+2/x)=\\frac{\\ln(1+2/x)}{1/x}$, form $[0/0]$. L'Hôpital (deriver mhp. $x$): teller $\\frac{-2/x^2}{1+2/x}$, nevner $-1/x^2$; kvotient $\\frac{2}{1+2/x}\\to2$. Så $\\lim\\ln y=2$, og grensen er $e^2$. Svar: $e^2\\approx7{,}39$.",
+        "hints": [
+          "$\\ln y = x\\ln(1+2/x)$; skriv som brøk $\\frac{\\ln(1+2/x)}{1/x}$.",
+          "Husk å eksponentiere: svaret er $e^{\\lim\\ln y}$, ikke $\\lim\\ln y$."
+        ]
+      }
+    },
+    {
+      "id": "mat111-uib-2-2-o7",
+      "type": "exercise",
+      "exercise": {
+        "id": "mat111-uib-2-2-o7-x",
+        "number": "7",
+        "type": "classic",
+        "difficulty": "vanskelig",
+        "task": "Beregn $\\displaystyle\\lim_{x\\to0^+}x^{x}$.",
+        "solution": "Form $0^0$. $y=x^x$, $\\ln y = x\\ln x \\to 0$ (standardgrensen, form $0\\cdot\\infty$ via $\\frac{\\ln x}{1/x}$, L'Hôpital gir $\\frac{1/x}{-1/x^2}=-x\\to0$). Så $\\lim\\ln y=0$, og $\\lim x^x = e^0 = 1$. Svar: $1$.",
+        "hints": [
+          "$\\ln y = x\\ln x$; dette er standardgrensen fra løkke 1.",
+          "$\\lim\\ln y=0 \\Rightarrow$ grensen er $e^0=1$."
+        ]
+      }
+    },
+    {
+      "id": "mat111-uib-2-2-l4",
+      "type": "text",
+      "content": "## Løkke 4 — Skviseteoremet og når L'Hôpital ikke hjelper (~12 min)"
+    },
+    {
+      "id": "mat111-uib-2-2-def-skvis",
+      "type": "theorem",
+      "title": "Skviseteoremet (klemme­setningen)",
+      "content": "Hvis $h(x)\\le f(x)\\le H(x)$ for alle $x$ nær $a$ (unntatt evt. $a$), og\n$$\\lim_{x\\to a}h(x) = \\lim_{x\\to a}H(x) = L,$$\nså er også $\\lim_{x\\to a}f(x) = L$. Funksjonen $f$ «klemmes» mellom to funksjoner med samme grense. **Bruken krever at du uttaler begrensetheten** som gir ulikhetene, typisk $|\\sin(\\cdot)|\\le1$ eller $|\\cos(\\cdot)|\\le1$."
+    },
+    {
+      "id": "mat111-uib-2-2-def-nar-ikke",
+      "type": "definition",
+      "title": "Når L'Hôpital ikke hjelper",
+      "content": "L'Hôpital er ikke universelt. Den svikter eller går i sirkel når: uttrykket ikke er ubestemt (da gjelder den ikke), derivering gjør uttrykket verre (f.eks. $\\frac{x}{\\sqrt{x^2+1}}$), eller grensen involverer *svingning* uten grense i $f'/g'$. Da bruker du i stedet **standardgrense, veksthierarki eller skvis**. Regel: prøv omskriving/standardgrense først, L'Hôpital når brøken faktisk er $[0/0]$ eller $[\\infty/\\infty]$."
+    },
+    {
+      "id": "mat111-uib-2-2-ex6",
+      "type": "example",
+      "title": "Eksempel 6: skvis med uttalt begrensethet",
+      "problem": "Beregn $\\displaystyle\\lim_{x\\to0}x^2\\sin\\!\\frac1x$.",
+      "solution": "L'Hôpital hjelper ikke: $\\sin\\frac1x$ svinger uten grense. **Skvis i stedet.** Begrensethet: for alle $x\\neq0$ er $\\left|\\sin\\frac1x\\right|\\le 1$, altså\n$$-x^2 \\;\\le\\; x^2\\sin\\frac1x \\;\\le\\; x^2.$$\nBåde $-x^2\\to0$ og $x^2\\to0$ når $x\\to0$. Etter skviseteoremet er da\n$$\\lim_{x\\to0}x^2\\sin\\frac1x = 0.$$\nSvar: $\\boxed{0}$. *(Begrensetheten $|\\sin|\\le1$ må stå eksplisitt — det er den som gir klemmen.)*"
+    },
+    {
+      "id": "mat111-uib-2-2-o8",
+      "type": "exercise",
+      "exercise": {
+        "id": "mat111-uib-2-2-o8-x",
+        "number": "8",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "Beregn $\\displaystyle\\lim_{x\\to\\infty}\\frac{\\cos x}{x}$ med skvis.",
+        "solution": "For alle $x$ er $|\\cos x|\\le1$, så for $x>0$: $-\\frac1x\\le\\frac{\\cos x}{x}\\le\\frac1x$. Både $-\\frac1x\\to0$ og $\\frac1x\\to0$ når $x\\to\\infty$, så skviseteoremet gir $\\lim\\frac{\\cos x}{x}=0$.",
+        "hints": [
+          "$|\\cos x|\\le1$ gir en klemme mellom $-1/x$ og $1/x$.",
+          "Begge ytterfunksjonene går mot $0$."
+        ]
+      }
+    },
+    {
+      "id": "mat111-uib-2-2-o9",
+      "type": "exercise",
+      "exercise": {
+        "id": "mat111-uib-2-2-o9-x",
+        "number": "9",
+        "type": "classic",
+        "difficulty": "vanskelig",
+        "task": "Beregn $\\displaystyle\\lim_{x\\to\\infty}\\frac{2x+\\sin x}{x}$. (Hint: én del er en skvis-grense.)",
+        "solution": "Del opp: $\\frac{2x+\\sin x}{x}=2+\\frac{\\sin x}{x}$. Siden $|\\sin x|\\le1$ er $\\left|\\frac{\\sin x}{x}\\right|\\le\\frac1x\\to0$, så $\\frac{\\sin x}{x}\\to0$ (skvis). Dermed er grensen $2+0=2$. Svar: $2$.",
+        "hints": [
+          "Skill ut $\\frac{2x}{x}=2$ først.",
+          "$\\frac{\\sin x}{x}\\to0$ ved skvis med $|\\sin x|\\le1$."
+        ]
+      }
+    },
+    {
+      "id": "mat111-uib-2-2-warn",
+      "type": "warning",
+      "title": "Typiske feil",
+      "content": "- **L'Hôpital uten formsjekk.** Marker $[0/0]$ eller $[\\infty/\\infty]$ *før* hver bruk. Uten det får du trekk selv med riktig svar.\n- **L'Hôpital på et ikke-ubestemt uttrykk.** Er innsetting f.eks. $\\frac{2}{3}$, er du ferdig — å derivere videre gir feil svar. Regelen gjelder *bare* på ubestemt form.\n- **Angripe $1^\\infty$ eller $\\infty-\\infty$ direkte.** Disse er ikke brøker på $[0/0]$-form. Skriv om først: logaritme for potensformer, konjugat/fellesnevner for differanser.\n- **Glemme å eksponentiere tilbake.** I logaritmetrikset er svaret $e^{\\lim\\ln y}$, ikke $\\lim\\ln y$. Å stoppe ved eksponenten er den vanligste feilen.\n- **Skvis uten å uttale begrensetheten.** Klemmen $-x^2\\le x^2\\sin\\frac1x\\le x^2$ hviler på $|\\sin|\\le1$ — den ulikheten *må* skrives.\n- **Regne langt der veksthierarkiet gir svaret.** $\\frac{x^{10}}{e^x}\\to0$ er én linje; ti runder L'Hôpital er bortkastet tid."
+    },
+    {
+      "id": "mat111-uib-2-2-pool",
+      "type": "text",
+      "content": "## Flere øvingsoppgaver"
+    },
+    {
+      "id": "mat111-uib-2-2-o10",
+      "type": "exercise",
+      "exercise": {
+        "id": "mat111-uib-2-2-o10-x",
+        "number": "10",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "Beregn $\\displaystyle\\lim_{x\\to0}\\frac{\\tan x - x}{x^3}$.",
+        "solution": "$[0/0]$. L'Hôpital: $\\frac{\\sec^2 x-1}{3x^2}=\\frac{\\tan^2 x}{3x^2}$ (siden $\\sec^2x-1=\\tan^2x$), fortsatt $[0/0]$. Skriv $\\frac{\\tan^2 x}{3x^2}=\\frac13\\left(\\frac{\\tan x}{x}\\right)^2\\to\\frac13\\cdot1^2=\\frac13$. Svar: $\\frac13$.",
+        "hints": [
+          "Bekreft $[0/0]$ og deriver; bruk $\\sec^2x-1=\\tan^2x$.",
+          "$\\frac{\\tan x}{x}\\to1$ er en standardgrense."
+        ]
+      }
+    },
+    {
+      "id": "mat111-uib-2-2-o11",
+      "type": "exercise",
+      "exercise": {
+        "id": "mat111-uib-2-2-o11-x",
+        "number": "11",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "Beregn $\\displaystyle\\lim_{x\\to\\infty}x\\left(e^{1/x}-1\\right)$.",
+        "solution": "Form $\\infty\\cdot0$. Sett $u=1/x\\to0^+$: $x(e^{1/x}-1)=\\frac{e^{u}-1}{u}\\to1$ (standardgrense / derivert av $e^u$ i $0$). Svar: $1$. (Alternativt L'Hôpital på $\\frac{e^{1/x}-1}{1/x}$.)",
+        "hints": [
+          "Substituér $u=1/x$ for å få $\\frac{e^u-1}{u}$.",
+          "$\\frac{e^u-1}{u}\\to1$ når $u\\to0$."
+        ]
+      }
+    },
+    {
+      "id": "mat111-uib-2-2-o12",
+      "type": "exercise",
+      "exercise": {
+        "id": "mat111-uib-2-2-o12-x",
+        "number": "12",
+        "type": "classic",
+        "difficulty": "vanskelig",
+        "task": "Beregn $\\displaystyle\\lim_{x\\to1^+}\\left(\\frac{1}{\\ln x}-\\frac{1}{x-1}\\right)$.",
+        "solution": "Form $\\infty-\\infty$. Fellesnevner: $\\frac{(x-1)-\\ln x}{(x-1)\\ln x}$. $x=1$: teller $0$, nevner $0$ — $[0/0]$. L'Hôpital: teller $1-\\frac1x=\\frac{x-1}{x}$, nevner $\\ln x+\\frac{x-1}{x}$. Fortsatt $[0/0]$ i $x=1$. L'Hôpital igjen (eller sett inn Taylor): grensen blir $\\frac12$. Svar: $\\frac12$.",
+        "hints": [
+          "Slå sammen til én brøk med fellesnevner $(x-1)\\ln x$.",
+          "To runder L'Hôpital (eller $\\ln x\\approx (x-1)-\\tfrac12(x-1)^2$)."
+        ]
+      }
+    },
+    {
+      "id": "mat111-uib-2-2-o13",
+      "type": "exercise",
+      "exercise": {
+        "id": "mat111-uib-2-2-o13-x",
+        "number": "13",
+        "type": "classic",
+        "difficulty": "vanskelig",
+        "task": "Beregn $\\displaystyle\\lim_{x\\to\\infty}x^{1/x}$.",
+        "solution": "Form $\\infty^0$. $y=x^{1/x}$, $\\ln y=\\frac{\\ln x}{x}\\to0$ (veksthierarki / L'Hôpital $\\frac{1/x}{1}=\\frac1x\\to0$). Så $\\lim\\ln y=0$ og $\\lim x^{1/x}=e^0=1$. Svar: $1$.",
+        "hints": [
+          "$\\ln y=\\frac{\\ln x}{x}$; bruk veksthierarkiet.",
+          "Eksponentiér: svaret er $e^0=1$."
+        ]
+      }
+    },
+    {
+      "id": "mat111-uib-2-2-bb-tekst",
+      "type": "text",
+      "content": "## Begrepsbank til eksamen\n\nVerktøyene fra kapitlet i kortform. *Repetisjons- og flashcard-stoff — hopp trygt over ved førstegangslesing.*"
+    },
+    {
+      "id": "mat111-uib-2-2-bb-konjugat",
+      "type": "definition",
+      "title": "Konjugattrikset",
+      "content": "Å gange og dele et rotuttrykk med sin konjugerte for å fjerne kvadratrøtter fra en differanse: $\\sqrt{A}-\\sqrt{B}=\\dfrac{A-B}{\\sqrt{A}+\\sqrt{B}}$. Standardgrepet for $\\infty-\\infty$ med røtter — det gjør differansen om til en brøk der ledende ledd kan leses av."
+    },
+    {
+      "id": "mat111-uib-2-2-bb-eksponentiere",
+      "type": "definition",
+      "title": "Eksponentiér tilbake",
+      "content": "Sluttsteget i logaritmetrikset: har du funnet $\\lim \\ln y = L$, er den etterspurte grensen $\\lim y = e^{L}$. Man løser potensformen ved å gå via $\\ln$, men *må* eksponentiere tilbake til slutt — svaret er $e^L$, ikke $L$."
+    },
+    {
+      "id": "mat111-uib-2-2-bb-tanx",
+      "type": "definition",
+      "title": "Standardgrensen $\\frac{\\tan x}{x}\\to1$",
+      "content": "$$\\lim_{x\\to0}\\frac{\\tan x}{x}=1.$$\nFølger av $\\tan x=\\frac{\\sin x}{\\cos x}$ og $\\frac{\\sin x}{x}\\to1$, $\\cos x\\to1$. En av byggeklossene for grenser med tangens."
+    },
+    {
+      "id": "mat111-uib-2-2-bb-lnpotens",
+      "type": "definition",
+      "title": "Logaritmeregelen $\\ln(a^b)=b\\ln a$",
+      "content": "Regelen som gjør logaritmetrikset mulig: en eksponent kan trekkes ned foran logaritmen. Anvendt på $y=f^{g}$ gir den $\\ln y=g\\ln f$, som forvandler potensformen $1^\\infty/0^0/\\infty^0$ til et produkt $0\\cdot\\infty$."
+    },
+    {
+      "id": "mat111-uib-2-2-bb-eulertall",
+      "type": "definition",
+      "title": "Grensedefinisjonen av $e$",
+      "content": "$$\\lim_{n\\to\\infty}\\left(1+\\frac1n\\right)^{n}=e,\\qquad \\lim_{x\\to0}(1+x)^{1/x}=e.$$\nGrunnformen bak alle $1^\\infty$-grenser. Generelt er $\\lim(1+k/x)^{x}=e^{k}$ — et resultat logaritmetrikset bekrefter."
+    },
+    {
+      "id": "mat111-uib-2-2-bb-form00",
+      "type": "definition",
+      "title": "Formen $[0/0]$",
+      "content": "Den vanligste ubestemte formen: teller og nevner går begge mot $0$. Klar for L'Hôpital *direkte* (etter formsjekk). Oppstår typisk i deriverte, trigonometriske grenser og kontinuerlige utvidelser (kap. 2.3)."
+    },
+    {
+      "id": "mat111-uib-2-2-bb-forminfinf",
+      "type": "definition",
+      "title": "Formen $[\\infty/\\infty]$",
+      "content": "Teller og nevner går begge mot $\\pm\\infty$. Også klar for L'Hôpital direkte. Ofte raskere løst med veksthierarkiet eller ved å dele på det ledende leddet i nevneren."
+    },
+    {
+      "id": "mat111-uib-2-2-bb-eksp-std",
+      "type": "definition",
+      "title": "Standardgrensen $\\frac{e^x-1}{x}\\to1$",
+      "content": "$$\\lim_{x\\to0}\\frac{e^x-1}{x}=1.$$\nDette er den deriverte av $e^x$ i $0$. Generalisering: $\\frac{e^{kx}-1}{x}\\to k$. En byggekloss i grenser og kontinuerlige utvidelser med eksponentialfunksjon."
+    },
+    {
+      "id": "mat111-uib-2-2-bb-ln-std",
+      "type": "definition",
+      "title": "Standardgrensen $\\frac{\\ln(1+x)}{x}\\to1$",
+      "content": "$$\\lim_{x\\to0}\\frac{\\ln(1+x)}{x}=1.$$\nDen deriverte av $\\ln(1+x)$ i $0$. Bak $1^\\infty$-grenser: $\\ln(1+x)\\approx x$ for små $x$ forklarer hvorfor $(1+x)^{1/x}\\to e$."
+    },
+    {
+      "id": "mat111-uib-2-2-bb-ledende",
+      "type": "definition",
+      "title": "Ledende ledd (dominant term)",
+      "content": "I en grense mot $\\pm\\infty$ er **ledende ledd** det høyestgradige leddet i teller og nevner. Å dele teller og nevner på nevnerens ledende ledd (f.eks. $x^n$) gir grensen direkte for rasjonale uttrykk — et alternativ til L'Hôpital: $\\frac{3x^2-x}{2x^2+5}\\to\\frac32$."
+    },
+    {
+      "id": "mat111-uib-2-2-bb-direkte",
+      "type": "definition",
+      "title": "Direkte innsetting",
+      "content": "Er funksjonen kontinuerlig i $a$ og innsetting gir et *bestemt* tall, ER det tallet grensen: $\\lim_{x\\to a}f(x)=f(a)$. Ingen L'Hôpital, ingen omskriving. Formsjekken starter alltid her — bare hvis innsetting gir en ubestemt form går du videre til teknikkene."
+    },
+    {
+      "id": "mat111-uib-2-2-bb-gjentatt",
+      "type": "definition",
+      "title": "Gjentatt L'Hôpital",
+      "content": "Er uttrykket fortsatt $[0/0]$ eller $[\\infty/\\infty]$ etter én derivering, kan L'Hôpital brukes på nytt — med ny formsjekk hver gang. $\\frac{\\sin x-x}{x^3}$ krever tre runder. Stopp i det øyeblikket uttrykket blir bestemt; å derivere en bestemt brøk videre gir feil svar."
+    },
+    {
+      "id": "mat111-uib-2-2-rep",
+      "type": "collapsible",
+      "title": "Repetisjonsoppgaver",
+      "buttonText": "Vis repetisjonsoppgaver",
+      "content": [
+        {
+          "id": "mat111-uib-2-2-r1",
+          "type": "exercise",
+          "exercise": {
+            "id": "mat111-uib-2-2-r1-x",
+            "number": "R1",
+            "type": "classic",
+            "difficulty": "lett",
+            "task": "(Fra R1 4.1) Deriver $f(x)=\\ln(1+3x)$.",
+            "solution": "Kjerneregel: $f'(x)=\\frac{1}{1+3x}\\cdot3=\\frac{3}{1+3x}$. (Nettopp denne deriverte brukes i $1^\\infty$-eksemplet.)",
+            "hints": [
+              "Ytre: $\\ln u$ deriveres til $1/u$; indre: $u=1+3x$."
+            ]
+          }
+        },
+        {
+          "id": "mat111-uib-2-2-r2",
+          "type": "exercise",
+          "exercise": {
+            "id": "mat111-uib-2-2-r2-x",
+            "number": "R2",
+            "type": "classic",
+            "difficulty": "lett",
+            "task": "(Fra R1 1.2) Skriv $2^x$ på formen $e^{(\\cdot)}$.",
+            "solution": "$2^x=e^{x\\ln 2}$ (potenslov $a^b=e^{b\\ln a}$). Denne broen er selve grunnlaget for logaritmetrikset.",
+            "hints": [
+              "$a^b=e^{b\\ln a}$."
+            ]
+          }
+        },
+        {
+          "id": "mat111-uib-2-2-r3",
+          "type": "exercise",
+          "exercise": {
+            "id": "mat111-uib-2-2-r3-x",
+            "number": "R3",
+            "type": "classic",
+            "difficulty": "middels",
+            "task": "(Fra kap. 2.1) Forklar hvorfor $\\frac{\\sin x}{x}$ har grense i $0$ selv om den ikke er definert der.",
+            "solution": "Grensen avhenger bare av oppførselen i den punkterte omegnen $0<|x|<\\delta$, ikke av $f(0)$. Der er $\\frac{\\sin x}{x}$ definert og nærmer seg $1$. At $f(0)$ mangler, spiller ingen rolle for grensen (og kobles til kontinuitet i kap. 2.3).",
+            "hints": [
+              "Punktert omegn tar $x=0$ ut."
+            ]
+          }
+        },
+        {
+          "id": "mat111-uib-2-2-r4",
+          "type": "exercise",
+          "exercise": {
+            "id": "mat111-uib-2-2-r4-x",
+            "number": "R4",
+            "type": "classic",
+            "difficulty": "lett",
+            "task": "(Fra R1 1.2) Skriv $\\ln\\left(e^{3x}\\right)$ og $e^{2\\ln x}$ (for $x > 0$) så enkelt som mulig.",
+            "solution": "$\\ln(e^{3x}) = 3x$ (logaritmen og eksponentialfunksjonen opphever hverandre), og $e^{2\\ln x} = (e^{\\ln x})^2 = x^2$. Denne frem-og-tilbake-regningen er kjernen i logaritmetrikset for $1^\\infty$-former.",
+            "hints": [
+              "$\\ln$ og $e^{(\\cdot)}$ er inverse funksjoner."
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": "mat111-uib-2-2-symbol",
+      "type": "collapsible",
+      "title": "Symbol- og formelliste",
+      "buttonText": "Vis symboler og formler",
+      "content": [
+        {
+          "id": "mat111-uib-2-2-symbol-txt",
+          "type": "text",
+          "content": "## Symbol- og formelliste\n\n*Oppslagsverk — alt her forklares underveis i kapitlet.*\n\nSymboler og formler brukt i delkapittel 2.2, samlet.\n\n| Symbol / uttrykk | Betydning |\n|---|---|\n| $[0/0],\\ [\\infty/\\infty]$ | Ubestemte former L'Hôpital kan brukes på direkte |\n| $0\\cdot\\infty,\\ \\infty-\\infty$ | Ubestemte former som skrives om til en brøk først |\n| $1^\\infty,\\ 0^0,\\ \\infty^0$ | Ubestemte potensformer — løses med logaritmetrikset |\n| $y=f^{g},\\ \\ln y=g\\ln f$ | Logaritmetrikset: ta $\\ln$, finn grensen, eksponentiér |\n| $h\\le f\\le H$ | Klemme i skviseteoremet |\n| $\\ll$ | «vokser mye langsommere enn» (veksthierarkiet) |\n\n**Standardgrenser (kan utenat):**\n\n$$\\lim_{x\\to0}\\frac{\\sin x}{x}=1,\\qquad \\lim_{x\\to0}\\frac{\\tan x}{x}=1,\\qquad \\lim_{x\\to0}\\frac{1-\\cos x}{x^2}=\\frac12$$\n\n$$\\ln x \\ll x^p \\ll e^x\\ (x\\to\\infty)\\ \\Rightarrow\\ \\lim_{x\\to\\infty}\\frac{\\ln x}{x^p}=0,\\quad \\lim_{x\\to\\infty}\\frac{x^p}{e^x}=0$$\n\n$$\\lim_{x\\to0^+}x\\ln x=0,\\qquad \\lim_{x\\to0}(1+x)^{1/x}=e,\\qquad \\lim_{x\\to\\infty}\\Big(1+\\frac kx\\Big)^x=e^{k}$$\n\n**L'Hôpitals regel** (på $[0/0]$ eller $[\\infty/\\infty]$, etter formsjekk):\n$$\\lim_{x\\to a}\\frac{f(x)}{g(x)}=\\lim_{x\\to a}\\frac{f'(x)}{g'(x)}$$\n\n**Konjugattrikset** (for $\\infty-\\infty$ med røtter):\n$$\\sqrt{A}-\\sqrt{B}=\\frac{A-B}{\\sqrt{A}+\\sqrt{B}}$$\n\n**Skviseteoremet:** $h\\le f\\le H$ og $\\lim h=\\lim H=L \\Rightarrow \\lim f=L$."
+        }
+      ]
+    }
+  ],
+  "exercises": []
+}

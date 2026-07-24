@@ -1,0 +1,316 @@
+{
+  "id": "mat111-uib-3-prove",
+  "courseId": "mat111-uib",
+  "chapterNumber": "3.P",
+  "title": "Prøver til del 3: Derivasjon i ett punkt og drøfting",
+  "description": "Fire prøver som dekker hele Del 3 — signaturoppgaven med oscillasjonsfamilien og skjøteparametre, implisitt derivasjon med relaterte rater, invers funksjon med definisjonsmengde, og drøfting/optimering med eksistensbegrunnelse. Med fasit etter føringsstandarden og selvdiagnose.",
+  "estimatedMinutes": 175,
+  "competenceGoals": [
+    "kunne gjennomføre signaturoppgaven med skvis, differansekvotient og eksponentregnskap under prøveforhold",
+    "kunne levere implisitt derivasjon, invers funksjon og relatert rate med delens fulle føringsstandard",
+    "kunne drøfte og optimere med fortegnsskjema, eksistensbegrunnelse og globalt-argument"
+  ],
+  "content": [
+    {
+      "id": "mat111-uib-3-prove-tip",
+      "type": "tip",
+      "title": "Om prøvene til Del 3",
+      "content": "Fire prøver som dekker hele Del 3 (derivasjon i ett punkt og drøfting) — inkludert settets teoritunge **signaturoppgave** (sjanger E, karakterskilleren). Til sammen **4 prøver à ~40–50 min, kan trygt deles over flere kvelder — én prøve per økt**. Husk delens føringskrav: deriverbarhet i punkt vises KUN med differansekvotienten, skviseargumenter uttaler begrensetheten, punkter verifiseres på kurven FØR implisitt derivasjon, inverser leveres MED definisjonsmengde, og drøftingskonklusjoner dokumenteres med fortegnsskjema. Full fasit ligger som utvidbare løsninger; **avkryssbar selvdiagnose** avslutter hver prøve.\n\n| Prøve | Tema (kap.) | Tid |\n|---|---|---|\n| 3.A | Signaturoppgaven: oscillasjonsfamilien + skjøteparametre (3.1–3.2) | ~50 min |\n| 3.B | Implisitt derivasjon, tangenter og relaterte rater (3.3) | ~40 min |\n| 3.C | Invers funksjon: eksistens, uttrykk og derivert av invers (3.4) | ~40 min |\n| 3.D | Drøfting og optimering med eksistensbegrunnelse (3.5) | ~45 min |"
+    },
+    {
+      "id": "mat111-uib-3-prove-fork",
+      "type": "text",
+      "content": "**Forkunnskaper.**\n\n- [kap. 3.1](/bok/mat111-uib/mat111-uib-3-1) — differansekvotienten som eneste gyldige deriverbarhetsbevis i punkt, deriverbar ⇒ kontinuerlig, og grense-av-derivert-setningen.\n- [kap. 3.2](/bok/mat111-uib/mat111-uib-3-2) — signaturoppgave-algoritmen: skvis med uttalt begrensethet, eksponentregnskapet for $x^k\\sin/\\cos(1/x^m)$ og skjøteparameter-malen.\n- [kap. 3.3](/bok/mat111-uib/mat111-uib-3-3) — implisitt derivasjon med punktverifikasjon, $y''$ fra relasjonen og relaterte rater-oppskriften med fortegns- og enhetstolkning.\n- [kap. 3.4](/bok/mat111-uib/mat111-uib-3-4) — monotoni-begrunnet eksistens av invers, definisjonsmengdekravet og «finn $a$ først»-oppskriften for $(f^{-1})'(b)$.\n- [kap. 3.5](/bok/mat111-uib/mat111-uib-3-5) — fortegnsskjema som dokumentasjon, eksistensbegrunnelse for globale ekstremalverdier og optimeringsoppskriften med globalt-argument.\n\nLøs uten fasit først; sjekk deretter føringen ledd for ledd — det er føringen som gir poengene."
+    },
+    {
+      "id": "mat111-uib-3-prove-p1",
+      "type": "collapsible",
+      "title": "Prøve 1 — Signaturoppgaven: oscillasjonsfamilien og skjøteparametre (3.A, ~50 min)",
+      "buttonText": "Vis prøve 1",
+      "content": [
+        {
+          "id": "mat111-uib-3-prove-p1-intro",
+          "type": "text",
+          "content": "**Prøve 3.A — signaturoppgaven.** Tre oppgaver, ~50 min. Dette er sjangeren som skiller toppkarakterene: skvis med uttalt begrensethet, differansekvotient i punktet — og fellen der $\\lim f'(x)$ ikke finnes."
+        },
+        {
+          "id": "mat111-uib-3-prove-p1o1",
+          "type": "exercise",
+          "exercise": {
+            "id": "mat111-uib-3-prove-p1o1-x",
+            "number": "1",
+            "type": "classic",
+            "difficulty": "middels",
+            "task": "La\n$$f(x) = \\begin{cases} x^2\\cos(1/x), & x \\neq 0, \\\\ 0, & x = 0. \\end{cases}$$\n\n**a)** Vis at $f$ er kontinuerlig i $x=0$.\n\n**b)** Avgjør om $f$ er deriverbar i $x=0$, og finn i så fall $f'(0)$.\n\n**c)** Er $f'$ kontinuerlig i $x=0$? Begrunn svaret — og forklar hvorfor c) ikke endrer konklusjonen i b).",
+            "solution": "**a) Kontinuitet (skvis med uttalt begrensethet).** For alle $x \\neq 0$ er $|\\cos(1/x)| \\le 1$, så\n$$-x^2 \\le x^2\\cos(1/x) \\le x^2.$$\nBegge yttersidene går mot $0$ når $x \\to 0$, så skviseteoremet gir $\\lim_{x\\to0} f(x) = 0 = f(0)$ — grensen er koblet til funksjonsverdien, altså er $f$ kontinuerlig i $0$. $\\blacksquare$\n\n**b) Deriverbarhet (differansekvotient — eneste gyldige verktøy i punktet).**\n$$\\frac{f(h) - f(0)}{h} = \\frac{h^2\\cos(1/h)}{h} = h\\cos(1/h).$$\nIgjen $|h\\cos(1/h)| \\le |h| \\to 0$, så kvotienten har grense $0$: $f$ er deriverbar i $0$ med $f'(0) = 0$. $\\blacksquare$\n\n**c) $f'$ er IKKE kontinuerlig i $0$ — men $f$ er like fullt deriverbar der.** For $x \\neq 0$ gir produkt- og kjerneregelen\n$$f'(x) = 2x\\cos(1/x) + \\sin(1/x).$$\nFørsteleddet skvises mot $0$ ($|2x\\cos(1/x)| \\le 2|x|$), men $\\sin(1/x)$ har ingen grense når $x\\to0$: langs $x_n = \\dfrac{1}{\\pi/2 + 2\\pi n} \\to 0$ er $\\sin(1/x_n) = 1$, mens langs $y_n = \\dfrac{1}{-\\pi/2 + 2\\pi n} \\to 0$ er $\\sin(1/y_n) = -1$. Altså finnes ikke $\\lim_{x\\to0} f'(x)$, og $f'$ er ikke kontinuerlig i $0$.\n\n**Hvorfor dette ikke rokker ved b):** implikasjonen «$\\lim f'(x)$ finnes ikke $\\Rightarrow$ $f$ ikke deriverbar» er FALSK — deriverbarhet i punktet avgjøres av differansekvotienten alene, og den ga $f'(0) = 0$ i b). Dette er kjernefellen fra [kap. 3.2](/bok/mat111-uib/mat111-uib-3-2): $f'$ kan eksistere i punktet uten å være kontinuerlig der. $\\blacksquare$",
+            "hints": [
+              "a) Start med $|\\cos(1/x)| \\le 1$ — begrensetheten skal uttales før skvisen.",
+              "b) Sett opp $\\frac{f(h)-f(0)}{h}$ og forenkle — IKKE deriver formelen.",
+              "c) Test $\\sin(1/x)$ langs to følger som gir ulike verdier."
+            ]
+          }
+        },
+        {
+          "id": "mat111-uib-3-prove-p1o2",
+          "type": "exercise",
+          "exercise": {
+            "id": "mat111-uib-3-prove-p1o2-x",
+            "number": "2",
+            "type": "classic",
+            "difficulty": "middels",
+            "task": "Funksjonen\n$$f(x) = \\begin{cases} x^2 + ax + b, & x \\le 1, \\\\ 3\\ln x + 2x, & x > 1 \\end{cases}$$\n\nskal være både kontinuerlig og deriverbar i $x = 1$. Bestem $a$ og $b$, og finn $f'(1)$.",
+            "solution": "**Kontinuitetslikningen.** Venstre verdi: $f(1) = 1 + a + b$. Høyre grense: $\\lim_{x\\to1^+}(3\\ln x + 2x) = 3\\cdot 0 + 2 = 2$. Kontinuitet krever\n$$1 + a + b = 2, \\qquad\\text{dvs.}\\qquad a + b = 1.$$\n\n**Derivertlikningen (grense-av-derivert-setningen).** Utenfor skjøten er $f'(x) = 2x + a$ for $x < 1$ og $f'(x) = \\dfrac3x + 2$ for $x > 1$, med ensidige grenser\n$$\\lim_{x\\to1^-} f'(x) = 2 + a, \\qquad \\lim_{x\\to1^+} f'(x) = 3 + 2 = 5.$$\nNår $f$ er kontinuerlig i $1$ (sikret av kontinuitetslikningen) og de ensidige grensene av $f'$ finnes, gir grense-av-derivert-setningen fra [kap. 3.1](/bok/mat111-uib/mat111-uib-3-1) at $f$ er deriverbar i $1$ nøyaktig når de to grensene er like:\n$$2 + a = 5 \\qquad\\Longrightarrow\\qquad a = 3.$$\n\n**Løs systemet:** $a = 3$ og $b = 1 - a = -2$.\n\n**Konklusjon:** $a = 3$, $b = -2$, og da er $f'(1) = 5$.\n\n**Kontroll:** venstre verdi $1 + 3 - 2 = 2$ = høyre grense ✓; venstrederivert $2+3 = 5$ = høyrederivert ✓. *(Merk rekkefølgen: kontinuiteten MÅ sikres først — grense-av-derivert-setningen forutsetter den, og uten kontinuitet er deriverbarhet uansett umulig.)* $\\blacksquare$",
+            "hints": [
+              "Én likning fra kontinuitet (verdi = ensidig grense), én fra de ensidige grensene av $f'$.",
+              "Sjekk kontinuitet FØR du bruker grense-av-derivert-setningen — den forutsetter det.",
+              "$\\lim_{x\\to1^+}(3/x + 2) = 5$."
+            ]
+          }
+        },
+        {
+          "id": "mat111-uib-3-prove-p1o3",
+          "type": "exercise",
+          "exercise": {
+            "id": "mat111-uib-3-prove-p1o3-x",
+            "number": "3",
+            "type": "classic",
+            "difficulty": "vanskelig",
+            "task": "La\n$$g(x) = \\begin{cases} x^3\\sin(1/x), & x \\neq 0, \\\\ 0, & x = 0. \\end{cases}$$\n\n**a)** Vis at $g$ er kontinuerlig i $x=0$.\n\n**b)** Vis at $g$ er deriverbar i $x=0$, og finn $g'(0)$.\n\n**c)** Avgjør om $g'$ er kontinuerlig i $x=0$, og sammenlign med oppgave 1: hva er det i eksponentene som gjør utfallene ulike?",
+            "solution": "**a) Kontinuitet.** $|\\sin(1/x)| \\le 1$ (begrensetheten uttalt), så $-|x|^3 \\le x^3\\sin(1/x) \\le |x|^3$, og skviseteoremet gir $\\lim_{x\\to0} g(x) = 0 = g(0)$. ✓\n\n**b) Deriverbarhet via differansekvotienten.**\n$$\\frac{g(h)-g(0)}{h} = h^2\\sin(1/h), \\qquad |h^2\\sin(1/h)| \\le h^2 \\to 0,$$\nså $g'(0) = 0$. ✓\n\n**c) $g'$ ER kontinuerlig i $0$.** For $x \\neq 0$:\n$$g'(x) = 3x^2\\sin(1/x) + x^3\\cos(1/x)\\cdot\\Big(-\\frac{1}{x^2}\\Big) = 3x^2\\sin(1/x) - x\\cos(1/x).$$\nBegge leddene skvises: $|3x^2\\sin(1/x)| \\le 3x^2 \\to 0$ og $|x\\cos(1/x)| \\le |x| \\to 0$. Altså $\\lim_{x\\to0} g'(x) = 0 = g'(0)$ — $g'$ er kontinuerlig i $0$.\n\n**Sammenligningen (eksponentregnskapet fra [kap. 3.2](/bok/mat111-uib/mat111-uib-3-2)):** familien $x^k\\sin/\\cos(1/x^m)$ har kontinuerlig derivert i $0$ nøyaktig når $k \\ge m+2$. Her er $k=3$, $m=1$: $3 \\ge 3$ ✓ — derivasjonens «verste ledd» $x^{k-m-1}\\cos(1/x^m) = x\\cos(1/x)$ har fortsatt en positiv $x$-potens å skvise med. I oppgave 1 var $k=2$, $m=1$: $2 < 3$, og verste ledd $\\sin(1/x)$ sto igjen UTEN dempende potens — derfor oscillerte $f'$ der, mens $g'$ her dør pent ut. $\\blacksquare$",
+            "hints": [
+              "a) og b) er samme mal som oppgave 1 — med $|\\sin| \\le 1$.",
+              "c) Deriver for $x \\neq 0$ og skvis LEDD for ledd.",
+              "Eksponentregnskapet: sammenlign $k - m - 1$ med $1$ i de to oppgavene."
+            ]
+          }
+        },
+        {
+          "id": "mat111-uib-3-prove-chk-p1",
+          "type": "text",
+          "content": "**Selvdiagnose — kryss av det du fikk til uten å slå opp:**\n\n- ☐ Uttalte begrensetheten ($|\\cos| \\le 1$ / $|\\sin| \\le 1$) FØR skvisen, og koblet grensen til $f(0)$\n- ☐ Brukte differansekvotienten i punktet — ikke derivertformelen\n- ☐ Konkluderte ALDRI «ikke deriverbar» fra at $\\lim f'(x)$ ikke finnes\n- ☐ Satte opp én kontinuitets- og én derivertlikning i skjøten, og sjekket kontinuitet før grense-av-derivert-setningen\n- ☐ Kan gjengi eksponentregnskapet: deriverbar når $k \\ge 2$, kontinuerlig derivert når $k \\ge m+2$"
+        }
+      ]
+    },
+    {
+      "id": "mat111-uib-3-prove-p2",
+      "type": "collapsible",
+      "title": "Prøve 2 — Implisitt derivasjon, tangenter og relaterte rater (3.B, ~40 min)",
+      "buttonText": "Vis prøve 2",
+      "content": [
+        {
+          "id": "mat111-uib-3-prove-p2-intro",
+          "type": "text",
+          "content": "**Prøve 3.B.** Tre oppgaver, ~40 min. Føringskrav: verifiser at punktet ligger på kurven FØR derivasjonen, deriver før innsetting, og tolk fortegn og enhet i ratekonklusjonen."
+        },
+        {
+          "id": "mat111-uib-3-prove-p2o1",
+          "type": "exercise",
+          "exercise": {
+            "id": "mat111-uib-3-prove-p2o1-x",
+            "number": "1",
+            "type": "classic",
+            "difficulty": "middels",
+            "task": "Kurven $\\mathcal{K}$ er gitt ved likningen\n$$x^2 y + y^3 = 10.$$\n\n**a)** Verifiser at punktet $(3, 1)$ ligger på $\\mathcal{K}$.\n\n**b)** Finn stigningen $y'$ i punktet, og skriv opp likningen for tangenten til $\\mathcal{K}$ der.",
+            "solution": "**a) Punktverifikasjon** (glemmes ofte — den skal med): innsetting av $(3,1)$ gir $3^2\\cdot 1 + 1^3 = 9 + 1 = 10$ ✓ — punktet ligger på kurven.\n\n**b) Implisitt derivasjon.** Deriver hele likningen mhp. $x$, med $y = y(x)$ (produktregel på $x^2y$, kjerneregel på $y^3$ — kjernefaktoren $y'$ må med):\n$$2xy + x^2y' + 3y^2y' = 0 \\qquad\\Longrightarrow\\qquad y' = -\\frac{2xy}{x^2 + 3y^2}.$$\nInnsetting av $(3,1)$ ETTER derivasjonen:\n$$y' = -\\frac{2\\cdot3\\cdot1}{9 + 3} = -\\frac{6}{12} = -\\frac12.$$\n**Tangenten** gjennom $(3,1)$ med stigning $-\\tfrac12$:\n$$y = 1 - \\frac12(x - 3) = -\\frac{x}{2} + \\frac52.$$\n**Kontroll:** tangenten går gjennom $(3,1)$: $-\\tfrac32 + \\tfrac52 = 1$ ✓. $\\blacksquare$",
+            "hints": [
+              "a) Sett inn og regn — én linje, men den skal stå der.",
+              "b) $\\frac{d}{dx}y^3 = 3y^2y'$ — kjernefaktoren $y'$ er hele poenget.",
+              "Sett inn tallene ETTER at $y'$ er isolert."
+            ]
+          }
+        },
+        {
+          "id": "mat111-uib-3-prove-p2o2",
+          "type": "exercise",
+          "exercise": {
+            "id": "mat111-uib-3-prove-p2o2-x",
+            "number": "2",
+            "type": "classic",
+            "difficulty": "middels",
+            "task": "Kurven er gitt ved\n$$y^3 + y = 2x^2.$$\n\n**a)** Vis at punktet $(1, 1)$ ligger på kurven, og finn $y'$ der.\n\n**b)** Finn $y''$ i punktet $(1,1)$ — uten å løse likningen for $y$.",
+            "solution": "**a)** Punktverifikasjon: $1^3 + 1 = 2 = 2\\cdot 1^2$ ✓.\n\nDeriver likningen implisitt mhp. $x$:\n$$3y^2y' + y' = 4x \\qquad\\Longrightarrow\\qquad y'\\,(3y^2 + 1) = 4x.$$\nI $(1,1)$: $y'\\cdot 4 = 4$, så $y' = 1$.\n\n**b)** Deriver relasjonen $3y^2y' + y' = 4x$ én gang til (produkt- og kjerneregel på $3y^2y'$):\n$$3\\big(2y\\,(y')^2 + y^2y''\\big) + y'' = 4 \\qquad\\Longrightarrow\\qquad 6y\\,(y')^2 + (3y^2+1)\\,y'' = 4.$$\nSett inn de kjente verdiene $x=1$, $y=1$, $y'=1$:\n$$6\\cdot1\\cdot1 + 4\\,y'' = 4 \\qquad\\Longrightarrow\\qquad y'' = -\\frac{2}{4} = -\\frac12.$$\n**Konklusjon:** $y'(1) = 1$ og $y''(1) = -\\tfrac12$ — kurven stiger, men er konkav i punktet. $\\blacksquare$",
+            "hints": [
+              "a) Verifiser punktet, deriver, og sett inn til slutt.",
+              "b) Deriver den DERIVERTE relasjonen — produktregel på $3y^2y'$.",
+              "Gjenbruk $y' = 1$ fra a) i innsettingen."
+            ]
+          }
+        },
+        {
+          "id": "mat111-uib-3-prove-p2o3",
+          "type": "exercise",
+          "exercise": {
+            "id": "mat111-uib-3-prove-p2o3-x",
+            "number": "3",
+            "type": "classic",
+            "difficulty": "vanskelig",
+            "task": "En drone letter fra bakken og stiger rett opp med konstant fart $3$ m/s. En fotograf ligger i ro på bakken $40$ m fra oppstigningspunktet og følger dronen med blikket. La $\\theta$ være vinkelen mellom bakken og siktelinjen.\n\nHvor fort endrer $\\theta$ seg i det øyeblikket dronen er $30$ m over bakken? Tolk fortegnet og oppgi enhet.",
+            "solution": "**Figur og variabler.** Rettvinklet trekant: katetene er den faste bakkeavstanden $40$ m og høyden $h(t)$; $\\theta(t)$ er vinkelen ved fotografen. Kjent: $h' = 3$ m/s; søkt: $\\theta'$ når $h = 30$.\n\n**Modell:** $\\tan\\theta = \\dfrac{h}{40}$.\n\n**Deriver implisitt mhp. $t$** (kjerneregel på begge sider):\n$$\\frac{1}{\\cos^2\\theta}\\,\\theta' = \\frac{h'}{40}.$$\n\n**Øyeblikkstall.** Når $h = 30$: hypotenusen er $\\sqrt{40^2 + 30^2} = 50$, så $\\cos\\theta = \\dfrac{40}{50} = \\dfrac45$ og $\\cos^2\\theta = \\dfrac{16}{25}$. Dermed\n$$\\theta' = \\frac{h'}{40}\\cos^2\\theta = \\frac{3}{40}\\cdot\\frac{16}{25} = \\frac{48}{1000} = 0{,}048.$$\n\n**Konklusjon (fortegn + enhet):** $\\theta' = 0{,}048$ rad/s $> 0$ — synsvinkelen ØKER, med $0{,}048$ radianer per sekund (≈ $2{,}75°$/s) i det øyeblikket dronen er $30$ m oppe. Det positive fortegnet stemmer med intuisjonen: så lenge dronen stiger, må fotografen løfte blikket. $\\blacksquare$",
+            "hints": [
+              "Tegn trekanten og navngi $h(t)$ og $\\theta(t)$ FØR du deriverer.",
+              "$\\frac{d}{dt}\\tan\\theta = \\frac{\\theta'}{\\cos^2\\theta}$ — kjernefaktoren $\\theta'$.",
+              "Hypotenusen ved $h=30$ er $50$ (3-4-5-trekanten skalert)."
+            ]
+          }
+        },
+        {
+          "id": "mat111-uib-3-prove-chk-p2",
+          "type": "text",
+          "content": "**Selvdiagnose — kryss av det du fikk til uten å slå opp:**\n\n- ☐ Verifiserte at punktet ligger på kurven FØR derivasjonen (begge oppgavene)\n- ☐ Deriverte likningen FØR innsetting av tall — og husket kjernefaktoren $y'$/$\\theta'$\n- ☐ Fant $y''$ ved å derivere relasjonen på nytt og gjenbruke $y'$\n- ☐ Startet raten med figur og navngitte variabler\n- ☐ Avsluttet raten med fortegnstolkning OG enhet i konklusjonssetningen"
+        }
+      ]
+    },
+    {
+      "id": "mat111-uib-3-prove-p3",
+      "type": "collapsible",
+      "title": "Prøve 3 — Invers funksjon: eksistens, uttrykk og derivert (3.C, ~40 min)",
+      "buttonText": "Vis prøve 3",
+      "content": [
+        {
+          "id": "mat111-uib-3-prove-p3-intro",
+          "type": "text",
+          "content": "**Prøve 3.C.** Tre oppgaver, ~40 min. Føringskrav: eksistens begrunnes med streng monotoni (fast fortegn på $f'$), inversen leveres MED definisjonsmengde, og $(f^{-1})'(b)$ regnes via «finn $a$ først»."
+        },
+        {
+          "id": "mat111-uib-3-prove-p3o1",
+          "type": "exercise",
+          "exercise": {
+            "id": "mat111-uib-3-prove-p3o1-x",
+            "number": "1",
+            "type": "classic",
+            "difficulty": "middels",
+            "task": "La $f(x) = \\ln(x^2 + 4x + 5)$ for $x \\ge -2$.\n\n**a)** Vis at $f$ er én-til-én på $[-2, \\infty)$.\n\n**b)** Finn en formel for $f^{-1}$, og oppgi definisjonsmengden til $f^{-1}$.",
+            "solution": "**a) Eksistens via monotoni.** Fullfør kvadratet: $x^2+4x+5 = (x+2)^2 + 1 \\ge 1 > 0$, så $f$ er definert overalt. Kjerneregelen:\n$$f'(x) = \\frac{2x+4}{x^2+4x+5} = \\frac{2(x+2)}{(x+2)^2+1}.$$\nNevneren er alltid positiv, og telleren $2(x+2) > 0$ for alle $x > -2$; $f'$ er altså positiv i hele det indre og null bare i randpunktet $x=-2$ — dermed er $f$ **strengt voksende** på $[-2,\\infty)$ (et enkelt nullpunkt for $f'$ i randen ødelegger ikke streng monotoni). En strengt voksende funksjon tar aldri samme verdi to ganger: $f$ er én-til-én. $\\blacksquare$\n\n**b) Inversen — med definisjonsmengde.** Verdimengden først: $f(-2) = \\ln 1 = 0$, og $f(x) \\to \\infty$ når $x\\to\\infty$; siden $f$ er kontinuerlig og strengt voksende, er verdimengden $[0, \\infty)$ — dette blir definisjonsmengden til $f^{-1}$.\n\nLøs $y = \\ln\\big((x+2)^2+1\\big)$ for $x$:\n$$e^y = (x+2)^2 + 1 \\;\\Longrightarrow\\; (x+2)^2 = e^y - 1 \\;\\Longrightarrow\\; x + 2 = \\sqrt{e^y - 1},$$\nder vi velger den POSITIVE roten fordi $x \\ge -2$ betyr $x + 2 \\ge 0$. Altså\n$$f^{-1}(x) = -2 + \\sqrt{e^x - 1}, \\qquad D_{f^{-1}} = [0, \\infty).$$\n**Kontroll:** $f(-1) = \\ln(1+1) = \\ln 2$, og $f^{-1}(\\ln 2) = -2 + \\sqrt{2-1} = -1$ ✓. $\\blacksquare$",
+            "hints": [
+              "a) Fullfør kvadratet i argumentet før du deriverer.",
+              "b) Bestem verdimengden til $f$ FØR du løser — den er $D_{f^{-1}}$.",
+              "Rotvalget begrunnes av $x \\ge -2$."
+            ]
+          }
+        },
+        {
+          "id": "mat111-uib-3-prove-p3o2",
+          "type": "exercise",
+          "exercise": {
+            "id": "mat111-uib-3-prove-p3o2-x",
+            "number": "2",
+            "type": "classic",
+            "difficulty": "middels",
+            "task": "La $f(x) = x^3 + 4x - 2$.\n\n**a)** Begrunn at $f$ har en invers funksjon definert på hele $\\mathbb{R}$.\n\n**b)** Finn $(f^{-1})'(3)$.\n\n**c)** Skriv opp likningen for tangenten til grafen av $f^{-1}$ i punktet der $x = 3$.",
+            "solution": "**a) Eksistens.** $f'(x) = 3x^2 + 4 \\ge 4 > 0$ for alle $x$ — fast positivt fortegn, så $f$ er strengt voksende på $\\mathbb{R}$ og dermed én-til-én. *(Alternativt: hadde $f$ tatt samme verdi i to punkter, ville Rolles teorem gitt en $c$ med $f'(c) = 0$ — umulig når $f' \\ge 4$.)* Siden $f$ er kontinuerlig med $f(x)\\to\\pm\\infty$, er verdimengden hele $\\mathbb{R}$: inversen er definert på $\\mathbb{R}$. ✓\n\n**b) «Finn $a$ først».** Søker $a$ med $f(a) = 3$: prøv $a = 1$: $1 + 4 - 2 = 3$ ✓. Da gir derivert-av-invers-formelen\n$$(f^{-1})'(3) = \\frac{1}{f'(1)} = \\frac{1}{3 + 4} = \\frac17.$$\n\n**c) Tangenten.** Grafen til $f^{-1}$ går gjennom $(3, 1)$ (speilingen av $(1,3)$), med stigning $\\tfrac17$:\n$$y = 1 + \\frac17(x - 3).$$\n**Kontroll:** stigningen $1/f'(a)$ brukte $a = 1$, IKKE $b = 3$ — fellen «$1/f'(3)$» ville gitt $1/31$, som er galt. $\\blacksquare$",
+            "hints": [
+              "a) Vis at $f'$ har fast fortegn på hele $\\mathbb{R}$.",
+              "b) Løs $f(a) = 3$ ved å prøve små heltall — finn $a$ FØR du deriverer noe.",
+              "c) Punktet på invers-grafen er $(b, a) = (3, 1)$."
+            ]
+          }
+        },
+        {
+          "id": "mat111-uib-3-prove-p3o3",
+          "type": "exercise",
+          "exercise": {
+            "id": "mat111-uib-3-prove-p3o3-x",
+            "number": "3",
+            "type": "classic",
+            "difficulty": "vanskelig",
+            "task": "**a)** La $g(x) = x^2 - 6x + 5$. Finn det største intervallet som inneholder $x = 5$, der $g$ er inverterbar. Dokumentér med fortegnsskjema for $g'$.\n\n**b)** En medstudent påstår: «Hvis $f'(x) > 0$ i hvert punkt der $f$ er definert, er $f$ alltid én-til-én.» Vis med funksjonen $f(x) = \\tan x$ at påstanden er gal når definisjonsmengden er usammenhengende, og pek på hva som redder resultatet på et intervall.",
+            "solution": "**a)** $g'(x) = 2x - 6$, nullpunkt $x = 3$:\n\n| Intervall | $(-\\infty,3)$ | $(3,\\infty)$ |\n|---|---|---|\n| $g'(x)$ | $-$ | $+$ |\n\n$g$ er strengt voksende på $[3, \\infty)$ og strengt avtakende på $(-\\infty, 3]$. Punktet $x = 5$ ligger i den voksende delen, og intervallet kan ikke utvides forbi $x=3$ mot venstre uten at monotonien — og dermed injektiviteten — ryker (f.eks. er $g(2) = -3 = g(4)$). **Største intervall: $[3, \\infty)$.** $\\blacksquare$\n\n**b) Moteksemplet.** $f(x) = \\tan x$ har definisjonsmengde $\\mathbb{R}$ minus punktene $\\pi/2 + k\\pi$ — en usammenhengende union av intervaller — og\n$$f'(x) = \\frac{1}{\\cos^2 x} > 0 \\quad\\text{i hvert punkt.}$$\nLikevel er $\\tan 0 = 0 = \\tan\\pi$ med $0 \\neq \\pi$: IKKE én-til-én. Monotoniargumentet bryter sammen fordi det hviler på sekantsetningen ([kap. 4.1](/bok/mat111-uib/mat111-uib-4-1) — i R1-form: voksende på et INTERVALL), som krever at hele intervallet mellom to punkter ligger i definisjonsmengden; mellom $0$ og $\\pi$ ligger bruddpunktet $\\pi/2$ utenfor. **Det som redder resultatet:** på ETT sammenhengende intervall, som $(-\\pi/2, \\pi/2)$, gir $f' > 0$ streng monotoni og dermed injektivitet — det er der $\\arctan$ defineres. $\\blacksquare$",
+            "hints": [
+              "a) Fortegnsskjema for $g'$ — intervallgrensen sitter i nullpunktet $x=3$.",
+              "b) Finn to punkter i HVER sin gren av tan med samme funksjonsverdi.",
+              "Monotoni-argumentet krever et sammenhengende intervall — pek på bruddet."
+            ]
+          }
+        },
+        {
+          "id": "mat111-uib-3-prove-chk-p3",
+          "type": "text",
+          "content": "**Selvdiagnose — kryss av det du fikk til uten å slå opp:**\n\n- ☐ Begrunnet eksistensen av invers med fast fortegn på $f'$ (eller Rolle-motsigelse)\n- ☐ Oppga definisjonsmengden til $f^{-1}$ (= verdimengden til $f$) uoppfordret\n- ☐ Begrunnet rotvalget i invers-formelen fra definisjonsmengden\n- ☐ Fant $a$ med $f(a) = b$ FØR jeg brukte $(f^{-1})'(b) = 1/f'(a)$\n- ☐ Kan gjengi tan-moteksemplet: $f' > 0$ på usammenhengende mengde gir ikke injektivitet"
+        }
+      ]
+    },
+    {
+      "id": "mat111-uib-3-prove-p4",
+      "type": "collapsible",
+      "title": "Prøve 4 — Drøfting og optimering med eksistensbegrunnelse (3.D, ~45 min)",
+      "buttonText": "Vis prøve 4",
+      "content": [
+        {
+          "id": "mat111-uib-3-prove-p4-intro",
+          "type": "text",
+          "content": "**Prøve 3.D.** Tre oppgaver, ~45 min. Føringskrav: fortegnsskjema som dokumentasjon for både $f'$ og $f''$, eksistensbegrunnelse for ALLE globale konklusjoner, og globalt-argument som avslutning i optimeringen."
+        },
+        {
+          "id": "mat111-uib-3-prove-p4o1",
+          "type": "exercise",
+          "exercise": {
+            "id": "mat111-uib-3-prove-p4o1-x",
+            "number": "1",
+            "type": "classic",
+            "difficulty": "vanskelig",
+            "task": "Drøft funksjonen\n$$f(x) = x\\,e^{-x^2}$$\npå $\\mathbb{R}$:\n\n**a)** monotoni og lokale ekstremalpunkter, med fortegnsskjema,\n\n**b)** globale ekstremalverdier — finnes de? Begrunn eksistensen,\n\n**c)** krumning og vendepunkter, med fortegnsskjema,\n\n**d)** asymptoter, og en punktvis skisseoppskrift.",
+            "solution": "**a) Monotoni.** Produkt- og kjerneregel: $f'(x) = e^{-x^2} + x\\cdot(-2x)e^{-x^2} = (1 - 2x^2)\\,e^{-x^2}$. Siden $e^{-x^2} > 0$ alltid, følger fortegnet $1-2x^2$, med nullpunkter $x = \\pm\\dfrac{\\sqrt2}{2}$:\n\n| Intervall | $(-\\infty,-\\tfrac{\\sqrt2}{2})$ | $(-\\tfrac{\\sqrt2}{2},\\tfrac{\\sqrt2}{2})$ | $(\\tfrac{\\sqrt2}{2},\\infty)$ |\n|---|---|---|---|\n| $f'(x)$ | $-$ | $+$ | $-$ |\n\n$f$ avtar, vokser, avtar. Fortegnsskiftet $-\\to+$ i $x=-\\tfrac{\\sqrt2}{2}$ gir lokalt minimum $f\\big(-\\tfrac{\\sqrt2}{2}\\big) = -\\tfrac{\\sqrt2}{2}e^{-1/2} = -\\tfrac{1}{\\sqrt{2e}} \\approx -0{,}429$; skiftet $+\\to-$ i $x=\\tfrac{\\sqrt2}{2}$ gir lokalt maksimum $\\tfrac{1}{\\sqrt{2e}} \\approx 0{,}429$.\n\n**b) Globale ekstremalverdier — MED eksistensbegrunnelse.** Grensesjekk: $\\lim_{x\\to\\pm\\infty} x e^{-x^2} = 0$ (veksthierarkiet — $e^{x^2}$ slår enhver potens). Intervallet er ubegrenset, så ekstremalverdisetningen gjelder ikke direkte; vi argumenterer med monotonien:\n\n- *Globalt maksimum:* på $[-\\tfrac{\\sqrt2}{2}, \\tfrac{\\sqrt2}{2}]$ vokser $f$ opp til $f(\\tfrac{\\sqrt2}{2})$; på $[\\tfrac{\\sqrt2}{2},\\infty)$ avtar $f$ fra denne verdien; og for $x \\le -\\tfrac{\\sqrt2}{2}$ er $f(x) \\le 0 < f(\\tfrac{\\sqrt2}{2})$. Ingen punkter slår kandidaten: **globalt maksimum $\\tfrac{1}{\\sqrt{2e}}$ i $x = \\tfrac{\\sqrt2}{2}$ finnes**.\n- *Globalt minimum:* $f$ er odde ($f(-x) = -f(x)$), så speilargumentet gir **globalt minimum $-\\tfrac{1}{\\sqrt{2e}}$ i $x = -\\tfrac{\\sqrt2}{2}$**.\n\n**c) Krumning.** $f''(x) = \\dfrac{d}{dx}\\big[(1-2x^2)e^{-x^2}\\big] = -4xe^{-x^2} + (1-2x^2)(-2x)e^{-x^2} = 2x\\,(2x^2 - 3)\\,e^{-x^2}$. Nullpunkter: $x = 0$ og $x = \\pm\\tfrac{\\sqrt6}{2}$; fortegnet følger $2x(2x^2-3)$:\n\n| Intervall | $(-\\infty,-\\tfrac{\\sqrt6}{2})$ | $(-\\tfrac{\\sqrt6}{2},0)$ | $(0,\\tfrac{\\sqrt6}{2})$ | $(\\tfrac{\\sqrt6}{2},\\infty)$ |\n|---|---|---|---|---|\n| $f''(x)$ | $-$ | $+$ | $-$ | $+$ |\n\nFortegnsskifte i alle tre nullpunktene — tre vendepunkter: $x = -\\tfrac{\\sqrt6}{2}$, $x = 0$ (der $f(0)=0$) og $x = \\tfrac{\\sqrt6}{2}$.\n\n**d) Asymptoter og skisse.** Horisontal asymptote $y = 0$ i BEGGE retninger (grensene fra b); ingen vertikale (f er definert og kontinuerlig overalt). Skisseoppskrift: odde funksjon gjennom origo (som også er vendepunkt); bunn i $\\big({-\\tfrac{\\sqrt2}{2}}, -0{,}43\\big)$, topp i $\\big(\\tfrac{\\sqrt2}{2}, 0{,}43\\big)$; kryper mot $x$-aksen utover til begge sider; krumningen skifter i $\\pm\\tfrac{\\sqrt6}{2} \\approx \\pm1{,}22$. $\\blacksquare$",
+            "hints": [
+              "Faktoren $e^{-x^2}$ er alltid positiv — stryk den fra fortegnsanalysen.",
+              "b) EVS gjelder ikke på $\\mathbb{R}$: bruk grensene mot $\\pm\\infty$ + monotonien (eller odde-symmetrien).",
+              "c) Deriver $f'$ med produktregelen og faktoriser ut $2xe^{-x^2}$."
+            ]
+          }
+        },
+        {
+          "id": "mat111-uib-3-prove-p4o2",
+          "type": "exercise",
+          "exercise": {
+            "id": "mat111-uib-3-prove-p4o2-x",
+            "number": "2",
+            "type": "classic",
+            "difficulty": "middels",
+            "task": "Finn de globale maksimums- og minimumsverdiene til $g(x) = x^3 - 3x + 1$ på intervallet $[0, 3]$. Begrunn at de finnes.",
+            "solution": "**Eksistens:** $g$ er kontinuerlig (polynom) på det lukkede, begrensede intervallet $[0,3]$ — ekstremalverdisetningen garanterer at globalt maksimum og minimum finnes. ✓\n\n**Kandidatliste.** $g'(x) = 3x^2 - 3 = 3(x-1)(x+1)$, nullpunkter $x = \\pm1$; bare $x = 1$ ligger i intervallet. Kandidater: det kritiske punktet og RANDPUNKTENE:\n$$g(0) = 1, \\qquad g(1) = 1 - 3 + 1 = -1, \\qquad g(3) = 27 - 9 + 1 = 19.$$\n**Sammenlign:** størst er $g(3) = 19$; minst er $g(1) = -1$.\n\n**Konklusjon:** globalt maksimum $19$ i randpunktet $x = 3$; globalt minimum $-1$ i $x = 1$. — Merk at maksimum sitter i RANDEN: uten randpunktene i kandidatlisten hadde svaret blitt galt. $\\blacksquare$",
+            "hints": [
+              "Eksistensen er gratis her — navngi ekstremalverdisetningen.",
+              "Kandidater: kritiske punkter I intervallet + begge randpunktene.",
+              "$x = -1$ ligger utenfor $[0,3]$ og skal ikke med."
+            ]
+          }
+        },
+        {
+          "id": "mat111-uib-3-prove-p4o3",
+          "type": "exercise",
+          "exercise": {
+            "id": "mat111-uib-3-prove-p4o3-x",
+            "number": "3",
+            "type": "classic",
+            "difficulty": "vanskelig",
+            "task": "En åpen beholder (uten lokk) med kvadratisk bunn skal romme $32$ dm³. Bunnplaten og de fire sideveggene lages av samme materiale.\n\nFinn målene som gir minst materialforbruk (samlet areal av bunn og vegger), og begrunn at svaret er et globalt minimum.",
+            "solution": "**1. Målfunksjon fra bibetingelse.** La bunnsiden være $x$ dm og høyden $h$ dm. Bibetingelsen (volumet): $x^2h = 32$, så $h = \\dfrac{32}{x^2}$. Arealet (bunn + fire vegger):\n$$S(x) = x^2 + 4xh = x^2 + 4x\\cdot\\frac{32}{x^2} = x^2 + \\frac{128}{x}, \\qquad x \\in (0, \\infty).$$\nDefinisjonsområdet er ÅPENT og ubegrenset — ekstremalverdisetningen gjelder ikke; globalt-argumentet må komme fra monotonien.\n\n**2. Deriver:** $S'(x) = 2x - \\dfrac{128}{x^2} = \\dfrac{2x^3 - 128}{x^2} = \\dfrac{2(x^3 - 64)}{x^2}$.\n\n**3. Kandidat:** $S'(x) = 0 \\iff x^3 = 64 \\iff x = 4$.\n\n**4. Globalt-argument (fortegnsskjema for $S'$).** Nevneren $x^2 > 0$; telleren $2(x^3-64)$ skifter fortegn i $x=4$:\n\n| Intervall | $(0,4)$ | $(4,\\infty)$ |\n|---|---|---|\n| $S'(x)$ | $-$ | $+$ |\n\n$S$ avtar på hele $(0,4]$ og vokser på hele $[4,\\infty)$ — da er $S(4)$ globalt minimum på $(0,\\infty)$. *(Samme konklusjon fra grensene: $S \\to \\infty$ både når $x\\to0^+$ og $x\\to\\infty$.)*\n\n**Svar:** $S(4) = 16 + 32 = 48$, og $h = \\dfrac{32}{16} = 2$.\n\n**Konklusjon (med enhet):** minst materialforbruk fås med bunnside $4$ dm og høyde $2$ dm, og er da $48$ dm². $\\blacksquare$",
+            "hints": [
+              "Eliminér $h$ med volumbetingelsen FØR derivasjonen.",
+              "Åpent, ubegrenset område: globalt-argumentet må bruke monotoni eller grenser — ikke EVS.",
+              "$S' = 0$ gir $x^3 = 64$."
+            ]
+          }
+        },
+        {
+          "id": "mat111-uib-3-prove-chk-p4",
+          "type": "text",
+          "content": "**Selvdiagnose — kryss av det du fikk til uten å slå opp:**\n\n- ☐ Dokumenterte monotoni OG krumning med fortegnsskjema\n- ☐ Begrunnet eksistensen av globale ekstremalverdier (EVS på lukket intervall; grenser/monotoni ellers)\n- ☐ Tok randpunktene med i kandidatlisten — og så at maksimum satt i randen\n- ☐ Krevde fortegnsskifte for $f''$ før jeg kalte noe vendepunkt\n- ☐ Avsluttet optimeringen med globalt-argument og konklusjonssetning med enhet"
+        }
+      ]
+    },
+    {
+      "id": "mat111-uib-3-prove-symbol",
+      "type": "collapsible",
+      "title": "Symbol- og formelliste",
+      "buttonText": "Vis symboler og formler",
+      "content": [
+        {
+          "id": "mat111-uib-3-prove-symbol-t",
+          "type": "text",
+          "content": "## Symbol- og formelliste (Del 3)\n\n| Formel | Bruk |\n|---|---|\n| $f'(a) = \\lim_{h\\to0}\\frac{f(a+h)-f(a)}{h}$ | eneste gyldige deriverbarhetsbevis i punkt |\n| $\\lvert\\cos(1/x^m)\\rvert \\le 1 \\Rightarrow -\\lvert x\\rvert^k \\le x^k\\cos(1/x^m) \\le \\lvert x\\rvert^k$ | skvis med uttalt begrensethet |\n| deriverbar i $0$: $k \\ge 2$; kontinuerlig $f'$: $k \\ge m+2$ | eksponentregnskapet for $x^k\\sin/\\cos(1/x^m)$ |\n| kontinuitet + $\\lim_{x\\to a}f'(x) = b$ finnes $\\Rightarrow f'(a) = b$ | grense-av-derivert-setningen (skjøter) |\n| $\\frac{d}{dx}y^n = ny^{n-1}y'$ | implisitt derivasjon — kjernefaktoren |\n| $(f^{-1})'(b) = \\dfrac{1}{f'(a)}$ der $f(a) = b$ | derivert av invers — «finn $a$ først» |\n| målfunksjon → deriver → kandidater → globalt-argument | optimeringsoppskriften |\n| $f$ kontinuerlig på $[a,b]$ ⇒ globalt maks/min finnes | ekstremalverdisetningen (eksistensverktøyet) |\n\nAlt forklares i delens kapitler [kap. 3.1](/bok/mat111-uib/mat111-uib-3-1)–[kap. 3.5](/bok/mat111-uib/mat111-uib-3-5)."
+        }
+      ]
+    }
+  ],
+  "exercises": []
+}

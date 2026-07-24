@@ -1,0 +1,371 @@
+{
+  "id": "mat111-uib-5-4",
+  "courseId": "mat111-uib",
+  "chapterNumber": "5.4",
+  "title": "Drill: integrasjonsteknikk-kjeder (åpen bok)",
+  "description": "Alle fire teknikkene kjedet på eksamensnivå med full føring — 97 %-sjangeren der utledningen er hele poenget.",
+  "estimatedMinutes": 90,
+  "competenceGoals": [
+    "kunne velge riktig integrasjonsteknikk raskt med beslutningstreet",
+    "kunne kjede teknikker (substitusjon → delvis, substitusjon → delbrøk) med komplett føring i hvert ledd",
+    "kunne føre substitusjonsboks, dokumentert u/v'-valg og delbrøkoppsett slik løsningsforslagene krever",
+    "kunne finne og vurdere alternative løsningsveier og velge den korteste"
+  ],
+  "content": [
+    {
+      "id": "mat111-uib-5-4-tip",
+      "type": "tip",
+      "title": "Eksamensvinkel",
+      "content": "**Dette er drillen for 97 %-sjangeren — her hentes de sikreste poengene i settet.**\n\n- **Sjanger B (integrasjonsteknikk)** står i 33 av 34 arkiverte sett, typisk som **2–4 deloppgaver**, og ofte *kjedet*: substitusjon → delvis, eller substitusjon → delbrøk. Ett sett kan fint teste tre teknikker i én oppgave.\n- Åpen bok gjør **føringen til det som måles**: boksen med $u$, $du$ og nye grenser, det dokumenterte $u/v'$-valget, oppsett og kontroll av delbrøk-koeffisienter. Fasitsvar uten teknikk gir null.\n- Arkivets løsningsforslag fører regelmessig **flere likeverdige veier** («Alternativt:») — det gjør denne drillen også, så du lærer å velge den letteste.\n- Målet med drillkapitlet: teknikk**valget** skal ta under 30 sekunder, gjennomføringen skal være feilfri. Sett av en økt på ~90 minutter, eller del i to.\n- Prioritet: **perfekt**."
+    },
+    {
+      "id": "mat111-uib-5-4-fork",
+      "type": "text",
+      "content": "**Forkunnskaper.** Alt verktøyet kommer fra [kap. 5.2](/bok/mat111-uib/mat111-uib-5-2) (substitusjon, delvis, ensomme funksjoner, sykliske) og [kap. 5.3](/bok/mat111-uib/mat111-uib-5-3) (polynomdivisjon, delbrøk, fullført kvadrat, trig-substitusjon). Er noen av teknikkene rustne, gå tilbake dit først — drillen forutsetter at hver enkelt teknikk sitter, og trener *valget* og *kjedingen*."
+    },
+    {
+      "id": "mat111-uib-5-4-oppskrift",
+      "type": "text",
+      "content": "## Løsningsoppskrift: teknikkvalg-beslutningstreet\n\nStill spørsmålene i denne rekkefølgen — første treff bestemmer åpningen:\n\n1. **Er integranden rasjonal** (polynom over polynom)? → Sjekk gradene: uekte brøk? **Polynomdivisjon** først. Deretter **delbrøk** på restbrøken (faktoriser nevneren; irreduserbar kvadratisk faktor → fullført kvadrat → $\\arctan$-ledd).\n2. **Rotuttrykk $\\sqrt{a^2-x^2}$ eller $a^2+x^2$-potens?** → Men sjekk FØRST om en faktor $x$ i telleren gjør vanlig substitusjon mulig ($u$ = radikanden). Hvis ikke: **trig-substitusjon** ($x=a\\sin\\theta$ hhv. $x=a\\tan\\theta$, med verdimengde).\n3. **Produkt polynom × transcendent** ($e^{kx}$, $\\sin$, $\\cos$)? → **Delvis integrasjon**, polynomet deriveres (LIATE).\n4. **Sammensatt kjerne med (nesten) matchende derivert som faktor?** → **Substitusjon** med boks. Spesialtilfelle: $\\frac{f'}{f}$ → $\\ln|f|$ direkte.\n5. **«Ensom» transcendent** ($\\ln x$, $\\arctan x$, alene)? → **Delvis mot 1**.\n6. **Produkt $e^{kx}\\times$ trig?** → **Syklisk**: to runder delvis med fast strategi, løs for $I$.\n\nTreffer ingenting? Prøv en *forenklende omskriving* først: splitt brøken ledd for ledd, bruk en trig-identitet ($\\sin^2x = \\frac{1-\\cos2x}{2}$, $\\sin^3x=(1-\\cos^2x)\\sin x$), eller substituér den styggeste delen ($u=\\sqrt x$, $u=e^x$) og se hva som kommer ut."
+    },
+    {
+      "id": "mat111-uib-5-4-eks1",
+      "type": "example",
+      "title": "Gjennomregnet eksamens-integralblokk (med margnotater om fasitpraksis)",
+      "problem": "Beregn integralene — vis all utregning («med grunnleggende teknikker, ikke ved oppslag»):\n\n**a)** $\\displaystyle\\int_0^{\\sqrt3} x\\sqrt{x^2+1}\\,dx$\n\n**b)** $\\displaystyle\\int x^2\\ln x\\,dx$\n\n**c)** $\\displaystyle\\int\\frac{x^3+2}{x^2-1}\\,dx$\n\n**d)** $\\displaystyle\\int_0^4 e^{\\sqrt x}\\,dx$",
+      "solution": "**a) Substitusjon** (beslutningstreets pkt. 4: kjernen $x^2+1$ har derivert $2x$, og faktoren $x$ står der):\n\n$$\\boxed{\\,u=x^2+1,\\quad du=2x\\,dx\\;\\Rightarrow\\;x\\,dx=\\tfrac12du,\\quad x=0\\Rightarrow u=1,\\quad x=\\sqrt3\\Rightarrow u=4\\,}$$\n\n$$\\int_0^{\\sqrt3}x\\sqrt{x^2+1}\\,dx = \\frac12\\int_1^4\\sqrt u\\,du = \\frac12\\Big[\\frac{2u^{3/2}}{3}\\Big]_1^4 = \\frac13\\big(8-1\\big) = \\frac73.$$\n\n**[Margnotat om fasitpraksis:** boksen med nye grenser er ikke valgfri pynt — løsningsforslagene fører den konsekvent, og et grensebytte som bare «skjer» i regningen regnes som hull i føringen.**]**\n\n**b) Delvis** (pkt. 3 — men her er det logaritmen som skal deriveres, LIATE: L før A):\n\n$$u=\\ln x\\;(\\Rightarrow u'=\\tfrac1x),\\qquad v'=x^2\\;(\\Rightarrow v=\\tfrac{x^3}{3}).$$\n\n$$\\int x^2\\ln x\\,dx = \\frac{x^3}{3}\\ln x - \\int\\frac{x^3}{3}\\cdot\\frac1x\\,dx = \\frac{x^3}{3}\\ln x - \\frac13\\int x^2\\,dx = \\frac{x^3}{3}\\ln x - \\frac{x^3}{9}+C.$$\n\n**[Margnotat:** valglinjen med begrunnelse («logaritmen deriveres bort») er den fasitpraksisen som skiller full uttelling fra trekk — skriv den alltid.**]**\n\n**c) Polynomdivisjon → delbrøk** (pkt. 1: uekte brøk, grad 3 over grad 2):\n\nDivisjon: $x^3+2 = x(x^2-1) + x + 2$, så $\\dfrac{x^3+2}{x^2-1} = x + \\dfrac{x+2}{(x-1)(x+1)}$.\n\nDelbrøk: $\\dfrac{x+2}{(x-1)(x+1)} = \\dfrac{A}{x-1}+\\dfrac{B}{x+1}$; $x+2 = A(x+1)+B(x-1)$; $x=1$: $A=\\tfrac32$; $x=-1$: $1=-2B\\Rightarrow B=-\\tfrac12$. *(Kontroll: $\\tfrac32(x+1)-\\tfrac12(x-1)=x+2$. ✓)*\n\n$$\\int\\frac{x^3+2}{x^2-1}\\,dx = \\frac{x^2}{2} + \\frac32\\ln|x-1| - \\frac12\\ln|x+1| + C.$$\n\n**[Margnotat:** delbrøk rett på en uekte brøk er arkivets vanligste teknikk-feil i denne sjangeren — gradsjekken er alltid første trekk.**]**\n\n**d) Kjeden substitusjon → delvis** (pkt. 2-omskriving: roten er stygg — substituér den):\n\n$$\\boxed{\\,u=\\sqrt x,\\quad x=u^2,\\quad dx=2u\\,du,\\quad x=0\\Rightarrow u=0,\\quad x=4\\Rightarrow u=2\\,}$$\n\n$$\\int_0^4 e^{\\sqrt x}\\,dx = 2\\int_0^2 u\\,e^u\\,du.$$\n\nDelvis med dokumentert valg $u_1=u\\;(u_1'=1)$, $v'=e^u\\;(v=e^u)$:\n$$2\\int_0^2 ue^u\\,du = 2\\Big(\\big[ue^u\\big]_0^2 - \\int_0^2 e^u\\,du\\Big) = 2\\big(2e^2 - (e^2-1)\\big) = 2e^2+2.$$\n\n**Sluttsvar:** a) $\\tfrac73$, b) $\\tfrac{x^3}{3}\\ln x-\\tfrac{x^3}{9}+C$, c) $\\tfrac{x^2}{2}+\\tfrac32\\ln|x-1|-\\tfrac12\\ln|x+1|+C$, d) $2e^2+2$. $\\blacksquare$\n\n**[Margnotat:** fra 2019 sier oppgavesettene eksplisitt at riktig fremgangsmåte gir godt med poeng selv uten korrekt sluttsvar — men bare når fremgangsmåten er synlig. I denne sjangeren ER føringen besvarelsen.**]**"
+    },
+    {
+      "id": "mat111-uib-5-4-drillh",
+      "type": "text",
+      "content": "## Drilloppgaver på eksamensnivå\n\n15 integraler i stigende vanskegrad. Tren på å *velge* teknikk raskt (beslutningstreet) og *føre* fullstendig. Der to veier er likeverdige, viser fasit begge."
+    },
+    {
+      "id": "mat111-uib-5-4-o1",
+      "type": "exercise",
+      "exercise": {
+        "id": "mat111-uib-5-4-o1-x",
+        "number": "1",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "**Teknikkvalg-runde** (ikke regn ut — bare klassifisér med beslutningstreet): \n\n**a)** $\\displaystyle\\int\\frac{x^2+1}{x-2}\\,dx$\n\n**b)** $\\displaystyle\\int x e^{-x}\\,dx$\n\n**c)** $\\displaystyle\\int\\frac{x}{x^2+9}\\,dx$\n\n**d)** $\\displaystyle\\int\\sqrt{25-x^2}\\,dx$\n\n**e)** $\\displaystyle\\int\\arctan(2x)\\,dx$\n\n**f)** $\\displaystyle\\int e^{3x}\\sin x\\,dx$",
+        "solution": "**a)** Rasjonal, uekte (grad 2 over 1) → polynomdivisjon, deretter $\\ln$-ledd. **b)** Produkt polynom × eksponential → delvis, $u=x$. **c)** $\\frac{f'}{f}$-mønsteret (teller er $\\tfrac12\\cdot$ nevnerens deriverte) → $\\tfrac12\\ln(x^2+9)$ — IKKE arctan (faktoren $x$ i telleren gjør vanlig substitusjon mulig). **d)** Rent rotuttrykk $\\sqrt{a^2-x^2}$ uten $x$-faktor → trig-substitusjon $x=5\\sin\\theta$. **e)** Ensom invers trig → delvis mot 1. **f)** Eksponential × trig → syklisk, to runder delvis og løs for $I$. $\\blacksquare$",
+        "hints": [
+          "Gå gjennom beslutningstreets seks spørsmål i rekkefølge for hvert integral.",
+          "I c): sjekk om telleren er (proporsjonal med) nevnerens deriverte før du tenker arctan."
+        ]
+      }
+    },
+    {
+      "id": "mat111-uib-5-4-o2",
+      "type": "exercise",
+      "exercise": {
+        "id": "mat111-uib-5-4-o2-x",
+        "number": "2",
+        "type": "classic",
+        "difficulty": "lett",
+        "task": "Beregn $\\displaystyle\\int_1^2\\frac{2x+1}{x^2+x}\\,dx$.",
+        "solution": "Telleren er nøyaktig nevnerens deriverte → $\\ln$-mønsteret:\n$$\\int_1^2\\frac{2x+1}{x^2+x}\\,dx = \\Big[\\ln|x^2+x|\\Big]_1^2 = \\ln6-\\ln2 = \\ln3.$$\n\n**Sluttsvar:** $\\ln3$. $\\blacksquare$\n\n*Alternativt:* faktoriser $x^2+x=x(x+1)$ og delbrøk: $\\frac{2x+1}{x(x+1)} = \\frac1x+\\frac1{x+1}$, som gir $[\\ln x+\\ln(x+1)]_1^2 = \\ln2+\\ln3-\\ln2 = \\ln3$. Samme svar — $\\ln$-mønsteret er raskest.",
+        "hints": [
+          "$(x^2+x)'=2x+1$ — se på telleren.",
+          "Da er svaret $\\ln|f|$ direkte."
+        ]
+      }
+    },
+    {
+      "id": "mat111-uib-5-4-o3",
+      "type": "exercise",
+      "exercise": {
+        "id": "mat111-uib-5-4-o3-x",
+        "number": "3",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "Beregn $\\displaystyle\\int_0^1 x\\,e^{3x}\\,dx$.",
+        "solution": "Produkt polynom × eksponential → delvis. Dokumentert valg: $u=x\\;(u'=1)$, $v'=e^{3x}\\;(v=\\tfrac13e^{3x})$:\n$$\\int_0^1 xe^{3x}\\,dx = \\Big[\\frac{x}{3}e^{3x}\\Big]_0^1 - \\frac13\\int_0^1 e^{3x}\\,dx = \\frac{e^3}{3} - \\frac13\\Big[\\frac{e^{3x}}{3}\\Big]_0^1 = \\frac{e^3}{3}-\\frac{e^3-1}{9}.$$\n$$= \\frac{3e^3 - e^3+1}{9} = \\frac{2e^3+1}{9}.$$\n\n**Sluttsvar:** $\\dfrac{2e^3+1}{9}\\ (\\approx 4{,}57)$. $\\blacksquare$",
+        "hints": [
+          "LIATE: polynomet deriveres.",
+          "$v=\\frac13e^{3x}$ — konstanten fra kjernen må med.",
+          "Fellesnevner 9 til slutt."
+        ]
+      }
+    },
+    {
+      "id": "mat111-uib-5-4-o4",
+      "type": "exercise",
+      "exercise": {
+        "id": "mat111-uib-5-4-o4-x",
+        "number": "4",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "Beregn $\\displaystyle\\int\\frac{x}{\\sqrt{9-x^2}}\\,dx$ på to måter, og avgjør hvilken som er raskest.",
+        "solution": "**Vei 1 — vanlig substitusjon** (faktoren $x$ matcher radikandens deriverte):\n$$\\boxed{\\,u=9-x^2,\\quad du=-2x\\,dx\\;\\Rightarrow\\;x\\,dx=-\\tfrac12du\\,}$$\n$$\\int\\frac{x\\,dx}{\\sqrt{9-x^2}} = -\\frac12\\int u^{-1/2}\\,du = -u^{1/2}+C = -\\sqrt{9-x^2}+C.$$\n\n**Alternativt — trig-substitusjon** $x=3\\sin\\theta$, $\\theta\\in[-\\frac\\pi2,\\frac\\pi2]$: integranden blir $\\frac{3\\sin\\theta}{3\\cos\\theta}\\cdot3\\cos\\theta\\,d\\theta = 3\\sin\\theta\\,d\\theta$, som gir $-3\\cos\\theta+C = -\\sqrt{9-x^2}+C$ (trekant). Samme svar.\n\n**Konklusjon:** begge er gyldige; vanlig substitusjon er klart raskest — trig-substitusjon spares til integrander *uten* hjelpsom $x$-faktor. **Kontroll:** $\\big(-\\sqrt{9-x^2}\\big)' = \\frac{x}{\\sqrt{9-x^2}}$. ✓ $\\blacksquare$",
+        "hints": [
+          "Sjekk beslutningstreets pkt. 2: er det en $x$-faktor i telleren?",
+          "$\\int u^{-1/2}du = 2\\sqrt u$."
+        ]
+      }
+    },
+    {
+      "id": "mat111-uib-5-4-o5",
+      "type": "exercise",
+      "exercise": {
+        "id": "mat111-uib-5-4-o5-x",
+        "number": "5",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "Beregn $\\displaystyle\\int\\frac{dx}{x^2-5x+6}$.",
+        "solution": "Rasjonal, ekte → faktoriser: $x^2-5x+6=(x-2)(x-3)$. Delbrøk:\n$$\\frac{1}{(x-2)(x-3)} = \\frac{A}{x-2}+\\frac{B}{x-3};\\quad 1=A(x-3)+B(x-2);\\quad x=2{:}\\ A=-1,\\ x=3{:}\\ B=1.$$\n\n$$\\int\\frac{dx}{x^2-5x+6} = \\ln|x-3|-\\ln|x-2|+C = \\ln\\left|\\frac{x-3}{x-2}\\right|+C.\\ \\blacksquare$",
+        "hints": [
+          "Diskriminanten er positiv — nevneren faktoriserer reelt.",
+          "Innsetting av røttene 2 og 3."
+        ]
+      }
+    },
+    {
+      "id": "mat111-uib-5-4-o6",
+      "type": "exercise",
+      "exercise": {
+        "id": "mat111-uib-5-4-o6-x",
+        "number": "6",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "Beregn $\\displaystyle\\int_1^e\\frac{\\ln x}{x^2}\\,dx$.",
+        "solution": "Produkt av $\\ln x$ og potens → delvis; LIATE sier $u=\\ln x\\;(u'=\\tfrac1x)$, $v'=x^{-2}\\;(v=-x^{-1})$:\n$$\\int_1^e\\frac{\\ln x}{x^2}\\,dx = \\Big[-\\frac{\\ln x}{x}\\Big]_1^e + \\int_1^e\\frac{dx}{x^2} = -\\frac1e + \\Big[-\\frac1x\\Big]_1^e = -\\frac1e + \\Big(1-\\frac1e\\Big) = 1-\\frac2e.$$\n\n**Sluttsvar:** $1-\\dfrac2e\\ (\\approx 0{,}26)$. $\\blacksquare$",
+        "hints": [
+          "$v=-1/x$, og $-\\int u'v\\,dx$ blir da $+\\int x^{-2}dx$ — hold på fortegnene.",
+          "$\\ln e = 1$, $\\ln 1 = 0$."
+        ]
+      }
+    },
+    {
+      "id": "mat111-uib-5-4-o7",
+      "type": "exercise",
+      "exercise": {
+        "id": "mat111-uib-5-4-o7-x",
+        "number": "7",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "Beregn $\\displaystyle\\int_0^1\\sqrt{4-x^2}\\,dx$.",
+        "solution": "Rent rotuttrykk uten $x$-faktor → trig-substitusjon:\n$$\\boxed{\\,x=2\\sin\\theta,\\quad dx=2\\cos\\theta\\,d\\theta,\\quad \\theta\\in[-\\tfrac\\pi2,\\tfrac\\pi2],\\quad x=0\\Rightarrow\\theta=0,\\quad x=1\\Rightarrow\\theta=\\tfrac\\pi6\\,}$$\n$$\\int_0^1\\sqrt{4-x^2}\\,dx = \\int_0^{\\pi/6}2\\cos\\theta\\cdot2\\cos\\theta\\,d\\theta = 4\\int_0^{\\pi/6}\\frac{1+\\cos2\\theta}{2}\\,d\\theta = 2\\Big[\\theta+\\frac{\\sin2\\theta}{2}\\Big]_0^{\\pi/6}.$$\n$$= 2\\Big(\\frac\\pi6 + \\frac{\\sin(\\pi/3)}{2}\\Big) = \\frac\\pi3 + \\frac{\\sqrt3}{2}.$$\n\n**Sluttsvar:** $\\dfrac\\pi3+\\dfrac{\\sqrt3}{2}\\ (\\approx 1{,}91)$. $\\blacksquare$",
+        "hints": [
+          "$x=2\\sin\\theta$ og nye $\\theta$-grenser.",
+          "$\\cos^2\\theta = \\frac{1+\\cos2\\theta}{2}$.",
+          "$\\sin\\frac\\pi3 = \\frac{\\sqrt3}2$."
+        ]
+      }
+    },
+    {
+      "id": "mat111-uib-5-4-o8",
+      "type": "exercise",
+      "exercise": {
+        "id": "mat111-uib-5-4-o8-x",
+        "number": "8",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "Beregn $\\displaystyle\\int\\frac{x^3}{x^2+4}\\,dx$.",
+        "solution": "Uekte brøk → divider: $x^3 = x(x^2+4)-4x$:\n$$\\int\\frac{x^3}{x^2+4}\\,dx = \\int x\\,dx - \\int\\frac{4x}{x^2+4}\\,dx = \\frac{x^2}{2} - 2\\ln(x^2+4)+C,$$\nder siste ledd er $\\ln$-mønsteret ($u=x^2+4$, $du=2x\\,dx$). **Kontroll:** $\\big(\\tfrac{x^2}2-2\\ln(x^2+4)\\big)' = x - \\tfrac{4x}{x^2+4} = \\tfrac{x^3}{x^2+4}$. ✓ $\\blacksquare$",
+        "hints": [
+          "Gradsjekk først: 3 > 2 → divider.",
+          "Restbrøken har (nesten) nevnerens deriverte i telleren."
+        ]
+      }
+    },
+    {
+      "id": "mat111-uib-5-4-o9",
+      "type": "exercise",
+      "exercise": {
+        "id": "mat111-uib-5-4-o9-x",
+        "number": "9",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "Beregn $\\displaystyle\\int_0^{\\pi/3}\\sin^3x\\,dx$.",
+        "solution": "Omskriving med trig-identitet (beslutningstreets sistelinje): $\\sin^3x = (1-\\cos^2x)\\sin x$, og faktoren $\\sin x$ er (minus) den deriverte av $\\cos x$:\n$$\\boxed{\\,u=\\cos x,\\quad du=-\\sin x\\,dx,\\quad x=0\\Rightarrow u=1,\\quad x=\\tfrac\\pi3\\Rightarrow u=\\tfrac12\\,}$$\n$$\\int_0^{\\pi/3}\\sin^3x\\,dx = -\\int_1^{1/2}(1-u^2)\\,du = \\int_{1/2}^1(1-u^2)\\,du = \\Big[u-\\frac{u^3}{3}\\Big]_{1/2}^1 = \\frac23 - \\Big(\\frac12-\\frac1{24}\\Big) = \\frac{5}{24}.$$\n\n**Sluttsvar:** $\\dfrac{5}{24}$. $\\blacksquare$",
+        "hints": [
+          "Spalt av én sinus: $\\sin^3x=(1-\\cos^2x)\\sin x$.",
+          "Substituér $u=\\cos x$ med nye grenser.",
+          "$\\frac12-\\frac1{24}=\\frac{11}{24}$; $\\frac23=\\frac{16}{24}$."
+        ]
+      }
+    },
+    {
+      "id": "mat111-uib-5-4-o10",
+      "type": "exercise",
+      "exercise": {
+        "id": "mat111-uib-5-4-o10-x",
+        "number": "10",
+        "type": "classic",
+        "difficulty": "vanskelig",
+        "task": "Beregn $\\displaystyle\\int e^{2x}\\cos x\\,dx$.",
+        "solution": "Eksponential × trig → syklisk. La $I=\\int e^{2x}\\cos x\\,dx$; fast strategi: $u$ = trig-faktoren.\n\n**Runde 1:** $u=\\cos x\\;(u'=-\\sin x)$, $v'=e^{2x}\\;(v=\\tfrac12e^{2x})$:\n$$I = \\frac{e^{2x}\\cos x}{2} + \\frac12\\int e^{2x}\\sin x\\,dx.$$\n\n**Runde 2:** $u=\\sin x\\;(u'=\\cos x)$, $v'=e^{2x}\\;(v=\\tfrac12e^{2x})$:\n$$\\int e^{2x}\\sin x\\,dx = \\frac{e^{2x}\\sin x}{2} - \\frac12 I.$$\n\n**Sett inn og løs for $I$:**\n$$I = \\frac{e^{2x}\\cos x}{2} + \\frac{e^{2x}\\sin x}{4} - \\frac{I}{4} \\;\\Longrightarrow\\; \\frac54 I = \\frac{e^{2x}(2\\cos x+\\sin x)}{4} \\;\\Longrightarrow\\; I = \\frac{e^{2x}(2\\cos x+\\sin x)}{5}+C.$$\n\n**Kontroll:** derivasjon gir $\\frac{e^{2x}}{5}\\big(4\\cos x+2\\sin x+\\cos x-2\\sin x\\big) = e^{2x}\\cos x$. ✓ $\\blacksquare$",
+        "hints": [
+          "Kall integralet $I$ og hold samme strategi i begge rundene.",
+          "Konstanten $\\frac12$ fra $v$ dukker opp i begge rundene — følg den nøye.",
+          "Til slutt: $\\frac54I = \\dots$ — gang med $\\frac45$."
+        ]
+      }
+    },
+    {
+      "id": "mat111-uib-5-4-o11",
+      "type": "exercise",
+      "exercise": {
+        "id": "mat111-uib-5-4-o11-x",
+        "number": "11",
+        "type": "classic",
+        "difficulty": "vanskelig",
+        "task": "Beregn $\\displaystyle\\int\\frac{4x+3}{x^2+2x+10}\\,dx$.",
+        "solution": "Irreduserbar nevner (diskriminant $4-40<0$); nevnerens deriverte er $2x+2$. Splitt: $4x+3 = 2(2x+2)-1$:\n$$\\int\\frac{4x+3}{x^2+2x+10}\\,dx = 2\\ln(x^2+2x+10) - \\int\\frac{dx}{(x+1)^2+9},$$\nder vi fullførte kvadratet $x^2+2x+10=(x+1)^2+9$ i siste ledd. Grunnintegralet med $a=3$:\n$$\\int\\frac{dx}{(x+1)^2+9} = \\frac13\\arctan\\frac{x+1}{3}+C.$$\n\n**Sluttsvar:** $2\\ln(x^2+2x+10) - \\dfrac13\\arctan\\dfrac{x+1}{3}+C$. $\\blacksquare$",
+        "hints": [
+          "Skriv telleren som (konstant)·(nevnerens deriverte) + rest.",
+          "Fullført kvadrat gir arctan-delen.",
+          "Husk $\\frac1a$-faktoren."
+        ]
+      }
+    },
+    {
+      "id": "mat111-uib-5-4-o12",
+      "type": "exercise",
+      "exercise": {
+        "id": "mat111-uib-5-4-o12-x",
+        "number": "12",
+        "type": "classic",
+        "difficulty": "vanskelig",
+        "task": "Beregn $\\displaystyle\\int_0^{\\pi^2/4}\\cos\\sqrt x\\,dx$.",
+        "solution": "Stygg kjerne $\\sqrt x$ → substituér, så delvis (kjeden fra Eksempel d):\n$$\\boxed{\\,u=\\sqrt x,\\quad x=u^2,\\quad dx=2u\\,du,\\quad x=0\\Rightarrow u=0,\\quad x=\\tfrac{\\pi^2}{4}\\Rightarrow u=\\tfrac\\pi2\\,}$$\n$$\\int_0^{\\pi^2/4}\\cos\\sqrt x\\,dx = 2\\int_0^{\\pi/2}u\\cos u\\,du.$$\nDelvis: $u_1=u\\;(u_1'=1)$, $v'=\\cos u\\;(v=\\sin u)$:\n$$2\\Big(\\big[u\\sin u\\big]_0^{\\pi/2} - \\int_0^{\\pi/2}\\sin u\\,du\\Big) = 2\\Big(\\frac\\pi2 - \\big[-\\cos u\\big]_0^{\\pi/2}\\Big) = 2\\Big(\\frac\\pi2 - 1\\Big) = \\pi-2.$$\n\n**Sluttsvar:** $\\pi-2\\ (\\approx 1{,}14)$. $\\blacksquare$",
+        "hints": [
+          "Samme kjede som $\\int e^{\\sqrt x}dx$: substituér roten først.",
+          "$[-\\cos u]_0^{\\pi/2} = 0+1 = 1$."
+        ]
+      }
+    },
+    {
+      "id": "mat111-uib-5-4-o13",
+      "type": "exercise",
+      "exercise": {
+        "id": "mat111-uib-5-4-o13-x",
+        "number": "13",
+        "type": "classic",
+        "difficulty": "vanskelig",
+        "task": "(Krevende) Beregn $\\displaystyle\\int_0^1 x^2\\arctan x\\,dx$.",
+        "solution": "Produkt polynom × invers trig → delvis; LIATE: **I** før **A**, så $\\arctan x$ deriveres:\n$$u=\\arctan x\\;(\\Rightarrow u'=\\tfrac{1}{1+x^2}),\\qquad v'=x^2\\;(\\Rightarrow v=\\tfrac{x^3}{3}).$$\n$$\\int_0^1x^2\\arctan x\\,dx = \\Big[\\frac{x^3}{3}\\arctan x\\Big]_0^1 - \\frac13\\int_0^1\\frac{x^3}{1+x^2}\\,dx = \\frac{\\pi}{12} - \\frac13\\int_0^1\\frac{x^3}{1+x^2}\\,dx.$$\n\nRestintegralet er en uekte brøk — divider: $\\frac{x^3}{1+x^2} = x - \\frac{x}{1+x^2}$:\n$$\\int_0^1\\frac{x^3}{1+x^2}\\,dx = \\Big[\\frac{x^2}{2}-\\frac12\\ln(1+x^2)\\Big]_0^1 = \\frac12-\\frac{\\ln2}{2}.$$\n\n$$\\int_0^1x^2\\arctan x\\,dx = \\frac{\\pi}{12} - \\frac13\\Big(\\frac12-\\frac{\\ln2}{2}\\Big) = \\frac{\\pi}{12}-\\frac16+\\frac{\\ln2}{6}.$$\n\n**Sluttsvar:** $\\dfrac{\\pi}{12}-\\dfrac16+\\dfrac{\\ln2}{6}\\ (\\approx 0{,}21)$. $\\blacksquare$\n\n*(Kjede på tre ledd: delvis → polynomdivisjon → $\\ln$-mønster — typisk toppoppgave i sjangeren.)*",
+        "hints": [
+          "LIATE: arctan deriveres, $x^2$ antideriveres.",
+          "Restbrøken $\\frac{x^3}{1+x^2}$ er uekte — divider.",
+          "$\\arctan 1 = \\frac\\pi4$."
+        ]
+      }
+    },
+    {
+      "id": "mat111-uib-5-4-o14",
+      "type": "exercise",
+      "exercise": {
+        "id": "mat111-uib-5-4-o14-x",
+        "number": "14",
+        "type": "classic",
+        "difficulty": "vanskelig",
+        "task": "(Krevende) Beregn $\\displaystyle\\int\\frac{x+4}{(x-2)(x+1)^2}\\,dx$.",
+        "solution": "Ekte brøk med enkel og gjentatt lineær faktor. **Oppsett:**\n$$\\frac{x+4}{(x-2)(x+1)^2} = \\frac{A}{x-2}+\\frac{B}{x+1}+\\frac{C}{(x+1)^2}.$$\nGang opp: $x+4 = A(x+1)^2 + B(x-2)(x+1) + C(x-2)$.\n$x=2$: $6=9A\\Rightarrow A=\\tfrac23$. $x=-1$: $3=-3C\\Rightarrow C=-1$. $x^2$-koeffisient: $0=A+B\\Rightarrow B=-\\tfrac23$.\n\n*(Kontroll i $x=0$: $\\tfrac23\\cdot1 + (-\\tfrac23)(-2)(1) + (-1)(-2) = \\tfrac23+\\tfrac43+2 = 4$. ✓)*\n\n$$\\int\\frac{x+4}{(x-2)(x+1)^2}\\,dx = \\frac23\\ln|x-2| - \\frac23\\ln|x+1| + \\frac{1}{x+1}+C.$$\n\n*(Siste ledd: $\\int -1\\cdot(x+1)^{-2}dx = +(x+1)^{-1}$.)* $\\blacksquare$",
+        "hints": [
+          "Tre ledd i ansatsen — ett per potens av $(x+1)$ pluss ett for $(x-2)$.",
+          "Røttene gir $A$ og $C$; $x^2$-koeffisienten gir $B$.",
+          "$\\int(x+1)^{-2}dx = -(x+1)^{-1}$ — pass fortegnet mot $C=-1$."
+        ]
+      }
+    },
+    {
+      "id": "mat111-uib-5-4-o15",
+      "type": "exercise",
+      "exercise": {
+        "id": "mat111-uib-5-4-o15-x",
+        "number": "15",
+        "type": "classic",
+        "difficulty": "vanskelig",
+        "task": "(Krevende) Beregn $\\displaystyle\\int_0^1\\frac{dx}{(1+x^2)^2}$.",
+        "solution": "Potens av $1+x^2$ uten $x$-faktor → trig-substitusjon:\n$$\\boxed{\\,x=\\tan\\theta,\\quad dx=\\frac{d\\theta}{\\cos^2\\theta},\\quad \\theta\\in(-\\tfrac\\pi2,\\tfrac\\pi2),\\quad x=0\\Rightarrow\\theta=0,\\quad x=1\\Rightarrow\\theta=\\tfrac\\pi4\\,}$$\nMed $1+x^2 = \\frac{1}{\\cos^2\\theta}$ blir $(1+x^2)^2 = \\frac{1}{\\cos^4\\theta}$:\n$$\\int_0^1\\frac{dx}{(1+x^2)^2} = \\int_0^{\\pi/4}\\cos^4\\theta\\cdot\\frac{d\\theta}{\\cos^2\\theta} = \\int_0^{\\pi/4}\\cos^2\\theta\\,d\\theta = \\Big[\\frac\\theta2+\\frac{\\sin2\\theta}{4}\\Big]_0^{\\pi/4} = \\frac\\pi8+\\frac14.$$\n\n**Sluttsvar:** $\\dfrac\\pi8+\\dfrac14\\ (\\approx 0{,}64)$. $\\blacksquare$",
+        "hints": [
+          "$x=\\tan\\theta$ kollapser $(1+x^2)^2$ til $\\cos^{-4}\\theta$.",
+          "$\\cos^2\\theta = \\frac{1+\\cos2\\theta}{2}$.",
+          "$\\sin\\frac\\pi2=1$."
+        ]
+      }
+    },
+    {
+      "id": "mat111-uib-5-4-warn",
+      "type": "warning",
+      "title": "Typiske feil (kjedet form)",
+      "content": "- **Grensebytte hoppes over midt i kjeden.** I substitusjon → delvis-kjeder skal grensene oversettes ÉN gang (i boksen) og deretter følge $u$-verdenen hele veien.\n- **Tyngste vei velges.** Trig-substitusjon på $\\int\\frac{x}{\\sqrt{9-x^2}}dx$ fungerer, men koster fem ekstra linjer mot vanlig substitusjon. Sjekk alltid etter en $x$-faktor før du ruller ut trig-maskineriet.\n- **Delbrøk på uekte brøk** — gradsjekk er alltid første trekk i pkt. 1.\n- **Fortegnskaskade i delvis:** $v=-\\cos u$ og $-\\int u'v$ gir to minuser som skal bli pluss; i sykliske integraler kommer det en tredje. Skriv hvert fortegnssteg.\n- **«Slå opp» i permen.** Selv om antideriverten står i formelsamlingen i læreboka: oppgaven krever teknikken vist. Fasit uten føring = null."
+    },
+    {
+      "id": "mat111-uib-5-4-kort-intro",
+      "type": "text",
+      "content": "## Oppslagskort — teknikkene på én skjerm\n\nKortversjonene under er ment for rask repetisjon før prøver og eksamen."
+    },
+    {
+      "id": "mat111-uib-5-4-def-tre",
+      "type": "definition",
+      "title": "Beslutningstreet (kortversjon)",
+      "content": "Seks spørsmål i fast rekkefølge: (1) rasjonal? → divider om uekte, så delbrøk; (2) rotuttrykk/kvadratsum uten $x$-faktor? → trig-substitusjon; (3) polynom × transcendent? → delvis (polynomet deriveres); (4) kjerne med matchende derivert? → substitusjon (spesialtilfelle $\\frac{f'}{f}\\to\\ln|f|$); (5) ensom $\\ln/\\arctan$? → delvis mot 1; (6) $e^{kx}\\times$trig? → syklisk. Ingen treff → omskriv (splitt brøk, trig-identitet, substituér styggeste del)."
+    },
+    {
+      "id": "mat111-uib-5-4-def-boks",
+      "type": "definition",
+      "title": "Substitusjonsboksen (kortversjon)",
+      "content": "Tre linjer, alltid: $u=g(x)$; $du=g'(x)\\,dx$ (løst for den kombinasjonen som står i integralet); nye grenser $x=a\\Rightarrow u=g(a)$, $x=b\\Rightarrow u=g(b)$. Ubestemt integral: bytt tilbake til $x$ til slutt i stedet for grenselinjen."
+    },
+    {
+      "id": "mat111-uib-5-4-def-delviskort",
+      "type": "definition",
+      "title": "Delvis-formelen med LIATE (kortversjon)",
+      "content": "$\\int uv'\\,dx = uv-\\int u'v\\,dx$, der $u$ velges etter LIATE (Logaritme, Invers trig, Algebraisk, Trig, Eksponential — først i lista deriveres). Valget skrives eksplisitt: $u=\\dots(u'=\\dots)$, $v'=\\dots(v=\\dots)$."
+    },
+    {
+      "id": "mat111-uib-5-4-def-delbrkort",
+      "type": "definition",
+      "title": "Delbrøk-oppsettene (kortversjon)",
+      "content": "Ekte brøk + faktorisert nevner. Distinkt lineær faktor $(x-a)$: ledd $\\frac{A}{x-a}$. Gjentatt $(x-a)^m$: ledd $\\frac{A_1}{x-a}+\\dots+\\frac{A_m}{(x-a)^m}$. Irreduserbar kvadratisk: ledd $\\frac{Bx+C}{x^2+px+q}$. Koeffisienter: innsetting av røtter + koeffisientsammenligning; alltid kontroll."
+    },
+    {
+      "id": "mat111-uib-5-4-def-arctankort",
+      "type": "definition",
+      "title": "Fullført kvadrat → arctan (kortversjon)",
+      "content": "Konstant teller over irreduserbar nevner: fullfør kvadratet til $(x+\\frac b2)^2+a^2$ og bruk $\\int\\frac{du}{u^2+a^2}=\\frac1a\\arctan\\frac ua$. Lineær teller: splitt først i (deriverte-del → $\\ln$) + (konstant-del → arctan)."
+    },
+    {
+      "id": "mat111-uib-5-4-def-trigkort",
+      "type": "definition",
+      "title": "Trig-substitusjonene (kortversjon)",
+      "content": "$\\sqrt{a^2-x^2}$: sett $x=a\\sin\\theta$, $\\theta\\in[-\\frac\\pi2,\\frac\\pi2]$ → roten blir $a\\cos\\theta$. $a^2+x^2$ (også i potenser): sett $x=a\\tan\\theta$, $\\theta\\in(-\\frac\\pi2,\\frac\\pi2)$ → summen blir $\\frac{a^2}{\\cos^2\\theta}$. Tilbake: rettvinklet trekant. Men: en $x$-faktor i telleren betyr som regel at vanlig substitusjon er raskere."
+    },
+    {
+      "id": "mat111-uib-5-4-def-sykliskkort",
+      "type": "definition",
+      "title": "Syklisk integral (kortversjon)",
+      "content": "$e^{kx}\\times\\sin/\\cos$: kall integralet $I$, kjør to runder delvis med SAMME strategi (f.eks. alltid $u$ = trig-faktoren), få $I = \\text{ledd} - cI$, og løs algebraisk for $I$."
+    },
+    {
+      "id": "mat111-uib-5-4-def-foring",
+      "type": "definition",
+      "title": "Føringsminimum for full uttelling (sjanger B)",
+      "content": "Sjekkliste: (1) teknikkvalget synlig (boks eller valglinje); (2) nye grenser bokført ved substitusjon i bestemt integral; (3) delbrøk: oppsett + koeffisientbestemmelse + kontroll; (4) trig-substitusjon: verdimengde deklarert; (5) markert sluttsvar — og i ubestemte integraler $+C$; (6) gjerne kontrollderivasjon når tiden tillater."
+    },
+    {
+      "id": "mat111-uib-5-4-def-alternativt",
+      "type": "definition",
+      "title": "«Alternativt:»-praksisen",
+      "content": "Arkivets løsningsforslag fører ofte to likeverdige veier til samme integral (substitusjon vs. trig-substitusjon, $\\ln$-mønster vs. delbrøk) og markerer den andre med «Alternativt:». Begge gir full uttelling. Lærdom for deg: velg den korteste — men vit at veivalget ditt ikke kan bli «feil» så lenge føringen er komplett."
+    },
+    {
+      "id": "mat111-uib-5-4-symbol",
+      "type": "collapsible",
+      "title": "Symbol- og formelliste",
+      "buttonText": "Vis symboler og formler",
+      "content": [
+        {
+          "id": "mat111-uib-5-4-symbol-txt",
+          "type": "text",
+          "content": "## Symbol- og formelliste\n\n*Oppslagsverk — alt her forklares underveis i kapitlet.*\n\n| Symbol | Betydning |\n|---|---|\n| $u, du$ | Kjerne og differensial i substitusjonsboksen |\n| $u/v'$ | Rollefordeling i delvis integrasjon (LIATE) |\n| $I$ | Det ukjente integralet i sykliske tilfeller |\n| $A, B, C$ | Delbrøk-koeffisienter |\n| $\\theta$ | Vinkelvariabelen i trig-substitusjon (med deklarert intervall) |\n| $[\\,\\cdot\\,]_a^b$ | Innsettingsklammen |\n| «Alternativt:» | Markør for en likeverdig løsningsvei |\n\n**Formler i dette delkapitlet** (fullstendige utledninger i kap. 5.2–5.3):\n\n$$\\int f(g(x))g'(x)\\,dx = \\int f(u)\\,du \\qquad \\int\\frac{f'}{f}\\,dx = \\ln|f|+C$$\n*Substitusjon og ln-mønsteret.*\n\n$$\\int uv'\\,dx = uv-\\int u'v\\,dx$$\n*Delvis integrasjon.*\n\n$$\\int\\frac{dx}{x-a}=\\ln|x-a|+C \\qquad \\int\\frac{dx}{x^2+a^2}=\\frac1a\\arctan\\frac xa+C$$\n*Grunnintegralene i delbrøk.*\n\n$$x=a\\sin\\theta:\\ \\sqrt{a^2-x^2}=a\\cos\\theta \\qquad x=a\\tan\\theta:\\ a^2+x^2=\\frac{a^2}{\\cos^2\\theta}$$\n*Trig-substitusjonene.*\n\n$$\\sin^2\\theta=\\frac{1-\\cos2\\theta}{2} \\qquad \\cos^2\\theta=\\frac{1+\\cos2\\theta}{2} \\qquad \\sin^3x=(1-\\cos^2x)\\sin x$$\n*Trig-identitetene drillen bruker.*"
+        }
+      ]
+    }
+  ],
+  "exercises": []
+}

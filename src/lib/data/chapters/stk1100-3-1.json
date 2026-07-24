@@ -1,0 +1,533 @@
+{
+  "id": "stk1100-3-1",
+  "courseId": "stk1100",
+  "chapterNumber": "3.1",
+  "title": "Simultantetthet: marginaler, betinget tetthet og område-sannsynligheter",
+  "description": "Fra en simultantetthet til normeringskonstant, marginaler, betinget tetthet og P(område) via dobbeltintegral — med integrasjonsområdet alltid tegnet.",
+  "estimatedMinutes": 60,
+  "competenceGoals": [
+    "sette opp en simultantetthet og bestemme normeringskonstanten fra at dobbeltintegralet er 1",
+    "finne marginaltetthetene ved å integrere ut den andre variabelen",
+    "regne ut betinget tetthet og betinget forventning fra en simultantetthet",
+    "regne område-sannsynligheter som P(Y minst X) ved å tegne integrasjonsområdet og sette riktige grenser"
+  ],
+  "content": [
+    {
+      "id": "stk1100-3-1-tip-eksamensvinkel",
+      "type": "tip",
+      "title": "Eksamensvinkel",
+      "content": "**Simultanfordelingen er en av bokas mest lønnsomme sjangere.**\n\n- **Simultantetthet (sjanger D)** — marginaler, betinget tetthet, uavhengighetssjekk og område-sannsynlighet — er i **8 av 10 sett (80 %)**, nesten alltid som en *egen stor oppgave*. Sjangerbokstaven D står for oppgavetypen «simultantetthet», og den forklares her.\n- Dette teorikapitlet dekker de fire faste delspørsmålene: (1) finn normeringskonstanten, (2) finn marginaltetthetene, (3) finn betinget tetthet / betinget forventning, (4) regn en område-sannsynlighet som $P(Y \\ge X)$.\n- **Sensorkrav 3 drilles her:** når du regner $P(\\text{område})$ som et dobbeltintegral, **skal du tegne integrasjonsområdet** for å sette riktige grenser. Fasitene begynner med en skisse — et dobbeltintegral med gale grenser gir lite uttelling.\n\nSelve uavhengighetssjekken (er $X$ og $Y$ uavhengige?) er så hyppig belønnet at den har sitt eget drillkapittel rett etter dette: [kap. 3.2](/bok/stk1100/stk1100-3-2)."
+    },
+    {
+      "id": "stk1100-3-1-forkunnskaper",
+      "type": "text",
+      "content": "**Forkunnskaper.** Dette kapitlet bygger på én stokastisk variabel av gangen fra **[kap. 2.1 Kontinuerlige fordelinger](/bok/stk1100/stk1100-2-1)** — tetthet, normeringskonstant ($\\int f = 1$), fordelingsfunksjon $F$ og momenter ved integrasjon — og på regnereglene for forventning fra **[kap. 1.2 Forventning og varians](/bok/stk1100/stk1100-1-2)**.\n\nDet eneste nye matematiske verktøyet er **dobbeltintegralet** $\\iint$, som bare er «integrer én variabel av gangen». Trenger du å friske opp det bestemte integralet som ligger under, se [R2 2.4 Bestemt integral](/bok/r2/r2-2-4). Alt annet forklares underveis."
+    },
+    {
+      "id": "stk1100-3-1-intro",
+      "type": "text",
+      "content": "Når vi måler **to** tilfeldige størrelser på samme enhet samtidig — for eksempel høyden *og* perioden til en tilfeldig havbølge, eller diameteren *og* lengden til en tilfeldig produsert komponent — holder det ikke lenger med én tetthet. Vi trenger en **simultantetthet** $f(x,y)$ som beskriver hvordan de to verdiene opptrer *sammen*. Fra den kan vi hente ut alt: hvordan hver variabel oppfører seg alene (marginaltetthet), hvordan den ene oppfører seg når vi kjenner den andre (betinget tetthet), og sannsynligheten for at paret $(X,Y)$ havner i et bestemt område.\n\nKapitlet er bygget som fem små **læringsløkker** — teori, gjennomregnet eksempel, så øvingsoppgaver — slik at du kan ta én bit av gangen. Sett av ca. 60 minutter; hver løkke er merket med et tidsanslag, og du kan trygt ta pause mellom løkkene."
+    },
+    {
+      "id": "stk1100-3-1-lokke1-tekst",
+      "type": "text",
+      "content": "## Løkke 1 — Simultantetthet og normeringskonstant (~12 min)"
+    },
+    {
+      "id": "stk1100-3-1-simultan-motivasjon",
+      "type": "text",
+      "content": "En **simultantetthet** er en flate over $xy$-planet: jo høyere flaten er over et punkt $(x,y)$, desto mer sannsynlig er det at paret $(X,Y)$ havner i nærheten av det punktet. Akkurat som for én variabel er *ikke* $f(x,y)$ en sannsynlighet — sannsynligheter får vi først når vi integrerer flaten over et område (finner **volumet** under den). Og akkurat som én tetthet må integrere til 1, må hele volumet under simultantettheten være 1."
+    },
+    {
+      "id": "stk1100-3-1-def-simultantetthet",
+      "type": "definition",
+      "title": "Simultantetthet",
+      "content": "Beskriver hvor sannsynlig hvert par av verdier er for to kontinuerlige variable samtidig. Funksjonen $f(x,y) \\ge 0$ er **simultantettheten** til $(X,Y)$ når sannsynligheten for et hvilket som helst område $A$ er volumet under flaten:\n\n$$P\\big((X,Y) \\in A\\big) = \\iint_A f(x,y)\\,dx\\,dy.$$\n\nVerdien $f(x,y)$ er *ikke* en sannsynlighet og kan godt være større enn 1 — bare volumet er en sannsynlighet."
+    },
+    {
+      "id": "stk1100-3-1-def-stotte",
+      "type": "definition",
+      "title": "Støtte (support)",
+      "content": "Området der tettheten er positiv — utenfor er den 0. **Støtten** til $(X,Y)$ er mengden $\\{(x,y) : f(x,y) > 0\\}$. Alltid skriv tettheten stykkevis: en formel på støtten og $f(x,y) = 0$ ellers. Formen på støtten (rektangel, trekant, disk) avgjør grensene i alle integralene — og den avgjør uavhengighet (kap. 3.2)."
+    },
+    {
+      "id": "stk1100-3-1-def-simultan-cdf",
+      "type": "definition",
+      "title": "Simultan fordelingsfunksjon",
+      "content": "Den kumulative sannsynligheten for at begge variablene ligger under gitte verdier. **Simultan fordelingsfunksjon**:\n\n$$F(x,y) = P(X \\le x,\\, Y \\le y) = \\int_{-\\infty}^{y}\\!\\!\\int_{-\\infty}^{x} f(s,t)\\,ds\\,dt.$$\n\nVi bruker den sjelden direkte i STK1100, men sammenhengen $f(x,y) = \\frac{\\partial^2 F}{\\partial x\\,\\partial y}$ finnes."
+    },
+    {
+      "id": "stk1100-3-1-def-normering",
+      "type": "definition",
+      "title": "Normeringskonstant",
+      "content": "Konstanten som gjør at hele volumet under tettheten blir 1. Er $f(x,y) = c\\,g(x,y)$ på en støtte $S$, bestemmes **normeringskonstanten** $c$ av kravet\n\n$$\\iint_S f(x,y)\\,dx\\,dy = 1 \\;\\Rightarrow\\; c = \\frac{1}{\\iint_S g(x,y)\\,dx\\,dy}.$$\n\nRegn dobbeltintegralet innenfra og ut: integrer først den ene variabelen (den andre holdes fast), så den andre."
+    },
+    {
+      "id": "stk1100-3-1-ex-normering",
+      "type": "example",
+      "title": "Eksempel 1: Finn normeringskonstanten",
+      "problem": "La $(X,Y)$ ha tetthet $f(x,y) = c\\,x(x+y)$ på enhetskvadratet $0 < x < 1$, $0 < y < 1$, og 0 ellers. Bestem $c$.",
+      "solution": "Kravet er $\\iint f = 1$. Vi integrerer innenfra (først $y$, så $x$):\n\n$$\\int_0^1 \\int_0^1 x(x+y)\\,dy\\,dx = \\int_0^1 \\Big[x^2 y + x\\tfrac{y^2}{2}\\Big]_{y=0}^{1}\\,dx = \\int_0^1 \\Big(x^2 + \\tfrac{x}{2}\\Big)\\,dx = \\tfrac13 + \\tfrac14 = \\tfrac{7}{12}.$$\n\nDa må $c \\cdot \\tfrac{7}{12} = 1$, altså $c = \\tfrac{12}{7}$. Tettheten er dermed $f(x,y) = \\tfrac{12}{7}x(x+y)$ på enhetskvadratet."
+    },
+    {
+      "id": "stk1100-3-1-oppg-innsteg",
+      "type": "exercise",
+      "exercise": {
+        "id": "stk1100-3-1-e1",
+        "number": "1",
+        "type": "classic",
+        "difficulty": "lett",
+        "task": "(Ren gjengivelse.) Hvilke **to** krav må en funksjon $f(x,y)$ oppfylle for å være en gyldig simultantetthet? Og er $f(x,y)$ selv en sannsynlighet?",
+        "solution": "**Krav 1:** $f(x,y) \\ge 0$ for alle $(x,y)$ (ikke-negativ).\n\n**Krav 2:** $\\iint_{\\mathbb{R}^2} f(x,y)\\,dx\\,dy = 1$ (hele volumet er 1).\n\n$f(x,y)$ er **ikke** en sannsynlighet — den kan være større enn 1. Sannsynligheter får vi først ved å integrere $f$ over et område.",
+        "hints": [
+          "Tenk på de to kravene for én tetthet ($f \\ge 0$ og $\\int f = 1$) og løft dem til to variable.",
+          "For kontinuerlige variable er punktsannsynligheten alltid 0."
+        ]
+      }
+    },
+    {
+      "id": "stk1100-3-1-oppg-normering",
+      "type": "exercise",
+      "exercise": {
+        "id": "stk1100-3-1-e2",
+        "number": "2",
+        "type": "classic",
+        "difficulty": "lett",
+        "task": "Finn normeringskonstanten $c$ når $f(x,y) = c\\,(x + 2y)$ på $0 < x < 1$, $0 < y < 1$, og 0 ellers.",
+        "solution": "Vi krever $\\iint f = 1$:\n\n$$\\int_0^1 \\int_0^1 (x + 2y)\\,dx\\,dy = \\int_0^1 \\Big[\\tfrac{x^2}{2} + 2xy\\Big]_{x=0}^{1}\\,dy = \\int_0^1 \\Big(\\tfrac12 + 2y\\Big)\\,dy = \\tfrac12 + 1 = \\tfrac32.$$\n\nDa er $c \\cdot \\tfrac32 = 1$, så $c = \\tfrac{2}{3}$.",
+        "hints": [
+          "Sett opp $\\iint c(x+2y)\\,dx\\,dy = 1$ og regn dobbeltintegralet innenfra.",
+          "Integrer $x$ først med $y$ fast, deretter $y$."
+        ]
+      }
+    },
+    {
+      "id": "stk1100-3-1-lokke2-tekst",
+      "type": "text",
+      "content": "## Løkke 2 — Marginaltettheter (~12 min)"
+    },
+    {
+      "id": "stk1100-3-1-def-marginaltetthet",
+      "type": "definition",
+      "title": "Marginaltetthet",
+      "content": "Tettheten til én variabel alene, når vi ser bort fra den andre. Vi får **marginaltettheten** ved å *integrere ut* den andre variabelen over hele dens område:\n\n$$f_X(x) = \\int_{-\\infty}^{\\infty} f(x,y)\\,dy, \\qquad f_Y(y) = \\int_{-\\infty}^{\\infty} f(x,y)\\,dx.$$\n\nIntuisjon: for å finne hvor sannsynlig én $x$-verdi er alene, summerer (integrerer) vi over alle $y$-ene den kan opptre med. Husk grensene fra støtten — de kan avhenge av $x$."
+    },
+    {
+      "id": "stk1100-3-1-marginal-utledning",
+      "type": "text",
+      "content": "**Viktig om grensene.** Når støtten er et rektangel (som enhetskvadratet), er grensene faste tall. Men når støtten er en trekant eller annet skrått område, avhenger integrasjonsgrensen av den variabelen du beholder. Da må du tenke: «for en fast $x$, hvilke $y$-verdier er mulige?» — og det er nettopp derfor vi tegner støtten."
+    },
+    {
+      "id": "stk1100-3-1-ex-marginal",
+      "type": "example",
+      "title": "Eksempel 2: Begge marginaltetthetene",
+      "problem": "La $(X,Y)$ ha tetthet $f(x,y) = x + y$ på enhetskvadratet $0 < x < 1$, $0 < y < 1$ (sjekk selv at $\\iint f = 1$). Finn $f_X(x)$ og $f_Y(y)$.",
+      "solution": "**Marginal for $X$** (integrer ut $y$ fra 0 til 1):\n\n$$f_X(x) = \\int_0^1 (x+y)\\,dy = \\Big[xy + \\tfrac{y^2}{2}\\Big]_0^1 = x + \\tfrac12, \\qquad 0 < x < 1.$$\n\n**Marginal for $Y$** (integrer ut $x$ fra 0 til 1), ved symmetri i formelen:\n\n$$f_Y(y) = \\int_0^1 (x+y)\\,dx = \\Big[\\tfrac{x^2}{2} + xy\\Big]_0^1 = \\tfrac12 + y, \\qquad 0 < y < 1.$$\n\nSjekk: $\\int_0^1 (x + \\tfrac12)\\,dx = \\tfrac12 + \\tfrac12 = 1$. Marginaltetthetene integrerer hver for seg til 1, som de skal."
+    },
+    {
+      "id": "stk1100-3-1-oppg-marginal1",
+      "type": "exercise",
+      "exercise": {
+        "id": "stk1100-3-1-e3",
+        "number": "3",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "Bruk tettheten fra Eksempel 1, $f(x,y) = \\tfrac{12}{7}x(x+y)$ på enhetskvadratet. Finn begge marginaltetthetene $f_X(x)$ og $f_Y(y)$.",
+        "solution": "**$f_X(x)$** (integrer ut $y$):\n\n$$f_X(x) = \\tfrac{12}{7}\\int_0^1 x(x+y)\\,dy = \\tfrac{12}{7}\\,x\\Big[x + \\tfrac12\\Big] = \\tfrac{12}{7}\\Big(x^2 + \\tfrac{x}{2}\\Big), \\qquad 0 < x < 1.$$\n\n**$f_Y(y)$** (integrer ut $x$):\n\n$$f_Y(y) = \\tfrac{12}{7}\\int_0^1 (x^2 + xy)\\,dx = \\tfrac{12}{7}\\Big(\\tfrac13 + \\tfrac{y}{2}\\Big), \\qquad 0 < y < 1.$$\n\n(Kontroll: $\\int_0^1 f_Y(y)\\,dy = \\tfrac{12}{7}(\\tfrac13 + \\tfrac14) = \\tfrac{12}{7}\\cdot\\tfrac{7}{12} = 1$.)",
+        "hints": [
+          "$f_X(x) = \\int_0^1 f(x,y)\\,dy$ — behold $x$ som konstant.",
+          "Skriv $x(x+y) = x^2 + xy$ før du integrerer over $y$."
+        ]
+      }
+    },
+    {
+      "id": "stk1100-3-1-oppg-marginal2",
+      "type": "exercise",
+      "exercise": {
+        "id": "stk1100-3-1-e4",
+        "number": "4",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "La $f(x,y) = 6xy^2$ på enhetskvadratet $0 < x < 1$, $0 < y < 1$ (og 0 ellers). Vis at $\\iint f = 1$, og finn begge marginaltetthetene.",
+        "solution": "**Normering:** $\\int_0^1\\int_0^1 6xy^2\\,dx\\,dy = 6\\int_0^1 y^2\\Big[\\tfrac{x^2}{2}\\Big]_0^1\\,dy = 6\\int_0^1 \\tfrac{y^2}{2}\\,dy = 6\\cdot\\tfrac16 = 1.$ ✓\n\n**$f_X(x)$:** $\\int_0^1 6xy^2\\,dy = 6x\\Big[\\tfrac{y^3}{3}\\Big]_0^1 = 2x$, for $0 < x < 1$.\n\n**$f_Y(y)$:** $\\int_0^1 6xy^2\\,dx = 6y^2\\Big[\\tfrac{x^2}{2}\\Big]_0^1 = 3y^2$, for $0 < y < 1$.\n\nLegg merke til at $f_X(x)\\,f_Y(y) = 2x\\cdot 3y^2 = 6xy^2 = f(x,y)$ — et hint om at $X$ og $Y$ er uavhengige (drilles i [kap. 3.2](/bok/stk1100/stk1100-3-2)).",
+        "hints": [
+          "Trekk konstanten 6 utenfor og integrer én variabel av gangen.",
+          "$\\int_0^1 y^2\\,dy = \\tfrac13$ og $\\int_0^1 x\\,dx = \\tfrac12$."
+        ]
+      }
+    },
+    {
+      "id": "stk1100-3-1-lokke3-tekst",
+      "type": "text",
+      "content": "## Løkke 3 — Betinget tetthet og betinget forventning (~12 min)"
+    },
+    {
+      "id": "stk1100-3-1-def-betinget-tetthet",
+      "type": "definition",
+      "title": "Betinget tetthet",
+      "content": "Tettheten til $Y$ når vi *vet* at $X = x$. Den **betingede tettheten** er simultantettheten delt på marginaltettheten i den kjente variabelen:\n\n$$f_{Y \\mid X = x}(y) = \\frac{f(x,y)}{f_X(x)}, \\qquad \\text{for } f_X(x) > 0.$$\n\nIntuisjon: vi «skjærer» simultanflaten langs linjen $X = x$ og skalerer snittet slik at det selv integrerer til 1. For hver fast $x$ er $f_{Y \\mid X = x}(y)$ en helt vanlig tetthet i $y$."
+    },
+    {
+      "id": "stk1100-3-1-def-betinget-forventning",
+      "type": "definition",
+      "title": "Betinget forventning $E(Y \\mid X = x)$",
+      "content": "Forventet verdi av $Y$ når vi vet at $X = x$ — regnet med den betingede tettheten:\n\n$$E(Y \\mid X = x) = \\int_{-\\infty}^{\\infty} y\\, f_{Y \\mid X = x}(y)\\,dy.$$\n\nSvaret er som regel en funksjon av $x$ (regresjonskurven til $Y$ på $X$): kjenner du én verdi, endrer det din beste gjetning på den andre."
+    },
+    {
+      "id": "stk1100-3-1-ex-betinget",
+      "type": "example",
+      "title": "Eksempel 3: Betinget tetthet og forventning",
+      "problem": "Bruk $f(x,y) = x + y$ på enhetskvadratet (Eksempel 2), der $f_X(x) = x + \\tfrac12$. Finn $f_{Y \\mid X = x}(y)$ og $E(Y \\mid X = x)$.",
+      "solution": "**Betinget tetthet** (for en fast $x$ med $0 < x < 1$):\n\n$$f_{Y \\mid X = x}(y) = \\frac{f(x,y)}{f_X(x)} = \\frac{x + y}{x + \\tfrac12}, \\qquad 0 < y < 1.$$\n\n(Kontroll: $\\int_0^1 \\frac{x+y}{x+1/2}\\,dy = \\frac{x + 1/2}{x + 1/2} = 1$.) ✓\n\n**Betinget forventning:**\n\n$$E(Y \\mid X = x) = \\int_0^1 y\\cdot\\frac{x+y}{x+\\tfrac12}\\,dy = \\frac{1}{x+\\tfrac12}\\int_0^1 (xy + y^2)\\,dy = \\frac{\\tfrac{x}{2} + \\tfrac13}{x + \\tfrac12} = \\frac{3x + 2}{3(2x + 1)}.$$\n\nFor eksempel gir $x = \\tfrac12$ verdien $\\frac{3\\cdot\\frac12 + 2}{3(2\\cdot\\frac12+1)} = \\frac{7/2}{6} = \\frac{7}{12} \\approx 0{,}58$ — litt over midten, fordi høyere $y$ er litt mer sannsynlig her."
+    },
+    {
+      "id": "stk1100-3-1-oppg-betinget1",
+      "type": "exercise",
+      "exercise": {
+        "id": "stk1100-3-1-e5",
+        "number": "5",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "Med $f(x,y) = 6xy^2$ på enhetskvadratet (der $f_X(x) = 2x$, $f_Y(y) = 3y^2$): finn den betingede tettheten $f_{Y \\mid X = x}(y)$. Hva legger du merke til?",
+        "solution": "$$f_{Y \\mid X = x}(y) = \\frac{6xy^2}{2x} = 3y^2, \\qquad 0 < y < 1.$$\n\nDen betingede tettheten er **lik marginaltettheten** $f_Y(y) = 3y^2$ — den avhenger ikke av $x$ i det hele tatt. Det betyr at kunnskap om $X$ ikke endrer fordelingen til $Y$: $X$ og $Y$ er uavhengige.",
+        "hints": [
+          "Sett inn i $f_{Y\\mid X=x}(y) = f(x,y)/f_X(x)$.",
+          "Sammenlign resultatet med marginaltettheten $f_Y(y)$."
+        ]
+      }
+    },
+    {
+      "id": "stk1100-3-1-oppg-betinget2",
+      "type": "exercise",
+      "exercise": {
+        "id": "stk1100-3-1-e6",
+        "number": "6",
+        "type": "classic",
+        "difficulty": "vanskelig",
+        "task": "Bruk $f(x,y) = \\tfrac{12}{7}x(x+y)$ på enhetskvadratet (Eksempel 1), der $f_X(x) = \\tfrac{12}{7}(x^2 + \\tfrac{x}{2})$. Finn $f_{Y \\mid X = x}(y)$ og $E(Y \\mid X = x)$.",
+        "solution": "**Betinget tetthet:** $x$-faktoren og $\\tfrac{12}{7}$ forkortes:\n\n$$f_{Y \\mid X = x}(y) = \\frac{\\tfrac{12}{7}x(x+y)}{\\tfrac{12}{7}x(x+\\tfrac12)} = \\frac{x+y}{x+\\tfrac12}, \\qquad 0 < y < 1.$$\n\nDette er nøyaktig samme betingede tetthet som i Eksempel 3 — fordi $x$-faktoren forkortes bort. Da blir også den betingede forventningen den samme:\n\n$$E(Y \\mid X = x) = \\frac{3x + 2}{3(2x + 1)}.$$\n\nPoeng: en felles faktor $x$ i simultantettheten påvirker marginalen, men *ikke* den betingede fordelingen til $Y$.",
+        "hints": [
+          "Skriv $f_X(x) = \\tfrac{12}{7}x(x+\\tfrac12)$ og sett inn i brøken $f/f_X$.",
+          "Se hva som forkortes — sammenlign med Eksempel 3."
+        ]
+      }
+    },
+    {
+      "id": "stk1100-3-1-lokke4-tekst",
+      "type": "text",
+      "content": "## Løkke 4 — Område-sannsynlighet: tegn integrasjonsområdet (~14 min)"
+    },
+    {
+      "id": "stk1100-3-1-pausepunkt-1",
+      "type": "text",
+      "content": "*— naturlig pausepunkt: du har nå de tre «tørre» delspørsmålene. Neste løkke er sensorens favoritt.*"
+    },
+    {
+      "id": "stk1100-3-1-def-omrade-sannsynlighet",
+      "type": "definition",
+      "title": "Område-sannsynlighet",
+      "content": "Sannsynligheten for at paret $(X,Y)$ havner i et område $A$ — volumet under tettheten over $A$:\n\n$$P\\big((X,Y) \\in A\\big) = \\iint_A f(x,y)\\,dx\\,dy.$$\n\nTypiske områder på eksamen: $A = \\{Y \\ge X\\}$, $A = \\{X + Y \\le 1\\}$ eller en geometrisk mengde som $A = \\{X^2 + Y^2 \\le r^2\\}$. **Alltid tegn området** før du setter grensene."
+    },
+    {
+      "id": "stk1100-3-1-omrade-tegn",
+      "type": "text",
+      "content": "### Slik setter du grensene (sensorkrav 3)\n\n1. **Tegn** støtten og området $A$ i samme $xy$-plan; skygg snittet du skal integrere over.\n2. Velg integrasjonsrekkefølge. For et **$y$-simpelt** område holder du $x$ fast og lar en loddrett linje skanne opp gjennom området: den indre grensen går fra nedre til øvre kant i $y$ (kan avhenge av $x$), den ytre fra minste til største $x$.\n3. Skriv $\\iint_A f = \\int_{x_{\\min}}^{x_{\\max}} \\Big(\\int_{y_{\\text{nedre}}(x)}^{y_{\\text{øvre}}(x)} f(x,y)\\,dy\\Big)dx$ og regn innenfra.\n\nFiguren under viser prinsippet: den loddrette (røde) skannelinjen ved en fast $x$ går fra $y = x$ opp til $y = 1$."
+    },
+    {
+      "id": "stk1100-3-1-fig-simpelt",
+      "type": "image",
+      "src": "/images/textbook/stk1100/stk1100-3-1-simpelt-omrade.svg",
+      "alt": "Enhetskvadrat med skyggelagt område over linjen y = x. En loddrett rød skannelinje ved en fast x går fra y = x opp til y = 1, med endepunktene markert.",
+      "caption": "Et $y$-simpelt område: for hver fast $x$ går den indre $y$-grensen fra $y = x$ (nedre kant) til $y = 1$ (øvre kant), og den ytre $x$-grensen fra 0 til 1. Slik leser du grensene rett av en skisse."
+    },
+    {
+      "id": "stk1100-3-1-ex-pyx",
+      "type": "example",
+      "title": "Eksempel 4: $P(Y \\ge X)$ — tegn området",
+      "problem": "La $(X,Y)$ ha tetthet $f(x,y) = \\tfrac{12}{7}x(x+y)$ på enhetskvadratet. Tegn integrasjonsområdet og finn $P(Y \\ge X)$.",
+      "solution": "**Tegn området.** Området $\\{Y \\ge X\\}$ er den delen av enhetskvadratet som ligger *over* diagonalen $y = x$ — den øvre venstre trekanten (se figur under). For en fast $x$ går $y$ fra $x$ opp til 1.\n\n**Sett opp integralet** ($y$-simpelt):\n\n$$P(Y \\ge X) = \\tfrac{12}{7}\\int_0^1 \\int_x^1 x(x+y)\\,dy\\,dx.$$\n\nIndre integral: $\\int_x^1 (x^2 + xy)\\,dy = x^2(1-x) + x\\cdot\\tfrac{1 - x^2}{2} = x^2 - \\tfrac32 x^3 + \\tfrac{x}{2}.$\n\nYtre integral: $\\int_0^1 \\Big(x^2 - \\tfrac32 x^3 + \\tfrac{x}{2}\\Big)dx = \\tfrac13 - \\tfrac38 + \\tfrac14 = \\tfrac{5}{24}.$\n\nDermed $P(Y \\ge X) = \\tfrac{12}{7}\\cdot\\tfrac{5}{24} = \\tfrac{5}{14} \\approx 0{,}357$. At svaret er under $\\tfrac12$ gir mening: $x$-faktoren i tettheten skyver massen mot store $x$, altså mot området $Y < X$."
+    },
+    {
+      "id": "stk1100-3-1-fig-ygex",
+      "type": "image",
+      "src": "/images/textbook/stk1100/stk1100-3-1-omrade-ygex.svg",
+      "alt": "Enhetskvadrat delt av diagonalen y = x. Den øvre venstre trekanten der Y er større enn eller lik X er skyggelagt som integrasjonsområde; den nedre høyre der Y er mindre enn X er umarkert.",
+      "caption": "Integrasjonsområdet for $P(Y \\ge X)$: den skyggelagte trekanten over diagonalen. For hver fast $x$ går $y$ fra $x$ til 1 — nettopp grensene i det indre integralet."
+    },
+    {
+      "id": "stk1100-3-1-def-eforventning-g",
+      "type": "definition",
+      "title": "Forventning av en funksjon $E[g(X,Y)]$",
+      "content": "Forventet verdi av en hvilken som helst funksjon av paret — regnet direkte fra simultantettheten:\n\n$$E[g(X,Y)] = \\iint g(x,y)\\,f(x,y)\\,dx\\,dy.$$\n\nSpesialtilfeller: $g = xy$ gir $E(XY)$ (brukes i kovarians), $g = x$ gir $E(X)$. En *sannsynlighet* er også en slik forventning: $P((X,Y) \\in A) = E[\\mathbf{1}_A(X,Y)]$ der indikatoren $\\mathbf{1}_A$ er 1 på $A$ og 0 ellers."
+    },
+    {
+      "id": "stk1100-3-1-ex-geometrisk",
+      "type": "example",
+      "title": "Eksempel 5: Geometrisk sannsynlighet $P(X^2 + Y^2 \\le 1)$",
+      "problem": "La $(X,Y)$ være **uniformt** fordelt på enhetskvadratet, altså $f(x,y) = 1$ på $0 < x < 1$, $0 < y < 1$. Tegn området og finn $P(X^2 + Y^2 \\le 1)$.",
+      "solution": "**Tegn området.** $X^2 + Y^2 \\le 1$ er innsiden av en sirkel med radius 1 om origo. Snittet med enhetskvadratet er en **kvartsirkel** (se figur under).\n\n**Regn.** Siden tettheten er konstant 1, er sannsynligheten rett og slett *arealet* av kvartsirkelen:\n\n$$P(X^2 + Y^2 \\le 1) = \\iint_{x^2+y^2 \\le 1} 1\\,dx\\,dy = \\text{areal av kvartsirkel} = \\frac{\\pi \\cdot 1^2}{4} = \\frac{\\pi}{4} \\approx 0{,}785.$$\n\nNår tettheten er uniform, blir sannsynlighet = areal(område $\\cap$ støtte) / areal(støtte); her er støttens areal 1, så svaret er selve arealet."
+    },
+    {
+      "id": "stk1100-3-1-fig-kvartsirkel",
+      "type": "image",
+      "src": "/images/textbook/stk1100/stk1100-3-1-kvartsirkel.svg",
+      "alt": "Enhetskvadrat med en kvartsirkelbue av radius 1 fra punktet (1,0) til (0,1). Området innenfor buen, der x-kvadrat pluss y-kvadrat er mindre enn eller lik 1, er skyggelagt.",
+      "caption": "Integrasjonsområdet for $P(X^2 + Y^2 \\le 1)$: kvartsirkelen inne i enhetskvadratet. For uniform tetthet er sannsynligheten lik dette arealet, $\\pi/4$."
+    },
+    {
+      "id": "stk1100-3-1-oppg-omrade1",
+      "type": "exercise",
+      "exercise": {
+        "id": "stk1100-3-1-e7",
+        "number": "7",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "La $f(x,y) = x + y$ på enhetskvadratet. Sett opp dobbeltintegralet med riktige grenser og regn ut $P(X + Y \\le 1)$.",
+        "solution": "Området $\\{X + Y \\le 1\\}$ er trekanten under linjen $y = 1 - x$ i enhetskvadratet. For en fast $x$ går $y$ fra 0 til $1 - x$:\n\n$$P(X+Y\\le 1) = \\int_0^1 \\int_0^{1-x} (x+y)\\,dy\\,dx = \\int_0^1 \\Big[x(1-x) + \\tfrac{(1-x)^2}{2}\\Big]dx.$$\n\nIntegranden er $x - x^2 + \\tfrac12(1 - 2x + x^2) = \\tfrac12 - \\tfrac12 x^2$. Da:\n\n$$\\int_0^1 \\Big(\\tfrac12 - \\tfrac12 x^2\\Big)dx = \\tfrac12 - \\tfrac16 = \\tfrac13.$$\n\nSå $P(X + Y \\le 1) = \\tfrac13$.",
+        "hints": [
+          "Den øvre $y$-grensen er linjen $y = 1 - x$; nedre er 0.",
+          "Regn indre integral først, så forenkle integranden i $x$ før du integrerer."
+        ]
+      }
+    },
+    {
+      "id": "stk1100-3-1-oppg-omrade2",
+      "type": "exercise",
+      "exercise": {
+        "id": "stk1100-3-1-e8",
+        "number": "8",
+        "type": "classic",
+        "difficulty": "vanskelig",
+        "task": "La $(X,Y)$ være uniform på enhetskvadratet ($f = 1$). Sett opp og finn $P\\big(X^2 + Y^2 \\le \\tfrac14\\big)$, og forklar hvorfor svaret er et areal.",
+        "solution": "Området er en kvartsirkel med radius $r = \\tfrac12$ (hjørnet i origo), som ligger helt inne i enhetskvadratet. Fordi tettheten er konstant 1:\n\n$$P\\big(X^2 + Y^2 \\le \\tfrac14\\big) = \\iint_{x^2+y^2\\le 1/4} 1\\,dx\\,dy = \\frac{\\pi r^2}{4} = \\frac{\\pi (1/2)^2}{4} = \\frac{\\pi}{16} \\approx 0{,}196.$$\n\nSvaret er et areal fordi en uniform tetthet gir $P((X,Y)\\in A) = \\iint_A 1 = \\text{areal}(A)$ (når $A$ ligger inne i støtten, som har areal 1).",
+        "hints": [
+          "Radien er $r = \\tfrac12$ siden $x^2 + y^2 \\le (\\tfrac12)^2$.",
+          "Med $f = 1$ er sannsynligheten lik arealet av kvartsirkelen, $\\tfrac14\\pi r^2$."
+        ]
+      }
+    },
+    {
+      "id": "stk1100-3-1-lokke5-tekst",
+      "type": "text",
+      "content": "## Løkke 5 — Diskret simultanfordeling i tabell (~10 min)"
+    },
+    {
+      "id": "stk1100-3-1-diskret-motivasjon",
+      "type": "text",
+      "content": "Den samme historien — simultan, marginal, betinget — finnes i en lettere diskret utgave, der tettheten erstattes av en **tabell** med punktsannsynligheter. Her blir integraler til *summer*, og marginalene finner du ved å summere rader og kolonner. Diskret-varianten er ofte den enkleste inngangen til sjanger D."
+    },
+    {
+      "id": "stk1100-3-1-def-diskret-simultan",
+      "type": "definition",
+      "title": "Diskret simultanfordeling (punktsannsynlighet)",
+      "content": "En tabell som gir sannsynligheten for hvert par av verdier. **Simultan punktsannsynlighet**: $p(x,y) = P(X = x,\\, Y = y)$, med $p(x,y) \\ge 0$ og $\\sum_x \\sum_y p(x,y) = 1$. Alle sannsynligheter i tabellen summerer til 1."
+    },
+    {
+      "id": "stk1100-3-1-def-diskret-marginal",
+      "type": "definition",
+      "title": "Diskret marginalfordeling (rad-/kolonnesum)",
+      "content": "Fordelingen til én variabel alene, funnet ved å summere ut den andre. **Marginal punktsannsynlighet**:\n\n$$p_X(x) = \\sum_y p(x,y) \\quad (\\text{radsum}), \\qquad p_Y(y) = \\sum_x p(x,y) \\quad (\\text{kolonnesum}).$$\n\nMarginalene står i margen av tabellen — derav navnet."
+    },
+    {
+      "id": "stk1100-3-1-def-diskret-betinget",
+      "type": "definition",
+      "title": "Diskret betinget fordeling",
+      "content": "Fordelingen til $Y$ når $X = x$ er kjent — hver celle delt på radsummen:\n\n$$P(Y = y \\mid X = x) = \\frac{p(x,y)}{p_X(x)}, \\qquad p_X(x) > 0.$$\n\nFor hver fast $x$ summerer de betingede sannsynlighetene til 1."
+    },
+    {
+      "id": "stk1100-3-1-ex-diskret",
+      "type": "example",
+      "title": "Eksempel 6: Marginaler og betinget fra en tabell",
+      "problem": "$(X,Y)$ har simultanfordeling gitt ved tabellen ($X$ nedover, $Y$ bortover):\n\n| $p(x,y)$ | $Y=0$ | $Y=1$ | $Y=2$ |\n|---|---|---|---|\n| $X=0$ | $0{,}10$ | $0{,}20$ | $0{,}10$ |\n| $X=1$ | $0{,}15$ | $0{,}30$ | $0{,}15$ |\n\nFinn marginalfordelingene og den betingede fordelingen til $Y$ gitt $X = 1$.",
+      "solution": "**Radsummer (marginal for $X$):** $p_X(0) = 0{,}10 + 0{,}20 + 0{,}10 = 0{,}40$; $p_X(1) = 0{,}15 + 0{,}30 + 0{,}15 = 0{,}60$.\n\n**Kolonnesummer (marginal for $Y$):** $p_Y(0) = 0{,}25$, $p_Y(1) = 0{,}50$, $p_Y(2) = 0{,}25$.\n\n(Kontroll: alt summerer til 1.)\n\n**Betinget $Y \\mid X = 1$** (del rad $X=1$ på $p_X(1) = 0{,}60$):\n\n$$P(Y=0\\mid X=1) = \\tfrac{0{,}15}{0{,}60} = 0{,}25,\\quad P(Y=1\\mid X=1) = \\tfrac{0{,}30}{0{,}60} = 0{,}50,\\quad P(Y=2\\mid X=1) = \\tfrac{0{,}15}{0{,}60} = 0{,}25.$$\n\nLegg merke til at denne betingede fordelingen er *lik* marginalen $p_Y$ — et tegn på uavhengighet (drilles i kap. 3.2)."
+    },
+    {
+      "id": "stk1100-3-1-oppg-diskret",
+      "type": "exercise",
+      "exercise": {
+        "id": "stk1100-3-1-e9",
+        "number": "9",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "Bruk tabellen fra Eksempel 6. \n\n**a)** Finn $P(X = 0 \\mid Y = 1)$.\n**b)** Finn $E(Y)$ fra marginalfordelingen til $Y$.",
+        "solution": "**a)** Bruk kolonnen $Y = 1$ og del på $p_Y(1) = 0{,}50$:\n\n$$P(X = 0 \\mid Y = 1) = \\frac{p(0,1)}{p_Y(1)} = \\frac{0{,}20}{0{,}50} = 0{,}40.$$\n\n**b)** Marginalen er $p_Y(0) = 0{,}25$, $p_Y(1) = 0{,}50$, $p_Y(2) = 0{,}25$, så\n\n$$E(Y) = 0\\cdot 0{,}25 + 1\\cdot 0{,}50 + 2\\cdot 0{,}25 = 1{,}0.$$",
+        "hints": [
+          "I a) er det $Y = 1$ som er gitt — del cellen på kolonnesummen $p_Y(1)$.",
+          "I b) bruk $E(Y) = \\sum_y y\\,p_Y(y)$ med kolonnesummene."
+        ]
+      }
+    },
+    {
+      "id": "stk1100-3-1-typiske-feil",
+      "type": "warning",
+      "title": "Typiske feil",
+      "content": "- **Gale grenser fordi området ikke er tegnet.** Den vanligste tabben i sjanger D. Tegn alltid støtten og området $A$ først, så leser du grensene rett av skissen.\n- **Glemme normeringskonstanten.** Hopper du rett til marginaler/sannsynligheter uten å finne $c$ fra $\\iint f = 1$, blir alt galt.\n- **Forveksle marginal og betinget tetthet.** Marginal = *integrer ut* den andre; betinget = *del på* marginalen. To ulike operasjoner.\n- **Blande tetthet og sannsynlighet.** $f(x,y)$ er ikke en sannsynlighet og kan være større enn 1; sannsynlighet er alltid et integral (volum) over et område.\n- **Feil grenser på skrå støtte.** Når støtten er en trekant, avhenger den indre grensen av den ytre variabelen — den er *ikke* et fast tall."
+    },
+    {
+      "id": "stk1100-3-1-begrepsbank-intro",
+      "type": "text",
+      "content": "### Begrepsbank\n\n*Flashcard- og repetisjonsstoff — hopp trygt over ved førstegangslesing; tidsanslaget over gjelder kjernestoffet.* Kortene under samler begrepene fra kapitlet, pluss noen nærliggende du møter i sjanger D."
+    },
+    {
+      "id": "stk1100-3-1-bb-uavhengige",
+      "type": "definition",
+      "title": "Uavhengige stokastiske variable",
+      "content": "To variable er **uavhengige** når kunnskap om den ene ikke endrer fordelingen til den andre. Kriteriet: simultantettheten faktoriserer,\n\n$$f(x,y) = f_X(x)\\,f_Y(y) \\quad \\text{for ALLE } (x,y).$$\n\nEkvivalent: $f_{Y \\mid X = x}(y) = f_Y(y)$. Sjekken (inkludert null-området) drilles i [kap. 3.2](/bok/stk1100/stk1100-3-2)."
+    },
+    {
+      "id": "stk1100-3-1-bb-produktomrade",
+      "type": "definition",
+      "title": "Produktområde (rektangulær støtte)",
+      "content": "Et område på formen $\\{a < x < b,\\; c < y < d\\}$ der $x$- og $y$-grensene ikke avhenger av hverandre — et **rektangel**. Uavhengige variable *må* ha en slik produktstøtte. En trekant eller disk er *ikke* et produktområde, og gir automatisk avhengighet."
+    },
+    {
+      "id": "stk1100-3-1-bb-uniform-simultan",
+      "type": "definition",
+      "title": "Uniform simultanfordeling",
+      "content": "$(X,Y)$ er **uniform** på et område $S$ når tettheten er konstant der: $f(x,y) = \\tfrac{1}{\\text{areal}(S)}$ på $S$, og 0 ellers. Da er sannsynligheter rene arealbrøker: $P((X,Y) \\in A) = \\text{areal}(A \\cap S)/\\text{areal}(S)$."
+    },
+    {
+      "id": "stk1100-3-1-bb-geometrisk-ss",
+      "type": "definition",
+      "title": "Geometrisk sannsynlighet",
+      "content": "Sannsynlighet regnet som et **areal** når tettheten er uniform. For $(X,Y)$ uniform på $S$ blir $P((X,Y)\\in A)$ lik arealandelen som $A$ dekker av $S$ — som kvartsirkelen $\\pi/4$ i enhetskvadratet. Ingen integrasjon nødvendig ut over å finne arealet."
+    },
+    {
+      "id": "stk1100-3-1-bb-ysimpelt",
+      "type": "definition",
+      "title": "$y$-simpelt og $x$-simpelt område",
+      "content": "Et **$y$-simpelt** område kan skrives $\\{x_{\\min} \\le x \\le x_{\\max},\\; g_1(x) \\le y \\le g_2(x)\\}$ — da integrerer du $y$ innerst. Et **$x$-simpelt** område har grensene motsatt vei. Velg rekkefølgen som gir enklest grenser; tegn området for å se hvilken."
+    },
+    {
+      "id": "stk1100-3-1-bb-fubini",
+      "type": "definition",
+      "title": "Integrasjonsrekkefølge (iterert integral)",
+      "content": "Et dobbeltintegral regnes som to enkle integraler etter hverandre: integrer én variabel med den andre holdt fast, så den andre. For en tetthet kan rekkefølgen byttes uten å endre svaret — men grensene *må* tilpasses den nye rekkefølgen (les dem av skissen på nytt)."
+    },
+    {
+      "id": "stk1100-3-1-bb-volum",
+      "type": "definition",
+      "title": "Volumtolkning av simultantetthet",
+      "content": "$f(x,y)$ er en flate over $xy$-planet, og $P((X,Y) \\in A)$ er **volumet** under flaten over $A$. Kravet $\\iint f = 1$ betyr at det totale volumet under flaten er 1 — den todimensjonale versjonen av «arealet under tetthetskurven er 1»."
+    },
+    {
+      "id": "stk1100-3-1-bb-marginal-forventning",
+      "type": "definition",
+      "title": "Marginal forventning fra simultantetthet",
+      "content": "Forventningen til én variabel kan regnes rett fra simultantettheten: $E(X) = \\iint x\\,f(x,y)\\,dx\\,dy$, eller like gjerne fra marginalen: $E(X) = \\int x\\,f_X(x)\\,dx$. Begge veier gir samme tall — velg den enkleste."
+    },
+    {
+      "id": "stk1100-3-1-bb-betinget-ss",
+      "type": "definition",
+      "title": "Betinget sannsynlighet $P(Y \\in B \\mid X = x)$",
+      "content": "Sannsynligheten for at $Y$ ligger i et intervall $B$, gitt $X = x$ — regnet med den betingede tettheten:\n\n$$P(Y \\in B \\mid X = x) = \\int_B f_{Y \\mid X = x}(y)\\,dy.$$\n\nDette er en vanlig deloppgave: «finn sannsynligheten for at $Y > \\tfrac12$ gitt at $X = \\tfrac14$»."
+    },
+    {
+      "id": "stk1100-3-1-bb-kovarians-simultan",
+      "type": "definition",
+      "title": "Kovarians fra simultantetthet",
+      "content": "Kovariansen måler samvariasjon: $\\text{Cov}(X,Y) = E(XY) - E(X)E(Y)$, der $E(XY) = \\iint xy\\,f(x,y)\\,dx\\,dy$ (se [kap. 1.2](/bok/stk1100/stk1100-1-2)). Positiv kovarians betyr at store $X$ følges av store $Y$. Uavhengige variable har $\\text{Cov}(X,Y) = 0$."
+    },
+    {
+      "id": "stk1100-3-1-bb-symmetri",
+      "type": "definition",
+      "title": "Symmetrisk simultantetthet",
+      "content": "Er $f(x,y) = f(y,x)$ for alle $(x,y)$ (og støtten er symmetrisk om diagonalen), sier vi tettheten er **symmetrisk**. Da har $X$ og $Y$ samme marginalfordeling, og $P(Y \\ge X) = \\tfrac12$. Et nyttig kontrollpunkt — men gjelder bare når symmetrien faktisk holder."
+    },
+    {
+      "id": "stk1100-3-1-bb-marginal-miksing",
+      "type": "definition",
+      "title": "Marginal som miksing av betingede",
+      "content": "Marginaltettheten kan bygges opp av de betingede via «lov om total sannsynlighet» for tettheter:\n\n$$f_X(x) = \\int f_{X \\mid Y = y}(x)\\,f_Y(y)\\,dy.$$\n\nDen brukes når en oppgave gir deg en betinget tetthet og en marginal, og ber om den andre marginalen."
+    },
+    {
+      "id": "stk1100-3-1-bb-uavh-ukorr",
+      "type": "definition",
+      "title": "Uavhengig medfører ukorrelert — ikke omvendt",
+      "content": "Er $X$ og $Y$ **uavhengige**, så er de også **ukorrelerte** ($\\text{Cov}(X,Y) = 0$). Den motsatte veien holder *ikke*: to variable kan ha $\\text{Cov} = 0$ og likevel være avhengige. Ukorrelert måler bare *lineær* samvariasjon. Dette nyanseres i [kap. 3.2](/bok/stk1100/stk1100-3-2)."
+    },
+    {
+      "id": "stk1100-3-1-rep",
+      "type": "collapsible",
+      "title": "Repetisjonsoppgaver",
+      "buttonText": "Vis repetisjonsoppgaver",
+      "content": [
+        {
+          "id": "stk1100-3-1-rep-1",
+          "type": "exercise",
+          "exercise": {
+            "id": "stk1100-3-1-eR1",
+            "number": "R1",
+            "type": "classic",
+            "difficulty": "lett",
+            "task": "(Fra [kap. 2.1](/bok/stk1100/stk1100-2-1).) En én-variabels tetthet er $f(x) = c\\,x$ på $0 < x < 2$, og 0 ellers. Finn $c$.",
+            "solution": "Krev $\\int_0^2 c x\\,dx = 1$: $c\\big[\\tfrac{x^2}{2}\\big]_0^2 = 2c = 1$, så $c = \\tfrac12$.",
+            "hints": [
+              "Sett $\\int_0^2 f = 1$ og løs for $c$."
+            ]
+          }
+        },
+        {
+          "id": "stk1100-3-1-rep-2",
+          "type": "exercise",
+          "exercise": {
+            "id": "stk1100-3-1-eR2",
+            "number": "R2",
+            "type": "classic",
+            "difficulty": "lett",
+            "task": "(Fra [kap. 2.1](/bok/stk1100/stk1100-2-1).) For $f(x) = \\tfrac12 x$ på $0 < x < 2$: finn $E(X)$.",
+            "solution": "$E(X) = \\int_0^2 x\\cdot\\tfrac12 x\\,dx = \\tfrac12\\big[\\tfrac{x^3}{3}\\big]_0^2 = \\tfrac12\\cdot\\tfrac{8}{3} = \\tfrac43$.",
+            "hints": [
+              "$E(X) = \\int x f(x)\\,dx$ over støtten."
+            ]
+          }
+        },
+        {
+          "id": "stk1100-3-1-rep-3",
+          "type": "exercise",
+          "exercise": {
+            "id": "stk1100-3-1-eR3",
+            "number": "R3",
+            "type": "classic",
+            "difficulty": "lett",
+            "task": "(Fra [kap. 1.2](/bok/stk1100/stk1100-1-2).) $X$ og $Y$ har $E(X) = 3$, $E(Y) = 2$. Finn $E(2X - Y)$.",
+            "solution": "$E(2X - Y) = 2E(X) - E(Y) = 6 - 2 = 4$ (forventning er lineær).",
+            "hints": [
+              "Bruk $E(aX + bY) = aE(X) + bE(Y)$."
+            ]
+          }
+        },
+        {
+          "id": "stk1100-3-1-rep-4",
+          "type": "exercise",
+          "exercise": {
+            "id": "stk1100-3-1-eR4",
+            "number": "R4",
+            "type": "classic",
+            "difficulty": "middels",
+            "task": "(Fra [kap. 1.2](/bok/stk1100/stk1100-1-2).) $X, Y$ har $\\text{Var}(X) = 2$, $\\text{Var}(Y) = 5$ og er uavhengige. Finn $\\text{Var}(X + Y)$ og $\\text{Var}(X - Y)$.",
+            "solution": "Uavhengige gir $\\text{Cov}(X,Y) = 0$, så $\\text{Var}(X \\pm Y) = \\text{Var}(X) + \\text{Var}(Y) = 2 + 5 = 7$ i begge tilfeller (variansen legges til også ved differanse).",
+            "hints": [
+              "$\\text{Var}(X \\pm Y) = \\text{Var}(X) + \\text{Var}(Y) \\pm 2\\text{Cov}(X,Y)$.",
+              "Cov er 0 for uavhengige — og fortegnet foran variansene er alltid pluss."
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": "stk1100-3-1-symbolliste",
+      "type": "collapsible",
+      "title": "Symbol- og formelliste",
+      "buttonText": "Vis symboler og formler",
+      "content": [
+        {
+          "id": "stk1100-3-1-symbolliste-text",
+          "type": "text",
+          "content": "## Symbol- og formelliste\n\n*Oppslagsverk — alt her forklares underveis i kapitlet.*\n\n| Symbol | Betydning |\n|---|---|\n| $f(x,y)$ | Simultantetthet til $(X,Y)$ |\n| $F(x,y)$ | Simultan fordelingsfunksjon $P(X \\le x, Y \\le y)$ |\n| $f_X(x),\\, f_Y(y)$ | Marginaltettheter |\n| $f_{Y\\mid X=x}(y)$ | Betinget tetthet for $Y$ gitt $X = x$ |\n| $E(Y \\mid X = x)$ | Betinget forventning |\n| $E[g(X,Y)]$ | Forventning av en funksjon av paret |\n| $\\iint_A$ | Dobbeltintegral over området $A$ |\n| $p(x,y)$ | Diskret simultan punktsannsynlighet |\n| $p_X(x),\\, p_Y(y)$ | Diskrete marginaler (rad-/kolonnesum) |\n| $\\text{Cov}(X,Y)$ | Kovarians, $E(XY) - E(X)E(Y)$ |\n| $\\mathbf{1}_A$ | Indikatorfunksjon (1 på $A$, 0 ellers) |\n\n**Formler i dette kapitlet:**\n\n$$\\iint_S f(x,y)\\,dx\\,dy = 1 \\quad \\text{(normering — hele volumet er 1)}$$\n\n$$f_X(x) = \\int f(x,y)\\,dy \\quad \\text{(marginal: integrer ut den andre variabelen)}$$\n\n$$f_{Y\\mid X=x}(y) = \\frac{f(x,y)}{f_X(x)} \\quad \\text{(betinget tetthet)}$$\n\n$$E(Y \\mid X = x) = \\int y\\, f_{Y\\mid X=x}(y)\\,dy \\quad \\text{(betinget forventning)}$$\n\n$$P\\big((X,Y)\\in A\\big) = \\iint_A f(x,y)\\,dx\\,dy \\quad \\text{(område-sannsynlighet — tegn området!)}$$\n\n$$E[g(X,Y)] = \\iint g(x,y)\\,f(x,y)\\,dx\\,dy \\quad \\text{(forventning av en funksjon)}$$\n\n$$p_X(x) = \\sum_y p(x,y),\\qquad P(Y=y\\mid X=x) = \\frac{p(x,y)}{p_X(x)} \\quad \\text{(diskret marginal og betinget)}$$"
+        }
+      ]
+    }
+  ],
+  "exercises": []
+}

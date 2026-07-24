@@ -1,0 +1,275 @@
+{
+  "id": "stk1100-8-prove",
+  "courseId": "stk1100",
+  "chapterNumber": "8.P",
+  "title": "Prøver til del 8: Samvariasjon, binormal og regresjon",
+  "description": "Fire temaprøver som dekker kovarians og korrelasjon i lineærkombinasjoner, binormalfordelingens betingede fordeling og uavhengighet (rho=0), MSE-minimering og beste prediksjon, og enkel lineær regresjon med og uten konstantledd med bias-varians-avveiningen — med fullstendige losningsforslag, etterregnede tall og selvdiagnose. Fire prover a 30-40 min, kan tas som separate okter.",
+  "estimatedMinutes": 135,
+  "competenceGoals": [
+    "kunne regne kovarians og korrelasjon i lineærkombinasjoner og bruke kovariansleddet i variansen til en sum",
+    "kunne finne betinget forventning og varians i en binormal og begrunne at rho=0 der betyr uavhengighet",
+    "kunne vise at forventningen minimerer forventet kvadratisk avvik og at betinget forventning er beste prediksjon",
+    "kunne utlede og bruke minste kvadraters estimatorer med og uten konstantledd og drofte bias-varians-avveiningen"
+  ],
+  "content": [
+    {
+      "id": "stk1100-8-prove-tip",
+      "type": "tip",
+      "title": "Om prøvene til Del 8",
+      "content": "**Fire prøver til Del 8** som dekker samvariasjon, binormalfordelingen, beste prediksjon og enkel lineær regresjon — A-differensiatorene (sjanger K og L) som skiller de sterkeste besvarelsene.\n\n| Prøve | Tema | Tid |\n|---|---|---|\n| 8.A | Kovarians og korrelasjon i lineærkombinasjoner | ~30 min |\n| 8.B | Binormal: betinget fordeling og uavhengighet ($\\rho=0$) | ~35 min |\n| 8.C | MSE-minimering og beste prediksjon | ~30 min |\n| 8.D | Enkel lineær regresjon med/uten konstantledd + bias-varians (eksamensnivå) | ~40 min |\n\n**Flervalgsoppgaven bor i prøve 8.B** (ett riktig alternativ per punkt).\n\n**Prøvene kan trygt deles over flere kvelder — én prøve per økt.** Løs hver prøve *før* du åpner fasiten, og bruk selvdiagnose-listen etterpå. Alle tallsvar i fasitene er etterregnet."
+    },
+    {
+      "id": "stk1100-8-prove-forkunnskaper",
+      "type": "text",
+      "content": "**Forkunnskaper:** Disse prøvene forutsetter hele Del 8 — kovarians, korrelasjon og binormalfordelingen ([kap. 8.1](/bok/stk1100/stk1100-8-1)), betinget forventning, prediksjon og MSE-minimering ([kap. 8.2](/bok/stk1100/stk1100-8-2)) og enkel lineær regresjon ([kap. 8.3](/bok/stk1100/stk1100-8-3)). Under ligger regnereglene for lineærkombinasjoner fra [kap. 1.2](/bok/stk1100/stk1100-1-2) og betinget tetthet fra [kap. 3.1](/bok/stk1100/stk1100-3-1), samt estimator-/estimat-skillet fra [kap. 5.2](/bok/stk1100/stk1100-5-2)."
+    },
+    {
+      "id": "stk1100-8-prove-intro",
+      "type": "text",
+      "content": "Del 8 knytter samvariasjon til prediksjon og regresjon. De fire prøvene trener hele kjeden: fra kovariansleddet i $\\text{Var}(aX+bY)$ (8.A), via binormalens betingede fordeling og dens signaturegenskap $\\rho=0\\Leftrightarrow$ uavhengighet (8.B), til hvorfor den betingede forventningen er beste prediksjon under kvadratisk tap (8.C) og en full regresjonsoppgave på eksamensnivå med minste kvadrater, konfidensintervall og bias-varians-avveiningen (8.D). Husk gjennomgående: store bokstaver er stokastiske ($X$, $Y$), estimatorer får hatt ($\\hat\\beta_1$), og annet argument i $N(\\mu,\\sigma^2)$ er **variansen**."
+    },
+    {
+      "id": "stk1100-8-prove-p1",
+      "type": "collapsible",
+      "title": "Prøve 8.A — Kovarians og korrelasjon i lineærkombinasjoner (~30 min)",
+      "buttonText": "Vis prøve 8.A",
+      "content": [
+        {
+          "id": "stk1100-8-prove-p1-ex1",
+          "type": "exercise",
+          "exercise": {
+            "id": "stk1100-8-prove-p1-ex1",
+            "number": "1",
+            "type": "classic",
+            "difficulty": "middels",
+            "task": "**Kovariansleddet i variansen.** To sensorer måler samme vannprøve og gir avlesningene $X$ og $Y$ (i mg/L), med $\\text{Var}(X)=9$, $\\text{Var}(Y)=16$ og $\\text{Cov}(X,Y)=6$.\n\n**a)** Finn korrelasjonen $\\rho$.\n\n**b)** Finn $\\text{Var}(2X+3Y)$ og $\\text{Var}(X-Y)$.\n\n**c)** Vis at $\\text{Cov}(X+Y,\\,X-Y)=\\text{Var}(X)-\\text{Var}(Y)$, og regn ut tallverdien.",
+            "solution": "**a)**\n$$\\rho=\\frac{\\text{Cov}(X,Y)}{\\sqrt{\\text{Var}(X)\\text{Var}(Y)}}=\\frac{6}{\\sqrt{9\\cdot 16}}=\\frac{6}{12}=0{,}5.$$\n\n**b)** Med kovariansleddet ($a=2$, $b=3$):\n$$\\text{Var}(2X+3Y)=2^2\\cdot 9+3^2\\cdot 16+2\\cdot 2\\cdot 3\\cdot 6=36+144+72=252.$$\nFor differansen ($a=1$, $b=-1$):\n$$\\text{Var}(X-Y)=9+16-2\\cdot 6=13.$$\n\n**c)** Bruk bilineariteten og at $\\text{Cov}(X,X)=\\text{Var}(X)$:\n$$\\text{Cov}(X+Y,\\,X-Y)=\\text{Cov}(X,X)-\\text{Cov}(X,Y)+\\text{Cov}(Y,X)-\\text{Cov}(Y,Y)=\\text{Var}(X)-\\text{Var}(Y).$$\nDe to kovariansleddene $-\\text{Cov}(X,Y)$ og $+\\text{Cov}(Y,X)$ kansellerer. Tallverdien er $9-16=-7$.",
+            "hints": [
+              "$\\rho=\\text{Cov}/\\sqrt{\\text{Var}(X)\\text{Var}(Y)}$.",
+              "Kvadrer koeffisientene, og husk kovariansleddet $2ab\\,\\text{Cov}$.",
+              "I c): $\\text{Cov}(Y,X)=\\text{Cov}(X,Y)$, så de to krysseleddene faller bort."
+            ]
+          }
+        },
+        {
+          "id": "stk1100-8-prove-p1-ex2",
+          "type": "exercise",
+          "exercise": {
+            "id": "stk1100-8-prove-p1-ex2",
+            "number": "2",
+            "type": "classic",
+            "difficulty": "vanskelig",
+            "task": "**Kovarians mellom to lineærkombinasjoner.** For to måltall gjelder $\\text{Var}(X)=5$, $\\text{Var}(Y)=8$ og $\\text{Cov}(X,Y)=-3$. Definer $U=2X-Y$ og $W=X+3Y$.\n\n**a)** Bruk bilineariteten til å finne $\\text{Cov}(U,W)$.\n\n**b)** Finn $\\text{Var}(U)$ og $\\text{Var}(W)$.\n\n**c)** Finn korrelasjonen mellom $U$ og $W$.",
+            "solution": "**a)** Bilineariteten gir fire ledd:\n$$\\text{Cov}(2X-Y,\\;X+3Y)=2\\cdot 1\\,\\text{Var}(X)+2\\cdot 3\\,\\text{Cov}(X,Y)+(-1)\\cdot 1\\,\\text{Cov}(Y,X)+(-1)\\cdot 3\\,\\text{Var}(Y).$$\n$$=2\\cdot 5+6\\cdot(-3)-(-3)-3\\cdot 8=10-18+3-24=-29.$$\n\n**b)**\n$$\\text{Var}(U)=2^2\\cdot 5+(-1)^2\\cdot 8+2\\cdot 2\\cdot(-1)\\cdot(-3)=20+8+12=40.$$\n$$\\text{Var}(W)=1^2\\cdot 5+3^2\\cdot 8+2\\cdot 1\\cdot 3\\cdot(-3)=5+72-18=59.$$\n\n**c)**\n$$\\text{Corr}(U,W)=\\frac{\\text{Cov}(U,W)}{\\sqrt{\\text{Var}(U)\\text{Var}(W)}}=\\frac{-29}{\\sqrt{40\\cdot 59}}=\\frac{-29}{\\sqrt{2360}}\\approx-0{,}60.$$\nModerat negativ samvariasjon mellom de to sammensatte størrelsene.",
+            "hints": [
+              "Bruk $\\text{Cov}(aX+bY,cX+dY)=ac\\,\\text{Var}(X)+(ad+bc)\\,\\text{Cov}(X,Y)+bd\\,\\text{Var}(Y)$.",
+              "Kvadrer koeffisientene i hver varians, og pass fortegnet på kovariansleddet.",
+              "$\\sqrt{40\\cdot 59}=\\sqrt{2360}\\approx 48{,}6$."
+            ]
+          }
+        },
+        {
+          "id": "stk1100-8-prove-p1-ex3",
+          "type": "exercise",
+          "exercise": {
+            "id": "stk1100-8-prove-p1-ex3",
+            "number": "3",
+            "type": "classic",
+            "difficulty": "vanskelig",
+            "task": "**Varians av en sum av tre.** En bjelke settes sammen av tre moduler med hvert sitt målte lengdeavvik $X_1,X_2,X_3$ (i mm). Hver har varians $\\text{Var}(X_i)=2$, og hvert par samvarierer med $\\text{Cov}(X_i,X_j)=0{,}5$ for $i\\ne j$.\n\n**a)** Finn variansen til det totale avviket $T=X_1+X_2+X_3$.\n\n**b)** Hvor mye lavere ville $\\text{Var}(T)$ vært dersom de tre modulene var uavhengige, og hvorfor?",
+            "solution": "**a)** Variansen til en sum er summen av alle variansene pluss to ganger alle parvise kovarianser. Med tre variable finnes det tre par $(1{,}2),(1{,}3),(2{,}3)$:\n$$\\text{Var}(T)=\\sum_{i}\\text{Var}(X_i)+2\\sum_{i<j}\\text{Cov}(X_i,X_j)=3\\cdot 2+2\\cdot 3\\cdot 0{,}5=6+3=9.$$\n\n**b)** Uavhengige moduler er ukorrelerte, så alle kovariansleddene faller bort:\n$$\\text{Var}(T)=3\\cdot 2=6.$$\nVariansen ville altså vært $9-6=3$ lavere. De positive kovariansene gjør at avvikene har en tendens til å dra i samme retning samtidig, og det blåser opp variansen til totalen.",
+            "hints": [
+              "$\\text{Var}(X_1+X_2+X_3)=\\sum\\text{Var}(X_i)+2\\sum_{i<j}\\text{Cov}(X_i,X_j)$.",
+              "Med tre variable er det tre par, altså tre kovariansledd.",
+              "Uavhengig $\\Rightarrow$ alle $\\text{Cov}=0$."
+            ]
+          }
+        },
+        {
+          "id": "stk1100-8-prove-p1-selvdiag",
+          "type": "text",
+          "content": "### Selvdiagnose 8.A\n\nKryss av det du klarte uten å slå opp:\n\n- ☐ Jeg regnet korrelasjonen fra $\\text{Cov}$ og de to variansene.\n- ☐ Jeg tok med kovariansleddet $2ab\\,\\text{Cov}(X,Y)$ med riktig fortegn i $\\text{Var}(aX+bY)$.\n- ☐ Jeg brukte bilineariteten til å finne $\\text{Cov}$ mellom to lineærkombinasjoner.\n- ☐ Jeg husket at en sum av tre har **tre** parvise kovariansledd.\n\nManglet du noe? Repeter [kap. 8.1](/bok/stk1100/stk1100-8-1), løkke 1."
+        }
+      ]
+    },
+    {
+      "id": "stk1100-8-prove-p2",
+      "type": "collapsible",
+      "title": "Prøve 8.B — Binormal: betinget fordeling og uavhengighet (~35 min)",
+      "buttonText": "Vis prøve 8.B",
+      "content": [
+        {
+          "id": "stk1100-8-prove-p2-ex1",
+          "type": "exercise",
+          "exercise": {
+            "id": "stk1100-8-prove-p2-ex1",
+            "number": "1",
+            "type": "classic",
+            "difficulty": "middels",
+            "task": "**Standardisert binormal.** $(X,Y)$ er binormalfordelt med $\\mu_1=\\mu_2=0$, $\\sigma_1=\\sigma_2=1$ og korrelasjon $\\rho=0{,}8$.\n\n**a)** Finn $E(Y\\mid X=1{,}5)$ og $\\text{Var}(Y\\mid X=1{,}5)$.\n\n**b)** Forklar hvorfor $\\rho=0$ her ville gitt at $X$ og $Y$ er uavhengige, mens det samme ikke kan sluttes for et vilkårlig ukorrelert par.\n\n**c)** Hva blir beste prediksjon av $Y$ dersom vi i stedet observerer $X=0$?",
+            "solution": "**a)** I standardisert binormal er $E(Y\\mid X=x)=\\rho x$ og $\\text{Var}(Y\\mid X=x)=1-\\rho^2$:\n$$E(Y\\mid X=1{,}5)=0{,}8\\cdot 1{,}5=1{,}2,\\qquad \\text{Var}(Y\\mid X=1{,}5)=1-0{,}8^2=1-0{,}64=0{,}36.$$\n\n**b)** For en binormal faktoriserer tettheten $f(x,y)=f_X(x)f_Y(y)$ nøyaktig når krysseleddet nulles ut, altså når $\\rho=0$ — og faktorisering ER definisjonen på uavhengighet. For et vilkårlig par betyr $\\rho=0$ bare at den *lineære* samvariasjonen er null; variablene kan fortsatt være avhengige gjennom en ikke-lineær sammenheng (klassisk moteksempel: $Y=X^2$ med symmetrisk $X$ gir $\\text{Cov}=0$, men $Y$ er fullt bestemt av $X$). Implikasjonen $\\rho=0\\Rightarrow$ uavhengig gjelder kun fordi paret er binormalt.\n\n**c)** $E(Y\\mid X=0)=0{,}8\\cdot 0=0=\\mu_2$. Når den observerte $X$ er lik sitt eget gjennomsnitt, er beste gjett på $Y$ nettopp marginalforventningen — observasjonen flytter ikke prediksjonen bort fra midten.",
+            "hints": [
+              "Standardisert binormal: $E(Y\\mid X=x)=\\rho x$, $\\text{Var}(Y\\mid X=x)=1-\\rho^2$.",
+              "Uavhengighet = tettheten faktoriserer; det skjer ved $\\rho=0$ kun for binormale.",
+              "Sett $x=0$ inn i $\\rho x$."
+            ]
+          }
+        },
+        {
+          "id": "stk1100-8-prove-p2-ex2",
+          "type": "exercise",
+          "exercise": {
+            "id": "stk1100-8-prove-p2-ex2",
+            "number": "2",
+            "type": "classic",
+            "difficulty": "vanskelig",
+            "task": "**Betinget fordeling i en ustandardisert binormal.** Høyde $X$ (cm) og vekt $Y$ (kg) hos voksne modelleres binormalt med $\\mu_1=170$, $\\mu_2=68$, $\\sigma_1=6$, $\\sigma_2=9$ og $\\rho=0{,}6$. En person er $178$ cm.\n\n**a)** Finn den betingede fordelingen $[Y\\mid X=178]$ (fordelingstype, forventning og varians).\n\n**b)** Gi beste prediksjon av vekten og et intervall på $\\pm$ ett betinget standardavvik.\n\n**c)** Sammenlign den betingede variansen med den marginale $\\sigma_2^2$, og tolk reduksjonen ved hjelp av $\\rho^2$.",
+            "solution": "**a)** For en binormal er den betingede fordelingen **normal**:\n$$E(Y\\mid X=178)=\\mu_2+\\rho\\frac{\\sigma_2}{\\sigma_1}(x-\\mu_1)=68+0{,}6\\cdot\\frac{9}{6}\\cdot(178-170)=68+0{,}6\\cdot 1{,}5\\cdot 8=68+7{,}2=75{,}2.$$\n$$\\text{Var}(Y\\mid X=178)=\\sigma_2^2(1-\\rho^2)=81\\cdot(1-0{,}36)=81\\cdot 0{,}64=51{,}84.$$\nAltså $[Y\\mid X=178]\\sim N(75{,}2,\\ 51{,}84)$.\n\n**b)** Beste prediksjon er den betingede forventningen $75{,}2$ kg. Betinget standardavvik $\\sqrt{51{,}84}=7{,}2$ kg, så $\\pm$ ett standardavvik gir intervallet $75{,}2\\pm 7{,}2=(68{,}0,\\ 82{,}4)$ kg.\n\n**c)** Marginalt er $\\text{Var}(Y)=\\sigma_2^2=81$. Å kjenne høyden reduserer usikkerheten til $51{,}84$ — en reduksjon på andelen $\\rho^2=0{,}36$, altså $36\\ \\%$ av variansen i vekt «forklares» av den lineære sammenhengen med høyde.",
+            "hints": [
+              "$E(Y\\mid X=x)=\\mu_2+\\rho\\frac{\\sigma_2}{\\sigma_1}(x-\\mu_1)$; $\\sigma_2/\\sigma_1=9/6=1{,}5$.",
+              "Betinget standardavvik er $\\sqrt{\\sigma_2^2(1-\\rho^2)}$.",
+              "Forklart andel er $\\rho^2$; reduksjonen er fra $\\sigma_2^2$ til $\\sigma_2^2(1-\\rho^2)$."
+            ]
+          }
+        },
+        {
+          "id": "stk1100-8-prove-p2-ex3",
+          "type": "exercise",
+          "exercise": {
+            "id": "stk1100-8-prove-p2-ex3",
+            "number": "3",
+            "type": "classic",
+            "difficulty": "middels",
+            "task": "**Flervalg.** Velg det ene riktige alternativet for hvert punkt.\n\n**a)** For hvilke fordelinger medfører $\\rho=0$ at $X$ og $Y$ er uavhengige?\n(a) Alle fordelinger  (b) Kun binormalfordelingen  (c) Kun eksponensialfordelte par  (d) Ingen fordelinger\n\n**b)** Den betingede variansen $\\text{Var}(Y\\mid X=x)$ i en binormal er lik:\n(a) $\\sigma_2^2(1-\\rho)^2$  (b) $\\sigma_2^2$  (c) $\\sigma_2^2\\rho^2$  (d) $\\sigma_2^2(1-\\rho^2)$\n\n**c)** $E(Y\\mid X=x)$ er lineær i $x$ for en binormal. Hva er stigningstallet?\n(a) $\\rho\\dfrac{\\sigma_1}{\\sigma_2}$  (b) $\\dfrac{\\sigma_2}{\\sigma_1}$  (c) $\\rho\\dfrac{\\sigma_2}{\\sigma_1}$  (d) $\\rho$\n\n**d)** Garanterer to normale marginaler at paret $(X,Y)$ er binormalt?\n(a) Nei, ikke nødvendigvis  (b) Ja, alltid  (c) Ja, hvis de er ukorrelerte  (d) Ja, hvis de har samme varians",
+            "solution": "**a) (b)** Kun binormalfordelingen — det er der tettheten faktoriserer nøyaktig ved $\\rho=0$.\n\n**b) (d)** $\\sigma_2^2(1-\\rho^2)$ — kunnskap om $X$ reduserer variansen med faktoren $(1-\\rho^2)$.\n\n**c) (c)** $\\rho\\dfrac{\\sigma_2}{\\sigma_1}$ — faktoren foran $(x-\\mu_1)$ i regresjonslinjen.\n\n**d) (a)** Nei, ikke nødvendigvis — to normale marginaler er ikke nok; paret må være binormalt *sammen*.\n\n*(Riktige bokstaver: b, d, c, a — stokket.)*",
+            "hints": [
+              "$\\rho=0\\Rightarrow$ uavhengig gjelder kun for binormale par.",
+              "Betinget varians har faktoren $(1-\\rho^2)$; stigningstallet er $\\rho\\sigma_2/\\sigma_1$."
+            ]
+          }
+        },
+        {
+          "id": "stk1100-8-prove-p2-selvdiag",
+          "type": "text",
+          "content": "### Selvdiagnose 8.B\n\n- ☐ Jeg brukte $E(Y\\mid X=x)=\\rho x$ og $\\text{Var}(Y\\mid X=x)=1-\\rho^2$ i den standardiserte binormalen.\n- ☐ Jeg forklarte hvorfor $\\rho=0$ gir uavhengighet **kun** for binormale par.\n- ☐ Jeg regnet betinget forventning og varians i en ustandardisert binormal og skrev den betingede fordelingen som $N(\\cdot,\\cdot)$.\n- ☐ Jeg tolket reduksjonen i varians via $\\rho^2$.\n- ☐ Jeg svarte riktig på alle fire flervalgspunktene.\n\nManglet du noe? Repeter [kap. 8.1](/bok/stk1100/stk1100-8-1), løkke 2 og 3."
+        }
+      ]
+    },
+    {
+      "id": "stk1100-8-prove-p3",
+      "type": "collapsible",
+      "title": "Prøve 8.C — MSE-minimering og beste prediksjon (~30 min)",
+      "buttonText": "Vis prøve 8.C",
+      "content": [
+        {
+          "id": "stk1100-8-prove-p3-ex1",
+          "type": "exercise",
+          "exercise": {
+            "id": "stk1100-8-prove-p3-ex1",
+            "number": "1",
+            "type": "classic",
+            "difficulty": "middels",
+            "task": "**MSE for et konstant gjett.** Levetiden $X$ (i tusen timer) til en komponent har $E(X)=20$ og $\\text{Var}(X)=6$.\n\n**a)** Skriv $E[(\\theta-X)^2]$ som funksjon av $\\theta$ ved variansdekomponeringen, og finn den $\\theta$ som minimerer den.\n\n**b)** Hva blir forventet kvadratisk avvik om vi gjetter $\\theta=23$?\n\n**c)** Hvor stor del av avviket i b) er uunngåelig uansett gjett?",
+            "solution": "**a)** Variansdekomponeringen:\n$$E[(\\theta-X)^2]=(\\theta-\\mu)^2+\\text{Var}(X)=(\\theta-20)^2+6.$$\nDette er en parabel i $\\theta$ med bunnpunkt der $(\\theta-20)^2=0$, altså $\\theta=20=E(X)$. Minsteverdien er $\\text{Var}(X)=6$.\n\n**b)**\n$$E[(23-X)^2]=(23-20)^2+6=9+6=15.$$\n\n**c)** Leddet $\\text{Var}(X)=6$ avhenger ikke av gjettet og er den uunngåelige delen. De resterende $15-6=9=(23-20)^2$ er straffen for å bomme tre enheter på forventningen — og forsvinner om vi gjetter $\\theta=20$.",
+            "hints": [
+              "$E[(\\theta-X)^2]=(\\theta-\\mu)^2+\\text{Var}(X)$.",
+              "Parabelen er minst når $(\\theta-\\mu)^2=0$.",
+              "Den uunngåelige delen er $\\text{Var}(X)$; resten er $(\\theta-\\mu)^2$."
+            ]
+          }
+        },
+        {
+          "id": "stk1100-8-prove-p3-ex2",
+          "type": "exercise",
+          "exercise": {
+            "id": "stk1100-8-prove-p3-ex2",
+            "number": "2",
+            "type": "classic",
+            "difficulty": "vanskelig",
+            "task": "**Beste prediksjon gitt data.** To måltall $X$ og $Y$ fra en produksjonsprosess er binormale med $\\mu_1=500$, $\\mu_2=1200$, $\\sigma_1=80$, $\\sigma_2=200$ og $\\rho=-0{,}5$. Vi observerer $X=620$.\n\n**a)** Hva er beste prediksjon av $Y$ i kvadratisk forstand, og hvorfor er den lavere enn $\\mu_2$?\n\n**b)** Hvor stor er forventet kvadratisk prediksjonsfeil?\n\n**c)** Hvor stor andel av variansen i $Y$ forklares av $X$?",
+            "solution": "**a)** Beste prediksjon under kvadratisk tap er den betingede forventningen:\n$$E(Y\\mid X=620)=\\mu_2+\\rho\\frac{\\sigma_2}{\\sigma_1}(x-\\mu_1)=1200+(-0{,}5)\\cdot\\frac{200}{80}\\cdot(620-500).$$\n$$=1200-0{,}5\\cdot 2{,}5\\cdot 120=1200-150=1050.$$\nDen er lavere enn $\\mu_2=1200$ fordi korrelasjonen er **negativ**: en $X$ over sitt gjennomsnitt ($620>500$) trekker forventet $Y$ ned.\n\n**b)** Forventet kvadratisk prediksjonsfeil er den betingede variansen:\n$$\\text{Var}(Y\\mid X=620)=\\sigma_2^2(1-\\rho^2)=200^2\\cdot(1-0{,}25)=40000\\cdot 0{,}75=30000.$$\n\n**c)** Andelen forklart er $\\rho^2=(-0{,}5)^2=0{,}25$, altså $25\\ \\%$ av variansen i $Y$ forklares av den lineære sammenhengen med $X$. Prediksjonsfeilen faller tilsvarende fra $\\sigma_2^2=40000$ til $30000$.",
+            "hints": [
+              "Beste prediksjon er $E(Y\\mid X=x)=\\mu_2+\\rho\\frac{\\sigma_2}{\\sigma_1}(x-\\mu_1)$; $\\sigma_2/\\sigma_1=200/80=2{,}5$.",
+              "Negativt $\\rho$ og $x>\\mu_1$ trekker prediksjonen ned.",
+              "Prediksjonsfeilen er $\\sigma_2^2(1-\\rho^2)$; forklart andel er $\\rho^2$."
+            ]
+          }
+        },
+        {
+          "id": "stk1100-8-prove-p3-ex3",
+          "type": "exercise",
+          "exercise": {
+            "id": "stk1100-8-prove-p3-ex3",
+            "number": "3",
+            "type": "classic",
+            "difficulty": "vanskelig",
+            "task": "**Beste prediktor og valg av tapsfunksjon.** $(X,Y)$ er standardisert binormal med korrelasjon $\\rho$.\n\n**a)** Vis at det beste konstante gjettet på $Y$ (uten data) i kvadratisk forstand er $\\theta=0$, med forventet kvadratisk avvik $1$.\n\n**b)** Vis at etter å ha observert $X=x_0$ er beste prediksjon $E(Y\\mid X=x_0)=\\rho x_0$, og at forventet kvadratisk prediksjonsfeil da faller til $1-\\rho^2$.\n\n**c)** En kollega vil bruke gjennomsnittet også når tapet måles som absoluttverdi, $E|\\theta-Y|$. Er det generelt riktig? Begrunn kort.",
+            "solution": "**a)** Variansdekomponeringen med $\\mu_2=0$ og $\\text{Var}(Y)=1$:\n$$E[(\\theta-Y)^2]=(\\theta-\\mu_2)^2+\\text{Var}(Y)=\\theta^2+1.$$\nDette er minst når $\\theta^2=0$, altså $\\theta=0=\\mu_2$, med minsteverdi $\\text{Var}(Y)=1$. Uten data er beste gjett marginalforventningen, og feilen er marginalvariansen.\n\n**b)** Med data kan gjettet avhenge av $x_0$, og den funksjonen som minimerer $E[(Y-g(X))^2]$ er den betingede forventningen. For standardisert binormal er $E(Y\\mid X=x_0)=\\rho x_0$. Bruker vi dette gjettet, blir forventet kvadratisk prediksjonsfeil lik den betingede variansen:\n$$\\text{Var}(Y\\mid X=x_0)=\\sigma_2^2(1-\\rho^2)=1-\\rho^2.$$\nInformasjonen i $X$ reduserer altså feilen fra $1$ til $1-\\rho^2$ — en reduksjon på andelen $\\rho^2$.\n\n**c)** Nei, ikke som generell regel. Under absoluttverditap er det optimale konstante gjettet **medianen**, ikke forventningen. For den symmetriske standardnormale marginalen her faller median og forventning riktignok sammen (begge er $0$), så tallet blir det samme i dette tilfellet — men for en skjev fordeling ville de skilt lag, og da gir «alltid gjennomsnittet» feil svar. Hvilket sentralmål som er best, avhenger av tapsfunksjonen.",
+            "hints": [
+              "Del a: variansdekomponeringen med $\\mu_2=0$, $\\text{Var}(Y)=1$.",
+              "Del b: beste prediksjon er den betingede forventningen $\\rho x_0$; feilen er den betingede variansen.",
+              "Del c: kvadratisk tap gir forventningen, absoluttverditap gir medianen."
+            ]
+          }
+        },
+        {
+          "id": "stk1100-8-prove-p3-selvdiag",
+          "type": "text",
+          "content": "### Selvdiagnose 8.C\n\n- ☐ Jeg skrev $E[(\\theta-X)^2]=(\\theta-\\mu)^2+\\text{Var}(X)$ og leste av at $\\theta=\\mu$ minimerer.\n- ☐ Jeg identifiserte $\\text{Var}(X)$ som den uunngåelige delen av avviket.\n- ☐ Jeg brukte den betingede forventningen som beste prediksjon i binormalen og fant prediksjonsfeilen $\\sigma_2^2(1-\\rho^2)$.\n- ☐ Jeg husket at kvadratisk tap gir forventningen, men absoluttverditap gir medianen.\n\nManglet du noe? Repeter [kap. 8.2](/bok/stk1100/stk1100-8-2), løkke 1 og 2."
+        }
+      ]
+    },
+    {
+      "id": "stk1100-8-prove-p4",
+      "type": "collapsible",
+      "title": "Prøve 8.D — Enkel lineær regresjon med/uten konstantledd (eksamensnivå, ~40 min)",
+      "buttonText": "Vis prøve 8.D",
+      "content": [
+        {
+          "id": "stk1100-8-prove-p4-ex1",
+          "type": "exercise",
+          "exercise": {
+            "id": "stk1100-8-prove-p4-ex1",
+            "number": "1",
+            "type": "classic",
+            "difficulty": "vanskelig",
+            "task": "**Enkel lineær regresjon (eksamensnivå).** Et spektrofotometer måler absorbansen $Y$ ved fem konsentrasjoner $x$ (i mg/L):\n\n| $x_i$ | 1 | 2 | 3 | 4 | 5 |\n|---|---|---|---|---|---|\n| $Y_i$ | 2,5 | 4,1 | 6,2 | 8,3 | 9,9 |\n\nModellen er $Y_i=\\beta_0+\\beta_1 x_i+\\varepsilon_i$ med uavhengige feil, $E(\\varepsilon_i)=0$ og kjent $\\text{Var}(\\varepsilon_i)=\\sigma^2=0{,}09$.\n\n**a)** Finn minste kvadraters estimat $\\hat\\beta_1$ og $\\hat\\beta_0$.\n\n**b)** Finn $\\text{Var}(\\hat\\beta_1)$ og sett opp et $95\\ \\%$-konfidensintervall for $\\beta_1$.\n\n**c)** Beer-Lamberts lov tilsier at linjen bør gå gjennom origo. Finn $\\hat\\gamma_1$ i modellen $Y_i=\\gamma_1 x_i+\\varepsilon_i$, og sammenlign $\\text{Var}(\\hat\\gamma_1)$ med $\\text{Var}(\\hat\\beta_1)$.\n\n**d)** Standardfeilen for skjæringspunktet er $\\widehat{\\text{SE}}(\\hat\\beta_0)=\\sigma\\sqrt{\\tfrac1n+\\tfrac{\\bar x^2}{S_{xx}}}$. Sett opp et $95\\ \\%$-KI for $\\beta_0$ og drøft, med bias-varians-avveiningen, om origo-modellen bør velges.\n\n**e)** Skisser spredningsplottet med den estimerte regresjonslinja $\\hat Y=\\hat\\beta_0+\\hat\\beta_1 x$.",
+            "solution": "**Hjelpestørrelser:** $\\bar x=3$, $\\bar Y=(2{,}5+4{,}1+6{,}2+8{,}3+9{,}9)/5=31/5=6{,}2$.\n$$S_{xx}=\\sum(x_i-\\bar x)^2=(-2)^2+(-1)^2+0+1^2+2^2=10,$$\n$$S_{xY}=\\sum(x_i-\\bar x)(Y_i-\\bar Y)=(-2)(-3{,}7)+(-1)(-2{,}1)+0+(1)(2{,}1)+(2)(3{,}7)=7{,}4+2{,}1+2{,}1+7{,}4=19{,}0.$$\n\n**a)**\n$$\\hat\\beta_1=\\frac{S_{xY}}{S_{xx}}=\\frac{19{,}0}{10}=1{,}9,\\qquad \\hat\\beta_0=\\bar Y-\\hat\\beta_1\\bar x=6{,}2-1{,}9\\cdot 3=6{,}2-5{,}7=0{,}5.$$\nEstimert linje: $\\hat Y=0{,}5+1{,}9\\,x$.\n\n**b)**\n$$\\text{Var}(\\hat\\beta_1)=\\frac{\\sigma^2}{S_{xx}}=\\frac{0{,}09}{10}=0{,}009,\\qquad \\widehat{\\text{SE}}(\\hat\\beta_1)=\\sqrt{0{,}009}\\approx 0{,}0949.$$\nMed $z_{0{,}025}=1{,}96$:\n$$1{,}9\\pm 1{,}96\\cdot 0{,}0949=1{,}9\\pm 0{,}186=(1{,}71,\\ 2{,}09).$$\nIntervallet ligger klart over $0$ — en sikker positiv sammenheng.\n\n**c)** Uten konstantledd trengs $\\sum x_i^2=1+4+9+16+25=55$ og $\\sum x_iY_i=1\\cdot 2{,}5+2\\cdot 4{,}1+3\\cdot 6{,}2+4\\cdot 8{,}3+5\\cdot 9{,}9=2{,}5+8{,}2+18{,}6+33{,}2+49{,}5=112{,}0$:\n$$\\hat\\gamma_1=\\frac{\\sum x_iY_i}{\\sum x_i^2}=\\frac{112{,}0}{55}\\approx 2{,}036.$$\n$$\\text{Var}(\\hat\\gamma_1)=\\frac{\\sigma^2}{\\sum x_i^2}=\\frac{0{,}09}{55}\\approx 0{,}00164.$$\nDette er klart mindre enn $\\text{Var}(\\hat\\beta_1)=0{,}009$ — å tvinge linjen gjennom origo gir lavere varians (identiteten $\\sum x_i^2=S_{xx}+n\\bar x^2=10+5\\cdot 9=55\\ge S_{xx}$).\n\n**d)** Med $\\bar x=3$, $n=5$, $S_{xx}=10$:\n$$\\widehat{\\text{SE}}(\\hat\\beta_0)=\\sqrt{0{,}09}\\sqrt{\\tfrac15+\\tfrac{9}{10}}=0{,}3\\sqrt{0{,}2+0{,}9}=0{,}3\\sqrt{1{,}1}\\approx 0{,}3146.$$\n$$\\hat\\beta_0\\pm 1{,}96\\cdot 0{,}3146=0{,}5\\pm 0{,}617=(-0{,}12,\\ 1{,}12).$$\nIntervallet **inneholder $0$**, så dataene er forenlige med at det sanne skjæringspunktet er null; sammen med den faglige Beer-Lambert-begrunnelsen taler det for origo-modellen. **Bias-varians-avveiningen:** origo-modellen har lavere varians ($0{,}00164<0{,}009$), men er bare forventningsrett dersom det sanne skjæringspunktet virkelig er null — ellers innføres skjevhet (merk at $\\hat\\gamma_1=2{,}04$ ligger over $\\hat\\beta_1=1{,}9$, nettopp fordi det positive estimerte skjæringspunktet «tvinges» inn i helningen). Konklusjon: med både faglig grunn og et KI som dekker $0$ er origo-modellen forsvarlig og mer presis — men støtten er ikke overveldende, siden det estimerte skjæringspunktet $0{,}5$ er positivt.\n\n**e)** Se figuren under: fem punkter som stiger tilnærmet lineært, med den estimerte linja $\\hat Y=0{,}5+1{,}9x$ gjennom tyngdepunktet $(\\bar x,\\bar Y)=(3,\\ 6{,}2)$.",
+            "hints": [
+              "$\\hat\\beta_1=S_{xY}/S_{xx}$ med $S_{xx}=\\sum(x_i-\\bar x)^2$; $\\hat\\beta_0=\\bar Y-\\hat\\beta_1\\bar x$.",
+              "$\\text{Var}(\\hat\\beta_1)=\\sigma^2/S_{xx}$, og KI er $\\hat\\beta_1\\pm 1{,}96\\,\\widehat{\\text{SE}}$.",
+              "Uten konstantledd: $\\hat\\gamma_1=\\sum x_iY_i/\\sum x_i^2$, $\\text{Var}(\\hat\\gamma_1)=\\sigma^2/\\sum x_i^2$.",
+              "Modellvalg: dekker KI for $\\beta_0$ tallet $0$? Veies mot at origo gir lavere varians, men risikerer skjevhet."
+            ]
+          }
+        },
+        {
+          "id": "stk1100-8-prove-p4-fig-regresjon",
+          "type": "image",
+          "src": "/images/textbook/stk1100/stk1100-8-prove-d-regresjon.svg",
+          "alt": "Spredningsplott med fem datapunkter ved konsentrasjonene 1 til 5 mg per liter og absorbansene 2,5, 4,1, 6,2, 8,3 og 9,9. En rett regresjonslinje Y-hatt lik 0,5 pluss 1,9 ganger x stiger fra nede til venstre mot oppe til hoyre og gaar gjennom tyngdepunktet i punktet 3 og 6,2, som er markert med en ring. Stiplede hjelpelinjer viser tyngdepunktet.",
+          "caption": "Spredningsplott av absorbans mot konsentrasjon med den estimerte minste kvadraters linja $\\hat Y=0{,}5+1{,}9x$. Linja går gjennom tyngdepunktet $(\\bar x,\\bar Y)=(3,\\ 6{,}2)$ (rød ring), slik $\\hat\\beta_0=\\bar Y-\\hat\\beta_1\\bar x$ garanterer."
+        },
+        {
+          "id": "stk1100-8-prove-p4-selvdiag",
+          "type": "text",
+          "content": "### Selvdiagnose 8.D\n\n- ☐ Jeg regnet $\\bar x$, $\\bar Y$, $S_{xx}$ og $S_{xY}$, og fikk $\\hat\\beta_1=S_{xY}/S_{xx}$ (ikke omvendt teller/nevner).\n- ☐ Jeg brukte $\\text{Var}(\\hat\\beta_1)=\\sigma^2/S_{xx}$ med $x$-ene som **faste**, og satte opp KI med $z_{0{,}025}=1{,}96$.\n- ☐ Jeg regnet $\\hat\\gamma_1=\\sum x_iY_i/\\sum x_i^2$ og bekreftet $\\text{Var}(\\hat\\gamma_1)<\\text{Var}(\\hat\\beta_1)$.\n- ☐ Jeg vurderte om KI for $\\beta_0$ dekker $0$ og koblet det til bias-varians-avveiningen (ikke bare «lavere varians»).\n- ☐ Jeg tegnet punktene og regresjonslinja gjennom tyngdepunktet.\n\nManglet du noe? Repeter [kap. 8.3](/bok/stk1100/stk1100-8-3), alle tre løkker."
+        }
+      ]
+    },
+    {
+      "id": "stk1100-8-prove-symbolliste",
+      "type": "collapsible",
+      "title": "Symbol- og formelliste",
+      "buttonText": "Vis symboler og formler",
+      "content": [
+        {
+          "id": "stk1100-8-prove-sym-text",
+          "type": "text",
+          "content": "## Symbol- og formelliste\n\n*Oppslagsverk — alt her forklares underveis.*\n\n| Symbol | Betydning |\n|---|---|\n| $\\text{Cov}(X,Y)$ | Kovariansen mellom $X$ og $Y$ |\n| $\\rho$, $\\text{Corr}(X,Y)$ | Korrelasjonskoeffisienten, $-1\\le\\rho\\le 1$ |\n| $\\text{Var}(aX+bY)$ | Variansen til en lineærkombinasjon |\n| $\\mu_1,\\mu_2$ | Forventningene $E(X)$, $E(Y)$ |\n| $\\sigma_1^2,\\sigma_2^2$ | Variansene $\\text{Var}(X)$, $\\text{Var}(Y)$ |\n| $(X,Y)\\sim$ binormal | Todimensjonal normalfordeling, fem parametre |\n| $E(Y\\mid X=x)$ | Betinget forventning / regresjonslinje (befolkning) |\n| $\\text{Var}(Y\\mid X=x)$ | Betinget varians (prediksjonsusikkerhet) |\n| $\\theta$ | Et konstant gjett/prediksjon |\n| $E[(\\theta-X)^2]$ | Forventet kvadratisk avvik (MSE for et konstant gjett) |\n| $g(X)$ | En prediksjonsfunksjon av $X$ |\n| $Y_i$, $x_i$ | Respons ($Y_i$ stokastisk) og forklaringsvariabel ($x_i$ fast) |\n| $\\beta_0,\\beta_1$ | Skjæringspunkt og stigningstall (med konstantledd) |\n| $\\gamma_1$ | Stigningstall uten konstantledd (linje gjennom origo) |\n| $\\hat\\beta_0,\\hat\\beta_1,\\hat\\gamma_1$ | Minste kvadraters estimatorer (hatt = estimator) |\n| $S_{xx},S_{xY}$ | $\\sum(x_i-\\bar x)^2$ og $\\sum(x_i-\\bar x)(Y_i-\\bar Y)$ |\n| $\\sigma^2$ | Feilvariansen (homoskedastisk) |\n| $\\widehat{\\text{SE}}$ | Estimert standardfeil |\n| $z_{\\alpha/2}$ | Standardnormalkvantil, $z_{0{,}025}=1{,}96$ |\n\n**Formler i dette kapitlet:**\n\n$$\\text{Var}(aX+bY)=a^2\\text{Var}(X)+b^2\\text{Var}(Y)+2ab\\,\\text{Cov}(X,Y)$$\n\n$$\\text{Cov}(aX+bY,\\,cX+dY)=ac\\,\\text{Var}(X)+(ad+bc)\\,\\text{Cov}(X,Y)+bd\\,\\text{Var}(Y)$$\n\n$$\\rho=\\frac{\\text{Cov}(X,Y)}{\\sqrt{\\text{Var}(X)\\text{Var}(Y)}}\\qquad \\rho=0\\ \\Leftrightarrow\\ X,Y\\text{ uavhengige (KUN binormal)}$$\n\n$$E(Y\\mid X=x)=\\mu_2+\\rho\\frac{\\sigma_2}{\\sigma_1}(x-\\mu_1)\\qquad \\text{Var}(Y\\mid X=x)=\\sigma_2^2(1-\\rho^2)$$\n\n$$E[(\\theta-X)^2]=(\\theta-\\mu)^2+\\text{Var}(X)\\ \\Rightarrow\\ \\theta=E(X)\\text{ minimerer, minsteverdi }\\text{Var}(X)$$\n\n$$g(x)=E(Y\\mid X=x)\\text{ minimerer }E[(Y-g(X))^2]\\quad(\\text{beste prediksjon under kvadratisk tap})$$\n\n$$\\hat\\beta_1=\\frac{S_{xY}}{S_{xx}},\\quad \\hat\\beta_0=\\bar Y-\\hat\\beta_1\\bar x,\\qquad \\hat\\gamma_1=\\frac{\\sum x_iY_i}{\\sum x_i^2}$$\n\n$$\\text{Var}(\\hat\\beta_1)=\\frac{\\sigma^2}{S_{xx}},\\quad \\text{Var}(\\hat\\gamma_1)=\\frac{\\sigma^2}{\\sum x_i^2},\\qquad \\sum x_i^2=S_{xx}+n\\bar x^2$$\n\n$$\\hat\\theta\\pm z_{\\alpha/2}\\,\\widehat{\\text{SE}}(\\hat\\theta)\\qquad(\\text{konfidensintervall; modellvalg via om KI for }\\beta_0\\text{ dekker }0)$$"
+        }
+      ]
+    }
+  ],
+  "exercises": []
+}

@@ -1,0 +1,279 @@
+{
+  "id": "mat111-uib-6-prove",
+  "courseId": "mat111-uib",
+  "chapterNumber": "6.P",
+  "title": "Prøver til del 6: Differensiallikninger",
+  "description": "Fire prøver som dekker hele Del 6 — separable likninger med full føring, lineære med integrerende faktor og variasjon av parameter, den anvendte avslutningsoppgaven, og Torricelli-kjeden som kjedet eksamensoppgave. Med fasit etter føringsstandarden og selvdiagnose.",
+  "estimatedMinutes": 180,
+  "competenceGoals": [
+    "kunne løse separable og lineære initialverdiproblemer med delens fulle føringsstandard",
+    "kunne gjennomføre hele modelleringskjeden fra rate-beskrivelse til konklusjonssetning med enhet",
+    "kunne løse en kjedet Torricelli-oppgave der volum, implisitt derivasjon og separabel likning bygger på hverandre"
+  ],
+  "content": [
+    {
+      "id": "mat111-uib-6-prove-tip",
+      "type": "tip",
+      "title": "Om prøvene til Del 6",
+      "content": "Fire prøver som dekker hele Del 6 (differensiallikninger) — settets faste avslutningstema med **høyeste prioritet**. Til sammen **4 prøver à ~35–55 min, kan trygt deles over flere kvelder — én prøve per økt**. Husk delens tre føringskrav: konstante løsninger notert og sjekket, gjenkjenningen $(\\mu y)'=\\mu q$ skrevet eksplisitt, og konklusjonssetning med enhet i anvendte oppgaver. Full fasit ligger som utvidbare løsninger; **avkryssbar selvdiagnose** avslutter hver prøve.\n\n| Prøve | Tema (kap.) | Tid |\n|---|---|---|\n| 6.A | Separable likninger + logistisk via delbrøk (6.1) | ~40 min |\n| 6.B | Lineære: integrerende faktor + variasjon av parameter (6.2) | ~35 min |\n| 6.C | Anvendt avslutningsoppgave — modeller, løs, tolk (6.3) | ~50 min |\n| 6.D | Torricelli-kjeden: $V(h)$ → implisitt derivasjon → separabel → tømmetid (5.6 + 6.3) | ~55 min |"
+    },
+    {
+      "id": "mat111-uib-6-prove-fork",
+      "type": "text",
+      "content": "**Forkunnskaper.** Hele Del 6: [kap. 6.1](/bok/mat111-uib/mat111-uib-6-1) (separable, føringsmalen i fem steg), [kap. 6.2](/bok/mat111-uib/mat111-uib-6-2) (lineære, integrerende faktor) og [kap. 6.3](/bok/mat111-uib/mat111-uib-6-3) (modelleringskjeden). Prøve 6.D bruker i tillegg skivemetoden fra [kap. 5.6](/bok/mat111-uib/mat111-uib-5-6) og implisitt derivasjon fra [kap. 3.3](/bok/mat111-uib/mat111-uib-3-3). Løs uten fasit først; sjekk deretter føringen ledd for ledd — det er føringen som gir poengene."
+    },
+    {
+      "id": "mat111-uib-6-prove-p1",
+      "type": "collapsible",
+      "title": "Prøve 1 — Separable likninger med full føring (6.A, ~40 min)",
+      "buttonText": "Vis prøve 1",
+      "content": [
+        {
+          "id": "mat111-uib-6-prove-p1-intro",
+          "type": "text",
+          "content": "**Prøve 6.A.** Tre oppgaver, ~40 min. I hver oppgave: noter konstante løsninger og sjekk dem mot initialbetingelsen FØR du deler."
+        },
+        {
+          "id": "mat111-uib-6-prove-p1o1-w",
+          "type": "exercise",
+          "exercise": {
+            "id": "mat111-uib-6-prove-p1o1",
+            "number": "1",
+            "type": "classic",
+            "difficulty": "lett",
+            "task": "Løs initialverdiproblemet $y' = -4xy^2$, $\\quad y(0)=1$.",
+            "solution": "**Konstante løsninger:** $h(y)=y^2=0$ gir $y\\equiv 0$; avvises siden $y(0)=1\\neq 0$ — divisjonen på $y^2$ er dermed lovlig langs løsningen.\n\n**Separér og integrer:** $-\\dfrac{dy}{y^2} = 4x\\,dx \\Rightarrow \\dfrac{1}{y} = 2x^2 + C.$\n\n**Konstanten:** $y(0)=1$ gir $C=1$.\n\n**Svar:** $y = \\dfrac{1}{2x^2+1}$ (definert for alle $x$).\n\n**Kontroll:** $y' = -\\dfrac{4x}{(2x^2+1)^2} = -4x\\Big(\\dfrac{1}{2x^2+1}\\Big)^2 = -4xy^2$ ✓, $y(0)=1$ ✓. $\\blacksquare$",
+            "hints": [
+              "$\\int y^{-2}dy = -y^{-1}$ — fortegnet ordner overgangen til $\\frac1y = 2x^2+C$.",
+              "Glem ikke setningen om $y\\equiv 0$ før du deler."
+            ]
+          }
+        },
+        {
+          "id": "mat111-uib-6-prove-p1o2-w",
+          "type": "exercise",
+          "exercise": {
+            "id": "mat111-uib-6-prove-p1o2",
+            "number": "2",
+            "type": "classic",
+            "difficulty": "middels",
+            "task": "Løs initialverdiproblemet $y' = \\dfrac{e^{2x}}{y}$, $\\quad y(0)=2$, og angi løsningens definisjonsområde.",
+            "solution": "**Konstante løsninger:** $h(y) = 1/y$ har ingen nullpunkter — ingen konstante løsninger (notert); $y=0$ ligger utenfor likningens definisjonsområde.\n\n**Separér og integrer:** $y\\,dy = e^{2x}\\,dx \\Rightarrow \\dfrac{y^2}{2} = \\dfrac{e^{2x}}{2} + C.$\n\n**Konstanten:** $y(0)=2$: $2 = \\dfrac12 + C \\Rightarrow C = \\dfrac32$, så $y^2 = e^{2x} + 3$.\n\n**Løs for $y$:** $y = \\pm\\sqrt{e^{2x}+3}$; initialverdien $y(0)=2>0$ velger plusstegnet.\n\n**Svar:** $y = \\sqrt{e^{2x}+3}$, definert for alle $x$ (radikanden er alltid $\\ge 3 > 0$).\n\n**Kontroll:** $y' = \\dfrac{e^{2x}}{\\sqrt{e^{2x}+3}} = \\dfrac{e^{2x}}{y}$ ✓, $y(0)=\\sqrt4 = 2$ ✓. $\\blacksquare$",
+            "hints": [
+              "Gang opp med $y$; begge sider blir lette å integrere.",
+              "Etter integrasjonen: $y^2 = e^{2x} + 2C$ — la initialbetingelsen velge rot-fortegnet."
+            ]
+          }
+        },
+        {
+          "id": "mat111-uib-6-prove-p1o3-w",
+          "type": "exercise",
+          "exercise": {
+            "id": "mat111-uib-6-prove-p1o3",
+            "number": "3",
+            "type": "classic",
+            "difficulty": "vanskelig",
+            "task": "Løs initialverdiproblemet $y' = 3y(2-y)$, $\\quad y(0)=\\dfrac12$ (logistisk; bruk delbrøk), og bestem $\\displaystyle\\lim_{x\\to\\infty}y(x)$.",
+            "solution": "**Konstante løsninger:** $h(y) = 3y(2-y)$ har nullpunktene $y=0$ og $y=2$, så $y\\equiv 0$ og $y\\equiv 2$ er løsninger. Initialverdien $\\tfrac12$ passer ingen av dem — **begge avvises**, og siden løsningskurver ikke krysser hverandre, holder vår løsning seg i $(0,2)$.\n\n**Separér:** $\\dfrac{dy}{y(2-y)} = 3\\,dx.$\n\n**Delbrøk** ($M=2$): $\\dfrac{1}{y(2-y)} = \\dfrac12\\Big(\\dfrac1y + \\dfrac{1}{2-y}\\Big)$, så\n\n$$\\frac12\\big(\\ln y - \\ln(2-y)\\big) = 3x + C \\quad\\Longrightarrow\\quad \\ln\\frac{y}{2-y} = 6x + C_1$$\n\n(absoluttverdier unødvendige: $0<y<2$ gjør begge argumentene positive — begrunnet av steg 1; merk minusfortegnet fra $\\int\\frac{dy}{2-y} = -\\ln(2-y)$).\n\n**Konstanten:** $x=0$: $\\ln\\dfrac{1/2}{3/2} = \\ln\\dfrac13 = C_1$. Eksponentiér: $\\dfrac{y}{2-y} = \\dfrac13 e^{6x}$.\n\n**Løs for $y$:** $3y = (2-y)e^{6x} \\Rightarrow y(3 + e^{6x}) = 2e^{6x}$, altså\n\n$$\\boxed{\\,y = \\frac{2e^{6x}}{3+e^{6x}} = \\frac{2}{1+3e^{-6x}}.\\,}$$\n\n**Kontroll:** $y(0) = \\dfrac{2}{4} = \\dfrac12$ ✓; innsetting i likningen stemmer (deriver kvotienten eller sjekk numerisk i ett punkt).\n\n**Grensen:** $e^{-6x}\\to 0$ når $x\\to\\infty$, så $\\displaystyle\\lim_{x\\to\\infty}y = 2$ — løsningen vokser mot bæreevnen $M=2$, i samsvar med bildet fra steg 1. $\\blacksquare$",
+            "hints": [
+              "Delbrøk: $\\frac{1}{y(2-y)} = \\frac12\\big(\\frac1y+\\frac{1}{2-y}\\big)$.",
+              "Husk minus i $\\int \\frac{dy}{2-y}$.",
+              "Sluttformen $\\frac{M}{1+Be^{-kMx}}$ gjør grensespørsmålet til ren avlesning."
+            ]
+          }
+        },
+        {
+          "id": "mat111-uib-6-prove-chk-p1",
+          "type": "text",
+          "content": "**Selvdiagnose — kryss av det du fikk til uten å slå opp:**\n\n- ☐ Noterte konstante løsninger og sjekket dem mot initialbetingelsen i alle tre oppgavene\n- ☐ Holdt fortegnene i orden i $\\int y^{-2}dy$ og $\\int\\frac{dy}{2-y}$\n- ☐ Lot initialbetingelsen velge rot-fortegnet i oppgave 2\n- ☐ Gjennomførte delbrøkoppspaltingen med $\\frac1M$-faktoren\n- ☐ Avsluttet med innsettingskontroll (likning + initialbetingelse)"
+        }
+      ]
+    },
+    {
+      "id": "mat111-uib-6-prove-p2",
+      "type": "collapsible",
+      "title": "Prøve 2 — Lineære: integrerende faktor + variasjon av parameter (6.B, ~35 min)",
+      "buttonText": "Vis prøve 2",
+      "content": [
+        {
+          "id": "mat111-uib-6-prove-p2-intro",
+          "type": "text",
+          "content": "**Prøve 6.B.** Tre oppgaver, ~35 min. Føringskrav: standardform før avlesning av $p$, og gjenkjenningslinjen $(\\mu y)' = \\mu q$ skrevet eksplisitt."
+        },
+        {
+          "id": "mat111-uib-6-prove-p2o1-w",
+          "type": "exercise",
+          "exercise": {
+            "id": "mat111-uib-6-prove-p2o1",
+            "number": "1",
+            "type": "classic",
+            "difficulty": "lett",
+            "task": "Løs initialverdiproblemet $y' + 4y = 8$, $\\quad y(0)=0$.",
+            "solution": "**Standardform:** klar; $p=4$, $q=8$. **Integrerende faktor:** $\\mu = e^{4x}$.\n\n**Gjenkjenning:** $(e^{4x}y)' = 8e^{4x}$.\n\n**Integrer:** $e^{4x}y = 2e^{4x} + C$.\n\n**Løs for $y$, så konstanten:** $y = 2 + Ce^{-4x}$; $y(0)=2+C=0 \\Rightarrow C=-2$.\n\n**Svar:** $y = 2 - 2e^{-4x}$.\n\n**Kontroll:** $y' = 8e^{-4x}$; $y' + 4y = 8e^{-4x} + 8 - 8e^{-4x} = 8$ ✓, $y(0)=0$ ✓. $\\blacksquare$",
+            "hints": [
+              "$\\mu = e^{\\int 4\\,dx} = e^{4x}$.",
+              "Konstanten bestemmes etter at $y$ er isolert."
+            ]
+          }
+        },
+        {
+          "id": "mat111-uib-6-prove-p2o2-w",
+          "type": "exercise",
+          "exercise": {
+            "id": "mat111-uib-6-prove-p2o2",
+            "number": "2",
+            "type": "classic",
+            "difficulty": "middels",
+            "task": "Løs initialverdiproblemet $y' - \\dfrac{y}{x} = x$ for $x>0$, $\\quad y(1)=2$.",
+            "solution": "**Standardform:** klar, med $p(x) = -\\dfrac1x$ (fortegnet følger med!) og $q(x)=x$.\n\n**Integrerende faktor:** $\\displaystyle\\int p\\,dx = -\\ln x$, så $\\mu = e^{-\\ln x} = \\dfrac1x$.\n\n**Gjenkjenning:** $\\Big(\\dfrac{y}{x}\\Big)' = \\dfrac1x\\cdot x = 1.$ (Sjekk med produktregelen: $\\big(\\frac yx\\big)' = \\frac{y'x - y}{x^2} = \\frac1x\\big(y' - \\frac yx\\big)$ ✓.)\n\n**Integrer:** $\\dfrac{y}{x} = x + C$.\n\n**Løs for $y$, så konstanten:** $y = x^2 + Cx$; $y(1) = 1 + C = 2 \\Rightarrow C = 1$.\n\n**Svar:** $y = x^2 + x$ for $x>0$.\n\n**Kontroll:** $y' = 2x+1$; $y' - \\dfrac yx = 2x + 1 - (x+1) = x$ ✓, $y(1)=2$ ✓. $\\blacksquare$",
+            "hints": [
+              "$p = -\\frac1x$: minustegnet skal inn i $\\int p\\,dx$.",
+              "$e^{-\\ln x} = \\frac1x$.",
+              "Gjenkjenningen gir det uvanlig hyggelige $(\\frac yx)' = 1$."
+            ]
+          }
+        },
+        {
+          "id": "mat111-uib-6-prove-p2o3-w",
+          "type": "exercise",
+          "exercise": {
+            "id": "mat111-uib-6-prove-p2o3",
+            "number": "3",
+            "type": "classic",
+            "difficulty": "vanskelig",
+            "task": "Løs initialverdiproblemet $y' + 2y = 6e^{-2x}$, $\\quad y(0)=1$, med integrerende faktor — og før variasjon av parameter som alternativ løsning.",
+            "solution": "**Med integrerende faktor.** $p=2$, $q=6e^{-2x}$; $\\mu = e^{2x}$.\n\n**Gjenkjenning:** $(e^{2x}y)' = 6e^{2x}e^{-2x} = 6$ — høyresiden ble konstant (resonans: $q$ har samme form som den homogene løsningen), så forvent et $x$-ledd.\n\n**Integrer:** $e^{2x}y = 6x + C$.\n\n**Løs for $y$, så konstanten:** $y = (6x + C)e^{-2x}$; $y(0) = C = 1$.\n\n$$\\boxed{\\,y = (6x+1)e^{-2x}.\\,}$$\n\n**Kontroll:** $y' = 6e^{-2x} - 2(6x+1)e^{-2x}$, så $y' + 2y = 6e^{-2x}$ ✓; $y(0)=1$ ✓.\n\n**Alternativt (variasjon av parameter):** homogen likning $y'+2y=0$ har $y_h = Ce^{-2x}$. Sett $y = u(x)e^{-2x}$: da er $y' = u'e^{-2x} - 2ue^{-2x}$, og innsetting gir\n\n$$u'e^{-2x} - 2ue^{-2x} + 2ue^{-2x} = 6e^{-2x} \\;\\Longrightarrow\\; u' = 6 \\;\\Longrightarrow\\; u = 6x + C.$$\n\nSamme svar: $y = (6x+C)e^{-2x}$ med $C=1$. Begge føringer gir full uttelling. $\\blacksquare$",
+            "hints": [
+              "$\\mu q = e^{2x}\\cdot 6e^{-2x} = 6$ — konstant.",
+              "I variasjonen skal $u$-leddene uten derivert kansellere; det er kontrollen.",
+              "Resonans-signaturen er $x$-leddet i svaret."
+            ]
+          }
+        },
+        {
+          "id": "mat111-uib-6-prove-chk-p2",
+          "type": "text",
+          "content": "**Selvdiagnose — kryss av det du fikk til uten å slå opp:**\n\n- ☐ Leste av $p$ MED fortegn og regnet riktig $\\mu$ i alle tre oppgavene\n- ☐ Skrev gjenkjenningslinjen $(\\mu y)' = \\mu q$ eksplisitt\n- ☐ Så resonans-signalet ($\\mu q$ konstant) og forventet $x$-leddet\n- ☐ Gjennomførte variasjon av parameter og fikk kansellering av $u$-leddene\n- ☐ Bestemte konstanten etter at $y$ var isolert, og kontrollerte ved innsetting"
+        }
+      ]
+    },
+    {
+      "id": "mat111-uib-6-prove-p3",
+      "type": "collapsible",
+      "title": "Prøve 3 — Anvendt avslutningsoppgave (6.C, ~50 min)",
+      "buttonText": "Vis prøve 3",
+      "content": [
+        {
+          "id": "mat111-uib-6-prove-p3-intro",
+          "type": "text",
+          "content": "**Prøve 6.C.** Tre anvendte oppgaver, ~50 min — avslutningsoppgave-format. Full modelleringskjede i hver: modell → klassifisering → likevekter → løsning → konstanter → **konklusjonssetning med enhet**."
+        },
+        {
+          "id": "mat111-uib-6-prove-p3o1-w",
+          "type": "exercise",
+          "exercise": {
+            "id": "mat111-uib-6-prove-p3o1",
+            "number": "1",
+            "type": "classic",
+            "difficulty": "middels",
+            "task": "En kake tas ut av ovnen med temperatur $180\\ ^\\circ$C og settes til avkjøling i et rom som holder $20\\ ^\\circ$C. Temperaturen avtar med en rate proporsjonal med differansen mellom kakens og rommets temperatur. Etter 10 minutter er kaken $100\\ ^\\circ$C.\n\n**a)** Sett opp differensiallikningen, og løs den.\n\n**b)** Kaken kan serveres når den er $30\\ ^\\circ$C. Hvor lenge må den stå?",
+            "solution": "**a) Modell:** $T' = -k(T-20)$, $k>0$ («rate proporsjonal med differansen»; minus fordi temperaturen avtar for $T>20$). **Klassifisering:** separabel (og lineær). **Likevektsløsning:** $T\\equiv 20$; avvises mot $T(0)=180$, og vår løsning ligger over den.\n\n**Løsning:** $\\dfrac{dT}{T-20} = -k\\,dt \\Rightarrow \\ln(T-20) = -kt + C$ ($T-20>0$ langs løsningen), så $T = 20 + Ae^{-kt}$. $T(0)=180$ gir $A=160$:\n\n$$T(t) = 20 + 160e^{-kt}.$$\n\n**Konstanten:** $T(10)=100$: $100 = 20 + 160e^{-10k} \\Rightarrow e^{-10k} = \\dfrac{80}{160} = \\dfrac12 \\Rightarrow k = \\dfrac{\\ln 2}{10} \\approx 0{,}0693\\ \\text{min}^{-1}.$\n\n**b)** $T(t)=30$: $160e^{-kt} = 10 \\Rightarrow e^{-kt} = \\dfrac{1}{16} = \\Big(\\dfrac12\\Big)^4 \\Rightarrow kt = 4\\ln 2 \\Rightarrow t = 40.$\n\n**Konklusjon:** Kaken må stå i **40 minutter** før servering. *(Strukturen bak det pene tallet: differansen mot rommet halveres hvert 10. minutt, og $\\frac{10}{160} = \\frac1{16}$ er nøyaktig fire halveringer.)* $\\blacksquare$",
+            "hints": [
+              "Modellen er Newtons avkjølingslov med $T_{\\text{omg}}=20$.",
+              "Datapunktet gir $e^{-10k}=\\frac12$ — differansen halveres per 10 min.",
+              "$\\frac{1}{16}$ er en potens av $\\frac12$ — bruk det i stedet for kalkulator."
+            ]
+          }
+        },
+        {
+          "id": "mat111-uib-6-prove-p3o2-w",
+          "type": "exercise",
+          "exercise": {
+            "id": "mat111-uib-6-prove-p3o2",
+            "number": "2",
+            "type": "classic",
+            "difficulty": "middels",
+            "task": "En robåt slutter å ro ved farten $12$ m/s. Vannmotstanden bremser båten med en rate proporsjonal med kvadratet av farten, og etter 10 sekunder er farten $8$ m/s.\n\n**a)** Sett opp og løs differensiallikningen for farten $v(t)$.\n\n**b)** Når passerer farten $3$ m/s?",
+            "solution": "**a) Modell:** $v' = -kv^2$, $k>0$. **Klassifisering:** separabel. **Konstant løsning:** $v\\equiv 0$; avvises mot $v(0)=12$ (og viser seg å være uoppnåelig i endelig tid).\n\n**Løsning:** $-\\dfrac{dv}{v^2} = k\\,dt \\Rightarrow \\dfrac1v = kt + C$; $v(0)=12$ gir $C = \\dfrac1{12}$:\n\n$$v(t) = \\frac{1}{\\frac{1}{12} + kt}.$$\n\n**Konstanten:** $v(10)=8$: $\\dfrac18 = \\dfrac1{12} + 10k \\Rightarrow 10k = \\dfrac{3-2}{24} = \\dfrac{1}{24} \\Rightarrow k = \\dfrac{1}{240}.$\n\n**b)** $v(t)=3$: $\\dfrac13 = \\dfrac1{12} + \\dfrac{t}{240} \\Rightarrow \\dfrac{t}{240} = \\dfrac{4-1}{12} = \\dfrac14 \\Rightarrow t = 60.$\n\n**Konklusjon:** Farten passerer $3$ m/s **ett minutt (60 sekunder) etter at roeren slutter å ro**. *(Kontroll: $v(60) = \\frac{1}{\\frac1{12}+\\frac{60}{240}} = \\frac{1}{\\frac13} = 3$ ✓.)* $\\blacksquare$",
+            "hints": [
+              "«Kvadratet av farten»: $v' = -kv^2$, ikke $-kv$.",
+              "Løsningsformen er $\\frac1v = \\frac1{v_0} + kt$ — lineær i $1/v$.",
+              "Regn med brøker ($\\frac18-\\frac1{12} = \\frac1{24}$) i stedet for desimaltall."
+            ]
+          }
+        },
+        {
+          "id": "mat111-uib-6-prove-p3o3-w",
+          "type": "exercise",
+          "exercise": {
+            "id": "mat111-uib-6-prove-p3o3",
+            "number": "3",
+            "type": "classic",
+            "difficulty": "vanskelig",
+            "task": "En tank inneholder 200 liter vann med 10 kg salt oppløst. Fra $t=0$ pumpes det inn 2 L/min saltlake med konsentrasjon 0,3 kg/L, og godt omrørt blanding tappes ut med samme hastighet.\n\n**a)** Sett opp differensiallikningen for saltmengden $y(t)$, og løs den.\n\n**b)** Hvor mye salt er i tanken etter 100 minutter, og hvilket nivå nærmer saltmengden seg på lang sikt? Forklar langtidsnivået uten regning.",
+            "solution": "**a) Balansen:** inn: $2\\cdot 0{,}3 = 0{,}6$ kg/min; ut: volumet er konstant 200 L, så konsentrasjonen er $\\dfrac{y}{200}$ og ut-raten $2\\cdot\\dfrac{y}{200} = \\dfrac{y}{100}$ kg/min:\n\n$$y' = 0{,}6 - \\frac{y}{100}.$$\n\n**Klassifisering:** lineær (og separabel). **Likevektsløsning:** $y'=0$ gir $y\\equiv 60$; avvises mot $y(0)=10$ — men den varsler langtidssvaret.\n\n**Løsning (integrerende faktor):** standardform $y' + \\dfrac{1}{100}y = 0{,}6$; $\\mu = e^{t/100}$; gjenkjenning $(e^{t/100}y)' = 0{,}6e^{t/100}$; integrasjon gir $e^{t/100}y = 60e^{t/100} + C$, altså $y = 60 + Ce^{-t/100}$. $y(0)=10$ gir $C=-50$:\n\n$$y(t) = 60 - 50e^{-t/100}\\ \\text{kg}.$$\n\n**b)** $y(100) = 60 - 50e^{-1} \\approx 60 - 18{,}4 = 41{,}6$ kg. Når $t\\to\\infty$: $e^{-t/100}\\to 0$, så $y\\to 60$ kg.\n\n**Konklusjon:** Etter 100 minutter inneholder tanken **om lag 41,6 kg salt**, og saltmengden stabiliserer seg mot **60 kg**. Langtidsnivået uten regning: til slutt har alt vannet i tanken innløpskonsentrasjonen $0{,}3$ kg/L, og $0{,}3\\ \\text{kg/L}\\cdot 200\\ \\text{L} = 60$ kg. $\\blacksquare$",
+            "hints": [
+              "Rate ut = (utstrøm) ganger (tankens konsentrasjon $y/200$).",
+              "Likevekten ($y'=0$) er langtidssvaret — regn den først som kontroll.",
+              "$t=100$ min er nøyaktig én tidskonstant: avviket er redusert med faktoren $e^{-1}$."
+            ]
+          }
+        },
+        {
+          "id": "mat111-uib-6-prove-chk-p3",
+          "type": "text",
+          "content": "**Selvdiagnose — kryss av det du fikk til uten å slå opp:**\n\n- ☐ Oversatte alle tre rate-beskrivelsene til riktig likning med riktig fortegn\n- ☐ Noterte likevektsløsningen og brukte den som kontroll av langtidsoppførselen\n- ☐ Bestemte konstantene i riktig rekkefølge (startverdi først, deretter $k$)\n- ☐ Skrev konklusjonssetning **med enhet** i alle tre oppgavene\n- ☐ Forklarte langtidsnivået i tanken uten regning (konsentrasjon × volum)"
+        }
+      ]
+    },
+    {
+      "id": "mat111-uib-6-prove-p4",
+      "type": "collapsible",
+      "title": "Prøve 4 — Torricelli-kjeden (6.D, ~55 min)",
+      "buttonText": "Vis prøve 4",
+      "content": [
+        {
+          "id": "mat111-uib-6-prove-p4-intro",
+          "type": "text",
+          "content": "**Prøve 6.D — Torricelli-kjeden.** Én kjedet oppgave i fem ledd, ~55 min. Dette er eksamensformatet der omdreiningsvolum ([kap. 5.6](/bok/mat111-uib/mat111-uib-5-6)), implisitt derivasjon ([kap. 3.3](/bok/mat111-uib/mat111-uib-3-3)) og separabel likning ([kap. 6.1](/bok/mat111-uib/mat111-uib-6-1)) møtes i ÉN oppgave. Kjeden er poenget: hvert ledd bruker svaret fra det forrige."
+        },
+        {
+          "id": "mat111-uib-6-prove-p4o1-w",
+          "type": "exercise",
+          "exercise": {
+            "id": "mat111-uib-6-prove-p4o1",
+            "number": "1",
+            "type": "classic",
+            "difficulty": "vanskelig",
+            "task": "En tank har form som en omdreiningskjegle med spissen ned: toppradius $R = 1$ m og høyde $H = 2$ m (kjeglens vegg fås ved å dreie linjen $y = 2x$, $0\\le x\\le 1$, om $y$-aksen). Tanken er full ved $t=0$. I spissen åpnes et hull med areal $a = 2{,}0\\ \\text{cm}^2$, og vannet renner ut etter Torricellis lov $\\dfrac{dV}{dt} = -a\\sqrt{2gh}$, der $h(t)$ er vannhøyden og $g = 9{,}81\\ \\text{m/s}^2$.\n\n**a)** Vis med skivemetoden at vannvolumet ved høyde $h$ er $V(h) = \\dfrac{\\pi h^3}{12}$.\n\n**b)** Vis at $h$ oppfyller $\\dfrac{\\pi h^2}{4}\\,h' = -a\\sqrt{2gh}$.\n\n**c)** Løs differensiallikningen (husk føringskravene for separable likninger).\n\n**d)** Hvor lang tid tar det å tømme tanken?\n\n**e)** Hvor lang tid tar det før vannhøyden er halvert (fra 2 m til 1 m)? Sammenlign med svaret i d) og kommenter.",
+            "solution": "**a) Skivemetoden.** I høyde $y$ er tankens radius gitt av veggen $y = 2x$, altså $x = \\dfrac{y}{2}$. Skivearealet er $\\pi x^2 = \\dfrac{\\pi y^2}{4}$, så\n\n$$V(h) = \\int_0^h \\frac{\\pi y^2}{4}\\,dy = \\frac{\\pi h^3}{12}. \\qquad\\blacksquare$$\n\n*(Kontroll: full tank $V(2) = \\frac{8\\pi}{12} = \\frac{2\\pi}{3} \\approx 2{,}1\\ \\text{m}^3$ — stemmer med kjegleformelen $\\frac13\\pi R^2H = \\frac13\\pi\\cdot 1\\cdot 2$ ✓.)*\n\n**b) Implisitt derivasjon.** $V$ og $h$ er funksjoner av $t$; kjerneregelen:\n\n$$\\frac{dV}{dt} = V'(h)\\,h' = \\frac{\\pi h^2}{4}\\,h'.$$\n\nTorricelli: $\\dfrac{dV}{dt} = -a\\sqrt{2gh}$ (minus: volumet avtar). Likestilling gir $\\dfrac{\\pi h^2}{4}h' = -a\\sqrt{2gh}$. $\\blacksquare$\n\n**c) Separabel likning med full føring.** Ordne (for $h>0$):\n\n$$h' = -\\frac{4a\\sqrt{2g}}{\\pi}\\cdot\\frac{\\sqrt h}{h^2} = -c\\,h^{-3/2}, \\qquad c := \\frac{4a\\sqrt{2g}}{\\pi}.$$\n\n*Konstante løsninger:* høyresiden er aldri null for $h>0$, og $h\\equiv 0$ (tom tank) er slutt-tilstand, ikke start — starten $h(0)=2$ gjør at vi regner for $h>0$. *(Setningen skal med — det er føringskravet fra [kap. 6.1](/bok/mat111-uib/mat111-uib-6-1).)*\n\n*Separér og integrer:*\n\n$$h^{3/2}\\,dh = -c\\,dt \\quad\\Longrightarrow\\quad \\frac{2}{5}h^{5/2} = \\frac{2}{5}\\cdot 2^{5/2} - c\\,t,$$\n\nder konstanten er bestemt av $h(0)=2$. Altså\n\n$$h(t) = \\Big(2^{5/2} - \\frac{5c}{2}\\,t\\Big)^{2/5}.$$\n\n**d) Tømmetiden.** $h=0$:\n\n$$t_{\\text{tom}} = \\frac{2\\cdot 2^{5/2}}{5c} = \\frac{2^{7/2}\\pi}{20\\,a\\sqrt{2g}}.$$\n\nTall: $a = 2{,}0\\ \\text{cm}^2 = 2{,}0\\cdot 10^{-4}\\ \\text{m}^2$, $\\sqrt{2g}\\approx 4{,}429$, så $c = \\dfrac{4\\cdot 2\\cdot 10^{-4}\\cdot 4{,}429}{\\pi} \\approx 1{,}13\\cdot 10^{-3}$ og\n\n$$t_{\\text{tom}} = \\frac{2\\cdot 5{,}657}{5\\cdot 1{,}13\\cdot 10^{-3}} \\approx 2{,}0\\cdot 10^{3}\\ \\text{s}.$$\n\n**Konklusjon:** Tanken tømmes på **om lag 2 000 sekunder ≈ 33 minutter**.\n\n**e) Halv høyde.** $h = 1$: $\\dfrac25\\cdot 2^{5/2} - ct = \\dfrac25 \\Rightarrow t = \\dfrac{2(2^{5/2}-1)}{5c} \\approx \\dfrac{2\\cdot 4{,}657}{5{,}64\\cdot 10^{-3}} \\approx 1{,}65\\cdot 10^3\\ \\text{s} \\approx 27{,}5\\ \\text{min}.$\n\n**Konklusjon:** Den øverste halvparten av høyden tar **om lag 27,5 minutter** — over 80 % av hele tømmetiden — mens den nederste meteren tar bare ~6 min. To grunner trekker samme vei i kjeglen: øverst er tverrsnittet størst (mye vann per høydemeter) — og mot slutten er det lite vann igjen per høydemeter, samtidig som trykkhøyden $\\sqrt h$ er blitt liten. Nettoresultatet her er at tømmingen *akselererer* i høyde — motsatt av sylinderen, der speilet synker stadig langsommere. $\\blacksquare$",
+            "hints": [
+              "a) Radius i høyde $y$: løs $y=2x$ for $x$; skivearealet er $\\pi x^2$.",
+              "b) $\\frac{dV}{dt} = V'(h)h'$ — kjerneregelen; begrunn minustegnet.",
+              "c) $\\frac{\\sqrt h}{h^2} = h^{-3/2}$; separér som $h^{3/2}dh = -c\\,dt$."
+            ]
+          }
+        },
+        {
+          "id": "mat111-uib-6-prove-chk-p4",
+          "type": "text",
+          "content": "**Selvdiagnose — kryss av det du fikk til uten å slå opp:**\n\n- ☐ Utledet $V(h)$ med skivemetoden og kontrollerte mot kjegleformelen\n- ☐ Brukte kjerneregelen $\\frac{dV}{dt} = V'(h)h'$ og begrunnet minustegnet\n- ☐ Skrev setningen om konstante løsninger/$h>0$ før separasjonen\n- ☐ Forenklet $\\frac{\\sqrt h}{h^2}$ til $h^{-3/2}$ FØR integrasjonen\n- ☐ Konverterte $\\text{cm}^2\\to\\text{m}^2$ og ga konklusjonssetning med enhet i d) og e)\n- ☐ Brukte kjeden: svaret fra a) i b), fra b) i c), fra c) i d) og e)"
+        }
+      ]
+    },
+    {
+      "id": "mat111-uib-6-prove-symbol",
+      "type": "collapsible",
+      "title": "Symbol- og formelliste",
+      "buttonText": "Vis symboler og formler",
+      "content": [
+        {
+          "id": "mat111-uib-6-prove-symbol-t",
+          "type": "text",
+          "content": "## Symbol- og formelliste (Del 6)\n\n| Formel | Bruk |\n|---|---|\n| $y' = g(x)h(y)$; noter $h(c)=0$ | separabel likning; konstante løsninger sjekkes FØR divisjon |\n| $\\frac{1}{y(M-y)} = \\frac1M\\big(\\frac1y + \\frac{1}{M-y}\\big)$ | delbrøk for logistisk |\n| $y = \\frac{M}{1+Be^{-kMx}}$, $B = \\frac{M-y_0}{y_0}$ | logistisk sluttform |\n| $\\mu = e^{\\int p\\,dx}$; $(\\mu y)' = \\mu q$ | integrerende faktor + gjenkjenningslinjen |\n| $y = u(x)e^{-\\int p\\,dx} \\Rightarrow u' = \\mu q$ | variasjon av parameter («Alternativt:») |\n| $T' = -k(T-T_{\\text{omg}})$ | Newtons avkjølingslov |\n| $\\frac1v = \\frac1{v_0} + kt$ | $v^2$-motstand |\n| $\\frac{dV}{dt} = V'(h)h' = -a\\sqrt{2gh}$ | Torricelli-kjeden |\n| $T_{1/2} = \\ln 2/k$ | halveringstid |\n\nAlt forklares i delens kapitler [kap. 6.1](/bok/mat111-uib/mat111-uib-6-1)–[kap. 6.3](/bok/mat111-uib/mat111-uib-6-3)."
+        }
+      ]
+    }
+  ],
+  "exercises": []
+}

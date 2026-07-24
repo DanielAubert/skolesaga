@@ -1,0 +1,401 @@
+{
+  "id": "stk1110-3-5",
+  "courseId": "stk1110",
+  "chapterNumber": "3.5",
+  "title": "Prediksjon: KI for forventet respons vs. prediksjonsintervall",
+  "description": "Skillet mellom konfidensintervall for forventet respons og prediksjonsintervall for en ny observasjon — hvorfor sistnevnte har «1+…» under rota — og faren ved ekstrapolering.",
+  "estimatedMinutes": 50,
+  "competenceGoals": [
+    "beregne konfidensintervall for forventet respons ved en gitt prediktorverdi med riktige frihetsgrader",
+    "beregne prediksjonsintervall for en ny observasjon og forklare ekstra-leddet under rota",
+    "forklare hvorfor prediksjonsintervallet alltid er bredere og aldri krymper mot null",
+    "vurdere om en prediksjon er forsvarlig ut fra dataområdet og advare mot ekstrapolering"
+  ],
+  "content": [
+    {
+      "id": "stk1110-3-5-tip",
+      "type": "tip",
+      "title": "Eksamensvinkel",
+      "content": "**Regresjonsoppgavens sisteledd: hva sier modellen om nye verdier?** Dette er *sjanger K* (en fast oppgavetype: angi et intervall for responsen ved en gitt $x_0$ — og vit *hvilket* av de to intervallene oppgaven ber om). Prediksjonsintervall opptrer i **omtrent 4 av 22 sett (18 %)** (H2011, H2014, H2016, H2023), konfidensintervall for forventet respons i ~12 % (H2019, H2020).\n\n- Nøkkelskillet: **KI for *forventet* respons** (hvor ligger snittlinja?) vs. **prediksjonsintervall for én *ny* observasjon** — sistnevnte har «$1+$» under rota og er alltid bredere.\n- H2020-fasiten trekker eksplisitt frem **ekstrapoleringsfellen**: intervallet blir absurd bredt langt utenfor dataområdet, og modellen upålitelig.\n\n**Sensorkrav (§5.8):** riktig intervalltype, frihetsgrader $n-2$, og en kommentar om $x_0$ ligger innenfor dataområdet. Prioritet: dette skal du *kunne* — det er nivå 2-stoff og gir raske poeng når formelvalget sitter.\n\n*Tidsbruk:* ~50 min i to løkker (KI for forventet respons $\\to$ prediksjonsintervall og ekstrapolering)."
+    },
+    {
+      "id": "stk1110-3-5-forkunnskaper",
+      "type": "text",
+      "content": "**Forkunnskaper:** Hele kapitlet bygger på enkel regresjon i **[kap. 3.1](/bok/stk1110/stk1110-3-1)** — spesielt $\\hat\\beta_0,\\hat\\beta_1$, $\\hat\\sigma$ og $S_{xx}$ — og på t-intervallenes logikk fra **[kap. 2.1](/bok/stk1110/stk1110-2-1)**. Begge intervallformlene her står i formelsamlingen: jobben din er å *velge riktig formel* og *slå opp riktig kvantil*, ikke å huske dem."
+    },
+    {
+      "id": "stk1110-3-5-sistduvarher",
+      "type": "text",
+      "content": "**Sist du var her (fra kap. 3.1 — det du trenger nå):**\n\n$$\\hat y=\\hat\\beta_0+\\hat\\beta_1x,\\qquad S^2=\\frac{\\text{SSE}}{n-2},\\qquad V(\\hat\\beta_1)=\\frac{\\sigma^2}{S_{xx}},\\qquad \\hat\\beta_1\\pm t_{n-2,\\,\\alpha/2}\\,se(\\hat\\beta_1).$$\n\nIntervallene i dette kapitlet er samme t-mønster — estimat $\\pm$ kvantil $\\times$ standardfeil — bare med et nytt «estimat» (den tilpassede verdien i punktet $x_0$) og nye standardfeil."
+    },
+    {
+      "id": "stk1110-3-5-motiv",
+      "type": "text",
+      "content": "Modellen er tilpasset og godkjent. Nå kommer bruksspørsmålene, og de er to *forskjellige* spørsmål: (1) «Hva er *forventet* respons for alle enheter med $x=x_0$?» — et spørsmål om hvor snittlinja ligger. (2) «Hvilken verdi får *den neste enkeltobservasjonen* med $x=x_0$?» — et spørsmål om ett nytt, støyfullt datapunkt.\n\nPunktsvarene er identiske ($\\hat y_0$), men usikkerheten er helt ulik: en enkeltobservasjon bærer sitt eget feilledd i tillegg til usikkerheten i linja. Eksamen tester nettopp om du ser forskjellen — og om du vet når intervallene overhodet er til å stole på."
+    },
+    {
+      "id": "stk1110-3-5-l1",
+      "type": "text",
+      "content": "## Løkke 1 — Konfidensintervall for forventet respons (~20 min)"
+    },
+    {
+      "id": "stk1110-3-5-def-my0",
+      "type": "definition",
+      "title": "Forventet respons $\\mu_{Y\\mid x_0}$",
+      "content": "**Forventet respons er den sanne gjennomsnittsverdien av $Y$ blant alle enheter med $x=x_0$** — punktet på den *sanne* regresjonslinja:\n$$\\mu_{Y\\mid x_0}=E(Y\\mid x=x_0)=\\beta_0+\\beta_1x_0.$$\nDette er en fast (men ukjent) parameter, akkurat som $\\beta_1$ — og den intervallestimeres med et vanlig konfidensintervall."
+    },
+    {
+      "id": "stk1110-3-5-def-y0hat",
+      "type": "definition",
+      "title": "Punktestimatoren $\\hat Y_0$",
+      "content": "**Det naturlige estimatet for forventet respons er den tilpassede verdien i $x_0$:**\n$$\\hat Y_0=\\hat\\beta_0+\\hat\\beta_1x_0.$$\nSom funksjon av estimatorene er $\\hat Y_0$ stokastisk (stor bokstav); tallet $\\hat y_0$ er estimatet. $\\hat Y_0$ er forventningsrett: $E(\\hat Y_0)=\\beta_0+\\beta_1x_0=\\mu_{Y\\mid x_0}$."
+    },
+    {
+      "id": "stk1110-3-5-utledning-var",
+      "type": "text",
+      "content": "**Hvor usikker er $\\hat Y_0$?** Skriv linja om tyngdepunktet: $\\hat Y_0=\\bar Y+\\hat\\beta_1(x_0-\\bar x)$ (linja går alltid gjennom $(\\bar x,\\bar Y)$). De to leddene er ukorrelerte, så variansene adderes:\n$$V(\\hat Y_0)=V(\\bar Y)+(x_0-\\bar x)^2V(\\hat\\beta_1)=\\frac{\\sigma^2}{n}+(x_0-\\bar x)^2\\frac{\\sigma^2}{S_{xx}}=\\sigma^2\\Bigl(\\frac1n+\\frac{(x_0-\\bar x)^2}{S_{xx}}\\Bigr).$$\n*Intuisjon:* $\\sigma^2/n$ er usikkerheten i linjas *høyde* (hele linja kan ligge litt for høyt eller lavt); $(x_0-\\bar x)^2\\,\\sigma^2/S_{xx}$ er usikkerheten fra linjas *helning*, som vipper om tyngdepunktet — jo lenger ut du går, desto mer utslag gir en usikker helning."
+    },
+    {
+      "id": "stk1110-3-5-def-vary0",
+      "type": "definition",
+      "title": "Variansen til $\\hat Y_0$",
+      "content": "**Usikkerheten i den tilpassede verdien har to kilder — nivå og helning:**\n$$V(\\hat Y_0)=\\sigma^2\\Bigl(\\frac1n+\\frac{(x_0-\\bar x)^2}{S_{xx}}\\Bigr).$$\nDen er minst når $x_0=\\bar x$ (bare nivåusikkerhet) og vokser kvadratisk med avstanden fra $\\bar x$."
+    },
+    {
+      "id": "stk1110-3-5-def-sey0",
+      "type": "definition",
+      "title": "Standardfeilen $se(\\hat Y_0)$",
+      "content": "**Standardfeilen fås ved å sette inn $\\hat\\sigma$ for $\\sigma$ og ta roten:**\n$$se(\\hat Y_0)=\\hat\\sigma\\sqrt{\\frac1n+\\frac{(x_0-\\bar x)^2}{S_{xx}}}.$$\nMed denne på plass er intervallet et helt vanlig t-intervall."
+    },
+    {
+      "id": "stk1110-3-5-def-ki",
+      "type": "definition",
+      "title": "Konfidensintervall for forventet respons",
+      "content": "**KI-et for $\\mu_{Y\\mid x_0}$ er t-mønsteret med $\\hat y_0$ som estimat:**\n$$\\hat y_0\\pm t_{n-2,\\,\\alpha/2}\\,\\hat\\sigma\\sqrt{\\frac1n+\\frac{(x_0-\\bar x)^2}{S_{xx}}}.$$\nFrihetsgradene er $n-2$ ($\\hat\\sigma$ kommer fra enkel regresjon). Tolkningen er som for alle KI: metoden fanger den sanne forventningen $\\beta_0+\\beta_1x_0$ i $(1-\\alpha)\\cdot100$ % av gjentatte forsøk. Formelen står i formelsamlingen — tren *valget* og kvantiloppslaget."
+    },
+    {
+      "id": "stk1110-3-5-def-bredde",
+      "type": "definition",
+      "title": "Bredden vokser med $(x_0-\\bar x)^2$",
+      "content": "**Begge intervallene i dette kapitlet er smalest ved $\\bar x$ og videre jo lenger ut du går.** Grunnen er helningsleddet $(x_0-\\bar x)^2/S_{xx}$ i variansen: en usikker helning gjør lite utslag nær tyngdepunktet, men stort utslag langt ute. Tegner du intervallgrensene som funksjon av $x_0$, får du et «timeglass» rundt regresjonslinja med midje i $\\bar x$."
+    },
+    {
+      "id": "stk1110-3-5-def-smalest",
+      "type": "definition",
+      "title": "Smalest i tyngdepunktet",
+      "content": "**Ved $x_0=\\bar x$ reduseres KI-et til $\\bar y\\pm t_{n-2,\\,\\alpha/2}\\,\\hat\\sigma/\\sqrt n$** — helningsleddet forsvinner, og bare nivåusikkerheten står igjen. Det er her modellen uttaler seg tryggest; presisjonen forvitrer utover mot kantene av dataområdet."
+    },
+    {
+      "id": "stk1110-3-5-ex1",
+      "type": "example",
+      "title": "Eksempel 1: KI for forventet respons",
+      "problem": "Fra kap. 3.1: $x=(10,20,30,40,50)$, $\\hat y=30{,}4+0{,}72x$, $\\bar x=30$, $S_{xx}=1000$, $\\hat\\sigma=1{,}095$ og $n=5$. Finn et 95 %-konfidensintervall for forventet respons ved $x_0=35$. ($t_{3,\\,0{,}025}=3{,}182$.)",
+      "solution": "Punktestimat: $\\hat y_0=30{,}4+0{,}72\\cdot 35=55{,}6$.\n\nStandardfeil: $se(\\hat Y_0)=1{,}095\\sqrt{\\dfrac15+\\dfrac{(35-30)^2}{1000}}=1{,}095\\sqrt{0{,}2+0{,}025}=1{,}095\\cdot0{,}4743=0{,}5194$.\n\nFrihetsgrader: $n-2=3$, så kvantilen er $t_{3,\\,0{,}025}=3{,}182$:\n$$55{,}6\\pm 3{,}182\\cdot 0{,}5194=55{,}6\\pm 1{,}65=(53{,}95,\\ 57{,}25).$$\nTolkning: med 95 % konfidens ligger den *gjennomsnittlige* responsen for enheter med $x=35$ mellom $53{,}95$ og $57{,}25$."
+    },
+    {
+      "id": "stk1110-3-5-oppg1",
+      "type": "exercise",
+      "exercise": {
+        "id": "stk1110-3-5-oppg1-e",
+        "number": "1",
+        "type": "classic",
+        "difficulty": "lett",
+        "task": "Samme datasett som i eksempel 1. Finn et 95 %-konfidensintervall for forventet respons ved $x_0=20$, og forklar hvorfor det er bredere enn intervallet ved $x_0=30$.",
+        "solution": "$\\hat y_0=30{,}4+0{,}72\\cdot20=44{,}8$. Standardfeil: $1{,}095\\sqrt{0{,}2+100/1000}=1{,}095\\sqrt{0{,}3}=0{,}5998$. KI: $44{,}8\\pm3{,}182\\cdot0{,}5998=44{,}8\\pm1{,}91=(42{,}89,\\ 46{,}71)$.\n\nVed $x_0=30=\\bar x$ er helningsleddet null og standardfeilen bare $1{,}095\\sqrt{0{,}2}=0{,}4897$; ved $x_0=20$ bidrar $(20-30)^2/1000=0{,}1$ ekstra under rota. Avstand fra tyngdepunktet koster bredde.",
+        "hints": [
+          "Formelen: $\\hat y_0\\pm t_{3,\\,0{,}025}\\,\\hat\\sigma\\sqrt{1/n+(x_0-\\bar x)^2/S_{xx}}$.",
+          "Sammenlign uttrykket under rota for $x_0=20$ og $x_0=30$."
+        ]
+      }
+    },
+    {
+      "id": "stk1110-3-5-oppg2",
+      "type": "exercise",
+      "exercise": {
+        "id": "stk1110-3-5-oppg2-e",
+        "number": "2",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "Bruk formelen for $V(\\hat Y_0)$ til å forklare — uten tall — hvorfor konfidensbåndet rundt en estimert regresjonslinje har timeglassform, og hvor det er smalest.",
+        "solution": "$V(\\hat Y_0)=\\sigma^2\\bigl(1/n+(x_0-\\bar x)^2/S_{xx}\\bigr)$ består av et konstant nivåledd og et helningsledd som vokser kvadratisk med $|x_0-\\bar x|$. Ved $x_0=\\bar x$ er bare nivåleddet igjen — smalest der (\"midjen\"). Utover til begge sider vokser bredden fordi usikkerheten i $\\hat\\beta_1$ vipper linja om tyngdepunktet, med større utslag jo lenger ut man kommer — derav timeglasset.",
+        "hints": [
+          "Del variansen i de to leddene og se hvordan hvert avhenger av $x_0$.",
+          "Hva gjør en liten endring i helning med linja langt fra $\\bar x$?"
+        ]
+      }
+    },
+    {
+      "id": "stk1110-3-5-l2",
+      "type": "text",
+      "content": "## Løkke 2 — Prediksjonsintervall og ekstrapolering (~30 min)"
+    },
+    {
+      "id": "stk1110-3-5-def-nyobs",
+      "type": "definition",
+      "title": "En ny observasjon $Y_0$",
+      "content": "**Den nye observasjonen er ett enkelt, fremtidig datapunkt ved $x_0$ — ikke et gjennomsnitt:**\n$$Y_0=\\beta_0+\\beta_1x_0+\\varepsilon_0,$$\nder $\\varepsilon_0\\sim N(0,\\sigma^2)$ er den nye observasjonens *eget* feilledd, uavhengig av de $n$ gamle. $Y_0$ er en stokastisk variabel, ikke en parameter — derfor trenger den en annen type intervall enn et KI."
+    },
+    {
+      "id": "stk1110-3-5-def-predfeil",
+      "type": "definition",
+      "title": "Prediksjonsfeilen $Y_0-\\hat Y_0$",
+      "content": "**Prediksjonsfeilen er avviket mellom det nye datapunktet og prediksjonen vår.** Siden $Y_0$ (ny måling) og $\\hat Y_0$ (bygget på de gamle) er uavhengige, adderes variansene:\n$$V(Y_0-\\hat Y_0)=V(Y_0)+V(\\hat Y_0)=\\sigma^2+\\sigma^2\\Bigl(\\frac1n+\\frac{(x_0-\\bar x)^2}{S_{xx}}\\Bigr)=\\sigma^2\\Bigl(1+\\frac1n+\\frac{(x_0-\\bar x)^2}{S_{xx}}\\Bigr).$$\nDer kom «$1+$»-en fra: den nye observasjonens eget støyledd $\\varepsilon_0$."
+    },
+    {
+      "id": "stk1110-3-5-def-pi",
+      "type": "definition",
+      "title": "Prediksjonsintervall for en ny observasjon",
+      "content": "**Prediksjonsintervallet fanger den *neste enkeltobservasjonen* med gitt sannsynlighet:**\n$$\\hat y_0\\pm t_{n-2,\\,\\alpha/2}\\,\\hat\\sigma\\sqrt{1+\\frac1n+\\frac{(x_0-\\bar x)^2}{S_{xx}}}.$$\nEneste forskjell fra KI-et er «$1+$» under rota — men den gjør intervallet vesentlig bredere, og den forsvinner aldri, uansett hvor mye data du samler. Frihetsgradene er fortsatt $n-2$."
+    },
+    {
+      "id": "stk1110-3-5-def-enpluss",
+      "type": "definition",
+      "title": "«$1+$»-leddet",
+      "content": "**Eneren under rota er den nye observasjonens eget feilledd $\\varepsilon_0$, målt i enheter av $\\sigma^2$.** KI-et skal bare fange en *parameter* (den sanne snittlinja) og trenger kun linje-usikkerheten $1/n+(x_0-\\bar x)^2/S_{xx}$. Prediksjonsintervallet skal fange et *stokastisk enkeltpunkt* som i tillegg spres $\\sigma$ rundt linja — det koster $\\sigma^2$ ekstra, altså «$1$» under rota. Å glemme den er den klassiske forvekslingsfeilen (§5.8)."
+    },
+    {
+      "id": "stk1110-3-5-fig-kipi",
+      "type": "image",
+      "src": "/images/textbook/stk1110/stk1110-3-5-ki-vs-prediksjon.svg",
+      "alt": "Regresjonslinje med to baand rundt: et smalt konfidensbaand for forventet respons og et bredere prediksjonsbaand for nye enkeltobservasjoner, begge smalest ved x-strek",
+      "caption": "KI for forventet respons (smalt bånd) og prediksjonsintervall (bredt bånd) rundt samme linje: begge har timeglassform med midje i $\\bar x$, men prediksjonsbåndet bærer i tillegg enkeltobservasjonens egen støy $\\sigma$."
+    },
+    {
+      "id": "stk1110-3-5-def-bredere",
+      "type": "definition",
+      "title": "Prediksjonsintervallet er alltid bredere",
+      "content": "**For samme $x_0$ og samme nivå er prediksjonsintervallet ALLTID bredere enn KI-et for forventet respons** — uttrykket under rota er større med «$1+$», og alt annet er likt. Får du to intervaller oppgitt og skal si hvilket som er hvilket: det brede er prediksjonsintervallet."
+    },
+    {
+      "id": "stk1110-3-5-def-tolkning",
+      "type": "definition",
+      "title": "Tolkningsforskjellen KI vs. PI",
+      "content": "**KI-et uttaler seg om en parameter; prediksjonsintervallet om en stokastisk variabel.** «Hva er gjennomsnittlig strømforbruk for boliger på 120 m²?» → KI for $\\mu_{Y\\mid 120}$. «Hva blir strømforbruket i *akkurat denne* boligen på 120 m²?» → prediksjonsintervall. Nøkkelord i oppgaveteksten: *forventet/gjennomsnittlig* peker på KI; *en ny/neste/enkelt* måling peker på PI."
+    },
+    {
+      "id": "stk1110-3-5-def-dekning",
+      "type": "definition",
+      "title": "Hva 95 % betyr for et prediksjonsintervall",
+      "content": "**Et 95 %-prediksjonsintervall er konstruert slik at den nye observasjonen havner i intervallet med sannsynlighet 0,95** (før den måles, og regnet over både gamle data og den nye målingen). Det er altså ikke «95 % sikkert at snittet ligger her» — det er enkeltmålingen intervallet skal fange."
+    },
+    {
+      "id": "stk1110-3-5-def-krymper",
+      "type": "definition",
+      "title": "Prediksjonsintervallet krymper ikke mot null",
+      "content": "**Mer data gjør prediksjonsintervallet smalere — men bare ned til en gulvbredde.** Når $n\\to\\infty$ forsvinner $1/n$- og helningsleddet, og halvbredden nærmer seg $z_{\\alpha/2}\\,\\sigma$ (t-kvantilen går mot normalkvantilen): omtrent $\\pm1{,}96\\sigma$ for 95 %. Enkeltobservasjonens egen støy $\\varepsilon_0$ kan ingen datamengde fjerne — den er *irreduserbar*. KI-et for forventet respons, derimot, krymper mot null bredde."
+    },
+    {
+      "id": "stk1110-3-5-def-dataomrade",
+      "type": "definition",
+      "title": "Dataområdet",
+      "content": "**Dataområdet er intervallet av $x$-verdier som faktisk er observert** — fra minste til største $x_i$ i utvalget. Innenfor dataområdet har modellen støtte i data; utenfor er den ren antakelse. Oppgi alltid dataområdet når du vurderer om en prediksjon er forsvarlig."
+    },
+    {
+      "id": "stk1110-3-5-def-ekstrapolering",
+      "type": "definition",
+      "title": "Ekstrapolering",
+      "content": "**Ekstrapolering er å bruke modellen for $x_0$ utenfor dataområdet — og det er dobbelt farlig.** For det første eksploderer intervallbredden: $(x_0-\\bar x)^2/S_{xx}$ vokser kvadratisk. For det andre — og verre — er det ingen garanti for at linearitet gjelder der ute; utenfor dataene er formen på sammenhengen ren gjetning (H2020-fasiten viser et absurd bredt intervall langt utenfor dataområdet). Prediksjon *innenfor* dataområdet kalles interpolering og er den trygge bruken."
+    },
+    {
+      "id": "stk1110-3-5-def-interpolering",
+      "type": "definition",
+      "title": "Interpolering",
+      "content": "**Interpolering er prediksjon for en $x_0$ som ligger innenfor dataområdet** — mellom minste og største observerte $x$. Her har både linearitetsantakelsen og intervallformlene støtte i data, og begge intervalltypene er til å stole på (gitt at diagnostikken i [kap. 3.4](/bok/stk1110/stk1110-3-4) er godkjent). Kontrasten interpolering/ekstrapolering er selve svaret når eksamen ber deg vurdere om en prediksjon er forsvarlig."
+    },
+    {
+      "id": "stk1110-3-5-def-pimultippel",
+      "type": "definition",
+      "title": "Intervallene i multippel regresjon (kjenne til)",
+      "content": "**Samme logikk gjelder med flere prediktorer — bare med matriseuttrykk for linje-usikkerheten.** Med prediktorvektor $x_0$ (inkludert 1-er for konstantleddet) er $V(\\hat Y_0)=\\sigma^2\\,x_0^T(X^TX)^{-1}x_0$, og prediksjonsintervallet bruker $1+x_0^T(X^TX)^{-1}x_0$ under rota, med $t_{n-k-1}$-kvantil. Dette er «kjenne til»-stoff — regningen gjøres i praksis av programvare."
+    },
+    {
+      "id": "stk1110-3-5-def-dfn2",
+      "type": "definition",
+      "title": "Frihetsgradene er $n-2$ i begge intervaller",
+      "content": "**Både KI-et for forventet respons og prediksjonsintervallet bruker $t$-kvantilen med $n-2$ frihetsgrader i enkel regresjon** — frihetsgradene følger $\\hat\\sigma$, som er estimert med $n-2$ df uansett hva intervallet skal fange. (I multippel regresjon: $n-k-1$.) Feil df her er en billig poenglekkasje (§5.8)."
+    },
+    {
+      "id": "stk1110-3-5-ex2",
+      "type": "example",
+      "title": "Eksempel 2: KI og prediksjonsintervall side om side",
+      "problem": "Samme datasett som i eksempel 1 ($\\hat y=30{,}4+0{,}72x$, $\\bar x=30$, $S_{xx}=1000$, $\\hat\\sigma=1{,}095$, $n=5$, $t_{3,\\,0{,}025}=3{,}182$). Finn et 95 %-prediksjonsintervall for en ny måling ved $x_0=35$, og sammenlign med KI-et fra eksempel 1.",
+      "solution": "Punktprediksjonen er den samme: $\\hat y_0=55{,}6$. Under rota kommer nå «$1+$»:\n$$se_{\\text{pred}}=1{,}095\\sqrt{1+0{,}2+0{,}025}=1{,}095\\sqrt{1{,}225}=1{,}095\\cdot1{,}1068=1{,}2119.$$\n$$55{,}6\\pm3{,}182\\cdot1{,}2119=55{,}6\\pm3{,}86=(51{,}74,\\ 59{,}46).$$\nSammenligning: KI-et var $(53{,}95,\\ 57{,}25)$ — halvbredde $1{,}65$ mot prediksjonsintervallets $3{,}86$, over dobbelt så bredt. Forskjellen er hele tiden den nye målingens eget støyledd: intervallet skal fange ett enkelt punkt som selv spres $\\sigma\\approx1{,}1$ rundt linja."
+    },
+    {
+      "id": "stk1110-3-5-ex3",
+      "type": "example",
+      "title": "Eksempel 3: Ekstrapoleringsfellen (eksamensnivå)",
+      "problem": "Samme modell ($x$-verdier fra 10 til 50). En oppdragsgiver ber om et 95 %-prediksjonsintervall ved $x_0=100$.\n\n**a)** Regn ut intervallet. **b)** Vurder om svaret bør rapporteres.",
+      "solution": "**a)** $\\hat y_0=30{,}4+0{,}72\\cdot100=102{,}4$. Under rota: $1+\\frac15+\\frac{(100-30)^2}{1000}=1+0{,}2+4{,}9=6{,}1$:\n$$102{,}4\\pm3{,}182\\cdot1{,}095\\sqrt{6{,}1}=102{,}4\\pm3{,}182\\cdot1{,}095\\cdot2{,}470=102{,}4\\pm8{,}61=(93{,}79,\\ 111{,}01).$$\n\n**b)** Nei — ikke uten kraftig forbehold. $x_0=100$ ligger langt utenfor dataområdet $[10,50]$: helningsleddet $(x_0-\\bar x)^2/S_{xx}=4{,}9$ dominerer hele usikkerheten (mot $0{,}025$ ved $x_0=35$), og viktigere: vi har *ingen data* som støtter at sammenhengen fortsatt er lineær der ute. Matematikken produserer villig et intervall, men modellgrunnlaget er borte — dette er ekstrapolering, og svaret bør ledsages av en klar advarsel eller holdes tilbake."
+    },
+    {
+      "id": "stk1110-3-5-oppg3",
+      "type": "exercise",
+      "exercise": {
+        "id": "stk1110-3-5-oppg3-e",
+        "number": "3",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "Samme datasett som i eksemplene. **a)** Finn et 95 %-prediksjonsintervall for en ny måling ved $x_0=20$. **b)** KI-et ved samme $x_0$ er $(42{,}89,\\ 46{,}71)$. Forklar med én setning hvorfor prediksjonsintervallet må være bredere.",
+        "solution": "**a)** $\\hat y_0=44{,}8$. Under rota: $1+0{,}2+0{,}1=1{,}3$, så $se_{\\text{pred}}=1{,}095\\sqrt{1{,}3}=1{,}2485$ og intervallet blir $44{,}8\\pm3{,}182\\cdot1{,}2485=44{,}8\\pm3{,}97=(40{,}83,\\ 48{,}77)$.\n\n**b)** Prediksjonsintervallet skal fange en enkeltmåling som i tillegg til linje-usikkerheten bærer sitt eget feilledd $\\varepsilon_0$ med varians $\\sigma^2$ — derav «$1+$» under rota.",
+        "hints": [
+          "Samme oppskrift som eksempel 2, med $(20-30)^2/1000=0{,}1$ i helningsleddet.",
+          "Hvilket ledd har prediksjonsintervallet som KI-et mangler?"
+        ]
+      }
+    },
+    {
+      "id": "stk1110-3-5-oppg4",
+      "type": "exercise",
+      "exercise": {
+        "id": "stk1110-3-5-oppg4-e",
+        "number": "4",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "En enkel regresjon med $n=12$ ga utskriftslinja «Residual standard error: 2.5 on 10 degrees of freedom», og det er oppgitt at $\\bar x=40$, $S_{xx}=640$ og $\\hat y_0=57{,}2$ ved $x_0=44$. Finn et 95 %-prediksjonsintervall for en ny observasjon ved $x_0=44$. ($t_{10,\\,0{,}025}=2{,}228$.)",
+        "solution": "Fra utskriften: $\\hat\\sigma=2{,}5$ med $n-2=10$ frihetsgrader ✓ (stemmer med $n=12$). Under rota:\n$$1+\\frac1{12}+\\frac{(44-40)^2}{640}=1+0{,}0833+0{,}025=1{,}1083,\\qquad \\sqrt{1{,}1083}=1{,}0528.$$\n$$57{,}2\\pm2{,}228\\cdot2{,}5\\cdot1{,}0528=57{,}2\\pm5{,}86=(51{,}34,\\ 63{,}06).$$",
+        "hints": [
+          "$\\hat\\sigma$ og frihetsgradene står på «Residual standard error»-linja.",
+          "Prediksjonsintervall: husk «$1+$» under rota før du setter inn."
+        ]
+      }
+    },
+    {
+      "id": "stk1110-3-5-oppg5",
+      "type": "exercise",
+      "exercise": {
+        "id": "stk1110-3-5-oppg5-e",
+        "number": "5",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "En rapport skriver: «Med 95 % konfidens vil neste kunde med $x_0=25$ handle for mellom 310 og 390 kroner», men intervallet som er regnet ut, er KI-et for forventet respons. Forklar hva som er galt, og i hvilken retning feilen slår.",
+        "solution": "Utsagnet handler om *én ny enkeltkunde* — det krever et prediksjonsintervall. KI-et for forventet respons uttaler seg bare om *gjennomsnittet* for alle kunder med $x_0=25$ og mangler enkeltmålingens eget støyledd. Feilen slår i retning falsk presisjon: det rapporterte intervallet er for smalt, og langt færre enn 95 % av nye enkeltkunder vil treffe det.",
+        "hints": [
+          "Sjekk nøkkelordene: «neste kunde» — parameter eller stokastisk variabel?",
+          "Hvilket av de to intervallene er smalest, og hva betyr det for påstanden?"
+        ]
+      }
+    },
+    {
+      "id": "stk1110-3-5-oppg6",
+      "type": "exercise",
+      "exercise": {
+        "id": "stk1110-3-5-oppg6-e",
+        "number": "6",
+        "type": "classic",
+        "difficulty": "vanskelig",
+        "task": "La $n\\to\\infty$ (med $x$-ene spredt slik at $S_{xx}\\to\\infty$).\n\n**a)** Hva skjer med bredden av KI-et for forventet respons, og hva skjer med prediksjonsintervallet?\n\n**b)** Forklar hvorfor denne forskjellen er logisk nødvendig ut fra hva de to intervallene skal fange.",
+        "solution": "**a)** Under rota i KI-et står $1/n+(x_0-\\bar x)^2/S_{xx}\\to0$, så KI-bredden går mot null. I prediksjonsintervallet står $1+1/n+(x_0-\\bar x)^2/S_{xx}\\to1$, og $t_{n-2,\\,\\alpha/2}\\to z_{\\alpha/2}$, så halvbredden går mot $z_{\\alpha/2}\\,\\sigma\\approx1{,}96\\,\\sigma$ for 95 % — et gulv den aldri kommer under.\n\n**b)** KI-et fanger en *parameter* (den sanne linja); med uendelig data kjenner vi linja eksakt, og intervallet kan krympe til et punkt. Prediksjonsintervallet skal fange en *stokastisk variabel* som selv varierer med standardavvik $\\sigma$ rundt linja uansett hvor godt linja er kjent — den variasjonen er irreduserbar.",
+        "hints": [
+          "Se på hvert ledd under rota separat når $n$ og $S_{xx}$ vokser.",
+          "Parameter kan «lærast bort» av data — kan enkeltobservasjonens støy det?"
+        ]
+      }
+    },
+    {
+      "id": "stk1110-3-5-oppg7",
+      "type": "exercise",
+      "exercise": {
+        "id": "stk1110-3-5-oppg7-e",
+        "number": "7",
+        "type": "classic",
+        "difficulty": "vanskelig",
+        "task": "(Krevende) En modell for avlingsutbytte er tilpasset for gjødselmengder $x$ mellom 5 og 12 (kg/daa), med $\\bar x=8{,}5$ og $S_{xx}=49$. En rådgiver vil predikere utbyttet ved $x_0=30$ kg/daa og argumenterer: «Intervallformelen gjelder jo for alle $x_0$.»\n\n**a)** Regn ut faktoren under rota i prediksjonsintervallet for $x_0=30$ og for $x_0=8{,}5$ (bruk $n=14$), og finn forholdet mellom intervallbreddene.\n\n**b)** Gi de to prinsipielt ulike innvendingene mot rådgiverens plan — hvilken er alvorligst?",
+        "solution": "**a)** Ved $x_0=30$: $1+\\frac1{14}+\\frac{(30-8{,}5)^2}{49}=1+0{,}0714+\\frac{462{,}25}{49}=1+0{,}0714+9{,}434=10{,}51$. Ved $x_0=8{,}5$: $1+0{,}0714+0=1{,}0714$. Breddene skalerer med røttene: $\\sqrt{10{,}51}/\\sqrt{1{,}0714}=3{,}242/1{,}035=3{,}13$ — over tre ganger så bredt.\n\n**b)** (1) *Statistisk:* intervallet blir svært bredt — helningsleddet $9{,}43$ dominerer, og prediksjonen er nesten informasjonsløs. (2) *Modellmessig* (alvorligst): $x_0=30$ er langt utenfor dataområdet $[5,12]$ — det finnes ingen støtte i data for at utbyttet fortsatt vokser lineært der (biologisk flater avlinger ut eller faller ved overgjødsling). Formelen «gjelder» bare i den forstand at den kan regnes ut; gyldigheten hviler på linearitet vi ikke har belegg for. Ekstrapolering bør frarådes uansett intervallbredde.",
+        "hints": [
+          "Sett inn i $1+1/n+(x_0-\\bar x)^2/S_{xx}$ for begge verdiene av $x_0$.",
+          "Skill mellom «intervallet blir bredt» og «modellen gjelder ikke» — to ulike problemer.",
+          "Hva vet dataene om formen på sammenhengen utenfor $[5,12]$? Ingenting."
+        ]
+      }
+    },
+    {
+      "id": "stk1110-3-5-warn",
+      "type": "warning",
+      "title": "Typiske feil med prediksjon",
+      "content": "1. **KI og prediksjonsintervall forveksles** (§5.8) — «$1+$» under rota glemmes når en *ny enkeltobservasjon* skal fanges. Sjekk nøkkelordene: forventet/gjennomsnitt → KI; ny/neste/enkeltmåling → PI.\n2. **Feil frihetsgrader.** Kvantilen er $t_{n-2,\\,\\alpha/2}$ i enkel regresjon (følger $\\hat\\sigma$), ikke $n-1$.\n3. **Ekstrapolering uten forbehold** (§5.9, H2020). Kommentér alltid hvor $x_0$ ligger i forhold til dataområdet.\n4. **Bredde-avhengigheten glemmes.** Begge intervallene vokser med $(x_0-\\bar x)^2$ — et intervall regnet ved $\\bar x$ kan ikke gjenbrukes lenger ute.\n5. **PI tolkes som KI** («95 % sikker på snittet»). Prediksjonsintervallet fanger *enkeltmålingen*, ikke gjennomsnittet."
+    },
+    {
+      "id": "stk1110-3-5-symboler",
+      "type": "collapsible",
+      "title": "Symbol- og formelliste",
+      "buttonText": "Vis symboler og formler",
+      "content": [
+        {
+          "id": "stk1110-3-5-symboler-inner",
+          "type": "text",
+          "content": "## Symbol- og formelliste\n\n*Oppslagsverk — alt her forklares underveis i kapitlet.*\n\n| Symbol | Betydning |\n|---|---|\n| $x_0$ | Prediktorverdien det spørres om |\n| $\\mu_{Y\\mid x_0}$ | Forventet respons $\\beta_0+\\beta_1x_0$ (parameter) |\n| $\\hat Y_0,\\ \\hat y_0$ | Punktestimator $\\hat\\beta_0+\\hat\\beta_1x_0$ og estimatet (tall) |\n| $Y_0,\\ \\varepsilon_0$ | Ny enkeltobservasjon og dens eget feilledd |\n| $se(\\hat Y_0)$ | Standardfeilen til den tilpassede verdien i $x_0$ |\n| $\\bar x,\\ S_{xx}$ | Tyngdepunkt og spredning i $x$-ene |\n| $\\hat\\sigma$ | Residualstandardavviket, $n-2$ frihetsgrader |\n| $t_{n-2,\\,\\alpha/2}$ | t-kvantil med øvre haleareal $\\alpha/2$ |\n| $z_{\\alpha/2}$ | Normalkvantil — grensen for $t$ når $n\\to\\infty$ |\n\n**Formler i dette delkapitlet:**\n\n$$V(\\hat Y_0)=\\sigma^2\\Bigl(\\frac1n+\\frac{(x_0-\\bar x)^2}{S_{xx}}\\Bigr)$$\nLinje-usikkerheten: nivåledd pluss helningsledd som vokser kvadratisk fra $\\bar x$.\n\n$$\\text{KI for }\\mu_{Y\\mid x_0}:\\quad \\hat y_0\\pm t_{n-2,\\,\\alpha/2}\\,\\hat\\sigma\\sqrt{\\frac1n+\\frac{(x_0-\\bar x)^2}{S_{xx}}}$$\nFanger den sanne snittlinja i punktet $x_0$; krymper mot null med mer data.\n\n$$\\text{PI for }Y_0:\\quad \\hat y_0\\pm t_{n-2,\\,\\alpha/2}\\,\\hat\\sigma\\sqrt{1+\\frac1n+\\frac{(x_0-\\bar x)^2}{S_{xx}}}$$\nFanger én ny enkeltobservasjon; «$1+$» er dens eget støyledd og gir gulvbredden $\\approx z_{\\alpha/2}\\sigma$.\n\n$$\\text{Multippel (kjenne til): } V(\\hat Y_0)=\\sigma^2\\,x_0^T(X^TX)^{-1}x_0,\\quad t_{n-k-1}\\text{-kvantil}$$\nSamme logikk med matriseuttrykk for linje-usikkerheten."
+        }
+      ]
+    },
+    {
+      "id": "stk1110-3-5-repetisjon",
+      "type": "collapsible",
+      "title": "Repetisjonsoppgaver",
+      "buttonText": "Vis repetisjonsoppgaver",
+      "content": [
+        {
+          "id": "stk1110-3-5-rep1",
+          "type": "exercise",
+          "exercise": {
+            "id": "stk1110-3-5-rep1-e",
+            "number": "R1",
+            "type": "classic",
+            "difficulty": "lett",
+            "task": "(Fra kap. 3.1) Det er oppgitt $\\bar x=12$, $\\bar y=40$, $S_{xy}=90$ og $S_{xx}=60$. Finn regresjonslinja.",
+            "solution": "$\\hat\\beta_1=90/60=1{,}5$ og $\\hat\\beta_0=40-1{,}5\\cdot12=22$. Linja: $\\hat y=22+1{,}5x$.",
+            "hints": [
+              "$\\hat\\beta_1=S_{xy}/S_{xx}$; linja går gjennom $(\\bar x,\\bar y)$."
+            ]
+          }
+        },
+        {
+          "id": "stk1110-3-5-rep2",
+          "type": "exercise",
+          "exercise": {
+            "id": "stk1110-3-5-rep2-e",
+            "number": "R2",
+            "type": "classic",
+            "difficulty": "lett",
+            "task": "(Fra kap. 2.1) Hva er den presise tolkningen av «95 % konfidens» for et konfidensintervall?",
+            "solution": "Metoden fanger den sanne parameteren i 95 % av gjentatte forsøk: før data samles, er sannsynligheten 0,95 for at intervallet som konstrueres, dekker parameteren. Om ett konkret, utregnet intervall kan vi ikke si «95 % sannsynlighet» — parameteren er et fast tall.",
+            "hints": [
+              "Konfidensen er en egenskap ved metoden over gjentakelser, ikke ved ett intervall."
+            ]
+          }
+        },
+        {
+          "id": "stk1110-3-5-rep3",
+          "type": "exercise",
+          "exercise": {
+            "id": "stk1110-3-5-rep3-e",
+            "number": "R3",
+            "type": "classic",
+            "difficulty": "lett",
+            "task": "(Fra kap. 3.1) Skriv opp $se(\\hat\\beta_1)$, og forklar hvorfor stor spredning i $x$-ene gir presis helningsestimering.",
+            "solution": "$se(\\hat\\beta_1)=\\hat\\sigma/\\sqrt{S_{xx}}$. Stor $S_{xx}$ (spredte $x$-er) gir liten standardfeil: punkter langt fra hverandre «spenner opp» linja og låser helningen bedre enn punkter i klump.",
+            "hints": [
+              "$V(\\hat\\beta_1)=\\sigma^2/S_{xx}$ — hva skjer når $S_{xx}$ vokser?"
+            ]
+          }
+        },
+        {
+          "id": "stk1110-3-5-rep4",
+          "type": "exercise",
+          "exercise": {
+            "id": "stk1110-3-5-rep4-e",
+            "number": "R4",
+            "type": "classic",
+            "difficulty": "lett",
+            "task": "(Fra kap. 3.1) I enkel regresjon med $n=9$: hvor mange frihetsgrader har $\\hat\\sigma^2$, og hvilken t-kvantil bruker et 90 %-intervall?",
+            "solution": "df $=n-2=7$. Et 90 %-intervall bruker øvre haleareal $\\alpha/2=0{,}05$, altså kvantilen $t_{7,\\,0{,}05}$.",
+            "hints": [
+              "Tosidig 90 % legger 5 % i hver hale; frihetsgradene følger $\\hat\\sigma$."
+            ]
+          }
+        }
+      ]
+    }
+  ],
+  "exercises": []
+}
