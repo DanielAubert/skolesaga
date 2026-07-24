@@ -2240,12 +2240,12 @@ const quizData_tma4110: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hvorfor lønner det seg med heltalls-oppskalering underveis i Gram–Schmidt?",
-      options: ["Det holder regningen fri for brøker uten å endre ortogonaliteten", "Det gjør vektorene til enhetsvektorer", "Det er nødvendig for at svaret skal bli riktig", "Det endrer spennet til et større rom"],
+      options: ["Det holder regningen fri for brøker uten å endre ortogonaliteten", "Det gjør vektorene til enhetsvektorer", "Det er strengt nødvendig for at det endelige svaret i det hele tatt skal bli riktig", "Det endrer spennet til et større rom"],
       explanation: "Å gange en $\\mathbf v_i$ med et positivt tall bevarer både retning og ortogonalitet, og fjerner brøker (viktig under kode E).",
     },
     {
       question: "Når normaliserer du vektorene i Gram–Schmidt?",
-      options: ["Til slutt, etter at alle er ortogonalisert", "Før du starter prosessen", "Etter hvert eneste steg", "Aldri — normalisering er forbudt"],
+      options: ["Til slutt, etter at alle er ortogonalisert", "Før du starter prosessen", "Etter hvert eneste steg", "Aldri — normalisering er uttrykkelig forbudt i Gram–Schmidt-prosessen"],
       explanation: "Normaliser først når den ortogonale basisen er ferdig; underveis gir det bare unødvendige kvadratrøtter.",
     },
     {
@@ -2275,12 +2275,12 @@ const quizData_tma4110: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva er en ortogonal matrise $Q$?",
-      options: ["En matrise med ortonormale kolonner, slik at $Q^{T}Q=I$", "En matrise med bare nuller utenfor diagonalen", "En matrise med determinant $0$", "En matrise der alle kolonner er like"],
+      options: ["En matrise med ortonormale kolonner, slik at $Q^{T}Q=I$", "En matrise som bare har nuller utenfor sin egen hoveddiagonal", "En matrise med determinant $0$", "En matrise der alle kolonner er like"],
       explanation: "Ortogonal matrise: kolonnene er en ortonormal mengde, ekvivalent $Q^{T}Q=I$ (så $Q^{-1}=Q^{T}$).",
     },
     {
       question: "Hva er en typisk feil i Gram–Schmidt-steget?",
-      options: ["Å bruke $\\mathbf a$-vektorene i stedet for de ortogonaliserte $\\mathbf v$-ene i senere steg", "Å normalisere helt til slutt", "Å starte med $\\mathbf v_1=\\mathbf a_1$", "Å regne $\\langle\\mathbf a_k,\\mathbf v_i\\rangle$"],
+      options: ["Å bruke $\\mathbf a$-vektorene i stedet for de ortogonaliserte $\\mathbf v$-ene i senere steg", "Å normalisere helt til slutt", "Å starte med $\\mathbf v_1=\\mathbf a_1$", "Å regne ut indreproduktet $\\langle\\mathbf a_k,\\mathbf v_i\\rangle$ i hvert eneste steg av prosessen"],
       explanation: "I steg $k$ skal du projisere på de allerede ortogonaliserte $\\mathbf v_i$, ikke på de opprinnelige $\\mathbf a$-ene.",
     },
     {
@@ -2290,7 +2290,7 @@ const quizData_tma4110: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva blir $\\mathbf v_k$ hvis startvektoren $\\mathbf a_k$ ligger i spennet av de foregående?",
-      options: ["$\\mathbf v_k=\\mathbf 0$ (vektoren var avhengig og kastes)", "$\\mathbf v_k=\\mathbf a_k$ uendret", "$\\mathbf v_k$ blir en enhetsvektor", "Prosessen stopper helt opp"],
+      options: ["$\\mathbf v_k=\\mathbf 0$ (vektoren var avhengig og kastes)", "$\\mathbf v_k=\\mathbf a_k$ uendret, siden det ikke er noe å trekke fra i dette steget", "$\\mathbf v_k$ blir en enhetsvektor", "Prosessen stopper helt opp"],
       explanation: "Er $\\mathbf a_k$ avhengig av de foregående, trekkes den helt bort og $\\mathbf v_k=\\mathbf 0$; da forkaster man den.",
     },
     {
@@ -2337,7 +2337,7 @@ const quizData_tma4110: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva er det ortogonale komplementet $W^{\\perp}$?",
-      options: ["Alle vektorer ortogonale på hele $W$", "Alle vektorer i $W$ med norm $1$", "Basisen for $W$", "Vektorene parallelle med $W$"],
+      options: ["Alle vektorer ortogonale på hele $W$", "Alle vektorer som ligger inne i $W$ og har norm lik $1$", "Basisen for $W$", "Vektorene parallelle med $W$"],
       explanation: "$W^{\\perp}=\\{\\mathbf z:\\langle\\mathbf z,\\mathbf w\\rangle=0\\text{ for alle }\\mathbf w\\in W\\}$; det holder å sjekke mot en basis for $W$.",
     },
     {
@@ -2352,12 +2352,12 @@ const quizData_tma4110: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Basisen for $W$ er $\\{(1,1,1),(1,2,0)\\}$ (ikke ortogonal). Hva må du gjøre før projeksjonsformelen?",
-      options: ["Kjøre Gram–Schmidt for å få en ortogonal basis", "Normalisere $\\mathbf y$", "Regne determinanten av basisen", "Bytte til standardbasis"],
+      options: ["Kjøre Gram–Schmidt for å få en ortogonal basis", "Normalisere $\\mathbf y$", "Regne determinanten av matrisen med basisvektorene som kolonner", "Bytte til standardbasis"],
       explanation: "Projeksjonsformelen krever ortogonal basis; er den ikke det, ortogonaliser med Gram–Schmidt først.",
     },
     {
       question: "Hvis $\\mathbf y$ allerede ligger i $W$, hva er $\\operatorname{proj}_W\\mathbf y$?",
-      options: ["$\\mathbf y$ selv (avstand $0$)", "$\\mathbf 0$", "En enhetsvektor", "Uendelig"],
+      options: ["$\\mathbf y$ selv (avstand $0$)", "$\\mathbf 0$", "En enhetsvektor som peker i retningen til $\\mathbf y$", "Uendelig"],
       explanation: "Ligger $\\mathbf y\\in W$, er den nærmeste vektoren i $W$ den selv, så projeksjonen er $\\mathbf y$ og avstanden $0$.",
     },
     {
@@ -2382,7 +2382,7 @@ const quizData_tma4110: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hvordan finner du generelt en basis for $W^{\\perp}$?",
-      options: ["Skriv basisen for $W$ som rader og løs det homogene systemet $B\\mathbf z=\\mathbf 0$", "Normaliser basisen for $W$", "Regn projeksjonen av standardvektorene", "Transponer basisvektorene"],
+      options: ["Skriv basisen for $W$ som rader og løs det homogene systemet $B\\mathbf z=\\mathbf 0$", "Normaliser basisen for $W$", "Regn projeksjonen av hver standardvektor $\\mathbf e_i$ ned på $W$ og samle resultatene", "Transponer basisvektorene"],
       explanation: "$W^{\\perp}=\\operatorname{Nul}B$ der $B$ har $W$-basisen som rader; løsningsrommet er komplementet.",
     },
     {
@@ -2392,7 +2392,7 @@ const quizData_tma4110: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Når $A\\mathbf x=\\mathbf b$ ikke har løsning, hva er den beste oppnåelige høyresiden?",
-      options: ["$\\hat{\\mathbf b}=\\operatorname{proj}_{\\operatorname{Col}A}\\mathbf b$", "$\\hat{\\mathbf b}=\\mathbf 0$", "$\\hat{\\mathbf b}=\\mathbf b$ uansett", "$\\hat{\\mathbf b}=A^{T}\\mathbf b$"],
+      options: ["$\\hat{\\mathbf b}=\\operatorname{proj}_{\\operatorname{Col}A}\\mathbf b$", "$\\hat{\\mathbf b}=\\mathbf 0$", "$\\hat{\\mathbf b}=\\mathbf b$ uansett hva kolonnerommet til $A$ inneholder", "$\\hat{\\mathbf b}=A^{T}\\mathbf b$"],
       explanation: "Vi projiserer $\\mathbf b$ ned på $\\operatorname{Col}A$; den nærmeste oppnåelige høyresiden er $\\hat{\\mathbf b}=\\operatorname{proj}_{\\operatorname{Col}A}\\mathbf b$ — inngangen til minste kvadrater.",
     },
   ],
@@ -2424,7 +2424,7 @@ const quizData_tma4110: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Når er minste kvadraters løsningen entydig?",
-      options: ["Når kolonnene i $A$ er lineært uavhengige", "Når $A$ har flere rader enn kolonner", "Når $\\mathbf b$ er en enhetsvektor", "Når $A^{T}A$ er en nullmatrise"],
+      options: ["Når kolonnene i $A$ er lineært uavhengige", "Når matrisen $A$ har flere rader enn den har kolonner", "Når $\\mathbf b$ er en enhetsvektor", "Når $A^{T}A$ er en nullmatrise"],
       explanation: "Entydig løsning $\\Leftrightarrow$ kolonnene i $A$ uavhengige $\\Leftrightarrow$ $A^{T}A$ inverterbar.",
     },
     {
@@ -2434,7 +2434,7 @@ const quizData_tma4110: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hvordan regnes minste-kvadraters-feilen?",
-      options: ["Som $\\|\\mathbf b-A\\hat{\\mathbf x}\\|$, lengden av residualvektoren", "Som $\\|\\hat{\\mathbf x}\\|$, lengden av løsningsvektoren", "Som $\\det(A^{T}A)$, determinanten", "Som $A^{T}\\mathbf b$, høyresiden i normallikningene"],
+      options: ["Som $\\|\\mathbf b-A\\hat{\\mathbf x}\\|$, lengden av residualvektoren", "Som $\\|\\hat{\\mathbf x}\\|$, lengden av løsningsvektoren", "Som $\\det(A^{T}A)$, determinanten", "Som $A^{T}\\mathbf b$, altså høyresiden i selve normallikningene"],
       explanation: "Feilen er lengden av residualen $\\mathbf b-A\\hat{\\mathbf x}$; husk kvadratrota.",
     },
     {
@@ -2484,14 +2484,14 @@ const quizData_tma4110: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Når er $A^{T}A$ positiv definit (ikke bare positiv semidefinit)?",
-      options: ["Når kolonnene i $A$ er lineært uavhengige", "Når $A$ er kvadratisk", "Når $\\mathbf b=\\mathbf 0$", "Når $A$ har minst én nullrad"],
+      options: ["Når kolonnene i $A$ er lineært uavhengige", "Når $A$ er kvadratisk", "Når $\\mathbf b=\\mathbf 0$", "Når matrisen $A$ har minst én rad som består av bare nuller"],
       explanation: "$\\mathbf x^{T}(A^{T}A)\\mathbf x=\\|A\\mathbf x\\|^2>0$ for alle $\\mathbf x\\ne\\mathbf 0$ nettopp når $A\\mathbf x=\\mathbf 0$ bare har $\\mathbf x=\\mathbf 0$, dvs. uavhengige kolonner.",
     },
   ],
   'tma4110-6-5': [
     {
       question: "Hva er første steg i ortogonalitetskjeden (sjanger H/I)?",
-      options: ["Identifiser hvilket indreprodukt oppgaven bruker", "Sett opp normallikningene med en gang", "Normaliser alle vektorene til lengde 1", "Regn ut determinanten til matrisen"],
+      options: ["Identifiser hvilket indreprodukt oppgaven bruker", "Sett opp normallikningene med det samme, før noe annet gjøres", "Normaliser alle vektorene til lengde 1", "Regn ut determinanten til matrisen"],
       explanation: "Alt (skalarprodukt, norm, projeksjon) må regnes i det oppgitte indreproduktet — så det identifiseres først.",
     },
     {
@@ -2511,7 +2511,7 @@ const quizData_tma4110: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hvordan gjør man en ortogonal basis $\\{\\mathbf v_i\\}$ om til en ortonormal basis?",
-      options: ["Del hver vektor på sin egen norm: $\\mathbf u_i=\\mathbf v_i/\\|\\mathbf v_i\\|$", "Legg sammen alle vektorene og normaliser summen til lengde 1", "Multipliser hver vektor med sin egen norm i stedet", "Bytt fortegn på annenhver vektor i basisen, så deles på 2"],
+      options: ["Del hver vektor på sin egen norm: $\\mathbf u_i=\\mathbf v_i/\\|\\mathbf v_i\\|$", "Legg sammen alle vektorene i basisen og normaliser deretter summen til lengde 1", "Multipliser hver vektor med sin egen norm i stedet", "Bytt fortegn på annenhver vektor i basisen, så deles på 2"],
       explanation: "Ortonormal $=$ ortogonal $+$ enhetslengde; del hver $\\mathbf v_i$ på sin norm.",
     },
     {
@@ -2551,7 +2551,7 @@ const quizData_tma4110: Record<string, QuizQuestion[]> = {
     },
     {
       question: "I dekomposisjonen $\\mathbf y=\\hat{\\mathbf y}+\\mathbf z$ hva er $\\mathbf z$?",
-      options: ["Restleddet $\\mathbf y-\\operatorname{proj}_W\\mathbf y$, som ligger i $W^{\\perp}$", "Projeksjonen $\\operatorname{proj}_W\\mathbf y$, som ligger i $W$", "En enhetsvektor i $W$", "Nullvektoren uansett $\\mathbf y$"],
+      options: ["Restleddet $\\mathbf y-\\operatorname{proj}_W\\mathbf y$, som ligger i $W^{\\perp}$", "Projeksjonen $\\operatorname{proj}_W\\mathbf y$ av vektoren $\\mathbf y$, som ligger i $W$", "En enhetsvektor i $W$", "Nullvektoren uansett $\\mathbf y$"],
       explanation: "$\\hat{\\mathbf y}=\\operatorname{proj}_W\\mathbf y\\in W$ og $\\mathbf z=\\mathbf y-\\hat{\\mathbf y}\\in W^{\\perp}$; avstanden er $\\|\\mathbf z\\|$.",
     },
     {
@@ -2566,7 +2566,7 @@ const quizData_tma4110: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hvilken feil advarer sensor oftest mot i projeksjonsoppgaver?",
-      options: ["Å bruke projeksjonsformelen uten å ortogonalisere basisen først", "Å normalisere alle vektorene altfor tidlig i regningen", "Å regne avstanden med kvadratrot i stedet for uten", "Å skalere Gram–Schmidt-vektorene til heltall underveis"],
+      options: ["Å bruke projeksjonsformelen uten å ortogonalisere basisen først", "Å normalisere alle vektorene altfor tidlig i regningen", "Å regne avstanden med kvadratrot i stedet for å la den stå i annen", "Å skalere Gram–Schmidt-vektorene til heltall underveis"],
       explanation: "Projeksjonsformelen krever ortogonal basis; brukes den på en ikke-ortogonal spenn, blir svaret feil.",
     },
   ],

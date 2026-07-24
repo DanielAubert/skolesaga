@@ -20,6 +20,17 @@ Branch: `bok/tma4110` (worktree). Arketype: regnefag. Institusjon: NTNU (slug `n
 - Quiz-staging: 0–9 unntatt **9-3, 9-4** (bygges). Del 10/11 gjenstår.
 
 ## Logg
+- (24. juli, steg 3 forts. II — ny økt etter ECONNRESET-brudd; byggeleder regner selv)
+  **DEL 6 FERDIG.** 6-3 (15 sympy-sjekker), 6-4 (~20, inkl. rangdefekt-rref og
+  parabel-residual), 6-5 og 6-prove (4 prøver, ~30 sjekker) — **0 fasitavvik**.
+  Quiz 6-3/6-4/6-5 (52 spm) fasitkontrollert: alle riktige. Tre fikser:
+  (1) tre drilloppgaver i 6.5 (opg. 7, 9, 13) var IDENTISKE med gjennomregnede
+  eksempler i 6.4 (samme tall) — gitt nye datasett med sympy-etterregnede fasiter
+  (opg. 13 fikk også en annen avhengighetstype: kolonne 2 $=2\times$ kolonne 1);
+  (2) Forkunnskaper-punktvis-standarden innført i 6-3/6-4/6-5/6-prove
+  («Sist du var her»-formelblokkene beholdt); (3) LENGDE-TELL i hele Del 6
+  balansert: 6-2 56 %→28 %, 6-3 56 %→28 %, 6-4 39 %→28 %, 6-5 50 %→31 %
+  (17 distraktorer forlenget, fasit og semantikk urørt). Bok-nivå: 31 %.
 - (24. juli, steg 3 forts. — byggeleder regner selv, API ustabilt for subagenter)
   Del 3–4 KOMPLETT verifisert og committet (65c18f39): 87 sympy-sjekker, 0 fasitavvik;
   quiz 3-1..4-2 (122 spm) fasitkontrollert, LENGDE-TELL 6–31 %. Forkunnskaper

@@ -25,7 +25,7 @@
     {
       "id": "tma4110-6-5-forkunnskaper",
       "type": "text",
-      "content": "**Forkunnskaper:** Hele Del 6 — indreprodukt, norm og ortogonalitet ([kap. 6.1](/bok/tma4110/tma4110-6-1)), Gram–Schmidt ([kap. 6.2](/bok/tma4110/tma4110-6-2)), ortogonal projeksjon og komplement ([kap. 6.3](/bok/tma4110/tma4110-6-3)) og minste kvadrater ([kap. 6.4](/bok/tma4110/tma4110-6-4)) — pluss kolonnerom og lineær uavhengighet ([kap. 3.3](/bok/tma4110/tma4110-3-3)).\n\n**Sist du var her (nøkkelformler):**\n$$\\mathbf v_k=\\mathbf a_k-\\sum_{i<k}\\frac{\\langle\\mathbf a_k,\\mathbf v_i\\rangle}{\\langle\\mathbf v_i,\\mathbf v_i\\rangle}\\mathbf v_i,\\quad \\operatorname{proj}_W\\mathbf y=\\sum_i\\frac{\\langle\\mathbf y,\\mathbf v_i\\rangle}{\\langle\\mathbf v_i,\\mathbf v_i\\rangle}\\mathbf v_i,\\quad A^{T}A\\hat{\\mathbf x}=A^{T}\\mathbf b.$$"
+      "content": "**Forkunnskaper — drillen forutsetter hele Del 6:**\n\n- [kap. 6.1](/bok/tma4110/tma4110-6-1) — indreprodukt, norm og ortogonalitet (standard og integral).\n- [kap. 6.2](/bok/tma4110/tma4110-6-2) — Gram–Schmidt og ortonormalisering.\n- [kap. 6.3](/bok/tma4110/tma4110-6-3) — ortogonal projeksjon, dekomposisjon, avstand og komplement.\n- [kap. 6.4](/bok/tma4110/tma4110-6-4) — minste kvadrater og normallikningene.\n- [kap. 3.3](/bok/tma4110/tma4110-3-3) — kolonnerom og lineær uavhengighet.\n\n**Sist du var her (nøkkelformler):**\n$$\\mathbf v_k=\\mathbf a_k-\\sum_{i<k}\\frac{\\langle\\mathbf a_k,\\mathbf v_i\\rangle}{\\langle\\mathbf v_i,\\mathbf v_i\\rangle}\\mathbf v_i,\\quad \\operatorname{proj}_W\\mathbf y=\\sum_i\\frac{\\langle\\mathbf y,\\mathbf v_i\\rangle}{\\langle\\mathbf v_i,\\mathbf v_i\\rangle}\\mathbf v_i,\\quad A^{T}A\\hat{\\mathbf x}=A^{T}\\mathbf b.$$"
     },
     {
       "id": "tma4110-6-5-case",
@@ -143,8 +143,8 @@
         "number": "7",
         "type": "classic",
         "difficulty": "middels",
-        "task": "(Sjanger I — minste kvadrater.) Finn minste kvadraters løsningen av $A\\mathbf x=\\mathbf b$ med $A=\\begin{bmatrix}1&0\\\\1&1\\\\1&1\\end{bmatrix}$, $\\mathbf b=\\begin{bmatrix}1\\\\2\\\\4\\end{bmatrix}$, og minste-kvadraters-feilen.",
-        "solution": "Normallikningene: $A^{T}A=\\begin{bmatrix}3&2\\\\2&2\\end{bmatrix}$, $A^{T}\\mathbf b=\\begin{bmatrix}7\\\\6\\end{bmatrix}$. Rad 1 minus rad 2: $x_1=1$; da $2+2x_2=6\\Rightarrow x_2=2$. $\\hat{\\mathbf x}=(1,2)$. $A\\hat{\\mathbf x}=(1,3,3)$, residual $(0,-1,1)$, feil $\\sqrt2$.",
+        "task": "(Sjanger I — minste kvadrater.) Finn minste kvadraters løsningen av $A\\mathbf x=\\mathbf b$ med $A=\\begin{bmatrix}1&0\\\\1&1\\\\1&2\\end{bmatrix}$, $\\mathbf b=\\begin{bmatrix}3\\\\1\\\\2\\end{bmatrix}$, og minste-kvadraters-feilen.",
+        "solution": "Normallikningene: $A^{T}A=\\begin{bmatrix}3&3\\\\3&5\\end{bmatrix}$, $A^{T}\\mathbf b=\\begin{bmatrix}6\\\\5\\end{bmatrix}$. $\\det=15-9=6$, så\n$$\\hat{\\mathbf x}=\\frac{1}{6}\\begin{bmatrix}5&-3\\\\-3&3\\end{bmatrix}\\begin{bmatrix}6\\\\5\\end{bmatrix}=\\frac{1}{6}\\begin{bmatrix}15\\\\-3\\end{bmatrix}=\\left(\\tfrac52,-\\tfrac12\\right).$$\n$A\\hat{\\mathbf x}=\\left(\\tfrac52,2,\\tfrac32\\right)$, residual $\\left(\\tfrac12,-1,\\tfrac12\\right)$, og feilen er $\\|\\mathbf b-A\\hat{\\mathbf x}\\|=\\sqrt{\\tfrac32}=\\tfrac{\\sqrt6}{2}$.",
         "hints": [
           "Skriv normallikningene $A^{T}A\\hat{\\mathbf x}=A^{T}\\mathbf b$.",
           "Feilen $=\\|\\mathbf b-A\\hat{\\mathbf x}\\|$ — regn $A\\hat{\\mathbf x}$ først."
@@ -175,8 +175,8 @@
         "number": "9",
         "type": "classic",
         "difficulty": "vanskelig",
-        "task": "(Sjanger I — parabel.) Finn parabelen $y=c_0+c_1x+c_2x^2$ som best tilpasser $(-2,0),(-1,1),(0,2),(1,4),(2,1)$.",
-        "solution": "$A$ har rader $[\\,1\\ x_i\\ x_i^2\\,]$, $\\mathbf b=(0,1,2,4,1)$. Da\n$$A^{T}A=\\begin{bmatrix}5&0&10\\\\0&10&0\\\\10&0&34\\end{bmatrix},\\qquad A^{T}\\mathbf b=\\begin{bmatrix}8\\\\5\\\\9\\end{bmatrix}.$$\nMidterste likning: $10c_1=5\\Rightarrow c_1=\\tfrac12$. De to andre: $5c_0+10c_2=8$, $10c_0+34c_2=9$; eliminasjon gir $14c_2=-7\\Rightarrow c_2=-\\tfrac12$, $c_0=\\tfrac{13}{5}$. **Svar:** $y=\\tfrac{13}{5}+\\tfrac12x-\\tfrac12x^2$.",
+        "task": "(Sjanger I — parabel.) Finn parabelen $y=c_0+c_1x+c_2x^2$ som best tilpasser $(-2,0),(-1,1),(0,0),(1,4),(2,6)$.",
+        "solution": "$A$ har rader $[\\,1\\ x_i\\ x_i^2\\,]$, $\\mathbf b=(0,1,0,4,6)$. Da\n$$A^{T}A=\\begin{bmatrix}5&0&10\\\\0&10&0\\\\10&0&34\\end{bmatrix},\\qquad A^{T}\\mathbf b=\\begin{bmatrix}11\\\\15\\\\29\\end{bmatrix}.$$\nMidterste likning: $10c_1=15\\Rightarrow c_1=\\tfrac32$. De to andre: $5c_0+10c_2=11$, $10c_0+34c_2=29$; gang den første med $2$ og subtraher: $14c_2=7\\Rightarrow c_2=\\tfrac12$, og da $5c_0+5=11\\Rightarrow c_0=\\tfrac65$. **Svar:** $y=\\tfrac65+\\tfrac32x+\\tfrac12x^2$.",
         "hints": [
           "Bygg $A$ med kolonner $1,\\ x,\\ x^2$; skriv normallikningene.",
           "Symmetriske $x$-verdier gjør $A^{T}A$ nesten diagonal — midterste likning gir $c_1$ direkte."
@@ -241,8 +241,8 @@
         "number": "13",
         "type": "classic",
         "difficulty": "vanskelig",
-        "task": "(Kald bank — rangdefekt.) La $A=\\begin{bmatrix}1&1&2\\\\1&2&3\\\\1&0&1\\\\1&3&4\\end{bmatrix}$ (kolonne 3 $=$ kolonne 1 $+$ kolonne 2) og $\\mathbf b=(2,3,1,5)$. Finn alle minste kvadraters løsninger av $A\\mathbf x=\\mathbf b$.",
-        "solution": "Kolonnene er lineært avhengige, så $A^{T}A$ er singulær og løsningsmengden affin. Normallikningene: $A^{T}A=\\begin{bmatrix}4&6&10\\\\6&14&20\\\\10&20&30\\end{bmatrix}$, $A^{T}\\mathbf b=(11,23,34)$. Radreduksjon gir $x_1+x_3=\\tfrac45$, $x_2+x_3=\\tfrac{13}{10}$. Med $x_3=s$ fri:\n$$\\hat{\\mathbf x}=\\begin{bmatrix}4/5\\\\13/10\\\\0\\end{bmatrix}+s\\begin{bmatrix}-1\\\\-1\\\\1\\end{bmatrix},\\qquad s\\in\\mathbb R.$$\nAlle gir samme prediksjon $A\\hat{\\mathbf x}=\\operatorname{proj}_{\\operatorname{Col}A}\\mathbf b$; retningsvektoren $(-1,-1,1)$ er $\\operatorname{Nul}A$.",
+        "task": "(Kald bank — rangdefekt.) La $A=\\begin{bmatrix}1&2&0\\\\1&2&1\\\\1&2&2\\\\1&2&3\\end{bmatrix}$ (kolonne 2 $=2\\,\\times$ kolonne 1) og $\\mathbf b=(1,2,2,5)$. Finn alle minste kvadraters løsninger av $A\\mathbf x=\\mathbf b$.",
+        "solution": "Kolonnene er lineært avhengige, så $A^{T}A$ er singulær og løsningsmengden affin. Normallikningene: $A^{T}A=\\begin{bmatrix}4&8&6\\\\8&16&12\\\\6&12&14\\end{bmatrix}$, $A^{T}\\mathbf b=(10,20,21)$. Radreduksjon gir $x_1+2x_2=\\tfrac{7}{10}$ og $x_3=\\tfrac65$. Med $x_2=s$ fri:\n$$\\hat{\\mathbf x}=\\begin{bmatrix}7/10\\\\0\\\\6/5\\end{bmatrix}+s\\begin{bmatrix}-2\\\\1\\\\0\\end{bmatrix},\\qquad s\\in\\mathbb R.$$\nAlle gir samme prediksjon $A\\hat{\\mathbf x}=\\operatorname{proj}_{\\operatorname{Col}A}\\mathbf b=\\left(\\tfrac{7}{10},\\tfrac{19}{10},\\tfrac{31}{10},\\tfrac{43}{10}\\right)$; retningsvektoren $(-2,1,0)$ er $\\operatorname{Nul}A$.",
         "hints": []
       }
     },
