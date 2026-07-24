@@ -300,10 +300,10 @@ const quizData_econ2220: Record<string, QuizQuestion[]> = {
       options: ["To tredjedeler av en enhet", "Halvannen enhet", "Én og en tredjedels enhet", "Tjue enheter"],
       explanation: "Bytteforholdet er $p_1/p_2 = 20/30 = 2/3$ enheter vare 2 per enhet vare 1. Svaret 1,5 er den omvendte brøken $p_2/p_1$, og 20 er prisen, ikke bytteforholdet.",
     },
-    {
-      question: "Hvordan settes Lagrange-funksjonen opp for konsumentens problem?",
-      options: ["$\\mathcal{L} = u(c_1,c_2) - \\lambda(p_1c_1 + p_2c_2 - m)$", "$\\mathcal{L} = u(c_1,c_2) - \\lambda(p_1c_1 + p_2c_2)$", "$\\mathcal{L} = p_1c_1 + p_2c_2 - \\lambda\\,u(c_1,c_2)$", "$\\mathcal{L} = u(c_1,c_2)\\cdot\\lambda(p_1c_1 + p_2c_2 - m)$"],
-      explanation: "Malen er målfunksjon minus multiplikator ganger bibetingelsen skrevet som «venstreside minus høyreside». Utelates $-m$, forsvinner budsjettet fra den tredje førsteordensbetingelsen. Det tredje alternativet bytter om målfunksjon og bibetingelse og løser et helt annet problem.",
+        {
+      question: "Oppgaven ber om «tolk resultatet». Hva må svaret inneholde for å få full uttelling?",
+      options: ["En økonomisk lesning av hva løsningen betyr — hva forbrukeren gjør og hvorfor, ikke bare tallene", "En gjentakelse av utregningen med ordene skrevet ut i stedet for symboler", "En vurdering av om resultatet virker realistisk ut fra egne erfaringer", "En kontroll av at budsjettbetingelsen holder med likhet i optimum"],
+      explanation: "Tolkningen skal oversette matematikken til økonomi: hva velger konsumenten, hvordan avhenger valget av priser og inntekt, og hva betyr multiplikatoren. Budsjettkontrollen er nyttig, men er verifisering — ikke tolkning.",
     },
     {
       question: "Hva er det avgjørende siste steget når man har utledet førsteordensbetingelsene $u'_1 = \\lambda p_1$ og $u'_2 = \\lambda p_2$?",
@@ -813,11 +813,12 @@ const quizData_econ2220: Record<string, QuizQuestion[]> = {
       options: ["Budsjettandel, substituerbarhet og normalitet", "Lagrange-multiplikatoren, tangering og monotoni", "Konveksitet, avslørte preferanser og homogenitet", "Statens utlegg, øremerking og vridningstap"],
       explanation: "De tre knytter drøftingen til oppgaven du nettopp løste: andelen styrer kjøpekraftsvirkningen, substituerbarheten styrer hvor billig tilpasningen er, og normaliteten styrer hvordan forbruket henger sammen med inntekt.",
     },
-    {
-      question: "Hvilken kontroll fanger fortegnsfeil i kompensasjonen mest sikkert?",
-      options: ["At punkt $A$ ligger på den kompenserte linjen", "At summen av de to effektene blir totaleffekten", "At tilpasningen oppfyller det opprinnelige budsjettet", "At marginal substitusjonsbrøk i optimum blir lik prisforholdet"],
-      explanation: "Definisjonen av kompensasjonen er at den gamle kurven koster nøyaktig $m^s$ til de nye prisene. De andre kontrollene er også nyttige, men summen av effektene går opp selv om kompensasjonen har feil fortegn — begge punkter blir da feil på en konsistent måte.",
+        {
+      question: "Du har regnet ut substitusjons- og inntektseffekten. Hva er siste steg før du leverer?",
+      options: ["Å sjekke at de to effektene summerer seg til totalendringen du regnet ut først", "Å tegne figuren på nytt med større akser slik at punktene blir tydeligere", "Å regne om alle mellomsvar til desimaltall med tre gjeldende siffer", "Å kontrollere at nyttenivået er høyere i det nye optimum enn i det gamle"],
+      explanation: "Summekontrollen fanger både fortegnsfeil og regnefeil i én operasjon, og koster to sekunder. Nytten kan godt falle ved en prisøkning, så den siste kontrollen ville vært direkte misvisende.",
     },
+
   ],
   'econ2220-3-1': [
     {
@@ -1248,10 +1249,10 @@ const quizData_econ2220: Record<string, QuizQuestion[]> = {
       options: ["Begge konsumenter får høyere nytte enn i utgangspunktet", "Nøyaktig én av konsumentene får høyere nytte", "Samlet nytte er nøyaktig den samme som i utgangspunktet for begge", "Fordelingen er alltid effektiv der"],
       explanation: "Linsen består av Pareto-forbedringer. Et punkt i linsen kan godt ha en ny linse igjen, så det er ikke nødvendigvis effektivt.",
     },
-    {
-      question: "Hva er forskjellen på Pareto-forbedring og Pareto-effektivitet?",
-      options: ["Forbedring er en bevegelse; effektivitet er en egenskap ved et punkt", "Forbedring gjelder A, effektivitet gjelder B", "Forbedring forutsetter at det finnes markedspriser, mens effektivitet kan vurderes uten", "Det er to navn på samme sak i en bytteøkonomi"],
-      explanation: "Man kan gjøre en Pareto-forbedring og likevel ende i et punkt som ikke er effektivt — det kan fortsatt finnes en linse igjen.",
+        {
+      question: "Hva kjennetegner geometrisk et punkt på kontraktkurven?",
+      options: ["De to konsumentenes indifferenskurver tangerer hverandre i punktet", "De to indifferenskurvene krysser hverandre i punktet", "Punktet ligger på den rette linjen mellom de to origoene", "Punktet ligger midt i bytteboksen, like langt fra begge origo"],
+      explanation: "Tangering betyr at de marginale substitusjonsbrøkene er like, så ingen omfordeling kan gjøre én bedre uten å gjøre den andre verre. Krysning betyr derimot at det finnes en linse igjen — altså at punktet ikke er effektivt.",
     },
     {
       question: "Tangeringsbetingelsen i bytteboksen er",
@@ -2765,10 +2766,10 @@ const quizData_econ2220: Record<string, QuizQuestion[]> = {
       options: ["Ingenting i seg selv, for alternativkostnaden på kapitalen ligger i $c(y)$", "At nullprofitt-resultatet er motbevist, siden profitten åpenbart er større enn null", "At teknologien må ha avtakende skalautbytte, ellers ville overskuddet forsvunnet", "At prisen må ligge under marginalkostnaden i den tilpasningen bedriften har valgt"],
       explanation: "Null renprofitt betyr normal avkastning på kapitalen, ikke null inntekt; regnskapsoverskudd er derfor forenlig med resultatet.",
     },
-    {
-      question: "Hva er grunnrente?",
-      options: ["Varig meravkastning knyttet til en knapp naturressurs", "Den delen av husleien som ikke kan sies opp ved en eventuell nedleggelse", "Avkastningen som akkurat dekker alternativkostnaden på den investerte kapitalen", "Forskjellen mellom marginalkostnaden og gjennomsnittskostnaden i optimum"],
-      explanation: "Fri etablering konkurrerer bort renprofitt, men kan ikke skape flere fosser eller lokaliteter — meravkastningen fester seg til ressursen.",
+        {
+      question: "Diskusjonsoppgaven spør om et marked for oppdrettskonsesjoner. Hvordan bruker du grunnrentebegrepet?",
+      options: ["Ved å knytte meravkastningen til den knappe lokaliteten, og forklare at fri etablering ikke kan skape flere av dem", "Ved å slå fast at all profitt i næringen er grunnrente så lenge det kreves konsesjon", "Ved å regne ut differansen mellom marginalkostnad og gjennomsnittskostnad i likevekt", "Ved å vise at renprofitten forsvinner på lang sikt, slik at grunnrenten også må gjøre det"],
+      explanation: "Poenget er koblingen knapp ressurs → varig meravkastning: etableringsfriheten konkurrerer bort renprofitt, men ikke avkastningen som fester seg til selve lokaliteten. Siste alternativ blander de to begrepene.",
     },
     {
       question: "Oppgaven ber deg drøfte hvordan en subsidie påvirker BRUKEN av bil. Hva er den dokumenterte fellen?",
