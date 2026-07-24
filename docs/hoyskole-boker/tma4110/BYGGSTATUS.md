@@ -11,8 +11,13 @@ Branch: `bok/tma4110` (worktree). Arketype: regnefag. Institusjon: NTNU (slug `n
 - [x] Steg 1 — Byggebølge: Del 0–11 KOMPLETT (52 kapittelfiler, 816 definisjoner). Del 11-agenten døde på API-feil (ECONNRESET) mid-LENGDE-TELL-polish; byggeleder målte disk (alt gyldig+komplett), fullførte 11-2 quiz-balansering (6→3/14) og committet. 11-5 O1-figur gjenbruker eksisterende tma4110-7-3-z4-minus16.svg (matcher z^4=-16).
 - [x] Steg 2 — Wiring (wire-bok.py): COURSE_TMA4110 (52 kap), registry +52 (10879),
       quiz-data-tma4110.ts 671 spørsmål, institusjoner.ts (ntnu). sjekk-bok BOKPORT OK. tsc grønn. quiz-staging slettet.
-- [ ] Steg 3 — Verifikatorbølge (etterregn alle fasiter numerisk)
-- [ ] Steg 4 — Sluttport (studentpanel + SVG-opplasting + npm run build + prod-curl PORT=3063)
+- [x] Steg 3 — Verifikatorbølge KOMPLETT (alle 11 deler etterregnet, ~475 sjekker, 0 fasitavvik).
+- [x] Steg 4 — Sluttport OK: sjekk-bok BOKPORT OK (52 kap / 816 def / 671 quiz), studentpanel-port
+      (0 tomme collapsibles, 0 «Prioritet: perfekt», 0 meta-fasit, alle oppgaver har hint unntatt
+      merket kald bank/prøve), KaTeX-port (16 574 formler, 0 feil), alle 6 SVG-er verifisert i
+      Supabase Storage (HTTP 200), tsc grønn, `npm run build` grønn (11 023 kap etter merge med
+      main), prod-curl PORT=3063: 11/11 ruter 200 med Forkunnskaper + Symbol- og formelliste +
+      inline læringsløkke (Løkke→Eksempel→Oppgave) bekreftet i servert HTML.
 
 ## Filer på disk (per overtakelse 22. juli)
 - Kapittelfiler: Del 0–9 komplett (0.1; 1.1–1.3; 2.1–2.3; 3.1–3.5; 4.1–4.2; 5.1–5.5;

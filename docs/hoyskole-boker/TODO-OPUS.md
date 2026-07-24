@@ -145,8 +145,11 @@ Prioritert etter studentvolum og materialstyrke:
       ECON4120» — ett rammeverk dekker begge kodene)
 - [ ] `econ3010` — Anvendt økonomisk analyse (UiO, 19 filer; AKTIV)
 - [ ] `ttm4135` — Anvendt kryptografi og nettverkssikkerhet (NTNU, 27 filer; AKTIV)
-- [ ] `tma4111` — Matematikk 3 (NTNU; arkiv TMA4110 196 filer; TMA4110 ERSTATTET
-      av TMA4111 fra reformen — etterfølger-profilert, sos1004-metoden)
+- [x] `tma4111` → **BYGGET 24. juli 2026 som `tma4110`** «Lineær algebra, komplekse
+      tall og differensiallikninger» (52 kap, 816 flashcards, 671 quiz, BOKPORT OK,
+      steg 3 komplett: ~475 sjekker over alle 11 deler, 0 fasitavvik; build grønn
+      11 023 kap, prod-curl 11/11). Arkiv TMA4110 196 filer; kodetilhørighet merket
+      (NTNU-reformen spredte stoffet på TMA4101/4106/4111 — dokumentert i Del 0).
 - [ ] `tma4106` — Matematikk 2 (NTNU; arkiv TMA4105 114 filer; ERSTATTET av
       TMA4106 — etterfølger-profilert)
 - [ ] `tdt4237` — Programvaresikkerhet og personvern (NTNU, 13 filer; AKTIV)
