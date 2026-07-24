@@ -760,7 +760,7 @@ const quizData_econ2220: Record<string, QuizQuestion[]> = {
     },
     {
       question: "En konsument har $u = c_1^{3}c_2$. Hva er budsjettandelen for vare 1?",
-      options: ["Tre fjerdedeler", "Tre", "En fjerdedel", "En tredjedel"],
+      options: ["Tre fjerdedeler", "Tre, altså eksponenten på vare 1", "En fjerdedel", "En tredjedel"],
       explanation: "Eksponentene summerer seg til 4, så andelen er $a/(a+b) = 3/4$. Å bruke 3 direkte ville gitt en utgift på $3m$, altså tre ganger inntekten — kontrollen $p_1c_1 \\le m$ avslører feilen straks.",
     },
     {
@@ -795,7 +795,7 @@ const quizData_econ2220: Record<string, QuizQuestion[]> = {
     },
     {
       question: "For $u = 6\\sqrt{c_1} + c_2$: hva er inntektseffekten på $c_1$?",
-      options: ["Null, siden $\\partial c_1/\\partial m = 0$", "Positiv, siden godet er normalt", "Negativ, siden godet er mindreverdig", "Ubestemt uten at inntektsnivået er oppgitt"],
+      options: ["Null, siden $\\partial c_1/\\partial m = 0$", "Positiv, siden godet er normalt", "Negativ, siden godet er mindreverdig", "Ubestemt uten at inntektsnivået $m$ er oppgitt i kroner"],
       explanation: "Uttrykket $c_1 = 9p_2^2/p_1^2$ inneholder ikke $m$, så den inntektsderiverte er null. Godet er derfor verken normalt eller mindreverdig — det er grensetilfellet, og en god påminnelse om at normalitet må vises, ikke antas.",
     },
     {
@@ -887,12 +887,12 @@ const quizData_econ2220: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hvilken av disse endringene gir et rent parallellskift av budsjettlinjen?",
-      options: ["En kontantoverføring som ikke endrer prisene", "En økning i $p_1$ alene", "En reduksjon i $p_2$ alene", "En dobling av begge priser samtidig"],
+      options: ["En kontantoverføring som ikke endrer prisene", "En økning i $p_1$ alene", "En reduksjon i $p_2$ alene", "En dobling av begge priser samtidig, uten kompensasjon"],
       explanation: "Parallellskift krever uendret prisforhold og endret nivå. En dobling av begge priser (alternativ 4) endrer verken helningen eller de reelle mulighetene i en beholdningsøkonomi: både konsumets kostnad og beholdningens verdi dobles, så linjen står helt stille.",
     },
     {
       question: "Hva står symbolet $\\omega$ for i denne boka?",
-      options: ["Beholdningen — mengdene konsumenten eier før handel", "Faktorprisen på arbeid, altså lønna per time", "Lagrange-multiplikatoren", "Konsumentens nyttenivå"],
+      options: ["Beholdningen — mengdene konsumenten eier før handel", "Faktorprisen på arbeid, altså lønna per time arbeidet", "Lagrange-multiplikatoren", "Konsumentens nyttenivå"],
       explanation: "Boka bruker $\\omega$ utelukkende om beholdning; faktorpriser heter $r$ og $w$, og multiplikatoren heter $\\lambda$. Enkelte eldre eksamenssett har brukt $\\omega$ om faktorpriser — definer derfor alltid symbolene dine i besvarelsen.",
     },
     {
@@ -1245,7 +1245,7 @@ const quizData_econ2220: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva kjennetegner alle punktene inne i linsen?",
-      options: ["Begge konsumenter får høyere nytte enn i utgangspunktet", "Nøyaktig én av konsumentene får høyere nytte", "Samlet nytte er den samme som i utgangspunktet", "Fordelingen er alltid effektiv der"],
+      options: ["Begge konsumenter får høyere nytte enn i utgangspunktet", "Nøyaktig én av konsumentene får høyere nytte", "Samlet nytte er nøyaktig den samme som i utgangspunktet for begge", "Fordelingen er alltid effektiv der"],
       explanation: "Linsen består av Pareto-forbedringer. Et punkt i linsen kan godt ha en ny linse igjen, så det er ikke nødvendigvis effektivt.",
     },
     {
@@ -1270,7 +1270,7 @@ const quizData_econ2220: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hvorfor kan begge konsumenter vinne på handel når totalmengdene er faste?",
-      options: ["Fordi varene flyttes dit de verdsettes høyest på marginen", "Fordi det produseres mer når markedet åpnes", "Fordi den ene får en gave fra den andre", "Fordi prisene faller når begge handler"],
+      options: ["Fordi varene flyttes dit de verdsettes høyest på marginen", "Fordi det produseres mer av begge varer når markedet åpnes", "Fordi den ene får en gave fra den andre", "Fordi prisene faller når begge handler"],
       explanation: "Gevinsten kommer av ulik MSB i utgangspunktet, ikke av ny produksjon eller av gaver. Bytte er ikke et nullsumspill.",
     },
     {
@@ -1310,7 +1310,7 @@ const quizData_econ2220: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva menes med at konsumentene er pristakere?",
-      options: ["At hver av dem tar prisene for gitt og ikke kan påvirke dem", "At de betaler den prisen den andre bestemmer", "At de bare kan handle til bytteforholdet 1:1", "At de må selge hele beholdningen sin"],
+      options: ["At hver av dem tar prisene for gitt og ikke kan påvirke dem", "At de betaler den prisen motparten bestemmer i forhandlingen", "At de bare kan handle til bytteforholdet 1:1", "At de må selge hele beholdningen sin"],
       explanation: "Pristaking betyr at prisene er data for den enkelte. Det er en forutsetning som blir sentral for velferdsteoremene i kap. 4.3.",
     },
     {
@@ -2729,7 +2729,7 @@ const quizData_econ2220: Record<string, QuizQuestion[]> = {
       explanation: "Baklengs induksjon: $r = 0$ er best for en egoistisk mottaker, og da taper investoren på hver krone hun sender. Tredoblingen blir aldri utnyttet.",
     },
     {
-      question: "Hvorfor er tilbudet på 40 kroner (av 130) troverdig avvist av respondenten om det senkes til 39?",
+      question: "En pott på 130 kroner deles, og respondenten tilbys 39. Hvorfor avslår hun?",
       options: ["Fordi nytten av å godta blir negativ, og avslag gir nytte null", "Fordi respondenten ønsker å straffe forslagsstilleren uansett beløp", "Fordi respondenten ikke er rasjonell når tilbudet er lavt", "Fordi forslagsstilleren da ville fått mer enn to tredeler av potten"],
       explanation: "$U_R(39) = 39 - 0{,}8(130-78) = -2{,}6 < 0$, mens avslag gir 0. Avslaget er altså nyttemaksimerende — trusselen er troverdig fordi utbetalingene i noden er endret.",
     },
