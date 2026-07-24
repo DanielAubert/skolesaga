@@ -31,6 +31,17 @@ Branch: `bok/tma4110` (worktree). Arketype: regnefag. Institusjon: NTNU (slug `n
   («Sist du var her»-formelblokkene beholdt); (3) LENGDE-TELL i hele Del 6
   balansert: 6-2 56 %→28 %, 6-3 56 %→28 %, 6-4 39 %→28 %, 6-5 50 %→31 %
   (17 distraktorer forlenget, fasit og semantikk urørt). Bok-nivå: 31 %.
+- (24. juli, steg 3 forts. III) **DEL 9 FERDIG.** 9-1/9-2/9-3/9-4 + prøve etterregnet
+  (~115 sjekker): alle ODE-løsninger verifisert numerisk med mpmath (residual ~1e-25 i
+  tre punkter + IVP-verdier), inkl. variasjon-av-parametere-svarene (tan/sec/csc/e^x·x⁻¹).
+  **0 fasitavvik.** Quiz 9-1..9-4 (68 spm) fasitkontrollert: alle riktige; LENGDE-TELL
+  31–44 % (innenfor). Fikser: (1) 9.4 opg. 1/2/6 var identiske med gjennomregnede
+  eksempler i 9.1/9.2 selv om kapitlet lover «nyskrevne tall» — nye likninger med
+  sympy-etterregnede fasiter (opg. 4 fulgte med, siden den bruker opg. 1);
+  (2) tre kryssbok-lenker pekte til FEIL kapittel (lenketeksten lovet noe annet enn
+  målet): 4-1 og 7-2 «Trigonometriske funksjoner…» → r2-4-2 Enhetssirkelen,
+  9-3 «Regningsregler for integrasjon» → s2-1-6 Delvis integrasjon. Full lenkeskann:
+  alle interne /bok/-lenker i boka finnes (0 brutte).
 - (24. juli, steg 3 forts. — byggeleder regner selv, API ustabilt for subagenter)
   Del 3–4 KOMPLETT verifisert og committet (65c18f39): 87 sympy-sjekker, 0 fasitavvik;
   quiz 3-1..4-2 (122 spm) fasitkontrollert, LENGDE-TELL 6–31 %. Forkunnskaper
