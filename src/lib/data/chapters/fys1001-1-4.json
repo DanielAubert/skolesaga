@@ -1,0 +1,392 @@
+{
+  "id": "fys1001-1-4",
+  "courseId": "fys1001",
+  "chapterNumber": "1.4",
+  "title": "Sirkelbevegelse, gravitasjon og satellittbaner",
+  "description": "Sentripetalkraft med riktig fortegnsoppsett, loopen med grensefarten der kontakten brytes, og satellitten som gravitasjonens standardanvendelse.",
+  "estimatedMinutes": 50,
+  "competenceGoals": [
+    "regne ut sentripetalakselerasjon og sette opp den radielle kraftligningen med retning mot sentrum som positiv",
+    "finne kraften fra banen i topp- og bunnpunktet av en loop, og utlede minstefarten der kontakten brytes",
+    "bruke friksjonskraften som sentripetalkraft til å finne grensefarten i en sving",
+    "vise at banefarten til en satellitt bare avhenger av baneradien, og regne ut radius og omløpstid for en gitt bane"
+  ],
+  "content": [
+    {
+      "id": "fys1001-1-4-tip-eksamensvinkel",
+      "type": "tip",
+      "title": "Eksamensvinkel",
+      "content": "**Prioritet: må kunne — sirkelbevegelse og gravitasjon er egen oppgave i 12 av 36 avsluttende eksamenssett (33 %), og deloppgave langt oftere.**\n\nTemaet hører til **sjanger E**, som er bokas navn på sirkelbevegelses-, loop- og satellittoppgavene. I arkivet er loopen kjerneoppgave i ett sett (2014v) og satellittbanen i to (2019h og 2024h) — den «roterer inn igjen» med noen års mellomrom. Svingradius med friksjon er en gjenganger på midtsemestereksamen.\n\nTo ting gir poeng her, og begge er begrunnelser mer enn regnestykker. Det ene er **fortegnsoppsettet** i loopen: hvilke krefter peker mot sentrum i toppen, og hvilke i bunnen? Det andre er poenget om at **banefarten til en satellitt bare avhenger av baneradien** — satellittens egen masse forkortes bort, og det skal du kunne vise, ikke bare påstå."
+    },
+    {
+      "id": "fys1001-1-4-forkunnskaper",
+      "type": "text",
+      "content": "**Forkunnskaper — dette bygger kapitlet på:**\n\n- [kap. 1.2](/bok/fys1001/fys1001-1-2) — frilegemediagrammet og Newtons 2. lov komponentvis. Alt i dette kapitlet er $\\Sigma F = ma$ med aksen lagt i en ny retning: inn mot sentrum.\n- [kap. 1.3](/bok/fys1001/fys1001-1-3) — friksjonskraften $R = \\mu N$. I en sving er det friksjonen som leverer kraften inn mot sentrum.\n- [Sirkelbevegelse og sentripetalkraft](/bok/fysikk2/fysikk2-1-4) — fordypning for deg som vil se temaet i full Fysikk 2-bredde.\n- [Keplers lover](/bok/fysikk2/fysikk2-2-4) — fordypning om baner og omløpstider.\n\nHar du ikke hatt fysikk før, trenger du bare de to første punktene."
+    },
+    {
+      "id": "fys1001-1-4-intro",
+      "type": "text",
+      "content": "## Hverdagsankeret: bøtta med vann\n\nSving en bøtte med vann rundt i en full vertikal sirkel, fort nok, og vannet blir liggende i bøtta selv når den er opp-ned. Sving for sakte, og du blir våt. Et sted mellom de to farten finnes en **grensefart** — og hele loop-oppgaven på eksamen er den grensefarten.\n\nNøkkelen til alt i dette kapitlet: et legeme som går i sirkel med konstant fart, er **ikke** i likevekt. Retningen på farten endrer seg hele tiden, og det krever en resultantkraft som peker inn mot sentrum. Finner du ikke ut hvilken virkelig kraft som gjør den jobben, har du ikke løst oppgaven.\n\n*Kapitlet er delt i fem løkker med tidsanslag. Naturlig pausepunkt etter løkke 2.*"
+    },
+    {
+      "id": "fys1001-1-4-lokke1",
+      "type": "text",
+      "content": "## Løkke 1 — Sentripetalakselerasjon og den radielle aksen (~10 min)"
+    },
+    {
+      "id": "fys1001-1-4-def-sirkelbevegelse",
+      "type": "definition",
+      "title": "Sirkelbevegelse med konstant fart",
+      "content": "Bevegelse langs en sirkelbane der **størrelsen** på farten er konstant, men **retningen** endrer seg hele tiden. Fordi fart er en vektor, er en retningsendring også en fartsendring — og dermed en akselerasjon.\n\nDette er den vanskeligste tankebiten i kapitlet, så det er verdt å si det tydelig: en bil som kjører 60 km/t gjennom en rundkjøring, **akselererer**, selv om speedometeret står stille. Akselerasjonen peker ikke forover, men **innover mot sentrum** av sirkelen, vinkelrett på farten. Farten er alltid **tangentiell** — langs sirkelen — og akselerasjonen alltid **radiell** — inn mot sentrum."
+    },
+    {
+      "id": "fys1001-1-4-def-sentripetalakselerasjon",
+      "type": "definition",
+      "title": "Sentripetalakselerasjon",
+      "content": "Akselerasjonen som skyldes retningsendringen i en sirkelbevegelse:\n\n$$a = \\frac{v^2}{r},$$\n\nrettet **inn mot sentrum** av banen. Her er $v$ farten langs banen (m/s) og $r$ baneradien (m).\n\nLegg merke til at farten står i **andre potens**: dobler du farten gjennom samme sving, firedobles akselerasjonen — og dermed kraften som må til. Det er hele forklaringen på hvorfor det er farten, og ikke svingens skarphet, som først blir kritisk når du kjører for fort inn i en kurve. Liten radius gir også stor akselerasjon: en skarp sving krever mer enn en slak."
+    },
+    {
+      "id": "fys1001-1-4-def-sentripetalkraft",
+      "type": "definition",
+      "title": "Sentripetalkraft — ikke en ny kraft",
+      "content": "Navnet på **resultanten** av de virkelige kreftene, målt inn mot sentrum:\n\n$$\\Sigma F_{\\text{radiell}} = \\frac{mv^2}{r}.$$\n\nDette er ikke en ny kraft du skal tegne inn i frilegemediagrammet. Det er en **betingelse** som de kreftene du allerede har, må oppfylle. I hver oppgave må du derfor identifisere hvilken virkelig kraft som gjør jobben:\n\n- bøtte i loop: snordraget og tyngden;\n- bil i sving: friksjonen fra veien;\n- satellitt: gravitasjonen;\n- ladd partikkel i magnetfelt: den magnetiske kraften ([kap. 5.4](/bok/fys1001/fys1001-5-4)).\n\n**Å tegne en egen pil merket «sentripetalkraft» i tillegg til de virkelige kreftene er en av de dyreste feilene i sjangeren** — da har du talt samme kraft to ganger."
+    },
+    {
+      "id": "fys1001-1-4-def-radiell-akse",
+      "type": "definition",
+      "title": "Radiell akse og fortegnskonvensjonen",
+      "content": "I sirkelbevegelse legger vi aksen **langs radien**, og i denne boka regner vi **retning inn mot sentrum som positiv**. Da blir betingelsen alltid stående med positivt fortegn på høyre side:\n\n$$\\Sigma F_{\\text{radiell}} = +\\frac{mv^2}{r}.$$\n\nKonsekvensen er at en kraft som peker **mot** sentrum, går inn med pluss, og en kraft som peker **bort fra** sentrum, går inn med minus. Fordi «mot sentrum» betyr *nedover* i toppen av en loop og *oppover* i bunnen, skifter fortegnene på tyngden mellom de to punktene — og det er nettopp der oppgavene skiller kandidatene.\n\nSkriv konvensjonen i besvarelsen din: «Jeg regner radiell retning inn mot sentrum som positiv.» Det er en av de retningskonvensjonene sensor krever at du innfører."
+    },
+    {
+      "id": "fys1001-1-4-ex1",
+      "type": "example",
+      "title": "Eksempel 1: Akselerasjonen i en rundkjøring",
+      "problem": "En bil kjører med konstant fart 15 m/s (54 km/t) gjennom en rundkjøring med radius 40 m. **a)** Finn sentripetalakselerasjonen. **b)** Hvilken virkelig kraft leverer den?",
+      "solution": "**a)** $$a = \\frac{v^2}{r} = \\frac{(15\\ \\text{m/s})^2}{40\\ \\text{m}} = \\frac{225\\ \\text{m}^2/\\text{s}^2}{40\\ \\text{m}} = 5{,}6\\ \\text{m/s}^2,$$\n\nrettet inn mot sentrum av rundkjøringen.\n\n**b)** Kraften kommer fra **friksjonen mellom dekk og veibane**. Den er den eneste vannrette kraften på bilen, og den peker sidelengs innover. Tyngden og normalkraften er loddrette og balanserer hverandre.\n\n**Konklusjon:** Akselerasjonen er $5{,}6\\ \\text{m/s}^2$ inn mot sentrum, levert av friksjonskraften fra veien.\n\n**Rimelighetsvurdering:** $5{,}6\\ \\text{m/s}^2$ er omtrent $0{,}57g$. Med et friksjonstall på for eksempel 0,7 er det innenfor det veien kan levere — men på en isete vei med $\\mu = 0{,}2$ ville bilen skrenset ut."
+    },
+    {
+      "id": "fys1001-1-4-o-o1",
+      "type": "exercise",
+      "exercise": {
+        "id": "fys1001-1-4-ex-o1",
+        "number": "1",
+        "type": "classic",
+        "difficulty": "lett",
+        "task": "(Innstegsoppgave.) Et barn sitter $6{,}0$ m fra sentrum i en karusell og har farten $4{,}0$ m/s.\n\n**a)** Finn sentripetalakselerasjonen.\n\n**b)** Hva skjer med akselerasjonen hvis farten dobles? Svar uten å regne.\n\n**c)** Hvilken vei peker akselerasjonen?",
+        "solution": "**a)** $$a = \\frac{v^2}{r} = \\frac{(4{,}0\\ \\text{m/s})^2}{6{,}0\\ \\text{m}} = 2{,}7\\ \\text{m/s}^2.$$\n\n**b)** Akselerasjonen firedobles, til om lag $11\\ \\text{m/s}^2$. Grunnen er at $a$ er proporsjonal med kvadratet av farten: $2^2 = 4$.\n\n**c)** Inn mot sentrum av karusellen, vinkelrett på fartsretningen. Farten er tangentiell, akselerasjonen radiell.\n\n**Konklusjon:** $a = 2{,}7\\ \\text{m/s}^2$ inn mot sentrum, og den firedobles ved dobbel fart.",
+        "hints": [
+          "Sett rett inn i $a = v^2/r$ og pass på enhetene.",
+          "I b): hvilken potens står farten i?"
+        ]
+      }
+    },
+    {
+      "id": "fys1001-1-4-lokke2",
+      "type": "text",
+      "content": "## Løkke 2 — Loopen: topp, bunn og grensefarten (~13 min)\n\nDette er kjerneoppgaven i sjangeren. Regningen er kort; poengene ligger i fortegnene."
+    },
+    {
+      "id": "fys1001-1-4-def-bunn-loop",
+      "type": "definition",
+      "title": "Bunnpunktet i loopen",
+      "content": "I bunnen av en vertikal loop peker sentrum **oppover**. Med radiell retning mot sentrum som positiv går normalkraften $N$ (oppover) inn med pluss og tyngden $G = mg$ (nedover) med minus:\n\n$$N - G = \\frac{mv^2}{r} \\ \\Rightarrow\\ N = m\\left(g + \\frac{v^2}{r}\\right).$$\n\nNormalkraften er altså **større** enn tyngden i bunnen — og det er nøyaktig følelsen av å presses ned i setet nederst i en berg-og-dal-bane. Forholdet $N/G$ er den «g-kraften» fornøyelsesparker snakker om.\n\nMerk at $N$ aldri blir null i bunnen. Å sette $N = 0$ der er en dokumentert feil: kontakten kan ikke brytes i et punkt der underlaget må presse oppover for å holde legemet i banen."
+    },
+    {
+      "id": "fys1001-1-4-def-topp-loop",
+      "type": "definition",
+      "title": "Toppunktet i loopen",
+      "content": "I toppen peker sentrum **nedover**. Da peker både tyngden og normalkraften fra banen mot sentrum, og begge går inn med pluss:\n\n$$G + N = \\frac{mv^2}{r} \\ \\Rightarrow\\ N = m\\left(\\frac{v^2}{r} - g\\right).$$\n\nHer kan $N$ bli null — og det er hele poenget. Kjører vogna sakte, blir $mv^2/r$ liten, og til slutt trengs ingen hjelp fra banen: tyngden alene er nok til å holde vogna i sirkelen. Går den enda saktere, er tyngden for stor, vogna forlater banen, og den faller innover som et vanlig kast.\n\n**Merk hva som er likt og hva som er ulikt:** størrelsen $mv^2/r$ er den samme i topp og bunn (samme fart, samme radius), men $N$ er dramatisk forskjellig, fordi tyngden bytter fortegn i den radielle ligningen."
+    },
+    {
+      "id": "fys1001-1-4-def-minstefart",
+      "type": "definition",
+      "title": "Minstefarten i toppen: $v = \\sqrt{gr}$",
+      "content": "Grensetilfellet der banen ikke lenger bidrar. Sett $N = 0$ i toppunktligningen:\n\n$$G + 0 = \\frac{mv^2}{r} \\ \\Rightarrow\\ mg = \\frac{mv^2}{r} \\ \\Rightarrow\\ v = \\sqrt{gr}.$$\n\nMassen forkortes bort: **minstefarten avhenger bare av radien.** For en loop med radius 8,0 m er $v_{\\min} = \\sqrt{9{,}81 \\cdot 8{,}0}\\ \\text{m/s} = 8{,}9\\ \\text{m/s}$, uansett om det er en tom vogn eller en full.\n\nDette er standardresultatet i sjangeren, og det er verdt å legge merke til hvordan vi kom dit: ikke ved å pugge formelen, men ved å sette **kontaktkraften lik null** i den radielle ligningen. Samme grep besvarer «hvor fort må bøtta svinges?», «når mister bilen kontakt på toppen av en bakke?» og «hva er minste fart i en loop?»."
+    },
+    {
+      "id": "fys1001-1-4-fig-loop",
+      "type": "image",
+      "src": "/images/textbook/fys1001/fys1001-1-4-loop.svg",
+      "alt": "Vertikal loop med kraftdiagram i toppunkt og bunnpunkt. I toppunktet peker både tyngden G og normalkraften N nedover mot sentrum, og ligningen er G pluss N lik m v i andre delt på r. I bunnpunktet peker N oppover mot sentrum og G nedover bort fra sentrum, og ligningen er N minus G lik m v i andre delt på r. Fartsvektoren er tegnet tangentielt på siden av sirkelen.",
+      "caption": "Loopen med radiell retning mot sentrum som positiv. Legg merke til at det er *samme* to krefter i begge punkter — det er fortegnene i den radielle ligningen som skifter."
+    },
+    {
+      "id": "fys1001-1-4-ex2",
+      "type": "example",
+      "title": "Eksempel 2: Presset ned i setet",
+      "problem": "En berg-og-dal-banevogn med samlet masse 400 kg går gjennom bunnen av en loop med radius 12 m med farten 18 m/s. **a)** Hvor stor er kraften fra banen på vogna? **b)** Hvor mange ganger tyngden er dette?",
+      "solution": "**a)** Frilegemediagram i bunnpunktet: normalkraften $N$ oppover, tyngden $G = mg$ nedover. Radiell retning mot sentrum er oppover, altså positiv oppover:\n\n$$N - mg = \\frac{mv^2}{r}.$$\n\nSentripetalleddet er\n\n$$\\frac{mv^2}{r} = \\frac{400\\ \\text{kg} \\cdot (18\\ \\text{m/s})^2}{12\\ \\text{m}} = \\frac{400 \\cdot 324}{12}\\ \\text{N} = 10\\,800\\ \\text{N},$$\n\nog tyngden er $mg = 400\\ \\text{kg} \\cdot 9{,}81\\ \\text{m/s}^2 = 3\\,924\\ \\text{N}$. Dermed\n\n$$N = 10\\,800\\ \\text{N} + 3\\,924\\ \\text{N} = 14\\,724\\ \\text{N} \\approx 14{,}7\\ \\text{kN}.$$\n\n**b)** $$\\frac{N}{mg} = \\frac{14\\,724\\ \\text{N}}{3\\,924\\ \\text{N}} = 3{,}75.$$\n\n**Konklusjon:** Banen presser opp med $14{,}7\\ \\text{kN}$, altså $3{,}8$ ganger vognas tyngde. En passasjer kjenner seg nesten fire ganger så tung.\n\n**Rimelighetsvurdering:** Moderne berg-og-dal-baner dimensjoneres for 3–5 ganger tyngden, så tallet er realistisk. Hadde vi (feilaktig) satt $N = mv^2/r$ og glemt tyngdeleddet, ville vi bommet med 27 %."
+    },
+    {
+      "id": "fys1001-1-4-ex3",
+      "type": "example",
+      "title": "Eksempel 3: Hvor sakte kan vogna gå i toppen?",
+      "problem": "En loop har radius 8,0 m. Hvor liten kan farten i toppunktet være før vogna mister kontakten med banen?",
+      "solution": "**Radiell ligning i toppen**, med retning mot sentrum (nedover) som positiv:\n\n$$G + N = \\frac{mv^2}{r}.$$\n\n**Grensetilfellet** er der banen ikke lenger trenger å bidra, altså $N = 0$:\n\n$$mg = \\frac{mv^2}{r} \\ \\Rightarrow\\ v^2 = gr \\ \\Rightarrow\\ v = \\sqrt{gr} = \\sqrt{9{,}81\\ \\text{m/s}^2 \\cdot 8{,}0\\ \\text{m}} = 8{,}9\\ \\text{m/s}.$$\n\n**Konklusjon:** Farten i toppunktet må være minst $8{,}9\\ \\text{m/s}$ (om lag 32 km/t). Går vogna saktere, er tyngden større enn det sentripetalkraften krever, og vogna forlater banen.\n\n**Merk:** massen forkortes bort. Grensefarten er den samme for en tom og en full vogn — og det er et av de kvalitative poengene oppgavene ofte ber om."
+    },
+    {
+      "id": "fys1001-1-4-o-o2",
+      "type": "exercise",
+      "exercise": {
+        "id": "fys1001-1-4-ex-o2",
+        "number": "2",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "(Sjanger E — sirkelbevegelse, med figurkrav.) En person med masse $60$ kg sitter i en loop med radius $6{,}5$ m og har farten $10$ m/s.\n\n**a)** Tegn kraftdiagram for personen i toppunktet, og finn kraften fra setet.\n\n**b)** Finn kraften fra setet i bunnpunktet ved samme fart.\n\n**c)** Hvor liten kan farten i toppunktet være før personen mister kontakten med setet?",
+        "solution": "**Felles størrelse.** Sentripetalleddet er det samme i topp og bunn:\n\n$$\\frac{mv^2}{r} = \\frac{60\\ \\text{kg} \\cdot (10\\ \\text{m/s})^2}{6{,}5\\ \\text{m}} = 923\\ \\text{N},$$\n\nog tyngden er $mg = 60\\ \\text{kg} \\cdot 9{,}81\\ \\text{m/s}^2 = 589\\ \\text{N}$.\n\n**a) Toppunktet.** Begge kreftene peker mot sentrum (nedover), altså med positivt fortegn:\n\n$$G + N = \\frac{mv^2}{r} \\ \\Rightarrow\\ N = 923\\ \\text{N} - 589\\ \\text{N} = 334\\ \\text{N}.$$\n\n**b) Bunnpunktet.** Nå peker $N$ mot sentrum (oppover) og $G$ bort fra sentrum:\n\n$$N - G = \\frac{mv^2}{r} \\ \\Rightarrow\\ N = 923\\ \\text{N} + 589\\ \\text{N} = 1\\,512\\ \\text{N}.$$\n\nFasitfiguren med begge diagrammene står under oppgaven.\n\n**c)** Grensen er $N = 0$ i toppunktet:\n\n$$v_{\\min} = \\sqrt{gr} = \\sqrt{9{,}81\\ \\text{m/s}^2 \\cdot 6{,}5\\ \\text{m}} = 8{,}0\\ \\text{m/s}.$$\n\n**Konklusjon:** Setet trykker med $334\\ \\text{N}$ i toppen og $1\\,512\\ \\text{N}$ i bunnen — over fire ganger så mye — mens minstefarten i toppen er $8{,}0\\ \\text{m/s}$. Personen med $10$ m/s har altså god margin.",
+        "hints": [
+          "Regn ut $mv^2/r$ og $mg$ først; de brukes i alle tre deloppgavene.",
+          "Skriv ned hvilken retning som er positiv, og hold den fast: mot sentrum.",
+          "I c): hva må normalkraften være i grensetilfellet?"
+        ]
+      }
+    },
+    {
+      "id": "fys1001-1-4-fig-fasit-loop",
+      "type": "image",
+      "src": "/images/textbook/fys1001/fys1001-1-4-fasit-loop.svg",
+      "alt": "Fasitfigur til oppgave 2: loop med radius 6,5 meter. I toppunktet peker tyngden 589 newton og normalkraften 334 newton begge mot sentrum, med summen 923 newton. I bunnpunktet peker normalkraften 1512 newton mot sentrum og tyngden 589 newton bort fra sentrum, med differansen 923 newton.",
+      "caption": "Fasitfigur til oppgave 2. Legg merke til at $mv^2/r = 923$ N er identisk i de to punktene — det er bare fordelingen mellom $N$ og $G$ som endrer seg."
+    },
+    {
+      "id": "fys1001-1-4-pause1",
+      "type": "text",
+      "content": "— naturlig pausepunkt —\n\n*Du har nå hele loop-apparatet. Resten av kapitlet er tre andre steder samme betingelse dukker opp: svingen, satellitten og romstasjonen.*"
+    },
+    {
+      "id": "fys1001-1-4-lokke3",
+      "type": "text",
+      "content": "## Løkke 3 — Svingen: friksjon som sentripetalkraft (~8 min)"
+    },
+    {
+      "id": "fys1001-1-4-def-sving-friksjon",
+      "type": "definition",
+      "title": "Sving på flat vei",
+      "content": "I en flat sving er **friksjonen** fra veien den eneste kraften inn mot sentrum. Grensen for hvor fort du kan kjøre, er derfor grensen for hvor stor friksjonen kan bli:\n\n$$\\mu mg = \\frac{mv^2}{r} \\ \\Rightarrow\\ v_{\\max} = \\sqrt{\\mu g r}.$$\n\nMassen forkortes bort igjen: **grensefarten i en sving er uavhengig av bilens masse.** En full lastebil og en liten bil skrenser ut i samme fart gjennom samme sving med samme dekk.\n\nLegg merke til hvor følsom grensen er for underlaget: halveres $\\mu$ (isete vei), synker $v_{\\max}$ med faktoren $\\sqrt{2} \\approx 1{,}4$, altså rundt 30 %. Det høres lite ut — men fordi kravet vokser med kvadratet av farten, er det nok til at en fart som var trygg på tørr vei, ikke er det på is."
+    },
+    {
+      "id": "fys1001-1-4-def-sentrifugalkraft",
+      "type": "definition",
+      "title": "«Sentrifugalkraften» — og hvorfor den ikke tegnes",
+      "content": "Følelsen av å bli presset utover i en sving er reell, men den skyldes **treghet**, ikke en kraft utover. Kroppen din vil fortsette rett frem (Newtons 1. lov), mens bilen svinger innunder deg; døra presser deg innover, og du kjenner det som at noe presser deg ut.\n\nI et frilegemediagram tegnet fra bakken (som er det vi alltid gjør i dette faget) finnes det **ingen kraft utover**. Tegner du en, får du null resultant og dermed ingen sirkelbevegelse — som er selvmotsigende. Bruk derfor ordet bare når du forklarer en *følelse*, og aldri i en kraftligning.\n\nRiktig formulering på eksamen: «Passasjeren kjennes presset utover fordi kroppen har treghet og vil fortsette rett frem, mens den eneste virkelige kraften, friksjonen fra setet, peker innover.»"
+    },
+    {
+      "id": "fys1001-1-4-ex4",
+      "type": "example",
+      "title": "Eksempel 4: Hvor fort tør du kjøre gjennom svingen?",
+      "problem": "En sving har radius 55 m. Friksjonstallet mellom dekk og tørr asfalt er 0,65. Hva er den største farten bilen kan holde gjennom svingen uten å skrense ut?",
+      "solution": "**Frilegemediagram, sett bakfra:** tyngden $G$ ned, normalkraften $N$ opp (de balanserer, siden bilen ikke akselererer loddrett), og friksjonen $R$ sidelengs inn mot svingens sentrum.\n\n**Loddrett:** $N = mg$.\n\n**Radielt**, med retning mot sentrum som positiv, er friksjonen den eneste kraften:\n\n$$R = \\frac{mv^2}{r}, \\qquad R \\le \\mu N = \\mu mg.$$\n\nGrensefarten får vi når friksjonen er på maksimum:\n\n$$\\mu mg = \\frac{mv_{\\max}^2}{r} \\ \\Rightarrow\\ v_{\\max} = \\sqrt{\\mu g r} = \\sqrt{0{,}65 \\cdot 9{,}81\\ \\text{m/s}^2 \\cdot 55\\ \\text{m}} = \\sqrt{350{,}7}\\ \\text{m/s} = 18{,}7\\ \\text{m/s}.$$\n\nOmregnet: $18{,}7 \\cdot 3{,}6 = 67\\ \\text{km/t}$.\n\n**Konklusjon:** Bilen kan holde opp mot $18{,}7\\ \\text{m/s}$, altså om lag $67$ km/t, gjennom svingen. Massen inngår ikke i svaret.\n\n**Rimelighetsvurdering:** 67 km/t i en 55-metersving stemmer godt med skiltet fartsgrense i slike kurver, som gjerne ligger et godt stykke under grensen for å ha margin."
+    },
+    {
+      "id": "fys1001-1-4-o-o3",
+      "type": "exercise",
+      "exercise": {
+        "id": "fys1001-1-4-ex-o3",
+        "number": "3",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "(Sjanger E med kvalitativ hale.) En sving har radius $80$ m.\n\n**a)** Finn den største farten en bil kan holde gjennom svingen på tørr asfalt med friksjonstall $0{,}70$.\n\n**b)** Hva blir grensefarten når det er såpeglatt og friksjonstallet er $0{,}18$?\n\n**c)** En medstudent sier: «En tungt lastet bil skrenser lettere ut, siden den er tyngre.» Hva svarer du?",
+        "solution": "**a)** $$v_{\\max} = \\sqrt{\\mu g r} = \\sqrt{0{,}70 \\cdot 9{,}81\\ \\text{m/s}^2 \\cdot 80\\ \\text{m}} = \\sqrt{549{,}4}\\ \\text{m/s} = 23{,}4\\ \\text{m/s} \\approx 84\\ \\text{km/t}.$$\n\n**b)** $$v_{\\max} = \\sqrt{0{,}18 \\cdot 9{,}81\\ \\text{m/s}^2 \\cdot 80\\ \\text{m}} = \\sqrt{141{,}3}\\ \\text{m/s} = 11{,}9\\ \\text{m/s} \\approx 43\\ \\text{km/t}.$$\n\n**c)** Nei. Grensefarten er $v_{\\max} = \\sqrt{\\mu g r}$, og massen inngår ikke. Grunnen er at massen står på begge sider av grenseligningen: den maksimale friksjonen er $\\mu mg$, og kravet er $mv^2/r$ — massen forkortes bort. En tung bil trenger større kraft for å svinge, men får også større friksjon i samme forhold.\n\n**Konklusjon:** $23{,}4\\ \\text{m/s}$ på tørr asfalt og $11{,}9\\ \\text{m/s}$ på glatt vei; massen har ingen betydning for grensefarten.",
+        "hints": [
+          "Sett den maksimale friksjonen lik det sentripetalkravet.",
+          "I c): skriv ligningen med massen i, og se hva som skjer med den."
+        ]
+      }
+    },
+    {
+      "id": "fys1001-1-4-lokke4",
+      "type": "text",
+      "content": "## Løkke 4 — Gravitasjon og satellittbaner (~13 min)"
+    },
+    {
+      "id": "fys1001-1-4-def-gravitasjonsloven",
+      "type": "definition",
+      "title": "Newtons gravitasjonslov",
+      "content": "To legemer med massene $m$ og $M$, med avstanden $r$ mellom massesentrene, trekker på hverandre med kraften\n\n$$F = \\gamma\\frac{mM}{r^2}.$$\n\nKraften virker langs linja mellom dem, er alltid tiltrekkende, og er like stor på begge (Newtons 3. lov). Avstanden står i **andre potens** i nevneren: dobler du avstanden, blir kraften en firedel.\n\n**Notasjonen er kritisk i dette faget:** gravitasjonskonstanten skrives $\\gamma$ (gamma), fordi $G$ er reservert for **tyngden** $G = mg$. Bruker du $G$ om konstanten, kolliderer symbolene midt i en oppgave der begge inngår."
+    },
+    {
+      "id": "fys1001-1-4-def-gamma",
+      "type": "definition",
+      "title": "Gravitasjonskonstanten $\\gamma$",
+      "content": "Naturkonstanten i gravitasjonsloven,\n\n$$\\gamma = 6{,}67 \\cdot 10^{-11}\\ \\text{N}\\,\\text{m}^2/\\text{kg}^2,$$\n\n**hentes fra formelarket** — den skal ikke pugges. Den er ekstremt liten, og det er grunnen til at gravitasjon bare merkes når minst én av massene er astronomisk stor: to personer én meter fra hverandre trekker på hverandre med under en milliarddel av en newton.\n\nI satellittoppgaver er det ofte produktet $\\gamma M$ som er den praktiske størrelsen. For jorda er\n\n$$\\gamma M = 6{,}67\\cdot10^{-11} \\cdot 5{,}97\\cdot10^{24}\\ \\text{N}\\,\\text{m}^2/\\text{kg} = 3{,}99\\cdot10^{14}\\ \\text{m}^3/\\text{s}^2.$$\n\nJordas masse og radius ($6{,}37\\cdot10^{6}$ m) står også i tabellverket."
+    },
+    {
+      "id": "fys1001-1-4-def-banefart",
+      "type": "definition",
+      "title": "Banefarten til en satellitt",
+      "content": "For en satellitt i sirkelbane er gravitasjonen den eneste kraften, og den peker mot sentrum. Gravitasjonen **er** sentripetalkraften:\n\n$$\\gamma\\frac{mM}{r^2} = \\frac{mv^2}{r}.$$\n\nSatellittens masse $m$ står på begge sider og forkortes bort. Én $r$ forkortes også, og vi står igjen med\n\n$$v = \\sqrt{\\frac{\\gamma M}{r}}.$$\n\n**Banefarten avhenger bare av baneradien** (og av sentrallegemets masse) — ikke av satellittens masse. En romstasjon på 400 tonn og en skrue som har løsnet fra den, går i samme bane med samme fart. Dette er det kvalitative poenget oppgavene ber om, og du skal **vise** forkortingen, ikke bare påstå resultatet.\n\nLegg merke til at farten avtar med radien: jo høyere bane, jo saktere går satellitten."
+    },
+    {
+      "id": "fys1001-1-4-def-omlopstid",
+      "type": "definition",
+      "title": "Omløpstid",
+      "content": "Tiden $T$ satellitten bruker på én runde. Banen har omkrets $2\\pi r$, og farten er konstant, så\n\n$$T = \\frac{2\\pi r}{v}.$$\n\nKombinerer du dette med $v = \\sqrt{\\gamma M/r}$, kan du regne begge veier: fra radius til omløpstid, eller fra omløpstid til radius. Den siste veien er den vanligste på eksamen (geostasjonær bane), og da er det ryddigst å løse for $r$:\n\n$$T = \\frac{2\\pi r}{\\sqrt{\\gamma M/r}} = 2\\pi\\sqrt{\\frac{r^3}{\\gamma M}} \\ \\Rightarrow\\ r = \\sqrt[3]{\\frac{\\gamma M T^2}{4\\pi^2}}.$$\n\nDu trenger ikke pugge den siste formen — men du må kunne komme dit fra de to du kjenner. Det er nettopp den typen omforming «må kunne brukes aktivt» betyr."
+    },
+    {
+      "id": "fys1001-1-4-fig-satellitt",
+      "type": "image",
+      "src": "/images/textbook/fys1001/fys1001-1-4-satellitt.svg",
+      "alt": "Satellitt i sirkelbane rundt jorda. Gravitasjonskraften F lik gamma m M delt på r i andre peker fra satellitten inn mot jordas sentrum, mens fartsvektoren v er tangentiell på banen. Baneradien r er tegnet fra jordas sentrum til satellitten.",
+      "caption": "Satellitten i sirkelbane: gravitasjonen peker mot sentrum og *er* sentripetalkraften. Radien $r$ måles fra jordas **sentrum**, ikke fra bakken — en av de vanligste tallfeilene i sjangeren."
+    },
+    {
+      "id": "fys1001-1-4-ex5",
+      "type": "example",
+      "title": "Eksempel 5: Den geostasjonære banen",
+      "problem": "En værsatellitt skal ha omløpstid 24 timer, slik at den står over samme punkt på ekvator hele tiden. **a)** Vis at banefarten bare avhenger av baneradien. **b)** Finn baneradien og høyden over bakken. Bruk $\\gamma M = 3{,}99\\cdot10^{14}\\ \\text{m}^3/\\text{s}^2$ og jordradius $6{,}37\\cdot10^{6}$ m.",
+      "solution": "**a)** Den eneste kraften på satellitten er gravitasjonen fra jorda, og den peker mot jordas sentrum. Sirkelbevegelsen krever at denne kraften er lik sentripetalkravet:\n\n$$\\gamma\\frac{mM}{r^2} = \\frac{mv^2}{r}.$$\n\nSatellittens masse $m$ står som faktor på begge sider og forkortes bort. Deretter forkorter vi én $r$:\n\n$$\\frac{\\gamma M}{r} = v^2 \\ \\Rightarrow\\ v = \\sqrt{\\frac{\\gamma M}{r}}.$$\n\nFarten avhenger altså bare av jordas masse og baneradien — **ikke** av satellittens masse. Det er dette som gjør at en tung romstasjon og en løs skrue kan gå side om side i samme bane.\n\n**b)** Med $T = 24\\ \\text{h} = 86\\,400\\ \\text{s}$ setter vi inn i $T = 2\\pi\\sqrt{r^3/(\\gamma M)}$ og løser for $r$:\n\n$$r = \\sqrt[3]{\\frac{\\gamma M T^2}{4\\pi^2}} = \\sqrt[3]{\\frac{3{,}99\\cdot10^{14}\\ \\text{m}^3/\\text{s}^2 \\cdot (86\\,400\\ \\text{s})^2}{4\\pi^2}} = \\sqrt[3]{7{,}54\\cdot10^{22}\\ \\text{m}^3} = 4{,}22\\cdot10^{7}\\ \\text{m}.$$\n\nHøyden over bakken er baneradien minus jordradien:\n\n$$h = 4{,}22\\cdot10^{7}\\ \\text{m} - 6{,}37\\cdot10^{6}\\ \\text{m} = 3{,}59\\cdot10^{7}\\ \\text{m} \\approx 35\\,900\\ \\text{km}.$$\n\nBanefarten blir $v = 2\\pi r/T = 3{,}07\\cdot10^{3}\\ \\text{m/s}$, altså om lag $3{,}1$ km/s.\n\n**Konklusjon:** Baneradien er $4{,}22\\cdot10^{7}\\ \\text{m}$, høyden over bakken om lag $35\\,900$ km, og banefarten $3{,}1$ km/s.\n\n**Rimelighetsvurdering:** Høyden er nesten seks jordradier — som stemmer med de oppgitte tallene for TV- og værsatellitter. Banefarten er langt lavere enn romstasjonens 7,7 km/s, som den skal være: høyere bane gir lavere fart."
+    },
+    {
+      "id": "fys1001-1-4-o-o4",
+      "type": "exercise",
+      "exercise": {
+        "id": "fys1001-1-4-ex-o4",
+        "number": "4",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "(Sjanger E — satellittvarianten.) Den internasjonale romstasjonen går i sirkelbane $4{,}0\\cdot10^{5}$ m (400 km) over jordoverflaten. Bruk $\\gamma M = 3{,}99\\cdot10^{14}\\ \\text{m}^3/\\text{s}^2$ og jordradius $6{,}37\\cdot10^{6}$ m.\n\n**a)** Finn baneradien.\n\n**b)** Finn banefarten.\n\n**c)** Finn omløpstiden i minutter.\n\n**d)** En astronaut på 80 kg går ut i romdrakt og slipper en skiftenøkkel utenfor stasjonen. Hvorfor blir nøkkelen liggende ved siden av stasjonen i stedet for å falle bort?",
+        "solution": "**a)** Radien måles fra jordas sentrum:\n\n$$r = 6{,}37\\cdot10^{6}\\ \\text{m} + 4{,}0\\cdot10^{5}\\ \\text{m} = 6{,}77\\cdot10^{6}\\ \\text{m}.$$\n\n**b)** $$v = \\sqrt{\\frac{\\gamma M}{r}} = \\sqrt{\\frac{3{,}99\\cdot10^{14}\\ \\text{m}^3/\\text{s}^2}{6{,}77\\cdot10^{6}\\ \\text{m}}} = \\sqrt{5{,}89\\cdot10^{7}}\\ \\text{m/s} = 7{,}68\\cdot10^{3}\\ \\text{m/s}.$$\n\n**c)** $$T = \\frac{2\\pi r}{v} = \\frac{2\\pi \\cdot 6{,}77\\cdot10^{6}\\ \\text{m}}{7{,}68\\cdot10^{3}\\ \\text{m/s}} = 5{,}54\\cdot10^{3}\\ \\text{s} = 92\\ \\text{min}.$$\n\n**d)** Fordi banefarten $v = \\sqrt{\\gamma M/r}$ er uavhengig av massen. Nøkkelen har samme baneradius og samme fart som stasjonen i det den slippes, og gravitasjonen gir den samme akselerasjon som stasjonen har. Derfor følger den samme bane — og ligger tilsynelatende stille ved siden av stasjonen.\n\n**Konklusjon:** $r = 6{,}77\\cdot10^{6}$ m, $v = 7{,}68$ km/s, $T = 92$ minutter, og nøkkelen går i samme bane fordi banefarten ikke avhenger av massen.",
+        "hints": [
+          "Radien måles fra jordas sentrum — legg til jordradien.",
+          "Bruk $v = \\sqrt{\\gamma M/r}$ og deretter $T = 2\\pi r/v$.",
+          "I d): hvilke størrelser inngår i banefarten, og hvilke gjør ikke?"
+        ]
+      }
+    },
+    {
+      "id": "fys1001-1-4-lokke5",
+      "type": "text",
+      "content": "## Løkke 5 — Bør kjenne til: vektløshet og dosert sving (~7 min)\n\n*Dette stoffet er lavere prioritert enn resten av kapitlet — det kommer sjelden som egen regneoppgave, men er nyttig som kvalitativ beredskap.*"
+    },
+    {
+      "id": "fys1001-1-4-def-vektloshet-bane",
+      "type": "definition",
+      "title": "Vektløshet i bane (bør kjenne til)",
+      "content": "Astronauter i en romstasjon svever ikke fordi gravitasjonen er borte. I 400 km høyde er tyngdeakselerasjonen fortsatt\n\n$$\\frac{\\gamma M}{r^2} = \\frac{3{,}99\\cdot10^{14}}{(6{,}77\\cdot10^{6})^2}\\ \\text{m/s}^2 = 8{,}7\\ \\text{m/s}^2,$$\n\naltså nesten 90 % av verdien på bakken. Grunnen til at de svever, er at **både stasjonen og astronauten er i fritt fall** rundt jorda med samme akselerasjon. Kontaktkraften mellom dem forsvinner, akkurat som i heisen med røket vaier i [kap. 1.2](/bok/fys1001/fys1001-1-2) — og det er kontaktkraften vi kjenner som «vekt».\n\nEn bane er altså ikke en flukt fra gravitasjonen, men et fall som aldri treffer bakken: satellitten faller like fort som jordoverflaten krummer seg bort under den."
+    },
+    {
+      "id": "fys1001-1-4-def-dosert-sving",
+      "type": "definition",
+      "title": "Dosert sving (bør kjenne til)",
+      "content": "En sving der veibanen heller innover med vinkelen $\\theta$. Da får **normalkraften** en komposant inn mot sentrum, og veien kan levere sentripetalkraft uten hjelp fra friksjonen. Uten friksjon gir kraftbalansen loddrett ($N\\cos\\theta = mg$) og radielt ($N\\sin\\theta = mv^2/r$) til sammen\n\n$$\\tan\\theta = \\frac{v^2}{gr}.$$\n\nMassen forkortes bort her også. For hver dosering finnes altså **én** fart der friksjon ikke er nødvendig i det hele tatt — grunnen til at motorbaner og jernbanekurver doseres etter fartsgrensen.\n\nDette resultatet er «bør kjenne til»-stoff: det kan komme som en kvalitativ deloppgave («hvorfor doseres veier i svinger?»), men sjelden som full regning."
+    },
+    {
+      "id": "fys1001-1-4-o-o5",
+      "type": "exercise",
+      "exercise": {
+        "id": "fys1001-1-4-ex-o5",
+        "number": "5",
+        "type": "classic",
+        "difficulty": "lett",
+        "task": "(Sjanger Q — kvalitativ forklaring. 2–4 setninger per svar.)\n\n**a)** En passasjer i en buss som svinger til venstre, kjennes presset mot høyre dør. Forklar med krefter hva som skjer, uten å bruke ordet sentrifugalkraft i en kraftligning.\n\n**b)** Forklar hvorfor en astronaut i romstasjonen svever, når tyngdeakselerasjonen der oppe er $8{,}7\\ \\text{m/s}^2$.",
+        "solution": "**a)** Kroppen har treghet og vil fortsette rett frem (Newtons 1. lov), mens bussen svinger innunder den. Døra kommer dermed i veien og presser passasjeren **innover** mot svingens sentrum — det er den eneste virkelige sidelengs kraften, og den er sentripetalkraften. Følelsen av å presses utover er tregheten, ikke en kraft utover.\n\n**b)** Fordi både stasjonen og astronauten er i fritt fall rundt jorda med samme akselerasjon. Gravitasjonen er nesten like sterk som på bakken, men den virker likt på begge, så det trengs ingen kontaktkraft mellom astronaut og gulv. Det vi kjenner som vekt, er nettopp denne kontaktkraften — og når den er null, svever man.",
+        "hints": [
+          "I a): begynn med hva kroppen ville gjort uten kraft, og spør hvem som griper inn.",
+          "I b): sammenlign med heisen der vaieren røk — hva var normalkraften der?"
+        ]
+      }
+    },
+    {
+      "id": "fys1001-1-4-typiske-feil",
+      "type": "warning",
+      "title": "Typiske feil",
+      "content": "Alle fem er hentet fra det løsningsforslagene faktisk retter på:\n\n1. **Å sette $N = 0$ i bunnen av loopen.** Kontakten kan bare brytes der underlaget måtte ha *trukket* legemet, altså i toppen. I bunnen er $N$ alltid større enn tyngden.\n2. **Å tegne en egen «sentripetalkraft» i tillegg til de virkelige kreftene.** Sentripetalkraft er navnet på resultanten, ikke en ny kraft. Tegner du den i tillegg, teller du samme kraft to ganger — og en «sentrifugalkraft» utover gir null resultant og dermed ingen sirkelbevegelse.\n3. **Å bruke $G$ som symbol for gravitasjonskonstanten.** I dette faget er $G = mg$ **tyngden**. Gravitasjonskonstanten er $\\gamma$. Kollisjonen blir akutt i satellittoppgaver, der begge inngår.\n4. **Å glemme at $v = \\sqrt{\\gamma M/r}$ er uavhengig av satellittens masse.** Oppgavene ber ofte om nettopp denne begrunnelsen, og den krever at du **viser** at $m$ forkortes bort.\n5. **Å måle baneradien fra bakken.** $r$ i gravitasjonsloven er avstanden fra jordas **sentrum**. En bane 400 km over bakken har $r = 6\\,370\\ \\text{km} + 400\\ \\text{km}$, ikke 400 km."
+    },
+    {
+      "id": "fys1001-1-4-begrepsbank-notis",
+      "type": "text",
+      "content": "## Begrepsbank\n\n*Begrepsbanken er flashcard- og repetisjonsstoff — den gjentar det du nettopp har lest. Hopp trygt over ved førstegangslesing; tidsanslaget for kapitlet gjelder kjernestoffet.*"
+    },
+    {
+      "id": "fys1001-1-4-bb-tangentiell",
+      "type": "definition",
+      "title": "Tangentiell og radiell retning",
+      "content": "**Tangentiell** retning er langs sirkelbanen, i fartens retning. **Radiell** retning er langs radien, inn mot eller ut fra sentrum. De to står alltid vinkelrett på hverandre.\n\nI sirkelbevegelse med konstant fart er hele akselerasjonen radiell (innover), og det er derfor du bare trenger den radielle ligningen. Endrer farten seg samtidig (en vogn som akselererer gjennom en sving), får du i tillegg en tangentiell akselerasjon — men i FYS1001-oppgaver er farten oppgitt i det punktet du regner på, så du slipper unna med den radielle ligningen alene."
+    },
+    {
+      "id": "fys1001-1-4-bb-g-kraft",
+      "type": "definition",
+      "title": "«g-kraft»",
+      "content": "Dagligtalens forhold mellom normalkraften og tyngden, $N/(mg)$. Å oppleve «3 g» betyr at underlaget presser med tre ganger tyngden din — det er en kraft, ikke en akselerasjon, selv om navnet antyder noe annet.\n\nI bunnen av en loop er $N/(mg) = 1 + v^2/(gr)$, som gir 3,75 for eksempelet i dette kapitlet. Vanlige berg-og-dal-baner ligger på 3–5, jagerflypiloter tåler 9 i korte perioder med drakt, og ved fritt fall er tallet 0. Størrelsen er nyttig som rimelighetssjekk: får du 40 g i en fornøyelsespark, har du regnet feil."
+    },
+    {
+      "id": "fys1001-1-4-bb-toppen-av-bakke",
+      "type": "definition",
+      "title": "Kontakttap på toppen av en bakke",
+      "content": "Samme fysikk som toppen av en loop, i en situasjon oppgavene ofte kler i bilkontekst. Kjører du over en rund bakketopp med krumningsradius $r$, er den radielle retningen nedover, og\n\n$$mg - N = \\frac{mv^2}{r} \\ \\Rightarrow\\ N = m\\left(g - \\frac{v^2}{r}\\right).$$\n\nLegg merke til at fortegnene her er speilvendte av loopens toppunkt: nå peker $N$ **bort** fra sentrum (oppover, mens sentrum er under veien), så den går inn med minus. Bilen mister veigrepet når $N = 0$, altså ved $v = \\sqrt{gr}$ — samme grensefart som i loopen. Det er derfor du «letter» over en bakketopp hvis du kjører for fort."
+    },
+    {
+      "id": "fys1001-1-4-bb-omdreiningsfrekvens",
+      "type": "definition",
+      "title": "Omdreiningsfrekvens",
+      "content": "Antall runder per sekund, $f = 1/T$, med enhet $\\text{s}^{-1}$ (også kalt hertz, Hz). For en karusell som bruker 8,0 s per runde er $f = 0{,}125\\ \\text{s}^{-1}$.\n\nSammenhengen med farten følger av at én runde er $2\\pi r$:\n\n$$v = \\frac{2\\pi r}{T} = 2\\pi r f.$$\n\nOppgaver oppgir gjerne «40 omdreininger per minutt» i stedet for en fart; da regner du først om til én omdreining per $60/40 = 1{,}5$ s, altså $T = 1{,}5$ s, og deretter til $v$."
+    },
+    {
+      "id": "fys1001-1-4-repetisjon",
+      "type": "collapsible",
+      "title": "Repetisjonsoppgaver",
+      "buttonText": "Vis repetisjonsoppgaver",
+      "content": [
+        {
+          "id": "fys1001-1-4-o-r1",
+          "type": "exercise",
+          "exercise": {
+            "id": "fys1001-1-4-ex-r1",
+            "number": "R1",
+            "type": "classic",
+            "difficulty": "lett",
+            "task": "En sykkel svinger med farten $6{,}0$ m/s i en bue med radius $9{,}0$ m. Finn sentripetalakselerasjonen.",
+            "solution": "$$a = \\frac{v^2}{r} = \\frac{(6{,}0\\ \\text{m/s})^2}{9{,}0\\ \\text{m}} = 4{,}0\\ \\text{m/s}^2,$$\n\nrettet inn mot sentrum av buen.",
+            "hints": [
+              "Sett rett inn i $a = v^2/r$."
+            ]
+          }
+        },
+        {
+          "id": "fys1001-1-4-o-r2",
+          "type": "exercise",
+          "exercise": {
+            "id": "fys1001-1-4-ex-r2",
+            "number": "R2",
+            "type": "classic",
+            "difficulty": "lett",
+            "task": "(Fra [kap. 1.2](/bok/fys1001/fys1001-1-2)) Hvor stor er tyngden til en vogn med masse $350$ kg, og hvilken vei peker den?",
+            "solution": "$$G = mg = 350\\ \\text{kg} \\cdot 9{,}81\\ \\text{m/s}^2 = 3\\,434\\ \\text{N} \\approx 3{,}4\\ \\text{kN},$$\n\nrettet rett nedover, uansett hvor i loopen vogna er. Det er en av grunnene til at fortegnet i den radielle ligningen skifter mellom topp og bunn: tyngden peker alltid samme vei, men «mot sentrum» gjør ikke det.",
+            "hints": [
+              "Tyngden peker alltid rett ned — den følger ikke banen."
+            ]
+          }
+        },
+        {
+          "id": "fys1001-1-4-o-r3",
+          "type": "exercise",
+          "exercise": {
+            "id": "fys1001-1-4-ex-r3",
+            "number": "R3",
+            "type": "classic",
+            "difficulty": "middels",
+            "task": "En karusell bruker $8{,}0$ s per runde, og et sete er $5{,}0$ m fra sentrum. Finn farten og sentripetalakselerasjonen.",
+            "solution": "Farten fra omkretsen delt på omløpstiden:\n\n$$v = \\frac{2\\pi r}{T} = \\frac{2\\pi \\cdot 5{,}0\\ \\text{m}}{8{,}0\\ \\text{s}} = 3{,}93\\ \\text{m/s}.$$\n\nDeretter\n\n$$a = \\frac{v^2}{r} = \\frac{(3{,}93\\ \\text{m/s})^2}{5{,}0\\ \\text{m}} = 3{,}1\\ \\text{m/s}^2.$$",
+            "hints": [
+              "Én runde er $2\\pi r$ — bruk det til å finne farten først."
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": "fys1001-1-4-symbolliste",
+      "type": "collapsible",
+      "title": "Symbol- og formelliste",
+      "buttonText": "Vis symboler og formler",
+      "content": [
+        {
+          "id": "fys1001-1-4-symbolliste-inner",
+          "type": "text",
+          "content": "## Symbol- og formelliste\n\n*Oppslagsverk — alt her forklares underveis i kapitlet.*\n\n| Symbol | Betydning i dette delkapitlet | SI-enhet |\n|---|---|---|\n| $v$ | Fart langs banen (tangentiell) | m/s |\n| $r$ | Baneradius — for satellitter målt fra sentrallegemets **sentrum** | m |\n| $a$ | Sentripetalakselerasjon, rettet mot sentrum | m/s² |\n| $m$ | Massen til legemet som går i bane | kg |\n| $M$ | Massen til sentrallegemet (jorda, sola) | kg |\n| $G = mg$ | **Tyngden** — en kraft | N |\n| $N$ | Normalkraft fra bane, sete eller vei | N |\n| $R$ | Friksjonskraft (i svingen) | N |\n| $\\gamma$ | **Gravitasjonskonstanten**, $6{,}67\\cdot10^{-11}\\ \\text{N}\\,\\text{m}^2/\\text{kg}^2$ | N·m²/kg² |\n| $T$ | Omløpstid, tiden per runde | s |\n| $f$ | Omdreiningsfrekvens, runder per sekund | s⁻¹ |\n| $\\theta$ | Doseringsvinkel (kun i «bør kjenne til»-delen) | grader |\n| $\\mu$ | Friksjonstall | ingen (dimensjonsløst) |\n\n**Symbolkollisjoner du må holde orden på her:** $G$ er **tyngden**, $\\gamma$ er **gravitasjonskonstanten** — dette er det ene delkapitlet i boka der begge inngår i samme oppgave, så forvekslingen er akutt. $R$ er friksjonskraft (ikke resistans, som i [kap. 5.2](/bok/fys1001/fys1001-5-2), og ikke jordradien, som vi skriver ut som «jordradius» for å unngå kollisjonen). $N$ er normalkraft (ikke antall molekyler, som i [kap. 4.2](/bok/fys1001/fys1001-4-2)).\n\n**Formler i dette delkapitlet:**\n\n$$a = \\frac{v^2}{r}$$\nSentripetalakselerasjon (står på formelarket, **må kunne brukes aktivt**).\n\n$$\\Sigma F_{\\text{radiell}} = \\frac{mv^2}{r}$$\nBetingelsen for sirkelbevegelse, med retning **mot sentrum som positiv** (**må kunne brukes aktivt**).\n\n$$N - G = \\frac{mv^2}{r} \\quad \\text{(bunnpunkt)}, \\qquad G + N = \\frac{mv^2}{r} \\quad \\text{(toppunkt)}$$\nDe to oppsettene i loopen — settes opp fra figuren hver gang, aldri pugget.\n\n$$v_{\\min} = \\sqrt{gr}$$\nMinstefart i toppunktet, fra $N = 0$ (**må kunne brukes aktivt**).\n\n$$v_{\\max} = \\sqrt{\\mu g r}$$\nGrensefart i flat sving, fra $R = \\mu mg$ (må kunne brukes aktivt).\n\n$$F = \\gamma\\frac{mM}{r^2}$$\nNewtons gravitasjonslov (står på formelarket; $\\gamma$ hentes derfra).\n\n$$v = \\sqrt{\\frac{\\gamma M}{r}}$$\nBanefart i sirkelbane — uavhengig av satellittens masse (**må kunne brukes aktivt**).\n\n$$T = \\frac{2\\pi r}{v}$$\nOmløpstid (må kunne brukes aktivt).\n\n$$\\tan\\theta = \\frac{v^2}{gr}$$\nDosert sving uten friksjon («bør kjenne til»)."
+        }
+      ]
+    }
+  ],
+  "exercises": []
+}
