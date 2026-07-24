@@ -1,0 +1,567 @@
+{
+  "id": "fys1001-7-3",
+  "courseId": "fys1001",
+  "chapterNumber": "7.3",
+  "title": "Halveringstid, aktivitet og kjerneenergi",
+  "description": "Halveringstid i formel og graf, aktivitet — og energi fra massesvinn med $E = \\Delta mc^2$.",
+  "estimatedMinutes": 55,
+  "competenceGoals": [
+    "kunne bruke henfallsloven $N = N_0(1/2)^{t/t_{1/2}}$ på antall kjerner, masse og aktivitet, og løse for tiden med logaritmer",
+    "kunne lese av halveringstiden fra en henfallskurve og markere avlesningen på grafen",
+    "kunne regne ut henfallskonstant og aktivitet med $\\lambda = \\ln 2/t_{1/2}$ og $A = \\lambda N$, med riktige enheter",
+    "kunne finne massesvinnet i en kjernereaksjon og regne ut frigjort energi med $E = \\Delta mc^2$, i både MeV og joule"
+  ],
+  "content": [
+    {
+      "id": "fys1001-7-3-tip-eksamensvinkel",
+      "type": "tip",
+      "title": "Eksamensvinkel",
+      "content": "**Høyeste prioritet. Kjernefysikk er testet i 28 av 36 slutteksamener (78 %), og dette kapitlet dekker trinn 2 og 3 i den faste kjernefysikk-malen.**\n\nBoka merker oppgaver med en **sjangerbokstav** — en kode for oppgavetypen fra eksamensarkivet; hele lista A–Q står i [kap. 0.1](/bok/fys1001/fys1001-0-1). Her trener du **sjanger P (kjernefysikk og stråling)** og **sjanger Q (kvalitative «forklar hvorfor»-svar på 2–4 setninger)**.\n\nSlik er stoffet belagt i arkivet:\n\n- **Halveringstid med grafisk avlesning** etterspørres ofte, sist i V2023 (vår 2023). Løsningsforslagene krever at avlesningen **markeres på grafen** — ikke bare at tallet står i teksten.\n- **$E = \\Delta mc^2$ med atommasser i u fra vedlegg** går igjen: fisjon av uran-235, radioaktiv oppvarming av jordas indre (V2024) og karbondatering.\n- **Dosimetri** (gray mot sievert) er hyppigst i eldre sett og i kortsvarsserier — en arv fra emnets medisinprofil. Det er markert «bør kjenne til» sist i kapitlet.\n\n**Formelarket og vedlegget dekker deg.** Halveringstider, kjernemasser og omregningsfaktoren fra atommasseenheter til kilogram kommer som vedlegg til oppgaven. Det du må kunne *aktivt*, er å velge mellom halveringsformelen og eksponentialformen, å lese en graf riktig, og å sette opp masseregnskapet $\\Delta m$ = venstre side minus høyre side."
+    },
+    {
+      "id": "fys1001-7-3-forkunnskaper",
+      "type": "text",
+      "content": "**Forkunnskaper — dette bygger kapitlet på:**\n\n- [kap. 7.2](/bok/fys1001/fys1001-7-2) — reaksjonsligninger og bevaring av nukleontall og ladningstall. Du trenger dem for å vite *hvilke* masser som skal inn i masseregnskapet.\n- [Eksponentialfunksjoner](/bok/1t/1t-3-8) og [Eksponential- og logaritmeligninger](/bok/r1/r1-1-3) — når du skal løse for tiden $t$ i halveringsformelen.\n\n**Sist du var her — de tre tingene du trenger ferdig oppfrisket:**\n\n$$\\sum A_{\\text{venstre}} = \\sum A_{\\text{høyre}}, \\qquad \\sum Z_{\\text{venstre}} = \\sum Z_{\\text{høyre}}$$\n\nNukleontall og ladningstall balanserer i enhver kjernereaksjon, og balansen skrives ut som to egne regnestykker.\n\n$$\\text{α}: \\;A - 4,\\ Z - 2 \\qquad \\text{β}^-: \\;A \\text{ uendret},\\ Z + 1 \\qquad \\text{γ}: \\;A,\\ Z \\text{ uendret}$$\n\nSignaturene til de tre henfallstypene — dem kjenner du igjen bare ved å se på endringene.\n\n$$a^x = b \\quad\\Longrightarrow\\quad x = \\frac{\\ln b}{\\ln a}$$\n\nLogaritmeregelen du bruker når tiden $t$ står i eksponenten og skal fram i lyset."
+    },
+    {
+      "id": "fys1001-7-3-intro",
+      "type": "text",
+      "content": "Et lager for radioaktivt avfall må sikres i tusener av år. En medisinsk isotop må derimot være borte fra kroppen i løpet av et døgn. En trebit fra en gravhaug kan tidfestes til noen tiår. Alle tre bygger på den samme loven: **like store andeler forsvinner i like store tidsrom**.\n\nLegg merke til hva som *ikke* gjelder: en radioaktiv prøve blir aldri «tom» på et bestemt tidspunkt. Det finnes ingen sluttid. Derfor er halveringstiden — tiden det tar før halvparten er igjen — den eneste fornuftige måten å beskrive tempoet på, og derfor er «tiden til null» den mest straffede avlesningsfeilen i hele emnet.\n\nKapitlet går i seks læringsløkker (litt teori → et eksempel → en oppgave):\n\n1. Halveringstid og henfallsloven (~12 min)\n2. Grafisk avlesning av halveringstiden (~9 min)\n3. Henfallskonstant og aktivitet (~10 min)\n4. Å løse for tiden (~7 min)\n5. Energi fra massesvinn, $E = \\Delta mc^2$ (~11 min)\n6. Fra energi per henfall til effekt (~6 min)\n\nTil slutt kommer dosimetri som «bør kjenne til»-stoff, en feilliste, en begrepsbank og en symbol- og formelliste."
+    },
+    {
+      "id": "fys1001-7-3-lokke1",
+      "type": "text",
+      "content": "## Løkke 1 — Halveringstid og henfallsloven (~12 min)"
+    },
+    {
+      "id": "fys1001-7-3-l1-teori",
+      "type": "text",
+      "content": "Enkeltkjerner henfaller tilfeldig: ingen kan si når nettopp *den* kjernen omdanner seg. Men når du har $10^{17}$ kjerner, blir statistikken knivskarp. I løpet av et bestemt tidsrom henfaller alltid den samme *andelen*.\n\nDen mest brukte måten å angi tempoet på, er tiden det tar før halvparten er igjen."
+    },
+    {
+      "id": "fys1001-7-3-def-t12",
+      "type": "definition",
+      "title": "Halveringstid $t_{1/2}$",
+      "content": "Tiden det tar før halvparten av kjernene i en prøve har henfalt. Den er en fast egenskap ved nukliden — den påvirkes ikke av temperatur, trykk, kjemisk binding eller prøvens størrelse. Verdiene spenner fra brøkdeler av et sekund til milliarder av år, og de **hentes fra tabell/vedlegg**.\n\nEtter én halveringstid er halvparten igjen, etter to er en fjerdedel igjen, etter tre en åttendedel — aldri null."
+    },
+    {
+      "id": "fys1001-7-3-thm-henfallslov",
+      "type": "theorem",
+      "title": "Henfallsloven",
+      "content": "Antall kjerner igjen etter tiden $t$:\n\n$$N = N_0 \\left(\\frac{1}{2}\\right)^{t/t_{1/2}}$$\n\nder $N_0$ er antallet ved $t = 0$. Loven gjelder like godt for **massen** av den radioaktive nukliden og for **aktiviteten**, siden begge er proporsjonale med antall kjerner:\n\n$$m = m_0 \\left(\\frac{1}{2}\\right)^{t/t_{1/2}}, \\qquad A = A_0 \\left(\\frac{1}{2}\\right)^{t/t_{1/2}}$$\n\nFormelen står på formelarket, men **du må selv se hvilken av de tre størrelsene oppgaven spør etter**. Merk at eksponenten er et rent tall: $t$ og $t_{1/2}$ må ha samme enhet, og da forkortes enheten bort."
+    },
+    {
+      "id": "fys1001-7-3-ex-1",
+      "type": "example",
+      "title": "Eksempel 1: Hvor mye er igjen? (sjanger P)",
+      "problem": "En prøve inneholder 12 µg fosfor-32, som har halveringstiden 14,3 døgn. Hvor mye fosfor-32 er igjen etter 30 døgn?",
+      "solution": "**Velg formel.** Oppgaven spør etter masse, så vi bruker massevarianten av henfallsloven:\n\n$$m = m_0\\left(\\frac{1}{2}\\right)^{t/t_{1/2}}$$\n\n**Sjekk enhetene i eksponenten.** Både $t = 30$ døgn og $t_{1/2} = 14{,}3$ døgn er i døgn, så eksponenten blir et rent tall:\n\n$$\\frac{t}{t_{1/2}} = \\frac{30}{14{,}3} = 2{,}098$$\n\nPrøven har altså rukket å gå gjennom litt over to halveringstider.\n\n**Regn ut.**\n\n$$m = 12\\ \\text{µg} \\cdot \\left(\\frac{1}{2}\\right)^{2{,}098} = 12\\ \\text{µg} \\cdot 0{,}2336 = 2{,}8\\ \\text{µg}$$\n\n**Konklusjon og rimelighet.** Det er $2{,}8$ µg fosfor-32 igjen etter 30 døgn. Kontroll ved overslag: etter 2 halveringstider (28,6 døgn) skulle det være $12/4 = 3{,}0$ µg igjen, og etter 30 døgn litt mindre — $2{,}8$ µg passer. ✓\n\n*Merk:* de resterende 9,2 µg har ikke forsvunnet fra prøven — de er blitt svovel-32, som er stabilt. Massen av prøven er nesten uendret; det er *mengden fosfor-32* som har falt."
+    },
+    {
+      "id": "fys1001-7-3-opg-l1a",
+      "type": "exercise",
+      "exercise": {
+        "id": "fys1001-7-3-l1a",
+        "number": "1",
+        "type": "classic",
+        "difficulty": "lett",
+        "task": "(Innstegsoppgave — sjanger P, altså kjernefysikk og stråling.) En nuklide har halveringstid 6,0 timer. En prøve inneholder 8,0 mg av nukliden ved klokka 08.00.\n\n**a)** Hvor mange halveringstider har gått ved klokka 20.00?\n**b)** Hvor mye av nukliden er igjen da?\n**c)** Hvor mye er igjen etter ett døgn?",
+        "solution": "**a)** Fra 08.00 til 20.00 er det 12 timer, og $12/6{,}0 = 2{,}0$ halveringstider.\n\n**b)** Etter to halveringstider er en fjerdedel igjen: $m = 8{,}0\\ \\text{mg} \\cdot \\left(\\tfrac12\\right)^{2} = 8{,}0/4 = 2{,}0$ mg.\n\n**c)** Ett døgn er 24 timer, altså $24/6{,}0 = 4{,}0$ halveringstider: $m = 8{,}0\\ \\text{mg} \\cdot \\left(\\tfrac12\\right)^{4} = 8{,}0/16 = 0{,}50$ mg.\n\nLegg merke til at det aldri blir null — bare mindre og mindre.",
+        "hints": [
+          "Del tiden som har gått på halveringstiden; svaret er antall halveringstider.",
+          "Hver halveringstid halverer mengden: $1/2$, $1/4$, $1/8$, $1/16$ …",
+          "Regn eksponenten først, og sett den så inn i $m = m_0(1/2)^{t/t_{1/2}}$."
+        ]
+      }
+    },
+    {
+      "id": "fys1001-7-3-opg-l1b",
+      "type": "exercise",
+      "exercise": {
+        "id": "fys1001-7-3-l1b",
+        "number": "2",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "(Sjanger P.) Jod-131 har halveringstid 8,0 døgn. En pasient får en dose der aktiviteten er 550 MBq ved injeksjonen.\n\n**a)** Hvor stor er aktiviteten etter 12 døgn, dersom vi ser bort fra at kroppen også skiller ut stoffet?\n**b)** Hvor stor andel av den opprinnelige aktiviteten er igjen etter 24 døgn?",
+        "solution": "**a)** Aktiviteten følger samme lov som antall kjerner:\n\n$$A = A_0\\left(\\frac{1}{2}\\right)^{t/t_{1/2}} = 550\\ \\text{MBq} \\cdot \\left(\\frac{1}{2}\\right)^{12/8{,}0} = 550\\ \\text{MBq} \\cdot \\left(\\frac{1}{2}\\right)^{1{,}5}$$\n\n$$A = 550\\ \\text{MBq} \\cdot 0{,}3536 = 195\\ \\text{MBq}$$\n\n**b)** $24/8{,}0 = 3{,}0$ halveringstider, altså $\\left(\\tfrac12\\right)^{3} = 1/8 = 0{,}125$. Det er $12{,}5$ % av den opprinnelige aktiviteten igjen.\n\nRimelighet i a): 12 døgn er mellom én og to halveringstider, så svaret skal ligge mellom $550/2 = 275$ MBq og $550/4 = 138$ MBq — og 195 MBq gjør det. ✓",
+        "hints": [
+          "Aktiviteten avtar etter nøyaktig samme lov som antall kjerner.",
+          "Regn eksponenten $t/t_{1/2}$ først, og sjekk at begge tidene er i samme enhet.",
+          "I b) spørres det om en andel — da faller $A_0$ ut av regnestykket."
+        ]
+      }
+    },
+    {
+      "id": "fys1001-7-3-pause1",
+      "type": "text",
+      "content": "*— naturlig pausepunkt —*"
+    },
+    {
+      "id": "fys1001-7-3-lokke2",
+      "type": "text",
+      "content": "## Løkke 2 — Grafisk avlesning av halveringstiden (~9 min)"
+    },
+    {
+      "id": "fys1001-7-3-l2-teori",
+      "type": "text",
+      "content": "Eksamen gir deg like gjerne en graf som et tall. Da skal du lese av halveringstiden — og **markere avlesningen på grafen**. Løsningsforslagene i arkivet gjør nettopp det, og en avlesning uten markering får sjelden full uttelling.\n\nOppskriften er kort:\n\n1. Les av startverdien der kurven treffer $y$-aksen.\n2. Halver den verdien, og finn den vannrette linja gjennom halvverdien.\n3. Gå bort til kurven, og deretter rett ned til tidsaksen.\n4. Tegn de to hjelpelinjene, marker skjæringspunktet, og skriv av tiden med enhet.\n5. Kontroller med en halvering til: fra halv til kvart skal ta like lang tid."
+    },
+    {
+      "id": "fys1001-7-3-fig-kurve",
+      "type": "image",
+      "src": "/images/textbook/fys1001/fys1001-7-3-henfallskurve.svg",
+      "alt": "Graf av aktivitet i becquerel mot tid i timer. Kurven starter på 400 becquerel og avtar eksponentielt. Stiplede hjelpelinjer viser at aktiviteten er 200 becquerel etter 5,0 timer og 100 becquerel etter 10,0 timer.",
+      "caption": "Slik markeres avlesningen. Startverdien er 400 Bq; halvverdien 200 Bq nås etter 5,0 timer, og kvartverdien 100 Bq etter 10,0 timer. At de to intervallene er like lange, er kontrollen din på at avlesningen er riktig."
+    },
+    {
+      "id": "fys1001-7-3-warn-tidtilnull",
+      "type": "warning",
+      "title": "Den dyreste avlesningsfeilen i emnet",
+      "content": "**Ikke les av «tiden til null».** En eksponentiell kurve når aldri null — den flater bare ut og ser ut som om den treffer aksen et sted. Hvor du synes den «treffer», avhenger av hvor grafen er klippet, og tallet er derfor fysisk meningsløst.\n\nHalveringstiden er tiden fra **en hvilken som helst** verdi til halvparten av den verdien. Det er den eneste avlesningen som gir samme svar uansett hvor på kurven du starter — og nettopp den egenskapen er poenget med begrepet."
+    },
+    {
+      "id": "fys1001-7-3-ex-2",
+      "type": "example",
+      "title": "Eksempel 2: Avlesning fra grafen (sjanger P)",
+      "problem": "Bruk grafen over. Les av halveringstiden, og finn aktiviteten etter 15 timer ved regning.",
+      "solution": "**Avlesning.** Kurven starter i $A_0 = 400$ Bq. Halvverdien er 200 Bq; den vannrette linja ved 200 Bq treffer kurven ved $t = 5{,}0$ timer (markert med hjelpelinjer på figuren). Altså\n\n$$t_{1/2} = 5{,}0\\ \\text{timer}$$\n\n**Kontroll med en halvering til.** Kvartverdien 100 Bq nås ved $t = 10{,}0$ timer. Intervallet fra halv til kvart er $10{,}0 - 5{,}0 = 5{,}0$ timer — like langt som det første. ✓ Avlesningen er konsistent.\n\n**Regning.** Etter 15 timer:\n\n$$A = 400\\ \\text{Bq} \\cdot \\left(\\frac{1}{2}\\right)^{15/5{,}0} = 400\\ \\text{Bq} \\cdot \\left(\\frac{1}{2}\\right)^{3} = 50\\ \\text{Bq}$$\n\n**Konklusjon.** Halveringstiden er 5,0 timer, og aktiviteten er falt til 50 Bq etter 15 timer. Merk at 15 timer er nøyaktig tre halveringstider, så $400 \\to 200 \\to 100 \\to 50$ Bq kan også telles på fingrene — en fin kontroll."
+    },
+    {
+      "id": "fys1001-7-3-fig-graf-oppg",
+      "type": "image",
+      "src": "/images/textbook/fys1001/fys1001-7-3-graf-oppgave.svg",
+      "alt": "Graf av aktivitet i kilobecquerel mot tid i døgn. Kurven starter på 60 kilobecquerel og avtar eksponentielt gjennom tolv døgn. Ingen avlesninger er markert på figuren.",
+      "caption": "Figur til oppgaven under: aktiviteten til en prøve som funksjon av tiden. Avlesningen skal du gjøre selv."
+    },
+    {
+      "id": "fys1001-7-3-opg-l2",
+      "type": "exercise",
+      "exercise": {
+        "id": "fys1001-7-3-l2",
+        "number": "3",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "(Sjanger P + Q.) Grafen over viser aktiviteten til en prøve som funksjon av tiden.\n\n**a)** Les av halveringstiden, og beskriv hvordan du markerer avlesningen på grafen.\n**b)** Finn aktiviteten etter 9,0 døgn ved regning.\n**c)** En medstudent leser av at «aktiviteten er null etter omtrent 12 døgn» og bruker det som halveringstid. Forklar i høyst tre setninger hvorfor dette er galt.",
+        "solution": "**a)** Startverdien er $A_0 = 60$ kBq. Halvverdien er 30 kBq: trekk en vannrett linje fra 30 kBq på $y$-aksen bort til kurven, og derfra en loddrett linje ned til tidsaksen. Skjæringspunktet ligger ved $t = 3{,}0$ døgn, så\n\n$$t_{1/2} = 3{,}0\\ \\text{døgn}$$\n\nKontroll: kvartverdien 15 kBq nås ved 6,0 døgn, altså 3,0 døgn senere — samme intervall. ✓ (Se fasitfiguren under for hvordan markeringen skal se ut.)\n\n**b)** $\\dfrac{9{,}0}{3{,}0} = 3{,}0$ halveringstider, så\n\n$$A = 60\\ \\text{kBq}\\cdot\\left(\\frac{1}{2}\\right)^{3} = 7{,}5\\ \\text{kBq}$$\n\n**c)** Kurven når aldri null — den avtar eksponentielt og flater bare ut, så «tiden til null» er bestemt av hvor grafen er klippet og ikke av fysikken. Halveringstiden er tiden fra en verdi til halvparten av den verdien, og den gir samme svar uansett hvor på kurven du starter. Her ville feilen gitt 12 døgn i stedet for de riktige 3,0 døgnene — en faktor fire.",
+        "hints": [
+          "Start med å lese av verdien der kurven treffer $y$-aksen.",
+          "Halver den verdien, og finn hvor den vannrette linja treffer kurven.",
+          "Kontroller alltid med én halvering til: intervallene skal være like lange."
+        ]
+      }
+    },
+    {
+      "id": "fys1001-7-3-fasitfig",
+      "type": "collapsible",
+      "title": "Fasitfigur: slik skal avlesningen markeres",
+      "buttonText": "Vis fasitfiguren",
+      "content": [
+        {
+          "id": "fys1001-7-3-fasitfig-img",
+          "type": "image",
+          "src": "/images/textbook/fys1001/fys1001-7-3-graf-fasit.svg",
+          "alt": "Samme graf som i oppgaven, nå med avlesningen markert: stiplede hjelpelinjer fra 30 kilobecquerel bort til kurven og ned til 3,0 døgn, og fra 15 kilobecquerel bort til kurven og ned til 6,0 døgn.",
+          "caption": "Fasitfigur til oppgaven over. Begge hjelpelinjene og begge skjæringspunktene skal være tegnet inn — det er markeringen sensor ser etter, ikke bare tallet i teksten."
+        },
+        {
+          "id": "fys1001-7-3-fasitfig-txt",
+          "type": "text",
+          "content": "Legg merke til at figuren viser **to** avlesninger. Den andre (fra halv til kvart verdi) er ikke nødvendig for svaret, men den er den billigste kontrollen du har: er de to intervallene like lange, har du lest av riktig."
+        }
+      ]
+    },
+    {
+      "id": "fys1001-7-3-pause2",
+      "type": "text",
+      "content": "*— naturlig pausepunkt —*"
+    },
+    {
+      "id": "fys1001-7-3-lokke3",
+      "type": "text",
+      "content": "## Løkke 3 — Henfallskonstant og aktivitet (~10 min)"
+    },
+    {
+      "id": "fys1001-7-3-l3-teori",
+      "type": "text",
+      "content": "Halveringstiden sier hvor lenge det tar før halvparten er borte. Den andre måten å beskrive tempoet på, er å spørre: **hvor stor andel henfaller per sekund?** Det tallet kalles henfallskonstanten.\n\nDe to henger sammen med en fast faktor, og den faktoren er $\\ln 2$. Å blande dem er en av de vanligste feilene i sjangeren."
+    },
+    {
+      "id": "fys1001-7-3-def-lambda",
+      "type": "definition",
+      "title": "Henfallskonstanten $\\lambda$",
+      "content": "Sannsynligheten per tidsenhet for at én bestemt kjerne henfaller. Sammenhengen med halveringstiden er\n\n$$\\lambda = \\frac{\\ln 2}{t_{1/2}}$$\n\nEnheten er $\\text{s}^{-1}$ når $t_{1/2}$ er i sekunder. **Merk symbolkollisjonen:** i optikkapitlene betyr $\\lambda$ bølgelengde og i varmeledning betyr $\\lambda$ varmeledningsevne — her betyr det henfallskonstant. Det avgjørende er faktoren $\\ln 2 \\approx 0{,}693$: $\\lambda$ er *ikke* det samme som $1/t_{1/2}$."
+    },
+    {
+      "id": "fys1001-7-3-def-eksponentialform",
+      "type": "definition",
+      "title": "Eksponentialformen $N = N_0e^{-\\lambda t}$",
+      "content": "Henfallsloven skrevet med henfallskonstanten i stedet for halveringstiden:\n\n$$N = N_0 e^{-\\lambda t}$$\n\nDette er nøyaktig samme lov som $N = N_0(1/2)^{t/t_{1/2}}$ — sett inn $\\lambda = \\ln 2/t_{1/2}$, så ser du det. Bruk halveringsformen når oppgaven gir halveringstid, og eksponentialformen når den gir $\\lambda$ eller når du skal derivere."
+    },
+    {
+      "id": "fys1001-7-3-def-aktivitet",
+      "type": "definition",
+      "title": "Aktivitet $A$",
+      "content": "Antall henfall per sekund i en prøve:\n\n$$A = \\lambda N$$\n\nAktiviteten er proporsjonal med antall gjenværende kjerner, og avtar derfor med nøyaktig samme halveringstid som $N$. **Merk symbolkollisjonen:** i [kap. 7.2](/bok/fys1001/fys1001-7-2) betyr $A$ nukleontall — her betyr $A$ aktivitet. Oppgaveteksten gjør det alltid klart hvilken som gjelder, men du bør innføre symbolet ditt eksplisitt i besvarelsen."
+    },
+    {
+      "id": "fys1001-7-3-def-becquerel",
+      "type": "definition",
+      "title": "Becquerel (Bq)",
+      "content": "SI-enheten for aktivitet: 1 Bq = ett henfall per sekund $= 1\\ \\text{s}^{-1}$. Enheten er liten, så praktiske kilder oppgis i kBq, MBq eller GBq. En medisinsk injeksjon ligger typisk på noen hundre MBq, mens naturlig radioaktivitet i en menneskekropp er rundt 4–5 kBq."
+    },
+    {
+      "id": "fys1001-7-3-ex-3",
+      "type": "example",
+      "title": "Eksempel 3: Fra masse til aktivitet (sjanger P)",
+      "problem": "Regn ut aktiviteten til prøven fra eksempel 1 ved $t = 0$: 12 µg fosfor-32 med halveringstid 14,3 døgn. Atommassen til fosfor-32 er 32,0 u, og Avogadros tall er $6{,}022\\cdot10^{23}\\ \\text{mol}^{-1}$ (begge fra tabellen).",
+      "solution": "**Steg 1 — finn antall kjerner.** Ett mol fosfor-32 veier 32,0 g, så\n\n$$N_0 = \\frac{m}{M}\\,N_A = \\frac{12\\cdot10^{-6}\\ \\text{g}}{32{,}0\\ \\text{g/mol}} \\cdot 6{,}022\\cdot10^{23}\\ \\text{mol}^{-1} = 2{,}26\\cdot10^{17}$$\n\n**Steg 2 — finn henfallskonstanten.** Aktivitet måles i henfall per **sekund**, så halveringstiden må over i sekunder:\n\n$$t_{1/2} = 14{,}3\\ \\text{døgn} \\cdot 86\\,400\\ \\text{s/døgn} = 1{,}24\\cdot10^{6}\\ \\text{s}$$\n\n$$\\lambda = \\frac{\\ln 2}{t_{1/2}} = \\frac{0{,}693}{1{,}24\\cdot10^{6}\\ \\text{s}} = 5{,}61\\cdot10^{-7}\\ \\text{s}^{-1}$$\n\n**Steg 3 — regn ut aktiviteten.**\n\n$$A_0 = \\lambda N_0 = 5{,}61\\cdot10^{-7}\\ \\text{s}^{-1} \\cdot 2{,}26\\cdot10^{17} = 1{,}27\\cdot10^{11}\\ \\text{Bq} = 127\\ \\text{GBq}$$\n\n**Enhetskontroll.** $\\text{s}^{-1}$ ganget med et rent antall gir $\\text{s}^{-1} = \\text{Bq}$ ✓.\n\n**Konklusjon og rimelighet.** Aktiviteten er $1{,}27\\cdot10^{11}$ Bq, altså 127 GBq. Det er en kraftig kilde — men mengden er også $10^{17}$ kjerner, og hver av dem har $5{,}6\\cdot10^{-7}$ sjanse per sekund for å henfalle. Størrelsesordenen stemmer."
+    },
+    {
+      "id": "fys1001-7-3-opg-l3",
+      "type": "exercise",
+      "exercise": {
+        "id": "fys1001-7-3-l3",
+        "number": "4",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "(Sjanger P.) Bruk tallene fra eksempel 3: fosfor-32 med $t_{1/2} = 14{,}3$ døgn og startaktivitet $A_0 = 127$ GBq.\n\n**a)** Finn aktiviteten etter 30 døgn.\n**b)** Hvor mange kjerner fosfor-32 er igjen etter 30 døgn?\n**c)** En annen prøve har dobbelt så mange kjerner av samme nuklide. Hva blir aktiviteten, og hva blir halveringstiden?",
+        "solution": "**a)** $\\dfrac{30}{14{,}3} = 2{,}098$, så\n\n$$A = 127\\ \\text{GBq}\\cdot\\left(\\frac{1}{2}\\right)^{2{,}098} = 127\\ \\text{GBq}\\cdot0{,}2336 = 29{,}7\\ \\text{GBq}$$\n\n**b)** Fra $A = \\lambda N$ får vi $N = A/\\lambda$. Med $A = 2{,}97\\cdot10^{10}$ Bq og $\\lambda = 5{,}61\\cdot10^{-7}\\ \\text{s}^{-1}$:\n\n$$N = \\frac{2{,}97\\cdot10^{10}\\ \\text{s}^{-1}}{5{,}61\\cdot10^{-7}\\ \\text{s}^{-1}} = 5{,}29\\cdot10^{16}$$\n\nKontroll: $2{,}26\\cdot10^{17}\\cdot0{,}2336 = 5{,}28\\cdot10^{16}$ ✓ (avrundingsforskjell i siste siffer).\n\n**c)** Aktiviteten dobles til 254 GBq, siden $A = \\lambda N$ er proporsjonal med antall kjerner. Halveringstiden er derimot **uendret** på 14,3 døgn — den er en egenskap ved nukliden, ikke ved prøvestørrelsen.",
+        "hints": [
+          "I a) bruker du henfallsloven direkte på aktiviteten.",
+          "I b): $A = \\lambda N$ kan snus til $N = A/\\lambda$ — pass på at $A$ er i becquerel, altså $\\text{s}^{-1}$.",
+          "I c): hvilken av de to størrelsene avhenger av hvor mye stoff du har?"
+        ]
+      }
+    },
+    {
+      "id": "fys1001-7-3-lokke4",
+      "type": "text",
+      "content": "## Løkke 4 — Å løse for tiden (~7 min)"
+    },
+    {
+      "id": "fys1001-7-3-l4-teori",
+      "type": "text",
+      "content": "Snus spørsmålet — «hvor lang tid tar det før …?» — står tiden i eksponenten, og da må logaritmen fram. To veier gir samme svar:\n\n**Halveringstelling** (raskest når svaret er et helt antall halveringstider): er $12{,}5\\ \\%$ igjen, er det $1/8$, altså 3 halveringstider.\n\n**Logaritmen** (alltid):\n\n$$\\frac{N}{N_0} = \\left(\\frac{1}{2}\\right)^{t/t_{1/2}} \\quad\\Longrightarrow\\quad t = t_{1/2}\\cdot\\frac{\\ln(N_0/N)}{\\ln 2}$$\n\nFormen med $\\ln(N_0/N)$ i telleren gir alltid et positivt svar, og det er den enkleste å huske uten fortegnsrot."
+    },
+    {
+      "id": "fys1001-7-3-ex-4",
+      "type": "example",
+      "title": "Eksempel 4: Hvor lang tid tar det? (sjanger P)",
+      "problem": "Fosfor-32 har halveringstid 14,3 døgn. Hvor lang tid går det før aktiviteten er sunket til 15 % av startverdien?",
+      "solution": "**Sett opp ligningen.** Vi vil ha $A/A_0 = 0{,}15$:\n\n$$0{,}15 = \\left(\\frac{1}{2}\\right)^{t/t_{1/2}}$$\n\n**Ta logaritmen på begge sider** og bruk regelen fra [kap. 1.3 i R1](/bok/r1/r1-1-3):\n\n$$t = t_{1/2}\\cdot\\frac{\\ln(A_0/A)}{\\ln 2} = 14{,}3\\ \\text{døgn}\\cdot\\frac{\\ln(1/0{,}15)}{\\ln 2} = 14{,}3\\ \\text{døgn}\\cdot\\frac{1{,}897}{0{,}693}$$\n\n$$t = 14{,}3\\ \\text{døgn}\\cdot 2{,}737 = 39\\ \\text{døgn}$$\n\n**Konklusjon og rimelighet.** Det tar 39 døgn før aktiviteten er nede i 15 % av startverdien. Kontroll ved halveringstelling: 15 % ligger mellom $1/8 = 12{,}5\\ \\%$ (3 halveringstider $= 42{,}9$ døgn) og $1/4 = 25\\ \\%$ (2 halveringstider $= 28{,}6$ døgn), så svaret skal ligge mellom 28,6 og 42,9 døgn — og 39 døgn gjør det. ✓"
+    },
+    {
+      "id": "fys1001-7-3-opg-l4",
+      "type": "exercise",
+      "exercise": {
+        "id": "fys1001-7-3-l4",
+        "number": "5",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "(Sjanger P — karbondatering.) Levende organismer har et fast innhold av karbon-14, som har halveringstid 5730 år. Når organismen dør, stopper opptaket, og innholdet avtar. I en trebit fra en gravhaug måles aktiviteten per gram karbon til 62 % av verdien i ferskt trevirke.\n\n**a)** Hvor gammel er trebiten?\n**b)** Hvor stor andel av det opprinnelige karbon-14-innholdet ville vært igjen etter 10 000 år?",
+        "solution": "**a)** Sett $A/A_0 = 0{,}62$ i halveringsformelen og løs for $t$:\n\n$$t = t_{1/2}\\cdot\\frac{\\ln(A_0/A)}{\\ln 2} = 5730\\ \\text{år}\\cdot\\frac{\\ln(1/0{,}62)}{\\ln 2} = 5730\\ \\text{år}\\cdot\\frac{0{,}478}{0{,}693}$$\n\n$$t = 5730\\ \\text{år}\\cdot 0{,}690 = 3{,}95\\cdot10^{3}\\ \\text{år}$$\n\nTrebiten er altså rundt 3950 år gammel. Rimelighet: 62 % er litt mer enn halvparten, så alderen skal være litt mindre enn én halveringstid (5730 år). ✓\n\n**b)** $\\dfrac{10\\,000}{5730} = 1{,}745$ halveringstider:\n\n$$\\frac{A}{A_0} = \\left(\\frac{1}{2}\\right)^{1{,}745} = 0{,}298 \\approx 30\\ \\%$$",
+        "hints": [
+          "Skriv opp $A/A_0$ som et desimaltall, og sett det inn i halveringsformelen.",
+          "Tiden står i eksponenten — ta logaritmen på begge sider for å få den ned.",
+          "Kontroller svaret grovt: er andelen over eller under 50 %, og hva sier det om alderen sammenlignet med halveringstiden?"
+        ]
+      }
+    },
+    {
+      "id": "fys1001-7-3-pause3",
+      "type": "text",
+      "content": "*— naturlig pausepunkt —*"
+    },
+    {
+      "id": "fys1001-7-3-lokke5",
+      "type": "text",
+      "content": "## Løkke 5 — Energi fra massesvinn (~11 min)"
+    },
+    {
+      "id": "fys1001-7-3-l5-teori",
+      "type": "text",
+      "content": "Veier du morkjernen og legger sammen massene av alt som kommer ut, mangler det litt. Differansen er ikke forsvunnet — den er blitt energi. Det er derfor et gram uran kan varme et hus i årevis.\n\nRegnskapet er alltid det samme: **venstre side minus høyre side**."
+    },
+    {
+      "id": "fys1001-7-3-def-massesvinn",
+      "type": "definition",
+      "title": "Massesvinn $\\Delta m$",
+      "content": "Differansen mellom samlet masse før og etter en kjernereaksjon:\n\n$$\\Delta m = \\sum m_{\\text{før}} - \\sum m_{\\text{etter}}$$\n\nEr $\\Delta m > 0$, frigjøres energi. Massene hentes fra vedlegget og oppgis i atommasseenheter.\n\n**Viktig praktisk regel:** vedlegget gir **atommasser** (kjerne pluss elektroner). For både alfa- og betaminus-henfall går elektronregnskapet opp av seg selv, så du kan bruke atommassene rett fra tabellen uten å korrigere. Ved alfahenfall har morkjernens atom $Z$ elektroner, mens datteratomet har $Z-2$ og heliumatomet 2 — til sammen $Z$."
+    },
+    {
+      "id": "fys1001-7-3-def-u",
+      "type": "definition",
+      "title": "Atommasseenheten u",
+      "content": "Enheten kjernemasser oppgis i. Omregningen hentes fra tabellen:\n\n$$1\\ \\text{u} = 1{,}6605\\cdot10^{-27}\\ \\text{kg}, \\qquad 1\\ \\text{u}\\cdot c^2 = 931{,}5\\ \\text{MeV}$$\n\nDen andre linja er en ren snarvei: ganger du massesvinnet i u med 931,5, får du energien i MeV direkte. **Å glemme omregningen fra u til kg (eller å hoppe over 931,5-faktoren) er den klassiske feilen** — svaret bommer da med 27 tierpotenser."
+    },
+    {
+      "id": "fys1001-7-3-thm-emc2",
+      "type": "theorem",
+      "title": "Energi fra massesvinn",
+      "content": "$$E = \\Delta m\\,c^2$$\n\nTo likeverdige regneveier:\n\n**Snarveien:** $E\\,[\\text{MeV}] = \\Delta m\\,[\\text{u}] \\cdot 931{,}5$, deretter $E\\,[\\text{J}] = E\\,[\\text{MeV}] \\cdot 1{,}602\\cdot10^{-13}$.\n\n**SI-veien:** gjør $\\Delta m$ om til kilogram med $1\\ \\text{u} = 1{,}6605\\cdot10^{-27}$ kg, og gang med $c^2 = (3{,}00\\cdot10^{8}\\ \\text{m/s})^2$.\n\nFormelen står på formelarket. **Rimelighetssjekken du alltid skal gjøre:** energien per henfall ligger på MeV-skalaen (typisk 0,1–10 MeV), mens en fisjon ligger rundt 200 MeV. Får du kJ per henfall eller 0,001 MeV, har du gjort en enhetsfeil."
+    },
+    {
+      "id": "fys1001-7-3-ex-5",
+      "type": "example",
+      "title": "Eksempel 5: Energi per alfahenfall (sjanger P)",
+      "problem": "Radium-226 henfaller ved alfastråling til radon-222. Vedlegget gir atommassene $m(^{226}\\text{Ra}) = 226{,}025410$ u, $m(^{222}\\text{Rn}) = 222{,}017578$ u og $m(^{4}\\text{He}) = 4{,}002603$ u. Finn energien som frigjøres per henfall, i MeV og i joule.",
+      "solution": "**Steg 1 — skriv ligningen og sjekk balansen** (fra [kap. 7.2](/bok/fys1001/fys1001-7-2)):\n\n$$^{226}_{88}\\text{Ra} \\;\\rightarrow\\; ^{222}_{86}\\text{Rn} + ^{4}_{2}\\text{He}$$\n\nNukleontall: $226 = 222 + 4$ ✓. Ladningstall: $88 = 86 + 2$ ✓.\n\n**Steg 2 — masseregnskapet, venstre minus høyre.**\n\n$$\\Delta m = 226{,}025410\\ \\text{u} - (222{,}017578\\ \\text{u} + 4{,}002603\\ \\text{u})$$\n\n$$\\Delta m = 226{,}025410\\ \\text{u} - 226{,}020181\\ \\text{u} = 0{,}005229\\ \\text{u}$$\n\nLegg merke til hvor mange desimaler som trengs: differansen ligger i sjette desimal, så massene må skrives av nøyaktig.\n\n**Steg 3 — energien.** Med snarveien $1\\ \\text{u}\\cdot c^2 = 931{,}5$ MeV:\n\n$$E = 0{,}005229\\ \\text{u}\\cdot931{,}5\\ \\frac{\\text{MeV}}{\\text{u}} = 4{,}87\\ \\text{MeV}$$\n\nI joule: $E = 4{,}87\\ \\text{MeV}\\cdot1{,}602\\cdot10^{-13}\\ \\text{J/MeV} = 7{,}80\\cdot10^{-13}\\ \\text{J}$.\n\n**Kontroll via SI-veien:** $\\Delta m = 0{,}005229\\cdot1{,}6605\\cdot10^{-27}\\ \\text{kg} = 8{,}68\\cdot10^{-30}$ kg, og\n\n$$E = \\Delta m c^2 = 8{,}68\\cdot10^{-30}\\ \\text{kg}\\cdot(3{,}00\\cdot10^{8}\\ \\text{m/s})^2 = 7{,}81\\cdot10^{-13}\\ \\text{J}\\ ✓$$\n\n**Konklusjon og rimelighet.** Hvert henfall frigjør 4,87 MeV, altså $7{,}80\\cdot10^{-13}$ J. Størrelsesordenen stemmer: alfahenfall ligger typisk på 4–6 MeV. Mesteparten av energien går til alfapartikkelens bevegelsesenergi, siden den er langt lettere enn datterkjernen."
+    },
+    {
+      "id": "fys1001-7-3-opg-l5a",
+      "type": "exercise",
+      "exercise": {
+        "id": "fys1001-7-3-l5a",
+        "number": "6",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "(Sjanger P.) Polonium-210 henfaller ved alfastråling til bly-206. Vedlegget gir $m(^{210}\\text{Po}) = 209{,}982874$ u, $m(^{206}\\text{Pb}) = 205{,}974465$ u og $m(^{4}\\text{He}) = 4{,}002603$ u.\n\n**a)** Sett opp reaksjonsligningen og vis A/Z-balansen.\n**b)** Finn massesvinnet.\n**c)** Finn energien som frigjøres per henfall, i MeV og i joule.",
+        "solution": "**a)** Alfahenfall gir $A: 210-4 = 206$ og $Z: 84-2 = 82$:\n\n$$^{210}_{84}\\text{Po} \\;\\rightarrow\\; ^{206}_{82}\\text{Pb} + ^{4}_{2}\\text{He}$$\n\nNukleontall: $210 = 206 + 4$ ✓. Ladningstall: $84 = 82 + 2$ ✓.\n\n**b)** Venstre minus høyre:\n\n$$\\Delta m = 209{,}982874\\ \\text{u} - (205{,}974465 + 4{,}002603)\\ \\text{u} = 209{,}982874 - 209{,}977068 = 0{,}005806\\ \\text{u}$$\n\n**c)** $E = 0{,}005806\\ \\text{u}\\cdot931{,}5\\ \\text{MeV/u} = 5{,}41\\ \\text{MeV}$.\n\nI joule: $E = 5{,}41\\cdot1{,}602\\cdot10^{-13}\\ \\text{J} = 8{,}67\\cdot10^{-13}\\ \\text{J}$.\n\nRimelighet: 5,41 MeV ligger midt i det typiske området for alfahenfall (4–6 MeV). ✓",
+        "hints": [
+          "Sett opp ligningen først — du trenger å vite nøyaktig hvilke masser som står på hver side.",
+          "Massesvinnet er summen før minus summen etter; behold alle desimalene i vedlegget.",
+          "Bruk snarveien $1\\ \\text{u}\\cdot c^2 = 931{,}5$ MeV, og gang med $1{,}602\\cdot10^{-13}$ for å komme til joule."
+        ]
+      }
+    },
+    {
+      "id": "fys1001-7-3-opg-l5b",
+      "type": "exercise",
+      "exercise": {
+        "id": "fys1001-7-3-l5b",
+        "number": "7",
+        "type": "classic",
+        "difficulty": "vanskelig",
+        "task": "(Sjanger P — krevende, fisjon.) I en reaktor spaltes uran-235 etter reaksjonen\n\n$$^{235}_{92}\\text{U} + ^{1}_{0}\\text{n} \\;\\rightarrow\\; ^{141}_{56}\\text{Ba} + ^{92}_{36}\\text{Kr} + 3\\,^{1}_{0}\\text{n}$$\n\nVedlegget gir $m(^{235}\\text{U}) = 235{,}043930$ u, $m(^{141}\\text{Ba}) = 140{,}914411$ u, $m(^{92}\\text{Kr}) = 91{,}926156$ u og $m(\\text{n}) = 1{,}008665$ u.\n\n**a)** Finn massesvinnet i reaksjonen.\n**b)** Finn energien som frigjøres per spalting, i MeV og i joule.\n**c)** Sammenlign med de omtrent 5 MeV et alfahenfall gir, og kommenter hvorfor fisjon er interessant som energikilde.",
+        "solution": "**a)** Husk nøytronet på venstre side, og at det kommer ut **tre** nøytroner:\n\n$$\\sum m_{\\text{før}} = 235{,}043930 + 1{,}008665 = 236{,}052595\\ \\text{u}$$\n\n$$\\sum m_{\\text{etter}} = 140{,}914411 + 91{,}926156 + 3\\cdot1{,}008665 = 140{,}914411 + 91{,}926156 + 3{,}025995 = 235{,}866562\\ \\text{u}$$\n\n$$\\Delta m = 236{,}052595 - 235{,}866562 = 0{,}186033\\ \\text{u}$$\n\n**b)** $E = 0{,}186033\\ \\text{u}\\cdot931{,}5\\ \\text{MeV/u} = 173\\ \\text{MeV}$.\n\nI joule: $E = 173\\cdot1{,}602\\cdot10^{-13}\\ \\text{J} = 2{,}78\\cdot10^{-11}\\ \\text{J}$.\n\n**c)** Én fisjon gir omtrent 35 ganger så mye energi som ett alfahenfall ($173$ MeV mot $5$ MeV). I tillegg frigjør hver spalting to overskuddsnøytroner som kan spalte nye kjerner, slik at prosessen kan holde seg selv i gang. Kombinasjonen av høy energi per reaksjon og selvopprettholdende kjedereaksjon er hele grunnlaget for en kjernereaktor.",
+        "hints": [
+          "Tell nøye: nøytronet inn på venstre side, og tre nøytroner ut på høyre side.",
+          "Regn de to summene hver for seg og med alle desimalene før du trekker fra.",
+          "Bruk 931,5 MeV per u, og kontroller at svaret havner på et par hundre MeV — det er størrelsesordenen for fisjon."
+        ]
+      }
+    },
+    {
+      "id": "fys1001-7-3-lokke6",
+      "type": "text",
+      "content": "## Løkke 6 — Fra energi per henfall til effekt (~6 min)"
+    },
+    {
+      "id": "fys1001-7-3-l6-teori",
+      "type": "text",
+      "content": "Siste trinn i malen kobler de to foregående: vet du **hvor mange** henfall per sekund (aktiviteten) og **hvor mye energi** hvert henfall gir, får du effekten ved å gange:\n\n$$P = A\\cdot E_{\\text{per henfall}}$$\n\nEnhetskontroll: $\\text{s}^{-1}\\cdot\\text{J} = \\text{J/s} = \\text{W}$ ✓. Dette er akkurat regnestykket bak «radioaktiv oppvarming av jordas indre» og bak varmekildene i romsonder."
+    },
+    {
+      "id": "fys1001-7-3-ex-6",
+      "type": "example",
+      "title": "Eksempel 6: Varmeeffekten fra en liten kilde (sjanger P)",
+      "problem": "En varmekilde inneholder 1,0 mg polonium-210, som har halveringstid 138,4 døgn og frigjør 5,41 MeV per henfall (fra oppgaven i løkke 5). Atommassen er 210 u. Finn varmeeffekten fra kilden ved $t = 0$.",
+      "solution": "**Steg 1 — antall kjerner.**\n\n$$N = \\frac{m}{M}N_A = \\frac{1{,}0\\cdot10^{-3}\\ \\text{g}}{210\\ \\text{g/mol}}\\cdot6{,}022\\cdot10^{23}\\ \\text{mol}^{-1} = 2{,}87\\cdot10^{18}$$\n\n**Steg 2 — henfallskonstanten.** $t_{1/2} = 138{,}4\\cdot86\\,400\\ \\text{s} = 1{,}196\\cdot10^{7}$ s, så\n\n$$\\lambda = \\frac{\\ln 2}{t_{1/2}} = \\frac{0{,}693}{1{,}196\\cdot10^{7}\\ \\text{s}} = 5{,}80\\cdot10^{-8}\\ \\text{s}^{-1}$$\n\n**Steg 3 — aktiviteten.**\n\n$$A = \\lambda N = 5{,}80\\cdot10^{-8}\\ \\text{s}^{-1}\\cdot2{,}87\\cdot10^{18} = 1{,}66\\cdot10^{11}\\ \\text{Bq}$$\n\n**Steg 4 — effekten.** Hvert henfall gir $5{,}41\\ \\text{MeV} = 8{,}67\\cdot10^{-13}$ J:\n\n$$P = A\\cdot E = 1{,}66\\cdot10^{11}\\ \\text{s}^{-1}\\cdot8{,}67\\cdot10^{-13}\\ \\text{J} = 0{,}14\\ \\text{W}$$\n\n**Konklusjon og rimelighet.** Ett milligram polonium-210 avgir omtrent 0,14 W — nok til å kjennes tydelig varmt. At et så lite metallkorn kan gi en brøkdel av en watt kontinuerlig, er nettopp grunnen til at slike kilder har vært brukt som varmeelementer i romsonder. Energien kommer fra massesvinn, ikke fra kjemisk forbrenning."
+    },
+    {
+      "id": "fys1001-7-3-opg-l6",
+      "type": "exercise",
+      "exercise": {
+        "id": "fys1001-7-3-l6",
+        "number": "8",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "(Sjanger P — radioaktiv oppvarming.) I en bergartsprøve på 1,0 kg er aktiviteten fra en alfaaktiv nuklide målt til $3{,}0\\cdot10^{4}$ Bq, og hvert henfall frigjør 4,9 MeV.\n\n**a)** Finn energien per henfall i joule.\n**b)** Finn varmeeffekten fra 1,0 kg av bergarten.\n**c)** Hvor mye varme avgir 1,0 kg bergart i løpet av ett år? (Ett år $= 3{,}16\\cdot10^{7}$ s.)",
+        "solution": "**a)** $E = 4{,}9\\ \\text{MeV}\\cdot1{,}602\\cdot10^{-13}\\ \\text{J/MeV} = 7{,}85\\cdot10^{-13}\\ \\text{J}$.\n\n**b)** $P = A\\cdot E = 3{,}0\\cdot10^{4}\\ \\text{s}^{-1}\\cdot7{,}85\\cdot10^{-13}\\ \\text{J} = 2{,}4\\cdot10^{-8}\\ \\text{W}$ per kilogram.\n\n**c)** $E_{\\text{år}} = P\\cdot t = 2{,}4\\cdot10^{-8}\\ \\text{W}\\cdot3{,}16\\cdot10^{7}\\ \\text{s} = 0{,}74\\ \\text{J}$.\n\nKommentar til rimeligheten: under én joule per kilo per år høres forsvinnende lite ut. Men jordas indre veier omkring $6\\cdot10^{24}$ kg og er isolert av flere tusen kilometer stein, slik at varmen ikke slipper ut. Over milliarder av år summerer den seg til den viktigste varmekilden i jordas indre.",
+        "hints": [
+          "Gå veien om joule: 1 MeV $= 1{,}602\\cdot10^{-13}$ J.",
+          "Effekten er antall henfall per sekund ganget med energien per henfall — sjekk at enhetene gir watt.",
+          "I c): energi er effekt ganger tid, med tiden i sekunder."
+        ]
+      }
+    },
+    {
+      "id": "fys1001-7-3-bor-kjenne",
+      "type": "text",
+      "content": "## Bør kjenne til: dosimetri — gray og sievert (~5 min)\n\n*Dette avsnittet er markert «bør kjenne til». Det er ikke hovedstoff, men det dukker opp som kortsvar og som siste deloppgave i medisinsk innpakkede kjernefysikkoppgaver — særlig i eldre sett. Det koster fem minutter og gir billige poeng.*\n\nSpørsmålet dosimetrien svarer på, er: **hvor skadelig er strålingen for den som treffes?** Det krever to trinn, fordi like mye energi ikke gjør like mye skade."
+    },
+    {
+      "id": "fys1001-7-3-def-dose",
+      "type": "definition",
+      "title": "Absorbert dose $D$",
+      "content": "Energi avsatt per kilogram vev:\n\n$$D = \\frac{E}{m}$$\n\nEnheten er **gray**: $1\\ \\text{Gy} = 1\\ \\text{J/kg}$. Absorbert dose sier bare hvor mye energi som ble avsatt — den skiller ikke mellom strålingstyper."
+    },
+    {
+      "id": "fys1001-7-3-def-ekvivalent",
+      "type": "definition",
+      "title": "Ekvivalent dose $H$",
+      "content": "Absorbert dose vektet etter hvor skadelig strålingstypen er:\n\n$$H = w_R\\,D$$\n\nEnheten er **sievert** (Sv). Tallverdien i sievert er den som sier noe om helserisikoen, og det er derfor pasientdoser alltid oppgis i sievert (eller millisievert), aldri i gray alene."
+    },
+    {
+      "id": "fys1001-7-3-def-wr",
+      "type": "definition",
+      "title": "Strålingsvektfaktor $w_R$",
+      "content": "Tallet som sier hvor mye mer skade en strålingstype gjør enn beta og gamma ved samme absorberte energi. Verdiene hentes fra tabell:\n\n- $w_R = 1$ for beta- og gammastråling\n- $w_R = 20$ for alfastråling\n\nAlfa scorer så høyt fordi partikkelen avsetter all energien over noen få mikrometer: skaden konsentreres i noen få celler i stedet for å spres. Det er nettopp derfor alfakilder er blant de farligste **innvendig**, selv om de stanses av et papirark utvendig."
+    },
+    {
+      "id": "fys1001-7-3-ex-7",
+      "type": "example",
+      "title": "Eksempel 7: Gray og sievert i samme oppgave (sjanger P + Q)",
+      "problem": "En pasient på 70 kg får hele kroppen bestrålt med gammastråling og absorberer til sammen 3,5 mJ. En annen pasient har innåndet et alfaaktivt stoff, slik at 1,2 mJ avsettes i 0,60 kg lungevev. Finn absorbert dose og ekvivalent dose i begge tilfeller, og avgjør hvilken pasient som har fått den største helsebelastningen.",
+      "solution": "**Pasient 1 — gammastråling over hele kroppen.**\n\n$$D_1 = \\frac{E}{m} = \\frac{3{,}5\\cdot10^{-3}\\ \\text{J}}{70\\ \\text{kg}} = 5{,}0\\cdot10^{-5}\\ \\text{Gy} = 50\\ \\text{µGy}$$\n\nMed $w_R = 1$ for gamma: $H_1 = 1\\cdot50\\ \\text{µGy} = 50\\ \\text{µSv}$.\n\n**Pasient 2 — alfastråling i lungevev.**\n\n$$D_2 = \\frac{1{,}2\\cdot10^{-3}\\ \\text{J}}{0{,}60\\ \\text{kg}} = 2{,}0\\cdot10^{-3}\\ \\text{Gy} = 2{,}0\\ \\text{mGy}$$\n\nMed $w_R = 20$ for alfa: $H_2 = 20\\cdot2{,}0\\ \\text{mGy} = 40\\ \\text{mSv}$.\n\n**Sammenligning.** $H_2/H_1 = 40\\ \\text{mSv}/0{,}050\\ \\text{mSv} = 800$. Pasient 2 har fått en ekvivalent dose 800 ganger større enn pasient 1, selv om den absorberte energien var mindre i absolutt størrelse (1,2 mJ mot 3,5 mJ).\n\n**Konklusjon.** Pasient 2 har klart den største helsebelastningen. To forhold trekker i samme retning: energien er avsatt i en mye mindre masse, og alfastråling har vektfaktor 20. Regnestykket viser hvorfor dosen må angis i sievert — gray alene ville gitt et misvisende bilde."
+    },
+    {
+      "id": "fys1001-7-3-opg-bk1",
+      "type": "exercise",
+      "exercise": {
+        "id": "fys1001-7-3-bk1",
+        "number": "9",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "(Sjanger P + Q — «bør kjenne til»-stoff.) Under en undersøkelse absorberer 0,25 kg vev 0,80 mJ energi fra betastråling.\n\n**a)** Finn den absorberte dosen i gray.\n**b)** Finn den ekvivalente dosen i sievert.\n**c)** Hvor stor ville den ekvivalente dosen vært om den samme energien kom fra alfastråling? Forklar i én til to setninger hvorfor forskjellen er så stor.",
+        "solution": "**a)** $D = \\dfrac{E}{m} = \\dfrac{0{,}80\\cdot10^{-3}\\ \\text{J}}{0{,}25\\ \\text{kg}} = 3{,}2\\cdot10^{-3}\\ \\text{Gy} = 3{,}2\\ \\text{mGy}$.\n\n**b)** Betastråling har $w_R = 1$, så $H = 1\\cdot3{,}2\\ \\text{mGy} = 3{,}2\\ \\text{mSv}$.\n\n**c)** Med $w_R = 20$ blir $H = 20\\cdot3{,}2\\ \\text{mGy} = 64\\ \\text{mSv}$ — tjue ganger så mye. Forskjellen skyldes at alfapartikkelen avsetter hele energien over en strekning på noen få mikrometer, slik at skaden konsentreres i et lite antall celler, mens betastrålingen sprer den samme energien over et langt større volum.",
+        "hints": [
+          "Absorbert dose er energi delt på masse; enheten gray er det samme som joule per kilogram.",
+          "Ekvivalent dose får du ved å gange med strålingsvektfaktoren for den aktuelle strålingstypen.",
+          "I c): tenk på hvor langt inn i vevet de to strålingstypene rekker før energien er avsatt."
+        ]
+      }
+    },
+    {
+      "id": "fys1001-7-3-warn-typiske-feil",
+      "type": "warning",
+      "title": "Typiske feil",
+      "content": "- **«Tiden til null» lest av grafen.** En eksponentiell kurve når aldri null. Halveringstiden er tiden fra en verdi til halvparten av den verdien — og avlesningen skal **markeres på grafen**, ikke bare nevnes i teksten.\n- **Blande $\\lambda$ og $t_{1/2}$ uten $\\ln 2$.** Det er $\\lambda = \\ln 2/t_{1/2}$, ikke $\\lambda = 1/t_{1/2}$. (Størrelsen $1/\\lambda$ er middellevetiden $\\tau$, som er omtrent 1,44 ganger halveringstiden — en klassisk distraktor.)\n- **Glemme u $\\to$ kg (eller 931,5-faktoren) i $E = \\Delta mc^2$.** Setter du inn massesvinnet i u og ganger med $c^2$, bommer du med 27 tierpotenser. Kontroller alltid at energien per henfall lander på MeV-skalaen.\n- **Ulike tidsenheter i eksponenten.** $t$ og $t_{1/2}$ må ha samme enhet i $t/t_{1/2}$. Skal du regne aktivitet i becquerel, må $t_{1/2}$ derimot være i **sekunder**, siden Bq er henfall per sekund.\n- **Blande Gy og Sv.** Gray måler avsatt energi per kilogram; sievert måler den vektede, helsemessige dosen. Glemmer du vektfaktoren $w_R = 20$ for alfa, bommer du med en faktor 20.\n- **For få desimaler i masseregnskapet.** Massesvinnet ligger i femte–sjette desimal. Runder du massene til fire desimaler før subtraksjonen, forsvinner hele svaret.\n- **Å tro at halveringstiden avhenger av prøvestørrelsen.** Dobbelt så mye stoff gir dobbelt så høy aktivitet, men nøyaktig samme halveringstid.\n- **Å regne massesvinn med kjernemasser når vedlegget gir atommasser** (eller motsatt). Vedlegget på eksamen gir atommasser, og for alfa- og betaminus-henfall kan de brukes direkte."
+    },
+    {
+      "id": "fys1001-7-3-begrepsbank-intro",
+      "type": "text",
+      "content": "## Begrepsbank\n\nBegrepsbanken er flashcard-/repetisjonsstoff — den gjentar det du nettopp har lest. Hopp trygt over ved førstegangslesing; tidsanslaget for kapitlet gjelder kjernestoffet."
+    },
+    {
+      "id": "fys1001-7-3-def-middellevetid",
+      "type": "definition",
+      "title": "Middellevetid $\\tau$",
+      "content": "Den gjennomsnittlige levetiden til en kjerne, $\\tau = 1/\\lambda$. Sammenhengen med halveringstiden er\n\n$$\\tau = \\frac{t_{1/2}}{\\ln 2} \\approx 1{,}44\\,t_{1/2}$$\n\nMiddellevetiden er altså **lengre** enn halveringstiden. Størrelsen brukes sjelden i eksamensoppgavene, men den er den vanligste distraktoren i flervalg: forveksler du $\\tau$ og $t_{1/2}$, bommer du med faktoren 1,44."
+    },
+    {
+      "id": "fys1001-7-3-def-henfallskurve",
+      "type": "definition",
+      "title": "Henfallskurve",
+      "content": "Grafen som viser antall kjerner, masse eller aktivitet som funksjon av tiden. Den er alltid avtakende og krummer av mot tidsaksen uten å nå den. Kjennetegnet er at like store *andeler* forsvinner i like lange tidsrom — derfor tar hver halvering like lang tid, uansett hvor på kurven du starter."
+    },
+    {
+      "id": "fys1001-7-3-def-karbondatering",
+      "type": "definition",
+      "title": "Karbondatering",
+      "content": "Aldersbestemmelse ved hjelp av karbon-14, som har halveringstid 5730 år. Levende organismer har et fast $^{14}\\text{C}$-innhold fordi de stadig tar opp karbon fra omgivelsene; ved døden stopper opptaket, og innholdet avtar etter henfallsloven. Ved å måle andelen som er igjen, kan man løse for tiden. Metoden er brukbar tilbake til rundt 50 000 år — deretter er det for lite igjen å måle."
+    },
+    {
+      "id": "fys1001-7-3-def-bindingsenergi",
+      "type": "definition",
+      "title": "Bindingsenergi",
+      "content": "Energien som skal til for å rive en kjerne fra hverandre til frie protoner og nøytroner. Den er årsaken til massesvinnet: en bundet kjerne veier *mindre* enn summen av delene, og differansen er bindingsenergien delt på $c^2$. Både fisjon av tunge kjerner og fusjon av lette frigjør energi fordi produktene er sterkere bundet per nukleon enn utgangsstoffene."
+    },
+    {
+      "id": "fys1001-7-3-def-qverdi",
+      "type": "definition",
+      "title": "Q-verdi",
+      "content": "Et annet navn på energien som frigjøres i en kjernereaksjon, $Q = \\Delta m\\,c^2$. Er $Q > 0$, frigjøres energi og reaksjonen kan skje spontant; er $Q < 0$, må energi tilføres utenfra. Alle spontane henfall har positiv Q-verdi — det er nettopp derfor de skjer."
+    },
+    {
+      "id": "fys1001-7-3-def-spesifikk",
+      "type": "definition",
+      "title": "Spesifikk aktivitet",
+      "content": "Aktivitet per masse av prøven, oftest oppgitt i Bq/kg eller Bq/g. Størrelsen brukes når mengden stoff er det praktiske utgangspunktet — for eksempel i grenseverdier for radioaktivitet i mat og drikkevann, eller når du skal sammenligne to prøver av ulik størrelse. Den regnes ut som $A/m$, der $A = \\lambda N$ og $N$ finnes av massen via $N = (m/M)N_A$."
+    },
+    {
+      "id": "fys1001-7-3-def-effektiv-t12",
+      "type": "definition",
+      "title": "Effektiv halveringstid",
+      "content": "I medisinsk sammenheng forsvinner en radioaktiv nuklide fra kroppen på to måter samtidig: den henfaller (fysisk halveringstid) og den skilles ut (biologisk halveringstid). Den effektive halveringstiden er derfor kortere enn begge:\n\n$$\\frac{1}{t_{1/2,\\text{eff}}} = \\frac{1}{t_{1/2,\\text{fys}}} + \\frac{1}{t_{1/2,\\text{biol}}}$$\n\nOppgavene sier vanligvis eksplisitt om du skal se bort fra utskillelsen. Gjør de ikke det, er det verdt en setning å nevne at kroppen også skiller ut stoffet."
+    },
+    {
+      "id": "fys1001-7-3-def-bakgrunn",
+      "type": "definition",
+      "title": "Naturlig bakgrunnsstråling",
+      "content": "Strålingen vi utsettes for uten menneskelig påvirkning: radongass fra berggrunnen, kosmisk stråling, naturlig kalium-40 i kroppen og gammastråling fra bakken. I Norge ligger den samlede ekvivalente dosen typisk rundt noen få millisievert per år, og radon er det største bidraget. Tallet er nyttig som målestokk når en oppgave ber deg vurdere om en beregnet dose er stor eller liten."
+    },
+    {
+      "id": "fys1001-7-3-def-fisjonsenergi",
+      "type": "definition",
+      "title": "Fisjonsenergi",
+      "content": "Energien som frigjøres når en tung kjerne spaltes — omkring 200 MeV per spalting, altså rundt 40 ganger mer enn et typisk alfahenfall. Størrelsesordenen er verdt å kjenne som rimelighetssjekk: får du noen få MeV per fisjon, eller flere tusen, har du regnet feil et sted i masseregnskapet."
+    },
+    {
+      "id": "fys1001-7-3-def-mev",
+      "type": "definition",
+      "title": "MeV som energienhet",
+      "content": "Kjernefysikkens praktiske energienhet: $1\\ \\text{MeV} = 10^{6}\\ \\text{eV} = 1{,}602\\cdot10^{-13}$ J. Grunnen til at den brukes, er at kjerneprosesser ligger på MeV-skalaen, mens elektronovergangene i [kap. 7.1](/bok/fys1001/fys1001-7-1) ligger på eV-skalaen — kjernefysikken er omtrent en million ganger mer energirik per prosess. Kommer du ut med et svar i eV eller i kilojoule per henfall, er det en enhetsfeil."
+    },
+    {
+      "id": "fys1001-7-3-rep",
+      "type": "collapsible",
+      "title": "Repetisjonsoppgaver",
+      "buttonText": "Vis repetisjonsoppgaver",
+      "content": [
+        {
+          "id": "fys1001-7-3-rep-o1",
+          "type": "exercise",
+          "exercise": {
+            "id": "fys1001-7-3-rep-1",
+            "number": "R1",
+            "type": "classic",
+            "difficulty": "lett",
+            "task": "(Fra kap. 7.2.) Kobolt-60 henfaller ved betaminus til nikkel-60. Sett opp reaksjonsligningen og vis A/Z-balansen. ($Z = 27$ er kobolt, $Z = 28$ er nikkel.)",
+            "solution": "$^{60}_{27}\\text{Co} \\rightarrow\\ ^{60}_{28}\\text{Ni} + ^{\\ 0}_{-1}\\text{e} + \\bar{\\nu}$. Nukleontall: $60 = 60 + 0$ ✓. Ladningstall: $27 = 28 - 1$ ✓.",
+            "hints": [
+              "Betaminus lar nukleontallet stå og øker ladningstallet med 1.",
+              "Elektronet har $A = 0$ og $Z = -1$."
+            ]
+          }
+        },
+        {
+          "id": "fys1001-7-3-rep-o2",
+          "type": "exercise",
+          "exercise": {
+            "id": "fys1001-7-3-rep-2",
+            "number": "R2",
+            "type": "classic",
+            "difficulty": "lett",
+            "task": "En prøve har aktiviteten 4,0 MBq. Halveringstiden er 2,0 timer. Hva er aktiviteten etter 8,0 timer?",
+            "solution": "$8{,}0/2{,}0 = 4{,}0$ halveringstider, så $A = 4{,}0\\ \\text{MBq}\\cdot(1/2)^4 = 4{,}0/16\\ \\text{MBq} = 0{,}25$ MBq $= 250$ kBq.",
+            "hints": [
+              "Finn først hvor mange halveringstider som har gått.",
+              "Hver halveringstid halverer aktiviteten."
+            ]
+          }
+        },
+        {
+          "id": "fys1001-7-3-rep-o3",
+          "type": "exercise",
+          "exercise": {
+            "id": "fys1001-7-3-rep-3",
+            "number": "R3",
+            "type": "classic",
+            "difficulty": "middels",
+            "task": "En nuklide har halveringstid 30,0 år. Finn henfallskonstanten i $\\text{s}^{-1}$, og forklar med ett tall hvorfor $\\lambda$ ikke er det samme som $1/t_{1/2}$.",
+            "solution": "$t_{1/2} = 30{,}0\\ \\text{år}\\cdot3{,}16\\cdot10^{7}\\ \\text{s/år} = 9{,}48\\cdot10^{8}$ s. Da er $\\lambda = \\ln 2/t_{1/2} = 0{,}693/9{,}48\\cdot10^{8}\\ \\text{s} = 7{,}31\\cdot10^{-10}\\ \\text{s}^{-1}$. Til sammenligning er $1/t_{1/2} = 1{,}05\\cdot10^{-9}\\ \\text{s}^{-1}$ — altså $1/\\ln 2 \\approx 1{,}44$ ganger større. Størrelsen $1/\\lambda$ er middellevetiden, ikke halveringstiden.",
+            "hints": [
+              "Gjør halveringstiden om til sekunder først.",
+              "Faktoren mellom $\\lambda$ og $1/t_{1/2}$ er $\\ln 2 \\approx 0{,}693$."
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": "fys1001-7-3-symbolliste",
+      "type": "collapsible",
+      "title": "Symbol- og formelliste",
+      "buttonText": "Vis symboler og formler",
+      "content": [
+        {
+          "id": "fys1001-7-3-symbolliste-text",
+          "type": "text",
+          "content": "## Symbol- og formelliste\n\n*Oppslagsverk — alt her forklares underveis i kapitlet.*\n\nAlle symboler og formler brukt i delkapittel 7.3, samlet. **Symbolkollisjoner du må holde styr på i nettopp dette delkapitlet:** $A$ betyr **aktivitet** her (i [kap. 7.2](/bok/fys1001/fys1001-7-2) betyr $A$ nukleontall), $N$ betyr **antall kjerner** her (i [kap. 7.2](/bok/fys1001/fys1001-7-2) betyr $N$ antall nøytroner, i mekanikken normalkraft), $\\lambda$ betyr **henfallskonstant** her (i optikken bølgelengde, i varmeledning varmeledningsevne), og $E$ betyr alltid **energi** i dette delkapitlet.\n\n| Symbol | Betydning | SI-enhet |\n|---|---|---|\n| $t_{1/2}$ | Halveringstid | s (oppgis ofte i timer, døgn eller år) |\n| $N,\\ N_0$ | Antall kjerner igjen, og ved $t = 0$ | — (antall) |\n| $m,\\ m_0$ | Masse av nukliden igjen, og ved $t = 0$ | kg |\n| $A,\\ A_0$ | Aktivitet, og aktivitet ved $t = 0$ | Bq $= \\text{s}^{-1}$ |\n| $\\lambda$ | Henfallskonstant | $\\text{s}^{-1}$ |\n| $\\tau$ | Middellevetid, $\\tau = 1/\\lambda$ | s |\n| $N_A$ | Avogadros tall, $6{,}022\\cdot10^{23}$ | $\\text{mol}^{-1}$ |\n| $M$ | Molar masse | g/mol |\n| $\\Delta m$ | Massesvinn (masse før minus masse etter) | u eller kg |\n| $c$ | Lysfarten, $3{,}00\\cdot10^{8}$ | m/s |\n| $E$ | Frigjort energi | J (oppgis ofte i MeV) |\n| $Q$ | Q-verdi, energien frigjort i reaksjonen | J eller MeV |\n| $P$ | Effekt (varmeeffekt fra kilden) | W |\n| $D$ | Absorbert dose | Gy $=$ J/kg |\n| $H$ | Ekvivalent dose | Sv |\n| $w_R$ | Strålingsvektfaktor | — (uten enhet) |\n\n**Formler i dette delkapitlet:**\n\n$$N = N_0\\left(\\frac{1}{2}\\right)^{t/t_{1/2}}$$\nHenfallsloven; gjelder også for masse og aktivitet. *(står på formelarket — må kunne brukes aktivt)*\n\n$$N = N_0e^{-\\lambda t}$$\nSamme lov på eksponentialform. *(står på formelarket)*\n\n$$\\lambda = \\frac{\\ln 2}{t_{1/2}}$$\nSammenhengen mellom henfallskonstant og halveringstid. *(står på formelarket — må kunne brukes aktivt)*\n\n$$A = \\lambda N$$\nAktiviteten. *(står på formelarket — må kunne brukes aktivt)*\n\n$$t = t_{1/2}\\cdot\\frac{\\ln(N_0/N)}{\\ln 2}$$\nLøst for tiden. *(må kunne brukes aktivt — utledes av henfallsloven med logaritmer)*\n\n$$N = \\frac{m}{M}N_A$$\nAntall kjerner fra masse og molar masse. *(står på formelarket)*\n\n$$E = \\Delta m\\,c^2$$\nEnergi fra massesvinn. *(står på formelarket — må kunne brukes aktivt)*\n\n$$P = A\\cdot E_{\\text{per henfall}}$$\nVarmeeffekt fra en radioaktiv kilde. *(må kunne brukes aktivt — følger av enhetene)*\n\n$$D = \\frac{E}{m}, \\qquad H = w_R D$$\nAbsorbert og ekvivalent dose. *(står på formelarket)*\n\n**Data som hentes fra vedlegg/tabell:** halveringstider, atommasser i u, omregningene $1\\ \\text{u} = 1{,}6605\\cdot10^{-27}$ kg og $1\\ \\text{u}\\cdot c^2 = 931{,}5$ MeV, $1\\ \\text{MeV} = 1{,}602\\cdot10^{-13}$ J, Avogadros tall $N_A$, og strålingsvektfaktorene $w_R$."
+        }
+      ]
+    }
+  ],
+  "exercises": []
+}
