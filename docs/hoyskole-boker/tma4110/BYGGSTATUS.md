@@ -20,6 +20,16 @@ Branch: `bok/tma4110` (worktree). Arketype: regnefag. Institusjon: NTNU (slug `n
 - Quiz-staging: 0–9 unntatt **9-3, 9-4** (bygges). Del 10/11 gjenstår.
 
 ## Logg
+- (24. juli, steg 3 forts. — byggeleder regner selv, API ustabilt for subagenter)
+  Del 3–4 KOMPLETT verifisert og committet (65c18f39): 87 sympy-sjekker, 0 fasitavvik;
+  quiz 3-1..4-2 (122 spm) fasitkontrollert, LENGDE-TELL 6–31 %. Forkunnskaper
+  punktvis-standard: 8 blokker Del 1–2/7–8 (f4ea5160) + 9 filer Del 3–4 + 9 filer
+  Del 9–10 (fra døde verifikatoragenter, kvalitetssjekket — committes med sine deler).
+  - 5-1 verifisert: 12 sjekker, 0 avvik.
+  - 5-2 verifisert: 10 sjekker, 0 avvik.
+  - 5-3 verifisert: 8 sjekker, 0 avvik.
+  - 5-4 verifisert: 11 sjekker, 0 avvik (én falsk positiv i egen sjekk — usimplifisert
+    matriselikhet i sympy, fasit korrekt).
 - (22. juli, steg 3-oppstart) Committet estetikk-fikser: (1) 4 filer fra forrige økt
   (10-2, 10-3, 6-1, 7-prove — deloppgaver egne linjer, sjangerkode ut av
   competenceGoals, commit 1fd5f69e); (2) fullt sveip over alle 52 filer etter
