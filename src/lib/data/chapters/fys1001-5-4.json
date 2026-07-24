@@ -1,0 +1,470 @@
+{
+  "id": "fys1001-5-4",
+  "courseId": "fys1001",
+  "chapterNumber": "5.4",
+  "title": "Ladd partikkel i elektrisk og magnetisk felt",
+  "description": "Akselerasjon over spenning, sirkelbane i magnetfelt — og nullarbeids-poenget løsningsforslagene alltid vil ha.",
+  "estimatedMinutes": 60,
+  "competenceGoals": [
+    "regne ut farten til en ladning som akselereres over en spenning, og baneradien når den sendes vinkelrett inn i et magnetfelt",
+    "begrunne at den magnetiske kraften ikke gjør arbeid, og dermed at farten er konstant i banen",
+    "avgjøre kraftretningen med høyrehåndsregelen, også for negative ladninger",
+    "bruke $q/m$-forholdet til å sammenligne avbøyningen av alfa- og betapartikler",
+    "regne med magnetfeltet fra en rett leder og kraften mellom to parallelle ledere"
+  ],
+  "content": [
+    {
+      "id": "fys1001-5-4-tip-eksamensvinkel",
+      "type": "tip",
+      "title": "Eksamensvinkel",
+      "content": "**Prioritet: kunne (nivå 2).** Ladd partikkel i felt er belagt i **16 av 36 slutteksamener (44 %)**, og magnetisme-oppgaven kom i 2017h, 2018v, 2018h, 2024v og 2024h — ofte i nordlys- eller magnetosfære-drakt.\n\nOppgavene tilhører **sjanger L**, bokas kortnavn for oppgavetypen *«ladd partikkel i felt»*: en partikkel akselereres over en spenning, sendes inn i et magnetfelt og går i sirkelbane. Standardkjeden er:\n\n1. akselerasjon: $qU = \\tfrac12 mv^2$ gir farten,\n2. sirkelbane: $qvB = mv^2/r$ gir radien $r = mv/(qB)$,\n3. retning: høyrehåndsregelen, med riktig fortegn på ladningen,\n4. den kvalitative halen.\n\n**Nøkkelpoenget løsningsforslagene alltid honorerer (V2024):** den magnetiske kraften står **vinkelrett** på farten. Derfor gjør den ikke arbeid, og derfor er farten og den kinetiske energien konstant — bare retningen endres. Dette skal du kunne begrunne, ikke bare påstå.\n\n**Formelarket:** $F = qvB$, $r = mv/(qB)$ og $B = k_mI/r$ står på arket, sammen med $k_m$ og partikkelmassene. Det du må kunne *aktivt*, er å koble akselerasjonen til baneradien og å avgjøre retninger."
+    },
+    {
+      "id": "fys1001-5-4-forkunnskaper",
+      "type": "text",
+      "content": "## Forkunnskaper\n\n**Sist du var her.** Dette er et av bokas tunge kapitler, og det bygger på stoff som ligger et stykke tilbake. Her er de tre verktøyene ferdig oppfrisket, så du slipper å bla:\n\n- **Fra [kap. 5.1](/bok/fys1001/fys1001-5-1):** en ladning som akselereres fra ro gjennom spenningen $U$, får farten $v = \\sqrt{2qU/m}$, fordi det elektriske arbeidet $W = qU$ blir kinetisk energi.\n- **Fra [kap. 1.4](/bok/fys1001/fys1001-1-4):** et legeme i sirkelbane med fart $v$ og radius $r$ har sentripetalakselerasjonen $a = v^2/r$, så den resulterende kraften mot sentrum er $F = mv^2/r$.\n- **Fra [kap. 1.2](/bok/fys1001/fys1001-1-2):** en kraft vinkelrett på bevegelsen gjør ikke arbeid.\n\nVil du ha mer bakgrunn, ligger [Magnetisk kraft på ladninger](/bok/fysikk2/fysikk2-4-2) og [Magnetisk kraft på strømførende ledere](/bok/fysikk2/fysikk2-4-3) i Fysikk 2-boka.\n\nKapitlet tar rundt 60 minutter og er delt i fire løkker med pausepunkter."
+    },
+    {
+      "id": "fys1001-5-4-l1",
+      "type": "text",
+      "content": "### Løkke 1 — Akselerasjon og magnetisk kraft (~14 min)\n\nNordlyset er fysikkens mest spektakulære eksempel på dette temaet. Ladde partikler fra sola kommer inn mot jorda, fanges av jordas magnetfelt og spiraler ned mot polene, der de kolliderer med luftmolekyler og får dem til å lyse. Alt du trenger for å forstå hovedtrekkene, er to formler."
+    },
+    {
+      "id": "fys1001-5-4-def-akselerasjon",
+      "type": "definition",
+      "title": "Akselerasjon over en spenning",
+      "content": "En ladning $q$ med masse $m$ som starter i ro og akselereres gjennom spenningen $U$, får farten\n\n$$qU = \\tfrac12 mv^2 \\quad\\Longrightarrow\\quad v = \\sqrt{\\frac{2qU}{m}}$$\n\nDette er energibevaring: det elektriske arbeidet $W = qU$ går i sin helhet over til kinetisk energi. Farten øker som kvadratrota av spenningen — firedobler du $U$, dobles $v$."
+    },
+    {
+      "id": "fys1001-5-4-def-B",
+      "type": "definition",
+      "title": "Magnetisk flukstetthet $B$",
+      "content": "**Magnetisk flukstetthet** $B$ er størrelsen som beskriver hvor sterkt et magnetfelt er. SI-enheten er **tesla (T)**, og $1\\ \\text{T} = 1\\ \\text{N}/(\\text{A}\\,\\text{m})$.\n\nTil sammenligning: jordas magnetfelt er rundt $5\\cdot10^{-5}\\ \\text{T}$, en kjøleskapsmagnet noen få $10^{-2}\\ \\text{T}$, og en MR-maskin 1,5–3 T.\n\n**Advarsel om symbolet:** i dette delkapitlet betyr $B$ **magnetisk flukstetthet**. I Del 3 (fluidmekanikk) betyr $B = \\rho V g$ oppdrift. Se symbollisten nederst."
+    },
+    {
+      "id": "fys1001-5-4-def-kraft",
+      "type": "definition",
+      "title": "Magnetisk kraft på en ladning i bevegelse",
+      "content": "En ladning $q$ som beveger seg med farten $v$ **vinkelrett** på et magnetfelt $B$, kjenner kraften\n\n$$F = qvB$$\n\nKraften står vinkelrett på **både** farten og feltet. To spesialtilfeller er verdt å merke seg:\n\n- står ladningen stille ($v = 0$), er kraften null,\n- beveger den seg **langs** feltlinjene, er kraften også null.\n\nGenerelt gjelder $F = qvB\\sin\\theta$, der $\\theta$ er vinkelen mellom $\\vec v$ og $\\vec B$. I eksamensoppgavene er $\\theta = 90^\\circ$, så $F = qvB$."
+    },
+    {
+      "id": "fys1001-5-4-def-krysspikk",
+      "type": "definition",
+      "title": "Kryss- og prikk-notasjon",
+      "content": "Et magnetfelt som peker **inn i** papirplanet, tegnes som kryss ($\\times$) — som halen på en pil som forsvinner fra deg. Et felt som peker **ut av** planet, tegnes som prikker — spissen på en pil som kommer mot deg.\n\nNotasjonen er nødvendig fordi feltet, farten og kraften i disse oppgavene ligger i tre innbyrdes vinkelrette retninger, og papiret bare har to."
+    },
+    {
+      "id": "fys1001-5-4-ex1",
+      "type": "example",
+      "title": "Eksempel 1: Elektron akselerert og inn i et magnetfelt (sjanger L)",
+      "problem": "Et elektron starter i ro, akselereres gjennom en spenning på $1{,}2\\ \\text{kV}$ og sendes deretter vinkelrett inn i et magnetfelt med $B = 2{,}5\\ \\text{mT}$.\n\n**a)** Finn farten inn i feltet.\n**b)** Hvor stor magnetisk kraft virker på elektronet i det øyeblikket det kommer inn?\n\nElektronets masse er $9{,}109\\cdot10^{-31}\\ \\text{kg}$ (tabell).",
+      "solution": "**a)** Det elektriske arbeidet blir kinetisk energi:\n\n$$v = \\sqrt{\\frac{2qU}{m}} = \\sqrt{\\frac{2\\cdot1{,}602\\cdot10^{-19}\\cdot1200}{9{,}109\\cdot10^{-31}}}\\ \\text{m/s} = \\sqrt{4{,}22\\cdot10^{14}}\\ \\text{m/s}$$\n\n$$v = 2{,}05\\cdot10^{7}\\ \\text{m/s}$$\n\n*Rimelighet:* rundt 7 % av lysfarten — raskt, men ikke så raskt at vi trenger å bekymre oss.\n\n**b)** Farten er vinkelrett på feltet, så\n\n$$F = qvB = 1{,}602\\cdot10^{-19}\\ \\text{C}\\cdot2{,}05\\cdot10^{7}\\ \\text{m/s}\\cdot2{,}5\\cdot10^{-3}\\ \\text{T} = 8{,}2\\cdot10^{-15}\\ \\text{N}$$\n\n**Enhetskontroll:** $\\text{C}\\cdot(\\text{m/s})\\cdot\\text{T} = \\text{C}\\cdot(\\text{m/s})\\cdot\\text{N}/(\\text{A}\\,\\text{m}) = \\text{N}$, siden $\\text{C/s} = \\text{A}$ ✓\n\n**Konklusjon:** farten er $2{,}05\\cdot10^{7}\\ \\text{m/s}$ og kraften $8{,}2\\cdot10^{-15}\\ \\text{N}$."
+    },
+    {
+      "id": "fys1001-5-4-o1",
+      "type": "exercise",
+      "exercise": {
+        "id": "fys1001-5-4-e1",
+        "number": "1",
+        "type": "classic",
+        "difficulty": "lett",
+        "task": "*(Innstegsoppgave.)*\n\n**a)** Skriv $2{,}5\\ \\text{kV}$ i volt, $0{,}80\\ \\text{mT}$ i tesla og $12\\ \\text{cm}$ i meter.\n**b)** Et proton akselereres fra ro gjennom $800\\ \\text{V}$. Finn farten. Protonets masse er $1{,}673\\cdot10^{-27}\\ \\text{kg}$.",
+        "solution": "**a)** $2{,}5\\ \\text{kV} = 2{,}5\\cdot10^{3}\\ \\text{V}$, $0{,}80\\ \\text{mT} = 8{,}0\\cdot10^{-4}\\ \\text{T}$ og $12\\ \\text{cm} = 0{,}12\\ \\text{m}$.\n\n**b)** Energibevaring gir\n\n$$v = \\sqrt{\\frac{2qU}{m}} = \\sqrt{\\frac{2\\cdot1{,}602\\cdot10^{-19}\\cdot800}{1{,}673\\cdot10^{-27}}}\\ \\text{m/s} = \\sqrt{1{,}53\\cdot10^{11}}\\ \\text{m/s} = 3{,}9\\cdot10^{5}\\ \\text{m/s}$$\n\n**Konklusjon:** protonet får farten $3{,}9\\cdot10^{5}\\ \\text{m/s}$, altså rundt 390 km/s.",
+        "hints": [
+          "$1\\ \\text{kV} = 10^{3}\\ \\text{V}$ og $1\\ \\text{mT} = 10^{-3}\\ \\text{T}$.",
+          "Sett det elektriske arbeidet $qU$ lik den kinetiske energien.",
+          "Løs for $v$ før du setter inn tall; bruk SI-enheter hele veien."
+        ]
+      }
+    },
+    {
+      "id": "fys1001-5-4-l2",
+      "type": "text",
+      "content": "— naturlig pausepunkt —\n\n### Løkke 2 — Nullarbeids-poenget og sirkelbanen (~16 min)\n\nNå kommer kjernen i hele kapitlet: det ene resonnementet løsningsforslagene alltid ber om, og den ene formelen alt annet henger på."
+    },
+    {
+      "id": "fys1001-5-4-def-nullarbeid",
+      "type": "definition",
+      "title": "Nullarbeids-prinsippet for magnetisk kraft",
+      "content": "Den magnetiske kraften står **alltid vinkelrett på farten**. En kraft vinkelrett på bevegelsen gjør ikke arbeid. Derfor:\n\n$$W = 0 \\quad\\Longrightarrow\\quad E_k \\text{ er konstant} \\quad\\Longrightarrow\\quad v \\text{ er konstant}$$\n\nMagnetfeltet endrer altså bare **retningen** til farten, aldri størrelsen. Partikkelen kan gå tusen runder i feltet uten å bli det minste raskere eller langsommere.\n\n**Slik skriver du det på eksamen:** «Kraften $F = qvB$ står vinkelrett på farten. Arbeid krever en kraftkomponent langs bevegelsen, så kraften gjør ikke arbeid. Da er den kinetiske energien — og dermed farten — konstant; bare retningen endres.»"
+    },
+    {
+      "id": "fys1001-5-4-def-sirkelbane",
+      "type": "definition",
+      "title": "Sirkelbanen og baneradien",
+      "content": "Er farten vinkelrett på feltet, er den magnetiske kraften konstant i størrelse og alltid rettet mot ett punkt: sentrum. Det er nøyaktig betingelsen for **jevn sirkelbevegelse**. Sett den magnetiske kraften lik den nødvendige sentripetalkraften:\n\n$$qvB = \\frac{mv^2}{r} \\quad\\Longrightarrow\\quad r = \\frac{mv}{qB}$$\n\nRadien vokser med massen og farten, og synker når ladningen eller feltet øker. Tunge, raske partikler går i vide baner; lette partikler i trange."
+    },
+    {
+      "id": "fys1001-5-4-def-omlopstid",
+      "type": "definition",
+      "title": "Omløpstiden i banen",
+      "content": "Fordi farten er konstant, er omløpstiden banelengden delt på farten:\n\n$$T = \\frac{2\\pi r}{v} = \\frac{2\\pi m}{qB}$$\n\nLegg merke til at $v$ faller ut: **omløpstiden er uavhengig av farten** (og av radien). Alle partikler av samme type bruker like lang tid på én runde i samme felt, enten de går trangt eller vidt."
+    },
+    {
+      "id": "fys1001-5-4-fig-bane",
+      "type": "image",
+      "src": "/images/textbook/fys1001/fys1001-5-4-baneskisse.svg",
+      "alt": "Et rutenett av kryss viser et magnetfelt inn i papirplanet. En positiv ladning ligger nederst på en stiplet sirkelbane, med en blå fartspil mot høyre og en rød kraftpil rett opp mot sirkelens sentrum. Radien er markert fra sentrum til ladningen.",
+      "caption": "Sirkelbanen til en positiv ladning i et felt inn i planet. Med farten mot høyre peker kraften $F = qvB$ oppover, mot sentrum — banen går altså mot urviseren. Kraften står alltid vinkelrett på farten, så retningen endres, men ikke farten."
+    },
+    {
+      "id": "fys1001-5-4-ex2",
+      "type": "example",
+      "title": "Eksempel 2: Baneradius og omløpstid (sjanger L)",
+      "problem": "Elektronet fra Eksempel 1 har farten $2{,}05\\cdot10^{7}\\ \\text{m/s}$ og går inn vinkelrett på et felt med $B = 2{,}5\\ \\text{mT}$.\n\n**a)** Finn baneradien.\n**b)** Finn omløpstiden, og forklar hvorfor elektronets kinetiske energi er den samme etter tre runder som ved starten.",
+      "solution": "**a)** Den magnetiske kraften er sentripetalkraften:\n\n$$qvB = \\frac{mv^2}{r} \\quad\\Longrightarrow\\quad r = \\frac{mv}{qB}$$\n\n$$r = \\frac{9{,}109\\cdot10^{-31}\\ \\text{kg}\\cdot2{,}05\\cdot10^{7}\\ \\text{m/s}}{1{,}602\\cdot10^{-19}\\ \\text{C}\\cdot2{,}5\\cdot10^{-3}\\ \\text{T}} = \\frac{1{,}87\\cdot10^{-23}}{4{,}01\\cdot10^{-22}}\\ \\text{m} = 4{,}7\\cdot10^{-2}\\ \\text{m}$$\n\nAltså $4{,}7\\ \\text{cm}$ — en bane som lett får plass på et laboratoriebord.\n\n**b)** Omløpstiden:\n\n$$T = \\frac{2\\pi r}{v} = \\frac{2\\pi\\cdot4{,}67\\cdot10^{-2}\\ \\text{m}}{2{,}05\\cdot10^{7}\\ \\text{m/s}} = 1{,}4\\cdot10^{-8}\\ \\text{s} = 14\\ \\text{ns}$$\n\n*Kontroll med den andre formelen:* $T = \\dfrac{2\\pi m}{qB} = \\dfrac{2\\pi\\cdot9{,}109\\cdot10^{-31}}{1{,}602\\cdot10^{-19}\\cdot2{,}5\\cdot10^{-3}}\\ \\text{s} = 1{,}4\\cdot10^{-8}\\ \\text{s}$ ✓\n\n**Hvorfor er energien uendret?** Den magnetiske kraften står til enhver tid vinkelrett på farten. Arbeid krever en kraftkomponent *langs* bevegelsen, og den finnes ikke her. Kraften gjør derfor ikke arbeid, og etter energibevaring er den kinetiske energien uendret — like stor etter tre runder som ved starten. Det eneste kraften har gjort, er å dreie fartsretningen.\n\n**Konklusjon:** radien er $4{,}7\\ \\text{cm}$, omløpstiden $14\\ \\text{ns}$, og den kinetiske energien er konstant gjennom hele banen."
+    },
+    {
+      "id": "fys1001-5-4-o2",
+      "type": "exercise",
+      "exercise": {
+        "id": "fys1001-5-4-e2",
+        "number": "2",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "*(Sjanger L.)* Protonet fra oppgave 1 har farten $3{,}9\\cdot10^{5}\\ \\text{m/s}$ og sendes vinkelrett inn i et magnetfelt med $B = 0{,}35\\ \\text{T}$.\n\n**a)** Finn baneradien.\n**b)** Finn omløpstiden.",
+        "solution": "**a)** Den magnetiske kraften er sentripetalkraften, $qvB = mv^2/r$:\n\n$$r = \\frac{mv}{qB} = \\frac{1{,}673\\cdot10^{-27}\\cdot3{,}91\\cdot10^{5}}{1{,}602\\cdot10^{-19}\\cdot0{,}35}\\ \\text{m} = \\frac{6{,}55\\cdot10^{-22}}{5{,}61\\cdot10^{-20}}\\ \\text{m} = 1{,}2\\cdot10^{-2}\\ \\text{m}$$\n\nAltså rundt $1{,}2\\ \\text{cm}$.\n\n**b)** $T = \\dfrac{2\\pi m}{qB} = \\dfrac{2\\pi\\cdot1{,}673\\cdot10^{-27}}{1{,}602\\cdot10^{-19}\\cdot0{,}35}\\ \\text{s} = 1{,}9\\cdot10^{-7}\\ \\text{s}$.\n\n**Kontroll:** $T = 2\\pi r/v = 2\\pi\\cdot0{,}0117/3{,}91\\cdot10^{5} = 1{,}9\\cdot10^{-7}\\ \\text{s}$ ✓\n\n**Konklusjon:** radien er $1{,}2\\ \\text{cm}$ og omløpstiden $1{,}9\\cdot10^{-7}\\ \\text{s} = 0{,}19\\ \\mu\\text{s}$.",
+        "hints": [
+          "Sett den magnetiske kraften lik sentripetalkraften $mv^2/r$ og løs for $r$.",
+          "Bruk protonmassen fra tabellen, og hold alt i SI-enheter.",
+          "Omløpstiden kan finnes både som $2\\pi r/v$ og som $2\\pi m/(qB)$ — bruk den andre som kontroll."
+        ]
+      }
+    },
+    {
+      "id": "fys1001-5-4-o3",
+      "type": "exercise",
+      "exercise": {
+        "id": "fys1001-5-4-e3",
+        "number": "3",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "*(Sjanger Q — kvalitativ forklaring. «Sjanger Q» er bokas navn på de rene «forklar/begrunn»-deloppgavene, som utgjør 25–40 % av eksamen.)*\n\nEn medstudent skriver: «Magnetfeltet bremser partikkelen, for det virker en kraft mot bevegelsen.»\n\nForklar i 2–4 setninger hva som er galt, og skriv det riktige resonnementet.",
+        "solution": "Påstanden bygger på en feil forestilling om kraftretningen. Den magnetiske kraften $F = qvB$ står **vinkelrett** på farten, ikke mot den, og en kraft vinkelrett på bevegelsen har ingen komponent langs bevegelsen.\n\nDerfor gjør kraften ikke arbeid, og den kinetiske energien er konstant: farten endres ikke i det hele tatt. Det kraften gjør, er å dreie fartsretningen kontinuerlig, slik at banen blir en sirkel.\n\n**Konklusjon:** magnetfeltet endrer retning, aldri fart. Skal en ladning bremses eller akselereres, må det være et **elektrisk** felt med en komponent langs bevegelsen.",
+        "hints": [
+          "Hvilken retning har den magnetiske kraften i forhold til farten?",
+          "Hva kreves av en kraft for at den skal gjøre arbeid på et legeme?",
+          "Svar i tre ledd: navngi mekanismen, koble den til situasjonen, konkluder."
+        ]
+      }
+    },
+    {
+      "id": "fys1001-5-4-l3",
+      "type": "text",
+      "content": "— naturlig pausepunkt —\n\n### Løkke 3 — Retninger og $q/m$-logikken (~14 min)\n\nHalvparten av poengene i sjanger L handler om *retning*. Her er verktøyet."
+    },
+    {
+      "id": "fys1001-5-4-def-hoyrehand",
+      "type": "definition",
+      "title": "Høyrehåndsregelen",
+      "content": "For en **positiv** ladning finner du kraftretningen slik: pek høyre hånds fingre i fartsretningen $\\vec v$, krum dem inn mot feltretningen $\\vec B$ — da peker tommelen i kraftretningen $\\vec F$.\n\nEn variant som mange finner lettere: la pekefingeren peke i $\\vec v$, langfingeren i $\\vec B$, og tommelen gir $\\vec F$ når de tre står vinkelrett på hverandre.\n\n**Det avgjørende:** for en **negativ** ladning (for eksempel et elektron) peker kraften **motsatt** vei av det regelen gir. Regn alltid først som om ladningen var positiv, og snu til slutt hvis den er negativ. Skriv snuoperasjonen i besvarelsen — det er der poengene forsvinner."
+    },
+    {
+      "id": "fys1001-5-4-ex3",
+      "type": "example",
+      "title": "Eksempel 3: Retning på kraften (sjanger L + Q)",
+      "problem": "Et magnetfelt peker inn i papirplanet. En partikkel beveger seg mot høyre i planet.\n\n**a)** Hvilken vei virker kraften hvis partikkelen er et proton?\n**b)** Hvilken vei virker kraften hvis partikkelen er et elektron?\n**c)** Beskriv banene.",
+      "solution": "**a)** Bruk høyrehåndsregelen for den positive ladningen: fingrene mot høyre ($\\vec v$), feltet inn i planet ($\\vec B$). Tommelen peker **oppover** i planet.\n\nKraften på protonet er altså rettet oppover i det øyeblikket vi ser på, og protonet begynner å svinge oppover. Sentrum for banen ligger rett over protonet — se figuren i Løkke 2, som viser nøyaktig dette tilfellet.\n\n**b)** Elektronet er negativt. Regelen gir fortsatt «oppover» for en positiv ladning, men for elektronet snur vi: kraften peker **nedover**.\n\n**c)** Begge går i sirkelbaner med konstant fart, men de svinger til hver sin side: protonet kjennes trukket oppover og går derfor rundt **mot** urviseren slik vi ser figuren, elektronet **med** urviseren. Radiene er forskjellige, fordi $r = mv/(qB)$ avhenger av massen.\n\n**Konklusjon:** samme felt og samme fartsretning gir motsatte kraftretninger for de to ladningstypene — fortegnet på ladningen er ikke en detalj, det er halve svaret."
+    },
+    {
+      "id": "fys1001-5-4-o4",
+      "type": "exercise",
+      "exercise": {
+        "id": "fys1001-5-4-e4",
+        "number": "4",
+        "type": "classic",
+        "difficulty": "lett",
+        "task": "*(Sjanger L — retning.)* Et magnetfelt peker **ut av** papirplanet (tegnet med prikker). Et proton beveger seg **oppover** i planet.\n\n**a)** Hvilken vei peker den magnetiske kraften på protonet?\n**b)** Hva blir svaret om partikkelen i stedet er et elektron med samme fartsretning?",
+        "solution": "**a)** Høyrehåndsregelen med $\\vec v$ oppover og $\\vec B$ ut av planet gir kraft mot **høyre** i planet. Protonet svinger altså mot høyre og går videre i en sirkelbane med urviseren.\n\n**b)** Elektronet er negativt, så kraften peker motsatt vei: mot **venstre**. Elektronet svinger til venstre og går mot urviseren.\n\n**Konklusjon:** kraften er vinkelrett på både farten og feltet i begge tilfeller, men de to ladningstypene bøyes til hver sin side.",
+        "hints": [
+          "Regn alltid først som om ladningen var positiv.",
+          "Pek fingrene i fartsretningen, krum mot feltretningen, les av tommelen.",
+          "Snu svaret til slutt hvis ladningen er negativ — og skriv at du gjør det."
+        ]
+      }
+    },
+    {
+      "id": "fys1001-5-4-def-qm",
+      "type": "definition",
+      "title": "$q/m$-forholdet og avbøyning",
+      "content": "Skriver du baneradien som\n\n$$r = \\frac{mv}{qB} = \\frac{v}{B}\\cdot\\frac{m}{q}$$\n\nser du at radien ved gitt fart og felt bestemmes av forholdet $m/q$ — eller omvendt: avbøyningen bestemmes av **spesifikk ladning** $q/m$. Stor $q/m$ gir liten radius og kraftig avbøyning.\n\nDette er nøkkelen til å sammenligne stråletyper:\n\n- **$\\beta$-partikler** er elektroner: $q/m$ er enormt, så de bøyes kraftig av.\n- **$\\alpha$-partikler** er heliumkjerner med $q = 2e$ og masse rundt $4\\ \\text{u}$: $q/m$ er tusenvis av ganger mindre, så de bøyes nesten ikke.\n- **$\\gamma$-stråling** er fotoner uten ladning og bøyes ikke i det hele tatt."
+    },
+    {
+      "id": "fys1001-5-4-ex4",
+      "type": "example",
+      "title": "Eksempel 4: Alfa mot beta i samme felt (sjanger L + P)",
+      "problem": "En $\\alpha$-partikkel ($q = 2e$, $m = 4{,}0\\ \\text{u}$) og en $\\beta$-partikkel (et elektron) sendes inn i samme magnetfelt med samme fart, vinkelrett på feltet.\n\nHvor mange ganger større er baneradien til $\\alpha$-partikkelen? Bruk $1\\ \\text{u} = 1{,}6605\\cdot10^{-27}\\ \\text{kg}$.",
+      "solution": "**Sett opp forholdet.** Ved samme $v$ og $B$ er $r = \\dfrac{v}{B}\\cdot\\dfrac{m}{q}$, så\n\n$$\\frac{r_\\alpha}{r_\\beta} = \\frac{(m/q)_\\alpha}{(m/q)_\\beta}$$\n\n**Regn ut de to forholdene.** For $\\alpha$: $m = 4{,}0\\cdot1{,}6605\\cdot10^{-27}\\ \\text{kg} = 6{,}64\\cdot10^{-27}\\ \\text{kg}$ og $q = 2e = 3{,}204\\cdot10^{-19}\\ \\text{C}$:\n\n$$\\left(\\frac{m}{q}\\right)_\\alpha = \\frac{6{,}64\\cdot10^{-27}}{3{,}204\\cdot10^{-19}}\\ \\text{kg/C} = 2{,}07\\cdot10^{-8}\\ \\text{kg/C}$$\n\nFor $\\beta$ (elektron): $\\left(\\dfrac{m}{q}\\right)_\\beta = \\dfrac{9{,}109\\cdot10^{-31}}{1{,}602\\cdot10^{-19}}\\ \\text{kg/C} = 5{,}69\\cdot10^{-12}\\ \\text{kg/C}$.\n\n$$\\frac{r_\\alpha}{r_\\beta} = \\frac{2{,}07\\cdot10^{-8}}{5{,}69\\cdot10^{-12}} = 3{,}6\\cdot10^{3}$$\n\n**Konklusjon:** $\\alpha$-partikkelens bane er rundt **3600 ganger** videre enn $\\beta$-partikkelens. I praksis betyr det at $\\beta$-strålingen krøller seg sammen i en trang sirkel mens $\\alpha$-strålingen nesten går rett fram.\n\n**Rimelighet:** $\\alpha$-partikkelen er over 7000 ganger tyngre, men har bare dobbelt så stor ladning — at forholdet lander på noen tusen, stemmer.\n\n*Merk forutsetningen:* dette gjelder ved **samme fart**. Sammenligner du i stedet ved samme kinetiske energi, blir tallet et annet, fordi $v$ da avhenger av massen."
+    },
+    {
+      "id": "fys1001-5-4-o5",
+      "type": "exercise",
+      "exercise": {
+        "id": "fys1001-5-4-e5",
+        "number": "5",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "*(Sjanger L + Q.)* En kilde sender ut både $\\alpha$-, $\\beta$- og $\\gamma$-stråling inn i et magnetfelt.\n\n**a)** Rangér de tre stråletypene etter hvor kraftig de bøyes av, og begrunn med $r = mv/(qB)$.\n**b)** Hvordan kan et magnetfelt brukes til å avgjøre om en ukjent stråling er $\\gamma$-stråling?",
+        "solution": "**a)** Radien er $r = \\dfrac{v}{B}\\cdot\\dfrac{m}{q}$, så liten $m/q$ gir liten radius og kraftig avbøyning.\n\n- **$\\beta$ (elektroner):** minst masse og ladning $e$ — $m/q$ er svært liten, så radien er minst og avbøyningen kraftigst.\n- **$\\alpha$ (heliumkjerner):** rundt $4\\ \\text{u}$ i masse og bare $2e$ i ladning — $m/q$ er noen tusen ganger større, så radien blir tilsvarende større og avbøyningen svak.\n- **$\\gamma$ (fotoner):** ingen ladning, altså ingen magnetisk kraft og ingen avbøyning.\n\nRangering fra kraftigst til svakest: $\\beta$, deretter $\\alpha$, deretter $\\gamma$ (ingen).\n\n**b)** Send strålingen gjennom et kraftig magnetfelt vinkelrett på strålen. Blir strålen ikke avbøyd i det hele tatt, er den uladd, og da er $\\gamma$-stråling forklaringen.\n\n**Konklusjon:** magnetfeltet virker som en sorteringsmaskin — det skiller på ladning og på $q/m$, og lar det uladde gå rett gjennom.",
+        "hints": [
+          "Skriv $r$ som $\\dfrac{v}{B}$ ganger $\\dfrac{m}{q}$ og sammenlign de tre stråletypene.",
+          "Hva er ladningen til et foton?",
+          "En kraft $F = qvB$ er null når $q$ er null — uansett hvor sterkt feltet er."
+        ]
+      }
+    },
+    {
+      "id": "fys1001-5-4-l4",
+      "type": "text",
+      "content": "— naturlig pausepunkt —\n\n### Løkke 4 — Ledere, massespektrometeret og nordlyset (~16 min)\n\nTil slutt: hvor magnetfeltet *kommer fra*, og de to anvendelsene arkivet bruker."
+    },
+    {
+      "id": "fys1001-5-4-def-leder",
+      "type": "definition",
+      "title": "Magnetfelt fra en rett strømførende leder",
+      "content": "Rundt en lang, rett leder med strømmen $I$ er magnetfeltet i avstanden $r$ fra lederen\n\n$$B = k_m\\frac{I}{r}$$\n\nder $k_m = 2{,}0\\cdot10^{-7}\\ \\text{T}\\,\\text{m/A}$ er den **magnetiske konstanten** (formelarket).\n\nFeltlinjene er **konsentriske sirkler** om lederen. Retningen finner du med høyrehåndsregelen for ledere: legg høyre tommel langs strømretningen, og de krummede fingrene viser feltretningen."
+    },
+    {
+      "id": "fys1001-5-4-def-km",
+      "type": "definition",
+      "title": "Den magnetiske konstanten $k_m$",
+      "content": "$k_m = 2{,}0\\cdot10^{-7}\\ \\text{T}\\,\\text{m/A}$ er proporsjonalitetskonstanten i uttrykket for feltet rundt en rett leder. Den hentes fra formelarket.\n\nMerk at dette er et **annet** $k$ enn Coulomb-konstanten i [kap. 5.1](/bok/fys1001/fys1001-5-1). Derfor har den fått indeksen $m$ for «magnetisk» — hold de to fra hverandre i besvarelsen."
+    },
+    {
+      "id": "fys1001-5-4-def-parallelle",
+      "type": "definition",
+      "title": "Kraft mellom to parallelle ledere",
+      "content": "To parallelle ledere med avstand $d$ og strømmene $I_1$ og $I_2$ virker på hverandre med kraften per lengdeenhet\n\n$$\\frac{F}{L} = k_m\\frac{I_1I_2}{d}$$\n\nSammenhengen følger av de to andre: leder 1 lager feltet $B = k_mI_1/d$ ved leder 2, og strømmen i leder 2 kjenner en magnetisk kraft i dette feltet.\n\n**Retningen:** strøm i **samme** retning gir **tiltrekning**, strøm i **motsatt** retning gir **frastøtning**. (Motsatt av hva mange forventer ut fra ladninger — merk deg det.)"
+    },
+    {
+      "id": "fys1001-5-4-fig-ledere",
+      "type": "image",
+      "src": "/images/textbook/fys1001/fys1001-5-4-parallelle-ledere.svg",
+      "alt": "To loddrette ledere med blå strømpiler oppover i samme retning. Rundt den venstre lederen er to ellipser tegnet som feltlinjer. Mellom lederne peker to røde kraftpiler mot hverandre. Avstanden mellom lederne er merket d.",
+      "caption": "To parallelle ledere med strøm i samme retning trekkes mot hverandre. Feltlinjene rundt en rett leder er konsentriske sirkler."
+    },
+    {
+      "id": "fys1001-5-4-ex5",
+      "type": "example",
+      "title": "Eksempel 5: Felt fra en leder og kraft mellom to (sjanger L)",
+      "problem": "**a)** En lang rett leder fører strømmen $15\\ \\text{A}$. Hvor stor er den magnetiske flukstettheten $5{,}0\\ \\text{cm}$ fra lederen?\n\n**b)** To parallelle ledere ligger $8{,}0\\ \\text{cm}$ fra hverandre og fører $12\\ \\text{A}$ og $20\\ \\text{A}$ i samme retning. Hvor stor kraft virker på en $2{,}5\\ \\text{m}$ lang strekning, og hvilken vei?",
+      "solution": "**a)**\n\n$$B = k_m\\frac{I}{r} = 2{,}0\\cdot10^{-7}\\ \\text{T}\\,\\text{m/A}\\cdot\\frac{15\\ \\text{A}}{5{,}0\\cdot10^{-2}\\ \\text{m}} = 6{,}0\\cdot10^{-5}\\ \\text{T}$$\n\nAltså $60\\ \\mu\\text{T}$ — omtrent på størrelse med jordas magnetfelt. Det er derfor et kompass reagerer når du holder det inntil en strømførende ledning.\n\n**b)** Kraft per lengdeenhet:\n\n$$\\frac{F}{L} = k_m\\frac{I_1I_2}{d} = 2{,}0\\cdot10^{-7}\\cdot\\frac{12\\cdot20}{8{,}0\\cdot10^{-2}}\\ \\text{N/m} = 6{,}0\\cdot10^{-4}\\ \\text{N/m}$$\n\n$$F = \\frac{F}{L}\\cdot L = 6{,}0\\cdot10^{-4}\\ \\text{N/m}\\cdot2{,}5\\ \\text{m} = 1{,}5\\cdot10^{-3}\\ \\text{N}$$\n\n**Retning:** strømmene går samme vei, så lederne **trekkes mot hverandre** (se figuren over).\n\n**Konklusjon:** feltet er $6{,}0\\cdot10^{-5}\\ \\text{T}$, og kraften er $1{,}5\\cdot10^{-3}\\ \\text{N}$ tiltrekkende.\n\n**Rimelighet:** noen tidels millinewton på 2,5 m ledning er ubetydelig i praksis — men i store koblingsanlegg med tusenvis av ampere blir de samme kreftene så store at samleskinnene må festes mekanisk."
+    },
+    {
+      "id": "fys1001-5-4-o6",
+      "type": "exercise",
+      "exercise": {
+        "id": "fys1001-5-4-e6",
+        "number": "6",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "*(Sjanger L.)* To parallelle ledere ligger $6{,}0\\ \\text{cm}$ fra hverandre. Den ene fører $25\\ \\text{A}$, den andre $10\\ \\text{A}$, i **motsatt** retning.\n\n**a)** Finn den magnetiske flukstettheten som den første lederen lager ved den andre.\n**b)** Finn kraften per meter mellom lederne, og si hvilken vei den virker.",
+        "solution": "**a)** Feltet fra den første lederen i avstanden $6{,}0\\ \\text{cm}$:\n\n$$B = k_m\\frac{I_1}{d} = 2{,}0\\cdot10^{-7}\\cdot\\frac{25}{6{,}0\\cdot10^{-2}}\\ \\text{T} = 8{,}3\\cdot10^{-5}\\ \\text{T}$$\n\n**b)** Kraft per lengdeenhet:\n\n$$\\frac{F}{L} = k_m\\frac{I_1I_2}{d} = 2{,}0\\cdot10^{-7}\\cdot\\frac{25\\cdot10}{6{,}0\\cdot10^{-2}}\\ \\text{N/m} = 8{,}3\\cdot10^{-4}\\ \\text{N/m}$$\n\n*Kontroll:* dette er også $B I_2 = 8{,}3\\cdot10^{-5}\\ \\text{T}\\cdot10\\ \\text{A} = 8{,}3\\cdot10^{-4}\\ \\text{N/m}$ ✓ — de to formlene er samme sak.\n\n**Retning:** strømmene går motsatt vei, så lederne **frastøter** hverandre.\n\n**Konklusjon:** feltet er $8{,}3\\cdot10^{-5}\\ \\text{T}$, kraften $8{,}3\\cdot10^{-4}\\ \\text{N}$ per meter, og den er frastøtende.",
+        "hints": [
+          "Bruk $B = k_mI/r$ med strømmen i den *første* lederen og avstanden mellom dem.",
+          "Kraften per meter kan regnes både som $k_mI_1I_2/d$ og som $BI_2$ — bruk den andre som kontroll.",
+          "Husk regelen: samme strømretning gir tiltrekning, motsatt retning gir frastøtning."
+        ]
+      }
+    },
+    {
+      "id": "fys1001-5-4-def-massespektrometer",
+      "type": "definition",
+      "title": "Massespektrometeret",
+      "content": "Et **massespektrometer** bestemmer massen til ioner ved å måle baneradien i et kjent magnetfelt.\n\nIonet akselereres over spenningen $U$ og sendes inn vinkelrett på feltet $B$. Kombinerer du $qU = \\tfrac12 mv^2$ med $r = mv/(qB)$, faller farten ut:\n\n$$m = \\frac{qB^2r^2}{2U}$$\n\nMåler du $r$, kjenner du massen. Dette er hvordan isotoper skilles fra hverandre: to ioner med samme ladning men litt ulik masse treffer detektoren på litt ulikt sted."
+    },
+    {
+      "id": "fys1001-5-4-ex6",
+      "type": "example",
+      "title": "Eksempel 6: Massespektrometer (sjanger L)",
+      "problem": "Et enkeltladd ion ($q = e$) akselereres gjennom $2{,}5\\ \\text{kV}$ og sendes vinkelrett inn i et magnetfelt med $B = 0{,}40\\ \\text{T}$. Baneradien måles til $8{,}0\\ \\text{cm}$.\n\nFinn ionets masse, både i kilogram og i atommasseenheter ($1\\ \\text{u} = 1{,}6605\\cdot10^{-27}\\ \\text{kg}$).",
+      "solution": "**Utled sammenhengen først.** Fra akselerasjonen: $v = \\sqrt{2qU/m}$. Sett inn i $r = mv/(qB)$ og kvadrer:\n\n$$r^2 = \\frac{m^2v^2}{q^2B^2} = \\frac{m^2}{q^2B^2}\\cdot\\frac{2qU}{m} = \\frac{2mU}{qB^2} \\quad\\Longrightarrow\\quad m = \\frac{qB^2r^2}{2U}$$\n\n**Sett inn tall:**\n\n$$m = \\frac{1{,}602\\cdot10^{-19}\\ \\text{C}\\cdot(0{,}40\\ \\text{T})^2\\cdot(8{,}0\\cdot10^{-2}\\ \\text{m})^2}{2\\cdot2500\\ \\text{V}}$$\n\nTeller: $1{,}602\\cdot10^{-19}\\cdot0{,}16\\cdot6{,}4\\cdot10^{-3} = 1{,}64\\cdot10^{-22}$. Nevner: $5000$.\n\n$$m = 3{,}28\\cdot10^{-26}\\ \\text{kg}$$\n\n**I atommasseenheter:**\n\n$$\\frac{3{,}28\\cdot10^{-26}\\ \\text{kg}}{1{,}6605\\cdot10^{-27}\\ \\text{kg/u}} = 19{,}8\\ \\text{u} \\approx 20\\ \\text{u}$$\n\n**Konklusjon:** ionets masse er $3{,}3\\cdot10^{-26}\\ \\text{kg}$, altså rundt $20\\ \\text{u}$ — det passer med neon-20.\n\n**Rimelighet:** et atom på 20 u er et lett grunnstoff, og massen $10^{-26}\\ \\text{kg}$ er den riktige størrelsesordenen for enkeltatomer ✓"
+    },
+    {
+      "id": "fys1001-5-4-o7",
+      "type": "exercise",
+      "exercise": {
+        "id": "fys1001-5-4-e7",
+        "number": "7",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "*(Sjanger L — massespektrometer.)* Et enkeltladd ion akselereres gjennom $4{,}0\\ \\text{kV}$ og sendes vinkelrett inn i et magnetfelt med $B = 0{,}50\\ \\text{T}$. Baneradien måles til $6{,}0\\ \\text{cm}$.\n\n**a)** Finn ionets masse i kilogram.\n**b)** Uttrykk massen i atommasseenheter, og foreslå hvilket grunnstoff det kan være.",
+        "solution": "**a)** Kombinasjonen av akselerasjonen og baneradien gir $m = \\dfrac{qB^2r^2}{2U}$:\n\n$$m = \\frac{1{,}602\\cdot10^{-19}\\cdot(0{,}50)^2\\cdot(6{,}0\\cdot10^{-2})^2}{2\\cdot4000}\\ \\text{kg} = \\frac{1{,}44\\cdot10^{-22}}{8000}\\ \\text{kg} = 1{,}8\\cdot10^{-26}\\ \\text{kg}$$\n\n**b)**\n\n$$\\frac{1{,}80\\cdot10^{-26}}{1{,}6605\\cdot10^{-27}}\\ \\text{u} = 10{,}9\\ \\text{u} \\approx 11\\ \\text{u}$$\n\nDet passer med **bor-11**, den vanligste boreisotopen.\n\n**Konklusjon:** massen er $1{,}8\\cdot10^{-26}\\ \\text{kg}$, altså rundt $11\\ \\text{u}$.",
+        "hints": [
+          "Kombiner $qU = \\tfrac12mv^2$ med $r = mv/(qB)$ og eliminer farten.",
+          "Kvadrer uttrykket for $r$ — da forsvinner $v$ og du kan løse for $m$.",
+          "Del til slutt på $1\\ \\text{u} = 1{,}6605\\cdot10^{-27}$ kg."
+        ]
+      }
+    },
+    {
+      "id": "fys1001-5-4-def-nordlys",
+      "type": "definition",
+      "title": "Nordlys og jordas magnetfelt",
+      "content": "Ladde partikler fra sola treffer jordas magnetfelt. Kommer farten inn på skrå, kan den deles i en komponent **langs** feltet og en **vinkelrett** på det. Den vinkelrette komponenten gir sirkelbevegelse; den langsgående er upåvirket, siden kraften er null langs feltet.\n\nResultatet er en **skruebane** (spiral) rundt feltlinjene. Partiklene følger linjene ned mot polene, der de kolliderer med luftmolekyler i den øvre atmosfæren og får dem til å lyse.\n\nDette forklarer to observasjoner: at nordlyset er sterkest nær polene, og at jordas magnetfelt fungerer som et **skjold** — de fleste partiklene blir ledet bort i stedet for å treffe atmosfæren ved ekvator."
+    },
+    {
+      "id": "fys1001-5-4-o8",
+      "type": "exercise",
+      "exercise": {
+        "id": "fys1001-5-4-e8",
+        "number": "8",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "*(Sjanger L + Q — nordlyskontekst.)* Et proton med farten $5{,}0\\cdot10^{5}\\ \\text{m/s}$ kommer inn vinkelrett på jordas magnetfelt, som der har $B = 4{,}0\\cdot10^{-5}\\ \\text{T}$.\n\n**a)** Finn baneradien.\n**b)** Forklar i 2–4 setninger hvorfor protonet ikke bremses opp av magnetfeltet, og hva som skjer hvis farten i stedet kommer inn på skrå mot feltlinjene.",
+        "solution": "**a)**\n\n$$r = \\frac{mv}{qB} = \\frac{1{,}673\\cdot10^{-27}\\cdot5{,}0\\cdot10^{5}}{1{,}602\\cdot10^{-19}\\cdot4{,}0\\cdot10^{-5}}\\ \\text{m} = \\frac{8{,}37\\cdot10^{-22}}{6{,}41\\cdot10^{-24}}\\ \\text{m} = 1{,}3\\cdot10^{2}\\ \\text{m}$$\n\nAltså rundt $130\\ \\text{m}$ — en svær bane, fordi jordas felt er svakt.\n\n**b)** Den magnetiske kraften står vinkelrett på farten og har derfor ingen komponent langs bevegelsen. Da gjør den ikke arbeid, og den kinetiske energien — og farten — er konstant. Bare retningen dreies.\n\nKommer farten inn på skrå, deler vi den i en komponent langs feltet og en vinkelrett på det. Den vinkelrette gir sirkelbevegelse, mens den langsgående er upåvirket (kraften er null langs feltet). Til sammen blir banen en **skruebane** rundt feltlinja, og partikkelen føres langs linja inn mot polområdene — der nordlyset oppstår.\n\n**Konklusjon:** radien er rundt $130\\ \\text{m}$, farten er uendret, og skrå innfart gir en spiral langs feltlinjen i stedet for en ren sirkel.",
+        "hints": [
+          "Bruk $r = mv/(qB)$ med protonmassen fra tabellen.",
+          "Til b): hva kreves for at en kraft skal gjøre arbeid?",
+          "Del fartsvektoren i en komponent langs feltet og en vinkelrett på det."
+        ]
+      }
+    },
+    {
+      "id": "fys1001-5-4-o9",
+      "type": "exercise",
+      "exercise": {
+        "id": "fys1001-5-4-e9",
+        "number": "9",
+        "type": "classic",
+        "difficulty": "vanskelig",
+        "task": "*(Sjanger L — krevende, dimensjonering baklengs.)* Et elektron akselereres fra ro gjennom $500\\ \\text{V}$ og sendes vinkelrett inn i et magnetfelt.\n\n**a)** Hvor stor må $B$ være for at baneradien skal bli $3{,}0\\ \\text{cm}$?\n**b)** Hvis du firedobler akselerasjonsspenningen og vil ha samme radius, hvordan må $B$ endres? Begrunn med formlene, uten å regne på nytt.",
+        "solution": "**a)** Først farten:\n\n$$v = \\sqrt{\\frac{2qU}{m}} = \\sqrt{\\frac{2\\cdot1{,}602\\cdot10^{-19}\\cdot500}{9{,}109\\cdot10^{-31}}}\\ \\text{m/s} = \\sqrt{1{,}759\\cdot10^{14}}\\ \\text{m/s} = 1{,}326\\cdot10^{7}\\ \\text{m/s}$$\n\nSnu deretter radiusformelen:\n\n$$r = \\frac{mv}{qB} \\quad\\Longrightarrow\\quad B = \\frac{mv}{qr} = \\frac{9{,}109\\cdot10^{-31}\\cdot1{,}326\\cdot10^{7}}{1{,}602\\cdot10^{-19}\\cdot3{,}0\\cdot10^{-2}}\\ \\text{T}$$\n\n$$B = \\frac{1{,}208\\cdot10^{-23}}{4{,}81\\cdot10^{-21}}\\ \\text{T} = 2{,}5\\cdot10^{-3}\\ \\text{T} = 2{,}5\\ \\text{mT}$$\n\n**b)** Farten går som $v \\propto \\sqrt{U}$, så firedobling av $U$ **dobler** farten. Radien går som $r \\propto v/B$, så for at $r$ skal være uendret når $v$ dobles, må $B$ også **dobles**:\n\n$$B_{\\text{ny}} = 2\\cdot2{,}5\\ \\text{mT} = 5{,}0\\ \\text{mT}$$\n\n**Konklusjon:** $B = 2{,}5\\ \\text{mT}$ gir radien $3{,}0\\ \\text{cm}$, og firedoblet spenning krever dobbelt så sterkt felt for å holde radien.\n\n**Merk sammenhengen:** samler du de to formlene, får du $r = \\dfrac{1}{B}\\sqrt{\\dfrac{2mU}{q}}$, som viser $r \\propto \\sqrt{U}/B$ direkte.",
+        "hints": [
+          "Finn farten fra akselerasjonsspenningen først.",
+          "Snu $r = mv/(qB)$ og løs for $B$.",
+          "Til b): hvordan avhenger $v$ av $U$? Bruk forholdsregning, ikke nye tall."
+        ]
+      }
+    },
+    {
+      "id": "fys1001-5-4-warn",
+      "type": "warning",
+      "title": "Typiske feil",
+      "content": "- **Feil retning for negative ladninger.** Høyrehåndsregelen gir retningen for en *positiv* ladning. For elektroner og negative ioner må du snu svaret — og skrive at du gjør det.\n- **Tro at magnetfeltet endrer farten.** Den magnetiske kraften står vinkelrett på farten, gjør ikke arbeid, og endrer bare retningen. Skal en ladning bremses eller akselereres, kreves et *elektrisk* felt.\n- **Blande hva de to feltene gjør.** Et elektrisk felt kan endre farten (kraften $F = qE$ er uavhengig av bevegelsen); et magnetfelt kan bare dreie den.\n- **Glemme at radien vokser med massen.** $r = mv/(qB)$: en $\\alpha$-partikkel bøyes tusenvis av ganger mindre enn et elektron ved samme fart, fordi $m/q$ er så mye større.\n- **Blande $k$ og $k_m$.** Coulomb-konstanten $k = 8{,}99\\cdot10^{9}$ hører til elektrostatikken; den magnetiske konstanten $k_m = 2{,}0\\cdot10^{-7}$ hører til ledere.\n- **Feil fortegnsregel for parallelle ledere.** Strøm samme vei gir *tiltrekning*, motsatt vei *frastøtning* — omvendt av det du kanskje forventer fra ladninger.\n- **Blande de to betydningene av $B$.** Her er $B$ magnetisk flukstetthet i tesla. I Del 3 er $B = \\rho V g$ oppdriften i newton.\n- **Enheter og gjeldende siffer.** T, m, N og m/s på hvert svar, med to–tre gjeldende siffer."
+    },
+    {
+      "id": "fys1001-5-4-bb-intro",
+      "type": "text",
+      "content": "## Begrepsbank\n\n*Flashcard-/repetisjonsstoff — hopp trygt over ved førstegangslesing; tidsanslaget gjelder kjernestoffet.*"
+    },
+    {
+      "id": "fys1001-5-4-bb-tesla",
+      "type": "definition",
+      "title": "Tesla",
+      "content": "**Tesla (T)** er SI-enheten for magnetisk flukstetthet:\n\n$$1\\ \\text{T} = 1\\ \\frac{\\text{N}}{\\text{A}\\,\\text{m}} = 1\\ \\frac{\\text{V}\\,\\text{s}}{\\text{m}^2}$$\n\nEnheten er stor: jordas felt er bare rundt $5\\cdot10^{-5}\\ \\text{T}$. Derfor møter du ofte millitesla (mT) og mikrotesla (µT) i oppgaver."
+    },
+    {
+      "id": "fys1001-5-4-bb-vinkel",
+      "type": "definition",
+      "title": "Når er den magnetiske kraften null?",
+      "content": "Kraften er $F = qvB\\sin\\theta$, der $\\theta$ er vinkelen mellom farten og feltet. Den er null i tre tilfeller:\n\n- ladningen er null ($\\gamma$-stråling, nøytroner),\n- ladningen står stille ($v = 0$),\n- farten er parallell (eller antiparallell) med feltet ($\\sin\\theta = 0$).\n\nMaksimal kraft får du når farten står vinkelrett på feltet, $\\theta = 90^\\circ$ — det er tilfellet i alle regneoppgavene i dette kapitlet."
+    },
+    {
+      "id": "fys1001-5-4-bb-elektrisk-vs-magnetisk",
+      "type": "definition",
+      "title": "Elektrisk felt mot magnetfelt",
+      "content": "De to feltene virker helt ulikt på en ladning:\n\n| | Elektrisk felt | Magnetfelt |\n|---|---|---|\n| Kraft | $F = qE$ | $F = qvB\\sin\\theta$ |\n| Krever bevegelse? | Nei | Ja |\n| Kraftretning | Langs feltet (for positiv ladning) | Vinkelrett på både $v$ og $B$ |\n| Gjør arbeid? | Ja | Nei |\n| Endrer farten? | Ja | Nei, bare retningen |\n\nDenne tabellen svarer på halvparten av de kvalitative halene i sjangeren."
+    },
+    {
+      "id": "fys1001-5-4-bb-skruebane",
+      "type": "definition",
+      "title": "Skruebane (bør kjenne til)",
+      "content": "Kommer farten inn på skrå mot feltet, deles den i en komponent vinkelrett på feltet (som gir sirkelbevegelse) og en komponent langs feltet (som er upåvirket).\n\nResultatet er en **skruebane**: en spiral rundt feltlinja, med konstant fart langs linja og konstant omløpstid. Dette er merket «bør kjenne til» — det trengs for å forstå nordlyset kvalitativt, men regnes sjelden på."
+    },
+    {
+      "id": "fys1001-5-4-bb-sentripetal",
+      "type": "definition",
+      "title": "Sentripetalkraft — repetisjon",
+      "content": "Et legeme i jevn sirkelbevegelse med fart $v$ og radius $r$ har akselerasjonen $a = v^2/r$ rettet mot sentrum, og trenger derfor den resulterende kraften\n\n$$F = \\frac{mv^2}{r}$$\n\nSentripetalkraft er ikke en ny kraft — det er *rollen* en kraft har. I [kap. 1.4](/bok/fys1001/fys1001-1-4) var det tyngden eller snordraget; her er det den magnetiske kraften."
+    },
+    {
+      "id": "fys1001-5-4-bb-hoyrehand-leder",
+      "type": "definition",
+      "title": "Høyrehåndsregelen for ledere",
+      "content": "Legg høyre tommel langs **strømretningen** i lederen. Da viser de krummede fingrene **feltretningen** rundt lederen.\n\nFeltlinjene er konsentriske sirkler om lederen, og feltet avtar som $1/r$ — merk at det er første potens, ikke kvadratet som i Coulombs lov."
+    },
+    {
+      "id": "fys1001-5-4-bb-isotopskille",
+      "type": "definition",
+      "title": "Isotopskille i massespektrometeret",
+      "content": "To ioner med samme ladning men ulik masse får ulik radius:\n\n$$r = \\frac{1}{B}\\sqrt{\\frac{2mU}{q}} \\quad\\Longrightarrow\\quad r \\propto \\sqrt{m}$$\n\nRadien går altså som kvadratrota av massen. Klor-35 og klor-37 skilles fordi $\\sqrt{37}/\\sqrt{35} = 1{,}028$ — nesten 3 % forskjell i radius, nok til to tydelig atskilte flekker på detektoren."
+    },
+    {
+      "id": "fys1001-5-4-bb-magnetosfaere",
+      "type": "definition",
+      "title": "Magnetosfæren som skjold",
+      "content": "**Magnetosfæren** er området rundt jorda der jordas magnetfelt dominerer. Ladde partikler fra sola avbøyes av feltet og ledes langs feltlinjene mot polene i stedet for å treffe atmosfæren jevnt over hele kloden.\n\nUten dette skjoldet ville partikkelstrålingen ved bakken vært langt kraftigere. Nordlyset er det synlige tegnet på at skjoldet virker."
+    },
+    {
+      "id": "fys1001-5-4-rep",
+      "type": "collapsible",
+      "title": "Repetisjonsoppgaver",
+      "buttonText": "Vis repetisjonsoppgaver",
+      "content": [
+        {
+          "id": "fys1001-5-4-rep-1",
+          "type": "exercise",
+          "exercise": {
+            "id": "fys1001-5-4-rep-e1",
+            "number": "R1",
+            "type": "classic",
+            "difficulty": "lett",
+            "task": "*(Fra [kap. 5.1](/bok/fys1001/fys1001-5-1).)* Et proton akselereres gjennom $200\\ \\text{V}$. Hvor stort arbeid gjør det elektriske feltet, og hvor stor kinetisk energi får protonet?",
+            "solution": "$$W = qU = 1{,}602\\cdot10^{-19}\\ \\text{C}\\cdot200\\ \\text{V} = 3{,}2\\cdot10^{-17}\\ \\text{J}$$\n\nHele arbeidet blir kinetisk energi, så $E_k = 3{,}2\\cdot10^{-17}\\ \\text{J}$. (I kjernefysikken skrives dette gjerne som $200\\ \\text{eV}$ — elektronvolt er nettopp energien én elementærladning får gjennom 1 V.)",
+            "hints": [
+              "Arbeidet er $W = qU$.",
+              "Starter partikkelen i ro, går alt arbeidet til kinetisk energi."
+            ]
+          }
+        },
+        {
+          "id": "fys1001-5-4-rep-2",
+          "type": "exercise",
+          "exercise": {
+            "id": "fys1001-5-4-rep-e2",
+            "number": "R2",
+            "type": "classic",
+            "difficulty": "lett",
+            "task": "*(Fra [kap. 1.4](/bok/fys1001/fys1001-1-4).)* Hvor stor resulterende kraft trengs for å holde et legeme på $0{,}25\\ \\text{kg}$ i sirkelbane med radius $1{,}5\\ \\text{m}$ ved farten $4{,}0\\ \\text{m/s}$?",
+            "solution": "$$F = \\frac{mv^2}{r} = \\frac{0{,}25\\ \\text{kg}\\cdot(4{,}0\\ \\text{m/s})^2}{1{,}5\\ \\text{m}} = 2{,}7\\ \\text{N}$$\n\nKraften peker mot sentrum. I dette kapitlet er det den magnetiske kraften $qvB$ som spiller denne rollen.",
+            "hints": [
+              "Sentripetalkraften er $mv^2/r$.",
+              "Pass på at farten kvadreres."
+            ]
+          }
+        },
+        {
+          "id": "fys1001-5-4-rep-3",
+          "type": "exercise",
+          "exercise": {
+            "id": "fys1001-5-4-rep-e3",
+            "number": "R3",
+            "type": "classic",
+            "difficulty": "middels",
+            "task": "*(Sjanger Q.)* Forklar i 2–4 setninger hvorfor omløpstiden i en magnetisk sirkelbane er uavhengig av hvor fort partikkelen går.",
+            "solution": "Omløpstiden er banelengden delt på farten, $T = 2\\pi r/v$. Radien er selv proporsjonal med farten, $r = mv/(qB)$, så når du setter den inn, forkortes farten bort:\n\n$$T = \\frac{2\\pi}{v}\\cdot\\frac{mv}{qB} = \\frac{2\\pi m}{qB}$$\n\n**Konklusjon:** en raskere partikkel går i en tilsvarende videre bane, og de to effektene opphever hverandre nøyaktig. Omløpstiden avhenger bare av $m$, $q$ og $B$.",
+            "hints": [
+              "Skriv omløpstiden som banelengde delt på fart.",
+              "Sett inn uttrykket for radien og se hva som forkortes."
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": "fys1001-5-4-symbolliste",
+      "type": "collapsible",
+      "title": "Symbol- og formelliste",
+      "buttonText": "Vis symboler og formler",
+      "content": [
+        {
+          "id": "fys1001-5-4-symbolliste-tekst",
+          "type": "text",
+          "content": "## Symbol- og formelliste\n\n*Oppslagsverk — alt her forklares underveis i kapitlet.*\n\nAlle symboler og formler i delkapittel 5.4. Betydningene gjelder **dette delkapitlet** og arves ikke fra tidligere deler.\n\n| Symbol | Betydning | SI-enhet |\n|---|---|---|\n| $q$ | Ladning | coulomb, C |\n| $e$ | Elementærladningen, $1{,}602\\cdot10^{-19}$ C | C |\n| $m$ | Masse | kg |\n| $u$ | Atommasseenheten, $1{,}6605\\cdot10^{-27}$ kg | kg |\n| $v$ | Fart | m/s |\n| $U$ | Akselerasjonsspenning | volt, V |\n| $B$ | **Magnetisk flukstetthet** (her: *ikke* oppdrift) | tesla, T |\n| $F$ | Magnetisk kraft | newton, N |\n| $r$ | Baneradius, eller avstand fra en leder | meter, m |\n| $T$ | **Omløpstid** (her: *ikke* temperatur) | sekund, s |\n| $I$ | Strøm i lederen | ampere, A |\n| $d$ | Avstand mellom to parallelle ledere | m |\n| $L$ | Lederlengde | m |\n| $k_m$ | Magnetisk konstant, $2{,}0\\cdot10^{-7}$ | T m/A |\n| $\\theta$ | Vinkel mellom farten og feltet | grader |\n| $E_k$ | Kinetisk energi | joule, J |\n\n**Symbolkollisjoner du skal være obs på i akkurat dette delkapitlet:**\n\n- $B$ betyr **magnetisk flukstetthet** i tesla. I Del 3 er $B = \\rho V g$ oppdriften i newton.\n- $T$ betyr **omløpstid** i sekunder. I Del 4 (termofysikk) er $T$ temperatur i kelvin.\n- $k_m$ er den **magnetiske** konstanten. Coulomb-konstanten $k$ fra [kap. 5.1](/bok/fys1001/fys1001-5-1) er en helt annen størrelse, og Boltzmanns $k$ i Del 4 er en tredje.\n- $E$ brukes her bare i $E_k$ for kinetisk energi. Elektrisk feltstyrke — også kalt $E$ — hører til [kap. 5.1](/bok/fys1001/fys1001-5-1).\n- $R$ brukes ikke i dette delkapitlet. (Resistans i [kap. 5.2](/bok/fys1001/fys1001-5-2), friksjonskraft i Del 1.)\n- $\\gamma$ står her for **gammastråling** (fotoner), ikke for gravitasjonskonstanten $\\gamma$ som brukes i mekanikkdelene. Det samme gjelder $\\alpha$ og $\\beta$: de er stråletyper her, ikke vinkler.\n\n**Formler i dette delkapitlet:**\n\n$$qU = \\tfrac12 mv^2 \\quad\\Longrightarrow\\quad v = \\sqrt{\\frac{2qU}{m}}$$\nAkselerasjon over en spenning. *(Må kunne brukes aktivt — kombinasjonen er poenget.)*\n\n$$F = qvB \\qquad (F = qvB\\sin\\theta \\text{ generelt})$$\nMagnetisk kraft på en ladning i bevegelse. *(Står på formelarket.)*\n\n$$qvB = \\frac{mv^2}{r} \\quad\\Longrightarrow\\quad r = \\frac{mv}{qB}$$\nSirkelbanen: magnetisk kraft som sentripetalkraft. *(Radiusformelen står på formelarket; utledningen må du kunne vise.)*\n\n$$T = \\frac{2\\pi r}{v} = \\frac{2\\pi m}{qB}$$\nOmløpstiden — uavhengig av farten. *(Må kunne settes opp.)*\n\n$$m = \\frac{qB^2r^2}{2U} \\qquad r = \\frac{1}{B}\\sqrt{\\frac{2mU}{q}}$$\nMassespektrometeret. *(Må kunne utledes fra de to formlene over — står ikke på arket.)*\n\n$$B = k_m\\frac{I}{r}$$\nMagnetfelt fra en lang rett leder. *(Står på formelarket; $k_m$ hentes derfra.)*\n\n$$\\frac{F}{L} = k_m\\frac{I_1I_2}{d}$$\nKraft per lengdeenhet mellom to parallelle ledere. Samme retning gir tiltrekning. *(Står på formelarket.)*"
+        }
+      ]
+    }
+  ],
+  "exercises": []
+}

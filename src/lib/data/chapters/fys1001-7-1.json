@@ -1,0 +1,517 @@
+{
+  "id": "fys1001-7-1",
+  "courseId": "fys1001",
+  "chapterNumber": "7.1",
+  "title": "Fotoner, Bohr-modellen og spektra",
+  "description": "Fotonenergi, energinivåer og hvorfor gasser sender ut linjespekter — pluss fotoelektrisk effekt og røntgenrørets minstebølgelengde.",
+  "estimatedMinutes": 55,
+  "competenceGoals": [
+    "kunne regne om mellom fotonenergi, frekvens og bølgelengde med $E_f = hf = hc/\\lambda$, og mellom elektronvolt og joule",
+    "kunne finne hvilken overgang i et energinivådiagram som gir en observert spektrallinje, ved å regne ut energidifferanser",
+    "kunne begrunne hvorfor diskrete energinivåer gir linjespekter og ikke et kontinuerlig spekter",
+    "kunne bruke $E_k = hf - W$ på fotoelektrisk effekt og $\\lambda_{\\text{min}} = hc/(eU)$ på et røntgenrør"
+  ],
+  "content": [
+    {
+      "id": "fys1001-7-1-tip-eksamensvinkel",
+      "type": "tip",
+      "title": "Eksamensvinkel",
+      "content": "**Atom- og kvantefysikk er «må kunne»-stoff: oppgavetypen dukker opp i 15 av 36 slutteksamener (42 %).**\n\nBoka merker hver oppgave med en **sjangerbokstav** — en kode for hvilken oppgavetype fra eksamensarkivet den trener. Hele lista A–Q står i [kap. 0.1](/bok/fys1001/fys1001-0-1). Dette kapitlet trener **sjanger O (atom- og kvantefysikk)** og **sjanger Q (kvalitative hverdagsforklaringer — «forklar hvorfor» i 2–4 setninger)**.\n\nSlik er stoffet testet i arkivet:\n\n- **Nivå-identifikasjon** — «hvilken overgang gir linjen på 656 nm?» — sist i V2024 (vår 2024).\n- **Linjespekter-begrunnelsen** — «forklar hvorfor gassen bare sender ut bestemte bølgelengder» — i V2023.\n- **Fotoelektrisk effekt** og **røntgenrørets minste bølgelengde** i høsteksamenene 2015 og 2019.\n\nDette er ikke et av de tyngste temaene (kjernefysikk i [kap. 7.2](/bok/fys1001/fys1001-7-2)–[7.4](/bok/fys1001/fys1001-7-4) har høyeste prioritet), men det er **billig**: én formel, én tabell med nivåer og litt disiplin med enheter gir full uttelling på 2–3 deloppgaver.\n\n**Formelarket dekker deg her.** $E_f = hf$, $E_f = hc/\\lambda$, $E_k = hf - W$ og konstantene $h$, $c$ og $e$ står på arket du får utdelt — du skal ikke pugge dem. Det du må kunne, er å *velge* riktig formel, matche energidifferanser mot et nivåskjema, og holde orden på elektronvolt mot joule. Løs oppgavene med formelarket ved siden av, slik eksamen faktisk er."
+    },
+    {
+      "id": "fys1001-7-1-forkunnskaper",
+      "type": "text",
+      "content": "**Forkunnskaper — dette bygger kapitlet på:**\n\n- [kap. 5.1](/bok/fys1001/fys1001-5-1) — arbeidet et elektrisk felt gjør på en ladning, $W = qU$. Du trenger det i røntgen-delen (løkke 6).\n- [kap. 6.1](/bok/fys1001/fys1001-6-1) — sammenhengen mellom bølgefart, frekvens og bølgelengde, $v = f\\lambda$. For lys i vakuum er farten $c$.\n- Fordypning (helt frivillig, fra videregående): [Fotoelektrisk effekt og fotoner](/bok/fysikk2/fysikk2-7-1) og [Bohrs atommodell](/bok/fysikk2/fysikk2-7-5).\n\n**Sist du var her — de to tingene du trenger ferdig oppfrisket:**\n\n$$c = f\\lambda \\quad\\Longrightarrow\\quad f = \\frac{c}{\\lambda}$$\n\nLysfarten $c$ er den samme for alt lys i vakuum; kort bølgelengde betyr høy frekvens.\n\n$$W = qU$$\n\nEt elektron med ladning $e$ som akselereres gjennom spenningen $U$, får energien $eU$. Det er hele grunnlaget for elektronvolt-enheten og for røntgenrøret.\n\nUtover dette kan kapitlet leses uten forkunnskaper fra de andre delene av boka."
+    },
+    {
+      "id": "fys1001-7-1-intro",
+      "type": "text",
+      "content": "Et neonskilt lyser rødoransje. Natriumlampene over motorveien lyser gult. Nordlyset over Svalbard er grønt. Ingen av fargene er tilfeldige: hver gass sender ut sitt eget, faste sett av farger — et fingeravtrykk så pålitelig at astronomer bruker det til å bestemme hva stjerner består av, uten å reise dit.\n\nDette kapitlet forklarer hvorfor fargene er faste, og gir deg regnemaskineriet eksamen spør etter. Nøkkelen er at lys ikke er en jevn strøm, men kommer i pakker — og at elektronene i et atom bare kan ha bestemte energier.\n\nKapitlet går i seks korte læringsløkker (litt teori → et eksempel → en oppgave):\n\n1. Lys som fotoner, og enheten elektronvolt (~10 min)\n2. Energinivåer, Bohr-modellen og spektrallinjer (~13 min)\n3. Hvorfor gasser gir linjespekter (~8 min)\n4. Ionisering og maksimal bølgelengde (~8 min)\n5. Fotoelektrisk effekt (~10 min)\n6. Røntgenrøret og minste bølgelengde (~8 min)\n\nTil slutt kommer en feilliste, en begrepsbank og en symbol- og formelliste du kan slå opp i."
+    },
+    {
+      "id": "fys1001-7-1-lokke1",
+      "type": "text",
+      "content": "## Løkke 1 — Lys som fotoner, og enheten elektronvolt (~10 min)"
+    },
+    {
+      "id": "fys1001-7-1-l1-teori",
+      "type": "text",
+      "content": "Tenk på lys fra en svak stjerne. Skrur du ned intensiteten langt nok, kommer lyset ikke jevnere og jevnere — det kommer i *klikk*, som enkeltdråper. En følsom detektor registrerer enkeltpakker med energi. Pakkene kalles **fotoner**.\n\nDet avgjørende er at energien til én pakke bare avhenger av **frekvensen**, ikke av hvor sterkt lyset er. Sterkt lys betyr *mange* fotoner per sekund; blått lys betyr fotoner med *mer energi hver*."
+    },
+    {
+      "id": "fys1001-7-1-def-foton",
+      "type": "definition",
+      "title": "Foton",
+      "content": "Den minste udelelige energipakken elektromagnetisk stråling kan avgi eller ta opp. Et foton har ingen hvilemasse, beveger seg med lysfarten $c$ i vakuum, og bærer energien $E_f = hf$, der $f$ er frekvensen til strålingen.\n\nLysstyrke (intensitet) sier hvor *mange* fotoner som kommer per sekund. Farge (frekvens) sier hvor mye energi hvert enkelt foton har. De to er uavhengige — det er selve poenget i løkke 5."
+    },
+    {
+      "id": "fys1001-7-1-def-planck",
+      "type": "definition",
+      "title": "Plancks konstant $h$",
+      "content": "Naturkonstanten som knytter frekvens til energi:\n\n$$h = 6{,}63\\cdot10^{-34}\\ \\text{J}\\cdot\\text{s}$$\n\nKonstanten **hentes fra formelarket/tabellverket** — den skal ikke pugges. Den er ufattelig liten, og det er derfor kvanteeffekter ikke merkes i hverdagen: ett synlig foton bærer omtrent $10^{-19}$ J."
+    },
+    {
+      "id": "fys1001-7-1-def-fotonenergi",
+      "type": "definition",
+      "title": "Fotonenergien $E_f$",
+      "content": "Energien til ett foton:\n\n$$E_f = hf = \\frac{hc}{\\lambda}$$\n\nDen andre formen følger av $c = f\\lambda$ fra [kap. 6.1](/bok/fys1001/fys1001-6-1). Kort bølgelengde $\\Rightarrow$ høy frekvens $\\Rightarrow$ energirikt foton. Begge formene står på formelarket, men **du må selv velge hvilken som passer** til det oppgaven gir deg."
+    },
+    {
+      "id": "fys1001-7-1-l1-ev",
+      "type": "text",
+      "content": "Joule er en klosset enhet på atomskala — tallene blir $10^{-19}$ og småfeilene mange. Derfor bruker atomfysikken **elektronvolt**.\n\nEt hendig triks som sparer tid på eksamen: regner du $hc$ om til elektronvolt og nanometer én gang, får du\n\n$$hc = 1{,}24\\cdot10^{3}\\ \\text{eV}\\cdot\\text{nm} \\qquad\\Longrightarrow\\qquad E_f\\,[\\text{eV}] = \\frac{1240}{\\lambda\\,[\\text{nm}]}$$\n\nDa slipper du å veksle mellom potenser hele veien. Kontroller alltid at du oppgir svaret i den enheten oppgaven ber om."
+    },
+    {
+      "id": "fys1001-7-1-def-ev",
+      "type": "definition",
+      "title": "Elektronvolt (eV)",
+      "content": "Energien et elektron får når det akselereres gjennom en spenningsforskjell på 1 volt. Med $W = qU$ fra [kap. 5.1](/bok/fys1001/fys1001-5-1) og elementærladningen $e = 1{,}602\\cdot10^{-19}$ C:\n\n$$1\\ \\text{eV} = 1{,}602\\cdot10^{-19}\\ \\text{J}$$\n\nOmvendt: del joule-verdien på $1{,}602\\cdot10^{-19}$ for å få elektronvolt. Elementærladningen hentes fra formelarket."
+    },
+    {
+      "id": "fys1001-7-1-ex-1",
+      "type": "example",
+      "title": "Eksempel 1: Fotonenergien i grønt laserlys (sjanger O)",
+      "problem": "Grønt laserlys har bølgelengden $\\lambda = 532$ nm. Finn energien til ett foton, både i joule og i elektronvolt.",
+      "solution": "**Velg formel.** Vi kjenner bølgelengden, ikke frekvensen, så vi bruker $E_f = hc/\\lambda$ (formelarket).\n\n**Gjør om til grunnenheter.** $\\lambda = 532\\ \\text{nm} = 532\\cdot10^{-9}\\ \\text{m} = 5{,}32\\cdot10^{-7}$ m.\n\n**Regn ut i joule.**\n\n$$E_f = \\frac{hc}{\\lambda} = \\frac{6{,}63\\cdot10^{-34}\\ \\text{J}\\cdot\\text{s}\\;\\cdot\\;3{,}00\\cdot10^{8}\\ \\text{m/s}}{5{,}32\\cdot10^{-7}\\ \\text{m}} = 3{,}74\\cdot10^{-19}\\ \\text{J}$$\n\nEnhetskontroll: $\\dfrac{\\text{J}\\cdot\\text{s}\\cdot\\text{m/s}}{\\text{m}} = \\text{J}$ ✓.\n\n**Gjør om til elektronvolt.**\n\n$$E_f = \\frac{3{,}74\\cdot10^{-19}\\ \\text{J}}{1{,}602\\cdot10^{-19}\\ \\text{J/eV}} = 2{,}33\\ \\text{eV}$$\n\n**Konklusjon og rimelighet.** Ett foton grønt lys bærer $3{,}74\\cdot10^{-19}$ J, altså $2{,}33$ eV. Synlig lys spenner fra omtrent $1{,}6$ eV (dyprødt, 780 nm) til omtrent $3{,}1$ eV (fiolett, 400 nm), så $2{,}33$ eV midt i det synlige området er akkurat som forventet for grønt."
+    },
+    {
+      "id": "fys1001-7-1-opg-l1",
+      "type": "exercise",
+      "exercise": {
+        "id": "fys1001-7-1-l1",
+        "number": "1",
+        "type": "classic",
+        "difficulty": "lett",
+        "task": "(Innstegsoppgave — sjanger O, altså atom- og kvantefysikk.) Rødt lys fra en laserpeker har bølgelengden 650 nm.\n\n**a)** Finn energien til ett foton i joule.\n**b)** Gjør svaret om til elektronvolt.",
+        "solution": "**a)** Bølgelengden i meter: $650\\ \\text{nm} = 6{,}50\\cdot10^{-7}$ m. Med $E_f = hc/\\lambda$:\n\n$$E_f = \\frac{6{,}63\\cdot10^{-34}\\cdot3{,}00\\cdot10^{8}}{6{,}50\\cdot10^{-7}}\\ \\text{J} = 3{,}06\\cdot10^{-19}\\ \\text{J}$$\n\n**b)** $E_f = \\dfrac{3{,}06\\cdot10^{-19}}{1{,}602\\cdot10^{-19}}\\ \\text{eV} = 1{,}91\\ \\text{eV}$.\n\nRimelighet: rødt lys skal ligge nederst i det synlige energiområdet, og $1{,}91$ eV er lavere enn de $2{,}33$ eV vi fant for grønt lys i eksempel 1. ✓",
+        "hints": [
+          "Du kjenner bølgelengden, så bruk $E_f = hc/\\lambda$ — $h$ og $c$ står på formelarket.",
+          "Gjør bølgelengden om til meter først: $650\\ \\text{nm} = 650\\cdot10^{-9}$ m.",
+          "1 eV $= 1{,}602\\cdot10^{-19}$ J — del joule-svaret på dette tallet for å få elektronvolt."
+        ]
+      }
+    },
+    {
+      "id": "fys1001-7-1-pause1",
+      "type": "text",
+      "content": "*— naturlig pausepunkt —*"
+    },
+    {
+      "id": "fys1001-7-1-lokke2",
+      "type": "text",
+      "content": "## Løkke 2 — Energinivåer, Bohr-modellen og spektrallinjer (~13 min)"
+    },
+    {
+      "id": "fys1001-7-1-l2-teori",
+      "type": "text",
+      "content": "En stein kan legges i hvilken som helst høyde i en bakke. Et elektron i et atom kan derimot bare stå på bestemte «trinn» i en trapp: mellom trinnene finnes ingen tillatte energier. Det var dette Niels Bohr postulerte i 1913, og det er hele forklaringen på fargene i neonskiltet.\n\nNår elektronet faller fra et høyt trinn til et lavere, må energidifferansen ut — og den går ut som **ett foton** med nøyaktig den energien."
+    },
+    {
+      "id": "fys1001-7-1-def-energiniva",
+      "type": "definition",
+      "title": "Energinivå",
+      "content": "En av de tillatte energiene et elektron kan ha i et atom, nummerert med et helt tall $n = 1, 2, 3, \\ldots$. Energiene skrives $E_1, E_2, E_3, \\ldots$ og er **negative**: fortegnet betyr at elektronet er bundet til kjernen. Nullnivået er valgt slik at $E = 0$ svarer til et elektron som akkurat har sluppet fri.\n\nMellom nivåene finnes det ingen tillatte energier — derfor kalles nivåene *diskrete* (i motsetning til kontinuerlige)."
+    },
+    {
+      "id": "fys1001-7-1-def-grunntilstand",
+      "type": "definition",
+      "title": "Grunntilstand",
+      "content": "Tilstanden der elektronet ligger i det laveste nivået, $n = 1$. Dette er den mest stabile tilstanden, og den atomet raskt faller tilbake til. Energien $E_1$ er den mest negative av alle nivåene."
+    },
+    {
+      "id": "fys1001-7-1-def-eksitert",
+      "type": "definition",
+      "title": "Eksitert tilstand",
+      "content": "Enhver tilstand med $n > 1$: elektronet er løftet opp fra grunntilstanden, typisk ved at atomet har absorbert et foton eller kollidert med et annet atom eller et elektron (som i en gassutladning). Tilstanden er kortvarig — atomet faller tilbake og sender ut ett eller flere fotoner."
+    },
+    {
+      "id": "fys1001-7-1-def-bohr",
+      "type": "definition",
+      "title": "Bohr-nivåene $E_n = -B/n^2$",
+      "content": "For hydrogen og hydrogenlignende atomer ligger nivåene etter mønsteret\n\n$$E_n = -\\frac{B}{n^2}$$\n\nder $B$ er en konstant for atomet. For hydrogen er $B = 13{,}6$ eV, altså $E_1 = -13{,}6$ eV, $E_2 = -3{,}40$ eV, $E_3 = -1{,}51$ eV, $E_4 = -0{,}850$ eV.\n\nLegg merke til at nivåene ligger **tettere og tettere** når $n$ vokser, og nærmer seg $0$. Nivåverdiene er enten oppgitt i oppgaveteksten eller kan regnes fra denne formelen; formelen står på formelarket."
+    },
+    {
+      "id": "fys1001-7-1-fig-niva",
+      "type": "image",
+      "src": "/images/textbook/fys1001/fys1001-7-1-energinivaa.svg",
+      "alt": "Energinivådiagram for hydrogen med vannrette streker for nivåene n = 1 til n = 5 og ioniseringsgrensen ved 0 eV. Nedovergående piler viser overgangene 3 til 2 (1,89 eV, 656 nm) og 4 til 2 (2,55 eV, 486 nm), og en oppovergående stiplet pil viser absorpsjon fra nivå 1 til nivå 2 (10,2 eV).",
+      "caption": "Energinivådiagram for hydrogen. Piler nedover er emisjon (foton ut), piler oppover er absorpsjon (foton inn). Legg merke til at nivåene ligger tettere jo høyere opp du kommer — det er derfor linjene i et spekter klumper seg mot korte bølgelengder."
+    },
+    {
+      "id": "fys1001-7-1-l2-overgang",
+      "type": "text",
+      "content": "Regelen som bærer hele sjangeren er kort:\n\n$$E_f = E_m - E_n \\qquad (m > n)$$\n\nFotonenergien er **differansen mellom nivåene**, og fordi $E_m$ ligger høyere enn $E_n$, blir differansen positiv. Sett den lik $hc/\\lambda$, og du kan regne begge veier: fra overgang til bølgelengde, eller fra observert bølgelengde til overgang."
+    },
+    {
+      "id": "fys1001-7-1-def-emisjon",
+      "type": "definition",
+      "title": "Emisjon",
+      "content": "Atomet faller fra et høyere nivå $E_m$ til et lavere $E_n$ og sender ut ett foton med energien $E_f = E_m - E_n$. I diagrammet er dette en pil **nedover**. Emisjon gir lyse linjer på mørk bakgrunn."
+    },
+    {
+      "id": "fys1001-7-1-def-absorpsjon",
+      "type": "definition",
+      "title": "Absorpsjon",
+      "content": "Atomet tar opp et foton og løftes fra et lavere nivå $E_n$ til et høyere $E_m$. Det skjer bare hvis fotonenergien treffer differansen $E_m - E_n$ nøyaktig — fotoner med «feil» energi passerer upåvirket. I diagrammet er dette en pil **oppover**."
+    },
+    {
+      "id": "fys1001-7-1-ex-2",
+      "type": "example",
+      "title": "Eksempel 2: Hvilken overgang gir linjen? (sjanger O)",
+      "problem": "Hydrogen har energinivåene $E_1 = -13{,}6$ eV, $E_2 = -3{,}40$ eV, $E_3 = -1{,}51$ eV, $E_4 = -0{,}850$ eV og $E_5 = -0{,}544$ eV. En hydrogenlampe sender ut en blågrønn linje med bølgelengden 486 nm. Hvilken overgang gir denne linjen?",
+      "solution": "**Steg 1 — regn fotonenergien.** Bruk snarveien $E_f = 1240/\\lambda$ med $\\lambda$ i nanometer:\n\n$$E_f = \\frac{1240\\ \\text{eV}\\cdot\\text{nm}}{486\\ \\text{nm}} = 2{,}55\\ \\text{eV}$$\n\n**Steg 2 — regn ut differansene, ikke gjett.** Vi leter etter to nivåer med differanse $2{,}55$ eV. Overganger ned til $n = 2$:\n\n- $3 \\to 2$: $E_3 - E_2 = -1{,}51 - (-3{,}40) = 1{,}89$ eV\n- $4 \\to 2$: $E_4 - E_2 = -0{,}850 - (-3{,}40) = 2{,}55$ eV ✓\n- $5 \\to 2$: $E_5 - E_2 = -0{,}544 - (-3{,}40) = 2{,}86$ eV\n\n**Steg 3 — konkluder.** Linjen på 486 nm skyldes overgangen fra nivå 4 til nivå 2:\n\n$$^{4\\to2}\\!: \\quad E_f = E_4 - E_2 = 2{,}55\\ \\text{eV} \\quad\\Longrightarrow\\quad \\lambda = \\frac{1240}{2{,}55}\\ \\text{nm} = 486\\ \\text{nm}\\ ✓$$\n\n**Kontroll av fortegn.** Begge nivåene er negative, men differansen er positiv fordi $E_4$ ligger *over* $E_2$ på skalaen. Får du et negativt tall, har du snudd nivåene."
+    },
+    {
+      "id": "fys1001-7-1-opg-l2",
+      "type": "exercise",
+      "exercise": {
+        "id": "fys1001-7-1-l2",
+        "number": "2",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "(Sjanger O.) Et gassatom har energinivåene $E_1 = -5{,}14$ eV, $E_2 = -3{,}03$ eV, $E_3 = -1{,}95$ eV og $E_4 = -1{,}39$ eV. Gassen sender ut en fiolett linje med bølgelengden 389 nm.\n\n**a)** Finn fotonenergien i elektronvolt.\n**b)** Avgjør hvilken overgang som gir linjen.\n**c)** Hvilken bølgelengde har lyset fra overgangen $2 \\to 1$?",
+        "solution": "**a)** $E_f = \\dfrac{1240\\ \\text{eV}\\cdot\\text{nm}}{389\\ \\text{nm}} = 3{,}19\\ \\text{eV}$.\n\n**b)** Regn ut alle differansene og sammenlign:\n\n- $2 \\to 1$: $-3{,}03 - (-5{,}14) = 2{,}11$ eV\n- $3 \\to 1$: $-1{,}95 - (-5{,}14) = 3{,}19$ eV ✓\n- $3 \\to 2$: $-1{,}95 - (-3{,}03) = 1{,}08$ eV\n- $4 \\to 1$: $-1{,}39 - (-5{,}14) = 3{,}75$ eV\n- $4 \\to 2$: $1{,}64$ eV, $4 \\to 3$: $0{,}56$ eV\n\nBare $3 \\to 1$ gir $3{,}19$ eV, så den fiolette linjen kommer fra overgangen fra nivå 3 til grunntilstanden.\n\n**c)** $\\lambda = \\dfrac{1240\\ \\text{eV}\\cdot\\text{nm}}{2{,}11\\ \\text{eV}} = 588\\ \\text{nm}$ — gult lys, midt i det synlige området.",
+        "hints": [
+          "Regn først om bølgelengden til fotonenergi med $E_f = hc/\\lambda$ (eller snarveien $1240/\\lambda[\\text{nm}]$).",
+          "Sett opp differansen $E_m - E_n$ for hvert par av nivåer — regn dem ut, ikke gjett hvilken som passer.",
+          "I c) går du motsatt vei: finn differansen først, og sett den inn i $\\lambda = hc/E_f$."
+        ]
+      }
+    },
+    {
+      "id": "fys1001-7-1-pause2",
+      "type": "text",
+      "content": "*— naturlig pausepunkt —*"
+    },
+    {
+      "id": "fys1001-7-1-lokke3",
+      "type": "text",
+      "content": "## Løkke 3 — Hvorfor gasser gir linjespekter (~8 min)"
+    },
+    {
+      "id": "fys1001-7-1-l3-teori",
+      "type": "text",
+      "content": "Nå kan vi svare på spørsmålet eksamen faktisk stiller — og det er et **kvalitativt** spørsmål, sjanger Q: forklar hvorfor gassen bare sender ut bestemte bølgelengder.\n\nArgumentet har tre ledd, og alle tre må stå i svaret for full uttelling: nivåene er diskrete $\\Rightarrow$ differansene er diskrete $\\Rightarrow$ bølgelengdene er diskrete."
+    },
+    {
+      "id": "fys1001-7-1-def-linjespekter",
+      "type": "definition",
+      "title": "Linjespekter",
+      "content": "Et spekter som består av noen få skarpe, adskilte bølgelengder. Det oppstår i tynne gasser, der atomene er langt fra hverandre og har veldefinerte energinivåer. Hvert grunnstoff har sitt eget linjemønster — et fingeravtrykk som brukes til å bestemme stoffsammensetningen i for eksempel stjerner."
+    },
+    {
+      "id": "fys1001-7-1-def-kontinuerlig",
+      "type": "definition",
+      "title": "Kontinuerlig spekter",
+      "content": "Et spekter som inneholder alle bølgelengder i et område, uten hull — som regnbuen fra en glødende metalltråd eller en glødelampe. Det oppstår i faste stoffer og tette væsker, der atomene ligger så tett at energinivåene smøres ut til brede bånd og det finnes energidifferanser av nesten alle størrelser."
+    },
+    {
+      "id": "fys1001-7-1-def-absorpsjonsspekter",
+      "type": "definition",
+      "title": "Absorpsjonsspekter",
+      "content": "Et kontinuerlig spekter med **mørke linjer** der en gass mellom lyskilden og observatøren har absorbert. De mørke linjene ligger nøyaktig på de samme bølgelengdene som gassen ville sendt ut i emisjon, fordi det er de samme energidifferansene som virker begge veier. Solas spekter er det klassiske eksempelet."
+    },
+    {
+      "id": "fys1001-7-1-ex-3",
+      "type": "example",
+      "title": "Eksempel 3: Modellsvar på linjespekter-spørsmålet (sjanger Q)",
+      "problem": "Forklar, i høyst fire setninger, hvorfor en tynn glødende gass sender ut noen få skarpe farger, mens en glødende metalltråd sender ut alle farger.",
+      "solution": "**Modellsvar (tre setninger — dette er hele svaret, ikke et sammendrag av et lengre svar):**\n\n«Elektronene i et fritt gassatom kan bare ha bestemte, diskrete energinivåer, og et foton som sendes ut, bærer alltid nøyaktig differansen mellom to slike nivåer. Siden det bare finnes et endelig antall slike differanser, får vi bare noen få bestemte fotonenergier og dermed noen få skarpe bølgelengder — et linjespekter. I en glødende metalltråd ligger atomene så tett at nivåene smøres ut til brede bånd, og da finnes det energidifferanser av nær sagt alle størrelser, slik at spekteret blir kontinuerlig.»\n\n**Hvorfor dette gir full uttelling:** svaret navngir mekanismen med fagbegrep (diskrete energinivåer, energidifferanse, foton), kobler mekanismen til akkurat de to situasjonene i oppgaven, og konkluderer med begrepene «linjespekter» og «kontinuerlig spekter». Det er kort, det garderer ikke, og det inneholder ingen løs prat om at «atomer er kompliserte»."
+    },
+    {
+      "id": "fys1001-7-1-opg-l3",
+      "type": "exercise",
+      "exercise": {
+        "id": "fys1001-7-1-l3",
+        "number": "3",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "(Sjanger Q — kvalitativ forklaring.) Sollys som har passert gjennom solas ytre, kjøligere gasslag, viser mørke linjer på nøyaktig de bølgelengdene der en varm natriumdamp i et laboratorium sender ut lyse linjer. Forklar i høyst fire setninger hvorfor de mørke og de lyse linjene ligger på de samme bølgelengdene.",
+        "solution": "Både emisjon og absorpsjon styres av de samme energidifferansene mellom natriumatomets nivåer, siden det er de samme trinnene elektronet hopper mellom. I laboratoriet er atomene eksitert, faller ned og sender ut fotoner med energien $E_f = E_m - E_n$ — det gir lyse linjer. I solas ytre lag treffer et kontinuerlig spekter nedenfra kjølige natriumatomer, som plukker ut nettopp de fotonene som har energien $E_m - E_n$ og løftes til høyere nivå — de bølgelengdene mangler derfor i lyset som når oss, og vi ser mørke linjer. Bølgelengdene er altså identiske fordi det er samme energidifferanser som virker begge veier.\n\n*Presisering (verdt et poeng når spørsmålet er stilt slik):* atomene i solas gasslag sender fotonene ut igjen, men i alle retninger — derfor blir det likevel mørkt akkurat i vår synsretning.",
+        "hints": [
+          "Tenk på hvilken størrelse som er felles for emisjon og absorpsjon.",
+          "Skriv opp $E_f = E_m - E_n$ og spør hvilken vei elektronet hopper i hvert av de to tilfellene.",
+          "Husk å si hva som skjer med de fotonene som *blir* absorbert i solas gasslag."
+        ]
+      }
+    },
+    {
+      "id": "fys1001-7-1-lokke4",
+      "type": "text",
+      "content": "## Løkke 4 — Ionisering og maksimal bølgelengde (~8 min)"
+    },
+    {
+      "id": "fys1001-7-1-l4-teori",
+      "type": "text",
+      "content": "Hva om fotonet er så energirikt at elektronet ikke bare hopper opp et trinn, men forlater atomet helt? Da er atomet **ionisert**. På energiskalaen svarer det til å løfte elektronet helt opp til $E = 0$."
+    },
+    {
+      "id": "fys1001-7-1-def-ionisering",
+      "type": "definition",
+      "title": "Ionisering",
+      "content": "At et elektron rives helt løs fra atomet, slik at det blir igjen et positivt ion. På nivådiagrammet betyr det at elektronet løftes fra sitt nivå og opp til (eller over) grensen $E = 0$."
+    },
+    {
+      "id": "fys1001-7-1-def-ioniseringsenergi",
+      "type": "definition",
+      "title": "Ioniseringsenergi $W$",
+      "content": "Energien som skal til for å rive løs et elektron fra grunntilstanden:\n\n$$W = 0 - E_1 = -E_1$$\n\nFor hydrogen er $W = 13{,}6$ eV. Et foton kan ionisere atomet hvis $E_f \\ge W$, altså hvis\n\n$$\\lambda \\le \\lambda_{\\text{maks}} = \\frac{hc}{W}$$\n\n**Merk ulikhetsretningen:** *kortere* bølgelengde enn $\\lambda_{\\text{maks}}$ virker (overskuddsenergien blir kinetisk energi til det frie elektronet), *lengre* bølgelengde virker ikke. Her er det ingen «nesten» — enten er fotonet energirikt nok, eller så er det ikke."
+    },
+    {
+      "id": "fys1001-7-1-ex-4",
+      "type": "example",
+      "title": "Eksempel 4: Hvor kortbølget må lyset være? (sjanger O)",
+      "problem": "Hydrogen har ioniseringsenergi $W = 13{,}6$ eV fra grunntilstanden. Finn den lengste bølgelengden som kan ionisere et hydrogenatom, og avgjør hvilket område av spekteret den ligger i.",
+      "solution": "**Sett opp betingelsen.** Fotonet må ha minst energien $W$: $E_f = hc/\\lambda \\ge W$. Grensetilfellet $E_f = W$ gir den lengste bølgelengden som virker:\n\n$$\\lambda_{\\text{maks}} = \\frac{hc}{W} = \\frac{1240\\ \\text{eV}\\cdot\\text{nm}}{13{,}6\\ \\text{eV}} = 91{,}2\\ \\text{nm}$$\n\n**Kontroll i SI-enheter** (samme svar, tyngre vei): $W = 13{,}6 \\cdot 1{,}602\\cdot10^{-19}\\ \\text{J} = 2{,}18\\cdot10^{-18}$ J, og\n\n$$\\lambda_{\\text{maks}} = \\frac{6{,}63\\cdot10^{-34}\\cdot3{,}00\\cdot10^{8}}{2{,}18\\cdot10^{-18}}\\ \\text{m} = 9{,}13\\cdot10^{-8}\\ \\text{m} = 91{,}3\\ \\text{nm}\\ ✓$$\n\nDe to veiene skiller seg i siste siffer (91,2 mot 91,3 nm) fordi snarveien $1240$ eV$\\cdot$nm selv er avrundet fra $1242$ eV$\\cdot$nm. Begge svar godtas; oppgi to eller tre gjeldende siffer.\n\n**Konklusjon.** Lys med bølgelengde om lag 91 nm eller kortere ioniserer hydrogen fra grunntilstanden. Det er langt kortere enn synlig lys (400–780 nm) — det ligger i det ultrafiolette området. Synlig lys kan altså ikke ionisere hydrogen, uansett hvor sterk lampen er."
+    },
+    {
+      "id": "fys1001-7-1-opg-l4",
+      "type": "exercise",
+      "exercise": {
+        "id": "fys1001-7-1-l4",
+        "number": "4",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "(Sjanger O.) Gassatomet fra oppgaven i løkke 2 har grunntilstand $E_1 = -5{,}14$ eV.\n\n**a)** Finn ioniseringsenergien fra grunntilstanden.\n**b)** Finn den lengste bølgelengden som kan ionisere atomet.\n**c)** Vil ultrafiolett lys med bølgelengden 300 nm ionisere atomet fra grunntilstanden? Begrunn med et tall.",
+        "solution": "**a)** $W = -E_1 = 5{,}14$ eV.\n\n**b)** $\\lambda_{\\text{maks}} = \\dfrac{hc}{W} = \\dfrac{1240\\ \\text{eV}\\cdot\\text{nm}}{5{,}14\\ \\text{eV}} = 241\\ \\text{nm}$.\n\n**c)** Fotonenergien ved 300 nm er $E_f = \\dfrac{1240}{300}\\ \\text{eV} = 4{,}13$ eV. Siden $4{,}13\\ \\text{eV} < 5{,}14\\ \\text{eV}$, har fotonet ikke nok energi, og atomet blir ikke ionisert. Det stemmer med b): 300 nm er lengre enn grensen på 241 nm.",
+        "hints": [
+          "Ioniseringsenergien er avstanden fra grunntilstanden opp til nullnivået.",
+          "Grensetilfellet er $E_f = W$; sett $hc/\\lambda = W$ og løs for $\\lambda$.",
+          "I c) må du sammenligne to energier (eller to bølgelengder) — pass på hvilken vei ulikheten går."
+        ]
+      }
+    },
+    {
+      "id": "fys1001-7-1-pause3",
+      "type": "text",
+      "content": "*— naturlig pausepunkt —*"
+    },
+    {
+      "id": "fys1001-7-1-lokke5",
+      "type": "text",
+      "content": "## Løkke 5 — Fotoelektrisk effekt (~10 min)"
+    },
+    {
+      "id": "fys1001-7-1-l5-teori",
+      "type": "text",
+      "content": "En sinkplate lades negativt og bestråles. Med sterkt gult lys skjer ingenting — uansett hvor kraftig lampen er, og uansett hvor lenge du venter. Med svakt ultrafiolett lys tømmes platen for ladning umiddelbart. Dette var den observasjonen som tvang fram fotonmodellen: en jevn bølge burde jo kunne pumpe energi inn over tid.\n\nForklaringen er at løsrivingen skjer **ett foton mot ett elektron**. Har fotonet for lite energi, hjelper det ikke å sende flere av dem."
+    },
+    {
+      "id": "fys1001-7-1-def-fotoelektrisk",
+      "type": "definition",
+      "title": "Fotoelektrisk effekt",
+      "content": "At lys som treffer en metallflate, river løs elektroner fra metallet. Energiregnskapet for ett elektron er\n\n$$E_k = hf - W$$\n\nder $E_k$ er den største kinetiske energien det løsrevne elektronet kan ha, og $W$ er løsrivingsarbeidet. Formelen står på formelarket."
+    },
+    {
+      "id": "fys1001-7-1-def-losrivingsarbeid",
+      "type": "definition",
+      "title": "Løsrivingsarbeid $W$",
+      "content": "Den minste energien som skal til for å rive et elektron løs fra en bestemt metallflate. Verdien er en materialegenskap (den hentes fra tabell) og ligger typisk mellom 2 og 5 eV. Merk at *samme symbol* $W$ her brukes om løsrivingsarbeid, mens det i løkke 4 betød ioniseringsenergi — begge er «energien som skal til for å frigjøre et elektron», bare fra henholdsvis et metall og et fritt atom."
+    },
+    {
+      "id": "fys1001-7-1-def-grensefrekvens",
+      "type": "definition",
+      "title": "Grensefrekvens $f_0$",
+      "content": "Den laveste frekvensen som i det hele tatt gir løsrivning. Den finnes ved å sette $E_k = 0$ i $E_k = hf - W$:\n\n$$f_0 = \\frac{W}{h}, \\qquad \\lambda_0 = \\frac{hc}{W}$$\n\nUnder $f_0$ (altså for bølgelengder lengre enn $\\lambda_0$) skjer ingenting — **uansett lysstyrke**. Over $f_0$ starter løsrivningen momentant, selv med svakt lys."
+    },
+    {
+      "id": "fys1001-7-1-fig-fotoelektrisk",
+      "type": "image",
+      "src": "/images/textbook/fys1001/fys1001-7-1-fotoelektrisk.svg",
+      "alt": "Graf av elektronets maksimale kinetiske energi mot lysets frekvens. Til venstre for grensefrekvensen ligger grafen på null og er merket at ingen elektroner løsrives uansett lysstyrke. Fra grensefrekvensen stiger en rett linje med stigningstall lik Plancks konstant, og den stiplede forlengelsen skjærer energiaksen i minus løsrivingsarbeidet.",
+      "caption": "Fotoelektrisk effekt for et metall med $W = 2{,}30$ eV. Den rette linja er $E_k = hf - W$: stigningstallet er $h$ (likt for alle metaller), mens skjæringspunktet $-W$ og grensefrekvensen $f_0$ er materialavhengige."
+    },
+    {
+      "id": "fys1001-7-1-ex-5",
+      "type": "example",
+      "title": "Eksempel 5: Grensefrekvens og elektronets energi (sjanger O)",
+      "problem": "En metallflate har løsrivingsarbeid $W = 2{,}30$ eV. **a)** Finn grensefrekvensen og den tilhørende bølgelengden. **b)** Flaten bestråles med blått lys med bølgelengden 450 nm. Finn den største kinetiske energien de løsrevne elektronene kan ha, i eV og i J.",
+      "solution": "**a) Grensefrekvensen.** Sett $E_k = 0$:\n\n$$f_0 = \\frac{W}{h} = \\frac{2{,}30\\cdot1{,}602\\cdot10^{-19}\\ \\text{J}}{6{,}63\\cdot10^{-34}\\ \\text{J}\\cdot\\text{s}} = 5{,}56\\cdot10^{14}\\ \\text{Hz}$$\n\nTilhørende bølgelengde: $\\lambda_0 = \\dfrac{1240\\ \\text{eV}\\cdot\\text{nm}}{2{,}30\\ \\text{eV}} = 539$ nm — altså grønt-gult lys. Alt lys med lengre bølgelengde (gult, oransje, rødt) gir *ingen* elektroner.\n\n**b) Blått lys.** Fotonenergien er\n\n$$E_f = \\frac{1240\\ \\text{eV}\\cdot\\text{nm}}{450\\ \\text{nm}} = 2{,}76\\ \\text{eV}$$\n\nEnergiregnskapet gir\n\n$$E_k = E_f - W = 2{,}76\\ \\text{eV} - 2{,}30\\ \\text{eV} = 0{,}46\\ \\text{eV}$$\n\nI joule: $E_k = 0{,}46\\cdot1{,}602\\cdot10^{-19}\\ \\text{J} = 7{,}3\\cdot10^{-20}$ J.\n\n**Konklusjon og rimelighet.** Blått lys på 450 nm ligger over grensen på 539 nm, så elektroner løsrives, og de raskeste har $0{,}46$ eV $= 7{,}3\\cdot10^{-20}$ J. Overskuddet er lite fordi fotonet bare så vidt overgår løsrivingsarbeidet — det passer med at grensebølgelengden ligger like i nærheten."
+    },
+    {
+      "id": "fys1001-7-1-opg-l5",
+      "type": "exercise",
+      "exercise": {
+        "id": "fys1001-7-1-l5",
+        "number": "5",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "(Sjanger O + Q.) En metallflate har løsrivingsarbeid $W = 4{,}20$ eV. Flaten bestråles med ultrafiolett lys med bølgelengden 300 nm.\n\n**a)** Finn fotonenergien i eV.\n**b)** Blir det løsrevet elektroner? Begrunn med tall.\n**c)** En medstudent foreslår å skru lampen til dobbel effekt. Forklar i høyst tre setninger hva som da skjer.",
+        "solution": "**a)** $E_f = \\dfrac{1240\\ \\text{eV}\\cdot\\text{nm}}{300\\ \\text{nm}} = 4{,}13\\ \\text{eV}$.\n\n**b)** Nei. Løsrivning krever $E_f \\ge W$, men $4{,}13\\ \\text{eV} < 4{,}20\\ \\text{eV}$. Fotonet mangler $0{,}07$ eV, og det finnes ingen mellomting: hvert enkelt foton er enten sterkt nok eller ikke.\n\n**c)** Dobbel lampeeffekt betyr dobbelt så mange fotoner per sekund, men hvert enkelt foton har fortsatt bare $4{,}13$ eV. Siden løsrivningen skjer ved at *ett* foton gir energien sin til *ett* elektron, blir det fremdeles ingen elektroner. Det som må endres, er bølgelengden — den må ned under $\\lambda_0 = 1240/4{,}20\\ \\text{nm} = 295$ nm.",
+        "hints": [
+          "Regn fotonenergien først; sammenlign den så med løsrivingsarbeidet.",
+          "Betingelsen for løsrivning er en ulikhet mellom to energier — skriv den opp.",
+          "I c): hva endrer lysstyrken — antall fotoner eller energien per foton?"
+        ]
+      }
+    },
+    {
+      "id": "fys1001-7-1-lokke6",
+      "type": "text",
+      "content": "## Løkke 6 — Røntgenrøret og minste bølgelengde (~8 min)"
+    },
+    {
+      "id": "fys1001-7-1-l6-teori",
+      "type": "text",
+      "content": "Et røntgenrør snur den fotoelektriske effekten på hodet: i stedet for at lys lager elektroner, lager elektroner lys. Elektroner rives løs fra en glødetråd, akselereres gjennom en høy spenning $U$ og smeller inn i en metallanode. Der bremses de brått opp, og bremsingen sender ut stråling.\n\nFra [kap. 5.1](/bok/fys1001/fys1001-5-1) vet du at et elektron som akselereres gjennom spenningen $U$, får den kinetiske energien $E_k = eU$. Det aller mest energirike fotonet oppstår hvis **hele** denne energien går til ett foton i én enkelt bremsing."
+    },
+    {
+      "id": "fys1001-7-1-def-bremsestraaling",
+      "type": "definition",
+      "title": "Bremsestråling",
+      "content": "Strålingen som oppstår når raske elektroner bremses opp i anoden. Fordi hvert elektron kan avgi hvilken som helst brøkdel av energien sin, blir bremsestrålingen et **kontinuerlig** spekter — men med en skarp nedre grense for bølgelengden."
+    },
+    {
+      "id": "fys1001-7-1-def-karakteristisk",
+      "type": "definition",
+      "title": "Karakteristisk stråling",
+      "content": "Skarpe linjer oppå det kontinuerlige bremsespekteret. De oppstår når et innkommende elektron slår ut et elektron fra et *indre* skall i et anodeatom, og et elektron fra et ytre skall faller ned i hullet. Fotonenergien er da differansen mellom to energinivåer i anodematerialet — samme mekanisme som i løkke 2, og derfor er linjene **karakteristiske for anodematerialet**, ikke for spenningen."
+    },
+    {
+      "id": "fys1001-7-1-def-lambdamin",
+      "type": "definition",
+      "title": "Minste bølgelengde $\\lambda_{\\text{min}}$",
+      "content": "Den korteste bølgelengden røntgenrøret kan gi ved akselerasjonsspenningen $U$. Den svarer til at hele elektronets kinetiske energi $eU$ går til ett foton:\n\n$$eU = \\frac{hc}{\\lambda_{\\text{min}}} \\qquad\\Longrightarrow\\qquad \\lambda_{\\text{min}} = \\frac{hc}{eU}$$\n\nGrensen avhenger **bare av spenningen**, ikke av anodematerialet og ikke av strømmen gjennom røret. Strømmen styrer hvor *mange* fotoner du får, spenningen styrer hvor *energirike* de kan bli."
+    },
+    {
+      "id": "fys1001-7-1-ex-6",
+      "type": "example",
+      "title": "Eksempel 6: Minste bølgelengde fra et røntgenrør (sjanger O)",
+      "problem": "Et røntgenrør drives med akselerasjonsspenningen $U = 85$ kV. Finn den største fotonenergien og den minste bølgelengden røret kan gi.",
+      "solution": "**Største fotonenergi.** Elektronet får energien $E_k = eU$. Uttrykt i elektronvolt er dette tallmessig lik spenningen i volt:\n\n$$E_{f,\\text{maks}} = eU = e \\cdot 85\\,000\\ \\text{V} = 85\\,000\\ \\text{eV} = 85\\ \\text{keV}$$\n\nI joule: $85\\,000 \\cdot 1{,}602\\cdot10^{-19}\\ \\text{J} = 1{,}36\\cdot10^{-14}$ J.\n\n**Minste bølgelengde.**\n\n$$\\lambda_{\\text{min}} = \\frac{hc}{eU} = \\frac{1240\\ \\text{eV}\\cdot\\text{nm}}{85\\,000\\ \\text{eV}} = 1{,}46\\cdot10^{-2}\\ \\text{nm} = 14{,}6\\ \\text{pm}$$\n\n**Konklusjon og rimelighet.** Røret kan i beste fall gi fotoner på 85 keV, som svarer til $\\lambda_{\\text{min}} = 14{,}6$ pm. Det er titusener av ganger kortere enn synlig lys (som ligger på 400–780 nm, altså 27 000–53 000 ganger så langt) — akkurat i det området som trengs for at strålingen skal trenge gjennom vev, og det er hele poenget med et røntgenbilde.\n\n*Merk:* dette er grensen. De aller fleste fotonene fra røret har lengre bølgelengde, fordi elektronene som regel bremses i flere trinn."
+    },
+    {
+      "id": "fys1001-7-1-opg-l6a",
+      "type": "exercise",
+      "exercise": {
+        "id": "fys1001-7-1-l6a",
+        "number": "6",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "(Sjanger O.) Et tannlegerøntgen drives med akselerasjonsspenningen 40 kV.\n\n**a)** Finn den største fotonenergien i keV og i joule.\n**b)** Finn den minste bølgelengden røret kan gi.\n**c)** Hva skjer med den minste bølgelengden hvis spenningen dobles til 80 kV?",
+        "solution": "**a)** $E_{f,\\text{maks}} = eU = 40\\,000\\ \\text{eV} = 40$ keV. I joule: $40\\,000\\cdot1{,}602\\cdot10^{-19}\\ \\text{J} = 6{,}41\\cdot10^{-15}$ J.\n\n**b)** $\\lambda_{\\text{min}} = \\dfrac{hc}{eU} = \\dfrac{1240\\ \\text{eV}\\cdot\\text{nm}}{40\\,000\\ \\text{eV}} = 3{,}10\\cdot10^{-2}\\ \\text{nm} = 31{,}0\\ \\text{pm}$.\n\n**c)** $\\lambda_{\\text{min}}$ er omvendt proporsjonal med $U$, så dobbel spenning halverer grensen: $\\lambda_{\\text{min}} = 15{,}5$ pm. Strålingen blir altså mer gjennomtrengende.",
+        "hints": [
+          "Et elektron akselerert gjennom $U$ får energien $eU$; i elektronvolt er tallet det samme som spenningen i volt.",
+          "Grensen finner du ved å la hele denne energien gå til ett foton: $eU = hc/\\lambda_{\\text{min}}$.",
+          "I c): se på hvordan $\\lambda_{\\text{min}}$ og $U$ står i forhold til hverandre i formelen — er sammenhengen lineær eller omvendt?"
+        ]
+      }
+    },
+    {
+      "id": "fys1001-7-1-opg-l6b",
+      "type": "exercise",
+      "exercise": {
+        "id": "fys1001-7-1-l6b",
+        "number": "7",
+        "type": "classic",
+        "difficulty": "lett",
+        "task": "(Sjanger Q — kvalitativ forklaring.) Spekteret fra et røntgenrør består av en bred, kontinuerlig «pukkel» med et par skarpe topper oppå. Forklar i høyst fire setninger hva de to delene kommer av, og hvorfor bare den ene delen endrer seg når du bytter anodemateriale.",
+        "solution": "Den brede, kontinuerlige delen er bremsestråling: elektronene bremses opp i anoden og kan avgi hvilken som helst brøkdel av energien sin, så alle bølgelengder over grensen $\\lambda_{\\text{min}} = hc/(eU)$ forekommer. De skarpe toppene er karakteristisk stråling: et innkommende elektron slår ut et elektron fra et indre skall, og et elektron fra et ytre skall faller ned i hullet og sender ut et foton med energi lik differansen mellom to energinivåer i anodeatomet. Nivåene tilhører anodematerialet, så toppenes bølgelengder endrer seg når du bytter materiale. Den kontinuerlige delen avhenger derimot bare av akselerasjonsspenningen, som er uendret.",
+        "hints": [
+          "Del svaret i to: hva skjer med elektronets *bevegelsesenergi*, og hva skjer med anodeatomets *elektroner*?",
+          "Den ene mekanismen er den samme som ga linjespekter i løkke 2 — hvilken?",
+          "Spør deg hvilken av de to delene som er knyttet til energinivåer i et bestemt grunnstoff."
+        ]
+      }
+    },
+    {
+      "id": "fys1001-7-1-warn-typiske-feil",
+      "type": "warning",
+      "title": "Typiske feil",
+      "content": "- **Fortegnsrot i nivådifferansen.** Energien som sendes ut, er $E_f = E_m - E_n$ med $E_m$ som det *høyeste* nivået, og den er alltid positiv. Får du et negativt tall, har du byttet om nivåene. Nivåene er negative, differansen er ikke.\n- **Å tro at sterkere lys hjelper under grensefrekvensen.** Løsrivning skjer ett foton mot ett elektron. Flere fotoner med for lav energi gir like mange nuller.\n- **Glemme eV $\\leftrightarrow$ J.** Skal svaret i joule, må du gange med $1{,}602\\cdot10^{-19}$; skal det i eV, må du dele. Sensor trekker for gal enhet.\n- **Å gjette hvilken overgang som gir en linje.** Regn ut differansene og sammenlign med fotonenergien — vis regnestykket. Et påstått svar uten differanseregning gir nesten ingen uttelling.\n- **Glemme nm $\\to$ m.** Bruker du $hc = 1{,}99\\cdot10^{-25}$ J$\\cdot$m, må bølgelengden være i meter. Bruker du snarveien $1240$ eV$\\cdot$nm, skal den være i nanometer. Bland aldri de to.\n- **Å tro at røntgenrørets $\\lambda_{\\text{min}}$ avhenger av anodematerialet.** Grensen bestemmes bare av spenningen; det er de karakteristiske linjene som følger materialet.\n- **Ulikhetsretningen ved ionisering.** Det er *kort* bølgelengde som ioniserer. $\\lambda_{\\text{maks}} = hc/W$ er en øvre grense for bølgelengden, ikke en nedre."
+    },
+    {
+      "id": "fys1001-7-1-begrepsbank-intro",
+      "type": "text",
+      "content": "## Begrepsbank\n\nBegrepsbanken er flashcard-/repetisjonsstoff — den gjentar det du nettopp har lest. Hopp trygt over ved førstegangslesing; tidsanslaget for kapitlet gjelder kjernestoffet."
+    },
+    {
+      "id": "fys1001-7-1-def-spektrallinje",
+      "type": "definition",
+      "title": "Spektrallinje",
+      "content": "En enkelt skarp bølgelengde i et spekter, som svarer til én bestemt overgang mellom to energinivåer. På eksamen er «identifiser overgangen bak spektrallinjen» standardspørsmålet: regn fotonenergien fra bølgelengden, og finn nivåparet med samme differanse."
+    },
+    {
+      "id": "fys1001-7-1-def-eksitasjon",
+      "type": "definition",
+      "title": "Eksitasjon",
+      "content": "At et atom løftes fra et lavere til et høyere energinivå. Det kan skje ved absorpsjon av et foton med akkurat riktig energi, eller ved kollisjon — for eksempel med frie elektroner i en gassutladning, som i et neonrør eller i nordlyset."
+    },
+    {
+      "id": "fys1001-7-1-def-nivaaskjema",
+      "type": "definition",
+      "title": "Nivåskjema (energinivådiagram)",
+      "content": "Figuren med vannrette streker for de tillatte energiene, en strek for hvert nivå og en stiplet linje ved $E = 0$ for ioniseringsgrensen. Piler nedover er emisjon, piler oppover er absorpsjon. Blir du bedt om å «vise overgangen», forventes det at du tegner pila inn i skjemaet og skriver energien og bølgelengden ved siden av."
+    },
+    {
+      "id": "fys1001-7-1-rep",
+      "type": "collapsible",
+      "title": "Repetisjonsoppgaver",
+      "buttonText": "Vis repetisjonsoppgaver",
+      "content": [
+        {
+          "id": "fys1001-7-1-rep-o1",
+          "type": "exercise",
+          "exercise": {
+            "id": "fys1001-7-1-rep-1",
+            "number": "R1",
+            "type": "classic",
+            "difficulty": "lett",
+            "task": "(Fra kap. 6.1.) Blått lys har bølgelengden 450 nm i vakuum. Finn frekvensen.",
+            "solution": "Med $c = f\\lambda$ blir $f = \\dfrac{c}{\\lambda} = \\dfrac{3{,}00\\cdot10^{8}\\ \\text{m/s}}{4{,}50\\cdot10^{-7}\\ \\text{m}} = 6{,}67\\cdot10^{14}\\ \\text{Hz}$.",
+            "hints": [
+              "Bruk $c = f\\lambda$ og løs for $f$.",
+              "Bølgelengden må være i meter."
+            ]
+          }
+        },
+        {
+          "id": "fys1001-7-1-rep-o2",
+          "type": "exercise",
+          "exercise": {
+            "id": "fys1001-7-1-rep-2",
+            "number": "R2",
+            "type": "classic",
+            "difficulty": "lett",
+            "task": "(Fra kap. 5.1.) Et elektron akselereres fra ro gjennom en spenning på 2,0 kV. Hvor stor kinetisk energi får det, i eV og i J?",
+            "solution": "Arbeidet det elektriske feltet gjør, er $W = qU = e\\cdot2000\\ \\text{V}$, altså $2{,}0\\cdot10^{3}$ eV $= 2{,}0$ keV. I joule: $2000\\cdot1{,}602\\cdot10^{-19}\\ \\text{J} = 3{,}2\\cdot10^{-16}$ J. Hele arbeidet blir kinetisk energi siden elektronet starter i ro.",
+            "hints": [
+              "$W = qU$, og for et elektron er $q = e$.",
+              "I elektronvolt er tallet det samme som spenningen i volt."
+            ]
+          }
+        },
+        {
+          "id": "fys1001-7-1-rep-o3",
+          "type": "exercise",
+          "exercise": {
+            "id": "fys1001-7-1-rep-3",
+            "number": "R3",
+            "type": "classic",
+            "difficulty": "middels",
+            "task": "Et atom har nivåene $E_1 = -9{,}00$ eV, $E_2 = -4{,}00$ eV og $E_3 = -1{,}50$ eV. Hvor mange forskjellige spektrallinjer kan denne gassen sende ut, og hvilken av dem har lengst bølgelengde?",
+            "solution": "Med tre nivåer finnes det tre mulige overganger nedover: $3\\to2$, $3\\to1$ og $2\\to1$ — altså tre linjer. Energiene er $E_3-E_2 = 2{,}50$ eV, $E_3-E_1 = 7{,}50$ eV og $E_2-E_1 = 5{,}00$ eV. Lengst bølgelengde svarer til *lavest* energi, siden $\\lambda = hc/E_f$: overgangen $3\\to2$ med $\\lambda = 1240/2{,}50\\ \\text{nm} = 496$ nm.",
+            "hints": [
+              "Tell alle par av nivåer der elektronet kan falle nedover.",
+              "Sammenhengen mellom energi og bølgelengde er omvendt: liten energi gir lang bølgelengde."
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": "fys1001-7-1-symbolliste",
+      "type": "collapsible",
+      "title": "Symbol- og formelliste",
+      "buttonText": "Vis symboler og formler",
+      "content": [
+        {
+          "id": "fys1001-7-1-symbolliste-text",
+          "type": "text",
+          "content": "## Symbol- og formelliste\n\n*Oppslagsverk — alt her forklares underveis i kapitlet.*\n\nAlle symboler og formler brukt i delkapittel 7.1, samlet. **Symbolkollisjoner i nettopp dette delkapitlet:** $E$ betyr **energi** (aldri elektrisk feltstyrke her), og $W$ betyr **ioniseringsenergi** i løkke 4 og **løsrivingsarbeid** i løkke 5 — begge er «energien som skal til for å frigjøre et elektron», men fra henholdsvis et fritt atom og en metallflate.\n\n| Symbol | Betydning | SI-enhet |\n|---|---|---|\n| $E_f$ | Energien til ett foton | J (ofte oppgitt i eV) |\n| $E_n$ | Energien til energinivå nummer $n$ | J (nesten alltid oppgitt i eV) |\n| $n$ | Nivånummer (kvantetall), $1, 2, 3, \\ldots$ | — (uten enhet) |\n| $B$ | Konstanten i $E_n = -B/n^2$ (13,6 eV for hydrogen) | J (oppgis i eV) |\n| $f$ | Frekvens | Hz $= \\text{s}^{-1}$ |\n| $f_0$ | Grensefrekvens for fotoelektrisk effekt | Hz |\n| $\\lambda$ | Bølgelengde | m (ofte nm) |\n| $\\lambda_{\\text{maks}}$ | Lengste bølgelengde som ioniserer | m |\n| $\\lambda_0$ | Bølgelengden som svarer til grensefrekvensen | m |\n| $\\lambda_{\\text{min}}$ | Korteste bølgelengde fra et røntgenrør | m (ofte pm) |\n| $h$ | Plancks konstant, $6{,}63\\cdot10^{-34}$ | J$\\cdot$s |\n| $c$ | Lysfarten i vakuum, $3{,}00\\cdot10^{8}$ | m/s |\n| $e$ | Elementærladningen, $1{,}602\\cdot10^{-19}$ | C |\n| $W$ | Ioniseringsenergi (løkke 4) / løsrivingsarbeid (løkke 5) | J (oppgis i eV) |\n| $E_k$ | Kinetisk energi til et løsrevet elektron | J |\n| $U$ | Akselerasjonsspenning | V |\n| $q$ | Ladning | C |\n\n**Formler i dette delkapitlet:**\n\n$$E_f = hf = \\frac{hc}{\\lambda}$$\nFotonenergien. *(står på formelarket)*\n\n$$E_f\\,[\\text{eV}] = \\frac{1240}{\\lambda\\,[\\text{nm}]}$$\nPraktisk snarvei, utledet av formelen over. *(må kunne brukes aktivt — den sparer deg for potensregning)*\n\n$$c = f\\lambda$$\nSammenhengen mellom lysfart, frekvens og bølgelengde. *(står på formelarket)*\n\n$$E_n = -\\frac{B}{n^2}$$\nBohr-nivåene for hydrogenlignende atomer. *(står på formelarket)*\n\n$$E_f = E_m - E_n$$\nFotonenergien ved en overgang mellom to nivåer. *(må kunne brukes aktivt — dette er selve kjernen i sjanger O)*\n\n$$W = -E_1, \\qquad \\lambda_{\\text{maks}} = \\frac{hc}{W}$$\nIoniseringsenergi fra grunntilstanden, og den lengste bølgelengden som ioniserer. *(må kunne brukes aktivt)*\n\n$$E_k = hf - W$$\nFotoelektrisk effekt. *(står på formelarket)*\n\n$$f_0 = \\frac{W}{h}$$\nGrensefrekvensen, fra $E_k = 0$. *(må kunne brukes aktivt)*\n\n$$W = qU$$\nArbeidet et elektrisk felt gjør på en ladning; for et elektron gjennom spenningen $U$ blir det $eU$. *(står på formelarket)*\n\n$$\\lambda_{\\text{min}} = \\frac{hc}{eU}$$\nMinste bølgelengde fra et røntgenrør. *(må kunne brukes aktivt)*\n\n**Konstanter som hentes fra formelark/tabell:** $h$, $c$, $e$, omregningen $1\\ \\text{eV} = 1{,}602\\cdot10^{-19}$ J, løsrivingsarbeid for ulike metaller, og energinivåene til andre atomer enn hydrogen."
+        }
+      ]
+    }
+  ],
+  "exercises": []
+}

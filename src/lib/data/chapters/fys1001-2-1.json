@@ -1,0 +1,398 @@
+{
+  "id": "fys1001-2-1",
+  "courseId": "fys1001",
+  "chapterNumber": "2.1",
+  "title": "Arbeid, energi og effekt",
+  "description": "Arbeidsbegrepet med fortegnsdisiplin, kinetisk og potensiell energi, arbeid–energi-setningen, effekt og virkningsgrad — fundamentet for energimetoden.",
+  "estimatedMinutes": 50,
+  "competenceGoals": [
+    "regne ut arbeidet en kraft gjør med riktig fortegn, også når kraften står skrått på bevegelsen",
+    "bruke arbeid–energi-setningen til å finne fart eller strekning uten å gå veien om akselerasjonen",
+    "regne ut kinetisk energi, potensiell energi og fjærenergi, og velge og oppgi et nullnivå",
+    "finne effekt og virkningsgrad i praktiske situasjoner, blant annet ved konstant fart der drivkraften er lik summen av motkreftene"
+  ],
+  "content": [
+    {
+      "id": "fys1001-2-1-tip-eksamensvinkel",
+      "type": "tip",
+      "title": "Eksamensvinkel",
+      "content": "**Høyeste prioritet.** Temaet *energi, arbeid, effekt og energibevaring* forekommer i **34 av 36 slutteksamener (94 %)** i arkivet vårt, og det er kjernen i midtsemestereksamenen også. Arbeid og effekt er selve inngangsdøra: nesten alle energioppgaver starter med at du regner ut et arbeid eller en effekt.\n\nDeloppgavene her hører til to sjangre. **Sjanger C** er kortkoden vår for oppgaver om krefter, skråplan og bremsing — altså Newtons 2. lov satt i arbeid (hele kodelista A–Q står i [kap. 0.1](/bok/fys1001/fys1001-0-1)). **Sjanger Q** er kortkoden for kvalitative «forklar hvorfor»-spørsmål, som utgjør 25–40 % av deloppgavene på et typisk sett.\n\nSlik ser eksamensarbeidet ut i praksis:\n\n- «Finn arbeidet friksjonen gjør» — her er **fortegnet** halve poengsummen.\n- «Finn motorens effekt når farten er konstant» — standardregning med $P = Fv$.\n- «Forklar hvorfor tyngden ikke gjør arbeid når du bærer sekken bortover» — en klassisk Q-deloppgave som mange svarer feil på.\n\n**Formelark-status:** $W = Fs\\cos\\theta$, $E_k = \\tfrac{1}{2}mv^2$, $E_p = mgh$, $P = W/t = Fv$ og $\\eta$ står alle på det utdelte formelarket. Du skal ikke pugge dem — du skal kunne **velge riktig en av dem, sette inn riktige størrelser og få fortegnet riktig** under tidspress. Tren derfor alltid med formelarket ved siden av deg, slik eksamen faktisk er."
+    },
+    {
+      "id": "fys1001-2-1-forkunnskaper",
+      "type": "text",
+      "content": "**Forkunnskaper — dette bygger kapitlet på:**\n\n- [kap. 1.2](/bok/fys1001/fys1001-1-2) — Newtons lover og frilegemediagrammet. Du må kunne identifisere kreftene som virker på et legeme, og kjenne notasjonen: $G = mg$ er **tyngden**, $N$ er normalkraften og $S$ er snordraget.\n- [kap. 1.3](/bok/fys1001/fys1001-1-3) — friksjon og skråplan. Friksjonskraften skriver vi $R = \\mu N$, og den peker alltid mot bevegelsesretningen.\n- [Trigonometri i rettvinklede trekanter](/bok/1t/1t-5-4) — du trenger $\\cos\\theta$ for å plukke ut kraftkomponenten langs bevegelsen.\n\nHar du disse på plass, kan du lese kapitlet rett fram. Alt annet forklares underveis."
+    },
+    {
+      "id": "fys1001-2-1-intro",
+      "type": "text",
+      "content": "Du sykler opp en bakke. Beina verker, batteriet i elsykkelen tømmes, og du merker at *det koster noe* å komme opp. Fysikken har et presist ord for denne kostnaden: **arbeid**. Og har du dårlig tid opp bakken, koster det ikke mer arbeid — men mer **effekt**.\n\nDette kapitlet gir deg regnskapsbøkene for energi. I kapittel 2.2 skal du bruke dem til energibevaring, som er den viktigste metoden i hele mekanikken. Her bygger vi grunnlaget bit for bit.\n\nKapitlet går i fire læringsløkker (teori → eksempel → oppgave):\n\n1. **Arbeid og fortegn** (~14 min)\n2. **Kinetisk energi og arbeid–energi-setningen** (~12 min)\n3. **Potensiell energi og fjærenergi** (~12 min)\n4. **Effekt og virkningsgrad** (~12 min)\n\nTidsanslagene er **lesetid**. Regner du oppgavene med penn og papir — som du bør — ganger du med omtrent 1,5. Kapitlet tåler å deles over to økter; det er et naturlig pausepunkt etter løkke 2.\n\nVi bruker $g = 9{,}81$ $\\text{m/s}^2$ gjennom hele kapitlet. Verdien står på formelarket."
+    },
+    {
+      "id": "fys1001-2-1-lokke1",
+      "type": "text",
+      "content": "## Løkke 1: Arbeid — og fortegnet som avgjør poengene *(~14 min)*\n\nI dagligtalen er «arbeid» alt som er slitsomt. I fysikken er det noe mye smalere: en kraft gjør arbeid **bare når angrepspunktet flytter seg**, og bare den delen av kraften som peker **langs forflytningen** teller."
+    },
+    {
+      "id": "fys1001-2-1-def-arbeid",
+      "type": "definition",
+      "title": "Arbeid",
+      "content": "Når en konstant kraft $F$ virker mens legemet forflytter seg strekningen $s$, er arbeidet kraften gjør\n\n$$W = F s \\cos\\theta,$$\n\nder $\\theta$ er vinkelen mellom kraftretningen og forflytningsretningen.\n\nEr kraften rettet langs bevegelsen, er $\\theta = 0^\\circ$ og $\\cos\\theta = 1$, slik at $W = Fs$. Står kraften vinkelrett på bevegelsen, er $\\theta = 90^\\circ$ og $\\cos\\theta = 0$: **kraften gjør ikke noe arbeid i det hele tatt.**"
+    },
+    {
+      "id": "fys1001-2-1-def-joule",
+      "type": "definition",
+      "title": "Joule (J)",
+      "content": "Enheten for arbeid og energi er **joule**: $1\\ \\text{J} = 1\\ \\text{N}\\cdot\\text{m} = 1\\ \\text{kg}\\,\\text{m}^2/\\text{s}^2$.\n\nEtt joule er lite: å løfte en melkekartong på 1 kg én meter opp krever knapt 10 J. Derfor møter du ofte kilojoule ($1\\ \\text{kJ} = 10^3$ J) og megajoule ($1\\ \\text{MJ} = 10^6$ J) i eksamensoppgaver. Enheten skal **alltid** stå på svaret — manglende enhet koster ett poeng."
+    },
+    {
+      "id": "fys1001-2-1-oppg-l1a",
+      "type": "exercise",
+      "exercise": {
+        "id": "fys1001-2-1-l1a",
+        "number": "1",
+        "type": "classic",
+        "difficulty": "lett",
+        "task": "(Innstegsoppgave — sjanger C, altså krefter og bevegelse.) En tralle skyves 12 m bortover et flatt gulv med en konstant kraft på 250 N rettet rett fram i bevegelsesretningen.\n\n**a)** Finn arbeidet kraften gjør.\n**b)** Oppgi svaret både i joule og i kilojoule.",
+        "solution": "**a)** Kraften peker langs bevegelsen, altså $\\theta = 0^\\circ$ og $\\cos 0^\\circ = 1$:\n\n$$W = Fs\\cos\\theta = 250\\ \\text{N} \\cdot 12\\ \\text{m} \\cdot 1 = 3000\\ \\text{J}.$$\n\n**b)** $3000\\ \\text{J} = 3{,}0\\ \\text{kJ}$.\n\nSvar: $W = 3{,}0\\cdot 10^{3}$ J $= 3{,}0$ kJ. Merk at enheten newtonmeter og joule er samme enhet: $1\\ \\text{N}\\cdot\\text{m} = 1\\ \\text{J}$.",
+        "hints": [
+          "Kraften virker i bevegelsesretningen — hva blir da $\\cos\\theta$?",
+          "Sett inn i $W = Fs\\cos\\theta$ med $F$ i newton og $s$ i meter.",
+          "$1$ kJ er $1000$ J."
+        ]
+      }
+    },
+    {
+      "id": "fys1001-2-1-def-fortegn",
+      "type": "definition",
+      "title": "Fortegn på arbeid",
+      "content": "Fortegnet i $W = Fs\\cos\\theta$ er ikke pynt — det forteller hvilken vei energien går:\n\n- **Positivt arbeid** ($0^\\circ \\le \\theta < 90^\\circ$): kraften drar med bevegelsen og **tilfører** legemet energi.\n- **Negativt arbeid** ($90^\\circ < \\theta \\le 180^\\circ$): kraften virker mot bevegelsen og **tapper** legemet for energi. Friksjon gjør alltid negativt arbeid på et legeme som glir: $\\theta = 180^\\circ$ gir $\\cos\\theta = -1$, altså $W_R = -Rs$.\n- **Null arbeid** ($\\theta = 90^\\circ$): kraften står vinkelrett på forflytningen og påvirker ikke energiregnskapet.\n\nFeil fortegn på friksjonens arbeid er en av de vanligste feilene i hele energi-blokken."
+    },
+    {
+      "id": "fys1001-2-1-def-tyngdens-arbeid",
+      "type": "definition",
+      "title": "Tyngdens arbeid — det du må ha reflekser på",
+      "content": "Tyngden $G = mg$ peker alltid rett ned. Derfor:\n\n- **På vannrett strekning gjør tyngden null arbeid** ($\\theta = 90^\\circ$). Dette er et poeng som går igjen på eksamen, og det er gratis poeng når du har sett det én gang.\n- **Nedover** gjør tyngden positivt arbeid: $W_G = +mgh$, der $h$ er høydefallet.\n- **Oppover** gjør tyngden negativt arbeid: $W_G = -mgh$.\n\nLegg merke til at bare **høydeforskjellen** teller — ikke hvor lang eller kronglete veien er."
+    },
+    {
+      "id": "fys1001-2-1-fig-arbeid",
+      "type": "image",
+      "src": "/images/textbook/fys1001/fys1001-2-1-arbeid-fortegn.svg",
+      "alt": "Kasse på gulv som dras mot høyre. Snordraget S peker skrått oppover med vinkel theta over horisontalen, friksjonskraften R peker bakover, tyngden G peker ned, normalkraften N peker opp, og forflytningen s er markert mot høyre.",
+      "caption": "Fire krefter, tre fortegn: snordraget $S$ gjør positivt arbeid (bare komponenten $S\\cos\\theta$ teller), friksjonen $R$ gjør negativt arbeid, mens $G$ og $N$ står vinkelrett på forflytningen og gjør null arbeid."
+    },
+    {
+      "id": "fys1001-2-1-ex-kasse",
+      "type": "example",
+      "title": "Arbeid fra flere krefter — med fortegn",
+      "problem": "En kasse dras 15 m bortover et vannrett gulv med en snor som danner $35^\\circ$ med gulvet. Snordraget er $S = 80$ N, og friksjonskraften på kassen er $R = 42$ N.\n\nFinn arbeidet snordraget gjør, arbeidet friksjonen gjør, arbeidet tyngden gjør — og det samlede (netto) arbeidet.",
+      "solution": "Vi bruker $W = Fs\\cos\\theta$ på hver kraft for seg, med $s = 15$ m.\n\n**Snordraget.** Vinkelen mellom snoren og forflytningen er $\\theta = 35^\\circ$:\n\n$$W_S = S\\,s\\cos 35^\\circ = 80\\ \\text{N}\\cdot 15\\ \\text{m}\\cdot 0{,}8192 = 983\\ \\text{J}.$$\n\nPositivt, som ventet: snoren drar kassen framover og tilfører energi.\n\n**Friksjonen.** Friksjonen peker mot bevegelsen, altså $\\theta = 180^\\circ$ og $\\cos 180^\\circ = -1$:\n\n$$W_R = -R\\,s = -42\\ \\text{N}\\cdot 15\\ \\text{m} = -630\\ \\text{J}.$$\n\nNegativt: friksjonen tapper kassen for energi (den blir til varme i gulv og kasse).\n\n**Tyngden og normalkraften.** Begge står vinkelrett på den vannrette forflytningen, så\n\n$$W_G = 0\\ \\text{J}, \\qquad W_N = 0\\ \\text{J}.$$\n\n**Netto arbeid.**\n\n$$W_{\\text{netto}} = 983\\ \\text{J} - 630\\ \\text{J} + 0 + 0 = 353\\ \\text{J}.$$\n\n**Svar:** $W_S = 9{,}8\\cdot 10^{2}$ J, $W_R = -6{,}3\\cdot 10^{2}$ J, $W_G = W_N = 0$ J og $W_{\\text{netto}} = 3{,}5\\cdot 10^{2}$ J.\n\n**Rimelighetsvurdering:** nettoarbeidet er positivt, så kassen får mer fart underveis — det stemmer med at snordragets komponent langs gulvet ($80\\ \\text{N}\\cdot\\cos 35^\\circ = 66$ N) er større enn friksjonen på 42 N."
+    },
+    {
+      "id": "fys1001-2-1-oppg-l1b",
+      "type": "exercise",
+      "exercise": {
+        "id": "fys1001-2-1-l1b",
+        "number": "2",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "(Sjanger C.) En slede dras 24 m over snøen med en snor som danner $20^\\circ$ med bakken. Snordraget er 65 N, og friksjonskraften er 38 N.\n\n**a)** Finn arbeidet snordraget gjør.\n**b)** Finn arbeidet friksjonen gjør.\n**c)** Finn nettoarbeidet på sleden, og avgjør om farten øker eller minker.",
+        "solution": "**a)** $W_S = S s\\cos\\theta = 65\\ \\text{N}\\cdot 24\\ \\text{m}\\cdot\\cos 20^\\circ = 65\\cdot 24\\cdot 0{,}9397 = 1466\\ \\text{J} \\approx 1{,}47\\cdot 10^{3}$ J.\n\n**b)** Friksjonen peker mot bevegelsen, så $\\cos\\theta = -1$:\n\n$$W_R = -38\\ \\text{N}\\cdot 24\\ \\text{m} = -912\\ \\text{J} = -9{,}1\\cdot 10^{2}\\ \\text{J}.$$\n\n**c)** Tyngden og normalkraften gjør null arbeid (vinkelrett på den vannrette forflytningen), så\n\n$$W_{\\text{netto}} = 1466\\ \\text{J} - 912\\ \\text{J} = 554\\ \\text{J} \\approx 5{,}5\\cdot 10^{2}\\ \\text{J}.$$\n\nNettoarbeidet er positivt, altså tilføres sleden energi og **farten øker**.",
+        "hints": [
+          "Regn ett og ett arbeid: $W = Fs\\cos\\theta$ for hver kraft.",
+          "Hvilken vinkel har friksjonskraften med bevegelsesretningen?",
+          "Tyngden og normalkraften står vinkelrett på forflytningen — hva gir det?"
+        ]
+      }
+    },
+    {
+      "id": "fys1001-2-1-lokke2",
+      "type": "text",
+      "content": "## Løkke 2: Kinetisk energi og arbeid–energi-setningen *(~12 min)*\n\nNettoarbeidet forteller nøyaktig hvor mye bevegelsesenergien endrer seg. Det er koblingen som gjør arbeidsbegrepet nyttig."
+    },
+    {
+      "id": "fys1001-2-1-def-kinetisk",
+      "type": "definition",
+      "title": "Kinetisk energi",
+      "content": "Et legeme med masse $m$ og fart $v$ har **kinetisk energi** (bevegelsesenergi)\n\n$$E_k = \\tfrac{1}{2}mv^2.$$\n\nLegg merke til **kvadratet**: dobler du farten, firedobles den kinetiske energien. Det er derfor bremselengden firedobles ved dobbel fart (se [kap. 1.1](/bok/fys1001/fys1001-1-1)) — og det er en av de mest testede kvalitative innsiktene i faget."
+    },
+    {
+      "id": "fys1001-2-1-def-arbeid-energi",
+      "type": "definition",
+      "title": "Arbeid–energi-setningen",
+      "content": "Det samlede arbeidet fra alle kreftene på et legeme er lik endringen i kinetisk energi:\n\n$$W_{\\text{netto}} = \\Delta E_k = \\tfrac{1}{2}mv^2 - \\tfrac{1}{2}mv_0^2.$$\n\nSetningen gjelder **uansett** om kreftene er konstante eller ikke, og uansett om banen er rett eller krum — derfor er den kraftigere enn bevegelsesligningene fra [kap. 1.1](/bok/fys1001/fys1001-1-1), som krever konstant akselerasjon. Vi utnytter dette for fullt i [kap. 2.2](/bok/fys1001/fys1001-2-2)."
+    },
+    {
+      "id": "fys1001-2-1-ex-pall",
+      "type": "example",
+      "title": "Arbeid–energi-setningen i bruk",
+      "problem": "En pall på 25 kg står i ro på et gulv. Den skyves med en konstant kraft på 90 N i bevegelsesretningen over en strekning på 6,0 m. Friksjonskraften er 34 N.\n\nFinn farten pallen har etter de 6,0 metrene.",
+      "solution": "**Nettoarbeidet.** Skyvekraften gjør positivt arbeid, friksjonen negativt, tyngden og normalkraften null:\n\n$$W_{\\text{netto}} = (90\\ \\text{N} - 34\\ \\text{N})\\cdot 6{,}0\\ \\text{m} = 56\\ \\text{N}\\cdot 6{,}0\\ \\text{m} = 336\\ \\text{J}.$$\n\n**Arbeid–energi-setningen.** Pallen starter i ro, så $v_0 = 0$ og $\\Delta E_k = \\tfrac{1}{2}mv^2$:\n\n$$336\\ \\text{J} = \\tfrac{1}{2}\\cdot 25\\ \\text{kg}\\cdot v^2.$$\n\nLøser vi for $v$:\n\n$$v^2 = \\frac{2\\cdot 336\\ \\text{J}}{25\\ \\text{kg}} = 26{,}88\\ \\text{m}^2/\\text{s}^2, \\qquad v = 5{,}18\\ \\text{m/s}.$$\n\n**Svar:** farten er $5{,}2$ m/s etter 6,0 m.\n\n**Rimelighetsvurdering:** $5{,}2$ m/s er omtrent 19 km/t — rask gange til lett løping. Det er en fornuftig fart for en pall som skyves med god kraft over seks meter.\n\n*Merk metoden:* vi trengte aldri akselerasjonen. Energiveien er kortere enn å gå via $\\Sigma F = ma$ og deretter kinematikken."
+    },
+    {
+      "id": "fys1001-2-1-oppg-l2",
+      "type": "exercise",
+      "exercise": {
+        "id": "fys1001-2-1-l2",
+        "number": "3",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "(Sjanger C.) En kjelke med barn har samlet masse 32 kg og glir med farten 4,5 m/s bortover flat is. Friksjonskraften fra isen er 21 N.\n\n**a)** Finn den kinetiske energien kjelken starter med.\n**b)** Bruk arbeid–energi-setningen til å finne hvor langt kjelken glir før den stopper.",
+        "solution": "**a)** $E_k = \\tfrac{1}{2}mv^2 = \\tfrac{1}{2}\\cdot 32\\ \\text{kg}\\cdot (4{,}5\\ \\text{m/s})^2 = 324\\ \\text{J} \\approx 3{,}2\\cdot 10^{2}$ J.\n\n**b)** Kjelken stopper, så sluttfarten er null og $\\Delta E_k = 0 - 324\\ \\text{J} = -324$ J. Bare friksjonen gjør arbeid (tyngden og normalkraften står vinkelrett på bevegelsen), og friksjonens arbeid er $W_R = -Rs$:\n\n$$-R s = \\Delta E_k \\quad\\Longrightarrow\\quad -21\\ \\text{N}\\cdot s = -324\\ \\text{J}.$$\n\n$$s = \\frac{324\\ \\text{J}}{21\\ \\text{N}} = 15{,}4\\ \\text{m}.$$\n\n**Svar:** kjelken glir $15$ m før den stopper.\n\n**Rimelighetsvurdering:** en kjelke i 4,5 m/s (16 km/t) på god is glir mange meter — 15 m er fullt rimelig.",
+        "hints": [
+          "Start med $E_k = \\tfrac12 mv^2$ for å finne energien kjelken har.",
+          "Hva er den kinetiske energien når kjelken har stoppet?",
+          "Bare én kraft gjør arbeid her — skriv arbeidet dens som $-Rs$ og sett det lik $\\Delta E_k$."
+        ]
+      }
+    },
+    {
+      "id": "fys1001-2-1-lokke3",
+      "type": "text",
+      "content": "## Løkke 3: Potensiell energi, nullnivå og fjærenergi *(~12 min)*\n\n— naturlig pausepunkt —\n\nLøfter du noe opp, gjør du positivt arbeid mot tyngden, og energien blir «lagret» i høyden. Den kan hentes ut igjen når legemet faller. Det kaller vi potensiell energi."
+    },
+    {
+      "id": "fys1001-2-1-def-potensiell",
+      "type": "definition",
+      "title": "Potensiell energi i tyngdefeltet",
+      "content": "Et legeme med masse $m$ i høyden $h$ over et valgt nullnivå har **potensiell energi**\n\n$$E_p = mgh.$$\n\nStørrelsen $h$ er den **loddrette** høyden over nullnivået — ikke lengden av veien opp dit. En kloss som dras 5,0 m opp et skråplan og ender 2,0 m høyere, har fått $E_p = mg\\cdot 2{,}0\\ \\text{m}$."
+    },
+    {
+      "id": "fys1001-2-1-def-nullniva",
+      "type": "definition",
+      "title": "Nullnivået velger du selv",
+      "content": "Bare **endringer** i potensiell energi har fysisk betydning, så du kan legge nullnivået ($h = 0$) der du vil — vanligvis der legemet ender opp, eller ved bakken.\n\nTo krav fra løsningsforslagene: **si i besvarelsen hvor du har lagt nullnivået**, og **behold det samme nullnivået gjennom hele regnestykket**. Å bytte nullnivå midtveis er en klassisk kilde til feil svar."
+    },
+    {
+      "id": "fys1001-2-1-def-fjaerenergi",
+      "type": "definition",
+      "title": "Fjærenergi",
+      "content": "En fjær med fjærkonstant $k$ som er strukket eller trykket sammen stykket $x$ fra likevektsstillingen, har lagret\n\n$$E_f = \\tfrac{1}{2}kx^2.$$\n\nEnheten til $k$ er N/m. Også her står **kvadratet** sentralt: dobler du sammentrykkingen, firedobles energien. Formelen står på formelarket; du skal kunne bruke den, ikke pugge den."
+    },
+    {
+      "id": "fys1001-2-1-def-mekanisk-energi",
+      "type": "definition",
+      "title": "Mekanisk energi",
+      "content": "Summen av kinetisk og potensiell energi kaller vi den **mekaniske energien**:\n\n$$E = E_k + E_p = \\tfrac{1}{2}mv^2 + mgh.$$\n\nUten friksjon og luftmotstand er denne summen konstant gjennom bevegelsen. Det er energibevaringsprinsippet, og det er hovedverktøyet i [kap. 2.2](/bok/fys1001/fys1001-2-2)."
+    },
+    {
+      "id": "fys1001-2-1-ex-murstein",
+      "type": "example",
+      "title": "Potensiell energi og tyngdens arbeid",
+      "problem": "En murstein på 2,6 kg løftes rolig 1,8 m opp fra gulvet og settes på et stillas.\n\n**a)** Hvor mye potensiell energi har mursteinen fått?\n**b)** Hvor stort arbeid gjorde tyngden under løftet?",
+      "solution": "Vi legger nullnivået ved gulvet, slik at $h = 1{,}8$ m på stillaset.\n\n**a)** $E_p = mgh = 2{,}6\\ \\text{kg}\\cdot 9{,}81\\ \\text{m/s}^2\\cdot 1{,}8\\ \\text{m} = 45{,}9\\ \\text{J} \\approx 46$ J.\n\n**b)** Tyngden peker rett ned mens forflytningen går rett opp, altså $\\theta = 180^\\circ$:\n\n$$W_G = -mgh = -45{,}9\\ \\text{J} \\approx -46\\ \\text{J}.$$\n\n**Svar:** mursteinen har fått $46$ J potensiell energi, og tyngden gjorde arbeidet $-46$ J.\n\n**Kommentar:** de to tallene er like store med motsatt fortegn, og det er ikke tilfeldig. Den potensielle energien er nettopp *minus* arbeidet tyngden gjorde. Løftes steinen «rolig» (uten fartsendring), er nettoarbeidet null, så løftekraften gjorde $+46$ J."
+    },
+    {
+      "id": "fys1001-2-1-oppg-l3a",
+      "type": "exercise",
+      "exercise": {
+        "id": "fys1001-2-1-l3a",
+        "number": "4",
+        "type": "classic",
+        "difficulty": "lett",
+        "task": "(Sjanger C.) En sekk på 14 kg bæres opp en trapp som er 4,2 m høy. Trappa er 7,0 m lang målt langs trinnene.\n\n**a)** Hvor stor potensiell energi har sekken fått? Si hvor du legger nullnivået.\n**b)** Forklar kort hvorfor lengden på 7,0 m ikke inngår i utregningen.",
+        "solution": "**a)** Nullnivået legges nederst i trappa. Da er $h = 4{,}2$ m (den **loddrette** høyden):\n\n$$E_p = mgh = 14\\ \\text{kg}\\cdot 9{,}81\\ \\text{m/s}^2\\cdot 4{,}2\\ \\text{m} = 577\\ \\text{J} \\approx 5{,}8\\cdot 10^{2}\\ \\text{J}.$$\n\n**b)** Tyngden peker rett ned. Bare forflytningen *langs tyngderetningen* gir bidrag til tyngdens arbeid, og de vannrette bidragene har $\\theta = 90^\\circ$ og gir null. Derfor er det bare høydeforskjellen på 4,2 m som teller, uansett hvor slak eller bratt trappa er.",
+        "hints": [
+          "Hvilken av de to lengdene er den loddrette høyden?",
+          "Sett inn i $E_p = mgh$ med $g = 9{,}81$ $\\text{m/s}^2$.",
+          "Tenk på vinkelen mellom tyngden og en vannrett forflytning."
+        ]
+      }
+    },
+    {
+      "id": "fys1001-2-1-oppg-l3b",
+      "type": "exercise",
+      "exercise": {
+        "id": "fys1001-2-1-l3b",
+        "number": "5",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "(Sjanger C.) En fjær har fjærkonstant $k = 320$ N/m.\n\n**a)** Finn den lagrede energien når fjæra trykkes sammen 8,0 cm.\n**b)** Avgjør **uten ny utregning** hvor mye energi som er lagret hvis den trykkes sammen 16 cm, og begrunn svaret.",
+        "solution": "**a)** Husk å regne om til meter: $x = 8{,}0\\ \\text{cm} = 0{,}080$ m.\n\n$$E_f = \\tfrac{1}{2}kx^2 = \\tfrac{1}{2}\\cdot 320\\ \\text{N/m}\\cdot (0{,}080\\ \\text{m})^2 = 1{,}02\\ \\text{J} \\approx 1{,}0\\ \\text{J}.$$\n\n**b)** Energien er proporsjonal med **kvadratet** av sammentrykkingen. Dobles $x$, ganges $x^2$ med 4, så energien blir fire ganger så stor:\n\n$$E_f = 4\\cdot 1{,}02\\ \\text{J} = 4{,}1\\ \\text{J}.$$\n\n**Svar:** $1{,}0$ J ved 8,0 cm og $4{,}1$ J ved 16 cm.",
+        "hints": [
+          "Regn $x$ om til meter før du setter inn.",
+          "Enheten til $k$ er N/m — da må $x$ være i meter for at svaret skal bli i joule.",
+          "I b): se på hvordan $x$ inngår i formelen, og hva som skjer med $x^2$ når $x$ dobles."
+        ]
+      }
+    },
+    {
+      "id": "fys1001-2-1-lokke4",
+      "type": "text",
+      "content": "## Løkke 4: Effekt og virkningsgrad *(~12 min)*\n\nArbeid sier hvor mye energi som er overført. **Effekt** sier hvor fort det skjer. Det er forskjellen på å gå opp trappa og å løpe opp trappa: samme arbeid, ulik effekt."
+    },
+    {
+      "id": "fys1001-2-1-def-effekt",
+      "type": "definition",
+      "title": "Effekt",
+      "content": "**Effekt** er arbeid (eller energi) per tid:\n\n$$P = \\frac{W}{t}.$$\n\nEnheten er **watt**: $1\\ \\text{W} = 1\\ \\text{J/s}$. En vanlig LED-pære bruker rundt 8 W, en vannkoker 2000 W, en syklist i motbakke kanskje 200 W.\n\nÅ blande sammen energi (joule) og effekt (watt) er en klassisk enhetsfeil som koster poeng."
+    },
+    {
+      "id": "fys1001-2-1-def-effekt-fart",
+      "type": "definition",
+      "title": "Effekt ved konstant kraft og fart",
+      "content": "Når en kraft $F$ virker langs bevegelsen mens legemet holder farten $v$, blir effekten\n\n$$P = \\frac{W}{t} = \\frac{Fs}{t} = Fv.$$\n\nDette er standardformelen i alle «finn motorens effekt»-oppgaver. **Nøkkelen ved konstant fart:** da er $\\Sigma F = 0$, så drivkraften er nøyaktig like stor som summen av motkreftene (friksjon, luftmotstand og komponenten av tyngden langs bakken). Finn motkreftene først, så har du $F$."
+    },
+    {
+      "id": "fys1001-2-1-def-virkningsgrad",
+      "type": "definition",
+      "title": "Virkningsgrad",
+      "content": "**Virkningsgraden** $\\eta$ (gresk «eta») forteller hvor stor andel av den tilførte energien som blir til nytte:\n\n$$\\eta = \\frac{\\text{nyttig energi}}{\\text{tilført energi}} = \\frac{\\text{nyttig effekt}}{\\text{tilført effekt}}.$$\n\n$\\eta$ er et tall mellom 0 og 1 og oppgis oftest i prosent. Resten går tapt, som regel til varme. En elmotor kan ha $\\eta \\approx 0{,}9$, en bensinmotor $\\eta \\approx 0{,}25$."
+    },
+    {
+      "id": "fys1001-2-1-ex-heis",
+      "type": "example",
+      "title": "Effekt og virkningsgrad",
+      "problem": "En heis med last har samlet masse 480 kg og løftes 24 m opp med konstant fart på 32 s.\n\n**a)** Finn den nyttige effekten heismotoren leverer.\n**b)** Motoren tar opp 4,6 kW elektrisk effekt. Finn virkningsgraden.",
+      "solution": "**a)** Ved konstant fart er nettokraften null, så løftekraften er like stor som tyngden: $F = mg$. Det nyttige arbeidet er da arbeidet mot tyngden:\n\n$$W = mgh = 480\\ \\text{kg}\\cdot 9{,}81\\ \\text{m/s}^2\\cdot 24\\ \\text{m} = 1{,}13\\cdot 10^{5}\\ \\text{J}.$$\n\n$$P = \\frac{W}{t} = \\frac{1{,}13\\cdot 10^{5}\\ \\text{J}}{32\\ \\text{s}} = 3{,}53\\cdot 10^{3}\\ \\text{W}.$$\n\n**Svar a):** den nyttige effekten er $3{,}5$ kW.\n\n**b)** Tilført effekt er $4{,}6\\ \\text{kW} = 4600$ W:\n\n$$\\eta = \\frac{P_{\\text{nyttig}}}{P_{\\text{tilført}}} = \\frac{3531\\ \\text{W}}{4600\\ \\text{W}} = 0{,}77.$$\n\n**Svar b):** virkningsgraden er $0{,}77$, altså $77\\ \\%$.\n\n**Rimelighetsvurdering:** 77 % er et helt vanlig tall for en elektrisk heismotor med gir og friksjon i wire og skinner. Hadde vi fått over 100 %, måtte noe vært galt.\n\n*Alternativ vei til a):* farten er $v = 24\\ \\text{m}/32\\ \\text{s} = 0{,}75$ m/s, og da gir $P = Fv = mgv = 480\\cdot 9{,}81\\cdot 0{,}75\\ \\text{W} = 3{,}5\\cdot 10^{3}$ W. Begge metodene godtas."
+    },
+    {
+      "id": "fys1001-2-1-oppg-l4a",
+      "type": "exercise",
+      "exercise": {
+        "id": "fys1001-2-1-l4a",
+        "number": "6",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "(Sjanger C.) En pumpe løfter 450 kg vann per minutt opp en høyde på 12 m.\n\n**a)** Finn den nyttige effekten pumpa leverer.\n**b)** Motoren tar opp 1,5 kW. Finn virkningsgraden i prosent.",
+        "solution": "**a)** Nyttig arbeid per minutt:\n\n$$W = mgh = 450\\ \\text{kg}\\cdot 9{,}81\\ \\text{m/s}^2\\cdot 12\\ \\text{m} = 5{,}30\\cdot 10^{4}\\ \\text{J}.$$\n\nDette skjer på $t = 1$ minutt $= 60$ s:\n\n$$P = \\frac{W}{t} = \\frac{5{,}30\\cdot 10^{4}\\ \\text{J}}{60\\ \\text{s}} = 883\\ \\text{W} \\approx 8{,}8\\cdot 10^{2}\\ \\text{W}.$$\n\n**b)** $\\eta = \\dfrac{883\\ \\text{W}}{1500\\ \\text{W}} = 0{,}589 \\approx 59\\ \\%$.\n\n**Svar:** nyttig effekt $8{,}8\\cdot 10^{2}$ W og virkningsgrad $59\\ \\%$.",
+        "hints": [
+          "Regn først det nyttige arbeidet på ett minutt med $W = mgh$.",
+          "Husk å gjøre om minuttet til sekunder før du deler.",
+          "Virkningsgraden er nyttig effekt delt på tilført effekt — begge i samme enhet."
+        ]
+      }
+    },
+    {
+      "id": "fys1001-2-1-oppg-l4b",
+      "type": "exercise",
+      "exercise": {
+        "id": "fys1001-2-1-l4b",
+        "number": "7",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "(Sjanger C.) En traktor trekker en tømmerslede med konstant fart 1,4 m/s. Trekkraften er 5,2 kN og virker langs bevegelsesretningen.\n\n**a)** Finn effekten traktoren leverer til sleden.\n**b)** Hvor stor er summen av friksjons- og motkreftene på sleden? Begrunn svaret.",
+        "solution": "**a)** $P = Fv = 5200\\ \\text{N}\\cdot 1{,}4\\ \\text{m/s} = 7280\\ \\text{W} \\approx 7{,}3\\ \\text{kW}$.\n\n**b)** Farten er konstant, altså er akselerasjonen null, og Newtons 2. lov gir $\\Sigma F = ma = 0$. Da må motkreftene til sammen være like store som trekkraften, men motsatt rettet:\n\n$$R_{\\text{samlet}} = 5{,}2\\ \\text{kN} = 5{,}2\\cdot 10^{3}\\ \\text{N}.$$\n\n**Svar:** $P = 7{,}3$ kW, og motkreftene er til sammen $5{,}2\\cdot 10^{3}$ N.",
+        "hints": [
+          "$P = Fv$ krever $F$ i newton og $v$ i m/s — gjør om kilonewton først.",
+          "I b): hva sier Newtons 2. lov når akselerasjonen er null?",
+          "Tegn gjerne et frilegemediagram for sleden."
+        ]
+      }
+    },
+    {
+      "id": "fys1001-2-1-oppg-q1",
+      "type": "exercise",
+      "exercise": {
+        "id": "fys1001-2-1-q1",
+        "number": "8",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "(Sjanger Q — kvalitativ forklaring. Svar i 2–4 setninger.) Du bærer en tung ryggsekk med konstant fart bortover en flat sti.\n\n**a)** Hvor stort arbeid gjør tyngden på sekken? Begrunn.\n**b)** Hvorfor føles det likevel anstrengende?",
+        "solution": "**a)** Tyngden gjør **null arbeid**. Den peker rett ned, mens forflytningen er vannrett, så vinkelen mellom dem er $90^\\circ$ og $\\cos 90^\\circ = 0$ i $W = Fs\\cos\\theta$.\n\n**b)** Kroppen bruker likevel kjemisk energi fordi musklene må holdes spente for å bære sekken, og de spenner og slapper av i små sykluser mens du går. Denne energien går til varme i musklene, ikke til å endre sekkens mekaniske energi. Fysikkens arbeidsbegrep måler bare energioverføringen til selve sekken — ikke hvor slitsomt det er for deg.",
+        "hints": [
+          "Hvilken vinkel har tyngdekraften med en vannrett forflytning?",
+          "Se på faktoren $\\cos\\theta$ i arbeidsformelen.",
+          "I b): skill mellom energi kroppen bruker og energi som overføres til sekken."
+        ]
+      }
+    },
+    {
+      "id": "fys1001-2-1-oppg-q2",
+      "type": "exercise",
+      "exercise": {
+        "id": "fys1001-2-1-q2",
+        "number": "9",
+        "type": "classic",
+        "difficulty": "vanskelig",
+        "task": "(Sjanger Q — kvalitativ, **krevende**. Svar i 2–4 setninger.) En bil kjører opp en jevn bakke med konstant fart. Sjåføren sier: «Motoren gjør et stort arbeid, så bilens energi må øke tilsvarende.»\n\nEr dette riktig? Forklar hvor motorens arbeid faktisk blir av.",
+        "solution": "Påstanden er **feil slik den er formulert**, men delvis riktig i innhold. Bilens *kinetiske* energi endres ikke, siden farten er konstant, og nettoarbeidet på bilen er dermed null etter arbeid–energi-setningen.\n\nMotorens arbeid går til to ting: en del blir potensiell energi ($mgh$, fordi bilen kommer høyere opp), og resten gjør opp for det negative arbeidet fra friksjon og luftmotstand og ender som varme i omgivelsene. Summen av alle arbeidene er null, akkurat som farten tilsier.\n\n**Konklusjon:** motorens arbeid øker bilens *potensielle* energi og dekker energitapet — den øker ikke farten.",
+        "hints": [
+          "Hva sier arbeid–energi-setningen når farten er konstant?",
+          "Hvilke krefter gjør negativt arbeid på bilen i motbakke?",
+          "Husk at bilen også endrer høyde."
+        ]
+      }
+    },
+    {
+      "id": "fys1001-2-1-warn-typiske-feil",
+      "type": "warning",
+      "title": "Typiske feil",
+      "content": "Dette er feilene som koster flest poeng i akkurat dette stoffet. De er nummerert i forlengelsen av feilkatalogen for Del 1 ([kap. 1.6](/bok/fys1001/fys1001-1-6)) — nummeret er bare en etikett så du kan slå opp feilen igjen senere.\n\n- **Feil #10 — fortegnsfeil på arbeid.** Friksjonens arbeid settes positivt. Friksjon virker mot bevegelsen: $\\theta = 180^\\circ$, altså $W_R = -Rs$. Sjekk fortegnet på hvert eneste arbeid før du summerer.\n- **Å regne tyngdens arbeid på horisontal strekning.** Tyngden står vinkelrett på vannrett bevegelse og gir null. Det er gratis poeng — og gratis trekk om du roter det til.\n- **Blande arbeid og effekt.** $W$ måles i joule, $P$ i watt. Spør oppgaven om «hvor mye energi», svarer du i J; spør den om «hvor stor effekt», svarer du i W.\n- **Glemme $\\cos\\theta$ når kraften er skrå.** Er snoren skrå, er det bare komponenten langs bevegelsen som gjør arbeid.\n- **Bruke veilengden i stedet for høydeforskjellen i $E_p = mgh$.** $h$ er alltid den loddrette høyden.\n- **Enhetsslurv i fjærenergien.** $x$ må i meter når $k$ er i N/m. Åtte centimeter er $0{,}080$ m, ikke 8.\n- **Svar uten enhet.** Koster ett poeng per gang, hver gang."
+    },
+    {
+      "id": "fys1001-2-1-begrepsbank-tekst",
+      "type": "text",
+      "content": "## Begrepsbank\n\nDette er flashcard-/repetisjonsstoff — hopp trygt over ved førstegangslesing; tidsanslaget gjelder kjernestoffet. Kom tilbake hit når du repeterer til prøve eller eksamen."
+    },
+    {
+      "id": "fys1001-2-1-bb-netto-arbeid",
+      "type": "definition",
+      "title": "Netto arbeid",
+      "content": "Summen av arbeidene fra **alle** kreftene som virker på legemet: $W_{\\text{netto}} = \\sum W_i$. Det er denne summen — ikke arbeidet fra én enkelt kraft — som er lik $\\Delta E_k$.\n\nAlternativt kan du finne nettokraften først og regne $W_{\\text{netto}} = F_{\\text{netto}}\\,s$ når nettokraften er konstant og peker langs bevegelsen. Begge veier gir samme svar."
+    },
+    {
+      "id": "fys1001-2-1-bb-energibevaring",
+      "type": "definition",
+      "title": "Energibevaringsprinsippet",
+      "content": "Energi kan verken oppstå eller forsvinne, bare skifte form. I mekanikken betyr det at det som «forsvinner» av mekanisk energi når friksjonen virker, dukker opp igjen som varme.\n\nPrinsippet er grunnlaget for hele [kap. 2.2](/bok/fys1001/fys1001-2-2), der vi skriver det som $E_1 = E_2 + R\\cdot s$."
+    },
+    {
+      "id": "fys1001-2-1-bb-varme",
+      "type": "definition",
+      "title": "Varme og indre energi",
+      "content": "Når friksjonen gjør negativt arbeid, blir den mekaniske energien til **indre energi** i materialene — molekylene beveger seg raskere, og temperaturen stiger. Energien er ikke borte, men den kan ikke uten videre hentes tilbake som mekanisk energi.\n\nDette er koblingen mellom mekanikken og termofysikken (Del 4)."
+    },
+    {
+      "id": "fys1001-2-1-bb-kilowattime",
+      "type": "definition",
+      "title": "Kilowattime (kWh)",
+      "content": "En energienhet fra strømregningen: $1\\ \\text{kWh}$ er energien som overføres når effekten er 1 kW i én time.\n\n$$1\\ \\text{kWh} = 1000\\ \\text{W}\\cdot 3600\\ \\text{s} = 3{,}6\\cdot 10^{6}\\ \\text{J} = 3{,}6\\ \\text{MJ}.$$\n\nDukker opp i oppgaver om strømforbruk og solceller. Omregningen kan du utlede på stedet fra $W = Pt$ — den trenger ikke pugges."
+    },
+    {
+      "id": "fys1001-2-1-bb-konservativ",
+      "type": "definition",
+      "title": "Konservativ og ikke-konservativ kraft",
+      "content": "En **konservativ** kraft (som tyngden) gjør et arbeid som bare avhenger av start- og sluttpunktet, ikke av veien mellom dem. Derfor kan vi lagre virkningen i en potensiell energi $E_p = mgh$.\n\nEn **ikke-konservativ** kraft (som friksjon) gjør et arbeid som avhenger av veilengden: jo lengre vei, jo mer energi tapt. Derfor får friksjonen aldri en potensiell energi, men står i regnskapet som leddet $R\\cdot s$."
+    },
+    {
+      "id": "fys1001-2-1-bb-nyttig-tilfort",
+      "type": "definition",
+      "title": "Nyttig, tilført og tapt energi",
+      "content": "**Tilført** energi er alt som går inn (strøm til motoren, kjemisk energi i drivstoffet). **Nyttig** energi er den delen som gjør det du faktisk ville (løfte lasten, drive bilen fram). Differansen er **tapt** energi, oftest varme.\n\nSammenhengen er $E_{\\text{tilført}} = E_{\\text{nyttig}} + E_{\\text{tapt}}$, og virkningsgraden er $\\eta = E_{\\text{nyttig}}/E_{\\text{tilført}}$. I oppgavetekster er «motoren bruker …» tilført, mens «løfter lasten …» er nyttig."
+    },
+    {
+      "id": "fys1001-2-1-bb-enhetssjekk",
+      "type": "definition",
+      "title": "Enhetssjekk: joule, watt og newtonmeter",
+      "content": "Tre enheter som stadig forveksles:\n\n- **Joule (J)** er energi og arbeid: $1\\ \\text{J} = 1\\ \\text{N}\\cdot\\text{m} = 1\\ \\text{kg}\\,\\text{m}^2/\\text{s}^2$.\n- **Newtonmeter (N·m)** er *samme* enhet som joule når det gjelder arbeid.\n- **Watt (W)** er effekt, altså energi per tid: $1\\ \\text{W} = 1\\ \\text{J/s}$.\n\nEn rask kontroll: får du «joule» ut av et regnestykke der spørsmålet var «hvor stor effekt», har du glemt å dele på tiden."
+    },
+    {
+      "id": "fys1001-2-1-rep",
+      "type": "collapsible",
+      "title": "Rask repetisjon",
+      "buttonText": "Vis repetisjon",
+      "content": [
+        {
+          "id": "fys1001-2-1-rep-text",
+          "type": "text",
+          "content": "## Rask repetisjon av kapittel 2.1\n\n**Arbeid**\n\n$$W = Fs\\cos\\theta$$\n\nPositivt med bevegelsen, negativt mot ($W_R = -Rs$ for friksjon), null vinkelrett på ($W_G = 0$ på vannrett strekning).\n\n**Energiformer**\n\n$$E_k = \\tfrac{1}{2}mv^2, \\qquad E_p = mgh, \\qquad E_f = \\tfrac{1}{2}kx^2$$\n\n$E_k$ og $E_f$ vokser med **kvadratet** av henholdsvis $v$ og $x$ (dobling gir firedobling), mens $E_p$ vokser lineært med $h$.\n\n**Arbeid–energi-setningen**\n\n$$W_{\\text{netto}} = \\Delta E_k$$\n\nGjelder alltid, også ved variabel kraft og krum bane.\n\n**Effekt og virkningsgrad**\n\n$$P = \\frac{W}{t} = Fv, \\qquad \\eta = \\frac{\\text{nyttig}}{\\text{tilført}}$$\n\nVed konstant fart er drivkraften lik summen av motkreftene.\n\n**Tre reflekser til eksamen**\n\n1. Sjekk fortegnet på hvert arbeid før du summerer.\n2. Si hvor nullnivået ligger, og hold det fast.\n3. Enhet på hvert svar, 2–3 gjeldende siffer."
+        }
+      ]
+    },
+    {
+      "id": "fys1001-2-1-symbolliste",
+      "type": "collapsible",
+      "title": "Symbol- og formelliste",
+      "buttonText": "Vis symboler og formler",
+      "content": [
+        {
+          "id": "fys1001-2-1-symbolliste-text",
+          "type": "text",
+          "content": "## Symbol- og formelliste\n\n*Oppslagsverk — alt her forklares underveis i kapitlet.*\n\nAlle symboler og formler brukt i delkapittel 2.1. Merk at $E$ i **dette** delkapitlet alltid betyr **energi** (i Del 5 brukes samme bokstav om elektrisk feltstyrke), og at $R$ her alltid betyr **friksjonskraft** (i kretskapitlene betyr $R$ resistans).\n\n| Symbol | Betydning | SI-enhet |\n|---|---|---|\n| $W$ | Arbeid utført av en kraft | J (joule) |\n| $F$ | Kraft (generelt) | N |\n| $s$ | Forflytning (strekning langs bevegelsen) | m |\n| $\\theta$ | Vinkel mellom kraftretning og forflytning | grader (enhetsløs i $\\cos\\theta$) |\n| $E_k$ | Kinetisk energi (bevegelsesenergi) | J |\n| $E_p$ | Potensiell energi i tyngdefeltet | J |\n| $E_f$ | Fjærenergi (elastisk potensiell energi) | J |\n| $E$ | Mekanisk energi, $E = E_k + E_p$ | J |\n| $m$ | Masse | kg |\n| $v$, $v_0$ | Fart nå og startfart | m/s |\n| $h$ | Loddrett høyde over valgt nullnivå | m |\n| $g$ | Tyngdeakselerasjonen, $9{,}81$ | $\\text{m/s}^2$ |\n| $G = mg$ | **Tyngden** (kraften på legemet fra jorda) | N |\n| $N$ | Normalkraft fra underlaget | N |\n| $S$ | Snordrag | N |\n| $R = \\mu N$ | **Friksjonskraft** i dette delkapitlet | N |\n| $\\mu$ | Friksjonstall | enhetsløst |\n| $k$ | Fjærkonstant | N/m |\n| $x$ | Sammentrykking/strekk av fjær | m |\n| $P$ | Effekt | W (watt) |\n| $t$ | Tid | s |\n| $\\eta$ | Virkningsgrad | enhetsløs (ofte i %) |\n\n**Formler i dette delkapitlet:**\n\n$$W = Fs\\cos\\theta$$\nArbeidet til en konstant kraft. *(står på formelarket — må kunne brukes aktivt, særlig fortegnet)*\n\n$$W_R = -Rs$$\nFriksjonens arbeid på et legeme som glir. *(følger av formelen over med $\\theta = 180^\\circ$ — må kunne brukes aktivt)*\n\n$$E_k = \\tfrac{1}{2}mv^2$$\nKinetisk energi. *(står på formelarket — må kunne brukes aktivt)*\n\n$$E_p = mgh$$\nPotensiell energi i tyngdefeltet. *(står på formelarket — må kunne brukes aktivt)*\n\n$$E_f = \\tfrac{1}{2}kx^2$$\nFjærenergi. *(står på formelarket — må kunne brukes aktivt)*\n\n$$W_{\\text{netto}} = \\Delta E_k = \\tfrac{1}{2}mv^2 - \\tfrac{1}{2}mv_0^2$$\nArbeid–energi-setningen. *(står på formelarket — må kunne brukes aktivt)*\n\n$$P = \\frac{W}{t} = Fv$$\nEffekt. *(står på formelarket — må kunne brukes aktivt)*\n\n$$\\eta = \\frac{\\text{nyttig energi}}{\\text{tilført energi}}$$\nVirkningsgrad. *(står på formelarket — må kunne brukes aktivt)*\n\n$$g = 9{,}81\\ \\text{m/s}^2$$\nTyngdeakselerasjonen ved jordoverflaten. *(hentes fra formelark/tabell)*"
+        }
+      ]
+    }
+  ],
+  "exercises": []
+}

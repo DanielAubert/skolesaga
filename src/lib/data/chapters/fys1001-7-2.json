@@ -1,0 +1,459 @@
+{
+  "id": "fys1001-7-2",
+  "courseId": "fys1001",
+  "chapterNumber": "7.2",
+  "title": "Kjerneprosesser: reaksjonsligninger og A/Z-bevaring",
+  "description": "Reaksjonsligninger som balanseregnskap: identifiser alfa, beta og gamma fra endringene i nukleontall og ladningstall.",
+  "estimatedMinutes": 45,
+  "competenceGoals": [
+    "kunne lese og skrive nuklidesymbolet $^{A}_{Z}\\text{X}$ og finne antall protoner, nøytroner og nukleoner",
+    "kunne sette opp reaksjonsligninger for alfa-, betaminus- og gammahenfall og vise at nukleontall og ladningstall balanserer",
+    "kunne bestemme en ukjent partikkel eller datterkjerne ut fra balanseregnskapet, og gjenkjenne strålingstypen fra endringene",
+    "kunne summere endringene gjennom en henfallskjede og sette opp balanserte ligninger for fisjon og fusjon"
+  ],
+  "content": [
+    {
+      "id": "fys1001-7-2-tip-eksamensvinkel",
+      "type": "tip",
+      "title": "Eksamensvinkel",
+      "content": "**Kjernefysikk er høyeste prioritet: temaet dukker opp i 28 av 36 slutteksamener (78 %), og i moderne sett er det så godt som alltid nest siste eller siste oppgave.**\n\nBoka merker oppgaver med en **sjangerbokstav** — en kode for hvilken oppgavetype fra eksamensarkivet den trener; hele lista A–Q står i [kap. 0.1](/bok/fys1001/fys1001-0-1). Dette kapitlet er første trinn i **sjanger P (kjernefysikk og stråling)**, og har innslag av **sjanger Q (kvalitative «forklar hvorfor»-svar på 2–4 setninger)**.\n\nKjernefysikkoppgaven har nesten alltid den samme tretrinnsformen:\n\n1. **reaksjonsligning med A/Z-bevaring** — dette kapitlet,\n2. **halveringstid og aktivitet** — [kap. 7.3](/bok/fys1001/fys1001-7-3),\n3. **energi fra massesvinn**, $E = \\Delta mc^2$ — også [kap. 7.3](/bok/fys1001/fys1001-7-3).\n\nReaksjonsligninger med eksplisitt A/Z-bevaring er belagt i vår 2021, vår 2023 og vår 2024. Legg merke til ordet **eksplisitt**: løsningsforslagene viser balansen som et eget regnestykke. Å skrive riktig sluttkjerne uten å vise balansen koster poeng, selv når svaret er riktig.\n\n**Formelarket og tabellverket dekker deg.** Kjernemasser og halveringstider kommer som eget vedlegg til oppgaven, og periodesystemet gir deg koblingen mellom ladningstall og grunnstoffsymbol. Det du må kunne *aktivt*, er selve balanseregnskapet — og det er ren addisjon og subtraksjon."
+    },
+    {
+      "id": "fys1001-7-2-forkunnskaper",
+      "type": "text",
+      "content": "**Forkunnskaper — dette kapitlet kan leses uavhengig av resten av boka.**\n\n- Ingen fagkrav utover [kap. 0.1](/bok/fys1001/fys1001-0-1) (eksamensformen og sjangerkodene). Du trenger ikke ha lest mekanikk, termofysikk eller elektrisitet for å henge med her.\n- Eneste regneferdighet: å balansere to enkle ligninger samtidig — se [Algebra](/bok/1t/1t-1-3) hvis du vil friske opp regnereglene.\n- Kapitlet er *forkunnskap* for [kap. 7.3](/bok/fys1001/fys1001-7-3) (halveringstid og kjerneenergi) og [kap. 7.4](/bok/fys1001/fys1001-7-4) (drill på hele kjernefysikk-malen).\n\nDu trenger ingen tallverdier utenat: massene og halveringstidene kommer i vedlegg på eksamen, og grunnstoffsymbolene finner du i periodesystemet i tabellverket."
+    },
+    {
+      "id": "fys1001-7-2-intro",
+      "type": "text",
+      "content": "En røykvarsler i taket ditt inneholder et lite gram-brøkdels korn av americium-241. Kornet sender ut alfapartikler som ioniserer lufta i et lite kammer, og røykpartikler som forstyrrer denne ioniseringen, utløser alarmen. I kjellere over hele Norge siver radon-222 opp fra bakken. På sykehuset får pasienter injisert technetium-99m før en scanning. Alle tre er den samme fysikken: **ustabile atomkjerner som omdanner seg**.\n\nEn reaksjonsligning i kjernefysikk er ikke annet enn et **regnskap**. To størrelser må gå opp på begge sider, alltid:\n\n- **nukleontallet $A$** — antall partikler i kjernen,\n- **ladningstallet $Z$** — antall protoner, altså kjernens ladning.\n\nHar du kontroll på de to, kan du skrive enhver reaksjonsligning på eksamen — også for kjerner du aldri har hørt om.\n\nKapitlet går i fem korte læringsløkker (litt teori → et eksempel → en oppgave):\n\n1. Nuklidenotasjonen $^A_Z\\text{X}$ (~7 min)\n2. De tre henfallstypene og balanseregelen (~12 min)\n3. Finne den ukjente i en ligning (~8 min)\n4. Henfallskjeder (~9 min)\n5. Fisjon og fusjon (~9 min)\n\nTil slutt kommer litt «bør kjenne til»-stoff, en feilliste, en begrepsbank og en symbol- og formelliste."
+    },
+    {
+      "id": "fys1001-7-2-lokke1",
+      "type": "text",
+      "content": "## Løkke 1 — Nuklidenotasjonen (~7 min)"
+    },
+    {
+      "id": "fys1001-7-2-l1-teori",
+      "type": "text",
+      "content": "En atomkjerne består av protoner og nøytroner. Til sammen kalles de **nukleoner**. Kjemien til et atom bestemmes av antall protoner; kjernefysikken bestemmes av begge tallene.\n\nNotasjonen er kompakt og skal brukes konsekvent:\n\n$$^{A}_{Z}\\text{X}$$\n\nder $\\text{X}$ er grunnstoffsymbolet, $A$ står øverst til venstre og $Z$ nederst til venstre. Legg merke til at $Z$ egentlig er overflødig informasjon — symbolet $\\text{U}$ *betyr* $Z = 92$ — men du skal likevel alltid skrive det, fordi det er $Z$-regnskapet sensor ser etter."
+    },
+    {
+      "id": "fys1001-7-2-def-nuklide",
+      "type": "definition",
+      "title": "Nuklide",
+      "content": "En bestemt atomkjerne, entydig gitt ved antall protoner og antall nøytroner. Skrives $^{A}_{Z}\\text{X}$, for eksempel $^{235}_{92}\\text{U}$ (uran-235) eller $^{131}_{53}\\text{I}$ (jod-131). I dagligtale sier vi ofte «isotop», men «nuklide» er det presise ordet når vi snakker om én bestemt kjerne."
+    },
+    {
+      "id": "fys1001-7-2-def-A",
+      "type": "definition",
+      "title": "Nukleontall $A$ (massetall)",
+      "content": "Antall nukleoner i kjernen, altså protoner pluss nøytroner:\n\n$$A = Z + N$$\n\nTallet står **øverst** i nuklidesymbolet. Det er dette tallet som gir navnet: uran-235 betyr $A = 235$. Nukleontallet er (nesten) atommassen målt i atommasseenheter, men det er et heltall og en telling — ikke en masse."
+    },
+    {
+      "id": "fys1001-7-2-def-Z",
+      "type": "definition",
+      "title": "Ladningstall $Z$ (atomnummer)",
+      "content": "Antall protoner i kjernen. Tallet står **nederst** i nuklidesymbolet og bestemmer hvilket grunnstoff kjernen er: $Z = 92$ er alltid uran, $Z = 82$ er alltid bly. Kjernens ladning er $+Ze$.\n\nAntall nøytroner finner du som $N = A - Z$. For $^{235}_{92}\\text{U}$ er $N = 235 - 92 = 143$."
+    },
+    {
+      "id": "fys1001-7-2-def-isotop",
+      "type": "definition",
+      "title": "Isotop",
+      "content": "To nuklider med **samme $Z$, men ulikt $A$** er isotoper av hverandre — samme grunnstoff, ulikt antall nøytroner. $^{235}_{92}\\text{U}$ og $^{238}_{92}\\text{U}$ er isotoper: kjemisk like, kjernefysisk svært ulike. Karbon-12 og karbon-14 er et annet par du møter igjen i dateringsoppgaver."
+    },
+    {
+      "id": "fys1001-7-2-ex-1",
+      "type": "example",
+      "title": "Eksempel 1: Lese et nuklidesymbol (sjanger P)",
+      "problem": "Nukliden $^{226}_{88}\\text{Ra}$ er radium-226. Hvor mange protoner, nøytroner og nukleoner har kjernen, og hvor stor er kjernens ladning?",
+      "solution": "**Les av tallene.** Nederst står $Z = 88$, øverst står $A = 226$.\n\n**Protoner:** $Z = 88$.\n\n**Nukleoner:** $A = 226$.\n\n**Nøytroner:** $N = A - Z = 226 - 88 = 138$.\n\n**Ladning:** kjernen har 88 protoner, hver med ladning $+e$, altså\n\n$$Q = Ze = 88 \\cdot 1{,}602\\cdot10^{-19}\\ \\text{C} = 1{,}41\\cdot10^{-17}\\ \\text{C}$$\n\n**Konklusjon.** $^{226}_{88}\\text{Ra}$ har 88 protoner, 138 nøytroner, 226 nukleoner og ladningen $1{,}41\\cdot10^{-17}$ C. Kontroll: $88 + 138 = 226$ ✓."
+    },
+    {
+      "id": "fys1001-7-2-opg-l1",
+      "type": "exercise",
+      "exercise": {
+        "id": "fys1001-7-2-l1",
+        "number": "1",
+        "type": "classic",
+        "difficulty": "lett",
+        "task": "(Innstegsoppgave — sjanger P, altså kjernefysikk og stråling.) Radon-222 skrives $^{222}_{86}\\text{Rn}$.\n\n**a)** Hvor mange protoner har kjernen?\n**b)** Hvor mange nøytroner har den?\n**c)** En annen radonisotop har 134 nøytroner. Skriv nuklidesymbolet for den.",
+        "solution": "**a)** Antall protoner er $Z = 86$.\n\n**b)** $N = A - Z = 222 - 86 = 136$ nøytroner.\n\n**c)** En radonisotop har alltid $Z = 86$ — det er nettopp protontallet som gjør den til radon. Med $N = 134$ blir nukleontallet $A = Z + N = 86 + 134 = 220$, så nukliden er $^{220}_{86}\\text{Rn}$. Den har samme $Z$ som $^{222}_{86}\\text{Rn}$, men to nøytroner mindre — de to er isotoper av hverandre.",
+        "hints": [
+          "$Z$ står nederst og $A$ øverst i nuklidesymbolet.",
+          "Antall nøytroner er differansen mellom de to tallene.",
+          "I c): hvilket av de to tallene er låst når grunnstoffet er radon? Bruk så $A = Z + N$."
+        ]
+      }
+    },
+    {
+      "id": "fys1001-7-2-lokke2",
+      "type": "text",
+      "content": "## Løkke 2 — De tre henfallstypene og balanseregelen (~12 min)"
+    },
+    {
+      "id": "fys1001-7-2-l2-teori",
+      "type": "text",
+      "content": "En ustabil kjerne omdanner seg spontant. Det finnes tre typer henfall du må kunne kjenne igjen på eksamen, og de skiller seg fra hverandre **utelukkende ved hva som skjer med $A$ og $Z$**. Det er derfor du kan identifisere strålingstypen bare ved å se på endringene i en ligning."
+    },
+    {
+      "id": "fys1001-7-2-thm-bevaring",
+      "type": "theorem",
+      "title": "Bevaring av nukleontall og ladningstall",
+      "content": "I enhver kjernereaksjon er summen av nukleontallene og summen av ladningstallene den samme før og etter:\n\n$$\\sum A_{\\text{venstre}} = \\sum A_{\\text{høyre}} \\qquad\\text{og}\\qquad \\sum Z_{\\text{venstre}} = \\sum Z_{\\text{høyre}}$$\n\nDette er hele verktøykassa i denne sjangeren. **Vis begge regnestykkene** under ligningen — løsningsforslagene i arkivet gjør det hver gang, og det er en av de billigste poengene i hele eksamenssettet."
+    },
+    {
+      "id": "fys1001-7-2-def-alfa",
+      "type": "definition",
+      "title": "Alfahenfall (α)",
+      "content": "Kjernen sender ut en **alfapartikkel**, som er en heliumkjerne $^{4}_{2}\\text{He}$ (to protoner og to nøytroner). Signaturen er:\n\n$$A \\to A - 4, \\qquad Z \\to Z - 2$$\n\n$$^{A}_{Z}\\text{X} \\;\\rightarrow\\; ^{A-4}_{Z-2}\\text{Y} + ^{4}_{2}\\text{He}$$\n\nAlfapartikler er tunge og dobbelt ladde. De stanses av et ark papir eller av huden, men er nettopp derfor svært skadelige hvis kilden kommer inn i kroppen."
+    },
+    {
+      "id": "fys1001-7-2-def-beta",
+      "type": "definition",
+      "title": "Betaminus-henfall (β⁻)",
+      "content": "Et **nøytron i kjernen** blir til et proton, og ut kommer et elektron og et antinøytrino. Signaturen er:\n\n$$A \\text{ uendret}, \\qquad Z \\to Z + 1$$\n\n$$^{A}_{Z}\\text{X} \\;\\rightarrow\\; ^{A}_{Z+1}\\text{Y} + ^{\\ 0}_{-1}\\text{e} + \\bar{\\nu}$$\n\nElektronet skrives $^{\\ 0}_{-1}\\text{e}$: nukleontall **0** (det er ikke et nukleon) og ladningstall **−1**. Det er nettopp $-1$ som gjør at $Z$ må øke med 1 på datterkjernen for at regnskapet skal gå opp. Betapartikler stanses av noen millimeter aluminium."
+    },
+    {
+      "id": "fys1001-7-2-def-antinoytrino",
+      "type": "definition",
+      "title": "Antinøytrino $\\bar{\\nu}$",
+      "content": "En nesten masseløs, uladd partikkel som følger med ut i hvert betaminus-henfall. Den har $A = 0$ og $Z = 0$ og forstyrrer derfor ikke balanseregnskapet i det hele tatt — men den skal likevel skrives med i ligningen, eller nevnes i en kommentar. Den bærer bort en del av energien, og det er grunnen til at betapartikler kommer ut med varierende fart."
+    },
+    {
+      "id": "fys1001-7-2-def-gamma",
+      "type": "definition",
+      "title": "Gammahenfall (γ)",
+      "content": "Kjernen kvitter seg med overskuddsenergi ved å sende ut et energirikt foton. Signaturen er den enkleste av alle:\n\n$$A \\text{ uendret}, \\qquad Z \\text{ uendret}$$\n\n$$^{A}_{Z}\\text{X}^{*} \\;\\rightarrow\\; ^{A}_{Z}\\text{X} + \\gamma$$\n\nStjernen (eller bokstaven m, som i $^{99\\text{m}}\\text{Tc}$) markerer at kjernen er **eksitert**. Dette er nøyaktig samme idé som elektronovergangene i [kap. 7.1](/bok/fys1001/fys1001-7-1), bare at det nå er kjernen som har energinivåer — og energiene er en million ganger større. Gammastråling stanses bare av tykt bly eller betong."
+    },
+    {
+      "id": "fys1001-7-2-fig-kart",
+      "type": "image",
+      "src": "/images/textbook/fys1001/fys1001-7-2-henfallskart.svg",
+      "alt": "Rutenett med nøytrontall N vannrett og protontall Z loddrett. Fra morkjernen i midten peker en rød pil to ruter til venstre og to ned for alfahenfall, en grønn pil en rute til venstre og en opp for betaminus-henfall, en stiplet lilla pil en rute til høyre og en ned for betapluss-henfall, og en stiplet sirkel rundt morkjernen for gammahenfall.",
+      "caption": "De tre henfallstypene sett som flytt i et $Z$–$N$-kart. Alfa flytter kjernen to skritt ned og to til venstre, betaminus ett skritt opp og ett til venstre (et nøytron er blitt et proton), mens gamma lar kjernen bli stående. Betapluss er «bør kjenne til»-stoff, se slutten av kapitlet."
+    },
+    {
+      "id": "fys1001-7-2-ex-2",
+      "type": "example",
+      "title": "Eksempel 2: Alfahenfall med balansekontroll (sjanger P)",
+      "problem": "Radium-226 henfaller ved alfastråling. Sett opp reaksjonsligningen, og vis at både nukleontall og ladningstall balanserer. (Fra periodesystemet: $Z = 86$ er radon, Rn.)",
+      "solution": "**Bruk signaturen.** Alfahenfall tar 4 fra nukleontallet og 2 fra ladningstallet:\n\n$$A: 226 - 4 = 222, \\qquad Z: 88 - 2 = 86$$\n\n$Z = 86$ er radon, så datterkjernen er $^{222}_{86}\\text{Rn}$.\n\n**Reaksjonsligningen:**\n\n$$^{226}_{88}\\text{Ra} \\;\\rightarrow\\; ^{222}_{86}\\text{Rn} + ^{4}_{2}\\text{He}$$\n\n**Balansekontroll — skriv den ut:**\n\n- Nukleontall: $226 = 222 + 4$ ✓\n- Ladningstall: $88 = 86 + 2$ ✓\n\n**Konklusjon.** Radium-226 henfaller til radon-222 under utsending av en alfapartikkel, og begge bevaringsreglene er oppfylt. Dette er første trinn i radonproblemet i norske kjellere: radium i berggrunnen produserer radongass, som er en gass og derfor kan sive opp i huset."
+    },
+    {
+      "id": "fys1001-7-2-opg-l2a",
+      "type": "exercise",
+      "exercise": {
+        "id": "fys1001-7-2-l2a",
+        "number": "2",
+        "type": "classic",
+        "difficulty": "lett",
+        "task": "(Sjanger P.) Jod-131, $^{131}_{53}\\text{I}$, brukes i behandling av skjoldbruskkjertelen og henfaller ved betaminus-stråling.\n\n**a)** Sett opp reaksjonsligningen. (Fra periodesystemet: $Z = 54$ er xenon, Xe.)\n**b)** Vis at både nukleontall og ladningstall balanserer.",
+        "solution": "**a)** Betaminus lar $A$ stå og øker $Z$ med 1, så datterkjernen er $^{131}_{54}\\text{Xe}$:\n\n$$^{131}_{53}\\text{I} \\;\\rightarrow\\; ^{131}_{54}\\text{Xe} + ^{\\ 0}_{-1}\\text{e} + \\bar{\\nu}$$\n\n**b)** Balansekontroll:\n\n- Nukleontall: $131 = 131 + 0 + 0$ ✓ (elektronet og antinøytrinoet har begge $A = 0$)\n- Ladningstall: $53 = 54 + (-1) + 0$ ✓\n\nDet er ladningstallet $-1$ på elektronet som gjør at datterkjernen må ha ett proton *mer*, ikke mindre.",
+        "hints": [
+          "Betaminus lar nukleontallet stå uendret — det er bare et nøytron som er blitt et proton.",
+          "Elektronet skrives $^{\\ 0}_{-1}\\text{e}$; husk å ta med antinøytrinoet.",
+          "Skriv balansen som to egne regnestykker under ligningen, ett for $A$ og ett for $Z$."
+        ]
+      }
+    },
+    {
+      "id": "fys1001-7-2-opg-l2b",
+      "type": "exercise",
+      "exercise": {
+        "id": "fys1001-7-2-l2b",
+        "number": "3",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "(Sjanger Q — kvalitativ forklaring.) En kollega sier: «Alfastråling stanses jo av et papirark, så alfakilder er de ufarligste.» Forklar i høyst fire setninger hvorfor dette er en farlig misforståelse.",
+        "solution": "Utsagnet er riktig om *ytre* bestråling: alfapartikler er tunge og dobbelt ladde, mister energien sin over noen få centimeter luft og trenger ikke gjennom hudens døde ytterlag. Men nettopp fordi de avgir all energien på så kort strekning, blir energiavsetningen per millimeter vev svært stor. Kommer kilden inn i kroppen — innåndet som radongass eller svelget — bestråles levende celler direkte og intenst. Alfastråling er derfor blant de minst farlige utenfra og blant de farligste innvendig; skillet mellom ytre og indre bestråling er hele poenget.",
+        "hints": [
+          "Skill mellom hvor langt strålingen når, og hvor mye energi den avsetter per lengdeenhet.",
+          "Tenk på hva som skjer hvis kilden befinner seg *inne* i kroppen.",
+          "Radon i kjellerluft er den norske skolebok-anvendelsen av dette poenget."
+        ]
+      }
+    },
+    {
+      "id": "fys1001-7-2-pause1",
+      "type": "text",
+      "content": "*— naturlig pausepunkt —*"
+    },
+    {
+      "id": "fys1001-7-2-lokke3",
+      "type": "text",
+      "content": "## Løkke 3 — Finne den ukjente i en ligning (~8 min)"
+    },
+    {
+      "id": "fys1001-7-2-l3-teori",
+      "type": "text",
+      "content": "Eksamen snur ofte spørsmålet: du får ligningen med et hull i, og skal finne den manglende partikkelen eller datterkjernen. Framgangsmåten er alltid den samme, og den er ren aritmetikk:\n\n1. Summer $A$ på hver side, og finn hva som mangler.\n2. Summer $Z$ på hver side, og finn hva som mangler.\n3. Slå opp $Z$ i periodesystemet for å finne grunnstoffsymbolet.\n4. Kjenn igjen strålingstypen fra endringene: $(-4, -2)$ er alfa, $(0, +1)$ er betaminus, $(0, 0)$ er gamma."
+    },
+    {
+      "id": "fys1001-7-2-def-mor-datter",
+      "type": "definition",
+      "title": "Morkjerne og datterkjerne",
+      "content": "**Morkjernen** er kjernen før henfallet, **datterkjernen** den som blir igjen etter. Er datterkjernen selv ustabil, henfaller den videre — og da kalles den morkjerne i neste trinn. Begrepsparet brukes gjennomgående i oppgavetekster, så det lønner seg å kjenne det."
+    },
+    {
+      "id": "fys1001-7-2-ex-3",
+      "type": "example",
+      "title": "Eksempel 3: Hvilken partikkel mangler? (sjanger P)",
+      "problem": "En kjernereaksjon skrives $^{234}_{90}\\text{Th} \\rightarrow\\ ^{234}_{91}\\text{Pa} + \\text{X}$. Bestem partikkelen X og strålingstypen.",
+      "solution": "**Nukleontall.** Venstre side har $A = 234$. Høyre side har $234$ fra protactinium, så X må ha\n\n$$A_{\\text{X}} = 234 - 234 = 0$$\n\n**Ladningstall.** Venstre side har $Z = 90$. Høyre side har $91$, så\n\n$$Z_{\\text{X}} = 90 - 91 = -1$$\n\n**Identifiser.** En partikkel med $A = 0$ og $Z = -1$ er et elektron, $^{\\ 0}_{-1}\\text{e}$ — altså en betapartikkel. Ligningen er derfor et **betaminus-henfall**:\n\n$$^{234}_{90}\\text{Th} \\;\\rightarrow\\; ^{234}_{91}\\text{Pa} + ^{\\ 0}_{-1}\\text{e} + \\bar{\\nu}$$\n\n**Kontroll.** Nukleontall: $234 = 234 + 0$ ✓. Ladningstall: $90 = 91 - 1$ ✓. Antinøytrinoet har $A = 0$ og $Z = 0$ og endrer ikke regnskapet, men hører med i ligningen.\n\n**Konklusjon.** X er en betapartikkel (et elektron), og prosessen er betaminus-henfall — vi ser det direkte av at $A$ står stille mens $Z$ øker med 1."
+    },
+    {
+      "id": "fys1001-7-2-opg-l3",
+      "type": "exercise",
+      "exercise": {
+        "id": "fys1001-7-2-l3",
+        "number": "4",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "(Sjanger P.) Bestem den ukjente i hver av reaksjonene, og oppgi hvilken strålingstype det er snakk om. Periodesystemet gir: $Z = 84$ er polonium (Po), $Z = 82$ er bly (Pb), $Z = 28$ er nikkel (Ni).\n\n**a)** $^{218}_{84}\\text{Po} \\rightarrow\\ ^{214}_{82}\\text{Pb} + \\text{X}$\n**b)** $^{60}_{27}\\text{Co} \\rightarrow \\text{Y} + ^{\\ 0}_{-1}\\text{e} + \\bar{\\nu}$\n**c)** $^{99\\text{m}}_{43}\\text{Tc} \\rightarrow\\ ^{99}_{43}\\text{Tc} + \\text{Z}$",
+        "solution": "**a)** Nukleontall: $A_{\\text{X}} = 218 - 214 = 4$. Ladningstall: $Z_{\\text{X}} = 84 - 82 = 2$. Det er en alfapartikkel, $^{4}_{2}\\text{He}$ — altså **alfahenfall**. Kontroll: $218 = 214 + 4$ ✓ og $84 = 82 + 2$ ✓.\n\n**b)** Nukleontall: $A_{\\text{Y}} = 60 - 0 = 60$. Ladningstall: $Z_{\\text{Y}} = 27 - (-1) = 28$, altså nikkel. Datterkjernen er $^{60}_{28}\\text{Ni}$, og prosessen er **betaminus-henfall**. Kontroll: $60 = 60 + 0$ ✓ og $27 = 28 - 1$ ✓.\n\n**c)** Både $A$ og $Z$ er uendret ($99$ og $43$ på begge sider), så den utsendte «partikkelen» må ha $A = 0$ og $Z = 0$: det er et gammafoton. Prosessen er **gammahenfall** fra den eksiterte tilstanden $^{99\\text{m}}\\text{Tc}$.",
+        "hints": [
+          "Sett opp to regnestykker for hver deloppgave: ett for $A$ og ett for $Z$.",
+          "Et negativt ladningstall på høyre side må trekkes fra — pass på fortegnet i b).",
+          "I c): hva slags «partikkel» har både $A = 0$ og $Z = 0$?"
+        ]
+      }
+    },
+    {
+      "id": "fys1001-7-2-lokke4",
+      "type": "text",
+      "content": "## Løkke 4 — Henfallskjeder (~9 min)"
+    },
+    {
+      "id": "fys1001-7-2-l4-teori",
+      "type": "text",
+      "content": "Tunge kjerner blir sjelden stabile i ett hopp. De henfaller i **kjeder** på mange trinn før de ender i en stabil blyisotop. Eksamen spør typisk etter den *samlede* ligningen: start, sluttkjerne og antall alfa- og betapartikler.\n\nTrikset er å summere endringene i stedet for å gå trinn for trinn:\n\n$$A_{\\text{slutt}} = A_{\\text{start}} - 4n_\\alpha, \\qquad Z_{\\text{slutt}} = Z_{\\text{start}} - 2n_\\alpha + n_\\beta$$\n\nder $n_\\alpha$ er antall alfahenfall og $n_\\beta$ antall betaminus-henfall. Betahenfall endrer ikke $A$ i det hele tatt — derfor er antall alfahenfall alene bestemt av hvor mye nukleontallet har falt."
+    },
+    {
+      "id": "fys1001-7-2-def-kjede",
+      "type": "definition",
+      "title": "Henfallskjede",
+      "content": "En serie av henfall der datterkjernen i hvert trinn selv er ustabil og henfaller videre, helt til en stabil kjerne nås. De tre naturlige kjedene starter i uran-238, uran-235 og thorium-232 og ender alle i en stabil blyisotop. Radongassen i norske kjellere er et mellomtrinn i uran-238-kjeden."
+    },
+    {
+      "id": "fys1001-7-2-ex-4",
+      "type": "example",
+      "title": "Eksempel 4: Samlet ligning for en kjede (sjanger P)",
+      "problem": "Uran-235 henfaller via to alfahenfall og ett betaminus-henfall til en datterkjerne. Sett opp den samlede reaksjonsligningen, vis balansen, og identifiser sluttkjernen. (Periodesystemet: $Z = 89$ er aktinium, Ac.)",
+      "solution": "**Summer endringene.** Med $n_\\alpha = 2$ og $n_\\beta = 1$:\n\n$$A_{\\text{slutt}} = 235 - 4\\cdot2 = 227$$\n\n$$Z_{\\text{slutt}} = 92 - 2\\cdot2 + 1 = 92 - 4 + 1 = 89$$\n\n$Z = 89$ er aktinium, så sluttkjernen er $^{227}_{89}\\text{Ac}$.\n\n**Samlet ligning:**\n\n$$^{235}_{92}\\text{U} \\;\\rightarrow\\; ^{227}_{89}\\text{Ac} + 2\\,^{4}_{2}\\text{He} + ^{\\ 0}_{-1}\\text{e} + \\bar{\\nu}$$\n\n**Balansekontroll:**\n\n- Nukleontall: $235 = 227 + 2\\cdot4 + 0 = 227 + 8 = 235$ ✓\n- Ladningstall: $92 = 89 + 2\\cdot2 + (-1) = 89 + 4 - 1 = 92$ ✓\n\n**Konklusjon.** To alfahenfall og ett betahenfall fører uran-235 over i aktinium-227. Legg merke til rimeligheten: nukleontallet falt med nøyaktig 8, altså 4 per alfa, mens betahenfallet bare flyttet ladningstallet."
+    },
+    {
+      "id": "fys1001-7-2-opg-l4a",
+      "type": "exercise",
+      "exercise": {
+        "id": "fys1001-7-2-l4a",
+        "number": "5",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "(Sjanger P.) Radium-226 henfaller i en kjede med tre alfahenfall og to betaminus-henfall.\n\n**a)** Finn nukleontall og ladningstall til sluttkjernen.\n**b)** Sett opp den samlede reaksjonsligningen og vis balansen. (Periodesystemet: $Z = 84$ er polonium, Po.)\n**c)** Radongassen $^{222}_{86}\\text{Rn}$ er første datterkjerne i denne kjeden. Hvilket henfall er det første trinnet?",
+        "solution": "**a)** Med $n_\\alpha = 3$ og $n_\\beta = 2$:\n\n$$A = 226 - 4\\cdot3 = 226 - 12 = 214, \\qquad Z = 88 - 2\\cdot3 + 2 = 88 - 6 + 2 = 84$$\n\nSluttkjernen har $A = 214$ og $Z = 84$, altså polonium-214.\n\n**b)** Samlet ligning:\n\n$$^{226}_{88}\\text{Ra} \\;\\rightarrow\\; ^{214}_{84}\\text{Po} + 3\\,^{4}_{2}\\text{He} + 2\\,^{\\ 0}_{-1}\\text{e} + 2\\bar{\\nu}$$\n\nBalansekontroll:\n\n- Nukleontall: $226 = 214 + 3\\cdot4 + 0 = 214 + 12$ ✓\n- Ladningstall: $88 = 84 + 3\\cdot2 + 2\\cdot(-1) = 84 + 6 - 2$ ✓\n\n**c)** Fra $^{226}_{88}\\text{Ra}$ til $^{222}_{86}\\text{Rn}$ faller $A$ med 4 og $Z$ med 2 — signaturen for alfahenfall.",
+        "hints": [
+          "Antall alfahenfall bestemmer alene hvor mye nukleontallet faller, siden beta ikke endrer $A$.",
+          "Sett opp $Z_{\\text{slutt}} = Z_{\\text{start}} - 2n_\\alpha + n_\\beta$ og regn ut.",
+          "I c): sammenlign de to nuklidesymbolene tall for tall, og se hvilken signatur endringene passer med."
+        ]
+      }
+    },
+    {
+      "id": "fys1001-7-2-opg-l4b",
+      "type": "exercise",
+      "exercise": {
+        "id": "fys1001-7-2-l4b",
+        "number": "6",
+        "type": "classic",
+        "difficulty": "vanskelig",
+        "task": "(Sjanger P — krevende.) Thorium-232 henfaller i en kjede som ender i den stabile blyisotopen $^{208}_{82}\\text{Pb}$. Bestem hvor mange alfahenfall og hvor mange betaminus-henfall kjeden inneholder til sammen. Vis regningen.",
+        "solution": "**Bruk nukleontallet til å finne antall alfahenfall.** Bare alfahenfall endrer $A$, og hvert av dem tar 4:\n\n$$232 - 4n_\\alpha = 208 \\quad\\Longrightarrow\\quad 4n_\\alpha = 24 \\quad\\Longrightarrow\\quad n_\\alpha = 6$$\n\n**Bruk ladningstallet til å finne antall betahenfall.** Med $n_\\alpha = 6$:\n\n$$90 - 2\\cdot6 + n_\\beta = 82 \\quad\\Longrightarrow\\quad 78 + n_\\beta = 82 \\quad\\Longrightarrow\\quad n_\\beta = 4$$\n\n**Samlet ligning:**\n\n$$^{232}_{90}\\text{Th} \\;\\rightarrow\\; ^{208}_{82}\\text{Pb} + 6\\,^{4}_{2}\\text{He} + 4\\,^{\\ 0}_{-1}\\text{e} + 4\\bar{\\nu}$$\n\n**Balansekontroll:** nukleontall $232 = 208 + 24$ ✓; ladningstall $90 = 82 + 12 - 4$ ✓.\n\n**Konklusjon.** Kjeden består av 6 alfahenfall og 4 betaminus-henfall. Framgangsmåten er verdt å legge seg på minnet: løs først for $n_\\alpha$ fra $A$-regnskapet, sett så inn i $Z$-regnskapet og løs for $n_\\beta$.",
+        "hints": [
+          "Hvilket av de to henfallene endrer nukleontallet? Da er $n_\\alpha$ bestemt av $A$ alene.",
+          "Sett opp $232 - 4n_\\alpha = 208$ og løs for $n_\\alpha$.",
+          "Sett den verdien inn i ladningstallregnskapet $90 - 2n_\\alpha + n_\\beta = 82$."
+        ]
+      }
+    },
+    {
+      "id": "fys1001-7-2-lokke5",
+      "type": "text",
+      "content": "## Løkke 5 — Fisjon og fusjon (~9 min)"
+    },
+    {
+      "id": "fys1001-7-2-l5-teori",
+      "type": "text",
+      "content": "De to siste prosessene i sjangeren er ikke henfall, men **reaksjoner**: noe treffer kjernen, eller to kjerner smelter sammen. Balanseregelen er nøyaktig den samme — bare at nå må du telle med det som kommer inn fra venstre også."
+    },
+    {
+      "id": "fys1001-7-2-def-fisjon",
+      "type": "definition",
+      "title": "Fisjon (kjernespalting)",
+      "content": "En tung kjerne treffes av et nøytron, blir ustabil og spaltes i to mellomtunge fragmenter pluss noen frie nøytroner:\n\n$$^{235}_{92}\\text{U} + ^{1}_{0}\\text{n} \\;\\rightarrow\\; ^{A_1}_{Z_1}\\text{F}_1 + ^{A_2}_{Z_2}\\text{F}_2 + k\\,^{1}_{0}\\text{n}$$\n\nNøytronet skrives $^{1}_{0}\\text{n}$: nukleontall 1, ladningstall 0. De frigjorte nøytronene kan spalte nye kjerner — det er kjedereaksjonen i en reaktor. Fragmentene er ikke faste; ulike spaltinger gir ulike par, og oppgaven oppgir dem alltid."
+    },
+    {
+      "id": "fys1001-7-2-def-fusjon",
+      "type": "definition",
+      "title": "Fusjon (kjernesammensmelting)",
+      "content": "To lette kjerner smelter sammen til én tyngre. Standardreaksjonen i sola og i fusjonsforskningen er deuterium pluss tritium:\n\n$$^{2}_{1}\\text{H} + ^{3}_{1}\\text{H} \\;\\rightarrow\\; ^{4}_{2}\\text{He} + ^{1}_{0}\\text{n}$$\n\nKjernene må ha svært høy fart for å komme nær nok hverandre, siden begge er positivt ladd og frastøter hverandre elektrisk. Det er derfor fusjon krever ekstreme temperaturer."
+    },
+    {
+      "id": "fys1001-7-2-ex-5",
+      "type": "example",
+      "title": "Eksempel 5: Balansen i en fisjonsreaksjon (sjanger P)",
+      "problem": "I en reaktor spaltes uran-235 etter reaksjonen $^{235}_{92}\\text{U} + ^{1}_{0}\\text{n} \\rightarrow\\ ^{141}_{56}\\text{Ba} + ^{92}_{36}\\text{Kr} + k\\,^{1}_{0}\\text{n}$. Bestem antallet frie nøytroner $k$, og vis at ligningen balanserer.",
+      "solution": "**Nukleontall.** Venstre side: $235 + 1 = 236$. Høyre side: $141 + 92 + k\\cdot1 = 233 + k$. Krav om likhet:\n\n$$236 = 233 + k \\quad\\Longrightarrow\\quad k = 3$$\n\n**Ladningstall.** Venstre side: $92 + 0 = 92$. Høyre side: $56 + 36 + 3\\cdot0 = 92$ ✓ — nøytronene har ladningstall 0 og påvirker ikke dette regnskapet.\n\n**Ferdig ligning:**\n\n$$^{235}_{92}\\text{U} + ^{1}_{0}\\text{n} \\;\\rightarrow\\; ^{141}_{56}\\text{Ba} + ^{92}_{36}\\text{Kr} + 3\\,^{1}_{0}\\text{n}$$\n\n**Konklusjon og rimelighet.** Spaltingen frigjør 3 nøytroner. At det kommer ut flere nøytroner enn det ene som gikk inn, er nettopp forutsetningen for en kjedereaksjon — og at tallet ligger på 2–3, er typisk for uranfisjon."
+    },
+    {
+      "id": "fys1001-7-2-opg-l5",
+      "type": "exercise",
+      "exercise": {
+        "id": "fys1001-7-2-l5",
+        "number": "7",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "(Sjanger P.) I en annen spalting av uran-235 er fragmentene tellur-137 ($^{137}_{52}\\text{Te}$) og zirkonium-97 ($^{97}_{40}\\text{Zr}$).\n\n**a)** Sett opp reaksjonsligningen med riktig antall frie nøytroner.\n**b)** Vis at både nukleontall og ladningstall balanserer.\n**c)** Forklar i én til to setninger hvorfor de frie nøytronene er avgjørende for at en reaktor skal kunne holde reaksjonen i gang.",
+        "solution": "**a)** Nukleontall på venstre side: $235 + 1 = 236$. Fragmentene har $137 + 97 = 234$, så $k = 236 - 234 = 2$ nøytroner:\n\n$$^{235}_{92}\\text{U} + ^{1}_{0}\\text{n} \\;\\rightarrow\\; ^{137}_{52}\\text{Te} + ^{97}_{40}\\text{Zr} + 2\\,^{1}_{0}\\text{n}$$\n\n**b)** Balansekontroll:\n\n- Nukleontall: $235 + 1 = 236$ og $137 + 97 + 2 = 236$ ✓\n- Ladningstall: $92 + 0 = 92$ og $52 + 40 + 0 = 92$ ✓\n\n**c)** Hver spalting bruker ett nøytron og frigjør to, slik at de nye nøytronene kan spalte nye urankjerner. Da holder reaksjonen seg selv i gang som en kjedereaksjon, og reaktoren styres ved å fange opp akkurat nok av nøytronene til at det i snitt blir én ny spalting per spalting.",
+        "hints": [
+          "Tell nukleontall på begge sider — husk nøytronet som går inn fra venstre.",
+          "Antall frie nøytroner er differansen mellom de to nukleontallsummene.",
+          "I c): sammenlign hvor mange nøytroner som brukes og hvor mange som kommer ut."
+        ]
+      }
+    },
+    {
+      "id": "fys1001-7-2-bor-kjenne",
+      "type": "text",
+      "content": "## Bør kjenne til: hvorfor skjer betahenfall i det hele tatt? (~4 min)\n\n*Dette avsnittet er markert som «bør kjenne til» — det er sjelden hovedspørsmål, men det gir presisjon i kvalitative svar og koster fire minutter.*\n\nI lette, stabile kjerner er antall nøytroner omtrent lik antall protoner. Jo tyngre kjernen er, jo flere *ekstra* nøytroner trengs for å holde den sammen, fordi den elektriske frastøtningen mellom protonene vokser raskere enn kjernekreftene som binder. Stabile kjerner ligger derfor langs et bånd i $Z$–$N$-kartet.\n\nEn kjerne som havner **utenfor** båndet, retter opp forholdet ved betahenfall:\n\n- **For mange nøytroner** (under båndet): et nøytron blir til et proton — **betaminus**, $Z$ øker med 1.\n- **For få nøytroner** (over båndet): et proton blir til et nøytron — **betapluss**, $Z$ synker med 1."
+    },
+    {
+      "id": "fys1001-7-2-def-npforhold",
+      "type": "definition",
+      "title": "Nøytron–proton-forholdet",
+      "content": "Forholdet $N/Z$ i en kjerne. For lette stabile kjerner er det omtrent 1, for de tyngste omtrent 1,5. Kjerner med for høyt $N/Z$ retter opp med betaminus-henfall, kjerner med for lavt $N/Z$ med betapluss-henfall. Dette er forklaringen på *hvilken* type beta en gitt kjerne velger — et typisk «forklar hvorfor»-spørsmål."
+    },
+    {
+      "id": "fys1001-7-2-def-betapluss",
+      "type": "definition",
+      "title": "Betapluss-henfall (β⁺)",
+      "content": "Et proton i kjernen blir til et nøytron, og ut kommer et positron (elektronets antipartikkel, $^{\\ 0}_{+1}\\text{e}$) og et nøytrino:\n\n$$^{A}_{Z}\\text{X} \\;\\rightarrow\\; ^{A}_{Z-1}\\text{Y} + ^{\\ 0}_{+1}\\text{e} + \\nu$$\n\nNukleontallet står stille, ladningstallet synker med 1. Prosessen er grunnlaget for PET-undersøkelser: $^{18}_{9}\\text{F} \\rightarrow\\ ^{18}_{8}\\text{O} + ^{\\ 0}_{+1}\\text{e} + \\nu$, der positronet møter et elektron og blir til to gammafotoner som detekteres."
+    },
+    {
+      "id": "fys1001-7-2-opg-bk1",
+      "type": "exercise",
+      "exercise": {
+        "id": "fys1001-7-2-bk1",
+        "number": "8",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "(Sjanger Q — kvalitativ forklaring, «bør kjenne til»-stoff.) Karbon-14 har 6 protoner og 8 nøytroner, mens den stabile karbon-12 har 6 av hver. Forklar i høyst tre setninger hvorfor karbon-14 henfaller ved betaminus og ikke ved betapluss, og skriv reaksjonsligningen. (Periodesystemet: $Z = 7$ er nitrogen, N.)",
+        "solution": "Karbon-14 har flere nøytroner enn protoner ($N/Z = 8/6 \\approx 1{,}3$), mens stabile lette kjerner ligger nær $N/Z = 1$ — kjernen har altså nøytronoverskudd. Betaminus retter opp nettopp dette ved at et nøytron blir til et proton, slik at forholdet nærmer seg 1; betapluss ville gjort ubalansen verre. Ligningen er\n\n$$^{14}_{6}\\text{C} \\;\\rightarrow\\; ^{14}_{7}\\text{N} + ^{\\ 0}_{-1}\\text{e} + \\bar{\\nu}$$\n\nmed balansen $14 = 14 + 0$ ✓ og $6 = 7 - 1$ ✓. (Datterkjernen $^{14}_{7}\\text{N}$ har 7 protoner og 7 nøytroner — akkurat i stabilitetsbåndet.)",
+        "hints": [
+          "Sammenlign antall nøytroner og protoner i kjernen med det som er typisk for stabile lette kjerner.",
+          "Hvilken av de to betatypene *reduserer* et nøytronoverskudd?",
+          "Husk å vise A- og Z-balansen under ligningen."
+        ]
+      }
+    },
+    {
+      "id": "fys1001-7-2-warn-typiske-feil",
+      "type": "warning",
+      "title": "Typiske feil",
+      "content": "- **Balansere bare $A$ og glemme $Z$ (eller omvendt).** Begge regnskapene skal skrives ut. Dette er den hyppigste enkeltfeilen i sjangeren, og den koster poeng selv når sluttkjernen er riktig.\n- **Gi betapartikkelen nukleontall 1.** Elektronet er $^{\\ 0}_{-1}\\text{e}$: nukleontall **0**, ladningstall **−1**. Skriver du $^{1}_{-1}\\text{e}$, sprekker $A$-regnskapet.\n- **Utelate antinøytrinoet uten kommentar.** Det påvirker ikke balansen ($A = 0$, $Z = 0$), men det hører med i ligningen for betahenfall.\n- **Regne alfapartikkelen som et helium-*atom* med elektroner.** Alfapartikkelen er en naken kjerne, $^{4}_{2}\\text{He}$ med ladning $+2e$. (Når du senere regner massesvinn i [kap. 7.3](/bok/fys1001/fys1001-7-3), bruker du derimot *atommasser* fra vedlegget — der er elektronene med, og de kansellerer.)\n- **Snu fortegnet ved betahenfall.** $Z$ *øker* med 1 ved betaminus, fordi elektronet tar med seg ladningstall $-1$ ut. Mange trekker fra i stedet.\n- **Glemme nøytronet på venstre side i fisjon.** Det inngående nøytronet teller med i begge regnskapene: $235 + 1 = 236$, ikke 235.\n- **Blande $A$ og $Z$ i selve notasjonen.** Nukleontallet står øverst, ladningstallet nederst. Bytter du om, blir alt etterpå galt."
+    },
+    {
+      "id": "fys1001-7-2-begrepsbank-intro",
+      "type": "text",
+      "content": "## Begrepsbank\n\nBegrepsbanken er flashcard-/repetisjonsstoff — den gjentar det du nettopp har lest. Hopp trygt over ved førstegangslesing; tidsanslaget for kapitlet gjelder kjernestoffet."
+    },
+    {
+      "id": "fys1001-7-2-def-nukleon",
+      "type": "definition",
+      "title": "Nukleon",
+      "content": "Fellesnavn på proton og nøytron, altså partiklene i kjernen. Antall nukleoner er nukleontallet $A$. Nøytronet skrives $^{1}_{0}\\text{n}$ og protonet $^{1}_{1}\\text{p}$ (som også er kjernen i vanlig hydrogen)."
+    },
+    {
+      "id": "fys1001-7-2-def-radioaktivitet",
+      "type": "definition",
+      "title": "Radioaktivitet",
+      "content": "At ustabile kjerner spontant omdanner seg og sender ut stråling. Strålingen er **ioniserende**: den har nok energi til å slå elektroner løs fra atomer i materialet den treffer, og det er dette som gjør den skadelig for levende vev. De tre typene ordnes slik etter gjennomtrengning: alfa stanses av et papirark, beta av noen millimeter aluminium, gamma krever tykt bly eller betong."
+    },
+    {
+      "id": "fys1001-7-2-def-eksitert-kjerne",
+      "type": "definition",
+      "title": "Eksitert kjerne",
+      "content": "En kjerne med overskuddsenergi, markert med en stjerne ($^{A}_{Z}\\text{X}^{*}$) eller med bokstaven m for «metastabil», som i $^{99\\text{m}}_{43}\\text{Tc}$. Den kvitter seg med energien som et gammafoton, uten at verken $A$ eller $Z$ endres. Metastabile kjerner brukes i medisin nettopp fordi de gir ren gammastråling uten alfa- eller betapartikler som ville gitt pasienten unødig dose."
+    },
+    {
+      "id": "fys1001-7-2-rep",
+      "type": "collapsible",
+      "title": "Repetisjonsoppgaver",
+      "buttonText": "Vis repetisjonsoppgaver",
+      "content": [
+        {
+          "id": "fys1001-7-2-rep-o1",
+          "type": "exercise",
+          "exercise": {
+            "id": "fys1001-7-2-rep-1",
+            "number": "R1",
+            "type": "classic",
+            "difficulty": "lett",
+            "task": "Americium-241, $^{241}_{95}\\text{Am}$, sitter i røykvarsleren og henfaller ved alfastråling. Finn datterkjernens nukleontall og ladningstall. ($Z = 93$ er neptunium, Np.)",
+            "solution": "Alfa gir $A = 241 - 4 = 237$ og $Z = 95 - 2 = 93$, altså $^{237}_{93}\\text{Np}$. Balanse: $241 = 237 + 4$ ✓ og $95 = 93 + 2$ ✓.",
+            "hints": [
+              "Alfahenfall tar 4 fra nukleontallet og 2 fra ladningstallet.",
+              "Skriv balansen som to regnestykker."
+            ]
+          }
+        },
+        {
+          "id": "fys1001-7-2-rep-o2",
+          "type": "exercise",
+          "exercise": {
+            "id": "fys1001-7-2-rep-2",
+            "number": "R2",
+            "type": "classic",
+            "difficulty": "lett",
+            "task": "Fosfor-32 henfaller til svovel-32. Hvilken strålingstype er dette, og hvordan ser du det? ($Z = 15$ er fosfor, $Z = 16$ er svovel.)",
+            "solution": "Nukleontallet står stille på 32 mens ladningstallet øker fra 15 til 16 — signaturen for betaminus. Ligningen er $^{32}_{15}\\text{P} \\rightarrow\\ ^{32}_{16}\\text{S} + ^{\\ 0}_{-1}\\text{e} + \\bar{\\nu}$, med $32 = 32 + 0$ ✓ og $15 = 16 - 1$ ✓.",
+            "hints": [
+              "Sammenlign de to nuklidesymbolene tall for tall.",
+              "Hvilken henfallstype lar $A$ stå og øker $Z$ med 1?"
+            ]
+          }
+        },
+        {
+          "id": "fys1001-7-2-rep-o3",
+          "type": "exercise",
+          "exercise": {
+            "id": "fys1001-7-2-rep-3",
+            "number": "R3",
+            "type": "classic",
+            "difficulty": "middels",
+            "task": "En henfallskjede starter i $^{238}_{92}\\text{U}$ og ender i $^{206}_{82}\\text{Pb}$. Hvor mange alfa- og betaminus-henfall inneholder den?",
+            "solution": "Nukleontallet: $238 - 4n_\\alpha = 206$ gir $n_\\alpha = 8$. Ladningstallet: $92 - 2\\cdot8 + n_\\beta = 82$, altså $76 + n_\\beta = 82$ og $n_\\beta = 6$. Kjeden har 8 alfahenfall og 6 betaminus-henfall. Kontroll: $238 = 206 + 32$ ✓ og $92 = 82 + 16 - 6$ ✓.",
+            "hints": [
+              "Bare alfahenfall endrer nukleontallet — bruk det til å finne $n_\\alpha$ først.",
+              "Sett $n_\\alpha$ inn i ladningstallregnskapet og løs for $n_\\beta$."
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": "fys1001-7-2-symbolliste",
+      "type": "collapsible",
+      "title": "Symbol- og formelliste",
+      "buttonText": "Vis symboler og formler",
+      "content": [
+        {
+          "id": "fys1001-7-2-symbolliste-text",
+          "type": "text",
+          "content": "## Symbol- og formelliste\n\n*Oppslagsverk — alt her forklares underveis i kapitlet.*\n\nAlle symboler og formler brukt i delkapittel 7.2, samlet. **Symbolmerknad for nettopp dette delkapitlet:** $N$ betyr **antall nøytroner** her (i [kap. 7.3](/bok/fys1001/fys1001-7-3) betyr $N$ antall kjerner i en prøve, og i mekanikken betyr $N$ normalkraft). $A$ betyr **nukleontall** her, mens $A$ i [kap. 7.3](/bok/fys1001/fys1001-7-3) også brukes om aktivitet — les alltid symbolforklaringen i det delkapitlet du er i.\n\n| Symbol | Betydning | SI-enhet |\n|---|---|---|\n| $A$ | Nukleontall (massetall): antall protoner + nøytroner | — (heltall) |\n| $Z$ | Ladningstall (atomnummer): antall protoner | — (heltall) |\n| $N$ | Antall nøytroner, $N = A - Z$ | — (heltall) |\n| $^{A}_{Z}\\text{X}$ | Nuklidesymbol for grunnstoffet X | — |\n| $^{4}_{2}\\text{He}$ | Alfapartikkel (heliumkjerne) | — |\n| $^{\\ 0}_{-1}\\text{e}$ | Betapartikkel (elektron) | — |\n| $^{\\ 0}_{+1}\\text{e}$ | Positron (betapluss-partikkel) | — |\n| $^{1}_{0}\\text{n}$ | Nøytron | — |\n| $\\gamma$ | Gammafoton | — |\n| $\\bar{\\nu}$ | Antinøytrino (og $\\nu$: nøytrino) | — |\n| $n_\\alpha,\\ n_\\beta$ | Antall alfa- og betaminus-henfall i en kjede | — (heltall) |\n| $e$ | Elementærladningen, $1{,}602\\cdot10^{-19}$ | C |\n| $Q$ | Elektrisk ladning | C |\n\n**Formler i dette delkapitlet:**\n\n$$A = Z + N$$\nNukleontallet er summen av protoner og nøytroner. *(må kunne brukes aktivt)*\n\n$$\\sum A_{\\text{venstre}} = \\sum A_{\\text{høyre}}, \\qquad \\sum Z_{\\text{venstre}} = \\sum Z_{\\text{høyre}}$$\nBevaring av nukleontall og ladningstall — hele verktøykassa i sjangeren. *(må kunne brukes aktivt; skal vises eksplisitt)*\n\n$$^{A}_{Z}\\text{X} \\rightarrow\\ ^{A-4}_{Z-2}\\text{Y} + ^{4}_{2}\\text{He}$$\nAlfahenfall. *(står på formelarket)*\n\n$$^{A}_{Z}\\text{X} \\rightarrow\\ ^{A}_{Z+1}\\text{Y} + ^{\\ 0}_{-1}\\text{e} + \\bar{\\nu}$$\nBetaminus-henfall. *(står på formelarket)*\n\n$$^{A}_{Z}\\text{X}^{*} \\rightarrow\\ ^{A}_{Z}\\text{X} + \\gamma$$\nGammahenfall. *(står på formelarket)*\n\n$$A_{\\text{slutt}} = A_{\\text{start}} - 4n_\\alpha, \\qquad Z_{\\text{slutt}} = Z_{\\text{start}} - 2n_\\alpha + n_\\beta$$\nSamlet endring gjennom en henfallskjede. *(må kunne brukes aktivt — utledes av signaturene over)*\n\n$$Q = Ze$$\nKjernens elektriske ladning. *(står på formelarket)*\n\n**Data som hentes fra vedlegg/tabell:** grunnstoffsymbol for et gitt $Z$ (periodesystemet), kjernemasser og halveringstider (eget vedlegg til kjernefysikkoppgaven på eksamen), og elementærladningen $e$."
+        }
+      ]
+    }
+  ],
+  "exercises": []
+}

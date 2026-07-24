@@ -1,0 +1,389 @@
+{
+  "id": "fys1001-6-2",
+  "courseId": "fys1001",
+  "chapterNumber": "6.2",
+  "title": "Brytning, totalrefleksjon og fargespredning",
+  "description": "Snells lov med alt tilbehør: fart i medium, uendret frekvens, totalrefleksjon — og symmetriargumentet løsningsforslagene krever utskrevet.",
+  "estimatedMinutes": 50,
+  "competenceGoals": [
+    "bruke Snells lov med vinkler målt mot normalen, og regne ut lysfart og bølgelengde i et medium",
+    "begrunne at frekvensen er uendret over en mediegrense mens bølgelengden endres",
+    "finne grensevinkelen for totalrefleksjon og skrive ut vilkåret om at lyset må gå fra tett mot tynt medium",
+    "følge en stråle gjennom to flater i en glasskule eller et prisme, og skrive symmetriargumentet ut ledd for ledd",
+    "forklare dispersjon og skille den fra gitterets interferens"
+  ],
+  "content": [
+    {
+      "id": "fys1001-6-2-tip-eksamensvinkel",
+      "type": "tip",
+      "title": "Eksamensvinkel",
+      "content": "**Prioritet: kunne (nivå 2).** Brytning er en del av optikk-temaet, som er belagt i **23 av 36 slutteksamener (64 %)** — ett av de best belagte temaene i hele faget.\n\nOppgavene tilhører **sjanger N**, bokas kortnavn for oppgavetypen *«geometrisk optikk»*. Denne halvparten av sjangeren handler om brytning:\n\n- **ren Snell-regning:** finn brytningsvinkelen og lysfarten i mediet;\n- **totalrefleksjon:** finn grensevinkelen, og begrunn *vilkåret* for at den finnes;\n- **glasskule eller prisme:** følg strålen gjennom to flater. I V2023 var det ikke nok å påstå at utvinkelen er lik innvinkelen — **symmetriargumentet måtte skrives ut ledd for ledd**;\n- **det faste kvalitative poenget:** frekvensen er uendret over en mediegrense, mens bølgelengden endres. Dette skal begrunnes, ikke bare nevnes.\n\n**Formelarket:** $n_1\\sin\\theta_1 = n_2\\sin\\theta_2$, $c = c_0/n$, $\\sin\\theta_c = n_2/n_1$ og brytningsindekser for vanlige stoffer står på arket eller i tabellen. Det du må kunne *aktivt*, er geometrien: hvilken vinkel som er hvilken, og hvordan de henger sammen inne i et prisme."
+    },
+    {
+      "id": "fys1001-6-2-forkunnskaper",
+      "type": "text",
+      "content": "## Forkunnskaper\n\nDette kapitlet bygger på:\n\n- [kap. 6.1](/bok/fys1001/fys1001-6-1) — bølgeformelen $v = f\\lambda$, og Snells lov i fartsform. Her møter du samme lov skrevet med brytningsindekser.\n- [Trigonometri i rettvinklede trekanter](/bok/1t/1t-5-4) — du trenger sinus og $\\arcsin$ (den omvendte funksjonen) flytende.\n- [Vinkler og trekanter](/bok/1t/1t-5-1) — geometrien i strålegangen gjennom et prisme hviler på vinkelsummen i en trekant og på likebeinte trekanter.\n\nKapitlet tar rundt 50 minutter og er delt i fire løkker med pausepunkter."
+    },
+    {
+      "id": "fys1001-6-2-l1",
+      "type": "text",
+      "content": "### Løkke 1 — Snells lov og fart i medium (~13 min)\n\nStikk en blyant halvveis ned i et glass vann og se på den fra siden. Den ser knekt. Ingenting har skjedd med blyanten — det er lyset som har knekt på veien fra blyanten til øyet ditt."
+    },
+    {
+      "id": "fys1001-6-2-def-n",
+      "type": "definition",
+      "title": "Brytningsindeks $n$",
+      "content": "**Brytningsindeksen** til et stoff forteller hvor mye saktere lyset går der enn i vakuum:\n\n$$n = \\frac{c_0}{c}$$\n\nder $c_0 = 3{,}00\\cdot10^{8}\\ \\text{m/s}$ er lysfarten i vakuum og $c$ er farten i stoffet. Snudd:\n\n$$c = \\frac{c_0}{n}$$\n\nBrytningsindeksen er dimensjonsløs og alltid $\\ge 1$. Typiske tabellverdier: luft $1{,}00$, vann $1{,}33$, vanlig glass $1{,}52$, diamant $2{,}42$.\n\nEt stoff med stor $n$ kalles **optisk tett**, et med liten $n$ **optisk tynt**. «Tett» handler her om lysfart, ikke om massetetthet.\n\n**Advarsel om symbolet:** i dette delkapitlet betyr $n$ **brytningsindeks**. I [kap. 6.1](/bok/fys1001/fys1001-6-1) var $n$ et heltall (ordenstall) i interferensbetingelsene."
+    },
+    {
+      "id": "fys1001-6-2-def-normal",
+      "type": "definition",
+      "title": "Normalen, innfallsvinkel og brytningsvinkel",
+      "content": "**Normalen** er den linja som står vinkelrett på grenseflaten i punktet der strålen treffer.\n\n**Innfallsvinkelen** $\\theta_1$ er vinkelen mellom den innkommende strålen og normalen. **Brytningsvinkelen** $\\theta_2$ er vinkelen mellom den brutte strålen og normalen — på den andre siden av flaten.\n\n**Alle vinkler i optikk måles mot normalen.** Måler du mot flaten i stedet, får du komplementvinkelen, og alle svarene blir feil. Det er den enkeltfeilen som koster flest poeng i denne sjangeren."
+    },
+    {
+      "id": "fys1001-6-2-def-snell",
+      "type": "definition",
+      "title": "Snells lov (brytningsloven)",
+      "content": "Når lys går fra et medium med brytningsindeks $n_1$ til et med $n_2$, gjelder\n\n$$n_1\\sin\\theta_1 = n_2\\sin\\theta_2$$\n\nmed begge vinkler målt mot normalen.\n\n**Tolkningen:** går lyset inn i et **tettere** medium (større $n$), blir vinkelen **mindre** — strålen knekker **mot** normalen. Går det inn i et tynnere medium, knekker det bort fra normalen.\n\nLoven er den samme som fartsformen i [kap. 6.1](/bok/fys1001/fys1001-6-1): siden $n = c_0/c$, er $n_1\\sin\\theta_1 = n_2\\sin\\theta_2$ det samme som $\\sin\\theta_2/\\sin\\theta_1 = c_2/c_1$."
+    },
+    {
+      "id": "fys1001-6-2-fig-stralegang",
+      "type": "image",
+      "src": "/images/textbook/fys1001/fys1001-6-2-stralegang.svg",
+      "alt": "En lysstråle kommer skrått ned gjennom luft, treffer en vannrett glassflate og fortsetter i glasset med mindre vinkel mot normalen. Normalen er tegnet som en stiplet loddrett linje, og vinklene theta1 og theta2 er markert mot normalen.",
+      "caption": "Brytning fra luft inn i glass. Vinklene måles mot normalen, og strålen knekker mot normalen fordi glasset er optisk tettere enn luft."
+    },
+    {
+      "id": "fys1001-6-2-ex1",
+      "type": "example",
+      "title": "Eksempel 1: Brytning inn i glass (sjanger N)",
+      "problem": "En lysstråle treffer en glassplate ($n = 1{,}52$) under $55^\\circ$ mot normalen. Lyset kommer fra luft, $n = 1{,}00$.\n\n**a)** Finn brytningsvinkelen.\n**b)** Finn lysfarten i glasset.\n**c)** Lyset har bølgelengden $550\\ \\text{nm}$ i luft. Finn bølgelengden inne i glasset, og forklar hvorfor frekvensen — men ikke bølgelengden — er den samme.",
+      "solution": "**a)** Snells lov, løst for $\\sin\\theta_2$:\n\n$$n_1\\sin\\theta_1 = n_2\\sin\\theta_2 \\quad\\Longrightarrow\\quad \\sin\\theta_2 = \\frac{n_1\\sin\\theta_1}{n_2} = \\frac{1{,}00\\cdot\\sin55^\\circ}{1{,}52} = \\frac{0{,}819}{1{,}52} = 0{,}539$$\n\n$$\\theta_2 = \\arcsin(0{,}539) = 33^\\circ$$\n\n**Rimelighetssjekk:** glasset er tettere, så vinkelen skal bli mindre enn $55^\\circ$ ✓\n\n**b)**\n\n$$c = \\frac{c_0}{n} = \\frac{3{,}00\\cdot10^{8}\\ \\text{m/s}}{1{,}52} = 1{,}97\\cdot10^{8}\\ \\text{m/s}$$\n\n**c)** Bølgelengden:\n\n$$\\lambda = \\frac{\\lambda_0}{n} = \\frac{550\\ \\text{nm}}{1{,}52} = 362\\ \\text{nm}$$\n\n**Begrunnelsen** (dette er det faste kvalitative poenget): frekvensen er antall svingninger per sekund, og den bestemmes av **kilden**. Ved grenseflaten svinger glassets atomer i takt med det innkommende lyset — like mange svingninger må komme ut per sekund som det kommer inn, ellers ville energi hopet seg opp i flaten. Frekvensen er derfor uendret.\n\nFarten er derimot lavere i glasset. Siden $c = f\\lambda$ med uendret $f$, må bølgelengden bli tilsvarende kortere.\n\n**Kontroll:** $f = \\dfrac{c_0}{\\lambda_0} = \\dfrac{3{,}00\\cdot10^{8}}{550\\cdot10^{-9}}\\ \\text{Hz} = 5{,}45\\cdot10^{14}\\ \\text{Hz}$, og i glasset $\\dfrac{1{,}97\\cdot10^{8}}{362\\cdot10^{-9}} = 5{,}45\\cdot10^{14}\\ \\text{Hz}$ ✓\n\n**Konklusjon:** brytningsvinkelen er $33^\\circ$, lysfarten $1{,}97\\cdot10^{8}\\ \\text{m/s}$, og bølgelengden $362\\ \\text{nm}$ — mens frekvensen er $5{,}45\\cdot10^{14}\\ \\text{Hz}$ i begge medier."
+    },
+    {
+      "id": "fys1001-6-2-o1",
+      "type": "exercise",
+      "exercise": {
+        "id": "fys1001-6-2-e1",
+        "number": "1",
+        "type": "classic",
+        "difficulty": "lett",
+        "task": "*(Innstegsoppgave — sjanger N.)* En lysstråle går fra luft ($n = 1{,}00$) inn i vann ($n = 1{,}33$) under $40^\\circ$ mot normalen.\n\n**a)** Finn brytningsvinkelen.\n**b)** Finn lysfarten i vann.",
+        "solution": "**a)** Snells lov:\n\n$$\\sin\\theta_2 = \\frac{n_1\\sin\\theta_1}{n_2} = \\frac{1{,}00\\cdot\\sin40^\\circ}{1{,}33} = \\frac{0{,}643}{1{,}33} = 0{,}483$$\n\n$$\\theta_2 = \\arcsin(0{,}483) = 29^\\circ$$\n\n**Rimelighetssjekk:** vann er optisk tettere enn luft, så vinkelen skal bli mindre enn $40^\\circ$ ✓\n\n**b)**\n\n$$c = \\frac{c_0}{n} = \\frac{3{,}00\\cdot10^{8}\\ \\text{m/s}}{1{,}33} = 2{,}26\\cdot10^{8}\\ \\text{m/s}$$\n\n**Konklusjon:** brytningsvinkelen er $29^\\circ$, og lyset går med $2{,}26\\cdot10^{8}\\ \\text{m/s}$ i vann.",
+        "hints": [
+          "Skriv opp Snells lov og løs for $\\sin\\theta_2$ før du setter inn tall.",
+          "Pass på at vinkelen måles mot normalen, ikke mot vannflaten.",
+          "Lysfarten i et medium er $c_0/n$."
+        ]
+      }
+    },
+    {
+      "id": "fys1001-6-2-def-frekvens-uendret",
+      "type": "definition",
+      "title": "Frekvensen er uendret over en mediegrense",
+      "content": "Når lys går fra ett medium til et annet, er **frekvensen den samme** på begge sider. Den bestemmes av kilden.\n\nBegrunnelsen: ved grenseflaten svinger atomene i det nye mediet i takt med det innkommende lyset. Kom det færre eller flere svingninger ut per sekund enn inn, ville svingninger hope seg opp i flaten — det skjer ikke.\n\nFarten endres derimot til $c = c_0/n$. Fra $c = f\\lambda$ med uendret $f$ følger\n\n$$\\lambda = \\frac{\\lambda_0}{n}$$\n\n**Konsekvensen:** blått lys er blått også under vann, selv om bølgelengden der er kortere. Fargen vi oppfatter, følger frekvensen."
+    },
+    {
+      "id": "fys1001-6-2-o2",
+      "type": "exercise",
+      "exercise": {
+        "id": "fys1001-6-2-e2",
+        "number": "2",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "*(Sjanger Q — kvalitativ forklaring. «Sjanger Q» er bokas navn på de rene «forklar/begrunn»-deloppgavene, som utgjør 25–40 % av eksamen.)*\n\nBlått lys med bølgelengden $480\\ \\text{nm}$ i luft går ned i vann ($n = 1{,}33$).\n\n**a)** Finn bølgelengden og frekvensen i vann.\n**b)** Forklar i 2–4 setninger hvorfor lyset fortsatt oppfattes som blått under vann.",
+        "solution": "**a)** Frekvensen i luft (og dermed også i vann):\n\n$$f = \\frac{c_0}{\\lambda_0} = \\frac{3{,}00\\cdot10^{8}\\ \\text{m/s}}{480\\cdot10^{-9}\\ \\text{m}} = 6{,}25\\cdot10^{14}\\ \\text{Hz}$$\n\nBølgelengden i vann:\n\n$$\\lambda = \\frac{\\lambda_0}{n} = \\frac{480\\ \\text{nm}}{1{,}33} = 361\\ \\text{nm}$$\n\n**Kontroll:** $c/\\lambda = \\dfrac{3{,}00\\cdot10^{8}/1{,}33}{361\\cdot10^{-9}} = 6{,}25\\cdot10^{14}\\ \\text{Hz}$ ✓ — samme frekvens, som det skal være.\n\n**b)** Fargen vi oppfatter, følger **frekvensen**, ikke bølgelengden. Frekvensen bestemmes av kilden og er uendret over grenseflaten, fordi like mange svingninger må komme ut av flaten per sekund som det kommer inn.\n\nBølgelengden blir kortere i vann fordi farten er lavere og $c = f\\lambda$ må holde. Men det er frekvensen øyets fotoreseptorer reagerer på.\n\n**Konklusjon:** lyset er blått i vann også — $361\\ \\text{nm}$ i vann svarer til samme frekvens som $480\\ \\text{nm}$ i luft.",
+        "hints": [
+          "Frekvensen finner du fra bølgelengden og farten i det mediet du kjenner begge for.",
+          "Bølgelengden i et medium er $\\lambda_0/n$.",
+          "I b): hvilken av de to størrelsene bestemmes av kilden, og hvilken av mediet?"
+        ]
+      }
+    },
+    {
+      "id": "fys1001-6-2-l2",
+      "type": "text",
+      "content": "— naturlig pausepunkt —\n\n### Løkke 2 — Totalrefleksjon (~12 min)\n\nDykk under vann og se opp mot overflaten. Rett over deg ser du himmelen; skrått ut mot sidene blir overflaten et speil som viser bunnen. Grensen mellom de to er skarp, og den ligger på en helt bestemt vinkel."
+    },
+    {
+      "id": "fys1001-6-2-def-totalrefleksjon",
+      "type": "definition",
+      "title": "Totalrefleksjon",
+      "content": "Går lys fra et **optisk tett** medium mot et **tynnere**, knekker strålen bort fra normalen. Øker du innfallsvinkelen, blir brytningsvinkelen større og større — og til slutt når den $90^\\circ$, altså langs flaten.\n\nVed enda større innfallsvinkler finnes det ingen brutt stråle: **alt** lyset reflekteres tilbake i det tette mediet. Dette kalles **totalrefleksjon**."
+    },
+    {
+      "id": "fys1001-6-2-def-grensevinkel",
+      "type": "definition",
+      "title": "Grensevinkelen $\\theta_c$",
+      "content": "**Grensevinkelen** er den innfallsvinkelen som gir brytningsvinkel $90^\\circ$. Sett $\\theta_2 = 90^\\circ$ i Snells lov, slik at $\\sin\\theta_2 = 1$:\n\n$$n_1\\sin\\theta_c = n_2\\cdot1 \\quad\\Longrightarrow\\quad \\sin\\theta_c = \\frac{n_2}{n_1}$$\n\n**Vilkåret må begrunnes:** ligningen har bare løsning når $n_2 < n_1$, altså når lyset går fra tett mot tynt. Er $n_2 > n_1$, blir brøken større enn 1, og ingen vinkel har sinus større enn 1 — da finnes ingen grensevinkel, og totalrefleksjon er umulig.\n\n**Skriv dette vilkåret ut på eksamen.** Å bruke formelen uten å si hvilken vei lyset går, er en av de navngitte feilene i sjangeren."
+    },
+    {
+      "id": "fys1001-6-2-fig-totalrefleksjon",
+      "type": "image",
+      "src": "/images/textbook/fys1001/fys1001-6-2-totalrefleksjon.svg",
+      "alt": "Tre lysstråler går opp gjennom glass mot en grenseflate til luft. Den venstre treffer med liten vinkel og brytes ut i luften. Den midtre treffer med grensevinkelen og går langs flaten. Den høyre treffer med større vinkel og reflekteres helt tilbake ned i glasset.",
+      "caption": "Tre utfall ved grenseflaten fra glass til luft: brytning under grensevinkelen, brytning langs flaten ved grensevinkelen, og full refleksjon over den."
+    },
+    {
+      "id": "fys1001-6-2-ex2",
+      "type": "example",
+      "title": "Eksempel 2: Grensevinkel og optisk fiber (sjanger N)",
+      "problem": "**a)** Finn grensevinkelen for lys som går fra glass ($n = 1{,}52$) mot luft ($n = 1{,}00$).\n\n**b)** En optisk fiber har en kjerne med $n = 1{,}48$ og et ytre lag (kappe) med $n = 1{,}46$. Finn grensevinkelen mellom kjerne og kappe, og forklar hvorfor fiberen kan lede lys rundt svinger.",
+      "solution": "**a)** Lyset går fra tett ($1{,}52$) mot tynt ($1{,}00$), så grensevinkelen finnes:\n\n$$\\sin\\theta_c = \\frac{n_2}{n_1} = \\frac{1{,}00}{1{,}52} = 0{,}658 \\quad\\Longrightarrow\\quad \\theta_c = 41^\\circ$$\n\nTreffer lyset glassoverflaten fra innsiden med mer enn $41^\\circ$ mot normalen, kommer ingenting ut.\n\n**b)** Kjernen er tettest, så vilkåret er oppfylt:\n\n$$\\sin\\theta_c = \\frac{1{,}46}{1{,}48} = 0{,}986 \\quad\\Longrightarrow\\quad \\theta_c = 81^\\circ$$\n\n**Hvorfor fiberen leder lys:** grensevinkelen er svært stor, altså nesten langs veggen. Lys som sendes inn nær fiberens akse, treffer kjerne–kappe-grensen med vinkler *over* $81^\\circ$ mot normalen — det er nesten parallelt med veggen. Da blir det totalrefleksjon hver gang, uten tap, og lyset «spretter» videre gjennom fiberen selv om den bøyes.\n\nBøyer du fiberen for skarpt, blir innfallsvinkelen mindre enn $81^\\circ$ på yttersiden av svingen, og da lekker lys ut. Det er derfor fiberkabler har en minste tillatt bøyeradius.\n\n**Konklusjon:** grensevinkelen er $41^\\circ$ for glass mot luft og $81^\\circ$ for kjerne mot kappe i fiberen.\n\n**Merk at stor grensevinkel er en fordel her:** den betyr at nesten alt lys som går langsetter fiberen, holdes inne."
+    },
+    {
+      "id": "fys1001-6-2-o3",
+      "type": "exercise",
+      "exercise": {
+        "id": "fys1001-6-2-e3",
+        "number": "3",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "*(Sjanger N + Q.)*\n\n**a)** Finn grensevinkelen for lys som går fra vann ($n = 1{,}33$) mot luft.\n**b)** En medstudent regner ut «grensevinkelen for lys som går fra luft ned i vann» og får $\\sin\\theta_c = 1{,}33$. Forklar i 2–3 setninger hva som er galt.",
+        "solution": "**a)** Vann er tettere enn luft, så vilkåret $n_1 > n_2$ er oppfylt:\n\n$$\\sin\\theta_c = \\frac{n_2}{n_1} = \\frac{1{,}00}{1{,}33} = 0{,}752 \\quad\\Longrightarrow\\quad \\theta_c = 49^\\circ$$\n\nSer du opp fra under vann, ser du hele himmelen samlet innenfor en kjegle på $49^\\circ$ fra loddlinja. Utenfor den virker overflaten som et speil.\n\n**b)** Feilen er retningen. Totalrefleksjon kan bare skje når lyset går fra **tett mot tynt** medium. Går lyset fra luft ned i vann, knekker det *mot* normalen, og brytningsvinkelen blir alltid mindre enn innfallsvinkelen — den kan aldri nå $90^\\circ$.\n\nAt regnestykket gir $\\sin\\theta_c = 1{,}33 > 1$, er nettopp signalet om dette: ingen vinkel har sinus større enn 1, så ligningen har ingen løsning.\n\n**Konklusjon:** grensevinkelen er $49^\\circ$ fra vann mot luft, og det finnes ingen grensevinkel den andre veien. Sinusverdier over 1 er alltid et varsel om at du har brukt formelen feil vei.",
+        "hints": [
+          "Sett $\\theta_2 = 90^\\circ$ i Snells lov og løs for innfallsvinkelen.",
+          "Sjekk hvilket av mediene som har størst brytningsindeks.",
+          "I b): hva betyr det matematisk at en sinus blir større enn 1?"
+        ]
+      }
+    },
+    {
+      "id": "fys1001-6-2-l3",
+      "type": "text",
+      "content": "— naturlig pausepunkt —\n\n### Løkke 3 — Glasskule og prisme: symmetriargumentet (~14 min)\n\nNå kommer den deloppgaven som skiller besvarelsene. Lyset skal følges gjennom **to** flater, og løsningsforslagene krever at du *argumenterer* for symmetrien, ikke bare påstår den."
+    },
+    {
+      "id": "fys1001-6-2-def-symmetriargument",
+      "type": "definition",
+      "title": "Symmetriargumentet i en glasskule",
+      "content": "En stråle treffer en glasskule i punktet $A$, går rett gjennom kula og går ut i punktet $C$. Argumentet for at **utvinkelen er lik innvinkelen** har fire ledd, og alle skal skrives:\n\n1. **Normalene går gjennom sentrum.** I en kule står normalen i et punkt langs radien, altså mot sentrum $O$.\n2. **Trekanten $OAC$ er likebeint,** fordi $OA = OC = R$ (begge er radier).\n3. **Da er de to grunnvinklene like:** vinkelen mellom strålen inne i kula og normalen i $A$ er lik vinkelen mellom samme stråle og normalen i $C$. Altså $\\theta_{2,\\text{inn}} = \\theta_{2,\\text{ut}}$.\n4. **Snells lov brukt begge veier** med samme indre vinkel gir da samme ytre vinkel: $\\theta_{\\text{ut}} = \\theta_{\\text{inn}}$.\n\nUten leddene 2 og 3 er argumentet en påstand. Med dem er det et bevis."
+    },
+    {
+      "id": "fys1001-6-2-fig-glasskule",
+      "type": "image",
+      "src": "/images/textbook/fys1001/fys1001-6-2-glasskule.svg",
+      "alt": "En glasskule med sentrum O. En lysstråle kommer inn i punktet A på venstre side, går rett gjennom kula til punktet C på høyre side og går ut. Radiene OA og OC er tegnet stiplet som normaler, og vinklene theta1 og theta2 er markert i begge punkter.",
+      "caption": "Symmetrien i en glasskule: trekanten $OAC$ er likebeint fordi begge sider er radier, så de indre vinklene i $A$ og $C$ er like — og da gir Snells lov samme ut- som innvinkel."
+    },
+    {
+      "id": "fys1001-6-2-ex3",
+      "type": "example",
+      "title": "Eksempel 3: Stråle gjennom en glasskule (sjanger N)",
+      "problem": "En lysstråle treffer en glasskule ($n = 1{,}50$) under $50^\\circ$ mot normalen i innfallspunktet.\n\n**a)** Finn vinkelen strålen har mot normalen inne i kula.\n**b)** Vis at strålen går ut med $50^\\circ$ mot normalen i utgangspunktet. Argumentér — ikke bare påstå.\n**c)** Finn den samlede avbøyningen av strålen.",
+      "solution": "**a)** Snells lov i innfallspunktet $A$, fra luft inn i glass:\n\n$$\\sin\\theta_2 = \\frac{n_1\\sin\\theta_1}{n_2} = \\frac{1{,}00\\cdot\\sin50^\\circ}{1{,}50} = \\frac{0{,}766}{1{,}50} = 0{,}511$$\n\n$$\\theta_2 = \\arcsin(0{,}511) = 31^\\circ$$\n\n**b) Symmetriargumentet, ledd for ledd.**\n\nNormalen i et punkt på en kuleflate ligger langs radien, altså mot sentrum $O$. Kall utgangspunktet $C$. Da er $OA$ normalen i $A$ og $OC$ normalen i $C$.\n\nTrekanten $OAC$ har $OA = OC = R$, fordi begge er radier i samme kule. Trekanten er derfor **likebeint**, og de to grunnvinklene — ved $A$ og ved $C$ — er like store.\n\nGrunnvinkelen ved $A$ er nettopp vinkelen mellom strålen inne i kula (linja $AC$) og normalen $OA$, altså $\\theta_2 = 31^\\circ$. Grunnvinkelen ved $C$ er vinkelen mellom samme linje $AC$ og normalen $OC$. Disse er like, så strålen treffer den indre siden av utflaten med $31^\\circ$ mot normalen.\n\nSnells lov i $C$, nå fra glass ut i luft:\n\n$$1{,}50\\cdot\\sin31^\\circ = 1{,}00\\cdot\\sin\\theta_{\\text{ut}} \\quad\\Longrightarrow\\quad \\sin\\theta_{\\text{ut}} = 1{,}50\\cdot0{,}511 = 0{,}766$$\n\n$$\\theta_{\\text{ut}} = 50^\\circ$$\n\nAltså **lik innfallsvinkelen** — nå vist, ikke påstått. Se figuren over.\n\n**c)** Ved hver flate dreies strålen $\\theta_1 - \\theta_2 = 50^\\circ - 30{,}7^\\circ = 19{,}3^\\circ$, og dreiningene går samme vei:\n\n$$\\delta = 2(\\theta_1 - \\theta_2) = 2\\cdot19{,}3^\\circ = 39^\\circ$$\n\n**Konklusjon:** vinkelen inne i kula er $31^\\circ$, utvinkelen $50^\\circ$, og strålen avbøyes til sammen $39^\\circ$.\n\n**Rimelighet:** avbøyningen må være mindre enn $2\\theta_1 = 100^\\circ$ og større enn 0 ✓ At den er størst når $n$ er stor, stemmer også med at diamant «gnistrer» mer enn glass."
+    },
+    {
+      "id": "fys1001-6-2-o4",
+      "type": "exercise",
+      "exercise": {
+        "id": "fys1001-6-2-e4",
+        "number": "4",
+        "type": "classic",
+        "difficulty": "vanskelig",
+        "task": "*(Sjanger N — krevende, to flater.)* En lysstråle treffer den ene sideflaten på et **likesidet** glassprisme ($n = 1{,}52$, prismevinkel $60^\\circ$) under $45^\\circ$ mot normalen.\n\n**a)** Finn vinkelen strålen har mot normalen inne i prismet ved den første flaten.\n**b)** Vis at de to indre vinklene til sammen er $60^\\circ$, og finn vinkelen mot normalen ved den andre flaten.\n**c)** Finn utvinkelen og den samlede avbøyningen.",
+        "solution": "**a)** Snells lov ved den første flaten:\n\n$$\\sin\\theta_2 = \\frac{1{,}00\\cdot\\sin45^\\circ}{1{,}52} = \\frac{0{,}707}{1{,}52} = 0{,}465 \\quad\\Longrightarrow\\quad \\theta_2 = 27{,}7^\\circ$$\n\n**b) Geometrien.** Se fasitfiguren under. Trekanten som dannes av strålen inne i prismet og de to sideflatene har den tredje vinkelen ved prismets topp lik prismevinkelen $60^\\circ$. De to normalene står vinkelrett på hver sin sideflate, og vinkelen mellom normalene er derfor $180^\\circ - 60^\\circ = 120^\\circ$.\n\nI trekanten som strålen danner med de to normalene, er vinkelsummen $180^\\circ$:\n\n$$\\theta_2 + \\theta_3 + 120^\\circ = 180^\\circ \\quad\\Longrightarrow\\quad \\theta_2 + \\theta_3 = 60^\\circ$$\n\nDe to indre vinklene summerer seg altså til prismevinkelen. Da er\n\n$$\\theta_3 = 60^\\circ - 27{,}7^\\circ = 32{,}3^\\circ$$\n\n**c)** Snells lov ved den andre flaten, fra glass ut i luft:\n\n$$\\sin\\theta_4 = \\frac{n\\sin\\theta_3}{1{,}00} = 1{,}52\\cdot\\sin32{,}3^\\circ = 1{,}52\\cdot0{,}534 = 0{,}812$$\n\n$$\\theta_4 = \\arcsin(0{,}812) = 54{,}3^\\circ$$\n\nDen samlede avbøyningen for et prisme er\n\n$$\\delta = \\theta_1 + \\theta_4 - 60^\\circ = 45^\\circ + 54{,}3^\\circ - 60^\\circ = 39^\\circ$$\n\n**Kontroll av at strålen faktisk kommer ut:** grensevinkelen for glass mot luft er $\\arcsin(1{,}00/1{,}52) = 41^\\circ$, og $\\theta_3 = 32{,}3^\\circ < 41^\\circ$ ✓ Hadde $\\theta_3$ vært over grensevinkelen, ville strålen blitt totalreflektert inne i prismet.\n\n**Konklusjon:** de indre vinklene er $27{,}7^\\circ$ og $32{,}3^\\circ$, utvinkelen $54{,}3^\\circ$, og avbøyningen $39^\\circ$.\n\n**Merk forskjellen fra kula:** her er ikke utvinkelen lik innvinkelen. Symmetriargumentet i en kule hviler på at normalene møtes i sentrum og at trekanten er likebeint — i et prisme er flatene ikke symmetriske om strålen, med mindre du treffer i den helt spesielle stillingen der $\\theta_1 = \\theta_4$.",
+        "hints": [
+          "Bruk Snells lov ved hver flate for seg, og hold rede på hvilken vinkel som er hvilken.",
+          "Tegn de to normalene og bruk vinkelsummen i trekanten strålen danner med dem.",
+          "Sjekk til slutt at den indre vinkelen ved utflaten er under grensevinkelen."
+        ]
+      }
+    },
+    {
+      "id": "fys1001-6-2-fig-prisme",
+      "type": "image",
+      "src": "/images/textbook/fys1001/fys1001-6-2-prisme.svg",
+      "alt": "Et likesidet trekantet prisme med toppvinkelen 60 grader. En lysstråle kommer inn på venstre sideflate med 45 grader mot normalen, går gjennom prismet og ut på høyre sideflate. Begge normaler er tegnet stiplet, og de fire vinklene theta1 til theta4 er markert.",
+      "caption": "Fasitfigur til oppgave 4: strålegangen gjennom et likesidet prisme. De to indre vinklene summerer seg til prismevinkelen $60^\\circ$."
+    },
+    {
+      "id": "fys1001-6-2-l4",
+      "type": "text",
+      "content": "— naturlig pausepunkt —\n\n### Løkke 4 — Dispersjon og hverdagseffekter (~11 min)\n\nTil slutt: hvorfor et prisme lager farger, og hvorfor bassenget ser grunnere ut enn det er."
+    },
+    {
+      "id": "fys1001-6-2-def-dispersjon",
+      "type": "definition",
+      "title": "Dispersjon",
+      "content": "**Dispersjon** betyr at brytningsindeksen avhenger litt av bølgelengden. I glass og vann er $n$ **større for kort bølgelengde**: blått lys brytes litt mer enn rødt.\n\nTypiske verdier for vanlig glass: $n_{\\text{rød}} \\approx 1{,}514$ og $n_{\\text{blå}} \\approx 1{,}528$.\n\nForskjellen er liten, men den er nok til å spre hvitt lys i et fargespekter når lyset går gjennom et prisme eller en regndråpe. Det er dispersjon som gir regnbuen — **ikke** interferens.\n\nTil sammenligning: gitterets fargespredning i [kap. 6.1](/bok/fys1001/fys1001-6-1) skyldes interferens, der $\\lambda$ står direkte i betingelsen $d\\sin\\theta = n\\lambda$. To ulike mekanismer, samme synlige resultat."
+    },
+    {
+      "id": "fys1001-6-2-ex4",
+      "type": "example",
+      "title": "Eksempel 4: Hvor mye spres fargene? (sjanger N)",
+      "problem": "Hvitt lys treffer en glassflate under $60^\\circ$ mot normalen. Brytningsindeksen er $1{,}514$ for rødt og $1{,}528$ for blått lys.\n\nFinn brytningsvinkelen for hver farge, og vinkelen mellom de to strålene inne i glasset.",
+      "solution": "**Rødt lys:**\n\n$$\\sin\\theta_{\\text{rød}} = \\frac{\\sin60^\\circ}{1{,}514} = \\frac{0{,}866}{1{,}514} = 0{,}5720 \\quad\\Longrightarrow\\quad \\theta_{\\text{rød}} = 34{,}89^\\circ$$\n\n**Blått lys:**\n\n$$\\sin\\theta_{\\text{blå}} = \\frac{0{,}866}{1{,}528} = 0{,}5668 \\quad\\Longrightarrow\\quad \\theta_{\\text{blå}} = 34{,}53^\\circ$$\n\n**Vinkelen mellom strålene:**\n\n$$\\Delta\\theta = 34{,}89^\\circ - 34{,}53^\\circ = 0{,}37^\\circ$$\n\n**Konklusjon:** blått lys brytes litt mer (mindre vinkel mot normalen), og forskjellen er bare rundt $0{,}4^\\circ$.\n\n**Hvorfor ser vi det da så tydelig?** Fordi strålene fortsetter å skille seg med avstanden. Etter én meter er avstanden mellom rød og blå stråle rundt $1\\ \\text{m}\\cdot\\tan(0{,}37^\\circ) = 6{,}5\\ \\text{mm}$ — nok til å se tydelig. I et prisme brytes lyset dessuten to ganger, og effekten dobles.\n\n**Merk hvor mange siffer vi må ta med her:** avrunder du de to vinklene til $35^\\circ$ hver, forsvinner hele svaret. Når du regner en *differanse* mellom to nesten like tall, må du beholde flere siffer underveis."
+    },
+    {
+      "id": "fys1001-6-2-def-tilsynelatende-dybde",
+      "type": "definition",
+      "title": "Tilsynelatende dybde",
+      "content": "Et basseng ser **grunnere** ut enn det er, og en fisk ser nærmere overflaten ut enn den er.\n\nForklaringen er brytning: lyset fra bunnen går fra vann til luft og knekker **bort fra** normalen ved overflaten. Øyet ditt forlenger de innkommende strålene rett bakover og plasserer derfor bildet **høyere** enn den virkelige gjenstanden.\n\nFor små vinkler (rett ovenfra) er den tilsynelatende dybden omtrent den virkelige dybden delt på brytningsindeksen — et basseng på $2{,}0\\ \\text{m}$ ser ut som rundt $1{,}5\\ \\text{m}$. Dette er en av grunnene til at «det så ikke så dypt ut» er en dårlig begrunnelse for å stupe."
+    },
+    {
+      "id": "fys1001-6-2-o5",
+      "type": "exercise",
+      "exercise": {
+        "id": "fys1001-6-2-e5",
+        "number": "5",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "*(Sjanger Q.)* Forklar i 2–4 setninger hvorfor et basseng ser grunnere ut enn det er, og hvorfor effekten er sterkest når du ser skrått ned i vannet.",
+        "solution": "Mekanismen er **brytning ved vannflaten**. Lys fra bunnen går fra vann ($n = 1{,}33$) til luft ($n = 1{,}00$), altså fra tett til tynt medium, og knekker derfor bort fra normalen.\n\nØyet oppfatter alltid at lyset har kommet i rett linje. Det forlenger de brutte strålene rett bakover, og treffpunktet ligger **høyere** enn bunnen faktisk er. Derfor ser bassenget grunnere ut.\n\nEffekten er sterkest skrått fordi brytningen øker med innfallsvinkelen: rett ovenfra er vinkelen nær null og strålen knekker nesten ikke, mens skrått ut mot sidene er avviket stort.\n\n**Konklusjon:** det er lysets vei, ikke vannet, som lurer øyet.",
+        "hints": [
+          "Hvilken vei knekker en stråle som går fra vann til luft?",
+          "Hva antar øyet om hvordan lyset har kommet fram til det?",
+          "Tenk over hvordan brytningen avhenger av innfallsvinkelen."
+        ]
+      }
+    },
+    {
+      "id": "fys1001-6-2-o6",
+      "type": "exercise",
+      "exercise": {
+        "id": "fys1001-6-2-e6",
+        "number": "6",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "*(Sjanger N + Q — samlet.)* Et akvarium har en glassvegg. Lys fra en fisk går fra vann ($n = 1{,}33$) gjennom glasset ($n = 1{,}52$) og ut i luft.\n\n**a)** En stråle treffer vann–glass-grensen under $35^\\circ$ mot normalen. Finn vinkelen i glasset.\n**b)** Finn vinkelen strålen har i luften når den kommer ut gjennom den parallelle ytterflaten.\n**c)** Forklar i 2–3 setninger hva resultatet i b) forteller om glassplatens rolle.",
+        "solution": "**a)** Snells lov ved vann–glass-grensen:\n\n$$\\sin\\theta_2 = \\frac{n_{\\text{vann}}\\sin\\theta_1}{n_{\\text{glass}}} = \\frac{1{,}33\\cdot\\sin35^\\circ}{1{,}52} = \\frac{1{,}33\\cdot0{,}5736}{1{,}52} = 0{,}5019$$\n\n$$\\theta_2 = \\arcsin(0{,}5019) = 30{,}1^\\circ$$\n\nStrålen knekker mot normalen, siden glasset er tettere enn vann ✓\n\n**b)** Ytterflaten er parallell med innerflaten, så normalen er den samme retningen, og innfallsvinkelen inne i glasset er $\\theta_2 = 30{,}1^\\circ$. Snells lov glass–luft:\n\n$$\\sin\\theta_3 = \\frac{n_{\\text{glass}}\\sin\\theta_2}{1{,}00} = 1{,}52\\cdot0{,}5019 = 0{,}7629 \\quad\\Longrightarrow\\quad \\theta_3 = 49{,}7^\\circ$$\n\n*Snarvei som er verdt å legge merke til:* setter du de to lovene sammen, forkortes glassindeksen bort:\n\n$$n_{\\text{vann}}\\sin\\theta_1 = n_{\\text{glass}}\\sin\\theta_2 = 1{,}00\\cdot\\sin\\theta_3$$\n\naltså $\\sin\\theta_3 = 1{,}33\\cdot\\sin35^\\circ = 0{,}7629$ — samme svar, uten mellomregning.\n\n**c)** Resultatet viser at glassplatens brytningsindeks **ikke påvirker** utvinkelen i det hele tatt, så lenge flatene er parallelle. Strålen knekker mot normalen på vei inn i glasset og like mye bort fra normalen på vei ut, så de to virkningene opphever hverandre.\n\nDet eneste glasset gjør, er å forskyve strålen litt sideveis — retningen ut er den samme som om glasset ikke var der.\n\n**Konklusjon:** utvinkelen er $49{,}7^\\circ$, og en parallell glassplate endrer strålens retning null. Dette er grunnen til at du ser omtrent riktig gjennom et vindu, uansett hvor tykt det er.",
+        "hints": [
+          "Bruk Snells lov ved hver grenseflate for seg.",
+          "Ved den andre flaten er innfallsvinkelen den samme som brytningsvinkelen ved den første, fordi flatene er parallelle.",
+          "Prøv å sette de to ligningene sammen og se hva som forkortes."
+        ]
+      }
+    },
+    {
+      "id": "fys1001-6-2-warn",
+      "type": "warning",
+      "title": "Typiske feil",
+      "content": "- **Påstå symmetri uten argument** (glasskule-oppgaven). «Av symmetri er utvinkelen lik innvinkelen» er en påstand. Argumentet krever at du sier at normalene går gjennom sentrum, at trekanten er likebeint fordi begge sider er radier, og at grunnvinklene derfor er like.\n- **Måle vinkler mot flaten i stedet for mot normalen.** Alle vinkler i Snells lov måles mot normalen. Måler du mot flaten, får du komplementvinkelen og alt blir feil.\n- **Bruke totalrefleksjonsformelen fra tynt til tett medium.** $\\sin\\theta_c = n_2/n_1$ krever $n_1 > n_2$. Får du en sinus over 1, har du brukt formelen feil vei — og det er ikke en regnefeil, det er et fysisk umulig oppsett.\n- **Si at frekvensen endres i mediet.** Frekvensen bestemmes av kilden og er uendret. Det er farten og bølgelengden som endres.\n- **Glemme rimelighetssjekken på retningen.** Inn i tettere medium: mindre vinkel. Inn i tynnere: større vinkel. Sjekk alltid at svaret peker riktig vei.\n- **Runde av for tidlig i dispersjonsoppgaver.** To vinkler som skiller seg med $0{,}4^\\circ$ må regnes med flere siffer underveis, ellers forsvinner hele svaret.\n- **Kalle regnbuen interferens.** Regnbue og prisme er **dispersjon** (brytning). Gitter er interferens.\n- **Blande de to betydningene av $n$.** Her er $n$ brytningsindeks. I [kap. 6.1](/bok/fys1001/fys1001-6-1) er $n$ et heltall i interferensbetingelsen.\n- **Manglende enhet eller gradtegn.** Vinkler i grader, farter i m/s, bølgelengder i nm eller m."
+    },
+    {
+      "id": "fys1001-6-2-bb-intro",
+      "type": "text",
+      "content": "## Begrepsbank\n\n*Flashcard-/repetisjonsstoff — hopp trygt over ved førstegangslesing; tidsanslaget gjelder kjernestoffet.*"
+    },
+    {
+      "id": "fys1001-6-2-bb-refleksjonsloven",
+      "type": "definition",
+      "title": "Refleksjonsloven",
+      "content": "Ved refleksjon er **utfallsvinkelen lik innfallsvinkelen**, målt mot normalen:\n\n$$\\theta_{\\text{refl}} = \\theta_1$$\n\nRefleksjon skjer alltid delvis ved en grenseflate, samtidig med brytningen. Ved totalrefleksjon skjer den fullstendig, og da går ingen energi over i det andre mediet."
+    },
+    {
+      "id": "fys1001-6-2-bb-optisk-tett",
+      "type": "definition",
+      "title": "Optisk tett og optisk tynt",
+      "content": "Et medium er **optisk tett** når brytningsindeksen er stor, altså når lyset går sakte der. Det er **optisk tynt** når $n$ er liten.\n\nMerk at dette ikke er det samme som massetetthet: en tabell med brytningsindekser og en tabell med massetettheter rangerer ikke stoffene i samme rekkefølge. Det er lysfarten som avgjør, og den bestemmes av hvordan lyset vekselvirker med atomene."
+    },
+    {
+      "id": "fys1001-6-2-bb-fiber",
+      "type": "definition",
+      "title": "Optisk fiber",
+      "content": "En **optisk fiber** består av en kjerne med høy brytningsindeks omgitt av en kappe med litt lavere. Lys som går nær fiberens akse, treffer kjerne–kappe-grensen med svært stor vinkel mot normalen — over grensevinkelen — og totalreflekteres om og om igjen.\n\nFordi totalrefleksjon ikke gir noe tap ved selve grensen, kan lyset gå kilometervis. Bøyes fiberen for skarpt, faller innfallsvinkelen under grensevinkelen på yttersiden av svingen, og lys lekker ut."
+    },
+    {
+      "id": "fys1001-6-2-bb-parallell-plate",
+      "type": "definition",
+      "title": "Parallell glassplate endrer ikke retningen",
+      "content": "Går lys gjennom en plate med **parallelle** flater, er retningen ut den samme som retningen inn — bare sideforskjøvet.\n\nGrunnen er at Snells lov brukes to ganger med samme normalretning:\n\n$$n_1\\sin\\theta_1 = n_{\\text{plate}}\\sin\\theta_2 = n_1\\sin\\theta_3 \\quad\\Longrightarrow\\quad \\theta_3 = \\theta_1$$\n\nPlatens brytningsindeks forkortes bort. Det er derfor du ser riktig retning gjennom et vindu, uansett tykkelse."
+    },
+    {
+      "id": "fys1001-6-2-bb-arbeidsmetode",
+      "type": "definition",
+      "title": "Arbeidsmetoden for en brytningsoppgave",
+      "content": "Fem steg som løser oppgavene i denne sjangeren:\n\n1. **tegn** flaten, normalen og strålen, og merk vinklene;\n2. **avgjør retningen:** går lyset mot tettere eller tynnere medium? Da vet du om vinkelen skal øke eller synke;\n3. **skriv Snells lov** og løs for den ukjente sinusen;\n4. **ta $\\arcsin$** og sjekk at svaret peker riktig vei;\n5. **ved to flater:** finn geometrien mellom flatene (likebeint trekant i en kule, vinkelsum i et prisme) før du bruker loven på nytt."
+    },
+    {
+      "id": "fys1001-6-2-bb-hvorfor-brytning",
+      "type": "definition",
+      "title": "Hvorfor brytes lyset i det hele tatt?",
+      "content": "Tenk på bølgefronten som en rekke soldater som marsjerer skrått inn i en myr. Den delen av rekka som kommer inn i myra først, går saktere, og hele rekka svinger.\n\nFysisk: bølgefronten må holde sammen over grenseflaten. Når den ene delen bremses, må fronten dreie for at bølgetoppene fortsatt skal møtes langs flaten. Snells lov er den geometriske konsekvensen av dette kravet — det er derfor loven kan skrives både med farter og med brytningsindekser."
+    },
+    {
+      "id": "fys1001-6-2-bb-diamant",
+      "type": "definition",
+      "title": "Diamant og gnistringen",
+      "content": "Diamant har $n = 2{,}42$, og grensevinkelen mot luft er\n\n$$\\theta_c = \\arcsin\\left(\\frac{1{,}00}{2{,}42}\\right) = 24^\\circ$$\n\nSå liten grensevinkel betyr at nesten alt lys som kommer inn i steinen, totalreflekteres flere ganger før det finner en flate der det kan slippe ut. Kombinert med sterk dispersjon gir det den karakteristiske gnistringen. Slipeformen er valgt nettopp for å utnytte dette."
+    },
+    {
+      "id": "fys1001-6-2-bb-regnbue",
+      "type": "definition",
+      "title": "Regnbuen",
+      "content": "En regnbue oppstår når sollys går inn i en regndråpe, totalreflekteres én gang på baksiden og går ut igjen. Ved hver brytning spres fargene på grunn av dispersjon.\n\nFordi avbøyningen er størst for blått og minst for rødt, kommer rødt lys ut i en litt større vinkel fra solretningen — derfor ligger rødt ytterst i buen. Buen står alltid i motsatt retning fra sola, og du ser den bare når sola er bak deg.\n\nMekanismen er **brytning med dispersjon**, ikke interferens."
+    },
+    {
+      "id": "fys1001-6-2-rep",
+      "type": "collapsible",
+      "title": "Repetisjonsoppgaver",
+      "buttonText": "Vis repetisjonsoppgaver",
+      "content": [
+        {
+          "id": "fys1001-6-2-rep-1",
+          "type": "exercise",
+          "exercise": {
+            "id": "fys1001-6-2-rep-e1",
+            "number": "R1",
+            "type": "classic",
+            "difficulty": "lett",
+            "task": "*(Fra [kap. 6.1](/bok/fys1001/fys1001-6-1).)* Skriv Snells lov både i brytningsindeks-form og i fartsform, og vis at de er den samme loven.",
+            "solution": "Brytningsindeks-form: $n_1\\sin\\theta_1 = n_2\\sin\\theta_2$. Fartsform: $\\dfrac{\\sin\\theta_2}{\\sin\\theta_1} = \\dfrac{v_2}{v_1}$.\n\nSett inn $n = c_0/v$ i den første:\n\n$$\\frac{c_0}{v_1}\\sin\\theta_1 = \\frac{c_0}{v_2}\\sin\\theta_2 \\quad\\Longrightarrow\\quad \\frac{\\sin\\theta_1}{v_1} = \\frac{\\sin\\theta_2}{v_2} \\quad\\Longrightarrow\\quad \\frac{\\sin\\theta_2}{\\sin\\theta_1} = \\frac{v_2}{v_1}$$\n\nDe er identiske. Seismikk bruker fartsformen fordi det er fartene som måles; optikk bruker indeksformen fordi det er indeksene som står i tabellen.",
+            "hints": [
+              "Sett $n = c_0/v$ inn i brytningsindeks-formen.",
+              "Lysfarten $c_0$ forkortes bort."
+            ]
+          }
+        },
+        {
+          "id": "fys1001-6-2-rep-2",
+          "type": "exercise",
+          "exercise": {
+            "id": "fys1001-6-2-rep-e2",
+            "number": "R2",
+            "type": "classic",
+            "difficulty": "lett",
+            "task": "Finn grensevinkelen for lys som går fra diamant ($n = 2{,}42$) mot luft.",
+            "solution": "$$\\sin\\theta_c = \\frac{1{,}00}{2{,}42} = 0{,}413 \\quad\\Longrightarrow\\quad \\theta_c = 24^\\circ$$\n\nSvært liten grensevinkel: nesten alt lys som kommer inn, blir fanget og totalreflektert flere ganger før det slipper ut. Det er derfor en slipt diamant gnistrer.",
+            "hints": [
+              "Sett $\\theta_2 = 90^\\circ$ i Snells lov.",
+              "Sjekk først at lyset går fra tett mot tynt."
+            ]
+          }
+        },
+        {
+          "id": "fys1001-6-2-rep-3",
+          "type": "exercise",
+          "exercise": {
+            "id": "fys1001-6-2-rep-e3",
+            "number": "R3",
+            "type": "classic",
+            "difficulty": "middels",
+            "task": "*(Sjanger Q.)* Forklar i 2–4 setninger hvorfor en tykk glassrute ikke gjør at du ser skjevt ut gjennom vinduet, selv om lyset brytes både inn og ut.",
+            "solution": "Flatene i en vindusrute er parallelle, så normalen har samme retning ved begge flatene. Lyset knekker mot normalen på vei inn i glasset og nøyaktig like mye bort fra normalen på vei ut.\n\nSkriver du Snells lov to ganger, forkortes glassets brytningsindeks bort: $n_{\\text{luft}}\\sin\\theta_1 = n_{\\text{glass}}\\sin\\theta_2 = n_{\\text{luft}}\\sin\\theta_3$, altså $\\theta_3 = \\theta_1$.\n\n**Konklusjon:** retningen ut er identisk med retningen inn; det eneste som skjer, er en liten sideforskyvning som øker med tykkelsen.",
+            "hints": [
+              "Hva er felles for normalene ved de to flatene i en parallell plate?",
+              "Skriv Snells lov ved hver flate og sett dem sammen."
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": "fys1001-6-2-symbolliste",
+      "type": "collapsible",
+      "title": "Symbol- og formelliste",
+      "buttonText": "Vis symboler og formler",
+      "content": [
+        {
+          "id": "fys1001-6-2-symbolliste-tekst",
+          "type": "text",
+          "content": "## Symbol- og formelliste\n\n*Oppslagsverk — alt her forklares underveis i kapitlet.*\n\nAlle symboler og formler i delkapittel 6.2. Betydningene gjelder **dette delkapitlet** og arves ikke fra tidligere deler.\n\n| Symbol | Betydning | SI-enhet |\n|---|---|---|\n| $n$, $n_1$, $n_2$ | **Brytningsindeks** (her: *ikke* ordenstall) | dimensjonsløs |\n| $c_0$ | Lysfarten i vakuum, $3{,}00\\cdot10^{8}$ | m/s |\n| $c$, $v$ | Lysfarten i mediet | m/s |\n| $\\theta_1$ | Innfallsvinkel, målt mot normalen | grader |\n| $\\theta_2$ | Brytningsvinkel, målt mot normalen | grader |\n| $\\theta_3$, $\\theta_4$ | Indre og ytre vinkel ved den andre flaten (prisme) | grader |\n| $\\theta_c$ | Grensevinkel for totalrefleksjon | grader |\n| $\\delta$ | Samlet avbøyning av strålen | grader |\n| $\\lambda_0$ | Bølgelengde i vakuum (eller luft) | m eller nm |\n| $\\lambda$ | **Bølgelengde** i mediet | m eller nm |\n| $f$ | Frekvens (uendret over grenseflater) | hertz, Hz |\n| $R$ | **Kuleradius** (her: *ikke* resistans eller friksjonskraft) | m |\n| $O$, $A$, $C$ | Sentrum, innfallspunkt og utgangspunkt på kula | – |\n\n**Symbolkollisjoner du skal være obs på i akkurat dette delkapitlet:**\n\n- $n$ er **brytningsindeks**. I [kap. 6.1](/bok/fys1001/fys1001-6-1) er $n$ et heltall (ordenstall) i interferensbetingelsene.\n- $\\lambda$ er **bølgelengde** i meter. I Del 4 er $\\lambda$ varmeledningsevne, og i Del 7 er $\\lambda$ henfallskonstanten.\n- $R$ er **kuleradius** her. I [kap. 5.2](/bok/fys1001/fys1001-5-2) er $R$ resistans, og i Del 1 er $R = \\mu N$ friksjonskraften.\n- $c$ er **lysfart** her. I Del 4 er $c$ spesifikk varmekapasitet.\n- $E$, $B$ og $k$ brukes ikke i dette delkapitlet.\n\n**Formler i dette delkapitlet:**\n\n$$n = \\frac{c_0}{c} \\quad\\Longleftrightarrow\\quad c = \\frac{c_0}{n}$$\nBrytningsindeks og lysfart i mediet. *(Står på formelarket; $n$-verdier i tabellen.)*\n\n$$n_1\\sin\\theta_1 = n_2\\sin\\theta_2$$\nSnells lov. Vinklene måles mot normalen. *(Står på formelarket — geometrien er ditt ansvar.)*\n\n$$\\lambda = \\frac{\\lambda_0}{n}, \\qquad f \\text{ uendret}$$\nBølgelengden i mediet; frekvensen bestemmes av kilden. *(Må kunne brukes aktivt og begrunnes.)*\n\n$$\\sin\\theta_c = \\frac{n_2}{n_1} \\qquad (\\text{krever } n_1 > n_2)$$\nGrensevinkel for totalrefleksjon. Vilkåret skal skrives ut. *(Står på formelarket.)*\n\n$$\\theta_{\\text{ut}} = \\theta_{\\text{inn}} \\quad (\\text{glasskule}), \\qquad \\delta = 2(\\theta_1 - \\theta_2)$$\nSymmetriresultatet og avbøyningen for en kule. *(Må kunne utledes — argumentet er det som gir uttelling.)*\n\n$$\\theta_2 + \\theta_3 = A, \\qquad \\delta = \\theta_1 + \\theta_4 - A$$\nPrisme med prismevinkel $A$: de indre vinklene summerer seg til prismevinkelen. *(Må kunne settes opp fra geometrien.)*\n\n$$\\theta_{\\text{refl}} = \\theta_1$$\nRefleksjonsloven. *(Står på formelarket.)*"
+        }
+      ]
+    }
+  ],
+  "exercises": []
+}

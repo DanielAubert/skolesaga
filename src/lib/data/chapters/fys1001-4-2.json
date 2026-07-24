@@ -1,0 +1,400 @@
+{
+  "id": "fys1001-4-2",
+  "courseId": "fys1001",
+  "chapterNumber": "4.2",
+  "title": "Ideell gass",
+  "description": "Gassloven i begge former, isoterme, isobare og isokore prosesser — og kelvin-disiplinen som avgjør om svaret blir riktig eller tull.",
+  "estimatedMinutes": 50,
+  "competenceGoals": [
+    "regne om mellom celsius og kelvin, og begrunne hvorfor gasslovene krever absolutt temperatur",
+    "velge mellom pV = NkT og pV = nRT ut fra hva oppgaven spør om, og regne ut antall molekyler eller stoffmengde",
+    "bruke den kombinerte gassloven og de tre spesialtilfellene isoterm, isobar og isokor på en prosess",
+    "utlede og bruke konsentrasjonen N/V = p/(kT) til å begrunne hvordan lufttettheten avhenger av trykk og temperatur"
+  ],
+  "content": [
+    {
+      "id": "fys1001-4-2-tip-eksamensvinkel",
+      "type": "tip",
+      "title": "Eksamensvinkel",
+      "content": "**Høyeste prioritet.** Termofysikk er testet i **31 av 36 slutteksamener (86 %)** — og i alle sett siden 2013. Gassloven spesifikt dukker opp i godt over halvparten av de moderne settene.\n\nOppgavemalen har bokstaven **H** i sjangerkatalogen i [kap. 0.1](/bok/fys1001/fys1001-0-1): **sjanger H = ideell gass og termodynamiske prosesser**. Slik ser den ut:\n\n- «Finn antall gassmolekyler i beholderen» — ren innsetting i tilstandslikningen, en billig deloppgave på 4 poeng,\n- «Hva blir trykket når temperaturen stiger til …» — én prosess med noe holdt konstant,\n- konsentrasjonsresonnementet $N/V = p/(kT)$, brukt til å forklare hvorfor lufta er tynnere høyt oppe eller når den varmes (vår 2023 og vår 2024),\n- en kvalitativ hale: «hvorfor må temperaturen regnes i kelvin?» eller «når svikter modellen om ideell gass?».\n\n**Kapitlets viktigste enkeltregel:** all gasslovregning skjer i **kelvin**. Celsius i gassloven er den dyreste enkeltfeilen i hele termofysikken — den gir svar som er hundre prosent gale, ikke bare litt skjeve. Regelen står utskrevet i løkke 1, og du møter den igjen i hver eneste utregning i kapitlet."
+    },
+    {
+      "id": "fys1001-4-2-forkunnskaper",
+      "type": "text",
+      "content": "### Forkunnskaper\n\n- **Varmeregnskap** — [kap. 4.1](/bok/fys1001/fys1001-4-1): begrepene varme, temperatur og energi i joule. Du trenger ikke faseoverganger her, men tankegangen «hvilken formel gjelder i hvilken fase» går igjen.\n- **Løse ut en ukjent i en flerbokstavslikning** — [Praktisk bruk av likninger](/bok/1t/1t-2-8): $pV = NkT$ skal kunne løses for hvilken som helst av de fire bokstavene.\n- **Potenser og standardform** — [Potenser](/bok/1t/1t-1-2): tallene her er store ($10^{25}$ molekyler) og små ($k \\approx 10^{-23}$ J/K), så du må være trygg på regning med tierpotenser.\n\nKonstantene $k$, $R$ og $N_A$ står på formelarket. Du skal ikke pugge dem — du skal vite hvilken av dem som hører til hvilken form av gassloven."
+    },
+    {
+      "id": "fys1001-4-2-anker",
+      "type": "text",
+      "content": "## Hverdagsanker: dekket som «mister luft» om vinteren\n\nOm høsten fyller du dekkene på bilen. Når frosten kommer i november, viser måleren plutselig et lavere trykk — men ingen luft har lekket ut. Hva skjedde?\n\nGassen i dekket har samme antall molekyler og omtrent samme volum, men lavere temperatur. Molekylene beveger seg saktere, treffer dekkveggen med mindre kraft og sjeldnere, og trykket faller. Hele dette kapitlet er én likning som binder sammen nettopp de fire størrelsene: **trykk, volum, antall molekyler og temperatur**.\n\n*Tidsbruk: fem løkker på 8–13 minutter, med naturlige pausepunkter markert underveis.*"
+    },
+    {
+      "id": "fys1001-4-2-l1-intro",
+      "type": "text",
+      "content": "## Løkke 1 — Kelvin: kapitlets viktigste disiplin (~9 min)"
+    },
+    {
+      "id": "fys1001-4-2-d-kelvin",
+      "type": "definition",
+      "title": "Absolutt temperatur (kelvin)",
+      "content": "**Kelvinskalaen starter der molekylbevegelsen er minst mulig — ved det absolutte nullpunktet.** Symbolet for temperatur er $T$, enheten er kelvin (K), og omregningen er\n\n$$T\\ [\\text{K}] = t\\ [^\\circ\\text{C}] + 273{,}15$$\n\nGradene er like store på de to skalaene, så en *differanse* er den samme i K og $^\\circ$C. Men nullpunktene er forskjellige, og derfor er forholdstall helt ulike: 40 $^\\circ$C er ikke «dobbelt så varmt» som 20 $^\\circ$C — i kelvin er forholdet 313/293, altså bare 7 % mer.\n\nTil vanlig regning holder det å bruke 273: $20\\ ^\\circ\\text{C} = 293$ K."
+    },
+    {
+      "id": "fys1001-4-2-d-ideellgass",
+      "type": "definition",
+      "title": "Ideell gass",
+      "content": "**En ideell gass er en modell der molekylene tenkes som små, harde kuler uten utstrekning som ikke tiltrekker hverandre, og som bare vekselvirker gjennom støt.**\n\nModellen er svært god for luft, oksygen, helium og andre gasser ved vanlige trykk og temperaturer — og det er den vi bruker gjennom hele kapitlet. Den svikter først når gassen presses hardt sammen eller nærmer seg kondensasjon; da blir molekylenes eget volum og tiltrekningen mellom dem merkbar."
+    },
+    {
+      "id": "fys1001-4-2-l1-regel",
+      "type": "text",
+      "content": "### Kelvin-regelen, skrevet ut\n\n> **I gassloven, i $\\Delta V/V = \\Delta T/T$ og i alle forholdstall mellom temperaturer skal $T$ være i kelvin.**\n\nGrunnen er enkel: likningen sier at trykk og volum er *proporsjonale* med temperaturen. En proporsjonalitet må måles fra det virkelige nullpunktet, ikke fra vannets frysepunkt. Regner du med celsius, kan du til og med få negative eller uendelige trykk — svar som er fysisk umulige.\n\nSammenlign med [kap. 4.1](/bok/fys1001/fys1001-4-1): der stod alltid $\\Delta T$, en differanse, og da var celsius trygt. Kjøreregelen som skiller de to situasjonene:\n\n**Står $T$ alene i formelen — bruk kelvin. Står det $\\Delta T$ — spiller det ingen rolle.**"
+    },
+    {
+      "id": "fys1001-4-2-ex1",
+      "type": "example",
+      "title": "Eksempel 1: Kelvin i praksis",
+      "problem": "En gass varmes fra 20 $^\\circ$C til 60 $^\\circ$C i en lukket, stiv beholder.\n\n**a)** Hvor mange prosent stiger den absolutte temperaturen?\n**b)** Hva ville du fått hvis du regnet med celsiusgrader, og hvorfor er det galt?",
+      "solution": "**a)** Regn om først: $T_1 = 20 + 273 = 293$ K og $T_2 = 60 + 273 = 333$ K.\n\n$$\\frac{T_2}{T_1} = \\frac{333}{293} = 1{,}137$$\n\nDen absolutte temperaturen stiger altså med 13,7 %, og siden volumet er fast, stiger trykket med de samme 14 %.\n\n**b)** Med celsius: $60/20 = 3{,}0$ — altså en tredobling av trykket. Det er langt fra sannheten. Feilen kommer av at celsiusskalaens nullpunkt er et vilkårlig valgt punkt (vannets frysepunkt), mens proporsjonaliteten i gassloven gjelder fra det absolutte nullpunktet. Merk hvor grov feilen blir: 14 % mot 200 %.\n\n**Svar:** Den absolutte temperaturen stiger 13,7 %; celsiusregning ville gitt en tredobling, som er fysisk feil."
+    },
+    {
+      "id": "fys1001-4-2-o1",
+      "type": "exercise",
+      "exercise": {
+        "id": "fys1001-4-2-o1",
+        "number": "1",
+        "type": "classic",
+        "difficulty": "lett",
+        "task": "(Innstegsoppgave.)\n\n**a)** Regn om til kelvin: 37 $^\\circ$C, $-196\\ ^\\circ$C og 0 $^\\circ$C.\n**b)** Regn om 800 K til celsius.\n**c)** En gass varmes 25 grader. Hvor mange kelvin er det?",
+        "solution": "**a)** $37 + 273 = 310$ K; $-196 + 273 = 77$ K; $0 + 273 = 273$ K.\n\n**b)** $800 - 273 = 527\\ ^\\circ$C.\n\n**c)** 25 K. En temperatur*differanse* har samme tallverdi i begge skalaer, fordi gradene er like store — det er bare nullpunktene som er forskjellige.",
+        "hints": [
+          "Bruk $T\\ [\\text{K}] = t\\ [^\\circ\\text{C}] + 273$.",
+          "I **b)** går du andre veien: trekk fra 273.",
+          "I **c)**: er det snakk om en temperatur eller en endring i temperatur?"
+        ]
+      }
+    },
+    {
+      "id": "fys1001-4-2-l2-intro",
+      "type": "text",
+      "content": "— naturlig pausepunkt —\n\n## Løkke 2 — Tilstandslikningen i to former (~13 min)"
+    },
+    {
+      "id": "fys1001-4-2-d-nkt",
+      "type": "definition",
+      "title": "Tilstandslikningen med antall molekyler",
+      "content": "**For en ideell gass henger trykk, volum, antall molekyler og temperatur sammen gjennom én likning:**\n\n$$pV = NkT$$\n\nHer er $p$ trykket i pascal (Pa), $V$ volumet i kubikkmeter, $N$ antallet molekyler (et rent tall), $T$ temperaturen i kelvin og $k$ Boltzmanns konstant.\n\nLes den slik: trykket øker hvis du putter inn flere molekyler, varmer gassen eller klemmer volumet sammen. Alle tre er hverdagserfaringer fra en sykkelpumpe."
+    },
+    {
+      "id": "fys1001-4-2-d-nrt",
+      "type": "definition",
+      "title": "Tilstandslikningen med stoffmengde",
+      "content": "**Samme lov, uttrykt med mol i stedet for molekyler:**\n\n$$pV = nRT$$\n\nHer er $n$ stoffmengden i mol og $R$ den universelle gasskonstanten. De to formene er identiske, fordi $N = n N_A$ og $R = k N_A$.\n\nLøsningsforslagene i arkivet bruker begge former og godtar begge. Regelen for valg: **spør oppgaven om antall molekyler, bruk $NkT$; er stoffmengden i mol eller gassens masse oppgitt, bruk $nRT$.**"
+    },
+    {
+      "id": "fys1001-4-2-d-k",
+      "type": "definition",
+      "title": "Boltzmanns konstant (k)",
+      "content": "**Boltzmanns konstant knytter temperatur til energi per molekyl:** $k = 1{,}381\\cdot10^{-23}$ J/K.\n\nDen hører sammen med *antall molekyler* i $pV = NkT$. Tallverdien er et **formelarkoppslag** — du skal kjenne igjen konstanten og vite hvilken form av gassloven den hører til, ikke pugge sifrene.\n\nMerk at bokstaven $k$ brukes om helt andre ting i andre deler av boka: i [kap. 5.1](/bok/fys1001/fys1001-5-1) er $k$ Coulomb-konstanten. Symbollisten nederst i hvert delkapittel sier hvilken $k$ som gjelder der."
+    },
+    {
+      "id": "fys1001-4-2-d-R",
+      "type": "definition",
+      "title": "Gasskonstanten (R) og Avogadros tall",
+      "content": "**Gasskonstanten er $R = 8{,}314$ J/(mol$\\cdot$K), og Avogadros tall er $N_A = 6{,}022\\cdot10^{23}$ molekyler per mol.**\n\nSammenhengen mellom konstantene er $R = kN_A$, og mellom mengdemålene $N = nN_A$. Begge tall er **formelarkoppslag**.\n\nEt mol er altså bare en telleenhet, på samme måte som et dusin — bare mye større."
+    },
+    {
+      "id": "fys1001-4-2-ex2",
+      "type": "example",
+      "title": "Eksempel 2: Hvor mange molekyler? (sjanger H)",
+      "problem": "En gassflaske på 8,0 L holder trykket $1{,}5\\cdot10^{7}$ Pa (150 bar) ved 15 $^\\circ$C.\n\n**a)** Finn antall gassmolekyler i flasken.\n**b)** Hvor mange mol er det?",
+      "solution": "**a)** Vi spør etter antall molekyler, så vi velger formen $pV = NkT$ og løser for $N$:\n\n$$N = \\frac{pV}{kT}$$\n\nRydd i enhetene først: $V = 8{,}0\\ \\text{L} = 8{,}0\\cdot10^{-3}\\ \\text{m}^3$ og $T = 15 + 273 = 288$ K. Trykket er alt i pascal.\n\n$$N = \\frac{1{,}5\\cdot10^{7} \\cdot 8{,}0\\cdot10^{-3}}{1{,}381\\cdot10^{-23} \\cdot 288} = \\frac{1{,}2\\cdot10^{5}}{3{,}977\\cdot10^{-21}} = 3{,}0\\cdot10^{25}$$\n\n**Svar:** Det er $3{,}0\\cdot10^{25}$ molekyler i flasken.\n\n**b)** $n = N/N_A = 3{,}0\\cdot10^{25}/6{,}022\\cdot10^{23} = 50$ mol.\n\n**Kontroll med den andre formen:** $n = pV/(RT) = 1{,}2\\cdot10^{5}/(8{,}314\\cdot288) = 50{,}1$ mol. De to formene gir samme svar, slik de skal.\n\n**Rimelighetsvurdering:** 50 mol luft veier omtrent $50 \\cdot 29$ g $\\approx 1{,}5$ kg — en tung, men helt normal gassflaske."
+    },
+    {
+      "id": "fys1001-4-2-o2",
+      "type": "exercise",
+      "exercise": {
+        "id": "fys1001-4-2-o2",
+        "number": "2",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "(Sjanger H.) En beholder på $0{,}50\\ \\text{m}^3$ inneholder luft ved trykket $3{,}0\\cdot10^{5}$ Pa og temperaturen 25 $^\\circ$C.\n\n**a)** Finn stoffmengden i mol.\n**b)** Hvilken form av gassloven valgte du, og hvorfor?\n\n($R = 8{,}314$ J/(mol$\\cdot$K))",
+        "solution": "**a)** Vi spør etter mol, så vi bruker $pV = nRT$ og løser for $n$. Temperaturen i kelvin: $T = 25 + 273 = 298$ K.\n\n$$n = \\frac{pV}{RT} = \\frac{3{,}0\\cdot10^{5} \\cdot 0{,}50}{8{,}314 \\cdot 298} = \\frac{1{,}5\\cdot10^{5}}{2477{,}6} = 60{,}5\\ \\text{mol}$$\n\n**Svar:** $n = 61$ mol.\n\n**b)** Formen $pV = nRT$, fordi spørsmålet gjelder stoffmengde i mol — da hører gasskonstanten $R$ til. Hadde spørsmålet gjeldt antall molekyler, ville $pV = NkT$ med Boltzmanns konstant vært den korteste veien. (Begge går an: $N = nN_A = 3{,}6\\cdot10^{25}$ molekyler.)",
+        "hints": [
+          "Løs $pV = nRT$ for $n$ før du setter inn tall.",
+          "Temperaturen må være i kelvin — legg til 273.",
+          "Kontroller enhetene: Pa ganger $\\text{m}^3$ gir joule, og J delt på J/(mol$\\cdot$K) ganger K gir mol."
+        ]
+      }
+    },
+    {
+      "id": "fys1001-4-2-l3-intro",
+      "type": "text",
+      "content": "— naturlig pausepunkt —\n\n## Løkke 3 — Prosesser: hva holdes konstant? (~13 min)\n\nNesten alle eksamensoppgaver i sjanger H handler om en gass som går fra én tilstand til en annen. Da er antall molekyler det samme før og etter, og $Nk$ kan strykes:\n\n$$\\frac{p_1V_1}{T_1} = \\frac{p_2V_2}{T_2}$$\n\nDette er hovedverktøyet. De tre navngitte spesialtilfellene får du gratis ved å stryke det som ikke endrer seg."
+    },
+    {
+      "id": "fys1001-4-2-d-kombinert",
+      "type": "definition",
+      "title": "Den kombinerte gassloven",
+      "content": "**Når gassmengden er den samme før og etter, gjelder**\n\n$$\\frac{p_1V_1}{T_1} = \\frac{p_2V_2}{T_2}$$\n\nDette følger direkte av $pV = NkT$: siden $N$ og $k$ er de samme i begge tilstander, må $pV/T$ ha samme verdi.\n\nArbeidsmåten på eksamen: skriv opp de seks størrelsene i to kolonner (før og etter), stryk den som er lik på begge sider, og løs for den ukjente. **Alle temperaturer i kelvin.**"
+    },
+    {
+      "id": "fys1001-4-2-d-isoterm",
+      "type": "definition",
+      "title": "Isoterm prosess",
+      "content": "**Isoterm betyr at temperaturen holdes konstant.** Da faller $T$ bort på begge sider:\n\n$$p_1V_1 = p_2V_2$$\n\nTrykk og volum er omvendt proporsjonale: halverer du volumet, dobles trykket. I et $p$–$V$-diagram er en isoterm en hyperbel.\n\nEksempel fra virkeligheten: en luftboble som stiger langsomt opp fra dypet rekker å holde samme temperatur som vannet rundt, men utvider seg fordi trykket faller."
+    },
+    {
+      "id": "fys1001-4-2-d-isobar",
+      "type": "definition",
+      "title": "Isobar prosess",
+      "content": "**Isobar betyr at trykket holdes konstant** — typisk når gassen står i kontakt med atmosfæren eller under et lodd som kan bevege seg fritt. Da faller $p$ bort:\n\n$$\\frac{V_1}{T_1} = \\frac{V_2}{T_2} \\qquad\\text{eller}\\qquad \\frac{\\Delta V}{V} = \\frac{\\Delta T}{T}$$\n\nDen siste formen er praktisk når du skal finne den *relative* volumendringen. **Her må $T$ være absolutt temperatur i kelvin** — det er nettopp $T$ i nevneren som gjør formen ubrukelig med celsius."
+    },
+    {
+      "id": "fys1001-4-2-d-isokor",
+      "type": "definition",
+      "title": "Isokor prosess",
+      "content": "**Isokor betyr at volumet holdes konstant** — gassen står i en stiv beholder. Da faller $V$ bort:\n\n$$\\frac{p_1}{T_1} = \\frac{p_2}{T_2}$$\n\nTrykket er proporsjonalt med den absolutte temperaturen. Dette er dekket på frostmorgenen, gassflasken i sola og trykkokeren."
+    },
+    {
+      "id": "fys1001-4-2-fig-pv",
+      "type": "image",
+      "src": "/images/textbook/fys1001/fys1001-4-2-pv-isoterm-isobar.svg",
+      "alt": "p-V-diagram med en fallende hyperbel merket isoterm og en vannrett rød linje mellom punkt 1 og punkt 2 merket isobar.",
+      "caption": "De to prosessformene tegnet i samme $p$–$V$-diagram: den isoterme er hyperbelen $pV = $ konstant, den isobare er den vannrette linjen fra 1 til 2. Legg merke til at en vannrett linje her betyr konstant trykk, ikke konstant temperatur."
+    },
+    {
+      "id": "fys1001-4-2-ex3",
+      "type": "example",
+      "title": "Eksempel 3: Gassflasken i sola (sjanger H — isokor)",
+      "problem": "Gassflasken fra eksempel 2 (8,0 L, 150 bar, 15 $^\\circ$C) blir stående i sola og varmes til 45 $^\\circ$C. Flasken er stiv.\n\n**a)** Finn det nye trykket.\n**b)** Hva ville du fått hvis du hadde satt inn celsiusgrader, og hvorfor er svaret ubrukelig?",
+      "solution": "**a)** Volumet er konstant (stiv flaske), så prosessen er isokor:\n\n$$\\frac{p_1}{T_1} = \\frac{p_2}{T_2} \\quad\\Rightarrow\\quad p_2 = p_1\\frac{T_2}{T_1}$$\n\nKelvin: $T_1 = 15 + 273 = 288$ K, $T_2 = 45 + 273 = 318$ K.\n\n$$p_2 = 150\\ \\text{bar} \\cdot \\frac{318}{288} = 166\\ \\text{bar}$$\n\n**Svar:** Trykket stiger til 166 bar, altså $1{,}7\\cdot10^{7}$ Pa.\n\n**b)** Med celsius: $p_2 = 150 \\cdot 45/15 = 450$ bar — en tredobling. Det er åpenbart tull: en oppvarming på 30 grader kan ikke tredoble trykket i en flaske. Feilen skyldes at forholdet $45/15$ måles fra et vilkårlig nullpunkt. Regner du med kelvin, ser du at temperaturen bare øker 10 %, og trykket følgelig også.\n\n**Rimelighetsvurdering:** 166 bar mot 150 bar er en økning på snaut 11 % — samme prosent som temperaturøkningen i kelvin, akkurat som proporsjonaliteten krever."
+    },
+    {
+      "id": "fys1001-4-2-o3",
+      "type": "exercise",
+      "exercise": {
+        "id": "fys1001-4-2-o3",
+        "number": "3",
+        "type": "classic",
+        "difficulty": "lett",
+        "task": "(Sjanger H — isoterm.) Du komprimerer luft i en sykkelpumpe fra $350\\ \\text{cm}^3$ til $90\\ \\text{cm}^3$. Trykket var $1{,}0\\cdot10^{5}$ Pa før du begynte, og du pumper langsomt nok til at temperaturen holder seg konstant.\n\nFinn trykket i den sammenpressede lufta.",
+        "solution": "Temperaturen er konstant, altså en isoterm prosess:\n\n$$p_1V_1 = p_2V_2 \\quad\\Rightarrow\\quad p_2 = p_1\\frac{V_1}{V_2} = 1{,}0\\cdot10^{5}\\cdot\\frac{350}{90}\\ \\text{Pa} = 3{,}9\\cdot10^{5}\\ \\text{Pa}$$\n\n**Svar:** $3{,}9\\cdot10^{5}$ Pa, altså om lag 3,9 bar.\n\nLegg merke til at volumenhetene ikke måtte gjøres om — det er bare forholdet mellom dem som teller, så lenge begge er i samme enhet.",
+        "hints": [
+          "Hvilken størrelse holdes konstant her? Da faller den bort fra den kombinerte gassloven.",
+          "Bruk $p_1V_1 = p_2V_2$ og løs for $p_2$.",
+          "Trykket skal bli større, siden volumet ble mindre — sjekk at brøken vender riktig vei."
+        ]
+      }
+    },
+    {
+      "id": "fys1001-4-2-o4",
+      "type": "exercise",
+      "exercise": {
+        "id": "fys1001-4-2-o4",
+        "number": "4",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "(Sjanger H — isobar.) En ballong har volumet 2,5 L inne i et rom på 22 $^\\circ$C. Du tar den med ut, der det er $-8{,}0\\ ^\\circ$C. Ballongskinnet er slapt, så trykket inne i ballongen er hele tiden det samme som lufttrykket ute.\n\n**a)** Finn det nye volumet.\n**b)** Hvor mange prosent krympet ballongen?",
+        "solution": "**a)** Trykket er konstant, altså isobar prosess:\n\n$$\\frac{V_1}{T_1} = \\frac{V_2}{T_2} \\quad\\Rightarrow\\quad V_2 = V_1\\frac{T_2}{T_1}$$\n\nKelvin: $T_1 = 22 + 273 = 295$ K og $T_2 = -8{,}0 + 273 = 265$ K.\n\n$$V_2 = 2{,}5\\ \\text{L}\\cdot\\frac{265}{295} = 2{,}25\\ \\text{L}$$\n\n**Svar:** $V_2 = 2{,}2$ L.\n\n**b)** $\\dfrac{\\Delta V}{V} = \\dfrac{\\Delta T}{T} = \\dfrac{-30}{295} = -0{,}102$, altså en krymping på 10 %.\n\nKontroll: $(2{,}25 - 2{,}5)/2{,}5 = -0{,}10$ ✓. De to regnemåtene stemmer overens, slik de skal.",
+        "hints": [
+          "Hva holdes konstant når ballongskinnet er slapt?",
+          "Regn begge temperaturer om til kelvin før du setter inn.",
+          "I **b)** kan du enten bruke $\\Delta V/V = \\Delta T/T$ direkte eller sammenligne de to volumene."
+        ]
+      }
+    },
+    {
+      "id": "fys1001-4-2-o5",
+      "type": "exercise",
+      "exercise": {
+        "id": "fys1001-4-2-o5",
+        "number": "5",
+        "type": "classic",
+        "difficulty": "vanskelig",
+        "task": "(Sjanger H — krevende, to størrelser endrer seg.) Et bildekk har det absolutte trykket $3{,}4\\cdot10^{5}$ Pa ved 5,0 $^\\circ$C. Etter en lang kjøretur er lufta i dekket 38 $^\\circ$C, og dekket har utvidet seg slik at volumet er 3,0 % større enn før.\n\n**a)** Finn det nye trykket.\n**b)** Hvilken av de to endringene — temperaturen eller volumet — betyr mest for svaret? Begrunn.",
+        "solution": "**a)** Både trykk, volum og temperatur endrer seg, så vi må bruke den kombinerte gassloven:\n\n$$\\frac{p_1V_1}{T_1} = \\frac{p_2V_2}{T_2} \\quad\\Rightarrow\\quad p_2 = p_1 \\cdot \\frac{V_1}{V_2}\\cdot\\frac{T_2}{T_1}$$\n\nKelvin: $T_1 = 5{,}0 + 273 = 278$ K, $T_2 = 38 + 273 = 311$ K. Volumforholdet er $V_1/V_2 = 1/1{,}030 = 0{,}971$.\n\n$$p_2 = 3{,}4\\cdot10^{5} \\cdot 0{,}971 \\cdot \\frac{311}{278}\\ \\text{Pa} = 3{,}4\\cdot10^{5}\\cdot 0{,}971\\cdot1{,}119\\ \\text{Pa} = 3{,}7\\cdot10^{5}\\ \\text{Pa}$$\n\n**Svar:** Det nye trykket er $3{,}7\\cdot10^{5}$ Pa.\n\n**b)** Temperaturen betyr klart mest. Temperaturfaktoren er 1,119, altså $+12$ %, mens volumfaktoren er 0,971, altså $-2{,}9$ %. Oppvarmingen løfter trykket fire ganger så mye som utvidelsen demper det, og nettoresultatet er en trykkøkning på snaut 9 %.\n\n**Rimelighetsvurdering:** 3,4 bar til 3,7 bar etter en varm kjøretur er akkurat den typen økning dekkprodusenter advarer om når de ber deg måle trykket på kalde dekk.",
+        "hints": [
+          "Ingen av de tre størrelsene er konstant — bruk den fulle kombinerte gassloven.",
+          "Skriv $V_2 = 1{,}030\\,V_1$ slik at volumene forkortes mot hverandre som et forholdstall.",
+          "Regn ut de to faktorene $V_1/V_2$ og $T_2/T_1$ hver for seg før du multipliserer — da ser du også svaret på **b)**."
+        ]
+      }
+    },
+    {
+      "id": "fys1001-4-2-l4-intro",
+      "type": "text",
+      "content": "— naturlig pausepunkt —\n\n## Løkke 4 — Konsentrasjon: hvor tett ligger molekylene? (~9 min)"
+    },
+    {
+      "id": "fys1001-4-2-d-konsentrasjon",
+      "type": "definition",
+      "title": "Molekylkonsentrasjon",
+      "content": "**Konsentrasjonen er antall molekyler per volumenhet, $N/V$, med enhet $\\text{m}^{-3}$.**\n\nDen følger direkte av tilstandslikningen: deler du $pV = NkT$ med $V$ og $kT$, får du\n\n$$\\frac{N}{V} = \\frac{p}{kT}$$\n\nLes den slik: molekylene ligger tettere når trykket er høyt og temperaturen lav. Dette er utledningen som brukes i de nyere settene til å begrunne hvorfor lufta er tynn på fjelltopper og hvorfor varm luft stiger."
+    },
+    {
+      "id": "fys1001-4-2-ex4",
+      "type": "example",
+      "title": "Eksempel 4: Tynn luft (sjanger H + Q)",
+      "problem": "Ved havnivå er lufttrykket $1{,}0\\cdot10^{5}$ Pa og temperaturen 20 $^\\circ$C. På 3 000 meters høyde er trykket $7{,}0\\cdot10^{4}$ Pa og temperaturen 3 $^\\circ$C.\n\n**a)** Finn molekylkonsentrasjonen begge steder.\n**b)** Hvor mange prosent færre luftmolekyler puster du inn per åndedrag på toppen?",
+      "solution": "**a)** Utledningen fra $pV = NkT$ gir $N/V = p/(kT)$. Kelvin: 293 K og 276 K.\n\nVed havnivå:\n$$\\frac{N}{V} = \\frac{1{,}0\\cdot10^{5}}{1{,}381\\cdot10^{-23}\\cdot293} = \\frac{1{,}0\\cdot10^{5}}{4{,}046\\cdot10^{-21}} = 2{,}47\\cdot10^{25}\\ \\text{m}^{-3}$$\n\nPå 3 000 m:\n$$\\frac{N}{V} = \\frac{7{,}0\\cdot10^{4}}{1{,}381\\cdot10^{-23}\\cdot276} = \\frac{7{,}0\\cdot10^{4}}{3{,}812\\cdot10^{-21}} = 1{,}84\\cdot10^{25}\\ \\text{m}^{-3}$$\n\n**b)** Forholdet er $1{,}84/2{,}47 = 0{,}743$. Du får altså 74 % så mange molekyler per åndedrag — en nedgang på 26 %.\n\n**Svar:** $2{,}5\\cdot10^{25}\\ \\text{m}^{-3}$ ved havnivå og $1{,}8\\cdot10^{25}\\ \\text{m}^{-3}$ på 3 000 m; 26 % færre molekyler per åndedrag.\n\n**Merk fortegnene i resonnementet:** det lavere trykket trekker konsentrasjonen *ned*, mens den lavere temperaturen trekker den *opp*. Trykkfallet vinner klart — det er 30 %, mens temperaturfallet bare er 6 % i kelvin. Uten kelvin-regningen ville du fått temperaturfallet til å se ut som 85 % (fra 20 til 3, altså ned til $3/20 = 15$ % av utgangspunktet), og hele resonnementet ville kollapset."
+    },
+    {
+      "id": "fys1001-4-2-o6",
+      "type": "exercise",
+      "exercise": {
+        "id": "fys1001-4-2-o6",
+        "number": "6",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "(Sjanger H + Q.) En bakerovn varmes fra 20 $^\\circ$C til 220 $^\\circ$C. Ovnsdøra er ikke lufttett, så trykket inne i ovnen er hele tiden det samme som i rommet, $1{,}0\\cdot10^{5}$ Pa.\n\n**a)** Finn molekylkonsentrasjonen i ovnsrommet før og etter oppvarmingen.\n**b)** Forklar i 2–3 setninger hva som har skjedd med lufta i ovnen.",
+        "solution": "**a)** $N/V = p/(kT)$ med $T_1 = 293$ K og $T_2 = 220 + 273 = 493$ K.\n\n$$\\left(\\frac{N}{V}\\right)_1 = \\frac{1{,}0\\cdot10^{5}}{1{,}381\\cdot10^{-23}\\cdot293} = 2{,}5\\cdot10^{25}\\ \\text{m}^{-3}$$\n$$\\left(\\frac{N}{V}\\right)_2 = \\frac{1{,}0\\cdot10^{5}}{1{,}381\\cdot10^{-23}\\cdot493} = 1{,}5\\cdot10^{25}\\ \\text{m}^{-3}$$\n\n**b)** Konsentrasjonen har falt til 59 % av utgangspunktet ($293/493 = 0{,}594$). Siden trykket er låst til romtrykket og volumet av ovnsrommet er fast, må antallet molekyler inne i ovnen ha gått ned — omtrent 40 % av lufta har rett og slett lekket ut gjennom dørsprekken mens den utvidet seg. Det er derfor en varm ovn kjennes «tom» for luft, og hvorfor varm luft er lettere enn kald.",
+        "hints": [
+          "Bruk $N/V = p/(kT)$ med trykket uendret.",
+          "Begge temperaturer i kelvin — 220 $^\\circ$C er ikke elleve ganger 20 $^\\circ$C.",
+          "I **b)**: når $p$ og $V$ er faste, men $T$ stiger, hva må da skje med $N$?"
+        ]
+      }
+    },
+    {
+      "id": "fys1001-4-2-l5-intro",
+      "type": "text",
+      "content": "## Løkke 5 — Når svikter modellen? (~6 min)"
+    },
+    {
+      "id": "fys1001-4-2-d-realgass",
+      "type": "definition",
+      "title": "Avvik fra ideell gass",
+      "content": "**Modellen om ideell gass svikter når molekylenes eget volum eller tiltrekningen mellom dem blir merkbar.** I praksis skjer det ved\n\n- **høyt trykk**, der molekylene presses så tett at deres eget volum utgjør en betydelig del av beholderen, og\n- **temperatur nær kondensasjonspunktet**, der tiltrekningskreftene mellom molekylene får tak.\n\nVed vanlige trykk og temperaturer er avviket for luft under én prosent, og modellen er utmerket. Det er nettopp derfor eksamen tør bruke den på alt fra dykkerflasker til bakerovner."
+    },
+    {
+      "id": "fys1001-4-2-o7",
+      "type": "exercise",
+      "exercise": {
+        "id": "fys1001-4-2-o7",
+        "number": "7",
+        "type": "classic",
+        "difficulty": "lett",
+        "task": "(Sjanger Q — kvalitativ forklaringsoppgave. Slike utgjør 25–40 % av deloppgavene på eksamen.)\n\nEn gassflaske som holder 300 bar, gir målinger som avviker merkbart fra $pV = NkT$, mens den samme gassen ved 1 bar følger loven nesten perfekt.\n\nForklar hvorfor, i 2–4 setninger.",
+        "solution": "Modellen om ideell gass forutsetter at molekylene er punktformede og ikke tiltrekker hverandre. Ved 300 bar er molekylene presset så tett sammen at deres eget volum utgjør en merkbar del av beholderens volum, og tiltrekningskreftene mellom dem rekker å virke mellom støtene. Begge deler bryter med forutsetningene, og målt trykk avviker fra det likningen forutsier. Ved 1 bar ligger molekylene så spredt at begge effektene er neglisjerbare.",
+        "hints": [
+          "Hvilke to forutsetninger bygger modellen om ideell gass på?",
+          "Hva skjer med avstanden mellom molekylene når trykket mangedobles?",
+          "Svar i den korte formen: navngi mekanismen, koble den til situasjonen, konkluder."
+        ]
+      }
+    },
+    {
+      "id": "fys1001-4-2-warn-feil",
+      "type": "warning",
+      "title": "Typiske feil",
+      "content": "- **Celsius i gassloven.** Den dyreste enkeltfeilen i termofysikken. I $pV = NkT$, i $p_1/T_1 = p_2/T_2$ og i $\\Delta V/V = \\Delta T/T$ skal temperaturen alltid være i kelvin. Skriv om til kelvin *først*, før du gjør noe annet — da kan feilen ikke oppstå.\n- **Blande $k$ og $R$.** Boltzmanns konstant hører til *antall molekyler* ($pV = NkT$), gasskonstanten til *mol* ($pV = nRT$). Bruker du $R$ sammen med et molekylantall, bommer du med en faktor $6\\cdot10^{23}$.\n- **Bruke $\\Delta V/V = \\Delta T/T$ når trykket ikke er konstant.** Denne formen er isobar — den gjelder kun når trykket er det samme før og etter. Endres begge, må du bruke $p_1V_1/T_1 = p_2V_2/T_2$.\n- **Glemme å gjøre om enheter.** Volum i liter må bli $\\text{m}^3$ (del på 1 000) når trykket er i pascal, og bar må bli pascal (gang med $10^5$). Regner du bare forholdstall — som i $p_1V_1 = p_2V_2$ — går liter fint, så lenge begge sider har samme enhet.\n- **Overtrykk forvekslet med absolutt trykk.** En dekkmåler viser trykket *over* atmosfæretrykket. Gassloven bruker det absolutte trykket, altså måleravlesningen pluss om lag $1{,}0\\cdot10^{5}$ Pa. Oppgaveteksten sier alltid hvilket som er oppgitt — les nøye.\n- **Svar uten enhet.** Pascal, bar, mol, $\\text{m}^{-3}$ — hvert tallsvar skal ha enheten sin, ellers ryker poeng."
+    },
+    {
+      "id": "fys1001-4-2-bank-notis",
+      "type": "text",
+      "content": "## Begrepsbank\n\n*Begrepsbanken er flashcard-/repetisjonsstoff — den gjentar det du nettopp har lest. Hopp trygt over ved førstegangslesing; tidsanslaget for kapitlet gjelder kjernestoffet.*"
+    },
+    {
+      "id": "fys1001-4-2-bank-1",
+      "type": "definition",
+      "title": "Absolutt nullpunkt",
+      "content": "**Det absolutte nullpunktet er 0 K, altså $-273{,}15\\ ^\\circ$C — den laveste temperaturen som finnes.**\n\nVed 0 K ville molekylbevegelsen vært på sitt aller minste. Gassloven $pV = NkT$ sier at trykket i en ideell gass ville gått mot null der; i virkeligheten kondenserer alle gasser lenge før. Punktet er ikke bare en kuriositet: det er nettopp fordi kelvinskalaen starter her at proporsjonalitetene i gassloven gjelder."
+    },
+    {
+      "id": "fys1001-4-2-bank-2",
+      "type": "definition",
+      "title": "Absolutt trykk og overtrykk",
+      "content": "**Absolutt trykk er det totale trykket; overtrykk er hvor mye trykket overstiger atmosfæretrykket.**\n\n$$p_{\\text{abs}} = p_{\\text{over}} + p_0, \\qquad p_0 \\approx 1{,}0\\cdot10^{5}\\ \\text{Pa}$$\n\nManometre og dekkmålere viser overtrykk. **Gassloven krever absolutt trykk.** Et dekk merket 2,4 bar har altså det absolutte trykket 3,4 bar — en forskjell på 40 % som ødelegger hele regnestykket hvis du overser den."
+    },
+    {
+      "id": "fys1001-4-2-bank-3",
+      "type": "definition",
+      "title": "Stoffmengde og molar masse",
+      "content": "**Stoffmengden $n$ måles i mol, og den molare massen $M$ er massen av ett mol av stoffet:**\n\n$$n = \\frac{m}{M}$$\n\nFor luft er $M \\approx 29$ g/mol $= 0{,}029$ kg/mol. Er gassens masse oppgitt i stedet for stoffmengden, er dette veien inn i $pV = nRT$ — og den molare massen er et tabelloppslag."
+    },
+    {
+      "id": "fys1001-4-2-repetisjon",
+      "type": "collapsible",
+      "title": "Repetisjonsoppgaver",
+      "buttonText": "Vis repetisjonsoppgaver",
+      "content": [
+        {
+          "id": "fys1001-4-2-rep-1",
+          "type": "exercise",
+          "exercise": {
+            "id": "fys1001-4-2-rep-o1",
+            "number": "R1",
+            "type": "classic",
+            "difficulty": "lett",
+            "task": "(Fra [kap. 4.1](/bok/fys1001/fys1001-4-1).) Hvorfor er det greit å bruke celsiusgrader i $Q = cm\\Delta T$, men ikke i $pV = NkT$?",
+            "solution": "I $Q = cm\\Delta T$ inngår bare en temperatur*differanse*, og en differanse er like stor i K og i $^\\circ$C. I $pV = NkT$ står $T$ alene, og loven sier at trykket er proporsjonalt med temperaturen målt fra det absolutte nullpunktet — da må skalaen starte der, altså kelvin.",
+            "hints": [
+              "Se på om formelen inneholder $T$ alene eller $\\Delta T$."
+            ]
+          }
+        },
+        {
+          "id": "fys1001-4-2-rep-2",
+          "type": "exercise",
+          "exercise": {
+            "id": "fys1001-4-2-rep-o2",
+            "number": "R2",
+            "type": "classic",
+            "difficulty": "lett",
+            "task": "(Fra [Praktisk bruk av likninger](/bok/1t/1t-2-8).) Løs $pV = nRT$ for $T$.",
+            "solution": "Del begge sider på $nR$: $T = \\dfrac{pV}{nR}$. Kontroller enheten: $\\text{Pa}\\cdot\\text{m}^3 = \\text{J}$, og J delt på mol ganger J/(mol$\\cdot$K) gir K ✓.",
+            "hints": [
+              "Del begge sider på det som står sammen med $T$."
+            ]
+          }
+        },
+        {
+          "id": "fys1001-4-2-rep-3",
+          "type": "exercise",
+          "exercise": {
+            "id": "fys1001-4-2-rep-o3",
+            "number": "R3",
+            "type": "classic",
+            "difficulty": "lett",
+            "task": "(Fra [Potenser](/bok/1t/1t-1-2).) Regn ut $\\dfrac{2{,}4\\cdot10^{5}}{1{,}2\\cdot10^{-23}}$ og oppgi svaret på standardform.",
+            "solution": "$\\dfrac{2{,}4}{1{,}2} = 2{,}0$ og $10^{5}/10^{-23} = 10^{28}$, altså $2{,}0\\cdot10^{28}$.",
+            "hints": [
+              "Del tallene for seg og trekk fra eksponentene."
+            ]
+          }
+        },
+        {
+          "id": "fys1001-4-2-rep-4",
+          "type": "exercise",
+          "exercise": {
+            "id": "fys1001-4-2-rep-o4",
+            "number": "R4",
+            "type": "classic",
+            "difficulty": "middels",
+            "task": "En gass i en stiv beholder kjøles fra 27 $^\\circ$C til $-73\\ ^\\circ$C. Hvor stor andel av det opprinnelige trykket står igjen?",
+            "solution": "Isokor prosess: $p_2/p_1 = T_2/T_1$. I kelvin: $T_1 = 300$ K, $T_2 = 200$ K, så $p_2/p_1 = 200/300 = 0{,}67$. Trykket faller til to tredjedeler. (Med celsius ville $-73/27$ gitt et negativt trykk — fysisk umulig, og et godt varsel om at kelvin var glemt.)",
+            "hints": [
+              "Volumet er konstant — hvilken av de tre spesialtilfellene er det?",
+              "Regn om begge temperaturer til kelvin først."
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": "fys1001-4-2-symbolliste",
+      "type": "collapsible",
+      "title": "Symbol- og formelliste",
+      "buttonText": "Vis symboler og formler",
+      "content": [
+        {
+          "id": "fys1001-4-2-symbolliste-tekst",
+          "type": "text",
+          "content": "## Symbol- og formelliste\n\n*Oppslagsverk — alt her forklares underveis i kapitlet.*\n\nAlle symboler og formler brukt i delkapittel 4.2, samlet.\n\n| Symbol | Betydning | SI-enhet |\n|---|---|---|\n| $p$ | Trykk (absolutt trykk i alle gasslovformler) | Pa |\n| $V$ | Volum | $\\text{m}^3$ |\n| $T$ | Absolutt temperatur — **alltid kelvin her** | K |\n| $N$ | Antall molekyler | rent tall |\n| $n$ | Stoffmengde | mol |\n| $k$ | Boltzmanns konstant, $1{,}381\\cdot10^{-23}$ | J/K |\n| $R$ | Gasskonstanten, $8{,}314$ | J/(mol$\\cdot$K) |\n| $N_A$ | Avogadros tall, $6{,}022\\cdot10^{23}$ | $\\text{mol}^{-1}$ |\n| $M$ | Molar masse | kg/mol |\n| $N/V$ | Molekylkonsentrasjon | $\\text{m}^{-3}$ |\n| $\\Delta V,\\ \\Delta T$ | Endring i volum og temperatur | $\\text{m}^3$, K |\n\n**Symboler som betyr noe annet andre steder i boka:** $k$ er Boltzmanns konstant her — i [kap. 5.1](/bok/fys1001/fys1001-5-1) er $k$ Coulomb-konstanten, og $k_m$ den magnetiske konstanten. $R$ er gasskonstanten her — i [kap. 1.3](/bok/fys1001/fys1001-1-3) er $R$ friksjonskraften og i [kap. 5.2](/bok/fys1001/fys1001-5-2) resistansen. $p$ er trykk her, ikke bevegelsesmengde som i [kap. 2.3](/bok/fys1001/fys1001-2-3).\n\n**Formler i dette delkapitlet:**\n\n$$T\\ [\\text{K}] = t\\ [^\\circ\\text{C}] + 273{,}15$$\nOmregning til absolutt temperatur. **Må kunne brukes aktivt** — og brukes før alt annet.\n\n$$pV = NkT$$\nTilstandslikningen med antall molekyler. **Står på formelarket**, men valget mellom formene er ditt.\n\n$$pV = nRT$$\nTilstandslikningen med stoffmengde. **Står på formelarket.**\n\n$$\\frac{p_1V_1}{T_1} = \\frac{p_2V_2}{T_2}$$\nDen kombinerte gassloven for fast gassmengde. **Må kunne brukes aktivt** — den utledes av tilstandslikningen og er hovedverktøyet i prosessoppgaver.\n\n$$p_1V_1 = p_2V_2 \\quad (T \\text{ konstant})$$\nIsoterm prosess. **Må kunne brukes aktivt.**\n\n$$\\frac{V_1}{T_1} = \\frac{V_2}{T_2}, \\qquad \\frac{\\Delta V}{V} = \\frac{\\Delta T}{T} \\quad (p \\text{ konstant})$$\nIsobar prosess. **Må kunne brukes aktivt** — kelvin i begge former.\n\n$$\\frac{p_1}{T_1} = \\frac{p_2}{T_2} \\quad (V \\text{ konstant})$$\nIsokor prosess. **Må kunne brukes aktivt.**\n\n$$\\frac{N}{V} = \\frac{p}{kT}$$\nMolekylkonsentrasjon. **Må kunne brukes aktivt** — utledes på stedet fra tilstandslikningen; den står ikke på arket.\n\n$$N = nN_A, \\qquad R = kN_A, \\qquad n = \\frac{m}{M}$$\nBroene mellom mengdemålene. **Konstantene hentes fra formelark/tabell.**"
+        }
+      ]
+    }
+  ],
+  "exercises": []
+}

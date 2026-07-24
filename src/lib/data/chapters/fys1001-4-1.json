@@ -1,0 +1,461 @@
+{
+  "id": "fys1001-4-1",
+  "courseId": "fys1001",
+  "chapterNumber": "4.1",
+  "title": "Kalorimetri og faseoverganger",
+  "description": "Varmeregnskap ledd for ledd, latent varme og løsningsforslagenes favorittfigur: temperatur–tid-kurven med knekk.",
+  "estimatedMinutes": 55,
+  "competenceGoals": [
+    "regne ut tilført eller avgitt varme med Q = cmΔT ledd for ledd, med riktig varmekapasitet i hver fase",
+    "sette opp et flertrinns varmeregnskap med faseoverganger og kontrollere at ingen ledd mangler",
+    "finne sluttemperaturen i en blanding ved å sette avgitt varme lik mottatt varme",
+    "tegne og lese av en temperatur–tid-kurve, og bestemme c og l fra stigningstall og platålengde"
+  ],
+  "content": [
+    {
+      "id": "fys1001-4-1-tip-eksamensvinkel",
+      "type": "tip",
+      "title": "Eksamensvinkel",
+      "content": "**Høyeste prioritet.** Termofysikk er testet i **31 av 36 slutteksamener (86 %)** i arkivet — og i **alle** sett siden 2013. Kalorimetri, altså varmeregnskap med oppvarming og faseoverganger, er den delen som oftest bærer selve regnestykket: den var hovedoppgave i vår 2019, vår 2020 (is fra $-20\\ ^\\circ$C til damp) og høst 2024 (smelting av bergart).\n\nDenne oppgavetypen har fått bokstaven **G** i sjangerkatalogen i kapittel 0.1. En *sjanger* er her en oppgavemal som går igjen år etter år; **sjanger G = kalorimetri og faseoverganger**. Når du ser «(Sjanger G)» over en oppgave, betyr det at akkurat denne malen er hentet fra eksamensarkivet.\n\nSlik ser den ut i praksis:\n\n- en flertrinns oppvarming der ett eller flere ledd er en faseovergang (typisk 4 poeng per deloppgave, som alle deloppgaver på eksamen),\n- en blanding i et isolert kar der du skal finne sluttemperaturen,\n- en **temperatur–tid-graf** du skal *tegne* eller *lese av* — dette er favorittfiguren i løsningsforslagene, og den kommer igjen og igjen,\n- en kvalitativ hale: «forklar hvorfor temperaturen står stille mens isen smelter».\n\nTabellverdiene ($c$ og $l$) slår du opp i formelark og tabellverk. Det du må kunne *aktivt*, er å sette opp regnskapet i riktige ledd og holde styr på hvilket ledd som mangler."
+    },
+    {
+      "id": "fys1001-4-1-forkunnskaper",
+      "type": "text",
+      "content": "### Forkunnskaper\n\nDette kapitlet kan leses uavhengig av Del 1–3 — du trenger ikke krefter eller Bernoulli for å regne varmeregnskap. Du bør ha med deg:\n\n- **Energi og effekt** — [kap. 2.1](/bok/fys1001/fys1001-2-1): at energi måles i joule (J), og at effekt er energi per tid, $P = W/t$. Trenger du bare hovedpunktet: $1\\ \\text{W} = 1\\ \\text{J/s}$.\n- **Rette linjer og stigningstall** — [Lineære funksjoner](/bok/1t/1t-3-2): du skal lese stigningstall ut av en temperatur–tid-graf.\n- **Omforming av formler** — [Grunnleggende likninger](/bok/1t/1t-2-1): $Q = cm\\Delta T$ skal kunne løses for hvilken som helst av bokstavene.\n\nIngenting mer. Alt om varme, faseoverganger og grafene bygges opp fra bunnen her."
+    },
+    {
+      "id": "fys1001-4-1-anker",
+      "type": "text",
+      "content": "## Hverdagsanker: isbiten i saften\n\nDu har et glass saft på 20 $^\\circ$C og slipper oppi to isbiter rett fra fryseren. To ting skjer, og de er fysisk forskjellige:\n\n1. Isbitene **varmes** fra fryserens $-18\\ ^\\circ$C opp til 0 $^\\circ$C. Temperaturen stiger.\n2. Ved 0 $^\\circ$C **smelter** de. Temperaturen står helt stille mens det skjer — men det går med mye energi, og det er saften som betaler.\n\nHele dette kapitlet handler om å sette tall på nettopp de to tingene, og aldri glemme det andre. Den vanligste feilen på eksamen er ikke regnefeil; det er et **glemt ledd** i regnskapet.\n\n*Tidsbruk: kapitlet er delt i fem løkker à 10–13 minutter, med naturlige pausepunkter markert underveis. Summen av løkkeanslagene (60 min) ligger litt over kapitlets tidsanslag på 55 min, fordi løkketidene inkluderer tiden du bruker på oppgavene; leser du bare teorien og eksemplene, går det raskere.*"
+    },
+    {
+      "id": "fys1001-4-1-l1-intro",
+      "type": "text",
+      "content": "## Løkke 1 — Varme og spesifikk varmekapasitet (~12 min)"
+    },
+    {
+      "id": "fys1001-4-1-d-varme",
+      "type": "definition",
+      "title": "Varme (Q)",
+      "content": "**Varme er energi som flyttes fra ett sted til et annet fordi de har ulik temperatur.** Symbolet er $Q$, og enheten er joule (J), akkurat som for all annen energi.\n\nLegg merke til ordet *flyttes*: varme er ikke noe et legeme «har», det er noe som **overføres**. Et glass vann inneholder indre energi, ikke «varme». Varme er selve overføringen.\n\nFortegnsregelen vi bruker i hele kapitlet: $Q > 0$ når et legeme **mottar** energi, og $Q < 0$ når det **avgir** energi."
+    },
+    {
+      "id": "fys1001-4-1-d-c",
+      "type": "definition",
+      "title": "Spesifikk varmekapasitet (c)",
+      "content": "**Den spesifikke varmekapasiteten forteller hvor mye energi som skal til for å varme 1 kg av et stoff 1 grad.** Symbolet er $c$, og enheten er J/(kg$\\cdot$K).\n\nFor vann er $c = 4180$ J/(kg$\\cdot$K): det trengs 4 180 J for å varme én kilo vann én grad. For aluminium er $c = 900$ J/(kg$\\cdot$K), for jern 450 og for kobber 385. Vann er altså en energisvamp sammenlignet med metaller — derfor brukes vann i radiatorer og kjølesystemer.\n\n**Alle $c$-verdier er oppslag**: de står i tabellverket du får bruke på eksamen. Du skal ikke pugge dem, du skal kunne bruke dem."
+    },
+    {
+      "id": "fys1001-4-1-l1-formel",
+      "type": "text",
+      "content": "Med $c$ på plass får vi kapitlets første arbeidsformel:\n\n$$Q = cm\\Delta T$$\n\nder $m$ er massen i kg og $\\Delta T = T_2 - T_1$ er temperaturendringen.\n\n**Kelvin eller celsius her?** Dette er det ene stedet i termofysikken der celsius er trygt — fordi bare *differansen* inngår. En temperaturøkning på 25 $^\\circ$C er nøyaktig det samme som en økning på 25 K, siden de to skalaene har like store grader. Men merk deg forskjellen godt: i gassloven ([kap. 4.2](/bok/fys1001/fys1001-4-2)) og i strålingsloven ([kap. 4.4](/bok/fys1001/fys1001-4-4)) står temperaturen *alene* i formelen, og der er celsius en direkte feil. Regelen å ta med seg: **står det $\\Delta T$, kan du bruke celsiusgrader; står det $T$ alene, skal det være kelvin.**"
+    },
+    {
+      "id": "fys1001-4-1-ex1",
+      "type": "example",
+      "title": "Eksempel 1: Ren oppvarming (sjanger G)",
+      "problem": "Hvor mye energi må tilføres for å varme 0,35 kg vann fra 12 $^\\circ$C til 88 $^\\circ$C?",
+      "solution": "**Verktøy:** ingen faseovergang skjer (vannet koker ikke), så vi klarer oss med $Q = cm\\Delta T$.\n\n**Data:** $m = 0{,}35$ kg, $\\Delta T = 88\\ ^\\circ\\text{C} - 12\\ ^\\circ\\text{C} = 76$ K, og fra tabellen $c = 4180$ J/(kg$\\cdot$K).\n\n$$Q = cm\\Delta T = 4180 \\cdot 0{,}35 \\cdot 76\\ \\text{J} = 1{,}11\\cdot 10^{5}\\ \\text{J}$$\n\n**Svar:** Det må tilføres $1{,}1\\cdot10^{5}$ J $= 111$ kJ.\n\n**Rimelighetsvurdering:** en vannkoker på 2 000 W ville brukt $111\\,000/2000 \\approx 56$ s på dette. Det stemmer godt med erfaringen fra kjøkkenet, så størrelsesordenen er riktig."
+    },
+    {
+      "id": "fys1001-4-1-o1",
+      "type": "exercise",
+      "exercise": {
+        "id": "fys1001-4-1-o1",
+        "number": "1",
+        "type": "classic",
+        "difficulty": "lett",
+        "task": "(Innstegsoppgave — sjanger G, altså kalorimetri.) En aluminiumskjele med masse 0,50 kg varmes fra 20 $^\\circ$C til 95 $^\\circ$C. Tabellen gir $c_{\\text{Al}} = 900$ J/(kg$\\cdot$K).\n\nHvor mye energi går med til å varme selve kjelen?",
+        "solution": "$\\Delta T = 95\\ ^\\circ\\text{C} - 20\\ ^\\circ\\text{C} = 75$ K.\n\n$$Q = cm\\Delta T = 900 \\cdot 0{,}50 \\cdot 75\\ \\text{J} = 3{,}4\\cdot10^{4}\\ \\text{J}$$\n\n**Svar:** $3{,}4\\cdot10^{4}$ J $= 34$ kJ går med til kjelen selv.\n\nLegg merke til at dette er en tredjedel av det vannet i eksempel 1 krevde, selv om massen er større — aluminium har mye lavere $c$ enn vann.",
+        "hints": [
+          "Bruk $Q = cm\\Delta T$; $c$ er oppgitt, og du skal slå opp ingenting.",
+          "$\\Delta T$ er differansen mellom slutt- og starttemperatur, målt i K (samme tall som i $^\\circ$C).",
+          "Sett inn masse i kilogram, ikke gram."
+        ]
+      }
+    },
+    {
+      "id": "fys1001-4-1-l2-intro",
+      "type": "text",
+      "content": "— naturlig pausepunkt —\n\n## Løkke 2 — Faseoverganger og latent varme (~12 min)"
+    },
+    {
+      "id": "fys1001-4-1-d-fase",
+      "type": "definition",
+      "title": "Faseovergang",
+      "content": "**En faseovergang er når et stoff skifter tilstandsform — fast til flytende (smelting), flytende til gass (fordamping) — uten at temperaturen endrer seg.**\n\nEnergien du tilfører under en faseovergang går ikke til å øke farten på molekylene (som ville hevet temperaturen), men til å bryte bindingene mellom dem. Derfor står termometeret bom stille i 0 $^\\circ$C mens isbiten smelter, selv om du fyrer på for full styrke.\n\nGår prosessen andre veien — størkning eller kondensasjon — **frigis** den samme energien."
+    },
+    {
+      "id": "fys1001-4-1-d-ls",
+      "type": "definition",
+      "title": "Spesifikk smeltevarme (l_s)",
+      "content": "**Spesifikk smeltevarme er energien som skal til for å smelte 1 kg av et stoff ved smeltepunktet.** Symbolet er $l_s$ (noen tabeller skriver $L_f$), og enheten er J/kg.\n\nFor is er $l_s = 3{,}34\\cdot10^{5}$ J/kg. Det betyr at én kilo is ved 0 $^\\circ$C krever 334 000 J bare for å bli til vann på 0 $^\\circ$C — like mye som å varme den samme kiloen vann fra 0 $^\\circ$C til 80 $^\\circ$C. Faseoverganger er dyre.\n\nVerdien er et **tabelloppslag**."
+    },
+    {
+      "id": "fys1001-4-1-d-lf",
+      "type": "definition",
+      "title": "Spesifikk fordampingsvarme (l_f)",
+      "content": "**Spesifikk fordampingsvarme er energien som skal til for å fordampe 1 kg av en væske ved kokepunktet.** Symbolet er $l_f$ (tabeller kan skrive $L_v$), enheten er J/kg.\n\nFor vann er $l_f = 2{,}26\\cdot10^{6}$ J/kg — nesten sju ganger så mye som smeltevarmen. Det er derfor en kjele koker tørr så langsomt sammenlignet med hvor fort den nådde 100 $^\\circ$C, og derfor damp gir så alvorlige brannskader: den frigir 2,26 MJ per kilo når den kondenserer på huden.\n\nVerdien er et **tabelloppslag**."
+    },
+    {
+      "id": "fys1001-4-1-l2-formel",
+      "type": "text",
+      "content": "Formelen for begge faseovergangene har samme enkle form:\n\n$$Q = lm$$\n\nder $l$ er den aktuelle spesifikke varmen (smelte- eller fordampingsvarme) og $m$ er massen som skifter fase. Merk at det **ikke** står noe $\\Delta T$ her — temperaturen endrer seg jo ikke."
+    },
+    {
+      "id": "fys1001-4-1-ex2",
+      "type": "example",
+      "title": "Eksempel 2: Ren faseovergang (sjanger G)",
+      "problem": "Hvor mye energi trengs for å smelte 0,25 kg is som allerede holder 0 $^\\circ$C?",
+      "solution": "**Verktøy:** isen er alt på smeltepunktet, så det skjer ingen oppvarming — bare selve faseovergangen. Da gjelder $Q = l_s m$.\n\nFra tabellen: $l_s = 3{,}34\\cdot10^{5}$ J/kg.\n\n$$Q = l_s m = 3{,}34\\cdot10^{5} \\cdot 0{,}25\\ \\text{J} = 8{,}35\\cdot10^{4}\\ \\text{J}$$\n\n**Svar:** $8{,}4\\cdot10^{4}$ J $= 84$ kJ.\n\n**Kommentar til deg som skal skrive dette på eksamen:** skriv setningen «isen holder allerede 0 $^\\circ$C, så det er ingen oppvarmingsledd» eksplisitt. Det viser sensor at du har vurdert leddene, ikke bare grepet en formel."
+    },
+    {
+      "id": "fys1001-4-1-o2",
+      "type": "exercise",
+      "exercise": {
+        "id": "fys1001-4-1-o2",
+        "number": "2",
+        "type": "classic",
+        "difficulty": "lett",
+        "task": "(Sjanger G.) I en kjele står 0,12 kg vann og koker ved 100 $^\\circ$C.\n\nHvor mye energi må tilføres for at alt vannet skal fordampe? Tabellverdi: $l_f = 2{,}26\\cdot10^{6}$ J/kg.",
+        "solution": "Vannet er alt på kokepunktet, så det er ingen oppvarming — kun fordamping:\n\n$$Q = l_f m = 2{,}26\\cdot10^{6} \\cdot 0{,}12\\ \\text{J} = 2{,}7\\cdot10^{5}\\ \\text{J}$$\n\n**Svar:** $2{,}7\\cdot10^{5}$ J $= 271$ kJ.\n\nTil sammenligning krevde det bare 50 kJ å varme de samme 0,12 kg fra 0 $^\\circ$C til 100 $^\\circ$C. Fordampingen koster over fem ganger mer enn hele oppvarmingen.",
+        "hints": [
+          "Bruk $Q = lm$ — ikke $Q = cm\\Delta T$, for temperaturen endrer seg ikke.",
+          "$l_f$ er fordampingsvarmen, oppgitt i oppgaven.",
+          "Sjekk at svaret ditt har enheten joule."
+        ]
+      }
+    },
+    {
+      "id": "fys1001-4-1-l3-intro",
+      "type": "text",
+      "content": "— naturlig pausepunkt —\n\n## Løkke 3 — Flertrinns varmeregnskap (~13 min)\n\nHer kommer eksamensutgaven: et stoff skal gjennom både oppvarming og faseoverganger. Bruk alltid samme oppskrift."
+    },
+    {
+      "id": "fys1001-4-1-oppskrift",
+      "type": "text",
+      "content": "### Oppskrift: faseinndelt varmeregnskap\n\n1. **Tegn tidslinjen for temperaturen** — fra starttemperatur til sluttemperatur, og noter hvilke faseoverganger som ligger imellom (0 $^\\circ$C og 100 $^\\circ$C for vann).\n2. **Del i ledd.** Hvert intervall der temperaturen *stiger* er et $cm\\Delta T$-ledd; hvert punkt der stoffet *skifter fase* er et $lm$-ledd.\n3. **Regn hvert ledd for seg**, og skriv opp hvilken $c$ eller $l$ du bruker (is og vann har ulik $c$!).\n4. **Summer**, og oppgi svaret med enhet og 2–3 gjeldende siffer.\n5. **Kontroller antall ledd**: går du fra is under 0 $^\\circ$C til damp over 100 $^\\circ$C, skal du ha *fire* ledd. Færre ledd enn faseovergangene tilsier er den vanligste feilen i sjangeren."
+    },
+    {
+      "id": "fys1001-4-1-ex3",
+      "type": "example",
+      "title": "Eksempel 3: Tre ledd i regnskapet (sjanger G)",
+      "problem": "En dypfryst isklump på 0,40 kg holder $-15\\ ^\\circ$C. Hvor mye energi må tilføres for å gjøre den om til vann med temperatur 35 $^\\circ$C?\n\nTabellverdier: $c_{\\text{is}} = 2100$ J/(kg$\\cdot$K), $c_{\\text{vann}} = 4180$ J/(kg$\\cdot$K), $l_s = 3{,}34\\cdot10^{5}$ J/kg.",
+      "solution": "**Steg 1 — tidslinjen.** $-15\\ ^\\circ$C $\\rightarrow$ 0 $^\\circ$C (is varmes) $\\rightarrow$ smelting ved 0 $^\\circ$C $\\rightarrow$ 0 $^\\circ$C $\\rightarrow$ 35 $^\\circ$C (vann varmes). Tre ledd.\n\n**Steg 2 — ledd for ledd.**\n\nOppvarming av isen ($\\Delta T = 15$ K, bruk $c_{\\text{is}}$):\n$$Q_1 = c_{\\text{is}} m \\Delta T = 2100 \\cdot 0{,}40 \\cdot 15\\ \\text{J} = 1{,}26\\cdot10^{4}\\ \\text{J}$$\n\nSmelting (ingen temperaturendring):\n$$Q_2 = l_s m = 3{,}34\\cdot10^{5} \\cdot 0{,}40\\ \\text{J} = 1{,}336\\cdot10^{5}\\ \\text{J}$$\n\nOppvarming av vannet ($\\Delta T = 35$ K, bruk $c_{\\text{vann}}$):\n$$Q_3 = c_{\\text{vann}} m \\Delta T = 4180 \\cdot 0{,}40 \\cdot 35\\ \\text{J} = 5{,}852\\cdot10^{4}\\ \\text{J}$$\n\n**Steg 3 — summer.**\n$$Q = Q_1 + Q_2 + Q_3 = (12\\,600 + 133\\,600 + 58\\,520)\\ \\text{J} = 2{,}05\\cdot10^{5}\\ \\text{J}$$\n\n**Svar:** Det må tilføres $2{,}05\\cdot10^{5}$ J $= 205$ kJ.\n\n**Rimelighetsvurdering:** smelteleddet alene er 65 % av totalen, selv om det ikke hever temperaturen med en eneste grad. Det er akkurat den innsikten sensor er ute etter — og grunnen til at et glemt smelteledd gir et svar som er langt for lite."
+    },
+    {
+      "id": "fys1001-4-1-o3",
+      "type": "exercise",
+      "exercise": {
+        "id": "fys1001-4-1-o3",
+        "number": "3",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "(Sjanger G.) En bøtte med 0,60 kg snø holder $-8{,}0\\ ^\\circ$C. Snøen skal smeltes og varmes til 20 $^\\circ$C.\n\n**a)** Sett opp leddene i varmeregnskapet, og forklar med én setning hva hvert ledd står for.\n**b)** Regn ut samlet energibehov.\n\nBruk $c_{\\text{is}} = 2100$ J/(kg$\\cdot$K), $c_{\\text{vann}} = 4180$ J/(kg$\\cdot$K) og $l_s = 3{,}34\\cdot10^{5}$ J/kg.",
+        "solution": "**a)** Tre ledd:\n\n- $Q_1 = c_{\\text{is}} m\\Delta T$ — snøen varmes fra $-8{,}0\\ ^\\circ$C til 0 $^\\circ$C.\n- $Q_2 = l_s m$ — all snøen smelter ved 0 $^\\circ$C, uten temperaturendring.\n- $Q_3 = c_{\\text{vann}} m\\Delta T$ — smeltevannet varmes fra 0 $^\\circ$C til 20 $^\\circ$C.\n\n**b)**\n$$Q_1 = 2100\\cdot0{,}60\\cdot8{,}0\\ \\text{J} = 1{,}008\\cdot10^{4}\\ \\text{J}$$\n$$Q_2 = 3{,}34\\cdot10^{5}\\cdot0{,}60\\ \\text{J} = 2{,}004\\cdot10^{5}\\ \\text{J}$$\n$$Q_3 = 4180\\cdot0{,}60\\cdot20\\ \\text{J} = 5{,}016\\cdot10^{4}\\ \\text{J}$$\n$$Q = (10\\,080 + 200\\,400 + 50\\,160)\\ \\text{J} = 2{,}6\\cdot10^{5}\\ \\text{J}$$\n\n**Svar:** $2{,}6\\cdot10^{5}$ J $= 261$ kJ.\n\nSmelteleddet er igjen det største — 77 % av totalen her.",
+        "hints": [
+          "Tegn temperaturens vei fra $-8{,}0\\ ^\\circ$C til $20\\ ^\\circ$C og se hvor 0 $^\\circ$C ligger.",
+          "Under 0 $^\\circ$C er stoffet is og har $c_{\\text{is}}$; over 0 $^\\circ$C er det vann med $c_{\\text{vann}}$.",
+          "Selve smeltingen er et $lm$-ledd uten $\\Delta T$."
+        ]
+      }
+    },
+    {
+      "id": "fys1001-4-1-l4-intro",
+      "type": "text",
+      "content": "## Løkke 4 — Blanding: avgitt varme = mottatt varme (~10 min)"
+    },
+    {
+      "id": "fys1001-4-1-d-balanse",
+      "type": "definition",
+      "title": "Energibalanse i et kalorimeter",
+      "content": "**I en isolert beholder er all varmen som det varme legemet avgir, lik all varmen det kalde mottar.** Ingenting slipper ut.\n\n$$Q_{\\text{avgitt}} = Q_{\\text{mottatt}}$$\n\nPraktisk oppskrift: skriv sluttemperaturen som den ukjente $T$, sett opp uttrykket for hvert legeme med **positive** temperaturdifferanser (varmt legeme: $T_{\\text{start}} - T$; kaldt legeme: $T - T_{\\text{start}}$), og løs likningen. Da slipper du fortegnskaos.\n\nAlternativet er å skrive $\\sum Q_i = 0$ med fortegn på alt. Begge er lov — men velg én og hold deg til den gjennom hele besvarelsen."
+    },
+    {
+      "id": "fys1001-4-1-ex4",
+      "type": "example",
+      "title": "Eksempel 4: Metall sluppet i vann (sjanger G)",
+      "problem": "En kobberkloss på 0,15 kg varmes til 200 $^\\circ$C og slippes ned i 0,40 kg vann som holder 18 $^\\circ$C. Beholderen er godt isolert, og vi ser bort fra beholderens egen varmekapasitet.\n\nFinn sluttemperaturen. Tabellverdier: $c_{\\text{Cu}} = 385$ J/(kg$\\cdot$K), $c_{\\text{vann}} = 4180$ J/(kg$\\cdot$K).",
+      "solution": "**Oppsett.** Kall sluttemperaturen $T$. Kobberet avgir, vannet mottar:\n\n$$c_{\\text{Cu}} m_{\\text{Cu}} (200\\ ^\\circ\\text{C} - T) = c_{\\text{vann}} m_{\\text{vann}} (T - 18\\ ^\\circ\\text{C})$$\n\n**Sett inn tall.** Varmekapasitetene til de to legemene er $385\\cdot0{,}15 = 57{,}75$ J/K og $4180\\cdot0{,}40 = 1672$ J/K:\n\n$$57{,}75(200 - T) = 1672(T - 18)$$\n$$11\\,550 - 57{,}75T = 1672T - 30\\,096$$\n$$41\\,646 = 1729{,}75\\,T$$\n$$T = 24{,}1\\ ^\\circ\\text{C}$$\n\n**Svar:** Sluttemperaturen blir 24 $^\\circ$C.\n\n**Rimelighetsvurdering:** vannet har nesten 30 ganger så stor varmekapasitet som kobberet, så det er ingen overraskelse at sluttemperaturen ligger tett opptil vannets utgangspunkt. Hadde du fått et svar nær 100 $^\\circ$C, ville det vært et tegn på at du hadde byttet om massene eller $c$-verdiene."
+    },
+    {
+      "id": "fys1001-4-1-o4",
+      "type": "exercise",
+      "exercise": {
+        "id": "fys1001-4-1-o4",
+        "number": "4",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "(Sjanger G.) En jernkule på 0,25 kg tas ut av en ovn med 350 $^\\circ$C og senkes i 0,80 kg vann som holder 20 $^\\circ$C i et isolert kar.\n\n**a)** Finn sluttemperaturen når vi ser bort fra karets varmekapasitet.\n**b)** Vil den virkelige sluttemperaturen bli høyere eller lavere enn svaret i **a)** hvis karet selv også varmes opp? Begrunn med én setning.\n\nTabellverdier: $c_{\\text{Fe}} = 450$ J/(kg$\\cdot$K), $c_{\\text{vann}} = 4180$ J/(kg$\\cdot$K).",
+        "solution": "**a)** Kall sluttemperaturen $T$. Varmekapasitetene er $450\\cdot0{,}25 = 112{,}5$ J/K for jernet og $4180\\cdot0{,}80 = 3344$ J/K for vannet.\n\n$$112{,}5(350 - T) = 3344(T - 20)$$\n$$39\\,375 - 112{,}5T = 3344T - 66\\,880$$\n$$106\\,255 = 3456{,}5\\,T \\quad\\Rightarrow\\quad T = 30{,}7\\ ^\\circ\\text{C}$$\n\n**Svar:** Sluttemperaturen blir 31 $^\\circ$C.\n\n**b)** Lavere. Karet mottar også en del av varmen fra jernkula, så den samme energimengden skal nå fordeles på en større samlet varmekapasitet — og da blir temperaturøkningen mindre.",
+        "hints": [
+          "Kall sluttemperaturen $T$ og skriv avgitt varme lik mottatt varme.",
+          "Regn ut $cm$ for hvert legeme først; det gir en ryddig førstegradslikning.",
+          "I **b)**: tenk på hva som skjer med den samlede varmekapasiteten når enda et legeme skal varmes."
+        ]
+      }
+    },
+    {
+      "id": "fys1001-4-1-l5-intro",
+      "type": "text",
+      "content": "— naturlig pausepunkt —\n\n## Løkke 5 — Effekt og temperatur–tid-kurven (~13 min)"
+    },
+    {
+      "id": "fys1001-4-1-d-effekt",
+      "type": "definition",
+      "title": "Effekt og tilført varme",
+      "content": "**Effekt er energi per tid.** Når en varmekilde leverer konstant effekt $P$ i tiden $t$, er den tilførte varmen\n\n$$Q = Pt \\qquad\\text{(og dermed } P = Q/t\\text{)}$$\n\nEnheten for effekt er watt (W), og $1\\ \\text{W} = 1\\ \\text{J/s}$. En kokeplate på 1 500 W leverer altså 1 500 J hvert sekund.\n\nDette er broen mellom varmeregnskapet og klokka: alle grafoppgavene i sjangeren bruker $Q = Pt$ til å oversette mellom energi og tid."
+    },
+    {
+      "id": "fys1001-4-1-l5-graf",
+      "type": "text",
+      "content": "### Temperatur–tid-kurven\n\nVarmer du et stoff med **konstant effekt** og plotter temperaturen mot tiden, får du en kurve med et helt karakteristisk utseende: skrå partier der temperaturen stiger, og flate platåer der stoffet skifter fase.\n\nDe to avlesningene du må beherske:\n\n- **Stigningstallet** på et skrått parti. Der gjelder $Q = cm\\Delta T$ og $Q = Pt$, altså $Pt = cm\\Delta T$, som gir stigningstallet\n$$\\frac{\\Delta T}{t} = \\frac{P}{cm}$$\nBratt kurve betyr liten $cm$; slak kurve betyr stor $cm$. Løser du for $c$, får du $c = P/(m \\cdot \\text{stigningstall})$.\n- **Platålengden**. Hele tiden $\\Delta t$ som platået varer, går til faseovergangen: $P\\Delta t = lm$, altså $l = P\\Delta t/m$.\n\nMerk deg tolkningen av platået: energien tilføres hele tiden — den går bare til å bryte bindinger i stedet for å øke temperaturen. Å skrive «her tilføres ingen energi» er en klassisk tabbe."
+    },
+    {
+      "id": "fys1001-4-1-fig-tt",
+      "type": "image",
+      "src": "/images/textbook/fys1001/fys1001-4-1-tt-kurve-avlesning.svg",
+      "alt": "Temperatur-tid-graf med et skrått parti fra 20 til 180 grader celsius på 100 sekunder, et flatt platå ved 180 grader som varer 240 sekunder, og deretter et slakere skrått parti.",
+      "caption": "Temperatur–tid-kurve for 0,50 kg av et ukjent stoff varmet med konstant effekt 600 W. De to avlesningene i eksempel 5 er markert: stigningstallet på det første skrå partiet og lengden på platået."
+    },
+    {
+      "id": "fys1001-4-1-ex5",
+      "type": "example",
+      "title": "Eksempel 5: Bestem c og l fra grafen (sjanger G)",
+      "problem": "Grafen over viser temperaturen til 0,50 kg av et ukjent stoff som varmes med konstant effekt 600 W.\n\n**a)** Bestem den spesifikke varmekapasiteten i fast fase.\n**b)** Bestem den spesifikke smeltevarmen.\n**c)** Hva skjer i tidsrommet fra 100 s til 340 s? Forklar hvorfor temperaturen ikke stiger, selv om kokeplaten står på hele tiden.",
+      "solution": "**a)** Avlesning på det første skrå partiet: temperaturen går fra 20 $^\\circ$C til 180 $^\\circ$C i løpet av 100 s, altså $\\Delta T = 160$ K på $t = 100$ s (stigningstall 1,6 K/s).\n\nEnergien som er tilført i dette tidsrommet, er $Q = Pt = 600\\cdot100\\ \\text{J} = 6{,}0\\cdot10^{4}$ J. All denne energien har gått til oppvarming, så\n\n$$c = \\frac{Q}{m\\Delta T} = \\frac{60\\,000}{0{,}50 \\cdot 160}\\ \\frac{\\text{J}}{\\text{kg}\\cdot\\text{K}} = 7{,}5\\cdot10^{2}\\ \\text{J/(kg}\\cdot\\text{K)}$$\n\n**Svar:** $c \\approx 750$ J/(kg$\\cdot$K) i fast fase.\n\n**b)** Platået varer fra 100 s til 340 s, altså $\\Delta t = 240$ s. Tilført energi i platået:\n\n$$Q = P\\Delta t = 600 \\cdot 240\\ \\text{J} = 1{,}44\\cdot10^{5}\\ \\text{J}$$\n\nAlt går til smelting, så\n\n$$l_s = \\frac{Q}{m} = \\frac{144\\,000}{0{,}50}\\ \\frac{\\text{J}}{\\text{kg}} = 2{,}9\\cdot10^{5}\\ \\text{J/kg}$$\n\n**Svar:** $l_s \\approx 2{,}9\\cdot10^{5}$ J/kg.\n\n**c)** Stoffet smelter. Energien tilføres i samme takt som før, men den brukes til å bryte bindingene i krystallgitteret i stedet for å øke molekylenes bevegelsesenergi. Temperaturen er et mål på nettopp den bevegelsesenergien, og derfor står den stille helt til siste rest av det faste stoffet er borte.\n\n**Rimelighetsvurdering:** verdiene ligger i samme størrelsesorden som for kjente stoffer ($c$ mellom metallenes 400 og vannets 4 200; $l_s$ av samme orden som isens $3{,}34\\cdot10^{5}$ J/kg), så avlesningene er troverdige."
+    },
+    {
+      "id": "fys1001-4-1-o5",
+      "type": "exercise",
+      "exercise": {
+        "id": "fys1001-4-1-o5",
+        "number": "5",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "(Sjanger G — grafavlesning.) Bruk den samme grafen som i eksempel 5 (0,50 kg stoff, konstant effekt 600 W).\n\n**a)** Etter 340 s stiger temperaturen igjen, nå med stigningstall 1,2 K/s. Finn den spesifikke varmekapasiteten i flytende fase.\n**b)** Er kurven brattere eller slakere etter smeltingen enn før, og hva forteller det om stoffets $c$-verdier?",
+        "solution": "**a)** På et skrått parti gjelder $\\dfrac{\\Delta T}{t} = \\dfrac{P}{cm}$. Løst for $c$:\n\n$$c = \\frac{P}{m \\cdot (\\Delta T/t)} = \\frac{600}{0{,}50 \\cdot 1{,}2}\\ \\frac{\\text{J}}{\\text{kg}\\cdot\\text{K}} = 1{,}0\\cdot10^{3}\\ \\text{J/(kg}\\cdot\\text{K)}$$\n\n**Svar:** $c_{\\text{væske}} = 1{,}0\\cdot10^{3}$ J/(kg$\\cdot$K).\n\n**b)** Kurven er slakere etter smeltingen (1,2 K/s mot 1,6 K/s før). Siden effekten og massen er de samme, må en slakere kurve bety større $c$: væskefasen krever mer energi per grad enn den faste fasen. Det er det vanlige mønsteret for de fleste stoffer.",
+        "hints": [
+          "Kombiner $Q = Pt$ og $Q = cm\\Delta T$ til et uttrykk for stigningstallet $\\Delta T/t$.",
+          "Løs uttrykket for $c$ før du setter inn tall.",
+          "I **b)**: hvilken av størrelsene i $P/(cm)$ er den eneste som kan ha endret seg?"
+        ]
+      }
+    },
+    {
+      "id": "fys1001-4-1-o6",
+      "type": "exercise",
+      "exercise": {
+        "id": "fys1001-4-1-o6",
+        "number": "6",
+        "type": "classic",
+        "difficulty": "vanskelig",
+        "task": "(Sjanger G — krevende, med figurkrav.) Et kar med 0,50 kg is på $-20\\ ^\\circ$C varmes med en konstant effekt på 1,0 kW til alt er blitt vanndamp på 100 $^\\circ$C. Vi ser bort fra varmetap og fra karets egen varmekapasitet.\n\n**a)** Finn samlet energibehov.\n**b)** Finn tidspunktene for hver knekk på kurven, og skisser temperatur–tid-kurven for hele forløpet.\n**c)** Hvilket ledd dominerer, og hvorfor er det slik?\n\nTabellverdier: $c_{\\text{is}} = 2100$, $c_{\\text{vann}} = 4180$ J/(kg$\\cdot$K), $l_s = 3{,}34\\cdot10^{5}$ J/kg, $l_f = 2{,}26\\cdot10^{6}$ J/kg.",
+        "solution": "**a)** Fire ledd:\n\n$$Q_1 = c_{\\text{is}}m\\Delta T = 2100\\cdot0{,}50\\cdot20\\ \\text{J} = 2{,}10\\cdot10^{4}\\ \\text{J}$$\n$$Q_2 = l_s m = 3{,}34\\cdot10^{5}\\cdot0{,}50\\ \\text{J} = 1{,}67\\cdot10^{5}\\ \\text{J}$$\n$$Q_3 = c_{\\text{vann}}m\\Delta T = 4180\\cdot0{,}50\\cdot100\\ \\text{J} = 2{,}09\\cdot10^{5}\\ \\text{J}$$\n$$Q_4 = l_f m = 2{,}26\\cdot10^{6}\\cdot0{,}50\\ \\text{J} = 1{,}13\\cdot10^{6}\\ \\text{J}$$\n\n$$Q = (21\\,000 + 167\\,000 + 209\\,000 + 1\\,130\\,000)\\ \\text{J} = 1{,}53\\cdot10^{6}\\ \\text{J}$$\n\n**Svar:** $1{,}53\\cdot10^{6}$ J $= 1{,}53$ MJ.\n\n**b)** Med $P = 1{,}0\\cdot10^{3}$ W gir $t = Q/P$ for hvert ledd: 21 s, 167 s, 209 s og 1 130 s. Knekkene ligger derfor ved\n\n$$t_1 = 21\\ \\text{s},\\qquad t_2 = 188\\ \\text{s},\\qquad t_3 = 397\\ \\text{s}$$\n\nog forløpet er ferdig ved $t_4 = 1527$ s.\n\nSamlet tid er 1 527 s $\\approx 25$ minutter. Kurven har fire partier: en bratt stigning fra $-20\\ ^\\circ$C til 0 $^\\circ$C, et platå ved 0 $^\\circ$C, en slakere stigning til 100 $^\\circ$C, og til slutt et svært langt platå ved 100 $^\\circ$C.\n\n*Kurven skal se slik ut:*\n\n![Temperatur-tid-kurve for isen](/images/textbook/fys1001/fys1001-4-1-tt-kurve-is-damp.svg)\n\n**c)** Fordampingen dominerer klart: 1,13 MJ av 1,53 MJ, altså 74 % av energien og 74 % av tiden. Grunnen er at fordamping krever at molekylene rives helt løs fra hverandre, mens smelting bare bryter ned den faste ordningen — bindingene er fortsatt i behold i væsken. Derfor er $l_f$ nesten sju ganger så stor som $l_s$ for vann.\n\n**Rimelighetsvurdering:** 25 minutter for å koke bort en halv liter vann på full varme stemmer godt med erfaringen fra kjøkkenet.",
+        "hints": [
+          "Del forløpet i fire ledd: is varmes, is smelter, vann varmes, vann fordamper.",
+          "Bruk $t = Q/P$ på hvert ledd for å få varigheten, og legg dem sammen for å finne knekkpunktene.",
+          "Husk at platåene er vannrette og at det andre platået blir svært langt."
+        ]
+      }
+    },
+    {
+      "id": "fys1001-4-1-fig-tt-is",
+      "type": "image",
+      "src": "/images/textbook/fys1001/fys1001-4-1-tt-kurve-is-damp.svg",
+      "alt": "Temperatur-tid-kurve fra minus 20 grader til 100 grader med to platåer: et kort ved 0 grader fra 21 til 188 sekunder og et langt ved 100 grader fra 397 til 1527 sekunder.",
+      "caption": "Fasiten til oppgave 6, tegnet ut: 0,50 kg is varmet med 1,0 kW. Legg merke til hvor mye lengre fordampingsplatået er enn smelteplatået — det er hele poenget i deloppgave c)."
+    },
+    {
+      "id": "fys1001-4-1-o7",
+      "type": "exercise",
+      "exercise": {
+        "id": "fys1001-4-1-o7",
+        "number": "7",
+        "type": "classic",
+        "difficulty": "lett",
+        "task": "(Sjanger Q — «kvalitative hverdagsforklaringer», altså forklaringsoppgaver uten regning. De utgjør 25–40 % av deloppgavene på eksamen.)\n\nDu koker poteter. Etter at vannet har begynt å koke, skrur du platen fra full styrke ned til akkurat nok til at det fortsatt bobler. Potetene blir ferdige på samme tid som før.\n\nForklar hvorfor, med utgangspunkt i temperatur–tid-kurven. Svar i 2–4 setninger.",
+        "solution": "Når vannet først koker, ligger temperaturen låst på 100 $^\\circ$C — vi er på fordampingsplatået, og all ekstra tilført energi går til å lage damp, ikke til å heve temperaturen. Potetene varmes av vannet, og vannet er like varmt uansett om platen står på full styrke eller halv. Den eneste forskjellen er hvor fort vannet koker bort. Derfor tar kokingen like lang tid, mens energiforbruket blir langt mindre.",
+        "hints": [
+          "Hvor på temperatur–tid-kurven befinner det kokende vannet seg?",
+          "Hva bestemmer hvor fort potetene varmes — effekten på platen eller vannets temperatur?",
+          "Tenk på hva den ekstra effekten faktisk brukes til når vannet allerede koker."
+        ]
+      }
+    },
+    {
+      "id": "fys1001-4-1-warn-feil",
+      "type": "warning",
+      "title": "Typiske feil",
+      "content": "- **Glemt ledd i flertrinnsregnskapet.** Den desidert vanligste feilen i sjanger G, og oftest er det smelteleddet som ryker. Tell alltid leddene mot antall faseoverganger *før* du regner: is under 0 $^\\circ$C $\\rightarrow$ damp over 100 $^\\circ$C gir fire ledd, ikke to.\n- **Feil $c$-verdi.** Is har $c = 2100$ og vann $4180$ J/(kg$\\cdot$K) — det er samme stoff, men to helt ulike tall. Skriv alltid hvilken $c$ du bruker i hvert ledd.\n- **$\\Delta T$ i et $lm$-ledd.** Faseovergangen har ingen temperaturendring. Ser du et $\\Delta T$ ganget inn i smelteleddet ditt, er noe galt.\n- **Fortegnsrot i blandingsoppgaver.** Bestem deg for én oppstilling — enten «avgitt = mottatt» med positive differanser, eller «$\\sum Q_i = 0$» med fortegn — og hold den gjennom hele besvarelsen. Å bytte konvensjon midtveis gir nesten alltid feil svar.\n- **«Ingen energi tilføres under platået».** Energien tilføres hele tiden; den går til å bryte bindinger. Denne forklaringen etterspørres nesten hvert år som kvalitativ deloppgave, og formuleringen må sitte.\n- **Kelvin-forvirring i motsatt retning.** I $Q = cm\\Delta T$ er celsiusgrader helt greit fordi bare differansen inngår. Ikke la kelvin-regelen fra [kap. 4.2](/bok/fys1001/fys1001-4-2) og [kap. 4.4](/bok/fys1001/fys1001-4-4) skremme deg til å regne om unødvendig — men husk at der står $T$ alene, og da *må* det være kelvin.\n- **Svar uten enhet.** Manglende eller gal enhet koster poeng (opptil ett poeng per brudd). Skriv J, kJ eller MJ på hvert eneste tallsvar."
+    },
+    {
+      "id": "fys1001-4-1-bank-notis",
+      "type": "text",
+      "content": "## Begrepsbank\n\n*Begrepsbanken er flashcard-/repetisjonsstoff — den gjentar det du nettopp har lest. Hopp trygt over ved førstegangslesing; tidsanslaget for kapitlet gjelder kjernestoffet.*"
+    },
+    {
+      "id": "fys1001-4-1-bank-1",
+      "type": "definition",
+      "title": "Varmekapasitet (C)",
+      "content": "**Varmekapasiteten til et helt legeme er energien som skal til for å heve dets temperatur én grad**, altså $C = cm$, målt i J/K.\n\nSkillet mot $c$: den spesifikke varmekapasiteten $c$ gjelder per kilo og er en egenskap ved *stoffet*; $C = cm$ gjelder for det *konkrete legemet*. I blandingsoppgaver er det ofte raskest å regne ut $C$ for hvert legeme først — da blir likningen kort og oversiktlig."
+    },
+    {
+      "id": "fys1001-4-1-bank-2",
+      "type": "definition",
+      "title": "Termisk likevekt",
+      "content": "**To legemer er i termisk likevekt når de har samme temperatur, slik at det ikke lenger går netto varme mellom dem.**\n\nDette er sluttilstanden i alle blandingsoppgaver: kobberklossen og vannet ender på samme temperatur $T$, og det er nettopp den $T$-en du løser for."
+    },
+    {
+      "id": "fys1001-4-1-bank-3",
+      "type": "definition",
+      "title": "Kalorimeter",
+      "content": "**Et kalorimeter er en godt isolert beholder brukt til å måle varmemengder.**\n\nIdealiseringen «isolert kalorimeter» betyr at ingen varme lekker ut til omgivelsene, slik at avgitt varme er nøyaktig lik mottatt varme. I virkelige forsøk lekker det litt, og målt sluttemperatur blir derfor litt lavere enn den beregnede — et poeng du kan bruke i kvalitative deloppgaver."
+    },
+    {
+      "id": "fys1001-4-1-bank-4",
+      "type": "definition",
+      "title": "Latent varme",
+      "content": "**Latent varme er fellesnavnet på energien som går til en faseovergang uten at temperaturen endrer seg.**\n\nOrdet «latent» betyr skjult: energien er der, men den viser seg ikke på termometeret. Den kommer til syne igjen når prosessen går motsatt vei — dampen som kondenserer på en kald flate, frigir all fordampingsvarmen."
+    },
+    {
+      "id": "fys1001-4-1-bank-5",
+      "type": "definition",
+      "title": "Smeltepunkt",
+      "content": "**Smeltepunktet er temperaturen der et stoff går fra fast til flytende form.**\n\nFor vann er det 0 $^\\circ$C ved normalt lufttrykk. På temperatur–tid-kurven er smeltepunktet høyden på det første platået, og platåets *lengde* forteller om smeltevarmen."
+    },
+    {
+      "id": "fys1001-4-1-bank-6",
+      "type": "definition",
+      "title": "Kokepunkt",
+      "content": "**Kokepunktet er temperaturen der en væske går over til gass i hele væskevolumet.**\n\nFor vann er det 100 $^\\circ$C ved normalt lufttrykk — men det synker med trykket, og derfor koker vann ved rundt 90 $^\\circ$C på en høy fjelltopp. Det er en gjenganger blant de kvalitative deloppgavene."
+    },
+    {
+      "id": "fys1001-4-1-bank-7",
+      "type": "definition",
+      "title": "Sublimasjon",
+      "content": "**Sublimasjon er overgangen direkte fra fast form til gass, uten å innom væskefasen.**\n\nTørris (fast $\\mathrm{CO_2}$) sublimerer ved $-78\\ ^\\circ$C, og snø kan sublimere bort en kald, solrik vinterdag. Energiregnskapet er det samme som ellers: $Q = lm$ med sublimasjonsvarmen fra tabellen."
+    },
+    {
+      "id": "fys1001-4-1-bank-8",
+      "type": "definition",
+      "title": "Størkning",
+      "content": "**Størkning er smeltingens motsetning: væske blir fast, og energien $Q = l_s m$ frigis.**\n\nTallverdien er den samme som for smelting, bare med motsatt fortegn. At vann frigir varme når det fryser, brukes i frukthager: sprøyter man vann på trærne før en frostnatt, holder størkningsvarmen knoppene på 0 $^\\circ$C i stedet for kaldere."
+    },
+    {
+      "id": "fys1001-4-1-bank-9",
+      "type": "definition",
+      "title": "Kondensasjon",
+      "content": "**Kondensasjon er fordampingens motsetning: gass blir væske, og energien $Q = l_f m$ frigis.**\n\nFor vann er det $2{,}26\\cdot10^{6}$ J per kilo. Det er derfor damp på 100 $^\\circ$C gir langt verre brannskader enn kokende vann på 100 $^\\circ$C: dampen leverer i tillegg hele fordampingsvarmen når den kondenserer på huden."
+    },
+    {
+      "id": "fys1001-4-1-bank-10",
+      "type": "definition",
+      "title": "Platå i temperatur–tid-kurven",
+      "content": "**Et platå er et vannrett parti der temperaturen står stille mens stoffet skifter fase.**\n\nPlatåets lengde $\\Delta t$ gir den latente varmen gjennom $l = P\\Delta t/m$ når effekten $P$ er konstant. Høyden på platået gir smelte- eller kokepunktet. To avlesninger fra ett flatt strekk — derfor er dette løsningsforslagenes favorittfigur."
+    },
+    {
+      "id": "fys1001-4-1-bank-11",
+      "type": "definition",
+      "title": "Stigningstall i temperatur–tid-kurven",
+      "content": "**Stigningstallet på et skrått parti er $\\Delta T/t = P/(cm)$.**\n\nBrattere kurve betyr mindre $cm$, altså at det skal lite energi til per grad. Med kjent effekt og masse gir stigningstallet den spesifikke varmekapasiteten direkte: $c = P/(m\\cdot\\text{stigningstall})$."
+    },
+    {
+      "id": "fys1001-4-1-bank-12",
+      "type": "definition",
+      "title": "Temperaturdifferanse i kelvin og celsius",
+      "content": "**En temperatur*differanse* har samme tallverdi i kelvin og i celsius, fordi gradene er like store.**\n\nDerfor er $\\Delta T = 25\\ ^\\circ$C det samme som $\\Delta T = 25$ K, og $Q = cm\\Delta T$ kan regnes med celsiusgrader. Regelen som skiller: står $T$ *alene* i formelen — som i $pV = NkT$ eller $P = \\varepsilon\\sigma A T^4$ — må du bruke kelvin, uten unntak."
+    },
+    {
+      "id": "fys1001-4-1-bank-13",
+      "type": "definition",
+      "title": "Joule og kilowattime",
+      "content": "**Joule (J) er energienheten i formlene; kilowattime (kWh) er den du finner på strømregningen.**\n\nSammenhengen er $1\\ \\text{kWh} = 1000\\ \\text{W} \\cdot 3600\\ \\text{s} = 3{,}6\\cdot10^{6}$ J. Eksamensoppgaver som spør om kostnaden ved å varme en varmtvannstank, forventer at du gjør denne omregningen selv — og at du oppgir svaret med riktig enhet."
+    },
+    {
+      "id": "fys1001-4-1-repetisjon",
+      "type": "collapsible",
+      "title": "Repetisjonsoppgaver",
+      "buttonText": "Vis repetisjonsoppgaver",
+      "content": [
+        {
+          "id": "fys1001-4-1-rep-1",
+          "type": "exercise",
+          "exercise": {
+            "id": "fys1001-4-1-rep-o1",
+            "number": "R1",
+            "type": "classic",
+            "difficulty": "lett",
+            "task": "(Fra [kap. 2.1](/bok/fys1001/fys1001-2-1) — effekt.) En varmekolbe merket 750 W står på i 4,0 minutter. Hvor mye energi har den levert?",
+            "solution": "$t = 4{,}0\\ \\text{min} = 240$ s, så $Q = Pt = 750\\cdot240\\ \\text{J} = 1{,}8\\cdot10^{5}$ J $= 180$ kJ.",
+            "hints": [
+              "Gjør om minutter til sekunder før du regner.",
+              "Bruk $Q = Pt$ med $P$ i watt og $t$ i sekunder."
+            ]
+          }
+        },
+        {
+          "id": "fys1001-4-1-rep-2",
+          "type": "exercise",
+          "exercise": {
+            "id": "fys1001-4-1-rep-o2",
+            "number": "R2",
+            "type": "classic",
+            "difficulty": "lett",
+            "task": "(Fra [Lineære funksjoner](/bok/1t/1t-3-2).) En temperatur–tid-graf går rett fra punktet $(20\\ \\text{s},\\ 15\\ ^\\circ\\text{C})$ til $(80\\ \\text{s},\\ 63\\ ^\\circ\\text{C})$. Finn stigningstallet med enhet.",
+            "solution": "$\\dfrac{\\Delta T}{\\Delta t} = \\dfrac{63 - 15}{80 - 20}\\ \\dfrac{\\text{K}}{\\text{s}} = \\dfrac{48}{60}\\ \\text{K/s} = 0{,}80$ K/s.",
+            "hints": [
+              "Stigningstall er endring i $y$ delt på endring i $x$.",
+              "Enheten blir kelvin per sekund."
+            ]
+          }
+        },
+        {
+          "id": "fys1001-4-1-rep-3",
+          "type": "exercise",
+          "exercise": {
+            "id": "fys1001-4-1-rep-o3",
+            "number": "R3",
+            "type": "classic",
+            "difficulty": "middels",
+            "task": "(Fra [Grunnleggende likninger](/bok/1t/1t-2-1).) Løs $Q = cm\\Delta T$ for $m$, og finn massen når $Q = 4{,}5\\cdot10^{4}$ J, $c = 900$ J/(kg$\\cdot$K) og $\\Delta T = 25$ K.",
+            "solution": "$m = \\dfrac{Q}{c\\Delta T} = \\dfrac{4{,}5\\cdot10^{4}}{900\\cdot25}\\ \\text{kg} = \\dfrac{45\\,000}{22\\,500}\\ \\text{kg} = 2{,}0$ kg.",
+            "hints": [
+              "Del begge sider på $c\\Delta T$.",
+              "Kontroller enheten: J delt på J/(kg$\\cdot$K) ganger K gir kg."
+            ]
+          }
+        },
+        {
+          "id": "fys1001-4-1-rep-4",
+          "type": "exercise",
+          "exercise": {
+            "id": "fys1001-4-1-rep-o4",
+            "number": "R4",
+            "type": "classic",
+            "difficulty": "lett",
+            "task": "Hvor mange joule er 0,50 kWh?",
+            "solution": "$0{,}50\\ \\text{kWh} = 0{,}50 \\cdot 3{,}6\\cdot10^{6}\\ \\text{J} = 1{,}8\\cdot10^{6}$ J $= 1{,}8$ MJ.",
+            "hints": [
+              "$1\\ \\text{kWh} = 1000\\ \\text{W}\\cdot3600\\ \\text{s}$."
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": "fys1001-4-1-symbolliste",
+      "type": "collapsible",
+      "title": "Symbol- og formelliste",
+      "buttonText": "Vis symboler og formler",
+      "content": [
+        {
+          "id": "fys1001-4-1-symbolliste-tekst",
+          "type": "text",
+          "content": "## Symbol- og formelliste\n\n*Oppslagsverk — alt her forklares underveis i kapitlet.*\n\nAlle symboler og formler brukt i delkapittel 4.1, samlet.\n\n| Symbol | Betydning | SI-enhet |\n|---|---|---|\n| $Q$ | Varme — energi overført på grunn av temperaturforskjell | J |\n| $c$ | Spesifikk varmekapasitet (per kilo, per grad) | J/(kg$\\cdot$K) |\n| $C = cm$ | Varmekapasitet for et helt legeme | J/K |\n| $m$ | Masse | kg |\n| $T$ | Temperatur | K (her ofte oppgitt i $^\\circ$C) |\n| $\\Delta T$ | Temperaturendring, $T_2 - T_1$ | K (samme tall som $^\\circ$C) |\n| $l_s$ | Spesifikk smeltevarme | J/kg |\n| $l_f$ | Spesifikk fordampingsvarme | J/kg |\n| $P$ | Effekt — energi per tid | W $=$ J/s |\n| $t$ | Tid | s |\n\n**Symboler som betyr noe annet andre steder i boka:** i dette delkapitlet er $l$ alltid en *spesifikk varme* (J/kg). I [kap. 4.4](/bok/fys1001/fys1001-4-4) er $\\lambda$ varmeledningsevne og $\\lambda_{\\text{maks}}$ en bølgelengde — helt andre størrelser. $Q$ er alltid varme her, aldri ladning.\n\n**Formler i dette delkapitlet:**\n\n$$Q = cm\\Delta T$$\nVarme ved oppvarming eller avkjøling uten faseovergang. **Må kunne brukes aktivt** (står også på formelarket, men du må velge den selv). $c$-verdier er tabelloppslag.\n\n$$Q = lm$$\nVarme ved faseovergang — smelting ($l_s$) eller fordamping ($l_f$). **Må kunne brukes aktivt.** $l$-verdier er tabelloppslag.\n\n$$Q_{\\text{avgitt}} = Q_{\\text{mottatt}}$$\nEnergibalanse i isolert beholder. **Må kunne brukes aktivt** — dette er en oppstilling, ikke en formel du finner på arket.\n\n$$Q = Pt$$\nTilført varme ved konstant effekt. **Må kunne brukes aktivt** (står på formelarket som $P = W/t$).\n\n$$\\frac{\\Delta T}{t} = \\frac{P}{cm}$$\nStigningstallet på et skrått parti i temperatur–tid-kurven. **Må kunne brukes aktivt** — den utledes av de to første formlene og står ikke på arket.\n\n$$l = \\frac{P\\Delta t}{m}$$\nLatent varme lest av som platålengde i temperatur–tid-kurven. **Må kunne brukes aktivt.**\n\n**Tabellverdier brukt i kapitlet (alle er oppslag):** $c_{\\text{vann}} = 4180$, $c_{\\text{is}} = 2100$, $c_{\\text{Al}} = 900$, $c_{\\text{Fe}} = 450$, $c_{\\text{Cu}} = 385$ J/(kg$\\cdot$K); $l_s(\\text{is}) = 3{,}34\\cdot10^{5}$ J/kg; $l_f(\\text{vann}) = 2{,}26\\cdot10^{6}$ J/kg."
+        }
+      ]
+    }
+  ],
+  "exercises": []
+}

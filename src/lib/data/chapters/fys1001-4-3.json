@@ -1,0 +1,462 @@
+{
+  "id": "fys1001-4-3",
+  "courseId": "fys1001",
+  "chapterNumber": "4.3",
+  "title": "Termofysikkens 1. lov, varmemaskiner og TS-diagrammet",
+  "description": "Energiregnskap med fortegnsdisiplin, syklusarbeid og virkningsgrad — og arealresonnementet i TS-diagrammet som de nyeste settene dyrker.",
+  "estimatedMinutes": 60,
+  "competenceGoals": [
+    "bruke termofysikkens 1. lov ΔU = Q − W med konsekvent fortegnskonvensjon",
+    "regne ut volumarbeid som areal i et p–V-diagram og gjenkjenne isokore, isoterme og adiabatiske prosesser",
+    "begrunne at ΔU = 0 over en syklus og bruke det til å finne arbeid og virkningsgrad",
+    "lese av varme som areal under kurven og arbeid som innesluttet areal i et TS-diagram, med rektangel- og trekantoppdeling"
+  ],
+  "content": [
+    {
+      "id": "fys1001-4-3-tip-eksamensvinkel",
+      "type": "tip",
+      "title": "Eksamensvinkel",
+      "content": "**Høyeste prioritet.** Termofysikk står i **31 av 36 slutteksamener (86 %)**, og i alle sett siden 2013. Dette kapitlet dekker den delen av sjanger H — **sjanger H = ideell gass og termodynamiske prosesser**, oppgavemalen du møtte i [kap. 4.2](/bok/fys1001/fys1001-4-2) — som handler om energiregnskapet.\n\nTre ting går igjen:\n\n- **Termofysikkens 1. lov med fortegn.** Fast innslag: «gassen tilføres $Q$ og utfører arbeidet $W$ — finn endringen i indre energi». Fortegnsdisiplin er hele poenget.\n- **TS-diagrammet.** Dette er arkivets nyeste sving: i vår 2024 skulle varmen leses av som arealet under kurven ($Q = T\\Delta S$) og arbeidet per omløp som det innesluttede arealet, begge tilnærmet geometrisk med rektangel og trekant. Regn med at den varianten kommer igjen.\n- **Virkningsgrad.** $\\eta = $ nytte delt på tilført, i en eller annen drakt.\n\nCarnot-virkningsgraden $\\eta = 1 - T_k/T_v$ (2014 og 2015) og entropiberegninger (2010) er **bør kjenne til**-stoff. Det er markert nederst i kapitlet, etter kjernestoffet — les det sist.\n\n**Kelvin-disiplinen fra [kap. 4.2](/bok/fys1001/fys1001-4-2) gjelder fullt ut her:** både i $Q = T\\Delta S$ og i Carnot-formelen står $T$ alene, og da er celsius rett og slett feil."
+    },
+    {
+      "id": "fys1001-4-3-forkunnskaper",
+      "type": "text",
+      "content": "### Forkunnskaper\n\n- **Gassloven og prosessene** — [kap. 4.2](/bok/fys1001/fys1001-4-2): $pV = NkT$, og hva som holdes konstant i en isoterm, isobar og isokor prosess. Kelvin-regelen tar vi med oss uendret.\n- **Varme og energi i joule** — [kap. 4.1](/bok/fys1001/fys1001-4-1): begrepet varme som *overført* energi.\n- **Areal under en graf** — [Areal under grafer](/bok/r2/r2-2-6): du skal tolke arealer i to diagrammer, men bare med rektangler og trekanter. Ingen integrasjon kreves.\n\nKort oppfriskning av det du trenger mest: trykket måles i pascal, volumet i $\\text{m}^3$, og $\\text{Pa}\\cdot\\text{m}^3 = \\text{J}$. Den enhetssjekken bruker du hele veien."
+    },
+    {
+      "id": "fys1001-4-3-anker",
+      "type": "text",
+      "content": "## Hverdagsanker: sykkelpumpa som blir varm\n\nPump opp et sykkeldekk raskt, og ta så på pumpehuset nederst. Det er varmt. Ingen har tilført varme utenfra — du har bare presset stempelet ned.\n\nForklaringen er hele dette kapitlet i én setning: **du utførte arbeid på lufta, og arbeidet ble til indre energi, som viser seg som høyere temperatur.** Går prosessen andre veien — gassen utvider seg og skyver på noe — kjøles den ned. Det er derfor gass som slippes ut av en trykkflaske føles iskald.\n\nTermofysikkens 1. lov er bokholderiet for nettopp dette: energi inn, energi ut, og det som blir igjen.\n\n*Tidsbruk: fem løkker på 10–14 minutter, med naturlige pausepunkter markert underveis. Løkkene summerer til 59 min, og «bør kjenne til»-delen til slutt tar 7 min i tillegg — litt over kapitlets tidsanslag på 60 min, fordi anslagene inkluderer oppgaveløsingen. Hopper du over «bør kjenne til» ved førstegangslesing, treffer du anslaget.*"
+    },
+    {
+      "id": "fys1001-4-3-l1-intro",
+      "type": "text",
+      "content": "## Løkke 1 — Termofysikkens 1. lov (~12 min)"
+    },
+    {
+      "id": "fys1001-4-3-d-indre",
+      "type": "definition",
+      "title": "Indre energi (U)",
+      "content": "**Den indre energien er den samlede energien til molekylene i et system — bevegelsesenergien deres og energien i bindingene mellom dem.** Symbolet er $U$, enheten er joule.\n\nFor en ideell gass er bildet særlig enkelt: der finnes ingen bindinger, så all indre energi er molekylenes bevegelsesenergi. Derfor gjelder regelen **for en ideell gass er $U$ bestemt av temperaturen alene** — stiger $T$, stiger $U$; er $T$ uendret, er $\\Delta U = 0$.\n\nVi regner sjelden ut $U$ selv. Det er *endringen* $\\Delta U$ oppgavene handler om."
+    },
+    {
+      "id": "fys1001-4-3-d-1lov",
+      "type": "definition",
+      "title": "Termofysikkens 1. lov",
+      "content": "**Energien til et system endrer seg med den varmen det mottar, minus det arbeidet det utfører:**\n\n$$\\Delta U = Q - W$$\n\nDette er energibevaring skrevet for et gassvolum. Tilfører du varme, stiger den indre energien; lar du gassen skyve på et stempel, går noe av energien ut igjen som arbeid.\n\nLoven er hovedverktøyet i alle prosessoppgaver: kjenner du to av de tre størrelsene, har du den tredje."
+    },
+    {
+      "id": "fys1001-4-3-d-fortegn",
+      "type": "definition",
+      "title": "Fortegnskonvensjonen",
+      "content": "**Vi bruker konvensjonen fra formelarket, og vi bruker den konsekvent gjennom hele boka:**\n\n- $Q > 0$ når **varme går inn i** gassen; $Q < 0$ når gassen avgir varme.\n- $W > 0$ når gassen **utfører arbeid**, altså utvider seg og skyver på omgivelsene; $W < 0$ når omgivelsene utfører arbeid *på* gassen (kompresjon).\n\nTest på sykkelpumpa: du komprimerer, altså er $W < 0$. Pumpa rekker ikke å avgi varme, så $Q \\approx 0$. Da blir $\\Delta U = 0 - (\\text{negativt tall}) > 0$ — den indre energien og dermed temperaturen stiger. Det stemmer med det varme pumpehuset.\n\n**Bytt aldri konvensjon midt i en oppgave.** Enkelte lærebøker skriver $\\Delta U = Q + W$ med motsatt fortegn på arbeidet; det er like riktig, men blander du de to, blir svaret galt."
+    },
+    {
+      "id": "fys1001-4-3-ex1",
+      "type": "example",
+      "title": "Eksempel 1: Ren bokføring (sjanger H)",
+      "problem": "En gass tilføres 800 J varme og utvider seg samtidig slik at den utfører 300 J arbeid på omgivelsene.\n\nFinn endringen i gassens indre energi, og avgjør om temperaturen stiger eller synker.",
+      "solution": "**Fortegn først.** Varme inn i gassen: $Q = +800$ J. Gassen utfører arbeid: $W = +300$ J.\n\n$$\\Delta U = Q - W = 800\\ \\text{J} - 300\\ \\text{J} = +500\\ \\text{J}$$\n\n**Svar:** Den indre energien øker med 500 J.\n\n**Tolkning:** for en ideell gass er $U$ bestemt av temperaturen alene, så en økning i $U$ betyr at temperaturen stiger. Av de 800 J som gikk inn, ble 300 J levert videre som mekanisk arbeid, og 500 J ble igjen i gassen.\n\n**Kommentar til besvarelsen:** skriv fortegnene eksplisitt, slik det er gjort her. Et bart regnestykke «800 − 300 = 500» uten å si hvorfor det er minus, gir lite uttelling — det er nettopp fortegnsvurderingen som testes."
+    },
+    {
+      "id": "fys1001-4-3-o1",
+      "type": "exercise",
+      "exercise": {
+        "id": "fys1001-4-3-o1",
+        "number": "1",
+        "type": "classic",
+        "difficulty": "lett",
+        "task": "(Innstegsoppgave — sjanger H.) En gass i en sylinder avgir 250 J varme til omgivelsene. Samtidig presses stempelet inn, slik at omgivelsene utfører 400 J arbeid på gassen.\n\n**a)** Sett riktig fortegn på $Q$ og $W$.\n**b)** Finn $\\Delta U$, og si om temperaturen stiger eller synker.",
+        "solution": "**a)** Gassen *avgir* varme, altså $Q = -250$ J. Omgivelsene utfører arbeid *på* gassen, altså er arbeidet utført *av* gassen negativt: $W = -400$ J.\n\n**b)**\n$$\\Delta U = Q - W = (-250\\ \\text{J}) - (-400\\ \\text{J}) = +150\\ \\text{J}$$\n\nDen indre energien øker med 150 J, så temperaturen **stiger** — kompresjonen tilfører mer energi enn det som lekker ut som varme.",
+        "hints": [
+          "Bestem fortegnet på $Q$ og $W$ hver for seg før du regner.",
+          "«Omgivelsene utfører arbeid på gassen» betyr at gassen utfører negativt arbeid.",
+          "Pass på dobbelt minustegn i $\\Delta U = Q - W$."
+        ]
+      }
+    },
+    {
+      "id": "fys1001-4-3-l2-intro",
+      "type": "text",
+      "content": "— naturlig pausepunkt —\n\n## Løkke 2 — Arbeidet som areal i p–V-diagrammet (~11 min)"
+    },
+    {
+      "id": "fys1001-4-3-d-volumarbeid",
+      "type": "definition",
+      "title": "Volumarbeid",
+      "content": "**Når en gass utvider seg mot et konstant trykk, er arbeidet den utfører**\n\n$$W = p\\Delta V$$\n\nBakgrunnen er kraft ganger vei: gassen skyver med kraften $F = pA$ mot et stempel med areal $A$, og flytter det stykket $s$. Da er $W = pAs = p\\Delta V$, siden $As$ nettopp er volumøkningen.\n\n**Enhetssjekk:** $\\text{Pa}\\cdot\\text{m}^3 = \\frac{\\text{N}}{\\text{m}^2}\\cdot\\text{m}^3 = \\text{N}\\cdot\\text{m} = \\text{J}$ ✓\n\nI et $p$–$V$-diagram er dette arealet under prosesslinjen. Det gjelder generelt, også når trykket endrer seg — men på eksamen holder det å kunne regne arealet av rektangler og trekanter."
+    },
+    {
+      "id": "fys1001-4-3-fig-pv",
+      "type": "image",
+      "src": "/images/textbook/fys1001/fys1001-4-3-pv-arbeid-areal.svg",
+      "alt": "p-V-diagram med en vannrett linje fra punkt 1 til punkt 2 ved trykket 2 ganger 10 opphøyd i 5 pascal, og det skraverte rektangelet under linjen merket W lik p ganger delta V.",
+      "caption": "Arbeidet i eksempel 2 tegnet ut: gassen utvider seg fra $3{,}0\\cdot10^{-3}\\ \\text{m}^3$ til $8{,}0\\cdot10^{-3}\\ \\text{m}^3$ ved konstant trykk, og arbeidet er arealet av rektangelet under linjen."
+    },
+    {
+      "id": "fys1001-4-3-ex2",
+      "type": "example",
+      "title": "Eksempel 2: Arbeid ved isobar utvidelse (sjanger H)",
+      "problem": "En gass holdes ved konstant trykk $2{,}0\\cdot10^{5}$ Pa mens den utvider seg fra $3{,}0\\cdot10^{-3}\\ \\text{m}^3$ til $8{,}0\\cdot10^{-3}\\ \\text{m}^3$. Under prosessen tilføres 1,8 kJ varme.\n\n**a)** Finn arbeidet gassen utfører.\n**b)** Finn endringen i indre energi.",
+      "solution": "**a)** Trykket er konstant, så\n\n$$W = p\\Delta V = 2{,}0\\cdot10^{5}\\ \\text{Pa} \\cdot (8{,}0 - 3{,}0)\\cdot10^{-3}\\ \\text{m}^3 = 2{,}0\\cdot10^{5}\\cdot5{,}0\\cdot10^{-3}\\ \\text{J} = 1{,}0\\cdot10^{3}\\ \\text{J}$$\n\n**Svar:** Gassen utfører 1,0 kJ arbeid. Dette er nøyaktig arealet av rektangelet i figuren over.\n\n**b)** Gassen mottar varme ($Q = +1800$ J) og utfører arbeid ($W = +1000$ J):\n\n$$\\Delta U = Q - W = 1800\\ \\text{J} - 1000\\ \\text{J} = 8{,}0\\cdot10^{2}\\ \\text{J}$$\n\n**Svar:** Den indre energien øker med 800 J.\n\n**Rimelighetsvurdering:** litt under halvparten av den tilførte varmen ble igjen i gassen (800 J av 1 800 J, altså 44 %), resten gikk ut som mekanisk arbeid. Begge tall er positive og mindre enn den tilførte varmen — som de må være når gassen utvider seg og varmes samtidig."
+    },
+    {
+      "id": "fys1001-4-3-o2",
+      "type": "exercise",
+      "exercise": {
+        "id": "fys1001-4-3-o2",
+        "number": "2",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "(Sjanger H.) En gass utvider seg ved konstant trykk $1{,}5\\cdot10^{5}$ Pa fra 2,0 L til 6,5 L. Under prosessen tilføres 1,2 kJ varme.\n\n**a)** Finn arbeidet gassen utfører.\n**b)** Finn $\\Delta U$.\n**c)** Skisser prosessen i et $p$–$V$-diagram, og forklar hvor arbeidet er å finne i figuren.",
+        "solution": "**a)** Gjør om volumene: $2{,}0\\ \\text{L} = 2{,}0\\cdot10^{-3}\\ \\text{m}^3$ og $6{,}5\\ \\text{L} = 6{,}5\\cdot10^{-3}\\ \\text{m}^3$, altså $\\Delta V = 4{,}5\\cdot10^{-3}\\ \\text{m}^3$.\n\n$$W = p\\Delta V = 1{,}5\\cdot10^{5}\\cdot4{,}5\\cdot10^{-3}\\ \\text{J} = 675\\ \\text{J}$$\n\n**Svar:** Gassen utfører $6{,}8\\cdot10^{2}$ J arbeid.\n\n**b)** $\\Delta U = Q - W = 1200\\ \\text{J} - 675\\ \\text{J} = 525\\ \\text{J} \\approx 5{,}3\\cdot10^{2}$ J.\n\n**c)** Prosessen er en vannrett linje fra $(2{,}0\\cdot10^{-3}\\ \\text{m}^3,\\ 1{,}5\\cdot10^{5}\\ \\text{Pa})$ til $(6{,}5\\cdot10^{-3}\\ \\text{m}^3,\\ 1{,}5\\cdot10^{5}\\ \\text{Pa})$, akkurat som figuren i eksempel 2 — bare med andre tallverdier på aksene. Arbeidet er arealet av rektangelet mellom linjen og $V$-aksen, altså høyden $p$ ganger bredden $\\Delta V$.",
+        "hints": [
+          "Volumene må være i $\\text{m}^3$ før du ganger med et trykk i pascal.",
+          "$W = p\\Delta V$ når trykket er konstant.",
+          "Bruk 1. lov til å finne $\\Delta U$ når du har både $Q$ og $W$."
+        ]
+      }
+    },
+    {
+      "id": "fys1001-4-3-l3-intro",
+      "type": "text",
+      "content": "## Løkke 3 — De tre spesialtilfellene (~10 min)\n\nHalve jobben i en prosessoppgave er å se hvilket ledd i $\\Delta U = Q - W$ som faller bort."
+    },
+    {
+      "id": "fys1001-4-3-d-isokor",
+      "type": "definition",
+      "title": "Isokor prosess i 1. lov",
+      "content": "**Konstant volum betyr at gassen ikke skyver på noe, så $W = 0$:**\n\n$$\\Delta U = Q$$\n\nAll tilført varme blir til indre energi, og temperaturen stiger så mye den kan. Dette er gassen i en stiv beholder — for eksempel en trykkflaske som varmes i sola."
+    },
+    {
+      "id": "fys1001-4-3-d-adiabat",
+      "type": "definition",
+      "title": "Adiabatisk prosess",
+      "content": "**Adiabatisk betyr at det ikke utveksles varme med omgivelsene, altså $Q = 0$:**\n\n$$\\Delta U = -W$$\n\nUtvider gassen seg ($W > 0$), synker den indre energien og gassen kjøles. Komprimeres den ($W < 0$), stiger temperaturen.\n\nI praksis oppnås dette enten ved god isolasjon eller ved at prosessen går så raskt at varmen ikke rekker å strømme — som i sykkelpumpa eller i lufta som stiger raskt langs en fjellside."
+    },
+    {
+      "id": "fys1001-4-3-d-isoterm-1lov",
+      "type": "definition",
+      "title": "Isoterm prosess for ideell gass",
+      "content": "**Konstant temperatur betyr $\\Delta U = 0$ for en ideell gass, siden indre energi bare avhenger av temperaturen. Da er**\n\n$$Q = W$$\n\nAll varmen som tilføres, går rett ut igjen som arbeid. Gassen fungerer som en ren gjennomstrømning av energi.\n\nMerk forutsetningen: dette hviler på at gassen er ideell. Uten den antakelsen ville $U$ også avhenge av volumet."
+    },
+    {
+      "id": "fys1001-4-3-ex3",
+      "type": "example",
+      "title": "Eksempel 3: Sykkelpumpa, regnet ut (sjanger H — adiabatisk)",
+      "problem": "Du presser stempelet i en sykkelpumpe raskt ned og utfører 450 J arbeid på lufta. Kompresjonen går så fort at vi kan regne den som adiabatisk.\n\n**a)** Finn endringen i lufta sin indre energi.\n**b)** Forklar hvorfor pumpehuset kjennes varmt etterpå.",
+      "solution": "**a)** Adiabatisk betyr $Q = 0$. Omgivelsene (du) utfører arbeid på gassen, så arbeidet utført *av* gassen er $W = -450$ J.\n\n$$\\Delta U = Q - W = 0 - (-450\\ \\text{J}) = +450\\ \\text{J}$$\n\n**Svar:** Den indre energien øker med 450 J.\n\n**b)** For en ideell gass er indre energi bestemt av temperaturen, så en økning på 450 J betyr høyere temperatur i lufta. Den varme lufta gir så fra seg varme til pumpeveggene ved ledning — og det er den varmen du kjenner. Selve kompresjonen skjedde uten varmeutveksling; oppvarmingen kom av arbeidet, ikke av tilført varme.\n\n**Metodepoeng:** dette er sjangerens vanligste kvalitative hale. Svar alltid i rekkefølgen mekanisme, kobling, konklusjon: arbeid inn $\\rightarrow$ økt indre energi $\\rightarrow$ høyere temperatur $\\rightarrow$ varme ledes ut i veggen."
+    },
+    {
+      "id": "fys1001-4-3-o3",
+      "type": "exercise",
+      "exercise": {
+        "id": "fys1001-4-3-o3",
+        "number": "3",
+        "type": "classic",
+        "difficulty": "lett",
+        "task": "(Sjanger H.) En gass i en stiv, lukket beholder tilføres 900 J varme.\n\n**a)** Hvor stort arbeid utfører gassen?\n**b)** Finn $\\Delta U$.\n**c)** Hva ville svaret i **b)** blitt hvis beholderen i stedet hadde et fritt bevegelig stempel, slik at gassen kunne utvide seg? Svar kvalitativt.",
+        "solution": "**a)** Volumet er konstant, så gassen skyver ikke på noe: $W = 0$.\n\n**b)** $\\Delta U = Q - W = 900\\ \\text{J} - 0 = 900$ J. All varmen blir til indre energi.\n\n**c)** Da ville gassen utvidet seg og utført positivt arbeid, slik at $\\Delta U = 900\\ \\text{J} - W < 900$ J. Temperaturøkningen ville altså blitt mindre — en del av varmen går ut igjen som mekanisk arbeid i stedet for å bli værende i gassen.",
+        "hints": [
+          "Hva er $\\Delta V$ i en stiv beholder, og hva gir det for $W = p\\Delta V$?",
+          "Sett inn i $\\Delta U = Q - W$.",
+          "I **c)**: hvilket ledd i 1. lov dukker opp når volumet får lov til å øke?"
+        ]
+      }
+    },
+    {
+      "id": "fys1001-4-3-l4-intro",
+      "type": "text",
+      "content": "— naturlig pausepunkt —\n\n## Løkke 4 — Sykluser, varmemaskiner og virkningsgrad (~12 min)"
+    },
+    {
+      "id": "fys1001-4-3-d-syklus",
+      "type": "definition",
+      "title": "Syklisk prosess",
+      "content": "**En syklus er en prosess der gassen ender i nøyaktig samme tilstand som den startet i** — samme trykk, samme volum, samme temperatur.\n\nKonsekvensen er avgjørende: siden $U$ bare avhenger av tilstanden, må\n\n$$\\Delta U = 0 \\qquad\\text{over en hel syklus}$$\n\nSatt inn i 1. lov gir det\n\n$$W = Q_{\\text{netto}} = Q_{\\text{inn}} - |Q_{\\text{ut}}|$$\n\n**Arbeidet per omløp er altså lik nettovarmen.** Denne slutningen er det sensor vil se begrunnet, ikke bare brukt."
+    },
+    {
+      "id": "fys1001-4-3-d-varmemaskin",
+      "type": "definition",
+      "title": "Varmemaskin",
+      "content": "**En varmemaskin tar opp varme $Q_v$ fra et varmt reservoar, gjør en del av den om til arbeid $W$, og avgir resten $|Q_k|$ til et kaldt reservoar.**\n\nBensinmotoren, dampturbinen og jetmotoren er alle varmemaskiner. Energiregnskapet per syklus er $W = Q_v - |Q_k|$.\n\nDet avgjørende — og det som skiller en fysikkbesvarelse fra en ønskedrøm — er at $|Q_k|$ aldri kan bli null: en del av varmen *må* dumpes i det kalde reservoaret."
+    },
+    {
+      "id": "fys1001-4-3-d-eta",
+      "type": "definition",
+      "title": "Virkningsgrad",
+      "content": "**Virkningsgraden er nytte delt på tilført:**\n\n$$\\eta = \\frac{W}{Q_v} = \\frac{Q_v - |Q_k|}{Q_v} = 1 - \\frac{|Q_k|}{Q_v}$$\n\nDen er et forholdstall uten enhet, oftest oppgitt i prosent. En moderne bilmotor ligger rundt 30 %, et kullkraftverk rundt 40 %.\n\nFormen $\\eta = $ nytte/tilført går igjen i hele boka — også for solceller i [kap. 5.2](/bok/fys1001/fys1001-5-2). Det som skifter, er hva som er «nytte» og hva som er «tilført» i akkurat den situasjonen."
+    },
+    {
+      "id": "fys1001-4-3-ex4",
+      "type": "example",
+      "title": "Eksempel 4: Varmemaskinens regnskap (sjanger H)",
+      "problem": "En varmemaskin tar opp 1 200 J varme fra det varme reservoaret per syklus og avgir 850 J til omgivelsene.\n\n**a)** Finn arbeidet maskinen utfører per syklus, og begrunn hvorfor det er lik nettovarmen.\n**b)** Finn virkningsgraden.",
+      "solution": "**a)** Over en hel syklus er gassen tilbake i utgangstilstanden, så $\\Delta U = 0$. Termofysikkens 1. lov $\\Delta U = Q - W$ gir da direkte $W = Q_{\\text{netto}}$:\n\n$$W = Q_v - |Q_k| = 1200\\ \\text{J} - 850\\ \\text{J} = 3{,}5\\cdot10^{2}\\ \\text{J}$$\n\n**Svar:** Maskinen utfører 350 J arbeid per syklus. Begrunnelsen er at indre energi er en tilstandsstørrelse — når tilstanden er den samme etter omløpet, kan ikke energi ha hopet seg opp inne i gassen, og alt som ikke ble dumpet i det kalde reservoaret, må ha gått ut som arbeid.\n\n**b)**\n$$\\eta = \\frac{W}{Q_v} = \\frac{350}{1200} = 0{,}29$$\n\n**Svar:** Virkningsgraden er 29 %.\n\n**Rimelighetsvurdering:** 29 % ligger tett på en vanlig bensinmotor, så tallet er troverdig. Hadde du fått over 100 %, eller en $\\eta$ med enhet, ville noe vært galt."
+    },
+    {
+      "id": "fys1001-4-3-o4",
+      "type": "exercise",
+      "exercise": {
+        "id": "fys1001-4-3-o4",
+        "number": "4",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "(Sjanger H.) En stempelmotor tar opp 8,0 kJ varme per syklus og avgir 5,6 kJ til eksosen og kjølevannet.\n\n**a)** Finn arbeidet per syklus.\n**b)** Finn virkningsgraden.\n**c)** Motoren går 25 sykluser i sekundet. Finn den mekaniske effekten.",
+        "solution": "**a)** Over en syklus er $\\Delta U = 0$, så arbeidet er nettovarmen:\n\n$$W = Q_v - |Q_k| = 8{,}0\\ \\text{kJ} - 5{,}6\\ \\text{kJ} = 2{,}4\\ \\text{kJ}$$\n\n**b)**\n$$\\eta = \\frac{W}{Q_v} = \\frac{2{,}4}{8{,}0} = 0{,}30 = 30\\ \\%$$\n\n**c)** Effekt er energi per tid:\n\n$$P = W \\cdot f = 2{,}4\\cdot10^{3}\\ \\text{J} \\cdot 25\\ \\text{s}^{-1} = 6{,}0\\cdot10^{4}\\ \\text{W} = 60\\ \\text{kW}$$\n\n**Svar:** 2,4 kJ per syklus, virkningsgrad 30 %, og en mekanisk effekt på 60 kW (om lag 82 hestekrefter) — helt realistisk for en personbilmotor.",
+        "hints": [
+          "Bruk at $\\Delta U = 0$ over en hel syklus.",
+          "Virkningsgraden er arbeidet delt på den *tilførte* varmen, ikke på nettovarmen.",
+          "I **c)**: effekt er arbeid per syklus ganger antall sykluser per sekund."
+        ]
+      }
+    },
+    {
+      "id": "fys1001-4-3-o5",
+      "type": "exercise",
+      "exercise": {
+        "id": "fys1001-4-3-o5",
+        "number": "5",
+        "type": "classic",
+        "difficulty": "lett",
+        "task": "(Sjanger Q — kvalitativ forklaringsoppgave.)\n\nEn oppfinner hevder å ha bygget en motor som gjør om *all* varmen den tar opp, til arbeid, uten å avgi noe til omgivelsene.\n\nForklar i 2–4 setninger hvorfor du kan avvise påstanden — uten å regne.",
+        "solution": "En varmemaskin må arbeide mellom et varmt og et kaldt reservoar, og en del av varmen må dumpes i det kalde for at syklusen skal kunne gjentas. Skulle all varmen bli til arbeid, ville virkningsgraden vært 100 %, og maskinen ville i praksis kjølt omgivelsene og laget arbeid av det alene. Det strider mot erfaringen som termofysikkens 2. lov oppsummerer: varme går av seg selv fra varmt til kaldt, aldri motsatt uten at noe annet må betales. Påstanden kan derfor avvises.",
+        "hints": [
+          "Hva må en varmemaskin gjøre med varmen den ikke gjør om til arbeid?",
+          "Hvilken virkningsgrad ville påstanden svare til?",
+          "Formuler svaret som mekanisme, kobling til situasjonen og konklusjon."
+        ]
+      }
+    },
+    {
+      "id": "fys1001-4-3-l5-intro",
+      "type": "text",
+      "content": "— naturlig pausepunkt —\n\n## Løkke 5 — TS-diagrammet: arealresonnementet (~14 min)\n\nDette er arkivets nyeste vri, og den du har mest å hente på å beherske: mange lar være å svare fordi diagrammet ser uvant ut, selv om regningen bare er rektangler og trekanter."
+    },
+    {
+      "id": "fys1001-4-3-d-entropi",
+      "type": "definition",
+      "title": "Entropi (S)",
+      "content": "**Entropien er en tilstandsstørrelse som måler hvordan varme fordeler seg i et system.** Symbolet er $S$, og enheten er J/K (ofte kJ/K i diagrammer).\n\nDen brukbare regelen for oss er sammenhengen mellom varme, temperatur og entropiendring:\n\n$$Q = T\\Delta S \\qquad (T \\text{ konstant})$$\n\nDu trenger ikke regne ut $S$ selv på eksamen. Det du trenger, er å lese $\\Delta S$ av på aksen i et TS-diagram — og å vite at $T$ der er i **kelvin**."
+    },
+    {
+      "id": "fys1001-4-3-d-ts-areal",
+      "type": "definition",
+      "title": "Varme som areal i TS-diagrammet",
+      "content": "**I et diagram med entropi $S$ langs førsteaksen og absolutt temperatur $T$ langs andreaksen er varmen arealet under prosesskurven.**\n\n$$Q = T\\Delta S \\quad\\text{(rektangel når } T \\text{ er konstant)}$$\n\nEr kurven skrå, deler du arealet i et rektangel pluss en trekant — akkurat den geometriske oppdelingen løsningsforslaget fra vår 2024 bruker.\n\nFortegnet leser du av retningen: går prosessen mot **høyre** (økende $S$), tas varme **opp**; går den mot venstre, avgis varme."
+    },
+    {
+      "id": "fys1001-4-3-d-ts-arbeid",
+      "type": "definition",
+      "title": "Arbeid som innesluttet areal",
+      "content": "**For en lukket syklus i TS-diagrammet er arbeidet per omløp lik arealet innenfor den lukkede kurven.**\n\nBegrunnelsen er kjeden du allerede har: over en syklus er $\\Delta U = 0$, så $W = Q_{\\text{netto}}$. Nettovarmen er arealet under den øvre delen av kurven (varme inn) minus arealet under den nedre delen (varme ut) — og differansen er nettopp det innesluttede arealet.\n\n**Merk skillet nøye:** arealet *under* kurven er **varme**. Arealet *innenfor* den lukkede kurven er **arbeid**. Å forveksle de to er den vanligste feilen i denne oppgavetypen."
+    },
+    {
+      "id": "fys1001-4-3-fig-ts",
+      "type": "image",
+      "src": "/images/textbook/fys1001/fys1001-4-3-ts-syklus-trapes.svg",
+      "alt": "TS-diagram med en lukket firkant der prosessen fra punkt 1 til punkt 2 er en skrå linje fra 800 K til 500 K, deretter loddrett ned til 300 K, vannrett tilbake og loddrett opp igjen. Det innesluttede området er skravert.",
+      "caption": "Syklusen i eksempel 5. Arealet under den skrå linjen 1→2 er varmen som tas opp, og den stiplede linjen ved 500 K viser hvordan arealet deles i et rektangel og en trekant."
+    },
+    {
+      "id": "fys1001-4-3-ex5",
+      "type": "example",
+      "title": "Eksempel 5: Varmemaskin i TS-diagram (sjanger H)",
+      "problem": "Figuren viser en syklus for en varmemaskin. Punktene er $1\\ (S = 0{,}60\\ \\text{kJ/K},\\ T = 800\\ \\text{K})$, $2\\ (1{,}80\\ \\text{kJ/K},\\ 500\\ \\text{K})$, $3\\ (1{,}80\\ \\text{kJ/K},\\ 300\\ \\text{K})$ og $4\\ (0{,}60\\ \\text{kJ/K},\\ 300\\ \\text{K})$.\n\n**a)** Finn varmen som tas opp i prosessen 1→2.\n**b)** Finn varmen som avgis i prosessen 3→4.\n**c)** Finn arbeidet per omløp og virkningsgraden.",
+      "solution": "**a)** Varmen er arealet under kurven fra 1 til 2. Entropiendringen er $\\Delta S = 1{,}80 - 0{,}60 = 1{,}20$ kJ/K, og temperaturen faller lineært fra 800 K til 500 K. Del arealet i to:\n\n- rektangel: $500\\ \\text{K}\\cdot1{,}20\\ \\text{kJ/K} = 600$ kJ\n- trekant: $\\tfrac{1}{2}(800 - 500)\\ \\text{K}\\cdot1{,}20\\ \\text{kJ/K} = 180$ kJ\n\n$$Q_v = 600\\ \\text{kJ} + 180\\ \\text{kJ} = 780\\ \\text{kJ}$$\n\n(Samme svar med trapesformelen: $\\frac{800 + 500}{2}\\cdot1{,}20 = 780$ kJ.) Prosessen går mot høyre, altså mot økende entropi, så varmen tas **opp**.\n\n**b)** Fra 3 til 4 er temperaturen konstant 300 K, og entropien avtar med 1,20 kJ/K:\n\n$$|Q_k| = T\\Delta S = 300\\ \\text{K}\\cdot1{,}20\\ \\text{kJ/K} = 360\\ \\text{kJ}$$\n\nRetningen er mot venstre, så denne varmen **avgis**.\n\n**c)** Loddrette linjer i TS-diagrammet har $\\Delta S = 0$ og dermed $Q = 0$, så 2→3 og 4→1 bidrar ingenting til varmeregnskapet. Over en hel syklus er $\\Delta U = 0$, altså\n\n$$W = Q_v - |Q_k| = 780\\ \\text{kJ} - 360\\ \\text{kJ} = 4{,}2\\cdot10^{2}\\ \\text{kJ}$$\n\nDette er nettopp det innesluttede arealet i figuren.\n\n$$\\eta = \\frac{W}{Q_v} = \\frac{420}{780} = 0{,}54$$\n\n**Svar:** $Q_v = 780$ kJ, $|Q_k| = 360$ kJ, $W = 420$ kJ og $\\eta = 54\\ \\%$.\n\n**Rimelighetsvurdering:** virkningsgraden må ligge under den øvre grensen for en maskin mellom 800 K og 300 K, som er $1 - 300/800 = 63\\ \\%$. 54 % er under, altså mulig — en god sluttkontroll å ta med i besvarelsen."
+    },
+    {
+      "id": "fys1001-4-3-o6",
+      "type": "exercise",
+      "exercise": {
+        "id": "fys1001-4-3-o6",
+        "number": "6",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "(Sjanger H — TS-diagram.) En annen varmemaskin følger en syklus med hjørnene $1\\ (S = 0{,}80\\ \\text{kJ/K},\\ T = 700\\ \\text{K})$, $2\\ (2{,}00\\ \\text{kJ/K},\\ 700\\ \\text{K})$, $3\\ (2{,}00\\ \\text{kJ/K},\\ 300\\ \\text{K})$ og $4\\ (0{,}80\\ \\text{kJ/K},\\ 300\\ \\text{K})$.\n\n**a)** Skisser syklusen i et TS-diagram.\n**b)** Finn opptatt og avgitt varme.\n**c)** Finn arbeidet per omløp og virkningsgraden.",
+        "solution": "**a)** Syklusen er et rektangel med hjørnene i de fire oppgitte punktene: to vannrette linjer ved 700 K og 300 K, forbundet med to loddrette linjer ved $S = 2{,}00$ kJ/K og $S = 0{,}80$ kJ/K.\n\n*Slik skal skissen se ut:*\n\n![TS-diagram for den rektangulære syklusen](/images/textbook/fys1001/fys1001-4-3-ts-syklus-rektangel.svg)\n\n**b)** $\\Delta S = 2{,}00 - 0{,}80 = 1{,}20$ kJ/K i begge de vannrette prosessene.\n\n$$Q_v = T_v\\Delta S = 700\\ \\text{K}\\cdot1{,}20\\ \\text{kJ/K} = 840\\ \\text{kJ}$$\n$$|Q_k| = T_k\\Delta S = 300\\ \\text{K}\\cdot1{,}20\\ \\text{kJ/K} = 360\\ \\text{kJ}$$\n\n**c)** Over en syklus er $\\Delta U = 0$:\n\n$$W = 840\\ \\text{kJ} - 360\\ \\text{kJ} = 4{,}8\\cdot10^{2}\\ \\text{kJ}$$\n$$\\eta = \\frac{480}{840} = 0{,}57 = 57\\ \\%$$\n\nArbeidet er også arealet av rektangelet direkte: $(700 - 300)\\ \\text{K}\\cdot1{,}20\\ \\text{kJ/K} = 480$ kJ ✓.\n\n**Merk en ting hvis du kontrollerer mot Carnot-grensen (se «bør kjenne til» nedenfor):** $1 - 300/700 = 0{,}571$, altså nøyaktig de samme 57 %. Det er ingen regnefeil — et *rektangel* i TS-diagrammet betyr at all varme tas opp ved én fast temperatur og all varme avgis ved én fast temperatur, med to varmetette trinn imellom. Det er nettopp Carnot-syklusen, og den ligger per definisjon på grensen. Er syklusen skrå et sted, som i eksempel 5, havner du under grensen.",
+        "hints": [
+          "Tegn de fire punktene og forbind dem i rekkefølge — hva slags figur blir det?",
+          "Varmen i en vannrett prosess er $Q = T\\Delta S$; loddrette prosesser har $\\Delta S = 0$ og dermed ingen varme.",
+          "Bruk $\\Delta U = 0$ over syklusen til å finne arbeidet, og kontroller mot arealet innenfor kurven."
+        ]
+      }
+    },
+    {
+      "id": "fys1001-4-3-o7",
+      "type": "exercise",
+      "exercise": {
+        "id": "fys1001-4-3-o7",
+        "number": "7",
+        "type": "classic",
+        "difficulty": "lett",
+        "task": "(Sjanger Q.) I en besvarelse står det: «Arealet under kurven i TS-diagrammet er arbeidet maskinen utfører.»\n\nForklar hva som er galt, og hva arealet faktisk er. Svar i 2–3 setninger.",
+        "solution": "Arealet under kurven i et TS-diagram er **varmen**, ikke arbeidet — det følger av $Q = T\\Delta S$, der høyden er temperaturen og bredden entropiendringen. Arbeidet er derimot arealet *innenfor* den lukkede syklusen, altså differansen mellom varmen inn og varmen ut. (Det er i $p$–$V$-diagrammet at arealet under kurven er arbeid; forvekslingen mellom de to diagrammene er nettopp fellen.)",
+        "hints": [
+          "Hvilken formel gir arealet under kurven når aksene er $T$ og $S$?",
+          "Hva ble arbeidet identifisert med i en lukket syklus?",
+          "Sammenlign med hva arealet under kurven betyr i et $p$–$V$-diagram."
+        ]
+      }
+    },
+    {
+      "id": "fys1001-4-3-kjenne-intro",
+      "type": "text",
+      "content": "— naturlig pausepunkt —\n\n## Bør kjenne til (~7 min)\n\nDette stoffet ligger sist fordi det er lavere prioritert: Carnot-virkningsgraden var oppe i 2014 og 2015, entropiberegning i 2010, og ingen av delene har vært testet i de nyere settene. Les det når kjernestoffet over sitter."
+    },
+    {
+      "id": "fys1001-4-3-d-carnot",
+      "type": "definition",
+      "title": "Carnot-virkningsgraden (bør kjenne til)",
+      "content": "**Ingen varmemaskin som arbeider mellom to reservoarer med temperaturene $T_v$ og $T_k$, kan ha høyere virkningsgrad enn**\n\n$$\\eta_{\\text{maks}} = 1 - \\frac{T_k}{T_v}$$\n\n**Temperaturene skal være i kelvin.** Formelen står på formelarket.\n\nDen er en øvre grense, ikke en oppskrift: virkelige maskiner ligger godt under, fordi friksjon og varmelekkasje spiser av utbyttet. Bruken på eksamen er som regel en rimelighetskontroll — «kan denne maskinen ha virkningsgrad 55 %?»"
+    },
+    {
+      "id": "fys1001-4-3-d-entropi-tolkning",
+      "type": "definition",
+      "title": "Entropi som mål på spredning (bør kjenne til)",
+      "content": "**Entropien er et mål på hvor spredt energien er i et system.** Går varme $Q$ inn i et system ved konstant temperatur $T$, øker entropien med $\\Delta S = Q/T$.\n\nTermofysikkens 2. lov sier at den samlede entropien i et lukket system aldri kan minke. Det er den dypere grunnen til at varme går av seg selv fra varmt til kaldt, og til at ingen varmemaskin kan nå 100 %.\n\nI FYS1001 kreves ikke entropiberegninger med logaritmer. Det du bør kunne, er tolkningen og avlesningen $\\Delta S$ i et TS-diagram."
+    },
+    {
+      "id": "fys1001-4-3-o8",
+      "type": "exercise",
+      "exercise": {
+        "id": "fys1001-4-3-o8",
+        "number": "8",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "(Sjanger H + Q — bør kjenne til.) En produsent påstår at en ny motor har virkningsgrad 55 %. Motoren arbeider mellom 500 K og 300 K.\n\n**a)** Finn den høyest mulige virkningsgraden for disse temperaturene.\n**b)** Er påstanden mulig? Begrunn.\n**c)** Hvor varmt måtte det varme reservoaret vært for at 55 % skulle vært teoretisk mulig med samme kalde reservoar?",
+        "solution": "**a)**\n$$\\eta_{\\text{maks}} = 1 - \\frac{T_k}{T_v} = 1 - \\frac{300}{500} = 0{,}40 = 40\\ \\%$$\n\n**b)** Nei. Påstanden på 55 % ligger over den øvre grensen på 40 % for en maskin mellom disse to temperaturene, og ingen virkelig maskin kommer engang opp til grensen. Påstanden kan derfor avvises uten videre undersøkelse.\n\n**c)** Vi krever $1 - 300/T_v = 0{,}55$, altså $300/T_v = 0{,}45$:\n\n$$T_v = \\frac{300}{0{,}45}\\ \\text{K} = 6{,}7\\cdot10^{2}\\ \\text{K}$$\n\n**Svar:** Det varme reservoaret måtte holdt minst 667 K, altså om lag 394 $^\\circ$C — og da bare i den idealiserte grensen, uten friksjon og varmetap.",
+        "hints": [
+          "Carnot-formelen krever temperaturer i kelvin — her er de heldigvis alt oppgitt slik.",
+          "Sammenlign den påståtte virkningsgraden med den øvre grensen du regnet ut.",
+          "I **c)**: løs $1 - T_k/T_v = 0{,}55$ for $T_v$."
+        ]
+      }
+    },
+    {
+      "id": "fys1001-4-3-warn-feil",
+      "type": "warning",
+      "title": "Typiske feil",
+      "content": "- **Fortegnskaos i $\\Delta U = Q - W$.** Bestem én konvensjon (vår: $Q$ inn positiv, $W$ utført *av* gassen positiv) og hold den hele veien. Bytter du underveis, blir svaret galt selv med riktig regning. Skriv fortegnet på $Q$ og $W$ eksplisitt før du setter inn.\n- **Areal-forvekslingen i TS-diagrammet.** Arealet *under* kurven er varme ($Q = T\\Delta S$); arealet *innenfor* den lukkede syklusen er arbeid. I $p$–$V$-diagrammet er det arealet under kurven som er arbeid. To diagrammer, to regler.\n- **Glemme at $\\Delta U = 0$ over en syklus.** Uten den kommer du ikke frem til $W = Q_{\\text{netto}}$, og hele syklusoppgaven stopper. Skriv setningen ut som begrunnelse — den gir uttelling.\n- **Celsius i $Q = T\\Delta S$ og i Carnot-formelen.** Begge har $T$ alene, og da gjelder kelvin-regelen fra [kap. 4.2](/bok/fys1001/fys1001-4-2) uten unntak.\n- **Regne virkningsgrad av feil nevner.** $\\eta = W/Q_v$ — arbeidet delt på den *tilførte* varmen, ikke på nettovarmen og ikke på den avgitte.\n- **Blande liter og kubikkmeter i $W = p\\Delta V$.** Trykk i pascal krever volum i $\\text{m}^3$; ellers bommer du med en faktor 1 000.\n- **Virkningsgrad med enhet, eller over 100 %.** $\\eta$ er et forholdstall. Får du mer enn 1, har du byttet om teller og nevner."
+    },
+    {
+      "id": "fys1001-4-3-bank-notis",
+      "type": "text",
+      "content": "## Begrepsbank\n\n*Begrepsbanken er flashcard-/repetisjonsstoff — den gjentar det du nettopp har lest. Hopp trygt over ved førstegangslesing; tidsanslaget for kapitlet gjelder kjernestoffet.*"
+    },
+    {
+      "id": "fys1001-4-3-bank-1",
+      "type": "definition",
+      "title": "Varmereservoar",
+      "content": "**Et varmereservoar er en varmekilde eller varmesluk så stor at temperaturen ikke merkbart endrer seg selv om den tar imot eller gir fra seg varme.**\n\nHavet, uteluften og en stor ovn er praktiske eksempler. Idealiseringen er nyttig fordi den lar oss regne med faste $T_v$ og $T_k$ i syklusen — ellers ville temperaturene endret seg underveis, og regnestykket blitt mye tyngre."
+    },
+    {
+      "id": "fys1001-4-3-bank-2",
+      "type": "definition",
+      "title": "Kjølemaskin og varmepumpe",
+      "content": "**En kjølemaskin er en varmemaskin som kjøres baklengs: arbeid tilføres for å flytte varme fra kaldt til varmt.**\n\nKjøleskapet flytter varme fra maten ut i kjøkkenet; varmepumpen flytter varme fra uteluften inn i stua. Energiregnskapet er det samme, $W = Q_v - |Q_k|$, men nå er $W$ noe du betaler for, og nytten er varmen som flyttes. Derfor kan en varmepumpe levere mer varme enn den bruker elektrisk energi — den *flytter* energi, den lager den ikke."
+    },
+    {
+      "id": "fys1001-4-3-bank-3",
+      "type": "definition",
+      "title": "p–V-diagram",
+      "content": "**Et $p$–$V$-diagram viser trykket langs andreaksen og volumet langs førsteaksen, og hver prosess er en kurve mellom to tilstander.**\n\nArealet under kurven er **arbeidet** gassen utfører. En isobar prosess er en vannrett linje, en isokor en loddrett linje (uten areal, altså uten arbeid), og en isoterm er en hyperbel. Ikke forveksle med TS-diagrammet, der arealet under kurven er varme."
+    },
+    {
+      "id": "fys1001-4-3-bank-4",
+      "type": "definition",
+      "title": "Reversibel prosess",
+      "content": "**En reversibel prosess går så langsomt og friksjonsfritt at den kan kjøres baklengs uten at noe spor blir igjen i omgivelsene.**\n\nDette er en idealisering — ingen virkelig prosess er helt reversibel. Idealiseringen er likevel nyttig: Carnot-grensen $\\eta = 1 - T_k/T_v$ gjelder nettopp for en maskin med bare reversible prosesser, og derfor er den en øvre grense for alle andre."
+    },
+    {
+      "id": "fys1001-4-3-bank-5",
+      "type": "definition",
+      "title": "Termofysikkens 2. lov",
+      "content": "**Varme går av seg selv fra varmt til kaldt, aldri motsatt vei uten at det utføres arbeid.**\n\nLoven er grunnen til at ingen varmemaskin kan gjøre om all varmen til arbeid, og at et kjøleskap trenger strøm. En annen formulering er at den samlede entropien i et lukket system aldri minker. På eksamen brukes loven som *begrunnelse* i kvalitative deloppgaver, ikke til regning."
+    },
+    {
+      "id": "fys1001-4-3-repetisjon",
+      "type": "collapsible",
+      "title": "Repetisjonsoppgaver",
+      "buttonText": "Vis repetisjonsoppgaver",
+      "content": [
+        {
+          "id": "fys1001-4-3-rep-1",
+          "type": "exercise",
+          "exercise": {
+            "id": "fys1001-4-3-rep-o1",
+            "number": "R1",
+            "type": "classic",
+            "difficulty": "lett",
+            "task": "(Fra [kap. 4.2](/bok/fys1001/fys1001-4-2).) En gass i en stiv beholder varmes fra 300 K til 450 K. Hva skjer med trykket?",
+            "solution": "Isokor prosess: $p_2/p_1 = T_2/T_1 = 450/300 = 1{,}5$. Trykket blir 50 % høyere.",
+            "hints": [
+              "Konstant volum — hvilket av de tre spesialtilfellene er det?"
+            ]
+          }
+        },
+        {
+          "id": "fys1001-4-3-rep-2",
+          "type": "exercise",
+          "exercise": {
+            "id": "fys1001-4-3-rep-o2",
+            "number": "R2",
+            "type": "classic",
+            "difficulty": "lett",
+            "task": "(Fra [kap. 4.1](/bok/fys1001/fys1001-4-1).) Hva er forskjellen på varme og indre energi?",
+            "solution": "Indre energi er energien systemet *har* — molekylenes bevegelses- og bindingsenergi. Varme er energi *på vei* mellom to systemer med ulik temperatur. Et system «har» altså indre energi, ikke varme; varme er en overføringsmåte, på linje med arbeid.",
+            "hints": [
+              "Den ene er en beholdning, den andre en overføring."
+            ]
+          }
+        },
+        {
+          "id": "fys1001-4-3-rep-3",
+          "type": "exercise",
+          "exercise": {
+            "id": "fys1001-4-3-rep-o3",
+            "number": "R3",
+            "type": "classic",
+            "difficulty": "middels",
+            "task": "(Fra [Areal under grafer](/bok/r2/r2-2-6).) Finn arealet under en rett linje som går fra $(2,\\ 400)$ til $(5,\\ 700)$, ned til førsteaksen.",
+            "solution": "Bredden er $5 - 2 = 3$. Del i rektangel og trekant: rektangel $400\\cdot3 = 1200$, trekant $\\tfrac12\\cdot(700-400)\\cdot3 = 450$. Samlet areal $1200 + 450 = 1650$. (Trapesformelen gir det samme: $\\frac{400+700}{2}\\cdot3 = 1650$.)",
+            "hints": [
+              "Del figuren i et rektangel under den laveste verdien og en trekant over.",
+              "Alternativt: bruk trapesformelen med de to høydene."
+            ]
+          }
+        },
+        {
+          "id": "fys1001-4-3-rep-4",
+          "type": "exercise",
+          "exercise": {
+            "id": "fys1001-4-3-rep-o4",
+            "number": "R4",
+            "type": "classic",
+            "difficulty": "lett",
+            "task": "En prosess har $Q = -600$ J og $W = -900$ J. Finn $\\Delta U$ og si hva som fysisk skjer.",
+            "solution": "$\\Delta U = Q - W = -600 - (-900) = +300$ J. Gassen avgir varme, men komprimeres samtidig så kraftig at den indre energien likevel øker med 300 J — og temperaturen stiger.",
+            "hints": [
+              "Pass på dobbelt minustegn.",
+              "Negativt $W$ betyr at omgivelsene utfører arbeid på gassen."
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": "fys1001-4-3-symbolliste",
+      "type": "collapsible",
+      "title": "Symbol- og formelliste",
+      "buttonText": "Vis symboler og formler",
+      "content": [
+        {
+          "id": "fys1001-4-3-symbolliste-tekst",
+          "type": "text",
+          "content": "## Symbol- og formelliste\n\n*Oppslagsverk — alt her forklares underveis i kapitlet.*\n\nAlle symboler og formler brukt i delkapittel 4.3, samlet.\n\n| Symbol | Betydning | SI-enhet |\n|---|---|---|\n| $U$ | Indre energi | J |\n| $\\Delta U$ | Endring i indre energi | J |\n| $Q$ | Varme — positiv inn i systemet | J |\n| $W$ | Arbeid — positivt når gassen utfører det | J |\n| $p$ | Trykk | Pa |\n| $V,\\ \\Delta V$ | Volum og volumendring | $\\text{m}^3$ |\n| $T$ | Absolutt temperatur — **alltid kelvin** | K |\n| $S,\\ \\Delta S$ | Entropi og entropiendring | J/K (ofte kJ/K) |\n| $Q_v$ | Varme tatt opp fra det varme reservoaret | J |\n| $Q_k$ | Varme avgitt til det kalde reservoaret | J |\n| $T_v,\\ T_k$ | Temperatur i varmt og kaldt reservoar | K |\n| $\\eta$ | Virkningsgrad — nytte delt på tilført | uten enhet |\n| $P$ | Effekt | W |\n\n**Symboler som betyr noe annet andre steder i boka:** $W$ er arbeid her, som i [kap. 2.1](/bok/fys1001/fys1001-2-1) — ikke watt (enheten skrives W, symbolet for effekt er $P$). $Q$ er varme, aldri ladning. $S$ er entropi her; i [kap. 1.2](/bok/fys1001/fys1001-1-2) er $S$ snordrag. $T$ er temperatur, ikke omløpstid som i [kap. 1.4](/bok/fys1001/fys1001-1-4).\n\n**Formler i dette delkapitlet:**\n\n$$\\Delta U = Q - W$$\nTermofysikkens 1. lov. **Står på formelarket**, men fortegnsvurderingen er din.\n\n$$W = p\\Delta V$$\nVolumarbeid ved konstant trykk; generelt er arbeidet arealet under kurven i $p$–$V$-diagrammet. **Må kunne brukes aktivt.**\n\n$$\\Delta U = Q \\quad (V \\text{ konstant}), \\qquad \\Delta U = -W \\quad (Q = 0), \\qquad Q = W \\quad (T \\text{ konstant, ideell gass})$$\nDe tre spesialtilfellene av 1. lov. **Må kunne brukes aktivt** — de utledes på stedet ved å stryke et ledd.\n\n$$\\Delta U = 0 \\ \\Rightarrow\\ W = Q_v - |Q_k| \\quad\\text{(hel syklus)}$$\nSyklusregelen. **Må kunne brukes aktivt** — og begrunnes.\n\n$$\\eta = \\frac{W}{Q_v} = 1 - \\frac{|Q_k|}{Q_v}$$\nVirkningsgrad. **Står på formelarket** i formen nytte/tilført.\n\n$$Q = T\\Delta S$$\nVarme som areal under kurven i TS-diagrammet. **Må kunne brukes aktivt** — kelvin.\n\n$$\\eta_{\\text{maks}} = 1 - \\frac{T_k}{T_v}$$\nCarnot-grensen (**bør kjenne til**). **Står på formelarket.** Kelvin.\n\n**Geometrien du trenger:** areal av rektangel $= \\text{grunnlinje}\\cdot\\text{høyde}$, areal av trekant $= \\tfrac12\\cdot\\text{grunnlinje}\\cdot\\text{høyde}$, og trapes $= \\frac{h_1 + h_2}{2}\\cdot\\text{bredde}$."
+        }
+      ]
+    }
+  ],
+  "exercises": []
+}

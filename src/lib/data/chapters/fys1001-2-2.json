@@ -1,0 +1,438 @@
+{
+  "id": "fys1001-2-2",
+  "courseId": "fys1001",
+  "chapterNumber": "2.2",
+  "title": "Energibevaring — og når kinematikken er forbudt",
+  "description": "Energibevaring med friksjon som lekkasje, standardresultatene v = √(2gh) og stopplengde — og metodevalget som løsningsforslagene bruker som karakterskille.",
+  "estimatedMinutes": 55,
+  "competenceGoals": [
+    "sette opp et energiregnskap med valgt nullnivå og løse det for fart, høyde eller strekning",
+    "begrunne når bevegelsesligningene for konstant akselerasjon er ugyldige, og velge energimetoden i stedet",
+    "ta med friksjon som lekkasjeleddet R·s i regnskapet, og finne friksjonskraft eller stopplengde ut fra det",
+    "forklare hvorfor snordrag og normalkraft ikke gjør arbeid, og hvorfor massen ofte forkortes bort"
+  ],
+  "content": [
+    {
+      "id": "fys1001-2-2-tip-eksamensvinkel",
+      "type": "tip",
+      "title": "Eksamensvinkel",
+      "content": "**Høyeste prioritet — dette er selve kjernen i energi-temaet, som står i 34 av 36 slutteksamener (94 %).** Energibevaring er den mest brukte metoden i hele mekanikkdelen, og den er obligatorisk lesning før midtsemestereksamenen.\n\nMen her ligger også arkivets tydeligste **metodefelle**. Løsningsforslagene er uvanlig klare på dette punktet: på en **krum bane** (buet sklie, pendel, loop) er bevegelsesligningene med konstant akselerasjon *feil metode*, og et løsningsforslag fra våren 2023 sier uttrykkelig at slik regning ikke godtas — **selv om tallsvaret skulle bli riktig**. Riktig metodevalg *med begrunnelse* er et av de tydeligste skillene mot toppkarakter.\n\nSjangrene du møter her er **sjanger C** (kortkoden vår for krefter, skråplan og bremsing) og trinn (i) i **sjanger B** (kortkoden for støt-kjeden, som du driller i sin helhet i [kap. 2.4](/bok/fys1001/fys1001-2-4)). I tillegg kommer **sjanger Q**, kortkoden for kvalitative «forklar hvorfor»-oppgaver. Hele kodelista A–Q står i [kap. 0.1](/bok/fys1001/fys1001-0-1).\n\n**Formelark-status:** $E_k = \\tfrac12 mv^2$, $E_p = mgh$ og $W = Fs\\cos\\theta$ står på formelarket. Selve energiregnskapet $E_1 = E_2 + R\\cdot s$ er noe du må kunne **sette opp selv** — det er en oppstilling, ikke en formel du slår opp."
+    },
+    {
+      "id": "fys1001-2-2-forkunnskaper",
+      "type": "text",
+      "content": "**Forkunnskaper — dette bygger kapitlet på:**\n\n- [kap. 2.1](/bok/fys1001/fys1001-2-1) — arbeid med fortegn, $E_k = \\tfrac12 mv^2$, $E_p = mgh$ og arbeid–energi-setningen $W_{\\text{netto}} = \\Delta E_k$. Friksjonens arbeid er negativt: $W_R = -Rs$.\n- [kap. 1.1](/bok/fys1001/fys1001-1-1) — bevegelsesligningene $v = v_0 + at$, $s = v_0t + \\tfrac12 at^2$ og $2as = v^2 - v_0^2$, som **bare** gjelder når akselerasjonen er konstant. Nettopp denne begrensningen er kapitlets hovedpoeng.\n- [kap. 1.3](/bok/fys1001/fys1001-1-3) — friksjonskraften $R = \\mu N$ og dekomponering på skråplan, der $N = mg\\cos\\theta$.\n\nVi bruker $g = 9{,}81$ $\\text{m/s}^2$ gjennom hele kapitlet."
+    },
+    {
+      "id": "fys1001-2-2-intro",
+      "type": "text",
+      "content": "Se for deg en vannsklie. Den svinger, den er bratt på toppen og nesten flat nederst, og akselerasjonen din endrer seg hele veien ned. Hvordan i all verden skal du regne ut farten nederst?\n\nSvaret er at du **ikke** skal regne på veien ned. Du skal føre et regnskap: energien du hadde øverst, må finnes igjen nederst — som fart, eller som varme i sklia. Det er hele ideen bak energibevaring, og den er så kraftig fordi den ikke bryr seg om formen på banen.\n\nKapitlet går i fem læringsløkker (teori → eksempel → oppgave):\n\n1. **Energibevaring uten friksjon** (~12 min)\n2. **Metodevalget: når kinematikken er forbudt** (~10 min)\n3. **Friksjon som lekkasje i regnskapet** (~12 min)\n4. **Pendelen og snordraget som ikke gjør arbeid** (~10 min)\n5. **Stopplengde og sammensatte forløp** (~11 min)\n\nTidsanslagene er lesetid; regner du med penn og papir, ganger du med omtrent 1,5. — naturlig pausepunkt — etter løkke 3 er et godt sted å ta pause hvis du deler kapitlet over to økter."
+    },
+    {
+      "id": "fys1001-2-2-lokke1",
+      "type": "text",
+      "content": "## Løkke 1: Energibevaring uten friksjon *(~12 min)*\n\nI [kap. 2.1](/bok/fys1001/fys1001-2-1) så du at tyngden er en spesiell kraft: arbeidet den gjør, avhenger bare av høydeforskjellen, ikke av veien. Det er nettopp derfor vi kan lagre virkningen i $E_p = mgh$ og føre et regnskap i stedet for å følge bevegelsen."
+    },
+    {
+      "id": "fys1001-2-2-def-energibevaring",
+      "type": "definition",
+      "title": "Energibevaring i mekanikken",
+      "content": "Virker det ingen friksjon eller luftmotstand, er den mekaniske energien **konstant** gjennom hele bevegelsen:\n\n$$E_1 = E_2, \\qquad \\text{det vil si} \\qquad \\tfrac12 mv_1^2 + mgh_1 = \\tfrac12 mv_2^2 + mgh_2.$$\n\nIndeks 1 er et valgt startpunkt og indeks 2 et valgt sluttpunkt. Du trenger ikke vite noe som helst om det som skjer mellom dem — heller ikke hvilken form banen har."
+    },
+    {
+      "id": "fys1001-2-2-def-oppsett",
+      "type": "definition",
+      "title": "Slik setter du opp et energiregnskap",
+      "content": "Fire trinn, i denne rekkefølgen:\n\n1. **Velg nullnivå** for høyden, og skriv i besvarelsen hvor det ligger (som regel i det laveste punktet).\n2. **Velg punkt 1 og punkt 2** — der du kjenner flest størrelser.\n3. **Skriv ned $E_1$ og $E_2$** ledd for ledd, med både fart- og høydeledd. Ledd som er null (fordi $v = 0$ eller $h = 0$) skriver du opp og stryker, slik at sensor ser at du har vurdert dem.\n4. **Løs for den ukjente**, og sett inn tall til slutt.\n\nRegnskapet skal stå på papiret som en ligning før du regner. Det er der begrunnelsespoengene ligger."
+    },
+    {
+      "id": "fys1001-2-2-fig-energiregnskap",
+      "type": "image",
+      "src": "/images/textbook/fys1001/fys1001-2-2-energiregnskap.svg",
+      "alt": "Buet bane der en kule starter i ro i høyden h over et vannrett parti. Nullnivået er tegnet som en stiplet linje gjennom det vannrette partiet. I punkt 1 er farten null og energien mgh; i punkt 2, nederst, er høyden null og energien en halv m v i annen. Videre langs det vannrette partiet er friksjonsstrekningen s markert med lekkasjeleddet R ganger s.",
+      "caption": "Regnskapet i én figur: det du starter med ($mgh$), er lik det du har igjen ($\\tfrac12 mv^2$) pluss det friksjonen tok ($R\\cdot s$). Uten friksjon faller det siste leddet bort."
+    },
+    {
+      "id": "fys1001-2-2-th-standardresultat",
+      "type": "theorem",
+      "title": "Standardresultatet $v = \\sqrt{2gh}$",
+      "content": "Starter et legeme fra ro i høyden $h$ og glir friksjonsfritt ned til nullnivået, blir energiregnskapet\n\n$$mgh = \\tfrac12 mv^2.$$\n\nMassen $m$ står i begge ledd og forsvinner:\n\n$$v = \\sqrt{2gh}.$$\n\nTo ting å merke seg, og begge er testet som kvalitative deloppgaver:\n\n- **Farten avhenger ikke av massen.** En tung og en lett kule som slippes fra samme høyde på samme friksjonsfrie bane, kommer ned med samme fart.\n- **Farten avhenger ikke av banens form.** Bratt eller slak, rett eller buet — bare høydeforskjellen teller. (Tiden det tar, er derimot forskjellig.)\n\nFormelen $v = \\sqrt{2gh}$ må du kunne bruke aktivt; den er så vanlig at du bør kjenne den igjen umiddelbart."
+    },
+    {
+      "id": "fys1001-2-2-oppg-l1a",
+      "type": "exercise",
+      "exercise": {
+        "id": "fys1001-2-2-l1a",
+        "number": "1",
+        "type": "classic",
+        "difficulty": "lett",
+        "task": "(Innstegsoppgave — sjanger C, altså krefter og bevegelse.) En ball slippes fra ro 1,25 m over gulvet. Se bort fra luftmotstand.\n\n**a)** Finn farten rett før ballen treffer gulvet.\n**b)** Hva blir svaret hvis ballen har dobbelt så stor masse?",
+        "solution": "**a)** Vi legger nullnivået ved gulvet. Ballen starter i ro, så $E_1 = mgh$, og i det den treffer gulvet er $h = 0$, så $E_2 = \\tfrac12 mv^2$:\n\n$$mgh = \\tfrac12 mv^2 \\quad\\Longrightarrow\\quad v = \\sqrt{2gh} = \\sqrt{2\\cdot 9{,}81\\ \\text{m/s}^2\\cdot 1{,}25\\ \\text{m}}.$$\n\n$$v = \\sqrt{24{,}5\\ \\text{m}^2/\\text{s}^2} = 4{,}95\\ \\text{m/s}.$$\n\n**Svar a):** farten er $4{,}95$ m/s $\\approx 5{,}0$ m/s.\n\n**b)** Svaret blir **det samme**. Massen står i begge ledd i regnskapet og forsvinner når vi løser for $v$ — derfor er $v = \\sqrt{2gh}$ uavhengig av massen.",
+        "hints": [
+          "Legg nullnivået ved gulvet og skriv opp $E_1$ og $E_2$ ledd for ledd.",
+          "Hvilke ledd er null i punkt 1 og punkt 2?",
+          "I b): se hva som skjer med $m$ når du forkorter ligningen $mgh = \\tfrac12 mv^2$."
+        ]
+      }
+    },
+    {
+      "id": "fys1001-2-2-ex-vannsklie",
+      "type": "example",
+      "title": "Fart nederst i en buet sklie",
+      "problem": "Et barn med masse 28 kg starter fra ro øverst i en buet vannsklie. Høydeforskjellen fra start til bunnen er 4,5 m. Sklia er så glatt at vi kan se bort fra friksjon.\n\nFinn farten barnet har nederst.",
+      "solution": "**Nullnivå:** vi legger $h = 0$ nederst i sklia.\n\n**Punkt 1** (øverst): $v_1 = 0$ og $h_1 = 4{,}5$ m, altså $E_1 = mgh_1 + \\tfrac12 mv_1^2 = mgh_1 + 0$.\n\n**Punkt 2** (nederst): $h_2 = 0$, altså $E_2 = \\tfrac12 mv_2^2 + 0$.\n\nUten friksjon er $E_1 = E_2$:\n\n$$mgh_1 = \\tfrac12 mv_2^2.$$\n\nMassen forkortes bort på begge sider:\n\n$$v_2 = \\sqrt{2gh_1} = \\sqrt{2\\cdot 9{,}81\\ \\text{m/s}^2\\cdot 4{,}5\\ \\text{m}} = \\sqrt{88{,}3\\ \\text{m}^2/\\text{s}^2} = 9{,}40\\ \\text{m/s}.$$\n\n**Svar:** farten nederst er $9{,}4$ m/s.\n\n**Rimelighetsvurdering:** $9{,}4$ m/s er om lag 34 km/t — omtrent det man opplever i en høy vannsklie, og litt for høyt i virkeligheten fordi vi har sett bort fra friksjon og vannmotstand.\n\n**Merk:** massen på 28 kg ble aldri brukt. Det er ikke en glipp i oppgaveteksten — det er poenget. Skriv gjerne i besvarelsen at massen forkortes bort; det er et begrunnelsespoeng."
+    },
+    {
+      "id": "fys1001-2-2-oppg-l1b",
+      "type": "exercise",
+      "exercise": {
+        "id": "fys1001-2-2-l1b",
+        "number": "2",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "(Sjanger C.) En skiløper passerer et punkt i løypa med farten 12 m/s og glir deretter 8,0 m nedover i høyde. Se bort fra friksjon og luftmotstand.\n\n**a)** Sett opp energiregnskapet med begge ledd i punkt 1.\n**b)** Finn farten etter fallet.",
+        "solution": "**a)** Nullnivå nederst. Her er startfarten **ikke** null, så begge ledd må være med i punkt 1:\n\n$$\\tfrac12 mv_1^2 + mgh_1 = \\tfrac12 mv_2^2 + 0.$$\n\n**b)** Massen forkortes bort i alle ledd:\n\n$$v_2^2 = v_1^2 + 2gh_1 = (12\\ \\text{m/s})^2 + 2\\cdot 9{,}81\\ \\text{m/s}^2\\cdot 8{,}0\\ \\text{m} = 144 + 157 = 301\\ \\text{m}^2/\\text{s}^2.$$\n\n$$v_2 = \\sqrt{301\\ \\text{m}^2/\\text{s}^2} = 17{,}3\\ \\text{m/s}.$$\n\n**Svar:** farten er $17$ m/s (om lag 62 km/t).\n\n**Merk:** $v_2 = \\sqrt{2gh}$ ville gitt $12{,}5$ m/s og vært feil — det uttrykket forutsetter at startfarten er null.",
+        "hints": [
+          "Startfarten er ikke null — hvilket ledd må da bli med i $E_1$?",
+          "Forkort massen bort før du setter inn tall.",
+          "Pass på at du kvadrerer startfarten, ikke bare legger den til."
+        ]
+      }
+    },
+    {
+      "id": "fys1001-2-2-lokke2",
+      "type": "text",
+      "content": "## Løkke 2: Metodevalget — når kinematikken er forbudt *(~10 min)*\n\nNå kommer kapitlets viktigste enkeltregel. Den handler ikke om å regne, men om å **velge** — og løsningsforslagene bruker den som karakterskille."
+    },
+    {
+      "id": "fys1001-2-2-th-metoderegel",
+      "type": "theorem",
+      "title": "Metoderegel I: krum bane eller varierende kraft → energimetoden",
+      "content": "Bevegelsesligningene fra [kap. 1.1](/bok/fys1001/fys1001-1-1) — særlig $2as = v^2 - v_0^2$ — hviler på at akselerasjonen $a$ er **konstant i størrelse og retning**. Derfor:\n\n- **Krum bane** (buet sklie, pendel, loop, bakke som slakner): akselerasjonen endrer både størrelse og retning underveis. Kinematikken er ugyldig. **Bruk energimetoden.**\n- **Varierende kraft** (luftmotstand som vokser med farten, fjærkraft som vokser med sammentrykkingen): samme sak. **Bruk energimetoden**, eventuelt arbeid–energi-setningen.\n- **Rett bane med konstant kraft** (rett skråplan, vannrett bremsing med konstant friksjon): begge metodene er gyldige, og løsningsforslagene viser gjerne begge. Velg den korteste.\n\nToppnivåkravet er ikke bare å velge riktig, men å **skrive hvorfor**: «Banen er buet, så akselerasjonen er ikke konstant, og $2as = v^2 - v_0^2$ gjelder ikke. Derfor bruker jeg energibevaring.» Én slik setning kan være verdt flere poeng enn selve utregningen."
+    },
+    {
+      "id": "fys1001-2-2-def-hvorfor-feil",
+      "type": "definition",
+      "title": "Hvorfor riktig tall ikke redder feil metode",
+      "content": "På en buet friksjonsfri bane vil energimetoden gi $v = \\sqrt{2gh}$. Setter du inn $a = g$ og $s = h$ i $2as = v^2$, får du tilfeldigvis det samme tallet — men resonnementet er galt, for legemet faller ikke fritt og akselerasjonen er ikke $g$ langs banen.\n\nLøsningsforslagene er tydelige på at et riktig tall fra et ugyldig resonnement ikke gir poeng. Sagt på en annen måte: i dette faget er **metodevalget** en del av svaret, ikke bare et middel til å komme fram til det."
+    },
+    {
+      "id": "fys1001-2-2-ex-metodevalg",
+      "type": "example",
+      "title": "Å begrunne metodevalget",
+      "problem": "En kule triller fra ro ned en buet, friksjonsfri bane med høydeforskjell 2,0 m. En student regner slik:\n\n«Akselerasjonen er $g = 9{,}81$ $\\text{m/s}^2$, og strekningen er 2,0 m, så $v^2 = 2\\cdot 9{,}81\\cdot 2{,}0 = 39{,}2$, altså $v = 6{,}3$ m/s.»\n\nVurder framgangsmåten, og gjør regningen riktig.",
+      "solution": "**Vurdering av framgangsmåten.** Tallsvaret er riktig, men framgangsmåten er det ikke.\n\nStudenten bruker $2as = v^2 - v_0^2$, som forutsetter konstant akselerasjon. På en buet bane peker akselerasjonen langs banen bare i den bratteste delen og er nesten null der banen flater ut — den varierer altså både i størrelse og retning. I tillegg er $s = 2{,}0$ m brukt som om det var strekningen langs banen, mens 2,0 m er høydeforskjellen. At de to feilene opphever hverandre, er tilfeldig.\n\n**Riktig regning.** Nullnivå nederst. Kula starter i ro, så\n\n$$mgh = \\tfrac12 mv^2 \\quad\\Longrightarrow\\quad v = \\sqrt{2gh} = \\sqrt{2\\cdot 9{,}81\\ \\text{m/s}^2\\cdot 2{,}0\\ \\text{m}} = 6{,}26\\ \\text{m/s}.$$\n\n**Svar:** $v = 6{,}3$ m/s, funnet ved **energibevaring**, fordi banen er krum og bevegelsesligningene for konstant akselerasjon derfor ikke gjelder.\n\n**Slik ville jeg skrevet det på eksamen:** «Banen er buet, så akselerasjonen er ikke konstant. Jeg kan derfor ikke bruke $2as = v^2 - v_0^2$, men bruker energibevaring mellom toppen (i ro, $h = 2{,}0$ m) og bunnen ($h = 0$), med nullnivå nederst.»"
+    },
+    {
+      "id": "fys1001-2-2-oppg-l2",
+      "type": "exercise",
+      "exercise": {
+        "id": "fys1001-2-2-l2",
+        "number": "3",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "(Sjanger Q — kvalitativ forklaring. Svar i 2–4 setninger.) En medstudent vil finne farten til en pendelkule i det den passerer bunnpunktet, og foreslår å bruke $2as = v^2 - v_0^2$ med $a = g$ og $s$ lik lengden på buen kula har fulgt.\n\nForklar hvorfor dette ikke går, og si hvilken metode som er riktig.",
+        "solution": "Metoden er ugyldig fordi akselerasjonen til pendelkula verken er konstant i størrelse eller retning: den peker langs buen og avtar mot null idet kula passerer bunnpunktet, der bevegelsen er vannrett. Bevegelsesligningene for konstant akselerasjon gjelder derfor ikke.\n\nRiktig metode er **energibevaring** mellom utgangspunktet (der farten er null) og bunnpunktet: $mgh = \\tfrac12 mv^2$, der $h$ er den loddrette høydeforskjellen mellom de to punktene — ikke buelengden.\n\n**Konklusjon:** buelengden er irrelevant; det er høydeforskjellen som bærer regnestykket.",
+        "hints": [
+          "Hva krever $2as = v^2 - v_0^2$ av akselerasjonen?",
+          "Tenk over hvordan akselerasjonen til pendelkula endrer seg fra utgangspunktet til bunnpunktet.",
+          "Hvilken størrelse er det energiregnskapet faktisk trenger — buelengden eller høydeforskjellen?"
+        ]
+      }
+    },
+    {
+      "id": "fys1001-2-2-lokke3",
+      "type": "text",
+      "content": "## Løkke 3: Friksjon som lekkasje i regnskapet *(~12 min)*\n\n— naturlig pausepunkt —\n\nI virkeligheten er ingen bane friksjonsfri. Men friksjonen ødelegger ikke metoden; den legger bare til ett ledd i regnskapet."
+    },
+    {
+      "id": "fys1001-2-2-def-lekkasje",
+      "type": "definition",
+      "title": "Energiregnskap med friksjon",
+      "content": "Friksjonen gjør negativt arbeid $W_R = -Rs$ og tapper systemet for mekanisk energi. Vi flytter dette over på den andre siden og får regnskapet i sin mest brukbare form:\n\n$$E_1 = E_2 + R\\cdot s.$$\n\nI ord: **energien du startet med, er lik energien du har igjen, pluss det friksjonen tok.** Her er $R$ friksjonskraften og $s$ den strekningen legemet faktisk glir *mens friksjonen virker*.\n\nSkriv regnskapet på denne formen, med alle tre leddene positive, så unngår du fortegnsrot. Å sette friksjonsleddet på feil side (eller glemme det) er en av de vanligste feilene i hele Del 2."
+    },
+    {
+      "id": "fys1001-2-2-def-friksjonsledd",
+      "type": "definition",
+      "title": "Hvor stort er friksjonsleddet?",
+      "content": "To måter å finne $R\\cdot s$ på, avhengig av hva oppgaven gir deg:\n\n- **Er friksjonstallet oppgitt:** $R = \\mu N$. På vannrett underlag er $N = mg$, på et skråplan med helning $\\theta$ er $N = mg\\cos\\theta$ (se [kap. 1.3](/bok/fys1001/fys1001-1-3)).\n- **Er farten oppgitt både før og etter:** regn ut energitapet som differansen $E_1 - E_2$, og finn friksjonskraften som $R = (E_1 - E_2)/s$.\n\nMerk at $s$ er strekningen **langs underlaget**, ikke høydeforskjellen. På et skråplan med lengde $L$ og helning $\\theta$ er $s = L$, mens $h = L\\sin\\theta$."
+    },
+    {
+      "id": "fys1001-2-2-ex-kjelke",
+      "type": "example",
+      "title": "Finn energitapet og friksjonskraften",
+      "problem": "En kjelke med barn har samlet masse 45 kg. Kjelken starter fra ro 3,0 m høyt oppe i en bakke og har farten 6,0 m/s når den kommer ned. Bakken er 12 m lang målt langs underlaget.\n\n**a)** Hvor mye mekanisk energi gikk tapt til friksjon?\n**b)** Hvor stor var den gjennomsnittlige friksjonskraften?",
+      "solution": "**Nullnivå:** nederst i bakken.\n\n**a)** Energien øverst (i ro, i høyden 3,0 m):\n\n$$E_1 = mgh = 45\\ \\text{kg}\\cdot 9{,}81\\ \\text{m/s}^2\\cdot 3{,}0\\ \\text{m} = 1324\\ \\text{J}.$$\n\nEnergien nederst (i nullnivået, med fart 6,0 m/s):\n\n$$E_2 = \\tfrac12 mv^2 = \\tfrac12\\cdot 45\\ \\text{kg}\\cdot (6{,}0\\ \\text{m/s})^2 = 810\\ \\text{J}.$$\n\nTapet er differansen:\n\n$$R\\cdot s = E_1 - E_2 = 1324\\ \\text{J} - 810\\ \\text{J} = 514\\ \\text{J}.$$\n\n**Svar a):** $5{,}1\\cdot 10^{2}$ J gikk tapt, i hovedsak som varme i snø og meier.\n\n**b)** Friksjonen virket over hele bakkelengden $s = 12$ m:\n\n$$R = \\frac{R\\cdot s}{s} = \\frac{514\\ \\text{J}}{12\\ \\text{m}} = 42{,}9\\ \\text{N}.$$\n\n**Svar b):** den gjennomsnittlige friksjonskraften var $43$ N.\n\n**Rimelighetsvurdering:** tyngden av kjelke og barn er $mg = 441$ N, så friksjonskraften svarer til et friksjonstall på omtrent $43/441 \\approx 0{,}10$ dersom bakken hadde vært nesten flat. Det er et helt vanlig tall for meier mot snø."
+    },
+    {
+      "id": "fys1001-2-2-oppg-l3",
+      "type": "exercise",
+      "exercise": {
+        "id": "fys1001-2-2-l3",
+        "number": "4",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "(Sjanger C.) En kloss med masse 2,5 kg sklir fra ro ned et **rett** skråplan. Planet er 1,8 m langt og har helningen $30^\\circ$. Friksjonstallet mellom kloss og plan er 0,25.\n\n**a)** Finn høydeforskjellen $h$ og friksjonskraften $R$.\n**b)** Bruk energiregnskapet til å finne farten nederst.\n**c)** Kunne du ha brukt bevegelsesligningene her? Begrunn.",
+        "solution": "**a)** Høydeforskjellen: $h = L\\sin\\theta = 1{,}8\\ \\text{m}\\cdot\\sin 30^\\circ = 0{,}90$ m.\n\nNormalkraften på skråplanet er $N = mg\\cos\\theta = 2{,}5\\ \\text{kg}\\cdot 9{,}81\\ \\text{m/s}^2\\cdot\\cos 30^\\circ = 21{,}2$ N, altså\n\n$$R = \\mu N = 0{,}25\\cdot 21{,}2\\ \\text{N} = 5{,}31\\ \\text{N}.$$\n\n**b)** Nullnivå nederst på planet. Klossen starter i ro:\n\n$$mgh = \\tfrac12 mv^2 + R\\cdot s.$$\n\n$$2{,}5\\cdot 9{,}81\\cdot 0{,}90\\ \\text{J} = \\tfrac12\\cdot 2{,}5\\cdot v^2 + 5{,}31\\ \\text{N}\\cdot 1{,}8\\ \\text{m}$$\n\n$$22{,}1\\ \\text{J} = 1{,}25\\,v^2 + 9{,}56\\ \\text{J} \\quad\\Longrightarrow\\quad v^2 = \\frac{12{,}5\\ \\text{J}}{1{,}25\\ \\text{kg}} = 10{,}0\\ \\text{m}^2/\\text{s}^2.$$\n\n$$v = 3{,}16\\ \\text{m/s}.$$\n\n**Svar b):** farten nederst er $3{,}2$ m/s.\n\n**c)** Ja. Planet er **rett**, og både tyngdekomponenten langs planet og friksjonskraften er konstante, så akselerasjonen er konstant. Da er $2as = v^2 - v_0^2$ fullt gyldig, og begge metodene godtas. Energimetoden er likevel ofte kortest, fordi du slipper å regne ut akselerasjonen først.",
+        "hints": [
+          "Høydeforskjellen finner du med $h = L\\sin\\theta$ — ikke bland den med planlengden.",
+          "På skråplan er normalkraften $N = mg\\cos\\theta$.",
+          "Sett opp $mgh = \\tfrac12 mv^2 + R\\cdot s$ med $s$ lik planlengden, og løs for $v$.",
+          "I c): er akselerasjonen konstant på et rett plan med konstante krefter?"
+        ]
+      }
+    },
+    {
+      "id": "fys1001-2-2-lokke4",
+      "type": "text",
+      "content": "## Løkke 4: Pendelen og snordraget som ikke gjør arbeid *(~10 min)*\n\nPendelen er den mest brukte krumme banen i eksamensarkivet, og den har en fin egenskap: snoren kan holde kula i bane uten å påvirke energiregnskapet i det hele tatt."
+    },
+    {
+      "id": "fys1001-2-2-def-snordrag-null",
+      "type": "definition",
+      "title": "Snordraget gjør ikke arbeid",
+      "content": "Snoren i en pendel trekker alltid **langs snoren**, altså inn mot opphengspunktet. Kula beveger seg langs en sirkelbue, og bevegelsesretningen står da vinkelrett på snoren i hvert eneste punkt.\n\nMed $\\theta = 90^\\circ$ i $W = Fs\\cos\\theta$ blir snordragets arbeid **null**. Derfor holder det å ta med tyngden i energiregnskapet, selv om snordraget er en stor kraft. Nøyaktig samme argument gjelder normalkraften fra en glatt bane: den står vinkelrett på bevegelsen og gjør ikke arbeid."
+    },
+    {
+      "id": "fys1001-2-2-def-pendelhoyde",
+      "type": "definition",
+      "title": "Høydeforskjellen i en pendel",
+      "content": "Henger kula i en snor med lengde $L$ og trekkes ut til snoren danner vinkelen $\\theta$ med loddlinja, er kula løftet\n\n$$h = L(1 - \\cos\\theta)$$\n\nover bunnpunktet. Uttrykket kommer av at den loddrette avstanden fra opphengspunktet ned til kula er $L\\cos\\theta$ i utgangsstillingen og $L$ i bunnpunktet; differansen mellom de to er $L - L\\cos\\theta$.\n\nMed $h$ på plass er resten standard: $v = \\sqrt{2gh}$ i bunnpunktet, når vi ser bort fra luftmotstand."
+    },
+    {
+      "id": "fys1001-2-2-fig-pendel",
+      "type": "image",
+      "src": "/images/textbook/fys1001/fys1001-2-2-pendel.svg",
+      "alt": "Pendel festet i taket. Snoren med lengde L er trukket ut vinkelen theta fra den stiplede loddlinja, og kula har farten null der. I bunnpunktet er farten størst. Høydeforskjellen h mellom de to stillingene er markert med en dobbeltpil til venstre.",
+      "caption": "Pendelen: snordraget peker langs snoren og står dermed vinkelrett på bevegelsen hele veien — det gjør null arbeid. Bare høydeforskjellen $h = L(1-\\cos\\theta)$ inngår i regnskapet."
+    },
+    {
+      "id": "fys1001-2-2-ex-pendel",
+      "type": "example",
+      "title": "Fart i bunnpunktet av en pendel",
+      "problem": "En pendelkule med masse 0,80 kg henger i en snor med lengde 1,2 m. Kula trekkes ut til snoren danner $40^\\circ$ med loddlinja og slippes fra ro.\n\nFinn farten kula har i bunnpunktet. Se bort fra luftmotstand.",
+      "solution": "**Metodevalg først.** Banen er en sirkelbue, altså krum, og akselerasjonen er ikke konstant. Bevegelsesligningene for konstant akselerasjon gjelder derfor ikke — vi bruker energibevaring.\n\n**Høydeforskjellen.**\n\n$$h = L(1 - \\cos\\theta) = 1{,}2\\ \\text{m}\\,(1 - \\cos 40^\\circ) = 1{,}2\\ \\text{m}\\,(1 - 0{,}766) = 0{,}281\\ \\text{m}.$$\n\n**Energiregnskapet.** Nullnivå i bunnpunktet. Kula starter i ro, og snordraget gjør ikke arbeid (det står vinkelrett på bevegelsen hele veien):\n\n$$mgh = \\tfrac12 mv^2 \\quad\\Longrightarrow\\quad v = \\sqrt{2gh} = \\sqrt{2\\cdot 9{,}81\\ \\text{m/s}^2\\cdot 0{,}281\\ \\text{m}}.$$\n\n$$v = \\sqrt{5{,}51\\ \\text{m}^2/\\text{s}^2} = 2{,}35\\ \\text{m/s}.$$\n\n**Svar:** farten i bunnpunktet er $2{,}3$ m/s.\n\n**Rimelighetsvurdering:** kula er løftet under en tredjedels meter, så et par meter i sekundet er akkurat det vi kan vente. Massen på 0,80 kg forkortes bort og trengtes aldri."
+    },
+    {
+      "id": "fys1001-2-2-oppg-l4a",
+      "type": "exercise",
+      "exercise": {
+        "id": "fys1001-2-2-l4a",
+        "number": "5",
+        "type": "classic",
+        "difficulty": "lett",
+        "task": "(Sjanger C.) En huske trekkes bakover slik at setet ligger 0,35 m høyere enn i det laveste punktet, og slippes fra ro.\n\nFinn farten i det laveste punktet. Se bort fra luftmotstand og friksjon i opphenget.",
+        "solution": "Banen er krum, så vi bruker energibevaring. Nullnivå i det laveste punktet, start fra ro:\n\n$$mgh = \\tfrac12 mv^2 \\quad\\Longrightarrow\\quad v = \\sqrt{2gh} = \\sqrt{2\\cdot 9{,}81\\ \\text{m/s}^2\\cdot 0{,}35\\ \\text{m}} = 2{,}62\\ \\text{m/s}.$$\n\n**Svar:** farten er $2{,}6$ m/s. Massen til den som husker, spiller ingen rolle.",
+        "hints": [
+          "Er banen rett eller krum? Det avgjør metoden.",
+          "Legg nullnivået i det laveste punktet.",
+          "Startfarten er null, så du kan bruke $v = \\sqrt{2gh}$ direkte."
+        ]
+      }
+    },
+    {
+      "id": "fys1001-2-2-oppg-l4b",
+      "type": "exercise",
+      "exercise": {
+        "id": "fys1001-2-2-l4b",
+        "number": "6",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "(Sjanger Q — kvalitativ. Svar i 2–4 setninger.) I energiregnskapet for en pendel tar vi bare med tyngden, selv om snordraget er en stor kraft.\n\n**a)** Forklar hvorfor snordraget likevel ikke påvirker regnskapet.\n**b)** Nevn én annen kraft som av samme grunn holdes utenfor energiregnskap.",
+        "solution": "**a)** Snoren trekker alltid langs snoren, inn mot opphengspunktet, mens kula beveger seg langs sirkelbuen. Kraften og forflytningen står dermed vinkelrett på hverandre i hvert punkt, og $W = Fs\\cos 90^\\circ = 0$. Snordraget overfører altså ingen energi til eller fra kula — det gjør bare at banen blir en sirkel.\n\n**b)** Normalkraften fra et glatt underlag. Den står også vinkelrett på bevegelsen og gjør derfor null arbeid.",
+        "hints": [
+          "Hvilken vinkel har snoren med bevegelsesretningen til kula?",
+          "Se på faktoren $\\cos\\theta$ i $W = Fs\\cos\\theta$.",
+          "I b): tenk på hvilke krefter som alltid står vinkelrett på underlaget eller banen."
+        ]
+      }
+    },
+    {
+      "id": "fys1001-2-2-lokke5",
+      "type": "text",
+      "content": "## Løkke 5: Stopplengde og sammensatte forløp *(~11 min)*\n\nDen siste standardanvendelsen: et legeme som glir ut på et vannrett underlag og stopper. Nå bruker vi regnskapet «baklengs» — vi kjenner energien og leter etter strekningen."
+    },
+    {
+      "id": "fys1001-2-2-th-stopplengde",
+      "type": "theorem",
+      "title": "Stopplengde fra energiregnskapet",
+      "content": "Et legeme med fart $v$ glir ut på et vannrett underlag med friksjonstall $\\mu$ og stopper. All kinetisk energi må da tas opp av friksjonen:\n\n$$\\tfrac12 mv^2 = R\\cdot s = \\mu m g s.$$\n\nMassen forkortes bort, og vi får\n\n$$s = \\frac{v^2}{2\\mu g}.$$\n\nTo poenger som går igjen som kvalitative deloppgaver:\n\n- **Stopplengden avhenger ikke av massen.** En tung og en lett kloss med samme fart glir like langt (så lenge friksjonstallet er det samme).\n- **Stopplengden vokser med kvadratet av farten.** Dobbel fart gir fire ganger så lang stopplengde — det samme kvadratloven som i [kap. 1.1](/bok/fys1001/fys1001-1-1).\n\nKommer legemet ned fra en høyde $h$ på en friksjonsfri bane først, kan du slå sammen: $mgh = \\mu mgs$ gir $s = h/\\mu$."
+    },
+    {
+      "id": "fys1001-2-2-ex-pakke",
+      "type": "example",
+      "title": "Hvor langt glir pakken?",
+      "problem": "En pakke sklir ut på et vannrett gulv med farten 4,0 m/s. Friksjonstallet mellom pakke og gulv er 0,35.\n\n**a)** Finn hvor langt pakken glir før den stopper.\n**b)** Hva blir stopplengden hvis en dobbelt så tung pakke kommer inn med samme fart?",
+      "solution": "**a)** All kinetisk energi tas opp av friksjonen. På vannrett underlag er $N = mg$, altså $R = \\mu mg$:\n\n$$\\tfrac12 mv^2 = \\mu m g s.$$\n\nMassen står i begge ledd og forkortes bort:\n\n$$s = \\frac{v^2}{2\\mu g} = \\frac{(4{,}0\\ \\text{m/s})^2}{2\\cdot 0{,}35\\cdot 9{,}81\\ \\text{m/s}^2} = \\frac{16{,}0}{6{,}87}\\ \\text{m} = 2{,}33\\ \\text{m}.$$\n\n**Svar a):** pakken glir $2{,}3$ m.\n\n**b)** **Samme stopplengde, $2{,}3$ m.** Massen forkortes bort i regnskapet: den tyngre pakken har dobbelt så mye kinetisk energi, men også dobbelt så stor friksjonskraft, og de to effektene opphever hverandre nøyaktig.\n\n**Rimelighetsvurdering:** to og en halv meter for en pakke i 4 m/s (14 km/t) på et gulv med middels friksjon er fullt rimelig."
+    },
+    {
+      "id": "fys1001-2-2-oppg-l5a",
+      "type": "exercise",
+      "exercise": {
+        "id": "fys1001-2-2-l5a",
+        "number": "7",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "(Sjanger C.) En kule med masse 0,35 kg starter fra ro 1,6 m over bunnen av en buet, friksjonsfri bane. Nederst går banen over i et vannrett gulv med friksjonstall 0,22.\n\n**a)** Finn farten kula har nederst i banen.\n**b)** Finn hvor langt kula glir bortover gulvet før den stopper.\n**c)** Hva skjer med svaret i b) hvis massen dobles? Begrunn uten ny utregning.",
+        "solution": "**a)** Banen er krum, så vi bruker energibevaring. Nullnivå nederst, start fra ro:\n\n$$v = \\sqrt{2gh} = \\sqrt{2\\cdot 9{,}81\\ \\text{m/s}^2\\cdot 1{,}6\\ \\text{m}} = \\sqrt{31{,}4\\ \\text{m}^2/\\text{s}^2} = 5{,}60\\ \\text{m/s}.$$\n\n**Svar a):** $5{,}6$ m/s.\n\n**b)** All kinetisk energi tas opp av friksjonen på gulvet:\n\n$$\\tfrac12 mv^2 = \\mu mgs \\quad\\Longrightarrow\\quad s = \\frac{v^2}{2\\mu g} = \\frac{31{,}4}{2\\cdot 0{,}22\\cdot 9{,}81}\\ \\text{m} = 7{,}27\\ \\text{m}.$$\n\n**Svar b):** kula glir $7{,}3$ m.\n\n*Snarvei:* siden hele fallhøyden går til friksjonsarbeid, er $mgh = \\mu mgs$, altså $s = h/\\mu = 1{,}6/0{,}22 = 7{,}3$ m — samme svar uten å regne farten først.\n\n**c)** **Ingenting.** Massen forkortes bort i begge trinn: farten nederst er uavhengig av massen, og stopplengden er det også. Den doble massen gir dobbelt så mye energi, men også dobbelt så stor friksjonskraft.",
+        "hints": [
+          "Del forløpet i to: den friksjonsfrie buede banen først, det vannrette gulvet etterpå.",
+          "På den buede banen er metoden energibevaring — hvorfor?",
+          "På gulvet setter du den kinetiske energien lik friksjonsarbeidet $\\mu mgs$.",
+          "I c): står massen igjen i uttrykket for $s$?"
+        ]
+      }
+    },
+    {
+      "id": "fys1001-2-2-oppg-l5b",
+      "type": "exercise",
+      "exercise": {
+        "id": "fys1001-2-2-l5b",
+        "number": "8",
+        "type": "classic",
+        "difficulty": "vanskelig",
+        "task": "(Sjanger C — **krevende**.) En kasse med masse 18 kg dyttes i gang og sklir med farten 3,2 m/s inn på et skråplan som heller $20^\\circ$ oppover. Friksjonstallet mellom kasse og plan er 0,18.\n\n**a)** Sett opp energiregnskapet for turen oppover, og forklar hvorfor friksjonsleddet står på samme side som den kinetiske sluttenergien.\n**b)** Finn hvor langt opp langs planet kassen kommer.",
+        "solution": "**a)** Kassen starter nederst med kinetisk energi og ender i ro et stykke oppe. La $L$ være strekningen langs planet. Da er høydeøkningen $h = L\\sin 20^\\circ$, og friksjonen virker over hele strekningen $L$ med kraften $R = \\mu mg\\cos 20^\\circ$. Med nullnivå ved startpunktet:\n\n$$\\underbrace{\\tfrac12 mv^2}_{E_1} = \\underbrace{mgL\\sin 20^\\circ}_{E_2} + \\underbrace{\\mu mg\\cos 20^\\circ\\cdot L}_{R\\cdot s}.$$\n\nFriksjonsleddet står på **høyre** side fordi regnskapet leses som «det jeg startet med = det jeg sitter igjen med + det friksjonen tok». Friksjonen tar energi ut av systemet, akkurat som løftet i høyden gjør, og begge deler betales av startenergien.\n\n**b)** Massen forkortes bort i alle tre ledd:\n\n$$\\tfrac12 v^2 = gL(\\sin 20^\\circ + \\mu\\cos 20^\\circ).$$\n\n$$L = \\frac{v^2}{2g(\\sin 20^\\circ + \\mu\\cos 20^\\circ)} = \\frac{(3{,}2)^2}{2\\cdot 9{,}81\\,(0{,}342 + 0{,}18\\cdot 0{,}940)}\\ \\text{m}.$$\n\nNevneren: $0{,}342 + 0{,}169 = 0{,}511$, og $2\\cdot 9{,}81\\cdot 0{,}511 = 10{,}0$. Telleren er $10{,}24$:\n\n$$L = \\frac{10{,}24}{10{,}0}\\ \\text{m} = 1{,}02\\ \\text{m}.$$\n\n**Svar b):** kassen kommer $1{,}0$ m opp langs planet.\n\n**Rimelighetsvurdering:** uten friksjon ville den kommet $v^2/(2g\\sin 20^\\circ) = 1{,}5$ m. Friksjonen korter turen med omtrent en tredjedel, som er rimelig med $\\mu = 0{,}18$ på et såpass slakt plan.",
+        "hints": [
+          "Kall strekningen langs planet $L$, og uttrykk både høydeøkningen og friksjonsstrekningen ved $L$.",
+          "På skråplanet er normalkraften $N = mg\\cos\\theta$, så $R = \\mu mg\\cos\\theta$.",
+          "Sett opp $\\tfrac12 mv^2 = mgL\\sin\\theta + \\mu mg\\cos\\theta\\cdot L$ og faktoriser ut $L$.",
+          "Massen skal forkortes bort — sjekk at den gjør det før du setter inn tall."
+        ]
+      }
+    },
+    {
+      "id": "fys1001-2-2-oppg-l5c",
+      "type": "exercise",
+      "exercise": {
+        "id": "fys1001-2-2-l5c",
+        "number": "9",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "(Sjanger Q — kvalitativ. Svar i 2–4 setninger.) To kjelker slippes fra samme høyde i to ulike bakker: den ene er bratt og kort, den andre slak og lang. Begge bakkene er like glatte, og vi ser bort fra friksjon.\n\nHvilken kjelke har størst fart nederst? Begrunn.",
+        "solution": "**De har nøyaktig samme fart nederst.** Energiregnskapet $mgh = \\tfrac12 mv^2$ inneholder bare høydeforskjellen, ikke lengden eller helningen på bakken, og gir $v = \\sqrt{2gh}$ i begge tilfeller.\n\nDet som skiller bakkene, er **tiden**: den bratte bakken gir større akselerasjon, så kjelken der kommer ned raskere — men med samme sluttfart.\n\n**Konklusjon:** ulik vei, ulik tid, samme fart.",
+        "hints": [
+          "Hvilke størrelser inngår faktisk i energiregnskapet?",
+          "Sammenlign uttrykkene for $v$ i de to bakkene.",
+          "Tenk over om spørsmålet «hvor fort» og «hvor lang tid» har samme svar."
+        ]
+      }
+    },
+    {
+      "id": "fys1001-2-2-warn-typiske-feil",
+      "type": "warning",
+      "title": "Typiske feil",
+      "content": "Feilene under er nummerert i forlengelsen av feilkatalogen for Del 1 ([kap. 1.6](/bok/fys1001/fys1001-1-6)) — nummeret er bare en etikett så du kan slå opp feilen igjen senere.\n\n- **Feil #1 — konstant-akselerasjons-kinematikk på krum bane.** Arkivets tydeligst påpekte metodefeil. Buet bane, pendel eller loop: bruk energimetoden, og skriv én setning om hvorfor. Riktig tall redder ikke feil metode.\n- **Glemme friksjonsleddet $R\\cdot s$.** Regnskapet blir da $E_1 = E_2$, og du får for stor sluttfart. Spør alltid: er banen virkelig friksjonsfri, eller står det bare ikke noe om det?\n- **Friksjonsleddet på feil side.** Skriv alltid $E_1 = E_2 + R\\cdot s$ med tre positive ledd, så slipper du fortegnsrot.\n- **Bytte nullnivå midt i regnestykket.** Velg det én gang, skriv hvor det ligger, og hold fast på det.\n- **Blande høydeforskjell og veilengde.** I $E_p = mgh$ skal $h$ inn; i $R\\cdot s$ skal strekningen langs underlaget inn. På et skråplan med lengde $L$: $h = L\\sin\\theta$ og $s = L$.\n- **Bruke $v = \\sqrt{2gh}$ når startfarten ikke er null.** Da må $\\tfrac12 mv_1^2$ med i regnskapet, og resultatet blir $v_2^2 = v_1^2 + 2gh$.\n- **Ta med snordraget eller normalkraften i energiregnskapet.** De står vinkelrett på bevegelsen og gjør null arbeid.\n- **Svar uten enhet.** Koster ett poeng, hver gang."
+    },
+    {
+      "id": "fys1001-2-2-begrepsbank-tekst",
+      "type": "text",
+      "content": "## Begrepsbank\n\nDette er flashcard-/repetisjonsstoff — hopp trygt over ved førstegangslesing; tidsanslaget gjelder kjernestoffet."
+    },
+    {
+      "id": "fys1001-2-2-bb-baneuavhengighet",
+      "type": "definition",
+      "title": "Baneuavhengighet",
+      "content": "Tyngdens arbeid avhenger bare av start- og sluttpunktets høyde, ikke av veien mellom dem. Det er derfor vi kan erstatte hele bevegelsen med to tall — $E_1$ og $E_2$ — og slippe å følge banen.\n\nFriksjonen har ikke denne egenskapen: den tar mer energi jo lengre vei legemet glir. Derfor står friksjonen i regnskapet som et eget ledd $R\\cdot s$ og ikke som en potensiell energi."
+    },
+    {
+      "id": "fys1001-2-2-bb-total-energi",
+      "type": "definition",
+      "title": "Mekanisk energi og total energi",
+      "content": "Den **mekaniske** energien $E = E_k + E_p$ er ikke bevart når friksjonen virker — den lekker ut. Den **totale** energien er alltid bevart: det som forsvinner fra $E$, dukker opp som indre energi (varme) i underlag og legeme.\n\nNår en oppgave spør «hvor ble energien av?», er det dette svaret som forventes: den ble til varme i flatene som gnisser mot hverandre."
+    },
+    {
+      "id": "fys1001-2-2-bb-h-paa-skraaplan",
+      "type": "definition",
+      "title": "Høyden på et skråplan",
+      "content": "Glir et legeme strekningen $L$ langs et plan med helning $\\theta$, er høydeforskjellen\n\n$$h = L\\sin\\theta.$$\n\nVanlig feil: å sette $h = L$. Da får du for stor potensiell energi og dermed for stor fart. Sjekk alltid at $h < L$ — sinus av en vinkel er aldri større enn 1."
+    },
+    {
+      "id": "fys1001-2-2-bb-massefri",
+      "type": "definition",
+      "title": "Når massen forkortes bort",
+      "content": "Massen forsvinner fra svaret i alle disse standardtilfellene, fordi den står som faktor i hvert ledd i regnskapet:\n\n- fart nederst i friksjonsfri bane: $v = \\sqrt{2gh}$;\n- fart i bunnpunktet av en pendel;\n- stopplengde på vannrett underlag: $s = v^2/(2\\mu g)$;\n- akselerasjon ved gliding på vannrett underlag: $a = \\mu g$.\n\nMassen forsvinner **ikke** når oppgaven spør om energi, arbeid eller kraft — der er den avgjørende."
+    },
+    {
+      "id": "fys1001-2-2-bb-idealisering",
+      "type": "definition",
+      "title": "Idealisering: rulling regnet som gliding",
+      "content": "Ruller en kule eller et hjul, går en del av energien til å sette rotasjonen i gang. Rotasjonsenergi er ikke pensum i dette emnet, og oppgavene er formulert slik at du skal se bort fra den.\n\nI praksis betyr det at «en kule triller ned» og «en kloss sklir ned» behandles helt likt i energiregnskapet. Skriv gjerne én setning om at du ser bort fra rotasjonsenergi — det viser at forenklingen er bevisst."
+    },
+    {
+      "id": "fys1001-2-2-bb-luftmotstand",
+      "type": "definition",
+      "title": "Luftmotstand i energiregnskapet",
+      "content": "Luftmotstand er en varierende kraft: den vokser med farten. Derfor kan du aldri bruke bevegelsesligningene for konstant akselerasjon i en oppgave der luftmotstanden er med.\n\nI energiregnskapet håndteres den som friksjon: et tapsledd $F_{\\text{luft}}\\cdot s$ med den *gjennomsnittlige* motstandskraften, eller — enda vanligere i oppgaver — som en oppgitt tapt energimengde."
+    },
+    {
+      "id": "fys1001-2-2-bb-vs-arbeid-energi",
+      "type": "definition",
+      "title": "Energibevaring eller arbeid–energi-setningen?",
+      "content": "De to er nære slektninger, og begge er gyldige:\n\n- **Arbeid–energi-setningen** $W_{\\text{netto}} = \\Delta E_k$ er best når oppgaven oppgir krefter og strekninger direkte, og når det ikke er noen høydeforskjell.\n- **Energibevaring** $E_1 = E_2 + R\\cdot s$ er best når høyder inngår, fordi tyngdens arbeid da er pakket inn i $mgh$ og du slipper å regne det ut for seg.\n\nBruker du begge på samme oppgave, får du samme svar — den ene er en omskrivning av den andre."
+    },
+    {
+      "id": "fys1001-2-2-bb-fart-vs-tid",
+      "type": "definition",
+      "title": "Det energiregnskapet ikke svarer på",
+      "content": "Energiregnskapet gir deg fart, høyde, strekning og energi. Det gir deg **ikke** tiden bevegelsen tar, og heller ikke akselerasjonen underveis.\n\nSpør oppgaven «hvor lang tid …», må du enten bruke kinematikken (hvis akselerasjonen er konstant) eller kombinere med Newtons 2. lov. Det er et vanlig andretrinn i eksamensoppgaver: først fart via energi, deretter tid via kinematikk på det rette partiet."
+    },
+    {
+      "id": "fys1001-2-2-bb-fjaer-i-regnskapet",
+      "type": "definition",
+      "title": "Fjæra i energiregnskapet",
+      "content": "En sammentrykt fjær er bare enda et ledd på venstresida:\n\n$$\\tfrac12 kx^2 + mgh_1 + \\tfrac12 mv_1^2 = mgh_2 + \\tfrac12 mv_2^2 + R\\cdot s.$$\n\nTypisk oppsett: en fjær skyter en kloss oppover et plan, eller en støtdemper tar opp bevegelsesenergien til en vogn. Behandle fjærenergien akkurat som potensiell energi — den er lagret og kan hentes ut igjen."
+    },
+    {
+      "id": "fys1001-2-2-bb-relativt-tap",
+      "type": "definition",
+      "title": "Relativt energitap",
+      "content": "Når en oppgave spør «hvor stor **andel** av energien gikk tapt», regner du\n\n$$\\frac{E_1 - E_2}{E_1},$$\n\naltså tapet delt på det du startet med, og oppgir svaret i prosent. Legg merke til at nevneren er startenergien — å dele på sluttenergien er en klassisk feil som gir et for stort tall.\n\nDenne størrelsen er sentral i støtoppgavene i [kap. 2.3](/bok/fys1001/fys1001-2-3)."
+    },
+    {
+      "id": "fys1001-2-2-bb-gjennomsnittskraft",
+      "type": "definition",
+      "title": "Gjennomsnittlig motstandskraft",
+      "content": "Er motstandskraften ikke konstant (luftmotstand, vann, sand), kan du likevel bruke energiregnskapet — men da finner du en **gjennomsnittlig** kraft:\n\n$$\\bar{F} = \\frac{E_1 - E_2}{s}.$$\n\nSvaret skal presenteres som nettopp det: «den gjennomsnittlige motstandskraften over strekningen var … N». Å kalle den «friksjonskraften» uten forbehold er unøyaktig når kraften varierer."
+    },
+    {
+      "id": "fys1001-2-2-bb-energidiagram",
+      "type": "definition",
+      "title": "Energidiagram",
+      "content": "Et energidiagram er to eller tre søyler som viser hvordan den samme totale energien er fordelt på $E_p$, $E_k$ og tap, i utvalgte punkter av bevegelsen. Søylene er like høye i alle punkter når det ikke er friksjon; med friksjon vokser tapssøylen mens de to andre til sammen krymper.\n\nDiagrammet er et raskt kontrollverktøy: summerer søylene dine til noe annet enn startenergien, har du mistet et ledd."
+    },
+    {
+      "id": "fys1001-2-2-bb-vis-at",
+      "type": "definition",
+      "title": "«Vis at»-oppgaver i energiregnskapet",
+      "content": "Ber oppgaven deg «vise at $v = \\sqrt{2gh}$» eller «vise at farten er uavhengig av massen», er det utledningen som gir poeng — ikke tallet.\n\nOppskriften: skriv opp regnskapet med symboler, si hvilke ledd som er null og hvorfor, forkort bort det som forkortes, og avslutt med en setning om hva resultatet betyr («farten avhenger bare av høydeforskjellen, ikke av massen eller banens form»). Sett aldri inn tall før utledningen er ferdig."
+    },
+    {
+      "id": "fys1001-2-2-rep",
+      "type": "collapsible",
+      "title": "Rask repetisjon",
+      "buttonText": "Vis repetisjon",
+      "content": [
+        {
+          "id": "fys1001-2-2-rep-text",
+          "type": "text",
+          "content": "## Rask repetisjon av kapittel 2.2\n\n**Regnskapet**\n\n$$E_1 = E_2 + R\\cdot s, \\qquad E = \\tfrac12 mv^2 + mgh$$\n\nUten friksjon faller det siste leddet bort: $E_1 = E_2$.\n\n**Standardresultater**\n\n$$v = \\sqrt{2gh} \\quad (\\text{fra ro, friksjonsfritt}), \\qquad s = \\frac{v^2}{2\\mu g} \\quad (\\text{stopplengde}), \\qquad s = \\frac{h}{\\mu} \\quad (\\text{ned og ut})$$\n\n**Metoderegel I**\n\nKrum bane eller varierende kraft → **energimetoden**. Rett bane med konstante krefter → begge metodene gyldige. Skriv alltid én setning om hvorfor du valgte som du gjorde.\n\n**Fire kontrollspørsmål før du setter inn tall**\n\n1. Hvor ligger nullnivået — og står det i besvarelsen?\n2. Er startfarten virkelig null?\n3. Er $h$ høydeforskjellen (ikke veilengden), og er $s$ strekningen langs underlaget?\n4. Forkortes massen bort — og hvis ikke, hvorfor ikke?"
+        }
+      ]
+    },
+    {
+      "id": "fys1001-2-2-symbolliste",
+      "type": "collapsible",
+      "title": "Symbol- og formelliste",
+      "buttonText": "Vis symboler og formler",
+      "content": [
+        {
+          "id": "fys1001-2-2-symbolliste-text",
+          "type": "text",
+          "content": "## Symbol- og formelliste\n\n*Oppslagsverk — alt her forklares underveis i kapitlet.*\n\nAlle symboler og formler i delkapittel 2.2. I **dette** delkapitlet betyr $E$ alltid **energi** (i Del 5 brukes bokstaven om elektrisk feltstyrke), og $R$ betyr alltid **friksjonskraft** (i kretskapitlene betyr $R$ resistans).\n\n| Symbol | Betydning | SI-enhet |\n|---|---|---|\n| $E$ | Mekanisk energi, $E = E_k + E_p$ | J |\n| $E_1$, $E_2$ | Mekanisk energi i valgt punkt 1 og punkt 2 | J |\n| $E_k$ | Kinetisk energi | J |\n| $E_p$ | Potensiell energi i tyngdefeltet | J |\n| $m$ | Masse | kg |\n| $v$, $v_1$, $v_2$ | Fart, i punkt 1 og punkt 2 | m/s |\n| $h$ | Loddrett høyde over valgt nullnivå | m |\n| $g$ | Tyngdeakselerasjonen, $9{,}81$ | $\\text{m/s}^2$ |\n| $R = \\mu N$ | **Friksjonskraft** i dette delkapitlet | N |\n| $\\mu$ | Friksjonstall | enhetsløst |\n| $N$ | Normalkraft fra underlaget | N |\n| $s$ | Strekning langs underlaget der friksjonen virker | m |\n| $L$ | Lengde av skråplan, eller snorlengde i pendel | m |\n| $\\theta$ | Helningsvinkel, eller pendelens utslagsvinkel fra loddlinja | grader |\n| $W$ | Arbeid | J |\n| $a$ | Akselerasjon | $\\text{m/s}^2$ |\n\n**Formler i dette delkapitlet:**\n\n$$E_1 = E_2 \\qquad\\text{(uten friksjon)}$$\nEnergibevaring. *(oppstillingen må du kunne sette opp aktivt; energiformene under står på formelarket)*\n\n$$E_1 = E_2 + R\\cdot s$$\nEnergiregnskap med friksjon som lekkasje. *(må kunne settes opp aktivt — står ikke ferdig på formelarket)*\n\n$$E_k = \\tfrac12 mv^2, \\qquad E_p = mgh$$\nEnergiformene. *(står på formelarket — må kunne brukes aktivt)*\n\n$$v = \\sqrt{2gh}$$\nFart etter fritt fall eller friksjonsfri glidning fra ro. *(følger av regnskapet — må kunne brukes aktivt)*\n\n$$v_2^2 = v_1^2 + 2gh$$\nSamme regnskap når startfarten ikke er null. *(må kunne brukes aktivt)*\n\n$$h = L\\sin\\theta$$\nHøydeforskjell over et skråplan med lengde $L$. *(geometri — må kunne brukes aktivt)*\n\n$$h = L(1 - \\cos\\theta)$$\nHøydeforskjell for en pendel med snorlengde $L$ og utslagsvinkel $\\theta$. *(geometri — må kunne brukes aktivt)*\n\n$$s = \\frac{v^2}{2\\mu g}$$\nStopplengde på vannrett underlag. *(følger av regnskapet — må kunne brukes aktivt)*\n\n$$R = \\mu N, \\qquad N = mg\\cos\\theta \\ \\text{(skråplan)}, \\qquad N = mg \\ \\text{(vannrett)}$$\nFriksjonskraften. *(står på formelarket — må kunne brukes aktivt)*\n\n$$W = Fs\\cos\\theta$$\nArbeidet til en konstant kraft; gir $W = 0$ for snordrag og normalkraft. *(står på formelarket)*\n\n$$g = 9{,}81\\ \\text{m/s}^2$$\nTyngdeakselerasjonen ved jordoverflaten. *(hentes fra formelark/tabell)*"
+        }
+      ]
+    }
+  ],
+  "exercises": []
+}

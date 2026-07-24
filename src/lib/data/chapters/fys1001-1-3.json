@@ -1,0 +1,409 @@
+{
+  "id": "fys1001-1-3",
+  "courseId": "fys1001",
+  "chapterNumber": "1.3",
+  "title": "Friksjon, skråplan og bremsing",
+  "description": "Sjanger C i full bredde: friksjonskraften, dekomponering på skråplan, sklivilkåret og bremseoppgavene som går igjen hvert år.",
+  "estimatedMinutes": 55,
+  "competenceGoals": [
+    "regne ut friksjonskraften fra normalkraften og friksjonstallet, og skille hvilefriksjon fra glidefriksjon",
+    "dekomponere tyngden langs og normalt på et skråplan og sette opp bevegelsesligningen for begge bevegelsesretninger",
+    "avgjøre om et legeme blir liggende på et skråplan, og begrunne hvorfor svaret ikke avhenger av massen",
+    "finne bremselengde og retardasjon fra friksjonstallet, og forklare hvorfor friksjon også kan være drivkraft"
+  ],
+  "content": [
+    {
+      "id": "fys1001-1-3-tip-eksamensvinkel",
+      "type": "tip",
+      "title": "Eksamensvinkel",
+      "content": "**Høyeste prioritet — sjanger C forekommer i praksis i alle 36 avsluttende eksamenssett i en eller annen form.**\n\n**Sjanger C** er bokas navn på skråplan-, bremse- og Newton-oppgavene, og dette kapitlet er sjangeren i full bredde. Innpakningen varierer fra år til år — sykkel med luftmotstand, kloss på skråplan, bremsende bil, kasse som skyves opp en rampe — men oppskriften er alltid den samme: frilegemediagram, dekomponering langs og normalt på planet, $R = \\mu N$, og deretter $\\Sigma F = ma$.\n\nDen ene feilen som koster mest her, er å skrive $N = mg$ på et skråplan. På skråplan er $N = mg\\cos\\theta$, og bommer du på den, blir friksjonskraften gal og hele oppgaven følger med. Den andre er å sette friksjonen i feil retning når bevegelsesretningen snur — derfor tegner vi diagrammet på nytt for hver fase."
+    },
+    {
+      "id": "fys1001-1-3-forkunnskaper",
+      "type": "text",
+      "content": "**Forkunnskaper — dette bygger kapitlet på:**\n\n- [kap. 1.1](/bok/fys1001/fys1001-1-1) — bevegelsesligningene for konstant akselerasjon. Når friksjonstallet er konstant, er akselerasjonen konstant, og du kan gå rett fra kraft til bremselengde.\n- [kap. 1.2](/bok/fys1001/fys1001-1-2) — frilegemediagrammet, normalkraften $N$, snordraget $S$ og Newtons 2. lov komponentvis. Hele dette kapitlet er den rutinen brukt på skrå underlag.\n- [Trigonometri i rettvinklede trekanter](/bok/1t/1t-5-4) — $\\sin\\theta$ og $\\cos\\theta$. Du skal kunne se i en figur hvilken av dem som hører til hvilken komposant, ikke pugge det."
+    },
+    {
+      "id": "fys1001-1-3-intro",
+      "type": "text",
+      "content": "## Hverdagsankeret: hvorfor bilen stopper senere på isen\n\nBremselengden din avhenger nesten ikke av bilen — den avhenger av kontakten mellom dekk og vei. På tørr asfalt kan friksjonstallet være rundt 0,8; på våt asfalt kanskje 0,5; på is under 0,2. Fire ganger så lang bremselengde på is som på tørr asfalt, med akkurat samme bil og samme sjåfør.\n\nDet er friksjon dette kapitlet handler om: hvor stor den er, hvilken vei den peker, og hvordan den kombineres med tyngden når underlaget heller.\n\n*Kapitlet er delt i seks korte løkker med tidsanslag. Naturlig pausepunkt etter løkke 3.*"
+    },
+    {
+      "id": "fys1001-1-3-lokke1",
+      "type": "text",
+      "content": "## Løkke 1 — Friksjonskraften og friksjonstallet (~9 min)"
+    },
+    {
+      "id": "fys1001-1-3-def-friksjon",
+      "type": "definition",
+      "title": "Friksjonskraften $R = \\mu N$",
+      "content": "Kraften langs berøringsflaten som motsetter seg glidning. Når legemet **glir**, er størrelsen\n\n$$R = \\mu N,$$\n\nder $N$ er normalkraften mellom flatene og $\\mu$ er friksjonstallet. Retningen er alltid **motsatt av bevegelsen**.\n\nLegg merke til hva formelen *ikke* inneholder: kontaktflatens størrelse og legemets fart. En bred kloss og en smal kloss av samme masse har samme friksjonskraft mot samme underlag. Legg også merke til at $R$ avhenger av $N$, ikke direkte av $mg$ — og på skråplan er de to forskjellige."
+    },
+    {
+      "id": "fys1001-1-3-def-friksjonstall",
+      "type": "definition",
+      "title": "Friksjonstallet $\\mu$",
+      "content": "Det dimensjonsløse tallet som beskriver hvor «ru» kontakten mellom to flater er:\n\n$$\\mu = \\frac{R}{N}.$$\n\nFordi både $R$ og $N$ måles i newton, har $\\mu$ **ingen enhet**. Typiske verdier: stål mot stål med olje rundt 0,05; tre mot tre rundt 0,4; gummi mot tørr asfalt 0,7–0,9; ski mot snø 0,05–0,1. Verdiene hentes fra tabell eller oppgis i oppgaven — de skal ikke pugges.\n\nFriksjonstallet hører til **paret av flater**, ikke til det ene legemet. «Friksjonstallet til gummi» er en meningsløs opplysning; «friksjonstallet mellom gummi og våt asfalt» er meningsfullt."
+    },
+    {
+      "id": "fys1001-1-3-def-hvilefriksjon",
+      "type": "definition",
+      "title": "Hvilefriksjon",
+      "content": "Friksjonen som virker mens legemet fortsatt står **i ro**. Den er ikke gitt av $\\mu N$ — den **tilpasser seg** akkurat den kraften som trengs for å holde legemet i ro, opp til en øvre grense:\n\n$$R \\le R_{\\text{maks}} = \\mu_s N.$$\n\nDytter du på et tungt skap med 100 N uten at det flytter seg, er hvilefriksjonen nøyaktig 100 N. Dytter du med 200 N og det fortsatt står, er den 200 N. Først når du overstiger $R_{\\text{maks}}$, løsner skapet.\n\nKonsekvensen for oppgaveløsning: i statiske oppgaver **regner du aldri** $R = \\mu N$ først — du finner $R$ fra kraftbalansen, og bruker $\\mu N$ bare som grensesjekk."
+    },
+    {
+      "id": "fys1001-1-3-def-glidefriksjon",
+      "type": "definition",
+      "title": "Glidefriksjon",
+      "content": "Friksjonen når legemet faktisk glir, $R = \\mu N$ med glidefriksjonstallet $\\mu$. Den er i praksis konstant, uavhengig av farten, og litt **mindre** enn den maksimale hvilefriksjonen ($\\mu < \\mu_s$).\n\nAt $\\mu_s > \\mu$ er hele forklaringen på to hverdagsfenomener: det er tyngre å få et skap i gang enn å holde det i bevegelse, og en bil bremser kortere når dekkene *ruller* på grensen av å slippe enn når de er låst og skrenser. Det siste er grunnen til at blokkeringsfrie bremser (ABS) virker: de holder dekket i hvilefriksjonsområdet i stedet for å låse hjulet.\n\nI FYS1001-oppgaver oppgis oftest bare ett friksjonstall, og da bruker du det både i statiske og glidende tilfeller — men si i så fall at du gjør det."
+    },
+    {
+      "id": "fys1001-1-3-fig-friksjonsgraf",
+      "type": "image",
+      "src": "/images/textbook/fys1001/fys1001-1-3-friksjonsgraf.svg",
+      "alt": "Graf med påført kraft langs førsteaksen og friksjonskraft langs andreaksen. Kurven stiger rett med stigningstall 1 opp til et maksimalpunkt merket R maks, der legemet begynner å gli, og fortsetter deretter tilnærmet vannrett på et litt lavere nivå merket glidefriksjon lik my ganger N.",
+      "caption": "Hvilefriksjonen vokser med den påførte kraften (den *tilpasser seg*), helt til grensen $R_{\\text{maks}}$ er nådd. Etter at legemet har løsnet, er friksjonen konstant $R = \\mu N$ — og litt mindre enn grenseverdien."
+    },
+    {
+      "id": "fys1001-1-3-ex1",
+      "type": "example",
+      "title": "Eksempel 1: Hvor hardt må du dytte?",
+      "problem": "En kloss med masse 8,0 kg står på et vannrett gulv. Friksjonstallet mellom kloss og gulv er 0,35. Hvor stor vannrett kraft trengs for å skyve klossen bortover med konstant fart?",
+      "solution": "**Frilegemediagram:** tyngden $G = mg$ nedover, normalkraften $N$ oppover, skyvekraften $F$ forover og friksjonen $R$ bakover.\n\n**Loddrett ligning.** Klossen løftes ikke, og ingen andre loddrette krefter virker, så\n\n$$N = mg = 8{,}0\\ \\text{kg} \\cdot 9{,}81\\ \\text{m/s}^2 = 78{,}5\\ \\text{N}.$$\n\n**Friksjonskraften:**\n\n$$R = \\mu N = 0{,}35 \\cdot 78{,}5\\ \\text{N} = 27{,}5\\ \\text{N}.$$\n\n**Vannrett ligning.** Konstant fart betyr $\\Sigma F_x = 0$:\n\n$$F = R = 27{,}5\\ \\text{N}.$$\n\n**Konklusjon:** Det trengs en vannrett kraft på $27{,}5\\ \\text{N}$ for å holde klossen i jevn bevegelse.\n\n**Rimelighetssjekk:** Kraften er 35 % av tyngden — akkurat friksjonstallet, som den skal være når underlaget er vannrett."
+    },
+    {
+      "id": "fys1001-1-3-o-o1",
+      "type": "exercise",
+      "exercise": {
+        "id": "fys1001-1-3-ex-o1",
+        "number": "1",
+        "type": "classic",
+        "difficulty": "lett",
+        "task": "(Innstegsoppgave.) En kasse med masse $12$ kg står på et vannrett betonggulv. Friksjonstallet er $0{,}45$.\n\n**a)** Finn normalkraften.\n\n**b)** Finn friksjonskraften når kassen skyves med konstant fart.\n\n**c)** Du dytter på kassen med $40$ N, og den står helt stille. Hvor stor er friksjonskraften da?",
+        "solution": "**a)** Vannrett gulv, ingen andre loddrette krefter:\n\n$$N = mg = 12\\ \\text{kg} \\cdot 9{,}81\\ \\text{m/s}^2 = 118\\ \\text{N}.$$\n\n**b)** $$R = \\mu N = 0{,}45 \\cdot 118\\ \\text{N} = 53\\ \\text{N}.$$\n\n**c)** $53$ N er *maksimalverdien*. Står kassen stille mens du dytter med 40 N, er hvilefriksjonen nøyaktig $40\\ \\text{N}$ — like stor som dytten og motsatt rettet, siden $\\Sigma F = 0$. Den tilpasser seg, og du har ikke nådd grensen ennå.\n\n**Konklusjon:** $N = 118\\ \\text{N}$, glidefriksjonen er $53\\ \\text{N}$, og hvilefriksjonen ved 40 N dytt er $40\\ \\text{N}$.",
+        "hints": [
+          "På vannrett underlag uten andre loddrette krefter er $N = mg$.",
+          "I c): hva sier Newtons 1. lov når kassen står stille?"
+        ]
+      }
+    },
+    {
+      "id": "fys1001-1-3-lokke2",
+      "type": "text",
+      "content": "## Løkke 2 — Bremsing på vannrett vei (~9 min)"
+    },
+    {
+      "id": "fys1001-1-3-def-retardasjon-friksjon",
+      "type": "definition",
+      "title": "Retardasjon ved bremsing: $a = \\mu g$",
+      "content": "Bremser et legeme på vannrett underlag, er friksjonen den eneste vannrette kraften. Da gir Newtons 2. lov\n\n$$\\Sigma F_x = -R = -\\mu N = -\\mu mg = ma \\ \\Rightarrow\\ a = -\\mu g.$$\n\nMassen faller ut. **Retardasjonen ved bremsing avhenger ikke av massen** — bare av friksjonstallet og $g$. En lastebil og en personbil med samme dekk og samme underlag har i prinsippet samme bremselengde.\n\nDette er et yndet kvalitativt spørsmål, og svaret krever nettopp utregningen over: massen står i både kraften ($\\mu mg$) og tregheten ($ma$), og forkortes bort."
+    },
+    {
+      "id": "fys1001-1-3-def-bremselengde-friksjon",
+      "type": "definition",
+      "title": "Bremselengde med friksjonstall",
+      "content": "Kombinerer du $a = -\\mu g$ med den tidløse ligningen fra [kap. 1.1](/bok/fys1001/fys1001-1-1), får du bremselengden direkte fra farten og friksjonstallet:\n\n$$s = \\frac{v_0^2}{2\\mu g}.$$\n\nFormelen inneholder alt det viktige: bremselengden vokser med **kvadratet** av farten, og den er omvendt proporsjonal med friksjonstallet. Halveres $\\mu$ (våt asfalt i stedet for tørr), dobles bremselengden. Denne formelen brukes også baklengs — fra målt bremsespor tilbake til farten før bremsingen — og det er nettopp den regningen «havarikommisjon»-oppgavene bygger på ([kap. 2.4](/bok/fys1001/fys1001-2-4))."
+    },
+    {
+      "id": "fys1001-1-3-ex2",
+      "type": "example",
+      "title": "Eksempel 2: Bremselengde på tørr og våt asfalt",
+      "problem": "En bil kjører i 20 m/s (72 km/t). Friksjonstallet mellom dekk og tørr asfalt er 0,70.\n\n**a)** Finn retardasjonen og bremselengden.\n\n**b)** Hva blir bremselengden hvis veien er våt, med $\\mu = 0{,}35$?",
+      "solution": "**a)** Retardasjonen:\n\n$$|a| = \\mu g = 0{,}70 \\cdot 9{,}81\\ \\text{m/s}^2 = 6{,}87\\ \\text{m/s}^2.$$\n\nBremselengden:\n\n$$s = \\frac{v_0^2}{2\\mu g} = \\frac{(20\\ \\text{m/s})^2}{2 \\cdot 6{,}87\\ \\text{m/s}^2} = 29{,}1\\ \\text{m}.$$\n\n**b)** Halvert friksjonstall gir halvert retardasjon, $|a| = 3{,}43\\ \\text{m/s}^2$, og dermed dobbelt bremselengde:\n\n$$s = \\frac{(20\\ \\text{m/s})^2}{2 \\cdot 3{,}43\\ \\text{m/s}^2} = 58{,}3\\ \\text{m}.$$\n\n**Konklusjon:** På tørr asfalt er bremselengden $29\\ \\text{m}$, på våt $58\\ \\text{m}$ — dobbelt så langt ved samme fart.\n\n**Rimelighetsvurdering:** Retardasjonen på tørr asfalt er om lag $0{,}7g$, som stemmer godt med det biltester måler. At bremselengden dobles når friksjonstallet halveres, følger direkte av at $\\mu$ står i nevneren."
+    },
+    {
+      "id": "fys1001-1-3-o-o2",
+      "type": "exercise",
+      "exercise": {
+        "id": "fys1001-1-3-ex-o2",
+        "number": "2",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "(Sjanger C.) En syklist med sykkel har samlet masse $78$ kg og kjører i $30$ km/t. Hun bremser på flat vei der friksjonstallet er $0{,}55$.\n\n**a)** Finn retardasjonen.\n\n**b)** Finn bremselengden.\n\n**c)** Hvor lang blir bremselengden i $60$ km/t? Svar først uten å regne, og kontroller deretter.\n\n**d)** Hvorfor trengte du ikke massen på $78$ kg noe sted?",
+        "solution": "**a)** $$|a| = \\mu g = 0{,}55 \\cdot 9{,}81\\ \\text{m/s}^2 = 5{,}40\\ \\text{m/s}^2.$$\n\n**b)** Farten omregnet: $30 : 3{,}6 = 8{,}33\\ \\text{m/s}$.\n\n$$s = \\frac{v_0^2}{2|a|} = \\frac{(8{,}33\\ \\text{m/s})^2}{2 \\cdot 5{,}40\\ \\text{m/s}^2} = 6{,}4\\ \\text{m}.$$\n\n**c)** Dobbel fart gir firedobbel bremselengde, altså om lag $26\\ \\text{m}$. Kontroll: $60 : 3{,}6 = 16{,}7\\ \\text{m/s}$, og\n\n$$s = \\frac{(16{,}7\\ \\text{m/s})^2}{2 \\cdot 5{,}40\\ \\text{m/s}^2} = 25{,}7\\ \\text{m}.$$\n\n**d)** Fordi massen forkortes bort: friksjonskraften er $\\mu mg$ og tregheten er $ma$, slik at $a = -\\mu g$. Retardasjonen — og dermed bremselengden — avhenger bare av friksjonstallet og $g$, ikke av hvor tung syklisten er.\n\n**Konklusjon:** Retardasjonen er $5{,}40\\ \\text{m/s}^2$, bremselengden $6{,}4\\ \\text{m}$ ved 30 km/t og $25{,}7\\ \\text{m}$ ved 60 km/t.",
+        "hints": [
+          "Sett opp Newtons 2. lov langs veien med friksjonen som eneste kraft.",
+          "I c): bruk at bremselengden er proporsjonal med kvadratet av farten.",
+          "I d): skriv opp både kraften og tregheten med masse i, og se hva som skjer."
+        ]
+      }
+    },
+    {
+      "id": "fys1001-1-3-lokke3",
+      "type": "text",
+      "content": "## Løkke 3 — Skråplanet: dekomponering (~13 min)\n\nNå heller underlaget. Alt du trenger, er to nye uttrykk — og et aksevalg som gjør resten enkelt."
+    },
+    {
+      "id": "fys1001-1-3-def-aksevalg-skraplan",
+      "type": "definition",
+      "title": "Aksevalg på skråplan",
+      "content": "På et skråplan velger vi aksene **langs planet** og **normalt på planet** — aldri vannrett og loddrett. Grunnen er at bevegelsen skjer langs planet, så akselerasjonen normalt på planet er null, og den ligningen gir deg normalkraften gratis.\n\nPrisen er at tyngden, som peker rett ned, må dekomponeres i de nye retningene. Det er hele regnearbeidet i et skråplanproblem — og det gjøres én gang for alle i de to neste definisjonene."
+    },
+    {
+      "id": "fys1001-1-3-def-N-skraplan",
+      "type": "definition",
+      "title": "Normalkraften på skråplan: $N = mg\\cos\\theta$",
+      "content": "Med aksene langs og normalt på et plan som heller vinkelen $\\theta$, er komposanten av tyngden **inn i planet** lik $mg\\cos\\theta$. Legemet trykkes ikke gjennom planet, så\n\n$$N = mg\\cos\\theta.$$\n\nNormalkraften er altså **mindre** enn tyngden, og desto mindre jo brattere planet er. Ved $\\theta = 0$ (vannrett) blir $N = mg$, og ved $\\theta = 90^\\circ$ (loddrett vegg) blir $N = 0$ — legemet berører ikke lenger underlaget.\n\nKonsekvensen for friksjonen er viktig: $R = \\mu N = \\mu mg\\cos\\theta$, ikke $\\mu mg$. **Å skrive $N = mg$ på skråplan er den hyppigst påpekte feilen i denne sjangeren.**"
+    },
+    {
+      "id": "fys1001-1-3-def-Gpar",
+      "type": "definition",
+      "title": "Tyngdens komposant langs planet: $mg\\sin\\theta$",
+      "content": "Komposanten av tyngden **langs planet, nedover**, er\n\n$$G_{\\parallel} = mg\\sin\\theta.$$\n\nDette er kraften som driver legemet nedover skråplanet. Sammen med friksjonen langs planet bestemmer den bevegelsen.\n\nSjekk alltid komposantene mot ytterpunktene: ved $\\theta = 0$ er $mg\\sin\\theta = 0$ (ingen drivkraft på flat mark), og ved $\\theta = 90^\\circ$ er $mg\\sin 90^\\circ = mg$ (fritt fall langs en loddrett vegg). Blander du $\\sin$ og $\\cos$, faller du på denne testen umiddelbart — det er den raskeste selvkontrollen du har."
+    },
+    {
+      "id": "fys1001-1-3-fig-skraplan",
+      "type": "image",
+      "src": "/images/textbook/fys1001/fys1001-1-3-skraplan.svg",
+      "alt": "Frilegemediagram for en kloss på et skråplan som heller vinkelen theta: tyngden G lik mg peker rett nedover, normalkraften N peker vinkelrett ut fra planet, friksjonskraften R lik my ganger N peker oppover langs planet fordi klossen sklir nedover, og tyngden er dekomponert i mg sin theta langs planet og mg cos theta normalt på planet.",
+      "caption": "Skråplanet med aksene lagt langs og normalt på planet. Klossen sklir nedover, så friksjonen peker oppover langs planet. De stiplede pilene er tyngdens to komposanter."
+    },
+    {
+      "id": "fys1001-1-3-def-bevegelsesligning-skraplan",
+      "type": "definition",
+      "title": "Bevegelsesligningen langs planet",
+      "content": "Setter du sammen komposantene, får du hele skråplanfysikken i én ligning. For et legeme som **sklir nedover** (friksjonen peker oppover langs planet), med positiv retning nedover langs planet:\n\n$$mg\\sin\\theta - \\mu mg\\cos\\theta = ma \\ \\Rightarrow\\ a = g(\\sin\\theta - \\mu\\cos\\theta).$$\n\nFor et legeme som er i bevegelse **oppover** (friksjonen peker nedover langs planet, sammen med tyngdekomposanten), med positiv retning oppover:\n\n$$-mg\\sin\\theta - \\mu mg\\cos\\theta = ma \\ \\Rightarrow\\ a = -g(\\sin\\theta + \\mu\\cos\\theta).$$\n\nMassen faller ut i begge tilfeller. Legg merke til fortegnet i parentesen: **minus når legemet går ned, pluss når det går opp** — fordi friksjonen alltid virker mot bevegelsen. Det er derfor du må tegne et nytt frilegemediagram når bevegelsesretningen snur."
+    },
+    {
+      "id": "fys1001-1-3-ex3",
+      "type": "example",
+      "title": "Eksempel 3: Kloss som sklir ned en rampe",
+      "problem": "En kloss med masse 15 kg sklir nedover en rampe som heller $22^\\circ$. Friksjonstallet mellom kloss og rampe er 0,25. Finn normalkraften, friksjonskraften og akselerasjonen.",
+      "solution": "**Frilegemediagram** (figuren over), med aksene langs og normalt på planet. Positiv retning: nedover langs planet.\n\n**Normalt på planet** er akselerasjonen null:\n\n$$N = mg\\cos\\theta = 15\\ \\text{kg} \\cdot 9{,}81\\ \\text{m/s}^2 \\cdot \\cos 22^\\circ = 147{,}2\\ \\text{N} \\cdot 0{,}9272 = 136\\ \\text{N}.$$\n\n**Friksjonskraften** (klossen glir, så $R = \\mu N$):\n\n$$R = 0{,}25 \\cdot 136\\ \\text{N} = 34{,}1\\ \\text{N},$$\n\nrettet oppover langs planet, siden bevegelsen er nedover.\n\n**Langs planet**, med tyngdekomposanten $mg\\sin\\theta = 147{,}2\\ \\text{N} \\cdot 0{,}3746 = 55{,}1\\ \\text{N}$:\n\n$$\\Sigma F = mg\\sin\\theta - R = 55{,}1\\ \\text{N} - 34{,}1\\ \\text{N} = 21{,}0\\ \\text{N},$$\n\n$$a = \\frac{\\Sigma F}{m} = \\frac{21{,}0\\ \\text{N}}{15\\ \\text{kg}} = 1{,}40\\ \\text{m/s}^2.$$\n\n**Konklusjon:** $N = 136\\ \\text{N}$, $R = 34\\ \\text{N}$, og klossen akselererer $1{,}40\\ \\text{m/s}^2$ nedover langs planet.\n\n**Rimelighetsvurdering:** Akselerasjonen er langt mindre enn $g$ — som den må være, både fordi planet ikke er bratt og fordi friksjonen tar en stor del av drivkraften. Hadde vi (feilaktig) satt $N = mg$, ville friksjonen blitt $36{,}8$ N og svaret $1{,}22\\ \\text{m/s}^2$: 13 % feil, og feil metode."
+    },
+    {
+      "id": "fys1001-1-3-o-o3",
+      "type": "exercise",
+      "exercise": {
+        "id": "fys1001-1-3-ex-o3",
+        "number": "3",
+        "type": "classic",
+        "difficulty": "vanskelig",
+        "task": "(Krevende — sjanger C med to faser og figurkrav.) En kasse med masse $20$ kg skyves opp et skråplan som heller $28^\\circ$, og slippes så mens den fortsatt er i bevegelse oppover. Friksjonstallet er $0{,}35$ i begge faser.\n\n**a)** Tegn frilegemediagram for fase 1 (kassen er i bevegelse oppover, etter at hånden er sluppet) og finn retardasjonen.\n\n**b)** Etter at kassen har stoppet: blir den liggende, eller sklir den ned igjen? Begrunn med en beregning.\n\n**c)** Tegn frilegemediagram for fase 2 og finn akselerasjonen nedover, hvis den sklir.",
+        "solution": "**Felles størrelser.** Tyngden er $G = mg = 20\\ \\text{kg} \\cdot 9{,}81\\ \\text{m/s}^2 = 196\\ \\text{N}$, og\n\n$$N = mg\\cos 28^\\circ = 196\\ \\text{N} \\cdot 0{,}8829 = 173\\ \\text{N}, \\qquad mg\\sin 28^\\circ = 196\\ \\text{N} \\cdot 0{,}4695 = 92{,}1\\ \\text{N}.$$\n\nFriksjonskraften har samme størrelse i begge faser: $R = \\mu N = 0{,}35 \\cdot 173\\ \\text{N} = 60{,}6\\ \\text{N}$. Det er bare **retningen** som skifter.\n\n**a) Fase 1 — kassen beveger seg oppover.** Diagram: $G$ rett ned, $N$ ut fra planet, $R$ **nedover** langs planet (mot bevegelsen). Med positiv retning oppover langs planet:\n\n$$\\Sigma F = -mg\\sin\\theta - R = -92{,}1\\ \\text{N} - 60{,}6\\ \\text{N} = -152{,}7\\ \\text{N},$$\n\n$$a = \\frac{-152{,}7\\ \\text{N}}{20\\ \\text{kg}} = -7{,}64\\ \\text{m/s}^2,$$\n\naltså en retardasjon på $7{,}64\\ \\text{m/s}^2$. Kassen bremser raskt, fordi tyngdekomposanten og friksjonen nå trekker samme vei.\n\n**b)** Sjekk om tyngdekomposanten langs planet er større enn den maksimale hvilefriksjonen:\n\n$$mg\\sin\\theta = 92{,}1\\ \\text{N} \\quad \\text{mot} \\quad \\mu N = 60{,}6\\ \\text{N}.$$\n\nSiden $92{,}1 > 60{,}6$, kan ikke friksjonen holde kassen, og den sklir ned igjen. (Samme konklusjon fra vilkåret $\\tan\\theta \\le \\mu$: $\\tan 28^\\circ = 0{,}53 > 0{,}35$.)\n\n**c) Fase 2 — kassen sklir nedover.** Nytt diagram: $R$ peker nå **oppover** langs planet. Med positiv retning nedover:\n\n$$\\Sigma F = mg\\sin\\theta - R = 92{,}1\\ \\text{N} - 60{,}6\\ \\text{N} = 31{,}5\\ \\text{N},$$\n\n$$a = \\frac{31{,}5\\ \\text{N}}{20\\ \\text{kg}} = 1{,}57\\ \\text{m/s}^2.$$\n\nFasitfiguren for fase 2 står under oppgaven.\n\n**Konklusjon:** Oppover bremser kassen med $7{,}64\\ \\text{m/s}^2$; den blir ikke liggende, og sklir ned igjen med $1{,}57\\ \\text{m/s}^2$.",
+        "hints": [
+          "Regn ut $N$, $mg\\sin\\theta$ og $R$ først — de er de samme i begge faser.",
+          "Friksjonen peker alltid mot bevegelsen, så den snur når kassen snur.",
+          "I b): sammenlign drivkraften langs planet med den største friksjonen underlaget kan gi."
+        ]
+      }
+    },
+    {
+      "id": "fys1001-1-3-fig-fasit-kasse",
+      "type": "image",
+      "src": "/images/textbook/fys1001/fys1001-1-3-fasit-kasse.svg",
+      "alt": "Fasitfigur til oppgave 3, fase 2: kasse på skråplan som heller 28 grader. Tyngden G lik 196 N peker rett ned, normalkraften N lik 173 N vinkelrett ut fra planet, friksjonskraften R lik 60,6 N oppover langs planet, og tyngden er dekomponert i 92,1 N langs planet og 173 N normalt på planet. Resultanten langs planet er 31,5 N som gir akselerasjonen 1,57 meter per sekund i andre nedover.",
+      "caption": "Fasitfigur til oppgave 3, fase 2. Sammenlign med fase 1: eneste forskjell er at friksjonspilen har snudd — og det endrer resultanten fra $-152{,}7$ N til $+31{,}5$ N."
+    },
+    {
+      "id": "fys1001-1-3-pause1",
+      "type": "text",
+      "content": "— naturlig pausepunkt —\n\n*Du har nå hele regneapparatet: $R = \\mu N$, $N = mg\\cos\\theta$ og $mg\\sin\\theta$. Resten av kapitlet er tre spørsmål oppgavene stiller om det: blir legemet liggende, hvordan virker friksjon som fremdrift, og hva skjer i sammensatte systemer.*"
+    },
+    {
+      "id": "fys1001-1-3-lokke4",
+      "type": "text",
+      "content": "## Løkke 4 — Blir legemet liggende? (~9 min)"
+    },
+    {
+      "id": "fys1001-1-3-def-sklivilkar",
+      "type": "definition",
+      "title": "Sklivilkåret på skråplan",
+      "content": "Et legeme som ligger i ro på et skråplan, blir liggende så lenge hvilefriksjonen greier å balansere tyngdekomposanten langs planet:\n\n$$mg\\sin\\theta \\le \\mu_s\\, mg\\cos\\theta.$$\n\nMassen forkortes bort, og siden $\\sin\\theta/\\cos\\theta = \\tan\\theta$, blir vilkåret rent geometrisk:\n\n$$\\boxed{\\tan\\theta \\le \\mu_s \\ \\Rightarrow\\ \\text{legemet blir liggende.}}$$\n\nDette er et av de vakreste resultatene i mekanikken: **om noe sklir, avhenger bare av hellingen og friksjonstallet — ikke av massen.** Et tungt og et lett legeme av samme materiale sklir ved nøyaktig samme vinkel.\n\nVinkelen der det så vidt begynner å skli, $\\theta_{\\max} = \\arctan\\mu_s$, kalles **friksjonsvinkelen**, og den brukes til å måle friksjonstall: vipp planet til legemet løsner, og les av vinkelen."
+    },
+    {
+      "id": "fys1001-1-3-ex4",
+      "type": "example",
+      "title": "Eksempel 4: Hvor bratt kan det være?",
+      "problem": "Friksjonstallet mellom en pappeske og et trelemmet lasteplan er 0,45. Hvor mye kan planet vippes før esken begynner å skli — og betyr det noe om esken er tom eller full?",
+      "solution": "**Vilkåret** for at esken blir liggende, er $\\tan\\theta \\le \\mu_s$. Grensen er\n\n$$\\theta_{\\max} = \\arctan 0{,}45 = 24{,}2^\\circ.$$\n\n**Massens rolle.** Vi utleder vilkåret på nytt for å se hvor massen blir av. I ro er kraftbalansen langs planet $R = mg\\sin\\theta$, og grensen for hvilefriksjon er $R_{\\text{maks}} = \\mu_s N = \\mu_s mg\\cos\\theta$. Setter vi dem like:\n\n$$mg\\sin\\theta = \\mu_s mg\\cos\\theta \\ \\Rightarrow\\ \\tan\\theta = \\mu_s.$$\n\nMassen $m$ står på **begge** sider og forkortes bort.\n\n**Konklusjon:** Planet kan vippes til $24^\\circ$. Om esken er tom eller full spiller ingen rolle: en tyngre eske presses hardere ned (større $N$, større friksjon), men trekkes også hardere nedover langs planet — i akkurat samme forhold.\n\n**Rimelighetsvurdering:** $24^\\circ$ svarer til en helling på om lag 45 %, altså langt brattere enn noen vei. Det stemmer med at papp mot tre er en ganske ru kontakt."
+    },
+    {
+      "id": "fys1001-1-3-o-o4",
+      "type": "exercise",
+      "exercise": {
+        "id": "fys1001-1-3-ex-o4",
+        "number": "4",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "(Sjanger C, med kvalitativ hale.) En kloss ligger i ro på et plan der friksjonstallet er $0{,}60$.\n\n**a)** Blir klossen liggende når planet heller $30^\\circ$? Begrunn.\n\n**b)** Planet vippes til $35^\\circ$. Blir den liggende nå? Hvis ikke: finn akselerasjonen.\n\n**c)** En medstudent sier: «Vi må vite massen for å kunne svare på a).» Hva svarer du?",
+        "solution": "**a)** Vilkåret er $\\tan\\theta \\le \\mu$. Her er\n\n$$\\tan 30^\\circ = 0{,}577 \\quad \\text{og} \\quad \\mu = 0{,}60.$$\n\nSiden $0{,}577 < 0{,}60$, blir klossen liggende — men med liten margin.\n\n**b)** Ved $35^\\circ$ er $\\tan 35^\\circ = 0{,}700 > 0{,}60$, så klossen sklir. Akselerasjonen nedover langs planet:\n\n$$a = g(\\sin\\theta - \\mu\\cos\\theta) = 9{,}81\\ \\text{m/s}^2 \\cdot (0{,}574 - 0{,}60 \\cdot 0{,}819) = 9{,}81 \\cdot 0{,}082 = 0{,}81\\ \\text{m/s}^2.$$\n\n**c)** Massen er ikke nødvendig. I vilkåret $mg\\sin\\theta \\le \\mu\\, mg\\cos\\theta$ står massen på begge sider og forkortes bort, slik at vilkåret reduseres til $\\tan\\theta \\le \\mu$. En tyngre kloss får både større drivkraft langs planet og større friksjon, i samme forhold.\n\n**Konklusjon:** Klossen ligger ved $30^\\circ$, sklir ved $35^\\circ$ med akselerasjonen $0{,}81\\ \\text{m/s}^2$, og massen spiller ingen rolle for om den sklir.",
+        "hints": [
+          "Sammenlign $\\tan\\theta$ med friksjonstallet.",
+          "I b): bruk $a = g(\\sin\\theta - \\mu\\cos\\theta)$ når legemet sklir nedover.",
+          "I c): skriv opp vilkåret med massen i, og se hva som skjer med den."
+        ]
+      }
+    },
+    {
+      "id": "fys1001-1-3-lokke5",
+      "type": "text",
+      "content": "## Løkke 5 — Friksjon som fremdrift (~8 min)"
+    },
+    {
+      "id": "fys1001-1-3-def-friksjon-fremdrift",
+      "type": "definition",
+      "title": "Friksjon som drivkraft",
+      "content": "Friksjon er ikke bare en brems. Når du går, sykler eller kjører, er det **friksjonen fra bakken på sålen eller dekket** som skyver deg fremover. Musklene dine dytter bakover på bakken; etter Newtons 3. lov dytter bakken like hardt forover på deg — og den kraften er en friksjonskraft.\n\nUten friksjon kommer du ingen vei: det er nøyaktig opplevelsen av å prøve å gå på blank is. Den øvre grensen for hvor kraftig du kan akselerere, er derfor $R_{\\text{maks}} = \\mu_s mg$, som gir\n\n$$a_{\\max} = \\mu_s g.$$\n\nMerk at det er **hvilefriksjonen** som driver et rullende hjul: kontaktpunktet mellom dekk og vei glir ikke. Begynner hjulet å spinne, går du over til glidefriksjon, som er mindre — og da får du dårligere fremdrift. Det er samme fysikk som gjør at ABS-bremser virker."
+    },
+    {
+      "id": "fys1001-1-3-def-abs",
+      "type": "definition",
+      "title": "Hvorfor blokkeringsfrie bremser virker",
+      "content": "Blokkeringsfrie bremser (ABS) hindrer hjulet i å låse seg. Fysikken bak er at **maksimal hvilefriksjon er større enn glidefriksjon**, $\\mu_s > \\mu$:\n\n- Låst hjul: dekket **skrenser** over asfalten, og bremsekraften er glidefriksjonen $\\mu mg$.\n- Rullende hjul på grensen: kontaktpunktet glir ikke, og bremsekraften kan være opp mot $\\mu_s mg$, altså større.\n\nI tillegg gir et rullende hjul deg styring, mens et låst hjul bare følger med dit bilen alt beveger seg. Dette er en klassisk kvalitativ deloppgave, og et fullgodt svar nevner **begge** delene: større bremsekraft *og* beholdt styring."
+    },
+    {
+      "id": "fys1001-1-3-o-o5",
+      "type": "exercise",
+      "exercise": {
+        "id": "fys1001-1-3-ex-o5",
+        "number": "5",
+        "type": "classic",
+        "difficulty": "lett",
+        "task": "(Sjanger Q — kvalitativ forklaring. Svaret skal være 2–4 setninger.)\n\n**a)** Forklar med krefter hvorfor du ikke kommer fremover når du prøver å gå på blank is.\n\n**b)** En bil akselererer så kraftig at hjulene spinner. Forklar hvorfor bilen da akselererer **dårligere** enn om hjulene hadde grepet.",
+        "solution": "**a)** Når du går, dytter sålen bakover på bakken, og etter Newtons 3. lov dytter bakken like hardt forover på deg. Denne forover-kraften er en friksjonskraft med maksimal størrelse $\\mu_s N$. På blank is er $\\mu_s$ nær null, så kraften bakken kan gi deg, er nesten null — og uten resultantkraft ingen akselerasjon.\n\n**b)** Et hjul som griper, har kontaktpunkt som ikke glir, og drivkraften er da hvilefriksjon opp til $\\mu_s N$. Spinner hjulet, glir kontaktpunktet, og drivkraften blir glidefriksjonen $\\mu N$, som er **mindre** enn den maksimale hvilefriksjonen. Mindre drivkraft gir mindre akselerasjon.",
+        "hints": [
+          "Start med Newtons 3. lov: hva dytter du på, og hva dytter tilbake?",
+          "I b): sammenlign de to friksjonstallene $\\mu_s$ og $\\mu$."
+        ]
+      }
+    },
+    {
+      "id": "fys1001-1-3-lokke6",
+      "type": "text",
+      "content": "## Løkke 6 — Friksjon i sammensatte systemer (~8 min)"
+    },
+    {
+      "id": "fys1001-1-3-def-trinse-friksjon",
+      "type": "definition",
+      "title": "Trinsesystem med friksjon",
+      "content": "Kombinasjonen av to-legeme-systemet fra [kap. 1.2](/bok/fys1001/fys1001-1-2) og friksjon på det ene legemet. Oppskriften er uendret, med **ett** tillegg: friksjonskraften $R = \\mu N$ settes inn i ligningen for det legemet som ligger på underlaget, alltid rettet mot bevegelsen.\n\nFor en kloss $m_1$ på vannrett bord, koblet over en trinse til et hengende lodd $m_2$:\n\n$$\\text{klossen:}\\quad S - \\mu m_1 g = m_1 a, \\qquad \\text{loddet:}\\quad m_2 g - S = m_2 a.$$\n\nLagt sammen faller $S$ ut, og\n\n$$a = \\frac{(m_2 - \\mu m_1)g}{m_1 + m_2}.$$\n\n**Sjekk fortegnet før du svarer:** blir telleren negativ, betyr det at loddets tyngde ikke greier å overvinne friksjonen, og systemet står stille — akselerasjonen er null, ikke negativ. En «vis at»-oppgave som ikke holder ubetinget, skal ha betingelsen skrevet ut: uttrykket over gjelder når $m_2 > \\mu m_1$."
+    },
+    {
+      "id": "fys1001-1-3-ex5",
+      "type": "example",
+      "title": "Eksempel 5: Kloss på bord med friksjon, lodd i snor",
+      "problem": "En kloss med masse 6,0 kg ligger på et vannrett bord med friksjonstall 0,30, og er koblet med en snor over en trinse til et lodd med masse 4,0 kg. Finn akselerasjonen og snordraget.",
+      "solution": "**Sjekk først at systemet i det hele tatt kommer i gang.** Loddets tyngde er $m_2g = 39{,}24$ N, og den maksimale friksjonen på klossen er $\\mu m_1 g = 0{,}30 \\cdot 6{,}0 \\cdot 9{,}81 = 17{,}66$ N. Siden $39{,}24 > 17{,}66$, settes systemet i bevegelse.\n\n**Ligningene.** Positiv retning: klossen mot trinsa, loddet nedover.\n\n$$\\text{klossen:}\\quad S - R = m_1 a, \\qquad R = \\mu m_1 g = 17{,}66\\ \\text{N},$$\n$$\\text{loddet:}\\quad m_2 g - S = m_2 a.$$\n\n**Legg sammen** (snordraget faller ut som indre kraft):\n\n$$m_2 g - R = (m_1 + m_2)a \\ \\Rightarrow\\ a = \\frac{39{,}24\\ \\text{N} - 17{,}66\\ \\text{N}}{10{,}0\\ \\text{kg}} = 2{,}16\\ \\text{m/s}^2.$$\n\n**Snordraget** fra klossens ligning:\n\n$$S = m_1 a + R = 6{,}0\\ \\text{kg} \\cdot 2{,}16\\ \\text{m/s}^2 + 17{,}66\\ \\text{N} = 12{,}96\\ \\text{N} + 17{,}66\\ \\text{N} = 30{,}6\\ \\text{N}.$$\n\n**Kontroll med loddets ligning:** $m_2(g - a) = 4{,}0 \\cdot (9{,}81 - 2{,}16) = 30{,}6\\ \\text{N}$. Stemmer.\n\n**Konklusjon:** Akselerasjonen er $2{,}16\\ \\text{m/s}^2$ og snordraget $30{,}6\\ \\text{N}$.\n\n**Rimelighetsvurdering:** Uten friksjon ville akselerasjonen vært $m_2g/(m_1+m_2) = 3{,}92\\ \\text{m/s}^2$. Friksjonen har altså tatt bort omtrent 45 % av akselerasjonen, og snordraget er som ventet mindre enn loddets tyngde."
+    },
+    {
+      "id": "fys1001-1-3-o-o6",
+      "type": "exercise",
+      "exercise": {
+        "id": "fys1001-1-3-ex-o6",
+        "number": "6",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "(Sjanger C.) En kloss med masse $8{,}0$ kg ligger på et vannrett bord og er koblet over en trinse til et lodd med masse $2{,}0$ kg. Friksjonstallet mellom kloss og bord er $0{,}40$.\n\n**a)** Undersøk om systemet settes i bevegelse.\n\n**b)** Hvor stort må loddet minst være for at systemet skal komme i gang?",
+        "solution": "**a)** Loddets tyngde er\n\n$$m_2 g = 2{,}0\\ \\text{kg} \\cdot 9{,}81\\ \\text{m/s}^2 = 19{,}6\\ \\text{N},$$\n\nmens den maksimale friksjonen på klossen er\n\n$$\\mu m_1 g = 0{,}40 \\cdot 8{,}0\\ \\text{kg} \\cdot 9{,}81\\ \\text{m/s}^2 = 31{,}4\\ \\text{N}.$$\n\nSiden $19{,}6\\ \\text{N} < 31{,}4\\ \\text{N}$, greier ikke loddet å trekke klossen i gang. Systemet står stille, og akselerasjonen er $0$. Snordraget er da $S = m_2 g = 19{,}6$ N, og hvilefriksjonen på klossen er nøyaktig like stor — den tilpasser seg.\n\n**b)** Grensen er der loddets tyngde er akkurat like stor som den maksimale friksjonen:\n\n$$m_2 g = \\mu m_1 g \\ \\Rightarrow\\ m_2 = \\mu m_1 = 0{,}40 \\cdot 8{,}0\\ \\text{kg} = 3{,}2\\ \\text{kg}.$$\n\nLoddet må altså være tyngre enn $3{,}2$ kg. Legg merke til at $g$ forkortes bort — grensen er ren masseforhold.\n\n**Konklusjon:** Systemet står stille med et 2,0 kg lodd; det kommer i gang først når loddet overstiger $3{,}2$ kg.",
+        "hints": [
+          "Sammenlign loddets tyngde med den største friksjonskraften bordet kan gi klossen.",
+          "I a): hva er akselerasjonen når kreftene ikke er store nok til å starte bevegelsen?",
+          "I b): sett de to kreftene like store og løs for massen."
+        ]
+      }
+    },
+    {
+      "id": "fys1001-1-3-typiske-feil",
+      "type": "warning",
+      "title": "Typiske feil",
+      "content": "Alle seks er hentet fra det løsningsforslagene faktisk retter på:\n\n1. **Å bruke $N = mg$ på skråplan.** På skråplan er $N = mg\\cos\\theta$. Feilen forplanter seg rett inn i friksjonskraften og gjør hele oppgaven gal — dette er den hyppigst påpekte feilen i sjangeren.\n2. **Feil retning på friksjonskraften når bevegelsen snur.** Friksjonen virker alltid mot bevegelsen. Skyves en kasse opp og sklir så ned, må du tegne **nytt** frilegemediagram: samme størrelse på $R$, motsatt retning, helt annen resultant.\n3. **Å blande $\\sin$ og $\\cos$ i dekomponeringen.** Testen tar fem sekunder: sett $\\theta = 0$. Da skal komposanten langs planet bli null og normalkraften bli $mg$. Får du det motsatte, har du byttet om.\n4. **Å regne $R = \\mu N$ i en statisk oppgave.** Står legemet i ro, er friksjonen det kraftbalansen krever — ikke $\\mu N$. Formelen $\\mu N$ er en **grense**, og brukes til å sjekke om legemet blir liggende.\n5. **Å glemme at friksjonen kan holde legemet i ro.** Sjekk alltid vilkåret $\\tan\\theta \\le \\mu$ før du regner ut en akselerasjon nedover. Er svaret at legemet blir liggende, er akselerasjonen null — ikke et negativt tall.\n6. **Å tro at massen har noe å si for om noe sklir.** Både sklivilkåret ($\\tan\\theta \\le \\mu$) og retardasjonen ved bremsing ($a = \\mu g$) er uavhengige av massen. Skriv utledningen som viser at massen forkortes bort — det er den begrunnelsen som gir uttelling."
+    },
+    {
+      "id": "fys1001-1-3-begrepsbank-notis",
+      "type": "text",
+      "content": "## Begrepsbank\n\n*Begrepsbanken er flashcard- og repetisjonsstoff — den gjentar det du nettopp har lest. Hopp trygt over ved førstegangslesing; tidsanslaget for kapitlet gjelder kjernestoffet.*"
+    },
+    {
+      "id": "fys1001-1-3-bb-friksjonsvinkel",
+      "type": "definition",
+      "title": "Friksjonsvinkelen",
+      "content": "Vinkelen $\\theta_{\\max} = \\arctan\\mu_s$ der et legeme så vidt begynner å skli på et skråplan. Den er en praktisk måte å **måle** friksjonstall: legg gjenstanden på et plan, vipp langsomt, og les av vinkelen i det den løsner. Da er $\\mu_s = \\tan\\theta_{\\max}$.\n\nFordi vilkåret er uavhengig av massen, virker metoden like godt med en mynt som med en murstein — så lenge materialene er de samme. Typiske friksjonsvinkler: ski mot snø 3–6°, gummi mot tørr asfalt 35–42°."
+    },
+    {
+      "id": "fys1001-1-3-bb-helling-prosent",
+      "type": "definition",
+      "title": "Helling i prosent",
+      "content": "Veiskilt og oppgavetekster oppgir ofte hellingen i **prosent** i stedet for i grader. Prosenten er stigningen delt på den vannrette avstanden, altså\n\n$$\\text{helling i prosent} = 100 \\cdot \\tan\\theta.$$\n\nEn stigning på 8 % svarer til $\\theta = \\arctan 0{,}08 = 4{,}6^\\circ$. For små vinkler er $\\sin\\theta \\approx \\tan\\theta$, så du kan sette $mg\\sin\\theta \\approx 0{,}08\\,mg$ uten merkbar feil — men skriv at du gjør tilnærmingen. Ved store vinkler holder den ikke: ved $30^\\circ$ er $\\tan\\theta = 0{,}58$ mens $\\sin\\theta = 0{,}50$."
+    },
+    {
+      "id": "fys1001-1-3-bb-rullemotstand",
+      "type": "definition",
+      "title": "Rullemotstand",
+      "content": "Motstanden et hjul møter fordi dekk og underlag deformeres når hjulet ruller — ikke det samme som glidefriksjon, siden kontaktpunktet ikke glir. Den regnes på samme form, $F = \\mu_r N$, men med et mye mindre tall: for sykkeldekk på asfalt er $\\mu_r$ omtrent $0{,}004$, for bildekk rundt $0{,}01$.\n\nI FYS1001-oppgaver oppgis rullemotstand oftest rett som en kraft i newton, sammen med luftmotstanden («rullemotstand og luftmotstand er til sammen 22 N»). Da skal du bare legge den inn som en bakoverrettet kraft i frilegemediagrammet — du trenger ikke skille de to."
+    },
+    {
+      "id": "fys1001-1-3-bb-dosert-sving",
+      "type": "definition",
+      "title": "Friksjon i sving",
+      "content": "I en sving er det friksjonen fra veien på dekkene som leverer den kraften som endrer bevegelsesretningen. Grensen for hvor fort du kan kjøre gjennom svingen, settes derfor av friksjonstallet — og det er nettopp grunnen til at glatt vei er farligst i kurver, ikke på rettstrekninger.\n\nRegningen for dette (og for dosert sving, der veibanen heller innover) hører til sirkelbevegelse og kommer i [kap. 1.4](/bok/fys1001/fys1001-1-4). Poenget her er bare å ha sett at friksjonen kan endre **retningen** på farten, ikke bare størrelsen."
+    },
+    {
+      "id": "fys1001-1-3-repetisjon",
+      "type": "collapsible",
+      "title": "Repetisjonsoppgaver",
+      "buttonText": "Vis repetisjonsoppgaver",
+      "content": [
+        {
+          "id": "fys1001-1-3-o-r1",
+          "type": "exercise",
+          "exercise": {
+            "id": "fys1001-1-3-ex-r1",
+            "number": "R1",
+            "type": "classic",
+            "difficulty": "lett",
+            "task": "Hvor stor er friksjonskraften på en kloss med masse $5{,}0$ kg som glir på et vannrett gulv med friksjonstall $0{,}20$?",
+            "solution": "$$N = mg = 5{,}0\\ \\text{kg} \\cdot 9{,}81\\ \\text{m/s}^2 = 49{,}1\\ \\text{N}, \\qquad R = \\mu N = 0{,}20 \\cdot 49{,}1\\ \\text{N} = 9{,}8\\ \\text{N}.$$",
+            "hints": [
+              "Finn normalkraften først — den er $mg$ på vannrett underlag."
+            ]
+          }
+        },
+        {
+          "id": "fys1001-1-3-o-r2",
+          "type": "exercise",
+          "exercise": {
+            "id": "fys1001-1-3-ex-r2",
+            "number": "R2",
+            "type": "classic",
+            "difficulty": "lett",
+            "task": "Et plan heller $18^\\circ$. Hvor stor er normalkraften på en kloss med masse $10$ kg?",
+            "solution": "$$N = mg\\cos\\theta = 10\\ \\text{kg} \\cdot 9{,}81\\ \\text{m/s}^2 \\cdot \\cos 18^\\circ = 98{,}1\\ \\text{N} \\cdot 0{,}951 = 93{,}3\\ \\text{N}.$$\n\nLegg merke til at $N$ er mindre enn tyngden på $98{,}1$ N.",
+            "hints": [
+              "På skråplan er normalkraften $mg\\cos\\theta$, ikke $mg$."
+            ]
+          }
+        },
+        {
+          "id": "fys1001-1-3-o-r3",
+          "type": "exercise",
+          "exercise": {
+            "id": "fys1001-1-3-ex-r3",
+            "number": "R3",
+            "type": "classic",
+            "difficulty": "middels",
+            "task": "(Fra [kap. 1.1](/bok/fys1001/fys1001-1-1)) En bil bremser med retardasjonen $7{,}0\\ \\text{m/s}^2$ fra $25$ m/s. Hvor langt går den før den stopper, og hvor lang tid tar det?",
+            "solution": "$$s = \\frac{v_0^2}{2|a|} = \\frac{(25\\ \\text{m/s})^2}{2 \\cdot 7{,}0\\ \\text{m/s}^2} = 44{,}6\\ \\text{m}, \\qquad t = \\frac{v_0}{|a|} = \\frac{25\\ \\text{m/s}}{7{,}0\\ \\text{m/s}^2} = 3{,}6\\ \\text{s}.$$",
+            "hints": [
+              "Bruk den tidløse ligningen for strekningen og fartsligningen for tiden."
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": "fys1001-1-3-symbolliste",
+      "type": "collapsible",
+      "title": "Symbol- og formelliste",
+      "buttonText": "Vis symboler og formler",
+      "content": [
+        {
+          "id": "fys1001-1-3-symbolliste-inner",
+          "type": "text",
+          "content": "## Symbol- og formelliste\n\n*Oppslagsverk — alt her forklares underveis i kapitlet.*\n\n| Symbol | Betydning i dette delkapitlet | SI-enhet |\n|---|---|---|\n| $R$ | **Friksjonskraft**, langs flaten og mot bevegelsen | N |\n| $R_{\\text{maks}}$ | Største hvilefriksjon, $\\mu_s N$ | N |\n| $\\mu$ | Friksjonstall ved glidning | ingen (dimensjonsløst) |\n| $\\mu_s$ | Friksjonstall for hvilefriksjon ($\\mu_s > \\mu$) | ingen |\n| $\\mu_r$ | Rullemotstandstall (kun i begrepsbanken) | ingen |\n| $N$ | Normalkraft, vinkelrett på flaten | N |\n| $G = mg$ | Tyngden | N |\n| $S$ | Snordrag | N |\n| $\\theta$ | Skråplanets vinkel med vannrett | grader |\n| $m$ | Masse | kg |\n| $a$ | Akselerasjon langs planet | $\\text{m/s}^2$ |\n| $g$ | Tyngdeakselerasjonen, $9{,}81\\ \\text{m/s}^2$ | $\\text{m/s}^2$ |\n\n**Symbolkollisjoner:** $R$ er **friksjonskraft** i dette delkapitlet — i kretskapitlene er $R$ resistans ([kap. 5.2](/bok/fys1001/fys1001-5-2)). $N$ er **normalkraft** her, men antall molekyler i gassloven ([kap. 4.2](/bok/fys1001/fys1001-4-2)). $G$ er **tyngden**; gravitasjonskonstanten heter $\\gamma$ ([kap. 1.4](/bok/fys1001/fys1001-1-4)).\n\n**Formler i dette delkapitlet:**\n\n$$R = \\mu N$$\nGlidefriksjon (står på formelarket, **må kunne brukes aktivt**).\n\n$$R \\le \\mu_s N$$\nHvilefriksjon som ulikhet — friksjonen tilpasser seg opp til grensen (må kunne brukes aktivt).\n\n$$N = mg\\cos\\theta$$\nNormalkraften på skråplan (**må kunne brukes aktivt** — utledes av dekomponeringen).\n\n$$G_{\\parallel} = mg\\sin\\theta$$\nTyngdens komposant langs planet (**må kunne brukes aktivt**).\n\n$$a = g(\\sin\\theta - \\mu\\cos\\theta)$$\nAkselerasjon nedover langs planet ved glidning ned. Ved bevegelse oppover blir tegnet i parentesen pluss (må kunne brukes aktivt).\n\n$$a = \\mu g$$\nRetardasjon ved bremsing på vannrett underlag — uavhengig av massen (må kunne brukes aktivt).\n\n$$s = \\frac{v_0^2}{2\\mu g}$$\nBremselengden på vannrett underlag (følger av den tidløse ligningen).\n\n$$\\tan\\theta \\le \\mu_s$$\nSklivilkåret: legemet blir liggende (må kunne brukes aktivt)."
+        }
+      ]
+    }
+  ],
+  "exercises": []
+}

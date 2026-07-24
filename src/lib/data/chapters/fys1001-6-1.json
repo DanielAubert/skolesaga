@@ -1,0 +1,513 @@
+{
+  "id": "fys1001-6-1",
+  "courseId": "fys1001",
+  "chapterNumber": "6.1",
+  "title": "Bølger, lyd og seismikk",
+  "description": "Bølgefartens nav $v = f\\lambda$, to-kilders interferens, desibelregning — og seismikk-innpakningen som er kommet for å bli.",
+  "estimatedMinutes": 55,
+  "competenceGoals": [
+    "bruke bølgeformelen $v = f\\lambda$ og forklare hvorfor frekvensen er uendret mens bølgelengden endres i et nytt medium",
+    "skille longitudinale og transversale bølger med eksempler, og forklare hva S-bølgeskyggen viser om jordas indre",
+    "regne ut ganglengdeforskjellen fra to kilder og klassifisere resultatet som forsterkning eller utslettelse",
+    "regne med intensitet, avstandsloven $I \\propto 1/r^2$ og lydnivå i desibel begge veier",
+    "bruke Snells lov i fartsform på en seismisk laggrense og finne grensevinkelen"
+  ],
+  "content": [
+    {
+      "id": "fys1001-6-1-tip-eksamensvinkel",
+      "type": "tip",
+      "title": "Eksamensvinkel",
+      "content": "**Prioritet: kunne (nivå 2).** Bølger og lyd er belagt i **11 av 36 slutteksamener (31 %)** — og andelen stiger, fordi temaet har fått en moderne innpakning: **seismikk**. To høyttalere i et auditorium kom i 2017h, 2018h og 2024h; P- og S-bølger med Snells lov i fartsform kom i V2024.\n\nOppgavene tilhører **sjanger M**, bokas kortnavn for oppgavetypen *«bølger, lyd og seismikk»*. De faste variantene:\n\n- **to-kilders interferens:** regn ut ganglengdeforskjellen og avgjør om det blir forsterkning eller utslettelse;\n- **desibelregning** som kortsvar, ofte kombinert med at intensiteten avtar som $1/r^2$;\n- **longitudinal mot transversal** med eksempler — og at S-bølger ikke går gjennom jordas flytende ytre kjerne;\n- **seismikk:** fartsforskjellen mellom P- og S-bølger, og Snells lov skrevet med farter på en laggrense;\n- **stående bølger** kvalitativt: grunntone og overharmoniske.\n\n**Bølgeoptikk** (gitter, dispersjon) er belagt i 7 av 36 sett (19 %) og har prioritet **kjenne**. Den er foldet inn her, sist i kapitlet og eksplisitt merket «bør kjenne til».\n\n**Formelarket:** $v = f\\lambda$, $L = 10\\log(I/I_0)$ og lydfarter for ulike stoffer står på arket eller i tabellen. Det du må kunne *aktivt*, er å regne ut $\\Delta l$ og klassifisere, og å skrive Snells lov i fartsform."
+    },
+    {
+      "id": "fys1001-6-1-forkunnskaper",
+      "type": "text",
+      "content": "## Forkunnskaper\n\n**Dette kapitlet kan leses uavhengig av Del 1–5.** Det trenger ingen mekanikk, ingen termofysikk og ingen elektrisitet — bare regning.\n\nDet du bør ha på plass:\n\n- [Eksponentialfunksjoner](/bok/1t/1t-3-8) og [Potenser og logaritmer](/bok/r1/r1-1-2) — desibelregning er logaritmeregning, og du må kunne snu $L = 10\\log(I/I_0)$ for å finne $I$.\n\nKapitlet tar rundt 55 minutter og er delt i fem løkker med pausepunkter."
+    },
+    {
+      "id": "fys1001-6-1-l1",
+      "type": "text",
+      "content": "### Løkke 1 — Bølgeformelen (~10 min)\n\nStå ved sjøkanten og se på bølgene. To ting kan du måle uten instrumenter: hvor langt det er mellom bølgetoppene, og hvor mange topper som passerer per sekund. Multipliser dem, og du har farten. Det er hele bølgefysikken i én setning."
+    },
+    {
+      "id": "fys1001-6-1-def-bolge",
+      "type": "definition",
+      "title": "Bølge, bølgelengde og amplitude",
+      "content": "En **bølge** er en forstyrrelse som brer seg gjennom et medium (eller gjennom rommet) og flytter energi — men ikke materie.\n\n**Bølgelengden** $\\lambda$ er avstanden mellom to punkter som svinger i takt, for eksempel mellom to nabotopper. Enheten er meter.\n\n**Amplituden** er det største utsvinget fra likevektsstillingen. Den bestemmer hvor mye energi bølgen fører med seg, men påvirker ikke farten."
+    },
+    {
+      "id": "fys1001-6-1-def-frekvens",
+      "type": "definition",
+      "title": "Frekvens og periode",
+      "content": "**Frekvensen** $f$ er antall svingninger per sekund, målt i **hertz (Hz)**, der $1\\ \\text{Hz} = 1\\ \\text{s}^{-1}$.\n\n**Perioden** $T$ er tida for én svingning, og de to er omvendte av hverandre:\n\n$$T = \\frac{1}{f}$$\n\n**Advarsel om symbolet:** i dette delkapitlet betyr $T$ **periode** i sekunder. I Del 4 (termofysikk) betyr $T$ temperatur i kelvin. Se symbollisten nederst."
+    },
+    {
+      "id": "fys1001-6-1-def-bolgeformel",
+      "type": "definition",
+      "title": "Bølgeformelen $v = f\\lambda$",
+      "content": "Farten til en bølge er frekvensen ganger bølgelengden:\n\n$$v = f\\lambda$$\n\nDette er navet i hele kapitlet. Sammenhengen er ren logikk: passerer $f$ bølgetopper per sekund, og er avstanden mellom toppene $\\lambda$, har bølgefronten flyttet seg $f\\lambda$ meter i løpet av sekundet.\n\n**Det viktige poenget:** farten bestemmes av **mediet** (luft, vann, stål, berggrunn), mens frekvensen bestemmes av **kilden**. Går en bølge over i et nytt medium, endres farten — og da må bølgelengden endres, siden frekvensen er den samme."
+    },
+    {
+      "id": "fys1001-6-1-ex1",
+      "type": "example",
+      "title": "Eksempel 1: Bølgeformelen begge veier (sjanger M)",
+      "problem": "Lydfarten i luft er $340\\ \\text{m/s}$.\n\n**a)** En tone har frekvensen $680\\ \\text{Hz}$. Finn bølgelengden.\n**b)** En annen lyd har bølgelengden $1{,}7\\ \\text{m}$. Finn frekvensen.",
+      "solution": "**a)** Snu bølgeformelen:\n\n$$\\lambda = \\frac{v}{f} = \\frac{340\\ \\text{m/s}}{680\\ \\text{Hz}} = 0{,}50\\ \\text{m}$$\n\n**b)**\n\n$$f = \\frac{v}{\\lambda} = \\frac{340\\ \\text{m/s}}{1{,}7\\ \\text{m}} = 200\\ \\text{Hz}$$\n\n**Enhetskontroll:** $\\dfrac{\\text{m/s}}{\\text{s}^{-1}} = \\text{m}$ ✓ og $\\dfrac{\\text{m/s}}{\\text{m}} = \\text{s}^{-1} = \\text{Hz}$ ✓\n\n**Konklusjon:** høy tone gir kort bølgelengde, lav tone gir lang. En dyp basstone på $50\\ \\text{Hz}$ har bølgelengde nesten $7\\ \\text{m}$ — derfor hører du bassen gjennom veggen, mens diskanten stanser."
+    },
+    {
+      "id": "fys1001-6-1-o1",
+      "type": "exercise",
+      "exercise": {
+        "id": "fys1001-6-1-e1",
+        "number": "1",
+        "type": "classic",
+        "difficulty": "lett",
+        "task": "*(Innstegsoppgave.)* En tone med frekvensen $250\\ \\text{Hz}$ sendes først gjennom luft ($v = 340\\ \\text{m/s}$) og deretter gjennom vann ($v = 1480\\ \\text{m/s}$).\n\n**a)** Finn bølgelengden i luft.\n**b)** Finn bølgelengden i vann.\n**c)** Hvilken av de to størrelsene — frekvens eller bølgelengde — er den samme i begge medier?",
+        "solution": "**a)** $\\lambda_{\\text{luft}} = \\dfrac{340\\ \\text{m/s}}{250\\ \\text{Hz}} = 1{,}4\\ \\text{m}$.\n\n**b)** $\\lambda_{\\text{vann}} = \\dfrac{1480\\ \\text{m/s}}{250\\ \\text{Hz}} = 5{,}9\\ \\text{m}$.\n\n**c)** **Frekvensen** er den samme, fordi den bestemmes av kilden — det er kilden som rister like mange ganger per sekund uansett hva bølgen brer seg gjennom. Farten bestemmes av mediet, og siden $v = f\\lambda$, må bølgelengden endres når farten endres.\n\n**Konklusjon:** bølgelengden er over fire ganger større i vann, fordi lyden går over fire ganger raskere der. Frekvensen — og dermed tonehøyden — er uendret.",
+        "hints": [
+          "Snu $v = f\\lambda$ for å finne bølgelengden.",
+          "Bruk fartene som er oppgitt for hvert medium.",
+          "Tenk over hvem som bestemmer hva: kilden eller mediet?"
+        ]
+      }
+    },
+    {
+      "id": "fys1001-6-1-l2",
+      "type": "text",
+      "content": "— naturlig pausepunkt —\n\n### Løkke 2 — Longitudinal og transversal (~10 min)\n\nBølger kommer i to hovedtyper, og skillet handler om hvilken vei partiklene i mediet svinger sammenlignet med den veien bølgen går."
+    },
+    {
+      "id": "fys1001-6-1-def-longitudinal",
+      "type": "definition",
+      "title": "Longitudinal bølge",
+      "content": "I en **longitudinal** bølge svinger partiklene **langs** utbredelsesretningen — fram og tilbake i samme retning som bølgen går. Bølgen består av fortetninger og fortynninger.\n\n**Eksempler:** lyd i luft, vann og faste stoffer, og **P-bølgene** i seismikk (P for *primær*, fordi de kommer først).\n\nLongitudinale bølger går gjennom **både** faste stoffer, væsker og gasser, fordi alle stoffer motsetter seg å bli klemt sammen."
+    },
+    {
+      "id": "fys1001-6-1-def-transversal",
+      "type": "definition",
+      "title": "Transversal bølge",
+      "content": "I en **transversal** bølge svinger partiklene **på tvers** av utbredelsesretningen.\n\n**Eksempler:** bølger på en streng eller på vann, alle elektromagnetiske bølger (lys, radio, røntgen), og **S-bølgene** i seismikk (S for *sekundær*).\n\nTransversale bølger i et materiale krever at mediet kan motstå **skjærkrefter**. Det kan faste stoffer, men ikke væsker og gasser — og derfor går **S-bølger ikke gjennom jordas flytende ytre kjerne**. Dette er hovedbeviset for at kjernen er flytende: seismografer på motsatt side av jorda registrerer P-bølger, men ingen S-bølger. Området kalles S-bølgeskyggen."
+    },
+    {
+      "id": "fys1001-6-1-def-ps",
+      "type": "definition",
+      "title": "P-bølger og S-bølger",
+      "content": "Ved et jordskjelv sendes flere bølgetyper ut samtidig fra samme sted:\n\n- **P-bølger** er longitudinale og går raskest, typisk $6\\ \\text{km/s}$ i jordskorpa. De kommer først til seismografen.\n- **S-bølger** er transversale og går saktere, typisk $3{,}5\\ \\text{km/s}$. De kommer etterpå.\n\nFordi de starter samtidig men går med ulik fart, øker **tidsforskjellen** mellom ankomstene med avstanden til skjelvet. Måler du tidsforskjellen, kan du regne ut hvor langt unna skjelvet var — og med tre stasjoner finner du stedet."
+    },
+    {
+      "id": "fys1001-6-1-ex2",
+      "type": "example",
+      "title": "Eksempel 2: Avstand til jordskjelvet (sjanger M)",
+      "problem": "En seismograf registrerer P-bølgen $8{,}0\\ \\text{s}$ før S-bølgen. P-bølgen går med $6{,}0\\ \\text{km/s}$ og S-bølgen med $3{,}5\\ \\text{km/s}$.\n\nHvor langt unna var skjelvet?",
+      "solution": "**Oppsett.** Begge bølgene har gått den samme strekningen $d$, men brukt ulik tid. Tidene er $t_P = d/v_P$ og $t_S = d/v_S$, og forskjellen er oppgitt:\n\n$$t_S - t_P = \\Delta t \\quad\\Longrightarrow\\quad \\frac{d}{v_S} - \\frac{d}{v_P} = \\Delta t$$\n\n**Faktoriser ut $d$:**\n\n$$d\\left(\\frac{1}{v_S} - \\frac{1}{v_P}\\right) = \\Delta t \\quad\\Longrightarrow\\quad d = \\frac{\\Delta t}{\\dfrac{1}{v_S} - \\dfrac{1}{v_P}}$$\n\n**Sett inn tall** (bruk km og s konsekvent):\n\n$$\\frac{1}{3{,}5} - \\frac{1}{6{,}0} = 0{,}2857 - 0{,}1667 = 0{,}1190\\ \\text{s/km}$$\n\n$$d = \\frac{8{,}0\\ \\text{s}}{0{,}1190\\ \\text{s/km}} = 67\\ \\text{km}$$\n\n**Kontroll:** $t_P = 67{,}2/6{,}0 = 11{,}2\\ \\text{s}$ og $t_S = 67{,}2/3{,}5 = 19{,}2\\ \\text{s}$ — forskjellen er $8{,}0\\ \\text{s}$ ✓\n\n**Konklusjon:** skjelvet var rundt $67\\ \\text{km}$ fra seismografen.\n\n**Rimelighet:** en tidsforskjell på noen sekunder svarer til titalls kilometer. Blir forskjellen et minutt, snakker vi om tusen kilometer — sammenhengen er lineær i $\\Delta t$."
+    },
+    {
+      "id": "fys1001-6-1-o2",
+      "type": "exercise",
+      "exercise": {
+        "id": "fys1001-6-1-e2",
+        "number": "2",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "*(Sjanger M — seismikk.)* En seismograf registrerer P-bølgen $15\\ \\text{s}$ før S-bølgen. Fartene er $6{,}5\\ \\text{km/s}$ for P-bølgen og $3{,}8\\ \\text{km/s}$ for S-bølgen.\n\n**a)** Hvor langt unna var skjelvet?\n**b)** Forklar i én til to setninger hvorfor bare P-bølger registreres på motsatt side av jordkloden.",
+        "solution": "**a)** Begge bølgene har gått strekningen $d$, og tidsforskjellen er\n\n$$d\\left(\\frac{1}{v_S} - \\frac{1}{v_P}\\right) = \\Delta t \\quad\\Longrightarrow\\quad d = \\frac{\\Delta t}{\\dfrac{1}{3{,}8} - \\dfrac{1}{6{,}5}}$$\n\n$$\\frac{1}{3{,}8} - \\frac{1}{6{,}5} = 0{,}2632 - 0{,}1538 = 0{,}1093\\ \\text{s/km}$$\n\n$$d = \\frac{15\\ \\text{s}}{0{,}1093\\ \\text{s/km}} = 1{,}4\\cdot10^{2}\\ \\text{km}$$\n\n**Kontroll:** $t_P = 137/6{,}5 = 21{,}1\\ \\text{s}$, $t_S = 137/3{,}8 = 36{,}1\\ \\text{s}$, differanse $15{,}0\\ \\text{s}$ ✓\n\n**b)** S-bølger er transversale og krever at mediet kan motstå skjærkrefter. Jordas ytre kjerne er flytende og kan ikke det, så S-bølgene stanser der. P-bølgene er longitudinale og går gjennom væsker også, og de kommer derfor helt fram.\n\n**Konklusjon:** avstanden er rundt $1{,}4\\cdot10^{2}\\ \\text{km}$, og S-bølgeskyggen er hovedbeviset for at jordas ytre kjerne er flytende.",
+        "hints": [
+          "Begge bølgene har gått samme strekning; sett opp tidene hver for seg og ta differansen.",
+          "Faktoriser ut $d$ og løs for den — hold km og s konsekvent gjennom regningen.",
+          "I b): hva slags krefter krever en transversal bølge av mediet?"
+        ]
+      }
+    },
+    {
+      "id": "fys1001-6-1-l3",
+      "type": "text",
+      "content": "— naturlig pausepunkt —\n\n### Løkke 3 — To-kilders interferens (~13 min)\n\nDette er den mest belagte enkeltsjangeren i kapitlet: to høyttalere i et rom, og spørsmålet «hva hører du der du sitter?»"
+    },
+    {
+      "id": "fys1001-6-1-def-interferens",
+      "type": "definition",
+      "title": "Interferens",
+      "content": "**Interferens** er det som skjer når to bølger møtes i samme punkt: utsvingene legger seg sammen. Er begge på topp samtidig, blir summen stor; er den ene på topp mens den andre er i bunn, opphever de hverandre.\n\nTo kilder sies å være **i fase** når de svinger i takt — de sender ut topp samtidig. Alle eksamensoppgavene i denne sjangeren har kilder i fase."
+    },
+    {
+      "id": "fys1001-6-1-def-ganglengde",
+      "type": "definition",
+      "title": "Ganglengdeforskjell",
+      "content": "**Ganglengdeforskjellen** til et punkt er forskjellen i avstand fra punktet til de to kildene:\n\n$$\\Delta l = |l_2 - l_1|$$\n\nDet er denne forskjellen som avgjør alt: går den ene bølgen en halv bølgelengde lenger enn den andre, kommer den ut av takt og bølgene sletter hverandre."
+    },
+    {
+      "id": "fys1001-6-1-def-konstruktiv",
+      "type": "definition",
+      "title": "Konstruktiv interferens (forsterkning)",
+      "content": "Med to kilder i fase blir det **forsterkning** når ganglengdeforskjellen er et helt antall bølgelengder:\n\n$$\\Delta l = n\\lambda, \\qquad n = 0, 1, 2, \\ldots$$\n\nDa kommer bølgene inn i takt, toppene faller sammen, og lyden blir kraftig."
+    },
+    {
+      "id": "fys1001-6-1-def-destruktiv",
+      "type": "definition",
+      "title": "Destruktiv interferens (utslettelse)",
+      "content": "Med to kilder i fase blir det **utslettelse** når ganglengdeforskjellen er et halvt antall bølgelengder:\n\n$$\\Delta l = \\left(n + \\tfrac12\\right)\\lambda, \\qquad n = 0, 1, 2, \\ldots$$\n\nDa kommer den ene bølgen i motfase med den andre: topp møter bunn, og lyden blir svak eller forsvinner helt.\n\n**Arbeidsmetoden på eksamen:** regn ut $\\Delta l$, del på $\\lambda$, og se på tallet. Blir det et helt tall, er det forsterkning. Blir det et helt tall pluss en halv, er det utslettelse."
+    },
+    {
+      "id": "fys1001-6-1-fig-interferens",
+      "type": "image",
+      "src": "/images/textbook/fys1001/fys1001-6-1-interferens.svg",
+      "alt": "To høyttalere til venstre sender ut bølger, tegnet som buer. Fra hver høyttaler går en rett linje til en lytter til høyre, den ene merket l1 og den andre l2. Linjene har ulik lengde.",
+      "caption": "Ganglengdene fra to høyttalere i fase til en lytter. Forskjellen $\\Delta l = |l_2 - l_1|$ avgjør om lytteren hører forsterkning eller utslettelse."
+    },
+    {
+      "id": "fys1001-6-1-ex3",
+      "type": "example",
+      "title": "Eksempel 3: To høyttalere i et auditorium (sjanger M)",
+      "problem": "To høyttalere spiller den samme tonen på $680\\ \\text{Hz}$ i fase. Du sitter $4{,}20\\ \\text{m}$ fra den ene og $5{,}45\\ \\text{m}$ fra den andre. Lydfarten er $340\\ \\text{m/s}$.\n\nHva hører du, og hvorfor?",
+      "solution": "**Steg 1 — finn bølgelengden.**\n\n$$\\lambda = \\frac{v}{f} = \\frac{340\\ \\text{m/s}}{680\\ \\text{Hz}} = 0{,}50\\ \\text{m}$$\n\n**Steg 2 — finn ganglengdeforskjellen.**\n\n$$\\Delta l = 5{,}45\\ \\text{m} - 4{,}20\\ \\text{m} = 1{,}25\\ \\text{m}$$\n\n**Steg 3 — sammenlign med bølgelengden.**\n\n$$\\frac{\\Delta l}{\\lambda} = \\frac{1{,}25\\ \\text{m}}{0{,}50\\ \\text{m}} = 2{,}5$$\n\nTallet er $2 + \\tfrac12$, altså et halvt antall bølgelengder. Det svarer til $\\Delta l = (n + \\tfrac12)\\lambda$ med $n = 2$.\n\n**Konklusjon og begrunnelse:** du hører **utslettelse** — lyden er svak eller helt borte i dette punktet. Grunnen er at bølgen fra den fjerneste høyttaleren har gått to og en halv bølgelengde lenger enn den fra den nærmeste. De hele bølgelengdene betyr ingenting; den halve gjør at bølgen kommer i motfase, slik at topp møter bunn.\n\n**Merk:** utslettelsen gjelder bare denne tonen og dette punktet. Flytter du deg litt, endres $\\Delta l$, og da kan du få forsterkning i stedet. Det er derfor lyden i et rom med to høyttalere kan variere merkbart når du beveger hodet."
+    },
+    {
+      "id": "fys1001-6-1-o3",
+      "type": "exercise",
+      "exercise": {
+        "id": "fys1001-6-1-e3",
+        "number": "3",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "*(Sjanger M + Q.)* To høyttalere sender ut samme tone på $425\\ \\text{Hz}$ i fase. Du sitter $3{,}40\\ \\text{m}$ fra den ene og $4{,}60\\ \\text{m}$ fra den andre. Lydfarten er $340\\ \\text{m/s}$.\n\n**a)** Hva hører du? Begrunn med regning.\n**b)** Hva skjer hvis frekvensen dobles til $850\\ \\text{Hz}$?",
+        "solution": "**a)** Bølgelengden:\n\n$$\\lambda = \\frac{340\\ \\text{m/s}}{425\\ \\text{Hz}} = 0{,}80\\ \\text{m}$$\n\nGanglengdeforskjellen:\n\n$$\\Delta l = 4{,}60\\ \\text{m} - 3{,}40\\ \\text{m} = 1{,}20\\ \\text{m}$$\n\n$$\\frac{\\Delta l}{\\lambda} = \\frac{1{,}20}{0{,}80} = 1{,}5 = 1 + \\tfrac12$$\n\nDette er et halvt antall bølgelengder, altså $\\Delta l = (n+\\tfrac12)\\lambda$ med $n = 1$.\n\n**Svar:** du hører **utslettelse** — bølgene kommer i motfase, og lyden blir svak.\n\n**b)** Doblet frekvens gir halvert bølgelengde:\n\n$$\\lambda' = \\frac{340\\ \\text{m/s}}{850\\ \\text{Hz}} = 0{,}40\\ \\text{m} \\quad\\Longrightarrow\\quad \\frac{\\Delta l}{\\lambda'} = \\frac{1{,}20}{0{,}40} = 3{,}0$$\n\nNå er ganglengdeforskjellen et **helt** antall bølgelengder, så du hører **forsterkning**.\n\n**Konklusjon:** samme plassering, motsatt resultat. Ganglengdeforskjellen er uendret — det er bølgelengden som har endret seg, og det er forholdet $\\Delta l/\\lambda$ som avgjør.",
+        "hints": [
+          "Finn bølgelengden fra $v = f\\lambda$ først.",
+          "Regn ut ganglengdeforskjellen og del på bølgelengden.",
+          "Helt tall gir forsterkning; helt tall pluss en halv gir utslettelse."
+        ]
+      }
+    },
+    {
+      "id": "fys1001-6-1-l4",
+      "type": "text",
+      "content": "— naturlig pausepunkt —\n\n### Løkke 4 — Intensitet og desibel (~12 min)\n\nØret vårt dekker et enormt spenn i lydstyrke, fra det knapt hørbare til det smertefulle. Derfor bruker vi en logaritmisk skala."
+    },
+    {
+      "id": "fys1001-6-1-def-intensitet",
+      "type": "definition",
+      "title": "Intensitet",
+      "content": "**Intensiteten** $I$ er effekten som treffer en flate, delt på arealet av flaten:\n\n$$I = \\frac{P}{A}$$\n\nEnheten er **watt per kvadratmeter ($\\text{W/m}^2$)**. Intensiteten er et mål på hvor mye energi bølgen fører per sekund gjennom en flate."
+    },
+    {
+      "id": "fys1001-6-1-def-avstandslov",
+      "type": "definition",
+      "title": "Avstandsloven $I \\propto 1/r^2$",
+      "content": "En punktkilde sender energi ut i alle retninger. I avstanden $r$ er energien fordelt over en kuleflate med areal $4\\pi r^2$, så\n\n$$I = \\frac{P}{4\\pi r^2} \\quad\\Longrightarrow\\quad I \\propto \\frac{1}{r^2}$$\n\n**Konsekvensen du må huske:** dobler du avstanden, blir intensiteten **fire ganger mindre** — ikke halvparten. Firedobler du avstanden, blir den seksten ganger mindre.\n\nDette er den samme kvadratloven som i Coulombs lov, og den samme fella: lineær tenkning i en kvadratlov."
+    },
+    {
+      "id": "fys1001-6-1-def-lydniva",
+      "type": "definition",
+      "title": "Lydnivå (desibel)",
+      "content": "**Lydnivået** $L$ måles i **desibel (dB)** og er definert som\n\n$$L = 10\\log\\left(\\frac{I}{I_0}\\right)$$\n\nder $\\log$ er tierlogaritmen og $I_0 = 1{,}0\\cdot10^{-12}\\ \\text{W/m}^2$ er **høreterskelen** — den svakeste lyden et normalt øre kan oppfatte ved 1000 Hz.\n\nSkal du gå den andre veien, fra dB til intensitet, snur du logaritmen:\n\n$$I = I_0\\cdot10^{L/10}$$\n\nEnheten desibel er egentlig dimensjonsløs: den forteller hvor mange tierpotenser over høreterskelen lyden ligger, ganget med 10."
+    },
+    {
+      "id": "fys1001-6-1-ex4",
+      "type": "example",
+      "title": "Eksempel 4: Fra intensitet til desibel og tilbake (sjanger M)",
+      "problem": "**a)** En lyd har intensiteten $2{,}0\\cdot10^{-3}\\ \\text{W/m}^2$. Finn lydnivået.\n\n**b)** En annen lyd har nivået $78\\ \\text{dB}$ i $3{,}0\\ \\text{m}$ avstand fra kilden. Hvor stort er nivået i $12\\ \\text{m}$ avstand?",
+      "solution": "**a)**\n\n$$L = 10\\log\\left(\\frac{2{,}0\\cdot10^{-3}}{1{,}0\\cdot10^{-12}}\\right)\\ \\text{dB} = 10\\log(2{,}0\\cdot10^{9})\\ \\text{dB} = 10\\cdot9{,}30\\ \\text{dB} = 93\\ \\text{dB}$$\n\n**Rimelighet:** $93\\ \\text{dB}$ er omtrent nivået i en støyende maskinhall — høyt, men ikke smertefullt ✓\n\n**b)** Her er det raskest å regne på *endringen*. Avstanden firedobles, så intensiteten blir $4^2 = 16$ ganger mindre. Fordi desibelskalaen er logaritmisk, blir endringen i nivå\n\n$$\\Delta L = 10\\log\\left(\\frac{1}{16}\\right)\\ \\text{dB} = -10\\log 16\\ \\text{dB} = -12{,}0\\ \\text{dB}$$\n\n$$L' = 78\\ \\text{dB} - 12{,}0\\ \\text{dB} = 66\\ \\text{dB}$$\n\n**Konklusjon:** nivået er $93\\ \\text{dB}$ i a) og faller til $66\\ \\text{dB}$ i b).\n\n**Huskeregelen som følger av dette:** dobler du avstanden, faller nivået med $10\\log 4 = 6{,}0\\ \\text{dB}$. Firedobler du, faller det med $12\\ \\text{dB}$. Det er derfor du må ganske langt unna en høyttaler før den blir merkbart svakere."
+    },
+    {
+      "id": "fys1001-6-1-o4",
+      "type": "exercise",
+      "exercise": {
+        "id": "fys1001-6-1-e4",
+        "number": "4",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "*(Sjanger M.)* En maskin gir lydnivået $85\\ \\text{dB}$ i en gitt avstand. Høreterskelen er $I_0 = 1{,}0\\cdot10^{-12}\\ \\text{W/m}^2$.\n\n**a)** Finn intensiteten der.\n**b)** Finn lydnivået i dobbelt så stor avstand fra maskinen.",
+        "solution": "**a)** Snu definisjonen av lydnivå:\n\n$$L = 10\\log\\left(\\frac{I}{I_0}\\right) \\quad\\Longrightarrow\\quad I = I_0\\cdot10^{L/10} = 1{,}0\\cdot10^{-12}\\cdot10^{8{,}5}\\ \\text{W/m}^2$$\n\n$$I = 1{,}0\\cdot10^{-12}\\cdot3{,}16\\cdot10^{8}\\ \\text{W/m}^2 = 3{,}2\\cdot10^{-4}\\ \\text{W/m}^2$$\n\n**b)** Dobbel avstand gir en firedel av intensiteten:\n\n$$I' = \\frac{3{,}16\\cdot10^{-4}}{4}\\ \\text{W/m}^2 = 7{,}9\\cdot10^{-5}\\ \\text{W/m}^2$$\n\n$$L' = 10\\log\\left(\\frac{7{,}9\\cdot10^{-5}}{1{,}0\\cdot10^{-12}}\\right)\\ \\text{dB} = 10\\log(7{,}9\\cdot10^{7})\\ \\text{dB} = 79\\ \\text{dB}$$\n\n*Raskere vei:* $\\Delta L = -10\\log 4 = -6{,}0\\ \\text{dB}$, så $L' = 85 - 6{,}0 = 79\\ \\text{dB}$ ✓\n\n**Konklusjon:** intensiteten er $3{,}2\\cdot10^{-4}\\ \\text{W/m}^2$, og nivået faller til $79\\ \\text{dB}$ ved dobbel avstand — et fall på $6{,}0\\ \\text{dB}$, ikke en halvering av desibeltallet.",
+        "hints": [
+          "Snu $L = 10\\log(I/I_0)$ ved å opphøye 10 i $L/10$.",
+          "Dobbel avstand betyr en firedel av intensiteten, fordi $I \\propto 1/r^2$.",
+          "Endringen i nivå kan regnes direkte som $10\\log$ av intensitetsforholdet."
+        ]
+      }
+    },
+    {
+      "id": "fys1001-6-1-o5",
+      "type": "exercise",
+      "exercise": {
+        "id": "fys1001-6-1-e5",
+        "number": "5",
+        "type": "classic",
+        "difficulty": "vanskelig",
+        "task": "*(Sjanger M — krevende.)* En punktkilde gir lydnivået $92\\ \\text{dB}$ i $2{,}0\\ \\text{m}$ avstand.\n\nI hvilken avstand er nivået $80\\ \\text{dB}$?",
+        "solution": "**Finn intensitetsforholdet fra nivåforskjellen.** Fallet er $\\Delta L = 92 - 80 = 12\\ \\text{dB}$, og\n\n$$\\Delta L = 10\\log\\left(\\frac{I_1}{I_2}\\right) \\quad\\Longrightarrow\\quad \\frac{I_1}{I_2} = 10^{12/10} = 10^{1{,}2} = 15{,}8$$\n\n**Bruk avstandsloven.** Siden $I \\propto 1/r^2$, er\n\n$$\\frac{I_1}{I_2} = \\frac{r_2^2}{r_1^2} \\quad\\Longrightarrow\\quad \\frac{r_2}{r_1} = \\sqrt{15{,}8} = 3{,}98$$\n\n$$r_2 = 3{,}98\\cdot2{,}0\\ \\text{m} = 8{,}0\\ \\text{m}$$\n\n**Kontroll:** fra $2{,}0\\ \\text{m}$ til $8{,}0\\ \\text{m}$ er en firedobling av avstanden, altså $16$ ganger mindre intensitet, og $10\\log 16 = 12{,}0\\ \\text{dB}$ ✓\n\n**Konklusjon:** nivået er $80\\ \\text{dB}$ i rundt $8{,}0\\ \\text{m}$ avstand.\n\n**Merk fella:** avstanden er *ikke* firedoblet fordi nivået falt med 12 dB «per 3 dB». Du må gå via intensitetsforholdet og deretter ta kvadratrota, fordi $I$ går som $1/r^2$.",
+        "hints": [
+          "Regn først ut hvor mange ganger mindre intensiteten er, ut fra nivåforskjellen.",
+          "Bruk at $\\Delta L = 10\\log(I_1/I_2)$ og løs for forholdet.",
+          "Avstandsforholdet er kvadratrota av intensitetsforholdet."
+        ]
+      }
+    },
+    {
+      "id": "fys1001-6-1-l5",
+      "type": "text",
+      "content": "— naturlig pausepunkt —\n\n### Løkke 5 — Stående bølger og Snells lov i fartsform (~14 min)\n\nTo siste temaer: hvordan en streng velger hvilke toner den kan lage, og hvordan bølger knekker på en grense mellom to lag."
+    },
+    {
+      "id": "fys1001-6-1-def-staaende",
+      "type": "definition",
+      "title": "Stående bølge",
+      "content": "En **stående bølge** oppstår når en bølge reflekteres og møter seg selv, slik at mønsteret ser ut til å stå stille. Punkter som ikke svinger i det hele tatt, kalles **knutepunkter**; punkter med maksimalt utsving kalles **buker**.\n\nPå en streng festet i begge ender må endene være knutepunkter. Det begrenser hvilke bølgelengder som er mulige — strengen kan bare svinge i bestemte mønstre."
+    },
+    {
+      "id": "fys1001-6-1-def-harmoniske",
+      "type": "definition",
+      "title": "Grunntone og overharmoniske",
+      "content": "For en streng med lengde $L$, festet i begge ender, er de mulige bølgelengdene\n\n$$\\lambda_n = \\frac{2L}{n}, \\qquad n = 1, 2, 3, \\ldots$$\n\nog de tilhørende frekvensene, med bølgefarten $v$ i strengen:\n\n$$f_n = \\frac{v}{\\lambda_n} = n\\cdot\\frac{v}{2L} = n f_1$$\n\n- $n = 1$ gir **grunntonen** $f_1$, med $\\lambda_1 = 2L$ (én buk i midten).\n- $n = 2$ gir **2. harmoniske** $2f_1$, $n = 3$ gir $3f_1$, og så videre.\n\nFrekvensene er altså hele multipler av grunntonen: $f_1, 2f_1, 3f_1, \\ldots$ Det er blandingen av dem som gir instrumenter sin klang."
+    },
+    {
+      "id": "fys1001-6-1-fig-staaende",
+      "type": "image",
+      "src": "/images/textbook/fys1001/fys1001-6-1-staaende.svg",
+      "alt": "Tre strenger festet i begge ender, tegnet over hverandre. Øverst svinger strengen med én buk i midten, merket grunntone med bølgelengde 2L. I midten er det to buker og ett knutepunkt i midten, merket 2. harmoniske. Nederst er det tre buker og to knutepunkter, merket 3. harmoniske.",
+      "caption": "De tre laveste svingemønstrene på en streng festet i begge ender. Endene må være knutepunkter, og det er dette kravet som velger ut de mulige bølgelengdene $\\lambda_n = 2L/n$."
+    },
+    {
+      "id": "fys1001-6-1-ex5",
+      "type": "example",
+      "title": "Eksempel 5: Grunntone og overharmoniske (sjanger M)",
+      "problem": "En gitarstreng har lengden $65\\ \\text{cm}$, og grunntonen er $196\\ \\text{Hz}$.\n\n**a)** Finn bølgelengden til grunntonen og bølgefarten i strengen.\n**b)** Finn frekvensene til de to neste harmoniske.",
+      "solution": "**a)** For grunntonen er hele strengen en halv bølgelengde, altså $\\lambda_1 = 2L$:\n\n$$\\lambda_1 = 2\\cdot0{,}65\\ \\text{m} = 1{,}30\\ \\text{m}$$\n\nBølgefarten i strengen følger av bølgeformelen:\n\n$$v = f_1\\lambda_1 = 196\\ \\text{Hz}\\cdot1{,}30\\ \\text{m} = 255\\ \\text{m/s}$$\n\n**b)** De harmoniske er hele multipler av grunntonen:\n\n$$f_2 = 2f_1 = 392\\ \\text{Hz}, \\qquad f_3 = 3f_1 = 588\\ \\text{Hz}$$\n\n**Konklusjon:** bølgefarten i strengen er $255\\ \\text{m/s}$, og de tre laveste tonene strengen kan gi, er $196$, $392$ og $588\\ \\text{Hz}$. Se figuren over for svingemønstrene.\n\n**Merk:** bølgefarten $255\\ \\text{m/s}$ er farten i **strengen**, ikke lydfarten i luft. Lyden som når øret ditt, har samme *frekvens* som strengsvingningen, men bølgelengden i luft er en annen — $340/196 = 1{,}73\\ \\text{m}$."
+    },
+    {
+      "id": "fys1001-6-1-o6",
+      "type": "exercise",
+      "exercise": {
+        "id": "fys1001-6-1-e6",
+        "number": "6",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "*(Sjanger M.)* En streng er festet i begge ender og har lengden $80\\ \\text{cm}$. Bølgefarten i strengen er $320\\ \\text{m/s}$.\n\n**a)** Finn bølgelengden og frekvensen til grunntonen.\n**b)** Finn frekvensene til 2. og 3. harmoniske.\n**c)** Skisser svingemønsteret for grunntonen og de to neste harmoniske, og marker knutepunktene.",
+        "solution": "**a)** $\\lambda_1 = 2L = 2\\cdot0{,}80\\ \\text{m} = 1{,}60\\ \\text{m}$, og\n\n$$f_1 = \\frac{v}{\\lambda_1} = \\frac{320\\ \\text{m/s}}{1{,}60\\ \\text{m}} = 200\\ \\text{Hz}$$\n\n**b)** $f_2 = 2f_1 = 400\\ \\text{Hz}$ og $f_3 = 3f_1 = 600\\ \\text{Hz}$.\n\n**c)** Mønstrene er de samme som i figuren i denne løkka, bare med disse frekvensene:\n\n- **grunntonen** ($200\\ \\text{Hz}$): knutepunkt i hver ende, én buk midt på strengen;\n- **2. harmoniske** ($400\\ \\text{Hz}$): knutepunkt i endene **og** ett i midten, to buker;\n- **3. harmoniske** ($600\\ \\text{Hz}$): knutepunkt i endene og to knutepunkter inne på strengen, tre buker.\n\nAntall buker er alltid lik $n$, og antall knutepunkter er $n + 1$ når du regner med endene.\n\n**Konklusjon:** de tre laveste tonene er $200$, $400$ og $600\\ \\text{Hz}$.",
+        "hints": [
+          "For grunntonen er strenglengden en halv bølgelengde.",
+          "Bruk $v = f\\lambda$ med bølgefarten i strengen, ikke i luft.",
+          "De harmoniske er hele multipler av grunntonen; se figuren i denne løkka for mønstrene."
+        ]
+      }
+    },
+    {
+      "id": "fys1001-6-1-def-snell-fart",
+      "type": "definition",
+      "title": "Snells lov i fartsform",
+      "content": "Når en bølge går skrått over en grense mellom to lag med ulik bølgefart, knekker den. Vinklene måles **mot normalen** til grenseflaten, og\n\n$$\\frac{\\sin\\alpha_2}{\\sin\\alpha_1} = \\frac{v_2}{v_1}$$\n\nder $\\alpha_1$ og $v_1$ hører til det laget bølgen kommer fra.\n\n**Tolkningen:** går bølgen inn i et lag med **høyere** fart, blir vinkelen **større** — strålen knekker bort fra normalen. Går den inn i et lag med lavere fart, knekker den mot normalen.\n\nDette er den samme loven som brukes i optikk (der skrives den med brytningsindekser i [kap. 6.2](/bok/fys1001/fys1001-6-2)), men i seismikk er det fartene som er oppgitt."
+    },
+    {
+      "id": "fys1001-6-1-fig-laggrense",
+      "type": "image",
+      "src": "/images/textbook/fys1001/fys1001-6-1-laggrense.svg",
+      "alt": "En seismisk stråle kommer skrått ned gjennom et øvre lag med lavere fart, treffer en vannrett laggrense og fortsetter med større vinkel i det nedre laget med høyere fart. Normalen er tegnet som en stiplet loddrett linje, og vinklene alfa1 og alfa2 er markert mot normalen.",
+      "caption": "En seismisk stråle som bryter på en laggrense. Vinklene måles mot normalen, og høyere fart i det nedre laget gir større vinkel."
+    },
+    {
+      "id": "fys1001-6-1-ex6",
+      "type": "example",
+      "title": "Eksempel 6: Seismisk stråle på en laggrense (sjanger M)",
+      "problem": "En P-bølge går ned gjennom et lag der farten er $5{,}8\\ \\text{km/s}$, og treffer grensen til et lag med farten $8{,}0\\ \\text{km/s}$. Innfallsvinkelen mot normalen er $35^\\circ$.\n\nFinn brytningsvinkelen.",
+      "solution": "**Snells lov i fartsform:**\n\n$$\\frac{\\sin\\alpha_2}{\\sin\\alpha_1} = \\frac{v_2}{v_1} \\quad\\Longrightarrow\\quad \\sin\\alpha_2 = \\sin\\alpha_1\\cdot\\frac{v_2}{v_1}$$\n\n$$\\sin\\alpha_2 = \\sin 35^\\circ\\cdot\\frac{8{,}0}{5{,}8} = 0{,}5736\\cdot1{,}379 = 0{,}791$$\n\n$$\\alpha_2 = \\arcsin(0{,}791) = 52^\\circ$$\n\n**Konklusjon:** brytningsvinkelen er $52^\\circ$ — større enn innfallsvinkelen.\n\n**Begrunnelsen for at det må bli slik:** farten er høyere i det nedre laget, og da knekker strålen **bort fra** normalen. Dette er nettopp hvordan seismologer kartlegger lagdelingen i jorda: fra hvordan strålene knekker, leser de av hvor fartene endrer seg.\n\n**Rimelighetssjekk:** legg merke til at forholdet $v_2/v_1 = 1{,}38$ ikke kan brukes på vinklene direkte — $35^\\circ\\cdot1{,}38 = 48^\\circ$ er *ikke* svaret. Loven gjelder for sinusene, ikke for vinklene."
+    },
+    {
+      "id": "fys1001-6-1-o7",
+      "type": "exercise",
+      "exercise": {
+        "id": "fys1001-6-1-e7",
+        "number": "7",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "*(Sjanger M — seismikk.)* En seismisk bølge går gjennom et lag med farten $3{,}5\\ \\text{km/s}$ og treffer grensen til et lag med farten $6{,}2\\ \\text{km/s}$. Innfallsvinkelen mot normalen er $28^\\circ$.\n\n**a)** Finn brytningsvinkelen.\n**b)** Finn den innfallsvinkelen der brytningsvinkelen blir $90^\\circ$, altså der strålen ikke lenger går ned i det nedre laget.",
+        "solution": "**a)** Snells lov i fartsform:\n\n$$\\sin\\alpha_2 = \\sin\\alpha_1\\cdot\\frac{v_2}{v_1} = \\sin 28^\\circ\\cdot\\frac{6{,}2}{3{,}5} = 0{,}4695\\cdot1{,}771 = 0{,}8316$$\n\n$$\\alpha_2 = \\arcsin(0{,}8316) = 56^\\circ$$\n\nStrålen knekker bort fra normalen, som forventet når farten øker.\n\n**b)** Brytningsvinkelen $90^\\circ$ betyr $\\sin\\alpha_2 = 1$:\n\n$$1 = \\sin\\alpha_1\\cdot\\frac{v_2}{v_1} \\quad\\Longrightarrow\\quad \\sin\\alpha_1 = \\frac{v_1}{v_2} = \\frac{3{,}5}{6{,}2} = 0{,}5645$$\n\n$$\\alpha_1 = \\arcsin(0{,}5645) = 34^\\circ$$\n\n**Konklusjon:** brytningsvinkelen er $56^\\circ$ i a), og ved innfallsvinkler over $34^\\circ$ går bølgen ikke ned i det nedre laget i det hele tatt — den løper langs grensen eller reflekteres tilbake. Denne grensevinkelen er selve grunnlaget for refraksjonsseismikk, der man leser av dybden til laggrenser fra bølger som har løpt langs dem.\n\n**Merk betingelsen:** en slik grensevinkel finnes bare når bølgen går fra **lav** til **høy** fart, altså når $v_1 < v_2$. Ellers er $v_1/v_2 > 1$, og ligningen har ingen løsning.",
+        "hints": [
+          "Skriv Snells lov i fartsform og løs for $\\sin\\alpha_2$.",
+          "Pass på at vinklene måles mot normalen, ikke mot grenseflaten.",
+          "I b): sett $\\alpha_2 = 90^\\circ$, altså $\\sin\\alpha_2 = 1$, og løs for innfallsvinkelen."
+        ]
+      }
+    },
+    {
+      "id": "fys1001-6-1-boer-kjenne",
+      "type": "text",
+      "content": "### Bør kjenne til: gitter og dispersjon\n\nDenne siste biten har prioritet **kjenne** — den er belagt i 7 av 36 sett (19 %), og oftest som et kvalitativt spørsmål. Ta den til slutt, når resten sitter."
+    },
+    {
+      "id": "fys1001-6-1-def-gitter",
+      "type": "definition",
+      "title": "Gitter (bør kjenne til)",
+      "content": "Et **optisk gitter** er en plate med svært mange parallelle, tette spalter. Hver spalte virker som en ny lyskilde, og de forsterker hverandre i bestemte retninger:\n\n$$d\\sin\\theta = n\\lambda, \\qquad n = 0, 1, 2, \\ldots$$\n\nder $d$ er avstanden mellom nabospaltene (**gitterkonstanten**) og $\\theta$ er vinkelen fra sentralretningen.\n\nBetingelsen er den samme som for to kilder: ganglengdeforskjellen mellom nabospaltene skal være et helt antall bølgelengder. Fordi det er *mange* spalter, blir de forsterkede retningene svært skarpe."
+    },
+    {
+      "id": "fys1001-6-1-def-gitter-vs-regnbue",
+      "type": "definition",
+      "title": "Gitter mot regnbue: to ulike mekanismer",
+      "content": "Begge sprer hvitt lys i farger, men mekanismene er forskjellige — og dette er en gjenganger som kvalitativt spørsmål:\n\n- **Gitter: interferens.** Retningen til den forsterkede strålen er gitt av $d\\sin\\theta = n\\lambda$. Ulike bølgelengder får ulik vinkel *fordi $\\lambda$ står i betingelsen*. Ingen brytning er involvert.\n- **Regnbue (og prisme): dispersjon.** Brytningsindeksen $n$ i et materiale avhenger litt av bølgelengden, så ulike farger brytes ulikt mye i Snells lov. Her er det brytning, ikke interferens.\n\n**Skriv aldri «lyset brytes i gitteret».** Det er interferens. Og skriv aldri «regnbuen skyldes interferens». Det er dispersjon."
+    },
+    {
+      "id": "fys1001-6-1-ex7",
+      "type": "example",
+      "title": "Eksempel 7: Gitter (bør kjenne til)",
+      "problem": "Et gitter har $500$ spalter per millimeter. Natriumlys med bølgelengden $589\\ \\text{nm}$ sendes rett inn på gitteret.\n\nFinn vinkelen til første orden ($n = 1$).",
+      "solution": "**Finn gitterkonstanten.** $500$ spalter per millimeter betyr at avstanden mellom nabospalter er\n\n$$d = \\frac{1\\ \\text{mm}}{500} = \\frac{1{,}0\\cdot10^{-3}\\ \\text{m}}{500} = 2{,}0\\cdot10^{-6}\\ \\text{m}$$\n\n**Bruk gitterbetingelsen med $n = 1$:**\n\n$$d\\sin\\theta = \\lambda \\quad\\Longrightarrow\\quad \\sin\\theta = \\frac{589\\cdot10^{-9}\\ \\text{m}}{2{,}0\\cdot10^{-6}\\ \\text{m}} = 0{,}295$$\n\n$$\\theta = \\arcsin(0{,}295) = 17^\\circ$$\n\n**Konklusjon:** første orden ligger $17^\\circ$ fra sentralretningen.\n\n**Merk mekanismen:** dette er interferens mellom bidrag fra mange spalter — ganglengdeforskjellen mellom nabospalter er nøyaktig én bølgelengde i denne retningen. Ingenting er brutt."
+    },
+    {
+      "id": "fys1001-6-1-o8",
+      "type": "exercise",
+      "exercise": {
+        "id": "fys1001-6-1-e8",
+        "number": "8",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "*(Sjanger Q — kvalitativ forklaring. «Sjanger Q» er bokas navn på de rene «forklar/begrunn»-deloppgavene, som utgjør 25–40 % av eksamen.)*\n\nBåde et gitter og en regndråpe kan splitte hvitt lys i farger.\n\nForklar i 2–4 setninger hvorfor mekanismene likevel er helt forskjellige.",
+        "solution": "I et **gitter** er det **interferens** som gjør jobben. De forsterkede retningene er gitt av $d\\sin\\theta = n\\lambda$, og fordi bølgelengden står i betingelsen, får hver farge sin egen vinkel. Lyset brytes ikke; det er bidragene fra mange spalter som legger seg sammen i bestemte retninger.\n\nI en **regndråpe** er det **dispersjon** — altså at brytningsindeksen avhenger litt av bølgelengden. Fargene brytes derfor ulikt mye når lyset går inn i og ut av dråpen, og det er denne brytningsforskjellen som sprer dem.\n\n**Konklusjon:** samme synlige resultat, to ulike mekanismer. Interferens i gitteret, brytning i dråpen.",
+        "hints": [
+          "Hvilken betingelse bestemmer retningene ut fra et gitter?",
+          "Hva betyr det at brytningsindeksen avhenger av bølgelengden?",
+          "Svar i tre ledd: navngi mekanismen i hvert tilfelle, koble den til situasjonen, konkluder."
+        ]
+      }
+    },
+    {
+      "id": "fys1001-6-1-warn",
+      "type": "warning",
+      "title": "Typiske feil",
+      "content": "- **Glemme kvadratet i $I \\propto 1/r^2$.** Dobbel avstand gir en **firedel** av intensiteten, ikke halvparten. Dette er den mest belagte feilen i kapitlet, og den samme lineær-tenkningen ødelegger også strålingsoppgavene i Del 4.\n- **Blande konstruktiv og destruktiv betingelse.** Helt antall bølgelengder gir forsterkning; halvt antall gir utslettelse. Regn ut $\\Delta l/\\lambda$ og se på tallet — det er tryggere enn å huske hvilken formel som var hvilken.\n- **Klassifisere lyd som transversal.** Lyd er **longitudinal** — partiklene svinger fram og tilbake langs utbredelsesretningen. Det er derfor lyd går gjennom væsker og gasser.\n- **Regne desibel lineært.** $80\\ \\text{dB}$ pluss $80\\ \\text{dB}$ er ikke $160\\ \\text{dB}$. Skalaen er logaritmisk: to like kilder gir $+3\\ \\text{dB}$, altså $83\\ \\text{dB}$.\n- **Bruke fartsforholdet på vinklene i stedet for på sinusene.** Snells lov sier $\\sin\\alpha_2/\\sin\\alpha_1 = v_2/v_1$, ikke $\\alpha_2/\\alpha_1 = v_2/v_1$.\n- **Måle vinkler mot grenseflaten.** Alle vinkler i Snells lov måles mot **normalen**.\n- **Si at frekvensen endres i et nytt medium.** Frekvensen bestemmes av kilden og er den samme; det er farten og bølgelengden som endres.\n- **Bruke lydfarten i luft på en streng.** Bølgefarten i strengen er en annen størrelse enn lydfarten i luft, selv om frekvensen er felles.\n- **Kalle gitterets fargespredning for brytning.** Gitter er interferens, regnbue er dispersjon.\n- **Manglende enhet.** m, Hz, m/s, $\\text{W/m}^2$ og dB på hvert svar."
+    },
+    {
+      "id": "fys1001-6-1-bb-intro",
+      "type": "text",
+      "content": "## Begrepsbank\n\n*Flashcard-/repetisjonsstoff — hopp trygt over ved førstegangslesing; tidsanslaget gjelder kjernestoffet.*"
+    },
+    {
+      "id": "fys1001-6-1-bb-medium",
+      "type": "definition",
+      "title": "Bølgefart bestemmes av mediet",
+      "content": "Bølgefarten avhenger av **mediet**, ikke av kilden. Noen typiske verdier (tabellstoff):\n\n| Medium | Lydfart |\n|---|---|\n| Luft (20 °C) | $340\\ \\text{m/s}$ |\n| Vann | $1480\\ \\text{m/s}$ |\n| Stål | $\\approx 5000\\ \\text{m/s}$ |\n| Jordskorpa (P-bølger) | $\\approx 6000\\ \\text{m/s}$ |\n\nKonsekvensen: samme tone har helt ulik bølgelengde i luft og i vann, men samme frekvens."
+    },
+    {
+      "id": "fys1001-6-1-bb-fase",
+      "type": "definition",
+      "title": "I fase og i motfase",
+      "content": "To bølger er **i fase** når toppene faller sammen — da forsterker de hverandre. De er i **motfase** når topp møter bunn — da sletter de hverandre.\n\nEn ganglengdeforskjell på $\\lambda/2$ svarer nøyaktig til motfase. Det er derfor det halve bølgelengdeleddet i $(n+\\tfrac12)\\lambda$ er det som avgjør utslettelsen; de hele bølgelengdene endrer ingenting."
+    },
+    {
+      "id": "fys1001-6-1-bb-hoereterskel",
+      "type": "definition",
+      "title": "Høreterskelen $I_0$",
+      "content": "$I_0 = 1{,}0\\cdot10^{-12}\\ \\text{W/m}^2$ er referanseintensiteten i desibelskalaen — omtrent den svakeste lyden et normalt øre kan oppfatte ved 1000 Hz.\n\nVed $I = I_0$ er $L = 10\\log 1 = 0\\ \\text{dB}$. Null desibel betyr altså ikke «ingen lyd», men «på høreterskelen». Verdien hentes fra formelarket."
+    },
+    {
+      "id": "fys1001-6-1-bb-db-huskeregler",
+      "type": "definition",
+      "title": "Desibel-huskereglene",
+      "content": "Tre regler som sparer tid på eksamen:\n\n- **Dobbelt så stor intensitet:** $+10\\log 2 = +3{,}0\\ \\text{dB}$.\n- **Dobbelt så stor avstand fra en punktkilde:** $-10\\log 4 = -6{,}0\\ \\text{dB}$.\n- **Ti ganger så stor intensitet:** $+10\\ \\text{dB}$.\n\nMerk at to like høyttalere gir $+3\\ \\text{dB}$, ikke dobbelt så mange desibel — det oppleves som en ganske beskjeden økning."
+    },
+    {
+      "id": "fys1001-6-1-bb-knute-buk",
+      "type": "definition",
+      "title": "Knutepunkt og buk",
+      "content": "Et **knutepunkt** er et punkt i en stående bølge som ikke svinger i det hele tatt. En **buk** er et punkt med maksimalt utsving.\n\nPå en streng festet i begge ender er endene alltid knutepunkter. I den $n$-te harmoniske er det $n$ buker og $n+1$ knutepunkter (endene medregnet), og avstanden mellom to nabo-knutepunkter er $\\lambda/2$."
+    },
+    {
+      "id": "fys1001-6-1-bb-sbolgeskygge",
+      "type": "definition",
+      "title": "S-bølgeskyggen",
+      "content": "**S-bølgeskyggen** er området på motsatt side av jorda der seismografer registrerer P-bølger men ingen S-bølger etter et skjelv.\n\nForklaringen er at S-bølger er transversale og krever et medium som motstår skjærkrefter. Jordas ytre kjerne er flytende og gjør ikke det. Skyggens utstrekning er brukt til å bestemme hvor kjernen begynner."
+    },
+    {
+      "id": "fys1001-6-1-bb-refraksjonsseismikk",
+      "type": "definition",
+      "title": "Grensevinkel i seismikk",
+      "content": "Går en bølge fra et lag med lav fart til et med høy fart, finnes det en **grensevinkel** der brytningsvinkelen blir $90^\\circ$:\n\n$$\\sin\\alpha_c = \\frac{v_1}{v_2} \\qquad (\\text{krever } v_1 < v_2)$$\n\nVed større innfallsvinkler går bølgen ikke ned i det nedre laget. Bølger som løper langs grensen og kommer opp igjen, brukes til å bestemme dybden til laggrenser — det er grunnprinsippet i refraksjonsseismikk.\n\n**Betingelsen må skrives ut:** finnes bare når farten øker nedover."
+    },
+    {
+      "id": "fys1001-6-1-bb-dispersjon",
+      "type": "definition",
+      "title": "Dispersjon",
+      "content": "**Dispersjon** betyr at bølgefarten — og dermed brytningsindeksen — avhenger av bølgelengden.\n\nI glass og vann brytes blått lys litt mer enn rødt, fordi $n$ er litt større for kort bølgelengde. Det er dette som gir prismefarger og regnbue. Dispersjon er en **brytningseffekt**, i motsetning til gitterets fargespredning, som er interferens."
+    },
+    {
+      "id": "fys1001-6-1-bb-em-bolger",
+      "type": "definition",
+      "title": "Elektromagnetiske bølger",
+      "content": "Lys, radiobølger, mikrobølger, infrarød stråling, ultrafiolett, røntgen og gammastråling er alle **elektromagnetiske** bølger. De er transversale, og de trenger ikke noe medium — de går gjennom vakuum.\n\nI vakuum har de alle samme fart, $c = 3{,}00\\cdot10^{8}\\ \\text{m/s}$ (formelarket), og skiller seg bare i frekvens og bølgelengde gjennom $c = f\\lambda$."
+    },
+    {
+      "id": "fys1001-6-1-bb-arbeidsmetode-interferens",
+      "type": "definition",
+      "title": "Arbeidsmetoden for interferensoppgaver",
+      "content": "Fire steg som løser hver oppgave i denne sjangeren:\n\n1. finn bølgelengden fra $\\lambda = v/f$;\n2. finn ganglengdeforskjellen $\\Delta l = |l_2 - l_1|$;\n3. regn ut forholdet $\\Delta l/\\lambda$;\n4. klassifiser: helt tall gir forsterkning, helt tall pluss en halv gir utslettelse — og skriv begrunnelsen i én setning.\n\nBlir forholdet noe midt imellom, for eksempel $2{,}3$, er svaret «delvis forsterkning» — lyden er verken maksimal eller borte."
+    },
+    {
+      "id": "fys1001-6-1-rep",
+      "type": "collapsible",
+      "title": "Repetisjonsoppgaver",
+      "buttonText": "Vis repetisjonsoppgaver",
+      "content": [
+        {
+          "id": "fys1001-6-1-rep-1",
+          "type": "exercise",
+          "exercise": {
+            "id": "fys1001-6-1-rep-e1",
+            "number": "R1",
+            "type": "classic",
+            "difficulty": "lett",
+            "task": "En radiosender sender på $99{,}3\\ \\text{MHz}$. Finn bølgelengden. Lysfarten er $3{,}00\\cdot10^{8}\\ \\text{m/s}$.",
+            "solution": "$$\\lambda = \\frac{c}{f} = \\frac{3{,}00\\cdot10^{8}\\ \\text{m/s}}{99{,}3\\cdot10^{6}\\ \\text{Hz}} = 3{,}02\\ \\text{m}$$\n\nDet er derfor FM-antenner er noen meter lange — antennelengden er tilpasset bølgelengden.",
+            "hints": [
+              "$1\\ \\text{MHz} = 10^{6}\\ \\text{Hz}$.",
+              "Bruk $c = f\\lambda$ med lysfarten."
+            ]
+          }
+        },
+        {
+          "id": "fys1001-6-1-rep-2",
+          "type": "exercise",
+          "exercise": {
+            "id": "fys1001-6-1-rep-e2",
+            "number": "R2",
+            "type": "classic",
+            "difficulty": "lett",
+            "task": "Lydnivået fra en høyttaler er $70\\ \\text{dB}$. Hva blir nivået hvis du setter på en helt lik høyttaler ved siden av, slik at intensiteten dobles?",
+            "solution": "Doblet intensitet gir\n\n$$\\Delta L = 10\\log 2\\ \\text{dB} = 3{,}0\\ \\text{dB}$$\n\nså nivået blir $73\\ \\text{dB}$. Ikke $140\\ \\text{dB}$ — desibelskalaen er logaritmisk, og en dobling av intensiteten høres bare ut som en beskjeden økning.",
+            "hints": [
+              "Endringen i nivå er $10\\log$ av intensitetsforholdet.",
+              "$\\log 2 = 0{,}30$."
+            ]
+          }
+        },
+        {
+          "id": "fys1001-6-1-rep-3",
+          "type": "exercise",
+          "exercise": {
+            "id": "fys1001-6-1-rep-e3",
+            "number": "R3",
+            "type": "classic",
+            "difficulty": "middels",
+            "task": "*(Sjanger Q.)* Forklar i 2–4 setninger hvorfor du hører bassen fra et nachspiel gjennom veggen, men nesten ikke vokalen.",
+            "solution": "Mekanismen er at lange bølgelengder passerer hindringer og vegger langt lettere enn korte. En basstone på $60\\ \\text{Hz}$ har bølgelengden $340/60 = 5{,}7\\ \\text{m}$ i luft, mens en vokal rundt $2000\\ \\text{Hz}$ har bare $0{,}17\\ \\text{m}$.\n\nVeggen og gjenstandene i rommet er små sammenlignet med bassens bølgelengde, men store sammenlignet med diskantens — derfor absorberes og reflekteres de høye frekvensene mye mer effektivt.\n\n**Konklusjon:** det er forholdet mellom bølgelengde og hindringens størrelse som avgjør, og lange bølger vinner.",
+            "hints": [
+              "Regn ut bølgelengdene til en dyp og en høy tone.",
+              "Sammenlign bølgelengdene med størrelsen på veggen og gjenstandene i rommet."
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": "fys1001-6-1-symbolliste",
+      "type": "collapsible",
+      "title": "Symbol- og formelliste",
+      "buttonText": "Vis symboler og formler",
+      "content": [
+        {
+          "id": "fys1001-6-1-symbolliste-tekst",
+          "type": "text",
+          "content": "## Symbol- og formelliste\n\n*Oppslagsverk — alt her forklares underveis i kapitlet.*\n\nAlle symboler og formler i delkapittel 6.1. Betydningene gjelder **dette delkapitlet** og arves ikke fra tidligere deler.\n\n| Symbol | Betydning | SI-enhet |\n|---|---|---|\n| $v$ | Bølgefart (i det mediet det gjelder) | m/s |\n| $c$ | Lysfarten i vakuum, $3{,}00\\cdot10^{8}$ | m/s |\n| $f$ | Frekvens | hertz, Hz |\n| $T$ | **Periode** (her: *ikke* temperatur) | sekund, s |\n| $\\lambda$ | **Bølgelengde** (her: *ikke* henfallskonstant eller varmeledningsevne) | meter, m |\n| $\\Delta l$ | Ganglengdeforskjell | m |\n| $n$ | Heltall i interferensbetingelsene (ordenstall) | – |\n| $I$ | Intensitet | $\\text{W/m}^2$ |\n| $I_0$ | Høreterskelen, $1{,}0\\cdot10^{-12}$ | $\\text{W/m}^2$ |\n| $L$ | **Lydnivå** (her: *ikke* lengde) | desibel, dB |\n| $P$ | Effekt fra kilden | watt, W |\n| $A$ | Areal | $\\text{m}^2$ |\n| $r$ | Avstand fra kilden | m |\n| $L_{\\text{streng}}$ | Strenglengde (skrives $L$ der det ikke kan forveksles) | m |\n| $f_n$ | Frekvensen til $n$-te harmoniske | Hz |\n| $\\alpha_1, \\alpha_2$ | Innfalls- og brytningsvinkel, målt mot normalen | grader |\n| $v_1, v_2$ | Bølgefart i øvre og nedre lag | m/s |\n| $\\alpha_c$ | Grensevinkel | grader |\n| $d$ | Gitterkonstant (spalteavstand) | m |\n| $\\theta$ | Vinkel fra sentralretningen i gitteret | grader |\n\n**Symbolkollisjoner du skal være obs på i akkurat dette delkapitlet:**\n\n- $\\lambda$ betyr **bølgelengde** i meter. I Del 4 er $\\lambda$ varmeledningsevne, og i Del 7 er $\\lambda$ henfallskonstanten.\n- $T$ betyr **periode** i sekunder. I Del 4 er $T$ temperatur i kelvin, og i [kap. 5.4](/bok/fys1001/fys1001-5-4) er $T$ omløpstid (også sekunder).\n- $L$ betyr **lydnivå** i desibel når det står alene i desibelformelen, og **lengde** i meter i strengformlene. Sammenhengen viser hvilken som gjelder; definer symbolet i besvarelsen.\n- $I$ betyr **intensitet** i $\\text{W/m}^2$. I Del 5 er $I$ elektrisk strøm i ampere.\n- $n$ er et **heltall** (ordenstall) her. I [kap. 6.2](/bok/fys1001/fys1001-6-2) er $n$ brytningsindeksen.\n- $E$, $B$, $R$ og $k$ brukes ikke i dette delkapitlet.\n\n**Formler i dette delkapitlet:**\n\n$$v = f\\lambda \\qquad T = \\frac{1}{f}$$\nBølgeformelen og perioden. *(Står på formelarket — men du må vite at $v$ hører til mediet og $f$ til kilden.)*\n\n$$\\Delta l = n\\lambda \\quad (\\text{forsterkning}), \\qquad \\Delta l = \\left(n+\\tfrac12\\right)\\lambda \\quad (\\text{utslettelse})$$\nInterferensbetingelsene for to kilder i fase. *(Må kunne brukes aktivt — klassifiseringen er selve oppgaven.)*\n\n$$I = \\frac{P}{A} = \\frac{P}{4\\pi r^2} \\quad\\Longrightarrow\\quad I \\propto \\frac{1}{r^2}$$\nIntensitet og avstandsloven for en punktkilde. *(Må kunne brukes aktivt.)*\n\n$$L = 10\\log\\left(\\frac{I}{I_0}\\right) \\quad\\Longleftrightarrow\\quad I = I_0\\cdot10^{L/10}$$\nLydnivå i desibel, begge veier. *(Står på formelarket; $I_0$ hentes derfra.)*\n\n$$\\lambda_n = \\frac{2L}{n}, \\qquad f_n = n f_1 = n\\cdot\\frac{v}{2L}$$\nStående bølger på en streng festet i begge ender. *(Må kunne settes opp.)*\n\n$$\\frac{\\sin\\alpha_2}{\\sin\\alpha_1} = \\frac{v_2}{v_1} \\qquad \\sin\\alpha_c = \\frac{v_1}{v_2} \\ (v_1 < v_2)$$\nSnells lov i fartsform og grensevinkelen. *(Står på formelarket i brytningsindeks-form; fartsformen må du kunne skrive selv.)*\n\n$$d\\sin\\theta = n\\lambda$$\nGitterbetingelsen. *(Bør kjenne til — står på formelarket.)*\n\n$$d\\left(\\frac{1}{v_S} - \\frac{1}{v_P}\\right) = \\Delta t$$\nAvstanden til et jordskjelv fra tidsforskjellen mellom S- og P-bølge. *(Må kunne settes opp — følger av at begge har gått samme strekning.)*"
+        }
+      ]
+    }
+  ],
+  "exercises": []
+}

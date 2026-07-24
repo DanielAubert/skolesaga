@@ -1,0 +1,519 @@
+{
+  "id": "fys1001-5-2",
+  "courseId": "fys1001",
+  "chapterNumber": "5.2",
+  "title": "Elektriske kretser: Ohm, Kirchhoff og effektfella",
+  "description": "Kretsanalyse slik løsningsforslagene vil se den: serie og parallell med begrunnelse, Kirchhoff ved flere kilder — og hvorfor $P = RI^2$ er tryggere enn $P = U^2/R$.",
+  "estimatedMinutes": 60,
+  "competenceGoals": [
+    "redusere sammensatte kretser trinnvis med serie- og parallellformlene, og begrunne hvorfor formlene ser ut som de gjør",
+    "finne strøm, spenning og avsatt effekt i hver komponent, og kontrollere at levert effekt er lik samlet avsatt effekt",
+    "velge riktig effektuttrykk i sammensatte kretser og vise hvilken spenning som ligger over hver motstand",
+    "sette opp og løse Kirchhoffs strøm- og spenningslov ved flere spenningskilder, og tolke negative strømmer",
+    "dimensjonere en formotstand og regne ut effekten fra et solcellepanel"
+  ],
+  "content": [
+    {
+      "id": "fys1001-5-2-tip-eksamensvinkel",
+      "type": "tip",
+      "title": "Eksamensvinkel",
+      "content": "**Høyeste prioritet.** Kretsanalyse er belagt i **27 av 36 slutteksamener (75 %)** og er dermed et av de sikreste poengene i hele faget.\n\nOppgavene tilhører **sjanger J** — bokas kortnavn for oppgavetypen *«kretsanalyse»*: du får et kretsskjema, og skal finne strømmer, spenninger og avsatt effekt. Variantene som går igjen:\n\n- ren serie/parallell-reduksjon med batteri (den vanligste);\n- **effektspørsmålet**: «hvor stor effekt avsettes i denne motstanden?»;\n- flere spenningskilder i samme krets, løst med Kirchhoffs lover;\n- spenningsdeler og formotstand: «hvilken motstand må til for at lampen skal få riktig spenning?», ofte i solcellekontekst.\n\n**Fella løsningsforslagene navngir:** studenter regner $P = U^2/R$ og setter inn *kildespenningen*. Formelen krever spenningen over **akkurat den motstanden**. Boka slår derfor fast en metoderegel du skal følge hver gang:\n\n> **Effektregelen:** I sammensatte kretser regner du effekt med $P = RI^2$. Bruk aldri $P = U^2/R$ uten først å ha vist hvilken $U$ som ligger over nettopp den motstanden.\n\n**Formelarket:** $U = RI$, $P = UI$, serie- og parallellformlene står på arket. Det du må kunne *aktivt*, er å rydde skjemaet, velge strømretninger og vite hvilken $U$ og $I$ som hører til hvilken komponent."
+    },
+    {
+      "id": "fys1001-5-2-forkunnskaper",
+      "type": "text",
+      "content": "## Forkunnskaper\n\nDette kapitlet bygger på:\n\n- [kap. 5.1](/bok/fys1001/fys1001-5-1) — ladning, spenning og arbeidet $W = qU$. Strøm er ladning i bevegelse, og spenning er fortsatt arbeid per ladning.\n- [Grunnleggende likninger](/bok/1t/1t-2-1) — du skal snu formler som $U = RI$ og løse for den ukjente.\n- [Likningssett](/bok/1t/1t-4-1) — Kirchhoffs lover gir et lineært ligningssett med to eller tre ukjente strømmer.\n\nKapitlet tar rundt 60 minutter. Det er delt i fem løkker med pausepunkter mellom."
+    },
+    {
+      "id": "fys1001-5-2-l1",
+      "type": "text",
+      "content": "### Løkke 1 — Strøm, spenning og Ohms lov (~10 min)\n\nDu har antakelig kjent en telefonlader bli varm. Det er en krets i arbeid: en spenningskilde presser ladning gjennom en ledning, ladningen møter motstand, og energien blir til varme. Alt i dette kapitlet er varianter av akkurat den historien.\n\nTre størrelser bærer hele apparatet: strøm, spenning og resistans."
+    },
+    {
+      "id": "fys1001-5-2-def-strom",
+      "type": "definition",
+      "title": "Elektrisk strøm $I$",
+      "content": "**Strøm** er ladning per tid gjennom et tverrsnitt av lederen:\n\n$$I = \\frac{q}{t}$$\n\nSI-enheten er **ampere (A)**, og $1\\ \\text{A} = 1\\ \\text{C/s}$.\n\nVi regner alltid med **konvensjonell strømretning**: fra pluss til minus utenfor kilden. At det egentlig er negative elektroner som beveger seg andre veien, spiller ingen rolle for regningen."
+    },
+    {
+      "id": "fys1001-5-2-def-spenning",
+      "type": "definition",
+      "title": "Spenning $U$",
+      "content": "**Spenning** (potensialforskjell) mellom to punkter er det elektriske arbeidet per ladningsenhet når ladning flyttes mellom punktene:\n\n$$U = \\frac{W}{q}$$\n\nSI-enheten er **volt (V)**, og $1\\ \\text{V} = 1\\ \\text{J/C}$.\n\nEn spenningskilde *leverer* energi til ladningene; en motstand *tar* energi fra dem. Derfor har alle komponenter i en krets en spenning «over seg»."
+    },
+    {
+      "id": "fys1001-5-2-def-resistans",
+      "type": "definition",
+      "title": "Resistans $R$ og Ohms lov",
+      "content": "**Resistans** er forholdet mellom spenningen over en komponent og strømmen gjennom den:\n\n$$R = \\frac{U}{I} \\quad\\Longleftrightarrow\\quad U = RI$$\n\nSI-enheten er **ohm ($\\Omega$)**, og $1\\ \\Omega = 1\\ \\text{V/A}$.\n\nSammenhengen $U = RI$ kalles **Ohms lov**. Den gjelder for komponenter der $R$ er konstant (metalltråder ved fast temperatur) — glødelamper og dioder har ikke konstant $R$, men i eksamensoppgavene får du oppgitt de verdiene du skal bruke.\n\n**Advarsel om symbolet:** i dette delkapitlet betyr $R$ **resistans**. I mekanikken (Del 1) betyr $R$ friksjonskraften $R = \\mu N$. Se symbollisten nederst."
+    },
+    {
+      "id": "fys1001-5-2-ex1",
+      "type": "example",
+      "title": "Eksempel 1: Ohms lov begge veier (sjanger J)",
+      "problem": "En motstand på $47\\ \\Omega$ fører strømmen $0{,}15\\ \\text{A}$.\n\n**a)** Hvor stor er spenningen over motstanden?\n**b)** En annen komponent har $12\\ \\text{V}$ over seg og fører $0{,}40\\ \\text{A}$. Hvor stor er resistansen?",
+      "solution": "**a)** Ohms lov brukt forlengs:\n\n$$U = RI = 47\\ \\Omega\\cdot0{,}15\\ \\text{A} = 7{,}1\\ \\text{V}$$\n\n**b)** Ohms lov brukt baklengs:\n\n$$R = \\frac{U}{I} = \\frac{12\\ \\text{V}}{0{,}40\\ \\text{A}} = 30\\ \\Omega$$\n\n**Enhetskontroll:** $\\Omega\\cdot\\text{A} = (\\text{V/A})\\cdot\\text{A} = \\text{V}$ ✓ og $\\text{V/A} = \\Omega$ ✓.\n\n**Merk:** begge svar har enhet. Et tallsvar uten enhet gir trekk i denne sjangeren."
+    },
+    {
+      "id": "fys1001-5-2-o1",
+      "type": "exercise",
+      "exercise": {
+        "id": "fys1001-5-2-e1",
+        "number": "1",
+        "type": "classic",
+        "difficulty": "lett",
+        "task": "*(Innstegsoppgave — enheter og Ohms lov.)*\n\n**a)** Skriv $250\\ \\text{mA}$ i ampere og $2{,}2\\ \\text{k}\\Omega$ i ohm.\n**b)** En lampe fører $250\\ \\text{mA}$ når spenningen over den er $6{,}0\\ \\text{V}$. Hvor stor er resistansen?",
+        "solution": "**a)** $250\\ \\text{mA} = 0{,}250\\ \\text{A}$ og $2{,}2\\ \\text{k}\\Omega = 2{,}2\\cdot10^{3}\\ \\Omega = 2200\\ \\Omega$.\n\n**b)** Ohms lov løst for $R$:\n\n$$R = \\frac{U}{I} = \\frac{6{,}0\\ \\text{V}}{0{,}250\\ \\text{A}} = 24\\ \\Omega$$\n\n**Konklusjon:** lampen har resistansen $24\\ \\Omega$ ved denne spenningen.",
+        "hints": [
+          "$1\\ \\text{mA} = 10^{-3}\\ \\text{A}$ og $1\\ \\text{k}\\Omega = 10^{3}\\ \\Omega$.",
+          "Snu $U = RI$ før du setter inn tall.",
+          "Sett inn strømmen i ampere, ikke i milliampere."
+        ]
+      }
+    },
+    {
+      "id": "fys1001-5-2-l2",
+      "type": "text",
+      "content": "— naturlig pausepunkt —\n\n### Løkke 2 — Serie og parallell, med begrunnelse (~14 min)\n\nDe to koblingsmåtene er hele grunnlaget for kretsreduksjon. Det er ikke nok å huske formlene; du skal kunne si *hvorfor* de ser ut som de gjør, for det er begrunnelsen som avgjør hvilken formel du velger under tidspress."
+    },
+    {
+      "id": "fys1001-5-2-def-serie",
+      "type": "definition",
+      "title": "Seriekobling",
+      "content": "Komponenter er koblet i **serie** når det bare finnes én vei for strømmen: all strømmen som går gjennom den ene, må gå gjennom den neste.\n\n$$I \\text{ er den samme overalt}, \\qquad U = U_1 + U_2 + \\ldots, \\qquad R = R_1 + R_2 + \\ldots$$\n\n*Hvorfor summerer resistansene seg?* Fordi spenningene legger seg sammen mens strømmen er felles: $U = R_1I + R_2I = (R_1+R_2)I$.\n\n**Konsekvens:** en seriekobling har alltid **større** resistans enn den største enkeltmotstanden."
+    },
+    {
+      "id": "fys1001-5-2-ex2",
+      "type": "example",
+      "title": "Eksempel 2: Tre motstander i serie (sjanger J)",
+      "problem": "Motstandene $20\\ \\Omega$, $30\\ \\Omega$ og $50\\ \\Omega$ er koblet i serie til et batteri på $12\\ \\text{V}$. Finn strømmen i kretsen og spenningen over $30\\ \\Omega$-motstanden.",
+      "solution": "**Reduser først.** I serie summeres resistansene:\n\n$$R = 20\\ \\Omega + 30\\ \\Omega + 50\\ \\Omega = 100\\ \\Omega$$\n\n**Strømmen** er felles for alle tre:\n\n$$I = \\frac{U}{R} = \\frac{12\\ \\text{V}}{100\\ \\Omega} = 0{,}12\\ \\text{A}$$\n\n**Spenningen over $30\\ \\Omega$** — her bruker vi *den samme* strømmen, siden alt står i serie:\n\n$$U_2 = R_2 I = 30\\ \\Omega\\cdot0{,}12\\ \\text{A} = 3{,}6\\ \\text{V}$$\n\n**Kontroll:** de tre spenningene blir $2{,}4\\ \\text{V} + 3{,}6\\ \\text{V} + 6{,}0\\ \\text{V} = 12{,}0\\ \\text{V}$ — akkurat kildespenningen, slik maskeloven krever ✓\n\n**Konklusjon:** strømmen er $0{,}12\\ \\text{A}$, og $3{,}6\\ \\text{V}$ ligger over $30\\ \\Omega$-motstanden."
+    },
+    {
+      "id": "fys1001-5-2-o2",
+      "type": "exercise",
+      "exercise": {
+        "id": "fys1001-5-2-e2",
+        "number": "2",
+        "type": "classic",
+        "difficulty": "lett",
+        "task": "*(Sjanger J — kretsanalyse.)* Motstandene $15\\ \\Omega$ og $25\\ \\Omega$ står i serie over et batteri på $9{,}0\\ \\text{V}$.\n\n**a)** Finn strømmen i kretsen.\n**b)** Finn spenningen over hver motstand, og kontroller at summen stemmer.",
+        "solution": "**a)** Samlet resistans i serie: $R = 15\\ \\Omega + 25\\ \\Omega = 40\\ \\Omega$.\n\n$$I = \\frac{U}{R} = \\frac{9{,}0\\ \\text{V}}{40\\ \\Omega} = 0{,}23\\ \\text{A}$$\n\n(Mer nøyaktig $0{,}225$ A — vi tar med en ekstra siffer videre i regningen og runder til slutt.)\n\n**b)** Samme strøm gjennom begge:\n\n$$U_1 = 15\\ \\Omega\\cdot0{,}225\\ \\text{A} = 3{,}4\\ \\text{V}, \\qquad U_2 = 25\\ \\Omega\\cdot0{,}225\\ \\text{A} = 5{,}6\\ \\text{V}$$\n\n**Kontroll:** $3{,}4\\ \\text{V} + 5{,}6\\ \\text{V} = 9{,}0\\ \\text{V}$ ✓ — hele kildespenningen fordeles på de to motstandene, og den største motstanden får den største spenningen.",
+        "hints": [
+          "I serie er strømmen den samme gjennom begge motstandene.",
+          "Finn samlet resistans først, deretter strømmen fra $I = U/R$.",
+          "Bruk $U = RI$ på hver motstand med den felles strømmen."
+        ]
+      }
+    },
+    {
+      "id": "fys1001-5-2-def-parallell",
+      "type": "definition",
+      "title": "Parallellkobling",
+      "content": "Komponenter er koblet i **parallell** når de sitter mellom de samme to punktene, slik at strømmen deler seg.\n\n$$U \\text{ er den samme over alle}, \\qquad I = I_1 + I_2 + \\ldots, \\qquad \\frac{1}{R} = \\frac{1}{R_1} + \\frac{1}{R_2} + \\ldots$$\n\n*Hvorfor summerer de omvendte resistansene seg?* Fordi strømmene legger seg sammen mens spenningen er felles: $I = U/R_1 + U/R_2 = U(1/R_1 + 1/R_2)$.\n\n**For nøyaktig to motstander** er det ofte raskest med produkt over sum:\n\n$$R = \\frac{R_1R_2}{R_1+R_2}$$\n\n**Konsekvens (rimelighetssjekk):** en parallellkobling har alltid **mindre** resistans enn den minste grenen."
+    },
+    {
+      "id": "fys1001-5-2-ex3",
+      "type": "example",
+      "title": "Eksempel 3: To motstander i parallell (sjanger J)",
+      "problem": "Motstandene $30\\ \\Omega$ og $60\\ \\Omega$ er koblet i parallell rett over et batteri på $12\\ \\text{V}$. Finn strømmen i hver gren og den samlede resistansen.",
+      "solution": "**Samme spenning over begge grenene** — det er hele poenget med parallellkobling. Derfor kan vi regne hver gren for seg:\n\n$$I_1 = \\frac{12\\ \\text{V}}{30\\ \\Omega} = 0{,}40\\ \\text{A}, \\qquad I_2 = \\frac{12\\ \\text{V}}{60\\ \\Omega} = 0{,}20\\ \\text{A}$$\n\n**Samlet strøm** (knutepunktsloven): $I = 0{,}40\\ \\text{A} + 0{,}20\\ \\text{A} = 0{,}60\\ \\text{A}$.\n\n**Samlet resistans**, på to måter som må gi samme svar:\n\n$$\\frac{1}{R} = \\frac{1}{30} + \\frac{1}{60} = \\frac{2+1}{60} = \\frac{1}{20} \\quad\\Longrightarrow\\quad R = 20\\ \\Omega$$\n\n$$R = \\frac{U}{I} = \\frac{12\\ \\text{V}}{0{,}60\\ \\text{A}} = 20\\ \\Omega \\ ✓$$\n\n**Rimelighetssjekk:** $20\\ \\Omega < 30\\ \\Omega$, altså mindre enn den minste grenen — slik det alltid skal være i en parallellkobling.\n\n**Konklusjon:** grenstrømmene er $0{,}40\\ \\text{A}$ og $0{,}20\\ \\text{A}$, og koblingen erstattes av $20\\ \\Omega$."
+    },
+    {
+      "id": "fys1001-5-2-o3",
+      "type": "exercise",
+      "exercise": {
+        "id": "fys1001-5-2-e3",
+        "number": "3",
+        "type": "classic",
+        "difficulty": "lett",
+        "task": "*(Sjanger J.)* Motstandene $12\\ \\Omega$ og $4{,}0\\ \\Omega$ er koblet i parallell.\n\n**a)** Finn den samlede resistansen.\n**b)** Gjør rimelighetssjekken: er svaret mindre enn den minste grenen?",
+        "solution": "**a)** Parallellformelen:\n\n$$\\frac{1}{R} = \\frac{1}{12} + \\frac{1}{4{,}0} = \\frac{1}{12} + \\frac{3}{12} = \\frac{4}{12} = \\frac{1}{3{,}0} \\quad\\Longrightarrow\\quad R = 3{,}0\\ \\Omega$$\n\nMed produkt over sum: $R = \\dfrac{12\\cdot4{,}0}{12+4{,}0}\\ \\Omega = \\dfrac{48}{16}\\ \\Omega = 3{,}0\\ \\Omega$ ✓\n\n**b)** $3{,}0\\ \\Omega < 4{,}0\\ \\Omega$, altså mindre enn den minste grenen ✓ Det er som forventet: å legge til en gren gir strømmen en ekstra vei, og flere veier betyr mindre samlet motstand.\n\n**Konklusjon:** koblingen erstattes av $3{,}0\\ \\Omega$.",
+        "hints": [
+          "Bruk $1/R = 1/R_1 + 1/R_2$ — husk å snu til slutt.",
+          "Med bare to grener kan du bruke $R = R_1R_2/(R_1+R_2)$.",
+          "Sjekk svaret mot den minste grenen før du går videre."
+        ]
+      }
+    },
+    {
+      "id": "fys1001-5-2-l3",
+      "type": "text",
+      "content": "— naturlig pausepunkt —\n\n### Løkke 3 — Sammensatte kretser og effektfella (~16 min)\n\nNå setter vi de to koblingsmåtene sammen. Framgangsmåten er alltid den samme: **reduser innenfra og ut, finn hovedstrømmen, og jobb deg tilbake utover for å finne delspenninger og grenstrømmer.**"
+    },
+    {
+      "id": "fys1001-5-2-def-effekt",
+      "type": "definition",
+      "title": "Elektrisk effekt",
+      "content": "**Effekt** er energi per tid. I en komponent med spenning $U$ over seg og strøm $I$ gjennom seg er\n\n$$P = UI$$\n\nSetter du inn Ohms lov, får du to likeverdige former:\n\n$$P = RI^2 \\qquad \\text{og} \\qquad P = \\frac{U^2}{R}$$\n\nSI-enheten er **watt (W)**, og $1\\ \\text{W} = 1\\ \\text{J/s}$. Alle tre uttrykkene er riktige — så lenge $U$ og $I$ hører til *samme komponent*."
+    },
+    {
+      "id": "fys1001-5-2-def-effektregelen",
+      "type": "definition",
+      "title": "Effektregelen (metoderegel)",
+      "content": "**I sammensatte kretser: bruk $P = RI^2$.**\n\nGrunnen er praktisk. Strømmen gjennom en komponent finner du nesten alltid underveis i reduksjonen, mens spenningen over akkurat den komponenten er lett å forveksle med kildespenningen. Formelen $P = U^2/R$ er ikke feil, men den er *farlig*: den krever spenningen over nettopp den motstanden.\n\n**Regelen i praksis:** vil du likevel bruke $P = U^2/R$, må du først skrive én setning som viser hvilken $U$ det er — for eksempel «spenningen over parallellkoblingen er $5{,}54$ V». Uten den setningen er metoden feil, og feil metode med riktig tall gir null uttelling."
+    },
+    {
+      "id": "fys1001-5-2-fig-krets",
+      "type": "image",
+      "src": "/images/textbook/fys1001/fys1001-5-2-kombinert-krets.svg",
+      "alt": "Kretsskjema med et 9,0 V batteri nederst, en 15 ohm motstand i serie øverst til venstre, og deretter to parallelle grener med 40 ohm og 60 ohm. Blå piler viser hovedstrømmen I og grenstrømmene I1 og I2.",
+      "caption": "Den sammensatte kretsen i Eksempel 4: $15\\ \\Omega$ i serie med parallellkoblingen av $40\\ \\Omega$ og $60\\ \\Omega$. Hovedstrømmen deler seg i knutepunktet."
+    },
+    {
+      "id": "fys1001-5-2-ex4",
+      "type": "example",
+      "title": "Eksempel 4: Sammensatt krets med effektspørsmål (sjanger J)",
+      "problem": "Motstandene $40\\ \\Omega$ og $60\\ \\Omega$ står i parallell. Parallellkoblingen er koblet i serie med $15\\ \\Omega$ til et batteri på $9{,}0\\ \\text{V}$ (se figuren over).\n\n**a)** Finn strømmen gjennom hver motstand.\n**b)** Finn effekten som avsettes i $60\\ \\Omega$-motstanden.\n**c)** Vis at samlet avsatt effekt er lik effekten batteriet leverer.",
+      "solution": "**a) Reduser innenfra.** Parallellkoblingen:\n\n$$R_p = \\frac{40\\cdot60}{40+60}\\ \\Omega = \\frac{2400}{100}\\ \\Omega = 24\\ \\Omega$$\n\n(Rimelighetssjekk: $24\\ \\Omega < 40\\ \\Omega$ ✓.) Samlet resistans i kretsen:\n\n$$R = 15\\ \\Omega + 24\\ \\Omega = 39\\ \\Omega$$\n\n**Hovedstrømmen** går gjennom $15\\ \\Omega$-motstanden:\n\n$$I = \\frac{9{,}0\\ \\text{V}}{39\\ \\Omega} = 0{,}2308\\ \\text{A} \\approx 0{,}231\\ \\text{A}$$\n\n**Spenningen over parallellkoblingen** — dette er den setningen som gjør resten trygg:\n\n$$U_p = R_p I = 24\\ \\Omega\\cdot0{,}2308\\ \\text{A} = 5{,}54\\ \\text{V}$$\n\n**Grenstrømmene**, hver med *sin* resistans og den felles spenningen $U_p$:\n\n$$I_1 = \\frac{5{,}54\\ \\text{V}}{40\\ \\Omega} = 0{,}138\\ \\text{A}, \\qquad I_2 = \\frac{5{,}54\\ \\text{V}}{60\\ \\Omega} = 0{,}0923\\ \\text{A}$$\n\nKontroll (knutepunktsloven): $0{,}138 + 0{,}0923 = 0{,}231$ A ✓\n\n**b) Effekten i $60\\ \\Omega$-motstanden.** Vi bruker effektregelen:\n\n$$P_2 = R_2 I_2^2 = 60\\ \\Omega\\cdot(0{,}0923\\ \\text{A})^2 = 0{,}511\\ \\text{W}$$\n\n*Hvorfor ikke $U^2/R$ med 9,0 V?* Fordi $9{,}0$ V ligger over **hele** kretsen, ikke over $60\\ \\Omega$-motstanden. Den regningen ville gitt $9{,}0^2/60 = 1{,}35$ W — nesten tre ganger for mye. Bruker du $U^2/R$, må $U$ være $5{,}54$ V: $5{,}54^2/60 = 0{,}511$ W ✓\n\n**c) Energiregnskapet.**\n\n$$P_{15} = 15\\cdot(0{,}2308)^2\\ \\text{W} = 0{,}799\\ \\text{W}, \\quad P_1 = 40\\cdot(0{,}1385)^2\\ \\text{W} = 0{,}767\\ \\text{W}, \\quad P_2 = 0{,}511\\ \\text{W}$$\n\nSum: $0{,}799 + 0{,}767 + 0{,}511 = 2{,}08\\ \\text{W}$.\n\nLevert av batteriet: $P = UI = 9{,}0\\ \\text{V}\\cdot0{,}2308\\ \\text{A} = 2{,}08\\ \\text{W}$ ✓\n\n**Konklusjon:** strømmene er $0{,}138$ A og $0{,}0923$ A, effekten i $60\\ \\Omega$-motstanden er $0{,}511$ W, og energiregnskapet balanserer."
+    },
+    {
+      "id": "fys1001-5-2-o4",
+      "type": "exercise",
+      "exercise": {
+        "id": "fys1001-5-2-e4",
+        "number": "4",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "*(Sjanger J — sammensatt krets med effekt.)* Motstandene $20\\ \\Omega$ og $30\\ \\Omega$ står i parallell, og parallellkoblingen er koblet i serie med $24\\ \\Omega$ til et batteri på $6{,}0\\ \\text{V}$.\n\n**a)** Finn strømmen gjennom hver av de tre motstandene.\n**b)** Finn effekten som avsettes i $20\\ \\Omega$-motstanden, og vis hvorfor $P = U^2/R$ med $6{,}0\\ \\text{V}$ gir galt svar.\n**c)** Kontroller at samlet avsatt effekt er lik levert effekt.",
+        "solution": "**a)** Parallellkoblingen:\n\n$$R_p = \\frac{20\\cdot30}{20+30}\\ \\Omega = 12\\ \\Omega \\quad (\\text{mindre enn } 20\\ \\Omega\\ ✓)$$\n\nSamlet: $R = 24\\ \\Omega + 12\\ \\Omega = 36\\ \\Omega$, og hovedstrømmen gjennom $24\\ \\Omega$-motstanden er\n\n$$I = \\frac{6{,}0\\ \\text{V}}{36\\ \\Omega} = 0{,}167\\ \\text{A}$$\n\nSpenningen over parallellkoblingen: $U_p = 12\\ \\Omega\\cdot0{,}1667\\ \\text{A} = 2{,}0\\ \\text{V}$.\n\n$$I_{20} = \\frac{2{,}0\\ \\text{V}}{20\\ \\Omega} = 0{,}10\\ \\text{A}, \\qquad I_{30} = \\frac{2{,}0\\ \\text{V}}{30\\ \\Omega} = 0{,}067\\ \\text{A}$$\n\nKontroll: $0{,}10 + 0{,}067 = 0{,}167$ A ✓\n\n**b)** Med effektregelen:\n\n$$P_{20} = R I^2 = 20\\ \\Omega\\cdot(0{,}10\\ \\text{A})^2 = 0{,}20\\ \\text{W}$$\n\nMed $P = U^2/R$ og kildespenningen ville vi fått $6{,}0^2/20 = 1{,}8$ W — ni ganger for mye. Feilen er at $6{,}0$ V ligger over hele kretsen; over $20\\ \\Omega$-motstanden ligger bare $2{,}0$ V. Med riktig $U$: $2{,}0^2/20 = 0{,}20$ W ✓\n\n**c)** $P_{24} = 24\\cdot(0{,}1667)^2 = 0{,}667$ W, $P_{20} = 0{,}200$ W, $P_{30} = 30\\cdot(0{,}0667)^2 = 0{,}133$ W.\n\nSum: $0{,}667 + 0{,}200 + 0{,}133 = 1{,}00\\ \\text{W}$. Levert: $P = 6{,}0\\ \\text{V}\\cdot0{,}1667\\ \\text{A} = 1{,}00\\ \\text{W}$ ✓\n\n**Konklusjon:** regnskapet balanserer, og effekten i $20\\ \\Omega$-motstanden er $0{,}20$ W.",
+        "hints": [
+          "Reduser parallellkoblingen først, så har du en ren seriekrets.",
+          "Hovedstrømmen går gjennom seriemotstanden; spenningen over parallellkoblingen er $R_pI$.",
+          "Bruk $P = RI^2$ med grenstrømmen — og skriv ut hvilken spenning som faktisk ligger over motstanden."
+        ]
+      }
+    },
+    {
+      "id": "fys1001-5-2-o5",
+      "type": "exercise",
+      "exercise": {
+        "id": "fys1001-5-2-e5",
+        "number": "5",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "*(Sjanger Q — kvalitativ forklaring. «Sjanger Q» er bokas navn på de rene «forklar/begrunn»-deloppgavene, som utgjør 25–40 % av eksamen.)*\n\nEn medstudent skriver: «Effekten i motstanden er $P = U^2/R = 6{,}0^2/20 = 1{,}8$ W.»\n\nForklar i 2–4 setninger hva som er galt, og hvordan svaret skal formuleres for å gi full uttelling.",
+        "solution": "Formelen $P = U^2/R$ krever spenningen over **akkurat den motstanden**, ikke kildespenningen. I en sammensatt krets deler kildespenningen seg mellom komponentene, så $6{,}0$ V ligger over hele kretsen — over $20\\ \\Omega$-motstanden ligger bare $2{,}0$ V.\n\nRiktig framgangsmåte er å finne strømmen gjennom motstanden og bruke $P = RI^2$, eller å skrive eksplisitt hvilken delspenning som ligger over den og deretter bruke $U^2/R$.\n\n**Konklusjon:** feilen er ikke i formelen, men i hvilken $U$ som settes inn. Feil metode med riktig utseende gir null uttelling i denne sjangeren.",
+        "hints": [
+          "Spør deg selv: hvilken spenning ligger egentlig over den ene motstanden?",
+          "Tenk på hvordan kildespenningen fordeler seg i en seriekobling.",
+          "Svar i 2–4 setninger: navngi feilen, koble den til kretsen, konkluder med riktig metode."
+        ]
+      }
+    },
+    {
+      "id": "fys1001-5-2-l4",
+      "type": "text",
+      "content": "— naturlig pausepunkt —\n\n### Løkke 4 — Kirchhoffs lover (~14 min)\n\nNoen kretser lar seg ikke redusere til serier og parallellkoblinger — typisk når det står **to spenningskilder** i forskjellige grener. Da må du bruke Kirchhoffs to lover, som begge er bevaringslover i forkledning."
+    },
+    {
+      "id": "fys1001-5-2-def-kcl",
+      "type": "definition",
+      "title": "Kirchhoffs strømlov (knutepunktsloven)",
+      "content": "I et **knutepunkt** — et punkt der tre eller flere ledere møtes — er summen av strømmene inn lik summen av strømmene ut:\n\n$$\\sum I_{\\text{inn}} = \\sum I_{\\text{ut}}$$\n\nLoven er ladningsbevaring: ladning hoper seg ikke opp i et punkt."
+    },
+    {
+      "id": "fys1001-5-2-def-kvl",
+      "type": "definition",
+      "title": "Kirchhoffs spenningslov (maskeloven)",
+      "content": "Går du én runde rundt en lukket **maske** i kretsen og summerer alle spenningene med fortegn, blir summen null:\n\n$$\\sum U = 0$$\n\nLoven er energibevaring: en ladning som kommer tilbake til samme punkt, har hverken vunnet eller tapt energi netto.\n\nI praksis: spenningskilder regnes positive når du går fra minus til pluss gjennom dem, og $RI$-leddene regnes negative når du går med den valgte strømretningen."
+    },
+    {
+      "id": "fys1001-5-2-def-strømretning",
+      "type": "definition",
+      "title": "Valgt strømretning og negative strømmer",
+      "content": "Før du setter opp ligningene, **velger** du en retning for hver ukjent strøm og tegner pila på skjemaet. Valget trenger ikke være riktig.\n\nBlir svaret **negativt**, betyr det bare at strømmen går motsatt vei av pila du tegnet. Tallverdien er riktig. Du skal skrive denne tolkningen ut i besvarelsen — det er et eget poeng i løsningsforslagene."
+    },
+    {
+      "id": "fys1001-5-2-fig-kirchhoff",
+      "type": "image",
+      "src": "/images/textbook/fys1001/fys1001-5-2-kirchhoff.svg",
+      "alt": "Kretsskjema med to knutepunkter A øverst og B nederst, forbundet av tre grener. Venstre gren har et 12 V batteri og 2,0 ohm, midtre gren har et 3,0 V batteri og 1,0 ohm, høyre gren har 6,0 ohm. Blå piler viser valgte strømretninger, brune sirkelpiler viser to masker.",
+      "caption": "Kretsen i Eksempel 5. Strømretningene er valgt på forhånd; maskepilene viser hvilken vei vi summerer spenningene."
+    },
+    {
+      "id": "fys1001-5-2-ex5",
+      "type": "example",
+      "title": "Eksempel 5: To spenningskilder, tre grener (sjanger J)",
+      "problem": "To knutepunkter $A$ og $B$ er forbundet av tre grener (se figuren):\n\n- venstre gren: batteri på $12\\ \\text{V}$ i serie med $R_1 = 2{,}0\\ \\Omega$,\n- midtre gren: batteri på $3{,}0\\ \\text{V}$ i serie med $R_2 = 1{,}0\\ \\Omega$,\n- høyre gren: $R_3 = 6{,}0\\ \\Omega$.\n\nBegge batteriene har plusspolen vendt mot $A$. Finn de tre strømmene.",
+      "solution": "**Velg retninger.** La $I_1$ og $I_2$ gå fra $B$ mot $A$ gjennom hver sin kilde, og $I_3$ gå fra $A$ mot $B$ gjennom $R_3$ (som på figuren).\n\n**Knutepunktsloven i $A$:**\n\n$$I_1 + I_2 = I_3 \\qquad (1)$$\n\n**Kall spenningen mellom knutepunktene $U = U_A - U_B$.** Da gir maskeloven for hver gren:\n\n$$U = 12 - 2{,}0I_1 \\quad\\Longrightarrow\\quad I_1 = \\frac{12 - U}{2{,}0}$$\n$$U = 3{,}0 - 1{,}0I_2 \\quad\\Longrightarrow\\quad I_2 = \\frac{3{,}0 - U}{1{,}0}$$\n$$U = 6{,}0I_3 \\quad\\Longrightarrow\\quad I_3 = \\frac{U}{6{,}0}$$\n\n**Sett inn i (1):**\n\n$$\\frac{12-U}{2{,}0} + \\frac{3{,}0-U}{1{,}0} = \\frac{U}{6{,}0}$$\n\nGang med 6: $3(12-U) + 6(3{,}0-U) = U$, altså $36 - 3U + 18 - 6U = U$, som gir $54 = 10U$ og\n\n$$U = 5{,}4\\ \\text{V}$$\n\n**Strømmene:**\n\n$$I_1 = \\frac{12 - 5{,}4}{2{,}0}\\ \\text{A} = 3{,}3\\ \\text{A}, \\qquad I_2 = \\frac{3{,}0 - 5{,}4}{1{,}0}\\ \\text{A} = -2{,}4\\ \\text{A}, \\qquad I_3 = \\frac{5{,}4}{6{,}0}\\ \\text{A} = 0{,}90\\ \\text{A}$$\n\n**Tolk fortegnet.** $I_2$ er negativ. Det betyr at strømmen i den midtre grenen går **motsatt vei** av pila vi tegnet: fra $A$ mot $B$, altså inn i det svake batteriet. Det svake batteriet blir ladet av det sterke. Tallverdien $2{,}4\\ \\text{A}$ er riktig.\n\n**Kontroll med knutepunktsloven:** $3{,}3 + (-2{,}4) = 0{,}90$ ✓\n\n**Konklusjon:** $I_1 = 3{,}3\\ \\text{A}$ fra $B$ mot $A$, $I_2 = 2{,}4\\ \\text{A}$ fra $A$ mot $B$ (motsatt den valgte retningen), og $I_3 = 0{,}90\\ \\text{A}$ gjennom $R_3$."
+    },
+    {
+      "id": "fys1001-5-2-o6",
+      "type": "exercise",
+      "exercise": {
+        "id": "fys1001-5-2-e6",
+        "number": "6",
+        "type": "classic",
+        "difficulty": "vanskelig",
+        "task": "*(Sjanger J — Kirchhoff, krevende.)* To knutepunkter $A$ og $B$ er forbundet av tre grener:\n\n- venstre gren: batteri på $10{,}0\\ \\text{V}$ i serie med $2{,}0\\ \\Omega$, plusspol mot $A$,\n- midtre gren: batteri på $4{,}0\\ \\text{V}$ i serie med $2{,}0\\ \\Omega$, plusspol mot $A$,\n- høyre gren: $4{,}0\\ \\Omega$.\n\n**a)** Tegn skjemaet, velg strømretninger og sett opp ligningene.\n**b)** Finn de tre strømmene, og tolk fortegnene.",
+        "solution": "**a)** Velg $I_1$ og $I_2$ fra $B$ mot $A$ gjennom kildene, og $I_3$ fra $A$ mot $B$ gjennom $4{,}0\\ \\Omega$.\n\nFasitfiguren under viser hvordan skjemaet skal se ut med strømpilene på plass.\n\nKnutepunktsloven i $A$: $I_1 + I_2 = I_3$.\n\nMed $U = U_A - U_B$ gir maskeloven for hver gren:\n\n$$I_1 = \\frac{10{,}0 - U}{2{,}0}, \\qquad I_2 = \\frac{4{,}0 - U}{2{,}0}, \\qquad I_3 = \\frac{U}{4{,}0}$$\n\n**b)** Sett inn i knutepunktsligningen:\n\n$$\\frac{10{,}0-U}{2{,}0} + \\frac{4{,}0-U}{2{,}0} = \\frac{U}{4{,}0}$$\n\nGang med 4: $2(10{,}0-U) + 2(4{,}0-U) = U$, altså $20 - 2U + 8 - 2U = U$, som gir $28 = 5U$ og $U = 5{,}6\\ \\text{V}$.\n\n$$I_1 = \\frac{10{,}0-5{,}6}{2{,}0}\\ \\text{A} = 2{,}2\\ \\text{A}, \\qquad I_2 = \\frac{4{,}0-5{,}6}{2{,}0}\\ \\text{A} = -0{,}80\\ \\text{A}, \\qquad I_3 = \\frac{5{,}6}{4{,}0}\\ \\text{A} = 1{,}4\\ \\text{A}$$\n\n**Tolkning:** $I_2$ er negativ, så strømmen i den midtre grenen går motsatt vei av pila — fra $A$ mot $B$. Det svake batteriet på $4{,}0$ V blir altså ladet av det sterke. Størrelsen er $0{,}80\\ \\text{A}$.\n\n**Kontroll:** $2{,}2 - 0{,}80 = 1{,}4$ ✓\n\n**Konklusjon:** $I_1 = 2{,}2\\ \\text{A}$, $I_2 = 0{,}80\\ \\text{A}$ motsatt valgt retning, $I_3 = 1{,}4\\ \\text{A}$.",
+        "hints": [
+          "Tegn skjemaet og sett på strømpiler før du skriver en eneste ligning.",
+          "Innfør spenningen $U$ mellom knutepunktene som ukjent — da får du bare én ligning å løse.",
+          "Uttrykk hver grenstrøm ved $U$, og sett summen inn i knutepunktsloven."
+        ]
+      }
+    },
+    {
+      "id": "fys1001-5-2-l5",
+      "type": "text",
+      "content": "— naturlig pausepunkt —\n\n### Løkke 5 — Indre motstand, spenningsdeler og solcellen (~12 min)\n\nEt virkelig batteri er ikke en perfekt spenningskilde. Inne i det er det også materiale som yter motstand."
+    },
+    {
+      "id": "fys1001-5-2-def-emk",
+      "type": "definition",
+      "title": "Elektromotorisk spenning (EMK) $\\varepsilon$",
+      "content": "**EMK** er den spenningen kilden ville gitt hvis den ikke hadde indre motstand — altså spenningen ved null strøm. Den skrives $\\varepsilon$ og måles i volt.\n\nDen elektromotoriske spenningen er ikke en kraft, tross navnet: det er energi per ladning som kilden tilfører kretsen."
+    },
+    {
+      "id": "fys1001-5-2-def-indre",
+      "type": "definition",
+      "title": "Indre motstand og polspenning",
+      "content": "Et batteri med EMK $\\varepsilon$ og **indre motstand** $r$ som leverer strømmen $I$, har **polspenningen**\n\n$$U = \\varepsilon - rI$$\n\nPolspenningen er det du måler mellom polene — altså det kretsen utenfor faktisk får. Jo større strøm, desto større spenningsfall inne i batteriet.\n\nStrømmen i en enkel krets med ytre motstand $R$ blir dermed\n\n$$I = \\frac{\\varepsilon}{R + r}$$"
+    },
+    {
+      "id": "fys1001-5-2-ex6",
+      "type": "example",
+      "title": "Eksempel 6: Batteri med indre motstand (sjanger J)",
+      "problem": "Et batteri har EMK $\\varepsilon = 9{,}0\\ \\text{V}$ og indre motstand $r = 0{,}60\\ \\Omega$. Det kobles til en ytre motstand $R = 8{,}4\\ \\Omega$.\n\n**a)** Finn strømmen og polspenningen.\n**b)** Hvor stor del av den leverte effekten går tapt inne i batteriet?",
+      "solution": "**a)** Den indre motstanden står i serie med den ytre:\n\n$$I = \\frac{\\varepsilon}{R+r} = \\frac{9{,}0\\ \\text{V}}{8{,}4\\ \\Omega + 0{,}60\\ \\Omega} = \\frac{9{,}0}{9{,}0}\\ \\text{A} = 1{,}0\\ \\text{A}$$\n\n$$U = \\varepsilon - rI = 9{,}0\\ \\text{V} - 0{,}60\\ \\Omega\\cdot1{,}0\\ \\text{A} = 8{,}4\\ \\text{V}$$\n\n(Samme svar som $U = RI = 8{,}4\\ \\Omega\\cdot1{,}0\\ \\text{A}$ ✓)\n\n**b)** Med effektregelen:\n\n$$P_{\\text{ytre}} = RI^2 = 8{,}4\\ \\text{W}, \\qquad P_{\\text{indre}} = rI^2 = 0{,}60\\ \\text{W}$$\n\nSamlet levert av kilden: $\\varepsilon I = 9{,}0\\ \\text{W}$ ✓ Andelen som går tapt inne i batteriet:\n\n$$\\frac{0{,}60}{9{,}0} = 0{,}067 = 6{,}7\\ \\%$$\n\n**Konklusjon:** strømmen er $1{,}0\\ \\text{A}$, polspenningen $8{,}4\\ \\text{V}$, og $6{,}7\\ \\%$ av energien blir til varme inne i batteriet. Det er derfor et batteri blir varmt når det belastes hardt."
+    },
+    {
+      "id": "fys1001-5-2-o7",
+      "type": "exercise",
+      "exercise": {
+        "id": "fys1001-5-2-e7",
+        "number": "7",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "*(Sjanger J.)* Et batteri har EMK $12{,}0\\ \\text{V}$ og indre motstand $0{,}50\\ \\Omega$. Det kobles til en ytre motstand på $5{,}5\\ \\Omega$.\n\n**a)** Finn strømmen og polspenningen.\n**b)** Finn effekten som avsettes i den ytre motstanden og inne i batteriet, og kontroller regnskapet.",
+        "solution": "**a)** Indre og ytre motstand står i serie:\n\n$$I = \\frac{\\varepsilon}{R+r} = \\frac{12{,}0\\ \\text{V}}{5{,}5\\ \\Omega + 0{,}50\\ \\Omega} = \\frac{12{,}0}{6{,}0}\\ \\text{A} = 2{,}0\\ \\text{A}$$\n\n$$U = \\varepsilon - rI = 12{,}0\\ \\text{V} - 0{,}50\\ \\Omega\\cdot2{,}0\\ \\text{A} = 11{,}0\\ \\text{V}$$\n\n**b)** Effektene:\n\n$$P_R = RI^2 = 5{,}5\\ \\Omega\\cdot(2{,}0\\ \\text{A})^2 = 22\\ \\text{W}, \\qquad P_r = rI^2 = 0{,}50\\ \\Omega\\cdot(2{,}0\\ \\text{A})^2 = 2{,}0\\ \\text{W}$$\n\nKontroll: $22\\ \\text{W} + 2{,}0\\ \\text{W} = 24\\ \\text{W}$, og kilden leverer $\\varepsilon I = 12{,}0\\ \\text{V}\\cdot2{,}0\\ \\text{A} = 24\\ \\text{W}$ ✓\n\n**Konklusjon:** strømmen er $2{,}0\\ \\text{A}$, polspenningen $11{,}0\\ \\text{V}$, og $2{,}0\\ \\text{W}$ av de $24\\ \\text{W}$ går tapt inne i batteriet.",
+        "hints": [
+          "Den indre motstanden står i serie med den ytre: $I = \\varepsilon/(R+r)$.",
+          "Polspenningen er $\\varepsilon$ minus spenningsfallet inne i kilden.",
+          "Bruk $P = RI^2$ på begge motstandene — strømmen er den samme."
+        ]
+      }
+    },
+    {
+      "id": "fys1001-5-2-def-spenningsdeler",
+      "type": "definition",
+      "title": "Spenningsdeler og formotstand",
+      "content": "En **formotstand** er en motstand koblet i serie foran en komponent for å «spise opp» overskuddsspenningen.\n\nSkal en komponent få spenningen $U_k$ ved strømmen $I$ fra en kilde med spenning $U_0$, må formotstanden ta resten:\n\n$$R_f = \\frac{U_0 - U_k}{I}$$\n\nDette er en **spenningsdeler**: i en seriekobling fordeler kildespenningen seg på komponentene i forhold til resistansene."
+    },
+    {
+      "id": "fys1001-5-2-def-solcelle",
+      "type": "definition",
+      "title": "Solcellepanelets effekt",
+      "content": "Et solcellepanel med areal $A$ og **virkningsgrad** $\\eta$ som treffes av strålingsintensiteten $M$ (i $\\text{W/m}^2$), leverer den elektriske effekten\n\n$$P = \\eta M A$$\n\nVirkningsgraden $\\eta$ er andelen av innstrålt effekt som blir elektrisk effekt, og er et tall mellom 0 og 1 (ofte oppgitt i prosent). Formelen er ren definisjon: innstrålt effekt er $MA$, og panelet klarer å utnytte brøkdelen $\\eta$ av den."
+    },
+    {
+      "id": "fys1001-5-2-ex7",
+      "type": "example",
+      "title": "Eksempel 7: Solcellepanel og formotstand (sjanger J)",
+      "problem": "Et solcellepanel har areal $0{,}35\\ \\text{m}^2$ og virkningsgrad $20\\ \\%$. Strålingsintensiteten er $750\\ \\text{W/m}^2$.\n\n**a)** Hvor stor elektrisk effekt leverer panelet?\n**b)** Via en spenningsomformer gir panelet $5{,}0\\ \\text{V}$ til en lysdiode som trenger $2{,}1\\ \\text{V}$ ved $20\\ \\text{mA}$. Hvilken formotstand må til, og hvor stor effekt avsettes i den?",
+      "solution": "**a)** Innstrålt effekt på panelet er $MA$, og andelen $\\eta$ blir elektrisk:\n\n$$P = \\eta M A = 0{,}20\\cdot750\\ \\text{W/m}^2\\cdot0{,}35\\ \\text{m}^2 = 52{,}5\\ \\text{W} \\approx 53\\ \\text{W}$$\n\n**Enhetskontroll:** $(\\text{W/m}^2)\\cdot\\text{m}^2 = \\text{W}$ ✓ — virkningsgraden er enhetsløs.\n\n**b)** Dioden og formotstanden står i serie, så de fører samme strøm $I = 20\\ \\text{mA} = 0{,}020\\ \\text{A}$. Formotstanden må ta spenningen som blir til overs:\n\n$$U_f = 5{,}0\\ \\text{V} - 2{,}1\\ \\text{V} = 2{,}9\\ \\text{V}$$\n\n$$R_f = \\frac{U_f}{I} = \\frac{2{,}9\\ \\text{V}}{0{,}020\\ \\text{A}} = 145\\ \\Omega$$\n\nEffekten i formotstanden, med effektregelen:\n\n$$P_f = R_f I^2 = 145\\ \\Omega\\cdot(0{,}020\\ \\text{A})^2 = 0{,}058\\ \\text{W} = 58\\ \\text{mW}$$\n\n**Konklusjon:** panelet leverer $53\\ \\text{W}$, og formotstanden skal være $145\\ \\Omega$ og avsette $58\\ \\text{mW}$.\n\n**Rimelighet:** dioden bruker $2{,}1\\ \\text{V}\\cdot0{,}020\\ \\text{A} = 42\\ \\text{mW}$, formotstanden $58\\ \\text{mW}$, til sammen $100\\ \\text{mW}$ — akkurat $5{,}0\\ \\text{V}\\cdot0{,}020\\ \\text{A}$ ✓"
+    },
+    {
+      "id": "fys1001-5-2-o8",
+      "type": "exercise",
+      "exercise": {
+        "id": "fys1001-5-2-e8",
+        "number": "8",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "*(Sjanger J — dimensjonering.)* En lysdiode skal ha $3{,}2\\ \\text{V}$ over seg og føre $25\\ \\text{mA}$. Den kobles til en kilde på $9{,}0\\ \\text{V}$ via en formotstand.\n\n**a)** Finn formotstanden.\n**b)** Finn effekten i formotstanden og i dioden, og kontroller mot levert effekt.",
+        "solution": "**a)** Formotstanden og dioden står i serie og fører samme strøm $I = 0{,}025\\ \\text{A}$. Formotstanden tar overskuddsspenningen:\n\n$$U_f = 9{,}0\\ \\text{V} - 3{,}2\\ \\text{V} = 5{,}8\\ \\text{V}, \\qquad R_f = \\frac{5{,}8\\ \\text{V}}{0{,}025\\ \\text{A}} = 232\\ \\Omega$$\n\nI praksis velger man nærmeste standardverdi, for eksempel $220\\ \\Omega$ eller $240\\ \\Omega$.\n\n**b)** Med effektregelen:\n\n$$P_f = R_f I^2 = 232\\ \\Omega\\cdot(0{,}025\\ \\text{A})^2 = 0{,}145\\ \\text{W}$$\n\nDioden: $P_d = U_d I = 3{,}2\\ \\text{V}\\cdot0{,}025\\ \\text{A} = 0{,}080\\ \\text{W}$.\n\nKontroll: $0{,}145 + 0{,}080 = 0{,}225\\ \\text{W}$, og kilden leverer $9{,}0\\ \\text{V}\\cdot0{,}025\\ \\text{A} = 0{,}225\\ \\text{W}$ ✓\n\n**Konklusjon:** formotstanden skal være $232\\ \\Omega$ og avsetter $0{,}145\\ \\text{W}$ — mer enn dioden selv. Det er derfor slike motstander må tåle litt varme.",
+        "hints": [
+          "I serie er strømmen felles: den er gitt av hva dioden trenger.",
+          "Formotstanden skal ta differansen mellom kildespenningen og diodespenningen.",
+          "Bruk $P = R I^2$ på formotstanden og $P = UI$ på dioden."
+        ]
+      }
+    },
+    {
+      "id": "fys1001-5-2-o9",
+      "type": "exercise",
+      "exercise": {
+        "id": "fys1001-5-2-e9",
+        "number": "9",
+        "type": "classic",
+        "difficulty": "vanskelig",
+        "task": "*(Sjanger J/Q — «vis at», krevende.)* Vis at samlet resistans i en parallellkobling alltid er **mindre enn** den minste av grenene, og skriv ut hvilken betingelse påstanden hviler på.",
+        "solution": "**Oppsett.** For $n$ grener med positive resistanser $R_1, R_2, \\ldots, R_n$ er\n\n$$\\frac{1}{R} = \\frac{1}{R_1} + \\frac{1}{R_2} + \\ldots + \\frac{1}{R_n}$$\n\nLa $R_{\\min}$ være den minste av dem.\n\n**Argumentet.** Alle leddene på høyre side er positive, og ett av dem er $1/R_{\\min}$. Derfor er\n\n$$\\frac{1}{R} \\ge \\frac{1}{R_{\\min}}$$\n\nSiden begge sider er positive, kan vi snu ulikheten: $R \\le R_{\\min}$.\n\n**Når er det streng ulikhet?** Er det minst to grener med endelig resistans, er minst ett av de andre leddene strengt positivt, og da er $1/R > 1/R_{\\min}$, altså\n\n$$R < R_{\\min}$$\n\n**Betingelsen som må skrives ut:** påstanden «alltid mindre enn den minste grenen» gjelder når koblingen har **minst to grener med endelig resistans**. Med bare én gren er $R = R_{\\min}$, og en gren med uendelig resistans (brudd) bidrar ikke — da bestemmes $R$ av de gjenværende grenene.\n\n**Fysisk tolkning:** hver ny gren gir strømmen en ekstra vei. Flere veier betyr mer strøm ved samme spenning, altså mindre samlet resistans.\n\n**Kontroll med tall:** $30\\ \\Omega$ og $60\\ \\Omega$ i parallell gir $20\\ \\Omega < 30\\ \\Omega$ ✓; $12\\ \\Omega$ og $4{,}0\\ \\Omega$ gir $3{,}0\\ \\Omega < 4{,}0\\ \\Omega$ ✓",
+        "hints": [
+          "Start fra $1/R = \\sum 1/R_i$ og sammenlign høyresida med det ene leddet $1/R_{\\min}$.",
+          "Alle leddene er positive — hva sier det om summen sammenlignet med ett enkelt ledd?",
+          "Husk å snu ulikheten riktig vei når du går fra $1/R$ til $R$."
+        ]
+      }
+    },
+    {
+      "id": "fys1001-5-2-fig-oppgave-kirchhoff",
+      "type": "image",
+      "src": "/images/textbook/fys1001/fys1001-5-2-oppgave-kirchhoff.svg",
+      "alt": "Kretsskjema med knutepunktene A øverst og B nederst forbundet av tre loddrette grener. Venstre gren har et 10,0 V batteri og 2,0 ohm, midtre gren et 4,0 V batteri og 2,0 ohm, høyre gren 4,0 ohm. Blå strømpiler er merket med de utregnede verdiene 2,2 A, minus 0,80 A og 1,4 A.",
+      "caption": "Fasitfigur til oppgave 6: skjemaet med valgte strømretninger og de utregnede strømmene. Den negative verdien betyr at strømmen i den midtre grenen går motsatt vei av pila."
+    },
+    {
+      "id": "fys1001-5-2-warn",
+      "type": "warning",
+      "title": "Typiske feil",
+      "content": "- **$P = U^2/R$ med kildespenningen.** Den navngitte fella. I en sammensatt krets ligger kildespenningen over *hele* kretsen. Bruk $P = RI^2$, eller skriv eksplisitt hvilken delspenning du setter inn.\n- **Serie- og parallellformlene byttet om.** Serie: $R = \\sum R_i$ (større enn alle). Parallell: $1/R = \\sum 1/R_i$ (mindre enn alle). Test alltid svaret mot denne rimelighetssjekken.\n- **Glemme å snu parallellformelen.** $1/R = 1/30 + 1/60 = 1/20$ — svaret er $20\\ \\Omega$, ikke $1/20\\ \\Omega$.\n- **Bruke hovedstrømmen på en parallellgren.** Grenstrømmene er mindre enn hovedstrømmen, og fordeler seg omvendt proporsjonalt med resistansene.\n- **Fortegnsrot i maskeligningene.** Velg retninger, tegn dem på skjemaet, og hold fortegnskonvensjonen gjennom hele regningen. En negativ strøm er ikke en feil — den betyr motsatt retning, og det skal du skrive.\n- **Glemme den indre motstanden.** Når $r$ er oppgitt, er strømmen $\\varepsilon/(R+r)$, ikke $\\varepsilon/R$.\n- **Blande de to betydningene av $R$.** Her er $R$ resistans i ohm. I Del 1 er $R = \\mu N$ friksjonskraften i newton.\n- **Enhet mangler.** A, V, $\\Omega$ og W på hvert eneste tallsvar."
+    },
+    {
+      "id": "fys1001-5-2-bb-intro",
+      "type": "text",
+      "content": "## Begrepsbank\n\n*Flashcard-/repetisjonsstoff — hopp trygt over ved førstegangslesing; tidsanslaget gjelder kjernestoffet.*"
+    },
+    {
+      "id": "fys1001-5-2-bb-knutepunkt",
+      "type": "definition",
+      "title": "Knutepunkt og maske",
+      "content": "Et **knutepunkt** er et punkt der tre eller flere ledere møtes, slik at strømmen kan dele seg. En **maske** er en lukket sløyfe i kretsen som du kan gå rundt og komme tilbake til utgangspunktet.\n\nKnutepunktsloven gjelder i knutepunkter, maskeloven rundt masker. Antall uavhengige ligninger du trenger, er lik antall ukjente strømmer."
+    },
+    {
+      "id": "fys1001-5-2-bb-energibalanse",
+      "type": "definition",
+      "title": "Energibalansen i en krets",
+      "content": "Effekten kilden leverer, er nøyaktig lik summen av effektene som avsettes i komponentene:\n\n$$\\varepsilon I = \\sum R_i I_i^2$$\n\nDette er energibevaring, og det er den beste sluttkontrollen du har på en kretsoppgave. Stemmer ikke regnskapet, har du regnet feil et sted."
+    },
+    {
+      "id": "fys1001-5-2-bb-elektrisk-energi",
+      "type": "definition",
+      "title": "Elektrisk energi og kilowattimen",
+      "content": "Energien som omsettes i en komponent i tida $t$, er\n\n$$W = Pt = UIt$$\n\nmålt i joule (J). I strømregningen brukes **kilowattimen**: $1\\ \\text{kWh} = 1000\\ \\text{W}\\cdot3600\\ \\text{s} = 3{,}6\\cdot10^{6}\\ \\text{J}$.\n\nEn panelovn på 1000 W som står på i to timer, bruker altså 2 kWh = 7,2 MJ."
+    },
+    {
+      "id": "fys1001-5-2-bb-virkningsgrad",
+      "type": "definition",
+      "title": "Virkningsgrad $\\eta$",
+      "content": "**Virkningsgraden** er nyttig effekt delt på tilført effekt:\n\n$$\\eta = \\frac{P_{\\text{nyttig}}}{P_{\\text{tilført}}}$$\n\nDen er enhetsløs og alltid mindre enn 1. I solcelle-oppgaver er tilført effekt den innstrålte $MA$, i batterioppgaver er «tapet» effekten $rI^2$ inne i kilden."
+    },
+    {
+      "id": "fys1001-5-2-bb-kortslutning",
+      "type": "definition",
+      "title": "Kortslutning og kortslutningsstrøm",
+      "content": "En **kortslutning** er en forbindelse med tilnærmet null resistans utenom den tiltenkte kretsen.\n\nDa begrenses strømmen bare av kildens indre motstand:\n\n$$I_{\\text{kort}} = \\frac{\\varepsilon}{r}$$\n\nEt batteri med $\\varepsilon = 9{,}0\\ \\text{V}$ og $r = 0{,}60\\ \\Omega$ ville gitt $15\\ \\text{A}$ — derfor blir kortsluttede batterier glovarme."
+    },
+    {
+      "id": "fys1001-5-2-bb-ideell",
+      "type": "definition",
+      "title": "Ideell spenningskilde",
+      "content": "En **ideell** spenningskilde har $r = 0$ og holder polspenningen konstant uansett strøm.\n\nVirkelige kilder er ikke ideelle. Når en oppgave ikke oppgir indre motstand, skal du regne kilden som ideell — og si det i besvarelsen."
+    },
+    {
+      "id": "fys1001-5-2-bb-maaleinstrument",
+      "type": "definition",
+      "title": "Amperemeter og voltmeter",
+      "content": "Et **amperemeter** måler strøm og kobles **i serie** med komponenten; det skal ha så liten resistans som mulig, så det ikke endrer kretsen.\n\nEt **voltmeter** måler spenning og kobles **parallelt** med komponenten; det skal ha så stor resistans som mulig, så det nesten ikke trekker strøm. Bytter du om de to, kortslutter du enten kretsen eller bryter den."
+    },
+    {
+      "id": "fys1001-5-2-bb-resistivitet",
+      "type": "definition",
+      "title": "Resistivitet (bør kjenne til)",
+      "content": "Resistansen i en ensartet leder med lengde $L$ og tverrsnitt $A$ er\n\n$$R = \\rho\\frac{L}{A}$$\n\nder $\\rho$ er materialets **resistivitet** i $\\Omega\\,\\text{m}$ (tabellverdi). Dobbel lengde gir dobbel resistans; dobbel tykkelse (areal) gir halv resistans.\n\nDette er merket «bør kjenne til»: det dukker sjelden opp alene i FYS1001-oppgaver, men forklarer hvorfor tykke kabler brukes til store strømmer."
+    },
+    {
+      "id": "fys1001-5-2-bb-strommaling",
+      "type": "definition",
+      "title": "Strømdeling i parallellgrener",
+      "content": "I en parallellkobling fordeler strømmen seg **omvendt proporsjonalt** med resistansene:\n\n$$\\frac{I_1}{I_2} = \\frac{R_2}{R_1}$$\n\nDen minste motstanden får den største strømmen. Dette er en rask kontroll: står $40\\ \\Omega$ og $60\\ \\Omega$ i parallell, skal strømmene forholde seg som $60:40 = 3:2$."
+    },
+    {
+      "id": "fys1001-5-2-bb-spenningsdeling",
+      "type": "definition",
+      "title": "Spenningsdeling i serie",
+      "content": "I en seriekobling fordeler spenningen seg **proporsjonalt** med resistansene:\n\n$$\\frac{U_1}{U_2} = \\frac{R_1}{R_2}$$\n\nDen største motstanden får den største spenningen. Dette er grunnlaget for spenningsdeleren og for dimensjonering av formotstander."
+    },
+    {
+      "id": "fys1001-5-2-bb-lampe-parallell",
+      "type": "definition",
+      "title": "Lysstyrke i serie og parallell",
+      "content": "Skrur du ut én lampe i en **parallellkobling**, lyser de andre uendret: hver lampe har fortsatt full kildespenning over seg. Samlet strøm synker.\n\nSkrur du ut én lampe i en **seriekobling**, brytes kretsen og alle slukner. Legger du i stedet til en ekstra lampe i serie, øker samlet resistans, strømmen synker, og alle lyser svakere."
+    },
+    {
+      "id": "fys1001-5-2-bb-reduksjonsalgoritme",
+      "type": "definition",
+      "title": "Reduksjonsalgoritmen",
+      "content": "Framgangsmåten som løser de fleste sjanger J-oppgavene:\n\n1. tegn og rydd skjemaet;\n2. reduser innerste serie-/parallellgrupper trinnvis til én motstand;\n3. finn hovedstrømmen fra $I = U/R$;\n4. jobb utover igjen: finn delspenninger med $U = RI$ og grenstrømmer med $I = U/R$;\n5. regn effekt med $P = RI^2$;\n6. kontroller at levert effekt er lik samlet avsatt effekt."
+    },
+    {
+      "id": "fys1001-5-2-bb-ohm-gyldighet",
+      "type": "definition",
+      "title": "Når gjelder Ohms lov?",
+      "content": "$U = RI$ med konstant $R$ gjelder for **ohmske** komponenter: metalltråder og vanlige motstander ved fast temperatur.\n\nGlødelamper får høyere resistans når de blir varme, og dioder leder bare den ene veien. I eksamensoppgaver får du oppgitt hvilke verdier som gjelder — men å kunne si at $R$ ikke er konstant for en glødelampe, er et kvalitativt poeng du kan få bruk for."
+    },
+    {
+      "id": "fys1001-5-2-rep",
+      "type": "collapsible",
+      "title": "Repetisjonsoppgaver",
+      "buttonText": "Vis repetisjonsoppgaver",
+      "content": [
+        {
+          "id": "fys1001-5-2-rep-1",
+          "type": "exercise",
+          "exercise": {
+            "id": "fys1001-5-2-rep-e1",
+            "number": "R1",
+            "type": "classic",
+            "difficulty": "lett",
+            "task": "*(Fra [kap. 5.1](/bok/fys1001/fys1001-5-1).)* Hvor mye arbeid gjør kilden på en ladning på $0{,}50\\ \\text{C}$ som flyttes gjennom en spenning på $9{,}0\\ \\text{V}$?",
+            "solution": "$$W = qU = 0{,}50\\ \\text{C}\\cdot9{,}0\\ \\text{V} = 4{,}5\\ \\text{J}$$\n\nDette er den samme sammenhengen som ligger bak $P = UI$: deler du på tida, får du $P = (q/t)U = IU$.",
+            "hints": [
+              "Spenning er arbeid per ladningsenhet.",
+              "$1\\ \\text{V}\\cdot1\\ \\text{C} = 1\\ \\text{J}$."
+            ]
+          }
+        },
+        {
+          "id": "fys1001-5-2-rep-2",
+          "type": "exercise",
+          "exercise": {
+            "id": "fys1001-5-2-rep-e2",
+            "number": "R2",
+            "type": "classic",
+            "difficulty": "lett",
+            "task": "Tre motstander på $10\\ \\Omega$ hver kobles a) alle i serie, b) alle i parallell. Finn samlet resistans i begge tilfeller.",
+            "solution": "**a)** Serie: $R = 10 + 10 + 10 = 30\\ \\Omega$ — større enn hver enkelt ✓\n\n**b)** Parallell: $1/R = 3/10$, altså $R = 10/3 = 3{,}3\\ \\Omega$ — mindre enn hver enkelt ✓\n\nGenerelt: $n$ like motstander $R_0$ gir $nR_0$ i serie og $R_0/n$ i parallell.",
+            "hints": [
+              "Serie: legg sammen. Parallell: legg sammen de omvendte og snu til slutt.",
+              "Sjekk svarene mot rimelighetsreglene."
+            ]
+          }
+        },
+        {
+          "id": "fys1001-5-2-rep-3",
+          "type": "exercise",
+          "exercise": {
+            "id": "fys1001-5-2-rep-e3",
+            "number": "R3",
+            "type": "classic",
+            "difficulty": "middels",
+            "task": "*(Sjanger Q.)* To like lamper kobles først i serie, deretter i parallell, over det samme batteriet. Forklar i 2–4 setninger i hvilket tilfelle de lyser sterkest.",
+            "solution": "I parallellkoblingen ligger hele kildespenningen over hver lampe, mens den i seriekoblingen deler seg likt på de to. Effekten i en lampe er $P = U^2/R$ med spenningen over den lampen, så halv spenning gir en firedel av effekten.\n\n**Konklusjon:** lampene lyser klart sterkest i parallellkoblingen — hver av dem får fire ganger så stor effekt som i seriekoblingen. (Her er $U^2/R$ trygt å bruke, fordi vi har sagt eksplisitt hvilken spenning som ligger over hver lampe.)",
+            "hints": [
+              "Hvor stor spenning ligger over hver lampe i de to koblingene?",
+              "Effekten går som kvadratet av spenningen over komponenten."
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": "fys1001-5-2-symbolliste",
+      "type": "collapsible",
+      "title": "Symbol- og formelliste",
+      "buttonText": "Vis symboler og formler",
+      "content": [
+        {
+          "id": "fys1001-5-2-symbolliste-tekst",
+          "type": "text",
+          "content": "## Symbol- og formelliste\n\n*Oppslagsverk — alt her forklares underveis i kapitlet.*\n\nAlle symboler og formler i delkapittel 5.2. Betydningene gjelder **dette delkapitlet** og arves ikke fra tidligere deler.\n\n| Symbol | Betydning | SI-enhet |\n|---|---|---|\n| $I$ | Elektrisk strøm | ampere, A |\n| $U$ | Spenning (potensialforskjell) | volt, V |\n| $R$ | **Resistans** (her: *ikke* friksjonskraft) | ohm, $\\Omega$ |\n| $R_p$ | Samlet resistans i en parallellkobling | $\\Omega$ |\n| $R_f$ | Formotstand | $\\Omega$ |\n| $r$ | Indre motstand i kilden | $\\Omega$ |\n| $\\varepsilon$ | Elektromotorisk spenning (EMK) | V |\n| $P$ | Effekt | watt, W |\n| $W$ | Elektrisk energi/arbeid | joule, J |\n| $q$ | Ladning | coulomb, C |\n| $t$ | Tid | sekund, s |\n| $\\eta$ | Virkningsgrad (enhetsløs) | – |\n| $M$ | Strålingsintensitet mot panelet | $\\text{W/m}^2$ |\n| $A$ | Areal | $\\text{m}^2$ |\n| $\\rho$ | Resistivitet | $\\Omega\\,\\text{m}$ |\n| $L$ | Lederlengde | m |\n\n**Symbolkollisjoner du skal være obs på i akkurat dette delkapitlet:**\n\n- $R$ betyr **resistans** her. I Del 1 (mekanikk) er $R = \\mu N$ friksjonskraften.\n- $E$ brukes ikke i dette delkapitlet. (I [kap. 5.1](/bok/fys1001/fys1001-5-1) er $E$ elektrisk feltstyrke, i Del 2 er $E$ energi.)\n- $B$ brukes ikke her. (I Del 3 er $B$ oppdrift, i [kap. 5.4](/bok/fys1001/fys1001-5-4) er $B$ magnetisk flukstetthet.)\n- $k$ brukes ikke som størrelse her. (I [kap. 5.1](/bok/fys1001/fys1001-5-1) er $k$ Coulomb-konstanten.)\n- Enkeltbokstaver som opptrer som **navn eller indeks** er ikke størrelser: $A$ og $B$ er knutepunktene i Kirchhoff-kretsen, og indeksen i $U_k$ betyr «over komponenten». Enhetene $\\text{k}\\Omega$ og $\\text{dB}$ er enheter, ikke symboler.\n- $\\rho$ er **resistivitet** her, ikke tetthet som i Del 3.\n\n**Formler i dette delkapitlet:**\n\n$$I = \\frac{q}{t}$$\nStrøm som ladning per tid. *(Definisjon — må kunne brukes aktivt.)*\n\n$$U = RI$$\nOhms lov. *(Står på formelarket.)*\n\n$$R = R_1 + R_2 + \\ldots \\quad (\\text{serie})$$\nSeriekobling: samme strøm, spenningene summeres. *(Står på formelarket.)*\n\n$$\\frac{1}{R} = \\frac{1}{R_1} + \\frac{1}{R_2} + \\ldots \\quad (\\text{parallell})$$\nParallellkobling: samme spenning, strømmene summeres. For to grener: $R = R_1R_2/(R_1+R_2)$. *(Står på formelarket.)*\n\n$$P = UI = RI^2 = \\frac{U^2}{R}$$\nEffekt i en komponent. **Effektregelen: bruk $RI^2$ i sammensatte kretser.** *(Står på formelarket — metodevalget er ditt.)*\n\n$$\\sum I_{\\text{inn}} = \\sum I_{\\text{ut}} \\qquad \\sum U_{\\text{maske}} = 0$$\nKirchhoffs strøm- og spenningslov. *(Må kunne brukes aktivt — oppsettet er det du måles på.)*\n\n$$U = \\varepsilon - rI \\qquad I = \\frac{\\varepsilon}{R+r}$$\nPolspenning og strøm med indre motstand. *(Må kunne brukes aktivt.)*\n\n$$R_f = \\frac{U_0 - U_k}{I}$$\nFormotstand i en spenningsdeler. *(Må kunne settes opp — følger av seriekoblingen.)*\n\n$$P = \\eta M A$$\nElektrisk effekt fra et solcellepanel. *(Må kunne brukes aktivt.)*\n\n$$W = Pt, \\qquad 1\\ \\text{kWh} = 3{,}6\\cdot10^{6}\\ \\text{J}$$\nElektrisk energi. *(Omregningen står i tabellen.)*"
+        }
+      ]
+    }
+  ],
+  "exercises": []
+}

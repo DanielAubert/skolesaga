@@ -1,0 +1,359 @@
+{
+  "id": "fys1001-3-1",
+  "courseId": "fys1001",
+  "chapterNumber": "3.1",
+  "title": "Trykk, hydrostatikk og oppdrift",
+  "description": "Trykk som kraft per flate, væsketrykk som vokser med dybden, og Arkimedes' lov med flytevilkår — de selvstendige småoppgavene som åpner fluid-oppgaven på eksamen.",
+  "estimatedMinutes": 45,
+  "competenceGoals": [
+    "regne ut trykk fra kraft og areal, og gjøre om trygt mellom Pa, kPa og bar",
+    "finne absolutt trykk og overtrykk på en gitt dybde, og vite når atmosfæretrykket skal med",
+    "bruke Arkimedes' lov med væskens tetthet og det nedsenkede volumet, og finne tilsynelatende vekt",
+    "avgjøre om et legeme flyter eller synker, og utlede den nedsenkede volumandelen fra flytelikevekten"
+  ],
+  "content": [
+    {
+      "id": "fys1001-3-1-tip-eksamensvinkel",
+      "type": "tip",
+      "title": "Eksamensvinkel",
+      "content": "**Høyeste prioritet — og et signaturtema for nettopp dette emnet.** Fluidmekanikk står i **23 av 36 slutteksamener (64 %)** og i så godt som alle midtsemestereksamener i arkivet. Det er langt oftere enn i vanlige fysikk 1- og fysikk 2-løp, og skyldes emnets historie som innføringsfag for medisin- og naturvitenskapsstudenter.\n\nTrykk, hydrostatikk og oppdrift er de faste **åpnings-deloppgavene** i fluid-oppgaven: de kommer først, de er selvstendige, og de er blant de billigste poengene i hele settet. Dette er **sjanger F**, kortkoden vår for fluidmekanikk (Bernoulli, Torricelli og kontinuitet). I tillegg kommer **sjanger Q**, kortkoden for kvalitative «forklar hvorfor»-spørsmål — og fluid er full av dem: svømmeblære, isfjell, trykk i ørene på dypt vann. Hele kodelista A–Q står i [kap. 0.1](/bok/fys1001/fys1001-0-1).\n\nTypiske deloppgaver fra arkivet:\n\n- «Finn det absolutte trykket på 22 m dyp» — der hele poenget er å huske $p_0$.\n- «Forklar med Arkimedes' lov hvorfor fisken kan henge stille i vannet.»\n- «Hvor stor andel av isfjellet er under vann?»\n\n**Formelark-status:** $p = F/A$, $p = p_0 + \\rho gh$, $\\rho = m/V$ og $B = \\rho V g$ står alle på formelarket. **Tetthetsverdier hentes fra tabellverket** — du skal ikke pugge at sjøvann har tettheten $1{,}03\\cdot 10^{3}$ $\\text{kg/m}^3$, du skal vite hvor du finner det. Det du må kunne aktivt, er å velge riktig formel, sette inn **væskens** tetthet i oppdriften og holde orden på om det er absolutt trykk eller overtrykk som etterspørres."
+    },
+    {
+      "id": "fys1001-3-1-forkunnskaper",
+      "type": "text",
+      "content": "**Forkunnskaper — dette bygger kapitlet på:**\n\n- [kap. 1.2](/bok/fys1001/fys1001-1-2) — kraftbalanse og frilegemediagram. Vi bruker $\\Sigma F = 0$ på et legeme i væske, med notasjonen $G = mg$ for tyngden og $S$ for snordraget.\n- [Brøkregning](/bok/1t/1t-1-4) — tetthet og volumandeler er forholdstall, og du må kunne snu og forkorte brøker trygt.\n\nKapitlet krever ikke Del 2. Vil du lese fluidmekanikk før du er ferdig med energi og støt, går det helt fint — men [kap. 3.2](/bok/fys1001/fys1001-3-2) bygger på energibevaring fra [kap. 2.2](/bok/fys1001/fys1001-2-2).\n\nVi bruker $g = 9{,}81$ $\\text{m/s}^2$ og atmosfæretrykket $p_0 = 1{,}01\\cdot 10^{5}$ Pa gjennom kapitlet. Begge hentes fra formelark og tabellverk."
+    },
+    {
+      "id": "fys1001-3-1-intro",
+      "type": "text",
+      "content": "Har du noen gang dykket ned til bunnen av et svømmebasseng og kjent det presse i ørene? Da har du målt hydrostatisk trykk med kroppen. Og har du kjent hvor lett en tung stein blir under vann, har du kjent oppdriften.\n\nFluidmekanikk er den delen av dette emnet som ligger nærmest hverdagen og nærmest kroppen — og det er også den delen der eksamen er mest forutsigbar. Kapitlet bygger de tre verktøyene du trenger: trykk, væsketrykk med dybde, og oppdrift.\n\nKapitlet går i fire læringsløkker (teori → eksempel → oppgave):\n\n1. **Trykk: kraft fordelt på flate** (~10 min)\n2. **Væsketrykk og dybde** (~12 min)\n3. **Oppdrift og Arkimedes' lov** (~12 min)\n4. **Flyte eller synke — og hvor dypt?** (~11 min)\n\nTidsanslagene er lesetid; med penn og papir ganger du med omtrent 1,5."
+    },
+    {
+      "id": "fys1001-3-1-lokke1",
+      "type": "text",
+      "content": "## Løkke 1: Trykk — kraft fordelt på flate *(~10 min)*\n\nLegger du deg på et spikerbed, er det ikke tyngden som avgjør om det gjør vondt — det er hvor mange spiker som deler på den."
+    },
+    {
+      "id": "fys1001-3-1-def-trykk",
+      "type": "definition",
+      "title": "Trykk",
+      "content": "**Trykk** er kraft per flate. Virker kraften $F$ vinkelrett på en flate med areal $A$, er trykket\n\n$$p = \\frac{F}{A}.$$\n\nKraften må stå **vinkelrett** på flata; en kraft langs flata gir ikke trykk, men skjærspenning (utenfor pensum her).\n\nSamme kraft over et lite areal gir stort trykk. Det er derfor en kniv skjærer og et telttak ikke gjør det, og derfor du synker i snøen uten ski men ikke med."
+    },
+    {
+      "id": "fys1001-3-1-def-pascal",
+      "type": "definition",
+      "title": "Pascal, bar og atmosfære",
+      "content": "SI-enheten for trykk er **pascal**: $1\\ \\text{Pa} = 1\\ \\text{N/m}^2$. Ett pascal er svært lite, så du møter nesten alltid multipler:\n\n- $1\\ \\text{kPa} = 10^{3}$ Pa\n- $1\\ \\text{bar} = 10^{5}$ Pa (praktisk enhet i dykking, dekktrykk og industri)\n- Atmosfæretrykket ved havnivå: $p_0 = 1{,}01\\cdot 10^{5}\\ \\text{Pa} \\approx 1{,}01$ bar\n\nBruker oppgaven bar, svarer du i bar — men regn i pascal underveis, ellers går enhetene i vasken. Verdien av $p_0$ hentes fra formelarket."
+    },
+    {
+      "id": "fys1001-3-1-oppg-l1a",
+      "type": "exercise",
+      "exercise": {
+        "id": "fys1001-3-1-l1a",
+        "number": "1",
+        "type": "classic",
+        "difficulty": "lett",
+        "task": "(Innstegsoppgave — sjanger F, altså fluidmekanikk.) En bok med tyngde 12 N ligger flatt på et bord. Kontaktflaten mellom bok og bord er $6{,}0\\cdot 10^{-2}$ $\\text{m}^2$.\n\n**a)** Finn trykket boka utøver på bordet.\n**b)** Oppgi svaret i pascal og i kilopascal.",
+        "solution": "**a)** Tyngden virker vinkelrett ned på bordflaten:\n\n$$p = \\frac{F}{A} = \\frac{12\\ \\text{N}}{6{,}0\\cdot 10^{-2}\\ \\text{m}^2} = 2{,}0\\cdot 10^{2}\\ \\text{Pa}.$$\n\n**b)** $200\\ \\text{Pa} = 0{,}20$ kPa.\n\n**Svar:** trykket er $2{,}0\\cdot 10^{2}$ Pa, altså $0{,}20$ kPa. Til sammenligning er atmosfæretrykket rundt boka $1{,}01\\cdot 10^{5}$ Pa — over 500 ganger større.",
+        "hints": [
+          "Hvilken kraft virker vinkelrett på bordflaten?",
+          "Sett inn i $p = F/A$ med $F$ i newton og $A$ i kvadratmeter.",
+          "$1$ kPa er $1000$ Pa."
+        ]
+      }
+    },
+    {
+      "id": "fys1001-3-1-ex-ski",
+      "type": "example",
+      "title": "Hvorfor ski bærer og hæler ikke",
+      "problem": "En person med masse 62 kg står på ski. De to skiene har til sammen en flate på 0,34 $\\text{m}^2$ mot snøen.\n\n**a)** Finn trykket mot snøen.\n**b)** Samme person står i sko med to hæler, hver med flate 4,0 $\\text{cm}^2$. Finn trykket nå, og sammenlign.",
+      "solution": "**Tyngden** er den samme i begge tilfeller:\n\n$$G = mg = 62\\ \\text{kg}\\cdot 9{,}81\\ \\text{m/s}^2 = 608\\ \\text{N}.$$\n\n**a)** Med skienes samlede flate:\n\n$$p_{\\text{ski}} = \\frac{G}{A} = \\frac{608\\ \\text{N}}{0{,}34\\ \\text{m}^2} = 1{,}79\\cdot 10^{3}\\ \\text{Pa} = 1{,}8\\ \\text{kPa}.$$\n\n**b)** To hæler à 4,0 $\\text{cm}^2$ gir $A = 2\\cdot 4{,}0\\ \\text{cm}^2 = 8{,}0\\ \\text{cm}^2 = 8{,}0\\cdot 10^{-4}\\ \\text{m}^2$. Legg merke til omregningen: $1\\ \\text{cm}^2 = 10^{-4}\\ \\text{m}^2$.\n\n$$p_{\\text{hæl}} = \\frac{608\\ \\text{N}}{8{,}0\\cdot 10^{-4}\\ \\text{m}^2} = 7{,}6\\cdot 10^{5}\\ \\text{Pa} = 7{,}6\\ \\text{bar}.$$\n\n**Svar:** trykket er $1{,}8$ kPa på ski og $7{,}6\\cdot 10^{5}$ Pa på hæler — **425 ganger større** på hælene.\n\n**Rimelighetsvurdering:** 7,6 bar er mer enn dobbelt så mye som lufttrykket i et bildekk. Det stemmer godt med hverdagserfaringen: hæler synker rett ned i snø og myk asfalt, mens ski bærer.\n\n*Merk enhetsomregningen* — den er en gjenganger blant feilene: kvadratcentimeter til kvadratmeter er faktoren $10^{-4}$, ikke $10^{-2}$."
+    },
+    {
+      "id": "fys1001-3-1-lokke2",
+      "type": "text",
+      "content": "## Løkke 2: Væsketrykk og dybde *(~12 min)*\n\nNå til det du kjenner i ørene. Trykket i en væske øker med dybden, og økningen er enkel: vekten av væskesøylen over deg, fordelt på flata."
+    },
+    {
+      "id": "fys1001-3-1-def-tetthet",
+      "type": "definition",
+      "title": "Tetthet",
+      "content": "**Tettheten** til et stoff er masse per volum:\n\n$$\\rho = \\frac{m}{V}, \\qquad [\\rho] = \\text{kg/m}^3.$$\n\nDen greske bokstaven $\\rho$ leses «rho». Tetthetsverdier **hentes fra tabellverket** — de er ikke puggestoff. Noen du vil se ofte:\n\n| Stoff | $\\rho$ ($\\text{kg/m}^3$) |\n|---|---|\n| Ferskvann | $1{,}00\\cdot 10^{3}$ |\n| Sjøvann | $1{,}03\\cdot 10^{3}$ |\n| Is | $0{,}92\\cdot 10^{3}$ |\n| Aluminium | $2{,}70\\cdot 10^{3}$ |\n| Luft (ved 20 °C) | $1{,}2$ |\n\nOmformet gir dette $m = \\rho V$ og $V = m/\\rho$, og disse to omskrivningene bruker du hele tiden i fluid-oppgaver."
+    },
+    {
+      "id": "fys1001-3-1-def-vasketrykk",
+      "type": "definition",
+      "title": "Væsketrykk med dybden",
+      "content": "I en væske med tetthet $\\rho$ er trykket på dybden $h$ under overflaten\n\n$$p = p_0 + \\rho gh,$$\n\nder $p_0$ er trykket på overflaten (ute i det åpne: atmosfæretrykket).\n\nLeddet $\\rho gh$ er vekten av væskesøylen over deg, fordelt på flata: en søyle med areal $A$ og høyde $h$ har massen $\\rho Ah$, tyngden $\\rho Ahg$, og dermed trykket $\\rho Ahg/A = \\rho gh$.\n\n**Trykket avhenger bare av dybden**, ikke av beholderens form, bredde eller total væskemengde. To punkter på samme dybde i samme sammenhengende væske har samme trykk."
+    },
+    {
+      "id": "fys1001-3-1-def-absolutt-overtrykk",
+      "type": "definition",
+      "title": "Absolutt trykk og overtrykk",
+      "content": "Dette skillet er kilden til den vanligste feilen i hydrostatikk-deloppgaver.\n\n- **Absolutt trykk** er hele trykket: $p = p_0 + \\rho gh$. Atmosfæretrykket er med.\n- **Overtrykk** (også kalt manometertrykk) er trykket *utover* atmosfæretrykket: $p - p_0 = \\rho gh$.\n\nSpør oppgaven om «det absolutte trykket», **må** $p_0$ med. Spør den om «overtrykket» eller «trykkøkningen», skal $p_0$ **ikke** med. Et dybdemåler eller dekktrykkmåler viser overtrykk — derfor viser en tom sykkelslange 0 bar selv om det er luft i den.\n\nStår det bare «finn trykket», svarer du med det absolutte trykket og skriver at du har tolket det slik."
+    },
+    {
+      "id": "fys1001-3-1-ex-dykker",
+      "type": "example",
+      "title": "Trykket på 16 meters dyp",
+      "problem": "En dykker er 16 m ned i en innsjø. Ferskvann har tettheten $1{,}00\\cdot 10^{3}$ $\\text{kg/m}^3$, og atmosfæretrykket over sjøen er $1{,}01\\cdot 10^{5}$ Pa.\n\n**a)** Finn overtrykket på denne dybden.\n**b)** Finn det absolutte trykket, og oppgi det både i pascal og i bar.",
+      "solution": "**a)** Overtrykket er væskesøylens bidrag alene:\n\n$$p - p_0 = \\rho gh = 1{,}00\\cdot 10^{3}\\ \\text{kg/m}^3\\cdot 9{,}81\\ \\text{m/s}^2\\cdot 16\\ \\text{m} = 1{,}57\\cdot 10^{5}\\ \\text{Pa}.$$\n\n**Svar a):** overtrykket er $1{,}57\\cdot 10^{5}$ Pa, altså $1{,}57$ bar.\n\n**b)** Det absolutte trykket får vi ved å legge til atmosfæretrykket:\n\n$$p = p_0 + \\rho gh = 1{,}01\\cdot 10^{5}\\ \\text{Pa} + 1{,}57\\cdot 10^{5}\\ \\text{Pa} = 2{,}58\\cdot 10^{5}\\ \\text{Pa}.$$\n\n**Svar b):** $p = 2{,}58\\cdot 10^{5}$ Pa $= 2{,}58$ bar.\n\n**Rimelighetsvurdering:** en tommelfingerregel dykkere bruker, er at trykket øker med om lag 1 bar per 10 m vann. På 16 m skulle det gi $1{,}0 + 1{,}6 = 2{,}6$ bar absolutt, og det stemmer med regningen vår.\n\n**Merk:** her måtte begge svar oppgis fordi oppgaven skiller mellom overtrykk og absolutt trykk. Leser du bare «finn trykket», er det det absolutte trykket som forventes — og da er $p_0$ det leddet flest glemmer."
+    },
+    {
+      "id": "fys1001-3-1-oppg-l2a",
+      "type": "exercise",
+      "exercise": {
+        "id": "fys1001-3-1-l2a",
+        "number": "2",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "(Sjanger F.) Sjøvann har tettheten $1{,}03\\cdot 10^{3}$ $\\text{kg/m}^3$.\n\n**a)** Hvor dypt må du ned i sjøvann for at overtrykket skal være $1{,}0$ bar, altså $1{,}0\\cdot 10^{5}$ Pa?\n**b)** Hva er det absolutte trykket på denne dybden?",
+        "solution": "**a)** Overtrykket er $\\rho gh$, så vi løser for $h$:\n\n$$\\rho gh = 1{,}0\\cdot 10^{5}\\ \\text{Pa} \\quad\\Longrightarrow\\quad h = \\frac{1{,}0\\cdot 10^{5}\\ \\text{Pa}}{1{,}03\\cdot 10^{3}\\ \\text{kg/m}^3\\cdot 9{,}81\\ \\text{m/s}^2} = \\frac{1{,}0\\cdot 10^{5}}{1{,}01\\cdot 10^{4}}\\ \\text{m}.$$\n\n$$h = 9{,}9\\ \\text{m}.$$\n\n**b)** $p = p_0 + \\rho gh = 1{,}01\\cdot 10^{5}\\ \\text{Pa} + 1{,}0\\cdot 10^{5}\\ \\text{Pa} = 2{,}01\\cdot 10^{5}$ Pa $= 2{,}01$ bar.\n\n**Svar:** du må omtrent $9{,}9$ m ned, og der er det absolutte trykket $2{,}0$ bar. Det er tommelfingerregelen «1 bar per 10 m vann» i tallform.",
+        "hints": [
+          "Overtrykk betyr at $p_0$ ikke skal være med i det leddet du regner på.",
+          "Løs $\\rho gh = 1{,}0\\cdot 10^{5}$ Pa for $h$.",
+          "I b): legg atmosfæretrykket til overtrykket."
+        ]
+      }
+    },
+    {
+      "id": "fys1001-3-1-oppg-l2b",
+      "type": "exercise",
+      "exercise": {
+        "id": "fys1001-3-1-l2b",
+        "number": "3",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "(Sjanger Q — kvalitativ. Svar i 2–4 setninger.) To beholdere står ved siden av hverandre og er fylt med vann til samme høyde. Den ene er et smalt rør, den andre et vidt kar som inneholder hundre ganger så mye vann.\n\nSammenlign trykket ved bunnen av de to beholderne, og begrunn svaret.",
+        "solution": "**Trykket er nøyaktig like stort i de to beholderne.** Væsketrykket er gitt av $p = p_0 + \\rho gh$, der bare tettheten og **dybden** inngår — ikke tverrsnittet og ikke den totale vannmengden.\n\nBegrunnelsen ligger i utledningen: trykket kommer av vekten av væskesøylen rett over flata, fordelt på nettopp den flata. Gjør du karet bredere, øker både vekten over bunnen og bunnflata i samme forhold, så brøken er uendret.\n\n**Konklusjon:** samme væske og samme dybde gir samme trykk, uansett hvor mye væske det er.",
+        "hints": [
+          "Hvilke størrelser inngår faktisk i $p = p_0 + \\rho gh$?",
+          "Tenk på hva som skjer med både vekten over bunnen og bunnflata når karet gjøres bredere.",
+          "Bruk utledningen av $\\rho gh$ i begrunnelsen."
+        ]
+      }
+    },
+    {
+      "id": "fys1001-3-1-oppg-l2c",
+      "type": "exercise",
+      "exercise": {
+        "id": "fys1001-3-1-l2c",
+        "number": "4",
+        "type": "classic",
+        "difficulty": "lett",
+        "task": "(Innstegsoppgave — sjanger F.) Sjøvann har tettheten $1{,}03\\cdot 10^{3}$ $\\text{kg/m}^3$.\n\n**a)** Finn massen av $2{,}5$ $\\text{m}^3$ sjøvann.\n**b)** Finn volumet av $500$ kg sjøvann.",
+        "solution": "**a)** Fra $\\rho = m/V$ får vi $m = \\rho V$:\n\n$$m = 1{,}03\\cdot 10^{3}\\ \\text{kg/m}^3\\cdot 2{,}5\\ \\text{m}^3 = 2{,}58\\cdot 10^{3}\\ \\text{kg}.$$\n\n**b)** Samme sammenheng, løst for volumet:\n\n$$V = \\frac{m}{\\rho} = \\frac{500\\ \\text{kg}}{1{,}03\\cdot 10^{3}\\ \\text{kg/m}^3} = 0{,}485\\ \\text{m}^3.$$\n\n**Svar:** $2{,}58\\cdot 10^{3}$ kg og $0{,}485$ $\\text{m}^3$. Legg merke til at en kubikkmeter vann veier omtrent ett tonn — et tall det er verdt å ha i hodet som rimelighetskontroll.",
+        "hints": [
+          "Start fra $\\rho = m/V$ og omform.",
+          "Sjekk at enhetene forkortes riktig: $\\text{kg/m}^3$ ganger $\\text{m}^3$ gir kg.",
+          "I b): del massen på tettheten."
+        ]
+      }
+    },
+    {
+      "id": "fys1001-3-1-lokke3",
+      "type": "text",
+      "content": "## Løkke 3: Oppdrift og Arkimedes' lov *(~12 min)*\n\n— naturlig pausepunkt —\n\nNå kommer den viktigste konsekvensen av at trykket øker med dybden."
+    },
+    {
+      "id": "fys1001-3-1-def-oppdrift",
+      "type": "definition",
+      "title": "Oppdrift (Arkimedes' lov)",
+      "content": "Et legeme nedsenket i en væske får en oppadrettet kraft, **oppdriften**:\n\n$$B = \\rho_{\\text{væske}} V_{\\text{nedsenket}}\\, g.$$\n\nI ord: **oppdriften er like stor som tyngden av den væsken legemet fortrenger.** Det er Arkimedes' lov.\n\nTo presiseringer som avgjør poengene:\n\n- Det er **væskens** tetthet som står i formelen, aldri legemets. Å sette inn legemets tetthet er den vanligste feilen i hele temaet.\n- Det er det **nedsenkede** volumet som teller. For et helt nedsenket legeme er det hele volumet; for et flytende legeme bare den delen som er under overflaten.\n\nI denne boka skriver vi oppdriften $B$. (I magnetismekapitlene i Del 5 betyr $B$ magnetisk flukstetthet — de to opptrer aldri i samme oppgave, men se alltid i delkapitlets symbolliste.)"
+    },
+    {
+      "id": "fys1001-3-1-def-hvorfor-oppdrift",
+      "type": "definition",
+      "title": "Hvorfor oppdriften finnes",
+      "content": "Oppdriften er ikke en ny naturkraft — den er summen av trykkreftene fra væsken.\n\nTenk på en kloss med topp- og bunnflate $A$, der toppen ligger på dybden $h_1$ og bunnen på $h_2 = h_1 + d$. Væsken presser **ned** på toppen med kraften $p_1A$ og **opp** på bunnen med $p_2A$. Siden bunnen ligger dypere, er $p_2 > p_1$, og nettokraften peker opp:\n\n$$B = p_2A - p_1A = \\rho g(h_2-h_1)A = \\rho g\\,dA = \\rho gV.$$\n\nSidekreftene opphever hverandre parvis. Dette er utledningen løsningsforslagene ber om når en deloppgave sier «begrunn Arkimedes' lov»."
+    },
+    {
+      "id": "fys1001-3-1-fig-oppdrift",
+      "type": "image",
+      "src": "/images/textbook/fys1001/fys1001-3-1-oppdrift.svg",
+      "alt": "Et rektangulært legeme henger i en snor helt nedsenket i væske. Tyngden G peker ned fra legemet, oppdriften B peker opp, og snordraget S peker opp mot fjærvekta. Korte piler viser at trykket presser svakt ned på oversiden og kraftigere opp på undersiden.",
+      "caption": "Oppdriften kommer av at trykket på undersiden er større enn på oversiden. Henger legemet i en snor, er likevekten $S + B = G$, så fjærvekta viser den tilsynelatende vekten $S = G - B$."
+    },
+    {
+      "id": "fys1001-3-1-def-tilsynelatende-vekt",
+      "type": "definition",
+      "title": "Tilsynelatende vekt",
+      "content": "Henger et nedsenket legeme i en fjærvekt, viser vekta ikke tyngden, men **snordraget**. Kraftbalansen på legemet gir\n\n$$S + B = G \\quad\\Longrightarrow\\quad S = G - B = mg - \\rho_{\\text{væske}}Vg.$$\n\nDenne størrelsen kalles den **tilsynelatende vekten**. Den er alltid mindre enn tyngden, og det er grunnen til at en tung stein kjennes lett under vann.\n\nMerk hvordan dette er en helt vanlig kraftbalanse fra [kap. 1.2](/bok/fys1001/fys1001-1-2) — bare med én kraft mer i diagrammet."
+    },
+    {
+      "id": "fys1001-3-1-ex-stein",
+      "type": "example",
+      "title": "Steinen i fjærvekta",
+      "problem": "En granittstein har masse 6,5 kg og volum $2{,}4\\cdot 10^{-3}$ $\\text{m}^3$. Den henges i en fjærvekt og senkes helt ned i ferskvann ($\\rho = 1{,}00\\cdot 10^{3}$ $\\text{kg/m}^3$).\n\n**a)** Finn oppdriften på steinen.\n**b)** Finn hva fjærvekta viser.\n**c)** Regn ut steinens tetthet, og avgjør om den vil synke når snoren kuttes.",
+      "solution": "**a)** Steinen er helt nedsenket, så det nedsenkede volumet er hele volumet:\n\n$$B = \\rho_{\\text{vann}}Vg = 1{,}00\\cdot 10^{3}\\ \\text{kg/m}^3\\cdot 2{,}4\\cdot 10^{-3}\\ \\text{m}^3\\cdot 9{,}81\\ \\text{m/s}^2 = 23{,}5\\ \\text{N}.$$\n\nLegg merke til at det er **vannets** tetthet som er brukt, ikke steinens.\n\n**b)** Tyngden er\n\n$$G = mg = 6{,}5\\ \\text{kg}\\cdot 9{,}81\\ \\text{m/s}^2 = 63{,}8\\ \\text{N}.$$\n\nKraftbalanse på steinen ($\\Sigma F = 0$, siden den henger i ro):\n\n$$S = G - B = 63{,}8\\ \\text{N} - 23{,}5\\ \\text{N} = 40{,}2\\ \\text{N}.$$\n\n**Svar b):** fjærvekta viser $40$ N — steinen kjennes 37 % lettere under vann.\n\n**c)** Steinens tetthet:\n\n$$\\rho_{\\text{stein}} = \\frac{m}{V} = \\frac{6{,}5\\ \\text{kg}}{2{,}4\\cdot 10^{-3}\\ \\text{m}^3} = 2{,}7\\cdot 10^{3}\\ \\text{kg/m}^3.$$\n\nDette er nesten tre ganger vannets tetthet, altså $\\rho_{\\text{stein}} > \\rho_{\\text{vann}}$. Tyngden er større enn oppdriften ($63{,}8\\ \\text{N} > 23{,}5\\ \\text{N}$), så **steinen synker** når snoren kuttes.\n\n**Rimelighetsvurdering:** $2{,}7\\cdot 10^{3}$ $\\text{kg/m}^3$ er en typisk tetthet for granitt, så tallene i oppgaven henger sammen."
+    },
+    {
+      "id": "fys1001-3-1-oppg-l3",
+      "type": "exercise",
+      "exercise": {
+        "id": "fys1001-3-1-l3",
+        "number": "5",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "(Sjanger F.) En aluminiumsklump har masse 1,35 kg. Aluminium har tettheten $2{,}70\\cdot 10^{3}$ $\\text{kg/m}^3$, og ferskvann $1{,}00\\cdot 10^{3}$ $\\text{kg/m}^3$.\n\n**a)** Finn volumet til klumpen.\n**b)** Finn oppdriften når klumpen er helt nedsenket i vann.\n**c)** Finn den tilsynelatende vekten under vann.",
+        "solution": "**a)** Fra $\\rho = m/V$ får vi\n\n$$V = \\frac{m}{\\rho_{\\text{Al}}} = \\frac{1{,}35\\ \\text{kg}}{2{,}70\\cdot 10^{3}\\ \\text{kg/m}^3} = 5{,}00\\cdot 10^{-4}\\ \\text{m}^3.$$\n\n**b)** Helt nedsenket, så hele volumet fortrenger vann:\n\n$$B = \\rho_{\\text{vann}}Vg = 1{,}00\\cdot 10^{3}\\cdot 5{,}00\\cdot 10^{-4}\\cdot 9{,}81\\ \\text{N} = 4{,}91\\ \\text{N}.$$\n\n**c)** Tyngden er $G = mg = 1{,}35\\ \\text{kg}\\cdot 9{,}81\\ \\text{m/s}^2 = 13{,}2$ N, så\n\n$$S = G - B = 13{,}2\\ \\text{N} - 4{,}91\\ \\text{N} = 8{,}34\\ \\text{N}.$$\n\n**Svar:** $V = 5{,}00\\cdot 10^{-4}$ $\\text{m}^3$, $B = 4{,}91$ N og tilsynelatende vekt $8{,}34$ N.\n\n**Kontroll:** forholdet $B/G = 4{,}91/13{,}2 = 0{,}37$ skal være lik $\\rho_{\\text{vann}}/\\rho_{\\text{Al}} = 1{,}00/2{,}70 = 0{,}37$. Det stemmer, og kontrollen tar fem sekunder.",
+        "hints": [
+          "Bruk $\\rho = m/V$ og løs for volumet.",
+          "I oppdriften skal væskens tetthet inn — ikke aluminiumets.",
+          "Sett opp kraftbalansen $S + B = G$ for klumpen som henger i ro."
+        ]
+      }
+    },
+    {
+      "id": "fys1001-3-1-lokke4",
+      "type": "text",
+      "content": "## Løkke 4: Flyte eller synke — og hvor dypt? *(~11 min)*\n\nTil slutt det spørsmålet oppgavene liker best: hvor stor del av legemet stikker under vann?"
+    },
+    {
+      "id": "fys1001-3-1-def-flytevilkar",
+      "type": "definition",
+      "title": "Flyte- og synkevilkåret",
+      "content": "Sammenlign legemets tetthet med væskens:\n\n- $\\rho_{\\text{legeme}} < \\rho_{\\text{væske}}$: legemet **flyter**, med en del av volumet over overflaten.\n- $\\rho_{\\text{legeme}} > \\rho_{\\text{væske}}$: legemet **synker**.\n- $\\rho_{\\text{legeme}} = \\rho_{\\text{væske}}$: legemet svever i **nøytral likevekt** — det blir stående der du slipper det.\n\nArgumentet: for et helt nedsenket legeme er $B/G = \\rho_{\\text{væske}}/\\rho_{\\text{legeme}}$, så oppdriften vinner nøyaktig når væsken er tettest.\n\nMerk at det er **gjennomsnittstettheten** som teller. En stålbåt flyter fordi skroget rommer luft, slik at masse delt på totalt volum blir mindre enn vannets tetthet — selv om stålet i seg selv er åtte ganger tettere enn vann."
+    },
+    {
+      "id": "fys1001-3-1-def-volumandel",
+      "type": "definition",
+      "title": "Nedsenket volumandel",
+      "content": "Et flytende legeme ligger i ro, så $\\Sigma F = 0$ gir $B = G$:\n\n$$\\rho_{\\text{væske}}V_{\\text{neds}}\\,g = \\rho_{\\text{legeme}}V g.$$\n\nVi forkorter bort $g$ og løser for forholdet:\n\n$$\\frac{V_{\\text{neds}}}{V} = \\frac{\\rho_{\\text{legeme}}}{\\rho_{\\text{væske}}}.$$\n\n**Andelen som ligger under vann, er forholdet mellom tetthetene.** Dette er en av de mest brukte enkeltsammenhengene i fluid-oppgaver, og den er verdt å kunne utlede på tre linjer.\n\nVanlig felle: å bruke *hele* volumet i oppdriften for et flytende legeme. Da får du $B > G$, som ville betydd at legemet akselererer oppover — og det gjør det ikke, det ligger stille."
+    },
+    {
+      "id": "fys1001-3-1-fig-flytende",
+      "type": "image",
+      "src": "/images/textbook/fys1001/fys1001-3-1-flytende.svg",
+      "alt": "En kloss flyter i væske slik at bare den nederste delen av volumet er under overflaten. Det nedsenkede volumet er markert, sammen med dybden d klossen stikker ned. Oppdriften B fra det nedsenkede volumet peker opp, og tyngden G peker ned.",
+      "caption": "For et flytende legeme er det bare den nedsenkede delen av volumet som gir oppdrift. Flytelikevekten $B = G$ gir at den nedsenkede andelen er forholdet mellom tetthetene."
+    },
+    {
+      "id": "fys1001-3-1-ex-isfjell",
+      "type": "example",
+      "title": "Hvor stor del av isfjellet er under vann?",
+      "problem": "Is har tettheten $0{,}917\\cdot 10^{3}$ $\\text{kg/m}^3$, og sjøvann $1{,}025\\cdot 10^{3}$ $\\text{kg/m}^3$ (verdier fra tabellverket).\n\nFinn hvor stor andel av et isfjell som ligger under havoverflaten.",
+      "solution": "Isfjellet flyter, så det er i likevekt: oppdriften balanserer tyngden.\n\n$$B = G \\quad\\Longrightarrow\\quad \\rho_{\\text{sjø}}V_{\\text{neds}}\\,g = \\rho_{\\text{is}}V g.$$\n\nVi forkorter bort $g$ og løser for andelen:\n\n$$\\frac{V_{\\text{neds}}}{V} = \\frac{\\rho_{\\text{is}}}{\\rho_{\\text{sjø}}} = \\frac{0{,}917\\cdot 10^{3}}{1{,}025\\cdot 10^{3}} = 0{,}895.$$\n\n**Svar:** om lag $89\\ \\%$ av isfjellet ligger under vann, og bare $11\\ \\%$ stikker opp.\n\n**Rimelighetsvurdering:** dette er opphavet til uttrykket «toppen av isfjellet» — og til at isfjell er farlige for skip: den delen du ser, er en tiendedel av det som faktisk er der.\n\n**Merk metoden:** massen og volumet til isfjellet var aldri oppgitt, og de trengtes ikke. Andelen avhenger bare av de to tetthetene."
+    },
+    {
+      "id": "fys1001-3-1-oppg-l4a",
+      "type": "exercise",
+      "exercise": {
+        "id": "fys1001-3-1-l4a",
+        "number": "6",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "(Sjanger F.) En trekloss har tettheten $0{,}65\\cdot 10^{3}$ $\\text{kg/m}^3$ og volumet $1{,}2\\cdot 10^{-3}$ $\\text{m}^3$. Den flyter i ferskvann ($\\rho = 1{,}00\\cdot 10^{3}$ $\\text{kg/m}^3$).\n\n**a)** Finn hvor stor andel av klossen som ligger under vann.\n**b)** Finn det nedsenkede volumet.\n**c)** Finn oppdriften, og kontroller svaret mot klossens tyngde.",
+        "solution": "**a)** Flytelikevekt $B = G$ gir\n\n$$\\frac{V_{\\text{neds}}}{V} = \\frac{\\rho_{\\text{tre}}}{\\rho_{\\text{vann}}} = \\frac{0{,}65\\cdot 10^{3}}{1{,}00\\cdot 10^{3}} = 0{,}65.$$\n\n**Svar a):** $65\\ \\%$ av klossen ligger under vann.\n\n**b)** $V_{\\text{neds}} = 0{,}65\\cdot 1{,}2\\cdot 10^{-3}\\ \\text{m}^3 = 7{,}8\\cdot 10^{-4}\\ \\text{m}^3$.\n\n**c)** Oppdriften kommer bare fra det nedsenkede volumet:\n\n$$B = \\rho_{\\text{vann}}V_{\\text{neds}}\\,g = 1{,}00\\cdot 10^{3}\\cdot 7{,}8\\cdot 10^{-4}\\cdot 9{,}81\\ \\text{N} = 7{,}65\\ \\text{N}.$$\n\n**Kontroll:** klossens masse er $m = \\rho_{\\text{tre}}V = 0{,}65\\cdot 10^{3}\\cdot 1{,}2\\cdot 10^{-3} = 0{,}78$ kg, altså $G = 0{,}78\\cdot 9{,}81 = 7{,}65$ N. Oppdriften er lik tyngden, akkurat som flytelikevekten krever. Svaret er konsistent.",
+        "hints": [
+          "Bruk flytelikevekten $B = G$ til å finne forholdet mellom tetthetene.",
+          "Bare den nedsenkede delen av volumet gir oppdrift.",
+          "Kontrollen: for et flytende legeme MÅ oppdriften bli lik tyngden."
+        ]
+      }
+    },
+    {
+      "id": "fys1001-3-1-oppg-l4b",
+      "type": "exercise",
+      "exercise": {
+        "id": "fys1001-3-1-l4b",
+        "number": "7",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "(Sjanger Q — kvalitativ. Svar i 2–4 setninger.) Mange fisker har en gassfylt **svømmeblære** inni seg, og kan justere hvor mye gass den inneholder.\n\n**a)** Forklar med Arkimedes' lov hvorfor fisken kan henge helt stille i vannet uten å svømme.\n**b)** Forklar hva som skjer med fisken hvis den fyller mer gass i blæra.",
+        "solution": "**a)** Fisken henger stille når oppdriften er nøyaktig like stor som tyngden, altså når $B = G$. Etter Arkimedes' lov betyr det at fiskens gjennomsnittstetthet er lik vannets: den fortrenger da en vannmengde med nøyaktig samme masse som den selv har. Svømmeblæra er verktøyet som lar fisken treffe denne tettheten presist.\n\n**b)** Mer gass i blæra øker fiskens **volum** uten å endre massen nevneverdig, siden gass har svært liten tetthet. Da synker gjennomsnittstettheten under vannets, oppdriften blir større enn tyngden, og fisken stiger.\n\n**Konklusjon:** svømmeblæra er en tetthetsregulator, og nøytral likevekt oppnås ved $\\rho_{\\text{fisk}} = \\rho_{\\text{vann}}$.",
+        "hints": [
+          "Hvilken kraftbalanse gjelder for noe som henger helt stille?",
+          "Uttrykk balansen ved hjelp av tetthetene i stedet for kreftene.",
+          "I b): hva skjer med volumet, og hva skjer dermed med gjennomsnittstettheten?"
+        ]
+      }
+    },
+    {
+      "id": "fys1001-3-1-oppg-l4c",
+      "type": "exercise",
+      "exercise": {
+        "id": "fys1001-3-1-l4c",
+        "number": "8",
+        "type": "classic",
+        "difficulty": "vanskelig",
+        "task": "(Sjanger F — **krevende**.) En lukket, vanntett boks har massen 4,8 kg og utvendige mål $0{,}30\\ \\text{m}\\times 0{,}20\\ \\text{m}\\times 0{,}15\\ \\text{m}$. Den settes i ferskvann ($\\rho = 1{,}00\\cdot 10^{3}$ $\\text{kg/m}^3$) med den største flaten vannrett.\n\n**a)** Finn boksens volum og gjennomsnittstetthet.\n**b)** Avgjør om boksen flyter, og begrunn.\n**c)** Finn hvor dypt boksen stikker ned i vannet.",
+        "solution": "**a)** Volumet:\n\n$$V = 0{,}30\\ \\text{m}\\cdot 0{,}20\\ \\text{m}\\cdot 0{,}15\\ \\text{m} = 9{,}0\\cdot 10^{-3}\\ \\text{m}^3.$$\n\nGjennomsnittstettheten:\n\n$$\\rho_{\\text{boks}} = \\frac{m}{V} = \\frac{4{,}8\\ \\text{kg}}{9{,}0\\cdot 10^{-3}\\ \\text{m}^3} = 5{,}3\\cdot 10^{2}\\ \\text{kg/m}^3.$$\n\n**b)** $\\rho_{\\text{boks}} = 533\\ \\text{kg/m}^3 < 1000\\ \\text{kg/m}^3 = \\rho_{\\text{vann}}$, så boksen **flyter**. Begrunnelsen er at oppdriften ved full nedsenking ville blitt $\\rho_{\\text{vann}}Vg = 88{,}3$ N, mens tyngden bare er $mg = 47{,}1$ N — oppdriften vinner, og boksen presses opp til likevekt er nådd.\n\n**c)** I flytelikevekt er $B = G$, altså\n\n$$\\rho_{\\text{vann}}V_{\\text{neds}}\\,g = mg \\quad\\Longrightarrow\\quad V_{\\text{neds}} = \\frac{m}{\\rho_{\\text{vann}}} = \\frac{4{,}8\\ \\text{kg}}{1{,}00\\cdot 10^{3}\\ \\text{kg/m}^3} = 4{,}8\\cdot 10^{-3}\\ \\text{m}^3.$$\n\nDen vannrette flaten er $A = 0{,}30\\ \\text{m}\\cdot 0{,}20\\ \\text{m} = 0{,}060\\ \\text{m}^2$, så dybden blir\n\n$$d = \\frac{V_{\\text{neds}}}{A} = \\frac{4{,}8\\cdot 10^{-3}\\ \\text{m}^3}{0{,}060\\ \\text{m}^2} = 0{,}080\\ \\text{m}.$$\n\n**Svar:** boksen stikker $8{,}0$ cm ned i vannet.\n\n**Kontroll:** andelen nedsenket er $d/0{,}15 = 0{,}533$, som skal være lik $\\rho_{\\text{boks}}/\\rho_{\\text{vann}} = 533/1000 = 0{,}533$. Det stemmer.\n\n**Rimelighetsvurdering:** boksen er 15 cm høy og stikker 8 cm ned, altså litt over halvparten. Det passer med at gjennomsnittstettheten er litt over halvparten av vannets.",
+        "hints": [
+          "Volumet av en rettvinklet boks er produktet av de tre målene.",
+          "Gjennomsnittstettheten er hele massen delt på hele volumet — også der det er luft inni.",
+          "I c): finn først det nedsenkede VOLUMET fra $B = G$, og del deretter på grunnflata.",
+          "Kontroller til slutt at $d$ delt på boksens høyde er lik tetthetsforholdet."
+        ]
+      }
+    },
+    {
+      "id": "fys1001-3-1-warn-typiske-feil",
+      "type": "warning",
+      "title": "Typiske feil",
+      "content": "Feilene under er nummerert i forlengelsen av feilkatalogen for Del 1 ([kap. 1.6](/bok/fys1001/fys1001-1-6)) — nummeret er bare en etikett så du kan slå opp feilen igjen senere.\n\n- **Feil #13 — glemme $p_0$ når absolutt trykk etterspørres.** Dette er den dyreste enkeltfeilen i hydrostatikk. Les spørsmålet en gang til: «absolutt trykk» krever $p_0$, «overtrykk» krever det ikke.\n- **Bruke legemets tetthet i $B = \\rho V g$.** Det skal alltid være **væskens** tetthet. Legemets tetthet hører til i flytevilkåret, ikke i oppdriften.\n- **Bruke hele volumet for et flytende legeme.** Bare den nedsenkede delen fortrenger væske. Får du $B > G$ for noe som ligger stille, har du gjort nettopp denne feilen.\n- **Feil enhetsomregning av areal.** $1\\ \\text{cm}^2 = 10^{-4}\\ \\text{m}^2$ og $1\\ \\text{cm}^3 = 10^{-6}\\ \\text{m}^3$ — ikke $10^{-2}$ og $10^{-3}$.\n- **Tro at trykket avhenger av beholderens form eller vannmengde.** Bare dybden og tettheten teller.\n- **Bruke $\\rho$ i $\\text{g/cm}^3$ rett inn i formlene.** Tabellverket oppgir gjerne tetthet i både $\\text{g/cm}^3$ og $\\text{kg/m}^3$. SI-formlene krever $\\text{kg/m}^3$; faktoren er $1\\ \\text{g/cm}^3 = 10^{3}\\ \\text{kg/m}^3$.\n- **Svar uten enhet.** Trykk oppgis i Pa (og i bar der oppgaven bruker bar), tetthet i $\\text{kg/m}^3$."
+    },
+    {
+      "id": "fys1001-3-1-begrepsbank-tekst",
+      "type": "text",
+      "content": "## Begrepsbank\n\nDette er flashcard-/repetisjonsstoff — hopp trygt over ved førstegangslesing; tidsanslaget gjelder kjernestoffet."
+    },
+    {
+      "id": "fys1001-3-1-bb-fluid",
+      "type": "definition",
+      "title": "Fluid",
+      "content": "Et **fluid** er et stoff som flyter — altså både væsker og gasser. Ordet brukes når en lov gjelder for begge.\n\nForskjellen som betyr noe i praksis: væsker er nesten **inkompressible** (tettheten er praktisk talt konstant), mens gasser lar seg presse sammen og har tetthet som endres med trykk og temperatur. Derfor gjelder $p = p_0 + \\rho gh$ godt i vann, men bare over korte høydeforskjeller i luft."
+    },
+    {
+      "id": "fys1001-3-1-bb-hydrostatisk-paradoks",
+      "type": "definition",
+      "title": "Det hydrostatiske paradokset",
+      "content": "Navnet på den overraskende innsikten at trykket ved bunnen av en beholder er uavhengig av beholderens form og av hvor mye væske den inneholder. Et smalt rør fylt til 2 m gir samme bunntrykk som et svømmebasseng med 2 m dybde.\n\nKonsekvensen brukes i praksis: et vanntårn behøver ikke være stort, bare **høyt**. Det er høyden, ikke volumet, som gir trykket i ledningsnettet."
+    },
+    {
+      "id": "fys1001-3-1-bb-manometer",
+      "type": "definition",
+      "title": "U-rørsmanometer",
+      "content": "Et U-formet rør med væske brukes til å måle trykkforskjeller. Er trykket ulikt i de to endene, forskyves væskesøylen til trykkforskjellen balanseres av en høydeforskjell $\\Delta h$:\n\n$$\\Delta p = \\rho g\\,\\Delta h.$$\n\nDette er hele prinsippet bak blodtrykksmåling i «millimeter kvikksølv» (mmHg): tallet er høyden av en kvikksølvsøyle som gir samme trykk. Sammenhengen er den samme $\\rho gh$ du bruker ellers."
+    },
+    {
+      "id": "fys1001-3-1-bb-oppdrift-luft",
+      "type": "definition",
+      "title": "Oppdrift i luft",
+      "content": "Arkimedes' lov gjelder også i gass. En ballong stiger når $\\rho_{\\text{gass i ballongen}} < \\rho_{\\text{luft}}$ — altså når den er fylt med helium eller varm luft.\n\nFordi luftas tetthet er om lag $1{,}2$ $\\text{kg/m}^3$, altså under en tusendel av vannets, er oppdriften i luft nesten alltid neglisjerbar for faste legemer. Det er derfor du kan se bort fra den når du veier en stein, men ikke når du regner på en luftballong."
+    },
+    {
+      "id": "fys1001-3-1-bb-trykk-alle-retninger",
+      "type": "definition",
+      "title": "Trykk virker i alle retninger",
+      "content": "I et fluid i ro virker trykket like sterkt i **alle** retninger i et gitt punkt, og alltid vinkelrett på enhver flate du plasserer der.\n\nDet er derfor en dykker kjenner trykket like mye i ørene uansett hvilken vei hun snur hodet, og derfor sidekreftene på et nedsenket legeme opphever hverandre parvis, slik at bare topp- og bunnflaten bidrar til oppdriften."
+    },
+    {
+      "id": "fys1001-3-1-rep",
+      "type": "collapsible",
+      "title": "Rask repetisjon",
+      "buttonText": "Vis repetisjon",
+      "content": [
+        {
+          "id": "fys1001-3-1-rep-text",
+          "type": "text",
+          "content": "## Rask repetisjon av kapittel 3.1\n\n**Trykk**\n\n$$p = \\frac{F}{A} \\qquad [\\,\\text{Pa} = \\text{N/m}^2\\,], \\qquad 1\\ \\text{bar} = 10^{5}\\ \\text{Pa}$$\n\n**Væsketrykk**\n\n$$p = p_0 + \\rho gh \\quad (\\text{absolutt}), \\qquad p - p_0 = \\rho gh \\quad (\\text{overtrykk})$$\n\nAvhenger bare av dybden og tettheten — aldri av beholderens form.\n\n**Oppdrift**\n\n$$B = \\rho_{\\text{væske}}V_{\\text{neds}}\\,g$$\n\nVæskens tetthet, nedsenket volum. Tilsynelatende vekt: $S = G - B$.\n\n**Flyte eller synke**\n\n$$\\frac{V_{\\text{neds}}}{V} = \\frac{\\rho_{\\text{legeme}}}{\\rho_{\\text{væske}}}$$\n\nFlyter hvis $\\rho_{\\text{legeme}} < \\rho_{\\text{væske}}$, synker hvis større, svever hvis lik.\n\n**Fire kontrollspørsmål**\n\n1. Ba oppgaven om absolutt trykk eller overtrykk?\n2. Er det væskens tetthet jeg har satt inn i $B$?\n3. Er legemet helt eller delvis nedsenket?\n4. Er arealene i $\\text{m}^2$ og tetthetene i $\\text{kg/m}^3$?"
+        }
+      ]
+    },
+    {
+      "id": "fys1001-3-1-symbolliste",
+      "type": "collapsible",
+      "title": "Symbol- og formelliste",
+      "buttonText": "Vis symboler og formler",
+      "content": [
+        {
+          "id": "fys1001-3-1-symbolliste-text",
+          "type": "text",
+          "content": "## Symbol- og formelliste\n\n*Oppslagsverk — alt her forklares underveis i kapitlet.*\n\nAlle symboler og formler i delkapittel 3.1. Merk to symboler som betyr noe annet andre steder i boka: i **dette** delkapitlet er $B$ **oppdriften** (i Del 5 er $B$ magnetisk flukstetthet), og $p$ er **trykk** (i Del 2 er $p$ bevegelsesmengde).\n\n| Symbol | Betydning | SI-enhet |\n|---|---|---|\n| $p$ | **Trykk** i dette delkapitlet | Pa = $\\text{N/m}^2$ |\n| $p_0$ | Trykket ved væskeoverflaten, oftest atmosfæretrykket $1{,}01\\cdot 10^{5}$ Pa | Pa |\n| $F$ | Kraft vinkelrett på flata | N |\n| $A$ | Areal av flata | $\\text{m}^2$ |\n| $\\rho$ | Tetthet («rho»), $\\rho = m/V$ | $\\text{kg/m}^3$ |\n| $h$ | Dybde under væskeoverflaten | m |\n| $m$ | Masse | kg |\n| $V$ | Volum (hele legemets volum) | $\\text{m}^3$ |\n| $V_{\\text{neds}}$ | Nedsenket volum, altså fortrengt væskevolum | $\\text{m}^3$ |\n| $g$ | Tyngdeakselerasjonen, $9{,}81$ | $\\text{m/s}^2$ |\n| $G = mg$ | **Tyngden** (kraften fra jorda på legemet) | N |\n| $B$ | **Oppdriften** i dette delkapitlet | N |\n| $S$ | Snordrag, altså det en fjærvekt viser | N |\n| $d$ | Høyden av det nedsenkede partiet | m |\n\n**Formler i dette delkapitlet:**\n\n$$p = \\frac{F}{A}$$\nDefinisjonen av trykk. *(står på formelarket — må kunne brukes aktivt)*\n\n$$\\rho = \\frac{m}{V} \\quad\\Longleftrightarrow\\quad m = \\rho V$$\nTetthet, og den omformingen du bruker hele tiden. *(står på formelarket; **verdiene** hentes fra tabellverket)*\n\n$$p = p_0 + \\rho gh$$\nAbsolutt trykk på dybden $h$. *(står på formelarket — må kunne brukes aktivt, og du må vite når $p_0$ skal med)*\n\n$$p - p_0 = \\rho gh$$\nOvertrykk på dybden $h$. *(samme formel, annen tolkning — må kunne brukes aktivt)*\n\n$$B = \\rho_{\\text{væske}}V_{\\text{neds}}\\,g$$\nOppdrift (Arkimedes' lov). *(står på formelarket — må kunne brukes aktivt; pass på hvilken tetthet og hvilket volum)*\n\n$$B = p_2A - p_1A = \\rho g\\,dA$$\nUtledningen av oppdriften fra trykkforskjellen topp/bunn. *(må kunne gjennomføres aktivt når oppgaven ber om begrunnelse)*\n\n$$S = G - B$$\nTilsynelatende vekt av et nedsenket legeme. *(følger av kraftbalansen — må kunne settes opp aktivt)*\n\n$$\\frac{V_{\\text{neds}}}{V} = \\frac{\\rho_{\\text{legeme}}}{\\rho_{\\text{væske}}}$$\nNedsenket volumandel for et flytende legeme. *(følger av $B = G$ — må kunne utledes aktivt)*\n\n$$\\Delta p = \\rho g\\,\\Delta h$$\nTrykkforskjell i et U-rørsmanometer. *(må kunne brukes aktivt)*\n\n$$g = 9{,}81\\ \\text{m/s}^2, \\qquad p_0 = 1{,}01\\cdot 10^{5}\\ \\text{Pa}$$\nKonstanter. *(hentes fra formelark/tabell)*"
+        }
+      ]
+    }
+  ],
+  "exercises": []
+}

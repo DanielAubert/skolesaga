@@ -1,0 +1,360 @@
+{
+  "id": "fys1001-5-prove",
+  "courseId": "fys1001",
+  "chapterNumber": "5.P",
+  "title": "Prøver til del 5: Elektrisitet og magnetisme",
+  "description": "Fire nyskrevne prøver med fullstendige løsningsforslag: elektrostatikk med symmetriargument, kretsregning med effektfella, ladd partikkel i felt og en kombinert elektrisitetsprøve på eksamensnivå. Fire prøver à ~30–45 min — kan trygt deles over flere kvelder, én prøve per økt.",
+  "estimatedMinutes": 150,
+  "competenceGoals": [
+    "løse en elektrostatikkoppgave med superposisjon, symmetriargument og kraftbalanse på eksamensnivå",
+    "gjennomføre en full kretsanalyse med reduksjon, Kirchhoff, effektbudsjett og dimensjonering",
+    "regne en ladd partikkel gjennom akselerasjon, baneradius og retningsbestemmelse, og begrunne nullarbeids-poenget",
+    "skrive kvalitative svar i tre ledd med enheter og begrunnelse i hvert regneledd, slik løsningsforslagene krever"
+  ],
+  "content": [
+    {
+      "id": "fys1001-5-prove-tip",
+      "type": "tip",
+      "title": "Om prøvene til del 5",
+      "content": "**Fire prøver à ~30–45 min** — til sammen 150 minutter. De kan trygt deles over flere kvelder; **én prøve per økt** er en helt vanlig arbeidsmåte, og prøvene er laget for å fungere hver for seg.\n\n| Prøve | Tema | Tid | Sjangre |\n|---|---|---|---|\n| 5.A | Elektrostatikk: superposisjon med symmetriargument, snor-kule | 30 min | K |\n| 5.B | Kretsregning: reduksjon, Kirchhoff, effektfella eksplisitt | 40 min | J |\n| 5.C | Ladd partikkel: $qU$-akselerasjon, baneradius, nullarbeids-poenget | 35 min | L |\n| 5.D | Kombinert elektrisitetsprøve på eksamensnivå | 45 min | J + L + Q |\n\n**Sjangerkodene** er bokas kortnavn for oppgavetypene: **K** = Coulomb-kraft og kraftbalanse, **J** = kretsanalyse, **L** = ladd partikkel i felt, **Q** = kvalitativ hverdagsforklaring.\n\n**Poeng:** hver deloppgave teller **4 poeng**, akkurat som på eksamen. Prøve 5.A gir 28 poeng, 5.B 40 poeng, 5.C 32 poeng og 5.D 44 poeng.\n\n**Hvor flervalget bor:** prøve 5.A har en kort flervalgsdel til slutt. Den er **treningsform, ikke eksamensform** — FYS1001s slutteksamen har aldri flervalg. (Midtsemestereksamenene fra 2007 til 2019 hadde det, men de dekket bare mekanikk, fluid og innledende termofysikk.) De interaktive quizene til kapitlene i Del 5 er også flervalg; der stokkes svarene automatisk.\n\n**Merk:** Del 5 er *ikke* pensum til midtsemestereksamenen. Generalprøven til midtveis består av prøvene 1.D, 2.D, 3.D og 4.D.\n\n**Slik bruker du prøvene:** sett klokka, legg formelarket og tabellsamlingen ved siden av deg, og skriv for hånd. Les fasiten som sensor etterpå — se etter om *begrunnelsen* i hvert ledd står der, ikke bare tallet. Etter hver fasit står en avkryssbar selvdiagnose."
+    },
+    {
+      "id": "fys1001-5-prove-forkunnskaper",
+      "type": "text",
+      "content": "## Forkunnskaper\n\nPrøvene dekker hele Del 5. Du bør ha lest:\n\n- [kap. 5.1](/bok/fys1001/fys1001-5-1) — Coulombs lov, superposisjon, elektrisk felt, snor-kule-balansen\n- [kap. 5.2](/bok/fys1001/fys1001-5-2) — Ohms lov, serie og parallell, effektregelen, Kirchhoff, indre motstand\n- [kap. 5.3](/bok/fys1001/fys1001-5-3) — løsningsoppskriften for kretsoppgaver og de kvalitative halene\n- [kap. 5.4](/bok/fys1001/fys1001-5-4) — akselerasjon over spenning, baneradius i magnetfelt, høyrehåndsregelen\n\nKonstanter du får fra formelarket: $k = 8{,}99\\cdot10^{9}\\ \\text{N}\\,\\text{m}^2/\\text{C}^2$, $k_m = 2{,}0\\cdot10^{-7}\\ \\text{T}\\,\\text{m/A}$, $e = 1{,}602\\cdot10^{-19}\\ \\text{C}$, $m_p = 1{,}673\\cdot10^{-27}\\ \\text{kg}$, $m_e = 9{,}109\\cdot10^{-31}\\ \\text{kg}$, $1\\ \\text{u} = 1{,}6605\\cdot10^{-27}\\ \\text{kg}$ og $g = 9{,}81\\ \\text{m/s}^2$."
+    },
+    {
+      "id": "fys1001-5-prove-prove1",
+      "type": "collapsible",
+      "title": "Prøve 1 (5.A): Elektrostatikk",
+      "buttonText": "Vis prøve 1",
+      "content": [
+        {
+          "id": "fys1001-5-prove-pa-intro",
+          "type": "text",
+          "content": "### Prøve 5.A — Elektrostatikk (30 min, 28 poeng)\n\nTre oppgaver med til sammen sju deloppgaver à 4 poeng, pluss en kort flervalgsdel som ikke teller poeng. Sjanger K, med én kvalitativ hale."
+        },
+        {
+          "id": "fys1001-5-prove-oa1",
+          "type": "exercise",
+          "exercise": {
+            "id": "fys1001-5-prove-ea1",
+            "number": "1 (8 poeng)",
+            "type": "classic",
+            "difficulty": "middels",
+            "task": "En ladning $q_1 = +5{,}0\\ \\text{nC}$ ligger i $x = 0$ og en ladning $q_2 = +2{,}0\\ \\text{nC}$ i $x = 8{,}0\\ \\text{cm}$ på $x$-aksen.\n\n**a)** En ladning $q_3 = +3{,}0\\ \\text{nC}$ plasseres i $x = 3{,}0\\ \\text{cm}$. Finn størrelsen og retningen på den samlede kraften på $q_3$.\n**b)** Finn punktet mellom $q_1$ og $q_2$ der den samlede elektriske feltstyrken er null.",
+            "solution": "**a)** Begge ladningene er positive, så $q_1$ dytter $q_3$ mot høyre og $q_2$ dytter den mot venstre. Vi regner med fortegn langs $x$-aksen.\n\nFra $q_1$, med $r = 3{,}0\\cdot10^{-2}\\ \\text{m}$:\n\n$$F_1 = k\\frac{q_1q_3}{r^2} = 8{,}99\\cdot10^{9}\\cdot\\frac{5{,}0\\cdot10^{-9}\\cdot3{,}0\\cdot10^{-9}}{(3{,}0\\cdot10^{-2})^2}\\ \\text{N} = 1{,}50\\cdot10^{-4}\\ \\text{N}$$\n\nFra $q_2$, med $r = 5{,}0\\cdot10^{-2}\\ \\text{m}$:\n\n$$F_2 = 8{,}99\\cdot10^{9}\\cdot\\frac{2{,}0\\cdot10^{-9}\\cdot3{,}0\\cdot10^{-9}}{(5{,}0\\cdot10^{-2})^2}\\ \\text{N} = 2{,}16\\cdot10^{-5}\\ \\text{N}$$\n\nSummer med fortegn:\n\n$$F = F_1 - F_2 = 1{,}50\\cdot10^{-4}\\ \\text{N} - 2{,}16\\cdot10^{-5}\\ \\text{N} = 1{,}3\\cdot10^{-4}\\ \\text{N}$$\n\n**Konklusjon:** kraften er $1{,}3\\cdot10^{-4}\\ \\text{N}$ rettet i positiv $x$-retning, altså bort fra $q_1$. Det er rimelig: $q_3$ ligger nærmest $q_1$, og $q_1$ har dessuten størst ladning.\n\n*(Poeng: begge krefter riktig regnet med enhet (2), riktig fortegnsbehandling og samlet svar med retning (2).)*\n\n**b)** Mellom ladningene peker feltet fra $q_1$ mot høyre og feltet fra $q_2$ mot venstre, så det finnes et punkt der de opphever hverandre. Sett feltstyrkene like store, med $x$ målt fra $q_1$:\n\n$$k\\frac{5{,}0}{x^2} = k\\frac{2{,}0}{(0{,}080 - x)^2}$$\n\nTa kvadratrota på begge sider (begge er positive):\n\n$$\\frac{0{,}080 - x}{x} = \\sqrt{\\frac{2{,}0}{5{,}0}} = 0{,}632 \\quad\\Longrightarrow\\quad 0{,}080 = x(1 + 0{,}632)$$\n\n$$x = \\frac{0{,}080\\ \\text{m}}{1{,}632} = 4{,}9\\cdot10^{-2}\\ \\text{m}$$\n\n**Kontroll:** i $x = 4{,}90\\ \\text{cm}$ er $E_1 = 8{,}99\\cdot10^{9}\\cdot5{,}0\\cdot10^{-9}/(0{,}0490)^2 = 1{,}87\\cdot10^{4}\\ \\text{V/m}$ og $E_2 = 8{,}99\\cdot10^{9}\\cdot2{,}0\\cdot10^{-9}/(0{,}0310)^2 = 1{,}87\\cdot10^{4}\\ \\text{V/m}$ ✓\n\n**Konklusjon:** feltet er null $4{,}9\\ \\text{cm}$ fra $q_1$, altså nærmest den minste ladningen — som forventet.\n\n*(Poeng: riktig ligning satt opp (2), riktig løsning med enhet og kontroll (2).)*",
+            "hints": [
+              "Tegn kraftpilene på $q_3$ først — da ser du om du skal summere eller trekke fra.",
+              "Avstandene er 3,0 cm og 5,0 cm, ikke 8,0 cm.",
+              "I b): sett de to feltstyrkene like store og ta kvadratrota før du løser for $x$."
+            ]
+          }
+        },
+        {
+          "id": "fys1001-5-prove-oa2",
+          "type": "exercise",
+          "exercise": {
+            "id": "fys1001-5-prove-ea2",
+            "number": "2 (12 poeng)",
+            "type": "classic",
+            "difficulty": "middels",
+            "task": "To positive ladninger $Q_1 = Q_2 = +6{,}0\\ \\text{nC}$ ligger på en vannrett linje, $4{,}0\\ \\text{cm}$ til hver side av et midtpunkt. En negativ ladning $q = -2{,}0\\ \\text{nC}$ plasseres $3{,}0\\ \\text{cm}$ rett over midtpunktet.\n\n**a)** Tegn kraftpilene på $q$ og begrunn med symmetri hvilken retning den samlede kraften har.\n**b)** Regn ut størrelsen på den samlede kraften på $q$.\n**c)** Forklar i 2–4 setninger hva som endrer seg — og hva som ikke endrer seg — hvis $q$ byttes til $+2{,}0\\ \\text{nC}$.",
+            "solution": "**a)** Ladningen $q$ er negativ, så begge kreftene er **tiltrekkende**: de peker fra $q$ mot hver sin positive ladning, altså skrått nedover til hver side.\n\nAvstanden fra $q$ til hver av de to positive ladningene er den samme:\n\n$$r = \\sqrt{(4{,}0\\ \\text{cm})^2 + (3{,}0\\ \\text{cm})^2} = 5{,}0\\ \\text{cm}$$\n\n**Symmetriargumentet:** de to kreftene er *like store*, fordi ladningene er like store og avstandene like. De danner *like store vinkler* med den loddrette symmetriaksen gjennom midtpunktet, men ligger på hver sin side av den. Derfor er de vannrette komponentene like store og motsatt rettet, og de opphever hverandre. Bare de loddrette komponentene blir igjen, og de peker begge nedover.\n\n**Konklusjon:** den samlede kraften peker **rett ned**, langs symmetriaksen, mot midtpunktet mellom de to positive ladningene. Se fasitfiguren under prøven.\n\n*(Poeng: riktige kraftpiler med tiltrekkende retning (2), symmetriargument med begge premisser skrevet ut (2). Å skrive «ved symmetri» uten premissene gir bare 1 av de 2 siste poengene.)*\n\n**b)** Hver enkelt kraft:\n\n$$F = k\\frac{Q q}{r^2} = 8{,}99\\cdot10^{9}\\cdot\\frac{6{,}0\\cdot10^{-9}\\cdot2{,}0\\cdot10^{-9}}{(5{,}0\\cdot10^{-2})^2}\\ \\text{N} = 4{,}32\\cdot10^{-5}\\ \\text{N}$$\n\nDen loddrette komponenten av hver kraft er $F\\cos\\theta$, der $\\theta$ er vinkelen med loddlinja. Fra trekanten er $\\cos\\theta = 3{,}0/5{,}0 = 0{,}60$:\n\n$$F_{\\text{res}} = 2F\\cos\\theta = 2\\cdot4{,}32\\cdot10^{-5}\\ \\text{N}\\cdot0{,}60 = 5{,}2\\cdot10^{-5}\\ \\text{N}$$\n\n**Rimelighet:** resultanten er større enn én enkeltkraft men mindre enn summen $2F = 8{,}6\\cdot10^{-5}\\ \\text{N}$ ✓\n\n**Konklusjon:** kraften er $5{,}2\\cdot10^{-5}\\ \\text{N}$ rett ned.\n\n*(Poeng: riktig avstand 5,0 cm (1), riktig enkeltkraft (1), riktig dekomponering med $\\cos\\theta = 0{,}60$ (1), riktig svar med enhet og retning (1).)*\n\n**c)** Det som **ikke** endrer seg, er størrelsen: Coulombs lov avhenger bare av tallverdiene av ladningene, og de er de samme. Kraften er fortsatt $5{,}2\\cdot10^{-5}\\ \\text{N}$, og symmetriargumentet holder uendret — de vannrette komponentene opphever fortsatt hverandre.\n\nDet som endrer seg, er **retningen**: med positiv ladning blir begge kreftene frastøtende, så resultanten peker **rett opp**, bort fra de to andre ladningene.\n\n**Konklusjon:** samme størrelse, motsatt retning. Fortegnet på ladningen bestemmer retningen, aldri størrelsen.\n\n*(Poeng: at størrelsen er uendret med begrunnelse (2), at retningen snus (2).)*",
+            "hints": [
+              "Regn ut avstanden fra $q$ til hver av de positive ladningene før du gjør noe annet — det er en 3-4-5-trekant.",
+              "Et symmetriargument har to premisser: like store krefter og like store vinkler mot aksen. Skriv begge.",
+              "Dekomponer: bare komponenten langs symmetriaksen blir igjen, og den er $F\\cos\\theta$ for hver kraft."
+            ]
+          }
+        },
+        {
+          "id": "fys1001-5-prove-oa3",
+          "type": "exercise",
+          "exercise": {
+            "id": "fys1001-5-prove-ea3",
+            "number": "3 (8 poeng)",
+            "type": "classic",
+            "difficulty": "middels",
+            "task": "To like små kuler med masse $0{,}80\\ \\text{g}$ henger fra samme punkt i hver sin snor på $30\\ \\text{cm}$. Kulene har samme ladning og henger i ro med snorene $10{,}0^\\circ$ fra loddlinja.\n\n**a)** Finn den elektriske kraften mellom kulene.\n**b)** Finn ladningen på hver kule.",
+            "solution": "**a)** På hver kule virker tre krefter: snordraget $S$ langs snora, tyngden $G = mg$ rett ned og den elektriske frastøtningen $F_e$ vannrett utover. Kula er i ro, så kreftene balanserer komponentvis:\n\n$$\\text{loddrett: } S\\cos\\theta = mg, \\qquad \\text{vannrett: } S\\sin\\theta = F_e$$\n\nDeler vi den vannrette på den loddrette, faller snordraget ut:\n\n$$F_e = mg\\tan\\theta = 0{,}80\\cdot10^{-3}\\ \\text{kg}\\cdot9{,}81\\ \\text{m/s}^2\\cdot\\tan10{,}0^\\circ = 1{,}4\\cdot10^{-3}\\ \\text{N}$$\n\n**Konklusjon:** den elektriske kraften er $1{,}4\\cdot10^{-3}\\ \\text{N}$.\n\n*(Poeng: alle tre kreftene identifisert (1), komponentvis likevekt satt opp (2), riktig svar med enhet (1).)*\n\n**b)** Avstanden mellom kulene, siden begge snorene henger fra samme punkt:\n\n$$r = 2L\\sin\\theta = 2\\cdot0{,}30\\ \\text{m}\\cdot\\sin10{,}0^\\circ = 0{,}104\\ \\text{m}$$\n\nCoulombs lov med like ladninger, $q_1q_2 = q^2$:\n\n$$F_e = k\\frac{q^2}{r^2} \\quad\\Longrightarrow\\quad q = r\\sqrt{\\frac{F_e}{k}} = 0{,}104\\sqrt{\\frac{1{,}384\\cdot10^{-3}}{8{,}99\\cdot10^{9}}}\\ \\text{C}$$\n\n$$q = 4{,}1\\cdot10^{-8}\\ \\text{C} = 41\\ \\text{nC}$$\n\n**Rimelighet:** noen titalls nanocoulomb er en typisk statisk ladning på en liten gjenstand ✓\n\n**Konklusjon:** hver kule har ladningen $4{,}1\\cdot10^{-8}\\ \\text{C}$.\n\n*(Poeng: riktig avstand $2L\\sin\\theta$ (2) — å bruke $L$ eller $L\\sin\\theta$ er den vanligste feilen her — og riktig ladning med enhet (2).)*",
+            "hints": [
+              "Tegn frilegemediagram for én kule: snordrag, tyngde, elektrisk frastøtning.",
+              "Del den vannrette likevektsligningen på den loddrette, så forsvinner snordraget.",
+              "Avstanden mellom kulene er ikke snorlengden: begge kulene henger ut til hver sin side."
+            ]
+          }
+        },
+        {
+          "id": "fys1001-5-prove-fig-trekant",
+          "type": "image",
+          "src": "/images/textbook/fys1001/fys1001-5-prove-trekant.svg",
+          "alt": "To positive ladninger på en vannrett linje, 4,0 cm til hver side av midtpunktet, og en negativ ladning 3,0 cm rett over midtpunktet. To blå kraftpiler går skrått nedover fra den negative ladningen mot hver av de positive, og en tykk rød pil viser resultanten rett ned langs den stiplede symmetriaksen.",
+          "caption": "Fasitfigur til oppgave 2 a): kraftpilene på den negative ladningen og resultanten langs symmetriaksen. Avstanden til hver positiv ladning er $5{,}0\\ \\text{cm}$ (3-4-5-trekant)."
+        },
+        {
+          "id": "fys1001-5-prove-pa-flervalg",
+          "type": "text",
+          "content": "### Flervalgsdel til 5.A (treningsform, ikke eksamensform)\n\nFire raske kontrollspørsmål. Velg ett svar på hvert. **Merk:** FYS1001s slutteksamen har aldri flervalg — dette er en treningsform som lar deg sjekke begrepene raskt.\n\n**1)** Avstanden mellom to punktladninger tredobles. Kraften mellom dem blir da\na) tre ganger mindre\nb) ni ganger mindre\nc) uendret\nd) ni ganger større\n\n**2)** Enheten V/m er den samme som\na) C/m\nb) N·m\nc) J/C\nd) N/C\n\n**3)** I en platekondensator med fast spenning halveres plateavstanden. Feltstyrken blir\na) dobbelt så stor\nb) halvparten så stor\nc) fire ganger så stor\nd) uendret\n\n**4)** Et symmetriargument gir full uttelling når du skriver ut\na) at figuren ser symmetrisk ut\nb) at svaret stemmer med fasiten\nc) at bidragene er like store og danner like vinkler med aksen\nd) at du har brukt vektorregning\n\n**Fasit:** 1 b) — kraften går som $1/r^2$, og $1/3^2 = 1/9$. · 2 d) — feltstyrke er kraft per ladning, og $1\\ \\text{V/m} = 1\\ \\text{N/C}$; alternativ c) er enheten for spenning, ikke for feltstyrke. · 3 a) — $E = U/d$ er omvendt proporsjonal med $d$, altså en $1/d$-lov, ikke en $1/d^2$-lov. · 4 c) — begge premissene må skrives ut; å påstå symmetri er ikke å begrunne den."
+        },
+        {
+          "id": "fys1001-5-prove-pa-selvdiagnose",
+          "type": "text",
+          "content": "### Selvdiagnose etter 5.A\n\n☐ Jeg tegnet kraftpilene før jeg regnet, og fikk fortegnene riktig i summeringen.\n\n☐ Jeg skrev symmetriargumentet med **begge** premisser: like store krefter og like vinkler med aksen.\n\n☐ Jeg dekomponerte riktig og fikk med faktoren $\\cos\\theta$.\n\n☐ Jeg brukte $r = 2L\\sin\\theta$ i snor-kule-oppgaven, ikke snorlengden.\n\n☐ Alle svarene mine har enhet og to–tre gjeldende siffer.\n\n☐ Jeg gjorde minst én rimelighetssjekk per deloppgave.\n\n**Under 20 av 28 poeng:** les [kap. 5.1](/bok/fys1001/fys1001-5-1) på nytt, med særlig vekt på Løkke 2 (superposisjon og symmetri) og Løkke 4 (kraftbalanse)."
+        }
+      ]
+    },
+    {
+      "id": "fys1001-5-prove-prove2",
+      "type": "collapsible",
+      "title": "Prøve 2 (5.B): Kretsregning",
+      "buttonText": "Vis prøve 2",
+      "content": [
+        {
+          "id": "fys1001-5-prove-pb-intro",
+          "type": "text",
+          "content": "### Prøve 5.B — Kretsregning (40 min, 40 poeng)\n\nTre oppgaver med til sammen ti deloppgaver à 4 poeng. Sjanger J, med effektfella eksplisitt testet i oppgave 1 c)."
+        },
+        {
+          "id": "fys1001-5-prove-ob1",
+          "type": "exercise",
+          "exercise": {
+            "id": "fys1001-5-prove-eb1",
+            "number": "1 (12 poeng)",
+            "type": "classic",
+            "difficulty": "middels",
+            "task": "En motstand på $10\\ \\Omega$ er koblet i serie med parallellkoblingen av $24\\ \\Omega$ og $12\\ \\Omega$. Kretsen drives av en ideell spenningskilde på $36\\ \\text{V}$.\n\n**a)** Finn samlet resistans og strømmen fra kilden.\n**b)** Finn strømmen gjennom hver av de to parallellgrenene.\n**c)** Finn effekten som avsettes i $24\\ \\Omega$-motstanden, og vis hva $P = U^2/R$ med kildespenningen ville gitt. Forklar hvorfor det er galt.",
+            "solution": "**a)** Parallelldelen først:\n\n$$R_p = \\frac{24\\cdot12}{24+12}\\ \\Omega = \\frac{288}{36}\\ \\Omega = 8{,}0\\ \\Omega$$\n\n*Rimelighetssjekk:* $8{,}0\\ \\Omega < 12\\ \\Omega$ ✓ Samlet resistans:\n\n$$R = 10\\ \\Omega + 8{,}0\\ \\Omega = 18\\ \\Omega, \\qquad I = \\frac{36\\ \\text{V}}{18\\ \\Omega} = 2{,}0\\ \\text{A}$$\n\n**Konklusjon:** samlet resistans $18\\ \\Omega$, strøm $2{,}0\\ \\text{A}$.\n\n*(Poeng: riktig parallellverdi (2), riktig samlet resistans og strøm med enhet (2).)*\n\n**b)** Spenningen over parallellkoblingen:\n\n$$U_p = R_p I = 8{,}0\\ \\Omega\\cdot2{,}0\\ \\text{A} = 16\\ \\text{V}$$\n\n$$I_{24} = \\frac{16\\ \\text{V}}{24\\ \\Omega} = 0{,}67\\ \\text{A}, \\qquad I_{12} = \\frac{16\\ \\text{V}}{12\\ \\Omega} = 1{,}3\\ \\text{A}$$\n\n**Kontroll:** $0{,}67 + 1{,}33 = 2{,}0\\ \\text{A}$ ✓ og strømmene forholder seg som $12 : 24 = 1 : 2$ ✓\n\n**Konklusjon:** $0{,}67\\ \\text{A}$ gjennom $24\\ \\Omega$ og $1{,}3\\ \\text{A}$ gjennom $12\\ \\Omega$.\n\n*(Poeng: spenningen over parallelldelen eksplisitt funnet (2), begge grenstrømmer med kontroll (2).)*\n\n**c)** Med effektregelen:\n\n$$P_{24} = R I_{24}^2 = 24\\ \\Omega\\cdot(0{,}667\\ \\text{A})^2 = 10{,}7\\ \\text{W}$$\n\nMed $P = U^2/R$ og kildespenningen ville vi fått\n\n$$\\frac{(36\\ \\text{V})^2}{24\\ \\Omega} = 54\\ \\text{W}$$\n\naltså fem ganger for mye. **Hvorfor er det galt?** Fordi $36\\ \\text{V}$ ligger over *hele* kretsen: $20\\ \\text{V}$ over $10\\ \\Omega$-motstanden og $16\\ \\text{V}$ over parallelldelen. Formelen $U^2/R$ krever spenningen over akkurat den motstanden. Med riktig spenning: $16^2/24 = 10{,}7\\ \\text{W}$ ✓\n\n**Kontroll av hele regnskapet:** $P_{10} = 10\\cdot(2{,}0)^2 = 40\\ \\text{W}$, $P_{24} = 10{,}7\\ \\text{W}$, $P_{12} = 12\\cdot(1{,}333)^2 = 21{,}3\\ \\text{W}$. Sum $72\\ \\text{W}$, og kilden leverer $36\\cdot2{,}0 = 72\\ \\text{W}$ ✓\n\n**Konklusjon:** effekten er $10{,}7\\ \\text{W}$; feilen ligger ikke i formelen, men i hvilken spenning som settes inn.\n\n*(Poeng: riktig effekt med $RI^2$ (2), galt svar vist og forklart med henvisning til delspenningen (2).)*",
+            "hints": [
+              "Reduser parallellkoblingen først, så er kretsen en ren seriekobling.",
+              "Grenstrømmene får du fra spenningen over parallelldelen, ikke fra kildespenningen.",
+              "I c): regn ut hvilken spenning som faktisk ligger over $24\\ \\Omega$-motstanden."
+            ]
+          }
+        },
+        {
+          "id": "fys1001-5-prove-ob2",
+          "type": "exercise",
+          "exercise": {
+            "id": "fys1001-5-prove-eb2",
+            "number": "2 (12 poeng)",
+            "type": "classic",
+            "difficulty": "middels",
+            "task": "Et batteri har elektromotorisk spenning $\\varepsilon = 9{,}0\\ \\text{V}$ og indre motstand $r = 0{,}50\\ \\Omega$.\n\n**a)** Batteriet kobles til en ytre motstand på $4{,}0\\ \\Omega$. Finn strømmen og polspenningen.\n**b)** Finn effekten i den ytre motstanden og inne i batteriet, og regn ut virkningsgraden.\n**c)** En lampe krever $3{,}6\\ \\text{V}$ ved $0{,}40\\ \\text{A}$ og skal kobles til en ideell kilde på $9{,}0\\ \\text{V}$ gjennom en formotstand. Finn formotstanden og effekten i den.",
+            "solution": "**a)** Den indre motstanden står i serie med den ytre:\n\n$$I = \\frac{\\varepsilon}{R+r} = \\frac{9{,}0\\ \\text{V}}{4{,}0\\ \\Omega + 0{,}50\\ \\Omega} = \\frac{9{,}0}{4{,}5}\\ \\text{A} = 2{,}0\\ \\text{A}$$\n\n$$U = \\varepsilon - rI = 9{,}0\\ \\text{V} - 0{,}50\\ \\Omega\\cdot2{,}0\\ \\text{A} = 8{,}0\\ \\text{V}$$\n\n*Kontroll:* $U = RI = 4{,}0\\cdot2{,}0 = 8{,}0\\ \\text{V}$ ✓\n\n*(Poeng: den indre motstanden lagt i serie (2), polspenning med enhet og kontroll (2).)*\n\n**b)** Med effektregelen:\n\n$$P_{\\text{ytre}} = RI^2 = 4{,}0\\cdot(2{,}0)^2\\ \\text{W} = 16\\ \\text{W}, \\qquad P_{\\text{indre}} = rI^2 = 0{,}50\\cdot(2{,}0)^2\\ \\text{W} = 2{,}0\\ \\text{W}$$\n\nLevert av kilden: $\\varepsilon I = 9{,}0\\cdot2{,}0 = 18\\ \\text{W}$. Kontroll: $16 + 2{,}0 = 18$ ✓\n\n$$\\eta = \\frac{16\\ \\text{W}}{18\\ \\text{W}} = 0{,}89 = 89\\ \\%$$\n\n**Konklusjon:** $16\\ \\text{W}$ til den ytre kretsen, $2{,}0\\ \\text{W}$ til varme inne i batteriet, virkningsgrad $89\\ \\%$.\n\n*(Poeng: begge effekter (2), energiregnskap og virkningsgrad (2).)*\n\n**c)** Formotstanden står i serie med lampen og fører samme strøm, $0{,}40\\ \\text{A}$:\n\n$$U_f = 9{,}0\\ \\text{V} - 3{,}6\\ \\text{V} = 5{,}4\\ \\text{V}, \\qquad R_f = \\frac{5{,}4\\ \\text{V}}{0{,}40\\ \\text{A}} = 13{,}5\\ \\Omega$$\n\n$$P_f = R_f I^2 = 13{,}5\\ \\Omega\\cdot(0{,}40\\ \\text{A})^2 = 2{,}2\\ \\text{W}$$\n\n**Kontroll:** lampen bruker $3{,}6\\cdot0{,}40 = 1{,}44\\ \\text{W}$, og $2{,}16 + 1{,}44 = 3{,}6\\ \\text{W} = 9{,}0\\cdot0{,}40$ ✓\n\n**Konklusjon:** formotstanden skal være $13{,}5\\ \\Omega$ og avsetter $2{,}2\\ \\text{W}$ — mer enn lampen selv.\n\n*(Poeng: overskuddsspenningen brukt, ikke kildespenningen (2), riktig motstand og effekt med enhet (2).)*",
+            "hints": [
+              "Legg den indre motstanden i serie med den ytre før du finner strømmen.",
+              "Virkningsgraden er nyttig effekt delt på levert effekt.",
+              "I c): formotstanden skal ta differansen mellom kildespenningen og lampespenningen."
+            ]
+          }
+        },
+        {
+          "id": "fys1001-5-prove-ob3",
+          "type": "exercise",
+          "exercise": {
+            "id": "fys1001-5-prove-eb3",
+            "number": "3 (16 poeng)",
+            "type": "classic",
+            "difficulty": "vanskelig",
+            "task": "To knutepunkter $A$ og $B$ er forbundet av tre grener:\n\n- venstre gren: kilde på $14{,}0\\ \\text{V}$ i serie med $2{,}0\\ \\Omega$, plusspol mot $A$,\n- midtre gren: kilde på $4{,}0\\ \\text{V}$ i serie med $4{,}0\\ \\Omega$, plusspol mot $A$,\n- høyre gren: $R_3 = 4{,}0\\ \\Omega$.\n\n**a)** Tegn skjemaet, velg strømretninger og sett opp ligningene.\n**b)** Finn spenningen mellom $A$ og $B$ og de tre strømmene. Tolk fortegnene.\n**c)** Finn effekten i hver motstand og vis at energiregnskapet balanserer.\n**d)** Den midtre grenen brytes. Hva skjer med strømmen gjennom $R_3$? Regn ut den nye verdien.",
+            "solution": "**a)** Velg $I_1$ og $I_2$ fra $B$ mot $A$ gjennom hver sin kilde, og $I_3$ fra $A$ mot $B$ gjennom $R_3$. Se fasitfiguren under prøven for hvordan skjemaet skal se ut.\n\nKnutepunktsloven i $A$:\n\n$$I_1 + I_2 = I_3$$\n\nMed $U = U_A - U_B$ gir maskeloven for hver gren:\n\n$$I_1 = \\frac{14{,}0 - U}{2{,}0}, \\qquad I_2 = \\frac{4{,}0 - U}{4{,}0}, \\qquad I_3 = \\frac{U}{4{,}0}$$\n\n*(Poeng: skjema med valgte retninger (2), knutepunktsligning og de tre grenuttrykkene (2).)*\n\n**b)** Sett grenuttrykkene inn i knutepunktsligningen:\n\n$$\\frac{14{,}0-U}{2{,}0} + \\frac{4{,}0-U}{4{,}0} = \\frac{U}{4{,}0}$$\n\nGang med 4: $2(14{,}0-U) + (4{,}0-U) = U$, altså $28 - 2U + 4{,}0 - U = U$, som gir $32 = 4U$ og\n\n$$U = 8{,}0\\ \\text{V}$$\n\n$$I_1 = \\frac{14{,}0-8{,}0}{2{,}0}\\ \\text{A} = 3{,}0\\ \\text{A}, \\qquad I_2 = \\frac{4{,}0-8{,}0}{4{,}0}\\ \\text{A} = -1{,}0\\ \\text{A}, \\qquad I_3 = \\frac{8{,}0}{4{,}0}\\ \\text{A} = 2{,}0\\ \\text{A}$$\n\n**Tolkning:** $I_2$ er negativ, altså går strømmen i den midtre grenen motsatt vei av pila — fra $A$ mot $B$, inn på plusspolen til den svake kilden. Den svake kilden på $4{,}0\\ \\text{V}$ blir *ladet* av den sterke. Tallverdien $1{,}0\\ \\text{A}$ er riktig.\n\n**Kontroll:** $3{,}0 + (-1{,}0) = 2{,}0$ ✓\n\n*(Poeng: riktig $U$ (2), de tre strømmene (1), fortegnstolkningen skrevet ut (1). Uten tolkningen mistes det siste poenget selv om tallene er riktige.)*\n\n**c)**\n\n$$P_1 = 2{,}0\\cdot(3{,}0)^2\\ \\text{W} = 18\\ \\text{W}, \\qquad P_2 = 4{,}0\\cdot(1{,}0)^2\\ \\text{W} = 4{,}0\\ \\text{W}, \\qquad P_3 = 4{,}0\\cdot(2{,}0)^2\\ \\text{W} = 16\\ \\text{W}$$\n\nSum avsatt i motstandene: $18 + 4{,}0 + 16 = 38\\ \\text{W}$.\n\nDen sterke kilden leverer $14{,}0\\ \\text{V}\\cdot3{,}0\\ \\text{A} = 42\\ \\text{W}$. Den svake **tar imot** $4{,}0\\ \\text{V}\\cdot1{,}0\\ \\text{A} = 4{,}0\\ \\text{W}$, siden strømmen går inn på plusspolen.\n\n**Regnskap:** $38\\ \\text{W} + 4{,}0\\ \\text{W} = 42\\ \\text{W}$ ✓\n\n*(Poeng: de tre effektene (2), regnskapet med ladingen av den svake kilden korrekt behandlet (2).)*\n\n**d)** Brytes den midtre grenen, står bare den sterke kilden med $2{,}0\\ \\Omega$ i serie med $R_3 = 4{,}0\\ \\Omega$:\n\n$$I_3' = \\frac{14{,}0\\ \\text{V}}{2{,}0\\ \\Omega + 4{,}0\\ \\Omega} = 2{,}3\\ \\text{A}$$\n\n**Konklusjon:** strømmen gjennom $R_3$ **øker** fra $2{,}0\\ \\text{A}$ til $2{,}3\\ \\text{A}$. Det er som forventet: den svake kilden virket som en motkraft og tok en del av strømmen fra den sterke; når den fjernes, går alt til $R_3$.\n\n*(Poeng: riktig ny krets identifisert (2), riktig svar med enhet og en setning om hvorfor strømmen øker (2).)*",
+            "hints": [
+              "Innfør spenningen $U$ mellom knutepunktene som eneste ukjente — det er raskere enn tre maskeligninger.",
+              "Uttrykk hver grenstrøm ved $U$ og sett summen inn i knutepunktsloven.",
+              "I c): en kilde som får strøm inn på plusspolen, tar imot effekt i stedet for å levere."
+            ]
+          }
+        },
+        {
+          "id": "fys1001-5-prove-fig-kirchhoff",
+          "type": "image",
+          "src": "/images/textbook/fys1001/fys1001-5-prove-kirchhoff.svg",
+          "alt": "Kretsskjema med knutepunktene A øverst og B nederst forbundet av tre loddrette grener. Venstre gren har en 14,0 V kilde og 2,0 ohm, midtre gren en 4,0 V kilde og 4,0 ohm, høyre gren 4,0 ohm. Blå strømpiler er merket 3,0 A, minus 1,0 A og 2,0 A.",
+          "caption": "Fasitfigur til oppgave 3 a): skjemaet med valgte strømretninger og de utregnede strømmene. Den negative verdien i den midtre grenen betyr at strømmen går motsatt vei av pila."
+        },
+        {
+          "id": "fys1001-5-prove-pb-selvdiagnose",
+          "type": "text",
+          "content": "### Selvdiagnose etter 5.B\n\n☐ Jeg reduserte parallelldelen først og fant hovedstrømmen før delstørrelsene.\n\n☐ Jeg skrev eksplisitt hvilken spenning som ligger over parallellkoblingen.\n\n☐ Jeg brukte $P = RI^2$, og kunne forklare hvorfor $U^2/R$ med kildespenningen er galt.\n\n☐ Jeg husket den indre motstanden og fikk polspenningen lavere enn EMK.\n\n☐ Jeg satte opp Kirchhoff uten å gjette, og tolket den negative strømmen som motsatt retning.\n\n☐ Jeg førte energiregnskapet til slutt, med ladingen av den svake kilden på riktig side.\n\n☐ Alle svar har enhet.\n\n**Under 28 av 40 poeng:** gå tilbake til [kap. 5.2](/bok/fys1001/fys1001-5-2) for teorien og [kap. 5.3](/bok/fys1001/fys1001-5-3) for oppskriften, og regn drilloppgavene der på nytt."
+        }
+      ]
+    },
+    {
+      "id": "fys1001-5-prove-prove3",
+      "type": "collapsible",
+      "title": "Prøve 3 (5.C): Ladd partikkel i felt",
+      "buttonText": "Vis prøve 3",
+      "content": [
+        {
+          "id": "fys1001-5-prove-pc-intro",
+          "type": "text",
+          "content": "### Prøve 5.C — Ladd partikkel i felt (35 min, 32 poeng)\n\nTre oppgaver med til sammen åtte deloppgaver à 4 poeng. Sjanger L, med nullarbeids-poenget som eget spørsmål."
+        },
+        {
+          "id": "fys1001-5-prove-oc1",
+          "type": "exercise",
+          "exercise": {
+            "id": "fys1001-5-prove-ec1",
+            "number": "1 (12 poeng)",
+            "type": "classic",
+            "difficulty": "middels",
+            "task": "Et proton starter i ro og akselereres gjennom en spenning på $3{,}0\\ \\text{kV}$. Deretter sendes det vinkelrett inn i et magnetfelt med $B = 0{,}20\\ \\text{T}$.\n\n**a)** Finn farten inn i feltet.\n**b)** Finn baneradien.\n**c)** Forklar hvorfor protonets kinetiske energi er den samme etter fem runder i feltet som ved starten.",
+            "solution": "**a)** Det elektriske arbeidet blir kinetisk energi:\n\n$$qU = \\tfrac12 mv^2 \\quad\\Longrightarrow\\quad v = \\sqrt{\\frac{2qU}{m}} = \\sqrt{\\frac{2\\cdot1{,}602\\cdot10^{-19}\\cdot3000}{1{,}673\\cdot10^{-27}}}\\ \\text{m/s}$$\n\n$$v = \\sqrt{5{,}75\\cdot10^{11}}\\ \\text{m/s} = 7{,}6\\cdot10^{5}\\ \\text{m/s}$$\n\n**Rimelighet:** rundt 0,25 % av lysfarten ✓\n\n*(Poeng: energibevaring satt opp riktig (2), riktig fart med enhet (2).)*\n\n**b)** Den magnetiske kraften er sentripetalkraften:\n\n$$qvB = \\frac{mv^2}{r} \\quad\\Longrightarrow\\quad r = \\frac{mv}{qB} = \\frac{1{,}673\\cdot10^{-27}\\cdot7{,}58\\cdot10^{5}}{1{,}602\\cdot10^{-19}\\cdot0{,}20}\\ \\text{m}$$\n\n$$r = \\frac{1{,}268\\cdot10^{-21}}{3{,}204\\cdot10^{-20}}\\ \\text{m} = 4{,}0\\cdot10^{-2}\\ \\text{m}$$\n\n**Konklusjon:** baneradien er $4{,}0\\ \\text{cm}$.\n\n*(Poeng: kraftbalansen $qvB = mv^2/r$ vist (2), riktig radius med enhet (2).)*\n\n**c)** Den magnetiske kraften $F = qvB$ står til enhver tid **vinkelrett** på farten. Arbeid krever en kraftkomponent *langs* bevegelsen, og en slik komponent finnes ikke her. Kraften gjør derfor ikke arbeid, uansett hvor lenge protonet er i feltet.\n\nEtter energibevaringen betyr det at den kinetiske energien er konstant — og dermed farten. Det eneste kraften gjør, er å dreie fartsretningen, slik at banen blir en sirkel. Etter fem runder er både farten og den kinetiske energien nøyaktig som ved starten.\n\n**Konklusjon:** magnetfeltet endrer retning, aldri fart.\n\n*(Poeng: at kraften er vinkelrett på farten (1), at vinkelrett kraft ikke gjør arbeid (2), konklusjonen om konstant $E_k$ og fart (1). Bare å skrive «energien er bevart» uten mekanismen gir 1 poeng.)*",
+            "hints": [
+              "Sett det elektriske arbeidet $qU$ lik den kinetiske energien og løs for $v$.",
+              "Den magnetiske kraften spiller rollen som sentripetalkraft.",
+              "I c): hva kreves av en kraft for at den skal gjøre arbeid på et legeme?"
+            ]
+          }
+        },
+        {
+          "id": "fys1001-5-prove-oc2",
+          "type": "exercise",
+          "exercise": {
+            "id": "fys1001-5-prove-ec2",
+            "number": "2 (12 poeng)",
+            "type": "classic",
+            "difficulty": "middels",
+            "task": "Et magnetfelt peker **inn i** papirplanet.\n\n**a)** Et positivt ion beveger seg **nedover** i planet. Tegn feltet, farten og kraften, og avgjør kraftretningen. Hva blir svaret hvis partikkelen i stedet er et elektron?\n**b)** En $\\alpha$-partikkel ($q = 2e$, $m = 4{,}0\\ \\text{u}$) beveger seg med farten $1{,}5\\cdot10^{6}\\ \\text{m/s}$ vinkelrett inn i et felt med $B = 0{,}30\\ \\text{T}$. Finn baneradien.\n**c)** Et elektron sendes inn i samme felt med samme fart. Finn baneradien, og forklar med $q/m$-forholdet hvorfor de to tallene er så forskjellige.",
+            "solution": "**a)** Tegn feltet som kryss (inn i planet), fartspila nedover og kraftpila vannrett — se fasitfiguren under prøven.\n\nHøyrehåndsregelen for en **positiv** ladning: fingrene nedover ($\\vec v$), feltet inn i planet ($\\vec B$) — tommelen peker mot **høyre**. Kraften på ionet er altså rettet mot høyre, og ionet svinger til høyre.\n\nFor et **elektron** er ladningen negativ, og kraften peker motsatt vei: mot **venstre**.\n\n**Konklusjon:** samme felt og samme fartsretning gir motsatte kraftretninger for de to ladningstypene. Fortegnet på ladningen må alltid behandles eksplisitt.\n\n*(Poeng: figur med kryss-notasjon, $\\vec v$ og $\\vec F$ (2), riktig retning for positiv ladning (1), riktig snuoperasjon for elektronet (1).)*\n\n**b)** Massen er $m = 4{,}0\\cdot1{,}6605\\cdot10^{-27}\\ \\text{kg} = 6{,}64\\cdot10^{-27}\\ \\text{kg}$, og ladningen $q = 2e = 3{,}204\\cdot10^{-19}\\ \\text{C}$:\n\n$$r = \\frac{mv}{qB} = \\frac{6{,}64\\cdot10^{-27}\\cdot1{,}5\\cdot10^{6}}{3{,}204\\cdot10^{-19}\\cdot0{,}30}\\ \\text{m} = \\frac{9{,}96\\cdot10^{-21}}{9{,}61\\cdot10^{-20}}\\ \\text{m} = 0{,}10\\ \\text{m}$$\n\n**Konklusjon:** baneradien er $0{,}10\\ \\text{m} = 10\\ \\text{cm}$.\n\n*(Poeng: massen regnet om fra u til kg og ladningen satt til $2e$ (2), riktig radius med enhet (2).)*\n\n**c)** For elektronet:\n\n$$r = \\frac{9{,}109\\cdot10^{-31}\\cdot1{,}5\\cdot10^{6}}{1{,}602\\cdot10^{-19}\\cdot0{,}30}\\ \\text{m} = \\frac{1{,}366\\cdot10^{-24}}{4{,}806\\cdot10^{-20}}\\ \\text{m} = 2{,}8\\cdot10^{-5}\\ \\text{m}$$\n\nAltså $28\\ \\mu\\text{m}$ — nesten fire tusen ganger mindre.\n\n**Forklaringen:** skriv radien som $r = \\dfrac{v}{B}\\cdot\\dfrac{m}{q}$. Ved samme fart og felt bestemmes radien bare av $m/q$. For $\\alpha$-partikkelen er $m/q = 2{,}07\\cdot10^{-8}\\ \\text{kg/C}$, for elektronet $5{,}69\\cdot10^{-12}\\ \\text{kg/C}$ — et forhold på $3{,}6\\cdot10^{3}$, som er nøyaktig forholdet mellom radiene.\n\n$\\alpha$-partikkelen er over 7000 ganger tyngre men har bare dobbelt så stor ladning, så den er langt vanskeligere å bøye av.\n\n**Konklusjon:** $\\beta$-stråling (elektroner) krøller seg sammen i trange baner, mens $\\alpha$-stråling nesten går rett fram i samme felt.\n\n*(Poeng: riktig radius for elektronet (2), $q/m$-argumentet med tall (2).)*",
+            "hints": [
+              "Regn alltid retningen som om ladningen var positiv, og snu til slutt om den er negativ.",
+              "Husk å gange om atommasseenheter til kilogram, og at alfapartikkelen har ladning $2e$.",
+              "I c): skriv radien som $(v/B)$ ganger $(m/q)$ og sammenlign de to forholdene."
+            ]
+          }
+        },
+        {
+          "id": "fys1001-5-prove-oc3",
+          "type": "exercise",
+          "exercise": {
+            "id": "fys1001-5-prove-ec3",
+            "number": "3 (8 poeng)",
+            "type": "classic",
+            "difficulty": "vanskelig",
+            "task": "I et massespektrometer akselereres enkeltladde ioner ($q = e$) gjennom $1{,}5\\ \\text{kV}$ og sendes vinkelrett inn i et magnetfelt med $B = 0{,}25\\ \\text{T}$.\n\n**a)** Vis at baneradien kan skrives $r = \\dfrac{1}{B}\\sqrt{\\dfrac{2mU}{q}}$, og finn radien for et magnesium-24-ion ($m = 24{,}0\\ \\text{u}$).\n**b)** Finn radien for et magnesium-26-ion ($m = 26{,}0\\ \\text{u}$), og regn ut hvor langt fra hverandre de to ionene treffer detektoren.",
+            "solution": "**a) Utledningen.** Fra akselerasjonen: $v = \\sqrt{2qU/m}$. Sett inn i $r = mv/(qB)$:\n\n$$r = \\frac{m}{qB}\\sqrt{\\frac{2qU}{m}} = \\frac{1}{B}\\sqrt{\\frac{m^2}{q^2}\\cdot\\frac{2qU}{m}} = \\frac{1}{B}\\sqrt{\\frac{2mU}{q}}$$\n\n**Sett inn for magnesium-24:** $m = 24{,}0\\cdot1{,}6605\\cdot10^{-27}\\ \\text{kg} = 3{,}985\\cdot10^{-26}\\ \\text{kg}$.\n\n$$r_{24} = \\frac{1}{0{,}25}\\sqrt{\\frac{2\\cdot3{,}985\\cdot10^{-26}\\cdot1500}{1{,}602\\cdot10^{-19}}}\\ \\text{m} = 4{,}0\\sqrt{7{,}463\\cdot10^{-4}}\\ \\text{m}$$\n\n$$r_{24} = 4{,}0\\cdot2{,}732\\cdot10^{-2}\\ \\text{m} = 0{,}109\\ \\text{m} = 10{,}9\\ \\text{cm}$$\n\n*(Poeng: utledningen vist ledd for ledd (2), riktig radius med enhet (2).)*\n\n**b)** Radien går som kvadratrota av massen, $r \\propto \\sqrt{m}$, så\n\n$$r_{26} = r_{24}\\sqrt{\\frac{26{,}0}{24{,}0}} = 0{,}1093\\ \\text{m}\\cdot1{,}0408 = 0{,}114\\ \\text{m} = 11{,}4\\ \\text{cm}$$\n\nIonene går i halvsirkler før de treffer detektoren, så avstanden mellom nedslagspunktene er forskjellen i **diameter**:\n\n$$\\Delta = 2(r_{26} - r_{24}) = 2(0{,}1137 - 0{,}1093)\\ \\text{m} = 8{,}9\\cdot10^{-3}\\ \\text{m} \\approx 0{,}89\\ \\text{cm}$$\n\n**Konklusjon:** de to isotopene treffer rundt $9\\ \\text{mm}$ fra hverandre — nok til å skilles tydelig. Det er nettopp dette som gjør massespektrometeret til et isotopmåleinstrument.\n\n**Rimelighet:** massene skiller seg med $8\\ \\%$, radiene med $4\\ \\%$ (kvadratrota) ✓\n\n*(Poeng: kvadratrot-avhengigheten brukt (2), diameterforskjellen regnet ut med enhet (2). Å svare $\\Delta r$ i stedet for $2\\Delta r$ gir 3 av 4.)*",
+            "hints": [
+              "Sett uttrykket for farten inn i radiusformelen og forenkle før du setter inn tall.",
+              "Radien avhenger av massen bare gjennom kvadratrota — bruk forholdsregning i b).",
+              "Ionene beskriver en halvsirkel fra inngang til detektor: tenk over om det er radien eller diameteren som avgjør nedslagspunktet."
+            ]
+          }
+        },
+        {
+          "id": "fys1001-5-prove-fig-retning",
+          "type": "image",
+          "src": "/images/textbook/fys1001/fys1001-5-prove-retning.svg",
+          "alt": "Et rutenett av kryss viser et magnetfelt inn i papirplanet. Øverst beveger et positivt ion seg nedover med en blå fartspil, og en rød kraftpil peker mot høyre. Nederst beveger et elektron seg nedover, og en grønn kraftpil peker mot venstre.",
+          "caption": "Fasitfigur til oppgave 2 a): høyrehåndsregelen gir kraft mot høyre for det positive ionet. For elektronet snus svaret, og kraften peker mot venstre."
+        },
+        {
+          "id": "fys1001-5-prove-pc-selvdiagnose",
+          "type": "text",
+          "content": "### Selvdiagnose etter 5.C\n\n☐ Jeg fant farten fra akselerasjonsspenningen før jeg gjorde noe annet.\n\n☐ Jeg viste kraftbalansen $qvB = mv^2/r$, ikke bare radiusformelen.\n\n☐ Jeg begrunnet nullarbeids-poenget med at kraften står vinkelrett på farten — ikke bare med «energien er bevart».\n\n☐ Jeg tegnet kryss-notasjon, fartspil og kraftpil, og snudde retningen for elektronet.\n\n☐ Jeg gjorde om atommasseenheter til kilogram og brukte ladningen $2e$ for alfapartikkelen.\n\n☐ Jeg tenkte over om det var radien eller diameteren som ga nedslagsavstanden.\n\n**Under 22 av 32 poeng:** les [kap. 5.4](/bok/fys1001/fys1001-5-4) på nytt, med særlig vekt på Løkke 2 (nullarbeid og sirkelbane) og Løkke 3 (retninger og $q/m$)."
+        }
+      ]
+    },
+    {
+      "id": "fys1001-5-prove-prove4",
+      "type": "collapsible",
+      "title": "Prøve 4 (5.D): Kombinert elektrisitetsprøve (eksamensnivå)",
+      "buttonText": "Vis prøve 4",
+      "content": [
+        {
+          "id": "fys1001-5-prove-pd-intro",
+          "type": "text",
+          "content": "### Prøve 5.D — Kombinert elektrisitetsprøve (45 min, 44 poeng)\n\nFire oppgaver med til sammen elleve deloppgaver à 4 poeng, satt sammen som en eksamensoppgave: solcellekrets, batteri med indre motstand, ladd partikkel i felt og to kvalitative haler. Rundt en fjerdedel av poengene er kvalitative — omtrent som på eksamen.\n\n**Merk:** Del 5 er ikke pensum til midtsemestereksamenen. Denne prøven simulerer en elektrisitetsoppgave på **slutteksamen**."
+        },
+        {
+          "id": "fys1001-5-prove-od1",
+          "type": "exercise",
+          "exercise": {
+            "id": "fys1001-5-prove-ed1",
+            "number": "1 (12 poeng)",
+            "type": "classic",
+            "difficulty": "middels",
+            "task": "Et solcellepanel på hytta har areal $1{,}5\\ \\text{m}^2$ og virkningsgrad $19\\ \\%$. Innstrålingen er $850\\ \\text{W/m}^2$.\n\n**a)** Finn den elektriske effekten panelet leverer.\n**b)** Panelet forsyner et $12\\ \\text{V}$-anlegg. To like vannpumper med resistans $8{,}0\\ \\Omega$ hver kobles i parallell over $12\\ \\text{V}$. Finn samlet strøm og samlet effekt.\n**c)** Finn effekten i én av pumpene med $P = RI^2$. Her er $P = U^2/R$ med $12\\ \\text{V}$ faktisk riktig — forklar hvorfor, i motsetning til i en seriekobling.",
+            "solution": "**a)** Innstrålt effekt på panelet er $MA$, og andelen $\\eta$ blir elektrisk:\n\n$$P = \\eta MA = 0{,}19\\cdot850\\ \\text{W/m}^2\\cdot1{,}5\\ \\text{m}^2 = 242\\ \\text{W}$$\n\n**Enhetskontroll:** $(\\text{W/m}^2)\\cdot\\text{m}^2 = \\text{W}$, og $\\eta$ er enhetsløs ✓\n\n*(Poeng: riktig formel med begrunnelse (2), riktig svar med enhet (2).)*\n\n**b)** To like motstander i parallell gir halvparten:\n\n$$R_p = \\frac{8{,}0}{2}\\ \\Omega = 4{,}0\\ \\Omega \\quad (< 8{,}0\\ \\Omega\\ ✓)$$\n\n$$I = \\frac{12\\ \\text{V}}{4{,}0\\ \\Omega} = 3{,}0\\ \\text{A}, \\qquad P = UI = 12\\ \\text{V}\\cdot3{,}0\\ \\text{A} = 36\\ \\text{W}$$\n\nHver pumpe fører $1{,}5\\ \\text{A}$.\n\n**Rimelighet:** $36\\ \\text{W}$ er langt under panelets $242\\ \\text{W}$, så panelet klarer lasten med god margin ✓\n\n*(Poeng: parallellverdien med rimelighetssjekk (2), strøm og effekt med enhet (2).)*\n\n**c)** Med effektregelen, der hver pumpe fører $1{,}5\\ \\text{A}$:\n\n$$P_{\\text{pumpe}} = RI^2 = 8{,}0\\ \\Omega\\cdot(1{,}5\\ \\text{A})^2 = 18\\ \\text{W}$$\n\nMed $U^2/R$: $\\dfrac{(12\\ \\text{V})^2}{8{,}0\\ \\Omega} = 18\\ \\text{W}$ — samme svar ✓\n\n**Hvorfor er begge riktige her?** Fordi pumpene står i **parallell direkte over kilden**. Da ligger hele de $12\\ \\text{V}$ over hver enkelt pumpe, og $U$ i formelen *er* spenningen over komponenten. I en seriekobling deler kildespenningen seg mellom komponentene, og da er kildespenningen ikke spenningen over den enkelte motstanden — der ville $U^2/R$ med kildespenningen gitt for stort svar.\n\n**Konklusjon:** effekten er $18\\ \\text{W}$ per pumpe, og til sammen $36\\ \\text{W}$ ✓ Regelen er ikke «$U^2/R$ er forbudt», men «$U$ må være spenningen over akkurat den komponenten».\n\n*(Poeng: riktig effekt med $RI^2$ (2), forklaringen på når $U^2/R$ er trygg, med kontrasten til seriekobling (2).)*",
+            "hints": [
+              "Innstrålt effekt er intensitet ganger areal; virkningsgraden er andelen som blir elektrisk.",
+              "To like motstander i parallell gir halve verdien.",
+              "I c): spør deg selv hvilken spenning som ligger over én pumpe når de står parallelt over kilden."
+            ]
+          }
+        },
+        {
+          "id": "fys1001-5-prove-od2",
+          "type": "exercise",
+          "exercise": {
+            "id": "fys1001-5-prove-ed2",
+            "number": "2 (12 poeng)",
+            "type": "classic",
+            "difficulty": "middels",
+            "task": "Et batteri med $\\varepsilon = 12{,}6\\ \\text{V}$ og indre motstand $r = 0{,}40\\ \\Omega$ forsyner to apparater med resistans $6{,}0\\ \\Omega$ og $3{,}0\\ \\Omega$, koblet i parallell.\n\n**a)** Finn strømmen fra batteriet og polspenningen.\n**b)** Finn strømmen og effekten i hvert av de to apparatene.\n**c)** Hvor stor andel av den leverte effekten går tapt inne i batteriet? Kontroller energiregnskapet.",
+            "solution": "**a)** Parallellkoblingen:\n\n$$R_p = \\frac{6{,}0\\cdot3{,}0}{6{,}0+3{,}0}\\ \\Omega = 2{,}0\\ \\Omega \\quad (< 3{,}0\\ \\Omega\\ ✓)$$\n\nMed den indre motstanden i serie: $R_{\\text{tot}} = 2{,}0 + 0{,}40 = 2{,}4\\ \\Omega$.\n\n$$I = \\frac{12{,}6\\ \\text{V}}{2{,}4\\ \\Omega} = 5{,}25\\ \\text{A}$$\n\n$$U = \\varepsilon - rI = 12{,}6\\ \\text{V} - 0{,}40\\ \\Omega\\cdot5{,}25\\ \\text{A} = 10{,}5\\ \\text{V}$$\n\n*Kontroll:* $U = R_pI = 2{,}0\\cdot5{,}25 = 10{,}5\\ \\text{V}$ ✓\n\n*(Poeng: parallellverdi og indre motstand i serie (2), strøm og polspenning med enhet (2).)*\n\n**b)** Polspenningen ligger over hver gren:\n\n$$I_6 = \\frac{10{,}5\\ \\text{V}}{6{,}0\\ \\Omega} = 1{,}75\\ \\text{A}, \\qquad I_3 = \\frac{10{,}5\\ \\text{V}}{3{,}0\\ \\Omega} = 3{,}5\\ \\text{A}$$\n\nKontroll: $1{,}75 + 3{,}5 = 5{,}25\\ \\text{A}$ ✓\n\n$$P_6 = 6{,}0\\cdot(1{,}75)^2\\ \\text{W} = 18{,}4\\ \\text{W}, \\qquad P_3 = 3{,}0\\cdot(3{,}5)^2\\ \\text{W} = 36{,}8\\ \\text{W}$$\n\n**Merk:** her er det trygt å bruke $U^2/R$ med $10{,}5\\ \\text{V}$ — men *ikke* med $12{,}6\\ \\text{V}$, siden polspenningen er lavere enn EMK.\n\n*(Poeng: begge grenstrømmer med polspenningen brukt riktig (2), begge effekter med enhet (2).)*\n\n**c)** Effekten inne i batteriet:\n\n$$P_r = rI^2 = 0{,}40\\ \\Omega\\cdot(5{,}25\\ \\text{A})^2 = 11{,}0\\ \\text{W}$$\n\nLevert av kilden: $\\varepsilon I = 12{,}6\\ \\text{V}\\cdot5{,}25\\ \\text{A} = 66{,}2\\ \\text{W}$.\n\n**Regnskap:** $18{,}4 + 36{,}8 + 11{,}0 = 66{,}2\\ \\text{W}$ ✓\n\n$$\\frac{11{,}0}{66{,}2} = 0{,}17 = 17\\ \\%$$\n\n**Konklusjon:** $17\\ \\%$ av effekten blir varme inne i batteriet. Det er mye, og forklarer både at batteriet blir varmt og at polspenningen har falt fra $12{,}6\\ \\text{V}$ til $10{,}5\\ \\text{V}$ under denne belastningen.\n\n*(Poeng: riktig indre effekt (1), energiregnskapet ført (2), andelen med kommentar (1).)*",
+            "hints": [
+              "Reduser parallellkoblingen først, og legg deretter den indre motstanden i serie.",
+              "Det er polspenningen — ikke EMK — som ligger over grenene.",
+              "Effektbudsjettet skal summere seg til $\\varepsilon I$."
+            ]
+          }
+        },
+        {
+          "id": "fys1001-5-prove-od3",
+          "type": "exercise",
+          "exercise": {
+            "id": "fys1001-5-prove-ed3",
+            "number": "3 (12 poeng)",
+            "type": "classic",
+            "difficulty": "middels",
+            "task": "Et elektron akselereres fra ro gjennom $4{,}5\\ \\text{kV}$ og sendes deretter vinkelrett inn i et magnetfelt med $B = 5{,}0\\ \\text{mT}$. Feltet peker inn i papirplanet, og elektronet beveger seg mot høyre idet det kommer inn.\n\n**a)** Finn farten inn i feltet.\n**b)** Finn baneradien og avgjør hvilken vei elektronet svinger.\n**c)** Elektronet går ti runder i feltet. Forklar hva som er konstant og hva som endres, og begrunn med kraftretningen.",
+            "solution": "**a)**\n\n$$v = \\sqrt{\\frac{2qU}{m}} = \\sqrt{\\frac{2\\cdot1{,}602\\cdot10^{-19}\\cdot4500}{9{,}109\\cdot10^{-31}}}\\ \\text{m/s} = \\sqrt{1{,}583\\cdot10^{15}}\\ \\text{m/s}$$\n\n$$v = 4{,}0\\cdot10^{7}\\ \\text{m/s}$$\n\n**Rimelighet:** rundt 13 % av lysfarten ✓\n\n*(Poeng: energibevaring satt opp (2), riktig fart med enhet (2).)*\n\n**b)**\n\n$$r = \\frac{mv}{qB} = \\frac{9{,}109\\cdot10^{-31}\\cdot3{,}978\\cdot10^{7}}{1{,}602\\cdot10^{-19}\\cdot5{,}0\\cdot10^{-3}}\\ \\text{m} = \\frac{3{,}625\\cdot10^{-23}}{8{,}01\\cdot10^{-22}}\\ \\text{m} = 4{,}5\\cdot10^{-2}\\ \\text{m}$$\n\n**Retningen:** høyrehåndsregelen for en *positiv* ladning med farten mot høyre og feltet inn i planet gir kraft **oppover**. Elektronet er negativt, så kraften peker **nedover**. Elektronet svinger altså nedover og går rundt med urviseren.\n\n**Konklusjon:** radien er $4{,}5\\ \\text{cm}$, og elektronet svinger nedover (med urviseren).\n\n*(Poeng: riktig radius med enhet (2), riktig retning med eksplisitt snuoperasjon for den negative ladningen (2).)*\n\n**c)** **Konstant:** farten, den kinetiske energien, baneradien og omløpstiden. **Endres:** bare fartsretningen, som dreies kontinuerlig.\n\n**Begrunnelsen:** kraften $F = qvB$ står til enhver tid vinkelrett på farten. Arbeid krever en kraftkomponent langs bevegelsen, og den finnes ikke. Kraften gjør derfor ikke arbeid, den kinetiske energien er bevart, og farten er uendret. Fordi både farten og feltet er konstante, er også radien $r = mv/(qB)$ konstant — banen er en perfekt sirkel som elektronet går rundt og rundt i.\n\n**Konklusjon:** etter ti runder er elektronet i samme tilstand som ved starten, bortsett fra hvor på sirkelen det befinner seg.\n\n*(Poeng: riktig liste over konstant/endret (2), begrunnelsen med vinkelrett kraft og null arbeid (2).)*",
+            "hints": [
+              "Finn farten fra akselerasjonsspenningen først.",
+              "Regn retningen som om ladningen var positiv, og snu til slutt.",
+              "I c): hva kreves for at en kraft skal gjøre arbeid, og hva følger av at kraften er vinkelrett på farten?"
+            ]
+          }
+        },
+        {
+          "id": "fys1001-5-prove-od4",
+          "type": "exercise",
+          "exercise": {
+            "id": "fys1001-5-prove-ed4",
+            "number": "4 (8 poeng)",
+            "type": "classic",
+            "difficulty": "middels",
+            "task": "To kvalitative deloppgaver. Svar i 2–4 setninger hver: navngi mekanismen med fagbegrep, koble den til situasjonen, og konkluder.\n\n**a)** Lysene i et hus blir merkbart svakere i et halvsekund når varmepumpa starter. Forklar hvorfor, og hva som avgjør hvor tydelig effekten er.\n**b)** En kilde sender ut både $\\beta$- og $\\gamma$-stråling gjennom et kraftig magnetfelt. Den ene strålen bøyes kraftig av, den andre ikke i det hele tatt. Forklar hvorfor.",
+            "solution": "**a)** Mekanismen er **spenningsfallet over den indre motstanden** i strømforsyningen. Når varmepumpa starter, trekker den kortvarig en stor startstrøm, og da øker fallet $rI$ inne i kilden (og i tilførselskablene, som virker på samme måte). Polspenningen — altså spenningen som faktisk ligger over lyspærene — synker tilsvarende, og siden effekten i en pære går som kvadratet av spenningen over den, blir lyset merkbart svakere.\n\nHvor tydelig effekten er, avgjøres av hvor stor den indre motstanden og kabelmotstanden er i forhold til lasten, og av hvor stor startstrømmen er.\n\n**Konklusjon:** lysene dimmes fordi polspenningen faller, ikke fordi «strømmen tas fra pærene».\n\n*(Poeng: mekanismen navngitt som spenningsfall over indre motstand (2), koblingen til effekten i pæra og hva som avgjør størrelsen (2).)*\n\n**b)** Den magnetiske kraften er $F = qvB$, og den virker bare på **ladde** partikler. $\\beta$-stråling er elektroner med ladning $-e$ og svært liten masse, så $m/q$ er ekstremt lite og baneradien $r = (v/B)(m/q)$ blir tilsvarende liten — strålen krøller seg kraftig.\n\n$\\gamma$-stråling er fotoner uten ladning. Med $q = 0$ er kraften null uansett hvor sterkt feltet er, og strålen går rett gjennom.\n\n**Konklusjon:** det er ladningen som avgjør om det i det hele tatt virker en kraft, og $m/q$ som avgjør hvor kraftig avbøyningen blir. Et magnetfelt er derfor et enkelt instrument for å skille ladd fra uladd stråling.\n\n*(Poeng: at kraften krever ladning og at $\\gamma$ er uladd (2), $m/q$-argumentet for betastrålens trange bane (2).)*",
+            "hints": [
+              "I a): hva skjer med polspenningen når strømmen fra kilden øker brått?",
+              "I a): effekten i en lyspære går som kvadratet av spenningen over den.",
+              "I b): hva er ladningen til et foton, og hva blir da $F = qvB$?"
+            ]
+          }
+        },
+        {
+          "id": "fys1001-5-prove-pd-selvdiagnose",
+          "type": "text",
+          "content": "### Selvdiagnose etter 5.D\n\n☐ Jeg brukte $P = \\eta MA$ riktig og fikk enhetene til å stemme.\n\n☐ Jeg husket at det er polspenningen, ikke EMK, som ligger over de ytre grenene.\n\n☐ Jeg kunne forklare **når** $U^2/R$ er trygg og når den ikke er det — ikke bare unngå den.\n\n☐ Jeg førte effektbudsjettet og fikk det til å balansere mot $\\varepsilon I$.\n\n☐ Jeg snudde kraftretningen for elektronet og skrev at jeg gjorde det.\n\n☐ Jeg begrunnet nullarbeids-poenget med kraftretningen, ikke bare med energibevaring.\n\n☐ De kvalitative svarene mine har tre ledd — mekanisme, kobling, konklusjon — og ingen helgardering.\n\n☐ Alle tallsvar har enhet og to–tre gjeldende siffer.\n\n**Under 31 av 44 poeng:** gå tilbake til det delkapitlet som svarer til de deloppgavene du mistet poeng på, og regn drilloppgavene i [kap. 5.3](/bok/fys1001/fys1001-5-3) på nytt før du prøver denne prøven igjen."
+        }
+      ]
+    },
+    {
+      "id": "fys1001-5-prove-symbolliste",
+      "type": "collapsible",
+      "title": "Symbol- og formelliste",
+      "buttonText": "Vis symboler og formler",
+      "content": [
+        {
+          "id": "fys1001-5-prove-symbolliste-tekst",
+          "type": "text",
+          "content": "## Symbol- og formelliste\n\n*Oppslagsverk — alt her forklares underveis i kapitlene prøvene bygger på.*\n\nAlle symboler og formler som brukes i prøvene til Del 5. Betydningene gjelder **Del 5** og arves ikke fra tidligere deler.\n\n| Symbol | Betydning | SI-enhet |\n|---|---|---|\n| $q$, $Q$ | Elektrisk ladning | coulomb, C |\n| $e$ | Elementærladningen, $1{,}602\\cdot10^{-19}$ C | C |\n| $k$ | **Coulomb-konstanten**, $8{,}99\\cdot10^{9}$ | $\\text{N}\\,\\text{m}^2/\\text{C}^2$ |\n| $k_m$ | **Magnetisk konstant**, $2{,}0\\cdot10^{-7}$ | T m/A |\n| $E$ | **Elektrisk feltstyrke** (ikke energi i disse prøvene) | V/m = N/C |\n| $U$ | Spenning; i Kirchhoff-oppgaven spenningen mellom knutepunktene | volt, V |\n| $I$ | Strøm | ampere, A |\n| $R$ | **Resistans** (ikke friksjonskraft) | ohm, $\\Omega$ |\n| $R_p$, $R_f$ | Parallellresistans, formotstand | $\\Omega$ |\n| $r$ | **Indre motstand** i kretsoppgavene; **baneradius** eller **avstand mellom ladninger** i de andre | $\\Omega$ eller m |\n| $\\varepsilon$ | Elektromotorisk spenning (EMK) | V |\n| $P$ | Effekt | watt, W |\n| $\\eta$ | Virkningsgrad (enhetsløs) | – |\n| $M$ | Strålingsintensitet mot solcellepanelet | $\\text{W/m}^2$ |\n| $A$ | Areal | $\\text{m}^2$ |\n| $B$ | **Magnetisk flukstetthet** (ikke oppdrift) | tesla, T |\n| $m$ | Masse | kg |\n| $u$ | Atommasseenheten, $1{,}6605\\cdot10^{-27}$ kg | kg |\n| $v$ | Fart | m/s |\n| $G$ | **Tyngden** $G = mg$ | newton, N |\n| $S$ | Snordrag | N |\n| $\\theta$ | Vinkel (mot loddlinja, eller mot en symmetriakse) | grader |\n| $L$ | Snorlengde | m |\n\n**Symbolkollisjoner i disse prøvene:**\n\n- $B$ er **magnetisk flukstetthet** i tesla (Del 3: oppdrift i newton).\n- $R$ er **resistans** i ohm (Del 1: friksjonskraft i newton).\n- $E$ er **elektrisk feltstyrke** i V/m (Del 2 og 4: energi i joule).\n- $k$ er **Coulomb-konstanten**, $k_m$ er den **magnetiske** konstanten — to helt ulike størrelser.\n- $r$ betyr **indre motstand** i prøve 5.B og **radius/avstand** i 5.A, 5.C og 5.D. Les alltid av sammenhengen, og definer symbolet i besvarelsen.\n- $G$ er **tyngden**; gravitasjonskonstanten (som skrives $\\gamma$ i mekanikkdelene) brukes ikke i Del 5. Der $\\gamma$, $\\alpha$ og $\\beta$ står i prøve 5.C og 5.D, er de navn på **stråletyper**, ikke størrelser.\n\n**Formler prøvene bruker:**\n\n$$F = k\\frac{q_1q_2}{r^2}, \\qquad E = \\frac{U}{d}, \\qquad F = qE$$\nCoulombs lov, homogent felt og kraften på en ladning i felt. *(Står på formelarket.)*\n\n$$\\tan\\theta = \\frac{F_e}{G}, \\qquad r = 2L\\sin\\theta$$\nSnor-kule-balansen. *(Må kunne brukes aktivt.)*\n\n$$U = RI, \\qquad R = \\sum R_i, \\qquad \\frac{1}{R} = \\sum\\frac{1}{R_i}$$\nOhms lov og reduksjonsformlene. *(Står på formelarket.)*\n\n$$P = UI = RI^2 = \\frac{U^2}{R}$$\nEffekt. **Effektregelen: bruk $RI^2$ i sammensatte kretser.** *(Står på formelarket.)*\n\n$$I = \\frac{\\varepsilon}{R+r}, \\qquad U = \\varepsilon - rI, \\qquad R_f = \\frac{U_0-U_k}{I}$$\nIndre motstand, polspenning og formotstand. *(Må kunne brukes aktivt.)*\n\n$$P = \\eta MA$$\nSolcellepanelets elektriske effekt. *(Må kunne brukes aktivt.)*\n\n$$qU = \\tfrac12mv^2, \\qquad F = qvB, \\qquad r = \\frac{mv}{qB}, \\qquad r = \\frac{1}{B}\\sqrt{\\frac{2mU}{q}}$$\nAkselerasjon, magnetisk kraft, baneradius og massespektrometer-formen. *(De tre første står på formelarket; den siste må du kunne utlede.)*"
+        }
+      ]
+    }
+  ],
+  "exercises": []
+}

@@ -335,7 +335,7 @@ ferdig (= rammeverk komplett, klart for Opus-bygging via BYGGEKONTRAKT-MAL) ·
 | FIL1001 Metafysikk og bevissthetsfilosofi (UiO) | drøfting | skjelett |
 | LING1100 Innføring i semantikk og pragmatikk (UiO) | formell-hybrid | skjelett |
 | FIL1003 Innføring i etikk (UiO) | drøfting | skjelett |
-| FYS1001 Innføring i fysikk (UiO) | regnefag | skjelett |
+| FYS1001 Innføring i fysikk (UiO) | regnefag | **bok** (live) |
 | FYS1100 Mekanikk og modellering (UiO) | regnefag | skjelett |
 | FYS1120 Elektromagnetisme (UiO) | regnefag | skjelett |
 | FYS2140 Kvantefysikk (UiO) | regnefag | skjelett |
