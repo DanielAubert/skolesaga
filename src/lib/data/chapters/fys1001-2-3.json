@@ -1,0 +1,371 @@
+{
+  "id": "fys1001-2-3",
+  "courseId": "fys1001",
+  "chapterNumber": "2.3",
+  "title": "Bevegelsesmengde og støt",
+  "description": "Bevaring av bevegelsesmengde gjennom støtet, fullstendig uelastisk og elastisk støt, relativt energitap — og kraftstøtet som forklarer hvorfor kollisjonsputer virker.",
+  "estimatedMinutes": 55,
+  "competenceGoals": [
+    "regne ut bevegelsesmengde med riktig fortegn i én dimensjon",
+    "sette opp og løse bevaringsligningen for et støt, og forklare hvorfor den bare gjelder gjennom selve støtet",
+    "klassifisere et støt som elastisk eller uelastisk ved å regne ut kinetisk energi før og etter, og finne det relative energitapet",
+    "bruke kraftstøtet F·Δt = Δp til å forklare hvorfor forlenget stansetid gir mindre kraft"
+  ],
+  "content": [
+    {
+      "id": "fys1001-2-3-tip-eksamensvinkel",
+      "type": "tip",
+      "title": "Eksamensvinkel",
+      "content": "**Høyeste prioritet.** Bevegelsesmengde og støt står i **20 av 36 slutteksamener (56 %)**, og temaet er en gjenganger på midtsemestereksamenen. Når det først dukker opp, er det som regel en hel oppgave med tre–fire deloppgaver — ikke bare et lite spørsmål.\n\nDette er **sjanger B**, kortkoden vår for «støt-kjeden»: den faste tretrinnsresepten der du (i) finner farten før støtet med energibevaring, (ii) bruker bevaring av bevegelsesmengde *gjennom* støtet, og (iii) regner videre med friksjon etterpå. Hele kodelista A–Q står i kapittel 0.1. I dette kapitlet bygger vi trinn (ii), som er hjertet i kjeden; hele kjeden drilles i [kap. 2.4](/bok/fys1001/fys1001-2-4).\n\nSlik ser deloppgavene ut i arkivet:\n\n- «Finn felles fart etter sammenstøtet» — ren bevaringsregning.\n- «Hvor stor andel av den kinetiske energien gikk tapt?» — relativt energitap, regnet eksplisitt.\n- «Var støtet elastisk?» — klassifisering *med begrunnelse*, ikke bare ja eller nei.\n- «Forklar hvorfor kollisjonsputen reduserer skadene» — en **sjanger Q**-deloppgave (kortkoden for kvalitative forklaringer).\n\n**Formelark-status:** $p = mv$ og $E_k = \\tfrac12 mv^2$ står på formelarket. Selve bevaringsligningen $\\sum mv = \\sum mv'$ skal du kunne **sette opp selv** for den konkrete situasjonen — med riktige fortegn. Det er oppstillingen, ikke formelen, som gir poengene."
+    },
+    {
+      "id": "fys1001-2-3-forkunnskaper",
+      "type": "text",
+      "content": "**Forkunnskaper — dette bygger kapitlet på:**\n\n- [kap. 2.1](/bok/fys1001/fys1001-2-1) — kinetisk energi $E_k = \\tfrac12 mv^2$ og arbeid med fortegn.\n- [kap. 2.2](/bok/fys1001/fys1001-2-2) — energiregnskapet $E_1 = E_2 + R\\cdot s$, standardresultatet $v = \\sqrt{2gh}$ og stopplengden $s = v^2/(2\\mu g)$. Disse bruker vi i fasene *utenfor* selve støtet.\n- [kap. 1.2](/bok/fys1001/fys1001-1-2) — Newtons 3. lov: kreftene to legemer utøver på hverandre, er like store og motsatt rettet. Det er selve grunnen til at bevegelsesmengden er bevart.\n\nVi bruker $g = 9{,}81$ m/s² gjennom hele kapitlet."
+    },
+    {
+      "id": "fys1001-2-3-intro",
+      "type": "text",
+      "content": "En lastebil i gangfart er vanskeligere å stoppe enn en sykkel i full fart. Fart alene forteller altså ikke hvor «vanskelig å stanse» noe er — det gjør massen ganger farten. Den størrelsen kaller vi **bevegelsesmengde**, og den har en helt spesiell egenskap: i et sammenstøt er summen av bevegelsesmengdene den samme før og etter.\n\nDet er en oppsiktsvekkende påstand. Under et sammenstøt deformeres begge legemene, kreftene er enorme og kompliserte, og energi går tapt til varme og lyd. Likevel kan du regne ut hva som skjer, uten å vite noe som helst om kreftene.\n\nKapitlet går i fem læringsløkker (teori → eksempel → oppgave):\n\n1. **Bevegelsesmengde og fortegn** (~10 min)\n2. **Bevaring gjennom støtet** (~12 min)\n3. **Fullstendig uelastisk støt** (~11 min)\n4. **Elastisk eller uelastisk — og hvor mye energi gikk tapt?** (~12 min)\n5. **Kraftstøt: hvorfor kollisjonsputer virker** (~10 min)\n\nTidsanslagene er lesetid; med penn og papir ganger du med omtrent 1,5. — naturlig pausepunkt — etter løkke 3."
+    },
+    {
+      "id": "fys1001-2-3-lokke1",
+      "type": "text",
+      "content": "## Løkke 1: Bevegelsesmengde og fortegn *(~10 min)*"
+    },
+    {
+      "id": "fys1001-2-3-def-p",
+      "type": "definition",
+      "title": "Bevegelsesmengde",
+      "content": "**Bevegelsesmengden** til et legeme med masse $m$ og fart $v$ er\n\n$$p = mv.$$\n\nEnheten er $\\text{kg}\\,\\text{m/s}$ — den har ikke noe eget navn. Størrelsen er en **vektor**: den peker samme vei som farten. I dette emnet regner vi nesten alltid i én dimensjon, og da holder det å holde orden på fortegnet.\n\nMerk forskjellen fra kinetisk energi: $p = mv$ vokser lineært med farten, mens $E_k = \\tfrac12 mv^2$ vokser med kvadratet. To legemer kan derfor ha samme bevegelsesmengde og likevel svært ulik kinetisk energi."
+    },
+    {
+      "id": "fys1001-2-3-def-fortegn",
+      "type": "definition",
+      "title": "Fortegnsdisiplin i én dimensjon",
+      "content": "Før du skriver en eneste ligning: **velg en positiv retning** og skriv i besvarelsen hvilken det er. Deretter gjelder to regler uten unntak:\n\n- Fart **med** den positive retningen settes inn som et positivt tall.\n- Fart **mot** den positive retningen settes inn som et negativt tall.\n\nEt negativt svar er ikke en feil — det betyr at legemet beveger seg motsatt vei av det du valgte som positivt. Skriv det ut i klartekst: «$v' = -0{,}45$ m/s, altså 0,45 m/s mot venstre.»\n\nFortegnsfeil ved motsatt rettede farter er den vanligste enkeltfeilen i hele støt-temaet."
+    },
+    {
+      "id": "fys1001-2-3-oppg-l1a",
+      "type": "exercise",
+      "exercise": {
+        "id": "fys1001-2-3-l1a",
+        "number": "1",
+        "type": "classic",
+        "difficulty": "lett",
+        "task": "(Innstegsoppgave — sjanger B, altså støt og bevegelsesmengde.)\n\n**a)** En fotball med masse 0,43 kg har farten 22 m/s. Finn bevegelsesmengden.\n**b)** En lastebil på 9,0 tonn triller med 0,50 m/s. Finn bevegelsesmengden.\n**c)** Hvilken av dem er «vanskeligst å stoppe» målt i bevegelsesmengde?",
+        "solution": "**a)** $p = mv = 0{,}43\\ \\text{kg}\\cdot 22\\ \\text{m/s} = 9{,}5\\ \\text{kg}\\,\\text{m/s}$.\n\n**b)** $9{,}0$ tonn $= 9{,}0\\cdot 10^{3}$ kg, altså\n\n$$p = 9{,}0\\cdot 10^{3}\\ \\text{kg}\\cdot 0{,}50\\ \\text{m/s} = 4{,}5\\cdot 10^{3}\\ \\text{kg}\\,\\text{m/s}.$$\n\n**c)** Lastebilen, med om lag 470 ganger så stor bevegelsesmengde som fotballen — selv om den nesten står stille.",
+        "hints": [
+          "Husk å gjøre om tonn til kilogram.",
+          "$p = mv$; enheten blir kg·m/s.",
+          "Sammenlign de to tallene direkte."
+        ]
+      }
+    },
+    {
+      "id": "fys1001-2-3-ex-p",
+      "type": "example",
+      "title": "Bevegelsesmengde med fortegn",
+      "problem": "En handlevogn med varer har samlet masse 12 kg og trilles mot høyre med 1,5 m/s. En annen handlevogn på 9,0 kg triller mot venstre med 0,80 m/s.\n\nRegn ut den samlede bevegelsesmengden til de to vognene.",
+      "solution": "**Valg av positiv retning:** vi setter *mot høyre* som positiv retning. Det skrives i besvarelsen før regningen begynner.\n\nVogn 1 går mot høyre, altså positivt:\n\n$$p_1 = m_1v_1 = 12\\ \\text{kg}\\cdot (+1{,}5\\ \\text{m/s}) = +18\\ \\text{kg}\\,\\text{m/s}.$$\n\nVogn 2 går mot venstre, altså negativt:\n\n$$p_2 = m_2v_2 = 9{,}0\\ \\text{kg}\\cdot (-0{,}80\\ \\text{m/s}) = -7{,}2\\ \\text{kg}\\,\\text{m/s}.$$\n\nSamlet:\n\n$$p = p_1 + p_2 = 18\\ \\text{kg}\\,\\text{m/s} - 7{,}2\\ \\text{kg}\\,\\text{m/s} = +10{,}8\\ \\text{kg}\\,\\text{m/s}.$$\n\n**Svar:** den samlede bevegelsesmengden er $11\\ \\text{kg}\\,\\text{m/s}$ rettet mot høyre.\n\n**Kommentar:** legg merke til at bevegelsesmengdene *trekkes fra hverandre*, mens kinetiske energier alltid *legges sammen* — energi har ingen retning. Det er en forskjell som stadig testes."
+    },
+    {
+      "id": "fys1001-2-3-oppg-l1b",
+      "type": "exercise",
+      "exercise": {
+        "id": "fys1001-2-3-l1b",
+        "number": "2",
+        "type": "classic",
+        "difficulty": "lett",
+        "task": "(Sjanger B.) En skateboardkjører med brett har samlet masse 62 kg og ruller mot venstre med 3,4 m/s. En ball på 0,60 kg triller mot høyre med 5,0 m/s.\n\nSett *mot høyre* som positiv retning, og finn den samlede bevegelsesmengden.",
+        "solution": "Med *mot høyre* som positiv retning:\n\n$$p_1 = 62\\ \\text{kg}\\cdot(-3{,}4\\ \\text{m/s}) = -211\\ \\text{kg}\\,\\text{m/s},$$\n\n$$p_2 = 0{,}60\\ \\text{kg}\\cdot(+5{,}0\\ \\text{m/s}) = +3{,}0\\ \\text{kg}\\,\\text{m/s}.$$\n\n$$p = -211 + 3{,}0 = -208\\ \\text{kg}\\,\\text{m/s}.$$\n\n**Svar:** $p = -2{,}1\\cdot 10^{2}\\ \\text{kg}\\,\\text{m/s}$, altså om lag $2{,}1\\cdot 10^{2}\\ \\text{kg}\\,\\text{m/s}$ rettet **mot venstre**. Minustegnet forteller retningen, og det skal tolkes i klartekst i svaret.",
+        "hints": [
+          "Skriv ned hvilken retning du har valgt som positiv, før du regner.",
+          "Hvilket av de to legemene skal ha negativt fortegn?",
+          "Tolk fortegnet på svaret som en retning."
+        ]
+      }
+    },
+    {
+      "id": "fys1001-2-3-lokke2",
+      "type": "text",
+      "content": "## Løkke 2: Bevaring gjennom støtet *(~12 min)*\n\nNå kommer den store setningen — og en presisering som er verdt mange poeng."
+    },
+    {
+      "id": "fys1001-2-3-th-bevaring",
+      "type": "theorem",
+      "title": "Bevaring av bevegelsesmengde",
+      "content": "I et sammenstøt mellom to legemer er den samlede bevegelsesmengden like stor rett før og rett etter støtet:\n\n$$m_1v_1 + m_2v_2 = m_1v_1' + m_2v_2'.$$\n\nMerket (') betyr «etter støtet». Begrunnelsen er Newtons 3. lov: kreftene legemene utøver på hverandre under støtet, er like store og motsatt rettet og virker like lenge. Det ene legemet mister derfor nøyaktig like mye bevegelsesmengde som det andre får.\n\nSetningen gjelder **uansett** hvor komplisert selve støtet er, og uansett hvor mye energi som går tapt."
+    },
+    {
+      "id": "fys1001-2-3-def-nar-gjelder",
+      "type": "definition",
+      "title": "Bevaringen gjelder gjennom støtet — og bare der",
+      "content": "Dette er kapitlets viktigste presisering, og en av de mest påpekte feilene i arkivet.\n\nBevaringen bygger på at **ytre** krefter (friksjon, tyngde langs banen, luftmotstand) kan neglisjeres i det korte tidsrommet støtet varer. Et støt tar typisk noen hundredels sekund, og på den tiden rekker friksjonen ikke å endre bevegelsesmengden nevneverdig.\n\nMen **før** og **etter** støtet virker friksjonen i lang tid, og da endres bevegelsesmengden hele veien. Derfor:\n\n- **Gjennom selve støtet:** bruk bevaring av bevegelsesmengde.\n- **Utenfor støtet:** bruk energiregnskapet fra [kap. 2.2](/bok/fys1001/fys1001-2-2), $E_1 = E_2 + R\\cdot s$.\n\nÅ «bevare» bevegelsesmengden gjennom hele forløpet — også over strekningen der de sammenfiltrede vrakene glir mot asfalten — gir feil svar og trekk."
+    },
+    {
+      "id": "fys1001-2-3-fig-stot",
+      "type": "image",
+      "src": "/images/textbook/fys1001/fys1001-2-3-stot.svg",
+      "alt": "To-delt skisse. Øverst, merket FØR: to vogner med masse m1 og m2 på et underlag, med fartspiler v1 og v2 mot høyre, og en pil øverst som viser valgt positiv retning mot høyre. Nederst, merket ETTER: de to vognene henger sammen og har én felles fartspil v-merket mot høyre.",
+      "caption": "Standardskissen sensor forventer: legemene før og etter støtet, med fartspiler, navngitte masser og valgt positiv retning markert. Tegn den før du regner."
+    },
+    {
+      "id": "fys1001-2-3-ex-tog",
+      "type": "example",
+      "title": "Bevaring i et sammenstøt",
+      "problem": "En jernbanevogn med masse $8{,}0\\cdot 10^{3}$ kg ruller med farten 1,8 m/s bort til en vogn med masse $1{,}2\\cdot 10^{4}$ kg som står i ro på samme spor. Vognene kobler seg sammen i sammenstøtet.\n\nFinn den felles farten rett etter koblingen.",
+      "solution": "**Positiv retning:** samme vei som den rullende vogna beveger seg.\n\n**Før støtet.**\n\n$$p_{\\text{før}} = m_1v_1 + m_2v_2 = 8{,}0\\cdot 10^{3}\\ \\text{kg}\\cdot 1{,}8\\ \\text{m/s} + 1{,}2\\cdot 10^{4}\\ \\text{kg}\\cdot 0 = 1{,}44\\cdot 10^{4}\\ \\text{kg}\\,\\text{m/s}.$$\n\nLegg merke til at leddet for vogna i ro er skrevet opp og deretter satt til null — det viser sensor at det er vurdert.\n\n**Etter støtet.** Vognene henger sammen og har samme fart $v'$:\n\n$$p_{\\text{etter}} = (m_1 + m_2)v' = (8{,}0\\cdot 10^{3} + 1{,}2\\cdot 10^{4})\\ \\text{kg}\\cdot v' = 2{,}0\\cdot 10^{4}\\ \\text{kg}\\cdot v'.$$\n\n**Bevaring gjennom støtet.**\n\n$$1{,}44\\cdot 10^{4}\\ \\text{kg}\\,\\text{m/s} = 2{,}0\\cdot 10^{4}\\ \\text{kg}\\cdot v' \\quad\\Longrightarrow\\quad v' = 0{,}72\\ \\text{m/s}.$$\n\n**Svar:** vognene ruller videre med $0{,}72$ m/s i samme retning som den første vogna hadde.\n\n**Rimelighetsvurdering:** den samlede massen er 2,5 ganger så stor som den som var i bevegelse, så farten må bli mindre enn 1,8 m/s — og 1,8/2,5 = 0,72 stemmer eksakt, siden den andre vogna sto stille."
+    },
+    {
+      "id": "fys1001-2-3-oppg-l2",
+      "type": "exercise",
+      "exercise": {
+        "id": "fys1001-2-3-l2",
+        "number": "3",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "(Sjanger Q — kvalitativ. Svar i 2–4 setninger.) To biler kolliderer, henger sammen etter smellet og glir sammenfiltret 15 m før de stopper mot asfalten.\n\nEn student regner bevaring av bevegelsesmengde fra rett før kollisjonen og helt fram til vrakene står stille, og konkluderer med at bevegelsesmengden må ha vært null hele tiden.\n\nForklar hva som er galt, og hvordan forløpet skal deles opp.",
+        "solution": "Feilen er at bevaringen brukes på et tidsrom der en stor **ytre** kraft virker. Friksjonen mot asfalten virker over 15 meter og flere sekunder, og den endrer bevegelsesmengden hele veien ned til null — nettopp derfor stopper vrakene.\n\nBevaringen gjelder bare gjennom **selve kollisjonen**, som varer noen hundredels sekund. Der er friksjonens bidrag forsvinnende lite sammenlignet med kreftene bilene utøver på hverandre.\n\n**Riktig oppdeling:** bruk bevaring av bevegelsesmengde fra rett før til rett etter smellet, og bruk deretter energiregnskapet $\\tfrac12 mv'^2 = \\mu mgs$ på glidestrekningen.",
+        "hints": [
+          "Hvilken forutsetning hviler bevaringen på?",
+          "Hvor lenge varer selve kollisjonen sammenlignet med glidestrekningen?",
+          "Hvilket verktøy hører hjemme på strekningen etter støtet?"
+        ]
+      }
+    },
+    {
+      "id": "fys1001-2-3-lokke3",
+      "type": "text",
+      "content": "## Løkke 3: Fullstendig uelastisk støt *(~11 min)*\n\n— naturlig pausepunkt —\n\nDen enkleste og vanligste støttypen i arkivet: legemene henger sammen etterpå."
+    },
+    {
+      "id": "fys1001-2-3-def-uelastisk",
+      "type": "definition",
+      "title": "Fullstendig uelastisk støt",
+      "content": "Et støt er **fullstendig uelastisk** når legemene følges at etter støtet og dermed har samme fart $v'$. Bevaringsligningen blir da\n\n$$m_1v_1 + m_2v_2 = (m_1 + m_2)v',$$\n\nsom løses direkte:\n\n$$v' = \\frac{m_1v_1 + m_2v_2}{m_1 + m_2}.$$\n\nKjennetegn i oppgaveteksten: «kobler seg sammen», «blir sittende fast», «henger sammen», «treffer og blir liggende i». Dette er støttypen der **mest** kinetisk energi går tapt.\n\nMerk fellen: massen i nevneren er **summen** av massene. Å glemme det ene leddet er en klassisk regnefeil."
+    },
+    {
+      "id": "fys1001-2-3-ex-leire",
+      "type": "example",
+      "title": "Leirklump mot kloss",
+      "problem": "En leirklump med masse 0,60 kg kastes med farten 5,0 m/s mot en kloss med masse 1,4 kg som ligger i ro på et glatt bord. Leira blir sittende fast i klossen.\n\n**a)** Finn felles fart rett etter støtet.\n**b)** Finn hvor mye kinetisk energi som gikk tapt.",
+      "solution": "**Positiv retning:** samme vei som leirklumpen kastes.\n\n**a)** Fullstendig uelastisk støt, så vi bruker\n\n$$v' = \\frac{m_1v_1 + m_2v_2}{m_1 + m_2} = \\frac{0{,}60\\ \\text{kg}\\cdot 5{,}0\\ \\text{m/s} + 1{,}4\\ \\text{kg}\\cdot 0}{0{,}60\\ \\text{kg} + 1{,}4\\ \\text{kg}} = \\frac{3{,}0\\ \\text{kg}\\,\\text{m/s}}{2{,}0\\ \\text{kg}}.$$\n\n$$v' = 1{,}5\\ \\text{m/s}.$$\n\n**Svar a):** felles fart er $1{,}5$ m/s i kastretningen.\n\n**b)** Kinetisk energi før støtet (bare leira beveger seg):\n\n$$E_1 = \\tfrac12 m_1v_1^2 = \\tfrac12\\cdot 0{,}60\\ \\text{kg}\\cdot (5{,}0\\ \\text{m/s})^2 = 7{,}5\\ \\text{J}.$$\n\nKinetisk energi etter støtet (samlet masse 2,0 kg):\n\n$$E_2 = \\tfrac12 (m_1+m_2)v'^2 = \\tfrac12\\cdot 2{,}0\\ \\text{kg}\\cdot (1{,}5\\ \\text{m/s})^2 = 2{,}25\\ \\text{J}.$$\n\n$$\\Delta E = E_2 - E_1 = 2{,}25\\ \\text{J} - 7{,}5\\ \\text{J} = -5{,}25\\ \\text{J}.$$\n\n**Svar b):** $5{,}3$ J kinetisk energi gikk tapt — til deformasjon av leira, varme og lyd.\n\n**Rimelighetsvurdering:** energien er *ikke* bevart, men bevegelsesmengden er: $0{,}60\\cdot 5{,}0 = 3{,}0$ før og $2{,}0\\cdot 1{,}5 = 3{,}0$ etter. Den kontrollen bør du alltid gjøre."
+    },
+    {
+      "id": "fys1001-2-3-oppg-l3a",
+      "type": "exercise",
+      "exercise": {
+        "id": "fys1001-2-3-l3a",
+        "number": "4",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "(Sjanger B.) En vogn med masse 1,5 kg triller med 2,4 m/s bort til en vogn med masse 2,5 kg som står i ro på en tilnærmet friksjonsfri bane. Vognene kobler seg sammen.\n\n**a)** Finn felles fart etter koblingen.\n**b)** Kontroller svaret ved å regne ut bevegelsesmengden før og etter.",
+        "solution": "**a)** Positiv retning: samme vei som den rullende vogna. Fullstendig uelastisk støt:\n\n$$v' = \\frac{m_1v_1 + m_2v_2}{m_1+m_2} = \\frac{1{,}5\\ \\text{kg}\\cdot 2{,}4\\ \\text{m/s} + 0}{1{,}5\\ \\text{kg} + 2{,}5\\ \\text{kg}} = \\frac{3{,}6\\ \\text{kg}\\,\\text{m/s}}{4{,}0\\ \\text{kg}} = 0{,}90\\ \\text{m/s}.$$\n\n**Svar a):** felles fart er $0{,}90$ m/s.\n\n**b)** Før: $p = 1{,}5\\ \\text{kg}\\cdot 2{,}4\\ \\text{m/s} = 3{,}6\\ \\text{kg}\\,\\text{m/s}$.\nEtter: $p' = 4{,}0\\ \\text{kg}\\cdot 0{,}90\\ \\text{m/s} = 3{,}6\\ \\text{kg}\\,\\text{m/s}$.\n\nLike store, som de skal være. Kontrollen tar ti sekunder og avslører nesten alle regnefeil i denne oppgavetypen.",
+        "hints": [
+          "Hvilken støttype er det når vognene kobler seg sammen?",
+          "Husk at massen etter støtet er summen av de to massene.",
+          "Skriv opp leddet for vogna i ro, og sett det til null."
+        ]
+      }
+    },
+    {
+      "id": "fys1001-2-3-oppg-l3b",
+      "type": "exercise",
+      "exercise": {
+        "id": "fys1001-2-3-l3b",
+        "number": "5",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "(Sjanger B — baklengs variant.) En pil med masse 0,080 kg skytes vannrett inn i en trekloss med masse 1,92 kg som ligger i ro på et friksjonsfritt underlag. Pila blir sittende, og kloss og pil glir videre med farten 0,60 m/s.\n\nFinn farten pila hadde rett før den traff.",
+        "solution": "Positiv retning: samme vei som pila flyr.\n\nFullstendig uelastisk støt. Bevaring gjennom støtet:\n\n$$m_1v_1 + m_2\\cdot 0 = (m_1+m_2)v'.$$\n\n$$0{,}080\\ \\text{kg}\\cdot v_1 = (0{,}080 + 1{,}92)\\ \\text{kg}\\cdot 0{,}60\\ \\text{m/s} = 2{,}00\\ \\text{kg}\\cdot 0{,}60\\ \\text{m/s} = 1{,}20\\ \\text{kg}\\,\\text{m/s}.$$\n\n$$v_1 = \\frac{1{,}20\\ \\text{kg}\\,\\text{m/s}}{0{,}080\\ \\text{kg}} = 15\\ \\text{m/s}.$$\n\n**Svar:** pila hadde farten $15$ m/s rett før den traff.\n\n**Rimelighetsvurdering:** pila er 25 ganger lettere enn klossen, så farten må bli mange ganger større enn 0,60 m/s. 15 m/s er en fornuftig fart for en pil fra en enkel bue.\n\nDenne «baklengs»-regningen er første halvdel av havarikommisjon-varianten du driller i [kap. 2.4](/bok/fys1001/fys1001-2-4).",
+        "hints": [
+          "Sett opp bevaringsligningen med den ukjente farten på venstre side.",
+          "Massen etter støtet er summen av pil og kloss.",
+          "Løs ligningen for $v_1$ til slutt — ikke sett inn tall før oppsettet står."
+        ]
+      }
+    },
+    {
+      "id": "fys1001-2-3-lokke4",
+      "type": "text",
+      "content": "## Løkke 4: Elastisk eller uelastisk — og hvor mye gikk tapt? *(~12 min)*\n\nBevegelsesmengden er alltid bevart gjennom støtet. Kinetisk energi er det bare noen ganger — og forskjellen har eget navn."
+    },
+    {
+      "id": "fys1001-2-3-def-elastisk",
+      "type": "definition",
+      "title": "Elastisk og uelastisk støt",
+      "content": "- **Elastisk støt:** den kinetiske energien er den samme før og etter, $\\sum \\tfrac12 mv^2 = \\sum \\tfrac12 mv'^2$. Legemene spretter fra hverandre uten varig deformasjon. Biljardkuler og stålkuler kommer nær; på atomnivå er støt ofte helt elastiske.\n- **Uelastisk støt:** noe kinetisk energi går tapt til deformasjon, varme og lyd. Bevegelsesmengden er fremdeles bevart.\n- **Fullstendig uelastisk støt:** grensetilfellet der legemene følges at etterpå. Her går det **mest** mulig tapt, gitt at bevegelsesmengden skal bevares.\n\n**Slik klassifiserer du:** regn ut samlet kinetisk energi før og etter. Er de like, er støtet elastisk; er den mindre etterpå, er det uelastisk. Svar aldri bare «uelastisk» — vis regnestykket, det er der poengene ligger."
+    },
+    {
+      "id": "fys1001-2-3-def-relativt-tap",
+      "type": "definition",
+      "title": "Relativt energitap",
+      "content": "Spør oppgaven om *andelen* energi som gikk tapt, regner du\n\n$$\\frac{E_2 - E_1}{E_1},$$\n\nder $E_1$ er samlet kinetisk energi før støtet og $E_2$ etter. Brøken blir negativ ved tap, og svaret oppgis gjerne som «$70\\ \\%$ av den kinetiske energien gikk tapt».\n\n**Nevneren er startenergien.** Å dele på $E_2$ er en klassisk feil som gir et for stort tall. Og husk: den tapte energien er ikke borte — den er blitt til indre energi (varme) i materialene."
+    },
+    {
+      "id": "fys1001-2-3-ex-skoyte",
+      "type": "example",
+      "title": "Klassifisering og relativt energitap",
+      "problem": "To skøyteløpere glir mot hverandre på isen. Løper A har masse 68 kg og farten 3,0 m/s mot høyre; løper B har masse 55 kg og farten 2,0 m/s mot venstre. De griper tak i hverandre og fortsetter sammen.\n\n**a)** Finn farten rett etter, med retning.\n**b)** Var støtet elastisk? Begrunn.\n**c)** Hvor stor andel av den kinetiske energien gikk tapt?",
+      "solution": "**Positiv retning:** mot høyre.\n\n**a)** Fullstendig uelastisk støt:\n\n$$p_{\\text{før}} = 68\\ \\text{kg}\\cdot(+3{,}0\\ \\text{m/s}) + 55\\ \\text{kg}\\cdot(-2{,}0\\ \\text{m/s}) = 204 - 110 = 94\\ \\text{kg}\\,\\text{m/s}.$$\n\n$$v' = \\frac{94\\ \\text{kg}\\,\\text{m/s}}{(68+55)\\ \\text{kg}} = \\frac{94}{123}\\ \\text{m/s} = 0{,}764\\ \\text{m/s}.$$\n\n**Svar a):** de glir videre med $0{,}76$ m/s **mot høyre** (positivt fortegn, altså samme vei som A gikk).\n\n**b)** Kinetisk energi før:\n\n$$E_1 = \\tfrac12\\cdot 68\\cdot 3{,}0^2 + \\tfrac12\\cdot 55\\cdot 2{,}0^2 = 306\\ \\text{J} + 110\\ \\text{J} = 416\\ \\text{J}.$$\n\nKinetisk energi etter:\n\n$$E_2 = \\tfrac12\\cdot 123\\ \\text{kg}\\cdot (0{,}764\\ \\text{m/s})^2 = 35{,}9\\ \\text{J}.$$\n\n$E_2$ er langt mindre enn $E_1$, så støtet er **uelastisk** — faktisk fullstendig uelastisk, siden løperne følges at etterpå. Energien har gått til deformasjon av klær og kropper, til varme og til lyd.\n\n**c)**\n\n$$\\frac{E_2 - E_1}{E_1} = \\frac{35{,}9 - 416}{416} = \\frac{-380}{416} = -0{,}914.$$\n\n**Svar c):** om lag $91\\ \\%$ av den kinetiske energien gikk tapt.\n\n**Rimelighetsvurdering:** når to legemer med nesten like store og motsatt rettede bevegelsesmengder henger sammen, blir sluttfarten liten, og nesten all kinetisk energi forsvinner. At tapet er så høyt som 91 %, er derfor akkurat som ventet."
+    },
+    {
+      "id": "fys1001-2-3-oppg-l4a",
+      "type": "exercise",
+      "exercise": {
+        "id": "fys1001-2-3-l4a",
+        "number": "6",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "(Sjanger B.) To kuler støter sammen på en luftputebenk. Før støtet har kule 1 masse 0,20 kg og farten 4,0 m/s mot høyre, mens kule 2 har masse 0,30 kg og ligger i ro. Etter støtet måles kule 1 til 0,80 m/s **mot venstre** og kule 2 til 3,2 m/s mot høyre.\n\n**a)** Kontroller at bevegelsesmengden er bevart.\n**b)** Avgjør med regning om støtet er elastisk.",
+        "solution": "**Positiv retning:** mot høyre. Kule 1 har altså $v_1' = -0{,}80$ m/s etter støtet.\n\n**a)** Før: $p = 0{,}20\\ \\text{kg}\\cdot 4{,}0\\ \\text{m/s} + 0 = 0{,}80\\ \\text{kg}\\,\\text{m/s}$.\n\nEtter:\n\n$$p' = 0{,}20\\ \\text{kg}\\cdot(-0{,}80\\ \\text{m/s}) + 0{,}30\\ \\text{kg}\\cdot(+3{,}2\\ \\text{m/s}) = -0{,}16 + 0{,}96 = 0{,}80\\ \\text{kg}\\,\\text{m/s}.$$\n\nLike store — bevegelsesmengden er bevart.\n\n**b)** Kinetisk energi før:\n\n$$E_1 = \\tfrac12\\cdot 0{,}20\\cdot 4{,}0^2 = 1{,}60\\ \\text{J}.$$\n\nKinetisk energi etter:\n\n$$E_2 = \\tfrac12\\cdot 0{,}20\\cdot 0{,}80^2 + \\tfrac12\\cdot 0{,}30\\cdot 3{,}2^2 = 0{,}064\\ \\text{J} + 1{,}536\\ \\text{J} = 1{,}60\\ \\text{J}.$$\n\n$E_1 = E_2$, altså er **støtet elastisk**: den kinetiske energien er bevart.\n\n**Merk:** i energiregnskapet kvadreres farten, så minustegnet på $-0{,}80$ m/s forsvinner. Retningen betyr noe for bevegelsesmengden, men ikke for energien.",
+        "hints": [
+          "Velg positiv retning, og sett inn negativ fart for kula som spretter tilbake.",
+          "Regn ut $p$ før og etter, og sammenlign.",
+          "For klassifiseringen: sammenlign samlet $\\tfrac12 mv^2$ før og etter.",
+          "Husk at farten kvadreres i energiuttrykket."
+        ]
+      }
+    },
+    {
+      "id": "fys1001-2-3-oppg-l4b",
+      "type": "exercise",
+      "exercise": {
+        "id": "fys1001-2-3-l4b",
+        "number": "7",
+        "type": "classic",
+        "difficulty": "vanskelig",
+        "task": "(Sjanger B — **krevende**.) En kloss med masse 3,0 kg glir med farten 2,0 m/s mot høyre og treffer en kloss med masse 1,0 kg som glir med 1,0 m/s mot venstre. Klossene henger sammen etter støtet. Underlaget er tilnærmet friksjonsfritt.\n\n**a)** Finn farten etter støtet, med retning.\n**b)** Finn den relative endringen i kinetisk energi.\n**c)** En medstudent hevder at et fullstendig uelastisk støt alltid gir 100 % energitap. Vurder påstanden ut fra svaret ditt.",
+        "solution": "**Positiv retning:** mot høyre.\n\n**a)**\n\n$$p_{\\text{før}} = 3{,}0\\ \\text{kg}\\cdot(+2{,}0\\ \\text{m/s}) + 1{,}0\\ \\text{kg}\\cdot(-1{,}0\\ \\text{m/s}) = 6{,}0 - 1{,}0 = 5{,}0\\ \\text{kg}\\,\\text{m/s}.$$\n\n$$v' = \\frac{5{,}0\\ \\text{kg}\\,\\text{m/s}}{4{,}0\\ \\text{kg}} = 1{,}25\\ \\text{m/s}.$$\n\n**Svar a):** klossene glir videre med $1{,}3$ m/s mot høyre.\n\n**b)**\n\n$$E_1 = \\tfrac12\\cdot 3{,}0\\cdot 2{,}0^2 + \\tfrac12\\cdot 1{,}0\\cdot 1{,}0^2 = 6{,}0\\ \\text{J} + 0{,}50\\ \\text{J} = 6{,}50\\ \\text{J},$$\n\n$$E_2 = \\tfrac12\\cdot 4{,}0\\ \\text{kg}\\cdot (1{,}25\\ \\text{m/s})^2 = 3{,}125\\ \\text{J}.$$\n\n$$\\frac{E_2 - E_1}{E_1} = \\frac{3{,}125 - 6{,}50}{6{,}50} = -0{,}519.$$\n\n**Svar b):** om lag $52\\ \\%$ av den kinetiske energien gikk tapt.\n\n**c)** Påstanden er **feil**. Et fullstendig uelastisk støt gir det *største mulige* tapet som er forenlig med at bevegelsesmengden bevares — men ikke 100 %. Her sitter klossene igjen med 3,1 J fordi den samlede bevegelsesmengden er $5{,}0\\ \\text{kg}\\,\\text{m/s}$ og *må* være det etterpå; da kan ikke farten være null.\n\nFullt tap (100 %) er bare mulig i det spesialtilfellet der den samlede bevegelsesmengden er null før støtet — for eksempel to like tunge legemer som møtes med like store farter.",
+        "hints": [
+          "Sett inn negativ fart for klossen som går mot venstre.",
+          "Etter støtet er massen summen av de to.",
+          "I b): nevneren i det relative tapet er den samlede kinetiske energien FØR støtet.",
+          "I c): kan sluttfarten være null når den samlede bevegelsesmengden er forskjellig fra null?"
+        ]
+      }
+    },
+    {
+      "id": "fys1001-2-3-lokke5",
+      "type": "text",
+      "content": "## Løkke 5: Kraftstøt — hvorfor kollisjonsputer virker *(~10 min)*\n\nTil slutt en kvalitativ innsikt som går igjen som «forklar hvorfor»-deloppgave, og som følger direkte av Newtons 2. lov."
+    },
+    {
+      "id": "fys1001-2-3-def-kraftstot",
+      "type": "definition",
+      "title": "Kraftstøt (impuls)",
+      "content": "Newtons 2. lov kan skrives om til å handle om bevegelsesmengde. Virker en kraft $F$ i tidsrommet $\\Delta t$, er\n\n$$F\\,\\Delta t = \\Delta p = m v' - m v.$$\n\nProduktet $F\\Delta t$ kalles **kraftstøtet** eller impulsen. Sagt i ord: **endringen i bevegelsesmengde bestemmes av kraften ganger tiden den virker.**\n\nLøser vi for kraften, får vi den formen som brukes i sikkerhetsargumenter:\n\n$$F = \\frac{\\Delta p}{\\Delta t}.$$\n\nEr $\\Delta p$ gitt av situasjonen, blir kraften mindre jo lengre tid stansen tar."
+    },
+    {
+      "id": "fys1001-2-3-def-kollisjonspute",
+      "type": "definition",
+      "title": "Hvorfor kollisjonsputer og knesoner virker",
+      "content": "En bil som stopper i en kollisjon, har en bestemt endring i bevegelsesmengde $\\Delta p = mv$ — den er gitt av massen og farten, og kan ikke reduseres av noen sikkerhetsanordning.\n\nDet sikkerhetsutstyret *kan* gjøre, er å strekke ut **tiden** stansen tar. Kollisjonspute, bilbelte med strammer og deformasjonssoner i karosseriet forlenger $\\Delta t$ fra noen få hundredels sekund til noen tideler. Siden $F = \\Delta p/\\Delta t$, faller kraften tilsvarende.\n\nSamme mekanisme forklarer hvorfor du bøyer knærne når du lander, hvorfor en fallende telefon overlever på teppe, og hvorfor fallskjermhoppere ruller ved landing. Alle sammen: **samme $\\Delta p$, lengre $\\Delta t$, mindre $F$.**"
+    },
+    {
+      "id": "fys1001-2-3-ex-kollisjon",
+      "type": "example",
+      "title": "Kollisjonsputen i tall",
+      "problem": "En bil med fører har samlet masse $1{,}2\\cdot 10^{3}$ kg og kjører i 14 m/s når den kolliderer og stopper.\n\n**a)** Finn endringen i bevegelsesmengde.\n**b)** Finn den gjennomsnittlige kraften hvis stansen tar 0,12 s.\n**c)** Finn kraften hvis kollisjonspute og deformasjonssone forlenger stansen til 0,30 s, og kommenter forskjellen.",
+      "solution": "**a)** Bilen går fra 14 m/s til null:\n\n$$|\\Delta p| = m v = 1{,}2\\cdot 10^{3}\\ \\text{kg}\\cdot 14\\ \\text{m/s} = 1{,}68\\cdot 10^{4}\\ \\text{kg}\\,\\text{m/s}.$$\n\n**b)**\n\n$$F = \\frac{|\\Delta p|}{\\Delta t} = \\frac{1{,}68\\cdot 10^{4}\\ \\text{kg}\\,\\text{m/s}}{0{,}12\\ \\text{s}} = 1{,}4\\cdot 10^{5}\\ \\text{N}.$$\n\n**c)**\n\n$$F = \\frac{1{,}68\\cdot 10^{4}\\ \\text{kg}\\,\\text{m/s}}{0{,}30\\ \\text{s}} = 5{,}6\\cdot 10^{4}\\ \\text{N}.$$\n\n**Svar:** kraften faller fra $1{,}4\\cdot 10^{5}$ N til $5{,}6\\cdot 10^{4}$ N, altså til $40\\ \\%$ — en reduksjon på $60\\ \\%$.\n\n**Kommentar:** endringen i bevegelsesmengde er nøyaktig den samme i begge tilfellene. Det eneste som er endret, er tiden. Til sammenligning er tyngden av bilen bare $1{,}2\\cdot 10^{4}$ N, så selv den reduserte kraften er nesten fem ganger bilens egen tyngde — kollisjoner er brutale også med moderne sikkerhetsutstyr."
+    },
+    {
+      "id": "fys1001-2-3-oppg-l5",
+      "type": "exercise",
+      "exercise": {
+        "id": "fys1001-2-3-l5",
+        "number": "8",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "(Sjanger Q — kvalitativ. Svar i 2–4 setninger.) En mobiltelefon som mistes fra samme høyde, overlever som regel fallet på et teppe, men knuser mot et steingulv.\n\nForklar forskjellen med begreper fra dette kapitlet.",
+        "solution": "Telefonen har samme fart — og dermed samme endring i bevegelsesmengde $\\Delta p$ — i det den treffer, uansett underlag. Forskjellen ligger i tiden stansen tar.\n\nTeppet gir etter og strekker stansen ut over en lengre tid $\\Delta t$, mens steingulvet stopper telefonen nesten momentant. Siden $F = \\Delta p/\\Delta t$, blir kraften på telefonen mye mindre mot teppet.\n\n**Konklusjon:** det er ikke farten, men stansetiden, som avgjør hvor stor kraften blir — og dermed om skjermen sprekker.",
+        "hints": [
+          "Er endringen i bevegelsesmengde forskjellig i de to tilfellene?",
+          "Hva er det underlaget faktisk endrer?",
+          "Bruk sammenhengen $F = \\Delta p/\\Delta t$ i svaret."
+        ]
+      }
+    },
+    {
+      "id": "fys1001-2-3-warn-typiske-feil",
+      "type": "warning",
+      "title": "Typiske feil",
+      "content": "Feilene under har egne numre i bokas samlede feilregister (feilkatalogen i kapittel 8.1) — nummeret er bare en etikett du kan slå opp på senere.\n\n- **Feil #9 — anta at kinetisk energi er bevart i et uelastisk støt.** Bevegelsesmengden er alltid bevart gjennom støtet; energien er det bare i elastiske støt. Å sette $\\sum\\tfrac12 mv^2 = \\sum\\tfrac12 mv'^2$ i et sammenkoblingsstøt gir feil svar.\n- **«Bevare» bevegelsesmengden gjennom hele forløpet.** Bevaringen gjelder bare gjennom selve støtet, der ytre krefter kan neglisjeres. Utenfor støtet er det energiregnskapet med friksjon som gjelder.\n- **Fortegnsfeil ved motsatt rettede farter.** Velg positiv retning, skriv den ned, og sett inn minustegn konsekvent.\n- **Glemme det ene leddet i samlet masse.** Etter et fullstendig uelastisk støt er massen $m_1 + m_2$, ikke bare den ene.\n- **Regne relativt energitap av feil referanse.** Nevneren er den kinetiske energien **før** støtet.\n- **Legge sammen bevegelsesmengder som om de var energier.** Bevegelsesmengde har retning og kan trekkes fra; kinetisk energi har ikke retning og legges alltid sammen.\n- **Svare «uelastisk» uten regning.** Klassifiseringen skal begrunnes med et energiregnskap.\n- **Svar uten enhet.** Enheten for bevegelsesmengde er kg·m/s."
+    },
+    {
+      "id": "fys1001-2-3-begrepsbank-tekst",
+      "type": "text",
+      "content": "## Begrepsbank\n\nDette er flashcard-/repetisjonsstoff — hopp trygt over ved førstegangslesing; tidsanslaget gjelder kjernestoffet."
+    },
+    {
+      "id": "fys1001-2-3-bb-indre-ytre",
+      "type": "definition",
+      "title": "Indre og ytre krefter",
+      "content": "**Indre** krefter er krefter legemene i systemet utøver på hverandre. De opptrer alltid i par etter Newtons 3. lov og endrer aldri systemets samlede bevegelsesmengde.\n\n**Ytre** krefter kommer utenfra (friksjon fra underlaget, tyngden, luftmotstand) og *kan* endre den samlede bevegelsesmengden. Bevaringssetningen gjelder derfor bare når summen av ytre krefter er neglisjerbar — noe den er i det korte tidsrommet et støt varer."
+    },
+    {
+      "id": "fys1001-2-3-bb-rekyl",
+      "type": "definition",
+      "title": "Rekyl og eksplosjon — støtet baklengs",
+      "content": "Skyter du en pil fra en båt, eller sprenger en rakett fra hverandre, gjelder nøyaktig samme regnskap som i et støt — bare motsatt vei i tid. Starter alt i ro, er den samlede bevegelsesmengden null både før og etter:\n\n$$0 = m_1v_1' + m_2v_2'.$$\n\nDa må $v_1'$ og $v_2'$ ha motsatt fortegn: den lette delen får stor fart, den tunge liten. Det er derfor et gevær rykker bakover og en båt sklir bakover når du hopper fra den."
+    },
+    {
+      "id": "fys1001-2-3-bb-p-vs-ek",
+      "type": "definition",
+      "title": "Bevegelsesmengde og kinetisk energi — to ulike regnskap",
+      "content": "$p = mv$ har **retning** og kan være negativ; bidrag i motsatt retning trekkes fra hverandre. $E_k = \\tfrac12 mv^2$ har **ingen** retning og er alltid positiv; bidrag legges alltid sammen.\n\nKonsekvens: to legemer som møtes med like store, motsatt rettede bevegelsesmengder, har samlet $p = 0$, men samlet $E_k$ som er større enn null. Derfor kan de stoppe helt i et støt uten at noen bevaringslov brytes — energien blir til varme."
+    },
+    {
+      "id": "fys1001-2-3-bb-massesenter",
+      "type": "definition",
+      "title": "Farten etter et fullstendig uelastisk støt",
+      "content": "Uttrykket\n\n$$v' = \\frac{m_1v_1 + m_2v_2}{m_1 + m_2}$$\n\ner et **vektet gjennomsnitt** av de to fartene, med massene som vekter. Det gir en rask rimelighetskontroll: sluttfarten må alltid ligge mellom $v_1$ og $v_2$, og nærmest farten til den tyngste massen.\n\nFår du en sluttfart som er større enn begge startfartene, har du regnefeil."
+    },
+    {
+      "id": "fys1001-2-3-bb-todim",
+      "type": "definition",
+      "title": "Støt i to dimensjoner *(bør kjenne til)*",
+      "content": "I virkelige kollisjoner beveger legemene seg ofte i ulike retninger. Da er bevegelsesmengden bevart **komponentvis**: hver av de to retningene får sin egen ligning.\n\nDette er ikke kjernestoff i FYS1001 — arkivets støtoppgaver er praktisk talt alltid endimensjonale, også når de er kledd som «to biler i kryss» (da er den ene bilens bevegelse langs den aktuelle aksen null). Det holder å vite at utvidelsen finnes."
+    },
+    {
+      "id": "fys1001-2-3-bb-stotkjeden",
+      "type": "definition",
+      "title": "Støt-kjeden i tre faser",
+      "content": "Den faste eksamensresepten, som du driller i sin helhet i [kap. 2.4](/bok/fys1001/fys1001-2-4):\n\n1. **Før støtet:** finn farten inn mot kollisjonen med energiregnskapet — typisk $v = \\sqrt{2gh}$ ned en rampe eller en pendel.\n2. **Gjennom støtet:** bruk bevaring av bevegelsesmengde, $\\sum mv = \\sum mv'$.\n3. **Etter støtet:** bruk energiregnskapet igjen, $\\tfrac12 mv'^2 = R\\cdot s$, til å finne stopplengden.\n\nDet avgjørende er å holde verktøyene i riktig fase. Energibevaring *i* støtet og bevegelsesmengde-bevaring *utenfor* det er de to feilene som koster mest."
+    },
+    {
+      "id": "fys1001-2-3-bb-relativ-fart",
+      "type": "definition",
+      "title": "Relativ fart i elastiske støt *(bør kjenne til)*",
+      "content": "For et elastisk støt i én dimensjon gjelder en fin kontrollregel: farten legemene nærmer seg hverandre med før støtet, er like stor som farten de fjerner seg fra hverandre med etterpå:\n\n$$v_1 - v_2 = -(v_1' - v_2').$$\n\nRegelen følger av de to bevaringslovene til sammen og er nyttig som rask kontroll av et svar. Den er ikke kjernestoff i FYS1001 — arkivets støtoppgaver er nesten alltid uelastiske — men den avslører raskt om et «elastisk» svar er konsistent."
+    },
+    {
+      "id": "fys1001-2-3-rep",
+      "type": "collapsible",
+      "title": "Rask repetisjon",
+      "buttonText": "Vis repetisjon",
+      "content": [
+        {
+          "id": "fys1001-2-3-rep-text",
+          "type": "text",
+          "content": "## Rask repetisjon av kapittel 2.3\n\n**Bevegelsesmengde**\n\n$$p = mv \\qquad [\\,\\text{kg}\\,\\text{m/s}\\,]$$\n\nVektor: velg positiv retning, sett inn minustegn for motsatt vei.\n\n**Bevaring — gjennom støtet, og bare der**\n\n$$m_1v_1 + m_2v_2 = m_1v_1' + m_2v_2'$$\n\nFullstendig uelastisk: $v' = \\dfrac{m_1v_1 + m_2v_2}{m_1+m_2}$.\n\n**Klassifisering**\n\nRegn samlet $E_k$ før og etter. Like → elastisk. Mindre etterpå → uelastisk. Relativt tap: $\\dfrac{E_2-E_1}{E_1}$, med **startenergien** i nevneren.\n\n**Kraftstøt**\n\n$$F\\,\\Delta t = \\Delta p \\quad\\Longrightarrow\\quad F = \\frac{\\Delta p}{\\Delta t}$$\n\nSamme $\\Delta p$, lengre $\\Delta t$, mindre $F$ — hele forklaringen på kollisjonsputer.\n\n**Fire kontroller før du leverer**\n\n1. Står valgt positiv retning i besvarelsen?\n2. Er $p$ før lik $p$ etter i regnestykket ditt?\n3. Ligger sluttfarten mellom de to startfartene?\n4. Er enheten kg·m/s på bevegelsesmengder og J på energier?"
+        }
+      ]
+    },
+    {
+      "id": "fys1001-2-3-symbolliste",
+      "type": "collapsible",
+      "title": "Symbol- og formelliste",
+      "buttonText": "Vis symboler og formler",
+      "content": [
+        {
+          "id": "fys1001-2-3-symbolliste-text",
+          "type": "text",
+          "content": "## Symbol- og formelliste\n\n*Oppslagsverk — alt her forklares underveis i kapitlet.*\n\nAlle symboler og formler i delkapittel 2.3. I **dette** delkapitlet betyr $E$ alltid **energi** (i Del 5 brukes bokstaven om elektrisk feltstyrke), $R$ betyr **friksjonskraft** (i kretskapitlene betyr $R$ resistans), og $p$ betyr **bevegelsesmengde** (i Del 3 og 4 betyr $p$ trykk).\n\n| Symbol | Betydning | SI-enhet |\n|---|---|---|\n| $p$ | **Bevegelsesmengde** i dette delkapitlet, $p = mv$ | kg·m/s |\n| $m$, $m_1$, $m_2$ | Masse, og massene til de to legemene | kg |\n| $v$, $v_1$, $v_2$ | Fart før støtet | m/s |\n| $v'$, $v_1'$, $v_2'$ | Fart etter støtet (merket med apostrof) | m/s |\n| $E_k$ | Kinetisk energi | J |\n| $E_1$, $E_2$ | Samlet kinetisk energi før og etter støtet | J |\n| $\\Delta E$ | Endring i kinetisk energi, $E_2 - E_1$ | J |\n| $\\Delta p$ | Endring i bevegelsesmengde | kg·m/s |\n| $F$ | Gjennomsnittlig kraft under støtet | N |\n| $\\Delta t$ | Tiden støtet eller stansen varer | s |\n| $R = \\mu N$ | Friksjonskraft (i fasene utenfor støtet) | N |\n| $\\mu$ | Friksjonstall | enhetsløst |\n| $g$ | Tyngdeakselerasjonen, $9{,}81$ | m/s² |\n\n**Formler i dette delkapitlet:**\n\n$$p = mv$$\nBevegelsesmengde. *(står på formelarket — må kunne brukes aktivt)*\n\n$$m_1v_1 + m_2v_2 = m_1v_1' + m_2v_2'$$\nBevaring av bevegelsesmengde gjennom støtet. *(står på formelarket — men oppstillingen med riktige fortegn må du gjøre selv)*\n\n$$v' = \\frac{m_1v_1 + m_2v_2}{m_1 + m_2}$$\nFelles fart etter fullstendig uelastisk støt. *(følger av bevaringsligningen — må kunne brukes aktivt)*\n\n$$E_k = \\tfrac12 mv^2$$\nKinetisk energi, brukt til klassifisering og energitap. *(står på formelarket — må kunne brukes aktivt)*\n\n$$\\frac{E_2 - E_1}{E_1}$$\nRelativt energitap i støtet. *(oppstilling — må kunne settes opp aktivt)*\n\n$$F\\,\\Delta t = \\Delta p \\quad\\Longrightarrow\\quad F = \\frac{\\Delta p}{\\Delta t}$$\nKraftstøt (impuls). *(står på formelarket — må kunne brukes aktivt, særlig kvalitativt)*\n\n$$E_1 = E_2 + R\\cdot s$$\nEnergiregnskapet, brukt i fasene før og etter støtet. *(oppstilling fra [kap. 2.2](/bok/fys1001/fys1001-2-2))*"
+        }
+      ]
+    }
+  ],
+  "exercises": []
+}
