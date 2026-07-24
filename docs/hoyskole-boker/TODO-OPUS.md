@@ -17,8 +17,8 @@ studentvolum + sterkest rammeverk først), men plukk fritt.
 
 ## A. Klare til bygging (rammeverk ferdig — bare kjør kickoff)
 
-- [ ] `exphil03` — EXPHIL03 Examen philosophicum (UiO). Størst volum av alle
-      (obligatorisk for alle UiO-studenter). Drøfting; 30 kap planlagt.
+- [x] `exphil03` — **BYGGET (i main per 24. juli 2026, 34 kap).** EXPHIL03 Examen
+      philosophicum (UiO). Størst volum av alle (obligatorisk for alle UiO-studenter).
 - [x] `psy1010` — **BYGGET 11. juli 2026** (41 kap, 548 quiz, 520 fc, BOKPORT OK,
       4 verifikatorer grønne, prod-curl 9/9, kildegrunnlag-side). Hybrid drøfting/tall;
       stort kull. NB: hybrid-valgene står i skjelettets §2.
@@ -26,8 +26,8 @@ studentvolum + sterkest rammeverk først), men plukk fritt.
       4 verifikatorer grønne, prod-curl 10/10, kildegrunnlag + markedskryss.svg).
       Regnefag; CORE-anleggs-
       modellen er bokstandard (IKKE standard produsentteori).
-- [ ] `tma4245` — TMA4245 Statistikk (NTNU). Størst NTNU-emne; husk eget
-      Python/Monte Carlo-kapittel (fast eksamensinnslag siden 2023).
+- [x] `tma4245` — **BYGGET (i main per 24. juli 2026, 44 kap).** TMA4245 Statistikk
+      (NTNU). Størst NTNU-emne; eget Python/Monte Carlo-kapittel.
 - [ ] `fys1001` — FYS1001 Innføring i fysikk (UiO). Regnefag; kvalitativ
       hverdagsfysikk-sjanger + formelark-skillet står i skjelettet.
 - [ ] `econ2310` — ECON2310 Makroøkonomi 2 (UiO). Bygger videre på
@@ -38,8 +38,8 @@ studentvolum + sterkest rammeverk først), men plukk fritt.
       var pilot og følger eldre headingformat — konverter number til
       del-basert i fase 5 (wiring-skriptet håndterer det, jf. jus1111).
 
-- [ ] `mat1100` — MAT1100 Kalkulus (UiO). To treningsformer (flervalg midtveis
-      + langsvar slutteksamen); signaturoppgave-drillen i skjelettets 3.3.
+- [x] `mat1100` — **BYGGET (i main per 24. juli 2026, 42 kap).** MAT1100 Kalkulus
+      (UiO). To treningsformer (flervalg midtveis + langsvar slutteksamen).
 - [ ] `econ2130` — ECON2130 Statistikk 1 (UiO). R-integrert (2025-regimet
       hands-on med CSV); metodesignalene bærer poengene.
 
@@ -52,10 +52,10 @@ studentvolum + sterkest rammeverk først), men plukk fritt.
 
 - [ ] `fys1120` — FYS1120 Elektromagnetisme (UiO). Eget Python-spor (100 %
       siden 2018); «navngi loven» + symmetriargument er drillmål.
-- [ ] `mat111-uib` — MAT111 (UiB). Åpen bok; difflikninger/Newton/Taylor-
-      restledd-ryggrad; arkiv 2003–2020 (ærlighetsforbehold i Del 0).
-- [ ] `stk1100` — STK1100 (UiO). Pivotal-kjeden som ryggrad; ingen
-      hypotesetesting/kombinatorikk (UiO-egenart).
+- [x] `mat111-uib` — **BYGGET (i main per 24. juli 2026, 41 kap; 549 def, 528 quiz,
+      BOKPORT OK, prod-curl 13/13).** MAT111 (UiB). Åpen bok; difflikninger/Newton/Taylor.
+- [x] `stk1100` — **BYGGET (i main per 24. juli 2026, 35 kap).** STK1100 (UiO).
+      Pivotal-kjeden som ryggrad; ingen hypotesetesting/kombinatorikk (UiO-egenart).
 - [ ] `in1900` — IN1900 (UiO). Kodefag-DNA (API-lister, kodesporing);
       ODESolver post-2023-signatur; rekursjon forbudt.
 - [ ] `tdt4120` — TDT4120 (NTNU). Kortsvars-presisjon («lange svar teller
