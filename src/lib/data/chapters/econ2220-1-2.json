@@ -1,0 +1,369 @@
+{
+  "id": "econ2220-1-2",
+  "courseId": "econ2220",
+  "chapterNumber": "1.2",
+  "title": "Preferanser, nytte og indifferenskurver",
+  "description": "Preferanseaksiomer, nyttefunksjonen som rangering, monotone transformasjoner, konveksitet og MSB — begrepsgrunnlaget eksamen tester direkte.",
+  "estimatedMinutes": 45,
+  "competenceGoals": [
+    "gjøre rede for preferanseaksiomene og for hvorfor monotoni gjør at budsjettbetingelsen holder med likhet",
+    "vise at en strengt voksende omregning av nyttefunksjonen representerer samme preferanser, og at bytteviljen er uendret",
+    "regne ut den marginale substitusjonsbrøken og tolke den i enheter av det ene godet per enhet av det andre",
+    "finne likningen for en indifferenskurve gjennom et gitt punkt og vise konveksitet med et blandingsargument"
+  ],
+  "content": [
+    {
+      "id": "econ2220-1-2-tip-eksamensvinkel",
+      "type": "tip",
+      "title": "Eksamensvinkel",
+      "content": "Dette er begrepskapitlet — og begrepene testes direkte.\n\n- **Monotone transformasjoner** (at $v = 10u$ beskriver de samme preferansene som $u$) var eget delspørsmål i **V2024**.\n- **Konveksitet** var eget delspørsmål i **V2025-utsatt**: tegn indifferenskurven ut fra likningen, og forklar hva konvekse preferanser betyr.\n- **Den marginale substitusjonsbrøken (MSB)** skal tolkes i enheter i hver eneste nyttemaksimeringsoppgave — det vil si i **6 av 7 ordinære sett (86 %)**.\n- **Konvekse preferanser** er en egen forutsetning i 2. velferdsteorem, som er en del av temaet med 100 % frekvens i alle 11 sett.\n\nMed andre ord: dette kapitlet er ikke oppvarming. Det er tre til fire deloppgaver i året. Ferdigheten har **høyeste prioritet** — den må sitte."
+    },
+    {
+      "id": "econ2220-1-2-forkunnskaper",
+      "type": "text",
+      "content": "**Forkunnskaper.**\n\n- **[Kap. 1.1](/bok/econ2220/econ2220-1-1)** — særlig notasjonsstandarden ($c_1, c_2$ for konsum, $p_1, p_2$ for priser, $m$ for inntekt) og skillet mellom å postulere en kurve og å utlede den.\n- **Sist du var her** fikk du to formler du bruker igjen med en gang: budsjettbetingelsen $p_1c_1 + p_2c_2 = m$ og observasjonen at etterspørselen er løsningen av et maksimeringsproblem. Selve maksimeringen kommer i [kap. 1.3](/bok/econ2220/econ2220-1-3) — her bygger vi målfunksjonen den skal maksimere.\n- **Matematikk:** derivasjon av potens- og logaritmefunksjoner. Partiell derivasjon forklares fra bunnen i løkke 3 nedenfor, så du trenger den ikke på forhånd."
+    },
+    {
+      "id": "econ2220-1-2-intro",
+      "type": "text",
+      "content": "Du står foran to handlekurver på et bord. I den ene ligger fire kilo laks og ni kilo poteter; i den andre ni kilo laks og fire kilo poteter. Du får velge én. Du nøler litt, og sier så: «Egentlig er de like gode for meg.»\n\nDen setningen er alt du trenger for å komme i gang med dette kapitlet. Den sier ingenting om hvor lykkelig du blir — bare at du **rangerer** de to kurvene likt. Hele konsumentteorien i ECON2220 er bygget på slike rangeringer, og på tre spørsmål: hvilke rangeringer er fornuftige å tillate, hvordan skriver vi dem som en funksjon, og hva ser rangeringen ut som i et diagram?\n\nVi tar de tre i tur og orden."
+    },
+    {
+      "id": "econ2220-1-2-lokke1",
+      "type": "text",
+      "content": "## Løkke 1 — Preferanser og de forutsetningene vi faktisk trenger (~8 min)\n\nUtgangspunktet er ikke tall, men en **rangering**: gitt to godekurver kan konsumenten si hvilken hun foretrekker, eller at hun er likegyldig. Vi skriver «kurv $X$ er minst like god som kurv $Y$» og bygger alt annet på det.\n\nFor at rangeringen skal være til å regne med, kreves to ting:\n\n- **Fullstendighet:** for hvilke som helst to kurver kan konsumenten rangere dem. Ingen kombinasjon får svaret «vet ikke».\n- **Transitivitet:** foretrekker hun $X$ framfor $Y$, og $Y$ framfor $Z$, så foretrekker hun $X$ framfor $Z$. Uten dette kunne hun gå i ring og aldri velge.\n\nTo andre egenskaper er ikke logiske krav, men antakelser vi gjør fordi de passer godene vi studerer:\n\n- **Monotoni** («mer er bedre»): mer av et gode, uten mindre av det andre, er bedre. Denne antakelsen er grunnen til at budsjettbetingelsen alltid holder med **likhet** — det er aldri optimalt å la penger stå ubrukt når mer alltid er bedre.\n- **Lokalt umettelige preferanser:** hvor liten omegn vi enn ser på rundt en kurv, finnes det en kurv der som er strengt bedre. Dette er en svakere variant av «mer er bedre», og det er nettopp denne varianten som dukker opp i forutsetningslisten til velferdsteoremene i [kap. 4.3](/bok/econ2220/econ2220-4-3). Merk deg navnet nå; du får bruk for det."
+    },
+    {
+      "id": "econ2220-1-2-def-godekurv",
+      "type": "definition",
+      "title": "Godekurv (varekurv)",
+      "content": "**En bestemt kombinasjon av mengder av godene, skrevet $(c_1, c_2)$ — for eksempel fire kilo laks og ni kilo poteter.**\n\nKonsumentteorien rangerer godekurver, ikke enkeltgoder. Det er derfor spørsmålet «liker du laks?» er uinteressant i modellen, mens «foretrekker du $(4,9)$ framfor $(9,4)$?» er nøyaktig det vi bygger på. En godekurv kalles også en varekurv eller en konsumkurv."
+    },
+    {
+      "id": "econ2220-1-2-def-preferanserelasjon",
+      "type": "definition",
+      "title": "Preferanserelasjon",
+      "content": "**Konsumentens rangering av alle godekurver: for hvert par av kurver sier relasjonen om den ene er minst like god som den andre.**\n\nRelasjonen er modellens primitive størrelse — den er ikke utledet av noe annet. Nyttefunksjonen kommer *etterpå*, som en praktisk måte å skrive rangeringen med tall. Rekkefølgen er viktig for å forstå hvorfor nyttetall ikke måler noe: de er bare merkelapper på en rangering som fantes først."
+    },
+    {
+      "id": "econ2220-1-2-def-fullstendighet",
+      "type": "definition",
+      "title": "Fullstendighet",
+      "content": "**Kravet om at konsumenten kan rangere hvilke som helst to godekurver mot hverandre — ingen par er «ikke sammenliknbare».**\n\nSammen med transitivitet er dette det som gjør preferansene *rasjonelle* i økonomisk forstand. Fullstendighet er en antakelse om at valget alltid er mulig, ikke en påstand om at det er lett."
+    },
+    {
+      "id": "econ2220-1-2-def-transitivitet",
+      "type": "definition",
+      "title": "Transitivitet",
+      "content": "**Kravet om at rangeringen er konsistent: er $X$ minst like god som $Y$, og $Y$ minst like god som $Z$, så er $X$ minst like god som $Z$.**\n\nUten transitivitet kunne konsumenten foretrekke $X$ framfor $Y$, $Y$ framfor $Z$ og $Z$ framfor $X$ — og da finnes ingen beste kurv å velge. Transitivitet er også det argumentet som viser at indifferenskurver ikke kan krysse hverandre (se løkke 4)."
+    },
+    {
+      "id": "econ2220-1-2-def-monotoni",
+      "type": "definition",
+      "title": "Monotone preferanser («mer er bedre»)",
+      "content": "**Antakelsen om at en godekurv med mer av minst ett gode, og ikke mindre av noe, er strengt bedre.**\n\nKonsekvensen vi bruker hele tiden: budsjettbetingelsen holder med **likhet**, $p_1c_1 + p_2c_2 = m$. Var det bedre å ha penger til overs, ville ulikhet vært mulig — men når mer alltid er bedre, brukes hele budsjettet. Denne begrunnelsen skal du skrive ut i besvarelsen din første gang du setter opp budsjettet."
+    },
+    {
+      "id": "econ2220-1-2-def-lokalt-umettelig",
+      "type": "definition",
+      "title": "Lokalt umettelige preferanser",
+      "content": "**Antakelsen om at det i hver omegn rundt en godekurv, uansett hvor liten, finnes en kurv konsumenten strengt foretrekker.**\n\nEgenskapen er svakere enn monotoni: den tillater at mer av *ett* bestemt gode kan være dårlig, så lenge det finnes en eller annen liten endring som forbedrer. Den er tilstrekkelig for de resultatene vi trenger, og det er denne varianten som står i forutsetningslisten for velferdsteoremene ([kap. 4.3](/bok/econ2220/econ2220-4-3)). Navnet er verdt å kunne: å ramse opp forutsetningene presist er selvstendige poeng på eksamen."
+    },
+    {
+      "id": "econ2220-1-2-oppg-1",
+      "type": "exercise",
+      "exercise": {
+        "id": "econ2220-1-2-e1",
+        "number": "1",
+        "type": "classic",
+        "difficulty": "lett",
+        "task": "(Innstegsoppgave — ren gjengivelse med egne ord.)\n\n**a)** Forklar med egne ord hva fullstendighet og transitivitet betyr, og hvorfor en konsument uten transitive preferanser ikke kan velge en beste kurv.\n**b)** Hvilken av antakelsene i denne løkka er grunnen til at vi alltid skriver budsjettbetingelsen med likhetstegn?",
+        "solution": "**a)** *Fullstendighet* betyr at konsumenten kan rangere hvilket som helst par av godekurver: hun kan alltid si at den ene er minst like god som den andre. *Transitivitet* betyr at rangeringen henger sammen — foretrekker hun $X$ framfor $Y$ og $Y$ framfor $Z$, må hun foretrekke $X$ framfor $Z$.\n\nUten transitivitet kan hun havne i en ring: $X$ bedre enn $Y$, $Y$ bedre enn $Z$, men $Z$ bedre enn $X$. Da finnes ingen kurv som er minst like god som alle de andre, og «velg det beste du har råd til» er ikke et problem med en løsning.\n\n**b)** **Monotoni** — «mer er bedre». Når mer av et gode alltid er bedre, er det aldri optimalt å la deler av budsjettet stå ubrukt, og budsjettbetingelsen holder derfor med likhet: $p_1c_1 + p_2c_2 = m$.",
+        "hints": [
+          "Tenk på hva som skjer hvis noen sier «jeg vet ikke» (fullstendighet) eller går i ring (transitivitet).",
+          "Til b): hvilken antakelse handler om at mer er bedre, og hva gjør det med penger som står ubrukt?"
+        ]
+      }
+    },
+    {
+      "id": "econ2220-1-2-lokke2",
+      "type": "text",
+      "content": "## Løkke 2 — Nyttefunksjonen er en rangering, ikke en måling (~10 min)\n\nEn **nyttefunksjon** $u(c_1,c_2)$ er en praktisk måte å skrive rangeringen: den gir hver godekurv et tall, slik at kurver konsumenten foretrekker, får høyere tall. Det er alt den gjør.\n\nDette er lettere sagt enn trodd, så vi sier det skarpt: **tallene betyr ingenting i seg selv.** At $u = 8$ og $u' = 4$, betyr at den første kurven er bedre — ikke at den er «dobbelt så god». Nytte er *ordinal* (en rangering), ikke *kardinal* (en måling med enheter som kroner eller kilo). Det finnes ingen enhet nytte måles i.\n\nKonsekvensen er stor og eksamensrelevant: **enhver strengt voksende omregning av nyttetallene beskriver de samme preferansene.** Erstatt $u$ med $v = 10u$, eller med $v = \\ln u$, eller med $v = u^3$: rangeringen mellom to kurver er uendret, fordi en strengt voksende funksjon aldri bytter om på rekkefølgen. En slik omregning kalles en **monoton transformasjon**."
+    },
+    {
+      "id": "econ2220-1-2-def-nyttefunksjon",
+      "type": "definition",
+      "title": "Nyttefunksjon",
+      "content": "**En funksjon $u(c_1,c_2)$ som gir hver godekurv et tall, slik at kurven med høyest tall er den konsumenten foretrekker.**\n\nNyttefunksjonen er et regneverktøy for rangeringen, ikke en måling av opplevd velvære. To kurver med samme nyttetall er kurver konsumenten er likegyldig mellom. Alle nyttefunksjonene i denne boka er derfor helt fritt valgt blant dem som gir riktig rangering — og som regel velger vi den formen som er enklest å derivere."
+    },
+    {
+      "id": "econ2220-1-2-def-ordinal",
+      "type": "definition",
+      "title": "Ordinal nytte",
+      "content": "**Egenskapen at bare rekkefølgen av nyttetallene har innhold, ikke tallenes størrelse eller avstanden mellom dem.**\n\nMotsetningen er *kardinal* nytte, der forskjellen mellom 8 og 4 skulle bety noe («dobbelt så mye lykke»). ECON2220 bruker ordinal nytte gjennomgående. Praktisk konsekvens: du kan aldri sammenlikne nyttetall mellom to *personer*, og du kan aldri legge dem sammen. Det er nettopp derfor velferdsvurderingen i Del 4 bruker Pareto-kriteriet — som bare krever rangering per person — og ikke summer av nytte."
+    },
+    {
+      "id": "econ2220-1-2-def-monoton-transformasjon",
+      "type": "definition",
+      "title": "Monoton transformasjon",
+      "content": "**En omregning $v = g(u)$ der $g$ er strengt voksende. Da representerer $v$ nøyaktig de samme preferansene som $u$.**\n\nBegrunnelsen er kort og bør stå i besvarelsen: en strengt voksende $g$ bevarer rangeringen, siden $u(X) > u(Y)$ gir $g(u(X)) > g(u(Y))$ for alle kurver $X$ og $Y$. Eksempler: $v = 10u$, $v = u + 7$, $v = \\ln u$ (for $u > 0$), $v = u^3$. Testet direkte i V2024. **Merk:** $v = u^2$ er bare strengt voksende der $u > 0$ — er $u$ negativ noe sted, snur kvadreringen rangeringen, og transformasjonen er ikke gyldig."
+    },
+    {
+      "id": "econ2220-1-2-ex-1",
+      "type": "example",
+      "title": "Eksempel 1: Tre nyttefunksjoner, samme konsument",
+      "problem": "En konsument har nyttefunksjonen $u(c_1,c_2) = c_1c_2$. Vis at $v = \\ln(c_1c_2)$ og $w = (c_1c_2)^2$ representerer de samme preferansene, og at de tre funksjonene gir *ulike* marginalnytter men *samme* byttevilje mellom godene.",
+      "solution": "**Steg 1: rangeringen.** Både $\\ln$ og kvadrering av et positivt tall er strengt voksende funksjoner. Med $c_1, c_2 > 0$ er $u = c_1c_2 > 0$, så\n\n$$u(X) > u(Y) \\;\\Longleftrightarrow\\; \\ln u(X) > \\ln u(Y) \\;\\Longleftrightarrow\\; u(X)^2 > u(Y)^2.$$\n\nAlle tre funksjonene rangerer altså godekurvene likt, og beskriver samme konsument.\n\n**Steg 2: marginalnyttene er ulike.** Vi deriverer med hensyn på $c_1$ (og holder $c_2$ fast):\n\n$$u'_1 = c_2, \\qquad v'_1 = \\frac{1}{c_1}, \\qquad w'_1 = 2c_1c_2^2.$$\n\nI punktet $(2,5)$ blir tallene $5$, $0{,}5$ og $2 \\cdot 2 \\cdot 25 = 100$. Helt forskjellige tall — som viser at *marginalnytte* ikke er en observerbar størrelse med et bestemt tallnivå.\n\n**Steg 3: bytteviljen er den samme.** Regn forholdet mellom marginalnyttene for hver funksjon:\n\n$$\\frac{u'_1}{u'_2} = \\frac{c_2}{c_1}, \\qquad \\frac{v'_1}{v'_2} = \\frac{1/c_1}{1/c_2} = \\frac{c_2}{c_1}, \\qquad \\frac{w'_1}{w'_2} = \\frac{2c_1c_2^2}{2c_1^2c_2} = \\frac{c_2}{c_1}.$$\n\nAlle tre gir $c_2/c_1$. Det er ikke tilfeldig: for $v = g(u)$ er $v'_1 = g'(u)u'_1$ og $v'_2 = g'(u)u'_2$ — faktoren $g'(u)$ står i både teller og nevner og forsvinner.\n\n**Tolkning i enheter:** forholdet $c_2/c_1$ sier hvor mange enheter av vare 2 konsumenten er villig til å gi fra seg for å få én enhet mer av vare 1. I punktet $(2,5)$ er det $2{,}5$ enheter av vare 2 per enhet vare 1. Det tallet er uavhengig av hvilken av de tre nyttefunksjonene vi bruker — og det er derfor det, og ikke marginalnyttene hver for seg, som havner i tilpasningsbetingelsen på eksamen."
+    },
+    {
+      "id": "econ2220-1-2-oppg-2",
+      "type": "exercise",
+      "exercise": {
+        "id": "econ2220-1-2-e2",
+        "number": "2",
+        "type": "classic",
+        "difficulty": "lett",
+        "task": "(Sjangeren fra V2024 — monotone transformasjoner.) En konsument har nyttefunksjonen $u(c_1,c_2) = c_1^{0{,}25}c_2^{0{,}75}$.\n\n**a)** Vis at $v = 4\\ln u$ representerer de samme preferansene, og skriv $v$ ut på formen «konstant ganger $\\ln c_1$ pluss konstant ganger $\\ln c_2$».\n**b)** Er $v = 6 - u$ en gyldig monoton transformasjon? Begrunn.",
+        "solution": "**a)** Funksjonen $g(u) = 4\\ln u$ er strengt voksende for $u > 0$: den deriverte er $g'(u) = 4/u > 0$. Rangeringen bevares derfor, og $v$ representerer samme preferanser som $u$.\n\nSkriver vi den ut med logaritmeregler:\n\n$$v = 4\\ln\\left(c_1^{0{,}25}c_2^{0{,}75}\\right) = 4\\left(0{,}25\\ln c_1 + 0{,}75\\ln c_2\\right) = \\ln c_1 + 3\\ln c_2.$$\n\nPotensformen og logaritmeformen er altså samme preferanser — et poeng du får bruk for i [kap. 2.2](/bok/econ2220/econ2220-2-2), der begge formene skal beherskes.\n\n**b)** Nei. $g(u) = 6 - u$ har $g'(u) = -1 < 0$, altså strengt **avtakende**. Den snur rangeringen: kurven konsumenten liker best, får lavest $v$-verdi. En slik funksjon beskriver preferansene til en konsument med motsatt smak, ikke den samme konsumenten.",
+        "hints": [
+          "En transformasjon er gyldig når $g$ er strengt voksende — sjekk fortegnet på $g'(u)$.",
+          "Til a): bruk regelen $\\ln(a^k) = k\\ln a$ på hver faktor."
+        ]
+      }
+    },
+    {
+      "id": "econ2220-1-2-oppg-3",
+      "type": "exercise",
+      "exercise": {
+        "id": "econ2220-1-2-e3",
+        "number": "3",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "(Krevende — grensen for hva som er en gyldig transformasjon.) En konsument har nyttefunksjonen $u = \\ln c_1 + \\ln c_2$.\n\n**a)** Regn ut $u$ i punktene $(1;\\,0{,}5)$ og $(1;\\,2)$. Hvilken kurv foretrekkes?\n**b)** Regn ut $v = u^2$ i de samme to punktene. Hva skjer med rangeringen?\n**c)** Hva er lærdommen om når $v = u^2$ kan brukes som monoton transformasjon?",
+        "solution": "**a)** $u(1;\\,0{,}5) = \\ln 1 + \\ln 0{,}5 = 0 - 0{,}693 = -0{,}693$, og $u(1;\\,2) = 0 + 0{,}693 = 0{,}693$. Kurven $(1;\\,2)$ har høyest nytte og foretrekkes — som den skal, siden den inneholder mer av vare 2 og like mye av vare 1.\n\n**b)** $v(1;\\,0{,}5) = (-0{,}693)^2 = 0{,}480$ og $v(1;\\,2) = (0{,}693)^2 = 0{,}480$. De to kurvene får **samme** $v$-verdi. Rangeringen er ødelagt: en funksjon som skal representere disse preferansene, må gi $(1;\\,2)$ strengt høyest verdi.\n\n**c)** $g(u) = u^2$ er strengt voksende bare for $u > 0$; for $u < 0$ er den strengt avtakende. Transformasjonen er derfor gyldig **kun når nyttefunksjonen er positiv over hele det området vi ser på**. For $u = c_1^ac_2^{1-a}$ (som alltid er positiv når godene er positive) er kvadrering greit; for $u = \\ln c_1 + \\ln c_2$ (som er negativ når produktet $c_1c_2 < 1$) er den ikke det.\n\nRegelen å skrive i besvarelsen: sjekk at $g$ er strengt voksende **på verdiområdet til $u$**, ikke bare et sted.",
+        "hints": [
+          "Regn ut tallene før du konkluderer — her er det tallene som avslører problemet.",
+          "$\\ln$ av et tall mellom 0 og 1 er negativ. Hva gjør kvadrering med negative tall?"
+        ]
+      }
+    },
+    {
+      "id": "econ2220-1-2-lokke3",
+      "type": "text",
+      "content": "## Løkke 3 — Marginalnytte og den marginale substitusjonsbrøken (~12 min)\n\nFor å regne trenger vi å kunne si hvor mye nytten endres når vi øker det ene godet litt. Det er en **partiell derivasjon**: deriver med hensyn på $c_1$ og behandle $c_2$ som en konstant. Resultatet kalles **marginalnytten** av vare 1 og skrives $u'_1$ (noen skriver $\\partial u/\\partial c_1$ — det er samme sak).\n\nEtt eksempel før definisjonen: for $u = c_1^{1/2}c_2^{1/2}$ er\n\n$$u'_1 = \\frac{1}{2}c_1^{-1/2}c_2^{1/2}, \\qquad u'_2 = \\frac{1}{2}c_1^{1/2}c_2^{-1/2}.$$\n\nI den første deriverte er $c_2^{1/2}$ bare en konstant faktor; i den andre er $c_1^{1/2}$ det.\n\nSom vi så i eksempel 1, er tallnivået på marginalnyttene meningsløst alene. Det som har innhold, er **forholdet** mellom dem:\n\n$$\\text{MSB} = \\frac{u'_1}{u'_2}.$$\n\nDette er den **marginale substitusjonsbrøken** (på engelsk *marginal rate of substitution*, MRS — vi bruker den norske forkortelsen i hele boka). For $u = c_1^{1/2}c_2^{1/2}$ blir den $c_2/c_1$: bytt inn tallene i formlene over, forkort $\\tfrac12$ og potensene, og du står igjen med $c_2/c_1$.\n\n**Tolkningen, som må stå i hvert svar:** MSB forteller hvor mange enheter av vare 2 konsumenten maksimalt er villig til å gi fra seg for å få **én enhet mer av vare 1**, uten å komme dårligere ut. Er MSB $= 3$ og godene er kilo laks og kilo poteter, er hun villig til å gi tre kilo poteter for én kilo laks til. Legg merke til enhetene: MSB måles i *enheter av vare 2 per enhet vare 1* — det er en byttekurs mellom to varer, ikke en kroneverdi.\n\nSensor krever nettopp denne setningen. Å skrive «MSB er forholdet mellom marginalnyttene» er å gjenta formelen, og det er feil **#2** i bokas feilregister — den nummererte lista over tabber sensor trekker for."
+    },
+    {
+      "id": "econ2220-1-2-def-partiell",
+      "type": "definition",
+      "title": "Partiell derivasjon og marginalnytte",
+      "content": "**Marginalnytten av vare 1, skrevet $u'_1$, er den partielle deriverte av nyttefunksjonen med hensyn på $c_1$: deriver som vanlig og behandle $c_2$ som en konstant.**\n\nTilsvarende for $u'_2$. Med monotone preferanser er begge marginalnyttene positive. Tallnivået på en marginalnytte har ikke selvstendig innhold, siden en monoton transformasjon kan endre det fritt — men *forholdet* mellom de to er uavhengig av transformasjonen, og det er derfor forholdet som brukes i all optimering."
+    },
+    {
+      "id": "econ2220-1-2-def-msb",
+      "type": "definition",
+      "title": "Marginal substitusjonsbrøk (MSB)",
+      "content": "**MSB $= u'_1/u'_2$: hvor mange enheter av vare 2 konsumenten maksimalt er villig til å gi fra seg for å få én enhet mer av vare 1, uten å komme dårligere ut.**\n\nGeometrisk er MSB tallverdien av helningen på indifferenskurven i punktet. Størrelsen måles i enheter av vare 2 per enhet vare 1, og den er en egenskap ved **punktet**, ikke ved konsumenten generelt: samme person har ulik MSB i ulike godekurver. Blandes MSB sammen med prisforholdet $p_1/p_2$ før optimum er etablert, mister man hele poenget med tilpasningsbetingelsen — de to er like bare i optimum."
+    },
+    {
+      "id": "econ2220-1-2-ex-2",
+      "type": "example",
+      "title": "Eksempel 2: MSB for en fiskehandels kunde",
+      "problem": "En kunde kjøper laks ($c_1$, i kilo) og poteter ($c_2$, i kilo), og har nyttefunksjonen $u(c_1,c_2) = c_1^{2/3}c_2^{1/3}$. Finn MSB som funksjon av godekurven, regn den ut i punktene $(8,8)$ og $(16,2)$, og tolk begge tallene i enheter.",
+      "solution": "**Steg 1: marginalnyttene.** Deriver partielt:\n\n$$u'_1 = \\frac{2}{3}c_1^{-1/3}c_2^{1/3}, \\qquad u'_2 = \\frac{1}{3}c_1^{2/3}c_2^{-2/3}.$$\n\n**Steg 2: forholdet.** Del den første på den andre:\n\n$$\\text{MSB} = \\frac{u'_1}{u'_2} = \\frac{\\tfrac{2}{3}c_1^{-1/3}c_2^{1/3}}{\\tfrac{1}{3}c_1^{2/3}c_2^{-2/3}} = 2 \\cdot c_1^{-1/3-2/3}c_2^{1/3+2/3} = \\frac{2c_2}{c_1}.$$\n\n**Steg 3: tall og tolkning.**\n\n- I $(8,8)$: MSB $= 2 \\cdot 8/8 = 2$. Kunden er villig til å gi fra seg **to kilo poteter for én kilo laks til**. Hun har like mye av begge, men vekter laks tyngst i preferansene (eksponenten $2/3$), så laks er verdt mer på marginen.\n- I $(16,2)$: MSB $= 2 \\cdot 2/16 = 0{,}25$. Nå er hun bare villig til å gi fra seg **et kvart kilo poteter for én kilo laks til**. Hun har mye laks og nesten ingen poteter, så de få potetene hun har, er blitt svært verdifulle for henne.\n\n**Mønsteret å ta med:** når $c_1$ øker og $c_2$ faller, synker MSB. Det er **avtakende MSB**, og det er den matematiske siden av at godekurven blir mer og mer ubalansert. Vi ser i løkke 5 at dette er nøyaktig det samme som at preferansene er konvekse.\n\n**Figur i ord (bestilt som figur til dette kapitlet):** i et diagram med $c_1$ vannrett og $c_2$ loddrett tegnes en fallende, konveks kurve. I et punkt til venstre på kurven er tangenten bratt (stor MSB), i et punkt til høyre er den slak (liten MSB). Tallverdien av tangentens helning **er** MSB i punktet, og at tangenten blir slakere mot høyre, er avtakende MSB."
+    },
+    {
+      "id": "econ2220-1-2-oppg-4",
+      "type": "exercise",
+      "exercise": {
+        "id": "econ2220-1-2-e4",
+        "number": "4",
+        "type": "classic",
+        "difficulty": "lett",
+        "task": "(Regning + tolkning — grunnferdigheten.) En konsument har nyttefunksjonen $u(c_1,c_2) = c_1^{0{,}5}c_2^{0{,}5}$, der $c_1$ er antall kinobilletter og $c_2$ er antall kaffekopper i måneden.\n\n**a)** Finn de to marginalnyttene og MSB.\n**b)** Regn ut MSB i punktet $(5, 20)$ og tolk tallet i enheter.\n**c)** Blir MSB annerledes dersom vi i stedet bruker $v = \\ln c_1 + \\ln c_2$? Begrunn uten å regne alt på nytt.",
+        "solution": "**a)** $u'_1 = 0{,}5c_1^{-0{,}5}c_2^{0{,}5}$ og $u'_2 = 0{,}5c_1^{0{,}5}c_2^{-0{,}5}$. Forholdet blir\n\n$$\\text{MSB} = \\frac{0{,}5c_1^{-0{,}5}c_2^{0{,}5}}{0{,}5c_1^{0{,}5}c_2^{-0{,}5}} = \\frac{c_2}{c_1}.$$\n\n**b)** I $(5,20)$: MSB $= 20/5 = 4$. Konsumenten er villig til å gi fra seg **fire kaffekopper for én kinobillett til** — hun har mye kaffe og få kinobilletter, så billetten er verdt mye på marginen.\n\n**c)** Nei. $v = \\ln c_1 + \\ln c_2 = \\ln(c_1c_2)$, og $u = (c_1c_2)^{0{,}5}$, så $v = 2\\ln u$ — en strengt voksende omregning av $u$, altså en monoton transformasjon. Marginalnyttene blir andre tall ($v'_1 = 1/c_1$), men forholdet er uendret: $v'_1/v'_2 = (1/c_1)/(1/c_2) = c_2/c_1$, som er samme MSB.",
+        "hints": [
+          "Deriver partielt: hold det andre godet fast som en konstant.",
+          "Til b): sett inn tallene, og si hva enheten på svaret er — kopper per billett.",
+          "Til c): hva er sammenhengen mellom $\\ln(c_1c_2)$ og $(c_1c_2)^{0{,}5}$?"
+        ]
+      }
+    },
+    {
+      "id": "econ2220-1-2-oppg-5",
+      "type": "exercise",
+      "exercise": {
+        "id": "econ2220-1-2-e5",
+        "number": "5",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "(MSB mot prisforhold — fella som koster poeng.) En konsument har MSB $= 3c_2/c_1$ i punktet hun befinner seg i, og står overfor prisene $p_1 = 40$ og $p_2 = 20$.\n\n**a)** Regn ut MSB i godekurven $(6, 4)$.\n**b)** Hvor mange enheter av vare 2 må hun gi fra seg i markedet for å få én enhet mer av vare 1?\n**c)** Sammenlikn de to tallene fra a) og b), og forklar i ord — uten å bruke Lagrange — hvorfor hun kan komme bedre ut ved å endre kurven sin.",
+        "solution": "**a)** MSB $= 3 \\cdot 4/6 = 2$. Hun er villig til å gi fra seg to enheter av vare 2 for én enhet mer av vare 1.\n\n**b)** Markedets bytteforhold er $p_1/p_2 = 40/20 = 2$ enheter av vare 2 per enhet vare 1: selger hun to enheter av vare 2, får hun $2 \\cdot 20 = 40$ kroner, som er nøyaktig prisen på én enhet av vare 1.\n\n**c)** De to tallene er **like** — hennes byttevilje er nøyaktig lik markedets bytteforhold. Da finnes det ingen byttehandel som gjør henne bedre: vil hun ha én enhet mer av vare 1, må hun gi fra seg to enheter av vare 2, som er akkurat det hun maksimalt var villig til å gi. Hun er altså i en tilpasning der ingen liten omdisponering hjelper.\n\n**Merk hva som ville vært svaret hvis tallene var ulike:** var MSB $= 3$ mens prisforholdet var $2$, ville hun vært villig til å gi tre enheter av vare 2 for én enhet vare 1, men markedet krever bare to. Da kjøper hun mer av vare 1 og kommer strengt bedre ut. Det er dette resonnementet som ligger under tilpasningsbetingelsen i [kap. 2.1](/bok/econ2220/econ2220-2-1) — her har du sett det i ord først.",
+        "hints": [
+          "Sett inn tallene i uttrykket for MSB før du sammenlikner med noe.",
+          "Prisforholdet $p_1/p_2$ har samme enhet som MSB: enheter av vare 2 per enhet vare 1.",
+          "Spør: hva er hun villig til å gi, og hva krever markedet? Sammenlikn de to tallene."
+        ]
+      }
+    },
+    {
+      "id": "econ2220-1-2-lokke4",
+      "type": "text",
+      "content": "## Løkke 4 — Indifferenskurver og likningen for dem (~10 min)\n\nEn **indifferenskurve** samler alle godekurver konsumenten er likegyldig mellom — altså alle $(c_1,c_2)$ med samme nyttenivå $\\bar u$. Åpningsbildet i dette kapitlet, de to handlekurvene med fire og ni kilo, var to punkter på samme indifferenskurve.\n\nKurven har tre egenskaper du skal kunne begrunne, ikke bare hevde:\n\n1. **Den faller mot høyre** når begge goder er goder (monotoni): skal du få mer av vare 1 og være like godt fornøyd, må du gi fra seg noe av vare 2.\n2. **Kurver på ulike nyttenivåer kan ikke krysse hverandre.** Antar vi at de krysset i et punkt $X$: da ville $X$ ligget på begge kurvene, og alle punkter på den ene kurven ville vært like gode som $X$, som igjen er like god som alle punkter på den andre. Ved **transitivitet** måtte da alle punktene på begge kurvene være like gode — men kurvene skulle representere ulike nyttenivåer. Motsigelse.\n3. **Tallverdien av helningen er MSB** i punktet. Det følger av at nytten holdes fast langs kurven: gir du fra seg $\\Delta c_2$ og får $\\Delta c_1$, må tapet og gevinsten i nytte veie hverandre opp.\n\nDen ferdigheten eksamen faktisk ba om i V2025-utsatt, er å **løse indifferenskurve-likningen for $c_2$**. Oppskriften er mekanisk: sett $u(c_1,c_2) = \\bar u$, der $\\bar u$ er nyttenivået i det punktet oppgaven gir deg, og løs ut $c_2$."
+    },
+    {
+      "id": "econ2220-1-2-def-indifferenskurve",
+      "type": "definition",
+      "title": "Indifferenskurve",
+      "content": "**Mengden av alle godekurver som gir samme nyttenivå: løsningene av $u(c_1,c_2) = \\bar u$ for en gitt verdi $\\bar u$.**\n\nKonsumenten er likegyldig mellom alle punkter på samme kurve. Kurvene faller mot høyre når begge goder er goder, de kan ikke krysse hverandre (transitivitet), og tallverdien av helningen i et punkt er MSB der. Et indifferenskurvekart er en samling slike kurver, der kurver lenger ut fra origo har høyere nytte."
+    },
+    {
+      "id": "econ2220-1-2-def-indifferenslikning",
+      "type": "definition",
+      "title": "Indifferenskurve-likningen løst for $c_2$",
+      "content": "**Uttrykket $c_2$ som funksjon av $c_1$ langs en gitt indifferenskurve, funnet ved å sette $u(c_1,c_2) = \\bar u$ og løse for $c_2$.**\n\nFramgangsmåten i tre steg: (1) regn ut nyttenivået $\\bar u$ i punktet oppgaven oppgir, (2) sett funksjonen lik dette nivået, (3) løs ut $c_2$. For $u = c_1^ac_2^b$ blir resultatet $c_2 = (\\bar u/c_1^a)^{1/b}$. Ferdigheten ble testet direkte i V2025-utsatt, sammen med kravet om å forklare hva konveksitet betyr."
+    },
+    {
+      "id": "econ2220-1-2-ex-3",
+      "type": "example",
+      "title": "Eksempel 3: Kurven gjennom et gitt punkt",
+      "problem": "En konsument har nyttefunksjonen $u(c_1,c_2) = c_1^{1/2}c_2^{1/2}$. Finn likningen for indifferenskurven gjennom punktet $(4,9)$, løst for $c_2$, og finn to andre punkter på kurven. Beskriv kurven i ord.",
+      "solution": "**Steg 1: nyttenivået i punktet.**\n\n$$\\bar u = 4^{1/2} \\cdot 9^{1/2} = 2 \\cdot 3 = 6.$$\n\n**Steg 2: sett funksjonen lik nivået og løs for $c_2$.**\n\n$$c_1^{1/2}c_2^{1/2} = 6 \\;\\Longrightarrow\\; (c_1c_2)^{1/2} = 6 \\;\\Longrightarrow\\; c_1c_2 = 36 \\;\\Longrightarrow\\; c_2 = \\frac{36}{c_1}.$$\n\n**Steg 3: to andre punkter.** $c_1 = 6$ gir $c_2 = 6$, og $c_1 = 9$ gir $c_2 = 4$. Kontroll: $u(6,6) = 6$ ✓ og $u(9,4) = 3 \\cdot 2 = 6$ ✓.\n\n**Figur i ord (bestilt som figur til dette kapitlet):** med $c_1$ vannrett og $c_2$ loddrett er kurven en fallende, konveks hyperbelgren gjennom punktene $(4,9)$, $(6,6)$ og $(9,4)$. Den nærmer seg begge akser uten å nå dem — mangler du helt ett gode, er nytten null, og det er et lavere nivå enn 6. Punktene merkes $A = (4,9)$ og $B = (9,4)$ med stiplede hjelpelinjer ned til aksene. Kurver lenger ut fra origo, som $c_2 = 64/c_1$, er høyere nyttenivåer.\n\n**MSB langs kurven:** MSB $= c_2/c_1$, altså $9/4 = 2{,}25$ i $A$ og $4/9 \\approx 0{,}44$ i $B$. I $A$ har hun lite av vare 1 og er villig til å gi over to enheter av vare 2 for én enhet mer; i $B$ er hun bare villig til å gi under en halv. Kurven er brattest til venstre og slakest til høyre — akkurat som tallene sier."
+    },
+    {
+      "id": "econ2220-1-2-oppg-6",
+      "type": "exercise",
+      "exercise": {
+        "id": "econ2220-1-2-e6",
+        "number": "6",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "(Sjangeren fra V2025-utsatt.) En konsument har nyttefunksjonen $u(c_1,c_2) = c_1^{2/3}c_2^{1/3}$.\n\n**a)** Finn nyttenivået i punktet $(8,8)$.\n**b)** Finn likningen for indifferenskurven gjennom dette punktet, løst for $c_2$.\n**c)** Finn to andre punkter på kurven, og beskriv kurven i ord slik du ville forklart den ved siden av en figur.",
+        "solution": "**a)** $\\bar u = 8^{2/3} \\cdot 8^{1/3} = 8^{2/3+1/3} = 8$. (Her går det raskt fordi eksponentene summerer til 1 og begge mengdene er like.)\n\n**b)** Sett funksjonen lik nivået og løs ut $c_2$:\n\n$$c_1^{2/3}c_2^{1/3} = 8 \\;\\Longrightarrow\\; c_2^{1/3} = \\frac{8}{c_1^{2/3}} \\;\\Longrightarrow\\; c_2 = \\frac{8^3}{c_1^{2}} = \\frac{512}{c_1^{2}}.$$\n\n**c)** $c_1 = 4$ gir $c_2 = 512/16 = 32$; $c_1 = 16$ gir $c_2 = 512/256 = 2$. Kontroll: $u(4,32) = 4^{2/3} \\cdot 32^{1/3} \\approx 2{,}52 \\cdot 3{,}17 = 8$ ✓ og $u(16,2) = 16^{2/3} \\cdot 2^{1/3} \\approx 6{,}35 \\cdot 1{,}26 = 8$ ✓.\n\n**Beskrivelse:** med $c_1$ vannrett og $c_2$ loddrett faller kurven bratt fra $(4,32)$, gjennom $(8,8)$, og flater ut mot $(16,2)$ og videre mot høyre. Den nærmer seg begge akser asymptotisk uten å treffe dem. Kurven er konveks — den krummer mot origo — og tallverdien av helningen (MSB $= 2c_2/c_1$) faller fra $16$ i $(4,32)$ til $2$ i $(8,8)$ og $0{,}25$ i $(16,2)$. Fordi vare 1 har den største eksponenten, er kurven brattere enn i eksempel 3: konsumenten krever mer av vare 2 i kompensasjon når hun gir fra seg vare 1.",
+        "hints": [
+          "Regn nyttenivået i punktet først — det er tallet kurven skal ha.",
+          "Til b): isolér $c_2^{1/3}$, og opphøy deretter begge sider i tredje potens.",
+          "Til c): velg to $c_1$-verdier som gir pene tall, og sett dem inn."
+        ]
+      }
+    },
+    {
+      "id": "econ2220-1-2-lokke5",
+      "type": "text",
+      "content": "## Løkke 5 — Konveksitet: blandinger er bra (~10 min)\n\nDen siste egenskapen er den som gjør at optimum blir et pent tangeringspunkt i stedet for et hjørne — og den er testet direkte.\n\n**Konvekse preferanser** betyr at konsumenten liker **blandinger**: er hun likegyldig mellom to godekurver, er en blanding av de to minst like god som hver av dem. Er blandingen strengt bedre, sier vi at preferansene er *strengt* konvekse.\n\nHverdagsanker: du er likegyldig mellom en uke med bare fisk til middag og en uke med bare kjøtt. En uke med litt av hver er da neppe verre — for de fleste er den bedre. Det er hele innholdet i konveksitet.\n\nGeometrisk ser dette slik ut: **indifferenskurven krummer mot origo**, og linjestykket mellom to punkter på kurven ligger over kurven. Og algebraisk henger det sammen med det vi alt har sett: **konveksitet svarer til avtakende MSB** langs kurven. Har du mye av vare 1 og lite av vare 2, er du lite villig til å gi mer av vare 2 for enda mer av vare 1 — som er nettopp grunnen til at blandinger vinner.\n\nSensor krever at konveksitet **vises**, ikke påstås: en figurbeskrivelse eller et blandingsargument. Å skrive «preferansene er konvekse» uten mer er feil **#3** i feilregisteret — egenskap påstått uten begrunnelse."
+    },
+    {
+      "id": "econ2220-1-2-def-konveks",
+      "type": "definition",
+      "title": "Konvekse preferanser",
+      "content": "**Preferanser der en blanding av to like gode godekurver er minst like god som hver av dem. Er blandingen strengt bedre, er preferansene strengt konvekse.**\n\nSkrevet ut: er konsumenten likegyldig mellom $X$ og $Y$, er kurven $tX + (1-t)Y$ for $0 < t < 1$ minst like god som $X$. Geometrisk krummer indifferenskurvene mot origo, og linjestykket mellom to punkter på en kurve ligger over kurven. Egenskapen svarer til avtakende MSB, og den er en **egen forutsetning i 2. velferdsteorem** ([kap. 4.3](/bok/econ2220/econ2220-4-3)) — noe som gjør den til pensum to steder."
+    },
+    {
+      "id": "econ2220-1-2-def-blandingsargument",
+      "type": "definition",
+      "title": "Blandingsargumentet",
+      "content": "**Måten konveksitet vises på uten figur: velg to godekurver med samme nyttenivå, regn ut nytten i midtpunktet mellom dem, og vis at den er høyere.**\n\nFramgangsmåten i tre steg: (1) finn to punkter $X$ og $Y$ med $u(X) = u(Y) = \\bar u$, (2) regn ut midtpunktet $M = \\tfrac12(X + Y)$ koordinat for koordinat, (3) vis at $u(M) > \\bar u$. Argumentet er et fullgodt svar der oppgaven ber deg forklare hva konveksitet betyr, og det er sterkere enn en figur fordi det er etterprøvbart med tall."
+    },
+    {
+      "id": "econ2220-1-2-def-avtakende-msb",
+      "type": "definition",
+      "title": "Avtakende MSB",
+      "content": "**Egenskapen at MSB faller når vi beveger oss mot høyre langs en indifferenskurve, altså når $c_1$ øker og $c_2$ faller.**\n\nDette er den samme egenskapen som konveksitet, sett med marginalbriller: jo mer du har av vare 1 i forhold til vare 2, jo mindre av vare 2 er du villig til å gi fra seg for enda en enhet av vare 1. Geometrisk betyr det at indifferenskurven blir slakere mot høyre — den krummer mot origo."
+    },
+    {
+      "id": "econ2220-1-2-ex-4",
+      "type": "example",
+      "title": "Eksempel 4: Konveksitet vist med tall",
+      "problem": "Vis at preferansene $u(c_1,c_2) = c_1^{2/3}c_2^{1/3}$ er strengt konvekse, ved å bruke de to punktene $(4,32)$ og $(16,2)$ fra kurven $c_2 = 512/c_1^2$.",
+      "solution": "**Steg 1: de to punktene er like gode.** Vi vet fra kurven at $u(4,32) = u(16,2) = 8$.\n\n**Steg 2: regn ut midtpunktet.** Blandingen med like vekt på hver:\n\n$$M = \\left(\\frac{4+16}{2}, \\frac{32+2}{2}\\right) = (10, 17).$$\n\n**Steg 3: regn ut nytten i midtpunktet.**\n\n$$u(10,17) = 10^{2/3} \\cdot 17^{1/3} \\approx 4{,}64 \\cdot 2{,}57 \\approx 11{,}93.$$\n\nSiden $11{,}93 > 8$, er blandingen **strengt bedre** enn hver av de to kurvene den er blandet av. Preferansene er strengt konvekse.\n\n**Hvorfor tallet blir så mye høyere:** de to opprinnelige kurvene er svært ubalanserte — den ene har åtte ganger så mye av vare 2 som vare 1, den andre motsatt. Blandingen er nesten balansert, og med Cobb-Douglas-preferanser er balanserte kurver langt bedre enn skjeve. Det er nøyaktig innholdet i «blandinger er bra».\n\n**Figur i ord:** i diagrammet ligger $(4,32)$ høyt oppe til venstre og $(16,2)$ nede til høyre, begge på indifferenskurven $c_2 = 512/c_1^2$. Det rette linjestykket mellom dem ligger **over** kurven på hele strekningen, og midtpunktet $(10,17)$ ligger godt over — på en høyere indifferenskurve. At kordelen ligger over kurven, er den geometriske versjonen av regnestykket."
+    },
+    {
+      "id": "econ2220-1-2-oppg-7",
+      "type": "exercise",
+      "exercise": {
+        "id": "econ2220-1-2-e7",
+        "number": "7",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "(Konveksitet i praksis.) En konsument har nyttefunksjonen $u(c_1,c_2) = c_1^{1/2}c_2^{1/2}$, og er likegyldig mellom godekurvene $(2,18)$ og $(18,2)$.\n\n**a)** Vis at de to kurvene ligger på samme indifferenskurve.\n**b)** Bruk blandingsargumentet til å vise at preferansene er strengt konvekse.\n**c)** Forklar i ord — uten regning — hvorfor svaret i b) henger sammen med at MSB avtar langs kurven.",
+        "solution": "**a)** $u(2,18) = 2^{1/2} \\cdot 18^{1/2} = \\sqrt{36} = 6$ og $u(18,2) = \\sqrt{36} = 6$. Samme nyttenivå, altså samme indifferenskurve ($c_2 = 36/c_1$).\n\n**b)** Midtpunktet er\n\n$$M = \\left(\\frac{2+18}{2}, \\frac{18+2}{2}\\right) = (10,10),$$\n\nmed nytte $u(10,10) = \\sqrt{100} = 10 > 6$. Blandingen er strengt bedre enn hver av de to, så preferansene er strengt konvekse.\n\n**c)** I punktet $(2,18)$ har konsumenten svært lite av vare 1 og mye av vare 2, og MSB er høy ($18/2 = 9$): hun gir gjerne mange enheter av vare 2 for én enhet vare 1. I $(18,2)$ er det motsatt, og MSB er lav ($2/18 \\approx 0{,}11$). Nettopp fordi bytteviljen faller når hun får mer av vare 1, taper hun mindre enn hun vinner ved å flytte litt fra det ene ekstremet mot midten — fra begge sider. Det er derfor midten er bedre enn begge endene, og det er den samme egenskapen sett fra to kanter.",
+        "hints": [
+          "Til a): regn ut nytten i begge punktene og sammenlikn tallene.",
+          "Midtpunktet finner du koordinat for koordinat.",
+          "Til c): regn gjerne ut MSB i de to punktene for deg selv først, selv om oppgaven ber om ord."
+        ]
+      }
+    },
+    {
+      "id": "econ2220-1-2-oppg-8",
+      "type": "exercise",
+      "exercise": {
+        "id": "econ2220-1-2-e8",
+        "number": "8",
+        "type": "classic",
+        "difficulty": "vanskelig",
+        "task": "(Krevende — grensetilfellet.) En konsument har nyttefunksjonen $u(c_1,c_2) = 2c_1 + 3c_2$.\n\n**a)** Finn MSB, og forklar hva det betyr at den ikke avhenger av godekurven.\n**b)** Finn likningen for indifferenskurven gjennom $(6,4)$, løst for $c_2$, og beskriv formen.\n**c)** Er preferansene konvekse? Er de strengt konvekse? Bruk blandingsargumentet på to punkter på kurven fra b).",
+        "solution": "**a)** $u'_1 = 2$ og $u'_2 = 3$, så\n\n$$\\text{MSB} = \\frac{u'_1}{u'_2} = \\frac{2}{3}.$$\n\nMSB er **konstant**: uansett hvor mye hun har av hvert gode, er hun villig til å gi fra seg to tredjedels enhet av vare 2 for én enhet mer av vare 1. Godene er *perfekte substitutter* — de er utbyttbare til en fast kurs, som to myntstørrelser av samme valuta.\n\n**b)** Nyttenivået er $\\bar u = 2 \\cdot 6 + 3 \\cdot 4 = 24$, så\n\n$$2c_1 + 3c_2 = 24 \\;\\Longrightarrow\\; c_2 = \\frac{24 - 2c_1}{3} = 8 - \\frac{2}{3}c_1.$$\n\nKurven er en **rett linje** med helning $-2/3$, fra $(0,8)$ til $(12,0)$. Tallverdien av helningen er $2/3$, altså MSB — som stemmer med a).\n\n**c)** Ta punktene $(0,8)$ og $(12,0)$, begge med nytte 24. Midtpunktet er $(6,4)$, med nytte $2 \\cdot 6 + 3 \\cdot 4 = 24$. Blandingen er altså **like god**, ikke bedre.\n\nKonklusjonen er skarp: preferansene **er** konvekse (blandingen er minst like god), men de er **ikke strengt** konvekse (blandingen er ikke strengt bedre). Det er nettopp fordi indifferenskurven er en rett linje, som er grensetilfellet mellom å krumme mot origo og bort fra origo.\n\n**Hvorfor dette er verdt å vite:** med lineære indifferenskurver blir konsumentens optimum vanligvis et **hjørne** — hun bruker alt på det godet som er billigst per nytteenhet — i stedet for det pene tangeringspunktet. Tangeringsbetingelsen $\\text{MSB} = p_1/p_2$ forutsetter strengt konvekse preferanser, og du bør vite at antakelsen er der.",
+        "hints": [
+          "Marginalnyttene er konstanter her — det er nettopp poenget.",
+          "Til b): løs likningen $2c_1 + 3c_2 = \\bar u$ for $c_2$, og se hva slags graf det gir.",
+          "Til c): bruk endepunktene på linjestykket, og sammenlikn nytten i midtpunktet med nytten i endene."
+        ]
+      }
+    },
+    {
+      "id": "econ2220-1-2-warn-feil",
+      "type": "warning",
+      "title": "Typiske feil",
+      "content": "- **Å tro at nyttetall måler mengden velvære (kardinaltolkning).** Bare rangeringen har innhold. Skriver du at en kurv med $u = 8$ er «dobbelt så god» som en med $u = 4$, har du sagt noe modellen ikke kan si — og du har mistet poenget med monotone transformasjoner.\n- **Å påstå konveksitet uten figur eller blandingsargument.** Dette er feil **#3** i bokas feilregister, altså den nummererte listen over tabber sensor trekker for: egenskaper skal vises, ikke hevdes. Blandingsargumentet tar tre linjer og er alltid tilgjengelig.\n- **Å blande MSB og prisforholdet.** MSB $= u'_1/u'_2$ er tallverdien av helningen på **indifferenskurven** og beskriver konsumentens byttevilje. $p_1/p_2$ er tallverdien av helningen på **budsjettlinja** og beskriver markedets bytteforhold. De er like i optimum — det er hele innholdet i tilpasningsbetingelsen — men å behandle dem som samme størrelse før optimum er etablert, gjør resonnementet sirkulært.\n- **Å tro at en monoton transformasjon endrer bytteviljen.** Den endrer marginalnyttene, men ikke forholdet mellom dem: faktoren $g'(u)$ forsvinner når du deler. Etterspørselen blir også den samme.\n- **Å gjenta formelen som tolkning** (feil **#2**). «MSB er forholdet mellom marginalnyttene» er en omskrivning, ikke en tolkning. Tolkningen må nevne enhetene: så mange enheter av vare 2 per enhet vare 1.\n- **Å glemme at $g$ må være strengt voksende på hele verdiområdet til $u$.** $v = u^2$ er ikke en gyldig transformasjon når $u$ kan være negativ, som for $u = \\ln c_1 + \\ln c_2$."
+    },
+    {
+      "id": "econ2220-1-2-begrepsbank-intro",
+      "type": "text",
+      "content": "## Begrepsbank\n\nBegrepsbanken er flashcard-/repetisjonsstoff — den gjentar det du nettopp har lest. Hopp trygt over ved førstegangslesing; tidsanslaget for kapitlet gjelder kjernestoffet."
+    },
+    {
+      "id": "econ2220-1-2-def-cobb-douglas",
+      "type": "definition",
+      "title": "Cobb-Douglas-preferanser",
+      "content": "**Preferanser som kan representeres med $u = c_1^ac_2^b$, eller like godt med logaritmeformen $u = a\\ln c_1 + b\\ln c_2$.**\n\nDe to formene er samme preferanser, siden logaritmen er en monoton transformasjon. Bokas standardvalg er $b = 1 - a$, slik at eksponentene summerer til én — det gjør algebraen enklere i [kap. 2.2](/bok/econ2220/econ2220-2-2). MSB er $\\dfrac{a c_2}{b c_1}$, indifferenskurvene er konvekse hyperbelgrener som nærmer seg aksene asymptotisk, og begge goder må være til stede for at nytten skal være positiv. Dette er den funksjonsformen eksamen bruker år etter år."
+    },
+    {
+      "id": "econ2220-1-2-def-perfekte-substitutter",
+      "type": "definition",
+      "title": "Perfekte substitutter",
+      "content": "**Goder som kan byttes mot hverandre til en fast kurs, representert med lineær nytte som $u = \\alpha c_1 + \\beta c_2$.**\n\nMSB er konstant ($\\alpha/\\beta$) og uavhengig av godekurven, og indifferenskurvene er rette linjer. Preferansene er konvekse, men ikke strengt konvekse — blandinger er like gode, ikke bedre. Konsekvens: optimum er vanligvis et hjørne der konsumenten bruker alt på det godet som gir mest nytte per krone. Hører i denne boka til stoffet du **bør kjenne**, ikke til kjerneferdighetene."
+    },
+    {
+      "id": "econ2220-1-2-def-perfekte-komplementer",
+      "type": "definition",
+      "title": "Perfekte komplementer",
+      "content": "**Goder som bare er nyttige sammen, i faste forhold, representert med nytte som $u = \\min\\{c_1, c_2\\}$ — høyresko og venstresko er standardbildet.**\n\nIndifferenskurvene er L-formede med hjørnet på strålen der godene er i riktig forhold. Preferansene er konvekse, men MSB er ikke definert i hjørnet, og tangeringsbetingelsen kan ikke brukes der. Som perfekte substitutter er dette stoff du **bør kjenne** — det er nyttig for å se hvorfor de vanlige antakelsene trengs, men det har ikke båret en eksamensoppgave i arkivet."
+    },
+    {
+      "id": "econ2220-1-2-def-indifferenskart",
+      "type": "definition",
+      "title": "Indifferenskurvekart",
+      "content": "**Samlingen av alle indifferenskurvene til en konsument, tegnet i samme diagram.**\n\nKurver lenger ut fra origo representerer høyere nyttenivåer (med monotone preferanser), kurvene fyller hele godeplanet, og de kan aldri krysse hverandre. Kartet er den geometriske versjonen av hele preferanserelasjonen: alt modellen vet om konsumenten, ligger i formen og rekkefølgen på disse kurvene."
+    },
+    {
+      "id": "econ2220-1-2-def-nyttenivaa",
+      "type": "definition",
+      "title": "Nyttenivået $\\bar u$",
+      "content": "**Tallet en bestemt indifferenskurve svarer til: verdien av nyttefunksjonen i et punkt på kurven.**\n\nStreken over $u$ markerer at nivået holdes fast. Nivået brukes som mellomregning når du skal finne likningen for kurven gjennom et oppgitt punkt: regn $\\bar u$ først, sett så $u(c_1,c_2) = \\bar u$ og løs for $c_2$. Merk at nivåtallet selv er uten innhold — bytter du nyttefunksjon ved en monoton transformasjon, endres $\\bar u$, men ikke kurven."
+    },
+    {
+      "id": "econ2220-1-2-symbolliste",
+      "type": "collapsible",
+      "title": "Symbol- og formelliste",
+      "buttonText": "Vis symboler og formler",
+      "content": [
+        {
+          "id": "econ2220-1-2-symbolliste-tekst",
+          "type": "text",
+          "content": "Oppslagsverk — alt her forklares underveis i kapitlet.\n\n| Symbol | Betydning |\n|---|---|\n| $c_1, c_2$ | Konsumert mengde av vare 1 og vare 2 |\n| $(c_1,c_2)$ | En godekurv — en bestemt kombinasjon av mengder |\n| $p_1, p_2$ | Prisene på vare 1 og vare 2 |\n| $m$ | Pengeinntekt |\n| $u(c_1,c_2)$ | Nyttefunksjonen — tallmerkelappen på rangeringen |\n| $\\bar u$ | Nyttenivået til en bestemt indifferenskurve |\n| $u'_1, u'_2$ | Marginalnyttene: de partielle deriverte av $u$ med hensyn på $c_1$ og $c_2$ |\n| $v, w$ | Andre nyttefunksjoner som representerer samme preferanser |\n| $g(u)$ | Transformasjonsfunksjonen; monoton transformasjon når $g' > 0$ |\n| MSB | Marginal substitusjonsbrøk $= u'_1/u'_2$ |\n| $a, b$ | Eksponentene i Cobb-Douglas-nytten $u = c_1^ac_2^b$ |\n| $t$ | Blandingsvekt mellom to godekurver, $0 < t < 1$ |\n| $X, Y, M$ | Navn på godekurver; $M$ er blandingen av $X$ og $Y$ |\n\n**Formler i dette delkapitlet:**\n\n$$\\text{MSB} = \\frac{u'_1}{u'_2}$$\n\nDen marginale substitusjonsbrøken: hvor mange enheter av vare 2 konsumenten maksimalt vil gi fra seg for én enhet mer av vare 1. Tallverdien av helningen på indifferenskurven.\n\n$$v = g(u), \\quad g' > 0 \\;\\Longrightarrow\\; v \\text{ representerer samme preferanser som } u$$\n\nMonoton transformasjon. Marginalnyttene endres med faktoren $g'(u)$, men MSB og etterspørselen er uendret.\n\n$$u(c_1,c_2) = \\bar u \\;\\Longrightarrow\\; c_2 = \\dots$$\n\nIndifferenskurve-likningen: regn nyttenivået i det oppgitte punktet, sett funksjonen lik nivået, løs for $c_2$. For $u = c_1^ac_2^b$ blir svaret $c_2 = (\\bar u/c_1^a)^{1/b}$.\n\n$$u\\!\\left(\\tfrac{1}{2}X + \\tfrac{1}{2}Y\\right) > u(X) = u(Y)$$\n\nBlandingsargumentet: er nytten i midtpunktet høyere enn i endepunktene, er preferansene strengt konvekse.\n\n$$\\text{MSB} = \\frac{a c_2}{b c_1} \\quad \\text{for } u = c_1^ac_2^b$$\n\nCobb-Douglas-MSB. Faller når $c_1$ øker og $c_2$ faller — altså avtakende MSB, som er det samme som konveksitet."
+        }
+      ]
+    }
+  ],
+  "exercises": []
+}
