@@ -1,0 +1,152 @@
+[
+  {
+    "question": "Hva er Fehr-Schmidt-nytten til en person som får $x_i$ når den andre får $x_j$?",
+    "options": [
+      "$x_i - \\alpha\\max\\{x_j-x_i,0\\} - \\beta\\max\\{x_i-x_j,0\\}$",
+      "$x_i - \\beta\\max\\{x_j-x_i,0\\} - \\alpha\\max\\{x_i-x_j,0\\}$",
+      "$x_i - \\alpha(x_j - x_i) - \\beta(x_i - x_j)$",
+      "$x_i + \\alpha\\max\\{x_j-x_i,0\\} + \\beta\\max\\{x_i-x_j,0\\}$"
+    ],
+    "explanation": "$\\alpha$ hører til leddet der hun ligger under, $\\beta$ til leddet der hun ligger over. Uten max-funksjonene ville begge leddene virket samtidig, og de ville delvis nullet hverandre ut."
+  },
+  {
+    "question": "Hvilket ledd i Fehr-Schmidt-nytten er aktivt når personen får MINDRE enn den andre?",
+    "options": [
+      "Misunnelsesleddet med $\\alpha$",
+      "Skyldleddet med $\\beta$",
+      "Begge leddene samtidig",
+      "Ingen av leddene, siden differansen er negativ"
+    ],
+    "explanation": "Er $x_j > x_i$, er $\\max\\{x_j-x_i,0\\} > 0$ og $\\max\\{x_i-x_j,0\\} = 0$. Bare ett ledd kan være positivt om gangen."
+  },
+  {
+    "question": "Med $\\alpha = 0{,}8$: hva er Fehr-Schmidt-nytten når fordelingen er $(10, 120)$?",
+    "options": [
+      "$-78$",
+      "$10$",
+      "$-88$",
+      "$-56$"
+    ],
+    "explanation": "$U = 10 - 0{,}8(120-10) = 10 - 88 = -78$. Svaret $-88$ er bare fradragsleddet, uten å legge til egen utbetaling."
+  },
+  {
+    "question": "Hva er Fehr-Schmidt-nytten ved likedeling av en pott på 130?",
+    "options": [
+      "65",
+      "0",
+      "130",
+      "39"
+    ],
+    "explanation": "Ved likedeling er begge max-ledd null, så $U_i = x_i = 65$. Det er en nyttig regnekontroll: lander du på likedeling, skal nytten være halve potten."
+  },
+  {
+    "question": "Hva er avslagsgrensen som andel av potten i ultimatumspillet?",
+    "options": [
+      "$\\dfrac{\\alpha}{1+2\\alpha}$",
+      "$\\dfrac{\\alpha}{1+\\alpha}$",
+      "$\\dfrac{\\beta}{1+2\\beta}$",
+      "$\\dfrac{2\\alpha}{1+\\alpha}$"
+    ],
+    "explanation": "$U_R = m(1+2\\alpha) - \\alpha T \\ge 0$ gir grensen. Uttrykk med $\\beta$ er feil fordi skyldleddet er null når respondenten får minst."
+  },
+  {
+    "question": "Med $\\alpha = 0{,}8$ og en pott på 130 kroner: hva er det minste tilbudet respondenten godtar?",
+    "options": [
+      "40 kroner",
+      "30 kroner",
+      "65 kroner",
+      "50 kroner"
+    ],
+    "explanation": "Grensen er $\\frac{0{,}8}{2{,}6} = \\frac{4}{13}$, og $\\frac{4}{13}\\cdot 130 = 40$. Kontroll: $40 - 0{,}8(130-80) = 0$."
+  },
+  {
+    "question": "Hvorfor inngår ikke $\\beta$ i avslagsgrensen?",
+    "options": [
+      "Fordi skyldleddet er null når respondenten får mindre enn forslagsstilleren",
+      "Fordi $\\beta$ alltid er mindre enn $\\alpha$ og derfor kan neglisjeres",
+      "Fordi respondenten ikke bryr seg om forslagsstillerens utbetaling",
+      "Fordi $\\beta$ bare gjelder i tillitsspillet og ikke i ultimatumspillet"
+    ],
+    "explanation": "Avslagsvurderingen gjelder tilbud under halvparten, der respondenten ligger under. Da er $\\beta$-leddet null uansett hvor stor $\\beta$ er."
+  },
+  {
+    "question": "Kan avslagsgrensen bli 50 prosent eller mer for noen verdi av $\\alpha$?",
+    "options": [
+      "Nei — $\\dfrac{\\alpha}{1+2\\alpha} < \\dfrac{1}{2}$ for alle $\\alpha > 0$",
+      "Ja, når $\\alpha > 1$",
+      "Ja, når $\\alpha \\to \\infty$",
+      "Ja, når $\\alpha > \\beta$"
+    ],
+    "explanation": "Nevneren $1+2\\alpha$ er strengt større enn $2\\alpha$, så brøken er strengt under en halv. Den nærmer seg 1/2 når $\\alpha$ vokser, men når den aldri."
+  },
+  {
+    "question": "Hva er prediksjonen i ultimatumspillet når BEGGE spillere er egoistiske?",
+    "options": [
+      "Forslagsstilleren beholder nesten alt, og respondenten godtar",
+      "Potten deles likt mellom de to spillerne",
+      "Respondenten avslår alle tilbud under en tredel av potten",
+      "Spillet har ingen delspill-perfekt likevekt fordi respondenten er indifferent ved null"
+    ],
+    "explanation": "Respondenten godtar alt positivt, så forslagsstilleren tilbyr minst mulig. De to variantene ($m=0$ eller minste positive enhet) avhenger av hvordan indifferansen behandles."
+  },
+  {
+    "question": "Hvorfor kaller vi den egoistiske løsningen en referanseprediksjon?",
+    "options": [
+      "Fordi den er sammenlikningsgrunnlaget som viser hva ulikhetsaversjonen endrer",
+      "Fordi den er den empirisk riktige prediksjonen i de fleste eksperimenter",
+      "Fordi den bare gjelder når potten er stor nok",
+      "Fordi den er en tilnærming som blir riktig når $\\alpha$ og $\\beta$ er små nok"
+    ],
+    "explanation": "Utledningen er korrekt gitt sin antakelse. Verdien ligger i at vi kan måle ulikhetsaversjonens virkning mot den — den er ikke «gal», bare basert på en enklere antakelse."
+  },
+  {
+    "question": "En Fehr-Schmidt-aktør fordeler en sum fritt. Når velger hun likedeling?",
+    "options": [
+      "Når $\\beta > \\tfrac{1}{2}$",
+      "Når $\\alpha > \\tfrac{1}{2}$",
+      "Alltid, siden hun misliker ulikhet",
+      "Når $\\alpha > \\beta$"
+    ],
+    "explanation": "Tar hun én krone mer, vokser forspranget med to, så skyldfradraget øker med $2\\beta$. Netto $1-2\\beta$ er negativ bare når $\\beta$ er over en halv."
+  },
+  {
+    "question": "Hva blir nettoendringen i nytten per krone en Fehr-Schmidt-aktør beholder utover halvparten, med $\\beta = 0{,}6$?",
+    "options": [
+      "$-0{,}2$",
+      "$+0{,}4$",
+      "$-0{,}6$",
+      "$+0{,}2$"
+    ],
+    "explanation": "Endringen er $1 - 2\\beta = 1 - 1{,}2 = -0{,}2$. Nytten faller, og derfor stopper hun ved likedeling."
+  },
+  {
+    "question": "I tillitsspillet har investoren 100 kroner, sender alt, og beløpet tredobles. Hva sender en Fehr-Schmidt-mottaker med $\\beta = 0{,}6$ tilbake?",
+    "options": [
+      "150 kroner",
+      "100 kroner",
+      "0 kroner",
+      "300 kroner"
+    ],
+    "explanation": "Mottakeren har 300 og investoren 0; utligning gir 150 til hver. Å sende 0 er den egoistiske løsningen."
+  },
+  {
+    "question": "Hva skjer i tillitsspillet hvis mottakeren er egoistisk?",
+    "options": [
+      "Hun sender ingenting tilbake, og investoren sender derfor ingenting",
+      "Hun sender tilbake nøyaktig det investoren sendte inn",
+      "Hun deler potten likt, siden det er delspill-perfekt",
+      "Investoren sender alt likevel, fordi tredoblingen gjør det lønnsomt"
+    ],
+    "explanation": "Baklengs induksjon: $r = 0$ er best for en egoistisk mottaker, og da taper investoren på hver krone hun sender. Tredoblingen blir aldri utnyttet."
+  },
+  {
+    "question": "Hvorfor er tilbudet på 40 kroner (av 130) troverdig avvist av respondenten om det senkes til 39?",
+    "options": [
+      "Fordi nytten av å godta blir negativ, og avslag gir nytte null",
+      "Fordi respondenten ønsker å straffe forslagsstilleren uansett beløp",
+      "Fordi respondenten ikke er rasjonell når tilbudet er lavt",
+      "Fordi forslagsstilleren da ville fått mer enn to tredeler av potten"
+    ],
+    "explanation": "$U_R(39) = 39 - 0{,}8(130-78) = -2{,}6 < 0$, mens avslag gir 0. Avslaget er altså nyttemaksimerende — trusselen er troverdig fordi utbetalingene i noden er endret."
+  }
+]

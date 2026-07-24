@@ -1,0 +1,367 @@
+{
+  "id": "econ2220-7-3",
+  "courseId": "econ2220",
+  "chapterNumber": "7.3",
+  "title": "Atferdsøkonomi: Fehr-Schmidt, ultimatum- og tillitsspill",
+  "description": "Ulikhetsaversjon i praksis: utligningslogikken, avslagsgrensen — og kontrasten mot den egoistiske prediksjonen.",
+  "estimatedMinutes": 40,
+  "competenceGoals": [
+    "kunne tolke hvert ledd i Fehr-Schmidt-nytten og avgjøre hvilket max-ledd som er aktivt",
+    "kunne utlede avslagsgrensen i ultimatumspillet og regne den ut med kursets parameterverdier",
+    "kunne vise ved regning at en ulikhetsavers aktør deler likt når skyldparameteren er over en halv",
+    "kunne løse tillitsspillet med baklengs induksjon og sammenlikne med den egoistiske referanseprediksjonen"
+  ],
+  "content": [
+    {
+      "id": "econ2220-7-3-tip-eksamensvinkel",
+      "type": "tip",
+      "title": "Eksamensvinkel — siste del av beredskapsstoffet",
+      "content": "Dette er det siste kapitlet i **beredskapsdelen**. Hele del 7 er forsikring: den står i emnebeskrivelsen (verifisert 2026) og finnes i gamle eksamenssett, men ikke i noe sett fra 2023 og framover. Er du presset på tid, hopper du over hele delen.\n\nOppgavetypen heter i denne boka **sjanger N** (spillteori og atferdsøkonomi) — sjangerbokstavene er bokas eget merkesystem for oppgavetyper, og hele listen står i [kap. 0.1](/bok/econ2220/econ2220-0-1).\n\n**Frekvens i arkivet:** ultimatum- og tillitsspill med Fehr-Schmidt-preferanser er testet i **3 av de 7 ordinære settene**, alle i perioden 2018–2022 — blant dem V2022, der ultimatumspillet var et eget punkt verdt 10 % av settet. Temaet finnes i **ingen av de 4 utsatt-settene**, og i null sett fra 2023 og framover.\n\n**Prioritet: dette bør du kjenne.** Laveste av bokas tre nivåer.\n\n**Kravene fra den gangen temaet ble testet — og det gode med dem:** de er svært forutsigbare. Kurset brukte **alltid de samme parameterverdiene**, $\\alpha = 0{,}8$ og $\\beta = 0{,}6$, og spurte i praksis om tre ting:\n\n1. Tolke hvert ledd i nyttefunksjonen.\n2. Utlede **avslagsgrensen**: hvilke tilbud en Fehr-Schmidt-mottaker sier nei til.\n3. Vise **utligningslogikken**: at en slik aktør deler potten likt — og sette dette opp mot den egoistiske prediksjonen.\n\nKapitlet tar rundt 40 minutter og er delt i fire korte løkker."
+    },
+    {
+      "id": "econ2220-7-3-forkunnskaper",
+      "type": "text",
+      "content": "**Forkunnskaper.** Dette kapitlet bygger på:\n\n- **[kap. 7.2](/bok/econ2220/econ2220-7-2)** — baklengs induksjon og delspill-perfekt likevekt. Ultimatumspillet er et dynamisk spill, og vi løser det med baklengs induksjon.\n- **[kap. 7.1](/bok/econ2220/econ2220-7-1)** — Nash-likevekt og beste svar.\n\n**Sist du var her — de to tingene du må ha ferskt:**\n\n**Baklengs induksjon:** start i den noden som ligger sist i tid, velg det som er best for den som bestemmer der, erstatt noden med utbetalingene, og gå ett steg tilbake. Resultatet er en **delspill-perfekt** likevekt.\n\n**Delspill-perfekt Nash-likevekt (SPNE):** en likevekt der strategiene er optimale i **hvert** delspill, også i de nodene som aldri nås.\n\nMatematisk trenger du bare å kunne sette opp en ulikhet og løse den for én variabel. Ingen Lagrange, ingen derivasjon av flere variabler."
+    },
+    {
+      "id": "econ2220-7-3-lokke1-head",
+      "type": "text",
+      "content": "## Løkke 1 — Nyttefunksjonen som tar hensyn til den andre (~11 min)"
+    },
+    {
+      "id": "econ2220-7-3-anker",
+      "type": "text",
+      "content": "To naboer rydder en felles strandlinje etter en storm og får 130 000 kroner i tilskudd fra kommunen for jobben. Den ene har fått ansvaret for å fordele pengene, og foreslår at hun tar 120 000 og naboen får 10 000.\n\nStandardmodellen i resten av denne boka forutsier at naboen takker ja. Ti tusen er bedre enn ingenting, og en person som bare bryr seg om sitt eget forbruk, tar det som tilbys.\n\nI virkelige eksperimenter skjer det ofte noe annet: folk sier nei. De gir avkall på penger for å hindre at den andre skal komme urimelig godt ut av det. Det er et systematisk mønster, ikke støy — og og det er dette kapitlet modellerer.\n\nModellen som gjør det, heter **Fehr-Schmidt-preferanser**, og den er faktisk overraskende enkel: den legger til to fradragsledd i nytten."
+    },
+    {
+      "id": "econ2220-7-3-def-sosiale-preferanser",
+      "type": "definition",
+      "title": "Sosiale preferanser",
+      "content": "**Sosiale preferanser** betyr at en persons nytte avhenger av hva **andre** får, ikke bare av hva hun får selv.\n\nDette bryter med standardantakelsen i resten av boka, der nytten $u(c_1, c_2)$ bare inneholder egne godemengder. Merk hva som **ikke** endres: aktøren er fortsatt fullt ut rasjonell og maksimerer sin egen nytte. Det er *innholdet* i nyttefunksjonen som er utvidet, ikke logikken.\n\nDet er en viktig presisering til eksamen: sosiale preferanser er ikke «irrasjonalitet». Det er en annen målfunksjon, behandlet med akkurat samme verktøy."
+    },
+    {
+      "id": "econ2220-7-3-def-ulikhetsaversjon",
+      "type": "definition",
+      "title": "Ulikhetsaversjon",
+      "content": "**Ulikhetsaversjon** er en form for sosiale preferanser der personen misliker **forskjeller** i utfall — både at hun får mindre enn den andre, og at hun får mer.\n\nDe to formene veier ulikt. Å ligge under den andre svir som **misunnelse**; å ligge over gir en mildere ubehagelighet som kan kalles **skyld** eller ubehag ved å ha mer.\n\nAt misunnelsen veier tyngre enn skylden, er innebygd i modellen som antakelsen $\\alpha > \\beta$. Det er en empirisk begrunnet asymmetri: folk reagerer sterkere på å bli forbigått enn på å forbigå andre."
+    },
+    {
+      "id": "econ2220-7-3-def-fehr-schmidt",
+      "type": "definition",
+      "title": "Fehr-Schmidt-nyttefunksjonen",
+      "content": "**Fehr-Schmidt-nytten** for person $i$, når hun får $x_i$ og den andre får $x_j$, er\n\n$$U_i = x_i - \\alpha\\max\\{x_j - x_i,\\, 0\\} - \\beta\\max\\{x_i - x_j,\\, 0\\},$$\n\nmed $\\alpha > \\beta \\ge 0$.\n\nDe tre leddene:\n\n- $x_i$ — **egen utbetaling**. Mer er bedre, som alltid.\n- $-\\alpha\\max\\{x_j - x_i, 0\\}$ — **misunnelsesleddet**. Aktivt bare når hun får **mindre** enn den andre, og fradraget er $\\alpha$ ganger differansen.\n- $-\\beta\\max\\{x_i - x_j, 0\\}$ — **skyldleddet**. Aktivt bare når hun får **mer** enn den andre, og fradraget er $\\beta$ ganger differansen.\n\n**Det som må sitte:** bare **ett** av de to max-leddene kan være positivt om gangen. Er hun bak, er skyldleddet null; er hun foran, er misunnelsesleddet null; er de like, er begge null og $U_i = x_i$.\n\nKurset bruker gjennomgående $\\alpha = 0{,}8$ og $\\beta = 0{,}6$."
+    },
+    {
+      "id": "econ2220-7-3-def-misunnelsesparameteren",
+      "type": "definition",
+      "title": "Misunnelsesparameteren (alfa)",
+      "content": "$\\alpha$ er **misunnelsesparameteren**: hvor mye nytte som går tapt per krone aktøren ligger **under** den andre. Med $\\alpha = 0{,}8$ koster hver krones etterslep 0,80 nyttekroner.\n\nDen virker bare når aktøren er bak — er hun foran, er misunnelsesleddet null.\n\n$\\alpha$ er den ene parameteren som bestemmer **avslagsgrensen** i ultimatumspillet (løkke 3). Jo høyere $\\alpha$, desto mer krever respondenten for å godta et tilbud."
+    },
+    {
+      "id": "econ2220-7-3-def-skyldparameteren",
+      "type": "definition",
+      "title": "Skyldparameteren (beta)",
+      "content": "$\\beta$ er **skyldparameteren**: hvor mye nytte som går tapt per krone aktøren ligger **over** den andre. Med $\\beta = 0{,}6$ koster hver krones forsprang 0,60 nyttekroner.\n\nAntakelsen $\\alpha > \\beta$ sier at det er verre å bli forbigått enn å forbigå. Antakelsen $\\beta < 1$ sikrer at hun fortsatt foretrekker mer penger til seg selv framfor mindre, alt annet likt.\n\n**Den grensen du bør merke deg:** er $\\beta > \\tfrac12$, vil aktøren aktivt gi bort penger for å utjevne. Kursets $\\beta = 0{,}6$ ligger over grensen — og det er derfor utligningslogikken i løkke 4 slår til."
+    },
+    {
+      "id": "econ2220-7-3-ex-1",
+      "type": "example",
+      "title": "Eksempel 1: nytten regnet ut i tre fordelinger",
+      "problem": "Bruk $\\alpha = 0{,}8$ og $\\beta = 0{,}6$. En pott på 130 000 kroner fordeles mellom Anne og Bjørn. Regn ut **Annes** Fehr-Schmidt-nytte i tre fordelinger, oppgitt i tusen kroner som $(x_A, x_B)$:\n\n**a)** $(10, 120)$\n\n**b)** $(65, 65)$\n\n**c)** $(120, 10)$",
+      "solution": "**a) Anne får 10, Bjørn får 120.** Anne ligger **under**, så misunnelsesleddet er aktivt og skyldleddet er null:\n\n$$U_A = 10 - 0{,}8\\,(120 - 10) - 0{,}6\\cdot 0 = 10 - 0{,}8 \\cdot 110 = 10 - 88 = -78.$$\n\nNytten er **negativ**. Det er nøkkelen til hele kapitlet: for Anne er det å motta 10 000 mens naboen tar 120 000, verre enn å ikke få noe i det hele tatt (som gir $U_A = 0$ når begge får null).\n\n**b) Begge får 65.** Ingen forskjell, så **begge** max-ledd er null:\n\n$$U_A = 65 - 0 - 0 = 65.$$\n\nVed likedeling er Fehr-Schmidt-nytten rett og slett lik egen utbetaling.\n\n**c) Anne får 120, Bjørn får 10.** Nå ligger Anne **over**, så skyldleddet er aktivt og misunnelsesleddet er null:\n\n$$U_A = 120 - 0{,}8 \\cdot 0 - 0{,}6\\,(120 - 10) = 120 - 0{,}6 \\cdot 110 = 120 - 66 = 54.$$\n\n**Sammenlikn de tre.** Nytten er $-78$, $65$ og $54$. Legg merke til rekkefølgen: Anne foretrekker **likedelingen framfor å ta det store stykket** ($65 > 54$). Det er ikke en trykkfeil, det er en direkte konsekvens av at $\\beta = 0{,}6$ er større enn $\\tfrac12$: hver krone hun tar utover halvparten, øker forspranget med to kroner, og skyldfradraget på $0{,}6 \\cdot 2 = 1{,}2$ nyttekroner overstiger den ene kronen hun får.\n\nDette er **utligningslogikken**, som vi generaliserer i løkke 4.\n\n**En regnekontroll du bør venne deg til.** Sjekk alltid hvilket ledd som skal være aktivt før du regner: er du bak, bruk $\\alpha$; er du foran, bruk $\\beta$. Å bruke $\\beta$-leddet når personen ligger under, er den enkeltfeilen som oftest ødelegger en ellers riktig besvarelse."
+    },
+    {
+      "id": "econ2220-7-3-oppg-1",
+      "type": "exercise",
+      "exercise": {
+        "id": "econ2220-7-3-e1",
+        "number": "1",
+        "type": "classic",
+        "difficulty": "lett",
+        "task": "(Sjanger N-atferd — innsteg, ren regning.) Bruk $\\alpha = 0{,}8$ og $\\beta = 0{,}6$. En pott på 200 kroner deles mellom Kari og Ola.\n\n**a)** Regn ut Karis nytte når fordelingen er $(40, 160)$.\n\n**b)** Regn ut Karis nytte når fordelingen er $(160, 40)$.\n\n**c)** Hvilket av de to max-leddene er aktivt i hvert tilfelle?",
+        "solution": "**a)** Kari får 40, Ola 160, så Kari ligger **under**. Misunnelsesleddet er aktivt:\n\n$$U_K = 40 - 0{,}8\\,(160 - 40) = 40 - 0{,}8 \\cdot 120 = 40 - 96 = -56.$$\n\n**b)** Kari får 160, Ola 40, så Kari ligger **over**. Skyldleddet er aktivt:\n\n$$U_K = 160 - 0{,}6\\,(160 - 40) = 160 - 0{,}6 \\cdot 120 = 160 - 72 = 88.$$\n\n**c)** I a) er **misunnelsesleddet** ($\\alpha$-leddet) aktivt, fordi $x_O - x_K = 120 > 0$; skyldleddet er null fordi $x_K - x_O = -120 < 0$ og $\\max\\{-120, 0\\} = 0$.\n\nI b) er det motsatt: **skyldleddet** ($\\beta$-leddet) er aktivt, og misunnelsesleddet er null.\n\nBare ett av leddene kan være positivt om gangen — det er hele poenget med max-funksjonene.",
+        "hints": [
+          "Avgjør først om personen får mer eller mindre enn den andre.",
+          "Er hun bak, bruk $\\alpha$; er hun foran, bruk $\\beta$. Det andre leddet er da null."
+        ]
+      }
+    },
+    {
+      "id": "econ2220-7-3-oppg-2",
+      "type": "exercise",
+      "exercise": {
+        "id": "econ2220-7-3-e2",
+        "number": "2",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "(Sjanger N-atferd — når blir likedeling best?) Bruk $\\alpha = 0{,}8$ og $\\beta = 0{,}6$ og en pott på 100 kroner som deles mellom to.\n\n**a)** Regn ut nytten til den som fordeler, hvis hun tar 50, 60, 70 og 80 kroner (og gir resten bort).\n\n**b)** Hva er det høyeste tallet, og hvilken generell betingelse på $\\beta$ ligger bak?\n\n**c)** Hva hadde svaret i b) vært med $\\beta = 0{,}3$?",
+        "solution": "**a)** La $m$ være det hun tar; den andre får $100 - m$. For $m > 50$ ligger hun over, så skyldleddet er aktivt og forskjellen er $m - (100-m) = 2m - 100$:\n\n$$U = m - 0{,}6\\,(2m - 100) = m - 1{,}2m + 60 = 60 - 0{,}2m.$$\n\n- $m = 50$: $U = 60 - 10 = 50$. (Kontroll: ved likedeling er $U = m = 50$ ✓.)\n- $m = 60$: $U = 60 - 12 = 48$.\n- $m = 70$: $U = 60 - 14 = 46$.\n- $m = 80$: $U = 60 - 16 = 44$.\n\n**b)** Det høyeste er **50, ved likedeling**. Nytten *faller* når hun tar mer.\n\nBetingelsen bak: tar hun én krone mer, øker forspranget med **to** kroner (hun får én mer, den andre én mindre). Skyldfradraget øker derfor med $2\\beta$, mens gevinsten er 1 krone. Netto endring er\n\n$$1 - 2\\beta,$$\n\nsom er **negativ** når $\\beta > \\tfrac12$. Med $\\beta = 0{,}6$ er den $1 - 1{,}2 = -0{,}2$, som stemmer med koeffisienten i uttrykket over.\n\n**c)** Med $\\beta = 0{,}3$ blir netto endring $1 - 0{,}6 = +0{,}4$ per krone, altså positiv. Da lønner det seg å ta **mer**, og hun ville tatt hele potten (100 kroner), med nytten $100 - 0{,}3 \\cdot 100 = 70$.\n\nGrensen $\\beta = \\tfrac12$ er altså avgjørende for om ulikhetsaversjonen faktisk gir utligning. Kursets $\\beta = 0{,}6$ ligger over grensen.",
+        "hints": [
+          "Skriv forskjellen $x_i - x_j$ som funksjon av $m$ først: den er $2m - 100$, ikke $m$.",
+          "Sett opp nytten som en funksjon av $m$ og se på fortegnet til koeffisienten.",
+          "I c): bruk samme uttrykk med ny $\\beta$-verdi."
+        ]
+      }
+    },
+    {
+      "id": "econ2220-7-3-lokke2-head",
+      "type": "text",
+      "content": "## Løkke 2 — Ultimatumspillet og den egoistiske referanseprediksjonen (~10 min)"
+    },
+    {
+      "id": "econ2220-7-3-ultimatum-tekst",
+      "type": "text",
+      "content": "Nå setter vi nyttefunksjonen inn i et spill. **Ultimatumspillet** er det enkleste tenkelige forhandlingsspillet, og det er derfor det brukes:\n\n1. **Forslagsstilleren** deler en pott $T$ og tilbyr $m$ til den andre, og beholder $T - m$.\n2. **Respondenten** ser tilbudet og velger å **godta** eller **avslå**.\n3. Godtar hun, fordeles pengene som foreslått. Avslår hun, får **begge null**.\n\nLegg merke til hvor brutalt siste ledd er: et avslag straffer respondenten selv like sikkert som det straffer forslagsstilleren. Det er nettopp derfor spillet er en så skarp test på om folk bare bryr seg om egne penger.\n\nVi starter med prediksjonen når **begge er egoistiske** — altså med vanlig nytte $U_i = x_i$. Den fungerer som **referansepunkt**, ikke som en «gal» modell: uten den vet vi ikke hva ulikhetsaversjonen egentlig endrer."
+    },
+    {
+      "id": "econ2220-7-3-def-ultimatumspillet",
+      "type": "definition",
+      "title": "Ultimatumspillet",
+      "content": "**Ultimatumspillet** er et to-trinns spill om en pott $T$:\n\n1. Forslagsstilleren velger $m \\in [0, T]$ — beløpet respondenten tilbys.\n2. Respondenten godtar (fordelingen blir $(T-m, m)$) eller avslår (begge får 0).\n\nSpillet har perfekt informasjon og løses med baklengs induksjon: finn først hva respondenten gjør for hvert mulig tilbud, og velg deretter det tilbudet som er best for forslagsstilleren gitt den responsen.\n\nSpillet er den klassiske testen på egoismeantakelsen, fordi respondenten aldri har noen *pengemessig* grunn til å avslå et positivt tilbud."
+    },
+    {
+      "id": "econ2220-7-3-def-egoistisk-prediksjon",
+      "type": "definition",
+      "title": "Den egoistiske referanseprediksjonen",
+      "content": "Med vanlig nytte, $U_i = x_i$, gir baklengs induksjon at forslagsstilleren beholder **nesten alt**.\n\nUtledningen: respondenten godtar alt som er strengt positivt, siden $m > 0$ er bedre enn 0. Forslagsstilleren tilbyr derfor så lite som mulig.\n\nDet finnes to varianter, avhengig av hva respondenten gjør ved $m = 0$, der hun er **indifferent** (0 fra å godta, 0 fra å avslå):\n\n- Godtar hun også 0, er $m = 0$ delspill-perfekt: forslagsstilleren tar hele potten.\n- Godtar hun bare strengt positive beløp, finnes ingen minste positive beløp i en kontinuerlig modell; med en minste enhet (én krone) blir løsningen $m = 1$.\n\nBegge varianter godtas på eksamen så lenge du **sier hvilken indifferansebehandling du bruker**. Prediksjonen kalles «referanse» fordi den er sammenlikningsgrunnlaget, ikke fordi den er feil."
+    },
+    {
+      "id": "econ2220-7-3-ex-2",
+      "type": "example",
+      "title": "Eksempel 2: den egoistiske løsningen, steg for steg",
+      "problem": "En pott på 130 000 kroner deles i et ultimatumspill. Begge parter har vanlig egoistisk nytte, $U_i = x_i$. Finn den delspill-perfekte likevekten ved baklengs induksjon, og oppgi begge variantene.",
+      "solution": "**Steg 1 — respondentens node (sist i tid).** Får respondenten tilbudt $m$, sammenlikner hun $m$ (godta) med 0 (avslå).\n\n- Er $m > 0$: godta er strengt best.\n- Er $m = 0$: hun er indifferent.\n\n**Steg 2 — forslagsstillerens node.** Hun vet at alt strengt positivt blir godtatt, og hun vil beholde mest mulig. Derfor tilbyr hun så lite som mulig.\n\n**Variant 1 (respondenten godtar også null).** Da er $m = 0$ optimalt:\n\n$$\\text{SPNE: } m = 0, \\text{ fordelingen } (130\\,000,\\; 0).$$\n\n**Variant 2 (respondenten avslår null, minste enhet er én krone).** Da er $m = 1$ krone optimalt:\n\n$$\\text{SPNE: } m = 1, \\text{ fordelingen } (129\\,999,\\; 1).$$\n\n**Hvorfor to varianter?** Fordi utfallet henger på hva respondenten gjør i det ene punktet der hun er likegyldig, og modellen sier ikke selv hva hun velger der. I en kontinuerlig modell finnes det ikke noe «minste positive beløp», så variant 2 krever at man innfører en minste enhet. Skriv hvilken behandling du bruker, og du er trygg.\n\n**Prediksjonen i klartekst:** forslagsstilleren tar nesten alt, og respondenten godtar. Det er dette som gjør spillet interessant — for i eksperimenter skjer det systematisk noe annet: tilbud under omkring en fjerdedel avslås ofte, og typiske tilbud ligger langt over null.\n\n**Figur i ord.** Tegn spilltreet: rotnoden merket **F** (forslagsstilleren) med en gren for hvert mulig tilbud $m$ — i praksis tegner man tre representative grener merket «lavt», «likedeling» og «høyt». Hver gren fører til en node merket **R** (respondenten), som har to grener: «godta» til en endenode med $(T-m, m)$, og «avslå» til en endenode med $(0, 0)$. Marker den ene R-noden som velges i likevekt. Antall delspill er én per R-node pluss hele spillet."
+    },
+    {
+      "id": "econ2220-7-3-oppg-3",
+      "type": "exercise",
+      "exercise": {
+        "id": "econ2220-7-3-e3",
+        "number": "3",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "(Sjanger N-atferd — referanseprediksjonen.) En pott på 400 kroner deles i et ultimatumspill mellom to **egoistiske** spillere.\n\n**a)** Finn den delspill-perfekte likevekten ved baklengs induksjon, og oppgi begge indifferansevariantene.\n\n**b)** Forslagsstilleren tilbyr 200 kroner. Er det en delspill-perfekt likevekt? Er det en Nash-likevekt?\n\n**c)** Hvorfor kaller vi den egoistiske løsningen en «referanseprediksjon» og ikke en «gal prediksjon»?",
+        "solution": "**a)** *Respondentens node:* hun godtar alt $m > 0$, siden $m > 0$; ved $m = 0$ er hun indifferent.\n\n*Forslagsstillerens node:* hun tilbyr minst mulig.\n\n- **Variant 1** (respondenten godtar også 0): $m = 0$, fordelingen $(400, 0)$.\n- **Variant 2** (respondenten avslår 0, minste enhet én krone): $m = 1$, fordelingen $(399, 1)$.\n\n**b)** Et tilbud på 200 er **ikke** delspill-perfekt. Respondenten godtar riktignok, men forslagsstilleren kunne fått 399 eller 400 i stedet — så hennes valg i rotnoden er ikke optimalt.\n\nEr det en Nash-likevekt? Det avhenger av respondentens **strategi**, ikke bare av handlingen. Er respondentens plan «godta bare tilbud på minst 200, avslå ellers», så er 200 forslagsstillerens beste svar: tilbyr hun mindre, får hun 0. Kombinasjonen er da en **Nash-likevekt**. Men den er ikke delspill-perfekt, siden planen om å avslå 199 ikke er optimal i det delspillet — 199 er bedre enn 0 for en egoistisk respondent. Dette er nøyaktig den ikke-troverdige trusselen fra [kap. 7.2](/bok/econ2220/econ2220-7-2), i ny drakt.\n\n**c)** Fordi den er **sammenlikningsgrunnlaget**. Den forteller oss presist hva som ville skjedd hvis folk bare brydde seg om egne penger, og det er bare mot den bakgrunnen vi kan si hva ulikhetsaversjon faktisk endrer. Uten referansen ville «folk deler ganske likt» vært en observasjon uten teoretisk innhold.\n\nAt prediksjonen ikke stemmer empirisk, gjør den ikke feilaktig som modell — den er en korrekt utledning fra en antakelse som viser seg å være for enkel. Det er nettopp derfor Fehr-Schmidt-modellen ble utviklet.",
+        "hints": [
+          "Start i respondentens node og finn hva hun gjør for hvert mulig tilbud.",
+          "I b): skille mellom hva respondenten GJØR og hva planen hennes SIER om andre tilbud.",
+          "I c): tenk på hva vi ikke kunne sagt uten den egoistiske utledningen."
+        ]
+      }
+    },
+    {
+      "id": "econ2220-7-3-lokke3-head",
+      "type": "text",
+      "content": "## Løkke 3 — Avslagsgrensen (~11 min)"
+    },
+    {
+      "id": "econ2220-7-3-avslag-tekst",
+      "type": "text",
+      "content": "Nå gir vi respondenten Fehr-Schmidt-preferanser og spør: **hvilke tilbud avslår hun?**\n\nRegnestykket er kort, og det er verdt å kunne utenat, for det er den ene utledningen eksamen har spurt om hver gang temaet har vært oppe.\n\nNøkkelen er å holde orden på hvilket ledd som er aktivt. Får hun tilbudt mindre enn halvparten, ligger hun **under** — så det er $\\alpha$-leddet som gjelder, ikke $\\beta$-leddet."
+    },
+    {
+      "id": "econ2220-7-3-thm-avslagsgrense",
+      "type": "theorem",
+      "title": "Avslagsgrensen i ultimatumspillet",
+      "content": "Med en Fehr-Schmidt-respondent avslås alle tilbud under andelen\n\n$$\\frac{m}{T} < \\frac{\\alpha}{1 + 2\\alpha}.$$\n\n**Utledning.** La potten være $T$ og tilbudet $m < T/2$, så forslagsstilleren beholder $T - m$ og respondenten ligger **under**. Da er misunnelsesleddet aktivt og skyldleddet null:\n\n$$U_R(\\text{godta}) = m - \\alpha\\big[(T - m) - m\\big] = m - \\alpha\\,(T - 2m).$$\n\nRydd:\n\n$$U_R(\\text{godta}) = m(1 + 2\\alpha) - \\alpha T.$$\n\nÅ avslå gir $U_R = 0$ (begge får null, ingen forskjell, ingen fradrag). Hun godtar altså når\n\n$$m(1 + 2\\alpha) \\ge \\alpha T \\quad\\Longleftrightarrow\\quad \\frac{m}{T} \\ge \\frac{\\alpha}{1 + 2\\alpha}.$$\n\n**Med kursets $\\alpha = 0{,}8$:**\n\n$$\\frac{\\alpha}{1+2\\alpha} = \\frac{0{,}8}{1 + 1{,}6} = \\frac{0{,}8}{2{,}6} = \\frac{4}{13} \\approx 0{,}308.$$\n\nHun avslår altså alt under **omtrent 30,8 prosent** av potten.\n\n**Tolkning i kroner og nytte.** Hver krone hun får, er verdt én krone direkte — men den reduserer også forspranget til den andre med **to** kroner, og hver av dem er verdt $\\alpha$ i redusert misunnelse. Derfor er marginalverdien av en krone $1 + 2\\alpha = 2{,}6$, mens «utgangspunktet» hun må dekke inn, er misunnelsen $\\alpha T$ ved et tilbud på null. Grensen er forholdet mellom de to.\n\n**Merk hva grensen ikke avhenger av:** $\\beta$. Skyldleddet er null når hun ligger under, så $\\beta$ spiller ingen rolle for respondentens avslagsbeslutning. Å blande inn $\\beta$ her er en klassisk feil."
+    },
+    {
+      "id": "econ2220-7-3-ex-3",
+      "type": "example",
+      "title": "Eksempel 3: avslagsgrensen i kroner, med kontroll",
+      "problem": "En pott på **130 kroner** deles i et ultimatumspill. Respondenten har Fehr-Schmidt-preferanser med $\\alpha = 0{,}8$ og $\\beta = 0{,}6$; forslagsstilleren er egoistisk.\n\n**a)** Finn den minste andelen og det minste kronebeløpet respondenten godtar.\n\n**b)** Kontroller svaret ved å regne ut nytten ved tilbud på 39, 40 og 41 kroner.\n\n**c)** Hva tilbyr en egoistisk forslagsstiller, og hva blir fordelingen?",
+      "solution": "**a)** Grensen er $\\dfrac{\\alpha}{1+2\\alpha} = \\dfrac{0{,}8}{2{,}6} = \\dfrac{4}{13}$. I kroner:\n\n$$m^* = \\frac{4}{13} \\cdot 130 = 4 \\cdot 10 = \\mathbf{40 \\text{ kroner}}.$$\n\nRespondenten godtar alt fra 40 kroner og opp, og avslår alt under 40. (Ved nøyaktig 40 er hun indifferent.)\n\n**b) Kontroll.** Bruk $U_R = m - 0{,}8\\,(130 - 2m)$:\n\n- $m = 39$: $U_R = 39 - 0{,}8\\,(130 - 78) = 39 - 0{,}8 \\cdot 52 = 39 - 41{,}6 = -2{,}6 < 0$ → **avslår** ✓\n- $m = 40$: $U_R = 40 - 0{,}8\\,(130 - 80) = 40 - 0{,}8 \\cdot 50 = 40 - 40 = 0$ → **indifferent** ✓\n- $m = 41$: $U_R = 41 - 0{,}8\\,(130 - 82) = 41 - 0{,}8 \\cdot 48 = 41 - 38{,}4 = 2{,}6 > 0$ → **godtar** ✓\n\nLegg merke til at nytten endrer seg med nøyaktig $2{,}6 = 1 + 2\\alpha$ per krone, som utledningen forutsa.\n\n**c)** Den egoistiske forslagsstilleren vil beholde mest mulig, og vet at alt under 40 blir avslått. Hun tilbyr derfor **40 kroner** (eller så vidt over, hvis man vil unngå indifferansen) og beholder **90 kroner**.\n\n$$\\text{Fordelingen blir } (90,\\; 40).$$\n\n**Sammenlikn med referanseprediksjonen.** Med to egoistiske spillere ville fordelingen vært $(130, 0)$ eller $(129, 1)$. Ulikhetsaversjonen hos **respondenten alene** flytter altså 40 kroner — nesten en tredel av potten — uten at forslagsstilleren har blitt et gram mer sjenerøs. Hun tilpasser seg bare en trussel som nå er **troverdig**, fordi avslag faktisk lønner seg for respondenten når tilbudet er lavt nok.\n\nDet er en fin kobling til [kap. 7.2](/bok/econ2220/econ2220-7-2): troverdigheten kommer ikke av moral, men av at utbetalingene i respondentens node er endret."
+    },
+    {
+      "id": "econ2220-7-3-oppg-4",
+      "type": "exercise",
+      "exercise": {
+        "id": "econ2220-7-3-e4",
+        "number": "4",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "(Sjanger N-atferd — avslagsgrensen med nye tall.) En pott på **260 kroner** deles i et ultimatumspill. Respondenten har Fehr-Schmidt-preferanser med $\\alpha = 0{,}8$ og $\\beta = 0{,}6$; forslagsstilleren er egoistisk.\n\n**a)** Finn det minste beløpet respondenten godtar.\n\n**b)** Kontroller ved å regne ut nytten ved ett beløp under og ett over grensen.\n\n**c)** Hva blir fordelingen i den delspill-perfekte likevekten?",
+        "solution": "**a)** Grensen i andel er $\\dfrac{0{,}8}{2{,}6} = \\dfrac{4}{13}$. I kroner:\n\n$$m^* = \\frac{4}{13}\\cdot 260 = 4 \\cdot 20 = \\mathbf{80 \\text{ kroner}}.$$\n\n**b)** Bruk $U_R = m - 0{,}8\\,(260 - 2m)$:\n\n- $m = 70$: $U_R = 70 - 0{,}8\\,(260 - 140) = 70 - 0{,}8 \\cdot 120 = 70 - 96 = -26 < 0$ → avslår ✓\n- $m = 80$: $U_R = 80 - 0{,}8\\,(260 - 160) = 80 - 80 = 0$ → indifferent ✓\n- $m = 90$: $U_R = 90 - 0{,}8\\,(260 - 180) = 90 - 64 = 26 > 0$ → godtar ✓\n\n(Endringen per krone er $2{,}6$, som gir $10 \\cdot 2{,}6 = 26$ mellom hvert av tallene ✓.)\n\n**c)** Forslagsstilleren tilbyr det minste som godtas, altså **80 kroner**, og beholder **180 kroner**:\n\n$$(x_F, x_R) = (180,\\; 80).$$\n\nRespondenten får omtrent 30,8 prosent av potten — nøyaktig samme andel som i eksempelet med 130 kroner, siden grensen er en **andel** og ikke et kronebeløp.",
+        "hints": [
+          "Grensen er en andel av potten: $\\alpha/(1+2\\alpha)$.",
+          "Husk at forskjellen mellom de to er $(T-m) - m = T - 2m$, ikke $T - m$.",
+          "Bruk $\\alpha$-leddet, ikke $\\beta$-leddet — respondenten ligger under."
+        ]
+      }
+    },
+    {
+      "id": "econ2220-7-3-oppg-5",
+      "type": "exercise",
+      "exercise": {
+        "id": "econ2220-7-3-e5",
+        "number": "5",
+        "type": "classic",
+        "difficulty": "vanskelig",
+        "task": "(Krevende — grensen som funksjon av $\\alpha$.) I et ultimatumspill har respondenten Fehr-Schmidt-preferanser.\n\n**a)** Vis at avslagsgrensen som andel av potten er $\\dfrac{\\alpha}{1+2\\alpha}$, og forklar hvorfor $\\beta$ ikke inngår.\n\n**b)** Regn ut grensen for $\\alpha = 0{,}4$, $\\alpha = 0{,}8$ og $\\alpha = 2$. Hva skjer når $\\alpha$ vokser uten grense?\n\n**c)** Kan grensen bli 50 prosent eller mer for noen $\\alpha$? Begrunn.",
+        "solution": "**a)** La tilbudet være $m$ og potten $T$, med $m < T/2$, slik at respondenten ligger **under** ($x_F = T - m > m = x_R$). Da er misunnelsesleddet aktivt og skyldleddet null:\n\n$$U_R(\\text{godta}) = m - \\alpha\\big[(T-m) - m\\big] = m - \\alpha(T - 2m) = m(1+2\\alpha) - \\alpha T.$$\n\nÅ avslå gir $(0,0)$: ingen forskjell, ingen fradrag, altså $U_R = 0$. Hun godtar når\n\n$$m(1+2\\alpha) \\ge \\alpha T \\quad\\Longleftrightarrow\\quad \\frac{m}{T} \\ge \\frac{\\alpha}{1+2\\alpha}.$$\n\n**Hvorfor $\\beta$ ikke inngår:** skyldleddet $\\beta\\max\\{x_R - x_F, 0\\}$ er null når respondenten får **mindre** enn forslagsstilleren, og det er nettopp den situasjonen avslagsvurderingen gjelder. $\\beta$ ville bare spilt en rolle hvis hun ble tilbudt **mer** enn halvparten — men slike tilbud avslår hun aldri, siden nytten da er positiv uansett ($\\beta < 1$).\n\n**b)** Sett inn:\n\n- $\\alpha = 0{,}4$: $\\dfrac{0{,}4}{1{,}8} = \\dfrac{2}{9} \\approx 0{,}222$, altså 22,2 prosent.\n- $\\alpha = 0{,}8$: $\\dfrac{0{,}8}{2{,}6} = \\dfrac{4}{13} \\approx 0{,}308$, altså 30,8 prosent.\n- $\\alpha = 2$: $\\dfrac{2}{5} = 0{,}400$, altså 40 prosent.\n\nGrensen **stiger** med $\\alpha$, som forventet: en mer misunnelig respondent krever mer for å godta.\n\nNår $\\alpha \\to \\infty$:\n\n$$\\frac{\\alpha}{1+2\\alpha} = \\frac{1}{1/\\alpha + 2} \\;\\longrightarrow\\; \\frac{1}{2}.$$\n\nGrensen nærmer seg 50 prosent ovenfra i den forstand at den vokser mot en halv, men **når den aldri**.\n\n**c)** Nei. For alle $\\alpha > 0$ er\n\n$$\\frac{\\alpha}{1+2\\alpha} < \\frac{\\alpha}{2\\alpha} = \\frac{1}{2},$$\n\nsiden nevneren $1 + 2\\alpha$ er strengt større enn $2\\alpha$. Grensen er altså strengt under 50 prosent uansett hvor misunnelig respondenten er.\n\n**Tolkningen er fin og verdt å skrive:** en Fehr-Schmidt-respondent vil aldri kreve **mer** enn halvparten. Modellen sier at hun misliker ulikhet — ikke at hun vil ha overtaket. Skulle hun kreve over halvparten, ville hun havnet på den siden av likedelingen der $\\beta$-leddet slår inn og straffer henne for å ha mest. Det er en ekte egenskap ved modellen, ikke en tilfeldighet i regningen.",
+        "hints": [
+          "I a): skriv opp forskjellen mellom de to utbetalingene som funksjon av $m$ og $T$.",
+          "I b): grensen er en brøk i $\\alpha$ — sett inn og regn, og se på hva som skjer med nevneren når $\\alpha$ blir stor.",
+          "I c): sammenlikn nevneren $1+2\\alpha$ med $2\\alpha$."
+        ]
+      }
+    },
+    {
+      "id": "econ2220-7-3-lokke4-head",
+      "type": "text",
+      "content": "## Løkke 4 — Utligningslogikken og tillitsspillet (~8 min)"
+    },
+    {
+      "id": "econ2220-7-3-tillit-tekst",
+      "type": "text",
+      "content": "Til slutt den andre siden av modellen: hva gjør en Fehr-Schmidt-aktør når hun er den som **fordeler**?\n\nVi så svaret i eksempel 1: hun deler likt. Nå generaliserer vi det, og setter det inn i **tillitsspillet** — spillet som viser hvor mye ulikhetsaversjon kan være verdt for begge parter.\n\nTillitsspillet er slik: en investor har et beløp og kan sende en del av det til en mottaker. Det som sendes, **tredobles** underveis. Deretter velger mottakeren hvor mye hun sender tilbake. Ingenting binder henne."
+    },
+    {
+      "id": "econ2220-7-3-thm-utligning",
+      "type": "theorem",
+      "title": "Utligningslogikken",
+      "content": "En Fehr-Schmidt-aktør som fritt kan fordele en gitt sum mellom seg og en annen, velger **likedeling** — forutsatt at\n\n$$\\beta > \\tfrac{1}{2}.$$\n\n**Utledning.** La samlet beløp være $S$, og la aktøren beholde $x_i$ mens den andre får $S - x_i$. For $x_i > S/2$ ligger hun over, så skyldleddet er aktivt:\n\n$$U_i = x_i - \\beta\\big[x_i - (S - x_i)\\big] = x_i - \\beta\\,(2x_i - S) = x_i(1 - 2\\beta) + \\beta S.$$\n\nKoeffisienten foran $x_i$ er $1 - 2\\beta$, som er **negativ** når $\\beta > \\tfrac12$. Da faller nytten når hun beholder mer, og hun trekker seg helt ned til $x_i = S/2$.\n\nFor $x_i < S/2$ ligger hun under, og misunnelsesleddet gjelder:\n\n$$U_i = x_i - \\alpha\\,(S - 2x_i) = x_i(1 + 2\\alpha) - \\alpha S,$$\n\nsom er **stigende** i $x_i$ (koeffisienten $1 + 2\\alpha > 0$). Hun vil altså opp til $S/2$ fra den siden også.\n\nNytten stiger opp til $S/2$ og faller etter, så maksimum er ved **likedeling**, der $U_i = S/2$.\n\n**Med kursets $\\beta = 0{,}6$** er $1 - 2\\beta = -0{,}2 < 0$, så betingelsen er oppfylt og utligningen slår til.\n\n**Merk betingelsen.** Er $\\beta < \\tfrac12$, er koeffisienten positiv, og aktøren beholder alt. Utligning er altså ikke en automatisk følge av ulikhetsaversjon — den krever at skyldparameteren er stor nok. Skriv betingelsen eksplisitt; det er en presisjon sensorveiledningene setter pris på."
+    },
+    {
+      "id": "econ2220-7-3-def-tillitsspillet",
+      "type": "definition",
+      "title": "Tillitsspillet",
+      "content": "**Tillitsspillet** er et to-trinns spill:\n\n1. **Investoren** har et beløp $E$ og velger hvor mye $s \\le E$ hun sender til mottakeren. Det som sendes, **tredobles**, så mottakeren får $3s$.\n2. **Mottakeren** velger hvor mye $r \\le 3s$ hun sender tilbake.\n\nSluttutbetalingene er $E - s + r$ til investoren og $3s - r$ til mottakeren.\n\nSpillet måler tillit og gjengjeldelse. Tredoblingen gjør at det er **samlet lønnsomt** å sende mye — potten vokser — men ingenting tvinger mottakeren til å gi noe tilbake.\n\nLøsningen finnes med baklengs induksjon: hva gjør mottakeren for hver $s$, og hva er da best for investoren?"
+    },
+    {
+      "id": "econ2220-7-3-ex-4",
+      "type": "example",
+      "title": "Eksempel 4: tillitsspillet med og uten ulikhetsaversjon",
+      "problem": "En investor har **100 kroner**. Hun kan sende hvilket som helst beløp $s$ til en mottaker; beløpet tredobles på veien. Mottakeren velger så hvor mye $r$ hun sender tilbake. Bruk $\\alpha = 0{,}8$ og $\\beta = 0{,}6$.\n\n**a)** Hva skjer hvis mottakeren er **egoistisk**?\n\n**b)** Hva skjer hvis mottakeren har Fehr-Schmidt-preferanser, og investoren sender alt?\n\n**c)** Lønner det seg for investoren å sende alt?",
+      "solution": "**a) Egoistisk mottaker.**\n\n*Mottakerens node:* hun maksimerer $3s - r$, som er størst ved $r = 0$. Hun sender ingenting tilbake.\n\n*Investorens node:* hun vet dette, og ser at hver krone hun sender, er tapt: sender hun $s$, ender hun med $100 - s$. Det er størst ved $s = 0$.\n\n$$\\text{SPNE: } s = 0,\\; r = 0, \\quad \\text{utbetalinger } (100,\\; 0).$$\n\nTredoblingen — som kunne gjort potten til 300 kroner — blir aldri utnyttet. Mangelen på troverdig gjengjeldelse koster begge parter.\n\n**b) Fehr-Schmidt-mottaker, investoren sender alt.** Med $s = 100$ har mottakeren $3 \\cdot 100 = 300$ kroner, og investoren står med 0 før tilbakebetalingen. Samlet sum er $S = 300$.\n\nEtter utligningslogikken, som gjelder fordi $\\beta = 0{,}6 > \\tfrac12$, deler mottakeren likt. Hun sender tilbake\n\n$$r = 150 \\text{ kroner},$$\n\nslik at begge ender med 150.\n\n*Kontroll ved regning.* For $r < 150$ ligger mottakeren over, og\n\n$$U_R = (300 - r) - 0{,}6\\big[(300 - r) - r\\big] = 300 - r - 0{,}6\\,(300 - 2r) = 120 + 0{,}2r,$$\n\nsom er **stigende** i $r$ — hun vil sende mer. For $r > 150$ ligger hun under, og\n\n$$U_R = (300 - r) - 0{,}8\\big[r - (300 - r)\\big] = 300 - r - 0{,}8\\,(2r - 300) = 540 - 2{,}6r,$$\n\nsom er **fallende**. Maksimum er derfor ved $r = 150$, med $U_R = 120 + 30 = 150$ ✓ (som stemmer med at nytten ved likedeling er lik egen utbetaling).\n\n**c) Lønner det seg for investoren?** Ja, klart. Sender hun alt, ender hun med **150 kroner**; sender hun ingenting, ender hun med **100**. Å stole på en ulikhetsavers mottaker er lønnsomt.\n\n**Kontroll av at «alt» faktisk er best.** Sender hun $s$, har mottakeren $3s$ og investoren $100 - s$; samlet sum er $100 + 2s$, og likedelingen gir hver $50 + s$. Det er stigende i $s$, så $s = 100$ er optimalt, med $150$ til hver ✓. (Kontroll ved $s = 60$: samlet $220$, hver får $110$, og tilbakebetalingen er $r = 110 - (100-60) = 70$.)\n\n**Poenget, skarpt formulert.** Ulikhetsaversjon er ikke bare et avvik fra modellen — den løser et reelt problem. Uten den blir tredoblingen aldri utnyttet, og begge ender dårligere. Med den utnyttes hele gevinsten, og både investor og mottaker kommer bedre ut enn i den egoistiske likevekten. Sosiale preferanser er her et **substitutt for en kontrakt**."
+    },
+    {
+      "id": "econ2220-7-3-oppg-6",
+      "type": "exercise",
+      "exercise": {
+        "id": "econ2220-7-3-e6",
+        "number": "6",
+        "type": "classic",
+        "difficulty": "vanskelig",
+        "task": "(Krevende — tillitsspillet med nye tall og delvis investering.) En investor har **90 kroner**. Beløpet hun sender, tredobles. Mottakeren har Fehr-Schmidt-preferanser med $\\alpha = 0{,}8$ og $\\beta = 0{,}6$.\n\n**a)** Anta at investoren sender 60 kroner. Hvor mye sender mottakeren tilbake, og hva ender begge med?\n\n**b)** Finn det beløpet investoren bør sende, og begrunn med et generelt uttrykk.\n\n**c)** Hvordan ville svaret i b) endret seg hvis mottakeren hadde $\\beta = 0{,}4$? Begrunn.",
+        "solution": "**a)** Sender investoren 60, har mottakeren $3 \\cdot 60 = 180$ kroner, og investoren står med $90 - 60 = 30$ kroner. Samlet sum er $S = 210$.\n\nSiden $\\beta = 0{,}6 > \\tfrac12$, utligner mottakeren: hver skal ende med $210/2 = 105$.\n\nTilbakebetalingen må derfor være\n\n$$r = 105 - 30 = \\mathbf{75 \\text{ kroner}}.$$\n\nKontroll: mottakeren beholder $180 - 75 = 105$ ✓, investoren har $30 + 75 = 105$ ✓.\n\n**b)** Sender investoren $s$, blir samlet sum\n\n$$S(s) = (90 - s) + 3s = 90 + 2s,$$\n\nog etter utligningen får hver\n\n$$\\frac{90 + 2s}{2} = 45 + s.$$\n\nDette er strengt stigende i $s$, så investoren bør sende **alt**, altså $s = 90$. Da blir samlet sum $90 + 180 = 270$, og hver ender med **135 kroner**.\n\nTilbakebetalingen blir $r = 135 - 0 = 135$ av de 270 mottakeren fikk.\n\nSammenlikn med å ikke sende noe: da hadde hun 90. Tilliten er verdt 45 kroner.\n\n**Mekanismen i én setning:** hver krone investoren sender, øker samlet sum med to kroner (den forsvinner fra hennes side og kommer tilbake tredoblet), og siden mottakeren deler likt, får investoren én av dem.\n\n**c)** Med $\\beta = 0{,}4$ er $1 - 2\\beta = 1 - 0{,}8 = +0{,}2 > 0$, altså positiv. Da er mottakerens nytte **stigende** i det hun beholder, og utligningslogikken faller bort: hun beholder alt og sender $r = 0$ tilbake.\n\nInvestoren, som ser dette ved baklengs induksjon, ender med $90 - s$ og bør derfor sende **ingenting**: $s = 0$, utbetalingene $(90, 0)$.\n\nVi er altså tilbake i den egoistiske løsningen, selv om mottakeren har ekte ulikhetsaversjon. **Konklusjonen er skarp og verdt å merke seg:** det er ikke nok at aktøren misliker ulikhet — skyldparameteren må være over $\\tfrac12$ for at hun faktisk skal gi fra seg penger. Under den grensen er ubehaget ved å ha mest for svakt til å veie opp for kronene.",
+        "hints": [
+          "I a): regn ut samlet sum først, del den i to, og finn hva som må sendes tilbake for å komme dit.",
+          "I b): skriv samlet sum som funksjon av $s$, og se hva halvparten blir.",
+          "I c): sjekk fortegnet på $1 - 2\\beta$ med den nye verdien."
+        ]
+      }
+    },
+    {
+      "id": "econ2220-7-3-brotekst",
+      "type": "text",
+      "content": "### Hvor modellen kommer fra — kort\n\nFehr-Schmidt-modellen ble utviklet fordi **eksperimentene** ikke stemte med den egoistiske prediksjonen. I ultimatumspill over mange land og mange oppsett avslås lave tilbud systematisk, og typiske tilbud ligger nær en tredel eller høyere — ikke nær null. I tillitsspill sendes det betydelige beløp, og betydelige beløp sendes tilbake.\n\nModellens fortjeneste er at den fanger begge mønstrene med **to parametre** og uten å gi opp rasjonalitet: aktørene maksimerer fortsatt nytte, den er bare utvidet med to fradragsledd. Det gjør at hele apparatet fra resten av boka — baklengs induksjon, likevektsbegreper, marginalvurderinger — kan brukes uendret.\n\nDet er også modellens begrensning. To parametre kan ikke skille mellom rettferdighetsnormer, gjensidighetsmotiver og ren ulikhetsaversjon, og de faste verdiene $\\alpha = 0{,}8$ og $\\beta = 0{,}6$ er kalibrerte gjennomsnitt, ikke naturkonstanter. Det er nok å nevne i én setning; eksamen har aldri gått dypere enn det."
+    },
+    {
+      "id": "econ2220-7-3-warn-feil",
+      "type": "warning",
+      "title": "Typiske feil",
+      "content": "Boka har et samlet register over de vanligste tabbene, nummerert #1–#13 og presentert i [kap. 0.1](/bok/econ2220/econ2220-0-1). **Feil #12 — spillteori-arven** gjelder også her: ikke la beredskapsdelen spise tid fra produsentteorien, som testes hvert år.\n\nDe rene fagfeilene:\n\n- **Feil ledd aktivt.** Å bruke $\\beta$-leddet når personen ligger **under** den andre. Avgjør alltid først om hun er foran eller bak, og bruk $\\alpha$ når hun er bak, $\\beta$ når hun er foran.\n- **Begge max-ledd positive samtidig.** Det kan ikke skje. Er $x_j - x_i > 0$, er $x_i - x_j < 0$, og $\\max\\{x_i - x_j, 0\\} = 0$. Er utbetalingene like, er begge ledd null og nytten er lik egen utbetaling.\n- **Regne forskjellen som $T - m$ i stedet for $T - 2m$.** Respondenten ligger $ (T-m) - m = T - 2m$ bak, ikke $T - m$. Denne enkeltfeilen gir feil avslagsgrense hver gang.\n- **Feil ulikhetsretning i avslagsgrensen.** Grensen er at tilbud **under** $\\alpha/(1+2\\alpha)$ avslås. Snur du ulikheten, får du at høye tilbud avslås, som er åpenbart galt — bruk en tallkontroll ($T = 130$ skal gi 40 kroner) for å ta det.\n- **Blande inn $\\beta$ i avslagsgrensen.** $\\beta$ inngår ikke, fordi skyldleddet er null når respondenten får minst. Grensen avhenger bare av $\\alpha$.\n- **Presentere den egoistiske løsningen som «feil».** Den er en korrekt utledning fra en enklere antakelse, og den er **referanseprediksjonen** vi måler ulikhetsaversjonens virkning mot. Skriv den ut, ikke avvis den.\n- **Glemme baklengs induksjon i tillitsspillet.** Start i mottakerens node, finn hva hun gjør for hver $s$, og bruk det når du velger $s$. Å gjette at «hun deler likt» uten å vise regningen, gir dårlig uttelling.\n- **Påstå utligning uten betingelsen $\\beta > \\tfrac12$.** Utligning følger ikke av ulikhetsaversjon alene. Skriv betingelsen, og sjekk at kursets $\\beta = 0{,}6$ oppfyller den."
+    },
+    {
+      "id": "econ2220-7-3-begrepsbank-intro",
+      "type": "text",
+      "content": "## Begrepsbank\n\n*Dette er flashcard-/repetisjonsstoff — hopp trygt over ved førstegangslesing; tidsanslaget for kapitlet gjelder kjernestoffet over.* Begrepene er forklart underveis; her står de samlet for pugging."
+    },
+    {
+      "id": "econ2220-7-3-def-max-ledd",
+      "type": "definition",
+      "title": "Bare ett max-ledd aktivt",
+      "content": "I Fehr-Schmidt-nytten kan **bare ett** av de to max-leddene være positivt om gangen:\n\n- Ligger aktøren **bak** ($x_j > x_i$): misunnelsesleddet er positivt, skyldleddet er null.\n- Ligger hun **foran** ($x_i > x_j$): skyldleddet er positivt, misunnelsesleddet er null.\n- Er de **like**: begge er null, og $U_i = x_i$.\n\nDette er ikke en tilleggsantakelse, men ren følge av at $\\max\\{z, 0\\}$ er null for negative $z$ — og av at $x_j - x_i$ og $x_i - x_j$ alltid har motsatt fortegn.\n\nRutinen som sparer deg for feil: **avgjør fortegnet først, deretter regn**."
+    },
+    {
+      "id": "econ2220-7-3-def-kursparametre",
+      "type": "definition",
+      "title": "Kursets faste parametre",
+      "content": "ECON2220 har brukt **de samme verdiene** hver gang temaet har vært på eksamen:\n\n$$\\alpha = 0{,}8, \\qquad \\beta = 0{,}6.$$\n\nKonsekvensene du kan regne ut på forhånd og ha klart:\n\n- Marginalverdien av en krone for den som ligger bak: $1 + 2\\alpha = 2{,}6$.\n- Avslagsgrensen som andel: $\\dfrac{\\alpha}{1+2\\alpha} = \\dfrac{4}{13} \\approx 30{,}8\\ \\%$.\n- Endring i nytte per krone for den som ligger foran: $1 - 2\\beta = -0{,}2$, altså negativ — utligning slår til.\n\nÅ ha disse tre tallene på plass gjør at du kan skrive svaret nesten uten regning."
+    },
+    {
+      "id": "econ2220-7-3-def-avslagsgrense-begrep",
+      "type": "definition",
+      "title": "Avslagsgrensen",
+      "content": "**Avslagsgrensen** er den minste andelen av potten en Fehr-Schmidt-respondent godtar i ultimatumspillet:\n\n$$\\frac{m}{T} \\ge \\frac{\\alpha}{1+2\\alpha}.$$\n\nDen er en **andel**, ikke et kronebeløp: dobler du potten, dobles kronegrensen, men prosenten er den samme.\n\nGrensen er strengt under 50 prosent for alle $\\alpha$, og nærmer seg 50 prosent når $\\alpha$ blir stor. Modellen sier altså at en ulikhetsavers respondent aldri krever mer enn halvparten."
+    },
+    {
+      "id": "econ2220-7-3-def-utligning-begrep",
+      "type": "definition",
+      "title": "Utligningslogikken",
+      "content": "**Utligningslogikken** er resultatet at en Fehr-Schmidt-aktør som fritt fordeler en sum, velger **likedeling** — forutsatt $\\beta > \\tfrac12$.\n\nMekanismen i én setning: tar hun én krone mer, vokser forspranget med **to** kroner, og skyldfradraget $2\\beta$ overstiger da den ene kronen hun vinner.\n\nSluttresultatet er at nytten hennes ved likedeling er lik hennes egen utbetaling, siden begge max-ledd er null. Det gir en enkel kontroll av regningen: kommer du fram til likedeling, skal $U_i$ være halve summen."
+    },
+    {
+      "id": "econ2220-7-3-def-indifferansepunkt",
+      "type": "definition",
+      "title": "Indifferansepunktet i avslagsvurderingen",
+      "content": "**Indifferansepunktet** er det tilbudet der respondenten er likegyldig mellom å godta og å avslå — altså der $U_R(\\text{godta}) = 0$.\n\nDet ligger nøyaktig på avslagsgrensen: $m = \\dfrac{\\alpha}{1+2\\alpha}T$. Med $\\alpha = 0{,}8$ og en pott på 130 kroner er det 40 kroner.\n\nPunktet er verdt å kjenne av to grunner. Det gir deg en **regnekontroll**: setter du grensetallet inn i nyttefunksjonen, skal du få nøyaktig null. Og det er stedet der modellen ikke selv avgjør utfallet — akkurat som i den egoistiske løsningen må du si hvilken behandling du velger når hun er indifferent."
+    },
+    {
+      "id": "econ2220-7-3-def-rettferdighetsnorm",
+      "type": "definition",
+      "title": "Rettferdighetsnorm kontra modellert preferanse",
+      "content": "En **rettferdighetsnorm** er en sosial regel om hva som er rimelig. En **modellert preferanse** er et ledd i en nyttefunksjon.\n\nFehr-Schmidt-modellen gjør det andre, ikke det første: den sier ikke at likedeling *er* rettferdig, bare at aktøren får lavere nytte av ulikhet og derfor **handler** som om hun søkte likhet.\n\nSkillet er verdt å ha med i en drøfting: modellen forklarer atferd, den rettferdiggjør ingenting. Det er samme presisjon som i [kap. 4.4](/bok/econ2220/econ2220-4-4), der Pareto-effektivitet ikke er det samme som rettferdighet."
+    },
+    {
+      "id": "econ2220-7-3-def-eksperimentelle-avvik",
+      "type": "definition",
+      "title": "Eksperimentelle avvik fra egoismeprediksjonen",
+      "content": "De empiriske funnene som motiverte modellen:\n\n- I **ultimatumspill** avslås lave tilbud systematisk, og typiske tilbud ligger nær en tredel av potten eller høyere — ikke nær null.\n- I **tillitsspill** sendes betydelige beløp, og betydelige beløp sendes tilbake, selv om ingenting tvinger mottakeren.\n\nPoenget er at avvikene er **systematiske**, ikke tilfeldig støy. Det er derfor de kan modelleres med faste parametre.\n\nTil eksamen holder én setning om dette. Det er bakgrunnsstoff — du **bør kjenne** det, men det gir ingen poeng i seg selv."
+    },
+    {
+      "id": "econ2220-7-3-rep",
+      "type": "collapsible",
+      "title": "Repetisjonsoppgaver",
+      "buttonText": "Vis repetisjonsoppgaver",
+      "content": [
+        {
+          "id": "econ2220-7-3-oppg-R1",
+          "type": "exercise",
+          "exercise": {
+            "id": "econ2220-7-3-r1",
+            "number": "R1",
+            "type": "classic",
+            "difficulty": "lett",
+            "task": "Med $\\alpha = 0{,}8$ og $\\beta = 0{,}6$: regn ut Fehr-Schmidt-nytten til en person som får 30 når den andre får 30.",
+            "solution": "Utbetalingene er like, så $x_j - x_i = 0$ og $x_i - x_j = 0$. Begge max-ledd er null:\n\n$$U_i = 30 - 0{,}8 \\cdot 0 - 0{,}6 \\cdot 0 = 30.$$\n\nVed likedeling er Fehr-Schmidt-nytten alltid lik egen utbetaling. Det er en nyttig kontroll når du regner: lander du på likedeling, skal nytten være halve summen.",
+            "hints": [
+              "Hva blir $\\max\\{0, 0\\}$?"
+            ]
+          }
+        },
+        {
+          "id": "econ2220-7-3-oppg-R2",
+          "type": "exercise",
+          "exercise": {
+            "id": "econ2220-7-3-r2",
+            "number": "R2",
+            "type": "classic",
+            "difficulty": "middels",
+            "task": "(Fra [kap. 7.2](/bok/econ2220/econ2220-7-2) og dette kapitlet.) En pott på 65 kroner deles i et ultimatumspill. Respondenten har Fehr-Schmidt-preferanser med $\\alpha = 0{,}8$.\n\n**a)** Hva er det minste beløpet hun godtar?\n\n**b)** Hva tilbyr en egoistisk forslagsstiller?",
+            "solution": "**a)** Grensen som andel er $\\dfrac{0{,}8}{2{,}6} = \\dfrac{4}{13}$, så i kroner:\n\n$$m^* = \\frac{4}{13}\\cdot 65 = 4 \\cdot 5 = 20 \\text{ kroner}.$$\n\nKontroll: $U_R = 20 - 0{,}8\\,(65 - 40) = 20 - 0{,}8 \\cdot 25 = 20 - 20 = 0$ ✓ (indifferent).\n\n**b)** Den egoistiske forslagsstilleren tilbyr det minste som godtas, altså **20 kroner**, og beholder 45. Fordelingen blir $(45, 20)$.",
+            "hints": [
+              "Grensen er en andel av potten, ikke et fast beløp.",
+              "Kontroller ved å sette tallet inn i $U_R = m - \\alpha(T - 2m)$."
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": "econ2220-7-3-symbolliste",
+      "type": "collapsible",
+      "title": "Symbol- og formelliste",
+      "buttonText": "Vis symboler og formler",
+      "content": [
+        {
+          "id": "econ2220-7-3-symbolliste-text",
+          "type": "text",
+          "content": "## Symbol- og formelliste\n\n*Oppslagsverk — alt her forklares underveis i kapitlet.*\n\n| Symbol | Betydning |\n|---|---|\n| $x_i$ | Egen pengeutbetaling til person $i$ |\n| $x_j$ | Den andre personens pengeutbetaling |\n| $U_i$ | Fehr-Schmidt-nytten til person $i$ |\n| $\\alpha$ | Misunnelsesparameteren — nyttetap per krone bak den andre; kurset bruker $0{,}8$ |\n| $\\beta$ | Skyldparameteren — nyttetap per krone foran den andre; kurset bruker $0{,}6$ |\n| $T$ | Potten i ultimatumspillet |\n| $m$ | Beløpet respondenten tilbys |\n| $m^*$ | Avslagsgrensen i kroner |\n| $E$ | Investorens startbeløp i tillitsspillet |\n| $s$ | Beløpet investoren sender (tredobles på veien) |\n| $r$ | Beløpet mottakeren sender tilbake |\n| $S$ | Samlet beløp som skal fordeles |\n| SPNE | Delspill-perfekt Nash-likevekt |\n\n**Formler i dette delkapitlet:**\n\n$$U_i = x_i - \\alpha\\max\\{x_j - x_i, 0\\} - \\beta\\max\\{x_i - x_j, 0\\}, \\qquad \\alpha > \\beta \\ge 0$$\nFehr-Schmidt-nytten. Bare ett av max-leddene kan være positivt om gangen.\n\n$$U_R(\\text{godta}) = m(1 + 2\\alpha) - \\alpha T \\qquad (\\text{for } m < T/2)$$\nRespondentens nytte av å godta et tilbud under halvparten. Å avslå gir 0.\n\n$$\\frac{m}{T} \\ge \\frac{\\alpha}{1+2\\alpha} \\qquad\\Longrightarrow\\qquad \\text{godtar}$$\nAvslagsgrensen som andel av potten. Med $\\alpha = 0{,}8$: $4/13 \\approx 30{,}8\\ \\%$. Uavhengig av $\\beta$.\n\n$$U_i = x_i(1 - 2\\beta) + \\beta S \\qquad (\\text{for } x_i > S/2)$$\nNytten til den som fordeler og ligger over. Koeffisienten $1 - 2\\beta$ er negativ når $\\beta > \\tfrac12$ — da lønner utligning seg.\n\n$$\\beta > \\tfrac{1}{2} \\quad\\Longrightarrow\\quad \\text{likedeling } x_i = S/2$$\nUtligningslogikken, med betingelsen som må skrives eksplisitt.\n\n$$\\text{Tillitsspillet: } (E - s + r,\\; 3s - r)$$\nSluttutbetalinger til investor og mottaker. Med utligning og $E = 100$, $s = 100$: $r = 150$ og begge ender med 150."
+        }
+      ]
+    }
+  ],
+  "exercises": []
+}
