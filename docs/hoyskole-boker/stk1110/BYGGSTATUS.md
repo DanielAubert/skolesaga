@@ -33,9 +33,25 @@ Byggeplan: `docs/hoyskole-boker/BYGGEPLAN-MAL.md` (steg 0→4).
 
 Figurer: 9 SVG ✅ committet (b8bbe40e), lastes opp i Steg 4.
 
-## Steg 2 — Wiring ⏳
-## Steg 3 — Verifiseringsbølge ⏳
-## Steg 4 — Sluttport + deploy ⏳
+## Steg 2 — Wiring ✅ (dde6b867)
+- wire-bok.py: COURSE_STK1110 (28 kap), registry 10855, quiz-data-stk1110.ts (515),
+  quiz-data.ts, institusjoner.ts (uio), kildegrunnlag.ts, quiz-staging slettet.
+- sjekk-bok: 4 manglende Typiske feil-warnings (0.2/1.5/2.7/3.7) fikset → BOKPORT OK.
+- LENGDE-TELL: fasit eneste-lengst 21 % ✓. tsc grønn.
+
+## Steg 3 — Verifiseringsbølge ✅ (18ec5686 + a55ad238)
+- 5 verifikatorer (2 døde på ECONNRESET uten endringer, relansert mindre):
+  Del 0+1: 193 num + 25 sympy + 6 MC → 0 avvik. Del 2: 312 sjekker → 9
+  siste-desimal-avvik rettet. Del 3: ~290 sjekker → 2 regnekjeder i 3.1 rettet
+  (Syy-kjeden) + 3.2/3.5 desimaler. Del 4: 175 sjekker → 0 avvik.
+
+## Steg 4 — Sluttport + deploy ✅
+- sjekk-bok BOKPORT OK · studentpanel-/bølgeporter grønne (14 kalde oppgaver
+  korrekt merket, ingen alle-a, Del 0-pakken komplett)
+- npm run build: ✓ Compiled, Kombinerte 10855 kapitler
+- prod-curl PORT=3111: 9/9 ruter 200 (inst/bok/teori/drill/prøve/øvingseksamen/
+  quiz/flashcards/kildegrunnlag), Forkunnskaper+Symbolliste+læringsløkke servert
+- 9 SVG lastet opp til Supabase Storage (upload-media-storage.ts)
 
 ## Commit-logg
 - 325284b1 Steg 0 (BYGGEKONTRAKT+BOKCONFIG+BYGGSTATUS)
