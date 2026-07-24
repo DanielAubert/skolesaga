@@ -1,0 +1,441 @@
+{
+  "id": "econ2310-4-3",
+  "courseId": "econ2310",
+  "chapterNumber": "4.3",
+  "title": "Systemet samlet: PK, likevekten — og høy-β-analysen",
+  "description": "De tre relasjonene som system i (Y, i)-diagrammet — og A-spørsmålet fremfor noen: hva skjer når Phillips-kurven er bratt?",
+  "estimatedMinutes": 55,
+  "competenceGoals": [
+    "sette sammen IS, RR og PK til et bestemt system og forklare hvordan likevekten dannes",
+    "avgjøre hvilke relasjoner et gitt sjokk treffer, og skille skift fra bevegelse langs kurven",
+    "gjøre rede for de tre stedene Phillips-kurvens helning virker i modellen",
+    "analysere høy-β-tilfellet og si hvilke fortegn som da blir entydige"
+  ],
+  "content": [
+    {
+      "id": "econ2310-4-3-tip-eksamensvinkel",
+      "type": "tip",
+      "title": "Eksamensvinkel",
+      "content": "**Her settes de tre relasjonene sammen — og her ligger det spørsmålet som oftest skiller de beste besvarelsene fra de nest beste.**\n\n- Systemforståelsen bærer **alle** skiftanalysene i åpen økonomi, altså **6 av 13 sett** (H2019, H2022, H2023, H2024, H2025 og H2021-utsatt). Uten den kommer du ikke i gang med kap. 4.4.\n- Phillips-kurven og potensielt BNP som selvstendig teorispørsmål er stilt i **H2023**.\n- **Høy-β-analysen** — hva skjer når lønns- og prisveksten reagerer svært sterkt på presset i økonomien — er **H2023, siste spørsmål**, og sensorveiledningen sier rett ut at det er der de aller beste besvarelsene skiller seg ut.\n\nKapitlet har **høyeste prioritet**. Den gode nyheten er at høy-β-analysen ikke krever nytt apparat: den bruker bare de tre stedene $\\beta$ allerede sitter."
+    },
+    {
+      "id": "econ2310-4-3-forkunnskaper",
+      "type": "text",
+      "content": "**Sist du var her — de tre relasjonene, ferskt oppfrisket:**\n\n1. **IS** (fra [kap. 4.1](/bok/econ2310/econ2310-4-1)): $Y = m Z^D + m a_2 Z^E - m a_3 Z^\\pi - m(c_2+b_2+a_2\\kappa)\\,i$ — etterspørselssiden, fallende i renta, med tre rentekanaler og en multiplikator som dempes av import og priser.\n2. **RR** (fra [kap. 4.2](/bok/econ2310/econ2310-4-2)): $i = Z^i + g_Y (Y-Y^n)/Y^n + g_E Z^E + g_\\pi Z^\\pi$ — sentralbankens reaksjonsfunksjon, stigende i produksjonen, begrunnet fra mandatet.\n3. **PK** — Phillips-kurven: $\\pi = Z^\\pi + \\beta (Y-Y^n)/Y^n$. Mekanismen bak $\\beta$ kjenner du fra [Phillips-kurven: β-mekanismen og kausalkjeden](/bok/econ1310/econ1310-4-2): høyere aktivitet gir lavere ledighet, høyere lønnsvekst og høyere prisvekst.\n\nDet lukkede diagrammet med de samme tre relasjonene finner du i [IS-RR-PK-diagrammet: etterspørselssjokk](/bok/econ1310/econ1310-5-2). Det nye her er at IS-kurven har en valutakurskanal og en prisdemping i multiplikatoren."
+    },
+    {
+      "id": "econ2310-4-3-intro",
+      "type": "text",
+      "content": "Tre relasjoner, tre ukjente. Det er hele modellen. Men å ha tre ligninger er ikke det samme som å forstå et system: du må kunne si hvilken relasjon som bestemmer hva, hvilken som skifter når noe skjer, og hvordan de tre snakker sammen.\n\nI dette kapitlet gjør vi tre ting. Vi setter sammen likevekten i ett diagram, vi lager en oversikt over hvilke relasjoner hvert sjokk treffer — den oversikten er selve verktøyet i neste kapittel — og vi tar det spørsmålet som oftest er lagt inn som en siste, kinkig hale på eksamen: hva skjer i modellen når prisene reagerer *svært* sterkt på presset i økonomien?"
+    },
+    {
+      "id": "econ2310-4-3-lokke1",
+      "type": "text",
+      "content": "## Løkke 1 — De tre relasjonene som system (~15 min)"
+    },
+    {
+      "id": "econ2310-4-3-pk-tekst",
+      "type": "text",
+      "content": "### Phillips-kurven, kort og presist\n\n$$\\pi = Z^\\pi + \\beta\\,\\frac{Y - Y^n}{Y^n}$$\n\nRelasjonen sier at inflasjonen består av to deler: en impuls utenfra ($Z^\\pi$) og et bidrag fra presset i økonomien. Mekanismen bak det andre leddet er en kjede i fire trinn: høyere produksjon krever mer arbeidskraft $\\to$ ledigheten faller $\\to$ arbeidstakernes forhandlingsposisjon styrkes, så lønnsveksten stiger $\\to$ bedriftene velter kostnadene over i prisene.\n\nParameteren $\\beta$ er styrken i denne kjeden. Den er stor når arbeidsmarkedet reagerer raskt og lønnsdannelsen er lite koordinert, og liten når lønnsveksten er treg eller sterkt samordnet.\n\n**Merk plasseringen i systemet:** Phillips-kurven bestemmer ikke $Y$ og ikke $i$. Den kommer *til slutt* og leser av inflasjonen når produksjonen er bestemt. Vi sier at $\\pi$ bestemmes **residualt**."
+    },
+    {
+      "id": "econ2310-4-3-def-pk",
+      "type": "definition",
+      "title": "Phillips-kurven (PK)",
+      "content": "Relasjonen mellom inflasjonen og presset i økonomien:\n\n$$\\pi = Z^\\pi + \\beta\\,\\frac{Y-Y^n}{Y^n}$$\n\nLigger produksjonen over potensielt BNP, er ledigheten lav, lønnsveksten høy og prisveksten høyere enn impulsen alene tilsier. Parameteren $\\beta > 0$ er styrken i koblingen.\n\nI systemet er PK den relasjonen som bestemmer inflasjonen residualt: først finner IS og RR sammen produksjon og rente, deretter leser PK av inflasjonen."
+    },
+    {
+      "id": "econ2310-4-3-def-systemet",
+      "type": "definition",
+      "title": "Systemet IS-RR-PK",
+      "content": "De tre relasjonene som til sammen bestemmer produksjon, rente og inflasjon i en liten, åpen økonomi med flytende kurs:\n\n- **IS:** etterspørselssiden, fallende i renta.\n- **RR:** sentralbankens reaksjonsfunksjon, stigende i produksjonen.\n- **PK:** inflasjonen som funksjon av produksjonsgapet.\n\nEndogene er $Y$, $i$ og $\\pi$ — tre relasjoner og tre ukjente. Eksogene er $Z^D$, $Z^E$, $Z^\\pi$, $Z^i$ og $Y^n$, og alle parametre er positive. Valutakursen følger av renta gjennom renteparitetsbetingelsen."
+    },
+    {
+      "id": "econ2310-4-3-def-likevekt",
+      "type": "definition",
+      "title": "Likevekten i $(Y,i)$-diagrammet",
+      "content": "Punktet der IS og RR krysser hverandre. Der er både produktmarkedet i balanse *og* renta satt i tråd med sentralbankens regel — de to kravene er oppfylt samtidig, og det er nettopp derfor krysningspunktet er likevekten.\n\nProduksjonen og renta leses av på aksene; inflasjonen finnes etterpå ved å sette likevektsproduksjonen inn i Phillips-kurven. Legg merke til at likevekten ikke behøver å ligge ved $Y = Y^n$: modellen kan godt hvile i en høy- eller lavkonjunktur."
+    },
+    {
+      "id": "econ2310-4-3-def-residual",
+      "type": "definition",
+      "title": "Residual bestemmelse",
+      "content": "At en variabel leses av til slutt, når de andre er bestemt, framfor å være med på å bestemme dem.\n\nI dette systemet bestemmes inflasjonen residualt: IS og RR finner $Y$ og $i$, og deretter gir Phillips-kurven $\\pi$. Det betyr ikke at inflasjonen er uviktig — den er tvert imot grunnen til at banken reagerer som den gjør, og den ligger inne i både $m$ (prisvirkningen) og $g_Y$ (bankens respons)."
+    },
+    {
+      "id": "econ2310-4-3-ex-1",
+      "type": "example",
+      "title": "Eksempel 1: Sett sammen likevekten (sjanger E + F)",
+      "problem": "Sett de tre relasjonene sammen. Vis hvordan likevekten bestemmes, og forklar hvorfor krysningspunktet mellom IS og RR er likevekten.",
+      "solution": "**Tellingen først.** Tre relasjoner (IS, RR, PK) og tre endogene størrelser ($Y$, $i$, $\\pi$). Systemet er dermed bestemt. Valutakursen kommer i tillegg, men den er bestemt av renta gjennom renteparitetsbetingelsen $E = Z^E - \\kappa i$ og krever ingen egen ligning i tellingen.\n\n**To relasjoner, to variabler.** IS og RR inneholder bare $Y$ og $i$. De kan derfor løses sammen, uavhengig av PK. IS gir alle kombinasjoner av $Y$ og $i$ der produktmarkedet er i balanse; RR gir alle kombinasjoner der renta er satt i tråd med bankens regel. Bare i krysningspunktet er begge krav oppfylt samtidig — derfor er det likevekten.\n\n**Deretter inflasjonen.** Sett likevektsproduksjonen inn i Phillips-kurven: $\\pi = Z^\\pi + \\beta (Y^*-Y^n)/Y^n$. Ligger $Y^*$ over $Y^n$, er inflasjonen høyere enn impulsen alene.\n\n**Figur i ord:** Tegn $Y$ vannrett og $i$ loddrett. Fallende IS-kurve, stigende RR-kurve, krysning i punkt $A$ med stiplede hjelpelinjer ned til $Y^*$ og bort til $i^*$. Tegn i tillegg en loddrett stiplet linje ved $Y^n$, slik at du ser om likevekten ligger til høyre (høykonjunktur, positivt gap) eller til venstre (lavkonjunktur). Kurvene er merket IS og RR.\n\n**Et poeng som ofte gir uttelling.** Likevekten behøver ikke ligge ved $Y = Y^n$. Er impulsene i utgangspunktet gunstige, kan økonomien hvile i en høykonjunktur med inflasjon over impulsnivået — banken har jo *ikke* et mål om å lukke gapet fullstendig, bare om å veie hensynene mot hverandre."
+    },
+    {
+      "id": "econ2310-4-3-oppg-1",
+      "type": "exercise",
+      "exercise": {
+        "id": "econ2310-4-3-oppg-1",
+        "number": "1",
+        "type": "classic",
+        "difficulty": "lett",
+        "task": "(Innstegsoppgave — ren gjengivelse med egne ord.)\n\nHvilke tre størrelser bestemmer modellen, og hvilken relasjon bestemmer hvilken?",
+        "solution": "Modellen bestemmer produksjonen $Y$, renta $i$ og inflasjonen $\\pi$. IS og RR bestemmer $Y$ og $i$ sammen, i krysningspunktet mellom de to kurvene. Deretter bestemmer Phillips-kurven inflasjonen residualt, ved at likevektsproduksjonen settes inn i relasjonen. Valutakursen følger av renta gjennom renteparitetsbetingelsen.",
+        "hints": [
+          "Tell relasjoner og tell endogene — de skal være like mange.",
+          "To av relasjonene inneholder bare to av variablene."
+        ]
+      }
+    },
+    {
+      "id": "econ2310-4-3-oppg-2",
+      "type": "exercise",
+      "exercise": {
+        "id": "econ2310-4-3-oppg-2",
+        "number": "2",
+        "type": "classic",
+        "difficulty": "lett",
+        "task": "(Systemforståelse.)\n\nAvgjør om påstandene er riktige eller gale, og begrunn kort.\n\n**a)** «Likevekten ligger alltid ved $Y = Y^n$.»\n\n**b)** «Phillips-kurven er med på å bestemme renta.»\n\n**c)** «IS er fallende og RR er stigende i $(Y,i)$-diagrammet.»",
+        "solution": "**a)** **Galt.** Likevekten er der IS krysser RR, og det punktet kan ligge både over og under $Y^n$. Banken veier inflasjonshensynet mot hensynet til stabil produksjon og lukker ikke gapet fullstendig.\n\n**b)** **Riktig, men indirekte.** Phillips-kurven inngår ikke i regnestykket som bestemmer $i$, men den er grunnen til at koeffisienten $g_Y$ er der og har den størrelsen den har. Sier du at PK bestemmer renta direkte, er det galt; sier du at PK ligger *bak* bankens respons, er det riktig.\n\n**c)** **Riktig.** IS faller fordi høyere rente demper etterspørselen; RR stiger fordi banken hever renta når produksjonen øker.",
+        "hints": [
+          "En av påstandene er delvis riktig og krever en presisering — ikke et rent ja eller nei.",
+          "Tenk på hvilken rekkefølge relasjonene brukes i."
+        ]
+      }
+    },
+    {
+      "id": "econ2310-4-3-lokke2",
+      "type": "text",
+      "content": "## Løkke 2 — Hvilke relasjoner treffer et sjokk? (~10 min)"
+    },
+    {
+      "id": "econ2310-4-3-treffer",
+      "type": "text",
+      "content": "### Verktøyet du kommer til å bruke i hver skiftanalyse\n\nFør du tegner noe som helst, skal du kunne si hvilke relasjoner sjokket treffer. Oversikten er kort nok å huske:\n\n| Impuls | IS | RR | PK |\n|---|---|---|---|\n| $Z^D$ (etterspørsel) | ja, skifter | nei | nei (bare via $Y$) |\n| $Z^E$ (valutakurs) | ja, skifter | **ja, skifter** | nei (bare via $Y$) |\n| $Z^\\pi$ (priser) | ja, skifter | **ja, skifter** | **ja, skifter** |\n| $Z^i$ (rentegrunnivå) | nei | ja, skifter | nei (bare via $Y$) |\n| $Y^n$ (potensielt BNP) | via multiplikatoren | ja | ja |\n\nTo ting er verdt å merke seg. For det første treffer $Z^E$ **to** relasjoner — det er derfor kronesvekkelse er det mest krevende standardsjokket. For det andre står «nei (bare via $Y$)» i PK-kolonnen for de fleste impulsene: Phillips-kurven flytter seg ikke, men inflasjonen endrer seg likevel fordi produksjonen har endret seg. Skift i en relasjon og endring i en variabel er ikke det samme."
+    },
+    {
+      "id": "econ2310-4-3-def-skiftanalyse",
+      "type": "definition",
+      "title": "Skiftanalyse",
+      "content": "Metoden der du endrer én eksogen størrelse, sporer hvilke relasjoner som flytter seg, finner den nye likevekten og forklarer mekanismen i ord.\n\nRekkefølgen er alltid den samme: (1) hvilke relasjoner treffes, (2) i hvilken retning skifter de, (3) hvor er den nye likevekten, (4) hva er mekanismen, (5) hva skjer med de underliggende størrelsene. Punkt 5 heter i denne boka å «åpne panseret», og det er der de fleste poengene ligger — se [kap. 4.4](/bok/econ2310/econ2310-4-4)."
+    },
+    {
+      "id": "econ2310-4-3-ex-2",
+      "type": "example",
+      "title": "Eksempel 2: Klassifiser sjokkene før du tegner (sjanger G, forberedelse)",
+      "problem": "For hvert av sjokkene under: si hvilke relasjoner som skifter, og i hvilken retning kurvene flytter seg i $(Y,i)$-diagrammet. Ikke finn den nye likevekten ennå.",
+      "solution": "**Økte offentlige kjøp ($Z^D$ opp).** Treffer bare IS. Ved uendret rente er etterspørselen høyere, så IS skifter **mot høyre**. RR står stille — men merk at banken likevel vil endre renta, siden vi beveger oss langs RR til et nytt punkt.\n\n**Kronesvekkelse ($Z^E$ opp).** Treffer både IS og RR. IS skifter **mot høyre** (bedret konkurranseevne løfter nettoeksporten), og RR skifter **opp** (banken svarer på dyrere importvarer og økt aktivitet). To skift samtidig, og de trekker produksjonen i motsatt retning — her ligger kilden til at effekten på $Y$ ikke kan signeres.\n\n**Innenlandsk prisimpuls ($Z^\\pi$ opp).** Treffer alle tre. IS skifter **mot venstre** (norske varer relativt dyrere, svakere nettoeksport), RR skifter **opp** (banken svarer på prisimpulsen), og PK skifter opp i sitt eget diagram (høyere inflasjon for et gitt gap).\n\n**Bankens grunnivå heves ($Z^i$ opp).** Treffer bare RR, som skifter **opp**. IS står stille, men produksjonen faller likevel: vi beveger oss oppover langs IS til det nye krysningspunktet."
+    },
+    {
+      "id": "econ2310-4-3-oppg-3",
+      "type": "exercise",
+      "exercise": {
+        "id": "econ2310-4-3-oppg-3",
+        "number": "3",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "(Sjanger G — forberedelse.)\n\nFor hvert sjokk: hvilke relasjoner skifter, og hvilken vei?\n\n**a)** Bedriftene blir mer pessimistiske og utsetter investeringer.\n\n**b)** Tilliten til norsk økonomi svekkes, slik at markedet venter en varig svakere krone.\n\n**c)** Arbeidsstyrken vokser kraftig, og likevektsledigheten faller.",
+        "solution": "**a)** $Z^D$ ned. Bare IS skifter, og den skifter **mot venstre**. Renta faller langs RR.\n\n**b)** Høyere $E^e$ betyr høyere $Z^E$. Både IS (**mot høyre**) og RR (**opp**) skifter — samme mønster som en kronesvekkelse fra andre kilder.\n\n**c)** $Y^n$ stiger. Dette er en tilbudssidehendelse: RR skifter **ned** (gapet er mindre ved uendret $Y$, så banken setter lavere rente), og Phillips-kurven gir lavere inflasjon for en gitt produksjon. IS berøres i prinsippet også, siden $Y^n$ står i prisvirkningen $a_3\\beta/Y^n$ i multiplikatoren, men den virkningen er en detalj sammenlignet med de to andre.",
+        "hints": [
+          "Start med å oversette hendelsen til én av impulsene $Z^D$, $Z^E$, $Z^\\pi$, $Z^i$ eller til $Y^n$.",
+          "Ett av sjokkene treffer to relasjoner, og ett er en tilbudssidehendelse."
+        ]
+      }
+    },
+    {
+      "id": "econ2310-4-3-oppg-4",
+      "type": "exercise",
+      "exercise": {
+        "id": "econ2310-4-3-oppg-4",
+        "number": "4",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "(Systemforståelse med en presisering.)\n\nEn kandidat skriver: «Etter en økning i offentlige kjøp skifter Phillips-kurven opp, siden inflasjonen stiger.»\n\nForklar hva som er upresist, og hvordan det skal formuleres.",
+        "solution": "Inflasjonen stiger — det er riktig. Men Phillips-kurven **skifter ikke**: den er uendret, og vi beveger oss langs den til et punkt med større produksjonsgap. Kurven skifter bare hvis $Z^\\pi$ endres (eller $Y^n$).\n\nRiktig formulering: «Økte offentlige kjøp skifter IS mot høyre. Ny likevekt gir høyere produksjon, og siden produksjonsgapet er blitt større, gir Phillips-kurven høyere inflasjon — vi beveger oss oppover langs en uendret Phillips-kurve.»\n\nSkillet er ikke pedanteri: blander du skift og bevegelse langs kurven, mister du oversikten i sjokk som treffer flere relasjoner, og du risikerer å telle samme effekt to ganger.",
+        "hints": [
+          "Spør hva som må endres for at en relasjon skal flytte seg.",
+          "Hvilken størrelse i Phillips-kurven er eksogen?"
+        ]
+      }
+    },
+    {
+      "id": "econ2310-4-3-pause-1",
+      "type": "text",
+      "content": "— naturlig pausepunkt —"
+    },
+    {
+      "id": "econ2310-4-3-lokke3",
+      "type": "text",
+      "content": "## Løkke 3 — Høy-β-analysen: spørsmålet som skiller (~20 min)"
+    },
+    {
+      "id": "econ2310-4-3-beta-tre-steder",
+      "type": "text",
+      "content": "### $\\beta$ sitter på tre steder\n\nDe fleste tror $\\beta$ bare er «Phillips-kurvens helning». Det er den tredjedelen av sannheten som gir en middels besvarelse. $\\beta$ sitter faktisk på tre steder i modellen:\n\n1. **I Phillips-kurven**, som helningen: et gitt produksjonsgap gir mer inflasjon når $\\beta$ er stor.\n2. **I IS-relasjonen**, gjennom multiplikatoren: $m = 1/\\left[1-c_1(1-t)-b_1+a+a_3\\beta/Y^n\\right]$. Sterkere prisreaksjon betyr at høyere aktivitet raskere spiser opp konkurranseevnen, altså **mindre $m$**.\n3. **I renteregelen**, gjennom $g_Y$: banken vet at et gitt gap nå gir mer inflasjon, og reagerer kraftigere. Altså **større $g_Y$**.\n\nAlle tre virkningene peker mot samme konklusjon om produksjonen — men de har ulike konsekvenser for renta, og det er verdt å holde dem fra hverandre."
+    },
+    {
+      "id": "econ2310-4-3-beta-kurvene",
+      "type": "text",
+      "content": "### Hva skjer med kurvene?\n\n**IS blir brattere.** Helningen på IS er $-1/\\left[m(c_2+b_2+a_2\\kappa)\\right]$. Mindre $m$ gir større tallverdi, altså brattere kurve. Økonomisk: en renteendring flytter produksjonen mindre, fordi prisdempingen spiser av virkningen.\n\n**RR blir brattere.** Helningen på RR er $g_Y/Y^n$. Større $g_Y$ gir brattere kurve. Økonomisk: banken svarer kraftigere på et gitt produksjonsgap.\n\n**Skiftvirkningen av $Z^D$ blir mindre — og det entydig.** Produksjonsvirkningen av en etterspørselsimpuls er\n\n$$\\frac{\\Delta Y}{\\Delta Z^D} = \\frac{m}{1 + m\\,(c_2+b_2+a_2\\kappa)\\,\\dfrac{g_Y}{Y^n}}.$$\n\n*Intuisjon:* telleren er den rene multiplikatorvirkningen, og nevneren er sentralbankens demping. Mindre $m$ trekker telleren ned, og større $g_Y$ trekker nevneren opp — begge kanaler gjør brøken mindre. Konklusjonen er derfor ikke betinget: **høy $\\beta$ gir mindre produksjonsvirkning av et etterspørselssjokk.**\n\n*Figur i ord:* Tegn to kurvepar i samme $(Y,i)$-diagram, alle gjennom samme startpunkt $A$: et slakt par (IS og RR i standardtilfellet) og et bratt par (IS' og RR' i høy-β-tilfellet). Skift så IS og IS' like langt mot høyre. Du ser umiddelbart at det bratte paret gir en ny likevekt nesten rett over $A$ — nesten uendret $Y$, tydelig høyere $i$ — mens det slake paret gir en ny likevekt langt til høyre. Marker begge nye likevekter med bokstav og stiplede hjelpelinjer til aksene."
+    },
+    {
+      "id": "econ2310-4-3-def-hoy-beta",
+      "type": "definition",
+      "title": "Høy-β-tilfellet",
+      "content": "Situasjonen der lønns- og prisveksten reagerer svært sterkt på presset i økonomien. Modellmessig betyr det at $\\beta$ er stor, med tre følger: multiplikatoren $m$ blir liten (brattere IS), bankens respons $g_Y$ blir kraftig (brattere RR), og produksjonsvirkningen av en etterspørselsimpuls blir liten.\n\nI grensetilfellet er produksjonen nesten låst ved $Y^n$, og et etterspørselssjokk slår nesten utelukkende ut i renta. Da må konsum, investeringer og nettoeksport gi plass for den impulsen som kom — og fortegn som ellers var ubestemte, blir bestemte."
+    },
+    {
+      "id": "econ2310-4-3-beta-grense",
+      "type": "text",
+      "content": "### Grensetilfellet: renta tar hele støyten\n\nTenk deg at prisreaksjonen er så kraftig at banken i praksis ikke tolererer noe produksjonsgap i det hele tatt. Da låses produksjonen ved $Y^n$, og hele etterspørselsimpulsen må motvirkes av renta. Fra IS-relasjonen ser du med én gang hvor mye renta må opp:\n\n$$\\Delta i \\;\\approx\\; \\frac{\\Delta Z^D}{c_2+b_2+a_2\\kappa}$$\n\n*Intuisjon:* renta må stige akkurat nok til at de tre rentekanalene til sammen trekker like mye ut av etterspørselen som impulsen la inn.\n\n**Og her kommer poenget som gir uttelling.** Er produksjonen tilnærmet uendret mens renta har steget, må sammensetningen ha endret seg. Kom impulsen fra økte offentlige kjøp, har vi $Y \\approx$ uendret med $G$ høyere — altså må $C + I + (X-Q)$ ha falt tilsvarende. Og det stemmer med hver enkelt kanal: konsumet faller (høyere rente, uendret inntekt), investeringene faller (høyere rente, uendret aktivitet), og nettoeksporten faller (høyere rente styrker krona). Effekter som i standardtilfellet var **ubestemte** — hva skjer med $C$ og $I$ når $G$ øker? — blir her **entydige**, fordi inntektseffekten er borte når produksjonen står stille.\n\n**En presisering du skal ha med.** Det er *bankens* kraftigere respons, altså den brattere RR-kurven, som løfter renta i grensetilfellet. Den brattere IS-kurven demper på sin side både produksjons- og rentevirkningen. Sier du bare «alt blir brattere, derfor stiger renta mer», har du hoppet over et ledd. Sier du at produksjonsvirkningen dempes fra begge kanter mens renteoppgangen kommer av at banken reagerer sterkere, er du presis."
+    },
+    {
+      "id": "econ2310-4-3-beta-kontrast",
+      "type": "text",
+      "content": "### Koblingen til bokas røde tråd\n\nLegg merke til hva økonomien i høy-β-tilfellet minner om: produksjonen ligger nær $Y^n$ uansett hva etterspørselen gjør, og etterspørselspolitikk flytter bare *sammensetningen*, ikke nivået. Det er nesten en tilbudsbestemt økonomi — akkurat slik vekstmodellen i Del 1 beskriver den lange sikten, der produksjonen er gitt av kapital, arbeidskraft og teknologi.\n\nÅ trekke denne kontrasten uoppfordret er en av de sikreste måtene å vise modellforståelse i dette faget på: du sier at kort sikt og lang sikt ikke er to ulike verdener, men to ytterpunkter av hvor bindende tilbudssiden er. Kontrasten er utdypet i [kap. 2.2](/bok/econ2310/econ2310-2-2)."
+    },
+    {
+      "id": "econ2310-4-3-ex-3",
+      "type": "example",
+      "title": "Eksempel 3: «Hva om lønnsveksten er svært følsom for presset?» (sjanger E + G, eksamensnivå)",
+      "problem": "Anta at lønns- og prisveksten reagerer svært sterkt på presset i økonomien. Forklar hva dette gjør med kurvene i diagrammet og med virkningen av en finanspolitisk ekspansjon — og hvilke fortegn som nå kan bestemmes.",
+      "solution": "**Hvor $\\beta$ sitter.** Sterk prisreaksjon betyr stor $\\beta$, og $\\beta$ virker på tre steder: i Phillips-kurvens helning, i multiplikatoren gjennom leddet $a_3\\beta/Y^n$, og i bankens respons $g_Y$, siden et gitt gap nå gir mer inflasjon.\n\n**Kurvene.** IS blir brattere, fordi mindre $m$ gir større tallverdi på helningen $-1/\\left[m(c_2+b_2+a_2\\kappa)\\right]$. RR blir også brattere, fordi helningen $g_Y/Y^n$ vokser med $g_Y$.\n\n**Virkningen av økte offentlige kjøp.** IS skifter mot høyre. Produksjonsvirkningen er $\\Delta Y = m\\,\\Delta Z^D/\\left[1+m(c_2+b_2+a_2\\kappa)g_Y/Y^n\\right]$: mindre $m$ krymper telleren og større $g_Y$ blåser opp nevneren, så virkningen på produksjonen blir **entydig mindre** enn i standardtilfellet. Renteoppgangen kommer av bankens kraftigere respons; i grensetilfellet, der banken ikke tolererer noe gap, låses produksjonen ved $Y^n$ og renta stiger med om lag $\\Delta Z^D/(c_2+b_2+a_2\\kappa)$ — akkurat nok til at de tre rentekanalene motvirker impulsen fullt ut.\n\n**Fortegnene som nå kan bestemmes.** I standardtilfellet er virkningen på konsum og investeringer av en finanspolitisk ekspansjon ubestemt: inntekten stiger (trekker opp), renta stiger (trekker ned). Når produksjonen er tilnærmet uendret, faller inntektseffekten bort, og bare renteeffekten står igjen: **konsumet faller, investeringene faller**. Krona styrker seg (høyere rente gir lavere $E$), så **nettoeksporten faller** også. Med $G$ opp og $Y$ uendret er dette regnskapsmessig nødvendig: $C + I + (X-Q)$ må falle like mye som $G$ steg. Inflasjonen er nesten uendret, siden gapet nesten ikke har åpnet seg — det var jo hele poenget med en sterk prisreaksjon.\n\n**Figur i ord.** To kurvepar gjennom samme startpunkt $A$: et slakt (standard) og et bratt (høy $\\beta$). Skift IS like langt mot høyre i begge. Det bratte paret gir en ny likevekt $B'$ nesten rett over $A$ — mye høyere rente, nesten uendret produksjon — mens det slake gir $B$ langt til høyre og bare litt høyere. Merk begge nye likevekter med stiplede hjelpelinjer til aksene.\n\n**Konklusjon.** Med sterk prisreaksjon flytter finanspolitikken sammensetningen av etterspørselen, ikke nivået på produksjonen. Økonomien oppfører seg nesten som om tilbudssiden var bindende — samme logikk som i vekstmodellen, der produksjonen er gitt av tilbudssiden og etterspørselen bare fordeler den."
+    },
+    {
+      "id": "econ2310-4-3-oppg-5",
+      "type": "exercise",
+      "exercise": {
+        "id": "econ2310-4-3-oppg-5",
+        "number": "5",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "(Sjanger E — de tre stedene $\\beta$ sitter.)\n\nGjør rede for de tre stedene i modellen der $\\beta$ virker, og si hvilken vei hver av dem trekker når $\\beta$ øker.",
+        "solution": "1. **Phillips-kurven:** $\\beta$ er helningen, så et gitt produksjonsgap gir mer inflasjon.\n2. **Multiplikatoren i IS:** leddet $a_3\\beta/Y^n$ i nevneren vokser, så $m$ blir mindre. Økonomisk: prisveksten spiser raskere av konkurranseevnen, så en gitt impuls flytter produksjonen mindre. Grafisk blir IS brattere.\n3. **Renteregelen:** koeffisienten $g_Y$ blir større, fordi banken vet at et gitt gap nå gir mer inflasjon. Grafisk blir RR brattere.\n\nAlle tre trekker mot mindre produksjonsvirkning av etterspørselssjokk. Det er punkt 2 og 3 som skiller en god besvarelse fra en som bare kaller $\\beta$ «Phillips-kurvens helning».",
+        "hints": [
+          "Skriv opp de tre relasjonene og let etter $\\beta$ i hver av dem — også der den er skjult i en annen parameter.",
+          "Én av plasseringene er indirekte: den sitter i en koeffisient som selv er et resultat av bankens avveining."
+        ]
+      }
+    },
+    {
+      "id": "econ2310-4-3-oppg-6",
+      "type": "exercise",
+      "exercise": {
+        "id": "econ2310-4-3-oppg-6",
+        "number": "6",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "(Sjanger G — kurvenes helning.)\n\n**a)** Vis hvorfor IS blir brattere når $\\beta$ øker, ved å bruke helningsuttrykket.\n\n**b)** Vis hvorfor RR blir brattere.\n\n**c)** Hva blir konsekvensen for hvor mye et etterspørselssjokk flytter produksjonen?",
+        "solution": "**a)** IS-helningen er $-1/\\left[m(c_2+b_2+a_2\\kappa)\\right]$. Multiplikatoren er $m = 1/\\left[1-c_1(1-t)-b_1+a+a_3\\beta/Y^n\\right]$; større $\\beta$ gir større nevner og dermed mindre $m$. Mindre $m$ gjør nevneren i helningsuttrykket mindre, altså tallverdien større: kurven blir brattere.\n\n**b)** RR-helningen er $g_Y/Y^n$. Større $\\beta$ betyr at et gitt gap gir mer inflasjon, så banken velger en kraftigere respons og $g_Y$ blir større. Helningen vokser, altså brattere kurve.\n\n**c)** Produksjonsvirkningen er $\\Delta Y/\\Delta Z^D = m/\\left[1+m(c_2+b_2+a_2\\kappa)g_Y/Y^n\\right]$. Mindre $m$ trekker telleren ned, større $g_Y$ trekker nevneren opp. Begge virker samme vei, så virkningen blir **entydig mindre** — dette er en av de få konklusjonene i skiftanalysen som ikke krever noen betingelse.",
+        "hints": [
+          "Start i multiplikatoruttrykket og se hva $\\beta$ gjør med nevneren.",
+          "For RR må du huske hva koeffisienten $g_Y$ egentlig er et uttrykk for.",
+          "I c) holder det å se hvilken vei hver av de to endringene flytter brøken."
+        ]
+      }
+    },
+    {
+      "id": "econ2310-4-3-oppg-7",
+      "type": "exercise",
+      "exercise": {
+        "id": "econ2310-4-3-oppg-7",
+        "number": "7",
+        "type": "classic",
+        "difficulty": "vanskelig",
+        "task": "(Sjanger G på eksamensnivå — krevende. Dette er den typen hale som avslutter et helt sett.)\n\nAnta at prisreaksjonen er så sterk at sentralbanken i praksis ikke tolererer noe produksjonsgap. Offentlige kjøp økes.\n\n**a)** Hva skjer med produksjonen og renta?\n\n**b)** Hva skjer med konsum, investeringer og nettoeksport — og hvorfor er fortegnene nå entydige?\n\n**c)** Hva skjer med inflasjonen?\n\n**d)** Hvilken kontrast til vekstmodellen kan du trekke?",
+        "solution": "**a)** Produksjonen er tilnærmet **uendret**, låst ved $Y^n$. Renta stiger, og omtrent med $\\Delta Z^D/(c_2+b_2+a_2\\kappa)$ — akkurat nok til at de tre rentekanalene motvirker impulsen fullt ut. Merk at det er bankens kraftige respons (brattere RR) som løfter renta; den brattere IS-kurven demper i seg selv både produksjons- og rentevirkningen.\n\n**b)** **Konsumet faller** og **investeringene faller**: renta har steget, mens inntekten og aktiviteten står stille, så bare renteeffekten er igjen. **Nettoeksporten faller** også, siden høyere rente styrker krona ($E = Z^E - \\kappa i$) og svekker konkurranseevnen. Fortegnene er entydige nettopp fordi inntektseffekten forsvinner når produksjonen ikke endrer seg. Regnskapet stemmer: med $Y$ uendret og $G$ høyere må $C + I + (X-Q)$ falle like mye som $G$ steg — full fortrengning.\n\n**c)** Inflasjonen er tilnærmet **uendret**, siden gapet knapt har åpnet seg og $Z^\\pi$ ikke er endret. Det er den logiske konsekvensen av at prisreaksjonen er sterk: nettopp derfor tillater banken ikke gapet.\n\n**d)** I vekstmodellen er produksjonen bestemt av tilbudssiden — kapital, arbeidskraft og teknologi — og etterspørselen fordeler den bare mellom anvendelser. I høy-β-tilfellet oppfører den korte sikten seg nesten på samme måte: nivået er gitt, og finanspolitikken flytter bare sammensetningen. Kort og lang sikt er dermed ikke to ulike verdener, men to ytterpunkter langs samme akse — hvor bindende tilbudssiden er. Det er dette poenget som løfter en besvarelse fra god til svært god, og det koster to setninger å ta med.",
+        "hints": [
+          "Start med hva som er låst, og la resten følge av IS-relasjonen.",
+          "Spør hva som skjer med inntektseffekten på konsumet når produksjonen står stille.",
+          "Bruk generalbudsjettligningen som kontroll: summen av komponentene må stemme."
+        ]
+      }
+    },
+    {
+      "id": "econ2310-4-3-lokke4",
+      "type": "text",
+      "content": "## Løkke 4 — Gjenkjenning: samme apparat, annen skrivemåte (~10 min)"
+    },
+    {
+      "id": "econ2310-4-3-gjenkjenning",
+      "type": "text",
+      "content": "### Varianten der β står rett i multiplikatoren\n\nEtt av settene oppgir apparatet i en form som ser annerledes ut, men er den samme modellen: Phillips-kurven er allerede satt inn i IS-relasjonen, slik at $\\beta$ står **direkte** i multiplikatoren. Da ser IS-relasjonen kompakt ut, nesten som i en lukket økonomi, med en multiplikator på formen\n\n$$m = \\frac{1}{1 - c_1(1-t) - b_1 + a + \\dfrac{a_3\\beta}{Y^n}}.$$\n\nDette er nøyaktig den multiplikatoren vi utledet i [kap. 4.1](/bok/econ2310/econ2310-4-1). Ser du en $\\beta$ i en multiplikator på eksamen, er det altså ikke en ny modell — det er prisvirkningen som er skrevet inn i stedet for å stå som en egen relasjon.\n\n**Andre varianter du bør kjenne igjen:** noen sett skriver renteregelens koeffisienter som $\\gamma$-er ($\\gamma_Y, \\gamma_E, \\gamma_\\pi$) i stedet for $g$-er. Settene sier selv at du kan bruke din egen notasjon så lenge du forklarer den — og at greske bokstaver kan erstattes med latinske og fotskrifter droppes, fordi eksamen skrives i et digitalt skjema.\n\n*Dette er en merket gjenkjenningsøvelse:* boka bruker konsekvent $g$-er og skriver Phillips-kurven som egen relasjon."
+    },
+    {
+      "id": "econ2310-4-3-oppg-8",
+      "type": "exercise",
+      "exercise": {
+        "id": "econ2310-4-3-oppg-8",
+        "number": "8",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "(Gjenkjenningsøvelse — samme modell, annen skrivemåte.)\n\nDu får oppgitt en IS-relasjon der multiplikatoren inneholder en $\\beta$, og en renteregel der koeffisientene heter $\\gamma_Y$, $\\gamma_E$ og $\\gamma_\\pi$.\n\n**a)** Er dette en annen modell enn bokas? Begrunn.\n\n**b)** Hva vil du skrive i besvarelsen for at sensor skal se at du har forstått?",
+        "solution": "**a)** Nei. En $\\beta$ i multiplikatoren betyr at Phillips-kurven allerede er satt inn i IS-relasjonen — prisvirkningen står skrevet inn i stedet for å ligge i en egen relasjon. Og $\\gamma$-ene er bare andre navn på renteregelens koeffisienter. Apparatet, mekanismene og konklusjonene er identiske.\n\n**b)** To setninger holder: «Multiplikatoren inneholder $\\beta$ fordi Phillips-kurven er satt inn i etterspørselsrelasjonen; prisvirkningen fungerer som en lekkasje på linje med importlekkasjen, slik at en brattere Phillips-kurve gir mindre multiplikator. Jeg skriver renteregelens koeffisienter som $g_Y$, $g_E$ og $g_\\pi$; de svarer til $\\gamma$-ene i oppgaveteksten.» Da har du vist at du kjenner strukturen og ikke bare formen — og du har varslet notasjonen din, som settene eksplisitt tillater.",
+        "hints": [
+          "Spør hva som må ha skjedd med Phillips-kurven når $\\beta$ plutselig står i multiplikatoren.",
+          "Sensor ser etter at du gjenkjenner mekanismen bak symbolene, ikke at du bruker samme bokstaver som settet."
+        ]
+      }
+    },
+    {
+      "id": "econ2310-4-3-warn-typiske-feil",
+      "type": "warning",
+      "title": "Typiske feil",
+      "content": "- **Behandle $\\beta$ som «bare Phillips-kurvens helning».** Den sitter også i multiplikatoren (gjennom prisvirkningen) og i bankens respons $g_Y$. Uten de to siste kan du ikke svare på høy-β-spørsmålet.\n- **Analysere høy-β-tilfellet som om det var standardtilfellet.** Poenget er nettopp at fortegn som ellers er ubestemte, blir bestemte når produksjonen står stille.\n- **Glemme at nesten uendret produksjon *tvinger* konsum og investeringer ned** når offentlige kjøp øker. Regnskapet i generalbudsjettligningen er en god selvkontroll.\n- **Blande skift i en kurve med bevegelse langs den** (feil #12 i bokas feilregister handler om noe beslektet — å hoppe over veien til likevekten). Phillips-kurven skifter bare når $Z^\\pi$ eller $Y^n$ endres, selv om inflasjonen endrer seg i nesten hvert sjokk.\n- **Miste kontrasten.** At høy-β-økonomien minner om en bindende tilbudsside, er poenget som løfter svaret — og det koster to setninger.\n- **Tro at likevekten alltid ligger ved $Y = Y^n$.** Banken veier hensyn og lukker ikke gapet fullstendig."
+    },
+    {
+      "id": "econ2310-4-3-begrepsbank-notis",
+      "type": "text",
+      "content": "## Begrepsbank\n\nBegrepsbanken er flashcard- og repetisjonsstoff — den gjentar det du nettopp har lest. Hopp trygt over ved førstegangslesing; tidsanslaget for kapitlet gjelder kjernestoffet."
+    },
+    {
+      "id": "econ2310-4-3-def-bb-1",
+      "type": "definition",
+      "title": "Parameteren $\\beta$",
+      "content": "Styrken i koblingen fra presset i økonomien til lønns- og prisveksten. Stor $\\beta$ betyr at et lite produksjonsgap gir mye inflasjon.\n\n$\\beta$ er stor når arbeidsmarkedet reagerer raskt og lønnsdannelsen er lite koordinert, og liten når lønnsveksten er treg eller sterkt samordnet. I modellen sitter $\\beta$ på tre steder: i Phillips-kurvens helning, i multiplikatoren og bak størrelsen på $g_Y$."
+    },
+    {
+      "id": "econ2310-4-3-def-bb-2",
+      "type": "definition",
+      "title": "IS-kurvens helning",
+      "content": "$-1/\\left[m(c_2+b_2+a_2\\kappa)\\right]$ i et $(Y,i)$-diagram: negativ, altså fallende kurve.\n\nKurven er **flat** når rentekanalene er sterke og multiplikatoren stor — da flytter små renteendringer produksjonen mye. Den er **bratt** når kanalene er svake eller prisdempingen kraftig."
+    },
+    {
+      "id": "econ2310-4-3-def-bb-3",
+      "type": "definition",
+      "title": "Brattere kurver, mindre skiftvirkning",
+      "content": "Regelen som gjør høy-β-analysen håndterbar: jo brattere IS og RR, desto mindre flytter et gitt skift i IS produksjonen — og desto mer av virkningen havner i renta.\n\nDen økonomiske historien bak: bratt IS betyr at renta ikke virker så mye på etterspørselen, og bratt RR betyr at banken svarer kraftig. Til sammen låses produksjonen nesten fast."
+    },
+    {
+      "id": "econ2310-4-3-def-bb-4",
+      "type": "definition",
+      "title": "Full fortrengning",
+      "content": "Situasjonen der en økning i offentlige kjøp fører til et like stort fall i summen av konsum, investeringer og nettoeksport, slik at samlet produksjon er uendret.\n\nI bokas modell er dette grensetilfellet av høy-β-analysen: produksjonen er låst ved $Y^n$, renta stiger, og de tre rentekanalene trekker ut nøyaktig så mye etterspørsel som staten la inn. Utenfor grensetilfellet er fortrengningen delvis."
+    },
+    {
+      "id": "econ2310-4-3-def-bb-5",
+      "type": "definition",
+      "title": "Tilbudsbestemt mot etterspørselsbestemt produksjon",
+      "content": "De to ytterpunktene i emnet. **Etterspørselsbestemt:** bedriftene produserer det de får solgt, og etterspørselspolitikk flytter nivået på produksjonen. **Tilbudsbestemt:** produksjonen er gitt av kapital, arbeidskraft og teknologi, og etterspørselen kan bare flytte sammensetningen.\n\nHøy-β-tilfellet viser at skillet er gradvis, ikke absolutt: jo sterkere prisene reagerer, desto mer bindende er tilbudssiden også på kort sikt. Å trekke denne kontrasten uoppfordret belønnes."
+    },
+    {
+      "id": "econ2310-4-3-def-bb-6",
+      "type": "definition",
+      "title": "Inflasjon i Phillips-kurven mot inflasjonsimpuls",
+      "content": "Skillet mellom $\\pi$ og $Z^\\pi$. $\\pi$ er den faktiske inflasjonen, som modellen bestemmer. $Z^\\pi$ er impulsen — den delen av prisveksten som ikke skyldes presset i økonomien.\n\nKonsekvensen for skiftanalysen: inflasjonen endrer seg i nesten hvert sjokk (fordi produksjonen endrer seg), men Phillips-kurven skifter bare når impulsen endres."
+    },
+    {
+      "id": "econ2310-4-3-def-bb-7",
+      "type": "definition",
+      "title": "Kurveskift mot bevegelse langs kurven",
+      "content": "Et **skift** betyr at hele relasjonen flytter seg, fordi noe eksogent i den er endret. En **bevegelse langs kurven** betyr at vi havner i et annet punkt på samme relasjon, fordi en av variablene i den har endret seg.\n\nPraktisk regel: se hvilke størrelser som står som variabler i relasjonen ($Y$ og $i$), og hvilke som står som konstantledd (impulsene). Bare de siste gir skift."
+    },
+    {
+      "id": "econ2310-4-3-def-bb-8",
+      "type": "definition",
+      "title": "Simultanitet",
+      "content": "At flere variabler bestemmes samtidig, ikke i rekkefølge. $Y$ og $i$ bestemmes simultant av IS og RR: renta avhenger av produksjonen, og produksjonen avhenger av renta.\n\nDette er grunnen til at du ikke kan si «renta stiger, derfor faller produksjonen» som en ren kjede i skiftanalysen. Du må finne det nye krysningspunktet, og først deretter forklare mekanismen."
+    },
+    {
+      "id": "econ2310-4-3-def-bb-9",
+      "type": "definition",
+      "title": "Komparativ statikk",
+      "content": "Å sammenligne to likevekter — én før og én etter at en eksogen størrelse er endret — uten å beskrive selve overgangen i detalj.\n\nAlle skiftanalyser i denne delen er komparativ statikk: vi spør hvor økonomien havner, ikke hvor mange kvartaler den bruker dit. Ordet er insider-språk for noe helt enkelt: «før mot etter»."
+    },
+    {
+      "id": "econ2310-4-3-def-bb-10",
+      "type": "definition",
+      "title": "Selvkontroll med generalbudsjettligningen",
+      "content": "Teknikken der du sjekker svaret ditt mot $Y = C + I + G + (X - Q)$: har du sagt hva som skjer med produksjonen og med hver komponent, må delene summere seg til helheten.\n\nSærlig nyttig i høy-β-tilfellet: er $Y$ uendret og $G$ opp, *må* summen av de øvrige komponentene ha falt tilsvarende. Kontrollen avslører fortegnsfeil raskere enn noen annen sjekk."
+    },
+    {
+      "id": "econ2310-4-3-def-bb-11",
+      "type": "definition",
+      "title": "Grensetilfelle som analyseverktøy",
+      "content": "Grepet der du lar en parameter gå mot en ytterlighet for å se mekanismen tydelig — for eksempel «hva om banken ikke tolererer noe gap i det hele tatt?».\n\nGrensetilfellet er sjelden realistisk, men det gjør retningene entydige, og det er ofte nettopp der eksamensoppgaven vil at du skal svare skarpt. Husk å si at det er et grensetilfelle, og hva som gjelder utenfor det."
+    },
+    {
+      "id": "econ2310-4-3-def-bb-12",
+      "type": "definition",
+      "title": "Sentralbankens målkonflikt",
+      "content": "Situasjonen der de to hensynene i mandatet peker i motsatt retning, slik at banken ikke kan nå begge fullt ut. Den oppstår typisk ved prisimpulser utenfra: inflasjonen stiger samtidig som aktiviteten er svak, og en renteøkning som demper prisveksten, forsterker svakheten.\n\nVed rene etterspørselssjokk finnes ingen konflikt: både inflasjonen og produksjonen trekker i samme retning, og én renteendring tjener begge mål. Å påpeke når konflikten finnes og når den ikke gjør det, er et presisjonspoeng."
+    },
+    {
+      "id": "econ2310-4-3-def-bb-13",
+      "type": "definition",
+      "title": "Bindende tilbudsside",
+      "content": "At produksjonsnivået i praksis er satt av kapasiteten — arbeidskraft, kapital og teknologi — slik at etterspørselen bare bestemmer hva produksjonen brukes til, ikke hvor stor den er.\n\nDette er normalsituasjonen i vekstmodellen i Del 1. I den åpne kortsiktsmodellen blir tilbudssiden nesten bindende når $\\beta$ er stor, og det er nettopp derfor høy-β-tilfellet er broen mellom emnets to hovedblokker."
+    },
+    {
+      "id": "econ2310-4-3-def-bb-14",
+      "type": "definition",
+      "title": "Nesten uendret mot uendret",
+      "content": "En presisjonsdetalj som er verdt å ha med. Med stor, men endelig $\\beta$ er produksjonsvirkningen liten, ikke null: det finnes fortsatt et lite gap, og dermed også en liten inflasjonsendring.\n\nSkriv derfor «nesten uendret» framfor «uendret», med mindre du eksplisitt regner i grensetilfellet. Sensor merker forskjellen mellom en kandidat som har forstått grensen og en som har rundet av."
+    },
+    {
+      "id": "econ2310-4-3-rep",
+      "type": "collapsible",
+      "title": "Repetisjon: sjekk at dette sitter",
+      "buttonText": "Vis repetisjonsspørsmål",
+      "content": [
+        {
+          "id": "econ2310-4-3-oppg-R1",
+          "type": "exercise",
+          "exercise": {
+            "id": "econ2310-4-3-oppg-R1",
+            "number": "R1",
+            "type": "classic",
+            "difficulty": "lett",
+            "task": "Hvilke relasjoner treffes av en $Z^E$-impuls, og hvilke av en $Z^D$-impuls?",
+            "solution": "$Z^E$ treffer **to** relasjoner: IS (nettoeksporten løftes) og RR (banken reagerer på kursimpulsen). $Z^D$ treffer bare IS. Ingen av dem skifter Phillips-kurven, men inflasjonen endrer seg likevel, fordi produksjonen endrer seg.",
+            "hints": [
+              "Se på hvilke impulser som står i mer enn én relasjon."
+            ]
+          }
+        },
+        {
+          "id": "econ2310-4-3-oppg-R2",
+          "type": "exercise",
+          "exercise": {
+            "id": "econ2310-4-3-oppg-R2",
+            "number": "R2",
+            "type": "classic",
+            "difficulty": "middels",
+            "task": "Hvorfor gir høyere $\\beta$ mindre produksjonsvirkning av et etterspørselssjokk — uten forbehold?",
+            "solution": "Fordi begge kanalene trekker samme vei i uttrykket $\\Delta Y/\\Delta Z^D = m/\\left[1+m(c_2+b_2+a_2\\kappa)g_Y/Y^n\\right]$: større $\\beta$ gir mindre $m$ (mindre teller) og større $g_Y$ (større nevner). Når to endringer trekker samme vei, trenger konklusjonen ingen betingelse.",
+            "hints": [
+              "Skriv opp uttrykket og se hva som skjer med teller og nevner hver for seg."
+            ]
+          }
+        },
+        {
+          "id": "econ2310-4-3-oppg-R3",
+          "type": "exercise",
+          "exercise": {
+            "id": "econ2310-4-3-oppg-R3",
+            "number": "R3",
+            "type": "classic",
+            "difficulty": "middels",
+            "task": "Hvorfor kan inflasjonen kalles residualt bestemt i dette systemet?",
+            "solution": "Fordi IS og RR sammen bestemmer produksjon og rente uten hjelp fra Phillips-kurven, og inflasjonen deretter leses av ved å sette likevektsproduksjonen inn i PK. Inflasjonen er likevel ikke uviktig: den er begrunnelsen for bankens respons og ligger inne i både multiplikatoren og $g_Y$.",
+            "hints": [
+              "Tell hvilke variabler som står i IS og RR."
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": "econ2310-4-3-symbolliste",
+      "type": "collapsible",
+      "title": "Symbol- og formelliste",
+      "buttonText": "Vis symboler og formler",
+      "content": [
+        {
+          "id": "econ2310-4-3-symbolliste-tekst",
+          "type": "text",
+          "content": "## Symbol- og formelliste\n\n*Oppslagsverk — alt her forklares underveis i kapitlet.*\n\n| Symbol | Betydning |\n|---|---|\n| $Y$, $i$, $\\pi$ | Produksjon, rente og inflasjon — de tre **endogene** |\n| $Y^*$, $i^*$ | Likevektsverdiene, der IS krysser RR |\n| $Y^n$ | Potensielt BNP — eksogen |\n| $(Y-Y^n)/Y^n$ | Produksjonsgapet |\n| $Z^D$, $Z^E$, $Z^\\pi$, $Z^i$ | Impulser i etterspørsel, valutakurs, priser og rentegrunnivå — eksogene |\n| $\\beta$ | Phillips-kurvens helning; sitter også i $m$ og bak $g_Y$ |\n| $m$ | Multiplikatoren med prisvirkning |\n| $c_2$, $b_2$, $a_2\\kappa$ | Rentens tre kanaler: konsum, investering, valutakurs |\n| $a_3$ | Nettoeksportens følsomhet for relativ prisvekst hjemme |\n| $g_Y$, $g_E$, $g_\\pi$ | Renteregelens koeffisienter (ikke vekstrater) |\n| $\\kappa$ | Kursens følsomhet for rentedifferansen |\n| $E$ | Valutakurs; høyere $E$ = svakere krone |\n| $C$, $I$, $G$, $X-Q$ | Konsum, investeringer, offentlige kjøp og nettoeksport |\n\n**Merk symbolbruken i dette kapitlet:** $g_Y$, $g_E$ og $g_\\pi$ er koeffisienter i renteregelen — $g$ som produktivitetsvekst hører til Del 1. Eldre sett skriver de samme koeffisientene som $\\gamma$-er. $k$ og $\\alpha$ brukes ikke her.\n\n**Formler i dette delkapitlet:**\n\n$$Y = m\\,Z^D + m\\,a_2 Z^E - m\\,a_3 Z^\\pi - m\\,(c_2+b_2+a_2\\kappa)\\,i$$\n\nIS: etterspørselssiden, fallende med helning $-1/\\left[m(c_2+b_2+a_2\\kappa)\\right]$.\n\n$$i = Z^i + g_Y\\,\\frac{Y-Y^n}{Y^n} + g_E Z^E + g_\\pi Z^\\pi$$\n\nRR: sentralbankens reaksjonsfunksjon, stigende med helning $g_Y/Y^n$.\n\n$$\\pi = Z^\\pi + \\beta\\,\\frac{Y-Y^n}{Y^n}$$\n\nPK: inflasjonen, bestemt residualt av produksjonsgapet.\n\n$$\\frac{\\Delta Y}{\\Delta Z^D} = \\frac{m}{1 + m\\,(c_2+b_2+a_2\\kappa)\\,\\dfrac{g_Y}{Y^n}}$$\n\nProduksjonsvirkningen av en etterspørselsimpuls: multiplikatorvirkning i telleren, sentralbankens demping i nevneren. Faller med $\\beta$ gjennom begge.\n\n$$\\Delta i \\approx \\frac{\\Delta Z^D}{c_2+b_2+a_2\\kappa} \\quad (\\text{grensetilfellet der } Y \\text{ er låst ved } Y^n)$$\n\nRenta må stige akkurat nok til at de tre kanalene motvirker impulsen fullt ut."
+        }
+      ]
+    }
+  ],
+  "exercises": []
+}
