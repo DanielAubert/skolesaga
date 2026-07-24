@@ -53,7 +53,7 @@ const quizData_fys1001: Record<string, QuizQuestion[]> = {
       explanation: "Eksamen deler ut formelark og tillater Gyldendals tabellverk. Puggetid er derfor tatt fra metodetrening, som er det som gir poengene.",
     },
     {
-      question: "Hva er det viktigste konsekvensen av at alle deloppgaver teller likt?",
+      question: "Hva er den viktigste konsekvensen av at alle deloppgaver teller likt?",
       options: ["Bredde lønner seg — flere lette slår én tung du sitter fast i", "Du bør begynne bakfra, siden de siste deloppgavene er verdt mest", "De kvalitative oppgavene kan hoppes over uten tap", "Den første oppgaven bestemmer karakteren"],
       explanation: "Ingen deloppgave kan redde en annen. Med rundt 11 minutter per deloppgave gir det én regel: kom deg videre når du står fast.",
     },
@@ -132,7 +132,7 @@ const quizData_fys1001: Record<string, QuizQuestion[]> = {
     {
       question: "Et fly skal opp i 70 m/s og akselererer med 2,8 m/s². Hvor lang rullebane trengs?",
       options: ["875 m", "437 m", "196 m", "1 750 m"],
-      explanation: "$s = v^2/(2a) = 4\\,900/5{,}6 = 875$ m. Å glemme faktoren 2 gir 1 750 m, og å bruke $v$ i stedet for $v^2$ gir 25 m.",
+      explanation: "$s = v^2/(2a) = 4\\,900/5{,}6 = 875$ m. Å glemme faktoren 2 gir 1 750 m, og å gange $v$ med $a$ i stedet gir 196 m.",
     },
     {
       question: "Hva betyr det at en oppgave sier «retardasjonen er 4,0 m/s²»?",
