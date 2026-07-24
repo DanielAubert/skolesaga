@@ -1,0 +1,460 @@
+{
+  "id": "fys1001-1-1",
+  "courseId": "fys1001",
+  "chapterNumber": "1.1",
+  "title": "Rettlinjet bevegelse: kinematikk med konstant akselerasjon",
+  "description": "Bevegelsesligningene, fart–tid- og posisjon–tid-grafene, fritt fall og kvadratloven for bremselengde — med den kritiske gyldighetsgrensen: kun konstant akselerasjon.",
+  "estimatedMinutes": 50,
+  "competenceGoals": [
+    "regne om mellom km/t og m/s og bruke de tre bevegelsesligningene for konstant akselerasjon på bremse-, akselerasjons- og fallproblemer",
+    "avgjøre om akselerasjonen er konstant, og begrunne når ligningene ikke kan brukes",
+    "lese av akselerasjon fra stigningstallet og strekning fra arealet i en fart–tid-graf, og skisse grafen selv",
+    "forklare uten ny utregning hvordan bremselengden endres når farten dobles"
+  ],
+  "content": [
+    {
+      "id": "fys1001-1-1-tip-eksamensvinkel",
+      "type": "tip",
+      "title": "Eksamensvinkel",
+      "content": "**Høyeste prioritet — mekanikk-blokken står i 36 av 36 avsluttende eksamenssett (100 %).**\n\nKinematikk er inngangsdøren til den blokken. Bremselengde-, akselerasjons- og fartsoppgaver dukker opp i praksis hvert år, som regel som de første deloppgavene i mekanikkoppgaven — altså de billigste poengene i settet. De hører til **sjanger C**, som er bokas navn på skråplan-, bremse- og Newton-oppgavene.\n\nTo ting skiller nivåene her. Det ene er **enhetene**: km/t skal bli m/s før noe settes inn, og hvert svar skal ha enhet (manglende enhet koster 1 poeng). Det andre er **gyldighetsflagget**: bevegelsesligningene i dette kapitlet gjelder *bare* når akselerasjonen er konstant. Å bruke dem på en krum bane er den mest eksplisitte metodefellen i hele arkivet — løsningsforslagene sier uttrykkelig at det ikke godtas selv om tallsvaret skulle bli riktig. Der skal du bruke energimetoden i stedet ([kap. 2.2](/bok/fys1001/fys1001-2-2))."
+    },
+    {
+      "id": "fys1001-1-1-forkunnskaper",
+      "type": "text",
+      "content": "**Forkunnskaper — dette bygger kapitlet på:**\n\n- [Grunnleggende likninger](/bok/1t/1t-2-1) — du skal kunne løse en likning for hvilken som helst av bokstavene i den. Nesten hver eneste fysikkoppgave er en formel du må snu på.\n- [Potenser](/bok/1t/1t-1-2) — regning med $v^2$ og med tierpotenser som $2{,}3\\cdot10^{3}$, som er standardformen for svar i fysikk.\n- [Lineære funksjoner](/bok/1t/1t-3-2) — stigningstall og skjæringspunkt. En fart–tid-graf er en lineær funksjon når akselerasjonen er konstant, og stigningstallet *er* akselerasjonen.\n\nKapitlet krever ingen tidligere fysikk. Dette er bokas første faglige kapittel."
+    },
+    {
+      "id": "fys1001-1-1-intro",
+      "type": "text",
+      "content": "## Hverdagsankeret: hva bilen din egentlig gjør\n\nDu kjører i 80 km/t, ser et hinder, og bremser. To ting avgjør om det går bra: hvor fort du reagerer, og hvor kraftig bilen kan bremse. Begge deler er ren kinematikk — læren om bevegelse uten å spørre *hvorfor* bevegelsen er som den er. Kreftene kommer i [kap. 1.2](/bok/fys1001/fys1001-1-2); her holder vi oss til fart, akselerasjon, tid og strekning.\n\nHele kapitlet handler egentlig om fire størrelser og tre ligninger som binder dem sammen. Det er lite stoff — men det er stoff du kommer til å bruke i hver eneste mekanikkoppgave resten av boka.\n\n*Kapitlet er delt i fem korte løkker med tidsanslag. Du kan trygt ta pause etter løkke 3.*"
+    },
+    {
+      "id": "fys1001-1-1-lokke1",
+      "type": "text",
+      "content": "## Løkke 1 — Fart, akselerasjon og enhetene (~10 min)"
+    },
+    {
+      "id": "fys1001-1-1-def-fart",
+      "type": "definition",
+      "title": "Gjennomsnittsfart",
+      "content": "Strekningen delt på tiden det tok:\n\n$$\\bar{v} = \\frac{s}{t}.$$\n\nHer er $s$ strekningen i meter (m), $t$ tiden i sekunder (s), og farten måles i meter per sekund (m/s). Gjennomsnittsfarten sier ingenting om hva som skjedde underveis — en tur på 60 km som tok én time gir $\\bar{v} = 16{,}7$ m/s enten du kjørte jevnt eller sto i kø halve tiden. Streken over $v$ betyr «gjennomsnitt av»."
+    },
+    {
+      "id": "fys1001-1-1-def-momentanfart",
+      "type": "definition",
+      "title": "Momentanfart",
+      "content": "Farten i ett bestemt øyeblikk — det speedometeret viser. Matematisk er det gjennomsnittsfarten over et så kort tidsintervall at farten ikke rekker å endre seg:\n\n$$v = \\frac{\\Delta s}{\\Delta t} \\quad \\text{når } \\Delta t \\text{ er svært liten}.$$\n\nNår en oppgave sier «farten er 15 m/s etter 4 sekunder», er det momentanfarten som menes. I resten av boka betyr $v$ alltid momentanfart, mens gjennomsnittsfart skrives $\\bar{v}$. Ved **konstant akselerasjon** henger de sammen på en enkel måte: $\\bar{v} = \\tfrac12(v_0 + v)$."
+    },
+    {
+      "id": "fys1001-1-1-def-akselerasjon",
+      "type": "definition",
+      "title": "Akselerasjon",
+      "content": "Fartsendring per tid:\n\n$$a = \\frac{\\Delta v}{\\Delta t} = \\frac{v - v_0}{t}.$$\n\nEnheten er meter per sekund i andre, m/s². Les den høyt som «så mange meter per sekund raskere for hvert sekund»: $a = 2{,}0$ m/s² betyr at farten øker med 2,0 m/s hvert sekund. Akselerasjon er ikke det samme som stor fart — et fly i marsjfart på 250 m/s har akselerasjon null, mens en sykkel som så vidt begynner å rulle, har akselerasjon forskjellig fra null."
+    },
+    {
+      "id": "fys1001-1-1-def-enhetsomregning",
+      "type": "definition",
+      "title": "Omregning mellom km/t og m/s",
+      "content": "Fysikkformlene forutsetter grunnenhetene meter og sekund. Siden 1 km = 1 000 m og 1 time = 3 600 s:\n\n$$1\\ \\text{km/t} = \\frac{1\\,000\\ \\text{m}}{3\\,600\\ \\text{s}} = \\frac{1}{3{,}6}\\ \\text{m/s}.$$\n\nPraktisk: **del på 3,6** for å komme fra km/t til m/s, og **gang med 3,6** den andre veien. 90 km/t er altså 25 m/s, og 20 m/s er 72 km/t. Gjør omregningen *først*, før noe settes inn i en formel — dette er den vanligste enhetsfeilen i faget, og den koster 1 poeng hver gang."
+    },
+    {
+      "id": "fys1001-1-1-ex1",
+      "type": "example",
+      "title": "Eksempel 1: Fra km/t til akselerasjon",
+      "problem": "En syklist øker farten jevnt fra 12 km/t til 30 km/t i løpet av 6,0 sekunder. Finn akselerasjonen.",
+      "solution": "**Regn om til m/s først.** Del på 3,6:\n\n$$v_0 = \\frac{12}{3{,}6}\\ \\text{m/s} = 3{,}33\\ \\text{m/s}, \\qquad v = \\frac{30}{3{,}6}\\ \\text{m/s} = 8{,}33\\ \\text{m/s}.$$\n\n**Bruk definisjonen av akselerasjon:**\n\n$$a = \\frac{v - v_0}{t} = \\frac{8{,}33\\ \\text{m/s} - 3{,}33\\ \\text{m/s}}{6{,}0\\ \\text{s}} = 0{,}833\\ \\text{m/s}^2 \\approx 0{,}83\\ \\text{m/s}^2.$$\n\n**Konklusjon:** Syklisten har akselerasjonen $0{,}83\\ \\text{m/s}^2$, altså blir hun 0,83 m/s raskere for hvert sekund.\n\n**Rimelighetssjekk:** Tallet er lite sammenlignet med tyngdeakselerasjonen på 9,81 m/s², og det stemmer godt med at en syklist bruker flere sekunder på å komme opp i fart."
+    },
+    {
+      "id": "fys1001-1-1-o-o1",
+      "type": "exercise",
+      "exercise": {
+        "id": "fys1001-1-1-ex-o1",
+        "number": "1",
+        "type": "classic",
+        "difficulty": "lett",
+        "task": "(Innstegsoppgave — enheter.)\n\n**a)** Regn om 72 km/t til m/s, og 15 m/s til km/t.\n\n**b)** En buss øker farten fra 0 til 54 km/t på 12 s. Finn akselerasjonen.\n\n**c)** Forklar med egne ord, i én setning, hva det betyr at akselerasjonen er $1{,}25\\ \\text{m/s}^2$.",
+        "solution": "**a)** $72 : 3{,}6 = 20\\ \\text{m/s}$, og $15 \\cdot 3{,}6 = 54\\ \\text{km/t}$.\n\n**b)** Først om til m/s: $54 : 3{,}6 = 15\\ \\text{m/s}$. Så\n\n$$a = \\frac{v - v_0}{t} = \\frac{15\\ \\text{m/s} - 0}{12\\ \\text{s}} = 1{,}25\\ \\text{m/s}^2.$$\n\n**c)** Farten øker med 1,25 meter per sekund for hvert sekund som går — etter ett sekund er farten 1,25 m/s, etter to sekunder 2,50 m/s, og så videre.",
+        "hints": [
+          "Del på 3,6 fra km/t til m/s, gang med 3,6 motsatt vei.",
+          "I b): regn om farten før du setter inn i formelen for akselerasjon.",
+          "I c): les enheten m/s² høyt som «meter per sekund, per sekund»."
+        ]
+      }
+    },
+    {
+      "id": "fys1001-1-1-lokke2",
+      "type": "text",
+      "content": "## Løkke 2 — De tre bevegelsesligningene (~12 min)\n\nNår akselerasjonen er konstant, er alt om bevegelsen bestemt av fire størrelser: startfarten $v_0$, sluttfarten $v$, akselerasjonen $a$ og strekningen $s$ — pluss tiden $t$. Tre ligninger binder dem sammen. Alle tre står på formelarket, men **du må kunne velge mellom dem** på et halvt sekund."
+    },
+    {
+      "id": "fys1001-1-1-def-konstant-a",
+      "type": "definition",
+      "title": "Konstant akselerasjon — gyldighetsflagget",
+      "content": "Forutsetningen som må være oppfylt for at ligningene i dette kapitlet skal gjelde: akselerasjonen må ha **samme verdi og samme retning hele veien**. Det holder i praksis for jevn bremsing på rett vei, for fritt fall uten luftmotstand, og for en heis som starter jevnt.\n\nDet holder **ikke** når banen er krum (en buet sklie, en pendel), når kraften varierer (en fjær, luftmotstand som vokser med farten), eller når underlaget skifter underveis. I de tilfellene skal du bruke energimetoden i [kap. 2.2](/bok/fys1001/fys1001-2-2). Å bruke $2as = v^2 - v_0^2$ på en krum bane gir ingen uttelling — heller ikke når tallet blir riktig. Skriv derfor alltid én setning om hvorfor akselerasjonen er konstant før du bruker ligningene."
+    },
+    {
+      "id": "fys1001-1-1-def-fartsligningen",
+      "type": "definition",
+      "title": "Fartsligningen",
+      "content": "$$v = v_0 + at.$$\n\nFarten etter tiden $t$ er startfarten pluss den fartsendringen akselerasjonen har rukket å skape. Bruk denne når oppgaven kobler **fart og tid** og du ikke bryr deg om strekningen. Ved bremsing er $a$ negativ (hvis du regner bevegelsesretningen som positiv), og ligningen gir da hvor lang tid det tar før $v = 0$: $t = -v_0/a$."
+    },
+    {
+      "id": "fys1001-1-1-def-strekningsligningen",
+      "type": "definition",
+      "title": "Strekningsligningen",
+      "content": "$$s = v_0t + \\tfrac{1}{2}at^2.$$\n\nStrekningen er den du ville tilbakelagt med konstant fart $v_0$, pluss et bidrag fra akselerasjonen som vokser med kvadratet av tiden. Bruk denne når **tiden er kjent eller søkt sammen med strekningen**. Starter bevegelsen fra ro ($v_0 = 0$), forenkles den til $s = \\tfrac12 at^2$."
+    },
+    {
+      "id": "fys1001-1-1-def-tidlose",
+      "type": "definition",
+      "title": "Den tidløse ligningen",
+      "content": "$$2as = v^2 - v_0^2.$$\n\nDen eneste av de tre som ikke inneholder tiden. Bruk den når oppgaven gir deg fart og strekning, men ikke tid — det klassiske bremse-tilfellet. Løst for strekningen ved stopp ($v = 0$) gir den\n\n$$s = \\frac{v_0^2}{2|a|},$$\n\nsom er formelen bak hele kvadratlov-poenget senere i kapitlet."
+    },
+    {
+      "id": "fys1001-1-1-ex2",
+      "type": "example",
+      "title": "Eksempel 2: Trikken som bremser inn til holdeplassen",
+      "problem": "En trikk kjører i 54 km/t og bremser jevnt til stopp på 30 m. Finn retardasjonen og hvor lang tid bremsingen tar.",
+      "solution": "**Størrelser og retning.** Vi regner kjøreretningen som positiv. Da er\n\n$$v_0 = \\frac{54}{3{,}6}\\ \\text{m/s} = 15\\ \\text{m/s}, \\qquad v = 0, \\qquad s = 30\\ \\text{m}.$$\n\nBremsingen er jevn, altså er akselerasjonen konstant, og ligningene i dette kapitlet gjelder.\n\n**Retardasjonen** finner vi med den tidløse ligningen, siden tiden verken er gitt eller spurt om i første ledd:\n\n$$2as = v^2 - v_0^2 \\ \\Rightarrow\\ a = \\frac{v^2 - v_0^2}{2s} = \\frac{0 - (15\\ \\text{m/s})^2}{2 \\cdot 30\\ \\text{m}} = -3{,}75\\ \\text{m/s}^2.$$\n\nDet negative fortegnet betyr at akselerasjonen er rettet motsatt av bevegelsen — det er nettopp det bremsing er.\n\n**Bremsetiden** følger av fartsligningen:\n\n$$v = v_0 + at \\ \\Rightarrow\\ t = \\frac{v - v_0}{a} = \\frac{0 - 15\\ \\text{m/s}}{-3{,}75\\ \\text{m/s}^2} = 4{,}0\\ \\text{s}.$$\n\n**Konklusjon:** Trikken har retardasjonen $3{,}75\\ \\text{m/s}^2$ (akselerasjon $-3{,}75\\ \\text{m/s}^2$), og bremsingen tar $4{,}0\\ \\text{s}$.\n\n**Rimelighetssjekk:** Gjennomsnittsfarten under bremsingen er $\\tfrac12(15 + 0) = 7{,}5$ m/s, og $7{,}5\\ \\text{m/s} \\cdot 4{,}0\\ \\text{s} = 30$ m — akkurat strekningen vi startet med."
+    },
+    {
+      "id": "fys1001-1-1-o-o2",
+      "type": "exercise",
+      "exercise": {
+        "id": "fys1001-1-1-ex-o2",
+        "number": "2",
+        "type": "classic",
+        "difficulty": "lett",
+        "task": "(Sjanger C — bremse- og Newton-oppgavene, her uten krefter.) En moped starter fra ro og akselererer jevnt med $1{,}6\\ \\text{m/s}^2$ i 7,0 sekunder.\n\n**a)** Hvor stor er farten til slutt, i m/s og i km/t?\n\n**b)** Hvor langt har mopeden kjørt i løpet av de 7,0 sekundene?",
+        "solution": "**a)** Fartsligningen med $v_0 = 0$:\n\n$$v = v_0 + at = 0 + 1{,}6\\ \\text{m/s}^2 \\cdot 7{,}0\\ \\text{s} = 11{,}2\\ \\text{m/s}.$$\n\nOmregnet: $11{,}2 \\cdot 3{,}6 = 40{,}3\\ \\text{km/t} \\approx 40\\ \\text{km/t}$.\n\n**b)** Strekningsligningen, også her med $v_0 = 0$:\n\n$$s = v_0t + \\tfrac12 at^2 = \\tfrac12 \\cdot 1{,}6\\ \\text{m/s}^2 \\cdot (7{,}0\\ \\text{s})^2 = 39{,}2\\ \\text{m} \\approx 39\\ \\text{m}.$$\n\n**Konklusjon:** Mopeden har farten $11{,}2\\ \\text{m/s}$ (om lag 40 km/t) og har kjørt $39\\ \\text{m}$.",
+        "hints": [
+          "Starter fra ro betyr $v_0 = 0$ — to av leddene faller bort.",
+          "I b): velg den ligningen som inneholder både strekning og tid."
+        ]
+      }
+    },
+    {
+      "id": "fys1001-1-1-velg-ligning",
+      "type": "text",
+      "content": "### Hvilken ligning velger du?\n\nDette er hele valgtreet, og det er verdt å ha i hodet på eksamen:\n\n| Det du kjenner | Det du søker | Bruk |\n|---|---|---|\n| $v_0$, $a$, $t$ | $v$ | $v = v_0 + at$ |\n| $v_0$, $a$, $t$ | $s$ | $s = v_0t + \\tfrac12 at^2$ |\n| $v_0$, $v$, $s$ | $a$ | $2as = v^2 - v_0^2$ |\n| $v_0$, $v$, $a$ | $s$ | $2as = v^2 - v_0^2$ |\n| $v_0$, $v$, $t$ | $s$ | $s = \\bar{v}t = \\tfrac12(v_0+v)t$ |\n\n**Fremgangsmåten er alltid den samme:** skriv opp de fire–fem størrelsene, sett strek under den du søker, og se hvilken ligning som inneholder akkurat de kjente pluss den ukjente. Da slipper du å famle."
+    },
+    {
+      "id": "fys1001-1-1-o-o3",
+      "type": "exercise",
+      "exercise": {
+        "id": "fys1001-1-1-ex-o3",
+        "number": "3",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "(Sjanger C.) En heis starter fra ro og akselererer jevnt med $1{,}2\\ \\text{m/s}^2$ til den har farten $3{,}0\\ \\text{m/s}$.\n\n**a)** Hvor lang tid tar akselerasjonsfasen?\n\n**b)** Hvor langt har heisen beveget seg i denne fasen?\n\n**c)** Hvilken av de tre ligningene ville du valgt i b) hvis oppgaven ikke hadde spurt om tiden i a)? Begrunn.",
+        "solution": "**a)** Fartsligningen med $v_0 = 0$:\n\n$$t = \\frac{v - v_0}{a} = \\frac{3{,}0\\ \\text{m/s}}{1{,}2\\ \\text{m/s}^2} = 2{,}5\\ \\text{s}.$$\n\n**b)** Strekningsligningen:\n\n$$s = \\tfrac12 at^2 = \\tfrac12 \\cdot 1{,}2\\ \\text{m/s}^2 \\cdot (2{,}5\\ \\text{s})^2 = 3{,}75\\ \\text{m} \\approx 3{,}8\\ \\text{m}.$$\n\n**c)** Da ville jeg brukt den tidløse ligningen $2as = v^2 - v_0^2$, fordi den kobler nettopp de tre kjente størrelsene ($v_0$, $v$, $a$) til den søkte ($s$) uten å gå veien om tiden:\n\n$$s = \\frac{v^2 - v_0^2}{2a} = \\frac{(3{,}0\\ \\text{m/s})^2}{2 \\cdot 1{,}2\\ \\text{m/s}^2} = 3{,}75\\ \\text{m}.$$\n\nSamme svar, ett regnetrinn mindre — og ingen risiko for at en avrundingsfeil i tiden forplanter seg.\n\n**Konklusjon:** Akselerasjonsfasen varer $2{,}5\\ \\text{s}$ og heisen beveger seg $3{,}8\\ \\text{m}$.",
+        "hints": [
+          "Skriv opp hva du kjenner ($v_0$, $v$, $a$) og hva du søker, før du velger ligning.",
+          "I c): let etter ligningen som ikke inneholder tiden."
+        ]
+      }
+    },
+    {
+      "id": "fys1001-1-1-lokke3",
+      "type": "text",
+      "content": "## Løkke 3 — Grafene: stigningstall og areal (~10 min)\n\nGrafavlesning er med i eksamenssettene hvert år, og fart–tid-grafen er den viktigste. Den gir deg to opplysninger samtidig, og de forveksles lett."
+    },
+    {
+      "id": "fys1001-1-1-def-vt-stigning",
+      "type": "definition",
+      "title": "Stigningstallet i fart–tid-grafen",
+      "content": "I en graf med tid langs førsteaksen og fart langs andreaksen er **stigningstallet lik akselerasjonen**:\n\n$$a = \\frac{\\Delta v}{\\Delta t}.$$\n\nEn rett, stigende linje betyr konstant positiv akselerasjon; en vannrett linje betyr konstant fart ($a = 0$); en synkende linje betyr bremsing ($a < 0$). Er kurven krum, er akselerasjonen ikke konstant — og da er bevegelsesligningene i dette kapitlet ugyldige. Grafen er altså også gyldighetssjekken din."
+    },
+    {
+      "id": "fys1001-1-1-def-vt-areal",
+      "type": "definition",
+      "title": "Arealet under fart–tid-grafen",
+      "content": "**Arealet mellom kurven og tidsaksen er strekningen** legemet har tilbakelagt:\n\n$$s = \\text{areal under } v\\text{–}t\\text{-kurven}.$$\n\nGrunnen er at areal = fart · tid = strekning for hvert lille tidsintervall. I praksis deler du figuren i rektangler og trekanter og summerer. Et areal under aksen (negativ fart) svarer til bevegelse motsatt vei. Dette trikset virker **også når akselerasjonen ikke er konstant** — derfor er arealmetoden ofte redningen i oppgaver der ligningene ikke gjelder."
+    },
+    {
+      "id": "fys1001-1-1-fig-vt",
+      "type": "image",
+      "src": "/images/textbook/fys1001/fys1001-1-1-vt-graf.svg",
+      "alt": "Fart-tid-graf: farten stiger rett fra 0 til 12 m/s på 6 s, holder seg konstant på 12 m/s til t = 14 s, og faller rett til 0 ved t = 18 s. Et stigningstriangel med Δt = 3,0 s og Δv = 6,0 m/s er tegnet inn i første fase, arealet under kurven er skravert, og punktet (6,0 s ; 12 m/s) er markert.",
+      "caption": "Fart–tid-grafen gir to opplysninger: stigningstallet er akselerasjonen ($2{,}0\\ \text{m/s}^2$ i første fase), og det skraverte arealet er strekningen. Marker alltid avlesningen på grafen slik det er gjort her — det er en del av begrunnelsen."
+    },
+    {
+      "id": "fys1001-1-1-ex3",
+      "type": "example",
+      "title": "Eksempel 3: Les av fart–tid-grafen",
+      "problem": "Bruk grafen over. **a)** Finn akselerasjonen i første fase. **b)** Finn den samlede strekningen på de 18 sekundene. **c)** Finn gjennomsnittsfarten.",
+      "solution": "**a)** Stigningstallet i første fase leser vi av triangelet som er tegnet inn: farten øker med $\\Delta v = 6{,}0$ m/s på $\\Delta t = 3{,}0$ s, altså\n\n$$a = \\frac{\\Delta v}{\\Delta t} = \\frac{6{,}0\\ \\text{m/s}}{3{,}0\\ \\text{s}} = 2{,}0\\ \\text{m/s}^2.$$\n\n**b)** Arealet deles i tre:\n\n- trekant (0 til 6,0 s): $\\tfrac12 \\cdot 6{,}0\\ \\text{s} \\cdot 12\\ \\text{m/s} = 36\\ \\text{m}$\n- rektangel (6,0 til 14 s): $8{,}0\\ \\text{s} \\cdot 12\\ \\text{m/s} = 96\\ \\text{m}$\n- trekant (14 til 18 s): $\\tfrac12 \\cdot 4{,}0\\ \\text{s} \\cdot 12\\ \\text{m/s} = 24\\ \\text{m}$\n\nSamlet: $36 + 96 + 24 = 156\\ \\text{m}$.\n\n**c)** Gjennomsnittsfarten er hele strekningen delt på hele tiden:\n\n$$\\bar{v} = \\frac{s}{t} = \\frac{156\\ \\text{m}}{18\\ \\text{s}} = 8{,}67\\ \\text{m/s} \\approx 8{,}7\\ \\text{m/s}.$$\n\n**Konklusjon:** Akselerasjonen i første fase er $2{,}0\\ \\text{m/s}^2$, samlet strekning er $156\\ \\text{m}$, og gjennomsnittsfarten er $8{,}7\\ \\text{m/s}$.\n\n**Rimelighetssjekk:** Gjennomsnittsfarten må ligge mellom 0 og toppfarten 12 m/s, og nærmere 12 enn 0 siden mesteparten av tiden går i marsjfart. 8,7 m/s passer."
+    },
+    {
+      "id": "fys1001-1-1-o-o4",
+      "type": "exercise",
+      "exercise": {
+        "id": "fys1001-1-1-ex-o4",
+        "number": "4",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "(Sjanger C, med figurkrav.) En trikk står stille, akselererer jevnt til $10\\ \\text{m/s}$ på $5{,}0$ s, holder farten i $12$ s, og bremser deretter jevnt til stopp på $4{,}0$ s.\n\n**a)** Skisser fart–tid-grafen for hele forløpet, med tallverdier på begge akser.\n\n**b)** Finn akselerasjonen i første og i siste fase.\n\n**c)** Finn den samlede strekningen ved å regne ut arealet under grafen.",
+        "solution": "**a)** Grafen består av tre rette linjestykker: en stigende linje fra $(0;0)$ til $(5{,}0\\ \\text{s};10\\ \\text{m/s})$, en vannrett linje frem til $t = 17$ s, og en fallende linje ned til $(21\\ \\text{s};0)$. Fasitfiguren står under oppgaven.\n\n**b)** Første fase:\n\n$$a_1 = \\frac{10\\ \\text{m/s} - 0}{5{,}0\\ \\text{s}} = 2{,}0\\ \\text{m/s}^2.$$\n\nSiste fase:\n\n$$a_3 = \\frac{0 - 10\\ \\text{m/s}}{4{,}0\\ \\text{s}} = -2{,}5\\ \\text{m/s}^2,$$\n\naltså en retardasjon på $2{,}5\\ \\text{m/s}^2$. Bremsingen er kraftigere enn oppstarten, som stemmer med at den fallende linja er brattere.\n\n**c)** Arealet i tre deler:\n\n- trekant: $\\tfrac12 \\cdot 5{,}0\\ \\text{s} \\cdot 10\\ \\text{m/s} = 25\\ \\text{m}$\n- rektangel: $12\\ \\text{s} \\cdot 10\\ \\text{m/s} = 120\\ \\text{m}$\n- trekant: $\\tfrac12 \\cdot 4{,}0\\ \\text{s} \\cdot 10\\ \\text{m/s} = 20\\ \\text{m}$\n\n**Konklusjon:** Trikken kjører til sammen $25 + 120 + 20 = 165\\ \\text{m}$.",
+        "hints": [
+          "Tegn aksene med tall før du tegner kurven — grafen er en del av besvarelsen.",
+          "Del arealet i figurer du kan formelen for: trekant, rektangel, trekant.",
+          "Akselerasjonen i siste fase er negativ når du regner kjøreretningen som positiv."
+        ]
+      }
+    },
+    {
+      "id": "fys1001-1-1-fig-vt-fasit",
+      "type": "image",
+      "src": "/images/textbook/fys1001/fys1001-1-1-vt-fasit-trikk.svg",
+      "alt": "Fasitfigur til oppgave 4: fart-tid-graf der farten stiger rett fra 0 til 10 m/s på 5 s, holder 10 m/s frem til 17 s og faller til 0 ved 21 s. Arealet er delt i trekant 25 m, rektangel 120 m og trekant 20 m, med samlet areal 165 m.",
+      "caption": "Fasitfigur til oppgave 4. Legg merke til hvordan arealet er delt opp og hvert delareal er skrevet på figuren — det er slik en avlesning skal dokumenteres."
+    },
+    {
+      "id": "fys1001-1-1-def-st-graf",
+      "type": "definition",
+      "title": "Posisjon–tid-grafen",
+      "content": "En graf med tid langs førsteaksen og posisjon (strekning fra startpunktet) langs andreaksen. Her er **stigningstallet farten**:\n\n$$v = \\frac{\\Delta s}{\\Delta t}.$$\n\nEn rett linje betyr konstant fart; en vannrett linje betyr at legemet står stille. Er grafen krum og stadig brattere, øker farten. Momentanfarten i et bestemt øyeblikk finner du som stigningstallet til **tangenten** i det punktet. Vær nøye på hvilken graf du har foran deg: en rett, skrå linje betyr konstant *fart* i en posisjon–tid-graf, men konstant *akselerasjon* i en fart–tid-graf."
+    },
+    {
+      "id": "fys1001-1-1-fig-st",
+      "type": "image",
+      "src": "/images/textbook/fys1001/fys1001-1-1-st-graf.svg",
+      "alt": "Posisjon-tid-graf med to kurver: A er en rett linje som svarer til konstant fart 8 m/s, og B er en oppoverkrummet kurve som svarer til konstant akselerasjon 1,4 m/s² fra ro. En tangent er tegnet inn i punktet på kurve B ved t = 10 s.",
+      "caption": "Posisjon–tid-graf. Kurve A (rett linje) er konstant fart, kurve B (krum) er konstant akselerasjon. Farten i et øyeblikk er stigningstallet til tangenten — her tegnet inn ved $t = 10$ s, der farten er $14$ m/s."
+    },
+    {
+      "id": "fys1001-1-1-o-o5",
+      "type": "exercise",
+      "exercise": {
+        "id": "fys1001-1-1-ex-o5",
+        "number": "5",
+        "type": "classic",
+        "difficulty": "lett",
+        "task": "(Sjanger Q — kvalitativ forklaring. Slike deloppgaver utgjør 25–40 % av eksamen, og svaret skal være 2–4 setninger.) Se på posisjon–tid-grafen over.\n\n**a)** Hvordan ser du på grafen at kurve B har økende fart?\n\n**b)** En medstudent sier: «Kurve A er brattest først, så A har størst akselerasjon.» Hva er galt i den setningen?",
+        "solution": "**a)** I en posisjon–tid-graf er stigningstallet farten. Kurve B blir stadig brattere, altså vokser stigningstallet, og dermed øker farten. At krumningen er jevn, svarer til at akselerasjonen er konstant.\n\n**b)** Setningen blander de to graftypene. I en posisjon–tid-graf er stigningstallet **farten**, ikke akselerasjonen, så det bratteste stedet er der farten er størst. Kurve A er en rett linje, og en rett linje i denne graftypen betyr konstant fart — altså har A akselerasjonen null hele veien.",
+        "hints": [
+          "Spør deg først: hva står langs andreaksen? Det avgjør hva stigningstallet betyr.",
+          "I b): let etter forvekslingen mellom fart og akselerasjon."
+        ]
+      }
+    },
+    {
+      "id": "fys1001-1-1-pause1",
+      "type": "text",
+      "content": "— naturlig pausepunkt —\n\n*Du har nå de tre ligningene og begge graftypene. Resten av kapitlet er to anvendelser: fritt fall og kvadratloven for bremselengde.*"
+    },
+    {
+      "id": "fys1001-1-1-lokke4",
+      "type": "text",
+      "content": "## Løkke 4 — Fritt fall (~9 min)"
+    },
+    {
+      "id": "fys1001-1-1-def-fritt-fall",
+      "type": "definition",
+      "title": "Fritt fall og tyngdeakselerasjonen",
+      "content": "Bevegelse der tyngden er den eneste kraften som virker — altså der luftmotstanden er så liten at vi ser bort fra den. Da har alle legemer, uansett masse, den samme akselerasjonen nedover:\n\n$$g = 9{,}81\\ \\text{m/s}^2$$\n\n(verdien hentes fra formelarket; noen sett bruker $9{,}8$ eller $10$ m/s²). Størrelsen $g$ heter **tyngdeakselerasjonen**. Fritt fall er altså bare et spesialtilfelle av konstant akselerasjon, og de tre ligningene gjelder med $a = g$ — så lenge du er konsekvent med hva som er positiv retning. En vanlig avtale er å regne nedover som positiv når legemet faller, og oppover som positiv når det kastes opp.\n\n**Merk:** $g$ er *ikke* det samme som gravitasjonskonstanten. Den skrives $\\gamma$ i denne boka og dukker opp i [kap. 1.4](/bok/fys1001/fys1001-1-4)."
+    },
+    {
+      "id": "fys1001-1-1-ex4",
+      "type": "example",
+      "title": "Eksempel 4: Steinen som slippes fra brua",
+      "problem": "En stein slippes fra ro fra en bru som er 20 m over vannflaten. Hvor lang tid tar fallet, og hvor stor er farten idet steinen treffer vannet? Se bort fra luftmotstand.",
+      "solution": "**Oppsett.** Vi regner nedover som positiv retning. Da er $v_0 = 0$, $a = g = 9{,}81\\ \\text{m/s}^2$ og $s = 20$ m. Siden luftmotstanden er neglisjert, er akselerasjonen konstant, og ligningene gjelder.\n\n**Falltiden** fra strekningsligningen med $v_0 = 0$:\n\n$$s = \\tfrac12 gt^2 \\ \\Rightarrow\\ t = \\sqrt{\\frac{2s}{g}} = \\sqrt{\\frac{2 \\cdot 20\\ \\text{m}}{9{,}81\\ \\text{m/s}^2}} = 2{,}02\\ \\text{s} \\approx 2{,}0\\ \\text{s}.$$\n\n**Farten ved vannflaten** fra fartsligningen:\n\n$$v = v_0 + gt = 0 + 9{,}81\\ \\text{m/s}^2 \\cdot 2{,}02\\ \\text{s} = 19{,}8\\ \\text{m/s} \\approx 20\\ \\text{m/s}.$$\n\n(Vi kunne like gjerne brukt den tidløse ligningen: $v = \\sqrt{2gs} = \\sqrt{2 \\cdot 9{,}81 \\cdot 20}\\ \\text{m/s} = 19{,}8$ m/s. Begge veier godtas.)\n\n**Konklusjon:** Fallet tar $2{,}0\\ \\text{s}$, og steinen treffer vannet med farten $19{,}8\\ \\text{m/s}$ — om lag 71 km/t.\n\n**Rimelighetssjekk:** 20 m er omtrent en sjuetasjes bygning, og to sekunders fall kjennes riktig. At farten i m/s er nesten ti ganger falltiden i sekunder, er en grei huskeregel så lenge luftmotstanden kan neglisjeres."
+    },
+    {
+      "id": "fys1001-1-1-o-o6",
+      "type": "exercise",
+      "exercise": {
+        "id": "fys1001-1-1-ex-o6",
+        "number": "6",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "(Sjanger C.) En ball kastes rett opp med startfarten $12\\ \\text{m/s}$. Se bort fra luftmotstand, og bruk $g = 9{,}81\\ \\text{m/s}^2$.\n\n**a)** Hvor lang tid tar det før ballen er i det høyeste punktet?\n\n**b)** Hvor høyt kommer ballen?\n\n**c)** Hvor lang tid går det fra kastet til ballen er tilbake i utgangshøyden?",
+        "solution": "**Oppsett.** Vi regner **oppover som positiv retning**. Da er $v_0 = +12$ m/s og $a = -g = -9{,}81\\ \\text{m/s}^2$, fordi tyngdeakselerasjonen peker nedover.\n\n**a)** I det høyeste punktet er farten null et øyeblikk. Fartsligningen gir\n\n$$0 = v_0 - gt \\ \\Rightarrow\\ t = \\frac{v_0}{g} = \\frac{12\\ \\text{m/s}}{9{,}81\\ \\text{m/s}^2} = 1{,}22\\ \\text{s} \\approx 1{,}2\\ \\text{s}.$$\n\n**b)** Den tidløse ligningen med $v = 0$:\n\n$$h = \\frac{v_0^2}{2g} = \\frac{(12\\ \\text{m/s})^2}{2 \\cdot 9{,}81\\ \\text{m/s}^2} = 7{,}34\\ \\text{m} \\approx 7{,}3\\ \\text{m}.$$\n\n**c)** Bevegelsen opp og bevegelsen ned er speilbilder av hverandre: samme akselerasjon, samme strekning. Turen ned tar derfor like lang tid som turen opp, og samlet tid er\n\n$$t_{\\text{tot}} = 2 \\cdot 1{,}22\\ \\text{s} = 2{,}45\\ \\text{s} \\approx 2{,}4\\ \\text{s}.$$\n\n**Konklusjon:** Ballen bruker $1{,}2\\ \\text{s}$ opp, når $7{,}3\\ \\text{m}$, og er tilbake etter $2{,}4\\ \\text{s}$.",
+        "hints": [
+          "Velg positiv retning først og skriv den ned — resten av fortegnene følger av valget.",
+          "Hva er farten akkurat i det høyeste punktet?",
+          "I c): trenger du å regne på nytt, eller kan du bruke symmetrien?"
+        ]
+      }
+    },
+    {
+      "id": "fys1001-1-1-lokke5",
+      "type": "text",
+      "content": "## Løkke 5 — Kvadratloven og terminalfart (~9 min)"
+    },
+    {
+      "id": "fys1001-1-1-def-kvadratloven",
+      "type": "definition",
+      "title": "Bremselengden og kvadratloven",
+      "content": "Setter du $v = 0$ i den tidløse ligningen, får du bremselengden fra farten $v_0$:\n\n$$s = \\frac{v_0^2}{2|a|}.$$\n\nStrekningen er **proporsjonal med kvadratet av farten**. Dobler du farten, blir bremselengden fire ganger så lang; tredobler du farten, blir den ni ganger så lang. Dette er en av de mest brukte kvalitative deloppgavene i faget, og den skal kunne besvares **uten ny utregning**: siden $|a|$ er den samme, gir $2v_0$ i telleren faktoren $2^2 = 4$.\n\nFellen ligger i å tenke lineært («dobbel fart, dobbel bremselengde»). Kvadrat- og fjerdegradslover er felles for flere temaer i faget — intensitet avtar som $1/r^2$, utstrålt effekt vokser som $T^4$ — og lineær-tenkning er en av de hyppigst påpekte feilene i arkivet."
+    },
+    {
+      "id": "fys1001-1-1-ex5",
+      "type": "example",
+      "title": "Eksempel 5: Dobbel fart, firedobbel vei",
+      "problem": "En bil bremser med konstant retardasjon $5{,}0\\ \\text{m/s}^2$. Finn bremselengden fra 45 km/t og fra 90 km/t, og kommenter forholdet.",
+      "solution": "**Regn om:** $45 : 3{,}6 = 12{,}5$ m/s og $90 : 3{,}6 = 25$ m/s.\n\n**Fra 45 km/t:**\n\n$$s_1 = \\frac{v_0^2}{2|a|} = \\frac{(12{,}5\\ \\text{m/s})^2}{2 \\cdot 5{,}0\\ \\text{m/s}^2} = 15{,}6\\ \\text{m}.$$\n\n**Fra 90 km/t:**\n\n$$s_2 = \\frac{(25\\ \\text{m/s})^2}{2 \\cdot 5{,}0\\ \\text{m/s}^2} = 62{,}5\\ \\text{m} \\approx 63\\ \\text{m}.$$\n\n**Forholdet:**\n\n$$\\frac{s_2}{s_1} = \\frac{62{,}5\\ \\text{m}}{15{,}6\\ \\text{m}} = 4{,}0.$$\n\n**Konklusjon:** Bremselengden firedobles når farten dobles, fra $16\\ \\text{m}$ til $63\\ \\text{m}$. Dette følger direkte av at $s \\propto v_0^2$, og kunne vært svart uten å regne ut begge tallene."
+    },
+    {
+      "id": "fys1001-1-1-o-o7",
+      "type": "exercise",
+      "exercise": {
+        "id": "fys1001-1-1-ex-o7",
+        "number": "7",
+        "type": "classic",
+        "difficulty": "lett",
+        "task": "(Sjanger Q — kvalitativ forklaring.) En bilfører øker farten fra 30 km/t til 60 km/t i en boligvei. Retardasjonen ved full brems er den samme i begge tilfeller.\n\n**a)** Hva skjer med bremselengden? Svar uten å regne ut tallverdier, og begrunn.\n\n**b)** En medpassasjer sier: «Det er jo bare 30 km/t forskjell, så bremselengden blir vel bare litt lengre.» Hva er den fysiske innvendingen?",
+        "solution": "**a)** Bremselengden blir fire ganger så lang. Bremselengden er gitt ved $s = v_0^2/(2|a|)$, og siden retardasjonen $|a|$ er uendret, er strekningen proporsjonal med kvadratet av farten. Dobbel fart gir faktoren $2^2 = 4$.\n\n**b)** Innvendingen er at sammenhengen ikke er lineær, men kvadratisk. Det er ikke *differansen* i fart som teller, men *forholdet*: 60 km/t er dobbelt så fort som 30 km/t, og kvadreringen gjør at strekningen firedobles. Den samme fartsøkningen på 30 km/t betyr dessuten mindre jo høyere du starter — fra 90 til 120 km/t vokser bremselengden med faktoren $(120/90)^2 = 1{,}8$, ikke med 4.",
+        "hints": [
+          "Skriv opp formelen for bremselengde og se hvilken potens $v_0$ står i.",
+          "I b): sammenlign hva som skjer ved samme fartsøkning fra ulike utgangsfarter."
+        ]
+      }
+    },
+    {
+      "id": "fys1001-1-1-def-terminalfart",
+      "type": "definition",
+      "title": "Terminalfart",
+      "content": "Den konstante farten et fallende legeme til slutt får når luftmotstanden er blitt like stor som tyngden. Da er summen av kreftene null, akselerasjonen blir null, og farten slutter å øke. På en fart–tid-graf ser du terminalfarten som den verdien kurven **flater ut mot** — den vannrette asymptoten.\n\nUnderveis mot terminalfarten er akselerasjonen ikke konstant (den avtar fra $g$ mot null), og derfor gjelder **ikke** bevegelsesligningene i dette kapitlet i den fasen. Skal du regne på et fall med luftmotstand, må du enten lese av grafen eller bruke energi- og kraftbetraktninger ([kap. 1.2](/bok/fys1001/fys1001-1-2) og [kap. 2.2](/bok/fys1001/fys1001-2-2)). Terminalfarten selv leser du derimot rett av grafen — det er en typisk eksamensdeloppgave."
+    },
+    {
+      "id": "fys1001-1-1-fig-terminal",
+      "type": "image",
+      "src": "/images/textbook/fys1001/fys1001-1-1-terminalfart.svg",
+      "alt": "Fart-tid-kurve for en fallskjermhopper: farten starter i null, stiger bratt med starthelning lik tyngdeakselerasjonen, og flater ut mot en vannrett asymptote ved 52 m/s. Asymptoten er stiplet og merket terminalfart, og et punkt på den flate delen er merket med at summen av kreftene er tilnærmet null.",
+      "caption": "Fart–tid-kurve ved fall med luftmotstand. Kurven er krum, så bevegelsesligningene for konstant akselerasjon gjelder ikke her — men terminalfarten leses rett av som verdien kurven flater ut mot ($52$ m/s)."
+    },
+    {
+      "id": "fys1001-1-1-o-o8",
+      "type": "exercise",
+      "exercise": {
+        "id": "fys1001-1-1-ex-o8",
+        "number": "8",
+        "type": "classic",
+        "difficulty": "vanskelig",
+        "task": "(Krevende — sjanger C med to faser.) En bilfører kjører i 80 km/t når hun oppdager et hinder. Reaksjonstiden er $0{,}90$ s, og bilen bremser deretter med konstant retardasjon $6{,}5\\ \\text{m/s}^2$.\n\n**a)** Hvor langt kjører bilen i reaksjonstiden?\n\n**b)** Hvor lang er selve bremselengden?\n\n**c)** Hvor lang er den samlede stopplengden?\n\n**d)** Ved 40 km/t blir bremselengden en firedel. Blir den samlede stopplengden også en firedel? Regn ut og forklar.",
+        "solution": "**Omregning:** $80 : 3{,}6 = 22{,}2\\ \\text{m/s}$ og $40 : 3{,}6 = 11{,}1\\ \\text{m/s}$.\n\n**a)** I reaksjonstiden er farten uendret, altså er akselerasjonen null og strekningen rett og slett fart ganger tid:\n\n$$s_{\\text{reaksjon}} = v_0 t = 22{,}2\\ \\text{m/s} \\cdot 0{,}90\\ \\text{s} = 20{,}0\\ \\text{m}.$$\n\n**b)** Bremselengden fra den tidløse ligningen:\n\n$$s_{\\text{brems}} = \\frac{v_0^2}{2|a|} = \\frac{(22{,}2\\ \\text{m/s})^2}{2 \\cdot 6{,}5\\ \\text{m/s}^2} = 38{,}0\\ \\text{m}.$$\n\n**c)** Samlet stopplengde:\n\n$$s_{\\text{tot}} = 20{,}0\\ \\text{m} + 38{,}0\\ \\text{m} = 58{,}0\\ \\text{m}.$$\n\n**d)** Ved halv fart:\n\n- reaksjonsstrekningen: $11{,}1\\ \\text{m/s} \\cdot 0{,}90\\ \\text{s} = 10{,}0\\ \\text{m}$ — altså **halvert**, fordi den er proporsjonal med farten;\n- bremselengden: $(11{,}1\\ \\text{m/s})^2/(2 \\cdot 6{,}5\\ \\text{m/s}^2) = 9{,}5\\ \\text{m}$ — altså **en firedel**, fordi den er proporsjonal med kvadratet av farten;\n- samlet: $10{,}0 + 9{,}5 = 19{,}5\\ \\text{m}$.\n\nForholdet blir $58{,}0/19{,}5 = 3{,}0$, ikke 4. Grunnen er at stopplengden består av to ledd med **ulik** avhengighet av farten: det ene er lineært, det andre kvadratisk. Bare bremselengden alene firedobles.\n\n**Konklusjon:** Stopplengden er $58{,}0\\ \\text{m}$ ved 80 km/t og $19{,}5\\ \\text{m}$ ved 40 km/t — tre ganger så lang, ikke fire.",
+        "hints": [
+          "Del forløpet i to faser med hver sin fysikk: konstant fart, så konstant retardasjon.",
+          "I reaksjonstiden er akselerasjonen null.",
+          "I d): sjekk hvilken potens av farten hvert av de to leddene inneholder — de er ikke like."
+        ]
+      }
+    },
+    {
+      "id": "fys1001-1-1-typiske-feil",
+      "type": "warning",
+      "title": "Typiske feil",
+      "content": "Alle fem er hentet fra det løsningsforslagene faktisk retter på:\n\n1. **Å bruke $2as = v^2 - v_0^2$ der akselerasjonen ikke er konstant.** Krum bane, pendel, fall med luftmotstand — der gjelder ingen av ligningene i dette kapitlet. Dette er den mest eksplisitte metodefellen i hele arkivet, og feil metode gir ikke uttelling selv om tallet blir riktig. Riktig verktøy er energimetoden ([kap. 2.2](/bok/fys1001/fys1001-2-2)).\n2. **Lineær-tenkning i kvadratloven.** «Dobbel fart, dobbel bremselengde» er galt — det blir fire ganger. Samme tankefeil rammer $1/r^2$ for intensitet og $T^4$ for stråling senere i boka.\n3. **Å glemme omregningen fra km/t til m/s.** Det gir svar som er 3,6 ganger for store eller for små, og det skjer oftest når farten står i oppgaveteksten som «80 km/t» og du haster videre.\n4. **Svar uten enhet.** Manglende eller gal enhet koster 1 poeng per tilfelle. Skriv enheten inn i mellomregningen, ikke bare på slutten.\n5. **Fortegnsrot.** Velg positiv retning eksplisitt og skriv det ned. Bremsing gir negativ akselerasjon når bevegelsesretningen er positiv, og et kast oppover gir $a = -g$ når oppover er positiv. Blander du de to konvensjonene midt i en oppgave, blir svaret galt uansett hvor riktig regningen er."
+    },
+    {
+      "id": "fys1001-1-1-begrepsbank-notis",
+      "type": "text",
+      "content": "## Begrepsbank\n\n*Begrepsbanken er flashcard- og repetisjonsstoff — den gjentar det du nettopp har lest. Hopp trygt over ved førstegangslesing; tidsanslaget for kapitlet gjelder kjernestoffet.*"
+    },
+    {
+      "id": "fys1001-1-1-bb-v0",
+      "type": "definition",
+      "title": "Startfart $v_0$",
+      "content": "Farten ved det tidspunktet du velger som $t = 0$ i oppgaven. Nullen i indeks betyr «ved start». Alle tre bevegelsesligningene inneholder $v_0$, og det vanligste spesialtilfellet er $v_0 = 0$ («starter fra ro», «slippes», «står stille»), som får to av leddene til å falle bort. Vær oppmerksom på at $t = 0$ er *ditt* valg: i en tofase-oppgave setter du gjerne klokka til null på nytt når fase to begynner, og da er sluttfarten fra fase én startfarten i fase to."
+    },
+    {
+      "id": "fys1001-1-1-bb-retardasjon",
+      "type": "definition",
+      "title": "Retardasjon",
+      "content": "Ordet for akselerasjon som er rettet motsatt av bevegelsen, altså en oppbremsing. En retardasjon på $3{,}75\\ \\text{m/s}^2$ svarer til akselerasjonen $a = -3{,}75\\ \\text{m/s}^2$ når bevegelsesretningen regnes som positiv. Merk språket: oppgaver spør ofte om «retardasjonen», og da forventes et positivt tall med enhet m/s² — men i selve regningen må fortegnet være negativt. Skriv gjerne begge deler i svaret, slik at det ikke er tvil om hva du mener."
+    },
+    {
+      "id": "fys1001-1-1-bb-fortegn",
+      "type": "definition",
+      "title": "Positiv retning og fortegn",
+      "content": "Bevegelse langs en rett linje beskrives med fortegn: du velger én retning som positiv, og alt som peker motsatt vei får minus. Valget er **fritt**, men må være det samme gjennom hele oppgaven, og det skal stå skrevet («jeg regner nedover som positiv retning»). Sensorkravet om at egne symboler og konvensjoner skal innføres, gjelder nettopp dette. Faller et legeme og du har valgt oppover som positiv, er både $v$ og $a$ negative — og regnestykket går like fint opp."
+    },
+    {
+      "id": "fys1001-1-1-bb-strekning",
+      "type": "definition",
+      "title": "Strekning, veilengde og forflytning",
+      "content": "**Strekning** ($s$) i disse ligningene er hvor langt legemet har flyttet seg langs bevegelsesretningen fra startpunktet. **Veilengde** er hele den tilbakelagte veien uansett retning, og **forflytning** er den rette avstanden fra start til slutt, med retning. For en ball som kastes 7,3 m opp og faller tilbake, er veilengden 14,6 m, mens forflytningen er null. Oppgaver på dette nivået spør nesten alltid om strekning i én retning, men les spørsmålet: «hvor langt har den gått» og «hvor langt fra utgangspunktet er den» er ulike spørsmål."
+    },
+    {
+      "id": "fys1001-1-1-bb-gjeldende-siffer",
+      "type": "definition",
+      "title": "Gjeldende siffer",
+      "content": "Antall meningsbærende sifre i et tallsvar. Er de oppgitte dataene gitt med to sifre (som $12$ km/t og $6{,}0$ s), skal svaret oppgis med to–tre sifre — ikke med hele kalkulatorrekka. $0{,}8333333$ m/s² skrives $0{,}83$ m/s². Regelen i FYS1001 er 2–3 gjeldende siffer, og trekk gis bare ved grove eller gjennomgående brudd. **Rund av til slutt, ikke underveis:** avrunder du i mellomregningen, kan feilen vokse gjennom kjeden."
+    },
+    {
+      "id": "fys1001-1-1-bb-reaksjonsstrekning",
+      "type": "definition",
+      "title": "Reaksjonsstrekning",
+      "content": "Strekningen kjøretøyet tilbakelegger fra føreren oppdager faren til bremsen faktisk virker. I denne fasen er farten uendret, altså er $s = v_0 t_{\\text{reaksjon}}$, og strekningen er **proporsjonal med farten** — ikke med kvadratet. Samlet stopplengde er summen av reaksjonsstrekning og bremselengde, og fordi de to leddene vokser ulikt med farten, har den samlede stopplengden ingen enkel proporsjonalitet. Dette er en yndet felle i deloppgaver som ber om «stopplengden» og ikke «bremselengden» — les nøye hvilket av de to ordene som står."
+    },
+    {
+      "id": "fys1001-1-1-repetisjon",
+      "type": "collapsible",
+      "title": "Repetisjonsoppgaver",
+      "buttonText": "Vis repetisjonsoppgaver",
+      "content": [
+        {
+          "id": "fys1001-1-1-o-r1",
+          "type": "exercise",
+          "exercise": {
+            "id": "fys1001-1-1-ex-r1",
+            "number": "R1",
+            "type": "classic",
+            "difficulty": "lett",
+            "task": "Regn om: **a)** 108 km/t til m/s. **b)** 8,0 m/s til km/t.",
+            "solution": "**a)** $108 : 3{,}6 = 30\\ \\text{m/s}$.\n\n**b)** $8{,}0 \\cdot 3{,}6 = 29\\ \\text{km/t}$.",
+            "hints": [
+              "Del på 3,6 den ene veien, gang med 3,6 den andre."
+            ]
+          }
+        },
+        {
+          "id": "fys1001-1-1-o-r2",
+          "type": "exercise",
+          "exercise": {
+            "id": "fys1001-1-1-ex-r2",
+            "number": "R2",
+            "type": "classic",
+            "difficulty": "lett",
+            "task": "En sykkel holder konstant fart $6{,}0$ m/s i $2{,}5$ minutter. Hvor langt kommer den?",
+            "solution": "Tiden må i sekunder: $2{,}5\\ \\text{min} = 150\\ \\text{s}$. Ved konstant fart er $a = 0$, og\n\n$$s = v_0 t = 6{,}0\\ \\text{m/s} \\cdot 150\\ \\text{s} = 900\\ \\text{m} = 0{,}90\\ \\text{km}.$$",
+            "hints": [
+              "Alle formler forutsetter sekunder — minutter må regnes om først."
+            ]
+          }
+        },
+        {
+          "id": "fys1001-1-1-o-r3",
+          "type": "exercise",
+          "exercise": {
+            "id": "fys1001-1-1-ex-r3",
+            "number": "R3",
+            "type": "classic",
+            "difficulty": "middels",
+            "task": "Et fly trenger farten $70$ m/s for å lette og kan akselerere jevnt med $2{,}8\\ \\text{m/s}^2$. Hvor lang må rullebanen minst være?",
+            "solution": "Vi kjenner $v_0 = 0$, $v = 70$ m/s og $a = 2{,}8\\ \\text{m/s}^2$, og søker $s$. Ingen tid er gitt, så den tidløse ligningen er den effektive:\n\n$$s = \\frac{v^2 - v_0^2}{2a} = \\frac{(70\\ \\text{m/s})^2}{2 \\cdot 2{,}8\\ \\text{m/s}^2} = 875\\ \\text{m} \\approx 8{,}8 \\cdot 10^{2}\\ \\text{m}.$$\n\n**Konklusjon:** Rullebanen må være minst $875\\ \\text{m}$.",
+            "hints": [
+              "Skriv opp kjente og søkte størrelser, og velg ligningen som mangler tiden."
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": "fys1001-1-1-symbolliste",
+      "type": "collapsible",
+      "title": "Symbol- og formelliste",
+      "buttonText": "Vis symboler og formler",
+      "content": [
+        {
+          "id": "fys1001-1-1-symbolliste-inner",
+          "type": "text",
+          "content": "## Symbol- og formelliste\n\n*Oppslagsverk — alt her forklares underveis i kapitlet.*\n\n| Symbol | Betydning i dette delkapitlet | SI-enhet |\n|---|---|---|\n| $s$ | Strekning langs bevegelsesretningen | m |\n| $t$ | Tid | s |\n| $v$ | Momentanfart (farten i ett øyeblikk) | m/s |\n| $v_0$ | Startfart, farten ved $t = 0$ | m/s |\n| $\\bar{v}$ | Gjennomsnittsfart | m/s |\n| $a$ | Akselerasjon (fartsendring per tid) | m/s² |\n| $g$ | Tyngdeakselerasjonen, $9{,}81\\ \\text{m/s}^2$ | m/s² |\n| $\\Delta v$, $\\Delta t$ | Endring i fart og i tid | m/s, s |\n\n**Symboler som betyr noe annet andre steder i boka:** $s$ er strekning her, men brukes ikke om snordrag (det er $S$, [kap. 1.2](/bok/fys1001/fys1001-1-2)). $g$ er tyngdeakselerasjonen — gravitasjonskonstanten skrives $\\gamma$ ([kap. 1.4](/bok/fys1001/fys1001-1-4)). $a$ er akselerasjon her; i optikken i Del 6 betyr $a$ gjenstandsavstand.\n\n**Formler i dette delkapitlet:**\n\n$$\\bar{v} = \\frac{s}{t}$$\nGjennomsnittsfart (står på formelarket).\n\n$$a = \\frac{v - v_0}{t}$$\nAkselerasjon som fartsendring per tid (står på formelarket).\n\n$$v = v_0 + at$$\nFartsligningen — **må kunne brukes aktivt**. Gjelder kun ved konstant $a$.\n\n$$s = v_0t + \\tfrac{1}{2}at^2$$\nStrekningsligningen — **må kunne brukes aktivt**. Gjelder kun ved konstant $a$.\n\n$$2as = v^2 - v_0^2$$\nDen tidløse ligningen — **må kunne brukes aktivt**. Gjelder kun ved konstant $a$.\n\n$$s = \\frac{v_0^2}{2|a|}$$\nBremselengden ved stopp — følger av den tidløse ligningen (**må kunne brukes aktivt**).\n\n$$1\\ \\text{km/t} = \\frac{1}{3{,}6}\\ \\text{m/s}$$\nEnhetsomregningen (må kunne brukes aktivt).\n\nI tillegg gjelder de to grafreglene: stigningstallet i en fart–tid-graf er akselerasjonen, og arealet under den er strekningen."
+        }
+      ]
+    }
+  ],
+  "exercises": []
+}
