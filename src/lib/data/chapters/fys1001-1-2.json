@@ -1,0 +1,486 @@
+{
+  "id": "fys1001-1-2",
+  "courseId": "fys1001",
+  "chapterNumber": "1.2",
+  "title": "Newtons lover og frilegemediagrammet",
+  "description": "Newtons tre lover, kraftidentifikasjon og figuren sensor alltid vil se: frilegemediagrammet — med heisen og trinsa som de to faste eksamensvariantene.",
+  "estimatedMinutes": 55,
+  "competenceGoals": [
+    "tegne frilegemediagram for et isolert legeme med alle krefter navngitt, og velge akser som forenkler regningen",
+    "bruke Newtons 2. lov komponentvis til å finne akselerasjon, normalkraft eller snordrag",
+    "avgjøre hvilke to krefter som utgjør et kraftpar etter Newtons 3. lov, og hvorfor tyngde og normalkraft ikke gjør det",
+    "regne ut tilsynelatende vekt i en heis og forklare kvalitativt hvorfor et fallende legeme får konstant fart"
+  ],
+  "content": [
+    {
+      "id": "fys1001-1-2-tip-eksamensvinkel",
+      "type": "tip",
+      "title": "Eksamensvinkel",
+      "content": "**Høyeste prioritet — dette er hjertet i mekanikk-blokken, som står i 36 av 36 avsluttende eksamenssett (100 %).**\n\nNewtons 2. lov er den mest brukte enkeltligningen i hele faget, og **frilegemediagrammet** er figuren løsningsforslagene tegner selv, hver gang. De oppfordrer i tillegg eksplisitt til at du tegner det — og en manglende figur som var viktig for klarheten koster inntil 1 poeng. Det er den billigste forsikringen på hele eksamen: 30 sekunder med blyant.\n\nOppgavene her hører til **sjanger C** (bokas navn på skråplan-, bremse- og Newton-oppgavene). To varianter går igjen år etter år: **heisen** (hva badevekta viser når heisen akselererer) og **snor over trinse** (to legemer med felles akselerasjon)."
+    },
+    {
+      "id": "fys1001-1-2-forkunnskaper",
+      "type": "text",
+      "content": "**Forkunnskaper — dette bygger kapitlet på:**\n\n- [kap. 1.1](/bok/fys1001/fys1001-1-1) — akselerasjon og bevegelsesligningene. Newtons 2. lov gir deg akselerasjonen; kinematikken fra 1.1 gjør akselerasjonen om til fart og strekning.\n- [Vektorer i planet](/bok/r1/r1-6-1) — krefter er vektorer: de har både størrelse og retning, og de legges sammen komponentvis, aldri som vanlige tall.\n- [Vektorer og komponenter](/bok/fysikk2/fysikk2-1-1) — dekomponering av en skrå vektor i to vinkelrette retninger. Har du hatt Fysikk 2, er dette repetisjon; har du ikke det, er avsnittet om aksevalg under alt du trenger.\n- [Trigonometri i rettvinklede trekanter](/bok/1t/1t-5-4) — $\\sin\\theta$ og $\\cos\\theta$ brukes til å finne komposantene til en skrå kraft."
+    },
+    {
+      "id": "fys1001-1-2-intro",
+      "type": "text",
+      "content": "## Hverdagsankeret: badevekta i heisen\n\nStå på en badevekt i en heis. I det heisen setter i gang oppover, viser vekta mer enn den pleier — og i det den bremser ned mot etasjen din, viser den mindre. Massen din har ikke endret seg med et gram. Det som har endret seg, er **kraften gulvet må presse opp med**, og det er den kraften badevekta faktisk måler.\n\nHele dette kapitlet handler om å gjøre slike situasjoner om til noe du kan regne på: hvilke krefter virker, hvilken vei peker de, og hva blir summen? Verktøyet er én figur og én ligning.\n\n*Kapitlet er delt i seks korte løkker med tidsanslag. Naturlig pausepunkt etter løkke 3.*"
+    },
+    {
+      "id": "fys1001-1-2-lokke1",
+      "type": "text",
+      "content": "## Løkke 1 — Kraft, resultant og treghetsloven (~10 min)"
+    },
+    {
+      "id": "fys1001-1-2-def-kraft",
+      "type": "definition",
+      "title": "Kraft",
+      "content": "En påvirkning som kan endre farten eller retningen til et legeme, eller deformere det. Kraft er en **vektor**: den har både størrelse og retning, og to krefter på samme legeme legges sammen som vektorer, ikke som tall. Enheten er **newton (N)**, og $1\\ \\text{N} = 1\\ \\text{kg} \\cdot \\text{m/s}^2$ — akkurat den kraften som gir 1 kg massen akselerasjonen 1 m/s².\n\nKrefter deles i to typer: **kontaktkrefter**, som krever berøring (normalkraft, snordrag, friksjon, luftmotstand), og **fjernkrefter**, som virker på avstand (tyngden, og senere elektriske og magnetiske krefter). Alle krefter i et frilegemediagram skal kunne knyttes til noe konkret som virker på legemet — er du i tvil om hva som lager kraften, er den sannsynligvis ikke der."
+    },
+    {
+      "id": "fys1001-1-2-def-resultant",
+      "type": "definition",
+      "title": "Resultantkraft",
+      "content": "Vektorsummen av alle kreftene som virker på legemet, skrevet $\\Sigma F$ (les: «sum av F»). Det er **bare** resultanten som bestemmer bevegelsen — et legeme kan godt ha ti krefter på seg og likevel ligge blikkstille, hvis de opphever hverandre.\n\nI praksis regner vi resultanten komponentvis: velg to vinkelrette akser, summer alle kraftkomposantene langs $x$, og alle langs $y$:\n\n$$\\Sigma F_x = F_{1x} + F_{2x} + \\dots, \\qquad \\Sigma F_y = F_{1y} + F_{2y} + \\dots$$\n\nDa blir vektorregning til to vanlige regnestykker med fortegn."
+    },
+    {
+      "id": "fys1001-1-2-def-newton1",
+      "type": "definition",
+      "title": "Newtons 1. lov (treghetsloven)",
+      "content": "Et legeme fortsetter å ligge i ro eller å bevege seg med **konstant fart i rett linje** så lenge resultantkraften er null:\n\n$$\\Sigma F = 0 \\iff \\text{farten er konstant (også null)}.$$\n\nLoven brukes baklengs på eksamen, og det er det som er poenget: står det «beveger seg med konstant fart» eller «henger i ro», vet du umiddelbart at kreftene balanserer, og du får ligninger uten å kjenne akselerasjonen. Legg merke til at konstant fart *ikke* krever noen kraft — det er en av de mest utbredte hverdagsmisforståelsene i fysikk. En bil trenger motorkraft i marsjfart bare fordi luftmotstand og rullemotstand må oppveies."
+    },
+    {
+      "id": "fys1001-1-2-def-treghet",
+      "type": "definition",
+      "title": "Treghet",
+      "content": "Egenskapen ved et legeme som gjør at det motsetter seg fartsendring. Massen $m$ er målet på tregheten: dobbelt så stor masse gir halvparten så stor akselerasjon av samme kraft. Treghet forklarer hverdagsopplevelser som at du kastes forover i bilen når den bremser — kroppen din fortsetter i den farten den hadde, helt til beltet leverer kraften som bremser deg. **Treghet er ikke en kraft** og skal aldri tegnes som en pil i et frilegemediagram."
+    },
+    {
+      "id": "fys1001-1-2-def-likevekt",
+      "type": "definition",
+      "title": "Likevekt",
+      "content": "Tilstanden der $\\Sigma F = 0$. Legemet er da enten i ro (statisk likevekt) eller i bevegelse med konstant fart (dynamisk likevekt). Komponentvis betyr det to ligninger:\n\n$$\\Sigma F_x = 0 \\quad \\text{og} \\quad \\Sigma F_y = 0.$$\n\nNesten alle «finn kraften»-oppgaver i faget løses ved å sette opp disse to. For utstrakte legemer som kan rotere (stiger, planker, kraner) kommer et tredje krav i tillegg — momentbalansen $\\Sigma M = 0$ i [kap. 1.5](/bok/fys1001/fys1001-1-5)."
+    },
+    {
+      "id": "fys1001-1-2-ex1",
+      "type": "example",
+      "title": "Eksempel 1: Hva loven sier om en kasse som skyves i konstant fart",
+      "problem": "En kasse skyves bortover et vannrett gulv med konstant fart av en vannrett kraft på 85 N. Hvor stor er friksjonskraften på kassen?",
+      "solution": "**Les signalordet.** «Konstant fart» betyr at akselerasjonen er null, og da sier Newtons 1. lov at resultantkraften er null.\n\n**Sett opp komponentligningen langs bevegelsen.** Med bevegelsesretningen som positiv $x$-retning virker skyvekraften $F = 85$ N forover og friksjonskraften $R$ bakover:\n\n$$\\Sigma F_x = F - R = 0 \\ \\Rightarrow\\ R = F = 85\\ \\text{N}.$$\n\n**Konklusjon:** Friksjonskraften er $85\\ \\text{N}$, altså nøyaktig like stor som skyvekraften og motsatt rettet.\n\nLegg merke til hva vi *ikke* trengte: massen til kassen, farten, og hvor langt den skyves. Så snart «konstant fart» står i teksten, er kraftbalansen hele svaret."
+    },
+    {
+      "id": "fys1001-1-2-o-o1",
+      "type": "exercise",
+      "exercise": {
+        "id": "fys1001-1-2-ex-o1",
+        "number": "1",
+        "type": "classic",
+        "difficulty": "lett",
+        "task": "(Innstegsoppgave.)\n\n**a)** En lampe henger stille i en ledning fra taket. Hvor mange krefter virker på lampen, hvilke er de, og hva er resultanten?\n\n**b)** En bil kjører i konstant 80 km/t på flat vei. En medstudent sier: «Da må jo motorkraften være null, siden farten ikke endrer seg.» Hva er galt?",
+        "solution": "**a)** To krefter virker på lampen: tyngden $G$ nedover og snordraget $S$ fra ledningen oppover. Lampen henger stille, altså er resultanten null, og de to kreftene er like store og motsatt rettede: $S = G = mg$.\n\n**b)** Resultanten skal være null, ikke motorkraften. På bilen virker også luftmotstand og rullemotstand bakover, og motorens drivkraft må være akkurat like stor som summen av disse for at $\\Sigma F = 0$. Var motorkraften null, ville motstanden alene bremset bilen ned.",
+        "hints": [
+          "Tell kreftene ved å spørre: hva berører legemet, og hvilke fjernkrefter virker?",
+          "I b): skill mellom «resultanten er null» og «det virker ingen krefter»."
+        ]
+      }
+    },
+    {
+      "id": "fys1001-1-2-lokke2",
+      "type": "text",
+      "content": "## Løkke 2 — Newtons 2. lov og tyngden (~12 min)"
+    },
+    {
+      "id": "fys1001-1-2-def-newton2",
+      "type": "definition",
+      "title": "Newtons 2. lov",
+      "content": "Resultantkraften er lik masse ganger akselerasjon:\n\n$$\\Sigma F = ma.$$\n\nAkselerasjonen peker **samme vei som resultantkraften**. Loven brukes komponentvis, én ligning for hver akse:\n\n$$\\Sigma F_x = ma_x, \\qquad \\Sigma F_y = ma_y.$$\n\nDette er den mest brukte ligningen i faget, og den binder sammen de to halvdelene av mekanikken: kreftene gir deg $a$, og $a$ settes inn i bevegelsesligningene fra [kap. 1.1](/bok/fys1001/fys1001-1-1) for å finne fart og strekning. Merk at $ma$ står på **høyre** side: det er resultatet av kreftene, ikke en kraft i seg selv."
+    },
+    {
+      "id": "fys1001-1-2-def-tyngde",
+      "type": "definition",
+      "title": "Tyngden $G = mg$",
+      "content": "Kraften jorda trekker et legeme ned med:\n\n$$G = mg,$$\n\nder $m$ er massen i kilogram og $g = 9{,}81\\ \\text{m/s}^2$ er tyngdeakselerasjonen (hentes fra formelarket). Tyngden måles i newton. En person med masse 70 kg har tyngden $G = 70\\ \\text{kg} \\cdot 9{,}81\\ \\text{m/s}^2 = 687\\ \\text{N}$.\n\n**Notasjonen er viktig i dette faget:** $G$ betyr *tyngden* (en kraft), aldri gravitasjonskonstanten. Gravitasjonskonstanten skriver vi $\\gamma$ ([kap. 1.4](/bok/fys1001/fys1001-1-4)). Blander du de to, blir både formler og enheter uforståelige for den som retter."
+    },
+    {
+      "id": "fys1001-1-2-def-masse-tyngde",
+      "type": "definition",
+      "title": "Masse og tyngde er ikke det samme",
+      "content": "**Massen** $m$ er mengden stoff i legemet, måles i kilogram, og er den samme overalt i universet. **Tyngden** $G = mg$ er en kraft, måles i newton, og avhenger av hvor du er: på månen er $g$ omtrent $1{,}6\\ \\text{m/s}^2$, så en 70 kg person har tyngden 687 N på jorda og 112 N på månen — med uendret masse.\n\nDagligtalen bruker «vekt» om begge deler, og det er kilden til mange feil. I fysikk: sier oppgaven «en kloss på 12 kg», er 12 kg massen, og tyngden er noe du må regne ut. Sier den «en kraft på 12 N», er det allerede en kraft."
+    },
+    {
+      "id": "fys1001-1-2-ex2",
+      "type": "example",
+      "title": "Eksempel 2: Fra kraft til fart",
+      "problem": "En bil med masse 1 400 kg har en resultantkraft på 3 500 N forover. **a)** Finn akselerasjonen. **b)** Hvor lang tid bruker bilen fra ro til 100 km/t hvis resultanten holder seg konstant?",
+      "solution": "**a)** Newtons 2. lov, langs kjøreretningen:\n\n$$a = \\frac{\\Sigma F}{m} = \\frac{3\\,500\\ \\text{N}}{1\\,400\\ \\text{kg}} = 2{,}5\\ \\text{m/s}^2.$$\n\n(Enhetene går opp: $\\text{N}/\\text{kg} = (\\text{kg}\\cdot\\text{m/s}^2)/\\text{kg} = \\text{m/s}^2$.)\n\n**b)** Resultanten er konstant, altså er akselerasjonen konstant, og bevegelsesligningene fra [kap. 1.1](/bok/fys1001/fys1001-1-1) gjelder. Farten omregnet: $100 : 3{,}6 = 27{,}8\\ \\text{m/s}$.\n\n$$t = \\frac{v - v_0}{a} = \\frac{27{,}8\\ \\text{m/s} - 0}{2{,}5\\ \\text{m/s}^2} = 11{,}1\\ \\text{s} \\approx 11\\ \\text{s}.$$\n\n**Konklusjon:** Akselerasjonen er $2{,}5\\ \\text{m/s}^2$, og bilen bruker $11\\ \\text{s}$ på å nå 100 km/t.\n\n**Rimelighetssjekk:** Elleve sekunder til hundre er et helt normalt tall for en familiebil — og resultanten på 3 500 N er *netto*, altså etter at luftmotstand og rullemotstand er trukket fra motorens drivkraft."
+    },
+    {
+      "id": "fys1001-1-2-o-o2",
+      "type": "exercise",
+      "exercise": {
+        "id": "fys1001-1-2-ex-o2",
+        "number": "2",
+        "type": "classic",
+        "difficulty": "lett",
+        "task": "(Sjanger C.) En handlevogn med varer har samlet masse $32$ kg. Du dytter den med en vannrett kraft på $46$ N, mens friksjon og rullemotstand til sammen virker med $14$ N bakover.\n\n**a)** Finn resultantkraften.\n\n**b)** Finn akselerasjonen.\n\n**c)** Hvor stor tyngde har vogna, og hvorfor inngår ikke den i regnestykket i b)?",
+        "solution": "**a)** Med dytteretningen som positiv:\n\n$$\\Sigma F_x = 46\\ \\text{N} - 14\\ \\text{N} = 32\\ \\text{N}.$$\n\n**b)** Newtons 2. lov:\n\n$$a = \\frac{\\Sigma F_x}{m} = \\frac{32\\ \\text{N}}{32\\ \\text{kg}} = 1{,}0\\ \\text{m/s}^2.$$\n\n**c)** Tyngden er $G = mg = 32\\ \\text{kg} \\cdot 9{,}81\\ \\text{m/s}^2 = 314\\ \\text{N}$. Den peker rett nedover, altså langs $y$-aksen, og oppheves der av normalkraften fra gulvet ($N = G$, siden vogna verken løftes eller synker). Tyngden har ingen komposant langs bevegelsesretningen og påvirker derfor ikke den vannrette ligningen.\n\n**Konklusjon:** Resultanten er $32\\ \\text{N}$ og akselerasjonen $1{,}0\\ \\text{m/s}^2$.",
+        "hints": [
+          "Sett opp én ligning per akse, og hold kreftene fra hverandre etter retning.",
+          "I c): hvilke krefter har komposanter langs bevegelsen, og hvilke har ikke?"
+        ]
+      }
+    },
+    {
+      "id": "fys1001-1-2-lokke3",
+      "type": "text",
+      "content": "## Løkke 3 — Frilegemediagrammet: figuren som gir poeng (~13 min)\n\nNå kommer rutinen som skal sitte automatisk resten av boka. Den koster et halvt minutt og redder deg fra de fleste feilene i mekanikk."
+    },
+    {
+      "id": "fys1001-1-2-def-fld",
+      "type": "definition",
+      "title": "Frilegemediagram",
+      "content": "En figur der **ett** legeme er tegnet for seg selv (isolert fra omgivelsene), med alle kreftene som virker **på** det tegnet inn som piler. Rutinen har fem trinn:\n\n1. **Isoler legemet.** Tegn det som en enkel firkant eller et punkt. Alt annet — gulv, snor, hånd — forsvinner og erstattes av kreftene de utøver.\n2. **Tegn alle kreftene** med riktig retning, og navngi dem med bokas symboler: $G$ (tyngden), $N$ (normalkraft), $R$ (friksjon), $S$ (snordrag).\n3. **Velg akser.** Legg gjerne $x$ langs bevegelsen.\n4. **Dekomponer** de skrå kreftene langs aksene.\n5. **Sett opp $\\Sigma F = ma$** for hver akse.\n\nBare krefter som virker **på** legemet skal med. Kreftene legemet utøver på *andre* hører hjemme i deres diagrammer. Og aldri tegn $ma$ som en pil: det er resultatet av kreftene, ikke en av dem."
+    },
+    {
+      "id": "fys1001-1-2-def-normalkraft",
+      "type": "definition",
+      "title": "Normalkraft $N$",
+      "content": "Kraften et underlag presser vinkelrett («normalt») ut på et legeme som ligger inntil det. Den er alltid rettet bort fra flaten, og størrelsen er ikke gitt på forhånd — den innstiller seg akkurat slik at legemet ikke synker gjennom underlaget, og finnes derfor fra kraftligningen loddrett på flaten.\n\nPå et vannrett gulv uten andre loddrette krefter blir $N = mg$. Men det er et *resultat*, ikke en definisjon: drar du samtidig oppover i en skrå snor, blir $N$ mindre, og på et skråplan blir $N = mg\\cos\\theta$ ([kap. 1.3](/bok/fys1001/fys1001-1-3)). Å skrive $N = mg$ på autopilot er en av de hyppigste feilene i faget."
+    },
+    {
+      "id": "fys1001-1-2-def-snordrag",
+      "type": "definition",
+      "title": "Snordrag $S$",
+      "content": "Kraften en stram snor, tau eller kjetting trekker med, alltid rettet **langs snoren og bort fra legemet** — en snor kan dra, aldri dytte. I dette faget regner vi snorer som **ideelle**: masseløse og uten strekk. Konsekvensen er viktig: snordraget er da **like stort i begge ender**, og går snoren over en friksjonsfri trinse, endrer trinsa bare retningen på kraften, ikke størrelsen.\n\nSymbolet $S$ er bokas notasjon. Møter du $T$ (for «tension») i andre bøker, er det samme størrelse — men bruk $S$ her, og definer symbolet i besvarelsen din uansett hva du velger."
+    },
+    {
+      "id": "fys1001-1-2-def-friksjon-intro",
+      "type": "definition",
+      "title": "Friksjonskraft $R$",
+      "content": "Kraften fra underlaget langs flaten, som motsetter seg at legemet glir. Den peker alltid **motsatt av bevegelsen** (eller motsatt av den bevegelsen som er i ferd med å starte). I dette kapitlet trenger du bare å vite at den er der, at den heter $R$, og at den skal tegnes langs flaten i frilegemediagrammet. Sammenhengen $R = \\mu N$ og hele skråplan-behandlingen kommer i [kap. 1.3](/bok/fys1001/fys1001-1-3).\n\n**Merk symbolkollisjonen:** $R$ er friksjonskraft i mekanikken, men resistans i kretskapitlene i Del 5. De opptrer aldri i samme oppgave, men symbollisten i hvert delkapittel sier hvilken betydning som gjelder."
+    },
+    {
+      "id": "fys1001-1-2-def-akser",
+      "type": "definition",
+      "title": "Aksevalg og dekomponering",
+      "content": "Å velge to vinkelrette retninger å regne langs, og å erstatte hver skrå kraft med to komposanter langs disse. En kraft $F$ som danner vinkelen $\\theta$ med $x$-aksen, har komposantene\n\n$$F_x = F\\cos\\theta, \\qquad F_y = F\\sin\\theta.$$\n\n**Regelen for godt aksevalg:** legg den ene aksen langs bevegelsesretningen. Da blir akselerasjonen null langs den andre aksen, og den ligningen gir deg gratis den ukjente normalkraften eller snordraget. På et skråplan legger vi derfor aksene langs og normalt på planet, ikke vannrett og loddrett.\n\nVær nøye med hvilken funksjon som hører til hvilken komposant: det er vinkelen din som avgjør om det blir $\\sin$ eller $\\cos$. Tegn trekanten, ikke puggede regler."
+    },
+    {
+      "id": "fys1001-1-2-fig-kasse",
+      "type": "image",
+      "src": "/images/textbook/fys1001/fys1001-1-2-fld-kasse.svg",
+      "alt": "Frilegemediagram for en kasse på vannrett gulv: tyngden G peker rett ned, normalkraften N rett opp, snordraget S skrått oppover mot høyre med vinkelen theta over vannrett, og friksjonskraften R rett bakover. Snordraget er dekomponert i S cos theta vannrett og S sin theta loddrett.",
+      "caption": "Frilegemediagrammet for kassen: alle fire kreftene tegnes fra samme punkt, og den skrå kraften $S$ dekomponeres langs aksene. Legg merke til at $S\\sin\\theta$ peker oppover — den «hjelper til» med å bære kassen, og gjør $N$ mindre enn $mg$."
+    },
+    {
+      "id": "fys1001-1-2-ex3",
+      "type": "example",
+      "title": "Eksempel 3: Kasse dratt av en skrå snor",
+      "problem": "En kasse med masse 30 kg dras over et vannrett gulv med **konstant fart** av en snor som danner $20^\\circ$ med gulvet. Snordraget er 90 N. Finn normalkraften fra gulvet og friksjonskraften på kassen.",
+      "solution": "**Frilegemediagram** (figuren over): tyngden $G$ nedover, normalkraften $N$ oppover, snordraget $S$ skrått oppover forover, friksjonen $R$ bakover.\n\n**Aksevalg:** $x$ langs gulvet i bevegelsesretningen, $y$ loddrett opp.\n\n**Dekomponer snordraget:**\n\n$$S_x = S\\cos\\theta = 90\\ \\text{N} \\cdot \\cos 20^\\circ = 84{,}6\\ \\text{N}, \\qquad S_y = S\\sin\\theta = 90\\ \\text{N} \\cdot \\sin 20^\\circ = 30{,}8\\ \\text{N}.$$\n\n**Loddrett ligning.** Kassen løftes ikke, så $a_y = 0$:\n\n$$\\Sigma F_y = N + S_y - G = 0 \\ \\Rightarrow\\ N = mg - S_y = 30\\ \\text{kg} \\cdot 9{,}81\\ \\text{m/s}^2 - 30{,}8\\ \\text{N} = 294{,}3\\ \\text{N} - 30{,}8\\ \\text{N} = 264\\ \\text{N}.$$\n\n**Vannrett ligning.** Konstant fart gir $a_x = 0$:\n\n$$\\Sigma F_x = S_x - R = 0 \\ \\Rightarrow\\ R = 84{,}6\\ \\text{N} \\approx 85\\ \\text{N}.$$\n\n**Konklusjon:** Normalkraften er $264\\ \\text{N}$ og friksjonskraften $85\\ \\text{N}$.\n\n**Rimelighetsvurdering:** Normalkraften er mindre enn tyngden på 294 N, og det stemmer med figuren: den loddrette komposanten av snordraget bærer en del av kassen, så gulvet slipper unna med mindre. Hadde vi skrevet $N = mg$ på autopilot, ville vi bommet med 31 N."
+    },
+    {
+      "id": "fys1001-1-2-o-o3",
+      "type": "exercise",
+      "exercise": {
+        "id": "fys1001-1-2-ex-o3",
+        "number": "3",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "(Sjanger C, med figurkrav — sensor forventer frilegemediagram.) En hund drar en slede med samlet masse $18$ kg over snøen med **konstant fart**. Draget i selen er $60$ N og danner $25^\\circ$ med bakken.\n\n**a)** Tegn frilegemediagram for sleden med alle kreftene navngitt.\n\n**b)** Finn normalkraften fra snøen.\n\n**c)** Finn friksjonskraften.",
+        "solution": "**a)** Fire krefter virker på sleden: tyngden $G = mg$ rett ned, normalkraften $N$ rett opp fra snøen, snordraget $S = 60$ N skrått forover og oppover ($25^\\circ$ over bakken), og friksjonskraften $R$ bakover langs snøen. Fasitfiguren står under oppgaven.\n\n**b)** Tyngden er\n\n$$G = mg = 18\\ \\text{kg} \\cdot 9{,}81\\ \\text{m/s}^2 = 177\\ \\text{N}.$$\n\nDen loddrette komposanten av draget er $S\\sin 25^\\circ = 60\\ \\text{N} \\cdot 0{,}4226 = 25{,}4\\ \\text{N}$. Sleden løftes ikke, så\n\n$$\\Sigma F_y = N + S\\sin 25^\\circ - G = 0 \\ \\Rightarrow\\ N = 177\\ \\text{N} - 25{,}4\\ \\text{N} = 151\\ \\text{N}.$$\n\n**c)** Konstant fart gir $\\Sigma F_x = 0$:\n\n$$R = S\\cos 25^\\circ = 60\\ \\text{N} \\cdot 0{,}9063 = 54{,}4\\ \\text{N} \\approx 54\\ \\text{N}.$$\n\n**Konklusjon:** Normalkraften er $151\\ \\text{N}$ og friksjonskraften $54\\ \\text{N}$.",
+        "hints": [
+          "Tegn figuren først, med alle fire kreftene fra samme punkt.",
+          "Del draget i en vannrett og en loddrett komposant før du setter opp ligningene.",
+          "«Konstant fart» betyr at begge komponentligningene har null på høyre side."
+        ]
+      }
+    },
+    {
+      "id": "fys1001-1-2-fig-fasit-slede",
+      "type": "image",
+      "src": "/images/textbook/fys1001/fys1001-1-2-fld-fasit-slede.svg",
+      "alt": "Fasitfigur til oppgave 3: frilegemediagram for slede med tyngden G lik 177 N nedover, normalkraften N lik 151 N oppover, snordraget S lik 60 N skrått 25 grader over bakken, og friksjonskraften R lik 54 N bakover. Komponentligningene er skrevet under figuren.",
+      "caption": "Fasitfigur til oppgave 3. Slik ser et fullgodt frilegemediagram ut: legemet isolert, alle krefter navngitt med bokas symboler, vinkelen markert og de to komponentligningene skrevet under."
+    },
+    {
+      "id": "fys1001-1-2-pause1",
+      "type": "text",
+      "content": "— naturlig pausepunkt —\n\n*Du har nå Newtons 1. og 2. lov og hele frilegemediagram-rutinen. Resten av kapitlet er tre anvendelser: 3. lov, heisen og trinsa.*"
+    },
+    {
+      "id": "fys1001-1-2-lokke4",
+      "type": "text",
+      "content": "## Løkke 4 — Newtons 3. lov og kraftparene (~8 min)"
+    },
+    {
+      "id": "fys1001-1-2-def-newton3",
+      "type": "definition",
+      "title": "Newtons 3. lov",
+      "content": "Når legeme A påvirker legeme B med en kraft, påvirker B samtidig A med en **like stor, motsatt rettet** kraft:\n\n$$F_{A \\to B} = -F_{B \\to A}.$$\n\nDe to kreftene i et slikt par er alltid av samme type (begge er kontaktkrefter, eller begge er tyngdekrefter), de virker samtidig, og — dette er nøkkelen — de virker på **to forskjellige legemer**. Derfor kan de aldri oppheve hverandre i ett og samme frilegemediagram.\n\nEt eksempel: du står på gulvet. Gulvet dytter opp på deg med normalkraften $N$; du dytter ned på gulvet med en like stor kraft. Den siste tegner du **ikke** i ditt eget frilegemediagram — den virker på gulvet."
+    },
+    {
+      "id": "fys1001-1-2-def-kraftpar",
+      "type": "definition",
+      "title": "Kraftpar — og fella",
+      "content": "Et par krefter som hører sammen etter 3. lov. Fella som gir trekk hvert år: å tro at **normalkraften $N$ og tyngden $G$** på et legeme som ligger i ro er et kraftpar etter 3. lov. Det er de ikke, av to grunner:\n\n- de virker på **samme** legeme (klossen), mens 3. lovs par alltid virker på hver sitt;\n- de er av ulik type ($G$ er en fjernkraft fra jorda, $N$ er en kontaktkraft fra bordet).\n\nAt de tilfeldigvis er like store, følger av Newtons **1.** lov ($\\Sigma F = 0$), ikke av den 3. Sjekken er enkel: de riktige partnerne er «klossen trykker på bordet» (partner til $N$) og «klossen trekker jorda opp» (partner til $G$)."
+    },
+    {
+      "id": "fys1001-1-2-ex4",
+      "type": "example",
+      "title": "Eksempel 4: Hesten og vogna",
+      "problem": "En vanlig innvending lyder: «Hvis vogna drar like hardt bakover i hesten som hesten drar forover i vogna, må jo resultanten bli null — hvordan kan ekvipasjen komme av flekken?» Forklar.",
+      "solution": "De to kreftene i innvendingen er et ekte kraftpar etter Newtons 3. lov, men de virker på **hver sitt legeme**: den ene på vogna, den andre på hesten. Derfor kan de aldri summeres i samme frilegemediagram, og de kan aldri oppheve hverandre.\n\nSer vi på **vogna alene**, virker to vannrette krefter: hestens drag forover og friksjonen fra bakken bakover. Er draget størst, akselererer vogna. Ser vi på **hesten alene**, virker vognas drag bakover og friksjonskraften fra bakken på hovene forover — og den er den avgjørende: det er bakken som skyver hesten fremover.\n\n**Konklusjon:** Ekvipasjen akselererer fordi resultanten på **hvert enkelt legeme** er forskjellig fra null. Kraftparet mellom hest og vogn er indre for systemet som helhet, og indre krefter kan aldri gi systemet akselerasjon."
+    },
+    {
+      "id": "fys1001-1-2-o-o4",
+      "type": "exercise",
+      "exercise": {
+        "id": "fys1001-1-2-ex-o4",
+        "number": "4",
+        "type": "classic",
+        "difficulty": "lett",
+        "task": "(Sjanger Q — kvalitativ forklaring. Svaret skal være 2–4 setninger, ikke en side.)\n\n**a)** En bok ligger stille på et bord. Er tyngden på boka og normalkraften fra bordet et kraftpar etter Newtons 3. lov? Begrunn.\n\n**b)** Hva er den riktige partneren til normalkraften i denne situasjonen?",
+        "solution": "**a)** Nei. De virker begge på **samme** legeme, boka, mens et kraftpar etter 3. lov alltid består av to krefter på hvert sitt legeme. At de er like store her, følger av Newtons 1. lov: boka ligger i ro, altså er $\\Sigma F = 0$.\n\n**b)** Partneren til normalkraften fra bordet på boka, er kraften **boka trykker ned på bordet med**. Den er like stor og motsatt rettet, og den virker på bordet — derfor står den ikke i bokas frilegemediagram.",
+        "hints": [
+          "Sjekk først hvilke legemer de to kreftene virker på.",
+          "Partneren finner du ved å snu setningen: «bordet dytter på boka» blir «boka dytter på bordet»."
+        ]
+      }
+    },
+    {
+      "id": "fys1001-1-2-lokke5",
+      "type": "text",
+      "content": "## Løkke 5 — Heisen: tilsynelatende vekt (~9 min)\n\nDette er en av de sikreste gjengangerne i faget, og den er alltid kledd i hverdagsdrakt: badevekt i heis, følelsen i magen, en fisk som veies i en akselererende båt."
+    },
+    {
+      "id": "fys1001-1-2-def-tilsynelatende-vekt",
+      "type": "definition",
+      "title": "Tilsynelatende vekt i heis",
+      "content": "Det en badevekt viser, er ikke tyngden din — det er **normalkraften** $N$ fra vekta. Står heisen stille eller går med konstant fart, er $N = mg$. Akselererer heisen med $a$, gir Newtons 2. lov med oppover som positiv retning:\n\n$$\\Sigma F = N - G = ma \\ \\Rightarrow\\ N = m(g + a).$$\n\nHer er $a$ **positiv når akselerasjonen peker oppover** og negativ når den peker nedover — uansett hvilken vei heisen beveger seg. Kortformen $N = m(g \\pm a)$ dekker begge, men skriv alltid ut fortegnsresonnementet.\n\nFire tilfeller: heisen setter i gang oppover eller bremser på vei ned ⇒ $a$ oppover ⇒ vekta viser **mer**. Heisen setter i gang nedover eller bremser på vei opp ⇒ $a$ nedover ⇒ vekta viser **mindre**."
+    },
+    {
+      "id": "fys1001-1-2-def-vektloshet",
+      "type": "definition",
+      "title": "Vektløshet",
+      "content": "Grensetilfellet der $a = -g$: heisen (eller romstasjonen) er i fritt fall. Da blir\n\n$$N = m(g - g) = 0,$$\n\nog vekta viser null. Legg merke til hva som *ikke* har skjedd: tyngden er den samme som før — jorda trekker fortsatt i deg med $mg$. Det som er borte, er kontaktkraften fra underlaget. Derfor er «vektløshet» i romfart et misvisende ord: astronauter i bane er ikke utenfor jordas gravitasjon, de er i kontinuerlig fritt fall rundt den ([kap. 1.4](/bok/fys1001/fys1001-1-4))."
+    },
+    {
+      "id": "fys1001-1-2-fig-heis",
+      "type": "image",
+      "src": "/images/textbook/fys1001/fys1001-1-2-fld-heis.svg",
+      "alt": "Frilegemediagram for en person på badevekt i en heis: tyngden G peker nedover og normalkraften N fra vekta peker oppover. En pil ved siden av heisen viser at akselerasjonen a er rettet oppover. Under figuren står ligningen N minus G er lik ma.",
+      "caption": "Personen isolert i heisen. Akselerasjonen oppover krever at $N$ er større enn $G$ — og det er nettopp $N$ badevekta måler."
+    },
+    {
+      "id": "fys1001-1-2-ex5",
+      "type": "example",
+      "title": "Eksempel 5: Badevekta i heisen",
+      "problem": "En person med masse 70 kg står på en badevekt i en heis som setter i gang **oppover** med akselerasjonen $1{,}5\\ \\text{m/s}^2$. **a)** Hva viser vekta i newton? **b)** Vekta er merket i kilogram — hvilket tall leser personen av? **c)** Forklar hvorfor tallet er høyere enn 70 kg selv om massen ikke har endret seg.",
+      "solution": "**a)** Frilegemediagram (figuren over): $G = mg$ nedover, $N$ oppover. Med oppover som positiv retning gir Newtons 2. lov\n\n$$N - mg = ma \\ \\Rightarrow\\ N = m(g + a) = 70\\ \\text{kg} \\cdot (9{,}81 + 1{,}5)\\ \\text{m/s}^2 = 70 \\cdot 11{,}31\\ \\text{N} = 792\\ \\text{N}.$$\n\n**b)** En badevekt merket i kilogram deler kraften den kjenner på $g$:\n\n$$\\frac{792\\ \\text{N}}{9{,}81\\ \\text{m/s}^2} = 80{,}7\\ \\text{kg} \\approx 81\\ \\text{kg}.$$\n\n**c)** Vekta måler ikke masse, men **normalkraften** den må presse opp med. Når heisen akselererer oppover, må resultanten på personen peke oppover, og det krever at $N$ er større enn tyngden $G$. Massen er uendret; det er kontaktkraften som har vokst.\n\n**Konklusjon:** Vekta viser $792\\ \\text{N}$, altså om lag $81$ kg — omtrent 15 % mer enn i ro.\n\n**Rimelighetssjekk:** $1{,}5\\ \\text{m/s}^2$ er omtrent 15 % av $g$, og utslaget er nettopp 15 %. Det stemmer."
+    },
+    {
+      "id": "fys1001-1-2-o-o5",
+      "type": "exercise",
+      "exercise": {
+        "id": "fys1001-1-2-ex-o5",
+        "number": "5",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "(Sjanger C — heisvarianten.) En person med masse $68$ kg står på en badevekt i en heis. Vekta viser $750$ N.\n\n**a)** Hvor stor er akselerasjonen, og hvilken vei peker den?\n\n**b)** Kan du ut fra dette avgjøre om heisen beveger seg oppover eller nedover? Begrunn.\n\n**c)** Hva ville vekta vist hvis heisvaieren røk og heisen falt fritt?",
+        "solution": "**a)** Med oppover som positiv retning:\n\n$$N - mg = ma \\ \\Rightarrow\\ a = \\frac{N}{m} - g = \\frac{750\\ \\text{N}}{68\\ \\text{kg}} - 9{,}81\\ \\text{m/s}^2 = 11{,}03 - 9{,}81 = 1{,}22\\ \\text{m/s}^2.$$\n\nSvaret er positivt, altså peker akselerasjonen **oppover**.\n\n**b)** Nei. Akselerasjonen sier bare hvordan farten *endrer seg*, ikke hvilken vei heisen går. Akselerasjon oppover betyr enten at heisen setter i gang oppover, eller at den er på vei nedover og bremser. Begge er forenlige med målingen.\n\n**c)** Ved fritt fall er $a = -g$, og da blir\n\n$$N = m(g - g) = 0.$$\n\nVekta viser null. Personen er ikke uten tyngde — jorda trekker fortsatt med 667 N — men det er ingen kontaktkraft mellom person og vekt.\n\n**Konklusjon:** Akselerasjonen er $1{,}22\\ \\text{m/s}^2$ oppover; bevegelsesretningen kan ikke bestemmes, og i fritt fall ville vekta vist $0\\ \\text{N}$.",
+        "hints": [
+          "Skriv opp $N - mg = ma$ og løs for $a$ — pass på at $N$ og $mg$ har ulik retning.",
+          "I b): tenk gjennom hva som skjer når en heis på vei ned bremser.",
+          "I c): sett $a = -g$ i uttrykket for $N$."
+        ]
+      }
+    },
+    {
+      "id": "fys1001-1-2-lokke6",
+      "type": "text",
+      "content": "## Løkke 6 — To legemer i snor, og luftmotstand (~9 min)"
+    },
+    {
+      "id": "fys1001-1-2-def-tolegeme",
+      "type": "definition",
+      "title": "To-legeme-system med snor over trinse",
+      "content": "Et oppsett der to legemer er koblet med en stram snor, typisk over en trinse. Fordi snoren er uten strekk, har de **samme fart og samme akselerasjon** til enhver tid (bare i hver sin retning), og fordi snoren er masseløs og trinsa friksjonsfri, er **snordraget $S$ det samme i begge ender**.\n\nTo fremgangsmåter, begge godtatt:\n\n- **Per legeme:** sett opp $\\Sigma F = ma$ for hvert legeme for seg, med $S$ som ukjent i begge. To ligninger, to ukjente ($a$ og $S$).\n- **Systemligningen:** se de to som ett legeme med samlet masse. Da er snordraget en **indre** kraft som faller ut, og bare de ytre kreftene står igjen. Dette gir $a$ raskt — men du må tilbake til ett av legemene for å finne $S$.\n\nBruk systemligningen når bare akselerasjonen er spurt om, og regn per legeme når snordraget skal frem."
+    },
+    {
+      "id": "fys1001-1-2-def-indre-ytre",
+      "type": "definition",
+      "title": "Indre og ytre krefter",
+      "content": "Deler du et sammensatt system inn i «systemet» og «omgivelsene», er **indre krefter** de som virker mellom delene av systemet (snordraget mellom to klosser, kraften mellom hest og vogn), mens **ytre krefter** kommer utenfra (tyngde, friksjon fra bakken, normalkraft).\n\nIndre krefter opptrer alltid i par etter 3. lov og summerer seg derfor til null for systemet som helhet. Konsekvens: **et system kan aldri akselerere seg selv med indre krefter.** Dette er grunnen til at systemligningen virker, og det er hele forklaringen på hest–vogn-paradokset."
+    },
+    {
+      "id": "fys1001-1-2-fig-trinse",
+      "type": "image",
+      "src": "/images/textbook/fys1001/fys1001-1-2-trinse.svg",
+      "alt": "To legemer koblet med snor over en trinse: klossen m1 ligger på et vannrett bord med tyngden G1 nedover, normalkraften N oppover og snordraget S mot høyre, mens loddet m2 henger fra snoren med tyngden G2 nedover og snordraget S oppover.",
+      "caption": "To-legeme-systemet. Snordraget $S$ er like stort i begge ender, og de to legemene har samme akselerasjon $a$ — klossen mot høyre, loddet nedover."
+    },
+    {
+      "id": "fys1001-1-2-ex6",
+      "type": "example",
+      "title": "Eksempel 6: Kloss på bord, lodd i snor",
+      "problem": "En kloss med masse $4{,}0$ kg ligger på et vannrett, friksjonsfritt bord og er koblet med en snor over en trinse til et lodd med masse $2{,}0$ kg som henger fritt. Finn akselerasjonen og snordraget.",
+      "solution": "**Frilegemediagrammer** (figuren over). På klossen: $G_1$ ned, $N$ opp, $S$ mot trinsa. På loddet: $G_2$ ned, $S$ opp. Vi regner klossens bevegelsesretning (mot høyre) og loddets (nedover) som positiv retning for hvert legeme — de henger sammen gjennom snoren.\n\n**Klossen, vannrett:**\n\n$$S = m_1 a. \\tag{1}$$\n\n**Loddet, loddrett:**\n\n$$m_2 g - S = m_2 a. \\tag{2}$$\n\n**Legg sammen (1) og (2)** — snordraget faller ut, siden det er en indre kraft:\n\n$$m_2 g = (m_1 + m_2)a \\ \\Rightarrow\\ a = \\frac{m_2 g}{m_1 + m_2} = \\frac{2{,}0\\ \\text{kg} \\cdot 9{,}81\\ \\text{m/s}^2}{6{,}0\\ \\text{kg}} = 3{,}27\\ \\text{m/s}^2.$$\n\n**Snordraget** fra (1):\n\n$$S = m_1 a = 4{,}0\\ \\text{kg} \\cdot 3{,}27\\ \\text{m/s}^2 = 13{,}1\\ \\text{N}.$$\n\n**Kontroll med (2):** $m_2g - S = 19{,}6 - 13{,}1 = 6{,}5\\ \\text{N}$, og $m_2 a = 2{,}0 \\cdot 3{,}27 = 6{,}5\\ \\text{N}$. Stemmer.\n\n**Konklusjon:** Akselerasjonen er $3{,}27\\ \\text{m/s}^2$ og snordraget $13{,}1\\ \\text{N}$.\n\n**Rimelighetsvurdering:** Snordraget er mindre enn loddets tyngde på 19,6 N — som det må være, ellers ville loddet ikke akselerert nedover. Akselerasjonen er mindre enn $g$, som den må være, siden klossens masse må dras med."
+    },
+    {
+      "id": "fys1001-1-2-o-o6",
+      "type": "exercise",
+      "exercise": {
+        "id": "fys1001-1-2-ex-o6",
+        "number": "6",
+        "type": "classic",
+        "difficulty": "vanskelig",
+        "task": "(Krevende — sjanger C, to legemer.) To lodd henger i hver sin ende av en snor over en friksjonsfri trinse. Det ene har masse $5{,}0$ kg, det andre $3{,}0$ kg.\n\n**a)** Finn akselerasjonen til systemet.\n\n**b)** Finn snordraget.\n\n**c)** Vis at snordraget ligger mellom tyngdene til de to loddene, og forklar hvorfor det må være slik.",
+        "solution": "**Oppsett.** Vi regner positiv retning som «det tunge loddet nedover, det lette oppover». Begge har samme fart og akselerasjon $a$, og samme snordrag $S$.\n\n**Tungt lodd ($m_1 = 5{,}0$ kg):** $m_1 g - S = m_1 a$.\n\n**Lett lodd ($m_2 = 3{,}0$ kg):** $S - m_2 g = m_2 a$.\n\n**a)** Legg sammen ligningene; $S$ faller ut:\n\n$$(m_1 - m_2)g = (m_1 + m_2)a \\ \\Rightarrow\\ a = \\frac{(5{,}0 - 3{,}0)\\ \\text{kg}}{8{,}0\\ \\text{kg}} \\cdot 9{,}81\\ \\text{m/s}^2 = 2{,}45\\ \\text{m/s}^2.$$\n\n**b)** Fra det lette loddet:\n\n$$S = m_2(g + a) = 3{,}0\\ \\text{kg} \\cdot (9{,}81 + 2{,}45)\\ \\text{m/s}^2 = 36{,}8\\ \\text{N}.$$\n\nKontroll med det tunge: $m_1(g - a) = 5{,}0 \\cdot (9{,}81 - 2{,}45) = 36{,}8\\ \\text{N}$. Samme svar.\n\n**c)** Tyngdene er $G_2 = 29{,}4$ N og $G_1 = 49{,}1$ N, og $29{,}4 < 36{,}8 < 49{,}1$. Slik må det være: det lette loddet akselererer **oppover**, og da må snordraget være større enn tyngden dets. Det tunge akselererer **nedover**, og da må snordraget være mindre enn tyngden dets. Snordraget må derfor alltid ligge mellom de to tyngdene — og det gir deg en gratis rimelighetssjekk på svaret.\n\n**Konklusjon:** Akselerasjonen er $2{,}45\\ \\text{m/s}^2$ og snordraget $36{,}8\\ \\text{N}$.",
+        "hints": [
+          "Sett opp $\\Sigma F = ma$ for hvert lodd for seg, med samme $S$ og samme $a$ i begge.",
+          "Velg positiv retning slik at begge lodd får positiv $a$ — «tungt ned, lett opp».",
+          "I c): hvilken vei akselererer hvert lodd, og hva krever det av $S$ sammenlignet med tyngden?"
+        ]
+      }
+    },
+    {
+      "id": "fys1001-1-2-def-luftmotstand",
+      "type": "definition",
+      "title": "Luftmotstand",
+      "content": "Kraften fra lufta på et legeme som beveger seg gjennom den, alltid rettet **motsatt av farten**. Den vokser med farten — for de fartene faget behandler, omtrent som kvadratet av farten — og den avhenger av tverrsnittet og formen til legemet.\n\nKonsekvensen for oppgaver: så snart luftmotstanden er med, er akselerasjonen **ikke konstant**, og bevegelsesligningene fra [kap. 1.1](/bok/fys1001/fys1001-1-1) er ugyldige i den fasen. Det du derimot alltid kan si, er hva som skjer til slutt: farten vokser til luftmotstanden er blitt like stor som tyngden, og da er $\\Sigma F = 0$ og farten konstant — **terminalfarten**. Deloppgaver som ber deg «forklare hvorfor fallskjermhopperen får konstant fart», besvares med akkurat denne kraftbalansen."
+    },
+    {
+      "id": "fys1001-1-2-o-o7",
+      "type": "exercise",
+      "exercise": {
+        "id": "fys1001-1-2-ex-o7",
+        "number": "7",
+        "type": "classic",
+        "difficulty": "lett",
+        "task": "(Sjanger Q — kvalitativ.) En regndråpe faller fra en sky og treffer bakken med moderat fart, mens en stein sluppet fra samme høyde ville truffet mye hardere.\n\n**a)** Forklar med krefter hvorfor dråpen får tilnærmet konstant fart etter en stund.\n\n**b)** En medstudent regner ut dråpens sluttfart med $v = \\sqrt{2gh}$ og får over 300 m/s. Hvorfor er metoden gal her?",
+        "solution": "**a)** Når dråpen faller, virker tyngden $G = mg$ nedover og luftmotstanden oppover. Luftmotstanden vokser med farten, og etter en stund er den blitt like stor som tyngden. Da er $\\Sigma F = 0$, og Newtons 1. lov gir at farten holder seg konstant — dråpen har nådd terminalfarten.\n\n**b)** Formelen $v = \\sqrt{2gh}$ bygger på at akselerasjonen er konstant og lik $g$ hele veien, altså på fritt fall uten luftmotstand. For en regndråpe avtar akselerasjonen mot null etter hvert som luftmotstanden vokser, så forutsetningen brister allerede etter noen meter. Riktig svar er terminalfarten, som finnes fra kraftbalansen — ikke fra bevegelsesligningene.",
+        "hints": [
+          "Tegn de to kreftene på dråpen og spør hva som skjer når de blir like store.",
+          "I b): sjekk hvilken forutsetning formelen hviler på, og om den er oppfylt her."
+        ]
+      }
+    },
+    {
+      "id": "fys1001-1-2-typiske-feil",
+      "type": "warning",
+      "title": "Typiske feil",
+      "content": "Alle seks er hentet fra det løsningsforslagene faktisk retter på:\n\n1. **Utelate krefter i diagrammet.** Normalkraften og snordraget er de som glemmes oftest. Gå systematisk: hva berører legemet (kontaktkrefter), og hvilke fjernkrefter virker (tyngden)?\n2. **Tegne $ma$ som en egen kraft.** Resultatet av kreftene er ikke en av dem. Pilen «$ma$» i et frilegemediagram er alltid feil.\n3. **Bruke 3. lov på to krefter som virker på samme legeme.** $N$ og $G$ på en kloss i ro er *ikke* et kraftpar — at de er like store følger av 1. lov. Riktige par virker alltid på hvert sitt legeme.\n4. **Skrive $N = mg$ på autopilot.** Det gjelder bare på vannrett underlag uten andre loddrette krefter. Med en skrå snor blir $N$ mindre, og på skråplan er $N = mg\\cos\\theta$ ([kap. 1.3](/bok/fys1001/fys1001-1-3)).\n5. **Regne uten figur.** Løsningsforslagene tegner alltid frilegemediagram, og manglende figur som var viktig for klarheten koster inntil 1 poeng. Det er 30 sekunder du alltid har råd til.\n6. **Udefinerte egne symboler.** Innfører du $F_1$, $T$ eller $\\theta$ uten å si hva de er, koster det 1 poeng — også når regningen er riktig. Skriv én linje: «La $S$ være snordraget og $\\theta$ vinkelen mellom snoren og gulvet.»"
+    },
+    {
+      "id": "fys1001-1-2-begrepsbank-notis",
+      "type": "text",
+      "content": "## Begrepsbank\n\n*Begrepsbanken er flashcard- og repetisjonsstoff — den gjentar det du nettopp har lest. Hopp trygt over ved førstegangslesing; tidsanslaget for kapitlet gjelder kjernestoffet.*"
+    },
+    {
+      "id": "fys1001-1-2-bb-newton-enhet",
+      "type": "definition",
+      "title": "Newton (enheten)",
+      "content": "SI-enheten for kraft, forkortet N, definert slik at\n\n$$1\\ \\text{N} = 1\\ \\text{kg} \\cdot \\text{m/s}^2.$$\n\nDefinisjonen er ren Newtons 2. lov: én newton er den kraften som gir massen 1 kg akselerasjonen 1 m/s². Å kunne skrive newton om til grunnenheter er nyttig når du vil enhetssjekke en utregning: kommer det ut $\\text{kg}\\cdot\\text{m/s}^2$ der du forventet en kraft, er du på rett vei. Til sammenligning veier en liten eplebit rundt 1 N, og en voksen person har en tyngde på 600–900 N."
+    },
+    {
+      "id": "fys1001-1-2-bb-kontakt-fjern",
+      "type": "definition",
+      "title": "Kontaktkrefter og fjernkrefter",
+      "content": "**Kontaktkrefter** krever berøring: normalkraft, friksjon, snordrag, luftmotstand, fjærkraft. De oppstår der to flater møtes, og forsvinner i det kontakten brytes — derfor blir $N = 0$ i toppen av en loop når legemet mister kontakt med banen ([kap. 1.4](/bok/fys1001/fys1001-1-4)). **Fjernkrefter** virker gjennom tomrom: tyngden, og senere elektriske og magnetiske krefter i Del 5. Når du fyller ut et frilegemediagram, er dette den beste sjekklista: først alle berøringene, så tyngden."
+    },
+    {
+      "id": "fys1001-1-2-bb-angrepspunkt",
+      "type": "definition",
+      "title": "Angrepspunkt og virkelinje",
+      "content": "**Angrepspunktet** er stedet kraften virker på legemet (der snoren er festet, der flatene berører hverandre). **Virkelinja** er den rette linja gjennom angrepspunktet i kraftens retning. For rene $\\Sigma F = ma$-oppgaver kan du tegne alle kraftpilene fra samme punkt uten å ta feil — men så snart legemet kan rotere (stige, planke, arm), er angrepspunktet avgjørende, fordi momentet avhenger av avstanden fra dreiepunktet til virkelinja ([kap. 1.5](/bok/fys1001/fys1001-1-5)). Tyngden regnes alltid å angripe i **massesenteret**."
+    },
+    {
+      "id": "fys1001-1-2-bb-systemvalg",
+      "type": "definition",
+      "title": "Systemvalg",
+      "content": "Avgjørelsen om **hvilket** legeme (eller hvilken gruppe legemer) du isolerer i frilegemediagrammet. Valget er fritt, men det avgjør hvor mye arbeid du får: isolerer du bare det ene loddet, får du med snordraget som ukjent; tar du begge som ett system, faller snordraget ut fordi det blir en indre kraft.\n\n**Regelen:** spør hva oppgaven vil ha. Skal du finne akselerasjonen, ta hele systemet. Skal du finne en indre kraft (snordrag, kontaktkraft mellom to klosser), må du isolere ett av legemene. Skriv alltid hvilket system du har valgt — det er en del av begrunnelsen."
+    },
+    {
+      "id": "fys1001-1-2-bb-ideell-snor",
+      "type": "definition",
+      "title": "Ideell snor og friksjonsfri trinse",
+      "content": "Modellantakelsene som gjør trinseoppgaver løsbare: snoren har ingen masse og strekker seg ikke, og trinsa har ingen friksjon og ingen treghet. Konsekvensene er de to du bruker i regningen — **samme snordrag i begge ender** og **samme fart og akselerasjon for begge legemene**.\n\nAntakelsene er idealiseringer. En tung snor ville hatt ulikt drag øverst og nederst (den må jo bære sin egen tyngde), og en trinse med friksjon ville «spist» av kraften. På eksamen er antakelsene enten oppgitt eller underforstått — men nevner du dem i én setning, viser du nettopp den typen gyldighetsbevissthet som skiller toppbesvarelsene."
+    },
+    {
+      "id": "fys1001-1-2-bb-fjaerkraft",
+      "type": "definition",
+      "title": "Fjærkraft",
+      "content": "Kraften fra en sammentrykt eller strukket fjær, rettet slik at den vil føre fjæra tilbake til naturlig lengde. For små utslag er den proporsjonal med utslaget: $F = kx$, der $k$ er fjærkonstanten (enhet N/m) og $x$ er utslaget fra naturlig lengde. Fjærkraften er altså **ikke konstant** — den vokser med utslaget — og derfor gjelder ikke bevegelsesligningene for konstant akselerasjon på en fjærbevegelse. I dette faget trenger du fjæra først og fremst som energilager i [kap. 2.1](/bok/fys1001/fys1001-2-1); som kraft dukker den opp i kraftbalanser (en badevekt er i praksis en fjær)."
+    },
+    {
+      "id": "fys1001-1-2-repetisjon",
+      "type": "collapsible",
+      "title": "Repetisjonsoppgaver",
+      "buttonText": "Vis repetisjonsoppgaver",
+      "content": [
+        {
+          "id": "fys1001-1-2-o-r1",
+          "type": "exercise",
+          "exercise": {
+            "id": "fys1001-1-2-ex-r1",
+            "number": "R1",
+            "type": "classic",
+            "difficulty": "lett",
+            "task": "Hvor stor tyngde har en sekk med masse $25$ kg?",
+            "solution": "$$G = mg = 25\\ \\text{kg} \\cdot 9{,}81\\ \\text{m/s}^2 = 245\\ \\text{N} \\approx 2{,}5 \\cdot 10^{2}\\ \\text{N}.$$\n\nMerk enheten: tyngde er en kraft og måles i newton, ikke i kilogram.",
+            "hints": [
+              "Tyngde er masse ganger tyngdeakselerasjon."
+            ]
+          }
+        },
+        {
+          "id": "fys1001-1-2-o-r2",
+          "type": "exercise",
+          "exercise": {
+            "id": "fys1001-1-2-ex-r2",
+            "number": "R2",
+            "type": "classic",
+            "difficulty": "lett",
+            "task": "(Fra [kap. 1.1](/bok/fys1001/fys1001-1-1)) En kloss får akselerasjonen $3{,}0\\ \\text{m/s}^2$ fra ro. Hvor fort går den etter $4{,}0$ s, og hvor langt har den kommet?",
+            "solution": "$$v = v_0 + at = 0 + 3{,}0\\ \\text{m/s}^2 \\cdot 4{,}0\\ \\text{s} = 12\\ \\text{m/s},$$\n\n$$s = \\tfrac12 at^2 = \\tfrac12 \\cdot 3{,}0\\ \\text{m/s}^2 \\cdot (4{,}0\\ \\text{s})^2 = 24\\ \\text{m}.$$",
+            "hints": [
+              "Bruk fartsligningen og strekningsligningen med $v_0 = 0$."
+            ]
+          }
+        },
+        {
+          "id": "fys1001-1-2-o-r3",
+          "type": "exercise",
+          "exercise": {
+            "id": "fys1001-1-2-ex-r3",
+            "number": "R3",
+            "type": "classic",
+            "difficulty": "middels",
+            "task": "En kasse på $50$ kg står i ro på et vannrett gulv. Du drar rett oppover i et håndtak med kraften $180$ N, men kassen løftes ikke. Hvor stor er normalkraften fra gulvet?",
+            "solution": "Kassen er i ro, altså $\\Sigma F_y = 0$. Kreftene loddrett er tyngden $G = mg = 50 \\cdot 9{,}81 = 491$ N nedover, draget $F = 180$ N oppover, og normalkraften $N$ oppover:\n\n$$N + F - G = 0 \\ \\Rightarrow\\ N = 491\\ \\text{N} - 180\\ \\text{N} = 311\\ \\text{N}.$$\n\nNormalkraften er altså mindre enn tyngden — nok et eksempel på at $N = mg$ ikke er en regel, men et resultat.",
+            "hints": [
+              "Sett opp kraftbalansen loddrett med alle tre kreftene."
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": "fys1001-1-2-symbolliste",
+      "type": "collapsible",
+      "title": "Symbol- og formelliste",
+      "buttonText": "Vis symboler og formler",
+      "content": [
+        {
+          "id": "fys1001-1-2-symbolliste-inner",
+          "type": "text",
+          "content": "## Symbol- og formelliste\n\n*Oppslagsverk — alt her forklares underveis i kapitlet.*\n\n| Symbol | Betydning i dette delkapitlet | SI-enhet |\n|---|---|---|\n| $F$ | Kraft (generelt) | N |\n| $\\Sigma F$ | Resultantkraft (vektorsummen av alle krefter) | N |\n| $G$ | **Tyngden**, $G = mg$ — en kraft | N |\n| $N$ | Normalkraft fra underlaget, vinkelrett på flaten | N |\n| $S$ | Snordrag, langs snoren og bort fra legemet | N |\n| $R$ | Friksjonskraft, langs flaten og mot bevegelsen | N |\n| $m$ | Masse | kg |\n| $a$ | Akselerasjon | m/s² |\n| $g$ | Tyngdeakselerasjonen, $9{,}81\\ \\text{m/s}^2$ | m/s² |\n| $\\theta$ | Vinkelen mellom en skrå kraft og aksen | grader |\n| $k$ | Fjærkonstant (kun i begrepsbanken) | N/m |\n\n**Symbolkollisjoner du skal være klar over:** $G$ er **tyngden** her — gravitasjonskonstanten heter $\\gamma$ ([kap. 1.4](/bok/fys1001/fys1001-1-4)). $R$ er **friksjonskraft** her, men resistans i kretskapitlene ([kap. 5.2](/bok/fys1001/fys1001-5-2)). $N$ er **normalkraft** her, men antall molekyler i gassloven ([kap. 4.2](/bok/fys1001/fys1001-4-2)). $k$ er fjærkonstant her, Coulomb-konstant i [kap. 5.1](/bok/fys1001/fys1001-5-1) og Boltzmanns konstant i [kap. 4.2](/bok/fys1001/fys1001-4-2).\n\n**Formler i dette delkapitlet:**\n\n$$\\Sigma F = 0 \\quad \\text{(Newtons 1. lov)}$$\nGjelder i ro og ved konstant fart (står på formelarket, **må kunne brukes aktivt**).\n\n$$\\Sigma F = ma \\quad \\text{(Newtons 2. lov)}$$\nBrukes komponentvis, én ligning per akse (står på formelarket, **må kunne brukes aktivt**).\n\n$$F_{A \\to B} = -F_{B \\to A} \\quad \\text{(Newtons 3. lov)}$$\nLike store, motsatt rettede krefter på **hvert sitt** legeme (må kunne brukes aktivt).\n\n$$G = mg$$\nTyngden (står på formelarket; verdien av $g$ hentes derfra).\n\n$$N = m(g + a)$$\nTilsynelatende vekt i heis, med $a$ positiv oppover (**må kunne brukes aktivt** — utledes fra 2. lov hver gang, ikke pugges).\n\n$$F_x = F\\cos\\theta, \\qquad F_y = F\\sin\\theta$$\nDekomponering av en skrå kraft (må kunne brukes aktivt)."
+        }
+      ]
+    }
+  ],
+  "exercises": []
+}
