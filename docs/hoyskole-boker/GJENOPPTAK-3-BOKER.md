@@ -1,5 +1,33 @@
 # GJENOPPTAK — tre bøker under bygging (startet 24. juli 2026)
 
+## STATUS 25. juli, natt (oppdater denne blokken ved hvert avbrudd)
+
+| Bok | Steg 1 kapitler | Steg 2 wiring | Figurer | Steg 3 verifikasjon | Steg 4 sluttport |
+|---|---|---|---|---|---|
+| FYS1001 | ✅ 35/35 (+7 prøver) | ✅ BOKPORT OK (42 filer / 550 fc / 558 quiz) | ✅ 95 SVG bygget | 🔄 5 agenter (V1–V5) | ⬜ |
+| ECON2310 | ✅ 29/29 (+6 prøver) | ✅ BOKPORT OK (35 filer / 542 fc / 528 quiz) | 🔄 3 agenter (G1–G3), 49 bestillinger | ⬜ | ⬜ |
+| ECON2220 | ✅ 34/34 (+7 prøver) | ✅ BOKPORT OK (41 filer / 554 fc / 570 quiz) | 🔄 2 agenter (F1–F2), 64 bestillinger | 🔄 Del 6–7 (W1) | ⬜ |
+
+Alle tre branchene er **pushet til GitHub** (`bok/fys1001`, `bok/econ2310`,
+`bok/econ2220`), så arbeidet er trygt selv om maskinen dør.
+
+**Rekkefølgen som gjelder:** figurer må være ferdige før verifikasjon starter i
+samme del (ellers redigerer to agenter samme fil), og verifikasjon må være
+ferdig før sluttporten.
+
+**Sluttporten per bok (ikke startet for noen):**
+1. `npx tsx scripts/upload-media-storage.ts` fra HOVEDTREET (worktreene mangler
+   `.env.local`, og Turbopack avviser deres `node_modules`-symlink). NB: bare 19
+   av fys1001s 95 SVG-er er i Storage — resten gir 404 til dette er kjørt.
+2. `npx tsc --noEmit` + `npm run build` fra hovedtreet (merge bokbranchen inn i
+   et landingsbranch der først).
+3. Prod-curl `PORT=3063 npm run start` → 200 + innholdssjekk på bokforside,
+   3 kapittelruter, quiz, flashcards, kildegrunnlag.
+4. Statustavle i `docs/hoyskole-boker/README.md` + kryss av i `TODO-OPUS.md`.
+5. Merge `origin/main` inn i bokbranchen (additive konflikter i delte
+   wiring-filer — behold BEGGE sider; `_registry.json` har både `chapterIds` og
+   `aliases`), så push og land på main.
+
 Denne siden er inngangen hvis en økt blir avbrutt (kvotestopp, ECONNRESET,
 død agent). **Alt arbeid ligger på disk og i git — ingenting bor i en samtale.**
 Lim inn gjenopptakssetningen nederst i en ny Claude Code-økt, så fortsetter den
