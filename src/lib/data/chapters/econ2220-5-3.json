@@ -1,0 +1,397 @@
+{
+  "id": "econ2220-5-3",
+  "courseId": "econ2220",
+  "chapterNumber": "5.3",
+  "title": "Kostnadsfunksjoner: skalaregimene og kort sikt",
+  "description": "Fra teknologi til kostnadsbilde: $c(y)$ under tre skalaregimer, marginal- og gjennomsnittskostnad, kort sikt med fast kapital — og nedleggingsbetingelsen.",
+  "estimatedMinutes": 50,
+  "competenceGoals": [
+    "kunne regne ut marginalkostnad og gjennomsnittskostnad fra en kostnadsfunksjon og forklare hva hver av dem avgjør",
+    "kunne vise at marginalkostnadskurven skjærer gjennomsnittskostnadskurven i dens minimum",
+    "kunne vise kurveformen med fortegnet på c''(y) og koble den til skalaregimet",
+    "kunne utlede variable kostnader fra en kortsiktig teknologi ved å invertere den, og skille faste fra variable kostnader",
+    "kunne skille sunk kost fra gjenvinnbare faste kostnader og utlede nedleggingsbetingelsen",
+    "kunne lese profitten som et rektangelareal i diagrammet med marginal- og gjennomsnittskostnad"
+  ],
+  "content": [
+    {
+      "id": "econ2220-5-3-vinkel",
+      "type": "tip",
+      "title": "Eksamensvinkel",
+      "content": "Dette kapitlet er kostnadssiden av **sjanger J** — boka sitt navn på produsentoppgaven med skalautbytte, kostnads- og tilbudskurver. (Kodene A–N er bokas egen etikettering av oppgavetypene; de står ikke på eksamen.)\n\n**Belegg:** koblingen mellom skalautbytte og kostnadskurvene er testet i alle tre siste ordinære sett — V2023, V2024 og V2025 — som del av «skalautbytte-batteriet». Kort sikt med fast kapital, sunk kost og nedleggingsbetingelse er dokumentert testet i V2024-utsatt. Diagrammet med marginalkostnad og gjennomsnittskostnad, der profitten leses av som et rektangelareal, ble brukt i V2025.\n\n**Sensorkravene i dette kapitlet:**\n\n1. **Kurveformen skal vises, ikke påstås.** «Kostnadsfunksjonen er konveks» må underbygges med fortegnet på $c''(y)$. Dette er godkjent som alternativ til skalautbytte-testen fra [kap. 5.1](/bok/econ2220/econ2220-5-1) — de to gir samme svar.\n2. **Sunk kost skal holdes utenfor beslutningen.** En kostnad som ikke kan unngås uansett hva bedriften gjør, kan ikke påvirke valget mellom å drive og å legge ned.\n3. **Marginalkostnad og gjennomsnittskostnad skal holdes fra hverandre** — også i figuren.\n\nKapitlet har høyeste prioritet. Kurvene du bygger her, er dem [kap. 5.4](/bok/econ2220/econ2220-5-4) gjør om til tilbudskurven."
+    },
+    {
+      "id": "econ2220-5-3-forkunn",
+      "type": "text",
+      "content": "**Forkunnskaper.** Dette kapitlet bygger på:\n\n- **[kap. 5.2](/bok/econ2220/econ2220-5-2)** — kostnadsfunksjonen $c(y)$ som resultatet av kostnadsminimering.\n- **[kap. 5.1](/bok/econ2220/econ2220-5-1)** — skalautbytte og testen $F(tK,tL)$ mot $tF(K,L)$.\n- **Derivasjon** av potensuttrykk, inkludert andrederiverte, og det å finne minimum ved å sette den deriverte lik null.\n\n**Sist du var her — de tre resultatene du får bruk for med én gang:**\n\n$$F(K,L) = \\sqrt{KL} \\;\\Rightarrow\\; c(y) = 2y\\sqrt{rw} \\qquad (\\text{konstant skalautbytte})$$\n\n$$F(K,L) = K^{1/3}L^{1/3} \\;\\Rightarrow\\; c(y) = 2y^{3/2}\\sqrt{rw} \\qquad (\\text{avtakende skalautbytte})$$\n\n$$c(y) = rK^*(r,w,y) + wL^*(r,w,y) \\qquad (\\text{kostnadsfunksjonen er minimumsverdien})$$\n\nNotasjonen står ved lag: $r$ er kapitalprisen, $w$ er lønna, $y$ er produsert mengde og $p$ er produktprisen. Fra dette kapitlet får vi også bruk for **$c_v(y)$** for variable kostnader og **$F$** for faste kostnader — samme bokstav som produktfunksjonen, men uten argumenter, slik eksamen skriver det."
+    },
+    {
+      "id": "econ2220-5-3-anker",
+      "type": "text",
+      "content": "Et bakeri på Nordstrand bruker 20 000 kroner på mel, strøm og bemanning for å bake 100 brød om dagen. Skal eieren bake ett brød til, må hun vite én ting: hva koster akkurat det ene brødet? Skal hun vurdere om bakeriet i det hele tatt bør holde åpent, må hun vite noe annet: hva koster brødene i gjennomsnitt, og hvilke av kostnadene forsvinner om hun stenger?\n\nDet er de tre spørsmålene i dette kapitlet: **marginalkostnaden** (hva den neste enheten koster), **gjennomsnittskostnaden** (hva enhetene koster i snitt) og **hvilke kostnader som er relevante for hvilken beslutning**. Kostnadsfunksjonen $c(y)$ fra [kap. 5.2](/bok/econ2220/econ2220-5-2) inneholder svarene; vi skal bare hente dem ut.\n\nKapitlet går i fire løkker: de to kostnadskurvene og forholdet mellom dem (løkke 1, ~13 min), skalaregimene i kostnadsspråk (løkke 2, ~13 min), kort sikt med faste og variable kostnader (løkke 3, ~15 min) og diagrammet eksamen tegner (løkke 4, ~9 min)."
+    },
+    {
+      "id": "econ2220-5-3-l1-h",
+      "type": "text",
+      "content": "## Løkke 1 — Marginalkostnad og gjennomsnittskostnad (~13 min)"
+    },
+    {
+      "id": "econ2220-5-3-def-mk",
+      "type": "definition",
+      "title": "Marginalkostnad $c'(y)$",
+      "content": "**Marginalkostnaden er kostnaden ved å produsere én enhet til:**\n\n$$\\text{MK}(y) = c'(y) = \\frac{\\mathrm{d}c(y)}{\\mathrm{d}y}$$\n\nEnheten er **kroner per produsert enhet**. Er $c'(y) = 40$ i bakeriet, koster brød nummer $y+1$ førti kroner å lage.\n\nMarginalkostnaden er den eneste kostnadsstørrelsen som er relevant når bedriften skal velge *hvor mye* den skal produsere. Grunnen ser vi i [kap. 5.4](/bok/econ2220/econ2220-5-4): den skal sammenliknes med hva den ekstra enheten gir i inntekt.\n\nFra [kap. 5.2](/bok/econ2220/econ2220-5-2): marginalkostnaden er også verdien av Lagrange-multiplikatoren i kostnadsminimeringen, $\\lambda^* = c'(y)$."
+    },
+    {
+      "id": "econ2220-5-3-def-gk",
+      "type": "definition",
+      "title": "Gjennomsnittskostnad",
+      "content": "**Gjennomsnittskostnaden er samlet kostnad delt på produsert mengde:**\n\n$$\\text{GK}(y) = \\frac{c(y)}{y}$$\n\nEnheten er også kroner per enhet, men spørsmålet er et annet: ikke «hva koster den neste?», men «hva koster de i snitt?».\n\nGjennomsnittskostnaden er størrelsen som avgjør **om** bedriften tjener penger på en gitt produksjon: er prisen høyere enn gjennomsnittskostnaden, er det overskudd. Marginalkostnaden avgjør derimot **hvor mye** som bør produseres. De to spørsmålene må holdes fra hverandre."
+    },
+    {
+      "id": "econ2220-5-3-thm-mkgk",
+      "type": "theorem",
+      "title": "MK skjærer GK i GK-minimum",
+      "content": "**Marginalkostnadskurven skjærer gjennomsnittskostnadskurven nøyaktig i bunnpunktet til gjennomsnittskostnaden.**\n\nBeviset er en derivasjon med brøkregelen:\n\n$$\\frac{\\mathrm{d}}{\\mathrm{d}y}\\left(\\frac{c(y)}{y}\\right) = \\frac{c'(y)\\,y - c(y)}{y^{2}} = \\frac{c'(y) - \\dfrac{c(y)}{y}}{y} = \\frac{\\text{MK} - \\text{GK}}{y}$$\n\nSiden $y > 0$ er fortegnet på venstresiden lik fortegnet på $\\text{MK} - \\text{GK}$:\n\n- $\\text{MK} < \\text{GK}$ gir fallende gjennomsnittskostnad,\n- $\\text{MK} > \\text{GK}$ gir stigende gjennomsnittskostnad,\n- $\\text{MK} = \\text{GK}$ gir vannrett tangent, altså minimum der GK går fra å falle til å stige.\n\n**Intuisjonen er karaktersnittet.** Får du en karakter som er dårligere enn snittet ditt, faller snittet; er den bedre, stiger snittet; er den lik snittet, står det stille. Marginalkostnaden er «den nye karakteren», gjennomsnittskostnaden er «snittet»."
+    },
+    {
+      "id": "econ2220-5-3-ex1",
+      "type": "example",
+      "title": "Eksempel 1: bakeriets to kurver",
+      "problem": "Et bakeri har kostnadsfunksjonen $c(y) = y^{2} + 100$, der $y$ er antall hundre brød per dag og kostnaden måles i hundre kroner.\n\n**a)** Finn marginalkostnaden og gjennomsnittskostnaden.\n\n**b)** Finn mengden der gjennomsnittskostnaden er lavest, og vis at marginalkostnaden er lik gjennomsnittskostnaden akkurat der.",
+      "solution": "**Trinn 1 — sett opp.** Vi skal derivere $c$ for marginalkostnaden og dele på $y$ for gjennomsnittskostnaden.\n\n**Trinn 2 — utled.**\n\n$$\\text{MK}(y) = c'(y) = 2y, \\qquad \\text{GK}(y) = \\frac{y^{2}+100}{y} = y + \\frac{100}{y}$$\n\nMinimum av GK finner vi ved å derivere og sette lik null:\n\n$$\\text{GK}'(y) = 1 - \\frac{100}{y^{2}} = 0 \\;\\Longrightarrow\\; y^{2} = 100 \\;\\Longrightarrow\\; y = 10$$\n\nAndrederiverte er $200/y^{3} > 0$, så punktet er et minimum. Verdien er\n\n$$\\text{GK}(10) = 10 + \\frac{100}{10} = 20$$\n\nog marginalkostnaden i samme punkt er $\\text{MK}(10) = 2\\cdot 10 = 20$. De er like ✓, akkurat som teoremet sier.\n\n**Trinn 3 — tolk i enheter.** Ved 1 000 brød om dagen koster hvert brød i snitt 20 (hundre kroner per hundre brød, altså 20 kroner per brød), og det neste brødet koster nøyaktig det samme. Under 1 000 brød er det neste brødet billigere enn snittet, så snittet faller når bakeriet baker mer; over 1 000 er det dyrere enn snittet, så snittet stiger.\n\n**Figuren i ord:** med $y$ vannrett og kroner loddrett er MK en rett linje gjennom origo med stigningstall 2. GK er U-formet: den faller bratt fra venstre (fordi de faste 100 fordeles på flere enheter), flater ut og har bunnpunkt $B = (10, 20)$, og stiger deretter. MK skjærer GK nøyaktig i $B$, nedenfra. Stiplede hjelpelinjer fra $B$ til begge akser markerer $y = 10$ og kostnadsnivå 20."
+    },
+    {
+      "id": "econ2220-5-3-oppg-1",
+      "type": "exercise",
+      "exercise": {
+        "id": "econ2220-5-3-e-1",
+        "number": "1",
+        "type": "classic",
+        "difficulty": "lett",
+        "task": "(Innstegsoppgave — sjanger J, altså produsentoppgaven med kostnads- og tilbudskurver.)\n\nForklar med egne ord forskjellen på marginalkostnad og gjennomsnittskostnad, og si hvilken av dem som avgjør\n\n**a)** om bedriften tjener penger på en gitt produksjon,\n\n**b)** hvor mye bedriften bør produsere.",
+        "solution": "**Marginalkostnaden $c'(y)$** er hva den neste enheten koster å lage. **Gjennomsnittskostnaden $c(y)/y$** er hva enhetene koster i snitt, altså samlet kostnad fordelt på antallet.\n\n**a)** Gjennomsnittskostnaden. Overskuddet er inntekt minus kostnad, $py - c(y)$, og det kan skrives $(p - \\text{GK}(y))\\,y$. Er prisen høyere enn gjennomsnittskostnaden, er parentesen positiv og bedriften tjener penger på produksjonen.\n\n**b)** Marginalkostnaden. Spørsmålet «bør jeg lage én til?» sammenlikner hva den ene enheten gir i inntekt med hva den koster — og det er marginalkostnaden. Kvantumsregelen som følger av dette, utledes i [kap. 5.4](/bok/econ2220/econ2220-5-4).",
+        "hints": [
+          "Den ene er en derivert, den andre er en brøk — hva spør hver av dem om?",
+          "Skriv overskuddet som $(p - \\text{GK})\\cdot y$ og se hvilken størrelse som avgjør fortegnet."
+        ]
+      }
+    },
+    {
+      "id": "econ2220-5-3-oppg-2",
+      "type": "exercise",
+      "exercise": {
+        "id": "econ2220-5-3-e-2",
+        "number": "2",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "(Sjanger J — kurveregning.)\n\nEt trykkeri har $c(y) = 2y^{2} + 72$, der $y$ er tusen trykte plakater.\n\n**a)** Finn MK og GK.\n\n**b)** Finn mengden der gjennomsnittskostnaden er lavest, og verdien der.\n\n**c)** Vis at marginalkostnaden er lik gjennomsnittskostnaden i det punktet, og forklar hvorfor det måtte bli slik.",
+        "solution": "**a)** $$\\text{MK}(y) = 4y, \\qquad \\text{GK}(y) = 2y + \\frac{72}{y}$$\n\n**b)** $$\\text{GK}'(y) = 2 - \\frac{72}{y^{2}} = 0 \\;\\Longrightarrow\\; y^{2} = 36 \\;\\Longrightarrow\\; y = 6$$\n\n$$\\text{GK}(6) = 2\\cdot 6 + \\frac{72}{6} = 12 + 12 = 24$$\n\n**c)** $\\text{MK}(6) = 4\\cdot 6 = 24 = \\text{GK}(6)$ ✓.\n\nDet måtte bli slik fordi den deriverte av gjennomsnittskostnaden er\n\n$$\\frac{\\mathrm{d}}{\\mathrm{d}y}\\frac{c(y)}{y} = \\frac{\\text{MK} - \\text{GK}}{y}.$$\n\nI et minimum er den deriverte null, og siden $y > 0$ krever det $\\text{MK} = \\text{GK}$. Gjennomsnittet kan bare slutte å falle i det øyeblikket den neste enheten koster nøyaktig like mye som snittet.",
+        "hints": [
+          "Deriver $c(y)$ for MK, og del $c(y)$ på $y$ for GK.",
+          "Sett den deriverte av GK lik null; leddet $72/y$ deriveres til $-72/y^2$."
+        ]
+      }
+    },
+    {
+      "id": "econ2220-5-3-l2-h",
+      "type": "text",
+      "content": "## Løkke 2 — Skalaregimene i kostnadsspråk (~13 min)"
+    },
+    {
+      "id": "econ2220-5-3-l2-t1",
+      "type": "text",
+      "content": "Nå kan vi gjøre opp regnskapet fra [kap. 5.1](/bok/econ2220/econ2220-5-1). Der lovet tabellen at skalautbyttet bestemmer kostnadsbildet. Her vises hvert ledd.\n\nUtgangspunktet er kostnadsfunksjonene vi allerede har utledet med Lagrange i [kap. 5.2](/bok/econ2220/econ2220-5-2)."
+    },
+    {
+      "id": "econ2220-5-3-thm-tabell",
+      "type": "theorem",
+      "title": "Skalaregime-tabellen",
+      "content": "**Konstant skalautbytte** gir $c(y) = k\\,y$, der $k$ er **enhetskostnaden** — kostnaden per produsert enhet gitt faktorprisene. For $F = \\sqrt{KL}$ er $k = 2\\sqrt{rw}$. Da er\n\n$$c'(y) = k, \\qquad \\frac{c(y)}{y} = k, \\qquad c''(y) = 0$$\n\naltså konstant marginalkostnad, konstant gjennomsnittskostnad, og de to er like overalt.\n\n**Avtakende skalautbytte** gir en **konveks** kostnadsfunksjon. For $F = K^{1/3}L^{1/3}$ er $c(y) = 2y^{3/2}\\sqrt{rw}$, og\n\n$$c'(y) = 3\\sqrt{rw}\\,\\sqrt{y}, \\qquad c''(y) = \\frac{3\\sqrt{rw}}{2\\sqrt{y}} > 0$$\n\nMarginalkostnaden stiger, og gjennomsnittskostnaden $2\\sqrt{rw}\\sqrt{y}$ stiger også.\n\n**Tiltakende skalautbytte** gir **fallende gjennomsnittskostnad**. For $F = K^{2/3}L^{2/3}$ er $c(y) = 2y^{3/4}\\sqrt{rw}$, og\n\n$$\\frac{c(y)}{y} = \\frac{2\\sqrt{rw}}{y^{1/4}} \\;\\text{(fallende)}, \\qquad c''(y) = -\\frac{3\\sqrt{rw}}{8\\,y^{5/4}} < 0$$\n\nKostnadsfunksjonen er konkav, og marginalkostnaden faller.\n\n**Regelen sensor er ute etter:** fortegnet på $c''(y)$ er et fullgodt alternativ til $F(tK,tL)$-testen. Positiv andrederivert svarer til avtakende skalautbytte, null til konstant og negativ til tiltakende."
+    },
+    {
+      "id": "econ2220-5-3-ex2",
+      "type": "example",
+      "title": "Eksempel 2: settefiskoppdretteren — vis konveksiteten",
+      "problem": "Et settefiskselskap har kostnadsfunksjonen $c(y) = 18\\,y^{3/2}$ (utledet i [kap. 5.2](/bok/econ2220/econ2220-5-2) fra teknologien $K^{1/3}L^{1/3}$ med $r = 3$ og $w = 27$).\n\n**a)** Vis at kostnadsfunksjonen er konveks.\n\n**b)** Finn MK og GK, og forklar forholdet mellom dem.\n\n**c)** Hva koster det å doble produksjonen fra 4 til 8 tonn?",
+      "solution": "**a) Konveksitet vises med andrederiverte.**\n\n$$c'(y) = 18\\cdot\\tfrac{3}{2}y^{1/2} = 27\\sqrt{y}, \\qquad c''(y) = 27\\cdot\\tfrac{1}{2}y^{-1/2} = \\frac{27}{2\\sqrt{y}}$$\n\nFor alle $y > 0$ er $c''(y) > 0$, så kostnadsfunksjonen er **konveks**: den krummer oppover, og marginalkostnaden stiger med produksjonen. Dette er samme konklusjon som skalautbytte-testen ga i [kap. 5.1](/bok/econ2220/econ2220-5-1) ($t^{2/3} < t$, avtakende skalautbytte) — vist på en annen måte.\n\n**b)** $$\\text{MK}(y) = 27\\sqrt{y}, \\qquad \\text{GK}(y) = \\frac{18y^{3/2}}{y} = 18\\sqrt{y}$$\n\nForholdet er $\\text{MK}/\\text{GK} = 27/18 = 3/2$ for alle $y$: marginalkostnaden ligger alltid 50 % over gjennomsnittskostnaden. Begge stiger, og GK har ikke noe bunnpunkt her — den stiger fra første enhet, fordi det ikke finnes faste kostnader som kunne blitt fordelt utover.\n\n**c) Doblingen i tall.** $c(4) = 18\\cdot 4^{3/2} = 18\\cdot 8 = 144$ og $c(8) = 18\\cdot 8^{3/2} = 18\\cdot 16\\sqrt{2} \\approx 407$.\n\nKostnaden ganges altså med $2^{3/2} \\approx 2{,}83$ når mengden dobles: **dobbelt så mye fisk koster nesten tre ganger så mye**. Gjennomsnittskostnaden stiger fra $144/4 = 36$ til om lag $407/8 \\approx 50{,}9$ per tonn. Det er nøyaktig hva avtakende skalautbytte betyr i kroner."
+    },
+    {
+      "id": "econ2220-5-3-oppg-3",
+      "type": "exercise",
+      "exercise": {
+        "id": "econ2220-5-3-e-3",
+        "number": "3",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "(Sjanger J — skalaregimet vist fra kostnadssiden.)\n\nTre bedrifter har kostnadsfunksjonene\n\n$$c_A(y) = 12y, \\qquad c_B(y) = 3y^{2}, \\qquad c_C(y) = 8y^{3/4}$$\n\n**a)** Finn $c''(y)$ for hver av dem.\n\n**b)** Avgjør hvilket skalautbytte hver teknologi må ha.\n\n**c)** Finn gjennomsnittskostnaden i hvert tilfelle, og si om den stiger, faller eller er konstant.",
+        "solution": "**a)** $$c_A'(y) = 12,\\quad c_A''(y) = 0$$\n$$c_B'(y) = 6y,\\quad c_B''(y) = 6 > 0$$\n$$c_C'(y) = 6y^{-1/4},\\quad c_C''(y) = -\\tfrac{3}{2}y^{-5/4} < 0$$\n\n**b)** A har $c'' = 0$ og lineær kostnadsfunksjon: **konstant skalautbytte**. B har $c'' > 0$, konveks kostnadsfunksjon og stigende marginalkostnad: **avtakende skalautbytte**. C har $c'' < 0$, konkav kostnadsfunksjon og fallende marginalkostnad: **tiltakende skalautbytte**.\n\n**c)** $$\\text{GK}_A = 12 \\;(\\text{konstant}), \\qquad \\text{GK}_B = 3y \\;(\\text{stigende}), \\qquad \\text{GK}_C = 8y^{-1/4} \\;(\\text{fallende})$$\n\nMønsteret er det samme som i tabellen: konstant skalautbytte gir flat gjennomsnittskostnad, avtakende gir stigende, tiltakende gir fallende. Legg merke til at ingen av disse har faste kostnader — derfor mangler den U-formede gjennomsnittskostnadskurven her.",
+        "hints": [
+          "Deriver to ganger; husk at $y^{3/4}$ deriveres til $\\tfrac{3}{4}y^{-1/4}$.",
+          "Bruk regelen: positiv andrederivert svarer til avtakende skalautbytte, null til konstant, negativ til tiltakende.",
+          "Gjennomsnittskostnaden er $c(y)$ delt på $y$ — trekk fra 1 i eksponenten."
+        ]
+      }
+    },
+    {
+      "id": "econ2220-5-3-warn-pastand",
+      "type": "warning",
+      "title": "Kurveform skal vises",
+      "content": "Å skrive «kostnadsfunksjonen er konveks fordi teknologien har avtakende skalautbytte» og stoppe der, er å påstå det oppgaven ber deg vise. Boka kaller det **feil #3 — egenskap påstått uten derivasjon eller test** (feilene er samlet i et register i [kap. 0.1](/bok/econ2220/econ2220-0-1)).\n\nSkriv ut $c'(y)$, deriver én gang til, og konkluder fra fortegnet på $c''(y)$. To linjer, og påstanden er blitt et bevis."
+    },
+    {
+      "id": "econ2220-5-3-l3-h",
+      "type": "text",
+      "content": "## Løkke 3 — Kort sikt: faste og variable kostnader (~15 min)"
+    },
+    {
+      "id": "econ2220-5-3-l3-t1",
+      "type": "text",
+      "content": "Alt så langt har vært **lang sikt**: begge faktorene kunne varieres fritt, og kostnadsminimeringen sto fritt til å velge miksen. På **kort sikt** er kapitalen låst — lokalet er leid, ovnen er kjøpt, konsesjonen er gitt. Da er det bare arbeidet som kan justeres, og produktfunksjonen reduseres til én-faktor-varianten $x = F(n)$ fra [kap. 5.1](/bok/econ2220/econ2220-5-1).\n\nDette er den varianten V2024-utsatt bygde en hel oppgave på, og oppskriften er kort: **inverter teknologien, gang med faktorprisen.**"
+    },
+    {
+      "id": "econ2220-5-3-def-kortsikt",
+      "type": "definition",
+      "title": "Kort sikt",
+      "content": "**På kort sikt er minst én innsatsfaktor låst.** I kurset er det typisk kapitalen: $K = \\bar{K}$.\n\nKonsekvensen er at kostnaden deler seg i to. Den delen som følger av den låste faktoren, er **fast** og endrer seg ikke med produksjonen. Den delen som følger av den variable faktoren, er **variabel** og vokser med produksjonen.\n\nPå lang sikt finnes ikke skillet: da kan alt justeres, og all kostnad er variabel."
+    },
+    {
+      "id": "econ2220-5-3-def-cv",
+      "type": "definition",
+      "title": "Variable kostnader $c_v(y)$",
+      "content": "**De variable kostnadene er kostnaden ved den faktoren som kan justeres, uttrykt som funksjon av produsert mengde.**\n\nOppskriften for å finne dem er alltid den samme:\n\n1. Skriv teknologien på kort sikt som $y = F(n)$, der $n$ er den variable faktoren.\n2. **Inverter:** løs for $n$ som funksjon av $y$.\n3. Gang med faktorprisen: $c_v(y) = w\\cdot n(y)$.\n\nEksempel: $y = \\sqrt{n}$ gir $n = y^{2}$, altså $c_v(y) = w\\,y^{2}$ — den varianten eksamen har brukt.\n\nÅ hoppe over inverteringen er en klassisk regnefeil: $c_v = w\\sqrt{y}$ er galt, for teknologien sier hvor mye du får ut av timene, mens kostnaden trenger hvor mange timer som skal til."
+    },
+    {
+      "id": "econ2220-5-3-def-fast",
+      "type": "definition",
+      "title": "Faste kostnader $F$",
+      "content": "**Faste kostnader er kostnader som ikke endrer seg med produsert mengde:** husleie, forsikring, konsesjonsavgift, den låste kapitalen.\n\nSamlet kostnad på kort sikt er da\n\n$$c(y) = c_v(y) + F$$\n\nLegg merke til to ting. For det første: faste kostnader påvirker **ikke** marginalkostnaden, siden derivasjon fjerner konstanter — $c'(y) = c_v'(y)$. For det andre: de påvirker gjennomsnittskostnaden, og det er de som gjør GK-kurven U-formet, fordi $F/y$ faller når $y$ vokser.\n\n**Vær oppmerksom på bokstaven:** $F$ uten argumenter er faste kostnader, $F(K,L)$ med argumenter er produktfunksjonen. Eksamen bruker den samme bokstaven om begge, så les alltid sammenhengen."
+    },
+    {
+      "id": "econ2220-5-3-ex3",
+      "type": "example",
+      "title": "Eksempel 3: bakeriet på kort sikt",
+      "problem": "Bakeriet har på kort sikt teknologien $y = \\sqrt{l}$, der $l$ er arbeidstimer og $y$ er antall hundre brød. Timelønna er $w = 20$. I tillegg betaler bakeriet 300 i faste kostnader per dag.\n\n**a)** Utled de variable kostnadene og marginalkostnaden.\n\n**b)** Skriv opp samlet kostnad og gjennomsnittskostnad, og vis at kostnadsfunksjonen er konveks.\n\n**c)** Bakeriet selger til $p = 200$ og produserer $y = 5$. Hva blir overskuddet?",
+      "solution": "**Trinn 1 — sett opp.** Teknologien gir produksjon som funksjon av timer; vi trenger timer som funksjon av produksjon.\n\n**Trinn 2 — utled.**\n\n**a)** Inverter teknologien: $y = \\sqrt{l} \\Rightarrow l = y^{2}$. Timekostnaden er $w$ per time, så\n\n$$c_v(y) = w\\,l(y) = 20y^{2}, \\qquad \\text{MK}(y) = c_v'(y) = 40y$$\n\n**b)** Samlet kostnad og gjennomsnittskostnad:\n\n$$c(y) = 20y^{2} + 300, \\qquad \\text{GK}(y) = 20y + \\frac{300}{y}$$\n\nKonveksitet: $c'(y) = 40y$ og $c''(y) = 40 > 0$ for alle $y$. Kostnadsfunksjonen er altså konveks, og marginalkostnaden stiger. Legg merke til at de faste 300 forsvant i derivasjonen — de påvirker ikke marginalkostnaden.\n\n**c)** $$c(5) = 20\\cdot 25 + 300 = 800, \\qquad py = 200\\cdot 5 = 1\\,000$$\n\n$$\\pi = 1\\,000 - 800 = 200$$\n\n**Trinn 3 — tolk i enheter.** Marginalkostnaden $40y$ betyr at brød nummer $500$ og oppover blir stadig dyrere: med fast ovn må hver ny brødmengde presses ut av flere timer med den samme utstyrsparken, og timeforbruket vokser kvadratisk med produksjonen.\n\nOverskuddet på 200 kan leses av som et rektangel: gjennomsnittskostnaden ved $y = 5$ er $800/5 = 160$, prisen er 200, og overskuddet er $(200 - 160)\\cdot 5 = 200$ ✓ — differansen per enhet, ganget med antall enheter."
+    },
+    {
+      "id": "econ2220-5-3-oppg-4",
+      "type": "exercise",
+      "exercise": {
+        "id": "econ2220-5-3-e-4",
+        "number": "4",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "(Sjanger J — kort sikt, slik V2024-utsatt bygde oppgaven.)\n\nEt kaffebrenneri har på kort sikt teknologien $y = \\sqrt{l}$, timelønn $w = 45$ og faste kostnader på 720 per uke.\n\n**a)** Utled $c_v(y)$, $c(y)$ og marginalkostnaden.\n\n**b)** Vis at kostnadsfunksjonen er konveks.\n\n**c)** Finn gjennomsnittskostnaden, og hva den er ved $y = 4$.",
+        "solution": "**a)** Inverter teknologien: $y = \\sqrt{l} \\Rightarrow l = y^{2}$. Da er\n\n$$c_v(y) = 45y^{2}, \\qquad c(y) = 45y^{2} + 720, \\qquad \\text{MK}(y) = 90y$$\n\n**b)** $c''(y) = 90 > 0$ for alle $y > 0$, så kostnadsfunksjonen er konveks og marginalkostnaden stiger med produksjonen.\n\n**c)** $$\\text{GK}(y) = 45y + \\frac{720}{y}, \\qquad \\text{GK}(4) = 180 + 180 = 360$$\n\n(Til sammenlikning er marginalkostnaden ved $y = 4$ lik $90\\cdot 4 = 360$ — de er like, og $y = 4$ er derfor nettopp bunnpunktet i gjennomsnittskostnaden.)",
+        "hints": [
+          "Start med å skrive antall timer som funksjon av produksjonen.",
+          "Faste kostnader forsvinner når du deriverer — men ikke når du deler på $y$.",
+          "I c): regn ut begge leddene hver for seg ved $y = 4$."
+        ]
+      }
+    },
+    {
+      "id": "econ2220-5-3-l3-t2",
+      "type": "text",
+      "content": "### Sunk kost og gjenvinnbare faste kostnader\n\nNå kommer skillet eksamen faktisk tester. Ikke alle faste kostnader er like: noen forsvinner om bedriften legger ned, andre er borte uansett."
+    },
+    {
+      "id": "econ2220-5-3-def-sunk",
+      "type": "definition",
+      "title": "Sunk kost (ugjenkallelige kostnader)",
+      "content": "**En sunk kostnad er allerede pådratt og kan ikke gjenvinnes uansett hva bedriften gjør videre.** Den spesialbygde ovnen som ingen andre vil kjøpe, konsesjonsgebyret som er betalt, markedsføringskampanjen som er kjørt.\n\n**Sunk kost skal holdes utenfor alle framtidige beslutninger.** Kostnaden er den samme enten bedriften driver videre eller stenger, og en størrelse som er lik i begge alternativer, kan ikke skille mellom dem.\n\nDette er et av kursets skarpeste presisjonspoeng, og det er testet: å la sunk kost påvirke kvantums- eller nedleggingsvalget er en dokumentert tabbe."
+    },
+    {
+      "id": "econ2220-5-3-def-gjenvinnbar",
+      "type": "definition",
+      "title": "Gjenvinnbare faste kostnader",
+      "content": "**En gjenvinnbar (unngåelig) fast kostnad forsvinner hvis bedriften legger ned:** husleien som kan sies opp, forsikringen som kan avbestilles, leasingavtalen med utløpsklausul.\n\nDen er *fast* i den forstand at den ikke endrer seg med produsert mengde — men den er *unngåelig* i den forstand at den kan kuttes helt ved å stenge.\n\nSkillet mellom sunk og gjenvinnbar avgjør hvilke kostnader som skal med i nedleggingsvurderingen: bare de gjenvinnbare."
+    },
+    {
+      "id": "econ2220-5-3-thm-nedlegging",
+      "type": "theorem",
+      "title": "Nedleggingsbetingelsen",
+      "content": "**Legg ned dersom prisen er lavere enn den laveste gjennomsnittskostnaden regnet med bare de kostnadene som kan unngås ved å stenge:**\n\n$$p < \\min_y \\frac{c_v(y) + F_{\\text{gjenvinnbar}}}{y}$$\n\nSammenlikningen er alltid mellom to alternativer: **drive videre** gir inntekt $py$ minus de unngåelige kostnadene; **stenge** gir null av begge deler. Sunk kost står likt i begge og faller ut av regnestykket.\n\nMerk hva betingelsen *ikke* er. Den er ikke «legg ned hvis du går med regnskapsmessig underskudd». En bedrift med store sunkne kostnader kan gå med underskudd og likevel gjøre rett i å drive videre, fordi driften dekker alt den faktisk kan unngå — og litt til."
+    },
+    {
+      "id": "econ2220-5-3-ex4",
+      "type": "example",
+      "title": "Eksempel 4: skal bakeriet stenge?",
+      "problem": "Bakeriet har $c_v(y) = 20y^{2}$ og faste kostnader på 300 per dag. Av de faste kostnadene er 180 husleie som kan sies opp med kort varsel, mens 120 er avskrivning på en spesialbygd ovn uten bruktverdi.\n\n**a)** Hvilke kostnader er relevante for spørsmålet om å stenge?\n\n**b)** Finn nedleggingsprisen.\n\n**c)** Prisen er $p = 100$. Bør bakeriet stenge? Hva blir resultatet i hvert alternativ?",
+      "solution": "**Trinn 1 — sett opp problemet.** Nedleggingsvalget sammenlikner to alternativer: drive videre eller stenge. Bare kostnader som er *forskjellige* i de to alternativene, kan påvirke valget.\n\n**a)** De variable kostnadene $20y^{2}$ forsvinner ved stenging, og det gjør husleia på 180 også. De 120 i ovnsavskrivning påløper uansett — det er **sunk kost** og skal holdes utenfor.\n\nRelevante kostnader er derfor $20y^{2} + 180$.\n\n**Trinn 2 — utled.**\n\n**b)** Gjennomsnittskostnaden regnet med bare de unngåelige kostnadene:\n\n$$\\text{GK}_{\\text{unngåelig}}(y) = \\frac{20y^{2} + 180}{y} = 20y + \\frac{180}{y}$$\n\nMinimum:\n\n$$\\frac{\\mathrm{d}}{\\mathrm{d}y}\\left(20y + \\frac{180}{y}\\right) = 20 - \\frac{180}{y^{2}} = 0 \\;\\Longrightarrow\\; y^{2} = 9 \\;\\Longrightarrow\\; y = 3$$\n\n$$\\text{GK}_{\\text{unngåelig}}(3) = 20\\cdot 3 + \\frac{180}{3} = 60 + 60 = 120$$\n\nNedleggingsprisen er altså **120**: under den prisen dekker driften ikke engang det bakeriet kunne spart ved å stenge.\n\n**c)** Med $p = 100 < 120$ bør bakeriet **stenge**.\n\nKontroll i kroner. Driver bakeriet videre på det beste nivået ved denne prisen, ligger det uansett i minus: den beste muligheten er $y = 3$, som gir $100\\cdot 3 - (20\\cdot 9 + 180) = 300 - 360 = -60$, pluss de 120 i sunk kost, altså $-180$ samlet. Stenger det, taper det bare de 120 som ikke kan unngås. **Stenging er 60 bedre.**\n\n**Trinn 3 — tolk.** De 120 i ovnsavskrivning er med i regnskapet i begge alternativer og endrer derfor ikke rangeringen — de gjør bare tallene mer dystre begge steder. Det er nøyaktig poenget med sunk kost: de er allerede tapt, og den eneste beslutningen som gjenstår, er om driften betaler for det den faktisk kan slippe unna."
+    },
+    {
+      "id": "econ2220-5-3-oppg-5",
+      "type": "exercise",
+      "exercise": {
+        "id": "econ2220-5-3-e-5",
+        "number": "5",
+        "type": "classic",
+        "difficulty": "vanskelig",
+        "task": "(Eksamensnivå — sjanger J på kort sikt, med sunk kost.)\n\nEt sagbruk har på kort sikt teknologien $y = \\sqrt{l}$ og timelønn $w = 5$. Faste kostnader er 100 per uke, hvorav 80 er leie av tomt som kan sies opp, mens 20 er en betalt og ikke-refunderbar konsesjonsavgift.\n\n**a)** Utled $c_v(y)$ og marginalkostnaden.\n\n**b)** Finn nedleggingsprisen, og forklar hvorfor konsesjonsavgiften ikke inngår.\n\n**c)** Ved prisen $p = 50$ produserer sagbruket $y = 5$. Regn ut resultatet, og ta stilling til om sagbruket bør stenge.",
+        "solution": "**a)** Inverter teknologien: $l = y^{2}$, altså\n\n$$c_v(y) = 5y^{2}, \\qquad \\text{MK}(y) = 10y$$\n\n**b)** Unngåelige kostnader er de variable pluss tomteleia på 80:\n\n$$\\text{GK}_{\\text{unngåelig}}(y) = \\frac{5y^{2} + 80}{y} = 5y + \\frac{80}{y}$$\n\n$$5 - \\frac{80}{y^{2}} = 0 \\;\\Longrightarrow\\; y^{2} = 16 \\;\\Longrightarrow\\; y = 4, \\qquad \\text{GK}_{\\text{unngåelig}}(4) = 20 + 20 = 40$$\n\nNedleggingsprisen er **40**.\n\nKonsesjonsavgiften på 20 er allerede betalt og kan ikke refunderes. Den påløper altså i begge alternativer — både om sagbruket driver og om det stenger — og en kostnad som er identisk i to alternativer, kan ikke skille mellom dem. Å ta den med ville flyttet nedleggingsprisen kunstig oppover og fått sagbruket til å stenge i tilfeller der drift faktisk lønner seg.\n\n**c)** $$c(5) = 5\\cdot 25 + 100 = 225, \\qquad py = 50\\cdot 5 = 250, \\qquad \\pi = 250 - 225 = 25$$\n\nSagbruket går med **overskudd på 25** og skal opplagt ikke stenge. Det stemmer med nedleggingsbetingelsen: $p = 50 > 40$.\n\nMerk at konklusjonen ville vært den samme selv om resultatet hadde vært negativt, så lenge $p > 40$. Med for eksempel en sunk kostnad på 60 i stedet for 20 ville regnskapet vist $250 - 265 = -15$, men stenging ville gitt $-60$. Drift er da fortsatt riktig valg — nettopp fordi de 60 er tapt uansett.",
+        "hints": [
+          "Start med å skrive $l$ som funksjon av $y$.",
+          "I b): ta bare med de kostnadene som forsvinner dersom bedriften stenger.",
+          "I c): sammenlikn resultatet ved drift med resultatet ved stenging, ikke med null."
+        ]
+      }
+    },
+    {
+      "id": "econ2220-5-3-l4-h",
+      "type": "text",
+      "content": "## Løkke 4 — Diagrammet eksamen tegner (~9 min)"
+    },
+    {
+      "id": "econ2220-5-3-def-profitt",
+      "type": "definition",
+      "title": "Profitt $\\pi = py - c(y)$",
+      "content": "**Profitten er inntekt minus kostnad:**\n\n$$\\pi = p\\,y - c(y)$$\n\nder $p$ er produktprisen. Uttrykket kan skrives om slik at gjennomsnittskostnaden kommer fram:\n\n$$\\pi = \\left(p - \\frac{c(y)}{y}\\right)y = \\bigl(p - \\text{GK}(y)\\bigr)\\,y$$\n\nDet er denne omskrivingen som gjør profitten til et **rektangel** i diagrammet: høyden er avstanden mellom prislinja og gjennomsnittskostnadskurven, bredden er produsert mengde.\n\nI dette kapitlet regner vi profitten for en **gitt** mengde. Hvilken mengde bedriften bør velge, avgjøres i [kap. 5.4](/bok/econ2220/econ2220-5-4)."
+    },
+    {
+      "id": "econ2220-5-3-l4-fig",
+      "type": "text",
+      "content": "**Standardfiguren i ord (MK/GK-diagrammet).** Sett mengden $y$ vannrett og kroner per enhet loddrett.\n\nTegn den U-formede gjennomsnittskostnadskurven GK med bunnpunkt $B$, og den stigende marginalkostnadskurven MK som skjærer GK nedenfra nøyaktig i $B$. Trekk en vannrett prislinje ved $p$, over $B$. Marker mengden $y^{*}$ på den vannrette aksen, med en stiplet loddrett hjelpelinje opp til prislinja i punktet $A$ og videre ned til GK-kurven i punktet $G$.\n\n**Profitten er rektangelet** med hjørnene i $(0,p)$, $A$, $G$ og $(0,\\text{GK}(y^{*}))$ — altså høyden $p - \\text{GK}(y^{*})$ ganget med bredden $y^{*}$. Skraver det.\n\nLigger prislinja under bunnpunktet $B$, finnes det ingen mengde med positiv høyde: da er rektangelet negativt uansett hvor $y$ velges, og bedriften taper penger på all produksjon."
+    },
+    {
+      "id": "econ2220-5-3-oppg-6",
+      "type": "exercise",
+      "exercise": {
+        "id": "econ2220-5-3-e-6",
+        "number": "6",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "(Sjanger J — profittarealet lest av diagrammet, slik V2025 spurte.)\n\nEt trykkeri har $c(y) = 2y^{2} + 72$ (samme som i oppgave 2), og produserer $y = 6$ til prisen $p = 30$.\n\n**a)** Regn ut profitten på to måter: direkte som $py - c(y)$, og som rektangelet $(p - \\text{GK})\\,y$.\n\n**b)** Beskriv i ord hvor rektangelet ligger i MK/GK-diagrammet.\n\n**c)** Hvor lavt kan prisen falle før produksjonen ikke lenger dekker gjennomsnittskostnaden?",
+        "solution": "**a)** Direkte:\n\n$$c(6) = 2\\cdot 36 + 72 = 144, \\qquad py = 30\\cdot 6 = 180, \\qquad \\pi = 180 - 144 = 36$$\n\nSom rektangel: $\\text{GK}(6) = 144/6 = 24$, så\n\n$$\\pi = (30 - 24)\\cdot 6 = 6\\cdot 6 = 36 \\;\\checkmark$$\n\n**b)** I diagrammet med $y$ vannrett og kroner per enhet loddrett ligger den vannrette prislinja ved 30. Ved $y = 6$ går en stiplet loddrett linje opp fra mengdeaksen; den treffer gjennomsnittskostnadskurven i høyden 24 (punktet $G$) og prislinja i høyden 30 (punktet $A$).\n\nRektangelet spenner fra kostnadsnivå 24 opp til 30 loddrett, og fra 0 til 6 vannrett: høyde 6, bredde 6, areal 36. Det er nøyaktig profitten. Punktet $y = 6$ er dessuten bunnpunktet i gjennomsnittskostnaden (fra oppgave 2), så marginalkostnadskurven skjærer GK akkurat der.\n\n**c)** Gjennomsnittskostnaden er lavest i $y = 6$, med verdien 24. Faller prisen under **24**, ligger prislinja under hele gjennomsnittskostnadskurven, og da finnes det ingen produksjonsmengde som gir positiv profitt — rektangelet blir negativt uansett bredde.",
+        "hints": [
+          "Regn ut $c(6)$ først, og bruk begge uttrykkene for profitt på de samme tallene.",
+          "I b): rektangelets høyde er $p - \\text{GK}$, bredden er $y$.",
+          "I c): se på den laveste verdien gjennomsnittskostnadskurven noen gang tar."
+        ]
+      }
+    },
+    {
+      "id": "econ2220-5-3-typiske-feil",
+      "type": "warning",
+      "title": "Typiske feil",
+      "content": "Fra bokas feilkatalog — den samlede lista over vanlige tabber på ECON2220, som står i [kap. 0.1](/bok/econ2220/econ2220-0-1):\n\n- **Feil #3 — kurveform påstått uten å vise $c''$-fortegnet.** «Kostnadsfunksjonen er konveks» er en påstand til den er derivert to ganger.\n- **Å blande MK og GK.** Marginalkostnaden svarer på «hva koster den neste?», gjennomsnittskostnaden på «hva koster de i snitt?». I figuren: MK skjærer GK nøyaktig i GK-minimum, nedenfra — ikke i et vilkårlig punkt, og aldri ovenfra.\n- **Å la sunk kost påvirke beslutningen.** Ugjenkallelige kostnader er like i alle alternativer og kan ikke skille mellom dem. Bare unngåelige kostnader hører hjemme i nedleggingsbetingelsen.\n- **Å glemme at konstant skalautbytte gir lineær kostnadsfunksjon.** Da er MK $=$ GK $= k$ overalt, og gjennomsnittskostnadskurven har verken U-form eller bunnpunkt.\n- **Å regne $c_v$ feil fra teknologien.** Teknologien $y = \\sqrt{l}$ må inverteres til $l = y^{2}$ før den ganges med lønna. Skriver du $c_v = w\\sqrt{y}$, har du regnet produksjon som om det var timeforbruk.\n- **Å tro at faste kostnader påvirker marginalkostnaden.** De forsvinner i derivasjonen. De påvirker gjennomsnittskostnaden — og det er nettopp derfor GK-kurven blir U-formet.\n- **Å blande de to $F$-ene.** $F$ uten argumenter er faste kostnader; $F(K,L)$ er produktfunksjonen."
+    },
+    {
+      "id": "econ2220-5-3-bank-intro",
+      "type": "text",
+      "content": "## Begrepsbank\n\nBegrepsbanken er flashcard-/repetisjonsstoff — den gjentar det du nettopp har lest. Hopp trygt over ved førstegangslesing; tidsanslaget for kapitlet gjelder kjernestoffet."
+    },
+    {
+      "id": "econ2220-5-3-bank-gvk",
+      "type": "definition",
+      "title": "Gjennomsnittlige variable kostnader",
+      "content": "**De gjennomsnittlige variable kostnadene er $c_v(y)/y$** — variabel kostnad per produsert enhet.\n\nStørrelsen brukes når *alle* faste kostnader er sunkne: da er nedleggingsbetingelsen $p < \\min\\, c_v(y)/y$, altså at prisen ikke engang dekker de rene driftskostnadene.\n\nEr noen faste kostnader gjenvinnbare, skal de med i nevneren i tillegg, og terskelen blir høyere. Les alltid oppgaveteksten nøye på dette punktet — den sier hvilke faste kostnader som kan unngås."
+    },
+    {
+      "id": "econ2220-5-3-bank-k",
+      "type": "definition",
+      "title": "Enhetskostnaden $k$ ved konstant skalautbytte",
+      "content": "**Ved konstant skalautbytte er kostnadsfunksjonen $c(y) = k\\,y$**, der $k$ er **enhetskostnaden**: kostnaden ved å produsere én enhet, gitt faktorprisene.\n\nFor $F(K,L) = \\sqrt{KL}$ er $k = 2\\sqrt{rw}$. Med $r = 4$ og $w = 9$ blir $k = 12$.\n\nEnhetskostnaden er samtidig marginalkostnaden og gjennomsnittskostnaden — de tre faller sammen i dette regimet. Det er grunnen til at tilbudskurven blir vannrett ved nettopp $k$, og til nullprofitt-resultatet i [kap. 5.4](/bok/econ2220/econ2220-5-4)."
+    },
+    {
+      "id": "econ2220-5-3-bank-ukurve",
+      "type": "definition",
+      "title": "Hvorfor GK-kurven er U-formet",
+      "content": "**U-formen krever faste kostnader.** Ved lav produksjon dominerer leddet $F/y$, som faller bratt når $F$ fordeles på flere enheter. Ved høy produksjon dominerer stigende variabel kostnad per enhet. Mellom de to ligger bunnpunktet.\n\nUten faste kostnader er det ingen U: $c(y) = 3y^{2}$ gir $\\text{GK} = 3y$, som stiger fra første enhet.\n\nBunnpunktet ligger alltid der $\\text{MK} = \\text{GK}$, og verdien der er terskelprisen bedriften må ha for i det hele tatt å dekke kostnadene sine."
+    },
+    {
+      "id": "econ2220-5-3-bank-relevant",
+      "type": "definition",
+      "title": "Relevante kostnader i en beslutning",
+      "content": "**Bare kostnader som er forskjellige i de to alternativene, kan påvirke valget mellom dem.**\n\nDet er hele logikken bak sunk kost. Skal bedriften velge mellom drift og stenging, sammenlikner den $py - (\\text{unngåelige kostnader})$ med $0$; det som påløper uansett, står på begge sider og stryker seg selv.\n\nPrinsippet gjelder alle valg i faget, ikke bare nedlegging: identifiser hva som faktisk endrer seg mellom alternativene, og regn bare på det."
+    },
+    {
+      "id": "econ2220-5-3-bank-regime-kostnad",
+      "type": "definition",
+      "title": "Skalaregimet lest fra kostnadssiden",
+      "content": "**Du kan avgjøre skalaregimet uten å gå tilbake til produktfunksjonen — kostnadsfunksjonen forteller det samme:**\n\n| Kostnadsfunksjonen | $c''(y)$ | Marginalkostnad | Gjennomsnittskostnad | Skalautbytte |\n|---|---|---|---|---|\n| $c = k\\,y$ (lineær) | $=0$ | konstant | konstant | konstant |\n| konveks, f.eks. $c = ay^{3/2}$ | $>0$ | stigende | stigende | avtakende |\n| konkav, f.eks. $c = ay^{3/4}$ | $<0$ | fallende | fallende | tiltakende |\n\nSensorveiledningene godtar begge veier: $F(tK,tL)$-testen fra [kap. 5.1](/bok/econ2220/econ2220-5-1) eller fortegnet på $c''(y)$. Har du kostnadsfunksjonen, er andrederiverte den korteste veien — men den må skrives ut, ikke påstås."
+    },
+    {
+      "id": "econ2220-5-3-bank-terskelpris",
+      "type": "definition",
+      "title": "Terskelprisen (minimum gjennomsnittskostnad)",
+      "content": "**Terskelprisen er den laveste verdien gjennomsnittskostnadskurven tar** — bunnpunktet der $\\text{MK} = \\text{GK}$.\n\nUnder terskelprisen finnes det ingen produksjonsmengde som gir overskudd: prislinja ligger da under hele GK-kurven, og profittrektangelet er negativt uansett bredde.\n\nTo varianter, avhengig av hvilke kostnader som kan unngås. Er alle faste kostnader gjenvinnbare, er terskelprisen $\\min\\, c(y)/y$ og faller sammen med nedleggingsprisen. Er noen sunkne, ligger nedleggingsprisen lavere enn terskelprisen — bedriften kan da tape penger og likevel gjøre rett i å drive videre."
+    },
+    {
+      "id": "econ2220-5-3-bank-profittrektangel",
+      "type": "definition",
+      "title": "Profitt som rektangelareal",
+      "content": "**I MK/GK-diagrammet er profitten rektangelet med høyde $p - \\text{GK}(y)$ og bredde $y$.**\n\nOmskrivingen $\\pi = py - c(y) = (p - \\text{GK}(y))\\,y$ er hele forklaringen: differansen per enhet, ganget med antall enheter.\n\nLigger prislinja over gjennomsnittskostnaden i produksjonspunktet, er rektangelet positivt (overskudd); ligger den under, er det negativt (tap). Ligger prislinja under hele GK-kurven, finnes det ingen mengde som gir overskudd.\n\nFiguren er *støtte* til utregningen. Sensor krever tallet eller uttrykket i tillegg til arealet."
+    },
+    {
+      "id": "econ2220-5-3-rep",
+      "type": "collapsible",
+      "title": "Repetisjonsoppgaver",
+      "buttonText": "Vis repetisjonsoppgaver",
+      "content": [
+        {
+          "id": "econ2220-5-3-oppg-R1",
+          "type": "exercise",
+          "exercise": {
+            "id": "econ2220-5-3-e-R1",
+            "number": "R1",
+            "type": "classic",
+            "difficulty": "lett",
+            "task": "En bedrift har $c(y) = 5y + 45$. Finn MK og GK, og forklar hvorfor GK faller for alle $y$.",
+            "solution": "$$\\text{MK}(y) = 5, \\qquad \\text{GK}(y) = 5 + \\frac{45}{y}$$\n\nGjennomsnittskostnaden faller for alle $y$ fordi leddet $45/y$ synker når produksjonen øker: de faste kostnadene fordeles på flere enheter. Den nærmer seg 5 nedenfra, men når aldri helt ned.\n\nKontroll mot regelen: her er $\\text{MK} = 5 < \\text{GK}$ for alle $y$, og da skal GK falle — det stemmer. Bunnpunkt finnes ikke, siden MK aldri tar igjen GK.",
+            "hints": [
+              "Deriver for MK og del på $y$ for GK.",
+              "Bruk regelen om at GK faller så lenge MK ligger under GK."
+            ]
+          }
+        },
+        {
+          "id": "econ2220-5-3-oppg-R2",
+          "type": "exercise",
+          "exercise": {
+            "id": "econ2220-5-3-e-R2",
+            "number": "R2",
+            "type": "classic",
+            "difficulty": "middels",
+            "task": "Et verksted har på kort sikt $y = \\sqrt{l}$, timelønn $w = 8$ og faste kostnader 32, som i sin helhet kan unngås ved nedlegging.\n\n**a)** Finn $c_v(y)$, $c(y)$ og GK.\n\n**b)** Finn nedleggingsprisen.",
+            "solution": "**a)** $l = y^{2}$ gir\n\n$$c_v(y) = 8y^{2}, \\qquad c(y) = 8y^{2} + 32, \\qquad \\text{GK}(y) = 8y + \\frac{32}{y}$$\n\n**b)** Siden alle faste kostnader er unngåelige, er hele GK relevant:\n\n$$8 - \\frac{32}{y^{2}} = 0 \\;\\Longrightarrow\\; y^{2} = 4 \\;\\Longrightarrow\\; y = 2, \\qquad \\text{GK}(2) = 16 + 16 = 32$$\n\nNedleggingsprisen er **32**: under den dekker driften ikke engang de kostnadene verkstedet kunne sluppet unna ved å stenge.",
+            "hints": [
+              "Inverter teknologien først: hvor mange timer kreves for mengden $y$?",
+              "Sett den deriverte av GK lik null."
+            ]
+          }
+        },
+        {
+          "id": "econ2220-5-3-oppg-R3",
+          "type": "exercise",
+          "exercise": {
+            "id": "econ2220-5-3-e-R3",
+            "number": "R3",
+            "type": "classic",
+            "difficulty": "middels",
+            "task": "Forklar hvorfor en bedrift kan gå med regnskapsmessig underskudd og likevel gjøre rett i å fortsette driften på kort sikt.",
+            "solution": "Fordi regnskapet inneholder kostnader som påløper uansett. Har bedriften store **sunkne** kostnader — utstyr uten bruktverdi, allerede betalte avgifter — er de like store enten bedriften driver eller stenger.\n\nRiktig sammenlikning er derfor mellom to alternativer:\n\n- **drift:** $py - c_v(y) - F_{\\text{gjenvinnbar}}$ (pluss den sunkne kostnaden, som kommer i tillegg uansett),\n- **stenging:** null inntekt og null unngåelige kostnader (men fortsatt den sunkne kostnaden).\n\nSå lenge $p$ overstiger den laveste gjennomsnittlige unngåelige kostnaden, gir drift et bedre resultat enn stenging — selv om begge tallene er negative. Bedriften bidrar da til å dekke inn noe av det som ellers ville vært et rent tap.\n\nPå lang sikt er bildet et annet: da kan også den låste kapitalen avvikles, og vedvarende underskudd betyr at bedriften bør ut av markedet.",
+            "hints": [
+              "Still opp de to alternativene og se hva som er forskjellig mellom dem.",
+              "Hvilke kostnader står på begge sider av sammenlikningen?"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": "econ2220-5-3-symbolliste",
+      "type": "collapsible",
+      "title": "Symbol- og formelliste",
+      "buttonText": "Vis symboler og formler",
+      "content": [
+        {
+          "id": "econ2220-5-3-symbolliste-text",
+          "type": "text",
+          "content": "## Symbol- og formelliste\n\n*Oppslagsverk — alt her forklares underveis i kapitlet.*\n\n| Symbol | Betydning |\n|---|---|\n| $y$ | Produsert mengde |\n| $c(y)$ | Kostnadsfunksjonen — minste kostnad ved å produsere $y$ |\n| $c'(y)$, MK | Marginalkostnad — kostnaden ved én enhet til, kroner per enhet |\n| $c''(y)$ | Andrederiverte av kostnadsfunksjonen; fortegnet viser kurveformen |\n| GK | Gjennomsnittskostnad, $c(y)/y$ |\n| $c_v(y)$ | Variable kostnader — kostnaden ved den justerbare faktoren |\n| $F$ | Faste kostnader (uten argumenter; $F(K,L)$ med argumenter er produktfunksjonen) |\n| $l$ | Arbeidstimer på kort sikt (den variable faktoren) |\n| $\\bar{K}$ | Den låste kapitalmengden på kort sikt |\n| $k$ | Enhetskostnaden ved konstant skalautbytte, $c(y) = k\\,y$ |\n| $w$ | Lønn per arbeidstime |\n| $r$ | Prisen på én enhet kapital |\n| $p$ | Produktprisen |\n| $\\pi$ | Profitt, $py - c(y)$ |\n\n**Formler i dette delkapitlet:**\n\n$$\\text{MK}(y) = c'(y)$$\nMarginalkostnaden: hva den neste enheten koster. Avgjør hvor mye som bør produseres.\n\n$$\\text{GK}(y) = \\frac{c(y)}{y}$$\nGjennomsnittskostnaden: hva enhetene koster i snitt. Avgjør om produksjonen er lønnsom.\n\n$$\\frac{\\mathrm{d}}{\\mathrm{d}y}\\left(\\frac{c(y)}{y}\\right) = \\frac{\\text{MK} - \\text{GK}}{y}$$\nDerfor faller GK når MK ligger under, stiger når MK ligger over — og har minimum der MK $=$ GK.\n\n$$c(y) = k\\,y \\;\\Rightarrow\\; \\text{MK} = \\text{GK} = k, \\quad c''(y) = 0$$\nKonstant skalautbytte: lineær kostnadsfunksjon, sammenfallende og flate kurver.\n\n$$c''(y) > 0 \\iff \\text{konveks kostnadsfunksjon} \\iff \\text{stigende MK} \\iff \\text{avtakende skalautbytte}$$\nKurveformen skal vises med fortegnet på andrederiverte — godkjent alternativ til $F(tK,tL)$-testen.\n\n$$y = \\sqrt{l} \\;\\Rightarrow\\; l = y^{2} \\;\\Rightarrow\\; c_v(y) = w\\,y^{2}$$\nKort sikt: inverter teknologien, gang med faktorprisen.\n\n$$c(y) = c_v(y) + F, \\qquad c'(y) = c_v'(y)$$\nFaste kostnader påvirker gjennomsnittskostnaden, aldri marginalkostnaden.\n\n$$p < \\min_y \\frac{c_v(y) + F_{\\text{gjenvinnbar}}}{y} \\;\\Rightarrow\\; \\text{legg ned}$$\nNedleggingsbetingelsen: bare unngåelige kostnader teller. Sunk kost holdes utenfor.\n\n$$\\pi = py - c(y) = \\bigl(p - \\text{GK}(y)\\bigr)\\,y$$\nProfitten som rektangel i MK/GK-diagrammet: høyde ganger bredde."
+        }
+      ]
+    }
+  ],
+  "exercises": []
+}
