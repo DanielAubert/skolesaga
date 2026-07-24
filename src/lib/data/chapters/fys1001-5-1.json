@@ -1,0 +1,439 @@
+{
+  "id": "fys1001-5-1",
+  "courseId": "fys1001",
+  "chapterNumber": "5.1",
+  "title": "Elektrostatikk: Coulomb-kraft, felt og kraftbalanse",
+  "description": "Coulombs lov med vektorsuperposisjon og symmetriargument, homogent felt og den klassiske snor-kule-balansen.",
+  "estimatedMinutes": 50,
+  "competenceGoals": [
+    "bruke Coulombs lov på flere ladninger samtidig og begrunne med symmetri hvilke kraftkomponenter som opphever hverandre",
+    "regne med elektrisk feltstyrke, homogent felt mellom kondensatorplater og kraften på en ladning i feltet",
+    "sette opp kraftbalansen for ladde kuler som henger i snorer, og finne ladningen fra vinkelen",
+    "sammenligne elektrisk kraft og gravitasjonskraft mellom elementærpartikler og forklare størrelsesordenen"
+  ],
+  "content": [
+    {
+      "id": "fys1001-5-1-tip-eksamensvinkel",
+      "type": "tip",
+      "title": "Eksamensvinkel",
+      "content": "**Prioritet: kunne (nivå 2).** Elektrostatikk — Coulomb-kraft, kraftbalanse og felt — er belagt i **15 av 36 slutteksamener (42 %)**.\n\nOppgavene tilhører det boka kaller **sjanger K**, som er kortnavnet vårt for oppgavetypen *«Coulomb-kraft og kraftbalanse»*: to eller flere punktladninger, finn kraften på én av dem, eventuelt med en snor eller en fjær som holder igjen. De faste variantene i arkivet er:\n\n- ladninger i hjørnene av en trekant eller et kvadrat, der du skal bruke **symmetri** til å slippe unna med lite regning — men *begrunne* symmetrien;\n- to ladde kuler som henger i hver sin snor og dytter hverandre fra hverandre (kraftbalanse);\n- en sammenligning av elektrisk kraft og tyngdekraft mellom to elementærpartikler (svaret er at den elektriske dominerer med mange tierpotenser);\n- feltlinjene i en platekondensator, som skal kunne tegnes.\n\nLøsningsforslagene i arkivet gir uttelling for **retningsargumentet**, ikke bare for tallet: påstår du «komponentene opphever hverandre» uten å si hvorfor, mister du poeng selv om svaret er riktig.\n\n**Formelarket:** $F = k\\dfrac{q_1q_2}{r^2}$, $E = U/d$ og verdien av $k$ står på arket du får utdelt. Det du må kunne *aktivt*, er å velge riktig formel, dekomponere kreftene og sette opp balansen."
+    },
+    {
+      "id": "fys1001-5-1-forkunnskaper",
+      "type": "text",
+      "content": "## Forkunnskaper\n\nDette kapitlet bygger på:\n\n- [kap. 1.2](/bok/fys1001/fys1001-1-2) — Newtons lover og frilegemediagrammet. Du må kunne tegne alle kreftene på ett legeme og sette summen lik null i likevekt.\n- [kap. 1.5](/bok/fys1001/fys1001-1-5) — statikk og komponentvis likevekt. Snor-kule-oppgaven er ren komponentregning: vannrett for seg, loddrett for seg.\n\nVil du ha mer bakgrunn enn boka gir her, kan du lese [Elektrisk ladning og Coulombs lov](/bok/fysikk2/fysikk2-3-1) og [Elektrisk felt](/bok/fysikk2/fysikk2-3-2) fra Fysikk 2. Det er ikke nødvendig for å komme gjennom kapitlet.\n\nKapitlet tar rundt 50 minutter å lese. Det er delt i fire løkker med naturlige pausepunkter."
+    },
+    {
+      "id": "fys1001-5-1-l1-intro",
+      "type": "text",
+      "content": "### Løkke 1 — Coulombs lov (~12 min)\n\nDu kjenner fenomenet fra hverdagen: du drar av deg en ullgenser i mørket og hører små knepp, eller du tar i et dørhåndtak etter å ha gått over et teppe og får støt. Noe har flyttet på seg — og det som har flyttet på seg, er **elektrisk ladning**.\n\nLadning finnes i to varianter, positiv og negativ, og den er *kvantisert*: all ladning i naturen er et helt antall elementærladninger."
+    },
+    {
+      "id": "fys1001-5-1-def-ladning",
+      "type": "definition",
+      "title": "Elektrisk ladning",
+      "content": "**Elektrisk ladning** $q$ er den egenskapen ved et legeme som gjør at det kjenner og lager elektriske krefter. SI-enheten er **coulomb (C)**.\n\nLadning finnes som positiv (protoner) og negativ (elektroner). Like ladninger frastøter hverandre, ulike tiltrekker hverandre. Ladning er bevart: den kan flyttes, aldri lages eller ødelegges."
+    },
+    {
+      "id": "fys1001-5-1-def-elementarladning",
+      "type": "definition",
+      "title": "Elementærladningen $e$",
+      "content": "**Elementærladningen** er den minste frie ladningsmengden vi møter: $e = 1{,}602\\cdot10^{-19}\\ \\text{C}$ (står på formelarket).\n\nEt proton har ladningen $+e$, et elektron $-e$. En ladning på $2{,}5\\ \\mu\\text{C}$ svarer derfor til et helt antall elementærladninger, $n = q/e$. At tallet blir enormt (her rundt $10^{13}$) er nettopp grunnen til at vi sjelden trenger å tenke på kvantiseringen i praksis."
+    },
+    {
+      "id": "fys1001-5-1-def-coulomb",
+      "type": "definition",
+      "title": "Coulombs lov",
+      "content": "Mellom to **punktladninger** $q_1$ og $q_2$ med avstand $r$ virker kraften\n\n$$F = k\\,\\frac{q_1 q_2}{r^2}$$\n\nder $k = 8{,}99\\cdot10^{9}\\ \\text{N}\\,\\text{m}^2/\\text{C}^2$ er **Coulomb-konstanten** (formelarket). Kraften virker langs linja mellom ladningene: frastøtende for like fortegn, tiltrekkende for ulike.\n\nI praksis setter du inn **tallverdiene** av ladningene og avgjør retningen med fortegnsregelen — det er tryggere enn å la minustegn vandre gjennom regningen."
+    },
+    {
+      "id": "fys1001-5-1-def-k",
+      "type": "definition",
+      "title": "Coulomb-konstanten $k$",
+      "content": "$k = 8{,}99\\cdot10^{9}\\ \\text{N}\\,\\text{m}^2/\\text{C}^2$ er proporsjonalitetskonstanten i Coulombs lov. Den hentes fra formelarket — den skal ikke pugges.\n\nStørrelsen forteller noe fysisk: to ladninger på 1 C i 1 m avstand ville dyttet på hverandre med ni milliarder newton. Derfor regner vi nesten alltid i nanocoulomb ($10^{-9}$ C) og mikrocoulomb ($10^{-6}$ C) i denne sjangeren."
+    },
+    {
+      "id": "fys1001-5-1-ex1",
+      "type": "example",
+      "title": "Eksempel 1: Kraften mellom to punktladninger (sjanger K)",
+      "problem": "En liten kule med ladning $q_1 = 3{,}0\\ \\text{nC}$ ligger $4{,}0\\ \\text{cm}$ fra en kule med ladning $q_2 = -5{,}0\\ \\text{nC}$. Hvor stor er kraften mellom dem, og hvilken vei virker den?",
+      "solution": "**Gjør om til SI-enheter først.** $q_1 = 3{,}0\\cdot10^{-9}\\ \\text{C}$, $q_2 = 5{,}0\\cdot10^{-9}\\ \\text{C}$ (tallverdi), $r = 4{,}0\\cdot10^{-2}\\ \\text{m}$.\n\n**Coulombs lov:**\n\n$$F = k\\,\\frac{q_1q_2}{r^2} = 8{,}99\\cdot10^{9}\\cdot\\frac{3{,}0\\cdot10^{-9}\\cdot5{,}0\\cdot10^{-9}}{(4{,}0\\cdot10^{-2})^2}\\ \\text{N}$$\n\nTeller: $8{,}99\\cdot10^{9}\\cdot1{,}5\\cdot10^{-17} = 1{,}35\\cdot10^{-7}$. Nevner: $1{,}6\\cdot10^{-3}$.\n\n$$F = 8{,}4\\cdot10^{-5}\\ \\text{N} = 84\\ \\mu\\text{N}$$\n\n**Retning:** ladningene har ulike fortegn, så kreftene er **tiltrekkende** — hver kule trekkes mot den andre langs linja mellom dem. De to kreftene er like store og motsatt rettet (Newtons tredje lov).\n\n**Rimelighet:** $10^{-5}$ N er omtrent tyngden av et sandkorn. Det stemmer med at nanocoulomb er svært små ladninger."
+    },
+    {
+      "id": "fys1001-5-1-o1",
+      "type": "exercise",
+      "exercise": {
+        "id": "fys1001-5-1-e1",
+        "number": "1",
+        "type": "classic",
+        "difficulty": "lett",
+        "task": "*(Innstegsoppgave — enhetsregning.)* En liten kule har ladningen $2{,}5\\ \\mu\\text{C}$, og den ligger $12\\ \\text{mm}$ fra en annen kule.\n\n**a)** Skriv ladningen i coulomb og avstanden i meter.\n**b)** Hvor mange elementærladninger svarer $2{,}5\\ \\mu\\text{C}$ til?",
+        "solution": "**a)** $2{,}5\\ \\mu\\text{C} = 2{,}5\\cdot10^{-6}\\ \\text{C}$ og $12\\ \\text{mm} = 1{,}2\\cdot10^{-2}\\ \\text{m}$.\n\n**b)** Antallet er ladningen delt på elementærladningen:\n\n$$n = \\frac{q}{e} = \\frac{2{,}5\\cdot10^{-6}\\ \\text{C}}{1{,}602\\cdot10^{-19}\\ \\text{C}} = 1{,}6\\cdot10^{13}$$\n\nAltså rundt 16 billioner elementærladninger. Tallet er enhetsløst — det er et *antall*.\n\n**Merk:** enhetsomregningen i punkt a) er det stedet flest mister poeng i hele sjangeren. Sett alltid inn i meter og coulomb før du bruker Coulombs lov.",
+        "hints": [
+          "$1\\ \\mu\\text{C} = 10^{-6}\\ \\text{C}$ og $1\\ \\text{mm} = 10^{-3}\\ \\text{m}$.",
+          "Elementærladningen $e = 1{,}602\\cdot10^{-19}$ C står på formelarket.",
+          "Antall = samlet ladning delt på ladningen til én elementærladning."
+        ]
+      }
+    },
+    {
+      "id": "fys1001-5-1-l2-intro",
+      "type": "text",
+      "content": "— naturlig pausepunkt —\n\n### Løkke 2 — Superposisjon og symmetri (~15 min)\n\nNesten ingen eksamensoppgave har bare to ladninger. Den har tre eller fire, og spør om kraften på én av dem. Da trenger du én ekstra regel."
+    },
+    {
+      "id": "fys1001-5-1-def-superposisjon",
+      "type": "definition",
+      "title": "Superposisjonsprinsippet for elektriske krefter",
+      "content": "Kraften på en ladning fra flere andre ladninger er **vektorsummen** av kreftene fra hver enkelt, regnet som om de andre ikke fantes:\n\n$$\\vec{F} = \\vec{F}_1 + \\vec{F}_2 + \\vec{F}_3 + \\ldots$$\n\nDette er en vektorsum, ikke en tallsum. Ligger alle ladningene på samme rette linje, holder det å regne med fortegn langs linja. Ellers må du dekomponere hver kraft i $x$- og $y$-retning, summere komponentvis og til slutt sette sammen igjen med Pytagoras."
+    },
+    {
+      "id": "fys1001-5-1-ex2",
+      "type": "example",
+      "title": "Eksempel 2: Tre ladninger på samme linje (sjanger K)",
+      "problem": "Ladningen $q_A = +4{,}0\\ \\text{nC}$ ligger i $x = 0$ og $q_B = +2{,}0\\ \\text{nC}$ i $x = 6{,}0\\ \\text{cm}$. Finn kraften på en ladning $q_C = +1{,}0\\ \\text{nC}$ som plasseres i $x = 2{,}0\\ \\text{cm}$.",
+      "solution": "**Retninger først.** Alle tre ladningene er positive. $A$ dytter $C$ mot høyre (positiv $x$-retning), $B$ dytter $C$ mot venstre. Kreftene virker altså mot hverandre, og vi kan regne med fortegn langs $x$-aksen.\n\n**Kraften fra $A$** ($r = 2{,}0\\cdot10^{-2}$ m):\n\n$$F_A = 8{,}99\\cdot10^{9}\\cdot\\frac{4{,}0\\cdot10^{-9}\\cdot1{,}0\\cdot10^{-9}}{(2{,}0\\cdot10^{-2})^2}\\ \\text{N} = 9{,}0\\cdot10^{-5}\\ \\text{N}$$\n\n**Kraften fra $B$** ($r = 4{,}0\\cdot10^{-2}$ m):\n\n$$F_B = 8{,}99\\cdot10^{9}\\cdot\\frac{2{,}0\\cdot10^{-9}\\cdot1{,}0\\cdot10^{-9}}{(4{,}0\\cdot10^{-2})^2}\\ \\text{N} = 1{,}1\\cdot10^{-5}\\ \\text{N}$$\n\n**Summer med fortegn:**\n\n$$F = F_A - F_B = 9{,}0\\cdot10^{-5}\\ \\text{N} - 1{,}1\\cdot10^{-5}\\ \\text{N} = 7{,}9\\cdot10^{-5}\\ \\text{N}$$\n\n**Konklusjon:** kraften på $C$ er $7{,}9\\cdot10^{-5}\\ \\text{N}$ rettet mot høyre, altså bort fra $A$.\n\n**Rimelighet:** $C$ ligger nærmest $A$, og $A$ har dessuten dobbelt så stor ladning — at $A$ vinner klart, er som forventet."
+    },
+    {
+      "id": "fys1001-5-1-o2",
+      "type": "exercise",
+      "exercise": {
+        "id": "fys1001-5-1-e2",
+        "number": "2",
+        "type": "classic",
+        "difficulty": "lett",
+        "task": "*(Sjanger K — Coulomb-kraft og kraftbalanse.)* En ladning $q_A = +6{,}0\\ \\text{nC}$ ligger i $x = 0$ og en ladning $q_B = -3{,}0\\ \\text{nC}$ i $x = 10{,}0\\ \\text{cm}$. En liten ladning $q_C = +2{,}0\\ \\text{nC}$ plasseres i $x = 4{,}0\\ \\text{cm}$.\n\nFinn størrelsen og retningen på den samlede kraften på $q_C$.",
+        "solution": "**Retninger.** $A$ er positiv og frastøter $C$: kraften peker mot høyre. $B$ er negativ og tiltrekker $C$: kraften peker også mot høyre (mot $B$). Begge kreftene peker altså samme vei, og vi skal **legge dem sammen**.\n\n**Fra $A$** ($r = 4{,}0\\cdot10^{-2}$ m):\n\n$$F_A = 8{,}99\\cdot10^{9}\\cdot\\frac{6{,}0\\cdot10^{-9}\\cdot2{,}0\\cdot10^{-9}}{(4{,}0\\cdot10^{-2})^2}\\ \\text{N} = 6{,}74\\cdot10^{-5}\\ \\text{N}$$\n\n**Fra $B$** ($r = 6{,}0\\cdot10^{-2}$ m):\n\n$$F_B = 8{,}99\\cdot10^{9}\\cdot\\frac{3{,}0\\cdot10^{-9}\\cdot2{,}0\\cdot10^{-9}}{(6{,}0\\cdot10^{-2})^2}\\ \\text{N} = 1{,}50\\cdot10^{-5}\\ \\text{N}$$\n\n**Sum:** $F = 6{,}74\\cdot10^{-5}\\ \\text{N} + 1{,}50\\cdot10^{-5}\\ \\text{N} = 8{,}2\\cdot10^{-5}\\ \\text{N}$, rettet i positiv $x$-retning (mot $B$).\n\n**Konklusjon:** kraften er $8{,}2\\cdot10^{-5}\\ \\text{N}$ mot høyre.",
+        "hints": [
+          "Tegn de to kraftpilene på $q_C$ før du regner — fortegnene avgjør om du skal summere eller trekke fra.",
+          "Bruk $F = kq_1q_2/r^2$ med tallverdiene av ladningene, én kraft om gangen.",
+          "Avstanden fra $A$ er 4,0 cm, fra $B$ er den 6,0 cm — ikke 10,0 cm."
+        ]
+      }
+    },
+    {
+      "id": "fys1001-5-1-l2-symmetri",
+      "type": "text",
+      "content": "**Symmetriargumentet.** Når ladningene er plassert symmetrisk, kan du spare mye regning ved å se at noen komponenter opphever hverandre. Men løsningsforslagene i arkivet krever at du *skriver argumentet*, ikke bare påstår resultatet. Et fullgodt argument har tre ledd:\n\n1. de to kreftene er **like store** (samme ladninger, samme avstand),\n2. de danner **like store vinkler** med symmetriaksen, på hver sin side,\n3. derfor er komponentene på tvers av aksen like store og motsatt rettet, og summen langs aksen blir $2F\\cos\\theta$."
+    },
+    {
+      "id": "fys1001-5-1-fig-superposisjon",
+      "type": "image",
+      "src": "/images/textbook/fys1001/fys1001-5-1-superposisjon.svg",
+      "alt": "Likesidet trekant med tre positive ladninger i hjørnene. Fra toppladningen går to blå kraftpiler skrått oppover, én til hver side, og en rød resultantpil rett opp langs den stiplede symmetriaksen.",
+      "caption": "Kreftene på toppladningen fra de to nederste. De vannrette komponentene opphever hverandre; resultanten peker langs symmetriaksen og har størrelsen $2F\\cos 30^\\circ$."
+    },
+    {
+      "id": "fys1001-5-1-ex3",
+      "type": "example",
+      "title": "Eksempel 3: Likesidet trekant med symmetriargument (sjanger K)",
+      "problem": "Tre like positive ladninger $Q = 2{,}0\\ \\text{nC}$ sitter i hjørnene av en likesidet trekant med side $a = 5{,}0\\ \\text{cm}$. Finn retningen og størrelsen på kraften på ladningen i toppunktet.",
+      "solution": "**Kraften fra hver av de to andre.** Avstanden er $a = 5{,}0\\cdot10^{-2}$ m i begge tilfeller:\n\n$$F = k\\frac{Q^2}{a^2} = 8{,}99\\cdot10^{9}\\cdot\\frac{(2{,}0\\cdot10^{-9})^2}{(5{,}0\\cdot10^{-2})^2}\\ \\text{N} = 1{,}44\\cdot10^{-5}\\ \\text{N}$$\n\n**Retningsargumentet (det som gir uttelling).** Begge kreftene er frastøtende, altså rettet fra den nederste ladningen og ut gjennom toppunktet. De to kreftene er *like store*, fordi ladningene og avstandene er like. Symmetriaksen er den loddrette linja gjennom toppunktet og midt på grunnlinja. De to kraftvektorene danner samme vinkel med denne aksen, men ligger på hver sin side. Derfor er de vannrette komponentene like store og motsatt rettet, og de **opphever hverandre**. Bare de loddrette komponentene blir igjen.\n\n**Vinkelen.** I en likesidet trekant er hver vinkel $60^\\circ$, og symmetriaksen halverer toppvinkelen. Hver kraft danner altså $30^\\circ$ med aksen:\n\n$$F_{\\text{res}} = 2F\\cos 30^\\circ = 2\\cdot1{,}44\\cdot10^{-5}\\cdot0{,}866\\ \\text{N} = 2{,}5\\cdot10^{-5}\\ \\text{N}$$\n\n**Konklusjon:** kraften på toppladningen er $2{,}5\\cdot10^{-5}\\ \\text{N}$, rettet rett opp langs symmetriaksen, bort fra trekanten. Se figuren over.\n\n**Rimelighet:** resultanten er større enn én enkeltkraft, men mindre enn summen $2F = 2{,}9\\cdot10^{-5}$ N — det stemmer, siden kreftene ikke peker helt samme vei."
+    },
+    {
+      "id": "fys1001-5-1-o3",
+      "type": "exercise",
+      "exercise": {
+        "id": "fys1001-5-1-e3",
+        "number": "3",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "*(Sjanger K — symmetri i et kvadrat.)* Tre like ladninger $Q = 2{,}0\\ \\text{nC}$ sitter i tre av hjørnene i et kvadrat med side $6{,}0\\ \\text{cm}$. En fjerde, like stor ladning $Q$ plasseres i det ledige hjørnet.\n\n**a)** Tegn kraftpilene på den fjerde ladningen og forklar hvilken vei resultanten må peke.\n**b)** Regn ut resultantens størrelse.",
+        "solution": "**a)** Kall det ledige hjørnet $D$ og de tre andre $A$, $B$ og $C$, slik at $A$ og $C$ er nabohjørnene til $D$ og $B$ er det motsatte hjørnet. Alle ladningene er positive, så alle tre kreftene på $D$ peker **bort fra** de andre ladningene: kraften fra $A$ langs den ene siden, kraften fra $C$ langs den andre siden, og kraften fra $B$ langs diagonalen.\n\nKraften fra $A$ og kraften fra $C$ er like store (lik ladning, lik avstand) og står vinkelrett på hverandre. Diagonalen $BD$ halverer akkurat den rette vinkelen mellom dem, og kraften fra $B$ ligger langs denne diagonalen. Alt er altså symmetrisk om diagonalen — **resultanten må peke langs diagonalen, utover fra kvadratet**.\n\n*Figur:* et kvadrat med fire pluss-ladninger, to korte piler langs sidene ut fra $D$ og én lengre pil langs diagonalen; resultanten tegnes langs diagonalen.\n\n**b)** Sidekraftene ($r = 6{,}0\\cdot10^{-2}$ m):\n\n$$F_{\\text{side}} = 8{,}99\\cdot10^{9}\\cdot\\frac{(2{,}0\\cdot10^{-9})^2}{(6{,}0\\cdot10^{-2})^2}\\ \\text{N} = 9{,}99\\cdot10^{-6}\\ \\text{N}$$\n\nDiagonalen er $r_d = \\sqrt{2}\\cdot6{,}0\\ \\text{cm} = 8{,}49\\cdot10^{-2}$ m, altså $r_d^2 = 2\\cdot(6{,}0\\cdot10^{-2})^2$:\n\n$$F_{\\text{diag}} = \\frac{F_{\\text{side}}}{2} = 5{,}00\\cdot10^{-6}\\ \\text{N}$$\n\nLangs diagonalen bidrar hver sidekraft med $F_{\\text{side}}\\cos 45^\\circ$, og diagonalkraften med hele seg:\n\n$$F_{\\text{res}} = 2F_{\\text{side}}\\cos45^\\circ + F_{\\text{diag}} = 2\\cdot9{,}99\\cdot10^{-6}\\cdot0{,}7071\\ \\text{N} + 5{,}00\\cdot10^{-6}\\ \\text{N}$$\n$$F_{\\text{res}} = 1{,}41\\cdot10^{-5}\\ \\text{N} + 0{,}50\\cdot10^{-5}\\ \\text{N} = 1{,}9\\cdot10^{-5}\\ \\text{N}$$\n\n**Konklusjon:** resultanten er $1{,}9\\cdot10^{-5}\\ \\text{N}$ rettet utover langs diagonalen, bort fra kvadratet.",
+        "hints": [
+          "Tegn kvadratet og alle tre kraftpilene før du regner noe som helst.",
+          "De to sidekreftene er like store; diagonalavstanden er $\\sqrt2$ ganger sida, så kvadratet av den blir dobbelt så stort.",
+          "Legg alle tre kreftene på diagonalretningen: sidekreftene bidrar med en faktor $\\cos45^\\circ$ hver."
+        ]
+      }
+    },
+    {
+      "id": "fys1001-5-1-l3-intro",
+      "type": "text",
+      "content": "— naturlig pausepunkt —\n\n### Løkke 3 — Elektrisk felt og platekondensatoren (~13 min)\n\nI stedet for å snakke om kraften mellom to bestemte ladninger, er det ofte lettere å si at én ladning setter opp et **felt** i rommet rundt seg — og at feltet så virker på hva du enn måtte plassere der."
+    },
+    {
+      "id": "fys1001-5-1-def-feltstyrke",
+      "type": "definition",
+      "title": "Elektrisk feltstyrke $E$",
+      "content": "**Elektrisk feltstyrke** i et punkt er kraften per ladningsenhet på en liten prøveladning som plasseres der:\n\n$$E = \\frac{F}{q} \\quad\\Longleftrightarrow\\quad F = qE$$\n\nSI-enheten er **newton per coulomb (N/C)**, som er det samme som **volt per meter (V/m)**. $E$ er en vektor og peker samme vei som kraften på en *positiv* ladning.\n\n**Advarsel om symbolet:** i dette delkapitlet betyr $E$ **elektrisk feltstyrke**. I energikapitlene i Del 2 betyr $E$ energi. Se symbollisten nederst."
+    },
+    {
+      "id": "fys1001-5-1-def-feltlinjer",
+      "type": "definition",
+      "title": "Feltlinjer",
+      "content": "**Feltlinjer** er hjelpelinjer som viser feltretningen: de starter på positiv ladning og ender på negativ ladning, og tangenten til linja gir $\\vec{E}$-retningen i punktet.\n\nTett mellom linjene betyr sterkt felt. To feltlinjer krysser aldri hverandre — feltet har bare én retning i hvert punkt."
+    },
+    {
+      "id": "fys1001-5-1-def-homogent",
+      "type": "definition",
+      "title": "Homogent felt i en platekondensator",
+      "content": "En **kondensator** er to ledende plater med lik og motsatt ladning, skilt av en avstand $d$. Legger du spenningen $U$ over platene, blir feltet mellom dem tilnærmet **homogent** — like sterkt og med samme retning overalt:\n\n$$E = \\frac{U}{d}$$\n\nFeltet peker fra den positive mot den negative platen. Formelen gjelder godt inne mellom platene og dårlig ved kantene, der linjene buer ut."
+    },
+    {
+      "id": "fys1001-5-1-fig-kondensator",
+      "type": "image",
+      "src": "/images/textbook/fys1001/fys1001-5-1-kondensator.svg",
+      "alt": "To vannrette plater, den øverste rød og merket pluss, den nederste blå og merket minus. Seks parallelle, like lange piler peker rett ned fra øvre til nedre plate. Avstanden mellom platene er merket d.",
+      "caption": "Feltlinjene i en platekondensator: parallelle, like tette og rettet fra pluss til minus. Feltstyrken er $E = U/d$."
+    },
+    {
+      "id": "fys1001-5-1-ex4",
+      "type": "example",
+      "title": "Eksempel 4: Felt og kraft mellom plater (sjanger K)",
+      "problem": "To parallelle plater står $2{,}5\\ \\text{cm}$ fra hverandre, og spenningen mellom dem er $300\\ \\text{V}$.\n\n**a)** Finn feltstyrken mellom platene.\n**b)** Hvor stor kraft virker på en ladning $q = 4{,}0\\ \\text{nC}$ som slippes inn i feltet?",
+      "solution": "**a)** Feltet er homogent:\n\n$$E = \\frac{U}{d} = \\frac{300\\ \\text{V}}{2{,}5\\cdot10^{-2}\\ \\text{m}} = 1{,}2\\cdot10^{4}\\ \\text{V/m}$$\n\n**b)** Kraften på en ladning i feltet:\n\n$$F = qE = 4{,}0\\cdot10^{-9}\\ \\text{C}\\cdot1{,}2\\cdot10^{4}\\ \\text{V/m} = 4{,}8\\cdot10^{-5}\\ \\text{N}$$\n\nLadningen er positiv, så kraften peker samme vei som feltet — fra den positive mot den negative platen.\n\n**Rimelighetssjekk på enhetene:** $\\text{C}\\cdot\\text{V/m} = \\text{C}\\cdot\\text{J}/(\\text{C}\\cdot\\text{m}) = \\text{J/m} = \\text{N}$ ✓."
+    },
+    {
+      "id": "fys1001-5-1-o4",
+      "type": "exercise",
+      "exercise": {
+        "id": "fys1001-5-1-e4",
+        "number": "4",
+        "type": "classic",
+        "difficulty": "lett",
+        "task": "*(Sjanger K.)* Avstanden mellom platene i en kondensator er $8{,}0\\ \\text{mm}$, og spenningen over den er $120\\ \\text{V}$.\n\n**a)** Finn feltstyrken mellom platene.\n**b)** Hvor stor kraft virker på ett elektron i dette feltet, og hvilken vei peker kraften?",
+        "solution": "**a)** $E = \\dfrac{U}{d} = \\dfrac{120\\ \\text{V}}{8{,}0\\cdot10^{-3}\\ \\text{m}} = 1{,}5\\cdot10^{4}\\ \\text{V/m}$.\n\n**b)** Kraften på elektronet har størrelsen\n\n$$F = eE = 1{,}602\\cdot10^{-19}\\ \\text{C}\\cdot1{,}5\\cdot10^{4}\\ \\text{V/m} = 2{,}4\\cdot10^{-15}\\ \\text{N}$$\n\nElektronet er **negativt**, så kraften peker **motsatt** vei av feltet — altså fra den negative mot den positive platen. Et elektron i en kondensator akselereres mot plussplaten.\n\n**Rimelighet:** $10^{-15}$ N ser forsvinnende lite ut, men elektronet er også ekstremt lett; kraften gir det en enorm akselerasjon.",
+        "hints": [
+          "Feltet mellom parallelle plater er homogent: $E = U/d$ med $d$ i meter.",
+          "Kraften på en ladning i et felt er $F = qE$; sett inn tallverdien av elektronladningen.",
+          "Tenk over fortegnet til slutt: peker kraften på en negativ ladning med eller mot feltet?"
+        ]
+      }
+    },
+    {
+      "id": "fys1001-5-1-l3-arbeid",
+      "type": "text",
+      "content": "**Arbeid og fart.** Flytter du en ladning $q$ gjennom en spenning $U$, gjør det elektriske feltet arbeidet\n\n$$W = qU$$\n\npå ladningen. Starter ladningen i ro og ingen andre krefter er verdt å nevne, går hele dette arbeidet over til kinetisk energi:\n\n$$qU = \\tfrac{1}{2}mv^2 \\quad\\Longrightarrow\\quad v = \\sqrt{\\frac{2qU}{m}}$$\n\nDette er akkurat energibevaringen du kjenner fra mekanikken, bare med elektrisk arbeid i stedet for arbeid fra tyngden. Den kommer tilbake i [kap. 5.4](/bok/fys1001/fys1001-5-4)."
+    },
+    {
+      "id": "fys1001-5-1-def-arbeid",
+      "type": "definition",
+      "title": "Arbeid ved akselerasjon over en spenning",
+      "content": "Når en ladning $q$ akselereres fra ro gjennom spenningen $U$, er\n\n$$W = qU = \\tfrac{1}{2}mv^2 \\quad\\Longrightarrow\\quad v = \\sqrt{\\frac{2qU}{m}}$$\n\n$W$ måles i joule (J), $U$ i volt (V), $q$ i coulomb (C), $m$ i kilogram (kg) og $v$ i m/s. Uttrykket for $v$ må du kunne sette opp aktivt; massene til elektron og proton står i tabellen."
+    },
+    {
+      "id": "fys1001-5-1-ex5",
+      "type": "example",
+      "title": "Eksempel 5: Proton akselerert over en spenning (sjanger K)",
+      "problem": "Et proton starter i ro og akselereres gjennom en spenning på $500\\ \\text{V}$. Hvor stor fart har det etterpå? Protonets masse er $1{,}673\\cdot10^{-27}\\ \\text{kg}$ (tabell).",
+      "solution": "**Energiregnskapet.** Det elektriske arbeidet blir kinetisk energi:\n\n$$qU = \\tfrac12 mv^2 \\quad\\Longrightarrow\\quad v = \\sqrt{\\frac{2qU}{m}}$$\n\n**Sett inn.** Protonets ladning er $q = e = 1{,}602\\cdot10^{-19}$ C:\n\n$$v = \\sqrt{\\frac{2\\cdot1{,}602\\cdot10^{-19}\\cdot500}{1{,}673\\cdot10^{-27}}}\\ \\text{m/s} = \\sqrt{9{,}58\\cdot10^{10}}\\ \\text{m/s}$$\n\n$$v = 3{,}1\\cdot10^{5}\\ \\text{m/s}$$\n\n**Konklusjon:** protonet får farten $3{,}1\\cdot10^{5}\\ \\text{m/s}$, altså rundt 310 km/s.\n\n**Rimelighet:** det er omtrent en tusendel av lysfarten — raskt, men langt fra så raskt at vi må bekymre oss for at formelen bryter sammen."
+    },
+    {
+      "id": "fys1001-5-1-o5",
+      "type": "exercise",
+      "exercise": {
+        "id": "fys1001-5-1-e5",
+        "number": "5",
+        "type": "classic",
+        "difficulty": "lett",
+        "task": "*(Sjanger K.)* Et elektron starter i ro og akselereres gjennom en spenning på $250\\ \\text{V}$. Elektronets masse er $9{,}109\\cdot10^{-31}\\ \\text{kg}$ (tabell).\n\nFinn farten elektronet har etter akselerasjonen.",
+        "solution": "Det elektriske arbeidet går over til kinetisk energi:\n\n$$eU = \\tfrac12 m v^2 \\quad\\Longrightarrow\\quad v = \\sqrt{\\frac{2eU}{m}}$$\n\n$$v = \\sqrt{\\frac{2\\cdot1{,}602\\cdot10^{-19}\\cdot250}{9{,}109\\cdot10^{-31}}}\\ \\text{m/s} = \\sqrt{8{,}79\\cdot10^{13}}\\ \\text{m/s} = 9{,}4\\cdot10^{6}\\ \\text{m/s}$$\n\n**Konklusjon:** elektronet får farten $9{,}4\\cdot10^{6}\\ \\text{m/s}$.\n\n**Sammenlign med Eksempel 5:** elektronet er nesten 2000 ganger lettere enn protonet, og det får derfor mye høyere fart selv med *lavere* spenning. Farten går som $1/\\sqrt{m}$.",
+        "hints": [
+          "Sett det elektriske arbeidet $W = qU$ lik den kinetiske energien.",
+          "Løs $qU = \\tfrac12 mv^2$ for $v$ før du setter inn tall.",
+          "Bruk tallverdien av elektronladningen; fortegnet betyr bare at kraften peker mot feltet."
+        ]
+      }
+    },
+    {
+      "id": "fys1001-5-1-l4-intro",
+      "type": "text",
+      "content": "— naturlig pausepunkt —\n\n### Løkke 4 — Kraftbalanse og størrelsesorden (~10 min)\n\nNå kobler vi elektrostatikken til mekanikken fra [kap. 1.2](/bok/fys1001/fys1001-1-2). Klassikeren i arkivet er to like ladde kuler som henger i hver sin snor fra samme punkt og skyver hverandre fra hverandre."
+    },
+    {
+      "id": "fys1001-5-1-def-snorkule",
+      "type": "definition",
+      "title": "Snor-kule-balansen",
+      "content": "To like ladde kuler henger i snorer og står i ro. Da er summen av kreftene på hver kule null. Kreftene er snordraget $S$ langs snora, tyngden $G = mg$ rett ned og den elektriske frastøtningen $F_e$ vannrett.\n\nKomponentvis, med $\\theta$ som vinkelen mellom snora og loddlinja:\n\n$$\\text{loddrett:}\\quad S\\cos\\theta = G \\qquad \\text{vannrett:}\\quad S\\sin\\theta = F_e$$\n\nDeler du den vannrette på den loddrette, forsvinner snordraget:\n\n$$\\tan\\theta = \\frac{F_e}{G}$$\n\nEr snorlengden $L$, er avstanden mellom kulene $r = 2L\\sin\\theta$."
+    },
+    {
+      "id": "fys1001-5-1-ex6",
+      "type": "example",
+      "title": "Eksempel 6: To ladde kuler i snorer (sjanger K)",
+      "problem": "To like små kuler med masse $0{,}50\\ \\text{g}$ henger i hver sin $25\\ \\text{cm}$ lange snor fra samme punkt. Kulene har samme ladning $q$ og henger i ro med snorene $8{,}0^\\circ$ fra loddlinja. Finn $q$. Bruk $g = 9{,}81\\ \\text{m/s}^2$.",
+      "solution": "**Frilegemediagram.** På hver kule virker tre krefter: snordraget $S$ langs snora, tyngden $G = mg$ rett ned og den elektriske frastøtningen $F_e$ vannrett utover. Kula er i ro, så summen er null.\n\n*Figur i ord (tegn den på eksamen):* en kule i enden av en skrå snor, med $S$ oppover langs snora, $G$ rett ned og $F_e$ vannrett utover.\n\n**Balansen.** Loddrett: $S\\cos\\theta = mg$. Vannrett: $S\\sin\\theta = F_e$. Divisjon gir\n\n$$\\tan\\theta = \\frac{F_e}{mg} \\quad\\Longrightarrow\\quad F_e = mg\\tan\\theta$$\n\n$$F_e = 0{,}50\\cdot10^{-3}\\ \\text{kg}\\cdot9{,}81\\ \\text{m/s}^2\\cdot\\tan 8{,}0^\\circ = 6{,}89\\cdot10^{-4}\\ \\text{N}$$\n\n**Avstanden mellom kulene.** Begge snorene henger fra samme punkt, så\n\n$$r = 2L\\sin\\theta = 2\\cdot0{,}25\\ \\text{m}\\cdot\\sin8{,}0^\\circ = 6{,}96\\cdot10^{-2}\\ \\text{m}$$\n\n**Coulombs lov løst for $q$** (like ladninger, så $q_1q_2 = q^2$):\n\n$$F_e = k\\frac{q^2}{r^2} \\quad\\Longrightarrow\\quad q = r\\sqrt{\\frac{F_e}{k}} = 6{,}96\\cdot10^{-2}\\sqrt{\\frac{6{,}89\\cdot10^{-4}}{8{,}99\\cdot10^{9}}}\\ \\text{C}$$\n\n$$q = 1{,}9\\cdot10^{-8}\\ \\text{C} = 19\\ \\text{nC}$$\n\n**Konklusjon:** hver kule har ladningen $1{,}9\\cdot10^{-8}\\ \\text{C}$.\n\n**Rimelighet:** noen titalls nanocoulomb er en typisk statisk ladning på en liten gjenstand — svaret er i riktig størrelsesorden."
+    },
+    {
+      "id": "fys1001-5-1-o6",
+      "type": "exercise",
+      "exercise": {
+        "id": "fys1001-5-1-e6",
+        "number": "6",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "*(Sjanger K — kraftbalanse.)* To like små kuler med masse $1{,}2\\ \\text{g}$ henger fra samme punkt i hver sin snor på $40\\ \\text{cm}$. De har samme ladning og henger i ro med snorene $6{,}0^\\circ$ fra loddlinja. Bruk $g = 9{,}81\\ \\text{m/s}^2$.\n\n**a)** Finn den elektriske kraften mellom kulene.\n**b)** Finn ladningen på hver kule.",
+        "solution": "**a)** Kula er i likevekt under snordraget $S$, tyngden $G = mg$ og den elektriske kraften $F_e$. Deler vi den vannrette likevektsligningen på den loddrette, faller $S$ ut:\n\n$$\\tan\\theta = \\frac{F_e}{mg} \\quad\\Longrightarrow\\quad F_e = mg\\tan\\theta$$\n\n$$F_e = 1{,}2\\cdot10^{-3}\\ \\text{kg}\\cdot9{,}81\\ \\text{m/s}^2\\cdot\\tan6{,}0^\\circ = 1{,}24\\cdot10^{-3}\\ \\text{N}$$\n\n**b)** Avstanden mellom kulene:\n\n$$r = 2L\\sin\\theta = 2\\cdot0{,}40\\ \\text{m}\\cdot\\sin6{,}0^\\circ = 8{,}36\\cdot10^{-2}\\ \\text{m}$$\n\nCoulombs lov med like ladninger:\n\n$$q = r\\sqrt{\\frac{F_e}{k}} = 8{,}36\\cdot10^{-2}\\sqrt{\\frac{1{,}24\\cdot10^{-3}}{8{,}99\\cdot10^{9}}}\\ \\text{C} = 3{,}1\\cdot10^{-8}\\ \\text{C}$$\n\n**Konklusjon:** kraften er $1{,}2\\cdot10^{-3}\\ \\text{N}$ og ladningen på hver kule er $3{,}1\\cdot10^{-8}\\ \\text{C} = 31\\ \\text{nC}$.",
+        "hints": [
+          "Tegn frilegemediagram med de tre kreftene: snordrag, tyngde og elektrisk frastøtning.",
+          "Del den vannrette likevektsligningen på den loddrette — snordraget faller ut og du sitter igjen med $\\tan\\theta$.",
+          "Avstanden mellom kulene er ikke snorlengden: begge snorene henger ut $L\\sin\\theta$ til hver sin side."
+        ]
+      }
+    },
+    {
+      "id": "fys1001-5-1-ex7",
+      "type": "example",
+      "title": "Eksempel 7: Elektrisk kraft mot gravitasjon (sjanger K + Q)",
+      "problem": "To protoner ligger en avstand $r$ fra hverandre. Vis at forholdet mellom den elektriske frastøtningen og gravitasjonstiltrekningen mellom dem er uavhengig av $r$, og regn ut tallet. Bruk $\\gamma = 6{,}674\\cdot10^{-11}\\ \\text{N}\\,\\text{m}^2/\\text{kg}^2$ og $m_p = 1{,}673\\cdot10^{-27}\\ \\text{kg}$.",
+      "solution": "**Sett opp de to kreftene.** Coulomb-kraften og gravitasjonskraften ($\\gamma$ er gravitasjonskonstanten):\n\n$$F_e = k\\frac{e^2}{r^2}, \\qquad F_g = \\gamma\\frac{m_p^2}{r^2}$$\n\n**Ta forholdet.** Begge går som $1/r^2$, så $r^2$ forkortes bort:\n\n$$\\frac{F_e}{F_g} = \\frac{k e^2}{\\gamma m_p^2}$$\n\nForholdet er altså det samme uansett hvor langt fra hverandre protonene er — det er nettopp fordi begge lovene er omvendt proporsjonale med kvadratet av avstanden.\n\n**Regn ut.** Teller: $8{,}99\\cdot10^{9}\\cdot(1{,}602\\cdot10^{-19})^2 = 2{,}31\\cdot10^{-28}$. Nevner: $6{,}674\\cdot10^{-11}\\cdot(1{,}673\\cdot10^{-27})^2 = 1{,}87\\cdot10^{-64}$.\n\n$$\\frac{F_e}{F_g} = 1{,}2\\cdot10^{36}$$\n\n**Konklusjon:** den elektriske frastøtningen er omtrent $10^{36}$ ganger sterkere enn gravitasjonen mellom to protoner. Forholdet er dimensjonsløst, som det skal være.\n\n**Hva dette betyr fysisk:** gravitasjon er en håpløst svak kraft på partikkelnivå. Grunnen til at gravitasjonen likevel styrer planeter og stjerner, er at store legemer er tilnærmet *nøytrale* — de elektriske kreftene fra positive og negative ladninger opphever hverandre, mens massene bare summerer seg."
+    },
+    {
+      "id": "fys1001-5-1-o7",
+      "type": "exercise",
+      "exercise": {
+        "id": "fys1001-5-1-e7",
+        "number": "7",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "*(Sjanger Q — kvalitativ forklaring. «Sjanger Q» er bokas navn på de rene «forklar/begrunn»-deloppgavene, som utgjør 25–40 % av eksamen.)*\n\nEn medstudent skriver følgende som hele svaret på trekantoppgaven i Eksempel 3: «Ved symmetri opphever de vannrette kreftene hverandre, så $F = 2F_1\\cos30^\\circ = 2{,}5\\cdot10^{-5}$ N.»\n\nSvaret har riktig tall. Forklar i 2–4 setninger hva som likevel mangler, og skriv setningen som må til.",
+        "solution": "Det som mangler, er **begrunnelsen** for symmetrien. Å skrive «ved symmetri» er en påstand, ikke et argument, og løsningsforslagene i arkivet gir uttelling for argumentet, ikke bare for tallet.\n\nSetningen som må til: *«De to kreftene er like store fordi ladningene og avstandene er like, og de danner samme vinkel med symmetriaksen på hver sin side. Derfor er de vannrette komponentene like store og motsatt rettet, og de opphever hverandre.»*\n\n**Konklusjon:** riktig tall uten retningsargument er et halvt svar i denne sjangeren. Skriv alltid ut hvilke to størrelser som er like, og hvorfor.",
+        "hints": [
+          "Tenk på hva en leser som ikke ser figuren din, trenger for å tro på påstanden.",
+          "Et symmetriargument har to premisser: like store krefter og like store vinkler mot aksen.",
+          "Svar i 2–4 setninger: navngi mekanismen, koble den til situasjonen, konkluder."
+        ]
+      }
+    },
+    {
+      "id": "fys1001-5-1-o8",
+      "type": "exercise",
+      "exercise": {
+        "id": "fys1001-5-1-e8",
+        "number": "8",
+        "type": "classic",
+        "difficulty": "vanskelig",
+        "task": "*(Sjanger K — krevende.)* En ladning $q_1 = +Q$ ligger i $x = 0$ og en ladning $q_2 = -4Q$ i $x = 30\\ \\text{cm}$ på $x$-aksen.\n\nFinn punktet på $x$-aksen der den samlede elektriske feltstyrken er null, og begrunn hvorfor punktet må ligge der det ligger — ikke mellom ladningene.",
+        "solution": "**Hvor kan punktet ligge?** Mellom ladningene peker feltet fra $+Q$ i positiv $x$-retning og feltet mot $-4Q$ også i positiv $x$-retning. To felt som peker samme vei kan aldri summere seg til null, så punktet ligger **ikke** mellom ladningene.\n\nTil høyre for $-4Q$ er vi nærmest den *største* ladningen, så dens felt dominerer der. Punktet må derfor ligge til **venstre for $+Q$**, altså ved $x < 0$: der er vi nærmest den minste ladningen, og de to feltene peker motsatt vei (feltet fra $+Q$ mot venstre, feltet mot $-4Q$ mot høyre).\n\n**Regningen.** Sett $x < 0$. Avstanden til $+Q$ er $|x|$, avstanden til $-4Q$ er $|x| + 0{,}30\\ \\text{m}$. Feltstyrkene skal være like store:\n\n$$k\\frac{Q}{x^2} = k\\frac{4Q}{(|x|+0{,}30)^2}$$\n\n$Q$ og $k$ forkortes. Ta kvadratrota på begge sider (begge sider er positive):\n\n$$\\frac{1}{|x|} = \\frac{2}{|x|+0{,}30} \\quad\\Longrightarrow\\quad |x| + 0{,}30 = 2|x| \\quad\\Longrightarrow\\quad |x| = 0{,}30\\ \\text{m}$$\n\n**Konklusjon:** feltet er null i $x = -30\\ \\text{cm}$, altså $30\\ \\text{cm}$ til venstre for $+Q$.\n\n**Kontroll:** der er avstanden til $+Q$ lik $0{,}30$ m og til $-4Q$ lik $0{,}60$ m. Da er $E_1 = kQ/0{,}09$ og $E_2 = k\\cdot4Q/0{,}36 = kQ/0{,}09$ — like store, og motsatt rettet ✓.",
+        "hints": [
+          "Feltet fra en positiv ladning peker bort fra den; feltet fra en negativ ladning peker mot den.",
+          "Sjekk først i hvilke av de tre områdene ($x<0$, mellom, $x>0$) de to feltene i det hele tatt kan peke motsatt vei.",
+          "Sett feltstyrkene like store og ta kvadratrota på begge sider før du løser for $x$."
+        ]
+      }
+    },
+    {
+      "id": "fys1001-5-1-warn-typiske-feil",
+      "type": "warning",
+      "title": "Typiske feil",
+      "content": "- **Symmetri påstått, ikke begrunnet.** «Ved symmetri opphever komponentene hverandre» uten å si at kreftene er like store og danner like vinkler med aksen. Riktig tall, tapt uttelling — den vanligste feilen i hele sjangeren.\n- **Skalar-summering av krefter.** To krefter på $1{,}0\\cdot10^{-5}$ N som danner $60^\\circ$ med hverandre gir *ikke* $2{,}0\\cdot10^{-5}$ N. Krefter er vektorer: dekomponer, summer komponentvis, sett sammen med Pytagoras.\n- **Glemme kvadratet i $r^2$.** Dobler du avstanden, blir kraften fire ganger mindre, ikke halvparten. Dette er den samme lineær-tenkningen som ødelegger intensitets- og strålingsoppgaver senere i boka.\n- **Blande de to betydningene av $E$.** Her er $E$ elektrisk feltstyrke i V/m; i Del 2 er $E$ energi i joule. Definer symbolet ditt i besvarelsen — også når det føles opplagt.\n- **Enhetsslurv.** Centimeter satt rett inn i $r^2$ gir svar som er $10^4$ ganger for store. Gjør om til meter og coulomb *før* du setter inn.\n- **Bruke $r$ = snorlengde i snor-kule-oppgaven.** Avstanden mellom kulene er $2L\\sin\\theta$, ikke $L$.\n- **Manglende enhet på svaret.** Et tallsvar uten enhet gir trekk. Skriv N, V/m eller C på hvert eneste svar."
+    },
+    {
+      "id": "fys1001-5-1-begrepsbank-intro",
+      "type": "text",
+      "content": "## Begrepsbank\n\n*Flashcard-/repetisjonsstoff — hopp trygt over ved førstegangslesing; tidsanslaget gjelder kjernestoffet.*\n\nBegrepene under er de samme som er brukt over, samlet for repetisjon."
+    },
+    {
+      "id": "fys1001-5-1-bb-punktladning",
+      "type": "definition",
+      "title": "Punktladning",
+      "content": "En **punktladning** er en ladning vi kan regne som samlet i ett punkt, fordi legemet er lite sammenlignet med avstandene i oppgaven.\n\nCoulombs lov gjelder strengt tatt bare for punktladninger. Små, ladde kuler behandles som punktladninger så lenge de ikke er nesten inntil hverandre."
+    },
+    {
+      "id": "fys1001-5-1-bb-kondensator",
+      "type": "definition",
+      "title": "Kondensator",
+      "content": "En **kondensator** er to ledere med lik og motsatt ladning, oftest to parallelle plater med avstand $d$.\n\nMellom platene er feltet homogent med $E = U/d$, rettet fra plussplaten mot minusplaten. Kondensatoren brukes i eksamensoppgavene som en enkel kilde til et kjent, konstant felt — for eksempel til å akselerere ladde partikler."
+    },
+    {
+      "id": "fys1001-5-1-bb-symmetriargument",
+      "type": "definition",
+      "title": "Symmetriargument",
+      "content": "Et **symmetriargument** er en begrunnelse for at bidrag opphever hverandre, bygd på to premisser som må skrives ut: at bidragene er *like store*, og at de danner *like store vinkler* med en symmetriakse, på hver sin side.\n\nKonklusjonen er at komponentene på tvers av aksen forsvinner, mens komponentene langs aksen legger seg sammen."
+    },
+    {
+      "id": "fys1001-5-1-bb-feltstyrke-enhet",
+      "type": "definition",
+      "title": "N/C og V/m",
+      "content": "De to enhetene for elektrisk feltstyrke er identiske:\n\n$$1\\ \\frac{\\text{N}}{\\text{C}} = 1\\ \\frac{\\text{V}}{\\text{m}}$$\n\nDet ser du av at $1\\ \\text{V} = 1\\ \\text{J/C}$ og $1\\ \\text{J} = 1\\ \\text{N}\\,\\text{m}$. Bruk N/C når du tenker kraft, V/m når du tenker spenning over en avstand."
+    },
+    {
+      "id": "fys1001-5-1-bb-elektrisk-vs-gravitasjon",
+      "type": "definition",
+      "title": "Elektrisk kraft mot gravitasjonskraft",
+      "content": "Mellom to protoner er forholdet\n\n$$\\frac{F_e}{F_g} = \\frac{k e^2}{\\gamma m_p^2} \\approx 1\\cdot10^{36}$$\n\nuavhengig av avstanden, siden begge kreftene går som $1/r^2$. Gravitasjonen dominerer likevel i stor skala fordi store legemer er tilnærmet elektrisk nøytrale, mens masse alltid summerer seg. Merk notasjonen: gravitasjonskonstanten skrives $\\gamma$ i denne boka, aldri $G$ — $G$ er reservert for tyngden $G = mg$."
+    },
+    {
+      "id": "fys1001-5-1-bb-ladningsbevaring",
+      "type": "definition",
+      "title": "Bevaring av ladning",
+      "content": "Samlet elektrisk ladning i et lukket system er **konstant**. Ladning kan flyttes fra ett legeme til et annet (gni en ballong mot håret), men ikke skapes eller ødelegges.\n\nDerfor: berører du to like kuler med ladningene $q_1$ og $q_2$ mot hverandre og skiller dem, får hver kule $(q_1+q_2)/2$."
+    },
+    {
+      "id": "fys1001-5-1-bb-influens",
+      "type": "definition",
+      "title": "Influens og polarisering",
+      "content": "Holder du en ladd gjenstand nær en nøytral, forskyves ladningene inne i den nøytrale gjenstanden: motsatt ladning trekkes nærmest, lik ladning skyves lengst bort. Dette kalles **influens** (i ledere) eller **polarisering** (i isolatorer).\n\nNettoladningen er fortsatt null, men fordi den motsatte ladningen kommer *nærmere*, blir tiltrekningen sterkere enn frastøtningen — derfor tiltrekkes papirbiter av en gnidd ballong."
+    },
+    {
+      "id": "fys1001-5-1-repetisjon",
+      "type": "collapsible",
+      "title": "Repetisjonsoppgaver",
+      "buttonText": "Vis repetisjonsoppgaver",
+      "content": [
+        {
+          "id": "fys1001-5-1-rep-1",
+          "type": "exercise",
+          "exercise": {
+            "id": "fys1001-5-1-rep-e1",
+            "number": "R1",
+            "type": "classic",
+            "difficulty": "lett",
+            "task": "*(Fra [kap. 1.2](/bok/fys1001/fys1001-1-2).)* En kule på $0{,}80\\ \\text{g}$ henger i ro i en snor som danner $12^\\circ$ med loddlinja fordi en vannrett kraft skyver på den. Hvor stor er den vannrette kraften? ($g = 9{,}81\\ \\text{m/s}^2$.)",
+            "solution": "Likevekt gir $S\\cos\\theta = mg$ loddrett og $S\\sin\\theta = F$ vannrett. Divisjon:\n\n$$F = mg\\tan\\theta = 0{,}80\\cdot10^{-3}\\cdot9{,}81\\cdot\\tan12^\\circ\\ \\text{N} = 1{,}7\\cdot10^{-3}\\ \\text{N}$$\n\nDette er nøyaktig samme oppsett som snor-kule-oppgaven i Løkke 4 — bare uten Coulombs lov på slutten.",
+            "hints": [
+              "Tegn frilegemediagram: snordrag, tyngde, vannrett kraft.",
+              "Del den vannrette likevektsligningen på den loddrette."
+            ]
+          }
+        },
+        {
+          "id": "fys1001-5-1-rep-2",
+          "type": "exercise",
+          "exercise": {
+            "id": "fys1001-5-1-rep-e2",
+            "number": "R2",
+            "type": "classic",
+            "difficulty": "lett",
+            "task": "To punktladninger kjenner en kraft på $6{,}0\\ \\text{mN}$ på hverandre. Hva blir kraften hvis du tredobler avstanden og samtidig dobler den ene ladningen?",
+            "solution": "Kraften går som $q_1q_2/r^2$. Tredobling av $r$ deler kraften på $3^2 = 9$; dobling av den ene ladningen ganger med 2:\n\n$$F' = 6{,}0\\ \\text{mN}\\cdot\\frac{2}{9} = 1{,}3\\ \\text{mN}$$\n\nEnheten beholdes: $1{,}3\\ \\text{mN} = 1{,}3\\cdot10^{-3}\\ \\text{N}$.",
+            "hints": [
+              "Du trenger ikke tallverdiene — bruk forholdsregning på $F \\propto q_1q_2/r^2$.",
+              "Husk at avstanden inngår i andre potens."
+            ]
+          }
+        },
+        {
+          "id": "fys1001-5-1-rep-3",
+          "type": "exercise",
+          "exercise": {
+            "id": "fys1001-5-1-rep-e3",
+            "number": "R3",
+            "type": "classic",
+            "difficulty": "middels",
+            "task": "*(Sjanger Q.)* Forklar i 2–4 setninger hvorfor feltlinjene i en platekondensator tegnes parallelle og like tette, mens feltlinjene rundt en enkelt punktladning tegnes som stråler som blir glisnere utover.",
+            "solution": "Tettheten av feltlinjer viser feltstyrken. I en platekondensator er feltet like sterkt og likt rettet overalt mellom platene, og linjene må derfor være parallelle og jevnt fordelt. Rundt en punktladning avtar feltstyrken som $1/r^2$, og de samme linjene fordeler seg over en stadig større kuleflate — derfor blir de glisnere utover.\n\n**Konklusjon:** linjebildet er en tegning av *hvor sterkt* feltet er, ikke bare hvor det peker.",
+            "hints": [
+              "Tenk på hva linjetettheten representerer.",
+              "Sammenlign hvordan feltstyrken varierer i de to tilfellene."
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": "fys1001-5-1-symbolliste",
+      "type": "collapsible",
+      "title": "Symbol- og formelliste",
+      "buttonText": "Vis symboler og formler",
+      "content": [
+        {
+          "id": "fys1001-5-1-symbolliste-tekst",
+          "type": "text",
+          "content": "## Symbol- og formelliste\n\n*Oppslagsverk — alt her forklares underveis i kapitlet.*\n\nAlle symboler og formler som er brukt i delkapittel 5.1, samlet. Betydningene under gjelder **dette delkapitlet** — de arves ikke fra tidligere deler av boka.\n\n| Symbol | Betydning | SI-enhet |\n|---|---|---|\n| $q$, $Q$ | Elektrisk ladning | coulomb, C |\n| $e$ | Elementærladningen, $1{,}602\\cdot10^{-19}$ C | C |\n| $r$ | Avstand mellom to ladninger | meter, m |\n| $F$, $F_e$ | Elektrisk kraft (Coulomb-kraft) | newton, N |\n| $k$ | **Coulomb-konstanten**, $8{,}99\\cdot10^{9}$ | $\\text{N}\\,\\text{m}^2/\\text{C}^2$ |\n| $E$ | **Elektrisk feltstyrke** (her: *ikke* energi) | V/m = N/C |\n| $U$ | Elektrisk spenning | volt, V |\n| $d$ | Avstand mellom kondensatorplatene | m |\n| $W$ | Arbeid | joule, J |\n| $m$ | Masse | kg |\n| $v$ | Fart | m/s |\n| $G$ | **Tyngden** $G = mg$ (kraften — aldri gravitasjonskonstanten) | N |\n| $g$ | Tyngdeakselerasjonen, $9{,}81$ | $\\text{m/s}^2$ |\n| $\\gamma$ | **Gravitasjonskonstanten**, $6{,}674\\cdot10^{-11}$ | $\\text{N}\\,\\text{m}^2/\\text{kg}^2$ |\n| $S$ | Snordrag | N |\n| $\\theta$ | Vinkel mellom snor og loddlinje | grader |\n| $L$ | Snorlengde | m |\n| $n$ | Antall elementærladninger (enhetsløst) | – |\n\n**Symbolkollisjoner du skal være obs på i akkurat dette delkapitlet:**\n\n- $E$ betyr **elektrisk feltstyrke** her. I Del 2 (energi) og Del 4 (termofysikk) betyr $E$ energi.\n- $G$ betyr **tyngden** $mg$. Gravitasjonskonstanten skrives $\\gamma$.\n- $k$ betyr **Coulomb-konstanten** her. I Del 4 er $k$ Boltzmanns konstant i $pV = NkT$; i Del 5.4 er $k_m$ den magnetiske konstanten.\n- $B$ forekommer ikke i dette delkapitlet. (I Del 3 er $B$ oppdrift, i [kap. 5.4](/bok/fys1001/fys1001-5-4) er $B$ magnetisk flukstetthet.)\n\n**Formler i dette delkapitlet:**\n\n$$F = k\\,\\frac{q_1q_2}{r^2}$$\nCoulombs lov. Kraften mellom to punktladninger, langs linja mellom dem. *(Står på formelarket — men du må selv velge riktig $r$ og avgjøre retningen.)*\n\n$$\\vec{F} = \\vec{F}_1 + \\vec{F}_2 + \\ldots$$\nSuperposisjonsprinsippet: krefter fra flere ladninger legges sammen som **vektorer**. *(Må kunne brukes aktivt.)*\n\n$$F_{\\text{res}} = 2F\\cos\\theta$$\nResultanten av to like store krefter som danner vinkelen $\\theta$ med symmetriaksen hver. *(Må kunne brukes aktivt — følger av dekomponering, står ikke på arket.)*\n\n$$E = \\frac{F}{q} \\qquad F = qE$$\nDefinisjonen av elektrisk feltstyrke, og kraften på en ladning i et felt. *(Står på formelarket.)*\n\n$$E = \\frac{U}{d}$$\nHomogent felt mellom parallelle plater. *(Står på formelarket.)*\n\n$$W = qU = \\tfrac12 mv^2 \\quad\\Longrightarrow\\quad v = \\sqrt{\\frac{2qU}{m}}$$\nArbeid ved akselerasjon over en spenning, satt lik kinetisk energi. *(Må kunne brukes aktivt — kombinasjonen er det du blir målt på.)*\n\n$$\\tan\\theta = \\frac{F_e}{G}, \\qquad r = 2L\\sin\\theta$$\nSnor-kule-balansen og avstanden mellom kulene. *(Må kunne brukes aktivt — utledes fra komponentvis likevekt.)*\n\n$$\\frac{F_e}{F_g} = \\frac{k\\,q_1q_2}{\\gamma\\, m_1 m_2}$$\nForholdet mellom elektrisk kraft og gravitasjon, uavhengig av avstand. *(Må kunne settes opp; konstantene $k$ og $\\gamma$ hentes fra arket.)*"
+        }
+      ]
+    }
+  ],
+  "exercises": []
+}
