@@ -1,0 +1,482 @@
+{
+  "id": "econ2220-2-3",
+  "courseId": "econ2220",
+  "chapterNumber": "2.3",
+  "title": "Slutsky: substitusjons- og inntektseffekt",
+  "description": "Prisendringens to kanaler: Slutsky-dekomponeringen i likning, figur og ord — med kursets egne konvensjoner.",
+  "estimatedMinutes": 55,
+  "competenceGoals": [
+    "kunne dekomponere virkningen av en prisendring i substitusjons- og inntektseffekt med Slutsky-kompensasjon, både med tall og i figur",
+    "kunne begrunne med avslørte preferanser at substitusjonseffekten aldri er positiv for godet som ble dyrere",
+    "kunne skrive opp Slutsky-likningen, tolke hvert ledd i økonomiske enheter og gjøre fortegnsanalysen for normale og mindreverdige goder",
+    "kunne forklare hvorfor de to effektene nuller hverandre ut i Cobb-Douglas' krysspriseffekt, og hvorfor uendret mengde ikke betyr uendret velferd"
+  ],
+  "content": [
+    {
+      "id": "econ2220-2-3-tip-eksamensvinkel",
+      "type": "tip",
+      "title": "Eksamensvinkel",
+      "content": "**Dette er konsumentoppgavens siste og tyngste ledd.** Oppgavesjangeren boka kaller **D — dekomponering i substitusjons- og inntektseffekt** (splitt virkningen av en prisendring i to kanaler og forklar hver av dem) finnes i **6 av de 7 ordinære eksamenssettene** i arkivet: V2018, V2019, V2020, V2023, V2024 og V2025 — altså 86 %, samme frekvens som nyttemaksimeringen selv. Den er også med i **3 av 4 utsatt-sett**. Det eneste ordinære settet uten den er V2022.\n\n**Tre ting du må vite om formen, før du leser videre:**\n\n**a)** Kurset bruker **Slutsky-kompensasjon**: konsumenten får akkurat nok ekstra inntekt til å ha råd til *den gamle godekurven*. Den andre varianten, der kompensasjonen gir samme *nyttenivå*, nevnes i én fotnote nedenfor og godtas av sensor — men den er ikke kursets hovedspor. Dette står eksplisitt i V2025-veiledningen.\n\n**b)** Svaret kan gis med likningen, grafisk eller verbalt. Men **grafiske og matematiske svar skal alltid tolkes**: en figur med tre punkter og ingen forklaring gir ikke full uttelling.\n\n**c)** At substitusjonseffekten aldri kan være positiv for godet som ble dyrere, er testet direkte som en sann/usann-påstand (V2023), og fasitargumentet var **avslørte preferanser**. Det argumentet skal du kunne skrive ut.\n\nPrioritet: **dette må sitte**. Sjangeren gjentar seg med beholdning i [kap. 3.2](/bok/econ2220/econ2220-3-2), som er utsatt-eksamenens favoritt."
+    },
+    {
+      "id": "econ2220-2-3-forkunnskaper",
+      "type": "text",
+      "content": "**Forkunnskaper.** Dette kapitlet bygger på:\n\n- **[kap. 2.1](/bok/econ2220/econ2220-2-1)** — budsjettlinjen, tilpasningsbetingelsen og hva som skjer med linjen når én pris endres.\n- **[kap. 2.2](/bok/econ2220/econ2220-2-2)** — Cobb-Douglas-etterspørselen og normalitet vist ved derivasjon.\n\nFra ECON1210-boka har du møtt de to effektene *verbalt* i **[Arbeidstilbudet: substitusjons- og inntektseffekt](/bok/econ1210/econ1210-6-2)**. Her får de en likning.\n\n**Sist du var her — de tre tingene du trenger klart i hodet:**\n\n**a)** **Cobb-Douglas-etterspørselen**, som alle regneeksemplene bruker:\n\n$$c_1 = \\frac{a\\,m}{p_1}, \\qquad c_2 = \\frac{(1-a)\\,m}{p_2}$$\n\n**b)** **Normalitet:** $\\partial c_1/\\partial m = a/p_1 > 0$. Begge Cobb-Douglas-goder er normale — det blir avgjørende for fortegnet på den ene av de to effektene.\n\n**c)** **Rotasjon av budsjettlinjen:** endres $p_1$ alene, roterer linjen om skjæringspunktet $m/p_2$ på den loddrette aksen. Endres $m$ alene, flytter linjen seg parallelt."
+    },
+    {
+      "id": "econ2220-2-3-intro",
+      "type": "text",
+      "content": "Strømprisen dobles. Du bruker mindre strøm. Hvorfor?\n\nTo helt ulike grunner blandes sammen i det svaret. Den første er at strøm nå er dyrt *sammenliknet med alt annet* — du tar på deg en genser i stedet for å skru opp varmen. Den andre er at du rett og slett er blitt fattigere: regningen spiser en større del av lønna, så du kutter litt overalt.\n\nDe to grunnene er ikke bare filosofisk forskjellige. De kan trekke i **motsatt retning**, og for noen goder gjør de det. Derfor holder det ikke å si «etterspørselen faller når prisen stiger» — du må kunne skille kanalene, og du må kunne si hvilken av dem som har et sikkert fortegn.\n\nDet verktøyet heter **Slutsky-dekomponering**, og det er det siste håndverket i konsumentoppgaven. Vi bygger det i fire løkker: først tankeeksperimentet i tre bilder, så argumentet for at den ene effekten har sikkert fortegn, så likningen og figuren, og til slutt tilfellene der intuisjonen svikter."
+    },
+    {
+      "id": "econ2220-2-3-lokke1",
+      "type": "text",
+      "content": "## Løkke 1 — Tankeeksperimentet i tre bilder (~14 min)"
+    },
+    {
+      "id": "econ2220-2-3-l1-tekst1",
+      "type": "text",
+      "content": "Prisen på vare 1 stiger fra $p_1$ til $p_1'$. Vi vil skille de to grunnene til at konsumet endres. Trikset er å gjøre endringen i **to skritt** i stedet for ett.\n\n**Skritt 1 — bare relativprisen endres.** Vi lar prisen stige, men gir samtidig konsumenten nøyaktig så mange kroner ekstra at hun har råd til **den gamle godekurven** til de nye prisene. Kjøpekraften hennes er dermed «reparert» i en presis forstand: hun kan fortsatt kjøpe akkurat det hun kjøpte før, om hun vil. Men prisforholdet er nytt, så hun vil vanligvis ikke ville det.\n\n**Skritt 2 — bare inntekten endres.** Vi tar kompensasjonen tilbake. Prisene står nå stille på de nye verdiene, og det eneste som skjer, er at inntekten faller.\n\nSummen av de to skrittene er den faktiske endringen, siden kompensasjonen først gis og så trekkes inn igjen. Men hvert skritt isolerer én av de to grunnene."
+    },
+    {
+      "id": "econ2220-2-3-def-slutsky-kompensasjon",
+      "type": "definition",
+      "title": "Slutsky-kompensasjon",
+      "content": "**Slutsky-kompensasjonen** er det inntektstillegget som gjør at konsumenten akkurat har råd til **den gamle godekurven** til de nye prisene.\n\nStiger $p_1$ til $p_1'$ mens den gamle kurven var $(c_1^0, c_2^0)$, er den kompenserte inntekten\n\n$$m^s = m + (p_1' - p_1)\\,c_1^0$$\n\nKompensasjonen er altså prisøkningen ganget med den mengden hun kjøpte før.\n\nGeometrisk gir dette en budsjettlinje med den **nye** helningen som går gjennom det **gamle** konsumpunktet: linjen roterer gjennom punktet. Dette er kursets standardkonvensjon; alternativet der kompensasjonen gir samme *nyttenivå* i stedet for samme kurv, nevnes i fotnoten senere i kapitlet."
+    },
+    {
+      "id": "econ2220-2-3-def-substitusjonseffekten",
+      "type": "definition",
+      "title": "Substitusjonseffekten (SE)",
+      "content": "**Substitusjonseffekten** er endringen i etterspørselen når prisen endres *og* konsumenten kompenseres slik at hun fortsatt har råd til den gamle kurven. Den isolerer virkningen av at **relativprisen** er endret.\n\nFormelt, for en økning i $p_1$:\n\n$$\\text{SE} = c_1(p_1', m^s) - c_1(p_1, m)$$\n\nØkonomisk innhold: konsumenten vrir seg bort fra godet som er blitt relativt dyrere, og mot det som er blitt relativt billigere. Effekten er **aldri positiv** for godet som ble dyrere — det er kapitlets ene sikre fortegn, og begrunnelsen er avslørte preferanser."
+    },
+    {
+      "id": "econ2220-2-3-def-inntektseffekten",
+      "type": "definition",
+      "title": "Inntektseffekten (IE)",
+      "content": "**Inntektseffekten** er endringen i etterspørselen når kompensasjonen trekkes tilbake, med de nye prisene holdt fast. Den isolerer virkningen av at **realinntekten** er endret.\n\nFormelt:\n\n$$\\text{IE} = c_1(p_1', m) - c_1(p_1', m^s)$$\n\nSiden $m < m^s$ ved en prisøkning, er dette virkningen av en inntektsnedgang. Fortegnet avhenger derfor av godets art: for et **normalt** gode faller etterspørselen, for et **mindreverdig** gode stiger den. Det er her normalitetsderivasjonen fra [kap. 2.2](/bok/econ2220/econ2220-2-2) tjener sin hensikt — uten den er fortegnet ubestemt."
+    },
+    {
+      "id": "econ2220-2-3-def-totaleffekten",
+      "type": "definition",
+      "title": "Totaleffekten",
+      "content": "**Totaleffekten** av en prisendring er den faktiske endringen i etterspørselen, uten noen kompensasjon:\n\n$$\\text{TE} = c_1(p_1', m) - c_1(p_1, m) = \\text{SE} + \\text{IE}$$\n\nDekomponeringen er en identitet, ikke en tilnærming: kompensasjonen legges til i det første skrittet og trekkes fra i det andre, så den forsvinner fra summen.\n\nDet er totaleffekten som er observerbar i data. SE og IE er tankekonstruksjoner — men de er de eneste verktøyene som forklarer *hvorfor* totaleffekten ble som den ble."
+    },
+    {
+      "id": "econ2220-2-3-ex-1",
+      "type": "example",
+      "title": "Eksempel 1: Tallene i de tre bildene",
+      "problem": "En husholdning har nyttefunksjonen $u = c_1^{0{,}5}c_2^{0{,}5}$, der $c_1$ er kilowattimer strøm og $c_2$ er alt annet konsum. Inntekten er $m = 1\\,200$ kroner, og prisene er $p_1 = 2$ og $p_2 = 5$ kroner. Strømprisen stiger til $p_1' = 3$ kroner.\n\nRegn ut de tre punktene $A$, $B$ og $C$, og finn substitusjons- og inntektseffekten.",
+      "solution": "**Punkt $A$ — utgangspunktet.** Med $a = 0{,}5$:\n\n$$c_1^A = \\frac{0{,}5\\cdot 1\\,200}{2} = 300, \\qquad c_2^A = \\frac{0{,}5\\cdot 1\\,200}{5} = 120$$\n\nKontroll: $2\\cdot 300 + 5\\cdot 120 = 600 + 600 = 1\\,200$ ✓. Så $A = (300, 120)$.\n\n**Kompensasjonen.** Hva koster den gamle kurven til de nye prisene?\n\n$$3\\cdot 300 + 5\\cdot 120 = 900 + 600 = 1\\,500$$\n\nHun trenger altså 300 kroner ekstra, som er nøyaktig $(p_1' - p_1)c_1^A = 1\\cdot 300$. Den kompenserte inntekten er $m^s = 1\\,500$.\n\n**Punkt $B$ — nye priser, kompensert inntekt.**\n\n$$c_1^B = \\frac{0{,}5\\cdot 1\\,500}{3} = 250, \\qquad c_2^B = \\frac{0{,}5\\cdot 1\\,500}{5} = 150$$\n\nKontroll: $3\\cdot 250 + 5\\cdot 150 = 750 + 750 = 1\\,500$ ✓.\n\n**Punkt $C$ — nye priser, opprinnelig inntekt.**\n\n$$c_1^C = \\frac{0{,}5\\cdot 1\\,200}{3} = 200, \\qquad c_2^C = \\frac{0{,}5\\cdot 1\\,200}{5} = 120$$\n\nKontroll: $3\\cdot 200 + 5\\cdot 120 = 600 + 600 = 1\\,200$ ✓.\n\n**De to effektene:**\n\n$$\\text{SE} = c_1^B - c_1^A = 250 - 300 = -50 \\text{ kilowattimer}$$\n\n$$\\text{IE} = c_1^C - c_1^B = 200 - 250 = -50 \\text{ kilowattimer}$$\n\n$$\\text{TE} = -100 \\text{ kilowattimer} \\quad \\text{(kontroll: } 200 - 300 = -100 \\text{ ✓)}$$\n\n**Tolkning i enheter.** Av det samlede fallet på 100 kilowattimer skyldes halvparten at strøm er blitt relativt dyrere: selv med full kompensasjon for kjøpekraften velger hun 50 kilowattimer mindre og bruker pengene på annet forbruk i stedet — se at $c_2$ stiger fra 120 til 150 i punkt $B$. Den andre halvparten skyldes at hun ikke *er* kompensert: de 300 kronene hun ikke får, gjør henne reelt fattigere, og siden strøm er et normalt gode, kutter hun ytterligere 50 kilowattimer.\n\nAt de to effektene er like store her, er ikke en generell regel — det er en egenskap ved Cobb-Douglas med eksponent $0{,}5$ og en dobling av prisen fra 2 til 3.\n\n**Figur i ord.** $c_1$ (kilowattimer) vannrett, $c_2$ (alt annet) loddrett. Den opprinnelige budsjettlinjen går fra $(0, 240)$ til $(600, 0)$ med helning $-0{,}4$, og tangerer en indifferenskurve i $A = (300, 120)$. Den nye linjen går fra $(0, 240)$ til $(400, 0)$ — samme skjæring på den loddrette aksen, brattere helning $-0{,}6$ — og tangerer en lavere indifferenskurve i $C = (200, 120)$. Den **kompenserte** linjen er stiplet, har samme helning som den nye ($-0{,}6$), men er skjøvet utover slik at den går nøyaktig gjennom $A$; den tangerer en mellomliggende indifferenskurve i $B = (250, 150)$. Piler langs $c_1$-aksen: fra 300 til 250 merket «substitusjonseffekt», fra 250 til 200 merket «inntektseffekt»."
+    },
+    {
+      "id": "econ2220-2-3-oppg-1",
+      "type": "exercise",
+      "exercise": {
+        "id": "econ2220-2-3-e1",
+        "number": "1",
+        "type": "classic",
+        "difficulty": "lett",
+        "task": "(Innstegsoppgave — ren gjengivelse.)\n\n**a)** Hva er Slutsky-kompensasjonen, og hvordan regnes den ut?\n**b)** Hvilken av de to effektene isolerer virkningen av endret relativpris, og hvilken isolerer virkningen av endret realinntekt?",
+        "solution": "**a)** Slutsky-kompensasjonen er det inntektstillegget som gjør at konsumenten akkurat har råd til **den gamle godekurven** til de nye prisene. Ved en økning i $p_1$ er den\n\n$$m^s - m = (p_1' - p_1)\\,c_1^0$$\n\naltså prisøkningen ganget med mengden hun kjøpte før. Geometrisk gir det en budsjettlinje med den nye helningen som går gjennom det gamle konsumpunktet.\n\n**b)** **Substitusjonseffekten** isolerer virkningen av endret relativpris: prisen er ny, men kjøpekraften er reparert, så det eneste som er endret, er bytteforholdet mellom varene. **Inntektseffekten** isolerer virkningen av endret realinntekt: prisene står stille på de nye verdiene, og det eneste som skjer, er at kompensasjonen trekkes tilbake.",
+        "hints": [
+          "Kompensasjonen skal gjøre én bestemt handlekurv akkurat overkommelig igjen — hvilken?",
+          "Til b): i hvilket av de to skrittene endres prisforholdet?"
+        ]
+      }
+    },
+    {
+      "id": "econ2220-2-3-oppg-2",
+      "type": "exercise",
+      "exercise": {
+        "id": "econ2220-2-3-e2",
+        "number": "2",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "En student har nyttefunksjonen $u = c_1^{0{,}4}c_2^{0{,}6}$, der $c_1$ er lunsjer på campus og $c_2$ er alt annet. Inntekten er $m = 2\\,000$ kroner, prisene $p_1 = 4$ og $p_2 = 10$ kroner. Lunsjprisen stiger til 5 kroner.\n\n**a)** Finn punktene $A$, $B$ og $C$.\n**b)** Regn ut substitusjons- og inntektseffekten, og kontroller at de summerer seg til totaleffekten.\n**c)** Tolk de to tallene i enheter.",
+        "solution": "**a) Punkt $A$:**\n\n$$c_1^A = \\frac{0{,}4\\cdot 2\\,000}{4} = 200, \\qquad c_2^A = \\frac{0{,}6\\cdot 2\\,000}{10} = 120$$\n\nKontroll: $4\\cdot 200 + 10\\cdot 120 = 800 + 1\\,200 = 2\\,000$ ✓.\n\n**Kompensasjonen:** den gamle kurven koster nå $5\\cdot 200 + 10\\cdot 120 = 1\\,000 + 1\\,200 = 2\\,200$, så $m^s = 2\\,200$ (som er $m + 1\\cdot 200$).\n\n**Punkt $B$:**\n\n$$c_1^B = \\frac{0{,}4\\cdot 2\\,200}{5} = 176, \\qquad c_2^B = \\frac{0{,}6\\cdot 2\\,200}{10} = 132$$\n\nKontroll: $5\\cdot 176 + 10\\cdot 132 = 880 + 1\\,320 = 2\\,200$ ✓.\n\n**Punkt $C$:**\n\n$$c_1^C = \\frac{0{,}4\\cdot 2\\,000}{5} = 160, \\qquad c_2^C = \\frac{0{,}6\\cdot 2\\,000}{10} = 120$$\n\nKontroll: $5\\cdot 160 + 10\\cdot 120 = 800 + 1\\,200 = 2\\,000$ ✓.\n\n**b)**\n\n$$\\text{SE} = 176 - 200 = -24, \\qquad \\text{IE} = 160 - 176 = -16$$\n\n$$\\text{SE} + \\text{IE} = -40, \\qquad \\text{TE} = 160 - 200 = -40 \\ ✓$$\n\n**c)** Av det samlede fallet på 40 lunsjer skyldes 24 at lunsj er blitt relativt dyrere: selv med full kompensasjon for kjøpekraften vrir studenten seg bort fra lunsj og over til annet forbruk, som stiger fra 120 til 132 enheter i punkt $B$. De resterende 16 lunsjene skyldes at hun ikke får kompensasjonen på 200 kroner: hun er reelt fattigere, og siden lunsj er et normalt gode, kutter hun ytterligere.\n\nBegge effektene trekker altså i samme retning her — som de alltid gjør når godet er normalt og prisen stiger.",
+        "hints": [
+          "Bruk $c_1 = am/p_1$ i alle tre punktene, med riktig pris og riktig inntekt i hvert.",
+          "Kompensasjonen finner du ved å prise den gamle kurven $(c_1^A, c_2^A)$ til de nye prisene.",
+          "Til c): den ene effekten handler om vridning mellom varene, den andre om kjøpekraft."
+        ]
+      }
+    },
+    {
+      "id": "econ2220-2-3-lokke2",
+      "type": "text",
+      "content": "## Løkke 2 — Substitusjonseffektens fortegn (~12 min)\n\n*— naturlig pausepunkt —*"
+    },
+    {
+      "id": "econ2220-2-3-l2-tekst1",
+      "type": "text",
+      "content": "Nå til det ene resultatet i dette kapitlet som gjelder helt uten forbehold: **substitusjonseffekten kan aldri være positiv for godet som ble dyrere.**\n\nLegg merke til hvor sterkt det er. Vi antar ingenting om normalitet, ingenting om funksjonsform, ingenting om hvor sterke preferansene er. Vi trenger bare at konsumenten velger det hun helst vil ha.\n\nArgumentet heter **avslørte preferanser**, og det går slik:\n\nI punkt $A$ hadde konsumenten råd til $A$, og hun valgte $A$. I punkt $B$ har hun — takket være kompensasjonen — fortsatt råd til $A$, men hun velger noe annet. Da må $B$ være minst like godt som $A$ etter hennes egen rangering, ellers ville hun bare beholdt $A$.\n\nSamtidig hadde hun *ikke* råd til $B$ i den gamle situasjonen. (Hvorfor ikke? Fordi hun ville valgt $B$ framfor $A$ hvis hun hadde hatt råd, siden hun nå viser at hun liker $B$ minst like godt — og hun valgte $A$.) Altså: $B$ var for dyr før, men er overkommelig nå. Den eneste prisen som er endret, er $p_1$, og den har *steget*. En kurv kan bare bli billigere relativt sett ved en prisøkning på vare 1 hvis den inneholder **mindre** av vare 1."
+    },
+    {
+      "id": "econ2220-2-3-thm-se-fortegn",
+      "type": "theorem",
+      "title": "Substitusjonseffektens fortegn",
+      "content": "For en økning i $p_1$ er substitusjonseffekten på $c_1$ **aldri positiv**:\n\n$$\\text{SE} = c_1(p_1', m^s) - c_1(p_1, m) \\le 0$$\n\nI derivertform: $\\dfrac{\\partial c_1^s}{\\partial p_1} \\le 0$, der $c_1^s$ er den kompenserte etterspørselen.\n\nSymmetrisk: for et prisfall er substitusjonseffekten aldri negativ.\n\n**Begrunnelsen er avslørte preferanser**, ikke en antakelse om funksjonsform. Resultatet gjelder derfor for alle preferanser som er slik at konsumenten velger det hun helst vil ha — også for mindreverdige goder og for Giffen-goder.\n\nMerk hva som *ikke* følger: totaleffekten kan godt være positiv, for inntektseffekten har ikke sikkert fortegn. Det er bare substitusjonsleddet som er låst."
+    },
+    {
+      "id": "econ2220-2-3-ex-2",
+      "type": "example",
+      "title": "Eksempel 2: Avslørte preferanser skrevet ut",
+      "problem": "En konsument kjøper handlekurven $A = (300, 120)$ til prisene $p_1 = 2$, $p_2 = 5$ og inntekten $m = 1\\,200$. Prisen på vare 1 stiger til 3, og hun kompenseres til $m^s = 1\\,500$. Hun velger nå $B = (250, 150)$.\n\nVis, uten å bruke nyttefunksjonen, at $c_1$ måtte falle i dette skrittet.",
+      "solution": "**Trinn 1 — hva hun hadde råd til, og hva hun valgte.**\n\nTil de gamle prisene og inntekten hadde hun råd til $A$ (den kostet nøyaktig 1 200), og hun valgte $A$.\n\nTil de nye prisene og den kompenserte inntekten har hun fortsatt råd til $A$: $3\\cdot 300 + 5\\cdot 120 = 1\\,500 = m^s$. Likevel velger hun $B$.\n\n**Trinn 2 — hva valget avslører.** Siden $A$ var tilgjengelig da hun valgte $B$, må $B$ være minst like godt som $A$ etter hennes egen rangering. Ellers hadde hun beholdt $A$ — det er hele innholdet i å velge.\n\nMen i den *gamle* situasjonen valgte hun $A$, ikke $B$. Hvis $B$ hadde vært tilgjengelig da, ville hun valgt $B$ (siden hun nå avslører at $B$ er minst like godt). Altså hadde hun **ikke** råd til $B$ til de gamle prisene. Kontroll: $2\\cdot 250 + 5\\cdot 150 = 500 + 750 = 1\\,250 > 1\\,200$ ✓ — den var faktisk 50 kroner for dyr.\n\n**Trinn 3 — hva det tvinger fram.** Vi har altså to ulikheter, med $p_1 = 2$, $p_1' = 3$, $p_2 = 5$:\n\n$$p_1c_1^B + p_2c_2^B > p_1c_1^A + p_2c_2^A \\qquad \\text{(}B\\text{ var for dyr før)}$$\n\n$$p_1'c_1^B + p_2c_2^B \\le p_1'c_1^A + p_2c_2^A \\qquad \\text{(}B\\text{ er overkommelig nå, og ble valgt)}$$\n\nTrekk den første fra den andre. Leddene med $p_2$ faller bort, og vi står igjen med\n\n$$(p_1' - p_1)\\left(c_1^B - c_1^A\\right) < 0$$\n\nSiden $p_1' - p_1 = 1 > 0$, må $c_1^B - c_1^A < 0$, altså $c_1^B < c_1^A$. Kontroll: $250 < 300$ ✓.\n\n**Trinn 4 — tolkningen.** Konklusjonen kom fra to ting: at hun velger det hun helst vil ha, og at prisen på vare 1 har steget. Vi brukte aldri nyttefunksjonen, aldri normalitet og aldri noen antakelse om hvor sterke preferansene er. Det er derfor substitusjonseffektens fortegn er så robust — og derfor det er et godt sensorsvar på sann/usann-påstander om SE.\n\n**Figur i ord.** $c_1$ vannrett, $c_2$ loddrett. Tegn den gamle budsjettlinjen fra $(0,240)$ til $(600,0)$ og den kompenserte, brattere linjen som krysser den nøyaktig i $A = (300,120)$. Skraver området som ligger under den kompenserte linjen men over den gamle — det er kurvene som *er* blitt overkommelige. Hele dette området ligger til **venstre** for $A$, altså med mindre $c_1$. Punktet $B = (250,150)$ ligger der."
+    },
+    {
+      "id": "econ2220-2-3-oppg-3",
+      "type": "exercise",
+      "exercise": {
+        "id": "econ2220-2-3-e3",
+        "number": "3",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "(Sjanger L — sann/usann med begrunnelse. Testet direkte i V2023, med avslørte preferanser som fasitargument.)\n\nTa stilling til hver påstand, og begrunn:\n\n**a)** «Substitusjonseffekten av en prisøkning på vare 1 kan være positiv.»\n**b)** «Totaleffekten av en prisøkning på vare 1 kan være positiv.»\n**c)** «Substitusjonseffektens fortegn forutsetter at vare 1 er et normalt gode.»",
+        "solution": "**a) Usann.** Substitusjonseffekten av en prisøkning på vare 1 er aldri positiv. Begrunnelsen er avslørte preferanser: etter kompensasjonen har konsumenten fortsatt råd til den gamle kurven, så den nye kurven må være minst like god for henne. Samtidig hadde hun ikke råd til den nye kurven før. Siden bare $p_1$ har endret seg, og den har steget, kan en kurv bare ha blitt overkommelig ved å inneholde mindre av vare 1. Altså $\\text{SE} \\le 0$.\n\n**b) Sann, men bare under en bestemt betingelse.** Totaleffekten er $\\text{SE} + \\text{IE}$. Substitusjonsleddet er aldri positivt, men inntektsleddet har ikke sikkert fortegn: er vare 1 **mindreverdig**, øker etterspørselen når realinntekten faller, og inntektseffekten trekker oppover. Er den virkningen sterk nok til å overdøve substitusjonseffekten, blir totaleffekten positiv. Et slikt gode kalles et Giffen-gode. For normale goder er dette utelukket, siden begge effekter da trekker nedover — og for Cobb-Douglas kan det aldri skje, siden $\\partial c_1/\\partial p_1 = -am/p_1^2 < 0$ alltid.\n\n**c) Usann.** Det er nettopp motsatt: substitusjonseffektens fortegn er *uavhengig* av om godet er normalt. Argumentet bruker bare at konsumenten velger det hun helst vil ha, og at prisen har steget. Det er **inntektseffektens** fortegn som krever normalitetsforutsetningen. Å blande de to er en vanlig feil, og den koster fordi den viser at studenten ikke vet hvor forbeholdet hører hjemme.",
+        "hints": [
+          "Til a): tenk på hvilke kurver som blir overkommelige når bare $p_1$ stiger og inntekten kompenseres.",
+          "Til b): kan de to effektene trekke i motsatt retning? Hva må da gjelde om godet?",
+          "Til c): gå tilbake til argumentet for SE og se hvilke forutsetninger som faktisk brukes."
+        ]
+      }
+    },
+    {
+      "id": "econ2220-2-3-lokke3",
+      "type": "text",
+      "content": "## Løkke 3 — Likningen og figuren (~15 min)"
+    },
+    {
+      "id": "econ2220-2-3-l3-tekst1",
+      "type": "text",
+      "content": "Dekomponeringen kan skrives som en likning i deriverte. Den er nyttig når oppgaven ber om et generelt svar i stedet for tall.\n\nTenk på hva som skjer med $c_1$ når $p_1$ endres litt. Den kompenserte etterspørselen fanger vridningen; kompensasjonen som *ikke* gis, fanges av inntektsleddet. Kompensasjonsbeløpet per krone prisøkning er $c_1$ — mengden hun kjøpte. Dermed:"
+    },
+    {
+      "id": "econ2220-2-3-thm-slutsky-likningen",
+      "type": "theorem",
+      "title": "Slutsky-likningen (uten beholdning)",
+      "content": "$$\\frac{\\partial c_1}{\\partial p_1} = \\underbrace{\\frac{\\partial c_1^s}{\\partial p_1}}_{\\text{substitusjonsledd}} \\; - \\; \\underbrace{c_1\\,\\frac{\\partial c_1}{\\partial m}}_{\\text{inntektsledd}}$$\n\n**Ledd for ledd:**\n\n- $\\partial c_1/\\partial p_1$ — **totaleffekten**: hvordan etterspørselen faktisk endres når prisen stiger med én krone.\n- $\\partial c_1^s/\\partial p_1$ — **substitusjonsleddet**: endringen når konsumenten kompenseres slik at den gamle kurven fortsatt er overkommelig. **Alltid $\\le 0$.**\n- $c_1\\,\\partial c_1/\\partial m$ — **inntektsleddet**: hvor mye kjøpekraft som går tapt (mengden $c_1$ per krone prisøkning) ganget med hvordan etterspørselen reagerer på inntekt. Minustegnet foran uttrykker at tapt kompensasjon virker som en inntektsnedgang.\n\n**Fortegnsanalysen:** for et **normalt** gode er $\\partial c_1/\\partial m > 0$, så inntektsleddet trekker negativt, og totaleffekten er utvetydig negativ. For et **mindreverdig** gode er $\\partial c_1/\\partial m < 0$, så inntektsleddet trekker positivt, og totaleffekten er ubestemt uten mer informasjon."
+    },
+    {
+      "id": "econ2220-2-3-ex-3",
+      "type": "example",
+      "title": "Eksempel 3: Likningen etterregnet på Cobb-Douglas",
+      "problem": "Vis at Slutsky-likningen holder for $u = c_1^{a}c_2^{1-a}$, ved å regne ut alle tre leddene.",
+      "solution": "**Totaleffekten.** Fra $c_1 = am\\,p_1^{-1}$:\n\n$$\\frac{\\partial c_1}{\\partial p_1} = -\\frac{a\\,m}{p_1^{2}}$$\n\n**Inntektsleddet.** Vi vet at $\\partial c_1/\\partial m = a/p_1$, og $c_1 = am/p_1$, så\n\n$$c_1\\,\\frac{\\partial c_1}{\\partial m} = \\frac{a\\,m}{p_1}\\cdot\\frac{a}{p_1} = \\frac{a^{2}m}{p_1^{2}}$$\n\n**Substitusjonsleddet.** Den kompenserte etterspørselen er etterspørselen med inntekten $m^s(p_1) = m + (p_1 - p_1^0)c_1^0$, altså\n\n$$c_1^s(p_1) = \\frac{a\\left(m + (p_1 - p_1^0)c_1^0\\right)}{p_1}$$\n\nDeriver og evaluer i utgangspunktet $p_1 = p_1^0$, der $m^s = m$ og $\\mathrm{d}m^s/\\mathrm{d}p_1 = c_1^0 = am/p_1$:\n\n$$\\frac{\\partial c_1^s}{\\partial p_1} = \\frac{a}{p_1}\\cdot\\frac{\\mathrm{d}m^s}{\\mathrm{d}p_1} - \\frac{a\\,m^s}{p_1^{2}} = \\frac{a}{p_1}\\cdot\\frac{am}{p_1} - \\frac{am}{p_1^{2}} = \\frac{a^{2}m - am}{p_1^{2}} = \\frac{a\\,m\\,(a-1)}{p_1^{2}}$$\n\nSiden $0 < a < 1$, er $(a-1) < 0$, så substitusjonsleddet er **negativt** — som teoremet krever, og det gjelder for alle tillatte verdier av $a$, $m$ og $p_1$.\n\n**Kontroll av likningen:**\n\n$$\\frac{a\\,m\\,(a-1)}{p_1^{2}} - \\frac{a^{2}m}{p_1^{2}} = \\frac{a\\,m\\,(a - 1 - a)}{p_1^{2}} = -\\frac{a\\,m}{p_1^{2}} \\ ✓$$\n\nNøyaktig totaleffekten. Likningen stemmer.\n\n**Tolkning i enheter.** Begge ledd har enheten *enheter av vare 1 per krone prisøkning*, og begge er negative for et normalt gode. Regningen viser også *hvor mye* av totaleffekten hvert ledd står for: substitusjonsleddet utgjør andelen $1 - a$ og inntektsleddet andelen $a$. Med $a = 0{,}5$ blir de like store — nøyaktig det Eksempel 1 fant med tall."
+    },
+    {
+      "id": "econ2220-2-3-oppg-4",
+      "type": "exercise",
+      "exercise": {
+        "id": "econ2220-2-3-e4",
+        "number": "4",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "(Sjanger D — generelt svar med likningen.)\n\n**a)** Skriv opp Slutsky-likningen for en prisøkning på vare 1, og forklar hva hvert av de tre leddene betyr.\n**b)** Bruk likningen til å avgjøre fortegnet på totaleffekten når vare 1 er et normalt gode. Begrunn hvert ledd.\n**c)** Hva blir konklusjonen dersom vare 1 i stedet er mindreverdig?",
+        "solution": "**a)**\n\n$$\\frac{\\partial c_1}{\\partial p_1} = \\frac{\\partial c_1^s}{\\partial p_1} - c_1\\,\\frac{\\partial c_1}{\\partial m}$$\n\nVenstresiden er **totaleffekten**: den faktiske endringen i etterspørselen per krone prisøkning. Det første leddet på høyresiden er **substitusjonsleddet**: endringen når konsumenten kompenseres slik at hun fortsatt har råd til den gamle kurven, altså den rene vridningen bort fra det som er blitt relativt dyrere. Det andre leddet er **inntektsleddet**: mengden $c_1$ måler hvor mye kjøpekraft som går tapt per krone prisøkning, og $\\partial c_1/\\partial m$ måler hvordan etterspørselen reagerer på inntekt. Minustegnet uttrykker at det er en inntektsnedgang.\n\n**b)** Substitusjonsleddet er $\\le 0$ ved avslørte preferanser — det gjelder uten forbehold. For et normalt gode er $\\partial c_1/\\partial m > 0$, og $c_1 > 0$, så produktet $c_1\\,\\partial c_1/\\partial m$ er positivt; med minustegnet foran bidrar inntektsleddet dermed negativt.\n\nBegge ledd er altså negative (substitusjonsleddet svakt, inntektsleddet strengt), så\n\n$$\\frac{\\partial c_1}{\\partial p_1} < 0$$\n\nEtterspørselen faller entydig når prisen stiger. Ingen ytterligere forutsetninger trengs.\n\n**c)** Er godet mindreverdig, er $\\partial c_1/\\partial m < 0$, så inntektsleddet bidrar **positivt** etter at minustegnet er tatt med. Da trekker de to leddene i motsatt retning, og totaleffekten er **ubestemt** uten mer informasjon om styrkeforholdet. Dominerer inntektsleddet, stiger etterspørselen når prisen stiger — et Giffen-gode. Dominerer substitusjonsleddet, faller den som normalt.\n\nMerk at konklusjonen er *ubestemt*, ikke *positiv*: de fleste mindreverdige goder er ikke Giffen-goder, fordi inntektsleddet skaleres med budsjettandelen og derfor er lite for goder som utgjør en liten del av forbruket.",
+        "hints": [
+          "Skriv likningen med substitusjonsleddet først og inntektsleddet med minustegn.",
+          "Til b): behandle fortegnet på hver faktor i inntektsleddet for seg.",
+          "Til c): hvilket ledd snur fortegn, og hva gjør det med konklusjonen?"
+        ]
+      }
+    },
+    {
+      "id": "econ2220-2-3-l3-tekst2",
+      "type": "text",
+      "content": "**Figuren, og hvordan du beskriver den.**\n\nStandardfiguren har tre punkter og tre linjer. Sensor forventer at du navngir alt og forklarer bevegelsene — en figur uten forklaring gir ikke uttelling.\n\n- **Linje 1, den opprinnelige budsjettlinjen**, med helning $-p_1/p_2$. Optimum er tangeringspunktet $A$.\n- **Linje 2, den nye budsjettlinjen** etter prisøkningen: brattere (helning $-p_1'/p_2$), rotert om skjæringspunktet $m/p_2$ på den loddrette aksen. Optimum er tangeringspunktet $C$ på en lavere indifferenskurve.\n- **Linje 3, den kompenserte linjen**: samme helning som linje 2, men skjøvet utover slik at den går **gjennom $A$**. Optimum er tangeringspunktet $B$.\n\nBevegelsen $A \\to B$ er substitusjonseffekten, $B \\to C$ er inntektseffekten. Mål dem langs $c_1$-aksen med stiplede hjelpelinjer og navngitte piler.\n\n**Tre feil å unngå i figuren:** rotere den kompenserte linjen gjennom det *nye* punktet i stedet for det gamle; tegne den kompenserte linjen med gammel helning; og bytte om på hvilken bevegelse som er hvilken effekt."
+    },
+    {
+      "id": "econ2220-2-3-oppg-5",
+      "type": "exercise",
+      "exercise": {
+        "id": "econ2220-2-3-e5",
+        "number": "5",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "(Sjanger D — figurdelen. Kombineres nesten alltid med et tolkningskrav.)\n\nPrisen på kollektivreiser stiger, mens prisen på alt annet er uendret. Konsumenten har normale goder.\n\n**a)** Beskriv figuren du ville tegnet, med alle tre linjene, alle tre punktene og begge pilene navngitt.\n**b)** Forklar i ord hvorfor punktet $B$ ligger til venstre for $A$.\n**c)** Forklar hvorfor $C$ ligger til venstre for $B$, og hvilken forutsetning som brukes.",
+        "solution": "**a)** Sett kollektivreiser $c_1$ på den vannrette aksen og alt annet konsum $c_2$ på den loddrette.\n\nDen **opprinnelige budsjettlinjen** går fra $(0, m/p_2)$ til $(m/p_1, 0)$ og tangerer den høyeste oppnåelige indifferenskurven i punktet $A$. Den **nye budsjettlinjen** har samme skjæringspunkt $m/p_2$ på den loddrette aksen, men er brattere fordi $p_1$ har steget; den treffer den vannrette aksen nærmere origo, ved $m/p_1'$, og tangerer en lavere indifferenskurve i punktet $C$. Den **kompenserte linjen** tegnes stiplet: den er parallell med den nye linjen, men skjøvet utover slik at den går gjennom $A$, og tangerer en mellomliggende indifferenskurve i punktet $B$.\n\nLangs $c_1$-aksen trekkes stiplede hjelpelinjer ned fra $A$, $B$ og $C$. Pilen fra $A$ til $B$ merkes «substitusjonseffekt», pilen fra $B$ til $C$ merkes «inntektseffekt».\n\n**b)** Langs den kompenserte linjen har konsumenten fortsatt råd til $A$ — det er nettopp hva kompensasjonen sikrer. Men prisforholdet er endret: kollektivreiser er blitt dyrere målt i annet konsum, så budsjettlinjen er brattere. Hun vrir seg derfor bort fra reiser og over til annet forbruk, og tangeringen skjer med mindre $c_1$. Argumentet er avslørte preferanser: bare kurver med mindre $c_1$ enn $A$ er blitt overkommelige ved denne kombinasjonen av prisøkning og kompensasjon. Punktet $B$ ligger altså til venstre for $A$.\n\n**c)** Fra $B$ til $C$ trekkes kompensasjonen tilbake. Budsjettlinjen flytter seg parallelt innover — helningen er den samme, bare kjøpekraften er lavere. Siden kollektivreiser er et **normalt** gode, faller etterspørselen når realinntekten faller, så $C$ ligger til venstre for $B$.\n\nForutsetningen som brukes her, er nettopp normaliteten. Hadde reiser vært et mindreverdig gode, ville $C$ ligget til *høyre* for $B$, og den samlede virkningen ville vært usikker.",
+        "hints": [
+          "Start med å plassere de to skjæringspunktene på den loddrette aksen — hvilke av dem er felles?",
+          "Til b): hva er det eneste som er endret mellom den gamle linjen og den kompenserte?",
+          "Til c): hvilken type skift er bevegelsen fra den kompenserte linjen til den nye?"
+        ]
+      }
+    },
+    {
+      "id": "econ2220-2-3-lokke4",
+      "type": "text",
+      "content": "## Løkke 4 — Når intuisjonen svikter (~14 min)"
+    },
+    {
+      "id": "econ2220-2-3-l4-tekst1",
+      "type": "text",
+      "content": "**Tilfelle 1 — kryssprisen, der de to effektene nuller hverandre ut.**\n\nI [kap. 2.2](/bok/econ2220/econ2220-2-2) fant vi at $\\partial c_1/\\partial p_2 = 0$ for Cobb-Douglas, og lovet en forklaring. Nå har vi verktøyet.\n\nStiger $p_2$, gjelder krysspris-versjonen av likningen:\n\n$$\\frac{\\partial c_1}{\\partial p_2} = \\frac{\\partial c_1^s}{\\partial p_2} - c_2\\,\\frac{\\partial c_1}{\\partial m}$$\n\nSubstitusjonsleddet er nå **positivt**: vare 2 er blitt relativt dyrere, så konsumenten vrir seg mot vare 1. Inntektsleddet er negativt, siden vare 1 er normal og kjøpekraften faller. For Cobb-Douglas er de to nøyaktig like store."
+    },
+    {
+      "id": "econ2220-2-3-ex-4",
+      "type": "example",
+      "title": "Eksempel 4: De to effektene nuller hverandre ut",
+      "problem": "En husholdning har $u = c_1^{0{,}5}c_2^{0{,}5}$, $m = 1\\,200$, $p_1 = 2$ og $p_2 = 5$. Prisen på vare 2 stiger til 6. Dekomponer virkningen på $c_1$.",
+      "solution": "**Punkt $A$:** $c_1^A = 300$, $c_2^A = 120$ (som i Eksempel 1).\n\n**Kompensasjonen.** Nå er det $p_2$ som har steget, så kompensasjonen er $(p_2' - p_2)c_2^A = 1\\cdot 120 = 120$ kroner, altså $m^s = 1\\,320$. Kontroll: den gamle kurven koster nå $2\\cdot 300 + 6\\cdot 120 = 600 + 720 = 1\\,320$ ✓.\n\n**Punkt $B$ (nye priser, kompensert):**\n\n$$c_1^B = \\frac{0{,}5\\cdot 1\\,320}{2} = 330, \\qquad c_2^B = \\frac{0{,}5\\cdot 1\\,320}{6} = 110$$\n\n**Punkt $C$ (nye priser, opprinnelig inntekt):**\n\n$$c_1^C = \\frac{0{,}5\\cdot 1\\,200}{2} = 300, \\qquad c_2^C = \\frac{0{,}5\\cdot 1\\,200}{6} = 100$$\n\n**Effektene på $c_1$:**\n\n$$\\text{SE} = 330 - 300 = +30, \\qquad \\text{IE} = 300 - 330 = -30, \\qquad \\text{TE} = 0$$\n\n**Tolkning i enheter.** Substitusjonseffekten er positiv med 30 enheter: vare 2 er blitt dyrere, så husholdningen vrir seg mot vare 1. Inntektseffekten er negativ med 30 enheter: hun har ikke fått de 120 kronene, så realinntekten er lavere, og siden vare 1 er normal, kutter hun. De to er nøyaktig like store, så nettoresultatet på $c_1$ er null.\n\n**Er hun uberørt?** Nei. Konsumet av vare 2 faller fra 120 til 100 enheter, og hun havner på en lavere indifferenskurve. Nyttenivået går fra $\\sqrt{300\\cdot 120} \\approx 189{,}7$ til $\\sqrt{300\\cdot 100} \\approx 173{,}2$. Uendret mengde av ett gode er ikke uendret velferd.\n\n**Figur i ord.** $c_1$ vannrett, $c_2$ loddrett. Den gamle linjen går fra $(0,240)$ til $(600,0)$; den nye fra $(0,200)$ til $(600,0)$ — samme skjæring på $c_1$-aksen, lavere skjæring på $c_2$-aksen, altså en rotasjon om punktet $(600,0)$. Den kompenserte linjen er stiplet, parallell med den nye, og går gjennom $A = (300,120)$; den treffer aksene ved $(0,220)$ og $(660,0)$. Punktene $A = (300,120)$, $B = (330,110)$ og $C = (300,100)$ merkes, og $A$ og $C$ forbindes med en stiplet loddrett linje merket «$c_1$ uendret». Pilen $A \\to B$ peker mot høyre (positiv substitusjonseffekt), pilen $B \\to C$ mot venstre."
+    },
+    {
+      "id": "econ2220-2-3-oppg-6",
+      "type": "exercise",
+      "exercise": {
+        "id": "econ2220-2-3-e6",
+        "number": "6",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "Prisen på vare 2 faller, mens $p_1$ og $m$ er uendret. Konsumenten har Cobb-Douglas-preferanser.\n\n**a)** Hvilket fortegn har substitusjonseffekten på $c_1$? Begrunn.\n**b)** Hvilket fortegn har inntektseffekten på $c_1$? Begrunn, og si hvilken forutsetning du bruker.\n**c)** Hva blir totaleffekten, og hva er den økonomiske lærdommen?",
+        "solution": "**a)** Substitusjonseffekten på $c_1$ er **negativ**. Når $p_2$ faller, blir vare 2 relativt billigere og vare 1 relativt dyrere. Konsumenten vrir seg derfor mot vare 2 og bort fra vare 1, gitt at kjøpekraften holdes konstant gjennom kompensasjonen.\n\nMerk at det ikke er noen motsigelse mot resultatet om at substitusjonseffekten aldri er positiv: det gjelder for *godets egen* pris. For en endring i den *andre* varens pris går substitusjonsleddet motsatt vei.\n\n**b)** Inntektseffekten på $c_1$ er **positiv**. Et prisfall på vare 2 gjør konsumenten reelt rikere: budsjettmengden utvides, og kompensasjonen som skal trekkes inn igjen, er negativ (hun må gi fra seg penger). Siden vare 1 er et **normalt** gode — det er forutsetningen — øker etterspørselen etter vare 1 når realinntekten stiger.\n\nFor Cobb-Douglas er normalitet vist ved derivasjon: $\\partial c_1/\\partial m = a/p_1 > 0$.\n\n**c)** Totaleffekten er **null**, siden $c_1 = am/p_1$ ikke inneholder $p_2$. De to effektene er nøyaktig like store og motsatte for denne funksjonsformen.\n\nLærdommen er at et nullresultat i en totaleffekt ikke betyr at ingenting skjer. Det betyr at to virkelige krefter er like sterke og trekker hver sin vei. Konsumenten kommer bedre ut av prisfallet — hun kjøper mer av vare 2 og havner på en høyere indifferenskurve — selv om mengden av vare 1 står helt stille. Og resultatet er en egenskap ved Cobb-Douglas, ikke en generell lov: med andre preferanser blir nettoeffekten ulik null i én av retningene.",
+        "hints": [
+          "Til a): hvilken vare er blitt relativt dyrere når $p_2$ faller?",
+          "Til b): et prisfall gjør konsumenten rikere — hva gjør det med et normalt gode?",
+          "Til c): se på uttrykket for $c_1$ og let etter $p_2$."
+        ]
+      }
+    },
+    {
+      "id": "econ2220-2-3-l4-tekst2",
+      "type": "text",
+      "content": "**Tilfelle 2 — mindreverdige goder og Giffen-muligheten.**\n\nFor et mindreverdig gode trekker inntektseffekten motsatt vei av substitusjonseffekten. Prisen stiger, konsumenten blir fattigere, og fordi godet er mindreverdig, kjøper hun *mer* av det når hun er fattigere.\n\nEr den virkningen sterk nok, kan totaleffekten bli positiv: etterspørselen stiger når prisen stiger. Et slikt gode kalles et **Giffen-gode**. Det er en logisk mulighet innenfor modellen, ikke en kuriositet man kan avvise — men det er aldri testet i noen av arkivsettene, og Cobb-Douglas kan aldri gi det, siden $\\partial c_1/\\partial p_1 = -am/p_1^2 < 0$ alltid.\n\nDet du trenger fra dette, er fortegnsdisiplinen: **si alltid hvilken forutsetning som gir inntektseffekten sitt fortegn.** «Etterspørselen faller fordi prisen steg» er ikke et fullstendig svar; «etterspørselen faller fordi substitusjonseffekten er negativ og inntektseffekten også er negativ når godet er normalt» er."
+    },
+    {
+      "id": "econ2220-2-3-l4-fotnote-hicks",
+      "type": "text",
+      "content": "**Fotnote om den andre kompensasjonsmåten.**\n\nDet finnes en alternativ konvensjon, kalt Hicks-kompensasjon, der konsumenten kompenseres slik at hun oppnår **samme nyttenivå** som før prisendringen, i stedet for samme godekurv. Da glir det kompenserte punktet langs den *opprinnelige indifferenskurven* i stedet for å ligge på en linje gjennom det gamle punktet.\n\nAlle kvalitative konklusjoner i dette kapitlet er de samme under begge konvensjoner: substitusjonseffekten er aldri positiv for godet som ble dyrere, og inntektseffektens fortegn avhenger av normalitet. Tallene blir litt forskjellige, siden kompensasjonsbeløpene er ulike.\n\n**Kurset bruker Slutsky-varianten** — samme kurv — og det er den du bør bruke. V2025-veiledningen sier at den andre varianten godtas, men den er ikke hovedsporet, og du sparer tid på å holde deg til én konvensjon. Denne fotnoten er eneste sted i kapitlet der alternativet omtales."
+    },
+    {
+      "id": "econ2220-2-3-oppg-7",
+      "type": "exercise",
+      "exercise": {
+        "id": "econ2220-2-3-e7",
+        "number": "7",
+        "type": "classic",
+        "difficulty": "vanskelig",
+        "task": "(Sjanger D i full kjede — eksamensklone. Slik ble konsumentoppgaven avsluttet i V2023 og V2025.)\n\nEn pendlerhusholdning har nyttefunksjonen $u = c_1^{0{,}5}c_2^{0{,}5}$, der $c_1$ er drivstoff (liter) og $c_2$ er alt annet konsum. Inntekten er $m = 1\\,200$ kroner, og prisene er $p_1 = 6$ og $p_2 = 4$ kroner. En avgiftslettelse senker drivstoffprisen til $p_1' = 4$ kroner.\n\n**a)** Finn tilpasningen før og etter, og regn ut totaleffekten på drivstoffkonsumet.\n**b)** Dekomponer totaleffekten i substitusjons- og inntektseffekt med Slutsky-kompensasjon. Vis kompensasjonsbeløpet.\n**c)** Forklar fortegnet på hver effekt, og si hvilken forutsetning hvert fortegn hviler på.\n**d)** Beskriv figuren du ville tegnet.",
+        "solution": "**a) Før:**\n\n$$c_1^A = \\frac{0{,}5\\cdot 1\\,200}{6} = 100 \\text{ liter}, \\qquad c_2^A = \\frac{0{,}5\\cdot 1\\,200}{4} = 150$$\n\nKontroll: $6\\cdot 100 + 4\\cdot 150 = 600 + 600 = 1\\,200$ ✓.\n\n**Etter:**\n\n$$c_1^C = \\frac{0{,}5\\cdot 1\\,200}{4} = 150 \\text{ liter}, \\qquad c_2^C = \\frac{0{,}5\\cdot 1\\,200}{4} = 150$$\n\nKontroll: $4\\cdot 150 + 4\\cdot 150 = 600 + 600 = 1\\,200$ ✓.\n\n$$\\text{TE} = 150 - 100 = +50 \\text{ liter}$$\n\n**b) Kompensasjonen.** Ved et prisfall blir kompensasjonen negativ — husholdningen må gi fra seg penger for at den gamle kurven skal være akkurat overkommelig:\n\n$$m^s = m + (p_1' - p_1)\\,c_1^A = 1\\,200 + (4 - 6)\\cdot 100 = 1\\,200 - 200 = 1\\,000$$\n\nKontroll: den gamle kurven koster nå $4\\cdot 100 + 4\\cdot 150 = 400 + 600 = 1\\,000$ ✓.\n\n**Punkt $B$:**\n\n$$c_1^B = \\frac{0{,}5\\cdot 1\\,000}{4} = 125, \\qquad c_2^B = \\frac{0{,}5\\cdot 1\\,000}{4} = 125$$\n\nKontroll: $4\\cdot 125 + 4\\cdot 125 = 1\\,000$ ✓.\n\n**Effektene:**\n\n$$\\text{SE} = 125 - 100 = +25 \\text{ liter}, \\qquad \\text{IE} = 150 - 125 = +25 \\text{ liter}$$\n\nSum: $+50$ ✓, som stemmer med totaleffekten.\n\n**c) Substitusjonseffekten er positiv** (+25 liter). Drivstoff er blitt relativt billigere målt i annet konsum: bytteforholdet faller fra $6/4 = 1{,}5$ til $4/4 = 1$ enhet annet konsum per liter. Selv når kjøpekraften holdes fast ved at 200 kroner trekkes inn, kjører husholdningen 25 liter mer. Fortegnet hviler kun på **avslørte preferanser**, ikke på noen antakelse om normalitet: for et prisfall er substitusjonseffekten aldri negativ.\n\n**Inntektseffekten er positiv** (+25 liter). Husholdningen får beholde de 200 kronene, så realinntekten stiger. Fortegnet hviler på at drivstoff er et **normalt** gode, vist ved derivasjon: $\\partial c_1/\\partial m = 0{,}5/p_1 > 0$. Var drivstoff mindreverdig, ville denne effekten trukket motsatt vei, og den samlede virkningen ville vært usikker.\n\nBegge effekter trekker altså oppover, og totaleffekten på 50 liter er entydig positiv.\n\n**d) Figur i ord.** $c_1$ (liter drivstoff) vannrett, $c_2$ (alt annet) loddrett.\n\nDen opprinnelige budsjettlinjen går fra $(0, 300)$ til $(200, 0)$ med helning $-1{,}5$, og tangerer en indifferenskurve i $A = (100, 150)$. Den nye linjen går fra $(0, 300)$ til $(300, 0)$ — samme skjæringspunkt på den loddrette aksen, slakere helning $-1$ — og tangerer en høyere indifferenskurve i $C = (150, 150)$. Den kompenserte linjen tegnes stiplet, parallell med den nye (helning $-1$), men skjøvet innover slik at den går gjennom $A$; den treffer aksene ved $(0, 250)$ og $(250, 0)$ og tangerer en mellomliggende indifferenskurve i $B = (125, 125)$.\n\nStiplede hjelpelinjer trekkes fra $A$, $B$ og $C$ ned til $c_1$-aksen ved 100, 125 og 150. Pilen fra 100 til 125 merkes «substitusjonseffekt», pilen fra 125 til 150 merkes «inntektseffekt». Klammen mellom den gamle og den kompenserte linjens skjæringspunkter på den loddrette aksen (300 mot 250) merkes «kompensasjonen på 200 kroner».",
+        "hints": [
+          "Til a): bruk $c_1 = am/p_1$ med riktig pris i hvert av de to tilfellene.",
+          "Til b): kompensasjonen er $(p_1' - p_1)c_1^A$ — merk at den blir negativ ved prisfall.",
+          "Til c): det ene fortegnet krever ingen antakelse om godets art, det andre gjør det.",
+          "Til d): den kompenserte linjen skal ha ny helning og gå gjennom det gamle punktet."
+        ]
+      }
+    },
+    {
+      "id": "econ2220-2-3-oppg-8",
+      "type": "exercise",
+      "exercise": {
+        "id": "econ2220-2-3-e8",
+        "number": "8",
+        "type": "classic",
+        "difficulty": "vanskelig",
+        "task": "(Krevende. Tester fortegnsdisiplin i hele parameterrommet.)\n\n**a)** Vis generelt at substitusjonsleddet for Cobb-Douglas er $\\frac{am(a-1)}{p_1^{2}}$, og avgjør fortegnet for alle tillatte verdier av $a$.\n**b)** Hvor stor andel av totaleffekten utgjør substitusjonsleddet? Uttrykk andelen ved $a$, og tolk resultatet.\n**c)** Kan et Cobb-Douglas-gode være et Giffen-gode? Begrunn ved å regne ut totaleffekten.",
+        "solution": "**a)** Den kompenserte etterspørselen er etterspørselen evaluert med den kompenserte inntekten $m^s(p_1) = m + (p_1 - p_1^0)c_1^0$:\n\n$$c_1^s(p_1) = \\frac{a\\,m^s(p_1)}{p_1}$$\n\nDeriver med produktregelen og evaluer i utgangspunktet $p_1 = p_1^0$, der $m^s = m$ og $\\mathrm{d}m^s/\\mathrm{d}p_1 = c_1^0 = am/p_1$:\n\n$$\\frac{\\partial c_1^s}{\\partial p_1} = \\frac{a}{p_1}\\cdot\\frac{am}{p_1} - \\frac{am}{p_1^{2}} = \\frac{a^{2}m - am}{p_1^{2}} = \\frac{a\\,m\\,(a-1)}{p_1^{2}}$$\n\nFortegnet: $a > 0$, $m > 0$ og $p_1^{2} > 0$, mens $a - 1 < 0$ for alle tillatte verdier $0 < a < 1$. Substitusjonsleddet er derfor **strengt negativt i hele parameterrommet**. Grensetilfellene bekrefter bildet: går $a$ mot 1 (all inntekt på vare 1), går substitusjonsleddet mot null, siden det ikke finnes noe annet gode å vri seg mot.\n\n**b)** Totaleffekten er $-am/p_1^{2}$. Andelen substitusjonsleddet utgjør, er\n\n$$\\frac{am(a-1)/p_1^{2}}{-am/p_1^{2}} = \\frac{a - 1}{-1} = 1 - a$$\n\nSubstitusjonsleddet utgjør altså andelen $1 - a$ av totaleffekten, og inntektsleddet andelen $a$.\n\nTolkningen er intuitiv: $a$ er budsjettandelen for vare 1. Utgjør varen en stor del av forbruket, er inntektsvirkningen av en prisøkning stor, og inntektsleddet dominerer. Er den en liten budsjettpost, er nesten hele reaksjonen ren vridning. Med $a = 0{,}5$ blir de to like store — det stemmer med Eksempel 1, der begge effekter var 50 kilowattimer.\n\n**c)** Nei. Totaleffekten for Cobb-Douglas er\n\n$$\\frac{\\partial c_1}{\\partial p_1} = \\frac{\\partial}{\\partial p_1}\\left(a\\,m\\,p_1^{-1}\\right) = -\\frac{a\\,m}{p_1^{2}} < 0$$\n\nfor alle tillatte $a$, $m$ og $p_1$. Etterspørselen faller alltid når prisen stiger, så et Cobb-Douglas-gode kan aldri være et Giffen-gode.\n\nDen dypere grunnen er at et Giffen-gode må være **mindreverdig**, og Cobb-Douglas gir alltid $\\partial c_1/\\partial m = a/p_1 > 0$, altså normale goder. Mindreverdighet er en nødvendig — men ikke tilstrekkelig — betingelse for Giffen-atferd: inntektsvirkningen må i tillegg være sterk nok til å overdøve substitusjonsvirkningen, og siden inntektsleddet skaleres med budsjettandelen, krever det at godet utgjør en stor del av forbruket.",
+        "hints": [
+          "Til a): skriv $c_1^s = a\\,m^s(p_1)/p_1$ og bruk produkt-/brøkregelen.",
+          "Til b): del substitusjonsleddet på totaleffekten og forkort.",
+          "Til c): regn ut den deriverte av totaleffekten og se om fortegnet kan snu."
+        ]
+      }
+    },
+    {
+      "id": "econ2220-2-3-warn-typiske-feil",
+      "type": "warning",
+      "title": "Typiske feil i denne sjangeren",
+      "content": "**Bruke den andre kompensasjonskonvensjonen som hovedspor.** Kurset bruker Slutsky-kompensasjon: råd til **samme godekurv**. Kompenserer du til samme nyttenivå, får du andre tall. Sensor godtar det, men du sparer tid og unngår regnefeil på å holde deg til én konvensjon — og den kompenserte linjen skal gå gjennom det gamle punktet.\n\n**#1 — levere figuren uten tolkning.** Tre punkter og to piler er ikke et svar. Sensorveiledningene krever at grafiske og matematiske svar tolkes: hva skjer i hvert skritt, og hvorfor.\n\n**Feil retning på substitusjonseffekten.** Ved en prisøkning på vare 1 må $B$ ligge til venstre for $A$. Kontroller mot avslørte preferanser: bare kurver med mindre $c_1$ er blitt overkommelige.\n\n**Rotere den kompenserte linjen gjennom feil punkt.** Den skal gå gjennom det **gamle** konsumpunktet $A$, ikke gjennom det nye. Går den gjennom $C$, har du regnet en annen dekomponering enn den oppgaven ber om.\n\n**Glemme normalitetsforbeholdet på inntektseffekten.** Substitusjonseffektens fortegn krever ingen antakelse om godets art; inntektseffektens gjør det. Skriv forutsetningen ut — det er et selvstendig poeng, og å plassere forbeholdet på feil ledd viser at mekanismen ikke sitter.\n\n**Blande hvilken bevegelse som er hvilken effekt.** $A \\to B$ er substitusjon (ny helning, gammel kurv overkommelig), $B \\to C$ er inntekt (parallelt skift). Merk pilene i figuren, hver gang.\n\n**Tro at uendret mengde betyr uendret velferd.** Når krysseffekten er null, er konsumenten likevel dårligere stilt av en prisøkning: budsjettmengden er mindre, og nyttenivået faller. Si det.\n\n**Konkludere bestemt for mindreverdige goder.** Da er totaleffekten **ubestemt**, ikke positiv. Skriv betingelsen ut: bare hvis inntektsleddet dominerer, snur totaleffekten."
+    },
+    {
+      "id": "econ2220-2-3-begrepsbank-intro",
+      "type": "text",
+      "content": "## Begrepsbank\n\nBlokkene under er **flashcard-/repetisjonsstoff** — hopp trygt over ved førstegangslesing; tidsanslaget for kapitlet gjelder kjernestoffet over."
+    },
+    {
+      "id": "econ2220-2-3-bb-avslorte-preferanser",
+      "type": "definition",
+      "title": "Avslørte preferanser",
+      "content": "**Prinsippet om avslørte preferanser** sier at når en konsument velger kurven $X$ i en situasjon der $Y$ også var overkommelig, så er $X$ minst like god som $Y$ etter hennes egen rangering.\n\nPrinsippet er svært billig: det krever bare at konsumenten velger det hun helst vil ha, ingen antakelser om funksjonsform, konveksitet eller normalitet.\n\nDet er derfor det er fasitargumentet for at substitusjonseffekten aldri er positiv for godet som ble dyrere — og derfor det er det beste svaret på sann/usann-påstander om substitusjonseffektens fortegn."
+    },
+    {
+      "id": "econ2220-2-3-bb-kompensert-ettersporsel",
+      "type": "definition",
+      "title": "Kompensert etterspørsel",
+      "content": "**Kompensert etterspørsel** $c_1^s$ er etterspørselen når inntekten justeres i takt med prisendringen, slik at konsumenten hele veien akkurat har råd til den opprinnelige godekurven:\n\n$$c_1^s(p_1) = c_1\\!\\left(p_1,\\ m + (p_1 - p_1^0)c_1^0\\right)$$\n\nDen skiller seg fra den vanlige (ukompenserte) etterspørselen ved at kjøpekraften er «fastholdt». Substitusjonsleddet i Slutsky-likningen er nettopp den deriverte av denne funksjonen.\n\nKompensert etterspørsel er ikke observerbar i data — den er et regneverktøy som isolerer vridningen fra kjøpekraftsvirkningen."
+    },
+    {
+      "id": "econ2220-2-3-bb-kompensasjonsbelopet",
+      "type": "definition",
+      "title": "Kompensasjonsbeløpet",
+      "content": "**Kompensasjonsbeløpet** ved en endring i $p_1$ er\n\n$$\\Delta m = (p_1' - p_1)\\,c_1^0$$\n\naltså prisendringen ganget med den opprinnelige mengden.\n\nDet er **positivt ved prisøkning** (konsumenten trenger mer penger for å ha råd til det samme) og **negativt ved prisfall** (hun må gi fra seg penger for at den gamle kurven skal være akkurat overkommelig igjen). Å glemme fortegnsskiftet ved prisfall er en klassisk regnefeil.\n\nBeløpet er også et anslag på hva prisendringen «koster» konsumenten målt i kroner — mer om det i [kap. 2.4](/bok/econ2220/econ2220-2-4)."
+    },
+    {
+      "id": "econ2220-2-3-bb-normalt-gode",
+      "type": "definition",
+      "title": "Normalt gode",
+      "content": "Et gode er **normalt** dersom etterspørselen øker når inntekten øker, med prisene holdt fast: $\\partial c_1/\\partial m > 0$.\n\nI dette kapitlet er egenskapen ikke en kuriositet, men den forutsetningen som gir **inntektseffekten** sitt fortegn. Uten den er inntektsleddet i Slutsky-likningen ubestemt, og dermed også totaleffekten.\n\nFor Cobb-Douglas er $\\partial c_1/\\partial m = a/p_1 > 0$ alltid, så begge goder er normale — og det skal vises ved derivasjon, ikke påstås."
+    },
+    {
+      "id": "econ2220-2-3-bb-mindreverdig-gode",
+      "type": "definition",
+      "title": "Mindreverdig gode",
+      "content": "Et gode er **mindreverdig** dersom etterspørselen faller når inntekten stiger: $\\partial c_1/\\partial m < 0$.\n\nI Slutsky-likningen snur inntektsleddet da fortegn og trekker motsatt vei av substitusjonsleddet. Konsekvensen er at totaleffekten av en prisøkning blir **ubestemt** — ikke positiv, bare usikker, siden konklusjonen avhenger av hvilket ledd som dominerer.\n\nCobb-Douglas kan aldri gi et mindreverdig gode. Trenger en oppgave dette, må den bruke en annen funksjonsform, og da må du drøfte styrkeforholdet mellom leddene i stedet for å konkludere skarpt."
+    },
+    {
+      "id": "econ2220-2-3-bb-giffen",
+      "type": "definition",
+      "title": "Giffen-gode",
+      "content": "Et **Giffen-gode** er et gode der etterspørselen *stiger* når prisen stiger, altså der $\\partial c_1/\\partial p_1 > 0$.\n\nDet krever to ting samtidig: at godet er mindreverdig (så inntektsleddet trekker oppover), og at inntektsleddet er sterkt nok til å overdøve substitusjonsleddet. Siden inntektsleddet skaleres med budsjettandelen, må godet utgjøre en stor del av forbruket.\n\nMuligheten er logisk konsistent, men aldri testet i arkivsettene, og utelukket for Cobb-Douglas. Begrepets verdi her er at det viser hvorfor fortegnsforbeholdet på inntektseffekten er nødvendig."
+    },
+    {
+      "id": "econ2220-2-3-bb-kompensert-budsjettlinje",
+      "type": "definition",
+      "title": "Kompensert budsjettlinje",
+      "content": "Den **kompenserte budsjettlinjen** har de **nye** prisenes helning, men er plassert slik at den går gjennom det **gamle** konsumpunktet.\n\nKonstruksjonen er hele figurhåndverket i Slutsky-dekomponeringen: linjen roterer altså gjennom $A$, ikke gjennom skjæringspunktet på aksen.\n\nTo hyppige figurfeil: å gi den kompenserte linjen gammel helning (da måler du ingen substitusjonseffekt), og å la den gå gjennom det nye punktet $C$ (da måler du en annen dekomponering enn oppgaven ber om)."
+    },
+    {
+      "id": "econ2220-2-3-bb-egenpriseffekt",
+      "type": "definition",
+      "title": "Egenpriseffekt",
+      "content": "**Egenpriseffekten** er virkningen på etterspørselen etter et gode av en endring i dets **egen** pris: $\\partial c_1/\\partial p_1$.\n\nDen dekomponeres av Slutsky-likningen i et substitusjonsledd (aldri positivt) og et inntektsledd (fortegn avhengig av normalitet).\n\nFor Cobb-Douglas er $\\partial c_1/\\partial p_1 = -am/p_1^{2} < 0$, og substitusjonsleddet utgjør andelen $1 - a$ av dette, inntektsleddet andelen $a$. Det er budsjettandelen som styrer hvor mye av reaksjonen som er kjøpekraft og hvor mye som er ren vridning."
+    },
+    {
+      "id": "econ2220-2-3-bb-krysspriseffekt",
+      "type": "definition",
+      "title": "Krysspriseffekt",
+      "content": "**Krysspriseffekten** er virkningen på etterspørselen etter det ene godet av en endring i prisen på det andre: $\\partial c_1/\\partial p_2$.\n\nOgså den dekomponeres:\n\n$$\\frac{\\partial c_1}{\\partial p_2} = \\frac{\\partial c_1^s}{\\partial p_2} - c_2\\,\\frac{\\partial c_1}{\\partial m}$$\n\nHer er substitusjonsleddet **positivt** når $p_2$ stiger (konsumenten vrir seg mot vare 1), mens inntektsleddet er negativt for et normalt gode. For Cobb-Douglas er de nøyaktig like store, så nettoeffekten er null."
+    },
+    {
+      "id": "econ2220-2-3-bb-realinntekt",
+      "type": "definition",
+      "title": "Realinntekt (kjøpekraft)",
+      "content": "**Realinntekten** er hva pengeinntekten faktisk gir av varer, altså størrelsen på budsjettmengden. Den avhenger av $m$ og av begge prisene.\n\nI Slutsky-dekomponeringen er realinntekten definert helt presist: den er «reparert» når konsumenten akkurat har råd til den gamle godekurven. Det er nettopp denne operasjonaliseringen som gjør de to effektene regnbare.\n\nStiger en pris uten kompensasjon, faller realinntekten selv om kronebeløpet er uendret — og det er denne nedgangen inntektseffekten måler."
+    },
+    {
+      "id": "econ2220-2-3-bb-nyttevirkning",
+      "type": "definition",
+      "title": "Nyttevirkningen av en prisendring",
+      "content": "En **prisøkning uten kompensasjon** gjør konsumenten svakt dårligere stilt, og strengt dårligere stilt hvis hun kjøpte noe av godet.\n\nBegrunnelsen er enkel og krever ingen regning: budsjettmengden krymper. Alle kurver hun kan velge etter prisøkningen, kunne hun også valgt før, mens noen av de gamle er falt bort. Hun kan derfor ikke oppnå høyere nytte, og hvis hennes gamle optimum er blitt uoverkommelig, oppnår hun strengt lavere.\n\nMerk at dette gjelder **uansett** hva som skjer med mengdene. Selv når totaleffekten på et gode er null, har nyttenivået falt. Dette resonnementet blir helt sentralt i beholdningsøkonomien i [kap. 3.2](/bok/econ2220/econ2220-3-2), der konklusjonen faktisk kan snu."
+    },
+    {
+      "id": "econ2220-2-3-bb-slutsky-dekomponering",
+      "type": "definition",
+      "title": "Slutsky-dekomponering",
+      "content": "**Slutsky-dekomponering** er framgangsmåten der virkningen av en prisendring deles i to skritt: først en kompensert prisendring (substitusjonseffekten), så en inntektsendring (inntektseffekten).\n\nFramgangsmåten i fire steg:\n\n**a)** Regn ut tilpasningen $A$ i utgangspunktet.\n**b)** Regn kompensasjonen $(p_1' - p_1)c_1^A$ og finn punktet $B$ med nye priser og kompensert inntekt.\n**c)** Finn punktet $C$ med nye priser og opprinnelig inntekt.\n**d)** Les av $\\text{SE} = c_1^B - c_1^A$ og $\\text{IE} = c_1^C - c_1^B$, og kontroller at summen blir totaleffekten."
+    },
+    {
+      "id": "econ2220-2-3-bb-punktene-abc",
+      "type": "definition",
+      "title": "Punktene A, B og C",
+      "content": "Standardfigurens tre punkter, med hver sin presise definisjon:\n\n- **$A$** — gamle priser, opprinnelig inntekt. Tangeringspunktet på den opprinnelige budsjettlinjen.\n- **$B$** — nye priser, **kompensert** inntekt. Tangeringspunktet på den kompenserte linjen, som går gjennom $A$.\n- **$C$** — nye priser, opprinnelig inntekt. Tangeringspunktet på den nye budsjettlinjen.\n\nBevegelsen $A \\to B$ er substitusjonseffekten, $B \\to C$ er inntektseffekten. Rekkefølgen er ikke vilkårlig: kompensasjonen gis i det første skrittet og trekkes tilbake i det andre, slik at de to skrittene summerer seg til den faktiske endringen."
+    },
+    {
+      "id": "econ2220-2-3-bb-loven-om-ettersporsel",
+      "type": "definition",
+      "title": "Loven om etterspørsel",
+      "content": "**Loven om etterspørsel** — at etterspørselen faller når prisen stiger — er ikke en logisk nødvendighet, men en konklusjon som krever en forutsetning.\n\nSlutsky-likningen viser hvorfor: substitusjonsleddet er alltid negativt, men inntektsleddet kan snu fortegn. For **normale goder** trekker begge nedover, og loven holder entydig. For sterkt mindreverdige goder kan den brytes.\n\nDette er broen til ECON1210, der **[etterspørselskurven](/bok/econ1210/econ1210-1-1)** ble postulert som fallende. Her er den utledet — og forbeholdet gjort eksplisitt."
+    },
+    {
+      "id": "econ2220-2-3-bb-substitutter-komplementer",
+      "type": "definition",
+      "title": "Substitutter og komplementer",
+      "content": "To goder er **substitutter** dersom $\\partial c_1/\\partial p_2 > 0$ (en prisøkning på det ene øker etterspørselen etter det andre) og **komplementer** dersom effekten er negativ.\n\nKlassifiseringen bygger på totaleffekten, som er en sum av et substitusjonsledd og et inntektsledd. Derfor kan to goder som *substitueres* i den snevre forstand — substitusjonsleddet er positivt — likevel framstå som uavhengige eller endog komplementære, dersom inntektsleddet er sterkt nok.\n\nCobb-Douglas er grensetilfellet: substitusjonsleddet er positivt, inntektsleddet like stort og negativt, og godene er derfor verken substitutter eller komplementer."
+    },
+    {
+      "id": "econ2220-2-3-bb-rotasjon-vs-parallell",
+      "type": "definition",
+      "title": "Rotasjon mot parallellskift",
+      "content": "To bevegelser av budsjettlinjen, som må holdes fra hverandre i figurene:\n\n- Endres **én pris** alene, **roterer** linjen om skjæringspunktet på den *andre* varens akse. Helningen endres, kjøpekraften er ikke lenger den samme.\n- Endres **inntekten** alene, flytter linjen seg **parallelt**. Helningen er uendret.\n\nI Slutsky-figuren brukes begge: overgangen fra den gamle til den kompenserte linjen er en rotasjon *gjennom konsumpunktet* $A$, og overgangen fra den kompenserte til den nye linjen er et parallelt skift innover. Å blande dem er den vanligste figurfeilen i sjangeren."
+    },
+    {
+      "id": "econ2220-2-3-bb-tre-effekter-varsel",
+      "type": "definition",
+      "title": "Når det blir tre effekter",
+      "content": "Dekomponeringen i dette kapitlet har **to** ledd, fordi konsumentens inntekt er et pengebeløp $m$ som ikke berøres av prisendringen.\n\nEr inntekten i stedet en **beholdning av varer** — konsumenten eier $\\omega_1$ av vare 1 — endres også *inntekten* når prisen endres, siden det hun eier blir mer verdt. Da splittes inntektsvirkningen i to: en ordinær del (konsumvaren ble dyrere) og en beholdningsdel (det du eier ble mer verdt).\n\nDet er den varianten som utgjør [kap. 3.2](/bok/econ2220/econ2220-3-2), og som er utsatt-eksamenens favoritt. Alt håndverket herfra gjenbrukes; bare inntektssiden blir rikere."
+    },
+    {
+      "id": "econ2220-2-3-bb-kontroll-slutsky",
+      "type": "definition",
+      "title": "Kontrollrutinen i Slutsky-oppgaver",
+      "content": "Fire raske kontroller som fanger nesten alle regnefeil:\n\n**a)** Ligger $A$ på den gamle budsjettlinjen? ($p_1c_1^A + p_2c_2^A = m$.)\n**b)** Ligger $A$ også på den kompenserte linjen? ($p_1'c_1^A + p_2c_2^A = m^s$ — det er definisjonen av kompensasjonen.)\n**c)** Ligger $B$ på den kompenserte linjen og $C$ på den nye?\n**d)** Blir $\\text{SE} + \\text{IE}$ nøyaktig lik totaleffekten?\n\nKontroll b) er den viktigste, fordi den fanger fortegnsfeil i kompensasjonen — særlig ved prisfall, der beløpet er negativt."
+    },
+    {
+      "id": "econ2220-2-3-bb-ubestemt-vs-null",
+      "type": "definition",
+      "title": "Ubestemt mot null",
+      "content": "To konklusjoner som ser like uforpliktende ut, men betyr helt ulike ting:\n\n- **Null effekt** er et presist resultat: de to leddene er like store og motsatte, som for Cobb-Douglas' krysspriseffekt. Du kan skrive $\\partial c_1/\\partial p_2 = 0$ og begrunne det.\n- **Ubestemt effekt** betyr at modellen ikke bestemmer fortegnet: leddene trekker i motsatt retning, og hvilket som dominerer, avhenger av informasjon oppgaven ikke gir.\n\nSensor skiller skarpt mellom disse. Skriver du «ubestemt» der svaret er null, mister du poenget; skriver du et bestemt fortegn der svaret er ubestemt, er svaret galt. Si alltid *hvorfor* konklusjonen er som den er."
+    },
+    {
+      "id": "econ2220-2-3-symbolliste",
+      "type": "collapsible",
+      "title": "Symbol- og formelliste",
+      "buttonText": "Vis symboler og formler",
+      "content": [
+        {
+          "id": "econ2220-2-3-symbolliste-tekst",
+          "type": "text",
+          "content": "Oppslagsverk — alt her forklares underveis i kapitlet.\n\n| Symbol | Betydning |\n|---|---|\n| $c_1, c_2$ | Konsumert mengde av vare 1 og vare 2 |\n| $p_1, p_2$ | Prisene før endringen |\n| $p_1'$ | Prisen på vare 1 etter endringen |\n| $m$ | Opprinnelig pengeinntekt |\n| $m^s$ | Slutsky-kompensert inntekt — akkurat råd til den gamle kurven |\n| $a$ | Budsjettandelen for vare 1 i Cobb-Douglas |\n| $A$ | Tilpasning ved gamle priser og opprinnelig inntekt |\n| $B$ | Tilpasning ved nye priser og kompensert inntekt |\n| $C$ | Tilpasning ved nye priser og opprinnelig inntekt |\n| SE | Substitusjonseffekten, $c_1^B - c_1^A$ |\n| IE | Inntektseffekten, $c_1^C - c_1^B$ |\n| TE | Totaleffekten, $c_1^C - c_1^A$ |\n| $c_1^s$ | Kompensert etterspørsel etter vare 1 |\n| $\\partial c_1/\\partial m$ | Inntektsderiverte — positiv for normale goder |\n\n**Formler i dette delkapitlet:**\n\n$$m^s = m + (p_1' - p_1)\\,c_1^0$$\n\nSlutsky-kompensasjonen: prisendringen ganget med den opprinnelige mengden. Positiv ved prisøkning, negativ ved prisfall.\n\n$$\\text{SE} = c_1(p_1', m^s) - c_1(p_1, m)$$\n\nSubstitusjonseffekten: ny pris, kompensert inntekt. Måler ren vridning.\n\n$$\\text{IE} = c_1(p_1', m) - c_1(p_1', m^s)$$\n\nInntektseffekten: kompensasjonen trekkes tilbake. Måler kjøpekraftsvirkningen.\n\n$$\\text{TE} = \\text{SE} + \\text{IE}$$\n\nDekomponeringen er en identitet, ikke en tilnærming.\n\n$$\\frac{\\partial c_1}{\\partial p_1} = \\frac{\\partial c_1^s}{\\partial p_1} - c_1\\,\\frac{\\partial c_1}{\\partial m}$$\n\nSlutsky-likningen. Første ledd alltid $\\le 0$; andre ledd trekker negativt for normale goder.\n\n$$\\frac{\\partial c_1^s}{\\partial p_1} \\le 0$$\n\nSubstitusjonsleddets fortegn, begrunnet med avslørte preferanser — uten antakelser om godets art.\n\n$$\\frac{\\partial c_1^s}{\\partial p_1} = \\frac{a\\,m\\,(a-1)}{p_1^{2}}$$\n\nSubstitusjonsleddet for Cobb-Douglas. Strengt negativt for alle $0 < a < 1$; utgjør andelen $1-a$ av totaleffekten.\n\n$$\\frac{\\partial c_1}{\\partial p_2} = \\frac{\\partial c_1^s}{\\partial p_2} - c_2\\,\\frac{\\partial c_1}{\\partial m}$$\n\nKrysspris-versjonen. Substitusjonsleddet er nå positivt; for Cobb-Douglas summerer leddene til null."
+        }
+      ]
+    },
+    {
+      "id": "econ2220-2-3-repetisjon",
+      "type": "collapsible",
+      "title": "Repetisjonsoppgaver",
+      "buttonText": "Vis repetisjonsoppgaver",
+      "content": [
+        {
+          "id": "econ2220-2-3-oppg-R1",
+          "type": "exercise",
+          "exercise": {
+            "id": "econ2220-2-3-rep-1",
+            "number": "R1",
+            "type": "classic",
+            "difficulty": "lett",
+            "task": "(Fra [kap. 2.2](/bok/econ2220/econ2220-2-2).) Vis ved derivasjon at vare 1 er et normalt gode når $c_1 = am/p_1$, og forklar hvorfor dette er nødvendig for å bestemme fortegnet på inntektseffekten.",
+            "solution": "Deriverer vi etterspørselen med hensyn på inntekten, med prisen holdt fast:\n\n$$\\frac{\\partial c_1}{\\partial m} = \\frac{a}{p_1} > 0$$\n\nBåde $a$ og $p_1$ er positive, så den deriverte er strengt positiv for alle tillatte parameterverdier. Vare 1 er derfor normal.\n\nDette er nødvendig fordi **inntektsleddet** i Slutsky-likningen er $-c_1\\,\\partial c_1/\\partial m$. Uten å kjenne fortegnet på $\\partial c_1/\\partial m$ vet vi ikke om leddet trekker opp eller ned, og da er totaleffekten ubestemt. Substitusjonsleddet har derimot sikkert fortegn uansett godets art.",
+            "hints": [
+              "Behandle $a/p_1$ som en konstant når du deriverer med hensyn på $m$.",
+              "Hvilket av de to leddene i Slutsky-likningen inneholder den inntektsderiverte?"
+            ]
+          }
+        },
+        {
+          "id": "econ2220-2-3-oppg-R2",
+          "type": "exercise",
+          "exercise": {
+            "id": "econ2220-2-3-rep-2",
+            "number": "R2",
+            "type": "classic",
+            "difficulty": "middels",
+            "task": "En konsument har $u = c_1^{0{,}5}c_2^{0{,}5}$, $m = 800$, $p_1 = 5$ og $p_2 = 4$. Prisen på vare 1 stiger til 8.\n\n**a)** Finn $A$, $B$ og $C$.\n**b)** Regn ut SE og IE, og kontroller mot totaleffekten.",
+            "solution": "**a) $A$:** $c_1^A = 0{,}5\\cdot 800/5 = 80$ og $c_2^A = 0{,}5\\cdot 800/4 = 100$. Kontroll: $5\\cdot 80 + 4\\cdot 100 = 400 + 400 = 800$ ✓.\n\n**Kompensasjonen:** den gamle kurven koster nå $8\\cdot 80 + 4\\cdot 100 = 640 + 400 = 1\\,040$, så $m^s = 1\\,040$ (altså $m + 3\\cdot 80 = 800 + 240$).\n\n**$B$:** $c_1^B = 0{,}5\\cdot 1\\,040/8 = 65$ og $c_2^B = 0{,}5\\cdot 1\\,040/4 = 130$. Kontroll: $8\\cdot 65 + 4\\cdot 130 = 520 + 520 = 1\\,040$ ✓.\n\n**$C$:** $c_1^C = 0{,}5\\cdot 800/8 = 50$ og $c_2^C = 0{,}5\\cdot 800/4 = 100$. Kontroll: $8\\cdot 50 + 4\\cdot 100 = 400 + 400 = 800$ ✓.\n\n**b)** $\\text{SE} = 65 - 80 = -15$ og $\\text{IE} = 50 - 65 = -15$. Summen er $-30$, og totaleffekten er $50 - 80 = -30$ ✓.\n\nBegge effekter trekker nedover, som de skal når prisen stiger og godet er normalt.",
+            "hints": [
+              "Kompensasjonen er $(p_1' - p_1)c_1^A$.",
+              "Bruk samme etterspørselsformel i alle tre punktene, med riktig pris og riktig inntekt."
+            ]
+          }
+        },
+        {
+          "id": "econ2220-2-3-oppg-R3",
+          "type": "exercise",
+          "exercise": {
+            "id": "econ2220-2-3-rep-3",
+            "number": "R3",
+            "type": "classic",
+            "difficulty": "middels",
+            "task": "**a)** Hvorfor er den kompenserte budsjettlinjen tegnet gjennom det gamle konsumpunktet og ikke gjennom det nye?\n**b)** Hva ville du målt hvis du i stedet la den gjennom det nye punktet?",
+            "solution": "**a)** Fordi Slutsky-kompensasjonen er definert som det beløpet som gjør at konsumenten akkurat har råd til **den gamle godekurven** til de nye prisene. Den kurven er nettopp det gamle konsumpunktet $A$, så den kompenserte linjen må gå gjennom $A$.\n\nKonstruksjonen er også det som gjør avslørte preferanser anvendelig: siden $A$ fortsatt er overkommelig, må det nye valget $B$ være minst like godt, og det er dette som låser substitusjonseffektens fortegn.\n\n**b)** Da ville du målt en helt annen dekomponering. En linje gjennom $C$ med ny helning *er* den nye budsjettlinjen, så «substitusjonseffekten» ville blitt hele totaleffekten og inntektseffekten null. Dekomponeringen ville kollapset, og fortegnsargumentet fra avslørte preferanser ville falt bort, siden den gamle kurven ikke lenger er overkommelig.",
+            "hints": [
+              "Gå tilbake til definisjonen av Slutsky-kompensasjonen: hvilken kurv skal være overkommelig?",
+              "Til b): hvilken linje er det egentlig som går gjennom $C$ med ny helning?"
+            ]
+          }
+        }
+      ]
+    }
+  ],
+  "exercises": []
+}
