@@ -1,0 +1,360 @@
+{
+  "id": "fys1001-6-prove",
+  "courseId": "fys1001",
+  "chapterNumber": "6.P",
+  "title": "Prøver til del 6: Bølger, lyd og optikk",
+  "description": "Fire nyskrevne prøver med fullstendige løsningsforslag: interferens og desibel, brytning og totalrefleksjon med symmetriargument, linser med strålekonstruksjon, og en kombinert prøve på eksamensnivå med seismikk-innpakning. Fire prøver à ~30–45 min — kan trygt deles over flere kvelder, én prøve per økt.",
+  "estimatedMinutes": 140,
+  "competenceGoals": [
+    "løse en interferens- og desibeloppgave på eksamensnivå med begrunnet klassifisering og riktig bruk av avstandsloven",
+    "regne brytning og totalrefleksjon med vilkåret skrevet ut, og føre symmetriargumentet for en glasskule ledd for ledd",
+    "kombinere linseformelen med en strålekonstruksjon og regne brillestyrke i dioptrier",
+    "løse en sammensatt bølge- og optikkoppgave med seismikk-innpakning og kvalitative haler i tre ledd"
+  ],
+  "content": [
+    {
+      "id": "fys1001-6-prove-tip",
+      "type": "tip",
+      "title": "Om prøvene til del 6",
+      "content": "**Fire prøver à ~30–45 min** — til sammen 140 minutter. De kan trygt deles over flere kvelder; **én prøve per økt** er en helt vanlig arbeidsmåte, og prøvene fungerer hver for seg.\n\n| Prøve | Tema | Tid | Sjangre |\n|---|---|---|---|\n| 6.A | Bølger og lyd: interferens, desibel, P- og S-bølger | 30 min | M |\n| 6.B | Brytning og totalrefleksjon, med symmetriargument | 30 min | N |\n| 6.C | Linser: regning, strålekonstruksjon og øye/brille | 35 min | N |\n| 6.D | Kombinert bølge- og optikkprøve med seismikk-innpakning | 45 min | M + N + Q |\n\n**Sjangerkodene** er bokas kortnavn for oppgavetypene: **M** = bølger, lyd og seismikk, **N** = geometrisk optikk, **Q** = kvalitativ hverdagsforklaring.\n\n**Poeng:** hver deloppgave teller **4 poeng**, som på eksamen. Prøve 6.A gir 28 poeng, 6.B 28 poeng, 6.C 32 poeng og 6.D 44 poeng.\n\n**Hvor flervalget bor:** prøve 6.A har en kort flervalgsdel til slutt. Den er **treningsform, ikke eksamensform** — FYS1001s slutteksamen har aldri flervalg. (Midtsemestereksamenene fra 2007 til 2019 hadde det, men de dekket bare mekanikk, fluid og innledende termofysikk.) De interaktive quizene til kapitlene i Del 6 er også flervalg; der stokkes svarene automatisk.\n\n**Merk:** Del 6 er ikke pensum til midtsemestereksamenen. Generalprøven til midtveis består av prøvene 1.D, 2.D, 3.D og 4.D.\n\n**Slik bruker du prøvene:** sett klokka, legg formelarket og tabellsamlingen ved siden av deg, og skriv for hånd — også figurene. I optikkoppgavene sammenligner løsningsforslagene konstruksjonen med regningen, så tegn hver gang. Etter hver fasit står en avkryssbar selvdiagnose."
+    },
+    {
+      "id": "fys1001-6-prove-forkunnskaper",
+      "type": "text",
+      "content": "## Forkunnskaper\n\nPrøvene dekker hele Del 6. Du bør ha lest:\n\n- [kap. 6.1](/bok/fys1001/fys1001-6-1) — bølgeformelen, longitudinale og transversale bølger, to-kilders interferens, desibel, stående bølger og Snells lov i fartsform\n- [kap. 6.2](/bok/fys1001/fys1001-6-2) — Snells lov med brytningsindekser, fart og bølgelengde i medium, totalrefleksjon, glasskule og prisme, dispersjon\n- [kap. 6.3](/bok/fys1001/fys1001-6-3) — linseformelen med fortegn, forstørrelse, strålekonstruksjon, dioptrier og øye/brille\n\nKonstanter og data du får fra formelarket eller tabellen: $c_0 = 3{,}00\\cdot10^{8}\\ \\text{m/s}$, lydfarten i luft $340\\ \\text{m/s}$, høreterskelen $I_0 = 1{,}0\\cdot10^{-12}\\ \\text{W/m}^2$, og brytningsindekser ($n_{\\text{luft}} = 1{,}00$, $n_{\\text{vann}} = 1{,}33$, $n_{\\text{glass}} \\approx 1{,}5$)."
+    },
+    {
+      "id": "fys1001-6-prove-prove1",
+      "type": "collapsible",
+      "title": "Prøve 1 (6.A): Bølger og lyd",
+      "buttonText": "Vis prøve 1",
+      "content": [
+        {
+          "id": "fys1001-6-prove-pa-intro",
+          "type": "text",
+          "content": "### Prøve 6.A — Bølger og lyd (30 min, 28 poeng)\n\nTre oppgaver med til sammen sju deloppgaver à 4 poeng, pluss en kort flervalgsdel som ikke teller poeng. Sjanger M, med én kvalitativ hale."
+        },
+        {
+          "id": "fys1001-6-prove-oa1",
+          "type": "exercise",
+          "exercise": {
+            "id": "fys1001-6-prove-ea1",
+            "number": "1 (12 poeng)",
+            "type": "classic",
+            "difficulty": "middels",
+            "task": "To høyttalere spiller den samme tonen i fase. Lydfarten i luft er $340\\ \\text{m/s}$. Du sitter $5{,}10\\ \\text{m}$ fra den ene høyttaleren og $6{,}12\\ \\text{m}$ fra den andre.\n\n**a)** Tonen har frekvensen $500\\ \\text{Hz}$. Finn bølgelengden.\n**b)** Finn ganglengdeforskjellen og avgjør ved regning hva du hører. Begrunn svaret.\n**c)** Frekvensen dobles til $1000\\ \\text{Hz}$. Hva hører du nå?",
+            "solution": "**a)**\n\n$$\\lambda = \\frac{v}{f} = \\frac{340\\ \\text{m/s}}{500\\ \\text{Hz}} = 0{,}68\\ \\text{m}$$\n\n*(Poeng: riktig formel snudd (2), riktig svar med enhet (2).)*\n\n**b)** Ganglengdeforskjellen:\n\n$$\\Delta l = 6{,}12\\ \\text{m} - 5{,}10\\ \\text{m} = 1{,}02\\ \\text{m}$$\n\n$$\\frac{\\Delta l}{\\lambda} = \\frac{1{,}02\\ \\text{m}}{0{,}68\\ \\text{m}} = 1{,}5 = 1 + \\tfrac12$$\n\nDette er et **halvt** antall bølgelengder, altså $\\Delta l = (n + \\tfrac12)\\lambda$ med $n = 1$.\n\n**Begrunnelse:** bølgen fra den fjerneste høyttaleren har gått halvannen bølgelengde lenger. Den hele bølgelengden betyr ingenting for fasen, men den halve gjør at bølgen kommer i **motfase** med den nærmeste: topp møter bunn.\n\n**Svar:** du hører **utslettelse** — lyden er svak eller helt borte i dette punktet.\n\n*(Poeng: riktig $\\Delta l$ (1), riktig forhold $\\Delta l/\\lambda$ (1), riktig klassifisering (1), begrunnelsen med motfase (1). Klassifisering uten begrunnelse gir 3 av 4.)*\n\n**c)** Doblet frekvens gir halvert bølgelengde:\n\n$$\\lambda' = \\frac{340\\ \\text{m/s}}{1000\\ \\text{Hz}} = 0{,}34\\ \\text{m} \\quad\\Longrightarrow\\quad \\frac{\\Delta l}{\\lambda'} = \\frac{1{,}02}{0{,}34} = 3{,}0$$\n\nNå er ganglengdeforskjellen et **helt** antall bølgelengder, så bølgene kommer inn i takt.\n\n**Svar:** du hører **forsterkning**.\n\n**Merk hva som endret seg:** ganglengdeforskjellen er nøyaktig den samme — du har ikke flyttet deg. Det er forholdet $\\Delta l/\\lambda$ som avgjør, og bølgelengden er halvert.\n\n*(Poeng: ny bølgelengde (2), nytt forhold og riktig klassifisering med kommentaren om at $\\Delta l$ er uendret (2).)*",
+            "hints": [
+              "Snu $v = f\\lambda$ for å finne bølgelengden.",
+              "Regn ut ganglengdeforskjellen og del på bølgelengden.",
+              "Helt tall gir forsterkning, helt tall pluss en halv gir utslettelse — og begrunnelsen skal med."
+            ]
+          }
+        },
+        {
+          "id": "fys1001-6-prove-oa2",
+          "type": "exercise",
+          "exercise": {
+            "id": "fys1001-6-prove-ea2",
+            "number": "2 (8 poeng)",
+            "type": "classic",
+            "difficulty": "middels",
+            "task": "En maskin gir lydintensiteten $5{,}0\\cdot10^{-4}\\ \\text{W/m}^2$ i $4{,}0\\ \\text{m}$ avstand. Høreterskelen er $I_0 = 1{,}0\\cdot10^{-12}\\ \\text{W/m}^2$.\n\n**a)** Finn lydnivået i $4{,}0\\ \\text{m}$ avstand.\n**b)** Finn lydnivået i $16\\ \\text{m}$ avstand.",
+            "solution": "**a)**\n\n$$L = 10\\log\\left(\\frac{I}{I_0}\\right) = 10\\log\\left(\\frac{5{,}0\\cdot10^{-4}}{1{,}0\\cdot10^{-12}}\\right)\\ \\text{dB} = 10\\log(5{,}0\\cdot10^{8})\\ \\text{dB} = 87\\ \\text{dB}$$\n\n**Rimelighet:** $87\\ \\text{dB}$ er nivået i en støyende verkstedhall — høyt, men under smertegrensen ✓\n\n*(Poeng: riktig formel med $I_0$ fra arket (2), riktig svar med enhet (2).)*\n\n**b)** Avstanden firedobles, og intensiteten avtar som $1/r^2$:\n\n$$\\frac{I'}{I} = \\frac{1}{4^2} = \\frac{1}{16}$$\n\n$$\\Delta L = 10\\log\\left(\\frac{1}{16}\\right)\\ \\text{dB} = -12{,}0\\ \\text{dB} \\quad\\Longrightarrow\\quad L' = 87\\ \\text{dB} - 12\\ \\text{dB} = 75\\ \\text{dB}$$\n\n**Kontroll ved å regne fra grunnen:** $I' = 5{,}0\\cdot10^{-4}/16 = 3{,}1\\cdot10^{-5}\\ \\text{W/m}^2$, og $10\\log(3{,}1\\cdot10^{7}) = 75\\ \\text{dB}$ ✓\n\n**Konklusjon:** nivået faller fra $87\\ \\text{dB}$ til $75\\ \\text{dB}$.\n\n*(Poeng: kvadratloven brukt riktig — firedobbel avstand gir seksten ganger mindre intensitet (2), riktig nytt nivå (2). Å halvere intensiteten i stedet for å dele på 16 er den navngitte fella her.)*",
+            "hints": [
+              "Sett inn i $L = 10\\log(I/I_0)$ med $I_0$ fra formelarket.",
+              "Intensiteten avtar som kvadratet av avstanden — firedobbel avstand gir seksten ganger mindre.",
+              "Endringen i nivå kan regnes direkte som $10\\log$ av intensitetsforholdet."
+            ]
+          }
+        },
+        {
+          "id": "fys1001-6-prove-oa3",
+          "type": "exercise",
+          "exercise": {
+            "id": "fys1001-6-prove-ea3",
+            "number": "3 (8 poeng)",
+            "type": "classic",
+            "difficulty": "middels",
+            "task": "En seismograf registrerer P-bølgen $22\\ \\text{s}$ før S-bølgen etter et jordskjelv. Fartene er $6{,}2\\ \\text{km/s}$ for P-bølgen og $3{,}6\\ \\text{km/s}$ for S-bølgen.\n\n**a)** Hvor langt unna var skjelvet?\n**b)** Forklar i 2–3 setninger hvorfor seismografer på motsatt side av jordkloden registrerer P-bølger men ingen S-bølger.",
+            "solution": "**a)** Begge bølgene har gått den samme strekningen $d$, men brukt ulik tid. Tidsforskjellen er\n\n$$\\frac{d}{v_S} - \\frac{d}{v_P} = \\Delta t \\quad\\Longrightarrow\\quad d = \\frac{\\Delta t}{\\dfrac{1}{v_S} - \\dfrac{1}{v_P}}$$\n\n$$\\frac{1}{3{,}6} - \\frac{1}{6{,}2} = 0{,}2778 - 0{,}1613 = 0{,}1165\\ \\text{s/km}$$\n\n$$d = \\frac{22\\ \\text{s}}{0{,}1165\\ \\text{s/km}} = 1{,}9\\cdot10^{2}\\ \\text{km}$$\n\n**Kontroll:** $t_P = 188{,}9/6{,}2 = 30{,}5\\ \\text{s}$ og $t_S = 188{,}9/3{,}6 = 52{,}5\\ \\text{s}$ — differanse $22{,}0\\ \\text{s}$ ✓\n\n*(Poeng: at begge bølgene har gått samme strekning (1), ligningen satt opp (1), riktig svar med enhet (1), kontroll (1).)*\n\n**b)** S-bølger er **transversale**: partiklene svinger på tvers av utbredelsesretningen, og det krever at mediet kan motstå **skjærkrefter**. Jordas ytre kjerne er flytende og kan ikke det, så S-bølgene stanser der.\n\nP-bølger er **longitudinale** — de består av fortetninger og fortynninger, og den motstanden finnes også i væsker. Derfor kommer P-bølgene helt fram.\n\n**Konklusjon:** området uten S-bølger kalles S-bølgeskyggen, og den er hovedbeviset for at jordas ytre kjerne er flytende.\n\n*(Poeng: skillet transversal/longitudinal med riktig tilordning (2), skjærkraft-argumentet og konklusjonen om flytende kjerne (2).)*",
+            "hints": [
+              "Begge bølgene har gått samme strekning; sett opp tidene hver for seg og ta differansen.",
+              "Faktoriser ut $d$ og hold km og s konsekvent.",
+              "I b): hvilken type bølge krever at mediet motstår skjærkrefter?"
+            ]
+          }
+        },
+        {
+          "id": "fys1001-6-prove-pa-flervalg",
+          "type": "text",
+          "content": "### Flervalgsdel til 6.A (treningsform, ikke eksamensform)\n\nFire raske kontrollspørsmål. Velg ett svar på hvert. **Merk:** FYS1001s slutteksamen har aldri flervalg — dette er en treningsform for å sjekke begrepene raskt.\n\n**1)** En tone går fra luft til vann. Hva er uendret?\na) bølgelengden\nb) bølgefarten\nc) frekvensen\nd) intensiteten\n\n**2)** Avstanden til en punktkilde tredobles. Intensiteten blir\na) ni ganger mindre\nb) tre ganger mindre\nc) uendret\nd) tre ganger større\n\n**3)** Hvilken av disse er en longitudinal bølge?\na) lys\nb) en bølge på en gitarstreng\nc) en S-bølge fra et jordskjelv\nd) lyd i luft\n\n**4)** En streng festet i begge ender har lengden $L$. Grunntonens bølgelengde er\na) $L/2$\nb) $2L$\nc) $L$\nd) $4L$\n\n**Fasit:** 1 c) — frekvensen bestemmes av kilden; farten bestemmes av mediet, og da må bølgelengden endres. · 2 a) — intensiteten går som $1/r^2$, og $1/3^2 = 1/9$. · 3 d) — lyd er longitudinal; lys og S-bølger er transversale, og en strengbølge er også transversal. · 4 b) — endene må være knutepunkter, så strengen er en halv bølgelengde: $\\lambda_1 = 2L$."
+        },
+        {
+          "id": "fys1001-6-prove-pa-selvdiagnose",
+          "type": "text",
+          "content": "### Selvdiagnose etter 6.A\n\n☐ Jeg fant bølgelengden først, før jeg gjorde noe annet i interferensoppgaven.\n\n☐ Jeg regnet ut forholdet $\\Delta l/\\lambda$ og **begrunnet** klassifiseringen med motfase eller medfase.\n\n☐ Jeg brukte kvadratloven riktig: firedobbel avstand gir seksten ganger mindre intensitet.\n\n☐ Jeg satte opp P/S-ligningen selv, uten å lete etter en ferdig formel.\n\n☐ Jeg koblet S-bølgeskyggen til skjærkrefter og flytende kjerne.\n\n☐ Alle svar har enhet og to–tre gjeldende siffer.\n\n**Under 20 av 28 poeng:** les [kap. 6.1](/bok/fys1001/fys1001-6-1) på nytt, med særlig vekt på Løkke 3 (interferens) og Løkke 4 (intensitet og desibel)."
+        }
+      ]
+    },
+    {
+      "id": "fys1001-6-prove-prove2",
+      "type": "collapsible",
+      "title": "Prøve 2 (6.B): Brytning og totalrefleksjon",
+      "buttonText": "Vis prøve 2",
+      "content": [
+        {
+          "id": "fys1001-6-prove-pb-intro",
+          "type": "text",
+          "content": "### Prøve 6.B — Brytning og totalrefleksjon (30 min, 28 poeng)\n\nTre oppgaver med til sammen sju deloppgaver à 4 poeng. Sjanger N, med symmetriargumentet i oppgave 2 og en kvalitativ hale i oppgave 3."
+        },
+        {
+          "id": "fys1001-6-prove-ob1",
+          "type": "exercise",
+          "exercise": {
+            "id": "fys1001-6-prove-eb1",
+            "number": "1 (12 poeng)",
+            "type": "classic",
+            "difficulty": "middels",
+            "task": "En lysstråle går fra luft ned i en ukjent væske. Innfallsvinkelen er $48^\\circ$ og brytningsvinkelen $32^\\circ$, begge målt mot normalen.\n\n**a)** Finn væskens brytningsindeks.\n**b)** Finn lysfarten i væsken.\n**c)** Finn grensevinkelen for lys som går fra væsken opp mot luft.",
+            "solution": "**a)** Snells lov med luft som medium 1 ($n_1 = 1{,}00$):\n\n$$n_1\\sin\\theta_1 = n_2\\sin\\theta_2 \\quad\\Longrightarrow\\quad n_2 = \\frac{\\sin 48^\\circ}{\\sin 32^\\circ} = \\frac{0{,}7431}{0{,}5299} = 1{,}40$$\n\n**Rimelighet:** en verdi mellom vann ($1{,}33$) og glass ($1{,}52$) — plausibelt for en organisk væske ✓\n\n*(Poeng: Snells lov satt opp med vinkler mot normalen (2), riktig indeks (2). Brytningsindeksen er dimensjonsløs — enhet på svaret er feil her.)*\n\n**b)**\n\n$$c = \\frac{c_0}{n} = \\frac{3{,}00\\cdot10^{8}\\ \\text{m/s}}{1{,}40} = 2{,}14\\cdot10^{8}\\ \\text{m/s}$$\n\n*(Poeng: riktig formel (2), riktig svar med enhet (2).)*\n\n**c)** Nå går lyset fra tett ($1{,}40$) mot tynt ($1{,}00$), så vilkåret for totalrefleksjon er oppfylt. Sett $\\theta_2 = 90^\\circ$:\n\n$$\\sin\\theta_c = \\frac{n_2}{n_1} = \\frac{1{,}00}{1{,}40} = 0{,}713 \\quad\\Longrightarrow\\quad \\theta_c = 45^\\circ$$\n\n**Vilkåret skrevet ut:** grensevinkelen finnes bare fordi lyset går fra det tette til det tynne mediet. Den motsatte veien ville gitt $\\sin\\theta_c = 1{,}40 > 1$, som ingen vinkel oppfyller — da er totalrefleksjon fysisk umulig.\n\n**Konklusjon:** grensevinkelen er $45^\\circ$; treffer lyset overflaten fra innsiden med større vinkel, kommer ingenting ut.\n\n*(Poeng: riktig oppsett med $\\theta_2 = 90^\\circ$ (1), riktig svar (1), vilkåret om tett mot tynt skrevet ut (2).)*",
+            "hints": [
+              "Snells lov kan løses for brytningsindeksen når begge vinkler er kjent.",
+              "Lysfarten i et medium er $c_0/n$.",
+              "I c): sett brytningsvinkelen til $90^\\circ$ — og skriv ut hvilken vei lyset må gå."
+            ]
+          }
+        },
+        {
+          "id": "fys1001-6-prove-ob2",
+          "type": "exercise",
+          "exercise": {
+            "id": "fys1001-6-prove-eb2",
+            "number": "2 (8 poeng)",
+            "type": "classic",
+            "difficulty": "vanskelig",
+            "task": "En lysstråle treffer en glasskule med $n = 1{,}60$ under $55^\\circ$ mot normalen i innfallspunktet.\n\n**a)** Finn vinkelen strålen har mot normalen inne i kula.\n**b)** Vis — ikke bare påstå — at strålen går ut med $55^\\circ$ mot normalen, og finn den samlede avbøyningen.",
+            "solution": "**a)** Snells lov i innfallspunktet $A$:\n\n$$\\sin\\theta_2 = \\frac{1{,}00\\cdot\\sin55^\\circ}{1{,}60} = \\frac{0{,}8191}{1{,}60} = 0{,}5120 \\quad\\Longrightarrow\\quad \\theta_2 = 30{,}8^\\circ$$\n\n*(Poeng: Snells lov satt opp (2), riktig vinkel (2).)*\n\n**b) Symmetriargumentet, ledd for ledd** (se fasitfiguren under prøven):\n\n1. Normalen i et punkt på en kuleflate ligger langs **radien**, altså mot sentrum $O$. Kall utgangspunktet $C$; da er $OA$ normalen i $A$ og $OC$ normalen i $C$.\n2. Trekanten $OAC$ har $OA = OC = R$, siden begge er radier i samme kule. Trekanten er derfor **likebeint**.\n3. I en likebeint trekant er grunnvinklene like. Grunnvinkelen ved $A$ er vinkelen mellom strålen inne i kula (linja $AC$) og normalen $OA$, altså $30{,}8^\\circ$. Grunnvinkelen ved $C$ er vinkelen mellom samme linje og normalen $OC$. Disse er derfor **like**: strålen treffer utflaten innenfra med $30{,}8^\\circ$ mot normalen.\n4. Snells lov i $C$, nå fra glass ut i luft:\n\n$$1{,}60\\cdot\\sin30{,}8^\\circ = 1{,}00\\cdot\\sin\\theta_{\\text{ut}} \\quad\\Longrightarrow\\quad \\sin\\theta_{\\text{ut}} = 1{,}60\\cdot0{,}5120 = 0{,}8191$$\n\n$$\\theta_{\\text{ut}} = 55^\\circ$$\n\nAltså lik innfallsvinkelen — nå vist.\n\n**Avbøyningen:** ved hver flate dreies strålen $\\theta_1 - \\theta_2 = 55^\\circ - 30{,}8^\\circ = 24{,}2^\\circ$, og de to dreiningene går samme vei:\n\n$$\\delta = 2(\\theta_1 - \\theta_2) = 48^\\circ$$\n\n**Konklusjon:** utvinkelen er $55^\\circ$ og den samlede avbøyningen $48^\\circ$.\n\n*(Poeng: leddene om normalen langs radien og likebeint trekant (2), Snells lov brukt ved utflaten (1), avbøyningen (1). Å skrive «av symmetri er utvinkelen lik innvinkelen» uten leddene gir 1 av 4 — det er nettopp dette løsningsforslagene fanger.)*",
+            "hints": [
+              "Bruk Snells lov ved innfallspunktet først.",
+              "Hvor peker normalen i et punkt på en kuleflate?",
+              "Se på trekanten mellom sentrum og de to flatepunktene — hva vet du om sidene?"
+            ]
+          }
+        },
+        {
+          "id": "fys1001-6-prove-ob3",
+          "type": "exercise",
+          "exercise": {
+            "id": "fys1001-6-prove-eb3",
+            "number": "3 (8 poeng)",
+            "type": "classic",
+            "difficulty": "middels",
+            "task": "Hvitt lys treffer en glassflate under $50^\\circ$ mot normalen. Brytningsindeksen er $1{,}472$ for blått og $1{,}462$ for rødt lys.\n\n**a)** Finn brytningsvinkelen for hver farge, og vinkelen mellom de to strålene inne i glasset.\n**b)** Forklar i 2–4 setninger hvorfor et gitter og en regndråpe splitter hvitt lys i farger av to helt ulike grunner.",
+            "solution": "**a)** Blått lys:\n\n$$\\sin\\theta_{\\text{blå}} = \\frac{\\sin50^\\circ}{1{,}472} = \\frac{0{,}7660}{1{,}472} = 0{,}5204 \\quad\\Longrightarrow\\quad \\theta_{\\text{blå}} = 31{,}36^\\circ$$\n\nRødt lys:\n\n$$\\sin\\theta_{\\text{rød}} = \\frac{0{,}7660}{1{,}462} = 0{,}5240 \\quad\\Longrightarrow\\quad \\theta_{\\text{rød}} = 31{,}60^\\circ$$\n\n$$\\Delta\\theta = 31{,}60^\\circ - 31{,}36^\\circ = 0{,}24^\\circ$$\n\n**Merk:** her må du beholde flere siffer underveis. Runder du begge vinklene til $31^\\circ$, forsvinner hele svaret. Blått brytes mest, altså får minst vinkel mot normalen.\n\n*(Poeng: begge vinkler regnet med nok siffer (2), differansen (1), at blått brytes mest (1).)*\n\n**b)** I et **gitter** er mekanismen **interferens**. De forsterkede retningene er gitt av $d\\sin\\theta = n\\lambda$, og fordi bølgelengden står i betingelsen, får hver farge sin egen vinkel. Ingenting brytes — det er bidragene fra mange spalter som legger seg sammen i bestemte retninger.\n\nI en **regndråpe** er mekanismen **dispersjon**, altså at brytningsindeksen avhenger av bølgelengden. Fargene brytes ulikt mye når lyset går inn i og ut av dråpen, og det er denne brytningsforskjellen som sprer dem.\n\n**Konklusjon:** samme synlige resultat, to ulike mekanismer — interferens i gitteret, brytning i dråpen. Å kalle gitterets fargespredning for brytning er en av de navngitte feilene i sjangeren.\n\n*(Poeng: gitteret som interferens med betingelsen nevnt (2), dråpen som dispersjon/brytning (2).)*",
+            "hints": [
+              "Bruk Snells lov to ganger, med hver sin brytningsindeks.",
+              "Behold flere siffer enn vanlig — du skal finne en liten differanse.",
+              "I b): hvilken størrelse står i gitterbetingelsen, og hva er det som varierer i dråpen?"
+            ]
+          }
+        },
+        {
+          "id": "fys1001-6-prove-fig-glasskule",
+          "type": "image",
+          "src": "/images/textbook/fys1001/fys1001-6-prove-glasskule.svg",
+          "alt": "En glasskule med sentrum O. En lysstråle kommer inn i punktet A på venstre side med 55 grader mot normalen, går rett gjennom kula til punktet C på høyre side og går ut med 55 grader. Radiene OA og OC er tegnet stiplet som normaler, og de indre vinklene på 30,8 grader er markert i begge punkter.",
+          "caption": "Fasitfigur til oppgave 2: trekanten $OAC$ er likebeint fordi $OA = OC = R$, så de indre vinklene i $A$ og $C$ er like — og da gir Snells lov samme utvinkel som innvinkel."
+        },
+        {
+          "id": "fys1001-6-prove-pb-selvdiagnose",
+          "type": "text",
+          "content": "### Selvdiagnose etter 6.B\n\n☐ Jeg målte alle vinkler mot normalen, ikke mot flaten.\n\n☐ Jeg gjorde rimelighetssjekken: mot tettere medium gir mindre vinkel.\n\n☐ Jeg skrev ut **vilkåret** for at det finnes en grensevinkel (tett mot tynt).\n\n☐ Jeg begrunnet symmetrien i glasskula med at trekanten er likebeint fordi sidene er radier — ikke bare med ordet «symmetri».\n\n☐ Jeg beholdt nok siffer i dispersjonsoppgaven til at differansen ble meningsfull.\n\n☐ Jeg holdt interferens (gitter) og dispersjon (regnbue) fra hverandre.\n\n**Under 20 av 28 poeng:** les [kap. 6.2](/bok/fys1001/fys1001-6-2) på nytt, med særlig vekt på Løkke 2 (totalrefleksjon) og Løkke 3 (symmetriargumentet)."
+        }
+      ]
+    },
+    {
+      "id": "fys1001-6-prove-prove3",
+      "type": "collapsible",
+      "title": "Prøve 3 (6.C): Linser",
+      "buttonText": "Vis prøve 3",
+      "content": [
+        {
+          "id": "fys1001-6-prove-pc-intro",
+          "type": "text",
+          "content": "### Prøve 6.C — Linser (35 min, 32 poeng)\n\nTre oppgaver med til sammen åtte deloppgaver à 4 poeng. Sjanger N, med krav om strålekonstruksjon i oppgave 1 og øye/brille-kontekst i oppgave 2."
+        },
+        {
+          "id": "fys1001-6-prove-oc1",
+          "type": "exercise",
+          "exercise": {
+            "id": "fys1001-6-prove-ec1",
+            "number": "1 (12 poeng)",
+            "type": "classic",
+            "difficulty": "middels",
+            "task": "En samlelinse har brennvidde $f = 20\\ \\text{cm}$. Et objekt står $30\\ \\text{cm}$ foran linsa.\n\n**a)** Finn bildeavstanden og forstørrelsen.\n**b)** Tegn strålekonstruksjonen og avgjør om bildet er reelt eller virtuelt, rettvendt eller omvendt. Kontroller at konstruksjonen stemmer med regningen.\n**c)** Objektet flyttes til $15\\ \\text{cm}$ fra linsa. Finn ny bildeavstand og forstørrelse, og forklar hva som har endret seg.",
+            "solution": "**a)** Linseformelen løst for $b$:\n\n$$\\frac{1}{b} = \\frac{1}{f} - \\frac{1}{a} = \\frac{1}{20} - \\frac{1}{30} = \\frac{3}{60} - \\frac{2}{60} = \\frac{1}{60} \\quad\\Longrightarrow\\quad b = 60\\ \\text{cm}$$\n\n$$m = \\frac{b}{a} = \\frac{60\\ \\text{cm}}{30\\ \\text{cm}} = 2{,}0$$\n\n*(Poeng: riktig oppsett med fellesnevner (2), riktig $b$ og $m$ (2). Å svare $1/b$ i stedet for $b$ gir 2 av 4.)*\n\n**b)** Konstruksjonen er tegnet i fasitfiguren under prøven. To stråler er nok: parallellstrålen som knekker gjennom brennpunktet på baksiden, og senterstrålen som går rett gjennom linsemidten.\n\nStrålene møtes på **motsatt** side av linsa, $60\\ \\text{cm}$ ut, og bildet står **omvendt** og er dobbelt så høyt som objektet.\n\n**Kontroll mot regningen:** $b = 60\\ \\text{cm} > 0$, altså reelt bilde på motsatt side ✓ Objektet står mellom $f = 20\\ \\text{cm}$ og $2f = 40\\ \\text{cm}$, og regelen sier da at bildet skal være reelt, omvendt og forstørret ✓ $m = 2{,}0 > 1$ bekrefter forstørrelsen ✓\n\n**Svar:** bildet er reelt, omvendt og dobbelt så stort.\n\n*(Poeng: konstruksjon med minst to riktige standardstråler (2), riktig bildetype (1), eksplisitt kontroll mot regningen (1). Løsningsforslagene sammenligner de to — en konstruksjon som motsier regningen trekker selv om tallet er riktig.)*\n\n**c)** Nå er $a = 15\\ \\text{cm} < f = 20\\ \\text{cm}$:\n\n$$\\frac{1}{b} = \\frac{1}{20} - \\frac{1}{15} = \\frac{3}{60} - \\frac{4}{60} = -\\frac{1}{60} \\quad\\Longrightarrow\\quad b = -60\\ \\text{cm}$$\n\n$$m = \\frac{-60}{15} = -4{,}0$$\n\n**Hva har endret seg:** objektet er flyttet **innenfor** brennvidden, og da blir $1/f - 1/a$ negativ. Bildet ligger nå på samme side som objektet, er **virtuelt**, **rettvendt** og fire ganger forstørret. Dette er lupetilfellet.\n\n**Konklusjon:** samme linse, men flyttingen fra $30\\ \\text{cm}$ til $15\\ \\text{cm}$ har gjort bildet fra reelt og omvendt til virtuelt og rettvendt. Grensen ligger nøyaktig i brennpunktet.\n\n*(Poeng: riktig $b$ med fortegn (2), riktig $m$ og tolkning som virtuelt og rettvendt (1), forklaringen om at objektet nå er innenfor brennvidden (1).)*",
+            "hints": [
+              "Skriv $1/b = 1/f - 1/a$, finn fellesnevner, og husk å snu til slutt.",
+              "Til konstruksjonen: parallellstrålen gjennom brennpunktet på baksiden, og senterstrålen rett gjennom midten.",
+              "I c): sammenlign objektavstanden med brennvidden før du regner."
+            ]
+          }
+        },
+        {
+          "id": "fys1001-6-prove-oc2",
+          "type": "exercise",
+          "exercise": {
+            "id": "fys1001-6-prove-ec2",
+            "number": "2 (12 poeng)",
+            "type": "classic",
+            "difficulty": "middels",
+            "task": "**a)** En person har nærpunkt $80\\ \\text{cm}$ og vil kunne lese på $30\\ \\text{cm}$ avstand. Finn linsestyrken lesebrillene må ha.\n\n**b)** En annen person er nærsynt med fjernpunkt $1{,}5\\ \\text{m}$ og vil se skarpt på fjerne objekter. Finn linsestyrken.\n\n**c)** Personen i b) får i tillegg et lesetillegg på $+2{,}5\\ \\text{dpt}$ i nedre del av glasset. Finn den samlede styrken i lesefeltet.",
+            "solution": "**a)** Brillen skal lage et **virtuelt** bilde av teksten i personens nærpunkt, $80\\ \\text{cm}$ borte, slik at øyet kan fokusere på det. Med avstandene i **meter**: $a = 0{,}30\\ \\text{m}$ og $b = -0{,}80\\ \\text{m}$ (negativ, fordi bildet er virtuelt og ligger på samme side som teksten):\n\n$$\\frac{1}{f} = \\frac{1}{a} + \\frac{1}{b} = \\frac{1}{0{,}30} + \\frac{1}{-0{,}80} = 3{,}333 - 1{,}250 = 2{,}08\\ \\text{m}^{-1}$$\n\n$$D = +2{,}1\\ \\text{dpt} \\qquad (f = 0{,}48\\ \\text{m})$$\n\n**Rimelighet:** langsynthet krever positiv styrke ✓ og rundt $+2$ dpt er en helt vanlig lesebrillestyrke ✓\n\n*(Poeng: at bildet må være virtuelt i nærpunktet, med negativ $b$ (2), riktig styrke med enhet (2). Å glemme minustegnet gir $+4{,}6$ dpt og 1 av 4.)*\n\n**b)** Brillen skal lage et virtuelt bilde av et fjernt objekt i personens fjernpunkt. Fjernt objekt gir $1/a \\approx 0$, og $b = -1{,}5\\ \\text{m}$:\n\n$$\\frac{1}{f} = 0 + \\frac{1}{-1{,}5} = -0{,}667\\ \\text{m}^{-1} \\quad\\Longrightarrow\\quad D = -0{,}67\\ \\text{dpt}$$\n\n**Rimelighet:** nærsynthet krever negativ styrke, altså spredelinse ✓\n\n*(Poeng: $1/a \\approx 0$ for fjernt objekt (2), riktig negativ styrke (2).)*\n\n**c)** Styrker i dioptrier legges sammen når linsene sitter tett:\n\n$$D_{\\text{lese}} = -0{,}67\\ \\text{dpt} + 2{,}5\\ \\text{dpt} = +1{,}8\\ \\text{dpt}$$\n\n**Konklusjon:** avstandsfeltet er $-0{,}67$ dpt og lesefeltet $+1{,}8$ dpt. Det er slik progressive glass virker: samme glass har ulik styrke i ulike soner.\n\n*(Poeng: at styrker summeres, ikke brennvidder (2), riktig svar med enhet (2).)*",
+            "hints": [
+              "Gjør alle avstander om til meter før du regner ut dioptrier.",
+              "Brillen skal lage et virtuelt bilde der øyet klarer å fokusere — det gir negativ $b$.",
+              "Et fjernt objekt gir $1/a \\approx 0$ i linseformelen."
+            ]
+          }
+        },
+        {
+          "id": "fys1001-6-prove-oc3",
+          "type": "exercise",
+          "exercise": {
+            "id": "fys1001-6-prove-ec3",
+            "number": "3 (8 poeng)",
+            "type": "classic",
+            "difficulty": "vanskelig",
+            "task": "En spredelinse har brennvidde $f = -25\\ \\text{cm}$. Et objekt står $40\\ \\text{cm}$ foran linsa.\n\n**a)** Finn bildeavstanden og forstørrelsen.\n**b)** Vis at en spredelinse alltid gir $|m| < 1$, uansett hvor objektet står. Skriv ut forutsetningen argumentet hviler på.",
+            "solution": "**a)** Husk at $f$ er negativ:\n\n$$\\frac{1}{b} = \\frac{1}{-25} - \\frac{1}{40} = -\\frac{8}{200} - \\frac{5}{200} = -\\frac{13}{200} \\quad\\Longrightarrow\\quad b = -\\frac{200}{13}\\ \\text{cm} = -15{,}4\\ \\text{cm}$$\n\n$$m = \\frac{b}{a} = \\frac{-15{,}4}{40} = -0{,}385$$\n\nBildet er virtuelt ($b < 0$), rettvendt ($m < 0$) og forminsket til rundt $39\\ \\%$ av objektets størrelse.\n\n*(Poeng: negativ $f$ satt inn riktig (2), riktig $b$ og $m$ med tolkning (2).)*\n\n**b)** Med $f < 0$ og $a > 0$ er\n\n$$\\frac{1}{b} = \\frac{1}{f} - \\frac{1}{a}$$\n\nBegge leddene på høyre side er negative, så $1/b < 0$ og dermed $b < 0$: bildet er alltid virtuelt.\n\nFor størrelsen tar vi tallverdiene:\n\n$$\\left|\\frac{1}{b}\\right| = \\frac{1}{|f|} + \\frac{1}{a} > \\frac{1}{a} \\quad\\Longrightarrow\\quad |b| < a \\quad\\Longrightarrow\\quad |m| = \\frac{|b|}{a} < 1$$\n\n**Forutsetningen argumentet hviler på:** at $a > 0$ (et virkelig objekt foran linsa) og $f < 0$ (spredelinse). Under disse to forutsetningene gjelder påstanden **ubetinget** — for alle objektavstander.\n\n**Konklusjon:** en spredelinse gir alltid virtuelt, rettvendt og forminsket bilde. Det er derfor et brilleglass for nærsynthet gjør at øynene dine ser litt mindre ut sett utenfra.\n\n*(Poeng: at begge ledd er negative så $b < 0$ (2), ulikheten for $|b|$ og konklusjonen om $|m| < 1$ (1), forutsetningene skrevet ut (1).)*",
+            "hints": [
+              "Sett inn $f$ med negativt fortegn og finn fellesnevner.",
+              "I b): se på fortegnet til hvert av de to leddene i $1/f - 1/a$.",
+              "Sammenlign $|1/b|$ med $1/a$ — hvilken er størst, og hva betyr det for $|b|$?"
+            ]
+          }
+        },
+        {
+          "id": "fys1001-6-prove-fig-konstruksjon",
+          "type": "image",
+          "src": "/images/textbook/fys1001/fys1001-6-prove-konstruksjon.svg",
+          "alt": "En samlelinse på en optisk akse med brennpunktene F og F prime og punktene 2F markert. Et objekt står som en oransje pil 30 cm til venstre. En blå parallellstråle og en lilla senterstråle møtes 60 cm til høyre, der et dobbelt så stort omvendt bilde er tegnet. Avstandene a lik 30 cm og b lik 60 cm er målsatt under aksen.",
+          "caption": "Fasitfigur til oppgave 1 b): konstruksjonen for $f = 20\\ \\text{cm}$ og $a = 30\\ \\text{cm}$. Bildet blir reelt, omvendt og dobbelt så stort — i samsvar med regningen."
+        },
+        {
+          "id": "fys1001-6-prove-pc-selvdiagnose",
+          "type": "text",
+          "content": "### Selvdiagnose etter 6.C\n\n☐ Jeg snudde brøken til slutt og svarte $b$, ikke $1/b$.\n\n☐ Jeg tegnet konstruksjonen og sammenlignet den eksplisitt med regningen.\n\n☐ Jeg tolket negativ $b$ som virtuelt bilde på samme side, ikke som en regnefeil.\n\n☐ Jeg gjorde alle avstander om til meter før jeg regnet dioptrier.\n\n☐ Jeg husket at brillen skal lage et virtuelt bilde der øyet klarer å fokusere, altså negativ $b$.\n\n☐ Jeg la sammen styrker i dioptrier, ikke brennvidder.\n\n☐ Alle avstander har enhet, og jeg skrev om bildet er rettvendt eller omvendt.\n\n**Under 22 av 32 poeng:** les [kap. 6.3](/bok/fys1001/fys1001-6-3) på nytt, med særlig vekt på Løkke 1 (fortegnskonvensjonen) og Løkke 3 (dioptrier og briller)."
+        }
+      ]
+    },
+    {
+      "id": "fys1001-6-prove-prove4",
+      "type": "collapsible",
+      "title": "Prøve 4 (6.D): Kombinert bølge- og optikkprøve (eksamensnivå)",
+      "buttonText": "Vis prøve 4",
+      "content": [
+        {
+          "id": "fys1001-6-prove-pd-intro",
+          "type": "text",
+          "content": "### Prøve 6.D — Kombinert bølge- og optikkprøve (45 min, 44 poeng)\n\nFire oppgaver med til sammen elleve deloppgaver à 4 poeng, bundet sammen av én ramme: **en seismisk undersøkelse på en anleggsplass**, der det både måles jordskjelvbølger, støy og brukes et optisk instrument. Rundt en fjerdedel av poengene er kvalitative — omtrent som på eksamen.\n\n**Merk:** Del 6 er ikke pensum til midtsemestereksamenen. Denne prøven simulerer en bølge- og optikkoppgave på **slutteksamen**, i den rammefortellingsformen som ble brukt i V2024."
+        },
+        {
+          "id": "fys1001-6-prove-od1",
+          "type": "exercise",
+          "exercise": {
+            "id": "fys1001-6-prove-ed1",
+            "number": "1 (12 poeng)",
+            "type": "classic",
+            "difficulty": "middels",
+            "task": "På anleggsplassen står en seismograf. Under bakken ligger et sedimentlag der seismiske bølger går med $v_1 = 2{,}8\\ \\text{km/s}$, over et grunnfjell der farten er $v_2 = 4{,}6\\ \\text{km/s}$.\n\n**a)** Etter et fjernt jordskjelv registreres P-bølgen $9{,}5\\ \\text{s}$ før S-bølgen. Fartene på strekningen er $5{,}8\\ \\text{km/s}$ for P og $3{,}4\\ \\text{km/s}$ for S. Hvor langt unna var skjelvet?\n**b)** En bølge treffer laggrensen mellom sediment og grunnfjell under $32^\\circ$ mot normalen. Tegn strålegangen og finn brytningsvinkelen.\n**c)** Finn den innfallsvinkelen der brytningsvinkelen blir $90^\\circ$, og forklar hva som skjer ved større innfallsvinkler.",
+            "solution": "**a)** Begge bølgene har gått strekningen $d$:\n\n$$d = \\frac{\\Delta t}{\\dfrac{1}{v_S} - \\dfrac{1}{v_P}} = \\frac{9{,}5\\ \\text{s}}{\\dfrac{1}{3{,}4} - \\dfrac{1}{5{,}8}}$$\n\n$$\\frac{1}{3{,}4} - \\frac{1}{5{,}8} = 0{,}2941 - 0{,}1724 = 0{,}1217\\ \\text{s/km} \\quad\\Longrightarrow\\quad d = 78\\ \\text{km}$$\n\n**Kontroll:** $t_P = 78{,}1/5{,}8 = 13{,}5\\ \\text{s}$, $t_S = 78{,}1/3{,}4 = 23{,}0\\ \\text{s}$, differanse $9{,}5\\ \\text{s}$ ✓\n\n*(Poeng: at strekningen er felles (1), ligningen (1), riktig svar med enhet (1), kontroll (1).)*\n\n**b)** Se fasitfiguren under prøven: strålen kommer skrått ned gjennom sedimentlaget, treffer den vannrette laggrensen, og fortsetter med **større** vinkel i grunnfjellet — fordi farten der er høyere.\n\nSnells lov i fartsform:\n\n$$\\frac{\\sin\\alpha_2}{\\sin\\alpha_1} = \\frac{v_2}{v_1} \\quad\\Longrightarrow\\quad \\sin\\alpha_2 = \\sin32^\\circ\\cdot\\frac{4{,}6}{2{,}8} = 0{,}5299\\cdot1{,}643 = 0{,}871$$\n\n$$\\alpha_2 = 61^\\circ$$\n\n**Rimelighetssjekk:** høyere fart i det nedre laget skal gi større vinkel, og $61^\\circ > 32^\\circ$ ✓\n\n*(Poeng: figur med normalen og begge vinkler markert mot normalen (2), riktig brytningsvinkel med rimelighetssjekk (2). Å bruke fartsforholdet direkte på vinklene — $32\\cdot1{,}64 = 53^\\circ$ — er den navngitte fella her.)*\n\n**c)** Sett $\\alpha_2 = 90^\\circ$, altså $\\sin\\alpha_2 = 1$:\n\n$$1 = \\sin\\alpha_c\\cdot\\frac{v_2}{v_1} \\quad\\Longrightarrow\\quad \\sin\\alpha_c = \\frac{v_1}{v_2} = \\frac{2{,}8}{4{,}6} = 0{,}609 \\quad\\Longrightarrow\\quad \\alpha_c = 37^\\circ$$\n\nVed innfallsvinkler **over** $37^\\circ$ går bølgen ikke ned i grunnfjellet i det hele tatt: den løper langs grenseflaten eller reflekteres tilbake opp i sedimentlaget. Det er nettopp bølger som løper langs grensen og kommer opp igjen, som brukes til å bestemme **dybden** til laggrensen — grunnprinsippet i refraksjonsseismikk.\n\n**Betingelsen som skal skrives ut:** en slik grensevinkel finnes bare fordi farten er **høyere** i det nedre laget. Var det motsatt, ville $v_1/v_2 > 1$ og ligningen ha ingen løsning.\n\n*(Poeng: riktig oppsett med $\\alpha_2 = 90^\\circ$ (1), riktig svar (1), forklaring av hva som skjer over grensevinkelen (1), betingelsen $v_1 < v_2$ skrevet ut (1).)*",
+            "hints": [
+              "I a): begge bølgene har gått samme strekning — sett opp tidene hver for seg.",
+              "I b): bruk Snells lov i fartsform, og pass på at vinklene måles mot normalen.",
+              "I c): sett brytningsvinkelen til $90^\\circ$ og løs for innfallsvinkelen."
+            ]
+          }
+        },
+        {
+          "id": "fys1001-6-prove-od2",
+          "type": "exercise",
+          "exercise": {
+            "id": "fys1001-6-prove-ed2",
+            "number": "2 (8 poeng)",
+            "type": "classic",
+            "difficulty": "middels",
+            "task": "En borerigg på anleggsplassen gir lydnivået $95\\ \\text{dB}$ i $10\\ \\text{m}$ avstand. Høreterskelen er $I_0 = 1{,}0\\cdot10^{-12}\\ \\text{W/m}^2$.\n\n**a)** Finn lydintensiteten i $10\\ \\text{m}$ avstand.\n**b)** Nærmeste bolig tåler høyst $70\\ \\text{dB}$. Hvor langt fra riggen må boligen ligge? Regn riggen som en punktkilde.",
+            "solution": "**a)** Snu definisjonen av lydnivå:\n\n$$I = I_0\\cdot10^{L/10} = 1{,}0\\cdot10^{-12}\\cdot10^{9{,}5}\\ \\text{W/m}^2 = 1{,}0\\cdot10^{-12}\\cdot3{,}16\\cdot10^{9}\\ \\text{W/m}^2$$\n\n$$I = 3{,}2\\cdot10^{-3}\\ \\text{W/m}^2$$\n\n*(Poeng: riktig snuoperasjon med $10^{L/10}$ (2), riktig svar med enhet (2).)*\n\n**b)** Nivåfallet er $\\Delta L = 95 - 70 = 25\\ \\text{dB}$, som svarer til intensitetsforholdet\n\n$$\\frac{I_1}{I_2} = 10^{25/10} = 10^{2{,}5} = 316$$\n\nIntensiteten avtar som $1/r^2$, så\n\n$$\\frac{I_1}{I_2} = \\frac{r_2^2}{r_1^2} \\quad\\Longrightarrow\\quad \\frac{r_2}{r_1} = \\sqrt{316} = 17{,}8$$\n\n$$r_2 = 17{,}8\\cdot10\\ \\text{m} = 1{,}8\\cdot10^{2}\\ \\text{m}$$\n\n**Kontroll:** fra $10\\ \\text{m}$ til $178\\ \\text{m}$ er en faktor $17{,}8$ i avstand, altså $17{,}8^2 = 316$ ganger mindre intensitet, og $10\\log 316 = 25{,}0\\ \\text{dB}$ ✓\n\n**Konklusjon:** boligen må ligge minst rundt $1{,}8\\cdot10^{2}\\ \\text{m}$ fra riggen.\n\n**Merk fella:** avstanden er ikke $25/6 \\approx 4$ ganger større fordi «hver dobling gir 6 dB». Du må gå via intensitetsforholdet og deretter ta kvadratrota.\n\n*(Poeng: intensitetsforholdet fra nivåfallet (2), kvadratrota tatt riktig og svar med enhet (2). Å glemme kvadratrota gir $3{,}2\\ \\text{km}$ og 2 av 4.)*",
+            "hints": [
+              "Snu $L = 10\\log(I/I_0)$ ved å opphøye 10 i $L/10$.",
+              "Regn først ut hvor mange ganger mindre intensiteten må være.",
+              "Avstandsforholdet er kvadratrota av intensitetsforholdet, siden $I \\propto 1/r^2$."
+            ]
+          }
+        },
+        {
+          "id": "fys1001-6-prove-od3",
+          "type": "exercise",
+          "exercise": {
+            "id": "fys1001-6-prove-ed3",
+            "number": "3 (12 poeng)",
+            "type": "classic",
+            "difficulty": "middels",
+            "task": "På anleggsplassen brukes et optisk instrument som ser ned i en vannfylt sjakt gjennom et glassvindu. Vann har $n = 1{,}33$ og glasset $n = 1{,}50$.\n\n**a)** En lysstråle går fra vannet inn i glasset under $42^\\circ$ mot normalen. Finn vinkelen inne i glasset.\n**b)** Finn grensevinkelen for glass mot luft, og avgjør om strålen fra a) kommer ut av vinduet.\n**c)** Lyset samles av en linse med brennvidde $5{,}0\\ \\text{cm}$. En markering står $7{,}5\\ \\text{cm}$ fra linsa. Finn bildeavstanden og forstørrelsen, og si hvilken bildetype det er.",
+            "solution": "**a)** Snells lov ved vann–glass-grensen:\n\n$$\\sin\\theta_2 = \\frac{n_{\\text{vann}}\\sin\\theta_1}{n_{\\text{glass}}} = \\frac{1{,}33\\cdot\\sin42^\\circ}{1{,}50} = \\frac{1{,}33\\cdot0{,}6691}{1{,}50} = 0{,}5932$$\n\n$$\\theta_2 = 36^\\circ$$\n\n**Rimelighetssjekk:** glasset er tettere enn vann, så vinkelen skal bli mindre enn $42^\\circ$ ✓\n\n*(Poeng: Snells lov satt opp med riktige indekser (2), riktig vinkel med rimelighetssjekk (2).)*\n\n**b)** Grensevinkelen for glass mot luft (tett mot tynt, så vilkåret er oppfylt):\n\n$$\\sin\\theta_c = \\frac{1{,}00}{1{,}50} = 0{,}667 \\quad\\Longrightarrow\\quad \\theta_c = 42^\\circ$$\n\nStrålen treffer den ytre glassflaten innenfra med $36^\\circ$ (flatene er parallelle), og $36^\\circ < 42^\\circ$. Innfallsvinkelen er altså **under** grensevinkelen, så strålen **brytes ut** i luften — den blir ikke totalreflektert.\n\n*(Poeng: riktig grensevinkel med vilkåret nevnt (2), sammenligningen med $36^\\circ$ og riktig konklusjon (2).)*\n\n**c)**\n\n$$\\frac{1}{b} = \\frac{1}{5{,}0} - \\frac{1}{7{,}5} = \\frac{3}{15} - \\frac{2}{15} = \\frac{1}{15} \\quad\\Longrightarrow\\quad b = 15\\ \\text{cm}$$\n\n$$m = \\frac{b}{a} = \\frac{15\\ \\text{cm}}{7{,}5\\ \\text{cm}} = 2{,}0$$\n\n$b$ er positiv, så bildet ligger på motsatt side av linsa: det er **reelt** og **omvendt**, og dobbelt så stort som markeringen.\n\n**Kontroll mot regelen:** objektet står mellom $f = 5{,}0\\ \\text{cm}$ og $2f = 10\\ \\text{cm}$, og da skal bildet være reelt, omvendt og forstørret ✓ Det er derfor instrumentet kan projisere markeringen på en detektor.\n\n*(Poeng: riktig $b$ (2), riktig $m$ og bildetype med kontroll mot regelen (2).)*",
+            "hints": [
+              "I a): bruk Snells lov med brytningsindeksene til vann og glass.",
+              "I b): flatene i vinduet er parallelle, så innfallsvinkelen på ytterflaten er den samme som brytningsvinkelen på innerflaten.",
+              "I c): linseformelen, og sammenlign objektavstanden med $f$ og $2f$."
+            ]
+          }
+        },
+        {
+          "id": "fys1001-6-prove-od4",
+          "type": "exercise",
+          "exercise": {
+            "id": "fys1001-6-prove-ed4",
+            "number": "4 (12 poeng)",
+            "type": "classic",
+            "difficulty": "middels",
+            "task": "Tre kvalitative deloppgaver. Svar i 2–4 setninger hver: navngi mekanismen med fagbegrep, koble den til situasjonen, og konkluder.\n\n**a)** Forklar hvorfor seismografer på motsatt side av jorda registrerer P-bølger men ingen S-bølger, og hva det forteller om jordas indre.\n**b)** Lyset som går ned i den vannfylte sjakta, får kortere bølgelengde men uendret farge. Forklar hvorfor.\n**c)** En gjenstand som ligger på bunnen av sjakta, ser ut til å ligge høyere enn den gjør. Forklar hvorfor, og hvorfor effekten er sterkest når du ser skrått ned.",
+            "solution": "**a)** S-bølger er **transversale**: partiklene svinger på tvers av utbredelsesretningen, og det krever at mediet motstår **skjærkrefter**. Jordas ytre kjerne er flytende og kan ikke det, så S-bølgene stanser der.\n\nP-bølger er **longitudinale** — fortetninger og fortynninger — og den motstanden finnes også i væsker, så de kommer helt fram.\n\n**Konklusjon:** S-bølgeskyggen er hovedbeviset for at jordas ytre kjerne er flytende, og utstrekningen av skyggen brukes til å bestemme hvor kjernen begynner.\n\n*(Poeng: riktig skille transversal/longitudinal (2), skjærkraft-argumentet og konklusjonen om flytende kjerne (2).)*\n\n**b)** **Frekvensen** bestemmes av kilden og er uendret over grenseflaten: like mange svingninger må komme ut av flaten per sekund som det kommer inn. Farten er derimot lavere i vann, $c = c_0/n$, og fra $c = f\\lambda$ med uendret $f$ følger at bølgelengden blir kortere, $\\lambda = \\lambda_0/n$.\n\nFargen vi oppfatter, følger **frekvensen**, ikke bølgelengden — det er frekvensen øyets fotoreseptorer reagerer på.\n\n**Konklusjon:** kortere bølgelengde i vann, men samme frekvens og derfor samme farge.\n\n*(Poeng: at frekvensen bestemmes av kilden og er uendret (2), at farten og dermed bølgelengden endres, og at fargen følger frekvensen (2).)*\n\n**c)** Mekanismen er **brytning** ved vannflaten. Lys fra gjenstanden går fra vann ($n = 1{,}33$) til luft ($n = 1{,}00$), altså fra tett mot tynt medium, og knekker derfor **bort fra** normalen.\n\nØyet antar alltid at lyset har gått i rett linje, og forlenger de brutte strålene rett bakover. Skjæringspunktet ligger **høyere** enn gjenstanden faktisk er, så bunnen ser grunnere ut enn den er.\n\nEffekten er sterkest skrått fordi brytningen øker med innfallsvinkelen: rett ovenfra er vinkelen nær null og strålen knekker nesten ikke.\n\n**Konklusjon:** det er lysets vei som lurer øyet, ikke noen egenskap ved gjenstanden.\n\n*(Poeng: brytning fra tett mot tynt medium navngitt (1), at øyet forlenger strålene bakover (2), vinkelavhengigheten (1).)*",
+            "hints": [
+              "I a): hvilken bølgetype krever at mediet motstår skjærkrefter?",
+              "I b): hvilken av størrelsene frekvens og bølgelengde bestemmes av kilden?",
+              "I c): hvilken vei knekker en stråle som går fra vann til luft, og hva antar øyet om lysets vei?"
+            ]
+          }
+        },
+        {
+          "id": "fys1001-6-prove-fig-laggrense",
+          "type": "image",
+          "src": "/images/textbook/fys1001/fys1001-6-prove-laggrense.svg",
+          "alt": "En seismisk stråle kommer skrått ned gjennom et sedimentlag med farten 2,8 km per sekund, treffer en vannrett laggrense og fortsetter i grunnfjellet med farten 4,6 km per sekund og større vinkel. Normalen er tegnet som en stiplet loddrett linje, og vinklene 32 grader og 61 grader er markert mot normalen.",
+          "caption": "Fasitfigur til oppgave 1 b): strålegangen på laggrensen. Høyere fart i grunnfjellet gir større vinkel — strålen knekker bort fra normalen."
+        },
+        {
+          "id": "fys1001-6-prove-pd-selvdiagnose",
+          "type": "text",
+          "content": "### Selvdiagnose etter 6.D\n\n☐ Jeg satte opp P/S-ligningen selv og kontrollerte svaret ved å regne begge ankomsttidene.\n\n☐ Jeg brukte Snells lov i fartsform på **sinusene**, ikke på vinklene.\n\n☐ Jeg tegnet normalen og målte begge vinkler mot den.\n\n☐ Jeg skrev ut betingelsen $v_1 < v_2$ for at grensevinkelen finnes.\n\n☐ Jeg gikk via intensitetsforholdet og tok kvadratrota i avstandsoppgaven.\n\n☐ Jeg sammenlignet den indre vinkelen med grensevinkelen før jeg konkluderte om lyset kom ut.\n\n☐ De kvalitative svarene mine har tre ledd — mekanisme, kobling, konklusjon — og ingen helgardering.\n\n☐ Alle tallsvar har enhet og to–tre gjeldende siffer.\n\n**Under 31 av 44 poeng:** gå tilbake til det delkapitlet som svarer til de deloppgavene du mistet poeng på, og ta den tilhørende temaprøven (6.A, 6.B eller 6.C) på nytt før du prøver denne igjen."
+        }
+      ]
+    },
+    {
+      "id": "fys1001-6-prove-symbolliste",
+      "type": "collapsible",
+      "title": "Symbol- og formelliste",
+      "buttonText": "Vis symboler og formler",
+      "content": [
+        {
+          "id": "fys1001-6-prove-symbolliste-tekst",
+          "type": "text",
+          "content": "## Symbol- og formelliste\n\n*Oppslagsverk — alt her forklares underveis i kapitlene prøvene bygger på.*\n\nAlle symboler og formler som brukes i prøvene til Del 6. Betydningene gjelder **Del 6** og arves ikke fra tidligere deler.\n\n| Symbol | Betydning | SI-enhet |\n|---|---|---|\n| $v$ | Bølgefart i mediet | m/s (seismikk: km/s) |\n| $c_0$ | Lysfarten i vakuum, $3{,}00\\cdot10^{8}$ | m/s |\n| $c$ | Lysfarten i et medium | m/s |\n| $f$ | **Frekvens** i bølgedelen; **brennvidde** i linsedelen | Hz / m |\n| $\\lambda$ | **Bølgelengde** (her: *ikke* henfallskonstant eller varmeledningsevne) | m eller nm |\n| $\\Delta l$ | Ganglengdeforskjell | m |\n| $n$ | **Brytningsindeks** i optikkdelen; **heltall/ordenstall** i interferensbetingelsene | dimensjonsløs |\n| $I$ | **Intensitet** (her: *ikke* elektrisk strøm) | W/m² |\n| $I_0$ | Høreterskelen, $1{,}0\\cdot10^{-12}$ | W/m² |\n| $L$ | Lydnivå | desibel, dB |\n| $r$ | Avstand fra lydkilden | m |\n| $v_P$, $v_S$ | Farten til P- og S-bølger | km/s |\n| $\\Delta t$ | Tidsforskjell mellom S- og P-ankomst | s |\n| $d$ | Avstand til jordskjelvet | km |\n| $\\alpha_1$, $\\alpha_2$ | Innfalls- og brytningsvinkel i seismikk, mot normalen | grader |\n| $\\alpha_c$, $\\theta_c$ | Grensevinkel | grader |\n| $\\theta_1$, $\\theta_2$ | Innfalls- og brytningsvinkel i optikk, mot normalen | grader |\n| $\\delta$ | Samlet avbøyning | grader |\n| $a$ | Objektavstand | cm eller m |\n| $b$ | Bildeavstand. Positiv: reelt bilde motsatt side. Negativ: virtuelt, samme side | cm eller m |\n| $m$ | Forstørrelse $b/a$. Positiv: reelt og omvendt. Negativ: virtuelt og rettvendt | dimensjonsløs |\n| $D$ | Linsestyrke $1/f$ med $f$ i **meter** | dioptri, dpt |\n| $R$ | Kuleradius (glasskule) | m |\n\n**Symbolkollisjoner i disse prøvene:**\n\n- $f$ er **frekvens** i 6.A og 6.D oppgave 1–2, og **brennvidde** i 6.C og 6.D oppgave 3. Les av sammenhengen, og definer symbolet i besvarelsen.\n- $n$ er **brytningsindeks** i optikkoppgavene og et **heltall** i interferensbetingelsene.\n- $I$ er **intensitet** i W/m². I Del 5 er $I$ elektrisk strøm i ampere.\n- $\\lambda$ er **bølgelengde**. I Del 4 er $\\lambda$ varmeledningsevne, i Del 7 henfallskonstanten.\n- $R$ er **kuleradius** her. I Del 5 er $R$ resistans, i Del 1 friksjonskraften.\n- $L$ er **lydnivå** i desibel i 6.A og 6.D; i strengformlene i [kap. 6.1](/bok/fys1001/fys1001-6-1) er $L$ strenglengde.\n- $B$, $E$ og $k$ brukes ikke i Del 6.\n\n**Formler prøvene bruker:**\n\n$$v = f\\lambda$$\nBølgeformelen. *(Står på formelarket.)*\n\n$$\\Delta l = n\\lambda \\ (\\text{forsterkning}), \\qquad \\Delta l = (n+\\tfrac12)\\lambda \\ (\\text{utslettelse})$$\nInterferensbetingelsene for to kilder i fase. *(Må kunne brukes aktivt.)*\n\n$$L = 10\\log\\left(\\frac{I}{I_0}\\right) \\quad\\Longleftrightarrow\\quad I = I_0\\cdot10^{L/10}, \\qquad I \\propto \\frac{1}{r^2}$$\nLydnivå begge veier, og avstandsloven. *(Står på formelarket.)*\n\n$$d\\left(\\frac{1}{v_S} - \\frac{1}{v_P}\\right) = \\Delta t$$\nAvstanden til et jordskjelv. *(Må kunne settes opp.)*\n\n$$\\frac{\\sin\\alpha_2}{\\sin\\alpha_1} = \\frac{v_2}{v_1}, \\qquad \\sin\\alpha_c = \\frac{v_1}{v_2} \\ (v_1 < v_2)$$\nSnells lov i fartsform og grensevinkelen i seismikk. *(Fartsformen må du kunne skrive selv.)*\n\n$$n_1\\sin\\theta_1 = n_2\\sin\\theta_2, \\qquad c = \\frac{c_0}{n}, \\qquad \\sin\\theta_c = \\frac{n_2}{n_1} \\ (n_1 > n_2)$$\nSnells lov, lysfart i medium og grensevinkelen i optikk. *(Står på formelarket; vilkåret er ditt ansvar.)*\n\n$$\\theta_{\\text{ut}} = \\theta_{\\text{inn}} \\ (\\text{glasskule}), \\qquad \\delta = 2(\\theta_1 - \\theta_2)$$\nSymmetriresultatet for en kule. *(Argumentet må skrives ut — det er der uttellingen ligger.)*\n\n$$\\frac{1}{a} + \\frac{1}{b} = \\frac{1}{f}, \\qquad m = \\frac{b}{a}, \\qquad D = \\frac{1}{f}, \\qquad D = D_1 + D_2$$\nLinseformelen, forstørrelsen, linsestyrke i dioptrier og samlet styrke. *(Står på formelarket — fortegnskonvensjonen og enhetene er dine.)*"
+        }
+      ]
+    }
+  ],
+  "exercises": []
+}
