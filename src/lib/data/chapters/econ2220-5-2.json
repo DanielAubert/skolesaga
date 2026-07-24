@@ -1,0 +1,446 @@
+{
+  "id": "econ2220-5-2",
+  "courseId": "econ2220",
+  "chapterNumber": "5.2",
+  "title": "Kostnadsminimering: Lagrange uten fluktrute",
+  "description": "$\\min rK + wL$ gitt $F(K,L) = \\bar{y}$: problemet der innsetting er umulig, MTSB-tolkningen — og fellen om hva kostnadsminimering IKKE bestemmer.",
+  "estimatedMinutes": 55,
+  "competenceGoals": [
+    "kunne sette opp kostnadsminimeringsproblemet formelt og begrunne hvorfor bibetingelsen holder med likhet",
+    "kunne utlede førsteordensbetingelsen med Lagrange og forklare hvorfor innsettingsmetoden ikke er tilgjengelig",
+    "kunne tolke betingelsen mellom marginalproduktene og faktorprisene i økonomiske enheter",
+    "kunne føre utledningen hele veien fram til kostnadsfunksjonen c(y) og koble formen til skalautbyttet",
+    "kunne begrunne at kostnadsminimering ikke bestemmer produsert mengde, og at implikasjonen bare går fra profittmaksimering til kostnadsminimering"
+  ],
+  "content": [
+    {
+      "id": "econ2220-5-2-vinkel",
+      "type": "tip",
+      "title": "Eksamensvinkel",
+      "content": "Dette kapitlet er **sjanger I** — boka sitt navn på oppgavetypen «kostnadsminimering»: finn den billigste faktorbruken som gir en gitt produksjonsmengde. Kodene A–N er bokas egen etikettering av oppgavetypene og står ikke på eksamen.\n\n**Belegg:** kostnadsminimering med Lagrange er testet i 2 av de 7 ordinære settene i arkivet — som full utledning i V2025 og som påstandsoppgave i V2023 — og i 1 av de 4 utsatt-settene (V2023-utsatt, der løypa går hele veien fram til kostnadsfunksjonen). Produsentoppgaven som helhet har vært med i alle fire ordinære sett siden 2022.\n\n**Tre dokumenterte sensorkrav du bør ha i bakhodet mens du leser:**\n\n1. **Innsettingsmetoden er ikke tilgjengelig her — Lagrange må brukes.** Dette står eksplisitt i V2025-veiledningen. Bibetingelsen $F(K,L) = \\bar{y}$ kan i sin alminnelighet ikke løses ut for én av variablene og settes inn.\n2. **Førsteordensbetingelsen skal tolkes i enheter**, ikke bare skrives opp. Forholdet $F'_K/F'_L = r/w$ er en påstand om bytteforhold, og sensor vil se hva de to sidene betyr.\n3. **Kostnadsminimering bestemmer ikke hvor mye som skal produseres** — bare hvordan den gitte mengden lages billigst. Nettopp dette ble testet som påstand i V2023, og fella tas i siste løkke i kapitlet.\n\nKapitlet har høyeste prioritet. Kostnadsfunksjonen du utleder her, er inngangen til alt i [kap. 5.3](/bok/econ2220/econ2220-5-3) og [kap. 5.4](/bok/econ2220/econ2220-5-4)."
+    },
+    {
+      "id": "econ2220-5-2-forkunn",
+      "type": "text",
+      "content": "**Forkunnskaper.** Dette kapitlet bygger på:\n\n- **[kap. 5.1](/bok/econ2220/econ2220-5-1)** — produktfunksjonen $F(K,L)$, marginalproduktene $F'_K$ og $F'_L$, og isokvanten som teknologiens høydekurve.\n- **[kap. 1.3](/bok/econ2220/econ2220-1-3)** — Lagrange-metoden og innsettingsmetoden, og regelen for når hver av dem kan brukes.\n- **[kap. 2.1](/bok/econ2220/econ2220-2-1)** — konsumentens nyttemaksimering. Kostnadsminimering er speilbildet av den, og tolkningskravet er det samme.\n- Kryssbok: **[Konsumentteori: budsjettlinje, indifferenskurver og tilpasning](/bok/econ1210/econ1210-7-1)** i ECON1210-boka, hvis tangeringsfiguren sitter løst.\n\n**Sist du var her — de tre tingene du trenger med én gang:**\n\n$$F'_K = \\frac{\\partial F}{\\partial K}, \\qquad F'_L = \\frac{\\partial F}{\\partial L} \\qquad \\text{(marginalproduktene, kap. 5.1)}$$\n\n$$\\mathcal{L} = \\text{målfunksjon} + \\lambda\\,(\\text{bibetingelse skrevet som «noe} = 0\\text{»}) \\qquad \\text{(Lagrange, kap. 1.3)}$$\n\n$$F(K,L) = \\bar{y} \\qquad \\text{(isokvanten: alle faktorkombinasjoner som gir mengden } \\bar{y}\\text{)}$$\n\nNotasjonen i hele Del 5: **$r$ er prisen på kapital** (leiepris per maskintime) og **$w$ er prisen på arbeid** (lønn per time). Boka bruker aldri $\\omega$ om en faktorpris — den bokstaven er reservert for beholdninger i konsumentteorien. Arkivsettene har vært inkonsekvente her; denne boka standardiserer."
+    },
+    {
+      "id": "econ2220-5-2-anker",
+      "type": "text",
+      "content": "Et industrivaskeri på Romerike har signert en avtale: 100 tonn rent tøy i måneden til sykehusene i regionen. Mengden er bestemt av kontrakten — den kan ikke vaskeriet gjøre noe med. Det vaskeriet *kan* gjøre noe med, er hvordan de 100 tonnene blir vasket: flere maskiner og færre folk, eller færre maskiner og flere folk.\n\nDet er hele problemet i dette kapitlet. **Mengden er gitt; miksen er valgfri; kostnaden skal ned.** Legg merke til hva spørsmålet *ikke* er: det er ikke om 100 tonn er riktig mengde. Det spørsmålet hører hjemme i [kap. 5.4](/bok/econ2220/econ2220-5-4), og å blande de to er den klassiske fella i sjangeren.\n\nKapitlet går i fire løkker: problemet og hvorfor Lagrange er eneste vei (løkke 1, ~12 min), førsteordensbetingelsen og enhetstolkningen (løkke 2, ~15 min), hele veien fram til kostnadsfunksjonen (løkke 3, ~18 min), og fella om hva kostnadsminimering ikke bestemmer (løkke 4, ~10 min)."
+    },
+    {
+      "id": "econ2220-5-2-l1-h",
+      "type": "text",
+      "content": "## Løkke 1 — Problemet, isokostlinja og hvorfor innsetting ikke går (~12 min)"
+    },
+    {
+      "id": "econ2220-5-2-l1-t1",
+      "type": "text",
+      "content": "### Problemet skrevet formelt\n\nBedriften skal produsere en bestemt mengde $\\bar{y}$. Den kjøper kapital til prisen $r$ per enhet og arbeid til prisen $w$ per enhet, og begge prisene tas som gitt — bedriften er så liten i faktormarkedene at den ikke påvirker dem. Samlet kostnad ved en faktorbruk $(K,L)$ er da $rK + wL$.\n\nOppgaven er å gjøre denne summen så liten som mulig, uten å bryte produksjonskravet."
+    },
+    {
+      "id": "econ2220-5-2-def-problem",
+      "type": "definition",
+      "title": "Kostnadsminimeringsproblemet",
+      "content": "**Kostnadsminimering er problemet**\n\n$$\\min_{K,L}\\; rK + wL \\qquad \\text{gitt at} \\qquad F(K,L) = \\bar{y}$$\n\nHer er $\\bar{y}$ en **gitt** produksjonsmengde, $r$ prisen på kapital og $w$ prisen på arbeid. Løsningen er den billigste faktorkombinasjonen som klarer å produsere $\\bar{y}$.\n\n**Bibetingelsen holder med likhet.** Grunnen er at faktorene koster penger: produserer bedriften mer enn $\\bar{y}$, har den brukt mer faktorer enn nødvendig og kan spare penger ved å skjære ned. Å skrive $F(K,L) \\ge \\bar{y}$ ville altså ikke endre løsningen — vi skriver likhet fordi den uansett gjelder i optimum."
+    },
+    {
+      "id": "econ2220-5-2-def-isokost",
+      "type": "definition",
+      "title": "Isokostlinje",
+      "content": "**En isokostlinje samler alle faktorkombinasjoner som koster like mye:** $rK + wL = \\bar{c}$ for et gitt kostnadsnivå $\\bar{c}$.\n\nLøser vi for $K$, får vi\n\n$$K = \\frac{\\bar{c}}{r} - \\frac{w}{r}L,$$\n\naltså en rett linje med **helning $-w/r$** når $L$ står på den vannrette aksen og $K$ på den loddrette. Lavere kostnad gir en linje nærmere origo, med samme helning.\n\nIsokostlinja er produsentens motstykke til konsumentens budsjettlinje. Forskjellen er at budsjettlinja er en *skranke* konsumenten ikke kan bryte, mens kostnadsnivået her er det bedriften skal presse ned så langt teknologien tillater."
+    },
+    {
+      "id": "econ2220-5-2-l1-fig",
+      "type": "text",
+      "content": "**Figuren i ord (isokvant og isokost).** Sett arbeid $L$ vannrett og kapital $K$ loddrett. Tegn isokvanten $F(K,L) = \\bar{y}$ som en fallende, konveks kurve. Tegn så tre parallelle, fallende rette linjer med helning $-w/r$ — isokostlinjer for tre kostnadsnivåer, den nederste nærmest origo.\n\nDen nederste linja treffer ikke isokvanten i det hele tatt: det kostnadsnivået er for lavt til å klare $\\bar{y}$. Den øverste skjærer isokvanten i to punkter, $B$ og $D$ — begge produserer $\\bar{y}$, men begge er unødig dyre. Den midterste **tangerer** isokvanten i ett punkt, $A = (L^*, K^*)$, med stiplede hjelpelinjer ned til $L^*$ på den vannrette aksen og bort til $K^*$ på den loddrette.\n\n$A$ er løsningen: den innerste isokostlinja som fortsatt når opp til isokvanten. I tangeringspunktet er kurvens helning lik linjas helning — og nettopp den likheten er førsteordensbetingelsen vi utleder i løkke 2."
+    },
+    {
+      "id": "econ2220-5-2-l1-t2",
+      "type": "text",
+      "content": "### Hvorfor innsettingsmetoden ikke er tilgjengelig\n\nI [kap. 1.3](/bok/econ2220/econ2220-1-3) lærte du to metoder for problemer med bibetingelse. **Innsettingsmetoden** løser bibetingelsen for én variabel og setter uttrykket inn i målfunksjonen, slik at du sitter igjen med et vanlig maksimerings- eller minimeringsproblem i én variabel. **Lagrange-metoden** beholder begge variablene og innfører en multiplikator.\n\nInnsetting krever at bibetingelsen faktisk lar seg løse ut. I konsumentens problem går det greit: budsjettbetingelsen $p_1c_1 + p_2c_2 = m$ er lineær, og $c_2 = (m - p_1c_1)/p_2$ er en enkel omskriving.\n\nHer er bibetingelsen $F(K,L) = \\bar{y}$ — en generell, ikke-lineær funksjon. Skal du løse den for $K$, må du invertere $F$ med hensyn på $K$, og det finnes det ingen generell oppskrift for. **Derfor er Lagrange obligatorisk i kostnadsminimering**, og derfor sier V2025-veiledningen det eksplisitt."
+    },
+    {
+      "id": "econ2220-5-2-warn-innsetting",
+      "type": "warning",
+      "title": "Ikke prøv innsetting her",
+      "content": "Å begynne på innsettingsmetoden i en kostnadsminimeringsoppgave er en dokumentert tabbe — boka kaller den **feil #5: innsettingsmetoden brukt på kostnadsminimering, der bibetingelsen ikke kan løses ut** (feilene er samlet i et register i [kap. 0.1](/bok/econ2220/econ2220-0-1)).\n\nFor enkelte spesialtilfeller *kan* du komme i mål med innsetting — $\\sqrt{KL} = \\bar{y}$ gir tross alt $K = \\bar{y}^2/L$. Men oppgavene er skrevet for den generelle formen $F(K,L) = \\bar{y}$, og sensor vil se Lagrange-oppsettet. Skriv det, hver gang. Regelen å ta med seg fra kurset er enkel: **konsumentens budsjettbetingelse kan settes inn; produsentens produksjonskrav kan det ikke.**"
+    },
+    {
+      "id": "econ2220-5-2-oppg-1",
+      "type": "exercise",
+      "exercise": {
+        "id": "econ2220-5-2-e-1",
+        "number": "1",
+        "type": "classic",
+        "difficulty": "lett",
+        "task": "(Innstegsoppgave — sjanger I, altså kostnadsminimering: billigste faktormiks for en gitt produksjonsmengde.)\n\nEt trykkeri skal levere $\\bar{y} = 50\\,000$ ark og har produktfunksjonen $F(K,L)$. Faktorprisene er $r$ og $w$.\n\n**a)** Skriv opp minimeringsproblemet formelt.\n\n**b)** Forklar med egne ord hvorfor bibetingelsen skrives med likhetstegn.\n\n**c)** Forklar hvorfor innsettingsmetoden ikke er tilgjengelig.",
+        "solution": "**a)** Problemet er\n\n$$\\min_{K,L}\\; rK + wL \\qquad \\text{gitt} \\qquad F(K,L) = 50\\,000$$\n\nMålfunksjonen er samlet faktorkostnad; bibetingelsen er produksjonskravet.\n\n**b)** Fordi begge faktorene koster penger. Produserer trykkeriet mer enn 50 000 ark, har det brukt mer kapital eller arbeid enn kontrakten krever, og kan spare penger ved å skjære ned til kravet. Optimum ligger derfor alltid akkurat på isokvanten, og da kan vi like godt skrive likhet fra start.\n\n**c)** Innsetting krever at bibetingelsen kan løses for én variabel. $F(K,L) = 50\\,000$ er en generell ikke-lineær sammenheng, og det finnes ingen alminnelig måte å skrive $K$ som funksjon av $L$ på. Lagrange-metoden trenger ikke denne omskrivingen — den beholder begge variablene og innfører en multiplikator i stedet.",
+        "hints": [
+          "Målfunksjonen er den samlede kostnaden ved faktorbruken; bibetingelsen er produksjonskravet.",
+          "I b): spør deg hva bedriften ville gjort dersom den produserte mer enn kravet.",
+          "I c): sammenlikn med budsjettbetingelsen $p_1c_1 + p_2c_2 = m$ — hva er forskjellen på de to bibetingelsene?"
+        ]
+      }
+    },
+    {
+      "id": "econ2220-5-2-l2-h",
+      "type": "text",
+      "content": "## Løkke 2 — Lagrange og førsteordensbetingelsen (~15 min)"
+    },
+    {
+      "id": "econ2220-5-2-thm-oppskrift",
+      "type": "theorem",
+      "title": "Lagrange-oppskriften for kostnadsminimering",
+      "content": "**Steg for steg — dette er håndverket sensor vil se:**\n\n1. **Sett opp Lagrange-funksjonen** med bibetingelsen skrevet som «noe $= 0$»:\n\n$$\\mathcal{L}(K,L,\\lambda) = rK + wL + \\lambda\\,\\bigl(\\bar{y} - F(K,L)\\bigr)$$\n\n2. **Deriver og sett lik null** (førsteordensbetingelsene):\n\n$$\\frac{\\partial \\mathcal{L}}{\\partial K} = r - \\lambda F'_K = 0, \\qquad \\frac{\\partial \\mathcal{L}}{\\partial L} = w - \\lambda F'_L = 0, \\qquad \\frac{\\partial \\mathcal{L}}{\\partial \\lambda} = \\bar{y} - F(K,L) = 0$$\n\n3. **Del de to første på hverandre** slik at $\\lambda$ faller ut:\n\n$$\\frac{r}{w} = \\frac{\\lambda F'_K}{\\lambda F'_L} = \\frac{F'_K}{F'_L}$$\n\n4. **Bruk bibetingelsen** til å finne $K^*$ og $L^*$ hver for seg.\n5. **Tolk betingelsen i enheter**, og regn ut kostnaden $c(\\bar{y}) = rK^* + wL^*$ hvis oppgaven ber om kostnadsfunksjonen.\n\nSteg 3 er selve grepet: multiplikatoren er ikke interessant i seg selv, den elimineres. Steg 5 er ikke pynt — en utledning uten tolkning er et halvt svar."
+    },
+    {
+      "id": "econ2220-5-2-l2-t1",
+      "type": "text",
+      "content": "### Hva betingelsen sier\n\nBetingelsen fra steg 3 skrives gjerne andre veien:\n\n$$\\frac{F'_K}{F'_L} = \\frac{r}{w}$$\n\nVenstresiden har et navn."
+    },
+    {
+      "id": "econ2220-5-2-def-mtsb",
+      "type": "definition",
+      "title": "Marginal teknisk substitusjonsbrøk (MTSB)",
+      "content": "**MTSB er forholdet mellom marginalproduktene, $\\dfrac{F'_K}{F'_L}$** (på engelsk *marginal rate of technical substitution*, MRTS).\n\nDen forteller hvor mange enheter **arbeid** som må til for å erstatte **én enhet kapital** uten at produksjonen endrer seg. Grunnen ser du av regnestykket: fjerner du én enhet kapital, taper du $F'_K$ enheter produksjon; hver ny arbeidsenhet gir $F'_L$ enheter tilbake. Du trenger derfor $F'_K/F'_L$ arbeidsenheter for å komme i null.\n\nGeometrisk er MTSB **tallverdien av isokvantens helning**: bytteforholdet teknologien tilbyr, i det punktet du står.\n\nMTSB er produsentens motstykke til den marginale substitusjonsbrøken (MSB) i konsumentteorien — samme idé, men om teknologi i stedet for preferanser."
+    },
+    {
+      "id": "econ2220-5-2-thm-fob",
+      "type": "theorem",
+      "title": "Kostnadsminimeringsbetingelsen",
+      "content": "**I den billigste faktorbruken er den marginale tekniske substitusjonsbrøken lik faktorprisforholdet:**\n\n$$\\frac{F'_K}{F'_L} = \\frac{r}{w}$$\n\n**Tolkningen i enheter — den sensor krever:** Venstresiden er hvor mange **enheter arbeid** som teknisk må erstatte én enhet kapital for at produksjonen skal være uendret. Høyresiden er hvor mange **enheter arbeid markedet gir deg** for prisen på én enhet kapital ($r$ kroner kjøper $r/w$ arbeidsenheter). Optimum er der de to bytteforholdene er like.\n\n**Hvorfor det må være slik:** Anta at $F'_K/F'_L = 3$, mens $r/w = 2$. Teknologien krever tre arbeidsenheter for å erstatte én kapitalenhet, men markedet gir deg bare to for de samme pengene. Da lønner det seg å gå motsatt vei: selg unna arbeid og kjøp kapital. Selger du 3 arbeidsenheter, taper du produksjon som akkurat én kapitalenhet dekker inn — men de tre arbeidsenhetene gir deg penger til 1,5 kapitalenheter. Du produserer like mye og har penger til overs, altså var du ikke i optimum. Slike gevinster finnes helt til brøkene er like."
+    },
+    {
+      "id": "econ2220-5-2-ex1",
+      "type": "example",
+      "title": "Eksempel 1: vaskeriet — førsteordensbetingelsen utledet",
+      "problem": "Industrivaskeriet har teknologien $F(K,L) = \\sqrt{KL}$ og skal levere $\\bar{y}$ tonn rent tøy. Faktorprisene er $r$ og $w$.\n\nForklar hvorfor problemet må løses med Lagrange, utled førsteordensbetingelsen og tolk den i enheter.",
+      "solution": "**Trinn 1 — sett opp problemet formelt.**\n\n$$\\min_{K,L}\\; rK + wL \\qquad \\text{gitt} \\qquad \\sqrt{KL} = \\bar{y}$$\n\nBibetingelsen holder med likhet fordi begge faktorer koster penger: å produsere mer enn kravet er sløsing som kan spares bort.\n\nMetodevalget: bibetingelsen er den generelle formen $F(K,L) = \\bar{y}$, som ikke kan løses ut for én variabel i sin alminnelighet. Innsettingsmetoden er derfor ikke tilgjengelig, og vi bruker Lagrange.\n\n**Trinn 2 — utled.** Lagrange-funksjonen:\n\n$$\\mathcal{L} = rK + wL + \\lambda\\bigl(\\bar{y} - \\sqrt{KL}\\bigr)$$\n\nMarginalproduktene er $F'_K = \\tfrac{1}{2}\\sqrt{L/K}$ og $F'_L = \\tfrac{1}{2}\\sqrt{K/L}$ (fra [kap. 5.1](/bok/econ2220/econ2220-5-1)). Førsteordensbetingelsene:\n\n$$\\frac{\\partial \\mathcal{L}}{\\partial K} = r - \\lambda\\cdot\\tfrac{1}{2}\\sqrt{\\frac{L}{K}} = 0, \\qquad \\frac{\\partial \\mathcal{L}}{\\partial L} = w - \\lambda\\cdot\\tfrac{1}{2}\\sqrt{\\frac{K}{L}} = 0$$\n\nDel den første på den andre. Multiplikatoren $\\lambda$ og faktoren $\\tfrac{1}{2}$ faller ut:\n\n$$\\frac{r}{w} = \\frac{\\sqrt{L/K}}{\\sqrt{K/L}} = \\frac{L}{K}$$\n\naltså $\\dfrac{F'_K}{F'_L} = \\dfrac{L}{K} = \\dfrac{r}{w}$, som gir faktorforholdet $L = \\dfrac{r}{w}K$.\n\n**Trinn 3 — tolk i enheter.** Venstresiden $L/K$ er hvor mange **arbeidsenheter** som må til for å erstatte **én kapitalenhet** i vaskeriet uten at tonnasjen faller. Høyresiden $r/w$ er hvor mange arbeidsenheter kronene fra én kapitalenhet rekker til i markedet.\n\nEr de like, er det ingen gevinst i å bytte den ene faktoren mot den andre: teknologiens bytteforhold er nøyaktig markedets. Blir arbeid dyrere (høyere $w$), faller $r/w$, og vaskeriet skal ha *færre* arbeidsenheter per maskin — altså vri seg mot kapital. Det er substitusjonslogikken i modellen.\n\n**Figuren i ord:** med $L$ vannrett og $K$ loddrett tangerer isokvanten $\\sqrt{KL} = \\bar{y}$ den innerste oppnåelige isokostlinja $rK + wL = \\bar{c}$ i punktet $A = (L^*, K^*)$. Isokvantens helning i tallverdi er MTSB; isokostlinjas helning i tallverdi er $w/r$. Tangering betyr at de to helningene er like."
+    },
+    {
+      "id": "econ2220-5-2-oppg-2",
+      "type": "exercise",
+      "exercise": {
+        "id": "econ2220-5-2-e-2",
+        "number": "2",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "(Sjanger I — førsteordensbetingelsen utledet på en annen teknologi.)\n\nEn bryggerivirksomhet har $F(K,L) = K^{1/3}L^{2/3}$ og skal produsere $\\bar{y}$ hektoliter. Faktorprisene er $r$ og $w$.\n\n**a)** Sett opp Lagrange-funksjonen og førsteordensbetingelsene.\n\n**b)** Kombiner betingelsene til forholdet mellom $L$ og $K$.\n\n**c)** Hva skjer med faktorforholdet hvis lønna $w$ stiger? Forklar økonomisk.",
+        "solution": "**a)** Marginalproduktene er\n\n$$F'_K = \\tfrac{1}{3}K^{-2/3}L^{2/3}, \\qquad F'_L = \\tfrac{2}{3}K^{1/3}L^{-1/3}$$\n\nLagrange-funksjonen:\n\n$$\\mathcal{L} = rK + wL + \\lambda\\bigl(\\bar{y} - K^{1/3}L^{2/3}\\bigr)$$\n\nFørsteordensbetingelsene:\n\n$$r - \\lambda\\cdot\\tfrac{1}{3}K^{-2/3}L^{2/3} = 0, \\qquad w - \\lambda\\cdot\\tfrac{2}{3}K^{1/3}L^{-1/3} = 0$$\n\n**b)** Del den første på den andre så $\\lambda$ faller ut:\n\n$$\\frac{r}{w} = \\frac{\\tfrac{1}{3}K^{-2/3}L^{2/3}}{\\tfrac{2}{3}K^{1/3}L^{-1/3}} = \\frac{1}{2}\\cdot\\frac{L}{K}$$\n\naltså $\\dfrac{L}{K} = \\dfrac{2r}{w}$, eller $L = \\dfrac{2r}{w}K$.\n\n**c)** Stiger $w$, faller $2r/w$, og bedriften skal bruke **færre arbeidsenheter per kapitalenhet**. Økonomisk: dyrere arbeid gjør at markedets bytteforhold flytter seg i favør av kapital, og bryggeriet vrir seg mot maskiner inntil teknologiens bytteforhold igjen matcher markedets. Produksjonsmengden $\\bar{y}$ er uendret — det er *miksen* som endrer seg.",
+        "hints": [
+          "Deriver $K^{1/3}L^{2/3}$ partielt: husk at eksponentene $1/3$ og $2/3$ blir stående som koeffisienter.",
+          "Når du deler de to betingelsene på hverandre, kansellerer $\\lambda$ — og potensene legges sammen.",
+          "I c): se på hvilken vei brøken $2r/w$ beveger seg."
+        ]
+      }
+    },
+    {
+      "id": "econ2220-5-2-l3-h",
+      "type": "text",
+      "content": "## Løkke 3 — Hele veien til kostnadsfunksjonen (~18 min)"
+    },
+    {
+      "id": "econ2220-5-2-l3-t1",
+      "type": "text",
+      "content": "Førsteordensbetingelsen gir faktor*forholdet*. For å finne faktormengdene må vi bruke bibetingelsen: forholdstallet settes inn i $F(K,L) = \\bar{y}$, og da faller alt på plass. Resultatet har to navn du bør kunne."
+    },
+    {
+      "id": "econ2220-5-2-def-betinget",
+      "type": "definition",
+      "title": "Betinget faktoretterspørsel",
+      "content": "**De betingede faktoretterspørslene $K^*(r,w,y)$ og $L^*(r,w,y)$ er de kostnadsminimerende mengdene kapital og arbeid, som funksjon av faktorprisene og produksjonsmengden.**\n\nDe kalles «betingede» fordi de er betinget av at bedriften skal produsere akkurat $y$ — mengden er *gitt utenfra* i dette problemet, ikke valgt.\n\nLegg merke til hva de avhenger av: begge faktorprisene og produksjonsmengden. Produktprisen $p$ er derimot ikke med. Den har ingen rolle i kostnadsminimering; den kommer først inn når bedriften skal velge hvor mye den vil produsere ([kap. 5.4](/bok/econ2220/econ2220-5-4))."
+    },
+    {
+      "id": "econ2220-5-2-def-kostfunk",
+      "type": "definition",
+      "title": "Kostnadsfunksjonen $c(y)$",
+      "content": "**Kostnadsfunksjonen $c(y)$ er den minste kostnaden ved å produsere mengden $y$:**\n\n$$c(y) = rK^*(r,w,y) + wL^*(r,w,y)$$\n\nDen er altså *resultatet* av kostnadsminimeringen, regnet ut for hver mulig produksjonsmengde. Når vi seinere skriver $\\pi = py - c(y)$ og deriverer, ligger hele kostnadsminimeringen allerede inne i $c$.\n\nDette er broen ut av kapitlet: alt i [kap. 5.3](/bok/econ2220/econ2220-5-3) og [kap. 5.4](/bok/econ2220/econ2220-5-4) handler om $c(y)$ og de deriverte av den. Stopper du før kostnadsfunksjonen når oppgaven ber om den, mister du poengene der hele resten av oppgaven henger."
+    },
+    {
+      "id": "econ2220-5-2-ex2",
+      "type": "example",
+      "title": "Eksempel 2: vaskeriet hele veien — konstant skalautbytte",
+      "problem": "Vaskeriet har $F(K,L) = \\sqrt{KL}$, og faktorprisene er $r = 4$ og $w = 9$ (tusen kroner per enhet).\n\nFinn de kostnadsminimerende faktormengdene og kostnadsfunksjonen. Kommenter formen på $c(y)$ i lys av skalautbyttet.",
+      "solution": "**Trinn 1 — sett opp problemet.** $\\min\\, 4K + 9L$ gitt $\\sqrt{KL} = y$. Bibetingelsen med likhet, som før.\n\n**Trinn 2 — utled.** Fra eksempel 1 er førsteordensbetingelsen\n\n$$\\frac{L}{K} = \\frac{r}{w} = \\frac{4}{9} \\quad\\Longrightarrow\\quad L = \\tfrac{4}{9}K$$\n\nSett inn i bibetingelsen:\n\n$$\\sqrt{K\\cdot\\tfrac{4}{9}K} = y \\;\\Longrightarrow\\; \\tfrac{2}{3}K = y \\;\\Longrightarrow\\; K^* = \\tfrac{3}{2}y$$\n\nog dermed $L^* = \\tfrac{4}{9}\\cdot\\tfrac{3}{2}y = \\tfrac{2}{3}y$.\n\nKostnaden blir\n\n$$c(y) = 4\\cdot\\tfrac{3}{2}y + 9\\cdot\\tfrac{2}{3}y = 6y + 6y = 12y$$\n\n**Kontroll mot den generelle formelen.** Med generelle priser gir samme regning $K^* = y\\sqrt{w/r}$, $L^* = y\\sqrt{r/w}$ og\n\n$$c(y) = ry\\sqrt{\\tfrac{w}{r}} + wy\\sqrt{\\tfrac{r}{w}} = y\\sqrt{rw} + y\\sqrt{rw} = 2y\\sqrt{rw}$$\n\nMed $r = 4$, $w = 9$: $2y\\sqrt{36} = 12y$ ✓.\n\n**Trinn 3 — tolk.** Kostnadsfunksjonen er **lineær i $y$**: hvert nye tonn tøy koster nøyaktig 12 000 kroner, uansett om vaskeriet vasker 10 eller 1 000 tonn. Det stemmer med skalautbyttet: $\\sqrt{KL}$ har konstant skalautbytte ([kap. 5.1](/bok/econ2220/econ2220-5-1)), og en kopi av driften koster like mye og gir like mye.\n\nLegg også merke til at *begge* faktorene skaleres proporsjonalt med $y$ — faktorforholdet $L/K = 4/9$ er det samme uansett produksjonsmengde, fordi det bare avhenger av prisene.\n\n**Bonus — hva $\\lambda$ er.** Setter vi tallene inn i førsteordensbetingelsen, får vi $\\lambda = r/F'_K = 12$, nøyaktig kostnaden ved ett tonn til. Multiplikatoren i kostnadsminimering er altså **marginalkostnaden**, og det er den vi møter igjen som $c'(y)$ i [kap. 5.3](/bok/econ2220/econ2220-5-3)."
+    },
+    {
+      "id": "econ2220-5-2-oppg-3",
+      "type": "exercise",
+      "exercise": {
+        "id": "econ2220-5-2-e-3",
+        "number": "3",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "(Sjanger I — hele løypa på nye tall.)\n\nEt kaffebrenneri har $F(K,L) = \\sqrt{KL}$ og står overfor faktorprisene $r = 2$ og $w = 8$.\n\n**a)** Finn $K^*$ og $L^*$ som funksjon av $y$.\n\n**b)** Utled kostnadsfunksjonen.\n\n**c)** Hva koster det brenneriet å øke produksjonen med ett kilo, og hvorfor er svaret det samme uansett produksjonsnivå?",
+        "solution": "**a)** Førsteordensbetingelsen for denne teknologien er $L/K = r/w = 2/8 = 1/4$, altså $L = \\tfrac{1}{4}K$. Sett inn i $\\sqrt{KL} = y$:\n\n$$\\sqrt{K\\cdot\\tfrac{1}{4}K} = \\tfrac{1}{2}K = y \\;\\Longrightarrow\\; K^* = 2y, \\qquad L^* = \\tfrac{1}{4}\\cdot 2y = \\tfrac{1}{2}y$$\n\n**b)** $$c(y) = 2\\cdot 2y + 8\\cdot\\tfrac{1}{2}y = 4y + 4y = 8y$$\n\n(Kontroll mot den generelle formelen: $2y\\sqrt{rw} = 2y\\sqrt{16} = 8y$ ✓.)\n\n**c)** Marginalkostnaden er $c'(y) = 8$: ett kilo til koster 8 (i samme pengeenhet som faktorprisene). Svaret er uavhengig av produksjonsnivået fordi teknologien har konstant skalautbytte — hver ny enhet lages med nøyaktig samme faktormiks og samme innsats som den forrige, så kostnadsfunksjonen er en rett linje gjennom origo.",
+        "hints": [
+          "Bruk førsteordensbetingelsen $L/K = r/w$ fra eksempel 1 — teknologien er den samme.",
+          "Sett faktorforholdet inn i $\\sqrt{KL} = y$ og løs for $K$.",
+          "I c): deriver kostnadsfunksjonen med hensyn på $y$."
+        ]
+      }
+    },
+    {
+      "id": "econ2220-5-2-ex3",
+      "type": "example",
+      "title": "Eksempel 3: settefiskoppdretteren — avtakende skalautbytte",
+      "problem": "Et settefiskselskap har teknologien $F(K,L) = K^{1/3}L^{1/3}$, der $y$ måles i tonn smolt. Faktorprisene er $r$ og $w$.\n\nUtled kostnadsfunksjonen, og forklar hvordan formen henger sammen med skalautbyttet. Regn til slutt ut kostnadsfunksjonen når $r = 3$ og $w = 27$.",
+      "solution": "**Trinn 1 — sett opp problemet.**\n\n$$\\min_{K,L}\\; rK + wL \\qquad \\text{gitt} \\qquad K^{1/3}L^{1/3} = y$$\n\nBibetingelsen er ikke løsbar for én variabel i sin alminnelighet, så vi bruker Lagrange.\n\n**Trinn 2 — utled.** Marginalproduktene:\n\n$$F'_K = \\tfrac{1}{3}K^{-2/3}L^{1/3}, \\qquad F'_L = \\tfrac{1}{3}K^{1/3}L^{-2/3}$$\n\n$$\\mathcal{L} = rK + wL + \\lambda\\bigl(y - K^{1/3}L^{1/3}\\bigr)$$\n\nFørsteordensbetingelsene $r = \\lambda F'_K$ og $w = \\lambda F'_L$ deles på hverandre:\n\n$$\\frac{r}{w} = \\frac{K^{-2/3}L^{1/3}}{K^{1/3}L^{-2/3}} = \\frac{L}{K} \\quad\\Longrightarrow\\quad L = \\frac{r}{w}K$$\n\nSett inn i bibetingelsen:\n\n$$K^{1/3}\\left(\\frac{r}{w}K\\right)^{1/3} = \\left(\\frac{r}{w}\\right)^{1/3}K^{2/3} = y \\;\\Longrightarrow\\; K^{2/3} = \\left(\\frac{w}{r}\\right)^{1/3}y$$\n\nOpphøy i $3/2$:\n\n$$K^* = \\left(\\frac{w}{r}\\right)^{1/2}y^{3/2} = y^{3/2}\\sqrt{\\frac{w}{r}}, \\qquad L^* = \\frac{r}{w}K^* = y^{3/2}\\sqrt{\\frac{r}{w}}$$\n\nKostnadsfunksjonen:\n\n$$c(y) = ry^{3/2}\\sqrt{\\frac{w}{r}} + wy^{3/2}\\sqrt{\\frac{r}{w}} = y^{3/2}\\sqrt{rw} + y^{3/2}\\sqrt{rw} = 2y^{3/2}\\sqrt{rw}$$\n\nMed $r = 3$ og $w = 27$ er $\\sqrt{rw} = \\sqrt{81} = 9$, altså $c(y) = 18\\,y^{3/2}$.\n\n**Trinn 3 — tolk.** Skalautbyttet er avtakende: eksponentsummen er $1/3 + 1/3 = 2/3 < 1$, og testen bekrefter det ($F(tK,tL) = t^{2/3}F(K,L)$). Kostnadsfunksjonen svarer på det ved å vokse **raskere enn proporsjonalt**: eksponenten $3/2 > 1$ betyr at en dobling av $y$ ganger kostnaden med $2^{3/2} \\approx 2{,}83$.\n\nKonkret med de oppgitte prisene: 4 tonn smolt koster $18\\cdot 8 = 144$, mens 8 tonn koster $18\\cdot 8^{3/2} = 18\\cdot 22{,}6 \\approx 407$ — nesten tre ganger så mye for dobbelt så mye fisk. Marginalkostnaden $c'(y) = 27\\sqrt{y}$ stiger med produksjonen, akkurat som skalaregime-tabellen i [kap. 5.1](/bok/econ2220/econ2220-5-1) varslet. Vi går grundig inn på den koblingen i [kap. 5.3](/bok/econ2220/econ2220-5-3)."
+    },
+    {
+      "id": "econ2220-5-2-oppg-4",
+      "type": "exercise",
+      "exercise": {
+        "id": "econ2220-5-2-e-4",
+        "number": "4",
+        "type": "classic",
+        "difficulty": "vanskelig",
+        "task": "(Eksamensnivå — sjanger I, slik løypa gikk i V2023-utsatt: fra teknologi hele veien til kostnadsfunksjonen.)\n\nEt snekkerverksted har $F(K,L) = K^{1/3}L^{2/3}$, faktorprisene $r = 2$ og $w = 4$, og skal produsere $y$ kjøkkeninnredninger.\n\n**a)** Forklar hvorfor problemet må løses med Lagrange, og sett opp Lagrange-funksjonen.\n\n**b)** Utled førsteordensbetingelsen, og tolk den i enheter.\n\n**c)** Finn $K^*$, $L^*$ og kostnadsfunksjonen $c(y)$.\n\n**d)** Hvilket skalautbytte har teknologien, og stemmer formen på $c(y)$ med svaret?",
+        "solution": "**a)** Bibetingelsen er $K^{1/3}L^{2/3} = y$. Den kan ikke løses ut for én variabel på noen alminnelig måte, så innsettingsmetoden er ikke tilgjengelig (**feil #5** — innsetting brukt der bibetingelsen ikke kan løses ut). Lagrange-funksjonen:\n\n$$\\mathcal{L} = 2K + 4L + \\lambda\\bigl(y - K^{1/3}L^{2/3}\\bigr)$$\n\n**b)** Marginalproduktene er $F'_K = \\tfrac{1}{3}K^{-2/3}L^{2/3}$ og $F'_L = \\tfrac{2}{3}K^{1/3}L^{-1/3}$. Førsteordensbetingelsene $2 = \\lambda F'_K$ og $4 = \\lambda F'_L$ deles på hverandre:\n\n$$\\frac{2}{4} = \\frac{\\tfrac{1}{3}K^{-2/3}L^{2/3}}{\\tfrac{2}{3}K^{1/3}L^{-1/3}} = \\frac{1}{2}\\cdot\\frac{L}{K} \\quad\\Longrightarrow\\quad \\frac{L}{K} = 1, \\text{ altså } L = K$$\n\n**Tolkning i enheter:** venstresiden $\\tfrac{1}{2}L/K$ er den marginale tekniske substitusjonsbrøken — hvor mange arbeidstimer som må erstatte én maskintime for at antall innredninger skal være uendret. Høyresiden $r/w = 1/2$ er hvor mange arbeidstimer verkstedet får kjøpt for prisen på én maskintime. I optimum er teknologiens bytteforhold nøyaktig markedets, og det er ingen penger å spare på å vri miksen.\n\n**c)** Sett $L = K$ inn i bibetingelsen:\n\n$$K^{1/3}K^{2/3} = K = y \\quad\\Longrightarrow\\quad K^* = y, \\qquad L^* = y$$\n\n$$c(y) = 2y + 4y = 6y$$\n\n**d)** Testen: $F(tK,tL) = (tK)^{1/3}(tL)^{2/3} = t^{1/3+2/3}F(K,L) = tF(K,L)$, altså **konstant skalautbytte**.\n\nDet stemmer med kostnadsfunksjonen: $c(y) = 6y$ er lineær, marginalkostnaden $c'(y) = 6$ er konstant, og kostnaden per innredning er den samme uansett hvor mange verkstedet lager. Dobbelt så mange innredninger koster nøyaktig dobbelt så mye.",
+        "hints": [
+          "Skriv opp marginalproduktene først; koeffisientene $1/3$ og $2/3$ blir stående og påvirker brøken.",
+          "Når du deler betingelsene, kansellerer $\\lambda$ — og potensene $K^{-2/3}/K^{1/3} = K^{-1}$.",
+          "I d): bruk skalautbytte-testen fra kap. 5.1 og sammenlikn med eksponenten på $y$ i $c(y)$."
+        ]
+      }
+    },
+    {
+      "id": "econ2220-5-2-l4-h",
+      "type": "text",
+      "content": "## Løkke 4 — Fella: hva kostnadsminimering IKKE bestemmer (~10 min)"
+    },
+    {
+      "id": "econ2220-5-2-l4-t1",
+      "type": "text",
+      "content": "Se på hva vi faktisk har gjort i kapitlet. Vi tok produksjonsmengden $\\bar{y}$ som **gitt** — den kom fra kontrakten, fra oppgaveteksten, fra noe utenfor modellen — og fant den billigste måten å nå den på.\n\nIngen steder i regningen dukket produktprisen $p$ opp. Det er ikke tilfeldig: **kostnadsminimering kan umulig si noe om hvor mye bedriften bør produsere**, for den vet ikke hva varen selges for."
+    },
+    {
+      "id": "econ2220-5-2-def-felle",
+      "type": "definition",
+      "title": "Kostnadsminimering bestemmer ikke kvantum",
+      "content": "**Kostnadsminimering svarer på ett spørsmål: hvordan lages en gitt mengde billigst? Den svarer ikke på hvor mye som skal lages.**\n\nKvantumsvalget krever produktprisen $p$ og løses ved profittmaksimering i [kap. 5.4](/bok/econ2220/econ2220-5-4). Kostnadsminimeringen leverer bare *innsatsvaren* til det problemet, nemlig kostnadsfunksjonen $c(y)$.\n\nFeilen — å tro at kostnadsminimering bestemmer kvantum — er så vanlig at den har egen plass i bokas feilregister som **feil #4**, og den ble testet som påstand i V2023."
+    },
+    {
+      "id": "econ2220-5-2-thm-implikasjon",
+      "type": "theorem",
+      "title": "Implikasjonen går bare én vei",
+      "content": "**Profittmaksimering $\\Longrightarrow$ kostnadsminimering.** En bedrift som maksimerer profitten $\\pi = py - c(y)$, må nødvendigvis lage den mengden den lager, så billig som mulig — ellers kunne den økt profitten uten å endre noe annet.\n\n**Kostnadsminimering $\\nRightarrow$ profittmaksimering.** Et selskap kan produsere 100 tonn på aller billigste vis og likevel tape penger fordi 100 tonn er helt feil mengde: kanskje burde det produsert 300 tonn, kanskje ingenting.\n\nBildet: kostnadsminimering setter deg på riktig *sti*; profittmaksimering forteller deg hvor langt langs stien du skal gå."
+    },
+    {
+      "id": "econ2220-5-2-oppg-5",
+      "type": "exercise",
+      "exercise": {
+        "id": "econ2220-5-2-e-5",
+        "number": "5",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "(Sjanger L — påstandsoppgave: ta stilling og begrunn. Denne varianten ble testet på produsentteori i V2023.)\n\nTa stilling til påstanden og begrunn svaret:\n\n«Et vaskeri som minimerer kostnadene, maksimerer dermed profitten.»",
+        "solution": "**Påstanden er usann.**\n\nKostnadsminimering løser problemet $\\min\\, rK + wL$ gitt $F(K,L) = \\bar{y}$ — den finner billigste faktormiks **for en gitt produksjonsmengde**. Produktprisen $p$ inngår ikke i problemet i det hele tatt, og dermed kan løsningen umulig fortelle om mengden $\\bar{y}$ er den lønnsomme.\n\n**Konkret moteksempel.** Vaskeriet i kapitlet har $c(y) = 12y$. Vasker det 100 tonn på billigste vis, er kostnaden 1 200. Er prisen på vasketjenesten $p = 10$ per tonn, blir inntekten 1 000 og resultatet $-200$: kostnadsminimerende, men et tap. Riktig tilpasning ved den prisen er å ikke vaske i det hele tatt.\n\n**Implikasjonen går motsatt vei.** En profittmaksimerende bedrift *må* minimere kostnadene ved den mengden den velger — ellers kunne den økt profitten ved å lage samme mengde billigere. Så profittmaksimering medfører kostnadsminimering, men ikke omvendt.\n\nKvantumsvalget krever prisen og løses ved $\\max_y\\, py - c(y)$ i [kap. 5.4](/bok/econ2220/econ2220-5-4).",
+        "hints": [
+          "Sjekk hvilke størrelser som faktisk inngår i kostnadsminimeringsproblemet — er produktprisen med?",
+          "Prøv å konstruere et tilfelle der bedriften minimerer kostnadene, men taper penger."
+        ]
+      }
+    },
+    {
+      "id": "econ2220-5-2-oppg-6",
+      "type": "exercise",
+      "exercise": {
+        "id": "econ2220-5-2-e-6",
+        "number": "6",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "(Sjanger L — samme sjanger, motsatt retning.)\n\nTa stilling til påstanden og begrunn svaret:\n\n«En bedrift som maksimerer profitten, minimerer kostnadene ved den mengden den produserer.»",
+        "solution": "**Påstanden er sann.**\n\nAnta at bedriften maksimerer profitten og produserer mengden $y^*$, men gjør det med en faktormiks som ikke er den billigste. Da finnes det per definisjon en annen kombinasjon $(K,L)$ som gir nøyaktig samme $y^*$ til lavere kostnad.\n\nBytter bedriften til den, er inntekten $py^*$ uendret mens kostnaden er lavere, så profitten $\\pi = py^* - \\text{kostnad}$ blir høyere. Men da var utgangspunktet ikke profittmaksimum — motsigelse. Altså må en profittmaksimerende bedrift minimere kostnadene ved den mengden den velger.\n\n**Merk retningen.** Dette er den ene lovlige implikasjonen: profittmaksimering medfører kostnadsminimering. Den motsatte veien holder ikke, jf. oppgave 5. Å bytte om på retningen er en av de vanligste tabbene i sjangeren, og det er nettopp derfor eksamen tester påstanden i begge former.",
+        "hints": [
+          "Anta det motsatte av konklusjonen og se om du kan konstruere en høyere profitt.",
+          "Legg merke til at inntekten $py^*$ ikke endres når bare faktormiksen byttes."
+        ]
+      }
+    },
+    {
+      "id": "econ2220-5-2-oppg-7",
+      "type": "exercise",
+      "exercise": {
+        "id": "econ2220-5-2-e-7",
+        "number": "7",
+        "type": "classic",
+        "difficulty": "vanskelig",
+        "task": "(Krevende — sjanger I kombinert med sammenlikning av to teknologier.)\n\nTo bedrifter skal begge produsere $y$ enheter og står overfor de samme faktorprisene $r$ og $w$. Bedrift A har $F(K,L) = \\sqrt{KL}$, bedrift B har $F(K,L) = K^{1/3}L^{1/3}$.\n\n**a)** Vis at begge bedriftene velger nøyaktig samme faktorforhold $L/K$.\n\n**b)** Forklar hvorfor kostnadsfunksjonene likevel blir helt forskjellige.\n\n**c)** Ved hvilken produksjonsmengde er de to bedriftene like dyre, uttrykt ved $r$ og $w$? Hvem er billigst under den mengden?",
+        "solution": "**a)** For A er $F'_K/F'_L = L/K$ (eksempel 1); for B er $F'_K/F'_L = L/K$ (eksempel 3). Begge gir dermed betingelsen\n\n$$\\frac{L}{K} = \\frac{r}{w}$$\n\nFaktorforholdet er altså det samme. Grunnen er at begge teknologiene er symmetriske i $K$ og $L$ med like eksponenter, så marginalproduktbrøken blir den samme.\n\n**b)** Faktor*forholdet* avgjør bare hvilken *retning* fra origo bedriften ligger i; hvor *langt* ut den må gå for å nå $y$, bestemmes av skalautbyttet. A har konstant skalautbytte ($1/2 + 1/2 = 1$) og får $c_A(y) = 2y\\sqrt{rw}$, som er lineær. B har avtakende skalautbytte ($1/3 + 1/3 = 2/3$) og får $c_B(y) = 2y^{3/2}\\sqrt{rw}$, som vokser raskere enn proporsjonalt.\n\n**c)** Sett kostnadene like:\n\n$$2y\\sqrt{rw} = 2y^{3/2}\\sqrt{rw} \\;\\Longleftrightarrow\\; y = y^{3/2} \\;\\Longleftrightarrow\\; y^{1/2} = 1 \\;\\Longleftrightarrow\\; y = 1$$\n\nFaktorprisene faller ut — svaret er $y = 1$ uansett $r$ og $w$, siden de to kostnadsfunksjonene har samme prisfaktor $2\\sqrt{rw}$.\n\nFor $y < 1$ er $y^{3/2} < y$, så **B er billigst**. For $y > 1$ er $y^{3/2} > y$, og **A er billigst**. Tolkningen: B er den lille aktøren som klarer seg fint i det små, men som taper terreng så snart volumet vokser, fordi kostnaden per enhet stiger med produksjonen.",
+        "hints": [
+          "I a): regn ut $F'_K/F'_L$ for begge teknologiene og sammenlikn.",
+          "I b): tenk på hva faktorforholdet bestemmer, og hva skalautbyttet bestemmer.",
+          "I c): sett de to kostnadsfunksjonene lik hverandre og legg merke til at $2\\sqrt{rw}$ står i begge."
+        ]
+      }
+    },
+    {
+      "id": "econ2220-5-2-typiske-feil",
+      "type": "warning",
+      "title": "Typiske feil",
+      "content": "Fra bokas feilkatalog — den samlede lista over de vanligste tabbene på ECON2220, som står i [kap. 0.1](/bok/econ2220/econ2220-0-1):\n\n- **Feil #5 — innsettingsmetoden brukt på kostnadsminimering.** Bibetingelsen $F(K,L) = \\bar{y}$ kan generelt ikke løses ut. Dokumentert påpekt i V2025-veiledningen: her skal Lagrange brukes.\n- **Feil #4 — å tro at kostnadsminimering bestemmer kvantum.** Problemet tar $\\bar{y}$ som gitt og inneholder ikke produktprisen. Testet som påstand i V2023.\n- **Feil #2 — betingelsen gjentatt som «tolkning».** Å skrive «$F'_K/F'_L = r/w$ betyr at marginalproduktbrøken er lik prisforholdet» er en omskriving, ikke en tolkning. Sensor vil ha enhetene: hvor mange **arbeidsenheter** som teknisk erstatter én kapitalenhet, mot hvor mange arbeidsenheter markedet gir for prisen på én kapitalenhet.\n- **Å bytte om på implikasjonsretningen.** Profittmaksimering medfører kostnadsminimering; det motsatte er usant.\n- **Å blande isokost og isokvant.** Isokostlinja er rett med helning $-w/r$ (like dyre kombinasjoner); isokvanten er den krumme kurven (like produktive kombinasjoner). Blander du dem, blir også tangeringsargumentet feil.\n- **Å stoppe før kostnadsfunksjonen.** Ber oppgaven om $c(y)$, holder det ikke å finne faktorforholdet. Regn ut $K^*$ og $L^*$, sett inn i $rK + wL$ og forenkle.\n- **Å glemme at $\\lambda$ skal elimineres.** Multiplikatoren er et hjelpemiddel; svaret er betingelsen uten den. (Verdien har riktignok en tolkning — den er marginalkostnaden — men den er sjelden det oppgaven spør om.)"
+    },
+    {
+      "id": "econ2220-5-2-bank-intro",
+      "type": "text",
+      "content": "## Begrepsbank\n\nBegrepsbanken er flashcard-/repetisjonsstoff — den gjentar det du nettopp har lest. Hopp trygt over ved førstegangslesing; tidsanslaget for kapitlet gjelder kjernestoffet."
+    },
+    {
+      "id": "econ2220-5-2-bank-faktorpriser",
+      "type": "definition",
+      "title": "Faktorprisene $r$ og $w$",
+      "content": "**$r$ er prisen på én enhet kapital** (leiepris per maskintime eller per maskin per periode) og **$w$ er prisen på én enhet arbeid** (lønn per time).\n\nBegge tas som gitt av bedriften: den er liten nok i faktormarkedene til at innkjøpene ikke flytter prisene.\n\nBoka bruker aldri $\\omega$ om en faktorpris — $\\omega$ er reservert for beholdninger i konsumentteorien. Eksamenssettene har vært inkonsekvente på dette punktet, så les alltid oppgaveteksten sin egen symbolforklaring."
+    },
+    {
+      "id": "econ2220-5-2-bank-lagrangefunk",
+      "type": "definition",
+      "title": "Lagrange-funksjonen $\\mathcal{L}$",
+      "content": "**I kostnadsminimering er Lagrange-funksjonen**\n\n$$\\mathcal{L}(K,L,\\lambda) = rK + wL + \\lambda\\bigl(\\bar{y} - F(K,L)\\bigr)$$\n\naltså målfunksjonen pluss multiplikatoren ganget med bibetingelsen skrevet som «noe $= 0$».\n\nFortegnskonvensjonen betyr ingenting for løsningen — skriver du $\\lambda(F(K,L) - \\bar{y})$ i stedet, skifter bare $\\lambda$ fortegn, mens $K^*$ og $L^*$ blir de samme. Vær konsekvent innenfor én besvarelse."
+    },
+    {
+      "id": "econ2220-5-2-bank-fob",
+      "type": "definition",
+      "title": "Førsteordensbetingelsene (FOB)",
+      "content": "**Førsteordensbetingelsene er likningene som følger av at de partielle deriverte av $\\mathcal{L}$ er null i optimum:**\n\n$$r = \\lambda F'_K, \\qquad w = \\lambda F'_L, \\qquad F(K,L) = \\bar{y}$$\n\nDe to første leses slik: faktorprisen skal være lik multiplikatoren ganget med faktorens marginalprodukt. Deler du dem på hverandre, faller $\\lambda$ ut, og du sitter igjen med kostnadsminimeringsbetingelsen.\n\nDen tredje er bare bibetingelsen tilbake — derivasjon med hensyn på $\\lambda$ gir alltid det."
+    },
+    {
+      "id": "econ2220-5-2-bank-lambda",
+      "type": "definition",
+      "title": "Lagrange-multiplikatoren $\\lambda$ i kostnadsminimering",
+      "content": "**$\\lambda$ måler hvor mye den minimale kostnaden stiger når produksjonskravet $\\bar{y}$ økes med én enhet.** Den er altså **marginalkostnaden**:\n\n$$\\lambda^* = c'(\\bar{y})$$\n\nFor vaskeriet med $c(y) = 12y$ er $\\lambda^* = 12$: ett tonn mer koster 12 000 kroner.\n\nI selve utledningen elimineres $\\lambda$ ved å dele førsteordensbetingelsene på hverandre. Tolkningen er likevel verdt å kunne — den binder dette kapitlet til marginalkostnaden i [kap. 5.3](/bok/econ2220/econ2220-5-3)."
+    },
+    {
+      "id": "econ2220-5-2-bank-tangering",
+      "type": "definition",
+      "title": "Tangeringsbetingelsen (grafisk)",
+      "content": "**Kostnadsminimum ligger der isokvanten tangerer den innerste oppnåelige isokostlinja.**\n\nI tangeringspunktet er isokvantens helning i tallverdi (MTSB, $F'_K/F'_L$) lik isokostlinjas helning i tallverdi ($w/r$ når $L$ er på vannrett akse). Det er den grafiske versjonen av førsteordensbetingelsen.\n\nSkjærer isokostlinja isokvanten i to punkter, er den for dyr: da finnes det en linje nærmere origo som fortsatt når opp. Treffer den ikke isokvanten i det hele tatt, er kostnadsnivået for lavt til å klare kravet.\n\n**Figuren er støtte, ikke erstatning.** Sensor krever den matematiske utledningen for full score; tangeringsfiguren er tilleggsforklaringen."
+    },
+    {
+      "id": "econ2220-5-2-bank-substitusjon",
+      "type": "definition",
+      "title": "Faktorsubstitusjon ved prisendring",
+      "content": "**Blir en faktor dyrere, vrir bedriften seg mot den andre — uten å endre produksjonsmengden.**\n\nMekanikken ligger i betingelsen $F'_K/F'_L = r/w$: stiger $w$, faller høyresiden, og bedriften må bevege seg langs isokvanten til teknologiens bytteforhold har falt tilsvarende. For $\\sqrt{KL}$, der betingelsen er $L/K = r/w$, betyr det direkte at arbeidsandelen synker.\n\nLegg merke til hva som *ikke* skjer: mengden $\\bar{y}$ er den samme. Bedriften flytter seg langs isokvanten, ikke til en ny isokvant."
+    },
+    {
+      "id": "econ2220-5-2-bank-ekspansjon",
+      "type": "definition",
+      "title": "Ekspansjonsveien",
+      "content": "**Ekspansjonsveien er kurven gjennom de kostnadsminimerende punktene når produksjonsmengden øker og faktorprisene holdes fast.**\n\nFor Cobb-Douglas-teknologier er faktorforholdet $L/K$ uavhengig av $y$ — det bestemmes bare av $r/w$. Ekspansjonsveien blir da en **rett stråle fra origo**: bedriften vokser ved å skalere begge faktorene proporsjonalt.\n\nDet er derfor de betingede faktoretterspørslene i kapitlets eksempler alltid får formen «noe som avhenger av prisene» ganget med «noe som avhenger av $y$»."
+    },
+    {
+      "id": "econ2220-5-2-bank-teknisk",
+      "type": "definition",
+      "title": "Teknisk effektivitet og kostnadseffektivitet",
+      "content": "**Teknisk effektivt** er ethvert punkt på isokvanten: du får $\\bar{y}$ ut uten å sløse med faktorer. **Kostnadseffektivt** er bare det ene punktet på isokvanten som er billigst gitt $r$ og $w$.\n\nPunktene $B$ og $D$ i tangeringsfiguren er teknisk effektive, men ikke kostnadseffektive — de produserer riktig mengde til for høy pris.\n\nSkillet er nyttig i påstandsoppgaver: «bedriften sløser ikke med innsatsfaktorer» betyr teknisk effektivitet og er et svakere krav enn kostnadsminimering."
+    },
+    {
+      "id": "econ2220-5-2-bank-metodevalg",
+      "type": "definition",
+      "title": "Metodevalgsregelen: innsetting eller Lagrange?",
+      "content": "**Innsettingsmetoden krever at bibetingelsen kan løses for én variabel.** Er den lineær, som konsumentens budsjettbetingelse $p_1c_1 + p_2c_2 = m$, går det greit.\n\n**Lagrange kreves når bibetingelsen ikke kan løses ut** — som produksjonskravet $F(K,L) = \\bar{y}$ for en generell produktfunksjon.\n\nHuskeregelen for eksamen: **konsumentens budsjettbetingelse kan settes inn; produsentens produksjonskrav kan det ikke.** Selv der en konkret funksjonsform tilfeldigvis lar seg invertere, skal du skrive Lagrange-oppsettet, fordi det er det sensor ber om."
+    },
+    {
+      "id": "econ2220-5-2-bank-enhetstolkning",
+      "type": "definition",
+      "title": "Enhetstolkningen av betingelsen",
+      "content": "**$F'_K/F'_L = r/w$ er en likhet mellom to bytteforhold, og begge skal navngis i enheter.**\n\nVenstresiden: hvor mange **enheter arbeid** som teknisk må erstatte **én enhet kapital** for at produksjonen skal være uendret. Høyresiden: hvor mange enheter arbeid **markedet gir deg** for prisen på én enhet kapital.\n\nEr de ulike, kan bedriften bytte seg til lavere kostnad uten å produsere mindre — derfor er likhet optimum.\n\nKravet om enhetstolkning gjelder hver eneste optimeringsbetingelse i kurset. En besvarelse som bare omskriver brøken med ord, rammes av feil #2."
+    },
+    {
+      "id": "econ2220-5-2-bank-tofaktor",
+      "type": "definition",
+      "title": "Hva bedriften velger og hva den ikke velger",
+      "content": "**I kostnadsminimering velger bedriften $K$ og $L$.** Gitt utenfra er produksjonskravet $\\bar{y}$ og faktorprisene $r$ og $w$.\n\n**Produktprisen $p$ er ikke med i problemet i det hele tatt.** Det er den beste kontrollen du har på om du har forstått hva kostnadsminimering gjør: dukker $p$ opp i en kostnadsminimeringsutledning, har noe gått galt.\n\nKvantumsvalget — der $p$ hører hjemme — kommer i [kap. 5.4](/bok/econ2220/econ2220-5-4)."
+    },
+    {
+      "id": "econ2220-5-2-bank-likhet",
+      "type": "definition",
+      "title": "Hvorfor bibetingelsen holder med likhet",
+      "content": "**Produksjonskravet $F(K,L) = \\bar{y}$ skrives med likhetstegn fordi faktorene koster penger.**\n\nSkrev vi $F(K,L) \\ge \\bar{y}$, ville løsningen bli den samme: en bedrift som produserer mer enn kravet, har brukt kapital eller arbeid den ikke trengte, og kan kutte kostnader ved å skjære ned til $\\bar{y}$. Optimum ligger derfor alltid akkurat på isokvanten.\n\nSamme type argument brukes på konsumentens budsjettbetingelse, der begrunnelsen er monotone preferanser: mer er bedre, så alle pengene brukes opp. Begrunnelsen skrives ut første gang den brukes, og gjentas ikke i hver oppgave."
+    },
+    {
+      "id": "econ2220-5-2-bank-speilbilde",
+      "type": "definition",
+      "title": "Speilbildet av konsumentens problem",
+      "content": "**Kostnadsminimering har nøyaktig samme struktur som nyttemaksimering, med rollene byttet om.**\n\n| Konsument | Produsent |\n|---|---|\n| Indifferenskurve | Isokvant |\n| Budsjettlinje | Isokostlinje |\n| MSB $= p_1/p_2$ | MTSB $= r/w$ |\n| Maksimer nytte gitt budsjett | Minimer kostnad gitt produksjon |\n\nLikheten er verdt å merke seg av to grunner. Den gjør tangeringsfiguren gjenkjennelig med én gang, og den forklarer hvorfor tolkningskravet er det samme: begge betingelser er likheter mellom to bytteforhold, og begge skal oversettes til enheter.\n\nForskjellen ligger i metoden: konsumentens budsjettbetingelse kan settes inn, produsentens produksjonskrav kan det ikke."
+    },
+    {
+      "id": "econ2220-5-2-bank-standardresultat",
+      "type": "definition",
+      "title": "Standardresultatet $c(y) = 2y\\sqrt{rw}$",
+      "content": "**For teknologien $F(K,L) = \\sqrt{KL}$ er kostnadsfunksjonen $c(y) = 2y\\sqrt{rw}$**, med de betingede faktoretterspørslene $K^* = y\\sqrt{w/r}$ og $L^* = y\\sqrt{r/w}$.\n\nDette er kursets mest brukte enkeltresultat på produsentsiden, og løypa fram til det er den dokumenterte V2023-utsatt-oppgaven. Du bør kunne utlede det fra bunnen av på noen få minutter — ikke pugge det.\n\nBeslektet resultat: $F(K,L) = K^{1/3}L^{1/3}$ gir $c(y) = 2y^{3/2}\\sqrt{rw}$. Samme prisfaktor, annen eksponent på $y$ — fordi skalautbyttet er et annet."
+    },
+    {
+      "id": "econ2220-5-2-rep",
+      "type": "collapsible",
+      "title": "Repetisjonsoppgaver",
+      "buttonText": "Vis repetisjonsoppgaver",
+      "content": [
+        {
+          "id": "econ2220-5-2-oppg-R1",
+          "type": "exercise",
+          "exercise": {
+            "id": "econ2220-5-2-e-R1",
+            "number": "R1",
+            "type": "classic",
+            "difficulty": "lett",
+            "task": "Skriv opp Lagrange-funksjonen og de tre førsteordensbetingelsene for problemet $\\min\\, rK + wL$ gitt $F(K,L) = \\bar{y}$, og forklar hva som skjer når du deler de to første på hverandre.",
+            "solution": "$$\\mathcal{L} = rK + wL + \\lambda\\bigl(\\bar{y} - F(K,L)\\bigr)$$\n\n$$\\frac{\\partial\\mathcal{L}}{\\partial K} = r - \\lambda F'_K = 0, \\qquad \\frac{\\partial\\mathcal{L}}{\\partial L} = w - \\lambda F'_L = 0, \\qquad \\frac{\\partial\\mathcal{L}}{\\partial\\lambda} = \\bar{y} - F(K,L) = 0$$\n\nDeler du de to første på hverandre, står $\\lambda$ i teller og nevner og faller ut:\n\n$$\\frac{r}{w} = \\frac{F'_K}{F'_L}$$\n\nDet er kostnadsminimeringsbetingelsen. Den tredje betingelsen er bibetingelsen tilbake og brukes til å finne mengdene $K^*$ og $L^*$ etterpå.",
+            "hints": [
+              "Bibetingelsen skrives som «noe $= 0$» før den ganges med $\\lambda$.",
+              "Se hva som står som felles faktor i begge de to første betingelsene."
+            ]
+          }
+        },
+        {
+          "id": "econ2220-5-2-oppg-R2",
+          "type": "exercise",
+          "exercise": {
+            "id": "econ2220-5-2-e-R2",
+            "number": "R2",
+            "type": "classic",
+            "difficulty": "middels",
+            "task": "Et gartneri har $F(K,L) = \\sqrt{KL}$ og faktorprisene $r = 9$, $w = 1$.\n\n**a)** Finn $K^*$, $L^*$ og $c(y)$.\n\n**b)** Gartneriet klager over at arbeidskraften er «for billig til å bry seg om». Hvor stor andel av kostnaden er lønn?",
+            "solution": "**a)** Betingelsen er $L/K = r/w = 9$, altså $L = 9K$. Sett inn i $\\sqrt{KL} = y$:\n\n$$\\sqrt{K\\cdot 9K} = 3K = y \\;\\Longrightarrow\\; K^* = \\tfrac{1}{3}y, \\qquad L^* = 3y$$\n\n$$c(y) = 9\\cdot\\tfrac{1}{3}y + 1\\cdot 3y = 3y + 3y = 6y$$\n\n(Kontroll: $2y\\sqrt{rw} = 2y\\sqrt{9} = 6y$ ✓.)\n\n**b)** Lønnskostnaden er $wL^* = 3y$ av en samlet kostnad på $6y$, altså **50 %**.\n\nDet er et generelt trekk ved denne teknologien: med like eksponenter i $\\sqrt{KL}$ deles kostnaden alltid likt mellom faktorene, uansett hvor skjeve prisene er. At arbeid er billig per enhet, betyr bare at gartneriet bruker desto flere enheter av det.",
+            "hints": [
+              "Bruk $L/K = r/w$ og sett inn i produktfunksjonen.",
+              "I b): regn ut $wL^*$ og sammenlikn med $c(y)$."
+            ]
+          }
+        },
+        {
+          "id": "econ2220-5-2-oppg-R3",
+          "type": "exercise",
+          "exercise": {
+            "id": "econ2220-5-2-e-R3",
+            "number": "R3",
+            "type": "classic",
+            "difficulty": "middels",
+            "task": "Forklar kort forskjellen på en isokvant og en isokostlinje, og hva tangering mellom dem betyr.",
+            "solution": "**Isokvanten** samler faktorkombinasjoner som gir **samme produksjon**: den er løsningen av $F(K,L) = \\bar{y}$, og er krum (konveks mot origo). Helningen i tallverdi er den marginale tekniske substitusjonsbrøken $F'_K/F'_L$.\n\n**Isokostlinja** samler faktorkombinasjoner som **koster like mye**: $rK + wL = \\bar{c}$. Den er rett, med helning $-w/r$ når $L$ er på vannrett akse.\n\n**Tangering** betyr at de to helningene er like i berøringspunktet, altså $F'_K/F'_L = r/w$. Økonomisk: teknologiens bytteforhold mellom faktorene er nøyaktig markedets bytteforhold, og det finnes derfor ingen omfordeling mellom faktorene som gir samme produksjon til lavere pris.",
+            "hints": [
+              "Den ene handler om hva som er teknisk likeverdig, den andre om hva som er like dyrt.",
+              "Hva er helningen til hver av dem?"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": "econ2220-5-2-symbolliste",
+      "type": "collapsible",
+      "title": "Symbol- og formelliste",
+      "buttonText": "Vis symboler og formler",
+      "content": [
+        {
+          "id": "econ2220-5-2-symbolliste-text",
+          "type": "text",
+          "content": "## Symbol- og formelliste\n\n*Oppslagsverk — alt her forklares underveis i kapitlet.*\n\n| Symbol | Betydning |\n|---|---|\n| $K$ | Kapital (innsatsfaktor) |\n| $L$ | Arbeid (innsatsfaktor) |\n| $r$ | Prisen på én enhet kapital |\n| $w$ | Prisen på én enhet arbeid (lønn) |\n| $y$ | Produsert mengde |\n| $\\bar{y}$ | Den gitte produksjonsmengden i kostnadsminimeringsproblemet |\n| $F(K,L)$ | Produktfunksjonen (kap. 5.1) |\n| $F'_K$, $F'_L$ | Marginalproduktene av kapital og arbeid |\n| $\\mathcal{L}$ | Lagrange-funksjonen |\n| $\\lambda$ | Lagrange-multiplikatoren; her lik marginalkostnaden |\n| $K^*$, $L^*$ | De kostnadsminimerende faktormengdene (betingede faktoretterspørsler) |\n| $c(y)$ | Kostnadsfunksjonen — minste kostnad ved å produsere $y$ |\n| $c'(y)$ | Marginalkostnaden (utvikles i [kap. 5.3](/bok/econ2220/econ2220-5-3)) |\n| $\\bar{c}$ | Et gitt kostnadsnivå (isokostlinja) |\n| MTSB | Marginal teknisk substitusjonsbrøk, $F'_K/F'_L$ |\n| $p$ | Produktprisen — inngår IKKE i dette kapitlet |\n\n**Formler i dette delkapitlet:**\n\n$$\\min_{K,L}\\; rK + wL \\quad \\text{gitt} \\quad F(K,L) = \\bar{y}$$\nKostnadsminimeringsproblemet. Mengden er gitt; miksen velges.\n\n$$\\mathcal{L} = rK + wL + \\lambda\\bigl(\\bar{y} - F(K,L)\\bigr)$$\nLagrange-funksjonen: målfunksjon pluss multiplikator ganget med bibetingelsen skrevet som «noe = 0».\n\n$$r = \\lambda F'_K, \\qquad w = \\lambda F'_L, \\qquad F(K,L) = \\bar{y}$$\nFørsteordensbetingelsene.\n\n$$\\frac{F'_K}{F'_L} = \\frac{r}{w}$$\nKostnadsminimeringsbetingelsen: teknologiens bytteforhold mellom faktorene = markedets bytteforhold. Venstresiden er antall arbeidsenheter som må erstatte én kapitalenhet; høyresiden er antall arbeidsenheter markedet gir for prisen på én kapitalenhet.\n\n$$rK + wL = \\bar{c} \\quad\\Longleftrightarrow\\quad K = \\frac{\\bar{c}}{r} - \\frac{w}{r}L$$\nIsokostlinja, med helning $-w/r$ i et diagram med $L$ vannrett.\n\n$$c(y) = rK^*(r,w,y) + wL^*(r,w,y)$$\nKostnadsfunksjonen: minimumsverdien satt inn i kostnadsuttrykket.\n\n$$F(K,L) = \\sqrt{KL} \\;\\Rightarrow\\; K^* = y\\sqrt{\\tfrac{w}{r}},\\; L^* = y\\sqrt{\\tfrac{r}{w}},\\; c(y) = 2y\\sqrt{rw}$$\nKursets standardresultat på produsentsiden (konstant skalautbytte).\n\n$$F(K,L) = K^{1/3}L^{1/3} \\;\\Rightarrow\\; c(y) = 2y^{3/2}\\sqrt{rw}$$\nSamme løype med avtakende skalautbytte: kostnaden vokser raskere enn proporsjonalt.\n\n$$\\lambda^* = c'(\\bar{y})$$\nMultiplikatorens tolkning: hvor mye minimumskostnaden stiger av én enhet mer produksjon."
+        }
+      ]
+    }
+  ],
+  "exercises": []
+}
