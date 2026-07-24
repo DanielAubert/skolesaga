@@ -31,6 +31,14 @@ Branch: `bok/tma4110` (worktree). Arketype: regnefag. Institusjon: NTNU (slug `n
   («Sist du var her»-formelblokkene beholdt); (3) LENGDE-TELL i hele Del 6
   balansert: 6-2 56 %→28 %, 6-3 56 %→28 %, 6-4 39 %→28 %, 6-5 50 %→31 %
   (17 distraktorer forlenget, fasit og semantikk urørt). Bok-nivå: 31 %.
+- (24. juli, steg 3 forts. IV) **DEL 10 FERDIG.** 10-1/10-2/10-3 + prøve etterregnet
+  (~90 sjekker: egenverdier, egenvektorer, real/imaginærdel, IVP-konstanter, klassifisering;
+  alle nye og gamle systemløsninger sympy-verifisert mot $\mathbf x'=A\mathbf x$).
+  **0 fasitavvik.** Quiz 10-1..10-3 (46 spm) fasitkontrollert: alle riktige; LENGDE-TELL 7–19 %.
+  Fiks (samme mønster som Del 6/9, her mer utbredt): drill- og prøvekapitlene gjenbrukte de
+  samme matrisene som de gjennomregnede eksemplene — verst var 10.3 opg. 11 («kald bank»),
+  som var identisk med kapitlets EGET case. Nye datasett i 10.3 opg. 3/5/9/11 og i prøvene
+  1 (opg. 3+4), 2 (opg. 1+2), 3 (opg. 3/4/5) og 4 (opg. 3) — alle nye fasiter sympy-etterregnet.
 - (24. juli, steg 3 forts. III) **DEL 9 FERDIG.** 9-1/9-2/9-3/9-4 + prøve etterregnet
   (~115 sjekker): alle ODE-løsninger verifisert numerisk med mpmath (residual ~1e-25 i
   tre punkter + IVP-verdier), inkl. variasjon-av-parametere-svarene (tan/sec/csc/e^x·x⁻¹).

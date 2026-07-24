@@ -21,7 +21,7 @@
     {
       "id": "tma4110-10-3-forkunnskaper",
       "type": "text",
-      "content": "**Forkunnskaper.** Dette er et rent treningskapittel og forutsetter [kap. 10.1](/bok/tma4110/tma4110-10-1) (reelle egenverdier, generell løsning, begynnelsesverdi, omforming fra 2. orden) og [kap. 10.2](/bok/tma4110/tma4110-10-2) (komplekse egenverdier, real/imaginærdel, klassifisering). Repeter egenverdier og diagonalisering fra [kap. 5.2](/bok/tma4110/tma4110-5-2)–[5.4](/bok/tma4110/tma4110-5-4) og Eulers formel fra [kap. 7.2](/bok/tma4110/tma4110-7-2) ved behov. Ingen ny teori — bare oppskriften kjørt igjen og igjen.\n\nRegn med rundt 80 minutter for hele settet; det kan trygt deles over flere økter."
+      "content": "**Forkunnskaper — dette er et rent treningskapittel og forutsetter:**\n\n- [kap. 10.1](/bok/tma4110/tma4110-10-1) — reelle egenverdier: generell løsning, begynnelsesverdi, omforming fra 2. orden.\n- [kap. 10.2](/bok/tma4110/tma4110-10-2) — komplekse egenverdier: real/imaginærdel, klassifisering av likevekt.\n- [kap. 5.2](/bok/tma4110/tma4110-5-2)–[5.4](/bok/tma4110/tma4110-5-4) — egenverdier og diagonalisering (repeter ved behov).\n- [kap. 7.2](/bok/tma4110/tma4110-7-2) — Eulers formel (repeter ved behov).\n\nIngen ny teori — bare oppskriften kjørt igjen og igjen. Regn med rundt 80 minutter for hele settet; det kan trygt deles over flere økter."
     },
     {
       "id": "tma4110-10-3-oppskrift",
@@ -92,11 +92,11 @@
         "number": "3",
         "type": "classic",
         "difficulty": "middels",
-        "task": "(Reelt — begynnelsesverdi.) Løs $\\mathbf x'=\\begin{bmatrix}1&3\\\\3&1\\end{bmatrix}\\mathbf x$ med $\\mathbf x(0)=\\begin{bmatrix}2\\\\4\\end{bmatrix}$.",
-        "solution": "Egenverdier $\\lambda=4,-2$; egenvektorer $(1,1),(1,-1)$. Generell $\\mathbf x=c_1e^{4t}(1,1)+c_2e^{-2t}(1,-1)$. Ved $t=0$: $c_1+c_2=2,\\ c_1-c_2=4\\Rightarrow c_1=3,\\ c_2=-1$.\n$$\\mathbf x(t)=3e^{4t}\\begin{bmatrix}1\\\\1\\end{bmatrix}-e^{-2t}\\begin{bmatrix}1\\\\-1\\end{bmatrix}.$$\nKontroll: $\\mathbf x(0)=(3-1,\\ 3+1)=(2,4)$ ✓.",
+        "task": "(Reelt — begynnelsesverdi.) Løs $\\mathbf x'=\\begin{bmatrix}2&1\\\\1&2\\end{bmatrix}\\mathbf x$ med $\\mathbf x(0)=\\begin{bmatrix}4\\\\2\\end{bmatrix}$.",
+        "solution": "Egenverdier: $\\lambda^2-4\\lambda+3=(\\lambda-1)(\\lambda-3)$, så $\\lambda=1,3$; egenvektorer $(1,-1)$ og $(1,1)$. Generell $\\mathbf x=c_1e^{t}(1,-1)+c_2e^{3t}(1,1)$. Ved $t=0$: $c_1+c_2=4,\\ -c_1+c_2=2\\Rightarrow c_2=3,\\ c_1=1$.\n$$\\mathbf x(t)=e^{t}\\begin{bmatrix}1\\\\-1\\end{bmatrix}+3e^{3t}\\begin{bmatrix}1\\\\1\\end{bmatrix}.$$\nKontroll: $\\mathbf x(0)=(1+3,\\ -1+3)=(4,2)$ ✓.",
         "hints": [
-          "$\\lambda^2-2\\lambda-8=0$ gir $\\lambda=4,-2$.",
-          "Sett $t=0$ og løs $c_1+c_2=2,\\ c_1-c_2=4$."
+          "$\\lambda^2-4\\lambda+3=0$ gir $\\lambda=1,3$.",
+          "Sett $t=0$ og løs $c_1+c_2=4,\\ -c_1+c_2=2$."
         ]
       }
     },
@@ -125,12 +125,12 @@
         "number": "5",
         "type": "classic",
         "difficulty": "middels",
-        "task": "(Komplekst — spiral.) Finn den generelle reelle løsningen av $\\mathbf x'=\\begin{bmatrix}2&-3\\\\3&2\\end{bmatrix}\\mathbf x$, og klassifiser likevekten.",
-        "solution": "Egenverdier: $(2-\\lambda)^2+9=0\\Rightarrow\\lambda=2\\pm3i$ ($a=2,b=3$). Egenvektor ($\\lambda=2+3i$): $\\begin{bmatrix}-3i&-3\\\\3&-3i\\end{bmatrix}\\to w_2=-i\\,w_1$, $\\mathbf w=(1,-i)$. Grunnløsning $e^{2t}(\\cos3t+i\\sin3t)(1,-i)$:\n$$\\mathbf x=e^{2t}\\left(c_1\\begin{bmatrix}\\cos3t\\\\ \\sin3t\\end{bmatrix}+c_2\\begin{bmatrix}\\sin3t\\\\ -\\cos3t\\end{bmatrix}\\right).$$\n$a=2>0$ ⇒ **ustabil spiral**.",
+        "task": "(Komplekst — spiral.) Finn den generelle reelle løsningen av $\\mathbf x'=\\begin{bmatrix}3&-2\\\\2&3\\end{bmatrix}\\mathbf x$, og klassifiser likevekten.",
+        "solution": "Egenverdier: $(3-\\lambda)^2+4=0\\Rightarrow\\lambda=3\\pm2i$ ($a=3,b=2$). Egenvektor ($\\lambda=3+2i$): $\\begin{bmatrix}-2i&-2\\\\2&-2i\\end{bmatrix}\\to w_2=-i\\,w_1$, $\\mathbf w=(1,-i)$. Grunnløsning $e^{3t}(\\cos2t+i\\sin2t)(1,-i)$:\n$$\\mathbf x=e^{3t}\\left(c_1\\begin{bmatrix}\\cos2t\\\\ \\sin2t\\end{bmatrix}+c_2\\begin{bmatrix}\\sin2t\\\\ -\\cos2t\\end{bmatrix}\\right).$$\n$a=3>0$ ⇒ **ustabil spiral**.",
         "hints": [
-          "$(2-\\lambda)^2+9=0$ gir $\\lambda=2\\pm3i$.",
+          "$(3-\\lambda)^2+4=0$ gir $\\lambda=3\\pm2i$.",
           "Egenvektor $(1,-i)$; real/imaginærdel gir de to reelle løsningene.",
-          "$a=2>0$ ⇒ ustabil."
+          "$a=3>0$ ⇒ ustabil."
         ]
       }
     },
@@ -191,10 +191,10 @@
         "number": "9",
         "type": "classic",
         "difficulty": "middels",
-        "task": "(Omforming fra 2. orden — reelle røtter.) Skriv $y''-y'-6y=0$ som et system, finn egenverdiene og $y(t)$.",
-        "solution": "$x_1=y,\\ x_2=y'$: $x_1'=x_2$, $x_2'=y''=y'+6y=6x_1+x_2$, så $A=\\begin{bmatrix}0&1\\\\6&1\\end{bmatrix}$. Egenverdier $\\lambda^2-\\lambda-6=(\\lambda-3)(\\lambda+2)$, $\\lambda=3,-2$. Egenvektorer $(1,\\lambda)$: $(1,3),(1,-2)$.\n$$\\mathbf x=c_1e^{3t}\\begin{bmatrix}1\\\\3\\end{bmatrix}+c_2e^{-2t}\\begin{bmatrix}1\\\\-2\\end{bmatrix},\\qquad y=c_1e^{3t}+c_2e^{-2t}.$$",
+        "task": "(Omforming fra 2. orden — reelle røtter.) Skriv $y''-y'-12y=0$ som et system, finn egenverdiene og $y(t)$.",
+        "solution": "$x_1=y,\\ x_2=y'$: $x_1'=x_2$, $x_2'=y''=y'+12y=12x_1+x_2$, så $A=\\begin{bmatrix}0&1\\\\12&1\\end{bmatrix}$. Egenverdier $\\lambda^2-\\lambda-12=(\\lambda-4)(\\lambda+3)$, $\\lambda=4,-3$. Egenvektorer $(1,\\lambda)$: $(1,4),(1,-3)$.\n$$\\mathbf x=c_1e^{4t}\\begin{bmatrix}1\\\\4\\end{bmatrix}+c_2e^{-3t}\\begin{bmatrix}1\\\\-3\\end{bmatrix},\\qquad y=c_1e^{4t}+c_2e^{-3t}.$$",
         "hints": [
-          "Nederste rad: $y''=y'+6y=6x_1+x_2$.",
+          "Nederste rad: $y''=y'+12y=12x_1+x_2$.",
           "Følgematrisens egenvektor er $(1,\\lambda)$.",
           "$y=x_1$."
         ]
@@ -225,12 +225,12 @@
         "number": "11",
         "type": "classic",
         "difficulty": "vanskelig",
-        "task": "(Kald bank — momentliste-fasit, ingen mellomsteg gitt.) Løs $\\mathbf x'=\\begin{bmatrix}4&-2\\\\1&1\\end{bmatrix}\\mathbf x$ med $\\mathbf x(0)=\\begin{bmatrix}3\\\\2\\end{bmatrix}$, og klassifiser likevekten.",
-        "solution": "Momentliste (A-svar): $\\lambda^2-5\\lambda+6=0\\Rightarrow\\lambda=2,3$; egenvektorer $(1,1),(2,1)$; generell $\\mathbf x=c_1e^{2t}(1,1)+c_2e^{3t}(2,1)$; $\\mathbf x(0)=(3,2)$ gir $c_1+2c_2=3,\\ c_1+c_2=2\\Rightarrow c_1=c_2=1$; svar $\\mathbf x=e^{2t}(1,1)+e^{3t}(2,1)$. Klassifisering: reelle egenverdier begge positive ⇒ **ustabil node**.",
+        "task": "(Kald bank — momentliste-fasit, ingen mellomsteg gitt.) Løs $\\mathbf x'=\\begin{bmatrix}1&4\\\\2&3\\end{bmatrix}\\mathbf x$ med $\\mathbf x(0)=\\begin{bmatrix}1\\\\4\\end{bmatrix}$, og klassifiser likevekten.",
+        "solution": "Momentliste (A-svar): $\\lambda^2-4\\lambda-5=0\\Rightarrow\\lambda=5,-1$; egenvektorer $(1,1)$ og $(2,-1)$; generell $\\mathbf x=c_1e^{5t}(1,1)+c_2e^{-t}(2,-1)$; $\\mathbf x(0)=(1,4)$ gir $c_1+2c_2=1,\\ c_1-c_2=4\\Rightarrow c_2=-1,\\ c_1=3$; svar $\\mathbf x=3e^{5t}(1,1)-e^{-t}(2,-1)$. Klassifisering: reelle egenverdier med **motsatt** fortegn ⇒ **sadelpunkt** (ustabil).",
         "hints": [
           "Ingen mellomsteg gitt med vilje — kald bank.",
-          "Egenverdier fra spor $5$, det $6$.",
-          "Begge egenverdier positive ⇒ ustabil node."
+          "Egenverdier fra spor $4$, det $-5$.",
+          "Motsatt fortegn på egenverdiene ⇒ sadelpunkt."
         ]
       }
     },
