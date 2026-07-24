@@ -1,0 +1,527 @@
+{
+  "id": "econ2220-2-1",
+  "courseId": "econ2220",
+  "chapterNumber": "2.1",
+  "title": "Nyttemaksimering med tolkningskrav",
+  "description": "Oppgave 1s åpning: sett opp problemet, løs med Lagrange, kombiner til tilpasningsbetingelsen — og tolk den i enheter slik sensor krever.",
+  "estimatedMinutes": 55,
+  "competenceGoals": [
+    "kunne sette opp konsumentens maksimeringsproblem formelt med budsjettbetingelsen som likhet, og begrunne likheten med monotone preferanser",
+    "kunne løse problemet med Lagrange-metoden og kombinere førsteordensbetingelsene til tilpasningsbetingelsen u'1/u'2 = p1/p2",
+    "kunne tolke tilpasningsbetingelsen i økonomiske enheter — marginal betalingsvilje målt i den andre varen mot markedets bytteforhold",
+    "kunne forklare i figur og i ord hvorfor et punkt uten tangering ikke er optimalt, og hvilken vei konsumenten bør flytte seg"
+  ],
+  "content": [
+    {
+      "id": "econ2220-2-1-tip-eksamensvinkel",
+      "type": "tip",
+      "title": "Eksamensvinkel",
+      "content": "**Dette kapitlet er åpningen på eksamensoppgave 1.** Oppgavesjangeren boka kaller **A — nyttemaksimering med tolkningskrav** (sett opp problemet, løs det, og forklar hva løsningen betyr i økonomiske enheter) finnes i **6 av de 7 ordinære eksamenssettene** i arkivet: V2018, V2019, V2020, V2023, V2024 og V2025 — altså 86 %. Det eneste ordinære settet uten den er V2022. I tillegg går sjangeren igjen i **3 av 4 utsatt-sett**.\n\nKonsumentoppgaven som starter her, bar **30–45 % av poengene** hvert av de tre siste årene. Klarer du dette kapitlet godt, har du sikret grunnstammen i én av tre eksamensoppgaver.\n\n**To sensorkrav du må kjenne før du leser videre:**\n\n**a)** Matematisk utledning kreves for full uttelling. Sensorveiledningen for V2025 sier det rett ut: en figur alene holder ikke. Figuren er støtte til regningen, aldri en erstatning.\n**b)** Betingelsen du kommer fram til, skal *tolkes*. Å skrive «marginal substitusjonsbrøk er lik prisforholdet» og stoppe der, er å gjenta formelen med ord. Sensor vil ha bytteforholdet forklart i enheter av de to varene.\n\nKapitlet trener også **sjanger B — figurforklaring av (ikke-)optimal tilpasning**: å peke på et punkt som *ikke* er optimalt og forklare hvorfor. Den kom i V2023 (tre navngitte punkter skulle diskuteres) og i V2025 (studenten skulle konstruere moteksempelet selv).\n\nPrioritet: **dette må sitte**. Alt i Del 2, 3 og 4 bygger på oppsettet og tolkningen du lærer her."
+    },
+    {
+      "id": "econ2220-2-1-forkunnskaper",
+      "type": "text",
+      "content": "**Forkunnskaper.** Dette kapitlet bygger på to kapitler i boka:\n\n- **[kap. 1.2](/bok/econ2220/econ2220-1-2)** — preferanser, indifferenskurver, konveksitet og **MSB** (marginal substitusjonsbrøk).\n- **[kap. 1.3](/bok/econ2220/econ2220-1-3)** — Lagrange-metoden og innsettingsmetoden.\n\nFra ECON1210-boka er det nyttig, men ikke nødvendig, å ha sett **[Konsumentteori: budsjettlinje, indifferenskurver og tilpasning](/bok/econ1210/econ1210-7-1)** og **[Etterspørselskurven](/bok/econ1210/econ1210-1-1)**. Der ble tilpasningen *postulert* og forklart grafisk; her skal den *utledes*.\n\n**Sist du var her — de tre tingene du trenger klart i hodet:**\n\n**a)** **MSB** er tallverdien av helningen på indifferenskurven, og den regnes ut som forholdet mellom marginalnyttene:\n\n$$\\text{MSB} = \\frac{u'_1}{u'_2}$$\n\nder $u'_1 = \\partial u/\\partial c_1$ er marginalnytten av vare 1 (nytteøkningen ved én enhet mer av vare 1) og $u'_2$ tilsvarende for vare 2.\n\n**b)** **Lagrange-oppskriften:** sett opp $\\mathcal{L} = (\\text{målfunksjon}) - \\lambda\\,(\\text{venstresiden minus høyresiden i bibetingelsen})$, deriver med hensyn på hver variabel og på $\\lambda$, og sett de deriverte lik null.\n\n**c)** **Kombinasjonstrikset:** de to første førsteordensbetingelsene deles på hverandre, slik at multiplikatoren $\\lambda$ forsvinner. Det er det steget som gir selve tilpasningsbetingelsen.\n\nEr du usikker på ett av punktene, ta en runde i [kap. 1.3](/bok/econ2220/econ2220-1-3) først — resten av dette kapitlet står på dem."
+    },
+    {
+      "id": "econ2220-2-1-intro",
+      "type": "text",
+      "content": "Du har 3 000 kroner igjen av studielånet denne måneden. Du kan bruke dem på mat, eller på kollektivreiser, eller — mest sannsynlig — på en blanding. To ting bestemmer hva du ender opp med: **hva du har råd til**, og **hva du liker best**.\n\nDet er hele konsumentteorien i to setninger. «Hva du har råd til» er budsjettbetingelsen, en helt objektiv beskrankning satt av priser og inntekt. «Hva du liker best» er preferansene dine, beskrevet av nyttefunksjonen fra [kap. 1.2](/bok/econ2220/econ2220-1-2).\n\nI ECON1210 ble konklusjonen tegnet: den beste kurven er der indifferenskurven tangerer budsjettlinjen. I ECON2220 skal du **regne den fram**, og du skal kunne si hva tangeringen betyr økonomisk — ikke bare at «de to helningene er like».\n\nVi bygger dette i fire løkker. Løkke 1 er budsjettet, løkke 2 er selve optimeringen, løkke 3 er tolkningen sensor er ute etter, og løkke 4 er figuren der du skal forklare hva som er galt i punkter som *ikke* er optimale."
+    },
+    {
+      "id": "econ2220-2-1-lokke1",
+      "type": "text",
+      "content": "## Løkke 1 — Budsjettmengden og budsjettlinjen (~12 min)"
+    },
+    {
+      "id": "econ2220-2-1-l1-tekst1",
+      "type": "text",
+      "content": "Konsumenten kjøper to varer. Vi skriver mengdene $c_1$ og $c_2$ (**c** for konsum), prisene $p_1$ og $p_2$, og pengeinntekten $m$. Da koster en handlekurv $(c_1, c_2)$ til sammen $p_1c_1 + p_2c_2$ kroner, og det kan ikke overstige inntekten.\n\nMerk at rekkefølgen på varene er vilkårlig — hvilken vare du kaller nummer 1, bestemmer du selv når du setter opp oppgaven. Men når du først har valgt, må du holde deg til det, for alle betingelsene under er skrevet med vare 1 i telleren."
+    },
+    {
+      "id": "econ2220-2-1-def-budsjettbetingelsen",
+      "type": "definition",
+      "title": "Budsjettbetingelsen",
+      "content": "**Budsjettbetingelsen** sier at verdien av konsumet ikke kan overstige inntekten:\n\n$$p_1c_1 + p_2c_2 \\le m$$\n\nI dette kurset skriver vi den alltid med **likhet**:\n\n$$p_1c_1 + p_2c_2 = m$$\n\nGrunnen er monotoni («mer er bedre», [kap. 1.2](/bok/econ2220/econ2220-1-2)): har konsumenten kroner til overs, kan hun kjøpe mer av minst én vare og få det bedre. Et optimum kan derfor aldri ligge strengt under $m$. Begrunnelsen er verdt et poeng på eksamen og bør skrives ut den første gangen du setter opp problemet."
+    },
+    {
+      "id": "econ2220-2-1-def-budsjettmengden",
+      "type": "definition",
+      "title": "Budsjettmengden",
+      "content": "**Budsjettmengden** er samlingen av alle handlekurver konsumenten har råd til:\n\n$$B = \\{(c_1, c_2) \\ge 0 \\ : \\ p_1c_1 + p_2c_2 \\le m\\}$$\n\nGeometrisk er det en trekant i første kvadrant, avgrenset av de to aksene og av **budsjettlinjen** — randen der pengene akkurat strekker til. Alt inne i trekanten er råd-til-kurver som ikke bruker opp inntekten."
+    },
+    {
+      "id": "econ2220-2-1-l1-tekst2",
+      "type": "text",
+      "content": "Løser vi budsjettlikningen for $c_2$, får vi budsjettlinjen på rett-linje-form:\n\n$$c_2 = \\frac{m}{p_2} - \\frac{p_1}{p_2}\\,c_1$$\n\nSkjæringspunktet med den loddrette aksen er $m/p_2$ — alt brukt på vare 2. Skjæringspunktet med den vannrette aksen er $m/p_1$. Helningen er $-p_1/p_2$.\n\nDen helningen er ikke bare et tall. Tallverdien $p_1/p_2$ er **markedets bytteforhold**, og det er verdt å stanse ved enhetene: teller er kroner per enhet vare 1, nevner er kroner per enhet vare 2, så kronene stryker mot hverandre og igjen står **enheter av vare 2 per enhet vare 1**."
+    },
+    {
+      "id": "econ2220-2-1-def-bytteforhold",
+      "type": "definition",
+      "title": "Markedets bytteforhold (relativprisen)",
+      "content": "**Markedets bytteforhold** mellom vare 1 og vare 2 er prisforholdet\n\n$$\\frac{p_1}{p_2}$$\n\nog det leses i enheter: *hvor mange enheter av vare 2 konsumenten må gi avkall på for å skaffe seg én enhet mer av vare 1*. Størrelsen kalles også **relativprisen** på vare 1 målt i vare 2.\n\nEksempel på enhetsregningen: er $p_1 = 60$ kr/kg og $p_2 = 40$ kr/tur, er $p_1/p_2 = 1{,}5$ turer per kg. Én kilo mat koster halvannen kollektivtur.\n\nBytteforholdet er tallverdien av budsjettlinjens helning. Fortegnet er negativt fordi mer av den ene varen tvinger fram mindre av den andre."
+    },
+    {
+      "id": "econ2220-2-1-ex-1",
+      "type": "example",
+      "title": "Eksempel 1: Budsjettlinjen for en student",
+      "problem": "En student har $m = 3\\,000$ kroner igjen til mat ($c_1$, målt i kilo matvarer) og kollektivreiser ($c_2$, målt i antall enkeltbilletter) denne måneden. Prisene er $p_1 = 60$ kr per kilo og $p_2 = 40$ kr per billett.\n\nSett opp budsjettbetingelsen, finn skjæringspunktene med aksene og helningen, og tolk helningen i enheter. Beskriv figuren.",
+      "solution": "**Trinn 1 — sett opp problemet formelt.** Budsjettbetingelsen med likhet (monotoni gjør at hele beløpet brukes):\n\n$$60\\,c_1 + 40\\,c_2 = 3\\,000$$\n\n**Trinn 2 — regn ut.** Løst for $c_2$:\n\n$$c_2 = \\frac{3\\,000}{40} - \\frac{60}{40}\\,c_1 = 75 - 1{,}5\\,c_1$$\n\n- Skjæring med den loddrette aksen (alt på reiser): $c_2 = 3\\,000/40 = 75$ billetter.\n- Skjæring med den vannrette aksen (alt på mat): $c_1 = 3\\,000/60 = 50$ kilo.\n- Helning: $-p_1/p_2 = -60/40 = -1{,}5$.\n\n**Trinn 3 — tolk i enheter.** Tallverdien $1{,}5$ har enheten *billetter per kilo*: for å kjøpe én kilo mat mer må studenten gi avkall på 1,5 kollektivbilletter. Det er markedets pris på mat *målt i reiser* — helt uavhengig av hva studenten selv synes om mat og reiser.\n\n**Figur i ord.** Tegn $c_1$ (kilo mat) langs den vannrette aksen og $c_2$ (billetter) langs den loddrette. Budsjettlinjen er en rett linje fra punktet $(0, 75)$ på den loddrette aksen ned til $(50, 0)$ på den vannrette. Budsjettmengden er den fylte trekanten mellom linjen og de to aksene. Punktet $(20, 45)$ ligger *på* linjen (kontroll: $60\\cdot 20 + 40\\cdot 45 = 1\\,200 + 1\\,800 = 3\\,000$), mens $(20, 30)$ ligger innenfor og lar 600 kroner stå ubrukt. Marker begge punktene med stiplede hjelpelinjer ned til aksene."
+    },
+    {
+      "id": "econ2220-2-1-oppg-1",
+      "type": "exercise",
+      "exercise": {
+        "id": "econ2220-2-1-e1",
+        "number": "1",
+        "type": "classic",
+        "difficulty": "lett",
+        "task": "(Innstegsoppgave — ren gjengivelse. Grunnlaget for sjanger A, altså nyttemaksimering med tolkningskrav.)\n\n**a)** Skriv opp budsjettbetingelsen for en konsument med to varer, og forklar hvorfor kurset alltid skriver den med likhetstegn.\n**b)** Hva er tallverdien av budsjettlinjens helning, og hvilken enhet har den?",
+        "solution": "**a)** Budsjettbetingelsen er\n\n$$p_1c_1 + p_2c_2 = m$$\n\nder $p_1, p_2$ er prisene, $c_1, c_2$ mengdene og $m$ pengeinntekten. Vi skriver likhet fordi preferansene er **monotone**: mer er bedre. Blir det kroner til overs, kan konsumenten kjøpe mer av minst én vare og oppnå høyere nytte, så en kurv som lar penger stå ubrukt kan ikke være optimal. Optimum ligger derfor alltid på randen av budsjettmengden.\n\n**b)** Tallverdien er prisforholdet $p_1/p_2$. Enheten er *enheter av vare 2 per enhet av vare 1*: kroner per enhet vare 1 delt på kroner per enhet vare 2 gir at kronene stryker mot hverandre. Det er markedets bytteforhold — hvor mye av vare 2 markedet krever for én enhet mer av vare 1.",
+        "hints": [
+          "Budsjettbetingelsen har tre bokstaver på venstresiden og én på høyresiden.",
+          "Til b): sett inn enheten «kr/kg» over «kr/billett» og stryk kronene."
+        ]
+      }
+    },
+    {
+      "id": "econ2220-2-1-oppg-2",
+      "type": "exercise",
+      "exercise": {
+        "id": "econ2220-2-1-e2",
+        "number": "2",
+        "type": "classic",
+        "difficulty": "lett",
+        "task": "En kaffeelsker bruker $m = 900$ kroner i måneden på kaffe ($c_1$, målt i kilo bønner, $p_1 = 300$ kr/kg) og på te ($c_2$, målt i esker, $p_2 = 45$ kr/eske).\n\n**a)** Sett opp budsjettbetingelsen og finn begge skjæringspunktene med aksene.\n**b)** Regn ut markedets bytteforhold mellom kaffe og te, og tolk tallet i enheter.\n**c)** Kaffeprisen faller til 225 kr/kg mens alt annet er uendret. Hva skjer med budsjettlinjen? Beskriv den nye linjen i ord.",
+        "solution": "**a)** Budsjettbetingelsen:\n\n$$300\\,c_1 + 45\\,c_2 = 900$$\n\nAlt på kaffe gir $c_1 = 900/300 = 3$ kilo. Alt på te gir $c_2 = 900/45 = 20$ esker. Linjen går altså fra $(0, 20)$ til $(3, 0)$.\n\n**b)** Bytteforholdet er\n\n$$\\frac{p_1}{p_2} = \\frac{300}{45} = \\frac{20}{3} \\approx 6{,}67$$\n\nEnheten er *esker te per kilo kaffe*: for å kjøpe én kilo kaffe mer må hun gi avkall på omtrent 6,7 esker te. Det er markedets pris på kaffe målt i te.\n\n**c)** Skjæringen med te-aksen er uendret på $(0, 20)$ — brukes alt på te, spiller kaffeprisen ingen rolle. Skjæringen med kaffe-aksen flytter utover, til $c_1 = 900/225 = 4$ kilo. Linjen **roterer** altså rundt punktet $(0, 20)$ og blir slakere: den nye helningen er $-225/45 = -5$, så bytteforholdet faller fra 6,67 til 5 esker per kilo. Budsjettmengden blir større: alt hun hadde råd til før, har hun fortsatt råd til, og i tillegg noen nye kurver.",
+        "hints": [
+          "Skjæringspunktene finner du ved å sette den andre mengden lik null.",
+          "Til c): tenk over hvilket av de to skjæringspunktene som *ikke* berøres når bare $p_1$ endres."
+        ]
+      }
+    },
+    {
+      "id": "econ2220-2-1-lokke2",
+      "type": "text",
+      "content": "## Løkke 2 — Maksimeringsproblemet og Lagrange (~15 min)"
+    },
+    {
+      "id": "econ2220-2-1-l2-tekst1",
+      "type": "text",
+      "content": "Nå setter vi de to halvdelene sammen. Konsumenten vil ha høyest mulig nytte, men er bundet av budsjettet. Formelt:\n\n$$\\max_{c_1,\\,c_2}\\ u(c_1, c_2) \\quad \\text{gitt} \\quad p_1c_1 + p_2c_2 = m$$\n\nDette er problemet du skal kunne skrive opp uten å nøle. Legg merke til strukturen: **en målfunksjon** som skal maksimeres, og **en bibetingelse** som må holde. Nyttefunksjonen $u$ antas monoton og med avtakende MSB (konvekse preferanser), slik at løsningen ligger på budsjettlinjen og er et indre punkt med begge varer positive.\n\nBoka følger en fast **tretrinnsmal** i alle optimeringssvar, og den er nøyaktig det sensor honorerer:\n\n1. Sett opp problemet formelt — målfunksjon og bibetingelse, og si hvorfor bibetingelsen holder med likhet.\n2. Utled steg for steg — Lagrange, deriver, kombiner førsteordensbetingelsene.\n3. Oversett resultatet til et bytteforhold i enheter, og forklar hvorfor likhet er optimum. Tegn eller beskriv figuren *etterpå*, som støtte."
+    },
+    {
+      "id": "econ2220-2-1-l2-tekst2",
+      "type": "text",
+      "content": "**Utledningen.** Lagrange-funksjonen er målfunksjonen minus multiplikatoren ganger bibetingelsen skrevet som «venstreside minus høyreside»:\n\n$$\\mathcal{L}(c_1, c_2, \\lambda) = u(c_1, c_2) - \\lambda\\,(p_1c_1 + p_2c_2 - m)$$\n\nDe tre førsteordensbetingelsene (forkortes **FOB** — de deriverte satt lik null) er:\n\n$$\\frac{\\partial \\mathcal{L}}{\\partial c_1} = u'_1 - \\lambda p_1 = 0 \\qquad (1)$$\n\n$$\\frac{\\partial \\mathcal{L}}{\\partial c_2} = u'_2 - \\lambda p_2 = 0 \\qquad (2)$$\n\n$$\\frac{\\partial \\mathcal{L}}{\\partial \\lambda} = -(p_1c_1 + p_2c_2 - m) = 0 \\qquad (3)$$\n\nBetingelse (3) er bare budsjettet igjen — Lagrange-metoden bygger beskrankningen inn i systemet.\n\n**Nå kommer det avgjørende steget.** Flytt over: $u'_1 = \\lambda p_1$ og $u'_2 = \\lambda p_2$. Del den første på den andre. Multiplikatoren $\\lambda$ står i begge og forsvinner:\n\n$$\\frac{u'_1}{u'_2} = \\frac{\\lambda p_1}{\\lambda p_2} = \\frac{p_1}{p_2}$$\n\nÅ stoppe før dette steget er den vanligste tekniske feilen i sjanger A. Førsteordensbetingelsene hver for seg inneholder en ukjent størrelse ingen kan observere; forholdet mellom dem inneholder bare priser og marginalnytter."
+    },
+    {
+      "id": "econ2220-2-1-thm-tilpasning",
+      "type": "theorem",
+      "title": "Tilpasningsbetingelsen for konsumenten",
+      "content": "I et indre optimum for problemet $\\max u(c_1,c_2)$ gitt $p_1c_1 + p_2c_2 = m$ gjelder\n\n$$\\frac{u'_1}{u'_2} = \\frac{p_1}{p_2} \\qquad \\text{det vil si} \\qquad \\text{MSB} = \\frac{p_1}{p_2}$$\n\nsammen med budsjettbetingelsen $p_1c_1 + p_2c_2 = m$.\n\nTo likninger, to ukjente — det er dette systemet som bestemmer konsumentens tilpasning $(c_1, c_2)$.\n\nGrafisk: **indifferenskurven tangerer budsjettlinjen**, fordi tallverdien av helningen på indifferenskurven (MSB) er lik tallverdien av helningen på budsjettlinjen (prisforholdet). Men tangeringen er *konsekvensen* av regningen, ikke beviset for den."
+    },
+    {
+      "id": "econ2220-2-1-ex-2",
+      "type": "example",
+      "title": "Eksempel 2: Den generelle utledningen — malen du skal kunne utenat",
+      "problem": "En konsument har en vilkårlig nyttefunksjon $u(c_1, c_2)$ som er monoton og har avtakende MSB. Sett opp og løs nyttemaksimeringsproblemet med Lagrange, og forklar hvert steg.",
+      "solution": "**Trinn 1 — problemet formelt.**\n\n$$\\max_{c_1,\\,c_2}\\ u(c_1,c_2) \\quad \\text{gitt} \\quad p_1c_1 + p_2c_2 = m$$\n\nBibetingelsen skrives med likhet fordi preferansene er monotone: ubrukte kroner kan alltid omsettes i mer nytte, så optimum ligger på budsjettlinjen.\n\n**Trinn 2 — utled.** Lagrange-funksjonen:\n\n$$\\mathcal{L} = u(c_1,c_2) - \\lambda\\,(p_1c_1 + p_2c_2 - m)$$\n\nDeriver og sett lik null:\n\n$$u'_1 = \\lambda p_1, \\qquad u'_2 = \\lambda p_2, \\qquad p_1c_1 + p_2c_2 = m$$\n\nDel de to første på hverandre. $\\lambda$ elimineres, og vi står igjen med\n\n$$\\frac{u'_1}{u'_2} = \\frac{p_1}{p_2}$$\n\nSammen med budsjettbetingelsen gir dette to likninger i de to ukjente $c_1$ og $c_2$.\n\n**Trinn 3 — tolk i enheter.** Venstresiden $u'_1/u'_2$ er MSB: hvor mange enheter av vare 2 konsumenten *er villig til* å gi fra seg for én enhet mer av vare 1, uten å bli dårligere stilt. Høyresiden $p_1/p_2$ er hvor mange enheter av vare 2 *markedet krever* for det samme byttet. I optimum er de to like: konsumentens egen verdsetting av den siste enheten stemmer nøyaktig med prisen markedet setter.\n\nEn bonus fra utledningen: siden $u'_1 = \\lambda p_1$ og $u'_2 = \\lambda p_2$, er $\\lambda = u'_1/p_1 = u'_2/p_2$. Multiplikatoren er altså **marginalnytten per krone**, og den er den samme uansett hvilken vare den siste kronen brukes på. Det er skyggeprisen på budsjettet fra [kap. 1.3](/bok/econ2220/econ2220-1-3): den ekstra nytten en krone til i inntekt ville gitt.\n\n**Figur i ord.** I et diagram med $c_1$ vannrett og $c_2$ loddrett tegnes budsjettlinjen fra $(0, m/p_2)$ til $(m/p_1, 0)$. Indifferenskurvene krummer mot origo. Optimum er punktet $E$ der den høyeste oppnåelige indifferenskurven *berører* linjen i ett punkt. Stiplede hjelpelinjer fra $E$ ned til $c_1^*$ på den vannrette aksen og bort til $c_2^*$ på den loddrette. Kurver som ligger lenger ut, er ikke oppnåelige; kurver som skjærer linjen, gir lavere nytte."
+    },
+    {
+      "id": "econ2220-2-1-oppg-3",
+      "type": "exercise",
+      "exercise": {
+        "id": "econ2220-2-1-e3",
+        "number": "3",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "(Sjanger A — nyttemaksimering med tolkningskrav. Denne kjeden åpner konsumentoppgaven i 6 av 7 ordinære sett.)\n\nEn husholdning bruker hele månedsbudsjettet $m$ på strøm ($c_1$, kilowattimer) og «alt annet» ($c_2$), til prisene $p_1$ og $p_2$. Nyttefunksjonen $u(c_1,c_2)$ er monoton med avtakende MSB.\n\n**a)** Sett opp maksimeringsproblemet formelt, og begrunn at budsjettbetingelsen holder med likhet.\n**b)** Sett opp Lagrange-funksjonen, utled førsteordensbetingelsene og kombiner dem til tilpasningsbetingelsen.\n**c)** Hvor mange likninger og hvor mange ukjente bestemmer tilpasningen?",
+        "solution": "**a)** Problemet er\n\n$$\\max_{c_1,\\,c_2}\\ u(c_1,c_2) \\quad \\text{gitt} \\quad p_1c_1 + p_2c_2 = m$$\n\nLikhet fordi preferansene er monotone: hadde husholdningen kroner til overs, kunne den kjøpt mer strøm eller mer av «alt annet» og fått høyere nytte. Et punkt strengt innenfor budsjettlinjen kan derfor ikke være optimalt.\n\n**b)** Lagrange-funksjonen:\n\n$$\\mathcal{L} = u(c_1,c_2) - \\lambda\\,(p_1c_1 + p_2c_2 - m)$$\n\nFørsteordensbetingelsene:\n\n$$u'_1 - \\lambda p_1 = 0, \\qquad u'_2 - \\lambda p_2 = 0, \\qquad p_1c_1 + p_2c_2 = m$$\n\nFra de to første: $u'_1 = \\lambda p_1$ og $u'_2 = \\lambda p_2$. Deler vi den første på den andre, elimineres $\\lambda$:\n\n$$\\frac{u'_1}{u'_2} = \\frac{p_1}{p_2}$$\n\n**c)** To likninger — tilpasningsbetingelsen og budsjettbetingelsen — i de to ukjente $c_1$ og $c_2$. (Den tredje FOB-en *er* budsjettbetingelsen, så $\\lambda$ er ikke en ekstra ukjent i praksis; den bestemmes til slutt av $\\lambda = u'_1/p_1$.)",
+        "hints": [
+          "Skriv bibetingelsen som «venstreside minus høyreside» inne i parentesen etter $\\lambda$.",
+          "Etter derivasjonen: flytt $\\lambda p_1$ og $\\lambda p_2$ over på hver sin høyreside før du deler.",
+          "Til c): tell likningene du faktisk bruker til å finne $c_1$ og $c_2$."
+        ]
+      }
+    },
+    {
+      "id": "econ2220-2-1-ex-3",
+      "type": "example",
+      "title": "Eksempel 3: Med tall — sykkeldeler og togbilletter",
+      "problem": "En syklist har $m = 180$ kroner i uka til reservedeler ($c_1$, til $p_1 = 3$ kroner per del) og togbilletter ($c_2$, til $p_2 = 6$ kroner per billett). Nyttefunksjonen er\n\n$$u(c_1, c_2) = c_1^{1/2} c_2^{1/2}$$\n\nFinn den optimale tilpasningen, og kontroller svaret.",
+      "solution": "**Trinn 1 — problemet formelt.**\n\n$$\\max\\ c_1^{1/2}c_2^{1/2} \\quad \\text{gitt} \\quad 3c_1 + 6c_2 = 180$$\n\nLikhet på grunn av monotoni.\n\n**Trinn 2 — utled.** Marginalnyttene:\n\n$$u'_1 = \\tfrac{1}{2}c_1^{-1/2}c_2^{1/2}, \\qquad u'_2 = \\tfrac{1}{2}c_1^{1/2}c_2^{-1/2}$$\n\nMSB blir da\n\n$$\\frac{u'_1}{u'_2} = \\frac{\\tfrac{1}{2}c_1^{-1/2}c_2^{1/2}}{\\tfrac{1}{2}c_1^{1/2}c_2^{-1/2}} = \\frac{c_2}{c_1}$$\n\nTilpasningsbetingelsen $u'_1/u'_2 = p_1/p_2$ gir\n\n$$\\frac{c_2}{c_1} = \\frac{3}{6} = \\frac{1}{2} \\quad \\Longrightarrow \\quad c_1 = 2c_2$$\n\nSett inn i budsjettet: $3(2c_2) + 6c_2 = 180$, altså $12c_2 = 180$ og $c_2^* = 15$. Da er $c_1^* = 30$.\n\n**Kontroll:** $3\\cdot 30 + 6\\cdot 15 = 90 + 90 = 180$ ✓. Og MSB i optimum: $c_2/c_1 = 15/30 = 0{,}5 = p_1/p_2$ ✓.\n\n**Trinn 3 — tolk i enheter.** I optimum er MSB lik $0{,}5$ *togbilletter per reservedel*: syklisten er villig til å gi fra seg en halv billett for én reservedel til. Markedet krever nøyaktig det samme — en del koster 3 kroner, en billett 6, så en del «koster» en halv billett. Byttet er dermed uinteressant i begge retninger, og det er nettopp det som gjør punktet optimalt.\n\nLegg også merke til utgiftsfordelingen: 90 kroner på hver vare. Det er ikke tilfeldig for denne typen nyttefunksjon, men det poenget tar vi systematisk i [kap. 2.2](/bok/econ2220/econ2220-2-2).\n\n**Figur i ord.** Med $c_1$ (deler) vannrett og $c_2$ (billetter) loddrett går budsjettlinjen fra $(0, 30)$ til $(60, 0)$. Optimumspunktet $E = (30, 15)$ ligger midt på linjen, med stiplede hjelpelinjer til begge akser. Indifferenskurven gjennom $E$ krummer mot origo og berører linjen akkurat der."
+    },
+    {
+      "id": "econ2220-2-1-oppg-4",
+      "type": "exercise",
+      "exercise": {
+        "id": "econ2220-2-1-e4",
+        "number": "4",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "(Sjanger A med tall.) En pendler har $m = 240$ kroner i uka til kaffe på jobben ($c_1$, kopper, $p_1 = 20$ kroner) og lunsj ($c_2$, porsjoner, $p_2 = 40$ kroner). Nyttefunksjonen er\n\n$$u(c_1, c_2) = c_1\\,c_2$$\n\n**a)** Utled MSB for denne nyttefunksjonen.\n**b)** Finn den optimale tilpasningen ved hjelp av tilpasningsbetingelsen og budsjettet.\n**c)** Tolk MSB-verdien i optimum i enheter.",
+        "solution": "**a)** Marginalnyttene er $u'_1 = c_2$ og $u'_2 = c_1$, så\n\n$$\\text{MSB} = \\frac{u'_1}{u'_2} = \\frac{c_2}{c_1}$$\n\n**b)** Tilpasningsbetingelsen:\n\n$$\\frac{c_2}{c_1} = \\frac{p_1}{p_2} = \\frac{20}{40} = \\frac{1}{2} \\quad \\Longrightarrow \\quad c_1 = 2c_2$$\n\nInnsatt i budsjettet $20c_1 + 40c_2 = 240$:\n\n$$20(2c_2) + 40c_2 = 80c_2 = 240 \\quad \\Longrightarrow \\quad c_2^* = 3, \\quad c_1^* = 6$$\n\nKontroll: $20\\cdot 6 + 40\\cdot 3 = 120 + 120 = 240$ ✓.\n\n**c)** I optimum er $\\text{MSB} = 3/6 = 0{,}5$ **lunsjer per kaffekopp**. Pendleren er altså villig til å gi fra seg en halv lunsj for én kaffe til — og markedet forlanger nøyaktig det samme, siden en kaffe koster 20 kroner og en lunsj 40. Ingen omdisponering av de 240 kronene kan gjøre henne bedre stilt.",
+        "hints": [
+          "Marginalnytten av $c_1$ finner du ved å derivere $u$ med hensyn på $c_1$ og holde $c_2$ fast.",
+          "Sett tilpasningsbetingelsen opp først, løs den for én variabel uttrykt ved den andre, og sett så inn i budsjettet.",
+          "Til c): enheten på MSB er «enheter av vare 2 per enhet av vare 1»."
+        ]
+      }
+    },
+    {
+      "id": "econ2220-2-1-lokke3",
+      "type": "text",
+      "content": "## Løkke 3 — Tolkningen sensor krever (~12 min)\n\n*— naturlig pausepunkt før denne løkka; den er kapitlets viktigste side —*"
+    },
+    {
+      "id": "econ2220-2-1-l3-tekst1",
+      "type": "text",
+      "content": "Nå til det som skiller besvarelsene fra hverandre. Utledningen over er håndverk mange får til. Tolkningen er der poengene ligger igjen.\n\n**Feilen som koster** er å skrive: «Betingelsen sier at den marginale substitusjonsbrøken er lik prisforholdet.» Det er ikke en tolkning — det er formelen lest høyt. Sensorveiledningene sier eksplisitt at tolkningen skal forbi dette.\n\nEn **tolkning** forklarer hva hver side er, i enheter, og hvorfor likhet er et optimum."
+    },
+    {
+      "id": "econ2220-2-1-def-msb",
+      "type": "definition",
+      "title": "MSB — marginal substitusjonsbrøk",
+      "content": "**MSB** (marginal substitusjonsbrøk; på engelsk *marginal rate of substitution*, MRS) er forholdet mellom marginalnyttene:\n\n$$\\text{MSB} = \\frac{u'_1}{u'_2}$$\n\nTolket i enheter: **hvor mange enheter av vare 2 konsumenten er villig til å gi fra seg for å få én enhet mer av vare 1, uten å komme dårligere ut.** Det er konsumentens *subjektive* bytteforhold — hennes marginale betalingsvilje for vare 1, målt i vare 2.\n\nGeometrisk er MSB tallverdien av helningen på indifferenskurven i punktet. Med konvekse preferanser avtar MSB langs kurven: jo mer du allerede har av vare 1, jo mindre av vare 2 er du villig til å ofre for enda én enhet."
+    },
+    {
+      "id": "econ2220-2-1-def-marginal-betalingsvilje",
+      "type": "definition",
+      "title": "Marginal betalingsvilje",
+      "content": "**Marginal betalingsvilje** for en vare er det maksimale konsumenten er villig til å gi fra seg for én enhet mer av varen, uten å bli dårligere stilt.\n\nMålt i penger er det $u'_1/\\lambda$ kroner; målt i enheter av den andre varen er det $u'_1/u'_2 = \\text{MSB}$. Det siste målet er kursets standard, fordi det gjør sammenlikningen med prisforholdet direkte: begge sider av tilpasningsbetingelsen har da samme enhet, nemlig *enheter vare 2 per enhet vare 1*."
+    },
+    {
+      "id": "econ2220-2-1-l3-tekst2",
+      "type": "text",
+      "content": "**Bokas standardtolkning.** Lær deg denne, og skriv den ut hver gang du har utledet tilpasningsbetingelsen:\n\n> Venstresiden, $u'_1/u'_2$, er konsumentens marginale betalingsvilje for vare 1 målt i enheter av vare 2 — hvor mye vare 2 hun frivillig ville gitt fra seg for én enhet mer av vare 1. Høyresiden, $p_1/p_2$, er hva markedet krever av vare 2 for det samme byttet. I optimum er de to like. Er de ikke like, finnes det et bytte som gjør henne bedre stilt uten å sprenge budsjettet — og da er hun ikke i optimum.\n\nDen siste setningen er poenget. Tilpasningsbetingelsen er ikke en tilfeldig algebraisk sammenheng; den er den presise betingelsen for at *ingen omdisponering av budsjettet lønner seg*.\n\nSamme innsikt kan sies med multiplikatoren: fra utledningen er $\\lambda = u'_1/p_1 = u'_2/p_2$. Den siste kronen brukt på vare 1 gir like mye nytte som den siste kronen brukt på vare 2. Ville en av dem gitt mer, skulle konsumenten flyttet kroner dit."
+    },
+    {
+      "id": "econ2220-2-1-ex-4",
+      "type": "example",
+      "title": "Eksempel 4: Tolkningen skrevet ut — strøm og alt annet",
+      "problem": "En husholdning tilpasser seg optimalt med strøm ($c_1$, kilowattimer) og «alt annet» ($c_2$, kroner brukt på andre varer, med $p_2 = 1$). Strømprisen er $p_1 = 1{,}20$ kroner per kilowattime. Forklar hva tilpasningsbetingelsen sier, i økonomiske enheter.",
+      "solution": "**Betingelsen** er $u'_1/u'_2 = p_1/p_2 = 1{,}20/1 = 1{,}20$.\n\n**Høyresiden.** Markedet krever 1,20 kroner av «alt annet» for hver ekstra kilowattime. Siden $p_2 = 1$, er «alt annet» målt direkte i kroner, og bytteforholdet blir 1,20 kroner per kilowattime.\n\n**Venstresiden.** I optimum er husholdningens marginale betalingsvilje for den siste kilowattimen også 1,20 kroner. Hun er akkurat villig til å gi avkall på 1,20 kroner av annet forbruk for én kilowattime til — ikke mer, ikke mindre.\n\n**Hvorfor likhet er optimum.** Anta at hun i stedet hadde verdsatt den siste kilowattimen til 2 kroner. Da kunne hun kuttet 1,20 kroner av annet forbruk, kjøpt én kilowattime til, og sittet igjen med en gevinst verdt 0,80 kroner i «alt annet»-enheter. Budsjettet holder fortsatt, men nytten har økt — altså var utgangspunktet ikke optimalt. Motsatt: verdsatte hun den siste kilowattimen til bare 0,50 kroner, ville hun tjent på å kutte forbruket og bruke pengene på noe annet. Bare når verdsettingen er nøyaktig 1,20, finnes det ingen slik gevinst i noen retning.\n\n**Merk hva vi *ikke* har sagt.** Vi har ikke sagt at strøm er «verdt 1,20 kroner» for husholdningen generelt. De første kilowattimene — de som holder kjøleskapet og varmen i gang — er verdt langt mer. Betingelsen gjelder bare den *siste*, marginale enheten. Denne presiseringen er verdt et poeng når oppgaven ber om økonomisk forklaring.\n\n**Figur i ord.** Med kilowattimer vannrett og kroner til «alt annet» loddrett faller budsjettlinjen med helning $-1{,}20$. Optimumspunktet $E$ er der en indifferenskurve akkurat berører linjen. Tegn i tillegg en tenkt tangent til indifferenskurven i et punkt $D$ lenger til venstre på linjen: der er indifferenskurven brattere enn linjen, altså MSB større enn 1,20, og pilen langs budsjettlinjen mot høyre viser hvor husholdningen kan bevege seg for å komme opp på en høyere kurve."
+    },
+    {
+      "id": "econ2220-2-1-oppg-5",
+      "type": "exercise",
+      "exercise": {
+        "id": "econ2220-2-1-e5",
+        "number": "5",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "(Sjanger A — tolkningsdelen, som er selve skillepoenget.) En familie tilpasser seg optimalt mellom barnehagetimer ($c_1$) og alt annet konsum ($c_2$), til prisene $p_1 = 45$ kroner per time og $p_2 = 15$ kroner per enhet.\n\n**a)** Hva er markedets bytteforhold, og hvilken enhet har det?\n**b)** Skriv ut tolkningen av tilpasningsbetingelsen i økonomiske enheter — begge sider.\n**c)** Anta at familiens MSB i et punkt på budsjettlinjen er 5. Er hun i optimum? Hva bør hun gjøre?",
+        "solution": "**a)** Bytteforholdet er $p_1/p_2 = 45/15 = 3$, med enheten **enheter av «alt annet» per barnehagetime**: markedet krever at familien gir avkall på 3 enheter annet konsum for hver ekstra barnehagetime.\n\n**b)** Tilpasningsbetingelsen er $u'_1/u'_2 = 3$.\n\nVenstresiden er familiens marginale betalingsvilje for den siste barnehagetimen, målt i enheter av annet konsum: hvor mange enheter «alt annet» hun frivillig ville gitt fra seg for én time til. Høyresiden er hva markedet faktisk krever for det samme byttet. I optimum er de like, og da finnes det ingen omdisponering av budsjettet som gjør familien bedre stilt.\n\n**c)** Nei, hun er ikke i optimum. Med $\\text{MSB} = 5 > 3$ verdsetter hun én ekstra barnehagetime til 5 enheter annet konsum, mens markedet bare krever 3. Hun bør derfor **kjøpe flere barnehagetimer** og finansiere det ved å redusere annet konsum: hvert slikt bytte gir henne en netto gevinst på om lag 2 enheter annet konsum i verdi. Etter hvert som hun beveger seg langs budsjettlinjen mot mer $c_1$, avtar MSB (konvekse preferanser), og prosessen stopper der MSB har falt til 3.",
+        "hints": [
+          "Regn bytteforholdet først — det er bare prisene.",
+          "Til b): si hva hver side ER, med enhet, før du sier at de er like.",
+          "Til c): sammenlikn hva hun er villig til å gi, med hva hun må gi."
+        ]
+      }
+    },
+    {
+      "id": "econ2220-2-1-oppg-6",
+      "type": "exercise",
+      "exercise": {
+        "id": "econ2220-2-1-e6",
+        "number": "6",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "En konsument har tilpasset seg optimalt. Ta stilling til påstanden og begrunn:\n\n> «I optimum gir den siste kronen brukt på vare 1 høyere nytte enn den siste kronen brukt på vare 2, siden vare 1 er den konsumenten liker best.»",
+        "solution": "Påstanden er **usann**, og feilen ligger i å blande total verdsetting med marginal verdsetting.\n\nFra førsteordensbetingelsene har vi $u'_1 = \\lambda p_1$ og $u'_2 = \\lambda p_2$, altså\n\n$$\\frac{u'_1}{p_1} = \\frac{u'_2}{p_2} = \\lambda$$\n\nMarginalnytten **per krone** er nøyaktig den samme i begge anvendelser i optimum. Nettopp derfor er det optimum: ga den siste kronen brukt på vare 1 mer nytte enn den siste kronen brukt på vare 2, skulle konsumenten flyttet kroner fra vare 2 til vare 1 og fått høyere nytte — og da var utgangspunktet ikke optimalt.\n\nAt konsumenten «liker vare 1 best» kan godt være sant i den forstand at hun kjøper mye av den, eller at de første enhetene er svært verdifulle for henne. Men i optimum har hun kjøpt så mye at *marginalnytten per krone* er utliknet mot den andre varen. Størrelsen $\\lambda$ er felles marginalnytte per krone, og den tolkes som skyggeprisen på budsjettet: den ekstra nytten en krone mer i inntekt ville gitt.",
+        "hints": [
+          "Skriv opp de to førsteordensbetingelsene og løs begge for $\\lambda$.",
+          "Skill mellom hvor mye konsumenten liker varen totalt, og hvor mye den *siste* enheten er verdt."
+        ]
+      }
+    },
+    {
+      "id": "econ2220-2-1-lokke4",
+      "type": "text",
+      "content": "## Løkke 4 — Punkter som ikke er optimale (~16 min)"
+    },
+    {
+      "id": "econ2220-2-1-l4-tekst1",
+      "type": "text",
+      "content": "Eksamen spør ofte motsatt vei: her er et punkt — forklar hvorfor konsumenten *ikke* er i optimum. Det er sjanger B, figurforklaring av (ikke-)optimal tilpasning. V2023 ga tre navngitte punkter som skulle diskuteres; V2025 ba studenten selv konstruere et punkt som ikke er optimalt og forklare hvorfor.\n\nDet finnes nøyaktig to måter et punkt kan bomme på:\n\n**a)** Punktet ligger **på** budsjettlinjen, men uten tangering: $\\text{MSB} \\ne p_1/p_2$. Da finnes et bytte langs linjen som løfter nytten.\n**b)** Punktet ligger **innenfor** budsjettlinjen: pengene er ikke brukt opp. Med monotone preferanser er dette utelukket — hun kan kjøpe mer av begge varer.\n\nTilfelle a) deler seg i to retninger, og du må kunne begge:"
+    },
+    {
+      "id": "econ2220-2-1-l4-tekst2",
+      "type": "text",
+      "content": "**Når $\\text{MSB} > p_1/p_2$:** konsumenten verdsetter én ekstra enhet vare 1 høyere enn markedet priser den. Hun bør bevege seg langs budsjettlinjen mot **mer vare 1 og mindre vare 2**. I figuren er indifferenskurven gjennom punktet **brattere** enn budsjettlinjen der.\n\n**Når $\\text{MSB} < p_1/p_2$:** hun verdsetter vare 1 lavere enn markedet krever. Hun bør bevege seg mot **mindre vare 1 og mer vare 2**. Indifferenskurven er **slakere** enn budsjettlinjen i punktet.\n\nLegg merke til det geometriske mønsteret, det er lett å huske: er kurven brattere enn linjen, skal du gå til høyre langs linjen; er den slakere, skal du gå til venstre. I begge tilfeller ender du i tangeringspunktet, fordi MSB avtar når $c_1$ øker."
+    },
+    {
+      "id": "econ2220-2-1-def-ikke-optimalt",
+      "type": "definition",
+      "title": "Ikke-optimalt punkt (byttegevinst)",
+      "content": "Et punkt på budsjettlinjen er **ikke optimalt** dersom $\\text{MSB} \\ne p_1/p_2$. Da eksisterer det en **byttegevinst**: en liten omdisponering langs budsjettlinjen som øker nytten uten å bryte budsjettet.\n\n- $\\text{MSB} > p_1/p_2$: konsumenten verdsetter vare 1 høyere enn markedsprisen tilsier → kjøp mer av vare 1.\n- $\\text{MSB} < p_1/p_2$: hun verdsetter vare 1 lavere enn markedsprisen tilsier → kjøp mindre av vare 1.\n\nByttegevinsten forsvinner først når de to bytteforholdene er like. At gevinsten forsvinner, er den økonomiske definisjonen av optimum."
+    },
+    {
+      "id": "econ2220-2-1-ex-5",
+      "type": "example",
+      "title": "Eksempel 5: Tre navngitte punkter i figuren",
+      "problem": "En konsument har budsjettlinjen $10c_1 + 5c_2 = 200$ og konvekse, monotone preferanser. Tre punkter vurderes:\n\n$$P = (5, 30), \\qquad Q = (12, 16), \\qquad R = (8, 20)$$\n\nI punkt $P$ er MSB lik 4, i punkt $Q$ er MSB lik 1, og i punkt $R$ er MSB lik 2. Avgjør for hvert punkt om konsumenten er i optimum, og forklar hva hun bør gjøre.",
+      "solution": "**Trinn 1 — grunnlaget på plass.** Markedets bytteforhold er\n\n$$\\frac{p_1}{p_2} = \\frac{10}{5} = 2$$\n\nmed enheten *enheter vare 2 per enhet vare 1*. Kontroller først at punktene faktisk ligger på budsjettlinjen:\n\n- $P$: $10\\cdot 5 + 5\\cdot 30 = 50 + 150 = 200$ ✓\n- $Q$: $10\\cdot 12 + 5\\cdot 16 = 120 + 80 = 200$ ✓\n- $R$: $10\\cdot 8 + 5\\cdot 20 = 80 + 100 = 200$ ✓\n\nAlle tre er altså tillatte og bruker opp hele budsjettet. Forskjellen ligger utelukkende i helningen på indifferenskurven.\n\n**Trinn 2 — vurder hvert punkt.**\n\nI $P$ er $\\text{MSB} = 4 > 2$. Konsumenten er villig til å gi 4 enheter vare 2 for én enhet vare 1, mens markedet bare krever 2. Byttet er lønnsomt: gir hun fra seg 2 enheter vare 2, får hun én enhet vare 1, og hun sitter igjen med en gevinst tilsvarende 2 enheter vare 2 i verdsetting. **Ikke optimum** — hun bør bevege seg langs linjen mot mer $c_1$.\n\nI $Q$ er $\\text{MSB} = 1 < 2$. Nå er hun bare villig til å gi 1 enhet vare 2 for én enhet vare 1, mens markedet krever 2. Hun har kjøpt for mye av vare 1. **Ikke optimum** — hun bør bevege seg mot mindre $c_1$ og mer $c_2$.\n\nI $R$ er $\\text{MSB} = 2 = p_1/p_2$. Verdsettingen stemmer med markedet, og ingen bevegelse langs linjen lønner seg. **Optimum.**\n\nLegg merke til konsistensen: MSB faller fra 4 i $P$ ($c_1 = 5$) via 2 i $R$ ($c_1 = 8$) til 1 i $Q$ ($c_1 = 12$). Det er nøyaktig avtakende MSB, altså konvekse preferanser.\n\n**Trinn 3 — figur i ord.** Tegn $c_1$ vannrett og $c_2$ loddrett. Budsjettlinjen går fra $(0, 40)$ til $(20, 0)$ med helning $-2$. Marker $P$, $R$ og $Q$ på linjen, i den rekkefølgen fra venstre mot høyre, med stiplede hjelpelinjer til begge akser. Gjennom $P$ tegnes en indifferenskurve som skjærer linjen **brattere** enn den (den krysser altså linjen); gjennom $Q$ en som skjærer **slakere**; gjennom $R$ en som akkurat **berører** linjen. En pil langs budsjettlinjen fra $P$ mot høyre og en fra $Q$ mot venstre peker begge mot $R$."
+    },
+    {
+      "id": "econ2220-2-1-oppg-7",
+      "type": "exercise",
+      "exercise": {
+        "id": "econ2220-2-1-e7",
+        "number": "7",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "(Sjanger B — figurforklaring av ikke-optimal tilpasning. Kom i V2023 med navngitte punkter.)\n\nEn konsument har budsjettlinjen $8c_1 + 4c_2 = 160$ og konvekse, monotone preferanser. Betrakt punktene\n\n$$S = (6, 28) \\quad \\text{med MSB} = 5, \\qquad T = (15, 10) \\quad \\text{med MSB} = 0{,}8, \\qquad U = (10, 15) \\quad \\text{med MSB} = 2$$\n\n**a)** Kontroller at alle tre punktene ligger på budsjettlinjen.\n**b)** Avgjør for hvert punkt om konsumenten er i optimum, og forklar hva hun eventuelt bør gjøre.\n**c)** Er de tre MSB-verdiene forenlige med konvekse preferanser? Begrunn.",
+        "solution": "**a)** Markedets bytteforhold er $p_1/p_2 = 8/4 = 2$ enheter vare 2 per enhet vare 1.\n\n- $S$: $8\\cdot 6 + 4\\cdot 28 = 48 + 112 = 160$ ✓\n- $T$: $8\\cdot 15 + 4\\cdot 10 = 120 + 40 = 160$ ✓\n- $U$: $8\\cdot 10 + 4\\cdot 15 = 80 + 60 = 160$ ✓\n\nAlle tre bruker opp hele budsjettet.\n\n**b)** I $S$ er $\\text{MSB} = 5 > 2$: hun er villig til å gi 5 enheter vare 2 for én enhet vare 1, men markedet krever bare 2. Ikke optimum — hun bør kjøpe mer av vare 1 og mindre av vare 2, altså bevege seg mot høyre langs linjen.\n\nI $T$ er $\\text{MSB} = 0{,}8 < 2$: hun er bare villig til å gi 0,8 enheter vare 2 for én enhet vare 1, mens markedet krever 2. Hun har kjøpt for mye av vare 1. Ikke optimum — hun bør bevege seg mot venstre langs linjen, mot mindre $c_1$.\n\nI $U$ er $\\text{MSB} = 2 = p_1/p_2$: verdsettingen stemmer med markedets bytteforhold, ingen bevegelse langs linjen lønner seg. **Optimum.**\n\n**c)** Ja. Konvekse preferanser gir avtakende MSB langs indifferenskurven: jo mer vare 1 konsumenten har, jo mindre vare 2 er hun villig til å ofre for enda én enhet. Her faller MSB fra 5 ved $c_1 = 6$, til 2 ved $c_1 = 10$, til 0,8 ved $c_1 = 15$ — altså monotont avtakende i $c_1$, som forventet.\n\n**Figur i ord.** Budsjettlinjen går fra $(0, 40)$ til $(20, 0)$ med helning $-2$. $S$, $U$ og $T$ ligger på linjen i den rekkefølgen fra venstre. Indifferenskurven gjennom $S$ krysser linjen brattere, den gjennom $T$ krysser den slakere, og den gjennom $U$ berører den. Piler langs linjen fra $S$ mot høyre og fra $T$ mot venstre møtes i $U$.",
+        "hints": [
+          "Regn ut $p_1/p_2$ først; alt sammenliknes med det tallet.",
+          "Sett punktets koordinater inn i budsjettlikningen og se om summen blir $m$.",
+          "Til c): tenk på hvordan MSB endrer seg når $c_1$ vokser under konvekse preferanser."
+        ]
+      }
+    },
+    {
+      "id": "econ2220-2-1-ex-6",
+      "type": "example",
+      "title": "Eksempel 6: Konstruer moteksempelet selv (eksamensnivå)",
+      "problem": "En konsument har nyttefunksjonen $u(c_1, c_2) = c_1 c_2$, prisene $p_1 = 5$ og $p_2 = 10$, og inntekten $m = 200$.\n\n**a)** Finn optimum.\n**b)** Konstruer selv et punkt på budsjettlinjen som *ikke* er optimalt, og forklar presist hvorfor konsumenten kan få det bedre.\n**c)** Forklar hvorfor et punkt strengt innenfor budsjettlinjen aldri kan være optimalt.",
+      "solution": "**a) Trinn 1 — problemet formelt.**\n\n$$\\max\\ c_1c_2 \\quad \\text{gitt} \\quad 5c_1 + 10c_2 = 200$$\n\n**Trinn 2 — utled.** $u'_1 = c_2$ og $u'_2 = c_1$, så $\\text{MSB} = c_2/c_1$. Tilpasningsbetingelsen:\n\n$$\\frac{c_2}{c_1} = \\frac{5}{10} = \\frac{1}{2} \\quad \\Longrightarrow \\quad c_1 = 2c_2$$\n\nInnsatt i budsjettet: $5(2c_2) + 10c_2 = 20c_2 = 200$, altså $c_2^* = 10$ og $c_1^* = 20$. Kontroll: $5\\cdot 20 + 10\\cdot 10 = 100 + 100 = 200$ ✓. Nyttenivået er $u = 20\\cdot 10 = 200$.\n\n**Trinn 3 — tolk.** I optimum er $\\text{MSB} = 10/20 = 0{,}5$ enheter vare 2 per enhet vare 1, nøyaktig lik markedets bytteforhold $5/10 = 0{,}5$. Konsumentens verdsetting av den siste enheten vare 1 stemmer med prisen.\n\n**b)** Velg et punkt lenger til venstre på linjen, for eksempel $D = (8, 16)$. Kontroll at det ligger på linjen: $5\\cdot 8 + 10\\cdot 16 = 40 + 160 = 200$ ✓.\n\nI $D$ er $\\text{MSB} = c_2/c_1 = 16/8 = 2$, mens markedets bytteforhold er $0{,}5$. Konsumenten er altså villig til å gi fra seg 2 enheter vare 2 for én enhet vare 1, mens markedet bare krever en halv. Byttet er sterkt lønnsomt, og hun bør flytte seg mot mer $c_1$.\n\nVi kan vise gevinsten direkte: nyttenivået i $D$ er $8\\cdot 16 = 128$, mot 200 i optimum. Beveger hun seg langs linjen fra $D$ mot høyre, stiger nytten hele veien fram til $(20, 10)$.\n\n**c)** Ta et punkt strengt innenfor, for eksempel $(8, 10)$: her brukes $5\\cdot 8 + 10\\cdot 10 = 140$ kroner, og 60 kroner står ubrukt. Med monotone preferanser kan konsumenten da kjøpe mer av minst én vare — for eksempel 12 enheter mer av vare 1 for de 60 kronene — og komme til $(20, 10)$, som gir strengt høyere nytte ($200 > 80$). Et punkt som lar penger stå ubrukt kan derfor aldri være optimalt, og det er nettopp derfor kurset skriver budsjettbetingelsen med likhet.\n\n**Figur i ord.** Budsjettlinjen går fra $(0, 20)$ til $(40, 0)$ med helning $-0{,}5$. Optimum $E = (20, 10)$ ligger midt på, med stiplede hjelpelinjer til aksene, og indifferenskurven $c_1c_2 = 200$ berører linjen der. Punktet $D = (8, 16)$ ligger oppe til venstre på linjen; indifferenskurven $c_1c_2 = 128$ gjennom $D$ krysser budsjettlinjen brattere enn linjen selv. Punktet $(8, 10)$ ligger tydelig innenfor linjen, og en pil derfra rett opp og til høyre viser at hele området mellom det punktet og linjen er tilgjengelig og bedre."
+    },
+    {
+      "id": "econ2220-2-1-oppg-8",
+      "type": "exercise",
+      "exercise": {
+        "id": "econ2220-2-1-e8",
+        "number": "8",
+        "type": "classic",
+        "difficulty": "vanskelig",
+        "task": "(Sjanger A + B i kjede — eksamensklone. Slik ble konsumentoppgaven åpnet i V2025.)\n\nEn pensjonist bruker hele månedsinntekten $m = 6\\,000$ kroner på oppvarming ($c_1$, målt i kilowattimer, $p_1 = 2$ kroner) og alt annet konsum ($c_2$, $p_2 = 4$ kroner). Nyttefunksjonen er\n\n$$u(c_1, c_2) = c_1^{2/3}\\,c_2^{1/3}$$\n\n**a)** Sett opp maksimeringsproblemet formelt og løs det med Lagrange. Vis alle steg.\n**b)** Tolk tilpasningsbetingelsen i økonomiske enheter.\n**c)** Konstruer et punkt på budsjettlinjen der pensjonisten *ikke* er i optimum, regn ut MSB der, og forklar hvilken vei hun bør flytte seg.",
+        "solution": "**a) Trinn 1 — problemet formelt.**\n\n$$\\max_{c_1,\\,c_2}\\ c_1^{2/3}c_2^{1/3} \\quad \\text{gitt} \\quad 2c_1 + 4c_2 = 6\\,000$$\n\nLikhet fordi preferansene er monotone.\n\n**Trinn 2 — utled.** Lagrange-funksjonen:\n\n$$\\mathcal{L} = c_1^{2/3}c_2^{1/3} - \\lambda\\,(2c_1 + 4c_2 - 6\\,000)$$\n\nMarginalnyttene:\n\n$$u'_1 = \\tfrac{2}{3}c_1^{-1/3}c_2^{1/3}, \\qquad u'_2 = \\tfrac{1}{3}c_1^{2/3}c_2^{-2/3}$$\n\nFørsteordensbetingelsene $u'_1 = 2\\lambda$ og $u'_2 = 4\\lambda$ deles på hverandre, slik at $\\lambda$ elimineres:\n\n$$\\frac{u'_1}{u'_2} = \\frac{\\tfrac{2}{3}c_1^{-1/3}c_2^{1/3}}{\\tfrac{1}{3}c_1^{2/3}c_2^{-2/3}} = 2\\cdot\\frac{c_2}{c_1} = \\frac{2}{4} = \\frac{1}{2}$$\n\nAltså $2c_2/c_1 = 1/2$, som gir $c_1 = 4c_2$. Innsatt i budsjettet:\n\n$$2(4c_2) + 4c_2 = 12c_2 = 6\\,000 \\quad \\Longrightarrow \\quad c_2^* = 500, \\quad c_1^* = 2\\,000$$\n\nKontroll: $2\\cdot 2\\,000 + 4\\cdot 500 = 4\\,000 + 2\\,000 = 6\\,000$ ✓. Og MSB i optimum: $2\\cdot 500/2\\,000 = 0{,}5 = p_1/p_2$ ✓.\n\n**b)** Betingelsen sier $u'_1/u'_2 = 0{,}5$. Venstresiden er pensjonistens marginale betalingsvilje for den siste kilowattimen, målt i enheter av annet konsum: hun er villig til å gi fra seg en halv enhet annet konsum for én kilowattime til. Høyresiden er hva markedet krever — en kilowattime koster 2 kroner, en enhet annet konsum 4 kroner, altså en halv enhet annet konsum per kilowattime. I optimum er de to like, og ingen omdisponering av de 6 000 kronene kan gjøre henne bedre stilt.\n\n**c)** Velg for eksempel $D = (1\\,000, 1\\,000)$. Kontroll: $2\\cdot 1\\,000 + 4\\cdot 1\\,000 = 6\\,000$ ✓, så punktet ligger på budsjettlinjen.\n\nDer er $\\text{MSB} = 2c_2/c_1 = 2\\cdot 1\\,000/1\\,000 = 2$, mens markedets bytteforhold er 0,5. Siden $2 > 0{,}5$, verdsetter hun én ekstra kilowattime til 2 enheter annet konsum, mens markedet bare krever en halv. Byttet er lønnsomt, og hun bør flytte seg langs budsjettlinjen mot **mer oppvarming og mindre annet konsum** — det vil si mot høyre i figuren, helt til MSB har falt til 0,5 i punktet $(2\\,000, 500)$.\n\n**Figur i ord.** $c_1$ vannrett, $c_2$ loddrett. Budsjettlinjen går fra $(0, 1\\,500)$ til $(3\\,000, 0)$ med helning $-0{,}5$. Optimum $E = (2\\,000, 500)$ markeres med stiplede hjelpelinjer til begge akser, og indifferenskurven gjennom $E$ berører linjen der. $D = (1\\,000, 1\\,000)$ ligger lenger opp til venstre på linjen; indifferenskurven gjennom $D$ krysser linjen med brattere helning. En pil langs budsjettlinjen fra $D$ mot $E$ viser bevegelsesretningen.",
+        "hints": [
+          "Marginalnytten av en potensfunksjon: $\\partial (c_1^{a}c_2^{b})/\\partial c_1 = a\\,c_1^{a-1}c_2^{b}$.",
+          "Når du deler FOB-ene, forkortes potensene: $c_1^{-1/3}/c_1^{2/3} = c_1^{-1}$.",
+          "Til c): velg et punkt med langt mer $c_2$ enn i optimum, så vet du at MSB blir for høy."
+        ]
+      }
+    },
+    {
+      "id": "econ2220-2-1-oppg-9",
+      "type": "exercise",
+      "exercise": {
+        "id": "econ2220-2-1-e9",
+        "number": "9",
+        "type": "classic",
+        "difficulty": "vanskelig",
+        "task": "(Krevende. Sjanger A + B — tester om du forstår *hvorfor* betingelsen er som den er, ikke bare hvordan man regner.)\n\n**a)** Vurder dette svarforslaget på «tolk tilpasningsbetingelsen»: «Betingelsen sier at MSB er lik prisforholdet, altså at helningen på indifferenskurven er lik helningen på budsjettlinjen.» Forklar hvorfor det ikke er en tolkning, og skriv en som holder.\n**b)** Vurder denne begrunnelsen: «Punktet er ikke optimalt fordi indifferenskurven ikke tangerer budsjettlinjen.» Hva mangler?\n**c)** Kan et punkt der indifferenskurven tangerer budsjettlinjen likevel *ikke* være optimalt? Forklar hva som må forutsettes om preferansene for at tangering skal garantere optimum.",
+        "solution": "**a)** Svaret gjentar formelen med ord og oversetter den så til geometri. Ingen av delene sier hva størrelsene *er* økonomisk, eller hvorfor likhet er optimalt. Enhetene mangler helt, og det er nettopp der sensor leter.\n\nEn tolkning som holder: venstresiden $u'_1/u'_2$ er konsumentens marginale betalingsvilje for vare 1, målt i enheter av vare 2 — hvor mange enheter vare 2 hun frivillig ville gitt fra seg for én enhet mer av vare 1, uten å komme dårligere ut. Høyresiden $p_1/p_2$ er hva markedet krever av vare 2 for det samme byttet. I optimum er de to like. Var venstresiden større, kunne hun kjøpt mer av vare 1, betalt med mindre av vare 2, og kommet på en høyere indifferenskurve uten å bryte budsjettet — altså var hun ikke i optimum. Var den mindre, gjelder det motsatte byttet. Bare når bytteforholdene er like, finnes det ingen slik gevinst i noen retning.\n\n**b)** Begrunnelsen sier bare at figuren ser annerledes ut enn i optimum. Den mangler **mekanismen**: at $\\text{MSB} \\ne p_1/p_2$ betyr at konsumentens egen verdsetting av den siste enheten avviker fra markedets pris, og at det derfor finnes et konkret bytte langs budsjettlinjen som øker nytten. Full uttelling krever at du sier hvilken vei ulikheten går, hvilken vei konsumenten bør flytte seg, og hvorfor bevegelsen løfter nytten. Å levere figuren uten denne forklaringen er den vanligste enkeltfeilen i sjangeren.\n\n**c)** Ja, det er mulig. Tangeringsbetingelsen er en **førsteordensbetingelse**, og den er nødvendig for et indre optimum, men ikke i seg selv tilstrekkelig. Er indifferenskurvene *konkave* mot origo (ikke-konvekse preferanser), kan tangeringspunktet være et minimum blant punktene på budsjettlinjen — nytten stiger da når man beveger seg bort fra tangeringen i begge retninger, og optimum ligger i et hjørne på en av aksene.\n\nForutsetningen som må være på plass, er derfor **konvekse preferanser**, altså avtakende MSB langs indifferenskurven. Da er MSB fallende i $c_1$ mens prisforholdet er konstant, slik at differansen $\\text{MSB} - p_1/p_2$ skifter fortegn fra positiv til negativ nøyaktig én gang. Det tangeringspunktet er dermed et entydig maksimum. Dette er grunnen til at kurset alltid antar monotone og konvekse preferanser før tangeringsargumentet brukes.",
+        "hints": [
+          "Til a): spør deg selv «hva er enheten på venstresiden?» — svaret er kjernen i tolkningen.",
+          "Til b): en begrunnelse må inneholde en *bevegelse* som gjør konsumenten bedre stilt.",
+          "Til c): tenk på hva som skjer med differansen mellom MSB og prisforholdet når $c_1$ øker — og hva som kreves for at den bare skifter fortegn én gang."
+        ]
+      }
+    },
+    {
+      "id": "econ2220-2-1-warn-typiske-feil",
+      "type": "warning",
+      "title": "Typiske feil i denne sjangeren",
+      "content": "Feilene under har hver sin kode i bokas samlede feilregister, og de gjentas i sensorveiledningene år etter år.\n\n**#1 — figur levert i stedet for utledning.** Den dyreste feilen i sjanger A. En pen figur med tangering, uten Lagrange-oppsett og førsteordensbetingelser, gir ikke full uttelling. V2025-veiledningen sier det eksplisitt. Regn først, tegn etterpå.\n\n**#2 — formelen gjentatt som «tolkning».** «MSB er lik prisforholdet» er formelen lest høyt. Tolkningen må si hva hver side er, i enheter av de to varene, og hvorfor likhet betyr at ingen byttegevinst gjenstår.\n\n**Glemme å begrunne budsjettlikheten.** Å skrive $=$ i stedet for $\\le$ uten et ord om monotoni er et lite, men gratis poeng å miste. Én setning holder.\n\n**Stoppe før $\\lambda$ er eliminert.** Å levere $u'_1 = \\lambda p_1$ og $u'_2 = \\lambda p_2$ og kalle det svaret, er å stanse rett før konklusjonen. Del betingelsene på hverandre.\n\n**Rote med hvilken helning som er hva.** MSB er tallverdien av helningen på **indifferenskurven** (konsumentens verdsetting); $p_1/p_2$ er tallverdien av helningen på **budsjettlinjen** (markedets krav). Bytter du om, blir hele retningsargumentet i sjanger B feil.\n\n**Tegne tangering uten å kunne forklare punkter uten tangering.** Sjanger B spør nesten alltid om det motsatte av optimum. Kunn mekanismen begge veier: brattere kurve enn linje → gå mot mer vare 1; slakere → gå mot mindre.\n\n**Behandle $\\lambda$ som svaret.** Multiplikatoren er skyggeprisen på budsjettet, ikke en av mengdene som etterspørres. Den skal tolkes, ikke leveres som løsning."
+    },
+    {
+      "id": "econ2220-2-1-begrepsbank-intro",
+      "type": "text",
+      "content": "## Begrepsbank\n\nBlokkene under er **flashcard-/repetisjonsstoff** — hopp trygt over ved førstegangslesing; tidsanslaget for kapitlet gjelder kjernestoffet over. Kom tilbake hit når du repeterer, eller når et begrep dukker opp i en oppgave og du vil ha den korte versjonen."
+    },
+    {
+      "id": "econ2220-2-1-bb-nyttefunksjon",
+      "type": "definition",
+      "title": "Nyttefunksjon",
+      "content": "En **nyttefunksjon** $u(c_1, c_2)$ tilordner et tall til hver handlekurv, slik at kurver konsumenten foretrekker får høyere tall.\n\nTallet har ingen egen betydning — bare **rangeringen** er innhold. Det er derfor enhver strengt voksende omregning av $u$ beskriver de samme preferansene ([kap. 1.2](/bok/econ2220/econ2220-1-2)). I nyttemaksimeringsproblemet er $u$ målfunksjonen."
+    },
+    {
+      "id": "econ2220-2-1-bb-marginalnytte",
+      "type": "definition",
+      "title": "Marginalnytte",
+      "content": "**Marginalnytten** av vare 1 er den partiellderiverte\n\n$$u'_1 = \\frac{\\partial u}{\\partial c_1}$$\n\naltså nytteøkningen ved én enhet mer av vare 1 når mengden av vare 2 holdes fast. Tilsvarende for $u'_2$.\n\nMarginalnyttenes *nivå* er ikke meningsfullt i seg selv (det endres ved omregning av nyttefunksjonen), men **forholdet** $u'_1/u'_2$ er det — og det er nettopp forholdet som inngår i tilpasningsbetingelsen."
+    },
+    {
+      "id": "econ2220-2-1-bb-bibetingelse",
+      "type": "definition",
+      "title": "Bibetingelse (beskrankning)",
+      "content": "En **bibetingelse** er en likning eller ulikhet som løsningen må oppfylle. I konsumentens problem er budsjettbetingelsen $p_1c_1 + p_2c_2 = m$ bibetingelsen: den avgrenser hvilke handlekurver som i det hele tatt kan velges.\n\nEt optimeringsproblem *med* bibetingelse løses med Lagrange-metoden eller ved innsetting; uten bibetingelse ville konsumenten bare valgt uendelig mye av begge varer."
+    },
+    {
+      "id": "econ2220-2-1-bb-lagrange",
+      "type": "definition",
+      "title": "Lagrange-funksjonen",
+      "content": "**Lagrange-funksjonen** for konsumentproblemet er\n\n$$\\mathcal{L}(c_1,c_2,\\lambda) = u(c_1,c_2) - \\lambda\\,(p_1c_1 + p_2c_2 - m)$$\n\nDen består av målfunksjonen minus multiplikatoren $\\lambda$ ganger bibetingelsen skrevet som «venstreside minus høyreside». Ved å derivere $\\mathcal{L}$ med hensyn på alle tre variablene og sette de deriverte lik null, får man et likningssystem hvis løsning er problemets optimum.\n\nMerk fortegnskonvensjonen: skriver du $+\\lambda(\\dots)$ i stedet, får $\\lambda$ motsatt fortegn, men tilpasningsbetingelsen blir den samme."
+    },
+    {
+      "id": "econ2220-2-1-bb-fob",
+      "type": "definition",
+      "title": "Førsteordensbetingelse (FOB)",
+      "content": "En **førsteordensbetingelse** er kravet om at en derivert er lik null i et indre optimum. I konsumentproblemet er de tre FOB-ene\n\n$$u'_1 - \\lambda p_1 = 0, \\qquad u'_2 - \\lambda p_2 = 0, \\qquad p_1c_1 + p_2c_2 = m$$\n\nDe to første kombineres ved divisjon til tilpasningsbetingelsen; den tredje er budsjettbetingelsen igjen. Betingelsene er *nødvendige* for et indre optimum — at de er *tilstrekkelige*, krever i tillegg konvekse preferanser."
+    },
+    {
+      "id": "econ2220-2-1-bb-lambda",
+      "type": "definition",
+      "title": "Lagrange-multiplikatoren (skyggeprisen)",
+      "content": "**Multiplikatoren** $\\lambda$ måler hvor mye målfunksjonen ville økt om bibetingelsen ble løsnet med én enhet. I konsumentproblemet er\n\n$$\\lambda = \\frac{u'_1}{p_1} = \\frac{u'_2}{p_2}$$\n\naltså **marginalnytten per krone** — den ekstra nytten én krone mer i inntekt ville gitt. Størrelsen kalles derfor skyggeprisen på budsjettet.\n\nAt de to brøkene er like i optimum, er et selvstendig og ofte etterspurt poeng: den siste kronen gir like mye nytte uansett hvilken vare den brukes på."
+    },
+    {
+      "id": "econ2220-2-1-bb-indre-losning",
+      "type": "definition",
+      "title": "Indre løsning",
+      "content": "En **indre løsning** er et optimum der begge mengdene er strengt positive, $c_1^* > 0$ og $c_2^* > 0$. Da gjelder tilpasningsbetingelsen $u'_1/u'_2 = p_1/p_2$ med likhet, og tangeringsargumentet er gyldig.\n\nAlle standardoppgavene i dette kurset er konstruert slik at løsningen er indre — typisk fordi nyttefunksjonen gir uendelig marginalnytte når en mengde nærmer seg null (som i $\\ln c_1$ eller $c_1^{1/2}$), slik at konsumenten aldri velger null av en vare."
+    },
+    {
+      "id": "econ2220-2-1-bb-randlosning",
+      "type": "definition",
+      "title": "Randløsning (hjørneløsning)",
+      "content": "En **randløsning** er et optimum der konsumenten velger null av den ene varen, altså et hjørne på budsjettlinjen. Da holder ikke tangeringsbetingelsen med likhet: i hjørnet kan MSB være permanent større eller mindre enn prisforholdet uten at noen lønnsom bevegelse finnes, fordi bevegelsen ville krevd en negativ mengde.\n\nRandløsninger er sjeldne i dette kurset, men verdt å nevne i én setning hvis en oppgave gir en nyttefunksjon der varene er perfekte substitutter — da avhenger valget bare av om MSB er større eller mindre enn prisforholdet."
+    },
+    {
+      "id": "econ2220-2-1-bb-monotoni",
+      "type": "definition",
+      "title": "Monotone preferanser («mer er bedre»)",
+      "content": "Preferansene er **monotone** dersom en handlekurv med mer av minst én vare og ikke mindre av den andre, alltid foretrekkes.\n\nTo konsekvenser brukes hele veien i dette kapitlet: budsjettbetingelsen holder med **likhet** (ubrukte kroner kan alltid gjøres om til nytte), og et punkt strengt innenfor budsjettlinjen kan aldri være optimalt. Egenskapen brukes igjen som forutsetning for velferdsteoremene senere i boka."
+    },
+    {
+      "id": "econ2220-2-1-bb-konvekse",
+      "type": "definition",
+      "title": "Konvekse preferanser",
+      "content": "Preferansene er **konvekse** dersom konsumenten svakt foretrekker en blanding av to kurver hun er indifferent mellom, framfor kurvene hver for seg. Grafisk krummer indifferenskurvene mot origo.\n\nKonveksitet er ekvivalent med **avtakende MSB** langs indifferenskurven: jo mer du har av vare 1, jo mindre av vare 2 er du villig til å gi for enda én enhet. Antakelsen er det som gjør at tangeringspunktet er et maksimum og ikke et minimum, og at optimum er entydig."
+    },
+    {
+      "id": "econ2220-2-1-bb-relativpris",
+      "type": "definition",
+      "title": "Relativpris",
+      "content": "**Relativprisen** på vare 1 målt i vare 2 er $p_1/p_2$ — hvor mange enheter vare 2 én enhet vare 1 koster.\n\nPoenget er at konsumentens valg bare avhenger av relativpriser og realinntekt, ikke av kronenivået i seg selv: dobles $p_1$, $p_2$ og $m$ samtidig, er budsjettlinjen nøyaktig den samme og tilpasningen uendret. Det er derfor eksamensoppgaver ofte normaliserer en pris til 1."
+    },
+    {
+      "id": "econ2220-2-1-bb-tangering",
+      "type": "definition",
+      "title": "Tangeringsbetingelsen",
+      "content": "**Tangeringsbetingelsen** er den geometriske versjonen av tilpasningsbetingelsen: i optimum berører den høyeste oppnåelige indifferenskurven budsjettlinjen i ett punkt, slik at helningene er like.\n\nBetingelsen er en *konsekvens* av førsteordensbetingelsene, ikke et bevis for dem. På eksamen brukes den som støtte og illustrasjon — aldri som erstatning for utledningen."
+    },
+    {
+      "id": "econ2220-2-1-bb-innsetting",
+      "type": "definition",
+      "title": "Innsettingsmetoden",
+      "content": "**Innsettingsmetoden** løser bibetingelsen for én variabel og setter uttrykket inn i målfunksjonen, slik at problemet blir en maksimering i én variabel uten bibetingelse.\n\nI konsumentproblemet fungerer den fint: fra budsjettet er $c_2 = (m - p_1c_1)/p_2$, som settes inn i $u$. Metoden godtas på eksamen. Den svikter derimot i kostnadsminimering, der bibetingelsen $F(K,L) = \\bar{y}$ generelt ikke kan løses ut — se [kap. 1.3](/bok/econ2220/econ2220-1-3)."
+    },
+    {
+      "id": "econ2220-2-1-bb-tilpasning",
+      "type": "definition",
+      "title": "Konsumentens tilpasning",
+      "content": "**Tilpasningen** er den handlekurven $(c_1^*, c_2^*)$ som løser maksimeringsproblemet ved gitte priser og gitt inntekt. Den bestemmes av to likninger: tilpasningsbetingelsen og budsjettbetingelsen.\n\nOrdet brukes både om selve punktet i figuren og om handlingen «å tilpasse seg». Merk at én konsuments tilpasning ikke er det samme som en markedslikevekt — det skillet blir et eget presisjonspoeng i Del 4."
+    },
+    {
+      "id": "econ2220-2-1-bb-etterspørselsfunksjon",
+      "type": "definition",
+      "title": "Etterspørselsfunksjon",
+      "content": "En **etterspørselsfunksjon** $c_1(p_1, p_2, m)$ angir den optimale mengden som funksjon av priser og inntekt. Den framkommer ved å løse tilpasningsbetingelsen og budsjettbetingelsen for $c_1$ generelt, i stedet for med bestemte tall.\n\nDette er broen tilbake til ECON1210: **[etterspørselskurven](/bok/econ1210/econ1210-1-1)** som der ble postulert, er i ECON2220 løsningen av et maksimeringsproblem. Selve utledningen for den viktigste funksjonsformen gjøres i [kap. 2.2](/bok/econ2220/econ2220-2-2)."
+    },
+    {
+      "id": "econ2220-2-1-bb-realinntekt",
+      "type": "definition",
+      "title": "Realinntekt (kjøpekraft)",
+      "content": "**Realinntekten** er hva pengeinntekten $m$ faktisk gir av varer, altså størrelsen på budsjettmengden. Den avhenger av $m$ *og* av prisene.\n\nStiger $p_1$ mens $m$ er uendret, krymper budsjettmengden og realinntekten faller, selv om kronebeløpet er det samme. Dette er mekanismen bak inntektseffekten i [kap. 2.3](/bok/econ2220/econ2220-2-3)."
+    },
+    {
+      "id": "econ2220-2-1-bb-parallellskift",
+      "type": "definition",
+      "title": "Parallellskift av budsjettlinjen",
+      "content": "Endres **inntekten** $m$ alene, flytter budsjettlinjen seg utover eller innover **parallelt**: helningen $-p_1/p_2$ er uendret fordi begge prisene er de samme, mens begge skjæringspunkter $m/p_1$ og $m/p_2$ skaleres likt.\n\nEndres derimot **én pris** alene, roterer linjen om skjæringspunktet på den andre varens akse. Å blande disse to bevegelsene er en klassisk figurfeil, og den blir enda dyrere i beholdningsøkonomien i [kap. 3.1](/bok/econ2220/econ2220-3-1)."
+    },
+    {
+      "id": "econ2220-2-1-bb-byttegevinst",
+      "type": "definition",
+      "title": "Byttegevinst",
+      "content": "En **byttegevinst** finnes når konsumentens eget bytteforhold (MSB) avviker fra markedets ($p_1/p_2$): da kan hun bytte til seg en vare billigere enn hun verdsetter den, og komme på en høyere indifferenskurve.\n\nOptimum er per definisjon det punktet der ingen byttegevinst gjenstår. Samme idé brukes senere om bytte *mellom to konsumenter* i bytteøkonomien i Del 4 — der er det avvik mellom to personers MSB som gir gevinst."
+    },
+    {
+      "id": "econ2220-2-1-bb-maalfunksjon",
+      "type": "definition",
+      "title": "Målfunksjon",
+      "content": "**Målfunksjonen** er den størrelsen som skal maksimeres eller minimeres. I konsumentproblemet er det nyttefunksjonen $u(c_1,c_2)$; i produsentens kostnadsminimering senere i boka er det kostnaden $rK + wL$.\n\nÅ skille målfunksjon fra bibetingelse er første steg i tretrinnsmalen, og en overraskende vanlig feilkilde: bytter du om på dem, maksimerer du budsjettet under en nyttebeskrankning, som er et helt annet problem."
+    },
+    {
+      "id": "econ2220-2-1-bb-tretrinnsmalen",
+      "type": "definition",
+      "title": "Tretrinnsmalen",
+      "content": "**Tretrinnsmalen** er bokas faste svarform i alle optimeringsoppgaver:\n\n1. **Sett opp problemet formelt** — målfunksjon og bibetingelse, med begrunnelse for at bibetingelsen holder med likhet.\n2. **Utled steg for steg** — Lagrange, deriver, kombiner førsteordensbetingelsene slik at $\\lambda$ elimineres.\n3. **Oversett til bytteforhold i enheter** — hva venstresiden er, hva høyresiden er, og hvorfor likhet er optimum. Figurbeskrivelse til slutt, som støtte.\n\nMalen er bygget direkte på sensorenes dokumenterte krav, og den brukes uendret i produsentteorien i Del 5."
+    },
+    {
+      "id": "econ2220-2-1-symbolliste",
+      "type": "collapsible",
+      "title": "Symbol- og formelliste",
+      "buttonText": "Vis symboler og formler",
+      "content": [
+        {
+          "id": "econ2220-2-1-symbolliste-tekst",
+          "type": "text",
+          "content": "Oppslagsverk — alt her forklares underveis i kapitlet.\n\n| Symbol | Betydning |\n|---|---|\n| $c_1, c_2$ | Konsumert mengde av vare 1 og vare 2 |\n| $p_1, p_2$ | Prisene på vare 1 og vare 2 (kroner per enhet) |\n| $m$ | Pengeinntekt (budsjettet i kroner) |\n| $u(c_1,c_2)$ | Nyttefunksjonen — rangerer handlekurver |\n| $u'_1, u'_2$ | Marginalnyttene $\\partial u/\\partial c_1$ og $\\partial u/\\partial c_2$ |\n| MSB | Marginal substitusjonsbrøk, $u'_1/u'_2$ |\n| $p_1/p_2$ | Markedets bytteforhold (relativprisen på vare 1 målt i vare 2) |\n| $\\mathcal{L}$ | Lagrange-funksjonen |\n| $\\lambda$ | Lagrange-multiplikatoren — marginalnytte per krone (skyggeprisen på budsjettet) |\n| $B$ | Budsjettmengden |\n| $c_1^*, c_2^*$ | Optimal tilpasning |\n| $E$ | Optimumspunktet i figuren |\n\n**Formler i dette delkapitlet:**\n\n$$p_1c_1 + p_2c_2 = m$$\n\nBudsjettbetingelsen med likhet. Venstresiden er kroner brukt, høyresiden kroner tilgjengelig; likhet følger av monotoni.\n\n$$c_2 = \\frac{m}{p_2} - \\frac{p_1}{p_2}\\,c_1$$\n\nBudsjettlinjen på rett-linje-form. Skjæringspunktene er $m/p_2$ og $m/p_1$; helningen er $-p_1/p_2$.\n\n$$\\mathcal{L} = u(c_1,c_2) - \\lambda\\,(p_1c_1 + p_2c_2 - m)$$\n\nLagrange-funksjonen: målfunksjon minus multiplikator ganger bibetingelse skrevet som venstreside minus høyreside.\n\n$$u'_1 = \\lambda p_1, \\qquad u'_2 = \\lambda p_2, \\qquad p_1c_1 + p_2c_2 = m$$\n\nDe tre førsteordensbetingelsene.\n\n$$\\frac{u'_1}{u'_2} = \\frac{p_1}{p_2}$$\n\nTilpasningsbetingelsen. Venstresiden er konsumentens marginale betalingsvilje for vare 1 målt i enheter vare 2; høyresiden er hva markedet krever for det samme byttet.\n\n$$\\lambda = \\frac{u'_1}{p_1} = \\frac{u'_2}{p_2}$$\n\nMarginalnytte per krone er lik i begge anvendelser i optimum."
+        }
+      ]
+    },
+    {
+      "id": "econ2220-2-1-repetisjon",
+      "type": "collapsible",
+      "title": "Repetisjonsoppgaver",
+      "buttonText": "Vis repetisjonsoppgaver",
+      "content": [
+        {
+          "id": "econ2220-2-1-oppg-R1",
+          "type": "exercise",
+          "exercise": {
+            "id": "econ2220-2-1-rep-1",
+            "number": "R1",
+            "type": "classic",
+            "difficulty": "lett",
+            "task": "(Fra [kap. 1.2](/bok/econ2220/econ2220-1-2).) Hva er MSB, og hvorfor er den uendret når nyttefunksjonen erstattes med $v = 10u$?",
+            "solution": "MSB er forholdet mellom marginalnyttene, $u'_1/u'_2$, og tolkes som hvor mange enheter vare 2 konsumenten er villig til å gi fra seg for én enhet mer av vare 1.\n\nMed $v = 10u$ blir marginalnyttene $v'_1 = 10u'_1$ og $v'_2 = 10u'_2$. Forholdet blir\n\n$$\\frac{v'_1}{v'_2} = \\frac{10u'_1}{10u'_2} = \\frac{u'_1}{u'_2}$$\n\nFaktoren 10 forkortes bort. Marginalnyttene *endres* altså, men MSB gjør det ikke — og siden bare MSB inngår i tilpasningsbetingelsen, er tilpasningen den samme. Det er den formelle grunnen til at nyttetall bare er en rangering.",
+            "hints": [
+              "Skriv opp marginalnyttene til $v$ ved hjelp av kjerneregelen.",
+              "Se hva som skjer med den felles faktoren når du danner forholdet."
+            ]
+          }
+        },
+        {
+          "id": "econ2220-2-1-oppg-R2",
+          "type": "exercise",
+          "exercise": {
+            "id": "econ2220-2-1-rep-2",
+            "number": "R2",
+            "type": "classic",
+            "difficulty": "lett",
+            "task": "(Fra [kap. 1.3](/bok/econ2220/econ2220-1-3).) Løs $\\max\\ c_1c_2$ gitt $4c_1 + 2c_2 = 80$ med **innsettingsmetoden**, og kontroller at svaret oppfyller tilpasningsbetingelsen.",
+            "solution": "Fra budsjettet: $c_2 = (80 - 4c_1)/2 = 40 - 2c_1$. Settes inn i målfunksjonen:\n\n$$u(c_1) = c_1(40 - 2c_1) = 40c_1 - 2c_1^2$$\n\nDeriver og sett lik null: $40 - 4c_1 = 0$, altså $c_1^* = 10$. Da er $c_2^* = 40 - 20 = 20$.\n\nKontroll mot budsjettet: $4\\cdot 10 + 2\\cdot 20 = 40 + 40 = 80$ ✓.\n\nKontroll mot tilpasningsbetingelsen: $\\text{MSB} = c_2/c_1 = 20/10 = 2$, og $p_1/p_2 = 4/2 = 2$ ✓. De to metodene gir samme svar, som de skal.",
+            "hints": [
+              "Løs budsjettbetingelsen for $c_2$ og sett uttrykket inn i nyttefunksjonen.",
+              "Etter innsettingen står du igjen med en andregradsfunksjon i én variabel."
+            ]
+          }
+        },
+        {
+          "id": "econ2220-2-1-oppg-R3",
+          "type": "exercise",
+          "exercise": {
+            "id": "econ2220-2-1-rep-3",
+            "number": "R3",
+            "type": "classic",
+            "difficulty": "middels",
+            "task": "**a)** Hva skjer med budsjettlinjen når inntekten $m$ dobles og begge priser er uendret?\n**b)** Hva skjer når $m$, $p_1$ og $p_2$ alle dobles samtidig?\n**c)** Hva sier svaret i b) om konsumentens tilpasning?",
+            "solution": "**a)** Begge skjæringspunkter, $m/p_1$ og $m/p_2$, dobles, mens helningen $-p_1/p_2$ er uendret. Budsjettlinjen flytter seg altså **parallelt utover**, og budsjettmengden blir dobbelt så stor i begge retninger.\n\n**b)** Budsjettbetingelsen blir $2p_1c_1 + 2p_2c_2 = 2m$. Deler vi alt på 2, står vi igjen med $p_1c_1 + p_2c_2 = m$ — nøyaktig den opprinnelige linjen. Verken skjæringspunkter eller helning endres.\n\n**c)** Tilpasningen er **uendret**. Konsumenten bryr seg bare om relativpriser og realinntekt, ikke om kronenivået i seg selv. En proporsjonal endring i alle priser og i inntekten lar begge deler stå stille. Det er derfor eksamensoppgaver trygt kan normalisere én pris til 1.",
+            "hints": [
+              "Skriv opp skjæringspunktene og helningen, og se hva som endres i hvert tilfelle.",
+              "Til b): prøv å forkorte den nye budsjettlikningen."
+            ]
+          }
+        }
+      ]
+    }
+  ],
+  "exercises": []
+}
