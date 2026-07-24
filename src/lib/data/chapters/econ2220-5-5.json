@@ -1,0 +1,330 @@
+{
+  "id": "econ2220-5-5",
+  "courseId": "econ2220",
+  "chapterNumber": "5.5",
+  "title": "Drill: produsentoppgaven",
+  "description": "Sjangerdrill på oppgave 3: kostnadsminimering → kostnadsfunksjon → skalabatteri → profittmaks → tilbud → nullprofitt/grunnrente i én kjede.",
+  "estimatedMinutes": 90,
+  "competenceGoals": [
+    "kunne kjenne igjen hvilket steg i produsentoppgaven et delspørsmål ber om, og føre kjeden i riktig rekkefølge",
+    "kunne gjennomføre hele kjeden fra teknologi til tilbudskurve for både konstant og avtakende skalautbytte, i to- og én-faktor-variant",
+    "kunne behandle kort sikt med variable kostnader, sunk kost og nedleggingspris, og kontrollere svaret i terskelpunktet",
+    "kunne besvare påstandsoppgaver med konklusjon først, begrunnelse i apparatet og moteksempel eller presisering",
+    "kunne strukturere den åpne drøftingen om varig lønnsomhet: teoriens prediksjon, rangerte forklaringer og begrunnet konklusjon"
+  ],
+  "content": [
+    {
+      "id": "econ2220-5-5-vinkel",
+      "type": "tip",
+      "title": "Eksamensvinkel",
+      "content": "Dette er drillkapitlet for **oppgave 3** — produsentoppgaven. Den har vært med i alle fire ordinære sett siden 2022 (V2022, V2023, V2024, V2025) og i 2 av 4 utsatt-sett (V2023-utsatt, V2024-utsatt), med en vekt på **20–50 %** av settet. Skalautbytte-batteriet har vært med i alle tre siste ordinære sett.\n\nKapitlet dekker to oppgavetyper som boka kaller **sjanger I** (kostnadsminimering: billigste faktormiks for en gitt mengde) og **sjanger J** (profittmaksimering, skalautbytte og kurvene), pluss halene som ofte henger på: **sjanger L** (ta stilling til en påstand og begrunn) og **sjanger M** (åpen drøfting uten fasit). Kodene er bokas egen etikettering av oppgavetypene og står ikke på eksamen.\n\n**Her lærer du ingen ny teori.** Alt står i [kap. 5.1](/bok/econ2220/econ2220-5-1)–[5.4](/bok/econ2220/econ2220-5-4). Det du lærer, er å kjenne igjen hvilket steg oppgaven spør om, og å føre kjeden i riktig rekkefølge under tidspress.\n\n**Tidsbruk:** kapitlet er anslått til 90 minutters lesetid, og det er mye i én økt. Del det i tre: oppskriften og eksamenscaset (~30 min), oppgave 1–6 (~30 min), oppgave 7–12 (~30 min). Anslaget gjelder lesing — regner du alt for hånd, bør du legge til rundt halvparten."
+    },
+    {
+      "id": "econ2220-5-5-forkunn",
+      "type": "text",
+      "content": "**Forkunnskaper.** Dette kapitlet forutsetter hele Del 5:\n\n- **[kap. 5.1](/bok/econ2220/econ2220-5-1)** — produktfunksjonen, marginalproduktene og skalautbytte-testen.\n- **[kap. 5.2](/bok/econ2220/econ2220-5-2)** — kostnadsminimering med Lagrange og kostnadsfunksjonen.\n- **[kap. 5.3](/bok/econ2220/econ2220-5-3)** — marginal- og gjennomsnittskostnad, kort sikt, sunk kost og nedlegging.\n- **[kap. 5.4](/bok/econ2220/econ2220-5-4)** — profittmaksimering, tilbudskurven, nullprofitt og grunnrente.\n\n**Sist du var her — formelarket for oppgave 3:**\n\n$$F(tK,tL) \\gtreqless tF(K,L) \\quad (t>1) \\qquad\\text{skalautbytte-testen}$$\n\n$$\\mathcal{L} = rK + wL + \\lambda\\bigl(\\bar y - F(K,L)\\bigr) \\;\\Longrightarrow\\; \\frac{F'_K}{F'_L} = \\frac{r}{w}$$\n\n$$c(y) = rK^* + wL^*, \\qquad \\text{MK} = c'(y), \\qquad \\text{GK} = \\frac{c(y)}{y}$$\n\n$$p = c'(y) \\quad\\text{(to faktorer)}, \\qquad p\\,F'(n) = w \\quad\\text{(én faktor)}$$\n\n$$\\pi = py - c(y) = \\bigl(p - \\text{GK}(y)\\bigr)y, \\qquad p_{\\text{ned}} = \\min_y \\frac{c_v(y) + F_{\\text{gjenvinnbar}}}{y}$$\n\nTo standardresultater det er verdt å kjenne igjen, men som du alltid skal utlede på nytt: $F = \\sqrt{KL}$ gir $c(y) = 2y\\sqrt{rw}$, og $F = K^{1/3}L^{1/3}$ gir $c(y) = 2y^{3/2}\\sqrt{rw}$."
+    },
+    {
+      "id": "econ2220-5-5-thm-oppskrift",
+      "type": "theorem",
+      "title": "Løsningsoppskriften for produsentoppgaven",
+      "content": "**Åtte steg. Oppgaven spør sjelden om alle, men den spør alltid i denne rekkefølgen.**\n\n1. **Klassifiser teknologien.** Utfør $F(tK,tL)$-testen og les av eksponenten på $t$. Tolk svaret i ord.\n2. **Kostnadsminimer med Lagrange.** Sett opp $\\mathcal{L}$, deriver, del førsteordensbetingelsene på hverandre så $\\lambda$ faller ut, og tolk $F'_K/F'_L = r/w$ i enheter. Aldri innsetting.\n3. **Utled $c(y)$.** Bruk bibetingelsen til å finne $K^*$ og $L^*$, sett inn i $rK + wL$ og forenkle.\n4. **Vis kurveformen.** Regn ut $c'(y)$ og $c''(y)$, konkluder om konveksitet, og sjekk at fortegnet stemmer med regimet fra steg 1.\n5. **Profittmaksimer.** Sett $p = c'(y)$ og løs for $y^*$; sjekk andreordensbetingelsen $c''(y) > 0$. Er marginalkostnaden konstant, regn i stedet på $\\pi = (p-k)y$.\n6. **Tilbudskurven.** Avtakende skala: stigende marginalkostnad over nedleggingsprisen, null under. Konstant skala: vannrett ved $k$, med de tre tilfellene skrevet ut.\n7. **Nullprofitt der skalaen er konstant.** Likevekt krever $p = k$, som gir $\\pi = 0$ — og tolkningen: normal avkastning på kapitalen, ikke fravær av overskudd.\n8. **Halen.** Påstandsspørsmål (ta stilling, begrunn, gi moteksempel) eller åpen drøfting (teoriens prediksjon, forklaringer, rangering, konklusjon).\n\n**Rekkefølgeregelen:** steg 2 og 3 kommer alltid før steg 5. Kostnadsminimeringen leverer $c(y)$, som profittmaksimeringen bruker. Går du rett på kvantumsvalget, har du ingen kostnadsfunksjon å derivere."
+    },
+    {
+      "id": "econ2220-5-5-ex-case",
+      "type": "example",
+      "title": "Gjennomregnet eksamenscase: betongverket (med sensormerknader)",
+      "problem": "**Oppgave 3 (30 %). Alle delspørsmål teller likt.**\n\nEt betongverk har produktfunksjonen $F(K,L) = K^{1/3}L^{1/3}$, der $K$ er maskintimer, $L$ er arbeidstimer og $y$ måles i tusen kubikkmeter ferdigbetong. Faktorprisene er $r = 4$ og $w = 16$.\n\n**a)** Avgjør hvilket skalautbytte teknologien har.\n\n**b)** Utled kostnadsfunksjonen. Forklar hvorfor problemet må løses med Lagrange, og tolk førsteordensbetingelsen i enheter.\n\n**c)** Vis at kostnadsfunksjonen er konveks, og finn marginal- og gjennomsnittskostnaden.\n\n**d)** Produktprisen er $p = 72$. Finn tilbudt mengde og profitten.\n\n**e)** Ta stilling til påstanden: «Betongverket bør produsere den mengden som gir lavest kostnad per kubikkmeter.»",
+      "solution": "**a) Skalautbyttet.**\n\n$$F(tK,tL) = (tK)^{1/3}(tL)^{1/3} = t^{1/3+1/3}K^{1/3}L^{1/3} = t^{2/3}F(K,L)$$\n\nEksponenten er $q = 2/3 < 1$, og for $t > 1$ er $t^{2/3} < t$. Altså $F(tK,tL) < tF(K,L)$: **avtakende skalautbytte**. Dobler verket både maskintimer og arbeidstimer, ganges produksjonen bare med $2^{2/3} \\approx 1{,}59$ — dobbelt så mye innsats gir mindre enn dobbelt så mye betong, så kostnaden per kubikkmeter stiger med produksjonen.\n\n**[Sensor: testen er utført, ikke bare påstått fra eksponentsummen — det er kravet. Tolkningssetningen til slutt er den andre halvparten av poengsummen.]**\n\n**b) Kostnadsfunksjonen.**\n\nProblemet er\n\n$$\\min_{K,L}\\; 4K + 16L \\qquad \\text{gitt} \\qquad K^{1/3}L^{1/3} = y$$\n\nBibetingelsen holder med likhet fordi begge faktorer koster penger: produserer verket mer enn kravet, har det brukt faktorer det kunne spart.\n\n**Metodevalg:** bibetingelsen $F(K,L) = y$ kan ikke løses ut for én variabel på noen alminnelig måte, så innsettingsmetoden er ikke tilgjengelig. Vi bruker Lagrange:\n\n$$\\mathcal{L} = 4K + 16L + \\lambda\\bigl(y - K^{1/3}L^{1/3}\\bigr)$$\n\nMarginalproduktene er $F'_K = \\tfrac{1}{3}K^{-2/3}L^{1/3}$ og $F'_L = \\tfrac{1}{3}K^{1/3}L^{-2/3}$. Førsteordensbetingelsene:\n\n$$4 = \\lambda\\cdot\\tfrac{1}{3}K^{-2/3}L^{1/3}, \\qquad 16 = \\lambda\\cdot\\tfrac{1}{3}K^{1/3}L^{-2/3}$$\n\nDel den første på den andre; $\\lambda$ og faktoren $\\tfrac{1}{3}$ faller ut:\n\n$$\\frac{4}{16} = \\frac{K^{-2/3}L^{1/3}}{K^{1/3}L^{-2/3}} = \\frac{L}{K} \\quad\\Longrightarrow\\quad L = \\tfrac{1}{4}K$$\n\n**Tolkning i enheter:** venstresiden $r/w = 4/16 = 1/4$ er hvor mange arbeidstimer markedet gir for prisen på én maskintime. Høyresiden $L/K$ er hvor mange arbeidstimer som teknisk må erstatte én maskintime for at betongmengden skal være uendret. I optimum er de like — da finnes det ingen omfordeling mellom maskin og folk som gir samme produksjon til lavere kostnad.\n\nSett faktorforholdet inn i bibetingelsen:\n\n$$K^{1/3}\\left(\\tfrac{1}{4}K\\right)^{1/3} = \\left(\\tfrac{1}{4}\\right)^{1/3}K^{2/3} = y \\;\\Longrightarrow\\; K^{2/3} = 4^{1/3}y \\;\\Longrightarrow\\; K^{*} = 2y^{3/2}$$\n\nog $L^{*} = \\tfrac{1}{4}\\cdot 2y^{3/2} = \\tfrac{1}{2}y^{3/2}$. Kostnadsfunksjonen:\n\n$$c(y) = 4\\cdot 2y^{3/2} + 16\\cdot\\tfrac{1}{2}y^{3/2} = 8y^{3/2} + 8y^{3/2} = 16\\,y^{3/2}$$\n\nKontroll mot standardresultatet $c(y) = 2y^{3/2}\\sqrt{rw}$: $2\\sqrt{64} = 16$ ✓.\n\n**[Sensor: tre ting gir poeng her — begrunnelsen for likhet i bibetingelsen, metodevalget (Lagrange, ikke innsetting) og enhetstolkningen. Å stoppe ved faktorforholdet uten å regne ut $c(y)$ koster resten.]**\n\n**c) Kurveformen.**\n\n$$c'(y) = 16\\cdot\\tfrac{3}{2}y^{1/2} = 24\\sqrt{y}, \\qquad c''(y) = 12\\,y^{-1/2} = \\frac{12}{\\sqrt{y}} > 0$$\n\nfor alle $y > 0$. Kostnadsfunksjonen er altså **konveks**, og marginalkostnaden stiger med produksjonen. Det stemmer med det avtakende skalautbyttet i a) — de to er to sider av samme sak.\n\n$$\\text{MK}(y) = 24\\sqrt{y}, \\qquad \\text{GK}(y) = \\frac{16y^{3/2}}{y} = 16\\sqrt{y}$$\n\nForholdet er $\\text{MK}/\\text{GK} = 24/16 = 3/2$: marginalkostnaden ligger alltid 50 % over gjennomsnittskostnaden. Begge stiger fra første enhet, og gjennomsnittskostnaden har ingen bunnpunkt — det finnes ingen faste kostnader å fordele utover.\n\n**[Sensor: «konveks fordi skalautbyttet er avtakende» er en påstand. Andrederiverte skrevet ut er et bevis.]**\n\n**d) Tilpasning og profitt.**\n\nFørsteordensbetingelsen $p = c'(y)$:\n\n$$72 = 24\\sqrt{y} \\;\\Longrightarrow\\; \\sqrt{y} = 3 \\;\\Longrightarrow\\; y^{*} = 9$$\n\nAndreordensbetingelsen: $c''(y) > 0$, altså stigende marginalkostnad, så punktet er et maksimum ✓.\n\n$$c(9) = 16\\cdot 27 = 432, \\qquad py = 72\\cdot 9 = 648, \\qquad \\pi = 648 - 432 = 216$$\n\nKontroll mot rektangelet: $\\text{GK}(9) = 16\\cdot 3 = 48$, og $(72-48)\\cdot 9 = 216$ ✓.\n\n**Tolkning:** ved 9 000 kubikkmeter koster den neste kubikkmeteren nøyaktig 72 — det verket får for den. Kubikkmeter nummer 9 001 ville kostet mer og gitt tap på marginen.\n\n**Figuren i ord:** med $y$ vannrett og kroner per enhet loddrett stiger MK-kurven $24\\sqrt{y}$ og GK-kurven $16\\sqrt{y}$ fra origo, med MK alltid over GK. Prislinja ved 72 er vannrett og skjærer MK i punktet $A = (9,72)$. Rett under ligger $G = (9,48)$ på GK-kurven, og profitten er rektangelet mellom prislinja og GK fra 0 til 9: høyde 24, bredde 9, areal 216.\n\n**e) Påstanden.**\n\n**Påstanden er usann.** Den mengden som gir lavest kostnad per kubikkmeter, er den som minimerer gjennomsnittskostnaden. Her er $\\text{GK}(y) = 16\\sqrt{y}$ stigende i hele sitt område, så den blir lavere jo mindre verket produserer — grensetilfellet er å ikke produsere i det hele tatt. Det ville gitt null i profitt, mot 216 ved den riktige tilpasningen.\n\nFeilen i påstanden er å bruke gjennomsnittskostnaden til å velge *mengde*. Gjennomsnittskostnaden avgjør **om** produksjonen er lønnsom (er $p > \\text{GK}$?); marginalkostnaden avgjør **hvor mye** som skal produseres (er $p > \\text{MK}$?). Så lenge prisen overstiger marginalkostnaden, lønner det seg å utvide — selv om gjennomsnittskostnaden stiger på veien.\n\n**[Sensor: mange svarer «nei, den skal produsere der $p = \\text{MK}$» og stopper. Poenget som skiller, er å si hva gjennomsnittskostnaden faktisk brukes til.]**"
+    },
+    {
+      "id": "econ2220-5-5-pause1",
+      "type": "text",
+      "content": "— naturlig pausepunkt —\n\nNå kommer tolv oppgaver som roterer sjangeren: konstant mot avtakende skalautbytte, to faktorer mot én, lang mot kort sikt, påstandsvarianter og til slutt en åpen drøfting. Alle tallene er nye. Ta oppgave 1–6 i én økt og 7–12 i en annen."
+    },
+    {
+      "id": "econ2220-5-5-oppg-1",
+      "type": "exercise",
+      "exercise": {
+        "id": "econ2220-5-5-e-1",
+        "number": "1",
+        "type": "classic",
+        "difficulty": "lett",
+        "task": "(Innsteg — kjenn igjen steget.)\n\nFor hvert av spørsmålene under: hvilket steg i løsningsoppskriften svarer det på?\n\n**a)** «Hvilket skalautbytte har teknologien?»\n\n**b)** «Hvor mye vil bedriften produsere ved prisen $p$?»\n\n**c)** «Hva er billigste faktormiks for å lage $\\bar y$ enheter?»\n\n**d)** «Under hvilken pris bør bedriften stenge?»",
+        "solution": "**a)** Steg 1 — klassifiser teknologien med $F(tK,tL)$-testen, og tolk svaret i ord.\n\n**b)** Steg 5 — profittmaksimering: sett $p = c'(y)$ og løs for $y^{*}$ (eller regn på $\\pi = (p-k)y$ dersom marginalkostnaden er konstant).\n\n**c)** Steg 2 — kostnadsminimering med Lagrange, som gir faktorforholdet $F'_K/F'_L = r/w$, og deretter steg 3 for mengdene.\n\n**d)** Steg 6 — tilbudskurven, der nedleggingsprisen er $\\min_y (c_v(y) + F_{\\text{gjenvinnbar}})/y$. Bare unngåelige kostnader teller.",
+        "hints": [
+          "Se på hvilke størrelser hvert spørsmål nevner: er produktprisen $p$ med, eller bare faktorpriser og mengde?",
+          "Spørsmål om «billigst» hører til kostnadsminimering; spørsmål om «hvor mye» hører til profittmaksimering."
+        ]
+      }
+    },
+    {
+      "id": "econ2220-5-5-oppg-2",
+      "type": "exercise",
+      "exercise": {
+        "id": "econ2220-5-5-e-2",
+        "number": "2",
+        "type": "classic",
+        "difficulty": "lett",
+        "task": "(Sjanger J — skalautbytte-testen.)\n\nEt meieri har produktfunksjonen $F(K,L) = K^{0{,}25}L^{0{,}5}$.\n\n**a)** Utfør skalautbytte-testen.\n\n**b)** Hvor mye må begge faktorene økes for at produksjonen skal dobles?",
+        "solution": "**a)** Sett inn $tK$ og $tL$:\n\n$$F(tK,tL) = (tK)^{0{,}25}(tL)^{0{,}5} = t^{0{,}75}K^{0{,}25}L^{0{,}5} = t^{0{,}75}F(K,L)$$\n\nEksponenten er $0{,}75 < 1$, så $F(tK,tL) < tF(K,L)$ for $t > 1$: **avtakende skalautbytte**.\n\n**b)** Vi vil ha $t^{0{,}75} = 2$, altså\n\n$$t = 2^{1/0{,}75} = 2^{4/3} \\approx 2{,}52$$\n\nBegge faktorene må økes med om lag 152 % for at produksjonen skal dobles. Det er nettopp hva avtakende skalautbytte koster: kostnaden ved å doble produksjonen er klart mer enn dobbel.",
+        "hints": [
+          "Legg sammen eksponentene på $t$ etter at du har brukt potensregelen.",
+          "I b): løs likningen $t^{0{,}75} = 2$ ved å opphøye begge sider i $1/0{,}75$."
+        ]
+      }
+    },
+    {
+      "id": "econ2220-5-5-oppg-3",
+      "type": "exercise",
+      "exercise": {
+        "id": "econ2220-5-5-e-3",
+        "number": "3",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "(Sjanger I + J — full kjede med konstant skalautbytte.)\n\nEt vaskeri har $F(K,L) = \\sqrt{KL}$ og faktorprisene $r = 1$ og $w = 9$.\n\n**a)** Test skalautbyttet.\n\n**b)** Utled $K^{*}$, $L^{*}$ og kostnadsfunksjonen med Lagrange.\n\n**c)** Hva er tilbudskurven, og hva må markedsprisen være i likevekt?\n\n**d)** Hva blir profitten i likevekt, og hva betyr tallet?",
+        "solution": "**a)** $F(tK,tL) = (tK)^{1/2}(tL)^{1/2} = tF(K,L)$: **konstant skalautbytte**.\n\n**b)** Problemet er $\\min\\, K + 9L$ gitt $\\sqrt{KL} = y$, med likhet i bibetingelsen fordi faktorene koster penger. Bibetingelsen kan ikke løses ut generelt, så vi bruker Lagrange:\n\n$$\\mathcal{L} = K + 9L + \\lambda\\bigl(y - \\sqrt{KL}\\bigr)$$\n\nMed $F'_K = \\tfrac{1}{2}\\sqrt{L/K}$ og $F'_L = \\tfrac{1}{2}\\sqrt{K/L}$ gir førsteordensbetingelsene, delt på hverandre:\n\n$$\\frac{1}{9} = \\frac{L}{K} \\quad\\Longrightarrow\\quad L = \\tfrac{1}{9}K$$\n\nInnsatt: $\\sqrt{K\\cdot\\tfrac{1}{9}K} = \\tfrac{1}{3}K = y$, altså $K^{*} = 3y$ og $L^{*} = \\tfrac{1}{3}y$.\n\n$$c(y) = 1\\cdot 3y + 9\\cdot\\tfrac{1}{3}y = 3y + 3y = 6y$$\n\n(Kontroll: $2y\\sqrt{rw} = 2y\\sqrt{9} = 6y$ ✓.)\n\n**c)** Marginalkostnaden er $c'(y) = 6$, konstant, så $p = c'(y)$ gir ingen mengde. Regn på profitten: $\\pi = (p-6)y$. Under $p = 6$ er tilbudet null; over $p = 6$ er det ubegrenset; ved $p = 6$ er profitten null uansett mengde. Tilbudskurven er **vannrett ved $p = 6$**, og siden markedet ikke kan klarere ved noen annen pris, må likevektsprisen være $p = 6$.\n\n**d)** $\\pi = (6-6)y = 0$. Null **renprofitt**: kapitalprisen $r = 1$ er kapitalens alternativkostnad og ligger allerede inne i $c(y)$, så eierne får nøyaktig normal avkastning på det de har satt inn. Det betyr ikke at ingen tjener penger — de ansatte får lønn, eierne får normalavkastning, og regnskapet vil vise et overskudd som svarer til den.",
+        "hints": [
+          "I b): del førsteordensbetingelsene på hverandre for å eliminere $\\lambda$, og bruk bibetingelsen etterpå.",
+          "I c): når marginalkostnaden er konstant, gir betingelsen $p = c'(y)$ en likning i $p$ — skriv ut profitten i stedet.",
+          "I d): spør hva som allerede er trukket fra i kostnadsfunksjonen."
+        ]
+      }
+    },
+    {
+      "id": "econ2220-5-5-oppg-4",
+      "type": "exercise",
+      "exercise": {
+        "id": "econ2220-5-5-e-4",
+        "number": "4",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "(Sjanger I + J — full kjede med avtakende skalautbytte.)\n\nEt gjenvinningsselskap har $F(K,L) = K^{1/3}L^{1/3}$ og faktorprisene $r = 2$ og $w = 8$.\n\n**a)** Utled kostnadsfunksjonen.\n\n**b)** Vis at den er konveks, og finn MK og GK.\n\n**c)** Prisen er $p = 48$. Finn tilbudt mengde og profitten.",
+        "solution": "**a)** Førsteordensbetingelsen for denne teknologien er $L/K = r/w = 2/8 = 1/4$, altså $L = \\tfrac{1}{4}K$. Innsatt i bibetingelsen:\n\n$$K^{1/3}\\left(\\tfrac{1}{4}K\\right)^{1/3} = \\left(\\tfrac{1}{4}\\right)^{1/3}K^{2/3} = y \\;\\Longrightarrow\\; K^{2/3} = 4^{1/3}y \\;\\Longrightarrow\\; K^{*} = 2y^{3/2}$$\n\nog $L^{*} = \\tfrac{1}{2}y^{3/2}$. Dermed\n\n$$c(y) = 2\\cdot 2y^{3/2} + 8\\cdot\\tfrac{1}{2}y^{3/2} = 4y^{3/2} + 4y^{3/2} = 8y^{3/2}$$\n\n(Kontroll: $2y^{3/2}\\sqrt{rw} = 2y^{3/2}\\cdot 4 = 8y^{3/2}$ ✓.)\n\n**b)** $$c'(y) = 12\\sqrt{y}, \\qquad c''(y) = \\frac{6}{\\sqrt{y}} > 0$$\n\nKostnadsfunksjonen er **konveks** og marginalkostnaden stiger. MK $= 12\\sqrt{y}$ og GK $= 8\\sqrt{y}$; forholdet er $3/2$, så marginalkostnaden ligger alltid over gjennomsnittskostnaden.\n\n**c)** $$48 = 12\\sqrt{y} \\;\\Longrightarrow\\; \\sqrt{y} = 4 \\;\\Longrightarrow\\; y^{*} = 16$$\n\n$$c(16) = 8\\cdot 64 = 512, \\qquad py = 48\\cdot 16 = 768, \\qquad \\pi = 256$$\n\n(Kontroll mot rektangelet: GK$(16) = 8\\cdot 4 = 32$, og $(48-32)\\cdot 16 = 256$ ✓. Andreordensbetingelsen er oppfylt siden $c''(y) > 0$.)",
+        "hints": [
+          "Faktorforholdet for $K^{1/3}L^{1/3}$ er $L/K = r/w$ — samme som for $\\sqrt{KL}$.",
+          "Når du setter inn, husk at $(\\tfrac14 K)^{1/3} = 4^{-1/3}K^{1/3}$.",
+          "I c): kvadrer etter at du har isolert $\\sqrt{y}$."
+        ]
+      }
+    },
+    {
+      "id": "econ2220-5-5-oppg-5",
+      "type": "exercise",
+      "exercise": {
+        "id": "econ2220-5-5-e-5",
+        "number": "5",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "(Sjanger J — én-faktor-varianten.)\n\nEt snekkerverksted har teknologien $x = 4\\sqrt{n}$, der $n$ er arbeidstimer og $x$ er antall dører. Dørprisen er $p = 6$ og timelønna $w = 3$.\n\n**a)** Finn $n^{*}$, produksjonen og profitten.\n\n**b)** Tolk førsteordensbetingelsen i fysiske enheter.",
+        "solution": "**a)** Marginalproduktet er $F'(n) = 4\\cdot\\tfrac{1}{2}n^{-1/2} = 2/\\sqrt{n}$. Førsteordensbetingelsen $pF'(n) = w$:\n\n$$6\\cdot\\frac{2}{\\sqrt{n}} = 3 \\;\\Longrightarrow\\; \\frac{12}{\\sqrt{n}} = 3 \\;\\Longrightarrow\\; \\sqrt{n} = 4 \\;\\Longrightarrow\\; n^{*} = 16$$\n\n$$x^{*} = 4\\cdot 4 = 16 \\text{ dører}, \\qquad \\pi = 6\\cdot 16 - 3\\cdot 16 = 96 - 48 = 48$$\n\n**b)** Delt på prisen blir betingelsen $F'(n) = w/p = 3/6 = 0{,}5$. Den siste arbeidstimen produserer en halv dør, og én times lønn kjøper nøyaktig en halv dør i markedet.\n\nVerkstedet ansetter altså helt til den siste timens fysiske utbytte er nede på det reallønna tilsier — signalet på hva arbeidstimen er verdt andre steder i økonomien. Var marginalproduktet høyere enn 0,5, ville samfunnet vunnet på at flere timer gikk til dører; var det lavere, burde timene gått et annet sted.",
+        "hints": [
+          "Deriver $4\\sqrt{n}$ først, og sett $p$ ganger marginalproduktet lik lønna.",
+          "I b): del begge sider av betingelsen på prisen."
+        ]
+      }
+    },
+    {
+      "id": "econ2220-5-5-oppg-6",
+      "type": "exercise",
+      "exercise": {
+        "id": "econ2220-5-5-e-6",
+        "number": "6",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "(Sjanger J — kort sikt med sunk kost.)\n\nEt trykkeri har på kort sikt teknologien $y = \\sqrt{l}$ og timelønn $w = 2$. Faste kostnader er 50 per dag, hvorav 32 er leie som kan sies opp og 18 er en ikke-refunderbar programvarelisens.\n\n**a)** Utled $c_v(y)$, $c(y)$ og marginalkostnaden.\n\n**b)** Finn nedleggingsprisen.\n\n**c)** Vis at drift og stenging gir samme resultat nøyaktig ved nedleggingsprisen.",
+        "solution": "**a)** Inverter teknologien: $y = \\sqrt{l} \\Rightarrow l = y^{2}$. Da er\n\n$$c_v(y) = 2y^{2}, \\qquad c(y) = 2y^{2} + 50, \\qquad \\text{MK}(y) = 4y$$\n\n**b)** Bare de unngåelige kostnadene teller: de variable pluss leia på 32.\n\n$$\\frac{2y^{2} + 32}{y} = 2y + \\frac{32}{y}, \\qquad 2 - \\frac{32}{y^{2}} = 0 \\;\\Longrightarrow\\; y = 4$$\n\n$$\\text{GK}_{\\text{unngåelig}}(4) = 8 + 8 = 16$$\n\nNedleggingsprisen er **16**. Lisensen på 18 holdes utenfor: den påløper uansett hva trykkeriet gjør, og en kostnad som er lik i begge alternativer, kan ikke skille mellom dem.\n\n**c)** Ved $p = 16$ gir $p = \\text{MK}$ at $4y = 16$, altså $y = 4$.\n\n- **Drift:** $\\pi = 16\\cdot 4 - (2\\cdot 16 + 50) = 64 - 82 = -18$.\n- **Stenging:** ingen inntekt, ingen variable kostnader, ingen leie — men lisensen på 18 påløper: $\\pi = -18$.\n\nDe to alternativene gir nøyaktig samme resultat, og tapet ved drift er akkurat like stort som den sunkne kostnaden. Det er en god kontroll på at nedleggingsprisen er riktig regnet.",
+        "hints": [
+          "Skriv antall timer som funksjon av produksjonen før du ganger med lønna.",
+          "I b): ta bare med de kostnadene som forsvinner ved stenging.",
+          "I c): regn ut resultatet i begge alternativer og sammenlikn — ikke mot null."
+        ]
+      }
+    },
+    {
+      "id": "econ2220-5-5-oppg-7",
+      "type": "exercise",
+      "exercise": {
+        "id": "econ2220-5-5-e-7",
+        "number": "7",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "(Sjanger L — påstandsoppgave. Ta stilling og begrunn.)\n\n«En bedrift med konstant skalautbytte har ingen bestemt tilbudt mengde når prisen ligger over kostnaden per produsert enhet.»",
+        "solution": "**Påstanden er sann.**\n\nMed konstant skalautbytte er $c(y) = k\\,y$, der $k$ er kostnaden per produsert enhet gitt faktorprisene. Profitten blir\n\n$$\\pi = py - ky = (p - k)\\,y$$\n\nEr $p > k$, er parentesen positiv, og profitten vokser proporsjonalt med mengden. Det finnes da ingen mengde som er best: uansett hvor mye bedriften produserer, tjener den mer på å produsere litt mer. Førsteordensbetingelsen $p = c'(y)$ hjelper ikke, for $c'(y) = k$ er en konstant — betingelsen blir en likning i $p$, ikke i $y$.\n\n**Presiseringen som hører med:** dette er nettopp derfor markedslikevekt krever $p = k$. Ved en høyere pris ville tilbudet vært ubegrenset, og ingen etterspørsel kan ta imot en ubegrenset mengde. Påstanden beskriver altså en situasjon som ikke kan være en likevekt, og det er hele poenget med den vannrette tilbudskurven.\n\nLegg merke til at påstanden bare gjelder tilfellet $p > k$. Ved $p < k$ er den bestemte tilbudte mengden null, og ved $p = k$ er bedriften likegyldig mellom alle mengder.",
+        "hints": [
+          "Skriv profitten som $(p-k)y$ og se hva som skjer når parentesen er positiv.",
+          "Sjekk om påstanden gjelder for alle priser eller bare for noen — presiser i svaret."
+        ]
+      }
+    },
+    {
+      "id": "econ2220-5-5-oppg-8",
+      "type": "exercise",
+      "exercise": {
+        "id": "econ2220-5-5-e-8",
+        "number": "8",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "(Sjanger L — påstandsoppgave med tallkontroll.)\n\n«Et selskap som viser overskudd i regnskapet hvert år, kan ikke ha null renprofitt. Nullprofitt-resultatet er derfor empirisk avvist.»",
+        "solution": "**Påstanden er usann, og feilen er en sammenblanding av to profittbegreper.**\n\nModellens $\\pi = py - c(y)$ er **renprofitt**: overskudd utover alternativkostnaden på alle innsatte ressurser. Kostnadsfunksjonen $c(y) = rK^{*} + wL^{*}$ inneholder kapitalprisen $r$, og $r$ er hva kapitalen kunne tjent i beste alternative anvendelse — normalavkastningen.\n\nRegnskapets overskudd trekker fra lønn, varekjøp, avskrivninger og lånerenter, men ikke hva eierne kunne tjent på egenkapitalen sin et annet sted. Sammenhengen er\n\n$$\\text{renprofitt} = \\text{regnskapsmessig overskudd} - \\text{normalavkastning på egenkapitalen}$$\n\n**Tallkontroll.** Et selskap med 50 millioner i egenkapital og 5 % alternativ avkastning har en alternativkostnad på $0{,}05\\cdot 50 = 2{,}5$ millioner. Viser regnskapet 2,5 millioner i overskudd, er renprofitten null. Overskudd i regnskapet er altså ikke bare forenlig med resultatet — det er hva resultatet forutsier.\n\n**Hva som faktisk ville utfordret modellen:** overskudd vedvarende *over* normalavkastningen i en næring med fri etablering. Da svikter en forutsetning — enten er etableringen ikke fri, eller noen sitter på en knapp faktor ingen kan kopiere.",
+        "hints": [
+          "Sett opp forskjellen mellom regnskapsmessig overskudd og renprofitt i én linje.",
+          "Konstruer et talleksempel der regnskapet viser overskudd og renprofitten likevel er null."
+        ]
+      }
+    },
+    {
+      "id": "econ2220-5-5-oppg-9",
+      "type": "exercise",
+      "exercise": {
+        "id": "econ2220-5-5-e-9",
+        "number": "9",
+        "type": "classic",
+        "difficulty": "vanskelig",
+        "task": "(Eksamensnivå — kort sikt, hele veien.)\n\nEt pukkverk har på kort sikt teknologien $y = \\sqrt{l}$ og timelønn $w = 5$. Faste kostnader er 45 per dag, og alle kan unngås ved å stenge.\n\n**a)** Utled $c_v(y)$, $c(y)$, MK og GK.\n\n**b)** Finn nedleggingsprisen.\n\n**c)** Prisen er $p = 40$. Finn tilbudt mengde, profitten, og vis profitten som et rektangel.\n\n**d)** Utled tilbudskurven, og forklar hvorfor den har et sprang.",
+        "solution": "**a)** $l = y^{2}$ gir\n\n$$c_v(y) = 5y^{2}, \\qquad c(y) = 5y^{2} + 45, \\qquad \\text{MK}(y) = 10y, \\qquad \\text{GK}(y) = 5y + \\frac{45}{y}$$\n\n**b)** Alle faste kostnader er unngåelige, så hele gjennomsnittskostnaden er relevant:\n\n$$5 - \\frac{45}{y^{2}} = 0 \\;\\Longrightarrow\\; y^{2} = 9 \\;\\Longrightarrow\\; y = 3, \\qquad \\text{GK}(3) = 15 + 15 = 30$$\n\nNedleggingsprisen er **30**. (Kontroll: MK$(3) = 30 = $ GK$(3)$ ✓ — marginalkostnaden skjærer gjennomsnittskostnaden i bunnpunktet.)\n\n**c)** $p = \\text{MK}$: $10y = 40$, altså $y^{*} = 4$. Andreordensbetingelsen er oppfylt, siden $c''(y) = 10 > 0$.\n\n$$c(4) = 5\\cdot 16 + 45 = 125, \\qquad py = 160, \\qquad \\pi = 160 - 125 = 35$$\n\nSom rektangel: GK$(4) = 125/4 = 31{,}25$, og\n\n$$\\pi = (40 - 31{,}25)\\cdot 4 = 8{,}75\\cdot 4 = 35 \\;\\checkmark$$\n\nRektangelet har høyde 8,75 (fra gjennomsnittskostnaden opp til prislinja) og bredde 4 (produsert mengde).\n\n**d)** Fra $p = 10y$ får vi $y = p/10$, gyldig så lenge prisen er minst nedleggingsprisen:\n\n$$y^{s}(p) = \\begin{cases} p/10 & \\text{når } p \\ge 30 \\\\ 0 & \\text{når } p < 30 \\end{cases}$$\n\nSpringet skyldes de faste kostnadene. Ved priser rett under 30 ville pukkverket kunnet produsere en liten mengde med prisen over marginalkostnaden, men inntekten ville ikke dekket de 45 i faste kostnader — og siden alle kan unngås, er stenging bedre. I det prisen passerer 30, hopper tilbudet derfor fra null rett opp til 3, og stiger deretter jevnt.\n\n**Figuren i ord:** med $y$ vannrett og $p$ loddrett består tilbudskurven av en loddrett strek langs prisaksen fra 0 til 30, et vannrett sprang bort til punktet $(3,30)$, og deretter den stigende linja $p = 10y$.",
+        "hints": [
+          "Inverter teknologien før du ganger med lønna.",
+          "I b): alle faste kostnader er unngåelige her, så bruk hele GK.",
+          "I d): finn først $y$ som funksjon av $p$, og legg deretter på betingelsen fra b)."
+        ]
+      }
+    },
+    {
+      "id": "econ2220-5-5-oppg-10",
+      "type": "exercise",
+      "exercise": {
+        "id": "econ2220-5-5-e-10",
+        "number": "10",
+        "type": "classic",
+        "difficulty": "vanskelig",
+        "task": "(Eksamensnivå — full kjede med generelle faktorpriser først, tall etterpå.)\n\nEt datasenter har $F(K,L) = K^{1/4}L^{1/4}$.\n\n**a)** Test skalautbyttet.\n\n**b)** Utled kostnadsfunksjonen med generelle faktorpriser $r$ og $w$.\n\n**c)** Sett $r = 1$ og $w = 4$. Finn MK, vis konveksitet, og finn tilbudt mengde og profitt ved $p = 48$.",
+        "solution": "**a)** $$F(tK,tL) = (tK)^{1/4}(tL)^{1/4} = t^{1/2}F(K,L)$$\n\nEksponenten er $1/2 < 1$: **avtakende skalautbytte**. En dobling av begge faktorene ganger produksjonen med $\\sqrt{2} \\approx 1{,}41$.\n\n**b)** Marginalproduktene er $F'_K = \\tfrac{1}{4}K^{-3/4}L^{1/4}$ og $F'_L = \\tfrac{1}{4}K^{1/4}L^{-3/4}$. Lagrange-funksjonen er\n\n$$\\mathcal{L} = rK + wL + \\lambda\\bigl(y - K^{1/4}L^{1/4}\\bigr),$$\n\nog førsteordensbetingelsene $r = \\lambda F'_K$, $w = \\lambda F'_L$ deles på hverandre:\n\n$$\\frac{r}{w} = \\frac{K^{-3/4}L^{1/4}}{K^{1/4}L^{-3/4}} = \\frac{L}{K} \\quad\\Longrightarrow\\quad L = \\frac{r}{w}K$$\n\nInnsatt i bibetingelsen:\n\n$$K^{1/4}\\left(\\frac{r}{w}K\\right)^{1/4} = \\left(\\frac{r}{w}\\right)^{1/4}K^{1/2} = y \\;\\Longrightarrow\\; K^{*} = y^{2}\\sqrt{\\frac{w}{r}}, \\qquad L^{*} = y^{2}\\sqrt{\\frac{r}{w}}$$\n\n$$c(y) = r\\,y^{2}\\sqrt{\\frac{w}{r}} + w\\,y^{2}\\sqrt{\\frac{r}{w}} = y^{2}\\sqrt{rw} + y^{2}\\sqrt{rw} = 2y^{2}\\sqrt{rw}$$\n\nLegg merke til mønsteret: prisfaktoren $2\\sqrt{rw}$ er den samme som for $\\sqrt{KL}$ og $K^{1/3}L^{1/3}$; det er bare eksponenten på $y$ som endrer seg med skalaregimet.\n\n**c)** Med $r = 1$ og $w = 4$ er $\\sqrt{rw} = 2$, altså $c(y) = 4y^{2}$.\n\n$$c'(y) = 8y, \\qquad c''(y) = 8 > 0$$\n\nKostnadsfunksjonen er **konveks** og marginalkostnaden stiger — som det avtakende skalautbyttet i a) tilsier.\n\n$$p = c'(y): \\quad 48 = 8y \\;\\Longrightarrow\\; y^{*} = 6$$\n\n$$c(6) = 4\\cdot 36 = 144, \\qquad py = 288, \\qquad \\pi = 144$$\n\n(Kontroll: GK$(6) = 144/6 = 24$, og $(48-24)\\cdot 6 = 144$ ✓.)",
+        "hints": [
+          "I b): eksponentene $1/4$ gir $K^{-3/4}/K^{1/4} = K^{-1}$ når du deler betingelsene.",
+          "Når du løser $\\left(\\tfrac{r}{w}\\right)^{1/4}K^{1/2} = y$ for $K$, opphøy begge sider i 2.",
+          "I c): sett inn tallene i den generelle kostnadsfunksjonen før du deriverer."
+        ]
+      }
+    },
+    {
+      "id": "econ2220-5-5-oppg-11",
+      "type": "exercise",
+      "exercise": {
+        "id": "econ2220-5-5-e-11",
+        "number": "11",
+        "type": "classic",
+        "difficulty": "vanskelig",
+        "task": "(Krevende — tiltakende skalautbytte, og hvorfor modellen bryter sammen.)\n\nEn plattformbedrift har $F(K,L) = K^{3/4}L^{3/4}$ og faktorpriser slik at $\\sqrt{rw} = 3$.\n\n**a)** Test skalautbyttet.\n\n**b)** Kostnadsfunksjonen er $c(y) = 2y^{2/3}\\sqrt{rw}$ for denne teknologien. Sett inn prisfaktoren, finn MK og $c''(y)$, og forklar hva fortegnet betyr.\n\n**c)** Prisen er $p = 2$. Finn den mengden som oppfyller $p = c'(y)$, og regn ut profitten der og ved $y = 27$, $y = 64$ og $y = 125$. Hva viser regnestykket?\n\n**d)** Hva sier resultatet om tilbudskurven?",
+        "solution": "**a)** $$F(tK,tL) = (tK)^{3/4}(tL)^{3/4} = t^{3/2}F(K,L)$$\n\nEksponenten er $3/2 > 1$: **tiltakende skalautbytte**. En dobling av begge faktorene ganger produksjonen med $2^{3/2} \\approx 2{,}83$.\n\n**b)** Med $\\sqrt{rw} = 3$ er $c(y) = 6y^{2/3}$, og\n\n$$c'(y) = 6\\cdot\\tfrac{2}{3}y^{-1/3} = \\frac{4}{y^{1/3}}, \\qquad c''(y) = -\\frac{4}{3\\,y^{4/3}} < 0$$\n\nNegativ andrederivert betyr **konkav** kostnadsfunksjon og **fallende** marginalkostnad: hver ny enhet er billigere enn den forrige. Det er kostnadssiden av tiltakende skalautbytte.\n\n**c)** $p = c'(y)$ gir $4y^{-1/3} = 2$, altså $y^{1/3} = 2$ og $y = 8$. Profitten der:\n\n$$\\pi(8) = 2\\cdot 8 - 6\\cdot 8^{2/3} = 16 - 6\\cdot 4 = 16 - 24 = -8$$\n\nVidere:\n\n$$\\pi(27) = 54 - 6\\cdot 9 = 0, \\qquad \\pi(64) = 128 - 6\\cdot 16 = 32, \\qquad \\pi(125) = 250 - 6\\cdot 25 = 100$$\n\nRegnestykket viser at $y = 8$ er det **verste** punktet, ikke det beste: profitten stiger jo mer bedriften produserer. Årsaken er andreordensbetingelsen: $p = c'(y)$ gir et maksimum bare når $c''(y) > 0$. Her er $c''(y) < 0$, så punktet er et minimum.\n\n**d)** Bedriften har **ingen veldefinert tilbudskurve** i denne modellen. Med fallende marginalkostnad og en gitt pris vil den ønske å produsere ubegrenset mye så snart prisen overstiger gjennomsnittskostnaden, og ingenting ellers. Modellen med pristakende bedrifter forutsetter altså at skalautbyttet ikke er tiltakende — og det er grunnen til at kurset holder seg til konstant og avtakende skalautbytte når det regner på tilbud.\n\nI virkeligheten ender næringer med sterkt tiltakende skalautbytte typisk med få og store aktører som selv påvirker prisen. Prissettingsanalysen for en slik aktør bor i ECON1210-boka: se [Monopolets tilpasning: marginalinntekt og MI = MK](/bok/econ1210/econ1210-5-1).",
+        "hints": [
+          "I b): $y^{2/3}$ deriveres til $\\tfrac{2}{3}y^{-1/3}$, og én gang til gir negativ eksponent på nytt.",
+          "I c): regn ut $8^{2/3}$, $27^{2/3}$, $64^{2/3}$ og $125^{2/3}$ — alle er hele tall.",
+          "I d): tenk på hva andreordensbetingelsen krever, og hva som skjer når den ikke er oppfylt."
+        ]
+      }
+    },
+    {
+      "id": "econ2220-5-5-oppg-12",
+      "type": "exercise",
+      "exercise": {
+        "id": "econ2220-5-5-e-12",
+        "number": "12",
+        "type": "classic",
+        "difficulty": "vanskelig",
+        "task": "(Krevende — sjanger M, åpen drøfting uten fasit, slik oppgave 3 avsluttes fra 2025.)\n\nLønnsomheten i norsk dagligvarehandel har over lang tid ligget over normalavkastningen, og bransjen domineres av tre kjeder. Drøft hvorfor renprofitten ikke er konkurrert bort, og vurder hvilken forklaring som veier tyngst. Konkluder.",
+        "solution": "**Utgangspunktet: hva teorien forutsier.**\n\nNullprofitt-resultatet hviler på konstant skalautbytte og fri etablering. Er de oppfylt, kommer nye aktører inn så snart prisen ligger over kostnaden per enhet, og renprofitten forsvinner. Vedvarende avkastning over normalen betyr at én av forutsetningene ikke holder — spørsmålet er hvilken.\n\n**Forklaring 1 — etableringshindringer i form av areal og regulering (veier tyngst).** En ny kjede må ha butikklokaler der folk faktisk bor, og de beste beliggenhetene er tatt. Reguleringsplaner og kjøpesenterbestemmelser begrenser hvor nye butikker kan settes opp, og de etablerte kjedene har i mange tilfeller langsiktige leieavtaler på de mest attraktive punktene. Inngangen er dermed ikke sperret av kapitalmangel, men av at *stedene* er knappe.\n\nDette er en variant av den skjulte faste faktoren fra [kap. 5.1](/bok/econ2220/econ2220-5-1): kopieringsargumentet forutsetter at hele driften kan bygges på nytt, og en butikk i et etablert boligområde kan ikke det. Konsekvensen er den samme som i grunnrentetilfellene, men ressursen er beliggenhet snarere enn natur.\n\n**Forklaring 2 — stordriftsfordeler i innkjøp og distribusjon (reell, men delvis en kostnadsfordel).** Store kjeder får bedre innkjøpsbetingelser og kan drive sentrallager mer effektivt. Dette gir dem lavere kostnader per enhet enn en ny og liten aktør, altså tiltakende skalautbytte i deler av verdikjeden. Merk hva dette forklarer og ikke forklarer: det forklarer hvorfor små aktører ikke kommer inn, men en kostnadsfordel er i seg selv ikke renprofitt — den gir bare renprofitt så lenge prisene ikke presses ned til de *lave* kostnadene. Forklaringen må derfor kombineres med den første for å bære.\n\n**Forklaring 3 — kundelojalitet og søkekostnader (svakest av de tre).** Forbrukerne handler ofte i den nærmeste butikken uten å sammenlikne priser nøye, og lojalitetsprogrammer forsterker mønsteret. Dette demper priskonkurransen, men det er en gradsforskjell snarere enn en sperre: en aktør med markant lavere priser ville over tid trekke kunder. Effekten forklarer treghet, ikke tiår med avkastning over normalen.\n\n**Konklusjon.** Renprofitten i dagligvarehandelen skyldes først og fremst at etableringen ikke er fri: knappe og regulerte butikkbeliggenheter gjør at nye aktører ikke kan kopiere driften der den er lønnsom. Stordriftsfordeler i innkjøp forsterker barrieren ved å heve minsteskalaen en ny aktør må komme inn med, mens kundelojalitet bare bremser tilpasningen.\n\nDet gir en klar politikkimplikasjon: virkemidler som senker den reelle inngangsbarrieren — mer areal regulert til handel, korte og ikke-eksklusive leieavtaler, tilgang til distribusjon for mindre aktører — treffer årsaken. Prisregulering treffer symptomet og vil ikke fjerne renprofitten, bare flytte hvor den tas ut.\n\nForbeholdet som må med, er at deler av avkastningen kan være kompensasjon for risiko og for investeringer i butikknett som faktisk er ugjenkallelige. Det svekker likevel ikke hovedslutningen: **når prisen har ligget over kostnaden i årevis i en næring med tre aktører, er den mest sannsynlige forklaringen at noen ikke kommer inn — ikke at alle tre er usedvanlig godt drevet.**",
+        "hints": [
+          "Start med å skrive ned hvilke forutsetninger nullprofitt-resultatet hviler på, og spør hvilken som brytes her.",
+          "Bruk kopieringsargumentet: hva kan en ny kjede bygge, og hva kan den ikke skaffe seg?",
+          "Rangér forklaringene og si hvorfor de svake er svake — og pass på at du svarer på hvorfor renprofitten VARER, ikke bare på hvorfor bransjen er konsentrert."
+        ]
+      }
+    },
+    {
+      "id": "econ2220-5-5-typiske-feil",
+      "type": "warning",
+      "title": "Typiske feil i oppgave 3",
+      "content": "Hele repertoaret fra Del 5, samlet. Kodene refererer til bokas feilkatalog i [kap. 0.1](/bok/econ2220/econ2220-0-1):\n\n- **Feil #5 — innsetting på kostnadsminimering.** Bibetingelsen $F(K,L) = \\bar y$ kan ikke løses ut generelt. Lagrange, hver gang.\n- **Feil #4 — kvantum hentet fra kostnadsminimeringen.** Kostnadsminimering tar mengden som gitt og inneholder ikke produktprisen. Kvantumsvalget krever $p$.\n- **Feil #3 — skalautbytte eller kurveform påstått.** Testen $F(tK,tL)$ eller andrederiverte $c''(y)$ skal skrives ut, ikke refereres til.\n- **Feil #11 — nullprofitt tolket som «ingen tjener penger».** Alternativkostnaden på kapital ligger i $c(y)$; null renprofitt er normal avkastning.\n- **MK/GK-forveksling.** Marginalkostnaden avgjør hvor mye som skal produseres, gjennomsnittskostnaden om produksjonen er lønnsom. Å velge mengde fra gjennomsnittskostnaden er en av de sikreste måtene å tape poeng på.\n- **Feil #2 — utolkede betingelser.** $F'_K/F'_L = r/w$ og $pF'(n) = w$ skal oversettes til enheter. En brøk gjentatt med ord er ikke en tolkning.\n- **Glemt nedleggingsbetingelse.** Marginalkostnadskurven er tilbudskurven bare over nedleggingsprisen.\n- **Sunk kost tatt med i beslutningen.** Bare unngåelige kostnader hører i nedleggingsvurderingen.\n- **Glemt andreordensbetingelse.** $p = c'(y)$ er et maksimum bare når marginalkostnaden stiger.\n- **Feil #13 — svar på noe annet enn det spurte i den åpne halen.** Les spørsmålet to ganger, rangér forklaringene, og konkluder."
+    },
+    {
+      "id": "econ2220-5-5-bank-intro",
+      "type": "text",
+      "content": "## Begrepsbank\n\nBegrepsbanken er flashcard-/repetisjonsstoff — den gjentar det du nettopp har lest. Hopp trygt over ved førstegangslesing; tidsanslaget for kapitlet gjelder kjernestoffet."
+    },
+    {
+      "id": "econ2220-5-5-bank-oppskrift",
+      "type": "definition",
+      "title": "Åttestegs-oppskriften i kortform",
+      "content": "**1)** Klassifiser teknologien med $F(tK,tL)$-testen. **2)** Kostnadsminimer med Lagrange og tolk $F'_K/F'_L = r/w$. **3)** Utled $c(y)$. **4)** Vis kurveformen med $c''(y)$. **5)** Profittmaksimer med $p = c'(y)$. **6)** Tilbudskurven, regimeavhengig. **7)** Nullprofitt der skalaen er konstant. **8)** Halen: påstand eller åpen drøfting.\n\nOppgaven spør sjelden om alle åtte, men den spør alltid i denne rekkefølgen — og steg 2–3 kommer alltid før steg 5, fordi profittmaksimeringen trenger kostnadsfunksjonen."
+    },
+    {
+      "id": "econ2220-5-5-bank-rekkefolge",
+      "type": "definition",
+      "title": "Rekkefølgeregelen",
+      "content": "**Kostnadsminimering før profittmaksimering, alltid.**\n\nKostnadsminimeringen svarer på «hvordan lages en gitt mengde billigst?» og produserer kostnadsfunksjonen $c(y)$. Profittmaksimeringen svarer på «hvor mye skal lages?» og bruker $c(y)$ som innsatsvare.\n\nHopper du rett på kvantumsvalget, har du ingen kostnadsfunksjon å derivere. Og går du motsatt vei — prøver å hente mengden ut av kostnadsminimeringen — treffer du bokas feil #4, siden produktprisen ikke inngår i det problemet i det hele tatt."
+    },
+    {
+      "id": "econ2220-5-5-bank-tre-veier",
+      "type": "definition",
+      "title": "Tre veier til skalaregimet",
+      "content": "**Du kan diagnostisere skalautbyttet på tre måter, og alle tre er godkjente:**\n\n1. **$F(tK,tL)$-testen** på produktfunksjonen — les av eksponenten på $t$ og sammenlikn med 1.\n2. **Eksponentsummen $a+b$** for Cobb-Douglas — men bare som kontroll etter testen, aldri i stedet for den.\n3. **Fortegnet på $c''(y)$** når du har kostnadsfunksjonen: positiv gir avtakende, null gir konstant, negativ gir tiltakende skalautbytte.\n\nHar du kostnadsfunksjonen, er vei 3 kortest. Har du bare produktfunksjonen, er vei 1 den eneste."
+    },
+    {
+      "id": "econ2220-5-5-bank-signalord",
+      "type": "definition",
+      "title": "Signalordene for kort sikt",
+      "content": "**Disse formuleringene i oppgaveteksten betyr at du skal bruke kortsiktsapparatet:** «kapitalen er fast», «på kort sikt», «bedriften har én maskin», «teknologien er $y = \\sqrt{l}$» (én faktor), «husleien kan ikke sies opp», «investeringen er ugjenkallelig».\n\nDa gjelder: inverter teknologien, gang med faktorprisen for å få $c_v(y)$, legg til faste kostnader, og skill sunkne fra gjenvinnbare før du regner nedleggingspris.\n\nSignalordene for lang sikt er motsatt: «begge faktorer kan varieres», «$F(K,L)$» med to argumenter, «bedriften kan gå ut av markedet»."
+    },
+    {
+      "id": "econ2220-5-5-bank-enhetssjekk",
+      "type": "definition",
+      "title": "Sluttkontrollen: enhets- og rimelighetssjekk",
+      "content": "**Tre kontroller som tar femten sekunder og fanger de fleste regnefeilene:**\n\n1. **Enhetssjekk.** MK og GK måles i kroner per enhet, $c(y)$ i kroner, $F'(n)$ i enheter per faktorenhet. Har du satt $F'(n) = w$ uten prisen $p$, stemmer ikke enhetene.\n2. **Rektangelkontroll.** Regn profitten både som $py - c(y)$ og som $(p - \\text{GK}(y))\\,y$. Får du to ulike svar, er det en regnefeil et sted.\n3. **Regimekontroll.** Stemmer eksponenten på $y$ i $c(y)$ med skalaregimet du fant i steg 1? Konstant skala gir eksponent 1, avtakende gir over 1, tiltakende gir under 1.\n\nTo selvrettingssteder skal aldri lande motsatt. Gjør de det, er det noe å finne."
+    },
+    {
+      "id": "econ2220-5-5-bank-pastandsmal",
+      "type": "definition",
+      "title": "Malen for påstandsoppgaver",
+      "content": "**Sjanger L besvares i tre trekk:**\n\n1. **Ta stilling først.** Skriv «påstanden er sann» eller «påstanden er usann» i første setning — sensor skal ikke lete etter konklusjonen.\n2. **Begrunn med apparatet.** Vis hvilken betingelse eller hvilket resultat som avgjør, og skriv det ut.\n3. **Gi et moteksempel eller en presisering.** Er påstanden usann, konstruer et konkret tilfelle der den slår feil. Er den sann, si hva den *ikke* dekker.\n\nSann/usann-oppgavene i arkivet inneholder både sanne, usanne og betinget sanne påstander, så et rent mønster («alt er usant») finnes ikke. Les hver påstand for seg."
+    },
+    {
+      "id": "econ2220-5-5-bank-tidsbudsjett",
+      "type": "definition",
+      "title": "Tidsbudsjett for oppgave 3",
+      "content": "**Produsentoppgaven er verdt 20–50 % av settet, og deloppgavene teller (omtrent) likt.** På en firetimers eksamen med en 30 %-oppgave betyr det rundt 70 minutter — og med fem delspørsmål omtrent 14 minutter per delspørsmål.\n\nFordelingen som lønner seg: bruk *mindre* tid enn snittet på skalautbytte-testen (den er kort og sikker) og la overskuddet gå til kostnadsfunksjonen og til den åpne halen, som er der de fleste taper poeng.\n\n**Regel når tiden blir knapp:** skriv oppsettet og førsteordensbetingelsen med tolkning på hvert delspørsmål, framfor å regne ett ferdig og la de neste stå tomme. Deloppgavene teller likt, så et halvt svar på tre spørsmål slår ett komplett."
+    },
+    {
+      "id": "econ2220-5-5-bank-poengtap",
+      "type": "definition",
+      "title": "Der poengene faktisk forsvinner",
+      "content": "**Rangert etter hvor ofte det koster poeng i produsentoppgaven:**\n\n1. **Manglende tolkning** av en betingelse som ellers er riktig utledet (feil #2). Billigste poeng i hele faget å hente inn.\n2. **Påstått i stedet for vist** — skalautbytte uten test, konveksitet uten $c''$ (feil #3).\n3. **Stoppet for tidlig** — faktorforholdet funnet, men $c(y)$ ikke regnet ut.\n4. **Nullprofitt feiltolket** (feil #11).\n5. **Feil apparat på feil spørsmål** — kvantum fra gjennomsnittskostnaden, eller mengde fra kostnadsminimeringen (feil #4).\n\nDe fire første er alle ting du kan fikse med én ekstra setning eller to ekstra linjer. Det er derfor drillen lønner seg."
+    },
+    {
+      "id": "econ2220-5-5-bank-IJ",
+      "type": "definition",
+      "title": "Slik skiller du sjanger I fra sjanger J",
+      "content": "**Se på hvilke størrelser oppgaveteksten oppgir.**\n\n**Sjanger I (kostnadsminimering)** kjennes på at *mengden er gitt* og at produktprisen ikke er nevnt: «skal levere $\\bar y$ enheter», «har en kontrakt på», «for en gitt produksjon». Verktøyet er Lagrange, og svaret er faktormiksen og kostnadsfunksjonen.\n\n**Sjanger J (profittmaksimering og kurvene)** kjennes på at *produktprisen er oppgitt* eller at spørsmålet handler om tilbud, skalautbytte, kurveform eller nedlegging. Verktøyet er derivasjon av profitten, og svaret er en mengde, en kurve eller en terskel.\n\nDukker prisen $p$ opp i en oppgave du har tolket som sjanger I, har du sannsynligvis lest feil — eller oppgaven har flere delspørsmål som går gjennom hele kjeden, slik den typisk gjør."
+    },
+    {
+      "id": "econ2220-5-5-bank-standardresultater",
+      "type": "definition",
+      "title": "Standardresultatene i Del 5",
+      "content": "**Mønsteret er verdt å kjenne igjen — men utled det alltid på nytt:**\n\n| Teknologi | Skalautbytte | Kostnadsfunksjon |\n|---|---|---|\n| $\\sqrt{KL}$ | konstant | $c(y) = 2y\\sqrt{rw}$ |\n| $K^{1/3}L^{1/3}$ | avtakende | $c(y) = 2y^{3/2}\\sqrt{rw}$ |\n| $K^{1/4}L^{1/4}$ | avtakende | $c(y) = 2y^{2}\\sqrt{rw}$ |\n| $K^{3/4}L^{3/4}$ | tiltakende | $c(y) = 2y^{2/3}\\sqrt{rw}$ |\n\nAlle har samme prisfaktor $2\\sqrt{rw}$; det er bare eksponenten på $y$ som endrer seg, og den er $1/(a+b)$ for $F = K^{a}L^{b}$ med $a = b$.\n\nBruk tabellen til å **kontrollere** svaret ditt, ikke til å hoppe over utledningen — sensor gir poeng for veien, ikke bare for målet."
+    },
+    {
+      "id": "econ2220-5-5-symbolliste",
+      "type": "collapsible",
+      "title": "Symbol- og formelliste",
+      "buttonText": "Vis symboler og formler",
+      "content": [
+        {
+          "id": "econ2220-5-5-symbolliste-text",
+          "type": "text",
+          "content": "## Symbol- og formelliste\n\n*Oppslagsverk — alt her forklares underveis i kapitlet.*\n\n| Symbol | Betydning |\n|---|---|\n| $K$, $L$ | Kapital og arbeid (innsatsfaktorer, lang sikt) |\n| $l$, $n$ | Arbeidsmengde i én-faktor-varianten |\n| $r$, $w$ | Prisen på kapital og på arbeid |\n| $p$ | Produktprisen |\n| $y$ | Produsert mengde; $\\bar y$ er en gitt mengde; $y^{*}$ den profittmaksimerende |\n| $t$ | Skalaparameteren i skalautbytte-testen, $t > 1$ |\n| $F(K,L)$, $F(n)$ | Produktfunksjonen i to- og én-faktor-variant |\n| $F'_K$, $F'_L$, $F'(n)$ | Marginalproduktene |\n| $\\mathcal{L}$ | Lagrange-funksjonen |\n| $\\lambda$ | Lagrange-multiplikatoren; lik marginalkostnaden i optimum |\n| $K^{*}$, $L^{*}$ | De kostnadsminimerende faktormengdene |\n| $c(y)$ | Kostnadsfunksjonen |\n| $c'(y)$, MK | Marginalkostnad |\n| $c''(y)$ | Andrederiverte; fortegnet gir kurveform og skalaregime |\n| GK | Gjennomsnittskostnad, $c(y)/y$ |\n| $c_v(y)$ | Variable kostnader (kort sikt) |\n| $F$ | Faste kostnader (uten argumenter) |\n| $k$ | Kostnaden per produsert enhet ved konstant skalautbytte, $c(y) = k\\,y$ |\n| $p_{\\text{ned}}$ | Nedleggingsprisen |\n| $y^{s}(p)$ | Tilbudskurven |\n| $\\pi$ | Renprofitt, $py - c(y)$ |\n\n**Formler i dette delkapitlet:**\n\n$$F(tK,tL) \\gtreqless tF(K,L), \\quad t > 1$$\nSteg 1: skalautbytte-testen. Eksponenten på $t$ mot 1.\n\n$$\\mathcal{L} = rK + wL + \\lambda\\bigl(\\bar y - F(K,L)\\bigr) \\;\\Longrightarrow\\; \\frac{F'_K}{F'_L} = \\frac{r}{w}$$\nSteg 2: kostnadsminimering. Teknologiens bytteforhold mellom faktorene lik markedets.\n\n$$c(y) = rK^{*} + wL^{*}$$\nSteg 3: kostnadsfunksjonen som minimumsverdien.\n\n$$c''(y) > 0 \\iff \\text{konveks} \\iff \\text{stigende MK} \\iff \\text{avtakende skalautbytte}$$\nSteg 4: kurveformen vist, ikke påstått.\n\n$$p = c'(y) \\quad\\text{med}\\quad c''(y) > 0, \\qquad p\\,F'(n) = w \\iff F'(n) = \\frac{w}{p}$$\nSteg 5: profittmaksimering i to- og én-faktor-variant, med andreordensbetingelsen.\n\n$$y^{s}(p) = \\begin{cases} \\text{løsning av } p = c'(y), & p \\ge p_{\\text{ned}} \\\\ 0, & p < p_{\\text{ned}} \\end{cases}, \\qquad p_{\\text{ned}} = \\min_y \\frac{c_v(y) + F_{\\text{gjenvinnbar}}}{y}$$\nSteg 6: tilbudskurven ved avtakende skalautbytte, med nedleggingsbetingelsen.\n\n$$c(y) = k\\,y \\;\\Rightarrow\\; \\pi = (p-k)y \\;\\Rightarrow\\; \\text{vannrett tilbud, likevekt krever } p = k, \\; \\pi = 0$$\nSteg 6–7: konstant skalautbytte og nullprofitt-resultatet.\n\n$$\\pi = py - c(y) = \\bigl(p - \\text{GK}(y)\\bigr)y$$\nKontrollformelen: regn profitten på to måter og sammenlikn."
+        }
+      ]
+    }
+  ],
+  "exercises": []
+}
