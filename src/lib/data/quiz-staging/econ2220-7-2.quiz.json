@@ -1,0 +1,152 @@
+[
+  {
+    "question": "Hva er en strategi i et dynamisk spill?",
+    "options": [
+      "En komplett plan som sier hva spilleren gjør i hver av sine beslutningsnoder",
+      "Det trekket spilleren faktisk gjør når spillet spilles",
+      "Den stien gjennom spilltreet som spillet ender med å følge",
+      "Det valget som gir spilleren høyest utbetaling i den noden hun står i"
+    ],
+    "explanation": "Planen må dekke også noder som aldri nås — det er nettopp derfor antall strategier er større enn antall trekk, og derfor tomme trusler kan inngå i en likevekt."
+  },
+  {
+    "question": "En spiller har tre beslutningsnoder med tre valg i hver. Hvor mange rene strategier har hun?",
+    "options": [
+      "27",
+      "9",
+      "6",
+      "3"
+    ],
+    "explanation": "Produktregelen: $3 \\cdot 3 \\cdot 3 = 27$. Svaret 9 kommer av å bare gange to av nodene; svaret 6 av å legge sammen."
+  },
+  {
+    "question": "Byggherren har én node med to valg; leverandøren har to noder med fem valg hver. Hvor mange strategier har leverandøren?",
+    "options": [
+      "25",
+      "10",
+      "7",
+      "5"
+    ],
+    "explanation": "$5 \\cdot 5 = 25$. Alternativet 10 kommer av å gange antall noder med antall valg, og 7 av å legge sammen."
+  },
+  {
+    "question": "Hvor mange delspill har et spilltre med fire beslutningsnoder og perfekt informasjon?",
+    "options": [
+      "4",
+      "3",
+      "5",
+      "8"
+    ],
+    "explanation": "Hver node gir ett delspill, og hele spillet er ett av dem. Å svare 3 er å glemme at hele spillet også regnes som delspill."
+  },
+  {
+    "question": "Hva er baklengs induksjon?",
+    "options": [
+      "Å løse spillet fra de siste nodene og bakover mot rotnoden",
+      "Å prøve alle strategikombinasjoner og velge den beste",
+      "Å skrive spillet om til normalform og finne alle Nash-likevekter",
+      "Å begynne i rotnoden og følge den stien som gir høyest samlet utbetaling"
+    ],
+    "explanation": "Man starter der valget er enklest — nærmest slutten — og erstatter hver node med utbetalingene fra det valgte alternativet. Resultatet er delspill-perfekt."
+  },
+  {
+    "question": "Hva kreves for at en likevekt skal være delspill-perfekt?",
+    "options": [
+      "At strategiene utgjør en Nash-likevekt i hvert enkelt delspill",
+      "At alle spillere får minst like mye som i den beste Nash-likevekten",
+      "At likevekten er den eneste Nash-likevekten i spillet",
+      "At ingen spiller har noen dominert strategi i spillet"
+    ],
+    "explanation": "Kravet gjelder også delspill som aldri nås. Det er dette tillegget som luker ut likevekter som hviler på tomme trusler."
+  },
+  {
+    "question": "Hvilken sammenheng gjelder mellom SPNE og Nash-likevekt?",
+    "options": [
+      "Hver SPNE er en Nash-likevekt, men ikke omvendt",
+      "Hver Nash-likevekt er en SPNE, men ikke omvendt",
+      "De to begrepene er ekvivalente i endelige spill",
+      "De to begrepene utelukker hverandre i dynamiske spill"
+    ],
+    "explanation": "SPNE er et strengere krav og gir derfor en mindre mengde likevekter. De som faller bort, er dem som hviler på ikke-troverdig atferd."
+  },
+  {
+    "question": "Hvorfor kan en ikke-troverdig trussel inngå i en Nash-likevekt?",
+    "options": [
+      "Fordi trusselen virker, så noden nås aldri og planen der påvirker ikke utbetalingen",
+      "Fordi Nash-likevekt ikke krever at spillerne er rasjonelle",
+      "Fordi trusselen er lønnsom å gjennomføre i den noden den gjelder",
+      "Fordi motparten ikke kjenner utbetalingene i den noden trusselen gjelder"
+    ],
+    "explanation": "Er trusselen virksom, styrer motparten unna noden, og truslerens utbetaling er uberørt av hva planen sier om den. Baklengs induksjon fjerner slike likevekter."
+  },
+  {
+    "question": "I inntrengningsspillet får den etablerte 5 av å dele markedet og 2 av priskrig. Hva følger av baklengs induksjon?",
+    "options": [
+      "Den etablerte deler markedet, og inntrengeren etablerer seg",
+      "Den etablerte tar priskrig, og inntrengeren holder seg unna",
+      "Den etablerte deler markedet, og inntrengeren holder seg unna",
+      "Spillet har ingen delspill-perfekt likevekt"
+    ],
+    "explanation": "I den siste noden er deling best for den etablerte, så trusselen om priskrig faller. Inntrengeren regner med deling og går inn."
+  },
+  {
+    "question": "Hvordan finner du bedrift 1 sin reaksjonsfunksjon?",
+    "options": [
+      "Deriver bedrift 1 sin profitt med hensyn på $q_1$ og hold $q_2$ fast",
+      "Deriver bedrift 1 sin profitt med hensyn på $q_2$ og hold $q_1$ fast",
+      "Deriver samlet profitt for begge bedrifter med hensyn på $Q$",
+      "Sett prisen lik kostnaden per enhet og løs for $q_1$"
+    ],
+    "explanation": "Bedriften optimerer over sitt eget kvantum. Å derivere med hensyn på den andres kvantum er en dokumentert klassiker og gir et meningsløst uttrykk."
+  },
+  {
+    "question": "Med $p = 26 - (q_1+q_2)$ og kostnad 2 per enhet: hva er Cournot-likevekten?",
+    "options": [
+      "$q_1 = q_2 = 8$",
+      "$q_1 = q_2 = 12$",
+      "$q_1 = 12$, $q_2 = 6$",
+      "$q_1 = q_2 = 6$"
+    ],
+    "explanation": "Reaksjonsfunksjonen er $q_1 = 12 - q_2/2$; symmetri gir $q = 8$. Paret $(12, 6)$ er Stackelberg-løsningen, ikke Cournot."
+  },
+  {
+    "question": "Samme marked, men bedrift 1 binder seg først. Hva blir Stackelberg-løsningen?",
+    "options": [
+      "$q_1 = 12$, $q_2 = 6$",
+      "$q_1 = q_2 = 8$",
+      "$q_1 = 6$, $q_2 = 12$",
+      "$q_1 = 18$, $q_2 = 9$"
+    ],
+    "explanation": "Sett følgerens reaksjonsfunksjon inn i lederens profitt: $\\pi_1 = (12 - q_1/2)q_1$ gir $q_1 = 12$ og $q_2 = 6$. Lederen leverer dobbelt så mye som følgeren."
+  },
+  {
+    "question": "Hva er den riktige forklaringen på førstetrekksfordelen i Stackelberg?",
+    "options": [
+      "Lederen har bundet seg, så følgeren må tilpasse seg nedover",
+      "Lederen er større og har derfor lavere kostnader",
+      "Lederen kan endre kvantumet sitt etter å ha sett følgerens valg",
+      "Lederen står overfor en høyere pris enn følgeren gjør"
+    ],
+    "explanation": "Fordelen ligger i at kvantumet er irreversibelt lagt på bordet. Kunne lederen endret det etterpå, ville fordelen forsvunnet og vi var tilbake i Cournot."
+  },
+  {
+    "question": "Hva skjer med samlet profitt når Cournot erstattes av Stackelberg i det samme markedet?",
+    "options": [
+      "Den faller, fordi samlet kvantum øker og prisen faller",
+      "Den stiger, fordi lederen tjener mer enn følgeren taper",
+      "Den er uendret, siden bare fordelingen mellom bedriftene endres",
+      "Den faller bare hvis bedriftene har ulike kostnader per enhet"
+    ],
+    "explanation": "I eksemplet går samlet profitt fra 128 til 108: lederens gevinst på 8 veier ikke opp for følgerens tap på 28. Kjøperne kommer derimot bedre ut."
+  },
+  {
+    "question": "Hva er forskjellen mellom en ikke-troverdig trussel og et ikke-troverdig løfte?",
+    "options": [
+      "Trusselen skal avskrekke motparten; løftet skal lokke henne til å handle",
+      "Trusselen gjelder dynamiske spill; løftet gjelder simultane spill",
+      "Trusselen kan aldri inngå i en Nash-likevekt, mens løftet kan",
+      "Trusselen gjelder egne utbetalinger; løftet gjelder motpartens utbetalinger"
+    ],
+    "explanation": "Begge er varsler om handlinger spilleren ikke ville gjennomført. Forskjellen er retningen — og en tom trussel er lettere å bære i en Nash-likevekt, siden den holder motparten borte fra noden."
+  }
+]

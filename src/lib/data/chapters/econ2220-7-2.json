@@ -1,0 +1,368 @@
+{
+  "id": "econ2220-7-2",
+  "courseId": "econ2220",
+  "chapterNumber": "7.2",
+  "title": "Dynamisk spillteori: SPNE, strategitelling og troverdighet",
+  "description": "Spilltre, produktregelen for strategitelling, baklengs induksjon og ikke-troverdige trusler — pluss duopol-regneeksemplet fra utsatt-arkivet.",
+  "estimatedMinutes": 50,
+  "competenceGoals": [
+    "kunne beskrive et spilltre og telle strategier og delspill riktig med produktregelen",
+    "kunne løse et endelig spill med perfekt informasjon ved baklengs induksjon og begrunne valget i hver node",
+    "kunne konstruere en Nash-likevekt som ikke er delspill-perfekt, og forklare den ikke-troverdige trusselen",
+    "kunne utlede reaksjonsfunksjoner og sammenlikne Cournot- og Stackelberg-utfallet med tall"
+  ],
+  "content": [
+    {
+      "id": "econ2220-7-2-tip-eksamensvinkel",
+      "type": "tip",
+      "title": "Eksamensvinkel — fortsatt beredskapsstoff",
+      "content": "Også dette kapitlet er **beredskapsstoff**. Hele del 7 er forsikring: temaet står i emnebeskrivelsen (verifisert 2026) og ligger i fire årganger med gamle eksamenssett, men det har **ingen forekomster i settene fra 2023 og framover**. Har du dårlig tid, er del 7 det du hopper over.\n\nOppgavetypen heter i denne boka **sjanger N** (spillteori og atferdsøkonomi) — sjangerbokstavene er bokas eget merkesystem, og hele listen står i [kap. 0.1](/bok/econ2220/econ2220-0-1).\n\n**Frekvens i arkivet:** spillteori finnes i **4 av de 7 ordinære settene** — V2018 (30 % av settet), V2019 (30 %, som en flervalgsbolk), V2020 (30 %) og V2022 (20 %) — og i **1 av de 4 utsatt-settene** (V2022-utsatt). Duopol-regneoppgaven med Cournot og Stackelberg finnes i **null av de ordinære settene** og i **1 av de 4 utsatt-settene** (igjen V2022-utsatt). Den er altså det tynneste stoffet i hele boka, målt i belegg.\n\n**Prioritet: dette bør du kjenne.** Laveste av bokas tre nivåer.\n\n**Kravene fra den gangen:** definere delspill-perfekt Nash-likevekt (Nash-likevekt i **alle** delspill), telle strategier riktig med **produktregelen**, gjennomføre **baklengs induksjon**, og forklare hvorfor en Nash-likevekt kan hvile på en **ikke-troverdig trussel** — inntrengningsspillet i V2020-fasiten og Stackelberg-trusselen i V2022-utsatt er de dokumenterte variantene.\n\nKapitlet tar rundt 50 minutter og er delt i fire løkker med tidsanslag. Det er markert et naturlig pausepunkt før løkke 3."
+    },
+    {
+      "id": "econ2220-7-2-forkunnskaper",
+      "type": "text",
+      "content": "**Forkunnskaper.** Dette kapitlet bygger på:\n\n- **[kap. 7.1](/bok/econ2220/econ2220-7-1)** — Nash-likevekt, beste svar og dominans. Alt her forutsetter at du kan finne en Nash-likevekt i en matrise.\n- **[kap. 0.1](/bok/econ2220/econ2220-0-1)** — sjangerkodene og hvorfor del 7 er beredskapsstoff.\n- Til duopol-delen i løkke 4: at profitt er $\\pi = \\text{inntekt} - \\text{kostnad}$, og at man finner maksimum ved å derivere og sette lik null — jf. [kap. 5.4](/bok/econ2220/econ2220-5-4).\n\n**Sist du var her — de to tingene du må ha ferskt:**\n\n**Nash-likevekt:** en kombinasjon av strategier der hver spiller spiller et **beste svar** på det de andre gjør — altså at **ingen angrer, gitt de andres valg**.\n\n**Beste-svar-metoden i matrise:** marker radspillerens største tall i hver kolonne og kolonnespillerens største tall i hver rad; en likevekt er en celle der begge markeringene sitter.\n\nVi bruker begge når vi skal vise at ikke alle Nash-likevekter i et dynamisk spill er fornuftige."
+    },
+    {
+      "id": "econ2220-7-2-lokke1-head",
+      "type": "text",
+      "content": "## Løkke 1 — Spilltreet: når noen ser hva den andre gjorde (~12 min)"
+    },
+    {
+      "id": "econ2220-7-2-anker",
+      "type": "text",
+      "content": "En liten entreprenør vurderer å etablere seg i et lokalt marked for grunnarbeid, der det allerede finnes en veletablert bedrift. Rekkefølgen er ikke tilfeldig her: entreprenøren må bestemme seg **først**, og den etablerte bedriften ser hva som skjedde før den svarer.\n\nDet gjør dette til noe annet enn matrisespillene i forrige kapittel. Nå betyr det noe **når** man velger, og hva man har fått vite underveis.\n\nDen etablerte bedriften har naturligvis sagt fra på forhånd: kommer noen inn, blir det priskrig. Spørsmålet dette kapitlet stiller, er om entreprenøren har noen grunn til å tro på trusselen — og verktøyet som svarer, er baklengs induksjon."
+    },
+    {
+      "id": "econ2220-7-2-def-ekstensiv-form",
+      "type": "definition",
+      "title": "Ekstensiv form (spilltre)",
+      "content": "Et spill på **ekstensiv form** framstilles som et **spilltre**: en figur som viser rekkefølgen på beslutningene.\n\nDelene er:\n\n- **Noder** — punkter der noen bestemmer. Treet starter i **rotnoden**.\n- **Grener** — de valgene som kan gjøres fra en node.\n- **Endenoder** — der spillet er slutt, med utbetalingene ført opp for begge spillere.\n\nEkstensiv form brukes når rekkefølgen betyr noe. Er alle valg samtidige, holder normalformen fra [kap. 7.1](/bok/econ2220/econ2220-7-1).\n\nEthvert spill på ekstensiv form kan skrives om til normalform — vi gjør det i løkke 3 — men noe går tapt i oversettelsen, nemlig informasjonen om hva som skjer *etter* hvert enkelt trekk. Det er nettopp dette tapte som gjør at ikke alle Nash-likevekter er like fornuftige."
+    },
+    {
+      "id": "econ2220-7-2-def-beslutningsnode",
+      "type": "definition",
+      "title": "Beslutningsnode",
+      "content": "En **beslutningsnode** er et punkt i treet der én bestemt spiller skal velge.\n\nHvor mange beslutningsnoder en spiller har, er avgjørende for hvor mange **strategier** hun har — det er nettopp det produktregelen i løkke 2 regner ut.\n\nMerk at en node godt kan være en node spilleren aldri kommer til å nå. Den teller likevel med i strategitellingen, fordi en strategi må si hva spilleren *ville* gjort der. Det er dette som gjør strategitelling så lett å regne feil."
+    },
+    {
+      "id": "econ2220-7-2-def-informasjonsmengde",
+      "type": "definition",
+      "title": "Informasjonsmengde",
+      "content": "En **informasjonsmengde** er en samling noder som spilleren ikke kan skille mellom når hun skal velge — hun vet at hun står i én av dem, men ikke hvilken.\n\nEr hver node sin egen informasjonsmengde, har spillet **perfekt informasjon**: alle ser alt som har skjedd. Da virker baklengs induksjon rett fram, og det er den varianten dette kapitlet holder seg til.\n\nSamtidige valg framstilles i ekstensiv form ved at to eller flere noder ligger i **samme** informasjonsmengde (tegnet med en stiplet ring rundt). Det trenger du å kjenne begrepet for, men vi regner ikke på slike spill her."
+    },
+    {
+      "id": "econ2220-7-2-def-delspill",
+      "type": "definition",
+      "title": "Delspill",
+      "content": "Et **delspill** er den delen av spilltreet som starter i én bestemt node og omfatter alt som kan følge etter den — sammen med utbetalingene i endenodene.\n\nHele spillet er også et delspill (det som starter i rotnoden). Er det $n$ noder i et tre med perfekt informasjon, har spillet $n$ delspill.\n\nBegrepet er kjernen i dette kapitlet: en **delspill-perfekt** likevekt krever at strategiene utgjør en Nash-likevekt ikke bare i hele spillet, men i **hvert enkelt** delspill — også i dem som aldri blir nådd."
+    },
+    {
+      "id": "econ2220-7-2-ex-1",
+      "type": "example",
+      "title": "Eksempel 1: inntrengningsspillet som spilltre",
+      "problem": "En entreprenør (E) velger om han skal **etablere seg** eller **holde seg unna** et lokalt marked. Etablerer han seg, velger den etablerte bedriften (B) om den skal svare med **priskrig** eller **dele markedet**. Utbetalingene er nåverdi i millioner kroner, E først:\n\n- E holder seg unna: $(0, 10)$.\n- E etablerer seg, B deler markedet: $(4, 5)$.\n- E etablerer seg, B tar priskrig: $(-2, 2)$.\n\nBeskriv spilltreet, og angi hvor mange delspill spillet har.",
+      "solution": "**Figur i ord — spilltreet.** Tegn en rotnode helt til venstre, merket **E** (entreprenøren bestemmer). Fra rotnoden går to grener:\n\n- Den **øvre** grenen er merket «holder seg unna» og går rett til en endenode med utbetalingene $(0, 10)$ — entreprenøren får ingenting, den etablerte beholder hele markedet.\n- Den **nedre** grenen er merket «etablerer seg» og går til en ny beslutningsnode, merket **B** (den etablerte bedriften bestemmer).\n\nFra noden **B** går to grener videre:\n\n- «deler markedet» → endenode $(4, 5)$.\n- «priskrig» → endenode $(-2, 2)$.\n\nSkriv utbetalingene ved hver endenode med **E sitt tall først**. Merk rotnoden med $N_1$ og B-noden med $N_2$, slik at du kan referere til delspillene.\n\n**Antall delspill.** Treet har to beslutningsnoder, altså **to delspill**:\n\n1. Delspillet som starter i $N_2$ — den etablerte bedriftens valg mellom priskrig og deling, etter at entreprenøren har kommet inn.\n2. Delspillet som starter i $N_1$ — hele spillet.\n\n**Hva du skal legge merke til.** Det avgjørende tallparet er i $N_2$: B får **5** av å dele og **2** av priskrig. Priskrig er dyrt også for den som starter den. Det er dette som skal gjøre trusselen om priskrig lite troverdig — men vi trenger baklengs induksjon i løkke 3 for å si det presist."
+    },
+    {
+      "id": "econ2220-7-2-oppg-1",
+      "type": "exercise",
+      "exercise": {
+        "id": "econ2220-7-2-e1",
+        "number": "1",
+        "type": "classic",
+        "difficulty": "lett",
+        "task": "(Sjanger N-fundament — innsteg.) Forklar hva et delspill er, og finn ut hvor mange delspill et spilltre med **fire** beslutningsnoder og perfekt informasjon har.",
+        "solution": "Et delspill er den delen av spilltreet som starter i én bestemt node og omfatter alt som kan skje etter den, sammen med utbetalingene i endenodene. Hele spillet regnes også som et delspill, nemlig det som starter i rotnoden.\n\nMed perfekt informasjon — altså der hver node er sin egen informasjonsmengde — svarer hver beslutningsnode til nøyaktig ett delspill. Fire beslutningsnoder gir derfor **fire delspill**, hvorav det ene er hele spillet.\n\nMerk at også noder som aldri blir nådd i likevekt, gir opphav til delspill. Det er nettopp derfor delspill-perfekthet er et strengere krav enn Nash-likevekt: det stiller krav til atferden også utenfor den stien spillet faktisk følger.",
+        "hints": [
+          "Tell nodene, ikke grenene.",
+          "Husk at hele spillet også er et delspill."
+        ]
+      }
+    },
+    {
+      "id": "econ2220-7-2-lokke2-head",
+      "type": "text",
+      "content": "## Løkke 2 — Strategi som komplett plan, og produktregelen (~12 min)"
+    },
+    {
+      "id": "econ2220-7-2-strategi-tekst",
+      "type": "text",
+      "content": "Her ligger den mest bortkastede feilen i hele sjangeren, og den er ren telling.\n\nI et dynamisk spill er en **strategi** ikke ett trekk. Den er en **komplett plan** som sier hva spilleren gjør i **hver** av sine beslutningsnoder — også i de nodene hun regner med aldri å komme til.\n\nBildet som hjelper: du skal reise bort og gi en fullmakt til noen som skal spille for deg. Fullmakten må dekke alle tilfeller, ellers er den ubrukelig. «Jeg deler markedet» er ikke en plan hvis du har tre noder; planen må si hva du gjør i alle tre.\n\nOg da følger tellingen av seg selv."
+    },
+    {
+      "id": "econ2220-7-2-def-strategi-dynamisk",
+      "type": "definition",
+      "title": "Strategi i et dynamisk spill",
+      "content": "En **strategi** for en spiller i et dynamisk spill er en komplett plan: en angivelse av hvilket valg hun tar i **hver** av sine beslutningsnoder.\n\nTo presiseringer som eksamen har testet:\n\n- Planen må dekke også noder som **aldri nås** i den likevekten man ender med. Det er dette som gjør at spillet kan ha Nash-likevekter som hviler på trusler om atferd i noder man aldri kommer til.\n- Antall strategier er derfor mye større enn antall trekk. Har en spiller flere noder, vokser tallet raskt.\n\nÅ tenke på en strategi som «hva jeg gjør» i stedet for «hva jeg ville gjort overalt» er kilden til de fleste tellefeilene."
+    },
+    {
+      "id": "econ2220-7-2-def-produktregelen",
+      "type": "definition",
+      "title": "Produktregelen for strategitelling",
+      "content": "**Antall rene strategier for en spiller er produktet av antall handlingsvalg over alle hennes beslutningsnoder.**\n\nHar hun $k$ noder med henholdsvis $a_1, a_2, \\ldots, a_k$ valg, er antallet\n\n$$a_1 \\cdot a_2 \\cdots a_k.$$\n\nEr antallet valg det samme, $a$, i alle $k$ noder, blir det $a^k$.\n\n**Regn det, ikke gjett det.** Typiske tall: to noder med tre valg hver gir $3^2 = 9$; tre noder med to valg hver gir $2^3 = 8$; to noder med fem valg gir $5^2 = 25$.\n\n**Den vanligste feilen:** å telle *antall trekk i spillet* eller *antall stier gjennom treet* i stedet for antall komplette planer. Det gir alltid et for lavt tall."
+    },
+    {
+      "id": "econ2220-7-2-ex-2",
+      "type": "example",
+      "title": "Eksempel 2: strategitelling steg for steg",
+      "problem": "En kommune skal sette ut et vedlikeholdsoppdrag. **Først** velger entreprenøren én av **tre** kontraktsformer ($K_1$, $K_2$, $K_3$). **Deretter** ser kommunen hvilken form som er valgt, og svarer med ett av **to** tilsagn (ja eller nei) i hvert av de tre tilfellene.\n\n**a)** Hvor mange beslutningsnoder har hver spiller?\n\n**b)** Hvor mange rene strategier har hver spiller?\n\n**c)** Hvor mange delspill har spillet?\n\n**d)** Hvordan endres svaret i b) hvis kommunen i stedet kan velge blant **fire** tilsagn i hvert tilfelle?",
+      "solution": "**a)** Entreprenøren har **én** beslutningsnode: rotnoden, der kontraktsformen velges.\n\nKommunen har **tre** beslutningsnoder — én for hver kontraktsform entreprenøren kan ha valgt. Selv om bare én av dem blir nådd, finnes alle tre i treet.\n\n**b) Produktregelen.**\n\n- Entreprenøren: én node med tre valg → $3$ strategier. (De er rett og slett $K_1$, $K_2$ og $K_3$.)\n- Kommunen: tre noder med to valg hver → $2 \\cdot 2 \\cdot 2 = 2^3 = 8$ strategier.\n\nEn av kommunens åtte strategier er for eksempel «ja hvis $K_1$, nei hvis $K_2$, ja hvis $K_3$». Legg merke til at planen sier noe om **alle tre** tilfeller, selv om entreprenøren bare velger ett.\n\n**c)** Antall beslutningsnoder er $1 + 3 = 4$, så spillet har **fire delspill**: de tre som starter i kommunens noder, pluss hele spillet.\n\n**d)** Med fire tilsagn per node blir kommunens antall strategier\n\n$$4 \\cdot 4 \\cdot 4 = 4^3 = 64.$$\n\nEntreprenørens antall er uendret, 3, siden hun fortsatt har én node med tre valg.\n\n**Kontroll av logikken:** doblingen av valgmuligheter fra 2 til 4 i hver node firedoblet ikke antallet — den åttedoblet det, fra 8 til 64. Det er potensregelen: eksponenten er antall noder, og grunntallet er antall valg. Å regne $3 \\cdot 4 = 12$ eller $4 + 4 + 4 = 12$ er den klassiske feilen.\n\n**Figur i ord.** Rotnoden merket **E** til venstre, med tre grener oppover, midt og nedover, merket $K_1$, $K_2$, $K_3$. Hver gren ender i en node merket **K** (kommunen), og fra hver av disse går to grener til endenoder. Til sammen $3 \\cdot 2 = 6$ endenoder, hver med et tallpar. De tre K-nodene er tre separate delspill — sett en ring rundt hvert av dem i figuren for å se det."
+    },
+    {
+      "id": "econ2220-7-2-oppg-2",
+      "type": "exercise",
+      "exercise": {
+        "id": "econ2220-7-2-e2",
+        "number": "2",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "(Sjanger N — produktregelen.) I et anbudsspill velger byggherren først én av **to** utlysningsformer. Leverandøren ser valget og svarer med ett av **fem** bud i hvert tilfelle. Deretter er spillet slutt.\n\n**a)** Hvor mange strategier har hver spiller?\n\n**b)** Hvor mange delspill har spillet?\n\n**c)** Forklar hvorfor leverandøren har flere strategier enn antall bud hun faktisk kommer til å legge inn.",
+        "solution": "**a)** Byggherren har én node med to valg → $2$ strategier.\n\nLeverandøren har to noder (én per utlysningsform), med fem valg i hver → $5 \\cdot 5 = 5^2 = \\mathbf{25}$ strategier.\n\n**b)** Beslutningsnoder: $1 + 2 = 3$. Spillet har derfor **tre delspill** — de to som starter i leverandørens noder, pluss hele spillet.\n\n**c)** Fordi en strategi er en **komplett plan**, ikke et trekk. Leverandøren legger i praksis inn nøyaktig ett bud, men strategien hennes må si hvilket bud hun ville lagt inn under **hver** av de to utlysningsformene — også den som ikke blir valgt.\n\nBildet: skal hun gi en fullmakt til noen som byr på hennes vegne, må fullmakten dekke begge tilfeller. Antall mulige fullmakter er 25, selv om bare ett bud noen gang leveres.",
+        "hints": [
+          "Tell nodene til hver spiller først, deretter valgene i hver node.",
+          "Produktregelen: gang sammen antall valg over alle nodene til spilleren.",
+          "I c): tenk på hva en fullmakt måtte inneholde for å være brukbar."
+        ]
+      }
+    },
+    {
+      "id": "econ2220-7-2-oppg-3",
+      "type": "exercise",
+      "exercise": {
+        "id": "econ2220-7-2-e3",
+        "number": "3",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "(Sjanger N — tellefeller.) I et tretrinns spill har spiller 1 **én** node med **tre** valg. Spiller 2 ser valget og har **tre** noder med **tre** valg hver. Deretter velger spiller 1 igjen, i **tre** nye noder med **to** valg hver.\n\n**a)** Hvor mange strategier har spiller 2?\n\n**b)** Hvor mange strategier har spiller 1 i alt?\n\n**c)** En kandidat svarer «spiller 1 har $3 + 2 = 5$ strategier». Forklar presist hva som er galt.",
+        "solution": "**a)** Spiller 2 har tre noder med tre valg hver:\n\n$$3 \\cdot 3 \\cdot 3 = 3^3 = \\mathbf{27}.$$\n\n**b)** Spiller 1 har til sammen **fire** noder: rotnoden med tre valg, og tre senere noder med to valg hver. Produktregelen gjelder over **alle** hennes noder:\n\n$$3 \\cdot 2 \\cdot 2 \\cdot 2 = 3 \\cdot 2^3 = \\mathbf{24}.$$\n\n**c)** Kandidaten har lagt sammen i stedet for å gange, og har dessuten bare tatt med to av nodene.\n\nÅ legge sammen svarer til å telle *hvor mange valg som finnes til sammen*, altså hvor mange grener som går ut av nodene hennes. Men en strategi er én komplett plan, og planen består av **ett valg i hver node samtidig**. Antall slike kombinasjoner er produktet, ikke summen.\n\nSammenlikningen som gjør det tydelig: har du tre skjorter og to bukser, har du $3 \\cdot 2 = 6$ antrekk, ikke 5. En strategi er et antrekk, ikke et klesplagg.",
+        "hints": [
+          "Skriv opp alle nodene til hver spiller før du regner.",
+          "Produktregelen ganger sammen; den legger ikke sammen.",
+          "I c): tenk på hva en enkelt strategi må inneholde for hver node."
+        ]
+      }
+    },
+    {
+      "id": "econ2220-7-2-lokke3-head",
+      "type": "text",
+      "content": "## Løkke 3 — Baklengs induksjon, SPNE og ikke-troverdige trusler (~14 min)\n\n*— naturlig pausepunkt før denne løkka, hvis du deler kapitlet over to økter —*"
+    },
+    {
+      "id": "econ2220-7-2-baklengs-tekst",
+      "type": "text",
+      "content": "Nå til selve løsningsmetoden. Den er enklere enn navnet antyder: **begynn i slutten**.\n\nSe på nodene lengst til høyre i treet, der spillet snart er over. Der er valget rent og enkelt — spilleren ser bare på tallene sine og tar det største. Skriv inn det valget, og erstatt noden med utbetalingene den gir. Nå er treet blitt ett trinn kortere. Gjenta.\n\nNår du er tilbake i rotnoden, har du en komplett plan for alle spillere som er optimal i hver enkelt node. Det er nettopp det som gjør den **delspill-perfekt**."
+    },
+    {
+      "id": "econ2220-7-2-def-baklengs-induksjon",
+      "type": "definition",
+      "title": "Baklengs induksjon",
+      "content": "**Baklengs induksjon** er å løse et spilltre fra slutten mot begynnelsen:\n\n1. Finn en beslutningsnode der alle grener går rett til endenoder.\n2. Velg det alternativet som gir den spilleren som bestemmer der, høyest utbetaling. Marker grenen.\n3. Erstatt noden med utbetalingsparet fra den valgte grenen.\n4. Gjenta til du står i rotnoden.\n\nMetoden krever perfekt informasjon (alle ser hva som har skjedd) og at spillet er endelig. Resultatet er en **delspill-perfekt** Nash-likevekt.\n\nSkriv alltid ned hvilket valg du gjør i hver node, og hvorfor. Det er der uttellingen ligger — ikke i sluttsvaret alene."
+    },
+    {
+      "id": "econ2220-7-2-def-spne",
+      "type": "definition",
+      "title": "Delspill-perfekt Nash-likevekt (SPNE)",
+      "content": "En **delspill-perfekt Nash-likevekt** (SPNE) er en kombinasjon av strategier som utgjør en Nash-likevekt i **hvert enkelt delspill** — ikke bare i hele spillet.\n\nUttrykket «delspill-perfekt» betyr altså: planen er optimal også i de nodene spillet aldri kommer til.\n\nForholdet til vanlig Nash-likevekt:\n\n- **Hver SPNE er en Nash-likevekt.** Kravet er strengere, ikke svakere.\n- **Ikke hver Nash-likevekt er en SPNE.** De likevektene som faller bort, er nettopp dem som hviler på atferd spilleren ikke ville gjennomført om noden faktisk ble nådd.\n\nI et endelig spill med perfekt informasjon finner du alle SPNE ved baklengs induksjon."
+    },
+    {
+      "id": "econ2220-7-2-def-ikke-troverdig-trussel",
+      "type": "definition",
+      "title": "Ikke-troverdig trussel",
+      "content": "En **ikke-troverdig trussel** er et varsel om en handling som spilleren **ikke** ville funnet det lønnsomt å gjennomføre om hun faktisk kom til den noden.\n\nEn slik trussel kan likevel inngå i en Nash-likevekt. Grunnen er teknisk, men viktig: er trusselen virksom, blir noden aldri nådd, og da påvirker ikke planen for den noden spillerens utbetaling i det hele tatt. Hun har derfor ingenting å tape på å «love» den — og Nash-likevektsbegrepet ser bare på utbetalinger.\n\nBaklengs induksjon fjerner slike likevekter, fordi den krever at valget i **hver** node er optimalt der og da. Det er hele grunnen til at SPNE er det rette begrepet i dynamiske spill.\n\nSpeilbildet er et **ikke-troverdig løfte**: et lovnad om en handling spilleren ikke ville gjennomført, brukt for å lokke motparten til å gjøre noe."
+    },
+    {
+      "id": "econ2220-7-2-ex-3",
+      "type": "example",
+      "title": "Eksempel 3: inntrengningsspillet løst — og likevekten som ikke holder",
+      "problem": "Bruk inntrengningsspillet fra Eksempel 1: E velger «etablere seg» eller «holde seg unna»; etablerer E seg, velger B «dele markedet» $(4, 5)$ eller «priskrig» $(-2, 2)$. Holder E seg unna, blir utfallet $(0, 10)$.\n\n**a)** Finn den delspill-perfekte likevekten ved baklengs induksjon.\n\n**b)** Skriv spillet på normalform og finn **alle** Nash-likevekter.\n\n**c)** Forklar hvilken likevekt som ikke er delspill-perfekt, og hva den ikke-troverdige trusselen består i.",
+      "solution": "**a) Baklengs induksjon.**\n\n*Siste node først (B sitt valg, etter at E har etablert seg).* B får **5** av å dele markedet og **2** av priskrig. Priskrig koster B mer enn den koster å slippe inn en konkurrent. Altså velger B **dele markedet**, og noden erstattes med utbetalingene $(4, 5)$.\n\n*Rotnoden (E sitt valg).* E vet nå at etablering fører til $(4, 5)$, altså 4 til henne, mens det å holde seg unna gir 0. Siden $4 > 0$, velger E **etablere seg**.\n\n$$\\text{SPNE: } \\big(\\text{E: etablere seg};\\; \\text{B: dele markedet}\\big), \\quad \\text{utbetalinger } (4, 5).$$\n\n**b) Normalform.** E har to strategier; B har én node med to valg, altså to strategier. Matrisen (E først):\n\n| E (rad) / B (kolonne) | priskrig | dele |\n|---|---|---|\n| **etablere seg** | $(-2, 2)$ | $(4, 5)$ |\n| **holde seg unna** | $(0, 10)$ | $(0, 10)$ |\n\n**E sine beste svar:** mot «priskrig» er $-2$ mot $0$ → **holde seg unna**. Mot «dele» er $4$ mot $0$ → **etablere seg**.\n\n**B sine beste svar:** i raden «etablere seg» er 2 mot 5 → **dele**. I raden «holde seg unna» er 10 mot 10 → B er **likegyldig**, så begge er beste svar.\n\n**Nash-likevekter:**\n\n- $(\\text{etablere seg}, \\text{dele})$: E svarer best på «dele» ✓, B svarer best på «etablere seg» ✓. **Nash-likevekt**, $(4,5)$.\n- $(\\text{holde seg unna}, \\text{priskrig})$: E svarer best på «priskrig» ✓, og B er likegyldig når E holder seg unna, så «priskrig» er et beste svar ✓. **Nash-likevekt**, $(0, 10)$.\n- $(\\text{holde seg unna}, \\text{dele})$: E sitt beste svar på «dele» er å etablere seg ✗. Ikke likevekt.\n\nSpillet har altså **to** Nash-likevekter.\n\n**c) Hvilken faller, og hvorfor.**\n\nLikevekten $(\\text{holde seg unna}, \\text{priskrig})$ er **ikke** delspill-perfekt. Se på delspillet som starter i B sin node: der er «priskrig» ikke en Nash-likevekt, siden B ville fått 5 av å dele mot 2 av priskrig. Strategien er altså ikke optimal i det delspillet, og kravet om delspill-perfekthet er brutt.\n\n**Den ikke-troverdige trusselen** er nettopp løftet om priskrig. B varsler: «kommer du inn, senker jeg prisene til begge taper penger.» Trusselen virker — den holder E ute — men **B ville ikke gjennomført den**, for i det øyeblikket E faktisk er inne, er deling bedre for B enn krig.\n\nHvorfor er dette likevel en Nash-likevekt? Fordi trusselen er virksom, blir B sin node **aldri nådd**. Dermed spiller det ingen rolle for B sin utbetaling hva planen sier om den noden — B får 10 uansett, og har ingenting å tape på å true. Nash-likevekt ser bare på utbetalinger; delspill-perfekthet ser i tillegg på om planen er fornuftig der den skulle brukes.\n\n**Hva ville gjort trusselen troverdig?** At priskrig faktisk lønte seg for B når den kom til noden — for eksempel hvis B på forhånd hadde bundet seg til noe som gjorde krig billig, som en langtidskontrakt om lave priser med en storkunde. Da ville tallene i B sin node endret seg, og trusselen ville overlevd baklengs induksjon. Det er derfor **bindende forpliktelser** er verdifulle i dynamiske spill."
+    },
+    {
+      "id": "econ2220-7-2-def-forpliktelse",
+      "type": "definition",
+      "title": "Bindende forpliktelse",
+      "content": "En **bindende forpliktelse** er et tiltak som gjør et framtidig valg *uunngåelig* eller *lønnsomt*, og som derfor gjør et varsel troverdig.\n\nPoenget er kontraintuitivt og verdt å merke seg: å **snevre inn sine egne valgmuligheter** kan gjøre en spiller bedre stilt. Klarer den etablerte bedriften å binde seg slik at priskrig faktisk blir lønnsom, holder trusselen, og inntrengeren blir borte.\n\nEksempler i praksis: irreversible investeringer, langtidskontrakter, offentlig annonserte prisløfter og lovpålagte forpliktelser.\n\nSamme mekanisme ligger bak førstetrekksfordelen i Stackelberg-spillet i løkke 4: verdien ligger i å binde seg først."
+    },
+    {
+      "id": "econ2220-7-2-oppg-4",
+      "type": "exercise",
+      "exercise": {
+        "id": "econ2220-7-2-e4",
+        "number": "4",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "(Sjanger N — baklengs induksjon.) En kommune (K) velger først om den skal **lyse ut** en kontrakt eller **utføre selv**. Lyses den ut, velger en leverandør (L) om den skal **by lavt** eller **by høyt**. Utbetalinger, K først:\n\n- utføre selv: $(6, 0)$\n- lyse ut, L byr lavt: $(9, 3)$\n- lyse ut, L byr høyt: $(4, 7)$\n\n**a)** Finn den delspill-perfekte likevekten ved baklengs induksjon. Vis hvert steg.\n\n**b)** L sier på forhånd at den vil by lavt hvis kontrakten lyses ut. Er det troverdig?\n\n**c)** Hva må til for at løftet skal bli troverdig?",
+        "solution": "**a) Baklengs induksjon.**\n\n*Siste node (L sitt valg, etter utlysning).* L får **3** av å by lavt og **7** av å by høyt. Siden $7 > 3$, velger L **by høyt**. Noden erstattes med $(4, 7)$.\n\n*Rotnoden (K sitt valg).* K sammenlikner nå 6 av å utføre selv med 4 av å lyse ut — for K vet at utlysning i praksis fører til et høyt bud. Siden $6 > 4$, velger K **utføre selv**.\n\n$$\\text{SPNE: } \\big(\\text{K: utføre selv};\\; \\text{L: by høyt}\\big), \\quad \\text{utbetalinger } (6, 0).$$\n\n**b) Nei, løftet er ikke troverdig.** L lover å by lavt, og det ville gitt K 9 — det beste utfallet for kommunen. Men kommer L faktisk til noden, får den 7 av å by høyt mot bare 3 av å by lavt. Løftet ville altså blitt brutt, og det overlever ikke baklengs induksjon. Dette er et **ikke-troverdig løfte**, speilbildet av den ikke-troverdige trusselen i inntrengningsspillet.\n\nLegg merke til at begge taper på dette: utfallet blir $(6, 0)$, mens $(9, 3)$ ville vært bedre for **begge**. Manglende troverdighet har en reell kostnad.\n\n**c)** Løftet må bli **bindende**, slik at det å by lavt faktisk blir det beste for L når noden nås. Konkret kan L for eksempel forpliktes gjennom en rammeavtale med pristak, en forhåndsannonsert prisliste den er juridisk bundet av, eller en kontraktsklausul med dagbøter ved høyere bud. Alt som senker L sin utbetaling ved å by høyt fra 7 til under 3, gjør løftet troverdig — og da vil K lyse ut, og begge ender på $(9, 3)$.\n\nPoenget: L tjener på å **binde seg** og dermed miste en valgmulighet.",
+        "hints": [
+          "Begynn i den noden som ligger sist i tid, og velg det som er best for den som bestemmer der.",
+          "Erstatt noden med utbetalingene, og gå ett steg tilbake.",
+          "I c): tenk på hva som må skje med tallene i L sin node."
+        ]
+      }
+    },
+    {
+      "id": "econ2220-7-2-oppg-5",
+      "type": "exercise",
+      "exercise": {
+        "id": "econ2220-7-2-e5",
+        "number": "5",
+        "type": "classic",
+        "difficulty": "vanskelig",
+        "task": "(Krevende — konstruer en Nash-likevekt som ikke er delspill-perfekt.) Bruk spillet fra oppgave 4 (K velger «lyse ut» eller «utføre selv»; L velger deretter «by lavt» eller «by høyt»; utbetalinger $(6,0)$, $(9,3)$ og $(4,7)$).\n\n**a)** Skriv spillet på normalform.\n\n**b)** Finn alle Nash-likevekter.\n\n**c)** Avgjør hvilke av dem som er delspill-perfekte, og forklar hvorfor de øvrige ikke er det.",
+        "solution": "**a) Normalform.** K har én node med to valg → 2 strategier. L har én node med to valg → 2 strategier. Matrisen (K først):\n\n| K (rad) / L (kolonne) | by lavt | by høyt |\n|---|---|---|\n| **lyse ut** | $(9, 3)$ | $(4, 7)$ |\n| **utføre selv** | $(6, 0)$ | $(6, 0)$ |\n\nMerk at raden «utføre selv» har samme utbetalinger i begge kolonner: når kommunen gjør jobben selv, blir L sin node aldri nådd, så L sin plan er uten betydning for utfallet.\n\n**b) Nash-likevekter.**\n\n*K sine beste svar (kolonnevis, første tall):* mot «by lavt» er 9 mot 6 → **lyse ut**. Mot «by høyt» er 4 mot 6 → **utføre selv**.\n\n*L sine beste svar (radvis, andre tall):* i raden «lyse ut» er 3 mot 7 → **by høyt**. I raden «utføre selv» er 0 mot 0 → **likegyldig**, begge er beste svar.\n\nSjekk cellene:\n\n- $(\\text{lyse ut}, \\text{by lavt})$: K svarer best ✓, men L sitt beste svar i den raden er «by høyt» ✗. Ikke likevekt.\n- $(\\text{lyse ut}, \\text{by høyt})$: K sitt beste svar mot «by høyt» er «utføre selv» ✗. Ikke likevekt.\n- $(\\text{utføre selv}, \\text{by høyt})$: K svarer best ✓, og L er likegyldig ✓. **Nash-likevekt**, $(6, 0)$.\n- $(\\text{utføre selv}, \\text{by lavt})$: K sitt beste svar mot «by lavt» er «lyse ut» ✗. Ikke likevekt.\n\n$$\\text{Én Nash-likevekt: } (\\text{utføre selv}, \\text{by høyt}) \\text{ med } (6, 0).$$\n\n**c)** Denne ene likevekten **er** delspill-perfekt. Sjekk delspillet som starter i L sin node: der gir «by høyt» 7 mot 3, så valget er optimalt også der ✓. Og i rotnoden er «utføre selv» optimalt gitt at utlysning fører til et høyt bud ✓. Likevekten stemmer med baklengs induksjon fra oppgave 4.\n\n**Hvorfor finnes det ingen ikke-perfekt likevekt her?** Fordi det ikke-troverdige løftet — «jeg byr lavt» — ikke kan bæres av en Nash-likevekt i dette spillet. Sammenlikn med inntrengningsspillet i Eksempel 3: der virket den tomme trusselen fordi den fikk motparten til å velge **den grenen som gjorde noden uoppnåelig**, og truslerens utbetaling ble derfor uberørt. Her er det motsatt: det tomme løftet ville fått K til å velge nettopp den grenen som **fører inn i** L sin node — og da blir løgnen avslørt umiddelbart, siden K sitt beste svar mot «by lavt» er å lyse ut, mens L sitt beste svar etter utlysning er å by høyt. De to kan ikke være beste svar samtidig.\n\n**Lærdommen, skarpt formulert:** et tomt varsel kan bare bæres av en Nash-likevekt når det virker *avskrekkende* — altså når det får motparten til å styre unna noden. Et tomt varsel som skal virke *lokkende*, avslører seg selv, fordi det trekker motparten rett inn i noden der løftet må innfris.",
+        "hints": [
+          "Sett opp matrisen med begge spilleres strategier — begge har bare to.",
+          "Legg merke til raden der L sin node aldri nås: hva betyr det for L sine beste svar der?",
+          "I c): sjekk om valget i L sin node er optimalt i det delspillet, og sammenlikn strukturen med inntrengningsspillet."
+        ]
+      }
+    },
+    {
+      "id": "econ2220-7-2-lokke4-head",
+      "type": "text",
+      "content": "## Løkke 4 — Cournot og Stackelberg: å binde seg først (~12 min)"
+    },
+    {
+      "id": "econ2220-7-2-duopol-tekst",
+      "type": "text",
+      "content": "Til slutt regneoppgaven fra utsatt-arkivet. To bedrifter selger den samme varen og bestemmer **kvantum**. Prisen faller med samlet mengde: jo mer de to leverer til sammen, desto lavere blir prisen.\n\nDette er beredskapsstoffets tynneste del — duopol-regningen finnes i null av de ordinære settene og i ett av de fire utsatt-settene. Men den er lærerik, fordi den samme situasjonen løses **to** ganger:\n\n- **Cournot:** de bestemmer kvantum **samtidig**. Da er det et vanlig simultant spill, og vi finner Nash-likevekten.\n- **Stackelberg:** den ene binder seg **først**, og den andre ser kvantumet før hun svarer. Da er det et dynamisk spill, og vi bruker baklengs induksjon.\n\nSammenlikningen viser hva det er verdt å kunne binde seg — og hvorfor «jeg holder mitt Cournot-kvantum» ikke er en troverdig trussel når du får se lederens valg først.\n\n*(Markedsmakt i én-bedrifts-tilfellet hører til forgjengerboka; se [Monopolets tilpasning](/bok/econ1210/econ1210-5-1). Her holder vi oss til duopolet.)*"
+    },
+    {
+      "id": "econ2220-7-2-def-reaksjonsfunksjon",
+      "type": "definition",
+      "title": "Reaksjonsfunksjon",
+      "content": "En **reaksjonsfunksjon** (også kalt beste-svar-funksjon) angir hvilket kvantum en bedrift velger som funksjon av det den tror den andre velger:\n\n$$q_1 = R_1(q_2).$$\n\nDen finnes ved å maksimere bedriftens egen profitt med den andres kvantum holdt fast: sett opp $\\pi_1$, deriver med hensyn på $q_1$ og sett lik null.\n\n**Pass på derivasjonsvariabelen.** Bedrift 1 deriverer med hensyn på $q_1$, ikke $q_2$ — å blande dem er en dokumentert klassiker og gir et meningsløst uttrykk.\n\nReaksjonsfunksjonen faller typisk: leverer den andre mer, blir prisen lavere, og det lønner seg å levere litt mindre selv."
+    },
+    {
+      "id": "econ2220-7-2-def-cournot",
+      "type": "definition",
+      "title": "Cournot-likevekt",
+      "content": "**Cournot-likevekt** er Nash-likevekten når bedriftene velger kvantum **samtidig**: hvert kvantum er et beste svar på det andre.\n\nDen finnes ved å løse reaksjonsfunksjonene som et likningssystem:\n\n$$q_1 = R_1(q_2), \\qquad q_2 = R_2(q_1).$$\n\nMed identiske bedrifter blir løsningen symmetrisk, $q_1 = q_2$, og da kan du sette $q_1 = q_2 = q$ i den ene reaksjonsfunksjonen og løse for $q$ direkte.\n\nTolkningen: ingen av bedriftene angrer, gitt hva den andre leverte. Hadde en av dem levert mer, ville prisfallet spist opp gevinsten; hadde hun levert mindre, ville hun tapt salg hun tjente på."
+    },
+    {
+      "id": "econ2220-7-2-def-stackelberg",
+      "type": "definition",
+      "title": "Stackelberg-likevekt og førstetrekksfordel",
+      "content": "I **Stackelberg-spillet** velger den ene bedriften (lederen) kvantum **først**, og den andre (følgeren) ser valget før hun svarer.\n\nLøsningen finnes ved baklengs induksjon:\n\n1. Finn følgerens reaksjonsfunksjon $q_2 = R_2(q_1)$ — det er hennes optimale svar i det delspillet.\n2. Sett den **inn** i lederens profitt, slik at lederen maksimerer med følgerens respons innebygd.\n3. Maksimer lederens profitt over $q_1$.\n\n**Førstetrekksfordelen** er at lederen ender med høyere kvantum og høyere profitt enn i Cournot-likevekten. Grunnen er ikke at hun «er størst», men at hun har **bundet seg**: ved å legge kvantumet på bordet først, tvinger hun følgeren til å tilpasse seg nedover.\n\nLegg merke til at samlet kvantum blir høyere og prisen lavere enn i Cournot — så følgeren taper både på kvantum og pris."
+    },
+    {
+      "id": "econ2220-7-2-ex-4",
+      "type": "example",
+      "title": "Eksempel 4: Cournot mot Stackelberg med tall",
+      "problem": "To bedrifter selger sand fra samme forekomst. Prisen bestemmes av samlet levert mengde: $p = 26 - (q_1 + q_2)$, der $q$ er tusen tonn og $p$ er kroner per tonn. Begge har kostnaden 2 kroner per tonn.\n\n**a)** Finn bedrift 1 sin reaksjonsfunksjon.\n\n**b)** Finn Cournot-likevekten, prisen og profittene.\n\n**c)** Anta i stedet at bedrift 1 binder seg til et kvantum først, og at bedrift 2 ser det før hun velger. Finn Stackelberg-løsningen, prisen og profittene.\n\n**d)** Sammenlikn, og forklar hvorfor «jeg holder 8» ikke er en troverdig trussel fra bedrift 2 i det dynamiske spillet.",
+      "solution": "**a) Reaksjonsfunksjonen.** Bedrift 1 sin profitt, med $q_2$ holdt fast:\n\n$$\\pi_1 = p\\,q_1 - 2q_1 = \\big(26 - q_1 - q_2\\big)q_1 - 2q_1 = 24q_1 - q_1^2 - q_1q_2.$$\n\nDeriver med hensyn på **$q_1$** (ikke $q_2$) og sett lik null:\n\n$$\\frac{\\partial \\pi_1}{\\partial q_1} = 24 - 2q_1 - q_2 = 0 \\quad\\Longrightarrow\\quad q_1 = 12 - \\frac{q_2}{2}.$$\n\n(Annenderiverte er $-2 < 0$, så det er et maksimum ✓.)\n\nDen faller i $q_2$, som forventet: leverer den andre mer, presses prisen ned, og bedrift 1 trekker seg litt tilbake.\n\n**b) Cournot.** Bedriftene er identiske, så $q_2 = 12 - q_1/2$ er den symmetriske motparten. Sett $q_1 = q_2 = q$:\n\n$$q = 12 - \\frac{q}{2} \\quad\\Longrightarrow\\quad \\frac{3q}{2} = 12 \\quad\\Longrightarrow\\quad q = 8.$$\n\n$$q_1 = q_2 = 8, \\qquad Q = 16, \\qquad p = 26 - 16 = 10.$$\n\nProfittene: $\\pi_i = (p - 2)q_i = (10 - 2)\\cdot 8 = \\mathbf{64}$ hver.\n\n**Kontroll av at ingen angrer:** sett $q_2 = 8$ inn i reaksjonsfunksjonen: $q_1 = 12 - 4 = 8$ ✓. Ingen ensidig endring lønner seg.\n\n**c) Stackelberg.**\n\n*Steg 1 — følgerens svar.* Bedrift 2 sin reaksjonsfunksjon er $q_2 = 12 - q_1/2$. Dette er hennes optimale valg i delspillet, uansett hva $q_1$ er.\n\n*Steg 2 — sett inn i lederens profitt.* Med følgerens svar innebygd blir prisen\n\n$$p = 26 - q_1 - \\left(12 - \\frac{q_1}{2}\\right) = 14 - \\frac{q_1}{2},$$\n\nog lederens profitt\n\n$$\\pi_1 = \\left(14 - \\frac{q_1}{2} - 2\\right)q_1 = \\left(12 - \\frac{q_1}{2}\\right)q_1 = 12q_1 - \\frac{q_1^2}{2}.$$\n\n*Steg 3 — maksimer.*\n\n$$\\frac{d\\pi_1}{dq_1} = 12 - q_1 = 0 \\quad\\Longrightarrow\\quad q_1 = 12.$$\n\nDa svarer følgeren med $q_2 = 12 - 12/2 = 6$, samlet kvantum blir $Q = 18$, og\n\n$$p = 26 - 18 = 8.$$\n\nProfittene: $\\pi_1 = (8 - 2)\\cdot 12 = \\mathbf{72}$ og $\\pi_2 = (8-2)\\cdot 6 = \\mathbf{36}$.\n\n**d) Sammenlikning og troverdighet.**\n\n| | Cournot | Stackelberg |\n|---|---|---|\n| $q_1$ | 8 | 12 |\n| $q_2$ | 8 | 6 |\n| $Q$ | 16 | 18 |\n| $p$ | 10 | 8 |\n| $\\pi_1$ | 64 | **72** |\n| $\\pi_2$ | 64 | **36** |\n\nLederen går fra 64 til 72; følgeren fra 64 til 36. Samlet profitt faller (128 mot 108), fordi det samlede kvantumet er høyere og prisen lavere. Legg merke til at lederens kvantum er nøyaktig **dobbelt** så stort som følgerens.\n\n**Førstetrekksfordelen kommer av forpliktelsen, ikke av størrelsen.** Lederen tjener ikke fordi hun er stor, men fordi kvantumet hennes ligger på bordet og ikke kan tas tilbake. Følgeren må velge sitt beste svar på et tall som er gitt.\n\n**Hvorfor «jeg holder 8» ikke er troverdig.** Bedrift 2 kan si på forhånd: «uansett hva du legger på bordet, leverer jeg 8» — altså sitt Cournot-kvantum. Tror bedrift 1 på det, er hennes beste svar $q_1 = 12 - 8/2 = 8$, og vi er tilbake i Cournot med 64 hver. Trusselen er derfor svært attraktiv for bedrift 2, som ellers ender på 36.\n\nOg legg merke til at dette faktisk **er** en Nash-likevekt i det dynamiske spillet: med bedrift 2 sin plan «alltid 8» er 8 bedrift 1 sitt beste svar, og gitt at bedrift 1 spiller 8, er 8 også bedrift 2 sitt beste svar. Ingen angrer, gitt den andres valg.\n\nMen den overlever ikke baklengs induksjon. Ser bedrift 2 at bedrift 1 faktisk **har** lagt 12 på bordet, er hennes beste svar $q_2 = 12 - 12/2 = 6$, som gir prisen 8 og profitten 36. Å holde 8 i stedet ville gitt prisen $26 - 12 - 8 = 6$ og profitten $(6-2)\\cdot 8 = 32 < 36$. Hun ville altså **tapt** på å gjennomføre trusselen, og planen er derfor ikke optimal i det delspillet.\n\n$(q_1, q_2) = (8, 8)$ i det dynamiske spillet er dermed nøyaktig samme fenomen som «priskrig» i Eksempel 3: en Nash-likevekt som hviler på et varsel spilleren ikke ville innfri. Den er ikke delspill-perfekt.\n\n(At trusselen ville virket om den var troverdig, ser du på lederens side: med $q_2 = 8$ fast og $q_1 = 12$ blir bedrift 1 sin profitt bare $(6-2)\\cdot 12 = 48$, altså mindre enn de 64 hun får i Cournot. Nettopp derfor ville hun holdt seg til 8 — hvis hun trodde på trusselen.)"
+    },
+    {
+      "id": "econ2220-7-2-oppg-6",
+      "type": "exercise",
+      "exercise": {
+        "id": "econ2220-7-2-e6",
+        "number": "6",
+        "type": "classic",
+        "difficulty": "vanskelig",
+        "task": "(Krevende — hele duopol-kjeden med nye tall.) To pukkverk selger til samme marked. Prisen er $p = 40 - (q_1 + q_2)$ kroner per tonn, og begge har en kostnad på 4 kroner per tonn.\n\n**a)** Finn reaksjonsfunksjonen til bedrift 1.\n\n**b)** Finn Cournot-likevekten, prisen og profittene.\n\n**c)** Finn Stackelberg-løsningen når bedrift 1 binder seg først, med pris og profitter.\n\n**d)** Sammenlikn de to utfallene og forklar hvem som tjener og hvem som taper på at bedrift 1 kan binde seg.",
+        "solution": "**a)** $\\pi_1 = (40 - q_1 - q_2)q_1 - 4q_1 = 36q_1 - q_1^2 - q_1q_2$.\n\n$$\\frac{\\partial \\pi_1}{\\partial q_1} = 36 - 2q_1 - q_2 = 0 \\quad\\Longrightarrow\\quad q_1 = 18 - \\frac{q_2}{2}.$$\n\n(Annenderiverte $-2 < 0$ ✓.)\n\n**b) Cournot.** Symmetri gir $q_1 = q_2 = q$:\n\n$$q = 18 - \\frac{q}{2} \\quad\\Longrightarrow\\quad \\frac{3q}{2} = 18 \\quad\\Longrightarrow\\quad q = 12.$$\n\n$Q = 24$, $p = 40 - 24 = 16$, og $\\pi_i = (16 - 4)\\cdot 12 = \\mathbf{144}$ hver.\n\nKontroll: $q_1 = 18 - 12/2 = 12$ ✓.\n\n**c) Stackelberg.** Følgerens svar: $q_2 = 18 - q_1/2$. Sett inn i prisen:\n\n$$p = 40 - q_1 - \\left(18 - \\frac{q_1}{2}\\right) = 22 - \\frac{q_1}{2}.$$\n\nLederens profitt:\n\n$$\\pi_1 = \\left(22 - \\frac{q_1}{2} - 4\\right)q_1 = \\left(18 - \\frac{q_1}{2}\\right)q_1.$$\n\n$$\\frac{d\\pi_1}{dq_1} = 18 - q_1 = 0 \\quad\\Longrightarrow\\quad q_1 = 18.$$\n\nFølgeren: $q_2 = 18 - 9 = 9$. Samlet $Q = 27$, pris $p = 40 - 27 = 13$.\n\nProfitter: $\\pi_1 = (13-4)\\cdot 18 = \\mathbf{162}$, $\\pi_2 = (13-4)\\cdot 9 = \\mathbf{81}$.\n\n**d) Sammenlikning.**\n\n| | Cournot | Stackelberg |\n|---|---|---|\n| $q_1$ | 12 | 18 |\n| $q_2$ | 12 | 9 |\n| $Q$ | 24 | 27 |\n| $p$ | 16 | 13 |\n| $\\pi_1$ | 144 | 162 |\n| $\\pi_2$ | 144 | 81 |\n\n**Bedrift 1 tjener** (144 → 162) fordi den kan binde seg først: kvantumet ligger på bordet, og bedrift 2 må tilpasse seg nedover. Lederens kvantum er dobbelt så stort som følgerens, som i Eksempel 4.\n\n**Bedrift 2 taper** kraftig (144 → 81), av to grunner samtidig: hun selger mindre (9 mot 12), **og** hun får lavere pris (13 mot 16).\n\n**Samlet profitt faller** fra 288 til 243, siden det samlede kvantumet er høyere og prisen lavere. Kjøperne kommer altså bedre ut av Stackelberg enn av Cournot — lavere pris og større mengde — mens bedriftene samlet kommer dårligere ut.\n\n**Poenget:** verdien av å binde seg ligger i at forpliktelsen er **irreversibel**. Kunne bedrift 1 endret kvantumet etter å ha sett bedrift 2, forsvant fordelen, og vi ville vært tilbake i Cournot.",
+        "hints": [
+          "I a): deriver bedrift 1 sin profitt med hensyn på $q_1$ og hold $q_2$ fast.",
+          "I b): utnytt at bedriftene er identiske, så $q_1 = q_2$.",
+          "I c): sett følgerens reaksjonsfunksjon INN i prisen før du deriverer lederens profitt.",
+          "I d): pass på at følgeren rammes både av lavere kvantum og lavere pris."
+        ]
+      }
+    },
+    {
+      "id": "econ2220-7-2-warn-feil",
+      "type": "warning",
+      "title": "Typiske feil",
+      "content": "Boka har et samlet register over de vanligste tabbene, nummerert #1–#13 og presentert i [kap. 0.1](/bok/econ2220/econ2220-0-1). **Feil #12 — spillteori-arven** er den viktigste her: å legge mye tid i fire årganger med gamle spilloppgaver i stedet for produsentteorien, som testes hvert år. Del 7 er beredskap.\n\nDe rene fagfeilene:\n\n- **Feiltelling av strategier.** Den dokumenterte klassikeren. En strategi er en **komplett plan** — ett valg i hver av spillerens noder, også de som aldri nås. Bruk produktregelen og **gang**, ikke legg sammen. Har spilleren tre noder med tre valg hver, er svaret $3^3 = 27$, ikke 9 og ikke 6.\n- **Blande Nash-likevekt og SPNE.** Hver SPNE er en Nash-likevekt, men ikke omvendt. Skriv aldri «Nash-likevekten er delspill-perfekt» uten å ha sjekket hvert delspill.\n- **«Finne» en SPNE uten baklengs induksjon.** Å peke på et utfall som ser rimelig ut, er ikke en løsning. Vis valget i hver node, fra slutten mot begynnelsen, med begrunnelse.\n- **Overse at ikke-troverdige trusler og løfter ikke overlever induksjonen.** Spørsmålet er alltid: *ville spilleren gjennomført dette om noden faktisk ble nådd?* Sammenlikn tallene i den noden, ikke i hele spillet.\n- **Regne reaksjonsfunksjoner med feil derivasjonsvariabel.** Bedrift 1 deriverer sin egen profitt med hensyn på **$q_1$**, med $q_2$ holdt fast. Deriverer du med hensyn på $q_2$, får du et uttrykk uten mening.\n- **Glemme å sette følgerens reaksjonsfunksjon inn før man maksimerer i Stackelberg.** Maksimerer du lederens profitt med $q_2$ holdt fast, får du bare Cournots reaksjonsfunksjon på nytt — hele førstetrekksfordelen forsvinner.\n- **Forklare førstetrekksfordelen med «lederen er størst».** Årsaken er **forpliktelsen**: kvantumet er lagt på bordet og kan ikke tas tilbake. Kunne det endres, forsvinner fordelen."
+    },
+    {
+      "id": "econ2220-7-2-begrepsbank-intro",
+      "type": "text",
+      "content": "## Begrepsbank\n\n*Dette er flashcard-/repetisjonsstoff — hopp trygt over ved førstegangslesing; tidsanslaget for kapitlet gjelder kjernestoffet over.* Begrepene er forklart underveis; her står de samlet for pugging."
+    },
+    {
+      "id": "econ2220-7-2-def-perfekt-informasjon",
+      "type": "definition",
+      "title": "Perfekt informasjon",
+      "content": "Et spill har **perfekt informasjon** når hver spiller, i hver av sine noder, vet nøyaktig hva som har skjedd fram til da. Formelt: hver node er sin egen informasjonsmengde.\n\nDette er forutsetningen som gjør baklengs induksjon rett fram: står du i en node, kjenner du hele historien og kan regne ut hva som vil følge.\n\nAlle spillene i dette kapitlet har perfekt informasjon. Har spillet samtidige trekk — altså noder i samme informasjonsmengde — må delspillene defineres mer varsomt, og det ligger utenfor beredskapsdosen her."
+    },
+    {
+      "id": "econ2220-7-2-def-ikke-troverdig-lofte",
+      "type": "definition",
+      "title": "Ikke-troverdig løfte",
+      "content": "Et **ikke-troverdig løfte** er en lovnad om en handling spilleren ikke ville funnet lønnsom om noden faktisk ble nådd — brukt for å **lokke** motparten til å gjøre noe.\n\nSpeilbildet er den ikke-troverdige trusselen, som skal **avskrekke**.\n\nEt interessant asymmetri-poeng: en tom **trussel** kan bæres av en Nash-likevekt, fordi den virksomme trusselen gjør at noden aldri nås og trusselens utbetaling derfor er uberørt. Et tomt **løfte** som virker, trekker derimot motparten *inn i* noden der løftet skal innfris — og avslører seg selv. Derfor er tomme løfter sjeldnere forenlige med Nash-likevekt enn tomme trusler."
+    },
+    {
+      "id": "econ2220-7-2-def-endenode",
+      "type": "definition",
+      "title": "Endenode og utbetalingsvektor",
+      "content": "En **endenode** er et punkt der spillet er slutt. Der føres **utbetalingsvektoren** opp: ett tall per spiller, i fast rekkefølge.\n\nKonvensjonen i denne boka, som i matrisespillene: spilleren som beveger seg **først** står oppført først. Skriv rekkefølgen eksplisitt i besvarelsen, så sensor ikke er i tvil.\n\nAntall endenoder er produktet av antall valg langs hver sti gjennom treet, og er noe helt annet enn antall strategier. Å blande de to er en vanlig tellefeil."
+    },
+    {
+      "id": "econ2220-7-2-def-samlet-kvantum",
+      "type": "definition",
+      "title": "Samlet kvantum og invers etterspørsel",
+      "content": "**Invers etterspørsel** skriver prisen som funksjon av samlet mengde:\n\n$$p = a - Q, \\qquad Q = q_1 + q_2.$$\n\nKonstanten $a$ er prisen ved null omsetning; helningen $-1$ sier at hvert ekstra tonn presser prisen én krone ned.\n\nFormen forklarer hele duopol-spenningen: hver bedrift bærer bare **sin egen** del av prisfallet den utløser, men hele prisfallet rammer begge. Derfor leverer de til sammen mer enn de ville gjort om de samordnet seg — og mer i Stackelberg enn i Cournot."
+    },
+    {
+      "id": "econ2220-7-2-def-symmetrisk-likevekt",
+      "type": "definition",
+      "title": "Symmetrisk likevekt",
+      "content": "En **symmetrisk likevekt** er en likevekt der identiske aktører velger det samme.\n\nI Cournot-modellen med like kostnader kan du utnytte dette som en regnesnarvei: sett $q_1 = q_2 = q$ i den ene reaksjonsfunksjonen og løs for $q$, i stedet for å løse to likninger.\n\nMerk at snarveien bare gjelder når bedriftene faktisk er identiske i kostnader. Har de ulike kostnader, må likningssystemet løses, og den med lavest kostnad ender med høyest kvantum.\n\nMerk også at Stackelberg-likevekten **ikke** er symmetrisk, selv om bedriftene er identiske — det er rekkefølgen, ikke teknologien, som skaper forskjellen."
+    },
+    {
+      "id": "econ2220-7-2-rep",
+      "type": "collapsible",
+      "title": "Repetisjonsoppgaver",
+      "buttonText": "Vis repetisjonsoppgaver",
+      "content": [
+        {
+          "id": "econ2220-7-2-oppg-R1",
+          "type": "exercise",
+          "exercise": {
+            "id": "econ2220-7-2-r1",
+            "number": "R1",
+            "type": "classic",
+            "difficulty": "lett",
+            "task": "(Fra [kap. 7.1](/bok/econ2220/econ2220-7-1).) Hva er en Nash-likevekt, og hva er tillegget i kravet om at en likevekt skal være delspill-perfekt?",
+            "solution": "En **Nash-likevekt** er en kombinasjon av strategier der hver spiller spiller et beste svar på det de andre gjør — ingen angrer, gitt de andres valg.\n\n**Delspill-perfekthet** legger til at strategiene skal utgjøre en Nash-likevekt i **hvert enkelt delspill**, ikke bare i hele spillet. Kravet gjelder altså også i noder som aldri blir nådd.\n\nDet er dette tillegget som luker ut likevekter som hviler på trusler eller løfter spilleren ikke ville gjennomført om noden faktisk ble nådd.",
+            "hints": [
+              "Tenk på hva som skiller «optimalt gitt hele spillet» fra «optimalt i hver node»."
+            ]
+          }
+        },
+        {
+          "id": "econ2220-7-2-oppg-R2",
+          "type": "exercise",
+          "exercise": {
+            "id": "econ2220-7-2-r2",
+            "number": "R2",
+            "type": "classic",
+            "difficulty": "middels",
+            "task": "En spiller har **to** beslutningsnoder, med **fire** valg i den ene og **tre** i den andre.\n\n**a)** Hvor mange rene strategier har hun?\n\n**b)** Hvordan endres svaret hvis hun får en tredje node med to valg?",
+            "solution": "**a)** Produktregelen ganger sammen antall valg over alle nodene:\n\n$$4 \\cdot 3 = \\mathbf{12}.$$\n\n**b)** Med en tredje node med to valg:\n\n$$4 \\cdot 3 \\cdot 2 = \\mathbf{24}.$$\n\nAntallet dobles, siden den nye noden dobler antall komplette planer. Legg merke til at det å legge sammen ($4+3 = 7$, eller $4+3+2 = 9$) gir helt andre og gale tall.",
+            "hints": [
+              "Gang sammen antall valg i hver node — ikke legg sammen."
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": "econ2220-7-2-symbolliste",
+      "type": "collapsible",
+      "title": "Symbol- og formelliste",
+      "buttonText": "Vis symboler og formler",
+      "content": [
+        {
+          "id": "econ2220-7-2-symbolliste-text",
+          "type": "text",
+          "content": "## Symbol- og formelliste\n\n*Oppslagsverk — alt her forklares underveis i kapitlet.*\n\n| Symbol | Betydning |\n|---|---|\n| $N_1, N_2, \\ldots$ | Navn på beslutningsnoder i spilltreet |\n| $a_1, a_2, \\ldots, a_k$ | Antall handlingsvalg i hver av en spillers $k$ noder |\n| SPNE | Delspill-perfekt Nash-likevekt |\n| $q_1, q_2$ | Kvantum levert av bedrift 1 og bedrift 2 |\n| $Q = q_1 + q_2$ | Samlet levert kvantum |\n| $p$ | Pris per enhet |\n| $a$ | Konstantleddet i den inverse etterspørselen $p = a - Q$ |\n| $c$ | Kostnad per enhet (lik for begge bedrifter her) |\n| $\\pi_1, \\pi_2$ | Profitt for bedrift 1 og bedrift 2 |\n| $R_1(q_2)$ | Bedrift 1 sin reaksjonsfunksjon |\n\n**Formler og prosedyrer i dette delkapitlet:**\n\n$$\\text{antall rene strategier} = a_1 \\cdot a_2 \\cdots a_k$$\nProduktregelen: gang sammen antall valg over alle spillerens beslutningsnoder — også de som aldri nås.\n\n$$\\text{antall delspill} = \\text{antall beslutningsnoder} \\quad (\\text{ved perfekt informasjon})$$\nHver node gir ett delspill; hele spillet er ett av dem.\n\n$$\\pi_1 = (a - q_1 - q_2)q_1 - c\\,q_1$$\nBedrift 1 sin profitt i duopolet, med invers etterspørsel $p = a - Q$ og kostnad $c$ per enhet.\n\n$$\\frac{\\partial \\pi_1}{\\partial q_1} = a - c - 2q_1 - q_2 = 0 \\quad\\Longrightarrow\\quad q_1 = \\frac{a - c - q_2}{2}$$\nReaksjonsfunksjonen — deriver med hensyn på **eget** kvantum, med den andres holdt fast.\n\n$$q_1 = q_2 = \\frac{a-c}{3} \\qquad (\\text{Cournot, identiske bedrifter})$$\nLøsningen når reaksjonsfunksjonene møtes symmetrisk. Med $a = 26$ og $c = 2$: $q = 8$.\n\n$$q_1 = \\frac{a-c}{2}, \\qquad q_2 = \\frac{a-c}{4} \\qquad (\\text{Stackelberg})$$\nLederen leverer dobbelt så mye som følgeren. Med $a = 26$, $c = 2$: $q_1 = 12$, $q_2 = 6$.\n\n**Baklengs induksjon (prosedyre):** start i nodene nærmest slutten, velg det beste for den som bestemmer der, erstatt noden med utbetalingene, og gjenta til rotnoden. Resultatet er en delspill-perfekt likevekt."
+        }
+      ]
+    }
+  ],
+  "exercises": []
+}
