@@ -68,6 +68,14 @@ nøyaktig hva som er landet.
   ved merge, ellers krasjer /quiz i build.
 - **Prod-curl:** `pkill -f "next start"` dreper ikke serveren (den heter
   `next-server`). Bruk `kill -9 $(lsof -ti :PORT)`, ellers tester du gammel build.
+- **SVG-er må lastes opp til Supabase Storage** før deploy
+  (`npx tsx scripts/upload-media-storage.ts`), ellers gir hver figur 404 i
+  produksjon — bildene serveres fra Storage, ikke fra `public/`. Gjelder alle
+  nye figurer agentene lager. Verifiser med curl mot
+  `<SUPABASE_URL>/storage/v1/object/public/media/images/textbook/<emne>/<fil>.svg`.
+- **Figurbestillinger:** agentene skriver ikke SVG selv i econ-bøkene; de fører
+  `docs/hoyskole-boker/<emne>/FIGUR-BESTILLINGER.md`. Den lista er arbeidsordren
+  for figurgenereringen før sluttporten.
 
 ## Gjenopptakssetning (lim inn i ny økt)
 
