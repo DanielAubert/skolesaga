@@ -1,0 +1,78 @@
+# GJENOPPTAK — tre bøker under bygging (startet 24. juli 2026)
+
+Denne siden er inngangen hvis en økt blir avbrutt (kvotestopp, ECONNRESET,
+død agent). **Alt arbeid ligger på disk og i git — ingenting bor i en samtale.**
+Lim inn gjenopptakssetningen nederst i en ny Claude Code-økt, så fortsetter den
+der forrige stoppet.
+
+## Hvor arbeidet foregår
+
+| Bok | Kapitler | Arbeidstre | Branch |
+|---|---|---|---|
+| FYS1001 Innføring i fysikk (UiO) | 35 | `.claude/worktrees/bok-fys1001` | `bok/fys1001` |
+| ECON2310 Makroøkonomi 2 (UiO) | 29 | `.claude/worktrees/bok-econ2310` | `bok/econ2310` |
+| ECON2220 Mikroøkonomi 2 (UiO) | 34 | `.claude/worktrees/bok-econ2220` | `bok/econ2220` |
+
+Hvert arbeidstre er et eget git-arbeidstre på egen branch, utgått fra `main`
+(`0cc69421`). De deler ikke indeks, så flere agenter kan committe samtidig uten
+å tråkke på hverandre. Rammeverket (EKSAMENSANALYSE.md + SKJELETT.md) er ferdig
+og KVALITETSPORT-godkjent for alle tre.
+
+## Måle fremdrift — én kommando per bok
+
+```bash
+python3 scripts/hoyskolebok/status-bok.py fys1001      # full oversikt per del
+python3 scripts/hoyskolebok/status-bok.py fys1001 --mangler   # bare id-ene som gjenstår
+```
+
+Skriptet leser **disk**, ikke rapporter: det sammenligner kapittel-id-ene
+skjelettet lover med JSON-filene i `src/lib/data/chapters/`, teller
+flashcard-definisjoner og oppgaver, og flagger ugyldig JSON. Det er fasiten på
+hvor langt boka er kommet — kjør det først, alltid.
+
+## Byggeoppdrag (hvem eier hvilke kapitler)
+
+Hver bok har sin egen `docs/hoyskole-boker/<emne>/GJENOPPTAK.md` med den
+detaljerte tabellen (agent → kapittel-id-er). Grovinndelingen:
+
+- **fys1001 (6 oppdrag):** A1 = Del 0+1 · A2 = Del 2+3 · A3 = Del 4 · A4 = Del 5+6 · A5 = Del 7 · A6 = Del 8 (eksamenstrening)
+- **econ2310 (5 oppdrag):** B1 = Del 0+1 · B2 = Del 2+3 · B3 = Del 4 · B4 = Del 5+6 · B5 = Del 7
+- **econ2220 (7 oppdrag):** C1 = Del 0+1 · C2 = Del 2 · C3 = Del 3 · C4 = Del 4 · C5 = Del 5 · C6 = Del 6+7 · C7 = Del 8
+
+Byggeagentene committer **etter hvert ferdige kapittel**, ikke bare på slutten.
+Et avbrudd koster derfor maks ett kapittel, og `git log` i arbeidstreet viser
+nøyaktig hva som er landet.
+
+## Fasene per bok (BYGGEPLAN-MAL.md styrer)
+
+1. **Steg 0** — BYGGEKONTRAKT.md + BOKCONFIG.json + GJENOPPTAK.md.
+2. **Steg 1** — byggebølge: kapittelforfatterne over.
+3. **Steg 2** — wiring: `python3 scripts/hoyskolebok/wire-bok.py <emne>`
+   (COURSE-entry, registry, quiz-data, institusjoner), så
+   `python3 scripts/hoyskolebok/sjekk-bok.py <emne>` → BOKPORT.
+4. **Steg 3** — verifikatorbølge: etterregn ALLE fasiter numerisk (python/sympy).
+5. **Steg 4** — sluttport: studentpanel-port, KaTeX-port, build, prod-curl, merge
+   main inn, push.
+
+## Faste feller (dyrekjøpt erfaring — les før du fortsetter)
+
+- **Mål alltid disk før du bygger videre.** Døde agenter etterlater som regel
+  ferdige filer; å bygge på nytt er sløsing. `status-bok.py` er laget for dette.
+- **KaTeX-port før «ferdig»:** kjør alle `$…$`/`$$…$$` gjennom
+  `katex.renderToString` og let etter `katex-error`. `\begin{psmallmatrix}`
+  finnes ikke i repoets KaTeX, og en formel som ender på løs backslash knekker
+  fordi rendereren `.trim()`-er strengen.
+- **Ingen duplikat-datasett:** drilloppgaver og prøver skal ha egne tall — ikke
+  gjenbruk av gjennomregnede eksempler i samme bok.
+- **`_registry.json` har to nøkler** (`chapterIds` OG `aliases`) — behold begge
+  ved merge, ellers krasjer /quiz i build.
+- **Prod-curl:** `pkill -f "next start"` dreper ikke serveren (den heter
+  `next-server`). Bruk `kill -9 $(lsof -ti :PORT)`, ellers tester du gammel build.
+
+## Gjenopptakssetning (lim inn i ny økt)
+
+> Les docs/hoyskole-boker/GJENOPPTAK-3-BOKER.md og
+> docs/hoyskole-boker/<emne>/GJENOPPTAK.md, kjør
+> `python3 scripts/hoyskolebok/status-bok.py <emne>` for å måle fremdrift på
+> disk, og fortsett byggingen av `<emne>` etter BYGGEPLAN-MAL.md fra det steget
+> statusen viser. Bygg aldri på nytt det som allerede ligger på disk.
