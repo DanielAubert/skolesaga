@@ -80,13 +80,50 @@ ls src/lib/data/quiz-staging/in1020-*.quiz.json | wc -l   # skal ende på 32
   term- og pensum-sjekkeren `avvik: 0`, lengde-tell under 30 % i alle
   quizfiler.
 
-- **Steg 1: gjenstår B4–B5** (Del 4 og 5 — 11 filer, 219 quiz,
-  130 flashcards). Skriv kapitler i rekkefølgen under; commit hvert ferdig
-  kapittel for seg.
+- **Steg 1: oppdrag B4 og B5 FERDIG** (26. juli 2026) — hele Del 4 og Del 5 er
+  på disk og committet, 11 filer. **Boka er dermed komplett: 36 av 36 filer.**
 
-  **NB for B4:** kap. 0.1, 1.1 og 1.2 har allerede markdown-lenker til
-  `in1020-4-1`, `in1020-4-2`, `in1020-4-3` og `in1020-4-4`. De er døde inntil
-  Del 4 er skrevet — `sjekk-bok.py` vil flagge dem før det. B2 og B3 har ingen
+  | Kapittel | Quiz | Flashcards | Oppgaver | Min |
+  |---|---|---|---|---|
+  | 4.1 TCP/IP-lag og protokoller | 24 / 24 | 33 / 26 | 8 | 55 |
+  | 4.2 IP-adressering og subnetting | 22 / 22 | 28 / 22 | 8 | 55 |
+  | 4.3 Overføringstid og ytelse | 18 / 18 | 21 / 16 | 7 | 45 |
+  | 4.4 DRILL subnetting og overføringstid | 26 / 26 | 10 / 10 | 16 | 85 |
+  | 4.5 Nettjenester (NAT/CDN/DNS/IPv6/DHCP/DASH) | 22 / 22 | 33 / 26 | 8 | 50 |
+  | 4.6 Aksessmodeller, svitsjing og OS | 18 / 18 | 31 / 18 | 7 | 45 |
+  | 4.P Prøver til del 4 | — | — | 16 | 120 |
+  | 5.1 Flervalgssjangeren og negativ poenggiving | 14 / 14 | 21 / 12 | 16 | 40 |
+  | 5.2 Øvingseksamen 1 | 25 / 25 | — | 22 oppg. i seksjonstekst | 240 |
+  | 5.3 Øvingseksamen 2 (regnetungt) | 25 / 25 | — | 15 oppg. i seksjonstekst | 240 |
+  | 5.4 Øvingseksamen 3 (begrepstungt) | 25 / 25 | — | 16 oppg. i seksjonstekst | 240 |
+  | **Sum B4+B5** | **219 / 219** | **177 / 130** | — | **1215** |
+
+  **Boktotal: quiz 697 / 697 · flashcards 677 / 556 · 32 kapitler + 4
+  prøvekapitler.** Kvoten er truffet eksakt på quiz og overskutt på flashcards.
+
+  Alle porter grønne: `status-bok.py` **32/32 kapitler**, `sjekk-latex.py`
+  LATEX-PORT OK, `sjekk-skjelett.py` KVALITETSPORT OK, term-/pensum-sjekkeren
+  `avvik: 0`, lengde-tell under 30 % i alle 32 quizfiler, **ingen døde interne
+  eller kryssbok-lenker igjen i hele boka**.
+
+  **De døde lenkene fra Del 0–1 er nå levende:** kap. 0.1, 1.1 og 1.2 pekte på
+  `in1020-4-1` … `in1020-4-4`, og alle fire filene finnes nå med nøyaktig de
+  id-ene. `sjekk-bok.py` flagger dem ikke lenger.
+
+  **Kap. 5.1 inneholder bokas ene merkede kalde bank** (`collapsible` «Kald bank
+  — uten hint», 10 oppgaver med tomme `hints` og momentliste som fasit) og
+  **«bestått på marginen»-modellbesvarelsen** (eksempel 2, nyskrevet og merket
+  som det).
+
+  Merknad om `npm run build`: arbeidstreet har **ingen `node_modules`**, så
+  Turbopack-bygget kan ikke kjøres herfra (samme grunn som at `sjekk-latex.py`
+  melder «mangler node_modules/katex»). Prebuild-steget `combine-chapters` kjørte
+  derimot gjennom og kombinerte alle 11 184 kapitler uten JSON-feil — alle de 11
+  nye filene parser. Fullt bygg tas ved wiring i hovedtreet.
+
+  **NB (historisk, nå løst):** kap. 0.1, 1.1 og 1.2 hadde markdown-lenker til
+  `in1020-4-1`, `in1020-4-2`, `in1020-4-3` og `in1020-4-4`. De var døde inntil
+  Del 4 var skrevet — `sjekk-bok.py` flagget dem før det. B2 og B3 har ingen
   døde lenker.
 
 ### Verktøy bygget underveis (i scratchpad, ikke i repoet)
@@ -94,11 +131,25 @@ ls src/lib/data/quiz-staging/in1020-*.quiz.json | wc -l   # skal ende på 32
 - **LMC-simulator** (`lmc.py`): monterer et program fra en liste av
   `(adresse, "MNEM xx")` og kjører det med `spor=True` for full sporetabell.
   **Alle LMC-programmer i Del 1 er kontrollert mot den**, også de gale
-  alternativene i fyll-inn-oppgavene. Bygg den på nytt før Del 5 —
-  øvingseksamenene trenger den.
+  alternativene i fyll-inn-oppgavene. Den lå fortsatt i scratchpad da B5 startet
+  og ble gjenbrukt: **alle fire LMC-programmene i Del 5 er sport mot den**
+  (nedtelling, selvmodifiserende `DAT 604`-hopp, absoluttverdi med baklengs
+  sporing, og `OTC`-utskriften `BIT`), også for de inputverdiene som brukes i
+  distraktorene.
 - **Term-porten** (python-versjonen i BYGGEKONTRAKT §N2): sjekker
   forbudt-termer og pensum-avgrensning på én gang, med nærmeste omsluttende
   objekt som kontekst. Kjør den etter hvert kapittel.
+- **`net.py`** (bygget av B4): `rapport(ip, cidr)` skriver ut maske, vertsbit,
+  `2ⁿ − 2`, subnett- og kringkastingsadresse og hele AND/OR-oppstillingen på den
+  delvise oktetten; `tid(mb, mbit_s)` regner overføringstid med og uten
+  ×8-faktoren. **Hver eneste adresse og hver eneste tid i Del 4 og 5 er kjørt
+  gjennom den før den ble skrevet.**
+- **`port-b45.py`** (bygget av B4): samleport som på én kjøring gjør
+  pensum-avgrensning, forbudt-termer, døde interne og kryssbok-lenker,
+  blokk-id-unikhet, tomme collapsibles, `Forkunnskaper`-overskrift,
+  «Symbol- og formelliste», warning-krav, kvotetelling mot kvotetabellen og
+  lengde-tell per quizfil. Kjør den etter hvert kapittel — den fanger alt
+  `sjekk-bok.py` fanger, men uten å kreve at boka er wiret.
 
 ## Agent-oppdrag (kapittel-id-er fra SKJELETT.md §4, kvoter fra §5)
 
