@@ -7,7 +7,7 @@
       "16 bit, fordelt på fire oktetter à 4 bit",
       "48 bit, fordelt på seks oktetter à 8 bit"
     ],
-    "explanation": "Fire oktetter à 8 bit gir 32 bit til sammen, og det er grunnen til at adressene er en knapp ressurs. Alternativ 2 og 3 gir feil oktettstørrelse — en oktett er per definisjon åtte bit. Alternativ 4 har riktig oktettstørrelse, men feil antall oktetter."
+    "explanation": "Fire oktetter à 8 bit gir 32 bit til sammen, og det er grunnen til at adressene er en knapp ressurs. «64 bit, fordelt på fire oktetter à 16 bit» og «16 bit, fordelt på fire oktetter à 4 bit» gir feil oktettstørrelse — en oktett er per definisjon åtte bit. «48 bit, fordelt på seks oktetter à 8 bit» har riktig oktettstørrelse, men feil antall oktetter."
   },
   {
     "question": "Hva er CIDR-prefikset til masken 255.255.255.192?",
@@ -17,7 +17,7 @@
       "/27",
       "/25"
     ],
-    "explanation": "Tre fulle oktetter gir 24 ettall, og 192 = 11000000 gir 2 til, altså /26. Alternativ 2 teller bare de fulle oktettene og ser bort fra den delvise. Alternativ 3 tilsvarer 224, ett ettall for mye. Alternativ 4 tilsvarer 128, ett for lite."
+    "explanation": "Tre fulle oktetter gir 24 ettall, og 192 = 11000000 gir 2 til, altså /26. «/24» teller bare de fulle oktettene og ser bort fra den delvise. «/27» tilsvarer 224, ett ettall for mye. «/25» tilsvarer 128, ett for lite."
   },
   {
     "question": "Hvor mange maskiner kan tildeles adresse i et /27-subnett?",
@@ -27,7 +27,7 @@
       "28",
       "31"
     ],
-    "explanation": "Fem vertsbit gir 2^5 = 32 adresser, minus subnett- og kringkastingsadressen blir 30. Alternativ 2 er svaret uten fratrekket, den mest kjente fella i faget. Alternativ 3 trekker fra fire, som om ruteren og noe mer også var reservert. Alternativ 4 trekker fra bare én."
+    "explanation": "Fem vertsbit gir 2^5 = 32 adresser, minus subnett- og kringkastingsadressen blir 30. «32» er svaret uten fratrekket, den mest kjente fella i faget. «28» trekker fra fire, som om ruteren og noe mer også var reservert. «31» trekker fra bare én."
   },
   {
     "question": "Hvorfor trekkes det fra to i vertstellingen?",
@@ -37,7 +37,7 @@
       "De to første adressene holdes av til framtidig utvidelse av nettet",
       "De to siste adressene er alltid reservert til navnetjenesten"
     ],
-    "explanation": "Den laveste adressen er nettets eget navn og den høyeste når alle på én gang, så ingen av dem kan peke på én maskin. Alternativ 2 er galt: nettmasken er ikke en adresse, og ruteren bruker en helt vanlig tildelbar adresse. Alternativ 3 og 4 er oppdiktede regler."
+    "explanation": "Den laveste adressen er nettets eget navn og den høyeste når alle på én gang, så ingen av dem kan peke på én maskin. «Ruteren og nettmasken bruker hver sin adresse i subnettet» er galt: nettmasken er ikke en adresse, og ruteren bruker en helt vanlig tildelbar adresse. «De to første adressene holdes av til framtidig utvidelse av nettet» og «De to siste adressene er alltid reservert til navnetjenesten» er oppdiktede regler."
   },
   {
     "question": "Hva er subnettadressen til 172.16.4.35 med masken 255.255.255.224?",
@@ -47,7 +47,7 @@
       "172.16.4.63",
       "172.16.4.35"
     ],
-    "explanation": "AND på fjerde oktett: 00100011 AND 11100000 = 00100000 = 32. Alternativ 2 er svaret hvis man regner med masken /24 i stedet for /27. Alternativ 3 er kringkastingsadressen, altså OR i stedet for AND. Alternativ 4 er adressen selv, uten at masken er brukt."
+    "explanation": "AND på fjerde oktett: 00100011 AND 11100000 = 00100000 = 32. «172.16.4.0» er svaret hvis man regner med masken /24 i stedet for /27. «172.16.4.63» er kringkastingsadressen, altså OR i stedet for AND. «172.16.4.35» er adressen selv, uten at masken er brukt."
   },
   {
     "question": "Hva er kringkastingsadressen til 172.16.4.35 med prefiks /27?",
@@ -57,7 +57,7 @@
       "172.16.4.64",
       "172.16.4.255"
     ],
-    "explanation": "OR med invertert maske: 00100011 OR 00011111 = 00111111 = 63. Alternativ 2 er subnettadressen, altså AND i stedet for OR. Alternativ 3 er subnettadressen til neste subnett — ett for mye. Alternativ 4 gjelder bare et /24-nett."
+    "explanation": "OR med invertert maske: 00100011 OR 00011111 = 00111111 = 63. «172.16.4.32» er subnettadressen, altså AND i stedet for OR. «172.16.4.64» er subnettadressen til neste subnett — ett for mye. «172.16.4.255» gjelder bare et /24-nett."
   },
   {
     "question": "Hvilken av disse regnereglene gir subnettadressen?",
@@ -67,7 +67,7 @@
       "IP AND invertert maske",
       "IP OR invertert maske"
     ],
-    "explanation": "AND med masken beholder nettdelen og nullstiller vertsdelen, som er nettopp definisjonen av subnettadressen. Alternativ 2 gir et tall uten betydning. Alternativ 3 gjør det motsatte av det man vil — den beholder vertsdelen. Alternativ 4 gir kringkastingsadressen."
+    "explanation": "AND med masken beholder nettdelen og nullstiller vertsdelen, som er nettopp definisjonen av subnettadressen. «IP OR maske» gir et tall uten betydning. «IP AND invertert maske» gjør det motsatte av det man vil — den beholder vertsdelen. «IP OR invertert maske» gir kringkastingsadressen."
   },
   {
     "question": "En maske har verdien 248 i siste oktett. Hva er prefikset?",
@@ -77,7 +77,7 @@
       "/30",
       "/27"
     ],
-    "explanation": "248 = 11111000 har 5 ettall, og 24 + 5 = 29. Alternativ 2 tilsvarer 240, ett ettall for lite. Alternativ 3 tilsvarer 252, ett for mye. Alternativ 4 tilsvarer 224, to for lite."
+    "explanation": "248 = 11111000 har 5 ettall, og 24 + 5 = 29. «/28» tilsvarer 240, ett ettall for lite. «/30» tilsvarer 252, ett for mye. «/27» tilsvarer 224, to for lite."
   },
   {
     "question": "Hvor mange maskiner kan tildeles adresse i et /30-subnett?",
@@ -87,7 +87,7 @@
       "0",
       "3"
     ],
-    "explanation": "To vertsbit gir 4 adresser, minus de to reserverte blir 2 — akkurat nok til de to endene av en ruterforbindelse. Alternativ 2 er tallet uten fratrekket. Alternativ 3 er resultatet av å trekke fra fire. Alternativ 4 trekker fra bare én."
+    "explanation": "To vertsbit gir 4 adresser, minus de to reserverte blir 2 — akkurat nok til de to endene av en ruterforbindelse. «4» er tallet uten fratrekket. «0» er resultatet av å trekke fra fire. «3» trekker fra bare én."
   },
   {
     "question": "Hvilken oktett skal du regne binært på når masken er 255.255.240.0?",
@@ -97,7 +97,7 @@
       "Den andre, siden det er den siste oktetten med verdien 255",
       "Alle fire, siden AND og OR gjelder hele adressen samtidig"
     ],
-    "explanation": "Den delvise oktetten er der grensen mellom nettdel og vertsdel går, og her er det den tredje. Alternativ 2 er en vane som bare stemmer for prefiks mellom 25 og 31. Alternativ 3 peker på en full oktett, der ingenting skjer. Alternativ 4 er teknisk sant, men de fulle og tomme oktettene gir seg selv."
+    "explanation": "Den delvise oktetten er der grensen mellom nettdel og vertsdel går, og her er det den tredje. «Den fjerde, siden adresseregning alltid gjøres på siste oktett» er en vane som bare stemmer for prefiks mellom 25 og 31. «Den andre, siden det er den siste oktetten med verdien 255» peker på en full oktett, der ingenting skjer. «Alle fire, siden AND og OR gjelder hele adressen samtidig» er teknisk sant, men de fulle og tomme oktettene gir seg selv."
   },
   {
     "question": "Hva er tildelbare verter i et /20-subnett?",
@@ -107,7 +107,7 @@
       "2046",
       "8190"
     ],
-    "explanation": "Tolv vertsbit gir 2^12 = 4096 adresser, minus to blir 4094. Alternativ 2 er tallet uten fratrekket. Alternativ 3 svarer til /21, altså en vertsbit for lite. Alternativ 4 svarer til /19, en vertsbit for mye."
+    "explanation": "Tolv vertsbit gir 2^12 = 4096 adresser, minus to blir 4094. «4096» er tallet uten fratrekket. «2046» svarer til /21, altså en vertsbit for lite. «8190» svarer til /19, en vertsbit for mye."
   },
   {
     "question": "Adressen 192.168.4.19 har masken 255.255.255.248. Hvilket intervall dekker subnettet?",
@@ -117,7 +117,7 @@
       "Fra 192.168.4.19 til 192.168.4.26",
       "Fra 192.168.4.0 til 192.168.4.7"
     ],
-    "explanation": "AND gir 16, og med tre vertsbit dekker subnettet åtte adresser, altså 16 til 23. Alternativ 2 teller én for mye — .24 er neste subnett. Alternativ 3 starter på maskinens egen adresse i stedet for på subnettadressen. Alternativ 4 gjelder subnettet under."
+    "explanation": "AND gir 16, og med tre vertsbit dekker subnettet åtte adresser, altså 16 til 23. «Fra 192.168.4.16 til 192.168.4.24» teller én for mye — .24 er neste subnett. «Fra 192.168.4.19 til 192.168.4.26» starter på maskinens egen adresse i stedet for på subnettadressen. «Fra 192.168.4.0 til 192.168.4.7» gjelder subnettet under."
   },
   {
     "question": "Hva er den første adressen som kan tildeles en maskin i subnettet 10.3.7.64/26?",
@@ -127,7 +127,7 @@
       "10.3.7.1",
       "10.3.7.66"
     ],
-    "explanation": "Subnettadressen 10.3.7.64 er nettets navn, så den første maskinen får adressen rett over. Alternativ 2 er subnettadressen selv, som ikke kan tildeles. Alternativ 3 tilhører et helt annet subnett. Alternativ 4 hopper over én tildelbar adresse uten grunn."
+    "explanation": "Subnettadressen 10.3.7.64 er nettets navn, så den første maskinen får adressen rett over. «10.3.7.64» er subnettadressen selv, som ikke kan tildeles. «10.3.7.1» tilhører et helt annet subnett. «10.3.7.66» hopper over én tildelbar adresse uten grunn."
   },
   {
     "question": "Hvordan avgjør du om to adresser ligger i samme subnett?",
@@ -137,7 +137,7 @@
       "Sjekk om differansen mellom de to adressene er mindre enn antall verter",
       "Sjekk om begge adressene er høyere enn kringkastingsadressen"
     ],
-    "explanation": "Like nettdeler er selve definisjonen på samme subnett, og AND-en avgjør saken. Alternativ 2 stemmer bare når prefikset er nøyaktig /24. Alternativ 3 feiler så snart de to ligger på hver sin side av en subnettgrense. Alternativ 4 gir ingen mening — adresser over kringkastingsadressen er i neste subnett."
+    "explanation": "Like nettdeler er selve definisjonen på samme subnett, og AND-en avgjør saken. «Sjekk om de tre første oktettene i de to adressene er like» stemmer bare når prefikset er nøyaktig /24. «Sjekk om differansen mellom de to adressene er mindre enn antall verter» feiler så snart de to ligger på hver sin side av en subnettgrense. «Sjekk om begge adressene er høyere enn kringkastingsadressen» gir ingen mening — adresser over kringkastingsadressen er i neste subnett."
   },
   {
     "question": "Hva er avstanden mellom subnettadressen og kringkastingsadressen i et /28-subnett?",
@@ -147,7 +147,7 @@
       "14",
       "8"
     ],
-    "explanation": "Fire vertsbit gir 16 adresser, og avstanden mellom første og siste er 2^4 − 1 = 15. Alternativ 2 er antall adresser, ikke avstanden mellom dem. Alternativ 3 er antall tildelbare verter. Alternativ 4 svarer til /29."
+    "explanation": "Fire vertsbit gir 16 adresser, og avstanden mellom første og siste er 2^4 − 1 = 15. «16» er antall adresser, ikke avstanden mellom dem. «14» er antall tildelbare verter. «8» svarer til /29."
   },
   {
     "question": "Hvilket av disse tallene kan IKKE stå i en gyldig nettmaske?",
@@ -157,7 +157,7 @@
       "252",
       "128"
     ],
-    "explanation": "En maske har alle ettallene først, og 208 = 11010000 har en null inne blant ettallene. Alternativ 2, 3 og 4 er 11100000, 11111100 og 10000000 — alle sammenhengende og dermed gyldige."
+    "explanation": "En maske har alle ettallene først, og 208 = 11010000 har en null inne blant ettallene. «224», «252» og «128» er 11100000, 11111100 og 10000000 — alle sammenhengende og dermed gyldige."
   },
   {
     "question": "Hva betyr det at en adresse er en kringkastingsadresse?",
@@ -167,7 +167,7 @@
       "Adressen brukes til å kringkaste subnettets navn ut på internett",
       "Adressen brukes bare når subnettet skal deles opp i mindre subnett"
     ],
-    "explanation": "Alle vertsbit satt til 1 betyr «alle på dette nettet», og derfor kan adressen ikke peke på én maskin. Alternativ 2 forveksler den med ruterens adresse, som er en helt vanlig tildelbar adresse. Alternativ 3 og 4 er oppdiktede roller — kringkasting stopper ved subnettets grense."
+    "explanation": "Alle vertsbit satt til 1 betyr «alle på dette nettet», og derfor kan adressen ikke peke på én maskin. «Adressen er reservert til ruteren som knytter subnettet til omverdenen» forveksler den med ruterens adresse, som er en helt vanlig tildelbar adresse. «Adressen brukes til å kringkaste subnettets navn ut på internett» og «Adressen brukes bare når subnettet skal deles opp i mindre subnett» er oppdiktede roller — kringkasting stopper ved subnettets grense."
   },
   {
     "question": "En maskin har adressen 10.12.16.5 i et nett med masken 255.255.240.0. Hva er subnettadressen?",
@@ -177,7 +177,7 @@
       "10.12.15.255",
       "10.12.16.5"
     ],
-    "explanation": "Tredje oktett: 00010000 AND 11110000 = 00010000 = 16, altså 10.12.16.0. Alternativ 2 er subnettet under, som dekker tredje oktett 0 til 15. Alternativ 3 er kringkastingsadressen til det subnettet. Alternativ 4 er maskinens egen adresse, uten at masken er brukt."
+    "explanation": "Tredje oktett: 00010000 AND 11110000 = 00010000 = 16, altså 10.12.16.0. «10.12.0.0» er subnettet under, som dekker tredje oktett 0 til 15. «10.12.15.255» er kringkastingsadressen til det subnettet. «10.12.16.5» er maskinens egen adresse, uten at masken er brukt."
   },
   {
     "question": "Hvorfor deles store nett opp i subnett?",
@@ -187,7 +187,7 @@
       "Fordi nettmasken bare kan settes én gang per organisasjon",
       "Fordi kringkastingsadressen ellers ville vært den samme for alle"
     ],
-    "explanation": "Med bare drøyt fire milliarder adresser i verden får et kontor med 20 maskiner et /27, ikke et helt /24. Alternativ 2 er en teknisk begrensning som ikke finnes. Alternativ 3 er oppspinn. Alternativ 4 snur årsak og virkning: hvert subnett får sin egen kringkastingsadresse fordi det er delt opp."
+    "explanation": "Med bare drøyt fire milliarder adresser i verden får et kontor med 20 maskiner et /27, ikke et helt /24. «Fordi en ruter ikke klarer å håndtere mer enn 256 adresser om gangen» er en teknisk begrensning som ikke finnes. «Fordi nettmasken bare kan settes én gang per organisasjon» er oppspinn. «Fordi kringkastingsadressen ellers ville vært den samme for alle» snur årsak og virkning: hvert subnett får sin egen kringkastingsadresse fordi det er delt opp."
   },
   {
     "question": "Hva er masken til prefikset /25 skrevet i punktnotasjon?",
@@ -197,7 +197,7 @@
       "255.255.255.192",
       "255.255.128.0"
     ],
-    "explanation": "24 ettall gir tre fulle oktetter, og det ene ettallet som er igjen, gir 10000000 = 128. Alternativ 2 er /24. Alternativ 3 er /26, altså ett ettall for mye. Alternativ 4 plasserer det siste ettallet i tredje oktett og gir /17."
+    "explanation": "24 ettall gir tre fulle oktetter, og det ene ettallet som er igjen, gir 10000000 = 128. «255.255.255.0» er /24. «255.255.255.192» er /26, altså ett ettall for mye. «255.255.128.0» plasserer det siste ettallet i tredje oktett og gir /17."
   },
   {
     "question": "Et subnett har 62 tildelbare adresser. Hvilket prefiks har det?",
@@ -207,7 +207,7 @@
       "/27",
       "/24"
     ],
-    "explanation": "62 = 2^6 − 2, altså seks vertsbit, og 32 − 6 = 26. Alternativ 2 gir 126 adresser. Alternativ 3 gir 30. Alternativ 4 gir 254. Å regne baklengs fra vertstallet er en vanlig variant av oppgaven."
+    "explanation": "62 = 2^6 − 2, altså seks vertsbit, og 32 − 6 = 26. «/25» gir 126 adresser. «/27» gir 30. «/24» gir 254. Å regne baklengs fra vertstallet er en vanlig variant av oppgaven."
   },
   {
     "question": "Hva er riktig om forholdet mellom nettmaske og prefiks?",
@@ -217,6 +217,6 @@
       "Masken gjelder for hele nettet, prefikset for den enkelte maskinen",
       "Prefikset brukes i IPv4, masken bare i eldre nettverk"
     ],
-    "explanation": "255.255.255.192 og /26 beskriver nøyaktig samme mønster, og eksamen bruker begge om hverandre. Alternativ 2 har prefikset baklengs — det teller nettbit. Alternativ 3 og 4 er oppdiktede skiller uten faglig innhold."
+    "explanation": "255.255.255.192 og /26 beskriver nøyaktig samme mønster, og eksamen bruker begge om hverandre. «Prefikset angir antall vertsbit, masken antall nettbit» har prefikset baklengs — det teller nettbit. «Masken gjelder for hele nettet, prefikset for den enkelte maskinen» og «Prefikset brukes i IPv4, masken bare i eldre nettverk» er oppdiktede skiller uten faglig innhold."
   }
 ]

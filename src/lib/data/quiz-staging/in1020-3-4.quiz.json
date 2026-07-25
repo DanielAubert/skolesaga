@@ -7,7 +7,7 @@
       "Mottakerens offentlige nøkkel",
       "Mottakerens private nøkkel"
     ],
-    "explanation": "Bare Alice har sin private nøkkel, og det er nettopp derfor signaturen beviser noe. Alternativ 2 ville vært verdiløst siden alle har den offentlige nøkkelen. Alternativ 3 beskriver hemmelighold, ikke signering. Alternativ 4 er umulig — Alice har ikke mottakerens private nøkkel."
+    "explanation": "Bare Alice har sin private nøkkel, og det er nettopp derfor signaturen beviser noe. «Sin egen offentlige nøkkel» ville vært verdiløst siden alle har den offentlige nøkkelen. «Mottakerens offentlige nøkkel» beskriver hemmelighold, ikke signering. «Mottakerens private nøkkel» er umulig — Alice har ikke mottakerens private nøkkel."
   },
   {
     "question": "Hvilken nøkkel brukes til å validere en signatur fra Alice?",
@@ -17,7 +17,7 @@
       "Mottakerens private nøkkel",
       "Mottakerens offentlige nøkkel"
     ],
-    "explanation": "Validering bruker avsenderens offentlige nøkkel, altså motparten til den som signerte. Alternativ 2 er umulig: mottakeren har ikke Alices private nøkkel. Alternativ 3 og 4 bruker mottakerens eget nøkkelpar, som ikke har noe med signaturen å gjøre."
+    "explanation": "Validering bruker avsenderens offentlige nøkkel, altså motparten til den som signerte. «Alices private nøkkel» er umulig: mottakeren har ikke Alices private nøkkel. «Mottakerens private nøkkel» og «Mottakerens offentlige nøkkel» bruker mottakerens eget nøkkelpar, som ikke har noe med signaturen å gjøre."
   },
   {
     "question": "Hvilke mål gir en digital signatur?",
@@ -27,7 +27,7 @@
       "Bare konfidensialitet og integritet",
       "Konfidensialitet, autentisitet og uavviselighet"
     ],
-    "explanation": "Signaturen viser at innholdet er uendret, hvem det kom fra, og at avsenderen ikke kan nekte. Alternativ 2, 3 og 4 tar med konfidensialitet, som signaturen nettopp ikke gir — det er felle #4, fagets mest testede enkeltinnsikt."
+    "explanation": "Signaturen viser at innholdet er uendret, hvem det kom fra, og at avsenderen ikke kan nekte. «Konfidensialitet, integritet og tilgjengelighet», «Bare konfidensialitet og integritet» og «Konfidensialitet, autentisitet og uavviselighet» tar med konfidensialitet, som signaturen nettopp ikke gir — det er felle #4, fagets mest testede enkeltinnsikt."
   },
   {
     "question": "Gir en digital signatur konfidensialitet?",
@@ -37,7 +37,7 @@
       "Ja — signaturen krypterer hele meldingen",
       "Nei — signaturen sletter innholdet etter validering"
     ],
-    "explanation": "Signaturen kommer i tillegg til meldingen, og mottakeren må kunne lese innholdet for å regne ut hash-verdien. Alternativ 2 og 3 er felle #4. Alternativ 4 beskriver noe som ikke skjer i det hele tatt."
+    "explanation": "Signaturen kommer i tillegg til meldingen, og mottakeren må kunne lese innholdet for å regne ut hash-verdien. «Ja — bare den tiltenkte mottakeren kan lese den signerte meldingen» og «Ja — signaturen krypterer hele meldingen» er felle #4. «Nei — signaturen sletter innholdet etter validering» beskriver noe som ikke skjer i det hele tatt."
   },
   {
     "question": "Hva er det som faktisk signeres i en digital signatur?",
@@ -47,7 +47,7 @@
       "Bare avsenderens navn og tidspunktet",
       "Mottakerens offentlige nøkkel"
     ],
-    "explanation": "Hash-verdien er liten uansett meldingens størrelse, og asymmetrisk kryptering er treg. Alternativ 2 ville vært altfor tregt for store filer. Alternativ 3 ville ikke avslørt endringer i innholdet. Alternativ 4 har ingen rolle i signeringen."
+    "explanation": "Hash-verdien er liten uansett meldingens størrelse, og asymmetrisk kryptering er treg. «Hele meldingen, bit for bit» ville vært altfor tregt for store filer. «Bare avsenderens navn og tidspunktet» ville ikke avslørt endringer i innholdet. «Mottakerens offentlige nøkkel» har ingen rolle i signeringen."
   },
   {
     "question": "Hvilket mål tjener en hash-verdi?",
@@ -57,7 +57,7 @@
       "Tilgjengelighet",
       "Uavviselighet"
     ],
-    "explanation": "Endres innholdet med ett bit, endres verdien fullstendig, og avviket er synlig. Alternativ 2 er felle #9: hash-verdien kommer i tillegg og skjuler ingenting. Alternativ 3 og 4 krever helt andre tiltak — sikkerhetskopi og digital signatur."
+    "explanation": "Endres innholdet med ett bit, endres verdien fullstendig, og avviket er synlig. «Konfidensialitet» er felle #9: hash-verdien kommer i tillegg og skjuler ingenting. «Tilgjengelighet» og «Uavviselighet» krever helt andre tiltak — sikkerhetskopi og digital signatur."
   },
   {
     "question": "Hvilken egenskap har en hash-funksjon?",
@@ -67,7 +67,7 @@
       "Den gir kortere verdi jo mindre innholdet er",
       "Den gir samme verdi for alle filer av samme størrelse"
     ],
-    "explanation": "Enveisegenskapen er det som gjør hash brukbar til passordlagring. Alternativ 2 ville gjort både signaturer og passordlagring verdiløse. Alternativ 3 er feil: lengden er fast. Alternativ 4 ville betydd at verdien ikke sa noe om innholdet."
+    "explanation": "Enveisegenskapen er det som gjør hash brukbar til passordlagring. «Den kan reverseres hvis man kjenner algoritmen» ville gjort både signaturer og passordlagring verdiløse. «Den gir kortere verdi jo mindre innholdet er» er feil: lengden er fast. «Den gir samme verdi for alle filer av samme størrelse» ville betydd at verdien ikke sa noe om innholdet."
   },
   {
     "question": "En hash-verdi stemmer etter nedlasting. Hva har du bevist?",
@@ -77,7 +77,7 @@
       "At fila kommer fra rett utgiver",
       "At ingen andre kan lese fila"
     ],
-    "explanation": "Integritet er alt en hash gir. Alternativ 2 forveksler «uendret» med «trygg» — var skadevaren der fra starten, stemmer verdien perfekt. Alternativ 3 krever en signatur i tillegg. Alternativ 4 er felle #9."
+    "explanation": "Integritet er alt en hash gir. «At fila er helt fri for skadevare av enhver type» forveksler «uendret» med «trygg» — var skadevaren der fra starten, stemmer verdien perfekt. «At fila kommer fra rett utgiver» krever en signatur i tillegg. «At ingen andre kan lese fila» er felle #9."
   },
   {
     "question": "Hva kan en angriper som kontrollerer nedlastingssiden, gjøre?",
@@ -87,7 +87,7 @@
       "Ingenting — hash-verdien beskytter mot alle former for endring",
       "Bare gjøre fila utilgjengelig, ikke endre den"
     ],
-    "explanation": "Dette er hash-kontrollens vesentlige begrensning, og den løses ved å signere hash-verdien. Alternativ 2 gir hash-verdien en beskyttelse den ikke har når kilden er kompromittert. Alternativ 3 og 4 undervurderer hva kontroll over kilden innebærer."
+    "explanation": "Dette er hash-kontrollens vesentlige begrensning, og den løses ved å signere hash-verdien. «Endre fila, men ikke hash-verdien…» gir hash-verdien en beskyttelse den ikke har når kilden er kompromittert. «Ingenting — hash-verdien beskytter mot alle former for endring» og «Bare gjøre fila utilgjengelig, ikke endre den» undervurderer hva kontroll over kilden innebærer."
   },
   {
     "question": "Hva binder et digitalt sertifikat sammen?",
@@ -97,7 +97,7 @@
       "To offentlige nøkler som hører sammen",
       "En hash-verdi og en filstørrelse"
     ],
-    "explanation": "Sertifikatet sier hvem den offentlige nøkkelen tilhører, og er selv signert av en betrodd utsteder. Alternativ 2 ville betydd at den private nøkkelen ble distribuert, som aldri skjer. Alternativ 3 og 4 beskriver konstruksjoner som ikke finnes."
+    "explanation": "Sertifikatet sier hvem den offentlige nøkkelen tilhører, og er selv signert av en betrodd utsteder. «En privat nøkkel og en identitet» ville betydd at den private nøkkelen ble distribuert, som aldri skjer. «To offentlige nøkler som hører sammen» og «En hash-verdi og en filstørrelse» beskriver konstruksjoner som ikke finnes."
   },
   {
     "question": "Krypterer et sertifikat trafikken mellom nettleser og tjener?",
@@ -107,7 +107,7 @@
       "Ja — sertifikatet krypterer all trafikk i hele økta",
       "Nei — sertifikatet brukes bare til å logge hvem som besøker siden"
     ],
-    "explanation": "Sertifikatet knytter en offentlig nøkkel til en identitet; den nøkkelen brukes så i krypteringen. Alternativ 2 og 3 gir sertifikatet en teknisk funksjon det ikke har. Alternativ 4 forveksler det med logging."
+    "explanation": "Sertifikatet knytter en offentlig nøkkel til en identitet; den nøkkelen brukes så i krypteringen. «Ja — sertifikatet inneholder krypteringsalgoritmen som brukes» og «Ja — sertifikatet krypterer all trafikk i hele økta» gir sertifikatet en teknisk funksjon det ikke har. «Nei — sertifikatet brukes bare til å logge hvem som besøker siden» forveksler det med logging."
   },
   {
     "question": "Hva beviser et gyldig sertifikat på en nettside?",
@@ -117,7 +117,7 @@
       "At varene på nettstedet finnes og blir levert",
       "At nettstedet aldri har vært utsatt for angrep"
     ],
-    "explanation": "Sertifikatet svarer på «snakker jeg med den jeg tror?», ikke på «kan jeg stole på dem?». Alternativ 2, 3 og 4 er vurderinger ingen teknologi kan gi — en svindler kan skaffe seg et fullt gyldig sertifikat til sitt eget domene."
+    "explanation": "Sertifikatet svarer på «snakker jeg med den jeg tror?», ikke på «kan jeg stole på dem?». «At nettstedet er hederlig og i alle henseender til å stole på», «At varene på nettstedet finnes og blir levert» og «At nettstedet aldri har vært utsatt for angrep» er vurderinger ingen teknologi kan gi — en svindler kan skaffe seg et fullt gyldig sertifikat til sitt eget domene."
   },
   {
     "question": "Hva står PKI for, og hva er det?",
@@ -127,7 +127,7 @@
       "Protokoll for kryptert internett — standarden bak HTTPS",
       "Personlig kontrollinstans — organet som godkjenner digitale signaturer"
     ],
-    "explanation": "PKI gjør det praktisk mulig å stole på offentlige nøkler, gjennom utstedere, tillitskjeder og tilbaketrekking. Alternativ 2, 3 og 4 er oppdiktede begreper som ligner, men ikke finnes."
+    "explanation": "PKI gjør det praktisk mulig å stole på offentlige nøkler, gjennom utstedere, tillitskjeder og tilbaketrekking. «Privat kryptografisk indeks…», «Protokoll for kryptert internett — standarden bak HTTPS» og «Personlig kontrollinstans — organet som godkjenner digitale signaturer» er oppdiktede begreper som ligner, men ikke finnes."
   },
   {
     "question": "Hva betyr en sertifikatadvarsel i nettleseren?",
@@ -137,7 +137,7 @@
       "At forbindelsen er helt ukryptert og at alle på veien kan lese trafikken",
       "At sertifikatet snart utløper og bør fornyes av eieren"
     ],
-    "explanation": "Sertifikatet kan være utløpt, selvsignert eller utstedt til et annet navn — nettopp situasjonen et mellommannsangrep skaper. Alternativ 2 og 3 beskriver andre problemer. Alternativ 4 er en påminnelse, ikke en advarsel om brutt tillit."
+    "explanation": "Sertifikatet kan være utløpt, selvsignert eller utstedt til et annet navn — nettopp situasjonen et mellommannsangrep skaper. «At nettsiden inneholder skadevare som er oppdaget» og «At forbindelsen er helt ukryptert og at alle på veien kan lese trafikken» beskriver andre problemer. «At sertifikatet snart utløper og bør fornyes av eieren» er en påminnelse, ikke en advarsel om brutt tillit."
   },
   {
     "question": "Hva er en nulldagssårbarhet?",
@@ -147,7 +147,7 @@
       "En svakhet som bare finnes i programvare eldre enn ett år",
       "En svakhet som forsvinner av seg selv etter én dag"
     ],
-    "explanation": "Leverandøren har hatt null dager på seg til å lukke hullet. Alternativ 2 snur saken: er svakheten kjent, kan den rettes. Alternativ 3 og 4 er oppdiktede kriterier uten kobling til begrepet."
+    "explanation": "Leverandøren har hatt null dager på seg til å lukke hullet. «En svakhet som er kjent, men som ingen har rukket å utnytte ennå» snur saken: er svakheten kjent, kan den rettes. «En svakhet som bare finnes i programvare eldre enn ett år» og «En svakhet som forsvinner av seg selv etter én dag» er oppdiktede kriterier uten kobling til begrepet."
   },
   {
     "question": "Hvorfor hjelper ikke sikkerhetsoppdateringer mot en nulldagssårbarhet?",
@@ -157,7 +157,7 @@
       "Fordi nulldagssårbarheter bare finnes i maskinvare, ikke i programvare",
       "Fordi oppdateringer bare fjerner skadevare, ikke svakheter"
     ],
-    "explanation": "Oppdatering lukker de kjente hullene, og en nulldagssårbarhet er per definisjon ukjent. Alternativ 2 undervurderer oppdateringer generelt. Alternativ 3 er feil om hvor slike svakheter finnes. Alternativ 4 beskriver antivirus, ikke oppdateringer."
+    "explanation": "Oppdatering lukker de kjente hullene, og en nulldagssårbarhet er per definisjon ukjent. «Fordi oppdateringer alltid kommer for sent til å ha noen effekt» undervurderer oppdateringer generelt. «Fordi nulldagssårbarheter bare finnes i maskinvare, ikke i programvare» er feil om hvor slike svakheter finnes. «Fordi oppdateringer bare fjerner skadevare, ikke svakheter» beskriver antivirus, ikke oppdateringer."
   },
   {
     "question": "Hva kjennetegner en trojaner?",
@@ -167,7 +167,7 @@
       "Et program som fester seg til en vertsfil og spres med den",
       "Et program som krypterer filene og krever betaling"
     ],
-    "explanation": "Kjennetegnet er innpakningen: brukeren installerer den frivillig. Alternativ 2 beskriver en orm. Alternativ 3 beskriver et virus. Alternativ 4 beskriver et løsepengevirus, som godt kan leveres av en trojaner."
+    "explanation": "Kjennetegnet er innpakningen: brukeren installerer den frivillig. «Et program som sprer seg selv over nettet uten hjelp» beskriver en orm. «Et program som fester seg til en vertsfil og spres med den» beskriver et virus. «Et program som krypterer filene og krever betaling» beskriver et løsepengevirus, som godt kan leveres av en trojaner."
   },
   {
     "question": "Alice vil sende en melding som både er hemmelig og bevislig fra henne. Hva må hun gjøre?",
@@ -177,7 +177,7 @@
       "Bare kryptere med mottakerens offentlige nøkkel — det dekker begge behov",
       "Kryptere med sin egen private nøkkel og signere med mottakerens offentlige"
     ],
-    "explanation": "Signering gir integritet, autentisitet og uavviselighet; kryptering gir konfidensialitet. Alternativ 2 mangler hemmelighold, alternativ 3 mangler beviset for avsender. Alternativ 4 snur begge retningene."
+    "explanation": "Signering gir integritet, autentisitet og uavviselighet; kryptering gir konfidensialitet. «Bare signere med sin private nøkkel — det dekker begge behov» mangler hemmelighold, «Bare kryptere med mottakerens offentlige nøkkel — det dekker begge behov» mangler beviset for avsender. «Kryptere med sin egen private nøkkel og signere med…» snur begge retningene."
   },
   {
     "question": "Hvorfor må mottakeren kunne lese en signert melding i klartekst?",
@@ -187,7 +187,7 @@
       "For at avsenderen skal kunne bekrefte at meldingen faktisk kom fram",
       "Fordi signaturen bare virker på ukrypterte filer"
     ],
-    "explanation": "Kontrollen forutsetter tilgang til innholdet, og derfor er «alle kan lese» en forutsetning, ikke en svakhet. Alternativ 2 og 3 beskriver ting som ikke skjer. Alternativ 4 er feil: en signert melding kan godt krypteres i tillegg."
+    "explanation": "Kontrollen forutsetter tilgang til innholdet, og derfor er «alle kan lese» en forutsetning, ikke en svakhet. «For at signaturen skal kunne slettes etter kontrollen» og «For at avsenderen skal kunne bekrefte at meldingen faktisk kom fram» beskriver ting som ikke skjer. «Fordi signaturen bare virker på ukrypterte filer» er feil: en signert melding kan godt krypteres i tillegg."
   },
   {
     "question": "Hvorfor løser et sertifikat mellommannsproblemet?",
@@ -197,7 +197,7 @@
       "Sertifikatet skjuler hvilken tjener du kobler deg til",
       "Sertifikatet gjør at angriperen ikke kan avlytte trådløse nett"
     ],
-    "explanation": "Angrepet går ut på å levere sin egen nøkkel, og sertifikatet binder nøkkelen til en identitet på en måte som ikke kan forfalskes. Alternativ 2 gir sertifikatet en krypterende rolle det ikke har. Alternativ 3 og 4 beskriver virkninger som ikke finnes."
+    "explanation": "Angrepet går ut på å levere sin egen nøkkel, og sertifikatet binder nøkkelen til en identitet på en måte som ikke kan forfalskes. «Sertifikatet krypterer trafikken sterkere enn vanlig kryptering» gir sertifikatet en krypterende rolle det ikke har. «Sertifikatet skjuler hvilken tjener du kobler deg til» og «Sertifikatet gjør at angriperen ikke kan avlytte trådløse nett» beskriver virkninger som ikke finnes."
   },
   {
     "question": "Hvorfor må et sertifikat kunne trekkes tilbake før det utløper?",
@@ -207,7 +207,7 @@
       "Fordi nettleseren bare stoler på ferske sertifikater",
       "Fordi domenenavnet endres med jevne mellomrom"
     ],
-    "explanation": "Kommer nøkkelen på avveie, kan den som har den, fortsette å opptre som eieren inntil sertifikatet erklæres ugyldig. Alternativ 2 er et forretningsforhold, ikke en sikkerhetsmekanisme. Alternativ 3 og 4 beskriver forhold som ikke utløser tilbaketrekking."
+    "explanation": "Kommer nøkkelen på avveie, kan den som har den, fortsette å opptre som eieren inntil sertifikatet erklæres ugyldig. «Fordi utstederen krever betaling for hvert år det gjelder» er et forretningsforhold, ikke en sikkerhetsmekanisme. «Fordi nettleseren bare stoler på ferske sertifikater» og «Fordi domenenavnet endres med jevne mellomrom» beskriver forhold som ikke utløser tilbaketrekking."
   },
   {
     "question": "Hva skiller en digital signatur fra en håndskrevet underskrift?",
@@ -217,6 +217,6 @@
       "Den håndskrevne gir både integritet og autentisitet, den digitale bare autentisitet",
       "Den digitale krever at mottakeren har avsenderens private nøkkel"
     ],
-    "explanation": "Derfor gir den digitale signaturen både autentisitet og integritet. Alternativ 2 snur forholdet — det er den håndskrevne som i prinsippet kan klippes og limes. Alternativ 3 bytter om egenskapene. Alternativ 4 ville ødelagt hele konstruksjonen."
+    "explanation": "Derfor gir den digitale signaturen både autentisitet og integritet. «Den digitale er lettere å kopiere fra ett dokument til et annet» snur forholdet — det er den håndskrevne som i prinsippet kan klippes og limes. «Den håndskrevne gir både integritet og autentisitet…» bytter om egenskapene. «Den digitale krever at mottakeren har avsenderens private nøkkel» ville ødelagt hele konstruksjonen."
   }
 ]
