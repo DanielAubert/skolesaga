@@ -1,0 +1,448 @@
+{
+  "id": "econ1100-1-2",
+  "courseId": "econ1100",
+  "chapterNumber": "1.2",
+  "title": "Partiellderiverte: første og andre orden",
+  "description": "Å derivere med hensyn på én variabel om gangen — kjernehandlingen i Oppgave 1 — samt andreordens og kryssderiverte.",
+  "estimatedMinutes": 55,
+  "competenceGoals": [
+    "finne partiellderiverte av polynomer, brøker, logaritme- og eksponentialuttrykk og produktfunksjoner",
+    "veksle mellom skrivemåtene $f'_x$ og $\\partial f/\\partial x$ og forstå hva det vil si å holde en variabel konstant",
+    "regne ut andreordens og kryssderiverte, og bruke likheten mellom de kryssderiverte som kontroll",
+    "tolke fortegnet på partiellderiverte økonomisk som grensenytte, grenseprodukt og avtakende utbytte"
+  ],
+  "content": [
+    {
+      "id": "econ1100-1-2-tip-eksamensvinkel",
+      "type": "tip",
+      "title": "Eksamensvinkel",
+      "content": "**Dette er kapitlet Oppgave 1 faktisk handler om.** Eksamensoppgaven som i denne boka kalles **sjanger P1 — partiellderivasjon** («deriver disse funksjonene med hensyn på hvert av argumentene») åpner **16 av 16 sett** i arkivet vårt: 9 ordinære og 7 utsatte, 2018–2025. Den er verdt 15–25 av 100 poeng, og delpunktene teller likt.\n\nTypisk består oppgaven av tre til fire funksjoner, og minst én av dem er en funksjon av to variabler der du skal finne både $f'_x$ og $f'_y$. Funksjonsformene går igjen år etter år: polynomer i to variabler, brøker, uttrykk med $\\ln$ og $e$, og produktfunksjonen $x^{\\alpha}y^{\\beta}$.\n\n**Om andreordens deriverte:** at oppgaven eksplisitt ber om $f''_{xx}$, $f''_{yy}$ og $f''_{xy}$ hører til det gamle formatet — det skjer i 3 av de 16 settene (V2018 og H2018). Men du trenger dem uansett: hele klassifiseringen av toppunkter og bunnpunkter i Del 6 hviler på dem, og likheten $f''_{xy}=f''_{yx}$ er et fast punkt i «sant eller usant»-oppgaven.\n\nKapitlet har **høyeste prioritet** i boka. Alt som kommer senere — differensialet, nivåkurver, Lagrange, produsentteori — starter med at du kan partiellderivere uten å nøle."
+    },
+    {
+      "id": "econ1100-1-2-forkunnskaper",
+      "type": "text",
+      "content": "**Forkunnskaper.** Dette kapitlet bygger direkte på [kap. 1.1](/bok/econ1100/econ1100-1-1) — potens-, produkt-, kvotient- og kjerneregelen, samt $\\ln x$ og $e^{x}$. Du trenger ingen nye regneregler her; du trenger å bruke de gamle på riktig variabel.\n\n**De fire reglene du får bruk for hele veien** (oppfrisket fra kap. 1.1):\n\n$$\\frac{d}{dx}x^{a}=ax^{a-1},\\qquad \\frac{d}{dx}(uv)=u'v+uv',\\qquad \\frac{d}{dx}\\!\\left(\\frac{u}{v}\\right)=\\frac{u'v-uv'}{v^{2}},\\qquad \\frac{d}{dx}f(u)=f'(u)\\,u'$$\n\nOg de to funksjonene: $\\frac{d}{dx}\\ln g=\\dfrac{g'}{g}$ og $\\frac{d}{dx}e^{g}=e^{g}g'$."
+    },
+    {
+      "id": "econ1100-1-2-motivasjon",
+      "type": "text",
+      "content": "En bakeri-eier har to ting hun kan skru på: hvor mange ansatte hun har, og hvor mye utstyr hun leier. Produksjonen avhenger av begge. Hvis hun vil vite hva én ekstra ansatt gir, spør hun: *hvor mye øker produksjonen når arbeidskraften øker litt — og alt annet holdes uendret?*\n\nDet spørsmålet er den partiellderiverte. Ordet «partiell» betyr «delvis»: du ser på effekten av én variabel av gangen, med de andre frosset. Nesten all økonomisk analyse er bygget på nettopp den tanken — grensenytte, grenseprodukt, grensekostnad, priselastisitet.\n\nDen gode nyheten er at det ikke krever noe nytt håndverk. Skal du derivere med hensyn på $x$, later du som om $y$ er et tall, og bruker de vanlige reglene fra [kap. 1.1](/bok/econ1100/econ1100-1-1).\n\nKapitlet er bygget som fem løkker: definisjon og polynomer (løkke 1), brøker (løkke 2), $\\ln$-, $e$- og produktfunksjoner (løkke 3), andreordens og kryssderiverte (løkke 4), og til slutt den økonomiske tolkningen med et eksempel på eksamensnivå (løkke 5). Hver løkke går teori → eksempel → oppgaver."
+    },
+    {
+      "id": "econ1100-1-2-lokke1",
+      "type": "text",
+      "content": "## Løkke 1 — Definisjonen og de enkle tilfellene (~12 min)"
+    },
+    {
+      "id": "econ1100-1-2-def-flervariabel",
+      "type": "definition",
+      "title": "Funksjon av flere variabler",
+      "content": "En funksjon av flere variabler er en regel som gir én tallverdi ut når du putter inn *flere* tall. Skriver vi $f(x,y)$, betyr det at verdien avhenger av to størrelser samtidig.\n\n$$f(x,y)=x^{2}y+x^{2}+2y^{2}$$\n\nHer er $f(1,2)=1\\cdot 2+1+2\\cdot 4=11$. I økonomi er $x$ og $y$ typisk to goder, to innsatsfaktorer eller to tidsperioder — og hele poenget er at de påvirker resultatet samtidig."
+    },
+    {
+      "id": "econ1100-1-2-def-partiellderivert",
+      "type": "definition",
+      "title": "Partiellderivert",
+      "content": "Den partiellderiverte av $f$ med hensyn på $x$ forteller hvor mye $f$ endrer seg når **bare $x$** øker litt, mens alle andre variabler holdes helt fast. Du deriverer altså som vanlig, men behandler de andre bokstavene som om de var tall.\n\n$$f'_{x}(x,y)=\\lim_{h\\to 0}\\frac{f(x+h,y)-f(x,y)}{h}$$\n\nLegg merke til at $y$ står uendret på begge sider av brøkstreken — det er dette som er «å holde $y$ konstant». På samme måte gir $f'_{y}$ effekten av å endre bare $y$."
+    },
+    {
+      "id": "econ1100-1-2-def-notasjon",
+      "type": "definition",
+      "title": "Notasjonen $f'_x$ og $\\partial f/\\partial x$",
+      "content": "De to skrivemåtene for den partiellderiverte betyr nøyaktig det samme, og du vil møte begge på eksamen — sensor bruker dem om hverandre.\n\n$$f'_{x}=\\frac{\\partial f}{\\partial x},\\qquad f'_{y}=\\frac{\\partial f}{\\partial y}$$\n\nTegnet $\\partial$ («runde d») er bare et signal om at funksjonen har flere variabler, så leseren vet at de andre holdes fast. Denne boka bruker $f'_{x}$ som hovedskrivemåte fordi den er kortest, men du skal kjenne igjen begge. Skriver oppgaven $\\partial G/\\partial s$, betyr det «deriver $G$ med hensyn på $s$»."
+    },
+    {
+      "id": "econ1100-1-2-def-holde-konstant",
+      "type": "definition",
+      "title": "Å holde en variabel konstant",
+      "content": "Å holde $y$ konstant vil si å behandle $y$ som et hvilket som helst tall mens du deriverer med hensyn på $x$. Alt som bare inneholder $y$, oppfører seg som en konstant — og konstanter har derivert null.\n\nI $f(x,y)=x^{2}y+x^{2}+2y^{2}$ er leddet $2y^{2}$ en ren konstant sett fra $x$-siden, så det forsvinner i $f'_{x}$. Leddet $x^{2}y$ har $y$ som konstant faktor, så det deriveres til $2xy$.\n\n$$f'_{x}=2xy+2x$$\n\nPraktisk knep hvis du er usikker: sett midlertidig $y=7$, deriver, og sett $7$ tilbake til $y$ etterpå."
+    },
+    {
+      "id": "econ1100-1-2-def-konstantledd",
+      "type": "definition",
+      "title": "Ledd som forsvinner",
+      "content": "Et ledd som ikke inneholder variabelen du deriverer med hensyn på, forsvinner helt — akkurat som et tallkonstantledd gjør i vanlig derivasjon.\n\nI $f(x,y)=x^{2}y+x^{2}+2y^{2}$ forsvinner $2y^{2}$ når du deriverer mht. $x$, og $x^{2}$ forsvinner når du deriverer mht. $y$:\n\n$$f'_{y}=x^{2}+4y$$\n\nHer ble $x^{2}y$ til $x^{2}$ (fordi $x^{2}$ er konstant faktor og $y$ deriveres til 1), $x^{2}$ forsvant, og $2y^{2}$ ble $4y$. Å glemme at slike ledd faller bort — eller å la dem stå — er en billig, unødvendig feil."
+    },
+    {
+      "id": "econ1100-1-2-ex1",
+      "type": "example",
+      "title": "Eksempel 1: Et polynom i to variabler",
+      "problem": "La $f(x,y)=x^{2}y+x^{2}+2y^{2}$. Finn $f'_{x}$ og $f'_{y}$.",
+      "solution": "**Med hensyn på $x$** (hold $y$ fast, altså tenk på $y$ som et tall):\n\n- $x^{2}y$: faktoren $y$ er konstant, $x^{2}$ deriveres til $2x$ → $2xy$\n- $x^{2}$ → $2x$\n- $2y^{2}$: ingen $x$ her, så leddet er konstant → $0$\n\n$$f'_{x}=2xy+2x$$\n\n**Med hensyn på $y$** (hold $x$ fast):\n\n- $x^{2}y$: $x^{2}$ er konstant faktor, $y$ deriveres til $1$ → $x^{2}$\n- $x^{2}$: ingen $y$ → $0$\n- $2y^{2}$ → $4y$\n\n$$f'_{y}=x^{2}+4y$$\n\n**Kontroll i et punkt.** I $(x,y)=(1,2)$ er $f'_{x}=2\\cdot1\\cdot2+2=6$ og $f'_{y}=1+8=9$. Vi kan sjekke $f'_x$ grovt numerisk: $f(1{,}01\\,;2)=1{,}0201\\cdot2+1{,}0201+8=11{,}0603$, mot $f(1,2)=11$. Differansen $0{,}0603$ delt på $0{,}01$ er $6{,}03$ — som stemmer med $6$. ✓\n\nLegg merke til at $f'_x$ selv er en funksjon av **begge** variablene. Det er normalt, og det er derfor vi kan derivere den videre i løkke 4."
+    },
+    {
+      "id": "econ1100-1-2-oppg-1",
+      "type": "exercise",
+      "exercise": {
+        "id": "econ1100-1-2-o1",
+        "number": "1",
+        "type": "classic",
+        "difficulty": "lett",
+        "task": "(Eksamenssjanger P1 — «deriver med hensyn på hvert av argumentene», altså eksamens Oppgave 1. Innstegsoppgave.) La\n\n$$f(x,y)=3x^{2}+5y-7.$$\n\n**a)** Finn $f'_{x}$.\n\n**b)** Finn $f'_{y}$.\n\n**c)** Forklar med én setning hvorfor leddet $5y$ forsvinner i $f'_{x}$.",
+        "solution": "**a)** Hold $y$ fast. Da er $5y$ og $-7$ begge konstanter, og bare $3x^{2}$ bidrar:\n\n$$f'_{x}=6x$$\n\n**b)** Hold $x$ fast. Nå er $3x^{2}$ og $-7$ konstanter, og $5y$ deriveres til $5$:\n\n$$f'_{y}=5$$\n\n**c)** Leddet $5y$ inneholder ingen $x$. Når $y$ holdes konstant, er $5y$ et fast tall, og et fast tall har derivert null.",
+        "hints": [
+          "Deriver du mht. $x$, er alt som bare inneholder $y$, et tall.",
+          "Hvor mange av de tre leddene inneholder faktisk $x$?"
+        ]
+      }
+    },
+    {
+      "id": "econ1100-1-2-oppg-2",
+      "type": "exercise",
+      "exercise": {
+        "id": "econ1100-1-2-o2",
+        "number": "2",
+        "type": "classic",
+        "difficulty": "lett",
+        "task": "(Sjanger P1.) La $g(x,y)=x^{3}y^{2}-4xy+y^{4}$. Finn $g'_{x}$ og $g'_{y}$.",
+        "solution": "**Med hensyn på $x$** ($y$ er konstant):\n\n- $x^{3}y^{2}$ → $3x^{2}y^{2}$\n- $-4xy$ → $-4y$\n- $y^{4}$ → $0$\n\n$$g'_{x}=3x^{2}y^{2}-4y$$\n\n**Med hensyn på $y$** ($x$ er konstant):\n\n- $x^{3}y^{2}$ → $2x^{3}y$\n- $-4xy$ → $-4x$\n- $y^{4}$ → $4y^{3}$\n\n$$g'_{y}=2x^{3}y-4x+4y^{3}$$",
+        "hints": [
+          "Ta ett ledd om gangen, og spør for hvert ledd: inneholder det variabelen jeg deriverer mht.?",
+          "I $x^{3}y^{2}$ mht. $x$ er $y^{2}$ bare en konstant faktor som blir stående."
+        ]
+      }
+    },
+    {
+      "id": "econ1100-1-2-lokke2",
+      "type": "text",
+      "content": "## Løkke 2 — Brøker: kvotientregelen med to variabler (~12 min)"
+    },
+    {
+      "id": "econ1100-1-2-lokke2-intro",
+      "type": "text",
+      "content": "Brøker er den funksjonsformen som går igjen aller oftest i Oppgave 1 — og den som koster flest poeng. Grunnen er at du må bruke kvotientregelen to ganger på samme uttrykk, én gang mht. $x$ og én gang mht. $y$, og de to regnestykkene ser helt ulike ut.\n\nNøkkelen er den samme som før: når du deriverer mht. $x$, er *hele* $y$-delen bare et tall. Ofte betyr det at telleren eller nevneren blir en enkel konstant, og at regnestykket er lettere enn det ser ut."
+    },
+    {
+      "id": "econ1100-1-2-def-kvotient-to-var",
+      "type": "definition",
+      "title": "Kvotientregelen i to variabler",
+      "content": "Kvotientregelen brukes akkurat som i én variabel — du må bare huske hvilken variabel du deriverer med hensyn på, både i telleren og i nevneren.\n\n$$\\left(\\frac{u}{v}\\right)'_{x}=\\frac{u'_{x}\\,v-u\\,v'_{x}}{v^{2}}$$\n\nHele poenget er at $u'_x$ og $v'_x$ regnes ut med $y$ som konstant. Nevneren $v^{2}$ er den samme uansett hvilken variabel du deriverer mht. — det er bare telleren som skifter."
+    },
+    {
+      "id": "econ1100-1-2-ex2",
+      "type": "example",
+      "title": "Eksempel 2: En brøk derivert begge veier",
+      "problem": "La $g(x,y)=\\dfrac{y^{2}}{x+2y}$. Finn $g'_{x}$ og $g'_{y}$.",
+      "solution": "**Med hensyn på $x$.** Nå er $y^{2}$ i telleren en ren konstant. Skriv om og bruk kjerneregelen — det er raskere enn kvotientregelen:\n\n$$g=y^{2}\\,(x+2y)^{-1}\\quad\\Longrightarrow\\quad g'_{x}=y^{2}\\cdot(-1)(x+2y)^{-2}\\cdot 1=-\\frac{y^{2}}{(x+2y)^{2}}$$\n\nFortegnet er negativt: øker $x$, øker nevneren, og brøken blir mindre.\n\n**Med hensyn på $y$.** Nå varierer både teller og nevner, så vi trenger kvotientregelen med $u=y^{2}$, $v=x+2y$, altså $u'_{y}=2y$ og $v'_{y}=2$:\n\n$$g'_{y}=\\frac{2y(x+2y)-y^{2}\\cdot 2}{(x+2y)^{2}}=\\frac{2xy+4y^{2}-2y^{2}}{(x+2y)^{2}}=\\frac{2xy+2y^{2}}{(x+2y)^{2}}$$\n\n**Forenkling** (sensorkrav): sett $2y$ utenfor i telleren.\n\n$$g'_{y}=\\frac{2y\\,(x+y)}{(x+2y)^{2}}$$\n\n**Kontroll i punktet $(x,y)=(1,1)$:** $g'_{x}=-\\frac{1}{9}$ og $g'_{y}=\\frac{2\\cdot 2}{9}=\\frac49$. Numerisk sjekk av $g'_y$: $g(1\\,;1{,}01)=\\frac{1{,}0201}{3{,}02}=0{,}33778$ mot $g(1,1)=\\frac13=0{,}33333$; differansen delt på $0{,}01$ er $0{,}445$, mot $\\frac49=0{,}444$. ✓\n\n**Lærdom:** de to deriverte kan kreve helt ulike metoder. Se alltid først om den ene veien gjør telleren konstant."
+    },
+    {
+      "id": "econ1100-1-2-oppg-3",
+      "type": "exercise",
+      "exercise": {
+        "id": "econ1100-1-2-o3",
+        "number": "3",
+        "type": "classic",
+        "difficulty": "lett",
+        "task": "(Sjanger P1.) La $f(x,y)=\\dfrac{x}{y+1}$. Finn $f'_{x}$ og $f'_{y}$.",
+        "solution": "**Mht. $x$:** nevneren $y+1$ er en konstant, så vi deler bare en konstant på:\n\n$$f'_{x}=\\frac{1}{y+1}$$\n\n**Mht. $y$:** nå er telleren $x$ konstant. Skriv $f=x(y+1)^{-1}$ og bruk kjerneregelen:\n\n$$f'_{y}=x\\cdot(-1)(y+1)^{-2}=-\\frac{x}{(y+1)^{2}}$$\n\nFortegnet er negativt for $x>0$: en større nevner gir en mindre brøk.",
+        "hints": [
+          "Mht. $x$ er hele nevneren bare et tall — hva blir da den deriverte?",
+          "Mht. $y$: skriv brøken som $x(y+1)^{-1}$, så slipper du kvotientregelen."
+        ]
+      }
+    },
+    {
+      "id": "econ1100-1-2-oppg-4",
+      "type": "exercise",
+      "exercise": {
+        "id": "econ1100-1-2-o4",
+        "number": "4",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "(Sjanger P1.) La\n\n$$f(x,y)=\\frac{xy}{x+y}.$$\n\nFinn $f'_{x}$ og $f'_{y}$, og forenkle begge.",
+        "solution": "**Mht. $x$:** her varierer både teller og nevner. Bruk kvotientregelen med $u=xy$, $v=x+y$, altså $u'_{x}=y$ og $v'_{x}=1$:\n\n$$f'_{x}=\\frac{y(x+y)-xy\\cdot 1}{(x+y)^{2}}=\\frac{xy+y^{2}-xy}{(x+y)^{2}}=\\frac{y^{2}}{(x+y)^{2}}$$\n\n**Mht. $y$:** helt symmetrisk, med $u'_{y}=x$ og $v'_{y}=1$:\n\n$$f'_{y}=\\frac{x(x+y)-xy}{(x+y)^{2}}=\\frac{x^{2}}{(x+y)^{2}}$$\n\n**Merk hvor pent det ble.** Krysstermen $xy$ forsvant begge ganger. Slike forenklinger er ikke tilfeldige — de er innebygd i oppgavene sensor lager, og de er nettopp den «åpenbare forenklingen» som kreves for full uttelling. Legger du merke til at $f$ er symmetrisk i $x$ og $y$, får du den andre deriverte nesten gratis ved å bytte om bokstavene.",
+        "hints": [
+          "Kvotientregelen mht. $x$: $u=xy$ gir $u'_x=y$, og $v=x+y$ gir $v'_x=1$.",
+          "Rydd telleren nøye — to av leddene skal oppheve hverandre."
+        ]
+      }
+    },
+    {
+      "id": "econ1100-1-2-lokke3",
+      "type": "text",
+      "content": "## Løkke 3 — Logaritmer, eksponentialer og produktfunksjonen (~12 min)"
+    },
+    {
+      "id": "econ1100-1-2-lokke3-intro",
+      "type": "text",
+      "content": "*— naturlig pausepunkt —*\n\nNå til de tre funksjonstypene økonomifagene lever av: uttrykk med $\\ln$, uttrykk med $e$, og produktfunksjonen $x^{\\alpha}y^{\\beta}$ — den som i økonomi kalles en **Cobb-Douglas-funksjon**. Alle tre går igjen i Oppgave 1, og alle tre dukker opp igjen i Lagrange-oppgavene i Del 8."
+    },
+    {
+      "id": "econ1100-1-2-def-ln-partiell",
+      "type": "definition",
+      "title": "Partiellderivert av et $\\ln$-uttrykk",
+      "content": "Regelen er den samme som i én variabel — den deriverte av innmaten delt på innmaten — bare at «den deriverte av innmaten» tas med hensyn på den variabelen du jobber med.\n\n$$\\big(\\ln g(x,y)\\big)'_{x}=\\frac{g'_{x}}{g},\\qquad \\big(\\ln g(x,y)\\big)'_{y}=\\frac{g'_{y}}{g}$$\n\nNevneren er den samme begge veier; det er bare telleren som endrer seg. For $f=\\ln(x^{2}+y)$ blir $f'_{x}=\\frac{2x}{x^{2}+y}$ og $f'_{y}=\\frac{1}{x^{2}+y}$."
+    },
+    {
+      "id": "econ1100-1-2-def-e-partiell",
+      "type": "definition",
+      "title": "Partiellderivert av et $e$-uttrykk",
+      "content": "Eksponentialfunksjonen blir stående uendret, og du ganger med den partiellderiverte av eksponenten.\n\n$$\\big(e^{g(x,y)}\\big)'_{x}=e^{g}\\cdot g'_{x},\\qquad \\big(e^{g(x,y)}\\big)'_{y}=e^{g}\\cdot g'_{y}$$\n\nFor $f=e^{3xy}$ er $f'_{x}=3y\\,e^{3xy}$ og $f'_{y}=3x\\,e^{3xy}$. Merk hvordan den *andre* variabelen dukker opp som faktor foran — den satt som konstant i eksponenten og faller ned når du deriverer."
+    },
+    {
+      "id": "econ1100-1-2-def-cobb-douglas",
+      "type": "definition",
+      "title": "Cobb-Douglas-funksjonen",
+      "content": "En Cobb-Douglas-funksjon er et produkt av potenser av variablene, og er den vanligste funksjonsformen i hele økonomifaget. Den brukes både som produktfunksjon (hvor mye en bedrift lager av kapital og arbeid) og som nyttefunksjon (hvor fornøyd en forbruker er med to goder).\n\n$$Q(K,L)=A\\,K^{\\alpha}L^{\\beta},\\qquad A,\\alpha,\\beta>0$$\n\nHer er $K$ kapital, $L$ arbeidskraft, og $A$ en produktivitetskonstant. Eksponentene $\\alpha$ og $\\beta$ er faste tall, ikke funksjoner — derfor gjelder vanlig potensregel."
+    },
+    {
+      "id": "econ1100-1-2-def-cd-derivert",
+      "type": "definition",
+      "title": "Partiellderivert av en Cobb-Douglas-funksjon",
+      "content": "Deriverer du en Cobb-Douglas-funksjon med hensyn på én av variablene, blir den andre potensen stående som konstant faktor, og du bruker potensregelen på din egen variabel.\n\n$$Q=AK^{\\alpha}L^{\\beta}\\quad\\Longrightarrow\\quad Q'_{K}=\\alpha AK^{\\alpha-1}L^{\\beta}=\\alpha\\,\\frac{Q}{K}$$\n\nDen siste omskrivingen er verdt å merke seg: den partiellderiverte er alltid eksponenten ganger funksjonen delt på variabelen. Den formen sparer mye regning i Del 8 og 9 — og den er grunnen til at Cobb-Douglas gir så pene svar."
+    },
+    {
+      "id": "econ1100-1-2-ex3",
+      "type": "example",
+      "title": "Eksempel 3: Tre standardformer på rad",
+      "problem": "Finn de partiellderiverte av\n\n**a)** $f(x,y)=\\ln(x^{2}+y)$, **b)** $g(x,y)=e^{3xy}$, **c)** $Q(K,L)=K^{0{,}3}L^{0{,}7}$.",
+      "solution": "**a)** Innmaten er $g=x^{2}+y$, med $g'_{x}=2x$ og $g'_{y}=1$:\n\n$$f'_{x}=\\frac{2x}{x^{2}+y},\\qquad f'_{y}=\\frac{1}{x^{2}+y}$$\n\n**b)** Eksponenten er $3xy$. Mht. $x$ er $3y$ konstant, så eksponentens deriverte er $3y$; mht. $y$ er den $3x$:\n\n$$g'_{x}=3y\\,e^{3xy},\\qquad g'_{y}=3x\\,e^{3xy}$$\n\n**c)** Cobb-Douglas med $\\alpha=0{,}3$ og $\\beta=0{,}7$. Mht. $K$ er $L^{0{,}7}$ konstant faktor:\n\n$$Q'_{K}=0{,}3\\,K^{-0{,}7}L^{0{,}7}=0{,}3\\left(\\frac{L}{K}\\right)^{0{,}7},\\qquad Q'_{L}=0{,}7\\,K^{0{,}3}L^{-0{,}3}=0{,}7\\left(\\frac{K}{L}\\right)^{0{,}3}$$\n\n**Tolkning av c):** $Q'_{K}$ er grenseproduktet av kapital — hvor mye ekstra som produseres av én enhet mer kapital. Legg merke til at det avtar når $K$ vokser (eksponenten $-0{,}7$ er negativ) og øker når $L$ vokser: mer arbeidskraft gjør hver ny maskin mer verdt. Det er *avtakende grenseprodukt* og *komplementaritet* mellom faktorene, lest rett ut av fortegnene.\n\n**Kontroll:** i $(K,L)=(1,1)$ er $Q=1$, $Q'_K=0{,}3$ og $Q'_L=0{,}7$ — summen er $1$, som stemmer med at $Q'_K K+Q'_L L=(\\alpha+\\beta)Q=Q$ her."
+    },
+    {
+      "id": "econ1100-1-2-oppg-5",
+      "type": "exercise",
+      "exercise": {
+        "id": "econ1100-1-2-o5",
+        "number": "5",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "(Sjanger P1.) Finn $f'_{x}$ og $f'_{y}$:\n\n**a)** $f(x,y)=x^{2}\\ln y$\n\n**b)** $f(x,y)=e^{x/y}$",
+        "solution": "**a)** Mht. $x$ er $\\ln y$ konstant faktor; mht. $y$ er $x^{2}$ konstant faktor:\n\n$$f'_{x}=2x\\ln y,\\qquad f'_{y}=\\frac{x^{2}}{y}$$\n\n**b)** Eksponenten er $g=\\dfrac{x}{y}$. Mht. $x$ er $g'_{x}=\\dfrac{1}{y}$; mht. $y$ er $g=x\\,y^{-1}$, så $g'_{y}=-\\dfrac{x}{y^{2}}$:\n\n$$f'_{x}=\\frac{1}{y}\\,e^{x/y},\\qquad f'_{y}=-\\frac{x}{y^{2}}\\,e^{x/y}$$\n\nDe to har motsatt fortegn (for $x,y>0$): øker $x$, vokser eksponenten og dermed funksjonen; øker $y$, krymper brøken $x/y$ og funksjonen avtar.",
+        "hints": [
+          "I a): $\\ln y$ er et tall når du deriverer mht. $x$.",
+          "I b): deriver eksponenten $x/y$ for seg selv, én variabel av gangen, og gang $e^{x/y}$ med resultatet."
+        ]
+      }
+    },
+    {
+      "id": "econ1100-1-2-oppg-6",
+      "type": "exercise",
+      "exercise": {
+        "id": "econ1100-1-2-o6",
+        "number": "6",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "(Sjanger P1.) La $f(x,y)=\\ln\\!\\big(x^{2}+xy\\big)$ for $x>0$, $y>0$.\n\n**a)** Finn $f'_{x}$.\n\n**b)** Finn $f'_{y}$, og forenkle svaret så langt det går.",
+        "solution": "**a)** Innmaten er $g=x^{2}+xy$, med $g'_{x}=2x+y$:\n\n$$f'_{x}=\\frac{2x+y}{x^{2}+xy}$$\n\nDenne kan også skrives $\\dfrac{2x+y}{x(x+y)}$, men det er ingen ytterligere forkorting å hente.\n\n**b)** Mht. $y$ er $g'_{y}=x$, altså\n\n$$f'_{y}=\\frac{x}{x^{2}+xy}=\\frac{x}{x(x+y)}=\\frac{1}{x+y}$$\n\n**Her er forenklingen hele poenget.** Faktoren $x$ forkortes bort, og svaret blir langt penere enn utgangspunktet. Å levere $\\frac{x}{x^{2}+xy}$ uten å forkorte er nøyaktig det sensor mener med manglende åpenbar forenkling.",
+        "hints": [
+          "Regelen er $\\dfrac{g'}{g}$ — regn ut $g'_x$ og $g'_y$ hver for seg, med felles nevner $g$.",
+          "I b): faktoriser nevneren som $x(x+y)$ og se om noe forkortes."
+        ]
+      }
+    },
+    {
+      "id": "econ1100-1-2-lokke4",
+      "type": "text",
+      "content": "## Løkke 4 — Andreordens og kryssderiverte (~12 min)"
+    },
+    {
+      "id": "econ1100-1-2-lokke4-intro",
+      "type": "text",
+      "content": "Når du har funnet $f'_{x}$ og $f'_{y}$, er de selv funksjoner av to variabler — og kan deriveres videre. Det gir fire andreordens partiellderiverte, og de brukes til å avgjøre om et punkt er et toppunkt, et bunnpunkt eller ingen av delene (Del 6).\n\nTo av de fire er «rene» ($f''_{xx}$ og $f''_{yy}$), og to er «kryssede» ($f''_{xy}$ og $f''_{yx}$). Det fine er at de to kryssede alltid er like."
+    },
+    {
+      "id": "econ1100-1-2-def-fxx",
+      "type": "definition",
+      "title": "Den andreordens partiellderiverte $f''_{xx}$",
+      "content": "Deriver $f'_{x}$ én gang til med hensyn på $x$. Resultatet måler krumningen til funksjonen i $x$-retningen — hvordan effekten av $x$ selv endrer seg når $x$ vokser.\n\n$$f''_{xx}=\\big(f'_{x}\\big)'_{x}=\\frac{\\partial^{2}f}{\\partial x^{2}}$$\n\nI økonomi er dette gjerne *avtakende grenseprodukt* eller *avtakende grensenytte*: er $f''_{xx}<0$, gir hver ny enhet av $x$ mindre igjen enn den forrige."
+    },
+    {
+      "id": "econ1100-1-2-def-fyy",
+      "type": "definition",
+      "title": "Den andreordens partiellderiverte $f''_{yy}$",
+      "content": "Helt tilsvarende: deriver $f'_{y}$ én gang til med hensyn på $y$. Den måler krumningen i $y$-retningen.\n\n$$f''_{yy}=\\big(f'_{y}\\big)'_{y}=\\frac{\\partial^{2}f}{\\partial y^{2}}$$\n\nFor $f(x,y)=x^{2}y+x^{2}+2y^{2}$ er $f'_{y}=x^{2}+4y$, og dermed $f''_{yy}=4$. Konstant og positiv — funksjonen krummer oppover i $y$-retningen overalt."
+    },
+    {
+      "id": "econ1100-1-2-def-krysset",
+      "type": "definition",
+      "title": "Den kryssderiverte $f''_{xy}$",
+      "content": "Den kryssderiverte forteller hvordan effekten av den ene variabelen endrer seg når den *andre* variabelen øker. Du deriverer først mht. $x$, deretter mht. $y$.\n\n$$f''_{xy}=\\big(f'_{x}\\big)'_{y}$$\n\nØkonomisk tolkning: er $f''_{xy}>0$, forsterker de to variablene hverandre (mer arbeidskraft gjør hver maskin mer produktiv). Er den negativ, konkurrerer de. For $f=x^{2}y+x^{2}+2y^{2}$ er $f'_{x}=2xy+2x$, og dermed $f''_{xy}=2x$."
+    },
+    {
+      "id": "econ1100-1-2-def-rekkefolge",
+      "type": "definition",
+      "title": "Rekkefølgen i $f''_{xy}$",
+      "content": "Notasjonen leses **fra venstre mot høyre i derivasjonsrekkefølgen**: $f''_{xy}$ betyr «først mht. $x$, så mht. $y$», og $f''_{yx}$ betyr det motsatte.\n\n$$f''_{xy}=\\big(f'_{x}\\big)'_{y},\\qquad f''_{yx}=\\big(f'_{y}\\big)'_{x}$$\n\nI praksis spiller rekkefølgen ingen rolle for svaret (se Youngs teorem under), men den spiller en rolle for *hvor mye arbeid* du får: velg den veien der det første derivasjonssteget gir det enkleste uttrykket."
+    },
+    {
+      "id": "econ1100-1-2-th-young",
+      "type": "theorem",
+      "title": "Youngs teorem",
+      "content": "For alle funksjoner du møter på ECON1100 — de er «pene nok», altså har kontinuerlige andrederiverte — er de to kryssderiverte like:\n\n$$f''_{xy}=f''_{yx}$$\n\nDette er ikke en tilfeldighet, men et generelt resultat. Du skal **bruke** det, ikke bevise det: sensor forventer at du kjenner likheten og kan bruke den som kontrollregning. Får du ulike svar de to veiene, har du regnet feil et sted.\n\nYoungs teorem er også et fast punkt i «sant eller usant»-oppgaven: en påstand om at de kryssderiverte er forskjellige, er usann for slike funksjoner."
+    },
+    {
+      "id": "econ1100-1-2-ex4",
+      "type": "example",
+      "title": "Eksempel 4: Alle fire andreordens deriverte",
+      "problem": "La $f(x,y)=x^{2}\\ln y$ for $y>0$. Finn $f''_{xx}$, $f''_{yy}$, $f''_{xy}$ og $f''_{yx}$, og kontroller Youngs teorem.",
+      "solution": "**Førsteordens** (fra oppgave 5): $f'_{x}=2x\\ln y$ og $f'_{y}=\\dfrac{x^{2}}{y}$.\n\n**$f''_{xx}$** — deriver $f'_{x}=2x\\ln y$ mht. $x$, med $\\ln y$ som konstant:\n\n$$f''_{xx}=2\\ln y$$\n\n**$f''_{yy}$** — deriver $f'_{y}=x^{2}y^{-1}$ mht. $y$, med $x^{2}$ som konstant:\n\n$$f''_{yy}=-x^{2}y^{-2}=-\\frac{x^{2}}{y^{2}}$$\n\n**$f''_{xy}$** — deriver $f'_{x}=2x\\ln y$ mht. $y$, med $2x$ som konstant:\n\n$$f''_{xy}=\\frac{2x}{y}$$\n\n**$f''_{yx}$** — deriver $f'_{y}=\\dfrac{x^{2}}{y}$ mht. $x$, med $\\frac1y$ som konstant:\n\n$$f''_{yx}=\\frac{2x}{y}$$\n\n**Kontroll:** $f''_{xy}=f''_{yx}=\\dfrac{2x}{y}$. ✓ Youngs teorem holder, som det skal.\n\n**Bruk kontrollen aktivt.** På eksamen tar det få sekunder å regne den kryssderiverte begge veier. Får du samme svar, er du nesten sikker på at også førsteordens deriverte er riktige — feil forplanter seg og gir ulike svar."
+    },
+    {
+      "id": "econ1100-1-2-oppg-7",
+      "type": "exercise",
+      "exercise": {
+        "id": "econ1100-1-2-o7",
+        "number": "7",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "(Sjanger P1.) La $f(x,y)=x^{3}y^{2}-4xy+y^{4}$ (samme funksjon som i oppgave 2, der du fant $f'_{x}=3x^{2}y^{2}-4y$ og $f'_{y}=2x^{3}y-4x+4y^{3}$).\n\n**a)** Finn $f''_{xx}$ og $f''_{yy}$.\n\n**b)** Finn $f''_{xy}$ og $f''_{yx}$, og kontroller at de er like.",
+        "solution": "**a)** Deriver $f'_{x}=3x^{2}y^{2}-4y$ mht. $x$ (der $y$ er konstant):\n\n$$f''_{xx}=6xy^{2}$$\n\nDeriver $f'_{y}=2x^{3}y-4x+4y^{3}$ mht. $y$ (der $x$ er konstant):\n\n$$f''_{yy}=2x^{3}+12y^{2}$$\n\n**b)** Deriver $f'_{x}=3x^{2}y^{2}-4y$ mht. $y$:\n\n$$f''_{xy}=6x^{2}y-4$$\n\nDeriver $f'_{y}=2x^{3}y-4x+4y^{3}$ mht. $x$:\n\n$$f''_{yx}=6x^{2}y-4$$\n\nDe er like, som Youngs teorem sier. ✓ Merk at leddet $4y^{3}$ forsvinner i $f''_{yx}$ fordi det ikke inneholder $x$, og at $-4x$ gir $-4$.",
+        "hints": [
+          "Start fra de førsteordens deriverte som allerede er oppgitt — du trenger ikke begynne på nytt.",
+          "For $f''_{xy}$: deriver $f'_x$ mht. $y$. Hvilke ledd i $f'_x$ inneholder $y$?"
+        ]
+      }
+    },
+    {
+      "id": "econ1100-1-2-lokke5",
+      "type": "text",
+      "content": "## Løkke 5 — Økonomisk tolkning og et uttrykk på eksamensnivå (~10 min)"
+    },
+    {
+      "id": "econ1100-1-2-def-grensenytte",
+      "type": "definition",
+      "title": "Grensenytte",
+      "content": "Grensenytten er den partiellderiverte av en nyttefunksjon med hensyn på ett av godene: hvor mye mer fornøyd forbrukeren blir av én enhet til av det godet, når konsumet av det andre holdes uendret.\n\n$$U=U(x,y)\\quad\\Longrightarrow\\quad \\text{grensenytte av gode }x=U'_{x}$$\n\nFor $U(x,y)=\\ln x+2\\ln y$ er $U'_{x}=\\dfrac1x$ og $U'_{y}=\\dfrac2y$. Begge er positive (mer er bedre) og avtakende (den tiende kaffekoppen gir mindre glede enn den første)."
+    },
+    {
+      "id": "econ1100-1-2-def-grenseprodukt",
+      "type": "definition",
+      "title": "Grenseprodukt",
+      "content": "Grenseproduktet er den partiellderiverte av en produktfunksjon med hensyn på én innsatsfaktor: hvor mye mer bedriften produserer av én enhet til av den faktoren, med de andre faste.\n\n$$Q=Q(K,L)\\quad\\Longrightarrow\\quad \\text{grenseprodukt av arbeidskraft}=Q'_{L}$$\n\nGrenseproduktet er normalt positivt ($Q'_{L}>0$: mer arbeid gir mer produksjon) og avtakende ($Q''_{LL}<0$: hver ny arbeider gir mindre enn den forrige, fordi utstyret er fast)."
+    },
+    {
+      "id": "econ1100-1-2-def-avtakende",
+      "type": "definition",
+      "title": "Avtakende grensenytte og grenseprodukt",
+      "content": "«Avtakende» betyr at den *førstederiverte er positiv, men den andrederiverte negativ*. Nytten eller produksjonen vokser, men stadig saktere.\n\n$$U'_{x}>0\\quad\\text{og}\\quad U''_{xx}<0$$\n\nDette er den vanligste egenskapen økonomiske modeller antar om nytte og produksjon, og den er ren fortegnsinformasjon fra første- og andreordens partiellderiverte. Den er også grunnen til at optimeringsproblemene i Del 8 har pene, entydige løsninger."
+    },
+    {
+      "id": "econ1100-1-2-def-punktverdi",
+      "type": "definition",
+      "title": "Partiellderivert i et punkt",
+      "content": "Skriver vi $f'_{x}(a,b)$, mener vi den partiellderiverte regnet ut i det bestemte punktet $(a,b)$ — altså et tall, ikke en funksjon.\n\n$$f'_{x}(1,2)=2\\cdot 1\\cdot 2+2\\cdot 1=6\\qquad\\text{for }f(x,y)=x^{2}y+x^{2}+2y^{2}$$\n\nRekkefølgen er alltid den samme som i funksjonsnavnet: første tall er $x$-verdien, andre er $y$-verdien. Å sette inn i feil rekkefølge er en unødvendig, men vanlig, tabbe under tidspress."
+    },
+    {
+      "id": "econ1100-1-2-ex5",
+      "type": "example",
+      "title": "Eksempel 5: Eksamensnivå — brøk, eksponential og kryssderivert",
+      "problem": "La\n\n$$f(x,y)=\\frac{x^{2}}{y}+y\\,e^{xy},\\qquad y>0.$$\n\n**a)** Finn $f'_{x}$ og $f'_{y}$.\n\n**b)** Finn $f''_{xy}$, og kontroller svaret ved å regne $f''_{yx}$.",
+      "solution": "**a) Med hensyn på $x$.** Første ledd: $\\dfrac{x^{2}}{y}$ har $\\frac1y$ som konstant faktor, så det deriveres til $\\dfrac{2x}{y}$. Andre ledd: $y\\,e^{xy}$ har $y$ som konstant faktor, og eksponentens deriverte mht. $x$ er $y$:\n\n$$f'_{x}=\\frac{2x}{y}+y\\cdot e^{xy}\\cdot y=\\frac{2x}{y}+y^{2}e^{xy}$$\n\n**Med hensyn på $y$.** Første ledd: $x^{2}y^{-1}$ deriveres til $-x^{2}y^{-2}$. Andre ledd er et *produkt* av $y$ og $e^{xy}$, så produktregelen gjelder, med eksponentens deriverte mht. $y$ lik $x$:\n\n$$f'_{y}=-\\frac{x^{2}}{y^{2}}+1\\cdot e^{xy}+y\\cdot e^{xy}\\cdot x=-\\frac{x^{2}}{y^{2}}+e^{xy}\\big(1+xy\\big)$$\n\nLegg merke til forenklingen i siste ledd: $e^{xy}$ ble satt utenfor.\n\n**b) $f''_{xy}$** — deriver $f'_{x}=\\dfrac{2x}{y}+y^{2}e^{xy}$ med hensyn på $y$.\n\n- $\\dfrac{2x}{y}=2x\\,y^{-1}$ → $-\\dfrac{2x}{y^{2}}$\n- $y^{2}e^{xy}$: produktregelen med $u=y^{2}$, $v=e^{xy}$, der $v'_{y}=x\\,e^{xy}$ → $2y\\,e^{xy}+y^{2}\\cdot x\\,e^{xy}$\n\n$$f''_{xy}=-\\frac{2x}{y^{2}}+y\\,e^{xy}\\big(2+xy\\big)$$\n\n**Kontroll — $f''_{yx}$** ved å derivere $f'_{y}$ mht. $x$:\n\n- $-\\dfrac{x^{2}}{y^{2}}$ → $-\\dfrac{2x}{y^{2}}$\n- $e^{xy}(1+xy)$: produktregelen med $u=e^{xy}$ ($u'_{x}=y\\,e^{xy}$) og $v=1+xy$ ($v'_{x}=y$) → $y\\,e^{xy}(1+xy)+e^{xy}\\cdot y=y\\,e^{xy}\\big(1+xy+1\\big)=y\\,e^{xy}(2+xy)$\n\n$$f''_{yx}=-\\frac{2x}{y^{2}}+y\\,e^{xy}\\big(2+xy\\big)$$\n\n**Identisk.** ✓ Youngs teorem er bekreftet, og dermed er hele regnestykket kontrollert.\n\n**Slik ville en A-besvarelse sett ut:** metodevalget navngis ved hvert steg (kjerneregel i eksponenten, produktregel på $y\\,e^{xy}$), fellesfaktoren $e^{xy}$ settes utenfor, og kryssderiverten regnes begge veier som kontroll."
+    },
+    {
+      "id": "econ1100-1-2-oppg-8",
+      "type": "exercise",
+      "exercise": {
+        "id": "econ1100-1-2-o8",
+        "number": "8",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "(Sjanger P1.) En bedrifts produksjon er\n\n$$Q(K,L)=10\\,K^{0{,}4}L^{0{,}6},$$\n\nder $K$ er kapital og $L$ er arbeidskraft, begge i faste enheter.\n\n**a)** Finn grenseproduktene $Q'_{K}$ og $Q'_{L}$.\n\n**b)** Regn ut begge i punktet $(K,L)=(100,100)$.\n\n**c)** Vis at $Q''_{KK}<0$ for alle $K,L>0$, og forklar i én setning hva det betyr økonomisk.",
+        "solution": "**a)** Cobb-Douglas: eksponenten ned, den andre potensen står som konstant faktor.\n\n$$Q'_{K}=10\\cdot 0{,}4\\,K^{-0{,}6}L^{0{,}6}=4\\left(\\frac{L}{K}\\right)^{0{,}6},\\qquad Q'_{L}=10\\cdot 0{,}6\\,K^{0{,}4}L^{-0{,}4}=6\\left(\\frac{K}{L}\\right)^{0{,}4}$$\n\n**b)** I $(100,100)$ er $L/K=1$ og $K/L=1$, så begge parentesene er $1$:\n\n$$Q'_{K}=4,\\qquad Q'_{L}=6$$\n\n(Til sammenligning er $Q(100,100)=10\\cdot 100=1000$.)\n\n**c)** Deriver $Q'_{K}=4K^{-0{,}6}L^{0{,}6}$ videre mht. $K$:\n\n$$Q''_{KK}=4\\cdot(-0{,}6)K^{-1{,}6}L^{0{,}6}=-2{,}4\\,K^{-1{,}6}L^{0{,}6}$$\n\nFor $K>0$ og $L>0$ er både $K^{-1{,}6}>0$ og $L^{0{,}6}>0$, så hele uttrykket har fortegnet til $-2{,}4$, altså **negativt overalt i definisjonsområdet**.\n\nØkonomisk: grenseproduktet av kapital er avtakende — hver ny maskin gir mindre ekstra produksjon enn den forrige, så lenge arbeidsstokken holdes uendret.",
+        "hints": [
+          "Cobb-Douglas: $\\big(AK^{\\alpha}L^{\\beta}\\big)'_K=\\alpha AK^{\\alpha-1}L^{\\beta}$.",
+          "I c): skriv $Q''_{KK}$ som en konstant ganger positive potenser, og les av fortegnet på konstanten."
+        ]
+      }
+    },
+    {
+      "id": "econ1100-1-2-warning-feil",
+      "type": "warning",
+      "title": "Typiske feil i partiellderivasjon",
+      "content": "Disse fem står for nesten alt poengtapet på Oppgave 1. Den første har eget nummer i bokas feilregister:\n\n- **Feil #12 — fortegnsfeil i deriverte av brøker og sammensatte uttrykk.** Kvotientregelens teller er $u'v-uv'$, i den rekkefølgen, og minusen gjelder hele produktet $uv'$. Skriv opp $u$, $v$, $u'_{x}$, $v'_{x}$ på egen linje før du setter inn.\n- **Å behandle den andre variabelen som variabel.** Deriverer du mht. $x$, er $y$ et *tall*. Da er $\\frac{\\partial}{\\partial x}(3y)=0$, ikke $3$. Knep: sett midlertidig inn et tall for $y$ hvis du blir usikker.\n- **Å glemme kjerneregelen inne i $\\ln$ og $e$.** $\\big(e^{3xy}\\big)'_{x}$ er $3y\\,e^{3xy}$, ikke $e^{3xy}$ og ikke $3xy\\,e^{3xy}$. Deriver eksponenten med hensyn på riktig variabel, og gang med den.\n- **Å tro at $f''_{xy}$ og $f''_{yx}$ er forskjellige.** For alle funksjoner i dette faget er de like (Youngs teorem). En «sant eller usant»-påstand om det motsatte er usann — men husk at *begrunnelsen* er poenget, ikke konklusjonen.\n- **Uforenklet svar.** Får du $\\dfrac{x}{x^{2}+xy}$, skal det forkortes til $\\dfrac{1}{x+y}$. Sensor krever åpenbar forenkling for full uttelling."
+    },
+    {
+      "id": "econ1100-1-2-drill-intro",
+      "type": "text",
+      "content": "## Eksamensdrill (~9 min)\n\nDe siste oppgavene er av samme type og vanskelighetsgrad som de tyngste delpunktene i Oppgave 1. Regn dem for hånd, og bruk kryssderiverten som kontroll der du kan."
+    },
+    {
+      "id": "econ1100-1-2-oppg-9",
+      "type": "exercise",
+      "exercise": {
+        "id": "econ1100-1-2-o9",
+        "number": "9",
+        "type": "classic",
+        "difficulty": "vanskelig",
+        "task": "(Sjanger P1 — eksamensnivå.) La\n\n$$f(x,y)=\\frac{x^{2}}{x+y}+y\\ln x,\\qquad x>0.$$\n\n**a)** Finn $f'_{x}$.\n\n**b)** Finn $f'_{y}$.\n\n**c)** Finn $f''_{xy}$.",
+        "solution": "**a)** Første ledd med kvotientregelen: $u=x^{2}$, $v=x+y$, $u'_{x}=2x$, $v'_{x}=1$:\n\n$$\\left(\\frac{x^{2}}{x+y}\\right)'_{x}=\\frac{2x(x+y)-x^{2}}{(x+y)^{2}}=\\frac{x^{2}+2xy}{(x+y)^{2}}=\\frac{x(x+2y)}{(x+y)^{2}}$$\n\nAndre ledd: $y\\ln x$ har $y$ som konstant faktor, og $(\\ln x)'=\\frac1x$:\n\n$$f'_{x}=\\frac{x(x+2y)}{(x+y)^{2}}+\\frac{y}{x}$$\n\n**b)** Første ledd mht. $y$: telleren $x^{2}$ er konstant, så skriv $x^{2}(x+y)^{-1}$ og bruk kjerneregelen:\n\n$$\\left(\\frac{x^{2}}{x+y}\\right)'_{y}=-\\frac{x^{2}}{(x+y)^{2}}$$\n\nAndre ledd: $\\ln x$ er konstant faktor, $y$ deriveres til $1$:\n\n$$f'_{y}=-\\frac{x^{2}}{(x+y)^{2}}+\\ln x$$\n\n**c)** Enklest vei er å derivere $f'_{y}$ mht. $x$ (Youngs teorem gir oss lov til å velge). Første ledd: $-x^{2}(x+y)^{-2}$ krever produktregelen med $u=-x^{2}$ og $v=(x+y)^{-2}$:\n\n$$\\big({-x^{2}}(x+y)^{-2}\\big)'_{x}=-2x(x+y)^{-2}-x^{2}\\cdot(-2)(x+y)^{-3}=-\\frac{2x}{(x+y)^{2}}+\\frac{2x^{2}}{(x+y)^{3}}$$\n\nFelles nevner $(x+y)^{3}$:\n\n$$=\\frac{-2x(x+y)+2x^{2}}{(x+y)^{3}}=\\frac{-2xy}{(x+y)^{3}}$$\n\nAndre ledd: $(\\ln x)'_{x}=\\frac1x$. Til sammen:\n\n$$f''_{xy}=-\\frac{2xy}{(x+y)^{3}}+\\frac{1}{x}$$\n\n**Merk metodevalget i c):** å gå veien om $f'_{y}$ er mye kortere enn å derivere det sammensatte $f'_{x}$ mht. $y$. Youngs teorem er ikke bare et kontrollverktøy — det er en arbeidsbesparelse.",
+        "hints": [
+          "I a): kvotientregelen på første ledd, og husk at $y$ er en konstant faktor foran $\\ln x$.",
+          "I c): Youngs teorem lar deg velge rekkefølge. Hvilken av $f'_x$ og $f'_y$ er enklest å derivere videre?"
+        ]
+      }
+    },
+    {
+      "id": "econ1100-1-2-oppg-10",
+      "type": "exercise",
+      "exercise": {
+        "id": "econ1100-1-2-o10",
+        "number": "10",
+        "type": "classic",
+        "difficulty": "vanskelig",
+        "task": "(Sjanger P1 — eksamensnivå.) La $f(x,y)=\\big(x^{2}+y^{2}\\big)^{3}$.\n\n**a)** Finn $f'_{x}$ og $f'_{y}$.\n\n**b)** Finn $f''_{xx}$.\n\n**c)** Uten å regne: hva er $f''_{yy}$? Begrunn svaret.",
+        "solution": "**a)** Kjerneregelen med kjerne $u=x^{2}+y^{2}$. Mht. $x$ er $u'_{x}=2x$, mht. $y$ er $u'_{y}=2y$:\n\n$$f'_{x}=3(x^{2}+y^{2})^{2}\\cdot 2x=6x(x^{2}+y^{2})^{2},\\qquad f'_{y}=6y(x^{2}+y^{2})^{2}$$\n\n**b)** Deriver $f'_{x}=6x(x^{2}+y^{2})^{2}$ mht. $x$ med produktregelen: $u=6x$ ($u'=6$) og $v=(x^{2}+y^{2})^{2}$ ($v'_{x}=2(x^{2}+y^{2})\\cdot 2x=4x(x^{2}+y^{2})$):\n\n$$f''_{xx}=6(x^{2}+y^{2})^{2}+6x\\cdot 4x(x^{2}+y^{2})=6(x^{2}+y^{2})^{2}+24x^{2}(x^{2}+y^{2})$$\n\nFellesfaktoren $6(x^{2}+y^{2})$ settes utenfor:\n\n$$f''_{xx}=6(x^{2}+y^{2})\\big(x^{2}+y^{2}+4x^{2}\\big)=6(x^{2}+y^{2})\\big(5x^{2}+y^{2}\\big)$$\n\n**c)** Funksjonen er **symmetrisk** i $x$ og $y$: bytter du om de to bokstavene, får du nøyaktig samme uttrykk, siden $x^{2}+y^{2}=y^{2}+x^{2}$. Derfor må også de andrederiverte bytte plass når bokstavene byttes:\n\n$$f''_{yy}=6(x^{2}+y^{2})\\big(5y^{2}+x^{2}\\big)$$\n\nSymmetriargumentet er legitimt og gir full uttelling — men det må **sies eksplisitt**, slik det gjøres her. Å bare skrive svaret uten å nevne symmetrien er en ubegrunnet påstand.",
+        "hints": [
+          "I a): kjernen er $u=x^{2}+y^{2}$; deriver den mht. hver variabel for seg.",
+          "I b): $f'_x$ er et produkt av $6x$ og en potens av kjernen — begge deler må deriveres."
+        ]
+      }
+    },
+    {
+      "id": "econ1100-1-2-begrepsbank-notis",
+      "type": "text",
+      "content": "## Begrepsbank\n\n*Begrepsbanken er flashcard- og repetisjonsstoff — den gjentar det du nettopp har lest. Hopp trygt over ved førstegangslesing; tidsanslaget for kapitlet gjelder kjernestoffet.*"
+    },
+    {
+      "id": "econ1100-1-2-bb-symmetri",
+      "type": "definition",
+      "title": "Symmetrisk funksjon",
+      "content": "En funksjon er symmetrisk i $x$ og $y$ hvis den er uendret når du bytter om de to variablene: $f(x,y)=f(y,x)$.\n\n$$f(x,y)=\\frac{xy}{x+y}\\quad\\text{er symmetrisk, siden}\\quad f(y,x)=\\frac{yx}{y+x}=f(x,y)$$\n\nSymmetri sparer halve regnearbeidet: har du funnet $f'_{x}$, får du $f'_{y}$ ved å bytte om bokstavene. Sensor godtar dette som fullgod begrunnelse — men bare hvis du **sier at du bruker symmetri**, ikke bare skriver svaret."
+    },
+    {
+      "id": "econ1100-1-2-bb-fortegn-tolkning",
+      "type": "definition",
+      "title": "Fortegnet på en partiellderivert",
+      "content": "Fortegnet på $f'_{x}$ forteller om $f$ vokser eller avtar når $x$ øker og $y$ holdes fast — helt uavhengig av hva $f'_{y}$ gjør.\n\n$$f'_{x}>0:\\ f\\ \\text{vokser i}\\ x\\text{-retningen},\\qquad f'_{x}<0:\\ f\\ \\text{avtar}$$\n\nI økonomiske modeller er dette ofte hele svaret på et spørsmål: er grensenytten positiv, er mer bedre; er grenseproduktet av arbeid positivt, lønner det seg å ansette flere (før man ser på kostnaden)."
+    },
+    {
+      "id": "econ1100-1-2-bb-krumning",
+      "type": "definition",
+      "title": "Krumning i én retning",
+      "content": "Den andreordens partiellderiverte $f''_{xx}$ måler om funksjonen krummer oppover eller nedover *langs $x$-aksen*, med $y$ fast.\n\n$$f''_{xx}>0:\\ \\text{konveks i }x\\text{-retningen},\\qquad f''_{xx}<0:\\ \\text{konkav i }x\\text{-retningen}$$\n\nVær oppmerksom på at dette bare sier noe om én retning. En funksjon kan godt være konveks i $x$-retningen og konkav i $y$-retningen samtidig — og da er punktet verken et toppunkt eller et bunnpunkt. Den fulle testen kommer i Del 6."
+    },
+    {
+      "id": "econ1100-1-2-bb-produkt-partiell",
+      "type": "definition",
+      "title": "Produktregelen i partiellderivasjon",
+      "content": "Produktregelen brukes helt som vanlig, men bare de faktorene som inneholder din variabel, deriveres — resten er konstanter som blir stående.\n\n$$\\big(y\\,e^{xy}\\big)'_{x}=y\\cdot e^{xy}\\cdot y=y^{2}e^{xy}$$\n\nHer var $y$ foran en ren konstant faktor, så produktregelen trengtes ikke i det hele tatt. Deriverer du derimot mht. $y$, varierer begge faktorene, og produktregelen må brukes: $\\big(y\\,e^{xy}\\big)'_{y}=e^{xy}(1+xy)$."
+    },
+    {
+      "id": "econ1100-1-2-repetisjon",
+      "type": "collapsible",
+      "title": "Repetisjonsoppgaver",
+      "buttonText": "Vis repetisjonsoppgaver",
+      "content": [
+        {
+          "id": "econ1100-1-2-repetisjon-txt",
+          "type": "text",
+          "content": "Korte oppgaver fra [kap. 1.1](/bok/econ1100/econ1100-1-1) — grunnlaget dette kapitlet hviler på.\n\n**1.** Deriver $f(x)=5x^{3}-\\dfrac{2}{x}+\\sqrt{x}$.\n\n*Svar:* $f'(x)=15x^{2}+\\dfrac{2}{x^{2}}+\\dfrac{1}{2\\sqrt{x}}$. Merk at $-2x^{-1}$ deriveres til $+2x^{-2}$.\n\n**2.** Deriver $g(x)=\\dfrac{x+1}{x^{2}}$ på to måter.\n\n*Svar:* $g=x^{-1}+x^{-2}$ gir $g'=-x^{-2}-2x^{-3}=-\\dfrac{x+2}{x^{3}}$. Kvotientregelen gir samme svar.\n\n**3.** Deriver $h(x)=e^{4x}$ og $k(x)=\\ln(2x+5)$.\n\n*Svar:* $h'=4e^{4x}$ og $k'=\\dfrac{2}{2x+5}$.\n\n**4.** Deriver $m(x)=(3x^{2}-1)^{4}$.\n\n*Svar:* $m'=4(3x^{2}-1)^{3}\\cdot 6x=24x(3x^{2}-1)^{3}$.\n\n**5.** Deriver $p(x)=x\\,e^{x}$ og forenkle.\n\n*Svar:* $p'=e^{x}+xe^{x}=e^{x}(1+x)$.\n\n**6.** Hva er $\\dfrac{d}{dx}x^{\\alpha}$ når $\\alpha$ er en konstant?\n\n*Svar:* $\\alpha x^{\\alpha-1}$ — potensregelen gjelder for alle reelle eksponenter."
+        }
+      ]
+    },
+    {
+      "id": "econ1100-1-2-symbolliste",
+      "type": "collapsible",
+      "title": "Symbol- og formelliste",
+      "buttonText": "Vis symboler og formler",
+      "content": [
+        {
+          "id": "econ1100-1-2-symbolliste-txt",
+          "type": "text",
+          "content": "## Symbol- og formelliste\n\n*Oppslagsverk — alt her forklares underveis i kapitlet.*\n\n| Symbol | Betydning |\n|---|---|\n| $f(x,y)$ | Funksjon av to variabler |\n| $f'_{x}$, $f'_{y}$ | Partiellderiverte — endring i $f$ når bare $x$ (eller bare $y$) øker |\n| $\\dfrac{\\partial f}{\\partial x}$ | Samme som $f'_{x}$; $\\partial$ signaliserer at de andre variablene holdes fast |\n| $f'_{x}(a,b)$ | Den partiellderiverte regnet ut i punktet $(a,b)$ — et tall |\n| $f''_{xx}$, $f''_{yy}$ | Andreordens partiellderiverte — krumning i hver sin retning |\n| $f''_{xy}$, $f''_{yx}$ | Kryssderiverte — hvordan effekten av én variabel endres når den andre øker |\n| $u$, $v$ | Navn på teller og nevner (eller de to faktorene) i regnereglene |\n| $K$, $L$ | Kapital og arbeidskraft i produktfunksjoner |\n| $Q(K,L)$ | Produsert mengde som funksjon av innsatsfaktorene |\n| $U(x,y)$ | Nyttefunksjon — hvor fornøyd en forbruker er med mengdene $x$ og $y$ |\n| $A$, $\\alpha$, $\\beta$ | Konstanter i en Cobb-Douglas-funksjon (produktivitet og eksponenter) |\n| $Q'_{K}$, $Q'_{L}$ | Grenseprodukt av kapital og arbeidskraft |\n| $U'_{x}$, $U'_{y}$ | Grensenytte av gode $x$ og gode $y$ |\n\n**Formler i dette delkapitlet:**\n\n$$f'_{x}=\\lim_{h\\to 0}\\frac{f(x+h,y)-f(x,y)}{h}$$\nDefinisjonen: bare $x$ endres, $y$ står stille.\n\n$$\\left(\\frac{u}{v}\\right)'_{x}=\\frac{u'_{x}v-u\\,v'_{x}}{v^{2}}$$\nKvotientregelen partielt — rekkefølgen i telleren bestemmer fortegnet (feil #12).\n\n$$\\big(\\ln g\\big)'_{x}=\\frac{g'_{x}}{g},\\qquad \\big(e^{g}\\big)'_{x}=e^{g}\\,g'_{x}$$\nLogaritme og eksponential: samme regel som i én variabel, med partiell derivert av innmaten.\n\n$$Q=AK^{\\alpha}L^{\\beta}\\ \\Longrightarrow\\ Q'_{K}=\\alpha AK^{\\alpha-1}L^{\\beta}=\\alpha\\frac{Q}{K}$$\nCobb-Douglas: eksponenten ned, den andre potensen står som konstant faktor.\n\n$$f''_{xy}=\\big(f'_{x}\\big)'_{y},\\qquad f''_{yx}=\\big(f'_{y}\\big)'_{x}$$\nDe kryssderiverte, definert ved derivasjonsrekkefølgen.\n\n$$f''_{xy}=f''_{yx}$$\nYoungs teorem — gjelder alle funksjoner i dette faget, og er bokas beste kontrollregning."
+        }
+      ]
+    }
+  ],
+  "exercises": []
+}
