@@ -1,0 +1,365 @@
+{
+  "id": "in1020-4-prove",
+  "courseId": "in1020",
+  "chapterNumber": "4.P",
+  "title": "Prøver til del 4: Datanettverk",
+  "description": "Fire prøver à 25–35 minutter som dekker TCP/IP-lagene og protokollene, subnetting og adresseregning, overføringstid med byte-til-bit-fella, og nettjenestene sammen med svitsjing og operativsystem.",
+  "estimatedMinutes": 120,
+  "competenceGoals": [
+    "kunne plassere protokoller på riktig lag og riktig transport under tidspress",
+    "kunne løse subnettoppgaver mekanisk og kontrollere svaret selv",
+    "kunne regne overføringstid begge veier uten å miste faktoren åtte",
+    "kunne avvise de faste distraktorene om nettjenester, svitsjing og operativsystem"
+  ],
+  "content": [
+    {
+      "id": "in1020-4-prove-om-provene",
+      "type": "tip",
+      "title": "Fire prøver til del 4 — slik bruker du dem",
+      "content": "Dette kapitlet er **4 prøver à ~25–35 minutter**, til sammen omtrent 120 minutter. Det kan trygt deles over flere kvelder — **én prøve per økt** er en helt vanlig og god måte å gjøre det på.\n\n| Prøve | Tema | Tid |\n|---|---|---|\n| **Prøve 1** | TCP/IP-lagene, protokoll til transport og TCP mot UDP | ~30 min |\n| **Prøve 2** | Subnetting — prefiks, vertstall, subnett og kringkasting | ~35 min |\n| **Prøve 3** | Overføringstid og byte-til-bit-fella | ~25 min |\n| **Prøve 4** | Nettjenester, aksessmodeller, svitsjing og operativsystem | ~30 min |\n\n**Hvor flervalget bor.** Oppgavene her er skrevet med alternativene **inne i prøveteksten**, slik at du krysser av på papir eller i hodet. Vil du ha tidsstyrt avkrysning med automatisk retting, ligger den i den interaktive quizen til hvert kapittel i del 4.\n\n**Slik tar du en prøve.** Ta tida. Ikke slå opp underveis, og ikke bruk kalkulator — både adresseregningen og overføringstiden skal gå for hånd. Fasiten begrunner **hvert** alternativ, også de gale, siden det er den ferdigheten eksamen faktisk måler.\n\n**Om seksjonskravet.** Del 4 svarer til **seksjon 4, datanettverk**, som må bestås for seg. Det er den seksjonen flest stryker på, og de to regneteknikkene i prøve 2 og 3 er de billigste poengene i hele seksjonen. Prioritér dem hvis du har kort tid.\n\n**Etter hver fasit står en avkryssbar selvdiagnose.** Bruk den. Den peker på hvilket kapittel du bør tilbake til hvis noe glapp."
+    },
+    {
+      "id": "in1020-4-prove-forkunnskaper",
+      "type": "text",
+      "content": "## Forkunnskaper — sist du var her\n\nPrøvene dekker hele del 4, altså [kap. 4.1](/bok/in1020/in1020-4-1) til [kap. 4.6](/bok/in1020/in1020-4-6). Her er kjernen, ferdig oppfrisket:\n\n**De fire lagene, ovenfra og ned:** applikasjon, transport, nettverk, lenke. **Ruting hører til nettverkslaget.**\n\n**TCPs fire garantier:** omsending av tapte pakker, riktig rekkefølge, flytkontroll, metningskontroll. Pluss sjekksum. **TCP gir ikke kryptering, ikke ruting og ingen garantert fart.**\n\n**Protokoll til transport:** HTTP, IMAP, SMTP, FTP og DASH → **TCP**. DHCP → **UDP**. DNS → **begge**.\n\n**Adresseregningen:**\n\n| Prefiks | `/24` | `/25` | `/26` | `/27` | `/28` | `/29` | `/30` |\n|---|---|---|---|---|---|---|---|\n| Verter | 254 | 126 | 62 | 30 | 14 | 6 | 2 |\n\n`subnett = IP AND maske` (det minste tallet) · `kringkasting = IP OR ¬maske` (det største) · kontroll: avstanden skal være `2^vertsbit − 1`.\n\n**Maskeverdier:** 128 → 1 ettall, 192 → 2, 224 → 3, 240 → 4, 248 → 5, 252 → 6.\n\n**Overføringstid:** `t = S · 8 / R`. Filstørrelse i megabyte, rate i megabit per sekund. `1 GB = 1000 MB`.\n\n**Tjenestene:** NAT deler én offentlig adresse · DHCP tildeler adresser automatisk · DNS oversetter navn til adresse · CDN flytter innhold nærmere brukeren · IPv6 utvider adresserommet · DASH tilpasser videokvaliteten.\n\n**Operativsystemet:** fordeler ressurser, lar flere dele maskinen, tilbyr felles tjenester, abstraherer bort maskinvaren. Brukerprogrammer kjører i **brukermodus**."
+    },
+    {
+      "id": "in1020-4-prove-p1",
+      "type": "collapsible",
+      "title": "Prøve 1 — TCP/IP-lag, protokoller og transport (~30 min)",
+      "buttonText": "Vis prøve 1",
+      "content": [
+        {
+          "id": "in1020-4-prove-p1-intro",
+          "type": "text",
+          "content": "**Fire oppgaver, omtrent 30 minutter.** Ingen hjelpemidler.\n\nOppgavene er i svarformene **F1** («velg ett *eller flere* alternativer»), **F2** (sant/usant-matrise), **F3** (kobling) og **F4** (velg ett alternativ per delspørsmål)."
+        },
+        {
+          "id": "in1020-4-prove-op1-1",
+          "type": "exercise",
+          "exercise": {
+            "id": "in1020-4-prove-op1-1",
+            "number": "1.1",
+            "type": "classic",
+            "difficulty": "lett",
+            "task": "(Sjanger J — nettverk, svarform F4.) Hvilket lag hører hver av disse hjemme i?\n\n**a)** IP\n\n**b)** Portnumre\n\n**c)** SMTP\n\n**d)** MAC-adresser\n\n**Alternativer:** A. Applikasjonslaget · B. Transportlaget · C. Nettverkslaget · D. Lenkelaget",
+            "solution": "**a) C — nettverkslaget.** IP er nettverkslagets protokoll: adressering og ruting mellom nett.\n\n**b) B — transportlaget.** Portnummeret skiller programmene på samme vert fra hverandre.\n\n**c) A — applikasjonslaget.** SMTP sender e-post mellom tjenere — en tjeneste for brukeren.\n\n**d) D — lenkelaget.** Maskinvareadressen gjelder bare den ene strekningen til neste maskin.\n\n**Fasit: a) C, b) B, c) A, d) D.**\n\nMerk at fasitbokstavene her er C, B, A, D — ikke i rekkefølge. Bruk aldri rekkefølgen på fasitbokstavene som ledetråd.\n\nMetoden: spør for hver om det gjelder **hele reisen** (nettverk), **hvilket program** (transport), **hva brukeren vil** (applikasjon) eller **én strekning** (lenke).",
+            "hints": [
+              "Spør for hver: gjelder dette hele reisen, eller bare til neste maskin?",
+              "Portnummeret svarer på «hvilket program», ikke «hvilken maskin»."
+            ]
+          }
+        },
+        {
+          "id": "in1020-4-prove-op1-2",
+          "type": "exercise",
+          "exercise": {
+            "id": "in1020-4-prove-op1-2",
+            "number": "1.2",
+            "type": "classic",
+            "difficulty": "middels",
+            "task": "(Sjanger J — nettverk, svarform F2.) Vurder hver påstand som sann eller usann, og begrunn hver rad.\n\n| # | Påstand | Sant/usant |\n|---|---|---|\n| a | TCP sender tapte segmenter på nytt | |\n| b | Ruting skjer i transportlaget | |\n| c | UDP har en sjekksum | |\n| d | Flytkontroll handler om at nettet mellom partene er overbelastet | |\n| e | TCP setter opp en forbindelse før nyttedata sendes | |",
+            "solution": "**a) Sann.** Omsending er kjernen i TCPs pålitelighetsløfte: det som ikke bekreftes, sendes på nytt.\n\n**b) Usann.** Ruting hører til **nettverkslaget**. Transportlaget velger garantinivå og riktig program, aldri vei. Dette er den hyppigste enkeltfeilen i hele seksjonen.\n\n**c) Sann.** UDP har sjekksum, men gjør ingenting med funnet: pakken forkastes, og ingen ny bes om.\n\n**d) Usann.** Det er **metningskontroll** som handler om nettet. Flytkontroll handler om at **mottakeren** ikke rekker unna. To ulike problemer, to ulike mekanismer — og eksamen skiller mellom dem.\n\n**e) Sann.** TCP er tilkoblingsorientert. Det er dette oppsettet UDP hopper over.\n\n**Fasit: a sann, b usann, c sann, d usann, e sann.**\n\nFordelingen er tre sanne og to usanne, ikke sortert. Regn hver rad for seg.\n\n**Merk hvordan d) er bygd:** den er en riktig setning om **feil mekanisme**. Det er den vanligste måten å lage en usann rad på når to begreper ligner.",
+            "hints": [
+              "For b): hvilket lag har ruting som sin definerende oppgave?",
+              "For d): skill mellom hvem som ikke rekker unna — mottakeren eller nettet."
+            ]
+          }
+        },
+        {
+          "id": "in1020-4-prove-op1-3",
+          "type": "exercise",
+          "exercise": {
+            "id": "in1020-4-prove-op1-3",
+            "number": "1.3",
+            "type": "classic",
+            "difficulty": "middels",
+            "task": "(Sjanger J — nettverk, svarform F3: kobling.) Koble hver protokoll (1–6) til riktig transport (A–C). Hver kategori kan brukes flere ganger.\n\n**1.** DNS · **2.** FTP · **3.** DHCP · **4.** DASH · **5.** IMAP · **6.** HTTP\n\n**A.** TCP · **B.** UDP · **C.** Både TCP og UDP",
+            "solution": "**1 → C (både og).** Vanlige oppslag går på UDP fordi de er små og skal gå fort; store svar og enkelte overføringer bruker TCP. Å svare bare UDP er halve svaret — og halve svaret er galt svar.\n\n**2 → A (TCP).** En overført fil må være komplett og i riktig rekkefølge.\n\n**3 → B (UDP).** Maskinen har ennå ingen adresse og kan ikke sette opp en forbindelse.\n\n**4 → A (TCP).** Et videosegment må være helt for å kunne spilles, og avspilleren har buffer som skjuler omsendingene.\n\n**5 → A (TCP).** En e-post med hull er ødelagt.\n\n**6 → A (TCP).** En nettside med manglende biter kan ikke vises riktig.\n\n**Fasit: 1→C, 2→A, 3→B, 4→A, 5→A, 6→A.**\n\nFire av seks havner i samme kategori. Det er helt vanlig i denne oppgavetypen, og et sett der hver kategori brukes like ofte, ville vært det uvanlige.\n\n**De to fellene:** å sette DNS på UDP alene, og å sette DASH på UDP fordi «video må gå fort». Det siste gjelder sanntids videosamtale, ikke strømming fra en tjeneste.",
+            "hints": [
+              "Spør for hver: tåler denne protokollen at noe forsvinner underveis?",
+              "Én av de seks har to riktige svar samtidig.",
+              "For strømming: har avspilleren tid til å vente på en omsending?"
+            ]
+          }
+        },
+        {
+          "id": "in1020-4-prove-op1-4",
+          "type": "exercise",
+          "exercise": {
+            "id": "in1020-4-prove-op1-4",
+            "number": "1.4",
+            "type": "classic",
+            "difficulty": "vanskelig",
+            "task": "(Sjanger J — nettverk, svarform F1.) Kryss av **alle** påstandene som stemmer, og begrunn hvert av de fem.\n\n**a)** En ruter pakker opp til nettverkslagets hode og sender pakken videre.\n\n**b)** TCP krypterer innholdet slik at ingen kan lese det underveis.\n\n**c)** Portnumre skiller programmer på samme vert fra hverandre.\n\n**d)** UDP garanterer at pakkene leveres i den rekkefølgen de ble sendt.\n\n**e)** Innkapsling betyr at hvert lag legger sitt eget hode utenpå det laget over leverte.",
+            "solution": "**a) Riktig.** Ruteren trenger bare mottaker-IP-en, og innkapslingsprinsippet er at hvert lag leser sitt eget hode. Den har ingen grunn til å se lenger inn.\n\n**b) Galt.** TCP gir pålitelighet, ikke konfidensialitet. Kryptering ligger i et eget lag over transporten — derfor finnes `https` ved siden av `http`. Sjekksummen avslører tilfeldige endringer, men skjuler ingenting.\n\n**c) Riktig.** Nettleseren og e-postklienten deler én IP-adresse; portnummeret gjør at svaret havner riktig sted.\n\n**d) Galt.** Rekkefølgegaranti er en TCP-egenskap. UDP-pakker kan komme fram i en annen rekkefølge enn de ble sendt. Distraktoren er en TCP-egenskap flyttet over på UDP — den vanligste konstruksjonen i denne sjangeren.\n\n**e) Riktig.** Hodene ligger som konvolutter utenpå hverandre og pakkes opp i motsatt rekkefølge hos mottakeren.\n\n**Fasit: a, c og e.**\n\n**Om negativ poenggiving:** tre av fem er riktige. En kandidat som er redd for å krysse av «for mange» og bare tar a), mister to sikre poeng uten å ha svart noe galt. Alle tre kan begrunnes med én setning hver.",
+            "hints": [
+              "Skriv opp TCPs fire garantier først, og se hvilke av dem som er flyttet over på UDP.",
+              "For b): hva er forskjellen på http og https?",
+              "For a): hvilket hode må ruteren lese for å gjøre jobben sin?"
+            ]
+          }
+        },
+        {
+          "id": "in1020-4-prove-p1-diagnose",
+          "type": "text",
+          "content": "### Selvdiagnose etter prøve 1\n\nKryss av det du klarte:\n\n☐ plasserte du ruting i nettverkslaget, ikke i transportlaget?\n\n☐ husket du at portnumre skiller **programmer**, ikke verter?\n\n☐ skilte du flytkontroll fra metningskontroll?\n\n☐ krysset du av **begge** transportene for navnetjenesten?\n\n☐ satte du strømming på pålitelig transport, ikke rask?\n\n☐ avviste du påstanden om at TCP krypterer?\n\nGlapp noe? Lagene og protokolltabellen står i [kap. 4.1](/bok/in1020/in1020-4-1)."
+        }
+      ]
+    },
+    {
+      "id": "in1020-4-prove-p2",
+      "type": "collapsible",
+      "title": "Prøve 2 — Subnetting og adresseregning (~35 min)",
+      "buttonText": "Vis prøve 2",
+      "content": [
+        {
+          "id": "in1020-4-prove-p2-intro",
+          "type": "text",
+          "content": "**Fire oppgaver, omtrent 35 minutter.** Ingen hjelpemidler og ingen kalkulator — regningen skal gå for hånd.\n\nHusk prosedyren: oversett mellom maske og prefiks, finn den delvise oktetten, skriv oktetten binært, AND for subnett og OR for kringkasting, og kontroller at avstanden er `2^vertsbit − 1`."
+        },
+        {
+          "id": "in1020-4-prove-op2-1",
+          "type": "exercise",
+          "exercise": {
+            "id": "in1020-4-prove-op2-1",
+            "number": "2.1",
+            "type": "classic",
+            "difficulty": "lett",
+            "task": "(Sjanger J — nettverk, svarform F4.) Hvor mange maskiner kan tildeles adresse i hvert av disse subnettene?\n\n**a)** `/27`\n\n**b)** `/29`\n\n**c)** `/21`\n\n**Alternativer til c):** A. 2048 · B. 2046 · C. 1022 · D. 4094",
+            "solution": "**a)** `vertsbit = 32 − 27 = 5`, altså `2⁵ − 2 = 32 − 2 = 30` maskiner.\n\n**b)** `vertsbit = 32 − 29 = 3`, altså `2³ − 2 = 8 − 2 = 6` maskiner.\n\n**c)** `vertsbit = 32 − 21 = 11`, altså `2¹¹ − 2 = 2048 − 2 = 2046` maskiner.\n\n**Fasit: a) 30, b) 6, c) B — 2046.**\n\n**Kontroll:** alle tre er partall og to mindre enn en toerpotens. Stemmer.\n\n**De tre gale alternativene i c) forklart:**\n\n**A — 2048.** `2¹¹` uten fratrekket. Felle #3, og den eneste distraktoren som er en rund toerpotens — det alene avslører den.\n\n**C — 1022.** `2¹⁰ − 2`, altså regnet med `/22` i stedet for `/21`. Én bit feil.\n\n**D — 4094.** `2¹² − 2`, altså `/20`. Én bit feil den andre veien.\n\nMerk at både C og D er riktig formet — de har fratrekket — men bygger på feil prefiks. Kontrollen «er svaret en rund toerpotens» fanger bare A.",
+            "hints": [
+              "vertsbit = 32 minus prefikset.",
+              "For store toerpotenser: gå ut fra at 2^10 = 1024."
+            ]
+          }
+        },
+        {
+          "id": "in1020-4-prove-op2-2",
+          "type": "exercise",
+          "exercise": {
+            "id": "in1020-4-prove-op2-2",
+            "number": "2.2",
+            "type": "classic",
+            "difficulty": "middels",
+            "task": "(Sjanger J — nettverk, svarform F4.) Maskinen `192.168.77.140` har masken `255.255.255.192`.\n\n**a)** Hva er CIDR-prefikset?\n\n**b)** Hva er subnettadressen?\n\n**c)** Hva er kringkastingsadressen?\n\n**d)** Hvor mange maskiner kan tildeles adresse?\n\n**Alternativer til b):** A. `192.168.77.0` · B. `192.168.77.140` · C. `192.168.77.128` · D. `192.168.77.191`",
+            "solution": "**a)** Tre fulle oktetter gir 24 ettall. `192 = 11000000` gir 2 til.\n\n`prefiks = /26`\n\n**b) AND på fjerde oktett.**\n\n```text\nIP    140 = 10001100\nmaske 192 = 11000000\nAND       = 10000000  = 128\n```\n\n`subnettadresse = 192.168.77.128`\n\n**c) OR med invertert maske.**\n\n```text\nIP     140 = 10001100\n¬maske  63 = 00111111\nOR         = 10111111  = 191\n```\n\n`kringkastingsadresse = 192.168.77.191`\n\n**d)** `vertsbit = 32 − 26 = 6`, altså `2⁶ − 2 = 62` maskiner.\n\n**Fasit: a) `/26`, b) C, c) `192.168.77.191`, d) 62.**\n\n**Kontroll:** `191 − 128 = 63`, og `2⁶ − 1 = 63`. Stemmer.\n\n**De tre gale alternativene i b) forklart:**\n\n**A — `192.168.77.0`.** Regnet som om masken var `/24`. Den delvise oktetten er ikke brukt.\n\n**B — `192.168.77.140`.** Adressen selv, uten at masken er brukt i det hele tatt.\n\n**D — `192.168.77.191`.** Kringkastingsadressen, altså OR i stedet for AND. Den farligste distraktoren, fordi tallet er riktig regnet — bare på feil spørsmål. Huskeregelen: subnett er **bunnen**, det minste av de to tallene.",
+            "hints": [
+              "Regn ut prefikset før du gjør noe annet.",
+              "Skriv den fjerde oktetten binært for både adressen og masken.",
+              "Kontroller til slutt at avstanden mellom de to adressene er 2^vertsbit − 1."
+            ]
+          }
+        },
+        {
+          "id": "in1020-4-prove-op2-3",
+          "type": "exercise",
+          "exercise": {
+            "id": "in1020-4-prove-op2-3",
+            "number": "2.3",
+            "type": "classic",
+            "difficulty": "vanskelig",
+            "task": "(Sjanger J — nettverk, svarform F1.) Maskinen `172.19.5.190` har prefiks `/27`. Kryss av **alle** påstandene som stemmer, og begrunn hvert av de fem.\n\n**a)** Subnettadressen er `172.19.5.160`.\n\n**b)** Kringkastingsadressen er `172.19.5.191`.\n\n**c)** `172.19.5.190` er den siste adressen som kan tildeles en maskin i subnettet.\n\n**d)** Subnettet har 32 tildelbare adresser.\n\n**e)** `172.19.5.192` ligger i samme subnett.",
+            "solution": "**Regningen først.** `/27` gir masken `255.255.255.224`, siden `224 = 11100000` har 3 ettall.\n\n```text\nIP    190 = 10111110\nmaske 224 = 11100000\nAND       = 10100000  = 160\n```\n\n```text\nIP     190 = 10111110\n¬maske  31 = 00011111\nOR         = 10111111  = 191\n```\n\nSubnettet strekker seg fra `172.19.5.160` til `172.19.5.191`.\n\n**a) Riktig.** AND-en gir 160.\n\n**b) Riktig.** OR-en gir 191.\n\n**c) Riktig.** Siste tildelbare er kringkastingsadressen minus én, altså `.190` — nettopp adressen maskinen har.\n\n**d) Galt.** `vertsbit = 32 − 27 = 5`, altså `2⁵ − 2 = 30` tildelbare adresser. 32 er antall **adresser** i subnettet, ikke antall som kan tildeles. Felle #3, og tallet er en rund toerpotens — det alene avslører det.\n\n**e) Galt.** 192 er én over 191, altså subnettadressen til det **neste** subnettet.\n\n**Fasit: a, b og c.**\n\n**Kontroll:** `191 − 160 = 31`, og `2⁵ − 1 = 31`. Stemmer.\n\n**Om negativ poenggiving:** tre av fem er riktige, og de to gale er begge klassiske: den ene mangler fratrekket, den andre ligger nøyaktig én utenfor intervallet. Kjenner du igjen begge mønstrene, avgjøres oppgaven på under to minutter.",
+            "hints": [
+              "Regn ut hele intervallet før du leser alternativene.",
+              "For d): er 32 en rund toerpotens?",
+              "For e): hvor går grensen mot neste subnett?"
+            ]
+          }
+        },
+        {
+          "id": "in1020-4-prove-op2-4",
+          "type": "exercise",
+          "exercise": {
+            "id": "in1020-4-prove-op2-4",
+            "number": "2.4",
+            "type": "classic",
+            "difficulty": "vanskelig",
+            "task": "(Sjanger J — nettverk, svarform F4.) En bedrift har nettet `10.100.24.0` med masken `255.255.248.0`.\n\n**a)** Hva er CIDR-prefikset?\n\n**b)** Hvor mange maskiner kan tildeles adresse?\n\n**c)** Hva er kringkastingsadressen?\n\n**d)** Ligger maskinen `10.100.32.4` i dette nettet?\n\n**Alternativer til c):** A. `10.100.24.255` · B. `10.100.31.255` · C. `10.100.255.255` · D. `10.100.32.0`",
+            "solution": "**a)** To fulle oktetter gir 16 ettall. `248 = 11111000` gir 5 til. Fjerde oktett er 0.\n\n`prefiks = 16 + 5 = /21`\n\n**b)** `vertsbit = 32 − 21 = 11`\n\n`adresser = 2¹¹ = 2048`\n\n`tildelbare verter = 2048 − 2 = 2046`\n\n**c)** Den delvise oktetten er den **tredje**.\n\n```text\nIP tredje oktett 24 = 00011000\n¬maske            7 = 00000111\nOR                  = 00011111  = 31\n```\n\nFjerde oktett har maske 0 og blir 255.\n\n`kringkastingsadresse = 10.100.31.255`\n\n**d) Nei.** Nettet dekker tredje oktett fra 24 til 31. 32 er over 31.\n\nKontroll med AND: `32 = 00100000`, og `00100000 AND 11111000 = 00100000 = 32`. Subnettadressen blir `10.100.32.0` — et annet nett.\n\n**Fasit: a) `/21`, b) 2046, c) B, d) nei.**\n\n**Kontroll av hele svaret:** nettet dekker åtte verdier i tredje oktett (24 til 31), hver med 256 adresser: `8 · 256 = 2048`, minus 2 = 2046. Stemmer med b).\n\n**De tre gale alternativene i c) forklart:**\n\n**A — `10.100.24.255`.** Regnet som om masken var `/24`, altså bare siste oktett fylt opp.\n\n**C — `10.100.255.255`.** Regnet som om masken var `/16`, altså begge de to siste oktettene fylt opp.\n\n**D — `10.100.32.0`.** Subnettadressen til **neste** nett — ett skritt for langt, samme feil som å svare `.24` der `.23` er riktig i et `/29`.\n\n**Hva som gjør oppgaven vanskelig:** den delvise oktetten er den tredje. Den som regner på siste oktett, får `/21` riktig, men bommer på både c) og d).",
+            "hints": [
+              "Finn hvilken oktett masken er delvis i, før du gjør noe annet.",
+              "Oktetter med maske 0 blir 255 i kringkastingsadressen.",
+              "For d): regn ut subnettadressen for kandidaten og sammenlign."
+            ]
+          }
+        },
+        {
+          "id": "in1020-4-prove-p2-diagnose",
+          "type": "text",
+          "content": "### Selvdiagnose etter prøve 2\n\nKryss av det du klarte:\n\n☐ oversatte du mellom maske og prefiks uten å nøle?\n\n☐ fant du den **delvise** oktetten — også når det ikke var den fjerde?\n\n☐ skrev du oktetten binært, i stedet for å regne i hodet?\n\n☐ trakk du fra 2 i vertstellingen?\n\n☐ holdt du AND og OR fra hverandre — bunnen mot taket?\n\n☐ kontrollerte du at avstanden var `2^vertsbit − 1`?\n\nGlapp noe? Teorien står i [kap. 4.2](/bok/in1020/in1020-4-2), og seksten oppgaver til ligger i [kap. 4.4](/bok/in1020/in1020-4-4)."
+        }
+      ]
+    },
+    {
+      "id": "in1020-4-prove-p3",
+      "type": "collapsible",
+      "title": "Prøve 3 — Overføringstid (~25 min)",
+      "buttonText": "Vis prøve 3",
+      "content": [
+        {
+          "id": "in1020-4-prove-p3-intro",
+          "type": "text",
+          "content": "**Fire oppgaver, omtrent 25 minutter.** Ingen hjelpemidler og ingen kalkulator.\n\nHusk konvensjonen: `1 MB = 8 Mbit` og `1 GB = 1000 MB`. Skriv omregningen `S MB × 8 bit/byte = 8S Mbit` som et eget steg i hver oppgave — det er den ene vanen som fjerner hele fella."
+        },
+        {
+          "id": "in1020-4-prove-op3-1",
+          "type": "exercise",
+          "exercise": {
+            "id": "in1020-4-prove-op3-1",
+            "number": "3.1",
+            "type": "classic",
+            "difficulty": "lett",
+            "task": "(Sjanger J — nettverk, svarform F4.) En fil på 350 MB lastes ned over en linje på 70 Mbit/s. Hvor lang tid tar det?\n\n**Alternativer:** A. 5 s · B. 2800 s · C. 40 s · D. 25 s",
+            "solution": "**Steg 1 — til bit.**\n\n`350 MB × 8 bit/byte = 2800 Mbit`\n\n**Steg 2 — del på raten.**\n\n`2800 Mbit ÷ 70 Mbit/s = 40 s`\n\n**Fasit: C — 40 sekunder.**\n\n**Kontroll:** `70 ÷ 8 = 8,75` MB/s, og `8,75 · 40 = 350` MB. Stemmer.\n\n**De tre gale alternativene forklart:**\n\n**A — 5 s.** `350 ÷ 70`, altså uten omregningen. Felle #2, og nøyaktig en åttedel av det riktige. Ser du to alternativer med akkurat det forholdet, vet du hva oppgaven tester.\n\n**B — 2800 s.** Mellomresultatet i megabit, oppgitt som om det var sekunder. Tallet står midt i din egen utregning, og det er derfor det er med.\n\n**D — 25 s.** Et tall som ser rimelig ut, men som ikke svarer til noen av de to feilene — det er der for å hindre at man kan gjette seg fram ved å lete etter faktoren 8 alene.\n\nMerk at fasitbokstaven her er C. I forrige prøve var den B og C. Fasitbokstaver har intet mønster.",
+            "hints": [
+              "Skriv omregningen til bit som eget steg.",
+              "Kontroller ved å regne ut hvor mange megabyte linja gir per sekund."
+            ]
+          }
+        },
+        {
+          "id": "in1020-4-prove-op3-2",
+          "type": "exercise",
+          "exercise": {
+            "id": "in1020-4-prove-op3-2",
+            "number": "3.2",
+            "type": "classic",
+            "difficulty": "middels",
+            "task": "(Sjanger J — nettverk, svarform F4.) Du sikkerhetskopierer 2,5 GB til en skytjeneste. Linja er oppgitt som **500 Mbit/s ned og 125 Mbit/s opp**.\n\nHvor lang tid tar sikkerhetskopieringen?\n\n**Alternativer:** A. 40 s · B. 20 s · C. 160 s · D. 5 s",
+            "solution": "**Steg 1 — retningen.** Du **sender** data til skytjenesten. Opplastingsraten gjelder: 125 Mbit/s.\n\n**Steg 2 — regn om til megabyte.**\n\n`2,5 GB = 2500 MB`\n\n**Steg 3 — til bit.**\n\n`2500 MB × 8 bit/byte = 20 000 Mbit`\n\n**Steg 4 — del på raten.**\n\n`20 000 Mbit ÷ 125 Mbit/s = 160 s`\n\n**Fasit: C — 160 sekunder, altså 2 minutter og 40 sekunder.**\n\n**Kontroll:** `125 ÷ 8 = 15,625` MB/s, og `15,625 · 160 = 2500` MB. Stemmer.\n\n**De tre gale alternativene forklart:**\n\n**A — 40 s.** Brukt nedlastingsraten 500 i stedet for opplastingsraten: `20 000 ÷ 500 = 40`. Riktig regnet, feil premiss — og umulig å avsløre med enhetskontroll. Den avsløres bare av å lese retningen.\n\n**B — 20 s.** Riktig rate, men uten omregningen: `2500 ÷ 125 = 20`. Nøyaktig en åttedel av det riktige.\n\n**D — 5 s.** Begge feilene på én gang: `2500 ÷ 500 = 5`.\n\n**Merk mønsteret:** alle tre gale svarene er **mindre** enn det riktige. Det er typisk, fordi begge de vanlige feilene gjør svaret mindre.",
+            "hints": [
+              "Avgjør retningen før du ser på tallene.",
+              "Husk at 2,5 GB er 2500 MB.",
+              "Kontroller ved å regne ut megabyte per sekund."
+            ]
+          }
+        },
+        {
+          "id": "in1020-4-prove-op3-3",
+          "type": "exercise",
+          "exercise": {
+            "id": "in1020-4-prove-op3-3",
+            "number": "3.3",
+            "type": "classic",
+            "difficulty": "middels",
+            "task": "(Sjanger J — nettverk, svarform F4.) To spørsmål om samme linje på 60 Mbit/s.\n\n**a)** Hvor stor kan en fil være hvis den skal være ferdig overført på 20 sekunder?\n\n**b)** Hvilken rate ville kreves for å overføre 480 MB på 32 sekunder?",
+            "solution": "**a) Hva skal svaret måles i?** Megabyte, altså en filstørrelse. Da skal det **deles** på 8.\n\n`20 s × 60 Mbit/s = 1200 Mbit`\n\n`1200 Mbit ÷ 8 bit/byte = 150 MB`\n\n**Svar a): 150 MB.**\n\n**Kontroll:** `150 · 8 ÷ 60 = 1200 ÷ 60 = 20` s. Stemmer med oppgaven.\n\n**b) Hva skal svaret måles i?** Megabit per sekund, altså en rate. Da skal det **ganges** med 8.\n\n`480 MB × 8 bit/byte = 3840 Mbit`\n\n`3840 Mbit ÷ 32 s = 120 Mbit/s`\n\n**Svar b): 120 Mbit/s.**\n\n**Kontroll:** `480 · 8 ÷ 120 = 3840 ÷ 120 = 32` s. Stemmer.\n\n**Huskeregelen som avgjør begge:** spør hva svaret skal være målt i. Byte betyr **del** på 8; bit per sekund betyr **gang** med 8.\n\n**De gale svarene:** i a) er 1200 mellomresultatet i megabit, og 9600 er å gange i stedet for å dele. I b) er 15 svaret uten omregningen, og 3840 er mellomresultatet uten divisjonen.",
+            "hints": [
+              "Spør deg hvilken enhet svaret skal ha — det avgjør hvilken vei åtteren går.",
+              "Kontroller begge svarene ved å regne tida på nytt."
+            ]
+          }
+        },
+        {
+          "id": "in1020-4-prove-op3-4",
+          "type": "exercise",
+          "exercise": {
+            "id": "in1020-4-prove-op3-4",
+            "number": "3.4",
+            "type": "classic",
+            "difficulty": "vanskelig",
+            "task": "(Sjanger J — nettverk, svarform F2.) En fil på 880 MB overføres over en linje på 110 Mbit/s.\n\nVurder hver påstand som sann eller usann, og begrunn hver rad.\n\n| # | Påstand | Sant/usant |\n|---|---|---|\n| a | Overføringen tar 64 sekunder | |\n| b | Filen inneholder 7040 megabit | |\n| c | Linja flytter 13,75 MB per sekund | |\n| d | En linje på 220 Mbit/s ville brukt 128 sekunder på samme fil | |\n| e | Uten omregningen fra byte til bit ville svaret blitt 8 sekunder | |",
+            "solution": "**Regningen først.**\n\n`880 MB × 8 bit/byte = 7040 Mbit`\n\n`7040 Mbit ÷ 110 Mbit/s = 64 s`\n\n**a) Sann.** 64 sekunder.\n\n**b) Sann.** `880 · 8 = 7040` Mbit. Mellomresultatet fra steg 1 er et riktig utsagn i seg selv.\n\n**c) Sann.** `110 ÷ 8 = 13,75` MB/s. Kontroll: `13,75 · 64 = 880` MB. Stemmer.\n\n**d) Usann.** En **dobbelt så rask** linje gir **halve** tida, ikke dobbelt: `7040 ÷ 220 = 32` s. Påstanden snur proporsjonaliteten.\n\n**e) Sann.** `880 ÷ 110 = 8` s, nøyaktig en åttedel av 64. Signaturen på felle #2.\n\n**Fasit: a sann, b sann, c sann, d usann, e sann.**\n\nFordelingen er fire sanne og én usann, med den usanne nest sist. En matrise har ingen fast fordeling — regn hver rad for seg.\n\n**Merk hvordan d) er bygd:** den snur en sammenheng, ikke et tall. Slike rader avsløres ikke ved å regne raskere, bare ved å spørre hvilken vei sammenhengen går: mer fart gir kortere tid, mer data gir lengre.",
+            "hints": [
+              "Regn hele grunnoppgaven ferdig før du vurderer radene.",
+              "For c): del raten på 8 og kontroller mot svaret i a).",
+              "For d): blir tida lengre eller kortere når linja blir raskere?"
+            ]
+          }
+        },
+        {
+          "id": "in1020-4-prove-p3-diagnose",
+          "type": "text",
+          "content": "### Selvdiagnose etter prøve 3\n\nKryss av det du klarte:\n\n☐ skrev du omregningen `× 8` som et **eget steg**, hver gang?\n\n☐ avgjorde du retningen før du valgte rate?\n\n☐ regnet du om gigabyte til megabyte der det trengtes?\n\n☐ visste du hvilken vei åtteren skulle når svaret var en filstørrelse?\n\n☐ kontrollerte du med enhetene: megabit delt på megabit per sekund gir sekunder?\n\n☐ husket du at raskere linje gir **kortere** tid?\n\nGlapp noe? Teorien står i [kap. 4.3](/bok/in1020/in1020-4-3), og flere oppgaver ligger i [kap. 4.4](/bok/in1020/in1020-4-4)."
+        }
+      ]
+    },
+    {
+      "id": "in1020-4-prove-p4",
+      "type": "collapsible",
+      "title": "Prøve 4 — Nettjenester, svitsjing og operativsystem (~30 min)",
+      "buttonText": "Vis prøve 4",
+      "content": [
+        {
+          "id": "in1020-4-prove-p4-intro",
+          "type": "text",
+          "content": "**Fire oppgaver, omtrent 30 minutter.** Ingen hjelpemidler.\n\nDette er den begrepstunge delen av seksjon 4. Ingen regning — men mange nære distraktorer, og under negativ poenggiving er det nettopp de nære som koster."
+        },
+        {
+          "id": "in1020-4-prove-op4-1",
+          "type": "exercise",
+          "exercise": {
+            "id": "in1020-4-prove-op4-1",
+            "number": "4.1",
+            "type": "classic",
+            "difficulty": "middels",
+            "task": "(Sjanger J — nettverk, svarform F3: kobling.) Koble hver tjeneste (1–6) til problemet den primært løser (A–F).\n\n**1.** DNS · **2.** IPv6 · **3.** DASH · **4.** NAT · **5.** CDN · **6.** DHCP\n\n**A.** Mange enheter må dele én offentlig adresse · **B.** Innholdet ligger langt fra brukeren · **C.** En ny maskin har ingen adresse og må få en automatisk · **D.** Mennesker husker navn, ikke tall · **E.** Videokvaliteten må tilpasses en linje som varierer · **F.** Adressene i den gamle versjonen tar slutt",
+            "solution": "**1 → D.** Navnetjenesten oversetter navn til IP-adresse.\n\n**2 → F.** 128 bit mot 32 bit fjerner adressemangelen.\n\n**3 → E.** Video i segmenter i flere kvaliteter, der klienten velger nivå for hvert segment.\n\n**4 → A.** Ruteren bytter avsenderadressen på vei ut og slår opp i en tabell på vei inn.\n\n**5 → B.** Kopier nær brukerne gir kortere vei, avlaster opprinnelsestjeneren og sparer kjernenettet.\n\n**6 → C.** Adresse, nettmaske, standard gateway og navnetjener deles ut automatisk.\n\n**Fasit: 1→D, 2→F, 3→E, 4→A, 5→B, 6→C.**\n\n**De to fellene i settet:**\n\n**Felle 1 — å bytte om 2 og 4.** Begge svarer på adressemangel. Skillet: NAT lar mange **dele** én adresse (en omgåelse), IPv6 gjør at det **finnes nok** adresser (løsningen).\n\n**Felle 2 — å bytte om 1 og 6.** Begge handler om adresser. Men navnetjenesten **finner** en adresse ut fra et navn; DHCP **tildeler** en ny.\n\n**Om negativ poenggiving:** i en koblingsoppgave er hver kobling et eget kryss, og hver feil kobling trekker. Gjør de fire du er sikker på først, og se om de to siste da gir seg selv.",
+            "hints": [
+              "Fire av de seks tjenestene handler om adresser. Skill dem på hvilket adresseproblem de løser.",
+              "Gjør de sikreste koblingene først, og se hva som blir igjen."
+            ]
+          }
+        },
+        {
+          "id": "in1020-4-prove-op4-2",
+          "type": "exercise",
+          "exercise": {
+            "id": "in1020-4-prove-op4-2",
+            "number": "4.2",
+            "type": "classic",
+            "difficulty": "middels",
+            "task": "(Sjanger J og K, svarform F2.) Vurder hver påstand som sann eller usann, og begrunn hver rad.\n\n| # | Påstand | Sant/usant |\n|---|---|---|\n| a | IPv6 gjør overføringen raskere enn IPv4 | |\n| b | Internett er pakkesvitsjet | |\n| c | Strømming av video fra en tjeneste bruker UDP | |\n| d | Vanlige brukerprogrammer kjører i brukermodus | |\n| e | Et innholdsnett avlaster opprinnelsestjeneren | |",
+            "solution": "**a) Usann.** IPv6 utvider adresserommet. Farten bestemmes av linjene, av avstanden og av kø underveis — ikke av hvor mange bit adressen har. Dette er en av de mest brukte distraktorene i hele seksjonen.\n\n**b) Sann.** Data deles i pakker som deler linjene med alle andres. Ingen bane er reservert.\n\n**c) Usann.** Strømming bruker **TCP**: et segment må være helt for å kunne spilles, og avspilleren har flere sekunder buffer som skjuler omsendingene. UDP hører til sanntids videosamtale, der forsinkelse er verre enn tap.\n\n**d) Sann.** Brukermodus, med begrenset tilgang. Maskinvaren nås gjennom systemkall.\n\n**e) Sann.** Kopiene svarer på de fleste forespørslene, slik at opprinnelsestjeneren slipper.\n\n**Fasit: a usann, b sann, c usann, d sann, e sann.**\n\nFordelingen er tre sanne og to usanne, med de usanne på plass én og tre.\n\n**Merk at a) og c) er de to mest brukte distraktorene i seksjon 4.** Begge bygger på en rimelig, men gal slutning: at «nyere versjon» betyr raskere, og at «video» betyr rask transport.",
+            "hints": [
+              "To av radene er de faste distraktorene i seksjonen. Finn dem først.",
+              "For c): har avspilleren tid til å vente på en omsending?"
+            ]
+          }
+        },
+        {
+          "id": "in1020-4-prove-op4-3",
+          "type": "exercise",
+          "exercise": {
+            "id": "in1020-4-prove-op4-3",
+            "number": "4.3",
+            "type": "classic",
+            "difficulty": "vanskelig",
+            "task": "(Sjanger K — operativsystemer, svarform F1.) Kryss av **alle** påstandene som stemmer, og begrunn hvert av de fem.\n\n**a)** Operativsystemet abstraherer bort maskinvaredetaljene for programmene.\n\n**b)** Et brukerprogram kan lese minnet til et annet brukerprogram direkte.\n\n**c)** Et systemkall gir et midlertidig bytte til kjernemodus.\n\n**d)** «Kjernemodus» betyr at koden kjører på en egen CPU-kjerne.\n\n**e)** En mobiltelefon trenger et operativsystem.",
+            "solution": "**a) Riktig.** Programmet ber om «lagre fil», ikke om «skriv til blokk 4711». Uten dette laget måtte hvert program skrives om for hver ny maskinvaremodell.\n\n**b) Galt.** Brukermodus gir hver prosess sitt eget minneområde, som de andre verken kan se eller endre. Det er en av hovedgrunnene til at skillet mellom modusene finnes.\n\n**c) Riktig.** Kjernen gjør jobben og gir kontrollen tilbake. Var byttet permanent, ville skillet vært meningsløst etter det første kallet.\n\n**d) Galt.** Ren ordforveksling: en **CPU-kjerne** er en fysisk regneenhet, mens **kjernemodus** er en kjøremodus — en tilstand prosessoren er i. En maskin med én kjerne har også kjernemodus.\n\n**e) Riktig.** En mobil kjører mange programmer samtidig og må fordele prosessortid, minne og nettverk. Den trenger det like mye som en PC. Påstanden om det motsatte er en fast distraktor.\n\n**Fasit: a, c og e.**\n\n**Om negativ poenggiving:** tre av fem er riktige, og de to gale er gale på hver sin måte — b) om hva brukermodus faktisk beskytter, d) om hva et ord betyr. Ordforvekslinger som d) er billige å lage og dyre å gå på, og de kan bare avverges ved å ha begrepene presist.",
+            "hints": [
+              "Skill mellom en fysisk del av prosessoren og en tilstand prosessoren kan være i.",
+              "For b): hva er det brukermodus faktisk begrenser?",
+              "For c): hva ville skjedd hvis byttet aldri ble reversert?"
+            ]
+          }
+        },
+        {
+          "id": "in1020-4-prove-op4-4",
+          "type": "exercise",
+          "exercise": {
+            "id": "in1020-4-prove-op4-4",
+            "number": "4.4",
+            "type": "classic",
+            "difficulty": "vanskelig",
+            "task": "(Sjanger J og K blandet, svarform F2.) Vurder hver påstand som sann eller usann, og begrunn hver rad.\n\n| # | Påstand | Sant/usant |\n|---|---|---|\n| a | I et likemannsnett er hver deltaker både klient og tjener | |\n| b | En TCP-forbindelse betyr at det settes av en dedikert bane gjennom nettet | |\n| c | DHCP deler ut nettmaske og standard gateway i tillegg til IP-adressen | |\n| d | Nettleserens mellomlager og et innholdsnett er samme sak på hver sin skala | |\n| e | Linjesvitsjing gir jevnere forsinkelse enn pakkesvitsjing | |",
+            "solution": "**a) Sann.** At alle kan både spørre og svare, er nettopp det som gjør at kapasiteten vokser med antall deltakere.\n\n**b) Usann.** Forbindelsen er en **bokføring i de to endene** — hva som er sendt, mottatt og bekreftet. Pakkene deler linjene med alle andre underveis. Å slutte fra «tilkoblingsorientert» til «linjesvitsjet» er en presis felle.\n\n**c) Sann.** DHCP deler ut en hel oppstartspakke: IP-adresse, nettmaske, standard gateway og adressen til en navnetjener. Alle fire trengs for at maskinen skal kunne bruke nettet.\n\n**d) Usann.** Nettleserens mellomlager ligger på **din** maskin og tjener **deg alene**. Et innholdsnett ligger ute i nettet og tjener **mange** brukere. Antallet brukere de betjener, er hele forskjellen — det er ikke bare et spørsmål om skala, men om hvem som får nytte av kopien.\n\n**e) Sann.** En dedikert bane har garantert kapasitet og jevn forsinkelse. Prisen er at banen er opptatt også når ingen bruker den.\n\n**Fasit: a sann, b usann, c sann, d usann, e sann.**\n\nFordelingen er tre sanne og to usanne.\n\n**Merk hvordan d) er formulert:** «samme sak på hver sin skala» er en formulering som *nesten* stemmer, og som derfor er vanskeligere å avvise enn en åpenbart gal påstand. Under negativ poenggiving er det nettopp slike rader som avgjør — les hva som faktisk påstås, ikke hva som høres omtrent riktig ut.",
+            "hints": [
+              "For b): er en TCP-forbindelse en fysisk bane, eller en avtale mellom to endepunkter?",
+              "For d): hvor mange brukere betjener de to?",
+              "For e): hva er prisen for en garantert bane?"
+            ]
+          }
+        },
+        {
+          "id": "in1020-4-prove-p4-diagnose",
+          "type": "text",
+          "content": "### Selvdiagnose etter prøve 4\n\nKryss av det du klarte:\n\n☐ koblet du hver tjeneste til **problemet** den løser, ikke til et ord som lignet?\n\n☐ skilte du NAT fra IPv6 — å dele mot å ha nok?\n\n☐ skilte du navnetjenesten fra adressetildeling — å finne mot å få?\n\n☐ avviste du påstanden om at IPv6 gjør nettet raskere?\n\n☐ satte du strømming på pålitelig transport?\n\n☐ husket du at brukerprogrammer kjører i brukermodus?\n\n☐ skilte du en TCP-forbindelse fra en dedikert bane?\n\nGlapp noe? Tjenestene står i [kap. 4.5](/bok/in1020/in1020-4-5), operativsystemet og svitsjingen i [kap. 4.6](/bok/in1020/in1020-4-6).\n\n**Er alle fire prøvene gjennomført?** Da er seksjon 4 dekket: lagene, adresseregningen, overføringstiden, tjenestene og operativsystemet. Neste steg er [kap. 5.1](/bok/in1020/in1020-5-1) og de tre komplette øvingseksamenene."
+        }
+      ]
+    }
+  ],
+  "exercises": []
+}
