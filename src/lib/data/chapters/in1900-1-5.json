@@ -141,23 +141,6 @@
       }
     },
     {
-      "id": "in1900-1-5-oppg-3",
-      "type": "exercise",
-      "exercise": {
-        "id": "in1900-1-5-o3",
-        "number": "3",
-        "type": "classic",
-        "difficulty": "middels",
-        "task": "(Midtveisnivå, sjanger A — kodesporing.) Hva skriver programmet ut?\n\n```python\nkilder = {'vann': 41, 'vind': 16, 'sol': 3}\nnavn = list(kilder.keys())\ntall = list(kilder.values())\nprint(navn[0], tall[-1])\nprint(dict(zip(tall, navn)))\n```",
-        "solution": "**Sporingstavle**\n\n| Uttrykk | Verdi |\n|---|---|\n| `list(kilder.keys())` | `['vann', 'vind', 'sol']` |\n| `list(kilder.values())` | `[41, 16, 3]` |\n| `navn[0]` | `'vann'` |\n| `tall[-1]` | `3` (siste element) |\n| `dict(zip(tall, navn))` | tallene blir nøkler, navnene blir verdier |\n\nNøklene og verdiene kommer i innsettingsrekkefølge, så listene står parvis på linje. `zip(tall, navn)` parer dem i den rekkefølgen argumentene står — altså med tallet først, og tallet blir dermed nøkkel.\n\n**Utskrift:**\n```\nvann 3\n{41: 'vann', 16: 'vind', 3: 'sol'}\n```\n\nMerk at strengen `vann` skrives uten fnutter når den er argument til `print`, men **med** fnutter når den ligger inne i en ordbok som skrives ut. Heltallsnøklene får ingen fnutter. Det er en tegn-for-tegn-detalj som avgjør poenget i sjanger A.",
-        "hints": [
-          "Skriv opp de to listene først, og hold rekkefølgen fra ordboka.",
-          "`zip(a, b)` parer første element i `a` med første i `b`; rekkefølgen på argumentene avgjør hva som blir nøkkel.",
-          "Tenk over når Python setter fnutter rundt en streng i utskriften, og når den ikke gjør det."
-        ]
-      }
-    },
-    {
       "id": "in1900-1-5-t-17",
       "type": "text",
       "content": "## Løkke 3 — Å bygge en ordbok fra to lister, og å slå opp trygt (~8 min)\n\nData kommer sjelden ferdig som ordbok. Oftere har du to lister som hører sammen — en med navn og en med tall — eller du skal telle opp noe der du ikke vet på forhånd hvilke nøkler som dukker opp. Til begge deler finnes det ett fast grep hver."
@@ -192,6 +175,23 @@
       "title": "Eksempel 3: Telle uten å vite nøklene på forhånd",
       "problem": "Tell hvor mange ganger hver bokstav forekommer i teksten `'abrakadabra'`, og skriv ut resultatet, antall forekomster av `'a'` og antall ulike bokstaver.",
       "solution": "Problemet er at du ikke vet hvilke nøkler som trengs før du har sett teksten. `.get(tegn, 0)` løser det på én linje: «hent den gamle tellingen, eller 0 hvis bokstaven ikke er sett før».\n\n```python\nantall = {}\nfor tegn in 'abrakadabra':\n    antall[tegn] = antall.get(tegn, 0) + 1\nprint(antall)\nprint(antall['a'], len(antall))\n```\n\n**Utskrift:**\n```\n{'a': 5, 'b': 2, 'r': 2, 'k': 1, 'd': 1}\n5 5\n```\n\nLegg merke til rekkefølgen i utskriften: `a`, `b`, `r`, `k`, `d` — det er den rekkefølgen bokstavene dukker opp **første gang** i ordet, ikke alfabetisk og ikke etter antall. Og de to femtallene på siste linje betyr to helt forskjellige ting: fem `a`-er, og fem ulike bokstaver.\n\nUten `.get` måtte du skrevet tre linjer med `if tegn in antall:`. Begge deler gir full uttelling; `.get`-formen er den korte, idiomatiske."
+    },
+    {
+      "id": "in1900-1-5-oppg-3",
+      "type": "exercise",
+      "exercise": {
+        "id": "in1900-1-5-o3",
+        "number": "3",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "(Midtveisnivå, sjanger A — kodesporing.) Hva skriver programmet ut?\n\n```python\nkilder = {'vann': 41, 'vind': 16, 'sol': 3}\nnavn = list(kilder.keys())\ntall = list(kilder.values())\nprint(navn[0], tall[-1])\nprint(dict(zip(tall, navn)))\n```",
+        "solution": "**Sporingstavle**\n\n| Uttrykk | Verdi |\n|---|---|\n| `list(kilder.keys())` | `['vann', 'vind', 'sol']` |\n| `list(kilder.values())` | `[41, 16, 3]` |\n| `navn[0]` | `'vann'` |\n| `tall[-1]` | `3` (siste element) |\n| `dict(zip(tall, navn))` | tallene blir nøkler, navnene blir verdier |\n\nNøklene og verdiene kommer i innsettingsrekkefølge, så listene står parvis på linje. `zip(tall, navn)` parer dem i den rekkefølgen argumentene står — altså med tallet først, og tallet blir dermed nøkkel.\n\n**Utskrift:**\n```\nvann 3\n{41: 'vann', 16: 'vind', 3: 'sol'}\n```\n\nMerk at strengen `vann` skrives uten fnutter når den er argument til `print`, men **med** fnutter når den ligger inne i en ordbok som skrives ut. Heltallsnøklene får ingen fnutter. Det er en tegn-for-tegn-detalj som avgjør poenget i sjanger A.",
+        "hints": [
+          "Skriv opp de to listene først, og hold rekkefølgen fra ordboka.",
+          "`zip(a, b)` parer første element i `a` med første i `b`; rekkefølgen på argumentene avgjør hva som blir nøkkel.",
+          "Tenk over når Python setter fnutter rundt en streng i utskriften, og når den ikke gjør det."
+        ]
+      }
     },
     {
       "id": "in1900-1-5-oppg-4",
