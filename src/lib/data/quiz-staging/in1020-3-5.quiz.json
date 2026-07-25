@@ -1,0 +1,262 @@
+[
+  {
+    "question": "Er brannmur et sikkerhetsmål eller et sikkerhetstiltak?",
+    "options": [
+      "Tiltak — det er noe man setter opp",
+      "Mål — det er en egenskap systemet har",
+      "Begge deler, avhengig av sammenhengen det brukes i",
+      "Ingen av delene — det er en trussel man må håndtere"
+    ],
+    "explanation": "Testen avgjør: kan man installere det, er det et tiltak. Alternativ 2 er felle #1, den hyppigst påpekte feilen i faget. Alternativ 3 finnes ikke som kategori. Alternativ 4 snur rollen helt om."
+  },
+  {
+    "question": "Er uavviselighet et sikkerhetsmål eller et sikkerhetstiltak?",
+    "options": [
+      "Mål — det er en egenskap ved en handling",
+      "Tiltak — det er noe man installerer",
+      "Tiltak — det er noe man gjennomfører jevnlig",
+      "Ingen av delene — det er en juridisk term uten teknisk innhold"
+    ],
+    "explanation": "Uavviselighet er egenskapen at den ansvarlige ikke kan nekte, og den oppnås med digital signatur. Alternativ 2 og 3 er felle #1. Alternativ 4 er feil: målet har et helt konkret teknisk innhold."
+  },
+  {
+    "question": "Hvilket mål tjener en sjekksum?",
+    "options": [
+      "Integritet",
+      "Konfidensialitet",
+      "Tilgjengelighet",
+      "Sporbarhet"
+    ],
+    "explanation": "Sjekksummen avslører endringer, men skjuler ingenting. Alternativ 2 er felle #9. Alternativ 3 gjelder sikkerhetskopi og redundans. Alternativ 4 gjelder logging."
+  },
+  {
+    "question": "Hvilket mål tjener sikkerhetskopiering?",
+    "options": [
+      "Tilgjengelighet",
+      "Konfidensialitet",
+      "Integritet",
+      "Uavviselighet"
+    ],
+    "explanation": "Kopien sørger for at innholdet finnes når originalen er borte. Alternativ 2 er feil: kopien hindrer ingen i å lese noe, snarere tvert imot. Alternativ 3 gjelder sjekksum og signatur. Alternativ 4 gjelder digital signatur."
+  },
+  {
+    "question": "Hvilken nøkkel krypterer en hemmelig melding til Bob?",
+    "options": [
+      "Bobs offentlige nøkkel",
+      "Bobs private nøkkel",
+      "Avsenderens private nøkkel",
+      "Avsenderens offentlige nøkkel"
+    ],
+    "explanation": "Hemmelighold bruker mottakerens nøkler. Alternativ 2 er umulig — avsenderen har den ikke. Alternativ 3 ville gjort meldingen lesbar for alle, altså signering. Alternativ 4 ville låst meldingen så bare avsenderen selv kunne åpne den."
+  },
+  {
+    "question": "Hvilken nøkkel validerer en signatur fra Alice?",
+    "options": [
+      "Alices offentlige nøkkel",
+      "Alices private nøkkel",
+      "Mottakerens offentlige nøkkel",
+      "Mottakerens private nøkkel"
+    ],
+    "explanation": "Signering bruker avsenderens nøkler i begge ledd. Alternativ 2 er umulig: bare Alice har den. Alternativ 3 og 4 bruker mottakerens nøkkelpar, som ikke er involvert i signaturen."
+  },
+  {
+    "question": "Hvilke mål gir en digital signatur?",
+    "options": [
+      "Integritet, autentisitet og uavviselighet",
+      "Konfidensialitet, integritet og autentisitet",
+      "Bare konfidensialitet og uavviselighet",
+      "Konfidensialitet, tilgjengelighet og sporbarhet"
+    ],
+    "explanation": "Signaturen viser at innholdet er uendret, hvem det kom fra, og at avsenderen ikke kan nekte. Alternativ 2, 3 og 4 tar med konfidensialitet, som er felle #4 — meldingen sendes i klartekst."
+  },
+  {
+    "question": "En ansatt sletter loggene etter å ha endret data. Hvilke mål rammes av slettingen?",
+    "options": [
+      "Sporbarhet og uavviselighet",
+      "Konfidensialitet og tilgjengelighet",
+      "Bare integritet",
+      "Bare personvern"
+    ],
+    "explanation": "Uten logger kan ingen se hva som skjedde, og den ansvarlige kan nekte. Alternativ 2 rammes ikke: systemet er oppe, og ingen har lest noe de ikke skulle. Alternativ 3 gjelder selve endringen, ikke slettingen. Alternativ 4 forutsetter personopplysninger."
+  },
+  {
+    "question": "Sannsynlighet 1 og konsekvens 5, mot sannsynlighet 4 og konsekvens 4. Hvilken har høyest risiko?",
+    "options": [
+      "Den andre, med 16 mot 5",
+      "Den første, siden konsekvensen er høyest mulig",
+      "De er like alvorlige når man ser bort fra skalaen",
+      "Den første, med 5 mot 4"
+    ],
+    "explanation": "`4 · 4 = 16` mot `1 · 5 = 5`. Alternativ 2 rangerer etter konsekvens alene, som er den vanligste feilen. Alternativ 3 unnlater å regne. Alternativ 4 ganger ikke faktorene i det hele tatt."
+  },
+  {
+    "question": "Hvilket mål bryter et løsepengevirus først og fremst?",
+    "options": [
+      "Tilgjengelighet",
+      "Konfidensialitet",
+      "Integritet",
+      "Autentisitet"
+    ],
+    "explanation": "Filene finnes, men er låst. Alternativ 2 er fella: angrepet bruker kryptering som våpen, men angriperen har ikke nødvendigvis lest noe. Alternativ 3 er feil fordi innholdet er uendret. Alternativ 4 gjelder forfalskning av identitet."
+  },
+  {
+    "question": "Hvilket mål bryter et rootkit først og fremst?",
+    "options": [
+      "Integritet",
+      "Konfidensialitet",
+      "Tilgjengelighet",
+      "Sporbarhet"
+    ],
+    "explanation": "Rootkitet manipulerer systemet slik at det rapporterer noe annet enn det som er tilfelle. Alternativ 2 er fella: navnet høres ut som spionasje. Alternativ 3 og 4 rammes ikke direkte av selve skjulingen."
+  },
+  {
+    "question": "Hvilke tiltak gir konfidensialitet?",
+    "options": [
+      "Diskkryptering og tilgangskontroll",
+      "Sjekksum og digital signatur i kombinasjon",
+      "Sikkerhetskopiering og redundans",
+      "Logging og sikkerhetsøvelser"
+    ],
+    "explanation": "Begge hindrer at uvedkommende leser innholdet. Alternativ 2 gir integritet, autentisitet og uavviselighet. Alternativ 3 gir tilgjengelighet. Alternativ 4 gir sporbarhet og evnen til å komme tilbake i drift."
+  },
+  {
+    "question": "Hva må Alice gjøre for å sende en melding som er både hemmelig og bevislig fra henne?",
+    "options": [
+      "Signere med sin private nøkkel og kryptere med Bobs offentlige",
+      "Bare signere med sin private nøkkel, siden det dekker alle mål",
+      "Bare kryptere med Bobs offentlige nøkkel, siden det dekker alle mål",
+      "Kryptere med sin private nøkkel og signere med Bobs offentlige"
+    ],
+    "explanation": "Signering gir integritet, autentisitet og uavviselighet; kryptering gir konfidensialitet. Alternativ 2 mangler hemmelighold, alternativ 3 mangler beviset for avsender. Alternativ 4 snur begge retningene."
+  },
+  {
+    "question": "Hvor mange nøkler er i bruk når en melding både signeres og krypteres?",
+    "options": [
+      "Fire — to fra hvert nøkkelpar",
+      "To — én fra hver part",
+      "Tre — begge avsenderens og mottakerens offentlige",
+      "Én — den delte symmetriske nøkkelen"
+    ],
+    "explanation": "Avsenderens private og offentlige tar signaturen; mottakerens offentlige og private tar hemmeligholdet. Alternativ 2 og 3 teller for få. Alternativ 4 beskriver symmetrisk kryptering, som ikke er i bruk her."
+  },
+  {
+    "question": "Stopper en brannmur innsidetrusler?",
+    "options": [
+      "Nei — innsideren er allerede innenfor brannmuren",
+      "Ja — brannmuren kontrollerer all trafikk i nettet",
+      "Ja, forutsatt at den er riktig konfigurert av en fagperson",
+      "Nei — brannmurer virker bare mot skadevare, ikke mot trafikk"
+    ],
+    "explanation": "Brannmuren kontrollerer trafikk inn og ut av nettet, ikke hva en autorisert bruker gjør innenfor. Alternativ 2 og 3 overser hvor innsideren står. Alternativ 4 beskriver brannmurens virkemåte feil."
+  },
+  {
+    "question": "Hvilken egenskap har en hash-verdi?",
+    "options": [
+      "Fast lengde uansett hvor stort innholdet er",
+      "Lengde som vokser med innholdets størrelse",
+      "Mulighet til å regnes tilbake til innholdet",
+      "Evne til å skjule innholdet for uvedkommende"
+    ],
+    "explanation": "Derfor er det hash-verdien som signeres, ikke meldingen. Alternativ 2 er feil om konstruksjonen. Alternativ 3 ville gjort passordlagring verdiløs. Alternativ 4 er felle #9."
+  },
+  {
+    "question": "Hva er testen som skiller et mål fra et tiltak?",
+    "options": [
+      "Kan man installere eller gjennomføre det? Da er det et tiltak",
+      "Er det teknisk? Da er det et tiltak; ellers er det et mål",
+      "Koster det penger? Da er det et tiltak, ellers et mål",
+      "Står det i loven? Da er det et tiltak, ellers et mål"
+    ],
+    "explanation": "Et mål er en egenskap systemet har eller mangler. Alternativ 2 er feil fordi opplæring og øvelser også er tiltak. Alternativ 3 og 4 innfører kriterier som ikke skiller kategoriene."
+  },
+  {
+    "question": "Hvilket mål bryter en tapt ukryptert minnepinne?",
+    "options": [
+      "Konfidensialitet",
+      "Integritet i selve innholdet",
+      "Sporbarhet",
+      "Uavviselighet"
+    ],
+    "explanation": "Finneren kan lese innholdet. Alternativ 2 ville krevd at noe var endret. Alternativ 3 og 4 gjelder muligheten til å se eller bevise hva som skjedde, som ikke rammes av tapet i seg selv."
+  },
+  {
+    "question": "Er en sikkerhetsøvelse et tiltak?",
+    "options": [
+      "Ja — et tiltak er alt man gjør for å nå et mål, ikke bare det man installerer",
+      "Nei — bare tekniske mekanismer regnes som tiltak i faget",
+      "Nei — en øvelse er et mål man arbeider mot over tid",
+      "Ja, men bare hvis den gjennomføres av eksterne konsulenter"
+    ],
+    "explanation": "Øvelsen tjener først og fremst tilgjengelighet, ved å trene på å komme tilbake i drift. Alternativ 2 avgrenser tiltaksbegrepet feil. Alternativ 3 er felle #1 i motsatt retning. Alternativ 4 innfører et krav som ikke finnes."
+  },
+  {
+    "question": "Hvorfor er «Bob validerer signaturen med sin egen private nøkkel» en farlig distraktor?",
+    "options": [
+      "Fordi Bobs private nøkkel faktisk brukes i saken, men til dekryptering",
+      "Fordi Bob ikke har noen privat nøkkel i det hele tatt i denne saken",
+      "Fordi validering aldri krever noen nøkkel",
+      "Fordi Bobs private nøkkel bare kan brukes én gang"
+    ],
+    "explanation": "Feilen er å knytte nøkkelen til feil operasjon, og halvriktige alternativer er de dyreste. Alternativ 2 er feil: Bob har et fullt nøkkelpar. Alternativ 3 og 4 beskriver forhold som ikke finnes."
+  },
+  {
+    "question": "En forfalsket nettside fanger opp innloggingsdetaljer. Hvilke mål brytes?",
+    "options": [
+      "Autentisitet, integritet og konfidensialitet",
+      "Bare tilgjengelighet og sporbarhet",
+      "Bare integritet i innholdet på siden",
+      "Bare personvern og uavviselighet"
+    ],
+    "explanation": "Siden er ikke den den utgir seg for, innholdet er falskt, og passordet lekker. Alternativ 2 er feil fordi den ekte tjenesten er uberørt og loggene intakte. Alternativ 3 er for smalt. Alternativ 4 utelater de tre målene som faktisk brytes."
+  },
+  {
+    "question": "Hva bør du gjøre først i en oppgave om nøkkelretning?",
+    "options": [
+      "Avgjøre om formålet er hemmelighold eller signering",
+      "Se hvilke alternativer som nevner private nøkler",
+      "Velge det alternativet som nevner flest nøkler",
+      "Regne ut hvor mange nøkler partene har til sammen"
+    ],
+    "explanation": "Formålet avgjør hvem sine nøkler som er i bruk: mottakerens ved hemmelighold, avsenderens ved signering. Alternativ 2, 3 og 4 ser på alternativenes form i stedet for på hva operasjonen skal oppnå."
+  },
+  {
+    "question": "Hvor mange mål bryter en typisk sikkerhetshendelse?",
+    "options": [
+      "Ofte flere samtidig — derfor må alle sju vurderes",
+      "Alltid nøyaktig ett, siden målene utelukker hverandre",
+      "Alltid minst fire, siden systemene henger sammen",
+      "Aldri mer enn to, siden målene er ordnet parvis"
+    ],
+    "explanation": "En overtatt konto med nedlasting og sletting av logger bryter fem mål. Alternativ 2 er den vanligste feilantakelsen. Alternativ 3 og 4 innfører regler som ikke finnes — antallet avhenger av hva som faktisk skjedde."
+  },
+  {
+    "question": "Hvilket mål tjener tofaktor-autentisering først og fremst?",
+    "options": [
+      "Konfidensialitet",
+      "Tilgjengelighet for tjenesten",
+      "Sporbarhet",
+      "Integritet"
+    ],
+    "explanation": "Tofaktor hindrer at uvedkommende kommer inn og får lest noe, og styrker samtidig autentisiteten. Alternativ 2 gjelder sikkerhetskopi og redundans. Alternativ 3 gjelder logging. Alternativ 4 gjelder sjekksum og signatur."
+  },
+  {
+    "question": "Hva er den vanligste feilen når man rangerer risiko?",
+    "options": [
+      "Å rangere etter konsekvens alene og glemme sannsynligheten",
+      "Å gange faktorene sammen i stedet for å legge dem sammen",
+      "Å bruke en skala fra 1 til 5 i stedet for 1 til 10",
+      "Å regne ut risikoen for flere trusler samtidig"
+    ],
+    "explanation": "En katastrofe som praktisk talt aldri inntreffer, gir lav risiko. Alternativ 2 beskriver riktig framgangsmåte, ikke en feil. Alternativ 3 og 4 handler om oppsett, ikke om regnefeil."
+  },
+  {
+    "question": "Hvorfor må mottakeren kunne lese en signert melding i klartekst?",
+    "options": [
+      "For å regne ut hash-verdien og sammenligne den med den signerte",
+      "For at avsenderen skal kunne bekrefte at meldingen kom fram",
+      "Fordi signaturen ikke kan lages på krypterte meldinger",
+      "Fordi klartekst er et krav i alle sertifikatordninger"
+    ],
+    "explanation": "Kontrollen forutsetter tilgang til innholdet, og derfor er «alle kan lese» en forutsetning, ikke en svakhet. Alternativ 2 beskriver noe som ikke skjer. Alternativ 3 og 4 innfører krav som ikke finnes — en signert melding kan godt krypteres i tillegg."
+  }
+]

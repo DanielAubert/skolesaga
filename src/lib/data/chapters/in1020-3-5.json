@@ -1,0 +1,373 @@
+{
+  "id": "in1020-3-5",
+  "courseId": "in1020",
+  "chapterNumber": "3.5",
+  "title": "DRILL — Mål, tiltak, trusler og nøkkelretning",
+  "description": "Fjorten oppgaver på eksamensnivå i sjanger G og H: skill mål fra tiltak, koble trussel og tiltak til mål, og velg riktig nøkkel i både hemmelig melding og digital signatur.",
+  "estimatedMinutes": 80,
+  "competenceGoals": [
+    "kunne avgjøre om et element er et mål eller et tiltak på under ti sekunder",
+    "kunne koble tiltak og trusler til riktige mål uten å gjette",
+    "kunne velge riktig nøkkel i både hemmelighold og signering, hver gang",
+    "kunne begrunne hvorfor hvert gale alternativ er galt i alle fire svarformene"
+  ],
+  "content": [
+    {
+      "id": "in1020-3-5-eksamensvinkel",
+      "type": "tip",
+      "title": "Eksamensvinkel",
+      "content": "**Belegg:** dette er treningsbanken for hele **seksjon 3, datasikkerhet**. **Sjanger G — sikkerhetsmål, tiltak og trusselmodellering** har egen oppgave i **alle seks årgangene i arkivet (6/6 = 100 %)**. Det samme har **sjanger H — kryptering og digital signatur (6/6 = 100 %)**.\n\n**Høyeste prioritet — dette må sitte.** Seksjonen er en av de fire som hver må bestås for seg, og de to sjangrene her utgjør størstedelen av den.\n\n**Svarformene du møter**, skrevet ut i klarspråk:\n\n- **F1** — «velg ett *eller flere* alternativer»: flere kan være riktige samtidig.\n- **F2** — sant/usant-matrise: én rad per påstand.\n- **F3** — dra-og-slipp: koble hvert element til riktig kategori. I boka skrevet som koblingsoppgave.\n- **F4** — nedtrekksmeny: velg ett alternativ per delspørsmål.\n\n**De fire fellene som avgjør oppgavene her:**\n\n| Felle | Innhold |\n|---|---|\n| **#1** | Å blande sikkerhets*mål* og sikkerhets*tiltak* |\n| **#4** | Å tro at digital signatur gir konfidensialitet |\n| **#5** | Å snu nøkkelretningen i asymmetrisk krypto |\n| **#9** | Å krysse av hash eller sjekksum for konfidensialitet |\n\n**Slik bruker du kapitlet.** Fjorten oppgaver på eksamensnivå, omtrent 80 minutter samlet. Del gjerne over to økter — de er merket under."
+    },
+    {
+      "id": "in1020-3-5-forkunnskaper",
+      "type": "text",
+      "content": "## Forkunnskaper — sist du var her\n\nDrillen bygger på [kap. 3.1](/bok/in1020/in1020-3-1) til [kap. 3.4](/bok/in1020/in1020-3-4). Alt du trenger, står ferdig oppfrisket her — slå ikke opp underveis.\n\n**1. De sju målene**, med spørsmålet som fanger hvert av dem:\n\n| Mål | Spørsmålet |\n|---|---|\n| Konfidensialitet | Kan uvedkommende **lese** det? |\n| Integritet | Er innholdet **uendret**? |\n| Tilgjengelighet | Får de rette **tak i** det? |\n| Sporbarhet | Kan vi se **hvem gjorde hva**? |\n| Uavviselighet | Kan den ansvarlige **nekte**? |\n| Autentisitet | Er det **virkelig** den vi tror? |\n| Personvern | Behandles **personopplysninger** lovlig? |\n\n**2. Testen mål mot tiltak:** kan man **installere eller gjennomføre** det → tiltak. Er det en **egenskap systemet har eller mangler** → mål.\n\n**3. De to nøkkelretningene:**\n\n```text\nHEMMELIG MELDING til Bob:\n  krypter med    ->  Bobs OFFENTLIGE      (mottakerens)\n  dekrypter med  ->  Bobs PRIVATE         (mottakerens)\n\nDIGITAL SIGNATUR fra Alice:\n  signer med     ->  Alices PRIVATE       (avsenderens)\n  valider med    ->  Alices OFFENTLIGE    (avsenderens)\n```\n\n**4. Hva hvert tiltak gir:**\n\n| Tiltak | Konfidensialitet | Integritet | Autentisitet | Uavviselighet |\n|---|---|---|---|---|\n| Kryptering | **Ja** | Nei | Nei | Nei |\n| Hash alene | Nei | **Ja** | Nei | Nei |\n| Digital signatur | **Nei** | Ja | **Ja** | **Ja** |\n\n**5. Risiko:** `sannsynlighet × konsekvens`. Begge faktorene må med."
+    },
+    {
+      "id": "in1020-3-5-notasjon",
+      "type": "collapsible",
+      "title": "Notasjons- og konstruksjonsliste",
+      "buttonText": "Vis notasjon og konstruksjoner",
+      "content": [
+        {
+          "id": "in1020-3-5-notasjon-tekst",
+          "type": "text",
+          "content": "Oppslagsverk — alt her forklares underveis i kapitlet. Dette er kapitlets Symbol- og formelliste, tilpasset et datateknologifag: den lister notasjonen og konstruksjonene i stedet for greske bokstaver.\n\n| Begrep | Betydning / virkning |\n|---|---|\n| Mål | Egenskap systemet har eller mangler |\n| Tiltak | Mekanisme eller handling man setter inn |\n| Trussel | Noe eller noen som kan påføre skade |\n| Sårbarhet | Svakheten trusselen utnytter |\n| Offentlig nøkkel | Deles med alle; kan bare låse |\n| Privat nøkkel | Forlater aldri eieren; låser opp og signerer |\n| Hash-verdi | Fingeravtrykk av innholdet — gir integritet |\n| Signatur | Hash-verdien kryptert med avsenderens private nøkkel |\n| Sertifikat | Binder en offentlig nøkkel til en identitet |\n\n**Formler i dette delkapitlet:**\n\n$$\\text{risiko} = \\text{sannsynlighet} \\times \\text{konsekvens}$$\n\nBegge faktorene må med. Rangér etter produktet, ikke etter den ene faktoren.\n\n$$\\text{antall nøkler} = \\frac{n \\cdot (n-1)}{2}$$\n\nAntall symmetriske nøkler når `n` parter skal snakke parvis. For 12 parter: `12 · 11 ÷ 2 = 66`."
+        }
+      ]
+    },
+    {
+      "id": "in1020-3-5-oppskrift",
+      "type": "theorem",
+      "title": "Løsningsoppskriften for sjanger G og H",
+      "content": "**A. Mål eller tiltak (svarform F3, mål: under 10 sekunder per element).**\n\n1. Spør: **kan man installere eller gjennomføre det?** → tiltak.\n2. Spør: **er det en egenskap systemet har eller mangler?** → mål.\n3. Se etter **par**: logging og sporbarhet, kryptering og konfidensialitet, sikkerhetskopi og tilgjengelighet. Er begge med, er det ene tiltaket og det andre målet.\n\n**B. Tiltak eller trussel → mål (svarform F3, under 15 sekunder per element).**\n\n1. **Handler det om å lese?** → konfidensialitet.\n2. **Handler det om å endre?** → integritet.\n3. **Handler det om å hindre bruk?** → tilgjengelighet.\n4. **Handler det om å utgi seg for en annen?** → autentisitet.\n5. **Handler det om å se eller bevise i ettertid?** → sporbarhet eller uavviselighet.\n\nDe to faste unntakene: **hash og sjekksum gir integritet** (ikke konfidensialitet), og **sikkerhetskopi gir tilgjengelighet** (ikke konfidensialitet).\n\n**C. Nøkkelretning (svarform F4, under 20 sekunder).**\n\n1. **Hva er formålet?** Hemmelighold eller signering?\n2. Hemmelighold → begge nøklene er **mottakerens**. Signering → begge er **avsenderens**.\n3. Kontroller: blander alternativet begge parters nøkler i én operasjon, er det galt.\n\n**D. Hvilke mål gir dette tiltaket (svarform F1).**\n\n1. Gå gjennom **alle sju** målene, ett for ett.\n2. Kryss av hvert du kan begrunne.\n3. Husk raden for signatur: tre ja og ett tydelig **nei**.\n\n**Den ene fellesregelen:** hvert gale alternativ i denne seksjonen svarer til én av de fire fellene #1, #4, #5 eller #9. Kjenner du dem igjen, kontrollerer du ditt eget svar mot dem."
+    },
+    {
+      "id": "in1020-3-5-eks-1",
+      "type": "example",
+      "title": "Eksempel 1: Gjennomarbeidet case — alle fire fellene i ett sett",
+      "problem": "Svarform F1. Kryss av **alle** påstandene som stemmer.\n\n**a)** Brannmur er et sikkerhetsmål.\n\n**b)** En hash-verdi gir integritet.\n\n**c)** En hemmelig melding krypteres med mottakerens offentlige nøkkel.\n\n**d)** En digital signatur gir konfidensialitet.\n\n**e)** En signatur valideres med avsenderens offentlige nøkkel.",
+      "solution": "**a) Galt — felle #1.** Brannmur er et **tiltak**: noe man setter opp. Målene den tjener, er tilgjengelighet og konfidensialitet. Testen avgjør på to sekunder: kan man installere det? Ja, altså tiltak.\n\n*Margnotat om uttelling: dette er den hyppigst påpekte feilen i hele faget. Den koster dobbelt under negativ poenggiving — du krysser av noe galt, og lar samtidig det riktige målet stå.*\n\n**b) Riktig.** Hash-verdien avslører endringer i innholdet. Den skjuler ingenting, så konfidensialitet ville vært felle #9.\n\n**c) Riktig.** Retningsregelen for hemmelighold: begge nøklene tilhører **mottakeren**.\n\n**d) Galt — felle #4.** Signaturen gir integritet, autentisitet og uavviselighet, men **ikke** konfidensialitet. Meldingen sendes i klartekst, og mottakeren må kunne lese den for å regne ut hash-verdien.\n\n**e) Riktig.** Retningsregelen for signering: begge nøklene tilhører **avsenderen**. Å validere med avsenderens **private** nøkkel ville vært felle #5.\n\n**Fasit: b, c og e.**\n\n*Margnotat om formen: de to gale alternativene er felle #1 og felle #4 — de to hyppigste i seksjonen. Et virkelig sett fordeler distraktorene på nøyaktig denne måten, og det er derfor de fire fellene er verdt å kunne som en sjekkliste.*\n\n**Tidsbruk:** med reglene klare tar oppgaven under to minutter. Uten dem blir hvert alternativ en vurdering fra bunnen av."
+    },
+    {
+      "id": "in1020-3-5-okt1",
+      "type": "text",
+      "content": "## Økt 1 — Mål, tiltak og trusler (oppgave 1–7, ~40 min)\n\nFørste økt er sjanger G: skillet mål mot tiltak, koblingene til mål, og risikoregningen. Ta tida."
+    },
+    {
+      "id": "in1020-3-5-o1",
+      "type": "exercise",
+      "exercise": {
+        "id": "in1020-3-5-o1",
+        "number": "1",
+        "type": "classic",
+        "difficulty": "lett",
+        "task": "(Eksamensnivå, sjanger G — mål eller tiltak, svarform F3.) Plasser hvert element (1–8) i riktig kolonne (A eller B).\n\n**1.** Tilgangskontroll · **2.** Uavviselighet · **3.** Antivirus · **4.** Konfidensialitet · **5.** Sikkerhetsøvelse · **6.** Sporbarhet · **7.** Diskkryptering · **8.** Personvern\n\n**A.** Sikkerhetsmål · **B.** Sikkerhetstiltak",
+        "solution": "Bruk testen på hvert element: kan man **installere eller gjennomføre** det (tiltak), eller er det en **egenskap** (mål)?\n\n**1 → B.** Tilgangskontroll settes opp. Tiltak.\n\n**2 → A.** Uavviselighet er en egenskap ved en handling. Mål.\n\n**3 → B.** Antivirus installeres. Tiltak.\n\n**4 → A.** Konfidensialitet er en egenskap ved informasjonen. Mål.\n\n**5 → B.** En øvelse gjennomføres. Tiltak — og det er det elementet som tydeligst viser at et tiltak ikke må være teknisk.\n\n**6 → A.** Sporbarhet er egenskapen at man kan se hvem som gjorde hva. Mål.\n\n**7 → B.** Diskkryptering slås på. Tiltak.\n\n**8 → A.** Personvern er en egenskap ved behandlingen — og et rettslig krav. Mål.\n\n**Fasit: mål = 2, 4, 6, 8. Tiltak = 1, 3, 5, 7.**\n\nMerk at fordelingen er fire og fire her, men det er tilfeldig. En oppgave kan godt ha seks tiltak og to mål.",
+        "hints": [
+          "Still ett spørsmål per element: installerer man det, eller ønsker man det?",
+          "Et tiltak trenger ikke være teknisk — en øvelse er også et tiltak."
+        ]
+      }
+    },
+    {
+      "id": "in1020-3-5-o2",
+      "type": "exercise",
+      "exercise": {
+        "id": "in1020-3-5-o2",
+        "number": "2",
+        "type": "classic",
+        "difficulty": "lett",
+        "task": "(Eksamensnivå, sjanger G — tiltak til mål, svarform F3.) Koble hvert tiltak (1–6) til det målet det **først og fremst** tjener (A–D). Hvert mål kan brukes flere ganger eller ikke i det hele tatt.\n\n**1.** Sjekksum · **2.** Sikkerhetskopiering · **3.** Tofaktor-autentisering · **4.** Logging · **5.** Redundans · **6.** Diskkryptering\n\n**A.** Konfidensialitet · **B.** Integritet · **C.** Tilgjengelighet · **D.** Sporbarhet",
+        "solution": "**1 → B (integritet).** Sjekksummen avslører endringer. Å svare A ville vært felle #9.\n\n**2 → C (tilgjengelighet).** Kopien sørger for at innholdet finnes når originalen er borte. Den hindrer ingen i å lese noe.\n\n**3 → A (konfidensialitet).** Tofaktor hindrer at uvedkommende kommer inn og får lest noe. Den tjener også autentisitet, men blant disse fire alternativene er A det presise svaret.\n\n**4 → D (sporbarhet).** Loggen gjør det mulig å se hvem som gjorde hva i ettertid.\n\n**5 → C (tilgjengelighet).** Flere maskiner som kan overta, holder tjenesten oppe.\n\n**6 → A (konfidensialitet).** Kryptert innhold kan ikke leses uten nøkkelen.\n\n**Fasit: 1→B, 2→C, 3→A, 4→D, 5→C, 6→A.**\n\nA og C brukes to ganger hver. Ikke tving fram en jevn fordeling — det er en fast måte å miste poeng på.",
+        "hints": [
+          "Spør for hvert tiltak: hindrer det lesing, avslører det endring, sikrer det oppetid, eller dokumenterer det?",
+          "To av tiltakene er de faste fellene — hvilke?"
+        ]
+      }
+    },
+    {
+      "id": "in1020-3-5-o3",
+      "type": "exercise",
+      "exercise": {
+        "id": "in1020-3-5-o3",
+        "number": "3",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "(Eksamensnivå, sjanger G — trussel til mål, svarform F3.) Koble hver trussel (1–6) til det målet den **først og fremst** bryter (A–D).\n\n**1.** Løsepengevirus · **2.** Spionvare · **3.** Forfalsket nettside · **4.** Sletting av loggfiler · **5.** Rootkit · **6.** Tapt ukryptert minnepinne\n\n**A.** Konfidensialitet · **B.** Integritet · **C.** Tilgjengelighet · **D.** Sporbarhet",
+        "solution": "**1 → C (tilgjengelighet).** Filene finnes, men er låst. Angrepet **bruker** kryptering, men det brutte målet er tilgang — å svare A er å forveksle verktøyet med skaden.\n\n**2 → A (konfidensialitet).** Spionvaren sender innhold ut av maskinen.\n\n**3 → B (integritet).** Innholdet er falskt. Merk at siden også bryter **autentisitet**, men det målet er ikke blant alternativene — da velger du det som passer av dem som står der.\n\n**4 → D (sporbarhet).** Uten logger kan ingen se hva som skjedde. Slettingen rammer også uavviselighet, men D er det presise svaret her.\n\n**5 → B (integritet).** Rootkitet manipulerer systemet slik at det rapporterer noe annet enn det som er tilfelle.\n\n**6 → A (konfidensialitet).** Finneren kan lese innholdet. Var minnepinnen kryptert, ville bare tilgjengelighet vært brutt.\n\n**Fasit: 1→C, 2→A, 3→B, 4→D, 5→B, 6→A.**\n\n**De to som avgjør oppgaven:** nummer 1, der kryptering som våpen frister til feil svar, og nummer 5, der ordet «rootkit» høres ut som spionasje men handler om manipulasjon av systemet.",
+        "hints": [
+          "Bruk de tre grunnreglene: lese, endre eller hindre bruk?",
+          "For 1): hva er det som faktisk gikk tapt for eieren?",
+          "Er det riktige målet ikke blant alternativene, velg det som passer best av dem som står der."
+        ]
+      }
+    },
+    {
+      "id": "in1020-3-5-o4",
+      "type": "exercise",
+      "exercise": {
+        "id": "in1020-3-5-o4",
+        "number": "4",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "(Eksamensnivå, sjanger G — mål, svarform F1.) En angriper overtar en ansatts konto, laster ned personopplysninger og sletter loggene. Kryss av **alle** målene som brytes, og begrunn hvert av de seks.\n\n**a)** Konfidensialitet\n\n**b)** Tilgjengelighet\n\n**c)** Sporbarhet\n\n**d)** Uavviselighet\n\n**e)** Autentisitet\n\n**f)** Personvern",
+        "solution": "Gå gjennom målene ett for ett:\n\n**a) Riktig.** Personopplysninger er lastet ned av noen som ikke skulle hatt dem.\n\n**b) Galt.** Systemet er oppe hele tiden, og ingen mister tilgang til noe. Dette er distraktoren som «føles» riktig fordi hendelsen er alvorlig.\n\n**c) Riktig.** Loggene er slettet, og det går ikke lenger an å se hva som skjedde.\n\n**d) Riktig.** Uten logger kan handlingene ikke knyttes til noen med sikkerhet.\n\n**e) Riktig.** Angriperen opptrådte som den ansatte. Systemet trodde det snakket med rett person.\n\n**f) Riktig.** Personopplysninger er behandlet uten rettslig grunnlag.\n\n**Fasit: a, c, d, e og f — alle unntatt tilgjengelighet.**\n\n**Fem av seks riktige.** Slike oppgaver finnes, og de er brutale for den som har lært seg å fordele avkryssingene pent. Gå gjennom listen systematisk — det tar tretti sekunder og gir full pott i stedet for halv.",
+        "hints": [
+          "Ta målene i fast rekkefølge og spør for hvert enkelt om nettopp den egenskapen er brutt.",
+          "Sjekk om noen faktisk har mistet tilgang til noe."
+        ]
+      }
+    },
+    {
+      "id": "in1020-3-5-o5",
+      "type": "exercise",
+      "exercise": {
+        "id": "in1020-3-5-o5",
+        "number": "5",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "(Eksamensnivå, sjanger G — risiko.) En bedrift har vurdert fire trusler på skalaen 1 til 5. Regn ut risikoen for hver, og rangér dem fra høyest til lavest.\n\n| Trussel | Sannsynlighet | Konsekvens |\n|---|---|---|\n| Ansatt klikker på falsk e-post | 4 | 4 |\n| Vannlekkasje i serverrom | 1 | 5 |\n| Tapt mobiltelefon uten kryptering | 3 | 3 |\n| Utdatert nettleser utnyttes | 2 | 4 |",
+        "solution": "**Regn ut produktet for hver:**\n\n`Falsk e-post: 4 · 4 = 16`\n\n`Vannlekkasje: 1 · 5 = 5`\n\n`Tapt mobiltelefon: 3 · 3 = 9`\n\n`Utdatert nettleser: 2 · 4 = 8`\n\n**Rangeringen fra høyest til lavest:**\n\n1. **Falsk e-post — 16**\n2. **Tapt mobiltelefon — 9**\n3. **Utdatert nettleser — 8**\n4. **Vannlekkasje — 5**\n\n**Svar: falsk e-post, tapt mobiltelefon, utdatert nettleser, vannlekkasje.**\n\n**Legg merke til vannlekkasjen.** Den har den høyeste konsekvensen av alle fire — og likevel den laveste risikoen, fordi sannsynligheten er 1. Rangerer du etter konsekvens alene, havner den øverst, og det er den vanligste feilen i oppgavetypen.\n\n**Hva rangeringen betyr i praksis:** det mest presserende tiltaket er opplæring mot falske e-poster, og det er billig. Risikoberegning er nettopp et verktøy for å finne ut hvor pengene gjør mest nytte.",
+        "hints": [
+          "Regn ut alle fire produktene før du sammenligner noe.",
+          "Se særlig på den trusselen som har høyest konsekvens — hva er sannsynligheten der?"
+        ]
+      }
+    },
+    {
+      "id": "in1020-3-5-o6",
+      "type": "exercise",
+      "exercise": {
+        "id": "in1020-3-5-o6",
+        "number": "6",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "(Eksamensnivå, sjanger G — tiltak til mål, svarform F1.) Kryss av **alle** tiltakene som først og fremst tjener **tilgjengelighet**, og begrunn hvert av de fem.\n\n**a)** Sikkerhetskopiering\n\n**b)** Redundans\n\n**c)** Diskkryptering\n\n**d)** Sikkerhetsøvelse\n\n**e)** Hashing av passord",
+        "solution": "**a) Riktig.** Kopien sørger for at innholdet finnes når originalen er borte eller låst.\n\n**b) Riktig.** Flere maskiner som kan overta for hverandre, holder tjenesten oppe selv om én svikter.\n\n**c) Galt.** Diskkryptering tjener **konfidensialitet**. Den hindrer lesing, ikke nedetid — en kryptert disk kan gå i stykker like lett som en ukryptert.\n\n**d) Riktig.** Øvelsen trener på å komme raskt tilbake i drift etter en hendelse, og tjener dermed først og fremst tilgjengelighet.\n\n**e) Galt.** Hashing av passord tjener **konfidensialitet** — den hindrer at lagrede passord kan leses ut av en database. Å svare tilgjengelighet her er å forveksle to helt ulike mål.\n\n**Fasit: a, b og d.**\n\n**Merk alternativ d.** Det er det eneste ikke-tekniske tiltaket i settet, og det plasseres ofte feil nettopp derfor. Et tiltak er alt man **gjør** for å nå et mål — ikke bare det man installerer.",
+        "hints": [
+          "Spør for hvert tiltak: hjelper dette når systemet er nede eller data er borte?",
+          "To av alternativene handler om å hindre lesing, ikke om oppetid."
+        ]
+      }
+    },
+    {
+      "id": "in1020-3-5-o7",
+      "type": "exercise",
+      "exercise": {
+        "id": "in1020-3-5-o7",
+        "number": "7",
+        "type": "classic",
+        "difficulty": "vanskelig",
+        "task": "(Eksamensnivå, sjanger G — blandet, svarform F2.) Vurder hver påstand som sann eller usann, og begrunn hver rad.\n\n| # | Påstand | Sant/usant |\n|---|---|---|\n| a | Et internt system uten internettforbindelse er uten risiko | |\n| b | En sjekksum tjener integritet | |\n| c | Brannmur stopper innsidetrusler effektivt | |\n| d | Risiko regnes som sannsynlighet ganger konsekvens | |",
+        "solution": "**a) Usann.** Felle #12. Innsidere har allerede tilgang, fysisk tilgang omgår sperrene, og strømbrudd, brann og feilbetjening rammer uansett. Frakoblingen fjerner én kategori trusler, ikke risikoen. Absolutte formuleringer som «uten risiko» er nesten alltid usanne i denne sjangeren.\n\n**b) Sann.** Sjekksummen avslører endringer i innholdet. Den skjuler ingenting — å svare konfidensialitet ville vært felle #9.\n\n**c) Usann.** Innsideren er allerede innenfor brannmuren, som kontrollerer trafikk inn og ut av nettet. Mottiltakene mot innsidere er minste privilegium, logging, arbeidsdeling og opplæring.\n\n**d) Sann.** Begge faktorene må med. En hyppig, men ufarlig hendelse gir lav risiko, og det samme gjør en katastrofe som praktisk talt aldri inntreffer.\n\n**Fasit: a usann, b sann, c usann, d sann.**\n\nMerk at de to usanne begge lover mer enn de kan holde: den ene lover null risiko, den andre lover at ett tiltak dekker en trussel det ikke er laget for.",
+        "hints": [
+          "Se etter absolutte formuleringer — de er ofte de usanne.",
+          "For c): hvor står brannmuren, og hvor står innsideren?"
+        ]
+      }
+    },
+    {
+      "id": "in1020-3-5-okt2",
+      "type": "text",
+      "content": "— naturlig pausepunkt —\n\n## Økt 2 — Nøkler, signatur og hash (oppgave 8–14, ~40 min)\n\nAndre økt er sjanger H: nøkkelretning i begge former, hva signaturen gir, og hva hash-verdien beviser. Ta pause før du starter."
+    },
+    {
+      "id": "in1020-3-5-o8",
+      "type": "exercise",
+      "exercise": {
+        "id": "in1020-3-5-o8",
+        "number": "8",
+        "type": "classic",
+        "difficulty": "lett",
+        "task": "(Eksamensnivå, sjanger H — nøkkelretning, svarform F4.) Velg ett alternativ per delspørsmål.\n\n**a)** Kari sender en hemmelig melding til Ola. Hun krypterer med …\n\n1. Karis private nøkkel · 2. Karis offentlige nøkkel · 3. Olas offentlige nøkkel · 4. Olas private nøkkel\n\n**b)** Ola signerer et dokument til Kari. Han signerer med …\n\n1. Olas private nøkkel · 2. Karis offentlige nøkkel · 3. Olas offentlige nøkkel · 4. Karis private nøkkel",
+        "solution": "**a) Alternativ 3 — Olas offentlige nøkkel.**\n\nHemmelighold bruker **mottakerens** nøkler. Alternativ 1 ville gjort meldingen lesbar for alle med Karis offentlige nøkkel (signering). Alternativ 2 ville låst den så bare Kari selv kunne åpne. Alternativ 4 er umulig — Kari har ikke Olas private nøkkel.\n\n**b) Alternativ 1 — Olas private nøkkel.**\n\nSignering bruker **avsenderens** nøkler, og signaturen beviser noe nettopp fordi bare Ola har den private nøkkelen. Alternativ 3 ville vært verdiløst siden alle har den offentlige. Alternativ 2 og 4 bruker Karis nøkler, som ikke er involvert.\n\n**Fasit: a) 3, b) 1.**\n\nMerk at fasit-alternativene er ulike i de to delspørsmålene. Rekkefølgen på alternativene er alltid stokket, og en fasit som er «alternativ 1» hele veien, er et varsel om at noe er gjettet.",
+        "hints": [
+          "Spør først hva formålet er: hemmelighold eller signering?",
+          "Hemmelighold bruker mottakerens nøkler; signering bruker avsenderens."
+        ]
+      }
+    },
+    {
+      "id": "in1020-3-5-o9",
+      "type": "exercise",
+      "exercise": {
+        "id": "in1020-3-5-o9",
+        "number": "9",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "(Eksamensnivå, sjanger H — signatur, svarform F1.) Kryss av **alle** påstandene som stemmer om en digital signatur, og begrunn hvert av de fem.\n\n**a)** Den gir uavviselighet.\n\n**b)** Den gjør innholdet uleselig for uvedkommende.\n\n**c)** Den avslører om meldingen er endret underveis.\n\n**d)** Den valideres med avsenderens offentlige nøkkel.\n\n**e)** Det er hash-verdien, ikke hele meldingen, som signeres.",
+        "solution": "**a) Riktig.** Bare avsenderen har sin private nøkkel, så bare hun kan ha laget signaturen. Hun kan ikke nekte for det i ettertid.\n\n**b) Galt — felle #4.** Signaturen gir **ikke** konfidensialitet. Meldingen sendes i klartekst, og mottakeren må kunne lese den for å regne ut hash-verdien og kontrollere signaturen.\n\n**c) Riktig.** Endres meldingen med ett bit, stemmer ikke hash-verdiene lenger, og valideringen mislykkes. Det er integritet.\n\n**d) Riktig.** Signering bruker avsenderens private nøkkel; validering bruker avsenderens offentlige. Begge nøklene tilhører avsenderen.\n\n**e) Riktig.** Hash-verdien er liten uansett meldingens størrelse, og asymmetrisk kryptering er treg. Derfor tar en signatur på en fil på 900 MB like kort tid som på en tekstmelding.\n\n**Fasit: a, c, d og e.**\n\n**Fire av fem riktige**, og det ene gale er felle #4 — fagets mest testede enkeltinnsikt. En kandidat som er redd for å krysse av «for mange», mister tre poeng her uten å ha svart noe galt.",
+        "hints": [
+          "Gå gjennom hva en gyldig signatur faktisk lar mottakeren slutte.",
+          "Ett av alternativene tillegger signaturen en egenskap den ikke har — hvilket?"
+        ]
+      }
+    },
+    {
+      "id": "in1020-3-5-o10",
+      "type": "exercise",
+      "exercise": {
+        "id": "in1020-3-5-o10",
+        "number": "10",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "(Eksamensnivå, sjanger H — nøkkelretning, svarform F2.) Vurder hver påstand som sann eller usann, og begrunn hver rad.\n\n| # | Påstand | Sant/usant |\n|---|---|---|\n| a | En hemmelig melding dekrypteres med mottakerens private nøkkel | |\n| b | En signatur valideres med avsenderens private nøkkel | |\n| c | Den offentlige nøkkelen kan deles åpent uten at sikkerheten svekkes | |\n| d | Symmetrisk kryptering gir uavviselighet | |",
+        "solution": "**a) Sann.** Retningsregelen: Alice krypterer med Bobs offentlige, Bob dekrypterer med Bobs private. Begge nøklene tilhører mottakeren.\n\n**b) Usann — felle #5.** Validering bruker avsenderens **offentlige** nøkkel. Den private har bare avsenderen selv, og hadde mottakeren hatt den, ville hele poenget med signaturen falt bort.\n\n**c) Sann.** Den offentlige nøkkelen er laget for å være kjent. Den kan bare låse, ikke låse opp, og den private kan ikke regnes ut fra den.\n\n**d) Usann.** Begge parter har samme nøkkel, så hver av dem kunne laget en melding som ser ut som den andres. Uavviselighet krever digital signatur.\n\n**Fasit: a sann, b usann, c sann, d usann.**\n\nMerk at rad a og b handler om de to retningene, og at bare den ene er snudd. Les hver rad for seg — det holder ikke å kjenne igjen temaet.",
+        "hints": [
+          "Skriv opp de to retningsreglene før du vurderer radene.",
+          "For d): hvis begge har samme nøkkel, kan noen bevise hvem som lagde meldingen?"
+        ]
+      }
+    },
+    {
+      "id": "in1020-3-5-o11",
+      "type": "exercise",
+      "exercise": {
+        "id": "in1020-3-5-o11",
+        "number": "11",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "(Eksamensnivå, sjanger H — hash, svarform F1.) Kryss av **alle** påstandene som stemmer om en hash-verdi, og begrunn hvert av de fire.\n\n**a)** Den avslører om innholdet er endret.\n\n**b)** Den gjør innholdet uleselig for uvedkommende.\n\n**c)** Den har fast lengde uansett hvor stort innholdet er.\n\n**d)** Den kan regnes tilbake til det opprinnelige innholdet.",
+        "solution": "**a) Riktig.** Endres innholdet med ett bit, endres verdien fullstendig. Det er **integritet**.\n\n**b) Galt — felle #9.** Hash-verdien kommer i **tillegg** til innholdet og skjuler ingenting. Fila er like lesbar med hash-verdi som uten.\n\n**c) Riktig.** En tekst på tre bokstaver og en fil på 900 MB gir hash-verdier av nøyaktig samme størrelse. Det er nettopp derfor det er hash-verdien som signeres, ikke meldingen.\n\n**d) Galt.** Funksjonen går bare **én vei**. Var den reversibel, ville både signaturer og passordlagring vært verdiløse.\n\n**Fasit: a og c.**\n\n**Merk sammenhengen mellom c og d:** hash-verdien er kortere enn innholdet i de aller fleste tilfeller, så informasjon går tapt. Allerede av den grunn kan den ikke reverseres entydig.",
+        "hints": [
+          "Spør for hvert alternativ: hva blir mulig eller umulig på grunn av hash-verdien?",
+          "For d): kan en kort verdi inneholde nok informasjon til å gjenskape en stor fil?"
+        ]
+      }
+    },
+    {
+      "id": "in1020-3-5-o12",
+      "type": "exercise",
+      "exercise": {
+        "id": "in1020-3-5-o12",
+        "number": "12",
+        "type": "classic",
+        "difficulty": "vanskelig",
+        "task": "(Eksamensnivå, sjanger H — kombinasjon, svarform F1.) Alice vil sende Bob en melding som både er hemmelig og bevislig kommer fra henne. Kryss av **alle** påstandene som stemmer, og begrunn hvert av de fem.\n\n**a)** Hun må gjøre to operasjoner, ikke én.\n\n**b)** Hun signerer med sin egen private nøkkel.\n\n**c)** Hun krypterer med Bobs offentlige nøkkel.\n\n**d)** Bob validerer signaturen med sin egen private nøkkel.\n\n**e)** Til sammen er fire nøkler i bruk.",
+        "solution": "**a) Riktig.** Signering gir integritet, autentisitet og uavviselighet; kryptering gir konfidensialitet. Ingen enkelt operasjon gir begge deler.\n\n**b) Riktig.** Signering bruker avsenderens private nøkkel.\n\n**c) Riktig.** Hemmelighold bruker mottakerens offentlige nøkkel.\n\n**d) Galt — felle #5.** Bob validerer med **Alices offentlige** nøkkel. Hans egen private nøkkel bruker han til å **dekryptere** meldingen, som er en annen operasjon. Distraktoren er farlig fordi Bobs private nøkkel faktisk er i bruk i saken — bare ikke til valideringen.\n\n**e) Riktig.** Alices private (signering), Alices offentlige (validering), Bobs offentlige (kryptering) og Bobs private (dekryptering). To fra hvert nøkkelpar.\n\n**Fasit: a, b, c og e.**\n\n**Merk hvorfor d er den vanskeligste distraktoren i settet:** den er ikke absurd. Bobs private nøkkel har en rolle her — den brukes til dekryptering. Feilen er å knytte den til feil operasjon. Under negativ poenggiving er nettopp de «halvriktige» alternativene de dyreste.",
+        "hints": [
+          "Skriv opp begge retningsreglene, og hold de to operasjonene atskilt.",
+          "For d): hvilken operasjon bruker Bobs private nøkkel, og hvilken bruker Alices offentlige?"
+        ]
+      }
+    },
+    {
+      "id": "in1020-3-5-o13",
+      "type": "exercise",
+      "exercise": {
+        "id": "in1020-3-5-o13",
+        "number": "13",
+        "type": "classic",
+        "difficulty": "vanskelig",
+        "task": "(Eksamensnivå, sjanger G og H blandet, svarform F1.) Kryss av **alle** tiltakene som gir **konfidensialitet**, og begrunn hvert av de seks.\n\n**a)** HTTPS\n\n**b)** Hash-verdi\n\n**c)** Diskkryptering\n\n**d)** Digital signatur\n\n**e)** Tilgangskontroll\n\n**f)** Sikkerhetskopiering",
+        "solution": "**a) Riktig.** HTTPS krypterer trafikken, slik at ingen på veien kan lese den. Den gir i tillegg integritet og autentisitet, men konfidensialitet er kjernen.\n\n**b) Galt — felle #9.** Hash gir **integritet**. Verdien kommer i tillegg til innholdet og skjuler ingenting.\n\n**c) Riktig.** Kryptert innhold kan ikke leses uten nøkkelen. Det er derfor en stjålet, kryptert maskin ikke er et konfidensialitetsbrudd.\n\n**d) Galt — felle #4.** Signaturen gir integritet, autentisitet og uavviselighet, men **ikke** konfidensialitet. Meldingen sendes i klartekst.\n\n**e) Riktig.** Tilgangskontroll bestemmer hvem som får lese hva.\n\n**f) Galt.** Sikkerhetskopiering tjener **tilgjengelighet**. En kopi hindrer ingen i å lese noe — tvert imot finnes innholdet nå to steder.\n\n**Fasit: a, c og e.**\n\n**Om settet:** de tre gale alternativene er felle #9, felle #4 og den faste sikkerhetskopi-forvekslingen — altså nøyaktig de tre koblingene det er verdt å pugge. Tre av seks riktige er dessuten en helt vanlig fordeling.",
+        "hints": [
+          "Spør for hvert tiltak: hindrer dette at noen LESER noe?",
+          "Tre av alternativene tjener helt andre mål — hvilke tre?"
+        ]
+      }
+    },
+    {
+      "id": "in1020-3-5-o14",
+      "type": "exercise",
+      "exercise": {
+        "id": "in1020-3-5-o14",
+        "number": "14",
+        "type": "classic",
+        "difficulty": "vanskelig",
+        "task": "(Eksamensnivå, sjanger G og H blandet, svarform F2.) Vurder hver påstand som sann eller usann, og begrunn hver rad.\n\n| # | Påstand | Sant/usant |\n|---|---|---|\n| a | Kryptering er et sikkerhetsmål | |\n| b | Et sertifikat binder en offentlig nøkkel til en identitet | |\n| c | En digital signatur skjuler innholdet i meldingen | |\n| d | Symmetrisk kryptering egner seg best til store datamengder | |",
+        "solution": "**a) Usann — felle #1.** Kryptering er et **tiltak**. Målet den tjener, er konfidensialitet. Dette er det tiltaket som oftest feilplasseres som mål, fordi ordet er så sentralt i sikkerhet.\n\n**b) Sann.** Det er nettopp dette et sertifikat gjør, og det er selv signert av en betrodd utsteder slik at bindingen ikke kan forfalskes.\n\n**c) Usann — felle #4.** Signaturen kommer i tillegg til meldingen, som sendes i klartekst. Alle kan lese den, og de må kunne det for å kontrollere signaturen.\n\n**d) Sann.** Symmetriske algoritmer er raske nok til gigabyte i sekundet. Asymmetrisk kryptering brukes bare på små mengder — nøkler og signaturer.\n\n**Fasit: a usann, b sann, c usann, d sann.**\n\n**Om settet:** to av fire rader er faste feller (#1 og #4), og de to andre er rene faktapåstander. Det er den vanlige sammensetningen i seksjon 3 — halvparten avgjøres av sjekklisten, halvparten krever at du kan stoffet.",
+        "hints": [
+          "Bruk testen på rad a: installerer man det, eller ønsker man det?",
+          "For c): må mottakeren kunne lese meldingen for å kontrollere signaturen?"
+        ]
+      }
+    },
+    {
+      "id": "in1020-3-5-warn",
+      "type": "warning",
+      "title": "Typiske feil",
+      "content": "1. **Å blande mål og tiltak (felle #1).** Testen tar to sekunder: kan man installere eller gjennomføre det, eller er det en egenskap systemet har eller mangler?\n\n2. **Å tro at digital signatur gir konfidensialitet (felle #4).** Signaturen gir integritet, autentisitet og uavviselighet — og ingenting mer.\n\n3. **Å snu nøkkelretningen (felle #5).** Hemmelighold bruker **mottakerens** nøkler; signering bruker **avsenderens**. Blander et alternativ begge parters nøkler i én operasjon, er det galt.\n\n4. **Å krysse av hash for konfidensialitet (felle #9).** Hash gir **integritet**.\n\n5. **Å tro at sikkerhetskopiering gir konfidensialitet.** Den gir **tilgjengelighet**.\n\n6. **Å krysse av bare ett mål når flere er brutt.** Gå gjennom alle sju målene ett for ett — det tar tretti sekunder.\n\n7. **Å rangere risiko etter én faktor.** Både sannsynlighet og konsekvens skal ganges sammen. Den mest katastrofale trusselen er sjelden den mest presserende.\n\n8. **Å stole på fordelingen i en fasit.** Fem av seks riktige i en F1-oppgave er helt vanlig, og det samme er én av fire."
+    },
+    {
+      "id": "in1020-3-5-begrepsbank",
+      "type": "text",
+      "content": "## Begrepsbank til eksamen\n\nBegrepsbanken er flashcard- og repetisjonsstoff — den gjentar det du nettopp har lest. Hopp trygt over ved førstegangslesing; tidsanslaget for kapitlet gjelder kjernestoffet."
+    },
+    {
+      "id": "in1020-3-5-bank-1",
+      "type": "definition",
+      "title": "Sjekklisten for seksjon 3",
+      "content": "Fire feller avgjør de fleste oppgavene i denne seksjonen:\n\n| Felle | Kontrollspørsmål |\n|---|---|\n| **#1** | Er dette noe man installerer (tiltak) eller ønsker (mål)? |\n| **#4** | Gir signaturen konfidensialitet? **Nei** |\n| **#5** | Hvem eier nøklene i denne operasjonen — avsender eller mottaker? |\n| **#9** | Hva gir hash? **Integritet** |\n\nSkriv dem i margen før du begynner på seksjonen. Halvparten av radene i en typisk matrise avgjøres direkte av listen."
+    },
+    {
+      "id": "in1020-3-5-bank-2",
+      "type": "definition",
+      "title": "Testen mål mot tiltak",
+      "content": "**Kan man kjøpe, installere eller gjennomføre det?** → tiltak.\n\n**Er det en egenskap systemet har eller mangler?** → mål.\n\nBrannmur installeres, kryptering tas i bruk, en øvelse gjennomføres — alle tre er tiltak. Konfidensialitet, integritet og uavviselighet er egenskaper.\n\nMerk at et tiltak ikke må være teknisk. Opplæring og øvelser er tiltak, og de plasseres ofte feil nettopp derfor."
+    },
+    {
+      "id": "in1020-3-5-bank-3",
+      "type": "definition",
+      "title": "De fem koblingsreglene",
+      "content": "1. Handler det om å **lese**? → konfidensialitet\n2. Handler det om å **endre**? → integritet\n3. Handler det om å **hindre bruk**? → tilgjengelighet\n4. Handler det om å **utgi seg for en annen**? → autentisitet\n5. Handler det om å **se eller bevise i ettertid**? → sporbarhet eller uavviselighet\n\nDe to faste unntakene å pugge: **hash og sjekksum gir integritet**, og **sikkerhetskopi gir tilgjengelighet**. Begge frister til å svare konfidensialitet."
+    },
+    {
+      "id": "in1020-3-5-bank-4",
+      "type": "definition",
+      "title": "Nøkkelretningene på én linje hver",
+      "content": "```text\nHEMMELIGHOLD:  begge nøklene er MOTTAKERENS\nSIGNERING:     begge nøklene er AVSENDERENS\n```\n\nKontrollen: blander et alternativ begge parters nøkler i **én** operasjon, er det galt.\n\nUnntaket som ser ut som en blanding: når begge deler gjøres i samme melding, er det **to** operasjoner, og da er fire nøkler i bruk — to fra hvert par."
+    },
+    {
+      "id": "in1020-3-5-bank-5",
+      "type": "definition",
+      "title": "Signaturraden utenat",
+      "content": "| Mål | Gir signaturen det? |\n|---|---|\n| Integritet | **Ja** |\n| Autentisitet | **Ja** |\n| Uavviselighet | **Ja** |\n| Konfidensialitet | **Nei** |\n\nTre ja og ett tydelig nei. Dette er fagets mest testede enkeltrad, og den kommer igjen i ulike formuleringer i nesten hvert sett.\n\nBegrunnelsen for nei-et: mottakeren må kunne lese meldingen for å regne ut hash-verdien og kontrollere signaturen."
+    },
+    {
+      "id": "in1020-3-5-bank-6",
+      "type": "definition",
+      "title": "De halvriktige distraktorene",
+      "content": "De dyreste alternativene er ikke de absurde, men de som er **nesten** riktige.\n\n«Bob validerer signaturen med sin egen private nøkkel» er farlig fordi Bobs private nøkkel faktisk er i bruk i saken — bare til dekrypteringen, ikke til valideringen.\n\nArbeidsmåten: knytt hver nøkkel til **én bestemt operasjon** før du vurderer alternativene. Da avsløres feilkoblingen med én gang."
+    },
+    {
+      "id": "in1020-3-5-bank-7",
+      "type": "definition",
+      "title": "Å gå gjennom alle sju målene",
+      "content": "I en «hvilke mål brytes»-oppgave: ta målene i fast rekkefølge og spør for hvert enkelt om nettopp den egenskapen er brutt.\n\nSju spørsmål tar tretti sekunder, og forskjellen er full pott mot halv.\n\nDe to målene som oftest står som **gale** alternativer, er konfidensialitet og tilgjengelighet — nettopp fordi de er de to man tenker på først ved ordet «angrep». Kontrollen: har noen **lest** noe, og har noen **mistet tilgang**?"
+    },
+    {
+      "id": "in1020-3-5-bank-8",
+      "type": "definition",
+      "title": "Risikorangering under tidspress",
+      "content": "$$\\text{risiko} = \\text{sannsynlighet} \\times \\text{konsekvens}$$\n\nRegn ut alle produktene **før** du sammenligner. Rangér etter produktet, ikke etter den ene faktoren.\n\nDen faste fella: å sette den mest katastrofale trusselen øverst. En hendelse med konsekvens 5 og sannsynlighet 1 gir risiko 5, mens en med 4 og 4 gir 16.\n\nVed likt produkt skilles det på konsekvens."
+    },
+    {
+      "id": "in1020-3-5-bank-9",
+      "type": "definition",
+      "title": "Fordelingen i en fasit er ingen ledetråd",
+      "content": "En F1-oppgave kan ha ett riktig alternativ eller fem av seks. En sant/usant-matrise kan ha alle fire sanne.\n\nDet finnes ingen skjult regel om jevn fordeling, og en koblingsoppgave krever ikke at alle kategorier brukes.\n\nVanen med å spre avkryssingene koster poeng i begge retninger under negativ poenggiving: du krysser av noe du ikke kan begrunne, og lar stå noe du faktisk kunne."
+    },
+    {
+      "id": "in1020-3-5-bank-10",
+      "type": "definition",
+      "title": "Tidsbudsjettet i seksjon 3",
+      "content": "Retningsgivende tider når du har drillet ferdig: mål eller tiltak under 10 sekunder per element, kobling til mål under 15 sekunder, nøkkelretning under 20 sekunder, «hvilke mål brytes» under 30 sekunder.\n\nSeksjonen har omtrent 60 minutter på eksamen, og med disse tidene rekker du å kontrollere svarene også.\n\nBlir du sittende lenger på en enkeltrad, er det nesten alltid fordi du ikke har skrevet ned de to retningsreglene og sjekklisten over de fire fellene."
+    },
+    {
+      "id": "in1020-3-5-repetisjon",
+      "type": "collapsible",
+      "title": "Repetisjon — sitter drillen?",
+      "buttonText": "Vis repetisjonsoppgaver",
+      "content": [
+        {
+          "id": "in1020-3-5-rep-tekst",
+          "type": "text",
+          "content": "Ti korte. Svar før du ser på fasiten.\n\n1. Er kryptering et mål eller et tiltak?\n2. Hvilket mål gir en sjekksum?\n3. Hvilket mål gir sikkerhetskopiering?\n4. Hvilken nøkkel krypterer en hemmelig melding?\n5. Hvilken nøkkel validerer en signatur?\n6. Hvilke tre mål gir en digital signatur?\n7. Hvilket mål gir den ikke?\n8. Sannsynlighet 1 og konsekvens 5, mot 4 og 4 — hvilken har høyest risiko?\n9. Stopper brannmur innsidetrusler?\n10. Hva er de fire fellene i seksjon 3?\n\n**Fasit.**\n\n1. Tiltak. Målet er konfidensialitet (felle #1).\n2. Integritet — aldri konfidensialitet (felle #9).\n3. Tilgjengelighet.\n4. **Mottakerens offentlige** nøkkel.\n5. **Avsenderens offentlige** nøkkel.\n6. Integritet, autentisitet og uavviselighet.\n7. Konfidensialitet (felle #4).\n8. Den andre: `4 · 4 = 16` mot `1 · 5 = 5`.\n9. Nei. Innsideren er allerede innenfor.\n10. #1 mål mot tiltak · #4 signatur og konfidensialitet · #5 snudd nøkkelretning · #9 hash og konfidensialitet.\n\nSjekk deg selv: ☐ brukte du testen på hvert element før du plasserte det? ☐ holdt du de to nøkkelretningene atskilt? ☐ gikk du gjennom ALLE målene i «hvilke brytes»-oppgavene? ☐ ganget du begge faktorene i risikoregningen?"
+        }
+      ]
+    }
+  ],
+  "exercises": []
+}
