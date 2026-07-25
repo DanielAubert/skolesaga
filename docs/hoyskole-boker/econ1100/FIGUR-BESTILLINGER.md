@@ -69,6 +69,9 @@ med ny `id` og ny, skreddersydd `caption`.
 | F14 ✅ | 10.1 | `invers-speiling.svg` (LEVERT av B7 25. juli 2026 — bygget, wiret inn i kap. 10.1, lastet opp og verifisert 200) | En strengt voksende funksjon $f$ og dens inverse $g$ speilet om linjen $y=x$ (stiplet), med et punkt $(a,b)$ på $f$ og speilpunktet $(b,a)$ på $g$. Gjør både eksistenskravet (monotoni) og $g'(y)=1/f'(x)$ visuelt. |
 | F15 ✅ | 10.2 | `areal-mellom-kurver.svg` (LEVERT av B7 25. juli 2026 — bygget, wiret inn i kap. 10.2, lastet opp og verifisert 200) | To kurver med det skraverte arealet mellom dem fra $x=a$ til $x=b$, grensene merket på $x$-aksen. Brukes til arealtolkningen av det bestemte integralet. |
 
+| F16 ✅ | 11.2 | `oe1-drofting-skisse.svg` (LEVERT av B8 25. juli 2026 — bygget, wiret inn i løsningen til Oppgave 4d i øvingseksamen 1, lastet opp og verifisert 200) | Fasitfigur til skisse-delpunktet i ØE1 Oppgave 4: $f(x)=4\sqrt x-x$ på $[0,16]$ med begge nullpunkter merket, toppunktet $(4,4)$ med stiplede hjelpelinjer, og tangenten i $x=1$ (stigningstall 1) inntegnet. Konkav i hele området — ingen vendepunkt. |
+| F17 ✅ | 11.2 | `oe1-nivakurve.svg` (LEVERT av B8 25. juli 2026 — bygget, wiret inn i løsningen til Oppgave 5c i øvingseksamen 1, lastet opp og verifisert 200) | Fasitfigur til skisse-delpunktet i ØE1 Oppgave 5: nivåkurven $x^2y=12$ i første kvadrant med tangenten i $(2,3)$ (stigningstall $-3$). Fallende og konveks, med begge akser som asymptoter. |
+
 ## Figurløfter som verifikator skal sjekke
 
 Etter byggebølgen skal `python3 scripts/hoyskolebok/sjekk-figurer.py econ1100`
@@ -132,6 +135,16 @@ voksende+konkav mot voksende+konveks som kap. 10.1 oppgave 6 beviser. F15
 porten var grønn også uten dem — figurene er bygget fordi begge diagrammene er
 bestilt og bærer hvert sitt kjerneargument. Begge har figur-i-ord ved siden av seg,
 så kapitlene er lesbare uten dem.
+
+**Status 25. juli 2026 (B8 — Del 11):** F16 og F17 er nye bestillinger som ikke sto
+i den opprinnelige lista, men som **måtte** bygges: bestillingsdokumentet slo fast at
+«øvingseksamen 1 (kap. 11.2, Oppgave 4 og 5)» med sikkerhet ville love figur, og
+begge delpunktene sier «skisser». Begge er kalibrert mot settets egne funksjoner —
+F6 kunne IKKE gjenbrukes til Oppgave 4, fordi kap. 4.4s tredjegradsfunksjon har en
+annen form enn ØE1s $4\sqrt x-x$ (som er konkav overalt og har uendelig bratt start).
+`sjekk-figurer.py econ1100` er grønn (16 figurreferanser, alle 200 + `image/svg+xml`).
+Begge løsninger har figur-i-ord ved siden av SVG-en, så delpunktet er komplett også
+for den som leser uten bilder.
 
 **Teknisk merknad fra figurbyggingen (B4):** unicode-senkeskrift for `y` finnes ikke
 (`&#8337;` er senket **e**, ikke y — feilen står fortsatt i `nivakurve-helning.svg`,
