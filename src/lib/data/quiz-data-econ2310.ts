@@ -896,7 +896,7 @@ const quizData_econ2310: Record<string, QuizQuestion[]> = {
     {
       question: "Hva representerer $c_0$ i konsumfunksjonen $C = c_0 + c_1 Y$?",
       options: ["Den delen av forbruket som ikke skyldes løpende inntekt, men formue, forventninger, tillit og kredittilgang", "Forbruket til de husholdningene som ikke har noen inntekt i det hele tatt, og som derfor må tære på oppspart formue for å klare seg", "Minstebeløpet en husholdning må bruke for å dekke livsnødvendige utgifter", "Den andelen av en ekstra inntektskrone som brukes på forbruk i stedet for å spares"],
-      explanation: "$c_0$ er modellens skiftvariabel for sparevilje: bestemmer husholdningene seg for å spare mer ved uendret inntekt, faller $c_0$, og hele etterspørselslinjen flyttes ned. Det siste alternativet beskriver $c_1$, ikke $c_0$.",
+      explanation: "$c_0$ er modellens skiftvariabel for sparevilje: bestemmer husholdningene seg for å spare mer ved uendret inntekt, faller $c_0$, og hele etterspørselslinjen flyttes ned. Alternativet om andelen av en ekstra inntektskrone beskriver $c_1$, ikke $c_0$.",
     },
     {
       question: "Hva betyr $\\alpha$ i relasjonen $I = I_0 + \\alpha Y$?",
@@ -916,7 +916,7 @@ const quizData_econ2310: Record<string, QuizQuestion[]> = {
     {
       question: "Hvorfor kan likevekten i Keynes-krysset ligge under full sysselsetting?",
       options: ["Fordi likevektsnivået bestemmes av etterspørselen, og ingenting i modellen knytter det til hvor mye arbeidskraft og kapital som finnes", "Fordi lønningene i modellen alltid ligger over det nivået arbeidsmarkedet tåler, slik at bedriftene ikke finner det lønnsomt å ansette alle som vil jobbe", "Fordi bedriftene bevisst holder produksjonen nede for å presse prisene opp", "Fordi ønsket sparing i denne modellen alltid overstiger ønskede investeringer"],
-      explanation: "Det siste alternativet kan ikke stemme: i likevekt er sparing lik investering, det er nettopp det som definerer likevekten. Poenget er at produktmarkedet kan klarere på et nivå der arbeidsmarkedet ikke gjør det, og at ingen mekanisme i modellen lukker gapet av seg selv.",
+      explanation: "Alternativet om at ønsket sparing alltid overstiger ønskede investeringer kan ikke stemme: i likevekt ER sparing lik investering, det er nettopp det som definerer likevekten. Poenget er at produktmarkedet kan klarere på et nivå der arbeidsmarkedet ikke gjør det, og at ingen mekanisme i modellen lukker gapet av seg selv.",
     },
     {
       question: "I hvilken retning går kausaliteten mellom sparing og investering i denne modellen?",
@@ -931,7 +931,7 @@ const quizData_econ2310: Record<string, QuizQuestion[]> = {
     {
       question: "Investeringsviljen stiger, slik at $I_0$ øker i grunnmodellen. Hva skjer med realisert sparing?",
       options: ["Den stiger med nøyaktig like mye som økningen i $I_0$", "Den er uendret, siden husholdningenes sparevilje ikke har endret seg i det hele tatt her", "Den faller, fordi konsumet stiger når inntekten stiger", "Den stiger med $1/(1-c_1)$ ganger økningen i $I_0$, altså med multiplikatorens styrke"],
-      explanation: "$S = I_0$ i likevekt, så $\\Delta S = \\Delta I_0$. Det er produksjonen som stiger med multiplikatoren $1/(1-c_1)$ — det siste alternativet forveksler de to størrelsene.",
+      explanation: "$S = I_0$ i likevekt, så $\\Delta S = \\Delta I_0$. Det er produksjonen som stiger med multiplikatoren $1/(1-c_1)$ — alternativet som ganger $\\Delta I_0$ med multiplikatoren forveksler de to størrelsene.",
     },
     {
       question: "Hvordan flytter etterspørselslinjen i Keynes-krysset seg når $c_0$ faller?",
@@ -997,7 +997,7 @@ const quizData_econ2310: Record<string, QuizQuestion[]> = {
     },
     {
       question: "Hva er en bindende kapasitetsskranke?",
-      options: ["At alle ressurser er i bruk, slik at mer av én ting bare kan produseres ved at noe annet vike", "At bedriftene har nådd grensen for hvor mye de får låne i bankene, slik at finansieringen setter taket for hvor mye de kan produsere", "At myndighetene har satt et tak på hvor mye som kan importeres", "At kapitalslitet er høyere enn nyinvesteringene"],
+      options: ["At alle ressurser er i bruk, slik at mer av én ting bare kan produseres ved at noe annet må vike", "At bedriftene har nådd grensen for hvor mye de får låne i bankene, slik at finansieringen setter taket for hvor mye de kan produsere", "At myndighetene har satt et tak på hvor mye som kan importeres", "At kapitalslitet er høyere enn nyinvesteringene"],
       explanation: "Når skranken binder, har etterspørselspolitikk ingen varig virkning på samlet produksjon — bare på sammensetningen og på prisene.",
     },
     {
@@ -1125,7 +1125,7 @@ const quizData_econ2310: Record<string, QuizQuestion[]> = {
     {
       question: "Hva bør en besvarelse gjøre når fortegnet på en effekt ikke kan signeres?",
       options: ["Si at effekten er ubestemt, hva den avhenger av, og hva som ville avgjort saken", "Velge det mest sannsynlige fortegnet, siden sensor krever et svar", "Hoppe over spørsmålet og bruke tiden på de delene som kan besvares", "Oppgi begge muligheter uten å kommentere hva forskjellen henger på"],
-      explanation: "Å signere det usignerbare er en av de feilene som koster mest. Å flagge ubestemtheten og si hva den henger på, er tvert imot det tydeligste tegnet på at du forstår modellen. Det siste alternativet er halvveis: å nevne begge utfall uten å si hva som avgjør, viser ikke at du har forstått mekanismen.",
+      explanation: "Å signere det usignerbare er en av de feilene som koster mest. Å flagge ubestemtheten og si hva den henger på, er tvert imot det tydeligste tegnet på at du forstår modellen. Alternativet om å oppgi begge muligheter uten kommentar er halvveis: å nevne begge utfall uten å si hva som avgjør, viser ikke at du har forstått mekanismen.",
     },
     {
       question: "Hva er konkurranseevne i denne sammenhengen?",
@@ -1140,7 +1140,7 @@ const quizData_econ2310: Record<string, QuizQuestion[]> = {
     {
       question: "Hva sier omskrivningen $i \\approx i^F + (E^e - E)/E$?",
       options: ["At norsk rente er lik utenlandsk rente pluss forventet kronesvekkelse", "At norsk rente alltid ligger over utenlandsk rente i en liten åpen økonomi", "At valutakursen bestemmes av rentenivået alene, uten rolle for forventninger", "At forventet kronesvekkelse er lik forskjellen i prisvekst mellom de to landene over samme periode"],
-      explanation: "Denne formen viser hva høy norsk rente *koster* markedet i forventet kurstap: er norsk rente høyere enn utenlandsk, må markedet forvente at krona skal svekke seg — ellers ville alle plassert i Norge. Det siste alternativet beskriver kjøpekraftsparitet, en helt annen sammenheng.",
+      explanation: "Denne formen viser hva høy norsk rente *koster* markedet i forventet kurstap: er norsk rente høyere enn utenlandsk, må markedet forvente at krona skal svekke seg — ellers ville alle plassert i Norge. Alternativet om prisvekstforskjeller beskriver kjøpekraftsparitet, en helt annen sammenheng.",
     },
     {
       question: "Hvorfor er en «sterk» krone ikke uten videre gode nyheter?",
@@ -1162,7 +1162,7 @@ const quizData_econ2310: Record<string, QuizQuestion[]> = {
     {
       question: "Krona svekker seg. Hva skjer med prisveksten på importerte varer?",
       options: ["Den stiger raskt og mekanisk", "Den stiger, men først etter at lønnsveksten har tatt seg opp", "Den faller, siden norske varer blir mer konkurransedyktige", "Den er uendret"],
-      explanation: "Importvarer er priset i utenlandsk valuta, så en svakere krone gjør dem dyrere i kroner umiddelbart. Kanalen krever ingen antakelser om arbeidsmarkedet — bare at kostnadsøkningen videreformidles. Det siste alternativet overser at kroneprisen er den utenlandske prisen ganget med kursen.",
+      explanation: "Importvarer er priset i utenlandsk valuta, så en svakere krone gjør dem dyrere i kroner umiddelbart. Kanalen krever ingen antakelser om arbeidsmarkedet — bare at kostnadsøkningen videreformidles. Alternativet om at importprisveksten faller overser at kroneprisen er den utenlandske prisen ganget med kursen.",
     },
     {
       question: "Hvor stort er det direkte gjennomslaget fra importprisvekst til KPI-inflasjon?",
@@ -1217,7 +1217,7 @@ const quizData_econ2310: Record<string, QuizQuestion[]> = {
     {
       question: "To land har samme kronesvekkelse, men land A har en langt større importandel $\\alpha$ enn land B. Hva følger av det?",
       options: ["KPI-inflasjonen stiger mer i A, siden det direkte gjennomslaget er $\\alpha$ ganget med importprisveksten", "KPI-inflasjonen stiger mer i B, fordi en liten importandel gir større utslag per krone", "Begge får samme utslag i KPI, siden gjennomslagsgraden er den samme", "Bare prisveksten på norskproduserte varer skiller de to landene"],
-      explanation: "Det direkte gjennomslaget er $\\alpha \\cdot p_i$: samme importprisvekst gir større KPI-utslag jo større importandelen er. Den indirekte kanalen virker i tillegg i begge land, men den går via $p_s$ og er ikke signerbar uten mer informasjon. Alternativet om at liten $\\alpha$ gir større utslag snur sammenhengen, og at utslagene skulle bli like forveksler gjennomslagsGRADEN (en egenskap ved prisdannelsen) med det samlede gjennomslaget til KPI (som også avhenger av vekten $\\alpha$).",
+      explanation: "Det direkte gjennomslaget er $\\alpha \\cdot p_i$: samme importprisvekst gir større KPI-utslag jo større importandelen er. Den indirekte kanalen virker i tillegg i begge land, men den går via $p_s$ og er ikke signerbar uten mer informasjon. Alternativet om at liten $\\alpha$ gir større utslag snur sammenhengen. Og alternativet om at utslagene blir like, forutsetter at gjennomslaget er uavhengig av importandelen — men gjennomslaget ER importandelen: $\\partial\\pi/\\partial p_i = \\alpha$.",
     },
     {
       question: "Hva er riktig vurderingskriterium for om sentralbanken har «sluppet» et kurssjokk inn i økonomien?",
@@ -1396,7 +1396,7 @@ const quizData_econ2310: Record<string, QuizQuestion[]> = {
     {
       question: "Hva er helningen på RR-kurven i et $(Y,i)$-diagram?",
       options: ["$g_Y/Y^n$", "$-g_Y/Y^n$", "$\\beta/Y^n$", "$-1/[m(c_2+b_2+a_2\\kappa)]$"],
-      explanation: "Renta stiger med produksjonsgapet, så kurven er stigende med helning $g_Y/Y^n$. Det siste alternativet er IS-kurvens helning.",
+      explanation: "Renta stiger med produksjonsgapet, så kurven er stigende med helning $g_Y/Y^n$. Alternativet med negativ helning er IS-kurvens, ikke renteregelens.",
     },
     {
       question: "Hva bestemmer potensielt BNP?",
