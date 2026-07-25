@@ -1,0 +1,317 @@
+{
+  "id": "in1000-2-2",
+  "courseId": "in1000",
+  "chapterNumber": "2.2",
+  "title": "Funksjonssamarbeid og scope",
+  "description": "Hvordan funksjoner samarbeider, og reglene for scope: en lokal variabel i en funksjon endrer ikke en variabel utenfor — grunnlaget for scope-spørsmålene i Oppgave 2.",
+  "estimatedMinutes": 40,
+  "competenceGoals": [
+    "kunne avgjøre om et navn inne i en funksjon er lokalt eller globalt",
+    "kunne forklare hvorfor en tilordning inne i en funksjon ikke endrer utsiden",
+    "kunne skrive om en funksjon som leser globale variabler, til én som tar dem inn som parametere",
+    "kunne kjenne igjen de to feilmeldingene scope-feil gir, og rette dem"
+  ],
+  "content": [
+    {
+      "id": "in1000-2-2-1",
+      "type": "tip",
+      "title": "Eksamensvinkel",
+      "content": "**Scope** — reglene for hvilke variabler som er synlige hvor — er et kjernebegrep\ni **Oppgave 2**, flervalgsoppgaven om objekter. Den oppgaven er i **6 av 6\nmoderne eksamenssett (100 %)** og er verdt 8–9 poeng, og boka kaller sjangeren\n**sjanger B — flervalg om objekter**: hvilke navn peker på hva, og hva skjer da?\n\nSelve spørsmålet er alltid det samme i bunn: **en tilordning inne i en funksjon\nlager en ny, lokal variabel — den endrer ikke en variabel utenfor.** Det er\nfeilkode #12, scope-forvirring.\n\nKapitlet er kort, men det er en av bokas viktigste forberedelser. Nøyaktig den\nsamme mekanismen er årsaken til **`self`-fella** i\n[kap. 5.1](/bok/in1000/in1000-5-1), som er den enkeltfeilen sensor planter\noftest i hele faget. Forstår du scope her, får du `self`-fella nesten gratis.\n\n**Dette må sitte** — bokas høyeste av tre nivåer, som forkunnskap til Oppgave 2."
+    },
+    {
+      "id": "in1000-2-2-2",
+      "type": "text",
+      "content": "## Forkunnskaper — sist du var her\n\n[Kap. 2.1 — Funksjoner: def, parametere og return](/bok/in1000/in1000-2-1).\n\nDe tre tingene du trenger derfra:\n\n- at en funksjon **defineres** én gang og **kalles** så mange ganger du vil,\n- at **parameteren** er navnet i definisjonen og **argumentet** er verdien som\n  sendes inn,\n- at `return` avslutter funksjonen og gir en verdi tilbake — og at en funksjon\n  uten `return` gir `None`.\n\nKort oppfrisket:\n\n```python\ndef dobbel(tall):\n    return tall * 2\n\nsvar = dobbel(21)\nprint(svar)\n```\n\n**Utskrift:**\n```\n42\n```\n\nSpørsmålet i dette kapitlet er hva som skjer med navnene: hva heter `tall`\nutenfor funksjonen, og hva skjer om du tilordner et navn som allerede finnes\nutenfor?"
+    },
+    {
+      "id": "in1000-2-2-3",
+      "type": "text",
+      "content": "## Løkke 1 — Lokale variabler (~12 min)\n\nEt program kan ha mange variabler med samme navn uten at de kolliderer, fordi\nhver funksjon har sitt eget lille rom av navn.\n\nDet rommet heter et **scope**, og reglene for det er få — men de er kilden til\net av de mest testede flervalgsspørsmålene på eksamen."
+    },
+    {
+      "id": "in1000-2-2-4",
+      "type": "definition",
+      "title": "Scope",
+      "content": "Området i programmet der et variabelnavn er synlig og kan brukes.\n\nI IN1000 trenger du bare to nivåer:\n\n- **Lokalt scope** — inne i en funksjon. Alt som lages der, finnes bare mens\n  funksjonen kjører.\n- **Globalt scope** — utenfor alle funksjoner, altså i hovedprogrammet.\n\nRegelen som avgjør alle spørsmålene: en funksjon kan **lese** navn fra det\nglobale scopet, men en **tilordning** inne i funksjonen lager alltid et nytt,\nlokalt navn.\n\nOrdet uttales «skoup» og betyr rett og slett «virkeområde». Du møter det i\noppgavetekster på eksamen, så det er verdt å kjenne igjen."
+    },
+    {
+      "id": "in1000-2-2-5",
+      "type": "definition",
+      "title": "Lokal variabel",
+      "content": "En variabel som lages ved en tilordning inne i en funksjon. Den finnes bare mens\nfunksjonen kjører, og forsvinner når den returnerer:\n\n```python\ndef regn():\n    mellomsvar = 10 * 3\n    return mellomsvar\n\nprint(regn())\n```\n\n**Utskrift:**\n```\n30\n```\n\nPrøver du å bruke `mellomsvar` etter kallet, får du `NameError: name\n'mellomsvar' is not defined` — navnet finnes ikke lenger.\n\nDet er en fordel, ikke en begrensning: derfor kan du bruke `i`, `total` og\n`antall` i hver eneste funksjon uten at de kolliderer med hverandre."
+    },
+    {
+      "id": "in1000-2-2-6",
+      "type": "definition",
+      "title": "Parametere er lokale",
+      "content": "En parameter er en helt vanlig lokal variabel. Den får verdien sin fra\nargumentet, og den forsvinner når funksjonen returnerer:\n\n```python\ndef dobbel(tall):\n    tall = tall * 2\n    return tall\n\nx = 5\nprint(dobbel(x), x)\n```\n\n**Utskrift:**\n```\n10 5\n```\n\nLegg merke til at `x` er **uendret**. Funksjonen fikk verdien 5 inn i sin egen\nlokale `tall`, og endret den lokale kopien.\n\nDette gjelder for tall, tekst og boolske verdier — altså alt du har møtt så\nlangt. I [kap. 5.4](/bok/in1000/in1000-5-4) møter du datatyper der bildet er mer\nsammensatt, og det er nettopp det Oppgave 2 tester."
+    },
+    {
+      "id": "in1000-2-2-7",
+      "type": "warning",
+      "title": "Typisk feil #12 — tilordning inne i en funksjon endrer ikke utsiden",
+      "content": "Dette er kapitlets kjerne, og den mest testede scope-feilen i arkivet.\n\n```python\nx = 5\n\ndef f():\n    x = 10\n    return x\n\nprint(f(), x)\n```\n\n**Utskrift:**\n```\n10 5\n```\n\nFunksjonen returnerte 10, men `x` i hovedprogrammet er fortsatt 5.\n\n**Hva skjedde:** linja `x = 10` inne i funksjonen laget en **ny, lokal** `x`. Den\nglobale `x` ble aldri rørt. De to navnene ser like ut, men er to forskjellige\nvariabler.\n\n**Kjenn igjen fella på formen.** Ser du en tilordning til et navn som også finnes\nutenfor, er svaret nesten alltid at utsiden er uendret.\n\nMerk deg denne mekanismen godt. Den er nøyaktig den samme som gjør at `x = 5` i\nen konstruktør ikke lagrer noe i objektet, mens `self._x = 5` gjør det — og det\ner `self`-fella, feilkode #1, som du møter i\n[kap. 5.1](/bok/in1000/in1000-5-1)."
+    },
+    {
+      "id": "in1000-2-2-8",
+      "type": "example",
+      "title": "Eksempel 1: Fire navn som ser like ut",
+      "problem": "Programmet har `antall` fire steder. Hvilke av dem er samme variabel, og hva\nskriver programmet ut?\n\n```python\nantall = 100\n\ndef tell_opp(antall):\n    antall = antall + 1\n    return antall\n\ndef vis():\n    print(\"inne i vis:\", antall)\n\nprint(tell_opp(5))\nvis()\nprint(antall)\n```",
+      "solution": "Gå gjennom navnene ett scope om gangen.\n\n| Sted | Hvilken `antall`? |\n|---|---|\n| Linje 1 | den **globale** — verdien 100 |\n| Parameteren i `tell_opp` | en **lokal**, får verdien 5 fra argumentet |\n| Tilordningen inne i `tell_opp` | samme lokale, blir 6 |\n| Inne i `vis` | ingen lokal finnes, så den **leser den globale** |\n\n**Utskrift:**\n```\n6\ninne i vis: 100\n100\n```\n\nTre poenger:\n\n- `tell_opp(5)` returnerer 6 og lot den globale være i fred.\n- `vis` **leser** den globale uten problemer, fordi den ikke tilordner noe med\n  det navnet. En funksjon kan altså se ut i det globale scopet.\n- Etter alt sammen er den globale fortsatt 100.\n\n**Slik ville sensor sett på det:** dette er nøyaktig formen på et\nflervalgsspørsmål i Oppgave 2. Det du blir bedt om, er å avgjøre om utsiden ble\nendret — og svaret er nesten alltid nei."
+    },
+    {
+      "id": "in1000-2-2-oppg-1",
+      "type": "exercise",
+      "exercise": {
+        "id": "in1000-2-2-o1",
+        "number": "1",
+        "type": "classic",
+        "difficulty": "lett",
+        "task": "(Innstegsoppgave — ren gjengivelse.) Se på dette programmet:\n\n```python\npoeng = 10\n\ndef endre():\n    poeng = 99\n    return poeng\n```\n\n**a)** Hva returnerer kallet `endre()`?\n\n**b)** Hvilken verdi har `poeng` i hovedprogrammet etter kallet?\n\n**c)** Hvor mange variabler ved navn `poeng` finnes det i programmet?",
+        "solution": "**a)** `99` — funksjonen returnerer sin egen lokale variabel.\n\n**b)** `10`, altså uendret. Tilordningen inne i funksjonen laget en ny lokal\nvariabel og rørte ikke den globale.\n\n**c)** **To.** Den ene lever i hovedprogrammet hele tiden; den andre lages ved\nhvert kall og forsvinner når funksjonen returnerer. De deler navn, men er to\nforskjellige variabler.\n\nDeloppgave c) er selve nøkkelen: så lenge du tenker «to variabler», svarer du\nriktig på hele sjangeren.",
+        "hints": [
+          "Hva skjer med et navn når du tilordner det inne i en funksjon?",
+          "Tell hvor mange steder navnet blir tilordnet."
+        ]
+      }
+    },
+    {
+      "id": "in1000-2-2-9",
+      "type": "text",
+      "content": "## Løkke 2 — Å lese ut, og hvorfor `return` er svaret (~12 min)\n\nEn funksjon kan **lese** en global variabel den ikke selv tilordner. Det høres\npraktisk ut, og av og til er det det — men det er også en felle du skal styre\nunna på eksamen."
+    },
+    {
+      "id": "in1000-2-2-10",
+      "type": "definition",
+      "title": "Global variabel",
+      "content": "En variabel som er laget utenfor alle funksjoner, i selve hovedprogrammet.\n\nDen kan **leses** fra innsiden av en funksjon:\n\n```python\nmva = 0.25\n\ndef med_mva(pris):\n    return pris + pris * mva\n\nprint(med_mva(100))\n```\n\n**Utskrift:**\n```\n125.0\n```\n\nFunksjonen fant `mva` i det globale scopet fordi den ikke har noen lokal\nvariabel med det navnet.\n\nDet virker — men det gjør funksjonen avhengig av noe som står langt unna. Endrer\nnoen `mva` et helt annet sted i programmet, endres oppførselen til funksjonen\nuten at kallet ser annerledes ut."
+    },
+    {
+      "id": "in1000-2-2-11",
+      "type": "definition",
+      "title": "Hvorfor globale variabler unngås",
+      "content": "Tre grunner, i den rekkefølgen de betyr noe på eksamen:\n\n1. **Funksjonen blir umulig å lese alene.** Du må lete i hele programmet for å\n   vite hva den gjør.\n2. **Den blir umulig å gjenbruke.** En funksjon som henter data fra utsiden, kan\n   ikke kalles med andre data.\n3. **Den blir umulig å teste.** Du kan ikke gi den nye verdier uten å endre\n   programmet rundt.\n\n**Regelen i faget:** alt en funksjon trenger, kommer inn som **parameter**, og\nalt den produserer, går ut som **returverdi**. Det er den formen sensor forventer,\nog den formen alle fasitene har.\n\nI [kap. 5.1](/bok/in1000/in1000-5-1) får du den ordentlige løsningen på «data som\nskal leve videre»: å legge dem i et objekt i stedet for i en global variabel."
+    },
+    {
+      "id": "in1000-2-2-12",
+      "type": "theorem",
+      "title": "Parameter inn, returverdi ut",
+      "content": "Bokas fjerde kodemønster, og den korteste regelen i hele boka:\n\n**Alt en funksjon trenger, tar den inn som parameter. Alt den gir fra seg, går ut\ngjennom `return`.**\n\n```python\ndef med_mva(pris, sats):\n    return pris + pris * sats\n\nprint(med_mva(100, 0.25))\nprint(med_mva(100, 0.15))\n```\n\n**Utskrift:**\n```\n125.0\n115.0\n```\n\nSammenlign med versjonen over, som hentet satsen fra en global variabel. Denne\nkan kalles med hvilken sats som helst, den kan leses alene, og den gjør nøyaktig\ndet navnet sier.\n\nMønsteret er selve grunnformen for hver eneste funksjon i Oppgave 3 og hver\nmetode i Oppgave 4."
+    },
+    {
+      "id": "in1000-2-2-13",
+      "type": "example",
+      "title": "Eksempel 2: Fra global variabel til parameter",
+      "problem": "En student har skrevet en funksjon som teller hvor mange tegn i en tekst som er\nlik et bestemt tegn — men både teksten og tegnet er globale variabler. Vis\nhvorfor det er upraktisk, og skriv den om.\n\n```python\ntekst = \"bibliotek\"\nsok = \"b\"\n\ndef tell():\n    antall = 0\n    for t in tekst:\n        if t == sok:\n            antall = antall + 1\n    return antall\n\nprint(tell())\n```",
+      "solution": "Koden over kjører, og gir riktig svar:\n\n**Utskrift:**\n```\n2\n```\n\nProblemet vises først når du vil telle noe annet. Funksjonen tar ingen\nargumenter, så det eneste du kan gjøre, er å endre de globale variablene før\nhvert kall — og da må hovedprogrammet vite hvilke navn funksjonen bruker\ninnvendig.\n\n**Slik skrives den om:**\n\n```python\ndef tell(tekst, sok):\n    antall = 0\n    for t in tekst:\n        if t == sok:\n            antall = antall + 1\n    return antall\n\nprint(tell(\"bibliotek\", \"b\"))\nprint(tell(\"bibliotek\", \"i\"))\nprint(tell(\"kantine\", \"n\"))\n```\n\n**Utskrift:**\n```\n2\n2\n2\n```\n\nNå kan den kalles med hva som helst, og kroppen er ord for ord den samme.\n\n**Slik ville sensor sett på det:** en funksjon som henter data fra globale\nvariabler i stedet for å ta dem inn som parametere, får sjelden full uttelling —\nselv om den gir riktig svar for det ene tilfellet oppgaven nevner. Det er\n**gjenbrukbarheten** som er poenget med å skrive en funksjon i det hele tatt."
+    },
+    {
+      "id": "in1000-2-2-oppg-2",
+      "type": "exercise",
+      "exercise": {
+        "id": "in1000-2-2-o2",
+        "number": "2",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "(Eksamensnivå, sjanger A — kodeforståelse.) Hva skriver programmet ut?\n\n```python\nn = 3\n\ndef les():\n    return n * 2\n\ndef skriv_over():\n    n = 100\n    return n\n\nprint(les())\nprint(skriv_over())\nprint(les())\nprint(n)\n```",
+        "solution": "De to funksjonene gjør helt forskjellige ting med det samme navnet.\n\n| Kall | Hva funksjonen gjør | Resultat |\n|---|---|---|\n| `les()` | **leser** den globale `n`, som er 3 | `6` |\n| `skriv_over()` | **tilordner** en ny lokal `n` | `100` |\n| `les()` igjen | leser fortsatt den globale, som er uendret | `6` |\n| `print(n)` | den globale | `3` |\n\n**Utskrift:**\n```\n6\n100\n6\n3\n```\n\nKjernen er tredje linje: kallet til `skriv_over` så ut som om det endret `n`, men\ngjorde det ikke. Neste `les()` gir derfor samme svar som første.\n\nDette er nøyaktig mønsteret et flervalgsspørsmål i Oppgave 2 bygger på.",
+        "hints": [
+          "Skill mellom å lese et navn og å tilordne det.",
+          "Hvor mange forskjellige variabler ved navn `n` finnes i programmet?"
+        ]
+      }
+    },
+    {
+      "id": "in1000-2-2-oppg-3",
+      "type": "exercise",
+      "exercise": {
+        "id": "in1000-2-2-o3",
+        "number": "3",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "(Eksamensnivå, sjanger C — skriv en funksjon.) En funksjon skal regne ut hvor\nmye et beløp blir med et påslag. Denne versjonen bruker en global variabel:\n\n```python\nsats = 0.10\n\ndef med_paaslag(belop):\n    return belop + belop * sats\n```\n\n**a)** Skriv om funksjonen så den tar satsen inn som parameter.\n\n**b)** Vis to kall med ulik sats.\n\n**c)** Nevn én konkret grunn til at den omskrevne versjonen er bedre.",
+        "solution": "**a)** Alt funksjonen trenger, kommer inn som parameter:\n\n```python\ndef med_paaslag(belop, sats):\n    return belop + belop * sats\n\nprint(med_paaslag(200, 0.10))\nprint(med_paaslag(200, 0.25))\n```\n\n**Utskrift:**\n```\n220.0\n250.0\n```\n\n**b)** De to kallene med ulik sats står i koden over: `0.10` gir 220 kroner og\n`0.25` gir 250 kroner av samme grunnbeløp.\n\n**c)** Flere gyldige svar. Det sterkeste: **funksjonen kan nå brukes med hvilken\nsom helst sats uten at noe utenfor må endres.** Den gamle versjonen krevde at du\nendret en global variabel før hvert kall.\n\nEt like godt svar: funksjonen kan **leses og forstås alene**, uten å lete i\nresten av programmet etter hva `sats` er.",
+        "hints": [
+          "Hva må inn i funksjonen for at den skal klare seg selv?",
+          "For c): tenk på hva som skjer om du vil bruke funksjonen to ganger med ulike tall."
+        ]
+      }
+    },
+    {
+      "id": "in1000-2-2-14",
+      "type": "text",
+      "content": "## Løkke 3 — Scope i sporingsoppgaver (~10 min)\n\nNå er reglene på plass. Det som gjenstår, er å bli rask på å bruke dem i en\nsporingsoppgave — for det er nettopp den formen Oppgave 2 har."
+    },
+    {
+      "id": "in1000-2-2-15",
+      "type": "definition",
+      "title": "Å skygge et navn",
+      "content": "Når en funksjon lager en lokal variabel med samme navn som en global, sier vi at\nden **skygger** den globale: inne i funksjonen er det bare den lokale som er\nsynlig.\n\n```python\nfarge = \"rod\"\n\ndef vis():\n    farge = \"bla\"\n    print(\"inne:\", farge)\n\nvis()\nprint(\"ute:\", farge)\n```\n\n**Utskrift:**\n```\ninne: bla\nute: rod\n```\n\nSkyggingen varer bare mens funksjonen kjører. Etterpå er den globale like uberørt\nsom før.\n\nMerk at skyggingen gjelder for **hele** funksjonen, ikke bare fra tilordningen og\nnedover — prøver du å lese navnet på en linje **før** tilordningen i samme\nfunksjon, får du en feilmelding i stedet for den globale verdien."
+    },
+    {
+      "id": "in1000-2-2-16",
+      "type": "definition",
+      "title": "Å lese kontra å tilordne",
+      "content": "Den ene regelen du trenger for å svare på alle scope-spørsmål:\n\n| Hva funksjonen gjør | Hvilken variabel treffes |\n|---|---|\n| bare **leser** navnet | den globale, hvis ingen lokal finnes |\n| **tilordner** navnet (med `=`) | en ny **lokal**, alltid |\n\nDet finnes en måte å endre en global variabel fra innsiden på, men den brukes\nikke i dette faget og ikke i fasitene — riktig løsning er alltid `return`.\n\nSjekklista i en sporingsoppgave er derfor kort: **let etter likhetstegn inne i\nfunksjonen.** Finner du ett, er navnet lokalt."
+    },
+    {
+      "id": "in1000-2-2-17",
+      "type": "definition",
+      "title": "Kall endrer ikke argumentet",
+      "content": "Sender du et tall, en tekst eller en boolsk verdi inn i en funksjon, kan\nfunksjonen ikke endre variabelen du sendte inn:\n\n```python\ndef nullstill(verdi):\n    verdi = 0\n    return verdi\n\npoeng = 42\nnullstill(poeng)\nprint(poeng)\n```\n\n**Utskrift:**\n```\n42\n```\n\nKallet gjorde ingenting synlig utenfra, fordi returverdien ble kastet og\nparameteren var lokal.\n\nLegg merke til at dette er en **stille** feil: programmet krasjer ikke, det gjør\nbare ingenting. Riktig form er `poeng = nullstill(poeng)`.\n\nBildet blir mer sammensatt for datatypene i [kap. 3.1](/bok/in1000/in1000-3-1) og\n[kap. 5.4](/bok/in1000/in1000-5-4), og det er nettopp den forskjellen Oppgave 2\ner bygget rundt."
+    },
+    {
+      "id": "in1000-2-2-18",
+      "type": "example",
+      "title": "Eksempel 3: Et fullt Oppgave-2-mønster, sporet",
+      "problem": "Dette er på formen et flervalgsspørsmål i Oppgave 2 har. Hva skriver programmet\nut?\n\n```python\nteller = 0\n\ndef opp():\n    teller = 1\n    return teller\n\ndef opp_riktig(teller):\n    return teller + 1\n\nprint(opp())\nprint(teller)\nteller = opp_riktig(teller)\nprint(teller)\n```",
+      "solution": "Tre steg, og forskjellen mellom dem er hele poenget.\n\n| Steg | Hva som skjer | Global `teller` etterpå |\n|---|---|---|\n| `opp()` | lager en **lokal** `teller` lik 1 og returnerer den | 0 — uendret |\n| `print(teller)` | leser den globale | 0 |\n| `teller = opp_riktig(teller)` | sender verdien inn, tar returverdien **imot** | 1 |\n\n**Utskrift:**\n```\n1\n0\n1\n```\n\n**Legg merke til den avgjørende linja.** `opp_riktig` endrer heller ikke noe av\nseg selv — den bare returnerer en ny verdi. Det som gjør at den globale\noppdateres, er at hovedprogrammet **tar imot** returverdien med\n`teller = ...`.\n\nDet er hele oppskriften: parameter inn, returverdi ut, og ta imot svaret.\n\n**Slik ville sensor sett på det:** kandidater som svarer at `opp()` setter den\nglobale til 1, har gått i felle #12. Kandidater som ser at `opp()` ikke endrer\nnoe, men glemmer at siste linje faktisk gjør det, har forstått halve\nmekanismen — og får uttelling for det."
+    },
+    {
+      "id": "in1000-2-2-oppg-4",
+      "type": "exercise",
+      "exercise": {
+        "id": "in1000-2-2-o4",
+        "number": "4",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "(Eksamensnivå, sjanger A — kodeforståelse.) Hva skriver programmet ut?\n\n```python\nnavn = \"Ada\"\n\ndef endre(navn):\n    navn = navn + \"!\"\n    return navn\n\nprint(endre(navn))\nprint(navn)\nnavn = endre(navn)\nprint(navn)\n```",
+        "solution": "Parameteren skygger den globale inne i funksjonen, og hovedprogrammet avgjør om\nresultatet tas vare på.\n\n| Linje | Hva som skjer | Global `navn` etterpå |\n|---|---|---|\n| `print(endre(navn))` | funksjonen lager `\"Ada!\"` lokalt og returnerer det | `\"Ada\"` |\n| `print(navn)` | leser den globale | `\"Ada\"` |\n| `navn = endre(navn)` | returverdien **tas imot** | `\"Ada!\"` |\n\n**Utskrift:**\n```\nAda!\nAda\nAda!\n```\n\nFørste og tredje linje ser like ut, men bare den tredje endret noe. Forskjellen\ner de fire tegnene `navn = ` foran kallet.",
+        "hints": [
+          "Skiller du mellom å skrive ut en returverdi og å ta imot den?",
+          "Hvilken av linjene har et likhetstegn foran kallet?"
+        ]
+      }
+    },
+    {
+      "id": "in1000-2-2-oppg-5",
+      "type": "exercise",
+      "exercise": {
+        "id": "in1000-2-2-o5",
+        "number": "5",
+        "type": "classic",
+        "difficulty": "vanskelig",
+        "task": "(Eksamensnivå, sjanger A — kodeforståelse.) Hva skriver programmet ut?\n\n```python\nx = 2\ny = 3\n\ndef f(x):\n    y = x * 2\n    return y\n\ndef g():\n    return x + y\n\nprint(f(10))\nprint(g())\nprint(x, y)\n```",
+        "solution": "De to funksjonene behandler navnene helt ulikt.\n\n**`f(10)`:** parameteren `x` er lokal og får verdien 10. Tilordningen `y = x * 2`\nlager en **lokal** `y` lik 20, som returneres. Verken den globale `x` eller den\nglobale `y` røres.\n\n**`g()`:** ingen tilordninger i det hele tatt, så begge navnene **leses** fra det\nglobale scopet: `2 + 3`.\n\n| Kall | Leser | Tilordner | Gir |\n|---|---|---|---|\n| `f(10)` | — | lokal `y` | `20` |\n| `g()` | global `x` og `y` | — | `5` |\n\n**Utskrift:**\n```\n20\n5\n2 3\n```\n\nFellen er å tro at `f(10)` satte den globale `y` til 20, og at `g()` derfor gir\n`22`. Det er feilkode #12 i sin reneste form: en tilordning inne i en funksjon\nlager en ny, lokal variabel.",
+        "hints": [
+          "Marker hvert navn i hver funksjon som «leses» eller «tilordnes».",
+          "Kjørte `f` før `g`? Har det noen betydning for hva `g` leser?"
+        ]
+      }
+    },
+    {
+      "id": "in1000-2-2-oppg-6",
+      "type": "exercise",
+      "exercise": {
+        "id": "in1000-2-2-o6",
+        "number": "6",
+        "type": "classic",
+        "difficulty": "vanskelig",
+        "task": "(Eksamensnivå, sjanger I — finn feilen.) En student skal skrive et program som\nteller opp en poengsum tre ganger. Hun leverer:\n\n```python\npoeng = 0\n\ndef legg_til(antall):\n    poeng = poeng + antall\n\nlegg_til(5)\nlegg_til(3)\n```\n\n**a)** Hva skjer når programmet kjøres?\n\n**b)** Forklar i én setning hvorfor.\n\n**c)** Rett feilen uten å bruke globale variabler.",
+        "solution": "**a)** Programmet stopper med en feilmelding allerede ved det første kallet:\n\n```text\nUnboundLocalError: local variable 'poeng' referenced before assignment\n```\n\n**b)** Fordi tilordningen `poeng = ...` gjør `poeng` **lokal i hele funksjonen**,\nogså på høyre side av likhetstegnet — så funksjonen prøver å lese en lokal\nvariabel som ennå ikke har fått noen verdi.\n\nLegg merke til at feilen ikke er at den globale er utilgjengelig, men at\nfunksjonen aldri i det hele tatt ser etter den: ett likhetstegn er nok til at\nnavnet blir lokalt overalt i kroppen.\n\n**c)** Parameter inn, returverdi ut — og ta imot svaret:\n\n```python\ndef legg_til(sum_saa_langt, antall):\n    return sum_saa_langt + antall\n\npoeng = 0\npoeng = legg_til(poeng, 5)\npoeng = legg_til(poeng, 3)\nprint(poeng)\n```\n\n**Utskrift:**\n```\n8\n```\n\nFunksjonen er nå fullstendig selvstendig: den kan leses alene, kalles med hva som\nhelst, og den etterlater ingen spor utenfor seg selv.",
+        "hints": [
+          "Hva gjør ett likhetstegn med et navn inne i en funksjon?",
+          "For c): hva må inn som parameter for at funksjonen skal klare seg selv?"
+        ]
+      }
+    },
+    {
+      "id": "in1000-2-2-19",
+      "type": "warning",
+      "title": "Typiske feil i dette kapitlet",
+      "content": "Fire feil dekker nesten alle scope-poengene som mistes:\n\n- **#12 — tro at en tilordning inne i en funksjon endrer utsiden.** Den lager en\n  ny, lokal variabel. Utsiden er uendret.\n- **Kaste returverdien.** `nullstill(poeng)` gjør ingenting synlig; det må stå\n  `poeng = nullstill(poeng)`.\n- **Lese en global i stedet for å ta den inn som parameter.** Funksjonen gir\n  riktig svar for det ene tilfellet, men er verken gjenbrukbar eller lesbar\n  alene — og får sjelden full uttelling.\n- **Lese et navn du senere tilordner i samme funksjon.** Da er navnet lokalt i\n  hele kroppen, og du får `UnboundLocalError` i stedet for den globale verdien.\n\nOg den viktigste huskeregelen for det som kommer: **nøyaktig denne mekanismen er\n`self`-fella** i [kap. 5.1](/bok/in1000/in1000-5-1). En konstruktør som skriver\n`x = 5` i stedet for `self._x = 5`, lager en lokal variabel som forsvinner — og\ndet er feilkode #1, den sensor planter oftest."
+    },
+    {
+      "id": "in1000-2-2-coll-20",
+      "type": "collapsible",
+      "title": "API- og konstruksjonsliste",
+      "buttonText": "Vis API og konstruksjoner",
+      "content": [
+        {
+          "id": "in1000-2-2-c1",
+          "type": "text",
+          "content": "Oppslagsverk — alt her forklares underveis i kapitlet. Dette er kapitlets\nSymbol- og formelliste, tilpasset et kodefag: den lister Python-konstruksjonene\ni stedet for greske bokstaver.\n\n| Konstruksjon | Presis oppførsel |\n|---|---|\n| lokalt scope | Inne i en funksjon. Alt som lages der, forsvinner når funksjonen returnerer. |\n| globalt scope | Utenfor alle funksjoner. Kan **leses** fra innsiden av en funksjon. |\n| `x = …` inne i en funksjon | Lager **alltid** en ny lokal variabel, uansett hva som finnes utenfor. |\n| å lese et navn | Finner den globale, hvis funksjonen ikke selv tilordner navnet. |\n| skygging | En lokal med samme navn skjuler den globale — for **hele** kroppen. |\n| parameter | En helt vanlig lokal variabel, som får verdien sin fra argumentet. |\n| `f(x)` med tall eller tekst | Kan ikke endre variabelen du sendte inn. Kallet alene gjør ingenting synlig. |\n| `x = f(x)` | Riktig form: parameter inn, returverdi ut, og **ta imot** svaret. |\n| `UnboundLocalError` | Du leste et navn du også tilordner i samme funksjon — da er det lokalt overalt. |\n| `NameError` | Navnet finnes ikke i det hele tatt, for eksempel en lokal variabel brukt utenfor. |\n\n**Det som avgjør poeng i Oppgave 2:** om funksjonen **leser** eller **tilordner**\nnavnet — let etter likhetstegnet."
+        }
+      ]
+    },
+    {
+      "id": "in1000-2-2-21",
+      "type": "text",
+      "content": "## Begrepsbank\n\nBegrepsbanken er flashcard- og repetisjonsstoff — den gjentar det du nettopp har\nlest. Hopp trygt over ved førstegangslesing; tidsanslaget for kapitlet gjelder\nkjernestoffet."
+    },
+    {
+      "id": "in1000-2-2-22",
+      "type": "definition",
+      "title": "`NameError`",
+      "content": "Feilmeldingen du får når du bruker et navn Python ikke kjenner.\n\nDe to vanligste årsakene i dette faget: du bruker en **lokal** variabel utenfor\nfunksjonen den ble laget i, eller du kaller en funksjon **før** `def`-linja er\nlest.\n\nMeldingen sier hvilket navn det gjelder — `name 'mellomsvar' is not defined` — og\nden er derfor en av de greieste feilene å rette."
+    },
+    {
+      "id": "in1000-2-2-23",
+      "type": "definition",
+      "title": "`UnboundLocalError`",
+      "content": "Feilmeldingen du får når en funksjon **leser** et navn den også **tilordner** et\nsted i kroppen, før tilordningen har skjedd.\n\nÅrsaken er at ett likhetstegn gjør navnet lokalt i **hele** funksjonen — ikke\nbare fra og med den linja. Funksjonen ser derfor aldri etter den globale\nvariabelen i det hele tatt.\n\nTypisk oppskrift på feilen: `poeng = poeng + antall` inne i en funksjon der\n`poeng` er ment å være den globale. Løsningen er alltid parameter inn,\nreturverdi ut."
+    },
+    {
+      "id": "in1000-2-2-24",
+      "type": "definition",
+      "title": "Å ta imot en returverdi",
+      "content": "Å skrive `x = f(x)` i stedet for bare `f(x)`.\n\nDette er den ene linja som skiller «funksjonen regnet ut noe» fra «programmet\nhusker det». Uten likhetstegnet blir returverdien regnet ut og kastet, og\ningenting utenfor funksjonen endres.\n\nDet er en **stille** feil: programmet krasjer ikke, det gjør bare ingenting. Se\netter den hver gang et program «ser riktig ut», men verdiene aldri endrer seg."
+    },
+    {
+      "id": "in1000-2-2-25",
+      "type": "definition",
+      "title": "Selvstendig funksjon",
+      "content": "En funksjon som klarer seg med det den får inn, og som ikke er avhengig av noe\nutenfor seg selv.\n\nKjennetegnet: du kan lese den alene og vite nøyaktig hva den gjør, og du kan\nkalle den med hvilke som helst gyldige data.\n\nDette er standarden i fagets løsningsforslag, og målestokken sensor bruker. En\nfunksjon som henter data fra globale variabler, gir sjelden full uttelling selv\nom den svarer riktig på det ene tilfellet i oppgaven."
+    },
+    {
+      "id": "in1000-2-2-27",
+      "type": "definition",
+      "title": "Hovedprogrammet",
+      "content": "Linjene som står **uten** innrykk og utenfor alle `def`-blokker. Det er dette\nPython kjører ovenfra og ned når du starter programmet.\n\nVariabler laget her lever i det globale scopet, og de finnes så lenge programmet\nkjører.\n\nI fagets løsningsforslag står alle `def`-ene øverst og hovedprogrammet nederst.\nDet er den formen du bør bruke på eksamen — og du skal **ikke** pakke det inn i\nnoen egen startfunksjon."
+    },
+    {
+      "id": "in1000-2-2-28",
+      "type": "definition",
+      "title": "Argumentet er en verdi, ikke en variabel",
+      "content": "Når du skriver `dobbel(x)`, er det **verdien** til `x` som sendes inn, ikke\nnavnet `x`.\n\nFunksjonen får aldri vite hva variabelen din het, og den kan derfor ikke endre\nden. Skriver du `dobbel(5)` i stedet, oppfører funksjonen seg nøyaktig likt.\n\nDenne presiseringen er det som gjør scope-regelen forståelig i stedet for bare\nnoe å pugge — og den er det Oppgave 2 tester i mer sammensatt form når objektene\nkommer i [kap. 5.4](/bok/in1000/in1000-5-4)."
+    },
+    {
+      "id": "in1000-2-2-29",
+      "type": "definition",
+      "title": "To variabler med samme navn",
+      "content": "Helt lovlig, så lenge de lever i hvert sitt scope. Programmet kan ha én global\n`antall` og en lokal `antall` i hver eneste funksjon.\n\nDet er derfor du trygt kan bruke `i`, `total` og `antall` overalt uten å sjekke\nhva de heter andre steder.\n\nNår du sporer: skriv opp navnene **per funksjon**, ikke per program. Da faller\nscope-spørsmålene på plass av seg selv."
+    },
+    {
+      "id": "in1000-2-2-30",
+      "type": "definition",
+      "title": "Sidevirkning",
+      "content": "Noe en funksjon gjør utover å returnere en verdi — for eksempel å skrive til\nskjermen eller endre noe utenfor seg selv.\n\nI dette faget skal funksjoner helst være **fri for sidevirkninger**: de tar imot,\nregner ut og returnerer. Unntaket er metoder som med vilje endrer objektet sitt,\nog som du møter i [kap. 5.2](/bok/in1000/in1000-5-2).\n\nOrdet er verdt å kjenne fordi det forklarer hvorfor `print` inne i en funksjon\nsjelden er det oppgaven ber om: utskrift er en sidevirkning, ikke et svar."
+    },
+    {
+      "id": "in1000-2-2-31",
+      "type": "definition",
+      "title": "Ren beregning",
+      "content": "En funksjon som bare bruker det den får inn, og bare gir fra seg en returverdi.\n\nKjennetegnet er at samme argumenter alltid gir samme svar, uansett hva som ellers\nhar skjedd i programmet. `med_paaslag(200, 0.10)` gir 220 hver eneste gang.\n\nDette er standardformen for alle funksjonene i Oppgave 3, og den formen som er\nlettest å få full uttelling for: sensor kan lese funksjonen alene og se at den er\nriktig."
+    },
+    {
+      "id": "in1000-2-2-32",
+      "type": "definition",
+      "title": "Scope-sjekklista",
+      "content": "Tre spørsmål som avgjør ethvert scope-spørsmål på eksamen, i denne rekkefølgen:\n\n1. **Finnes det et likhetstegn med dette navnet inne i funksjonen?** Hvis ja, er\n   navnet lokalt i hele kroppen.\n2. **Er navnet en parameter?** Da er det også lokalt.\n3. **Ellers:** funksjonen leser den globale.\n\nDeretter det avgjørende oppfølgingsspørsmålet: **tok hovedprogrammet imot\nreturverdien** med et likhetstegn? Hvis ikke, er ingenting endret utenfor."
+    },
+    {
+      "id": "in1000-2-2-coll-26",
+      "type": "collapsible",
+      "title": "Repetisjon — de seks setningene som må sitte",
+      "buttonText": "Vis repetisjon",
+      "content": [
+        {
+          "id": "in1000-2-2-c2",
+          "type": "text",
+          "content": "1. En **tilordning inne i en funksjon lager alltid en ny, lokal variabel**.\n   Utsiden er uendret (feilkode #12).\n2. En funksjon kan **lese** en global variabel den ikke selv tilordner.\n3. **Parametere er lokale.** Et tall eller en tekst du sender inn, kan ikke\n   endres av funksjonen.\n4. `f(x)` alene endrer ingenting. Riktig form er **`x = f(x)`** — ta imot\n   svaret.\n5. **Parameter inn, returverdi ut.** Globale variabler brukes ikke til å\n   kommunisere.\n6. Nøyaktig denne mekanismen er **`self`-fella** i kap. 5.1: `x = 5` i en\n   konstruktør lagrer ingenting, `self._x = 5` gjør det."
+        }
+      ]
+    }
+  ],
+  "exercises": []
+}
