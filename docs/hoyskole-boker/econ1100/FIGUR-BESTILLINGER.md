@@ -65,7 +65,7 @@ med ny `id` og ny, skreddersydd `caption`.
 | F10 | 6.1 | `hesse-tre-utfall.svg` | Tre små paneler side ved side, hvert med nivåkurvebildet rundt et stasjonærpunkt: lukkede kurver rundt et **lokalt minimum** ($D>0$, $f''_{xx}>0$), lukkede kurver rundt et **lokalt maksimum** ($D>0$, $f''_{xx}<0$), og hyperbelformede kurver rundt et **sadelpunkt** ($D<0$). Ingen 3D-flate — nivåkurvespråket er allerede lært i Del 5. |
 | F11 ✅ | 8.2 | `tangering-budsjett.svg` (LEVERT av B4 25. juli 2026 — bygget, wiret inn i kap. 8.2, gjenbrukt som referansefigur i kap. 8.5 og som fasitfigur i `econ1100-8-prove` prøve 8.A, lastet opp til Storage og verifisert 200) | Budsjettlinjen $p_1x+p_2y=m$ og en indifferenskurve som tangerer den i $(x^*,y^*)$, med stiplede hjelpelinjer til aksene og tangeringsbetingelsen merket som «MRS = prisforhold». Bokas viktigste økonomifigur; gjenbrukes i 8.5, Del 8-prøvene og øvingseksamen 1 (Oppgave 3). |
 | F12 ✅ | 8.3 | `skyggepris-budsjettskift.svg` (LEVERT av B4 25. juli 2026 — bygget, wiret inn i kap. 8.3, lastet opp til Storage og verifisert 200) | Samme diagram som F11, men med budsjettlinjen skiftet utover ved økt $m$ og en ny tangering på en høyere indifferenskurve. Merket: «$dU^*/dm=\lambda$ — verdien av én krone til». Gjør skyggeprisen synlig. |
-| F13 | 9.2 | `isokvant-isokost.svg` | Isokvanten $F(K,L)=\bar Y$ med en isokostlinje $rK+wL=\text{konst.}$ som tangerer den i $(K^*,L^*)$; tangeringsbetingelsen $MP_K/MP_L=r/w$ merket. Akser $L$ (horisontalt) og $K$ (vertikalt). Gjenbrukes i Del 9-prøvene og øvingseksamen 3. |
+| F13 ✅ | 9.2 | `isokvant-isokost.svg` (LEVERT av B6 25. juli 2026 — bygget, wiret inn i kap. 9.2, lastet opp til Storage og verifisert 200) | Isokvanten $F(K,L)=\bar Y$ med en isokostlinje $rK+wL=\text{konst.}$ som tangerer den i $(K^*,L^*)$; tangeringsbetingelsen $MP_K/MP_L=r/w$ merket. Akser $L$ (horisontalt) og $K$ (vertikalt). Gjenbrukes i Del 9-prøvene og øvingseksamen 3. |
 | F14 | 10.1 | `invers-speiling.svg` | En strengt voksende funksjon $f$ og dens inverse $g$ speilet om linjen $y=x$ (stiplet), med et punkt $(a,b)$ på $f$ og speilpunktet $(b,a)$ på $g$. Gjør både eksistenskravet (monotoni) og $g'(y)=1/f'(x)$ visuelt. |
 | F15 | 10.2 | `areal-mellom-kurver.svg` | To kurver med det skraverte arealet mellom dem fra $x=a$ til $x=b$, grensene merket på $x$-aksen. Brukes til arealtolkningen av det bestemte integralet. |
 
@@ -109,6 +109,17 @@ kap. 8.5 (`econ1100-8-5-fig-tangering`) og som fasitfigur til skisse-delpunktet 
 prøve 8.A (`econ1100-8-prove-p1-fig`). Prøve 8.A er dermed innfridd — delpunktet som
 sier «skisser budsjettlinjen og indifferenskurven» har både figur-i-ord og SVG.
 F12 bærer skyggepris-argumentet i kap. 8.3 (`econ1100-8-3-fig-skyggepris`).
+
+**Status 25. juli 2026 (B6 — Del 9):** F13 er bygget, wiret inn i kap. 9.2 som
+`econ1100-9-2-fig-isokvant` og lastet opp; `sjekk-figurer.py econ1100` er grønn
+(12 figurreferanser, alle 200 + `image/svg+xml`). Figuren er kalibrert mot
+kapitlets eget Eksempel 1 ($F=K^{1/2}L^{1/2}$, $r=4$, $w=9$, $\bar Y=60$, altså
+$(L^*,K^*)=(40,90)$), så tangeringen i figuren er den faktiske tangeringen i
+fasiten — isokostlinjen og isokvanten har begge helning $-2{,}25$ i punktet.
+Akser: $L$ vannrett, $K$ loddrett, jf. bestillingen. Ingen oppgave i kap. 9.2 ber
+om skisse, så porten var grønn også før — figuren er bygget fordi
+tangeringsbildet ER kapitlets kjerne, og fordi Del 9-prøvene og øvingseksamen 3
+skal kunne gjenbruke den med skreddersydd `caption`.
 
 **Teknisk merknad fra figurbyggingen (B4):** unicode-senkeskrift for `y` finnes ikke
 (`&#8337;` er senket **e**, ikke y — feilen står fortsatt i `nivakurve-helning.svg`,
