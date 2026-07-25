@@ -177,7 +177,7 @@ const quizData_in1900: Record<string, QuizQuestion[]> = {
     {
       question: "Hvorfor bør du unngå å kalle en variabel `sum`?",
       options: ["Fordi navnet da skygger for Pythons innebygde `sum`, som ikke lenger kan brukes", "Fordi Python nekter å kjøre programmet og gir en feilmelding med en gang", "Fordi navnet bare kan inneholde bokstavene i det engelske alfabetet", "Fordi variabelnavn i Python må være minst fire tegn lange"],
-      explanation: "`sum = 0` er lovlig, men navnet peker nå på et tall, og et senere `sum(verdier)` gir en feilmelding om at et heltall ikke kan kalles. Python nekter altså ikke å kjøre koden — det er nettopp det som gjør fellen farlig, for feilen dukker opp langt fra der den ble laget. De to siste alternativene er oppdiktede navneregler.",
+      explanation: "`sum = 0` er lovlig, men navnet peker nå på et tall, og et senere `sum(verdier)` gir en feilmelding om at et heltall ikke kan kalles. Python nekter altså ikke å kjøre koden — det er nettopp det som gjør fellen farlig, for feilen dukker opp langt fra der den ble laget. Regelen om at navnet bare kan inneholde bokstavene i det engelske alfabetet, og kravet om minst fire tegn, er begge oppdiktede.",
     },
     {
       question: "Hva er forskjellen mellom `int(x)` og `x // 1` når `x` er et negativt flyttall?",
@@ -1418,7 +1418,7 @@ const quizData_in1900: Record<string, QuizQuestion[]> = {
     {
       question: "En oppgave ber om en tabell med 41 punkter i intervallet $[0, 8]$. Hva er steglengden mellom nabopunkter?",
       options: ["0.2, fordi 41 punkter gir 40 intervaller", "0.195, fordi $8/41$ er avstanden mellom punktene", "0.4, fordi $8/20$ er avstanden mellom punktene", "8.0, fordi hele intervallet er ett steg"],
-      explanation: "Steglengden er intervallets lengde delt på antall **intervaller**, og 41 punkter gir 40 intervaller: $8/40 = 0.2$. Å dele på antall punkter er den vanligste varianten av av-én-feilen #1, og de to siste alternativene svarer til andre punktantall enn det oppgaven ba om.",
+      explanation: "Steglengden er intervallets lengde delt på antall **intervaller**, og 41 punkter gir 40 intervaller: $8/40 = 0.2$. Svaret 0.195 kommer av å dele på antall punkter — den vanligste varianten av av-én-feilen #1 — mens 0.4 og 8.0 svarer til 21 og 2 punkter, altså andre punktantall enn det oppgaven ba om.",
     },
     {
       question: "Hvilken linje lager tabellen i den vektoriserte malen når oppgaven ber om N intervaller?",
@@ -1443,7 +1443,7 @@ const quizData_in1900: Record<string, QuizQuestion[]> = {
     {
       question: "Hva skriver programmet ut?\n\n```python\nimport numpy as np\nx = np.linspace(1, 4, 4)\ny = x**2\nprint(y)\n```",
       options: ["[ 1.  4.  9. 16.]", "[1. 4. 9. 16.]", "[ 1  4  9 16]", "[2. 4. 6. 8.]"],
-      explanation: "Punktene er 1, 2, 3 og 4, og kvadrering er elementvis. NumPy setter av like bred plass til hvert tall, så det kommer et ekstra mellomrom foran de ensifrede — derfor `[ 1.  4.  9. 16.]`. Heltallsformatet krever heltall inn, og siste alternativ er dobling i stedet for kvadrering.",
+      explanation: "Punktene er 1, 2, 3 og 4, og kvadrering er elementvis. NumPy setter av like bred plass til hvert tall, så det kommer et ekstra mellomrom foran de ensifrede — derfor `[ 1.  4.  9. 16.]`. Heltallsformatet `[ 1  4  9 16]` krever heltall inn, og `[2. 4. 6. 8.]` er dobling i stedet for kvadrering.",
     },
     {
       question: "Hvorfor kan `y = np.sqrt(x)` erstatte en hel løkke, mens `y = sqrt(x)` fra `math` ikke kan?",
@@ -1515,7 +1515,7 @@ const quizData_in1900: Record<string, QuizQuestion[]> = {
     {
       question: "Du har tidsarrayet `t` med 41 elementer og løsningstabellen `u` med 41 rader og 2 kolonner. Hvilket kall plotter den **andre** komponenten mot tiden?",
       options: ["`plt.plot(t, u[:, 1])`", "`plt.plot(t, u[:, 2])`", "`plt.plot(t, u[1, :])`", "`plt.plot(u[:, 1], t)`"],
-      explanation: "Kolonnene nummereres fra 0, så den andre komponenten er kolonne 1, og kolon på første plass tar alle radene. Kolonne 2 finnes ikke i en tabell med to kolonner, `u[1, :]` er én rad med to tall, og siste alternativ bytter om aksene.",
+      explanation: "Kolonnene nummereres fra 0, så den andre komponenten er kolonne 1, og kolon på første plass tar alle radene. Kolonne 2 finnes ikke i en tabell med to kolonner, `u[1, :]` er én rad med to tall, og `plt.plot(u[:, 1], t)` bytter om aksene.",
     },
     {
       question: "Hva er forskjellen mellom et tidsplott og en fasekurve for de samme to bestandene?",
@@ -2534,7 +2534,7 @@ const quizData_in1900: Record<string, QuizQuestion[]> = {
     {
       question: "I baklengs Euler som subklasse, hvilken likning løser du hvert steg?",
       options: ["`v - u[n] - dt*f(t[n+1], v) = 0` med `v` som ukjent", "`v - u[n] - dt*f(t[n], v) = 0` med `v` som ukjent", "`v - u[n] - dt*f(t[n+1], u[n]) = 0` med `v` som ukjent", "`v - u[n+1] - dt*f(t[n], v) = 0` med `v` som ukjent"],
-      explanation: "Baklengs Euler evaluerer høyresiden i det **nye** punktet, både i tid og tilstand: $u_{n+1} = u_n + \\Delta t f(t_{n+1}, u_{n+1})$. Skriver du `t[n]`, har du laget en tungvint forlengs Euler. Har du `u[n]` inne i høyresiden, er likningen ikke lenger implisitt i det hele tatt. Det siste alternativet bruker en verdi som ennå ikke finnes.",
+      explanation: "Baklengs Euler evaluerer høyresiden i det **nye** punktet, både i tid og tilstand: $u_{n+1} = u_n + \\Delta t f(t_{n+1}, u_{n+1})$. Skriver du `t[n]`, har du laget en tungvint forlengs Euler. Har du `u[n]` inne i høyresiden, er likningen ikke lenger implisitt i det hele tatt. Varianten som trekker fra `u[n+1]` i stedet for `u[n]`, bruker en verdi som ennå ikke finnes.",
     },
     {
       question: "Hva returnerer `root` fra `scipy.optimize`, og hva sender du videre fra `advance`?",
@@ -2795,7 +2795,7 @@ const quizData_in1900: Record<string, QuizQuestion[]> = {
     {
       question: "Hva skriver dette ut?\n\n```python\ndata = {'Kvitheia': {'temp': 7.9}, 'Nordvika': {'temp': 3.1}}\nny = {}\nfor navn, verdier in data.items():\n    if verdier['temp'] > 5.0:\n        ny[navn] = {'temp': verdier['temp']}\nprint(ny, len(data))\n```",
       options: ["`{'Kvitheia': {'temp': 7.9}} 2`", "`{'Kvitheia': {'temp': 7.9}} 1`", "`{'Nordvika': {'temp': 3.1}} 2`", "`{'Kvitheia': 7.9} 2`"],
-      explanation: "Bare Kvitheia er over 5,0 grader, og `len(data)` er 2 fordi originalen er urørt. Alternativet `... 1` er fellen for den som tror `len(data)` viser resultatet. Og legg merke til at den indre ordboka bygges på nytt — derfor `{'temp': 7.9}` og ikke bare tallet, som i det siste alternativet.",
+      explanation: "Bare Kvitheia er over 5,0 grader, og `len(data)` er 2 fordi originalen er urørt. Alternativet `... 1` er fellen for den som tror `len(data)` viser resultatet. Og legg merke til at den indre ordboka bygges på nytt — derfor `{'temp': 7.9}` og ikke bare tallet, slik svaret `{'Kvitheia': 7.9} 2` har det.",
     },
     {
       question: "Fila `dybder.txt` har feltene i faste kolonner uten separator. Hvorfor kan ikke `.split()` brukes?",
@@ -2805,7 +2805,7 @@ const quizData_in1900: Record<string, QuizQuestion[]> = {
     {
       question: "Hva skriver dette ut?\n\n```python\nline = 'Sandvollen 20240301  -1.8   43\\n'\nprint(int(line[25:30]), float(line[19:25]))\n```",
       options: ["`43 -1.8`", "`-1.8 43`", "`43 -1.8 `", "`118 4.2`"],
-      explanation: "Utsnittet `line[25:30]` er `'  43'` med utfyllingsmellomrom, og `int` tåler dem; `line[19:25]` er `'  -1.8'`, som `float` leser som −1,8. `print` skriver argumentene i den rekkefølgen de står, med ett mellomrom mellom — det siste alternativet er tallene fra en annen linje i fila.",
+      explanation: "Utsnittet `line[25:30]` er `'  43'` med utfyllingsmellomrom, og `int` tåler dem; `line[19:25]` er `'  -1.8'`, som `float` leser som −1,8. `print` skriver argumentene i den rekkefølgen de står, med ett mellomrom mellom — svaret `118 4.2` er tallene fra en annen linje i fila.",
     },
     {
       question: "Hvor skal `return ny` stå i en filterfunksjon?",
@@ -2989,7 +2989,7 @@ const quizData_in1900: Record<string, QuizQuestion[]> = {
     {
       question: "Lista `verdier` er ikke-tom og kan inneholde negative tall. Hvilken kodebit ender med den største verdien i `storst`?",
       options: ["`storst = verdier[0]` og så `for v in verdier: if v > storst: storst = v`", "`storst = 0` og så `for v in verdier: if v > storst: storst = v`", "`storst = 0` og så `for v in verdier: if v < storst: storst = v`", "`storst = verdier[-1]` og så `for v in verdier: if v < storst: storst = v`"],
-      explanation: "Startverdien må hentes fra lista selv, ellers svarer koden med et tall som ikke finnes der: med `storst = 0` og bare negative verdier blir svaret 0. De to siste alternativene snur dessuten sammenligningen og finner den minste verdien.",
+      explanation: "Startverdien må hentes fra lista selv, ellers svarer koden med et tall som ikke finnes der: med `storst = 0` og bare negative verdier blir svaret 0. De to variantene som tester `if v < storst`, snur dessuten sammenligningen og finner den minste verdien.",
     },
     {
       question: "Hva skriver programmet ut?\n\n```python\ndef juster(verdi):\n    verdi = verdi + 10\n    return verdi\n\nverdi = 5\nny = juster(verdi)\nprint(verdi, ny)\n```",
