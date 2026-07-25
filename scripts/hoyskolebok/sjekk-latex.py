@@ -180,6 +180,34 @@ def main():
             if t.count("$") % 2:
                 avvik.append(f"UBALANSERT $ i {navn}{sti}: {felt.strip()[:80]!r} (avkuttet formel)")
 
+    # 6. PROSA SATT SOM MATTE. Punkt 5 fanger bare oddetall $. To valutabeløp på
+    #    samme linje er PARTALL og slipper gjennom — men rendreren parrer dem og
+    #    setter teksten mellom dem som matte, så ordene renner sammen uten
+    #    mellomrom: «$121,700 (but median Black household: $17,600)» ble til
+    #    «121,700(butmedianBlackhousehold:». Samme felle: Excel-referanser
+    #    ($E1 … E$1) og JS-templater (${…}).
+    #    Sjekken speiler latex-renderer.tsx og maskerer vernede områder med LIKE
+    #    LANG fyllstreng — ellers parres sluttdollaren i én $$-blokk med
+    #    startdollaren i neste, og ekte matte meldes som feil.
+    for navn, sti, s in alle:
+        for felt in enkeltfelt(navn, s):
+            if "$" not in felt:
+                continue
+            m = felt
+            for rx in (r"```([a-zA-Z0-9+#_-]*)[ \t]*\n?([\s\S]*?)```", r"`[^`\n]+`", r"\\{1,2}\$"):
+                for t in re.finditer(rx, m):
+                    m = m[:t.start()] + "\x01" * (t.end() - t.start()) + m[t.end():]
+            for t in re.finditer(r"\$\$([\s\S]*?)\$\$", m):
+                m = m[:t.start()] + "\x01" * (t.end() - t.start()) + m[t.end():]
+            for t in re.finditer(r"\$([^$\n]+?)\$", m):
+                indre = t.group(1)
+                if "\\" in indre:
+                    continue                      # ekte LaTeX-kommandoer
+                if not re.search(r"[A-Za-zÆØÅæøå]{3,}\s+[A-Za-zÆØÅæøå]{3,}", indre):
+                    continue                      # ikke prosa
+                avvik.append(f"PROSA SATT SOM MATTE i {navn}{sti}: {indre[:70]!r} "
+                             f"(escap dollartegnene som \\$ — de er valuta/kode, ikke matte)")
+
     katex_feil = None
     if os.path.isdir(os.path.join(ROOT, "node_modules", "katex")):
         with tempfile.NamedTemporaryFile("w", suffix=".json", delete=False, encoding="utf-8") as f:
