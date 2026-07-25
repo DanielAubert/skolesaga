@@ -26,7 +26,7 @@
   {
    "id": "in1000-3-2-3",
    "type": "text",
-   "content": "## Løkke 1 — Hva en ordbok er, og hvordan du slår opp (~13 min)\n\nEn resirkuleringsstasjon veier inn kartong, glass og metall. Med en liste kunne\ndu lagret de tre tallene — men da måtte du huske at kartong står først og metall\nsist, og hver gang noen la til en ny avfallstype, ville rekkefølgen bli en\nkilde til feil.\n\nDet du egentlig vil, er å slå opp på **navnet**: «hvor mange kilo glass?». Det er\nakkurat det en ordbok gjør."
+   "content": "## Løkke 1 — Hva en ordbok er, og hvordan du slår opp (~12 min)\n\nEn resirkuleringsstasjon veier inn kartong, glass og metall. Med en liste kunne\ndu lagret de tre tallene — men da måtte du huske at kartong står først og metall\nsist, og hver gang noen la til en ny avfallstype, ville rekkefølgen bli en\nkilde til feil.\n\nDet du egentlig vil, er å slå opp på **navnet**: «hvor mange kilo glass?». Det er\nakkurat det en ordbok gjør."
   },
   {
    "id": "in1000-3-2-4",
@@ -137,7 +137,7 @@
    "type": "example",
    "title": "Eksempel 2: Tell forekomster, som en gjenbrukbar funksjon",
    "problem": "Skriv `tell_forekomster(elementer)` som tar imot en liste og returnerer en ordbok\nfra hvert element til hvor mange ganger det finnes i lista. Vis også hva\nfunksjonen gjør med en tom liste.",
-   "solution": "Idiomet flyttes rett inn i en funksjon:\n\n```python\ndef tell_forekomster(elementer):\n    antall = {}\n    for e in elementer:\n        if e not in antall:\n            antall[e] = 0\n        antall[e] = antall[e] + 1\n    return antall\n\nprint(tell_forekomster([\"buss\", \"trikk\", \"buss\"]))\nprint(tell_forekomster([]))\n```\n\n**Utskrift:**\n```\n{'buss': 2, 'trikk': 1}\n{}\n```\n\n**Slik ville sensor sett på det:** fire ting gir uttelling hver for seg. Den tomme\nordboka før løkka, løkka over lista, opprettelsen av nøkkelen med 0, og\n`return` **etter** løkka. Har du de tre første riktig, men glemt `return`, er\nstrukturen på plass og trekket lite — men funksjonen gir `None`, og alle\ndeloppgaver som bygger videre, faller sammen.\n\n**Den tomme lista** gir en tom ordbok. Løkka kjører null ganger, og `antall`\nreturneres slik den ble laget. Det er et rimelig svar, og du fikk det gratis av\nmønsteret — men det er verdt å sjekke bevisst, jf. feilkode #6.\n\nFunksjonen er verdt å legge på minnet. Den er halve svaret på ethvert «hvilken\nforekommer flest ganger?»-spørsmål, og andre halvdel kommer i løkke 4."
+   "solution": "Idiomet flyttes rett inn i en funksjon:\n\n```python\ndef tell_forekomster(elementer):\n    antall = {}\n    for e in elementer:\n        if e not in antall:\n            antall[e] = 0\n        antall[e] = antall[e] + 1\n    return antall\n\nprint(tell_forekomster([\"buss\", \"trikk\", \"buss\"]))\nprint(tell_forekomster([]))\n```\n\n**Utskrift:**\n```\n{'buss': 2, 'trikk': 1}\n{}\n```\n\n**Slik ville sensor sett på det:** fire ting gir uttelling hver for seg. Den tomme\nordboka før løkka, løkka over lista, opprettelsen av nøkkelen med 0, og\n`return` **etter** løkka. Har du de tre første riktig, men glemt `return`, er\nstrukturen på plass og trekket lite — men funksjonen gir `None`, og alle\ndeloppgaver som bygger videre, faller sammen.\n\n**Den tomme lista** gir en tom ordbok. Løkka kjører null ganger, og `antall`\nreturneres slik den ble laget. Det er et rimelig svar, og du fikk det gratis av\nmønsteret — men det er verdt å sjekke bevisst, jf. feilkode #6 — kant-tilfellene, som\ntom samling og «ikke funnet».\n\nFunksjonen er verdt å legge på minnet. Den er halve svaret på ethvert «hvilken\nforekommer flest ganger?»-spørsmål, og andre halvdel kommer i løkke 4."
   },
   {
    "id": "in1000-3-2-oppg-3",
@@ -236,7 +236,7 @@
   {
    "id": "in1000-3-2-22",
    "type": "text",
-   "content": "## Løkke 4 — Finn beste: nøkkelen med størst verdi (~13 min)\n\nTeller-idiomet gir deg en ordbok. Men eksamensoppgaven spør sjelden om ordboka\n— den spør om **hvilken** som forekom flest ganger. Det er andre halvdel, og den\ner et eget mønster."
+   "content": "## Løkke 4 — Finn beste: nøkkelen med størst verdi (~12 min)\n\nTeller-idiomet gir deg en ordbok. Men eksamensoppgaven spør sjelden om ordboka\n— den spør om **hvilken** som forekom flest ganger. Det er andre halvdel, og den\ner et eget mønster."
   },
   {
    "id": "in1000-3-2-23",
