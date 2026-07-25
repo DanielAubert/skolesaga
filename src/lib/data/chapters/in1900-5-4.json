@@ -180,6 +180,24 @@
       "content": "Det vektoriserte alternativet: velger elementvis mellom to verdier ut fra en betingelse, og returnerer et helt array.\n\n```python\nimport numpy as np\nt = np.linspace(-1, 1, 5)\nprint(np.where(t < 0, 0, 1))\n```\n\n**Utskrift:**\n```\n[0 0 1 1 1]\n```\n\nDette er samme jobb som Heaviside gjør, men på alle punktene på én gang — nyttig når du skal plotte.\n\n**Dette er «bør kjenne til»-stoff (nivå 3).** Klassevarianten med `if` er den som spørres om på eksamen, og den er også den du skal skrive. Grunnen til at `np.where` nevnes, er at en `if`-basert funksjon **ikke** virker på et array: du får `ValueError: The truth value of an array with more than one element is ambiguous`. Kjenner du den feilmeldingen igjen, vet du hva som skjedde."
     },
     {
+      "id": "in1900-5-4-oppg-4",
+      "type": "exercise",
+      "exercise": {
+        "id": "in1900-5-4-oppg-4",
+        "number": "4",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "(Eksamensnivå, del-b — verditabell for en stykkvis funksjon.) Du har trappa fra eksempel 2 som en `Piecewise`-instans, `f = Piecewise([0, 5, 2], [1, 3])`, og skal lage en verditabell over 401 punkter mellom 0 og 4 — den du trenger for å plotte trappa.\n\n**a)** Du skriver `x = np.linspace(0, 4, 401)` og deretter `y = f(x)`. Hva skjer, og hvorfor?\n**b)** Skriv koden som bygger `y` riktig, slik at den blir like lang som `x`. Kontroller lengdene og verdiene i $x = 0$, $x = 1$ og $x = 3$.\n**c)** Et pådrag slås på ved $t = 2{,}5$: verdien er 0 før og 1 fra og med. Skriv den vektoriserte varianten av nettopp den funksjonen for de fem tidspunktene 0, 1, 2, 3 og 4, på én linje. Hvorfor er ikke den varianten svaret sensor er ute etter for `Piecewise`?",
+        "solution": "**a)** Programmet stopper med en `ValueError`. Inne i `__call__` står `if x < b_`, og når `x` er et array med 401 tall, er `x < b_` et array med 401 sant/falskt-verdier. En `if` trenger **ett** svar, ikke 401, og Python nekter å gjette:\n\n```\nValueError: The truth value of an array with more than one element is ambiguous. Use a.any() or a.all()\n```\n\nDette er ikke en feil i klassen. En `if`-basert stykkvis funksjon skal kalles ett punkt av gangen — det er prisen for at den kan velge mellom vilkårlig mange intervaller.\n\n**b)** Løkka går over punktene i `x`, kaller `f` for hvert enkelt av dem, og samler verdiene i en liste:\n\n```python\nimport numpy as np\n\nclass Piecewise:\n    def __init__(self, a, b):\n        self.a = a\n        self.b = b\n\n    def __call__(self, x):\n        for i, b_ in enumerate(self.b):\n            if x < b_:\n                return self.a[i]\n        return self.a[-1]\n\nf = Piecewise([0, 5, 2], [1, 3])\n\nx = np.linspace(0, 4, 401)\ny = []\nfor xi in x:\n    y.append(f(xi))\n\nprint(len(x), len(y))\nfor j in [0, 100, 300]:\n    print(f'{x[j]:5.2f} {y[j]}')\n```\n\n**Utskrift:**\n```\n401 401\n 0.00 0\n 1.00 5\n 3.00 2\n```\n\nDe to tabellene er like lange, og verdiene i grensepunktene stemmer med trappa: $x = 1$ gir 5 og $x = 3$ gir 2, fordi grensen selv hører til intervallet over. Løkkevariabelen `xi` er ett tall om gangen — det er hele grepet.\n\n**c)** Den vektoriserte varianten er `np.where`, og den tar én linje:\n\n```python\nimport numpy as np\n\nt = np.linspace(0, 4, 5)\npaadrag = np.where(t < 2.5, 0, 1)\nprint(paadrag)\n```\n\n**Utskrift:**\n```\n[0 0 0 1 1]\n```\n\nGrunnen til at dette ikke er svaret sensor er ute etter, er todelt. `np.where` velger mellom **to** verdier, så en trapp med tre eller flere trinn krever at du nøster flere `np.where` inni hverandre — og da er `if`-varianten både kortere og lettere å lese. Og eksamen spør etter klassen med betinget logikk, fordi det er den som viser at du kan bygge en funksjon som velger. `np.where` er «bør kjenne til»-stoff (nivå 3): kjenn det igjen, men skriv `if`-varianten.\n\n**Hva gir uttelling:** (i) at du ser at `f` må kalles punkt for punkt og ikke på hele arrayet, (ii) en løkke som gir `y` like mange elementer som `x`, (iii) at du kontrollerer i grensepunktene og ikke bare midt i et intervall. Punkt (i) er det oppgaven egentlig tester, og det er også den feilen som stopper programmet ditt på laben en fredag ettermiddag.",
+        "hints": [
+          "Til a): hvor mange sant/falskt-svar trenger `if`, og hvor mange får den når argumentet er et array med 401 tall?",
+          "Til b): kall funksjonen ett punkt av gangen, i en løkke over `x`, og samle verdiene underveis.",
+          "Til c): den vektoriserte varianten velger elementvis mellom to verdier ut fra en betingelse.",
+          "Sammenlign hva de to variantene krever av deg på en hjelpemiddelfri eksamen."
+        ]
+      }
+    },
+    {
       "id": "in1900-5-4-ex-3",
       "type": "example",
       "title": "Eksempel 3: Stykkvis pådrag inne i en annen klasse (eksamensnivå)",
@@ -187,11 +205,11 @@
       "solution": "```python\nclass Piecewise:\n    def __init__(self, a, b):\n        self.a = a\n        self.b = b\n\n    def __call__(self, x):\n        for i, b_ in enumerate(self.b):\n            if x < b_:\n                return self.a[i]\n        return self.a[-1]\n\nfrom math import exp\n\nclass Dosert:\n    def __init__(self, doser, tider, halveringstid):\n        self.paadrag = Piecewise(doser, tider)\n        self.halveringstid = halveringstid\n\n    def __call__(self, t):\n        return self.paadrag(t)*exp(-t/self.halveringstid)\n\nd = Dosert([0, 10, 4], [2, 8], 6)\n\nfor t in [0, 2, 5, 8, 12]:\n    print(f'{t:3d} {d(t):8.3f}')\n```\n\n**Utskrift:**\n```\n  0    0.000\n  2    7.165\n  5    4.346\n  8    1.054\n 12    0.541\n```\n\nSe hva som skjer i konstruktøren: `self.paadrag` er en **instans av `Piecewise`**. Et attributt kan være et objekt, og det objektet er kallbart — så `self.paadrag(t)` inne i `__call__` er et helt vanlig funksjonskall.\n\nDette er mønsteret du får bruk for i Del 7: en stykkvis kildefunksjon som del av høyresiden i en differensiallikning. Da er det nettopp `self.paadrag(t)` som står i formelen.\n\nUtskriften viser hoppet: ved $t = 2$ slås pådraget på, og verdien går fra 0 til noe positivt. Innenfor hvert intervall avtar verdien jevnt, fordi nedbrytningsfaktoren er kontinuerlig.\n\n**Uttelling:** at pådraget gjenbrukes som en `Piecewise`-instans i stedet for å kopieres inn som `if`-er, er det sensor legger merke til. Skriver du i stedet `if/elif` direkte inne i `__call__`, er svaret riktig og uttellingen litt lavere — det viser mindre struktur."
     },
     {
-      "id": "in1900-5-4-oppg-4",
+      "id": "in1900-5-4-oppg-5",
       "type": "exercise",
       "exercise": {
-        "id": "in1900-5-4-o4",
-        "number": "4",
+        "id": "in1900-5-4-oppg-5",
+        "number": "5",
         "type": "classic",
         "difficulty": "vanskelig",
         "task": "(Eksamensnivå, sjanger G.) En kraft virker på en gjenstand bare i et tidsvindu: den er 0 før $t = t_1$, konstant $F_0$ mellom $t_1$ og $t_2$, og 0 etter $t_2$.\n\n**a)** Skriv en klasse `Pulskraft` der $F_0$, $t_1$ og $t_2$ gis i konstruktøren, og der kallet gir kraften ved tiden `t`. Bruk `if/elif/else`.\n\n**b)** Skriv den samme funksjonen på nytt, men nå ved å bruke den generelle `Piecewise`-klassen inne i din egen klasse. Hvilke to lister trenger du?\n\n**c)** Skriv ut kraften ved $t = 0, 1, 2, 5, 6, 9$ for $F_0 = 3$, $t_1 = 1$ og $t_2 = 6$, med begge variantene, og kontroller at de gir samme svar.",
@@ -204,11 +222,11 @@
       }
     },
     {
-      "id": "in1900-5-4-oppg-5",
+      "id": "in1900-5-4-oppg-6",
       "type": "exercise",
       "exercise": {
-        "id": "in1900-5-4-o5",
-        "number": "5",
+        "id": "in1900-5-4-oppg-6",
+        "number": "6",
         "type": "classic",
         "difficulty": "vanskelig",
         "task": "(Eksamensnivå, sjanger O — «finn feilen i programmet».) Klassen under skal være den generelle stykkvise funksjonen, men den har tre feil. Finn dem, si hva hver av dem gjør, og skriv klassen riktig.\n\n```text\nclass Piecewise:\n    def __init__(self, a, b):\n        a = a\n        b = b\n\n    def __call__(self, x):\n        for i, b_ in enumerate(self.b):\n            if x <= b_:\n                return self.a[i+1]\n```\n\nBruk gjerne testen `f = Piecewise([0, 5, 2], [1, 3])` og verdiene $x = 0, 1, 3, 7$ når du forklarer.",
