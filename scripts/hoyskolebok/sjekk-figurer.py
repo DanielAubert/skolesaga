@@ -23,7 +23,12 @@ import sys
 import urllib.request
 
 ROOT = os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
-MØNSTER = r"/images/textbook/([a-z0-9._-]+)/([a-z0-9._-]+\.(?:svg|png|jpg|jpeg|webp))"
+# Dekker HELE /images/-treet, ikke bare textbook/. De 501 figurene under
+# images/content/ sto uten portdekning i seks uker fordi mønsteret var for
+# smalt — og en figur ingen port ser, er en figur ingen oppdager at mangler.
+# mediaUrl() (src/lib/media.ts) skriver om alle /images/-stier til Storage,
+# så alt under /images/ må ligge der, uansett undermappe.
+MØNSTER = r"/images/((?:[a-z0-9._-]+/)+)([a-z0-9._-]+\.(?:svg|png|jpg|jpeg|webp))"
 
 
 def storage_url():
@@ -44,8 +49,12 @@ def referanser(emner):
         if os.path.basename(p).startswith("_"):
             continue
         for m in re.finditer(MØNSTER, open(p, encoding="utf-8").read()):
-            if not emner or m.group(1) in emner:
-                ut.add((m.group(1), m.group(2)))
+            # group(1) er nå hele undermappa («content/2p/», «textbook/fys1001/»).
+            # Emnefilteret matcher på siste ledd, som før.
+            mappe = m.group(1)
+            siste = mappe.rstrip("/").split("/")[-1]
+            if not emner or siste in emner:
+                ut.add((mappe, m.group(2)))
     return sorted(ut)
 
 
@@ -58,7 +67,7 @@ def main():
 
     def sjekk(par):
         mappe, fil = par
-        u = f"{base}/storage/v1/object/public/media/images/textbook/{mappe}/{fil}"
+        u = f"{base}/storage/v1/object/public/media/images/{mappe}{fil}"
         try:
             with urllib.request.urlopen(u, timeout=30) as r:
                 if r.status == 200:
@@ -70,7 +79,7 @@ def main():
     with concurrent.futures.ThreadPoolExecutor(max_workers=12) as pool:
         feil = [x for x in pool.map(sjekk, ref) if x]
 
-    på_disk = sum(1 for m, f in ref if os.path.exists(os.path.join(ROOT, "public/images/textbook", m, f)))
+    på_disk = sum(1 for m, f in ref if os.path.exists(os.path.join(ROOT, "public/images", m, f)))
     print(f"{len(ref)} figurreferanser kontrollert mot Storage "
           f"({på_disk} finnes også i repoet, {len(ref)-på_disk} er Storage-bare)")
     if feil:
