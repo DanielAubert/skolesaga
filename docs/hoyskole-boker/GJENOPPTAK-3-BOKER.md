@@ -5,7 +5,14 @@
 | Bok | Steg 1 kapitler | Steg 2 wiring | Figurer | Steg 3 verifikasjon | Steg 4 sluttport |
 |---|---|---|---|---|---|
 | FYS1001 | ✅ 35/35 (+7 prøver) | ✅ BOKPORT OK (42 filer / 550 fc / 558 quiz) | ✅ 109 SVG i Storage, verifisert 200 | ✅ komplett (~1 880 sjekker, 48 fiks) | ✅ ferdig, ligger på `land/econ2220` |
-| ECON2310 | ✅ 29/29 (+6 prøver) | ✅ BOKPORT OK (35 filer / 542 fc / 528 quiz) | ✅ Del 1, 4–7 (G2+G3) · 🔄 Del 2–3 (G1) | ✅ Del 0–1, 4–7 (X1+X2, ~3 460 sjekker) · ⬜ Del 2–3 | ⬜ |
+| ECON2310 | ✅ 29/29 (+6 prøver) | ✅ BOKPORT OK (35 filer / 542 fc / 528 quiz) | ✅ Del 1, 4–7 · 🔄 Del 2–3 (10 SVG tegnet, wires nå) | ✅ Del 0–1, 4–7 (~3 460 sjekker) · 🔄 Del 2–3 | ⬜ |
+
+**G1 stallet halvveis (natt til 25. juli):** figuragenten for Del 2–3 tegnet alle
+10 SVG-ene (01:58) men døde før wiringen — kapitlene hadde 0 image-blokker, og
+ingenting var committet. Lærdom: **mål alltid disk OG `git log` i arbeidstreet**;
+en agent som ikke har committet på en time er sannsynligvis død, og en SendMessage
+til den leveres «ved neste tool-runde» — som aldri kommer. Stopp den med TaskStop
+og sett inn en fersk agent med `FIGUR-BESTILLINGER.md` som arbeidsordre.
 | ECON2220 | ✅ 34/34 (+7 prøver) | ✅ BOKPORT OK (41 filer / 554 fc / 570 quiz) | ✅ alle 53 SVG i Storage, verifisert 200 | ✅ komplett (~2 400 sjekker i W1+W2+W3) | ✅ **SLUTTPORT OK** — tsc rent, build exit 0, prod-curl 11/11 |
 
 **NB om landing:** `main` står fortsatt på `0cc69421` (tma4110). Både fys1001 og
