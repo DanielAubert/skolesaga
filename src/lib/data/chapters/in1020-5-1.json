@@ -1,0 +1,466 @@
+{
+  "id": "in1020-5-1",
+  "courseId": "in1020",
+  "chapterNumber": "5.1",
+  "title": "Flervalgssjangeren og negativ poenggiving",
+  "description": "Eksamensdisiplinen: strategi for hver av de fire svarformene, regelen for når du krysser av og når du lar stå under negativ poenggiving, tidsbudsjettet på fire seksjoner, og en kald bank uten hint.",
+  "estimatedMinutes": 40,
+  "competenceGoals": [
+    "kunne angripe hver av de fire svarformene med riktig strategi",
+    "kunne avgjøre når en avkrysning lønner seg og når den ikke gjør det",
+    "kunne fordele fire timer på fire seksjoner som hver må bestås",
+    "kunne prioritere mellom uløste oppgaver etter sikker uttelling per minutt"
+  ],
+  "content": [
+    {
+      "id": "in1020-5-1-eksamensvinkel",
+      "type": "tip",
+      "title": "Eksamensvinkel",
+      "content": "**Belegg:** dette kapitlet handler ikke om ett tema, men om **selve svarformen**. Hele eksamen er flervalg med negativ poenggiving, og alle fire seksjonene rammes av hvordan du håndterer den. Derfor er dette **høyeste prioritet — dette må sitte**: det påvirker poengsummen i alle fire seksjonene samtidig.\n\n**Det du trener her:**\n\n- **Svarformene F1–F4** og hvordan hver av dem skal angripes.\n- **Regelen for når du krysser av og når du lar stå åpent** under minuspoeng.\n- **Tidsbudsjettet** — omtrent 60 minutter per seksjon, fire seksjoner, fire timer.\n- **Fire-seksjoner-kravet:** hver seksjon må bestås for seg. En tom seksjon velter hele eksamen, uansett hvor godt det gikk på de tre andre.\n\n**Slik kommer det:** ikke som en egen oppgave. Det kommer som forskjellen mellom å få uttelling for det du kan, og å miste poeng på det du nesten kan.\n\n**Tidsbruk:** 40 minutter. Kapitlet har også en **kald bank** helt til slutt — ti oppgaver uten hint, til bruk når resten av boka sitter."
+    },
+    {
+      "id": "in1020-5-1-forkunnskaper",
+      "type": "text",
+      "content": "## Forkunnskaper — sist du var her\n\nDette kapitlet bygger på [kap. 0.1](/bok/in1020/in1020-0-1), eksamenskartet. Her er det du trenger, ferdig oppfrisket:\n\n**1. Eksamensformen.** Én firetimers digital skoleeksamen i Inspera — UiOs digitale eksamenssystem. Karakteren er **bestått eller ikke bestått**, og eksamen teller 100 %.\n\n**2. Fire seksjoner à 25 poeng, og hver må bestås for seg.** Rekkefølgen er digital representasjon, maskinvare, sikkerhet, nettverk — altså del 1, 2, 3 og 4 i denne boka.\n\n**3. Negativ poenggiving.** Gale avkrysninger trekker poeng, men en enkelt oppgave kan aldri gi mindre enn 0 poeng. Et feilkryss kan altså ikke spise poeng fra en annen oppgave.\n\n**4. De fire svarformene.** F1 velg ett eller flere, F2 sant/usant-matrise, F3 dra-og-slipp, F4 nedtrekksmeny. Alle fire er varianter av flervalg.\n\n**5. Hjelpemidler.** Boka trener for **ingen hjelpemidler** — alle teknikker skal sitte i hodet. Sjekk selv hva som gjelder for ditt semester; se drøftingen i [kap. 0.1](/bok/in1020/in1020-0-1).\n\nHar du ikke lest [kap. 0.1](/bok/in1020/in1020-0-1), les den først. Dette kapitlet forutsetter at du kjenner formen."
+    },
+    {
+      "id": "in1020-5-1-notasjon",
+      "type": "collapsible",
+      "title": "Notasjons- og konstruksjonsliste",
+      "buttonText": "Vis notasjon og konstruksjoner",
+      "content": [
+        {
+          "id": "in1020-5-1-notasjon-tekst",
+          "type": "text",
+          "content": "Oppslagsverk — alt her forklares underveis i kapitlet. Dette er kapitlets Symbol- og formelliste, tilpasset et datateknologifag: den lister notasjonen og konstruksjonene i stedet for greske bokstaver.\n\n| Notasjon | Betydning / virkning |\n|---|---|\n| **F1** | Velg ett *eller flere* alternativer — flere kan være riktige samtidig |\n| **F2** | Sant/usant-matrise — én rad per påstand, kryss for hver |\n| **F3** | Dra-og-slipp — koble hvert element til riktig kategori |\n| **F4** | Nedtrekksmeny — velg ett alternativ per delspørsmål |\n| Negativ poenggiving | Gale avkrysninger trekker poeng |\n| Gulvet på 0 | En enkelt oppgave kan aldri gi mindre enn 0 poeng |\n| Seksjon | En av de fire delene à 25 poeng, som hver må bestås |\n| Delvis uttelling | At du får poeng for de radene eller koblingene du har riktig |\n| Bonuspoeng | Ekstra uttelling for full pott på en oppgave |\n| Inspera | UiOs digitale eksamenssystem |\n\n**Regnestykkene i dette delkapitlet:**\n\n$$\\text{forventet uttelling} = p \\cdot (\\text{gevinst}) - (1 - p) \\cdot (\\text{trekk})$$\n\nDer `p` er sannsynligheten for at avkryssingen er riktig. Regnestykket er en **tankemodell**, ikke en fasit du skal regne på i eksamenslokalet — poenget er hva det viser: at grensen ligger et sted mellom «sikker» og «gjetter».\n\n$$\\text{tidsbudsjett} = \\frac{240 \\text{ min}}{4 \\text{ seksjoner}} = 60 \\text{ min per seksjon}$$\n\nFire timer fordelt på fire like store seksjoner."
+        }
+      ]
+    },
+    {
+      "id": "in1020-5-1-lokke1",
+      "type": "text",
+      "content": "## Løkke 1 — De fire svarformene, hver med sin strategi (~13 min)\n\nAlle fire svarformene er flervalg, men de straffer og belønner på ulike måter. En strategi som er riktig for den ene, er direkte skadelig for den andre.\n\nDet som er felles: **du får uttelling for det du kan begrunne, og du taper på det du gjetter.** Det som skiller: hvor mye ett feilkryss koster, og hvor mye du kan berge ved delvis riktig svar."
+    },
+    {
+      "id": "in1020-5-1-def-f1",
+      "type": "definition",
+      "title": "Svarform F1 — velg ett eller flere",
+      "content": "Oppgaven gir fire eller fem alternativer, og **ett eller flere** av dem er riktige. Minst ett er alltid riktig.\n\n**Strategien:** gå gjennom alternativene **ett for ett**, uavhengig av hverandre. Hvert alternativ er i praksis sitt eget sant/usant-spørsmål. Kryss av det du kan begrunne, la resten stå.\n\n**Den dyre feilen:** å tro at det er «ett riktig svar» og stoppe etter det første. I dette faget er det svært vanlig at tre av fem stemmer, og den som bare tar ett, mister to sikre poeng uten å ha svart noe galt.\n\n**Den andre dyre feilen:** å krysse av alt for å være sikker på å få med det riktige. Under negativ poenggiving koster det mer enn det smaker.\n\nDen faste feilslutningen: at antallet riktige er oppgitt eller kan gjettes ut fra formen. Det kan det ikke."
+    },
+    {
+      "id": "in1020-5-1-def-f2",
+      "type": "definition",
+      "title": "Svarform F2 — sant/usant-matrise",
+      "content": "En tabell med én påstand per rad. For hver rad krysser du **sant** eller **usant**.\n\n**Strategien:** behandle hver rad som en egen oppgave. Les raden **ord for ord** — den vanligste konstruksjonen er en riktig setning der ett ord er byttet ut, slik at «midlertidig» er blitt «permanent» eller «mottakeren» er blitt «nettet».\n\n**Delvis uttelling:** du får uttelling for de radene du har riktig, og trekk for dem du har galt. En matrise er derfor sjelden alt-eller-ingenting.\n\n**Den dyre feilen:** å bruke fordelingen som ledetråd. En matrise med fem rader kan ha fem sanne, eller én. Det finnes ingen regel om at det skal være «omtrent halvparten».\n\nDen faste feilslutningen: å lese hele matrisen som ett spørsmål og lete etter et mønster. Hver rad avgjøres for seg."
+    },
+    {
+      "id": "in1020-5-1-def-f3",
+      "type": "definition",
+      "title": "Svarform F3 — dra-og-slipp",
+      "content": "Elementer skal kobles til kategorier: protokoll til lag, tjeneste til problem, trussel til sikkerhetsmål.\n\n**Strategien:** gjør de koblingene du er **sikker** på først. Se deretter hva som er igjen — ofte gir de siste seg selv når de sikre er brukt opp.\n\n**To ting som skiller denne fra de andre:** en kategori kan brukes **flere ganger**, og en kategori kan stå **ubrukt**. Å tvinge inn en ubrukt kategori, eller å anta at hver kategori brukes nøyaktig én gang, er den vanligste måten å miste poeng på her.\n\n**Den dyre feilen:** å fylle ut resten mekanisk når de første koblingene danner et mønster. En koblingsoppgave er sjelden 1→A, 2→B, 3→C — det ville testet ingenting.\n\nDen faste feilslutningen: at delvis riktig ikke gir noe. Delvis uttelling er vanlig også her."
+    },
+    {
+      "id": "in1020-5-1-def-f4",
+      "type": "definition",
+      "title": "Svarform F4 — nedtrekksmeny",
+      "content": "Flere delspørsmål, hvert med sin egen nedtrekksliste. Du velger **ett** alternativ per delspørsmål.\n\n**Strategien:** dette er formen der regneoppgavene bor. Regn ferdig **før** du ser på listen, og bruk deretter listen som en kontroll: står svaret ditt der, er du sannsynligvis på rett spor. Står det ikke der, har du regnet feil — og det er en gratis advarsel.\n\n**Delvis uttelling per rad.** Hvert delspørsmål teller for seg, så et bomsvar på a) ødelegger ikke b).\n\n**Den dyre feilen:** å lese alternativene først og la dem styre regningen. Alle de gale alternativene i denne boka svarer til en bestemt regnefeil, og de er laget for å se rimelige ut.\n\nDen faste feilslutningen: at fasitbokstavene følger et mønster over flere oppgaver. Det gjør de ikke."
+    },
+    {
+      "id": "in1020-5-1-eks-1",
+      "type": "example",
+      "title": "Eksempel 1: Samme stoff, fire svarformer",
+      "problem": "Hvordan kan det samme faglige innholdet — protokoll til transportlag — bli fire ulike oppgaver? Og hva endrer seg i angrepsmåten?",
+      "solution": "**Som F1 — velg ett eller flere:**\n\n«Kryss av alle protokollene som bruker TCP: HTTP, DHCP, FTP, DNS.»\n\n*Angrep:* vurder hver for seg. HTTP ja, DHCP nei, FTP ja, DNS delvis — og siden spørsmålet er «bruker TCP», stemmer DNS også. Svar: HTTP, FTP og DNS.\n\n**Som F2 — sant/usant-matrise:**\n\n«DHCP bruker TCP: sant/usant. DNS bruker bare UDP: sant/usant.»\n\n*Angrep:* les hver rad ord for ord. Ordet «bare» i den andre raden er det som gjør den usann.\n\n**Som F3 — kobling:**\n\n«Koble HTTP, DHCP og DNS til TCP, UDP eller begge.»\n\n*Angrep:* gjør de sikre først (HTTP → TCP, DHCP → UDP), og se hva som blir igjen. Legg merke til at kategorien «begge» finnes — den er der fordi den skal brukes.\n\n**Som F4 — nedtrekk:**\n\n«Hvilken transport bruker DNS? Velg ett alternativ.»\n\n*Angrep:* svar før du ser listen. Er «både TCP og UDP» et av valgene, er det det du skal ta.\n\n**Det som er felles:** kunnskapen er nøyaktig den samme. Det som varierer, er hvor mange avgjørelser du må ta, og hvor mye ett feilkryss koster.\n\n**Det som er ulikt:** i F1 kan du la et alternativ stå tomt. I F2 må du ta stilling til hver rad. I F3 mister du på hver feil kobling. I F4 er det ett valg per delspørsmål, og delvis uttelling per rad."
+    },
+    {
+      "id": "in1020-5-1-o1",
+      "type": "exercise",
+      "exercise": {
+        "id": "in1020-5-1-o1",
+        "number": "1",
+        "type": "classic",
+        "difficulty": "lett",
+        "task": "(Innsteg — svarformene.) For hver av de fire svarformene: hva er den viktigste enkeltregelen å huske?",
+        "solution": "**F1 — velg ett eller flere.** Vurder hvert alternativ **for seg**. Flere kan være riktige samtidig, og det er svært vanlig at tre av fem stemmer.\n\n**F2 — sant/usant-matrise.** Les hver rad **ord for ord**. Ett enkelt ord — «bare», «alltid», «permanent» — kan snu sannhetsverdien.\n\n**F3 — kobling.** Gjør de **sikre** koblingene først. En kategori kan brukes flere ganger eller stå ubrukt.\n\n**F4 — nedtrekk.** Regn **ferdig før** du ser på alternativene, og bruk listen som kontroll.\n\n**Svar: vurder hvert alternativ for seg (F1), les hver rad ord for ord (F2), start med de sikre koblingene (F3), regn før du ser listen (F4).**\n\nDe fire reglene har én ting til felles: de handler alle om å ta én avgjørelse om gangen, i stedet for å la oppgaven som helhet styre.",
+        "hints": [
+          "Tenk gjennom hva som går galt hvis du behandler alle fire likt.",
+          "To av formene har delvis uttelling per rad."
+        ]
+      }
+    },
+    {
+      "id": "in1020-5-1-o2",
+      "type": "exercise",
+      "exercise": {
+        "id": "in1020-5-1-o2",
+        "number": "2",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "(Svarform F1.) En oppgave gir fem alternativer, og du kan begrunne at tre av dem er riktige. De to siste er du usikker på.\n\n**a)** Hva bør du gjøre, og hvorfor?\n\n**b)** Hva ville vært den vanligste feilen her?",
+        "solution": "**a) Kryss av de tre du kan begrunne. La de to usikre stå.**\n\nBegrunnelsen: hvert alternativ vurderes for seg, og de tre du kan begrunne, gir uttelling uavhengig av hva du gjør med de to andre. Å la dem stå koster ingenting utover de poengene du ikke tar — og gulvet på 0 betyr at et feilkryss på dem ikke kan spise poengene fra de tre riktige på samme oppgave.\n\n**b) Den vanligste feilen er å krysse av bare ett** — det man er «mest» sikker på — fordi man leser oppgaven som «velg det riktige svaret».\n\nDet koster to sikre poeng uten at man har svart noe galt, og det er en av de mest utbredte måtene å ligge lavt i en seksjon på uten å forstå hvorfor.\n\n**Den nest vanligste feilen er det motsatte:** å krysse av alle fem for å være sikker på å få med de riktige. Under negativ poenggiving betaler du for de to gale.\n\n**Svar: a) kryss av de tre, la de to stå. b) å bare krysse av ett, eller å krysse av alle fem.**",
+        "hints": [
+          "Spør hva som skjer med de tre sikre poengene hvis du tar feil på et av de usikre.",
+          "Tenk på hva «velg ett eller flere» faktisk betyr."
+        ]
+      }
+    },
+    {
+      "id": "in1020-5-1-lokke2",
+      "type": "text",
+      "content": "## Løkke 2 — Når krysser du av, og når lar du stå? (~14 min)\n\nNå til den avgjørelsen som skiller mest: hva gjør du med et alternativ du er *litt* usikker på?\n\nSvaret er verken «kryss alltid av» eller «la alltid stå». Begge deler er dårlige råd. Regelen er mer presis enn som så, og den er verdt å ha klar før du går inn i lokalet.\n\n— naturlig pausepunkt —"
+    },
+    {
+      "id": "in1020-5-1-teo-regel",
+      "type": "theorem",
+      "title": "Regelen for avkrysning under negativ poenggiving",
+      "content": "**Grunnregelen, i én setning:**\n\n> **Kryss av det du kan begrunne. La stå der du er i reell tvil.**\n\nLegg merke til hva som *ikke* står der. Det står ikke «kryss av det du tror». Og det står ikke «la stå med mindre du er hundre prosent sikker».\n\n**Hva «begrunne» betyr her:** at du kan si **hvorfor** alternativet stemmer, med en setning som viser til en regel, en definisjon eller en utregning. «Det høres riktig ut» er ikke en begrunnelse. «TCP sender tapte segmenter på nytt, og det er en av dens fire garantier» er det.\n\n**Hva gulvet på 0 betyr, presist:** en enkelt oppgave kan aldri trekke deg under 0 poeng. Et feilkryss på oppgave 7 kan altså ikke spise poeng du har tjent på oppgave 8. Det gjør enkeltbommer mindre farlige enn mange tror — men det gjør dem ikke gratis, for innenfor **samme** oppgave trekker de.\n\n**Tankemodellen, ikke et regnestykke du skal utføre:**\n\n$$\\text{forventet uttelling} = p \\cdot (\\text{gevinst}) - (1 - p) \\cdot (\\text{trekk})$$\n\nEr du 90 % sikker, lønner avkryssing seg klart. Er du 50 % sikker, er det et myntkast med en kostnad. Poenget er ikke å regne dette ut i lokalet — poenget er at det finnes en grense, og at den ligger et godt stykke over «jeg tror kanskje».\n\n**Den praktiske testen, tre spørsmål:**\n\n1. Kan jeg si **hvorfor** dette er riktig, med en setning?\n2. Kan jeg si hvorfor det **nærmeste alternativet** er galt?\n3. Er det noe ord i påstanden — «alltid», «bare», «aldri», «permanent» — som jeg har lest for fort?\n\nEr svaret ja på 1 og 2, og nei på 3, krysser du av."
+    },
+    {
+      "id": "in1020-5-1-warn",
+      "type": "warning",
+      "title": "Typiske feil — metafeilene",
+      "content": "**Å gjette bredt.** Å krysse av mange alternativer «for å treffe» er den dyreste vanen i dette formatet. Hver bom trekker.\n\n**Å la stå for mye.** Den motsatte feilen er like reell, og den er vanskeligere å oppdage: den som bare krysser av det han er helt sikker på, lar poeng ligge igjen på hver eneste oppgave. Kravet er å kunne begrunne, ikke å være uten enhver tvil.\n\n**Å lese «velg ett eller flere» som «velg ett».** Den enkeltfeilen alene kan koste flere poeng per oppgave.\n\n**Å bruke fordelingen som ledetråd.** Verken sant/usant-fordelingen i en matrise, antallet riktige i et F1-sett eller fasitbokstavene i et F4-sett følger noe mønster.\n\n**Å la én seksjon bli tynn.** Hver seksjon må bestås for seg. Å bruke nitti minutter på den seksjonen du liker best, og førti på den du liker dårligst, er den sikreste måten å stryke på med god samlet poengsum.\n\n**Å bli sittende fast.** En oppgave du ikke løser på to minutter, løser du sannsynligvis ikke på seks heller. Marker den, gå videre, kom tilbake.\n\n**Å bruke gammelt pensum.** Emner som er tatt ut eller nedtonet, er ikke pensum og skal ikke drilles. Se avgrensningen i [kap. 0.1](/bok/in1020/in1020-0-1)."
+    },
+    {
+      "id": "in1020-5-1-o3",
+      "type": "exercise",
+      "exercise": {
+        "id": "in1020-5-1-o3",
+        "number": "3",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "(Metanivå — avkrysning.) For hver situasjon: bør du krysse av eller la stå? Begrunn.\n\n**a)** Du kan si presis hvorfor alternativet er riktig, og hvorfor det nærmeste alternativet er galt.\n\n**b)** Alternativet «føles» riktig, men du klarer ikke å si hvorfor.\n\n**c)** Du har regnet ut svaret, og tallet står i nedtrekkslisten.\n\n**d)** Du husker at temaet var i boka, men ikke hva som ble sagt.",
+        "solution": "**a) Kryss av.** Dette er selve definisjonen på «kan begrunne»: du har en regel eller en utregning som støtter valget, og du kan avvise nærmeste distraktor. Å la denne stå er å gi bort et poeng du har tjent.\n\n**b) La stå.** «Føles riktig» er ofte gjenkjennelse av en formulering du har sett — og distraktorer er nettopp bygd av formuleringer du har sett, med ett ord endret. Uten en begrunnelse har du ingen kontroll på om det er innsikt eller gjenkjennelse.\n\n**c) Kryss av.** En utregning som treffer et av alternativene, er sterk støtte. Men gjør kontrollen først: passer enhetene, og er svaret av rimelig størrelsesorden? Alle de gale tallene i denne sjangeren står der fordi de svarer til en bestemt regnefeil, og de ser like rimelige ut som fasiten.\n\n**d) La stå.** Å huske at temaet fantes, er ikke å huske hva som gjaldt. Dette er den klareste formen for reell tvil.\n\n**Svar: kryss av i a) og c), la stå i b) og d).**\n\n**Merk mønsteret:** de to du skal krysse av, har begge en **kilde** — en regel eller en utregning. De to du skal la stå, har begge bare en **følelse**. Det er den skillelinjen regelen egentlig trekker.",
+        "hints": [
+          "Spør for hver: har jeg en regel eller en utregning å vise til?",
+          "Skille mellom å kjenne igjen en formulering og å vite hva den betyr."
+        ]
+      }
+    },
+    {
+      "id": "in1020-5-1-o4",
+      "type": "exercise",
+      "exercise": {
+        "id": "in1020-5-1-o4",
+        "number": "4",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "(Metanivå — poenggiving.) En kandidat sier: «Siden en oppgave aldri kan gi mindre enn 0 poeng, kan jeg like godt krysse av alt på hver oppgave. Verste fall er null.»\n\n**a)** Hva er galt med resonnementet?\n\n**b)** I hvilket tilfelle ville det likevel vært riktig å krysse av flere enn du er sikker på?",
+        "solution": "**a) Feilen ligger i hva gulvet faktisk beskytter mot.**\n\nGulvet på 0 gjelder **per oppgave**: et feilkryss på oppgave 7 kan ikke trekke deg under 0 på oppgave 7, og kan ikke spise poeng fra oppgave 8.\n\nMen innenfor **samme** oppgave trekker feilkryssene fra de riktige. Krysser du av alle fem alternativer der tre er riktige, får du tre gevinster og to trekk — og resultatet blir klart lavere enn de tre poengene du kunne fått ved å ta bare de tre. I verste fall blir det 0, og da har du ingenting igjen for de tre du faktisk kunne.\n\nMed andre ord: gulvet gjør ikke gjetting gratis. Det gjør bare at en katastrofal oppgave ikke ødelegger de andre.\n\n**b) Når trekket er lite i forhold til gevinsten, og du er nær ved å kunne begrunne.**\n\nEr du på et alternativ du er tydelig mer enn i tvil om — du kan begrunne det, men ikke like skarpt som de andre — er avkryssing fortsatt riktig. Regelen er «kan begrunne», ikke «er skråsikker».\n\nDet som aldri lønner seg, er å krysse av alternativer du ikke har noen begrunnelse for i det hele tatt.\n\n**Svar: a) gulvet gjelder per oppgave, ikke per alternativ, og feilkryss trekker fra de riktige innenfor samme oppgave. b) når du kan begrunne, men ikke er skråsikker — regelen er begrunnelse, ikke visshet.**",
+        "hints": [
+          "Skill mellom hva som skjer innenfor én oppgave og hva som skjer mellom oppgaver.",
+          "Hvor mye sitter du igjen med hvis tre gevinster og to trekk møtes i samme oppgave?"
+        ]
+      }
+    },
+    {
+      "id": "in1020-5-1-lokke3",
+      "type": "text",
+      "content": "## Løkke 3 — Fire seksjoner, fire timer (~13 min)\n\nDen siste biten handler ikke om enkeltoppgaver, men om hele settet.\n\nEksamen er **fire seksjoner à 25 poeng**, og **hver må bestås for seg**. Det er en uvanlig regel, og den snur på hva som er god strategi.\n\nI et vanlig fag med én samlet poengsum lønner det seg å bruke mest tid der du er sterkest. Her gjør det ikke det."
+    },
+    {
+      "id": "in1020-5-1-def-seksjonskravet",
+      "type": "definition",
+      "title": "Fire-seksjoner-kravet",
+      "content": "Eksamen består av fire seksjoner à 25 poeng — digital representasjon, maskinvare, sikkerhet og nettverk — og **hver seksjon må bestås for seg**.\n\n**Konsekvensen, og den er absolutt:** en kandidat som gjør det utmerket på tre seksjoner og faller igjennom på den fjerde, har ikke bestått. De ekstra poengene fra de tre andre kan ikke flyttes over.\n\n**Hva det betyr for lesingen:** ingen del av boka kan droppes. Det finnes ingen «trygg» kombinasjon av tre seksjoner.\n\n**Hva det betyr for eksamensdagen:** tida fordeles jevnt, ikke etter hvor du er sterkest. Det er bedre å hente de siste fem poengene i den svakeste seksjonen enn de siste fem i den sterkeste.\n\nDen faste feilslutningen: å tenke at «samlet poengsum» er det som teller. Det er den ikke — det er fire terskler, ikke én."
+    },
+    {
+      "id": "in1020-5-1-def-tidsbudsjett",
+      "type": "definition",
+      "title": "Tidsbudsjettet",
+      "content": "Fire timer på fire seksjoner gir **omtrent 60 minutter per seksjon**.\n\n$$\\frac{240 \\text{ min}}{4} = 60 \\text{ min per seksjon}$$\n\n**En praktisk fordeling:** 50 minutter på hver seksjon i første runde, og de siste 40 minuttene på det du markerte underveis.\n\n**Regelen om å gå videre:** en oppgave du ikke løser på to minutter, løser du sannsynligvis ikke på seks heller. Marker den, gå videre, kom tilbake når resten er gjort.\n\nDen faste feilslutningen: å tro at man «snart» er i mål på en oppgave man har brukt fem minutter på. De fem neste minuttene koster deg som regel to andre oppgaver et annet sted i settet — og de kan ligge i en seksjon som må bestås."
+    },
+    {
+      "id": "in1020-5-1-def-delvis",
+      "type": "definition",
+      "title": "Delvis uttelling og bonuspoeng",
+      "content": "**Delvis uttelling** er vanlig: du får poeng for de radene i en matrise eller de koblingene i en kobling som er riktige, selv om ikke alle er det.\n\n**Bonuspoeng** forekommer på enkelte oppgaver, typisk i maskinvaredelen: full pott på en oppgave kan gi ekstra uttelling, mens hver feil avkryssing trekker.\n\n**Konsekvensen:** en oppgave du bare kan halvparten av, er verdt å svare på — den halvparten gir uttelling. Men på oppgaver med bonus for full pott er det ekstra dyrt å ta med et alternativ du ikke kan begrunne.\n\nDen faste feilslutningen: å hoppe over en hel matrise fordi du er usikker på to av fem rader. De tre du kan, gir uttelling."
+    },
+    {
+      "id": "in1020-5-1-eks-2",
+      "type": "example",
+      "title": "Eksempel 2: Bestått på marginen — en gjennomgang av et helt sett",
+      "problem": "En nyskrevet modellbesvarelse: hvordan ser et sett ut som så vidt går gjennom i alle fire seksjonene? Og hva var den ene bommen fra å velte det?",
+      "solution": "**Om denne besvarelsen:** den er **nyskrevet av Skolesaga** som en illustrasjon. Den er ikke en ekte studentbesvarelse og ikke hentet fra noen fasit. Poenget er å vise hvordan tallene henger sammen, ikke å gjengi noe som har skjedd.\n\n**Kandidaten — kall henne Mari — hadde drillet de fem regneteknikkene og lest sikkerhet raskt.**\n\n**Seksjon 1, digital representasjon.** Hun tok alle tallkonverteringene og begge tolkningene av byten. På LMC-sporingen bommet hun på ett delspørsmål fordi hun overså at programmet endret sin egen instruksjon. Solid margin.\n\n*Margnotat: de garanterte regnepoengene bar seksjonen. Det er nettopp det de er til for.*\n\n**Seksjon 2, maskinvare.** Portidentifikasjonen og kretsanalysen satt. Cache-beregningen ble riktig — hun kontrollerte at snittet lå mellom 1 og bom-kostnaden. På arkitektur-matrisen krysset hun av to rader hun ikke kunne begrunne, og bommet på begge. Innenfor, men ikke med mye.\n\n*Margnotat: dette er nøyaktig den feilen kapitlet advarer mot. To rader hun kunne latt stå, kostet henne marginen i seksjonen.*\n\n**Seksjon 3, sikkerhet.** Den svakeste. Hun hadde mål mot tiltak på plass og visste at signatur ikke gir konfidensialitet. Men på trusselkoblingen tvang hun inn en kategori som ikke skulle brukes, og mistet to koblinger. **Dette var seksjonen som var én bom fra å velte hele eksamen.**\n\n*Margnotat: å tvinge inn en ubrukt kategori i en kobling er en av de faste måtene å miste poeng på — og her var det forskjellen på bestått og ikke.*\n\n**Seksjon 4, nettverk.** Subnettingen og overføringstiden satt, med kontrollregning på begge. På tjenestekoblingen byttet hun om to som begge handler om adresser. Innenfor med god margin, takket være regnepoengene.\n\n**Hva som var godt nok:**\n\n- Hun **regnet ferdig før hun så på alternativene** i alle regneoppgavene, og kontrollerte hvert svar.\n- Hun **fordelte tida jevnt** — omtrent en time per seksjon — i stedet for å bruke ekstra tid på seksjon 1, der hun var sterkest.\n- Hun **markerte og gikk videre** på tre oppgaver, og rakk å komme tilbake til to av dem.\n\n**Hva som var én bom fra å velte det:**\n\n- De to ubegrunnede avkryssingene i seksjon 2.\n- Den tvungne koblingen i seksjon 3.\n\n**Det er samme feil begge steder:** hun krysset av noe hun ikke kunne begrunne. Ingen av bommene skyldtes manglende kunnskap — de skyldtes at hun brøt regelen fra denne løkka på tre steder i settet.\n\n**Poenget å ta med seg:** for en kandidat som ligger nær grensen, er disiplinen i avkryssingen verdt mer enn den siste timen med lesing."
+    },
+    {
+      "id": "in1020-5-1-o5",
+      "type": "exercise",
+      "exercise": {
+        "id": "in1020-5-1-o5",
+        "number": "5",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "(Metanivå — tidsbruk.) Du har brukt 75 minutter og er ferdig med seksjon 1 og halve seksjon 2. Det er 165 minutter igjen.\n\n**a)** Ligger du i rute?\n\n**b)** Hva bør du gjøre med de neste minuttene?",
+        "solution": "**a) Ja, men med lite margin.** Budsjettet er 60 minutter per seksjon. Etter 75 minutter burde du vært omtrent 1,25 seksjoner inn, og du er 1,5 seksjoner inn.\n\n`75 min ÷ 60 min per seksjon = 1,25 seksjoner`\n\nDu ligger altså litt foran på papiret. Men de to gjenstående seksjonene har 165 minutter til deling, altså `165 ÷ 2,5 = 66` minutter per gjenstående halvseksjon — det holder, men det er ikke rikelig.\n\n**b) Fullfør seksjon 2 i normalt tempo, og ikke la deg friste til å gå tilbake til seksjon 1 ennå.**\n\nBegrunnelsen: seksjon 3 og 4 er ennå ikke sett i det hele tatt, og **hver seksjon må bestås for seg**. Et poeng i en useft seksjon er verdt mer enn et ekstra poeng i en du allerede har vært gjennom.\n\nGå tilbake til markerte oppgaver først når alle fire seksjonene er sett én gang.\n\n**Svar: a) i rute, med moderat margin. b) fullfør seksjon 2, gå videre til 3 og 4, og spar de markerte oppgavene til alle fire seksjonene er sett.**",
+        "hints": [
+          "Regn ut hvor mange minutter per seksjon som er igjen.",
+          "Hva er verdt mest: et poeng i en seksjon du har vært gjennom, eller i en du ikke har sett?"
+        ]
+      }
+    },
+    {
+      "id": "in1020-5-1-o6",
+      "type": "exercise",
+      "exercise": {
+        "id": "in1020-5-1-o6",
+        "number": "6",
+        "type": "classic",
+        "difficulty": "vanskelig",
+        "task": "(Metanivå — prioritering.) Det er 20 minutter igjen. Du har tre uløste oppgaver:\n\n**A.** En subnettoppgave i seksjon 4 der du kan prosedyren, men ikke har rukket å regne.\n\n**B.** En sant/usant-matrise i seksjon 2 der du kan begrunne tre av fem rader.\n\n**C.** En koblingsoppgave i seksjon 3 der du er usikker på alt.\n\nDu rekker sannsynligvis to av dem. Hvilke to, og i hvilken rekkefølge?",
+        "solution": "**Rekkefølge: A først, deretter B. C står.**\n\n**A først — subnettoppgaven.** Den har entydig fasit, du kan prosedyren, og den tar under to minutter når den skrives ned. Sikre poeng med kjent tidsbruk er alltid det første du henter. At den ligger i seksjon 4 gjør den ikke mer eller mindre verdt i seg selv — det er sikkerheten og tidsbruken som avgjør.\n\n**B deretter — matrisen.** Tre av fem rader kan begrunnes, og delvis uttelling er vanlig. Kryss av de tre, la de to stå. Det er tre poeng du kan hente uten risiko, og oppgaven tar kanskje fem minutter.\n\n**C står — koblingsoppgaven.** Du er usikker på alt, og i en kobling trekker hver feil kobling. Å fylle den ut på slump er den ene handlingen som med sikkerhet gjør resultatet dårligere.\n\n**Ett forbehold, og det er viktig:** ligger du **under grensen i seksjon 3**, endrer bildet seg. Da er C den eneste muligheten du har til å berge en seksjon som må bestås, og da er selv en delvis gjetting bedre enn ingenting — for uten seksjon 3 hjelper det ikke hva de tre andre viser.\n\nMen så lenge du tror du er innenfor i alle fire, er svaret A, så B, og la C stå.\n\n**Svar: A først (sikker og rask), B deretter (tre sikre rader med delvis uttelling), C står — med mindre du tror du ligger under grensen i seksjon 3.**\n\n**Merk hva som styrer prioriteringen:** ikke hvor mange poeng oppgaven er verdt, men **hvor sikker uttellingen er per minutt** — og deretter seksjonskravet.",
+        "hints": [
+          "Rangér etter sikker uttelling per minutt, ikke etter hvor mye oppgaven er verdt.",
+          "Husk at delvis uttelling gjør en halvkjent matrise verdt å svare på.",
+          "Er det et tilfelle der svaret ditt burde vært et annet? Tenk på seksjonskravet."
+        ]
+      }
+    },
+    {
+      "id": "in1020-5-1-kald-bank",
+      "type": "collapsible",
+      "title": "Kald bank — uten hint",
+      "buttonText": "Vis den kalde banken",
+      "content": [
+        {
+          "id": "in1020-5-1-kald-intro",
+          "type": "text",
+          "content": "**Dette er bokas kalde bank.** Ti oppgaver med uvante kombinasjoner, **uten hint**, og med fasit som en **momentliste** i stedet for et gjennomarbeidet løsningsforslag.\n\n**Slik bruker du den:** ta den når resten av boka sitter, og helst rett før et av øvingssettene. Skriv ned svaret ditt først, og sammenlign deretter med momentlista. Har du med alle momentene, kan du stoffet. Mangler et moment, vet du nøyaktig hvilket kapittel du skal tilbake til.\n\n**Oppgavene blander på tvers av seksjonene**, slik eksamen ikke gjør — det er med vilje. Å kunne et tema når det står alene, er lettere enn å kjenne det igjen når det står ved siden av noe annet."
+        },
+        {
+          "id": "in1020-5-1-okb1",
+          "type": "exercise",
+          "exercise": {
+            "id": "in1020-5-1-okb1",
+            "number": "K1",
+            "type": "classic",
+            "difficulty": "vanskelig",
+            "task": "(Kald bank.) En byte har mønsteret `11010110`. Oppgi begge tolkningene, og si hvilken av dem som er relevant hvis byten er en oktett i en IP-adresse.",
+            "solution": "**Momenter i et fullstendig svar:**\n\n- Uten fortegn: `128 + 64 + 16 + 4 + 2 = 214`.\n- Med fortegn (to-er komplement): `−128 + 64 + 16 + 4 + 2 = −42`.\n- I en IP-adresse er oktetten **uten fortegn** — adressebyte tolkes alltid som 0 til 255.\n- Begrunnelsen: en oktett i punktnotasjon skrives som et tall fra 0 til 255, og negative adressekomponenter finnes ikke.\n\nGlapp noe? To-er komplement står i [kap. 1.3](/bok/in1020/in1020-1-3), oktettene i [kap. 4.2](/bok/in1020/in1020-4-2).",
+            "hints": []
+          }
+        },
+        {
+          "id": "in1020-5-1-okb2",
+          "type": "exercise",
+          "exercise": {
+            "id": "in1020-5-1-okb2",
+            "number": "K2",
+            "type": "classic",
+            "difficulty": "vanskelig",
+            "task": "(Kald bank.) En maskin har adressen `192.168.30.200` med prefiks `/27`. Hvor mange **byte** utgjør alle de tildelbare adressene i subnettet til sammen, dersom hver adresse lagres som fire byte?",
+            "solution": "**Momenter i et fullstendig svar:**\n\n- `vertsbit = 32 − 27 = 5`, altså `2⁵ − 2 = 30` tildelbare adresser.\n- `30 adresser × 4 byte/adresse = 120 byte`.\n- Kontroll av subnettet: `200 = 11001000`, maske `224 = 11100000`, AND gir `11000000 = 192`, altså subnettet `192.168.30.192` med kringkasting `192.168.30.223`.\n- Kontroll: `223 − 192 = 31 = 2⁵ − 1`. Stemmer.\n- Fella: å svare 128 byte, altså `32 · 4` — vertstallet uten fratrekket.\n\nGlapp noe? [Kap. 4.2](/bok/in1020/in1020-4-2).",
+            "hints": []
+          }
+        },
+        {
+          "id": "in1020-5-1-okb3",
+          "type": "exercise",
+          "exercise": {
+            "id": "in1020-5-1-okb3",
+            "number": "K3",
+            "type": "classic",
+            "difficulty": "vanskelig",
+            "task": "(Kald bank.) En fil på 1,2 GB skal krypteres og deretter sendes over en linje på 80 Mbit/s. Krypteringen endrer ikke filstørrelsen merkbart. Hvor lang tid tar overføringen, og hvilket sikkerhetsmål er det krypteringen ivaretar?",
+            "solution": "**Momenter i et fullstendig svar:**\n\n- `1,2 GB = 1200 MB`.\n- `1200 MB × 8 bit/byte = 9600 Mbit`.\n- `9600 Mbit ÷ 80 Mbit/s = 120 s`, altså 2 minutter.\n- Kontroll: `80 ÷ 8 = 10` MB/s, og `10 · 120 = 1200` MB. Stemmer.\n- Sikkerhetsmålet er **konfidensialitet** — at innholdet ikke kan leses av uvedkommende.\n- Presisering: kryptering gir ikke i seg selv integritet eller autentisitet.\n\nGlapp noe? Overføringstid i [kap. 4.3](/bok/in1020/in1020-4-3), sikkerhetsmålene i [kap. 3.1](/bok/in1020/in1020-3-1).",
+            "hints": []
+          }
+        },
+        {
+          "id": "in1020-5-1-okb4",
+          "type": "exercise",
+          "exercise": {
+            "id": "in1020-5-1-okb4",
+            "number": "K4",
+            "type": "classic",
+            "difficulty": "vanskelig",
+            "task": "(Kald bank.) En tjeneste bruker en hashfunksjon på en fil før den sendes, og sender hashverdien i samme pakke. Hvilke sikkerhetsmål er ivaretatt, og hvilke er ikke? Sammenlign med hva sjekksummen i TCP gir.",
+            "solution": "**Momenter i et fullstendig svar:**\n\n- Hash i samme pakke gir **ingen sikkerhet mot bevisst endring**: den som endrer fila, regner ut en ny hash.\n- Mot **tilfeldige** feil virker det som en feilkontroll — omtrent som TCPs sjekksum.\n- **Konfidensialitet er ikke ivaretatt** i det hele tatt; innholdet er lesbart.\n- **Autentisitet er ikke ivaretatt**: ingenting knytter hashen til en bestemt avsender.\n- Skal integritet og autentisitet sikres, må hashen signeres eller beskyttes med en nøkkel begge parter kjenner.\n- TCPs sjekksum er tilsvarende: en feilkontroll, ikke et sikkerhetstiltak.\n\nGlapp noe? Hash og signatur i [kap. 3.4](/bok/in1020/in1020-3-4), sjekksummen i [kap. 4.1](/bok/in1020/in1020-4-1).",
+            "hints": []
+          }
+        },
+        {
+          "id": "in1020-5-1-okb5",
+          "type": "exercise",
+          "exercise": {
+            "id": "in1020-5-1-okb5",
+            "number": "K5",
+            "type": "classic",
+            "difficulty": "vanskelig",
+            "task": "(Kald bank.) Et LMC-program leser inn ett tall og skriver ut noe. Beskriv hvordan du ville avgjort om programmet er selvmodifiserende, uten å kjenne innholdet i cellene på forhånd.",
+            "solution": "**Momenter i et fullstendig svar:**\n\n- Se etter instruksjoner som **lagrer til en adresse som også brukes som instruksjon** — typisk `STA` mot en celle innenfor programområdet.\n- Husk at instruksjoner **er tall** i minnet: en `ADD` mot en instruksjonscelle endrer hva den cellen betyr.\n- Før en sporetabell med kolonner for programteller, akkumulator og hver navngitt minnecelle, og **oppdater cellen som endres**.\n- Et tegn på selvmodifisering: samme adresse gir ulik instruksjon i to omganger av samme løkke.\n- Fella: å spore videre med den opprinnelige instruksjonen etter at cellen er endret.\n\nGlapp noe? [Kap. 1.5](/bok/in1020/in1020-1-5) og [kap. 1.6](/bok/in1020/in1020-1-6).",
+            "hints": []
+          }
+        },
+        {
+          "id": "in1020-5-1-okb6",
+          "type": "exercise",
+          "exercise": {
+            "id": "in1020-5-1-okb6",
+            "number": "K6",
+            "type": "classic",
+            "difficulty": "vanskelig",
+            "task": "(Kald bank.) Et program utfører 2400 instruksjoner med bom-rate 25 % og bom-kostnad 20 klokkesykler. Hvor stor andel av den totale tida går med til bom, og hva sier det om hvor det lønner seg å forbedre?",
+            "solution": "**Momenter i et fullstendig svar:**\n\n- `bom = 0,25 · 2400 = 600` instruksjoner, `treff = 1800`.\n- `treff: 1800 · 1 sykel = 1800 sykler`.\n- `bom: 600 · 20 sykler = 12 000 sykler`.\n- `T = 1800 + 12 000 = 13 800 sykler`.\n- Andel bom: `12 000 ÷ 13 800 ≈ 0,870`, altså **omtrent 87 %** (oppgitt med tre desimaler i mellomregningen fordi tallet ikke går opp).\n- Gjennomsnitt: `13 800 ÷ 2400 = 5,75` sykler per instruksjon. Kontroll: ligger mellom 1 og 20.\n- Konklusjonen: en firedel av oppslagene spiser nesten ni tideler av tida, så det lønner seg klart mer å redusere bom-raten enn å gjøre treff raskere.\n\nGlapp noe? [Kap. 2.5](/bok/in1020/in1020-2-5).",
+            "hints": []
+          }
+        },
+        {
+          "id": "in1020-5-1-okb7",
+          "type": "exercise",
+          "exercise": {
+            "id": "in1020-5-1-okb7",
+            "number": "K7",
+            "type": "classic",
+            "difficulty": "vanskelig",
+            "task": "(Kald bank.) Forklar hvorfor et brannmurregel-oppsett som blokkerer all innkommende trafikk, ikke gjør en virksomhet trygg. Bruk begreper fra både sikkerhetsdelen og nettverksdelen.",
+            "solution": "**Momenter i et fullstendig svar:**\n\n- En brannmur er et **tiltak**, ikke et **mål**. Målene er konfidensialitet, integritet, tilgjengelighet og de øvrige.\n- Mesteparten av moderne trafikk er **utgående initiert**: brukeren henter noe, og svaret slipper inn på en forbindelse brukeren selv har åpnet.\n- Skadevare som allerede er inne, kan kommunisere ut uten å bli stoppet av en regel om innkommende trafikk.\n- Trusler som ikke er nettverksbaserte — tapt utstyr, uvøren håndtering av tilgang, innsidere — berøres ikke i det hele tatt.\n- Ingen enkelt tiltak dekker alle mål: risiko må vurderes for hver trussel.\n- Et lukket eller internt system er ikke uten risiko.\n\nGlapp noe? Mål mot tiltak i [kap. 3.1](/bok/in1020/in1020-3-1), trusselmodellering i [kap. 3.2](/bok/in1020/in1020-3-2), forbindelser i [kap. 4.1](/bok/in1020/in1020-4-1).",
+            "hints": []
+          }
+        },
+        {
+          "id": "in1020-5-1-okb8",
+          "type": "exercise",
+          "exercise": {
+            "id": "in1020-5-1-okb8",
+            "number": "K8",
+            "type": "classic",
+            "difficulty": "vanskelig",
+            "task": "(Kald bank.) En krets har to innganger `A` og `B`. Utgangen er 1 nøyaktig når inngangene er like. Skriv utgangen som et boolsk uttrykk på to ulike måter, og oppgi hvilken port som gjør dette alene.",
+            "solution": "**Momenter i et fullstendig svar:**\n\n- Sannhetstabellens utgangskolonne for radene `00`, `01`, `10`, `11` er `1 0 0 1`.\n- Porten som gjør det alene, er **XNOR**.\n- Uttrykk 1: `(A ⊕ B)′` — invertert XOR.\n- Uttrykk 2: `A·B + A′·B′` — begge like ettall, eller begge like nuller.\n- Kontroll: begge uttrykkene gir `1 0 0 1` over alle fire radene.\n- Fella: å svare XOR, som har `0 1 1 0` — utgangen er 1 når inngangene er **ulike**.\n\nGlapp noe? [Kap. 2.1](/bok/in1020/in1020-2-1) og [kap. 2.2](/bok/in1020/in1020-2-2).",
+            "hints": []
+          }
+        },
+        {
+          "id": "in1020-5-1-okb9",
+          "type": "exercise",
+          "exercise": {
+            "id": "in1020-5-1-okb9",
+            "number": "K9",
+            "type": "classic",
+            "difficulty": "vanskelig",
+            "task": "(Kald bank.) En kollega vil «gjøre nettverket raskere og sikrere» ved å slå på den nyere adresseversjonen og bytte fra pålitelig til rask transport på alle tjenester. Vurder forslaget punkt for punkt.",
+            "solution": "**Momenter i et fullstendig svar:**\n\n- **IPv6 gjør ikke nettet raskere.** Den utvider adresserommet fra 32 til 128 bit; farten bestemmes av linjene.\n- **IPv6 krypterer ikke i seg selv.** Sikkerhet krever egne mekanismer uansett adresseversjon.\n- **IPv6 fjerner ikke behovet for ruting.** Ruting er nettverkslagets oppgave uansett.\n- **Å bytte til UDP på alle tjenester ødelegger dem som trenger pålitelighet:** en fil, en e-post eller en nettside med hull er ubrukelig.\n- **Strømming ville også blitt dårligere:** et segment må være helt for å kunne spilles, og bufferen gjør omsendinger ufarlige.\n- Det ene poenget som stemmer: med nok adresser faller hovedgrunnen til å dele adresser med NAT bort.\n- Skyldes tregheten veien pakkene tar, ligger årsaken i nettverkslaget, og ingen av tiltakene hjelper.\n\nGlapp noe? [Kap. 4.1](/bok/in1020/in1020-4-1) og [kap. 4.5](/bok/in1020/in1020-4-5).",
+            "hints": []
+          }
+        },
+        {
+          "id": "in1020-5-1-okb10",
+          "type": "exercise",
+          "exercise": {
+            "id": "in1020-5-1-okb10",
+            "number": "K10",
+            "type": "classic",
+            "difficulty": "vanskelig",
+            "task": "(Kald bank.) Et program i brukermodus vil lese en fil, sende innholdet kryptert over nettet og logge hendelsen. Beskriv hvilke lag og mekanismer som er involvert, fra systemkall til pakke på linja.",
+            "solution": "**Momenter i et fullstendig svar:**\n\n- Programmet kjører i **brukermodus** og når verken lagring eller nettverkskort direkte.\n- Lesing av fila skjer via et **systemkall**, med midlertidig bytte til **kjernemodus**; **driveren** for lagringsenheten gjør det konkrete arbeidet.\n- Krypteringen gir **konfidensialitet** og ligger over transportlaget — det er derfor `https` finnes ved siden av `http`.\n- Sendingen går ned gjennom lagene: applikasjon, **transport** (TCP, med rekkefølge og omsending), **nettverk** (IP, med adressering og ruting), **lenke** (ramme til neste maskin).\n- **Innkapsling:** hvert lag legger sitt eget hode utenpå det laget over leverte.\n- Loggingen støtter **sporbarhet**, og en logg som ikke kan endres i ettertid, støtter i tillegg uavviselighet.\n- Presisering: TCP gir verken kryptering eller ruting — kryptering ligger over, ruting under.\n\nGlapp noe? Lagene i [kap. 4.1](/bok/in1020/in1020-4-1), operativsystemet i [kap. 4.6](/bok/in1020/in1020-4-6), sikkerhetsmålene i [kap. 3.1](/bok/in1020/in1020-3-1).",
+            "hints": []
+          }
+        }
+      ]
+    },
+    {
+      "id": "in1020-5-1-begrepsbank",
+      "type": "text",
+      "content": "## Begrepsbank\n\nBegrepsbanken er flashcard- og repetisjonsstoff — den gjentar det du nettopp har lest. Hopp trygt over ved førstegangslesing; tidsanslaget for kapitlet gjelder kjernestoffet."
+    },
+    {
+      "id": "in1020-5-1-bank-1",
+      "type": "definition",
+      "title": "Grunnregelen for avkrysning",
+      "content": "**Kryss av det du kan begrunne. La stå der du er i reell tvil.**\n\n«Begrunne» betyr at du kan si **hvorfor**, med en setning som viser til en regel, en definisjon eller en utregning. «Det høres riktig ut» er ikke en begrunnelse.\n\nDen faste feilslutningen: å lese regelen som «kryss bare av det du er hundre prosent sikker på». Kravet er begrunnelse, ikke visshet — og den som venter på visshet, lar poeng ligge på hver eneste oppgave."
+    },
+    {
+      "id": "in1020-5-1-bank-2",
+      "type": "definition",
+      "title": "Gulvet på 0, presist",
+      "content": "En **enkelt oppgave** kan aldri gi mindre enn 0 poeng. Et feilkryss på oppgave 7 kan ikke spise poeng du har tjent på oppgave 8.\n\nMen innenfor **samme** oppgave trekker feilkryssene fra de riktige.\n\nDen faste feilslutningen: å lese gulvet som at gjetting er gratis. Det gjør bare at én katastrofal oppgave ikke ødelegger de andre."
+    },
+    {
+      "id": "in1020-5-1-bank-3",
+      "type": "definition",
+      "title": "Den praktiske testen",
+      "content": "Tre spørsmål før hver avkrysning:\n\n1. Kan jeg si **hvorfor** dette er riktig, med én setning?\n2. Kan jeg si hvorfor det **nærmeste alternativet** er galt?\n3. Er det noe ord — «alltid», «bare», «aldri», «permanent» — jeg har lest for fort?\n\nJa på 1 og 2, nei på 3: kryss av.\n\nDen faste feilslutningen: å hoppe over spørsmål 2. Å kunne avvise nærmeste distraktor er den beste kontrollen som finnes på at du har forstått og ikke bare gjenkjent."
+    },
+    {
+      "id": "in1020-5-1-bank-4",
+      "type": "definition",
+      "title": "Svarform F1 — strategi",
+      "content": "Vurder hvert alternativ **for seg**, som sitt eget sant/usant-spørsmål. Kryss av det du kan begrunne, la resten stå.\n\nDet er svært vanlig at tre av fem stemmer.\n\nDen faste feilslutningen: å lese «velg ett eller flere» som «velg det riktige svaret» og stoppe etter det første. Den enkeltfeilen kan koste flere poeng per oppgave."
+    },
+    {
+      "id": "in1020-5-1-bank-5",
+      "type": "definition",
+      "title": "Svarform F2 — strategi",
+      "content": "Behandle hver rad som en egen oppgave, og les den **ord for ord**.\n\nDen vanligste konstruksjonen er en riktig setning med ett ord byttet ut: «permanent» i stedet for «midlertidig», «nettet» i stedet for «mottakeren».\n\nDen faste feilslutningen: å bruke fordelingen som ledetråd. En matrise kan ha fem sanne rader, eller én."
+    },
+    {
+      "id": "in1020-5-1-bank-6",
+      "type": "definition",
+      "title": "Svarform F3 — strategi",
+      "content": "Gjør de **sikre** koblingene først, og se hva som blir igjen.\n\nEn kategori kan brukes **flere ganger**, og en kategori kan stå **ubrukt**.\n\nDen faste feilslutningen: å tvinge inn en ubrukt kategori, eller å fylle ut resten mekanisk når de første koblingene danner et mønster. En kobling er sjelden 1→A, 2→B, 3→C."
+    },
+    {
+      "id": "in1020-5-1-bank-7",
+      "type": "definition",
+      "title": "Svarform F4 — strategi",
+      "content": "Regn **ferdig før** du ser på alternativene, og bruk listen som kontroll: står svaret ditt der, er du sannsynligvis på rett spor.\n\nStår det ikke der, har du regnet feil — og det er en gratis advarsel.\n\nDen faste feilslutningen: å lese alternativene først og la dem styre regningen. Hvert galt alternativ svarer til en bestemt regnefeil og er laget for å se rimelig ut."
+    },
+    {
+      "id": "in1020-5-1-bank-8",
+      "type": "definition",
+      "title": "Fire-seksjoner-kravet",
+      "content": "Fire seksjoner à 25 poeng, og **hver må bestås for seg**. Utmerket resultat på tre seksjoner berger ikke en fjerde som faller igjennom.\n\nKonsekvensen for lesingen: ingen del av boka kan droppes. Konsekvensen for eksamensdagen: tida fordeles jevnt, ikke etter hvor du er sterkest.\n\nDen faste feilslutningen: å tenke i samlet poengsum. Det er fire terskler, ikke én."
+    },
+    {
+      "id": "in1020-5-1-bank-9",
+      "type": "definition",
+      "title": "Tidsbudsjettet",
+      "content": "$$\\frac{240 \\text{ min}}{4 \\text{ seksjoner}} = 60 \\text{ min per seksjon}$$\n\nEn praktisk fordeling: 50 minutter på hver seksjon i første runde, de siste 40 på det du markerte.\n\nDen faste feilslutningen: å tro at man «snart» er i mål på en oppgave man har brukt fem minutter på. De neste fem minuttene koster som regel to andre oppgaver."
+    },
+    {
+      "id": "in1020-5-1-bank-10",
+      "type": "definition",
+      "title": "Regelen om å gå videre",
+      "content": "En oppgave du ikke løser på to minutter, løser du sannsynligvis ikke på seks heller. Marker den, gå videre, kom tilbake.\n\nGå tilbake til markerte oppgaver **først når alle fire seksjonene er sett én gang**.\n\nDen faste feilslutningen: å bruke ekstra tid på den seksjonen som gikk best, mens en useft seksjon står igjen. Et poeng i en useft seksjon er verdt mer."
+    },
+    {
+      "id": "in1020-5-1-bank-11",
+      "type": "definition",
+      "title": "Delvis uttelling",
+      "content": "Du får poeng for de radene i en matrise eller de koblingene i en kobling som er riktige, selv om ikke alle er det.\n\nKonsekvensen: en oppgave du bare kan halvparten av, er verdt å svare på.\n\nDen faste feilslutningen: å hoppe over en hel matrise fordi du er usikker på to av fem rader. De tre du kan, gir uttelling."
+    },
+    {
+      "id": "in1020-5-1-bank-12",
+      "type": "definition",
+      "title": "Bonuspoeng og full pott",
+      "content": "Enkelte oppgaver, typisk i maskinvaredelen, gir **bonuspoeng** for full pott og **minus** per feil avkryssing.\n\nKonsekvensen: på slike oppgaver er det ekstra dyrt å ta med et alternativ du ikke kan begrunne — du risikerer både trekket og bonusen.\n\nDen faste feilslutningen: å behandle alle oppgaver likt. Der bonus er mulig, er presisjon dobbelt betalt."
+    },
+    {
+      "id": "in1020-5-1-bank-13",
+      "type": "definition",
+      "title": "Å prioritere når tida er knapp",
+      "content": "Rangér etter **sikker uttelling per minutt**, ikke etter hvor mye oppgaven er verdt:\n\n1. Regneoppgaver du kan prosedyren på — entydig fasit, kjent tidsbruk.\n2. Matriser og koblinger der du kan begrunne noen av radene — delvis uttelling.\n3. Oppgaver du er usikker på i sin helhet — la stå.\n\n**Unntaket:** ligger du under grensen i en seksjon, er en oppgave der den eneste muligheten du har til å berge den seksjonen. Da veier seksjonskravet tyngre enn regelen om å la stå."
+    },
+    {
+      "id": "in1020-5-1-bank-14",
+      "type": "definition",
+      "title": "Modellbesvarelsene i denne boka",
+      "content": "Alle modellbesvarelser og alle oppgaver i boka er **nyskrevet av Skolesaga**. De er ikke ekte studentbesvarelser, og de er ikke hentet fra noen fasit.\n\nDe er skrevet for å vise hvordan tallene og resonnementene henger sammen — ikke for å gjengi noe som har skjedd.\n\nDen faste feilslutningen: å lese en modellbesvarelse som en mal å kopiere. Les den som en demonstrasjon av framgangsmåte."
+    },
+    {
+      "id": "in1020-5-1-repetisjon",
+      "type": "collapsible",
+      "title": "Repetisjon — sitter eksamensdisiplinen?",
+      "buttonText": "Vis repetisjon",
+      "content": [
+        {
+          "id": "in1020-5-1-repetisjon-tekst",
+          "type": "text",
+          "content": "Ta denne rett før du går løs på det første øvingssettet i [kap. 5.2](/bok/in1020/in1020-5-2).\n\n**1. Grunnregelen for avkrysning?** Kryss av det du kan begrunne. La stå der du er i reell tvil.\n\n**2. Hva betyr gulvet på 0?** At én oppgave ikke kan gi mindre enn 0 — men innenfor samme oppgave trekker feilkryssene.\n\n**3. Strategien for F1?** Vurder hvert alternativ for seg. Flere kan være riktige.\n\n**4. Strategien for F2?** Les hver rad ord for ord. Ett ord kan snu sannhetsverdien.\n\n**5. Strategien for F3?** Gjør de sikre koblingene først. En kategori kan stå ubrukt.\n\n**6. Strategien for F4?** Regn ferdig før du ser på alternativene.\n\n**7. Hvor mange seksjoner må bestås?** Alle fire, hver for seg.\n\n**8. Tidsbudsjettet?** Omtrent 60 minutter per seksjon.\n\n**9. Når går du tilbake til markerte oppgaver?** Når alle fire seksjonene er sett én gang.\n\n**10. Når lønner det seg å svare på noe du er usikker på?** Når du ligger under grensen i en seksjon som må bestås — da er seksjonskravet tyngre enn regelen om å la stå.\n\nSitter alle ti? Da er du klar for de tre komplette settene: [kap. 5.2](/bok/in1020/in1020-5-2), [kap. 5.3](/bok/in1020/in1020-5-3) og [kap. 5.4](/bok/in1020/in1020-5-4). Ta dem på tre ulike kvelder, med tida på.\n\nOg ta den **kalde banken** over først, hvis du ikke allerede har gjort det — den er den beste kontrollen på om stoffet sitter når det ikke står i et kapittel som forteller deg hva det handler om."
+        }
+      ]
+    }
+  ],
+  "exercises": []
+}
