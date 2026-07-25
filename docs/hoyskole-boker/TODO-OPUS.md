@@ -23,8 +23,8 @@ tar `nokut-afb` (nasjonal sykepleieeksamen, ~6 000 kandidater) og `tdt4110` (NTN
 Tier 1-tabellen under er derfor delt: UiO-bachelor-emnene først, resten som
 reserve når UiO-listen er tom.
 
-**UiO bachelor 1. semester, i volumrekkefølge:** `in1000` (~600) · `in1020` (~600)
-· `in1900` (≥250, 🔄 under bygging) · `econ1100` (≥215) · `sos1004` (~140) ·
+**UiO bachelor 1. semester, i volumrekkefølge:** `in1000` (~800) · `in1020` (~800)
+· `in1900` (≥250, 🔄 under bygging) · `econ1100` (≥215, 🔄 under bygging) · `sos1004` (~140) ·
 `fys1100` (~120) · `sosant1000` (91) · `fil1001` (59) · `ling1100` (40).
 Alt bygget fra før i denne kategorien: `exphil03`, `jus1111`, `mat1100`, `econ1210`.
 
@@ -49,11 +49,11 @@ gjennom boka, ikke semesterplassering.
 |---|---|---|---|---|
 | 1 | `nokut-afb` | Nasjonal (13 inst.) | **~6 000 kandidater/år** | Eneste reelle kandidattall i lista (NOKUT). 1. sem. ved alle sjekkede sykepleierutdanninger |
 | 2 | `tdt4110` | NTNU | ~1 375 plasser | Obligatorisk 1. sem. i 14 program. **NB:** de datatunge bruker søsterkoden TDT4109 med identisk navn — boka bør adressere begge |
-| 3 | `in1000` | UiO | ~600 plasser | 1. sem. i fem IFI-bachelorprogram |
-| 4 | `in1020` | UiO | ~600 plasser | Samme kull som IN1000 — to bøker mot samme ferske studenter |
+| 3 | `in1000` | UiO | ~800 plasser | 1. sem. i fem IFI-bachelorprogram + informatikk-årsstudium (199) og maskinlæring/KI (80) |
+| 4 | `in1020` | UiO | ~800 plasser | Samme kull som IN1000 — to bøker mot samme ferske studenter |
 | 5 | `med1100` | UiO | 275 plasser | Alle nye medisinstudenter, to kull i året. Modulen spenner 1.–2. sem. |
-| 6 | `in1900` | UiO | ≥250 plasser | 🔄 UNDER BYGGING. Realfagsprogrammene + lektor + honours |
-| 7 | `econ1100` | UiO | ≥215 plasser | Fem økonomiprogram |
+| 6 | `in1900` | UiO | ≥250 plasser | 🔄 UNDER BYGGING (30/35 kap. per 25. juli). Realfagsprogrammene + lektor + honours |
+| 7 | `econ1100` | UiO | ≥215 plasser | 🔄 UNDER BYGGING (7/37 kap. per 25. juli, oppdrag B1 ferdig). Fem økonomiprogram |
 | 8 | `sos1004` | UiO | ~140 plasser | Bachelor + årsstudium sosiologi |
 | 9 | `fys1100` | UiO | ~120 plasser | 1. sem. i Fysikk og astronomi + Elektronikk/IT |
 | 10 | `sosant1000` | UiO | 91 plasser | NB: emnet har byttet tittel til «Antropologisk samfunnsanalyse» — bruk begge navn i SEO |
@@ -73,19 +73,54 @@ Alt annet i listene under. To bøker som alt er bygget lå her (`econ2130` 2. se
 `fys1120` 3. sem.) — steg 0 for dem er ferdig og gyldig, men kapasiteten går til
 Tier 1 først.
 
-### ⚠ Emner som er NEDLAGT eller UTGÅTT — verifiser før bygging
+### ⚠ UTGÅTTE EMNER — IKKE BYGG. Arkivet beholdes for etterfølgeren.
 
-| Emne | Status | Etterfølger |
+Verifisert 25. juli 2026 mot emnesider og programplaner. **Ingen av disse skal
+bygges som egen bok.** Arkivene beholdes, fordi de kan bære etterfølgeremnet — men
+gjenbruken er betinget, og «direkte feil»-kolonnen er viktigere enn gjenbruksgraden.
+
+| Emne | Etterfølger | Etterfølgerens semester | Gjenbruk | Det som er DIREKTE FEIL for etterfølgeren |
+|---|---|---|---|---|
+| `psy1000` (UiO, siste eksamen h2018, 20 sp) | **Ingen enkelt etterfølger.** Splittet: PSY1301 (5 sp) + PSY1250 (5 sp) + PSY1200 (10 sp); PSY1100 i 2. sem.; PSY2303 som 2000-emne | 1. semester (PSY1301/1250/1200) | **DELVIS** — arkivet MÅ splittes | Eksamensformen «6 t, 6 av 7, ingen hjelpemidler» finnes ikke lenger noe sted (etterfølgerne er 3 t; PSY1200 er semesteroppgave med KI-deklarering). Vårt HØYEST prioriterte tema — voksen- og alderdomsutvikling, 7 av 20 sett — er UTE av PSY1200s pensum. Freud og personlighetsforstyrrelser er ute av PSY1250. Ekman/universelle emosjoner er substansielt utdatert (Barrett et al. 2019). DSM-IV-innrammingen er foreldet (norsk praksis: ICD-10, ICD-11 under innføring). Sidereferansene i Del 1 peker på Teigen 1. utg.; PSY2303 bruker 2. utg. Del 0 og Del 11 er døde. Uten hjem: sansing/persepsjon (17 forekomster), psykiske lidelser, intelligensmåling |
+| `kjm1110` (UiO, siste eksamen v2019) | **KJM1111 Organisk kjemi I** (UiO sier det ordrett) | 2. semester i kjemi-biokjemi | **HØY** — 4 søyler i 100 % av settene treffer læringsutbyttet, og eksamensrammene er uendret (4 t, molekylbyggesett) | Overlappet er bare **7 av 10 sp**. UiO advarer selv om pensumdrift etter flere lærebokbytter. Læreboka er byttet til norsk (Diesen & Sandtorv 2019) — men den kilden gjelder V2022, gjeldende pensum er USIKKER. Labkurset utvidet fra 38 t/6 øvelser til 48 t/8 øvelser. Arkivet mangler siste sett (V2019), og det finnes 0 KJM1111-sett |
+| `sos1120` (UiO, nedlagt 2019) | **SOSGEO1120 Kvantitativ metode** (fullt 10 sp overlapp; kun kodeskifte, undervisningsopplegget videreført) | 2. semester i sosiologi bachelor + årsstudium | **HØY — UiO publiserer selv SOS1120-settene på SOSGEO1120s oppgaveside** | **Programvaren er byttet fra Stata til R/RStudio.** Det gjør `sos1120/SKJELETT.md` Del 9 «Stata i praksis» og §2d «Tolkningskontrakt og Stata-utskrift-format (AUTORITATIV)» feil, og feilen forplanter seg til alle regnekapitlene i Del 3–9: `Coef.`/`Std. Err.`/`P>\|t\|` skal være `Estimate`/`Std. Error`/`Pr(>\|t\|)`. Må skrives om til R før bygging. **Mulighet:** UiO har 8 SOSGEO1120-sett MED sensorveiledning (V2019–V2026) som arkivet vårt mangler helt |
+| `tma4106` (NTNU, utgått, siste eksamen 19.05.2026) | **TMA4410 Matematikk 2A** (lin.alg + ODE + rekker) | 2. semester i MTTK | **LAV** for `tma4101`-arkivet (som er der TMA4106-analysen faktisk ligger — ikke i `tma4106/`): arkivet er 100 % flervariabel kalkulus, 0 treff på Fourier/ODE/egenverdier. `tma4110`-boka er DELVIS brukbar | `fagprofil/tma4101.json` og `tma4110.json` påstår «kode E, ingen hjelpemidler» — TMA4410 er **kode D med kalkulator**. Flervariabel/vektoranalyse ligger nå i TMA4411/TMA4420, ikke i TMA4410. Kompleks funksjonsteori er ute |
+| `sok1002` (NTNU SØK1002, erstattet h2024) | **SØK1023 Mikroøkonomisk analyse** | 2. semester (vår) i BSØK — men kilden er studieår 2024/25, bør reverifiseres | **DELVIS**: kjerneteorien HØY, eksamensformen LAV | Arkivet bygger på **4 t, kode C, med formelsamling**; SØK1023 er **3 t, kode H, ingen hjelpemidler** — både tidsbudsjettet og all trening i formelsamlingsbruk er gal. **Generell likevektsteori er nytt pensum med null arkivbelegg**, og skjelettets 29 kapitler har ingen GE-søyle. Monopol-utelatelsen er en risiko: emnebeskrivelsen sier eksplisitt at monopol analyseres. **NB: navnekollisjonen med UiTs SOK-1002 er reell, men UiT-emnet er OGSÅ nedlagt** (siste eksamen vår 2026) |
+
+**RETTELSE av mitt eget flagg:** `tma4135` sto oppført som «borte fra NTNUs
+2025-/2026-planer». **Det er feil.** Emnet undervises høst 2026 med ordinær eksamen
+04.01.2027, kode C, og faglig innhold ordrett identisk med 2024. Boka er byggeverdig
+som den er. Emnet er likevel i utfasing for nye kull (MTKOM har TMA4432 i stedet fra
+kull25), og etterfølgerne TMA4431/TMA4432/TMA4420/TMA4430 er **alle kode D uten
+hjelpemidler** — det knekker analysens bærende premiss om at «formelarket er alltid
+tilgjengelig», så en bok profilert mot 44xx-serien må bygges om, ikke bare merkes.
+
+### HULLENE i UiO 1. semester — emner uten noe materiale i repoet
+
+Kartlagt 25. juli 2026 mot alle UiO-bachelorprogram. Dette er de største hullene,
+altså emner som er 1. semester for hele kull der vi ikke har noe:
+
+| Emne | Plasser | 1. semester i |
 |---|---|---|
-| `psy1000` | Nedlagt, siste eksamen h2018 | PSY1301 / PSY1250 / PSY1200 |
-| `kjm1110` | Nedlagt, siste eksamen v2019 | KJM1111 (2. sem.) |
-| `sos1120` | Nedlagt 2019 | SOSGEO1120 (2. sem.) |
-| `tma4106` | Utgått ved NTNU | — |
-| `tma4135` | Borte fra NTNUs 2025-/2026-planer | — |
-| `sok1002` | NTNU-emnet erstattet av SØK1023 (h2024). **Mappenavnet kolliderer med UiTs aktive SOK-1002** — to ulike emner ved to læresteder | SØK1023 |
+| **UVEXFAC10** Ex.fac., utdanningsvitenskapelig | ~421 | pedagogikk (241), spesialpedagogikk (180) |
+| **SVEXFAC03** Ex.fac., samfunnsvitenskapelig | ~372 | psykologi, sosiologi, samfunnsgeografi, utviklingsstudier, honours |
+| **STV1010** Politisk analyse 1 | ~284 | statsvitenskap, årsstudium, offadm, honours |
+| **HIS1000 + HIS1200** Innføring i historiefaget + Eldre historie | ~238 | historie (150), årsstudium (88), lektor |
+| **PSY1301 + PSY1200** Kognitiv + utviklingspsykologi | ~226 hver | psykologi (174), årsstudium (52), honours |
+| **ENG1100** English Grammar | ~218 | engelsk-årsstudium, euram/engelsk, lektor |
+| **PED1001** Læring og undervisning (20 sp) | 241 | pedagogikk |
+| **EUS1000** Innføring i fremmedspråkstudier | ~190 | fransk/italiensk/spansk/tysk-årsstudium, euram, lektor |
+| **SPED1100 + SPED1200** | 180+ | spesialpedagogikk |
+| **MAT1050** Matematikk for anvendelser 1 | ~160 | geologi, årsstudium-matematikk (R1-løpet), kjemi-biokjemi |
+| **BIOS1101/1110/1150** | ~156 | biovitenskap (156), lektor biologi |
 
-En bok for et nedlagt emne har ingen studenter. Avklar med produkteier om arkivet
-skal beholdes for etterfølgeremnet i stedet.
+**Det største strukturelle funnet:** vi har bygget EXPHIL03, men **ingen** av de
+ti andre EXFAC/EXPHIL-variantene finnes i repoet (SVEXFAC03, UVEXFAC10,
+TFEXFAC03, EXFAC03-SPR/-HARK/-NORD/-EAST/-MVIT/-EST/-LIT). Til sammen godt over
+1 500 plasser, alle 1. semester, samme sjanger som en bok vi allerede kan lage.
+
+**Volumkorreksjon:** `in1000` og `in1020` er **~800 plasser hver**, ikke ~600 —
+informatikk-årsstudium (199) og maskinlæring/KI (80) manglet i mitt anslag.
 
 ### Én kodeavklaring
 
@@ -190,7 +225,7 @@ Prioritert etter studentvolum og materialstyrke:
 - [ ] `tfy4115` — Fysikk (NTNU, 50 filer)
 - [ ] `mat2200` — Grupper, ringer og kropper (UiO, 43 filer)
 - [ ] `ma0301` — Elementær diskret matematikk (NTNU, 43 filer)
-- [ ] `sos1120` **[⚠ NEDLAGT/UTGÅTT]** — Kvantitativ metode (UiO, 41 filer)
+- [ ] `sos1120` **[⚠ UTGÅTT — etterfølger SOSGEO1120; Stata må byttes til R]** — Kvantitativ metode (UiO, 41 filer)
 - [ ] `mat2400` — Reell analyse (UiO, 33 filer)
 - [ ] `stv1020` — Politisk analyse 2: forskningsdesign/kvantitativ (UiO, 32 filer)
 - [ ] `kj2050` — Analytisk kjemi grunnkurs (NTNU, 28 filer)
@@ -201,14 +236,14 @@ Prioritert etter studentvolum og materialstyrke:
 
 - [ ] `mat112-uib` — Kalkulus II (UiB, 65 filer; oppfølger MAT111)
 - [ ] `tfy4104` — Fysikk (NTNU, 55 filer; nær TFY4115)
-- [ ] `psy1000` **[⚠ NEDLAGT/UTGÅTT]** — Innføring i generell psykologi (UiO, 42 filer)
+- [ ] `psy1000` **[⚠ UTGÅTT — arkivet må SPLITTES på PSY1301/1250/1200]** — Innføring i generell psykologi (UiO, 42 filer)
 - [ ] ~~`econ2200`~~ — NEDLAGT (siste V2018); pensum delt mellom ECON1100 + ECON2220, som begge har rammeverk. Skjelett droppet (redundant); analyse beholdt.
-- [ ] `sok1002` **[⚠ NEDLAGT/UTGÅTT]** — Mikroøkonomi (NTNU, 34 filer)
-- [ ] `tma4135` **[⚠ NEDLAGT/UTGÅTT]** — Matematikk 4D (NTNU, 26 filer)
+- [ ] `sok1002` **[⚠ UTGÅTT — etterfølger SØK1023; UiT-varianten også nedlagt]** — Mikroøkonomi (NTNU, 34 filer)
+- [ ] `tma4135` **[AKTIV h2026 — mitt tidligere «utgått»-flagg var feil]** — Matematikk 4D (NTNU, 26 filer)
 - [ ] `sos1004` **[1. sem]** — Innføring i sosiologi (UiO; SOS1001/SOS1000/SOS1003 nedlagt →
       etterfølger-profilert mot aktivt SOS1004, arkiv ~72 filer på tvers av
       forgjengerkodene). Rammeverk underveis (8. juli 2026).
-- [ ] `kjm1110` **[⚠ NEDLAGT/UTGÅTT]** — Kjemi (UiO, 22 filer)
+- [ ] `kjm1110` **[⚠ UTGÅTT — etterfølger KJM1111, 7 av 10 sp overlapp]** — Kjemi (UiO, 22 filer)
 - [ ] `in1020` **[1. sem]** — Introduksjon til datateknologi (UiO, 22 filer)
 - [ ] `econ1220` — Velferd og økonomisk politikk (UiO, 22 filer)
 - [ ] `psyc1201` — Sosialpsykologi (UiO, 17 filer)
@@ -246,7 +281,7 @@ Prioritert etter studentvolum og materialstyrke:
       steg 3 komplett: ~475 sjekker over alle 11 deler, 0 fasitavvik; build grønn
       11 023 kap, prod-curl 11/11). Arkiv TMA4110 196 filer; kodetilhørighet merket
       (NTNU-reformen spredte stoffet på TMA4101/4106/4111 — dokumentert i Del 0).
-- [ ] `tma4106` **[⚠ NEDLAGT/UTGÅTT]** — Matematikk 2 (NTNU; arkiv TMA4105 114 filer; ERSTATTET av
+- [ ] `tma4106` **[⚠ UTGÅTT — arkiv ligger i tma4101/, etterfølger TMA4410]** — Matematikk 2 (NTNU; arkiv TMA4105 114 filer; ERSTATTET av
       TMA4106 — etterfølger-profilert)
 - [ ] `tdt4237` — Programvaresikkerhet og personvern (NTNU, 13 filer; AKTIV)
 - [ ] `ling1100` **[1. sem]** — Innføring i semantikk og pragmatikk (UiO, 13 filer; AKTIV)
