@@ -1,0 +1,427 @@
+{
+ "id": "in1000-5-4",
+ "courseId": "in1000",
+ "chapterNumber": "5.4",
+ "title": "Referansesemantikk",
+ "description": "At to variabler kan være to navn på samme objekt, at objekter kan peke på andre objekter, og at en ny tilordning flytter et navn uten å røre objektet — det vanskeligste begrepet i Oppgave 2.",
+ "estimatedMinutes": 55,
+ "competenceGoals": [
+  "kunne avgjøre om to navn peker på det samme objektet eller på hvert sitt",
+  "kunne skille en endring av objektet fra en ny tilordning som bare flytter et navn",
+  "kunne telle hvor mange objekter et program faktisk lager",
+  "kunne forklare hvorfor en funksjon kan endre et objekt den får inn, men ikke bytte det ut for den som kalte"
+ ],
+ "content": [
+  {
+   "id": "in1000-5-4-1",
+   "type": "tip",
+   "title": "Eksamensvinkel",
+   "content": "**Referansesemantikk står i 6 av 6 moderne eksamenssett (100 %)** — og det er det\nbegrepet flest studenter bommer på. Det bærer **Oppgave 2**, flervalget om\nobjekter, som er rundt ni poeng fordelt på fire spørsmål.\n\nSjangeren er **B — flervalg om objekter**, altså «hvilken påstand om denne koden\ner sann?» eller «hva skrives ut?». Formen er alltid den samme: én kodesnutt med\nto klasser, noen tilordninger mellom objektene, og fire spørsmål om hva som peker\npå hva **akkurat da**.\n\n**Dette må sitte** — bokas høyeste prioritetsnivå. Det er ikke fordi stoffet er\nmye, men fordi det er lett å tro at man har forstått det. To konkrete varianter\ngår igjen i settene vi har talt: at `trener = far` gir to navn på **samme**\nobjekt, og at en byttemetode endrer koblingene mellom objekter uten å endre\nobjektene selv.\n\n**Blankt svar gir null poeng**, akkurat som et galt svar. Kryss alltid av — også\nnår du er usikker."
+  },
+  {
+   "id": "in1000-5-4-2",
+   "type": "text",
+   "content": "## Forkunnskaper — sist du var her\n\nKapitlet bygger på [kap. 5.1 — Klasser og objekter](/bok/in1000/in1000-5-1),\n[kap. 5.2 — Innkapsling](/bok/in1000/in1000-5-2) og\n[kap. 5.3 — `__str__`](/bok/in1000/in1000-5-3), og henter én ting fra\n[kap. 3.1 — Lister](/bok/in1000/in1000-3-1).\n\n**De to tingene du må ha klart**, friskes opp med kjørt kode.\n\n**1. En metode virker bare på det objektet den ble kalt på:**\n\n```python\nclass Kurv:\n    def __init__(self):\n        self._antall = 0\n\n    def legg_i(self):\n        self._antall = self._antall + 1\n\n    def hent(self):\n        return self._antall\n\na = Kurv()\nb = Kurv()\na.legg_i()\nprint(a.hent(), b.hent())\n```\n\n**Utskrift:**\n```\n1 0\n```\n\n**2. Fra lista-kapitlet: `b = a` på to lister gir to navn på samme liste.** Det\ner feilkode **#15**, aliasing:\n\n```python\na = [1, 2, 3]\nb = a\nb.append(4)\nprint(a, b)\n```\n\n**Utskrift:**\n```\n[1, 2, 3, 4] [1, 2, 3, 4]\n```\n\nDet siste er nøkkelen til hele kapitlet. **Det som gjelder for lister, gjelder\nfor alle objekter** — og fra nå av er det objekter det handler om."
+  },
+  {
+   "id": "in1000-5-4-3",
+   "type": "text",
+   "content": "## Løkke 1 — Hva en variabel egentlig holder (~13 min)\n\nEn sykkelutleie har én sykkel med kode `R31`. To ansatte kaller den to ting: den\nene sier «reparasjonssykkelen», den andre sier «sykkel nummer 31».\n\n**Det er én sykkel med to navn.** Skrur den ene ansatte på den, ser den andre\ndet, for det er den samme fysiske sykkelen.\n\nSånn er det også i Python. En variabel «inneholder» ikke objektet — den **peker\npå** det. Og to variabler kan peke på det samme."
+  },
+  {
+   "id": "in1000-5-4-4",
+   "type": "definition",
+   "title": "Referanse",
+   "content": "Det en variabel faktisk holder når den «inneholder» et objekt: en peker til hvor\nobjektet ligger, ikke objektet selv.\n\nBildet som hjelper: objektet er et hus, variabelen er en lapp med adressen.\nKopierer du lappen, får du to lapper til **samme** hus — ikke to hus.\n\nKonsekvensen ser du med én gang du endrer noe. Går du inn i huset via den ene\nlappen og maler stua, er stua malt også når du kommer inn via den andre."
+  },
+  {
+   "id": "in1000-5-4-5",
+   "type": "definition",
+   "title": "`b = a` gir to navn på samme objekt",
+   "content": "Tilordningen kopierer **referansen**, ikke objektet. Etterpå peker begge\nvariablene på den samme tingen:\n\n```python\nclass Kurv:\n    def __init__(self):\n        self._antall = 0\n\n    def legg_i(self):\n        self._antall = self._antall + 1\n\n    def hent(self):\n        return self._antall\n\na = Kurv()\nb = a\na.legg_i()\nprint(a.hent(), b.hent())\n```\n\n**Utskrift:**\n```\n1 1\n```\n\nSammenlign med forkunnskapsboksen, der `b = Kurv()` laget et **nytt** objekt og\nsvaret ble `1 0`. Forskjellen er én linje, og den avgjør alt.\n\n**Regelen i én setning:** `Klassenavn(...)` lager et nytt objekt, `=` mellom to\nvariabler gjør det ikke."
+  },
+  {
+   "id": "in1000-5-4-6",
+   "type": "definition",
+   "title": "Å tegne objekter og piler",
+   "content": "Framgangsmåten som løser hvert eneste flervalg om referanser: tegn objektene som\nbokser og variablene som piler inn i dem.\n\nEn tilordning `b = a` tegnes ved å la `b`-pilen peke der `a`-pilen peker. En\ntilordning `b = Kurv()` tegnes ved å lage en **ny** boks og la `b` peke på den.\n\nEt metodekall som endrer en verdi, tegnes ved å endre tallet **inne i boksen** —\npilene rører du ikke.\n\nTre tegn er nok: boks, pil, navn. Bruk to minutter på tegningen før du svarer, så\nfaller de fleste spørsmålene av seg selv."
+  },
+  {
+   "id": "in1000-5-4-7",
+   "type": "example",
+   "title": "Eksempel 1: To navn, ett objekt",
+   "problem": "Vis forskjellen på å lage to objekter og å lage to navn på ett, med samme klasse\nog nesten samme kode.",
+   "solution": "Klassen er den samme i begge tilfellene. Bare den ene linjen midt i skiller dem:\n\n```python\nclass Konto:\n    def __init__(self, eier):\n        self._eier = eier\n        self._saldo = 0\n\n    def sett_inn(self, belop):\n        self._saldo = self._saldo + belop\n\n    def hent_saldo(self):\n        return self._saldo\n\n# Tilfelle 1: to objekter\na = Konto(\"Ada\")\nb = Konto(\"Ada\")\na.sett_inn(100)\nprint(\"to objekter:\", a.hent_saldo(), b.hent_saldo())\n\n# Tilfelle 2: to navn paa ett objekt\nc = Konto(\"Nora\")\nd = c\nc.sett_inn(100)\nprint(\"ett objekt: \", c.hent_saldo(), d.hent_saldo())\n```\n\n**Utskrift:**\n```\nto objekter: 100 0\nett objekt:  100 100\n```\n\n**Tegn de to tilfellene, og forskjellen blir tydelig.** I det første peker `a` og\n`b` på hver sin boks. I det andre peker `c` og `d` på den samme, og det finnes\nbare én saldo å endre.\n\n**Legg merke til at `Konto(\"Ada\")` to ganger gir to forskjellige objekter**, selv\nom eieren heter det samme. Like verdier gjør ikke to objekter til ett — de er\nlaget hver for seg, og de lever hver for seg.\n\n**Slik ville sensor sett på det:** dette er kjernen i Oppgave 2, og spørsmålet\nstilles nesten alltid som «hva skrives ut». Klarer du å tegne pilene riktig, er\npoengene dine.\n\nMerk kommentarene i koden. De er skrevet uten æ, ø og å, som all kode i denne\nboka, og de brukes her fordi de forklarer en forutsetning — ikke for å gjenta hva\nkoden gjør."
+  },
+  {
+   "id": "in1000-5-4-oppg-1",
+   "type": "exercise",
+   "exercise": {
+    "id": "in1000-5-4-o1",
+    "number": "1",
+    "type": "classic",
+    "difficulty": "lett",
+    "task": "(Innstegsoppgave — minimal sporing.) Klassen `Teller` har `self._n = 0` i\nkonstruktøren, metoden `opp()` som øker `self._n` med 1, og `hent()` som\nreturnerer den.\n\n**a)** Hva skriver dette ut?\n\n```python\nx = Teller()\ny = Teller()\nx.opp()\nprint(x.hent(), y.hent())\n```\n\n**b)** Hva skriver dette ut?\n\n```python\nx = Teller()\ny = x\nx.opp()\nprint(x.hent(), y.hent())\n```\n\n**c)** Hva er den eneste forskjellen mellom de to programmene?",
+    "solution": "**a)** `1 0`. To kall på `Teller()` gir to objekter, og `opp()` virker bare på\ndet ene.\n\n**b)** `1 1`. Linjen `y = x` lager ikke noe nytt objekt — den lar `y` peke på det\nsamme som `x`. Det finnes bare én teller, og den står på 1.\n\nBegge kjørt:\n\n```python\nclass Teller:\n    def __init__(self):\n        self._n = 0\n\n    def opp(self):\n        self._n = self._n + 1\n\n    def hent(self):\n        return self._n\n\nx = Teller()\ny = Teller()\nx.opp()\nprint(x.hent(), y.hent())\n\nx = Teller()\ny = x\nx.opp()\nprint(x.hent(), y.hent())\n```\n\n**Utskrift:**\n```\n1 0\n1 1\n```\n\n**c)** Den andre linjen. `y = Teller()` lager et nytt objekt; `y = x` kopierer\nbare referansen.\n\n**Huskeregelen:** ser du klassenavnet med parentes, lages det et objekt. Ser du\nbare et likhetstegn mellom to variabler, gjør det ikke det.",
+    "hints": [
+     "Tegn en boks per objekt og en pil per variabel.",
+     "Hvor mange ganger står klassenavnet med parentes i hvert av de to programmene?"
+    ]
+   }
+  },
+  {
+   "id": "in1000-5-4-8",
+   "type": "text",
+   "content": "## Løkke 2 — Rebinding: å flytte en pil (~14 min)\n\nNå kommer den delen flest bommer på.\n\nÅ tilordne på nytt — `x = nytt_objekt` — endrer **ikke** objektet `x` pekte på\nfør. Det flytter bare pilen. Det gamle objektet lever videre hvis noe annet peker\npå det, og forsvinner ellers stille ut av programmet.\n\nOrdet for dette er **rebinding**, og det er hovedpersonen i objekt-flervalget."
+  },
+  {
+   "id": "in1000-5-4-9",
+   "type": "definition",
+   "title": "Rebinding",
+   "content": "Å la en variabel peke på noe annet enn før: `x = nytt_objekt`.\n\nTre ting skjer, og det er den midterste folk overser:\n\n- pilen fra `x` flyttes til det nye objektet,\n- **det gamle objektet endres ikke i det hele tatt**,\n- det gamle objektet lever videre hvis en annen variabel fortsatt peker på det.\n\nSkillet er verdt å si høyt: `x.sett_navn(\"Ada\")` endrer **objektet**;\n`x = Person(\"Ada\")` endrer **pilen**. Det første sees av alle som peker på\nobjektet; det andre sees bare av `x`."
+  },
+  {
+   "id": "in1000-5-4-10",
+   "type": "definition",
+   "title": "Å endre objektet mot å flytte pilen",
+   "content": "De to tingene som kan skje i en tilordning, og som avgjør hvert eneste\nflervalgsspørsmål:\n\n```python\nclass Boks:\n    def __init__(self, tall):\n        self._tall = tall\n\n    def sett(self, nytt):\n        self._tall = nytt\n\n    def hent(self):\n        return self._tall\n\na = Boks(1)\nb = a\na.sett(9)\nprint(a.hent(), b.hent())\n\na = Boks(5)\nprint(a.hent(), b.hent())\n```\n\n**Utskrift:**\n```\n9 9\n5 9\n```\n\nFørste `print`: `a.sett(9)` endret **objektet**, og begge navnene ser det.\n\nAndre `print`: `a = Boks(5)` flyttet **pilen** fra `a` til et nytt objekt. `b`\npeker fortsatt på det gamle, som fremdeles har 9 i seg. Ingen verdi ble\noverskrevet — de to navnene peker bare ikke lenger på det samme."
+  },
+  {
+   "id": "in1000-5-4-11",
+   "type": "warning",
+   "title": "Typisk feil #2 — referanse forvekslet med kopi",
+   "content": "Feilkode **#2** er den dyreste i Oppgave 2, og den har to ansikter.\n\n**Ansikt 1: å tro at `b = a` lager en kopi.** Det gjør den ikke, hverken for\nlister eller objekter. Endrer du gjennom `a`, ser du det gjennom `b`.\n\n**Ansikt 2: å tro at det gamle objektet er borte etter en rebinding.** Det er det\nbare hvis ingen andre peker på det. Så lenge én variabel — eller én liste, eller\nén instansvariabel — holder på det, lever det videre uendret.\n\nDen lumske kombinasjonen ser slik ut:\n\n```text\na = Boks(1)\nb = a\na = Boks(5)\n```\n\nEtter disse tre linjene finnes **to** objekter. `a` peker på det nye med 5, `b`\npeker fortsatt på det gamle med 1. Blokken er merket som ikke-kjørbar fordi den\ner et utdrag uten klassen rundt.\n\nMange leser den tredje linjen som «`a` og dermed `b` får verdien 5». Det er galt,\nog det er akkurat den lesefeilen spørsmålene er laget for å avsløre.\n\n**Motgiften er tegningen.** Tegn en pil du kan flytte, og en boks du kan skrive\ni. Da kan du ikke blande dem."
+  },
+  {
+   "id": "in1000-5-4-12",
+   "type": "example",
+   "title": "Eksempel 2: Byttemetoden — det klassiske eksamensmønsteret",
+   "problem": "En funksjon får inn to objekter og «bytter» dem. Vis hva som faktisk skjer, og\nhvorfor objektene utenfor funksjonen er uendret.",
+   "solution": "Dette mønsteret går igjen i settene, og det tester to ting samtidig:\nreferansesemantikk og scope fra [kap. 2.2](/bok/in1000/in1000-2-2).\n\n```python\nclass Person:\n    def __init__(self, navn):\n        self._navn = navn\n\n    def sett_navn(self, nytt):\n        self._navn = nytt\n\n    def __str__(self):\n        return self._navn\n\ndef bytt_pilene(p, q):\n    hjelp = p\n    p = q\n    q = hjelp\n\ndef bytt_navnene(p, q):\n    hjelp = p.__str__()\n    p.sett_navn(q.__str__())\n    q.sett_navn(hjelp)\n\nper = Person(\"Per\")\npalle = Person(\"Palle\")\n\nbytt_pilene(per, palle)\nprint(per, palle)\n\nbytt_navnene(per, palle)\nprint(per, palle)\n```\n\n**Utskrift:**\n```\nPer Palle\nPalle Per\n```\n\n**Den første funksjonen gjør ingenting synlig.** Parameterne `p` og `q` er\n**lokale** navn inne i funksjonen. De peker riktignok på de samme objektene som\n`per` og `palle`, men å flytte de lokale pilene rører ikke pilene utenfor. Det er\nfeilkode **#12**, scope-forvirring, kombinert med #2.\n\n**Den andre funksjonen virker**, fordi den endrer **objektene** i stedet for\npilene. `p.sett_navn(...)` går inn i boksen og skriver om innholdet, og den\nboksen er den samme som `per` peker på.\n\n**Regelen som følger av dette:** en funksjon kan endre et objekt den får inn, men\nden kan ikke endre hvilke objekter kalleren sine variabler peker på.\n\n**Slik ville sensor sett på det:** dette er et fast spørsmål i Oppgave 2, ofte\nformulert som «hva skrives ut etter kallet på `bytt`?». Klarer du å si at pilene\ner lokale mens objektene er delte, har du hele poenget.\n\n— naturlig pausepunkt —"
+  },
+  {
+   "id": "in1000-5-4-oppg-2",
+   "type": "exercise",
+   "exercise": {
+    "id": "in1000-5-4-o2",
+    "number": "2",
+    "type": "classic",
+    "difficulty": "middels",
+    "task": "(Eksamensnivå, sjanger B — flervalg om objekter.) Hva skriver programmet ut?\n\n```python\nclass Merke:\n    def __init__(self, tekst):\n        self._tekst = tekst\n\n    def sett(self, ny):\n        self._tekst = ny\n\n    def __str__(self):\n        return self._tekst\n\na = Merke(\"rod\")\nb = a\na.sett(\"blaa\")\nprint(a, b)\n\na = Merke(\"gronn\")\nprint(a, b)\n\nb.sett(\"gul\")\nprint(a, b)\n```",
+    "solution": "**Sporingstavle.** To kolonner for pilene, to for boksene:\n\n| Linje | `a` peker på | `b` peker på | boks 1 | boks 2 | Utskrift |\n|---|---|---|---|---|---|\n| `a = Merke(\"rod\")` | boks 1 | — | rod | — | |\n| `b = a` | boks 1 | boks 1 | rod | — | |\n| `a.sett(\"blaa\")` | boks 1 | boks 1 | blaa | — | |\n| `print(a, b)` | boks 1 | boks 1 | blaa | — | `blaa blaa` |\n| `a = Merke(\"gronn\")` | boks 2 | boks 1 | blaa | gronn | |\n| `print(a, b)` | boks 2 | boks 1 | blaa | gronn | `gronn blaa` |\n| `b.sett(\"gul\")` | boks 2 | boks 1 | gul | gronn | |\n| `print(a, b)` | boks 2 | boks 1 | gul | gronn | `gronn gul` |\n\n**Utskrift:**\n```\nblaa blaa\ngronn blaa\ngronn gul\n```\n\n**Fellen her er #2 i begge sine former.** Første linje viser at `b = a` ikke er\nen kopi. Andre linje viser at rebindingen av `a` ikke rørte boksen `b` peker på.\nTredje linje viser at den gamle boksen fortsatt lever og kan endres.\n\nLegg merke til at det finnes **to** objekter etter linje fem, ikke ett. Ingenting\ner slettet.\n\n**På eksamen** teller de tre linjene hver for seg, så en bom på den ene koster\nikke de andre.",
+    "hints": [
+     "Tegn to kolonner: hvor pilene peker, og hva som står i hver boks.",
+     "Hvilke linjer flytter en pil, og hvilke skriver i en boks?"
+    ]
+   }
+  },
+  {
+   "id": "in1000-5-4-oppg-3",
+   "type": "exercise",
+   "exercise": {
+    "id": "in1000-5-4-o3",
+    "number": "3",
+    "type": "classic",
+    "difficulty": "middels",
+    "task": "(Eksamensnivå, sjanger B — flervalg om objekter.) Se på koden:\n\n```python\nclass Kort:\n    def __init__(self, poeng):\n        self._poeng = poeng\n\n    def gi(self, n):\n        self._poeng = self._poeng + n\n\n    def hent(self):\n        return self._poeng\n\ndef doble(k):\n    k.gi(k.hent())\n\ndef nullstill(k):\n    k = Kort(0)\n\nkort = Kort(10)\ndoble(kort)\nprint(kort.hent())\nnullstill(kort)\nprint(kort.hent())\n```\n\n**a)** Hva skriver programmet ut?\n\n**b)** Hvorfor virker `doble`, men ikke `nullstill`?\n\n**c)** Skriv om `nullstill` slik at den virker.",
+    "solution": "**a)**\n\n```\n20\n20\n```\n\n**b)** `doble` **endrer objektet**: `k.gi(...)` går inn i boksen `kort` peker på\nog legger til. Endringen sees utenfra, fordi det er den samme boksen.\n\n`nullstill` **flytter bare den lokale pilen**. Parameteren `k` er et navn som\nfinnes inne i funksjonen, og `k = Kort(0)` lar det navnet peke på et nytt objekt.\nNår funksjonen er ferdig, forsvinner navnet, og det nye objektet med. Variabelen\n`kort` utenfor har aldri blitt rørt.\n\nDette er feilkode **#12**, scope-forvirring, i objektform.\n\n**c)** Løsningen er å endre objektet i stedet for pilen. Klassen trenger en\nmutator:\n\n```python\nclass Kort:\n    def __init__(self, poeng):\n        self._poeng = poeng\n\n    def sett(self, n):\n        self._poeng = n\n\n    def hent(self):\n        return self._poeng\n\ndef nullstill(k):\n    k.sett(0)\n\nkort = Kort(10)\nnullstill(kort)\nprint(kort.hent())\n```\n\n**Utskrift:**\n```\n0\n```\n\n**Regelen er verdt å skrive ned:** vil du at en funksjon skal endre noe hos\nkalleren, må den endre **objektet**, ikke pilen. Alternativt kan funksjonen\nreturnere det nye objektet, og kalleren tilordne det selv.",
+    "hints": [
+     "Skill mellom å skrive i boksen og å flytte pilen.",
+     "For c): hvilken av de to funksjonene i oppgaven gjør det som virker?"
+    ]
+   }
+  },
+  {
+   "id": "in1000-5-4-13",
+   "type": "text",
+   "content": "## Løkke 3 — Objekter som peker på objekter (~14 min)\n\nReferanser blir for alvor interessante når et **objekt** holder en referanse til\net annet.\n\nEn konto har en eier. En sykkel står i et stativ. Et medlem har en fastlege. I\nalle tilfellene er det naturlige valget å la instansvariabelen peke på et helt\nobjekt, ikke på en kopi av opplysningene — og det er nettopp formen den store\noppgaven bruker."
+  },
+  {
+   "id": "in1000-5-4-14",
+   "type": "definition",
+   "title": "Objektreferanse som instansvariabel",
+   "content": "En instansvariabel kan peke på et annet objekt, akkurat som en vanlig variabel:\n\n```python\nclass Eier:\n    def __init__(self, navn):\n        self._navn = navn\n\n    def hent_navn(self):\n        return self._navn\n\n    def sett_navn(self, nytt):\n        self._navn = nytt\n\nclass Konto:\n    def __init__(self, eier):\n        self._eier = eier\n        self._saldo = 0\n\n    def hent_eier_navn(self):\n        return self._eier.hent_navn()\n\nada = Eier(\"Ada\")\nk = Konto(ada)\nprint(k.hent_eier_navn())\nada.sett_navn(\"Ada Lovelace\")\nprint(k.hent_eier_navn())\n```\n\n**Utskrift:**\n```\nAda\nAda Lovelace\n```\n\n**Kontoen fikk aldri beskjed om navneendringen** — den peker på eier-objektet, og\nleser navnet på nytt hver gang. Hadde konstruktøren i stedet lagret\n`self._eier_navn = eier.hent_navn()`, ville kontoen hatt et gammelt navn liggende\netter endringen.\n\n**Det er hele argumentet for å lagre objektreferanser og ikke rådata**: modellen\nholder seg i takt av seg selv."
+  },
+  {
+   "id": "in1000-5-4-15",
+   "type": "definition",
+   "title": "En-til-mange som samling av referanser",
+   "content": "Skal ett objekt holde **mange** andre, legges referansene i en liste eller en\nordbok:\n\n```python\nclass Bok:\n    def __init__(self, tittel):\n        self._tittel = tittel\n\n    def __str__(self):\n        return self._tittel\n\nclass Hylle:\n    def __init__(self):\n        self._boker = []\n\n    def sett_inn(self, b):\n        self._boker.append(b)\n\n    def antall(self):\n        return len(self._boker)\n\nsult = Bok(\"Sult\")\nh1 = Hylle()\nh2 = Hylle()\nh1.sett_inn(sult)\nh2.sett_inn(sult)\nprint(h1.antall(), h2.antall())\n```\n\n**Utskrift:**\n```\n1 1\n```\n\n**Legg merke til at det bare finnes én bok.** Den ligger i to hyller samtidig,\nfordi begge listene holder en **referanse** til det samme objektet. Endres boka,\nendres den begge steder.\n\nOm det er ønsket eller ikke, avhenger av oppgaven. Poenget er at du vet at det er\nslik det virker."
+  },
+  {
+   "id": "in1000-5-4-16",
+   "type": "example",
+   "title": "Eksempel 3: Når to samlinger deler objekter",
+   "problem": "Vis hva som skjer når det samme objektet ligger i to samlinger, og én av dem\nendrer det.",
+   "solution": "Et treningssenter har to lister: alle medlemmer, og de som venter på plass.\n\n```python\nclass Medlem:\n    def __init__(self, navn):\n        self._navn = navn\n        self._timer = 0\n\n    def tren(self, t):\n        self._timer = self._timer + t\n\n    def __str__(self):\n        return self._navn + \" (\" + str(self._timer) + \" t)\"\n\nada = Medlem(\"Ada\")\nnora = Medlem(\"Nora\")\n\nalle = []\nalle.append(ada)\nalle.append(nora)\n\nventeliste = []\nventeliste.append(ada)\n\nalle[0].tren(3)\n\nprint(alle[0], alle[1])\nprint(venteliste[0])\nprint(len(alle), len(venteliste))\n```\n\n**Utskrift:**\n```\nAda (3 t) Nora (0 t)\nAda (3 t)\n2 1\n```\n\n**`alle[0]` og `venteliste[0]` er det samme objektet.** Treningstimene ble lagt\ntil gjennom den ene lista og sees gjennom den andre. Ingen kopiering skjedde\nnoen gang.\n\n**Prøv motsatt tanke:** hadde du villet at ventelista skulle ha sin egen kopi,\nmåtte du laget et nytt objekt med `Medlem(\"Ada\")`. Det ville gitt to Ada-er som\nikke visste om hverandre — nesten alltid feil i en modell.\n\n**Slik ville sensor sett på det:** dette er et vanlig flervalgsspørsmål i formen\n«hvor mange objekter finnes etter denne koden?». Svaret her er **to** medlemmer,\nikke tre, selv om det står tre navn i to lister.\n\nLegg merke til at `len(alle)` og `len(venteliste)` teller **referanser**, ikke\nobjekter. To lister kan til sammen ha fem referanser til ett eneste objekt."
+  },
+  {
+   "id": "in1000-5-4-oppg-4",
+   "type": "exercise",
+   "exercise": {
+    "id": "in1000-5-4-o4",
+    "number": "4",
+    "type": "classic",
+    "difficulty": "middels",
+    "task": "(Eksamensnivå, sjanger B — flervalg om objekter.) Hva skriver programmet ut?\n\n```python\nclass Sykkel:\n    def __init__(self, kode):\n        self._kode = kode\n        self._stativ = \"ukjent\"\n\n    def sett_stativ(self, s):\n        self._stativ = s\n\n    def __str__(self):\n        return self._kode + \"@\" + self._stativ\n\ns1 = Sykkel(\"R31\")\nliste = []\nliste.append(s1)\nliste.append(s1)\nliste[0].sett_stativ(\"Blindern\")\nprint(liste[0], liste[1], len(liste))\n\ns1 = Sykkel(\"R48\")\nprint(liste[0], s1, len(liste))\n```",
+    "solution": "**Sporingstavle.** Én boks til å begynne med, to til slutt:\n\n| Linje | `s1` peker på | lista holder | Utskrift |\n|---|---|---|---|\n| `s1 = Sykkel(\"R31\")` | boks 1 | tom | |\n| to `append(s1)` | boks 1 | boks 1, boks 1 | |\n| `liste[0].sett_stativ(\"Blindern\")` | boks 1 | boks 1, boks 1 | |\n| første `print` | boks 1 | boks 1, boks 1 | `R31@Blindern R31@Blindern 2` |\n| `s1 = Sykkel(\"R48\")` | boks 2 | boks 1, boks 1 | |\n| andre `print` | boks 2 | boks 1, boks 1 | `R31@Blindern R48@ukjent 2` |\n\n**Utskrift:**\n```\nR31@Blindern R31@Blindern 2\nR31@Blindern R48@ukjent 2\n```\n\n**To feller på én gang.**\n\nDen første: lista har **to referanser til samme objekt**, så endringen gjennom\nindeks 0 sees også på indeks 1. `len(liste)` er 2 selv om det bare finnes ett\nobjekt.\n\nDen andre: `s1 = Sykkel(\"R48\")` er en **rebinding** som flytter pilen fra `s1`.\nLista rører den ikke — den holder fortsatt sine egne to referanser til den gamle\nboksen.\n\n**På eksamen** er dette et typisk 2–3-poengs flervalg, ofte formulert som «hvor\nmange `Sykkel`-objekter er laget?» (svar: to) eller «hva skrives ut?».",
+    "hints": [
+     "Tell hvor mange ganger klassenavnet med parentes står i koden.",
+     "Hva gjør `append` — legger den inn objektet eller en referanse til det?"
+    ]
+   }
+  },
+  {
+   "id": "in1000-5-4-oppg-5",
+   "type": "exercise",
+   "exercise": {
+    "id": "in1000-5-4-o5",
+    "number": "5",
+    "type": "classic",
+    "difficulty": "middels",
+    "task": "(Eksamensnivå, sjanger B — flervalg om objekter, med begrunnelse.) Se på koden:\n\n```python\nclass Eier:\n    def __init__(self, navn):\n        self._navn = navn\n\n    def hent_navn(self):\n        return self._navn\n\n    def sett_navn(self, n):\n        self._navn = n\n\nclass Konto:\n    def __init__(self, eier):\n        self._eier = eier\n\n    def hent_eier(self):\n        return self._eier\n\n    def sett_eier(self, ny):\n        self._eier = ny\n```\n\n**a)** `ada = Eier(\"Ada\")`, `k = Konto(ada)`, `ada.sett_navn(\"Nora\")`. Hva gir\n`k.hent_eier().hent_navn()`?\n\n**b)** `ada = Eier(\"Ada\")`, `k = Konto(ada)`, `ada = Eier(\"Nora\")`. Hva gir\n`k.hent_eier().hent_navn()` nå?\n\n**c)** Forklar forskjellen med én setning.",
+    "solution": "**a)** `Nora`. Kontoen peker på eier-objektet, og navnet ble endret **inne i**\ndet objektet.\n\n**b)** `Ada`. Her ble bare pilen fra `ada` flyttet til et nytt objekt. Kontoens\n`self._eier` peker fortsatt på det opprinnelige, som fremdeles heter Ada.\n\nBegge kjørt:\n\n```python\nclass Eier:\n    def __init__(self, navn):\n        self._navn = navn\n\n    def hent_navn(self):\n        return self._navn\n\n    def sett_navn(self, n):\n        self._navn = n\n\nclass Konto:\n    def __init__(self, eier):\n        self._eier = eier\n\n    def hent_eier(self):\n        return self._eier\n\nada = Eier(\"Ada\")\nk = Konto(ada)\nada.sett_navn(\"Nora\")\nprint(k.hent_eier().hent_navn())\n\nada = Eier(\"Ada\")\nk = Konto(ada)\nada = Eier(\"Nora\")\nprint(k.hent_eier().hent_navn())\n```\n\n**Utskrift:**\n```\nNora\nAda\n```\n\n**c)** Å endre et objekt sees av alle som peker på det; å flytte en pil sees bare\nav den variabelen som flyttes.\n\n**Legg merke til den lenkede skrivemåten** `k.hent_eier().hent_navn()`. Den\nførste metoden gir et `Eier`-objekt, den andre kalles på det. Det er helt vanlig\ni den store oppgaven, og det er ryddigere enn å bruke en hjelpevariabel — så\nlenge du husker at hvert punktum er ett steg videre.",
+    "hints": [
+     "Skriv ned hva `self._eier` inne i kontoen peker på, etter hver linje.",
+     "Bare én av de to kodesnuttene endrer noe inne i et objekt."
+    ]
+   }
+  },
+  {
+   "id": "in1000-5-4-17",
+   "type": "text",
+   "content": "## Løkke 4 — Hvorfor tall og tekster ser annerledes ut (~12 min)\n\nAlt i Python er objekter, også tallet 5. Hvorfor merker du da ikke\nreferansesemantikken når du regner?\n\nFordi tall og tekster er **uforanderlige**. De kan ikke endres etter at de er\nlaget, så det finnes ingen måte å se at to navn peker på det samme. Enhver\n«endring» lager i praksis en ny verdi."
+  },
+  {
+   "id": "in1000-5-4-18",
+   "type": "definition",
+   "title": "Uforanderlige verdier",
+   "content": "Tall, tekster og sannhetsverdier kan ikke endres etter at de er laget.\n\n`x = x + 1` endrer ikke tallet — det lager tallet 6 og lar `x` peke på det. Det er\nen **rebinding**, ikke en endring.\n\n```python\na = 5\nb = a\na = a + 1\nprint(a, b)\n\ns = \"ru\"\nu = s\ns = s + \"te\"\nprint(s, u)\n```\n\n**Utskrift:**\n```\n6 5\nrute ru\n```\n\nDerfor oppfører tall og tekster seg «som verdier» i praksis, selv om de teknisk\nsett er objekter. **Lister, ordbøker og dine egne klasser kan derimot endres**,\nog da blir delingen synlig.\n\nKort huskeregel: kan du endre den, merker du referansen. Kan du ikke, merker du\nden aldri."
+  },
+  {
+   "id": "in1000-5-4-19",
+   "type": "definition",
+   "title": "Hvorfor det er de foranderlige som feller deg",
+   "content": "Sammenlign de to tilfellene, med samme form på koden:\n\n```python\nclass Kurv:\n    def __init__(self):\n        self._n = 0\n\n    def opp(self):\n        self._n = self._n + 1\n\n    def hent(self):\n        return self._n\n\na = 5\nb = a\na = a + 1\nprint(\"tall:  \", a, b)\n\nliste_a = [1]\nliste_b = liste_a\nliste_a.append(2)\nprint(\"liste: \", liste_a, liste_b)\n\nk1 = Kurv()\nk2 = k1\nk1.opp()\nprint(\"objekt:\", k1.hent(), k2.hent())\n```\n\n**Utskrift:**\n```\ntall:   6 5\nliste:  [1, 2] [1, 2]\nobjekt: 1 1\n```\n\n**Første linje: tallene skiller lag.** `a = a + 1` er en rebinding.\n\n**Andre og tredje linje: lista og objektet følges av.** `append` og `opp` endrer\ntingen selv, og begge navnene ser det.\n\nDet er nettopp fordi tall oppfører seg «snilt» at objektene overrasker. Ta med\ndeg mistanken: **er verdien noe som kan endres, er delingen synlig.**"
+  },
+  {
+   "id": "in1000-5-4-20",
+   "type": "example",
+   "title": "Eksempel 4: Full Oppgave 2-snutt, sporet steg for steg",
+   "problem": "En komplett to-klasse-snutt av den typen som kommer i Oppgave 2, med fire\nspørsmål og full sporing.",
+   "solution": "Snutten under er skrevet i samme form som eksamensoppgaven, med en brettspillklubb\nsom innpakning:\n\n```python\nclass Spiller:\n    def __init__(self, navn):\n        self._navn = navn\n        self._poeng = 0\n\n    def gi_poeng(self, n):\n        self._poeng = self._poeng + n\n\n    def hent_poeng(self):\n        return self._poeng\n\n    def __str__(self):\n        return self._navn + \":\" + str(self._poeng)\n\nclass Lag:\n    def __init__(self, leder):\n        self._leder = leder\n        self._medlemmer = []\n        self._medlemmer.append(leder)\n\n    def ta_opp(self, s):\n        self._medlemmer.append(s)\n\n    def hent_leder(self):\n        return self._leder\n\n    def totalt_antall_poeng(self):\n        sum_poeng = 0\n        for m in self._medlemmer:\n            sum_poeng = sum_poeng + m.hent_poeng()\n        return sum_poeng\n\nada = Spiller(\"Ada\")\nnora = Spiller(\"Nora\")\nlag = Lag(ada)\nlag.ta_opp(nora)\n\nada.gi_poeng(5)\nprint(lag.hent_leder(), lag.totalt_antall_poeng())\n\nada = Spiller(\"Ada2\")\nada.gi_poeng(100)\nprint(lag.hent_leder(), lag.totalt_antall_poeng())\n```\n\n**Utskrift:**\n```\nAda:5 5\nAda:5 5\n```\n\n**Sporingstavle over hvem som peker på hva:**\n\n| Linje | `ada` peker på | `lag._leder` peker på | `lag._medlemmer` |\n|---|---|---|---|\n| `ada = Spiller(\"Ada\")` | boks A | — | — |\n| `lag = Lag(ada)` | boks A | boks A | boks A |\n| `lag.ta_opp(nora)` | boks A | boks A | boks A, boks N |\n| `ada.gi_poeng(5)` | boks A (5 p) | boks A (5 p) | boks A (5 p), boks N |\n| `ada = Spiller(\"Ada2\")` | **boks C** | boks A | boks A, boks N |\n| `ada.gi_poeng(100)` | boks C (100 p) | boks A (5 p) | boks A, boks N |\n\n**Fellen er de to siste linjene.** Rebindingen ga `ada` en ny boks, og de 100\npoengene havnet der. Laget peker fortsatt på den gamle boksen, så både lederen og\nsummen står uendret på 5.\n\n**Slik ville sensor sett på det:** dette er hele Oppgave 2, som er rundt ni\npoeng. Fire spørsmål stilles typisk til en slik snutt: hva er lederens navn etter\nrebindingen, hva er totalsummen, hvor mange `Spiller`-objekter finnes (svar:\n**tre**), og er `_medlemmer` del av grensesnittet (svar: **nei**).\n\nLegg merke til at `totalt_antall_poeng` heter noe annet enn spillerens\n`hent_poeng` — etter navneregelen for containere fra\n[kap. 5.3](/bok/in1000/in1000-5-3)."
+  },
+  {
+   "id": "in1000-5-4-oppg-6",
+   "type": "exercise",
+   "exercise": {
+    "id": "in1000-5-4-o6",
+    "number": "6",
+    "type": "classic",
+    "difficulty": "middels",
+    "task": "(Eksamensnivå, sjanger A — kodesporing, altså «hva skriver dette programmet\nut?».) Hva skriver programmet ut?\n\n```python\nclass Post:\n    def __init__(self, tekst):\n        self._tekst = tekst\n\n    def __str__(self):\n        return self._tekst\n\na = Post(\"en\")\nb = Post(\"to\")\nliste = []\nliste.append(a)\nliste.append(b)\nliste.append(a)\n\na = Post(\"tre\")\nliste.append(a)\n\nfor p in liste:\n    print(p)\nprint(len(liste))\n```",
+    "solution": "**Sporingstavle.** Tre bokser lages, lista får fire referanser:\n\n| Linje | lista holder | `a` peker på |\n|---|---|---|\n| `a = Post(\"en\")`, `b = Post(\"to\")` | tom | boks 1 («en») |\n| tre `append` | 1, 2, 1 | boks 1 |\n| `a = Post(\"tre\")` | 1, 2, 1 | boks 3 («tre») |\n| `liste.append(a)` | 1, 2, 1, 3 | boks 3 |\n\n**Utskrift:**\n```\nen\nto\nen\ntre\n4\n```\n\n**To ting å legge merke til.**\n\nBoks 1 ligger i lista **to ganger**, og skrives derfor ut to ganger. Det er ikke\nen feil — en liste kan gjerne ha flere referanser til det samme objektet.\n\nOg `a = Post(\"tre\")` er en rebinding: de tre referansene som allerede lå i lista,\nble ikke rørt. Bare den nye `append`-en fikk den nye boksen.\n\n**Antall objekter er tre, antall referanser i lista er fire.** Blander du de to,\ner det nettopp den forskjellen spørsmålet måler.\n\n**På eksamen** skrives alle fem linjene, i riktig rekkefølge.",
+    "hints": [
+     "Nummerer boksene i den rekkefølgen de lages, og skriv opp hvilke lista holder.",
+     "Hvor mange ganger står klassenavnet med parentes?"
+    ]
+   }
+  },
+  {
+   "id": "in1000-5-4-oppg-7",
+   "type": "exercise",
+   "exercise": {
+    "id": "in1000-5-4-o7",
+    "number": "7",
+    "type": "classic",
+    "difficulty": "vanskelig",
+    "task": "(Eksamensnivå, sjanger B — flervalg om objekter.) Se på koden:\n\n```python\nclass Sal:\n    def __init__(self, navn):\n        self._navn = navn\n        self._paameldte = 0\n\n    def meld_paa(self, n):\n        self._paameldte = self._paameldte + n\n\n    def hent_paameldte(self):\n        return self._paameldte\n\n    def __str__(self):\n        return self._navn + \"(\" + str(self._paameldte) + \")\"\n\nclass Senter:\n    def __init__(self):\n        self._saler = {}\n\n    def legg_til(self, navn, sal):\n        self._saler[navn] = sal\n\n    def hent(self, navn):\n        if navn in self._saler:\n            return self._saler[navn]\n        return None\n\nspeil = Sal(\"Speilsal\")\ns = Senter()\ns.legg_til(\"speil\", speil)\ns.legg_til(\"kopi\", speil)\n\nspeil.meld_paa(4)\nprint(s.hent(\"speil\"), s.hent(\"kopi\"))\n\nspeil = Sal(\"Speilsal\")\nprint(s.hent(\"speil\"), speil)\nprint(s.hent(\"basseng\"))\n```\n\n**a)** Hva skriver programmet ut?\n\n**b)** Hvor mange `Sal`-objekter lages i programmet?\n\n**c)** Hva ville `s.hent(\"basseng\")` gjort hvis `if navn in self._saler:`-sjekken\nmanglet?",
+    "solution": "**a)** Sporingstavle for de to nøklene:\n\n| Linje | `speil` peker på | `_saler[\"speil\"]` | `_saler[\"kopi\"]` |\n|---|---|---|---|\n| `speil = Sal(\"Speilsal\")` | boks 1 | — | — |\n| to `legg_til` | boks 1 | boks 1 | boks 1 |\n| `speil.meld_paa(4)` | boks 1 (4) | boks 1 (4) | boks 1 (4) |\n| `speil = Sal(\"Speilsal\")` | **boks 2 (0)** | boks 1 (4) | boks 1 (4) |\n\n**Utskrift:**\n```\nSpeilsal(4) Speilsal(4)\nSpeilsal(4) Speilsal(0)\nNone\n```\n\nBegge nøklene peker på den samme salen, så påmeldingen sees begge steder.\nRebindingen på nest siste linje gir `speil` en ny, tom sal, mens ordboka beholder\nden gamle.\n\n**b)** **To.** Klassenavnet med parentes står to steder. At salen ligger under to\nnøkler, gjør den ikke til to objekter — ordboka holder to referanser til den\nsamme boksen.\n\n**c)** Programmet ville stoppet, og siste linje i feilmeldingen ville vært\n`KeyError: 'basseng'`. Det er feilkode **#14**, å slå opp en nøkkel som ikke er\nlagt inn. Med sjekken svarer metoden `None`, som er Pythons ord for «ingen\nverdi», og den som kaller, kan teste med `if svar != None:`.\n\n**Slik ville sensor sett på det:** de tre deloppgavene rettes hver for seg. Å\ntelle objektene riktig er et selvstendig poeng, selv om du skulle bomme på én av\nutskriftslinjene.",
+    "hints": [
+     "To nøkler kan peke på det samme objektet — tegn det.",
+     "Tell hvor mange ganger `Sal(` står i koden."
+    ]
+   }
+  },
+  {
+   "id": "in1000-5-4-oppg-8",
+   "type": "exercise",
+   "exercise": {
+    "id": "in1000-5-4-o8",
+    "number": "8",
+    "type": "classic",
+    "difficulty": "vanskelig",
+    "task": "(Eksamensnivå, sjanger B — flervalg om objekter, med begrunnelse.) Ta stilling\ntil hver påstand og begrunn kort.\n\n```python\nclass Bok:\n    def __init__(self, tittel):\n        self._tittel = tittel\n\n    def sett_tittel(self, t):\n        self._tittel = t\n\n    def __str__(self):\n        return self._tittel\n\ndef endre(b):\n    b.sett_tittel(\"endret\")\n\ndef erstatt(b):\n    b = Bok(\"erstattet\")\n```\n\n**a)** «Etter `endre(bok)` heter boka `endret`.»\n\n**b)** «Etter `erstatt(bok)` heter boka `erstattet`.»\n\n**c)** «Hvis `erstatt` hadde hatt `return b` til slutt, og kalleren hadde skrevet\n`bok = erstatt(bok)`, ville boka hett `erstattet`.»",
+    "solution": "**a) Riktig.** Funksjonen endrer **objektet** gjennom en mutator. Parameteren `b`\npeker på den samme boksen som `bok` utenfor, så endringen sees begge steder.\n\n**b) Galt.** `b = Bok(\"erstattet\")` flytter bare den **lokale** pilen. Når\nfunksjonen er ferdig, forsvinner navnet `b`, og det nye objektet med det.\nVariabelen `bok` utenfor har aldri blitt rørt. Dette er feilkode **#12**,\nscope-forvirring, i objektform.\n\n**c) Riktig.** Da er det **kalleren** som gjør rebindingen, og kalleren kan flytte\nsine egne piler. Alle tre kjørt:\n\n```python\nclass Bok:\n    def __init__(self, tittel):\n        self._tittel = tittel\n\n    def sett_tittel(self, t):\n        self._tittel = t\n\n    def __str__(self):\n        return self._tittel\n\ndef endre(b):\n    b.sett_tittel(\"endret\")\n\ndef erstatt(b):\n    b = Bok(\"erstattet\")\n\ndef erstatt2(b):\n    b = Bok(\"erstattet\")\n    return b\n\nbok = Bok(\"start\")\nendre(bok)\nprint(bok)\n\nbok = Bok(\"start\")\nerstatt(bok)\nprint(bok)\n\nbok = Bok(\"start\")\nbok = erstatt2(bok)\nprint(bok)\n```\n\n**Utskrift:**\n```\nendret\nstart\nerstattet\n```\n\n**Regelen samlet:** en funksjon kan endre objektene den får inn, men aldri\nkallerens piler. Skal pilen flyttes, må funksjonen **returnere** det nye\nobjektet, og kalleren tilordne det.\n\n**Slik ville sensor sett på det:** de tre påstandene rettes hver for seg, og\nbegrunnelsen teller. Å svare riktig på a) og c) uten b) gir to av tre poeng.",
+    "hints": [
+     "Skill mellom å skrive i boksen og å flytte pilen — én av funksjonene gjør hver sin ting.",
+     "For c): hvem er det som gjør tilordningen når kalleren skriver `bok = ...`?"
+    ]
+   }
+  },
+  {
+   "id": "in1000-5-4-21",
+   "type": "warning",
+   "title": "Typiske feil i dette kapitlet",
+   "content": "Fem feil koster nesten alle poengene som mistes i Oppgave 2:\n\n- **#2 — `b = a` lest som en kopi.** Det er én ting med to navn. Endring gjennom\n  det ene sees gjennom det andre.\n- **#2 — tro at det gamle objektet er borte etter en rebinding.** Det lever\n  videre så lenge noe peker på det: en variabel, en liste eller en\n  instansvariabel.\n- **#12 — tro at en funksjon kan flytte kallerens pil.** Parameteren er et lokalt\n  navn. Funksjonen kan endre objektet, ikke hvilket objekt kalleren peker på.\n- **Telle referanser i stedet for objekter.** En liste med fire elementer kan\n  holde tre objekter, eller ett. Tell hvor mange ganger klassenavnet står med\n  parentes.\n- **Lagre rådata i stedet for en objektreferanse.** `self._eier_navn =\n  eier.hent_navn()` blir foreldet i det øyeblikket eieren skifter navn.\n\nOg én vane som løser alt: **tegn boksene og pilene.** Tilordning mellom to\nvariabler flytter en pil; et metodekall skriver i en boks."
+  },
+  {
+   "id": "in1000-5-4-coll-22",
+   "type": "collapsible",
+   "title": "API- og konstruksjonsliste",
+   "buttonText": "Vis API og konstruksjoner",
+   "content": [
+    {
+     "id": "in1000-5-4-c1",
+     "type": "text",
+     "content": "Oppslagsverk — alt her forklares underveis i kapitlet. Dette er kapitlets\nSymbol- og formelliste, tilpasset et kodefag: den lister Python-konstruksjonene\ni stedet for greske bokstaver.\n\n| Konstruksjon | Presis oppførsel |\n|---|---|\n| `a = Klasse(...)` | Lager et **nytt** objekt. Eneste måte et objekt oppstår på. |\n| `b = a` | Kopierer **referansen**. Ett objekt, to navn — ingen kopi lages. |\n| `a.metode(v)` | Endrer **objektet**. Sees av alle som peker på det. |\n| `a = Klasse(...)` på nytt | **Rebinding.** Flytter pilen fra `a`. Det gamle objektet er uendret. |\n| `self._eier = person` | Instansvariabel som peker på et annet objekt. Leses på nytt hver gang. |\n| `self._elementer.append(obj)` | Legger en **referanse** i samlingen — ikke en kopi. |\n| `self._elementer[navn] = obj` | Ordbok-varianten. To nøkler kan peke på samme objekt. |\n| `len(liste)` | Antall **referanser**, ikke antall objekter. |\n| `k.hent_eier().hent_navn()` | Lenket kall: første metode gir et objekt, andre kalles på det. |\n| `def f(p):` `p = Klasse()` | Flytter bare det **lokale** navnet. Kalleren merker ingenting. |\n| `def f(p):` `p.sett_x(v)` | Endrer objektet. Kalleren ser endringen. |\n| `def f(p):` `return p` | Eneste måten en funksjon kan gi kalleren et nytt objekt å peke på. |\n| `x = x + 1` på et tall | Rebinding. Tall og tekster er uforanderlige, så delingen sees aldri. |\n| `liste.append(e)` | Lister **kan** endres — derfor blir delingen synlig (feilkode #15). |\n| `if navn in d:` før `d[navn]` | Uten sjekken stopper programmet med `KeyError` (feilkode #14). |\n\n**Det som avgjør poeng i Oppgave 2:** at du kan skille «skriv i boksen» fra\n«flytt pilen», og at du teller objekter ved å telle klassenavn med parentes."
+    }
+   ]
+  },
+  {
+   "id": "in1000-5-4-23",
+   "type": "text",
+   "content": "## Begrepsbank\n\nBegrepsbanken er flashcard- og repetisjonsstoff — den gjentar det du nettopp har\nlest. Hopp trygt over ved førstegangslesing; tidsanslaget for kapitlet gjelder\nkjernestoffet."
+  },
+  {
+   "id": "in1000-5-4-24",
+   "type": "definition",
+   "title": "Referansesemantikk",
+   "content": "Regelen om at en variabel holder en peker til et objekt, ikke objektet selv.\n\nKonsekvensen er den ene setningen hele kapitlet handler om: **to variabler kan\npeke på det samme, og da sees enhver endring begge steder.**\n\nOrdet «semantikk» betyr her bare «hva tilordningen betyr». Alternativet, som\nnoen språk har for enkelte typer, kalles verdisemantikk: der lager `b = a` en\nfaktisk kopi. Python gjør aldri det av seg selv."
+  },
+  {
+   "id": "in1000-5-4-25",
+   "type": "definition",
+   "title": "Alias",
+   "content": "To eller flere navn på det samme objektet. Oppstår av `b = a`, av en\n`append(a)`, av et funksjonskall `f(a)` og av `self._x = a`.\n\nAlias er ikke en feil — det er ofte nettopp det du vil ha, som når det samme\nmedlemmet ligger i både medlemslista og ventelista.\n\nFeilen er å **glemme** at det er et alias. Det er feilkode **#15** for lister, og\nfeilkode **#2** for objekter — samme misforståelse i to drakter."
+  },
+  {
+   "id": "in1000-5-4-26",
+   "type": "definition",
+   "title": "Rebinding",
+   "content": "Å flytte en variabel til å peke på noe annet: `x = nytt_objekt`.\n\nDet som **ikke** skjer: det gamle objektet endres ikke, og andre variabler som\npeker på det, merker ingenting.\n\nKjenn den igjen i koden på at det står et klassenavn med parentes, eller et annet\nvariabelnavn, på høyre side av likhetstegnet — ikke et metodekall på venstre."
+  },
+  {
+   "id": "in1000-5-4-27",
+   "type": "definition",
+   "title": "Foranderlig og uforanderlig",
+   "content": "**Uforanderlige:** tall, tekster og sannhetsverdier. De kan ikke endres etter at\nde er laget, så delingen sees aldri.\n\n**Foranderlige:** lister, ordbøker og dine egne klasser. De kan endres, og da blir\ndelingen synlig.\n\nHuskeregelen: er verdien noe du kan endre, må du tenke på hvem andre som peker på\nden. Er den ikke det, kan du la være."
+  },
+  {
+   "id": "in1000-5-4-28",
+   "type": "definition",
+   "title": "Å telle objekter",
+   "content": "Antall objekter er antall ganger et klassenavn står med parentes — ikke antall\nvariabler, og ikke antall elementer i en liste.\n\nFire referanser i en liste kan være fire objekter, tre, eller ett.\n\nSpørsmålet «hvor mange objekter er laget?» er et vanlig flervalg i Oppgave 2, og\ndet tar ti sekunder når du vet hva du skal telle."
+  },
+  {
+   "id": "in1000-5-4-29",
+   "type": "definition",
+   "title": "Å tegne bokser og piler",
+   "content": "Metoden som løser hvert eneste referansespørsmål. En boks per objekt, en pil per\nvariabel eller instansvariabel.\n\n- `b = a`: la `b`-pilen peke der `a`-pilen peker.\n- `b = Klasse()`: tegn en **ny** boks, la `b` peke på den.\n- `a.sett_x(5)`: skriv 5 inn i boksen `a` peker på. Rør ingen piler.\n\nBruk to minutter på tegningen før du svarer. Det er raskere enn å lese koden tre\nganger."
+  },
+  {
+   "id": "in1000-5-4-30",
+   "type": "definition",
+   "title": "Objektreferanse i en instansvariabel",
+   "content": "`self._eier = person` lar objektet holde et annet objekt.\n\nFordelen er at modellen holder seg i takt: leser du navnet med\n`self._eier.hent_navn()`, får du alltid det gjeldende navnet.\n\nAlternativet — å lagre `self._eier_navn = person.hent_navn()` i konstruktøren —\ngir en verdi som blir foreldet i det øyeblikket personen skifter navn. Det er en\nav de vanligste modelleringsfeilene i den store oppgaven."
+  },
+  {
+   "id": "in1000-5-4-31",
+   "type": "definition",
+   "title": "Lenket metodekall",
+   "content": "`konto.hent_eier().hent_navn()` — første metode gir et objekt, andre kalles på\ndet.\n\nLes det fra venstre: «hent eieren til kontoen, og spør den om navnet». Hvert\npunktum er ett steg videre.\n\nFormen er ryddig så lenge kjeden er kort, og den er vanlig i fasiten. Blir den\nlang, sett resultatet i en hjelpevariabel underveis — det er lettere å spore, og\ndet gir like god uttelling."
+  },
+  {
+   "id": "in1000-5-4-32",
+   "type": "definition",
+   "title": "Parameter er et lokalt navn",
+   "content": "Når du kaller `f(a)`, får funksjonen sin egen pil til det samme objektet.\n\nFunksjonen kan derfor **endre objektet** — det sees av kalleren. Men den kan ikke\n**flytte kallerens pil**: en tilordning inne i funksjonen treffer bare det lokale\nnavnet.\n\nSkal funksjonen gi kalleren noe nytt å peke på, må den `return`-ere det, og\nkalleren må tilordne det selv."
+  },
+  {
+   "id": "in1000-5-4-33",
+   "type": "definition",
+   "title": "To samlinger som deler objekter",
+   "content": "Legges det samme objektet i to lister eller under to nøkler, finnes det fortsatt\nbare ett objekt.\n\nEndring gjennom den ene samlingen sees gjennom den andre. `len()` teller\nreferanser, ikke objekter.\n\nEr det ønsket, er det en fordel: medlemslista og ventelista holder seg i takt av\nseg selv. Er det ikke ønsket, må du lage et nytt objekt med klassenavnet og\nparentes."
+  },
+  {
+   "id": "in1000-5-4-34",
+   "type": "definition",
+   "title": "Objektet som lever videre",
+   "content": "Et objekt forsvinner ikke når én variabel slutter å peke på det. Det lever så\nlenge **noe** peker på det.\n\nEtter `a = Boks(1)`, `b = a`, `a = Boks(5)` finnes to objekter: det nye som `a`\npeker på, og det gamle som `b` fortsatt holder.\n\nPeker ingenting lenger på et objekt, rydder Python det bort av seg selv. Det er\ningenting du trenger å gjøre — men det er verdt å vite at det ikke skjedde i\neksempelet over."
+  },
+  {
+   "id": "in1000-5-4-35",
+   "type": "definition",
+   "title": "Byttemønsteret",
+   "content": "Det klassiske eksamensspørsmålet: en funksjon som får inn to objekter og skal\n«bytte» dem.\n\nBytter den **pilene** (`hjelp = p; p = q; q = hjelp`), skjer ingenting synlig\nutenfor — pilene er lokale.\n\nBytter den **innholdet** (leser begge verdiene og setter dem tilbake i motsatt\nrekkefølge med mutatorer), virker det, fordi objektene er delt.\n\nKommer mønsteret på eksamen, er spørsmålet nesten alltid «hva skrives ut etter\nkallet?», og det riktige svaret på pil-varianten er «ingenting er endret»."
+  },
+  {
+   "id": "in1000-5-4-36",
+   "type": "definition",
+   "title": "Feilkode #2",
+   "content": "Referanse forvekslet med kopi. Den dyreste feilen i Oppgave 2.\n\nDen har to former: å tro at `b = a` lager en kopi, og å tro at det gamle objektet\ner borte etter en rebinding.\n\nBegge kureres av den samme tegningen. Tegn en boks du kan skrive i, og en pil du\nkan flytte — så blir det umulig å blande dem."
+  },
+  {
+   "id": "in1000-5-4-37",
+   "type": "definition",
+   "title": "Feilkode #12 i objektform",
+   "content": "Scope-forvirring: å tro at en tilordning inne i en funksjon endrer noe utenfor.\n\nI [kap. 2.2](/bok/in1000/in1000-2-2) møtte du den for tall. Her er den den samme,\nbare med objekter: `p = Bok(\"ny\")` inne i en funksjon flytter bare det lokale\nnavnet.\n\nGrensen går ved punktumet. `p = ...` er lokalt; `p.sett_x(...)` treffer objektet\nog sees utenfor."
+  },
+  {
+   "id": "in1000-5-4-38",
+   "type": "definition",
+   "title": "Hvorfor referanser er en fordel",
+   "content": "Det kunne virket tryggere om Python kopierte alt. Det ville vært både tregt og\nupraktisk.\n\nTregt, fordi en kopi av et stort objekt koster tid og plass hver gang det sendes\ntil en funksjon.\n\nUpraktisk, fordi modellen din skal henge sammen: et medlem i ventelista **skal**\nvære det samme medlemmet som i medlemslista. Kopier ville gitt to versjoner som\nstraks kom i utakt."
+  },
+  {
+   "id": "in1000-5-4-39",
+   "type": "definition",
+   "title": "Identitet mot likhet",
+   "content": "To objekter kan ha nøyaktig like verdier og likevel være to objekter.\n`Konto(\"Ada\")` to ganger gir to kontoer.\n\n**Identitet** er «er dette det samme objektet?». **Likhet** er «har de samme\nverdier?».\n\nI Oppgave 2 spørres det nesten alltid om identitet. Formuleringene «peker på\nsamme objekt», «er dette det samme» og «hvor mange objekter finnes» handler alle\nom det."
+  },
+  {
+   "id": "in1000-5-4-40",
+   "type": "definition",
+   "title": "Referanse i en ordbok",
+   "content": "En ordbok kan ha flere nøkler som peker på det samme objektet, akkurat som en\nliste kan ha flere plasser.\n\n`d[\"speil\"] = sal` og `d[\"kopi\"] = sal` gir to nøkler og **ett** objekt. Endres\nsalen, sees det gjennom begge.\n\nOmvendt kan ikke én nøkkel peke på to objekter: setter du inn på en nøkkel som\nfinnes, **overskrives** den forrige referansen uten en advarsel."
+  },
+  {
+   "id": "in1000-5-4-41",
+   "type": "definition",
+   "title": "Å returnere et objekt",
+   "content": "En metode kan returnere et helt objekt, ikke bare et tall eller en tekst:\n`return self._eier`.\n\nDen som kaller, får da en referanse til det samme objektet — ingen kopi — og kan\nkalle metoder på det med en gang.\n\nStandardformen på en søkemetode er `return self._d[navn]` hvis nøkkelen finnes,\nog `return None` ellers. Da kan kalleren teste med `if svar != None:`."
+  },
+  {
+   "id": "in1000-5-4-42",
+   "type": "definition",
+   "title": "Blankt svar i flervalg",
+   "content": "Et flervalgsspørsmål som står ubesvart, gir null poeng — akkurat som et galt\nsvar. Det er ingen straff for å gjette.\n\nOppgave 2 er rundt ni poeng fordelt på fire spørsmål, så et blankt felt er to\npoeng gitt bort gratis.\n\nKlarer du å utelukke to av fire alternativer, er gjetningen mellom de to\nresterende verdt halvparten av poengene i snitt. **Kryss alltid av.**"
+  },
+  {
+   "id": "in1000-5-4-43",
+   "type": "definition",
+   "title": "Rekkefølgen på spørsmålene i Oppgave 2",
+   "content": "Snutten er felles, og de fire spørsmålene kommer typisk i denne rekkefølgen: hva\nskrives ut, hva peker en gitt variabel på nå, hvor mange objekter finnes, og et\nbegrepsspørsmål om grensesnitt eller `self`.\n\nLes hele snutten og tegn **før** du svarer på det første. Tegningen brukes til\nalle fire.\n\nOg husk at spørsmålene rettes hver for seg: en bom på det første koster ikke de\ntre andre."
+  },
+  {
+   "id": "in1000-5-4-44",
+   "type": "definition",
+   "title": "Når rebinding er det du vil ha",
+   "content": "Rebinding er ikke en feil — den er ofte helt riktig.\n\nSkal en sykkel flyttes til et annet stativ, er `self._stativ = nytt_stativ` inne\ni en mutator nettopp rebinding, og den er ønsket: instansvariabelen skal peke et\nnytt sted.\n\nFeilen oppstår bare når du tror at en rebinding endrer **objektet** i stedet for\npilen. Handlingen er den samme; det er forventningen som avgjør om den er riktig\neller gal."
+  },
+  {
+   "id": "in1000-5-4-coll-45",
+   "type": "collapsible",
+   "title": "Repetisjon — de åtte setningene som må sitte",
+   "buttonText": "Vis repetisjon",
+   "content": [
+    {
+     "id": "in1000-5-4-c2",
+     "type": "text",
+     "content": "1. **En variabel holder en referanse**, ikke objektet selv. Bildet er en lapp med\n   en adresse, ikke huset.\n2. **`b = a` kopierer referansen**, ikke objektet. Ett objekt, to navn.\n3. **`Klassenavn(...)` er den eneste måten et nytt objekt oppstår på.** Tell dem\n   for å telle objekter.\n4. **`a.metode(v)` skriver i boksen; `a = ...` flytter pilen.** Det første sees\n   av alle, det andre bare av `a`.\n5. **Etter en rebinding lever det gamle objektet videre** så lenge noe peker på\n   det — en variabel, en liste eller en instansvariabel.\n6. **En funksjon kan endre objektet den får inn, men ikke kallerens pil.** Skal\n   pilen flyttes, må funksjonen `return`-ere, og kalleren tilordne.\n7. **Tall og tekster er uforanderlige**, så delingen sees aldri. Lister, ordbøker\n   og egne klasser kan endres, og da blir den synlig.\n8. **Tegn bokser og piler.** Det er raskere enn å lese koden tre ganger, og det\n   er det eneste som gjør de fire spørsmålene mekaniske."
+    }
+   ]
+  }
+ ],
+ "exercises": []
+}
