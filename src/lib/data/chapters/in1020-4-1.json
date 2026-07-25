@@ -1,0 +1,452 @@
+{
+  "id": "in1020-4-1",
+  "courseId": "in1020",
+  "chapterNumber": "4.1",
+  "title": "TCP/IP-modellen — lag og protokoller",
+  "description": "De fire lagene i TCP/IP-modellen og hva hvert av dem har ansvar for, forskjellen på TCP og UDP, og hvilken transportprotokoll hver applikasjonsprotokoll bruker.",
+  "estimatedMinutes": 55,
+  "competenceGoals": [
+    "kunne navngi de fire lagene i rekkefølge og si hva hvert lag har ansvar for",
+    "kunne plassere en oppgave i riktig lag, og særlig vite at ruting hører til nettverkslaget",
+    "kunne skille TCP fra UDP på garantier, og gjøre rede for hva TCP ikke gir",
+    "kunne oppgi hvilken transportprotokoll hver av de vanlige applikasjonsprotokollene bruker"
+  ],
+  "content": [
+    {
+      "id": "in1020-4-1-eksamensvinkel",
+      "type": "tip",
+      "title": "Eksamensvinkel",
+      "content": "**Belegg:** lagene og protokollene er **sjanger J — nettverk**, altså den delen av faget som handler om hvordan to maskiner får snakket sammen. Denne biten av sjangeren har egen oppgave i **alle seks årgangene i arkivet (6 av 6 = 100 %)**.\n\n**Høyeste prioritet — dette må sitte.** Stoffet hører til **seksjon 4, datanettverk**, en av de fire seksjonene som hver må bestås for seg. Seksjon 4 er den seksjonen flest stryker på, og lag-og-protokoll-oppgavene er den delen av seksjonen som er ren gjenkalling: du kan enten tabellen, eller så kan du den ikke.\n\n**Slik kommer den:** oftest som **svarform F3** (dra-og-slipp: koble hvert element til riktig kategori — i denne boka skrevet som koblingsoppgave, siden du ikke kan dra noe på papir), der du plasserer protokoller på riktig transportprotokoll eller riktig lag. Ellers som **F1** («velg ett *eller flere* alternativer — flere kan være riktige samtidig») om hva TCP faktisk gir deg.\n\n**De to tingene som skiller bestått fra bom her:** at **ruting hører til nettverkslaget**, ikke transportlaget, og at **TCP verken krypterer eller ruter**. Begge er distraktorer som ser fornuftige ut, og begge kommer igjen og igjen.\n\n**Tidsbruk:** 55 minutter, fordelt på fire løkker med tidsanslag. Kapitlet kan trygt deles over to økter."
+    },
+    {
+      "id": "in1020-4-1-forkunnskaper",
+      "type": "text",
+      "content": "## Forkunnskaper — sist du var her\n\n**Dette kapitlet kan leses uten forkunnskaper fra tidligere kapitler.** Det er inngangen til del 4, og alt som trengs, står her.\n\nTre begreper du møter med én gang, ferdig forklart:\n\n**1. Vert (*host*).** En maskin som er koblet til nettet og som har en egen adresse: din PC, mobilen, en tjenermaskin hos en strømmetjeneste. «Vert» er ordet faget bruker der dagligtalen sier «maskin».\n\n**2. Pakke.** Data som skal sendes, deles opp i små biter. Hver bit sendes for seg, med avsender- og mottakeradresse på. Én nettside blir til tusenvis av pakker.\n\n**3. Protokoll.** En avtale om formatet og rekkefølgen på det som sendes. Begge parter må følge samme avtale, ellers blir det bare bit uten mening.\n\nVil du ha en roligere, mer hverdagsnær inngang før du begynner, ligger den her:\n\n- [Hvordan fungerer nettet?](/bok/im-vg1/im-vg1-3-1) — hva som faktisk skjer når du åpner en nettside.\n- [Internettprotokoller og kommunikasjon](/bok/im-vg1/im-vg1-6-2) — protokollene i rolig tempo, før lagmodellen."
+    },
+    {
+      "id": "in1020-4-1-notasjon",
+      "type": "collapsible",
+      "title": "Notasjons- og konstruksjonsliste",
+      "buttonText": "Vis notasjon og konstruksjoner",
+      "content": [
+        {
+          "id": "in1020-4-1-notasjon-tekst",
+          "type": "text",
+          "content": "Oppslagsverk — alt her forklares underveis i kapitlet. Dette er kapitlets Symbol- og formelliste, tilpasset et datateknologifag: den lister notasjonen og konstruksjonene i stedet for greske bokstaver.\n\n| Notasjon | Betydning / virkning |\n|---|---|\n| Vert | En maskin med egen adresse på nettet |\n| Pakke | Én bit av dataene, sendt for seg, med adresser på |\n| Protokoll | Avtalen om format og rekkefølge, som begge parter følger |\n| TCP/IP-modellen | De fire lagene faget bruker: applikasjon, transport, nettverk, lenke |\n| TCP | Pålitelig transport med rekkefølge, flytkontroll og sjekksum |\n| UDP | Rask transport uten pålitelighetsgarantier |\n| IP-adresse | Adressen som brukes til å finne fram mellom nett |\n| MAC-adresse | Maskinvareadressen som brukes på det lokale nettet |\n| Portnummer | Tallet som sier hvilket program på verten pakken skal til |\n| Ruting | Å velge veien pakken skal ta videre — hører til nettverkslaget |\n| Innkapsling | At hvert lag legger sitt eget hode utenpå det laget over sendte |\n\n**Forkortelsene skrevet ut,** siden de brukes hele veien: **TCP** = *Transmission Control Protocol*, **UDP** = *User Datagram Protocol*, **IP** = *Internet Protocol*, **HTTP** = *HyperText Transfer Protocol*, **SMTP** = *Simple Mail Transfer Protocol*, **IMAP** = *Internet Message Access Protocol*, **FTP** = *File Transfer Protocol*, **DNS** = *Domain Name System*, **DHCP** = *Dynamic Host Configuration Protocol*.\n\n**Regler i dette delkapitlet** (dette kapitlet har tabeller og regler i stedet for formler):\n\n$$\\text{lagene ovenfra og ned: applikasjon} \\rightarrow \\text{transport} \\rightarrow \\text{nettverk} \\rightarrow \\text{lenke}$$\n\nRekkefølgen data går ned gjennom hos avsenderen, og opp igjen hos mottakeren.\n\n$$\\text{HTTP, IMAP, SMTP, FTP, DASH} \\rightarrow \\text{TCP} \\qquad \\text{DHCP} \\rightarrow \\text{UDP} \\qquad \\text{DNS} \\rightarrow \\text{begge}$$\n\nProtokoll-til-transport-tabellen, den enkeltlinjen som gir flest poeng i dette kapitlet."
+        }
+      ]
+    },
+    {
+      "id": "in1020-4-1-lokke1",
+      "type": "text",
+      "content": "## Løkke 1 — De fire lagene: hvem gjør hva (~15 min)\n\nDu åpner en strømmetjeneste på PC-en og trykker play. I løpet av det neste sekundet skjer fire ganske forskjellige ting, og de skjer i en fast rekkefølge.\n\nProgrammet ditt formulerer en forespørsel: «gi meg de neste ti sekundene av denne filmen, i denne kvaliteten». Så må forespørselen deles i pakker som kan sendes, med en avtale om hva som skjer hvis noen av dem forsvinner. Så må hver pakke finne veien gjennom kanskje tolv rutere fram til en tjenermaskin i et annet land. Og helt nederst må hver pakke faktisk over den fysiske strekningen fra maskinen din til ruteren i gangen.\n\nFire oppgaver, fire lag. Det er hele modellen — og hele poenget med den er at hvert lag kan gjøre jobben sin uten å vite hvordan de andre gjør sin."
+    },
+    {
+      "id": "in1020-4-1-def-protokoll",
+      "type": "definition",
+      "title": "Protokoll",
+      "content": "En avtale om formatet på og rekkefølgen av meldinger som utveksles mellom to parter, og om hva hver part skal gjøre når en melding kommer inn.\n\nBegge sider må følge samme protokoll. Sender du en HTTP-forespørsel til en maskin som venter på e-post, får du ingenting fornuftig tilbake — bitene kommer fram, men de tolkes ikke.\n\nEn protokoll er altså ikke et program og ikke en maskin. Den er en **regelbok**, og den kan være implementert i mange ulike programmer på mange ulike maskiner.\n\nDen faste feilslutningen: å tro at en protokoll er noe fysisk eller noe som «ligger» et sted. Det som ligger i maskinen din, er en implementasjon av protokollen."
+    },
+    {
+      "id": "in1020-4-1-def-fire-lag",
+      "type": "definition",
+      "title": "TCP/IP-modellens fire lag",
+      "content": "Den lagdelingen faget bruker. Ovenfra og ned:\n\n| Lag | Ansvar | Typisk enhet |\n|---|---|---|\n| **Applikasjon** | Selve tjenesten: nettsider, e-post, filoverføring, video | Melding |\n| **Transport** | Å få dataene fram til riktig **program** på riktig vert | Segment |\n| **Nettverk** | Å finne veien fram mellom nett, over hele verden | Pakke |\n| **Lenke** | Å få bitene over den ene strekningen til neste maskin | Ramme |\n\nUnder lenkelaget ligger den fysiske overføringen selv: spenninger i en kabel, radiobølger i lufta, lys i en fiber.\n\nData går **nedover** gjennom lagene hos avsenderen og **oppover** hos mottakeren. Underveis snakker hvert lag i praksis med sitt eget speilbilde i den andre enden: transportlaget hos deg forholder seg til transportlaget hos tjeneren, og bryr seg ikke om hvilke rutere pakken passerte.\n\nDen faste feilslutningen: å tro at det er sju lag. Sjulagsmodellen er en annen modell, og den er ikke pensum her — se avgrensningen sist i kapitlet."
+    },
+    {
+      "id": "in1020-4-1-def-applikasjon",
+      "type": "definition",
+      "title": "Applikasjonslaget",
+      "content": "Det øverste laget: selve tjenesten brukeren er ute etter.\n\nHer bor HTTP (nettsider), SMTP og IMAP (e-post), FTP (filoverføring), DNS (navneoppslag) og DASH (video i segmenter). Det er dette laget programmene dine faktisk snakker.\n\nApplikasjonslaget bestemmer **hva** som skal sies. Det bryr seg ikke om hvordan meldingen kommer fram — den jobben er satt bort til laget under.\n\nDen faste feilslutningen: å plassere IP eller TCP her. Verken adressering eller pålitelig overføring er en tjeneste for brukeren; de er maskineriet under."
+    },
+    {
+      "id": "in1020-4-1-def-transport",
+      "type": "definition",
+      "title": "Transportlaget",
+      "content": "Laget som får dataene fram til **riktig program** på riktig vert, og som bestemmer hvilke garantier overføringen skal ha.\n\nTo protokoller bor her, og bare to i dette faget: **TCP** og **UDP**. Valget mellom dem er valget mellom pålitelighet og fart.\n\nTransportlaget bruker **portnummer** for å skille programmene på samme maskin fra hverandre. Nettleseren og e-postklienten din deler én IP-adresse, men har hver sine portnumre — det er slik svaret finner tilbake til riktig vindu.\n\nDen faste feilslutningen: å tro at ruting skjer her. Transportlaget velger ikke vei; det velger garantinivå og riktig program."
+    },
+    {
+      "id": "in1020-4-1-def-nettverk",
+      "type": "definition",
+      "title": "Nettverkslaget",
+      "content": "Laget som finner veien fram mellom nett, over hele verden. Her bor **IP**, og her skjer **ruting**.\n\nHver pakke har en avsender-IP og en mottaker-IP. Hver ruter på veien ser på mottakeradressen, slår opp i rutingtabellen sin og sender pakken videre til neste ruter. Ingen enkelt ruter kjenner hele veien — den kjenner bare neste steg.\n\nIP gir **ingen garanti** om at pakken kommer fram, at den kommer i rekkefølge, eller at den bare kommer én gang. Alt slikt er transportlagets jobb, og det er nettopp derfor TCP finnes.\n\nDen faste feilslutningen: å legge ruting i transportlaget. Ruting er nettverkslagets definerende oppgave, og den forvekslingen er en av de hyppigste feilene i hele seksjon 4."
+    },
+    {
+      "id": "in1020-4-1-def-lenke",
+      "type": "definition",
+      "title": "Lenkelaget",
+      "content": "Det nederste laget i modellen: å få bitene over **den ene strekningen** til neste maskin — fra PC-en din til ruteren i gangen, fra én ruter til den neste.\n\nHer brukes **MAC-adresser**, som er knyttet til nettverkskortet i maskinen og bare gjelder på det lokale nettet. En MAC-adresse tar deg aldri lenger enn til neste maskin på strekningen; IP-adressen er den som gjelder hele veien.\n\nUnder lenkelaget ligger den rent fysiske overføringen: spenninger, radiobølger, lys. Noen framstillinger regner dette som et eget femte lag.\n\nDen faste feilslutningen: å blande MAC-adresse og IP-adresse. MAC gjelder én strekning, IP gjelder hele reisen."
+    },
+    {
+      "id": "in1020-4-1-eks-1",
+      "type": "example",
+      "title": "Eksempel 1: Én forespørsel gjennom alle fire lagene",
+      "problem": "Du skriver en nettadresse i nettleseren og trykker enter. Følg forespørselen ned gjennom lagene hos deg og opp igjen hos tjeneren. Hvilket lag gjør hva?",
+      "solution": "**Hos deg, ovenfra og ned:**\n\n**1. Applikasjonslaget.** Nettleseren lager en HTTP-forespørsel: «hent denne siden». Det er en tekstmelding etter HTTP-regelboka.\n\n**2. Transportlaget.** TCP tar imot meldingen, deler den i segmenter, nummererer dem og setter på et portnummer slik at svaret finner tilbake til nettleseren. TCP lover at alt kommer fram, i riktig rekkefølge.\n\n**3. Nettverkslaget.** IP setter på avsender- og mottakeradresse og sender pakken videre. Herfra styrer ruterne, én ruter om gangen.\n\n**4. Lenkelaget.** Rammen sendes over den fysiske strekningen til ruteren din, adressert med ruterens MAC-adresse.\n\n**Underveis:** hver ruter pakker opp til nettverkslaget, leser mottaker-IP-en, og sender videre. Ruterne ser aldri på HTTP-meldingen — de har ingen grunn til det.\n\n**Hos tjeneren, nedenfra og opp:** lenkelaget tar imot rammen, nettverkslaget ser at pakken er adressert hit, transportlaget setter segmentene i rekkefølge og leverer på riktig portnummer, og applikasjonslaget leser HTTP-forespørselen og finner sida.\n\n**Poenget å ta med seg:** hvert lag snakker med sitt eget speilbilde i den andre enden. Nettleseren din forholder seg til nettjeneren, TCP hos deg forholder seg til TCP hos tjeneren — og ingen av dem trenger å vite noe om ruterne i mellom."
+    },
+    {
+      "id": "in1020-4-1-o1",
+      "type": "exercise",
+      "exercise": {
+        "id": "in1020-4-1-o1",
+        "number": "1",
+        "type": "classic",
+        "difficulty": "lett",
+        "task": "(Innsteg — lagene.) Skriv opp TCP/IP-modellens fire lag i rekkefølge ovenfra og ned, og gi hvert lag én setning om hva det har ansvar for.",
+        "solution": "**Ovenfra og ned:**\n\n1. **Applikasjonslaget** — selve tjenesten brukeren er ute etter: nettsider, e-post, filoverføring, video.\n2. **Transportlaget** — å få dataene fram til riktig program på riktig vert, med det garantinivået som er valgt.\n3. **Nettverkslaget** — å finne veien fram mellom nett, over hele verden. Her skjer ruting.\n4. **Lenkelaget** — å få bitene over den ene strekningen til neste maskin.\n\n**Svar: applikasjon, transport, nettverk, lenke.**\n\nUnder lenkelaget ligger den fysiske overføringen selv — spenninger, radiobølger, lys.\n\nHuskeregelen som virker: gå fra **det brukeren vil** (applikasjon), via **hvilke garantier** (transport), til **hvilken vei** (nettverk), til **hvilken ledning** (lenke).",
+        "hints": [
+          "Start hos brukeren og arbeid deg nedover mot det fysiske.",
+          "Det laget som velger vei, ligger nest nederst."
+        ]
+      }
+    },
+    {
+      "id": "in1020-4-1-o2",
+      "type": "exercise",
+      "exercise": {
+        "id": "in1020-4-1-o2",
+        "number": "2",
+        "type": "classic",
+        "difficulty": "lett",
+        "task": "(Sjanger J — nettverk, svarform F4: velg ett alternativ per delspørsmål.) Hvilket lag hører hver av disse hjemme i?\n\n**a)** Ruting mellom nett\n\n**b)** MAC-adresser\n\n**c)** HTTP\n\n**d)** Portnumre",
+        "solution": "**a) Nettverkslaget.** Ruting er nettverkslagets definerende oppgave: hver ruter leser mottaker-IP-en og velger neste steg.\n\n**b) Lenkelaget.** MAC-adressen gjelder bare på den ene strekningen, til neste maskin.\n\n**c) Applikasjonslaget.** HTTP er selve tjenesten — å hente nettsider.\n\n**d) Transportlaget.** Portnummeret skiller programmene på samme vert fra hverandre.\n\n**Fasit: a) nettverk, b) lenke, c) applikasjon, d) transport.**\n\nMerk at fasiten treffer alle fire lagene, ett hver. Det er den vanlige formen på denne oppgaven — men bruk aldri fordelingen som ledetråd. Et sett der to svar er samme lag, er like lovlig.",
+        "hints": [
+          "Spør for hver: gjelder dette hele reisen, eller bare én strekning?",
+          "Portnummeret svarer på spørsmålet «hvilket program», ikke «hvilken maskin»."
+        ]
+      }
+    },
+    {
+      "id": "in1020-4-1-lokke2",
+      "type": "text",
+      "content": "## Løkke 2 — TCP mot UDP: pålitelighet mot fart (~15 min)\n\nTransportlaget har to protokoller, og de har helt ulike løfter.\n\nTenk på forskjellen mellom en rekommandert sending og et løpeseddelutdeling. Den rekommanderte sendingen koster mer og tar lengre tid, men du får kvittering på at den kom fram, og du får vite det hvis den ikke gjorde det. Løpesedlene går fort og billig, og noen av dem havner i søpla uten at noen merker det.\n\nTCP er den rekommanderte sendingen. UDP er løpesedlene. Begge er riktige valg — til hver sin oppgave.\n\n— naturlig pausepunkt —"
+    },
+    {
+      "id": "in1020-4-1-teo-tcp-udp",
+      "type": "theorem",
+      "title": "TCP mot UDP",
+      "content": "**TCP — pålitelig og tilkoblingsorientert.** Før data sendes, settes det opp en forbindelse mellom de to vertene. Deretter gir TCP fire garantier:\n\n1. **Alt kommer fram.** Pakker som forsvinner, sendes på nytt.\n2. **Riktig rekkefølge.** Segmentene er nummererte og settes sammen i rett orden hos mottakeren.\n3. **Flytkontroll.** Avsenderen sender ikke fortere enn mottakeren klarer å ta imot.\n4. **Metningskontroll.** Avsenderen demper farten når nettet er overbelastet.\n\nI tillegg har TCP en **sjekksum** som avslører at innholdet er endret underveis.\n\n**UDP — raskt og tilkoblingsløst.** Ingen forbindelse settes opp, ingenting sendes på nytt, ingen rekkefølge garanteres. Til gjengjeld er det ingen ventetid på oppsett og ingen omsending som forsinker. UDP har også en sjekksum, men ingen mekanisme for å rette opp det den avslører.\n\n**Det TCP IKKE gir deg — den setningen som gir poeng:**\n\n- **Ingen kryptering.** TCP beskytter ikke innholdet mot innsyn. Kryptering skjer i et eget lag over transporten, det er derfor `https` finnes ved siden av `http`.\n- **Ingen ruting.** TCP velger ikke vei. Veivalget hører til nettverkslaget.\n- **Ingen garanti om fart.** TCP lover at det kommer fram, ikke at det kommer raskt.\n\n**Sjekksummen, presist:** den avslører at noe er endret, men sier ikke hva, og den beskytter ingenting mot noen som med vilje endrer både innhold og sjekksum. Den er en feilkontroll, ikke et sikkerhetstiltak."
+    },
+    {
+      "id": "in1020-4-1-def-innkapsling",
+      "type": "definition",
+      "title": "Innkapsling",
+      "content": "At hvert lag legger sitt eget hode (*header*) utenpå det laget over leverte, som konvolutter utenpå konvolutter.\n\nApplikasjonslagets melding får et TCP-hode utenpå. Det hele får et IP-hode utenpå. Det hele får et lenkelagshode utenpå. Hos mottakeren pakkes det opp i motsatt rekkefølge, ett lag om gangen.\n\nKonsekvensen som betyr noe i praksis: **hvert lag leser bare sitt eget hode**. En ruter pakker opp til IP-hodet, leser mottakeradressen, og bryr seg ikke om hva som ligger inni.\n\nDen faste feilslutningen: å tro at hodene erstatter hverandre. De legges utenpå, og derfor er en pakke på nettet alltid litt større enn dataene den bærer."
+    },
+    {
+      "id": "in1020-4-1-eks-2",
+      "type": "example",
+      "title": "Eksempel 2: Sant eller usant om TCP — fire påstander, hver begrunnet",
+      "problem": "Svarform F2 — sant/usant-matrise: én rad per påstand, du krysser sant eller usant for hver.\n\n| # | Påstand | Sant/usant |\n|---|---|---|\n| a | TCP sender tapte pakker på nytt | |\n| b | TCP krypterer innholdet i pakkene | |\n| c | TCP velger hvilken vei pakkene tar gjennom nettet | |\n| d | TCP leverer segmentene til programmet i riktig rekkefølge | |",
+      "solution": "**a) Sant.** Omsending av tapte pakker er selve kjernen i TCPs pålitelighetsløfte. Mottakeren bekrefter det som er kommet fram; det som ikke bekreftes, sendes på nytt.\n\n**b) Usant.** TCP gir ingen konfidensialitet. Innholdet går i klartekst med mindre noe *over* transportlaget krypterer det — og det er nettopp den jobben `https` gjør, i motsetning til `http`. Dette er en distraktor som ser rimelig ut fordi TCP «passer på» så mye annet.\n\n**c) Usant.** Veivalget er nettverkslagets oppgave. TCP forholder seg bare til de to endene av forbindelsen og vet ingenting om ruterne mellom dem. Dette er den vanligste feilkryssingen i hele kapitlet.\n\n**d) Sant.** Segmentene er nummererte, og TCP setter dem sammen i rett orden før de leveres videre opp. Kommer segment 5 før segment 4, holder TCP igjen segment 5 til 4 er på plass.\n\n**Fasit: a sann, b usann, c usann, d sann.**\n\nLegg merke til fordelingen: to sanne og to usanne, og de er ikke sortert. Bruk aldri fordelingen i en matrise som ledetråd — den er like gjerne tre og én.\n\n**Metoden som gjør denne oppgavetypen rask:** del påstandene i to bunker. «Handler dette om de to endene?» — da kan det være TCP. «Handler det om veien imellom, eller om innsyn?» — da er det ikke TCP."
+    },
+    {
+      "id": "in1020-4-1-o3",
+      "type": "exercise",
+      "exercise": {
+        "id": "in1020-4-1-o3",
+        "number": "3",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "(Sjanger J — nettverk, svarform F1: velg ett *eller flere* alternativer — flere kan være riktige samtidig.) Kryss av **alle** påstandene som stemmer om UDP, og begrunn hvert av de fire alternativene.\n\n**a)** UDP setter ikke opp noen forbindelse før data sendes.\n\n**b)** UDP sender tapte pakker på nytt.\n\n**c)** UDP har lavere overhead enn TCP fordi det ikke venter på bekreftelser.\n\n**d)** UDP garanterer at pakkene leveres i den rekkefølgen de ble sendt.",
+        "solution": "**a) Riktig.** UDP er tilkoblingsløst. Første pakke sendes uten noen forutgående runde med oppsett, og det er derfor UDP er raskt i gang.\n\n**b) Galt.** Omsending er en TCP-egenskap. UDP oppdager i beste fall at noe er galt med sjekksummen, og forkaster da pakken uten å be om en ny. Distraktoren er en TCP-egenskap flyttet over på UDP — den vanligste måten å bygge en felle på i denne sjangeren.\n\n**c) Riktig.** Uten oppsett, bekreftelser og omsendinger er det både færre pakker på nettet og mindre venting. Det er hele grunnen til at UDP finnes.\n\n**d) Galt.** Rekkefølgegaranti er også en TCP-egenskap. UDP-pakker kan komme fram i en annen rekkefølge enn de ble sendt, og mottakeren får dem i den rekkefølgen de dukker opp.\n\n**Fasit: a og c.**\n\nMerk mønsteret: begge de gale alternativene er ekte TCP-egenskaper. Kan du TCPs fire garantier, kan du automatisk hva UDP *ikke* har.",
+        "hints": [
+          "Skriv opp TCPs fire garantier først, og stryk dem fra UDP.",
+          "Spør for hvert alternativ: krever dette at avsenderen får svar tilbake?"
+        ]
+      }
+    },
+    {
+      "id": "in1020-4-1-o4",
+      "type": "exercise",
+      "exercise": {
+        "id": "in1020-4-1-o4",
+        "number": "4",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "(Sjanger J — nettverk.) En videosamtale og en nedlasting av et regnskapsdokument har helt ulike behov.\n\n**a)** Hvilken transportprotokoll passer best til hver, og hvorfor?\n\n**b)** Hva er den konkrete ulempen ved å velge feil i hvert av de to tilfellene?",
+        "solution": "**a) Videosamtale: UDP.** I en samtale er ferskhet viktigere enn fullstendighet. Et bilde som kommer 300 millisekunder for sent, er verdiløst selv om det er korrekt — samtalen har gått videre. Da er det bedre å hoppe over den tapte biten.\n\n**Regnskapsdokument: TCP.** Her er det motsatt: en fil som mangler noen byte, er ubrukelig, og det gjør ingenting om den bruker et halvt sekund ekstra.\n\n**b) Feil valg for videosamtalen (TCP i stedet for UDP):** TCP holder igjen alt som kommer etter en tapt pakke, til den tapte er sendt på nytt og kommet fram. Bildet fryser mens omsendingen pågår, og etterpå ligger samtalen bak i tid. Pålitelighetsgarantien blir en forsinkelsesgaranti.\n\n**Feil valg for dokumentet (UDP i stedet for TCP):** filen kan komme fram med hull, eller med blokker i feil rekkefølge, uten at noen oppdager det. Programmet må i så fall bygge sin egen omsendingsmekanisme — altså gjenoppfinne TCP.\n\n**Svar: UDP til videosamtalen, TCP til dokumentet. Ulempen ved å bytte er frysing og etterslep i samtalen, og et ødelagt dokument i den andre retningen.**\n\n**Merk avgrensningen:** dette gjelder sanntids videosamtale. Video du *strømmer* fra en tjeneste, er noe annet — der ligger det sekunder med buffer, og da brukes TCP. Den forskjellen kommer igjen i [kap. 4.5](/bok/in1020/in1020-4-5).",
+        "hints": [
+          "Spør for hver: hva er verst — å vente, eller å miste noe?",
+          "Tenk gjennom hva TCP faktisk gjør mens den venter på en omsending."
+        ]
+      }
+    },
+    {
+      "id": "in1020-4-1-lokke3",
+      "type": "text",
+      "content": "## Løkke 3 — Protokoll til transport: tabellen som gir poeng (~13 min)\n\nNå til den enkeltlinjen i kapitlet som gir flest poeng på eksamen: hvilken transportprotokoll hver applikasjonsprotokoll bruker.\n\nDet er ingen dyp innsikt her. Det er en tabell, og den skal pugges. Men den har en logikk som gjør puggingen kort: **spør om protokollen tåler å miste noe.**"
+    },
+    {
+      "id": "in1020-4-1-teo-protokoll-transport",
+      "type": "theorem",
+      "title": "Protokoll til transportprotokoll",
+      "content": "**Over TCP** — alt som ikke tåler tap:\n\n| Protokoll | Gjør | Hvorfor TCP |\n|---|---|---|\n| **HTTP** | Henter nettsider | En side med hull er ødelagt |\n| **IMAP** | Leser e-post fra en tjener | En e-post med hull er ødelagt |\n| **SMTP** | Sender e-post mellom tjenere | Samme |\n| **FTP** | Overfører filer | En fil med hull er ødelagt |\n| **DASH** | Strømmer video i segmenter | Segmentet må være helt for å kunne spilles |\n\n**Over UDP** — det som må være raskt i gang, og som tåler å prøve igjen:\n\n| Protokoll | Gjør | Hvorfor UDP |\n|---|---|---|\n| **DHCP** | Deler ut IP-adresser til maskiner som nettopp har koblet seg til | Maskinen har ennå ingen adresse — den kan ikke sette opp en forbindelse |\n\n**Over begge** — den ene som er både og:\n\n| Protokoll | Gjør | Hvorfor begge |\n|---|---|---|\n| **DNS** | Oversetter navn til IP-adresse | Vanlige oppslag går på UDP fordi de er små og skal gå fort; store svar og enkelte overføringer bruker TCP |\n\n**Huskeregelen:** de fem TCP-protokollene overfører noe som skal være **helt**. DHCP er den ene som må virke **før maskinen har en adresse**. DNS er den ene som er **begge deler** — og nettopp derfor er den favorittfellen: alternativet «DNS bruker bare UDP» ser riktig ut, og er galt."
+    },
+    {
+      "id": "in1020-4-1-eks-3",
+      "type": "example",
+      "title": "Eksempel 3: Koblingsoppgaven, med de vanlige fellene forklart",
+      "problem": "Svarform F3 — dra-og-slipp: koble hvert element til riktig kategori. Her skrevet som koblingsoppgave.\n\nKoble hver protokoll (1–5) til riktig transport (A–C). Hver kategori kan brukes flere ganger.\n\n**1.** DHCP · **2.** IMAP · **3.** DNS · **4.** FTP · **5.** HTTP\n\n**A.** TCP · **B.** UDP · **C.** Både TCP og UDP",
+      "solution": "**1 → B (UDP).** DHCP kjører før maskinen har fått en IP-adresse i det hele tatt. Uten adresse er det ingenting å sette opp en TCP-forbindelse med, så den må være tilkoblingsløs.\n\n**2 → A (TCP).** IMAP henter e-post fra en tjener. En e-post med hull i er ødelagt, så pålitelighet er et krav.\n\n**3 → C (både og).** Vanlige navneoppslag går på UDP fordi de er små og skal gå fort. Er svaret for stort, eller skal større mengder navnedata overføres, brukes TCP.\n\n**4 → A (TCP).** Filoverføring. Samme resonnement som for e-post: en fil med hull er ødelagt.\n\n**5 → A (TCP).** Nettsider. En side med manglende biter kan ikke vises riktig.\n\n**Fasit: 1→B, 2→A, 3→C, 4→A, 5→A.**\n\nLegg merke til at koblingen verken er 1→A, 2→B, 3→C eller noe annet mønster. Tre av fem havner i samme kategori, og det er helt vanlig i denne oppgavetypen.\n\n**De to fellene i dette settet:**\n\n**Felle 1 — å sette DNS på UDP alene.** Det er det halve svaret, og i en koblingsoppgave er et halvt svar et galt svar.\n\n**Felle 2 — å sette DHCP på TCP** fordi «det er viktig at maskinen får riktig adresse». Viktighet er ikke argumentet; muligheten til å sette opp en forbindelse er det. Uten adresse, ingen forbindelse."
+    },
+    {
+      "id": "in1020-4-1-o5",
+      "type": "exercise",
+      "exercise": {
+        "id": "in1020-4-1-o5",
+        "number": "5",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "(Sjanger J — nettverk, svarform F3: kobling.) Koble hver protokoll (1–6) til riktig lag (A–D). Hvert lag kan brukes flere ganger eller ikke i det hele tatt.\n\n**1.** IP · **2.** SMTP · **3.** UDP · **4.** DASH · **5.** TCP · **6.** DNS\n\n**A.** Applikasjonslaget · **B.** Transportlaget · **C.** Nettverkslaget · **D.** Lenkelaget",
+        "solution": "**1 → C (nettverkslaget).** IP er nettverkslagets protokoll: adressering og ruting mellom nett.\n\n**2 → A (applikasjonslaget).** SMTP sender e-post mellom tjenere — en tjeneste for brukeren.\n\n**3 → B (transportlaget).** UDP er den ene av transportlagets to protokoller.\n\n**4 → A (applikasjonslaget).** DASH strømmer video i segmenter og er en applikasjonsprotokoll, selv om den bruker TCP under.\n\n**5 → B (transportlaget).** TCP er den andre av de to.\n\n**6 → A (applikasjonslaget).** DNS er en tjeneste som oversetter navn til adresser. At den kan bruke begge transportprotokoller, endrer ikke hvilket lag den selv hører til.\n\n**Fasit: 1→C, 2→A, 3→B, 4→A, 5→B, 6→A.**\n\n**Lenkelaget (D) er ikke i bruk.** Det er med vilje: en koblingsoppgave krever ikke at alle kategoriene brukes, og å tvinge inn en ubrukt kategori er en fast måte å miste poeng på.\n\n**Fella i settet:** å plassere DASH eller DNS i transportlaget fordi de *bruker* TCP eller UDP. Å bruke et lag er ikke å være i det — alle applikasjonsprotokoller bruker transportlaget.",
+        "hints": [
+          "Skill mellom hva en protokoll ER og hva den BRUKER.",
+          "Transportlaget har nøyaktig to protokoller i dette faget. Finn dem først."
+        ]
+      }
+    },
+    {
+      "id": "in1020-4-1-o6",
+      "type": "exercise",
+      "exercise": {
+        "id": "in1020-4-1-o6",
+        "number": "6",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "(Sjanger J — nettverk, svarform F4.) Hvilken transportprotokoll bruker hver av disse, og begrunn hvert svar med én setning?\n\n**a)** DHCP\n\n**b)** DNS\n\n**c)** FTP\n\n**d)** HTTP",
+        "solution": "**a) UDP.** DHCP kjører før maskinen har en IP-adresse, og uten adresse kan den ikke sette opp en TCP-forbindelse.\n\n**b) Både TCP og UDP.** Små, raske oppslag går på UDP; store svar og enkelte overføringer bruker TCP. Krysser du bare av UDP, har du halve svaret.\n\n**c) TCP.** En overført fil må være komplett og i riktig rekkefølge for å være brukbar.\n\n**d) TCP.** En nettside med manglende biter kan ikke vises riktig.\n\n**Fasit: a) UDP, b) begge, c) TCP, d) TCP.**\n\nMerk at fasiten ikke har noe fast mønster — tre ulike svar fordelt på fire delspørsmål. Bruk aldri fordelingen som ledetråd; alle fire kunne like gjerne vært TCP.",
+        "hints": [
+          "Spør for hver: tåler denne protokollen at noe forsvinner underveis?",
+          "Én av de fire har to riktige svar samtidig."
+        ]
+      }
+    },
+    {
+      "id": "in1020-4-1-lokke4",
+      "type": "text",
+      "content": "## Løkke 4 — Avgrensningen, og oppgaven på eksamensnivå (~12 min)\n\nÉn ting til før eksamensoppgaven: hva du **ikke** skal bruke tid på.\n\nFaget bruker TCP/IP-modellens fire lag. Det finnes en annen, eldre lagmodell med sju lag som er svært utbredt i lærebøker og på nettet, og som du fort snubler over hvis du søker opp stoffet på egen hånd. Den er **ikke pensum** her, og en oppgave besvart med den modellens lagnavn treffer ikke."
+    },
+    {
+      "id": "in1020-4-1-warn",
+      "type": "warning",
+      "title": "Typiske feil",
+      "content": "**Felle #10 — å bruke gammelt pensum.** OSI-modellens sju lag er **ikke pensum** i dette emnet og skal ikke drilles. Bruk de fire lagene i TCP/IP-modellen: applikasjon, transport, nettverk, lenke. Detaljert teori om adresseoppslagstabeller på det lokale nettet og de gamle private adresseklassene er også **utenfor pensum**. Nevnes her bare så du kjenner igjen stoffet og kan la det ligge.\n\n**Å legge ruting i transportlaget.** Ruting er nettverkslagets definerende oppgave. Denne forvekslingen er den hyppigste enkeltfeilen i kapitlet, fordi transportlaget «høres ut som» det som frakter.\n\n**Å tro at TCP krypterer.** TCP gir pålitelighet, ikke konfidensialitet. Sjekksummen avslører tilfeldige endringer; den beskytter ikke mot noen som med vilje endrer innholdet. Krysser du av «TCP sikrer innholdet mot innsyn», mister du poeng — og i dette faget trekker gale kryss.\n\n**Å sette DHCP på TCP.** Maskinen har ingen adresse ennå, og uten adresse kan ingen forbindelse settes opp.\n\n**Å sette DNS på bare UDP.** DNS bruker begge. Halve svaret er galt svar i en koblingsoppgave.\n\n**Å blande MAC-adresse og IP-adresse.** MAC gjelder én strekning, IP gjelder hele reisen."
+    },
+    {
+      "id": "in1020-4-1-eks-4",
+      "type": "example",
+      "title": "Eksempel 4: Eksamensnivå — alternativene forklart ett for ett",
+      "problem": "Svarform F1 — velg ett *eller flere* alternativer. Kryss av **alle** påstandene som stemmer.\n\n**a)** Ruting av pakker mellom nett skjer i nettverkslaget.\n\n**b)** TCP tilbyr flytkontroll, slik at avsenderen ikke sender fortere enn mottakeren klarer å ta imot.\n\n**c)** Portnumre brukes i nettverkslaget for å skille verter fra hverandre.\n\n**d)** DNS kan bruke både TCP og UDP.\n\n**e)** TCP krypterer innholdet slik at ingen kan lese det underveis.",
+      "solution": "**a) Riktig.** Ruting er nettverkslagets definerende oppgave. Hver ruter leser mottaker-IP-en og velger neste steg.\n\n**b) Riktig.** Flytkontroll er én av TCPs fire garantier, ved siden av omsending, rekkefølge og metningskontroll.\n\n**c) Galt — to feil i én setning.** Portnumre hører til **transportlaget**, ikke nettverkslaget, og de skiller **programmer på samme vert**, ikke verter fra hverandre. Verter skilles av IP-adresser. Denne distraktoren er bygd slik at den som bare kjenner ordet «portnummer», men ikke hva det gjør, krysser av.\n\n**d) Riktig.** Vanlige oppslag går på UDP, større svar og enkelte overføringer på TCP.\n\n**e) Galt.** TCP gir ingen konfidensialitet. Kryptering ligger i et eget lag over transporten — derfor finnes `https` ved siden av `http`. Sjekksummen i TCP avslører tilfeldige endringer, men skjuler ingenting for noen.\n\n**Fasit: a, b og d.**\n\n**Om negativ poenggiving:** tre av fem er riktige. En kandidat som er redd for å krysse av «for mange», og bare tar a), mister to sikre poeng uten å ha svart noe galt. Regelen er ikke «kryss lite» — den er «kryss det du kan begrunne». Alle tre riktige her kan begrunnes med én setning hver."
+    },
+    {
+      "id": "in1020-4-1-o7",
+      "type": "exercise",
+      "exercise": {
+        "id": "in1020-4-1-o7",
+        "number": "7",
+        "type": "classic",
+        "difficulty": "vanskelig",
+        "task": "(Eksamensnivå, sjanger J — nettverk, svarform F2.) Vurder hver påstand som sann eller usann, og begrunn hver rad.\n\n| # | Påstand | Sant/usant |\n|---|---|---|\n| a | En ruter må pakke opp helt til applikasjonslaget for å sende en pakke videre | |\n| b | UDP har en sjekksum | |\n| c | En MAC-adresse kan brukes til å nå en maskin på den andre siden av verden | |\n| d | TCP setter opp en forbindelse før data sendes | |\n| e | Metningskontroll handler om at nettet mellom partene er overbelastet | |",
+        "solution": "**a) Usann.** Ruteren pakker opp til **nettverkslaget**, leser mottaker-IP-en og sender videre. Den har ingen grunn til å se på innholdet over det — og gjør den det, er den ikke lenger bare en ruter. Dette er innkapslingsprinsippet i praksis: hvert lag leser bare sitt eget hode.\n\n**b) Sann.** UDP har en sjekksum som avslører at innholdet er endret. Forskjellen fra TCP er at UDP ikke gjør noe med funnet: pakken forkastes, og ingen ny bes om.\n\n**c) Usann.** MAC-adressen gjelder bare på den lokale strekningen, til neste maskin. Det som gjelder hele reisen, er IP-adressen. Påstanden bytter om de to adressetypene.\n\n**d) Sann.** TCP er tilkoblingsorientert: en forbindelse settes opp før nyttedata sendes. Det er dette oppsettet UDP hopper over, og som gjør UDP raskere i gang.\n\n**e) Sann.** Metningskontroll demper avsenderens fart når **nettet mellom** partene er overbelastet. Det er verdt å skille den fra flytkontroll, som handler om at **mottakeren** ikke rekker unna. To ulike problemer, to ulike mekanismer.\n\n**Fasit: a usann, b sann, c usann, d sann, e sann.**\n\nFordelingen er tre sanne og to usanne, og de er ikke sortert. En matrise har ingen fast fordeling — regn hver rad for seg.",
+        "hints": [
+          "For a): hvilket hode må ruteren lese for å gjøre jobben sin?",
+          "For e): skill mellom hvem som ikke rekker unna — mottakeren eller nettet."
+        ]
+      }
+    },
+    {
+      "id": "in1020-4-1-o8",
+      "type": "exercise",
+      "exercise": {
+        "id": "in1020-4-1-o8",
+        "number": "8",
+        "type": "classic",
+        "difficulty": "vanskelig",
+        "task": "(Eksamensnivå, sjanger J — nettverk, svarform F1.) En kollega feilsøker en tjeneste som er treg, og sier: «Vi bytter fra TCP til UDP, da blir alt raskere, og så slår vi på sjekksummen for å beholde sikkerheten.»\n\nKryss av **alle** innvendingene som er faglig holdbare, og begrunn hvert av de fire alternativene.\n\n**a)** UDP gir ingen omsending, så tapte data blir borte for godt med mindre programmet selv håndterer det.\n\n**b)** Sjekksummen er ikke et sikkerhetstiltak — den avslører tilfeldige endringer, ikke bevisste.\n\n**c)** UDP kan ikke brukes sammen med IP, og krever et eget nettverkslag.\n\n**d)** Om tregheten skyldes veien pakkene tar, hjelper det ikke å bytte transportprotokoll — veivalget ligger i nettverkslaget.",
+        "solution": "**a) Holdbar.** Dette er den grunnleggende innvendingen. TCPs omsending er ikke gratis pynt; den er grunnen til at filer kommer fram hele. Fjerner du den, må applikasjonen selv oppdage tap og be om nye data — altså bygge TCP på nytt, som regel dårligere.\n\n**b) Holdbar.** Sjekksummen er en feilkontroll, ikke et sikkerhetstiltak. Den fanger opp bit som har snudd seg underveis. En angriper som endrer innholdet med vilje, regner bare ut en ny sjekksum. Konfidensialitet får du uansett ikke — sjekksummen skjuler ingenting.\n\n**c) Ikke holdbar.** UDP kjører på IP på nøyaktig samme måte som TCP gjør. De to er alternative transportprotokoller **over** det samme nettverkslaget. Distraktoren spiller på at UDP «er annerledes», uten at forskjellen ligger der.\n\n**d) Holdbar.** Er problemet at pakkene tar en lang eller overbelastet vei, ligger årsaken i nettverkslaget, og transportprotokollen er irrelevant for veivalget. Å bytte transport uten å vite hvor tregheten oppstår, er å gjette.\n\n**Fasit: a, b og d.**\n\n**Merk hvordan c) er bygd:** den er den eneste påstanden som er faktisk gal om hvordan lagene henger sammen, mens de tre andre er ekte faglige innvendinger. Under negativ poenggiving er det å kjenne igjen den ene gale like verdifullt som å kjenne de tre riktige.",
+        "hints": [
+          "Gå gjennom TCPs fire garantier og spør hva som forsvinner ved et bytte.",
+          "For c): hvilket lag ligger IP i, og hvilket lag ligger UDP i?",
+          "For d): kan transportlaget påvirke hvilken vei pakkene tar?"
+        ]
+      }
+    },
+    {
+      "id": "in1020-4-1-begrepsbank",
+      "type": "text",
+      "content": "## Begrepsbank\n\nBegrepsbanken er flashcard- og repetisjonsstoff — den gjentar det du nettopp har lest. Hopp trygt over ved førstegangslesing; tidsanslaget for kapitlet gjelder kjernestoffet."
+    },
+    {
+      "id": "in1020-4-1-bank-1",
+      "type": "definition",
+      "title": "Vert",
+      "content": "En maskin som er koblet til nettet og har sin egen adresse: en PC, en mobil, en tjenermaskin.\n\nFaget bruker «vert» der dagligtalen sier «maskin». Ordet er valgt fordi det som teller, er at enheten kan adresseres — ikke hva slags kasse den ligger i.\n\nDen faste feilslutningen: å tro at bare tjenermaskiner er verter. Din egen PC er like mye en vert som maskinen den snakker med."
+    },
+    {
+      "id": "in1020-4-1-bank-2",
+      "type": "definition",
+      "title": "Pakke",
+      "content": "En avgrenset bit data som sendes for seg, med avsender- og mottakeradresse på.\n\nData deles opp fordi det gjør nettet delbart: mange samtaler kan bruke samme linje om hverandre, og en tapt bit koster lite å sende på nytt.\n\nDen faste feilslutningen: å tro at alle pakkene i én overføring tar samme vei. Hver pakke rutes for seg, og de kan komme fram i en annen rekkefølge enn de ble sendt."
+    },
+    {
+      "id": "in1020-4-1-bank-3",
+      "type": "definition",
+      "title": "Portnummer",
+      "content": "Tallet transportlaget bruker for å skille **programmer** på samme vert fra hverandre.\n\nNettleseren og e-postklienten din deler én IP-adresse. Portnummeret er det som gjør at svaret på nettleserens forespørsel havner i nettleseren og ikke i e-postklienten.\n\nDen faste feilslutningen: å tro at portnumre skiller **verter**. Verter skilles av IP-adresser; porter skiller programmer. Det er en av de faste distraktorene i sjangeren."
+    },
+    {
+      "id": "in1020-4-1-bank-4",
+      "type": "definition",
+      "title": "IP-adresse",
+      "content": "Adressen som gjelder **hele reisen**, fra avsender til mottaker, uansett hvor mange rutere som ligger imellom.\n\nIP-adressen ligger i nettverkslagets hode og leses av hver ruter på veien. Den skrives i punktnotasjon, fire tall fra 0 til 255, for eksempel `192.168.4.19`.\n\nDen faste feilslutningen: å blande IP-adressen med maskinvareadressen på det lokale nettet. Maskinvareadressen tar deg til neste maskin; IP-adressen tar deg hele veien."
+    },
+    {
+      "id": "in1020-4-1-bank-5",
+      "type": "definition",
+      "title": "MAC-adresse",
+      "content": "Maskinvareadressen som er knyttet til nettverkskortet, og som brukes på **den ene strekningen** til neste maskin på det lokale nettet.\n\nDen byttes ut for hvert steg på reisen: fra PC-en din til ruteren i gangen brukes ruterens maskinvareadresse, og på neste strekning en helt annen.\n\nDen faste feilslutningen: å tro at man kan nå en maskin i et annet land ved hjelp av maskinvareadressen. Den gjelder bare lokalt."
+    },
+    {
+      "id": "in1020-4-1-bank-6",
+      "type": "definition",
+      "title": "Ruter",
+      "content": "En maskin i nettverkslaget som tar imot pakker, leser mottaker-IP-en, slår opp i sin egen tabell og sender pakken videre mot neste steg.\n\nIngen ruter kjenner hele veien fram. Hver kjenner bare hvilken retning som er riktig neste steg, og til sammen får det pakken fram.\n\nDen faste feilslutningen: å tro at ruteren ser på innholdet i pakken. Den pakker opp til nettverkslagets hode og ikke lenger."
+    },
+    {
+      "id": "in1020-4-1-bank-7",
+      "type": "definition",
+      "title": "Ruting",
+      "content": "Å velge hvilken vei en pakke skal ta videre gjennom nettet. Dette er **nettverkslagets** definerende oppgave.\n\nBeslutningen tas på nytt hos hver ruter, ut fra mottakeradressen og ruterens tabell.\n\nDen faste feilslutningen — og den hyppigste enkeltfeilen i kapitlet: å legge ruting i transportlaget fordi det «høres ut som» det som frakter. Transportlaget velger garantinivå og riktig program, aldri vei."
+    },
+    {
+      "id": "in1020-4-1-bank-8",
+      "type": "definition",
+      "title": "Tilkoblingsorientert",
+      "content": "At det settes opp en forbindelse mellom partene før nyttedata sendes, og at forbindelsen holdes ved like til overføringen er ferdig.\n\nTCP er tilkoblingsorientert. Oppsettet koster litt tid i starten, og til gjengjeld kan begge parter holde styr på hva som er sendt, mottatt og bekreftet.\n\nDen faste feilslutningen: å tro at «tilkoblingsorientert» betyr at det finnes en fysisk, dedikert linje. Pakkene deler linjene med alle andre; forbindelsen er en bokføring i de to endene."
+    },
+    {
+      "id": "in1020-4-1-bank-9",
+      "type": "definition",
+      "title": "Tilkoblingsløs",
+      "content": "At hver pakke sendes for seg, uten noe forutgående oppsett og uten at noen holder styr på hva som er kommet fram.\n\nUDP er tilkoblingsløs. Det gir null ventetid i starten og ingen bokføring underveis.\n\nDen faste feilslutningen: å lese «tilkoblingsløs» som «upålitelig i betydningen ustabil». Nettet er like stabilt; det er bare ingen som rydder opp etter tap."
+    },
+    {
+      "id": "in1020-4-1-bank-10",
+      "type": "definition",
+      "title": "Trevegs håndtrykk",
+      "content": "Oppsettsrunden i TCP: den ene parten ber om forbindelse, den andre svarer, og den første bekrefter svaret. Tre meldinger, derav navnet.\n\nEtter håndtrykket er begge parter enige om at forbindelsen er oppe, og om hvor nummereringen av segmentene starter.\n\nDen faste feilslutningen: å tro at nyttedata sendes i håndtrykket. Håndtrykket er ren avtale; dataene kommer etterpå."
+    },
+    {
+      "id": "in1020-4-1-bank-11",
+      "type": "definition",
+      "title": "Flytkontroll",
+      "content": "TCPs mekanisme for at avsenderen ikke skal sende fortere enn **mottakeren** klarer å ta imot.\n\nMottakeren melder fra om hvor mye plass den har igjen, og avsenderen retter seg etter det.\n\nDen faste feilslutningen: å blande flytkontroll med metningskontroll. Flytkontroll handler om mottakerens kapasitet; metningskontroll om nettets."
+    },
+    {
+      "id": "in1020-4-1-bank-12",
+      "type": "definition",
+      "title": "Metningskontroll",
+      "content": "TCPs mekanisme for å dempe farten når **nettet mellom** partene er overbelastet.\n\nAvsenderen tolker tap og forsinkelser som tegn på kø, og senker farten. Uten dette ville mange samtidige overføringer kvele hverandre.\n\nDen faste feilslutningen: å tro at dette er samme sak som flytkontroll. De to løser hvert sitt problem, og eksamen skiller mellom dem."
+    },
+    {
+      "id": "in1020-4-1-bank-13",
+      "type": "definition",
+      "title": "Sjekksum",
+      "content": "Et lite kontrolltall som følger med pakken, og som mottakeren regner ut på nytt for å se om innholdet er endret underveis.\n\nBåde TCP og UDP har sjekksum. Forskjellen er hva som skjer etterpå: TCP ber om en ny sending, UDP forkaster pakken.\n\nDen faste feilslutningen — og den koster poeng i sikkerhetsdelen også: å regne sjekksummen som et sikkerhetstiltak. Den avslører **tilfeldige** endringer. En som endrer innholdet med vilje, regner bare ut en ny sjekksum."
+    },
+    {
+      "id": "in1020-4-1-bank-14",
+      "type": "definition",
+      "title": "Rekkefølgegaranti",
+      "content": "At mottakeren får segmentene i den rekkefølgen de ble sendt, uansett hvilken rekkefølge de kom fram i.\n\nTCP nummererer segmentene og holder igjen dem som kommer for tidlig, til hullet foran er fylt.\n\nDen faste feilslutningen: å tro at dette følger av at nettet leverer i rekkefølge. Det gjør nettet ikke — pakker rutes hver for seg, og garantien er noe TCP skaper i etterkant."
+    },
+    {
+      "id": "in1020-4-1-bank-15",
+      "type": "definition",
+      "title": "HTTP",
+      "content": "Applikasjonsprotokollen som henter nettsider. Klienten ber om en ressurs, tjeneren svarer med den.\n\nHTTP bruker **TCP**, fordi en side med manglende biter ikke kan vises riktig.\n\nDen faste feilslutningen: å tro at HTTP i seg selv beskytter innholdet. Det gjør den ikke; `https` er HTTP med et krypteringslag mellom applikasjonen og transporten."
+    },
+    {
+      "id": "in1020-4-1-bank-16",
+      "type": "definition",
+      "title": "SMTP",
+      "content": "Applikasjonsprotokollen som **sender** e-post, i praksis mellom e-posttjenere.\n\nBruker **TCP**: en e-post med hull i er ødelagt.\n\nDen faste feilslutningen: å blande SMTP med protokollen som *henter* e-post. Sending og henting er to forskjellige jobber med hver sin protokoll."
+    },
+    {
+      "id": "in1020-4-1-bank-17",
+      "type": "definition",
+      "title": "IMAP",
+      "content": "Applikasjonsprotokollen som **leser** e-post som ligger på en tjener, uten å måtte flytte den ned til maskinen først.\n\nBruker **TCP**, av samme grunn som SMTP.\n\nDen faste feilslutningen: å tro at IMAP også sender. Den leser; sendingen er SMTPs jobb."
+    },
+    {
+      "id": "in1020-4-1-bank-18",
+      "type": "definition",
+      "title": "FTP",
+      "content": "Applikasjonsprotokollen for filoverføring mellom maskiner.\n\nBruker **TCP**: en fil med hull eller blokker i feil rekkefølge er ubrukelig.\n\nDen faste feilslutningen: å tro at FTP er kryptert. Den er det ikke i sin grunnform, og det er derfor den i praksis er byttet ut med krypterte alternativer."
+    },
+    {
+      "id": "in1020-4-1-bank-19",
+      "type": "definition",
+      "title": "DHCP",
+      "content": "Applikasjonsprotokollen som deler ut IP-adresse, nettmaske og annen oppstartsinformasjon til en maskin som nettopp har koblet seg til nettet.\n\nBruker **UDP** — og grunnen er verdt å huske: maskinen har ennå ingen adresse, og uten adresse kan den ikke sette opp en TCP-forbindelse.\n\nDen faste feilslutningen: å plassere DHCP på TCP fordi «det er viktig at adressen blir riktig». Viktighet er ikke argumentet; muligheten til å sette opp en forbindelse er det."
+    },
+    {
+      "id": "in1020-4-1-bank-20",
+      "type": "definition",
+      "title": "DNS over transportlaget",
+      "content": "DNS oversetter navn til IP-adresse, og er den ene protokollen i pensum som bruker **både TCP og UDP**.\n\nVanlige oppslag går på UDP fordi de er små og skal gå fort. Store svar og enkelte overføringer av navnedata bruker TCP.\n\nDen faste feilslutningen — favorittfellen i sjangeren: å krysse av bare UDP. Halve svaret er galt svar i en koblingsoppgave."
+    },
+    {
+      "id": "in1020-4-1-bank-21",
+      "type": "definition",
+      "title": "Segment, pakke og ramme",
+      "content": "Navnene på dataenheten i hvert lag, ovenfra og ned: transportlaget har **segmentet**, nettverkslaget har **pakken**, lenkelaget har **rammen**.\n\nDet er samme data hele veien — bare med flere lag konvolutt utenpå for hvert steg nedover.\n\nDen faste feilslutningen: å tro at det er tre ulike ting. Navnet forteller hvilket lag du snakker om, ikke hva som er inni."
+    },
+    {
+      "id": "in1020-4-1-bank-22",
+      "type": "definition",
+      "title": "Det fysiske laget",
+      "content": "Selve overføringen av bit som noe fysisk: spenninger i en kobberkabel, lys i en fiber, radiobølger i lufta.\n\nNoen framstillinger regner dette som et eget femte lag under lenkelaget; andre regner det som en del av lenkelaget.\n\nDen faste feilslutningen: å blande det fysiske laget med lenkelaget. Lenkelaget bestemmer **hvordan bitene organiseres** i rammer og adresseres lokalt; det fysiske laget er signalet selv."
+    },
+    {
+      "id": "in1020-4-1-bank-23",
+      "type": "definition",
+      "title": "Klient og tjener i protokollsammenheng",
+      "content": "Rollefordelingen de fleste applikasjonsprotokollene bygger på: **klienten** tar initiativet og spør, **tjeneren** venter og svarer.\n\nNettleseren din er klient, nettstedets maskin er tjener. Rollene er knyttet til hvem som spør, ikke til hvor kraftig maskinen er.\n\nDen faste feilslutningen: å tro at rollen er en egenskap ved maskinen. Samme maskin kan være tjener for én tjeneste og klient for en annen i samme sekund."
+    },
+    {
+      "id": "in1020-4-1-bank-24",
+      "type": "definition",
+      "title": "Hva TCP ikke gir",
+      "content": "Den setningen som gir flest poeng i kapitlet, samlet på ett sted. TCP gir **ikke**:\n\n- **kryptering** — innholdet er lesbart for den som kan se pakkene\n- **ruting** — veivalget hører til nettverkslaget\n- **garantert fart** — TCP lover at det kommer fram, ikke når\n\nDen faste feilslutningen: å utvide TCPs løfter fordi den «passer på så mye». Alt TCP gjør, handler om de to endene av forbindelsen."
+    },
+    {
+      "id": "in1020-4-1-bank-25",
+      "type": "definition",
+      "title": "Lagdelingens poeng",
+      "content": "Hvorfor modellen er delt opp i det hele tatt: hvert lag kan skiftes ut uten at de andre merker det.\n\nDu kan bytte fra kabel til trådløst uten å endre nettleseren, og du kan bytte nettleser uten å endre noe i nettet. Grensesnittene mellom lagene ligger fast.\n\nDen faste feilslutningen: å lete etter et fysisk skille mellom lagene i maskinen. Lagdelingen er en måte å dele opp ansvaret på, ikke en beskrivelse av hvor ting ligger."
+    },
+    {
+      "id": "in1020-4-1-bank-26",
+      "type": "definition",
+      "title": "Innkapslingens pris",
+      "content": "At hvert lag legger på sitt eget hode, betyr at det alltid sendes flere byte over nettet enn det er nyttedata.\n\nFor små meldinger kan hodene utgjøre en merkbar andel av totalen. Det er en av grunnene til at UDP, med sitt korte hode, velges der hver millisekund og hver byte teller.\n\nDen faste feilslutningen: å regne overføringstid på nyttedataene og tro at det er hele bildet. I dette faget regnes overføringstid på filstørrelsen, og hodene holdes utenfor — se [kap. 4.3](/bok/in1020/in1020-4-3)."
+    },
+    {
+      "id": "in1020-4-1-repetisjon",
+      "type": "collapsible",
+      "title": "Repetisjon — sitter lagene og protokollene?",
+      "buttonText": "Vis repetisjon",
+      "content": [
+        {
+          "id": "in1020-4-1-repetisjon-tekst",
+          "type": "text",
+          "content": "Ta denne rett før du går videre til [kap. 4.2](/bok/in1020/in1020-4-2). Svar i hodet før du leser videre på linja.\n\n**1. De fire lagene ovenfra og ned?** Applikasjon, transport, nettverk, lenke.\n\n**2. Hvor skjer ruting?** I nettverkslaget. Aldri i transportlaget.\n\n**3. TCPs fire garantier?** Omsending av tapte pakker, riktig rekkefølge, flytkontroll, metningskontroll. Pluss sjekksum.\n\n**4. Hva TCP ikke gir?** Kryptering, ruting, garantert fart.\n\n**5. Forskjellen på flytkontroll og metningskontroll?** Flytkontroll: mottakeren rekker ikke unna. Metningskontroll: nettet er overbelastet.\n\n**6. Protokoll til transport?** HTTP, IMAP, SMTP, FTP og DASH på TCP. DHCP på UDP. DNS på begge.\n\n**7. Hvorfor bruker DHCP UDP?** Maskinen har ennå ingen adresse og kan ikke sette opp en forbindelse.\n\n**8. Forskjellen på IP-adresse og maskinvareadresse?** IP gjelder hele reisen; maskinvareadressen gjelder én strekning.\n\n**9. Hva gjør en ruter med pakken?** Pakker opp til nettverkslagets hode, leser mottakeradressen, sender videre. Ikke mer.\n\n**10. Hvor mange lag bruker dette faget?** Fire. Sjulagsmodellen er ikke pensum.\n\nSitter alle ti? Da er du klar for adresseregningen i [kap. 4.2](/bok/in1020/in1020-4-2). Glapp noe på 6 eller 7, gå tilbake til tabellen i løkke 3 — den er den mest lønnsomme puggejobben i hele del 4."
+        }
+      ]
+    }
+  ],
+  "exercises": []
+}

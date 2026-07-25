@@ -1,0 +1,242 @@
+[
+  {
+    "question": "Hvilken rekkefølge har TCP/IP-modellens fire lag ovenfra og ned?",
+    "options": [
+      "Applikasjon, transport, nettverk, lenke",
+      "Applikasjon, nettverk, transport, lenke",
+      "Transport, applikasjon, nettverk, lenke",
+      "Lenke, nettverk, transport, applikasjon"
+    ],
+    "explanation": "Data går ned gjennom applikasjon, transport, nettverk og lenke hos avsenderen. Alternativ 2 bytter om transport og nettverk, som er den vanligste forvekslingen. Alternativ 3 setter transporten øverst, over tjenesten den betjener. Alternativ 4 er listen lest nedenfra og opp, altså mottakerens vei."
+  },
+  {
+    "question": "I hvilket lag skjer ruting av pakker mellom nett?",
+    "options": [
+      "I nettverkslaget",
+      "I transportlaget",
+      "I lenkelaget",
+      "I applikasjonslaget"
+    ],
+    "explanation": "Ruting er nettverkslagets definerende oppgave: hver ruter leser mottaker-IP-en og velger neste steg. Alternativ 2 er den hyppigste feilkryssingen i sjangeren — transportlaget velger garantinivå, ikke vei. Alternativ 3 gjelder bare den ene strekningen til neste maskin. Alternativ 4 er tjenesten brukeren ser, og den vet ingenting om veien."
+  },
+  {
+    "question": "Hva bruker transportlaget portnumre til?",
+    "options": [
+      "Å skille programmene på samme vert fra hverandre",
+      "Å skille vertene på det samme lokale nettet fra hverandre",
+      "Å velge hvilken rute pakken skal ta videre",
+      "Å angi hvilket lag pakken hører hjemme i"
+    ],
+    "explanation": "Nettleseren og e-postklienten deler én IP-adresse, og portnummeret gjør at svaret havner riktig sted. Alternativ 2 er IP-adressens jobb, ikke portens. Alternativ 3 er ruting, som hører til nettverkslaget. Alternativ 4 beskriver ingenting som finnes — laget følger av hvilket hode man leser."
+  },
+  {
+    "question": "Hvilken av disse er IKKE en garanti TCP gir?",
+    "options": [
+      "Kryptering av innholdet",
+      "Omsending av tapte pakker",
+      "Levering i riktig rekkefølge",
+      "Flytkontroll mot mottakerens kapasitet"
+    ],
+    "explanation": "TCP gir pålitelighet, ikke konfidensialitet — derfor finnes https ved siden av http. Alternativ 2, 3 og 4 er alle ekte TCP-garantier: tapte segmenter sendes på nytt, nummereringen gir rekkefølge, og flytkontrollen holder farten nede når mottakeren ikke rekker unna."
+  },
+  {
+    "question": "Hva er forskjellen på flytkontroll og metningskontroll i TCP?",
+    "options": [
+      "Flytkontroll gjelder mottakerens kapasitet, metningskontroll gjelder nettets belastning",
+      "Flytkontroll gjelder nettets belastning, metningskontroll gjelder mottakerens kapasitet",
+      "Flytkontroll gjelder utgående trafikk, metningskontroll gjelder inngående trafikk",
+      "Flytkontroll gjelder små pakker, metningskontroll gjelder store pakker"
+    ],
+    "explanation": "Mottakeren melder hvor mye plass den har igjen (flytkontroll), mens tap og forsinkelser tolkes som kø i nettet (metningskontroll). Alternativ 2 bytter om de to. Alternativ 3 og 4 er oppdiktede skiller — begge mekanismene virker på avsenderens fart, uansett retning og pakkestørrelse."
+  },
+  {
+    "question": "Hvilken transportprotokoll bruker DHCP, og hvorfor?",
+    "options": [
+      "UDP, fordi maskinen ennå ikke har en adresse å sette opp en forbindelse med",
+      "TCP, fordi det er avgjørende at adressetildelingen kommer korrekt fram",
+      "UDP, fordi adressetildeling er en operasjon som gjentas mange ganger i sekundet",
+      "TCP, fordi tildelingen krever at begge parter er enige om nummereringen"
+    ],
+    "explanation": "Uten IP-adresse kan maskinen ikke etablere en TCP-forbindelse, så DHCP må være tilkoblingsløst. Alternativ 2 og 4 velger riktig premiss om viktighet, men feil konklusjon — viktighet avgjør ikke saken. Alternativ 3 har riktig protokoll, men gal begrunnelse: adresser tildeles sjelden, ikke ofte."
+  },
+  {
+    "question": "Hvilken transportprotokoll bruker DNS?",
+    "options": [
+      "Både TCP og UDP",
+      "Bare UDP",
+      "Bare TCP",
+      "Verken TCP eller UDP — DNS har sin egen transport"
+    ],
+    "explanation": "Vanlige oppslag går på UDP fordi de er små og raske; store svar og enkelte overføringer bruker TCP. Alternativ 2 er favorittfellen — det er halve svaret, og halve svaret er galt svar. Alternativ 3 utelater den vanligste bruken. Alternativ 4 finnes ikke: DNS er en applikasjonsprotokoll og trenger en transport under seg."
+  },
+  {
+    "question": "Hvilken transportprotokoll bruker HTTP, IMAP, SMTP og FTP?",
+    "options": [
+      "Alle fire bruker TCP",
+      "Alle fire bruker UDP",
+      "HTTP og FTP bruker TCP, IMAP og SMTP bruker UDP",
+      "HTTP bruker TCP, de tre andre bruker UDP"
+    ],
+    "explanation": "Alle fire overfører noe som må være komplett — en side, en e-post, en fil — og krever derfor pålitelig transport. Alternativ 2 ville gitt ødelagte filer og e-poster. Alternativ 3 og 4 deler settet uten faglig grunn; e-postprotokollene har nøyaktig samme behov som de to andre."
+  },
+  {
+    "question": "Hva gjør en ruter når en pakke kommer inn?",
+    "options": [
+      "Pakker opp til nettverkslagets hode, leser mottakeradressen og sender videre",
+      "Pakker opp helt til applikasjonslaget for å lese hva pakken inneholder, før den sendes videre",
+      "Leser maskinvareadressen til den endelige mottakeren og sender direkte dit",
+      "Setter opp en TCP-forbindelse til neste ruter før pakken sendes videre"
+    ],
+    "explanation": "Innkapslingsprinsippet er at hvert lag leser bare sitt eget hode, og ruteren trenger bare IP-hodet. Alternativ 2 beskriver noe en ruter ikke har grunn til å gjøre. Alternativ 3 er umulig: maskinvareadresser gjelder bare én strekning. Alternativ 4 legger transportlagets arbeid inn i nettverkslaget."
+  },
+  {
+    "question": "Hva er forskjellen på en IP-adresse og en maskinvareadresse (MAC-adresse)?",
+    "options": [
+      "IP-adressen gjelder hele reisen, maskinvareadressen bare den ene strekningen til neste maskin",
+      "Maskinvareadressen gjelder hele reisen, mens IP-adressen bare gjelder den ene strekningen til neste maskin",
+      "IP-adressen brukes av programmer, maskinvareadressen brukes av operativsystemet",
+      "IP-adressen er permanent, mens maskinvareadressen tildeles på nytt for hver pakke"
+    ],
+    "explanation": "IP-adressen står i nettverkslagets hode og leses av hver ruter; maskinvareadressen byttes ut for hvert steg. Alternativ 2 bytter om de to rollene. Alternativ 3 beskriver et skille som ikke finnes. Alternativ 4 har det motsatt: maskinvareadressen ligger fast i kortet, mens IP-adressen ofte tildeles på nytt."
+  },
+  {
+    "question": "Hva betyr det at UDP er tilkoblingsløs?",
+    "options": [
+      "Hver pakke sendes for seg, uten oppsett og uten bokføring av hva som kom fram",
+      "Pakkene sendes uten at avsenderen kjenner mottakerens adresse på forhånd i det hele tatt",
+      "Pakkene sendes over et nett som ikke har fysiske forbindelser mellom vertene",
+      "Overføringen kan bare skje innenfor det lokale nettet, ikke mellom nett"
+    ],
+    "explanation": "Ingen oppsettsrunde og ingen bokføring gir null ventetid i starten, som er hele poenget med UDP. Alternativ 2 er umulig — adressen må alltid være kjent. Alternativ 3 og 4 blander sammen den logiske forbindelsen med fysiske linjer og med rekkevidde; UDP når like langt som TCP."
+  },
+  {
+    "question": "Hvilken av disse påstandene om innkapsling stemmer?",
+    "options": [
+      "Hvert lag legger sitt eget hode utenpå det laget over leverte",
+      "Hvert lag erstatter hodet fra laget over med sitt eget, slik at størrelsen holdes",
+      "Bare transportlaget og nettverkslaget legger på hoder",
+      "Hodene legges på hos mottakeren, ikke hos avsenderen"
+    ],
+    "explanation": "Hodene ligger som konvolutter utenpå hverandre, og pakkes opp i motsatt rekkefølge hos mottakeren. Alternativ 2 ville gjort det umulig å levere til riktig program. Alternativ 3 utelater lenkelaget, som også har sitt eget hode. Alternativ 4 snur prosessen — mottakeren pakker opp, den pakker ikke inn."
+  },
+  {
+    "question": "En videosamtale i sanntid bruker som regel UDP. Hva er hovedgrunnen?",
+    "options": [
+      "Et bilde som kommer for sent, er verdiløst selv om det er korrekt",
+      "Videodata er så store at TCP ikke klarer å håndtere dem",
+      "UDP krypterer innholdet, noe TCP ikke gjør",
+      "TCP kan ikke brukes til data som sendes kontinuerlig over lang tid"
+    ],
+    "explanation": "I sanntid er ferskhet viktigere enn fullstendighet, og TCPs omsending ville frosset bildet mens den ventet. Alternativ 2 er galt: TCP håndterer store overføringer utmerket. Alternativ 3 er feil — ingen av transportprotokollene krypterer. Alternativ 4 motsies av all filnedlasting og strømming, som nettopp bruker TCP."
+  },
+  {
+    "question": "Hvilket lag hører DASH, som strømmer video i segmenter, hjemme i?",
+    "options": [
+      "Applikasjonslaget — den er en tjeneste for brukeren",
+      "Transportlaget — den bruker TCP til å frakte segmentene",
+      "Nettverkslaget — den bestemmer veien videosegmentene tar",
+      "Lenkelaget — den sender segmentene over den lokale linja"
+    ],
+    "explanation": "DASH er en tjeneste for brukeren og hører derfor til applikasjonslaget, selv om den bruker TCP under seg. Alternativ 2 forveksler å bruke et lag med å være i det. Alternativ 3 og 4 hører til adressering og lokal overføring, som ingen applikasjonsprotokoll driver med."
+  },
+  {
+    "question": "Hva sier sjekksummen i TCP noe om?",
+    "options": [
+      "At innholdet er endret underveis, uten å si hva som er endret",
+      "At innholdet er lest av noen underveis",
+      "At avsenderen faktisk er den han utgir seg for å være overfor mottakeren",
+      "At pakkene kom fram i riktig rekkefølge"
+    ],
+    "explanation": "Sjekksummen er en feilkontroll som avslører endringer, men verken identifiserer dem eller beskytter mot bevisste endringer. Alternativ 2 er umulig — ingen kontrollsum kan oppdage lesing. Alternativ 3 er autentisitet, som krever helt andre mekanismer. Alternativ 4 sikres av nummereringen, ikke av sjekksummen."
+  },
+  {
+    "question": "Hvor mange lag har lagmodellen dette emnet bruker?",
+    "options": [
+      "Fire: applikasjon, transport, nettverk og lenke",
+      "Fem: de fire pluss et eget lag for sikkerhet og kryptering",
+      "Tre: applikasjon, transport og nettverk",
+      "To: et programlag og et maskinvarelag"
+    ],
+    "explanation": "Emnet bruker TCP/IP-modellens fire lag; sjulagsmodellen er ikke pensum. Alternativ 2 finnes ikke — kryptering er ikke et eget lag i modellen. Alternativ 3 mangler lenkelaget, som er det som faktisk får bitene over strekningen. Alternativ 4 er ingen lagmodell, bare et grovt skille."
+  },
+  {
+    "question": "Hva er den viktigste jobben til lenkelaget?",
+    "options": [
+      "Å få bitene over den ene strekningen fram til neste maskin",
+      "Å finne den beste veien gjennom nettet fram til mottakeren",
+      "Å sette segmentene i riktig rekkefølge før de leveres videre opp",
+      "Å oversette navn til IP-adresser før pakken sendes"
+    ],
+    "explanation": "Lenkelaget håndterer én strekning om gangen, med lokale maskinvareadresser. Alternativ 2 er ruting og hører til nettverkslaget. Alternativ 3 er TCPs arbeid i transportlaget. Alternativ 4 er DNS, en applikasjonsprotokoll."
+  },
+  {
+    "question": "Hvorfor kan et program ikke stole på at UDP-pakker kommer i rekkefølge?",
+    "options": [
+      "Pakkene rutes hver for seg og kan ta ulike veier med ulik forsinkelse",
+      "UDP sender pakkene i tilfeldig rekkefølge fra avsenderen",
+      "UDP mangler både sekvensnummer og avsenderadresse, så mottakeren kan ikke sortere dem",
+      "Rekkefølgen bestemmes av mottakerens portnummer, som varierer"
+    ],
+    "explanation": "Nettet gir ingen rekkefølgegaranti i seg selv, og TCP er den som skaper orden i etterkant. Alternativ 2 er galt: avsenderen sender i rekkefølge. Alternativ 3 er feil — UDP har avsenderadresse, men ingen sekvensnummer. Alternativ 4 beskriver noe portnumre ikke gjør."
+  },
+  {
+    "question": "En kollega sier: «Vi bytter til UDP, da går alt raskere.» Hva er den mest presise innvendingen?",
+    "options": [
+      "Skyldes tregheten veien pakkene tar, ligger årsaken i nettverkslaget",
+      "UDP kan ikke brukes sammen med IP og krever et helt annet nettverkslag under seg",
+      "UDP har større hoder enn TCP og gir derfor mer trafikk",
+      "UDP kan bare brukes av tjenermaskiner, ikke av klienter"
+    ],
+    "explanation": "Transportprotokollen påvirker ikke veivalget, så et bytte er å gjette hvis man ikke vet hvor tregheten oppstår. Alternativ 2 er faktisk galt: UDP kjører på IP akkurat som TCP. Alternativ 3 har det motsatt — UDPs hode er kortere. Alternativ 4 er oppspinn; begge roller bruker begge protokoller."
+  },
+  {
+    "question": "Hva er en protokoll?",
+    "options": [
+      "En avtale om format og rekkefølge på meldinger, som begge parter følger",
+      "Et program som må være installert på begge maskinene i en forbindelse for at den skal virke",
+      "Den fysiske forbindelsen mellom to maskiner på et nett",
+      "Et sett med adresser som identifiserer maskinene i et nett"
+    ],
+    "explanation": "Protokollen er regelboka; programmene på maskinene er implementasjoner av den. Alternativ 2 forveksler regelen med implementasjonen. Alternativ 3 er den fysiske overføringen, som ligger under alle protokollene. Alternativ 4 er adressering, som er én ting protokoller kan spesifisere, ikke hva de er."
+  },
+  {
+    "question": "Hva er riktig om trevegs håndtrykk i TCP?",
+    "options": [
+      "Det er tre meldinger som avtaler at forbindelsen er oppe, før nyttedata sendes",
+      "Det er tre meldinger som hver bærer med seg en tredel av de første dataene som skal sendes",
+      "Det er tre forsøk på å nå mottakeren før forbindelsen gis opp",
+      "Det er tre kontroller av sjekksummen før forbindelsen godkjennes"
+    ],
+    "explanation": "Håndtrykket er ren avtale om at forbindelsen er etablert og hvor nummereringen starter. Alternativ 2 legger nyttedata inn i oppsettet, som ikke skjer. Alternativ 3 beskriver en gjentakelsesregel, ikke håndtrykket. Alternativ 4 blander inn sjekksummen, som gjelder hver enkelt pakke."
+  },
+  {
+    "question": "Hvorfor deles data opp i pakker i stedet for å sendes som én lang strøm?",
+    "options": [
+      "Mange samtaler kan dele samme linje, og en tapt bit koster lite å sende på nytt",
+      "Fordi nettverkskortet bare klarer å sende én byte om gangen over den fysiske linja",
+      "Fordi IP-adresser bare kan følge med små datamengder",
+      "Fordi mottakeren ellers ville få dataene i feil rekkefølge"
+    ],
+    "explanation": "Oppdelingen gjør nettet delbart og gjør tap billig å reparere. Alternativ 2 er teknisk galt. Alternativ 3 er oppspinn — adressen står i hodet uansett størrelse. Alternativ 4 snur årsaksforholdet: det er nettopp oppdelingen som gjør at rekkefølgen kan bli feil."
+  },
+  {
+    "question": "Hvilket utsagn om lagdelingen stemmer?",
+    "options": [
+      "Et lag kan skiftes ut uten at de andre lagene må endres",
+      "Alle lagene må implementeres av samme leverandør for å virke sammen",
+      "Lagene ligger fysisk atskilt i ulike deler av maskinen",
+      "Et lag kan bare brukes av det laget som ligger rett under det"
+    ],
+    "explanation": "Faste grensesnitt mellom lagene er hele poenget: du kan bytte fra kabel til trådløst uten å endre nettleseren. Alternativ 2 motsies av at nettet fungerer på tvers av leverandører. Alternativ 3 forveksler ansvarsdeling med fysisk plassering. Alternativ 4 snur retningen — et lag betjener laget over seg."
+  },
+  {
+    "question": "Hva er den vanligste konsekvensen av å bruke TCP til en sanntids videosamtale?",
+    "options": [
+      "Bildet fryser mens tapte pakker sendes på nytt, og samtalen får etterslep",
+      "Bildet blir kornete fordi TCP komprimerer videodataene hardere enn UDP gjør",
+      "Samtalen brytes fordi TCP ikke støtter kontinuerlige strømmer",
+      "Lyden krypteres, mens bildet forblir ukryptert"
+    ],
+    "explanation": "TCP holder igjen alt som kommer etter en tapt pakke til den er sendt på nytt, og pålitelighetsgarantien blir da en forsinkelsesgaranti. Alternativ 2 er galt: transportprotokoller komprimerer ikke. Alternativ 3 er feil — TCP håndterer lange strømmer fint. Alternativ 4 er oppspinn; TCP krypterer ingenting."
+  }
+]
