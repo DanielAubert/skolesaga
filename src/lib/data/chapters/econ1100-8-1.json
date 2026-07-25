@@ -1,0 +1,356 @@
+{
+  "id": "econ1100-8-1",
+  "courseId": "econ1100",
+  "chapterNumber": "8.1",
+  "title": "Lagrange-metoden: oppsett og førsteordensbetingelser",
+  "description": "Å optimere under en bibetingelse: identifisere målfunksjon og bibetingelse, sette opp Lagrange-funksjonen og skrive de tre nummererte førsteordensbetingelsene — i både nyttemaks- og kostnadsminimeringsinnramming.",
+  "estimatedMinutes": 55,
+  "competenceGoals": [
+    "skille målfunksjon fra bibetingelse i en oppgavetekst og begrunne valget",
+    "sette opp Lagrange-funksjonen med riktig fortegn og riktig parentes",
+    "skrive de tre førsteordensbetingelsene nummerert, også når funksjonene er generelle",
+    "kontrollere et oppgitt kandidatpunkt mot alle tre betingelsene"
+  ],
+  "content": [
+    {
+      "id": "econ1100-8-1-tip-eksamensvinkel",
+      "type": "tip",
+      "title": "Eksamensvinkel",
+      "content": "**Dette er den tyngste storoppgaven i faget — og den kommer nesten hvert år.**\n\n**Sjanger LG — Lagrange, altså betinget optimering: å finne det beste punktet når du ikke står fritt, men er bundet av et budsjett eller et krav.** Sjangeren står i **13 av 16 sett** i arkivet (81 %): **8 av 9 ordinære** (eneste unntak er H2018) og **5 av 7 utsatte**. Den er verdt **20–36 poeng**, altså mellom en femtedel og en tredjedel av hele eksamen.\n\n**Innrammingen varierer, matematikken gjør det ikke.** Noen sett handler om en konsument som fordeler inntekten sin, andre om et land som fordeler et utslippskutt mellom to sektorer, andre igjen om en bedrift som skal nå et produksjonskrav billigst mulig. Bak alle tre står nøyaktig det samme oppsettet.\n\n**Dette kapitlet dekker det første av to steg:** å sette opp Lagrange-funksjonen og skrive førsteordensbetingelsene. Det steget alene er poenggivende — sensor gir uttelling for et korrekt oppsett selv om regningen videre skjærer seg. Selve løsningen kommer i [kap. 8.2](/bok/econ1100/econ1100-8-2).\n\nKapitlet har **høyeste prioritet**.\n\n*Kilde for tallene: Skolesagas gjennomgang av 16 eksamenssett fra Økonomisk institutt, UiO (9 ordinære, 7 utsatte, V2018–H2025), med tilhørende offisielle sensorveiledninger.*"
+    },
+    {
+      "id": "econ1100-8-1-forkunnskaper",
+      "type": "text",
+      "content": "**Forkunnskaper.** Kapitlet bygger på [kap. 1.2](/bok/econ1100/econ1100-1-2) (partiellderivasjon) og [kap. 5.1](/bok/econ1100/econ1100-5-1) (nivåkurver, indifferenskurver og MRS). Fra videregående er [Optimering](/bok/s2/s2-3-3) og [Profittoptimering](/bok/s2/s2-8-2) nyttig bakgrunn — men selve Lagrange-metoden er genuint ny.\n\n**Sist du var her — de tre tingene du trenger med deg inn:**\n\n$$f'_x=\\text{deriver mht. }x\\text{ og hold }y\\text{ konstant};\\qquad f'_y=\\text{deriver mht. }y\\text{ og hold }x\\text{ konstant}$$\n\n$$\\mathrm{MRS}=\\frac{U'_x}{U'_y}\\quad\\text{(bytteforholdet konsumenten selv er villig til)}$$\n\n$$y'(x)=-\\frac{F'_x}{F'_y}\\quad\\text{(helningen på en nivåkurve)}$$\n\nDen siste er ikke et regneverktøy i dette kapitlet, men den er hele forklaringen på *hvorfor* metoden virker, og den dukker opp igjen som tangeringsbetingelsen i [kap. 8.2](/bok/econ1100/econ1100-8-2)."
+    },
+    {
+      "id": "econ1100-8-1-motivasjon",
+      "type": "text",
+      "content": "Du har 800 kroner til mat denne uka. Du kan bruke dem på hva som helst, men ikke på mer enn 800 kroner. Innenfor den rammen vil du ha det så bra som mulig.\n\nDet er hele problemet. Du maksimerer noe — trivsel, nytte, produksjon, utslippskutt — men du er **bundet** av noe annet: en pengesum, en tidsramme, et produksjonskrav. Uten bindingen ville svaret vært trivielt: kjøp uendelig mye av alt.\n\nDen frie optimeringen du kjenner fra [kap. 4.2](/bok/econ1100/econ1100-4-2) hjelper ikke direkte, for der leter du etter punktet der den deriverte er null — og på et budsjett er den aldri null. Nytten fortsetter å stige helt til pengene tar slutt.\n\nLagranges metode løser dette med et triks som ser rart ut første gang: den lager **én ny funksjon** som bærer både målet og bindingen, og deretter behandler den som et vanlig fritt problem. Dette kapitlet handler om å sette opp den funksjonen riktig og skrive ned betingelsene."
+    },
+    {
+      "id": "econ1100-8-1-lokke1",
+      "type": "text",
+      "content": "## Løkke 1 — Problemet og Lagrange-funksjonen (~12 min)"
+    },
+    {
+      "id": "econ1100-8-1-def-bibetingelse",
+      "type": "definition",
+      "title": "Bibetingelse",
+      "content": "En bibetingelse er en likning som må holde, uansett hvilket punkt du velger.\n\n$$g(x,y)=m$$\n\nDen typiske bibetingelsen i økonomi er et budsjett, $p_1x+p_2y=m$, der $p_1$ og $p_2$ er priser og $m$ er inntekten. En annen vanlig form er et produksjonskrav, $F(K,L)=\\bar Y$. Ordet «bi» betyr her ikke «mindre viktig» — bibetingelsen er like bindende som målet er ettertraktet."
+    },
+    {
+      "id": "econ1100-8-1-def-problemet",
+      "type": "definition",
+      "title": "Det betingede optimeringsproblemet",
+      "content": "Å maksimere eller minimere en funksjon når valget er bundet av en likning.\n\n$$\\max_{x,y}\\ F(x,y)\\quad\\text{under}\\quad g(x,y)=m$$\n\nFunksjonen $F$ kalles **målfunksjonen** eller **objektfunksjonen** — det er den du vil ha mest mulig (eller minst mulig) av. Funksjonen $g$ er bibetingelsen. Å blande de to er den dyreste feilen i hele sjangeren, fordi alt som følger blir galt."
+    },
+    {
+      "id": "econ1100-8-1-def-lagrangefunksjonen",
+      "type": "definition",
+      "title": "Lagrange-funksjonen",
+      "content": "Lagrange-funksjonen samler målet og bindingen i ett uttrykk, slik at problemet kan behandles som et fritt problem.\n\n$$L(x,y)=F(x,y)-\\lambda\\big(g(x,y)-m\\big)$$\n\nParentesen $g(x,y)-m$ er null nøyaktig når bibetingelsen er oppfylt. I et lovlig punkt er altså $L=F$ — det ekstra leddet forsvinner. Men de partiellderiverte til $L$ er ikke de samme som til $F$, og det er nettopp der metoden får kraften sin.\n\nBoka skriver gjennomgående $L=F-\\lambda(g-m)$."
+    },
+    {
+      "id": "econ1100-8-1-def-multiplikator",
+      "type": "definition",
+      "title": "Lagrange-multiplikatoren $\\lambda$",
+      "content": "Multiplikatoren $\\lambda$ er en ny, ukjent størrelse som innføres sammen med bibetingelsen.\n\n$$\\lambda:\\ \\text{ukjent tall, bestemmes sammen med }x^*\\text{ og }y^*$$\n\nDen er altså ikke en parameter du får oppgitt, men en tredje ukjent på linje med $x$ og $y$. I [kap. 8.3](/bok/econ1100/econ1100-8-3) viser det seg at $\\lambda$ har en presis økonomisk tolkning — den er **skyggeprisen**, verdien av å slakke bibetingelsen med én enhet. Foreløpig er den bare et regnehjelpemiddel som skal elimineres."
+    },
+    {
+      "id": "econ1100-8-1-ex1",
+      "type": "example",
+      "title": "Eksempel 1: Tre problemer, samme oppsett",
+      "problem": "Sett opp Lagrange-funksjonen for hvert av problemene.\n\n**a)** En konsument maksimerer nytten $U(x,y)=\\ln x+\\ln y$ under budsjettet $p_1x+p_2y=m$.\n\n**b)** Et land skal kutte utslipp. Kuttet $x$ i industrien og $y$ i transport gir samlet miljøgevinst $4\\sqrt{x}+6\\sqrt{y}$, og kostnadsrammen er $2x+3y=125$ millioner kroner. Gevinsten skal maksimeres.\n\n**c)** En bedrift minimerer kostnaden $4x_1+9x_2$ under produksjonskravet $x_1^{1/2}x_2^{1/2}=6$.",
+      "solution": "**Fremgangsmåten er den samme i alle tre:** finn ut hva som skal maksimeres eller minimeres (det er $F$), finn likningen som binder (det er $g=m$), og sett dem inn i formelen.\n\n**a)** Målfunksjonen er nytten, bibetingelsen er budsjettet:\n\n$$F(x,y)=\\ln x+\\ln y,\\qquad g(x,y)=p_1x+p_2y,\\qquad m=m$$\n\n$$L=\\ln x+\\ln y-\\lambda\\big(p_1x+p_2y-m\\big)$$\n\n**b)** Her er det miljøgevinsten som skal maksimeres, og pengerammen som binder:\n\n$$F(x,y)=4\\sqrt{x}+6\\sqrt{y},\\qquad g(x,y)=2x+3y,\\qquad m=125$$\n\n$$L=4\\sqrt{x}+6\\sqrt{y}-\\lambda\\big(2x+3y-125\\big)$$\n\n**c)** Nå snus rollene: det er **kostnaden** som skal minimeres, og **produksjonen** som er kravet.\n\n$$F(x_1,x_2)=4x_1+9x_2,\\qquad g(x_1,x_2)=x_1^{1/2}x_2^{1/2},\\qquad m=6$$\n\n$$L=4x_1+9x_2-\\lambda\\big(x_1^{1/2}x_2^{1/2}-6\\big)$$\n\n**Legg merke til rollebyttet mellom a) og c).** I a) er det pengeuttrykket som står i parentesen; i c) er det produktfunksjonen. Spørsmålet du alltid skal stille er: *hva er det jeg vil ha mest (eller minst) av, og hva er det jeg ikke slipper unna?* Det første er $F$, det andre er $g$.\n\nMerk også at formelen er identisk enten du maksimerer eller minimerer. Det er ingen egen «minimeringsversjon» av Lagrange-funksjonen."
+    },
+    {
+      "id": "econ1100-8-1-oppg-1",
+      "type": "exercise",
+      "exercise": {
+        "id": "econ1100-8-1-o1",
+        "number": "1",
+        "type": "classic",
+        "difficulty": "lett",
+        "task": "(Eksamenssjanger LG — Lagrange og betinget optimering, storoppgave i 13 av 16 sett. Innstegsoppgave.) Sett opp Lagrange-funksjonen. Du skal ikke løse noe.\n\n**a)** $\\max\\ x^{1/2}y^{1/2}$ under $2x+3y=60$.\n\n**b)** $\\min\\ 5K+20L$ under $K^{1/2}L^{1/2}=40$.\n\n**c)** $\\max\\ \\ln x+3\\ln y$ under $p_1x+p_2y=m$.",
+        "solution": "**a)** Målfunksjonen er $x^{1/2}y^{1/2}$, bibetingelsen er $2x+3y=60$:\n\n$$L=x^{1/2}y^{1/2}-\\lambda\\big(2x+3y-60\\big)$$\n\n**b)** Nå er det kostnaden som skal minimeres og produksjonen som er kravet:\n\n$$L=5K+20L_{\\text{arbeid}}-\\lambda\\big(K^{1/2}L_{\\text{arbeid}}^{1/2}-40\\big)$$\n\n*Om notasjonen:* her kolliderer bokstaven $L$ for arbeidskraft med $L$ for Lagrange-funksjonen. På eksamen løses det med ord («$L$ betegner her arbeidsinnsats; jeg kaller Lagrange-funksjonen $\\mathcal{L}$») eller ved å skrive $N$ for sysselsetting. Poenget er å si det, ikke å ha et bestemt system.\n\n**c)** $$L=\\ln x+3\\ln y-\\lambda\\big(p_1x+p_2y-m\\big)$$\n\n**Fellestrekket:** parentesen inneholder alltid bibetingelsen skrevet som «venstreside minus høyreside», altså slik at den er null når betingelsen holder.",
+        "hints": [
+          "Spør deg først: hva skal maksimeres eller minimeres? Det er $F$.",
+          "Parentesen skal være null når bibetingelsen er oppfylt — skriv den som $g-m$."
+        ]
+      }
+    },
+    {
+      "id": "econ1100-8-1-lokke2",
+      "type": "text",
+      "content": "## Løkke 2 — Førsteordensbetingelsene (~18 min)"
+    },
+    {
+      "id": "econ1100-8-1-fob-intro",
+      "type": "text",
+      "content": "Når Lagrange-funksjonen er satt opp, behandles den som et vanlig fritt optimeringsproblem: sett de partiellderiverte lik null.\n\nDet gir to likninger. Sammen med bibetingelsen selv har vi tre likninger og tre ukjente — $x$, $y$ og $\\lambda$ — og dermed et system som kan løses.\n\nBetingelsene nummereres alltid, fordi du skal referere til dem når du regner videre. Skrivemåten «FOB (1)» og «FOB (2)» er fagets egen, og den brukes gjennom hele boka."
+    },
+    {
+      "id": "econ1100-8-1-def-fob",
+      "type": "definition",
+      "title": "Førsteordensbetingelsene (FOB)",
+      "content": "Førsteordensbetingelsene er likningene som må holde i et optimum: de to partiellderiverte av $L$ er null, og bibetingelsen holder.\n\n$$\\text{FOB (1)}:\\ L'_x=F'_x-\\lambda g'_x=0\\qquad \\text{FOB (2)}:\\ L'_y=F'_y-\\lambda g'_y=0$$\n\n$$\\text{FOB (3)}:\\ g(x,y)=m$$\n\nTre likninger, tre ukjente. Ordet «førsteordens» viser til at bare de **første** deriverte inngår — akkurat som $f'(a)=0$ i endimensjonal optimering."
+    },
+    {
+      "id": "econ1100-8-1-thm-lagrange",
+      "type": "theorem",
+      "title": "Lagranges betingelser",
+      "content": "La $F$ og $g$ ha kontinuerlige partiellderiverte, og la $(x^*,y^*)$ løse problemet\n\n$$\\max\\ F(x,y)\\quad\\text{under}\\quad g(x,y)=m$$\n\nDersom $g'_x$ og $g'_y$ ikke begge er null i punktet, finnes det et tall $\\lambda$ slik at\n\n$$F'_x(x^*,y^*)=\\lambda\\,g'_x(x^*,y^*),\\qquad F'_y(x^*,y^*)=\\lambda\\,g'_y(x^*,y^*)$$\n\n**Betingelsene er nødvendige, ikke tilstrekkelige.** At et punkt oppfyller FOB, beviser ikke at det er et maksimum — på samme måte som $f'(a)=0$ ikke i seg selv gjør $a$ til et toppunkt. I standardoppgavene i ECON1100 kan du likevel anta at kandidatpunktet er det du leter etter; skal det faktisk avgjøres, sammenligner du funksjonsverdier ([kap. 8.4](/bok/econ1100/econ1100-8-4))."
+    },
+    {
+      "id": "econ1100-8-1-ex2",
+      "type": "example",
+      "title": "Eksempel 2: FOB for standardproblemet",
+      "problem": "En konsument maksimerer $U(x,y)=\\ln x+\\ln y$ under budsjettet $p_1x+p_2y=m$, der $p_1,p_2,m>0$.\n\n**a)** Sett opp Lagrange-funksjonen.\n\n**b)** Skriv de tre førsteordensbetingelsene.\n\n**c)** Forklar hvorfor definisjonsområdet er $x>0$ og $y>0$, og hva det betyr for løsningen.",
+      "solution": "**a)**\n\n$$L=\\ln x+\\ln y-\\lambda\\big(p_1x+p_2y-m\\big)$$\n\n**b) Deriver partielt.** Husk at $\\lambda$, $p_1$, $p_2$ og $m$ behandles som konstanter når vi deriverer mht. $x$:\n\n$$\\text{FOB (1)}:\\quad L'_x=\\frac{1}{x}-\\lambda p_1=0$$\n\n$$\\text{FOB (2)}:\\quad L'_y=\\frac{1}{y}-\\lambda p_2=0$$\n\n$$\\text{FOB (3)}:\\quad p_1x+p_2y=m$$\n\n*Kontroll av derivasjonen:* $\\dfrac{d}{dx}\\ln x=\\dfrac1x$ ✓, og leddet $-\\lambda(p_1x+p_2y-m)$ gir $-\\lambda p_1$ når vi deriverer mht. $x$, siden $p_2y$ og $m$ er konstante der ✓.\n\n**c) Definisjonsområdet.** Uttrykket $\\ln x$ krever $x>0$, og $\\ln y$ krever $y>0$. Nyttefunksjonen finnes altså bare i den **første kvadranten**, ikke på aksene og ikke utenfor.\n\nDet har to praktiske følger:\n\n1. Kandidatpunktet må ha $x^*>0$ og $y^*>0$. Dukker det opp en rot med negativ verdi underveis, skal den **forkastes** — den ligger utenfor definisjonsområdet.\n2. Optimum kan ikke ligge på randen. Når $x\\to 0^+$, går $\\ln x\\to-\\infty$, så konsumenten vil aldri velge null av noen av godene. Dette er grunnen til at problemet har en **indre løsning**, og det er nettopp indre løsninger Lagranges betingelser er laget for.\n\n**Legg merke til hva vi ikke gjorde.** Vi løste ikke systemet. Sensor gir uttelling for et korrekt oppsett med korrekte FOB uansett hva som skjer videre — og oppsettet er ren mekanikk du kan trene inn til det sitter."
+    },
+    {
+      "id": "econ1100-8-1-oppg-2",
+      "type": "exercise",
+      "exercise": {
+        "id": "econ1100-8-1-o2",
+        "number": "2",
+        "type": "classic",
+        "difficulty": "lett",
+        "task": "(Sjanger LG.) Sett opp Lagrange-funksjonen og skriv de tre førsteordensbetingelsene for\n\n$$\\max\\ x^{1/2}y^{1/2}\\quad\\text{under}\\quad 2x+3y=60.$$",
+        "solution": "**Oppsett:**\n\n$$L=x^{1/2}y^{1/2}-\\lambda\\big(2x+3y-60\\big)$$\n\n**Partiellderiverte.** Når vi deriverer $x^{1/2}y^{1/2}$ mht. $x$, er $y^{1/2}$ en konstant faktor:\n\n$$\\text{FOB (1)}:\\quad \\tfrac{1}{2}x^{-1/2}y^{1/2}-2\\lambda=0$$\n\n$$\\text{FOB (2)}:\\quad \\tfrac{1}{2}x^{1/2}y^{-1/2}-3\\lambda=0$$\n\n$$\\text{FOB (3)}:\\quad 2x+3y=60$$\n\n**Skrevet med brøk** er de to første ofte lettere å arbeide videre med:\n\n$$\\frac{1}{2}\\sqrt{\\frac{y}{x}}=2\\lambda,\\qquad \\frac{1}{2}\\sqrt{\\frac{x}{y}}=3\\lambda$$\n\n**Definisjonsområde:** kvadratrøttene krever $x\\ge 0$ og $y\\ge 0$, og siden $x^{-1/2}$ inngår i FOB (1), må $x>0$ og $y>0$ i kandidatpunktet.",
+        "hints": [
+          "Skriv $x^{1/2}y^{1/2}$ som $\\sqrt{x}\\cdot\\sqrt{y}$ hvis det gjør derivasjonen tydeligere — $\\sqrt{y}$ er en konstant faktor når du deriverer mht. $x$.",
+          "Potensregelen: $\\frac{d}{dx}x^{1/2}=\\frac12 x^{-1/2}$."
+        ]
+      }
+    },
+    {
+      "id": "econ1100-8-1-oppg-3",
+      "type": "exercise",
+      "exercise": {
+        "id": "econ1100-8-1-o3",
+        "number": "3",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "(Sjanger LG — klimainnramming.) Et land skal fordele et utslippskutt mellom industri ($x$) og transport ($y$). Miljøgevinsten er $G(x,y)=4\\sqrt{x}+6\\sqrt{y}$, og kostnadsrammen er $2x+3y=125$ millioner kroner.\n\n**a)** Sett opp Lagrange-funksjonen og skriv de tre førsteordensbetingelsene.\n\n**b)** Vis at FOB (1) og FOB (2) begge kan skrives på formen «noe $=\\lambda$», og skriv dem slik.",
+        "solution": "**a)**\n\n$$L=4\\sqrt{x}+6\\sqrt{y}-\\lambda\\big(2x+3y-125\\big)$$\n\nDeriver: $\\dfrac{d}{dx}4\\sqrt{x}=4\\cdot\\dfrac{1}{2\\sqrt{x}}=\\dfrac{2}{\\sqrt{x}}$, og tilsvarende $\\dfrac{d}{dy}6\\sqrt{y}=\\dfrac{3}{\\sqrt{y}}$.\n\n$$\\text{FOB (1)}:\\quad \\frac{2}{\\sqrt{x}}-2\\lambda=0$$\n\n$$\\text{FOB (2)}:\\quad \\frac{3}{\\sqrt{y}}-3\\lambda=0$$\n\n$$\\text{FOB (3)}:\\quad 2x+3y=125$$\n\n**b)** Flytt over og del:\n\n$$\\text{FOB (1)}\\ \\Longrightarrow\\ \\frac{2}{\\sqrt{x}}=2\\lambda\\ \\Longrightarrow\\ \\frac{1}{\\sqrt{x}}=\\lambda$$\n\n$$\\text{FOB (2)}\\ \\Longrightarrow\\ \\frac{3}{\\sqrt{y}}=3\\lambda\\ \\Longrightarrow\\ \\frac{1}{\\sqrt{y}}=\\lambda$$\n\n**Verdt å legge merke til:** begge er nå uttrykt ved $\\lambda$ alene. Det er nettopp forberedelsen til neste steg — når to uttrykk er lik det samme, er de lik hverandre, og $\\lambda$ kan strykes. Den teknikken er kjernen i [kap. 8.2](/bok/econ1100/econ1100-8-2).\n\n*Til orientering, uten at vi trenger det her:* de to likningene gir $\\sqrt{x}=\\sqrt{y}$, altså $x=y$, og bibetingelsen gir da $5x=125$, $x=y=25$. Miljøgevinsten blir $4\\cdot 5+6\\cdot 5=50$.",
+        "hints": [
+          "Deriver leddvis: $\\frac{d}{dx}4\\sqrt{x}=\\frac{2}{\\sqrt{x}}$.",
+          "I b): del begge sider av hver FOB på tallfaktoren foran $\\lambda$."
+        ]
+      }
+    },
+    {
+      "id": "econ1100-8-1-warning-feil",
+      "type": "warning",
+      "title": "Typiske feil i oppsettet",
+      "content": "- **Å bytte om målfunksjon og bibetingelse.** Er det kostnaden som skal minimeres og produksjonen som er kravet, skal produktfunksjonen stå i parentesen — ikke omvendt. Denne feilen ødelegger alt som følger, og den er umulig å rette opp underveis. Les oppgaveteksten to ganger og skriv ned «$F=\\dots$, $g=\\dots$» før du setter opp $L$.\n- **Å glemme bibetingelsen blant betingelsene.** FOB (1) og FOB (2) alene gir to likninger og tre ukjente — systemet er underbestemt. Bibetingelsen er den tredje likningen, og uten den finnes ingen løsning.\n- **Å skrive parentesen som $m-g$ når fortegnet foran er minus.** Da har du snudd betingelsen to ganger. Kontrollen er enkel: parentesen skal være **null** når bibetingelsen holder, og det er den både for $g-m$ og $m-g$ — men fortegnet på $\\lambda$ følger valget, så vær konsekvent.\n- **Å behandle $\\lambda$ som en kjent størrelse.** Den er en tredje ukjent, på linje med $x$ og $y$, og den bestemmes av systemet.\n- **Å derivere feil fordi den andre variabelen glemmes som konstant.** I $x^{1/2}y^{1/2}$ er $y^{1/2}$ en ren tallfaktor når du deriverer mht. $x$. Feilen her er den samme som **feil #12 — fortegns- og faktorfeil i partiellderiverte av produkter og kvotienter**, og den koster hele delpunktet fordi FOB blir gale."
+    },
+    {
+      "id": "econ1100-8-1-lokke3",
+      "type": "text",
+      "content": "## Løkke 3 — Fortegnsvalget og den tredje betingelsen (~13 min)"
+    },
+    {
+      "id": "econ1100-8-1-def-fortegnsvalg",
+      "type": "definition",
+      "title": "Fortegnet på $\\lambda$-leddet er valgfritt",
+      "content": "Begge skrivemåtene under er korrekte, og de gir samme optimum.\n\n$$L=F-\\lambda(g-m)\\qquad\\text{eller}\\qquad L=F+\\lambda(m-g)$$\n\nDe to er identiske uttrykk — den andre er den første med minustegnet ganget inn. En tredje variant, $L=F+\\lambda(g-m)$, er også lov, men da får $\\lambda$ **motsatt fortegn**, og tolkningen som skyggepris snus tilsvarende. Boka bruker gjennomgående den første formen, så tallene i tolkningene stemmer."
+    },
+    {
+      "id": "econ1100-8-1-def-tredje-fob",
+      "type": "definition",
+      "title": "Den tredje betingelsen: $\\partial L/\\partial\\lambda$",
+      "content": "Deriverer du $L$ med hensyn på $\\lambda$ og setter lik null, får du bibetingelsen tilbake.\n\n$$\\frac{\\partial L}{\\partial\\lambda}=-\\big(g(x,y)-m\\big)=0\\ \\Longleftrightarrow\\ g(x,y)=m$$\n\nDet er derfor systemet av og til presenteres som «tre partiellderiverte lik null». Det er samme sak: den tredje betingelsen **er** bibetingelsen. Du kan derfor droppe å derivere mht. $\\lambda$ og bare skrive bibetingelsen rett fram — så lenge den faktisk brukes."
+    },
+    {
+      "id": "econ1100-8-1-ex3",
+      "type": "example",
+      "title": "Eksempel 3: Samme problem, to fortegnsvalg",
+      "problem": "Sett opp FOB for $\\max\\ \\ln x+\\ln y$ under $p_1x+p_2y=m$ på to måter: først med $L=F-\\lambda(g-m)$, deretter med $L=F+\\lambda(g-m)$. Sammenlign.",
+      "solution": "**Variant 1 — bokas form.**\n\n$$L=\\ln x+\\ln y-\\lambda\\big(p_1x+p_2y-m\\big)$$\n\n$$\\text{FOB (1)}:\\ \\frac1x-\\lambda p_1=0\\ \\Longrightarrow\\ \\frac1x=\\lambda p_1$$\n\n$$\\text{FOB (2)}:\\ \\frac1y-\\lambda p_2=0\\ \\Longrightarrow\\ \\frac1y=\\lambda p_2$$\n\nSiden $x>0$ og $p_1>0$, er $\\lambda=\\dfrac{1}{p_1x}>0$.\n\n**Variant 2 — motsatt fortegn.** Kall multiplikatoren $\\mu$ for å holde dem fra hverandre:\n\n$$L=\\ln x+\\ln y+\\mu\\big(p_1x+p_2y-m\\big)$$\n\n$$\\text{FOB (1)}:\\ \\frac1x+\\mu p_1=0\\ \\Longrightarrow\\ \\frac1x=-\\mu p_1$$\n\n$$\\text{FOB (2)}:\\ \\frac1y=-\\mu p_2$$\n\nHer blir $\\mu=-\\dfrac{1}{p_1x}<0$.\n\n**Sammenligningen.** Deler vi FOB (1) på FOB (2) i hver variant, faller multiplikatoren ut begge steder, og vi står igjen med nøyaktig samme likning:\n\n$$\\frac{1/x}{1/y}=\\frac{p_1}{p_2}\\ \\Longrightarrow\\ \\frac{y}{x}=\\frac{p_1}{p_2}$$\n\n**Konklusjonen:** $x^*$ og $y^*$ blir de samme uansett fortegnsvalg. Det eneste som endres, er fortegnet på multiplikatoren selv — og dermed hvordan den skal tolkes. Med bokas form er $\\lambda>0$ i et maksimeringsproblem med «mer er bedre», og $\\lambda$ måler da hvor mye målet stiger når rammen $m$ løsnes med én enhet. Velger du den andre formen, må du huske det når du tolker.\n\n**Praktisk råd:** velg én form og hold deg til den gjennom hele eksamen. Det er fortegnsroten til halvparten av feilene i sjangeren."
+    },
+    {
+      "id": "econ1100-8-1-oppg-4",
+      "type": "exercise",
+      "exercise": {
+        "id": "econ1100-8-1-o4",
+        "number": "4",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "(Sjanger SU — «sant eller usant? begrunn», eksamens Oppgave 2. Alle svar skal begrunnes; en ubegrunnet konklusjon gir null uttelling.) Avgjør om påstandene er sanne eller usanne, og begrunn.\n\n**a)** «Lagrange-funksjonen $L=F-\\lambda(g-m)$ og $L=F+\\lambda(m-g)$ gir ulike optimale $x^*$ og $y^*$.»\n\n**b)** «Betingelsen $\\partial L/\\partial\\lambda=0$ gir en ny opplysning i tillegg til bibetingelsen.»\n\n**c)** «Et punkt som oppfyller FOB, er nødvendigvis et maksimum.»",
+        "solution": "**a) Usann.** De to uttrykkene er identiske.\n\n*Begrunnelse:* gang minustegnet inn i det første:\n\n$$F-\\lambda(g-m)=F-\\lambda g+\\lambda m=F+\\lambda(m-g)$$\n\nDet er samme funksjon skrevet på to måter, så alle partiellderiverte er like, FOB er like, og løsningen er identisk — også verdien av $\\lambda$.\n\n*Merk skillet:* det er $L=F+\\lambda(g-m)$ som gir motsatt fortegn på multiplikatoren, og heller ikke da endres $x^*$ og $y^*$.\n\n**b) Usann.** Den gir bibetingelsen tilbake, verken mer eller mindre.\n\n*Begrunnelse:* $L=F-\\lambda(g-m)$, og $\\lambda$ opptrer bare i det siste leddet. Derfor er\n\n$$\\frac{\\partial L}{\\partial\\lambda}=-(g-m)$$\n\nog $\\partial L/\\partial\\lambda=0$ betyr $g=m$, som er nettopp bibetingelsen. Det er derfor sensor godtar at man hopper over denne deriverte, så lenge bibetingelsen faktisk brukes i regningen.\n\n**c) Usann.** Betingelsene er nødvendige, ikke tilstrekkelige.\n\n*Begrunnelse ved sammenligning:* det samme gjelder i én variabel — $f'(a)=0$ holder både i toppunkt, bunnpunkt og terrassepunkt. På samme måte kan et punkt som oppfyller Lagranges betingelser, være et minimum eller ingen av delene.\n\n*Konkret motsvar:* i problemet $\\max/\\min\\ xy$ under $x^2+y^2=8$ oppfyller alle de fire punktene $(2,2)$, $(-2,-2)$, $(2,-2)$ og $(-2,2)$ førsteordensbetingelsene. Funksjonsverdiene er henholdsvis $4$, $4$, $-4$ og $-4$ — to av dem er maksimumspunkter og to er minimumspunkter. FOB alene skiller dem ikke.",
+        "hints": [
+          "I a): gang minustegnet inn i parentesen og se hva du sitter igjen med.",
+          "I c): tenk på hva $f'(a)=0$ garanterer i én variabel."
+        ]
+      }
+    },
+    {
+      "id": "econ1100-8-1-lokke4",
+      "type": "text",
+      "content": "## Løkke 4 — Å lese oppgaven riktig (~12 min)"
+    },
+    {
+      "id": "econ1100-8-1-def-kostnadsmin",
+      "type": "definition",
+      "title": "Kostnadsminimering",
+      "content": "Å nå et gitt produksjonsmål så billig som mulig er det speilvendte problemet av nyttemaksimering.\n\n$$\\min\\ c_1x_1+c_2x_2\\quad\\text{under}\\quad F(x_1,x_2)=\\bar Q$$\n\nHer er $c_1,c_2$ faktorpriser og $\\bar Q$ et produksjonskrav. Målfunksjonen er nå den enkle (en sum av priser ganger mengder), og bibetingelsen er den vanskelige (produktfunksjonen). Utsatte eksamener bruker denne innrammingen oftere enn de ordinære."
+    },
+    {
+      "id": "econ1100-8-1-def-identifisere",
+      "type": "definition",
+      "title": "Å identifisere mål og bibetingelse",
+      "content": "Signalordene i oppgaveteksten avgjør hvilken funksjon som er hva.\n\nSignalord som peker på $F$: *så stor som mulig*, *maksimer*, *billigst*. Signalord som peker på $g=m$: *gitt at*, *under*, *kravet er*.\n\n$$F\\ \\text{skal bli størst eller minst};\\qquad g=m\\ \\text{må holde}$$\n\nEn god kontroll er at bibetingelsen alltid har en **fast tallverdi eller parameter** på høyre side — budsjettet $m$, produksjonskravet $\\bar Q$, rammen på 125 millioner. Målfunksjonen har ingen slik verdi; den er det som skal bli størst eller minst."
+    },
+    {
+      "id": "econ1100-8-1-def-indre-losning",
+      "type": "definition",
+      "title": "Indre løsning",
+      "content": "En indre løsning er et optimum som ligger inne i definisjonsområdet, ikke på kanten av det.\n\n$$x^*>0\\ \\text{og}\\ y^*>0$$\n\nLagranges betingelser er laget for indre løsninger. I nyttefunksjoner med $\\ln$ eller kvadratrot er dette automatisk oppfylt: nytten stuper mot $-\\infty$ (eller grensenytten mot $+\\infty$) når en variabel går mot null, så konsumenten velger aldri null av et gode. Ligger optimum derimot på kanten, er det en hjørneløsning, og da gjelder randargumentet fra [kap. 4.3](/bok/econ1100/econ1100-4-3) i stedet."
+    },
+    {
+      "id": "econ1100-8-1-ex4",
+      "type": "example",
+      "title": "Eksempel 4: Eksamensnivå — kostnadsminimering med kontroll",
+      "problem": "En bedrift bruker to innsatsfaktorer med priser $c_1=4$ og $c_2=9$. Produktfunksjonen er $Q=x_1^{1/2}x_2^{1/2}$, og bedriften må produsere $\\bar Q=6$ enheter.\n\n**a)** Sett opp Lagrange-funksjonen og de tre førsteordensbetingelsene.\n\n**b)** En kandidat påstår at optimum er $x_1^*=9$, $x_2^*=4$ med $\\lambda=12$. Kontroller påstanden mot alle tre betingelsene.\n\n**c)** Hva blir den minimale kostnaden?",
+      "solution": "**a) Oppsett.** Kostnaden minimeres, produksjonen er kravet:\n\n$$L=4x_1+9x_2-\\lambda\\big(x_1^{1/2}x_2^{1/2}-6\\big)$$\n\nDeriver. Faktoren $x_2^{1/2}$ er konstant når vi deriverer mht. $x_1$:\n\n$$\\text{FOB (1)}:\\quad 4-\\lambda\\cdot\\tfrac12 x_1^{-1/2}x_2^{1/2}=0$$\n\n$$\\text{FOB (2)}:\\quad 9-\\lambda\\cdot\\tfrac12 x_1^{1/2}x_2^{-1/2}=0$$\n\n$$\\text{FOB (3)}:\\quad x_1^{1/2}x_2^{1/2}=6$$\n\n**b) Kontrollen — sett inn og regn.**\n\n*FOB (3) først*, siden den er enklest:\n\n$$9^{1/2}\\cdot 4^{1/2}=3\\cdot 2=6\\ ✓$$\n\nPunktet er altså lovlig — det oppfyller produksjonskravet.\n\n*FOB (1):* med $x_1=9$, $x_2=4$ er $x_1^{-1/2}=\\frac13$ og $x_2^{1/2}=2$, så\n\n$$\\lambda\\cdot\\tfrac12\\cdot\\tfrac13\\cdot 2=\\lambda\\cdot\\tfrac13=12\\cdot\\tfrac13=4\\ ✓$$\n\nsom er nettopp $c_1=4$.\n\n*FOB (2):* her er $x_1^{1/2}=3$ og $x_2^{-1/2}=\\frac12$, så\n\n$$\\lambda\\cdot\\tfrac12\\cdot 3\\cdot\\tfrac12=\\lambda\\cdot\\tfrac34=12\\cdot\\tfrac34=9\\ ✓$$\n\nsom er $c_2=9$.\n\n**Alle tre betingelsene holder.** Påstanden er korrekt.\n\n**c) Kostnaden:**\n\n$$C^*=4\\cdot 9+9\\cdot 4=36+36=72$$\n\n**Legg merke til to ting.** For det første at kontrollen er noe du kan gjøre på hvilken som helst Lagrange-oppgave: har du et svar, kan du alltid sette det inn i de tre betingelsene og se om de holder. Det tar et minutt og fanger nesten alle regnefeil.\n\nFor det andre at de to leddene i kostnaden ble like store, $36$ og $36$. Det er ikke tilfeldig for denne produktfunksjonen, og forklaringen kommer i [kap. 8.2](/bok/econ1100/econ1100-8-2)."
+    },
+    {
+      "id": "econ1100-8-1-oppg-5",
+      "type": "exercise",
+      "exercise": {
+        "id": "econ1100-8-1-o5",
+        "number": "5",
+        "type": "classic",
+        "difficulty": "middels",
+        "task": "(Sjanger LG — kontrolloppgave.) Betrakt problemet\n\n$$\\max\\ \\ln x+2\\ln y\\quad\\text{under}\\quad 3x+4y=90.$$\n\n**a)** Sett opp $L$ og de tre førsteordensbetingelsene.\n\n**b)** Kontroller om $x=10$, $y=15$, $\\lambda=1/30$ oppfyller alle tre.",
+        "solution": "**a)**\n\n$$L=\\ln x+2\\ln y-\\lambda\\big(3x+4y-90\\big)$$\n\n$$\\text{FOB (1)}:\\ \\frac{1}{x}-3\\lambda=0\\qquad \\text{FOB (2)}:\\ \\frac{2}{y}-4\\lambda=0\\qquad \\text{FOB (3)}:\\ 3x+4y=90$$\n\n**b) Sett inn.**\n\n*FOB (3):* $3\\cdot 10+4\\cdot 15=30+60=90$ ✓\n\n*FOB (1):* $\\dfrac{1}{10}-3\\cdot\\dfrac{1}{30}=\\dfrac{1}{10}-\\dfrac{1}{10}=0$ ✓\n\n*FOB (2):* $\\dfrac{2}{15}-4\\cdot\\dfrac{1}{30}=\\dfrac{2}{15}-\\dfrac{2}{15}=0$ ✓\n\n**Alle tre holder**, så punktet er et kandidatpunkt for problemet.\n\n*Merk hvordan de to godene fordeler seg:* $3x=30$ og $4y=60$, altså en tredjedel av budsjettet på $x$ og to tredjedeler på $y$. Det svarer nøyaktig til vektene $1$ og $2$ foran logaritmene. Sammenhengen er ikke tilfeldig, og den utledes i [kap. 8.2](/bok/econ1100/econ1100-8-2).",
+        "hints": [
+          "Deriver $2\\ln y$ mht. $y$: svaret er $2/y$.",
+          "Regn hvert ledd for seg og sammenlign — begge FOB skal gi eksakt null."
+        ]
+      }
+    },
+    {
+      "id": "econ1100-8-1-oppg-6",
+      "type": "exercise",
+      "exercise": {
+        "id": "econ1100-8-1-o6",
+        "number": "6",
+        "type": "classic",
+        "difficulty": "vanskelig",
+        "task": "(Sjanger LG — generelle funksjoner, en form sensor bruker nesten årvisst.) La $U(x,y)$ være en nyttefunksjon med $U'_x>0$ og $U'_y>0$, og betrakt\n\n$$\\max\\ U(x,y)\\quad\\text{under}\\quad p_1x+p_2y=m,$$\n\nder $p_1,p_2,m>0$. Funksjonen $U$ er ikke oppgitt på formel.\n\n**a)** Sett opp $L$ og skriv de tre førsteordensbetingelsene med $U'_x$ og $U'_y$ beholdt symbolsk.\n\n**b)** Vis at $\\lambda>0$ i et kandidatpunkt.\n\n**c)** Vis at FOB (1) og FOB (2) til sammen gir $\\dfrac{U'_x}{U'_y}=\\dfrac{p_1}{p_2}$, og forklar hva likningen betyr med ord.",
+        "solution": "**a)**\n\n$$L=U(x,y)-\\lambda\\big(p_1x+p_2y-m\\big)$$\n\n$$\\text{FOB (1)}:\\ U'_x-\\lambda p_1=0\\qquad \\text{FOB (2)}:\\ U'_y-\\lambda p_2=0\\qquad \\text{FOB (3)}:\\ p_1x+p_2y=m$$\n\nDe deriverte skrives symbolsk fordi $U$ ikke er oppgitt. Det er ikke en mangel ved svaret — det er slik oppgaven skal føres.\n\n**b)** Løs FOB (1) for $\\lambda$:\n\n$$\\lambda=\\frac{U'_x}{p_1}$$\n\nTelleren er positiv fordi $U'_x>0$ er gitt, og nevneren er positiv fordi $p_1>0$. En positiv brøk delt på et positivt tall er positiv, så\n\n$$\\lambda>0$$\n\n*Tolkning:* når mer av begge goder er bedre, er det verdt noe å få budsjettet utvidet. Det er innholdet i at $\\lambda$ er positiv, og det utdypes i [kap. 8.3](/bok/econ1100/econ1100-8-3).\n\n**c)** Skriv begge FOB som «uttrykk $=\\lambda\\cdot$ pris» og del den ene på den andre:\n\n$$\\frac{U'_x}{U'_y}=\\frac{\\lambda p_1}{\\lambda p_2}=\\frac{p_1}{p_2}$$\n\nDelingen er lovlig fordi $U'_y>0$, så nevneren ikke er null, og fordi $\\lambda\\neq 0$ etter b).\n\n**Hva likningen betyr.** Venstresiden er den **marginale substitusjonsraten** — hvor mye $y$ konsumenten er villig til å gi fra seg for én enhet $x$ og fortsatt være like fornøyd ([kap. 5.1](/bok/econ1100/econ1100-5-1)). Høyresiden er markedets bytteforhold: hva én enhet $x$ koster målt i enheter $y$.\n\nI optimum er de to like. Er de ulike, kan konsumenten bytte seg til høyere nytte uten å bruke mer penger — og da var punktet ikke optimalt. Geometrisk betyr likningen at **indifferenskurven tangerer budsjettlinjen**.",
+        "hints": [
+          "I a): $U$ er ikke oppgitt, så $U'_x$ og $U'_y$ blir stående som de er.",
+          "I b): løs FOB (1) for $\\lambda$ og se på fortegnet til teller og nevner hver for seg.",
+          "I c): del den ene FOB på den andre og se hva som faller ut."
+        ]
+      }
+    },
+    {
+      "id": "econ1100-8-1-oppg-7",
+      "type": "exercise",
+      "exercise": {
+        "id": "econ1100-8-1-o7",
+        "number": "7",
+        "type": "classic",
+        "difficulty": "vanskelig",
+        "task": "(Sjanger LG — les oppgaven riktig.) For hvert av tilfellene: bestem hva som er målfunksjon og hva som er bibetingelse, og sett opp $L$.\n\n**a)** «En husholdning har 3 000 kroner til strøm og ved. Strøm koster 2 kroner per enhet og ved 5 kroner per enhet. Varmekomforten er $V(s,v)=\\ln s+\\ln v$. Finn den beste fordelingen.»\n\n**b)** «Et sykehjem skal dekke et bemanningsbehov på 40 vaktenheter, gitt ved $B(f,d)=f^{1/2}d^{1/2}$ der $f$ er fast ansatte og $d$ er vikarer. En fast ansatt koster 5 og en vikar 20. Hva er billigst?»\n\n**c)** «En bedrift har et produksjonsanlegg og vil maksimere produksjonen $Q=K^{1/3}L^{2/3}$. Kapital koster 1 og arbeid 4 per enhet, og driftsbudsjettet er 90.»",
+        "solution": "**a)** Signalordet er «den beste fordelingen», og det som skal bli best, er varmekomforten. Pengesummen er rammen.\n\n$$F=\\ln s+\\ln v,\\qquad g=2s+5v,\\qquad m=3000$$\n\n$$L=\\ln s+\\ln v-\\lambda\\big(2s+5v-3000\\big)$$\n\n**b)** Her er signalordet «billigst», altså skal **kostnaden** minimeres. Bemanningsbehovet er kravet som må dekkes.\n\n$$F=5f+20d,\\qquad g=f^{1/2}d^{1/2},\\qquad m=40$$\n\n$$L=5f+20d-\\lambda\\big(f^{1/2}d^{1/2}-40\\big)$$\n\n*Legg merke til rollebyttet fra a):* nå står produktfunksjonen i parentesen og pengeuttrykket utenfor. Det er dette som er den dyreste lesefeilen i sjangeren.\n\n**c)** «Maksimere produksjonen» gjør $Q$ til målfunksjon, og driftsbudsjettet binder.\n\n$$F=K^{1/3}L^{2/3},\\qquad g=K+4L,\\qquad m=90$$\n\n$$L_{\\text{Lagrange}}=K^{1/3}L^{2/3}-\\lambda\\big(K+4L-90\\big)$$\n\n*Om notasjonen:* $L$ brukes her både for arbeidskraft og for Lagrange-funksjonen. Si eksplisitt hvilken du mener, eller bruk $N$ for sysselsetting — sensor bryr seg om at det er entydig, ikke om hvilket system du velger.\n\n**Mønsteret i alle tre.** Høyresiden i bibetingelsen er alltid et konkret tall: $3000$, $40$, $90$. Målfunksjonen har ingen slik verdi. Det er den raskeste kontrollen på at du har lest riktig.",
+        "hints": [
+          "Let etter tallet som står som et fast krav — det hører til bibetingelsen.",
+          "«Billigst» og «rimeligst» betyr at kostnaden er målfunksjonen, ikke bibetingelsen."
+        ]
+      }
+    },
+    {
+      "id": "econ1100-8-1-begrepsbank-notis",
+      "type": "text",
+      "content": "## Begrepsbank\n\n*Begrepsbanken er flashcard- og repetisjonsstoff — den gjentar det du nettopp har lest. Hopp trygt over ved førstegangslesing; tidsanslaget for kapitlet gjelder kjernestoffet.*"
+    },
+    {
+      "id": "econ1100-8-1-bb-1",
+      "type": "definition",
+      "title": "Oppskriften i tre linjer",
+      "content": "Hele oppsettet, slik det skal stå på arket.\n\n$$L=F-\\lambda(g-m);\\quad L'_x=0;\\quad L'_y=0;\\quad g=m$$\n\nDe tre siste er FOB (1), FOB (2) og FOB (3). Skriv dem alltid nummerert — du skal referere til dem når du eliminerer $\\lambda$ i neste steg."
+    },
+    {
+      "id": "econ1100-8-1-bb-2",
+      "type": "definition",
+      "title": "Hvorfor $\\lambda$ trengs",
+      "content": "Multiplikatoren er prisen på å gjøre et bundet problem om til et fritt.\n\n$$\\text{bundet i }(x,y)\\ \\longrightarrow\\ \\text{fritt i }(x,y,\\lambda)$$\n\nVi legger til én ukjent og får til gjengjeld lov til å sette begge partiellderiverte lik null. Regnskapet går opp fordi bibetingelsen kommer inn som en tredje likning."
+    },
+    {
+      "id": "econ1100-8-1-bb-3",
+      "type": "definition",
+      "title": "Nyttemaksimering — standardformen",
+      "content": "Den vanligste innrammingen i arkivet: konsumenten fordeler en gitt inntekt.\n\n$$\\max\\ U(x,y)\\quad\\text{under}\\quad p_1x+p_2y=m$$\n\nNytten er målfunksjonen, budsjettet er bibetingelsen. Prisene $p_1,p_2$ og inntekten $m$ er gitte parametere, ikke ukjente."
+    },
+    {
+      "id": "econ1100-8-1-bb-4",
+      "type": "definition",
+      "title": "Kostnadsminimering — standardformen",
+      "content": "Den speilvendte innrammingen, vanligst i de utsatte settene.\n\n$$\\min\\ c_1x_1+c_2x_2\\quad\\text{under}\\quad F(x_1,x_2)=\\bar Q$$\n\nNå er pengeuttrykket målfunksjonen og produktfunksjonen bibetingelsen. Rollene er byttet om i forhold til nyttemaksimering, og å ikke se det er den dyreste lesefeilen i sjangeren."
+    },
+    {
+      "id": "econ1100-8-1-bb-5",
+      "type": "definition",
+      "title": "$\\partial L/\\partial\\lambda$ kan droppes",
+      "content": "Den tredje partiellderiverte gir ikke noe nytt.\n\n$$\\frac{\\partial L}{\\partial\\lambda}=-(g-m)=0\\ \\Longleftrightarrow\\ g=m$$\n\nDen er bibetingelsen i forkledning. Sensor godtar at man hopper over den, forutsatt at bibetingelsen faktisk brukes når systemet løses."
+    },
+    {
+      "id": "econ1100-8-1-bb-6",
+      "type": "definition",
+      "title": "Fortegnskonvensjonen i denne boka",
+      "content": "Ett valg, holdt gjennom hele boka, så tolkningene stemmer.\n\n$$L=F-\\lambda(g-m)$$\n\nAndre bøker skriver $L=F+\\lambda(m-g)$ (identisk) eller $L=F+\\lambda(g-m)$ (gir $\\lambda$ motsatt fortegn). Optimum er det samme uansett; det er bare tolkningen av multiplikatoren som følger valget."
+    },
+    {
+      "id": "econ1100-8-1-bb-7",
+      "type": "definition",
+      "title": "Bibetingelsen er en likning, ikke en ulikhet",
+      "content": "Lagranges metode forutsetter at bindingen holder med likhet.\n\n$$g(x,y)=m,\\qquad\\text{ikke}\\ g(x,y)\\le m$$\n\nI nyttemaksimering med «mer er bedre» brukes hele budsjettet uansett, så de to faller sammen. Ulikhetsbibetingelser som ikke er bindende, er ikke pensum i ECON1100."
+    },
+    {
+      "id": "econ1100-8-1-bb-8",
+      "type": "definition",
+      "title": "FOB er nødvendige, ikke tilstrekkelige",
+      "content": "Betingelsene peker ut kandidater; de rangerer dem ikke.\n\n$$\\text{FOB oppfylt}\\ \\not\\Rightarrow\\ \\text{maksimum}$$\n\nAkkurat som $f'(a)=0$ i én variabel kan et Lagrange-kandidatpunkt være maksimum, minimum eller ingen av delene. Skal det avgjøres, sammenlignes funksjonsverdiene i kandidatpunktene."
+    },
+    {
+      "id": "econ1100-8-1-bb-9",
+      "type": "definition",
+      "title": "Definisjonsområdet settes før regningen",
+      "content": "Logaritmer og kvadratrøtter begrenser hvor løsningen kan ligge.\n\n$$\\ln x\\ \\text{krever}\\ x>0;\\qquad \\sqrt{x}\\ \\text{krever}\\ x\\ge 0$$\n\nSkriv definisjonsområdet ned før du begynner. Da vet du med én gang at en negativ rot skal forkastes, i stedet for å oppdage det etterpå — eller ikke oppdage det i det hele tatt."
+    },
+    {
+      "id": "econ1100-8-1-repetisjon",
+      "type": "collapsible",
+      "title": "Repetisjonsoppgaver",
+      "buttonText": "Vis repetisjonsoppgaver",
+      "content": [
+        {
+          "id": "econ1100-8-1-repetisjon-txt",
+          "type": "text",
+          "content": "Korte oppgaver fra [kap. 1.2](/bok/econ1100/econ1100-1-2) og [kap. 5.1](/bok/econ1100/econ1100-5-1).\n\n**1.** Finn $f'_x$ og $f'_y$ når $f(x,y)=x^{1/2}y^{1/2}$.\n\n*Svar:* $f'_x=\\frac12 x^{-1/2}y^{1/2}$ og $f'_y=\\frac12 x^{1/2}y^{-1/2}$.\n\n**2.** Finn $f'_x$ når $f(x,y)=\\ln x+3\\ln y$.\n\n*Svar:* $f'_x=\\frac1x$ — leddet $3\\ln y$ er konstant når vi deriverer mht. $x$.\n\n**3.** Deriver $-\\lambda(2x+3y-125)$ mht. $y$.\n\n*Svar:* $-3\\lambda$.\n\n**4.** Hva er MRS for $U(x,y)=\\ln x+\\ln y$?\n\n*Svar:* $\\mathrm{MRS}=\\dfrac{U'_x}{U'_y}=\\dfrac{1/x}{1/y}=\\dfrac{y}{x}$.\n\n**5.** Hva er helningen til budsjettlinjen $p_1x+p_2y=m$?\n\n*Svar:* Løs for $y$: $y=\\frac{m}{p_2}-\\frac{p_1}{p_2}x$, altså helning $-p_1/p_2$.\n\n**6.** For hvilke $x$ er $\\ln x$ definert?\n\n*Svar:* For $x>0$."
+        }
+      ]
+    },
+    {
+      "id": "econ1100-8-1-symbolliste",
+      "type": "collapsible",
+      "title": "Symbol- og formelliste",
+      "buttonText": "Vis symboler og formler",
+      "content": [
+        {
+          "id": "econ1100-8-1-symbolliste-txt",
+          "type": "text",
+          "content": "## Symbol- og formelliste\n\n*Oppslagsverk — alt her forklares underveis i kapitlet.*\n\n| Symbol | Betydning |\n|---|---|\n| $F(x,y)$ | Målfunksjonen — den som skal maksimeres eller minimeres |\n| $g(x,y)=m$ | Bibetingelsen — likningen som må holde |\n| $L$ | Lagrange-funksjonen |\n| $\\lambda$ | Lagrange-multiplikatoren, en tredje ukjent |\n| $L'_x$, $L'_y$ | Partiellderiverte av Lagrange-funksjonen |\n| $p_1,p_2$ | Priser på de to godene |\n| $m$ | Inntekt eller budsjettramme |\n| $c_1,c_2$ | Faktorpriser i kostnadsminimering |\n| $\\bar Q$ | Produksjonskrav |\n| $x^*,y^*$ | Optimale verdier |\n| $\\mathrm{MRS}$ | Marginal substitusjonsrate, $U'_x/U'_y$ |\n\n**Formler i dette delkapitlet:**\n\n$$L(x,y)=F(x,y)-\\lambda\\big(g(x,y)-m\\big)$$\nLagrange-funksjonen. Parentesen er null når bibetingelsen holder.\n\n$$\\text{FOB (1)}:\\ F'_x-\\lambda g'_x=0;\\qquad \\text{FOB (2)}:\\ F'_y-\\lambda g'_y=0;\\qquad \\text{FOB (3)}:\\ g=m$$\nDe tre førsteordensbetingelsene. Tre likninger, tre ukjente.\n\n$$\\frac{\\partial L}{\\partial\\lambda}=-(g-m)$$\nDen tredje deriverte gir bibetingelsen tilbake — derfor kan den droppes.\n\n$$\\frac{F'_x}{F'_y}=\\frac{g'_x}{g'_y}$$\nTangeringsbetingelsen, som følger av å dele FOB (1) på FOB (2). For budsjettbibetingelsen blir høyresiden $p_1/p_2$.\n\n$$\\max\\ U(x,y)\\ \\text{under}\\ p_1x+p_2y=m;\\qquad \\min\\ c_1x_1+c_2x_2\\ \\text{under}\\ F(x_1,x_2)=\\bar Q$$\nDe to standardinnrammingene. Merk at målfunksjon og bibetingelse bytter rolle."
+        }
+      ]
+    }
+  ],
+  "exercises": []
+}
